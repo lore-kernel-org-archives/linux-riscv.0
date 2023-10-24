@@ -4,91 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29B2DC07545
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 14:57:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBCB4C07545
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Oct 2023 15:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kl/4c10f78/8LZRZc5jMN+UgPFZAFfSMUxNP38bzxeQ=; b=To4BRpN2VklAb8
-	wUuxLNH6Z9+gGsFYIYI0c4Wk0+FHTqO9s51rciwFdQCI9oB/mWxZG4RuAMHMAlKHMSNMAEQc3rxE6
-	mxH00kT7QYJhcPXR3Q8lOSJUGahaz+XY8sw4LHOgYRq6O+DqS+6t60+dIgP4r/z9+ttk71SsCT5wg
-	atydlReZsZhJ6zROiV5OQNyCFMlxKyiyWECNRk8FNUE67gkKSdCADWWldPxxb1ut8qrHSZ37qdsic
-	9KtrrvfRebjflZhGJ9xiZC58PqsiPB1+slh4W18D8W9lZb/U9KqwJIO5VOyYPyx5uDjyG9Hh8zA4G
-	y56VlI4D893PZlRS82AQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0+x0wPPUR+eMqnKDuuhVDXGAqd7rDVPY8ZBiATyVqjc=; b=VpAjN6Ot/sKfO7
+	3KY6doaMVn6TMimi0jwtlIbBnFDUrwlNylLekU8ZXR+kFPc/j4l4bWSMXeoCN/m20eiOrTl/FPvNW
+	rWbUYzwYHrf14nZG8p9FibEeHxb64IDS9SxvBjpvoWD4ef6Fl7o97+5P+KNlev+1P0FTd5MhEpXGb
+	QdiuWviE63EeYBqtPVjtTNH/Sg13fMd3vjJvQ3s5qTpaAfN6b4N3h8nrzOO3f6Oo+/k6gikeT9kGl
+	P4yCX1IVYFgnVGNHlkgBVZ6jS8BhiFNDiw8cX+kGBXzNXwYthHZjQYSdnpxr05HMvcS3ljONaM+99
+	e9Mf29lvvlwtREGsQXJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvIq9-00ABHN-2q;
-	Tue, 24 Oct 2023 14:57:05 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1qvJ8P-00AEYc-1j;
+	Tue, 24 Oct 2023 15:15:57 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvIq6-00ABGP-3D
-	for linux-riscv@lists.infradead.org;
-	Tue, 24 Oct 2023 14:57:04 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4084de32db5so39221495e9.0
-        for <linux-riscv@lists.infradead.org>; Tue, 24 Oct 2023 07:57:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1698159421; x=1698764221; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+PoNElajP8sJ7epQkLSnQ3gBazZcGctrrMBsHdY35wo=;
-        b=Eynklu3eT/psI/+TEWHxgA+UhGOUE37UfYoh14uUN7ogIL34Edm1Kwyde+MSZPquQj
-         Z0hipvca0VI84CrSEs63SLkDpKbzrel0MkIMKW2aE4j3mXkI83whvJiTd1eYkOS1B2BM
-         5AT1jpcjVdKfQt27LN66WuDW8mgjwbBfQSS3mcioxEMHhmGB3F2j6mh2p7TZjhXb8VtE
-         jTs0Uw2IY/dLWsY0l99ppN5k5BXzUNG0bkjepaYjAKbnwSmNDfgXtxkbx99S/JTicVAB
-         uHRs5bhUJic7HkqE/LMrABfXE1NM6hMJTv2NEj+uTDrKRXUa9r+seOdsTd/g8nWoj9Jq
-         5w+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698159421; x=1698764221;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+PoNElajP8sJ7epQkLSnQ3gBazZcGctrrMBsHdY35wo=;
-        b=RV55wLgZ+66bZpfj6qaTK6iXtVoLQoiNg3arA+tvoIdNlZZgN0pOtBE6WCVozfvZgZ
-         UVNNYYvUxvYKCnQ9BbkN1oUq0zA+ZwypKkxHnN8SRMCsBOct0I9joaKscigpPVa4+lPP
-         WdL7d2W6BCvA5MjlENmD/FuAecsT3OZ7YYQnQfGnopZ7CbwFlxJnHKKyimR3jPJKGF4/
-         QYQhZ426uKz80zol9nfYAiyQXInkVgAcXQnHDONWk+GoVYPYGWKb1aDTeXc3Pyb/L4oJ
-         1mhFDgiaL2jwkcMRp7CQfZjUl3rT74hhmt0XbI0t5+6pSj2rQsOaYjl9C59yEYsXYjIz
-         r3ZQ==
-X-Gm-Message-State: AOJu0YzKuZwABKnh7W0ahWI4MCUE0r0viDizeA3p2ZhivSEmRU7e6qsP
-	0CPIIWa6OCHh35u0HprkITZLhw==
-X-Google-Smtp-Source: AGHT+IFdw010oLNVepkIReEFPUIX06g7zCHhwwihKO4C480GsZZ9JoH1qy3uCS4da8zpBdBpPsrJkg==
-X-Received: by 2002:a05:600c:46c8:b0:409:295:9c44 with SMTP id q8-20020a05600c46c800b0040902959c44mr4489796wmo.14.1698159420856;
-        Tue, 24 Oct 2023 07:57:00 -0700 (PDT)
-Received: from [192.168.2.1] (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.googlemail.com with ESMTPSA id p5-20020a05600c358500b004053a6b8c41sm12225994wmq.12.2023.10.24.07.56.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Oct 2023 07:57:00 -0700 (PDT)
-Message-ID: <3f76f965-7c7b-109e-2ee0-3033e332e84b@linaro.org>
-Date: Tue, 24 Oct 2023 16:56:56 +0200
+	id 1qvJ8J-00AEUv-17;
+	Tue, 24 Oct 2023 15:15:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=0DEVz3RFtg+aGFkgi0ns1AM50067U8NCUltsiGJt8m8=; b=L0LFahlxlDXPk+J+TsC81iIEB6
+	HT323uRuzRLbusxoYkkYg/AKMNJZQ0p91yJWQjKSOsa3t728fXufU/UkW3Qv98SFFgI+Awx21WjXl
+	Hn4kvtWQtG3/0hhxpSi2Qz6pCnAlRvooPtytdjfXAgl9/VWPWMMWO/PKTj/T+eENJEYlUto+CoNIW
+	p4pZCjglBhr/br957a/sC2k+naT/xogKnc3hYu6chQFH+PC4H5qTKOTaNmueS6DSBpYSNHMudGZy2
+	re5oMs6Lp+fhvEvhD59aHd898nDIKIMD5CPs+4w9VmRCUmsm2DblgAQ0OjCG5stvOIxKv1Q/MQIqg
+	cdZtzizw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:44742)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1qvJ7z-0004Ky-1n;
+	Tue, 24 Oct 2023 16:15:31 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1qvJ7w-00060t-IQ; Tue, 24 Oct 2023 16:15:28 +0100
+Date: Tue, 24 Oct 2023 16:15:28 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
+	x86@kernel.org, acpica-devel@lists.linuxfoundation.org,
+	linux-csky@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-ia64@vger.kernel.org, linux-parisc@vger.kernel.org
+Cc: Salil Mehta <salil.mehta@huawei.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	jianyong.wu@arm.com, justin.he@arm.com,
+	James Morse <james.morse@arm.com>
+Subject: [RFC PATCH v3 00/39] ACPI/arm64: add support for virtual cpuhotplug
+Message-ID: <ZTffkAdOqL2pI2la@shell.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Subject: Re: [PATCH v7 2/3] clocksource: Add JH7110 timer driver
-Content-Language: en-US
-To: Xingyu Wu <xingyu.wu@starfivetech.com>,
- Thomas Gleixner <tglx@linutronix.de>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Walker Chen <walker.chen@starfivetech.com>,
- Samin Guo <samin.guo@starfivetech.com>, linux-kernel@vger.kernel.org,
- Conor Dooley <conor@kernel.org>
-References: <20231019053501.46899-1-xingyu.wu@starfivetech.com>
- <20231019053501.46899-3-xingyu.wu@starfivetech.com>
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <20231019053501.46899-3-xingyu.wu@starfivetech.com>
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231024_075703_054866_F9976546 
-X-CRM114-Status: GOOD (  27.29  )
+X-CRM114-CacheID: sfid-20231024_081551_540790_5E18B0CD 
+X-CRM114-Status: GOOD (  69.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,115 +78,284 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CkhpIFhpbmd5dSwKCgpPbiAxOS8xMC8yMDIzIDA3OjM1LCBYaW5neXUgV3Ugd3JvdGU6Cj4gQWRk
-IHRpbWVyIGRyaXZlciBmb3IgdGhlIFN0YXJGaXZlIEpINzExMCBTb0MuCgpBcyBpdCBpcyBhIG5l
-dyB0aW1lciwgcGxlYXNlIGFkZCBhIHByb3BlciBuaWNlIGRlc2NyaXB0aW9uIGV4cGxhaW5pbmcg
-CnRoZSB0aW1lciBoYXJkd2FyZSwgdGhhbmtzLgoKPiBTaWduZWQtb2ZmLWJ5OiBYaW5neXUgV3Ug
-PHhpbmd5dS53dUBzdGFyZml2ZXRlY2guY29tPgo+IC0tLQo+ICAgTUFJTlRBSU5FUlMgICAgICAg
-ICAgICAgICAgICAgICAgICB8ICAgNyArCj4gICBkcml2ZXJzL2Nsb2Nrc291cmNlL0tjb25maWcg
-ICAgICAgIHwgIDExICsKPiAgIGRyaXZlcnMvY2xvY2tzb3VyY2UvTWFrZWZpbGUgICAgICAgfCAg
-IDEgKwo+ICAgZHJpdmVycy9jbG9ja3NvdXJjZS90aW1lci1qaDcxMTAuYyB8IDM4MCArKysrKysr
-KysrKysrKysrKysrKysrKysrKysrKwo+ICAgNCBmaWxlcyBjaGFuZ2VkLCAzOTkgaW5zZXJ0aW9u
-cygrKQo+ICAgY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvY2xvY2tzb3VyY2UvdGltZXItamg3
-MTEwLmMKPiAKPiBkaWZmIC0tZ2l0IGEvTUFJTlRBSU5FUlMgYi9NQUlOVEFJTkVSUwo+IGluZGV4
-IDdhN2JkOGJkODBlOS4uOTFjMDliMzk5MTMxIDEwMDY0NAo+IC0tLSBhL01BSU5UQUlORVJTCj4g
-KysrIGIvTUFJTlRBSU5FUlMKPiBAQCAtMjA0NzMsNiArMjA0NzMsMTMgQEAgUzoJTWFpbnRhaW5l
-ZAo+ICAgRjoJRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3NvdW5kL3N0YXJmaXZl
-LGpoNzExMC10ZG0ueWFtbAo+ICAgRjoJc291bmQvc29jL3N0YXJmaXZlL2poNzExMF90ZG0uYwo+
-ICAgCj4gK1NUQVJGSVZFIEpINzExMCBUSU1FUiBEUklWRVIKPiArTToJU2FtaW4gR3VvIDxzYW1p
-bi5ndW9Ac3RhcmZpdmV0ZWNoLmNvbT4KPiArTToJWGluZ3l1IFd1IDx4aW5neXUud3VAc3RhcmZp
-dmV0ZWNoLmNvbT4KPiArUzoJU3VwcG9ydGVkCj4gK0Y6CURvY3VtZW50YXRpb24vZGV2aWNldHJl
-ZS9iaW5kaW5ncy90aW1lci9zdGFyZml2ZSxqaDcxMTAtdGltZXIueWFtbAo+ICtGOglkcml2ZXJz
-L2Nsb2Nrc291cmNlL3RpbWVyLWpoNzExMC5jCj4gKwo+ICAgU1RBUkZJVkUgSkg3MVgwIENMT0NL
-IERSSVZFUlMKPiAgIE06CUVtaWwgUmVubmVyIEJlcnRoaW5nIDxrZXJuZWxAZXNtaWwuZGs+Cj4g
-ICBNOglIYWwgRmVuZyA8aGFsLmZlbmdAc3RhcmZpdmV0ZWNoLmNvbT4KPiBkaWZmIC0tZ2l0IGEv
-ZHJpdmVycy9jbG9ja3NvdXJjZS9LY29uZmlnIGIvZHJpdmVycy9jbG9ja3NvdXJjZS9LY29uZmln
-Cj4gaW5kZXggMGJhMGRjNGVjZjA2Li44MjFhYmNjMWU1MTcgMTAwNjQ0Cj4gLS0tIGEvZHJpdmVy
-cy9jbG9ja3NvdXJjZS9LY29uZmlnCj4gKysrIGIvZHJpdmVycy9jbG9ja3NvdXJjZS9LY29uZmln
-Cj4gQEAgLTY0MSw2ICs2NDEsMTcgQEAgY29uZmlnIFJJU0NWX1RJTUVSCj4gICAJICBpcyBhY2Nl
-c3NlZCB2aWEgYm90aCB0aGUgU0JJIGFuZCB0aGUgcmRjeWNsZSBpbnN0cnVjdGlvbi4gIFRoaXMg
-aXMKPiAgIAkgIHJlcXVpcmVkIGZvciBhbGwgUklTQy1WIHN5c3RlbXMuCj4gICAKPiArY29uZmln
-IFNUQVJGSVZFX0pINzExMF9USU1FUgo+ICsJYm9vbCAiVGltZXIgZm9yIHRoZSBTVEFSRklWRSBK
-SDcxMTAgU29DIgo+ICsJZGVwZW5kcyBvbiBBUkNIX1NUQVJGSVZFIHx8IENPTVBJTEVfVEVTVAoK
-WW91IG1heSB3YW50IHRvIHVzZSBBUkNIX1NUQVJGSVZFIG9ubHkgaWYgdGhlIHBsYXRmb3JtIGNh
-biBtYWtlIHRoaXMgCnRpbWVyIG9wdGlvbmFsLiBPdGhlcndpc2UsIHNldCB0aGUgb3B0aW9uIGZy
-b20gdGhlIHBsYXRmb3JtIEtjb25maWcgYW5kIApwdXQgdGhlIGJvb2wgImJsYSBibGEiIGlmIENP
-TVBJTEVfVEVTVAoKPiArCXNlbGVjdCBUSU1FUl9PRgo+ICsJc2VsZWN0IENMS1NSQ19NTUlPCj4g
-KwlkZWZhdWx0IEFSQ0hfU1RBUkZJVkUKCm5vICJkZWZhdWx0IgoKPiArCWhlbHAKPiArCSAgVGhp
-cyBlbmFibGVzIHRoZSB0aW1lciBmb3IgU3RhckZpdmUgSkg3MTEwIFNvQy4gT24gUklTQy1WIHBs
-YXRmb3JtLAo+ICsJICB0aGUgc3lzdGVtIGhhcyBzdGFydGVkIFJJU0NWX1RJTUVSLCBidXQgeW91
-IGNhbiBhbHNvIHVzZSB0aGlzIHRpbWVyCj4gKwkgIHdoaWNoIGNhbiBwcm92aWRlIGZvdXIgY2hh
-bm5lbHMgdG8gZG8gYSBsb3QgbW9yZSB0aGluZ3Mgb24gSkg3MTEwIFNvQy4KPiArCj4gICBjb25m
-aWcgQ0xJTlRfVElNRVIKPiAgIAlib29sICJDTElOVCBUaW1lciBmb3IgdGhlIFJJU0MtViBwbGF0
-Zm9ybSIgaWYgQ09NUElMRV9URVNUCj4gICAJZGVwZW5kcyBvbiBHRU5FUklDX1NDSEVEX0NMT0NL
-ICYmIFJJU0NWCj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvY2xvY2tzb3VyY2UvTWFrZWZpbGUgYi9k
-cml2ZXJzL2Nsb2Nrc291cmNlL01ha2VmaWxlCj4gaW5kZXggMzY4YzM0NjFkYWI4Li5iNjZhYzA1
-ZWMwODYgMTAwNjQ0Cj4gLS0tIGEvZHJpdmVycy9jbG9ja3NvdXJjZS9NYWtlZmlsZQo+ICsrKyBi
-L2RyaXZlcnMvY2xvY2tzb3VyY2UvTWFrZWZpbGUKPiBAQCAtODAsNiArODAsNyBAQCBvYmotJChD
-T05GSUdfSU5HRU5JQ19USU1FUikJCSs9IGluZ2VuaWMtdGltZXIubwo+ICAgb2JqLSQoQ09ORklH
-X0NMS1NSQ19TVF9MUEMpCQkrPSBjbGtzcmNfc3RfbHBjLm8KPiAgIG9iai0kKENPTkZJR19YODZf
-TlVNQUNISVApCQkrPSBudW1hY2hpcC5vCj4gICBvYmotJChDT05GSUdfUklTQ1ZfVElNRVIpCQkr
-PSB0aW1lci1yaXNjdi5vCj4gK29iai0kKENPTkZJR19TVEFSRklWRV9KSDcxMTBfVElNRVIpCSs9
-IHRpbWVyLWpoNzExMC5vCj4gICBvYmotJChDT05GSUdfQ0xJTlRfVElNRVIpCQkrPSB0aW1lci1j
-bGludC5vCj4gICBvYmotJChDT05GSUdfQ1NLWV9NUF9USU1FUikJCSs9IHRpbWVyLW1wLWNza3ku
-bwo+ICAgb2JqLSQoQ09ORklHX0dYNjYwNVNfVElNRVIpCQkrPSB0aW1lci1neDY2MDVzLm8KPiBk
-aWZmIC0tZ2l0IGEvZHJpdmVycy9jbG9ja3NvdXJjZS90aW1lci1qaDcxMTAuYyBiL2RyaXZlcnMv
-Y2xvY2tzb3VyY2UvdGltZXItamg3MTEwLmMKPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+IGluZGV4
-IDAwMDAwMDAwMDAwMC4uNzFkZTI5YTNlYzkxCj4gLS0tIC9kZXYvbnVsbAo+ICsrKyBiL2RyaXZl
-cnMvY2xvY2tzb3VyY2UvdGltZXItamg3MTEwLmMKPiBAQCAtMCwwICsxLDM4MCBAQAo+ICsvLyBT
-UERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMAo+ICsvKgo+ICsgKiBTdGFyZml2ZSBKSDcx
-MTAgVGltZXIgZHJpdmVyCj4gKyAqCj4gKyAqIENvcHlyaWdodCAoQykgMjAyMi0yMDIzIFN0YXJG
-aXZlIFRlY2hub2xvZ3kgQ28uLCBMdGQuCj4gKyAqCj4gKyAqIEF1dGhvcjoKPiArICogWGluZ3l1
-IFd1IDx4aW5neXUud3VAc3RhcmZpdmV0ZWNoLmNvbT4KPiArICogU2FtaW4gR3VvIDxzYW1pbi5n
-dW9Ac3RhcmZpdmV0ZWNoLmNvbT4KPiArICovCj4gKwo+ICsjaW5jbHVkZSA8bGludXgvY2xrLmg+
-Cj4gKyNpbmNsdWRlIDxsaW51eC9jbG9ja2NoaXBzLmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9jbG9j
-a3NvdXJjZS5oPgo+ICsjaW5jbHVkZSA8bGludXgvZXJyLmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9p
-bnRlcnJ1cHQuaD4KPiArI2luY2x1ZGUgPGxpbnV4L2lvLmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9p
-b3BvbGwuaD4KPiArI2luY2x1ZGUgPGxpbnV4L2lycS5oPgo+ICsjaW5jbHVkZSA8bGludXgva2Vy
-bmVsLmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9tb2R1bGUuaD4KPiArI2luY2x1ZGUgPGxpbnV4L29m
-Lmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9vZl9kZXZpY2UuaD4KPiArI2luY2x1ZGUgPGxpbnV4L3Bs
-YXRmb3JtX2RldmljZS5oPgo+ICsjaW5jbHVkZSA8bGludXgvcmVzZXQuaD4KPiArI2luY2x1ZGUg
-PGxpbnV4L3NjaGVkX2Nsb2NrLmg+CgpQbGVhc2UgZG91YmxlIGNoZWNrIHRoZSBoZWFkZXJzIGFu
-ZCByZW1vdmUgdGhlIHBvaW50bGVzcyBvbmVzLgoKCj4gKy8qIEJpYXM6IENoMC0weDAsIENoMS0w
-eDQwLCBDaDItMHg4MCwgYW5kIHNvIG9uLiAqLwo+ICsjZGVmaW5lIEpINzExMF9USU1FUl9DSF9M
-RU4JCTB4NDAKPiArI2RlZmluZSBKSDcxMTBfVElNRVJfQ0hfQkFTRSh4KQkJKCh4KSAqIEpINzEx
-MF9USU1FUl9DSF9MRU4pCj4gKyNkZWZpbmUgSkg3MTEwX1RJTUVSX0NIX01BWAkJNAo+ICsKPiAr
-I2RlZmluZSBKSDcxMTBfQ0xPQ0tfU09VUkNFX1JBVElORwkyMDAKPiArI2RlZmluZSBKSDcxMTBf
-VkFMSURfQklUUwkJMzIKPiArI2RlZmluZSBKSDcxMTBfREVMQVlfVVMJCQkwCj4gKyNkZWZpbmUg
-Skg3MTEwX1RJTUVPVVRfVVMJCTEwMDAwCj4gKyNkZWZpbmUgSkg3MTEwX0NMT0NLRVZFTlRfUkFU
-SU5HCTMwMAo+ICsjZGVmaW5lIEpINzExMF9USU1FUl9NQVhfVElDS1MJCTB4ZmZmZmZmZmYKPiAr
-I2RlZmluZSBKSDcxMTBfVElNRVJfTUlOX1RJQ0tTCQkweGYKPiArI2RlZmluZSBKSDcxMTBfVElN
-RVJfUkVMT0FEX1ZBTFVFCTAKPiArCj4gKyNkZWZpbmUgSkg3MTEwX1RJTUVSX0lOVF9TVEFUVVMJ
-CTB4MDAgLyogUk9bMDo0XTogSW50ZXJydXB0IFN0YXR1cyBmb3IgY2hhbm5lbDB+NCAqLwo+ICsj
-ZGVmaW5lIEpINzExMF9USU1FUl9DVEwJCTB4MDQgLyogUldbMF06IDAtY29udGludW91cyBydW4s
-IDEtc2luZ2xlIHJ1biAqLwo+ICsjZGVmaW5lIEpINzExMF9USU1FUl9MT0FECQkweDA4IC8qIFJX
-OiBsb2FkIHZhbHVlIHRvIGNvdW50ZXIgKi8KPiArI2RlZmluZSBKSDcxMTBfVElNRVJfRU5BQkxF
-CQkweDEwIC8qIFJXWzBdOiB0aW1lciBlbmFibGUgcmVnaXN0ZXIgKi8KPiArI2RlZmluZSBKSDcx
-MTBfVElNRVJfUkVMT0FECQkweDE0IC8qIFJXOiB3cml0ZSAxIG9yIDAgYm90aCByZWxvYWQgY291
-bnRlciAqLwo+ICsjZGVmaW5lIEpINzExMF9USU1FUl9WQUxVRQkJMHgxOCAvKiBSTzogdGltZXIg
-dmFsdWUgcmVnaXN0ZXIgKi8KPiArI2RlZmluZSBKSDcxMTBfVElNRVJfSU5UX0NMUgkJMHgyMCAv
-KiBSVzogdGltZXIgaW50ZXJydXB0IGNsZWFyIHJlZ2lzdGVyICovCj4gKyNkZWZpbmUgSkg3MTEw
-X1RJTUVSX0lOVF9NQVNLCQkweDI0IC8qIFJXWzBdOiB0aW1lciBpbnRlcnJ1cHQgbWFzayByZWdp
-c3RlciAqLwo+ICsKPiArI2RlZmluZSBKSDcxMTBfVElNRVJfSU5UX0NMUl9FTkEJQklUKDApCj4g
-KyNkZWZpbmUgSkg3MTEwX1RJTUVSX0lOVF9DTFJfQVZBX01BU0sJQklUKDEpCj4gKwo+ICtzdHJ1
-Y3Qgamg3MTEwX2Nsa2V2dCB7Cj4gKwlzdHJ1Y3QgY2xvY2tfZXZlbnRfZGV2aWNlIGV2dDsKPiAr
-CXN0cnVjdCBjbG9ja3NvdXJjZSBjczsKPiArCWJvb2wgY3NfaXNfdmFsaWQ7Cj4gKwlzdHJ1Y3Qg
-Y2xrICpjbGs7Cj4gKwlzdHJ1Y3QgcmVzZXRfY29udHJvbCAqcnN0Owo+ICsJdTMyIHJhdGU7Cj4g
-Kwl1MzIgcmVsb2FkX3ZhbDsKPiArCXZvaWQgX19pb21lbSAqYmFzZTsKPiArCWNoYXIgbmFtZVtz
-aXplb2YoImpoNzExMC10aW1lci5jaFgiKV07Cj4gK307Cj4gKwo+ICtzdHJ1Y3Qgamg3MTEwX3Rp
-bWVyX3ByaXYgewo+ICsJc3RydWN0IGNsayAqcGNsazsKPiArCXN0cnVjdCByZXNldF9jb250cm9s
-ICpwcnN0Owo+ICsJc3RydWN0IGpoNzExMF9jbGtldnQgY2xrZXZ0W0pINzExMF9USU1FUl9DSF9N
-QVhdOwoKV2h5IGRvIHlvdSBuZWVkIHNldmVyYWwgY2xvY2sgZXZlbnRzIGFuZCBjbG9jayBzb3Vy
-Y2VzID8KClsgLi4uIF0KCgotLSAKPGh0dHA6Ly93d3cubGluYXJvLm9yZy8+IExpbmFyby5vcmcg
-4pSCIE9wZW4gc291cmNlIHNvZnR3YXJlIGZvciBBUk0gU29DcwoKRm9sbG93IExpbmFybzogIDxo
-dHRwOi8vd3d3LmZhY2Vib29rLmNvbS9wYWdlcy9MaW5hcm8+IEZhY2Vib29rIHwKPGh0dHA6Ly90
-d2l0dGVyLmNvbS8jIS9saW5hcm9vcmc+IFR3aXR0ZXIgfAo8aHR0cDovL3d3dy5saW5hcm8ub3Jn
-L2xpbmFyby1ibG9nLz4gQmxvZwoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+Hi,
+
+I'm posting James' patch set updated with most of the review comments
+from his RFC v2 series back in September. Individual patches have a
+changelog attached at the bottom of the commit message. Those which
+I have finished updating have my S-o-b on them, those which still have
+outstanding review comments from RFC v2 do not. In some of these cases
+I've asked questions and am waiting for responses.
+
+I'm posting this as RFC v3 because there's still some unaddressed
+comments and it's clearly not ready for merging. Even if it was ready
+to be merged, it is too late in this development cycle to be taking
+this change in, so there would be little point posting it non-RFC.
+Also James stated that he's waiting for confirmation from the
+Kubernetes/Kata folk - I have no idea what the status is there.
+
+I will be sending each patch individually to a wider audience
+appropriate for that patch - apologies to those missing out on this
+cover message. I have added more mailing lists to the series with the
+exception of the acpica list in a hope of this cover message also
+reaching those folk.
+
+The changes that aren't included are:
+
+1. Updates for my patch that was merged via Thomas (thanks!):
+   c4dd854f740c cpu-hotplug: Provide prototypes for arch CPU registration
+   rather than having this change spread through James' patches.
+
+2. New patch - simplification of PA-RISC's smp_prepare_boot_cpu()
+
+3. Moved "ACPI: Use the acpi_device_is_present() helper in more places"
+   and "ACPI: Rename acpi_scan_device_not_present() to be about
+   enumeration" to the beginning of the series - these two patches are
+   already queued up for merging into 6.7.
+
+4. Moved "arm64, irqchip/gic-v3, ACPI: Move MADT GICC enabled check into
+   a helper" to the beginning of the series, which has been submitted,
+   but as yet the fate of that posting isn't known.
+
+The first four patches in this series are provided for completness only.
+
+There is an additional patch in James' git tree that isn't in the set
+of patches that James posted: "ACPI: processor: Only call
+arch_unregister_cpu() if HOTPLUG_CPU is selected" which looks to me to
+be a workaround for arch_unregister_cpu() being under the ifdef. I've
+commented on this on the RFC v2 posting making a suggestion, but as yet
+haven't had any response.
+
+I've included almost all of James' original covering body below the
+diffstat.
+
+The reason that I'm doing this is to help move this code forward so
+hopefully it can be merged - which is why I have been keen to dig out
+from James' patches anything that can be merged and submit it
+separately, since this is a feature for which some users have a
+definite need for.
+
+Please note that I haven't tested this beyond building for aarch64 at
+the present time.
+
+The series can be found at:
+
+ git://git.armlinux.org.uk/~rmk/linux-arm.git aarch64/hotplug-vcpu/v6.6-rc7
+
+ Documentation/arch/arm64/cpu-hotplug.rst   |  79 +++++++++++++++
+ Documentation/arch/arm64/index.rst         |   1 +
+ arch/arm64/Kconfig                         |   1 +
+ arch/arm64/include/asm/acpi.h              |  11 +++
+ arch/arm64/include/asm/cpu.h               |   1 -
+ arch/arm64/kernel/acpi_numa.c              |  11 ---
+ arch/arm64/kernel/psci.c                   |   2 +-
+ arch/arm64/kernel/setup.c                  |  13 +--
+ arch/arm64/kernel/smp.c                    |   5 +-
+ arch/ia64/Kconfig                          |   3 +
+ arch/ia64/include/asm/acpi.h               |   2 +-
+ arch/ia64/include/asm/cpu.h                |   6 --
+ arch/ia64/kernel/acpi.c                    |   6 +-
+ arch/ia64/kernel/setup.c                   |   2 +-
+ arch/ia64/kernel/topology.c                |  35 +------
+ arch/loongarch/Kconfig                     |   2 +
+ arch/loongarch/configs/loongson3_defconfig |   2 +-
+ arch/loongarch/kernel/acpi.c               |   4 +-
+ arch/loongarch/kernel/topology.c           |  38 +-------
+ arch/parisc/kernel/smp.c                   |   8 +-
+ arch/riscv/Kconfig                         |   1 +
+ arch/riscv/kernel/setup.c                  |  19 +---
+ arch/x86/Kconfig                           |   3 +
+ arch/x86/include/asm/cpu.h                 |   4 -
+ arch/x86/kernel/acpi/boot.c                |   4 +-
+ arch/x86/kernel/cpu/intel_epb.c            |   2 +-
+ arch/x86/kernel/topology.c                 |  27 +-----
+ drivers/acpi/Kconfig                       |  14 ++-
+ drivers/acpi/acpi_processor.c              | 151 +++++++++++++++++++++++------
+ drivers/acpi/bus.c                         |  16 +++
+ drivers/acpi/device_pm.c                   |   2 +-
+ drivers/acpi/device_sysfs.c                |   2 +-
+ drivers/acpi/internal.h                    |   1 -
+ drivers/acpi/processor_core.c              |   2 +-
+ drivers/acpi/property.c                    |   2 +-
+ drivers/acpi/scan.c                        | 148 ++++++++++++++++++----------
+ drivers/base/arch_topology.c               |  38 +++++---
+ drivers/base/cpu.c                         |  44 +++++++--
+ drivers/base/init.c                        |   2 +-
+ drivers/base/node.c                        |   7 --
+ drivers/firmware/psci/psci.c               |   2 +
+ drivers/irqchip/irq-gic-v3.c               |  38 +++++---
+ include/acpi/acpi_bus.h                    |   1 +
+ include/acpi/actbl2.h                      |   1 +
+ include/linux/acpi.h                       |  13 ++-
+ include/linux/cpu.h                        |   4 +
+ include/linux/cpumask.h                    |  25 +++++
+ kernel/cpu.c                               |   3 +
+ 48 files changed, 516 insertions(+), 292 deletions(-)
+
+
+On Wed, Sep 13, 2023 at 04:37:48PM +0000, James Morse wrote:
+> Hello!
+> 
+> Changes since RFC-v1:
+>  * riscv is new, ia64 is gone
+>  * The KVM support is different, and upstream - no need to patch the host.
+> 
+> ---
+> 
+> This series adds what looks like cpuhotplug support to arm64 for use in
+> virtual machines. It does this by moving the cpu_register() calls for
+> architectures that support ACPI out of the arch code by using
+> GENERIC_CPU_DEVICES, then into the ACPI processor driver.
+> 
+> The kubernetes folk really want to be able to add CPUs to an existing VM,
+> in exactly the same way they do on x86. The use-case is pre-booting guests
+> with one CPU, then adding the number that were actually needed when the
+> workload is provisioned.
+> 
+> Wait? Doesn't arm64 support cpuhotplug already!?
+> In the arm world, cpuhotplug gets used to mean removing the power from a CPU.
+> The CPU is offline, and remains present. For x86, and ACPI, cpuhotplug
+> has the additional step of physically removing the CPU, so that it isn't
+> present anymore.
+> 
+> Arm64 doesn't support this, and can't support it: CPUs are really a slice
+> of the SoC, and there is not enough information in the existing ACPI tables
+> to describe which bits of the slice also got removed. Without a reference
+> machine: adding this support to the spec is a wild goose chase.
+> 
+> Critically: everything described in the firmware tables must remain present.
+> 
+> For a virtual machine this is easy as all the other bits of 'virtual SoC'
+> are emulated, so they can (and do) remain present when a vCPU is 'removed'.
+> 
+> On a system that supports cpuhotplug the MADT has to describe every possible
+> CPU at boot. Under KVM, the vGIC needs to know about every possible vCPU before
+> the guest is started.
+> With these constraints, virtual-cpuhotplug is really just a hypervisor/firmware
+> policy about which CPUs can be brought online.
+> 
+> This series adds support for virtual-cpuhotplug as exactly that: firmware
+> policy. This may even work on a physical machine too; for a guest the part of
+> firmware is played by the VMM. (typically Qemu).
+> 
+> PSCI support is modified to return 'DENIED' if the CPU can't be brought
+> online/enabled yet. The CPU object's _STA method's enabled bit is used to
+> indicate firmware's current disposition. If the CPU has its enabled bit clear,
+> it will not be registered with sysfs, and attempts to bring it online will
+> fail. The notifications that _STA has changed its value then work in the same
+> way as physical hotplug, and firmware can cause the CPU to be registered some
+> time later, allowing it to be brought online.
+> 
+> This creates something that looks like cpuhotplug to user-space, as the sysfs
+> files appear and disappear, and the udev notifications look the same.
+> 
+> One notable difference is the CPU present mask, which is exposed via sysfs.
+> Because the CPUs remain present throughout, they can still be seen in that mask.
+> This value does get used by webbrowsers to estimate the number of CPUs
+> as the CPU online mask is constantly changed on mobile phones.
+> 
+> Linux is tolerant of PSCI returning errors, as its always been allowed to do
+> that. To avoid confusing OS that can't tolerate this, we needed an additional
+> bit in the MADT GICC flags. This series copies ACPI_MADT_ONLINE_CAPABLE, which
+> appears to be for this purpose, but calls it ACPI_MADT_GICC_CPU_CAPABLE as it
+> has a different bit position in the GICC.
+> 
+> This code is unconditionally enabled for all ACPI architectures.
+> If there are problems with firmware tables on some devices, the CPUs will
+> already be online by the time the acpi_processor_make_enabled() is called.
+> A mismatch here causes a firmware-bug message and kernel taint. This should
+> only affect people with broken firmware who also boot with maxcpus=1, and
+> bring CPUs online later.
+> 
+> I had a go at switching the remaining architectures over to GENERIC_CPU_DEVICES,
+> so that the Kconfig symbol can be removed, but I got stuck with powerpc
+> and s390.
+> 
+> I've only build tested Loongarch and riscv. I've removed the ia64 specific
+> patches, but left the changes in other patches to make git-grep review of
+> renames easier.
+> 
+> If folk want to play along at home, you'll need a copy of Qemu that supports this.
+> https://github.com/salil-mehta/qemu.git salil/virt-cpuhp-armv8/rfc-v2-rc6
+> 
+> Replace your '-smp' argument with something like:
+> | -smp cpus=1,maxcpus=3,cores=3,threads=1,sockets=1
+> 
+> then feed the following to the Qemu montior;
+> | (qemu) device_add driver=host-arm-cpu,core-id=1,id=cpu1
+> | (qemu) device_del cpu1
+> 
+> 
+> Why is this still an RFC? I'm still looking for confirmation from the
+> kubernetes/kata folk that this works for them. Because of this I've culled
+> the CC list...
+> 
+> 
+> This series is based on v6.6-rc1, and can be retrieved from:
+> https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git/ virtual_cpu_hotplug/rfc/v2
+> 
+> 
+> Thanks,
+> 
+> James Morse (34):
+>   ACPI: Move ACPI_HOTPLUG_CPU to be disabled on arm64 and riscv
+>   drivers: base: Use present CPUs in GENERIC_CPU_DEVICES
+>   drivers: base: Allow parts of GENERIC_CPU_DEVICES to be overridden
+>   drivers: base: Move cpu_dev_init() after node_dev_init()
+>   drivers: base: Print a warning instead of panic() when register_cpu()
+>     fails
+>   arm64: setup: Switch over to GENERIC_CPU_DEVICES using
+>     arch_register_cpu()
+>   x86: intel_epb: Don't rely on link order
+>   x86/topology: Switch over to GENERIC_CPU_DEVICES
+>   LoongArch: Switch over to GENERIC_CPU_DEVICES
+>   riscv: Switch over to GENERIC_CPU_DEVICES
+>   arch_topology: Make register_cpu_capacity_sysctl() tolerant to late
+>     CPUs
+>   ACPI: Use the acpi_device_is_present() helper in more places
+>   ACPI: Rename acpi_scan_device_not_present() to be about enumeration
+>   ACPI: Only enumerate enabled (or functional) devices
+>   ACPI: processor: Add support for processors described as container
+>     packages
+>   ACPI: processor: Register CPUs that are online, but not described in
+>     the DSDT
+>   ACPI: processor: Register all CPUs from acpi_processor_get_info()
+>   ACPI: Rename ACPI_HOTPLUG_CPU to include 'present'
+>   ACPI: Move acpi_bus_trim_one() before acpi_scan_hot_remove()
+>   ACPI: Rename acpi_processor_hotadd_init and remove pre-processor
+>     guards
+>   ACPI: Add post_eject to struct acpi_scan_handler for cpu hotplug
+>   ACPI: Check _STA present bit before making CPUs not present
+>   ACPI: Warn when the present bit changes but the feature is not enabled
+>   drivers: base: Implement weak arch_unregister_cpu()
+>   LoongArch: Use the __weak version of arch_unregister_cpu()
+>   arm64: acpi: Move get_cpu_for_acpi_id() to a header
+>   ACPICA: Add new MADT GICC flags fields [code first?]
+>   arm64, irqchip/gic-v3, ACPI: Move MADT GICC enabled check into a
+>     helper
+>   irqchip/gic-v3: Don't return errors from gic_acpi_match_gicc()
+>   irqchip/gic-v3: Add support for ACPI's disabled but 'online capable'
+>     CPUs
+>   ACPI: add support to register CPUs based on the _STA enabled bit
+>   arm64: document virtual CPU hotplug's expectations
+>   ACPI: Add _OSC bits to advertise OS support for toggling CPU
+>     present/enabled
+>   cpumask: Add enabled cpumask for present CPUs that can be brought
+>     online
+> 
+> Jean-Philippe Brucker (1):
+>   arm64: psci: Ignore DENIED CPUs
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
