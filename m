@@ -4,67 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D66BC0032E
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 14:14:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8DD0C07545
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 14:28:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xhA5cTHZDtcjkUpreYTc2sU0DOwKX5gkppU+VkWJ/Mw=; b=DhGQa+Lfsw7dSdj4awmP8foVL/
-	Kepx2z+6UPZdOsOzboQg6VTVOWRHEGZSVXHKi3iZj7Kfor9iBikjDDxpopYxAus286cLvMlKjDkhh
-	8uqj/LZked/NyBjKnSVpNLGMmcsncjuLtYdCJsEf+dT23ZOgbq29A+6qBBoMnLRgkdhUVoylixa4v
-	gC7ZyKWa+27c3Dv1HnY85Plfar6mADaV7CpRkbOZzHmcmOlDAs724+l4pR7sAMsS3+vQKUfOHYkw8
-	I6CSzKo77O9EgecTDTJqPqRf8D5fUFLpjJq2aTfbMKPmCqWOYg2yz7kEQXgEnUtzuS3Rl/Yy1GDuf
-	qb8nsOsg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=z0cGkyMTZkGYylHOIEPW8aAYx4DAOiEqdcrgitSZyfk=; b=mPpVgl+NO17uRe
+	BGrCdDKL1hWhoK/gMgLGvuuMlRtbcModvdSxQZIUlL6DhfArJGxkACPdJwUYoaFeTs38kJztXIrzZ
+	hNrygyjPkLsehPDljaxD14RjeoSUkBEw5QJ6pOYqau0Vkq3Jq+thu2XfmIbOuBzxhPZGYe/XKdYci
+	32vUa6FshuxoZWd2bKcoViH+R9VUaCA/xBvbUy4txNHJYVCEV2UmWMS4Smuz3a3PMiYNN0ehMv064
+	gqyeEGZeuWwjjB76Pi9tsRkJTZalOlxHWbyBeh/WXOUbkn3T0qrQj1gRoKHuogf1JBZVKuUXHQkFv
+	OzQnK218++4BVx6BY2FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qveei-00CUZe-1y;
-	Wed, 25 Oct 2023 14:14:44 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1qvesJ-00CW7e-14;
+	Wed, 25 Oct 2023 14:28:47 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qveed-00CUYd-1o
+	id 1qvesF-00CW5s-2e
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Oct 2023 14:14:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 2E071B8075C;
-	Wed, 25 Oct 2023 14:14:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B47B4C433C8;
-	Wed, 25 Oct 2023 14:14:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1698243277;
-	bh=Q2K+UCxG5HR86aOzjpKAiJvoYUuL6bLcmGVS8Y8DLyk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cM+3nRwhQW/zDIlM96muJ5l5ED/1LgHnbk15CGUHbuXAhQT9oDaWLnNvKbGuD4HCu
-	 5O9FYOntHynMFauPCk5LC6N2A52CgYDm97ZShRTZvJsPfkumbEgONwpG8aJPEn9QuE
-	 dGZHxJ5Ji1Oprz6poNFioTU4rM6LEL4CpAaP3XQ3CFeWGrdMu36sZBD6nhlInz61E+
-	 Yefh7B6RfKznqZdoKdQOB4/g8JwUwGG65uJBkqZJ5Ft6loHQ+CiEF1jcknwlcAYlXr
-	 Ar1wpX5Sof4IqQ/9GDW6UYOUzcsyaV9dI7gupZ6a41wJaxcrKiFVvsB5qfeKWDQ7VZ
-	 qOyfVc4uNYZ8Q==
-Date: Wed, 25 Oct 2023 15:14:30 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Nylon Chen <nylon.chen@sifive.com>
-Cc: linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-	conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, thierry.reding@gmail.com,
-	u.kleine-koenig@pengutronix.de, emil.renner.berthing@canonical.com,
-	vincent.chen@sifive.com, greentime.hu@sifive.com,
-	zong.li@sifive.com, nylon7717@gmail.com
-Subject: Re: [v5 1/2] riscv: dts: sifive: unleashed/unmatched: Remove PWM
- controlled LED's active-low properties
-Message-ID: <20231025-utmost-enforcer-eda125f636ac@spud>
-References: <20231024101902.6689-1-nylon.chen@sifive.com>
- <20231024101902.6689-2-nylon.chen@sifive.com>
- <20231024-yin-coliseum-11f5e06fec14@spud>
- <CAHh=Yk_h_1r7ZG+yLK=SoK9AgPkestuQDH-CK621mz=X-PA+cQ@mail.gmail.com>
+	Wed, 25 Oct 2023 14:28:46 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-6b201a93c9cso4673544b3a.0
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 07:28:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1698244114; x=1698848914; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=qEwjrIZXUzvnboalMTbBIVYhD3jIm+zf9phzakfFM5w=;
+        b=T1cj0WXLhBcMlkyRpDH4dabxw2R91SuY8D6b7LWTWxI4wGFx6xE2pjfGlp30wRzQYu
+         cJiNJwQ519OSXA0dVpW4l+IPS6qseJBCW7xVtL3F9TA7lXKZCPMxy9GA1St20Xmj5SuT
+         xa+l4sjkqX5qGnLts6bzvyjf7rm0o9H5hUYHWsr/xRpHdl8c7ldC/C0LqUzfexv0EcVe
+         +eJfwbHciJ95mWzOgDRQWWCa3J0eNhINTe9FAmOY0PAuP3qnx4g9EGykzMyWh4L+7Pp2
+         sXWDHFehO9dEgzMayELybyT4RZIvTheJrwBB1ZRN+h+cPKvQLLBYDbfGlqgLp6hYwaqE
+         fhgw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1698244114; x=1698848914;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qEwjrIZXUzvnboalMTbBIVYhD3jIm+zf9phzakfFM5w=;
+        b=OWN8iaxg/WK65J7d3YQNwh+3LrP8NXatumPHVQfVgUaUFgIal2aX44H1/s+ssjSsQn
+         urZJlhqrNAT0q0nmi6s8ikNzcv5Hv6405N5sdM+GHEmOD/eEP3TdEzp+BwiF4ZTgXT8t
+         tlqb4o1s210V+c1D7IUmuowI4I6Hlc9XMujV12eh5pphWCA9HA8cSAA78YR40UKrEbyo
+         +W1jFmS+HLvyQzVlnOyQaaktBIsI9R+oR3cSAlxEyj95mp4jFZBIZveeoMqocI/VNZwS
+         XtzWhsojw/jnmee5m3No5aD29UmMGFTqZ8CWtspFSvxkq/kc59jzRXxnTOwnd1wI3aCV
+         dWhA==
+X-Gm-Message-State: AOJu0YxkRjvyQlI8ZzQ/uwuYjexDPE9kU8M0XP0V5lJRZle0QtN3wNji
+	1aDuobk9iCaNXneyLA6WxMTqzA==
+X-Google-Smtp-Source: AGHT+IGqHSfZyCCoNbFPfpUZAAjL1u1VHnmwQd86TL9A12x8J8QFDFGPslh4kvKAvGwIbEI0Ix5ZpQ==
+X-Received: by 2002:a05:6a00:1a4f:b0:690:3b59:cc7b with SMTP id h15-20020a056a001a4f00b006903b59cc7bmr13717214pfv.32.1698244114269;
+        Wed, 25 Oct 2023 07:28:34 -0700 (PDT)
+Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
+        by smtp.gmail.com with ESMTPSA id g2-20020aa796a2000000b0068ff6d21563sm9817411pfk.148.2023.10.25.07.28.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Oct 2023 07:28:33 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Frank Rowand <frowand.list@gmail.com>
+Subject: [PATCH 0/3] Linux RISC-V AIA Preparatory Series
+Date: Wed, 25 Oct 2023 19:58:17 +0530
+Message-Id: <20231025142820.390238-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-In-Reply-To: <CAHh=Yk_h_1r7ZG+yLK=SoK9AgPkestuQDH-CK621mz=X-PA+cQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231025_071439_761444_F71E5805 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20231025_072843_858595_F602FB2D 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,82 +88,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0323038804839405799=="
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The first three patches of the v11 Linux RISC-V AIA series can be
+merged independently hence sending these patches as an independent
+perparatory series.
+(Refer, https://www.spinics.net/lists/devicetree/msg643764.html)
 
---===============0323038804839405799==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="5+5pPVHOs7iWftBQ"
-Content-Disposition: inline
+These patches can also be found in the riscv_aia_prep_v1 branch at:
+https://github.com/avpatel/linux.git
 
+Anup Patel (3):
+  RISC-V: Don't fail in riscv_of_parent_hartid() for disabled HARTs
+  of: property: Add fw_devlink support for msi-parent
+  irqchip/sifive-plic: Fix syscore registration for multi-socket systems
 
---5+5pPVHOs7iWftBQ
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+ arch/riscv/kernel/cpu.c           | 11 ++++++-----
+ drivers/irqchip/irq-sifive-plic.c |  7 ++++---
+ drivers/of/property.c             |  2 ++
+ 3 files changed, 12 insertions(+), 8 deletions(-)
 
-On Wed, Oct 25, 2023 at 05:32:21PM +0800, Nylon Chen wrote:
-> Hi Conor,
->=20
-> Conor Dooley <conor@kernel.org> =E6=96=BC 2023=E5=B9=B410=E6=9C=8824=E6=
-=97=A5 =E9=80=B1=E4=BA=8C =E4=B8=8B=E5=8D=8810:55=E5=AF=AB=E9=81=93=EF=BC=9A
-> >
-> > Hey,
-> >
-> > On Tue, Oct 24, 2023 at 06:19:01PM +0800, Nylon Chen wrote:
-> > > This removes the active-low properties of the PWM-controlled LEDs in
-> > > the HiFive Unmatched device tree.
-> > >
-> > > The reference is hifive-unleashed-a00.pdf[0] and hifive-unmatched-sch=
-ematics-v3.pdf[1].
-> > >
-> > > Link: https://sifive.cdn.prismic.io/sifive/c52a8e32-05ce-4aaf-95c8-7b=
-f8453f8698_hifive-unleashed-a00-schematics-1.pdf [0]
-> > > Link: https://sifive.cdn.prismic.io/sifive/6a06d6c0-6e66-49b5-8e9e-e6=
-8ce76f4192_hifive-unmatched-schematics-v3.pdf [1]
-> >
-> > >
-> >
-> > This blank line should be removed if there is a follow-up.
-> thanks, I got it.
-> >
-> > > Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-> >
-> > What did Vincent contribute to this patch? Are you missing a
-> > co-developed-by tag, perhaps?
-> Yes, Vincent was the first person to find the PWM driver problem, and
+-- 
+2.34.1
 
-That sounds like s/Signed-off-by/Reported-by/ then.
-
-Cheers,
-Conor.
-
---5+5pPVHOs7iWftBQ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZTkixQAKCRB4tDGHoIJi
-0uJvAP94stLtCC51rlUcr/efIlHgPjbujxBJny8dAGLd/ft0VQD/YUQqbN7RgnKJ
-7kX9TMUMD4Yn9372hjoBeLmO6a9WJww=
-=VytO
------END PGP SIGNATURE-----
-
---5+5pPVHOs7iWftBQ--
-
-
---===============0323038804839405799==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0323038804839405799==--
-
