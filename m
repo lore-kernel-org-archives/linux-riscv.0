@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4AABC07545
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 18:37:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7CE1C25B6B
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 18:37:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6snfqtNgd2YD02ikauTY7zucMHaYdNIkOSBq/+o3ZNs=; b=1GXxctPm3NrMWy
-	LZslOlUYptauEXSnGPepNABvQluRtnscetZy61QWh923EyuNtYF79iiD4xf25lzmOitZI/QFfStMg
-	4LvdlhuZsBCv0DuOCWgxw3gg+JpPHw8L84gmIlw+PnKQAixfeOKNsMU9rVq0RLbUt7ognnB2Juytl
-	dsDl+GEMmQqvPrwqUnpD9Lt2C8ZSI7LbE6TI+HL+oq0QAT85EGMM1+UGBrlgy6mmA9Q/+sNjIzUaN
-	hJXT8f6y4m+BLvcK+J4D3Y9UtE0vhbNfqEPKJfW5VebhmdVErRCL8hN0cbInFEfzyGWACqM4vOstf
-	rtsY/38MROlG4SADZLdA==;
+	List-Owner; bh=M5PD5SU7retngXHeWlzesxOo9sQtr8CpjKByz/0fL/A=; b=dfjkiOQ4Uohh2e
+	608KtVYqNt2INhv4kfQnP9VcJQcOr2KIq0CFNmV3HpniOfzHGt+ueBKoZVkhfh5mObU/GvK8XyhlA
+	gMeO2MHCfDpSdY8VM0cCHw5WROoW07gIgzXkCaVx6FUGl+HeSyHZAFR8YpaZhTHXeslz0xRe/UUav
+	hTYo+iTEPsV3dEL7ZYCReB2uB6nD5VjfCQQjwBOFVc2uTO6Cjn25+2QzeDlms/A9XccAVYowJ4ijq
+	RL3Ywm9Gbd1ZnPWuV2m/bhnd+Oov/C/ecGod6psM/5v497ewAZVTP8aRSWOxCZFSi+6S0Za0WeV35
+	nUoDqBgenkpygpWSJvUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvil1-00CsNS-08;
-	Wed, 25 Oct 2023 18:37:31 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1qviky-00CsMC-0y;
+	Wed, 25 Oct 2023 18:37:28 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvikx-00CsKk-0b
+	id 1qvikr-00CsJP-1L
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Oct 2023 18:37:29 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-584a761b301so71564a12.3
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 11:37:24 -0700 (PDT)
+	Wed, 25 Oct 2023 18:37:26 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-5a9d8f4388bso68677a12.3
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 11:37:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1698259044; x=1698863844; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1698259041; x=1698863841; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=l3sIOyZ5p5Uajadw8K50qTKq2/dD0THvRCAR8HIfH6Y=;
-        b=G2Uj1xHK5E81uBurVOZshFCM199AU60gTjVokEP/2O029X6mprmVzz28H+rUEVGfue
-         EZ52ij6bOx9qU+V8Z0slqhXyGKu6Sa6pAYJ7qmzDZ9eJF3Ws3ncT/93/qfiTtWoHUnPS
-         vBwim8+Ivb4cmF1Mbr5d86hld29Ne5Cvm+1b2ZaaqiHCVgNeVY2pYDQbzn5SHnJBsMBb
-         yM81WLCsea4ba4XLFiWkXrpVVVU34MME5kAajP50gSgnab9LJ2RaLsSCDppK2LgKjxDR
-         MxnVgcs4zjU2Mg0KEb+/E+eiwdw6ZRpqbvs8zFJNcSvo1HluLbdqjr/p9xdRSkEOdYjZ
-         HtiA==
+        bh=NUBPCI3nv6GuIuqyxLimCC7AgB3vZ5Y1wEWhzJ4254k=;
+        b=fkIBQw0MBgevmSNDvqItLEuR5ca0GH0wnYL449pwXsJUMhb0Rd4Qm2Thw/f871J7Bk
+         DvAq97QM1pd/lLZQ49u7TNvBhJScETG0nLdzTgeyrPBFV0NmeQwcOd6v59oj5DAKobZS
+         4/aK1Xvvw48DKEQ9JFH0+AK2WEsvXxluqaeZZtjisejWPia6n4B2OU+rC/DZr2VJEhJZ
+         t6+ftcBwORkAOyQpmckH3iSDHnNZFKAvo+CimSzn8c4FzqQBbQTT0bXRMXv3W6kg3OXq
+         bK05jVtL//Qy8SBnjg620TpQHgU5tMyZQa65iNEV0CoZ3lTly2r2T0v+9ayMAXhG476n
+         dcIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698259044; x=1698863844;
+        d=1e100.net; s=20230601; t=1698259041; x=1698863841;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=l3sIOyZ5p5Uajadw8K50qTKq2/dD0THvRCAR8HIfH6Y=;
-        b=LdvWmCBMkra8WtB2dQuiNJ9P9R4uHbUkitnCW82ybjrIEHpSVLswKGhR7Lpw4hBqVG
-         mEhHoVFrUdeJQuAntpxD2y3IZv5FIhCERZq6dPIXFAGPEa/ckMHOj54sKToxk4iKs8Fb
-         QLYALhkErWfl28S7fQIrSGUBn6Vv+Zagkjj7ZjVeK5t8IcRfiC5V4KNW7RRfNGsLNm65
-         nqRDqNK4WWBFaeL7cfoC/DkjTkjAH1Y+zjAo+44jolVX+XrMhLlPhXl1nOxVEAZBbU0H
-         IR6ugWQiHy6PPpEGgNwTZG67VlivkuRmcypIJdBtB0mzDOPZa4g744xZUv0+hluhgsvh
-         CSbQ==
-X-Gm-Message-State: AOJu0YzdJi2mh3XxrPLpurX7rejZdKD/jIuA2IeYouiUhGt3CwKhzpKk
-	tMfpSpeflJJXpY/yVfSjL+XI+g==
-X-Google-Smtp-Source: AGHT+IGu8yxKc9K1usDnSzC0aQvB+RBgSE4w4NZky1E/bDehLZ+KuUk4ZVCDlNGg1awjDL3F+ZoeYA==
-X-Received: by 2002:a17:90b:288e:b0:27d:7f1b:1bec with SMTP id qc14-20020a17090b288e00b0027d7f1b1becmr14664038pjb.35.1698259044137;
-        Wed, 25 Oct 2023 11:37:24 -0700 (PDT)
+        bh=NUBPCI3nv6GuIuqyxLimCC7AgB3vZ5Y1wEWhzJ4254k=;
+        b=JtNSVwU1NZc8UXHV/onz2tnwcVyGPPzK0YV6MzYcTLKPdmgb0JqMkt1a3minpxLgBG
+         1VZmgmDRXi8NXxc9Nr8LdP32e+z58o1PSjDjfIiNUTobmQxPjkdF2arb0GseG1dOW82t
+         SJ8OhDbNihxYoJQ7Y20+DvKlNCw7Wn3YVR85WlNOrzEqaL8uLQqpHtc8HwMXYzgpsTTM
+         QYGpejVOIc2cgfsbUCKHCy9chhw9K451S6fKz/4XMyZsSqXS9xtwj03ll9CS4N/W5TaG
+         mMxYr+pZdW14y6nF+DUqDaIzqBk0NTgLEtvLHKDjvWWx2TBOjYF8V5QpVUsKFndqayHt
+         wvXA==
+X-Gm-Message-State: AOJu0Yz6NygVbRICJqQtl/IhBh6vn+m/6wwKrXIMY17n3Hi2qO0HfuFG
+	CerGE/BCRrrx6Yss73ls3d9XIg==
+X-Google-Smtp-Source: AGHT+IFQuAa2SyMzjPJ+9WrEyPCylzasoBrW5l/9jN+1MkD2TxmPOKhkX62uLo9IKNNKkyUjjI6EAg==
+X-Received: by 2002:a17:90b:f85:b0:27d:75f2:a3ee with SMTP id ft5-20020a17090b0f8500b0027d75f2a3eemr13897309pjb.10.1698259040058;
+        Wed, 25 Oct 2023 11:37:20 -0700 (PDT)
 Received: from localhost.localdomain ([49.216.222.119])
-        by smtp.gmail.com with ESMTPSA id g3-20020a17090adb0300b00278f1512dd9sm212367pjv.32.2023.10.25.11.37.20
+        by smtp.gmail.com with ESMTPSA id g3-20020a17090adb0300b00278f1512dd9sm212367pjv.32.2023.10.25.11.37.16
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 25 Oct 2023 11:37:23 -0700 (PDT)
+        Wed, 25 Oct 2023 11:37:19 -0700 (PDT)
 From: Jerry Shih <jerry.shih@sifive.com>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -81,16 +81,16 @@ Cc: andy.chiu@sifive.com,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-crypto@vger.kernel.org
-Subject: [PATCH 07/12] RISC-V: crypto: add Zvkg accelerated GCM GHASH implementation
-Date: Thu, 26 Oct 2023 02:36:39 +0800
-Message-Id: <20231025183644.8735-8-jerry.shih@sifive.com>
+Subject: [PATCH 06/12] RISC-V: crypto: add accelerated AES-CBC/CTR/ECB/XTS implementations
+Date: Thu, 26 Oct 2023 02:36:38 +0800
+Message-Id: <20231025183644.8735-7-jerry.shih@sifive.com>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <20231025183644.8735-1-jerry.shih@sifive.com>
 References: <20231025183644.8735-1-jerry.shih@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231025_113727_243558_1653069D 
-X-CRM114-Status: GOOD (  29.74  )
+X-CRM114-CacheID: sfid-20231025_113721_542997_885FEF34 
+X-CRM114-Status: GOOD (  21.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,214 +102,3100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QWRkIGEgZ2NtIGhhc2ggaW1wbGVtZW50YXRpb24gdXNpbmcgdGhlIFp2a2cgZXh0ZW5zaW9uIGZy
-b20gT3BlblNTTAoob3BlbnNzbC9vcGVuc3NsIzIxOTIzKS4KClRoZSBwZXJsYXNtIGhlcmUgaXMg
-ZGlmZmVyZW50IGZyb20gdGhlIG9yaWdpbmFsIGltcGxlbWVudGF0aW9uIGluIE9wZW5TU0wuClRo
-ZSBPcGVuU1NMIGFzc3VtZXMgdGhhdCB0aGUgSCBpcyBzdG9yZWQgaW4gbGl0dGxlLWVuZGlhbi4g
-VGh1cywgaXQgbmVlZHMKdG8gY29udmVydCB0aGUgSCB0byBiaWctZW5kaWFuIGZvciBadmtnIGlu
-c3RydWN0aW9ucy4gSW4ga2VybmVsLCB3ZSBoYXZlCnRoZSBiaWctZW5kaWFuIEggZGlyZWN0bHku
-IFRoZXJlIGlzIG5vIG5lZWQgZm9yIGVuZGlhbiBjb252ZXJzaW9uLgoKQ28tZGV2ZWxvcGVkLWJ5
-OiBDaHJpc3RvcGggTcO8bGxuZXIgPGNocmlzdG9waC5tdWVsbG5lckB2cnVsbC5ldT4KU2lnbmVk
-LW9mZi1ieTogQ2hyaXN0b3BoIE3DvGxsbmVyIDxjaHJpc3RvcGgubXVlbGxuZXJAdnJ1bGwuZXU+
-CkNvLWRldmVsb3BlZC1ieTogSGVpa28gU3R1ZWJuZXIgPGhlaWtvLnN0dWVibmVyQHZydWxsLmV1
-PgpTaWduZWQtb2ZmLWJ5OiBIZWlrbyBTdHVlYm5lciA8aGVpa28uc3R1ZWJuZXJAdnJ1bGwuZXU+
-ClNpZ25lZC1vZmYtYnk6IEplcnJ5IFNoaWggPGplcnJ5LnNoaWhAc2lmaXZlLmNvbT4KLS0tCiBh
-cmNoL3Jpc2N2L2NyeXB0by9LY29uZmlnICAgICAgICAgICAgICAgfCAgMTQgKysKIGFyY2gvcmlz
-Y3YvY3J5cHRvL01ha2VmaWxlICAgICAgICAgICAgICB8ICAgNyArCiBhcmNoL3Jpc2N2L2NyeXB0
-by9naGFzaC1yaXNjdjY0LWdsdWUuYyAgfCAxOTEgKysrKysrKysrKysrKysrKysrKysrKysrCiBh
-cmNoL3Jpc2N2L2NyeXB0by9naGFzaC1yaXNjdjY0LXp2a2cucGwgfCAxMDAgKysrKysrKysrKysr
-KwogNCBmaWxlcyBjaGFuZ2VkLCAzMTIgaW5zZXJ0aW9ucygrKQogY3JlYXRlIG1vZGUgMTAwNjQ0
-IGFyY2gvcmlzY3YvY3J5cHRvL2doYXNoLXJpc2N2NjQtZ2x1ZS5jCiBjcmVhdGUgbW9kZSAxMDA2
-NDQgYXJjaC9yaXNjdi9jcnlwdG8vZ2hhc2gtcmlzY3Y2NC16dmtnLnBsCgpkaWZmIC0tZ2l0IGEv
-YXJjaC9yaXNjdi9jcnlwdG8vS2NvbmZpZyBiL2FyY2gvcmlzY3YvY3J5cHRvL0tjb25maWcKaW5k
-ZXggZGZhOWQwMTQ2ZDI2Li4wMGJlNzE3N2ViMWUgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvY3J5
-cHRvL0tjb25maWcKKysrIGIvYXJjaC9yaXNjdi9jcnlwdG8vS2NvbmZpZwpAQCAtMzUsNCArMzUs
-MTggQEAgY29uZmlnIENSWVBUT19BRVNfQkxPQ0tfUklTQ1Y2NAogCSAgLSBadmtnIHZlY3RvciBj
-cnlwdG8gZXh0ZW5zaW9uIChYVFMpCiAJICAtIFp2a25lZCB2ZWN0b3IgY3J5cHRvIGV4dGVuc2lv
-bgogCitjb25maWcgQ1JZUFRPX0dIQVNIX1JJU0NWNjQKKwlkZWZhdWx0IHkgaWYgUklTQ1ZfSVNB
-X1YKKwl0cmlzdGF0ZSAiSGFzaCBmdW5jdGlvbnM6IEdIQVNIIgorCWRlcGVuZHMgb24gNjRCSVQg
-JiYgUklTQ1ZfSVNBX1YKKwlzZWxlY3QgQ1JZUFRPX0dDTQorCXNlbGVjdCBDUllQVE9fR0hBU0gK
-KwlzZWxlY3QgQ1JZUFRPX0hBU0gKKwlzZWxlY3QgQ1JZUFRPX0xJQl9HRjEyOE1VTAorCWhlbHAK
-KwkgIEdDTSBHSEFTSCBmdW5jdGlvbiAoTklTVCBTUCA4MDAtMzhEKQorCisJICBBcmNoaXRlY3R1
-cmU6IHJpc2N2NjQgdXNpbmc6CisJICAtIFp2a2cgdmVjdG9yIGNyeXB0byBleHRlbnNpb24KKwog
-ZW5kbWVudQpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9jcnlwdG8vTWFrZWZpbGUgYi9hcmNoL3Jp
-c2N2L2NyeXB0by9NYWtlZmlsZQppbmRleCA0MmE0ZThlYzc5Y2YuLjUzMjMxNmNjMTc1OCAxMDA2
-NDQKLS0tIGEvYXJjaC9yaXNjdi9jcnlwdG8vTWFrZWZpbGUKKysrIGIvYXJjaC9yaXNjdi9jcnlw
-dG8vTWFrZWZpbGUKQEAgLTksNiArOSw5IEBAIGFlcy1yaXNjdjY0LXkgOj0gYWVzLXJpc2N2NjQt
-Z2x1ZS5vIGFlcy1yaXNjdjY0LXp2a25lZC5vCiBvYmotJChDT05GSUdfQ1JZUFRPX0FFU19CTE9D
-S19SSVNDVjY0KSArPSBhZXMtYmxvY2stcmlzY3Y2NC5vCiBhZXMtYmxvY2stcmlzY3Y2NC15IDo9
-IGFlcy1yaXNjdjY0LWJsb2NrLW1vZGUtZ2x1ZS5vIGFlcy1yaXNjdjY0LXp2YmItenZrZy16dmtu
-ZWQubyBhZXMtcmlzY3Y2NC16dmtiLXp2a25lZC5vCiAKK29iai0kKENPTkZJR19DUllQVE9fR0hB
-U0hfUklTQ1Y2NCkgKz0gZ2hhc2gtcmlzY3Y2NC5vCitnaGFzaC1yaXNjdjY0LXkgOj0gZ2hhc2gt
-cmlzY3Y2NC1nbHVlLm8gZ2hhc2gtcmlzY3Y2NC16dmtnLm8KKwogcXVpZXRfY21kX3Blcmxhc20g
-PSBQRVJMQVNNICRACiAgICAgICBjbWRfcGVybGFzbSA9ICQoUEVSTCkgJCg8KSB2b2lkICQoQCkK
-IApAQCAtMjEsNiArMjQsMTAgQEAgJChvYmopL2Flcy1yaXNjdjY0LXp2YmItenZrZy16dmtuZWQu
-UzogJChzcmMpL2Flcy1yaXNjdjY0LXp2YmItenZrZy16dmtuZWQucGwKICQob2JqKS9hZXMtcmlz
-Y3Y2NC16dmtiLXp2a25lZC5TOiAkKHNyYykvYWVzLXJpc2N2NjQtenZrYi16dmtuZWQucGwKIAkk
-KGNhbGwgY21kLHBlcmxhc20pCiAKKyQob2JqKS9naGFzaC1yaXNjdjY0LXp2a2cuUzogJChzcmMp
-L2doYXNoLXJpc2N2NjQtenZrZy5wbAorCSQoY2FsbCBjbWQscGVybGFzbSkKKwogY2xlYW4tZmls
-ZXMgKz0gYWVzLXJpc2N2NjQtenZrbmVkLlMKIGNsZWFuLWZpbGVzICs9IGFlcy1yaXNjdjY0LXp2
-YmItenZrZy16dmtuZWQuUwogY2xlYW4tZmlsZXMgKz0gYWVzLXJpc2N2NjQtenZrYi16dmtuZWQu
-UworY2xlYW4tZmlsZXMgKz0gZ2hhc2gtcmlzY3Y2NC16dmtnLlMKZGlmZiAtLWdpdCBhL2FyY2gv
-cmlzY3YvY3J5cHRvL2doYXNoLXJpc2N2NjQtZ2x1ZS5jIGIvYXJjaC9yaXNjdi9jcnlwdG8vZ2hh
-c2gtcmlzY3Y2NC1nbHVlLmMKbmV3IGZpbGUgbW9kZSAxMDA2NDQKaW5kZXggMDAwMDAwMDAwMDAw
-Li5kNWI3ZjBlNGY2MTIKLS0tIC9kZXYvbnVsbAorKysgYi9hcmNoL3Jpc2N2L2NyeXB0by9naGFz
-aC1yaXNjdjY0LWdsdWUuYwpAQCAtMCwwICsxLDE5MSBAQAorLy8gU1BEWC1MaWNlbnNlLUlkZW50
-aWZpZXI6IEdQTC0yLjAKKy8qCisgKiBSSVNDLVYgb3B0aW1pemVkIEdIQVNIIHJvdXRpbmVzCisg
-KgorICogQ29weXJpZ2h0IChDKSAyMDIzIFZSVUxMIEdtYkgKKyAqIEF1dGhvcjogSGVpa28gU3R1
-ZWJuZXIgPGhlaWtvLnN0dWVibmVyQHZydWxsLmV1PgorICoKKyAqIENvcHlyaWdodCAoQykgMjAy
-MyBTaUZpdmUsIEluYy4KKyAqIEF1dGhvcjogSmVycnkgU2hpaCA8amVycnkuc2hpaEBzaWZpdmUu
-Y29tPgorICovCisKKyNpbmNsdWRlIDxhc20vc2ltZC5oPgorI2luY2x1ZGUgPGFzbS92ZWN0b3Iu
-aD4KKyNpbmNsdWRlIDxjcnlwdG8vZ2hhc2guaD4KKyNpbmNsdWRlIDxjcnlwdG8vaW50ZXJuYWwv
-aGFzaC5oPgorI2luY2x1ZGUgPGNyeXB0by9pbnRlcm5hbC9zaW1kLmg+CisjaW5jbHVkZSA8bGlu
-dXgvY3J5cHRvLmg+CisjaW5jbHVkZSA8bGludXgvbW9kdWxlLmg+CisjaW5jbHVkZSA8bGludXgv
-dHlwZXMuaD4KKworLyogZ2hhc2ggdXNpbmcgenZrZyB2ZWN0b3IgY3J5cHRvIGV4dGVuc2lvbiAq
-Lwordm9pZCBnY21fZ2hhc2hfcnY2NGlfenZrZyhiZTEyOCAqWGksIGNvbnN0IGJlMTI4ICpILCBj
-b25zdCB1OCAqaW5wLCBzaXplX3QgbGVuKTsKKworc3RydWN0IHJpc2N2NjRfZ2hhc2hfY29udGV4
-dCB7CisJYmUxMjgga2V5OworfTsKKworc3RydWN0IHJpc2N2NjRfZ2hhc2hfZGVzY19jdHggewor
-CWJlMTI4IHNoYXNoOworCXU4IGJ1ZmZlcltHSEFTSF9CTE9DS19TSVpFXTsKKwl1MzIgYnl0ZXM7
-Cit9OworCit0eXBlZGVmIHZvaWQgKCpnaGFzaF9mdW5jKShiZTEyOCAqWGksIGNvbnN0IGJlMTI4
-ICpILCBjb25zdCB1OCAqaW5wLAorCQkJICAgc2l6ZV90IGxlbik7CisKK3N0YXRpYyBpbmxpbmUg
-dm9pZCBnaGFzaF9ibG9ja3MoY29uc3Qgc3RydWN0IHJpc2N2NjRfZ2hhc2hfY29udGV4dCAqY3R4
-LAorCQkJCXN0cnVjdCByaXNjdjY0X2doYXNoX2Rlc2NfY3R4ICpkY3R4LAorCQkJCWNvbnN0IHU4
-ICpzcmMsIHNpemVfdCBzcmNsZW4sIGdoYXNoX2Z1bmMgZnVuYykKK3sKKwlpZiAoY3J5cHRvX3Np
-bWRfdXNhYmxlKCkpIHsKKwkJa2VybmVsX3ZlY3Rvcl9iZWdpbigpOworCQlmdW5jKCZkY3R4LT5z
-aGFzaCwgJmN0eC0+a2V5LCBzcmMsIHNyY2xlbik7CisJCWtlcm5lbF92ZWN0b3JfZW5kKCk7CisJ
-fSBlbHNlIHsKKwkJd2hpbGUgKHNyY2xlbiA+PSBHSEFTSF9CTE9DS19TSVpFKSB7CisJCQljcnlw
-dG9feG9yKCh1OCAqKSZkY3R4LT5zaGFzaCwgc3JjLCBHSEFTSF9CTE9DS19TSVpFKTsKKwkJCWdm
-MTI4bXVsX2xsZSgmZGN0eC0+c2hhc2gsICZjdHgtPmtleSk7CisJCQlzcmNsZW4gLT0gR0hBU0hf
-QkxPQ0tfU0laRTsKKwkJCXNyYyArPSBHSEFTSF9CTE9DS19TSVpFOworCQl9CisJfQorfQorCitz
-dGF0aWMgaW50IGdoYXNoX3VwZGF0ZShzdHJ1Y3Qgc2hhc2hfZGVzYyAqZGVzYywgY29uc3QgdTgg
-KnNyYywgc2l6ZV90IHNyY2xlbiwKKwkJCWdoYXNoX2Z1bmMgZnVuYykKK3sKKwlzaXplX3QgbGVu
-OworCWNvbnN0IHN0cnVjdCByaXNjdjY0X2doYXNoX2NvbnRleHQgKmN0eCA9CisJCWNyeXB0b190
-Zm1fY3R4KGNyeXB0b19zaGFzaF90Zm0oZGVzYy0+dGZtKSk7CisJc3RydWN0IHJpc2N2NjRfZ2hh
-c2hfZGVzY19jdHggKmRjdHggPSBzaGFzaF9kZXNjX2N0eChkZXNjKTsKKworCWlmIChkY3R4LT5i
-eXRlcykgeworCQlpZiAoZGN0eC0+Ynl0ZXMgKyBzcmNsZW4gPCBHSEFTSF9CTE9DS19TSVpFKSB7
-CisJCQltZW1jcHkoZGN0eC0+YnVmZmVyICsgZGN0eC0+Ynl0ZXMsIHNyYywgc3JjbGVuKTsKKwkJ
-CWRjdHgtPmJ5dGVzICs9IHNyY2xlbjsKKwkJCXJldHVybiAwOworCQl9CisJCW1lbWNweShkY3R4
-LT5idWZmZXIgKyBkY3R4LT5ieXRlcywgc3JjLAorCQkgICAgICAgR0hBU0hfQkxPQ0tfU0laRSAt
-IGRjdHgtPmJ5dGVzKTsKKworCQlnaGFzaF9ibG9ja3MoY3R4LCBkY3R4LCBkY3R4LT5idWZmZXIs
-IEdIQVNIX0JMT0NLX1NJWkUsIGZ1bmMpOworCisJCXNyYyArPSBHSEFTSF9CTE9DS19TSVpFIC0g
-ZGN0eC0+Ynl0ZXM7CisJCXNyY2xlbiAtPSBHSEFTSF9CTE9DS19TSVpFIC0gZGN0eC0+Ynl0ZXM7
-CisJCWRjdHgtPmJ5dGVzID0gMDsKKwl9CisJbGVuID0gc3JjbGVuICYgfihHSEFTSF9CTE9DS19T
-SVpFIC0gMSk7CisKKwlpZiAobGVuKSB7CisJCWdoYXNoX2Jsb2NrcyhjdHgsIGRjdHgsIHNyYywg
-bGVuLCBmdW5jKTsKKwkJc3JjICs9IGxlbjsKKwkJc3JjbGVuIC09IGxlbjsKKwl9CisKKwlpZiAo
-c3JjbGVuKSB7CisJCW1lbWNweShkY3R4LT5idWZmZXIsIHNyYywgc3JjbGVuKTsKKwkJZGN0eC0+
-Ynl0ZXMgPSBzcmNsZW47CisJfQorCisJcmV0dXJuIDA7Cit9CisKK3N0YXRpYyBpbnQgZ2hhc2hf
-ZmluYWwoc3RydWN0IHNoYXNoX2Rlc2MgKmRlc2MsIHU4ICpvdXQsIGdoYXNoX2Z1bmMgZnVuYykK
-K3sKKwljb25zdCBzdHJ1Y3QgcmlzY3Y2NF9naGFzaF9jb250ZXh0ICpjdHggPQorCQljcnlwdG9f
-dGZtX2N0eChjcnlwdG9fc2hhc2hfdGZtKGRlc2MtPnRmbSkpOworCXN0cnVjdCByaXNjdjY0X2do
-YXNoX2Rlc2NfY3R4ICpkY3R4ID0gc2hhc2hfZGVzY19jdHgoZGVzYyk7CisJaW50IGk7CisKKwlp
-ZiAoZGN0eC0+Ynl0ZXMpIHsKKwkJZm9yIChpID0gZGN0eC0+Ynl0ZXM7IGkgPCBHSEFTSF9CTE9D
-S19TSVpFOyBpKyspCisJCQlkY3R4LT5idWZmZXJbaV0gPSAwOworCisJCWdoYXNoX2Jsb2Nrcyhj
-dHgsIGRjdHgsIGRjdHgtPmJ1ZmZlciwgR0hBU0hfQkxPQ0tfU0laRSwgZnVuYyk7CisJCWRjdHgt
-PmJ5dGVzID0gMDsKKwl9CisKKwltZW1jcHkob3V0LCAmZGN0eC0+c2hhc2gsIEdIQVNIX0RJR0VT
-VF9TSVpFKTsKKworCXJldHVybiAwOworfQorCitzdGF0aWMgaW50IGdoYXNoX2luaXQoc3RydWN0
-IHNoYXNoX2Rlc2MgKmRlc2MpCit7CisJc3RydWN0IHJpc2N2NjRfZ2hhc2hfZGVzY19jdHggKmRj
-dHggPSBzaGFzaF9kZXNjX2N0eChkZXNjKTsKKworCSpkY3R4ID0gKHN0cnVjdCByaXNjdjY0X2do
-YXNoX2Rlc2NfY3R4KXt9OworCisJcmV0dXJuIDA7Cit9CisKK3N0YXRpYyBpbnQgZ2hhc2hfdXBk
-YXRlX3p2a2coc3RydWN0IHNoYXNoX2Rlc2MgKmRlc2MsIGNvbnN0IHU4ICpzcmMsCisJCQkgICAg
-IHVuc2lnbmVkIGludCBzcmNsZW4pCit7CisJcmV0dXJuIGdoYXNoX3VwZGF0ZShkZXNjLCBzcmMs
-IHNyY2xlbiwgZ2NtX2doYXNoX3J2NjRpX3p2a2cpOworfQorCitzdGF0aWMgaW50IGdoYXNoX2Zp
-bmFsX3p2a2coc3RydWN0IHNoYXNoX2Rlc2MgKmRlc2MsIHU4ICpvdXQpCit7CisJcmV0dXJuIGdo
-YXNoX2ZpbmFsKGRlc2MsIG91dCwgZ2NtX2doYXNoX3J2NjRpX3p2a2cpOworfQorCitzdGF0aWMg
-aW50IGdoYXNoX3NldGtleShzdHJ1Y3QgY3J5cHRvX3NoYXNoICp0Zm0sIGNvbnN0IHU4ICprZXks
-CisJCQl1bnNpZ25lZCBpbnQga2V5bGVuKQoreworCXN0cnVjdCByaXNjdjY0X2doYXNoX2NvbnRl
-eHQgKmN0eCA9CisJCWNyeXB0b190Zm1fY3R4KGNyeXB0b19zaGFzaF90Zm0odGZtKSk7CisKKwlp
-ZiAoa2V5bGVuICE9IEdIQVNIX0JMT0NLX1NJWkUpCisJCXJldHVybiAtRUlOVkFMOworCisJbWVt
-Y3B5KCZjdHgtPmtleSwga2V5LCBHSEFTSF9CTE9DS19TSVpFKTsKKworCXJldHVybiAwOworfQor
-CitzdGF0aWMgc3RydWN0IHNoYXNoX2FsZyByaXNjdjY0X2doYXNoX2FsZ196dmtnID0geworCS5k
-aWdlc3RzaXplID0gR0hBU0hfRElHRVNUX1NJWkUsCisJLmluaXQgPSBnaGFzaF9pbml0LAorCS51
-cGRhdGUgPSBnaGFzaF91cGRhdGVfenZrZywKKwkuZmluYWwgPSBnaGFzaF9maW5hbF96dmtnLAor
-CS5zZXRrZXkgPSBnaGFzaF9zZXRrZXksCisJLmRlc2NzaXplID0gc2l6ZW9mKHN0cnVjdCByaXNj
-djY0X2doYXNoX2Rlc2NfY3R4KSwKKwkuYmFzZSA9IHsKKwkJLmNyYV9uYW1lID0gImdoYXNoIiwK
-KwkJLmNyYV9kcml2ZXJfbmFtZSA9ICJnaGFzaC1yaXNjdjY0LXp2a2ciLAorCQkuY3JhX3ByaW9y
-aXR5ID0gMzAzLAorCQkuY3JhX2Jsb2Nrc2l6ZSA9IEdIQVNIX0JMT0NLX1NJWkUsCisJCS5jcmFf
-Y3R4c2l6ZSA9IHNpemVvZihzdHJ1Y3QgcmlzY3Y2NF9naGFzaF9jb250ZXh0KSwKKwkJLmNyYV9t
-b2R1bGUgPSBUSElTX01PRFVMRSwKKwl9LAorfTsKKworc3RhdGljIGlubGluZSBib29sIGNoZWNr
-X2doYXNoX2V4dCh2b2lkKQoreworCXJldHVybiByaXNjdl9pc2FfZXh0ZW5zaW9uX2F2YWlsYWJs
-ZShOVUxMLCBaVktHKSAmJgorCSAgICAgICByaXNjdl92ZWN0b3JfdmxlbigpID49IDEyODsKK30K
-Kworc3RhdGljIGludCBfX2luaXQgcmlzY3Y2NF9naGFzaF9tb2RfaW5pdCh2b2lkKQoreworCWlm
-IChjaGVja19naGFzaF9leHQoKSkKKwkJcmV0dXJuIGNyeXB0b19yZWdpc3Rlcl9zaGFzaCgmcmlz
-Y3Y2NF9naGFzaF9hbGdfenZrZyk7CisKKwlyZXR1cm4gLUVOT0RFVjsKK30KKworc3RhdGljIHZv
-aWQgX19leGl0IHJpc2N2NjRfZ2hhc2hfbW9kX2Zpbmkodm9pZCkKK3sKKwlpZiAoY2hlY2tfZ2hh
-c2hfZXh0KCkpCisJCWNyeXB0b191bnJlZ2lzdGVyX3NoYXNoKCZyaXNjdjY0X2doYXNoX2FsZ196
-dmtnKTsKK30KKworbW9kdWxlX2luaXQocmlzY3Y2NF9naGFzaF9tb2RfaW5pdCk7Cittb2R1bGVf
-ZXhpdChyaXNjdjY0X2doYXNoX21vZF9maW5pKTsKKworTU9EVUxFX0RFU0NSSVBUSU9OKCJHQ00g
-R0hBU0ggKFJJU0MtViBhY2NlbGVyYXRlZCkiKTsKK01PRFVMRV9BVVRIT1IoIkhlaWtvIFN0dWVi
-bmVyIDxoZWlrby5zdHVlYm5lckB2cnVsbC5ldT4iKTsKK01PRFVMRV9MSUNFTlNFKCJHUEwiKTsK
-K01PRFVMRV9BTElBU19DUllQVE8oImdoYXNoIik7CmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2Ny
-eXB0by9naGFzaC1yaXNjdjY0LXp2a2cucGwgYi9hcmNoL3Jpc2N2L2NyeXB0by9naGFzaC1yaXNj
-djY0LXp2a2cucGwKbmV3IGZpbGUgbW9kZSAxMDA2NDQKaW5kZXggMDAwMDAwMDAwMDAwLi40YmVl
-YTRhYzljYmUKLS0tIC9kZXYvbnVsbAorKysgYi9hcmNoL3Jpc2N2L2NyeXB0by9naGFzaC1yaXNj
-djY0LXp2a2cucGwKQEAgLTAsMCArMSwxMDAgQEAKKyMhIC91c3IvYmluL2VudiBwZXJsCisjIFNQ
-RFgtTGljZW5zZS1JZGVudGlmaWVyOiBBcGFjaGUtMi4wIE9SIEJTRC0yLUNsYXVzZQorIworIyBU
-aGlzIGZpbGUgaXMgZHVhbC1saWNlbnNlZCwgbWVhbmluZyB0aGF0IHlvdSBjYW4gdXNlIGl0IHVu
-ZGVyIHlvdXIKKyMgY2hvaWNlIG9mIGVpdGhlciBvZiB0aGUgZm9sbG93aW5nIHR3byBsaWNlbnNl
-czoKKyMKKyMgQ29weXJpZ2h0IDIwMjMgVGhlIE9wZW5TU0wgUHJvamVjdCBBdXRob3JzLiBBbGwg
-UmlnaHRzIFJlc2VydmVkLgorIworIyBMaWNlbnNlZCB1bmRlciB0aGUgQXBhY2hlIExpY2Vuc2Ug
-Mi4wICh0aGUgIkxpY2Vuc2UiKS4gWW91IGNhbiBvYnRhaW4KKyMgYSBjb3B5IGluIHRoZSBmaWxl
-IExJQ0VOU0UgaW4gdGhlIHNvdXJjZSBkaXN0cmlidXRpb24gb3IgYXQKKyMgaHR0cHM6Ly93d3cu
-b3BlbnNzbC5vcmcvc291cmNlL2xpY2Vuc2UuaHRtbAorIworIyBvcgorIworIyBDb3B5cmlnaHQg
-KGMpIDIwMjMsIENocmlzdG9waCBNw7xsbG5lciA8Y2hyaXN0b3BoLm11ZWxsbmVyQHZydWxsLmV1
-PgorIyBDb3B5cmlnaHQgKGMpIDIwMjMsIEplcnJ5IFNoaWggPGplcnJ5LnNoaWhAc2lmaXZlLmNv
-bT4KKyMgQWxsIHJpZ2h0cyByZXNlcnZlZC4KKyMKKyMgUmVkaXN0cmlidXRpb24gYW5kIHVzZSBp
-biBzb3VyY2UgYW5kIGJpbmFyeSBmb3Jtcywgd2l0aCBvciB3aXRob3V0CisjIG1vZGlmaWNhdGlv
-biwgYXJlIHBlcm1pdHRlZCBwcm92aWRlZCB0aGF0IHRoZSBmb2xsb3dpbmcgY29uZGl0aW9ucwor
-IyBhcmUgbWV0OgorIyAxLiBSZWRpc3RyaWJ1dGlvbnMgb2Ygc291cmNlIGNvZGUgbXVzdCByZXRh
-aW4gdGhlIGFib3ZlIGNvcHlyaWdodAorIyAgICBub3RpY2UsIHRoaXMgbGlzdCBvZiBjb25kaXRp
-b25zIGFuZCB0aGUgZm9sbG93aW5nIGRpc2NsYWltZXIuCisjIDIuIFJlZGlzdHJpYnV0aW9ucyBp
-biBiaW5hcnkgZm9ybSBtdXN0IHJlcHJvZHVjZSB0aGUgYWJvdmUgY29weXJpZ2h0CisjICAgIG5v
-dGljZSwgdGhpcyBsaXN0IG9mIGNvbmRpdGlvbnMgYW5kIHRoZSBmb2xsb3dpbmcgZGlzY2xhaW1l
-ciBpbiB0aGUKKyMgICAgZG9jdW1lbnRhdGlvbiBhbmQvb3Igb3RoZXIgbWF0ZXJpYWxzIHByb3Zp
-ZGVkIHdpdGggdGhlIGRpc3RyaWJ1dGlvbi4KKyMKKyMgVEhJUyBTT0ZUV0FSRSBJUyBQUk9WSURF
-RCBCWSBUSEUgQ09QWVJJR0hUIEhPTERFUlMgQU5EIENPTlRSSUJVVE9SUworIyAiQVMgSVMiIEFO
-RCBBTlkgRVhQUkVTUyBPUiBJTVBMSUVEIFdBUlJBTlRJRVMsIElOQ0xVRElORywgQlVUIE5PVAor
-IyBMSU1JVEVEIFRPLCBUSEUgSU1QTElFRCBXQVJSQU5USUVTIE9GIE1FUkNIQU5UQUJJTElUWSBB
-TkQgRklUTkVTUyBGT1IKKyMgQSBQQVJUSUNVTEFSIFBVUlBPU0UgQVJFIERJU0NMQUlNRUQuIElO
-IE5PIEVWRU5UIFNIQUxMIFRIRSBDT1BZUklHSFQKKyMgT1dORVIgT1IgQ09OVFJJQlVUT1JTIEJF
-IExJQUJMRSBGT1IgQU5ZIERJUkVDVCwgSU5ESVJFQ1QsIElOQ0lERU5UQUwsCisjIFNQRUNJQUws
-IEVYRU1QTEFSWSwgT1IgQ09OU0VRVUVOVElBTCBEQU1BR0VTIChJTkNMVURJTkcsIEJVVCBOT1QK
-KyMgTElNSVRFRCBUTywgUFJPQ1VSRU1FTlQgT0YgU1VCU1RJVFVURSBHT09EUyBPUiBTRVJWSUNF
-UzsgTE9TUyBPRiBVU0UsCisjIERBVEEsIE9SIFBST0ZJVFM7IE9SIEJVU0lORVNTIElOVEVSUlVQ
-VElPTikgSE9XRVZFUiBDQVVTRUQgQU5EIE9OIEFOWQorIyBUSEVPUlkgT0YgTElBQklMSVRZLCBX
-SEVUSEVSIElOIENPTlRSQUNULCBTVFJJQ1QgTElBQklMSVRZLCBPUiBUT1JUCisjIChJTkNMVURJ
-TkcgTkVHTElHRU5DRSBPUiBPVEhFUldJU0UpIEFSSVNJTkcgSU4gQU5ZIFdBWSBPVVQgT0YgVEhF
-IFVTRQorIyBPRiBUSElTIFNPRlRXQVJFLCBFVkVOIElGIEFEVklTRUQgT0YgVEhFIFBPU1NJQklM
-SVRZIE9GIFNVQ0ggREFNQUdFLgorCisjIC0gUlY2NEkKKyMgLSBSSVNDLVYgVmVjdG9yICgnVicp
-IHdpdGggVkxFTiA+PSAxMjgKKyMgLSBSSVNDLVYgVmVjdG9yIEdDTS9HTUFDIGV4dGVuc2lvbiAo
-J1p2a2cnKQorCit1c2Ugc3RyaWN0OwordXNlIHdhcm5pbmdzOworCit1c2UgRmluZEJpbiBxdygk
-QmluKTsKK3VzZSBsaWIgIiRCaW4iOwordXNlIGxpYiAiJEJpbi8uLi8uLi9wZXJsYXNtIjsKK3Vz
-ZSByaXNjdjsKKworIyAkb3V0cHV0IGlzIHRoZSBsYXN0IGFyZ3VtZW50IGlmIGl0IGxvb2tzIGxp
-a2UgYSBmaWxlIChpdCBoYXMgYW4gZXh0ZW5zaW9uKQorIyAkZmxhdm91ciBpcyB0aGUgZmlyc3Qg
-YXJndW1lbnQgaWYgaXQgZG9lc24ndCBsb29rIGxpa2UgYSBmaWxlCitteSAkb3V0cHV0ID0gJCNB
-UkdWID49IDAgJiYgJEFSR1ZbJCNBUkdWXSA9fiBtfFwuXHcrJHwgPyBwb3AgOiB1bmRlZjsKK215
-ICRmbGF2b3VyID0gJCNBUkdWID49IDAgJiYgJEFSR1ZbMF0gIX4gbXxcLnwgPyBzaGlmdCA6IHVu
-ZGVmOworCiskb3V0cHV0IGFuZCBvcGVuIFNURE9VVCwiPiRvdXRwdXQiOworCitteSAkY29kZT08
-PF9fXzsKKy50ZXh0CitfX18KKworIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj
-IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIworIyB2b2lkIGdjbV9n
-aGFzaF9ydjY0aV96dmtnKGJlMTI4ICpYaSwgY29uc3QgYmUxMjggKkgsIGNvbnN0IHU4ICppbnAs
-IHNpemVfdCBsZW4pCisjCisjIGlucHV0OiBYaTogY3VycmVudCBoYXNoIHZhbHVlCisjICAgICAg
-ICBIOiBoYXNoIGtleQorIyAgICAgICAgaW5wOiBwb2ludGVyIHRvIGlucHV0IGRhdGEKKyMgICAg
-ICAgIGxlbjogbGVuZ3RoIG9mIGlucHV0IGRhdGEgaW4gYnl0ZXMgKG11bHRpcGxlIG9mIGJsb2Nr
-IHNpemUpCisjIG91dHB1dDogWGk6IFhpKzEgKG5leHQgaGFzaCB2YWx1ZSBYaSkKK3sKK215ICgk
-WGksJEgsJGlucCwkbGVuKSA9ICgiYTAiLCJhMSIsImEyIiwiYTMiKTsKK215ICgkdlhpLCR2SCwk
-dmlucCwkVnplcm8pID0gKCJ2MSIsInYyIiwidjMiLCJ2NCIpOworCiskY29kZSAuPSA8PF9fXzsK
-Ky5wMmFsaWduIDMKKy5nbG9ibCBnY21fZ2hhc2hfcnY2NGlfenZrZworLnR5cGUgZ2NtX2doYXNo
-X3J2NjRpX3p2a2csXEBmdW5jdGlvbgorZ2NtX2doYXNoX3J2NjRpX3p2a2c6CisgICAgQHtbdnNl
-dGl2bGkgInplcm8iLCA0LCAiZTMyIiwgIm0xIiwgInRhIiwgIm1hIl19CisgICAgQHtbdmxlMzJf
-diAkdkgsICRIXX0KKyAgICBAe1t2bGUzMl92ICR2WGksICRYaV19CisKK0xzdGVwOgorICAgIEB7
-W3ZsZTMyX3YgJHZpbnAsICRpbnBdfQorICAgIGFkZCAkaW5wLCAkaW5wLCAxNgorICAgIGFkZCAk
-bGVuLCAkbGVuLCAtMTYKKyAgICBAe1t2Z2hzaF92diAkdlhpLCAkdkgsICR2aW5wXX0KKyAgICBi
-bmV6ICRsZW4sIExzdGVwCisKKyAgICBAe1t2c2UzMl92ICR2WGksICRYaV19CisgICAgcmV0CisK
-Ky5zaXplIGdjbV9naGFzaF9ydjY0aV96dmtnLC4tZ2NtX2doYXNoX3J2NjRpX3p2a2cKK19fXwor
-fQorCitwcmludCAkY29kZTsKKworY2xvc2UgU1RET1VUIG9yIGRpZSAiZXJyb3IgY2xvc2luZyBT
-VERPVVQ6ICQhIjsKLS0gCjIuMjguMAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
-cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
-Zm8vbGludXgtcmlzY3YK
+Port the vector-crypto accelerated CBC, CTR, ECB and XTS block modes for
+AES cipher from OpenSSL(openssl/openssl#21923).
+In addition, support XTS-AES-192 mode which is not existed in OpenSSL.
+
+Co-developed-by: Phoebe Chen <phoebe.chen@sifive.com>
+Signed-off-by: Phoebe Chen <phoebe.chen@sifive.com>
+Signed-off-by: Jerry Shih <jerry.shih@sifive.com>
+---
+ arch/riscv/crypto/Kconfig                     |  21 +
+ arch/riscv/crypto/Makefile                    |  11 +
+ .../crypto/aes-riscv64-block-mode-glue.c      | 486 +++++++++
+ .../crypto/aes-riscv64-zvbb-zvkg-zvkned.pl    | 944 ++++++++++++++++++
+ arch/riscv/crypto/aes-riscv64-zvkb-zvkned.pl  | 416 ++++++++
+ arch/riscv/crypto/aes-riscv64-zvkned.pl       | 927 +++++++++++++++--
+ 6 files changed, 2715 insertions(+), 90 deletions(-)
+ create mode 100644 arch/riscv/crypto/aes-riscv64-block-mode-glue.c
+ create mode 100644 arch/riscv/crypto/aes-riscv64-zvbb-zvkg-zvkned.pl
+ create mode 100644 arch/riscv/crypto/aes-riscv64-zvkb-zvkned.pl
+
+diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
+index 500938317e71..dfa9d0146d26 100644
+--- a/arch/riscv/crypto/Kconfig
++++ b/arch/riscv/crypto/Kconfig
+@@ -14,4 +14,25 @@ config CRYPTO_AES_RISCV64
+ 	  Architecture: riscv64 using:
+ 	  - Zvkned vector crypto extension
+ 
++config CRYPTO_AES_BLOCK_RISCV64
++	default y if RISCV_ISA_V
++	tristate "Ciphers: AES, modes: ECB/CBC/CTR/XTS"
++	depends on 64BIT && RISCV_ISA_V
++	select CRYPTO_AES_RISCV64
++	select CRYPTO_SKCIPHER
++	help
++	  Length-preserving ciphers: AES cipher algorithms (FIPS-197)
++	  with block cipher modes:
++	  - ECB (Electronic Codebook) mode (NIST SP 800-38A)
++	  - CBC (Cipher Block Chaining) mode (NIST SP 800-38A)
++	  - CTR (Counter) mode (NIST SP 800-38A)
++	  - XTS (XOR Encrypt XOR Tweakable Block Cipher with Ciphertext
++	    Stealing) mode (NIST SP 800-38E and IEEE 1619)
++
++	  Architecture: riscv64 using:
++	  - Zvbb vector extension (XTS)
++	  - Zvkb vector crypto extension (CTR/XTS)
++	  - Zvkg vector crypto extension (XTS)
++	  - Zvkned vector crypto extension
++
+ endmenu
+diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
+index 90ca91d8df26..42a4e8ec79cf 100644
+--- a/arch/riscv/crypto/Makefile
++++ b/arch/riscv/crypto/Makefile
+@@ -6,10 +6,21 @@
+ obj-$(CONFIG_CRYPTO_AES_RISCV64) += aes-riscv64.o
+ aes-riscv64-y := aes-riscv64-glue.o aes-riscv64-zvkned.o
+ 
++obj-$(CONFIG_CRYPTO_AES_BLOCK_RISCV64) += aes-block-riscv64.o
++aes-block-riscv64-y := aes-riscv64-block-mode-glue.o aes-riscv64-zvbb-zvkg-zvkned.o aes-riscv64-zvkb-zvkned.o
++
+ quiet_cmd_perlasm = PERLASM $@
+       cmd_perlasm = $(PERL) $(<) void $(@)
+ 
+ $(obj)/aes-riscv64-zvkned.S: $(src)/aes-riscv64-zvkned.pl
+ 	$(call cmd,perlasm)
+ 
++$(obj)/aes-riscv64-zvbb-zvkg-zvkned.S: $(src)/aes-riscv64-zvbb-zvkg-zvkned.pl
++	$(call cmd,perlasm)
++
++$(obj)/aes-riscv64-zvkb-zvkned.S: $(src)/aes-riscv64-zvkb-zvkned.pl
++	$(call cmd,perlasm)
++
+ clean-files += aes-riscv64-zvkned.S
++clean-files += aes-riscv64-zvbb-zvkg-zvkned.S
++clean-files += aes-riscv64-zvkb-zvkned.S
+diff --git a/arch/riscv/crypto/aes-riscv64-block-mode-glue.c b/arch/riscv/crypto/aes-riscv64-block-mode-glue.c
+new file mode 100644
+index 000000000000..c33e902eff5e
+--- /dev/null
++++ b/arch/riscv/crypto/aes-riscv64-block-mode-glue.c
+@@ -0,0 +1,486 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Port of the OpenSSL AES block mode implementations for RISC-V
++ *
++ * Copyright (C) 2023 SiFive, Inc.
++ * Author: Jerry Shih <jerry.shih@sifive.com>
++ */
++
++#include <asm/simd.h>
++#include <asm/vector.h>
++#include <crypto/aes.h>
++#include <crypto/ctr.h>
++#include <crypto/xts.h>
++#include <crypto/internal/cipher.h>
++#include <crypto/internal/simd.h>
++#include <crypto/internal/skcipher.h>
++#include <crypto/scatterwalk.h>
++#include <linux/crypto.h>
++#include <linux/math.h>
++#include <linux/minmax.h>
++#include <linux/module.h>
++#include <linux/types.h>
++
++#include "aes-riscv64-glue.h"
++
++#define AES_BLOCK_VALID_SIZE_MASK (~(AES_BLOCK_SIZE - 1))
++#define AES_BLOCK_REMAINING_SIZE_MASK (AES_BLOCK_SIZE - 1)
++
++struct riscv64_aes_xts_ctx {
++	struct riscv64_aes_ctx ctx1;
++	struct riscv64_aes_ctx ctx2;
++};
++
++/* aes cbc block mode using zvkned vector crypto extension */
++void rv64i_zvkned_cbc_encrypt(const u8 *in, u8 *out, size_t length,
++			      const struct aes_key *key, u8 *ivec);
++void rv64i_zvkned_cbc_decrypt(const u8 *in, u8 *out, size_t length,
++			      const struct aes_key *key, u8 *ivec);
++/* aes ecb block mode using zvkned vector crypto extension */
++void rv64i_zvkned_ecb_encrypt(const u8 *in, u8 *out, size_t length,
++			      const struct aes_key *key);
++void rv64i_zvkned_ecb_decrypt(const u8 *in, u8 *out, size_t length,
++			      const struct aes_key *key);
++
++/* aes ctr block mode using zvkb and zvkned vector crypto extension */
++/* This func operates on 32-bit counter. Caller has to handle the overflow. */
++void rv64i_zvkb_zvkned_ctr32_encrypt_blocks(const u8 *in, u8 *out,
++					    size_t length,
++					    const struct aes_key *key,
++					    u8 *ivec);
++
++/* aes xts block mode using zvbb, zvkg and zvkned vector crypto extension */
++void rv64i_zvbb_zvkg_zvkned_aes_xts_encrypt(const u8 *in, u8 *out,
++					    size_t length,
++					    const struct aes_key *key, u8 *iv,
++					    int update_iv);
++void rv64i_zvbb_zvkg_zvkned_aes_xts_decrypt(const u8 *in, u8 *out,
++					    size_t length,
++					    const struct aes_key *key, u8 *iv,
++					    int update_iv);
++
++typedef void (*aes_xts_func)(const u8 *in, u8 *out, size_t length,
++			     const struct aes_key *key, u8 *iv, int update_iv);
++
++/* ecb */
++static int aes_setkey(struct crypto_skcipher *tfm, const u8 *in_key,
++		      unsigned int key_len)
++{
++	struct riscv64_aes_ctx *ctx = crypto_skcipher_ctx(tfm);
++
++	return riscv64_aes_setkey(ctx, in_key, key_len);
++}
++
++static int ecb_encrypt(struct skcipher_request *req)
++{
++	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
++	const struct riscv64_aes_ctx *ctx = crypto_skcipher_ctx(tfm);
++	struct skcipher_walk walk;
++	unsigned int nbytes;
++	int err;
++
++	/* If we have error here, the `nbytes` will be zero. */
++	err = skcipher_walk_virt(&walk, req, false);
++	while ((nbytes = walk.nbytes)) {
++		kernel_vector_begin();
++		rv64i_zvkned_ecb_encrypt(walk.src.virt.addr, walk.dst.virt.addr,
++					 nbytes & AES_BLOCK_VALID_SIZE_MASK,
++					 &ctx->key);
++		kernel_vector_end();
++		err = skcipher_walk_done(
++			&walk, nbytes & AES_BLOCK_REMAINING_SIZE_MASK);
++	}
++
++	return err;
++}
++
++static int ecb_decrypt(struct skcipher_request *req)
++{
++	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
++	const struct riscv64_aes_ctx *ctx = crypto_skcipher_ctx(tfm);
++	struct skcipher_walk walk;
++	unsigned int nbytes;
++	int err;
++
++	err = skcipher_walk_virt(&walk, req, false);
++	while ((nbytes = walk.nbytes)) {
++		kernel_vector_begin();
++		rv64i_zvkned_ecb_decrypt(walk.src.virt.addr, walk.dst.virt.addr,
++					 nbytes & AES_BLOCK_VALID_SIZE_MASK,
++					 &ctx->key);
++		kernel_vector_end();
++		err = skcipher_walk_done(
++			&walk, nbytes & AES_BLOCK_REMAINING_SIZE_MASK);
++	}
++
++	return err;
++}
++
++/* cbc */
++static int cbc_encrypt(struct skcipher_request *req)
++{
++	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
++	const struct riscv64_aes_ctx *ctx = crypto_skcipher_ctx(tfm);
++	struct skcipher_walk walk;
++	unsigned int nbytes;
++	int err;
++
++	err = skcipher_walk_virt(&walk, req, false);
++	while ((nbytes = walk.nbytes)) {
++		kernel_vector_begin();
++		rv64i_zvkned_cbc_encrypt(walk.src.virt.addr, walk.dst.virt.addr,
++					 nbytes & AES_BLOCK_VALID_SIZE_MASK,
++					 &ctx->key, walk.iv);
++		kernel_vector_end();
++		err = skcipher_walk_done(
++			&walk, nbytes & AES_BLOCK_REMAINING_SIZE_MASK);
++	}
++
++	return err;
++}
++
++static int cbc_decrypt(struct skcipher_request *req)
++{
++	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
++	const struct riscv64_aes_ctx *ctx = crypto_skcipher_ctx(tfm);
++	struct skcipher_walk walk;
++	unsigned int nbytes;
++	int err;
++
++	err = skcipher_walk_virt(&walk, req, false);
++	while ((nbytes = walk.nbytes)) {
++		kernel_vector_begin();
++		rv64i_zvkned_cbc_decrypt(walk.src.virt.addr, walk.dst.virt.addr,
++					 nbytes & AES_BLOCK_VALID_SIZE_MASK,
++					 &ctx->key, walk.iv);
++		kernel_vector_end();
++		err = skcipher_walk_done(
++			&walk, nbytes & AES_BLOCK_REMAINING_SIZE_MASK);
++	}
++
++	return err;
++}
++
++/* ctr */
++static int ctr_encrypt(struct skcipher_request *req)
++{
++	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
++	const struct riscv64_aes_ctx *ctx = crypto_skcipher_ctx(tfm);
++	struct skcipher_walk walk;
++	unsigned int ctr32;
++	unsigned int nbytes;
++	unsigned int blocks;
++	unsigned int current_blocks;
++	unsigned int current_length;
++	int err;
++
++	/* the ctr iv uses big endian */
++	ctr32 = get_unaligned_be32(req->iv + 12);
++	err = skcipher_walk_virt(&walk, req, false);
++	while ((nbytes = walk.nbytes)) {
++		if (nbytes != walk.total) {
++			nbytes &= AES_BLOCK_VALID_SIZE_MASK;
++			blocks = nbytes / AES_BLOCK_SIZE;
++		} else {
++			/* This is the last walk. We should handle the tail data. */
++			blocks = (nbytes + (AES_BLOCK_SIZE - 1)) /
++				 AES_BLOCK_SIZE;
++		}
++		ctr32 += blocks;
++
++		kernel_vector_begin();
++		/*
++		 * The `if` block below detects the overflow, which is then handled by
++		 * limiting the amount of blocks to the exact overflow point.
++		 */
++		if (ctr32 >= blocks) {
++			rv64i_zvkb_zvkned_ctr32_encrypt_blocks(
++				walk.src.virt.addr, walk.dst.virt.addr, nbytes,
++				&ctx->key, req->iv);
++		} else {
++			/* use 2 ctr32 function calls for overflow case */
++			current_blocks = blocks - ctr32;
++			current_length =
++				min(nbytes, current_blocks * AES_BLOCK_SIZE);
++			rv64i_zvkb_zvkned_ctr32_encrypt_blocks(
++				walk.src.virt.addr, walk.dst.virt.addr,
++				current_length, &ctx->key, req->iv);
++			crypto_inc(req->iv, 12);
++
++			if (ctr32) {
++				rv64i_zvkb_zvkned_ctr32_encrypt_blocks(
++					walk.src.virt.addr +
++						current_blocks * AES_BLOCK_SIZE,
++					walk.dst.virt.addr +
++						current_blocks * AES_BLOCK_SIZE,
++					nbytes - current_length, &ctx->key,
++					req->iv);
++			}
++		}
++		kernel_vector_end();
++
++		err = skcipher_walk_done(&walk, walk.nbytes - nbytes);
++	}
++
++	return err;
++}
++
++/* xts */
++static int xts_setkey(struct crypto_skcipher *tfm, const u8 *in_key,
++		      unsigned int key_len)
++{
++	struct riscv64_aes_xts_ctx *ctx = crypto_skcipher_ctx(tfm);
++	unsigned int xts_single_key_len = key_len / 2;
++	int ret;
++
++	ret = xts_verify_key(tfm, in_key, key_len);
++	if (ret)
++		return ret;
++	ret = riscv64_aes_setkey(&ctx->ctx1, in_key, xts_single_key_len);
++	if (ret)
++		return ret;
++	return riscv64_aes_setkey(&ctx->ctx2, in_key + xts_single_key_len,
++				  xts_single_key_len);
++}
++
++static int xts_crypt(struct skcipher_request *req, aes_xts_func func)
++{
++	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
++	const struct riscv64_aes_xts_ctx *ctx = crypto_skcipher_ctx(tfm);
++	struct skcipher_request sub_req;
++	struct scatterlist sg_src[2], sg_dst[2];
++	struct scatterlist *src, *dst;
++	struct skcipher_walk walk;
++	unsigned int walk_size = crypto_skcipher_walksize(tfm);
++	unsigned int tail_bytes;
++	unsigned int head_bytes;
++	unsigned int nbytes;
++	unsigned int update_iv = 1;
++	int err;
++
++	/* xts input size should be bigger than AES_BLOCK_SIZE */
++	if (req->cryptlen < AES_BLOCK_SIZE)
++		return -EINVAL;
++
++	/*
++	 * The tail size should be small than walk_size. Thus, we could make sure the
++	 * walk size for tail elements could be bigger than AES_BLOCK_SIZE.
++	 */
++	if (req->cryptlen <= walk_size) {
++		tail_bytes = req->cryptlen;
++		head_bytes = 0;
++	} else {
++		if (req->cryptlen & AES_BLOCK_REMAINING_SIZE_MASK) {
++			tail_bytes = req->cryptlen &
++				     AES_BLOCK_REMAINING_SIZE_MASK;
++			tail_bytes = walk_size + tail_bytes - AES_BLOCK_SIZE;
++			head_bytes = req->cryptlen - tail_bytes;
++		} else {
++			tail_bytes = 0;
++			head_bytes = req->cryptlen;
++		}
++	}
++
++	riscv64_aes_encrypt_zvkned(&ctx->ctx2, req->iv, req->iv);
++
++	if (head_bytes && tail_bytes) {
++		skcipher_request_set_tfm(&sub_req, tfm);
++		skcipher_request_set_callback(
++			&sub_req, skcipher_request_flags(req), NULL, NULL);
++		skcipher_request_set_crypt(&sub_req, req->src, req->dst,
++					   head_bytes, req->iv);
++		req = &sub_req;
++	}
++
++	if (head_bytes) {
++		err = skcipher_walk_virt(&walk, req, false);
++		while ((nbytes = walk.nbytes)) {
++			if (nbytes == walk.total)
++				update_iv = (tail_bytes > 0);
++
++			nbytes &= AES_BLOCK_VALID_SIZE_MASK;
++			kernel_vector_begin();
++			func(walk.src.virt.addr, walk.dst.virt.addr, nbytes,
++			     &ctx->ctx1.key, req->iv, update_iv);
++			kernel_vector_end();
++
++			err = skcipher_walk_done(&walk, walk.nbytes - nbytes);
++		}
++		if (err || !tail_bytes)
++			return err;
++
++		dst = src = scatterwalk_next(sg_src, &walk.in);
++		if (req->dst != req->src)
++			dst = scatterwalk_next(sg_dst, &walk.out);
++		skcipher_request_set_crypt(req, src, dst, tail_bytes, req->iv);
++	}
++
++	/* tail */
++	err = skcipher_walk_virt(&walk, req, false);
++	if (err)
++		return err;
++	if (walk.nbytes != tail_bytes)
++		return -EINVAL;
++	kernel_vector_begin();
++	func(walk.src.virt.addr, walk.dst.virt.addr, walk.nbytes,
++	     &ctx->ctx1.key, req->iv, 0);
++	kernel_vector_end();
++
++	return skcipher_walk_done(&walk, 0);
++}
++
++static int xts_encrypt(struct skcipher_request *req)
++{
++	return xts_crypt(req, rv64i_zvbb_zvkg_zvkned_aes_xts_encrypt);
++}
++
++static int xts_decrypt(struct skcipher_request *req)
++{
++	return xts_crypt(req, rv64i_zvbb_zvkg_zvkned_aes_xts_decrypt);
++}
++
++static struct skcipher_alg riscv64_aes_alg_zvkned[] = { {
++	.base = {
++		.cra_name	= "ecb(aes)",
++		.cra_driver_name = "ecb-aes-riscv64-zvkned",
++		.cra_priority = 300,
++		.cra_blocksize = AES_BLOCK_SIZE,
++		.cra_ctxsize = sizeof(struct riscv64_aes_ctx),
++		.cra_module = THIS_MODULE,
++	},
++	.min_keysize = AES_MIN_KEY_SIZE,
++	.max_keysize = AES_MAX_KEY_SIZE,
++	.walksize = AES_BLOCK_SIZE * 8,
++	.setkey = aes_setkey,
++	.encrypt = ecb_encrypt,
++	.decrypt = ecb_decrypt,
++}, {
++	.base = {
++		.cra_name = "cbc(aes)",
++		.cra_driver_name = "cbc-aes-riscv64-zvkned",
++		.cra_priority = 300,
++		.cra_blocksize = AES_BLOCK_SIZE,
++		.cra_ctxsize = sizeof(struct riscv64_aes_ctx),
++		.cra_module = THIS_MODULE,
++	},
++	.min_keysize = AES_MIN_KEY_SIZE,
++	.max_keysize = AES_MAX_KEY_SIZE,
++	.ivsize = AES_BLOCK_SIZE,
++	.walksize = AES_BLOCK_SIZE * 8,
++	.setkey = aes_setkey,
++	.encrypt = cbc_encrypt,
++	.decrypt = cbc_decrypt,
++} };
++
++static struct skcipher_alg riscv64_aes_alg_zvkb_zvkned[] = { {
++	.base = {
++		.cra_name = "ctr(aes)",
++		.cra_driver_name = "ctr-aes-riscv64-zvkb-zvkned",
++		.cra_priority = 300,
++		.cra_blocksize = 1,
++		.cra_ctxsize = sizeof(struct riscv64_aes_ctx),
++		.cra_module = THIS_MODULE,
++	},
++	.min_keysize = AES_MIN_KEY_SIZE,
++	.max_keysize = AES_MAX_KEY_SIZE,
++	.ivsize = AES_BLOCK_SIZE,
++	.chunksize = AES_BLOCK_SIZE,
++	.walksize = AES_BLOCK_SIZE * 8,
++	.setkey = aes_setkey,
++	.encrypt = ctr_encrypt,
++	.decrypt = ctr_encrypt,
++} };
++
++static struct skcipher_alg riscv64_aes_alg_zvbb_zvkg_zvkned[] = { {
++	.base = {
++		.cra_name = "xts(aes)",
++		.cra_driver_name = "xts-aes-riscv64-zvbb-zvkg-zvkned",
++		.cra_priority = 300,
++		.cra_blocksize = AES_BLOCK_SIZE,
++		.cra_ctxsize = sizeof(struct riscv64_aes_xts_ctx),
++		.cra_module = THIS_MODULE,
++	},
++	.min_keysize = AES_MIN_KEY_SIZE * 2,
++	.max_keysize = AES_MAX_KEY_SIZE * 2,
++	.ivsize = AES_BLOCK_SIZE,
++	.chunksize = AES_BLOCK_SIZE,
++	.walksize = AES_BLOCK_SIZE * 8,
++	.setkey = xts_setkey,
++	.encrypt = xts_encrypt,
++	.decrypt = xts_decrypt,
++} };
++
++static int __init riscv64_aes_block_mod_init(void)
++{
++	int ret = -ENODEV;
++
++	if (riscv_isa_extension_available(NULL, ZVKNED) &&
++	    riscv_vector_vlen() >= 128) {
++		ret = crypto_register_skciphers(
++			riscv64_aes_alg_zvkned,
++			ARRAY_SIZE(riscv64_aes_alg_zvkned));
++		if (ret)
++			return ret;
++
++		if (riscv_isa_extension_available(NULL, ZVBB)) {
++			ret = crypto_register_skciphers(
++				riscv64_aes_alg_zvkb_zvkned,
++				ARRAY_SIZE(riscv64_aes_alg_zvkb_zvkned));
++			if (ret)
++				goto unregister_zvkned;
++
++			if (riscv_isa_extension_available(NULL, ZVKG)) {
++				ret = crypto_register_skciphers(
++					riscv64_aes_alg_zvbb_zvkg_zvkned,
++					ARRAY_SIZE(
++						riscv64_aes_alg_zvbb_zvkg_zvkned));
++				if (ret)
++					goto unregister_zvkb_zvkned;
++			}
++		}
++	}
++
++	return ret;
++
++unregister_zvkb_zvkned:
++	crypto_unregister_skciphers(riscv64_aes_alg_zvkb_zvkned,
++				    ARRAY_SIZE(riscv64_aes_alg_zvkb_zvkned));
++unregister_zvkned:
++	crypto_unregister_skciphers(riscv64_aes_alg_zvkned,
++				    ARRAY_SIZE(riscv64_aes_alg_zvkned));
++
++	return ret;
++}
++
++static void __exit riscv64_aes_block_mod_fini(void)
++{
++	if (riscv_isa_extension_available(NULL, ZVKNED) &&
++	    riscv_vector_vlen() >= 128) {
++		crypto_unregister_skciphers(riscv64_aes_alg_zvkned,
++					    ARRAY_SIZE(riscv64_aes_alg_zvkned));
++
++		if (riscv_isa_extension_available(NULL, ZVBB)) {
++			crypto_unregister_skciphers(
++				riscv64_aes_alg_zvkb_zvkned,
++				ARRAY_SIZE(riscv64_aes_alg_zvkb_zvkned));
++
++			if (riscv_isa_extension_available(NULL, ZVKG)) {
++				crypto_unregister_skciphers(
++					riscv64_aes_alg_zvbb_zvkg_zvkned,
++					ARRAY_SIZE(
++						riscv64_aes_alg_zvbb_zvkg_zvkned));
++			}
++		}
++	}
++}
++
++module_init(riscv64_aes_block_mod_init);
++module_exit(riscv64_aes_block_mod_fini);
++
++MODULE_DESCRIPTION("AES-ECB/CBC/CTR/XTS (RISC-V accelerated)");
++MODULE_AUTHOR("Jerry Shih <jerry.shih@sifive.com>");
++MODULE_LICENSE("GPL");
++MODULE_ALIAS_CRYPTO("cbc(aes)");
++MODULE_ALIAS_CRYPTO("ctr(aes)");
++MODULE_ALIAS_CRYPTO("ecb(aes)");
++MODULE_ALIAS_CRYPTO("xts(aes)");
+diff --git a/arch/riscv/crypto/aes-riscv64-zvbb-zvkg-zvkned.pl b/arch/riscv/crypto/aes-riscv64-zvbb-zvkg-zvkned.pl
+new file mode 100644
+index 000000000000..0daec9c38574
+--- /dev/null
++++ b/arch/riscv/crypto/aes-riscv64-zvbb-zvkg-zvkned.pl
+@@ -0,0 +1,944 @@
++#! /usr/bin/env perl
++# SPDX-License-Identifier: Apache-2.0 OR BSD-2-Clause
++#
++# This file is dual-licensed, meaning that you can use it under your
++# choice of either of the following two licenses:
++#
++# Copyright 2023 The OpenSSL Project Authors. All Rights Reserved.
++#
++# Licensed under the Apache License 2.0 (the "License"). You can obtain
++# a copy in the file LICENSE in the source distribution or at
++# https://www.openssl.org/source/license.html
++#
++# or
++#
++# Copyright (c) 2023, Jerry Shih <jerry.shih@sifive.com>
++# All rights reserved.
++#
++# Redistribution and use in source and binary forms, with or without
++# modification, are permitted provided that the following conditions
++# are met:
++# 1. Redistributions of source code must retain the above copyright
++#    notice, this list of conditions and the following disclaimer.
++# 2. Redistributions in binary form must reproduce the above copyright
++#    notice, this list of conditions and the following disclaimer in the
++#    documentation and/or other materials provided with the distribution.
++#
++# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
++# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
++# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
++# A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
++# OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
++# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
++# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
++# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
++# THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
++# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
++# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
++
++# - RV64I
++# - RISC-V Vector ('V') with VLEN >= 128
++# - RISC-V Vector Bit-manipulation extension ('Zvbb')
++# - RISC-V Vector GCM/GMAC extension ('Zvkg')
++# - RISC-V Vector AES block cipher extension ('Zvkned')
++# - RISC-V Zicclsm(Main memory supports misaligned loads/stores)
++
++use strict;
++use warnings;
++
++use FindBin qw($Bin);
++use lib "$Bin";
++use lib "$Bin/../../perlasm";
++use riscv;
++
++# $output is the last argument if it looks like a file (it has an extension)
++# $flavour is the first argument if it doesn't look like a file
++my $output = $#ARGV >= 0 && $ARGV[$#ARGV] =~ m|\.\w+$| ? pop : undef;
++my $flavour = $#ARGV >= 0 && $ARGV[0] !~ m|\.| ? shift : undef;
++
++$output and open STDOUT,">$output";
++
++my $code=<<___;
++.text
++___
++
++{
++################################################################################
++# void rv64i_zvbb_zvkg_zvkned_aes_xts_encrypt(const unsigned char *in,
++#                                             unsigned char *out, size_t length,
++#                                             const AES_KEY *key,
++#                                             unsigned char iv[16],
++#                                             int update_iv)
++my ($INPUT, $OUTPUT, $LENGTH, $KEY, $IV, $UPDATE_IV) = ("a0", "a1", "a2", "a3", "a4", "a5");
++my ($TAIL_LENGTH) = ("a6");
++my ($VL) = ("a7");
++my ($T0, $T1, $T2, $T3) = ("t0", "t1", "t2", "t3");
++my ($STORE_LEN32) = ("t4");
++my ($LEN32) = ("t5");
++my ($V0, $V1, $V2, $V3, $V4, $V5, $V6, $V7,
++    $V8, $V9, $V10, $V11, $V12, $V13, $V14, $V15,
++    $V16, $V17, $V18, $V19, $V20, $V21, $V22, $V23,
++    $V24, $V25, $V26, $V27, $V28, $V29, $V30, $V31,
++) = map("v$_",(0..31));
++
++# load iv to v28
++sub load_xts_iv0 {
++    my $code=<<___;
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vle32_v $V28, $IV]}
++___
++
++    return $code;
++}
++
++# prepare input data(v24), iv(v28), bit-reversed-iv(v16), bit-reversed-iv-multiplier(v20)
++sub init_first_round {
++    my $code=<<___;
++    # load input
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "ma"]}
++    @{[vle32_v $V24, $INPUT]}
++
++    li $T0, 5
++    # We could simplify the initialization steps if we have `block<=1`.
++    blt $LEN32, $T0, 1f
++
++    # Note: We use `vgmul` for GF(2^128) multiplication. The `vgmul` uses
++    # different order of coefficients. We should use`vbrev8` to reverse the
++    # data when we use `vgmul`.
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vbrev8_v $V0, $V28]}
++    @{[vsetvli "zero", $LEN32, "e32", "m4", "ta", "ma"]}
++    @{[vmv_v_i $V16, 0]}
++    # v16: [r-IV0, r-IV0, ...]
++    @{[vaesz_vs $V16, $V0]}
++
++    # Prepare GF(2^128) multiplier [1, x, x^2, x^3, ...] in v8.
++    slli $T0, $LEN32, 2
++    @{[vsetvli "zero", $T0, "e32", "m1", "ta", "ma"]}
++    # v2: [`1`, `1`, `1`, `1`, ...]
++    @{[vmv_v_i $V2, 1]}
++    # v3: [`0`, `1`, `2`, `3`, ...]
++    @{[vid_v $V3]}
++    @{[vsetvli "zero", $T0, "e64", "m2", "ta", "ma"]}
++    # v4: [`1`, 0, `1`, 0, `1`, 0, `1`, 0, ...]
++    @{[vzext_vf2 $V4, $V2]}
++    # v6: [`0`, 0, `1`, 0, `2`, 0, `3`, 0, ...]
++    @{[vzext_vf2 $V6, $V3]}
++    slli $T0, $LEN32, 1
++    @{[vsetvli "zero", $T0, "e32", "m2", "ta", "ma"]}
++    # v8: [1<<0=1, 0, 0, 0, 1<<1=x, 0, 0, 0, 1<<2=x^2, 0, 0, 0, ...]
++    @{[vwsll_vv $V8, $V4, $V6]}
++
++    # Compute [r-IV0*1, r-IV0*x, r-IV0*x^2, r-IV0*x^3, ...] in v16
++    @{[vsetvli "zero", $LEN32, "e32", "m4", "ta", "ma"]}
++    @{[vbrev8_v $V8, $V8]}
++    @{[vgmul_vv $V16, $V8]}
++
++    # Compute [IV0*1, IV0*x, IV0*x^2, IV0*x^3, ...] in v28.
++    # Reverse the bits order back.
++    @{[vbrev8_v $V28, $V16]}
++
++    # Prepare the x^n multiplier in v20. The `n` is the aes-xts block number
++    # in a LMUL=4 register group.
++    #   n = ((VLEN*LMUL)/(32*4)) = ((VLEN*4)/(32*4))
++    #     = (VLEN/32)
++    # We could use vsetvli with `e32, m1` to compute the `n` number.
++    @{[vsetvli $T0, "zero", "e32", "m1", "ta", "ma"]}
++    li $T1, 1
++    sll $T0, $T1, $T0
++    @{[vsetivli "zero", 2, "e64", "m1", "ta", "ma"]}
++    @{[vmv_v_i $V0, 0]}
++    @{[vsetivli "zero", 1, "e64", "m1", "tu", "ma"]}
++    @{[vmv_v_x $V0, $T0]}
++    @{[vsetivli "zero", 2, "e64", "m1", "ta", "ma"]}
++    @{[vbrev8_v $V0, $V0]}
++    @{[vsetvli "zero", $LEN32, "e32", "m4", "ta", "ma"]}
++    @{[vmv_v_i $V20, 0]}
++    @{[vaesz_vs $V20, $V0]}
++
++    j 2f
++1:
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vbrev8_v $V16, $V28]}
++2:
++___
++
++    return $code;
++}
++
++# prepare xts enc last block's input(v24) and iv(v28)
++sub handle_xts_enc_last_block {
++    my $code=<<___;
++    bnez $TAIL_LENGTH, 2f
++
++    beqz $UPDATE_IV, 1f
++    ## Store next IV
++    addi $VL, $VL, -4
++    @{[vsetivli "zero", 4, "e32", "m4", "ta", "ma"]}
++    # multiplier
++    @{[vslidedown_vx $V16, $V16, $VL]}
++
++    # setup `x` multiplier with byte-reversed order
++    # 0b00000010 => 0b01000000 (0x40)
++    li $T0, 0x40
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vmv_v_i $V28, 0]}
++    @{[vsetivli "zero", 1, "e8", "m1", "tu", "ma"]}
++    @{[vmv_v_x $V28, $T0]}
++
++    # IV * `x`
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vgmul_vv $V16, $V28]}
++    # Reverse the IV's bits order back to big-endian
++    @{[vbrev8_v $V28, $V16]}
++
++    @{[vse32_v $V28, $IV]}
++1:
++
++    ret
++2:
++    # slidedown second to last block
++    addi $VL, $VL, -4
++    @{[vsetivli "zero", 4, "e32", "m4", "ta", "ma"]}
++    # ciphertext
++    @{[vslidedown_vx $V24, $V24, $VL]}
++    # multiplier
++    @{[vslidedown_vx $V16, $V16, $VL]}
++
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vmv_v_v $V25, $V24]}
++
++    # load last block into v24
++    # note: We should load the last block before store the second to last block
++    #       for in-place operation.
++    @{[vsetvli "zero", $TAIL_LENGTH, "e8", "m1", "tu", "ma"]}
++    @{[vle8_v $V24, $INPUT]}
++
++    # setup `x` multiplier with byte-reversed order
++    # 0b00000010 => 0b01000000 (0x40)
++    li $T0, 0x40
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vmv_v_i $V28, 0]}
++    @{[vsetivli "zero", 1, "e8", "m1", "tu", "ma"]}
++    @{[vmv_v_x $V28, $T0]}
++
++    # compute IV for last block
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vgmul_vv $V16, $V28]}
++    @{[vbrev8_v $V28, $V16]}
++
++    # store second to last block
++    @{[vsetvli "zero", $TAIL_LENGTH, "e8", "m1", "ta", "ma"]}
++    @{[vse8_v $V25, $OUTPUT]}
++___
++
++    return $code;
++}
++
++# prepare xts dec second to last block's input(v24) and iv(v29) and
++# last block's and iv(v28)
++sub handle_xts_dec_last_block {
++    my $code=<<___;
++    bnez $TAIL_LENGTH, 2f
++
++    beqz $UPDATE_IV, 1f
++    ## Store next IV
++    # setup `x` multiplier with byte-reversed order
++    # 0b00000010 => 0b01000000 (0x40)
++    li $T0, 0x40
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vmv_v_i $V28, 0]}
++    @{[vsetivli "zero", 1, "e8", "m1", "tu", "ma"]}
++    @{[vmv_v_x $V28, $T0]}
++
++    beqz $LENGTH, 3f
++    addi $VL, $VL, -4
++    @{[vsetivli "zero", 4, "e32", "m4", "ta", "ma"]}
++    # multiplier
++    @{[vslidedown_vx $V16, $V16, $VL]}
++
++3:
++    # IV * `x`
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vgmul_vv $V16, $V28]}
++    # Reverse the IV's bits order back to big-endian
++    @{[vbrev8_v $V28, $V16]}
++
++    @{[vse32_v $V28, $IV]}
++1:
++
++    ret
++2:
++    # load second to last block's ciphertext
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vle32_v $V24, $INPUT]}
++    addi $INPUT, $INPUT, 16
++
++    # setup `x` multiplier with byte-reversed order
++    # 0b00000010 => 0b01000000 (0x40)
++    li $T0, 0x40
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vmv_v_i $V20, 0]}
++    @{[vsetivli "zero", 1, "e8", "m1", "tu", "ma"]}
++    @{[vmv_v_x $V20, $T0]}
++
++    beqz $LENGTH, 1f
++    # slidedown third to last block
++    addi $VL, $VL, -4
++    @{[vsetivli "zero", 4, "e32", "m4", "ta", "ma"]}
++    # multiplier
++    @{[vslidedown_vx $V16, $V16, $VL]}
++
++    # compute IV for last block
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vgmul_vv $V16, $V20]}
++    @{[vbrev8_v $V28, $V16]}
++
++    # compute IV for second to last block
++    @{[vgmul_vv $V16, $V20]}
++    @{[vbrev8_v $V29, $V16]}
++    j 2f
++1:
++    # compute IV for second to last block
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vgmul_vv $V16, $V20]}
++    @{[vbrev8_v $V29, $V16]}
++2:
++___
++
++    return $code;
++}
++
++# Load all 11 round keys to v1-v11 registers.
++sub aes_128_load_key {
++    my $code=<<___;
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vle32_v $V1, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V2, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V3, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V4, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V5, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V6, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V7, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V8, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V9, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V10, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V11, $KEY]}
++___
++
++    return $code;
++}
++
++# Load all 13 round keys to v1-v13 registers.
++sub aes_192_load_key {
++    my $code=<<___;
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vle32_v $V1, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V2, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V3, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V4, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V5, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V6, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V7, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V8, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V9, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V10, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V11, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V12, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V13, $KEY]}
++___
++
++    return $code;
++}
++
++# Load all 15 round keys to v1-v15 registers.
++sub aes_256_load_key {
++    my $code=<<___;
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vle32_v $V1, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V2, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V3, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V4, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V5, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V6, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V7, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V8, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V9, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V10, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V11, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V12, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V13, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V14, $KEY]}
++    addi $KEY, $KEY, 16
++    @{[vle32_v $V15, $KEY]}
++___
++
++    return $code;
++}
++
++# aes-128 enc with round keys v1-v11
++sub aes_128_enc {
++    my $code=<<___;
++    @{[vaesz_vs $V24, $V1]}
++    @{[vaesem_vs $V24, $V2]}
++    @{[vaesem_vs $V24, $V3]}
++    @{[vaesem_vs $V24, $V4]}
++    @{[vaesem_vs $V24, $V5]}
++    @{[vaesem_vs $V24, $V6]}
++    @{[vaesem_vs $V24, $V7]}
++    @{[vaesem_vs $V24, $V8]}
++    @{[vaesem_vs $V24, $V9]}
++    @{[vaesem_vs $V24, $V10]}
++    @{[vaesef_vs $V24, $V11]}
++___
++
++    return $code;
++}
++
++# aes-128 dec with round keys v1-v11
++sub aes_128_dec {
++    my $code=<<___;
++    @{[vaesz_vs $V24, $V11]}
++    @{[vaesdm_vs $V24, $V10]}
++    @{[vaesdm_vs $V24, $V9]}
++    @{[vaesdm_vs $V24, $V8]}
++    @{[vaesdm_vs $V24, $V7]}
++    @{[vaesdm_vs $V24, $V6]}
++    @{[vaesdm_vs $V24, $V5]}
++    @{[vaesdm_vs $V24, $V4]}
++    @{[vaesdm_vs $V24, $V3]}
++    @{[vaesdm_vs $V24, $V2]}
++    @{[vaesdf_vs $V24, $V1]}
++___
++
++    return $code;
++}
++
++# aes-192 enc with round keys v1-v13
++sub aes_192_enc {
++    my $code=<<___;
++    @{[vaesz_vs $V24, $V1]}
++    @{[vaesem_vs $V24, $V2]}
++    @{[vaesem_vs $V24, $V3]}
++    @{[vaesem_vs $V24, $V4]}
++    @{[vaesem_vs $V24, $V5]}
++    @{[vaesem_vs $V24, $V6]}
++    @{[vaesem_vs $V24, $V7]}
++    @{[vaesem_vs $V24, $V8]}
++    @{[vaesem_vs $V24, $V9]}
++    @{[vaesem_vs $V24, $V10]}
++    @{[vaesem_vs $V24, $V11]}
++    @{[vaesem_vs $V24, $V12]}
++    @{[vaesef_vs $V24, $V13]}
++___
++
++    return $code;
++}
++
++# aes-192 dec with round keys v1-v13
++sub aes_192_dec {
++    my $code=<<___;
++    @{[vaesz_vs $V24, $V13]}
++    @{[vaesdm_vs $V24, $V12]}
++    @{[vaesdm_vs $V24, $V11]}
++    @{[vaesdm_vs $V24, $V10]}
++    @{[vaesdm_vs $V24, $V9]}
++    @{[vaesdm_vs $V24, $V8]}
++    @{[vaesdm_vs $V24, $V7]}
++    @{[vaesdm_vs $V24, $V6]}
++    @{[vaesdm_vs $V24, $V5]}
++    @{[vaesdm_vs $V24, $V4]}
++    @{[vaesdm_vs $V24, $V3]}
++    @{[vaesdm_vs $V24, $V2]}
++    @{[vaesdf_vs $V24, $V1]}
++___
++
++    return $code;
++}
++
++# aes-256 enc with round keys v1-v15
++sub aes_256_enc {
++    my $code=<<___;
++    @{[vaesz_vs $V24, $V1]}
++    @{[vaesem_vs $V24, $V2]}
++    @{[vaesem_vs $V24, $V3]}
++    @{[vaesem_vs $V24, $V4]}
++    @{[vaesem_vs $V24, $V5]}
++    @{[vaesem_vs $V24, $V6]}
++    @{[vaesem_vs $V24, $V7]}
++    @{[vaesem_vs $V24, $V8]}
++    @{[vaesem_vs $V24, $V9]}
++    @{[vaesem_vs $V24, $V10]}
++    @{[vaesem_vs $V24, $V11]}
++    @{[vaesem_vs $V24, $V12]}
++    @{[vaesem_vs $V24, $V13]}
++    @{[vaesem_vs $V24, $V14]}
++    @{[vaesef_vs $V24, $V15]}
++___
++
++    return $code;
++}
++
++# aes-256 dec with round keys v1-v15
++sub aes_256_dec {
++    my $code=<<___;
++    @{[vaesz_vs $V24, $V15]}
++    @{[vaesdm_vs $V24, $V14]}
++    @{[vaesdm_vs $V24, $V13]}
++    @{[vaesdm_vs $V24, $V12]}
++    @{[vaesdm_vs $V24, $V11]}
++    @{[vaesdm_vs $V24, $V10]}
++    @{[vaesdm_vs $V24, $V9]}
++    @{[vaesdm_vs $V24, $V8]}
++    @{[vaesdm_vs $V24, $V7]}
++    @{[vaesdm_vs $V24, $V6]}
++    @{[vaesdm_vs $V24, $V5]}
++    @{[vaesdm_vs $V24, $V4]}
++    @{[vaesdm_vs $V24, $V3]}
++    @{[vaesdm_vs $V24, $V2]}
++    @{[vaesdf_vs $V24, $V1]}
++___
++
++    return $code;
++}
++
++$code .= <<___;
++.p2align 3
++.globl rv64i_zvbb_zvkg_zvkned_aes_xts_encrypt
++.type rv64i_zvbb_zvkg_zvkned_aes_xts_encrypt,\@function
++rv64i_zvbb_zvkg_zvkned_aes_xts_encrypt:
++    @{[load_xts_iv0]}
++
++    # aes block size is 16
++    andi $TAIL_LENGTH, $LENGTH, 15
++    mv $STORE_LEN32, $LENGTH
++    beqz $TAIL_LENGTH, 1f
++    sub $LENGTH, $LENGTH, $TAIL_LENGTH
++    addi $STORE_LEN32, $LENGTH, -16
++1:
++    # We make the `LENGTH` become e32 length here.
++    srli $LEN32, $LENGTH, 2
++    srli $STORE_LEN32, $STORE_LEN32, 2
++
++    # Load number of rounds
++    lwu $T0, 240($KEY)
++    li $T1, 14
++    li $T2, 12
++    li $T3, 10
++    beq $T0, $T1, aes_xts_enc_256
++    beq $T0, $T2, aes_xts_enc_192
++    beq $T0, $T3, aes_xts_enc_128
++.size rv64i_zvbb_zvkg_zvkned_aes_xts_encrypt,.-rv64i_zvbb_zvkg_zvkned_aes_xts_encrypt
++___
++
++$code .= <<___;
++.p2align 3
++aes_xts_enc_128:
++    @{[init_first_round]}
++    @{[aes_128_load_key]}
++
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "ma"]}
++    j 1f
++
++.Lenc_blocks_128:
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "ma"]}
++    # load plaintext into v24
++    @{[vle32_v $V24, $INPUT]}
++    # update iv
++    @{[vgmul_vv $V16, $V20]}
++    # reverse the iv's bits order back
++    @{[vbrev8_v $V28, $V16]}
++1:
++    @{[vxor_vv $V24, $V24, $V28]}
++    slli $T0, $VL, 2
++    sub $LEN32, $LEN32, $VL
++    add $INPUT, $INPUT, $T0
++    @{[aes_128_enc]}
++    @{[vxor_vv $V24, $V24, $V28]}
++
++    # store ciphertext
++    @{[vsetvli "zero", $STORE_LEN32, "e32", "m4", "ta", "ma"]}
++    @{[vse32_v $V24, $OUTPUT]}
++    add $OUTPUT, $OUTPUT, $T0
++    sub $STORE_LEN32, $STORE_LEN32, $VL
++
++    bnez $LEN32, .Lenc_blocks_128
++
++    @{[handle_xts_enc_last_block]}
++
++    # xts last block
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vxor_vv $V24, $V24, $V28]}
++    @{[aes_128_enc]}
++    @{[vxor_vv $V24, $V24, $V28]}
++
++    # store last block ciphertext
++    addi $OUTPUT, $OUTPUT, -16
++    @{[vse32_v $V24, $OUTPUT]}
++
++    ret
++.size aes_xts_enc_128,.-aes_xts_enc_128
++___
++
++$code .= <<___;
++.p2align 3
++aes_xts_enc_192:
++    @{[init_first_round]}
++    @{[aes_192_load_key]}
++
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "ma"]}
++    j 1f
++
++.Lenc_blocks_192:
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "ma"]}
++    # load plaintext into v24
++    @{[vle32_v $V24, $INPUT]}
++    # update iv
++    @{[vgmul_vv $V16, $V20]}
++    # reverse the iv's bits order back
++    @{[vbrev8_v $V28, $V16]}
++1:
++    @{[vxor_vv $V24, $V24, $V28]}
++    slli $T0, $VL, 2
++    sub $LEN32, $LEN32, $VL
++    add $INPUT, $INPUT, $T0
++    @{[aes_192_enc]}
++    @{[vxor_vv $V24, $V24, $V28]}
++
++    # store ciphertext
++    @{[vsetvli "zero", $STORE_LEN32, "e32", "m4", "ta", "ma"]}
++    @{[vse32_v $V24, $OUTPUT]}
++    add $OUTPUT, $OUTPUT, $T0
++    sub $STORE_LEN32, $STORE_LEN32, $VL
++
++    bnez $LEN32, .Lenc_blocks_192
++
++    @{[handle_xts_enc_last_block]}
++
++    # xts last block
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vxor_vv $V24, $V24, $V28]}
++    @{[aes_192_enc]}
++    @{[vxor_vv $V24, $V24, $V28]}
++
++    # store last block ciphertext
++    addi $OUTPUT, $OUTPUT, -16
++    @{[vse32_v $V24, $OUTPUT]}
++
++    ret
++.size aes_xts_enc_192,.-aes_xts_enc_192
++___
++
++$code .= <<___;
++.p2align 3
++aes_xts_enc_256:
++    @{[init_first_round]}
++    @{[aes_256_load_key]}
++
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "ma"]}
++    j 1f
++
++.Lenc_blocks_256:
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "ma"]}
++    # load plaintext into v24
++    @{[vle32_v $V24, $INPUT]}
++    # update iv
++    @{[vgmul_vv $V16, $V20]}
++    # reverse the iv's bits order back
++    @{[vbrev8_v $V28, $V16]}
++1:
++    @{[vxor_vv $V24, $V24, $V28]}
++    slli $T0, $VL, 2
++    sub $LEN32, $LEN32, $VL
++    add $INPUT, $INPUT, $T0
++    @{[aes_256_enc]}
++    @{[vxor_vv $V24, $V24, $V28]}
++
++    # store ciphertext
++    @{[vsetvli "zero", $STORE_LEN32, "e32", "m4", "ta", "ma"]}
++    @{[vse32_v $V24, $OUTPUT]}
++    add $OUTPUT, $OUTPUT, $T0
++    sub $STORE_LEN32, $STORE_LEN32, $VL
++
++    bnez $LEN32, .Lenc_blocks_256
++
++    @{[handle_xts_enc_last_block]}
++
++    # xts last block
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vxor_vv $V24, $V24, $V28]}
++    @{[aes_256_enc]}
++    @{[vxor_vv $V24, $V24, $V28]}
++
++    # store last block ciphertext
++    addi $OUTPUT, $OUTPUT, -16
++    @{[vse32_v $V24, $OUTPUT]}
++
++    ret
++.size aes_xts_enc_256,.-aes_xts_enc_256
++___
++
++################################################################################
++# void rv64i_zvbb_zvkg_zvkned_aes_xts_decrypt(const unsigned char *in,
++#                                             unsigned char *out, size_t length,
++#                                             const AES_KEY *key,
++#                                             unsigned char iv[16],
++#                                             int update_iv)
++$code .= <<___;
++.p2align 3
++.globl rv64i_zvbb_zvkg_zvkned_aes_xts_decrypt
++.type rv64i_zvbb_zvkg_zvkned_aes_xts_decrypt,\@function
++rv64i_zvbb_zvkg_zvkned_aes_xts_decrypt:
++    @{[load_xts_iv0]}
++
++    # aes block size is 16
++    andi $TAIL_LENGTH, $LENGTH, 15
++    beqz $TAIL_LENGTH, 1f
++    sub $LENGTH, $LENGTH, $TAIL_LENGTH
++    addi $LENGTH, $LENGTH, -16
++1:
++    # We make the `LENGTH` become e32 length here.
++    srli $LEN32, $LENGTH, 2
++
++    # Load number of rounds
++    lwu $T0, 240($KEY)
++    li $T1, 14
++    li $T2, 12
++    li $T3, 10
++    beq $T0, $T1, aes_xts_dec_256
++    beq $T0, $T2, aes_xts_dec_192
++    beq $T0, $T3, aes_xts_dec_128
++.size rv64i_zvbb_zvkg_zvkned_aes_xts_decrypt,.-rv64i_zvbb_zvkg_zvkned_aes_xts_decrypt
++___
++
++$code .= <<___;
++.p2align 3
++aes_xts_dec_128:
++    @{[init_first_round]}
++    @{[aes_128_load_key]}
++
++    beqz $LEN32, 2f
++
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "ma"]}
++    j 1f
++
++.Ldec_blocks_128:
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "ma"]}
++    # load ciphertext into v24
++    @{[vle32_v $V24, $INPUT]}
++    # update iv
++    @{[vgmul_vv $V16, $V20]}
++    # reverse the iv's bits order back
++    @{[vbrev8_v $V28, $V16]}
++1:
++    @{[vxor_vv $V24, $V24, $V28]}
++    slli $T0, $VL, 2
++    sub $LEN32, $LEN32, $VL
++    add $INPUT, $INPUT, $T0
++    @{[aes_128_dec]}
++    @{[vxor_vv $V24, $V24, $V28]}
++
++    # store plaintext
++    @{[vse32_v $V24, $OUTPUT]}
++    add $OUTPUT, $OUTPUT, $T0
++
++    bnez $LEN32, .Ldec_blocks_128
++
++2:
++    @{[handle_xts_dec_last_block]}
++
++    ## xts second to last block
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vxor_vv $V24, $V24, $V29]}
++    @{[aes_128_dec]}
++    @{[vxor_vv $V24, $V24, $V29]}
++    @{[vmv_v_v $V25, $V24]}
++
++    # load last block ciphertext
++    @{[vsetvli "zero", $TAIL_LENGTH, "e8", "m1", "tu", "ma"]}
++    @{[vle8_v $V24, $INPUT]}
++
++    # store second to last block plaintext
++    addi $T0, $OUTPUT, 16
++    @{[vse8_v $V25, $T0]}
++
++    ## xts last block
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vxor_vv $V24, $V24, $V28]}
++    @{[aes_128_dec]}
++    @{[vxor_vv $V24, $V24, $V28]}
++
++    # store second to last block plaintext
++    @{[vse32_v $V24, $OUTPUT]}
++
++    ret
++.size aes_xts_dec_128,.-aes_xts_dec_128
++___
++
++$code .= <<___;
++.p2align 3
++aes_xts_dec_192:
++    @{[init_first_round]}
++    @{[aes_192_load_key]}
++
++    beqz $LEN32, 2f
++
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "ma"]}
++    j 1f
++
++.Ldec_blocks_192:
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "ma"]}
++    # load ciphertext into v24
++    @{[vle32_v $V24, $INPUT]}
++    # update iv
++    @{[vgmul_vv $V16, $V20]}
++    # reverse the iv's bits order back
++    @{[vbrev8_v $V28, $V16]}
++1:
++    @{[vxor_vv $V24, $V24, $V28]}
++    slli $T0, $VL, 2
++    sub $LEN32, $LEN32, $VL
++    add $INPUT, $INPUT, $T0
++    @{[aes_192_dec]}
++    @{[vxor_vv $V24, $V24, $V28]}
++
++    # store plaintext
++    @{[vse32_v $V24, $OUTPUT]}
++    add $OUTPUT, $OUTPUT, $T0
++
++    bnez $LEN32, .Ldec_blocks_192
++
++2:
++    @{[handle_xts_dec_last_block]}
++
++    ## xts second to last block
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vxor_vv $V24, $V24, $V29]}
++    @{[aes_192_dec]}
++    @{[vxor_vv $V24, $V24, $V29]}
++    @{[vmv_v_v $V25, $V24]}
++
++    # load last block ciphertext
++    @{[vsetvli "zero", $TAIL_LENGTH, "e8", "m1", "tu", "ma"]}
++    @{[vle8_v $V24, $INPUT]}
++
++    # store second to last block plaintext
++    addi $T0, $OUTPUT, 16
++    @{[vse8_v $V25, $T0]}
++
++    ## xts last block
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vxor_vv $V24, $V24, $V28]}
++    @{[aes_192_dec]}
++    @{[vxor_vv $V24, $V24, $V28]}
++
++    # store second to last block plaintext
++    @{[vse32_v $V24, $OUTPUT]}
++
++    ret
++.size aes_xts_dec_192,.-aes_xts_dec_192
++___
++
++$code .= <<___;
++.p2align 3
++aes_xts_dec_256:
++    @{[init_first_round]}
++    @{[aes_256_load_key]}
++
++    beqz $LEN32, 2f
++
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "ma"]}
++    j 1f
++
++.Ldec_blocks_256:
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "ma"]}
++    # load ciphertext into v24
++    @{[vle32_v $V24, $INPUT]}
++    # update iv
++    @{[vgmul_vv $V16, $V20]}
++    # reverse the iv's bits order back
++    @{[vbrev8_v $V28, $V16]}
++1:
++    @{[vxor_vv $V24, $V24, $V28]}
++    slli $T0, $VL, 2
++    sub $LEN32, $LEN32, $VL
++    add $INPUT, $INPUT, $T0
++    @{[aes_256_dec]}
++    @{[vxor_vv $V24, $V24, $V28]}
++
++    # store plaintext
++    @{[vse32_v $V24, $OUTPUT]}
++    add $OUTPUT, $OUTPUT, $T0
++
++    bnez $LEN32, .Ldec_blocks_256
++
++2:
++    @{[handle_xts_dec_last_block]}
++
++    ## xts second to last block
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vxor_vv $V24, $V24, $V29]}
++    @{[aes_256_dec]}
++    @{[vxor_vv $V24, $V24, $V29]}
++    @{[vmv_v_v $V25, $V24]}
++
++    # load last block ciphertext
++    @{[vsetvli "zero", $TAIL_LENGTH, "e8", "m1", "tu", "ma"]}
++    @{[vle8_v $V24, $INPUT]}
++
++    # store second to last block plaintext
++    addi $T0, $OUTPUT, 16
++    @{[vse8_v $V25, $T0]}
++
++    ## xts last block
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vxor_vv $V24, $V24, $V28]}
++    @{[aes_256_dec]}
++    @{[vxor_vv $V24, $V24, $V28]}
++
++    # store second to last block plaintext
++    @{[vse32_v $V24, $OUTPUT]}
++
++    ret
++.size aes_xts_dec_256,.-aes_xts_dec_256
++___
++}
++
++print $code;
++
++close STDOUT or die "error closing STDOUT: $!";
+diff --git a/arch/riscv/crypto/aes-riscv64-zvkb-zvkned.pl b/arch/riscv/crypto/aes-riscv64-zvkb-zvkned.pl
+new file mode 100644
+index 000000000000..bc659da44c53
+--- /dev/null
++++ b/arch/riscv/crypto/aes-riscv64-zvkb-zvkned.pl
+@@ -0,0 +1,416 @@
++#! /usr/bin/env perl
++# SPDX-License-Identifier: Apache-2.0 OR BSD-2-Clause
++#
++# This file is dual-licensed, meaning that you can use it under your
++# choice of either of the following two licenses:
++#
++# Copyright 2023 The OpenSSL Project Authors. All Rights Reserved.
++#
++# Licensed under the Apache License 2.0 (the "License"). You can obtain
++# a copy in the file LICENSE in the source distribution or at
++# https://www.openssl.org/source/license.html
++#
++# or
++#
++# Copyright (c) 2023, Jerry Shih <jerry.shih@sifive.com>
++# All rights reserved.
++#
++# Redistribution and use in source and binary forms, with or without
++# modification, are permitted provided that the following conditions
++# are met:
++# 1. Redistributions of source code must retain the above copyright
++#    notice, this list of conditions and the following disclaimer.
++# 2. Redistributions in binary form must reproduce the above copyright
++#    notice, this list of conditions and the following disclaimer in the
++#    documentation and/or other materials provided with the distribution.
++#
++# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
++# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
++# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
++# A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
++# OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
++# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
++# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
++# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
++# THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
++# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
++# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
++
++# - RV64I
++# - RISC-V Vector ('V') with VLEN >= 128
++# - RISC-V Vector Cryptography Bit-manipulation extension ('Zvkb')
++# - RISC-V Vector AES block cipher extension ('Zvkned')
++# - RISC-V Zicclsm(Main memory supports misaligned loads/stores)
++
++use strict;
++use warnings;
++
++use FindBin qw($Bin);
++use lib "$Bin";
++use lib "$Bin/../../perlasm";
++use riscv;
++
++# $output is the last argument if it looks like a file (it has an extension)
++# $flavour is the first argument if it doesn't look like a file
++my $output = $#ARGV >= 0 && $ARGV[$#ARGV] =~ m|\.\w+$| ? pop : undef;
++my $flavour = $#ARGV >= 0 && $ARGV[0] !~ m|\.| ? shift : undef;
++
++$output and open STDOUT,">$output";
++
++my $code=<<___;
++.text
++___
++
++################################################################################
++# void rv64i_zvkb_zvkned_ctr32_encrypt_blocks(const unsigned char *in,
++#                                             unsigned char *out, size_t length,
++#                                             const void *key,
++#                                             unsigned char ivec[16]);
++{
++my ($INP, $OUTP, $LEN, $KEYP, $IVP) = ("a0", "a1", "a2", "a3", "a4");
++my ($T0, $T1, $T2, $T3) = ("t0", "t1", "t2", "t3");
++my ($VL) = ("t4");
++my ($LEN32) = ("t5");
++my ($CTR) = ("t6");
++my ($MASK) = ("v0");
++my ($V0, $V1, $V2, $V3, $V4, $V5, $V6, $V7,
++    $V8, $V9, $V10, $V11, $V12, $V13, $V14, $V15,
++    $V16, $V17, $V18, $V19, $V20, $V21, $V22, $V23,
++    $V24, $V25, $V26, $V27, $V28, $V29, $V30, $V31,
++) = map("v$_",(0..31));
++
++# Prepare the AES ctr input data into v16.
++sub init_aes_ctr_input {
++    my $code=<<___;
++    # Setup mask into v0
++    # The mask pattern for 4*N-th elements
++    # mask v0: [000100010001....]
++    # Note:
++    #   We could setup the mask just for the maximum element length instead of
++    #   the VLMAX.
++    li $T0, 0b10001000
++    @{[vsetvli $T2, "zero", "e8", "m1", "ta", "ma"]}
++    @{[vmv_v_x $MASK, $T0]}
++    # Load IV.
++    # v31:[IV0, IV1, IV2, big-endian count]
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vle32_v $V31, $IVP]}
++    # Convert the big-endian counter into little-endian.
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "mu"]}
++    @{[vrev8_v $V31, $V31, $MASK]}
++    # Splat the IV to v16
++    @{[vsetvli "zero", $LEN32, "e32", "m4", "ta", "ma"]}
++    @{[vmv_v_i $V16, 0]}
++    @{[vaesz_vs $V16, $V31]}
++    # Prepare the ctr pattern into v20
++    # v20: [x, x, x, 0, x, x, x, 1, x, x, x, 2, ...]
++    @{[viota_m $V20, $MASK, $MASK]}
++    # v16:[IV0, IV1, IV2, count+0, IV0, IV1, IV2, count+1, ...]
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "mu"]}
++    @{[vadd_vv $V16, $V16, $V20, $MASK]}
++___
++
++    return $code;
++}
++
++$code .= <<___;
++.p2align 3
++.globl rv64i_zvkb_zvkned_ctr32_encrypt_blocks
++.type rv64i_zvkb_zvkned_ctr32_encrypt_blocks,\@function
++rv64i_zvkb_zvkned_ctr32_encrypt_blocks:
++    # The aes block size is 16 bytes.
++    # We try to get the minimum aes block number including the tail data.
++    addi $T0, $LEN, 15
++    # the minimum block number
++    srli $T0, $T0, 4
++    # We make the block number become e32 length here.
++    slli $LEN32, $T0, 2
++
++    # Load number of rounds
++    lwu $T0, 240($KEYP)
++    li $T1, 14
++    li $T2, 12
++    li $T3, 10
++
++    beq $T0, $T1, ctr32_encrypt_blocks_256
++    beq $T0, $T2, ctr32_encrypt_blocks_192
++    beq $T0, $T3, ctr32_encrypt_blocks_128
++
++    ret
++.size rv64i_zvkb_zvkned_ctr32_encrypt_blocks,.-rv64i_zvkb_zvkned_ctr32_encrypt_blocks
++___
++
++$code .= <<___;
++.p2align 3
++ctr32_encrypt_blocks_128:
++    # Load all 11 round keys to v1-v11 registers.
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vle32_v $V1, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V2, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V3, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V4, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V5, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V6, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V7, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V8, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V9, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V10, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V11, $KEYP]}
++
++    @{[init_aes_ctr_input]}
++
++    ##### AES body
++    j 2f
++1:
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "mu"]}
++    # Increase ctr in v16.
++    @{[vadd_vx $V16, $V16, $CTR, $MASK]}
++2:
++    # Prepare the AES ctr input into v24.
++    # The ctr data uses big-endian form.
++    @{[vmv_v_v $V24, $V16]}
++    @{[vrev8_v $V24, $V24, $MASK]}
++    srli $CTR, $VL, 2
++    sub $LEN32, $LEN32, $VL
++
++    # Load plaintext in bytes into v20.
++    @{[vsetvli $T0, $LEN, "e8", "m4", "ta", "ma"]}
++    @{[vle8_v $V20, $INP]}
++    sub $LEN, $LEN, $T0
++    add $INP, $INP, $T0
++
++    @{[vsetvli "zero", $VL, "e32", "m4", "ta", "ma"]}
++    @{[vaesz_vs $V24, $V1]}
++    @{[vaesem_vs $V24, $V2]}
++    @{[vaesem_vs $V24, $V3]}
++    @{[vaesem_vs $V24, $V4]}
++    @{[vaesem_vs $V24, $V5]}
++    @{[vaesem_vs $V24, $V6]}
++    @{[vaesem_vs $V24, $V7]}
++    @{[vaesem_vs $V24, $V8]}
++    @{[vaesem_vs $V24, $V9]}
++    @{[vaesem_vs $V24, $V10]}
++    @{[vaesef_vs $V24, $V11]}
++
++    # ciphertext
++    @{[vsetvli "zero", $T0, "e8", "m4", "ta", "ma"]}
++    @{[vxor_vv $V24, $V24, $V20]}
++
++    # Store the ciphertext.
++    @{[vse8_v $V24, $OUTP]}
++    add $OUTP, $OUTP, $T0
++
++    bnez $LEN, 1b
++
++    ## store ctr iv
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "mu"]}
++    # Increase ctr in v16.
++    @{[vadd_vx $V16, $V16, $CTR, $MASK]}
++    # Convert ctr data back to big-endian.
++    @{[vrev8_v $V16, $V16, $MASK]}
++    @{[vse32_v $V16, $IVP]}
++
++    ret
++.size ctr32_encrypt_blocks_128,.-ctr32_encrypt_blocks_128
++___
++
++$code .= <<___;
++.p2align 3
++ctr32_encrypt_blocks_192:
++    # Load all 13 round keys to v1-v13 registers.
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vle32_v $V1, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V2, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V3, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V4, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V5, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V6, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V7, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V8, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V9, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V10, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V11, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V12, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V13, $KEYP]}
++
++    @{[init_aes_ctr_input]}
++
++    ##### AES body
++    j 2f
++1:
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "mu"]}
++    # Increase ctr in v16.
++    @{[vadd_vx $V16, $V16, $CTR, $MASK]}
++2:
++    # Prepare the AES ctr input into v24.
++    # The ctr data uses big-endian form.
++    @{[vmv_v_v $V24, $V16]}
++    @{[vrev8_v $V24, $V24, $MASK]}
++    srli $CTR, $VL, 2
++    sub $LEN32, $LEN32, $VL
++
++    # Load plaintext in bytes into v20.
++    @{[vsetvli $T0, $LEN, "e8", "m4", "ta", "ma"]}
++    @{[vle8_v $V20, $INP]}
++    sub $LEN, $LEN, $T0
++    add $INP, $INP, $T0
++
++    @{[vsetvli "zero", $VL, "e32", "m4", "ta", "ma"]}
++    @{[vaesz_vs $V24, $V1]}
++    @{[vaesem_vs $V24, $V2]}
++    @{[vaesem_vs $V24, $V3]}
++    @{[vaesem_vs $V24, $V4]}
++    @{[vaesem_vs $V24, $V5]}
++    @{[vaesem_vs $V24, $V6]}
++    @{[vaesem_vs $V24, $V7]}
++    @{[vaesem_vs $V24, $V8]}
++    @{[vaesem_vs $V24, $V9]}
++    @{[vaesem_vs $V24, $V10]}
++    @{[vaesem_vs $V24, $V11]}
++    @{[vaesem_vs $V24, $V12]}
++    @{[vaesef_vs $V24, $V13]}
++
++    # ciphertext
++    @{[vsetvli "zero", $T0, "e8", "m4", "ta", "ma"]}
++    @{[vxor_vv $V24, $V24, $V20]}
++
++    # Store the ciphertext.
++    @{[vse8_v $V24, $OUTP]}
++    add $OUTP, $OUTP, $T0
++
++    bnez $LEN, 1b
++
++    ## store ctr iv
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "mu"]}
++    # Increase ctr in v16.
++    @{[vadd_vx $V16, $V16, $CTR, $MASK]}
++    # Convert ctr data back to big-endian.
++    @{[vrev8_v $V16, $V16, $MASK]}
++    @{[vse32_v $V16, $IVP]}
++
++    ret
++.size ctr32_encrypt_blocks_192,.-ctr32_encrypt_blocks_192
++___
++
++$code .= <<___;
++.p2align 3
++ctr32_encrypt_blocks_256:
++    # Load all 15 round keys to v1-v15 registers.
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vle32_v $V1, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V2, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V3, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V4, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V5, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V6, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V7, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V8, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V9, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V10, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V11, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V12, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V13, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V14, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V15, $KEYP]}
++
++    @{[init_aes_ctr_input]}
++
++    ##### AES body
++    j 2f
++1:
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "mu"]}
++    # Increase ctr in v16.
++    @{[vadd_vx $V16, $V16, $CTR, $MASK]}
++2:
++    # Prepare the AES ctr input into v24.
++    # The ctr data uses big-endian form.
++    @{[vmv_v_v $V24, $V16]}
++    @{[vrev8_v $V24, $V24, $MASK]}
++    srli $CTR, $VL, 2
++    sub $LEN32, $LEN32, $VL
++
++    # Load plaintext in bytes into v20.
++    @{[vsetvli $T0, $LEN, "e8", "m4", "ta", "ma"]}
++    @{[vle8_v $V20, $INP]}
++    sub $LEN, $LEN, $T0
++    add $INP, $INP, $T0
++
++    @{[vsetvli "zero", $VL, "e32", "m4", "ta", "ma"]}
++    @{[vaesz_vs $V24, $V1]}
++    @{[vaesem_vs $V24, $V2]}
++    @{[vaesem_vs $V24, $V3]}
++    @{[vaesem_vs $V24, $V4]}
++    @{[vaesem_vs $V24, $V5]}
++    @{[vaesem_vs $V24, $V6]}
++    @{[vaesem_vs $V24, $V7]}
++    @{[vaesem_vs $V24, $V8]}
++    @{[vaesem_vs $V24, $V9]}
++    @{[vaesem_vs $V24, $V10]}
++    @{[vaesem_vs $V24, $V11]}
++    @{[vaesem_vs $V24, $V12]}
++    @{[vaesem_vs $V24, $V13]}
++    @{[vaesem_vs $V24, $V14]}
++    @{[vaesef_vs $V24, $V15]}
++
++    # ciphertext
++    @{[vsetvli "zero", $T0, "e8", "m4", "ta", "ma"]}
++    @{[vxor_vv $V24, $V24, $V20]}
++
++    # Store the ciphertext.
++    @{[vse8_v $V24, $OUTP]}
++    add $OUTP, $OUTP, $T0
++
++    bnez $LEN, 1b
++
++    ## store ctr iv
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "mu"]}
++    # Increase ctr in v16.
++    @{[vadd_vx $V16, $V16, $CTR, $MASK]}
++    # Convert ctr data back to big-endian.
++    @{[vrev8_v $V16, $V16, $MASK]}
++    @{[vse32_v $V16, $IVP]}
++
++    ret
++.size ctr32_encrypt_blocks_256,.-ctr32_encrypt_blocks_256
++___
++}
++
++print $code;
++
++close STDOUT or die "error closing STDOUT: $!";
+diff --git a/arch/riscv/crypto/aes-riscv64-zvkned.pl b/arch/riscv/crypto/aes-riscv64-zvkned.pl
+index c0ecde77bf56..4689f878463a 100644
+--- a/arch/riscv/crypto/aes-riscv64-zvkned.pl
++++ b/arch/riscv/crypto/aes-riscv64-zvkned.pl
+@@ -66,6 +66,753 @@ my ($V0, $V1, $V2, $V3, $V4, $V5, $V6, $V7,
+     $V24, $V25, $V26, $V27, $V28, $V29, $V30, $V31,
+ ) = map("v$_",(0..31));
+ 
++# Load all 11 round keys to v1-v11 registers.
++sub aes_128_load_key {
++    my $KEYP = shift;
++
++    my $code=<<___;
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vle32_v $V1, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V2, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V3, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V4, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V5, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V6, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V7, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V8, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V9, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V10, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V11, $KEYP]}
++___
++
++    return $code;
++}
++
++# Load all 13 round keys to v1-v13 registers.
++sub aes_192_load_key {
++    my $KEYP = shift;
++
++    my $code=<<___;
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vle32_v $V1, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V2, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V3, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V4, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V5, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V6, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V7, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V8, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V9, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V10, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V11, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V12, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V13, $KEYP]}
++___
++
++    return $code;
++}
++
++# Load all 15 round keys to v1-v15 registers.
++sub aes_256_load_key {
++    my $KEYP = shift;
++
++    my $code=<<___;
++    @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
++    @{[vle32_v $V1, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V2, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V3, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V4, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V5, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V6, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V7, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V8, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V9, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V10, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V11, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V12, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V13, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V14, $KEYP]}
++    addi $KEYP, $KEYP, 16
++    @{[vle32_v $V15, $KEYP]}
++___
++
++    return $code;
++}
++
++# aes-128 encryption with round keys v1-v11
++sub aes_128_encrypt {
++    my $code=<<___;
++    @{[vaesz_vs $V24, $V1]}     # with round key w[ 0, 3]
++    @{[vaesem_vs $V24, $V2]}    # with round key w[ 4, 7]
++    @{[vaesem_vs $V24, $V3]}    # with round key w[ 8,11]
++    @{[vaesem_vs $V24, $V4]}    # with round key w[12,15]
++    @{[vaesem_vs $V24, $V5]}    # with round key w[16,19]
++    @{[vaesem_vs $V24, $V6]}    # with round key w[20,23]
++    @{[vaesem_vs $V24, $V7]}    # with round key w[24,27]
++    @{[vaesem_vs $V24, $V8]}    # with round key w[28,31]
++    @{[vaesem_vs $V24, $V9]}    # with round key w[32,35]
++    @{[vaesem_vs $V24, $V10]}   # with round key w[36,39]
++    @{[vaesef_vs $V24, $V11]}   # with round key w[40,43]
++___
++
++    return $code;
++}
++
++# aes-128 decryption with round keys v1-v11
++sub aes_128_decrypt {
++    my $code=<<___;
++    @{[vaesz_vs $V24, $V11]}   # with round key w[40,43]
++    @{[vaesdm_vs $V24, $V10]}  # with round key w[36,39]
++    @{[vaesdm_vs $V24, $V9]}   # with round key w[32,35]
++    @{[vaesdm_vs $V24, $V8]}   # with round key w[28,31]
++    @{[vaesdm_vs $V24, $V7]}   # with round key w[24,27]
++    @{[vaesdm_vs $V24, $V6]}   # with round key w[20,23]
++    @{[vaesdm_vs $V24, $V5]}   # with round key w[16,19]
++    @{[vaesdm_vs $V24, $V4]}   # with round key w[12,15]
++    @{[vaesdm_vs $V24, $V3]}   # with round key w[ 8,11]
++    @{[vaesdm_vs $V24, $V2]}   # with round key w[ 4, 7]
++    @{[vaesdf_vs $V24, $V1]}   # with round key w[ 0, 3]
++___
++
++    return $code;
++}
++
++# aes-192 encryption with round keys v1-v13
++sub aes_192_encrypt {
++    my $code=<<___;
++    @{[vaesz_vs $V24, $V1]}     # with round key w[ 0, 3]
++    @{[vaesem_vs $V24, $V2]}    # with round key w[ 4, 7]
++    @{[vaesem_vs $V24, $V3]}    # with round key w[ 8,11]
++    @{[vaesem_vs $V24, $V4]}    # with round key w[12,15]
++    @{[vaesem_vs $V24, $V5]}    # with round key w[16,19]
++    @{[vaesem_vs $V24, $V6]}    # with round key w[20,23]
++    @{[vaesem_vs $V24, $V7]}    # with round key w[24,27]
++    @{[vaesem_vs $V24, $V8]}    # with round key w[28,31]
++    @{[vaesem_vs $V24, $V9]}    # with round key w[32,35]
++    @{[vaesem_vs $V24, $V10]}   # with round key w[36,39]
++    @{[vaesem_vs $V24, $V11]}   # with round key w[40,43]
++    @{[vaesem_vs $V24, $V12]}   # with round key w[44,47]
++    @{[vaesef_vs $V24, $V13]}   # with round key w[48,51]
++___
++
++    return $code;
++}
++
++# aes-192 decryption with round keys v1-v13
++sub aes_192_decrypt {
++    my $code=<<___;
++    @{[vaesz_vs $V24, $V13]}    # with round key w[48,51]
++    @{[vaesdm_vs $V24, $V12]}   # with round key w[44,47]
++    @{[vaesdm_vs $V24, $V11]}   # with round key w[40,43]
++    @{[vaesdm_vs $V24, $V10]}   # with round key w[36,39]
++    @{[vaesdm_vs $V24, $V9]}    # with round key w[32,35]
++    @{[vaesdm_vs $V24, $V8]}    # with round key w[28,31]
++    @{[vaesdm_vs $V24, $V7]}    # with round key w[24,27]
++    @{[vaesdm_vs $V24, $V6]}    # with round key w[20,23]
++    @{[vaesdm_vs $V24, $V5]}    # with round key w[16,19]
++    @{[vaesdm_vs $V24, $V4]}    # with round key w[12,15]
++    @{[vaesdm_vs $V24, $V3]}    # with round key w[ 8,11]
++    @{[vaesdm_vs $V24, $V2]}    # with round key w[ 4, 7]
++    @{[vaesdf_vs $V24, $V1]}    # with round key w[ 0, 3]
++___
++
++    return $code;
++}
++
++# aes-256 encryption with round keys v1-v15
++sub aes_256_encrypt {
++    my $code=<<___;
++    @{[vaesz_vs $V24, $V1]}     # with round key w[ 0, 3]
++    @{[vaesem_vs $V24, $V2]}    # with round key w[ 4, 7]
++    @{[vaesem_vs $V24, $V3]}    # with round key w[ 8,11]
++    @{[vaesem_vs $V24, $V4]}    # with round key w[12,15]
++    @{[vaesem_vs $V24, $V5]}    # with round key w[16,19]
++    @{[vaesem_vs $V24, $V6]}    # with round key w[20,23]
++    @{[vaesem_vs $V24, $V7]}    # with round key w[24,27]
++    @{[vaesem_vs $V24, $V8]}    # with round key w[28,31]
++    @{[vaesem_vs $V24, $V9]}    # with round key w[32,35]
++    @{[vaesem_vs $V24, $V10]}   # with round key w[36,39]
++    @{[vaesem_vs $V24, $V11]}   # with round key w[40,43]
++    @{[vaesem_vs $V24, $V12]}   # with round key w[44,47]
++    @{[vaesem_vs $V24, $V13]}   # with round key w[48,51]
++    @{[vaesem_vs $V24, $V14]}   # with round key w[52,55]
++    @{[vaesef_vs $V24, $V15]}   # with round key w[56,59]
++___
++
++    return $code;
++}
++
++# aes-256 decryption with round keys v1-v15
++sub aes_256_decrypt {
++    my $code=<<___;
++    @{[vaesz_vs $V24, $V15]}    # with round key w[56,59]
++    @{[vaesdm_vs $V24, $V14]}   # with round key w[52,55]
++    @{[vaesdm_vs $V24, $V13]}   # with round key w[48,51]
++    @{[vaesdm_vs $V24, $V12]}   # with round key w[44,47]
++    @{[vaesdm_vs $V24, $V11]}   # with round key w[40,43]
++    @{[vaesdm_vs $V24, $V10]}   # with round key w[36,39]
++    @{[vaesdm_vs $V24, $V9]}    # with round key w[32,35]
++    @{[vaesdm_vs $V24, $V8]}    # with round key w[28,31]
++    @{[vaesdm_vs $V24, $V7]}    # with round key w[24,27]
++    @{[vaesdm_vs $V24, $V6]}    # with round key w[20,23]
++    @{[vaesdm_vs $V24, $V5]}    # with round key w[16,19]
++    @{[vaesdm_vs $V24, $V4]}    # with round key w[12,15]
++    @{[vaesdm_vs $V24, $V3]}    # with round key w[ 8,11]
++    @{[vaesdm_vs $V24, $V2]}    # with round key w[ 4, 7]
++    @{[vaesdf_vs $V24, $V1]}    # with round key w[ 0, 3]
++___
++
++    return $code;
++}
++
++{
++###############################################################################
++# void rv64i_zvkned_cbc_encrypt(const unsigned char *in, unsigned char *out,
++#                               size_t length, const AES_KEY *key,
++#                               unsigned char *ivec, const int enc);
++my ($INP, $OUTP, $LEN, $KEYP, $IVP, $ENC) = ("a0", "a1", "a2", "a3", "a4", "a5");
++my ($T0, $T1, $ROUNDS) = ("t0", "t1", "t2");
++
++$code .= <<___;
++.p2align 3
++.globl rv64i_zvkned_cbc_encrypt
++.type rv64i_zvkned_cbc_encrypt,\@function
++rv64i_zvkned_cbc_encrypt:
++    # check whether the length is a multiple of 16 and >= 16
++    li $T1, 16
++    blt $LEN, $T1, L_end
++    andi $T1, $LEN, 15
++    bnez $T1, L_end
++
++    # Load number of rounds
++    lwu $ROUNDS, 240($KEYP)
++
++    # Get proper routine for key size
++    li $T0, 10
++    beq $ROUNDS, $T0, L_cbc_enc_128
++
++    li $T0, 12
++    beq $ROUNDS, $T0, L_cbc_enc_192
++
++    li $T0, 14
++    beq $ROUNDS, $T0, L_cbc_enc_256
++
++    ret
++.size rv64i_zvkned_cbc_encrypt,.-rv64i_zvkned_cbc_encrypt
++___
++
++$code .= <<___;
++.p2align 3
++L_cbc_enc_128:
++    # Load all 11 round keys to v1-v11 registers.
++    @{[aes_128_load_key $KEYP]}
++
++    # Load IV.
++    @{[vle32_v $V16, $IVP]}
++
++    @{[vle32_v $V24, $INP]}
++    @{[vxor_vv $V24, $V24, $V16]}
++    j 2f
++
++1:
++    @{[vle32_v $V17, $INP]}
++    @{[vxor_vv $V24, $V24, $V17]}
++
++2:
++    # AES body
++    @{[aes_128_encrypt]}
++
++    @{[vse32_v $V24, $OUTP]}
++
++    addi $INP, $INP, 16
++    addi $OUTP, $OUTP, 16
++    addi $LEN, $LEN, -16
++
++    bnez $LEN, 1b
++
++    @{[vse32_v $V24, $IVP]}
++
++    ret
++.size L_cbc_enc_128,.-L_cbc_enc_128
++___
++
++$code .= <<___;
++.p2align 3
++L_cbc_enc_192:
++    # Load all 13 round keys to v1-v13 registers.
++    @{[aes_192_load_key $KEYP]}
++
++    # Load IV.
++    @{[vle32_v $V16, $IVP]}
++
++    @{[vle32_v $V24, $INP]}
++    @{[vxor_vv $V24, $V24, $V16]}
++    j 2f
++
++1:
++    @{[vle32_v $V17, $INP]}
++    @{[vxor_vv $V24, $V24, $V17]}
++
++2:
++    # AES body
++    @{[aes_192_encrypt]}
++
++    @{[vse32_v $V24, $OUTP]}
++
++    addi $INP, $INP, 16
++    addi $OUTP, $OUTP, 16
++    addi $LEN, $LEN, -16
++
++    bnez $LEN, 1b
++
++    @{[vse32_v $V24, $IVP]}
++
++    ret
++.size L_cbc_enc_192,.-L_cbc_enc_192
++___
++
++$code .= <<___;
++.p2align 3
++L_cbc_enc_256:
++    # Load all 15 round keys to v1-v15 registers.
++    @{[aes_256_load_key $KEYP]}
++
++    # Load IV.
++    @{[vle32_v $V16, $IVP]}
++
++    @{[vle32_v $V24, $INP]}
++    @{[vxor_vv $V24, $V24, $V16]}
++    j 2f
++
++1:
++    @{[vle32_v $V17, $INP]}
++    @{[vxor_vv $V24, $V24, $V17]}
++
++2:
++    # AES body
++    @{[aes_256_encrypt]}
++
++    @{[vse32_v $V24, $OUTP]}
++
++    addi $INP, $INP, 16
++    addi $OUTP, $OUTP, 16
++    addi $LEN, $LEN, -16
++
++    bnez $LEN, 1b
++
++    @{[vse32_v $V24, $IVP]}
++
++    ret
++.size L_cbc_enc_256,.-L_cbc_enc_256
++___
++
++###############################################################################
++# void rv64i_zvkned_cbc_decrypt(const unsigned char *in, unsigned char *out,
++#                               size_t length, const AES_KEY *key,
++#                               unsigned char *ivec, const int enc);
++$code .= <<___;
++.p2align 3
++.globl rv64i_zvkned_cbc_decrypt
++.type rv64i_zvkned_cbc_decrypt,\@function
++rv64i_zvkned_cbc_decrypt:
++    # check whether the length is a multiple of 16 and >= 16
++    li $T1, 16
++    blt $LEN, $T1, L_end
++    andi $T1, $LEN, 15
++    bnez $T1, L_end
++
++    # Load number of rounds
++    lwu $ROUNDS, 240($KEYP)
++
++    # Get proper routine for key size
++    li $T0, 10
++    beq $ROUNDS, $T0, L_cbc_dec_128
++
++    li $T0, 12
++    beq $ROUNDS, $T0, L_cbc_dec_192
++
++    li $T0, 14
++    beq $ROUNDS, $T0, L_cbc_dec_256
++
++    ret
++.size rv64i_zvkned_cbc_decrypt,.-rv64i_zvkned_cbc_decrypt
++___
++
++$code .= <<___;
++.p2align 3
++L_cbc_dec_128:
++    # Load all 11 round keys to v1-v11 registers.
++    @{[aes_128_load_key $KEYP]}
++
++    # Load IV.
++    @{[vle32_v $V16, $IVP]}
++
++    @{[vle32_v $V24, $INP]}
++    @{[vmv_v_v $V17, $V24]}
++    j 2f
++
++1:
++    @{[vle32_v $V24, $INP]}
++    @{[vmv_v_v $V17, $V24]}
++    addi $OUTP, $OUTP, 16
++
++2:
++    # AES body
++    @{[aes_128_decrypt]}
++
++    @{[vxor_vv $V24, $V24, $V16]}
++    @{[vse32_v $V24, $OUTP]}
++    @{[vmv_v_v $V16, $V17]}
++
++    addi $LEN, $LEN, -16
++    addi $INP, $INP, 16
++
++    bnez $LEN, 1b
++
++    @{[vse32_v $V16, $IVP]}
++
++    ret
++.size L_cbc_dec_128,.-L_cbc_dec_128
++___
++
++$code .= <<___;
++.p2align 3
++L_cbc_dec_192:
++    # Load all 13 round keys to v1-v13 registers.
++    @{[aes_192_load_key $KEYP]}
++
++    # Load IV.
++    @{[vle32_v $V16, $IVP]}
++
++    @{[vle32_v $V24, $INP]}
++    @{[vmv_v_v $V17, $V24]}
++    j 2f
++
++1:
++    @{[vle32_v $V24, $INP]}
++    @{[vmv_v_v $V17, $V24]}
++    addi $OUTP, $OUTP, 16
++
++2:
++    # AES body
++    @{[aes_192_decrypt]}
++
++    @{[vxor_vv $V24, $V24, $V16]}
++    @{[vse32_v $V24, $OUTP]}
++    @{[vmv_v_v $V16, $V17]}
++
++    addi $LEN, $LEN, -16
++    addi $INP, $INP, 16
++
++    bnez $LEN, 1b
++
++    @{[vse32_v $V16, $IVP]}
++
++    ret
++.size L_cbc_dec_192,.-L_cbc_dec_192
++___
++
++$code .= <<___;
++.p2align 3
++L_cbc_dec_256:
++    # Load all 15 round keys to v1-v15 registers.
++    @{[aes_256_load_key $KEYP]}
++
++    # Load IV.
++    @{[vle32_v $V16, $IVP]}
++
++    @{[vle32_v $V24, $INP]}
++    @{[vmv_v_v $V17, $V24]}
++    j 2f
++
++1:
++    @{[vle32_v $V24, $INP]}
++    @{[vmv_v_v $V17, $V24]}
++    addi $OUTP, $OUTP, 16
++
++2:
++    # AES body
++    @{[aes_256_decrypt]}
++
++    @{[vxor_vv $V24, $V24, $V16]}
++    @{[vse32_v $V24, $OUTP]}
++    @{[vmv_v_v $V16, $V17]}
++
++    addi $LEN, $LEN, -16
++    addi $INP, $INP, 16
++
++    bnez $LEN, 1b
++
++    @{[vse32_v $V16, $IVP]}
++
++    ret
++.size L_cbc_dec_256,.-L_cbc_dec_256
++___
++}
++
++{
++###############################################################################
++# void rv64i_zvkned_ecb_encrypt(const unsigned char *in, unsigned char *out,
++#                               size_t length, const AES_KEY *key,
++#                               const int enc);
++my ($INP, $OUTP, $LEN, $KEYP, $ENC) = ("a0", "a1", "a2", "a3", "a4");
++my ($REMAIN_LEN) = ("a5");
++my ($VL) = ("a6");
++my ($T0, $T1, $ROUNDS) = ("t0", "t1", "t2");
++my ($LEN32) = ("t3");
++
++$code .= <<___;
++.p2align 3
++.globl rv64i_zvkned_ecb_encrypt
++.type rv64i_zvkned_ecb_encrypt,\@function
++rv64i_zvkned_ecb_encrypt:
++    # Make the LEN become e32 length.
++    srli $LEN32, $LEN, 2
++
++    # Load number of rounds
++    lwu $ROUNDS, 240($KEYP)
++
++    # Get proper routine for key size
++    li $T0, 10
++    beq $ROUNDS, $T0, L_ecb_enc_128
++
++    li $T0, 12
++    beq $ROUNDS, $T0, L_ecb_enc_192
++
++    li $T0, 14
++    beq $ROUNDS, $T0, L_ecb_enc_256
++
++    ret
++.size rv64i_zvkned_ecb_encrypt,.-rv64i_zvkned_ecb_encrypt
++___
++
++$code .= <<___;
++.p2align 3
++L_ecb_enc_128:
++    # Load all 11 round keys to v1-v11 registers.
++    @{[aes_128_load_key $KEYP]}
++
++1:
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "ma"]}
++    slli $T0, $VL, 2
++    sub $LEN32, $LEN32, $VL
++
++    @{[vle32_v $V24, $INP]}
++
++    # AES body
++    @{[aes_128_encrypt]}
++
++    @{[vse32_v $V24, $OUTP]}
++
++    add $INP, $INP, $T0
++    add $OUTP, $OUTP, $T0
++
++    bnez $LEN32, 1b
++
++    ret
++.size L_ecb_enc_128,.-L_ecb_enc_128
++___
++
++$code .= <<___;
++.p2align 3
++L_ecb_enc_192:
++    # Load all 13 round keys to v1-v13 registers.
++    @{[aes_192_load_key $KEYP]}
++
++1:
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "ma"]}
++    slli $T0, $VL, 2
++    sub $LEN32, $LEN32, $VL
++
++    @{[vle32_v $V24, $INP]}
++
++    # AES body
++    @{[aes_192_encrypt]}
++
++    @{[vse32_v $V24, $OUTP]}
++
++    add $INP, $INP, $T0
++    add $OUTP, $OUTP, $T0
++
++    bnez $LEN32, 1b
++
++    ret
++.size L_ecb_enc_192,.-L_ecb_enc_192
++___
++
++$code .= <<___;
++.p2align 3
++L_ecb_enc_256:
++    # Load all 15 round keys to v1-v15 registers.
++    @{[aes_256_load_key $KEYP]}
++
++1:
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "ma"]}
++    slli $T0, $VL, 2
++    sub $LEN32, $LEN32, $VL
++
++    @{[vle32_v $V24, $INP]}
++
++    # AES body
++    @{[aes_256_encrypt]}
++
++    @{[vse32_v $V24, $OUTP]}
++
++    add $INP, $INP, $T0
++    add $OUTP, $OUTP, $T0
++
++    bnez $LEN32, 1b
++
++    ret
++.size L_ecb_enc_256,.-L_ecb_enc_256
++___
++
++###############################################################################
++# void rv64i_zvkned_ecb_decrypt(const unsigned char *in, unsigned char *out,
++#                               size_t length, const AES_KEY *key,
++#                               const int enc);
++$code .= <<___;
++.p2align 3
++.globl rv64i_zvkned_ecb_decrypt
++.type rv64i_zvkned_ecb_decrypt,\@function
++rv64i_zvkned_ecb_decrypt:
++    # Make the LEN become e32 length.
++    srli $LEN32, $LEN, 2
++
++    # Load number of rounds
++    lwu $ROUNDS, 240($KEYP)
++
++    # Get proper routine for key size
++    li $T0, 10
++    beq $ROUNDS, $T0, L_ecb_dec_128
++
++    li $T0, 12
++    beq $ROUNDS, $T0, L_ecb_dec_192
++
++    li $T0, 14
++    beq $ROUNDS, $T0, L_ecb_dec_256
++
++    ret
++.size rv64i_zvkned_ecb_decrypt,.-rv64i_zvkned_ecb_decrypt
++___
++
++$code .= <<___;
++.p2align 3
++L_ecb_dec_128:
++    # Load all 11 round keys to v1-v11 registers.
++    @{[aes_128_load_key $KEYP]}
++
++1:
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "ma"]}
++    slli $T0, $VL, 2
++    sub $LEN32, $LEN32, $VL
++
++    @{[vle32_v $V24, $INP]}
++
++    # AES body
++    @{[aes_128_decrypt]}
++
++    @{[vse32_v $V24, $OUTP]}
++
++    add $INP, $INP, $T0
++    add $OUTP, $OUTP, $T0
++
++    bnez $LEN32, 1b
++
++    ret
++.size L_ecb_dec_128,.-L_ecb_dec_128
++___
++
++$code .= <<___;
++.p2align 3
++L_ecb_dec_192:
++    # Load all 13 round keys to v1-v13 registers.
++    @{[aes_192_load_key $KEYP]}
++
++1:
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "ma"]}
++    slli $T0, $VL, 2
++    sub $LEN32, $LEN32, $VL
++
++    @{[vle32_v $V24, $INP]}
++
++    # AES body
++    @{[aes_192_decrypt]}
++
++    @{[vse32_v $V24, $OUTP]}
++
++    add $INP, $INP, $T0
++    add $OUTP, $OUTP, $T0
++
++    bnez $LEN32, 1b
++
++    ret
++.size L_ecb_dec_192,.-L_ecb_dec_192
++___
++
++$code .= <<___;
++.p2align 3
++L_ecb_dec_256:
++    # Load all 15 round keys to v1-v15 registers.
++    @{[aes_256_load_key $KEYP]}
++
++1:
++    @{[vsetvli $VL, $LEN32, "e32", "m4", "ta", "ma"]}
++    slli $T0, $VL, 2
++    sub $LEN32, $LEN32, $VL
++
++    @{[vle32_v $V24, $INP]}
++
++    # AES body
++    @{[aes_256_decrypt]}
++
++    @{[vse32_v $V24, $OUTP]}
++
++    add $INP, $INP, $T0
++    add $OUTP, $OUTP, $T0
++
++    bnez $LEN32, 1b
++
++    ret
++.size L_ecb_dec_256,.-L_ecb_dec_256
++___
++}
++
+ {
+ ################################################################################
+ # void rv64i_zvkned_encrypt(const unsigned char *in, unsigned char *out,
+@@ -98,42 +845,42 @@ $code .= <<___;
+ L_enc_128:
+     @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
+ 
+-    @{[vle32_v $V1, ($INP)]}
++    @{[vle32_v $V1, $INP]}
+ 
+-    @{[vle32_v $V10, ($KEYP)]}
++    @{[vle32_v $V10, $KEYP]}
+     @{[vaesz_vs $V1, $V10]}    # with round key w[ 0, 3]
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V11, ($KEYP)]}
++    @{[vle32_v $V11, $KEYP]}
+     @{[vaesem_vs $V1, $V11]}   # with round key w[ 4, 7]
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V12, ($KEYP)]}
++    @{[vle32_v $V12, $KEYP]}
+     @{[vaesem_vs $V1, $V12]}   # with round key w[ 8,11]
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V13, ($KEYP)]}
++    @{[vle32_v $V13, $KEYP]}
+     @{[vaesem_vs $V1, $V13]}   # with round key w[12,15]
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V14, ($KEYP)]}
++    @{[vle32_v $V14, $KEYP]}
+     @{[vaesem_vs $V1, $V14]}   # with round key w[16,19]
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V15, ($KEYP)]}
++    @{[vle32_v $V15, $KEYP]}
+     @{[vaesem_vs $V1, $V15]}   # with round key w[20,23]
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V16, ($KEYP)]}
++    @{[vle32_v $V16, $KEYP]}
+     @{[vaesem_vs $V1, $V16]}   # with round key w[24,27]
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V17, ($KEYP)]}
++    @{[vle32_v $V17, $KEYP]}
+     @{[vaesem_vs $V1, $V17]}   # with round key w[28,31]
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V18, ($KEYP)]}
++    @{[vle32_v $V18, $KEYP]}
+     @{[vaesem_vs $V1, $V18]}   # with round key w[32,35]
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V19, ($KEYP)]}
++    @{[vle32_v $V19, $KEYP]}
+     @{[vaesem_vs $V1, $V19]}   # with round key w[36,39]
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V20, ($KEYP)]}
++    @{[vle32_v $V20, $KEYP]}
+     @{[vaesef_vs $V1, $V20]}   # with round key w[40,43]
+ 
+-    @{[vse32_v $V1, ($OUTP)]}
++    @{[vse32_v $V1, $OUTP]}
+ 
+     ret
+ .size L_enc_128,.-L_enc_128
+@@ -144,48 +891,48 @@ $code .= <<___;
+ L_enc_192:
+     @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
+ 
+-    @{[vle32_v $V1, ($INP)]}
++    @{[vle32_v $V1, $INP]}
+ 
+-    @{[vle32_v $V10, ($KEYP)]}
++    @{[vle32_v $V10, $KEYP]}
+     @{[vaesz_vs $V1, $V10]}     # with round key w[ 0, 3]
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V11, ($KEYP)]}
++    @{[vle32_v $V11, $KEYP]}
+     @{[vaesem_vs $V1, $V11]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V12, ($KEYP)]}
++    @{[vle32_v $V12, $KEYP]}
+     @{[vaesem_vs $V1, $V12]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V13, ($KEYP)]}
++    @{[vle32_v $V13, $KEYP]}
+     @{[vaesem_vs $V1, $V13]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V14, ($KEYP)]}
++    @{[vle32_v $V14, $KEYP]}
+     @{[vaesem_vs $V1, $V14]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V15, ($KEYP)]}
++    @{[vle32_v $V15, $KEYP]}
+     @{[vaesem_vs $V1, $V15]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V16, ($KEYP)]}
++    @{[vle32_v $V16, $KEYP]}
+     @{[vaesem_vs $V1, $V16]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V17, ($KEYP)]}
++    @{[vle32_v $V17, $KEYP]}
+     @{[vaesem_vs $V1, $V17]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V18, ($KEYP)]}
++    @{[vle32_v $V18, $KEYP]}
+     @{[vaesem_vs $V1, $V18]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V19, ($KEYP)]}
++    @{[vle32_v $V19, $KEYP]}
+     @{[vaesem_vs $V1, $V19]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V20, ($KEYP)]}
++    @{[vle32_v $V20, $KEYP]}
+     @{[vaesem_vs $V1, $V20]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V21, ($KEYP)]}
++    @{[vle32_v $V21, $KEYP]}
+     @{[vaesem_vs $V1, $V21]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V22, ($KEYP)]}
++    @{[vle32_v $V22, $KEYP]}
+     @{[vaesef_vs $V1, $V22]}
+ 
+-    @{[vse32_v $V1, ($OUTP)]}
++    @{[vse32_v $V1, $OUTP]}
+     ret
+ .size L_enc_192,.-L_enc_192
+ ___
+@@ -195,54 +942,54 @@ $code .= <<___;
+ L_enc_256:
+     @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
+ 
+-    @{[vle32_v $V1, ($INP)]}
++    @{[vle32_v $V1, $INP]}
+ 
+-    @{[vle32_v $V10, ($KEYP)]}
++    @{[vle32_v $V10, $KEYP]}
+     @{[vaesz_vs $V1, $V10]}     # with round key w[ 0, 3]
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V11, ($KEYP)]}
++    @{[vle32_v $V11, $KEYP]}
+     @{[vaesem_vs $V1, $V11]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V12, ($KEYP)]}
++    @{[vle32_v $V12, $KEYP]}
+     @{[vaesem_vs $V1, $V12]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V13, ($KEYP)]}
++    @{[vle32_v $V13, $KEYP]}
+     @{[vaesem_vs $V1, $V13]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V14, ($KEYP)]}
++    @{[vle32_v $V14, $KEYP]}
+     @{[vaesem_vs $V1, $V14]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V15, ($KEYP)]}
++    @{[vle32_v $V15, $KEYP]}
+     @{[vaesem_vs $V1, $V15]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V16, ($KEYP)]}
++    @{[vle32_v $V16, $KEYP]}
+     @{[vaesem_vs $V1, $V16]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V17, ($KEYP)]}
++    @{[vle32_v $V17, $KEYP]}
+     @{[vaesem_vs $V1, $V17]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V18, ($KEYP)]}
++    @{[vle32_v $V18, $KEYP]}
+     @{[vaesem_vs $V1, $V18]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V19, ($KEYP)]}
++    @{[vle32_v $V19, $KEYP]}
+     @{[vaesem_vs $V1, $V19]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V20, ($KEYP)]}
++    @{[vle32_v $V20, $KEYP]}
+     @{[vaesem_vs $V1, $V20]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V21, ($KEYP)]}
++    @{[vle32_v $V21, $KEYP]}
+     @{[vaesem_vs $V1, $V21]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V22, ($KEYP)]}
++    @{[vle32_v $V22, $KEYP]}
+     @{[vaesem_vs $V1, $V22]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V23, ($KEYP)]}
++    @{[vle32_v $V23, $KEYP]}
+     @{[vaesem_vs $V1, $V23]}
+     addi $KEYP, $KEYP, 16
+-    @{[vle32_v $V24, ($KEYP)]}
++    @{[vle32_v $V24, $KEYP]}
+     @{[vaesef_vs $V1, $V24]}
+ 
+-    @{[vse32_v $V1, ($OUTP)]}
++    @{[vse32_v $V1, $OUTP]}
+     ret
+ .size L_enc_256,.-L_enc_256
+ ___
+@@ -275,43 +1022,43 @@ $code .= <<___;
+ L_dec_128:
+     @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
+ 
+-    @{[vle32_v $V1, ($INP)]}
++    @{[vle32_v $V1, $INP]}
+ 
+     addi $KEYP, $KEYP, 160
+-    @{[vle32_v $V20, ($KEYP)]}
++    @{[vle32_v $V20, $KEYP]}
+     @{[vaesz_vs $V1, $V20]}    # with round key w[40,43]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V19, ($KEYP)]}
++    @{[vle32_v $V19, $KEYP]}
+     @{[vaesdm_vs $V1, $V19]}   # with round key w[36,39]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V18, ($KEYP)]}
++    @{[vle32_v $V18, $KEYP]}
+     @{[vaesdm_vs $V1, $V18]}   # with round key w[32,35]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V17, ($KEYP)]}
++    @{[vle32_v $V17, $KEYP]}
+     @{[vaesdm_vs $V1, $V17]}   # with round key w[28,31]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V16, ($KEYP)]}
++    @{[vle32_v $V16, $KEYP]}
+     @{[vaesdm_vs $V1, $V16]}   # with round key w[24,27]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V15, ($KEYP)]}
++    @{[vle32_v $V15, $KEYP]}
+     @{[vaesdm_vs $V1, $V15]}   # with round key w[20,23]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V14, ($KEYP)]}
++    @{[vle32_v $V14, $KEYP]}
+     @{[vaesdm_vs $V1, $V14]}   # with round key w[16,19]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V13, ($KEYP)]}
++    @{[vle32_v $V13, $KEYP]}
+     @{[vaesdm_vs $V1, $V13]}   # with round key w[12,15]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V12, ($KEYP)]}
++    @{[vle32_v $V12, $KEYP]}
+     @{[vaesdm_vs $V1, $V12]}   # with round key w[ 8,11]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V11, ($KEYP)]}
++    @{[vle32_v $V11, $KEYP]}
+     @{[vaesdm_vs $V1, $V11]}   # with round key w[ 4, 7]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V10, ($KEYP)]}
++    @{[vle32_v $V10, $KEYP]}
+     @{[vaesdf_vs $V1, $V10]}   # with round key w[ 0, 3]
+ 
+-    @{[vse32_v $V1, ($OUTP)]}
++    @{[vse32_v $V1, $OUTP]}
+ 
+     ret
+ .size L_dec_128,.-L_dec_128
+@@ -322,49 +1069,49 @@ $code .= <<___;
+ L_dec_192:
+     @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
+ 
+-    @{[vle32_v $V1, ($INP)]}
++    @{[vle32_v $V1, $INP]}
+ 
+     addi $KEYP, $KEYP, 192
+-    @{[vle32_v $V22, ($KEYP)]}
++    @{[vle32_v $V22, $KEYP]}
+     @{[vaesz_vs $V1, $V22]}    # with round key w[48,51]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V21, ($KEYP)]}
++    @{[vle32_v $V21, $KEYP]}
+     @{[vaesdm_vs $V1, $V21]}   # with round key w[44,47]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V20, ($KEYP)]}
++    @{[vle32_v $V20, $KEYP]}
+     @{[vaesdm_vs $V1, $V20]}    # with round key w[40,43]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V19, ($KEYP)]}
++    @{[vle32_v $V19, $KEYP]}
+     @{[vaesdm_vs $V1, $V19]}   # with round key w[36,39]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V18, ($KEYP)]}
++    @{[vle32_v $V18, $KEYP]}
+     @{[vaesdm_vs $V1, $V18]}   # with round key w[32,35]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V17, ($KEYP)]}
++    @{[vle32_v $V17, $KEYP]}
+     @{[vaesdm_vs $V1, $V17]}   # with round key w[28,31]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V16, ($KEYP)]}
++    @{[vle32_v $V16, $KEYP]}
+     @{[vaesdm_vs $V1, $V16]}   # with round key w[24,27]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V15, ($KEYP)]}
++    @{[vle32_v $V15, $KEYP]}
+     @{[vaesdm_vs $V1, $V15]}   # with round key w[20,23]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V14, ($KEYP)]}
++    @{[vle32_v $V14, $KEYP]}
+     @{[vaesdm_vs $V1, $V14]}   # with round key w[16,19]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V13, ($KEYP)]}
++    @{[vle32_v $V13, $KEYP]}
+     @{[vaesdm_vs $V1, $V13]}   # with round key w[12,15]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V12, ($KEYP)]}
++    @{[vle32_v $V12, $KEYP]}
+     @{[vaesdm_vs $V1, $V12]}   # with round key w[ 8,11]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V11, ($KEYP)]}
++    @{[vle32_v $V11, $KEYP]}
+     @{[vaesdm_vs $V1, $V11]}   # with round key w[ 4, 7]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V10, ($KEYP)]}
++    @{[vle32_v $V10, $KEYP]}
+     @{[vaesdf_vs $V1, $V10]}   # with round key w[ 0, 3]
+ 
+-    @{[vse32_v $V1, ($OUTP)]}
++    @{[vse32_v $V1, $OUTP]}
+ 
+     ret
+ .size L_dec_192,.-L_dec_192
+@@ -375,55 +1122,55 @@ $code .= <<___;
+ L_dec_256:
+     @{[vsetivli "zero", 4, "e32", "m1", "ta", "ma"]}
+ 
+-    @{[vle32_v $V1, ($INP)]}
++    @{[vle32_v $V1, $INP]}
+ 
+     addi $KEYP, $KEYP, 224
+-    @{[vle32_v $V24, ($KEYP)]}
++    @{[vle32_v $V24, $KEYP]}
+     @{[vaesz_vs $V1, $V24]}    # with round key w[56,59]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V23, ($KEYP)]}
++    @{[vle32_v $V23, $KEYP]}
+     @{[vaesdm_vs $V1, $V23]}   # with round key w[52,55]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V22, ($KEYP)]}
++    @{[vle32_v $V22, $KEYP]}
+     @{[vaesdm_vs $V1, $V22]}    # with round key w[48,51]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V21, ($KEYP)]}
++    @{[vle32_v $V21, $KEYP]}
+     @{[vaesdm_vs $V1, $V21]}   # with round key w[44,47]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V20, ($KEYP)]}
++    @{[vle32_v $V20, $KEYP]}
+     @{[vaesdm_vs $V1, $V20]}    # with round key w[40,43]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V19, ($KEYP)]}
++    @{[vle32_v $V19, $KEYP]}
+     @{[vaesdm_vs $V1, $V19]}   # with round key w[36,39]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V18, ($KEYP)]}
++    @{[vle32_v $V18, $KEYP]}
+     @{[vaesdm_vs $V1, $V18]}   # with round key w[32,35]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V17, ($KEYP)]}
++    @{[vle32_v $V17, $KEYP]}
+     @{[vaesdm_vs $V1, $V17]}   # with round key w[28,31]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V16, ($KEYP)]}
++    @{[vle32_v $V16, $KEYP]}
+     @{[vaesdm_vs $V1, $V16]}   # with round key w[24,27]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V15, ($KEYP)]}
++    @{[vle32_v $V15, $KEYP]}
+     @{[vaesdm_vs $V1, $V15]}   # with round key w[20,23]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V14, ($KEYP)]}
++    @{[vle32_v $V14, $KEYP]}
+     @{[vaesdm_vs $V1, $V14]}   # with round key w[16,19]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V13, ($KEYP)]}
++    @{[vle32_v $V13, $KEYP]}
+     @{[vaesdm_vs $V1, $V13]}   # with round key w[12,15]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V12, ($KEYP)]}
++    @{[vle32_v $V12, $KEYP]}
+     @{[vaesdm_vs $V1, $V12]}   # with round key w[ 8,11]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V11, ($KEYP)]}
++    @{[vle32_v $V11, $KEYP]}
+     @{[vaesdm_vs $V1, $V11]}   # with round key w[ 4, 7]
+     addi $KEYP, $KEYP, -16
+-    @{[vle32_v $V10, ($KEYP)]}
++    @{[vle32_v $V10, $KEYP]}
+     @{[vaesdf_vs $V1, $V10]}   # with round key w[ 0, 3]
+ 
+-    @{[vse32_v $V1, ($OUTP)]}
++    @{[vse32_v $V1, $OUTP]}
+ 
+     ret
+ .size L_dec_256,.-L_dec_256
+-- 
+2.28.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
