@@ -4,101 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 017F6C0032E
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 13:17:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79442C0032E
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 13:38:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vxwklsG6qSoTYbxaWBRrn5qdZEGZeQ+AyG3iAuys2cQ=; b=tGQRsmumTI6vgA
-	lAqZYz5wUkms17lY6SXqxs/90rZpDU2o+FgmE3gzmcWoMG3YIE4tJN60TiOo5jjp8tbgD1FGnuaET
-	kAd/X7u7wQ6MxnTUpzyWz7hgspMcfQKzHNlOI7GkRQIs2hkE8QrwQgHvq1fAAtaPmyzEfdmeZPNZy
-	Yj2D16Z+i0M2BztNKuW2tqU3lBzAfm9LNa+sQZYMKgl/BFeGRo5hqz5Kc+e+2QRsz17DBmsnBS1ik
-	HODhj5kW1ZurK60q0LGS3iZttlMAUWyKWw82Eztr6bpcM9rFYEWjimimooiJACG4d/6o3xKc/tWvX
-	9GQE9+KDJo/Uh82tcLZg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=AH5F1E5af4VFQ5hrG/1s4DsFga+EfqiOFFZoze0mfP4=; b=lS1rSPTsO9Mf/IYgKvItkm8pF0
+	sobEuhOzGEmVBB15RB0Ec/U+90U8f7q3cmVnz15I0cc8AL6YEaKwr9H//g4WdJs0c/g2YEOHJYJrK
+	Q7oQllzNZz4LKf8ldRd/PQy87v3iRYrKzvtnH1r1Lr+PSDQbEHW+1wDZbyoSCT4p45Pd+uxOkepIk
+	4maJVb8eES82atkp57pmpkNncq6eSMghdL5pd5ilrbdxCB0axQ33RJNQtgEIfxiSA+L5+NOSisCod
+	VKrlWZWCFGZUz7ZOYbjSNkgXJ+ws54ZtMUeKqQ/+d1+0St+yBF+HO62XzkUZ2ltgpfWaeFAsoqTLp
+	ArkEcXRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvdkw-00CODe-0r;
-	Wed, 25 Oct 2023 13:17:06 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1qve5V-00CQSA-1h;
+	Wed, 25 Oct 2023 13:38:21 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvdkq-00COCI-21
+	id 1qve5S-00CQRb-2V
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Oct 2023 13:17:04 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-41cc0e9d92aso36845401cf.3
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 06:16:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1698239813; x=1698844613; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=g1tU5kbwVb+Wg1uvhO3+D2ibDL+pMHtlvIijrkuaPh8=;
-        b=XkZCFHI63X7SAGkp61t8v249RyEQTNyE17iHjgOpQ7qaiOwrDBdfjBGzFx6ixS55fR
-         v/obztq9uzc+zyDQvKUk9EpX805rBiiwsrOxnE3GxYglbjwb+5uJo2o9tDBChjJly3EX
-         XnXN5gzHxNixWCpLoSehkrVZRuCsr7jvSMT4ERbENockm40EFh2Vj6BfwIZmxR/lb+fp
-         0J7nX5P4H4nCHoU7EWITClanSzHRTkKHj47n/21NxSnbWljuKtStrL/CMT0ZkBQ9AOoI
-         e4NjCcUZLLr8o6m1HapWwbSMwW1mmkl4+Wydo8+L4dEbXOTL2RVoyI2EeUw6/Rnsdf+7
-         o/4Q==
+	Wed, 25 Oct 2023 13:38:20 +0000
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 6A3ED420AF
+	for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 13:38:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1698241091;
+	bh=4kZetE1rdZ7P5Qi3G+jzZsycI0EzhJ2peFQaOTjHG8s=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=Zbm7JNN2Kn7owckCN61T9VLnq7JznyG0uypYpg7GhfIVzNywEinmhNxr1xJtZ573f
+	 IIq6YSNAkpkpiOIPz6Ubg6qJz5QC5uqdXSVOUppYeQQIKWQ1GCwE0EyQN3O0pGpx6Z
+	 WLzsPhjE/EouOaakO0m8TMcbrgNLl0kqyoAwyuGojTwNliBn8lUdUBYYl7P4SvgOVS
+	 xOjPEvPQs3QXzvDbN24KXy3hsfTLn7YtZDzYzEhTCLg+xvOyStKnAGS5aIWmB6XQwW
+	 OF+1jq0sKV4PE4Qq8wcNZH8Av2oMgXQFrl21ViaN+VDrQXdpR0Tswq7t/cZMLG2fi2
+	 n1UXxIuKw3aBw==
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-41cbb2970f4so63892031cf.2
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 06:38:11 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698239813; x=1698844613;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=g1tU5kbwVb+Wg1uvhO3+D2ibDL+pMHtlvIijrkuaPh8=;
-        b=MAZglECzF5CQGOBYKrAbVMM8xplKy7AQpcW9CliLOQjev3r5vyxOqy0OmS5J4skVKc
-         BdGJ9KiB0b9QSxVx+uLJuk4sKaAEgJh6IBjK5gxTQc9/vQVu38KncoXbtel5Y2PkQ5ey
-         wHegLcg0t2AY+Me4VpQfUkVYaheooGSxWCh8QyBTcUoGubdNKf3l7a2SZzk8NumUXIph
-         aXcou4xttrjDyBAtxpIugVZ6IswKKBMja0w19T+x5aQYK7sQCequLTORbkJKfpCm0VHk
-         V9Zu1K/28WNU77f4gJcvYFSLy7TlzvxAhrf43o0/skCK4nd5XpWEXnPEv1T0pmXAnVxi
-         PmXg==
-X-Gm-Message-State: AOJu0YxuopIEc8ZPXrlLQozRceVtjRGCp4p7wZOnEJovXSuySYJiaI0c
-	GMudAN8eY3dOtZImfBANyOw=
-X-Google-Smtp-Source: AGHT+IGDdTkY4rbUQVfZKtiVec1opfPoUHwbLgxu9buNeZQ8XoSBU+I/OT31DE12H3tKf3Lub14xEg==
-X-Received: by 2002:ac8:5715:0:b0:418:11ee:6315 with SMTP id 21-20020ac85715000000b0041811ee6315mr16789523qtw.43.1698239812806;
-        Wed, 25 Oct 2023 06:16:52 -0700 (PDT)
-Received: from [192.168.20.212] (cpe-107-15-246-199.nc.res.rr.com. [107.15.246.199])
-        by smtp.gmail.com with ESMTPSA id g3-20020ac842c3000000b0041977932fc6sm4188578qtm.18.2023.10.25.06.16.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Oct 2023 06:16:52 -0700 (PDT)
-Message-ID: <c84f0999-5de0-1161-4061-75aa2795d45a@gmail.com>
-Date: Wed, 25 Oct 2023 09:16:50 -0400
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
- Gecko/20100101 Thunderbird/102.12.0
-Subject: Re: [PATCH v9 01/20] dt-bindings: PCI: Add PLDA XpressRICH PCIe host
- common properties
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Conor Dooley <conor@kernel.org>
-Cc: Minda Chen <minda.chen@starfivetech.com>,
- =?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kw@linux.com>,
- Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Daire McNamara <daire.mcnamara@microchip.com>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Mason Huo <mason.huo@starfivetech.com>,
- Leyfoon Tan <leyfoon.tan@starfivetech.com>,
- Kevin Xie <kevin.xie@starfivetech.com>
-References: <20231020104341.63157-1-minda.chen@starfivetech.com>
- <20231020104341.63157-2-minda.chen@starfivetech.com>
- <8ced1915-7b94-4abc-bd8b-cb4bf027fa01@linaro.org>
- <bd441e1d-73ae-4abc-8eb2-877419acb2df@starfivetech.com>
- <97e2decd-f6a3-91cb-6ca7-539f53b686f3@gmail.com>
- <20231025-dotted-almighty-ae489e9eb764@spud>
- <3d7a2dba-53f6-4625-8981-fbeb469418c1@linaro.org>
-Content-Language: en-US
-From: John Clark <inindev@gmail.com>
-In-Reply-To: <3d7a2dba-53f6-4625-8981-fbeb469418c1@linaro.org>
+        d=1e100.net; s=20230601; t=1698241090; x=1698845890;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=4kZetE1rdZ7P5Qi3G+jzZsycI0EzhJ2peFQaOTjHG8s=;
+        b=Trb6qRSR1I77ZY7J8159JHL8iFIARuXfoyB1lmPZ3Squ6Tr1T0TtdM9/i3lGGlsjAh
+         xrIvVxOqbGD0DDks36iO1QtiFgRMvG/HA50djjTjcV+yh9TzK3gVU/plmiiC1doKiUma
+         +McgwHg5pjuYzP9Wfa3YwZqwkqM8wAchLYJ8ctqmqFKQY0vI9HEN/AblCSccDVW4d/Jy
+         Jxd2VmhRjM3Mz+2yGsvy/oLNpDR/5yYcfCHNhK3tswiLqjmKKQKNwDMAS+lH0F8U7ak5
+         Bt8oX5OWNx6pFrCp4wU7opmtg+AnSFF9VrQkYLJZds8aCVbWttv5L7NnI0AeT7nBlBvd
+         R96g==
+X-Gm-Message-State: AOJu0YwXodSznzwbMIsRj4jmNIMmXLB84nnbvqJtZAVFK/6jFAl9qZuZ
+	QWI6d1b64aKvYNG8ez+1hlB6E+u2pgtSaYKiBSH1QwkolvUf9JkmUe/m+us5t11R8IuAU/gSdC3
+	LSrbobITEo+etydKb/8Q5xk59T+rUUCro8CMghsA4fWFScaMMA6+UnE7GET8nkA==
+X-Received: by 2002:a05:622a:1b9f:b0:417:bd2c:2683 with SMTP id bp31-20020a05622a1b9f00b00417bd2c2683mr16970917qtb.19.1698241090315;
+        Wed, 25 Oct 2023 06:38:10 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE9sqk9O9NSffONLMLkF62MheH44KULbbJziO/VE+15eqK7tXOWni0WrQFzdn8ozLKmF0Jvc5dWLHw93tWI6nk=
+X-Received: by 2002:a05:622a:1b9f:b0:417:bd2c:2683 with SMTP id
+ bp31-20020a05622a1b9f00b00417bd2c2683mr16970883qtb.19.1698241090030; Wed, 25
+ Oct 2023 06:38:10 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 25 Oct 2023 06:38:09 -0700
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20231025103957.3776-3-keith.zhao@starfivetech.com>
+References: <20231025103957.3776-1-keith.zhao@starfivetech.com> <20231025103957.3776-3-keith.zhao@starfivetech.com>
+Mime-Version: 1.0
+Date: Wed, 25 Oct 2023 06:38:09 -0700
+Message-ID: <CAJM55Z_Y_qp0J5FmWDPdziCRY7duNBhHnvM0Zza2pG-vK0etbw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/6] riscv: dts: starfive: jh7110: add dc controller
+ and hdmi node
+To: Keith Zhao <keith.zhao@starfivetech.com>, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-media@vger.kernel.org, 
+	linaro-mm-sig@lists.linaro.org
+Cc: David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Emil Renner Berthing <kernel@esmil.dk>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Sumit Semwal <sumit.semwal@linaro.org>, christian.koenig@amd.com, 
+	Bjorn Andersson <andersson@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Jagan Teki <jagan@edgeble.ai>, Chris Morgan <macromorgan@hotmail.com>, 
+	Jack Zhu <jack.zhu@starfivetech.com>, 
+	Shengyang Chen <shengyang.chen@starfivetech.com>, 
+	Changhuang Liang <changhuang.liang@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231025_061700_663666_989E7236 
-X-CRM114-Status: GOOD (  14.55  )
+X-CRM114-CacheID: sfid-20231025_063819_171296_158ACE99 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,57 +107,205 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-That is correct, I tested the entire series against Linux 6.6-rc7 and 
-confirmed that pcie/nvme/usb work on the VisionFive2 device. I was 
-unable to test the Microchip side of the equation. I will be more clear 
-as to what I verified if I comment in the future.
-
-John Clark
-
-
-On 10/25/23 6:41 AM, Krzysztof Kozlowski wrote:
-> On 25/10/2023 12:28, Conor Dooley wrote:
->> Hi John,
->>
->> On Mon, Oct 23, 2023 at 11:09:50PM -0400, John Clark wrote:
->>>> On 2023/10/20 19:04, Krzysztof Kozlowski wrote:
->>>>> On 20/10/2023 12:43, Minda Chen wrote:
->>>>>> Add PLDA XpressRICH PCIe host common properties dt-binding doc.
->>>>>> Microchip PolarFire PCIe host using PLDA IP.
->>>>>> Move common properties from Microchip PolarFire PCIe host
->>>>>> to PLDA files.
->>>>>>
->>>>>> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
->>>>>> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
->>>>>> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
->>>>>> Reviewed-by: Rob Herring <robh@kernel.org>
->>>>>> ---
->>>>>>    .../bindings/pci/microchip,pcie-host.yaml     | 55 +-------------
->>>>>>    .../pci/plda,xpressrich3-axi-common.yaml      | 75 +++++++++++++++++++
->>>>> Where was this patch reviewed?
->>>>>
->>>>> Best regards,
->>>>> Krzysztof
->>>>>
->>>> This Conor's review tag. v2 : https://patchwork.kernel.org/project/linux-pci/patch/20230727103949.26149-2-minda.chen@starfivetech.com/
->>>> This is Rob's review tag v3: https://patchwork.kernel.org/project/linux-pci/patch/20230814082016.104181-2-minda.chen@starfivetech.com/
->>> Tested-by: John Clark <inindev@gmail.com>:
->>> https://github.com/inindev/visionfive2/tree/main/kernel/patches
->> I suspect you don't mean that you tested this individual dt-binding, but
->> rather that you tested the whole series. If so, you should probably
->> provide this tested-by against the cover-letter instead of this bindings
->> patch.
-> Yeah, otherwise I would like to hear how do you test bindings (other
-> than dt_binding_check which is something similar to testing as compiling
-> code).
+Keith Zhao wrote:
+> Add the dc controller and hdmi node for the Starfive JH7110 SoC.
 >
-> Best regards,
-> Krzysztof
+> Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
+> ---
+>  .../jh7110-starfive-visionfive-2.dtsi         | 91 +++++++++++++++++++
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 41 +++++++++
+>  2 files changed, 132 insertions(+)
+>
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> index de0f40a8b..97909b6d2 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> @@ -31,6 +31,25 @@ memory@40000000 {
+>  		reg = <0x0 0x40000000 0x1 0x0>;
+>  	};
+>
+> +	reserved-memory {
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		ranges;
+> +
+> +		/* vout applies for space from this CMA
+> +		 * Without this CMA reservation,
+> +		 * vout may not work properly.
+> +		 */
+> +		linux,cma {
+> +			compatible = "shared-dma-pool";
+> +			reusable;
+> +			size = <0x0 0x20000000>;
+> +			alignment = <0x0 0x1000>;
+> +			alloc-ranges = <0x0 0x70000000 0x0 0x20000000>;
+> +			linux,cma-default;
+> +		};
+> +	};
+> +
+>  	gpio-restart {
+>  		compatible = "gpio-restart";
+>  		gpios = <&sysgpio 35 GPIO_ACTIVE_HIGH>;
+> @@ -231,6 +250,41 @@ GPOEN_DISABLE,
+>  			slew-rate = <0>;
+>  		};
+>  	};
+> +
+> +	hdmi_pins: hdmi-0 {
+> +		hdmi-scl-pins {
+> +			pinmux = <GPIOMUX(0, GPOUT_SYS_HDMI_DDC_SCL,
+> +					     GPOEN_SYS_HDMI_DDC_SCL,
+> +					     GPI_SYS_HDMI_DDC_SCL)>;
+> +			input-enable;
+> +			bias-pull-up;
+> +		};
+> +
+> +		hdmi-sda-pins {
+> +			pinmux = <GPIOMUX(1, GPOUT_SYS_HDMI_DDC_SDA,
+> +					     GPOEN_SYS_HDMI_DDC_SDA,
+> +					     GPI_SYS_HDMI_DDC_SDA)>;
+> +			input-enable;
+> +			bias-pull-up;
+> +		};
+> +
+> +		hdmi-cec-pins {
+> +			pinmux = <GPIOMUX(14, GPOUT_SYS_HDMI_CEC_SDA,
+> +					     GPOEN_SYS_HDMI_CEC_SDA,
+> +					     GPI_SYS_HDMI_CEC_SDA)>;
+> +			input-enable;
+> +			bias-pull-up;
+> +		};
+> +
+> +		hdmi-hpd-pins {
+> +			pinmux = <GPIOMUX(15, GPOUT_HIGH,
+> +					     GPOEN_ENABLE,
+> +					     GPI_SYS_HDMI_HPD)>;
+> +			input-enable;
+> +			bias-disable; /* external pull-up */
+> +		};
+> +	};
+> +
+
+Please don't break the alphabetical ordering of these nodes.
+
+>  };
+>
+>  &uart0 {
+> @@ -254,3 +308,40 @@ &U74_3 {
+>  &U74_4 {
+>  	cpu-supply = <&vdd_cpu>;
+>  };
+> +
+> +&voutcrg {
+> +	status = "okay";
+> +};
+> +
+> +&display {
+> +	status = "okay";
+> +};
+> +
+> +&hdmi {
+> +	status = "okay";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&hdmi_pins>;
+> +
+> +	hdmi_in: port {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +		hdmi_in_dc: endpoint@0 {
+> +			reg = <0>;
+> +			remote-endpoint = <&dc_out_hdmi>;
+> +		};
+> +	};
+> +};
+> +
+> +&dc8200 {
+> +	status = "okay";
+> +
+> +	dc_out: port {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +		dc_out_hdmi: endpoint@0 {
+> +			reg = <0>;
+> +			remote-endpoint = <&hdmi_in_dc>;
+> +		};
+> +
+> +	};
+> +};
+
+Some goes for these node references. The order is /-node, clocks, node refences
+sorted alphabetically.
+
+
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> index 0005fa163..1670452fb 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> @@ -282,6 +282,11 @@ tdm_ext: tdm-ext-clock {
+>  		#clock-cells = <0>;
+>  	};
+>
+> +	display: display-subsystem {
+> +		compatible = "starfive,display-subsystem";
+> +		ports = <&dc_out>;
+> +	};
+> +
+>  	soc {
+>  		compatible = "simple-bus";
+>  		interrupt-parent = <&plic>;
+> @@ -613,5 +618,41 @@ voutcrg: clock-controller@295c0000 {
+>  			#reset-cells = <1>;
+>  			power-domains = <&pwrc JH7110_PD_VOUT>;
+>  		};
+> +
+> +		dc8200: lcd-controller@29400000 {
+> +			compatible = "starfive,jh7110-dc8200";
+> +			reg = <0x0 0x29400000 0x0 0x100>,
+> +			      <0x0 0x29400800 0x0 0x2000>;
+> +			interrupts = <95>;
+> +			clocks = <&syscrg JH7110_SYSCLK_NOC_BUS_DISP_AXI>,
+> +				<&voutcrg JH7110_VOUTCLK_DC8200_PIX0>,
+> +				<&voutcrg JH7110_VOUTCLK_DC8200_PIX1>,
+> +				<&voutcrg JH7110_VOUTCLK_DC8200_CORE>,
+> +				<&voutcrg JH7110_VOUTCLK_DC8200_AXI>,
+> +				<&voutcrg JH7110_VOUTCLK_DC8200_AHB>,
+> +				<&hdmitx0_pixelclk>,
+> +				<&voutcrg JH7110_VOUTCLK_DC8200_PIX>;
+> +			clock-names = "noc_bus", "channel0", "channel1",
+> +				      "dc_core", "axi_core", "ahb",
+> +				      "hdmi_tx", "dc_parent";
+> +			resets = <&voutcrg JH7110_VOUTRST_DC8200_AXI>,
+> +				 <&voutcrg JH7110_VOUTRST_DC8200_AHB>,
+> +				 <&voutcrg JH7110_VOUTRST_DC8200_CORE>;
+> +			reset-names = "axi","ahb", "core";
+> +		};
+> +
+> +		hdmi: hdmi@29590000 {
+> +			compatible = "starfive,jh7110-inno-hdmi";
+> +			reg = <0x0 0x29590000 0x0 0x4000>;
+> +			interrupts = <99>;
+> +
+> +			clocks = <&voutcrg JH7110_VOUTCLK_HDMI_TX_SYS>,
+> +				 <&voutcrg JH7110_VOUTCLK_HDMI_TX_MCLK>,
+> +				 <&voutcrg JH7110_VOUTCLK_HDMI_TX_BCLK>,
+> +				 <&hdmitx0_pixelclk>;
+> +			clock-names = "sysclk", "mclk", "bclk", "pclk";
+> +			resets = <&voutcrg JH7110_VOUTRST_HDMI_TX_HDMI>;
+> +			#sound-dai-cells = <0>;
+> +		};
+
+These nodes, however, are sorted by their address which you alse break in this
+patch :(
+
+>  	};
+>  };
+> --
+> 2.34.1
 >
 
 _______________________________________________
