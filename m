@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 892E6C07545
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 20:24:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25FB6C25B6B
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 20:24:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7Na9ARKNPK7STcaL6wFdozIvoIRQoapKV2c42+fRA38=; b=3xkyfV3t2ltRdb
-	SdTPUk64SthpihsLH5k7UtFCwPKT2MMlSRsP9zU1P0lub8Fun8omFRxkZxWXlQVDed6O25daXi6RW
-	FgWt3i8CUl9MMEY/thcn+Xv9bGMcpOFD34eF0+0UfXYFhqUIp7CUPvs+MLYohFtJjcEIXL2AyJhZF
-	QioNtNAjz8j4/5X0PRubT6k7OMGsEPFATonCt5Jft0fzEPchtuPLbcEd3XL/vISFC68qSy7myaSpF
-	n/OC7wlQ9vk1Dicjkt4HuOKqvvn4PaE7nK6Fatqfjg3tR1RHsUrg+5DdKt0ogWq2PXeRV9tVfReOZ
-	s6jYDjn7YpaDRJgh8W7w==;
+	List-Owner; bh=wNhUgLCqvinDW4y3DyjLkXmAouRgTRawC6VnjAd4kxw=; b=mmnLETZ5pqlkNs
+	Lz3NkHjW7NhEGnQ2oDwDB06JvyPSWXQqYutvqIK5zh0+YwEU2v1suo0sUFz1NoFOebqL4n65QAGj0
+	zT/PbNLZwMdIYWiEHMKARxAd5oPQ6ms78WlXS8vMJQxFwX+6CuKzHb04gRf3amyW3yt+aXn49wmun
+	y+sZi2vlm/h5N2j0xqV3FWCmbQWLcttHMy5oSg4FTSI5ZclXWO14kcrMNBxQmQ6dCn047M7BhLiAB
+	WK5fLsc5/JgcqoxpEWBUFC4NTjKhAeU/OE9epAPU23jCR34Th4jwtx4LTI+OPbts/0hO5ic9RcQo8
+	BxM4H+Tdrkd3y1uwb+yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvkQU-00D2Yy-01;
-	Wed, 25 Oct 2023 20:24:26 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1qvkQc-00D2dL-1X;
+	Wed, 25 Oct 2023 20:24:34 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvkQP-00D2X1-2s
+	id 1qvkQU-00D2ZF-2m
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Oct 2023 20:24:23 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-6bee11456baso134840b3a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 13:24:20 -0700 (PDT)
+	Wed, 25 Oct 2023 20:24:28 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-6b20577ef7bso124559b3a.3
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 13:24:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1698265460; x=1698870260; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1698265466; x=1698870266; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=il/rbbBih8ETNOL/0gi7mQnwMr9PQruIC4HVqlbsTs0=;
-        b=F0r3ypkId1S/DarsFOTR9/CJjJ1domDKwD/0W4EtvgMYPZclvC0zy8IsoBk/P0uD85
-         jBDxmBtjA2WDlm430OEP6+nzvYCSG/TbYFTHJJsQNRfBlgwQBCggo91ll+1zQhVzcqOK
-         jRVwO1rMIfICw3mBpQi0EsS/CkAsY2qSyuGhMrEoTINjOx3BrZyz4WtRIn8ugeQVL+w7
-         Ox40kyjJTcCPVMgsG8XHmDwqclY5BnpIPWtVhn+G1ZJh81e30iPJfhAwR3JnZ4ZvToG1
-         AwVehaJjvbQG3h/9kDoEW8lvkVQBqbN26o/gw7yy2uo9Gbw9sKwXlW6d0p7LK+NarrEk
-         v97g==
+        bh=W8oe0TQ1+zZd/3zKJQAEE+us/MvQWSBihayeSKyJW3A=;
+        b=o0i0JxzCorSz1gKZL4H+AVqDeZ0IoYjH26SiR7bV2+xcnX93JQiNt6YngyIes7nKHs
+         BVg8NVQsMkOHMqucPo6hUR0UBWBgNAaO+HglsOwZ4ZU8rGDDqmv8CXF0fM2o+l+gbsuK
+         N+JzxghpJRohGXJPsuYh9B2W3RaeFw6M9Nkl4IttZwymyawOaQL6hJ1Xb7SVcuFwOGLf
+         +gaxDUzwPa32MTOCh1HQ2xIb1knDKy0ww4dx/84DhFGaZKRekd3gFhM0p3WqNNovM9Xn
+         kL+Pt57XP9X/zFGl02VWhypMLJ3WXC8HSbEFyV4yHLe2HXQJNGJf52Wfcqut0UBHLwf7
+         dipQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698265460; x=1698870260;
+        d=1e100.net; s=20230601; t=1698265466; x=1698870266;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=il/rbbBih8ETNOL/0gi7mQnwMr9PQruIC4HVqlbsTs0=;
-        b=iMe0IIdpp6snBoUuqFvExDolA7N9NwXqI+FhmMIrAWPHePypZIwC5oghKf4W7eFZwv
-         VTTVazoM7NMWuEhkYhhyhfLicaXadYYc4tZ4eu8cFpZGYSKQa8Yz4FQklmjlOG+6NSEK
-         XVIunN85/dtJ5B8N8qiPNYTwLHS5YF3e/p9GfqnP5JxdCYJFHjJdr8u8S4UunJZhsx7N
-         dZgUjhtQnwPOPvXZYKSe1ALjloAeENkw58upIn7+idPnavOLdBhz2Eh+4LEyxb7CPyuf
-         qT4UBF6/DybnppbM6MXwVJcq0lDKfMXqKuBvekGSzjM3tbaeQaPKEW+AG5tLrWGHSS5b
-         MVyQ==
-X-Gm-Message-State: AOJu0YyG4wEtpo9LWNqSO+Ue0e8+oikryGN3R9czqfA9lpDgwoKeFHvD
-	FqElojvyj5dVX40l/URFvq8jhQ==
-X-Google-Smtp-Source: AGHT+IHAnCPM/Z122/pk/4UjZRlnQX59HcM6kQVsLk17lGf/hhEOulm69KFX9/lCmDwSpdfrn7JfVw==
-X-Received: by 2002:a05:6a00:9392:b0:693:4143:5145 with SMTP id ka18-20020a056a00939200b0069341435145mr15121152pfb.31.1698265460080;
-        Wed, 25 Oct 2023 13:24:20 -0700 (PDT)
+        bh=W8oe0TQ1+zZd/3zKJQAEE+us/MvQWSBihayeSKyJW3A=;
+        b=B4/hJu7e/JCMJc3tD3Ys1GakmAK9C9dpdL4BYle0bKSJM4LZQmBALwFcCg+XBqtokH
+         rRjGkJbPvK/ntD53H99l3DxGolabOjl2lvEfW/hII8UsFPEdaFVJYzJpsTVfHyiDr9fM
+         788miUn0JRQIhGyC75ZvwQxwrlU7RYqYNwWQ016CXKyK/yeVVSNSMUkVYNG629cpAOyf
+         TiHZQSEGMPa8ro2xOb001Aeg7SncedQi4KMqJ6wgmpzvUEdz6p9BVldxQMvpK1j7LW5V
+         SCnc/DTC7q/1IHI8YDxVTBbwNrNoqQHcifsySh8lwhFezbum4IWcaGmlUsLExHSKTCzD
+         3FGQ==
+X-Gm-Message-State: AOJu0YxnFm7pVOUuRUMDtOlcl3Tts7SuzcXemKRwI+ctb80fptRD2hYn
+	DtKD2cLgl5sTmpF+E+7MwLIiLA==
+X-Google-Smtp-Source: AGHT+IGK6pQK6oEdjKlIa1mcimdR1pYjb6u2hPifw5U79lxb+nCirP606/eGPYNlPkAaYdn6n6fpUw==
+X-Received: by 2002:a05:6a00:12:b0:6c0:52b9:d448 with SMTP id h18-20020a056a00001200b006c052b9d448mr905573pfk.9.1698265465988;
+        Wed, 25 Oct 2023 13:24:25 -0700 (PDT)
 Received: from sunil-pc.Dlink ([106.51.188.78])
-        by smtp.gmail.com with ESMTPSA id y3-20020aa79423000000b006b84ed9371esm10079590pfo.177.2023.10.25.13.24.14
+        by smtp.gmail.com with ESMTPSA id y3-20020aa79423000000b006b84ed9371esm10079590pfo.177.2023.10.25.13.24.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Oct 2023 13:24:19 -0700 (PDT)
+        Wed, 25 Oct 2023 13:24:25 -0700 (PDT)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -69,16 +69,16 @@ To: linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
 	linux-pci@vger.kernel.org,
 	linux-serial@vger.kernel.org
-Subject: [RFC PATCH v2 02/21] RISC-V: ACPI: Implement PCI related functionality
-Date: Thu, 26 Oct 2023 01:53:25 +0530
-Message-Id: <20231025202344.581132-3-sunilvl@ventanamicro.com>
+Subject: [RFC PATCH v2 03/21] ACPI: Kconfig: Introduce new option to support deferred GSI probe
+Date: Thu, 26 Oct 2023 01:53:26 +0530
+Message-Id: <20231025202344.581132-4-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20231025202344.581132-1-sunilvl@ventanamicro.com>
 References: <20231025202344.581132-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231025_132421_930216_68AA2A40 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20231025_132426_900102_90807D3A 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,98 +96,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Replace the dummy implementation for PCI related functions with actual
-implementation. This needs ECAM and MCFG CONFIG options to be enabled
-for RISC-V.
+On some architectures like RISC-V, the interrupt controllers for Global
+System Interrupts (GSI) are not probed early during boot. So, the
+device drivers which need to register their GSI, need to be deferred
+until the actual interrupt controller driver is probed. To reduce the
+impact of such change, add a new CONFIG option which can be set only by
+the architecture which needs deferred GSI probing.
 
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 ---
- arch/riscv/Kconfig       |  2 ++
- arch/riscv/kernel/acpi.c | 31 ++++++++++++++-----------------
- drivers/pci/pci-acpi.c   |  2 +-
- 3 files changed, 17 insertions(+), 18 deletions(-)
+ drivers/acpi/Kconfig | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index c3c3f3562082..8c105a151e12 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -13,6 +13,7 @@ config 32BIT
- config RISCV
- 	def_bool y
- 	select ACPI_GENERIC_GSI if ACPI
-+	select ACPI_MCFG if (ACPI && PCI)
- 	select ACPI_REDUCED_HARDWARE_ONLY if ACPI
- 	select ARCH_DMA_DEFAULT_COHERENT
- 	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
-@@ -152,6 +153,7 @@ config RISCV
- 	select OF_EARLY_FLATTREE
- 	select OF_IRQ
- 	select PCI_DOMAINS_GENERIC if PCI
-+	select PCI_ECAM if (ACPI && PCI)
- 	select PCI_MSI if PCI
- 	select RISCV_ALTERNATIVE if !XIP_KERNEL
- 	select RISCV_APLIC
-diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
-index e619edc8b0cc..41aa77c8484b 100644
---- a/arch/riscv/kernel/acpi.c
-+++ b/arch/riscv/kernel/acpi.c
-@@ -306,29 +306,26 @@ void __iomem *acpi_os_ioremap(acpi_physical_address phys, acpi_size size)
- #ifdef CONFIG_PCI
+diff --git a/drivers/acpi/Kconfig b/drivers/acpi/Kconfig
+index cee82b473dc5..4399e793f1d2 100644
+--- a/drivers/acpi/Kconfig
++++ b/drivers/acpi/Kconfig
+@@ -51,6 +51,9 @@ config ARCH_MIGHT_HAVE_ACPI_PDC
+ config ACPI_GENERIC_GSI
+ 	bool
  
- /*
-- * These interfaces are defined just to enable building ACPI core.
-- * TODO: Update it with actual implementation when external interrupt
-- * controller support is added in RISC-V ACPI.
-+ * raw_pci_read/write - Platform-specific PCI config space access.
-  */
--int raw_pci_read(unsigned int domain, unsigned int bus, unsigned int devfn,
--		 int reg, int len, u32 *val)
-+int raw_pci_read(unsigned int domain, unsigned int bus,
-+		 unsigned int devfn, int reg, int len, u32 *val)
- {
--	return PCIBIOS_DEVICE_NOT_FOUND;
--}
-+	struct pci_bus *b = pci_find_bus(domain, bus);
- 
--int raw_pci_write(unsigned int domain, unsigned int bus, unsigned int devfn,
--		  int reg, int len, u32 val)
--{
--	return PCIBIOS_DEVICE_NOT_FOUND;
-+	if (!b)
-+		return PCIBIOS_DEVICE_NOT_FOUND;
-+	return b->ops->read(b, devfn, reg, len, val);
- }
- 
--int acpi_pci_bus_find_domain_nr(struct pci_bus *bus)
-+int raw_pci_write(unsigned int domain, unsigned int bus,
-+		  unsigned int devfn, int reg, int len, u32 val)
- {
--	return -1;
--}
-+	struct pci_bus *b = pci_find_bus(domain, bus);
- 
--struct pci_bus *pci_acpi_scan_root(struct acpi_pci_root *root)
--{
--	return NULL;
-+	if (!b)
-+		return PCIBIOS_DEVICE_NOT_FOUND;
-+	return b->ops->write(b, devfn, reg, len, val);
- }
++config ARCH_ACPI_DEFERRED_GSI
++	bool
 +
- #endif	/* CONFIG_PCI */
-diff --git a/drivers/pci/pci-acpi.c b/drivers/pci/pci-acpi.c
-index 58497b25d2ab..c8c3369fd69f 100644
---- a/drivers/pci/pci-acpi.c
-+++ b/drivers/pci/pci-acpi.c
-@@ -1520,7 +1520,7 @@ static int __init acpi_pci_init(void)
- }
- arch_initcall(acpi_pci_init);
+ config ACPI_SYSTEM_POWER_STATES_SUPPORT
+ 	bool
  
--#if defined(CONFIG_ARM64)
-+#if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
- 
- /*
-  * Try to assign the IRQ number when probing a new device
 -- 
 2.39.2
 
