@@ -4,87 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F0A6C07545
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 13:01:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 017F6C0032E
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 13:17:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=dN8KK3qcWAdYuOMVkJtB1voMJQdgFmU+d3bPRMslOPU=; b=nOdkztNX/t0WBbIDqfJ5UmcgsP
-	c6xfXUdkabq7Fwmdpzs1u6VKUaPQ/G6gdm2GurUnBEhLuYYHLUaVc0Falk57rPtr8Gceu6QFwWjae
-	Z3uVtXNz3xvRSJZh4RrlkXS92oWEYFKaxYm3NK8Q7AhLmylgH8Pup3YvOggKVr+45aB2o68SImUog
-	5SxSCeuxiPqbqU0nhuR5VI/rc9p2wWHMMDhhxVBKVS5Q/+PJ9Zp7amZ8Sm5QRDZqcQ18y9kymTF94
-	oKwQD4+WHpuc61GCZzcY9hsOSJejZa/IZcMho/fHGkdHGTBpU9j6Ytbx1YClGyRt6y/GlJt27/RDL
-	Aa9fsX6Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vxwklsG6qSoTYbxaWBRrn5qdZEGZeQ+AyG3iAuys2cQ=; b=tGQRsmumTI6vgA
+	lAqZYz5wUkms17lY6SXqxs/90rZpDU2o+FgmE3gzmcWoMG3YIE4tJN60TiOo5jjp8tbgD1FGnuaET
+	kAd/X7u7wQ6MxnTUpzyWz7hgspMcfQKzHNlOI7GkRQIs2hkE8QrwQgHvq1fAAtaPmyzEfdmeZPNZy
+	Yj2D16Z+i0M2BztNKuW2tqU3lBzAfm9LNa+sQZYMKgl/BFeGRo5hqz5Kc+e+2QRsz17DBmsnBS1ik
+	HODhj5kW1ZurK60q0LGS3iZttlMAUWyKWw82Eztr6bpcM9rFYEWjimimooiJACG4d/6o3xKc/tWvX
+	9GQE9+KDJo/Uh82tcLZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvdVl-00CMIA-20;
-	Wed, 25 Oct 2023 13:01:25 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1qvdkw-00CODe-0r;
+	Wed, 25 Oct 2023 13:17:06 +0000
+Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvdVi-00CMGv-1z
+	id 1qvdkq-00COCI-21
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Oct 2023 13:01:24 +0000
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id A52B73FD3D
-	for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 13:01:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1698238873;
-	bh=Ja9/pCBWGEb2jT4TVb34dvtYhqs8vTUmcB3t9wcKY1o=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=iN12AhLjYPgHx/UGw1h4PPIEEKJ7s5Cblx4gCIhv2+zb8hPgBhur0/jjmfscViln/
-	 YkgIEof2K0sSiN0JXVNDkMFf5pMJk/Vsld+YPA0btrp4X0zddTk3GhNEK/GxKrPitV
-	 tVO57PwR3C6Vf5Lk2WX5iHavveGu7J2mtjlutHupExWf3cOpgO5eDrJcGVR7/IY8Bw
-	 aUKExzFenyQzkfSyXwowl2k/mAd0BHk3z8+hie2uVVJ+WdHbsy4ec26YmypzYGKAbk
-	 eNO49f+Pacy56EoeMwKsN3OvlQebx/Wz+q7oeUPYe/EoGIeleACq5ewuULMwgkFIMy
-	 eyY+G+CVSBTpQ==
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-41cba27f8b2so57361441cf.3
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 06:01:13 -0700 (PDT)
+	Wed, 25 Oct 2023 13:17:04 +0000
+Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-41cc0e9d92aso36845401cf.3
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 06:16:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1698239813; x=1698844613; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=g1tU5kbwVb+Wg1uvhO3+D2ibDL+pMHtlvIijrkuaPh8=;
+        b=XkZCFHI63X7SAGkp61t8v249RyEQTNyE17iHjgOpQ7qaiOwrDBdfjBGzFx6ixS55fR
+         v/obztq9uzc+zyDQvKUk9EpX805rBiiwsrOxnE3GxYglbjwb+5uJo2o9tDBChjJly3EX
+         XnXN5gzHxNixWCpLoSehkrVZRuCsr7jvSMT4ERbENockm40EFh2Vj6BfwIZmxR/lb+fp
+         0J7nX5P4H4nCHoU7EWITClanSzHRTkKHj47n/21NxSnbWljuKtStrL/CMT0ZkBQ9AOoI
+         e4NjCcUZLLr8o6m1HapWwbSMwW1mmkl4+Wydo8+L4dEbXOTL2RVoyI2EeUw6/Rnsdf+7
+         o/4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698238868; x=1698843668;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ja9/pCBWGEb2jT4TVb34dvtYhqs8vTUmcB3t9wcKY1o=;
-        b=RaLUo5eOavXQZTkgBtA6OA7haO2PcEWRkQdh/IApGcApG4cbR5YFDCHcF+RTD5mXsN
-         mt5QDCw5u7XqkdJR0UxxwlithsltYhKwYt9vYrKSJxxbTOmm7ZgXNDyfrDZ8o4YawvTD
-         L9ipbEIBJt35cHl+Uvp2jhQtyQUC+BJDB7YTl619P/nA0bQxlFwj7e3KfXbWeSRvKt3U
-         9h7iN5ISFMJUnAzWC+ntMESI0IfLL+rlJG2zDKvOvtAHjB/amvx0uWTzPwAseyeL5cqb
-         OseXhWFtDSt1CIup6lKYNELzok0KKZGYG3tAXqcGm1lU3hPiUDy7mrFehLIOdnE1PpD8
-         wGaw==
-X-Gm-Message-State: AOJu0Yxx3Kbbo6aGXLJdS480BvoIfwHfJZa1zRfoQdyXqmyT3Gq8qmiB
-	JG6VNmUBQR1PZoaCkHptbm+xq34Qx3Vu3sDfJYHplfz5jVKbeU3MBIijT5Mq5HhyMK2mCJnPBBn
-	Appk/Z6F1qZB0A1qBuafSpalvY3hByvx+BPlyFHxps/OF8PAVFheL1dff9+MhWA==
-X-Received: by 2002:ac8:7f55:0:b0:403:2877:bc52 with SMTP id g21-20020ac87f55000000b004032877bc52mr14847384qtk.0.1698238868270;
-        Wed, 25 Oct 2023 06:01:08 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHR4n03DxpEQ8FKBl/cC8JZSa2ZdjBM0k+4vHHfPQdbqvxHY2awJSdK2W4XYzETcAfXppp1yQjthWwRg+k5wtE=
-X-Received: by 2002:ac8:7f55:0:b0:403:2877:bc52 with SMTP id
- g21-20020ac87f55000000b004032877bc52mr14847345qtk.0.1698238867829; Wed, 25
- Oct 2023 06:01:07 -0700 (PDT)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 25 Oct 2023 06:01:07 -0700
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20231025102251.3369472-4-shravan.chippa@microchip.com>
-References: <20231025102251.3369472-1-shravan.chippa@microchip.com> <20231025102251.3369472-4-shravan.chippa@microchip.com>
-Mime-Version: 1.0
-Date: Wed, 25 Oct 2023 06:01:07 -0700
-Message-ID: <CAJM55Z9s4AFcA0OdfBEOP8=OK9Oa3NzV5qZ9f-Q2f0Kn-BcE8A@mail.gmail.com>
-Subject: Re: [PATCH v3 3/4] dmaengine: sf-pdma: add mpfs-pdma compatible name
-To: shravan chippa <shravan.chippa@microchip.com>, green.wan@sifive.com, vkoul@kernel.org, 
-	robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, 
-	paul.walmsley@sifive.com, conor+dt@kernel.org
-Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	nagasuresh.relli@microchip.com, praveen.kumar@microchip.com
+        d=1e100.net; s=20230601; t=1698239813; x=1698844613;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=g1tU5kbwVb+Wg1uvhO3+D2ibDL+pMHtlvIijrkuaPh8=;
+        b=MAZglECzF5CQGOBYKrAbVMM8xplKy7AQpcW9CliLOQjev3r5vyxOqy0OmS5J4skVKc
+         BdGJ9KiB0b9QSxVx+uLJuk4sKaAEgJh6IBjK5gxTQc9/vQVu38KncoXbtel5Y2PkQ5ey
+         wHegLcg0t2AY+Me4VpQfUkVYaheooGSxWCh8QyBTcUoGubdNKf3l7a2SZzk8NumUXIph
+         aXcou4xttrjDyBAtxpIugVZ6IswKKBMja0w19T+x5aQYK7sQCequLTORbkJKfpCm0VHk
+         V9Zu1K/28WNU77f4gJcvYFSLy7TlzvxAhrf43o0/skCK4nd5XpWEXnPEv1T0pmXAnVxi
+         PmXg==
+X-Gm-Message-State: AOJu0YxuopIEc8ZPXrlLQozRceVtjRGCp4p7wZOnEJovXSuySYJiaI0c
+	GMudAN8eY3dOtZImfBANyOw=
+X-Google-Smtp-Source: AGHT+IGDdTkY4rbUQVfZKtiVec1opfPoUHwbLgxu9buNeZQ8XoSBU+I/OT31DE12H3tKf3Lub14xEg==
+X-Received: by 2002:ac8:5715:0:b0:418:11ee:6315 with SMTP id 21-20020ac85715000000b0041811ee6315mr16789523qtw.43.1698239812806;
+        Wed, 25 Oct 2023 06:16:52 -0700 (PDT)
+Received: from [192.168.20.212] (cpe-107-15-246-199.nc.res.rr.com. [107.15.246.199])
+        by smtp.gmail.com with ESMTPSA id g3-20020ac842c3000000b0041977932fc6sm4188578qtm.18.2023.10.25.06.16.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Oct 2023 06:16:52 -0700 (PDT)
+Message-ID: <c84f0999-5de0-1161-4061-75aa2795d45a@gmail.com>
+Date: Wed, 25 Oct 2023 09:16:50 -0400
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
+ Gecko/20100101 Thunderbird/102.12.0
+Subject: Re: [PATCH v9 01/20] dt-bindings: PCI: Add PLDA XpressRICH PCIe host
+ common properties
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Conor Dooley <conor@kernel.org>
+Cc: Minda Chen <minda.chen@starfivetech.com>,
+ =?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kw@linux.com>,
+ Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Daire McNamara <daire.mcnamara@microchip.com>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Mason Huo <mason.huo@starfivetech.com>,
+ Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+ Kevin Xie <kevin.xie@starfivetech.com>
+References: <20231020104341.63157-1-minda.chen@starfivetech.com>
+ <20231020104341.63157-2-minda.chen@starfivetech.com>
+ <8ced1915-7b94-4abc-bd8b-cb4bf027fa01@linaro.org>
+ <bd441e1d-73ae-4abc-8eb2-877419acb2df@starfivetech.com>
+ <97e2decd-f6a3-91cb-6ca7-539f53b686f3@gmail.com>
+ <20231025-dotted-almighty-ae489e9eb764@spud>
+ <3d7a2dba-53f6-4625-8981-fbeb469418c1@linaro.org>
+Content-Language: en-US
+From: John Clark <inindev@gmail.com>
+In-Reply-To: <3d7a2dba-53f6-4625-8981-fbeb469418c1@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231025_060122_851483_72DB4FB2 
-X-CRM114-Status: GOOD (  20.36  )
+X-CRM114-CacheID: sfid-20231025_061700_663666_989E7236 
+X-CRM114-Status: GOOD (  14.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,133 +110,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-shravan chippa wrote:
-> From: Shravan Chippa <shravan.chippa@microchip.com>
->
-> Sifive platform dma does not allow out-of-order transfers,
-> Add a PolarFire SoC specific compatible and code to support
-> for out-of-order dma transfers
->
-> Signed-off-by: Shravan Chippa <shravan.chippa@microchip.com>
-> ---
->  drivers/dma/sf-pdma/sf-pdma.c | 27 ++++++++++++++++++++++++---
->  drivers/dma/sf-pdma/sf-pdma.h |  8 +++++++-
->  2 files changed, 31 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
-> index 4c456bdef882..9cc4beec40f0 100644
-> --- a/drivers/dma/sf-pdma/sf-pdma.c
-> +++ b/drivers/dma/sf-pdma/sf-pdma.c
-> @@ -25,6 +25,8 @@
->
->  #include "sf-pdma.h"
->
-> +#define PDMA_QUIRK_NO_STRICT_ORDERING   BIT(0)
-> +
->  #ifndef readq
->  static inline unsigned long long readq(void __iomem *addr)
->  {
-> @@ -66,7 +68,7 @@ static struct sf_pdma_desc *sf_pdma_alloc_desc(struct sf_pdma_chan *chan)
->  static void sf_pdma_fill_desc(struct sf_pdma_desc *desc,
->  			      u64 dst, u64 src, u64 size)
->  {
-> -	desc->xfer_type = PDMA_FULL_SPEED;
-> +	desc->xfer_type =  desc->chan->pdma->transfer_type;
->  	desc->xfer_size = size;
->  	desc->dst_addr = dst;
->  	desc->src_addr = src;
-> @@ -520,6 +522,7 @@ static struct dma_chan *sf_pdma_of_xlate(struct of_phandle_args *dma_spec,
->
->  static int sf_pdma_probe(struct platform_device *pdev)
->  {
-> +	const struct sf_pdma_driver_platdata *ddata;
->  	struct sf_pdma *pdma;
->  	int ret, n_chans;
->  	const enum dma_slave_buswidth widths =
-> @@ -545,6 +548,14 @@ static int sf_pdma_probe(struct platform_device *pdev)
->
->  	pdma->n_chans = n_chans;
->
-> +	pdma->transfer_type = PDMA_FULL_SPEED | PDMA_STRICT_ORDERING;
-> +
-> +	ddata  = device_get_match_data(&pdev->dev);
-> +	if (ddata) {
-> +		if (ddata->quirks & PDMA_QUIRK_NO_STRICT_ORDERING)
-> +			pdma->transfer_type &= ~(PDMA_STRICT_ORDERING) ;
+That is correct, I tested the entire series against Linux 6.6-rc7 and 
+confirmed that pcie/nvme/usb work on the VisionFive2 device. I was 
+unable to test the Microchip side of the equation. I will be more clear 
+as to what I verified if I comment in the future.
 
-The parentheses are unnecessary and you have an extra space.
+John Clark
 
-With that fixed:
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
-> +	}
-> +
->  	pdma->membase = devm_platform_ioremap_resource(pdev, 0);
->  	if (IS_ERR(pdma->membase))
->  		return PTR_ERR(pdma->membase);
-> @@ -632,9 +643,19 @@ static int sf_pdma_remove(struct platform_device *pdev)
->  	return 0;
->  }
+On 10/25/23 6:41 AM, Krzysztof Kozlowski wrote:
+> On 25/10/2023 12:28, Conor Dooley wrote:
+>> Hi John,
+>>
+>> On Mon, Oct 23, 2023 at 11:09:50PM -0400, John Clark wrote:
+>>>> On 2023/10/20 19:04, Krzysztof Kozlowski wrote:
+>>>>> On 20/10/2023 12:43, Minda Chen wrote:
+>>>>>> Add PLDA XpressRICH PCIe host common properties dt-binding doc.
+>>>>>> Microchip PolarFire PCIe host using PLDA IP.
+>>>>>> Move common properties from Microchip PolarFire PCIe host
+>>>>>> to PLDA files.
+>>>>>>
+>>>>>> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+>>>>>> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+>>>>>> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+>>>>>> Reviewed-by: Rob Herring <robh@kernel.org>
+>>>>>> ---
+>>>>>>    .../bindings/pci/microchip,pcie-host.yaml     | 55 +-------------
+>>>>>>    .../pci/plda,xpressrich3-axi-common.yaml      | 75 +++++++++++++++++++
+>>>>> Where was this patch reviewed?
+>>>>>
+>>>>> Best regards,
+>>>>> Krzysztof
+>>>>>
+>>>> This Conor's review tag. v2 : https://patchwork.kernel.org/project/linux-pci/patch/20230727103949.26149-2-minda.chen@starfivetech.com/
+>>>> This is Rob's review tag v3: https://patchwork.kernel.org/project/linux-pci/patch/20230814082016.104181-2-minda.chen@starfivetech.com/
+>>> Tested-by: John Clark <inindev@gmail.com>:
+>>> https://github.com/inindev/visionfive2/tree/main/kernel/patches
+>> I suspect you don't mean that you tested this individual dt-binding, but
+>> rather that you tested the whole series. If so, you should probably
+>> provide this tested-by against the cover-letter instead of this bindings
+>> patch.
+> Yeah, otherwise I would like to hear how do you test bindings (other
+> than dt_binding_check which is something similar to testing as compiling
+> code).
 >
-> +static const struct sf_pdma_driver_platdata mpfs_pdma = {
-> +	.quirks = PDMA_QUIRK_NO_STRICT_ORDERING,
-> +};
-> +
->  static const struct of_device_id sf_pdma_dt_ids[] = {
-> -	{ .compatible = "sifive,fu540-c000-pdma" },
-> -	{ .compatible = "sifive,pdma0" },
-> +	{
-> +		.compatible = "sifive,fu540-c000-pdma",
-> +	}, {
-> +		.compatible = "sifive,pdma0",
-> +	}, {
-> +		.compatible = "microchip,mpfs-pdma",
-> +		.data	    = &mpfs_pdma,
-> +	},
->  	{},
->  };
->  MODULE_DEVICE_TABLE(of, sf_pdma_dt_ids);
-> diff --git a/drivers/dma/sf-pdma/sf-pdma.h b/drivers/dma/sf-pdma/sf-pdma.h
-> index 5c398a83b491..267e79a5e0a5 100644
-> --- a/drivers/dma/sf-pdma/sf-pdma.h
-> +++ b/drivers/dma/sf-pdma/sf-pdma.h
-> @@ -48,7 +48,8 @@
->  #define PDMA_ERR_STATUS_MASK				GENMASK(31, 31)
+> Best regards,
+> Krzysztof
 >
->  /* Transfer Type */
-> -#define PDMA_FULL_SPEED					0xFF000008
-> +#define PDMA_FULL_SPEED					0xFF000000
-> +#define PDMA_STRICT_ORDERING				BIT(3)
->
->  /* Error Recovery */
->  #define MAX_RETRY					1
-> @@ -112,8 +113,13 @@ struct sf_pdma {
->  	struct dma_device       dma_dev;
->  	void __iomem            *membase;
->  	void __iomem            *mappedbase;
-> +	u32			transfer_type;
->  	u32			n_chans;
->  	struct sf_pdma_chan	chans[];
->  };
->
-> +struct sf_pdma_driver_platdata {
-> +	u32 quirks;
-> +};
-> +
->  #endif /* _SF_PDMA_H */
-> --
-> 2.34.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
