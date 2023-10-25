@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACE94C0032E
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 20:25:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3DF8C0032E
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 20:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4InUAwAVyQE32cFpoqedWPL9nk1w3kUWefMFdtUrpqA=; b=w29vV5DGAGP5sc
-	XXgykx3KinM4QpSdOTjvdwvn08Am5k7tdnYV7K1jhbMx1tr1G9+p3laVpnl06UIpFc1karMu0srbJ
-	jHuIgDsyoWc9PgNV7ntGvHpyYhaVtWpjBM0wUjrDQl4wVFgzzGJH+2dm/eSzpbnsOlgrx48KfLYxI
-	vCn9aL9XmhdbXH9DvGK3/3n17ks20l9AT+6prUCS2wspXMIrllJURzZgQw+QNnXE6/tg8j28amSJY
-	reSQ0Xq56kxfQvJ+R2d9lU7591/PMVfhcaaAInLPt/2d9vPW5CEASkxP69trD/Pcu1yJY3laJUofD
-	sI1gHT+TRL295kCXVvkQ==;
+	List-Owner; bh=8AL4Fb0EDPusVJsd4dYvG3VIPwdAIagSHQ6vFIg4waI=; b=edZD6FNiKW0Uq5
+	orjxoFRWXwYkdK5dDyJ2RyzfNhVZHMyPOoBSN4flYrn3mTzV2WeIm0+iBD+3E1+Q4TyzIqqugHnJ+
+	6yL3SRfzWnCa8jmVGNLOregl5qQvxmMgUYt8XMCJ/ybk9Ht37z3Z7IhkT0NuO0fig8R/77cOZXWwl
+	f02Yg3ZaXw1ObfXQOWMu4D7SoSNYB8Bg6/Jh4L3K0dhC2wgmftx5yH737CITc6YEZjZPoH7v+JfDw
+	0zKlSsTnRevOtlRFDZczjPYKuFFufNmpignzZ8rMi838k+UAn0vI6c9W8HIiumhNucZrZuCzP91bL
+	37xXCDC4pvXb/hhHSJvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvkRf-00D3RL-0H;
-	Wed, 25 Oct 2023 20:25:39 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1qvkRp-00D3Zs-05;
+	Wed, 25 Oct 2023 20:25:49 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvkR9-00D319-21
+	id 1qvkRF-00D36A-1x
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Oct 2023 20:25:09 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-6b9af7d41d2so154746b3a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 13:25:07 -0700 (PDT)
+	Wed, 25 Oct 2023 20:25:15 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-6b77ab73c6fso101447b3a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 13:25:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1698265507; x=1698870307; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1698265513; x=1698870313; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=DxzCTJ+m1lwBq+RMy/cftySc6UneYPqTwJF8JhbniDw=;
-        b=pUfO6dChYmz+oFbJFBygPFZetmEmeu++WzPOLGypMxKaefkm+foOpM0ORzPiiwGTBg
-         GTJOVKiI0SN+FIO3hGtO2/oJVcMnMccuSpmZBNVhTxz03Y+0fhfTt3YiDSr+t+Bp7Xxb
-         6uJuDBFqGsKSZsxUhtrb04bSZCSUOW36D9y2EdAYP1+UcDzITNcIaMZujb+8A50M59w8
-         mi7CSHwoOoXlbt5+K/CabltkjnxFC3If+mzqaHSam49jRbBBHxqT2+FPtTY0sRe8EvNd
-         zHsGwXX6W8L51nF1Hi4qYqFKbmJSlPq/kA4NLgyKmMW1F5tKuG0RlDMPTGj1Iy3q1uwt
-         y1/Q==
+        bh=ksJT9a6E7b+AgWOW+0QqZAQKxEPs+GfkSTk4Wygp/9k=;
+        b=jLcyAYhWtSv+vNzEATJ1S9hqFJrTjg89uY+BsZeaPunCRAhvwFkIo0WH5kZA/q7ss7
+         +5bdvOToHeeGQJACB981qyWcGWch/UUAsufUY3nTRt+xdGSmJtNMUYYugkeTR4eULGYp
+         keheaYVHZmhaxd/ziMqF6jrJYbvm5BtR1kIh5xfosQmWAe/l4pIMOFTPnR8hmGQw7LE2
+         /+tJ7suTe67CRwnpRiezXO+JIrcACOpNtB/EeIeKJV0SwU+E6m7c5XuEgASWzljOLBpH
+         vDTkdPO0N3ohYVuSg4cp3CdG//eFhzYyEDvgkkVinCpH+KjwgC20pzEFws8uuYGC7p8p
+         gjCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698265507; x=1698870307;
+        d=1e100.net; s=20230601; t=1698265513; x=1698870313;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=DxzCTJ+m1lwBq+RMy/cftySc6UneYPqTwJF8JhbniDw=;
-        b=SERfznw3mzn2egFbwrKmKJAH6bjMziL8aq0WqW2oKRJSv217yq0cqyKDypSDuJO6Us
-         oSvW/7h+6HXp/Ptz4f4B3lZwyxFqoRXazcecMJCLc6+n+PNBUqH/QPNjDfHZjA7fg0um
-         GdHdlWmy0q8EYV4JqPxiGr5nmaAVzBhGBQcudA7suuFeHDFzah1F15whLKnnpotqZ12q
-         qmbCYvfVkIkq6F6utugGy8HPxiSQsaQnhcnzWFmhyXn+r/JPjuUzsbBP/tDJjo/L1PYO
-         WzFTA6Qsp6gM5sBfXcNVNUasgcN2osfhBmXVlU44mvCVvxM0Qi239r0OG/ygg4m7NDv9
-         tVIw==
-X-Gm-Message-State: AOJu0YxXbLXBFsPIN7nGQE8zwKS9L2Jy4EDr8LzA0YFc63+Op4uXDaR/
-	dPUZ0lgtUlCQBo6C4dABhERtvg==
-X-Google-Smtp-Source: AGHT+IFKGK+9x6obxjzCs3/eR+3q/3iIQzNNW6EXTTk1GAvemcOrYvQgO6IFBiNDzQzfVY0iJ8I2bw==
-X-Received: by 2002:a05:6a00:2d91:b0:690:d4fa:d43d with SMTP id fb17-20020a056a002d9100b00690d4fad43dmr14404404pfb.6.1698265506987;
-        Wed, 25 Oct 2023 13:25:06 -0700 (PDT)
+        bh=ksJT9a6E7b+AgWOW+0QqZAQKxEPs+GfkSTk4Wygp/9k=;
+        b=TQ3qXMFflvcDbM56VSylPMDDLsrJPspAU3kaSAbdzhBS/w9sbnfbRX4bmS/bTRIws3
+         tzqvXaZ8JoUPChEVquO7yki4TK2edkZI6WX7NHsl5EBLE0r3OvBpomvVjynA8pRg6hf+
+         DIo+Kvn30Su9LVuiA2B21P3f+ooUZeDXTFK1lmzFdF27WQNcgJSnLtIn3AyjmzbKoJwk
+         6eES/00KA/bY/UpKFMTj4hM4wTc5xWJMO/KkcUaGbkoP6lDzoYdC0pgEgZvwN5ClSsvm
+         WHz6uY57OXhEWFh/5EWsjsSbvqHzCUDqotqNJvEJ+lEIzhYBaEE3tANK5Z9hmD9X3Fca
+         hy1Q==
+X-Gm-Message-State: AOJu0YzX4LZBJ50MVyau2co0fy/RetKc1pji0TwzGornQCv11Gngaidt
+	juA+dJmG4GiYVCRnEHtOPXaTmQ==
+X-Google-Smtp-Source: AGHT+IEV/ROdZJJDw08iKQqN+bmgqdHT2tEV8SRCTGnJc4fD81is4j8SLEFb3dBe1vSckHTdkPvdfA==
+X-Received: by 2002:a05:6a00:478c:b0:6b4:64ac:eab2 with SMTP id dh12-20020a056a00478c00b006b464aceab2mr801836pfb.1.1698265512788;
+        Wed, 25 Oct 2023 13:25:12 -0700 (PDT)
 Received: from sunil-pc.Dlink ([106.51.188.78])
-        by smtp.gmail.com with ESMTPSA id y3-20020aa79423000000b006b84ed9371esm10079590pfo.177.2023.10.25.13.25.01
+        by smtp.gmail.com with ESMTPSA id y3-20020aa79423000000b006b84ed9371esm10079590pfo.177.2023.10.25.13.25.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Oct 2023 13:25:06 -0700 (PDT)
+        Wed, 25 Oct 2023 13:25:12 -0700 (PDT)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -69,16 +69,16 @@ To: linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
 	linux-pci@vger.kernel.org,
 	linux-serial@vger.kernel.org
-Subject: [RFC PATCH v2 10/21] ACPI: RISC-V: Implement arch function to reorder irqchip probe entries
-Date: Thu, 26 Oct 2023 01:53:33 +0530
-Message-Id: <20231025202344.581132-11-sunilvl@ventanamicro.com>
+Subject: [RFC PATCH v2 11/21] PCI: MSI: Add helper function to set system wide MSI support
+Date: Thu, 26 Oct 2023 01:53:34 +0530
+Message-Id: <20231025202344.581132-12-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20231025202344.581132-1-sunilvl@ventanamicro.com>
 References: <20231025202344.581132-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231025_132507_697151_0FE3FF71 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20231025_132513_655724_828C0787 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,68 +96,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-ACPI MADT entries for interrupt controllers don't have a way to describe
-the hierarchy. However, the hierarchy is known to the architecture and
-on RISC-V platforms, the MADT sub table types are ordered in the
-incremental order from the root controller which is RINTC. So, add
-architecture function for RISC-V to reorder the interrupt controller
-probing as per the hierarchy as below.
-
-RINTC->IMSIC->APLIC->PLIC
+Like pci_no_msi() used to disable MSI support, add a function to enable
+system wide MSI support.
 
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 ---
- drivers/acpi/riscv/Makefile |  2 +-
- drivers/acpi/riscv/irq.c    | 32 ++++++++++++++++++++++++++++++++
- 2 files changed, 33 insertions(+), 1 deletion(-)
- create mode 100644 drivers/acpi/riscv/irq.c
+ drivers/pci/msi/msi.c | 5 +++++
+ drivers/pci/pci.h     | 2 ++
+ 2 files changed, 7 insertions(+)
 
-diff --git a/drivers/acpi/riscv/Makefile b/drivers/acpi/riscv/Makefile
-index 8b3b126e0b94..f80b3da230e9 100644
---- a/drivers/acpi/riscv/Makefile
-+++ b/drivers/acpi/riscv/Makefile
-@@ -1,2 +1,2 @@
- # SPDX-License-Identifier: GPL-2.0-only
--obj-y 	+= rhct.o
-+obj-y 	+= rhct.o irq.o
-diff --git a/drivers/acpi/riscv/irq.c b/drivers/acpi/riscv/irq.c
-new file mode 100644
-index 000000000000..36e0525b3235
---- /dev/null
-+++ b/drivers/acpi/riscv/irq.c
-@@ -0,0 +1,32 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2023, Ventana Micro Systems Inc
-+ *	Author: Sunil V L <sunilvl@ventanamicro.com>
-+ *
-+ */
+diff --git a/drivers/pci/msi/msi.c b/drivers/pci/msi/msi.c
+index ef1d8857a51b..e76ccb8b5f0b 100644
+--- a/drivers/pci/msi/msi.c
++++ b/drivers/pci/msi/msi.c
+@@ -913,3 +913,8 @@ void pci_no_msi(void)
+ {
+ 	pci_msi_enable = 0;
+ }
 +
-+#include <linux/acpi.h>
-+#include <linux/sort.h>
-+
-+static int irqchip_cmp_func(const void *in0, const void *in1)
++void pci_set_msi(void)
 +{
-+	struct acpi_probe_entry *elem0 = (struct acpi_probe_entry *)in0;
-+	struct acpi_probe_entry *elem1 = (struct acpi_probe_entry *)in1;
-+
-+	return (elem0->type > elem1->type) - (elem0->type < elem1->type);
++	pci_msi_enable = 1;
 +}
-+
-+/*
-+ * RISC-V irqchips in MADT of ACPI spec are defined in the same order how
-+ * they should be probed. Since IRQCHIP_ACPI_DECLARE doesn't define any
-+ * order, this arch function will reorder the probe functions as per the
-+ * required order for the architecture.
-+ */
-+void arch_sort_irqchip_probe(struct acpi_probe_entry *ap_head, int nr)
-+{
-+	struct acpi_probe_entry *ape = ap_head;
-+
-+	if (nr == 1 || !ACPI_COMPARE_NAMESEG(ACPI_SIG_MADT, ape->id))
-+		return;
-+	sort(ape, nr, sizeof(*ape), irqchip_cmp_func, NULL);
-+}
+diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+index 39a8932dc340..2f876c29f75c 100644
+--- a/drivers/pci/pci.h
++++ b/drivers/pci/pci.h
+@@ -167,8 +167,10 @@ extern unsigned int pci_pm_d3hot_delay;
+ 
+ #ifdef CONFIG_PCI_MSI
+ void pci_no_msi(void);
++void pci_set_msi(void);
+ #else
+ static inline void pci_no_msi(void) { }
++static inline void pci_set_msi(void) { }
+ #endif
+ 
+ void pci_realloc_get_opt(char *);
 -- 
 2.39.2
 
