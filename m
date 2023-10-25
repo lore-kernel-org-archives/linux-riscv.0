@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79442C0032E
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 13:38:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF25EC07545
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 13:45:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,89 +13,82 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=AH5F1E5af4VFQ5hrG/1s4DsFga+EfqiOFFZoze0mfP4=; b=lS1rSPTsO9Mf/IYgKvItkm8pF0
-	sobEuhOzGEmVBB15RB0Ec/U+90U8f7q3cmVnz15I0cc8AL6YEaKwr9H//g4WdJs0c/g2YEOHJYJrK
-	Q7oQllzNZz4LKf8ldRd/PQy87v3iRYrKzvtnH1r1Lr+PSDQbEHW+1wDZbyoSCT4p45Pd+uxOkepIk
-	4maJVb8eES82atkp57pmpkNncq6eSMghdL5pd5ilrbdxCB0axQ33RJNQtgEIfxiSA+L5+NOSisCod
-	VKrlWZWCFGZUz7ZOYbjSNkgXJ+ws54ZtMUeKqQ/+d1+0St+yBF+HO62XzkUZ2ltgpfWaeFAsoqTLp
-	ArkEcXRQ==;
+	bh=462B2Tavwu03HG8B6ex4LjvMmTyJbJo014AhP1Fn2tM=; b=aw9J/E++0ZlP8g8d9AdH8Tr+aY
+	durGk1vu5zE/FU1KGlsbVEGIdrGQ5iIWaCmKGdtZy/4HbW5XlN8JKvXkoPz7ew45oh8CWHqyeKUMi
+	NOFSNhQEmNNepObMWsWzBwKxwaXBRBDnSsvX6OPx0ZMr0RvK1oWHBNJfpylg/flWWwztkoAfyiGPc
+	ESPefxu4XZ1t/dcRI177hJyo+JSCHvhMxGvkkuKyWdXvIdnPalJdc6IGxnSTegJfCTvi6cMylr93n
+	s+3k4cbzVr7o6ZMWb6/i4wqSFdwHsAOKpkXW3CO6E4XWcXCfqrq6f9gDw/AJH4NlzG9dhqGYg9lzB
+	BEmMobtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qve5V-00CQSA-1h;
-	Wed, 25 Oct 2023 13:38:21 +0000
+	id 1qveCi-00CR49-2e;
+	Wed, 25 Oct 2023 13:45:48 +0000
 Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qve5S-00CQRb-2V
+	id 1qveCf-00CR3m-1R
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Oct 2023 13:38:20 +0000
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	Wed, 25 Oct 2023 13:45:46 +0000
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 6A3ED420AF
-	for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 13:38:11 +0000 (UTC)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 10E9840621
+	for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 13:45:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1698241091;
-	bh=4kZetE1rdZ7P5Qi3G+jzZsycI0EzhJ2peFQaOTjHG8s=;
+	s=20210705; t=1698241541;
+	bh=+60nkze2sRRgfeFsZmoFML77ioPwo/jReraRdMDEs5A=;
 	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
 	 To:Cc:Content-Type;
-	b=Zbm7JNN2Kn7owckCN61T9VLnq7JznyG0uypYpg7GhfIVzNywEinmhNxr1xJtZ573f
-	 IIq6YSNAkpkpiOIPz6Ubg6qJz5QC5uqdXSVOUppYeQQIKWQ1GCwE0EyQN3O0pGpx6Z
-	 WLzsPhjE/EouOaakO0m8TMcbrgNLl0kqyoAwyuGojTwNliBn8lUdUBYYl7P4SvgOVS
-	 xOjPEvPQs3QXzvDbN24KXy3hsfTLn7YtZDzYzEhTCLg+xvOyStKnAGS5aIWmB6XQwW
-	 OF+1jq0sKV4PE4Qq8wcNZH8Av2oMgXQFrl21ViaN+VDrQXdpR0Tswq7t/cZMLG2fi2
-	 n1UXxIuKw3aBw==
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-41cbb2970f4so63892031cf.2
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 06:38:11 -0700 (PDT)
+	b=gXXGGt6tMw99lTGXANzK+uLRJ1KxSj4TdHucyyiab1RjnNRqQJKl2Z9t/pUDgb72K
+	 xZB1OZCidOULl/B1FkafeCAW0PVjMr0ZiXn56kLq4a00WITjF4yut8Xi42J2hEklDt
+	 TzJef9Z9lNcOMVT6D+qLAsPX2oYowrKB7VosHOJBuL2NZ8VcbGxeWvHHH2eZ3VxIZm
+	 At7QWmMcKcut4iOKfMKgEM0xuPiyINOAQ6gYFscgRvAaPFCwhoObaoWx9qkjXVxf1o
+	 NwUreYjOethZK35nwJhg4RtLtGCQot3fai4VCz4zY94ePRtvu+9Ot8hKPZeNkJl6yk
+	 65ByvLdmEkW1A==
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-41cdce61dcbso68317991cf.3
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 06:45:41 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698241090; x=1698845890;
+        d=1e100.net; s=20230601; t=1698241540; x=1698846340;
         h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
          :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4kZetE1rdZ7P5Qi3G+jzZsycI0EzhJ2peFQaOTjHG8s=;
-        b=Trb6qRSR1I77ZY7J8159JHL8iFIARuXfoyB1lmPZ3Squ6Tr1T0TtdM9/i3lGGlsjAh
-         xrIvVxOqbGD0DDks36iO1QtiFgRMvG/HA50djjTjcV+yh9TzK3gVU/plmiiC1doKiUma
-         +McgwHg5pjuYzP9Wfa3YwZqwkqM8wAchLYJ8ctqmqFKQY0vI9HEN/AblCSccDVW4d/Jy
-         Jxd2VmhRjM3Mz+2yGsvy/oLNpDR/5yYcfCHNhK3tswiLqjmKKQKNwDMAS+lH0F8U7ak5
-         Bt8oX5OWNx6pFrCp4wU7opmtg+AnSFF9VrQkYLJZds8aCVbWttv5L7NnI0AeT7nBlBvd
-         R96g==
-X-Gm-Message-State: AOJu0YwXodSznzwbMIsRj4jmNIMmXLB84nnbvqJtZAVFK/6jFAl9qZuZ
-	QWI6d1b64aKvYNG8ez+1hlB6E+u2pgtSaYKiBSH1QwkolvUf9JkmUe/m+us5t11R8IuAU/gSdC3
-	LSrbobITEo+etydKb/8Q5xk59T+rUUCro8CMghsA4fWFScaMMA6+UnE7GET8nkA==
-X-Received: by 2002:a05:622a:1b9f:b0:417:bd2c:2683 with SMTP id bp31-20020a05622a1b9f00b00417bd2c2683mr16970917qtb.19.1698241090315;
-        Wed, 25 Oct 2023 06:38:10 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE9sqk9O9NSffONLMLkF62MheH44KULbbJziO/VE+15eqK7tXOWni0WrQFzdn8ozLKmF0Jvc5dWLHw93tWI6nk=
-X-Received: by 2002:a05:622a:1b9f:b0:417:bd2c:2683 with SMTP id
- bp31-20020a05622a1b9f00b00417bd2c2683mr16970883qtb.19.1698241090030; Wed, 25
- Oct 2023 06:38:10 -0700 (PDT)
+        bh=+60nkze2sRRgfeFsZmoFML77ioPwo/jReraRdMDEs5A=;
+        b=v5I2B6stiHmkPnI9i+tbMKbmMzMeRRh/F3Taj7QH9hbpwIg5cQQ1gPIlY2x0KT+z+O
+         lqVTtptWgrEn/dAo4+C7HqtXyECKtuhcnmZDd5Bz1Rhpqv1TcJeidM4r57ETMKA+ok42
+         hJ+LR8ovjbbecaXjSHSO2O+KBdbRZrr12pJ+v0tgizmZ4DeZ2SDirzYqaohpFHa1n7zV
+         pZRD9mjge2M83Cj41iOSGErmc/V9ctWRaZ73FokH72JszyMGVruoFjsRMFGhJCX2EBX3
+         p+Uuh9aO6gLrN1H8jbuG4kFrlUT9osnL6mjI3hWrdBGf5uxuG/ctLf16UbXyFZg1/zO0
+         Yyfw==
+X-Gm-Message-State: AOJu0Yz3mFZGjILpOSjd+LQLoKKTRE84ODmzdyKaKSAfz0xjr566Gtwi
+	+vnzCMFGA83n39Nar8+lDqH+UyZlBisxUS3G9lCZvVZ1IJV3wHNMdMzSeQegxqXIOSzofmuOw4Y
+	TBzYUDHyF6s5Omg47MqOSkVrmyEu8AJWLTJZ0uuctIxocVUOXPxOCQOXF82Tdwg==
+X-Received: by 2002:a05:622a:546:b0:418:2242:7823 with SMTP id m6-20020a05622a054600b0041822427823mr19590885qtx.32.1698241540170;
+        Wed, 25 Oct 2023 06:45:40 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHOVt8UpkWDt9syG2uUYq+GKDBm1AQ/uLpT42Eg0N4uYLR9c2VyMtFdKW/1yQYgIadYQ81RXcVGJLbHiSFOWBI=
+X-Received: by 2002:a05:622a:546:b0:418:2242:7823 with SMTP id
+ m6-20020a05622a054600b0041822427823mr19590867qtx.32.1698241539921; Wed, 25
+ Oct 2023 06:45:39 -0700 (PDT)
 Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 25 Oct 2023 06:38:09 -0700
+ HTTPREST; Wed, 25 Oct 2023 06:45:39 -0700
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20231025103957.3776-3-keith.zhao@starfivetech.com>
-References: <20231025103957.3776-1-keith.zhao@starfivetech.com> <20231025103957.3776-3-keith.zhao@starfivetech.com>
+In-Reply-To: <20231020103741.557735-4-william.qiu@starfivetech.com>
+References: <20231020103741.557735-1-william.qiu@starfivetech.com> <20231020103741.557735-4-william.qiu@starfivetech.com>
 Mime-Version: 1.0
-Date: Wed, 25 Oct 2023 06:38:09 -0700
-Message-ID: <CAJM55Z_Y_qp0J5FmWDPdziCRY7duNBhHnvM0Zza2pG-vK0etbw@mail.gmail.com>
-Subject: Re: [PATCH v2 2/6] riscv: dts: starfive: jh7110: add dc controller
- and hdmi node
-To: Keith Zhao <keith.zhao@starfivetech.com>, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-media@vger.kernel.org, 
-	linaro-mm-sig@lists.linaro.org
-Cc: David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>, Rob Herring <robh+dt@kernel.org>, 
+Date: Wed, 25 Oct 2023 06:45:39 -0700
+Message-ID: <CAJM55Z9aR0rwK9CSyGw_YJP8VN5sKax1JH6bPEaiX_gjkE049g@mail.gmail.com>
+Subject: Re: [PATCH v6 3/4] riscv: dts: starfive: jh7110: Add PWM node and
+ pins configuration
+To: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-pwm@vger.kernel.org
+Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, 
+	Thierry Reding <thierry.reding@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Sumit Semwal <sumit.semwal@linaro.org>, christian.koenig@amd.com, 
-	Bjorn Andersson <andersson@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Shawn Guo <shawnguo@kernel.org>, 
-	Jagan Teki <jagan@edgeble.ai>, Chris Morgan <macromorgan@hotmail.com>, 
-	Jack Zhu <jack.zhu@starfivetech.com>, 
-	Shengyang Chen <shengyang.chen@starfivetech.com>, 
-	Changhuang Liang <changhuang.liang@starfivetech.com>
+	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, 
+	Hal Feng <hal.feng@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231025_063819_171296_158ACE99 
-X-CRM114-Status: GOOD (  16.35  )
+X-CRM114-CacheID: sfid-20231025_064545_694951_8B528721 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,198 +105,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Keith Zhao wrote:
-> Add the dc controller and hdmi node for the Starfive JH7110 SoC.
+William Qiu wrote:
+> Add OpenCores PWM controller node and add PWM pins configuration
+> on VisionFive 2 board.
 >
-> Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
+> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
 > ---
->  .../jh7110-starfive-visionfive-2.dtsi         | 91 +++++++++++++++++++
->  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 41 +++++++++
->  2 files changed, 132 insertions(+)
+>  .../jh7110-starfive-visionfive-2.dtsi         | 22 +++++++++++++++++++
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi      |  9 ++++++++
+>  2 files changed, 31 insertions(+)
 >
 > diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> index de0f40a8b..97909b6d2 100644
+> index 12ebe9792356..63d16a6a4e12 100644
 > --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
 > +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> @@ -31,6 +31,25 @@ memory@40000000 {
->  		reg = <0x0 0x40000000 0x1 0x0>;
+> @@ -268,6 +268,12 @@ reserved-data@600000 {
 >  	};
->
-> +	reserved-memory {
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		/* vout applies for space from this CMA
-> +		 * Without this CMA reservation,
-> +		 * vout may not work properly.
-> +		 */
-> +		linux,cma {
-> +			compatible = "shared-dma-pool";
-> +			reusable;
-> +			size = <0x0 0x20000000>;
-> +			alignment = <0x0 0x1000>;
-> +			alloc-ranges = <0x0 0x70000000 0x0 0x20000000>;
-> +			linux,cma-default;
-> +		};
-> +	};
-> +
->  	gpio-restart {
->  		compatible = "gpio-restart";
->  		gpios = <&sysgpio 35 GPIO_ACTIVE_HIGH>;
-> @@ -231,6 +250,41 @@ GPOEN_DISABLE,
->  			slew-rate = <0>;
->  		};
->  	};
-> +
-> +	hdmi_pins: hdmi-0 {
-> +		hdmi-scl-pins {
-> +			pinmux = <GPIOMUX(0, GPOUT_SYS_HDMI_DDC_SCL,
-> +					     GPOEN_SYS_HDMI_DDC_SCL,
-> +					     GPI_SYS_HDMI_DDC_SCL)>;
-> +			input-enable;
-> +			bias-pull-up;
-> +		};
-> +
-> +		hdmi-sda-pins {
-> +			pinmux = <GPIOMUX(1, GPOUT_SYS_HDMI_DDC_SDA,
-> +					     GPOEN_SYS_HDMI_DDC_SDA,
-> +					     GPI_SYS_HDMI_DDC_SDA)>;
-> +			input-enable;
-> +			bias-pull-up;
-> +		};
-> +
-> +		hdmi-cec-pins {
-> +			pinmux = <GPIOMUX(14, GPOUT_SYS_HDMI_CEC_SDA,
-> +					     GPOEN_SYS_HDMI_CEC_SDA,
-> +					     GPI_SYS_HDMI_CEC_SDA)>;
-> +			input-enable;
-> +			bias-pull-up;
-> +		};
-> +
-> +		hdmi-hpd-pins {
-> +			pinmux = <GPIOMUX(15, GPOUT_HIGH,
-> +					     GPOEN_ENABLE,
-> +					     GPI_SYS_HDMI_HPD)>;
-> +			input-enable;
-> +			bias-disable; /* external pull-up */
-> +		};
-> +	};
-> +
-
-Please don't break the alphabetical ordering of these nodes.
-
 >  };
 >
->  &uart0 {
-> @@ -254,3 +308,40 @@ &U74_3 {
->  &U74_4 {
->  	cpu-supply = <&vdd_cpu>;
->  };
-> +
-> +&voutcrg {
-> +	status = "okay";
-> +};
-> +
-> +&display {
-> +	status = "okay";
-> +};
-> +
-> +&hdmi {
-> +	status = "okay";
+> +&pwm {
 > +	pinctrl-names = "default";
-> +	pinctrl-0 = <&hdmi_pins>;
-> +
-> +	hdmi_in: port {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +		hdmi_in_dc: endpoint@0 {
-> +			reg = <0>;
-> +			remote-endpoint = <&dc_out_hdmi>;
-> +		};
-> +	};
-> +};
-> +
-> +&dc8200 {
+> +	pinctrl-0 = <&pwm_pins>;
 > +	status = "okay";
-> +
-> +	dc_out: port {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +		dc_out_hdmi: endpoint@0 {
-> +			reg = <0>;
-> +			remote-endpoint = <&hdmi_in_dc>;
-> +		};
-> +
-> +	};
 > +};
+> +
 
-Some goes for these node references. The order is /-node, clocks, node refences
+Hi William,
+
+I just noticed this node reference is out of order. The references should be
 sorted alphabetically.
 
+/Emil
 
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> index 0005fa163..1670452fb 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -282,6 +282,11 @@ tdm_ext: tdm-ext-clock {
->  		#clock-cells = <0>;
+>  &spi0 {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&spi0_pins>;
+> @@ -402,6 +408,22 @@ GPOEN_SYS_SDIO1_DATA3,
+>  		};
 >  	};
 >
-> +	display: display-subsystem {
-> +		compatible = "starfive,display-subsystem";
-> +		ports = <&dc_out>;
+> +	pwm_pins: pwm-0 {
+> +		pwm-pins {
+> +			pinmux = <GPIOMUX(46, GPOUT_SYS_PWM_CHANNEL0,
+> +					      GPOEN_SYS_PWM0_CHANNEL0,
+> +					      GPI_NONE)>,
+> +				 <GPIOMUX(59, GPOUT_SYS_PWM_CHANNEL1,
+> +					      GPOEN_SYS_PWM0_CHANNEL1,
+> +					      GPI_NONE)>;
+> +			bias-disable;
+> +			drive-strength = <12>;
+> +			input-disable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
 > +	};
 > +
->  	soc {
->  		compatible = "simple-bus";
->  		interrupt-parent = <&plic>;
-> @@ -613,5 +618,41 @@ voutcrg: clock-controller@295c0000 {
->  			#reset-cells = <1>;
->  			power-domains = <&pwrc JH7110_PD_VOUT>;
+>  	spi0_pins: spi0-0 {
+>  		mosi-pins {
+>  			pinmux = <GPIOMUX(52, GPOUT_SYS_SPI0_TXD,
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> index e85464c328d0..4024165d4538 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> @@ -736,6 +736,15 @@ spi6: spi@120a0000 {
+>  			status = "disabled";
 >  		};
-> +
-> +		dc8200: lcd-controller@29400000 {
-> +			compatible = "starfive,jh7110-dc8200";
-> +			reg = <0x0 0x29400000 0x0 0x100>,
-> +			      <0x0 0x29400800 0x0 0x2000>;
-> +			interrupts = <95>;
-> +			clocks = <&syscrg JH7110_SYSCLK_NOC_BUS_DISP_AXI>,
-> +				<&voutcrg JH7110_VOUTCLK_DC8200_PIX0>,
-> +				<&voutcrg JH7110_VOUTCLK_DC8200_PIX1>,
-> +				<&voutcrg JH7110_VOUTCLK_DC8200_CORE>,
-> +				<&voutcrg JH7110_VOUTCLK_DC8200_AXI>,
-> +				<&voutcrg JH7110_VOUTCLK_DC8200_AHB>,
-> +				<&hdmitx0_pixelclk>,
-> +				<&voutcrg JH7110_VOUTCLK_DC8200_PIX>;
-> +			clock-names = "noc_bus", "channel0", "channel1",
-> +				      "dc_core", "axi_core", "ahb",
-> +				      "hdmi_tx", "dc_parent";
-> +			resets = <&voutcrg JH7110_VOUTRST_DC8200_AXI>,
-> +				 <&voutcrg JH7110_VOUTRST_DC8200_AHB>,
-> +				 <&voutcrg JH7110_VOUTRST_DC8200_CORE>;
-> +			reset-names = "axi","ahb", "core";
+>
+> +		pwm: pwm@120d0000 {
+> +			compatible = "starfive,jh71x0-pwm";
+> +			reg = <0x0 0x120d0000 0x0 0x10000>;
+> +			clocks = <&syscrg JH7110_SYSCLK_PWM_APB>;
+> +			resets = <&syscrg JH7110_SYSRST_PWM_APB>;
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
 > +		};
 > +
-> +		hdmi: hdmi@29590000 {
-> +			compatible = "starfive,jh7110-inno-hdmi";
-> +			reg = <0x0 0x29590000 0x0 0x4000>;
-> +			interrupts = <99>;
-> +
-> +			clocks = <&voutcrg JH7110_VOUTCLK_HDMI_TX_SYS>,
-> +				 <&voutcrg JH7110_VOUTCLK_HDMI_TX_MCLK>,
-> +				 <&voutcrg JH7110_VOUTCLK_HDMI_TX_BCLK>,
-> +				 <&hdmitx0_pixelclk>;
-> +			clock-names = "sysclk", "mclk", "bclk", "pclk";
-> +			resets = <&voutcrg JH7110_VOUTRST_HDMI_TX_HDMI>;
-> +			#sound-dai-cells = <0>;
-> +		};
-
-These nodes, however, are sorted by their address which you alse break in this
-patch :(
-
->  	};
->  };
+>  		sfctemp: temperature-sensor@120e0000 {
+>  			compatible = "starfive,jh7110-temp";
+>  			reg = <0x0 0x120e0000 0x0 0x10000>;
 > --
 > 2.34.1
 >
