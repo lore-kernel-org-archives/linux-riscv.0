@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D67C25B70
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DC1FC07545
 	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 18:56:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,66 +12,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=12N2CqZKrs2zwp4MEwIbysxuGqRFmBgGxufIe6lkibE=; b=sSVUcz1tzwdvvS
-	+hOJq26jJMuyD5RsoA7qSV1fboSziqyDlXexUqTI1Oi4DerrMTX/s93HCGzYTNOlzD1vDf1zKQfAe
-	OamdHIc88UGO4X/1gM9RDkvewRINw0lIhbrheAaRRsMXy6WbNz0BFyVtTKL+fyi02NVM7rl+H6TL8
-	kDTqtdC8BVcTGWLWsvb7jCmnBQ0ScPiHGfI31DQ7hWsNpnI73ZriaFsRK15QxWQjjtTu1LE0ERuS4
-	JlI53P9ewS59M8YDaR2XXgZv0mW0+07ND9H4vcavan00kMrpAKDyNUqNW3ZnNYyanG3BUqzxTabeH
-	+XAQREFgm0cLg4fkcfKQ==;
+	List-Owner; bh=BdHOzqz1aRHAx3/aa/n763vB03mELKw1YhV4N8++bXc=; b=LTpHZA9Rkceu5M
+	Gdb7qxQd1Ha8ioo/c68AZsF9fCUr671//3Cm77gcbPOjLDd2nT+DJfJ4ZA3KikkKUYSWtlJDr58RH
+	IslPSDVOn8v4WFaF2mc/3ty4fGsn5PSdUbEKbyqwj7Dd1hg/xy76lRfzjM2uDWIhJuLDs2+BlrrrT
+	0t4PkTuc7Aamu2x4TFpb+hltJcP19knZ7UNc5fpv2D+LiJsAXe+/VWx1qkPuocP1C4F7/V8OTrdyf
+	Wba6MXKIB42udLHHYRP4I6P30kcMXD3Ne0t+Qk28Enj8qWahSKAHB90sIgLb1wDD/Ls7P7fMmvPMU
+	sNj4XJPZaHX76xRMaaEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvj3c-00CuSR-1b;
-	Wed, 25 Oct 2023 18:56:44 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1qvj3g-00CuU1-0T;
+	Wed, 25 Oct 2023 18:56:48 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvj3a-00CuRn-0E
+	id 1qvj3d-00CuRo-0t
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Oct 2023 18:56:43 +0000
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	Wed, 25 Oct 2023 18:56:47 +0000
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id F0C1C413B8
-	for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 18:56:36 +0000 (UTC)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id CCEFA3FD3B
+	for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 18:56:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1698260196;
-	bh=mHXboaNJIGHxi+UlmtLed78yOAC0VPZ0YehEIDaxN1E=;
+	s=20210705; t=1698260199;
+	bh=dpC5A+l/P4E3TUZnqSQSiD+h/0pN6MHwAsvozKjAyuE=;
 	h=MIME-Version:From:Date:Message-ID:Subject:To:Cc:Content-Type;
-	b=mSwJTRqPUDuB9Cbsm/H81//bvmf/MJkQ7U8itZO/UsQGJHT9gID2S9tVyOfsgBHa3
-	 fY7P50OjPshUVa1xcDHLcdSRWCb2dykVgzBql5N3lzmFHllnunf+1+IYqGhaDgmzz/
-	 UUsTKo7UpTWblDlIvmC8UJj0lojgEdVTuIRb4Rsc8BL2DOMBw/ydE20eupR5Nk7v33
-	 2rXSQVe9GQBmpLy4AVzkHmFc///qMG84hmFXEVkJAX5F9crm757cx/Cpu9FOj5NZiH
-	 Sh6jByraasPa/ZNPavtWtFbqVIuGKJaCJicNUUFOtQ96M41BfKa3BKrJyM9MxzdxJB
-	 rvUdAddropy7g==
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-41cca916954so1180401cf.2
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 11:56:36 -0700 (PDT)
+	b=gP7AzUNPkSNq+l8ch77TOIkMBwdpiEVv7X8mx/SK7jMD4VxuGaheTiU6w3BnVuIXR
+	 mulprZVfHP9ChvmgRaz3SQOxIfUS6wT4OorlGAcOxRK69DDSkiCrLq8nCiUNezvEQY
+	 dq66RMJrJs6gPQhvS4TGbX82Ck2s5Bipg9ucvFNdUx6BXTg+pbR9GqHJq5NZPFIlCP
+	 8MkMXxr5WkIlPBveAtnKSQQUzoO2TCXChh3UKfCsdK1Ppjekv+Nlk13LCxNRm7FHqz
+	 CODHYLrK10IT+xrZFcs34y86weIUpO3GSrl5z4vLO1M5b81xLo/F9/q5/UzmbcnBTm
+	 Lo4dhOsFtzv8w==
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-41cdce61dcbso1249991cf.3
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 11:56:39 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698260196; x=1698864996;
+        d=1e100.net; s=20230601; t=1698260198; x=1698864998;
         h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=mHXboaNJIGHxi+UlmtLed78yOAC0VPZ0YehEIDaxN1E=;
-        b=qbvWH6063CH7hbvfRjdIhO2Fc34IwI6/deeT0eMQnvlSo/QIFJ5iYXhRiKU52lqvfa
-         Xvmvb6VjBhSen3Crd8VSzIQOhoNwzTMp1UzbHABGRfH5l2s2QDdHZEO3Gi4Ub5XB3wxl
-         tt+5Nbt5WFPSTbpmcPDskW/7cLpKqzCA4yBZrz0i5P0EsUMxgr0qHhaayAmZ9XAHc3T8
-         NmqGtoMQN54oIJUNxPUC0+90ILbdM0mqNJ+sHijVMzHCUU8KhsM1k1LEv7e1ZrGmvDeP
-         0E2v1MQLcVY1c66ot0G5vMAfB6RdR7o98rwtyBIbOKKXCTAFIs7XWeXOmSnD94DtmmYd
-         xmrA==
-X-Gm-Message-State: AOJu0YwpUA0EfAGBUaOCHjJ/EdhYj+RxIST7fCfAasWyrxo8JcF7o8SV
-	qHVkrmSw7Xa7B8ghLOrIyLlZTpcIW9EavuydKBtplwFVZDJe/R40U+7a97ylbO2wXuigVMyadW1
-	eH5kMWXJH6KaHsk6uK9J01ZUUuEaJsPAOJjGVgla6hYe9t/nQ3gPHiWr1vLlk8zkvkN4+jA==
-X-Received: by 2002:a05:622a:58f:b0:41c:dd0f:7fd0 with SMTP id c15-20020a05622a058f00b0041cdd0f7fd0mr16782240qtb.33.1698260195963;
-        Wed, 25 Oct 2023 11:56:35 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEE4M1NetKOJlGLn7AZ6e2f6yRI6UKMiMDq2jGuECMu4wY5zIvO7J/wSp3z+d2ubuRtJQGpZkpSUkWzhyn4AYY=
+        bh=dpC5A+l/P4E3TUZnqSQSiD+h/0pN6MHwAsvozKjAyuE=;
+        b=tze/yJ3h/92hHqFdnWlik+mmoxtYyogrS4nI6WKyk5P69Yn2/+TGR4Omc51BLJtokJ
+         6X+HItZBZVw/pXvkzWvv5o/cH574qnOg2P0bG5l5JzOnbWsvvWx+J7nU8Z3GEygcsLoZ
+         RbNkvQN+Hx1XAt+xQMJEaHkcqcvkkxooD4K+F3ftk7hI76XWCmXGQqoSf+IJ/U/9E0Id
+         0mRWr5ufp+p3AqWRbtJb/m/VSKe4eUogwr8IVNhl91m2KpolsWIUK25HuXPdq0LB4dQK
+         xsWP6jO9ODiiMvTcQBo8WfaZ+Zl9i5D+U44ZHuyDo8w41GEQNx1Z2K/A09xgUyrkzZAX
+         ZrGA==
+X-Gm-Message-State: AOJu0Yzx5dG2ti17TdyOSHm8benNY6meh5Wp+ku01f0tVSqtvvo76Lvw
+	6UZtofT68bi1tIQ4aR8cP1jCoRDZKLsZAd7lPfXdrwFrWYSiQawAXOJf8wwNY8vmdP2+v6y45mD
+	NsxHGEey5oOGQDSksIQf71/D6FPFwcXfWz0bFxZGJ20Vd2rJbGUurh6IFbaCe2em/mD0FpQ==
+X-Received: by 2002:a05:622a:1492:b0:41e:3de2:c8ff with SMTP id t18-20020a05622a149200b0041e3de2c8ffmr481496qtx.51.1698260198097;
+        Wed, 25 Oct 2023 11:56:38 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEODfT6JXWwGmjJQBhTKiW+hVEHvY4WjoEtxUQiB6AZJTG4R8jFdnVJvecEIj+8lVHfkYW9vqesF3eZs9EmsZA=
 MIME-Version: 1.0
-X-Received: by 2002:a05:622a:58f:b0:41c:dd0f:7fd0 with SMTP id
- c15-20020a05622a058f00b0041cdd0f7fd0mr16782228qtb.33.1698260195765; Wed, 25
- Oct 2023 11:56:35 -0700 (PDT)
+X-Received: by 2002:a05:622a:1492:b0:41e:3de2:c8ff with SMTP id
+ t18-20020a05622a149200b0041e3de2c8ffmr481483qtx.51.1698260197850; Wed, 25 Oct
+ 2023 11:56:37 -0700 (PDT)
 Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 25 Oct 2023 11:56:35 -0700
+ HTTPREST; Wed, 25 Oct 2023 11:56:37 -0700
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Wed, 25 Oct 2023 11:56:35 -0700
-Message-ID: <CAJM55Z_pdoGxRXbmBgJ5GbVWyeM1N6+LHihbNdT26Oo_qA5VYA@mail.gmail.com>
-Subject: [PATCH 0/4] soc: sifive: ccache: Add StarFive JH7100 support
+Date: Wed, 25 Oct 2023 11:56:37 -0700
+Message-ID: <CAJM55Z-vw1sbks0KcHOXMzP-6c9NMg+GOndi2pQ7iyWh0=oQiQ@mail.gmail.com>
+Subject: [PATCH 1/4] dt-bindings: cache: sifive,ccache0: Add StarFive JH7100 compatible
 To: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org
 Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
@@ -79,8 +79,8 @@ Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>, 
 	Emil Renner Berthing <emil.renner.berthing@canonical.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231025_115642_464937_25762BE0 
-X-CRM114-Status: UNSURE (   7.47  )
+X-CRM114-CacheID: sfid-20231025_115645_440675_D77D3F2D 
+X-CRM114-Status: UNSURE (   8.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,23 +98,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the StarFive JH7100 SoC to the SiFive cache
-controller driver. The JH7100 was a "development version" of the JH7110
-used on the BeagleV Starlight and VisionFive V1 boards.  It has
-non-coherent peripheral DMAs but was designed before the standard RISC-V
-Zicbom extension, so it neeeds support in this driver for non-standard
-cache management.
+This cache controller is also used on the StarFive JH7100 SoC.
+Unfortunately it needs a quirk to work properly, so add dedicated
+compatible string to be able to match it.
 
-Emil Renner Berthing (4):
-  dt-bindings: cache: sifive,ccache0: Add StarFive JH7100 compatible
-  soc: sifive: ccache: Add StarFive JH7100 support
-  dt-bindings: cache: sifive,ccache0: Add sifive,cache-ops property
-  soc: sifive: ccache: Support cache management operations
+Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+---
+ Documentation/devicetree/bindings/cache/sifive,ccache0.yaml | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
- .../bindings/cache/sifive,ccache0.yaml        | 11 +++-
- drivers/soc/sifive/sifive_ccache.c            | 56 ++++++++++++++++++-
- 2 files changed, 64 insertions(+), 3 deletions(-)
+diff --git a/Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
+b/Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
+index 8a6a78e1a7ab..7e8cebe21584 100644
+--- a/Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
++++ b/Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
+@@ -38,7 +38,9 @@ properties:
+               - sifive,fu740-c000-ccache
+           - const: cache
+       - items:
+-          - const: starfive,jh7110-ccache
++          - enum:
++              - starfive,jh7100-ccache
++              - starfive,jh7110-ccache
+           - const: sifive,ccache0
+           - const: cache
+       - items:
+@@ -88,6 +90,7 @@ allOf:
+           contains:
+             enum:
+               - sifive,fu740-c000-ccache
++              - starfive,jh7100-ccache
+               - starfive,jh7110-ccache
+               - microchip,mpfs-ccache
 
+@@ -111,6 +114,7 @@ allOf:
+           contains:
+             enum:
+               - sifive,fu740-c000-ccache
++              - starfive,jh7100-ccache
+               - starfive,jh7110-ccache
+
+     then:
 -- 
 2.40.1
 
