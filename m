@@ -4,67 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE7F8C07545
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 12:22:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0918DC0032E
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 12:25:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CjZ9fWU16RHe0uFnOzai7c3Y+WVeV0EGlXNKd39vPvs=; b=DvXipiboa8p4Fu8vjCdzuN5ybv
-	njcD3dP+VhUsAOCgFjueRljqhUeH6Z0I98JZSFqGk3ITQigHWf/NvivqLBGxF6Tlcw2veKYMOl2zo
-	LLZoTX5bVo70dGCBx/AHTrHqjFmOWH7MZD6Bx/qNciPX0oKhplw5xQyxucGZwJQwwtbUnSZqLFeXC
-	cZ52ujddPCfiDAjS7I7XeoLF3HUkeXjyRm+2l8fH3C2XAoAyoWsEnnAHvkO9GrM93+KUlD4rdGyve
-	HOMl+XjsTDCPKLCWDoWQc6l65jVbuDCOdjxNhHfGOJqgzdjRXmasQUCvuuSgykC62cNJq+8fdAwY7
-	EGSlQszA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jTEtSUXHuxKsPEAyPz5/8Xh3M71Rz4EDZefcf5p30zM=; b=j9pQvoolZRTo+o
+	1y347xJPYceZpk+MjY0GnRxDZT4rWppQ7hRbqCeYmFyKJiUOYQtKDlyLDB3RnlTfFMhZL47vIX6Dc
+	q+SbE9J0rp+2jZBnYxbzb24Sa/FD9vFYIJEpvJk5N2qPThya2I+M4zmC8fNHPm9Nx+6IT853y+iql
+	pt7DijlNKY+YF1/AYZo7IpSi3ypNhz0bet/ZvCht3KJA/IpuLV4PUZl7gInckypCaiAznTySiAOoZ
+	vy7d7nVq6ZEI6Gub9wZSNhA/FsYn82m3I3hQLHc8T1NKsL6GUoMLtyJOubEEtV4+vfIx3TNhC4NSt
+	r5H6z366mzhc1AaX+GVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvctq-00CI5g-1t;
-	Wed, 25 Oct 2023 12:22:14 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1qvcwS-00CIMN-1D;
+	Wed, 25 Oct 2023 12:24:56 +0000
+Received: from mail-oi1-f178.google.com ([209.85.167.178])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvctn-00CI4j-12
-	for linux-riscv@lists.infradead.org;
-	Wed, 25 Oct 2023 12:22:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 7A981CE37E3;
-	Wed, 25 Oct 2023 12:22:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAFDDC433C7;
-	Wed, 25 Oct 2023 12:22:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1698236528;
-	bh=iAp62fcXxNhccc4Gqt2/rcPZle2L2nQUuLLiglxHlKg=;
-	h=Date:From:List-Id:To:Cc:Subject:References:In-Reply-To:From;
-	b=hGEQ15v027nKsJM73uPY1GbkUWIZlqz8u2RVNASMXTk0gt9cGTV5CKoEOLte5ylvM
-	 peWhumFa29diA41cjai/4BuWk0U10OgkiyxYRnWEHujOCWatRsF2HYXUrSajzVu+k+
-	 EbbjhgwJC7sIrpXqmmJwr+EpQ9b5eaEA4N2QgNQzIgzJcxBYg2RB/rswwznfvEnJw9
-	 jsVYXWoE0ORuRe1wrjgTijk5FKX6o3H2ippbhbrw3KmNNbb7RVi7ZeuKyQiDUhuXX1
-	 JSuZkY5S9SRKjKf5YufV6LW3JDNEIX2xzGPiK7WWdjgsTBQklpsW1Me4kaxCDHJ55s
-	 Fza4B+3xpbcPQ==
-Date: Wed, 25 Oct 2023 13:22:03 +0100
-From: Conor Dooley <conor@kernel.org>
-To: soc@kernel.org
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Moritz Fischer <mdf@kernel.org>, Wu Hao <hao.wu@intel.com>,
-	Xu Yilun <yilun.xu@intel.com>, Tom Rix <trix@redhat.com>,
-	Russ Weight <russell.h.weight@intel.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-fpga@vger.kernel.org
-Subject: Re: [PATCH v3 6/6] riscv: dts: microchip: add the mpfs' system
- controller qspi & associated flash
-Message-ID: <20231025-demystify-iodize-cd93fedfd7ff@spud>
-References: <20231020-agreeably-filing-3d48708e6262@spud>
- <20231020-unrated-uproar-c911c6185ae9@spud>
+	id 1qvcwP-00CIL5-0g;
+	Wed, 25 Oct 2023 12:24:54 +0000
+Received: by mail-oi1-f178.google.com with SMTP id 5614622812f47-3b41132c33aso730622b6e.1;
+        Wed, 25 Oct 2023 05:24:50 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1698236689; x=1698841489;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DqrOjLRs28riw/P20lQEQPNQZ15w1j+cN1KPKpYivnA=;
+        b=erYTVNfHd2A4NvN/9ZqOV7D9/wHYlvuiuwKyFMy/oIP1auWC+kqJfW+Fj8aYMj+z2R
+         e84GGVW29mY/4DzlUA2pVkZ+YWOvwjCvkAyNWbBG/tDUAg/W4qr+fsbz7cSe4Eo09a8F
+         eV8B1EgnMet1m2QjjsOZvwL4b47G8t7iDSRg4ynaItp3xaIBcKs9/uWfHE+kiJAYNaov
+         vVPa+TDkYu/r0aPUsEJNhZiGO0i9Ylmci/0Q5qIkYJGB0VmNCIueq4KHlodSOiVWy9HN
+         bwPfGwxNw4HbgtWSzO5LfmNB+t4h+8fnTezriGPClUTtXpdLOx3VUBpAMTCDV6BMJl16
+         NJ5g==
+X-Gm-Message-State: AOJu0YzjYG6BNahPsQKdHlT7UMkNJWCBN24VguHScb1R6HnVH6Xp2rro
+	/FdxRIqmxp/YjjK8qB9wBCwaALo21RkXKuuKT0E=
+X-Google-Smtp-Source: AGHT+IH0abo2IUeh3MMH/ljYPbwfAcLVEOc9S12Py6b46kJ2D0FQnzYE6dwOuGyQPuXQTVW3E358Eq8mZL3ePrf5tJk=
+X-Received: by 2002:a05:6808:2190:b0:3b2:f3c3:3874 with SMTP id
+ be16-20020a056808219000b003b2f3c33874mr16080958oib.4.1698236689574; Wed, 25
+ Oct 2023 05:24:49 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20231020-unrated-uproar-c911c6185ae9@spud>
+References: <20231018162540.667646-1-vincent.guittot@linaro.org>
+ <20231018162540.667646-5-vincent.guittot@linaro.org> <20231025115456.GD31201@noisy.programming.kicks-ass.net>
+ <20231025121143.GA28289@noisy.programming.kicks-ass.net>
+In-Reply-To: <20231025121143.GA28289@noisy.programming.kicks-ass.net>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Wed, 25 Oct 2023 14:24:38 +0200
+Message-ID: <CAJZ5v0hrsC0TPUt8a+1Fqy7RQqsTQpA3K0H2z0twx4Ya6Apa9A@mail.gmail.com>
+Subject: Re: [PATCH v3 4/6] energy_model: use a fixed reference frequency
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Vincent Guittot <vincent.guittot@linaro.org>, linux@armlinux.org.uk, 
+	catalin.marinas@arm.com, will@kernel.org, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, sudeep.holla@arm.com, 
+	gregkh@linuxfoundation.org, rafael@kernel.org, mingo@redhat.com, 
+	juri.lelli@redhat.com, dietmar.eggemann@arm.com, rostedt@goodmis.org, 
+	bsegall@google.com, mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com, 
+	viresh.kumar@linaro.org, lenb@kernel.org, robert.moore@intel.com, 
+	lukasz.luba@arm.com, ionela.voinescu@arm.com, pierre.gondois@arm.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, acpica-devel@lists.linuxfoundation.org, 
+	conor.dooley@microchip.com, suagrfillet@gmail.com, ajones@ventanamicro.com, 
+	lftan@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231025_052211_699911_73D4E438 
-X-CRM114-Status: GOOD (  26.34  )
+X-CRM114-CacheID: sfid-20231025_052453_259245_63E9FB37 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,105 +83,19 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3117302318892781028=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============3117302318892781028==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="K2EkulDe7Fc2EpiM"
-Content-Disposition: inline
-
-
---K2EkulDe7Fc2EpiM
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Oct 20, 2023 at 02:18:44PM +0100, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
->=20
-> The system controller's flash can be accessed via an MSS-exposed QSPI
-> controller sitting, which sits between the mailbox's control & data
-> registers. On Icicle, it has an MT25QL01GBBB8ESF connected to it.
->=20
-> The system controller and MSS both have separate QSPI controllers, both
-> of which can access the flash, although the system controller takes
-> priority.
-> Unfortunately, on engineering sample silicon, such as that on Icicle
-> kits, the MSS' QSPI controller cannot write to the flash due to a bug.
-> As a workaround, a QSPI controller can be implemented in the FPGA
-> fabric and the IO routing modified to connect it to the flash in place
-> of the "hard" controller in the MSS.
->=20
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  .../boot/dts/microchip/mpfs-icicle-kit.dts    | 21 +++++++++++++++++++
->  arch/riscv/boot/dts/microchip/mpfs.dtsi       | 17 +++++++++++++++
->  2 files changed, 38 insertions(+)
->=20
-> diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts b/arch/ris=
-cv/boot/dts/microchip/mpfs-icicle-kit.dts
-> index 90b261114763..2dae3f8f33f6 100644
-> --- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-> +++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-> @@ -199,6 +199,27 @@ &syscontroller {
->  	status =3D "okay";
->  };
-> =20
-> +&syscontroller_qspi {
-> +	/*
-> +	 * The flash *is* there, but Icicle kits that have engineering sample
-> +	 * silicon (write?) access to this flash to non-functional. The system
-> +	 * controller itself can actually access it, but the MSS cannot write
-> +	 * an image there. Instantiating a coreQSPI in the fabric & connecting
-> +	 * it to the flash instead should work though. Pre-production or later
-> +	 * silicon does not have this issue.
-> +	 */
-> +	status =3D "disabled";
-> +
-> +	sys_ctrl_flash: flash@0 { // MT25QL01GBBB8ESF-0SIT
-> +		compatible =3D "jedec,spi-nor";
-> +		#address-cells =3D <1>;
-> +		#size-cells =3D <1>;
-> +		spi-max-frequency =3D <20000000>;
-> +		spi-rx-bus-width =3D <1>;
-> +		reg =3D <0>;
-> +	};
-> +};
-
-Hmm, I think I will drop this part of the patch, and instead add the
-flash for the sev-kit (which does work correctly) to avoid any confusion
-as to why this is not supported on the current icicle kit boards.
-
-Cheers,
-Conor.
-
---K2EkulDe7Fc2EpiM
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZTkIXAAKCRB4tDGHoIJi
-0mrpAP9NgAYLEtvFXBO5DfWx1YJXMlv7vsyRY7eEK5cL3UJxtwEAirHnHzNEZoAG
-1JNLFsVyCMD6ZEn4HrrAqnlzW4dY2A0=
-=J0jG
------END PGP SIGNATURE-----
-
---K2EkulDe7Fc2EpiM--
-
-
---===============3117302318892781028==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3117302318892781028==--
-
+T24gV2VkLCBPY3QgMjUsIDIwMjMgYXQgMjoxMeKAr1BNIFBldGVyIFppamxzdHJhIDxwZXRlcnpA
+aW5mcmFkZWFkLm9yZz4gd3JvdGU6Cj4KPiBPbiBXZWQsIE9jdCAyNSwgMjAyMyBhdCAwMTo1NDo1
+NlBNICswMjAwLCBQZXRlciBaaWpsc3RyYSB3cm90ZToKPgo+IEFsc28sIGNhbiB3ZSBwcmV0dHkg
+cGxlYXNlIG5vdCBjcm9zcy1wb3N0IHRvIG1vZGVyYXRlZCBsaXN0cywgdGhhdCdzCj4gcnVkZS4K
+Pgo+IFJhZmFlbCwgY2FuIHlvdSBwbGVhc2UgbWFyayB0aGlzIGFjcGljYS1kZXZlbCBjcmFwIGFz
+IG1vZGVyYXRlZCBpbgo+IE1BSU5UQUlORVJTIHNvIHRoYXQgaXQgY2FuIGJlIGF1dG8tbWFnaWNh
+bGx5IGV4Y2x1ZGVkIGZyb20gcmVjZWl2aW5nCj4gbWFpbD8KCkknbSBhY3R1YWxseSBub3Qgc3Vy
+ZSB3aHkgaXQgaXMgbW9kZXJhdGVkLiAgSSdsbCBzZWUgaWYgdGhhdCBjYW4gYmUgY2hhbmdlZC4K
+Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
+c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
+aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
