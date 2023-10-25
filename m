@@ -4,58 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82CA9C07545
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 15:46:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C414FC07545
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 15:51:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=faJVZKsQ0JC7hP/Xwh6PFT+rDH1wLd47EkLyRNxv500=; b=D56xlqoAa4zks3
-	HPdu6AUq/8yY3mCmKSPr3Bahq8jBilcZllLYjPEPEPxpiVmbeWt7H5UIG7IZVgy92OgCBCY1HWnkQ
-	hTBiOun/LxP6gzNOE451xjVGzH1ZnfBOdkKOZ9z5rc/ahJ814iPAkqttD1Du4YtH7RBLWNUrJ6FXJ
-	K/hhLIO9hCesug4SNh1XZzy8Js/MPU3YcwdmmJpaSo+6P7xTLEGa0WgOO4kGJQ6feXM9/THAIRM9a
-	41M8ES9WhVjOglO20zP/PQZqJzhKD0Zo6jo8DMl5SadZRzNzph0fIz71vkD3jWaVyGMUWvecfZnti
-	aIcsHJPQLGQ0LFEwPyOw==;
+	List-Owner; bh=gla8AawrT6MA6BhrlvaTNYJrQtRXpWTZWPLFFVyZnVw=; b=iaUix8JGXd1s6Q
+	4pS49JeIgMHqq9KxpQubmpyKwglr+0QngSl1fC+It4pUNhAjud8mtawSuztK7W7pxEaKVoIJq+r9K
+	EWmSR3MGNuSguufLPxJ+/e4B0TiSXM3YSCa38YjQDLbk1v96a7202DpBrs4ALFaBb3T+XKZQageKI
+	8EvwzUpNllivbhpMGZiVokY2mxGFq8EOvdLYgVrxgU3yRqe8xXqtUrK4ki67BqNScvJ3EVdeEUXCn
+	VV/XbyKi0WMiseK1hgBhe9Nck6wYA9FogDbJXewqsLt20eHYFTQTczwkGUGGPTE0C+alX3bq1lPZ9
+	luDjRI4WxxUXGYgbLxiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvg5A-00CeOP-2Y;
-	Wed, 25 Oct 2023 15:46:08 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1qvg9x-00Cel4-0h;
+	Wed, 25 Oct 2023 15:51:05 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvg56-00CeN5-3A
+	id 1qvg9t-00Cejs-1G
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Oct 2023 15:46:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id F25E8CE0B65;
-	Wed, 25 Oct 2023 15:46:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 315C3C433C7;
-	Wed, 25 Oct 2023 15:45:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1698248762;
-	bh=C8oU72fglur5rBK65lwrW+U6OwammwKbTzhymwmI1Os=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aqnuA70hpDOP34idT4IYEgudevHeZxzGtw9foHph0RqYprg06KP0vv/VZ+wFUmJCI
-	 MyR1dxvBINg0yqxlZEmSf1edbOAq0vJOgbVk2LH89MhV708nqgEaUUsIj2LOTIstBh
-	 jJOze5cmTheWvZAEpZ4rN6uEThIA69UyP1++VSK9RZMRGS2Ihdu2np+hPgAUDfddmb
-	 1TwS+8OPhMjPo7csSP5tn5CzCFSeZiPmOnqZXoFLqiXnmELq6NefvGMrmzMBjU9xaJ
-	 Q/EXfjCHWoHC0mx2Zyrx3kjhmX+/fSG6ZC9iPGA0JbhuBdoxin8vwIQxu88BWhSUio
-	 y3c8hpUBJnthQ==
-Date: Wed, 25 Oct 2023 23:33:44 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Drew Fustini <dfustini@baylibre.com>
-Subject: Re: [PATCH v3 3/7] mmc: sdhci-of-dwcmshc: Add support for T-Head
- TH1520
-Message-ID: <ZTk1WB9c0di37mhZ@xhacker>
-References: <20231023-th1520-mmc-v3-0-abc5e7491166@baylibre.com>
- <20231023-th1520-mmc-v3-3-abc5e7491166@baylibre.com>
+	Wed, 25 Oct 2023 15:51:03 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-507c91582fdso8633285e87.2
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 08:50:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1698249056; x=1698853856; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ylcJerF5bwbwKPe0Z1fbiB9tppCgDvXclx4fVOdD5LY=;
+        b=VjBRi0dfSEOMH8/a7VYsqabJ0yATi1YypS+hSsh5ZFceKARqE/OD0DLAPPwXhOG61B
+         lYlZo/n+wvellhETugIpGVIuKhbXfhyy3iqeX7w3yGEdvZtlk8qBEDcB0GIHp2Shy5gc
+         cPu527rrVQIrK6m+flgg3qdl8Lf6uk6DMQBDy0jIDMywwPqUVPNfBHtOSq/FVeISZHuy
+         pNFVm8CgaHdaxqHV5dRoYWVgV/BwpJvueKvG2NCYVt97Gt3e67HbEOTBxQzOHFl5H9Oy
+         zh4gbXJ/KanR/Rt7f7PedRbcA/Ga4Tsdy+PnPekLM+EjFWGkV8NpUVFJqCFm+g03bNr9
+         O26w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1698249056; x=1698853856;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ylcJerF5bwbwKPe0Z1fbiB9tppCgDvXclx4fVOdD5LY=;
+        b=SF/DkicEQWXs45/JgEbAXCLVbSF0FMaHUUVuqlXFwmFTQdvnEx6c2pN9JiVHvecxuU
+         MJGj71J26yYndY9ka5lBU+YH1E5ONXfcdE2FgU9Q599GkPVxGPBIMWv6kBWIeSVRkuLo
+         fy1oA0Culi0dIf250s6CntasiDIxeNHJtTM9Eps+1U6BcQpf6f7y9nukQiaz/fj+2F8V
+         gZLGT6/PJMpkp/X2+w6G1WtnhgwzWOlhsWeBdkoIs547LCIA5bt46gZieifmKa8gnPa1
+         O+vpNLms2qAmCOwh7kjLhsSeKsfiXDX9h+xSHau8Om5n2A0HA8mjIOru8avQZoULDgKE
+         +BiQ==
+X-Gm-Message-State: AOJu0Yy5cWdH87hr+/KVYbrM/tD6AwyClIhjgRpWq0r6aysfbGDZJkVs
+	GBIiPAMmI8oDy7rwF45/4eS/5Q==
+X-Google-Smtp-Source: AGHT+IHTmuZM+UUpN/nS6e7s96XkJiNiR6iojtWQfvkfRXgdY6vTMWs5grXugKN9ggmgHU76yjAEXg==
+X-Received: by 2002:ac2:4315:0:b0:507:b90a:7a5d with SMTP id l21-20020ac24315000000b00507b90a7a5dmr11466935lfh.10.1698249056137;
+        Wed, 25 Oct 2023 08:50:56 -0700 (PDT)
+Received: from [192.168.1.212] ([37.153.55.125])
+        by smtp.gmail.com with ESMTPSA id 7-20020ac25f07000000b00507a5f385f0sm2591799lfq.266.2023.10.25.08.50.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Oct 2023 08:50:55 -0700 (PDT)
+Message-ID: <bc1586aa-9a25-4012-94ee-14782a11e969@linaro.org>
+Date: Wed, 25 Oct 2023 18:50:54 +0300
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231023-th1520-mmc-v3-3-abc5e7491166@baylibre.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/6] drm/vs: Register DRM device
+Content-Language: en-GB
+To: Keith Zhao <keith.zhao@starfivetech.com>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Sumit Semwal <sumit.semwal@linaro.org>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Shengyang Chen <shengyang.chen@starfivetech.com>,
+ Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Maxime Ripard <mripard@kernel.org>,
+ Jagan Teki <jagan@edgeble.ai>, Rob Herring <robh+dt@kernel.org>,
+ Chris Morgan <macromorgan@hotmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Changhuang Liang <changhuang.liang@starfivetech.com>,
+ Jack Zhu <jack.zhu@starfivetech.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Shawn Guo <shawnguo@kernel.org>, christian.koenig@amd.com
+References: <20231025103957.3776-1-keith.zhao@starfivetech.com>
+ <20231025103957.3776-5-keith.zhao@starfivetech.com>
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+In-Reply-To: <20231025103957.3776-5-keith.zhao@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231025_084605_368174_2122E497 
-X-CRM114-Status: GOOD (  29.78  )
+X-CRM114-CacheID: sfid-20231025_085101_463634_1EB3406A 
+X-CRM114-Status: GOOD (  34.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,478 +103,514 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>, Albert Ou <aou@eecs.berkeley.edu>, Jason Kridner <jkridner@beagleboard.org>, linux-kernel@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>, linux-mmc@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, Rob Herring <robh+dt@kernel.org>, Guo Ren <guoren@kernel.org>, Xi Ruoyao <xry111@xry111.site>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Robert Nelson <robertcnelson@beagleboard.org>, Fu Wei <wefu@redhat.com>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 23, 2023 at 02:07:04PM -0700, Drew Fustini wrote:
-> Add support for the mmc controller in the T-Head TH1520 with the new
-> compatible "thead,th1520-dwcmshc". Implement custom sdhci_ops for
-> set_uhs_signaling, reset, voltage_switch, and platform_execute_tuning.
+On 25/10/2023 13:39, Keith Zhao wrote:
+> Implement drm device registration interface
 > 
-> Signed-off-by: Drew Fustini <dfustini@baylibre.com>
+> Thomas Zimmermann wrote:
+> You are replacing almost all of the GEM DMA object's helper code.
+> Either inherit directly from drm_gem_object drop the dependency entirely,
+> or you could try to fit your code into GEM DMA as well
+> 
+> Eventually I found an answer and it was DRM_GEM_DMA_DRIVER_OPS_WITH_DUMB_CREATE
+> After I adapt this interface, the custom gem logic interfaces can be deleted.
+> It's a big shocking, clap!
+> 
+> Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
 > ---
->  drivers/mmc/host/sdhci-of-dwcmshc.c | 357 ++++++++++++++++++++++++++++++++++++
->  1 file changed, 357 insertions(+)
+>   drivers/gpu/drm/Kconfig                  |   2 +
+>   drivers/gpu/drm/Makefile                 |   1 +
+>   drivers/gpu/drm/verisilicon/Kconfig      |  15 ++
+>   drivers/gpu/drm/verisilicon/Makefile     |   7 +
+>   drivers/gpu/drm/verisilicon/vs_drv.c     | 227 +++++++++++++++++++++++
+>   drivers/gpu/drm/verisilicon/vs_drv.h     |  27 +++
+>   drivers/gpu/drm/verisilicon/vs_modeset.c |  36 ++++
+>   drivers/gpu/drm/verisilicon/vs_modeset.h |  10 +
+>   include/uapi/drm/vs_drm.h                |  50 +++++
+>   9 files changed, 375 insertions(+)
+>   create mode 100644 drivers/gpu/drm/verisilicon/Kconfig
+>   create mode 100644 drivers/gpu/drm/verisilicon/Makefile
+>   create mode 100644 drivers/gpu/drm/verisilicon/vs_drv.c
+>   create mode 100644 drivers/gpu/drm/verisilicon/vs_drv.h
+>   create mode 100644 drivers/gpu/drm/verisilicon/vs_modeset.c
+>   create mode 100644 drivers/gpu/drm/verisilicon/vs_modeset.h
+>   create mode 100644 include/uapi/drm/vs_drm.h
 > 
-> diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-> index 3a3bae6948a8..b5838335fb14 100644
-> --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
-> +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
-> @@ -8,6 +8,7 @@
->   */
->  
->  #include <linux/acpi.h>
-> +#include <linux/bitfield.h>
->  #include <linux/clk.h>
->  #include <linux/dma-mapping.h>
->  #include <linux/iopoll.h>
-> @@ -35,6 +36,21 @@
->  #define DWCMSHC_CARD_IS_EMMC		BIT(0)
->  #define DWCMSHC_ENHANCED_STROBE		BIT(8)
->  #define DWCMSHC_EMMC_ATCTRL		0x40
-> +/* Tuning and auto-tuning fields in AT_CTRL_R control register */
-> +#define AT_CTRL_AT_EN			BIT(0) /* autotuning is enabled */
-> +#define AT_CTRL_CI_SEL			BIT(1) /* interval to drive center phase select */
-> +#define AT_CTRL_SWIN_TH_EN		BIT(2) /* sampling window threshold enable */
-> +#define AT_CTRL_RPT_TUNE_ERR		BIT(3) /* enable reporting framing errors */
-> +#define AT_CTRL_SW_TUNE_EN		BIT(4) /* enable software managed tuning */
-> +#define AT_CTRL_WIN_EDGE_SEL_MASK	GENMASK(11, 8) /* bits [11:8] */
-> +#define AT_CTRL_WIN_EDGE_SEL		0xf /* sampling window edge select */
-> +#define AT_CTRL_TUNE_CLK_STOP_EN	BIT(16) /* clocks stopped during phase code change */
-> +#define AT_CTRL_PRE_CHANGE_DLY_MASK	GENMASK(18, 17) /* bits [18:17] */
-> +#define AT_CTRL_PRE_CHANGE_DLY		0x1  /* 2-cycle latency */
-> +#define AT_CTRL_POST_CHANGE_DLY_MASK	GENMASK(20, 19) /* bits [20:19] */
-> +#define AT_CTRL_POST_CHANGE_DLY		0x3  /* 4-cycle latency */
-> +#define AT_CTRL_SWIN_TH_VAL_MASK	GENMASK(31, 24) /* bits [31:24] */
-> +#define AT_CTRL_SWIN_TH_VAL		0x9  /* sampling window threshold */
->  
->  /* Rockchip specific Registers */
->  #define DWCMSHC_EMMC_DLL_CTRL		0x800
-> @@ -72,6 +88,82 @@
->  	(((x) & DWCMSHC_EMMC_DLL_TIMEOUT) == 0))
->  #define RK35xx_MAX_CLKS 3
->  
-> +/* PHY register area pointer */
-> +#define DWC_MSHC_PTR_PHY_R	0x300
+> diff --git a/drivers/gpu/drm/Kconfig b/drivers/gpu/drm/Kconfig
+> index afb3b2f5f..9ede80ef9 100644
+> --- a/drivers/gpu/drm/Kconfig
+> +++ b/drivers/gpu/drm/Kconfig
+> @@ -363,6 +363,8 @@ source "drivers/gpu/drm/solomon/Kconfig"
+>   
+>   source "drivers/gpu/drm/sprd/Kconfig"
+>   
+> +source "drivers/gpu/drm/verisilicon/Kconfig"
 > +
-> +/* PHY general configuration */
-> +#define PHY_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x00)
-> +#define PHY_CNFG_RSTN_DEASSERT	0x1  /* Deassert PHY reset */
-> +#define PHY_CNFG_PAD_SP_MASK	GENMASK(19, 16) /* bits [19:16] */
-> +#define PHY_CNFG_PAD_SP		0x0c /* PMOS TX drive strength */
-> +#define PHY_CNFG_PAD_SN_MASK	GENMASK(23, 20) /* bits [23:20] */
-> +#define PHY_CNFG_PAD_SN		0x0c /* NMOS TX drive strength */
+>   config DRM_HYPERV
+>   	tristate "DRM Support for Hyper-V synthetic video device"
+>   	depends on DRM && PCI && MMU && HYPERV
+> diff --git a/drivers/gpu/drm/Makefile b/drivers/gpu/drm/Makefile
+> index 7a09a89b4..6db3bc397 100644
+> --- a/drivers/gpu/drm/Makefile
+> +++ b/drivers/gpu/drm/Makefile
+> @@ -194,3 +194,4 @@ obj-y			+= gud/
+>   obj-$(CONFIG_DRM_HYPERV) += hyperv/
+>   obj-y			+= solomon/
+>   obj-$(CONFIG_DRM_SPRD) += sprd/
+> +obj-$(CONFIG_DRM_VERISILICON) += verisilicon/
+> diff --git a/drivers/gpu/drm/verisilicon/Kconfig b/drivers/gpu/drm/verisilicon/Kconfig
+> new file mode 100644
+> index 000000000..3a361f8c8
+> --- /dev/null
+> +++ b/drivers/gpu/drm/verisilicon/Kconfig
+> @@ -0,0 +1,15 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +config DRM_VERISILICON
+> +	tristate "DRM Support for VeriSilicon"
+> +	depends on DRM
+> +	select DRM_KMS_HELPER
+> +	select DRM_GEM_DMA_HELPER
+> +	select CMA
+> +	select DMA_CMA
+> +	help
+> +	  Choose this option if you have a VeriSilicon soc chipset.
+> +	  This driver provides VeriSilicon kernel mode
+> +	  setting and buffer management. It does not
+> +	  provide 2D or 3D acceleration.
 > +
-> +/* PHY command/response pad settings */
-> +#define PHY_CMDPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x04)
 > +
-> +/* PHY data pad settings */
-> +#define PHY_DATAPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x06)
+> diff --git a/drivers/gpu/drm/verisilicon/Makefile b/drivers/gpu/drm/verisilicon/Makefile
+> new file mode 100644
+> index 000000000..7d3be305b
+> --- /dev/null
+> +++ b/drivers/gpu/drm/verisilicon/Makefile
+> @@ -0,0 +1,7 @@
+> +# SPDX-License-Identifier: GPL-2.0
 > +
-> +/* PHY clock pad settings */
-> +#define PHY_CLKPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x08)
+> +vs_drm-objs := vs_drv.o \
+> +		vs_modeset.o
 > +
-> +/* PHY strobe pad settings */
-> +#define PHY_STBPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x0a)
+> +obj-$(CONFIG_DRM_VERISILICON) += vs_drm.o
 > +
-> +/* PHY reset pad settings */
-> +#define PHY_RSTNPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x0c)
+> diff --git a/drivers/gpu/drm/verisilicon/vs_drv.c b/drivers/gpu/drm/verisilicon/vs_drv.c
+> new file mode 100644
+> index 000000000..da7698c3d
+> --- /dev/null
+> +++ b/drivers/gpu/drm/verisilicon/vs_drv.c
+> @@ -0,0 +1,227 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2023 VeriSilicon Holdings Co., Ltd.
+> + */
 > +
-> +/* Bitfields are common for all pad settings */
-> +#define PHY_PAD_RXSEL_1V8		0x1 /* Receiver type select for 1.8V */
-> +#define PHY_PAD_RXSEL_3V3		0x2 /* Receiver type select for 3.3V */
+> +#include <linux/component.h>
+> +#include <linux/pm_runtime.h>
 > +
-> +#define PHY_PAD_WEAKPULL_MASK		GENMASK(4, 3) /* bits [4:3] */
-> +#define PHY_PAD_WEAKPULL_PULLUP		0x1 /* Weak pull down enabled */
-> +#define PHY_PAD_WEAKPULL_PULLDOWN	0x2 /* Weak pull down enabled */
+> +#include <drm/drm_aperture.h>
+> +#include <drm/drm_atomic_helper.h>
+> +#include <drm/drm_crtc.h>
+> +#include <drm/drm_crtc_helper.h>
+> +#include <drm/drm_fb_helper.h>
+> +#include <drm/drm_fbdev_generic.h>
+> +#include <drm/drm_file.h>
+> +#include <drm/drm_gem_dma_helper.h>
+> +#include <drm/drm_module.h>
+> +#include <drm/drm_of.h>
+> +#include <drm/drm_probe_helper.h>
+> +#include <drm/drm_vblank.h>
 > +
-> +#define PHY_PAD_TXSLEW_CTRL_P_MASK	GENMASK(8, 5) /* bits [8:5] */
-> +#define PHY_PAD_TXSLEW_CTRL_P		0x3 /* Slew control for P-Type pad TX */
-> +#define PHY_PAD_TXSLEW_CTRL_N_MASK	GENMASK(12, 9) /* bits [12:9] */
-> +#define PHY_PAD_TXSLEW_CTRL_N		0x3 /* Slew control for N-Type pad TX */
+> +#include "vs_drv.h"
+> +#include "vs_modeset.h"
 > +
-> +/* PHY CLK delay line settings */
-> +#define PHY_SDCLKDL_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x1d)
-> +#define PHY_SDCLKDL_CNFG_UPDATE	BIT(4) /* set before writing to SDCLKDL_DC */
+> +#define DRV_NAME	"verisilicon"
+> +#define DRV_DESC	"Verisilicon DRM driver"
+> +#define DRV_DATE	"20230516"
+> +#define DRV_MAJOR	1
+> +#define DRV_MINOR	0
 > +
-> +/* PHY CLK delay line delay code */
-> +#define PHY_SDCLKDL_DC_R		(DWC_MSHC_PTR_PHY_R + 0x1e)
-> +#define PHY_SDCLKDL_DC_INITIAL		0x40 /* initial delay code */
-> +#define PHY_SDCLKDL_DC_DEFAULT		0x32 /* default delay code */
-> +#define PHY_SDCLKDL_DC_HS400		0x18 /* delay code for HS400 mode */
-> +
-> +/* PHY drift_cclk_rx delay line configuration setting */
-> +#define PHY_ATDL_CNFG_R			(DWC_MSHC_PTR_PHY_R + 0x21)
-> +#define PHY_ATDL_CNFG_INPSEL_MASK	GENMASK(3, 2) /* bits [3:2] */
-> +#define PHY_ATDL_CNFG_INPSEL		0x3 /* delay line input source */
-> +
-> +/* PHY DLL control settings */
-> +#define PHY_DLL_CTRL_R			(DWC_MSHC_PTR_PHY_R + 0x24)
-> +#define PHY_DLL_CTRL_DISABLE		0x0 /* PHY DLL is enabled */
-> +#define PHY_DLL_CTRL_ENABLE		0x1 /* PHY DLL is disabled */
-> +
-> +/* PHY DLL  configuration register 1 */
-> +#define PHY_DLL_CNFG1_R			(DWC_MSHC_PTR_PHY_R + 0x25)
-> +#define PHY_DLL_CNFG1_SLVDLY_MASK	GENMASK(5, 4) /* bits [5:4] */
-> +#define PHY_DLL_CNFG1_SLVDLY		0x2 /* DLL slave update delay input */
-> +#define PHY_DLL_CNFG1_WAITCYCLE		0x5 /* DLL wait cycle input */
-> +
-> +/* PHY DLL configuration register 2 */
-> +#define PHY_DLL_CNFG2_R			(DWC_MSHC_PTR_PHY_R + 0x26)
-> +#define PHY_DLL_CNFG2_JUMPSTEP		0xa /* DLL jump step input */
-> +
-> +/* PHY DLL master and slave delay line configuration settings */
-> +#define PHY_DLLDL_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x28)
-> +#define PHY_DLLDL_CNFG_SLV_INPSEL_MASK	GENMASK(6, 5) /* bits [6:5] */
-> +#define PHY_DLLDL_CNFG_SLV_INPSEL	0x3 /* clock source select for slave DL */
-> +
-> +#define FLAG_IO_FIXED_1V8	BIT(0)
-> +
->  #define BOUNDARY_OK(addr, len) \
->  	((addr | (SZ_128M - 1)) == ((addr + len - 1) | (SZ_128M - 1)))
->  
-> @@ -92,6 +184,8 @@ struct dwcmshc_priv {
->  	struct clk	*bus_clk;
->  	int vendor_specific_area1; /* P_VENDOR_SPECIFIC_AREA reg */
->  	void *priv; /* pointer to SoC private stuff */
-> +	u16 delay_line;
-> +	u16 flags;
->  };
->  
->  /*
-> @@ -157,6 +251,129 @@ static void dwcmshc_request(struct mmc_host *mmc, struct mmc_request *mrq)
->  	sdhci_request(mmc, mrq);
->  }
->  
-> +static void th1520_phy_1_8v_init(struct sdhci_host *host)
-
-Hi Drew,
-
-One more comment you can consider in v4: I think we may need to prefix the
-function with dwcmshc instead of th1520, I.E dwcmshc_phy_1_8v_init,
-because I think the phy is dwc which may be seen in other SoCs as well, so
-your code can be reused. Naming them with th1520_* maybe a bit
-confusing, what do you think?
-
-Thanks
-
+> +static int vs_gem_dumb_create(struct drm_file *file, struct drm_device *dev,
+> +			      struct drm_mode_create_dumb *args)
 > +{
-> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> +	u32 val;
+> +	struct vs_drm_device *priv = to_vs_drm_private(dev);
 > +
-> +	if (!priv)
-> +		return;
+> +	unsigned int pitch = DIV_ROUND_UP(args->width * args->bpp, 8);
 > +
-> +	/* deassert phy reset & set tx drive strength */
-> +	val = PHY_CNFG_RSTN_DEASSERT;
-> +	val |= FIELD_PREP(PHY_CNFG_PAD_SP_MASK, PHY_CNFG_PAD_SP);
-> +	val |= FIELD_PREP(PHY_CNFG_PAD_SN_MASK, PHY_CNFG_PAD_SN);
-> +	sdhci_writel(host, val, PHY_CNFG_R);
-> +
-> +	/* disable delay line */
-> +	sdhci_writeb(host, PHY_SDCLKDL_CNFG_UPDATE, PHY_SDCLKDL_CNFG_R);
-> +
-> +	/* set delay line */
-> +	sdhci_writeb(host, priv->delay_line, PHY_SDCLKDL_DC_R);
-> +	sdhci_writeb(host, PHY_DLL_CNFG2_JUMPSTEP, PHY_DLL_CNFG2_R);
-> +
-> +	/* enable delay lane */
-> +	val = sdhci_readb(host, PHY_SDCLKDL_CNFG_R);
-> +	val &= ~(PHY_SDCLKDL_CNFG_UPDATE);
-> +	sdhci_writeb(host, val, PHY_SDCLKDL_CNFG_R);
-> +
-> +	/* configure phy pads */
-> +	val = PHY_PAD_RXSEL_1V8;
-> +	val |= FIELD_PREP(PHY_PAD_WEAKPULL_MASK, PHY_PAD_WEAKPULL_PULLUP);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, PHY_PAD_TXSLEW_CTRL_P);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, PHY_PAD_TXSLEW_CTRL_N);
-> +	sdhci_writew(host, val, PHY_CMDPAD_CNFG_R);
-> +	sdhci_writew(host, val, PHY_DATAPAD_CNFG_R);
-> +	sdhci_writew(host, val, PHY_RSTNPAD_CNFG_R);
-> +
-> +	val = FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, PHY_PAD_TXSLEW_CTRL_P);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, PHY_PAD_TXSLEW_CTRL_N);
-> +	sdhci_writew(host, val, PHY_CLKPAD_CNFG_R);
-> +
-> +	val = PHY_PAD_RXSEL_1V8;
-> +	val |= FIELD_PREP(PHY_PAD_WEAKPULL_MASK, PHY_PAD_WEAKPULL_PULLDOWN);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, PHY_PAD_TXSLEW_CTRL_P);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, PHY_PAD_TXSLEW_CTRL_N);
-> +	sdhci_writew(host, val, PHY_STBPAD_CNFG_R);
-> +
-> +	/* enable data strobe mode */
-> +	sdhci_writeb(host, FIELD_PREP(PHY_DLLDL_CNFG_SLV_INPSEL_MASK, PHY_DLLDL_CNFG_SLV_INPSEL),
-> +		     PHY_DLLDL_CNFG_R);
-> +
-> +	/* enable phy dll */
-> +	sdhci_writeb(host, PHY_DLL_CTRL_ENABLE, PHY_DLL_CTRL_R);
-> +}
-> +
-> +static void th1520_phy_3_3v_init(struct sdhci_host *host)
-> +{
-> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> +	u32 val;
-> +
-> +	/* deassert phy reset & set tx drive strength */
-> +	val = PHY_CNFG_RSTN_DEASSERT;
-> +	val |= FIELD_PREP(PHY_CNFG_PAD_SP_MASK, PHY_CNFG_PAD_SP);
-> +	val |= FIELD_PREP(PHY_CNFG_PAD_SN_MASK, PHY_CNFG_PAD_SN);
-> +	sdhci_writel(host, val, PHY_CNFG_R);
-> +
-> +	/* disable delay line */
-> +	sdhci_writeb(host, PHY_SDCLKDL_CNFG_UPDATE, PHY_SDCLKDL_CNFG_R);
-> +
-> +	/* set delay line */
-> +	sdhci_writeb(host, priv->delay_line, PHY_SDCLKDL_DC_R);
-> +	sdhci_writeb(host, PHY_DLL_CNFG2_JUMPSTEP, PHY_DLL_CNFG2_R);
-> +
-> +	/* enable delay lane */
-> +	val = sdhci_readb(host, PHY_SDCLKDL_CNFG_R);
-> +	val &= ~(PHY_SDCLKDL_CNFG_UPDATE);
-> +	sdhci_writeb(host, val, PHY_SDCLKDL_CNFG_R);
-> +
-> +	/* configure phy pads */
-> +	val = PHY_PAD_RXSEL_3V3;
-> +	val |= FIELD_PREP(PHY_PAD_WEAKPULL_MASK, PHY_PAD_WEAKPULL_PULLUP);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, PHY_PAD_TXSLEW_CTRL_P);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, PHY_PAD_TXSLEW_CTRL_N);
-> +	sdhci_writew(host, val, PHY_CMDPAD_CNFG_R);
-> +	sdhci_writew(host, val, PHY_DATAPAD_CNFG_R);
-> +	sdhci_writew(host, val, PHY_RSTNPAD_CNFG_R);
-> +
-> +	val = FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, PHY_PAD_TXSLEW_CTRL_P);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, PHY_PAD_TXSLEW_CTRL_N);
-> +	sdhci_writew(host, val, PHY_CLKPAD_CNFG_R);
-> +
-> +	val = PHY_PAD_RXSEL_3V3;
-> +	val |= FIELD_PREP(PHY_PAD_WEAKPULL_MASK, PHY_PAD_WEAKPULL_PULLDOWN);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, PHY_PAD_TXSLEW_CTRL_P);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, PHY_PAD_TXSLEW_CTRL_N);
-> +	sdhci_writew(host, val, PHY_STBPAD_CNFG_R);
-> +
-> +	/* enable phy dll */
-> +	sdhci_writeb(host, PHY_DLL_CTRL_ENABLE, PHY_DLL_CTRL_R);
-> +}
-> +
-> +static void th1520_sdhci_set_phy(struct sdhci_host *host)
-> +{
-> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> +	u16 emmc_ctrl;
-> +
-> +	/* Before power on, set PHY configs */
-> +	if (priv->flags & FLAG_IO_FIXED_1V8)
-> +		th1520_phy_1_8v_init(host);
+> +	if (args->bpp % 10)
+> +		args->pitch = ALIGN(pitch, priv->pitch_alignment);
 > +	else
-> +		th1520_phy_3_3v_init(host);
+> +		/* for costum 10bit format with no bit gaps */
+
+? I think you meant 'custom' here. If so, please define that format and 
+use it explicitly here. There can be other 10bpp formats.
+
+> +		args->pitch = pitch;
 > +
-> +	if (host->mmc->caps & MMC_CAP_NONREMOVABLE) {
-> +		emmc_ctrl = sdhci_readw(host, priv->vendor_specific_area1 + DWCMSHC_EMMC_CONTROL);
-> +		emmc_ctrl |= DWCMSHC_CARD_IS_EMMC;
-> +		sdhci_writew(host, emmc_ctrl, priv->vendor_specific_area1 + DWCMSHC_EMMC_CONTROL);
-> +	}
-> +
-> +	sdhci_writeb(host, FIELD_PREP(PHY_DLL_CNFG1_SLVDLY_MASK, PHY_DLL_CNFG1_SLVDLY) |
-> +		     PHY_DLL_CNFG1_WAITCYCLE, PHY_DLL_CNFG1_R);
+> +	return drm_gem_dma_dumb_create_internal(file, dev, args);
 > +}
 > +
->  static void dwcmshc_set_uhs_signaling(struct sdhci_host *host,
->  				      unsigned int timing)
->  {
-> @@ -189,9 +406,25 @@ static void dwcmshc_set_uhs_signaling(struct sdhci_host *host,
->  		ctrl_2 |= DWCMSHC_CTRL_HS400;
->  	}
->  
-> +	if (priv->flags & FLAG_IO_FIXED_1V8)
-> +		ctrl_2 |= SDHCI_CTRL_VDD_180;
->  	sdhci_writew(host, ctrl_2, SDHCI_HOST_CONTROL2);
->  }
->  
-> +static void th1520_set_uhs_signaling(struct sdhci_host *host,
-> +				     unsigned int timing)
+> +DEFINE_DRM_GEM_FOPS(vs_drm_fops);
+> +
+> +static struct drm_driver vs_drm_driver = {
+> +	.driver_features	= DRIVER_MODESET | DRIVER_ATOMIC | DRIVER_GEM,
+> +
+> +	DRM_GEM_DMA_DRIVER_OPS_WITH_DUMB_CREATE(vs_gem_dumb_create),
+> +
+> +	.fops			= &vs_drm_fops,
+> +	.name			= DRV_NAME,
+> +	.desc			= DRV_DESC,
+> +	.date			= DRV_DATE,
+> +	.major			= DRV_MAJOR,
+> +	.minor			= DRV_MINOR,
+> +};
+> +
+> +static int vs_drm_bind(struct device *dev)
 > +{
-> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
+> +	struct platform_device *pdev = to_platform_device(dev);
+> +	struct vs_drm_device *priv;
+> +	int ret;
+> +	struct drm_device *drm_dev;
 > +
-> +	dwcmshc_set_uhs_signaling(host, timing);
-> +	if (timing == MMC_TIMING_MMC_HS400)
-> +		priv->delay_line = PHY_SDCLKDL_DC_HS400;
-> +	else
-> +		sdhci_writeb(host, 0, PHY_DLLDL_CNFG_R);
-> +	th1520_sdhci_set_phy(host);
-> +}
+> +	/* Remove existing drivers that may own the framebuffer memory. */
+> +	ret = drm_aperture_remove_framebuffers(&vs_drm_driver);
+> +	if (ret)
+> +		return ret;
 > +
->  static void dwcmshc_hs400_enhanced_strobe(struct mmc_host *mmc,
->  					  struct mmc_ios *ios)
->  {
-> @@ -338,6 +571,85 @@ static void rk35xx_sdhci_reset(struct sdhci_host *host, u8 mask)
->  	sdhci_reset(host, mask);
->  }
->  
-> +static int th1520_execute_tuning(struct sdhci_host *host, u32 opcode)
-> +{
-> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> +	u32 val = 0;
+> +	priv = devm_drm_dev_alloc(dev, &vs_drm_driver, struct vs_drm_device, base);
+> +	if (IS_ERR(priv))
+> +		return PTR_ERR(priv);
 > +
-> +	if (host->flags & SDHCI_HS400_TUNING)
-> +		return 0;
+> +	priv->pitch_alignment = 64;
 > +
-> +	sdhci_writeb(host, FIELD_PREP(PHY_ATDL_CNFG_INPSEL_MASK, PHY_ATDL_CNFG_INPSEL),
-> +		     PHY_ATDL_CNFG_R);
-> +	val = sdhci_readl(host, priv->vendor_specific_area1 + DWCMSHC_EMMC_ATCTRL);
+> +	ret = dma_set_coherent_mask(priv->base.dev, DMA_BIT_MASK(40));
+> +	if (ret)
+> +		return ret;
 > +
-> +	/*
-> +	 * configure tuning settings:
-> +	 *  - center phase select code driven in block gap interval
-> +	 *  - disable reporting of framing errors
-> +	 *  - disable software managed tuning
-> +	 *  - disable user selection of sampling window edges,
-> +	 *    instead tuning calculated edges are used
-> +	 */
-> +	val &= ~(AT_CTRL_CI_SEL | AT_CTRL_RPT_TUNE_ERR | AT_CTRL_SW_TUNE_EN |
-> +		 FIELD_PREP(AT_CTRL_WIN_EDGE_SEL_MASK, AT_CTRL_WIN_EDGE_SEL));
+> +	drm_dev = &priv->base;
+> +	platform_set_drvdata(pdev, drm_dev);
 > +
-> +	/*
-> +	 * configure tuning settings:
-> +	 *  - enable auto-tuning
-> +	 *  - enable sampling window threshold
-> +	 *  - stop clocks during phase code change
-> +	 *  - set max latency in cycles between tx and rx clocks
-> +	 *  - set max latency in cycles to switch output phase
-> +	 *  - set max sampling window threshold value
-> +	 */
-> +	val |= AT_CTRL_AT_EN | AT_CTRL_SWIN_TH_EN | AT_CTRL_TUNE_CLK_STOP_EN;
-> +	val |= FIELD_PREP(AT_CTRL_PRE_CHANGE_DLY_MASK, AT_CTRL_PRE_CHANGE_DLY);
-> +	val |= FIELD_PREP(AT_CTRL_POST_CHANGE_DLY_MASK, AT_CTRL_POST_CHANGE_DLY);
-> +	val |= FIELD_PREP(AT_CTRL_SWIN_TH_VAL_MASK, AT_CTRL_SWIN_TH_VAL);
+> +	vs_mode_config_init(drm_dev);
 > +
-> +	sdhci_writel(host, val, priv->vendor_specific_area1 + DWCMSHC_EMMC_ATCTRL);
-> +	val = sdhci_readl(host, priv->vendor_specific_area1 + DWCMSHC_EMMC_ATCTRL);
+> +	/* Now try and bind all our sub-components */
+> +	ret = component_bind_all(dev, drm_dev);
+> +	if (ret)
+> +		return ret;
 > +
-> +	/* check if is possible to enable auto-tuning */
-> +	if (!(val & AT_CTRL_AT_EN)) {
-> +		dev_err(mmc_dev(host->mmc), "failed to enable auto tuning\n");
-> +		return -EIO;
-> +	}
+> +	ret = drm_vblank_init(drm_dev, drm_dev->mode_config.num_crtc);
+> +	if (ret)
+> +		return ret;
 > +
-> +	/* perform tuning */
-> +	sdhci_start_tuning(host);
-> +	host->tuning_err = __sdhci_execute_tuning(host, opcode);
-> +	if (host->tuning_err) {
-> +		/* disable auto-tuning upon tuning error */
-> +		val &= ~AT_CTRL_AT_EN;
-> +		sdhci_writel(host, val, priv->vendor_specific_area1 + DWCMSHC_EMMC_ATCTRL);
-> +		dev_err(mmc_dev(host->mmc), "tuning failed: %d\n", host->tuning_err);
-> +		return -EIO;
-> +	}
-> +	sdhci_end_tuning(host);
+> +	drm_mode_config_reset(drm_dev);
+> +
+> +	drm_kms_helper_poll_init(drm_dev);
+> +
+> +	ret = drm_dev_register(drm_dev, 0);
+> +	if (ret)
+> +		return ret;
+> +
+> +	drm_fbdev_generic_setup(drm_dev, 32);
 > +
 > +	return 0;
 > +}
 > +
-> +static void th1520_sdhci_reset(struct sdhci_host *host, u8 mask)
+> +static void vs_drm_unbind(struct device *dev)
 > +{
-> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> +	u16 ctrl_2;
+> +	struct drm_device *drm_dev = dev_get_drvdata(dev);
 > +
-> +	sdhci_reset(host, mask);
-> +
-> +	if (priv->flags & FLAG_IO_FIXED_1V8) {
-> +		ctrl_2 = sdhci_readw(host, SDHCI_HOST_CONTROL2);
-> +		if (!(ctrl_2 & SDHCI_CTRL_VDD_180)) {
-> +			ctrl_2 |= SDHCI_CTRL_VDD_180;
-> +			sdhci_writew(host, ctrl_2, SDHCI_HOST_CONTROL2);
-> +		}
-> +	}
+> +	drm_dev_unregister(drm_dev);
+> +	drm_kms_helper_poll_fini(drm_dev);
+> +	component_unbind_all(drm_dev->dev, drm_dev);
 > +}
 > +
->  static const struct sdhci_ops sdhci_dwcmshc_ops = {
->  	.set_clock		= sdhci_set_clock,
->  	.set_bus_width		= sdhci_set_bus_width,
-> @@ -356,6 +668,17 @@ static const struct sdhci_ops sdhci_dwcmshc_rk35xx_ops = {
->  	.adma_write_desc	= dwcmshc_adma_write_desc,
->  };
->  
-> +static const struct sdhci_ops sdhci_dwcmshc_th1520_ops = {
-> +	.set_clock		= sdhci_set_clock,
-> +	.set_bus_width		= sdhci_set_bus_width,
-> +	.set_uhs_signaling	= th1520_set_uhs_signaling,
-> +	.get_max_clock		= dwcmshc_get_max_clock,
-> +	.reset			= th1520_sdhci_reset,
-> +	.adma_write_desc	= dwcmshc_adma_write_desc,
-> +	.voltage_switch		= th1520_phy_1_8v_init,
-> +	.platform_execute_tuning = &th1520_execute_tuning,
+> +static const struct component_master_ops vs_drm_ops = {
+> +	.bind = vs_drm_bind,
+> +	.unbind = vs_drm_unbind,
 > +};
 > +
->  static const struct sdhci_pltfm_data sdhci_dwcmshc_pdata = {
->  	.ops = &sdhci_dwcmshc_ops,
->  	.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN,
-> @@ -379,6 +702,12 @@ static const struct sdhci_pltfm_data sdhci_dwcmshc_rk35xx_pdata = {
->  		   SDHCI_QUIRK2_CLOCK_DIV_ZERO_BROKEN,
->  };
->  
-> +static const struct sdhci_pltfm_data sdhci_dwcmshc_th1520_pdata = {
-> +	.ops = &sdhci_dwcmshc_th1520_ops,
-> +	.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN,
-> +	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
+> +static struct platform_driver *drm_sub_drivers[] = {
+> +
 > +};
 > +
->  static int dwcmshc_rk35xx_init(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
->  {
->  	int err;
-> @@ -447,6 +776,10 @@ static const struct of_device_id sdhci_dwcmshc_dt_ids[] = {
->  		.compatible = "snps,dwcmshc-sdhci",
->  		.data = &sdhci_dwcmshc_pdata,
->  	},
-> +	{
-> +		.compatible = "thead,th1520-dwcmshc",
-> +		.data = &sdhci_dwcmshc_th1520_pdata,
-> +	},
->  	{},
->  };
->  MODULE_DEVICE_TABLE(of, sdhci_dwcmshc_dt_ids);
-> @@ -542,6 +875,30 @@ static int dwcmshc_probe(struct platform_device *pdev)
->  			goto err_clk;
->  	}
->  
-> +	if (pltfm_data == &sdhci_dwcmshc_th1520_pdata) {
-> +		priv->delay_line = PHY_SDCLKDL_DC_DEFAULT;
+> +static struct component_match *vs_drm_match_add(struct device *dev)
+> +{
+> +	struct component_match *match = NULL;
+> +	int i;
 > +
-> +		if ((device_property_read_bool(dev, "mmc-ddr-1_8v")) |
-> +		    (device_property_read_bool(dev, "mmc-hs200-1_8v")) |
-> +		    (device_property_read_bool(dev, "mmc-hs400-1_8v")))
-> +			priv->flags |= FLAG_IO_FIXED_1V8;
-> +		else
-> +			priv->flags &= ~FLAG_IO_FIXED_1V8;
+> +	for (i = 0; i < ARRAY_SIZE(drm_sub_drivers); ++i) {
+> +		struct platform_driver *drv = drm_sub_drivers[i];
+> +		struct device *p = NULL, *d;
 > +
-> +		/*
-> +		 * start_signal_voltage_switch() will try 3.3V first
-> +		 * then 1.8V. Use SDHCI_SIGNALING_180 ranther than
-> +		 * SDHCI_SIGNALING_330 to avoid setting voltage to 3.3V
-> +		 * in sdhci_start_signal_voltage_switch().
-> +		 */
-> +		if (priv->flags & FLAG_IO_FIXED_1V8) {
-> +			host->flags &= ~SDHCI_SIGNALING_330;
-> +			host->flags |=  SDHCI_SIGNALING_180;
+> +		while ((d = platform_find_device_by_driver(p, &drv->driver))) {
+> +			put_device(p);
+> +
+> +			component_match_add(dev, &match, component_compare_dev, d);
+
+drm_of_component_match_add ?
+
+> +			p = d;
 > +		}
-> +
-> +		sdhci_enable_v4_mode(host);
+> +		put_device(p);
 > +	}
 > +
->  #ifdef CONFIG_ACPI
->  	if (pltfm_data == &sdhci_dwcmshc_bf3_pdata)
->  		sdhci_enable_v4_mode(host);
-> 
-> -- 
-> 2.34.1
-> 
+> +	return match ? match : ERR_PTR(-ENODEV);
+> +}
+> +
+> +static int vs_drm_platform_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct component_match *match;
+> +
+> +	match = vs_drm_match_add(dev);
+> +	if (IS_ERR(match))
+> +		return PTR_ERR(match);
+> +
+> +	return component_master_add_with_match(dev, &vs_drm_ops, match);
+> +}
+> +
+> +static int vs_drm_platform_remove(struct platform_device *pdev)
+> +{
+> +	component_master_del(&pdev->dev, &vs_drm_ops);
+> +	return 0;
+> +}
+> +
+> +#ifdef CONFIG_PM_SLEEP
+> +static int vs_drm_suspend(struct device *dev)
+> +{
+> +	return drm_mode_config_helper_suspend(dev_get_drvdata(dev));
+> +}
+> +
+> +static int vs_drm_resume(struct device *dev)
+> +{
+> +	drm_mode_config_helper_resume(dev_get_drvdata(dev));
+> +
+> +	return 0;
+> +}
+> +#endif
+> +
+> +static SIMPLE_DEV_PM_OPS(vs_drm_pm_ops, vs_drm_suspend, vs_drm_resume);
+> +
+> +static const struct of_device_id vs_drm_dt_ids[] = {
+> +	{ .compatible = "starfive,display-subsystem", },
+> +	{ },
+> +};
+> +
+> +MODULE_DEVICE_TABLE(of, vs_drm_dt_ids);
+> +
+> +static struct platform_driver vs_drm_platform_driver = {
+> +	.probe = vs_drm_platform_probe,
+> +	.remove = vs_drm_platform_remove,
+> +
+> +	.driver = {
+> +		.name = DRV_NAME,
+> +		.of_match_table = vs_drm_dt_ids,
+> +		.pm = &vs_drm_pm_ops,
+> +	},
+> +};
+> +
+> +static int __init vs_drm_init(void)
+> +{
+> +	int ret;
+> +
+> +	ret = platform_register_drivers(drm_sub_drivers, ARRAY_SIZE(drm_sub_drivers));
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = drm_platform_driver_register(&vs_drm_platform_driver);
+> +	if (ret)
+> +		platform_unregister_drivers(drm_sub_drivers, ARRAY_SIZE(drm_sub_drivers));
+
+You can probably squash all the drivers into a single array.
+
+> +
+> +	return ret;
+> +}
+> +
+> +static void __exit vs_drm_fini(void)
+> +{
+> +	platform_driver_unregister(&vs_drm_platform_driver);
+> +	platform_unregister_drivers(drm_sub_drivers, ARRAY_SIZE(drm_sub_drivers));
+> +}
+> +
+> +module_init(vs_drm_init);
+> +module_exit(vs_drm_fini);
+> +
+> +MODULE_DESCRIPTION("VeriSilicon DRM Driver");
+> +MODULE_LICENSE("GPL");
+> diff --git a/drivers/gpu/drm/verisilicon/vs_drv.h b/drivers/gpu/drm/verisilicon/vs_drv.h
+> new file mode 100644
+> index 000000000..369ad22d6
+> --- /dev/null
+> +++ b/drivers/gpu/drm/verisilicon/vs_drv.h
+> @@ -0,0 +1,27 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2023 VeriSilicon Holdings Co., Ltd.
+> + */
+> +
+> +#ifndef __VS_DRV_H__
+> +#define __VS_DRV_H__
+> +
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +#include <drm/drm_drv.h>
+> +#include <drm/drm_gem.h>
+> +#include <drm/drm_managed.h>
+> +
+> +/*@pitch_alignment: buffer pitch alignment required by sub-devices.*/
+> +struct vs_drm_device {
+> +	struct drm_device base;
+> +	unsigned int pitch_alignment;
+> +};
+> +
+> +static inline struct vs_drm_device *
+> +to_vs_drm_private(const struct drm_device *dev)
+> +{
+> +	return container_of(dev, struct vs_drm_device, base);
+> +}
+> +
+> +#endif /* __VS_DRV_H__ */
+> diff --git a/drivers/gpu/drm/verisilicon/vs_modeset.c b/drivers/gpu/drm/verisilicon/vs_modeset.c
+> new file mode 100644
+> index 000000000..151272067
+> --- /dev/null
+> +++ b/drivers/gpu/drm/verisilicon/vs_modeset.c
+> @@ -0,0 +1,36 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2023 VeriSilicon Holdings Co., Ltd.
+> + */
+> +
+> +#include <linux/module.h>
+> +
+> +#include <drm/drm_damage_helper.h>
+> +#include <drm/drm_fb_helper.h>
+> +#include <drm/drm_gem_framebuffer_helper.h>
+> +
+> +#include "vs_modeset.h"
+> +
+> +static const struct drm_mode_config_funcs vs_mode_config_funcs = {
+> +	.fb_create			 = drm_gem_fb_create,
+> +	.atomic_check		 = drm_atomic_helper_check,
+> +	.atomic_commit		 = drm_atomic_helper_commit,
+> +};
+> +
+> +static struct drm_mode_config_helper_funcs vs_mode_config_helpers = {
+> +	.atomic_commit_tail = drm_atomic_helper_commit_tail_rpm,
+> +};
+> +
+> +void vs_mode_config_init(struct drm_device *dev)
+> +{
+> +	drm_mode_config_init(dev);
+
+quoting docs:
+
+  * FIXME: This function is deprecated and drivers should be converted 
+over to
+  * drmm_mode_config_init().
+
+> +	dev->mode_config.fb_modifiers_not_supported = false;
+
+This is the default, if I'm not mistaken
+
+> +
+> +	dev->mode_config.min_width  = 0;
+> +	dev->mode_config.min_height = 0;
+> +	dev->mode_config.max_width  = 4096;
+> +	dev->mode_config.max_height = 4096;
+> +
+> +	dev->mode_config.funcs = &vs_mode_config_funcs;
+> +	dev->mode_config.helper_private = &vs_mode_config_helpers;
+> +}
+> diff --git a/drivers/gpu/drm/verisilicon/vs_modeset.h b/drivers/gpu/drm/verisilicon/vs_modeset.h
+> new file mode 100644
+> index 000000000..ebfe6d612
+> --- /dev/null
+> +++ b/drivers/gpu/drm/verisilicon/vs_modeset.h
+> @@ -0,0 +1,10 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2020 VeriSilicon Holdings Co., Ltd.
+> + */
+> +
+> +#ifndef __VS_FB_H__
+> +#define __VS_FB_H__
+
+Please match guarding define and the header name.
+
+> +
+> +void vs_mode_config_init(struct drm_device *dev);
+> +#endif /* __VS_FB_H__ */
+> diff --git a/include/uapi/drm/vs_drm.h b/include/uapi/drm/vs_drm.h
+> new file mode 100644
+> index 000000000..96b7fc95d
+> --- /dev/null
+> +++ b/include/uapi/drm/vs_drm.h
+> @@ -0,0 +1,50 @@
+> +/* SPDX-License-Identifier: GPL-2.0+ WITH Linux-syscall-note */
+> +/*
+> + * Copyright (C) 2020 VeriSilicon Holdings Co., Ltd.
+> + */
+> +
+> +#ifndef __VS_DRM_H__
+> +#define __VS_DRM_H__
+> +
+> +#include "drm.h"
+
+Which drm.h?
+
+> +
+> +enum drm_vs_degamma_mode {
+> +	VS_DEGAMMA_DISABLE = 0,
+> +	VS_DEGAMMA_BT709 = 1,
+> +	VS_DEGAMMA_BT2020 = 2,
+> +};
+> +
+> +enum drm_vs_sync_dc_mode {
+> +	VS_SINGLE_DC = 0,
+> +	VS_MULTI_DC_PRIMARY = 1,
+> +	VS_MULTI_DC_SECONDARY = 2,
+> +};
+> +
+> +enum drm_vs_mmu_prefetch_mode {
+> +	VS_MMU_PREFETCH_DISABLE = 0,
+> +	VS_MMU_PREFETCH_ENABLE = 1,
+> +};
+> +
+> +struct drm_vs_watermark {
+> +	__u32 watermark;
+> +	__u8 qos_low;
+> +	__u8 qos_high;
+> +};
+> +
+> +struct drm_vs_color_mgmt {
+> +	__u32 colorkey;
+> +	__u32 colorkey_high;
+> +	__u32 clear_value;
+> +	bool  clear_enable;
+> +	bool  transparency;
+> +};
+> +
+> +struct drm_vs_roi {
+> +	bool enable;
+> +	__u16 roi_x;
+> +	__u16 roi_y;
+> +	__u16 roi_w;
+> +	__u16 roi_h;
+> +};
+
+Could you please add corresponding defines in the patch that actually 
+makes use of them? Otherwise it might be hard to review usage.
+
+> +
+> +#endif /* __VS_DRM_H__ */
+
+-- 
+With best wishes
+Dmitry
+
 
 _______________________________________________
 linux-riscv mailing list
