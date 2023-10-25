@@ -4,93 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB7BFC07545
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 18:37:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FEE7C25B6F
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 18:56:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aDcjcs1vk9zZK/aTu87t3tclXQQz8RAPSmtRURaDbZQ=; b=uH0IcsDzp8feyk
-	cCumTuNXJpXIRRxXeVFoCua8ZleKvCaMayru95aCBt30JLU26xfOzUGde+Y/2Ieu8IA2XLiwScuAr
-	fS5w1Z0a9pra6TQOr4DsSG4Kq6wOX6HJKAbPQYBXY+dUnwEltrBB55B/EULFsDb66RZ9RErr8pTpo
-	D3NQN16CsjXMaNZmZ4RpCZKkzjWQOY3keKiVJOR07+sr+/4wRneD05Jmu/tmt/qigEaiySn0kfi1L
-	7EpJPD0yYlJjKG4y9265U4Yw2wLcgO6iXVqUVRI9JYzTW6gFQx5tSv6MdhojAKdjjNHTZXJeD+W8j
-	oSOGKEEM7PancoTwyoxg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=N8Q8aOMGu9kU7l2M6RvZR2zdYv8jqL0/4cs46haN+tU=; b=aeWax6DnyoH0av
+	OWhndILwDUJ+k5XnQS3Aj/+oaRYTnxsK7QUz68BlGy50E/K6X3fbaUDc8Qj3ZMpV0/0SC7RLEK6Gv
+	313ZqypMymwbKjEa4Az3EdsryVDG+554BccUqHR6NLSyJwjkDQUt6kJoEo8ZfNo3ObAIMJXymLQLE
+	QDSE3M+Bop5FTL78wYWzyfje5hP2MDlP4fOqrgBkWtH1ARA+28XQGLbP/XbeITYdoEcsrdphEcyBP
+	8VO6hRJK8y9ug26IUcFkLFcmAZKKNPnrW9C2iGam6hmhLhN0kWZ8KEKAqxSkflopdZAsbykN31pQP
+	PwtbbgZK3KSvvgvjPZTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvilL-00Csc2-07;
-	Wed, 25 Oct 2023 18:37:51 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1qvj3g-00CuUL-2K;
+	Wed, 25 Oct 2023 18:56:48 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvilE-00CsXm-2Y
+	id 1qvj3e-00CuSf-0F
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Oct 2023 18:37:49 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-517ab9a4a13so95057a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 11:37:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1698259064; x=1698863864; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Kt3WTfvjOI4LHPOMyEbRdhIq5hHcz3LzqQvN0TjWHcA=;
-        b=TYwr/0bh6K454jq1AbzH2nFqlACFQClh/IRA7SPHDuZByMi03sBE6AovfDiBeYiyIz
-         ywUx9liehZS6+Emy+hGxx2wUuHA2M4RuiV4VsrMIejVzQ3kJPfVwPkDd7FHGoAiaKUxM
-         wQW87gWVYEdnIzooeHRystyT8QcfaFeFJRBkJEfUZrIblHpdERR0TAROAQSkc4GVwuBk
-         wo225aCsCc+u81wVQ8hYONXPPx1Wm+CJQbDVp8PQTxyUey9PyKGPF6jXOM93O24HWrNX
-         qypG4BOrHNHCOBrtD0+Ncf1ktsSdFlJtMXywbesX4TQyrxaggYkGSegqknYfMoYnD3Zv
-         vI/A==
+	Wed, 25 Oct 2023 18:56:47 +0000
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 312CC3FD3A
+	for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 18:56:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1698260204;
+	bh=8ZSwQnx25XWx6H9WHSt+QTyzglk67NwsJMp2gzIlTF8=;
+	h=MIME-Version:From:Date:Message-ID:Subject:To:Cc:Content-Type;
+	b=oRXQvxGFWV+36DVVfwcqEhGl1Xhmyd/NxGQSoAHu7trykUzSe4dR06Bu/BKP9fMRU
+	 ZDP69C01hJwKDoSbtRH0xmRQ4NpWCjEFEDMA5eFkW1nvZdPbxDphCivbGdW6WbRgld
+	 6Qtd9qhW8Iadt88OZ0UmBq7UI1T8H8vfQOdYpV3bPjLVv3BSyeY8zYFhlHbVYDvrMY
+	 zwTqPgZ4UeYtemPIoTFo/wSG5yU/H6HLPSI7x4U/TCaY6FpZSP/rRQzihx27CoTdjt
+	 ncthGM88eIqznmrhQa0c/WLbxaN+hWm+B8mTG/jTipPMo7w4yDJP+PFlnwnIoleJ2c
+	 SkQ4r5XXLdDJQ==
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-41cb6df5c7bso1682431cf.3
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 11:56:44 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698259064; x=1698863864;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Kt3WTfvjOI4LHPOMyEbRdhIq5hHcz3LzqQvN0TjWHcA=;
-        b=xVEGJvOSESvPCAvcXjAtSgZbiVpuyKT4YiSanJblCGM19it1o8+1l61ap5AFmmCO3e
-         R0POh5+Ms39G0zN43gVT5p+EVOI51XerFu+JAbSQH5hBQ0Tu1WmcglS8vgm+t461ZxtL
-         85K+72FJ8BgphkP2YUC52feidokbtArDinDrw5OtfcY4lhJ+EfRqNlxJDD70BSJsrFty
-         moK8yI7b2DI6LLEB/0N9FTE45tY0wmOBWel4Z+K0kEPGo8PEgQqqldOFwzcGV48iVxcI
-         /sw3A0vJwgRcYWw2tRRIpp+nHXFHmItQZaCNIvKHkJ4QPoMXwsQVoLLUero4XZGqfoqp
-         DeYw==
-X-Gm-Message-State: AOJu0YzW4ANx6Z5/QasKul4CVI82oUAug49yikGdvxqZEHQLdHp197z3
-	IiqYkM1pgwlPjBH209KXVySeNA==
-X-Google-Smtp-Source: AGHT+IFqpwEuw2xGu3F8rzTjT0tmzzxKRCVTrSIiTxria3fgff4tabeHnvS5oCOlsSllxSVw8iiIsg==
-X-Received: by 2002:a17:90a:a38d:b0:27d:3a34:2194 with SMTP id x13-20020a17090aa38d00b0027d3a342194mr15580807pjp.14.1698259064157;
-        Wed, 25 Oct 2023 11:37:44 -0700 (PDT)
-Received: from localhost.localdomain ([49.216.222.119])
-        by smtp.gmail.com with ESMTPSA id g3-20020a17090adb0300b00278f1512dd9sm212367pjv.32.2023.10.25.11.37.40
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 25 Oct 2023 11:37:43 -0700 (PDT)
-From: Jerry Shih <jerry.shih@sifive.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	herbert@gondor.apana.org.au,
-	davem@davemloft.net
-Cc: andy.chiu@sifive.com,
-	greentime.hu@sifive.com,
-	conor.dooley@microchip.com,
-	guoren@kernel.org,
-	bjorn@rivosinc.com,
-	heiko@sntech.de,
-	ebiggers@kernel.org,
-	ardb@kernel.org,
-	phoebe.chen@sifive.com,
-	hongrong.hsu@sifive.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-crypto@vger.kernel.org
-Subject: [PATCH 12/12] RISC-V: crypto: add Zvkb accelerated ChaCha20 implementation
-Date: Thu, 26 Oct 2023 02:36:44 +0800
-Message-Id: <20231025183644.8735-13-jerry.shih@sifive.com>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20231025183644.8735-1-jerry.shih@sifive.com>
-References: <20231025183644.8735-1-jerry.shih@sifive.com>
+        d=1e100.net; s=20230601; t=1698260200; x=1698865000;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=8ZSwQnx25XWx6H9WHSt+QTyzglk67NwsJMp2gzIlTF8=;
+        b=XwEnal4A5P9x5zpVS7FcRTiQwYKAHO9y1UTD4IGApPdJh9jTpb1/SPriNl5X8tOtFI
+         qyeosJ2T9FyPR6aKfhZXX9U+IofU+Nhi1fDOaq7cx/EgYAeTtgiRLatt4cXcwKKaJCwG
+         eyKG9WLmuZjiu4m3GeczGHemUgiV0nhlgDE20d2/Vix8/d/HQB81Pt/eE+Zloh5ADnbY
+         0O9HA2XdxJlDltOiVmFFqCjZHpTkhoWvGrb7s0RzDA9CdiOxaNIXLEcon8hvkREepnPa
+         famrnE9pXyLsnCFZhJVbmFcrGPkYaODvJZvHNB7wpj9K9Kbc8MjeB5koLtkSUUl6fTlo
+         /bdg==
+X-Gm-Message-State: AOJu0YwFrd7YtvSQ5k1zDPPRlViagaw4reZuHTD+e1C9UwoilaqEZLt6
+	TGUjGj1Sacv8K9EBfpKVdf2QlkqssBc7MwmJHZlbX6RppEkhhnQc49fOp/T6rHN3RCGEPjbEbaH
+	6+lxkox4KsXnm4I0P9v0tfKw372xk+9Ow/pEawqBvzoVgGeFA6+eJSAQnxFz+FkoywGItSA==
+X-Received: by 2002:a05:622a:1b9f:b0:417:bd2c:2683 with SMTP id bp31-20020a05622a1b9f00b00417bd2c2683mr17944699qtb.19.1698260200208;
+        Wed, 25 Oct 2023 11:56:40 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHJTkG3zv5DTeWRvY1y/BasKIXcM7hXfHiMkDTcbRf8mjI+q0VqgB+zstaBrwJ9z4uKKWXR3bFMed8oDTtI7W0=
 MIME-Version: 1.0
+X-Received: by 2002:a05:622a:1b9f:b0:417:bd2c:2683 with SMTP id
+ bp31-20020a05622a1b9f00b00417bd2c2683mr17944683qtb.19.1698260199921; Wed, 25
+ Oct 2023 11:56:39 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 25 Oct 2023 11:56:39 -0700
+From: emil.renner.berthing@canonical.com
+Date: Wed, 25 Oct 2023 11:56:39 -0700
+Message-ID: <CAJM55Z_U9R6R_t1g5KANV5hQwP91TcHYKGwbnHxXXs5fm0y7Yw@mail.gmail.com>
+Subject: [PATCH 2/4] soc: sifive: ccache: Add StarFive JH7100 support
+To: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231025_113744_834685_F15C8460 
-X-CRM114-Status: GOOD (  26.43  )
+X-CRM114-CacheID: sfid-20231025_115646_244715_F0FC84B4 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,530 +97,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a ChaCha20 vector implementation from OpenSSL(openssl/openssl#21923).
+This adds support for the StarFive JH7100 SoC which also features this
+SiFive cache controller.
 
-Signed-off-by: Jerry Shih <jerry.shih@sifive.com>
+Unfortunately the interrupt for uncorrected data is broken on the JH7100
+and fires continuously, so add a quirk to not register a handler for it.
+
+Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 ---
- arch/riscv/crypto/Kconfig                |  12 +
- arch/riscv/crypto/Makefile               |   7 +
- arch/riscv/crypto/chacha-riscv64-glue.c  | 120 +++++++++
- arch/riscv/crypto/chacha-riscv64-zvkb.pl | 322 +++++++++++++++++++++++
- 4 files changed, 461 insertions(+)
- create mode 100644 arch/riscv/crypto/chacha-riscv64-glue.c
- create mode 100644 arch/riscv/crypto/chacha-riscv64-zvkb.pl
+ drivers/soc/sifive/sifive_ccache.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
-index 2797b37394bb..41ce453afafa 100644
---- a/arch/riscv/crypto/Kconfig
-+++ b/arch/riscv/crypto/Kconfig
-@@ -35,6 +35,18 @@ config CRYPTO_AES_BLOCK_RISCV64
- 	  - Zvkg vector crypto extension (XTS)
- 	  - Zvkned vector crypto extension
- 
-+config CRYPTO_CHACHA20_RISCV64
-+	default y if RISCV_ISA_V
-+	tristate "Ciphers: ChaCha20"
-+	depends on 64BIT && RISCV_ISA_V
-+	select CRYPTO_SKCIPHER
-+	select CRYPTO_LIB_CHACHA_GENERIC
-+	help
-+	  Length-preserving ciphers: ChaCha20 stream cipher algorithm
+diff --git a/drivers/soc/sifive/sifive_ccache.c
+b/drivers/soc/sifive/sifive_ccache.c
+index 3684f5b40a80..676468c35859 100644
+--- a/drivers/soc/sifive/sifive_ccache.c
++++ b/drivers/soc/sifive/sifive_ccache.c
+@@ -106,6 +106,7 @@ static void ccache_config_read(void)
+ static const struct of_device_id sifive_ccache_ids[] = {
+ 	{ .compatible = "sifive,fu540-c000-ccache" },
+ 	{ .compatible = "sifive,fu740-c000-ccache" },
++	{ .compatible = "starfive,jh7100-ccache", .data = (void *)BIT(DATA_UNCORR) },
+ 	{ .compatible = "sifive,ccache0" },
+ 	{ /* end of table */ }
+ };
+@@ -210,11 +211,15 @@ static int __init sifive_ccache_init(void)
+ 	struct device_node *np;
+ 	struct resource res;
+ 	int i, rc, intr_num;
++	const struct of_device_id *match;
++	unsigned long broken_irqs;
+
+-	np = of_find_matching_node(NULL, sifive_ccache_ids);
++	np = of_find_matching_node_and_match(NULL, sifive_ccache_ids, &match);
+ 	if (!np)
+ 		return -ENODEV;
+
++	broken_irqs = (uintptr_t)match->data;
 +
-+	  Architecture: riscv64 using:
-+	  - Zvkb vector crypto extension
+ 	if (of_address_to_resource(np, 0, &res)) {
+ 		rc = -ENODEV;
+ 		goto err_node_put;
+@@ -240,6 +245,10 @@ static int __init sifive_ccache_init(void)
+
+ 	for (i = 0; i < intr_num; i++) {
+ 		g_irq[i] = irq_of_parse_and_map(np, i);
 +
- config CRYPTO_GHASH_RISCV64
- 	default y if RISCV_ISA_V
- 	tristate "Hash functions: GHASH"
-diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
-index b772417703fd..80b0ebc956a3 100644
---- a/arch/riscv/crypto/Makefile
-+++ b/arch/riscv/crypto/Makefile
-@@ -9,6 +9,9 @@ aes-riscv64-y := aes-riscv64-glue.o aes-riscv64-zvkned.o
- obj-$(CONFIG_CRYPTO_AES_BLOCK_RISCV64) += aes-block-riscv64.o
- aes-block-riscv64-y := aes-riscv64-block-mode-glue.o aes-riscv64-zvbb-zvkg-zvkned.o aes-riscv64-zvkb-zvkned.o
- 
-+obj-$(CONFIG_CRYPTO_CHACHA20_RISCV64) += chacha-riscv64.o
-+chacha-riscv64-y := chacha-riscv64-glue.o chacha-riscv64-zvkb.o
++		if (broken_irqs & BIT(i))
++			continue;
 +
- obj-$(CONFIG_CRYPTO_GHASH_RISCV64) += ghash-riscv64.o
- ghash-riscv64-y := ghash-riscv64-glue.o ghash-riscv64-zvkg.o
- 
-@@ -36,6 +39,9 @@ $(obj)/aes-riscv64-zvbb-zvkg-zvkned.S: $(src)/aes-riscv64-zvbb-zvkg-zvkned.pl
- $(obj)/aes-riscv64-zvkb-zvkned.S: $(src)/aes-riscv64-zvkb-zvkned.pl
- 	$(call cmd,perlasm)
- 
-+$(obj)/chacha-riscv64-zvkb.S: $(src)/chacha-riscv64-zvkb.pl
-+	$(call cmd,perlasm)
-+
- $(obj)/ghash-riscv64-zvkg.S: $(src)/ghash-riscv64-zvkg.pl
- 	$(call cmd,perlasm)
- 
-@@ -54,6 +60,7 @@ $(obj)/sm4-riscv64-zvksed.S: $(src)/sm4-riscv64-zvksed.pl
- clean-files += aes-riscv64-zvkned.S
- clean-files += aes-riscv64-zvbb-zvkg-zvkned.S
- clean-files += aes-riscv64-zvkb-zvkned.S
-+clean-files += chacha-riscv64-zvkb.S
- clean-files += ghash-riscv64-zvkg.S
- clean-files += sha256-riscv64-zvkb-zvknha_or_zvknhb.S
- clean-files += sha512-riscv64-zvkb-zvknhb.S
-diff --git a/arch/riscv/crypto/chacha-riscv64-glue.c b/arch/riscv/crypto/chacha-riscv64-glue.c
-new file mode 100644
-index 000000000000..72011949f705
---- /dev/null
-+++ b/arch/riscv/crypto/chacha-riscv64-glue.c
-@@ -0,0 +1,120 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Port of the OpenSSL ChaCha20 implementation for RISC-V 64
-+ *
-+ * Copyright (C) 2023 SiFive, Inc.
-+ * Author: Jerry Shih <jerry.shih@sifive.com>
-+ */
-+
-+#include <asm/simd.h>
-+#include <asm/vector.h>
-+#include <crypto/internal/chacha.h>
-+#include <crypto/internal/simd.h>
-+#include <crypto/internal/skcipher.h>
-+#include <linux/crypto.h>
-+#include <linux/module.h>
-+#include <linux/types.h>
-+
-+#define CHACHA_BLOCK_VALID_SIZE_MASK (~(CHACHA_BLOCK_SIZE - 1))
-+#define CHACHA_BLOCK_REMAINING_SIZE_MASK (CHACHA_BLOCK_SIZE - 1)
-+#define CHACHA_KEY_OFFSET 4
-+#define CHACHA_IV_OFFSET 12
-+
-+/* chacha20 using zvkb vector crypto extension */
-+void ChaCha20_ctr32_zvkb(u8 *out, const u8 *input, size_t len, const u32 *key,
-+			 const u32 *counter);
-+
-+static int chacha20_encrypt(struct skcipher_request *req)
-+{
-+	u32 state[CHACHA_STATE_WORDS];
-+	u8 block_buffer[CHACHA_BLOCK_SIZE];
-+	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
-+	const struct chacha_ctx *ctx = crypto_skcipher_ctx(tfm);
-+	struct skcipher_walk walk;
-+	unsigned int nbytes;
-+	unsigned int tail_bytes;
-+	int err;
-+
-+	chacha_init_generic(state, ctx->key, req->iv);
-+
-+	err = skcipher_walk_virt(&walk, req, false);
-+	while (walk.nbytes) {
-+		nbytes = walk.nbytes & CHACHA_BLOCK_VALID_SIZE_MASK;
-+		tail_bytes = walk.nbytes & CHACHA_BLOCK_REMAINING_SIZE_MASK;
-+		kernel_vector_begin();
-+		if (nbytes) {
-+			ChaCha20_ctr32_zvkb(walk.dst.virt.addr,
-+					    walk.src.virt.addr, nbytes,
-+					    state + CHACHA_KEY_OFFSET,
-+					    state + CHACHA_IV_OFFSET);
-+			state[CHACHA_IV_OFFSET] += nbytes / CHACHA_BLOCK_SIZE;
-+		}
-+		if (walk.nbytes == walk.total && tail_bytes > 0) {
-+			memcpy(block_buffer, walk.src.virt.addr + nbytes,
-+			       tail_bytes);
-+			ChaCha20_ctr32_zvkb(block_buffer, block_buffer,
-+					    CHACHA_BLOCK_SIZE,
-+					    state + CHACHA_KEY_OFFSET,
-+					    state + CHACHA_IV_OFFSET);
-+			memcpy(walk.dst.virt.addr + nbytes, block_buffer,
-+			       tail_bytes);
-+			tail_bytes = 0;
-+		}
-+		kernel_vector_end();
-+
-+		err = skcipher_walk_done(&walk, tail_bytes);
-+	}
-+
-+	return err;
-+}
-+
-+static struct skcipher_alg riscv64_chacha_alg_zvkb[] = { {
-+	.base = {
-+		.cra_name = "chacha20",
-+		.cra_driver_name = "chacha20-riscv64-zvkb",
-+		.cra_priority = 300,
-+		.cra_blocksize = 1,
-+		.cra_ctxsize = sizeof(struct chacha_ctx),
-+		.cra_module = THIS_MODULE,
-+	},
-+	.min_keysize = CHACHA_KEY_SIZE,
-+	.max_keysize = CHACHA_KEY_SIZE,
-+	.ivsize = CHACHA_IV_SIZE,
-+	.chunksize = CHACHA_BLOCK_SIZE,
-+	.walksize = CHACHA_BLOCK_SIZE * 4,
-+	.setkey = chacha20_setkey,
-+	.encrypt = chacha20_encrypt,
-+	.decrypt = chacha20_encrypt,
-+} };
-+
-+static inline bool check_chacha20_ext(void)
-+{
-+	return riscv_isa_extension_available(NULL, ZVKB) &&
-+	       riscv_vector_vlen() >= 128;
-+}
-+
-+static int __init riscv64_chacha_mod_init(void)
-+{
-+	if (check_chacha20_ext())
-+		return crypto_register_skciphers(
-+			riscv64_chacha_alg_zvkb,
-+			ARRAY_SIZE(riscv64_chacha_alg_zvkb));
-+
-+	return -ENODEV;
-+}
-+
-+static void __exit riscv64_chacha_mod_fini(void)
-+{
-+	if (check_chacha20_ext())
-+		crypto_unregister_skciphers(
-+			riscv64_chacha_alg_zvkb,
-+			ARRAY_SIZE(riscv64_chacha_alg_zvkb));
-+}
-+
-+module_init(riscv64_chacha_mod_init);
-+module_exit(riscv64_chacha_mod_fini);
-+
-+MODULE_DESCRIPTION("ChaCha20 (RISC-V accelerated)");
-+MODULE_AUTHOR("Jerry Shih <jerry.shih@sifive.com>");
-+MODULE_LICENSE("GPL");
-+MODULE_ALIAS_CRYPTO("chacha20");
-diff --git a/arch/riscv/crypto/chacha-riscv64-zvkb.pl b/arch/riscv/crypto/chacha-riscv64-zvkb.pl
-new file mode 100644
-index 000000000000..9caf7b247804
---- /dev/null
-+++ b/arch/riscv/crypto/chacha-riscv64-zvkb.pl
-@@ -0,0 +1,322 @@
-+#! /usr/bin/env perl
-+# SPDX-License-Identifier: Apache-2.0 OR BSD-2-Clause
-+#
-+# This file is dual-licensed, meaning that you can use it under your
-+# choice of either of the following two licenses:
-+#
-+# Copyright 2023-2023 The OpenSSL Project Authors. All Rights Reserved.
-+#
-+# Licensed under the Apache License 2.0 (the "License").  You may not use
-+# this file except in compliance with the License.  You can obtain a copy
-+# in the file LICENSE in the source distribution or at
-+# https://www.openssl.org/source/license.html
-+#
-+# or
-+#
-+# Copyright (c) 2023, Jerry Shih <jerry.shih@sifive.com>
-+# All rights reserved.
-+#
-+# Redistribution and use in source and binary forms, with or without
-+# modification, are permitted provided that the following conditions
-+# are met:
-+# 1. Redistributions of source code must retain the above copyright
-+#    notice, this list of conditions and the following disclaimer.
-+# 2. Redistributions in binary form must reproduce the above copyright
-+#    notice, this list of conditions and the following disclaimer in the
-+#    documentation and/or other materials provided with the distribution.
-+#
-+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-+# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-+# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-+# A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-+# OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-+# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-+# THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-+
-+# - RV64I
-+# - RISC-V Vector ('V') with VLEN >= 128
-+# - RISC-V Vector Cryptography Bit-manipulation extension ('Zvkb')
-+# - RISC-V Zicclsm(Main memory supports misaligned loads/stores)
-+
-+use strict;
-+use warnings;
-+
-+use FindBin qw($Bin);
-+use lib "$Bin";
-+use lib "$Bin/../../perlasm";
-+use riscv;
-+
-+# $output is the last argument if it looks like a file (it has an extension)
-+# $flavour is the first argument if it doesn't look like a file
-+my $output  = $#ARGV >= 0 && $ARGV[$#ARGV] =~ m|\.\w+$| ? pop   : undef;
-+my $flavour = $#ARGV >= 0 && $ARGV[0] !~ m|\.|          ? shift : undef;
-+
-+$output and open STDOUT, ">$output";
-+
-+my $code = <<___;
-+.text
-+___
-+
-+# void ChaCha20_ctr32_zvkb(unsigned char *out, const unsigned char *inp,
-+#                          size_t len, const unsigned int key[8],
-+#                          const unsigned int counter[4]);
-+################################################################################
-+my ( $OUTPUT, $INPUT, $LEN, $KEY, $COUNTER ) = ( "a0", "a1", "a2", "a3", "a4" );
-+my ( $T0 ) = ( "t0" );
-+my ( $CONST_DATA0, $CONST_DATA1, $CONST_DATA2, $CONST_DATA3 ) =
-+  ( "a5", "a6", "a7", "t1" );
-+my ( $KEY0, $KEY1, $KEY2,$KEY3, $KEY4, $KEY5, $KEY6, $KEY7,
-+     $COUNTER0, $COUNTER1, $NONCE0, $NONCE1
-+) = ( "s0", "s1", "s2", "s3", "s4", "s5", "s6",
-+    "s7", "s8", "s9", "s10", "s11" );
-+my ( $VL, $STRIDE, $CHACHA_LOOP_COUNT ) = ( "t2", "t3", "t4" );
-+my (
-+    $V0,  $V1,  $V2,  $V3,  $V4,  $V5,  $V6,  $V7,  $V8,  $V9,  $V10,
-+    $V11, $V12, $V13, $V14, $V15, $V16, $V17, $V18, $V19, $V20, $V21,
-+    $V22, $V23, $V24, $V25, $V26, $V27, $V28, $V29, $V30, $V31,
-+) = map( "v$_", ( 0 .. 31 ) );
-+
-+sub chacha_quad_round_group {
-+    my (
-+        $A0, $B0, $C0, $D0, $A1, $B1, $C1, $D1,
-+        $A2, $B2, $C2, $D2, $A3, $B3, $C3, $D3
-+    ) = @_;
-+
-+    my $code = <<___;
-+    # a += b; d ^= a; d <<<= 16;
-+    @{[vadd_vv $A0, $A0, $B0]}
-+    @{[vadd_vv $A1, $A1, $B1]}
-+    @{[vadd_vv $A2, $A2, $B2]}
-+    @{[vadd_vv $A3, $A3, $B3]}
-+    @{[vxor_vv $D0, $D0, $A0]}
-+    @{[vxor_vv $D1, $D1, $A1]}
-+    @{[vxor_vv $D2, $D2, $A2]}
-+    @{[vxor_vv $D3, $D3, $A3]}
-+    @{[vror_vi $D0, $D0, 32 - 16]}
-+    @{[vror_vi $D1, $D1, 32 - 16]}
-+    @{[vror_vi $D2, $D2, 32 - 16]}
-+    @{[vror_vi $D3, $D3, 32 - 16]}
-+    # c += d; b ^= c; b <<<= 12;
-+    @{[vadd_vv $C0, $C0, $D0]}
-+    @{[vadd_vv $C1, $C1, $D1]}
-+    @{[vadd_vv $C2, $C2, $D2]}
-+    @{[vadd_vv $C3, $C3, $D3]}
-+    @{[vxor_vv $B0, $B0, $C0]}
-+    @{[vxor_vv $B1, $B1, $C1]}
-+    @{[vxor_vv $B2, $B2, $C2]}
-+    @{[vxor_vv $B3, $B3, $C3]}
-+    @{[vror_vi $B0, $B0, 32 - 12]}
-+    @{[vror_vi $B1, $B1, 32 - 12]}
-+    @{[vror_vi $B2, $B2, 32 - 12]}
-+    @{[vror_vi $B3, $B3, 32 - 12]}
-+    # a += b; d ^= a; d <<<= 8;
-+    @{[vadd_vv $A0, $A0, $B0]}
-+    @{[vadd_vv $A1, $A1, $B1]}
-+    @{[vadd_vv $A2, $A2, $B2]}
-+    @{[vadd_vv $A3, $A3, $B3]}
-+    @{[vxor_vv $D0, $D0, $A0]}
-+    @{[vxor_vv $D1, $D1, $A1]}
-+    @{[vxor_vv $D2, $D2, $A2]}
-+    @{[vxor_vv $D3, $D3, $A3]}
-+    @{[vror_vi $D0, $D0, 32 - 8]}
-+    @{[vror_vi $D1, $D1, 32 - 8]}
-+    @{[vror_vi $D2, $D2, 32 - 8]}
-+    @{[vror_vi $D3, $D3, 32 - 8]}
-+    # c += d; b ^= c; b <<<= 7;
-+    @{[vadd_vv $C0, $C0, $D0]}
-+    @{[vadd_vv $C1, $C1, $D1]}
-+    @{[vadd_vv $C2, $C2, $D2]}
-+    @{[vadd_vv $C3, $C3, $D3]}
-+    @{[vxor_vv $B0, $B0, $C0]}
-+    @{[vxor_vv $B1, $B1, $C1]}
-+    @{[vxor_vv $B2, $B2, $C2]}
-+    @{[vxor_vv $B3, $B3, $C3]}
-+    @{[vror_vi $B0, $B0, 32 - 7]}
-+    @{[vror_vi $B1, $B1, 32 - 7]}
-+    @{[vror_vi $B2, $B2, 32 - 7]}
-+    @{[vror_vi $B3, $B3, 32 - 7]}
-+___
-+
-+    return $code;
-+}
-+
-+$code .= <<___;
-+.p2align 3
-+.globl ChaCha20_ctr32_zvkb
-+.type ChaCha20_ctr32_zvkb,\@function
-+ChaCha20_ctr32_zvkb:
-+    srli $LEN, $LEN, 6
-+    beqz $LEN, .Lend
-+
-+    addi sp, sp, -96
-+    sd s0, 0(sp)
-+    sd s1, 8(sp)
-+    sd s2, 16(sp)
-+    sd s3, 24(sp)
-+    sd s4, 32(sp)
-+    sd s5, 40(sp)
-+    sd s6, 48(sp)
-+    sd s7, 56(sp)
-+    sd s8, 64(sp)
-+    sd s9, 72(sp)
-+    sd s10, 80(sp)
-+    sd s11, 88(sp)
-+
-+    li $STRIDE, 64
-+
-+    #### chacha block data
-+    # "expa" little endian
-+    li $CONST_DATA0, 0x61707865
-+    # "nd 3" little endian
-+    li $CONST_DATA1, 0x3320646e
-+    # "2-by" little endian
-+    li $CONST_DATA2, 0x79622d32
-+    # "te k" little endian
-+    li $CONST_DATA3, 0x6b206574
-+
-+    lw $KEY0, 0($KEY)
-+    lw $KEY1, 4($KEY)
-+    lw $KEY2, 8($KEY)
-+    lw $KEY3, 12($KEY)
-+    lw $KEY4, 16($KEY)
-+    lw $KEY5, 20($KEY)
-+    lw $KEY6, 24($KEY)
-+    lw $KEY7, 28($KEY)
-+
-+    lw $COUNTER0, 0($COUNTER)
-+    lw $COUNTER1, 4($COUNTER)
-+    lw $NONCE0, 8($COUNTER)
-+    lw $NONCE1, 12($COUNTER)
-+
-+.Lblock_loop:
-+    @{[vsetvli $VL, $LEN, "e32", "m1", "ta", "ma"]}
-+
-+    # init chacha const states
-+    @{[vmv_v_x $V0, $CONST_DATA0]}
-+    @{[vmv_v_x $V1, $CONST_DATA1]}
-+    @{[vmv_v_x $V2, $CONST_DATA2]}
-+    @{[vmv_v_x $V3, $CONST_DATA3]}
-+
-+    # init chacha key states
-+    @{[vmv_v_x $V4, $KEY0]}
-+    @{[vmv_v_x $V5, $KEY1]}
-+    @{[vmv_v_x $V6, $KEY2]}
-+    @{[vmv_v_x $V7, $KEY3]}
-+    @{[vmv_v_x $V8, $KEY4]}
-+    @{[vmv_v_x $V9, $KEY5]}
-+    @{[vmv_v_x $V10, $KEY6]}
-+    @{[vmv_v_x $V11, $KEY7]}
-+
-+    # init chacha key states
-+    @{[vid_v $V12]}
-+    @{[vadd_vx $V12, $V12, $COUNTER0]}
-+    @{[vmv_v_x $V13, $COUNTER1]}
-+
-+    # init chacha nonce states
-+    @{[vmv_v_x $V14, $NONCE0]}
-+    @{[vmv_v_x $V15, $NONCE1]}
-+
-+    # load the top-half of input data
-+    @{[vlsseg_nf_e32_v 8, $V16, $INPUT, $STRIDE]}
-+
-+    li $CHACHA_LOOP_COUNT, 10
-+.Lround_loop:
-+    addi $CHACHA_LOOP_COUNT, $CHACHA_LOOP_COUNT, -1
-+    @{[chacha_quad_round_group
-+      $V0, $V4, $V8, $V12,
-+      $V1, $V5, $V9, $V13,
-+      $V2, $V6, $V10, $V14,
-+      $V3, $V7, $V11, $V15]}
-+    @{[chacha_quad_round_group
-+      $V0, $V5, $V10, $V15,
-+      $V1, $V6, $V11, $V12,
-+      $V2, $V7, $V8, $V13,
-+      $V3, $V4, $V9, $V14]}
-+    bnez $CHACHA_LOOP_COUNT, .Lround_loop
-+
-+    # load the bottom-half of input data
-+    addi $T0, $INPUT, 32
-+    @{[vlsseg_nf_e32_v 8, $V24, $T0, $STRIDE]}
-+
-+    # add chacha top-half initial block states
-+    @{[vadd_vx $V0, $V0, $CONST_DATA0]}
-+    @{[vadd_vx $V1, $V1, $CONST_DATA1]}
-+    @{[vadd_vx $V2, $V2, $CONST_DATA2]}
-+    @{[vadd_vx $V3, $V3, $CONST_DATA3]}
-+    @{[vadd_vx $V4, $V4, $KEY0]}
-+    @{[vadd_vx $V5, $V5, $KEY1]}
-+    @{[vadd_vx $V6, $V6, $KEY2]}
-+    @{[vadd_vx $V7, $V7, $KEY3]}
-+    # xor with the top-half input
-+    @{[vxor_vv $V16, $V16, $V0]}
-+    @{[vxor_vv $V17, $V17, $V1]}
-+    @{[vxor_vv $V18, $V18, $V2]}
-+    @{[vxor_vv $V19, $V19, $V3]}
-+    @{[vxor_vv $V20, $V20, $V4]}
-+    @{[vxor_vv $V21, $V21, $V5]}
-+    @{[vxor_vv $V22, $V22, $V6]}
-+    @{[vxor_vv $V23, $V23, $V7]}
-+
-+    # save the top-half of output
-+    @{[vssseg_nf_e32_v 8, $V16, $OUTPUT, $STRIDE]}
-+
-+    # add chacha bottom-half initial block states
-+    @{[vadd_vx $V8, $V8, $KEY4]}
-+    @{[vadd_vx $V9, $V9, $KEY5]}
-+    @{[vadd_vx $V10, $V10, $KEY6]}
-+    @{[vadd_vx $V11, $V11, $KEY7]}
-+    @{[vid_v $V0]}
-+    @{[vadd_vx $V12, $V12, $COUNTER0]}
-+    @{[vadd_vx $V13, $V13, $COUNTER1]}
-+    @{[vadd_vx $V14, $V14, $NONCE0]}
-+    @{[vadd_vx $V15, $V15, $NONCE1]}
-+    @{[vadd_vv $V12, $V12, $V0]}
-+    # xor with the bottom-half input
-+    @{[vxor_vv $V24, $V24, $V8]}
-+    @{[vxor_vv $V25, $V25, $V9]}
-+    @{[vxor_vv $V26, $V26, $V10]}
-+    @{[vxor_vv $V27, $V27, $V11]}
-+    @{[vxor_vv $V29, $V29, $V13]}
-+    @{[vxor_vv $V28, $V28, $V12]}
-+    @{[vxor_vv $V30, $V30, $V14]}
-+    @{[vxor_vv $V31, $V31, $V15]}
-+
-+    # save the bottom-half of output
-+    addi $T0, $OUTPUT, 32
-+    @{[vssseg_nf_e32_v 8, $V24, $T0, $STRIDE]}
-+
-+    # update counter
-+    add $COUNTER0, $COUNTER0, $VL
-+    sub $LEN, $LEN, $VL
-+    # increase offset for `4 * 16 * VL = 64 * VL`
-+    slli $T0, $VL, 6
-+    add $INPUT, $INPUT, $T0
-+    add $OUTPUT, $OUTPUT, $T0
-+    bnez $LEN, .Lblock_loop
-+
-+    ld s0, 0(sp)
-+    ld s1, 8(sp)
-+    ld s2, 16(sp)
-+    ld s3, 24(sp)
-+    ld s4, 32(sp)
-+    ld s5, 40(sp)
-+    ld s6, 48(sp)
-+    ld s7, 56(sp)
-+    ld s8, 64(sp)
-+    ld s9, 72(sp)
-+    ld s10, 80(sp)
-+    ld s11, 88(sp)
-+    addi sp, sp, 96
-+
-+.Lend:
-+    ret
-+.size ChaCha20_ctr32_zvkb,.-ChaCha20_ctr32_zvkb
-+___
-+
-+print $code;
-+
-+close STDOUT or die "error closing STDOUT: $!";
+ 		rc = request_irq(g_irq[i], ccache_int_handler, 0, "ccache_ecc",
+ 				 NULL);
+ 		if (rc) {
 -- 
-2.28.0
-
+2.40.1
 
 _______________________________________________
 linux-riscv mailing list
