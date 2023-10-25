@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE0FC25B47
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 09:58:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B0C9C25B47
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 10:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q6pvi+QJLw7+df70tQauX9qb8B6sQsXAO2hUAq4km9w=; b=R7nGzfvgWq4lKM
-	tv6qctWZLCCif1RMBFBQPn3jfIDCmFYgMXN2uX8QVtFUVFXqoFmN+ZCiVcJARPICAuMRToUs464Sj
-	xeCudThGsVHuv2ImXbMAN391XdE+axNJfjb1tsvc2kCWqdpJ3BWz3Xw7Y5LyoocxWpyDtK64NG76p
-	Xr99KzHk7zjuoUtY8nzyZhSJRrVGiPOx6vUEtwt/Qy3Sg6awHqGkc43TooRDGXqCPBo+RNoKQxQwz
-	/6kvkM0+ltZ6JK+Ixl62tYMEoMlvMzxWMA1Y70SAmT+ciaFKhFsO4iCWh3aCb6wkKBsLB6GrDTjPZ
-	y0viyvdU0Y1Gd32sg1aA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=d+SCMyKPEIv5zKGkbGi329cqi6s2FKRuWBrrBy4iGAU=; b=YQsBt6IYUUgzOz
+	+FVVAYjZOOvYVnqIs2R9Z8i/INY4ygoC8JOUFlrg5saAQlgfWW7Y5/OIoSs2IGSH9YwrwkC9HXfCx
+	7IvEdfaM3cNnws3kQgg3h1Qh2hxsaw/p4leVHdCBwHjkAYF1rdI7KyHrMZUar6gIoxxVq/+2i9vvV
+	Q54zN5b66xkC6ScTIlScDoLBWUP4nGTZUNLFHaRPggJ8Ow1PsR4wv/ibgJfoH3CEUzo6M41jtxAgw
+	/rjKgeSF0HdC9+hqh2J1cVugxJvfqziXa4I0yEGnIVHvF7sA3RHH06gnHaPCZoG3K9oEbqPtukLu6
+	Z5IVBmUHffntxqdsBfeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvaee-00BtN6-25;
-	Wed, 25 Oct 2023 09:58:24 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qvb1i-00BzGO-0Z;
+	Wed, 25 Oct 2023 10:22:14 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvaeb-00BtLo-1c
+	id 1qvb1d-00Bz6N-2E
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Oct 2023 09:58:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1698227899;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hY1uTHtPvGX6qPxYPyCytvqtD0NKbkwvoAm0a0RsVuk=;
-	b=FFPYVoGq0+DtFPUmCdbMfOVfGYIhTvV8OLQEArHB4jTrJhI34XsblkMdjBuEip9tbSyxhB
-	aPFjRnHsvXgxrFzVtzuH5EqEzajyi3XogGJkqO5BiWLNGSdypMGc8Su8BPbHnHvRAFJURq
-	zJq3mWUL4hGbo+5mBDYljFsoZM2JxEY=
-Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-347-4ArESoOsO4WzaKRFgFR3qQ-1; Wed,
- 25 Oct 2023 05:58:14 -0400
-X-MC-Unique: 4ArESoOsO4WzaKRFgFR3qQ-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0F3B73C0E237;
-	Wed, 25 Oct 2023 09:58:14 +0000 (UTC)
-Received: from localhost (unknown [10.72.112.53])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0ADFA40C6F79;
-	Wed, 25 Oct 2023 09:58:12 +0000 (UTC)
-Date: Wed, 25 Oct 2023 17:58:10 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Arnd Bergmann <arnd@arndb.de>, eric_devolder@yahoo.com
-Cc: Vivek Goyal <vgoyal@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-kernel@vger.kernel.org, kexec@lists.infradead.org,
-	x86@kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-crypto@vger.kernel.org
-Subject: Re: [PATCH 1/2] kexec: fix KEXEC_FILE dependencies
-Message-ID: <ZTjmsku919U6u6wt@MiWiFi-R3L-srv>
-References: <20231023110308.1202042-1-arnd@kernel.org>
- <ZTe8NOgAjvKDA6z0@MiWiFi-R3L-srv>
- <b71034f4-5cdc-44e0-b72f-1a8ffae0593e@app.fastmail.com>
+	Wed, 25 Oct 2023 10:22:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1698229329; x=1729765329;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=OEqpmk4Rf7hTy4IOBR0uXJkKGevdbN2bduorTuh8R4g=;
+  b=Aq+EbOCdu2L9H/BOsrwTH7rx+jSnbJ3rqLW0IKkOjVS2BwdtzWgYOc6r
+   z5lhKRgpitS7k6WFDhzfUTHaZRoan9/ft4YCk3/Cq9UL4aUsJ6nF0dZ/k
+   YTG/QdegYpmQFwsV2vdFqagzvRCvz4Z5g8YVSjynd5YYrdsYAxT4FSipa
+   XIjd9io5vYoDm1aGexE2aSLEYut+il/89RMWa4ssqbY7W8rGKmdVRpC0t
+   wY+5rHtycNQqUDiytseuHYP6InlTQRLCEhYuKPpDkxAUuh91TumpMFapr
+   6a2je9sHW7mBRJGqXsmlZvG7drXHCWbXBD2LGXXj93IsNXt9oFotpzkSx
+   g==;
+X-CSE-ConnectionGUID: n2gHDv4RQiGeWJLvoo2UlQ==
+X-CSE-MsgGUID: fNoVADcPSE2Br6PiaoZNMg==
+X-ThreatScanner-Verdict: Negative
+X-IronPort-AV: E=Sophos;i="6.03,250,1694761200"; 
+   d="scan'208";a="10829880"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 25 Oct 2023 03:21:56 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Wed, 25 Oct 2023 03:21:39 -0700
+Received: from microchip1-OptiPlex-9020.microchip.com (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.21 via Frontend Transport; Wed, 25 Oct 2023 03:21:34 -0700
+From: shravan chippa <shravan.chippa@microchip.com>
+To: <green.wan@sifive.com>, <vkoul@kernel.org>, <robh+dt@kernel.org>,
+	<krzysztof.kozlowski+dt@linaro.org>, <palmer@dabbelt.com>,
+	<paul.walmsley@sifive.com>, <conor+dt@kernel.org>
+CC: <dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<nagasuresh.relli@microchip.com>, <praveen.kumar@microchip.com>,
+	<shravan.chippa@microchip.com>
+Subject: [PATCH v3 0/4] dma: sf-pdma: various sf-pdma updates for the mpfs platform
+Date: Wed, 25 Oct 2023 15:52:47 +0530
+Message-ID: <20231025102251.3369472-1-shravan.chippa@microchip.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <b71034f4-5cdc-44e0-b72f-1a8ffae0593e@app.fastmail.com>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231025_025821_620896_E4254F80 
-X-CRM114-Status: GOOD (  40.76  )
+X-CRM114-CacheID: sfid-20231025_032209_817727_D0A9139F 
+X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,132 +88,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/24/23 at 03:17pm, Arnd Bergmann wrote:
-> On Tue, Oct 24, 2023, at 14:44, Baoquan He wrote:
-> > Just add people and mailing list to CC since I didn't find this mail in
-> > my box, just drag it via 'b4 am'.
-> >
-> > On 10/23/23 at 01:01pm, Arnd Bergmann wrote:
-> > ......
-> 
-> >> diff --git a/kernel/Kconfig.kexec b/kernel/Kconfig.kexec
-> >> index 7aff28ded2f48..bfc636d64ff2b 100644
-> >> --- a/kernel/Kconfig.kexec
-> >> +++ b/kernel/Kconfig.kexec
-> >> @@ -36,6 +36,7 @@ config KEXEC
-> >>  config KEXEC_FILE
-> >>  	bool "Enable kexec file based system call"
-> >>  	depends on ARCH_SUPPORTS_KEXEC_FILE
-> >> +	depends on CRYPTO_SHA256=y || !ARCH_SUPPORTS_KEXEC_PURGATORY
-> >
-> > I am not sure if the logic is correct. In theory, kexec_file code
-> > utilizes purgatory to verify the checksum digested during kernel loading
-> > when try to jump to the kernel. That means kexec_file depends on
-> > purgatory, but not contrary?
-> 
-> The expression I wrote is a bit confusing, but I think this just
-> keeps the existing behavior:
-> 
-> - on architectures that select ARCH_SUPPORTS_KEXEC_PURGATORY
->   (powerpc, riscv, s390 and x86), we also require CRYPTO_SHA256
->   to be built-in.
-> - on architectures that do not have ARCH_SUPPORTS_KEXEC_PURGATORY
->   (arm64 and parisc), CRYPTO_SHA256 is not used and can be disabled
->   or =m.
-> 
-> Since ARCH_SUPPORTS_KEXEC_PURGATORY is a 'bool' symbol, it could
-> be written as
-> 
-> depends on (ARCH_SUPPORTS_KEXEC_PURGATORY && CRYPTO_SHA256=y) \
->            || !ARCH_SUPPORTS_KEXEC_PURGATORY
+From: Shravan Chippa <shravan.chippa@microchip.com>
 
-Yes, this seems to be clearer to me. Thanks.
+Changes from V2 -> V3:
 
-> 
-> if you find that clearer. I see that the second patch
-> actually gets this wrong, it should actually do
-> 
-> select CRYPTO if ARCH_SUPPORTS_KEXEC_PURGATORY
-> select CRYPTO_SHA256 if ARCH_SUPPORTS_KEXEC_PURGATORY
+Removed whitespace
+Change naming convention of the macros (modified code as per new macros)
+updated with new API device_get_match_data()
+modified dt-bindings as per the commmets from v2
+modified compatible name string for mpfs platform
 
-Yeah, makes sense to me.
+Changes from V1 -> V2:
 
-Hi Eric,
+Removed internal review tags
+Commit massages modified.
+Added devicetree patch with new compatible name for mpfs platform
+Added of_dma_controller_free() clenup call in sf_pdma_remove() function
 
-Do you have comment about these?
 
-> 
-> > With these changes, we can achieve the goal to avoid building issue,
-> > whereas the code logic becomes confusing. E.g people could disable
-> > CONFIG_KEXEC_FILE, but still get purgatory code built in which is
-> > totally useless.
-> >
-> > Not sure if I think too much over this.
-> 
-> I see your point here, and I would suggest changing the
-> CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY symbol to just indicate
-> the availability of the purgatory code for the arch, rather
-> than actually controlling the code itself. I already mentioned
-> this for s390, but riscv would need the same thing on top.
-> 
-> I think the change below should address your concern.
-> 
->      Arnd
-> 
-> diff --git a/arch/riscv/kernel/elf_kexec.c b/arch/riscv/kernel/elf_kexec.c
-> index e60fbd8660c4..3ac341d296db 100644
-> --- a/arch/riscv/kernel/elf_kexec.c
-> +++ b/arch/riscv/kernel/elf_kexec.c
-> @@ -266,7 +266,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
->                 cmdline = modified_cmdline;
->         }
->  
-> -#ifdef CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY
-> +#ifdef CONFIG_KEXEC_FILE
->         /* Add purgatory to the image */
->         kbuf.top_down = true;
->         kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
-> @@ -280,7 +280,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
->                                              sizeof(kernel_start), 0);
->         if (ret)
->                 pr_err("Error update purgatory ret=%d\n", ret);
-> -#endif /* CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY */
-> +#endif /* CONFIG_KEXEC_FILE */
+V1:
 
-If so, we don't need the CONFIG_KEXEC_FILE ifdeffery because the
-file elf_kexec.c relied on CONFIG_KEXEC_FILE enabling to build in.
-We can just remove the "#ifdef CONFIG_KEXEC_FILE..#endif" as x86 does.
+This series does the following
+1. Adds a PolarFire SoC specific compatible and code to support for
+out-of-order dma transfers 
 
->  
->         /* Add the initrd to the image */
->         if (initrd != NULL) {
-> diff --git a/arch/riscv/Kbuild b/arch/riscv/Kbuild
-> index d25ad1c19f88..ab181d187c23 100644
-> --- a/arch/riscv/Kbuild
-> +++ b/arch/riscv/Kbuild
-> @@ -5,7 +5,7 @@ obj-$(CONFIG_BUILTIN_DTB) += boot/dts/
->  obj-y += errata/
->  obj-$(CONFIG_KVM) += kvm/
->  
-> -obj-$(CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY) += purgatory/
-> +obj-$(CONFIG_KEXEC_FILE) += purgatory/
->  
->  # for cleaning
->  subdir- += boot
-> diff --git a/arch/s390/Kbuild b/arch/s390/Kbuild
-> index a5d3503b353c..361aa01dbd49 100644
-> --- a/arch/s390/Kbuild
-> +++ b/arch/s390/Kbuild
-> @@ -7,7 +7,7 @@ obj-$(CONFIG_S390_HYPFS)        += hypfs/
->  obj-$(CONFIG_APPLDATA_BASE)    += appldata/
->  obj-y                          += net/
->  obj-$(CONFIG_PCI)              += pci/
-> -obj-$(CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY) += purgatory/
-> +obj-$(CONFIG_KEXEC_FILE)       += purgatory/
->  
->  # for cleaning
->  subdir- += boot tools
-> 
+2. Adds generic device tree bindings support by using 
+of_dma_controller_register()
+
+
+Shravan Chippa (4):
+  dmaengine: sf-pdma: Support of_dma_controller_register()
+  dt-bindings: dma: sf-pdma: add new compatible name
+  dmaengine: sf-pdma: add mpfs-pdma compatible name
+  riscv: dts: microchip: add specific compatible for mpfs' pdma
+
+ .../bindings/dma/sifive,fu540-c000-pdma.yaml  |  1 +
+ arch/riscv/boot/dts/microchip/mpfs.dtsi       |  2 +-
+ drivers/dma/sf-pdma/sf-pdma.c                 | 71 ++++++++++++++++++-
+ drivers/dma/sf-pdma/sf-pdma.h                 |  8 ++-
+ 4 files changed, 77 insertions(+), 5 deletions(-)
+
+-- 
+2.34.1
 
 
 _______________________________________________
