@@ -4,164 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B94A0C0032E
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 07:30:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E799BC25B6B
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 08:47:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h8OQ/sZagwICTIR+Ahpq/zwofjHyVQYysUu+NXSt6eQ=; b=wQkbSIqTJAnnWa
-	lu6nzebkxbZ8FGRKDDU3wj+6ttHW+niMCN72quDsBiAj7rcWv13BIgECPvsmapIEQYG3wter+PtrR
-	ZdofJN3ObT7+7uRqTPKshc2EGsLTgoES7iIDOp9OfPn+3udaszzOVKowOuvuriTPx0JBKsesJdZsS
-	w1qarSfZ62qRvUUtBUoiUwx+LJj3q+KXXACsQgtGSpkjasUpQDusGrUdSTDd+PTyICl5kR3ainT3P
-	e+rv3NNLlkKSRv4/mrN0qD2/PVkfxB12pOeoLcMqlXRdqX/fuGtjXcxYRG+zFL6dtSnDbl1+NuJGE
-	hPZ0IEfHVPbUWYN1UENg==;
+	List-Owner; bh=tXjT3QUCwvjbCXMD8XaAWm0bf6T3d36gdOdiCfWl+x0=; b=pBUeMZIqLfyqcx
+	CykleUEk7uuF2B0ydsxFf9vJymHsHzQqpRyhXjZMCT9Ur6CWkBrPmSj9bY5HvGYE/d7dweOvJ+kew
+	Hrg2wwTuwBCFdKmyQNSdMS63OwW6tQeY+QhbQznMV26vXqJI09PwXg7+chga09d9Xplo7cnCbRuN3
+	6epwo+Nehfo18NBqqTVEiFyyYZjMccHUk8aQ+F/j0UeaytnrDrSSPHRVW6Mh5EkRdsBEh3Rv/JliW
+	QmffShxfIVgLzTCnKqh3Jew9cLB41gT+viZxiaublOxGLbzkEdcwJkVMPnyVMp57bU5qJ2SaVpLqQ
+	0X9+K6RZw1/60CTanzTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvYLI-00BZmP-0v;
-	Wed, 25 Oct 2023 07:30:16 +0000
-Received: from mgamail.intel.com ([134.134.136.100])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvYLE-00BZkf-1H
+	id 1qvZXX-00BkM1-0W;
+	Wed, 25 Oct 2023 08:46:59 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qvZXR-00BkB8-2o
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Oct 2023 07:30:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1698219012; x=1729755012;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=raUY86/H+QS5MovUpE0JiqC8N3o9dL/5R9jE/+8s2qM=;
-  b=gc7Cnd283pIe0YfFkBmbzIRTv5EdVoFxlyJh8ueNZYixplDK5wnBXtTh
-   hrdfOXSg7UYB785O+IoL2D8hrlsa0JRYURY94nwFyfjjlZ4ZM3IBFbG5S
-   ajceo3X0ICfLDzYAQ02dRnf9a6PghG3qmijSukEXsti3djTHe9bU8zxJJ
-   /tbb2C4qezN/CxCV/1/2tMvOF6qp28YRmOpRGaICWzwhJqzZMQmWYorIR
-   V4ZhPd/F+szoiHg/CqPWbXCx0LdoVVBwm3Vt3r7Fqbs+g5Vju7Frr6X02
-   lylHyd9+tXGJM6y8wAm/fmr51CBhUiChul8/5JXCCbuiQuPea2vxXUnrq
-   w==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10873"; a="453727554"
-X-IronPort-AV: E=Sophos;i="6.03,249,1694761200"; 
-   d="scan'208";a="453727554"
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Oct 2023 00:30:08 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10873"; a="752242551"
-X-IronPort-AV: E=Sophos;i="6.03,249,1694761200"; 
-   d="scan'208";a="752242551"
-Received: from orsmsx602.amr.corp.intel.com ([10.22.229.15])
-  by orsmga007.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 25 Oct 2023 00:29:27 -0700
-Received: from orsmsx611.amr.corp.intel.com (10.22.229.24) by
- ORSMSX602.amr.corp.intel.com (10.22.229.15) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.32; Wed, 25 Oct 2023 00:29:27 -0700
-Received: from orsmsx610.amr.corp.intel.com (10.22.229.23) by
- ORSMSX611.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.32; Wed, 25 Oct 2023 00:29:26 -0700
-Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
- orsmsx610.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.34 via Frontend Transport; Wed, 25 Oct 2023 00:29:26 -0700
-Received: from NAM02-DM3-obe.outbound.protection.outlook.com (104.47.56.41) by
- edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.32; Wed, 25 Oct 2023 00:29:25 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=AU8mdMlNUuRqqbEmsNT6DuL0cKKjDgt+B9oUWvKZvfFukdulnbf51Jac3ppcxAoH8qSlCwmKeR2TCU6BvMf/iqzCpuY0H5S2jw8iq1lLd1G8wr55L6liSYK3T/9MVY0367gcH25ZN3jxmkmwye8ppVCjooE2PAECEvpfSpavPdS+8l6C/zPUjXga878rRPQTYLX33SChTy8DKN6mi3EkFegtuBdwcVSfKSwepi+IrQKulzzVUNLIQtMq9UpDrd+LAPrGBPiFtTjhlRpB7E+tZ5DGGG2bX6mMYhnKApVWr6nxDmAEDhUIQTlR64vvCN5RPII0V8Ow15QeuDfWcskI/g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=r8ToelYjVUnFte+SIY8ol+zXVVB0BY2CiwgwWjRwkK4=;
- b=GVVTkq+Acg5NwaMC0obeNhvjRi75jTpAMFelQ0Y0FDns59RGuux1vrJlVB0JpxPtaKa5C+cy0VQyQFvnLnjtNTUoAHhJh618tI2fu+MlPVau9yX0OL6xxtr71b1JqGya6zptYcB0jcHblw+CErPy/wjHiDBDfRydQiIm3jjwgauk1ZMr0u+OpZOJ98+c0qhq3Gk8pXJKxbsKfxwShnSKoiIBSJVKGvfnBkiQWx5hzTXXRloz40Ifte3VVe4Vw6Ozwk56N9uuUYJxzvqzghc75b2+dMck+hBVqVNmnNoGKvTNjMJdKqk7y7008iQGOBFEk3QXWJ2NXXIT1/6mrPJAdw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from DM8PR11MB5751.namprd11.prod.outlook.com (2603:10b6:8:12::16) by
- BL3PR11MB6530.namprd11.prod.outlook.com (2603:10b6:208:38d::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6907.33; Wed, 25 Oct
- 2023 07:29:23 +0000
-Received: from DM8PR11MB5751.namprd11.prod.outlook.com
- ([fe80::d070:1879:5b04:5f57]) by DM8PR11MB5751.namprd11.prod.outlook.com
- ([fe80::d070:1879:5b04:5f57%4]) with mapi id 15.20.6933.019; Wed, 25 Oct 2023
- 07:29:22 +0000
-From: "Wang, Xiao W" <xiao.w.wang@intel.com>
-To: Charlie Jenkins <charlie@rivosinc.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, Samuel Holland
-	<samuel.holland@sifive.com>, David Laight <David.Laight@aculab.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>
-Subject: RE: [PATCH v7 3/4] riscv: Add checksum library
-Thread-Topic: [PATCH v7 3/4] riscv: Add checksum library
-Thread-Index: AQHZ6ympMrC0A68ReUC4iEujE37ngLBaS65w
-Date: Wed, 25 Oct 2023 07:29:22 +0000
-Message-ID: <DM8PR11MB5751C293320A68C74E2C69F9B8DEA@DM8PR11MB5751.namprd11.prod.outlook.com>
-References: <20230919-optimize_checksum-v7-0-06c7d0ddd5d6@rivosinc.com>
- <20230919-optimize_checksum-v7-3-06c7d0ddd5d6@rivosinc.com>
-In-Reply-To: <20230919-optimize_checksum-v7-3-06c7d0ddd5d6@rivosinc.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DM8PR11MB5751:EE_|BL3PR11MB6530:EE_
-x-ms-office365-filtering-correlation-id: ca51b3da-30c4-40da-4969-08dbd52c1bc6
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: VdjusnvJGtTGXYjXCw0EKzrEvA79zK0OeENvRZC+nf8iIi2f2J2x3f6wSS0E7/KGGugsCw6HwJD0/j//WeSfRr0PrLzRPoC/8qmMh0EJdP6ep6uaLZUTWIaUCuUHgrsCgbiNqSsDxZ/hIdei2Xn6EtQJ6+sXGaSHMUSyfNocTm0TNTGYXxkWwWDHkZBSpjgTtE4MOe9Z3CYA9WmYmXVZtjfCx/rGyiBYqjt6aLkj+j42pmKQIiXNZleqWNjZNnHeRnnhuvORdEFl4LE+r6hTd2NH3vRU9pAopSpmo4Wp0sMej73jF9xIk9oTU3G13uMPJiZ4h9msoDdlkcSqo6hqxsV1VTuq/XkPZzsJezcJl+tXjp4W5CTS4ByW2IleZsYkxBfNGzL2K7TfTyi40WSKuoxKZmwvrBLsqwX89/s/27gSQB+ZSZ9Gaf7lR7fZ5Y6QElGhUpGDr7YSPhm6uE3QJ3zMR6Jq2OfkfmzfmO7X/OeLU+d+0fHXV7TRjgt3slDv/jO7/rSMrVA98g5OJdHDYGVGimVfhvgGMd+b8edvt0OhpLuzJ8JgSRO6XsfXgpLjXqstlSXGOfNxfkuS/39oTZlJ2p8OPe3Ye71bHqYBeTo=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM8PR11MB5751.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(136003)(39860400002)(376002)(346002)(396003)(366004)(230922051799003)(64100799003)(186009)(451199024)(1800799009)(38070700009)(26005)(38100700002)(2906002)(55016003)(41300700001)(5660300002)(86362001)(52536014)(316002)(8936002)(8676002)(33656002)(4326008)(7416002)(64756008)(478600001)(71200400001)(6506007)(76116006)(7696005)(122000001)(66476007)(110136005)(82960400001)(66946007)(66556008)(54906003)(66446008)(83380400001)(53546011)(966005)(9686003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?Windows-1252?Q?T0sK+IwIfOSIxgXEYsx+4Jt6pwvyJRWJPiT7i76udATQRZLvW20ZqFQA?=
- =?Windows-1252?Q?TYLfnfmWIAJzlwvuqGKoTW0nOIlbqwjNC/ug4qG7iLlUFsMxj2ewYI4V?=
- =?Windows-1252?Q?Rh/Tbu9Ves7ApsQxSGQN2QglplMA7+/Uj/zubmzhiIVecc5S6DVFjCD0?=
- =?Windows-1252?Q?2MUfKXe28DbLVTu3NMageVtJOyoGE8SLbS7B6TgMWY3P9NXUWNk1zITO?=
- =?Windows-1252?Q?RN+YliDcI6IFAQzvHKStgbLOeH4zIF2iKi9G4aui8HU7nsUv9cstm79r?=
- =?Windows-1252?Q?4OrcrCJIxA+Vg+tcJBX7CjFJzmOZYXaNfPg4/j5RX7ZPe+9IVD66EvZE?=
- =?Windows-1252?Q?xBS36l8n8FzglrWARIZSDqrU4XgYPcyU+uZBRQsAMFIrHnXS3WNBRf3X?=
- =?Windows-1252?Q?qYDki1KId3w2EIATVPNvDYI3ZNFc72EAQIDLdTIiGl38YMkWvD+MdLeh?=
- =?Windows-1252?Q?WAyKk/ot3QtWR1STdKgwsPfiI8dtxZe4ztfK44prHhb82/igOkqVsw62?=
- =?Windows-1252?Q?a2PMozL6a3zCX+crU32dVW4xNimyc40VPU2Ec3LdqX4NFQ852qsUcgL9?=
- =?Windows-1252?Q?qACwLs5lZsynw5sSEZ1q1QhYO+LtLpHCNBvDK04WYnSxH0mcgnVAes9k?=
- =?Windows-1252?Q?oJm8swgfsJ55Vyn/sTeReKov69fvgw/ybO0NsrST2tzgVPQLIvGao2w3?=
- =?Windows-1252?Q?tPmY4plSyuH4LOwp5LxA66IriAovTXhUNUxY4H1SxZf16kt/jAzeAM2C?=
- =?Windows-1252?Q?6TynmX+EikrDho26vOagi06iD98nUejiuf1+D9YAauLsOLMvd2Kin08I?=
- =?Windows-1252?Q?E+s6VHDFmJNoa3F2/LnMWzG2wvOM0hFvbGYt/I5kcuvj3nztERCzUM4+?=
- =?Windows-1252?Q?y3koEGOnXUuXHRyPk0CWa9lQ9kDmymKm+wvH75xaOmsWxF0zCOwhok+t?=
- =?Windows-1252?Q?XQboluPWd6PnNBxns/nOQfh+0oI55/3BUWV30X0jV1qyaPzGAg39wQ4/?=
- =?Windows-1252?Q?YvSdyqTxJbTyaPFhwuE+5YfUn2a5q2+MQOnIaFewqmlym1aR19OjKoTC?=
- =?Windows-1252?Q?dgmRNyH5CQGRZgl9mZamP78W01CltMvynP1peDJAvZnB6FF7cMPLajqe?=
- =?Windows-1252?Q?1JWABNEo4WYFOwqvqcBvBPWPIS4ATuDpdIC0hiSGWNHVC8Ky673a3nPN?=
- =?Windows-1252?Q?TSmvOaG5CzizCkSCAeD7733M7tjyqIZbFFYC1t1RpFuKwOk9do+RhmiY?=
- =?Windows-1252?Q?MadcvErwJs3u11IFAPYDXiGWOsOWiepd7KNXhCRVdO5l5fE2bfNzrkU5?=
- =?Windows-1252?Q?6FF/ZwgQzrst4BTTuCs8itLYoo4gosL8UMkUb0UKHL1RXivDjloh+QNc?=
- =?Windows-1252?Q?zbb80RPyUSYqqgeCRmqIsJ0uOrunds8tNs01E57P5vVV0hsgEym+fdjy?=
- =?Windows-1252?Q?U+9BVhi/JBWML5dPM8BAlU1OeGn6gANKsW+Yh24jbOW4dDZf2xEIrwTK?=
- =?Windows-1252?Q?nUkLCpp3cgbCR9G/w3tVo+xovBrv1x1Pnt9nJyTeEW5Gvg30eisnpnmd?=
- =?Windows-1252?Q?k3c64PcsmPuQFddFW2wpzK/EQq+1XgmhIaHHkvydf2j/wcu73l/jahz2?=
- =?Windows-1252?Q?ncbFw7N3jb+kt1800yA4bk2yd6Yiw8262isyyCGK8u7pA+Y4D44XAndc?=
- =?Windows-1252?Q?GeY63Mb27kNHXOu5VzWvknG6t6Fu1sY1?=
+	Wed, 25 Oct 2023 08:46:57 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id B1FF2807B;
+	Wed, 25 Oct 2023 16:45:55 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 25 Oct
+ 2023 16:45:55 +0800
+Received: from [192.168.125.131] (183.27.99.126) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 25 Oct
+ 2023 16:45:54 +0800
+Message-ID: <eff53e3f-b0b9-4c2b-a9ff-8ff16bde9b03@starfivetech.com>
+Date: Wed, 25 Oct 2023 16:39:38 +0800
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DM8PR11MB5751.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ca51b3da-30c4-40da-4969-08dbd52c1bc6
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Oct 2023 07:29:22.4042
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Drp6QyVup9QjE9pj6rATj8QjOS4+J4+/8T4h3ePbHTRENpD/9O1OlefrUumIzs4uISa7dvJ4h/C9Xct7HsJm7A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR11MB6530
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 2/3] clocksource: Add JH7110 timer driver
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+CC: Daniel Lezcano <daniel.lezcano@linaro.org>, Christophe JAILLET
+	<christophe.jaillet@wanadoo.fr>, Thomas Gleixner <tglx@linutronix.de>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Walker Chen
+	<walker.chen@starfivetech.com>, Samin Guo <samin.guo@starfivetech.com>,
+	<linux-kernel@vger.kernel.org>, Conor Dooley <conor@kernel.org>
+References: <20231019053501.46899-1-xingyu.wu@starfivetech.com>
+ <20231019053501.46899-3-xingyu.wu@starfivetech.com>
+ <CAJM55Z8SNkVSf6uY_8+3zk8QXRbaqo8Drks2Qc-UC0tuVsmQCA@mail.gmail.com>
+Content-Language: en-US
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+In-Reply-To: <CAJM55Z8SNkVSf6uY_8+3zk8QXRbaqo8Drks2Qc-UC0tuVsmQCA@mail.gmail.com>
+X-Originating-IP: [183.27.99.126]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231025_003012_513490_64709AAC 
-X-CRM114-Status: GOOD (  33.52  )
+X-CRM114-CacheID: sfid-20231025_014654_447202_5F5FB0FF 
+X-CRM114-Status: GOOD (  36.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,251 +82,549 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 2023/10/24 21:13, Emil Renner Berthing wrote:
+> Xingyu Wu wrote:
+>> Add timer driver for the StarFive JH7110 SoC.
+>>
+>> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+>> ---
+>>  MAINTAINERS                        |   7 +
+>>  drivers/clocksource/Kconfig        |  11 +
+>>  drivers/clocksource/Makefile       |   1 +
+>>  drivers/clocksource/timer-jh7110.c | 380 +++++++++++++++++++++++++++++
+>>  4 files changed, 399 insertions(+)
+>>  create mode 100644 drivers/clocksource/timer-jh7110.c
+>>
+>  diff --git a/MAINTAINERS b/MAINTAINERS
+>> index 7a7bd8bd80e9..91c09b399131 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -20473,6 +20473,13 @@ S:	Maintained
+>>  F:	Documentation/devicetree/bindings/sound/starfive,jh7110-tdm.yaml
+>>  F:	sound/soc/starfive/jh7110_tdm.c
+>>
+>> +STARFIVE JH7110 TIMER DRIVER
+>> +M:	Samin Guo <samin.guo@starfivetech.com>
+>> +M:	Xingyu Wu <xingyu.wu@starfivetech.com>
+>> +S:	Supported
+>> +F:	Documentation/devicetree/bindings/timer/starfive,jh7110-timer.yaml
+>> +F:	drivers/clocksource/timer-jh7110.c
+>> +
+>>  STARFIVE JH71X0 CLOCK DRIVERS
+>>  M:	Emil Renner Berthing <kernel@esmil.dk>
+>>  M:	Hal Feng <hal.feng@starfivetech.com>
+>> diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
+>> index 0ba0dc4ecf06..821abcc1e517 100644
+>> --- a/drivers/clocksource/Kconfig
+>> +++ b/drivers/clocksource/Kconfig
+>> @@ -641,6 +641,17 @@ config RISCV_TIMER
+>>  	  is accessed via both the SBI and the rdcycle instruction.  This is
+>>  	  required for all RISC-V systems.
+>>
+>> +config STARFIVE_JH7110_TIMER
+>> +	bool "Timer for the STARFIVE JH7110 SoC"
+>> +	depends on ARCH_STARFIVE || COMPILE_TEST
+>> +	select TIMER_OF
+>> +	select CLKSRC_MMIO
+>> +	default ARCH_STARFIVE
+>> +	help
+>> +	  This enables the timer for StarFive JH7110 SoC. On RISC-V platform,
+>> +	  the system has started RISCV_TIMER, but you can also use this timer
+>> +	  which can provide four channels to do a lot more things on JH7110 SoC.
+>> +
+>>  config CLINT_TIMER
+>>  	bool "CLINT Timer for the RISC-V platform" if COMPILE_TEST
+>>  	depends on GENERIC_SCHED_CLOCK && RISCV
+>> diff --git a/drivers/clocksource/Makefile b/drivers/clocksource/Makefile
+>> index 368c3461dab8..b66ac05ec086 100644
+>> --- a/drivers/clocksource/Makefile
+>> +++ b/drivers/clocksource/Makefile
+>> @@ -80,6 +80,7 @@ obj-$(CONFIG_INGENIC_TIMER)		+= ingenic-timer.o
+>>  obj-$(CONFIG_CLKSRC_ST_LPC)		+= clksrc_st_lpc.o
+>>  obj-$(CONFIG_X86_NUMACHIP)		+= numachip.o
+>>  obj-$(CONFIG_RISCV_TIMER)		+= timer-riscv.o
+>> +obj-$(CONFIG_STARFIVE_JH7110_TIMER)	+= timer-jh7110.o
+>>  obj-$(CONFIG_CLINT_TIMER)		+= timer-clint.o
+>>  obj-$(CONFIG_CSKY_MP_TIMER)		+= timer-mp-csky.o
+>>  obj-$(CONFIG_GX6605S_TIMER)		+= timer-gx6605s.o
+>> diff --git a/drivers/clocksource/timer-jh7110.c b/drivers/clocksource/timer-jh7110.c
+>> new file mode 100644
+>> index 000000000000..71de29a3ec91
+>> --- /dev/null
+>> +++ b/drivers/clocksource/timer-jh7110.c
+>> @@ -0,0 +1,380 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +/*
+>> + * Starfive JH7110 Timer driver
+>> + *
+>> + * Copyright (C) 2022-2023 StarFive Technology Co., Ltd.
+>> + *
+>> + * Author:
+>> + * Xingyu Wu <xingyu.wu@starfivetech.com>
+>> + * Samin Guo <samin.guo@starfivetech.com>
+>> + */
+>> +
+>> +#include <linux/clk.h>
+>> +#include <linux/clockchips.h>
+>> +#include <linux/clocksource.h>
+>> +#include <linux/err.h>
+>> +#include <linux/interrupt.h>
+>> +#include <linux/io.h>
+>> +#include <linux/iopoll.h>
+>> +#include <linux/irq.h>
+>> +#include <linux/kernel.h>
+>> +#include <linux/module.h>
+>> +#include <linux/of.h>
+>> +#include <linux/of_device.h>
+>> +#include <linux/platform_device.h>
+>> +#include <linux/reset.h>
+>> +#include <linux/sched_clock.h>
+>> +
+>> +/* Bias: Ch0-0x0, Ch1-0x40, Ch2-0x80, and so on. */
+>> +#define JH7110_TIMER_CH_LEN		0x40
+>> +#define JH7110_TIMER_CH_BASE(x)		((x) * JH7110_TIMER_CH_LEN)
+>> +#define JH7110_TIMER_CH_MAX		4
+>> +
+>> +#define JH7110_CLOCK_SOURCE_RATING	200
+>> +#define JH7110_VALID_BITS		32
+>> +#define JH7110_DELAY_US			0
+>> +#define JH7110_TIMEOUT_US		10000
+>> +#define JH7110_CLOCKEVENT_RATING	300
+>> +#define JH7110_TIMER_MAX_TICKS		0xffffffff
+>> +#define JH7110_TIMER_MIN_TICKS		0xf
+>> +#define JH7110_TIMER_RELOAD_VALUE	0
+>> +
+>> +#define JH7110_TIMER_INT_STATUS		0x00 /* RO[0:4]: Interrupt Status for channel0~4 */
+>> +#define JH7110_TIMER_CTL		0x04 /* RW[0]: 0-continuous run, 1-single run */
+>> +#define JH7110_TIMER_LOAD		0x08 /* RW: load value to counter */
+>> +#define JH7110_TIMER_ENABLE		0x10 /* RW[0]: timer enable register */
+>> +#define JH7110_TIMER_RELOAD		0x14 /* RW: write 1 or 0 both reload counter */
+>> +#define JH7110_TIMER_VALUE		0x18 /* RO: timer value register */
+>> +#define JH7110_TIMER_INT_CLR		0x20 /* RW: timer interrupt clear register */
+>> +#define JH7110_TIMER_INT_MASK		0x24 /* RW[0]: timer interrupt mask register */
+>> +
+>> +#define JH7110_TIMER_INT_CLR_ENA	BIT(0)
+>> +#define JH7110_TIMER_INT_CLR_AVA_MASK	BIT(1)
+>> +
+>> +struct jh7110_clkevt {
+>> +	struct clock_event_device evt;
+>> +	struct clocksource cs;
+>> +	bool cs_is_valid;
+>> +	struct clk *clk;
+>> +	struct reset_control *rst;
+>> +	u32 rate;
+>> +	u32 reload_val;
+>> +	void __iomem *base;
+>> +	char name[sizeof("jh7110-timer.chX")];
+>> +};
+> 
+> Maybe sort this by alignment so you save a few bytes. Eg. something like
+> 
+> struct jh7110_clkevt {
+> 	struct clock_event_device evt;
+> 	struct clocksource cs;
+> 	struct clk *clk;
+> 	struct reset_control *rst;
+> 	void __iomem *base;
+> 	u32 rate;
+> 	u32 reload_val;
+> 	bool cs_is_valid;
+> 	char name[sizeof("jh7110-timer.chX")];
+> };
 
-> -----Original Message-----
-> From: linux-riscv <linux-riscv-bounces@lists.infradead.org> On Behalf Of
-> Charlie Jenkins
-> Sent: Wednesday, September 20, 2023 2:45 AM
-> To: Charlie Jenkins <charlie@rivosinc.com>; Palmer Dabbelt
-> <palmer@dabbelt.com>; Conor Dooley <conor@kernel.org>; Samuel Holland
-> <samuel.holland@sifive.com>; David Laight <David.Laight@aculab.com>;
-> linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org; linux-
-> arch@vger.kernel.org
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>; Albert Ou
-> <aou@eecs.berkeley.edu>; Arnd Bergmann <arnd@arndb.de>
-> Subject: [PATCH v7 3/4] riscv: Add checksum library
-> 
-> Provide a 32 and 64 bit version of do_csum. When compiled for 32-bit
-> will load from the buffer in groups of 32 bits, and when compiled for
-> 64-bit will load in groups of 64 bits.
-> 
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> ---
->  arch/riscv/include/asm/checksum.h |  12 +++
->  arch/riscv/lib/Makefile           |   1 +
->  arch/riscv/lib/csum.c             | 217
-> ++++++++++++++++++++++++++++++++++++++
->  3 files changed, 230 insertions(+)
-> 
-> diff --git a/arch/riscv/include/asm/checksum.h
-> b/arch/riscv/include/asm/checksum.h
-> index dc0dd89f2a13..7fcd07edb8b3 100644
-> --- a/arch/riscv/include/asm/checksum.h
-> +++ b/arch/riscv/include/asm/checksum.h
-> @@ -12,6 +12,18 @@
-> 
->  #define ip_fast_csum ip_fast_csum
-> 
-> +extern unsigned int do_csum(const unsigned char *buff, int len);
-> +#define do_csum do_csum
-> +
-> +/* Default version is sufficient for 32 bit */
-> +#ifdef CONFIG_64BIT
-> +#define _HAVE_ARCH_IPV6_CSUM
-> +__sum16 csum_ipv6_magic(const struct in6_addr *saddr,
-> +			const struct in6_addr *daddr,
-> +			__u32 len, __u8 proto, __wsum sum);
-> +#endif
-> +
-> +// Define riscv versions of functions before importing asm-
-> generic/checksum.h
->  #include <asm-generic/checksum.h>
-> 
->  /*
-> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-> index 26cb2502ecf8..2aa1a4ad361f 100644
-> --- a/arch/riscv/lib/Makefile
-> +++ b/arch/riscv/lib/Makefile
-> @@ -6,6 +6,7 @@ lib-y			+= memmove.o
->  lib-y			+= strcmp.o
->  lib-y			+= strlen.o
->  lib-y			+= strncmp.o
-> +lib-y			+= csum.o
->  lib-$(CONFIG_MMU)	+= uaccess.o
->  lib-$(CONFIG_64BIT)	+= tishift.o
->  lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
-> diff --git a/arch/riscv/lib/csum.c b/arch/riscv/lib/csum.c
-> new file mode 100644
-> index 000000000000..d8fc94bff602
-> --- /dev/null
-> +++ b/arch/riscv/lib/csum.c
-> @@ -0,0 +1,217 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * IP checksum library
-> + *
-> + * Influenced by arch/arm64/lib/csum.c
-> + * Copyright (C) 2023 Rivos Inc.
-> + */
-> +#include <linux/bitops.h>
-> +#include <linux/compiler.h>
-> +#include <linux/kasan-checks.h>
-> +#include <linux/kernel.h>
-> +
-> +#include <net/checksum.h>
-> +
-> +/* Default version is sufficient for 32 bit */
+Will fix.
 
-[...]
-> +
-> +#ifdef CONFIG_32BIT
-> +#define OFFSET_MASK 3
-> +#elif CONFIG_64BIT
-> +#define OFFSET_MASK 7
-> +#endif
-> +
-> +/*
-> + * Perform a checksum on an arbitrary memory address.
-> + * Algorithm accounts for buff being misaligned.
-> + * If buff is not aligned, will over-read bytes but not use the bytes that it
-> + * shouldn't. The same thing will occur on the tail-end of the read.
-> + */
-> +unsigned int __no_sanitize_address do_csum(const unsigned char *buff, int
-> len)
-> +{
-> +	unsigned int offset, shift;
-> +	unsigned long csum = 0, carry = 0, data;
-> +	const unsigned long *ptr, *end;
-> +
-> +	if (unlikely(len <= 0))
-> +		return 0;
-> +
-> +	end = (const unsigned long *)(buff + len);
-> +
-> +	/*
-> +	 * Align address to closest word (double word on rv64) that comes
-> before
-> +	 * buff. This should always be in the same page and cache line.
-> +	 * Directly call KASAN with the alignment we will be using.
-> +	 */
-> +	offset = (unsigned long)buff & OFFSET_MASK;
-> +	kasan_check_read(buff, len);
-> +	ptr = (const unsigned long *)(buff - offset);
-> +
-> +	/*
-> +	 * Clear the most significant bytes that were over-read if buff was not
-> +	 * aligned.
-> +	 */
-> +	shift = offset * 8;
-> +	data = *(ptr++);
-> +#ifdef __LITTLE_ENDIAN
-> +	data = (data >> shift) << shift;
-> +#else
-> +	data = (data << shift) >> shift;
-> +#endif
-> +	/*
-> +	 * Do 32-bit reads on RV32 and 64-bit reads otherwise. This should be
-> +	 * faster than doing 32-bit reads on architectures that support larger
-> +	 * reads.
-> +	 */
-> +	while (ptr < end) {
-> +		csum += data;
-> +		carry += csum < data;
-> +		len -= sizeof(long);
-> +		data = *(ptr++);
-> +	}
-> +
-> +	/*
-> +	 * Perform alignment (and over-read) bytes on the tail if any bytes
-> +	 * leftover.
-> +	 */
-> +	shift = ((long)ptr - (long)end) * 8;
-> +#ifdef __LITTLE_ENDIAN
-> +	data = (data << shift) >> shift;
-> +#else
-> +	data = (data >> shift) << shift;
-> +#endif
-> +	csum += data;
-> +	carry += csum < data;
-> +	csum += carry;
-> +	csum += csum < carry;
-> +
-> +	/*
-> +	 * Zbb support saves 6 instructions, so not worth checking without
-> +	 * alternatives if supported
-> +	 */
-> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-> +	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
-> +		unsigned long fold_temp;
-> +
-> +		/*
-> +		 * Zbb is likely available when the kernel is compiled with Zbb
-> +		 * support, so nop when Zbb is available and jump when Zbb
-> is
-> +		 * not available.
-> +		 */
-> +		asm_volatile_goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
-> +					      RISCV_ISA_EXT_ZBB, 1)
-> +				  :
-> +				  :
-> +				  :
-> +				  : no_zbb);
-> +
-> +#ifdef CONFIG_32BIT
-> +		asm_volatile_goto(".option push			\n\
-> +		.option arch,+zbb				\n\
-> +			rori	%[fold_temp], %[csum], 16	\n\
-> +			andi	%[offset], %[offset], 1		\n\
-> +			add	%[csum], %[fold_temp], %[csum]	\n\
-> +			beq	%[offset], zero, %l[end]	\n\
-> +			rev8	%[csum], %[csum]		\n\
-> +		.option pop"
-> +			: [csum] "+r" (csum),
-> +				[fold_temp] "=&r" (fold_temp)
-
-Seems no need to add extra indent for this line, and the same comment for the below 64Bit case.
-
-BRs,
-Xiao
-
-> +			: [offset] "r" (offset)
-> +			:
-> +			: end);
-> +
-> +		return (unsigned short)csum;
-> +#else // !CONFIG_32BIT
-> +		asm_volatile_goto(".option push			\n\
-> +		.option arch,+zbb				\n\
-> +			rori	%[fold_temp], %[csum], 32	\n\
-> +			add	%[csum], %[fold_temp], %[csum]	\n\
-> +			srli	%[csum], %[csum], 32		\n\
-> +			roriw	%[fold_temp], %[csum], 16	\n\
-> +			addw	%[csum], %[fold_temp], %[csum]	\n\
-> +			andi	%[offset], %[offset], 1		\n\
-> +			beq	%[offset], zero, %l[end]	\n\
-> +			rev8	%[csum], %[csum]		\n\
-> +		.option pop"
-> +			: [csum] "+r" (csum),
-> +				[fold_temp] "=&r" (fold_temp)
-> +			: [offset] "r" (offset)
-> +			:
-> +			: end);
-> +
-> +		return (csum << 16) >> 48;
-> +#endif // !CONFIG_32BIT
-> +end:
-> +		return csum >> 16;
-> +	}
-> +no_zbb:
-> +#ifndef CONFIG_32BIT
-> +	csum += ror64(csum, 32);
-> +	csum >>= 32;
-> +#endif
-> +	csum = (u32)csum + ror32((u32)csum, 16);
-> +	if (offset & 1)
-> +		return (u16)swab32(csum);
-> +	return csum >> 16;
-> +}
 > 
-> --
-> 2.42.0
+>> +struct jh7110_timer_priv {
+>> +	struct clk *pclk;
+>> +	struct reset_control *prst;
+>> +	struct jh7110_clkevt clkevt[JH7110_TIMER_CH_MAX];
+>> +};
+>> +
+>> +/* 0:continuous-run mode, 1:single-run mode */
+>> +enum jh7110_timer_mode {
+>> +	JH7110_TIMER_MODE_CONTIN,
+>> +	JH7110_TIMER_MODE_SINGLE,
+>> +};
+>> +
+>> +/* Interrupt Mask, 0:Unmask, 1:Mask */
+>> +enum jh7110_timer_int_mask {
+>> +	JH7110_TIMER_INT_ENA,
+>> +	JH7110_TIMER_INT_DIS,
+>> +};
+>> +
+>> +enum jh7110_timer_enable {
+>> +	JH7110_TIMER_DIS,
+>> +	JH7110_TIMER_ENA,
+>> +};
+>> +
+>> +static inline struct jh7110_clkevt *to_jh7110_clkevt(struct clock_event_device *evt)
+>> +{
+>> +	return container_of(evt, struct jh7110_clkevt, evt);
+>> +}
+>> +
+>> +/*
+>> + * BIT(0): Read value represent channel int status.
+>> + * Write 1 to this bit to clear interrupt. Write 0 has no effects.
+>> + * BIT(1): "1" means that it is clearing interrupt. BIT(0) can not be written.
+>> + */
+>> +static inline int jh7110_timer_int_clear(struct jh7110_clkevt *clkevt)
+>> +{
+>> +	u32 value;
+>> +	int ret;
+>> +
+>> +	/* Waiting interrupt can be cleared */
+>> +	ret = readl_poll_timeout_atomic(clkevt->base + JH7110_TIMER_INT_CLR, value,
+>> +					!(value & JH7110_TIMER_INT_CLR_AVA_MASK),
+>> +					JH7110_DELAY_US, JH7110_TIMEOUT_US);
+>> +	if (!ret)
+>> +		writel(JH7110_TIMER_INT_CLR_ENA, clkevt->base + JH7110_TIMER_INT_CLR);
 > 
+> Below you're calling this function in the interrupt handler and the shutdown
+> callback, so is it really safe to always enable the interrupt on timeouts?
 > 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> I think you just want the version below and then let the caller handle
+> re-enabling the interrupts on errors if needed. (While you're at it you can
+> remove the inline and let the compiler decide, which is does anyway.)
+> 
+> static int jh7110_timer_int_clear(struct jh7110_clkevt *clkevt)
+> {
+> 	u32 value;
+> 
+> 	/* Waiting interrupt can be cleared */
+> 	return readl_poll_timeout_atomic(clkevt->base + JH7110_TIMER_INT_CLR, value,
+> 					 !(value & JH7110_TIMER_INT_CLR_AVA_MASK),
+> 					 JH7110_DELAY_US, JH7110_TIMEOUT_US);
+> }
+> 
+
+So I drop this function and use the writel() of cleaning the interrupt directly in the interrupt handler.
+And drop the inline.
+
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static int jh7110_timer_start(struct jh7110_clkevt *clkevt)
+>> +{
+>> +	int ret;
+>> +
+>> +	/* Disable and clear interrupt first */
+>> +	writel(JH7110_TIMER_INT_DIS, clkevt->base + JH7110_TIMER_INT_MASK);
+>> +	ret = jh7110_timer_int_clear(clkevt);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	writel(JH7110_TIMER_INT_ENA, clkevt->base + JH7110_TIMER_INT_MASK);
+>> +	writel(JH7110_TIMER_ENA, clkevt->base + JH7110_TIMER_ENABLE);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int jh7110_timer_shutdown(struct clock_event_device *evt)
+>> +{
+>> +	struct jh7110_clkevt *clkevt = to_jh7110_clkevt(evt);
+>> +
+>> +	writel(JH7110_TIMER_DIS, clkevt->base + JH7110_TIMER_ENABLE);
+>> +	return jh7110_timer_int_clear(clkevt);
+>> +}
+>> +
+>> +static void jh7110_timer_suspend(struct clock_event_device *evt)
+>> +{
+>> +	struct jh7110_clkevt *clkevt = to_jh7110_clkevt(evt);
+>> +
+>> +	clkevt->reload_val = readl(clkevt->base + JH7110_TIMER_LOAD);
+>> +	jh7110_timer_shutdown(evt);
+>> +}
+>> +
+>> +static void jh7110_timer_resume(struct clock_event_device *evt)
+>> +{
+>> +	struct jh7110_clkevt *clkevt = to_jh7110_clkevt(evt);
+>> +
+>> +	writel(clkevt->reload_val, clkevt->base + JH7110_TIMER_LOAD);
+>> +	writel(JH7110_TIMER_RELOAD_VALUE, clkevt->base + JH7110_TIMER_RELOAD);
+>> +	jh7110_timer_start(clkevt);
+>> +}
+>> +
+>> +static int jh7110_timer_tick_resume(struct clock_event_device *evt)
+>> +{
+>> +	jh7110_timer_resume(evt);
+>> +
+>> +	return 0;
+>> +}
+> 
+> Here you probably want it the other way around, so you handle possible errors
+> from jh7110_timer_start() properly. Eg.
+> 
+> static int jh7110_timer_tick_resume(struct clock_event_device *evt)
+> {
+> 	struct jh7110_clkevt *clkevt = to_jh7110_clkevt(evt);
+> 
+> 	writel(clkevt->reload_val, clkevt->base + JH7110_TIMER_LOAD);
+> 	writel(JH7110_TIMER_RELOAD_VALUE, clkevt->base + JH7110_TIMER_RELOAD);
+> 	return jh7110_timer_start(clkevt);
+> }
+> 
+> static void jh7110_timer_resume(struct clock_event_device *evt)
+> {
+> 	jh7110_timer_tick_resume(evt);
+> }
+> 
+
+OK, so this makes the best use of the return value of jh7110_timer_start().
+Will fix.
+
+>> +/* IRQ handler for the timer */
+>> +static irqreturn_t jh7110_timer_interrupt(int irq, void *priv)
+>> +{
+>> +	struct clock_event_device *evt = (struct clock_event_device *)priv;
+> 
+> This cast is unnecessary and also calling the variable priv makes you think
+> it's a struct jh7110_timer_priv, but the interrupt is registered with a
+> struct clock_event_device pointer.
+> 
+>> +	struct jh7110_clkevt *clkevt = to_jh7110_clkevt(evt);
+> 
+> But here you're immediately casting it to a struct jh7110_clkevt pointer. So
+> why not just register the interrupt with the struct jh7110_clkevt pointer, do
+> 
+> 	struct jh7110_clkevt *clkevt = data;
+> 
+
+You are right. Will fix.
+
+>> +
+>> +	if (jh7110_timer_int_clear(clkevt))
+>> +		return IRQ_NONE;
+>> +
+>> +	if (evt->event_handler)
+>> +		evt->event_handler(evt);
+> 
+> ..and just use clkevt->evt.event_handler and &clkevt->evt here?
+
+Will fix.
+
+> 
+>> +
+>> +	return IRQ_HANDLED;
+>> +}
+>> +
+>> +static int jh7110_timer_set_periodic(struct clock_event_device *evt)
+>> +{
+>> +	struct jh7110_clkevt *clkevt = to_jh7110_clkevt(evt);
+>> +	u32 periodic = DIV_ROUND_CLOSEST(clkevt->rate, HZ);
+>> +
+>> +	writel(JH7110_TIMER_MODE_CONTIN, clkevt->base + JH7110_TIMER_CTL);
+>> +	writel(periodic, clkevt->base + JH7110_TIMER_LOAD);
+>> +
+>> +	return jh7110_timer_start(clkevt);
+>> +}
+>> +
+>> +static int jh7110_timer_set_oneshot(struct clock_event_device *evt)
+>> +{
+>> +	struct jh7110_clkevt *clkevt = to_jh7110_clkevt(evt);
+>> +
+>> +	writel(JH7110_TIMER_MODE_SINGLE, clkevt->base + JH7110_TIMER_CTL);
+>> +	writel(JH7110_TIMER_MAX_TICKS, clkevt->base + JH7110_TIMER_LOAD);
+>> +
+>> +	return jh7110_timer_start(clkevt);
+>> +}
+>> +
+>> +static int jh7110_timer_set_next_event(unsigned long next,
+>> +				       struct clock_event_device *evt)
+>> +{
+>> +	struct jh7110_clkevt *clkevt = to_jh7110_clkevt(evt);
+>> +
+>> +	writel(JH7110_TIMER_MODE_SINGLE, clkevt->base + JH7110_TIMER_CTL);
+>> +	writel(next, clkevt->base + JH7110_TIMER_LOAD);
+>> +
+>> +	return jh7110_timer_start(clkevt);
+>> +}
+>> +
+>> +static void jh7110_set_clockevent(struct clock_event_device *evt)
+>> +{
+>> +	evt->features = CLOCK_EVT_FEAT_PERIODIC |
+>> +			CLOCK_EVT_FEAT_ONESHOT |
+>> +			CLOCK_EVT_FEAT_DYNIRQ;
+>> +	evt->set_state_shutdown = jh7110_timer_shutdown;
+>> +	evt->set_state_periodic = jh7110_timer_set_periodic;
+>> +	evt->set_state_oneshot = jh7110_timer_set_oneshot;
+>> +	evt->set_state_oneshot_stopped = jh7110_timer_shutdown;
+>> +	evt->tick_resume = jh7110_timer_tick_resume;
+>> +	evt->set_next_event = jh7110_timer_set_next_event;
+>> +	evt->suspend = jh7110_timer_suspend;
+>> +	evt->resume = jh7110_timer_resume;
+>> +	evt->rating = JH7110_CLOCKEVENT_RATING;
+>> +}
+>> +
+>> +static u64 jh7110_timer_clocksource_read(struct clocksource *cs)
+>> +{
+>> +	struct jh7110_clkevt *clkevt = container_of(cs, struct jh7110_clkevt, cs);
+>> +
+>> +	return (u64)readl(clkevt->base + JH7110_TIMER_VALUE);
+>> +}
+>> +
+>> +static int jh7110_clocksource_init(struct jh7110_clkevt *clkevt)
+>> +{
+>> +	int ret;
+>> +
+>> +	clkevt->cs.name = clkevt->name;
+>> +	clkevt->cs.rating = JH7110_CLOCK_SOURCE_RATING;
+>> +	clkevt->cs.read = jh7110_timer_clocksource_read;
+>> +	clkevt->cs.mask = CLOCKSOURCE_MASK(JH7110_VALID_BITS);
+>> +	clkevt->cs.flags = CLOCK_SOURCE_IS_CONTINUOUS;
+>> +
+>> +	ret = clocksource_register_hz(&clkevt->cs, clkevt->rate);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	clkevt->cs_is_valid = true; /* clocksource register done */
+>> +	writel(JH7110_TIMER_MODE_CONTIN, clkevt->base + JH7110_TIMER_CTL);
+>> +	writel(JH7110_TIMER_MAX_TICKS, clkevt->base + JH7110_TIMER_LOAD);
+>> +
+>> +	return jh7110_timer_start(clkevt);
+>> +}
+>> +
+>> +static void jh7110_clockevents_register(struct jh7110_clkevt *clkevt)
+>> +{
+>> +	clkevt->rate = clk_get_rate(clkevt->clk);
+>> +
+>> +	jh7110_set_clockevent(&clkevt->evt);
+>> +	clkevt->evt.name = clkevt->name;
+>> +	clkevt->evt.cpumask = cpu_possible_mask;
+>> +
+>> +	clockevents_config_and_register(&clkevt->evt, clkevt->rate,
+>> +					JH7110_TIMER_MIN_TICKS, JH7110_TIMER_MAX_TICKS);
+>> +}
+>> +
+>> +static void jh7110_timer_release(void *data)
+>> +{
+>> +	struct jh7110_timer_priv *priv = data;
+>> +	int i;
+>> +
+>> +	for (i = 0; i < JH7110_TIMER_CH_MAX; i++) {
+>> +		/* Disable each channel of timer */
+>> +		if (priv->clkevt[i].base)
+>> +			writel(JH7110_TIMER_DIS, priv->clkevt[i].base + JH7110_TIMER_ENABLE);
+>> +
+>> +		/* Avoid no initialization in the loop of the probe */
+>> +		if (!IS_ERR_OR_NULL(priv->clkevt[i].rst))
+>> +			reset_control_assert(priv->clkevt[i].rst);
+>> +
+>> +		if (priv->clkevt[i].cs_is_valid)
+>> +			clocksource_unregister(&priv->clkevt[i].cs);
+>> +	}
+>> +
+>> +	reset_control_assert(priv->prst);
+>> +}
+>> +
+>> +static int jh7110_timer_probe(struct platform_device *pdev)
+>> +{
+>> +	struct jh7110_timer_priv *priv;
+>> +	struct jh7110_clkevt *clkevt;
+>> +	char name[sizeof("chX")];
+>> +	int ch;
+>> +	int ret;
+>> +	void __iomem *base;
+>> +
+>> +	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
+>> +	if (!priv)
+>> +		return -ENOMEM;
+>> +
+>> +	base = devm_platform_ioremap_resource(pdev, 0);
+>> +	if (IS_ERR(base))
+>> +		return dev_err_probe(&pdev->dev, PTR_ERR(base),
+>> +				     "failed to map registers\n");
+>> +
+>> +	priv->prst = devm_reset_control_get_exclusive(&pdev->dev, "apb");
+>> +	if (IS_ERR(priv->prst))
+>> +		return dev_err_probe(&pdev->dev, PTR_ERR(priv->prst),
+>> +				     "failed to get apb reset\n");
+>> +
+>> +	priv->pclk = devm_clk_get_enabled(&pdev->dev, "apb");
+>> +	if (IS_ERR(priv->pclk))
+>> +		return dev_err_probe(&pdev->dev, PTR_ERR(priv->pclk),
+>> +				     "failed to get & enable apb clock\n");
+> 
+> priv->pclk is set here, but never read anywhere. Just remove it from the struct
+> and use a local variable here.
+
+Sorry, I will drop it and use a local variable.
+
+> 
+>> +
+>> +	ret = reset_control_deassert(priv->prst);
+>> +	if (ret)
+>> +		return dev_err_probe(&pdev->dev, ret, "failed to deassert apb reset\n");
+>> +
+>> +	ret = devm_add_action_or_reset(&pdev->dev, jh7110_timer_release, priv);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	for (ch = 0; ch < JH7110_TIMER_CH_MAX; ch++) {
+>> +		clkevt = &priv->clkevt[ch];
+>> +		snprintf(name, sizeof(name), "ch%d", ch);
+>> +
+>> +		clkevt->base = base + JH7110_TIMER_CH_BASE(ch);
+>> +		/* Ensure timer is disabled */
+>> +		writel(JH7110_TIMER_DIS, clkevt->base + JH7110_TIMER_ENABLE);
+>> +
+>> +		clkevt->rst = devm_reset_control_get_exclusive(&pdev->dev, name);
+>> +		if (IS_ERR(clkevt->rst))
+>> +			return PTR_ERR(clkevt->rst);
+>> +
+>> +		clkevt->clk = devm_clk_get_enabled(&pdev->dev, name);
+>> +		if (IS_ERR(clkevt->clk))
+>> +			return PTR_ERR(clkevt->clk);
+>> +
+>> +		ret = reset_control_deassert(clkevt->rst);
+>> +		if (ret)
+>> +			return ret;
+>> +
+>> +		clkevt->evt.irq = platform_get_irq(pdev, ch);
+>> +		if (clkevt->evt.irq < 0)
+>> +			return clkevt->evt.irq;
+>> +
+>> +		snprintf(clkevt->name, sizeof(clkevt->name), "jh7110-timer.ch%d", ch);
+>> +		jh7110_clockevents_register(clkevt);
+>> +
+>> +		ret = devm_request_irq(&pdev->dev, clkevt->evt.irq, jh7110_timer_interrupt,
+>> +				       IRQF_TIMER | IRQF_IRQPOLL,
+>> +				       clkevt->name, &clkevt->evt);
+>> +		if (ret)
+>> +			return ret;
+>> +
+>> +		ret = jh7110_clocksource_init(clkevt);
+>> +		if (ret)
+>> +			return ret;
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static const struct of_device_id jh7110_timer_match[] = {
+>> +	{ .compatible = "starfive,jh7110-timer", },
+>> +	{ /* sentinel */ }
+>> +};
+>> +MODULE_DEVICE_TABLE(of, jh7110_timer_match);
+>> +
+>> +static struct platform_driver jh7110_timer_driver = {
+>> +	.probe = jh7110_timer_probe,
+>> +	.driver = {
+>> +		.name = "jh7110-timer",
+>> +		.of_match_table = jh7110_timer_match,
+>> +	},
+>> +};
+>> +module_platform_driver(jh7110_timer_driver);
+>> +
+>> +MODULE_AUTHOR("Xingyu Wu <xingyu.wu@starfivetech.com>");
+>> +MODULE_DESCRIPTION("StarFive JH7110 timer driver");
+>> +MODULE_LICENSE("GPL");
+>> --
+>> 2.25.1
+
+Best Regards,
+Xingyu Wu
 
 _______________________________________________
 linux-riscv mailing list
