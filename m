@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 814F3C07545
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 20:26:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AEB8C0032E
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 20:26:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QdQY6K+Kkty7boK/mTV+sl0U+GEVACxgcTNZuYbb6vg=; b=I9NTrovgCvRqz/
-	gfaB0lRr94I69o33IJ7i2IfLNjL49n3AXViTTSrmKOTcLibIkkWKiKITRj2kuJM6ruNdHFT60GQC1
-	89/InG4OqJjjFpb4VqVEsK1pevjsd5jSzWpPxe8o1ukYdPHn+HEAgL6HisYcuYx+uK2WovcTxI/vq
-	ITa7XW9xvk7MwMnT0xWiLzfOaGPahodWdoV9ogtYBPTNcipqdspE9fwMLIMTP4Q+Lw32pKaJS7xk5
-	VVFF04n3+jN0UN+2E70px0SAhScKV7vlqXD8TRdzGE93jWhIncNYrHPsPqIcfxiVp6PbSihoA/Lp+
-	MPBRPdSLtJpk9Eym8mow==;
+	List-Owner; bh=yNIW7yTPjJxlyIG0wjpDl0CLc3fWIBnAsowNv5lp7l8=; b=ku570fCA9eRQ14
+	5FhfwaofwAv97Lycl36SUhtjo/LPuAAFtNblzCoEeFGgYrTRMFcqT9yIId0VHoDLyJTkJUjyssayW
+	Xd+qvJ1SFU9nbPKEAXz0oreYIdo9siylmonFFH3fOF5slrZ/2Pq1394q/a308+1LyKVtQWgaj8Ha+
+	mLrz5/yucK8ARSmeOVWNAjgHbL8eb8NnDZ2vN79S5kkrts6JzI+z2HQqsvJlJ/bMMYaXYaxvy9Olr
+	1LKX0BQSMs2tRPWYkGiRAPL/T9jihQG/d3zAMe1y12qyeM3ji9ojoGz0w6+DVUlz6qaXCJ0iHo4Ng
+	f7XtYgg9R0SmwAgzGbbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvkSK-00D42C-0s;
-	Wed, 25 Oct 2023 20:26:20 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1qvkST-00D4A2-0t;
+	Wed, 25 Oct 2023 20:26:29 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvkRc-00D3PD-2s
+	id 1qvkRi-00D3Ua-27
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Oct 2023 20:25:40 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-6b5af4662b7so121341b3a.3
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 13:25:36 -0700 (PDT)
+	Wed, 25 Oct 2023 20:25:45 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-6b26a3163acso122269b3a.2
+        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 13:25:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1698265536; x=1698870336; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1698265542; x=1698870342; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=dkYG/eGJal6MBtrQ87/cX58dSpgaeRVgeKplUcim3I8=;
-        b=LEGmqqS6iAtcpQlX4QopKsEaq+ad4qUJVau8fYkniT7yQUYe8HbxrcPN67HH9Gq3jU
-         kNN3HjJ98VlhJL3CK+N9rwr8StR3TbUpW6COu0iDraBXi3x/WH12ar9oVEv0JfNLsB1T
-         dzcCkzpBajOIAckyj/QWQ77liKbLdGAuLJ6wet0vOA075zEOq71ocMSYKSHVepIX85P8
-         mFNlCLaCo8xxDkhi4L3LxFNITn/jckAoCO3w+yQIAAhS/+vSjJYIeyOjblJs8DELoFSL
-         gEVxKoFuGGGhmc73iSOJetcZlymLqyGhnjw3n55UO4M+0AeOv3eQShK5b6be/YR6na52
-         UaNQ==
+        bh=BGPt9IKGXmO6OfBeavundfuVbu/hSGKOkv1OmRAdM8o=;
+        b=m54NzplEbGfFuoLbuLgWGGOAJcwMT9HS0L1ddJFIJ4JmIuyASGN5DYFbiEnlaYSMag
+         vfRl8bDSJfsLvej1S2NcnKadY41i0ox/ULGoglAA37hZaFrV1O6b2OAzy8WH5+AVEJpP
+         X7xGQjCbF1hC5ie8TU8JBFn+E+uhXQDC3DwFffBO4Fd15kYNR+YXIHhzF0QB51IxKGwC
+         OBTFYafT6yo4PKzSGnuz196AnbeoivblGdwH5MOuQlTkLFF7Xan3BfCh23Q52bzZJ7FN
+         KAb8nygX2vQx08qxASMP+hGaplz60gZF/DAZL4VqlNr2IisvXlQPLJXce4NDrZ3VljCP
+         PKOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698265536; x=1698870336;
+        d=1e100.net; s=20230601; t=1698265542; x=1698870342;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=dkYG/eGJal6MBtrQ87/cX58dSpgaeRVgeKplUcim3I8=;
-        b=NkArnZhqUcf+SP93T6cNE6zUmHoB1zxHbAJjXpBkJM4t22lKHYUQ0skcpOgHSqyqAR
-         w7p1vxL6Qn/5meJVAKDlnju5yCsrLGEOhDPvnTJEZr8dOKeyZ/eqUpjUPG6XvUT1OUl1
-         hGy8lTIDPbjxu3//bbdu0YFZ8nLzHDB4ywMvHinif2+MKKBTFuBRlBLRzqEJmCK1bZ5S
-         7lnUocuHiFxqUKQ/QaMHDVTuxg92feEWt/kUVZGxSBjo0R7o/R6d0hJeSl39VdwQW0X8
-         9v8ICN1GRlKeKbq8sW8ABcP1VUs8bGtdHoC8KqskQgxK6IGXb+Olxwlg9mSMgz1UweFT
-         Go3Q==
-X-Gm-Message-State: AOJu0YywIu+ESosMiJIdqT0JJtkPybTbKCYVlHobLOfdmZfgMI7qS+2b
-	NolBgPGTzv4SfU2Wp/xlMtfCrg==
-X-Google-Smtp-Source: AGHT+IH2n0LFFVwlMf95ArsCfhkr+WfWmtkWgHTq+KT7Ef6QJzeo2URCzfVgfZYb7yk++CFrabN8pA==
-X-Received: by 2002:a05:6a20:bf19:b0:17b:cd83:6555 with SMTP id gc25-20020a056a20bf1900b0017bcd836555mr5312664pzb.23.1698265536197;
-        Wed, 25 Oct 2023 13:25:36 -0700 (PDT)
+        bh=BGPt9IKGXmO6OfBeavundfuVbu/hSGKOkv1OmRAdM8o=;
+        b=w9R+7RDj/Sd3xVENDtScUJY8nYQyI6pjM/U6RiJvH0qfyXcrIt14UxkIjcAzDj6hiv
+         NHtiUnNH5by/j283mbnMP/KrPdBaqG2zmNkcKDkjs1MTpzPein5Oa0JXne1bahoXCfN1
+         kFdkZKOJ4XZlr7jdjXjJHulMffWB+pRW+aLOMm7lBY1Qsc2T3YSYFOoob4C2KiHDn2dU
+         j8Xz/FrTMh+dHfTG0z0BVho1yAFYXkl9xB0acoWoBnDDiU2l1w6r4R2RNrRW+iV7qqqH
+         11WofMgytznmxDD4ArjgJeCOW2zgNSOPJ5TDk/9zGRI/k3DtCXiBdVZd/jEjVmA9peCi
+         ab0w==
+X-Gm-Message-State: AOJu0YyXviYrKFqo27IOU3MRMyt7mrTU2rCuVv3P5+SUMlVGJQ4tFED0
+	GLRgzQnNES2Q7jplhz9CDEeuCg==
+X-Google-Smtp-Source: AGHT+IHyxEDXk7Cbo1rkfq0iJxaRlkX5x7Oxvtrq3Y+QMpN8R866Z7ErWJXgR1xSj+LP6kAjPFug7Q==
+X-Received: by 2002:a05:6a00:1788:b0:68f:ecb9:5fde with SMTP id s8-20020a056a00178800b0068fecb95fdemr16406181pfg.34.1698265541960;
+        Wed, 25 Oct 2023 13:25:41 -0700 (PDT)
 Received: from sunil-pc.Dlink ([106.51.188.78])
-        by smtp.gmail.com with ESMTPSA id y3-20020aa79423000000b006b84ed9371esm10079590pfo.177.2023.10.25.13.25.30
+        by smtp.gmail.com with ESMTPSA id y3-20020aa79423000000b006b84ed9371esm10079590pfo.177.2023.10.25.13.25.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Oct 2023 13:25:35 -0700 (PDT)
+        Wed, 25 Oct 2023 13:25:41 -0700 (PDT)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -69,16 +69,16 @@ To: linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
 	linux-pci@vger.kernel.org,
 	linux-serial@vger.kernel.org
-Subject: [RFC PATCH v2 15/21] irqchip: riscv-aplic: Add ACPI support
-Date: Thu, 26 Oct 2023 01:53:38 +0530
-Message-Id: <20231025202344.581132-16-sunilvl@ventanamicro.com>
+Subject: [RFC PATCH v2 16/21] irqchip: irq-sifive-plic: Add ACPI support
+Date: Thu, 26 Oct 2023 01:53:39 +0530
+Message-Id: <20231025202344.581132-17-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20231025202344.581132-1-sunilvl@ventanamicro.com>
 References: <20231025202344.581132-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231025_132536_949676_73D1B040 
-X-CRM114-Status: GOOD (  27.34  )
+X-CRM114-CacheID: sfid-20231025_132542_726355_44EAEDF5 
+X-CRM114-Status: GOOD (  22.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,64 +96,122 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add ACPI support in APLIC drivers. In ACPI, IO devices use Global System
-Interrupts (GSI) which is a flat space split across multiple APLICs. So,
-the driver also need to provide the mapping from GSI to correct APLIC.
+Add ACPI support in PLIC driver. In ACPI, IO devices use Global System
+Interrupts (GSI) which is a flat space split across multiple PLICs. So,
+the driver also need to provide the mapping from GSI to correct PLIC.
 
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+Co-developed-by: Haibo Xu <haibo1.xu@intel.com>
+Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
 ---
- arch/riscv/include/asm/irq.h             |   6 ++
- drivers/irqchip/irq-riscv-aplic-direct.c |  22 +++--
- drivers/irqchip/irq-riscv-aplic-main.c   | 105 +++++++++++++++++------
- drivers/irqchip/irq-riscv-aplic-main.h   |   1 +
- drivers/irqchip/irq-riscv-aplic-msi.c    |  10 ++-
- 5 files changed, 109 insertions(+), 35 deletions(-)
+ arch/riscv/include/asm/irq.h      |   6 ++
+ drivers/irqchip/irq-sifive-plic.c | 113 +++++++++++++++++++++++++-----
+ 2 files changed, 101 insertions(+), 18 deletions(-)
 
 diff --git a/arch/riscv/include/asm/irq.h b/arch/riscv/include/asm/irq.h
-index ef102b6fa86e..00eb8b0333c2 100644
+index 00eb8b0333c2..eff442766c87 100644
 --- a/arch/riscv/include/asm/irq.h
 +++ b/arch/riscv/include/asm/irq.h
-@@ -22,6 +22,12 @@
- #define APLIC_PLIC_ID(x) ((x) >> 24)
- #define IDC_CONTEXT_ID(x) ((x) & 0x0000ffff)
+@@ -28,6 +28,12 @@ struct fwnode_handle *aplic_get_gsi_domain_id(u32 gsi);
+ static inline struct fwnode_handle *aplic_get_gsi_domain_id(u32 gsi) { return NULL; }
+ #endif
  
-+#ifdef CONFIG_RISCV_APLIC
-+struct fwnode_handle *aplic_get_gsi_domain_id(u32 gsi);
++#ifdef CONFIG_SIFIVE_PLIC
++struct fwnode_handle *plic_get_gsi_domain_id(u32 gsi);
 +#else
-+static inline struct fwnode_handle *aplic_get_gsi_domain_id(u32 gsi) { return NULL; }
++static inline struct fwnode_handle *plic_get_gsi_domain_id(u32 gsi) { return NULL; }
 +#endif
 +
  int __init acpi_get_intc_index_hartid(u32 index, unsigned long *hartid);
  int acpi_get_ext_intc_parent_hartid(u8 id, u32 idx, unsigned long *hartid);
  void acpi_get_plic_nr_contexts(u8 id, int *nr_contexts);
-diff --git a/drivers/irqchip/irq-riscv-aplic-direct.c b/drivers/irqchip/irq-riscv-aplic-direct.c
-index 9ed2666bfb5e..3902e6d32856 100644
---- a/drivers/irqchip/irq-riscv-aplic-direct.c
-+++ b/drivers/irqchip/irq-riscv-aplic-direct.c
-@@ -4,6 +4,7 @@
-  * Copyright (C) 2022 Ventana Micro Systems Inc.
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index c8f8a8cdcce1..9c61084a74eb 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -3,6 +3,7 @@
+  * Copyright (C) 2017 SiFive
+  * Copyright (C) 2018 Christoph Hellwig
   */
- 
 +#include <linux/acpi.h>
- #include <linux/bitops.h>
  #include <linux/cpu.h>
  #include <linux/interrupt.h>
-@@ -14,6 +15,7 @@
- #include <linux/of_address.h>
- #include <linux/printk.h>
- #include <linux/smp.h>
-+#include <asm/acpi.h>
+ #include <linux/io.h>
+@@ -70,6 +71,8 @@ struct plic_priv {
+ 	unsigned long plic_quirks;
+ 	unsigned int nr_irqs;
+ 	unsigned long *prio_save;
++	u32 gsi_base;
++	int id;
+ };
  
- #include "irq-riscv-aplic-main.h"
- 
-@@ -203,17 +205,20 @@ static int aplic_direct_starting_cpu(unsigned int cpu)
- 
- static int aplic_direct_parse_parent_hwirq(struct device *dev,
- 					   u32 index, u32 *parent_hwirq,
--					   unsigned long *parent_hartid)
-+					   unsigned long *parent_hartid,
-+					   struct aplic_priv *priv)
+ struct plic_handler {
+@@ -316,6 +319,10 @@ static int plic_irq_domain_translate(struct irq_domain *d,
  {
+ 	struct plic_priv *priv = d->host_data;
+ 
++	/* For DT, gsi_base is always zero. */
++	if (fwspec->param[0] >= priv->gsi_base)
++		fwspec->param[0] = fwspec->param[0] - priv->gsi_base;
++
+ 	if (test_bit(PLIC_QUIRK_EDGE_INTERRUPT, &priv->plic_quirks))
+ 		return irq_domain_translate_twocell(d, fwspec, hwirq, type);
+ 
+@@ -417,17 +424,31 @@ static const struct of_device_id plic_match[] = {
+ };
+ 
+ static int plic_parse_nr_irqs_and_contexts(struct platform_device *pdev,
+-					   u32 *nr_irqs, u32 *nr_contexts)
++					   u32 *nr_irqs, u32 *nr_contexts,
++					   u32 *gsi_base, u32 *id)
+ {
+ 	struct device *dev = &pdev->dev;
++	struct acpi_madt_plic *plic;
+ 	int rc;
+ 
+-	/*
+-	 * Currently, only OF fwnode is supported so extend this
+-	 * function for ACPI support.
+-	 */
+-	if (!is_of_node(dev->fwnode))
+-		return -EINVAL;
++	if (!is_of_node(dev->fwnode)) {
++		plic = *(struct acpi_madt_plic **)dev_get_platdata(dev);
++		if (!plic) {
++			dev_err(dev, "PLIC platform data is NULL!\n");
++			return -EINVAL;
++		}
++
++		*nr_irqs = plic->num_irqs;
++		acpi_get_plic_nr_contexts(plic->id, nr_contexts);
++		if (WARN_ON(!*nr_contexts)) {
++			dev_err(dev, "no PLIC context available\n");
++			return -EINVAL;
++		}
++
++		*gsi_base = plic->gsi_base;
++		*id = plic->id;
++		return 0;
++	}
+ 
+ 	rc = of_property_read_u32(to_of_node(dev->fwnode),
+ 				  "riscv,ndev", nr_irqs);
+@@ -442,23 +463,28 @@ static int plic_parse_nr_irqs_and_contexts(struct platform_device *pdev,
+ 		return -EINVAL;
+ 	}
+ 
++	*gsi_base = 0;
++	*id = 0;
++
+ 	return 0;
+ }
+ 
+ static int plic_parse_context_parent_hwirq(struct platform_device *pdev,
+-					   u32 context, u32 *parent_hwirq,
++					   u32 context, u32 id, u32 *parent_hwirq,
+ 					   unsigned long *parent_hartid)
+ {
+ 	struct device *dev = &pdev->dev;
  	struct of_phandle_args parent;
  	int rc;
  
@@ -164,7 +222,7 @@ index 9ed2666bfb5e..3902e6d32856 100644
 -	if (!is_of_node(dev->fwnode))
 -		return -EINVAL;
 +	if (!is_of_node(dev->fwnode)) {
-+		rc = acpi_get_ext_intc_parent_hartid(priv->id, index, parent_hartid);
++		rc = acpi_get_ext_intc_parent_hartid(id, context, parent_hartid);
 +		if (rc)
 +			return rc;
 +
@@ -172,139 +230,31 @@ index 9ed2666bfb5e..3902e6d32856 100644
 +		return 0;
 +	}
  
- 	rc = of_irq_parse_one(to_of_node(dev->fwnode), index, &parent);
+ 	rc = of_irq_parse_one(to_of_node(dev->fwnode), context, &parent);
  	if (rc)
-@@ -251,7 +256,7 @@ int aplic_direct_setup(struct device *dev, void __iomem *regs)
- 
- 	/* Setup per-CPU IDC and target CPU mask */
- 	for (i = 0; i < priv->nr_idcs; i++) {
--		rc = aplic_direct_parse_parent_hwirq(dev, i, &hwirq, &hartid);
-+		rc = aplic_direct_parse_parent_hwirq(dev, i, &hwirq, &hartid, priv);
- 		if (rc) {
- 			dev_warn(dev, "parent irq for IDC%d not found\n", i);
- 			continue;
-@@ -335,6 +340,7 @@ int aplic_direct_setup(struct device *dev, void __iomem *regs)
- 		return -ENOMEM;
- 	}
- 
-+	dev_set_drvdata(dev, priv);
- 	/* Advertise the interrupt controller */
- 	dev_info(dev, "%d interrupts directly connected to %d CPUs\n",
- 		 priv->nr_irqs, priv->nr_idcs);
-diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
-index d1b342b66551..f0ba1411c95e 100644
---- a/drivers/irqchip/irq-riscv-aplic-main.c
-+++ b/drivers/irqchip/irq-riscv-aplic-main.c
-@@ -4,12 +4,15 @@
-  * Copyright (C) 2022 Ventana Micro Systems Inc.
-  */
- 
-+#include <linux/acpi.h>
- #include <linux/of.h>
- #include <linux/of_irq.h>
- #include <linux/printk.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
- #include <linux/irqchip/riscv-aplic.h>
-+#include <linux/irqchip/riscv-imsic.h>
-+#include <asm/acpi.h>
- 
- #include "irq-riscv-aplic-main.h"
- 
-@@ -137,38 +140,44 @@ int aplic_setup_priv(struct aplic_priv *priv, struct device *dev,
- 		     void __iomem *regs)
- {
- 	struct of_phandle_args parent;
-+	struct acpi_madt_aplic *aplic;
- 	int rc;
- 
--	/*
--	 * Currently, only OF fwnode is supported so extend this
--	 * function for ACPI support.
--	 */
--	if (!is_of_node(dev->fwnode))
--		return -EINVAL;
--
- 	/* Save device pointer and register base */
- 	priv->dev = dev;
- 	priv->regs = regs;
- 
--	/* Find out number of interrupt sources */
--	rc = of_property_read_u32(to_of_node(dev->fwnode),
--					     "riscv,num-sources",
--					     &priv->nr_irqs);
--	if (rc) {
--		dev_err(dev, "failed to get number of interrupt sources\n");
--		return rc;
--	}
--
--	/*
--	 * Find out number of IDCs based on parent interrupts
--	 *
--	 * If "msi-parent" property is present then we ignore the
--	 * APLIC IDCs which forces the APLIC driver to use MSI mode.
--	 */
--	if (!of_property_present(to_of_node(dev->fwnode), "msi-parent")) {
--		while (!of_irq_parse_one(to_of_node(dev->fwnode),
--					 priv->nr_idcs, &parent))
--			priv->nr_idcs++;
-+	if (is_of_node(dev->fwnode)) {
-+		/* Find out number of interrupt sources */
-+		rc = of_property_read_u32(to_of_node(dev->fwnode),
-+					  "riscv,num-sources",
-+					  &priv->nr_irqs);
-+		if (rc) {
-+			dev_err(dev, "failed to get number of interrupt sources\n");
-+			return rc;
-+		}
-+
-+		/*
-+		 * Find out number of IDCs based on parent interrupts
-+		 *
-+		 * If "msi-parent" property is present then we ignore the
-+		 * APLIC IDCs which forces the APLIC driver to use MSI mode.
-+		 */
-+		if (!of_property_present(to_of_node(dev->fwnode), "msi-parent")) {
-+			while (!of_irq_parse_one(to_of_node(dev->fwnode),
-+						 priv->nr_idcs, &parent))
-+				priv->nr_idcs++;
-+		}
-+	} else {
-+		aplic = *(struct acpi_madt_aplic **)dev_get_platdata(dev);
-+		if (!aplic) {
-+			dev_err(dev, "APLIC platform data is NULL!\n");
-+			return -1;
-+		}
-+		priv->gsi_base = aplic->gsi_base;
-+		priv->nr_irqs = aplic->num_sources;
-+		priv->nr_idcs = aplic->num_idcs;
-+		priv->id = aplic->id;
- 	}
- 
- 	/* Setup initial state APLIC interrupts */
-@@ -177,9 +186,36 @@ int aplic_setup_priv(struct aplic_priv *priv, struct device *dev,
+@@ -472,6 +498,32 @@ static int plic_parse_context_parent_hwirq(struct platform_device *pdev,
  	return 0;
  }
  
 +#ifdef CONFIG_ACPI
 +
-+LIST_HEAD(aplic_list);
-+struct aplic_priv_list {
-+	struct aplic_priv *priv;
++LIST_HEAD(plic_list);
++struct plic_priv_list {
++	struct plic_priv *priv;
 +	struct list_head list;
 +};
 +
-+struct fwnode_handle *aplic_get_gsi_domain_id(u32 gsi)
++struct fwnode_handle *plic_get_gsi_domain_id(u32 gsi)
 +{
-+	struct aplic_priv_list *aplic_element;
++	struct plic_priv_list *plic_element;
 +	struct list_head *i, *tmp;
 +
-+	/* Find the APLIC that manages this GSI. */
-+	list_for_each_safe(i, tmp, &aplic_list) {
-+		aplic_element = list_entry(i, struct aplic_priv_list, list);
-+		if (gsi >= aplic_element->priv->gsi_base &&
-+		    gsi < (aplic_element->priv->gsi_base + aplic_element->priv->nr_irqs))
-+			return aplic_element->priv->dev->fwnode;
++	/* Find the PLIC that manages this GSI. */
++	list_for_each_safe(i, tmp, &plic_list) {
++		plic_element = list_entry(i, struct plic_priv_list, list);
++		if (gsi >= plic_element->priv->gsi_base &&
++		    gsi <= (plic_element->priv->gsi_base + plic_element->priv->nr_irqs))
++			return plic_element->priv->dev->fwnode;
 +	}
 +
 +	return NULL;
@@ -312,92 +262,87 @@ index d1b342b66551..f0ba1411c95e 100644
 +
 +#endif
 +
- static int aplic_probe(struct platform_device *pdev)
+ static int plic_probe(struct platform_device *pdev)
  {
- 	struct device *dev = &pdev->dev;
-+	struct aplic_priv *priv;
- 	bool msi_mode = false;
+ 	int rc, nr_contexts, nr_handlers = 0, i, cpu;
+@@ -483,7 +535,9 @@ static int plic_probe(struct platform_device *pdev)
+ 	struct plic_priv *priv;
+ 	irq_hw_number_t hwirq;
  	struct resource *res;
- 	void __iomem *regs;
-@@ -204,6 +240,9 @@ static int aplic_probe(struct platform_device *pdev)
- 	if (is_of_node(dev->fwnode))
- 		msi_mode = of_property_present(to_of_node(dev->fwnode),
- 						"msi-parent");
-+	else
-+		msi_mode = imsic_acpi_get_fwnode(NULL) ? 1 : 0;
-+
- 	if (msi_mode)
- 		rc = aplic_msi_setup(dev, regs);
- 	else
-@@ -214,6 +253,20 @@ static int aplic_probe(struct platform_device *pdev)
++	int id, context_id;
+ 	bool cpuhp_setup;
++	u32 gsi_base;
+ 
+ 	if (is_of_node(dev->fwnode)) {
+ 		const struct of_device_id *id;
+@@ -510,19 +564,21 @@ static int plic_probe(struct platform_device *pdev)
+ 		return -EIO;
+ 	}
+ 
+-	rc = plic_parse_nr_irqs_and_contexts(pdev, &nr_irqs, &nr_contexts);
++	rc = plic_parse_nr_irqs_and_contexts(pdev, &nr_irqs, &nr_contexts, &gsi_base, &id);
+ 	if (rc) {
+ 		dev_err(dev, "failed to parse irqs and contexts\n");
  		return rc;
+ 	}
+ 	priv->nr_irqs = nr_irqs;
++	priv->gsi_base = gsi_base;
++	priv->id = id;
+ 
+ 	priv->prio_save = devm_bitmap_zalloc(dev, nr_irqs, GFP_KERNEL);
+ 	if (!priv->prio_save)
+ 		return -ENOMEM;
+ 
+ 	for (i = 0; i < nr_contexts; i++) {
+-		rc = plic_parse_context_parent_hwirq(pdev, i,
++		rc = plic_parse_context_parent_hwirq(pdev, i, priv->id,
+ 						     &parent_hwirq, &hartid);
+ 		if (rc) {
+ 			dev_warn(dev, "hwirq for context%d not found\n", i);
+@@ -574,13 +630,23 @@ static int plic_probe(struct platform_device *pdev)
+ 			goto done;
+ 		}
+ 
++		if (is_of_node(dev->fwnode)) {
++			context_id = i;
++		} else {
++			rc = acpi_get_plic_context(priv->id, i, &context_id);
++			if (rc) {
++				dev_warn(dev, "invalid context id for context%d\n", i);
++				continue;
++			}
++		}
++
+ 		cpumask_set_cpu(cpu, &priv->lmask);
+ 		handler->present = true;
+ 		handler->hart_base = priv->regs + CONTEXT_BASE +
+-			i * CONTEXT_SIZE;
++			context_id * CONTEXT_SIZE;
+ 		raw_spin_lock_init(&handler->enable_lock);
+ 		handler->enable_base = priv->regs + CONTEXT_ENABLE_BASE +
+-			i * CONTEXT_ENABLE_SIZE;
++			context_id * CONTEXT_ENABLE_SIZE;
+ 		handler->priv = priv;
+ 
+ 		handler->enable_save =  devm_kcalloc(dev,
+@@ -624,6 +690,17 @@ static int plic_probe(struct platform_device *pdev)
+ 		register_syscore_ops(&plic_irq_syscore_ops);
  	}
  
 +#ifdef CONFIG_ACPI
-+	struct aplic_priv_list *aplic_element;
++	struct plic_priv_list *plic_element;
 +
-+	priv = dev_get_drvdata(dev);
-+	if (priv) {
-+		aplic_element = devm_kzalloc(dev, sizeof(*aplic_element), GFP_KERNEL);
-+		if (!aplic_element)
-+			return -ENOMEM;
++	plic_element = devm_kzalloc(dev, sizeof(*plic_element), GFP_KERNEL);
++	if (!plic_element)
++		return -ENOMEM;
 +
-+		aplic_element->priv = priv;
-+		list_add_tail(&aplic_element->list, &aplic_list);
-+	}
++	plic_element->priv = priv;
++	list_add_tail(&plic_element->list, &plic_list);
 +#endif
 +
+ 	dev_info(dev, "mapped %d interrupts with %d handlers for"
+ 		" %d contexts.\n", nr_irqs, nr_handlers, nr_contexts);
  	return 0;
- }
- 
-diff --git a/drivers/irqchip/irq-riscv-aplic-main.h b/drivers/irqchip/irq-riscv-aplic-main.h
-index 78267ec58098..dc022e89bc97 100644
---- a/drivers/irqchip/irq-riscv-aplic-main.h
-+++ b/drivers/irqchip/irq-riscv-aplic-main.h
-@@ -28,6 +28,7 @@ struct aplic_priv {
- 	u32			gsi_base;
- 	u32			nr_irqs;
- 	u32			nr_idcs;
-+	u32			id;
- 	void __iomem		*regs;
- 	struct aplic_msicfg	msicfg;
- };
-diff --git a/drivers/irqchip/irq-riscv-aplic-msi.c b/drivers/irqchip/irq-riscv-aplic-msi.c
-index 086d00e0429e..433ab2f270d9 100644
---- a/drivers/irqchip/irq-riscv-aplic-msi.c
-+++ b/drivers/irqchip/irq-riscv-aplic-msi.c
-@@ -178,6 +178,7 @@ static void aplic_msi_write_msg(struct msi_desc *desc, struct msi_msg *msg)
- int aplic_msi_setup(struct device *dev, void __iomem *regs)
- {
- 	const struct imsic_global_config *imsic_global;
-+	struct irq_domain *msi_domain;
- 	struct irq_domain *irqdomain;
- 	struct aplic_priv *priv;
- 	struct aplic_msicfg *mc;
-@@ -261,8 +262,14 @@ int aplic_msi_setup(struct device *dev, void __iomem *regs)
- 		 * IMSIC and the IMSIC MSI domains are created later through
- 		 * the platform driver probing so we set it explicitly here.
- 		 */
--		if (is_of_node(dev->fwnode))
-+		if (is_of_node(dev->fwnode)) {
- 			of_msi_configure(dev, to_of_node(dev->fwnode));
-+		} else {
-+			msi_domain = irq_find_matching_fwnode(imsic_acpi_get_fwnode(dev),
-+							      DOMAIN_BUS_PLATFORM_MSI);
-+			if (msi_domain)
-+				dev_set_msi_domain(dev, msi_domain);
-+		}
- 	}
- 
- 	/* Create irq domain instance for the APLIC MSI-mode */
-@@ -276,6 +283,7 @@ int aplic_msi_setup(struct device *dev, void __iomem *regs)
- 		return -ENOMEM;
- 	}
- 
-+	dev_set_drvdata(dev, priv);
- 	/* Advertise the interrupt controller */
- 	pa = priv->msicfg.base_ppn << APLIC_xMSICFGADDR_PPN_SHIFT;
- 	dev_info(dev, "%d interrupts forwared to MSI base %pa\n",
 -- 
 2.39.2
 
