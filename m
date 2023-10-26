@@ -4,61 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A536AC25B48
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Oct 2023 15:00:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5B9CC25B48
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Oct 2023 15:13:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H4ZTdhB+4EYqDIpXR3qNODAjwRkmW1hd8O9piheKO2I=; b=P/P/OvPgGkzgFj
-	XS46uiMttRswPAVjtde2uYJSrr4KLZGeg8CSUGtDQmTKzyxXCgTim3Pd4RCKhD/ElMHuXh5RAblo6
-	6tcBkke/j1gPhxZvUCTndiF7baobIsY9L7atBuMns0DbGzf/D+fGLbnw0LERhZkJQIN9BuaIAyzg1
-	lnmr+BDqUs+/UCWNlXzr28XTDKJeKB3W7OBO5Le0eMvMEY6IyaCZy/GkOHQKAuubRNI+iEfAF1W3F
-	b+Xq/zHV1AvkHTZyQe2jOyPc/W5cHFNikOxgHkY3h/qEozzmODoLk1FX9tLVRNDOGDFuHaXrnwZx6
-	G6Hqa5f7eRkPHz9PfxlA==;
+	List-Owner; bh=HwxPzXkMaOkRmZrMIbioL2grauYO/Wg8zszUOnQS+wY=; b=BYBSwgwQKTR6uH
+	LLpWagz08cLlteDt6aLa0OCIOB9awfTBpyhRNN083LLHzTSCjYRaqgiQQZEeScKz/Fgo4hd0DkNVo
+	aTy0JTPDlP7UMbeBeAUJqHMpHk1K7GFkIn+zTk4gA+W6xUJDEuAQh4/NMqmTxF+SPAF7IB9ZSXP2L
+	aFi8An11u938Q/pkij/OawM4UdLXwpmVurpzrwhubQD7/+9V02UQqiFFD+63GvjqY51I6U+mGqmZ/
+	Pvtn5c09Pc1KagFsva9ze1DeT0TYM512H8FwBONvbcBBsESprc1kkP43z9dHeSgm8JQsZ+1kG3i60
+	aup/SvI9o2uouIOLBsYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qw1qi-00El0P-2B;
-	Thu, 26 Oct 2023 15:00:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qw1qf-00EkzY-2u
+	id 1qw23Q-00EmP9-0c;
+	Thu, 26 Oct 2023 15:13:48 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qw23N-00EmOA-2B
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Oct 2023 15:00:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 580512F4;
-	Thu, 26 Oct 2023 08:01:15 -0700 (PDT)
-Received: from [10.1.36.151] (XHFQ2J9959.cambridge.arm.com [10.1.36.151])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 649033F64C;
-	Thu, 26 Oct 2023 08:00:32 -0700 (PDT)
-Message-ID: <ca11d0f7-bc4c-4f05-89e8-690da2169fda@arm.com>
-Date: Thu, 26 Oct 2023 16:00:31 +0100
+	Thu, 26 Oct 2023 15:13:47 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-6b709048d8eso921493b3a.2
+        for <linux-riscv@lists.infradead.org>; Thu, 26 Oct 2023 08:13:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1698333223; x=1698938023; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=sIQNokBhQSScd068h2R0va+GxK2e4ptgRXBIV8yGO3Q=;
+        b=EL8hG5DAvMdjoKzbekMcjZpy8mMo/ZrOGSKb9HUtIaZmbPFia9CO6wH7fUPuN+HH6z
+         Wx0U3os0dAaC4ZyYNvqSDj5EUzZHjMatjY8TjxlvdqehKvRh00gYjQ8Lzb5cZ9Prmkbz
+         jgtO1ShlnUfat+ZXwm4oVJVSmmTTl6dJs6VbG2WYCGxTDFqlTojhBAtQMkipDhVasJnn
+         zEMUAAaSC+HubbmBKKMrGTxh88TuFTTi7ye6NdJbQ1EMIojfAIWwUPeniU+5rCEcfSrS
+         93g3ZtFqCTYz7GiaEzZ8UlReuRyzD6hDcPpcxz1RCQo7LJlHeXgQd5qLABuNtM4g0Gou
+         CLkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1698333223; x=1698938023;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sIQNokBhQSScd068h2R0va+GxK2e4ptgRXBIV8yGO3Q=;
+        b=YukZPKxxU5z7zMRr17TyVAEY/IcAYJOz/INSt6nk7meMsndeh/BaEzONDUVFSidMVi
+         GspCPwsl8GstU51HtY6LYi613lrmb8F4vWm6HpgOJpjoSpS8WMJFtmmCscPLZqf9wII4
+         BV0X4DjhgvHm6BBXxrFg7nF/mSKSulFwZHU2k1Vdmb4MUNwL78vTbH2LKSDpcYNGUtyU
+         wGtYQHP46ubnDC48mAuUpvjbT+ay9NInpha8KdVzp6IewapioPLFUTqXLlpSE/fiLK1K
+         KqFvdf/t7kIxKdmXDS6wiTiqAqhqFBb/deGUgxkSeO2qjdxdn1sY+VTX8nWMh0LdMiDz
+         4zTQ==
+X-Gm-Message-State: AOJu0YwGJS3t0tpirF8SGgm1wVoXmx+x9bnrUWT1jgTd9lWiraX2HTKq
+	SCKmqbio1qhEBUlRDkl/XitGLEgvPTFmQ7G/wZjaxw==
+X-Google-Smtp-Source: AGHT+IHpvFfxEX2wvpX4oLmokC74kO3PgHJfv15pxMoSpuOPt/vENsjW1mHuLxZFo88vzceGkfO3QCACBcu/EM6N+5k=
+X-Received: by 2002:a17:90a:1a43:b0:27d:12e1:94e0 with SMTP id
+ 3-20020a17090a1a4300b0027d12e194e0mr12590526pjl.36.1698333223116; Thu, 26 Oct
+ 2023 08:13:43 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH -fixes 0/2] Fix set_huge_pte_at()
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Alexandre Ghiti
- <alexghiti@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Andrew Jones <ajones@ventanamicro.com>,
- Qinglin Pan <panqinglin2020@iscas.ac.cn>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, "linux-mm@kvack.org" <linux-mm@kvack.org>
-References: <20230928151846.8229-1-alexghiti@rivosinc.com>
- <305b4dec-c99d-3cee-4563-8d7dcbae9384@ghiti.fr>
- <20231003090443.67a2e2692b68211e05b53248@linux-foundation.org>
- <CAHVXubi5C0hBaXx5tqVHZAJSd1zvHRqoxUEkk9ZbmZ5mq2=mAw@mail.gmail.com>
- <20231026071300.e12dab3be1edd26007db85ee@linux-foundation.org>
- <32d9627c-821a-48f0-b430-0532a47b8699@ghiti.fr>
- <36aa1ec7-df13-4741-be09-c53a05f3d591@arm.com>
- <20231026075415.47c0a032906b604de08ed39b@linux-foundation.org>
-Content-Language: en-GB
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20231026075415.47c0a032906b604de08ed39b@linux-foundation.org>
+References: <20231018162540.667646-1-vincent.guittot@linaro.org>
+ <20231018162540.667646-4-vincent.guittot@linaro.org> <f5e398f3-fbb7-4840-9084-14c8254b2118@arm.com>
+In-Reply-To: <f5e398f3-fbb7-4840-9084-14c8254b2118@arm.com>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Thu, 26 Oct 2023 17:13:31 +0200
+Message-ID: <CAKfTPtBJRT56dL7+UW-viZuK3wKfGimQfrkvtuCQ_20g4N5LPQ@mail.gmail.com>
+Subject: Re: [PATCH v3 3/6] cpufreq/schedutil: use a fixed reference frequency
+To: Dietmar Eggemann <dietmar.eggemann@arm.com>
+Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org, 
+	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com, 
+	rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de, bristot@redhat.com, 
+	vschneid@redhat.com, viresh.kumar@linaro.org, lenb@kernel.org, 
+	robert.moore@intel.com, lukasz.luba@arm.com, ionela.voinescu@arm.com, 
+	pierre.gondois@arm.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org, 
+	acpica-devel@lists.linuxfoundation.org, conor.dooley@microchip.com, 
+	suagrfillet@gmail.com, ajones@ventanamicro.com, lftan@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231026_080038_039109_1501957F 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20231026_081345_710412_7B2A53E2 
+X-CRM114-Status: GOOD (  25.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,38 +98,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 26/10/2023 15:54, Andrew Morton wrote:
-> On Thu, 26 Oct 2023 15:30:44 +0100 Ryan Roberts <ryan.roberts@arm.com> wrote:
-> 
->>>>> Those fixes finally did not make it to 6.6, I was hoping for them to
->>>>> land in -rc6 or -rc7: for the future, what should have I done to avoid
->>>>> that?
->>>> They're merged in Linus's tree.
->>>>
->>>> 6f1bace9a9fb arm64: hugetlb: fix set_huge_pte_at() to work with all swap entries
->>>> 935d4f0c6dc8 mm: hugetlb: add huge page size param to set_huge_pte_at()
->>>
->>>
->>> Oops, sorry, I missed them this morning!
->>
->> Those two patches that Andrew highlights are the fix I did for arm64. Weren't
->> you referring to the corresponding patches you did for riscv, Alex?
-> 
-> These are in mainline:
-> 
-> 1de195dd0e05 riscv: fix set_huge_pte_at() for NAPOT mappings when a swap entry is set
-> 117b1bb0cbc7 riscv: handle VM_FAULT_[HWPOISON|HWPOISON_LARGE] faults instead of panicking
+On Wed, 25 Oct 2023 at 22:13, Dietmar Eggemann <dietmar.eggemann@arm.com> wrote:
+>
+> On 18/10/2023 18:25, Vincent Guittot wrote:
+> > cpuinfo.max_freq can change at runtime because of boost as an example. This
+> > implies that the value could be different than the one that has been
+> > used when computing the capacity of a CPU.
+> >
+> > The new arch_scale_freq_ref() returns a fixed and coherent reference
+> > frequency that can be used when computing a frequency based on utilization.
+> >
+> > Use this arch_scale_freq_ref() when available and fallback to
+> > policy otherwise.
+> >
+> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> > Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
+> > Tested-by: Lukasz Luba <lukasz.luba@arm.com>
+> >
+> > ---
+> >  kernel/sched/cpufreq_schedutil.c | 26 ++++++++++++++++++++++++--
+> >  1 file changed, 24 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/kernel/sched/cpufreq_schedutil.c b/kernel/sched/cpufreq_schedutil.c
+> > index 458d359f5991..6e4030482ae8 100644
+> > --- a/kernel/sched/cpufreq_schedutil.c
+> > +++ b/kernel/sched/cpufreq_schedutil.c
+> > @@ -114,6 +114,28 @@ static void sugov_deferred_update(struct sugov_policy *sg_policy)
+> >       }
+> >  }
+> >
+> > +/**
+> > + * cpufreq_get_capacity_ref_freq - get the reference frequency of a given CPU that
+>
+> s/cpufreq_get_capacity_ref_freq/get_capacity_ref_freq
+>
+> s/of a given CPU/for a given cpufreq policy ? (of which the CPU managing
+> it is used for the arch_scale_freq_ref() call in the function.
+>
+> > + * has been used to correlate frequency and compute capacity.
+> > + * @policy: the cpufreq policy of the CPU in question.
+> > + * @use_current: Fallback to current freq instead of policy->cpuinfo.max_freq.
+>
+> Looks like use_current does not exists as a parameter.
 
-Ahh, great - I think they were probably the ones Alex was talking about.
+Thanks for the review. I'm going to apply your comments
 
-> 
-> I'm not sure what happened to your "riscv: hugetlb: convert
-> set_huge_pte_at() to take vma" - perhaps it was updated.
-
-I modified the approach for v2 (pass size param instead of vma) and it got
-squashed into 935d4f0c6dc8 mm: hugetlb: add huge page size param to
-set_huge_pte_at(), which is in.
-
+>
+> > + *
+> > + * Return: the reference CPU frequency to compute a capacity.
+> > + */
+> > +static __always_inline
+> > +unsigned long get_capacity_ref_freq(struct cpufreq_policy *policy)
+> > +{
+> > +     unsigned int freq = arch_scale_freq_ref(policy->cpu);
+> > +
+> > +     if (freq)
+> > +             return freq;
+> > +
+> > +     if (arch_scale_freq_invariant())
+> > +             return policy->cpuinfo.max_freq;
+> > +
+> > +     return policy->cur;
+> > +}
+>
+> Reviewed-by: Dietmar Eggemann <dietmar.eggemann@arm.com>
+>
+>
+>
 
 _______________________________________________
 linux-riscv mailing list
