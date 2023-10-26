@@ -4,84 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5B9CC25B48
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Oct 2023 15:13:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 464F4C25B67
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Oct 2023 15:24:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HwxPzXkMaOkRmZrMIbioL2grauYO/Wg8zszUOnQS+wY=; b=BYBSwgwQKTR6uH
-	LLpWagz08cLlteDt6aLa0OCIOB9awfTBpyhRNN083LLHzTSCjYRaqgiQQZEeScKz/Fgo4hd0DkNVo
-	aTy0JTPDlP7UMbeBeAUJqHMpHk1K7GFkIn+zTk4gA+W6xUJDEuAQh4/NMqmTxF+SPAF7IB9ZSXP2L
-	aFi8An11u938Q/pkij/OawM4UdLXwpmVurpzrwhubQD7/+9V02UQqiFFD+63GvjqY51I6U+mGqmZ/
-	Pvtn5c09Pc1KagFsva9ze1DeT0TYM512H8FwBONvbcBBsESprc1kkP43z9dHeSgm8JQsZ+1kG3i60
-	aup/SvI9o2uouIOLBsYg==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:Message-Id:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tSjjH6s9iTF5fM9DDTpWuu8dGpo6mqMBnaWUU8XslEU=; b=LkCQCOPKwn77Um
+	mL2S6WqIOR1z7owUrpEI9H0OsZ6i326uE80QlPydOVwKwc/+3BAHOR14oHcaBpWGfgk6vGH+ZajAl
+	bzexofJRJf4APTxvGhv17GkuKA0A8Gik89lo4VIWXI4mS/bwYTCJPgFZ8bB2i6+gW1JjmpHHSzXxQ
+	Lv+OhPt3VQoWaXpquCBT1HvbxaWoq8yulUQZBsGmGLeWLV1255fcoaBWIPr8L17J9dZdp9lQZK/a+
+	lZeLni3CvVPR/4CDVBtrSv8+sfNk90Dk7qVFXAfbNq06JEf7B/fQo0eHTuC9e2USApgEwnBK2QE3s
+	QOOfdvtMYw6Am1ZFS5HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qw23Q-00EmP9-0c;
-	Thu, 26 Oct 2023 15:13:48 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1qw2DE-00EnL2-1L;
+	Thu, 26 Oct 2023 15:23:56 +0000
+Received: from out5-smtp.messagingengine.com ([66.111.4.29])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qw23N-00EmOA-2B
-	for linux-riscv@lists.infradead.org;
-	Thu, 26 Oct 2023 15:13:47 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-6b709048d8eso921493b3a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Oct 2023 08:13:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1698333223; x=1698938023; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=sIQNokBhQSScd068h2R0va+GxK2e4ptgRXBIV8yGO3Q=;
-        b=EL8hG5DAvMdjoKzbekMcjZpy8mMo/ZrOGSKb9HUtIaZmbPFia9CO6wH7fUPuN+HH6z
-         Wx0U3os0dAaC4ZyYNvqSDj5EUzZHjMatjY8TjxlvdqehKvRh00gYjQ8Lzb5cZ9Prmkbz
-         jgtO1ShlnUfat+ZXwm4oVJVSmmTTl6dJs6VbG2WYCGxTDFqlTojhBAtQMkipDhVasJnn
-         zEMUAAaSC+HubbmBKKMrGTxh88TuFTTi7ye6NdJbQ1EMIojfAIWwUPeniU+5rCEcfSrS
-         93g3ZtFqCTYz7GiaEzZ8UlReuRyzD6hDcPpcxz1RCQo7LJlHeXgQd5qLABuNtM4g0Gou
-         CLkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698333223; x=1698938023;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=sIQNokBhQSScd068h2R0va+GxK2e4ptgRXBIV8yGO3Q=;
-        b=YukZPKxxU5z7zMRr17TyVAEY/IcAYJOz/INSt6nk7meMsndeh/BaEzONDUVFSidMVi
-         GspCPwsl8GstU51HtY6LYi613lrmb8F4vWm6HpgOJpjoSpS8WMJFtmmCscPLZqf9wII4
-         BV0X4DjhgvHm6BBXxrFg7nF/mSKSulFwZHU2k1Vdmb4MUNwL78vTbH2LKSDpcYNGUtyU
-         wGtYQHP46ubnDC48mAuUpvjbT+ay9NInpha8KdVzp6IewapioPLFUTqXLlpSE/fiLK1K
-         KqFvdf/t7kIxKdmXDS6wiTiqAqhqFBb/deGUgxkSeO2qjdxdn1sY+VTX8nWMh0LdMiDz
-         4zTQ==
-X-Gm-Message-State: AOJu0YwGJS3t0tpirF8SGgm1wVoXmx+x9bnrUWT1jgTd9lWiraX2HTKq
-	SCKmqbio1qhEBUlRDkl/XitGLEgvPTFmQ7G/wZjaxw==
-X-Google-Smtp-Source: AGHT+IHpvFfxEX2wvpX4oLmokC74kO3PgHJfv15pxMoSpuOPt/vENsjW1mHuLxZFo88vzceGkfO3QCACBcu/EM6N+5k=
-X-Received: by 2002:a17:90a:1a43:b0:27d:12e1:94e0 with SMTP id
- 3-20020a17090a1a4300b0027d12e194e0mr12590526pjl.36.1698333223116; Thu, 26 Oct
- 2023 08:13:43 -0700 (PDT)
+	id 1qw2DA-00EnJT-0K;
+	Thu, 26 Oct 2023 15:23:53 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+	by mailout.nyi.internal (Postfix) with ESMTP id E30335C0164;
+	Thu, 26 Oct 2023 11:23:50 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute5.internal (MEProxy); Thu, 26 Oct 2023 11:23:50 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:message-id:mime-version:reply-to:sender:subject:subject:to:to;
+	 s=fm2; t=1698333830; x=1698420230; bh=MwTU3yFRy33qVtT9Hv1gPn7tD
+	VTVfIm0orJbw5AeHJU=; b=aDDmN3XW5clNQmCv4GZW5g9HBc2vGBxuj6UDiHk/Y
+	Z7Hf9obqIgSfUJzQmD4MSNpGmuk/ldG7O4NDen3aN9euP0FFMqG2AqdCdZX2FLtm
+	FOAR/vQ1MRod6eqytmCvTeRIWSyW1jLqQtHb2yqhlNYwqk8LpK87ikH6LcUuLeYx
+	rtvSpJp5li2TN6t7x2aM3JvoZvUvEBwFaa1pfjHFp0c9HktNqcZsA1F78inSqvSE
+	55t7VdSdPuw7C+AVmdBLELdGQ9b5+6DsANov8qWWIAZUpMgwTaNDsZtq8EshglyA
+	LVVyDDkB5F6YYs4f9rzklm3kdWkj3/TVpAi7A5b1tvftA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:message-id
+	:mime-version:reply-to:sender:subject:subject:to:to:x-me-proxy
+	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1698333830; x=1698420230; bh=MwTU3yFRy33qVtT9Hv1gPn7tDVTVfIm0orJ
+	bw5AeHJU=; b=rGan47d44qQnya2IZ7/4r8zXuxnIa7NiG875uuORzatZGoXoT2o
+	tWn1jSK1IOxKC+7zTfzfot4A/kDb65lARWOQuPPxjF3LUNX0YvyOUV+GwHKLkjoD
+	/m8U/joKXn+RsIjNBesCaARGX5lV32LBJ+yXB8paHN6RYB4sKsBGFSmrpTcBi+s5
+	mqYF4MEdX25Kq1EnsJEF+dTWjeYIrfMcEGBBw57qkWBG1td58tvpSNdVCEt1W/U+
+	h0EcCGk7JGypKVbj+2xfW0izaXOMxsU5CDgjLR8ATZfafPa/hrtQTVadYY+teKpv
+	8pvh96czTsRy1iqq7zPr1CIOvMFUqrtt6ow==
+X-ME-Sender: <xms:hoQ6ZTHXly_h_P-7DYcjjpwULZGexPy29_dC8vRwpdA90yp1TJX4ow>
+    <xme:hoQ6ZQXCHtayTzct0QIeOtRoP0_2Q8X_BSiRUPpgqBLYDWHtqORGg3nhTgcNqHRIG
+    kjXcCNBeYPlubflV98>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvkedrledvgdekkecutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+    fjughrpefofgggkfffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpeeffeeuhfekjeevtddvtdelledttddtjeegvdfhtdduvdfhueekudeihfejtefgieen
+    ucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenuc
+    frrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvg
+X-ME-Proxy: <xmx:hoQ6ZVJyZfd6t_Efa03HDDI9oRWl6MRGVRaQE5vyvC64lS96_vlnSQ>
+    <xmx:hoQ6ZRHFYj-AqzvhTKmEgdlWYCnNMFVF78lnrk76OWFwc005XhwuJw>
+    <xmx:hoQ6ZZXyCmAnWMbLLjCx2goUwyiiI2c-K0Xjiy178HTKToG5Jc0aaQ>
+    <xmx:hoQ6ZWjdZ4XSIz68WqepedHcsD02pCPji3EGOmnUN4ontyZjN0y4FA>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id B7248B6008D; Thu, 26 Oct 2023 11:23:50 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-1048-g9229b632c5-fm-20231019.001-g9229b632
 MIME-Version: 1.0
-References: <20231018162540.667646-1-vincent.guittot@linaro.org>
- <20231018162540.667646-4-vincent.guittot@linaro.org> <f5e398f3-fbb7-4840-9084-14c8254b2118@arm.com>
-In-Reply-To: <f5e398f3-fbb7-4840-9084-14c8254b2118@arm.com>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Thu, 26 Oct 2023 17:13:31 +0200
-Message-ID: <CAKfTPtBJRT56dL7+UW-viZuK3wKfGimQfrkvtuCQ_20g4N5LPQ@mail.gmail.com>
-Subject: Re: [PATCH v3 3/6] cpufreq/schedutil: use a fixed reference frequency
-To: Dietmar Eggemann <dietmar.eggemann@arm.com>
-Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org, 
-	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com, 
-	rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de, bristot@redhat.com, 
-	vschneid@redhat.com, viresh.kumar@linaro.org, lenb@kernel.org, 
-	robert.moore@intel.com, lukasz.luba@arm.com, ionela.voinescu@arm.com, 
-	pierre.gondois@arm.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org, 
-	acpica-devel@lists.linuxfoundation.org, conor.dooley@microchip.com, 
-	suagrfillet@gmail.com, ajones@ventanamicro.com, lftan@kernel.org
+Message-Id: <ecd2fc55-8135-4b70-be85-24dbc773fb70@app.fastmail.com>
+Date: Thu, 26 Oct 2023 17:23:30 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Linus Torvalds" <torvalds@linux-foundation.org>
+Cc: linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ soc@kernel.org, linux-kernel@vger.kernel.org
+Subject: [GIT PULL] ARM: SoC fixes for 6.7, part 3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231026_081345_710412_7B2A53E2 
-X-CRM114-Status: GOOD (  25.84  )
+X-CRM114-CacheID: sfid-20231026_082352_208918_16AA6CF7 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,73 +100,130 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 25 Oct 2023 at 22:13, Dietmar Eggemann <dietmar.eggemann@arm.com> wrote:
->
-> On 18/10/2023 18:25, Vincent Guittot wrote:
-> > cpuinfo.max_freq can change at runtime because of boost as an example. This
-> > implies that the value could be different than the one that has been
-> > used when computing the capacity of a CPU.
-> >
-> > The new arch_scale_freq_ref() returns a fixed and coherent reference
-> > frequency that can be used when computing a frequency based on utilization.
-> >
-> > Use this arch_scale_freq_ref() when available and fallback to
-> > policy otherwise.
-> >
-> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
-> > Tested-by: Lukasz Luba <lukasz.luba@arm.com>
-> >
-> > ---
-> >  kernel/sched/cpufreq_schedutil.c | 26 ++++++++++++++++++++++++--
-> >  1 file changed, 24 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/kernel/sched/cpufreq_schedutil.c b/kernel/sched/cpufreq_schedutil.c
-> > index 458d359f5991..6e4030482ae8 100644
-> > --- a/kernel/sched/cpufreq_schedutil.c
-> > +++ b/kernel/sched/cpufreq_schedutil.c
-> > @@ -114,6 +114,28 @@ static void sugov_deferred_update(struct sugov_policy *sg_policy)
-> >       }
-> >  }
-> >
-> > +/**
-> > + * cpufreq_get_capacity_ref_freq - get the reference frequency of a given CPU that
->
-> s/cpufreq_get_capacity_ref_freq/get_capacity_ref_freq
->
-> s/of a given CPU/for a given cpufreq policy ? (of which the CPU managing
-> it is used for the arch_scale_freq_ref() call in the function.
->
-> > + * has been used to correlate frequency and compute capacity.
-> > + * @policy: the cpufreq policy of the CPU in question.
-> > + * @use_current: Fallback to current freq instead of policy->cpuinfo.max_freq.
->
-> Looks like use_current does not exists as a parameter.
+The following changes since commit 58720809f52779dc0f08e53e54b014209d13eebb:
 
-Thanks for the review. I'm going to apply your comments
+  Linux 6.6-rc6 (2023-10-15 13:34:39 -0700)
 
->
-> > + *
-> > + * Return: the reference CPU frequency to compute a capacity.
-> > + */
-> > +static __always_inline
-> > +unsigned long get_capacity_ref_freq(struct cpufreq_policy *policy)
-> > +{
-> > +     unsigned int freq = arch_scale_freq_ref(policy->cpu);
-> > +
-> > +     if (freq)
-> > +             return freq;
-> > +
-> > +     if (arch_scale_freq_invariant())
-> > +             return policy->cpuinfo.max_freq;
-> > +
-> > +     return policy->cur;
-> > +}
->
-> Reviewed-by: Dietmar Eggemann <dietmar.eggemann@arm.com>
->
->
->
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.7-3
+
+for you to fetch changes up to 736a4aad8a9fdcf577ffa33b33df240c67557af8:
+
+  Merge tag 'renesas-fixes-for-v6.6-tag3' of git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel into arm/fixes (2023-10-26 17:06:42 +0200)
+
+----------------------------------------------------------------
+ARM: SoC fixes for 6.7, part 3
+
+A couple of platforms have some last-minute fixes for 6.7, in particular
+
+ - riscv gets some fixes for noncoherent DMA on the renesas and thead
+   platforms and dts fix for SPI on the visionfive 2 board
+
+ - Qualcomm Snapdragon gets three dts fixes to address board specific
+   regressions on the pmic and gpio nodes
+
+ - Rockchip platforms get multiple dts fixes to address issues on
+   the recent rk3399 platform as well as the older rk3128 platform
+   that apparently regressed a while ago.
+
+ - TI OMAP gets some trivial code and dts fixes and a regression fix
+   for the omap1 ams-delta modem
+
+ - NXP i.MX firmware has one fix for a use-after-free but in its
+   error handling.
+
+----------------------------------------------------------------
+Alex Bee (4):
+      ARM: dts: rockchip: Fix i2c0 register address for RK3128
+      ARM: dts: rockchip: Add missing arm timer interrupt for RK3128
+      ARM: dts: rockchip: Add missing quirk for RK3128's dma engine
+      ARM: dts: rockchip: Fix timer clocks for RK3128
+
+Arnd Bergmann (8):
+      Merge tag 'renesas-fixes-for-v6.6-tag2' of git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel into arm/fixes
+      Merge tag 'imx-fixes-6.6-2' of git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux into arm/fixes
+      Merge tag 'qcom-arm64-fixes-for-6.6' of https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux into arm/fixes
+      Merge tag 'riscv-dt-for-v6.6-final' of https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux into arm/fixes
+      Merge tag 'v6.6-rockchip-dtsfixes1' of git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip into arm/fixes
+      Merge tag 'omap-fixes-audio-clock-and-modem-signed' of git://git.kernel.org/pub/scm/linux/kernel/git/tmlind/linux-omap into arm/fixes
+      Merge tag 'mvebu-fixes-6.6-1' of git://git.kernel.org/pub/scm/linux/kernel/git/gclement/mvebu into arm/fixes
+      Merge tag 'renesas-fixes-for-v6.6-tag3' of git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel into arm/fixes
+
+Christoph Hellwig (3):
+      riscv: RISCV_NONSTANDARD_CACHE_OPS shouldn't depend on RISCV_DMA_NONCOHERENT
+      riscv: only select DMA_DIRECT_REMAP from RISCV_ISA_ZICBOM and ERRATA_THEAD_PBMT
+      soc: renesas: ARCH_R9A07G043 depends on !RISCV_ISA_ZICBOM
+
+Christopher Obbard (2):
+      arm64: dts: rockchip: Add i2s0-2ch-bus-bclk-off pins to RK3399
+      arm64: dts: rockchip: Fix i2s0 pin conflict on ROCK Pi 4 boards
+
+Conor Dooley (1):
+      soc: renesas: Make ARCH_R9A07G043 depend on required options
+
+Dan Carpenter (1):
+      ARM: omap2: fix a debug printk
+
+Ermin Sunj (1):
+      arm64: dts: rockchip: use codec as clock master on px30-ringneck-haikou
+
+Hao Ge (1):
+      firmware/imx-dsp: Fix use_after_free in imx_dsp_setup_channels()
+
+Jakob Unterwurzacher (1):
+      arm64: dts: rockchip: set codec system-clock-fixed on px30-ringneck-haikou
+
+Janusz Krzysztofik (1):
+      ARM: OMAP1: ams-delta: Fix MODEM initialization failure
+
+Jisheng Zhang (1):
+      riscv: dts: thead: set dma-noncoherent to soc bus
+
+Krzysztof Kozlowski (3):
+      arm64: dts: qcom: sa8775p: correct PMIC GPIO label in gpio-ranges
+      arm64: dts: qcom: apq8096-db820c: fix missing clock populate
+      arm64: dts: qcom: msm8996-xiaomi: fix missing clock populate
+
+Nam Cao (1):
+      riscv: dts: starfive: visionfive 2: correct spi's ss pin
+
+Randy Dunlap (1):
+      ARM: OMAP: timer32K: fix all kernel-doc warnings
+
+Robert Marko (2):
+      MAINTAINERS: uDPU: make myself maintainer of it
+      MAINTAINERS: uDPU: add remaining Methode boards
+
+Tony Lindgren (2):
+      clk: ti: Fix missing omap4 mcbsp functional clock and aliases
+      clk: ti: Fix missing omap5 mcbsp functional clock and aliases
+
+ MAINTAINERS                                        |  5 +-
+ arch/arm/boot/dts/rockchip/rk3128.dtsi             | 18 ++++---
+ arch/arm/boot/dts/ti/omap/omap4-l4-abe.dtsi        |  6 +++
+ arch/arm/boot/dts/ti/omap/omap4-l4.dtsi            |  2 +
+ arch/arm/boot/dts/ti/omap/omap5-l4-abe.dtsi        |  6 +++
+ arch/arm/mach-omap1/board-ams-delta.c              | 60 ++++++----------------
+ arch/arm/mach-omap1/timer32k.c                     | 14 ++---
+ arch/arm/mach-omap2/omap_hwmod.c                   |  2 +-
+ arch/arm64/boot/dts/qcom/apq8096-db820c.dts        | 32 ++++++------
+ .../arm64/boot/dts/qcom/msm8996-xiaomi-common.dtsi | 32 ++++++------
+ arch/arm64/boot/dts/qcom/msm8996-xiaomi-gemini.dts | 18 +++----
+ arch/arm64/boot/dts/qcom/sa8775p-pmics.dtsi        |  2 +-
+ .../boot/dts/rockchip/px30-ringneck-haikou.dts     | 10 ++--
+ arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4.dtsi |  1 +
+ arch/arm64/boot/dts/rockchip/rk3399.dtsi           | 10 ++++
+ arch/riscv/Kconfig                                 |  3 +-
+ arch/riscv/Kconfig.errata                          |  1 +
+ .../dts/starfive/jh7110-starfive-visionfive-2.dtsi |  2 +-
+ arch/riscv/boot/dts/thead/th1520.dtsi              |  1 +
+ drivers/cache/Kconfig                              |  2 +-
+ drivers/clk/ti/clk-44xx.c                          |  5 ++
+ drivers/clk/ti/clk-54xx.c                          |  4 ++
+ drivers/firmware/imx/imx-dsp.c                     |  2 +-
+ drivers/soc/renesas/Kconfig                        | 10 ++--
+ 24 files changed, 128 insertions(+), 120 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
