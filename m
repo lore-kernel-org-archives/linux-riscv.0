@@ -4,74 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3C89C25B48
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Oct 2023 14:56:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A536AC25B48
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Oct 2023 15:00:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-ID:Date
-	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=UcmP+A5kgFQM00vu7/yYaLkoMlJ1u0p0KgK+Q2L2oys=; b=EqU/9t5ItuTCeA
-	jhGJndJgWos15CHozcjcM5B8T4v38+OtNuKxfFaGz5so1bJo1xeYncXBymUmrLjvxQ1V5yyz3r3u2
-	vo+7NDxZo6jK3J8tviai0J1AL454y82C+9h9x28T6S5vpPtqBYIOCMrCQ82ugv+8BcHDCGLFncDrq
-	Yh2waanq3YJtCAOJAGTkWVecl3N4J/Ni6UWaNnNAPHFlJatlebwvrWOZKvhF4qAWe+gt+K45ifyfy
-	XHMLro4jFzhACtpeQz4vs3Ne8v/QrRJWBY4zKgvj+9qcmbwikf8DWgGHJVTVEt9pkmbZK8NqJdBTp
-	7chfQag9biZSjn4SwxSA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=H4ZTdhB+4EYqDIpXR3qNODAjwRkmW1hd8O9piheKO2I=; b=P/P/OvPgGkzgFj
+	XS46uiMttRswPAVjtde2uYJSrr4KLZGeg8CSUGtDQmTKzyxXCgTim3Pd4RCKhD/ElMHuXh5RAblo6
+	6tcBkke/j1gPhxZvUCTndiF7baobIsY9L7atBuMns0DbGzf/D+fGLbnw0LERhZkJQIN9BuaIAyzg1
+	lnmr+BDqUs+/UCWNlXzr28XTDKJeKB3W7OBO5Le0eMvMEY6IyaCZy/GkOHQKAuubRNI+iEfAF1W3F
+	b+Xq/zHV1AvkHTZyQe2jOyPc/W5cHFNikOxgHkY3h/qEozzmODoLk1FX9tLVRNDOGDFuHaXrnwZx6
+	G6Hqa5f7eRkPHz9PfxlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qw1m9-00EkPi-27;
-	Thu, 26 Oct 2023 14:55:57 +0000
-Received: from mail-oo1-xc2e.google.com ([2607:f8b0:4864:20::c2e])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qw1m6-00EkOa-2U
+	id 1qw1qi-00El0P-2B;
+	Thu, 26 Oct 2023 15:00:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qw1qf-00EkzY-2u
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Oct 2023 14:55:56 +0000
-Received: by mail-oo1-xc2e.google.com with SMTP id 006d021491bc7-58441865ffaso582478eaf.1
-        for <linux-riscv@lists.infradead.org>; Thu, 26 Oct 2023 07:55:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698332153; x=1698936953; darn=lists.infradead.org;
-        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:to:cc:subject:date:message-id:reply-to;
-        bh=xQSowzYBu/brUHbpJnJegcfAN9lML8q0chNAt/YME+Y=;
-        b=P5gIzK4A34O0I2xVl77/Gv5/lQ1Yjpu94qropKwLnrB1aFMXy5GrjDr6EEB5TDAoHD
-         eSkzp90an4HaaLnS8IJDZWWrtHM+c/aVpxmJ2OmB6vx5roeG31PEWe9Vgn8xREGXL0gO
-         pX+5TquV/Yzbb213PcQLkHrSNZhPw/qMnH1ZAcjU35+5ewl7C4McTV4OG2dl2u6YiVJj
-         e/Y9+HqGro/g42OMtjwW0IAk5IxjOJ9HgtgwpXBy3UK6CgUHIebKNFjXEm1LNfaag4H3
-         2v5zv3GRsfB7qMZIQTWFsWbhrsDQM3dBkCHHsAuOPiYWRnKc0EPtTmhU9P4ZrGybiSIQ
-         hecA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698332153; x=1698936953;
-        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
-         :subject:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xQSowzYBu/brUHbpJnJegcfAN9lML8q0chNAt/YME+Y=;
-        b=r8K53gryawgejgOwOP6zgqjoKaU/hbRjV8EOwHBH8Z39fJavvC7wKuvZ8Deu9eGY41
-         wbCFK37hNfhdewime0sXO3jkU/3i1KfiAXH5eLZDzT8orhGQIr/NYk3gOp4Q/xr/swQk
-         MCWLHiHzEtwi7zvLTSqOTH/VSFA7OO+5lSNO7MK5jMT9BwNGWC2JjgKazlWPuSrY2VsN
-         u1vbwnGvr716r/dYXzTYZy8+54pxfLMUUj4wjHPsw6O/pTJTy4DhOEzofrYlrRkcARLs
-         F3Z6fFDRQuXgTJ2lT5s/WNMK0Bx3tRysRI4KZwa7B9D+EC3mhk69dfzpk8A+CPZOeAd7
-         Cifg==
-X-Gm-Message-State: AOJu0Yyucm28b+5ahML8HHMtytrw8B+1Xl+Tau7ggYWsFnMHQCCYNZ/Q
-	tCSNQCAPiwDHvOnBMX8cWWoxXZUkAEXmkNjIo9Y=
-X-Google-Smtp-Source: AGHT+IFu5wOaIWbdPi12Tg4Zzkt9GVpwUy6TKZm+0i0bU4TWnO/+lh92QZydLs9cbi3Az6XXscEMTw==
-X-Received: by 2002:a4a:d397:0:b0:586:b062:f3d0 with SMTP id i23-20020a4ad397000000b00586b062f3d0mr1340385oos.7.1698332152907;
-        Thu, 26 Oct 2023 07:55:52 -0700 (PDT)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id r125-20020a4a4e83000000b0057b38a94f38sm526149ooa.12.2023.10.26.07.55.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Oct 2023 07:55:52 -0700 (PDT)
-Subject: [PATCH] RISC-V: Fix implicit definition of flush_tlb_all()
-Date: Thu, 26 Oct 2023 07:55:16 -0700
-Message-ID: <20231026145516.25866-1-palmer@rivosinc.com>
-X-Mailer: git-send-email 2.42.0
+	Thu, 26 Oct 2023 15:00:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 580512F4;
+	Thu, 26 Oct 2023 08:01:15 -0700 (PDT)
+Received: from [10.1.36.151] (XHFQ2J9959.cambridge.arm.com [10.1.36.151])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 649033F64C;
+	Thu, 26 Oct 2023 08:00:32 -0700 (PDT)
+Message-ID: <ca11d0f7-bc4c-4f05-89e8-690da2169fda@arm.com>
+Date: Thu, 26 Oct 2023 16:00:31 +0100
 MIME-Version: 1.0
-Cc: Palmer Dabbelt <palmer@rivosinc.com>
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: linux-riscv@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH -fixes 0/2] Fix set_huge_pte_at()
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Alexandre Ghiti
+ <alexghiti@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andrew Jones <ajones@ventanamicro.com>,
+ Qinglin Pan <panqinglin2020@iscas.ac.cn>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, "linux-mm@kvack.org" <linux-mm@kvack.org>
+References: <20230928151846.8229-1-alexghiti@rivosinc.com>
+ <305b4dec-c99d-3cee-4563-8d7dcbae9384@ghiti.fr>
+ <20231003090443.67a2e2692b68211e05b53248@linux-foundation.org>
+ <CAHVXubi5C0hBaXx5tqVHZAJSd1zvHRqoxUEkk9ZbmZ5mq2=mAw@mail.gmail.com>
+ <20231026071300.e12dab3be1edd26007db85ee@linux-foundation.org>
+ <32d9627c-821a-48f0-b430-0532a47b8699@ghiti.fr>
+ <36aa1ec7-df13-4741-be09-c53a05f3d591@arm.com>
+ <20231026075415.47c0a032906b604de08ed39b@linux-foundation.org>
+Content-Language: en-GB
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20231026075415.47c0a032906b604de08ed39b@linux-foundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231026_075554_806772_0D143313 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20231026_080038_039109_1501957F 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,53 +75,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Without this I get allnoconfig builds failing with
+On 26/10/2023 15:54, Andrew Morton wrote:
+> On Thu, 26 Oct 2023 15:30:44 +0100 Ryan Roberts <ryan.roberts@arm.com> wrote:
+> 
+>>>>> Those fixes finally did not make it to 6.6, I was hoping for them to
+>>>>> land in -rc6 or -rc7: for the future, what should have I done to avoid
+>>>>> that?
+>>>> They're merged in Linus's tree.
+>>>>
+>>>> 6f1bace9a9fb arm64: hugetlb: fix set_huge_pte_at() to work with all swap entries
+>>>> 935d4f0c6dc8 mm: hugetlb: add huge page size param to set_huge_pte_at()
+>>>
+>>>
+>>> Oops, sorry, I missed them this morning!
+>>
+>> Those two patches that Andrew highlights are the fix I did for arm64. Weren't
+>> you referring to the corresponding patches you did for riscv, Alex?
+> 
+> These are in mainline:
+> 
+> 1de195dd0e05 riscv: fix set_huge_pte_at() for NAPOT mappings when a swap entry is set
+> 117b1bb0cbc7 riscv: handle VM_FAULT_[HWPOISON|HWPOISON_LARGE] faults instead of panicking
 
-      CC      arch/riscv/kernel/asm-offsets.s
-    In file included from /scratch/merges/ko-linux-next/linux/arch/riscv/include/asm/pgtable.h:117,
-                     from /scratch/merges/ko-linux-next/linux/include/linux/pgtable.h:6,
-                     from /scratch/merges/ko-linux-next/linux/include/linux/mm.h:29,
-                     from /scratch/merges/ko-linux-next/linux/arch/riscv/kernel/asm-offsets.c:10:
-    /scratch/merges/ko-linux-next/linux/arch/riscv/include/asm/tlbflush.h: In function 'flush_tlb_kernel_range':
-    /scratch/merges/ko-linux-next/linux/arch/riscv/include/asm/tlbflush.h:60:9: error: implicit declaration of function 'flush_tlb_all' [-Werror=implicit-function-declaration]
-       60 |         flush_tlb_all();
+Ahh, great - I think they were probably the ones Alex was talking about.
 
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
----
- arch/riscv/include/asm/tlbflush.h | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+> 
+> I'm not sure what happened to your "riscv: hugetlb: convert
+> set_huge_pte_at() to take vma" - perhaps it was updated.
 
-diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-index a947ae3afd28..440cf8f176d4 100644
---- a/arch/riscv/include/asm/tlbflush.h
-+++ b/arch/riscv/include/asm/tlbflush.h
-@@ -11,6 +11,12 @@
- #include <asm/smp.h>
- #include <asm/errata_list.h>
- 
-+#ifdef CONFIG_SMP
-+void flush_tlb_all(void);
-+#else
-+#define flush_tlb_all() local_flush_tlb_all()
-+#endif
-+
- #ifdef CONFIG_MMU
- static inline void local_flush_tlb_all(void)
- {
-@@ -34,11 +40,6 @@ static inline void local_flush_tlb_page_asid(unsigned long addr,
- 	ALT_SFENCE_VMA_ADDR_ASID(addr, asid);
- }
- 
--#ifdef CONFIG_SMP
--void flush_tlb_all(void);
--#else
--#define flush_tlb_all() local_flush_tlb_all()
--#endif
- void flush_tlb_mm(struct mm_struct *mm);
- void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr);
- void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
--- 
-2.42.0
+I modified the approach for v2 (pass size param instead of vma) and it got
+squashed into 935d4f0c6dc8 mm: hugetlb: add huge page size param to
+set_huge_pte_at(), which is in.
 
 
 _______________________________________________
