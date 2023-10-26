@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60D85C0032E
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Oct 2023 23:02:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74AD0C25B6B
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Oct 2023 02:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nov94C+U9jHwwQdfz5iBXs75JEyPU2gdPULO8q3asws=; b=c+DJWRbgswHjd8
-	pa+IrRUSv+6FjkNIoKsLhYyAwN2IR85ArhZhfzZM6/ihedC+JOVx7uFlIN+tcVugLfXMSuMFVcP9i
-	50fQnWtDPM3KmFdQ7yw00sdo00UQonUNkEM89UTHIF9Gd3d5r/f2/3GBtIIs9uOa86ka9XyVcKM9c
-	24lLMpzCesTudIuEeZxRXWubmXhagdNHog9HIzcVRg4Rx3Vmo26UBv6tdtot+jwj88YsPCxJMehOD
-	5ofihj2+4lSnyvjZn+1UbI8VM395Q13wngIUF4ExLxTW9zODlq+XKNxBgtlf/Y3HbO5wx/dEqCKWl
-	LfLDo7HdYoxg/JpE1smA==;
+	List-Owner; bh=U3hNDQ6/7NxPljpagHQMj5UpsykYWNMjY9wRAUOppMw=; b=c0MMLydwwhoUwv
+	FjUK36IVxATo7u196T8xI5d9bpeWMp/tu/EL+5Ac9EtO2j0MtX9520Qr2FnWeWX4wG6ys2l/MewZG
+	M+whiSZgOzqsRPj1ZKwt/cWPjoqb+18iE82cWavSPYOb/3DSCqgppDWqUAB1eiuEuiFKkqZAI5pf9
+	a+xKp15+QjrOjIXybFHQmOqJPXrL23EQxaNXhITA2w5up/p6FSDDu0KsiHGZcZbcJPDFz3+ToG9B+
+	mCmUn7dhd6QsyusZg41UVYGvYvs0/ijDHEd88E70+2lZDmB2FxV6So80F5p6T+vJmAvIFf7HONfdM
+	9CwBSaqSIEdZnjzmW6TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvmt7-00DI18-0p;
-	Wed, 25 Oct 2023 23:02:09 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvmt3-00DHut-1O
+	id 1qvq1q-00DVVv-0C;
+	Thu, 26 Oct 2023 02:23:22 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qvq1l-00DVTh-0A
 	for linux-riscv@lists.infradead.org;
-	Wed, 25 Oct 2023 23:02:07 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-507c5249d55so331776e87.3
-        for <linux-riscv@lists.infradead.org>; Wed, 25 Oct 2023 16:02:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google; t=1698274923; x=1698879723; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Rbr8iJME5urol0U1nO3DOVDoIlMdwbtF6gaeh8We4Fo=;
-        b=odifo5Xab/uvamJK9EPMcBvywOg+MPS0jmCJpGkDyENqoibnrUbclRDHoMd+yZBeBO
-         PvpOwbCR45vbeK1M5eRZ+30HXzmULgzuG9Bsd9Yzgf0JHtVPRbAr86fFg6MGKzI1Gd4H
-         vycAcPREvY4znj3oHra9V6i+19cwp2QqRu3xM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698274923; x=1698879723;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Rbr8iJME5urol0U1nO3DOVDoIlMdwbtF6gaeh8We4Fo=;
-        b=U3G6K+s/lN1Ss9H3PqF3QeZ287X9BUr1+yIk/QngfsFv5ivamRR4Aani0+z+8myZ0e
-         rXYZ6r3jLnZSPbsa1J8cbS4rS4XWmrWE0Qr8vuKXLvKDW0RM7WbQ5I7J3NGj9J3/H7Q+
-         /NXVgBiaftxCS8RBsu8Wt8YGpojtcNcxnSxwAHy5MyCnGbNrZ2GgMvBwXOpoa5YXYWna
-         p46++HkL1zg3nQTT/vBF87e+ayFbmYGy8O1APS4/ThZb678wWjUCFSeUc5irvwAQiH1N
-         fsfHyyu3Ch/+tJuh3dsYeWImgmI7vYD8+73D3jEY6BhVlUu/VYQLohjcD7hBu+b2bbh6
-         Rnmg==
-X-Gm-Message-State: AOJu0YyBnCmS6FT0AqJNvFKz6lZ09Rx83tjiWzKRyNcBwbto5bcRan5/
-	dh4d669b9aW5TDZrct4TsvKEEP7zf8pKJXHQdY2t
-X-Google-Smtp-Source: AGHT+IGglrTa3+Ra8gRLa675pZ81FNyUHTdA2oTwPNQHhgAkt0L2QnRNa1mg7AxXt7UAl3gaaTOQWFp7rBml+eSN4zA=
-X-Received: by 2002:a05:6512:1382:b0:500:adbd:43e9 with SMTP id
- fc2-20020a056512138200b00500adbd43e9mr14618582lfb.15.1698274922209; Wed, 25
- Oct 2023 16:02:02 -0700 (PDT)
+	Thu, 26 Oct 2023 02:23:20 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id E873824DBFD;
+	Thu, 26 Oct 2023 10:22:35 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 26 Oct
+ 2023 10:22:35 +0800
+Received: from [192.168.125.85] (183.27.99.126) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 26 Oct
+ 2023 10:22:34 +0800
+Message-ID: <09f8a530-1bd0-4dc3-85a2-8d67fdcd0148@starfivetech.com>
+Date: Thu, 26 Oct 2023 10:22:34 +0800
 MIME-Version: 1.0
-References: <20231023082911.23242-1-luxu.kernel@bytedance.com>
-In-Reply-To: <20231023082911.23242-1-luxu.kernel@bytedance.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Wed, 25 Oct 2023 16:01:50 -0700
-Message-ID: <CAOnJCUKH0muFHWujXEqJtb4Uv6Kfh5DeJeR2qg9vj7Kc5w43dw@mail.gmail.com>
-Subject: Re: [RFC 00/12] riscv: Introduce Pseudo NMI
-To: Xu Lu <luxu.kernel@bytedance.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	tglx@linutronix.de, maz@kernel.org, anup@brainfault.org, 
-	dengliang.1214@bytedance.com, liyu.yukiteru@bytedance.com, 
-	sunjiadong.lff@bytedance.com, xieyongji@bytedance.com, 
-	lihangjing@bytedance.com, chaiwen.cc@bytedance.com, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	=?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 14/20] PCI: microchip: Add get_events() callback
+ function
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>
+CC: =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, Rob Herring
+	<robh+dt@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Daire McNamara <daire.mcnamara@microchip.com>, "Emil
+ Renner Berthing" <emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-pci@vger.kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	"Philipp Zabel" <p.zabel@pengutronix.de>, Mason Huo
+	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>
+References: <20231020104341.63157-1-minda.chen@starfivetech.com>
+ <20231020104341.63157-15-minda.chen@starfivetech.com>
+ <20231025-lizard-prideful-5223384b2c27@spud>
+From: Minda Chen <minda.chen@starfivetech.com>
+In-Reply-To: <20231025-lizard-prideful-5223384b2c27@spud>
+X-Originating-IP: [183.27.99.126]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
+ (172.16.6.91)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231025_160205_735716_775651A8 
-X-CRM114-Status: GOOD (  35.46  )
+X-CRM114-CacheID: sfid-20231025_192317_404154_18C4F45C 
+X-CRM114-Status: GOOD (  22.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,117 +80,136 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBPY3QgMjMsIDIwMjMgYXQgMToyOeKAr0FNIFh1IEx1IDxsdXh1Lmtlcm5lbEBieXRl
-ZGFuY2UuY29tPiB3cm90ZToKPgo+IFNvcnJ5IHRvIHJlc2VuZCB0aGlzIHBhdGNoIHNlcmllcyBh
-cyBJIGZvcmdvdCB0byBDYyB0aGUgb3BlbiBsaXN0IGJlZm9yZS4KPiBCZWxvdyBpcyBmb3JtYWwg
-Y29udGVudC4KPgo+IFRoZSBleGlzdGluZyBSSVNDLVYga2VybmVsIGxhY2tzIGFuIE5NSSBtZWNo
-YW5pc20gYXMgdGhlcmUgaXMgc3RpbGwgbm8KPiByYXRpZmllZCByZXN1bWFibGUgTk1JIGV4dGVu
-c2lvbiBpbiBSSVNDLVYgY29tbXVuaXR5LCB3aGljaCBjYW4gbm90Cj4gc2F0aXNmeSBzb21lIHNj
-ZW5hcmlvcyBsaWtlIGhpZ2ggcHJlY2lzaW9uIHBlcmYgc2FtcGxpbmcuIFRoZXJlIGlzIGFuCj4g
-aW5jb21pbmcgaGFyZHdhcmUgZXh0ZW5zaW9uIGNhbGxlZCBTbXJubWkgd2hpY2ggc3VwcG9ydHMg
-cmVzdW1hYmxlIE5NSQo+IGJ5IHByb3ZpZGluZyBuZXcgY29udHJvbCByZWdpc3RlcnMgdG8gc2F2
-ZSBzdGF0dXMgd2hlbiBOTUkgaGFwcGVucy4KPiBIb3dldmVyLCBpdCBpcyBzdGlsbCBhIGRyYWZ0
-IGFuZCByZXF1aXJlcyBwcml2aWxlZ2UgbGV2ZWwgc3dpdGNoZXMgZm9yCj4ga2VybmVsIHRvIHV0
-aWxpemUgaXQgYXMgTk1JcyBhcmUgYXV0b21hdGljYWxseSB0cmFwcGVkIGludG8gbWFjaGluZSBt
-b2RlLgo+Cj4gVGhpcyBwYXRjaCBzZXJpZXMgaW50cm9kdWNlcyBhIHNvZnR3YXJlIHBzZXVkbyBO
-TUkgbWVjaGFuaXNtIGluIFJJU0MtVi4KPiBUaGUgZXhpc3RpbmcgUklTQy1WIGtlcm5lbCBkaXNh
-YmxlcyBpbnRlcnJ1cHRzIHZpYSBwZXIgY3B1IGNvbnRyb2wKPiByZWdpc3RlciBDU1JfU1RBVFVT
-LCB0aGUgU0lFIGJpdCBvZiB3aGljaCBjb250cm9scyB0aGUgZW5hYmxlbWVudCBvZiBhbGwKPiBp
-bnRlcnJ1cHRzIG9mIHdob2xlIGNwdS4gV2hlbiBTSUUgYml0IGlzIGNsZWFyLCBubyBpbnRlcnJ1
-cHQgaXMgZW5hYmxlZC4KPiBUaGlzIHBhdGNoIHNlcmllcyBpbXBsZW1lbnRzIE5NSSBieSBzd2l0
-Y2hpbmcgaW50ZXJydXB0IGRpc2FibGUgd2F5IHRvCj4gYW5vdGhlciBwZXIgY3B1IGNvbnRyb2wg
-cmVnaXN0ZXIgQ1NSX0lFLiBUaGlzIHJlZ2lzdGVyIGNvbnRyb2xzIHRoZQo+IGVuYWJsZW1lbnQg
-b2YgZWFjaCBzZXBhcmF0ZSBpbnRlcnJ1cHQuIEVhY2ggYml0IG9mIENTUl9JRSBjb3JyZXNwb25k
-cwo+IHRvIGEgc2luZ2xlIG1ham9yIGludGVycnVwdCBhbmQgYSBjbGVhciBiaXQgbWVhbnMgZGlz
-YWJsZW1lbnQgb2YKPiBjb3JyZXNwb25kaW5nIGludGVycnVwdC4KPgo+IFRvIGltcGxlbWVudCBw
-c2V1ZG8gTk1JLCB3ZSBzd2l0Y2ggdG8gQ1NSX0lFIG1hc2tpbmcgd2hlbiBkaXNhYmxpbmcKPiBp
-cnFzLiBXaGVuIGludGVycnVwdHMgYXJlIGRpc2FibGVkLCBhbGwgYml0cyBvZiBDU1JfSUUgY29y
-cmVzcG9uZGluZyB0bwo+IG5vcm1hbCBpbnRlcnJ1cHRzIGFyZSBjbGVhcmVkIHdoaWxlIGJpdHMg
-Y29ycmVzcG9uZGluZyB0byBOTUlzIGFyZSBzdGlsbAo+IGtlcHQgYXMgb25lcy4gVGhlIFNJRSBi
-aXQgb2YgQ1NSX1NUQVRVUyBpcyBub3cgdW50b3VjaGVkIGFuZCBhbHdheXMga2VwdAo+IGFzIG9u
-ZS4KPgo+IFdlIG1lYXN1cmVkIHBlcmZvcm1hY25lIG9mIFBzZXVkbyBOTUkgcGF0Y2hlcyBiYXNl
-ZCBvbiB2Ni42LXJjNCBvbiBTaUZpdmUKPiBGVTc0MCBTb2Mgd2l0aCBoYWNrYmVuY2ggYXMgb3Vy
-IGJlbmNobWFyay4gVGhlIHJlc3VsdCBzaG93cyAxLjkwJQo+IHBlcmZvcm1hbmNlIGRlZ3JhZGF0
-aW9uLgo+Cj4gICAiaGFja2JlbmNoIDIwMCBwcm9jZXNzIDEwMDAiIChhdmVyYWdlIG92ZXIgMTAg
-cnVucykKPiAgICstLS0tLS0tLS0tLSstLS0tLS0tLS0tKy0tLS0tLS0tLS0tLSsKPiAgIHwgICAg
-ICAgICAgIHwgdjYuNi1yYzQgfCBQc2V1ZG8gTk1JIHwKPiAgICstLS0tLS0tLS0tLSstLS0tLS0t
-LS0tKy0tLS0tLS0tLS0tLSsKPiAgIHwgICB0aW1lICAgIHwgMjUxLjY0NnMgfCAgMjU2LjQxNnMg
-IHwKPiAgICstLS0tLS0tLS0tLSstLS0tLS0tLS0tKy0tLS0tLS0tLS0tLSsKPgo+IFRoZSBvdmVy
-aGVhZCBtYWlubHkgY29tZXMgZnJvbSB0d28gcGFydHM6Cj4KPiAgIDEuIFNhdmluZyBhbmQgcmVz
-dG9yaW5nIENTUl9JRSByZWdpc3RlciBkdXJpbmcga2VybmVsIGVudHJ5L3JldHVybi4KPiAgIFRo
-aXMgcGFydCBpbnRyb2R1Y2VzIGFib3V0IDAuNTclIHBlcmZvcm1hbmNlIG92ZXJoZWFkLgo+Cj4g
-ICAyLiBUaGUgZXh0cmEgaW5zdHJ1Y3Rpb25zIGludHJvZHVjZWQgYnkgJ2lycXNfZW5hYmxlZF9p
-ZScuIEl0IGlzIGEKPiAgIHNwZWNpYWwgdmFsdWUgcmVwcmVzZW50aW5nIG5vcm1hbCBDU1JfSUUg
-d2hlbiBpcnFzIGFyZSBlbmFibGVkLiBJdCBpcwo+ICAgaW1wbGVtZW50ZWQgdmlhIEFMVEVSTkFU
-SVZFIHRvIGFkYXB0IHRvIHBsYXRmb3JtcyB3aXRob3V0IFBNVS4gVGhpcwo+ICAgcGFydCBpbnRy
-b2R1Y2VzIGFib3V0IDEuMzIlIHBlcmZvcm1hbmNlIG92ZXJoZWFkLgo+CgpXZSBoYWQgYW4gZXZh
-bHVhdGlvbiBvZiB0aGlzIGFwcHJvYWNoIGVhcmxpZXIgdGhpcyB5ZWFyIGFuZCBjb25jbHVkZWQK
-d2l0aCB0aGUgc2ltaWxhciBmaW5kaW5ncy4KVGhlIHBzZXVkbyBOTUkgaXMgb25seSB1c2VmdWwg
-Zm9yIHByb2ZpbGluZyB1c2UgY2FzZSB3aGljaCBkb2Vzbid0CmhhcHBlbiBhbGwgdGhlIHRpbWUg
-aW4gdGhlIHN5c3RlbQpBZGRpbmcgdGhlIGNvc3QgdG8gdGhlIGhvdHBhdGggYW5kIHNhY3JpZmlj
-aW5nIHBlcmZvcm1hbmNlIGZvcgpldmVyeXRoaW5nIGZvciBzb21ldGhpbmcgZm9yIHBlcmZvcm1h
-bmNlIHByb2ZpbGluZwppcyBub3QgZGVzaXJhYmxlIGF0IGFsbC4KClRoYXQncyB3aHksIGFuIFNC
-SSBleHRlbnNpb24gU3VwZXJ2aXNvciBTb2Z0d2FyZSBFdmVudHMgKFNTRSkgaXMgdW5kZXIKZGV2
-ZWxvcG1lbnQuCmh0dHBzOi8vbGlzdHMucmlzY3Yub3JnL2cvdGVjaC1wcnMvbWVzc2FnZS81MTUK
-Ckluc3RlYWQgb2Ygc2VsZWN0aXZlIGRpc2FibGluZyBvZiBpbnRlcnJ1cHRzLCBTU0UgdGFrZXMg
-YW4gb3J0aG9nb25hbAphcHByb2FjaCB3aGVyZSBNLW1vZGUgd291bGQgaW52b2tlIGEgc3BlY2lh
-bCB0cmFwCmhhbmRsZXIuIFRoYXQgc3BlY2lhbCBoYW5kbGVyIHdpbGwgaW52b2tlIHRoZSBkcml2
-ZXIgc3BlY2lmaWMgaGFuZGxlcgp3aGljaCB3b3VsZCBiZSByZWdpc3RlcmVkIGJ5IHRoZSBkcml2
-ZXIgKGkuZS4gcGVyZiBkcml2ZXIpClRoaXMgY292ZXJzIGJvdGggZmlybXdhcmUgZmlyc3QgUkFT
-IGFuZCBwZXJmIHVzZSBjYXNlcy4KClRoZSBhYm92ZSB2ZXJzaW9uIG9mIHRoZSBzcGVjaWZpY2F0
-aW9uIGlzIGEgYml0IG91dC1vZi1kYXRlIGFuZCB0aGUKcmV2aXNlZCB2ZXJzaW9uIHdpbGwgYmUg
-c2VudCBzb29uLgpDbGVtZW50KGNjJ2QpIGhhcyBhbHNvIGRvbmUgYSBQb0Mgb2YgU1NFIGFuZCBw
-ZXJmIGRyaXZlciB1c2luZyB0aGUgU1NFCmZyYW1ld29yay4gVGhpcyByZXN1bHRlZCBpbiBhY3R1
-YWwgc2F2aW5nCmluIHBlcmZvcm1hbmNlIGZvciBSQVMvcGVyZiB3aXRob3V0IHNhY3JpZmljaW5n
-IHRoZSBub3JtYWwgcGVyZm9ybWFuY2UuCgpDbGVtZW50IGlzIHBsYW5uaW5nIHRvIHNlbmQgdGhl
-IHNlcmllcyBzb29uIHdpdGggbW9yZSBkZXRhaWxzLgoKPiBMaW1pdHM6Cj4KPiAgIENTUl9JRSBp
-cyBub3cgdXNlZCBmb3IgZGlzYWJsaW5nIGlycXMgYW5kIGFueSBvdGhlciBjb2RlIHNob3VsZAo+
-ICAgbm90IHRvdWNoIHRoaXMgcmVnaXN0ZXIgdG8gYXZvaWQgY29ycnVwdGluZyBpcnEgc3RhdHVz
-LCB3aGljaCBtZWFucwo+ICAgd2UgZG8gbm90IHN1cHBvcnQgbWFza2luZyBhIHNpbmdsZSBpbnRl
-cnJ1cHQgbm93Lgo+Cj4gICBXZSBoYXZlIHRyaWVkIHRvIGZpeCB0aGlzIGJ5IGludHJvZHVjaW5n
-IGEgcGVyIGNwdSB2YXJpYWJsZSB0byBzYXZlCj4gICBDU1JfSUUgdmFsdWUgd2hlbiBkaXNhYmxp
-bmcgaXJxcy4gVGhlbiBhbGwgb3BlcmF0YXRpb25zIG9uIENTUl9JRQo+ICAgd2lsbCBiZSByZWRp
-cmVjdGVkIHRvIHRoaXMgdmFyaWFibGUgYW5kIENTUl9JRSdzIHZhbHVlIHdpbGwgYmUKPiAgIHJl
-c3RvcmVkIGZyb20gdGhpcyB2YXJpYWJsZSB3aGVuIGVuYWJsaW5nIGlycXMuIE9idmlvdXNseSB0
-aGlzIG1ldGhvZAo+ICAgaW50cm9kdWNlcyBleHRyYSBtZW1vcnkgYWNjZXNzZXMgaW4gaG90IGNv
-ZGUgcGF0aC4KPgoKCgo+IFRPRE86Cj4KPiAgIDEuIFRoZSBhZGFwdGlvbiB0byBoeXBlcnZpc29y
-IGV4dGVuc2lvbiBpcyBvbmdvaW5nLgo+Cj4gICAyLiBUaGUgYWRhcHRpb24gdG8gYWR2YW5jZWQg
-aW50ZXJydXB0IGFyY2hpdGVjdHVyZSBpcyBvbmdvaW5nLgo+Cj4gVGhpcyB2ZXJzaW9uIG9mIFBz
-ZXVkbyBOTUkgaXMgcmViYXNlZCBvbiB2Ni42LXJjNy4KPgo+IFRoYW5rcyBpbiBhZHZhbmNlIGZv
-ciBjb21tZW50cy4KPgo+IFh1IEx1ICgxMik6Cj4gICByaXNjdjogSW50cm9kdWNlIENPTkZJR19S
-SVNDVl9QU0VVRE9fTk1JCj4gICByaXNjdjogTWFrZSBDU1JfSUUgcmVnaXN0ZXIgcGFydCBvZiBj
-b250ZXh0Cj4gICByaXNjdjogU3dpdGNoIHRvIENTUl9JRSBtYXNraW5nIHdoZW4gZGlzYWJsaW5n
-IGlycXMKPiAgIHJpc2N2OiBTd2l0Y2ggYmFjayB0byBDU1JfU1RBVFVTIG1hc2tpbmcgd2hlbiBn
-b2luZyBpZGxlCj4gICByaXNjdjoga3ZtOiBTd2l0Y2ggYmFjayB0byBDU1JfU1RBVFVTIG1hc2tp
-bmcgd2hlbiBlbnRlcmluZyBndWVzdAo+ICAgcmlzY3Y6IEFsbG93IHJlcXVlc3RpbmcgaXJxIGFz
-IHBzZXVkbyBOTUkKPiAgIHJpc2N2OiBIYW5kbGUgcHNldWRvIE5NSSBpbiBhcmNoIGlycSBoYW5k
-bGVyCj4gICByaXNjdjogRW5hYmxlIE5NSXMgZHVyaW5nIGlycXMgZGlzYWJsZWQgY29udGV4dAo+
-ICAgcmlzY3Y6IEVuYWJsZSBOTUlzIGR1cmluZyBleGNlcHRpb25zCj4gICByaXNjdjogRW5hYmxl
-IE5NSXMgZHVyaW5nIGludGVycnVwdCBoYW5kbGluZwo+ICAgcmlzY3Y6IFJlcXVlc3QgcG11IG92
-ZXJmbG93IGludGVycnVwdCBhcyBOTUkKPiAgIHJpc2N2OiBFbmFibGUgQ09ORklHX1JJU0NWX1BT
-RVVET19OTUkgaW4gZGVmYXVsdAo+Cj4gIGFyY2gvcmlzY3YvS2NvbmZpZyAgICAgICAgICAgICAg
-ICAgfCAxMCArKysrCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmggICAgICAgfCAxNyAr
-KysrKysKPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9pcnFmbGFncy5oICB8IDkxICsrKysrKysr
-KysrKysrKysrKysrKysrKysrKysrKwo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nlc3Nv
-ci5oIHwgIDQgKysKPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wdHJhY2UuaCAgICB8ICA3ICsr
-Kwo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N3aXRjaF90by5oIHwgIDcgKysrCj4gIGFyY2gv
-cmlzY3Yva2VybmVsL2FzbS1vZmZzZXRzLmMgICAgfCAgMyArCj4gIGFyY2gvcmlzY3Yva2VybmVs
-L2VudHJ5LlMgICAgICAgICAgfCAxOCArKysrKysKPiAgYXJjaC9yaXNjdi9rZXJuZWwvaGVhZC5T
-ICAgICAgICAgICB8IDEwICsrKysKPiAgYXJjaC9yaXNjdi9rZXJuZWwvaXJxLmMgICAgICAgICAg
-ICB8IDE3ICsrKysrKwo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9jZXNzLmMgICAgICAgIHwgIDYg
-KysKPiAgYXJjaC9yaXNjdi9rZXJuZWwvc3VzcGVuZF9lbnRyeS5TICB8ICAxICsKPiAgYXJjaC9y
-aXNjdi9rZXJuZWwvdHJhcHMuYyAgICAgICAgICB8IDU0ICsrKysrKysrKysrKysrLS0tLQo+ICBh
-cmNoL3Jpc2N2L2t2bS92Y3B1LmMgICAgICAgICAgICAgIHwgMTggKysrKy0tCj4gIGRyaXZlcnMv
-Y2xvY2tzb3VyY2UvdGltZXItY2xpbnQuYyAgfCAgNCArKwo+ICBkcml2ZXJzL2Nsb2Nrc291cmNl
-L3RpbWVyLXJpc2N2LmMgIHwgIDQgKysKPiAgZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1pbnRj
-LmMgICB8IDY2ICsrKysrKysrKysrKysrKysrKysrKysKPiAgZHJpdmVycy9wZXJmL3Jpc2N2X3Bt
-dV9zYmkuYyAgICAgICB8IDIxICsrKysrKy0KPiAgMTggZmlsZXMgY2hhbmdlZCwgMzQwIGluc2Vy
-dGlvbnMoKyksIDE4IGRlbGV0aW9ucygtKQo+Cj4gLS0KPiAyLjIwLjEKPgoKCi0tClJlZ2FyZHMs
-CkF0aXNoCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+
+On 2023/10/25 18:44, Conor Dooley wrote:
+> Hey,
+> 
+> On Fri, Oct 20, 2023 at 06:43:35PM +0800, Minda Chen wrote:
+>> PolarFire implements their own PCIe interrupts,
+>> which added to global PCIe field for PLDA lack of
+>> MSI controller, the interrupts to event num mapping
+>> is different to PLDA local interrupts. So add
+>> get_events() function pointer.
+> 
+> Just FYI, it's not the PLDA IP's lack of an MSI controller, it's the SoC
+> itself that doesn't have one. Last time I spoke to Daire about this, he
+> was surprised that you didn't need something similar. I might reword
+> this as
+> 
+> "PolarFire SoC implements its own PCIe interrupts, additional to the
+> regular PCIe interrupts, due to the lack of an MSI controller, so the
+> interrupt to event number mapping is different to the PLDA local
+> interrupts, necessitating a custom get_events() implementation."
+> 
+>> Also add struct plda_event_ops function pointer structure
+>> to struct plda_pcie_rp.
+> 
+> I'd probably also drop this, as it is evident from the diff.
+> 
+> Cheers,
+> Conor.
+> 
+OK. Thanks very much.
+>> plda_handle_events() will call the get_events() callback
+>> function pointer directly. For the robustness of codes,
+>> add checking in plda_init_interrupts().
+>> 
+>> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+>> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+>> ---
+>>  drivers/pci/controller/plda/pcie-microchip-host.c | 14 +++++++++++++-
+>>  drivers/pci/controller/plda/pcie-plda.h           |  8 ++++++++
+>>  2 files changed, 21 insertions(+), 1 deletion(-)
+>> 
+>> diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+>> index e57827bdb4b3..5a8c134bf643 100644
+>> --- a/drivers/pci/controller/plda/pcie-microchip-host.c
+>> +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+>> @@ -652,7 +652,7 @@ static void plda_handle_event(struct irq_desc *desc)
+>>  
+>>  	chained_irq_enter(chip, desc);
+>>  
+>> -	events = mc_get_events(port);
+>> +	events = port->event_ops->get_events(port);
+>>  
+>>  	for_each_set_bit(bit, &events, port->num_events)
+>>  		generic_handle_domain_irq(port->event_domain, bit);
+>> @@ -811,7 +811,12 @@ static int mc_request_event_irq(struct plda_pcie_rp *plda, int event_irq,
+>>  				0, event_cause[event].sym, plda);
+>>  }
+>>  
+>> +static const struct plda_event_ops mc_event_ops = {
+>> +	.get_events = mc_get_events,
+>> +};
+>> +
+>>  static const struct plda_event mc_event = {
+>> +	.event_ops         = &mc_event_ops,
+>>  	.request_event_irq = mc_request_event_irq,
+>>  	.intx_event        = EVENT_LOCAL_PM_MSI_INT_INTX,
+>>  	.msi_event         = EVENT_LOCAL_PM_MSI_INT_MSI,
+>> @@ -925,6 +930,11 @@ static int plda_init_interrupts(struct platform_device *pdev,
+>>  	int i, intx_irq, msi_irq, event_irq;
+>>  	int ret;
+>>  
+>> +	if (!event->event_ops || !event->event_ops->get_events) {
+>> +		dev_err(dev, "no get events ops\n");
+>> +		return -EINVAL;
+>> +	}
+>> +
+>>  	ret = plda_pcie_init_irq_domains(port);
+>>  	if (ret) {
+>>  		dev_err(dev, "failed creating IRQ domains\n");
+>> @@ -935,6 +945,8 @@ static int plda_init_interrupts(struct platform_device *pdev,
+>>  	if (irq < 0)
+>>  		return -ENODEV;
+>>  
+>> +	port->event_ops = event->event_ops;
+>> +
+>>  	for (i = 0; i < port->num_events; i++) {
+>>  		event_irq = irq_create_mapping(port->event_domain, i);
+>>  		if (!event_irq) {
+>> diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
+>> index fba7343f9a96..df1729095952 100644
+>> --- a/drivers/pci/controller/plda/pcie-plda.h
+>> +++ b/drivers/pci/controller/plda/pcie-plda.h
+>> @@ -102,6 +102,12 @@
+>>  #define EVENT_PM_MSI_INT_SYS_ERR		12
+>>  #define NUM_PLDA_EVENTS				13
+>>  
+>> +struct plda_pcie_rp;
+>> +
+>> +struct plda_event_ops {
+>> +	u32 (*get_events)(struct plda_pcie_rp *pcie);
+>> +};
+>> +
+>>  struct plda_msi {
+>>  	struct mutex lock;		/* Protect used bitmap */
+>>  	struct irq_domain *msi_domain;
+>> @@ -117,11 +123,13 @@ struct plda_pcie_rp {
+>>  	struct irq_domain *event_domain;
+>>  	raw_spinlock_t lock;
+>>  	struct plda_msi msi;
+>> +	const struct plda_event_ops *event_ops;
+>>  	void __iomem *bridge_addr;
+>>  	int num_events;
+>>  };
+>>  
+>>  struct plda_event {
+>> +	const struct plda_event_ops *event_ops;
+>>  	int (*request_event_irq)(struct plda_pcie_rp *pcie,
+>>  				 int event_irq, int event);
+>>  	int intx_event;
+>> -- 
+>> 2.17.1
+>> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
