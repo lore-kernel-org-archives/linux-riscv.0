@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68105C25B6B
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Oct 2023 10:41:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989A6C25B48
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Oct 2023 11:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wjviARqguA3Nr8wsk8hk0O3uTUrrF35/0olMJtblmio=; b=VAiDK9ecr0W7Vj
-	EJX5t1vuf+lHFZJXyC0IUTvSgX3CKBo4nWnsBS1iugCztJgy3JPemBTxWu4TqDhFLURm4YMGAnzlw
-	ZKUe7MWONcbnO5LfYMPVyYudQquVj1ym0qPSO3A86PMZXzvxoxnZGmZPvHUOTlPGKTC+tNmJOt8T1
-	JV0x8QikOWQ2niRRfOGpACTHMcTycdazjH6W0vFmdn8s64PrPFv1PsnTgqIb6u2JljBy7cujqvvGg
-	j9mXaNpkQkGMvstM+lspmtGCr6P7XiWMn9WzJ8283sB8ZqdsRakXK4Bqu9Gcci0IIwnlSeAFiIyqF
-	lapI8wFTnj8KOwL5Hinw==;
+	List-Owner; bh=3i/pWP3pmPnQb6NGj4CcJ8muQkVjDZLuJus5AwLbepU=; b=UtsN6TxCaAgh4/
+	6sCjzCurfJx1KjxmjB7TL1MLVU+aC/n5wjRWCYXRosi6iwW7iwR8StwGv3QavRIDYi2GdyxPR80Ag
+	PxjGlwCImxCebdr5t8mAqev5mXbdBBpFWLdi9yKYUBHVK2q7UQ5czNAyo9zV1N9cZ5E8MHohx6qDP
+	L3Hun3jtLlTIGiCkXnSPM0GXhjwkJ2TfsfE0SjuLacT8+rTXYrwV4KGrubinHXorlsdyDQgApceyV
+	XzvKd0dYPJV9Dm4GaNkgcg2RscxYNdkh1Y0PY20V5Bx/9Tz+Cet//INmh8ttcZTjIICxBSsXu0vO2
+	4e8w9rHB7uNp9EGNrOqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvxo5-00EC33-1I;
-	Thu, 26 Oct 2023 10:41:41 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvxo3-00EC2H-0i
-	for linux-riscv@lists.infradead.org;
-	Thu, 26 Oct 2023 10:41:40 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1698316890;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=O6L6DWD07tt2bFggRawWCkh8dvucnoefnFHvJXio3Cc=;
-	b=SDA2PWvd6GpZ23Q29afOzvItIzP7Dmf9HxNwShbfHzRxZjMPA4ORRmQFrk4WZqVIuYJe78
-	Jjsg0SXxwbKfifz1L23f1CdJwoxreMsFrOKuBeQJfGXO+u26WWu5ivTISfPn4+KXF0cHk/
-	huAuzWJqNSGNclPgsARofKggfNPAuZ+0plX2vdFECnfvEECG9ZCV2OgWZzy/kFyldQpKNy
-	DG2ezfPALHgpx2jG+WhLbas6xIrBHfsdS2IKEi5xAaG6qX720gEFKUw0hn3r6kdvA0wQG0
-	0TZzeFKe5acOFUy8oa/+e/DZcmRQQ1B7ook34O80PbmRILDqUAZryd/8cae/+A==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1698316890;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=O6L6DWD07tt2bFggRawWCkh8dvucnoefnFHvJXio3Cc=;
-	b=ZME73FASasBJ5RVuSkYko3ct13v8tQwEK3s0Acq8SemU/uhrkeF7J9uba6SJtkbApjKiuN
-	8qpaQyEohb9CJKDg==
-To: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Anup Patel
- <anup@brainfault.org>
-Cc: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, x86@kernel.org
-Subject: Re: [RFC PATCH] genirq/matrix: Dynamic bitmap allocation
-In-Reply-To: <20231026101957.320572-1-bjorn@kernel.org>
-References: <20231026101957.320572-1-bjorn@kernel.org>
-Date: Thu, 26 Oct 2023 12:41:30 +0200
-Message-ID: <87r0lh4qed.ffs@tglx>
+	id 1qvyPF-00ELrM-1h;
+	Thu, 26 Oct 2023 11:20:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qvyPB-00ELps-1m;
+	Thu, 26 Oct 2023 11:20:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2B8D12F4;
+	Thu, 26 Oct 2023 04:20:37 -0700 (PDT)
+Received: from [192.168.178.6] (unknown [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8CA653F738;
+	Thu, 26 Oct 2023 04:19:50 -0700 (PDT)
+Message-ID: <c000f7a3-caeb-4d75-8c88-40ed02950ec1@arm.com>
+Date: Thu, 26 Oct 2023 13:19:49 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC v3 6/6] arm64/amu: use capacity_ref_freq to set AMU ratio
+Content-Language: en-US
+To: Vincent Guittot <vincent.guittot@linaro.org>,
+ Ionela Voinescu <ionela.voinescu@arm.com>
+Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org,
+ mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com,
+ rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
+ bristot@redhat.com, vschneid@redhat.com, viresh.kumar@linaro.org,
+ lenb@kernel.org, robert.moore@intel.com, lukasz.luba@arm.com,
+ pierre.gondois@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org,
+ acpica-devel@lists.linuxfoundation.org, conor.dooley@microchip.com,
+ suagrfillet@gmail.com, ajones@ventanamicro.com, lftan@kernel.org
+References: <20231018162540.667646-1-vincent.guittot@linaro.org>
+ <20231018162540.667646-7-vincent.guittot@linaro.org>
+ <ZTbebQrK3K+JwWxR@arm.com>
+ <CAKfTPtA0KBE8TFifOEXddF9d_wqDjb4QUvgK8c0DTtyLrX0atA@mail.gmail.com>
+From: Dietmar Eggemann <dietmar.eggemann@arm.com>
+In-Reply-To: <CAKfTPtA0KBE8TFifOEXddF9d_wqDjb4QUvgK8c0DTtyLrX0atA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231026_034139_398807_F2DA7603 
-X-CRM114-Status: UNSURE (   5.29  )
+X-CRM114-CacheID: sfid-20231026_042001_638982_42EAF56A 
+X-CRM114-Status: UNSURE (   8.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,16 +73,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QmrDtnJuIQoKT24gVGh1LCBPY3QgMjYgMjAyMyBhdCAxMjoxOSwgQmrDtnJuIFTDtnBlbCB3cm90
-ZToKPiBUaG9tYXMsIHRoaXMgaXMganVzdCBGWUkvUkZDLiBUaGlzIGNoYW5nZSB3b3VsZCBvbmx5
-IG1ha2Ugc2Vuc2UsIGlmCj4gdGhlIFJJU0MtViBBSUEgc2VyaWVzIHN0YXJ0cyB1c2luZyB0aGUg
-SVJRIG1hdHJpeCBhbGxvY2F0b3IuCgpJJ20gbm90IHNlZWluZyBhbnl0aGluZyBob3JyaWJsZSB3
-aXRoIHRoYXQuCgpUaGFua3MsCgogICAgICAgIHRnbHgKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 24/10/2023 11:58, Vincent Guittot wrote:
+> On Mon, 23 Oct 2023 at 22:58, Ionela Voinescu <ionela.voinescu@arm.com> wrote:
+>>
+>> Hi,
+>>
+>> On Wednesday 18 Oct 2023 at 18:25:40 (+0200), Vincent Guittot wrote:
+>>> Use the new capacity_ref_freq to set the ratio that is used by AMU for
+>>> computing the arch_scale_freq_capacity().
+>>> This helps to keep everything aligned using the same reference for
+>>> computing CPUs capacity.
+>>>
+>>> The default value of the ratio ensures that arch_scale_freq_capacity()
+>>> returns max capacity until it is set to its correct value with the
+>>> cpu capacity and capacity_ref_freq.
+
+Nitpick: Could you mention that arch_max_freq_scale is the default value
+for this ratio? Took me a while to recreate the (not so simple) story
+for this change, i.e. make the connection between ratio and
+arch_max_freq_scale.
+
+init_cpu_capacity_callback()
+
+  freq_inv_set_max_ratio()
+
+    u64 ratio
+    ...
+    per_cpu(arch_max_freq_scale, cpu) = (unsigned long)ratio
+            ^^^^^^^^^^^^^^^^^^^
+
+
+static struct scale_freq_data amu_sfd = {
+        .set_freq_scale = amu_scale_freq_tick,
+}
+
+#define arch_scale_freq_tick topology_scale_freq_tick
+
+topology_scale_freq_tick()
+
+  sfd->set_freq_scale()
+
+
+amu_scale_freq_tick()
+
+  ...
+  scale *= this_cpu_read(arch_max_freq_scale)
+                         ^^^^^^^^^^^^^^^^^^^
+  ...
+  this_cpu_write(arch_freq_scale, (unsigned long)scale);
+
+
+#define arch_scale_freq_capacity topology_get_freq_scale
+
+topology_get_freq_scale(cpu)
+
+  return per_cpu(arch_freq_scale, cpu)
+
+[...]
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
