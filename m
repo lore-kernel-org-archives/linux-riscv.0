@@ -4,60 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAE93C25B48
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Oct 2023 17:26:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11554C25B67
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Oct 2023 17:41:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3v2XwiF4croLwB8cM/ed7jkK1DU8+ASPvRLyfH4tpxE=; b=jXp8D323hUsOzF
-	t3ZhxsYgFYwuuT7RcIqgYXLN6E3ztKfcfr5kMbsyQ1W+3n8BVkGiE3IOdAMdPUSl0CrPyZ1u9USf5
-	JlWjdhlFVlwF3+Fz0/TX0zdTp/O3dTgYs0UWq1YO/22hcWAhsMutkeD2C/cnoo3Tzl4NezuNU5TkO
-	4AH8dC8eZ7yI83C1hjp4T6qB4tI1mXVmHYCxaG2Od/EBQ6Tw4bIjrd8W+7EKhij2bByX0MWt1Uq/u
-	qYJAEPA3dX6+eAbMIo5oT8cFb9a0C+KvHyuyaNQny68/LJX3Lh8vtFH9QxBvBf8mDEtBg48rxmKDe
-	+G5THKQKSzf5z+gvqfkg==;
+	List-Owner; bh=x1THvAiQEbGetBvGHvPVfYZPpcK2bRS57FtA2ZsaP4w=; b=WBJ9w2Cs9rFrqq
+	CbTeRQcurlrR+LMz46OENw+akfZspZS+E+eS7FmMbBtmOY4bdbCPB1EnFY3Wvy0UVif5LEmVowo1l
+	M9Ps93rAalVKDbp/yikruwnj2zlHCnwi6ZrSIJXtSO2xSePhTJCVfW+Ssc9rEveo/ggjhIZSzfDei
+	SgR6/Q/PaCmDhiKtKh7nHJgxJmQBUHP50HDXdDsiNPOTwEkh+UdkNnO7PvCEnovYsntlIspxKNsrt
+	J0jfSkX4MXOeXnVD3WEuSM//0KIvpb5ff3GOv8+J17dhsFsjd4a3PCFGDSTTsqO3g94PjuY5oLeai
+	ZC7bIjcLAB8f/mb+70YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qw486-00EvRf-0k;
-	Thu, 26 Oct 2023 17:26:46 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1qw4MS-00EwDi-2e;
+	Thu, 26 Oct 2023 17:41:36 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qw483-00EvQx-0U
+	id 1qw4MP-00EwCi-2P
 	for linux-riscv@lists.infradead.org;
-	Thu, 26 Oct 2023 17:26:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 82596B837C6;
-	Thu, 26 Oct 2023 17:26:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF22CC433C7;
-	Thu, 26 Oct 2023 17:26:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1698341201;
-	bh=7BAeAfW71dln/XhU+dLMLgzw3nnXeBMswiuhD606WIo=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=s3db95fI/eHkyzmx5IJp8Fd/n3POMb+po5Nmw5rzw1WR2hsZBiEn5HHKb6TsoPlom
-	 S7irqxF2d/EQl6eTpQMMaKPyV9tani0dtK9imvy/yCvLOAienXTZImKk8Ku1f/aRa0
-	 Nw4OnLdjX6eJHzclFXGU6FCZzwTa9MoSlDhE9bveYUqYAMA42vm2RmryvohRVjMdEH
-	 jL5GuQ7vv9OD8IOSQqdbALt5ei7+tNzMoXqtNLmLN2I9gU9pRL4YOSLikvvoOmXIil
-	 SrHMQxGhCZLAVtBGIS97p3/jSbnlyvlcnmmTHRRFuHA0wow7gHnrcXDn3/uAkx18l9
-	 U7J00d24d6eJQ==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Anup Patel <anup@brainfault.org>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@rivosinc.com>,
- Thomas Gleixner <tglx@linutronix.de>, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, x86@kernel.org
-Subject: Re: [RFC PATCH] genirq/matrix: Dynamic bitmap allocation
-In-Reply-To: <CAK9=C2Vcbq_ReGcK51uOYp+M2hakz=9=RNHaHFMbfxhth_4cnA@mail.gmail.com>
-References: <20231026101957.320572-1-bjorn@kernel.org>
- <CAK9=C2Vcbq_ReGcK51uOYp+M2hakz=9=RNHaHFMbfxhth_4cnA@mail.gmail.com>
-Date: Thu, 26 Oct 2023 19:26:38 +0200
-Message-ID: <87a5s5z44x.fsf@all.your.base.are.belong.to.us>
+	Thu, 26 Oct 2023 17:41:34 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-9ae2cc4d17eso189857966b.1
+        for <linux-riscv@lists.infradead.org>; Thu, 26 Oct 2023 10:41:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1698342091; x=1698946891; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=ITpuqAIYuX9E93fc5T+jENg/qhVTutVfi31bFRSkPpE=;
+        b=CcV950TL34xSlBlEGPeuUsaHQx8Eao7NGWPh6ARL78TitkxVwCEaMBR2hyLGvFYWJL
+         VvD6HjFrkX3Vwdd6u5h0E9lnB62SK8HwQ/IE9LSvuFKl3I0K9sFWiqTCObyV2d3rrGo1
+         +tUBUY6zlF6ajbfavpucPR/RczLr7mblhY6Ws=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1698342091; x=1698946891;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ITpuqAIYuX9E93fc5T+jENg/qhVTutVfi31bFRSkPpE=;
+        b=KwlxJ71cJiICq3L5ucZPZr/1k6p2NLpL2zKt/3ZqK86t2DzrMn7iLdB5n2lhRDTY5s
+         R36CQ4yYfs1iT2hsmejCuuxgGvo9NUTlIuDejnabZJGUEexW6LFUIK24/ik3IoN3Vf73
+         /2aKZRjLpjto4UkvpPwWBIAw/F5Vo6H9Weqw61qtQJ7uSChocbTSB9jZWDH8nQDG5CpR
+         dVQ/E5PfLp0BDlittrqfB2mTMQNEtkx3oNyghRebXVgUA/us/WKwl+Ue8hdbH4JD1Js0
+         lweLZ8NiCj44yEOmjYaPxVzRGGMSNQeltBRmZkgWRgEFQu/UFbjwvOBl4p0kJyI1KF1C
+         fLaQ==
+X-Gm-Message-State: AOJu0Yyjuk4fUA+R2juUb6PVCShHWGnv9FpUjZIB3JFTdWe+VmOc7pgX
+	1ndvdZhQwAVAFZQINSveMLhmMnhT+1Nh++ltEDhoZL3d
+X-Google-Smtp-Source: AGHT+IHLh7VWlkXnh2ivVyMu2VqWqL0Y+IlQtzPtlz1z/pLxzxm8JjAT/TIW+NtRbjw4vDMCAOEEqQ==
+X-Received: by 2002:a17:907:2cc4:b0:9c2:a072:78c4 with SMTP id hg4-20020a1709072cc400b009c2a07278c4mr322510ejc.25.1698342091572;
+        Thu, 26 Oct 2023 10:41:31 -0700 (PDT)
+Received: from mail-ed1-f43.google.com (mail-ed1-f43.google.com. [209.85.208.43])
+        by smtp.gmail.com with ESMTPSA id 17-20020a17090602d100b009b2ca104988sm11953076ejk.98.2023.10.26.10.41.31
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Oct 2023 10:41:31 -0700 (PDT)
+Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-53e04b17132so1922200a12.0
+        for <linux-riscv@lists.infradead.org>; Thu, 26 Oct 2023 10:41:31 -0700 (PDT)
+X-Received: by 2002:a05:6402:206c:b0:53e:ba3d:acb9 with SMTP id
+ bd12-20020a056402206c00b0053eba3dacb9mr382618edb.24.1698342085802; Thu, 26
+ Oct 2023 10:41:25 -0700 (PDT)
 MIME-Version: 1.0
+References: <ecd2fc55-8135-4b70-be85-24dbc773fb70@app.fastmail.com>
+In-Reply-To: <ecd2fc55-8135-4b70-be85-24dbc773fb70@app.fastmail.com>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Thu, 26 Oct 2023 07:41:07 -1000
+X-Gmail-Original-Message-ID: <CAHk-=wjjY4h1TFir3V3DWSboF4=7buYezo-ZiTvQmMDeAK+30g@mail.gmail.com>
+Message-ID: <CAHk-=wjjY4h1TFir3V3DWSboF4=7buYezo-ZiTvQmMDeAK+30g@mail.gmail.com>
+Subject: Re: [GIT PULL] ARM: SoC fixes for 6.7, part 3
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	soc@kernel.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231026_102643_348643_6549474F 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20231026_104133_790630_BB9D3878 
+X-CRM114-Status: UNSURE (   6.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,31 +90,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QW51cCBQYXRlbCA8YXBhdGVsQHZlbnRhbmFtaWNyby5jb20+IHdyaXRlczoKCj4gT24gVGh1LCBP
-Y3QgMjYsIDIwMjMgYXQgMzo1MOKAr1BNIEJqw7ZybiBUw7ZwZWwgPGJqb3JuQGtlcm5lbC5vcmc+
-IHdyb3RlOgo+Pgo+PiBGcm9tOiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+Cj4+
-Cj4+IFNvbWUgKGZ1dHVyZSkgdXNlcnMgb2YgdGhlIGlycSBtYXRyaXggYWxsb2NhdG9yLCBkbyBu
-b3Qga25vdyB0aGUgc2l6ZQo+PiBvZiB0aGUgbWF0cml4IGJpdG1hcHMgYXQgY29tcGlsZSB0aW1l
-Lgo+Pgo+PiBUbyBhdm9pZCB3YXN0aW5nIG1lbW9yeSBvbiB1bm5lY2Vzc2FyeSBsYXJnZSBiaXRt
-YXBzLCBzaXplIHRoZSBiaXRtYXAKPj4gYXQgbWF0cml4IGFsbG9jYXRpb24gdGltZS4KPj4KPj4g
-U2lnbmVkLW9mZi1ieTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgo+PiAtLS0K
-Pj4gSGVyZSdzIGEgY2xlYW5lZCB1cCwgYm9vdCB0ZXN0ZWQsIHByb3BlciBwYXRjaC4KPj4KPj4g
-VGhvbWFzLCB0aGlzIGlzIGp1c3QgRllJL1JGQy4gVGhpcyBjaGFuZ2Ugd291bGQgb25seSBtYWtl
-IHNlbnNlLCBpZgo+PiB0aGUgUklTQy1WIEFJQSBzZXJpZXMgc3RhcnRzIHVzaW5nIHRoZSBJUlEg
-bWF0cml4IGFsbG9jYXRvci4KPgo+IEkgaGF2ZSBkcm9wcGVkICJtdWx0aS1NU0kiIHN1cHBvcnQg
-ZnJvbSB0aGUgQUlBIHYxMiBzZXJpZXMKPiBhbmQgYWxzbyBpbnRlZ3JhdGVkIHRoZSBJUlEgbWF0
-cml4IGFsbG9jYXRvci4gVGhpcyBwYXRjaCBpcwo+IGluY2x1ZGVkIGluIHRoZSBBSUEgdjEyIHNl
-cmllcy4KCk9rIQoKPiBGb3IgcmVmZXJlbmNlLCBsb29rIGF0IHJpc2N2X2FpYV92MTIgYnJhbmNo
-IGF0Ogo+IGh0dHBzOi8vZ2l0aHViLmNvbS9hdnBhdGVsL2xpbnV4LmdpdAo+Cj4gSSBzdGlsbCBu
-ZWVkIHRvIHJlYmFzZSB0aGlzIHVwb24gZGV2aWNlIE1TSSBkb21haW4gc3VwcG9ydAo+IGZyb20g
-VGhvbWFzLgoKTm90ZSB0aGF0IHRoZSBwZXItZGV2aWNlIGRvbWFpbiBzdXBwb3J0IGlzIGFscmVh
-ZHkgdXBzdHJlYW0sIGl0J3Mgb25seQp0aGUgQVJNIGNsZWFudXBzIHRoYXQgYXJlIG5vdC4KCklP
-VywgdGhlcmUncyBubyBuZWVkIHRvIHdhaXQgZm9yIHRoZSBBUk0gY2xlYW51cHMuIDotKQoKCkJq
-w7ZybgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Thu, 26 Oct 2023 at 05:23, Arnd Bergmann <arnd@arndb.de> wrote:
+>
+> ARM: SoC fixes for 6.7, part 3
+>
+> A couple of platforms have some last-minute fixes for 6.7 [...]
+
+The "last-minute" makes me thinkyou mean 6.6?
+
+The 6.7 merge window hasn't quite opened yet.
+
+                Linus
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
