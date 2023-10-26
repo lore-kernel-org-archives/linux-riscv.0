@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989A6C25B48
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Oct 2023 11:20:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D649C25B48
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Oct 2023 11:54:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3i/pWP3pmPnQb6NGj4CcJ8muQkVjDZLuJus5AwLbepU=; b=UtsN6TxCaAgh4/
-	6sCjzCurfJx1KjxmjB7TL1MLVU+aC/n5wjRWCYXRosi6iwW7iwR8StwGv3QavRIDYi2GdyxPR80Ag
-	PxjGlwCImxCebdr5t8mAqev5mXbdBBpFWLdi9yKYUBHVK2q7UQ5czNAyo9zV1N9cZ5E8MHohx6qDP
-	L3Hun3jtLlTIGiCkXnSPM0GXhjwkJ2TfsfE0SjuLacT8+rTXYrwV4KGrubinHXorlsdyDQgApceyV
-	XzvKd0dYPJV9Dm4GaNkgcg2RscxYNdkh1Y0PY20V5Bx/9Tz+Cet//INmh8ttcZTjIICxBSsXu0vO2
-	4e8w9rHB7uNp9EGNrOqQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GvTmtyIKIoVWRJtFWCPrVLPhiegGP8odZ8xaNZvnZZs=; b=ONINShHx9zXUKZUyF0yPm5l6Jf
+	aT9YDlAAsRy+9JCXvSyOUiemTl2f0QiUVwGBPZrkadEmvlV1fy8GCjZT06gUrR8IdMgA4ZYsTEUfY
+	GMKhaOt4x4why+LTrTdQA9FKZEnlgKEGtEMzvfsBhOXZnzHW3p/rOPc3npXBHASFutMjwIgtSNrKl
+	6mflR1MRTjCo3PgBlBGNYow6EKqvRMDQe+mByTGqM2IzsfrjPBv9diXSrtSrX/5P1miqxs5hHL/De
+	uZ3hp7mMvwax31E1+8ioSBgCeBBkYY71gOOlUevkYvGhTPf9MF7FbCHIfFEZz5DnjR18c8V0xh2TS
+	cmneS1kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvyPF-00ELrM-1h;
-	Thu, 26 Oct 2023 11:20:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qvyPB-00ELps-1m;
-	Thu, 26 Oct 2023 11:20:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2B8D12F4;
-	Thu, 26 Oct 2023 04:20:37 -0700 (PDT)
-Received: from [192.168.178.6] (unknown [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8CA653F738;
-	Thu, 26 Oct 2023 04:19:50 -0700 (PDT)
-Message-ID: <c000f7a3-caeb-4d75-8c88-40ed02950ec1@arm.com>
-Date: Thu, 26 Oct 2023 13:19:49 +0200
+	id 1qvyw2-00EOfX-2z;
+	Thu, 26 Oct 2023 11:53:58 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qvyvz-00EOeO-2Q
+	for linux-riscv@lists.infradead.org;
+	Thu, 26 Oct 2023 11:53:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 9E629CE3ED4;
+	Thu, 26 Oct 2023 11:53:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50C18C433C7;
+	Thu, 26 Oct 2023 11:53:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1698321232;
+	bh=je+DADXCoX+kCTmWmZq0ysK4G7kIaCSpTWt8Az7jl+8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WthaQ/2T2IwZQyvxbjc8i6TLCZH6R0bxGgKm3P19AQmdfpQ6FpjwwvQFGWuJlmFZh
+	 tm7fXvL65CzQ5c33upmgr/CpnC+NcEfl7NPZYHB61Dli32HyEHjHTAEm7TVcOCAW6u
+	 WX/pzPDujgTi+qekKeBkEKa/w3xdlsSoHtKQqepic+zDucRuItVq9HOI76c1zy0Fnj
+	 tcQZxaUmgfx/DxBjhYrjFnhrEajLGZHbOZ1pNFf23+sav93OnPXQUIreqClHVVFSWC
+	 4P6xH7xxp6pLnMn6QqN5PTG1/GsT6u4FVHAjey/Jdqt/t8/DPsiwi5Y8eT5xbu0gKF
+	 PO2YZ9C1j9ydw==
+Date: Thu, 26 Oct 2023 13:53:48 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Keith Zhao <keith.zhao@starfivetech.com>, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Sumit Semwal <sumit.semwal@linaro.org>, 
+	Emil Renner Berthing <kernel@esmil.dk>, Shengyang Chen <shengyang.chen@starfivetech.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Jagan Teki <jagan@edgeble.ai>, Rob Herring <robh+dt@kernel.org>, 
+	Chris Morgan <macromorgan@hotmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Bjorn Andersson <andersson@kernel.org>, Changhuang Liang <changhuang.liang@starfivetech.com>, 
+	Jack Zhu <jack.zhu@starfivetech.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Shawn Guo <shawnguo@kernel.org>, christian.koenig@amd.com
+Subject: Re: [PATCH v2 6/6] drm/vs: Add hdmi driver
+Message-ID: <344veqjvvwlo7vls2kdlgjggf77of2ijxwc2hmk7tarm75ugcs@bmozk23uqxqr>
+References: <20231025103957.3776-1-keith.zhao@starfivetech.com>
+ <20231025103957.3776-7-keith.zhao@starfivetech.com>
+ <70805ff2-56a8-45e1-a31c-ffb0e84749e5@linaro.org>
+ <3twc4zoohon7uujypgjtlnryfmebx4osvpykagnwr5nemmqz2w@w4vw55uswebh>
+ <CAA8EJppxQ7J8DEDFsWzPL8bDpNW-KY0nhUA++zDBRpMCpP-bkA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC v3 6/6] arm64/amu: use capacity_ref_freq to set AMU ratio
-Content-Language: en-US
-To: Vincent Guittot <vincent.guittot@linaro.org>,
- Ionela Voinescu <ionela.voinescu@arm.com>
-Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org,
- mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com,
- rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
- bristot@redhat.com, vschneid@redhat.com, viresh.kumar@linaro.org,
- lenb@kernel.org, robert.moore@intel.com, lukasz.luba@arm.com,
- pierre.gondois@arm.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org,
- acpica-devel@lists.linuxfoundation.org, conor.dooley@microchip.com,
- suagrfillet@gmail.com, ajones@ventanamicro.com, lftan@kernel.org
-References: <20231018162540.667646-1-vincent.guittot@linaro.org>
- <20231018162540.667646-7-vincent.guittot@linaro.org>
- <ZTbebQrK3K+JwWxR@arm.com>
- <CAKfTPtA0KBE8TFifOEXddF9d_wqDjb4QUvgK8c0DTtyLrX0atA@mail.gmail.com>
-From: Dietmar Eggemann <dietmar.eggemann@arm.com>
-In-Reply-To: <CAKfTPtA0KBE8TFifOEXddF9d_wqDjb4QUvgK8c0DTtyLrX0atA@mail.gmail.com>
+In-Reply-To: <CAA8EJppxQ7J8DEDFsWzPL8bDpNW-KY0nhUA++zDBRpMCpP-bkA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231026_042001_638982_42EAF56A 
-X-CRM114-Status: UNSURE (   8.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231026_045356_133736_794BF381 
+X-CRM114-Status: GOOD (  24.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,71 +79,116 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4661358420385358037=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 24/10/2023 11:58, Vincent Guittot wrote:
-> On Mon, 23 Oct 2023 at 22:58, Ionela Voinescu <ionela.voinescu@arm.com> wrote:
->>
->> Hi,
->>
->> On Wednesday 18 Oct 2023 at 18:25:40 (+0200), Vincent Guittot wrote:
->>> Use the new capacity_ref_freq to set the ratio that is used by AMU for
->>> computing the arch_scale_freq_capacity().
->>> This helps to keep everything aligned using the same reference for
->>> computing CPUs capacity.
->>>
->>> The default value of the ratio ensures that arch_scale_freq_capacity()
->>> returns max capacity until it is set to its correct value with the
->>> cpu capacity and capacity_ref_freq.
 
-Nitpick: Could you mention that arch_max_freq_scale is the default value
-for this ratio? Took me a while to recreate the (not so simple) story
-for this change, i.e. make the connection between ratio and
-arch_max_freq_scale.
-
-init_cpu_capacity_callback()
-
-  freq_inv_set_max_ratio()
-
-    u64 ratio
-    ...
-    per_cpu(arch_max_freq_scale, cpu) = (unsigned long)ratio
-            ^^^^^^^^^^^^^^^^^^^
+--===============4661358420385358037==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="6ydghz6j3eeoumtu"
+Content-Disposition: inline
 
 
-static struct scale_freq_data amu_sfd = {
-        .set_freq_scale = amu_scale_freq_tick,
-}
+--6ydghz6j3eeoumtu
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-#define arch_scale_freq_tick topology_scale_freq_tick
+On Thu, Oct 26, 2023 at 11:57:22AM +0300, Dmitry Baryshkov wrote:
+> On Thu, 26 Oct 2023 at 11:07, Maxime Ripard <mripard@kernel.org> wrote:
+> >
+> > On Thu, Oct 26, 2023 at 01:23:53AM +0300, Dmitry Baryshkov wrote:
+> > > > +static int starfive_hdmi_register(struct drm_device *drm, struct s=
+tarfive_hdmi *hdmi)
+> > > > +{
+> > > > +   struct drm_encoder *encoder =3D &hdmi->encoder;
+> > > > +   struct device *dev =3D hdmi->dev;
+> > > > +
+> > > > +   encoder->possible_crtcs =3D drm_of_find_possible_crtcs(drm, dev=
+->of_node);
+> > > > +
+> > > > +   /*
+> > > > +    * If we failed to find the CRTC(s) which this encoder is
+> > > > +    * supposed to be connected to, it's because the CRTC has
+> > > > +    * not been registered yet.  Defer probing, and hope that
+> > > > +    * the required CRTC is added later.
+> > > > +    */
+> > > > +   if (encoder->possible_crtcs =3D=3D 0)
+> > > > +           return -EPROBE_DEFER;
+> > > > +
+> > > > +   drm_encoder_helper_add(encoder, &starfive_hdmi_encoder_helper_f=
+uncs);
+> > > > +
+> > > > +   hdmi->connector.polled =3D DRM_CONNECTOR_POLL_HPD;
+> > > > +
+> > > > +   drm_connector_helper_add(&hdmi->connector,
+> > > > +                            &starfive_hdmi_connector_helper_funcs);
+> > > > +   drmm_connector_init(drm, &hdmi->connector,
+> > > > +                       &starfive_hdmi_connector_funcs,
+> > > > +                       DRM_MODE_CONNECTOR_HDMIA,
+> > >
+> > > On an embedded device one can not be so sure. There can be MHL or HDMI
+> > > Alternative Mode. Usually we use drm_bridge here and drm_bridge_conne=
+ctor.
+> >
+> > On an HDMI driver, it's far from being a requirement, especially given
+> > the limitations bridges have.
+>=20
+> It's a blessing that things like MHL / HDMI-in-USB-C / HDMI-to-MyDP
+> are not widely used in the wild and are mostly non-existing except
+> several phones that preate wide DP usage.
 
-topology_scale_freq_tick()
+And those can be supported without relying on bridges.
 
-  sfd->set_freq_scale()
+> Using drm_connector directly prevents one from handling possible
+> modifications on the board level. For example, with the DRM connector
+> in place, handling a separate HPD GPIO will result in code duplication
+> from the hdmi-connector driver. Handling any other variations in the
+> board design (which are pretty common in the embedded world) will also
+> require changing the driver itself. drm_bridge / drm_bridge_connector
+> save us from those issues.
+
+And we have other solutions there too. Like, EDIDs are pretty much in
+the same spot with a lot of device variations, but it also works without
+a common driver. I'd really wish we were having less bridges and more
+helpers, but here we are.
+
+> BTW: what are the limitations of the drm_bridge wrt. HDMI output? I'm
+> asking because we heavily depend on the bridge infrastructure for HDMI
+> output. Maybe we are missing something there, which went unnoticed to
+> me and my colleagues.
+
+A bridge cannot extend the connector state or use properties, for
+example. It works for basic stuff but falls apart as soon as you're
+trying to do something slightly advanced.
+
+Maxime
+
+--6ydghz6j3eeoumtu
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRcEzekXsqa64kGDp7j7w1vZxhRxQUCZTpTTAAKCRDj7w1vZxhR
+xbLFAP4unIAE0v+sEMAKIEHtzqjUKfaDRvFMhet0vamy7Zof+QD/dgmnLOex7TJ1
+wA5XuQ2uivS+Cv7xrc3HS7yTI5xVjAE=
+=5wik
+-----END PGP SIGNATURE-----
+
+--6ydghz6j3eeoumtu--
 
 
-amu_scale_freq_tick()
-
-  ...
-  scale *= this_cpu_read(arch_max_freq_scale)
-                         ^^^^^^^^^^^^^^^^^^^
-  ...
-  this_cpu_write(arch_freq_scale, (unsigned long)scale);
-
-
-#define arch_scale_freq_capacity topology_get_freq_scale
-
-topology_get_freq_scale(cpu)
-
-  return per_cpu(arch_freq_scale, cpu)
-
-[...]
-
+--===============4661358420385358037==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4661358420385358037==--
+
