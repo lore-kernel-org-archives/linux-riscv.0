@@ -4,84 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27247C25B6F
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Oct 2023 19:31:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0F79C25B6F
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Oct 2023 19:31:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7ZYfFZLyh1BgUq5Ki/YGB3ZLHn18NPg45vte2WNEP+c=; b=KPBGb80mWp5A0j
-	VlGFx9YKlhKUIfcy1CYEibpPbwifQdVTD5JYkAwtplrT0B/fMJsrR9YnKQhO96npRw01HUM1/0o4/
-	ZEw2vXn7WcRV+M3ZJghDJ4pXhTxKh6LJVnRzOyOHhTZ5xtn+bFvPgKnnJ5Nv7t7ubCV7jeE3OABrc
-	girQMAN32KCPR+zLT2VEf7m4mQo20iatdOyDTvVwCR5v1PLSlsNy0R+nr6MakiQgH5rGFtaJsS9F9
-	e549a6lMbmxH5VXemlZJAK0zwPS4Mx2glL5aVCB/ULPvl52UiAF2WXOXC14fhkx+ouIXfe4EodYXs
-	P7Srm/pSFhl6JOHinefg==;
+	List-Owner; bh=huAc0tHQgNc1+FWrPe9l5cqRQnlohbnkvSS6cj3ZHFo=; b=fKTw6I8PFqxq2p
+	JCzP4Fm0f39PKymOvBsdmkq4lkKx/cFoDoQOLWhUu3jJKNVEeX7loF/6/l1w1ulh3CDDhj2r6oSnM
+	w1xIRxTxJoESmvGe8u1stpFxHMvyLV9WjCH6v2LtDLNIMg3wguGggQE4llAWyjrPkD2vbCN9fZLnA
+	Y7bSoPZZdoNj7lZev6b1abXm1b8KETRf5ySb6n03qHHaw6ZCAtOmyRqoCwW9U1kBOuyHB2G6Bp8DQ
+	iAX83IToGh+TuBQ8cQeSBR+AFmjd4X3GTRJyJgKsgO9aCBMzyt49eQU8xW+bE5pLSvo6uUcbYuo69
+	mEup55TLga3DKe4uRHvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qwSXo-00H5KH-0A;
-	Fri, 27 Oct 2023 19:30:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1qwSXs-00H5NM-0a;
+	Fri, 27 Oct 2023 19:31:00 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qwRTk-00GwsY-1e
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 27 Oct 2023 18:22:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=QjG+iTAl+MysAoCDX0shLrWGCG7e9aCGlo9+qs2tVnE=; b=KInSf+oATlBEOpZpQQFxabVY2y
-	XpZZPZKKT0/Rtyh1pX91QYE6stCV0e6tBrHg86tzfRsasrPdJ+x2rYP/9U9xrsRao4LCO5085XJ1n
-	VCLWvAlionSyxrnQSKm89eUsKgEpv0LopiSTpjYcCPxhGMhSNfh0v4kz1msQ0RxysaE+78J2e2vav
-	ehfcHbUwr7WOcvGErQNaBSQtfnHKq6VtDMWzfPLH7M0/Ydzvbkr9PpfV6Aylzua2NOoP+X9I4pHey
-	Md1XkjTqB1t2aDtQlkmXfIPfxvveQaDeYlUIYD6dnNwn9Jr7fABysTs9/9AO7PCWx0pvu0IsQymNu
-	5Ex8sOWQ==;
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qwRTg-000uT5-2v
+	id 1qwRTu-00Gx1l-1m
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Oct 2023 18:22:39 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-5b053454aeeso2262137b3.0
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Oct 2023 11:22:35 -0700 (PDT)
+	Fri, 27 Oct 2023 18:22:52 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-59b5a586da6so22562347b3.1
+        for <linux-riscv@lists.infradead.org>; Fri, 27 Oct 2023 11:22:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1698430953; x=1699035753; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1698430969; x=1699035769; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=QjG+iTAl+MysAoCDX0shLrWGCG7e9aCGlo9+qs2tVnE=;
-        b=dxOVMbCDl9g25wVioTBYtDL97jXaioqbdrQIr7skwbQExg5gSOdbOmhzDoV5W/k2S1
-         61JBb87xFvbSEkOIefRAfu34pLGs2lWJBQVzmporomI5srS9sgMNF7cesAehjs2vzmNZ
-         nBnpmQYwOlHPI0sJ9fsixobbOGWE7s1Jffv7aQijZrf7QZWA0F1A/tZ5cKspPgyxM5J8
-         TJIya2UhjxEVnH+rCbx0hu40xebOWyDeLhB2f0Z2ze27gvJu2E/A1cVkrCN4q2q28aW2
-         sAT59SGFS7blpdhun+nW3HOc/wr2QXuemiwKFALjUrfLFQvOIkPtgGek4bozKjQhKhDb
-         YNNQ==
+        bh=MfwjFnr1wNHEBMs743caMc0qlRTo5HMEnN08vNH/OXQ=;
+        b=PE9VtZTS+hWfzU76IC6a6SpVUlI/n1OIF78g3qcpWaBlkKBHdosM7YqhXltCB3U7N4
+         2xorRngZOR0Y+c1QB2AqRW1MSea7N7VqGYhszQvjmhoZtdnNO0ii6u7iR/1KB86XoGfm
+         ioeou3Aad98tdzCL5DNQwNv/Bb6HqE+J8femYqX4o9GfvZ6FyPVEZJG1rBgn/qrg2CC/
+         ebu6FD2igR+6z7PVF6J0dZjc9z9034FTwWt9dbsi3x7sHfZvLW1D5mifQYwdywYmkflj
+         GhMY9InGeWMEtL3MiHNQpP0malE8qZxfpDEOtDI8jSu7mQhjlTaLSgJHXK1v+SINB0Qz
+         oqxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698430953; x=1699035753;
+        d=1e100.net; s=20230601; t=1698430969; x=1699035769;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=QjG+iTAl+MysAoCDX0shLrWGCG7e9aCGlo9+qs2tVnE=;
-        b=H78NIAA0w/tp71YfFm+/H6h6VVN/WQNx9POjoQed+P3u4TP1Lvz0F5SSSapzKDJGzL
-         hEywOGvQM7WGwY0Yj+4o/LMbmLblZ+GE0Ikmog9AzlIOSKcKkI6vXAAtSfCFcnHOSvwQ
-         aYRQZzAzSwD6vy3SpwsqnOnp81HMlEbRsbAKUvwgQfaSKLeUDivel5WcV0F9houuplXI
-         1Iz59/C7vZGH+R9kUwKb5Ysc3VR0ria7a/MLSjZIvyYnBHVGmiOzfoxI0x/VXgTEKYl4
-         9tXvtdDz0GBWQhBbZu1hzC5Qr2gyv7G89e3jkCRluW9uj7fNJS19PMOYjZ1Votn8G2EW
-         7uCw==
-X-Gm-Message-State: AOJu0YxfngRye8vxfFKtTHBrUnZs+QabH3ypqN/XFREy2wb/xBVfefjL
-	kkjFMm1yWEUyhzO4MsHL/VikjaAwYpc=
-X-Google-Smtp-Source: AGHT+IFjdgmBdyxBQ0zr6Phdzdc3NhfRHFKE/+Wea1IZiVOT7T4IBQHOPkTpo2hU6PU86u42a7hH74NJYwo=
+        bh=MfwjFnr1wNHEBMs743caMc0qlRTo5HMEnN08vNH/OXQ=;
+        b=or2WvHul7mHkc+lZnxoNfeDntSUhT4c7mHCAY4IDoRqXQJIabVqeBMXCDgO37jhyLz
+         WmbmG6PMMOuXAxSsf1IoulCNcICN1B2DNIyDPF/VNTi5uFziKUw/0kPdnjX3XHBZBH2g
+         JSEsIdNifrB98PdtlKMyMD1IfaP2z3aYHUbuiweyZEtk4DNa7jSvJa0kGWvzImYe+Mth
+         u6Zk34NQZVblbURwX2GP+qOwxqqRNGlHt26vHr369owsWgaXBTiiaprVqVB9xdXB5Q8N
+         T58MULeZmZmGz7mjZBLt5cJPGWDf4DiI8y033oz3InDzmu31EhTf3tEs1sxG/2wvVySO
+         Tp9g==
+X-Gm-Message-State: AOJu0YwYImm18eppaRW+umOHHmq8cYeSnIg+uFmviz+OsCELU+FgD92h
+	8gCyLWBt112qnG2rXBi32z+AcEwHS6o=
+X-Google-Smtp-Source: AGHT+IHtw6A7NuD1zDZw/j7xBoNpID5PTLHCLxD7YeudY/tlgoiYGQdJN9iuOebDV/xY0oQ2kV5qeLUK06Q=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:6902:1083:b0:da0:567d:f819 with SMTP id
- v3-20020a056902108300b00da0567df819mr78680ybu.10.1698430953673; Fri, 27 Oct
- 2023 11:22:33 -0700 (PDT)
-Date: Fri, 27 Oct 2023 11:21:46 -0700
+ (user=seanjc job=sendgmr) by 2002:a0d:ca0f:0:b0:59b:e663:23b0 with SMTP id
+ m15-20020a0dca0f000000b0059be66323b0mr102868ywd.4.1698430969394; Fri, 27 Oct
+ 2023 11:22:49 -0700 (PDT)
+Date: Fri, 27 Oct 2023 11:21:54 -0700
 In-Reply-To: <20231027182217.3615211-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20231027182217.3615211-1-seanjc@google.com>
 X-Mailer: git-send-email 2.42.0.820.g83a721a137-goog
-Message-ID: <20231027182217.3615211-5-seanjc@google.com>
-Subject: [PATCH v13 04/35] KVM: WARN if there are dangling MMU invalidations
- at VM destruction
+Message-ID: <20231027182217.3615211-13-seanjc@google.com>
+Subject: [PATCH v13 12/35] KVM: Prepare for handling only shared mappings in
+ mmu_notifier events
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
@@ -107,8 +92,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
 	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231027_192237_041878_EE839ED6 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20231027_112250_593973_C9B0A6E6 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,43 +111,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add an assertion that there are no in-progress MMU invalidations when a
-VM is being destroyed, with the exception of the scenario where KVM
-unregisters its MMU notifier between an .invalidate_range_start() call and
-the corresponding .invalidate_range_end().
+Add flags to "struct kvm_gfn_range" to let notifier events target only
+shared and only private mappings, and write up the existing mmu_notifier
+events to be shared-only (private memory is never associated with a
+userspace virtual address, i.e. can't be reached via mmu_notifiers).
 
-KVM can't detect unpaired calls from the mmu_notifier due to the above
-exception waiver, but the assertion can detect KVM bugs, e.g. such as the
-bug that *almost* escaped initial guest_memfd development.
+Add two flags so that KVM can handle the three possibilities (shared,
+private, and shared+private) without needing something like a tri-state
+enum.
 
-Link: https://lore.kernel.org/all/e397d30c-c6af-e68f-d18e-b4e3739c5389@linux.intel.com
+Link: https://lore.kernel.org/all/ZJX0hk+KpQP0KUyB@google.com
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- virt/kvm/kvm_main.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ include/linux/kvm_host.h | 2 ++
+ virt/kvm/kvm_main.c      | 7 +++++++
+ 2 files changed, 9 insertions(+)
 
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 96aa930536b1..89c1a991a3b8 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -263,6 +263,8 @@ struct kvm_gfn_range {
+ 	gfn_t start;
+ 	gfn_t end;
+ 	union kvm_mmu_notifier_arg arg;
++	bool only_private;
++	bool only_shared;
+ 	bool may_block;
+ };
+ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range);
 diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 1a577a25de47..4dba682586ee 100644
+index cb9376833c18..302ccb87b4c1 100644
 --- a/virt/kvm/kvm_main.c
 +++ b/virt/kvm/kvm_main.c
-@@ -1356,9 +1356,16 @@ static void kvm_destroy_vm(struct kvm *kvm)
- 	 * No threads can be waiting in kvm_swap_active_memslots() as the
- 	 * last reference on KVM has been dropped, but freeing
- 	 * memslots would deadlock without this manual intervention.
-+	 *
-+	 * If the count isn't unbalanced, i.e. KVM did NOT unregister its MMU
-+	 * notifier between a start() and end(), then there shouldn't be any
-+	 * in-progress invalidations.
- 	 */
- 	WARN_ON(rcuwait_active(&kvm->mn_memslots_update_rcuwait));
--	kvm->mn_active_invalidate_count = 0;
-+	if (kvm->mn_active_invalidate_count)
-+		kvm->mn_active_invalidate_count = 0;
-+	else
-+		WARN_ON(kvm->mmu_invalidate_in_progress);
- #else
- 	kvm_flush_shadow_all(kvm);
- #endif
+@@ -635,6 +635,13 @@ static __always_inline kvm_mn_ret_t __kvm_handle_hva_range(struct kvm *kvm,
+ 			 * the second or later invocation of the handler).
+ 			 */
+ 			gfn_range.arg = range->arg;
++
++			/*
++			 * HVA-based notifications aren't relevant to private
++			 * mappings as they don't have a userspace mapping.
++			 */
++			gfn_range.only_private = false;
++			gfn_range.only_shared = true;
+ 			gfn_range.may_block = range->may_block;
+ 
+ 			/*
 -- 
 2.42.0.820.g83a721a137-goog
 
