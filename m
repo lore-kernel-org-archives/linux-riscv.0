@@ -4,95 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A957C25B67
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Oct 2023 11:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65BD9C25B67
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Oct 2023 11:36:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xRwls9con7O1sfOW5CKn/Hj+vkA2ifJGQ1r9M71Y/fs=; b=KjxzS688/TRwz6
-	V/65rqHudfANKVsbcxcl3EulxlaNskPC2/tv892O8OXII9LGadqqP3ncKsXqsa5rPuVrmQVPIaYne
-	fUieV3xcdRBgYLkqyOsbBLoXKbRqVUbQ7c6/iIYH9tDn4NUMbLarJRgx4Lt7BBOHHOgom9r7oOxy7
-	atmEBxuD5SgSkc+vp56KU+E8H22WJfQs96tDXpYzhvdryS1anWbQeWwHtFYROee++BvavqKaxwzYa
-	SbsWzMyvo4RCVGB/QwFL3V9HPMwAzpl8+xfOuC6hV7/6ABrZ1KMe32WGIK3DSv6MEwaX2BZymUNqW
-	n4gzvT7F0tWsC1AwLEJQ==;
+	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:Message-Id:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=4Y/TBmMi35bK150ArlRgxkhHX2hFlA1tbSiCjY5CmEs=; b=xCvEd3Op/BjIsr
+	cm8ZJhS9bbQai9p5oQuYC5KeQmy5ifkEj6SoA7Vi/n6MTIpB7MCwP9lBxSgR2nQ3UdzZGLJtoEcCY
+	09aoieG1mjVvVVIVD7O34b57J0VlRXLk9wfKtr3jd6VSop6wHrSX25NP+f/t5Ca/Ka9gfeLxp2Ugv
+	6u7HIpQstRe7/sZ8qJaSboK+KeKgoWNXQ5ePg22pUTiNVIF42oxR0mhnw2QNsRn39of6ZBAbgrdsK
+	UBqDYA5vSS0/SV67L8yeoiE7Rpyd/rzw9qdFRSCK9yUGFOWk1QDQJmpNaz8gdf2V62W0jT432PpVS
+	xFNGgXuJDE89lExwt8bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qwL20-00GJZz-1q;
-	Fri, 27 Oct 2023 11:29:36 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1qwL8A-00GK0B-2f;
+	Fri, 27 Oct 2023 11:35:58 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qwL1x-00GJYt-2b
+	id 1qwL87-00GJzi-0W
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Oct 2023 11:29:35 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-280137f1a1bso247883a91.1
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Oct 2023 04:29:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1698406172; x=1699010972; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vI28YtitrNIniIpGPiCXYWH3fIICBsHFcX18SbMwXaI=;
-        b=URv2cqqhxoeXBT3k/DKvDcOWQP3U5fDXFKnzULyoqDoSqhk9grhWu4ICgDrN+q11dt
-         RYbopTyCfvUX+CduL+9+wqOx2Kk1KE9gxplpJE0Vamy0lyuio5RMJoUvl/7qwDhwCjKJ
-         +7lc2e5s1bVUfOlwl2jSJ7242+504/kw6FHNqNOvy9yBmw8fE0uPHxNWfJxHKjsNP4ae
-         7svNbkCDm/cwINoeiCcwIItG/rALDPHOZ7VV+SVc44OwFkQZi3/85WM51fnKvdRU3/OP
-         iwNq5KKJ6U2gvLNCx337hWdUe1DwgxbrL/To9YuDpHd2ALn9AgRF0vU4mWPa04PJ4T03
-         nULg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698406172; x=1699010972;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vI28YtitrNIniIpGPiCXYWH3fIICBsHFcX18SbMwXaI=;
-        b=mPg/KkiPzgSUd2BaBHPKFVJAr4fvIrgkOWo3wu+7YViZ8z+j0lQruPYowjulrMx2vh
-         ohMAXKNSt5gKcoG+5knTulvoMa1oYWJfmoN2d+ueY6q+0zPngAkrSMzyojec8F/eb/u9
-         PLUcGreHTeoBMbDTtL3gh8l+hA8rGOA/bYYNWX1yzNvuElcxVFAR/4DKTBv/u9oKLGXA
-         vmyrvsCKSGBGDDnopoHgWUVnNRS72RRin5cC+KP0Z0a9VXuCX4LedYbN23pQG7i+yxiE
-         quEqEjn9JcxVb7btgxU6MQb56hOitQhqt5jCRSo/0IkIZP5D2jPrKR+n1mFDX+Rf76E+
-         OxBQ==
-X-Gm-Message-State: AOJu0YwnoY19iCDI+PJiQ2ykXYSnmWdqB7o3+gQEOLFWS0U6orPkstVr
-	LetXUgoVz9I/8a2HkFdAW9CuVQ==
-X-Google-Smtp-Source: AGHT+IG13tL5qlADUCcZnk0Slm9dLAj/0ICfwInuvtA89OSHyk/VCX3hGHfCAQFvPk1ScgHB/OgdWA==
-X-Received: by 2002:a17:90b:100b:b0:27d:1051:83c4 with SMTP id gm11-20020a17090b100b00b0027d105183c4mr2196967pjb.12.1698406171798;
-        Fri, 27 Oct 2023 04:29:31 -0700 (PDT)
-Received: from sunil-laptop ([106.51.188.78])
-        by smtp.gmail.com with ESMTPSA id r65-20020a17090a43c700b0028018af8dc2sm252642pjg.23.2023.10.27.04.29.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Oct 2023 04:29:31 -0700 (PDT)
-Date: Fri, 27 Oct 2023 16:59:19 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-serial@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Anup Patel <anup@brainfault.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Haibo Xu <haibo1.xu@intel.com>
-Subject: Re: [RFC PATCH v2 13/21] irqchip: riscv-intc: Add ACPI support for
- AIA
-Message-ID: <ZTufD/InY/gwpE+Q@sunil-laptop>
-References: <20231025202344.581132-14-sunilvl@ventanamicro.com>
- <20231026165150.GA1825130@bhelgaas>
+	Fri, 27 Oct 2023 11:35:57 +0000
+Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20231027113548epoutp04228efe6475b09ec5b3cb9483deade6f4~R88H3aDZk0258602586epoutp04P
+	for <linux-riscv@lists.infradead.org>; Fri, 27 Oct 2023 11:35:48 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20231027113548epoutp04228efe6475b09ec5b3cb9483deade6f4~R88H3aDZk0258602586epoutp04P
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1698406548;
+	bh=o8zC97W40HaJAtd94JYOgrGY5d3qk2mLoKwpUP01vpQ=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=ha2eGpi2EVwiu2FlxkU35zZ2qmfFzW84oBbb2ypeiwqOAGvQv09fBdlcPU3p1imNs
+	 J+G1AHX88GmTKfzrZgVbQNpgUG6LQVQfF7yXjsx78OuQ9F+3BR0OmjpfdrZ9Xfbfij
+	 fJRhXM5OhzAosEwB6ngzIaVwYNw0SfwYXrkRIv8M=
+Received: from epsnrtp4.localdomain (unknown [182.195.42.165]) by
+	epcas2p3.samsung.com (KnoxPortal) with ESMTP id
+	20231027113547epcas2p3c56d232b48b7a08bf35b022d2d6f0c17~R88G7z-PD2506125061epcas2p3P;
+	Fri, 27 Oct 2023 11:35:47 +0000 (GMT)
+Received: from epsmges2p3.samsung.com (unknown [182.195.36.102]) by
+	epsnrtp4.localdomain (Postfix) with ESMTP id 4SH0wM2dyxz4x9Pw; Fri, 27 Oct
+	2023 11:35:47 +0000 (GMT)
+Received: from epcas2p1.samsung.com ( [182.195.41.53]) by
+	epsmges2p3.samsung.com (Symantec Messaging Gateway) with SMTP id
+	6C.9B.10022.390AB356; Fri, 27 Oct 2023 20:35:47 +0900 (KST)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas2p1.samsung.com (KnoxPortal) with ESMTPA id
+	20231027113547epcas2p1c6b08e800408ee234230d3d02b8301d0~R88GGKz1t1816018160epcas2p1I;
+	Fri, 27 Oct 2023 11:35:47 +0000 (GMT)
+Received: from epsmgmc1p1new.samsung.com (unknown [182.195.42.40]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20231027113546epsmtrp2d13d2c113cbd8e67c6415d71835676fd~R88GFmq-i2930829308epsmtrp2p;
+	Fri, 27 Oct 2023 11:35:46 +0000 (GMT)
+X-AuditID: b6c32a47-9a3ff70000002726-60-653ba093ddb3
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgmc1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	39.9F.07368.290AB356; Fri, 27 Oct 2023 20:35:46 +0900 (KST)
+Received: from cometzero-ubuntu..
+	(75-12-16-202.lightspeed.irvnca.sbcglobal.net [75.12.16.202]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20231027113546epsmtip13591f878ceadc6405ae2729e829bde04~R88F6qP-31293412934epsmtip1w;
+	Fri, 27 Oct 2023 11:35:46 +0000 (GMT)
+From: Chanho Park <chanho61.park@samsung.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org, Chanho Park <chanho61.park@samsung.com>
+Subject: [PATCH] riscv: defconfig: Regenerate defconfig
+Date: Fri, 27 Oct 2023 20:35:25 +0900
+Message-Id: <20231027113525.2227513-1-chanho61.park@samsung.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231026165150.GA1825130@bhelgaas>
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrIKsWRmVeSWpSXmKPExsWy7bCmqe7kBdapBsv2CVls/T2L3eLyfm2L
+	bZ9b2CxeXu5htmibxe/A6vHm5UsWj8MdX9g9Ni+p9+jbsorR41LzdfYA1qhsm4zUxJTUIoXU
+	vOT8lMy8dFsl7+B453hTMwNDXUNLC3MlhbzE3FRbJRefAF23zByg1UoKZYk5pUChgMTiYiV9
+	O5ui/NKSVIWM/OISW6XUgpScAvMCveLE3OLSvHS9vNQSK0MDAyNToMKE7Iypl08yF/TzVOz6
+	/IetgfEYVxcjJ4eEgInEgsaZbF2MXBxCAjsYJSYf/8wM4XxilJjYcokJwvnGKDGl5SsjTMup
+	T41QVXsZJV58nMUI4Uxjkpiy/S87SBWbgK7EluevwDpEBMokzvyFsJkFfCQeL7rOBmILC5hL
+	TG7eDlbPIqAqse9fK9BUDg5eAQeJR0uSQUwJAXmJxQ8kQCp4BQQlTs58wgIxRV6ieetssBsk
+	BPaxS+w6vIcJ4jgXiW3HnjJD2MISr45vYYewpSQ+v9vLBjGzXGLHsiSI3hZGiea2PVD19hI/
+	bk5hBalhFtCUWL9LH6JcWeLILai1fBIdh0EeBAnzSnS0CUE0qksc2D6dBcKWleie85kVwvaQ
+	2LN7EdhhQgKxEvd+TGWcwCg/C8kzs5A8Mwth7wJG5lWMYqkFxbnpqcVGBcbwKE3Oz93ECE57
+	Wu47GGe8/aB3iJGJg/EQowQHs5IIb6SPRaoQb0piZVVqUX58UWlOavEhRlNg4E5klhJNzgcm
+	3rySeEMTSwMTMzNDcyNTA3Mlcd57rXNThATSE0tSs1NTC1KLYPqYODilGphyqkx+zWzcxPLK
+	pD7r1OXXSyaw+Sc84Ar8kf/gh0Kh13Opl1FLReQMTr0LaK0+9TOyYI/VNZMuhq/e7yazafFy
+	+3e/bDLUOfSQ+910mb4QlilBgUJsCtx/aivzdqyNaHsZ/pHZvDHxwtRYh+KT+2aefykmdr4p
+	gvfPzWkLd++e/bTbZL6pTkx785s/k3nvf331+JfWKTUJDU+fxqIm8S+cE1JERCV6d4jWiu5Z
+	Ybil9N3S4I0Flu+kzrNwL9z59uec3GURX8O/mb5Kmm/a7Vf1UyRWOqHSRujDv0n7zZ1W53/r
+	3yZ3XHZfgoC9bYVf5or8fbWKve8yy1dq9y97lb5fRynzn3/bwQWSl3c5CCmxFGckGmoxFxUn
+	AgCoWYefBAQAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrILMWRmVeSWpSXmKPExsWy7bCSnO6kBdapBoueWFhs/T2L3eLyfm2L
+	bZ9b2CxeXu5htmibxe/A6vHm5UsWj8MdX9g9Ni+p9+jbsorR41LzdfYA1igum5TUnMyy1CJ9
+	uwSujKmXTzIX9PNU7Pr8h62B8RhXFyMnh4SAicSpT43MXYxcHEICuxklpn38xgaRkJV49m4H
+	O4QtLHG/5QgrRNEkJolpz3eCFbEJ6Epsef6KEcQWEaiQuHDiMguIzSzgJ3H41RFmEFtYwFxi
+	cvN2sEEsAqoS+/61AsU5OHgFHCQeLUkGMSUE5CUWP5AAqeAVEJQ4OfMJ1BR5ieats5knMPLN
+	QpKahSS1gJFpFaNkakFxbnpusmGBYV5quV5xYm5xaV66XnJ+7iZGcChqaexgvDf/n94hRiYO
+	xkOMEhzMSiK8kT4WqUK8KYmVValF+fFFpTmpxYcYpTlYlMR5DWfMThESSE8sSc1OTS1ILYLJ
+	MnFwSjUwhaRcalJyEfFV18t5G/7w6OZ2loMT/9ZMZ6j/ruT1gmvX/b67Sxvi93Rc1Lp505Hd
+	0oxbVE7u91nPKvODgafkuL/J/ZZgceeoCT9vuic7todxi7/YxHVuzfbdrhyv51v8Z84/cCbx
+	n9fDK+vZ/i5b/W7OlnjTjsJ3CpueTJ+ypXxXrsbHdy3r93u7X0ubfNMg8L+IjtROxZu7FtjM
+	V0hPnhUWdnUDj9elHa5vXKUUpy8sX2L4YKGNUrNQnZrEyhvmd0V/zfHzM/1nLr5JNcpnluiX
+	4+fmf/QoXMYlaHYvM0O+LWztvyssyQ5ndn4s23Sz00zp/tvAf2WmFcuFhGbzTvfe+rdjhlyI
+	XOgzpyc6SizFGYmGWsxFxYkAD3WT6LQCAAA=
+X-CMS-MailID: 20231027113547epcas2p1c6b08e800408ee234230d3d02b8301d0
+X-Msg-Generator: CA
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20231027113547epcas2p1c6b08e800408ee234230d3d02b8301d0
+References: <CGME20231027113547epcas2p1c6b08e800408ee234230d3d02b8301d0@epcas2p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231027_042933_846977_E92AABCF 
-X-CRM114-Status: GOOD (  17.61  )
+X-CRM114-CacheID: sfid-20231027_043555_819060_FE3E6681 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,43 +132,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Bjorn,
+Run 'make defconfig savedefconfig' and copy the defconfig file to
+arch/riscv/configs/defconfig.
 
-On Thu, Oct 26, 2023 at 11:51:50AM -0500, Bjorn Helgaas wrote:
-> On Thu, Oct 26, 2023 at 01:53:36AM +0530, Sunil V L wrote:
-> > The RINTC subtype structure in MADT also has information about other
-> > interrupt controllers like MMIO. So, save those information and provide
-> > interfaces to retrieve them when required by corresponding drivers.
-> 
-> > @@ -218,7 +306,19 @@ static int __init riscv_intc_acpi_init(union acpi_subtable_headers *header,
-> 
-> > +	 * MSI controller (IMSIC) in RISC-V is optional. So, unless
-> > +	 * IMSIC is discovered, set system wide MSI support as
-> > +	 * unsupported. Once IMSIC is probed, MSI support will be set.
-> > +	 */
-> > +	pci_no_msi();
-> 
-> It doesn't seem like we should have to tell the PCI core about
-> functionality we *don't* have.
-> 
-> I would think IMSIC would be detected before enumerating PCI devices
-> that might use it, and if we *haven't* found an IMSIC by the time we
-> get to pci_register_host_bridge(), would/should we set
-> PCI_BUS_FLAGS_NO_MSI there?
->
-The check in pci_register_host_bridge() is like below.
+Signed-off-by: Chanho Park <chanho61.park@samsung.com>
+---
+ arch/riscv/configs/defconfig | 10 +---------
+ 1 file changed, 1 insertion(+), 9 deletions(-)
 
-if (bridge->msi_domain && !dev_get_msi_domain(&bus->dev) &&
-            !pci_host_of_has_msi_map(parent))
-                bus->bus_flags |= PCI_BUS_FLAGS_NO_MSI;
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index ab86ec3b9eab..83fa02611284 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -27,15 +27,12 @@ CONFIG_EXPERT=y
+ CONFIG_PROFILING=y
+ CONFIG_SOC_MICROCHIP_POLARFIRE=y
+ CONFIG_ARCH_RENESAS=y
+-CONFIG_ARCH_THEAD=y
+ CONFIG_SOC_SIFIVE=y
+ CONFIG_SOC_STARFIVE=y
+ CONFIG_ARCH_SUNXI=y
++CONFIG_ARCH_THEAD=y
+ CONFIG_SOC_VIRT=y
+ CONFIG_SMP=y
+-CONFIG_HOTPLUG_CPU=y
+-CONFIG_PM=y
+-CONFIG_CPU_IDLE=y
+ CONFIG_VIRTUALIZATION=y
+ CONFIG_KVM=m
+ CONFIG_ACPI=y
+@@ -43,12 +40,9 @@ CONFIG_JUMP_LABEL=y
+ CONFIG_MODULES=y
+ CONFIG_MODULE_UNLOAD=y
+ CONFIG_SPARSEMEM_MANUAL=y
+-CONFIG_BLK_DEV_THROTTLING=y
+ CONFIG_NET=y
+ CONFIG_PACKET=y
+-CONFIG_UNIX=y
+ CONFIG_XFRM_USER=m
+-CONFIG_INET=y
+ CONFIG_IP_MULTICAST=y
+ CONFIG_IP_ADVANCED_ROUTER=y
+ CONFIG_IP_PNP=y
+@@ -151,7 +145,6 @@ CONFIG_DRM_NOUVEAU=m
+ CONFIG_DRM_SUN4I=m
+ CONFIG_DRM_VIRTIO_GPU=m
+ CONFIG_FB=y
+-CONFIG_FRAMEBUFFER_CONSOLE=y
+ CONFIG_USB=y
+ CONFIG_USB_XHCI_HCD=y
+ CONFIG_USB_XHCI_PLATFORM=y
+@@ -183,7 +176,6 @@ CONFIG_SUN50I_IOMMU=y
+ CONFIG_RPMSG_CHAR=y
+ CONFIG_RPMSG_CTRL=y
+ CONFIG_RPMSG_VIRTIO=y
+-CONFIG_ARCH_R9A07G043=y
+ CONFIG_PHY_SUN4I_USB=m
+ CONFIG_LIBNVDIMM=y
+ CONFIG_NVMEM_SUNXI_SID=y
+-- 
+2.39.2
 
-When there is no IMSIC, bridge->msi_domain is 0 and hence
-PCI_BUS_FLAGS_NO_MSI will never be set. Do you recommend to set
-PCI_BUS_FLAGS_NO_MSI if bridge->msi_domain is 0? Let me know if I am
-missing something.
-
-Thanks,
-Sunil
 
 _______________________________________________
 linux-riscv mailing list
