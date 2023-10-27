@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F49CC25B67
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Oct 2023 08:04:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F9DC25B47
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Oct 2023 08:04:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sEgmEh0ijPJxrpGXaE/9seqt9+z8yFlNAOVffCEgNaU=; b=nvNhXlAhO1VwRY
-	UsdescyKrFfmFgUztNVSVEqvH4bimoAKyD8wWqiO8vOS4eCZGJImiolWrd+ORx52vrnZxIx3q2RP9
-	xWb7wWwjDXLepZAJBCV7A40s1TKgw4n+xC7F/UObDwUehmHJEU5/uefnPhOjDxkLoCal4++WE772Q
-	Mn874TZS06albbVqzir4/TYSgwJFa6s6q4O1Jl0KSQqys5ynE9gpk1xFIqYvzElDnzKc1Bw/N9bOH
-	vr6jg8DJueQ1PWZ2cxF+qHrg60vMqaHDryvxWwfJcc3F7vohn1SK9/skgqpbSly0ri5rWCR54sxSX
-	JL/u6GlWXoLQmkwsPkNA==;
+	List-Owner; bh=SNjRNiNNJ4V7Cz3O6jd6eJpenWUTonYpXBlyjjJ0cX8=; b=eSRBREEZcvDOvn
+	m9bApmcCQnhFe94i+rIgD5C7VAbaMnw74BSmd/LLRnRhf6jpQIqX/EZkWP22CYQfjBzX7UyEotEY5
+	UMehVf6H1x3/+4KXA7+fHJhTu7qiErGCzT5fQSx/BT4ayCAhEX+qq1j4ySCfFXirEp9QHM/WhGlwl
+	9N22soNikAztAtyJ4hTgj0m6C9/zNTTNFhZuqpfrSxmDeYTJTsqLrU4ap55nd8uzris5ycsZ27u1u
+	pgMxbhPdeW5WOMT/zP3PIewQmG6xWNlR0MzprPedpsnmFDfLwS16ezXnTtlc26ywYkkQNKpePUush
+	N+r6QqtxIwLZ/yZSLAZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qwHpU-00FsSm-1b;
-	Fri, 27 Oct 2023 08:04:28 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1qwHpe-00FsXs-1T;
+	Fri, 27 Oct 2023 08:04:38 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qwHpF-00FsH9-0i
+	id 1qwHpG-00FsIz-0x
 	for linux-riscv@lists.infradead.org;
 	Fri, 27 Oct 2023 08:04:15 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-2c5720a321aso23638101fa.1
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Oct 2023 01:04:10 -0700 (PDT)
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-407c3adef8eso14423075e9.2
+        for <linux-riscv@lists.infradead.org>; Fri, 27 Oct 2023 01:04:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1698393849; x=1698998649; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1698393853; x=1698998653; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=r/qdhwYexgC4eelalZMREFYWDVhGmAVpyIy4h5YJd+Y=;
-        b=LpRf4q3OmugHSFk071GMl5LMLgGj6sCf67q0ZlGups+8MnyLih4dl4AEnUHMWFS2+U
-         stFh+UkOcyCT10Blp5XIo0I0y31Vjm6BhPnd4cQduQXCtdeWPWM/qEbg7xHc4dkb77VQ
-         2t9OKwuECap6xWSG7xE5xpMvSD7JuOEaTsNFjkDzsY/rqdaoeKKNhF5nHS+9ZOsIoB0k
-         qy4Y7M78UvAmhg3LqSfvZzL0HHjClC4PwaeLB+juQV3D3aQUdh2afhVttHvI/9OnF97t
-         vsQEDHTBBmkKr4xM/wbrUpywCjFeXsm732rlQ3yDmlVStxy4+b892S5lMC93P1+FJ9A4
-         YkQw==
+        bh=HdB4lDzOqWgKx+jcR+6XZlgYVoJSXQa0m+FGwW4RKJM=;
+        b=MtmA3RrHqFWShE38LDNgBusojiEdOGnS+enxJ2p4CYPr1AfbxzBG82jL83+tmTEf2R
+         4gH+OhF4Xmuny1VCWiiiQrfdDmlehFpm035zd53Lt8T8dHo7jRVS3anzC7efqhXWqkzd
+         pRIGPAX+CK0EK57QIANK1SXq7QPI28Y7KGXsHdD4A3d8dX2syS64dIQzucphKcfOnlKr
+         G6kHBfNhwB1MENwThwoxw5aQ8sPknnDDUpSlCsb+6bb4ZI1oTfM3RXb65u9ETSkpHHhx
+         OEsAiRhpCNqSr8mzMQ7OixDUm3Y+L+RxwvveBsSa3AC/2w2mdiqP+vG5z8670LryRomA
+         1U0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698393849; x=1698998649;
+        d=1e100.net; s=20230601; t=1698393853; x=1698998653;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=r/qdhwYexgC4eelalZMREFYWDVhGmAVpyIy4h5YJd+Y=;
-        b=kmitnUYmv0a8VqpiX7Cgb+5pw+WBEWu8Nc/u799MXMFV/OUQZ4uoV5prNq0ngNNXKr
-         vWCjY/4x9THR1Rjcy0xNPa4aJKzJahOLL1h0hzaxDGwmM9ccFbI+HvoMavJlmhvE3KBP
-         ECM7kAB0mDPxc4F8cN9jooPZOxR/2ozyheKL3DpcWXD3avyj9+iZKwkEvLHqMP6IXVkp
-         SpEX+OppMhxvqyVjwtWsBHrf30hhSLcCfVmez4Ku+7VWPEr3bokC4NlnQ2FG33mWFMJ+
-         BvLr7YEWbc0EsZyFYtjHwdS8309K9RJVngwLEImYApY6WkHvgPq2B3jiu+cMD5rUSvMe
-         7tkw==
-X-Gm-Message-State: AOJu0YxyfINUZ4j9yJAyqTFA8yT4KZwrM0Pc24wmMHih/FprdRTTxRQT
-	7pfPrMX1BuAVm+3pXz3VEo8kWQ==
-X-Google-Smtp-Source: AGHT+IGXugARg3H3+vIzNim0kJhoC4UBCl4/dUe/XX18rWVm78ZhMKD3Vu64iuuup/7qbp3srdsKEQ==
-X-Received: by 2002:a2e:8217:0:b0:2c5:1eb6:bd1e with SMTP id w23-20020a2e8217000000b002c51eb6bd1emr1414040ljg.43.1698393849239;
-        Fri, 27 Oct 2023 01:04:09 -0700 (PDT)
+        bh=HdB4lDzOqWgKx+jcR+6XZlgYVoJSXQa0m+FGwW4RKJM=;
+        b=cnhzhev186lPt6J/Lkp+q2tG+HfKlTZKMKDV1d40Z1hxI1OqpttM5VgaLayUN+XH41
+         DgvtXmW8QXhUX/YUrQPu+wCjgoWzXQiPeUR5y2MH943SeHFs/kinYjglnfX0cF4GWX6B
+         +2PhIUcxvuPKDvNWopXAnpx3hL10venUzp0v9XznfOKD0eZxh6c/uuiD+PQE5J7Nc/hy
+         sTFmPNdZh4NLXBjTlhI6+bCCKf7w6t9ccECK8GxBE8RiPjR5X3mwqHpxhDqYdjb+9U19
+         kmDLd9g7QsXwx7F2Ms52wtlblrXgN8H3ya024gO/84FXMW08DY3LBSINGtW9Twf+nYeC
+         qcsQ==
+X-Gm-Message-State: AOJu0YzXZZ3hb3TYo4WQ+U+sV8lEf5/3Dt+qrh+g6t1UqKa1XfNAElcY
+	I7vsHP4T6qUPHUZ4zbWDUSP2hw==
+X-Google-Smtp-Source: AGHT+IGrWV8Xk3kn8lNdugKW10Jxvl72LQpr+DY/ZkB+QIZGkVhbRfYWJpxErHANxVy9nJ2+gvLW9g==
+X-Received: by 2002:a05:600c:2990:b0:402:ee71:29 with SMTP id r16-20020a05600c299000b00402ee710029mr1624044wmd.10.1698393852695;
+        Fri, 27 Oct 2023 01:04:12 -0700 (PDT)
 Received: from vingu-book.. ([2a01:e0a:f:6020:c5e:e24e:ad0b:58c6])
-        by smtp.gmail.com with ESMTPSA id 17-20020a05600c025100b004083729fc14sm4397488wmj.20.2023.10.27.01.04.06
+        by smtp.gmail.com with ESMTPSA id 17-20020a05600c025100b004083729fc14sm4397488wmj.20.2023.10.27.01.04.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Oct 2023 01:04:08 -0700 (PDT)
+        Fri, 27 Oct 2023 01:04:12 -0700 (PDT)
 From: Vincent Guittot <vincent.guittot@linaro.org>
 To: linux@armlinux.org.uk,
 	catalin.marinas@arm.com,
@@ -98,16 +98,16 @@ Cc: conor.dooley@microchip.com,
 	ajones@ventanamicro.com,
 	lftan@kernel.org,
 	Vincent Guittot <vincent.guittot@linaro.org>
-Subject: [PATCH v2 2/7] cpufreq: use the fixed and coherent frequency for scaling capacity
-Date: Fri, 27 Oct 2023 10:03:55 +0200
-Message-Id: <20231027080400.56703-3-vincent.guittot@linaro.org>
+Subject: [PATCH v4 4/7] energy_model: use a fixed reference frequency
+Date: Fri, 27 Oct 2023 10:03:57 +0200
+Message-Id: <20231027080400.56703-5-vincent.guittot@linaro.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20231027080400.56703-1-vincent.guittot@linaro.org>
 References: <20231027080400.56703-1-vincent.guittot@linaro.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231027_010413_268289_96E864E6 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20231027_010414_363802_DBAAC791 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,54 +124,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-cpuinfo.max_freq can change at runtime because of boost as an example. This
-implies that the value could be different from the frequency that has been
-used to compute the capacity of a CPU.
+The last item of a performance domain is not always the performance point
+that has been used to compute CPU's capacity. This can lead to different
+target frequency compared with other part of the system like schedutil and
+would result in wrong energy estimation.
 
-The new arch_scale_freq_ref() returns a fixed and coherent frequency
-that can be used to compute the capacity for a given frequency.
+A new arch_scale_freq_ref() is available to return a fixed and coherent
+frequency reference that can be used when computing the CPU's frequency
+for an level of utilization. Use this function to get this reference
+frequency.
+
+Energy model is never used without defining arch_scale_freq_ref() but
+can be compiled. Define a default arch_scale_freq_ref() returning 0
+in such case.
 
 Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-Acked-by: Viresh Kumar <viresh.kumar@linaro.org>
 Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
 Tested-by: Lukasz Luba <lukasz.luba@arm.com>
-Acked-by: Rafael J. Wysocki <rafael@kernel.org>
 ---
- drivers/cpufreq/cpufreq.c | 4 ++--
- include/linux/cpufreq.h   | 9 +++++++++
- 2 files changed, 11 insertions(+), 2 deletions(-)
+ include/linux/energy_model.h | 14 +++++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
-index 60ed89000e82..8c4f9c2f9c44 100644
---- a/drivers/cpufreq/cpufreq.c
-+++ b/drivers/cpufreq/cpufreq.c
-@@ -454,7 +454,7 @@ void cpufreq_freq_transition_end(struct cpufreq_policy *policy,
- 
- 	arch_set_freq_scale(policy->related_cpus,
- 			    policy->cur,
--			    policy->cpuinfo.max_freq);
-+			    arch_scale_freq_ref(policy->cpu));
- 
- 	spin_lock(&policy->transition_lock);
- 	policy->transition_ongoing = false;
-@@ -2174,7 +2174,7 @@ unsigned int cpufreq_driver_fast_switch(struct cpufreq_policy *policy,
- 
- 	policy->cur = freq;
- 	arch_set_freq_scale(policy->related_cpus, freq,
--			    policy->cpuinfo.max_freq);
-+			    arch_scale_freq_ref(policy->cpu));
- 	cpufreq_stats_record_transition(policy, freq);
- 
- 	if (trace_cpu_frequency_enabled()) {
-diff --git a/include/linux/cpufreq.h b/include/linux/cpufreq.h
-index 71d186d6933a..bbc483b4b6e5 100644
---- a/include/linux/cpufreq.h
-+++ b/include/linux/cpufreq.h
-@@ -1211,6 +1211,15 @@ void arch_set_freq_scale(const struct cpumask *cpus,
- {
+diff --git a/include/linux/energy_model.h b/include/linux/energy_model.h
+index b9caa01dfac4..1b0c8490d4bd 100644
+--- a/include/linux/energy_model.h
++++ b/include/linux/energy_model.h
+@@ -204,6 +204,14 @@ struct em_perf_state *em_pd_get_efficient_state(struct em_perf_domain *pd,
+ 	return ps;
  }
- #endif
-+
+ 
 +#ifndef arch_scale_freq_ref
 +static __always_inline
 +unsigned int arch_scale_freq_ref(int cpu)
@@ -180,9 +161,32 @@ index 71d186d6933a..bbc483b4b6e5 100644
 +}
 +#endif
 +
- /* the following are really really optional */
- extern struct freq_attr cpufreq_freq_attr_scaling_available_freqs;
- extern struct freq_attr cpufreq_freq_attr_scaling_boost_freqs;
+ /**
+  * em_cpu_energy() - Estimates the energy consumed by the CPUs of a
+  *		performance domain
+@@ -224,7 +232,7 @@ static inline unsigned long em_cpu_energy(struct em_perf_domain *pd,
+ 				unsigned long max_util, unsigned long sum_util,
+ 				unsigned long allowed_cpu_cap)
+ {
+-	unsigned long freq, scale_cpu;
++	unsigned long freq, ref_freq, scale_cpu;
+ 	struct em_perf_state *ps;
+ 	int cpu;
+ 
+@@ -241,11 +249,11 @@ static inline unsigned long em_cpu_energy(struct em_perf_domain *pd,
+ 	 */
+ 	cpu = cpumask_first(to_cpumask(pd->cpus));
+ 	scale_cpu = arch_scale_cpu_capacity(cpu);
+-	ps = &pd->table[pd->nr_perf_states - 1];
++	ref_freq = arch_scale_freq_ref(cpu);
+ 
+ 	max_util = map_util_perf(max_util);
+ 	max_util = min(max_util, allowed_cpu_cap);
+-	freq = map_util_freq(max_util, ps->frequency, scale_cpu);
++	freq = map_util_freq(max_util, ref_freq, scale_cpu);
+ 
+ 	/*
+ 	 * Find the lowest performance state of the Energy Model above the
 -- 
 2.34.1
 
