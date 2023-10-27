@@ -4,97 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3F99C25B70
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Oct 2023 18:26:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E156C25B48
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Oct 2023 18:38:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n/0iCabgH/8mQX19xUSldx/T2M2r+KiJ554P06qFGw0=; b=oPyfCqucJj1NTw
-	pKcIQu+rH7as3CVSmTaBPQAromoB7U7QznHCvVJYNw1Fd1U1UPbej5Q9Mr3U3kr7TQQW1ryxFEToi
-	w8O5oRgxwn/jPzPSG7aBBUnVmnTXUhZJ+gc7OILRXLy6dU961uTaGNMZBwYdwIFXevZ8UnrURjKba
-	M0be7LnveQoRuoDFDnzZnDxW6TrPPFbroj6iA39PTuVFkmB97Qbt3e0foOMJhuGR+7/WZDTlMpPnh
-	8LVA/bk1P0lUV8rLtIcuKDhd9MjHaPp47lGX9RclB0yPPp29QrlOg0qiY/sLCOojTF6PP2Z0BL5a7
-	8TEjLBVzaOWeVamsVQwQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qeV2M0K6ADlgyc5FMftc2gJyZ26rUBVivE5h6+DWUDQ=; b=NeSOJicJyLpCO2uYw85PSr/QaD
+	DWQC0LtIRXBtlCiUH5A/fxH09J4MDGwkOF25AB/dZXj5j6LRJW4rNvc8w+9ikgXskGUX32QgzYbg1
+	A7JDUynnYTiYotp3S3ayMCn110N6j5asFODZFsFssiBaUiCCYocQpIrrgiHRLce9rbjVLZ4OAmOj1
+	+R+mmvU1E9KQcnt+o3caXUgMhDxa9fhBHQvvRAl4JWTx47iI+gSUG3Cp7Wf6dEtfEunpRO2GSx7wL
+	A9u28+JK1DP3OmtZJRfeJ/4xhqUuArxMQKlp/8PrAZ983tIEf8Cix+AIaArXq9iEZRV063OYSCBLd
+	9ZrWapxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qwRXD-00Gzk3-2E;
-	Fri, 27 Oct 2023 18:26:15 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1qwRjJ-00H1sH-2K;
+	Fri, 27 Oct 2023 18:38:45 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qwRUQ-00Gxba-1O
+	id 1qwRjG-00H1rK-2R
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Oct 2023 18:23:31 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-5a7af69a4baso20633617b3.0
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Oct 2023 11:23:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1698431001; x=1699035801; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=Xz8kt0PqFUxEdWsVGTpKhvh/0bAOqOlDGpUeOhSMn4Y=;
-        b=EsVYmDc78DY6Pgix8fAcm39A6FiJWjVjwma0jJ574vquFfW9qT72WI6g1Yf4GqYIUv
-         7uzE9Zcrwg3HA0zz1vzeySnRKXWFeIi0liVNC4bY+4q5XP6mNXU+0MMI6895xjcNTv9n
-         TxtOi9rF3h/MMFqQQPy/Q8SaOIlH8JO6QTkUR+rBYktpl01QgrTnCcbmFTrXQu3Gyi3J
-         B20X4fqNiZhE/I9LtlbSpJoZO9SfMi1zvmHkaj4DizyQIf5j4BO47RxTAXZCjFdIsEr4
-         GXf3am5NQ9csRNXwGWeLzdCWbkOhGw7cwmBi6rK2OP+ytzE1bbRWMRjIgnpDw10k2eJn
-         hCvA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698431001; x=1699035801;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Xz8kt0PqFUxEdWsVGTpKhvh/0bAOqOlDGpUeOhSMn4Y=;
-        b=tRtPgRpf0/YuSkYYEvj/R6ytlTCJ8OQlYXpxCCFkV9N6Yga1ONPJQ0sZj62kPn/Art
-         U6Waom0J9dKY4+5ZrtsaunQI1NRO8iq3KuXwP3gw9WjHWuIAvpiDTV2YicZhTYNmPgGr
-         znBDbKeMMjX4NCx/GH/lCtX/7FsJqVdoMATNPr82ZQkevIr+U8h96H2xhS44t6Ebc8sM
-         oGwjR2nDv+MzVEbBiizNpCtuNZoyL2mZEgIlcAa11O0Rmtto3UXddEbPKJmPrQoHZ7zR
-         RftxudQhUW+xRNXVhn9/UKtkNWJSpOadMc7Wb8AoZ2YQ5jWcI1v4i+gnA9xBVyW8e00U
-         CErw==
-X-Gm-Message-State: AOJu0YyE1UL92UB6u5lsFzNAs67WXmtwo6LEuUaTRKzcIi63kpdep29Q
-	ZsDja6E93yLWH83AaLgFSDSxPJCacyM=
-X-Google-Smtp-Source: AGHT+IElp9q5EmMXm2ScJmYLrQOoQHqoyljn7k2kapIAuiZd/nyrTEs2J8MXUI1aCi13+9HebXd80A1xuUo=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a0d:e653:0:b0:5a7:be10:461d with SMTP id
- p80-20020a0de653000000b005a7be10461dmr68754ywe.2.1698431001067; Fri, 27 Oct
- 2023 11:23:21 -0700 (PDT)
-Date: Fri, 27 Oct 2023 11:22:10 -0700
-In-Reply-To: <20231027182217.3615211-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20231027182217.3615211-1-seanjc@google.com>
-X-Mailer: git-send-email 2.42.0.820.g83a721a137-goog
-Message-ID: <20231027182217.3615211-29-seanjc@google.com>
-Subject: [PATCH v13 28/35] KVM: selftests: Add helpers to do
- KVM_HC_MAP_GPA_RANGE hypercalls (x86)
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Sean Christopherson <seanjc@google.com>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	Xiaoyao Li <xiaoyao.li@intel.com>, Xu Yilun <yilun.xu@intel.com>, 
-	Chao Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>, 
-	Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, 
-	David Matlack <dmatlack@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>, 
-	Isaku Yamahata <isaku.yamahata@intel.com>, 
-	"=?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?=" <mic@digikod.net>, Vlastimil Babka <vbabka@suse.cz>, 
-	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Maciej Szmigiero <mail@maciej.szmigiero.name>, David Hildenbrand <david@redhat.com>, 
-	Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
-	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+	Fri, 27 Oct 2023 18:38:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id B4C5CCE3D26;
+	Fri, 27 Oct 2023 18:38:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39A09C433C7;
+	Fri, 27 Oct 2023 18:38:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1698431917;
+	bh=ST4J4uVD7J/Mq/vL7XaZM3mtZ3PwaVzL06JUPaESq9k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nbLXCIvymjtmabOlRja1JfUu227rsbH09ABUPCat0bpYPi6WIZl1Pb2j7k+Iyp3nn
+	 hngm5E3WTkLFgjQQ78EWCRFxYTR6bXnlHKxl9v+b41z0WZgtgVrTpKoWnZfFI1d43Z
+	 I9WFavBLdwNddrmA8F6aYO5XdxwFDRnOLfukH8AVEi2tMdU3uNLUsiVFkrMX/gqorN
+	 ordH55IwUfqQd8L/VQ+cAPEn+YaPl4oedOVpFLP4mj+q/OjiVn8UJooq05myswfJJj
+	 TIYiSZA7LEZiacNU4LMvo5yEyuwtFRU5MfdIF49CD+uFr3oAvYODKBtpTVhPe1pD8U
+	 8P2RrSgBKVcDA==
+Date: Fri, 27 Oct 2023 19:38:33 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Rob Herring <robh@kernel.org>
+Cc: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>
+Subject: Re: [PATCH 1/4] dt-bindings: cache: sifive,ccache0: Add StarFive
+ JH7100 compatible
+Message-ID: <20231027-freezing-pointed-53c73b0ae227@spud>
+References: <CAJM55Z-vw1sbks0KcHOXMzP-6c9NMg+GOndi2pQ7iyWh0=oQiQ@mail.gmail.com>
+ <20231026-paycheck-equation-b0f1a1191bf2@spud>
+ <20231027182236.GA2853373-robh@kernel.org>
+MIME-Version: 1.0
+In-Reply-To: <20231027182236.GA2853373-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231027_112322_514243_0C351119 
-X-CRM114-Status: UNSURE (   8.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231027_113842_970292_7C6F6126 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,64 +73,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1021764783415823770=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Vishal Annapurve <vannapurve@google.com>
 
-Add helpers for x86 guests to invoke the KVM_HC_MAP_GPA_RANGE hypercall,
-which KVM will forward to userspace and thus can be used by tests to
-coordinate private<=>shared conversions between host userspace code and
-guest code.
+--===============1021764783415823770==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="SeokC8kRK7bMnsPN"
+Content-Disposition: inline
 
-Signed-off-by: Vishal Annapurve <vannapurve@google.com>
-[sean: drop shared/private helpers (let tests specify flags)]
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- .../selftests/kvm/include/x86_64/processor.h      | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
 
-diff --git a/tools/testing/selftests/kvm/include/x86_64/processor.h b/tools/testing/selftests/kvm/include/x86_64/processor.h
-index 25bc61dac5fb..a84863503fcb 100644
---- a/tools/testing/selftests/kvm/include/x86_64/processor.h
-+++ b/tools/testing/selftests/kvm/include/x86_64/processor.h
-@@ -15,6 +15,7 @@
- #include <asm/msr-index.h>
- #include <asm/prctl.h>
- 
-+#include <linux/kvm_para.h>
- #include <linux/stringify.h>
- 
- #include "../kvm_util.h"
-@@ -1194,6 +1195,20 @@ uint64_t kvm_hypercall(uint64_t nr, uint64_t a0, uint64_t a1, uint64_t a2,
- uint64_t __xen_hypercall(uint64_t nr, uint64_t a0, void *a1);
- void xen_hypercall(uint64_t nr, uint64_t a0, void *a1);
- 
-+static inline uint64_t __kvm_hypercall_map_gpa_range(uint64_t gpa,
-+						     uint64_t size, uint64_t flags)
-+{
-+	return kvm_hypercall(KVM_HC_MAP_GPA_RANGE, gpa, size >> PAGE_SHIFT, flags, 0);
-+}
-+
-+static inline void kvm_hypercall_map_gpa_range(uint64_t gpa, uint64_t size,
-+					       uint64_t flags)
-+{
-+	uint64_t ret = __kvm_hypercall_map_gpa_range(gpa, size, flags);
-+
-+	GUEST_ASSERT(!ret);
-+}
-+
- void __vm_xsave_require_permission(uint64_t xfeature, const char *name);
- 
- #define vm_xsave_require_permission(xfeature)	\
--- 
-2.42.0.820.g83a721a137-goog
+--SeokC8kRK7bMnsPN
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Fri, Oct 27, 2023 at 01:22:36PM -0500, Rob Herring wrote:
+> On Thu, Oct 26, 2023 at 02:10:37PM +0100, Conor Dooley wrote:
+> > On Wed, Oct 25, 2023 at 11:56:37AM -0700, Emil Renner Berthing wrote:
+> > > This cache controller is also used on the StarFive JH7100 SoC.
+> > > Unfortunately it needs a quirk to work properly, so add dedicated
+> > > compatible string to be able to match it.
+> > >=20
+> > > Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.c=
+om>
+> >=20
+> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+>=20
+> Did you want me to pick this up? Or you or Palmer will?
+
+Me or Palmer I guess, I was going to take the lot together through soc.
+
+Cheers,
+Conor.
+
+--SeokC8kRK7bMnsPN
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZTwDqQAKCRB4tDGHoIJi
+0ublAP9H4KL8LXkV1jQ9dF6slNKqtn+yMaV3hmHpa4k2f/lnowEA7Wl2/62I5sVs
+OBGRLUt/nQSPEMzEklP7Tup5Er1tEwE=
+=Kmup
+-----END PGP SIGNATURE-----
+
+--SeokC8kRK7bMnsPN--
+
+
+--===============1021764783415823770==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1021764783415823770==--
+
