@@ -4,64 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 361D6C25B67
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Oct 2023 07:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C072C25B67
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Oct 2023 07:13:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	:In-Reply-To:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H3503e/R/nkuMLu7U+FDGJjf3M0Ls2KXjAWGiRk/51M=; b=hnTg/ZF+hdRUx7
-	0v8+UA4coCUQ68VUPpAtzbNjIknpH5dPAhB09+Q5Th/S4nG6sh6LjaKuo9BsADc9DCqNFq5IzcK4a
-	04petGhiSj33UnzwTHPv9OSidITTuRbymJtg2PsFX8M69iwg9aE3h92tH1Zq3N1c4f7kas2yXMlcj
-	0JuS9WiTx+4w52kf/CwL5WCT+QL3gUyhKZ2Gp3NCvP4AYaA36llgwaHF0dVRvFKF66P6EIF+pvZyl
-	AabnkTXUpJ/6/BP3c5SOv6wARmlFOZOg9ckBC6ngBlrE/Uph5I4JAKnqMJkflYh8ES/2G0Rkm+uKq
-	ejzRsdvNAlw77krLb6+Q==;
+	List-Owner; bh=FOChS4BwX7rL5eATgOrbi3rtONngTUGKgU4L0b+o+1Y=; b=0TK+aMT5ZvMZp8
+	Pv474jp9zTknES6kX/hyfBt3RnPk2G8WgXoSVRPP4Ir4Pv7cQTHBXMFR41rJ9i2iELgUPUiKwoDmR
+	6O9Vvzvu1fpb1ENT2Drx2MEE7+i8EXO3Ojt6o3glOwgva6+pWv+TWm6wGogtIfPTO84xh9QdRHMFf
+	JhyfWN4IiDGMxsy7dpuTWKTUxTN2Bug534o5a7etU4KSxkEMMqexjArRwvL2yN/97P6p2ul9f/cdX
+	C08eLci0CpDs+FHrdQSE5HLh65Xo7BY+Q8ePFUf7MoDL0Azm1nOVzYgrbdkq83yTCEuGXfpzpVCUI
+	5yPUnyk3yIwFzDle+6Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qwGxz-00Fjwd-1d;
-	Fri, 27 Oct 2023 07:09:11 +0000
+	id 1qwH1k-00Fl4D-1b;
+	Fri, 27 Oct 2023 07:13:04 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qwGxw-00FjqO-2k
-	for linux-riscv@lists.infradead.org;
-	Fri, 27 Oct 2023 07:09:10 +0000
+	id 1qwH1g-00Fl2q-34;
+	Fri, 27 Oct 2023 07:13:02 +0000
 From: Thomas Gleixner <tglx@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1698390536;
+	s=2020; t=1698390779;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=gS2w1/Bfi8i6DDWcB/LYnN4Uyo2XoSjAzsAo+3P1rhE=;
-	b=xJaI0I9SbdRA1MUAA10lTxRe2PJdlTYZ/qKVe0NWxISoDDj4gxn3k5+iGHyIwkuUdido4r
-	GT135+ErpzXcWFhZp7og8M5O8ngvIQUPdOJIfzU8dDxMGCO9cD30fiox9lMs10V4WS3RvY
-	2wUb9I9IqM+qxJQ74vCwfvC/hN4iocLaBOzfEgHw7Ua6Z1MoTTiauAacOj37Vd2+gX8YsT
-	QFHwJ/X1uwsm6ySO1UD5dgixQ9f2avOn5cbD0lKisFarWGzu/HuE7qhO/c8zutS37jBH85
-	pB6Go2qgq7pcMzxnrjC5XuyWj4EOkZg6XPQsA9UAAH8z6jcZenKshY5GbM51OQ==
+	bh=48pzFigEfE7Y5axy5bcPf8T1YrV6Mt9jdZdUUrCruyY=;
+	b=XCkoYDbbxdX8izcFbwr8Eqjrpz/IiZy9OFMLMIUw7C3IcXXWldxRkgIF+qkBVvurs9azkC
+	VRBfNjf3U2uU3Jr8NS35HosDFVl2KEJOdkmzgT9QALLmizg63zjmrVpQKRGlgpTY4frTm8
+	tGyF8vIaxbs1mBQcAqrBDz1DsKqhfOd66TLWMZ6oamJ34XQm3KEY8iOPyKm4cS5VgSpi7A
+	JOLEKuh3/xAr+LDy+DBDr/iitqpzDIOye3l2r0AWUbvyp9HkLKdOwyuM7rr9EeGLVwxoaM
+	Qn2NGk7BqG3q0DvssdOQ+/CSlNLrYVOhnNTxhmYe6VpKA27BQW0zdYsOBVQ0/A==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1698390536;
+	s=2020e; t=1698390779;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=gS2w1/Bfi8i6DDWcB/LYnN4Uyo2XoSjAzsAo+3P1rhE=;
-	b=mzDDZLL+KpmOjCnUAj9qbTtDUBoyxrHa5hR+TMailW3l5FE+Ru0fipv0s8ca4dDVeymvaz
-	gaZBzqjr3/jRiOBA==
-To: Yu Chien Peter Lin <peterlin@andestech.com>, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, peterlin@andestech.com,
- dminus@andestech.com, ycliang@andestech.com, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Cc: prabhakar.mahadev-lad.rj@bp.renesas.com, tim609@andestech.com,
- dylan@andestech.com, locus84@andestech.com
-Subject: Re: [PATCH v2 03/10] irqchip/riscv-intc: Introduce Andes IRQ chip
-In-Reply-To: <20231019135723.3657156-1-peterlin@andestech.com>
-References: <20231019135723.3657156-1-peterlin@andestech.com>
-Date: Fri, 27 Oct 2023 09:08:56 +0200
-Message-ID: <87cyx04k53.ffs@tglx>
+	bh=48pzFigEfE7Y5axy5bcPf8T1YrV6Mt9jdZdUUrCruyY=;
+	b=0GPEJyc9w2S/lUYqu7AA2vKxe6BhOXt+9gTUXhCjKjqqzZFEPd3MBo+FLJYfoWdVvHFdQ4
+	OUu9Wdk8ZnijuBDQ==
+To: Yu Chien Peter Lin <peterlin@andestech.com>, acme@kernel.org,
+ adrian.hunter@intel.com, ajones@ventanamicro.com,
+ alexander.shishkin@linux.intel.com, andre.przywara@arm.com,
+ anup@brainfault.org, aou@eecs.berkeley.edu, atishp@atishpatra.org,
+ conor+dt@kernel.org, conor.dooley@microchip.com, conor@kernel.org,
+ devicetree@vger.kernel.org, dminus@andestech.com, evan@rivosinc.com,
+ geert+renesas@glider.be, guoren@kernel.org, heiko@sntech.de,
+ irogers@google.com, jernej.skrabec@gmail.com, jolsa@kernel.org,
+ jszhang@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ locus84@andestech.com, magnus.damm@gmail.com, mark.rutland@arm.com,
+ mingo@redhat.com, n.shubin@yadro.com, namhyung@kernel.org,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, peterlin@andestech.com,
+ peterz@infradead.org, prabhakar.mahadev-lad.rj@bp.renesas.com,
+ rdunlap@infradead.org, robh+dt@kernel.org, samuel@sholland.org,
+ sunilvl@ventanamicro.com, tim609@andestech.com, uwu@icenowy.me,
+ wens@csie.org, will@kernel.org, ycliang@andestech.com
+Subject: Re: [RFC PATCH v3 RESEND 02/13] irqchip/riscv-intc: Allow large
+ non-standard hwirq number
+In-Reply-To: <20231023004100.2663486-3-peterlin@andestech.com>
+References: <20231023004100.2663486-1-peterlin@andestech.com>
+ <20231023004100.2663486-3-peterlin@andestech.com>
+Date: Fri, 27 Oct 2023 09:12:59 +0200
+Message-ID: <87a5s44jyc.ffs@tglx>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231027_000909_034008_3CF42A1F 
-X-CRM114-Status: GOOD (  23.91  )
+X-CRM114-CacheID: sfid-20231027_001301_134114_92C868A3 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,136 +92,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 19 2023 at 21:57, Yu Chien Peter Lin wrote:
-> This commit adds support for the Andes IRQ chip, which provides
+On Mon, Oct 23 2023 at 08:40, Yu Chien Peter Lin wrote:
+> Currently, the implementation of the RISC-V INTC driver uses the
+> interrupt cause as hwirq and has a limitation of supporting a
+> maximum of 64 hwirqs. However, according to the privileged spec,
+> interrupt causes >= 16 are defined for platform use.
+>
+> This limitation prevents us from fully utilizing the available
+> local interrupt sources. Additionally, the hwirqs used on RISC-V
+> are sparse, with only interrupt numbers 1, 5 and 9 (plus Sscofpmf
+> or T-Head's PMU irq) being currently used for supervisor mode.
+>
+> The patch switches to using irq_domain_create_tree() which
 
-"This commit" is not any different from "This patch" and equaly
-pointless. See Documentation/process/submitting-patches.rst
+git grep "This patch" Documentation/process/
 
-Also please write out interrupt instead of IRQ. Changelogs are text and
-not subject to twitter limitations.
+> creates the radix tree map, allowing us to handle a larger
+> number of hwirqs.
 
-> IRQ mask/unmask functions to access the custom CSR (SLIE)
+Who is 'us'? We are not part of the chip and please write out 'hardware
+interrupts'
 
-What is a CSR? These acronyms are really annoying for people who are not
-familiar with the chip specific details.
-
-> +static void andes_intc_irq_mask(struct irq_data *d)
-> +{
-> +	unsigned int mask = BIT(d->hwirq % BITS_PER_LONG);
-> +
-> +	if (d->hwirq < ANDES_SLI_CAUSE_BASE)
-
-This lacks a comment which explains why these hardware interrupts are
-special.
-
-> +		csr_clear(CSR_IE, mask);
-> +	else
-> +		csr_clear(ANDES_CSR_SLIE, mask);
-> +}
-> +
-> +static void andes_intc_irq_unmask(struct irq_data *d)
-> +{
-> +	unsigned int mask = BIT(d->hwirq % BITS_PER_LONG);
-> +
-> +	if (d->hwirq < ANDES_SLI_CAUSE_BASE)
-> +		csr_set(CSR_IE, mask);
-> +	else
-> +		csr_set(ANDES_CSR_SLIE, mask);
-> +}
-> +
->  static void riscv_intc_irq_eoi(struct irq_data *d)
+> @@ -24,10 +24,8 @@ static asmlinkage void riscv_intc_irq(struct pt_regs *regs)
 >  {
->  	/*
-> @@ -68,12 +89,35 @@ static struct irq_chip riscv_intc_chip = {
->  	.irq_eoi = riscv_intc_irq_eoi,
->  };
+>  	unsigned long cause = regs->cause & ~CAUSE_IRQ_FLAG;
 >  
-> +static struct irq_chip andes_intc_chip = {
-> +	.name = "RISC-V INTC",
-> +	.irq_mask = andes_intc_irq_mask,
-> +	.irq_unmask = andes_intc_irq_unmask,
-> +	.irq_eoi = riscv_intc_irq_eoi,
+> -	if (unlikely(cause >= BITS_PER_LONG))
+> -		panic("unexpected interrupt cause");
+> -
+> -	generic_handle_domain_irq(intc_domain, cause);
+> +	if (generic_handle_domain_irq(intc_domain, cause))
+> +		pr_warn("Failed to handle interrupt (cause: %ld)\n", cause);
 
-https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#struct-declarations-and-initializers
+pr_warn_once() or at least pr_warn_ratelimited().
 
-> +};
-> +
->  static int riscv_intc_domain_map(struct irq_domain *d, unsigned int irq,
->  				 irq_hw_number_t hwirq)
+>  }
+>  
+>  /*
+> @@ -117,8 +115,8 @@ static int __init riscv_intc_init_common(struct fwnode_handle *fn)
 >  {
-> +	struct fwnode_handle *fn = riscv_get_intc_hwnode();
-> +	struct irq_chip *chip;
-> +	const char *cp;
-> +	int rc;
-> +
->  	irq_set_percpu_devid(irq);
+>  	int rc;
+>  
+> -	intc_domain = irq_domain_create_linear(fn, BITS_PER_LONG,
+> -					       &riscv_intc_domain_ops, NULL);
+> +	intc_domain = irq_domain_create_tree(fn, &riscv_intc_domain_ops,
+> +					     NULL);
 
-Why is this not moved after the failure condition too?
-
-> -	irq_domain_set_info(d, irq, hwirq, &riscv_intc_chip, d->host_data,
-> -			    handle_percpu_devid_irq, NULL, NULL);
-> +
-> +	rc = fwnode_property_read_string(fn, "compatible", &cp);
-> +	if (rc)
-> +		return rc;
-> +
-> +	if (strcmp(cp, "riscv,cpu-intc") == 0)
-> +		chip = &riscv_intc_chip;
-> +	else if (strcmp(cp, "andestech,cpu-intc") == 0)
-> +		chip = &andes_intc_chip;
-
-How is this supposed to work with ACPI?
-
-The obvious solution for this is to have two different init functions
-
-riscv_intc_init()
-{
-        riscv_intc_init_common(..., &risc_intc_chip);
-}
-
-riscv_andes_init()
-{
-        riscv_intc_init_common(..., &andes_intc_chip);
-}
-
-riscv_intc_init_common(...., *chip)
-{
-        // Set the interrupt chip pointer as domain host data
-        irqdomain_create_linear(...., chip);
-}
-
-and then you can use that in the map function:
-
-    chip = domain->host_data;
-
-See?
-
-> diff --git a/include/linux/irqchip/irq-riscv-intc.h b/include/linux/irqchip/irq-riscv-intc.h
-> new file mode 100644
-> index 000000000000..87c105b5b545
-> --- /dev/null
-> +++ b/include/linux/irqchip/irq-riscv-intc.h
-> @@ -0,0 +1,12 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2023 Andes Technology Corporation
-> + */
-> +#ifndef __INCLUDE_LINUX_IRQCHIP_IRQ_RISCV_INTC_H
-> +#define __INCLUDE_LINUX_IRQCHIP_IRQ_RISCV_INTC_H
-> +
-> +#define ANDES_SLI_CAUSE_BASE	256
-> +#define ANDES_CSR_SLIE		0x9c4
-> +#define ANDES_CSR_SLIP		0x9c5
-> +
-> +#endif /* __INCLUDE_LINUX_IRQCHIP_IRQ_RISCV_INTC_H */
-
-What's the purpose of this header file? The defines are only used in the
-interrupt chip driver code, so they can just be in the C file. No?
-
-Thanks,
-
-        tglx
+Put it into one line. Linebreaking arguments is really only required
+when the line length is exceedingly long. This one is not.
 
 
 _______________________________________________
