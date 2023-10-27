@@ -4,68 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32926C25B6E
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Oct 2023 19:31:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3ACFC25B47
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Oct 2023 19:31:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gxwE9hUhhCx45q6S5sYeRUwqI1J79mg4ZPoPzQtxw0M=; b=fw8MxYcVJbbkPB
-	Gq9xqZNuSDNtilBEvkDpICUa2TcpcOLZ69uXgdhBdaAJ0SkG97GS5S036CVgnRUSm0hCyWwUltW+s
-	9eIcaWC1iKkrVoIcSU6T7aI9vLONyVrcRuZIWCG/lrVNNnOFGrLqRQDn5eiWrKgxZdJjikwu7zdqt
-	vAg1NxfWlA7WCtFMo7P/KqEde8UfzhTBokN535xoimKkbFSS8BVY6KpecEqUjayXj1qrWrDd3nXEX
-	UPWHqRdu28kkxj3kpXs3a+1XEr5G5cSAyOw1q36yRD11BczS1ZWTYBZheHOtVCFSo80jaqV2S4j2+
-	CLFBO52GlWA7llYFFY3g==;
+	List-Owner; bh=rDpCRBC+VKh6CLgK34xtWarGL+Rhwklu+xt6aB7RCaw=; b=jeJpqFE0XBkwAp
+	io2vmKH93GgvET18J4I1qMI2tvpQRKKueDF+TA88+8w+ET1r5eHfpHz1Z8Om6B/dQLjUes1A5VRLt
+	7Q2eOp6mdxgfr+H5E0slMdyrS/j/1RBxC4BXe4EHVwH7jF8ZNbcE72rJog3kkMfHOJ5NUhriDjPp5
+	urNFW8X693z28jGCbqV4HO7BTrEghM28QuxmvPFdYYfy4EJM/pbmgI45xm5X6wzjhQL+Fmy4ueKQ+
+	m+98Hb6PJhPGUxDJOADMiDujy/nBxnWtIl1tRQQy6USFjWkTvkPBTRJ7y7hWXzlIswx3ueT36rLl+
+	YGYreiHNJk3iU6R5/T0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qwSY9-00H5cC-0J;
-	Fri, 27 Oct 2023 19:31:17 +0000
-Received: from mail-yb1-f201.google.com ([209.85.219.201])
+	id 1qwSYB-00H5fH-2m;
+	Fri, 27 Oct 2023 19:31:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qwRU7-00Gx7U-2C
+	id 1qwRUB-00GxMR-1Z
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 27 Oct 2023 18:23:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=QVHGnajj4HOCkrhgrdEXP5z3IZ3KkliWY6Z9SNVyio0=; b=pUjt7PHubJ4EaA5qMOaopLcHET
+	VXPS7U0Ryhxt+Pj1BrLOQiCdu/2MBfawq+wBr+c2pSxg5FoIVD5ntipLOhBiNdjCVHZXS4RqDDvii
+	HMvi/auxj9RoQZak+MGqxpoDDqmUaXzKoQmjwaMBuVKwL9txLlUF0RgnbsI68Wrz3fxqEbAzgY0ND
+	KQPD1IYuv5TbiT4klmzoraWSkE/PvlYNUe70Q11MBg3RuwWSB5H6EjqbKZ3L+jDnaZvydtFouQ/F1
+	FV2N4oqaf8SSe9WI7Nz5Wsg/dsQiJXHWoPkFp6y9NA66/5pWf3g+1rcIH9GbFDYcaSQi6re2doc3M
+	McnsMFgA==;
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qwRU7-000ueG-0s
 	for linux-riscv@lists.infradead.org;
 	Fri, 27 Oct 2023 18:23:06 +0000
-Received: by mail-yb1-f201.google.com with SMTP id 3f1490d57ef6-da0c6d62ec8so1153963276.1
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Oct 2023 11:22:54 -0700 (PDT)
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-5af9ad9341fso10348437b3.2
+        for <linux-riscv@lists.infradead.org>; Fri, 27 Oct 2023 11:23:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1698430973; x=1699035773; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1698430981; x=1699035781; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=KesXVMWlLgDxABh+fu6pK0xRQzS+y87PSmDv/paodW4=;
-        b=zp/mHXMPWsNAHWns10tWhaDecackeLF7a5bB+J4a7MmJWQDjVsPxz2rD3u9Bn6SRIs
-         AP+vVa/6ZDIo8VzpGqGVFB6R4gT0ldjfNl79YB9d8fqAeLVB1NGmcqusy5SIl2cAhNXO
-         emtSOH4+3S3hIO7b3J3UQcxNuTLSJyh0KxWC6W3dTlT4U6tWluz91/ae7G7hBE1xwSfZ
-         BDNlFLYUDUHUgyiKd6XwHg+lIJNvzrG/UTdGLEN7hhlwInr94DIZYbfRlVqa9NWzWIXq
-         WtsXyhFd3pqv7p6ZUsYxhmGO/4/p5Ya34L6j9RCsWqxI93ZtycKjCHOkCPLPNTbDC8GZ
-         bp5A==
+        bh=QVHGnajj4HOCkrhgrdEXP5z3IZ3KkliWY6Z9SNVyio0=;
+        b=bD76xPW+5j7Sp1vGHpREWyBtfua1TNCfRXgdr2KBAsyKr/4eL0vI0IvH2fAJnp0GjO
+         SktGy4Hr7FFz/k/a8IKanSf+JkKwJfxXf1nmRhQfAgcFFnwrOi+oOBZ8ndIVISfzSTXE
+         5FWr+w992Do3q6FqsCaASRfXqMpRr8AyAi8A/13Ti+yYk/vPi+Anog90Vg27IMgH0idX
+         MyjCpxtrkwmT/kWsdfQ9xAjoufWqPP4O0yXVAo40yCFInFGSW1OPRY5iDF4T3dn2dnsG
+         YXeB7UMDU2/ubby9IN9NswkWNo92IFEniQ8boSnafAjjCDfCjw2jci3aSoOFqoduaQ+F
+         9rNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698430973; x=1699035773;
+        d=1e100.net; s=20230601; t=1698430981; x=1699035781;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=KesXVMWlLgDxABh+fu6pK0xRQzS+y87PSmDv/paodW4=;
-        b=lO+9IjkTJMlnnOr21FKjpK+srrNW+ZX4mo8VhRKPr0DNNcCo4VUC53Fyk3ttnlcgrE
-         cWgFYZXiz61y9ttOkgmJ6GgxsNi8OyCcbtlaRQecI8tirhOdNNjPXS3JFQgGXCEuoskw
-         /qvWqkOMfhLZvphth74fKxZdk2LxBXRcP7+jwEHBDcJzEa+BvcruQfBpnBF+e9tUS35O
-         jP76MNX5IIfnT1bIL5amD9MXwMyZVp3GHAz7wlS06SxnSH0nIVbC+Y13Slnd6W3VOQAv
-         6TrGZ1TPc0J0AkA5Pf0j3uNcvCQQlP65pRjUGATz9OsrIw5i3BjGchSd1OHKiAa1i9A4
-         ZPLg==
-X-Gm-Message-State: AOJu0YysbXf+cxPvRIlYvuo+Bb9tNHrmWU7yN7vkoB9fqjfoBDEqXb2x
-	8F0MXX5VpqpuiWg2zOJDX0zKHXHmeYY=
-X-Google-Smtp-Source: AGHT+IEnuAFhzspZaQ7IFc3ileY3RuCJW0iKBNsx2McP6lY6HFfWXzfm0mDQuIa0sPNZvKStqElvm4PIJQ8=
+        bh=QVHGnajj4HOCkrhgrdEXP5z3IZ3KkliWY6Z9SNVyio0=;
+        b=e1tWqxIBT/AvqBky4CHy+ceFJbKKvyUPNC0fN3bh+21egZVguiDhuLdQggaTF3Wd2T
+         iiAdaIA2DKyVOejjRynIXN6PKNn+wZBcdWToz28OrXBVobeBKM85vcOAtmuahQLIZAbh
+         rqg1ylF9pe7HCGUjub3/n+XcKnGbbwIVi4uH5FZRMVDI3uZqqXnPOSI6oA6m8fqPijEq
+         +9/5X4KZlKH2N79CV3YWusj0P0ZvIKwJ93YGx5JqEEYc+zNgS0LOrTRgoN1pzFYWyUT+
+         Uv+xAe7WNxWIgAyq2YgeUJuDZqydO4qBKvvk4S9Mhsx/MVkm6afIfke7TEQYcLR33jlC
+         wAmA==
+X-Gm-Message-State: AOJu0YwQAys/xfUaJL2LYeItwNkmpFteK16onPU40IjKVyj1D4xE7jDM
+	tmJA9/SHuKYUfVnsC6LG1C3gr9QYyEg=
+X-Google-Smtp-Source: AGHT+IGhdcD7DYxvJo53MxSFMcue6wHqMJ/dJKXwjBlyW/fIhxTWfdSD8wIFRBeoqz4UflCFK1Su3DgQ67Q=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
  (user=seanjc job=sendgmr) by 2002:a05:6902:1083:b0:da0:567d:f819 with SMTP id
- v3-20020a056902108300b00da0567df819mr78694ybu.10.1698430973571; Fri, 27 Oct
- 2023 11:22:53 -0700 (PDT)
-Date: Fri, 27 Oct 2023 11:21:56 -0700
+ v3-20020a056902108300b00da0567df819mr78702ybu.10.1698430981246; Fri, 27 Oct
+ 2023 11:23:01 -0700 (PDT)
+Date: Fri, 27 Oct 2023 11:22:00 -0700
 In-Reply-To: <20231027182217.3615211-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20231027182217.3615211-1-seanjc@google.com>
 X-Mailer: git-send-email 2.42.0.820.g83a721a137-goog
-Message-ID: <20231027182217.3615211-15-seanjc@google.com>
-Subject: [PATCH v13 14/35] mm: Add AS_UNMOVABLE to mark mapping as completely unmovable
+Message-ID: <20231027182217.3615211-19-seanjc@google.com>
+Subject: [PATCH v13 18/35] KVM: x86: "Reset" vcpu->run->exit_reason early in KVM_RUN
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
@@ -91,8 +106,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
 	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231027_112303_756421_090A0A04 
-X-CRM114-Status: GOOD (  18.90  )
+X-CRM114-CacheID: sfid-20231027_192303_695062_FE168D0E 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,155 +125,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add an "unmovable" flag for mappings that cannot be migrated under any
-circumstance.  KVM will use the flag for its upcoming GUEST_MEMFD support,
-which will not support compaction/migration, at least not in the
-foreseeable future.
+Initialize run->exit_reason to KVM_EXIT_UNKNOWN early in KVM_RUN to reduce
+the probability of exiting to userspace with a stale run->exit_reason that
+*appears* to be valid.
 
-Test AS_UNMOVABLE under folio lock as already done for the async
-compaction/dirty folio case, as the mapping can be removed by truncation
-while compaction is running.  To avoid having to lock every folio with a
-mapping, assume/require that unmovable mappings are also unevictable, and
-have mapping_set_unmovable() also set AS_UNEVICTABLE.
+To support fd-based guest memory (guest memory without a corresponding
+userspace virtual address), KVM will exit to userspace for various memory
+related errors, which userspace *may* be able to resolve, instead of using
+e.g. BUS_MCEERR_AR.  And in the more distant future, KVM will also likely
+utilize the same functionality to let userspace "intercept" and handle
+memory faults when the userspace mapping is missing, i.e. when fast gup()
+fails.
 
-Cc: Matthew Wilcox <willy@infradead.org>
-Co-developed-by: Vlastimil Babka <vbabka@suse.cz>
-Signed-off-by: Vlastimil Babka <vbabka@suse.cz>
+Because many of KVM's internal APIs related to guest memory use '0' to
+indicate "success, continue on" and not "exit to userspace", reporting
+memory faults/errors to userspace will set run->exit_reason and
+corresponding fields in the run structure fields in conjunction with a
+a non-zero, negative return code, e.g. -EFAULT or -EHWPOISON.  And because
+KVM already returns  -EFAULT in many paths, there's a relatively high
+probability that KVM could return -EFAULT without setting run->exit_reason,
+in which case reporting KVM_EXIT_UNKNOWN is much better than reporting
+whatever exit reason happened to be in the run structure.
+
+Note, KVM must wait until after run->immediate_exit is serviced to
+sanitize run->exit_reason as KVM's ABI is that run->exit_reason is
+preserved across KVM_RUN when run->immediate_exit is true.
+
+Link: https://lore.kernel.org/all/20230908222905.1321305-1-amoorthy@google.com
+Link: https://lore.kernel.org/all/ZFFbwOXZ5uI%2Fgdaf@google.com
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- include/linux/pagemap.h | 19 +++++++++++++++++-
- mm/compaction.c         | 43 +++++++++++++++++++++++++++++------------
- mm/migrate.c            |  2 ++
- 3 files changed, 51 insertions(+), 13 deletions(-)
+ arch/x86/kvm/x86.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/include/linux/pagemap.h b/include/linux/pagemap.h
-index 351c3b7f93a1..82c9bf506b79 100644
---- a/include/linux/pagemap.h
-+++ b/include/linux/pagemap.h
-@@ -203,7 +203,8 @@ enum mapping_flags {
- 	/* writeback related tags are not used */
- 	AS_NO_WRITEBACK_TAGS = 5,
- 	AS_LARGE_FOLIO_SUPPORT = 6,
--	AS_RELEASE_ALWAYS,	/* Call ->release_folio(), even if no private data */
-+	AS_RELEASE_ALWAYS = 7,	/* Call ->release_folio(), even if no private data */
-+	AS_UNMOVABLE	= 8,	/* The mapping cannot be moved, ever */
- };
- 
- /**
-@@ -289,6 +290,22 @@ static inline void mapping_clear_release_always(struct address_space *mapping)
- 	clear_bit(AS_RELEASE_ALWAYS, &mapping->flags);
- }
- 
-+static inline void mapping_set_unmovable(struct address_space *mapping)
-+{
-+	/*
-+	 * It's expected unmovable mappings are also unevictable. Compaction
-+	 * migrate scanner (isolate_migratepages_block()) relies on this to
-+	 * reduce page locking.
-+	 */
-+	set_bit(AS_UNEVICTABLE, &mapping->flags);
-+	set_bit(AS_UNMOVABLE, &mapping->flags);
-+}
-+
-+static inline bool mapping_unmovable(struct address_space *mapping)
-+{
-+	return test_bit(AS_UNMOVABLE, &mapping->flags);
-+}
-+
- static inline gfp_t mapping_gfp_mask(struct address_space * mapping)
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index ee3cd8c3c0ef..f41dbb1465a0 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -10963,6 +10963,7 @@ static int vcpu_run(struct kvm_vcpu *vcpu)
  {
- 	return mapping->gfp_mask;
-diff --git a/mm/compaction.c b/mm/compaction.c
-index 38c8d216c6a3..12b828aed7c8 100644
---- a/mm/compaction.c
-+++ b/mm/compaction.c
-@@ -883,6 +883,7 @@ isolate_migratepages_block(struct compact_control *cc, unsigned long low_pfn,
+ 	int r;
  
- 	/* Time to isolate some pages for migration */
- 	for (; low_pfn < end_pfn; low_pfn++) {
-+		bool is_dirty, is_unevictable;
++	vcpu->run->exit_reason = KVM_EXIT_UNKNOWN;
+ 	vcpu->arch.l1tf_flush_l1d = true;
  
- 		if (skip_on_failure && low_pfn >= next_skip_pfn) {
- 			/*
-@@ -1080,8 +1081,10 @@ isolate_migratepages_block(struct compact_control *cc, unsigned long low_pfn,
- 		if (!folio_test_lru(folio))
- 			goto isolate_fail_put;
- 
-+		is_unevictable = folio_test_unevictable(folio);
-+
- 		/* Compaction might skip unevictable pages but CMA takes them */
--		if (!(mode & ISOLATE_UNEVICTABLE) && folio_test_unevictable(folio))
-+		if (!(mode & ISOLATE_UNEVICTABLE) && is_unevictable)
- 			goto isolate_fail_put;
- 
- 		/*
-@@ -1093,26 +1096,42 @@ isolate_migratepages_block(struct compact_control *cc, unsigned long low_pfn,
- 		if ((mode & ISOLATE_ASYNC_MIGRATE) && folio_test_writeback(folio))
- 			goto isolate_fail_put;
- 
--		if ((mode & ISOLATE_ASYNC_MIGRATE) && folio_test_dirty(folio)) {
--			bool migrate_dirty;
-+		is_dirty = folio_test_dirty(folio);
-+
-+		if (((mode & ISOLATE_ASYNC_MIGRATE) && is_dirty) ||
-+		    (mapping && is_unevictable)) {
-+			bool migrate_dirty = true;
-+			bool is_unmovable;
- 
- 			/*
- 			 * Only folios without mappings or that have
--			 * a ->migrate_folio callback are possible to
--			 * migrate without blocking.  However, we may
--			 * be racing with truncation, which can free
--			 * the mapping.  Truncation holds the folio lock
--			 * until after the folio is removed from the page
--			 * cache so holding it ourselves is sufficient.
-+			 * a ->migrate_folio callback are possible to migrate
-+			 * without blocking.
-+			 *
-+			 * Folios from unmovable mappings are not migratable.
-+			 *
-+			 * However, we can be racing with truncation, which can
-+			 * free the mapping that we need to check. Truncation
-+			 * holds the folio lock until after the folio is removed
-+			 * from the page so holding it ourselves is sufficient.
-+			 *
-+			 * To avoid locking the folio just to check unmovable,
-+			 * assume every unmovable folio is also unevictable,
-+			 * which is a cheaper test.  If our assumption goes
-+			 * wrong, it's not a correctness bug, just potentially
-+			 * wasted cycles.
- 			 */
- 			if (!folio_trylock(folio))
- 				goto isolate_fail_put;
- 
- 			mapping = folio_mapping(folio);
--			migrate_dirty = !mapping ||
--					mapping->a_ops->migrate_folio;
-+			if ((mode & ISOLATE_ASYNC_MIGRATE) && is_dirty) {
-+				migrate_dirty = !mapping ||
-+						mapping->a_ops->migrate_folio;
-+			}
-+			is_unmovable = mapping && mapping_unmovable(mapping);
- 			folio_unlock(folio);
--			if (!migrate_dirty)
-+			if (!migrate_dirty || is_unmovable)
- 				goto isolate_fail_put;
- 		}
- 
-diff --git a/mm/migrate.c b/mm/migrate.c
-index 2053b54556ca..ed874e43ecd7 100644
---- a/mm/migrate.c
-+++ b/mm/migrate.c
-@@ -956,6 +956,8 @@ static int move_to_new_folio(struct folio *dst, struct folio *src,
- 
- 		if (!mapping)
- 			rc = migrate_folio(mapping, dst, src, mode);
-+		else if (mapping_unmovable(mapping))
-+			rc = -EOPNOTSUPP;
- 		else if (mapping->a_ops->migrate_folio)
- 			/*
- 			 * Most folios have a mapping and most filesystems
+ 	for (;;) {
 -- 
 2.42.0.820.g83a721a137-goog
 
