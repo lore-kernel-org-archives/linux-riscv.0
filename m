@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19B22C27C48
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Oct 2023 00:05:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D16FEC25B67
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Oct 2023 04:58:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=67cW6HPaP7WV9YQtA1hVe+aoaMuKdqhlIsXKrXXmv2I=; b=xa+ypdyuiKX6cH
-	pyfDP6/7VsAqRt2+1L+YjBxqUdf0KtbsM4PCalYD2S52Jhdn0LdR6Aor+PnooKfBVy/7mEV942WOD
-	W//TP01jGRjAXpg+BbCVVQsFq9M9OFW8pl90iTsLklQtGFZYqEloK/vAErskkU4EDw9sypbdG4Z00
-	YQsfI92nTDW2nP0jSTpBG1YNCUlpYvS8finjyc6ZiFq/O7JsjfiowAWBF056JcayMhQ0TTLQE5FEN
-	/OTpEEU8e303VSl7Yxdq9M5yigtV7FQDTLLt5w3eXtrAiTcvVEyqqWlocvM6r2+XS738NEUoeDO1O
-	OdummoJfHqwaNlGm9yyw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=b4hMns2xOAsQyLdpS8RnQl5kU6bKWe0iCGgVv6vlFrI=; b=jB2SpEmWcdnAEg
+	xVZ1eg9GnuZoxTBccOeLJGvzYlDyqCGpOoNGwDCCBADMYWKSonrI9D7nQw6mF5AzUvJX6jR4OURJg
+	vydp1Yw7O4J5+wi08LHtr+nuP/jPRjZUMpTqEAtXWpZrNs0gA1Pg8PmSuzKg3tiulT6Bx1xOCZDtb
+	rFYdGakrsk8RdJe/BAWmotOmyOtANMEznINrAcTGs8ZRROPaqqp0tLXDSC9eAvuGwOwQkXrk5ByT/
+	GG0i4j58dEuqNeBMfiz26b2LW68ut9Cqv0GfluJkeYspZES6e/gpfV7bALWrR4caGa2R7RumjeSXr
+	+OZy36QaUWjwExITvc3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qwWp4-00HOIZ-2h;
-	Sat, 28 Oct 2023 00:05:02 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1qwbP8-0000m7-24;
+	Sat, 28 Oct 2023 04:58:34 +0000
+Received: from mail-oo1-xc2d.google.com ([2607:f8b0:4864:20::c2d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qwWp1-00HOHQ-2k
+	id 1qwbP5-0000ln-1L
 	for linux-riscv@lists.infradead.org;
-	Sat, 28 Oct 2023 00:05:01 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1c5cd27b1acso23776115ad.2
-        for <linux-riscv@lists.infradead.org>; Fri, 27 Oct 2023 17:04:49 -0700 (PDT)
+	Sat, 28 Oct 2023 04:58:33 +0000
+Received: by mail-oo1-xc2d.google.com with SMTP id 006d021491bc7-5845a94dae1so1338868eaf.0
+        for <linux-riscv@lists.infradead.org>; Fri, 27 Oct 2023 21:58:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698451489; x=1699056289; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qU8qhN8NeuXvpuSaXXgUKByT7/WBJrVSQRx8q7qX/KU=;
-        b=w/SKrBobM5RUVmquto7Y+CVUC0UnpRuD6TUA8uCr/fvQQ65tb+XSFVedLuRGT5JPTC
-         SKTiVlKoQQMp8Nq2LhwdDibcqHr+dKJbYymidozQwMxY9C6hHKmJ3VFJrdTa+ADNWtCP
-         tMliAzlIjLCwsPFManPtZxuuO5R9wGNmdZop5x9ktFzn0tlzITGrMIH1ov41NRiNkK+b
-         lDHws1roKURnnWHpNK8MTQ8fEEfeLoyQIRCQWuhnCH7zAB1VRrlX2pCKbcRCaq8kZa1y
-         vnpao5KdHtX1I54aKLne+XAdrocpTfH8mVTEgyj6OuTgrh2FTRWcCFDRWGAu5en7kBNw
-         6Q9A==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698469110; x=1699073910; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=8q790Td8gv55CpXw6jh1r5+WUtiBYMYeRT8D2CcfTbo=;
+        b=wdEwzB9TUFm+B4DH5KRAsF4NmFYJrmnB94DF2rkZZ8a7uSqPJCreEs7wUWZ+04JykK
+         p6lHWH6GzfzlyY7hSUV0qBF7kL+9xKcueBLWwVZicgKdUcxndfhwC679hVaUBMo8lnI4
+         /ETGcc5xZIT9x2HYMYNn/6DFr9ewX3Zf3uASywWoyRgB2L5f/Md7RC9sSaoJIexy9egr
+         waxc43RNVD5O1GYxIGgNn/iDTan2KQK2NxA6jtr6Nzz7H3YxwRtdvt6mJi9f1iACt0zw
+         mxCDuwh/X5V2YgewCU0BtUalZPMKNhMp0ff8WjaHpZ1IVBRhOzAeqNBdh/NpA1UpomrL
+         qZfg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698451489; x=1699056289;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qU8qhN8NeuXvpuSaXXgUKByT7/WBJrVSQRx8q7qX/KU=;
-        b=Ku8ByNGzy9guxrHinOHtQyoDM0Yqo/f85CfAWVcaKuPrPxChRpylG2oNyDor9PKe8o
-         Qh6phLwjqyJi/29eF3Tbbmoge9k59vNF+VqwKYfpG6EfhwVwr525sCueeyc0pRtyygi0
-         sW/1/7zqrIDkiTcYQ0OwZCA2jf8Ek4rSRPrF+Q0v3EmsIkr/FMKLGD43lB5VPdUQp6Wu
-         Bo/KZiYmFg9PnKTRgst7k8//TU1y7aPPZkaAldF0frbXn++S0x8PXKAwqIQ1AtJBT3zO
-         G2Gr92n30KatUAGRFKaFf6hsraYhaxkxeL9GDFRPSs9LjWA4vkZ08YlMZGPR4TIwdMh5
-         JDSg==
-X-Gm-Message-State: AOJu0YywtunT/X6pbOimGHpZKq2C5TgNZ8GN5EA0dFRqMaG5P5Nv4Vvy
-	YH7ylgDcWyhMzAHGwexKYM043Q==
-X-Google-Smtp-Source: AGHT+IHCWZUCOBrHeYHsbktRHjy1dwHh6CQjMh1NI3hlaxVuQBaSwOfSsn52ubFNnvm1Dp9H4oR9Aw==
-X-Received: by 2002:a17:903:1385:b0:1cc:23ad:c2d5 with SMTP id jx5-20020a170903138500b001cc23adc2d5mr2905369plb.39.1698451488878;
-        Fri, 27 Oct 2023 17:04:48 -0700 (PDT)
-Received: from ghost ([12.44.203.122])
-        by smtp.gmail.com with ESMTPSA id iz15-20020a170902ef8f00b001c9c6a78a56sm2136056plb.97.2023.10.27.17.04.47
+        d=1e100.net; s=20230601; t=1698469110; x=1699073910;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8q790Td8gv55CpXw6jh1r5+WUtiBYMYeRT8D2CcfTbo=;
+        b=gpDaAkbxAuoVO7xbufslJ9GZrHdOqSMrpK5c6Xr12vmn8Ae0vEltnkMuh+CQkxz9kO
+         bLG2uyp6gDOiwZ3nr70jcqIoTg6NP1MR4m74bZz9fDdGewehJwXw+xP/t0ItygH5qZJ2
+         l+YIJ5c4n/Z3AXTgTdROLbSHOuDvGcZwgFUFiIZ2jBodHX1AdH51+tDKhlJhaLWZlEQZ
+         wHxAccVEq1btoI9NTEh17HTn2Mal0wRx4Yc02s6UglEkDBz9qfmxfDPZ9dptSk6qlngf
+         ujEQE6EaP4sjO8Ta/ik8fJ4iaHlndZXuEapkywB+LLwxXl+nQeW7TwnfmL4BXaNSxUCD
+         Q3hw==
+X-Gm-Message-State: AOJu0YwYGTR4PQ5ZkqzKjQpq2HXDmBZQFMjwPKB3fsQ7kIo214355YRN
+	cTKFVeMFY0FVHy3WlVhYx4lxWw==
+X-Google-Smtp-Source: AGHT+IGGDClxKSdOLWZbDJlUZVr8MpnEslR+RWKEakq84qXtJFW68KEQ5ZSFt7C+jjhQC2mgYYoflQ==
+X-Received: by 2002:a05:6808:6d5:b0:3a7:5d6e:dcfb with SMTP id m21-20020a05680806d500b003a75d6edcfbmr2757787oih.8.1698469109750;
+        Fri, 27 Oct 2023 21:58:29 -0700 (PDT)
+Received: from debug.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id k16-20020a544710000000b003a8560a9d34sm567488oik.25.2023.10.27.21.58.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Oct 2023 17:04:48 -0700 (PDT)
-Date: Fri, 27 Oct 2023 17:04:45 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Al Viro <viro@zeniv.linux.org.uk>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	David Laight <David.Laight@aculab.com>,
-	Xiao Wang <xiao.w.wang@intel.com>, Evan Green <evan@rivosinc.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org,
+        Fri, 27 Oct 2023 21:58:29 -0700 (PDT)
+From: Deepak Gupta <debug@rivosinc.com>
+To: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Jan Kiszka <jan.kiszka@siemens.com>,
+	Kieran Bingham <kbingham@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v8 1/5] asm-generic: Improve csum_fold
-Message-ID: <ZTxQHVplimd4tquE@ghost>
-References: <20231027-optimize_checksum-v8-0-feb7101d128d@rivosinc.com>
- <20231027-optimize_checksum-v8-1-feb7101d128d@rivosinc.com>
- <20231027231036.GM800259@ZenIV>
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Deepak Gupta <debug@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Hsieh-Tseng Shen <woodrow.shen@sifive.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Glenn Washburn <development@efficientek.com>,
+	Jeff Xie <xiehuan09@gmail.com>
+Subject: [PATCH v6] scripts/gdb: add lx_current support for riscv
+Date: Fri, 27 Oct 2023 21:58:00 -0700
+Message-ID: <20231028045813.685389-1-debug@rivosinc.com>
+X-Mailer: git-send-email 2.42.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231027231036.GM800259@ZenIV>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231027_170459_896929_EDCEA81F 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20231027_215831_675573_74743BA8 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,31 +100,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 28, 2023 at 12:10:36AM +0100, Al Viro wrote:
-> On Fri, Oct 27, 2023 at 03:43:51PM -0700, Charlie Jenkins wrote:
-> >  /*
-> >   * computes the checksum of a memory block at buff, length len,
-> >   * and adds in "sum" (32-bit)
-> > @@ -31,9 +33,7 @@ extern __sum16 ip_fast_csum(const void *iph, unsigned int ihl);
-> >  static inline __sum16 csum_fold(__wsum csum)
-> >  {
-> >  	u32 sum = (__force u32)csum;
-> > -	sum = (sum & 0xffff) + (sum >> 16);
-> > -	sum = (sum & 0xffff) + (sum >> 16);
-> > -	return (__force __sum16)~sum;
-> > +	return (__force __sum16)((~sum - ror32(sum, 16)) >> 16);
-> >  }
-> 
-> Will (~(sum + ror32(sum, 16))>>16 produce worse code than that?
-> Because at least with recent gcc this will generate the exact thing
-> you get from arm inline asm...
+csr_sscratch CSR holds current task_struct address when hart is in
+user space. Trap handler on entry spills csr_sscratch into "tp" (x2)
+register and zeroes out csr_sscratch CSR. Trap handler on exit reloads
+"tp" with expected user mode value and place current task_struct address
+again in csr_sscratch CSR.
 
-Yes that will produce worse code because an out-of-order processor will be able to
-leverage that ~sum and ror32(sum, 16) can be computed independently of
-each other. There are more strict data dependencies in (~(sum +
-ror32(sum, 16))>>16.
+This patch assumes "tp" is pointing to task_struct. If value in
+csr_sscratch is numerically greater than "tp" then it assumes csr_sscratch
+is correct address of current task_struct. This logic holds when
+   - hart is in user space, "tp" will be less than csr_sscratch.
+   - hart is in kernel space but not in trap handler, "tp" will be more
+     than csr_sscratch (csr_sscratch being equal to 0).
+   - hart is executing trap handler
+       - "tp" is still pointing to user mode but csr_sscratch contains
+          ptr to task_struct. Thus numerically higher.
+       - "tp" is  pointing to task_struct but csr_sscratch now contains
+          either 0 or numerically smaller value (transiently holds
+          user mode tp)
 
-- Charlie
+Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+Tested-by: Hsieh-Tseng Shen <woodrow.shen@sifive.com>
+
+---
+Since patch has changed a little bit from v1 and I didn't include
+changelog earlier, here it is.
+
+v1 --> v2:
+ - added logic to locate task_struct irrespective of priv
+ - made locating task_struct agnostic to bitness(32 vs 64).
+ - added caching of ulong type in scripts/gdb/linux/utils.py
+ - added more descriptive commit message
+
+v2 --> v3:
+ - amended commit message and source line to fit column width
+
+v3 --> v4:
+ - amended commit message and remove whitespace in source
+ - added Reviewed-by for reviewers
+
+v4 --> v5:
+ - changing the order of changelog and sign off/review tags in commit
+
+v5 --> v6:
+ - rebased on 6.6-rc5. dropped changes in utils.py as they're upstream
+---
+ scripts/gdb/linux/cpus.py | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/scripts/gdb/linux/cpus.py b/scripts/gdb/linux/cpus.py
+index 255dc18cb9da..cba589e5b57d 100644
+--- a/scripts/gdb/linux/cpus.py
++++ b/scripts/gdb/linux/cpus.py
+@@ -179,6 +179,21 @@ def get_current_task(cpu):
+         else:
+             raise gdb.GdbError("Sorry, obtaining the current task is not allowed "
+                                "while running in userspace(EL0)")
++    elif utils.is_target_arch("riscv"):
++        current_tp = gdb.parse_and_eval("$tp")
++        scratch_reg = gdb.parse_and_eval("$sscratch")
++
++        # by default tp points to current task
++        current_task = current_tp.cast(task_ptr_type)
++
++        # scratch register is set 0 in trap handler after entering kernel.
++        # When hart is in user mode, scratch register is pointing to task_struct.
++        # and tp is used by user mode. So when scratch register holds larger value
++        # (negative address as ulong is larger value) than tp, then use scratch register.
++        if (scratch_reg.cast(utils.get_ulong_type()) > current_tp.cast(utils.get_ulong_type())):
++            current_task = scratch_reg.cast(task_ptr_type)
++
++        return current_task.dereference()
+     else:
+         raise gdb.GdbError("Sorry, obtaining the current task is not yet "
+                            "supported with this arch")
+-- 
+2.42.0
 
 
 _______________________________________________
