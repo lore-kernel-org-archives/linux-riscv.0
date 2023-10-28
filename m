@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1D77C0018C
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Oct 2023 23:14:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23F55C4167B
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Oct 2023 23:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ke9uUiY/eXBNOC3zyRMy0bsdoypBLwQJezndPcpqsFE=; b=yyYFE9HFuS0hKp
-	kjmH+wFzFmlYImZzxlbF1OqV/yaMt02ji6NNzq63r4IW10fYY6dm7CKwOt7Bd73BKpt/wCOnYYMu0
-	7tvF4K5fDJWtwzI9WRGNA6LOkmkAaXUgF48UjTT70bjuixkH8ANnl6nzWGDnDk9sev6zKptGjjJ7Q
-	rmnj1VcNtkPMG7T59BE85AbOP29lzAY2jvqxN1DdGSdVAiNuj+WhbDOufBiXzq8pYGi8ajfVKe5Rk
-	mLVQqsWHDf+VhEj803zlNtrI7k7JeOQ8HSCH72nbAipzSXtbrvmagC2P/WeGG4WVJJN5tcRF9rFyU
-	5KtOgR50IW9CG/N+bMqw==;
+	List-Owner; bh=Li/VAFYbscj6f9+EV6EJIvnlY67sDrtoWicRX6372nQ=; b=X4Bo/SomXEONMh
+	VP17Z03U4wZ4AmzN+Fc+TZfoaKVhSbMUipTvNeQvc5FdaqFrR6Zs0w3DeEbH+8dUCVWym4MRVnwkt
+	TVwuN4m379z0/uddDLdQ5RUvgeBE4xqUesbGqk4YoygPHU/poMBvOKVE9DqvqD85KKXZa8YtPcCm5
+	Iw5BwisQSyUAzyyqpG7qyYYVcIXUPBW5Ro3eLG877ikb6ciMtkGmxXgHrSPH0L8+eoUylJkSOi+LM
+	+Yj36vpH12KTq/1vjKNYp8eq+8EkcRDCx+a3WYkqApbobbNor+Z6dTCy8fcsgFl5OEqHfFv8wkS79
+	1TCNaVl+Gvw/2GQEKoxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qwsVD-000va2-0q;
-	Sat, 28 Oct 2023 23:13:59 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1qwsVP-000vjh-2N;
+	Sat, 28 Oct 2023 23:14:11 +0000
+Received: from mail-oo1-xc32.google.com ([2607:f8b0:4864:20::c32])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qwsV5-000vUH-0Q
+	id 1qwsVA-000vY2-2z
 	for linux-riscv@lists.infradead.org;
-	Sat, 28 Oct 2023 23:13:54 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-2800bdf888dso1290874a91.1
-        for <linux-riscv@lists.infradead.org>; Sat, 28 Oct 2023 16:13:50 -0700 (PDT)
+	Sat, 28 Oct 2023 23:13:58 +0000
+Received: by mail-oo1-xc32.google.com with SMTP id 006d021491bc7-5849fc56c62so2063451eaf.3
+        for <linux-riscv@lists.infradead.org>; Sat, 28 Oct 2023 16:13:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1698534830; x=1699139630; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1698534835; x=1699139635; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=UP8DHxv66mJzZKknfJMFXXbwrunx+Hl9Ii6vLteV5ng=;
-        b=M69abNZ5UueVM84bI2TGc5h2ZfS1NC/rnvRzcJMI2f1QbXqX8Esp5YNMoCUo5SpZ00
-         iwALbgBW7mvfrcKq6QadP/Xf/ezTl8oZ6sE+VedzLraNB8tIVVrUnRrwr31JrbuEdAOM
-         jcI8cZX/Au41L2qF8Kqq91A/4JQU/TG8jUQmtNlrmoVIQCvcrxO0X5jW8w26o6BCTfPt
-         yCwo2mejRKTfMivWqKJn2aR3u6LFKtscbkq+MF45d60/WR/8i9HK5cdhFSxzBhuO9fzV
-         zg1UmuxPa8guinOl5rVtYcwr90L191g/q+GmxK3U3IG/6HjH2JzVZkyjlkiV+9djiKlN
-         Vz4g==
+        bh=MROdnZxFJAn7brM6ye/jIKPJcvVCbRqlgsjUSxtP0PY=;
+        b=cN5KGH3zyV/wkUFHz6vq7alGBC1izKw+RcEdHAX0laRx/fJ4lHSseYB4q5vvavUR/X
+         Gba+yMSZhpd5j/Z+MCXx0iS7s4lAWGSAQMsoUT3kBA9bVb1867SIaWboKNwxbcSjkDvn
+         ysZRnXhKuGWgO86kZ2UAry8taZ8PTdd9JD7mxlivIX5M+i76NVR9rdNCbg4pU1T9GGUq
+         Za+dYUa25u8OLoVDYl4wZ6hz6B3lVYJw38pC+szfMCzbeX2+Vz8jQprBOeeFWxIB+24z
+         jd1neXTtjdmzg8/9fEH0+Kd8sqQk57DgM9Uaq91Zl4zKzYAUImPmsVNrrI9MlvCw8hdu
+         AMXg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698534830; x=1699139630;
+        d=1e100.net; s=20230601; t=1698534835; x=1699139635;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=UP8DHxv66mJzZKknfJMFXXbwrunx+Hl9Ii6vLteV5ng=;
-        b=Ps54MVKOBHTeOyBcGH8AtIbylZAjzTWNHdOq1HgarR3gUV1vdwAZ7VdnuelhQFobw/
-         oFWREtrOBYeJS2zH1qsy4TVyCSqBlFt7wx0jKGa2oegwGuIfRHCz+xN/Lvt32MOPvfp3
-         X3EYlgSIzipMnGWjL9PxMZuFqv+idIQYzw3dmYSUYmI0936dpneVEynWYjDgpK35SntS
-         WkaW/oDA5KB8fkxYRXt0vqHDQCsA3mjR7V2CItdTe5IlCQ2JR4OkBX/0jBGdy8UaQXkN
-         H4Sd4HYmpZahZDSn3WocTLJN8SGouURpEJ4uo1cxY1XcJqFrOSKuFfdhCgH5n1aIezj4
-         shlQ==
-X-Gm-Message-State: AOJu0YzYZyH9/ZPjoFcLwkyP8TWGsHzGY5/x3T6YTdHrD2Q5v9/5fOKb
-	5pTCbvWfxRkRoIr9L/z/+xJlpw==
-X-Google-Smtp-Source: AGHT+IGnkbRXw2gehdqQUYovjjCjlvZO0f8kuIzIEbkVVgufqh5Fzfqz26Y3uN2f14MpzFpb+9CFvQ==
-X-Received: by 2002:a17:90a:1506:b0:280:2a3f:9938 with SMTP id l6-20020a17090a150600b002802a3f9938mr2800689pja.12.1698534830039;
-        Sat, 28 Oct 2023 16:13:50 -0700 (PDT)
+        bh=MROdnZxFJAn7brM6ye/jIKPJcvVCbRqlgsjUSxtP0PY=;
+        b=OZY/o2m87noVEtGM7xH9Ih2U81YXbMhbuRgdhfKsWUT18meVFSm8TV9RZ97x0bsPAV
+         p3oVx3rl6QpcGM7qhOmDc0WAuy7IIR+7IJgzfROTM10PspGbz+TaQ1rrWfWOcllqtFyY
+         hpwpChIsDbCxNvIV345BM89zFm2TvFf36RT3Jv3/AssQCYMMMzxfRi870MD66qkZwXXN
+         JQ1BPQRcO3mDnw93MNW6uKpuVSlqb0WAWR5X5febefymqne0t1KgW13nJsz075ycm6/H
+         PcZ3I4agJjpsWZNWJ2nXirTYFOQjhq/J4EL2eln5pK0gv967bAEjSjzvVZhCZ47Y0hya
+         OePQ==
+X-Gm-Message-State: AOJu0YyzjQ8vMvseN39SPeUJyIgCGEN9JkB0gBeKAjOzMw9YO1ba+Ifr
+	2rd2hhEw1zrkH7v5ces+pN6HwA==
+X-Google-Smtp-Source: AGHT+IEpjr2TCXm5am55hbUBmsnjcw94CHvXcnlavbn7wyDrZYS6wclRzO1RWsfOFMjAji60OjxQDg==
+X-Received: by 2002:a05:6358:5e08:b0:168:d6cd:7b2e with SMTP id q8-20020a0563585e0800b00168d6cd7b2emr6151237rwn.29.1698534835540;
+        Sat, 28 Oct 2023 16:13:55 -0700 (PDT)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id u17-20020a17090341d100b001b8622c1ad2sm3679345ple.130.2023.10.28.16.13.49
+        by smtp.gmail.com with ESMTPSA id u17-20020a17090341d100b001b8622c1ad2sm3679345ple.130.2023.10.28.16.13.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Oct 2023 16:13:49 -0700 (PDT)
+        Sat, 28 Oct 2023 16:13:54 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Alexandre Ghiti <alexghiti@rivosinc.com>,
@@ -69,16 +69,16 @@ To: Palmer Dabbelt <palmer@dabbelt.com>,
 Cc: linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org,
 	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v2 06/11] riscv: Apply SiFive CIP-1200 workaround to single-ASID sfence.vma
-Date: Sat, 28 Oct 2023 16:12:04 -0700
-Message-ID: <20231028231339.3116618-7-samuel.holland@sifive.com>
+Subject: [PATCH v2 10/11] riscv: mm: Preserve global TLB entries when switching contexts
+Date: Sat, 28 Oct 2023 16:12:08 -0700
+Message-ID: <20231028231339.3116618-11-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.42.0
 In-Reply-To: <20231028231339.3116618-1-samuel.holland@sifive.com>
 References: <20231028231339.3116618-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231028_161351_170270_1780A016 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20231028_161356_963992_9570B58E 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,121 +95,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-commit 3f1e782998cd ("riscv: add ASID-based tlbflushing methods") added
-calls to the sfence.vma instruction with rs2 != x0. These single-ASID
-instruction variants are also affected by SiFive errata CIP-1200.
+If the CPU does not support multiple ASIDs, all MM contexts use ASID 0.
+In this case, it is still beneficial to flush the TLB by ASID, as the
+single-ASID variant of the sfence.vma instruction preserves TLB entries
+for global (kernel) pages.
 
-Until now, the errata workaround was not needed for the single-ASID
-sfence.vma variants, because they were only used when the ASID allocator
-was enabled, and the affected SiFive platforms do not support multiple
-ASIDs. However, we are going to start using those sfence.vma variants
-regardless of ASID support, so now we need alternatives covering them.
+This optimization is recommended by the RISC-V privileged specification:
+
+  If the implementation does not provide ASIDs, or software chooses
+  to always use ASID 0, then after every satp write, software should
+  execute SFENCE.VMA with rs1=x0. In the common case that no global
+  translations have been modified, rs2 should be set to a register
+  other than x0 but which contains the value zero, so that global
+  translations are not flushed.
+
+It is not possible to apply this optimization when using the ASID
+allocator, because that code must flush the TLB for all ASIDs at once
+when incrementing the version number.
 
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
-Changes in v2:
- - Rebase on Alexandre's "riscv: tlb flush improvements" series v5
+(no changes since v1)
 
- arch/riscv/include/asm/errata_list.h | 12 +++++++++++-
- arch/riscv/include/asm/tlbflush.h    | 19 ++++++++++++++++++-
- arch/riscv/mm/tlbflush.c             | 23 -----------------------
- 3 files changed, 29 insertions(+), 25 deletions(-)
+ arch/riscv/mm/context.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index b55b434f0059..d3f3c237adad 100644
---- a/arch/riscv/include/asm/errata_list.h
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -44,11 +44,21 @@ ALTERNATIVE(__stringify(RISCV_PTR do_page_fault),			\
- 	    CONFIG_ERRATA_SIFIVE_CIP_453)
- #else /* !__ASSEMBLY__ */
- 
--#define ALT_FLUSH_TLB_PAGE(x)						\
-+#define ALT_SFENCE_VMA_ASID(asid)					\
-+asm(ALTERNATIVE("sfence.vma x0, %0", "sfence.vma", SIFIVE_VENDOR_ID,	\
-+		ERRATA_SIFIVE_CIP_1200, CONFIG_ERRATA_SIFIVE_CIP_1200)	\
-+		: : "r" (asid) : "memory")
-+
-+#define ALT_SFENCE_VMA_ADDR(addr)					\
- asm(ALTERNATIVE("sfence.vma %0", "sfence.vma", SIFIVE_VENDOR_ID,	\
- 		ERRATA_SIFIVE_CIP_1200, CONFIG_ERRATA_SIFIVE_CIP_1200)	\
- 		: : "r" (addr) : "memory")
- 
-+#define ALT_SFENCE_VMA_ADDR_ASID(addr, asid)				\
-+asm(ALTERNATIVE("sfence.vma %0, %1", "sfence.vma", SIFIVE_VENDOR_ID,	\
-+		ERRATA_SIFIVE_CIP_1200, CONFIG_ERRATA_SIFIVE_CIP_1200)	\
-+		: : "r" (addr), "r" (asid) : "memory")
-+
- /*
-  * _val is marked as "will be overwritten", so need to set it to 0
-  * in the default case.
-diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-index 317a1811aa51..e529a643be17 100644
---- a/arch/riscv/include/asm/tlbflush.h
-+++ b/arch/riscv/include/asm/tlbflush.h
-@@ -22,10 +22,27 @@ static inline void local_flush_tlb_all(void)
- 	__asm__ __volatile__ ("sfence.vma" : : : "memory");
- }
- 
-+static inline void local_flush_tlb_all_asid(unsigned long asid)
-+{
-+	if (asid != FLUSH_TLB_NO_ASID)
-+		ALT_SFENCE_VMA_ASID(asid);
-+	else
-+		local_flush_tlb_all();
-+}
-+
- /* Flush one page from local TLB */
- static inline void local_flush_tlb_page(unsigned long addr)
+diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+index 43a8bc2d5af4..3ca9b653df7d 100644
+--- a/arch/riscv/mm/context.c
++++ b/arch/riscv/mm/context.c
+@@ -200,7 +200,7 @@ static void set_mm_noasid(struct mm_struct *mm)
  {
--	ALT_FLUSH_TLB_PAGE(__asm__ __volatile__ ("sfence.vma %0" : : "r" (addr) : "memory"));
-+	ALT_SFENCE_VMA_ADDR(addr);
-+}
-+
-+static inline void local_flush_tlb_page_asid(unsigned long addr,
-+					     unsigned long asid)
-+{
-+	if (asid != FLUSH_TLB_NO_ASID)
-+		ALT_SFENCE_VMA_ADDR_ASID(addr, asid);
-+	else
-+		local_flush_tlb_page(addr);
+ 	/* Switch the page table and blindly nuke entire local TLB */
+ 	csr_write(CSR_SATP, virt_to_pfn(mm->pgd) | satp_mode);
+-	local_flush_tlb_all();
++	local_flush_tlb_all_asid(0);
  }
  
- #ifdef CONFIG_SMP
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index 22d7ed5abf8e..0feccb8932d2 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -7,29 +7,6 @@
- #include <asm/sbi.h>
- #include <asm/mmu_context.h>
- 
--static inline void local_flush_tlb_all_asid(unsigned long asid)
--{
--	if (asid != FLUSH_TLB_NO_ASID)
--		__asm__ __volatile__ ("sfence.vma x0, %0"
--				:
--				: "r" (asid)
--				: "memory");
--	else
--		local_flush_tlb_all();
--}
--
--static inline void local_flush_tlb_page_asid(unsigned long addr,
--		unsigned long asid)
--{
--	if (asid != FLUSH_TLB_NO_ASID)
--		__asm__ __volatile__ ("sfence.vma %0, %1"
--				:
--				: "r" (addr), "r" (asid)
--				: "memory");
--	else
--		local_flush_tlb_page(addr);
--}
--
- /*
-  * Flush entire TLB if number of entries to be flushed is greater
-  * than the threshold below.
+ static inline void set_mm(struct mm_struct *prev,
 -- 
 2.42.0
 
