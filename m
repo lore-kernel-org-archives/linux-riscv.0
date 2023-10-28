@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10856C4332F
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Oct 2023 18:52:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA7EAC4167D
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Oct 2023 19:07:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Cc:References:To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KL6HB0XNpzUnUi6bVGeaJoyQVIvSPzTF41nf80u5ZCY=; b=QklA6OTFOeku3C
-	hWxCmrM4HQPGqrC2LHxnogcDoyPGtDwnEpc/n4kKlN+ccV0KjM4JPLA/3LwgMUTz7TrBhZ4M3hCcV
-	5bzX4H463zEckUHGzKLFJ+Xg7jjFpOcz4/cZOrxYWwR8fbgsXMB8WetguTTeGc2jhifgOi7qZ+iwO
-	rqp3A+i534qDWtNXeyOF6vEsNCOQv8agdy5G9FAN/Gwv1xalMg7f7dhtJ99Q+ef/DznvCtrPy+5Xv
-	9mILos22d1IsWHBEM04lrmeL44/unDSAfigKtRaoYc95s9Zq8ReXl1z/jhftCLGR+SQCsVL1mhCMN
-	qeBMwiiS4NW3IracTK+Q==;
+	List-Owner; bh=9PA9tKGbfHGjerFE4h/wQzzbptiH5024up7q/tkfeOM=; b=z0Sfndx5ShBgWk
+	CO/QeSDUnaY2/Z77FzxiZbTD72Qq7RI82C2oNRomOu/YkeMxLX/2z1kWsnWeafZBaK56mC6wCFsfi
+	c3Am4g1xjN5THd7i65ts9CUGCnGn6nN9ynvvutow3vVU1mhw5IpMioTa+9566iLqvauKhBX4x98Ik
+	ShniTmDaIv8OqO5bkpGyyosZia/kICrj8Dyuta3z23Cth6DiW14j1aZW9U4cKY5JCNqYo4CM6TmvQ
+	PEiFg+QA8DsXA0fyOPoxqQywMjLdD0clpBFma6NF8lAO51QJMKQ6oHYEa+Qzr5/4SW6uJEt9Mq2Oy
+	5ZPpLgpmVOJPlL69ragw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qwoQR-000kvh-2u;
-	Sat, 28 Oct 2023 18:52:47 +0000
-Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
+	id 1qwof0-000lls-1S;
+	Sat, 28 Oct 2023 19:07:50 +0000
+Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qwoQP-000kuu-0V
+	id 1qwoev-000lkq-35
 	for linux-riscv@lists.infradead.org;
-	Sat, 28 Oct 2023 18:52:46 +0000
-Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-66d0760cd20so26078276d6.0
-        for <linux-riscv@lists.infradead.org>; Sat, 28 Oct 2023 11:52:43 -0700 (PDT)
+	Sat, 28 Oct 2023 19:07:48 +0000
+Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-3b2e22f1937so1828190b6e.1
+        for <linux-riscv@lists.infradead.org>; Sat, 28 Oct 2023 12:07:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1698519163; x=1699123963; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:cc:references:to
+        d=sifive.com; s=google; t=1698520064; x=1699124864; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=rTzbMaF9e6LFHLkvVnlr1iqkQocBR5uDxVZIr/Uj4WE=;
-        b=e1G0zx35H8PuaD9b2akxFw6NJwzUP2CRibdeMarq0NcQb2FqS1Nsquqxo/j7YaJHQ9
-         6sCxnu5BXlac88mYYMkNE0FkDHbHvT3lTiuqpfeDvplMpaxx9aUdz0pna94Xr++lz7+p
-         uO30DIAY6AZnQ9DRcX9ENjM2m//ogYJcoELufGmTUkl+I+DQYzy0TwZshvRqGE3jdvzn
-         r1A0ovMm+bGav2vgKWWqL7dGjgzrct5QtlXKF406dk66hElr+glSttpupJpsamBTPAMK
-         ytl9x/csD/yIZ/OX1SaC9Yeq6pzArv1XxS1Tuw3niWJ7wK4VnML6YwYbUKjzfSKlQoG/
-         98Eg==
+        bh=SDans3zKYwJeBvlW9uxRahA6xZVgXjUPNuZ8zu843v8=;
+        b=VMl86ueWvLKJuT02v+jJ+L0A/kbEGeB/DhYfycbvgoqXhszYnyv6hzmpguQ2/sNU7X
+         AfRgX82dq96awjQGoRM2eBwOVHEh+f6Y3H6oY2Ju/2i/jugck28s2WOVfDj4ayfZWHuY
+         FldvO/vDc7JKYm0ISekJxff4broueKTK+PoFL4HKjWKW9ZJ0JRYM6eKQ+53Oa1acTtUR
+         +BM3pa4Tm3RW64x00W6GBhq8GF0bzDDJCvrm9lCTpqDWz+iz2ftfHWwTlRYmKjcohF6u
+         T76MYhg6sONZD4GtP4KXLfI+FFyRM0La6f/JeS9/PHzOcvDyQyJh91lJwyL7ZuBCTvXn
+         HdBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698519163; x=1699123963;
-        h=content-transfer-encoding:in-reply-to:from:cc:references:to
+        d=1e100.net; s=20230601; t=1698520064; x=1699124864;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rTzbMaF9e6LFHLkvVnlr1iqkQocBR5uDxVZIr/Uj4WE=;
-        b=t4KCPczF8aIXRqNj+FMCY31E2OSokHSKVuDhQ7Sy13/GRlAVhpbVQgGqkWxBKq0mNp
-         thLL6ckTnqDhmXk7O31BSK+rJ47Aq2jz5lEqqYy8c2oJ309ECIKFMZkNlNDoEgs2imkU
-         PLZDiABCrm/8+pkkMsoHlJPR/12COe6Y3cSYuugffKEscQ7yD62MLqGcbeMB7P92VFfy
-         NwV2qo4kn3wa5WUg0bb10G/9v0g3G+NsC3DFYDPpPiondQ3OQzpSo3V4kYBzt4vZ2ouX
-         ORhoIDJOEo4rCTwK+LSApZkToJS0KB9fv/hxjAc41QYfvLOv2kDLGCRzb9V1yg40lG07
-         9t4Q==
-X-Gm-Message-State: AOJu0Yz8XckrOPG2PANJLy+XUiKGZddKP4LlocCa/oe8w6qYxEj/2yn7
-	/pMg3GSk+OS3jLo3UxYzEIHCDQ==
-X-Google-Smtp-Source: AGHT+IHRhO2f1MH3WnnbQd9fLdzhnTNzypJ89qAUGrhcvHOOFaTQVJ4ekwM34frzhsDctzrIh0CLVQ==
-X-Received: by 2002:ad4:5aaf:0:b0:66d:8752:b6cf with SMTP id u15-20020ad45aaf000000b0066d8752b6cfmr5006791qvg.26.1698519163004;
-        Sat, 28 Oct 2023 11:52:43 -0700 (PDT)
+        bh=SDans3zKYwJeBvlW9uxRahA6xZVgXjUPNuZ8zu843v8=;
+        b=rfWKI2Jvix+E0jPNoLjrk4xZmwun9IJDwv6tpouUCR5by7kd/0shUL+fP0o3g1aOyk
+         CG92qUS46Cs5K98VrFrGvTofNBFkOxtK+yCgheRR/JsO+12zsnwtNYMao/pSojWP6fpY
+         1hehQuYhmK067LazNn9u+pyhuxDgNuth5ky6BBqE0egyQHuozhacVdhgv8R9hLy9Ex2Y
+         FWo3MAi0/fQoiG0pmPHBGsJrVqCTcAg0RDl3VBpc4jNQfvGvegqoU45OLNq8p8mbdT+O
+         Lwg3YoHxnMqnTRQ3yY9BG5Fwgn61P1wvYEKEIsGpvR3O+uqt08gC4dtwxpiNSNqbSbIL
+         o6Bw==
+X-Gm-Message-State: AOJu0Yw0rThyB/TnWbUfk7eKChBJghMLIG2BCEYAU346tl7pG+nhMAvi
+	Gih+UiiCuBO9V0AhRwm9TbGDjg==
+X-Google-Smtp-Source: AGHT+IHLKyVPQ3EsERALDZyaVNed0/nDWWg4l+cFGKV3IhIthh4PiFjF5MuC0djBS68bVIwOJhcsRw==
+X-Received: by 2002:aca:1304:0:b0:3a8:5ff0:6b52 with SMTP id e4-20020aca1304000000b003a85ff06b52mr6030152oii.15.1698520063810;
+        Sat, 28 Oct 2023 12:07:43 -0700 (PDT)
 Received: from ?IPV6:2600:1700:2000:b002:c988:e7b9:36ab:57c6? ([2600:1700:2000:b002:c988:e7b9:36ab:57c6])
-        by smtp.gmail.com with ESMTPSA id mg22-20020a056214561600b0065b0d9b4ee7sm1820353qvb.20.2023.10.28.11.52.42
+        by smtp.gmail.com with ESMTPSA id y3-20020a37e303000000b00774830b40d4sm1786043qki.47.2023.10.28.12.07.42
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 28 Oct 2023 11:52:42 -0700 (PDT)
-Message-ID: <e661b2ef-2a9a-44d7-bb32-6c0c8f8b6e85@sifive.com>
-Date: Sat, 28 Oct 2023 13:52:41 -0500
+        Sat, 28 Oct 2023 12:07:43 -0700 (PDT)
+Message-ID: <a70f900a-164f-4155-b9f5-800878f7a446@sifive.com>
+Date: Sat, 28 Oct 2023 14:07:41 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/4] riscv: Improve flush_tlb_range() for hugetlb pages
+Subject: Re: [PATCH v5 3/4] riscv: Make __flush_tlb_range() loop over pte
+ instead of flushing the whole tlb
 Content-Language: en-US
 To: Alexandre Ghiti <alexghiti@rivosinc.com>
-References: <20231019140151.21629-1-alexghiti@rivosinc.com>
- <20231019140151.21629-3-alexghiti@rivosinc.com>
-Cc: Will Deacon <will@kernel.org>,
+Cc: Andrew Jones <ajones@ventanamicro.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Will Deacon <will@kernel.org>,
  "Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
  Andrew Morton <akpm@linux-foundation.org>, Nick Piggin <npiggin@gmail.com>,
  Peter Zijlstra <peterz@infradead.org>,
@@ -83,11 +84,13 @@ Cc: Will Deacon <will@kernel.org>,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  Samuel Holland <samuel@sholland.org>,
  Lad Prabhakar <prabhakar.csengg@gmail.com>
+References: <20231019140151.21629-1-alexghiti@rivosinc.com>
+ <20231019140151.21629-4-alexghiti@rivosinc.com>
 From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <20231019140151.21629-3-alexghiti@rivosinc.com>
+In-Reply-To: <20231019140151.21629-4-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231028_115245_284536_B56A7D69 
-X-CRM114-Status: GOOD (  22.25  )
+X-CRM114-CacheID: sfid-20231028_120746_562590_8F07268E 
+X-CRM114-Status: GOOD (  29.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,81 +108,299 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 2023-10-19 9:01 AM, Alexandre Ghiti wrote:
-> flush_tlb_range() uses a fixed stride of PAGE_SIZE and in its current form,
-> when a hugetlb mapping needs to be flushed, flush_tlb_range() flushes the
-> whole tlb: so set a stride of the size of the hugetlb mapping in order to
-> only flush the hugetlb mapping. However, if the hugepage is a NAPOT region,
-> all PTEs that constitute this mapping must be invalidated, so the stride
-> size must actually be the size of the PTE.
+> Currently, when the range to flush covers more than one page (a 4K page or
+> a hugepage), __flush_tlb_range() flushes the whole tlb. Flushing the whole
+> tlb comes with a greater cost than flushing a single entry so we should
+> flush single entries up to a certain threshold so that:
+> threshold * cost of flushing a single entry < cost of flushing the whole
+> tlb.
 > 
-> Note that THPs are directly handled by flush_pmd_tlb_range().
-> 
+> Co-developed-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
 > Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> Tested-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com> # On RZ/Five SMARC
 > ---
->  arch/riscv/mm/tlbflush.c | 31 ++++++++++++++++++++++++++++++-
->  1 file changed, 30 insertions(+), 1 deletion(-)
+>  arch/riscv/include/asm/sbi.h      |   3 -
+>  arch/riscv/include/asm/tlbflush.h |   3 +
+>  arch/riscv/kernel/sbi.c           |  32 +++------
+>  arch/riscv/mm/tlbflush.c          | 115 +++++++++++++++---------------
+>  4 files changed, 72 insertions(+), 81 deletions(-)
 > 
+> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+> index 12dfda6bb924..0892f4421bc4 100644
+> --- a/arch/riscv/include/asm/sbi.h
+> +++ b/arch/riscv/include/asm/sbi.h
+> @@ -280,9 +280,6 @@ void sbi_set_timer(uint64_t stime_value);
+>  void sbi_shutdown(void);
+>  void sbi_send_ipi(unsigned int cpu);
+>  int sbi_remote_fence_i(const struct cpumask *cpu_mask);
+> -int sbi_remote_sfence_vma(const struct cpumask *cpu_mask,
+> -			   unsigned long start,
+> -			   unsigned long size);
+>  
+>  int sbi_remote_sfence_vma_asid(const struct cpumask *cpu_mask,
+>  				unsigned long start,
+> diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+> index f5c4fb0ae642..170a49c531c6 100644
+> --- a/arch/riscv/include/asm/tlbflush.h
+> +++ b/arch/riscv/include/asm/tlbflush.h
+> @@ -11,6 +11,9 @@
+>  #include <asm/smp.h>
+>  #include <asm/errata_list.h>
+>  
+> +#define FLUSH_TLB_MAX_SIZE      ((unsigned long)-1)
+> +#define FLUSH_TLB_NO_ASID       ((unsigned long)-1)
+> +
+>  #ifdef CONFIG_MMU
+>  extern unsigned long asid_mask;
+>  
+> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> index c672c8ba9a2a..5a62ed1da453 100644
+> --- a/arch/riscv/kernel/sbi.c
+> +++ b/arch/riscv/kernel/sbi.c
+> @@ -11,6 +11,7 @@
+>  #include <linux/reboot.h>
+>  #include <asm/sbi.h>
+>  #include <asm/smp.h>
+> +#include <asm/tlbflush.h>
+>  
+>  /* default SBI version is 0.1 */
+>  unsigned long sbi_spec_version __ro_after_init = SBI_SPEC_VERSION_DEFAULT;
+> @@ -376,32 +377,15 @@ int sbi_remote_fence_i(const struct cpumask *cpu_mask)
+>  }
+>  EXPORT_SYMBOL(sbi_remote_fence_i);
+>  
+> -/**
+> - * sbi_remote_sfence_vma() - Execute SFENCE.VMA instructions on given remote
+> - *			     harts for the specified virtual address range.
+> - * @cpu_mask: A cpu mask containing all the target harts.
+> - * @start: Start of the virtual address
+> - * @size: Total size of the virtual address range.
+> - *
+> - * Return: 0 on success, appropriate linux error code otherwise.
+> - */
+> -int sbi_remote_sfence_vma(const struct cpumask *cpu_mask,
+> -			   unsigned long start,
+> -			   unsigned long size)
+> -{
+> -	return __sbi_rfence(SBI_EXT_RFENCE_REMOTE_SFENCE_VMA,
+> -			    cpu_mask, start, size, 0, 0);
+> -}
+> -EXPORT_SYMBOL(sbi_remote_sfence_vma);
+> -
+>  /**
+>   * sbi_remote_sfence_vma_asid() - Execute SFENCE.VMA instructions on given
+> - * remote harts for a virtual address range belonging to a specific ASID.
+> + * remote harts for a virtual address range belonging to a specific ASID or not.
+>   *
+>   * @cpu_mask: A cpu mask containing all the target harts.
+>   * @start: Start of the virtual address
+>   * @size: Total size of the virtual address range.
+> - * @asid: The value of address space identifier (ASID).
+> + * @asid: The value of address space identifier (ASID), or FLUSH_TLB_NO_ASID
+> + * for flushing all address spaces.
+>   *
+>   * Return: 0 on success, appropriate linux error code otherwise.
+>   */
+> @@ -410,8 +394,12 @@ int sbi_remote_sfence_vma_asid(const struct cpumask *cpu_mask,
+>  				unsigned long size,
+>  				unsigned long asid)
+>  {
+> -	return __sbi_rfence(SBI_EXT_RFENCE_REMOTE_SFENCE_VMA_ASID,
+> -			    cpu_mask, start, size, asid, 0);
+> +	if (asid == FLUSH_TLB_NO_ASID)
+> +		return __sbi_rfence(SBI_EXT_RFENCE_REMOTE_SFENCE_VMA,
+> +				    cpu_mask, start, size, 0, 0);
+> +	else
+> +		return __sbi_rfence(SBI_EXT_RFENCE_REMOTE_SFENCE_VMA_ASID,
+> +				    cpu_mask, start, size, asid, 0);
+>  }
+>  EXPORT_SYMBOL(sbi_remote_sfence_vma_asid);
+>  
 > diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-> index fa03289853d8..5933744df91a 100644
+> index 5933744df91a..c27ba720e35f 100644
 > --- a/arch/riscv/mm/tlbflush.c
 > +++ b/arch/riscv/mm/tlbflush.c
-> @@ -3,6 +3,7 @@
->  #include <linux/mm.h>
->  #include <linux/smp.h>
->  #include <linux/sched.h>
-> +#include <linux/hugetlb.h>
->  #include <asm/sbi.h>
->  #include <asm/mmu_context.h>
+> @@ -9,28 +9,50 @@
 >  
-> @@ -147,7 +148,35 @@ void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)
->  void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
->  		     unsigned long end)
+>  static inline void local_flush_tlb_all_asid(unsigned long asid)
 >  {
-> -	__flush_tlb_range(vma->vm_mm, start, end - start, PAGE_SIZE);
-> +	unsigned long stride_size;
+> -	__asm__ __volatile__ ("sfence.vma x0, %0"
+> -			:
+> -			: "r" (asid)
+> -			: "memory");
+> +	if (asid != FLUSH_TLB_NO_ASID)
+> +		__asm__ __volatile__ ("sfence.vma x0, %0"
+> +				:
+> +				: "r" (asid)
+> +				: "memory");
+> +	else
+> +		local_flush_tlb_all();
+>  }
+>  
+>  static inline void local_flush_tlb_page_asid(unsigned long addr,
+>  		unsigned long asid)
+>  {
+> -	__asm__ __volatile__ ("sfence.vma %0, %1"
+> -			:
+> -			: "r" (addr), "r" (asid)
+> -			: "memory");
+> +	if (asid != FLUSH_TLB_NO_ASID)
+> +		__asm__ __volatile__ ("sfence.vma %0, %1"
+> +				:
+> +				: "r" (addr), "r" (asid)
+> +				: "memory");
+> +	else
+> +		local_flush_tlb_page(addr);
+>  }
+>  
+> -static inline void local_flush_tlb_range(unsigned long start,
+> -		unsigned long size, unsigned long stride)
+> +/*
+> + * Flush entire TLB if number of entries to be flushed is greater
+> + * than the threshold below.
+> + */
+> +static unsigned long tlb_flush_all_threshold __read_mostly = 64;
 > +
-> +	if (!is_vm_hugetlb_page(vma)) {
-> +		stride_size = PAGE_SIZE;
-> +	} else {
-> +		stride_size = huge_page_size(hstate_vma(vma));
-> +
-> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
+> +static void local_flush_tlb_range_threshold_asid(unsigned long start,
+> +						 unsigned long size,
+> +						 unsigned long stride,
+> +						 unsigned long asid)
+>  {
+> -	if (size <= stride)
+> -		local_flush_tlb_page(start);
+> -	else
+> -		local_flush_tlb_all();
+> +	u16 nr_ptes_in_range = DIV_ROUND_UP(size, stride);
 
-There is a fallback implementation of has_svnapot(), so you do not need this
-preprocessor check. With that removed:
+The result of this division could easily overflow a u16, which makes this code
+do the wrong thing if the remainder is small. With this fixed:
 
 Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+Tested-by: Samuel Holland <samuel.holland@sifive.com>
 
-> +		/*
-> +		 * As stated in the privileged specification, every PTE in a
-> +		 * NAPOT region must be invalidated, so reset the stride in that
-> +		 * case.
-> +		 */
-> +		if (has_svnapot()) {
-> +			if (stride_size >= PGDIR_SIZE)
-> +				stride_size = PGDIR_SIZE;
-> +			else if (stride_size >= P4D_SIZE)
-> +				stride_size = P4D_SIZE;
-
-As a side note, and this is probably premature optimization... PGDIR_SIZE and
-P4D_SIZE check pgtable_l{4,5}_enabled. That's not really necessary here, since
-we are just trying to round down, and there won't be any higher-order hugepages
-if those paging levels are disabled.
-
-> +			else if (stride_size >= PUD_SIZE)
-> +				stride_size = PUD_SIZE;
-> +			else if (stride_size >= PMD_SIZE)
-> +				stride_size = PMD_SIZE;
-> +			else
-> +				stride_size = PAGE_SIZE;
-> +		}
-> +#endif
+> +	int i;
+> +
+> +	if (nr_ptes_in_range > tlb_flush_all_threshold) {
+> +		local_flush_tlb_all_asid(asid);
+> +		return;
 > +	}
 > +
-> +	__flush_tlb_range(vma->vm_mm, start, end - start, stride_size);
+> +	for (i = 0; i < nr_ptes_in_range; ++i) {
+> +		local_flush_tlb_page_asid(start, asid);
+> +		start += stride;
+> +	}
 >  }
->  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
->  void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
+>  
+>  static inline void local_flush_tlb_range_asid(unsigned long start,
+> @@ -38,8 +60,10 @@ static inline void local_flush_tlb_range_asid(unsigned long start,
+>  {
+>  	if (size <= stride)
+>  		local_flush_tlb_page_asid(start, asid);
+> -	else
+> +	else if (size == FLUSH_TLB_MAX_SIZE)
+>  		local_flush_tlb_all_asid(asid);
+> +	else
+> +		local_flush_tlb_range_threshold_asid(start, size, stride, asid);
+>  }
+>  
+>  static void __ipi_flush_tlb_all(void *info)
+> @@ -52,7 +76,7 @@ void flush_tlb_all(void)
+>  	if (riscv_use_ipi_for_rfence())
+>  		on_each_cpu(__ipi_flush_tlb_all, NULL, 1);
+>  	else
+> -		sbi_remote_sfence_vma(NULL, 0, -1);
+> +		sbi_remote_sfence_vma_asid(NULL, 0, FLUSH_TLB_MAX_SIZE, FLUSH_TLB_NO_ASID);
+>  }
+>  
+>  struct flush_tlb_range_data {
+> @@ -69,18 +93,12 @@ static void __ipi_flush_tlb_range_asid(void *info)
+>  	local_flush_tlb_range_asid(d->start, d->size, d->stride, d->asid);
+>  }
+>  
+> -static void __ipi_flush_tlb_range(void *info)
+> -{
+> -	struct flush_tlb_range_data *d = info;
+> -
+> -	local_flush_tlb_range(d->start, d->size, d->stride);
+> -}
+> -
+>  static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
+>  			      unsigned long size, unsigned long stride)
+>  {
+>  	struct flush_tlb_range_data ftd;
+>  	struct cpumask *cmask = mm_cpumask(mm);
+> +	unsigned long asid = FLUSH_TLB_NO_ASID;
+>  	unsigned int cpuid;
+>  	bool broadcast;
+>  
+> @@ -90,39 +108,24 @@ static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
+>  	cpuid = get_cpu();
+>  	/* check if the tlbflush needs to be sent to other CPUs */
+>  	broadcast = cpumask_any_but(cmask, cpuid) < nr_cpu_ids;
+> -	if (static_branch_unlikely(&use_asid_allocator)) {
+> -		unsigned long asid = atomic_long_read(&mm->context.id) & asid_mask;
+> -
+> -		if (broadcast) {
+> -			if (riscv_use_ipi_for_rfence()) {
+> -				ftd.asid = asid;
+> -				ftd.start = start;
+> -				ftd.size = size;
+> -				ftd.stride = stride;
+> -				on_each_cpu_mask(cmask,
+> -						 __ipi_flush_tlb_range_asid,
+> -						 &ftd, 1);
+> -			} else
+> -				sbi_remote_sfence_vma_asid(cmask,
+> -							   start, size, asid);
+> -		} else {
+> -			local_flush_tlb_range_asid(start, size, stride, asid);
+> -		}
+> +
+> +	if (static_branch_unlikely(&use_asid_allocator))
+> +		asid = atomic_long_read(&mm->context.id) & asid_mask;
+> +
+> +	if (broadcast) {
+> +		if (riscv_use_ipi_for_rfence()) {
+> +			ftd.asid = asid;
+> +			ftd.start = start;
+> +			ftd.size = size;
+> +			ftd.stride = stride;
+> +			on_each_cpu_mask(cmask,
+> +					 __ipi_flush_tlb_range_asid,
+> +					 &ftd, 1);
+> +		} else
+> +			sbi_remote_sfence_vma_asid(cmask,
+> +						   start, size, asid);
+>  	} else {
+> -		if (broadcast) {
+> -			if (riscv_use_ipi_for_rfence()) {
+> -				ftd.asid = 0;
+> -				ftd.start = start;
+> -				ftd.size = size;
+> -				ftd.stride = stride;
+> -				on_each_cpu_mask(cmask,
+> -						 __ipi_flush_tlb_range,
+> -						 &ftd, 1);
+> -			} else
+> -				sbi_remote_sfence_vma(cmask, start, size);
+> -		} else {
+> -			local_flush_tlb_range(start, size, stride);
+> -		}
+> +		local_flush_tlb_range_asid(start, size, stride, asid);
+>  	}
+>  
+>  	put_cpu();
+> @@ -130,7 +133,7 @@ static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
+>  
+>  void flush_tlb_mm(struct mm_struct *mm)
+>  {
+> -	__flush_tlb_range(mm, 0, -1, PAGE_SIZE);
+> +	__flush_tlb_range(mm, 0, FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
+>  }
+>  
+>  void flush_tlb_mm_range(struct mm_struct *mm,
 
 
 _______________________________________________
