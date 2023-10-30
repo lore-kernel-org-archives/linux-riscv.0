@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF1EEC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Oct 2023 17:36:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4100C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Oct 2023 17:39:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xslZ7xKRLsDvrZW2LldFfPFFssYpoMmWVQN9XdPB3wc=; b=Iy1FYeNC8bJpVh
-	pjDN6kdmygf+tFL6Dsmronn7MvHRIOBPllREwIT3w63oLs6khRm3n7cwjVndlLIQUrd/ElatOnCW3
-	a4uEK6cj8ha7cOFMDVDodX4/FOlV2iBi1nGYqbmZVFBbucFPuxCdVDxErDyfEupJ9Ba0+YkVxIB4C
-	16MIDsKm/jpRs7NyLZRRNPr/yCdCzQwf4k8rigznMMkBSWi7ukUBICoJ3wYBIKWQ0wgy4b6gSkM3u
-	mdMysx4scbskv3sc3zS5hdIXa1QEMzgkxD8KGmrIASu3tbYSkXtqkzsMYaPzixHTc1utiQ5+zKTh4
-	BLZpdRHEN4QWeQQTlnBA==;
+	List-Owner; bh=E03zGl/lAp+Ix9RFZf7kBHXn2x2zxGKG1bln6YxsSDc=; b=uuwmNtH9751QWr
+	0UYXGAXn90xPHmOD5lcBlnlpKfJjiQEzYMmFFAA44GLf9wRAbh0I7WxxObOy/7HdHpoOmOthiHiSA
+	ml7IF8/MQF/tDyuK1ss/RJ27xjdY2IdIwET9JQuZuNv6XdToWgQ5flSIbwM1muN/RJL3y9+kFKYET
+	bAjUFJbIG3fsXST7lY3hQQlu6jGMOY249k9tkK+S6xVUVDISZYZloDSbK9UNKU3/44WfNkSVWPX/C
+	IKdf5e/9dx5Z4lxnFs5IWN67SYHps8UFWsJ8ody1CPiSVYW3bjyL9CwLPjNunDf/sXdqZueXhI6ZF
+	oTzvSuSbZrdZSiFRiGyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxWBY-003m8x-25;
-	Mon, 30 Oct 2023 17:36:20 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qxWEh-003mbB-3C;
+	Mon, 30 Oct 2023 17:39:35 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxWBV-003m7Y-0h
+	id 1qxWEe-003mZI-2f
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Oct 2023 17:36:18 +0000
+	Mon, 30 Oct 2023 17:39:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1698687376;
+	s=mimecast20190719; t=1698687572;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=3jYLwfXXzRbH81zwo7MCV6nGPuDVHVRPsAgIWckITik=;
-	b=Y5AavsT9mP2yC/h9bR/3shm6VlxhH/TLz/xosTSHIEnjefyc8lk5zYeX9QxdzaMBJ7m8wB
-	09TFiBDTP2N32D95hN0iN9p/qKsWIdg10vfTVGdOw4TMMHJcijVd4upFLCJj9FostIr5GP
-	An5lPlmVqxK2MW25XLWDugnnrhZk1hI=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=+DXS2SMXoVtHIusoTNobzAVDxifuslX+O0gTNMn/npQ=;
+	b=XhCiFFH4G6ckQGjIs5qh2nQWTi28TX1wOQF5sRoqEcJHgUPWLFJ40O7IG7Tx0saQZDmR4u
+	vgj8yhZv0/XZJQITvIdSxLVVDojIm5R456VEUP95Nhzd++UEznWtU+3yoyoHLUVsnqkK89
+	WtglOMxmQUJaI6lK9LqLfvvxtgTNTQ4=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-533-6_5MaADaOgO59OqJDv8V6Q-1; Mon, 30 Oct 2023 13:36:13 -0400
-X-MC-Unique: 6_5MaADaOgO59OqJDv8V6Q-1
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-32db43129c6so2646937f8f.1
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Oct 2023 10:36:12 -0700 (PDT)
+ us-mta-274-p7lhy1fZOl24SogXVctHNA-1; Mon, 30 Oct 2023 13:39:29 -0400
+X-MC-Unique: p7lhy1fZOl24SogXVctHNA-1
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4084001846eso35388315e9.1
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Oct 2023 10:39:29 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698687372; x=1699292172;
+        d=1e100.net; s=20230601; t=1698687568; x=1699292368;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3jYLwfXXzRbH81zwo7MCV6nGPuDVHVRPsAgIWckITik=;
-        b=DVDCw4lo5VavxFE7C9cNhWx0ra6jzaXg2eMvd9kfnoPeJD5i4jwqS8vkOJp7RN84nA
-         z/A1op5YeSuxxykVReXZ2vOBS/gFeme1B+M0vve7gc73J/fiITlWLCm65j34cY5G4k+a
-         APwURzplu9aZGbnNjoO+cqBIQQHLhx6XID+R8r2okMpJJ2fDkzCF6/COKKBptcGI07Tu
-         +105GJH7rOr22XAai2YrUj4tbtIIlGOzOxEHLUzLVyLvWO707nIyP/TiHV8I2irIOSfi
-         5wK2QhfXaEEaVsh8Za89zQbBbEGiUIh7Vln5ZbZ4BOmBMi48wbc3/ZFUJTXj3IC4iA66
-         +49Q==
-X-Gm-Message-State: AOJu0YwOpQNnsTzu0SHYdQUKGyIQMbhexD9sX9d2icGdGuU5RfzoyhKM
-	pDJMLFNg+C6l6z8yK+yH5UXl3hvGCuFfWt3D1IablCiDBwt1LIOssUwaz/HxBCIm/GiGCwSyegV
-	y+7TY1sauhlPyu3uyOLnpTFxy2pOn
-X-Received: by 2002:adf:ec4f:0:b0:32d:8357:42dd with SMTP id w15-20020adfec4f000000b0032d835742ddmr6883261wrn.68.1698687371992;
-        Mon, 30 Oct 2023 10:36:11 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEboAELdFqaoOZREgnEhsC/lbRki6/0Jdh0l66f6RUru0wLk22AqSmUMVbSPZpU1ZFwEkh2hA==
-X-Received: by 2002:adf:ec4f:0:b0:32d:8357:42dd with SMTP id w15-20020adfec4f000000b0032d835742ddmr6883233wrn.68.1698687371568;
-        Mon, 30 Oct 2023 10:36:11 -0700 (PDT)
+        bh=+DXS2SMXoVtHIusoTNobzAVDxifuslX+O0gTNMn/npQ=;
+        b=qkvnp+lOubOKWIQY39bbmc3vmkk06H4bAoxeiS6Jt2jnUUuZp8wrKXCdVXCDVEVRL5
+         3hFU+n2FMstu6ikvNd3GpurUizhYxuWErNEzMIUSa1ttNYXXlQLtpOS0znJ6/UHmwFhQ
+         5KnxWbSgpfdo3EpMWgUkfmCRy3Ukr/t34Oh/wOXlJDbEOiLlaLAN9bTDUe8U+7R1oKWe
+         UYb7LBqN6CX39GuU4pGOLC9oS7BRBmB+onV+TdLBcDNZWc0qSz6OW2foDGQzQRhjchgQ
+         w/o+jjUJPnmkfKSZpkWokHPoyI1vCO4dGTR1FB7uaJEaBzNMfMlIfTLoTMNa4qEOHMMb
+         O23w==
+X-Gm-Message-State: AOJu0YxK6ZrHovBB5bF3ghQjuBIaoEBSh3Er2ol2p2EqQm4tdcW01AFN
+	PeyvJPo2ADfL+2cLLV3/N5hWHjldoaxT/GDRxcLQwIsRwv+P2483cnaYf6KryjjNoHk5rLlLbx3
+	Y/vNDaMrDxO9nWMZZpezgJwhiJ0GA
+X-Received: by 2002:a05:600c:4748:b0:409:325:e499 with SMTP id w8-20020a05600c474800b004090325e499mr8333069wmo.32.1698687568553;
+        Mon, 30 Oct 2023 10:39:28 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHjkVjq8oZnh05Prw8i0aF39OlPnVPmFNjtO6TXzNl6UxyV80hGH62Lh8Nc0yfk4QqAnWBdUg==
+X-Received: by 2002:a05:600c:4748:b0:409:325:e499 with SMTP id w8-20020a05600c474800b004090325e499mr8333053wmo.32.1698687568216;
+        Mon, 30 Oct 2023 10:39:28 -0700 (PDT)
 Received: from [192.168.1.174] ([151.81.68.207])
-        by smtp.googlemail.com with ESMTPSA id p14-20020a5d68ce000000b003253523d767sm8703507wrw.109.2023.10.30.10.36.08
+        by smtp.googlemail.com with ESMTPSA id c18-20020a05600c0a5200b0040770ec2c19sm13195773wmq.10.2023.10.30.10.39.25
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 30 Oct 2023 10:36:10 -0700 (PDT)
-Message-ID: <a56e499f-c91c-45da-b404-444c22b2df24@redhat.com>
-Date: Mon, 30 Oct 2023 18:36:07 +0100
+        Mon, 30 Oct 2023 10:39:27 -0700 (PDT)
+Message-ID: <80471c15-a37e-4129-8101-d30b8f73cb9f@redhat.com>
+Date: Mon, 30 Oct 2023 18:39:25 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 23/35] KVM: x86: Add support for "protected VMs" that
- can utilize private memory
+Subject: Re: [PATCH v13 00/35] KVM: guest_memfd() and per-page attributes
 To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
  Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
  Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
@@ -103,7 +102,6 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Isaku Yamahata <isaku.yamahata@gmail.com>,
  "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 References: <20231027182217.3615211-1-seanjc@google.com>
- <20231027182217.3615211-24-seanjc@google.com>
 From: Paolo Bonzini <pbonzini@redhat.com>
 Autocrypt: addr=pbonzini@redhat.com; keydata=
  xsEhBFRCcBIBDqDGsz4K0zZun3jh+U6Z9wNGLKQ0kSFyjN38gMqU1SfP+TUNQepFHb/Gc0E2
@@ -140,13 +138,13 @@ Autocrypt: addr=pbonzini@redhat.com; keydata=
  JBrdmNZSQDz0iKmSrx8xkoXYfA3bgtFN8WJH2xgFL28XnqY4M6dLhJwV3z08tPSRqYFm4NMP
  dRsn0/7oymhneL8RthIvjDDQ5ktUjMe8LtHr70OZE/TT88qvEdhiIVUogHdo4qBrk41+gGQh
  b906Dudw5YhTJFU3nC6bbF2nrLlB4C/XSiH76ZvqzV0Z/cAMBo5NF/w=
-In-Reply-To: <20231027182217.3615211-24-seanjc@google.com>
+In-Reply-To: <20231027182217.3615211-1-seanjc@google.com>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231030_103617_326729_35186755 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20231030_103932_933444_2EFBB70B 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,36 +161,41 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/27/23 20:22, Sean Christopherson wrote:
-> Add a new x86 VM type, KVM_X86_SW_PROTECTED_VM, to serve as a development
-> and testing vehicle for Confidential (CoCo) VMs, and potentially to even
-> become a "real" product in the distant future, e.g. a la pKVM.
+On 10/27/23 20:21, Sean Christopherson wrote:
+> Non-KVM people, please take a gander at two small-ish patches buried in the
+> middle of this series:
 > 
-> The private memory support in KVM x86 is aimed at AMD's SEV-SNP and
-> Intel's TDX, but those technologies are extremely complex (understatement),
-> difficult to debug, don't support running as nested guests, and require
-> hardware that's isn't universally accessible.  I.e. relying SEV-SNP or TDX
-> for maintaining guest private memory isn't a realistic option.
+>    fs: Export anon_inode_getfile_secure() for use by KVM
+>    mm: Add AS_UNMOVABLE to mark mapping as completely unmovable
 > 
-> At the very least, KVM_X86_SW_PROTECTED_VM will enable a variety of
-> selftests for guest_memfd and private memory support without requiring
-> unique hardware.
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> Our plan/hope is to take this through the KVM tree for 6.8, reviews (and acks!)
+> would be much appreciated.  Note, adding AS_UNMOVABLE isn't strictly required as
+> it's "just" an optimization, but we'd prefer to have it in place straightaway.
 
-Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
+Reporting what I wrote in the other thread, for wider distribution:
 
-with one nit:
+I'm going to wait a couple days more for reviews to come in, post a v14
+myself, and apply the series to kvm/next as soon as Linus merges the 6.7
+changes.  The series will be based on the 6.7 tags/for-linus, and when
+6.7-rc1 comes up, I'll do this to straighten the history:
 
-> +---------------------
-> +
-> +:Capability: KVM_CAP_MEMORY_ATTRIBUTES
-> +:Architectures: x86
-> +:Type: system ioctl
-> +
-> +This capability returns a bitmap of support VM types.  The 1-setting of bit @n
+	git checkout kvm/next
+	git tag -s -f kvm-gmem HEAD
+	git reset --hard v6.7-rc1
+	git merge tags/kvm-gmem
+	# fix conflict with Christian Brauner's VFS series
+	git commit
+	git push kvm
 
-s/support/supported/
+6.8 is not going to be out for four months, and I'm pretty sure that
+anything that would be discovered within "a few weeks" can also be
+applied on top, and the heaviness of a 35-patch series will outweigh any
+imperfections by a long margin.
+
+(Full disclosure: this is _also_ because I want to apply this series to
+the RHEL kernel, and Red Hat has a high level of disdain for
+non-upstream patches.  But it's mostly because I want all dependencies
+to be able to move on and be developed on top of stock kvm/next).
 
 Paolo
 
