@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B7A8C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Oct 2023 17:31:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D50BC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Oct 2023 17:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5lAHfCsdPJ9QRULXktsE0V3Z3M2V48G2jW+CzWKFbrs=; b=Tylr0fxagRWTZj
-	njZbwYcT/0CDKdjmtWwoCFRwzuFE0APywiJCCkBVrG+AL/7NC3Dzpw7rVRDvq69jC+LOiTp0UnRmV
-	1pH3emQYGAeKmAYWcklBMZZzsuK3MZy6v3czz7yM73+jooqKZKZhFnZ6ikruCZ48bF9nygqsFyIpr
-	mCf+YDEHpyGWRKeJ9/v78DjL8JjQaXW8H1j/v45hvK1+TqjVeyJA6mVReIk9yBVM9QU4qQf7aSNG6
-	Tg1m4jL+wo+fbtaXFNG4v0HuRR57U6oG0mpEU/hx6Rz0Ov9iAvKoFbSLQI47f52BewQqGzwWndL96
-	0nJhwAi5E1c37VAlq++g==;
+	List-Owner; bh=YP1yFx/+VNgMljrEd31ClqGZpp++DGNKuz3u8lOKWDA=; b=ed/zwBVTeWXte3
+	frZUFolM4Rvug7Ttxm/+lkK7D3s5/iRxd3vuAdYCY/AZTItG9cZmEzdNn9NWK+mSvZpOGEMzPX2rq
+	L/mXwGztKtA9i/NXniKbIOPNb/mLwKuO1D3Bo3w9Dnsc72O6ahnjMFzrAVFU2cXHDR6gOLlU5xZIn
+	iFd28Y6zcaAO6qWuaFU1I8pmByTLsVrNdXBwsAXvveYHci3JwyPZIRF9lvX0qohnIdYADT2YuhUga
+	NIi8ClsH7DoXmyFfNNDUCDXXnu2VBPdBlrxcAtLSAn5wLcai5XC9doB6ts0vPDKvV1nUBWFVuws6/
+	cm1khM9y/vdPT6S45hDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxW6b-003lIw-2l;
-	Mon, 30 Oct 2023 17:31:13 +0000
+	id 1qxW7N-003lSe-0t;
+	Mon, 30 Oct 2023 17:32:01 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxW6Z-003lGw-0e
+	id 1qxW7K-003lS6-23
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Oct 2023 17:31:12 +0000
+	Mon, 30 Oct 2023 17:32:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1698687070;
+	s=mimecast20190719; t=1698687117;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=kzSwq3LcsIGB4kJ8y5dDYKXfNxy9k2vONtVBXrysXxs=;
-	b=VcW5yuNIcPpFUl3qAJNzH9EXgAYN12bQtJ/fztuiN7awZaze+vl3rZGhLIViTifPhsND8I
-	W2Sso1EG0ZKfWQ0yZHgTA2HlFQm5I0f/WH8Bfmzgeirqw98R2hP1UNNNanuXCH4ysk+UVt
-	WjHLpHB9FJpmq/KyLI9XoJ7B//cmDos=
-Received: from mail-lj1-f200.google.com (mail-lj1-f200.google.com
- [209.85.208.200]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=3g1TVhpzsOzzHHVoXez8JAaDO7pX06gUTyU2b4+L2DI=;
+	b=IyYlixsiNWlGKrXB5enn4+dorl8uqg2Mts1Q9YjRWfwNiWp6Sk4VVg7Ma30ySQiMb8I0oN
+	T4h9w8/24va4fKDcRUUrG+U6OPg9LAHU8N6z5NHVwvGVcLUgma6HoG0dzruKFBr5mudWm+
+	TRXs3yRjBxxXzgzfYOju046hqrWAbMs=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-620-cVqL62lXPf-1WDC83HHwmg-1; Mon, 30 Oct 2023 13:30:57 -0400
-X-MC-Unique: cVqL62lXPf-1WDC83HHwmg-1
-Received: by mail-lj1-f200.google.com with SMTP id 38308e7fff4ca-2c5161838d8so50558391fa.1
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Oct 2023 10:30:56 -0700 (PDT)
+ us-mta-656-pFOGhKnjOXOGb4yXIqbgyg-1; Mon, 30 Oct 2023 13:31:56 -0400
+X-MC-Unique: pFOGhKnjOXOGb4yXIqbgyg-1
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4083a670d25so35424265e9.0
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Oct 2023 10:31:56 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698687056; x=1699291856;
+        d=1e100.net; s=20230601; t=1698687115; x=1699291915;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kzSwq3LcsIGB4kJ8y5dDYKXfNxy9k2vONtVBXrysXxs=;
-        b=dRLbs/Z2i5lQi9lcmaSsxNqSn/gyJiEmXe3ABjsP4jrFVXJQdCPmF+WSwkGEwJSd1u
-         I5HvO5UeTTEkP0EyYaaSTB4DhXqKxwMnod9t9u1QHjje3oqjqk5eOqCRqzAqoYsbRgRN
-         yqA7aHnlZ1sixgET58xj+fInIoUTeezRYQUxZZA5ZxMultMAbo1PJmOCvcvQ9rYEjCNj
-         zrYywT1sfoYvYIZ7jdm55zjCD79Cup/K5IMGdx2DU+8yUVI4oAfbFCiYi/0ig0M1PJEf
-         XafXL3apPutE3d6l2fAqYLOCscFqEcUHKBIsPzJ75R8/1tHYIKkNirZsXMJcF2D4hJKr
-         gcKg==
-X-Gm-Message-State: AOJu0YxeUC36yd+8q/MDKI616fVl1hOqLIfWDQymUg2lre3LdE/WpW29
-	vCczjGkNx6F1focZz5YFHaoxTgcXtwoC//qMuajiQlnlb/RmMk97FLwdmvSLMD2USvETuJoTkmJ
-	svMvx1AETnf4SHWwYnE1p1ecSHWFj
-X-Received: by 2002:a2e:b808:0:b0:2c5:27ca:478b with SMTP id u8-20020a2eb808000000b002c527ca478bmr8147008ljo.7.1698687055755;
-        Mon, 30 Oct 2023 10:30:55 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHWh1xQ5I0MM3/Iy74fEIwMqL5ViQAp87aWrH8OcVXHaW0K+XK2JilNTh4OuPe9Hz3C4viW2A==
-X-Received: by 2002:a2e:b808:0:b0:2c5:27ca:478b with SMTP id u8-20020a2eb808000000b002c527ca478bmr8146970ljo.7.1698687055317;
-        Mon, 30 Oct 2023 10:30:55 -0700 (PDT)
+        bh=3g1TVhpzsOzzHHVoXez8JAaDO7pX06gUTyU2b4+L2DI=;
+        b=BNxzitzDOtDFGTGqG+IesuqgaDclHrxy/IoooecegHogzrC6ioZ96heDz1l24if7Bn
+         M75G03uKVBstcOh8YOayX91i3/TVScWZkykyD75wCaJ+ffl1gwLvQXXeAMlBpmNKK/6A
+         Lfytv0fX1RebIzwLq1cZHmP3w+pT9fl247QN+Yg0cqnmBSE91Ygv2CPUYfC4uzlJyKZA
+         YR4il95JcsiG9mxgDxXS85UCNjln1X+5x9JCYC1tGNQcUntJ5NITe+s7poSn8phMUatG
+         zeeUoAm1tMT4xsUsDyAO0we6thIZ1la5KvkS+wHnQ5NJheV+EUkwPnIJNmFqEarFbyL+
+         cb6g==
+X-Gm-Message-State: AOJu0Yy0H8J/zTYhASBn0yTDldXwxzhURBkb4zmKB3kwkm2J8c87UTCL
+	6/d+H65i2B50cX7JaasTlD0f2USigYdgFFNHY16gO8y3GGqxvlBS2D0lP2rhPKbNa7B/AyLBpit
+	IrUcT/QuERY8wK5UURdBYIt4RyAFI
+X-Received: by 2002:a05:600c:3b13:b0:405:3455:567e with SMTP id m19-20020a05600c3b1300b004053455567emr8489585wms.5.1698687115226;
+        Mon, 30 Oct 2023 10:31:55 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFOw2pwrz3emhHHPGzRcEZaKdyXE5ETYrjkl0hP08/axAOlUIY6MyqVTu78CJe3u248QTKzww==
+X-Received: by 2002:a05:600c:3b13:b0:405:3455:567e with SMTP id m19-20020a05600c3b1300b004053455567emr8489569wms.5.1698687114826;
+        Mon, 30 Oct 2023 10:31:54 -0700 (PDT)
 Received: from [192.168.1.174] ([151.81.68.207])
-        by smtp.googlemail.com with ESMTPSA id c5-20020a05600c0a4500b004094d4292aesm449246wmq.18.2023.10.30.10.30.52
+        by smtp.googlemail.com with ESMTPSA id c5-20020a05600c0a4500b004094d4292aesm449246wmq.18.2023.10.30.10.31.51
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 30 Oct 2023 10:30:54 -0700 (PDT)
-Message-ID: <50cf2a74-5702-4b7a-8bbc-7f9b5d56b4d1@redhat.com>
-Date: Mon, 30 Oct 2023 18:30:51 +0100
+        Mon, 30 Oct 2023 10:31:54 -0700 (PDT)
+Message-ID: <0731604e-8692-4c51-9427-78b4c629f9e9@redhat.com>
+Date: Mon, 30 Oct 2023 18:31:50 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 15/35] fs: Export anon_inode_getfile_secure() for use
- by KVM
+Subject: Re: [PATCH v13 18/35] KVM: x86: "Reset" vcpu->run->exit_reason early
+ in KVM_RUN
 To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
  Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
  Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
@@ -103,7 +103,7 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Isaku Yamahata <isaku.yamahata@gmail.com>,
  "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 References: <20231027182217.3615211-1-seanjc@google.com>
- <20231027182217.3615211-16-seanjc@google.com>
+ <20231027182217.3615211-19-seanjc@google.com>
 From: Paolo Bonzini <pbonzini@redhat.com>
 Autocrypt: addr=pbonzini@redhat.com; keydata=
  xsEhBFRCcBIBDqDGsz4K0zZun3jh+U6Z9wNGLKQ0kSFyjN38gMqU1SfP+TUNQepFHb/Gc0E2
@@ -140,14 +140,13 @@ Autocrypt: addr=pbonzini@redhat.com; keydata=
  JBrdmNZSQDz0iKmSrx8xkoXYfA3bgtFN8WJH2xgFL28XnqY4M6dLhJwV3z08tPSRqYFm4NMP
  dRsn0/7oymhneL8RthIvjDDQ5ktUjMe8LtHr70OZE/TT88qvEdhiIVUogHdo4qBrk41+gGQh
  b906Dudw5YhTJFU3nC6bbF2nrLlB4C/XSiH76ZvqzV0Z/cAMBo5NF/w=
-In-Reply-To: <20231027182217.3615211-16-seanjc@google.com>
+In-Reply-To: <20231027182217.3615211-19-seanjc@google.com>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231030_103111_309986_9692DAFF 
-X-CRM114-Status: UNSURE (   7.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231030_103158_747869_5830C8D1 
+X-CRM114-Status: GOOD (  20.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,21 +163,54 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/27/23 20:21, Sean Christopherson wrote:
-> Export anon_inode_getfile_secure() so that it can be used by KVM to 
-> create and manage file-based guest memory without need a fullblow 
-
-without introducing a full-blown
-
-Otherwise,
+On 10/27/23 20:22, Sean Christopherson wrote:
+> Initialize run->exit_reason to KVM_EXIT_UNKNOWN early in KVM_RUN to reduce
+> the probability of exiting to userspace with a stale run->exit_reason that
+> *appears* to be valid.
+> 
+> To support fd-based guest memory (guest memory without a corresponding
+> userspace virtual address), KVM will exit to userspace for various memory
+> related errors, which userspace *may* be able to resolve, instead of using
+> e.g. BUS_MCEERR_AR.  And in the more distant future, KVM will also likely
+> utilize the same functionality to let userspace "intercept" and handle
+> memory faults when the userspace mapping is missing, i.e. when fast gup()
+> fails.
+> 
+> Because many of KVM's internal APIs related to guest memory use '0' to
+> indicate "success, continue on" and not "exit to userspace", reporting
+> memory faults/errors to userspace will set run->exit_reason and
+> corresponding fields in the run structure fields in conjunction with a
+> a non-zero, negative return code, e.g. -EFAULT or -EHWPOISON.  And because
+> KVM already returns  -EFAULT in many paths, there's a relatively high
+> probability that KVM could return -EFAULT without setting run->exit_reason,
+> in which case reporting KVM_EXIT_UNKNOWN is much better than reporting
+> whatever exit reason happened to be in the run structure.
+> 
+> Note, KVM must wait until after run->immediate_exit is serviced to
+> sanitize run->exit_reason as KVM's ABI is that run->exit_reason is
+> preserved across KVM_RUN when run->immediate_exit is true.
+> 
+> Link: https://lore.kernel.org/all/20230908222905.1321305-1-amoorthy@google.com
+> Link: https://lore.kernel.org/all/ZFFbwOXZ5uI%2Fgdaf@google.com
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>   arch/x86/kvm/x86.c | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+> index ee3cd8c3c0ef..f41dbb1465a0 100644
+> --- a/arch/x86/kvm/x86.c
+> +++ b/arch/x86/kvm/x86.c
+> @@ -10963,6 +10963,7 @@ static int vcpu_run(struct kvm_vcpu *vcpu)
+>   {
+>   	int r;
+>   
+> +	vcpu->run->exit_reason = KVM_EXIT_UNKNOWN;
+>   	vcpu->arch.l1tf_flush_l1d = true;
+>   
+>   	for (;;) {
 
 Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
-
-Paolo
-
-> filesystem. The "standard" anon_inode_getfd() doesn't work for KVM's use 
-> case as KVM needs a unique inode for each file, e.g. to be able to 
-> independently manage the size and lifecycle of a given file.
 
 
 _______________________________________________
