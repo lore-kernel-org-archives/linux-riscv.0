@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2B4BC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Oct 2023 08:03:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A4B5C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Oct 2023 08:04:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tIEN9pmTT5xN2mUukRuwYqD/oYdH9r1PpCWEXuBAqYs=; b=hosHkHLaGUhv24
-	HdDJ1Bxv9iHweywAl6QphKOvjx5SycFVoTqVvgBA6eehrAQPZ74w5a2R+7BeX+nqNYc00HWIW2rk3
-	JZQMJMmjLrWumof1yhnjDx8HiDI99WFTWUUf63lIM0Dvesh77mbFJblzSMvcEpPfDuRSwhgUe0+yf
-	dfyH22cPo4yQHfj+VBfHjSq6HdTDyjWeMQgmwznuBp3xPojimg3RpAuYKbYd17LcS5aLO09j73ll9
-	k07FEJyqxKMgB/Axx+mx8U3XpxmizFO8Vc3XS5G+5G5j1OYfuN9q3CBZXEYei9KnZauEXiG2twfUw
-	cykSYEJ5i5mjwUdbprvA==;
+	List-Owner; bh=uJFJUTli/6zdNKU6XXQGuD8RbcmTi0y1TrNAPxg4FjA=; b=V/NAGi8R+V9s4M
+	gv1/VC7Sh0uFJIi2WXmIQBg5DtkWX6jusNNhfrBxd9qWTLxE9ZUCfU2Tv/LJIk/cGQ5sd0owJfOmN
+	UheTb4g9592J+j6Ah7cLzBGVyBoAeQ1Ra1QtmQPpJzU4Bm/5k9b/ASYeTGMbITDQV+ClonlH5tbXL
+	XlT4Q5l/T2N8qSlvmT2aWGjJy/GX8HPWB40M2o7nfGQ/6vyBN5LIIRZns38t/WAIt2bZG6gQYqxFz
+	s9H+C6s2CrUsQ3oHr5uxo/CeLaZ5Wwnddw1//OmsyUvThuE2QWSZuRwSHihHM9K4iFeMzZK/3hIoS
+	omkcJF7Q5Cuuc2jf1hIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxNEm-002nwV-2T;
-	Mon, 30 Oct 2023 08:03:04 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1qxNFg-002o1v-2c;
+	Mon, 30 Oct 2023 08:04:00 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxNEj-002ntx-2p
+	id 1qxNFe-002o19-1O
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Oct 2023 08:03:03 +0000
+	Mon, 30 Oct 2023 08:03:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id CDE3BCE10C0
-	for <linux-riscv@lists.infradead.org>; Mon, 30 Oct 2023 08:02:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EC2DC433C8
-	for <linux-riscv@lists.infradead.org>; Mon, 30 Oct 2023 08:02:52 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 83FC9B80749
+	for <linux-riscv@lists.infradead.org>; Mon, 30 Oct 2023 08:03:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 374C4C433C7
+	for <linux-riscv@lists.infradead.org>; Mon, 30 Oct 2023 08:03:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1698652974;
-	bh=cfGJhtPPdS69w4p94lbNiqEPBE+prnxBRRfw2fmNPM0=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=eCsUhXPFuPsw7r7u8tLajrcTQ40q+mr0qE3UCfSL5azBNsx5fy8F5zfIll+/XI+tn
-	 CdC8NzucQbQXt79jiiEGiVq7xs5viW/ga9fpDwQ3IbmOd74TMAbTCO2W+w59X+ZWnx
-	 3psxG/p8vo6sjaHywtXdQ70AdIaCWhYYiGor4ooGF5nxbRAaFqEsTs8OJSrfjzFKQh
-	 NqzpvuZgwmX1/AIhaZ2I/CWRQVzv9jxdRipC0H8OCrl9g/umawf+zwxG/p//YYufB9
-	 q94UmJd24fAGQ40rnX2ZXqzMDt6QM+pQkPwrFrwWdGp/iOI+TeOOb+v4wELYFY/u5I
-	 YQ2jpGvCYrsJg==
-Message-ID: <560d7e3f-f7de-4081-b2da-0e3ec83196b1@kernel.org>
-Date: Mon, 30 Oct 2023 09:02:48 +0100
+	s=k20201202; t=1698653033;
+	bh=Shbkpvxgc+12PAC58Dtev+BFR42HUN129zDQEmZnQxI=;
+	h=Date:Subject:From:To:References:In-Reply-To:From;
+	b=XrOu8gw5q+k41ejplLMpMv0PIL6IRn5lUsw6jx2wpHzOwvstW8ytapdczoKi8tYo0
+	 QDej4K+YXuSSlSR5H2C5+RG2HEGAdeu4cKmzjDvGpclCbOfjLqM1uZEz1xt3Zlsxd3
+	 IJybpAWcUUhrT2kTs97rg2wLnhnluylLu7P460tVgQbViHbgrW+0qxN2Kh+XMfWjIF
+	 xgaCwk6iCBYgxA/HPlaDtvDR2VohOqpquNZP/Pl20X7xit1M/OISXzz6eAyWYUdDHw
+	 TvcWXk64L0a2ceKSjGTm58ybOrRPBK+pZlfe5Q6aLto4nYzdvvadOqXi5KaThGN1lE
+	 IrT+uM7FbvGEA==
+Message-ID: <b3454ae1-1dfc-4320-8dea-c33c9c92539d@kernel.org>
+Date: Mon, 30 Oct 2023 09:03:52 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] dt-bindings: riscv: Document cbop-block-size
-To: linux-riscv@lists.infradead.org
-References: <20231029123500.739409-1-dbarboza@ventanamicro.com>
 Content-Language: en-US
 From: Krzysztof Kozlowski <krzk@kernel.org>
+To: linux-riscv@lists.infradead.org
+References: <20231029123500.739409-1-dbarboza@ventanamicro.com>
+ <560d7e3f-f7de-4081-b2da-0e3ec83196b1@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -94,10 +95,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20231029123500.739409-1-dbarboza@ventanamicro.com>
+In-Reply-To: <560d7e3f-f7de-4081-b2da-0e3ec83196b1@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231030_010302_292994_9ACE518C 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20231030_010358_747618_FA204D96 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,30 +115,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 29/10/2023 13:35, Daniel Henrique Barboza wrote:
-> Following the examples of cbom-block-size and cboz-block-size,
-> cbop-block-size is the cache size of Zicbop (cbo.prefetch) operations.
-> The most common case is to have all cache block sizes to be the same
-> size (e.g. profiles such as rva22u64 mandates a 64 bytes size for all
-> cache operations), but there's no specification requirement for that,
-> and an implementation can have different cache sizes for each operation.
+On 30/10/2023 09:02, Krzysztof Kozlowski wrote:
+> On 29/10/2023 13:35, Daniel Henrique Barboza wrote:
+>> Following the examples of cbom-block-size and cboz-block-size,
+>> cbop-block-size is the cache size of Zicbop (cbo.prefetch) operations.
+>> The most common case is to have all cache block sizes to be the same
+>> size (e.g. profiles such as rva22u64 mandates a 64 bytes size for all
+>> cache operations), but there's no specification requirement for that,
+>> and an implementation can have different cache sizes for each operation.
+>>
+>> Cc: Rob Herring <robh@kernel.org>
+>> Cc: Conor Dooley <conor.dooley@microchip.com>
+>> Signed-off-by: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
+>> ---
 > 
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
-> ---
+> Please use scripts/get_maintainers.pl to get a list of necessary people
+> and lists to CC. It might happen, that command when run on an older
+> kernel, gives you outdated entries. Therefore please be sure you base
+> your patches on recent Linux kernel.
+> 
+> You missed at least devicetree list (maybe more), so this won't be
 
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC. It might happen, that command when run on an older
-kernel, gives you outdated entries. Therefore please be sure you base
-your patches on recent Linux kernel.
-
-You missed at least devicetree list (maybe more), so this won't be
-tested by automated tooling. Performing review on untested code might be
-a waste of time, thus I will skip this patch entirely till you follow
-the process allowing the patch to be tested.
-
-Please kindly resend and include all necessary To/Cc entries.
+Sorry, wrong filters/macros. Please disregard.
 
 Best regards,
 Krzysztof
