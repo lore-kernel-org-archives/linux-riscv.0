@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC9DC4167D
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Oct 2023 07:26:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66E79C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Oct 2023 07:27:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Sa2hjArinGD+21WVqwOcdFpNhJvwodSWtkGwy54TUTQ=; b=Oah++VMYeL4r5A
-	YTR+QGeupaLeKhEsixtamA69BKEmf5Dvt9SlL1d4hTqUIzjmWrG/fyE+Bsb94Vs70XeS9Sj4RfTpp
-	Ha71T6OkTb+QXrbmRQkaznTsW3g9wnE3IGz8QAXINKeZaeSI7MGxAQNmAJt/Bwc0+JYdlQZY+Zqge
-	eVN8V2CZQaK5v6dLxGpk4NHOtLzVEao5UWB2Ri1ODEGsPuCOItlqZZZ4I8YzcC1bGN7dqbIG/vV4q
-	seznhlbO7+7tWb1KLbTHqgncHLVeu6I4JWQXCE+rn2SuMwBXXfMTftDDmRKH1lf1FELW4Pl/ZtcbL
-	L7MM7Gert97AaRrXEqIw==;
+	List-Owner; bh=Res4C5p/lrDyktZM2rItNscSfGVtrDkZW79TqR/Agb8=; b=MRnvol5ypFDwuA
+	foszcYaOMClx8lqxQyuh6JlLNezkhvXhEjQXFYor8pmdPnjGFDA8fXgbjtH/8Q3+JXLehs77nnMl9
+	j22jE+JXgjrI7+WuRn7gMnBTXZWCcbWo+WdviRNXT5hTu4Qv0OmDo51GZeuvyG7mHkEOZghRcl10J
+	ujvuGnPf2wJaESZFJNAaSSUDjHidfX/3MySz1a0sT+levoeMr/6m1cxH+xR4LN2CNxk3+VRVA3YHU
+	Lwb6dmO3apg2pP2v7AxecBYOkd+CQGzMgmJnxJ+r2CfFggtAC4u7ICRNpJP9I3P2iYn5gFYPvk4IH
+	OnyALRshtlAS5Tr2pU6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxMf5-002l0E-0C;
-	Mon, 30 Oct 2023 07:26:11 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1qxMgP-002lAa-1x;
+	Mon, 30 Oct 2023 07:27:33 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxMf2-002kyP-0q
+	id 1qxMgM-002l9S-0p
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Oct 2023 07:26:09 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-9d10f94f70bso299347666b.3
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Oct 2023 00:26:07 -0700 (PDT)
+	Mon, 30 Oct 2023 07:27:31 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5409bc907edso6303254a12.0
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Oct 2023 00:27:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1698650766; x=1699255566; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=dyWNxsxWlzhvm6Y0dpEhCS1H0rqtMD6v8Hr+ql8Uylo=;
-        b=O+eNjKXVEEhhD8jaj/WIHFWgPl1stkiHOa11bGAngFH1YaHnMl9HeokBofbDDU0YGg
-         tyD2CVxvppyP8RyRhPZnRddpxOwLSIxNe63vR1iX5sXBRpUDC8hmbMzel2sSai/Jhi7s
-         GOdm3Ie8f2Oxp5SwRPZ7CKExP5y7+s0l1GkY71TD9cwzQbBvJ56Sr5pX/KhIwXu+9wJ1
-         YEaeaiMap8BM/icGP2j1/pRlqwhjqlMfIVBSIRfAZfOcXBdp3zsNu6C6dk1TyRTn/i/g
-         s2+lDIJVA1u0SwVJlpI8DSHB8v3j5HPVtstCCJLBG0MX2EXsJz4N+oC7PTBMR02IvsnS
-         RDjA==
+        d=linaro.org; s=google; t=1698650847; x=1699255647; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
+         :to:content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=mkPo6pCDG9jfvEB4IpVPluZcxlUofDGGQ7eAm39t1/8=;
+        b=FhEJyAnNyVbsfbpLpupKi+q0JcmCC5DZEQWNuTLdpIDuzgfS5d/SEYgwhJvPeNAUzL
+         LJTBqznjNW83f5okLf21T64I/hwkI3Z1RmX95sOPPSotvlg2YSFmpGm8iPjfioC8l/AK
+         DS+oqkNKlv+FSGLo3TqVZelD5YfXJ3spa+xdiRrBgunIh+Bsg5+XiXwQXTP4OrXvbtsb
+         +wzGh6Qq9/1zkIpG5y4LtGURkuuPXLfKXpFuGjUXPEC1Yifg72GjMPjsTBE8DjMQXeM9
+         1GCQOtNXDcAa8r22LHx9sArr2eDPoAQmVyX3oOi52fFOp5cAcUxn3srd1VhtDyM9rC64
+         zIcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698650766; x=1699255566;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dyWNxsxWlzhvm6Y0dpEhCS1H0rqtMD6v8Hr+ql8Uylo=;
-        b=jDwFvbecjqRfyOHiTGDqJsn7pNCip1GkCeHxIztiWsrWFXliGTtSfc8LOnfVBY3ITy
-         4s7TO6Cj3jq+LaGLn2ipJV0OTj3br8KYpKwEztYoIreNB0abf+s8/2ED0Qx2LDJgb0DU
-         8YuNyXdXAU4kOlS9erno2aXv9ZPdbhXhp6+udm6nTofuu8+MO0aqLr3AQpnTM3tgEf6C
-         JZKnyA+5GI5V1FxUQ6/FGcJkk6Q+ciAwpZXO2Vt3+qjBqnUP7h589pFPy3yV3g8dZK8u
-         BrUEAzeh5YiS2FbRXJ+cKPlDHo9mSo933W/+4IrrBn+9H34YBd1CLWQx4+Ivqry7JmpT
-         AAgw==
-X-Gm-Message-State: AOJu0YxHQ12ppldkR6SYmp2UjfFw/0blFPtJwHVh8Flkhp+VxOfUiyzp
-	bmOCQdrS47tdudG2IOJBa8agUQ==
-X-Google-Smtp-Source: AGHT+IEEnkoYr0z3ZrRlQJXw6yqyZE3YgCn2Zf1pdAfOPbw1Jsi9yH4GW3+dTznibP9OSsHPUL6omA==
-X-Received: by 2002:a17:906:6aca:b0:9d3:65fd:feea with SMTP id q10-20020a1709066aca00b009d365fdfeeamr1751781ejs.35.1698650766317;
-        Mon, 30 Oct 2023 00:26:06 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1698650847; x=1699255647;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
+         :to:content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=mkPo6pCDG9jfvEB4IpVPluZcxlUofDGGQ7eAm39t1/8=;
+        b=MPokScvc04npED8KO/4TjFpwu/cJdpDnMRzyWueTmfjJdI+ngv+CaWGr1ATK2DPvP4
+         XDXK6JvOwHDJpzz1iDQt4cNPdgD7xnboRM26dtddps5raAbc8iLOroRWgx+Dn0svgdla
+         iPhnyLdCXEJpThrUGKkLvLThvwbst8eKY6Q5qeaaqgOZtWvjHp9fjmvWqgoMkuPqZYiH
+         JRwjb3ct17UYOCzr8Olhm/zyHnT1zKZn3xxYmCfOhoZrPnNUqpRFUCWW3KzqjDKvOs6d
+         Lx2viAgKbZIIioDNXHPtfblqdeo8Mk243C+Cq7m2R5BZcFttPdKKj3JJ2Z3l8siZZjX6
+         7hpw==
+X-Gm-Message-State: AOJu0Ywvmq72TdeFw4hTtVDH5vwwdfT/woA6kkFMAhNegfCG112KPOYe
+	e5q3JgbVOvLatTGla1SvHbM3PQ==
+X-Google-Smtp-Source: AGHT+IGGVpLINsw+fjzvz5FES+wYcFGqO5Afk8SIgzAEeEKGOZrd4GK2swoHsN7+W/BSmp1dNda1Aw==
+X-Received: by 2002:a17:907:d043:b0:9d4:771b:69b4 with SMTP id vb3-20020a170907d04300b009d4771b69b4mr591069ejc.44.1698650846696;
+        Mon, 30 Oct 2023 00:27:26 -0700 (PDT)
 Received: from [192.168.1.20] ([178.197.218.126])
-        by smtp.gmail.com with ESMTPSA id l25-20020a1709060e1900b009c65e13c33dsm5386794eji.122.2023.10.30.00.26.04
+        by smtp.gmail.com with ESMTPSA id l25-20020a1709060e1900b009c65e13c33dsm5386794eji.122.2023.10.30.00.27.24
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 30 Oct 2023 00:26:05 -0700 (PDT)
-Message-ID: <98d90ba9-7e69-4b54-830d-bdbc0e6c54fe@linaro.org>
-Date: Mon, 30 Oct 2023 08:26:03 +0100
+        Mon, 30 Oct 2023 00:27:26 -0700 (PDT)
+Message-ID: <6b91a6df-4549-4ca8-9659-c6107f4f8c75@linaro.org>
+Date: Mon, 30 Oct 2023 08:27:24 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/12] dt-bindings: net: snps,dwmac: Allow exclusive
- usage of ahb reset
+Subject: Re: [PATCH v2 02/12] dt-bindings: net: starfive,jh7110-dwmac: Drop
+ superfluous select
+Content-Language: en-US
 To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
@@ -88,10 +88,9 @@ Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, kernel@collabora.com
 References: <20231029042712.520010-1-cristian.ciocaltea@collabora.com>
- <20231029042712.520010-2-cristian.ciocaltea@collabora.com>
- <3016eff2-fce5-4b5e-bbb2-d56cbb45df85@linaro.org>
- <05186c62-fcad-4d56-8ae8-d802f87a39e2@collabora.com>
-Content-Language: en-US
+ <20231029042712.520010-3-cristian.ciocaltea@collabora.com>
+ <9c9120d6-dd28-4b6d-be8d-46c0cab8f26a@linaro.org>
+ <77ea127f-1040-489c-8ee3-d27df16fb995@collabora.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -137,10 +136,10 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <05186c62-fcad-4d56-8ae8-d802f87a39e2@collabora.com>
+In-Reply-To: <77ea127f-1040-489c-8ee3-d27df16fb995@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231030_002608_299024_2725B678 
-X-CRM114-Status: GOOD (  18.31  )
+X-CRM114-CacheID: sfid-20231030_002730_306777_9550D4E7 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,42 +156,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 29/10/2023 23:24, Cristian Ciocaltea wrote:
-> On 10/29/23 13:25, Krzysztof Kozlowski wrote:
+On 29/10/2023 22:08, Cristian Ciocaltea wrote:
+> On 10/29/23 13:18, Krzysztof Kozlowski wrote:
 >> On 29/10/2023 05:27, Cristian Ciocaltea wrote:
->>> The Synopsys DesignWare MAC found on the StarFive JH7100 SoC requires
->>> just the 'ahb' reset name, but the binding allows selecting it only in
->>> conjunction with 'stmmaceth'.
+>>> The usage of 'select' doesn't seem to have any influence on how this
+>>> binding schema is applied to the nodes, hence remove it.
 >>>
->>> Fix the issue by permitting exclusive usage of the 'ahb' reset name.
->>>
->>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->>> ---
->>>  Documentation/devicetree/bindings/net/snps,dwmac.yaml | 2 +-
->>>  1 file changed, 1 insertion(+), 1 deletion(-)
->>>
->>> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
->>> index 5c2769dc689a..a4d7172ea701 100644
->>> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
->>> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
->>> @@ -146,7 +146,7 @@ properties:
->>>    reset-names:
->>>      minItems: 1
->>>      items:
->>> -      - const: stmmaceth
->>> +      - enum: [stmmaceth, ahb]
 >>
->> Also, this makes sense only with patch #4, so this should be squashed there.
+>> It has. Why do you think it doesn't? You should see new errors from
+>> dwmac schema.
 > 
-> I added this as a separate patch since it changes the generic schema
-> which is included by many other bindings.  JH7100 just happens to be the
-> first use-case requiring this update.  But I can squash the patch if
-> that's not a good enough reason to keep it separately.
+> This patch came as a result of testing both variants (w/ and w/o
+> 'select') with several different compatible strings and seeing
+> consistent output:
+> 
+> - "starfive,jh7110-dwmac", "invalid";
+> - "starfive,jh7110-dwmac";
+> - "invalid", "snps,dwmac-5.20";
+> - "invalid"
+> 
+> Did I miss something?
 
-If there is no single user of this, why changing this? I would even
-argue that it is not correct from existing bindings point of view -
-nothing allows and uses ahb as the only reset. Even the commit msg
-mentions your hardware from patch 4.
+Testing all bindings? The select is there to prevent matching unrelated
+bindings.
 
 Best regards,
 Krzysztof
