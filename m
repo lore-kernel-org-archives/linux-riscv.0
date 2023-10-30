@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBF8FC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Oct 2023 22:07:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD420C4167B
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Oct 2023 22:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,60 +13,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=cHGFGjq9uCLryCkQGFkXdEebCUdzq3k1XZFnwYqokcE=; b=twsl1BGHy7Itf5NUFP8n6arwNl
-	hvPmvBr1xnaMLTwHp3KgNkF1aSd0KusjxIX0u3eokAzAr1zeDa9dPO2zBtklx+U7px41B+5aZlRck
-	IFexeagjysq0asgb73WhrkS5Fg+yBz1t6kWcECHUe6MGQbtMwaXsZJ6bwQvKygySVd8cvCSdqDz03
-	9ElVoDd2fxQxbgNqeI5c9DoLxZlwjHIkNdFFeCloPr5mRgHv0oEyz22ssgRccvmcbCuA3RjM7CUMu
-	SVmK5hepFkvr161vSAafR9dKRWyuFK86lK8MzfavKm1OZJZIEsXHx8ugtEu+QstLwD1DZncF7w8Ww
-	LqUkecGA==;
+	bh=evQL3N+B56djeldI/bt6zp+lefebB6m/LcqvPv2Dorw=; b=GWXeNJBDp/sBSksgrm+9gC6q1Y
+	Lqco7IQewqZaDAtDs6QgRZIWD5JjwHQ18hnn43S5kppZ1QvsQx5aT/X+G4jMC6YI46K5rke0Qd8H6
+	VMN0bmzPpW4hGbLBax5YHhf4f1ERfFUywMY4HaAl5L9iUMGe2zJWzQe7wQR37BwbncWfQLxTMap0M
+	YJ2hogVtsswINf1DApJ8+irO1isbYzVYMXnxkSzZNXcuHoRHjNsIp2zItMBy7vm95G8BqCS1Ey+6x
+	F5hWb0uJMAz37qYfi17858DOOhagyX8mr/8d8KrJGGWZSaAUYrUzNr/WKB/Z0pZn6plbqxK8mQ4E0
+	10znXqxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxaQ4-004766-1U;
-	Mon, 30 Oct 2023 22:07:36 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1qxaUa-0047er-2x;
+	Mon, 30 Oct 2023 22:12:16 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxaQ1-00473y-2v
+	id 1qxaUX-0047d9-2l
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Oct 2023 22:07:35 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-1cc3ad55c75so13204045ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Oct 2023 15:07:32 -0700 (PDT)
+	Mon, 30 Oct 2023 22:12:15 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-6b2018a11e2so5038137b3a.2
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Oct 2023 15:12:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1698703652; x=1699308452; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1698703932; x=1699308732; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=EkAABuzKmGyzNibmrxwxoleV2c1qCswFjV4kStA9p5Y=;
-        b=eqIz1wwoXEHCdg7Dgxz64uSBBbe5ZZxBKeQal6iYXBh0CdnLXtn1/2n+UvoEcXxSuD
-         R2EUklqoPtKObxla6fmyFct7CS7Ra6mWlG4jwhBBUs+xQPBgoXoSfJWLyilrWN9utZzo
-         cWNQRDntkpV3QqyqoDZ1DZRIdZdWghJv28+h0L6CbSdjrVHFJk6r5mpMfYIybjlAxBhg
-         Ht931b0yVkTxyh5Vm5j7GmsRdY6my2zictkaKnRP9MT0HpZEFE/rhuGY+KD9oaFxS9EF
-         tnoGmRt2SOH/XVqyezI389Wmnz+QWbRqttbvyuQcnuj1of5EHif24mDW7uMyXWxcmmL6
-         FrDg==
+        bh=g8DEvtikhnQyn+T5K55cZjm1cs6/IKtx/WCyiBBil5U=;
+        b=F/siSCEIdYnFxGTDeSbz/y5gnYv4X51buZ9WzLV9O0LAUBVDkxXXYS1THKF6HlsxSv
+         QG1IsiUiE4zzQ04R1cMT0Ib7grVRuC8E6ciSsypgaHoPAdLH53Za1LCF54piEqfgGF/4
+         s+VMxb0FawY3UvE7lvhrdrTj6HFcmxxdvueHeokG2b60qifwYZ3KbqvoCz2CZccGSU49
+         n898xozT6+vJsHAGvopQseuBjSwXApfdPGtb0R+Ax6XKX0esq3eTbd240AnKxXwchMRJ
+         oQ7+7yNMChcdQF7WnadPdVE28b5RcQ91XrEeZvRvw1a5HA/+eBHqxvyBtLtvDvuW82T2
+         6X3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698703652; x=1699308452;
+        d=1e100.net; s=20230601; t=1698703932; x=1699308732;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=EkAABuzKmGyzNibmrxwxoleV2c1qCswFjV4kStA9p5Y=;
-        b=nJbZoqjtEGjZH4UDDwtWZoe+ToMNmzfKixn9QY0Px+4jotSjV+zTzEwNlEFMHhzeAh
-         du057ZHWJR/5nVM8DW+V14kWcK9zcOVML2QtxY6+6RwHyX8J3BG9MCv1HOjIdErW+zz1
-         lYH38ecDhpN7fB2D1usi24u0M/veQSAV3KEV6NhDJGxL7WSHVJn9JBfhBAMU4AA6stEm
-         sxyffdsV3J1NMV1jgDWQ5CLy33ey3X3qcIL9OIhZR0joiZiOXPBMJ5ydOVifL94smbEo
-         tccNXQX1YqsunDOYpG00Rgobc32gQwdm3yVx6OD+7IasrhI7+105C5EDLEItL4qXr4Gr
-         F49w==
-X-Gm-Message-State: AOJu0Yzmhcev1MdO6TygQRyXaAMPmhW9+28vZ9wjwa/pwFXJj9pPQlfb
-	CQJSsI52pShQfA84SxoO4LvgmllGNNs=
-X-Google-Smtp-Source: AGHT+IHfmttfYISWufdVkZGI1GGv3oPE0CaVU/9uw2yWegmaBLqLOedbYI1/usu4SKmN8TEK3NCdArCTZyE=
+        bh=g8DEvtikhnQyn+T5K55cZjm1cs6/IKtx/WCyiBBil5U=;
+        b=k4Yw2mzpijvp/Dq60D7IbG15Q0KZ59Huo3rckersdZq3tE825CTdcnhegLmXXkVeSE
+         P/34VEYoDfXKUyA7Sugv0B+GUB3n/ZfPUu49NlQExjtcUjuZ/orumhLme+szPbYy4wJe
+         SPkYAB7yARWtaHlFNGAa5tZS3s1Jw8ldlE5npmlh//4IZyJfL/Q6hjAAUssBF6OXeSRb
+         Ie0Vl6J9A1u3FmMBTAn9E78oc5o0Djp1LTmh+aPUdwMxWkN4kSNP6Zj+F5DEhSzrrWaz
+         QtC0wMPlrCc+8FBgK86KXw17RSlW84Y17aEngYhdlPVXJnZIf14A004V5hs4WR9bg4BN
+         1lGg==
+X-Gm-Message-State: AOJu0Yy5n/GrRDQqb2Gz9wyB4VzEl/zWSPgELstJgghDW9j7p2MKunmm
+	nizUEAFXOVKhxtNY9zQuWI/fZPtYZW4=
+X-Google-Smtp-Source: AGHT+IGGcxVYGAYGv3uCrE8wHX1TR4p8IURd9gUNgfJNwa+fo9vdIR8HGGPD/6eLST5HVrX+Zf4WM1nECms=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:902:ed45:b0:1cc:533e:f52b with SMTP id
- y5-20020a170902ed4500b001cc533ef52bmr49726plb.4.1698703652255; Mon, 30 Oct
- 2023 15:07:32 -0700 (PDT)
-Date: Mon, 30 Oct 2023 15:07:30 -0700
-In-Reply-To: <077cec97-7920-4d20-8bd3-fe07ab8bcc29@redhat.com>
+ (user=seanjc job=sendgmr) by 2002:a05:6a00:1755:b0:68e:24fe:d9a with SMTP id
+ j21-20020a056a00175500b0068e24fe0d9amr205380pfc.2.1698703932137; Mon, 30 Oct
+ 2023 15:12:12 -0700 (PDT)
+Date: Mon, 30 Oct 2023 15:12:10 -0700
+In-Reply-To: <ZUARTvhpChFSGF9s@google.com>
 Mime-Version: 1.0
-References: <20231027182217.3615211-1-seanjc@google.com> <20231027182217.3615211-13-seanjc@google.com>
- <077cec97-7920-4d20-8bd3-fe07ab8bcc29@redhat.com>
-Message-ID: <ZUApIvo_gIdsfEEV@google.com>
-Subject: Re: [PATCH v13 12/35] KVM: Prepare for handling only shared mappings
- in mmu_notifier events
+References: <20231027182217.3615211-1-seanjc@google.com> <20231027182217.3615211-9-seanjc@google.com>
+ <211d093f-4023-4a39-a23f-6d8543512675@redhat.com> <ZUARTvhpChFSGF9s@google.com>
+Message-ID: <ZUAqOn_zjvM4hukK@google.com>
+Subject: Re: [PATCH v13 08/35] KVM: Introduce KVM_SET_USER_MEMORY_REGION2
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>
 Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
@@ -91,8 +90,8 @@ Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
 	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
 	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231030_150733_943979_6F10E70D 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20231030_151213_898004_82BF89D4 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,23 +108,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 30, 2023, Paolo Bonzini wrote:
-> On 10/27/23 20:21, Sean Christopherson wrote:
-> > @@ -635,6 +635,13 @@ static __always_inline kvm_mn_ret_t __kvm_handle_hva_range(struct kvm *kvm,
-> >  			 * the second or later invocation of the handler).
-> >  			 */
-> >  			gfn_range.arg = range->arg;
-> > +
-> > +			/*
-> > +			 * HVA-based notifications aren't relevant to private
-> > +			 * mappings as they don't have a userspace mapping.
+On Mon, Oct 30, 2023, Sean Christopherson wrote:
+> On Mon, Oct 30, 2023, Paolo Bonzini wrote:
+> > On 10/27/23 20:21, Sean Christopherson wrote:
+> > > 
+> > > +		if (ioctl == KVM_SET_USER_MEMORY_REGION)
+> > > +			size = sizeof(struct kvm_userspace_memory_region);
+> > 
+> > This also needs a memset(&mem, 0, sizeof(mem)), otherwise the out-of-bounds
+> > access of the commit message becomes a kernel stack read.
 > 
-> It's confusing who "they" is.  Maybe
+> Ouch.  There's some irony.  Might be worth doing memset(&mem, -1, sizeof(mem))
+> though as '0' is a valid file descriptor and a valid file offset.
 > 
-> 	 * HVA-based notifications provide a userspace address,
-> 	 * and as such are only relevant for shared mappings.
+> > Probably worth adding a check on valid flags here.
+> 
+> Definitely needed.  There's a very real bug here.  But rather than duplicate flags
+> checking or plumb @ioctl all the way to __kvm_set_memory_region(), now that we
+> have the fancy guard(mutex) and there are no internal calls to kvm_set_memory_region(),
+> what if we:
+> 
+>   1. Acquire/release slots_lock in __kvm_set_memory_region()
 
-Works for me.
+Gah, this won't work with x86's usage, which acquire slots_lock quite far away
+from __kvm_set_memory_region() in several places.  The rest of the idea still
+works, kvm_vm_ioctl_set_memory_region() will just need to take slots_lock manually.
+
+>   2. Call kvm_set_memory_region() from x86 code for the internal memslots
+>   3. Disallow *any* flags for internal memslots
+>   4. Open code check_memory_region_flags in kvm_vm_ioctl_set_memory_region()
+>   5. Pass @ioctl to kvm_vm_ioctl_set_memory_region() and allow KVM_MEM_PRIVATE
+>      only for KVM_SET_USER_MEMORY_REGION2
 
 _______________________________________________
 linux-riscv mailing list
