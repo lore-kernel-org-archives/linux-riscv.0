@@ -4,161 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7156EC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Oct 2023 02:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54BB7C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Oct 2023 04:23:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o8AfRS8SX3SJQ+SHDDsWMioR8HuazVVxWMSl671fZ9k=; b=RBy9KTKEXNaOPZ
-	B42f3HZ76QLBMQqY7854WlhsmSaWp4aPBaSMq0dOXYEi/68eyrVkWN6+f62kfORVe5iKDyRUMz/Om
-	TQARIWm7upaYXN80/Ab9+9uq4mH/8aSsQ+2CxowecE51VU+2PPG1eqg5/fxwUoDYXtMZeXvYDX3p4
-	yWSF2PFifAYQ4Rz2Vafu5N36tERAAlGxgv8DshSnldoQ48ovcxiZVGVyBhsUhmB/iYYZDPFUSCiuZ
-	km0+p4ZiBqaum4pyOJpqmTZo2+PVRIM+DGGo17S5kJTizKH/i6lB0Xa5qk2+aSoS9E3hDZ+5RfhOr
-	K2an57iaFAX5jDlMnxsQ==;
+	List-Owner; bh=UmWikUfNh2aqbBbtXR+xOVqmI5wIWWL5XVvEaWIfULc=; b=hX3AMFbG47D37Z
+	k8cjseOzTD+kOacXbs8j2Apes5iEuuZUx5J8SoJkswAjY2agOtGMbgk24a/8B3SNqeanuJSUOocrJ
+	maxrT289cPeTHd4Hl/5/QhKfCDHrqHEtMSsQ12YRlp7pIc940c7Yp3gXwruCpZ/SGqsA5s5b6el9G
+	vdm+ds+UI6eaKYMSMVg3h/F5LzE2jgrXsNQvNOj3kbfo4x1B2jEJJeXTzulknSDF/XvTRtVRXCayt
+	t+3qnGt3FlSdMQC8MiBvxCZyU3FQnDNefdCoIYdSeMTaVEBafkyYCbxG0WWJ1v0QdYWdyNGZR+nWK
+	fWWcNL6slEqdGjEimmoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxHlL-002QL0-1Z;
-	Mon, 30 Oct 2023 02:12:19 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1qxJnq-002XMX-0J;
+	Mon, 30 Oct 2023 04:23:02 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxHlI-002QKL-0h
+	id 1qxJnm-002XLK-0b
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Oct 2023 02:12:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1698631937; x=1730167937;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=7/yfviQway9pcIFyNlE/9FRZndPxMDTh69WBGvFnKZU=;
-  b=Yi8jk+EzFPG64RH7OHLHB0yszQscgq/ZUhR369NZHlnPELGJie6U22Pk
-   xGP4s9aaiUmIoi50errczfC/Ubi8nrQSU0sk8MUjGT3a56KrG1yoll40r
-   MX/hql/RhwzhI/bgV1MIrdjlFpP5LZuzgjcd8GGenJ9pYqBA16n2Ip+vo
-   70LC6inRMviQdPffBCQpflcrwAiM/OMATe8NrQtNGL1c8BxMynfSYCclh
-   qAhe+S50gc76ufEb0XOjORozmu5lfhQYFl+CjtVEpkP+WL8Nkp5rsgvC6
-   siFDY+9kDAhw9DpKCYw6AXayy+t0NdgLnSOfjFJhCVwPb9KCnVaRGvRVX
-   g==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10878"; a="861615"
-X-IronPort-AV: E=Sophos;i="6.03,262,1694761200"; 
-   d="scan'208";a="861615"
-Received: from fmsmga007.fm.intel.com ([10.253.24.52])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Oct 2023 19:12:11 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10878"; a="763774753"
-X-IronPort-AV: E=Sophos;i="6.03,262,1694761200"; 
-   d="scan'208";a="763774753"
-Received: from fmsmsx601.amr.corp.intel.com ([10.18.126.81])
-  by fmsmga007.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 29 Oct 2023 19:12:10 -0700
-Received: from fmsmsx610.amr.corp.intel.com (10.18.126.90) by
- fmsmsx601.amr.corp.intel.com (10.18.126.81) with Microsoft SMTP Server
+	Mon, 30 Oct 2023 04:23:00 +0000
+Received: from dggpemm100001.china.huawei.com (unknown [172.30.72.53])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4SJg4V0qPdzPnny;
+	Mon, 30 Oct 2023 12:18:34 +0800 (CST)
+Received: from [10.174.177.243] (10.174.177.243) by
+ dggpemm100001.china.huawei.com (7.185.36.93) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.34; Sun, 29 Oct 2023 19:12:10 -0700
-Received: from FMSEDG603.ED.cps.intel.com (10.1.192.133) by
- fmsmsx610.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.34 via Frontend Transport; Sun, 29 Oct 2023 19:12:09 -0700
-Received: from NAM11-BN8-obe.outbound.protection.outlook.com (104.47.58.169)
- by edgegateway.intel.com (192.55.55.68) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.34; Sun, 29 Oct 2023 19:12:09 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=gPYyZB3O7Pgc0FsGW4YuC70mfZaa72IW6tbU+7dgp1zmyQlnvyAlhGUs/UYWdHO/8thCG2rVDOLtU2gaV8y0p8XR0eP7eFuviKzLB9UTUCMMwy6/sXJk1uCsbmXf4ZqbUsQpFPARsiB8WwRRj9fn7Ue5/YwYhRca3CVe9OH2IxuMQUalm0XMhl01TfBIEjfvR8Q5MFgNw5Umk9S6O2b8nKSnftns7VjCmVKGnODdEJ7LhW8V8wQXVbpJvp0Y0bUy3x7KnXQkViTDy3TUP6KMkl6nwIHO5dyOX1d2jSoR4Y56PewCynm34JhCB623yQOvY6P3O3YSOA3m3hUd5e16Zg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fLP2j6Aiv35JhogaOSwGd+hlUK1doHLSkXqJcVmfqb0=;
- b=PS5tlqnjpSqHQcsFHZ5YDY2Bfc8i0mG7mQse8QOd1JA0ETf4JhHt3lsrk9D0h0+woAS1PU00Lk+JxY/edf4ITwNyDFOtUJ/cANIZ8poYCzinD6Ed9jkK2KJCTgKVyW/dSiTDbyba1IcwDMYLYn6UXCVLavuDbcmrYBFWGBDqJPSPg73Rh46HSLAOZmd8mGYwKC0CCxMObarygRdSnus0P+KsIEetmzUBAkWd39PhqyLRxzcgxfC6cRp0XOD11C7Ik8lWAQXvF65lT8/79ZWY8QdkTP4DTIzU/AUe2d2w3iHWq++QX1DsIzw2Qk4xbhEIEPilIT2+ahSiMRxAcgh6Sw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from DM8PR11MB5751.namprd11.prod.outlook.com (2603:10b6:8:12::16) by
- SJ0PR11MB4847.namprd11.prod.outlook.com (2603:10b6:a03:2d9::8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.6933.27; Mon, 30 Oct 2023 02:12:07 +0000
-Received: from DM8PR11MB5751.namprd11.prod.outlook.com
- ([fe80::d070:1879:5b04:5f57]) by DM8PR11MB5751.namprd11.prod.outlook.com
- ([fe80::d070:1879:5b04:5f57%4]) with mapi id 15.20.6933.027; Mon, 30 Oct 2023
- 02:12:07 +0000
-From: "Wang, Xiao W" <xiao.w.wang@intel.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
-CC: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
-	<aou@eecs.berkeley.edu>, "ardb@kernel.org" <ardb@kernel.org>,
-	"anup@brainfault.org" <anup@brainfault.org>, "Li, Haicheng"
-	<haicheng.li@intel.com>, "ajones@ventanamicro.com" <ajones@ventanamicro.com>,
-	"Liu, Yujie" <yujie.liu@intel.com>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-efi@vger.kernel.org"
-	<linux-efi@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v3 2/2] riscv: Optimize bitops with Zbb extension
-Thread-Topic: [PATCH v3 2/2] riscv: Optimize bitops with Zbb extension
-Thread-Index: AQHZ8F1FzuY28oBr70GM2ry9gyuC7LBdW8yAgARp9YA=
-Date: Mon, 30 Oct 2023 02:12:07 +0000
-Message-ID: <DM8PR11MB575198F5F23671E5B1E63F83B8A1A@DM8PR11MB5751.namprd11.prod.outlook.com>
-References: <20230926094655.3102758-1-xiao.w.wang@intel.com>
- <20230926094655.3102758-3-xiao.w.wang@intel.com> <ZTtXp/jhzvjGqBTT@ghost>
-In-Reply-To: <ZTtXp/jhzvjGqBTT@ghost>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DM8PR11MB5751:EE_|SJ0PR11MB4847:EE_
-x-ms-office365-filtering-correlation-id: 3b438066-f0df-40f3-1c8b-08dbd8ed9e33
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: 7JFl+4lqRiBXzEDKPwYjLaJtDR4wCeFEpubV0zcbP8qaqyKtErQdzMUM/neR1uhT29mT2a5//GbWX5mxEX0V4EyCc0GOEjZ86I3b9bJrYbOsb9aB6hI+1AahegVtHnRDjNZ06hkuPY4t+DLYaoLbkfCgMGhtDEVKraDS9ChAQ97IbpJ/Rrq5qdSthPIPc6rw0LdDbntQkhz7EEDL9TKGhDP9jM+/D+MdRA/gOslVRUWNjB45DDLPxz+wAHUX4vrUoqhnYolB826t8yCyT7O/pUHtYa7DU5iLObqhvMibbuj5ulKWn0wzwj2QNBBOZzbzbYwZOPTTmXk7d+yLvdlAXiJNHhJRP7GW8o4yyHL6ppJDIG01CI5lEfWvNyFlgz/BHfn6K4dT/x/RpCnAeKLtE6Il5b/PrVYqMXs51mz7jS2aW3aGPdvYhJg6efUyh2RthAIfjxVcClNyqolDrAc7Itjps8pb4EMwxYFrtuod2Twqlly5Q6sVG+aPRjOdP6jcP6WU0LDlqdsnyKgo9f0BYsFNFnSG60LXZFH8MW2JrfxRkbfM8lOECNqJsPOwXOcR1mludfnhSGzgzY5rUsORV5dsHJvPBz9WHIrDMpJgxligDRI7m+oBvAXMfjuHTPfX
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM8PR11MB5751.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(136003)(366004)(376002)(396003)(346002)(39860400002)(230922051799003)(451199024)(1800799009)(186009)(64100799003)(5660300002)(33656002)(7696005)(38070700009)(26005)(6506007)(9686003)(71200400001)(53546011)(83380400001)(52536014)(8936002)(8676002)(122000001)(38100700002)(55016003)(86362001)(478600001)(54906003)(66556008)(2906002)(76116006)(66946007)(66476007)(7416002)(316002)(64756008)(6916009)(66446008)(82960400001)(41300700001)(4326008);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?Windows-1252?Q?nTE0b8Cf50M4jzPTPCtLCinnFxsQjAdKQQoEJLgas+sz9srStwdYt77d?=
- =?Windows-1252?Q?MtvU1BvNtv/Hrdy9q5dvDvCYrhK6Z1FV0AKsIwmP4fPmr/g+lPiZrp99?=
- =?Windows-1252?Q?Xc6uPmfv9jtxJIxSwV90bcuNqwbhO1DaBYDBk/XWl7pu4eeojfKXVxpR?=
- =?Windows-1252?Q?vWBTmEJScJUpmSsT5LPhF73TiLU2SEAB7g2HCpXBeu8DaE7wCdlPDLM5?=
- =?Windows-1252?Q?uQHazKBQU6cFOoAQu4JBQuPej6fXqTkPUANgb9Lnxuz7DputbSbXjpCX?=
- =?Windows-1252?Q?+j986W3aeXLSRt1wuunpxlBiT44ATf9UZ6253K8YznCfq/0zpLf0DFo5?=
- =?Windows-1252?Q?eCMCAVjKxjWxE5XpiW5CvKjlU2xunQQd9Iv/jqKG/uW8OevGvOuUo5Zm?=
- =?Windows-1252?Q?uM6MUcSavuSGZHznOHPSFmEj3Bg1iy44clsFnj2y7Glanyz3iLuIcINb?=
- =?Windows-1252?Q?mzFpWz7WaNBlqzythgPBLQCKtWEub6O64fOMFa1Lgsri4/0w1bBwAhWW?=
- =?Windows-1252?Q?XBL2/tkSUNxXanaE9v25RNk3L4RcHFqLaVLVglRL3ny/l54BR8p2nD4N?=
- =?Windows-1252?Q?d05MzSf3hckTue/vC2b8Qwz0qxGSRxhNkjKNvZSvjba5okFvWJZ7aB/l?=
- =?Windows-1252?Q?RKOD2C/PVJWOSrUmEb0McLfN7zACDf9/8fUpaPDczhKKr+rOcGUW/tEa?=
- =?Windows-1252?Q?UpcCiqzFuB9tZQOkaH+BfOWZGPG78aahVU2JiwExSWr1rKYmQxkhawMj?=
- =?Windows-1252?Q?LUfch+xpG6nPX3gNR7grQ97n1Vu6Xo7DyNA9iIBMhk8ILHx3PSaLU21M?=
- =?Windows-1252?Q?HO1y03SLJT0voY2ro9CFy0RMCC9N2Qg8LBHTJmGzKLk1cB0Cex8ny14b?=
- =?Windows-1252?Q?Rcea8TChwuAO98HMjx1e0q0aWmKMg6diZfWwAxHIt4BVyn6/BUgAGLjp?=
- =?Windows-1252?Q?py+ClbfAMTvt5n3REg28hPuUx5ld/OjWrcSv3qWgk/nyLoEYwQwszkwp?=
- =?Windows-1252?Q?R/kOh94CwaZxgGPWp/mIYr30iEhsu3oS+6pvKf2CrBSof9AL6upeajm3?=
- =?Windows-1252?Q?q8u140EFrYFXbASLMcE+hQ6uBsfTjMTDOW9qxlO0btPFfnVMXNw12veQ?=
- =?Windows-1252?Q?Y4FhQ8blSwlq0br/+x8Z1yidCCHOS+ZQWuP+filnoPGxAFOTiJxMeV/G?=
- =?Windows-1252?Q?M49HE97BXNcjpGY0k2vYx4JOgoGV50uACYZQ2mBSX91ruAfgwY2gdGSM?=
- =?Windows-1252?Q?dpii/hdLc3oDXvQVo3rN6WSuo1gaCDsrqw4mWXIzVqIjE+LT1WbVxPf5?=
- =?Windows-1252?Q?VnmtBo0387W69XTdi+sZMyfu5+iU09yQ2GSdQSA32BaJaTsVcFbWt3DF?=
- =?Windows-1252?Q?gZuF0w12e4pcnNzhP2ZO1bO70cHXAcfgbbRMI4HcfJZM4C/VyWEqnOOI?=
- =?Windows-1252?Q?mJbkUwjhZpanEauBMmKsSIFVSHFCabUdT4EI7VZWd9xxF4hij6t2jpyA?=
- =?Windows-1252?Q?I0IhtF9HrU/tm9lvT+6Yuo8dK2cR633bvfG2rEY38Kl2wwMvKkdUdOUz?=
- =?Windows-1252?Q?ID02zSeuzyNe8p8dcYsILEqpMwkrkvJcNXGOyO0YWAPBoAeYctN42eSy?=
- =?Windows-1252?Q?K6aIhpxUanwf1TwlkLY/hGc1WWMhBil1FTTE6Q9TOFZqomUs4RJEgr7w?=
- =?Windows-1252?Q?CrRBIW2QZtQOMivCcAroJHHsebz83HTN?=
+ 15.1.2507.31; Mon, 30 Oct 2023 12:22:38 +0800
+Message-ID: <834f7386-a045-464b-979e-e657f8e248a8@huawei.com>
+Date: Mon, 30 Oct 2023 12:22:38 +0800
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DM8PR11MB5751.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3b438066-f0df-40f3-1c8b-08dbd8ed9e33
-X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Oct 2023 02:12:07.5629
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Pm39tmo8yGolbNUSxwzB3P8p1uYonoAYFMhQE5zwYamEW/hUKR5RqFc2YPZTwGhtOD3m7e9qNUAxze/F0TcNtA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR11MB4847
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mm: cma: report correct node id
+Content-Language: en-US
+To: Nathan Chancellor <nathan@kernel.org>
+CC: Andrew Morton <akpm@linux-foundation.org>, <linux-mm@kvack.org>, Christoph
+ Hellwig <hch@lst.de>, <linux-riscv@lists.infradead.org>
+References: <20231019013253.2792048-1-wangkefeng.wang@huawei.com>
+ <20231025163703.GA2440148@dev-arch.thelio-3990X>
+From: Kefeng Wang <wangkefeng.wang@huawei.com>
+In-Reply-To: <20231025163703.GA2440148@dev-arch.thelio-3990X>
+X-Originating-IP: [10.174.177.243]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ dggpemm100001.china.huawei.com (7.185.36.93)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231029_191216_385520_0C5E02BF 
-X-CRM114-Status: GOOD (  27.35  )
+X-CRM114-CacheID: sfid-20231029_212258_550222_4B2E7D94 
+X-CRM114-Status: GOOD (  19.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,381 +65,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-> -----Original Message-----
-> From: Charlie Jenkins <charlie@rivosinc.com>
-> Sent: Friday, October 27, 2023 2:25 PM
-> To: Wang, Xiao W <xiao.w.wang@intel.com>
-> Cc: paul.walmsley@sifive.com; palmer@dabbelt.com;
-> aou@eecs.berkeley.edu; ardb@kernel.org; anup@brainfault.org; Li, Haicheng
-> <haicheng.li@intel.com>; ajones@ventanamicro.com; Liu, Yujie
-> <yujie.liu@intel.com>; linux-riscv@lists.infradead.org; linux-
-> efi@vger.kernel.org; linux-kernel@vger.kernel.org
-> Subject: Re: [PATCH v3 2/2] riscv: Optimize bitops with Zbb extension
-> 
-> On Tue, Sep 26, 2023 at 05:46:55PM +0800, Xiao Wang wrote:
-> > This patch leverages the alternative mechanism to dynamically optimize
-> > bitops (including __ffs, __fls, ffs, fls) with Zbb instructions. When
-> > Zbb ext is not supported by the runtime CPU, legacy implementation is
-> > used. If Zbb is supported, then the optimized variants will be selected
-> > via alternative patching.
-> >
-> > The legacy bitops support is taken from the generic C implementation as
-> > fallback.
-> >
-> > If the parameter is a build-time constant, we leverage compiler builtin to
-> > calculate the result directly, this approach is inspired by x86 bitops
-> > implementation.
-> >
-> > EFI stub runs before the kernel, so alternative mechanism should not be
-> > used there, this patch introduces a macro NO_ALTERNATIVE for this
-> purpose.
-> >
-> > Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
-> > ---
-> >  arch/riscv/include/asm/bitops.h       | 266 +++++++++++++++++++++++++-
-> >  drivers/firmware/efi/libstub/Makefile |   2 +-
-> >  2 files changed, 264 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/arch/riscv/include/asm/bitops.h
-> b/arch/riscv/include/asm/bitops.h
-> > index 3540b690944b..c97e774cb647 100644
-> > --- a/arch/riscv/include/asm/bitops.h
-> > +++ b/arch/riscv/include/asm/bitops.h
-> > @@ -15,13 +15,273 @@
-> >  #include <asm/barrier.h>
-> >  #include <asm/bitsperlong.h>
-> >
-> > +#if !defined(CONFIG_RISCV_ISA_ZBB) || defined(NO_ALTERNATIVE)
-> >  #include <asm-generic/bitops/__ffs.h>
-> > -#include <asm-generic/bitops/ffz.h>
-> > -#include <asm-generic/bitops/fls.h>
-> >  #include <asm-generic/bitops/__fls.h>
-> > +#include <asm-generic/bitops/ffs.h>
-> > +#include <asm-generic/bitops/fls.h>
-> > +
-> > +#else
-> > +#include <asm/alternative-macros.h>
-> > +#include <asm/hwcap.h>
-> > +
-> > +#if (BITS_PER_LONG == 64)
-> > +#define CTZW	"ctzw "
-> > +#define CLZW	"clzw "
-> > +#elif (BITS_PER_LONG == 32)
-> > +#define CTZW	"ctz "
-> > +#define CLZW	"clz "
-> > +#else
-> > +#error "Unexpected BITS_PER_LONG"
-> > +#endif
-> > +
-> > +static __always_inline unsigned long variable__ffs(unsigned long word)
-> > +{
-> > +	int num;
-> > +
-> > +	asm_volatile_goto(
-> > +		ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
-> > +		: : : : legacy);
-> > +
-> > +	asm volatile (
-> > +		".option push\n"
-> > +		".option arch,+zbb\n"
-> > +		"ctz %0, %1\n"
-> > +		".option pop\n"
-> > +		: "=r" (word) : "r" (word) :);
-> > +
-> > +	return word;
-> 
-> That's so clean!
-> 
-> > +
-> > +legacy:
-> > +	num = 0;
-> > +#if BITS_PER_LONG == 64
-> > +	if ((word & 0xffffffff) == 0) {
-> > +		num += 32;
-> > +		word >>= 32;
-> > +	}
-> > +#endif
-> > +	if ((word & 0xffff) == 0) {
-> > +		num += 16;
-> > +		word >>= 16;
-> > +	}
-> > +	if ((word & 0xff) == 0) {
-> > +		num += 8;
-> > +		word >>= 8;
-> > +	}
-> > +	if ((word & 0xf) == 0) {
-> > +		num += 4;
-> > +		word >>= 4;
-> > +	}
-> > +	if ((word & 0x3) == 0) {
-> > +		num += 2;
-> > +		word >>= 2;
-> > +	}
-> > +	if ((word & 0x1) == 0)
-> > +		num += 1;
-> > +	return num;
-> > +}
-> > +
-> > +/**
-> > + * __ffs - find first set bit in a long word
-> > + * @word: The word to search
-> > + *
-> > + * Undefined if no set bit exists, so code should check against 0 first.
-> > + */
-> > +#define __ffs(word)				\
-> > +	(__builtin_constant_p(word) ?		\
-> > +	 (unsigned long)__builtin_ctzl(word) :	\
-> > +	 variable__ffs(word))
-> > +
-> > +static __always_inline unsigned long variable__fls(unsigned long word)
-> > +{
-> > +	int num;
-> > +
-> > +	asm_volatile_goto(
-> > +		ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
-> > +		: : : : legacy);
-> > +
-> > +	asm volatile (
-> > +		".option push\n"
-> > +		".option arch,+zbb\n"
-> > +		"clz %0, %1\n"
-> > +		".option pop\n"
-> > +		: "=r" (word) : "r" (word) :);
-> > +
-> > +	return BITS_PER_LONG - 1 - word;
-> > +
-> > +legacy:
-> > +	num = BITS_PER_LONG - 1;
-> > +#if BITS_PER_LONG == 64
-> > +	if (!(word & (~0ul << 32))) {
-> > +		num -= 32;
-> > +		word <<= 32;
-> > +	}
-> > +#endif
-> > +	if (!(word & (~0ul << (BITS_PER_LONG-16)))) {
-> > +		num -= 16;
-> > +		word <<= 16;
-> > +	}
-> > +	if (!(word & (~0ul << (BITS_PER_LONG-8)))) {
-> > +		num -= 8;
-> > +		word <<= 8;
-> > +	}
-> > +	if (!(word & (~0ul << (BITS_PER_LONG-4)))) {
-> > +		num -= 4;
-> > +		word <<= 4;
-> > +	}
-> > +	if (!(word & (~0ul << (BITS_PER_LONG-2)))) {
-> > +		num -= 2;
-> > +		word <<= 2;
-> > +	}
-> > +	if (!(word & (~0ul << (BITS_PER_LONG-1))))
-> > +		num -= 1;
-> > +	return num;
-> > +}
-> > +
-> > +/**
-> > + * __fls - find last set bit in a long word
-> > + * @word: the word to search
-> > + *
-> > + * Undefined if no set bit exists, so code should check against 0 first.
-> > + */
-> > +#define __fls(word)							\
-> > +	(__builtin_constant_p(word) ?					\
-> > +	 (unsigned long)(BITS_PER_LONG - 1 - __builtin_clzl(word)) :	\
-> > +	 variable__fls(word))
-> > +
-> > +static __always_inline int variable_ffs(int x)
-> > +{
-> > +	int r;
-> > +
-> > +	asm_volatile_goto(
-> > +		ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
-> > +		: : : : legacy);
-> > +
-> > +	asm volatile (
-> > +		".option push\n"
-> > +		".option arch,+zbb\n"
-> > +		"bnez %1, 1f\n"
-> > +		"li %0, 0\n"
-> > +		"j 2f\n"
-> > +		"1:\n"
-> > +		CTZW "%0, %1\n"
-> > +		"addi %0, %0, 1\n"
-> > +		"2:\n"
-> > +		".option pop\n"
-> > +		: "=r" (r) : "r" (x) :);
-> > +
-> > +	return r;
-> > +
-> 
-> I generally like to move as much code out of asm as possible. You are
-> also able to remove one of the branches if you rearrange as follows:
-> 
-> if (!x)
-> 	return 0;
-> 
-> asm volatile (
-> 	".option push\n"
->         ".option arch,+zbb\n"
->         CTZW "%0, %1\n"
->         ".option pop\n"
->         : "=r" (r) : "r" (x) :);
-> 
-> return r + 1;
-> 
-> You could then also extract out the "if (!x)" at the beginning of the
-> legacy section at put it at the top of the function.
-> 
-
-Agree, less asm code will be more reader friendly. And your sample code looks
-nice, thanks for the suggestion. Will do the adjustment in next version.
-
-> > +legacy:
-> > +	r = 1;
-> > +	if (!x)
-> > +		return 0;
-> > +	if (!(x & 0xffff)) {
-> > +		x >>= 16;
-> > +		r += 16;
-> > +	}
-> > +	if (!(x & 0xff)) {
-> > +		x >>= 8;
-> > +		r += 8;
-> > +	}
-> > +	if (!(x & 0xf)) {
-> > +		x >>= 4;
-> > +		r += 4;
-> > +	}
-> > +	if (!(x & 3)) {
-> > +		x >>= 2;
-> > +		r += 2;
-> > +	}
-> > +	if (!(x & 1)) {
-> > +		x >>= 1;
-> > +		r += 1;
-> > +	}
-> > +	return r;
-> > +}
-> > +
-> > +/**
-> > + * ffs - find first set bit in a word
-> > + * @x: the word to search
-> > + *
-> > + * This is defined the same way as the libc and compiler builtin ffs routines.
-> > + *
-> > + * ffs(value) returns 0 if value is 0 or the position of the first set bit if
-> > + * value is nonzero. The first (least significant) bit is at position 1.
-> > + */
-> > +#define ffs(x) (__builtin_constant_p(x) ? __builtin_ffs(x) : variable_ffs(x))
-> > +
-> > +static __always_inline int variable_fls(unsigned int x)
-> > +{
-> > +	int r;
-> > +
-> > +	asm_volatile_goto(
-> > +		ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
-> > +		: : : : legacy);
-> > +
-> > +	asm volatile (
-> > +		".option push\n"
-> > +		".option arch,+zbb\n"
-> > +		"bnez %1, 1f\n"
-> > +		"li %0, 0\n"
-> > +		"j 2f\n"
-> > +		"1:\n"
-> > +		CLZW "%0, %1\n"
-> > +		"neg %0, %0\n"
-> > +		"addi %0, %0, 32\n"
-> > +		"2:\n"
-> > +		".option pop\n"
-> > +		: "=r" (r) : "r" (x) :);
-> > +
-> > +	return r;
-> > +
-> 
-> Same comment as above but with appropriate changes.
-
-Will refine it in next version.
-
-> 
-> > +legacy:
-> > +	r = 32;
-> > +	if (!x)
-> > +		return 0;
-> > +	if (!(x & 0xffff0000u)) {
-> > +		x <<= 16;
-> > +		r -= 16;
-> > +	}
-> > +	if (!(x & 0xff000000u)) {
-> > +		x <<= 8;
-> > +		r -= 8;
-> > +	}
-> > +	if (!(x & 0xf0000000u)) {
-> > +		x <<= 4;
-> > +		r -= 4;
-> > +	}
-> > +	if (!(x & 0xc0000000u)) {
-> > +		x <<= 2;
-> > +		r -= 2;
-> > +	}
-> > +	if (!(x & 0x80000000u)) {
-> > +		x <<= 1;
-> > +		r -= 1;
-> > +	}
-> > +	return r;
-> > +}
-> > +
-> > +/**
-> > + * fls - find last set bit in a word
-> > + * @x: the word to search
-> > + *
-> > + * This is defined in a similar way as ffs, but returns the position of the most
-> > + * significant set bit.
-> > + *
-> > + * fls(value) returns 0 if value is 0 or the position of the last set bit if
-> > + * value is nonzero. The last (most significant) bit is at position 32.
-> > + */
-> > +#define fls(x)
-> 	\
-> > +	(__builtin_constant_p(x) ?					\
-> > +	 (int)(((x) != 0) ?						\
-> > +	  (sizeof(unsigned int) * 8 - __builtin_clz(x)) : 0) :		\
-> > +	 variable_fls(x))
-> > +
-> > +#endif
-> 
-> As a nit, it's nice when large #ifdef blocks have a comment like
-> 
-> /* !defined(CONFIG_RISCV_ISA_ZBB) || defined(NO_ALTERNATIVE) */
-> 
-
-Yes, I will add it in next version. Thanks for the comments.
-
-BRs,
-Xiao
-
-> Overall great changes, just that small optimization to get rid of the
-> jump.
-> 
-> - Charlie
-> 
-> > +
-> > +#include <asm-generic/bitops/ffz.h>
-> >  #include <asm-generic/bitops/fls64.h>
-> >  #include <asm-generic/bitops/sched.h>
-> > -#include <asm-generic/bitops/ffs.h>
-> >
-> >  #include <asm-generic/bitops/hweight.h>
-> >
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyMDIzLzEwLzI2IDA6MzcsIE5hdGhhbiBDaGFuY2VsbG9yIHdyb3RlOgo+IEhpIEtlZmVu
+ZywKPiAKPiBPbiBUaHUsIE9jdCAxOSwgMjAyMyBhdCAwOTozMjo1M0FNICswODAwLCBLZWZlbmcg
+V2FuZyB3cm90ZToKPj4gVXNlIGVhcmx5X3Bmbl90b19uaWQoKSB0byBnZXQgY29ycmVjdCBub2Rl
+IGlkIGZyb20gYmFzZSBpbnN0ZWFkIG9mCj4+IHRoZSBkZWZhdWx0IE5VTUFfTk9fTk9ERSBpbiBj
+bWFfZGVjbGFyZV9jb250aWd1b3VzX25pZCgpLgo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBLZWZlbmcg
+V2FuZyA8d2FuZ2tlZmVuZy53YW5nQGh1YXdlaS5jb20+Cj4+IC0tLQo+PiAgIG1tL2NtYS5jIHwg
+MyArKysKPj4gICAxIGZpbGUgY2hhbmdlZCwgMyBpbnNlcnRpb25zKCspCj4+Cj4+IGRpZmYgLS1n
+aXQgYS9tbS9jbWEuYyBiL21tL2NtYS5jCj4+IGluZGV4IDJiMjQ5NGZkNmI1OS4uOTdjMjdlNWZl
+MWEyIDEwMDY0NAo+PiAtLS0gYS9tbS9jbWEuYwo+PiArKysgYi9tbS9jbWEuYwo+PiBAQCAtMzc1
+LDYgKzM3NSw5IEBAIGludCBfX2luaXQgY21hX2RlY2xhcmVfY29udGlndW91c19uaWQocGh5c19h
+ZGRyX3QgYmFzZSwKPj4gICAJaWYgKHJldCkKPj4gICAJCWdvdG8gZnJlZV9tZW07Cj4+ICAgCj4+
+ICsJaWYgKG5pZCA9PSBOVU1BX05PX05PREUpCj4+ICsJCW5pZCA9IGVhcmx5X3Bmbl90b19uaWQo
+UEhZU19QRk4oYmFzZSkpOwo+PiArCj4+ICAgCXByX2luZm8oIlJlc2VydmVkICVsZCBNaUIgYXQg
+JXBhIG9uIG5vZGUgJWRcbiIsICh1bnNpZ25lZCBsb25nKXNpemUgLyBTWl8xTSwKPj4gICAJCSZi
+YXNlLCBuaWQpOwo+PiAgIAlyZXR1cm4gMDsKPj4gLS0gCj4+IDIuMjcuMAo+Pgo+IAo+IEkgYmlz
+ZWN0ZWQgYSBSSVNDLVYgYm9vdCBmYWlsdXJlIGluIFFFTVUgdG8gdGhpcyBjaGFuZ2UgaW4gLW5l
+eHQuIEl0Cj4gaGFwcGVucyB3aXRoIE9wZW5TVVNFJ3MgUklTQy1WIGNvbmZpZ3VyYXRpb24gWzFd
+LCB3aGljaCBJIHdhcyBhYmxlIHRvCj4gbmFycm93IGRvd24gdG8gdGhlIGZvbGxvdyBjb25maWd1
+cmF0aW9ucyBvbiB0b3Agb2YgZGVmY29uZmlnOgoKSGkgTmF0aGFu77yMIHNvcnJ5IGZvciB0aGUg
+bGF0Ze+8jCBJIHdpbGwgY2hlY2sgaXQsIHRoYW5rcy4KCj4gCj4gQ09ORklHX0FDUElfU1BDUl9U
+QUJMRT15Cj4gQ09ORklHX0NNQT15Cj4gQ09ORklHX0RFRkVSUkVEX1NUUlVDVF9QQUdFX0lOSVQ9
+eQo+IENPTkZJR19ETUFfQ01BPXkKPiBDT05GSUdfTlVNQT15Cj4gCj4gVG8gZWFzaWx5IHJlcHJv
+ZHVjZToKPiAKPiAkIGVjaG8gJ0NPTkZJR19BQ1BJX1NQQ1JfVEFCTEU9eQo+IENPTkZJR19DTUE9
+eQo+IENPTkZJR19ERUZFUlJFRF9TVFJVQ1RfUEFHRV9JTklUPXkKPiBDT05GSUdfRE1BX0NNQT15
+Cj4gQ09ORklHX05VTUE9eScgPmtlcm5lbC9jb25maWdzL3JlcHJvLmNvbmZpZwo+IAo+ICQgbWFr
+ZSAtc2tqIiQobnByb2MpIiBBUkNIPXJpc2N2IENST1NTX0NPTVBJTEU9cmlzY3Y2NC1saW51eC0g
+ZGVmY29uZmlnIHJlcHJvLmNvbmZpZyBJbWFnZQo+IAo+ICQgcWVtdS1zeXN0ZW0tcmlzY3Y2NCBc
+Cj4gICAgICAtZGlzcGxheSBub25lIFwKPiAgICAgIC1ub2RlZmF1bHRzIFwKPiAgICAgIC1iaW9z
+IGRlZmF1bHQgXAo+ICAgICAgLU0gdmlydCBcCj4gICAgICAtYXBwZW5kIGVhcmx5Y29uIFwKPiAg
+ICAgIC1rZXJuZWwgYXJjaC9yaXNjdi9ib290L0ltYWdlIFwKPiAgICAgIC1pbml0cmQgcmlzY3Yt
+cm9vdGZzLmNwaW8gXAo+ICAgICAgLW0gNTEybSBcCj4gICAgICAtc2VyaWFsIG1vbjpzdGRpbwo+
+IAo+IE9wZW5TQkkgdjEuMy4xCj4gLi4uCj4gCj4gPGhhbmdzIGFmdGVyIE9wZW5TQkkgb3V0cHV0
+Pgo+IAo+IFdpdGhvdXQgQ09ORklHX0FDUElfU1BDUl9UQUJMRT15LCB0aGVyZSBpcyBhIHZpc2li
+bGUgY3Jhc2guCj4gCj4gWyAgICAwLjAwMDAwMF0gTGludXggdmVyc2lvbiA2LjYuMC1yYzctbmV4
+dC0yMDIzMTAyNSAobmF0aGFuQGRldi1mZWRvcmEuYzMtbGFyZ2UtYXJtNjQpIChyaXNjdjY0LWxp
+bnV4LWdjYyAoR0NDKSAxMy4yLjAsIEdOVSBsZCAoR05VIEJpbnV0aWxzKSAyLjQxKSAjMSBTTVAg
+V2VkIE9jdCAyNSAxNjoxNDo1OSBVVEMgMjAyMwo+IC4uLgo+IFsgICAgMC4wMDAwMDBdIG1lbSBh
+dXRvLWluaXQ6IHN0YWNrOmFsbCh6ZXJvKSwgaGVhcCBhbGxvYzpvZmYsIGhlYXAgZnJlZTpvZmYK
+PiBbICAgIDAuMDAwMDAwXSBwYWdlOmZmMWMwMDAwMDIyMDAwMDAgaXMgdW5pbml0aWFsaXplZCBh
+bmQgcG9pc29uZWQKPiBbICAgIDAuMDAwMDAwXSBwYWdlIGR1bXBlZCBiZWNhdXNlOiBWTV9CVUdf
+T05fUEFHRSgxICYmIFBhZ2VDb21wb3VuZChwYWdlKSkKPiBbICAgIDAuMDAwMDAwXSAtLS0tLS0t
+LS0tLS1bIGN1dCBoZXJlIF0tLS0tLS0tLS0tLS0KPiBbICAgIDAuMDAwMDAwXSBrZXJuZWwgQlVH
+IGF0IGluY2x1ZGUvbGludXgvcGFnZS1mbGFncy5oOjQ5MyEKPiBbICAgIDAuMDAwMDAwXSBLZXJu
+ZWwgQlVHIFsjMV0KPiBbICAgIDAuMDAwMDAwXSBNb2R1bGVzIGxpbmtlZCBpbjoKPiBbICAgIDAu
+MDAwMDAwXSBDUFU6IDAgUElEOiAwIENvbW06IHN3YXBwZXIgTm90IHRhaW50ZWQgNi42LjAtcmM3
+LW5leHQtMjAyMzEwMjUgIzEKPiBbICAgIDAuMDAwMDAwXSBIYXJkd2FyZSBuYW1lOiByaXNjdi12
+aXJ0aW8scWVtdSAoRFQpCj4gWyAgICAwLjAwMDAwMF0gZXBjIDogX19mcmVlX3BhZ2VzX2NvcmUr
+MHg3OC8weDEyNgo+IFsgICAgMC4wMDAwMDBdICByYSA6IF9fZnJlZV9wYWdlc19jb3JlKzB4Nzgv
+MHgxMjYKPiBbICAgIDAuMDAwMDAwXSBlcGMgOiBmZmZmZmZmZjgwMThkZDhlIHJhIDogZmZmZmZm
+ZmY4MDE4ZGQ4ZSBzcCA6IGZmZmZmZmZmODE0MDNkNDAKPiBbICAgIDAuMDAwMDAwXSAgZ3AgOiBm
+ZmZmZmZmZjgxNTAxM2EwIHRwIDogZmZmZmZmZmY4MTQwZGIwMCB0MCA6IDZkNzU2NDIwNjU2NzYx
+NzAKPiBbICAgIDAuMDAwMDAwXSAgdDEgOiAwMDAwMDAwMDAwMDAwMDcwIHQyIDogNzA2ZDc1NjQy
+MDY1Njc2MSBzMCA6IGZmZmZmZmZmODE0MDNkNTAKPiBbICAgIDAuMDAwMDAwXSAgczEgOiAwMDAw
+MDAwMDAwMDAwMDA0IGEwIDogMDAwMDAwMDAwMDAwMDAzYyBhMSA6IGZmZmZmZmZmODE0ODY2YTgK
+PiBbICAgIDAuMDAwMDAwXSAgYTIgOiAwMDAwMDAwMDAwMDAwMDAwIGEzIDogMDAwMDAwMDAwMDAw
+MDAwMSBhNCA6IDAwMDAwMDAwMDAwMDAwMDAKPiBbICAgIDAuMDAwMDAwXSAgYTUgOiAwMDAwMDAw
+MDAwMDAwMDAwIGE2IDogMDAwMDAwMDAwMDAwMDAwOCBhNyA6IDAwMDAwMDAwMDAwMDAwMzgKPiBb
+ICAgIDAuMDAwMDAwXSAgczIgOiAwMDAwMDAwMDAwMDg4MDAwIHMzIDogZmYxYzAwMDAwMjIwMDAw
+MCBzNCA6IDAwMDAwMDAwMDAwMDAwMDkKPiBbICAgIDAuMDAwMDAwXSAgczUgOiAwMDAwMDAwMGZm
+ZmZmZmZmIHM2IDogMDAwMDAwMDAwMDA4MTgwMCBzNyA6IDAwMDAwMDAwMDAwODgyMDAKPiBbICAg
+IDAuMDAwMDAwXSAgczggOiAwMDAwMDAwMDAwMDAwMWMwIHM5IDogMDA0MDAwMDAwMDAwMDAwMCBz
+MTA6IGZmZmZmZmZmODE1MDBiZGQKPiBbICAgIDAuMDAwMDAwXSAgczExOiBmZmZmZmZmZjgxNTAw
+YmRjIHQzIDogZmZmZmZmZmY4MTUxNWFhNyB0NCA6IGZmZmZmZmZmODE1MTVhYTcKPiBbICAgIDAu
+MDAwMDAwXSAgdDUgOiBmZmZmZmZmZjgxNTE1YWE4IHQ2IDogZmZmZmZmZmY4MTQwM2I1OAo+IFsg
+ICAgMC4wMDAwMDBdIHN0YXR1czogMDAwMDAwMDIwMDAwMDEwMCBiYWRhZGRyOiAwMDAwMDAwMDAw
+MDAwMDAwIGNhdXNlOiAwMDAwMDAwMDAwMDAwMDAzCj4gWyAgICAwLjAwMDAwMF0gWzxmZmZmZmZm
+ZjgwMThkZDhlPl0gX19mcmVlX3BhZ2VzX2NvcmUrMHg3OC8weDEyNgo+IFsgICAgMC4wMDAwMDBd
+IFs8ZmZmZmZmZmY4MGExMmZlZT5dIG1lbWJsb2NrX2ZyZWVfcGFnZXMrMHg1Mi8weDYyCj4gWyAg
+ICAwLjAwMDAwMF0gWzxmZmZmZmZmZjgwYTE1ZjAyPl0gbWVtYmxvY2tfZnJlZV9hbGwrMHgxZmMv
+MHgyN2UKPiBbICAgIDAuMDAwMDAwXSBbPGZmZmZmZmZmODBhMDYxZmE+XSBtZW1faW5pdCsweDM0
+LzB4MjJjCj4gWyAgICAwLjAwMDAwMF0gWzxmZmZmZmZmZjgwYTEzMTE0Pl0gbW1fY29yZV9pbml0
+KzB4MTE2LzB4MmQwCj4gWyAgICAwLjAwMDAwMF0gWzxmZmZmZmZmZjgwYTAwYTZlPl0gc3RhcnRf
+a2VybmVsKzB4M2M2LzB4NzQyCj4gWyAgICAwLjAwMDAwMF0gQ29kZTogMDQwNSA4Mzk5IDhiODUg
+ZDdmMSA5NTk3IDAwZTIgODU5MyAyYWU1IDkwZWYgZTVkZCAoOTAwMikgNjU5Nwo+IFsgICAgMC4w
+MDAwMDBdIC0tLVsgZW5kIHRyYWNlIDAwMDAwMDAwMDAwMDAwMDAgXS0tLQo+IFsgICAgMC4wMDAw
+MDBdIEtlcm5lbCBwYW5pYyAtIG5vdCBzeW5jaW5nOiBGYXRhbCBleGNlcHRpb24gaW4gaW50ZXJy
+dXB0Cj4gCj4gVGhlIHJvb3RmcyBpcyBhdmFpbGFibGUgYXQgWzJdIGlmIG5lY2Vzc2FyeS4gSWYg
+dGhlcmUgaXMgYW55IG1vcmUKPiBpbmZvcm1hdGlvbiBJIGNhbiBwcm92aWRlIG9yIHBhdGNoZXMg
+SSBjYW4gdGVzdCwgSSBhbSBtb3JlIHRoYW4gaGFwcHkgdG8KPiBkbyBzby4KPiAKPiBbMV06IGh0
+dHBzOi8vZ2l0aHViLmNvbS9vcGVuU1VTRS9rZXJuZWwtc291cmNlL3Jhdy9tYXN0ZXIvY29uZmln
+L3Jpc2N2NjQvZGVmYXVsdAo+IFsyXTogaHR0cHM6Ly9naXRodWIuY29tL0NsYW5nQnVpbHRMaW51
+eC9ib290LXV0aWxzL3JlbGVhc2VzCj4gCj4gQ2hlZXJzLAo+IE5hdGhhbgoKX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
+aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
+ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
