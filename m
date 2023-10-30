@@ -4,57 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39A64C4167B
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Oct 2023 06:44:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71ABDC4167B
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Oct 2023 07:01:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wwVRwcl0aFla16lv+YiznOrmq4vqu94yMfm4gnih5b4=; b=uZv+rQqw5XeMTC
-	bk3b2+TQpyUBYzcDvyh6z4xRXkkL7OcpTFQGROz6RwwDJdLmh5QImjHhMQK2PDMWBgkfvPSN8iXZl
-	1IvKhu8DUgWWe8DzmwL+4+Zt28kT2vpH/DplWUDka0LjgN88synLrFhGQxIMS/4WXTkU3bPH6NvMp
-	O/5xBGZuI7l5+52QyqlVq+1vf7l/BQqp+wRJjPLj0dXgsxdv0p4GQknUddF9k4gMFyQ0DjF807v0U
-	66eaKH39zqkx3ZJ+Y5xWm+8BFd/TAm7g/RMOyf1SDsSIwpyZus0uumbwPHJF3YCpxzGt9Lzoj/8s0
-	0GyulQ1e3dqExF9rJYcg==;
+	List-Owner; bh=6epdFVFCqBA/REZQepiqFGlDU6MreC4ufjE1B4BXJd8=; b=YE7DV4Ll2s8dPY
+	B5+92XXsxsX7RSyn3HzbZmOqTJzqmyg/xl5tyZIwoHmNJUnWdX6FB/pj14Ao521cArQRPKJvQeAPx
+	8c/gvyV9aubo8ipg5NGeSB9QHiLDGVdra7SyF/DpwSBVvFa1Melp7OlrJ1uMdlK7prbaV7LqgiUwe
+	j1NAtoH44QvweN7f/SpV4g8l8I8VjxGnyHzwSWSVW/6e7QPkjTwtYFEv8YOp+WvTvmo77pt6CXFtH
+	7ptkf27vdTLTFQoG4fLFhZN2o5did5vY31iZITwT8AHpXY67lFm32yh+eGroniMjreXba+iCjvNcJ
+	CQVbSS7KVpLxlOS1DlHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxM0W-002grx-36;
-	Mon, 30 Oct 2023 06:44:16 +0000
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
+	id 1qxMH7-002i3X-0T;
+	Mon, 30 Oct 2023 07:01:25 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxM0S-002gqP-0w
-	for linux-riscv@lists.infradead.org;
-	Mon, 30 Oct 2023 06:44:15 +0000
-Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 39U6hhxX026703;
-	Mon, 30 Oct 2023 14:43:43 +0800 (+08)
-	(envelope-from peterlin@andestech.com)
-Received: from APC323 (10.0.12.98) by ATCPCS16.andestech.com (10.0.1.222) with
- Microsoft SMTP Server id 14.3.498.0; Mon, 30 Oct 2023 14:43:40 +0800
-Date: Mon, 30 Oct 2023 14:43:37 +0800
-From: Yu-Chien Peter Lin <peterlin@andestech.com>
-To: Thomas Gleixner <tglx@linutronix.de>
-CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-        <dminus@andestech.com>, <ycliang@andestech.com>,
-        <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-        <prabhakar.mahadev-lad.rj@bp.renesas.com>, <tim609@andestech.com>,
-        <dylan@andestech.com>, <locus84@andestech.com>
-Subject: Re: [PATCH v2 03/10] irqchip/riscv-intc: Introduce Andes IRQ chip
-Message-ID: <ZT9QmYDPC0cp77MM@APC323>
-References: <20231019135723.3657156-1-peterlin@andestech.com>
- <87cyx04k53.ffs@tglx>
+	id 1qxMH0-002i0V-20;
+	Mon, 30 Oct 2023 07:01:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id E4CE8CE12E4;
+	Mon, 30 Oct 2023 07:01:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30B1CC433C7;
+	Mon, 30 Oct 2023 07:01:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1698649274;
+	bh=EmJn7V2xcCxlebppxaDAhU12OFutDZWRBy0vMaSrWuA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fyer+0uyv1jhu2jxdwK+n1O2/sIgGI7ezOwxQC871hHJ3Cd/JKl9lBlO3pXltUpO2
+	 tybWUbFkw8nG3yYnKj5NWsk/KsMeh5cYt2Zf06cFoE4cK0SwwSOQ0meQsCZJmwrLES
+	 ZjfIwnoeXu/25/54cCJrG0ThSOL/VsSYVOr1W/9QTaMgDvrgblTvcHPZrDSbxEy8fw
+	 AT95UrDI+b348FRlIe6JpCkizTZtGaE3kNe+nAOZWv5ZyGWJevSARlVxf0OsNjI/Uk
+	 BM7kNTKVl9T3dS3d/hE9ctd5XEbBUeRh4TuIA6DuyqF/4ni+SgBncpCAAQy/vXTAcB
+	 87xr+yc2RIXWg==
+Date: Mon, 30 Oct 2023 09:00:53 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nadav Amit <nadav.amit@gmail.com>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Puranjay Mohan <puranjay12@gmail.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>, bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-mm@kvack.org, linux-modules@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v3 04/13] mm/execmem, arch: convert remaining overrides
+ of module_alloc to execmem
+Message-ID: <20231030070053.GL2824@kernel.org>
+References: <20230918072955.2507221-1-rppt@kernel.org>
+ <20230918072955.2507221-5-rppt@kernel.org>
+ <20231023171420.GA4041@willie-the-truck>
+ <20231026085800.GK2824@kernel.org>
+ <20231026102438.GA6924@willie-the-truck>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <87cyx04k53.ffs@tglx>
-User-Agent: Mutt/2.2.10 (2023-03-25)
-X-Originating-IP: [10.0.12.98]
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 39U6hhxX026703
+In-Reply-To: <20231026102438.GA6924@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231029_234412_787153_0F761597 
-X-CRM114-Status: GOOD (  34.52  )
+X-CRM114-CacheID: sfid-20231030_000119_026913_C347BC33 
+X-CRM114-Status: GOOD (  24.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,162 +101,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas,
+On Thu, Oct 26, 2023 at 11:24:39AM +0100, Will Deacon wrote:
+> On Thu, Oct 26, 2023 at 11:58:00AM +0300, Mike Rapoport wrote:
+> > On Mon, Oct 23, 2023 at 06:14:20PM +0100, Will Deacon wrote:
+> > > On Mon, Sep 18, 2023 at 10:29:46AM +0300, Mike Rapoport wrote:
+> > > > diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
+> > > > index dd851297596e..cd6320de1c54 100644
+> > > > --- a/arch/arm64/kernel/module.c
+> > > > +++ b/arch/arm64/kernel/module.c
 
-On Fri, Oct 27, 2023 at 09:08:56AM +0200, Thomas Gleixner wrote:
-> On Thu, Oct 19 2023 at 21:57, Yu Chien Peter Lin wrote:
-> > This commit adds support for the Andes IRQ chip, which provides
-> 
-> "This commit" is not any different from "This patch" and equaly
-> pointless. See Documentation/process/submitting-patches.rst
+...
 
-Sure, will rewrite the commit message.
-Thanks for the pointer.
+> > > > -	if (module_direct_base) {
+> > > > -		p = __vmalloc_node_range(size, MODULE_ALIGN,
+> > > > -					 module_direct_base,
+> > > > -					 module_direct_base + SZ_128M,
+> > > > -					 GFP_KERNEL | __GFP_NOWARN,
+> > > > -					 PAGE_KERNEL, 0, NUMA_NO_NODE,
+> > > > -					 __builtin_return_address(0));
+> > > > -	}
+> > > > +	module_init_limits();
+> > > 
+> > > Hmm, this used to be run from subsys_initcall(), but now you're running
+> > > it _really_ early, before random_init(), so randomization of the module
+> > > space is no longer going to be very random if we don't have early entropy
+> > > from the firmware or the CPU, which is likely to be the case on most SoCs.
+> > 
+> > Well, it will be as random as KASLR. Won't that be enough?
+> 
+> I don't think that's true -- we have the 'kaslr-seed' property for KASLR,
+> but I'm not seeing anything like that for the module randomisation and I
+> also don't see why we need to set these limits so early.
 
-> Also please write out interrupt instead of IRQ. Changelogs are text and
-> not subject to twitter limitations.
+x86 needs execmem initialized before ftrace_init() so I thought it would be
+best to setup execmem along with most of MM in mm_core_init().
 
-OK!
+I'll move execmem initialization for !x86 to a later point, say
+core_initcall.
+ 
+> Will
 
-> > IRQ mask/unmask functions to access the custom CSR (SLIE)
-> 
-> What is a CSR? These acronyms are really annoying for people who are not
-> familiar with the chip specific details.
-
-OK!
-
-> > +static void andes_intc_irq_mask(struct irq_data *d)
-> > +{
-> > +	unsigned int mask = BIT(d->hwirq % BITS_PER_LONG);
-> > +
-> > +	if (d->hwirq < ANDES_SLI_CAUSE_BASE)
-> 
-> This lacks a comment which explains why these hardware interrupts are
-> special.
-
-Sure, will add a comment here.
-
-> > +		csr_clear(CSR_IE, mask);
-> > +	else
-> > +		csr_clear(ANDES_CSR_SLIE, mask);
-> > +}
-> > +
-> > +static void andes_intc_irq_unmask(struct irq_data *d)
-> > +{
-> > +	unsigned int mask = BIT(d->hwirq % BITS_PER_LONG);
-> > +
-> > +	if (d->hwirq < ANDES_SLI_CAUSE_BASE)
-> > +		csr_set(CSR_IE, mask);
-> > +	else
-> > +		csr_set(ANDES_CSR_SLIE, mask);
-> > +}
-> > +
-> >  static void riscv_intc_irq_eoi(struct irq_data *d)
-> >  {
-> >  	/*
-> > @@ -68,12 +89,35 @@ static struct irq_chip riscv_intc_chip = {
-> >  	.irq_eoi = riscv_intc_irq_eoi,
-> >  };
-> >  
-> > +static struct irq_chip andes_intc_chip = {
-> > +	.name = "RISC-V INTC",
-> > +	.irq_mask = andes_intc_irq_mask,
-> > +	.irq_unmask = andes_intc_irq_unmask,
-> > +	.irq_eoi = riscv_intc_irq_eoi,
-> 
-> https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#struct-declarations-and-initializers
-
-OK, will fix.
-
-> > +};
-> > +
-> >  static int riscv_intc_domain_map(struct irq_domain *d, unsigned int irq,
-> >  				 irq_hw_number_t hwirq)
-> >  {
-> > +	struct fwnode_handle *fn = riscv_get_intc_hwnode();
-> > +	struct irq_chip *chip;
-> > +	const char *cp;
-> > +	int rc;
-> > +
-> >  	irq_set_percpu_devid(irq);
-> 
-> Why is this not moved after the failure condition too?
-> 
-> > -	irq_domain_set_info(d, irq, hwirq, &riscv_intc_chip, d->host_data,
-> > -			    handle_percpu_devid_irq, NULL, NULL);
-> > +
-> > +	rc = fwnode_property_read_string(fn, "compatible", &cp);
-> > +	if (rc)
-> > +		return rc;
-> > +
-> > +	if (strcmp(cp, "riscv,cpu-intc") == 0)
-> > +		chip = &riscv_intc_chip;
-> > +	else if (strcmp(cp, "andestech,cpu-intc") == 0)
-> > +		chip = &andes_intc_chip;
-> 
-> How is this supposed to work with ACPI?
-> 
-> The obvious solution for this is to have two different init functions
-> 
-> riscv_intc_init()
-> {
->         riscv_intc_init_common(..., &risc_intc_chip);
-> }
-> 
-> riscv_andes_init()
-> {
->         riscv_intc_init_common(..., &andes_intc_chip);
-> }
-> 
-> riscv_intc_init_common(...., *chip)
-> {
->         // Set the interrupt chip pointer as domain host data
->         irqdomain_create_linear(...., chip);
-> }
-> 
-> and then you can use that in the map function:
-> 
->     chip = domain->host_data;
-> 
-> See?
-
-Got it! Will reimplement according to this method.
-
-> > diff --git a/include/linux/irqchip/irq-riscv-intc.h b/include/linux/irqchip/irq-riscv-intc.h
-> > new file mode 100644
-> > index 000000000000..87c105b5b545
-> > --- /dev/null
-> > +++ b/include/linux/irqchip/irq-riscv-intc.h
-> > @@ -0,0 +1,12 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > +/*
-> > + * Copyright (C) 2023 Andes Technology Corporation
-> > + */
-> > +#ifndef __INCLUDE_LINUX_IRQCHIP_IRQ_RISCV_INTC_H
-> > +#define __INCLUDE_LINUX_IRQCHIP_IRQ_RISCV_INTC_H
-> > +
-> > +#define ANDES_SLI_CAUSE_BASE	256
-> > +#define ANDES_CSR_SLIE		0x9c4
-> > +#define ANDES_CSR_SLIP		0x9c5
-> > +
-> > +#endif /* __INCLUDE_LINUX_IRQCHIP_IRQ_RISCV_INTC_H */
-> 
-> What's the purpose of this header file? The defines are only used in the
-> interrupt chip driver code, so they can just be in the C file. No?
-> 
-> Thanks,
-
-These definitions are shared with drivers/perf/riscv_pmu_sbi.c,
-however, I should not add vendor specific things here, they
-will be move to include/linux/soc/andes/irq.h.
-
-Thanks for the review!
-
-Best regards,
-Peter Lin
-
->         tglx
-> 
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
