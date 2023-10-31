@@ -4,110 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 331F8C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 16:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACCE0C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 16:44:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qA5nhCiLkbWbiTwzZ3BDeGCRqnRKB8cORzxfsIKtP2w=; b=dhWk4JauZlfwXv
-	lYtpuAn4hfZaewKJc8/CAzcNULI9TkuwTCDPRYarOnY9zr0DEMFEIFcy1i/UB/W9PyRGkQWCzR2u4
-	L2JQtiWY0W4DIeKcMqYUw+d6W5d9ymFKtHETfXUD8fpZk4/St2hN/UnukGm7eUJZTEl8olg/Ulg3p
-	XD0D62aGCyFEADBDJRqLX7C/w1JYmqYRotWsavICEG8UlXzyjjdmKKPVR5ham8f71gjfKS/2V7rav
-	DH0qB7jMv0e49rNxyLlqeuTm83+EB5/d1H6bgu+sRKcOqCDCXFX6ZnlCQHaODs1vohCoBC8jqPIz4
-	Y4FL5pd74ayoSqoAtF4Q==;
+	List-Owner; bh=KHgoFpJlBWWsMCB6MKmKvaCWmPfD8FG+zI0BSfDmOuE=; b=C3qeBfmYFwQzvx
+	Z8t2IDhUPjRVztKR70LkwsSDXh9bNfU5SbnlTZAaTym7MIo+iRkkPf+fDHyujUy+hfdme9Eq4zvvU
+	uX4BJCBoTG/Pzuss67SfpbNdpIQirRBU9H5eS0ZjC733WSvow6cNDzvxKx1dofRv3vWPkyOz1VU4o
+	mh+coYv74FFe/NC4jrquUwm2ikSBbG81WNRa/UpovHNA0Fkr/FdCcnL13IPqtWDgRYapsHKfCE6If
+	0Qkp6wkoxUEaAPVFKs3AzjaAQ5ahvAUDtYbnNonXUIvYUeoXA51VLO/lbC2RNRpL+MCjzAmj398I0
+	KT1zl3hHZuIgn9O/gftw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxrqE-005iL8-1C;
-	Tue, 31 Oct 2023 16:43:46 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1qxrqm-005iZz-1O;
+	Tue, 31 Oct 2023 16:44:20 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxrqB-005iJQ-1r
+	id 1qxrqj-005iY6-0H
 	for linux-riscv@lists.infradead.org;
-	Tue, 31 Oct 2023 16:43:44 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-6bd96cfb99cso5185236b3a.2
-        for <linux-riscv@lists.infradead.org>; Tue, 31 Oct 2023 09:43:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1698770620; x=1699375420; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KUWzNpZFu6ZH+LPCMipXBlnOZ2iMu0xo6DdlSVTTSCM=;
-        b=rOVVdfTC9dzKfUXR/5F33NahGavPWVNlhX7+GLuMdo33niHSX0hrXvdAoWe4vtZQDW
-         2YomWcvTxn+DZ3lTCJFPbnoB78xbg++bSbCtsoxn02TKc0vAahU82eoHV6gxmtkEYIIB
-         e29Q4vWBgxNofP3A0HTrVLmKa5eG9GB9OJVYEV77osBDfMtkYgiSo1f5lTDOZFn4a8Bn
-         CWazNLB5vIAW3C/LkO9LwCuZPw9LbiYDxtIyYlJyIAnYtMh74tzE5DApndn5vsXps3gc
-         4eF2cKremh3SDcL8wnkbG03iuUmq3GYNz4cywPqnqYbT76oaKfbk3zeNiZT28gfqRreN
-         hCUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698770620; x=1699375420;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KUWzNpZFu6ZH+LPCMipXBlnOZ2iMu0xo6DdlSVTTSCM=;
-        b=N83TLxiJMkmEHmtSrUyG81F6K08OrxCjSqcGaLe6dKC+ZNjnyhCuJn+PMVCsxwsEjJ
-         VOio8F219H60VxqFwmuQbGFiXvTJlaoAAB4Z5duhS5vIGTFf4JXTfD7Vr7jm/nCKMdVp
-         K1pDZyvWmSSJVbJMqUnqscEuzqh3CGJrpcgp7B0ea7EciXsDSTUWMH/K45CBURl08TlN
-         OrtbyKgShtzV8foPvhEoWt/SWbvbNKhB8omPoF+2u5Rr+c4Jp/IkjybPIcIoOiamag1l
-         vtfq6bYjCGk1Wx+9vE+gGIkY1moMwH0Dbezv0T50T/VCzstrwnXuQ9dImTO6mKwuEyG3
-         w/Qw==
-X-Gm-Message-State: AOJu0Yyc0roSL7lCbClKQj8YCrW1txknALdvJB2ckKqD+qjEiAAhPp0G
-	F6/S7xuq8CBghAifAWMidNAckQ==
-X-Google-Smtp-Source: AGHT+IEij7+ydhlYjhr1xlKLUtNUJw25BFH2l+RQ8zeBA7dBnKRXxZXchV1bLlBIgwVsc3GuzIJ3dQ==
-X-Received: by 2002:a05:6a20:a10b:b0:15d:7e2a:cc77 with SMTP id q11-20020a056a20a10b00b0015d7e2acc77mr12395968pzk.48.1698770620059;
-        Tue, 31 Oct 2023 09:43:40 -0700 (PDT)
-Received: from google.com (175.199.125.34.bc.googleusercontent.com. [34.125.199.175])
-        by smtp.gmail.com with ESMTPSA id fb17-20020a056a002d9100b006b1e8f17b85sm1451493pfb.201.2023.10.31.09.43.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Oct 2023 09:43:39 -0700 (PDT)
-Date: Tue, 31 Oct 2023 09:43:32 -0700
-From: David Matlack <dmatlack@google.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Anup Patel <anup@brainfault.org>,
+	Tue, 31 Oct 2023 16:44:18 +0000
+Date: Tue, 31 Oct 2023 17:44:11 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1698770652;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=28hTh2QtsEc9f+qxvb2/9jKuUE46qstNvahPdxWDxXo=;
+	b=JPvuDL8V7ZGmZZPSa3ue4WUbBK/fgMvhEZMG8Q1pN7FkmxHKTEoBYtFl7Qt2BCFbTv/9Cp
+	jT+IZiDKJFrn34Spnf+aOp8FQk+qCnqT1bwCtu0BU1e9lV9ds8H1OLKcFS7mMri3dqd5OH
+	8Q+Ge7xNe/JmONwxPtNsEfxNqyrhR7G/dBa+pDDiJNPo8cUxe2/pVw93W+6y6pu0Hhnbgl
+	8W6gTtDQSVNCB29zpMHctAXxHnjZjDyorVFH0nmC/PORqWk9cXOB218DVEif1FIYNAOHL+
+	kPuwmoIOlBbHnyEPO8B400Xixtasqh4E3IEoBiDmn/vYjN1X8IekAn+EwbpiEw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1698770652;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=28hTh2QtsEc9f+qxvb2/9jKuUE46qstNvahPdxWDxXo=;
+	b=sY3yLfuTZZpgMxqFcUDNsvPWwc0schcvYnmzaKggzeNd+XGpmaCogSAV13hMDBGV4Tcyr4
+	4D1+y4cjCa20COAg==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Andrew Morton <akpm@linux-foundation.org>, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, Xiaoyao Li <xiaoyao.li@intel.com>,
-	Xu Yilun <yilun.xu@intel.com>,
-	Chao Peng <chao.p.peng@linux.intel.com>,
-	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
-	Anish Moorthy <amoorthy@google.com>,
-	Yu Zhang <yu.c.zhang@linux.intel.com>,
-	Isaku Yamahata <isaku.yamahata@intel.com>,
-	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Vishal Annapurve <vannapurve@google.com>,
-	Ackerley Tng <ackerleytng@google.com>,
-	Maciej Szmigiero <mail@maciej.szmigiero.name>,
-	David Hildenbrand <david@redhat.com>,
-	Quentin Perret <qperret@google.com>,
-	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
-	Liam Merwick <liam.merwick@oracle.com>,
-	Isaku Yamahata <isaku.yamahata@gmail.com>,
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-Subject: Re: [PATCH v13 13/35] KVM: Introduce per-page memory attributes
-Message-ID: <ZUEutAmPcVLHXlQc@google.com>
-References: <20231027182217.3615211-1-seanjc@google.com>
- <20231027182217.3615211-14-seanjc@google.com>
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	tobias.schaffner@siemens.com, Arnd Bergmann <arnd@arndb.de>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH RT v2 0/3] riscv: add PREEMPT_RT support
+Message-ID: <20231031164411.9YRGasL-@linutronix.de>
+References: <20231031143521.441-1-jszhang@kernel.org>
+ <20231031153242.k9tLdSby@linutronix.de>
+ <ZUEiCUxcd11inlRP@xhacker>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231027182217.3615211-14-seanjc@google.com>
+In-Reply-To: <ZUEiCUxcd11inlRP@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231031_094343_609721_C78DB393 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20231031_094417_264060_71489B95 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,32 +80,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023-10-27 11:21 AM, Sean Christopherson wrote:
-> From: Chao Peng <chao.p.peng@linux.intel.com>
-> 
-> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-> index 89c1a991a3b8..df573229651b 100644
-> --- a/include/linux/kvm_host.h
-> +++ b/include/linux/kvm_host.h
-> @@ -808,6 +809,9 @@ struct kvm {
->  
->  #ifdef CONFIG_HAVE_KVM_PM_NOTIFIER
->  	struct notifier_block pm_notifier;
-> +#endif
-> +#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-> +	struct xarray mem_attr_array;
-
-Please document how access to mem_attr_array is synchronized. If I'm
-reading the code correctly I think it's...
-
-  /* Protected by slots_locks (for writes) and RCU (for reads) */
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjAyMy0xMC0zMSAyMzo0OToyOSBbKzA4MDBdLCBKaXNoZW5nIFpoYW5nIHdyb3RlOgo+IFll
+cyB0aGVyZSdzIG5vIHRoaXJkIHBhdGNoLiBJIGRpZG4ndCB1c2UgdGhlIGNvcnJlY3QgbnVtYmVy
+IGluIHBhdGNoMCdzCj4gc3ViamVjdC4KClNvIGl0IGxvb2tzIGZpbmUuIFRoZSB3YXJuaW5nIHdh
+cyBDUFUtaG90cGx1ZyByZWxhdGVkCglodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMGFiZDBh
+Y2YtNzBhMS1kNTQ2LWE1MTctMTllZmU2MDA0MmQxQG1pY3JvY2hpcC5jb20vCgphbmQgaXQgbG9v
+a3MgdG8gYmUgZ29uZSBhcyBvZiBjb21taXQKCTU5NDRjZTA5MmI5N2MgKCJhcmNoX3RvcG9sb2d5
+OiBCdWlsZCBjYWNoZWluZm8gZnJvbSBwcmltYXJ5IENQVSIpCgpzbyB0aGF0IGdvb2QuIEFueSBk
+b3VibGUgY2hlY2tpbmcgaXMgd2VsY29tZSBvZiBjb3Vyc2UgOykKSlVNUF9MQUJFTHMgZG9uJ3Qg
+dXNlIHN0b3BfY3B1LiBDaGVjay4KVGhlIHRpbWVyIGlzIFBFUkNQVS4gQ2hlY2suCkNhbid0IGZp
+bmQgcGVyZiBldmVudHMuIEJ1dCB0aGUgY29tbWl0IGZvciB0aHJlYWRlZCBpbnRlcnJ1cHRzIGNs
+YWltcyB0bwpoYXZlIHRoZW0gcGVyLUNQVS4gCkhhcyBIQVZFX1BPU0lYX0NQVV9USU1FUlNfVEFT
+S19XT1JLIHdpdGggZ2VuZXJpYyBrdm0uIENoZWNrLgoKZGllKCkgYW5kIGRpZV9sb2NrLiBJdCBs
+b29rcyBsaWtlIGRpZV9sb2NrIGlzIGFjcXVpcmVkIHdoZW4gdGhlIHN5c3RlbQppcyBkb25lIGFu
+ZCByZXF1aXJlcyBtZWRpY2FsIGFzc2lzdGFuY2UuIFRoaXMgd291bGQgcXVhbGlmeSBpdCBmb3Ig
+YQpyYXdfc3BpbmxvY2tfdC4gQWxzbywgc2hvdWxkIGFueSBvZiB0aGUgYmFkIHRoaW5ncyBoYXBw
+ZW4gaW4gYSBzZWN0aW9uCndpdGggZGlzYWJsZWQgcHJlZW1wdGlvbiBvciBpbnRlcnJ1cHRzIHRo
+ZW4gYSBzcGlubG9ja190IGNhbiBub3QgYmUKYWNxdWlyZWQuIFVubGVzcyBkaWUoKSBpcyBhbHdh
+eXMgaW52b2tlZCBpbiBhIHByZWVtcHRpYmxlIGNvbnRleHTigKYKClRoZSBvdGhlciB0aGluZ3Mg
+YXJlIGNvdmVyZWQgYnkgdGhlIGdlbmVyaWMgY29kZS4gSSB0aGluayBJIGRpZG4ndCBtaXNzCmFu
+eXRoaW5n4oCmCkkgZ29pbmcgdG8gaGF2ZSBuZXcgcmVsZWFzZSBieSB0aGUgZW5kIG9mIHRoZSB3
+ZWVrIGF0IHRoZSBsYXRlc3Qgd2l0aAp0aGlzIGJpdHMuIFBsZWFzZSBsb29rIGFmdGVyIHRoZSBk
+aWVfbG9jay4KClNlYmFzdGlhbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
+aW51eC1yaXNjdgo=
