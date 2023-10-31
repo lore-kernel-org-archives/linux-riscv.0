@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76C38C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 22:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CBFAC00142
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 22:25:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Xcs5XNY9GBbzc8wk+ZPwAft+BY803/clOzG2MDHKcIc=; b=JeV3gKL+E9ms2i
-	Wm7GeyrkM9uij4E9ABYkWbSWU9vCe1+8gDTqSk5pxtvrfbZgKDHjVqA8/7GA19x05C/uwEyYHA5oV
-	1dIbV4e2emjl5mFiYGWK2nTR3lUgaAhfpnqrfKYq6zc46q2nbcQrmcpMxopgL5p+Vuv5YDwpmgZ1A
-	1d/xYLavoC9ktx9JTPVP9/55RO3fHlgUAt2nRpSzkfwQNhkbLj0MzBZjVmA7RNb7wbIJGSlXEyD+c
-	8l0Bgg68EzMLivao1ZBdePRgH6dqUvrXG6sZwtYDsPQqIyUJmUFbVC71qOeXD24mbHAmwEbQIuiX7
-	aYNQhetURbMfWNRFsfDg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=FF/6JNh3lpSX1WKnso7E7RgLELjZ+CsuEGCd47xucY8=; b=bCyiTevOzE+Z8J
+	xVzIYyE6cJdlKq46v11jcC/hC06tWmPfZAPcEQHAYAzjGZiUVULOdfr9rYepoEWKVVT6whMW2p96k
+	IFuE8WuDfNt1Heclp6Y1l4set/uhHPrTuYVgsO0neEv7dHYS439am41naZOn2PMJPIRtbYyVM0qzI
+	BMqIWMHnShRmW4FV9HDw9+ULMJAWhTqQXVV0n0tGEdcjCaZQ30iZP4BxyUlOI6tcXMgdcWisvVwcg
+	qalAXmGvQG9+4DcMHIDb7BfKBOhk4deHsAtuEHrg9c9NPvFQoomxBymEdM1Gbky25p747fSTkpEf+
+	L1BckRh3JSd8vWHmMmJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxxAu-006EIi-1I;
-	Tue, 31 Oct 2023 22:25:28 +0000
-Received: from mail-oi1-x232.google.com ([2607:f8b0:4864:20::232])
+	id 1qxxAx-006EK4-09;
+	Tue, 31 Oct 2023 22:25:31 +0000
+Received: from mail-oi1-x233.google.com ([2607:f8b0:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxxAq-006EGh-2X
+	id 1qxxAq-006EGi-1c
 	for linux-riscv@lists.infradead.org;
-	Tue, 31 Oct 2023 22:25:26 +0000
-Received: by mail-oi1-x232.google.com with SMTP id 5614622812f47-3b3e13fc1f7so3969885b6e.0
-        for <linux-riscv@lists.infradead.org>; Tue, 31 Oct 2023 15:25:21 -0700 (PDT)
+	Tue, 31 Oct 2023 22:25:27 +0000
+Received: by mail-oi1-x233.google.com with SMTP id 5614622812f47-3b4145e887bso3342630b6e.3
+        for <linux-riscv@lists.infradead.org>; Tue, 31 Oct 2023 15:25:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698791120; x=1699395920; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=K8Ul6j8QrEIyS00FFqomsmEEIf38jX8XQ6bvZNd2Kps=;
-        b=2NeqsD4PFFBc6XRDQl+L0SkIe6Cmjgrjaw+AQzTG5bZprXIhtb0fE/aTE4P82NCu1B
-         7mdEs4dmqOFAda0flPlyVL0gBkL8snnc7OKnSunCVtFRFG1lE5BD8AmFDo1G1EQmkiUK
-         tA6QL89mg9ImznIT3h73ayhTG0WHW493oaCvhJ+PoK7qBHWtOiEWse4Ias3HkeJqQCOG
-         /c3g2WiUjBCeyDUmPjCDh+I0dfDK3vOxyFGaZxvCS0cdR/gitLbE8kgfVKLzG3OnM4J2
-         MiazDvybCHQNa4ZWwNZ5HiInEiCVYQFgOlSNUFvkYv60d5yE2Ek69/M2Vh8aBUNgCVoH
-         uJKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698791120; x=1699395920;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698791122; x=1699395922; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=K8Ul6j8QrEIyS00FFqomsmEEIf38jX8XQ6bvZNd2Kps=;
-        b=XhWmEu0mW/16Klza6z9+LuOdZMmdyZlYfPbNz3U+PS6iVtESgPiCzlC3OL/45rlyQM
-         OsJxiYyfJ4gu/0beEaxtWJ1fJTLFzHtpddmT91dYfnnBGJazSrnMseUCte4I2VWWq3i8
-         0EEnTaJccrbRqmyhwmsdP2EPTR3m8caVEdwt2Ym+KaHyv5RIQ+UG177aRyyNz03lpg2W
-         Pvbal3lepFseRs0M05ws10zmRtpQ9LAWSFkHk3xdAbrO2M1wg7xnNa68XJuPLs7pGvoe
-         XN6yWhAhGmec02zg6Df1qH5UoGaBDS0Uuu6i6O9qFdIQFnjgUYR6oyljfpt1XkL2iPFx
-         /Fgg==
-X-Gm-Message-State: AOJu0YzXNqu6DwjsDDcv1e40oTzCfGzcKMd3pQ5x3ZM/Y4GlbaoN7kLB
-	vqa/P6T2fagWSxtZnAdTxu/3FQ==
-X-Google-Smtp-Source: AGHT+IHHDAQnxryUkRQd0J/N4G2ONc59iCfJ5q1P5zTNnC6+DMwlrUqoWf7HvR58EemTACIUosIxPA==
-X-Received: by 2002:a54:4691:0:b0:3a7:2456:6af6 with SMTP id k17-20020a544691000000b003a724566af6mr12828146oic.31.1698791120624;
-        Tue, 31 Oct 2023 15:25:20 -0700 (PDT)
+        bh=URk3OdUManeok/shpPwBhUNFZ0p313A2y5YhZgjx0S8=;
+        b=hMIpaZP5OgEgs7LnvJY4GRoSFZS0+9wwhBy1+KJaYBhs9Ovqoo/sufpXuQAUQLUAfj
+         zXKk2L62Uwt0eF6jC8O8L2nyDH1xF/AH8b/pcydhjtXCrV+lNkjQP0pUhMxjcoBUvSOp
+         eMD3VESkJC94/eKAU4JwHTDQ1M5XFP4py5jgxeY9KK0EfCOw5BCqFE/ZqsRrm53rO4+O
+         rAr2Oj+Fn+HNDAS6nSYJ+XYWLI6T/N6AehsZfKeWDkLpJRwXEMNAuVVzjAfzxwpZFyTo
+         +ec3MGpqWWkQAEZp7po1XwEA6L3DW8lt7RgPGL+dwWktxttcY8+lr9FCb0h9wSpqNiv2
+         J75Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1698791122; x=1699395922;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=URk3OdUManeok/shpPwBhUNFZ0p313A2y5YhZgjx0S8=;
+        b=pJSWuRduD55FvSjwxbNpDZ8DKeLGzfPbYv5Ar8WTC90l5r95uBPP21ncj2dUqGWF9O
+         zHmAFHglj00YKk+38rBzwqph6rSFCQQ1c9wvBnWfE0SLo7b1Mn54JObQ97viFXin4Stt
+         lkclsQehJbF3msEatA1KNUBoivKmlXSuCdchlfNgU4RDHTkwsos5TDP/l8I/09gSxsbD
+         RcrpZbb/6NdHmRUqAHO+2dEeVDWWAlksCszalgBlx8+TFKrfGvYBx7GGV4TLc4qc/cIH
+         +IB6VRI0xymeXsIoqDZkWPrO6Vl5dkmaCGDuf+YRznlZpxkXWE1v1ZG5Bnrqj+iJfcPq
+         bQbQ==
+X-Gm-Message-State: AOJu0Yxg6ntSHbHp07ve00It6Kz5YzBnnzWHjWsDte9FwckfmfgpBpee
+	NQPbkhLnQbtW6rSwa2t1NMuRgw==
+X-Google-Smtp-Source: AGHT+IE9y65cA1PqdryYvGzQY7EawoaS7joMLz6aXjbn10i07aam6qkwyfJcf5SQr2zNNJejA76gjA==
+X-Received: by 2002:a05:6808:1920:b0:3b5:64c9:5146 with SMTP id bf32-20020a056808192000b003b564c95146mr3593901oib.42.1698791122035;
+        Tue, 31 Oct 2023 15:25:22 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id k16-20020a544410000000b003b2e7231faasm42975oiw.28.2023.10.31.15.25.19
+        by smtp.gmail.com with ESMTPSA id k16-20020a544410000000b003b2e7231faasm42975oiw.28.2023.10.31.15.25.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Oct 2023 15:25:19 -0700 (PDT)
+        Tue, 31 Oct 2023 15:25:21 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Subject: [PATCH v8 0/3] riscv: Add remaining module relocations and tests
-Date: Tue, 31 Oct 2023 15:25:12 -0700
-Message-Id: <20231031-module_relocations-v8-0-09b5b720c1fe@rivosinc.com>
+Date: Tue, 31 Oct 2023 15:25:13 -0700
+Subject: [PATCH v8 1/3] riscv: Avoid unaligned access when relocating
+ modules
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAMh+QWUC/23QwWrDMAwG4FcpPi/Dthyp3mnvMcZIbHk1tPGwO
- 7NR8u5zyhhh+PgL6ZPQTRTOkYt4OtxE5hpLTEsLx4eDcKdpeech+paFlhqklcfhkvznmd8yn5O
- brq27DAHBscdRzZ5EG/zIHOLXHX15bfkUyzXl7/uOqrbqL6egx1U1yGGewR8NEpOF5xxrKnFxj
- y5dxCZW/acoKbGr6KYYGhHNCIG96yiwU1RfgaZMiBQ8SlJsO4rZK9RVTFMsUBg5gMIgO8q4V7p
- vrmNTfGAG7Y0PrvcX3Cu2q+B2iyGNjMaAVh2FdgqorkJNwWBI2RnNHOifsq7rD2L0G9dbAgAA
+Message-Id: <20231031-module_relocations-v8-1-09b5b720c1fe@rivosinc.com>
+References: <20231031-module_relocations-v8-0-09b5b720c1fe@rivosinc.com>
+In-Reply-To: <20231031-module_relocations-v8-0-09b5b720c1fe@rivosinc.com>
 To: linux-riscv@lists.infradead.org, linux-mm@kvack.org, 
  linux-kernel@vger.kernel.org
 Cc: Eric Biederman <ebiederm@xmission.com>, 
@@ -83,8 +82,8 @@ Cc: Eric Biederman <ebiederm@xmission.com>,
  Emil Renner Berthing <kernel@esmil.dk>
 X-Mailer: b4 0.12.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231031_152524_823256_B78B1D6F 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20231031_152524_783637_629E3791 
+X-CRM114-Status: GOOD (  14.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,108 +100,394 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A handful of module relocations were missing, this patch includes the
-remaining ones. I also wrote some test cases to ensure that module
-loading works properly. Some relocations cannot be supported in the
-kernel, these include the ones that rely on thread local storage and
-dynamic linking.
+From: Emil Renner Berthing <kernel@esmil.dk>
 
-This patch also overhauls the implementation of ADD/SUB/SET/ULEB128
-relocations to handle overflow. "Overflow" is different for ULEB128
-since it is a variable-length encoding that the compiler can be expected
-to generate enough space for. Instead of overflowing, ULEB128 will
-expand into the next 8-bit segment of the location.
+With the C-extension regular 32bit instructions are not
+necessarily aligned on 4-byte boundaries. RISC-V instructions
+are in fact an ordered list of 16bit little-endian
+"parcels", so access the instruction as such.
 
-A psABI proposal [1] was merged that mandates that SET_ULEB128 and
-SUB_ULEB128 are paired, however the discussion following the merging of
-the pull request revealed that while the pull request was valid, it
-would be better for linkers to properly handle this overflow. This patch
-proactively implements this methodology for future compatibility.
+This should also make the code work in case someone builds
+a big-endian RISC-V machine.
 
-This can be tested by enabling KUNIT, RUNTIME_KERNEL_TESTING_MENU, and
-RISCV_MODULE_LINKING_KUNIT.
-
-[1] https://github.com/riscv-non-isa/riscv-elf-psabi-doc/pull/403
-
+Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
-Changes in v8:
-- Fix up riscv_insn_rmw to work with big-endian systems (Andreas/Emil)
-- Improve readability of bitops throughout module.c (Emil)
-- Consolidate all relocation handler functions into a single struct so
-  array doesn't need to be duplicated 3 times
-- Use .space assember op instead of .rept
-- Fix up name of uleb128 testcase
-- Define prototypes of some new functions to conform to -Wmissing-prototypes
-- Remove unused variable "first"
-- Link to v7: https://lore.kernel.org/r/20231031-module_relocations-v7-0-6f4719b64bf7@rivosinc.com
+ arch/riscv/kernel/module.c | 153 +++++++++++++++++++++++----------------------
+ 1 file changed, 77 insertions(+), 76 deletions(-)
 
-Changes in v7:
-- Overhaul ADD/SUB/SET/ULEB128 relocations
-- Fix ULEB128 so it produces correct values when more than 1 byte is
-  needed
-- Link to v6: https://lore.kernel.org/r/20231019-module_relocations-v6-0-94726e644321@rivosinc.com
+diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+index 7c651d55fcbd..a9e94e939cb5 100644
+--- a/arch/riscv/kernel/module.c
++++ b/arch/riscv/kernel/module.c
+@@ -27,68 +27,86 @@ static bool riscv_insn_valid_32bit_offset(ptrdiff_t val)
+ #endif
+ }
+ 
+-static int apply_r_riscv_32_rela(struct module *me, u32 *location, Elf_Addr v)
++static int riscv_insn_rmw(void *location, u32 keep, u32 set)
++{
++	u16 *parcel = location;
++	u32 insn = (u32)le16_to_cpu(parcel[0]) | (u32)le16_to_cpu(parcel[1]) << 16;
++
++	insn &= keep;
++	insn |= set;
++
++	parcel[0] = cpu_to_le32(insn);
++	parcel[1] = cpu_to_le16(insn >> 16);
++	return 0;
++}
++
++static int riscv_insn_rvc_rmw(void *location, u16 keep, u16 set)
++{
++	u16 *parcel = location;
++
++	*parcel = cpu_to_le16((le16_to_cpu(*parcel) & keep) | set);
++	return 0;
++}
++
++static int apply_r_riscv_32_rela(struct module *me, void *location, Elf_Addr v)
+ {
+ 	if (v != (u32)v) {
+ 		pr_err("%s: value %016llx out of range for 32-bit field\n",
+ 		       me->name, (long long)v);
+ 		return -EINVAL;
+ 	}
+-	*location = v;
++	*(u32 *)location = v;
+ 	return 0;
+ }
+ 
+-static int apply_r_riscv_64_rela(struct module *me, u32 *location, Elf_Addr v)
++static int apply_r_riscv_64_rela(struct module *me, void *location, Elf_Addr v)
+ {
+ 	*(u64 *)location = v;
+ 	return 0;
+ }
+ 
+-static int apply_r_riscv_branch_rela(struct module *me, u32 *location,
++static int apply_r_riscv_branch_rela(struct module *me, void *location,
+ 				     Elf_Addr v)
+ {
+-	ptrdiff_t offset = (void *)v - (void *)location;
++	ptrdiff_t offset = (void *)v - location;
+ 	u32 imm12 = (offset & 0x1000) << (31 - 12);
+ 	u32 imm11 = (offset & 0x800) >> (11 - 7);
+ 	u32 imm10_5 = (offset & 0x7e0) << (30 - 10);
+ 	u32 imm4_1 = (offset & 0x1e) << (11 - 4);
+ 
+-	*location = (*location & 0x1fff07f) | imm12 | imm11 | imm10_5 | imm4_1;
+-	return 0;
++	return riscv_insn_rmw(location, 0x1fff07f, imm12 | imm11 | imm10_5 | imm4_1);
+ }
+ 
+-static int apply_r_riscv_jal_rela(struct module *me, u32 *location,
++static int apply_r_riscv_jal_rela(struct module *me, void *location,
+ 				  Elf_Addr v)
+ {
+-	ptrdiff_t offset = (void *)v - (void *)location;
++	ptrdiff_t offset = (void *)v - location;
+ 	u32 imm20 = (offset & 0x100000) << (31 - 20);
+ 	u32 imm19_12 = (offset & 0xff000);
+ 	u32 imm11 = (offset & 0x800) << (20 - 11);
+ 	u32 imm10_1 = (offset & 0x7fe) << (30 - 10);
+ 
+-	*location = (*location & 0xfff) | imm20 | imm19_12 | imm11 | imm10_1;
+-	return 0;
++	return riscv_insn_rmw(location, 0xfff, imm20 | imm19_12 | imm11 | imm10_1);
+ }
+ 
+-static int apply_r_riscv_rvc_branch_rela(struct module *me, u32 *location,
++static int apply_r_riscv_rvc_branch_rela(struct module *me, void *location,
+ 					 Elf_Addr v)
+ {
+-	ptrdiff_t offset = (void *)v - (void *)location;
++	ptrdiff_t offset = (void *)v - location;
+ 	u16 imm8 = (offset & 0x100) << (12 - 8);
+ 	u16 imm7_6 = (offset & 0xc0) >> (6 - 5);
+ 	u16 imm5 = (offset & 0x20) >> (5 - 2);
+ 	u16 imm4_3 = (offset & 0x18) << (12 - 5);
+ 	u16 imm2_1 = (offset & 0x6) << (12 - 10);
+ 
+-	*(u16 *)location = (*(u16 *)location & 0xe383) |
+-		    imm8 | imm7_6 | imm5 | imm4_3 | imm2_1;
+-	return 0;
++	return riscv_insn_rvc_rmw(location, 0xe383,
++			imm8 | imm7_6 | imm5 | imm4_3 | imm2_1);
+ }
+ 
+-static int apply_r_riscv_rvc_jump_rela(struct module *me, u32 *location,
++static int apply_r_riscv_rvc_jump_rela(struct module *me, void *location,
+ 				       Elf_Addr v)
+ {
+-	ptrdiff_t offset = (void *)v - (void *)location;
++	ptrdiff_t offset = (void *)v - location;
+ 	u16 imm11 = (offset & 0x800) << (12 - 11);
+ 	u16 imm10 = (offset & 0x400) >> (10 - 8);
+ 	u16 imm9_8 = (offset & 0x300) << (12 - 11);
+@@ -98,16 +116,14 @@ static int apply_r_riscv_rvc_jump_rela(struct module *me, u32 *location,
+ 	u16 imm4 = (offset & 0x10) << (12 - 5);
+ 	u16 imm3_1 = (offset & 0xe) << (12 - 10);
+ 
+-	*(u16 *)location = (*(u16 *)location & 0xe003) |
+-		    imm11 | imm10 | imm9_8 | imm7 | imm6 | imm5 | imm4 | imm3_1;
+-	return 0;
++	return riscv_insn_rvc_rmw(location, 0xe003,
++			imm11 | imm10 | imm9_8 | imm7 | imm6 | imm5 | imm4 | imm3_1);
+ }
+ 
+-static int apply_r_riscv_pcrel_hi20_rela(struct module *me, u32 *location,
++static int apply_r_riscv_pcrel_hi20_rela(struct module *me, void *location,
+ 					 Elf_Addr v)
+ {
+-	ptrdiff_t offset = (void *)v - (void *)location;
+-	s32 hi20;
++	ptrdiff_t offset = (void *)v - location;
+ 
+ 	if (!riscv_insn_valid_32bit_offset(offset)) {
+ 		pr_err(
+@@ -116,23 +132,20 @@ static int apply_r_riscv_pcrel_hi20_rela(struct module *me, u32 *location,
+ 		return -EINVAL;
+ 	}
+ 
+-	hi20 = (offset + 0x800) & 0xfffff000;
+-	*location = (*location & 0xfff) | hi20;
+-	return 0;
++	return riscv_insn_rmw(location, 0xfff, (offset + 0x800) & 0xfffff000);
+ }
+ 
+-static int apply_r_riscv_pcrel_lo12_i_rela(struct module *me, u32 *location,
++static int apply_r_riscv_pcrel_lo12_i_rela(struct module *me, void *location,
+ 					   Elf_Addr v)
+ {
+ 	/*
+ 	 * v is the lo12 value to fill. It is calculated before calling this
+ 	 * handler.
+ 	 */
+-	*location = (*location & 0xfffff) | ((v & 0xfff) << 20);
+-	return 0;
++	return riscv_insn_rmw(location, 0xfffff, (v & 0xfff) << 20);
+ }
+ 
+-static int apply_r_riscv_pcrel_lo12_s_rela(struct module *me, u32 *location,
++static int apply_r_riscv_pcrel_lo12_s_rela(struct module *me, void *location,
+ 					   Elf_Addr v)
+ {
+ 	/*
+@@ -142,15 +155,12 @@ static int apply_r_riscv_pcrel_lo12_s_rela(struct module *me, u32 *location,
+ 	u32 imm11_5 = (v & 0xfe0) << (31 - 11);
+ 	u32 imm4_0 = (v & 0x1f) << (11 - 4);
+ 
+-	*location = (*location & 0x1fff07f) | imm11_5 | imm4_0;
+-	return 0;
++	return riscv_insn_rmw(location, 0x1fff07f, imm11_5 | imm4_0);
+ }
+ 
+-static int apply_r_riscv_hi20_rela(struct module *me, u32 *location,
++static int apply_r_riscv_hi20_rela(struct module *me, void *location,
+ 				   Elf_Addr v)
+ {
+-	s32 hi20;
+-
+ 	if (IS_ENABLED(CONFIG_CMODEL_MEDLOW)) {
+ 		pr_err(
+ 		  "%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
+@@ -158,22 +168,20 @@ static int apply_r_riscv_hi20_rela(struct module *me, u32 *location,
+ 		return -EINVAL;
+ 	}
+ 
+-	hi20 = ((s32)v + 0x800) & 0xfffff000;
+-	*location = (*location & 0xfff) | hi20;
+-	return 0;
++	return riscv_insn_rmw(location, 0xfff, ((s32)v + 0x800) & 0xfffff000);
+ }
+ 
+-static int apply_r_riscv_lo12_i_rela(struct module *me, u32 *location,
++static int apply_r_riscv_lo12_i_rela(struct module *me, void *location,
+ 				     Elf_Addr v)
+ {
+ 	/* Skip medlow checking because of filtering by HI20 already */
+ 	s32 hi20 = ((s32)v + 0x800) & 0xfffff000;
+ 	s32 lo12 = ((s32)v - hi20);
+-	*location = (*location & 0xfffff) | ((lo12 & 0xfff) << 20);
+-	return 0;
++
++	return riscv_insn_rmw(location, 0xfffff, (lo12 & 0xfff) << 20);
+ }
+ 
+-static int apply_r_riscv_lo12_s_rela(struct module *me, u32 *location,
++static int apply_r_riscv_lo12_s_rela(struct module *me, void *location,
+ 				     Elf_Addr v)
+ {
+ 	/* Skip medlow checking because of filtering by HI20 already */
+@@ -181,20 +189,18 @@ static int apply_r_riscv_lo12_s_rela(struct module *me, u32 *location,
+ 	s32 lo12 = ((s32)v - hi20);
+ 	u32 imm11_5 = (lo12 & 0xfe0) << (31 - 11);
+ 	u32 imm4_0 = (lo12 & 0x1f) << (11 - 4);
+-	*location = (*location & 0x1fff07f) | imm11_5 | imm4_0;
+-	return 0;
++
++	return riscv_insn_rmw(location, 0x1fff07f, imm11_5 | imm4_0);
+ }
+ 
+-static int apply_r_riscv_got_hi20_rela(struct module *me, u32 *location,
++static int apply_r_riscv_got_hi20_rela(struct module *me, void *location,
+ 				       Elf_Addr v)
+ {
+-	ptrdiff_t offset = (void *)v - (void *)location;
+-	s32 hi20;
++	ptrdiff_t offset = (void *)v - location;
+ 
+ 	/* Always emit the got entry */
+ 	if (IS_ENABLED(CONFIG_MODULE_SECTIONS)) {
+-		offset = module_emit_got_entry(me, v);
+-		offset = (void *)offset - (void *)location;
++		offset = (void *)module_emit_got_entry(me, v) - location;
+ 	} else {
+ 		pr_err(
+ 		  "%s: can not generate the GOT entry for symbol = %016llx from PC = %p\n",
+@@ -202,22 +208,19 @@ static int apply_r_riscv_got_hi20_rela(struct module *me, u32 *location,
+ 		return -EINVAL;
+ 	}
+ 
+-	hi20 = (offset + 0x800) & 0xfffff000;
+-	*location = (*location & 0xfff) | hi20;
+-	return 0;
++	return riscv_insn_rmw(location, 0xfff, (offset + 0x800) & 0xfffff000);
+ }
+ 
+-static int apply_r_riscv_call_plt_rela(struct module *me, u32 *location,
++static int apply_r_riscv_call_plt_rela(struct module *me, void *location,
+ 				       Elf_Addr v)
+ {
+-	ptrdiff_t offset = (void *)v - (void *)location;
++	ptrdiff_t offset = (void *)v - location;
+ 	u32 hi20, lo12;
+ 
+ 	if (!riscv_insn_valid_32bit_offset(offset)) {
+ 		/* Only emit the plt entry if offset over 32-bit range */
+ 		if (IS_ENABLED(CONFIG_MODULE_SECTIONS)) {
+-			offset = module_emit_plt_entry(me, v);
+-			offset = (void *)offset - (void *)location;
++			offset = (void *)module_emit_plt_entry(me, v) - location;
+ 		} else {
+ 			pr_err(
+ 			  "%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
+@@ -228,15 +231,14 @@ static int apply_r_riscv_call_plt_rela(struct module *me, u32 *location,
+ 
+ 	hi20 = (offset + 0x800) & 0xfffff000;
+ 	lo12 = (offset - hi20) & 0xfff;
+-	*location = (*location & 0xfff) | hi20;
+-	*(location + 1) = (*(location + 1) & 0xfffff) | (lo12 << 20);
+-	return 0;
++	riscv_insn_rmw(location, 0xfff, hi20);
++	return riscv_insn_rmw(location + 4, 0xfffff, lo12 << 20);
+ }
+ 
+-static int apply_r_riscv_call_rela(struct module *me, u32 *location,
++static int apply_r_riscv_call_rela(struct module *me, void *location,
+ 				   Elf_Addr v)
+ {
+-	ptrdiff_t offset = (void *)v - (void *)location;
++	ptrdiff_t offset = (void *)v - location;
+ 	u32 hi20, lo12;
+ 
+ 	if (!riscv_insn_valid_32bit_offset(offset)) {
+@@ -248,18 +250,17 @@ static int apply_r_riscv_call_rela(struct module *me, u32 *location,
+ 
+ 	hi20 = (offset + 0x800) & 0xfffff000;
+ 	lo12 = (offset - hi20) & 0xfff;
+-	*location = (*location & 0xfff) | hi20;
+-	*(location + 1) = (*(location + 1) & 0xfffff) | (lo12 << 20);
+-	return 0;
++	riscv_insn_rmw(location, 0xfff, hi20);
++	return riscv_insn_rmw(location + 4, 0xfffff, lo12 << 20);
+ }
+ 
+-static int apply_r_riscv_relax_rela(struct module *me, u32 *location,
++static int apply_r_riscv_relax_rela(struct module *me, void *location,
+ 				    Elf_Addr v)
+ {
+ 	return 0;
+ }
+ 
+-static int apply_r_riscv_align_rela(struct module *me, u32 *location,
++static int apply_r_riscv_align_rela(struct module *me, void *location,
+ 				    Elf_Addr v)
+ {
+ 	pr_err(
+@@ -268,49 +269,49 @@ static int apply_r_riscv_align_rela(struct module *me, u32 *location,
+ 	return -EINVAL;
+ }
+ 
+-static int apply_r_riscv_add16_rela(struct module *me, u32 *location,
++static int apply_r_riscv_add16_rela(struct module *me, void *location,
+ 				    Elf_Addr v)
+ {
+ 	*(u16 *)location += (u16)v;
+ 	return 0;
+ }
+ 
+-static int apply_r_riscv_add32_rela(struct module *me, u32 *location,
++static int apply_r_riscv_add32_rela(struct module *me, void *location,
+ 				    Elf_Addr v)
+ {
+ 	*(u32 *)location += (u32)v;
+ 	return 0;
+ }
+ 
+-static int apply_r_riscv_add64_rela(struct module *me, u32 *location,
++static int apply_r_riscv_add64_rela(struct module *me, void *location,
+ 				    Elf_Addr v)
+ {
+ 	*(u64 *)location += (u64)v;
+ 	return 0;
+ }
+ 
+-static int apply_r_riscv_sub16_rela(struct module *me, u32 *location,
++static int apply_r_riscv_sub16_rela(struct module *me, void *location,
+ 				    Elf_Addr v)
+ {
+ 	*(u16 *)location -= (u16)v;
+ 	return 0;
+ }
+ 
+-static int apply_r_riscv_sub32_rela(struct module *me, u32 *location,
++static int apply_r_riscv_sub32_rela(struct module *me, void *location,
+ 				    Elf_Addr v)
+ {
+ 	*(u32 *)location -= (u32)v;
+ 	return 0;
+ }
+ 
+-static int apply_r_riscv_sub64_rela(struct module *me, u32 *location,
++static int apply_r_riscv_sub64_rela(struct module *me, void *location,
+ 				    Elf_Addr v)
+ {
+ 	*(u64 *)location -= (u64)v;
+ 	return 0;
+ }
+ 
+-static int (*reloc_handlers_rela[]) (struct module *me, u32 *location,
++static int (*reloc_handlers_rela[]) (struct module *me, void *location,
+ 				Elf_Addr v) = {
+ 	[R_RISCV_32]			= apply_r_riscv_32_rela,
+ 	[R_RISCV_64]			= apply_r_riscv_64_rela,
+@@ -342,9 +343,9 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+ 		       struct module *me)
+ {
+ 	Elf_Rela *rel = (void *) sechdrs[relsec].sh_addr;
+-	int (*handler)(struct module *me, u32 *location, Elf_Addr v);
++	int (*handler)(struct module *me, void *location, Elf_Addr v);
+ 	Elf_Sym *sym;
+-	u32 *location;
++	void *location;
+ 	unsigned int i, type;
+ 	Elf_Addr v;
+ 	int res;
 
-Changes in v6:
-- Use (void *) instead of (u32 *) for handler type
-- Constrain ULEB128 to be consecutive relocations
-- Link to v5: https://lore.kernel.org/r/20231018-module_relocations-v5-0-dfee32d4dfc3@rivosinc.com
-
-Changes in v5:
-- Brought in patch by Emil and fixed it up to force little endian
-- Fixed up issues with apply_r_riscv_32_pcrel_rela and
-  apply_r_riscv_plt32_rela (Samuel)
-- Added u8 cast in apply_r_riscv_sub6_rela (Andreas) 
-- Link to v4: https://lore.kernel.org/r/20231017-module_relocations-v4-0-937f5ef316f0@rivosinc.com
-
-Changes in v4:
-- Complete removal of R_RISCV_RVC_LUI
-- Fix bug in R_RISCV_SUB6 linking
-- Only build ULEB128 tests if supported by toolchain
-- Link to v3: https://lore.kernel.org/r/20231016-module_relocations-v3-0-a667fd6071e9@rivosinc.com
-
-Changes in v3:
-- Add prototypes to test_module_linking_main as recommended by intel
-  zero day bot
-- Improve efficiency of ULEB128 pair matching
-- Link to v2: https://lore.kernel.org/r/20231006-module_relocations-v2-0-47566453fedc@rivosinc.com
-
-Changes in v2:
-- Added ULEB128 relocations
-- Link to v1: https://lore.kernel.org/r/20230913-module_relocations-v1-0-bb3d8467e793@rivosinc.com
-
----
-Charlie Jenkins (2):
-      riscv: Add remaining module relocations
-      riscv: Add tests for riscv module loading
-
-Emil Renner Berthing (1):
-      riscv: Avoid unaligned access when relocating modules
-
- arch/riscv/Kconfig.debug                           |   1 +
- arch/riscv/include/uapi/asm/elf.h                  |   5 +-
- arch/riscv/kernel/Makefile                         |   1 +
- arch/riscv/kernel/module.c                         | 650 +++++++++++++++++----
- arch/riscv/kernel/tests/Kconfig.debug              |  35 ++
- arch/riscv/kernel/tests/Makefile                   |   1 +
- arch/riscv/kernel/tests/module_test/Makefile       |  15 +
- .../tests/module_test/test_module_linking_main.c   |  88 +++
- arch/riscv/kernel/tests/module_test/test_set16.S   |  23 +
- arch/riscv/kernel/tests/module_test/test_set32.S   |  20 +
- arch/riscv/kernel/tests/module_test/test_set6.S    |  23 +
- arch/riscv/kernel/tests/module_test/test_set8.S    |  23 +
- arch/riscv/kernel/tests/module_test/test_sub16.S   |  20 +
- arch/riscv/kernel/tests/module_test/test_sub32.S   |  20 +
- arch/riscv/kernel/tests/module_test/test_sub6.S    |  20 +
- arch/riscv/kernel/tests/module_test/test_sub64.S   |  25 +
- arch/riscv/kernel/tests/module_test/test_sub8.S    |  20 +
- arch/riscv/kernel/tests/module_test/test_uleb128.S |  31 +
- 18 files changed, 916 insertions(+), 105 deletions(-)
----
-base-commit: 3bcce01fcbcd868b8cf3a5632fde283e122d7213
-change-id: 20230908-module_relocations-f63ced651bd7
 -- 
-- Charlie
+2.34.1
 
 
 _______________________________________________
