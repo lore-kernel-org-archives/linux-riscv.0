@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC9A9C4167D
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 14:05:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F080DC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 14:10:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,61 +13,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=OYL98VR0bKvDeslRT+UfwCldDEE5MIswjLU8udwXPUY=; b=djej5jZb8uzK7x3mNo2eZ4FEGi
-	SuqlDW16QUhfQLulTknWlVD711QFdBVTkNrb33XWi63g5NTkLXIlu8VYlNFwy1jAD8D/00f6Q3A9h
-	eMp8Az372ky5EkpyP5yBa7436n4uGZocFrg8+KmxQ1e2TO2ugyiXPKYXbWY+hTOXG4zAYAM/W+Tzl
-	PQgh4d0QmKa3tc7/PqUfYnyPn/ENoi7AH2/5umZQ1guECQUIJFlbABAswt4646RGvdWSE2sk2nbWb
-	S+XkM2AVA2xE0FTB1D/SY8Ke6/kb0ZFNermZN2spRWFHSOssc0BA1TdriBRuuGOAI48iRFkxEqiwj
-	DMujdOZA==;
+	bh=RgttpHn374erxByzdeuqKbu7ZcP0fBH+arALnqJuqN0=; b=mpGgN1L1nxPBqPwhU3L1Zwigcy
+	e1rMLbN8Ki1Kc9Q7qXWHvVXwcjkPeC1r9uzYQMgHM9selbTu1owSEBktu9uVmrC6OR2ZLCJpN2n9z
+	/+XvQgfDQzxaT6EfwewA6jSVJz2E2DmzJK6bHe3lk8KeRQGkVJ/Ww1Ii5YWp1kNUb5dmlBipRGJUh
+	lAUBaUjRWImte8oDb7BX8K0VKlspSBjiySkfdst8yVT6mEi1Yi4DMAT9ZlGEcq9/WT60Saf346aCf
+	nDfqfnpb+unoULI97+JvVqOhfwsD3gJKVCaDoEEWKfZJDYjU1dZ1asw+XVgem8nsRQDEjLe7ZQboe
+	sfFL5NWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxpMZ-005O0p-32;
-	Tue, 31 Oct 2023 14:04:59 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1qxpRf-005Op4-1a;
+	Tue, 31 Oct 2023 14:10:15 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxpMW-005NzE-2M
+	id 1qxpRb-005On9-2n
 	for linux-riscv@lists.infradead.org;
-	Tue, 31 Oct 2023 14:04:58 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-d99ec34829aso5397609276.1
-        for <linux-riscv@lists.infradead.org>; Tue, 31 Oct 2023 07:04:53 -0700 (PDT)
+	Tue, 31 Oct 2023 14:10:13 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-5a7af53bde4so60423187b3.0
+        for <linux-riscv@lists.infradead.org>; Tue, 31 Oct 2023 07:10:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1698761092; x=1699365892; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1698761410; x=1699366210; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZsemryN+7v+wOBolNu7Hy0wHrULeaB9eFsfVkGp1/e8=;
-        b=EKduNxKTl05tIjmYvFCZjj16MMz8JEcjmiE2h61746eHRbUfcSQxc/1aoDB/NC+wkd
-         sdzsGNfUbgmfyt6PAjEPs4/vY3I6IuqQKu5m9uCXew1eJPeuRITZ22M6WVel4yOietYb
-         DMW6zWfUVeHcLViTR1P+SrPTvTXpnN28cooUfxcs1NmFqKhJxmkwX9q/eh6WS81AJEA1
-         2R54KnFQD9Agf/v++ljwmUS2UQEBf5VrofMK4omMFbPXAtA1WHHghFveVnBn8McG9WqE
-         s7bAraAO/NCxZw3V2jF33bIkwqMhcl44UIHgIUk2JMDV32tjjPQRK11rW4H9ZwELtVMl
-         H0Sw==
+        bh=qnQOjymnTrZBwkJL50GP/1+n+ilT5bo3LZ+viwIL69A=;
+        b=dNCfNET6nZ5ncGz+msMYMug45u2Jfk8KiZiZluqYItKzSkSjjsw/m/z7FFiMnlme8n
+         a3vI1ykM4G/zQyYmQbtJKBRBiPXaAqadn8nZa0N1EsDZq6aArn6kxEwz/8e53DlmUDpw
+         menFAFyD6AqbxJRUntezvSUMSUyrgfZgsIYSTviBhN/8nl/+juH6zNpe0Rb6QymNzUnt
+         fYfSMop+VgdDDpADO+jblKqSy03DBl6eZSCEvmFEZb4JbVSuTuDLKgdICvY8y1m9Up8d
+         glccQ8nmPdluv494XIQuIftxSTOzB+cEO+C/Tyfd1ZjdGHiqOQkB0/XSR4YGfQPCExBn
+         i7sg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698761092; x=1699365892;
+        d=1e100.net; s=20230601; t=1698761410; x=1699366210;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZsemryN+7v+wOBolNu7Hy0wHrULeaB9eFsfVkGp1/e8=;
-        b=C6uv6VUXaI1ek27njNhgOUmJPVySPBXq7x6VgcSzsD9udb52P0ET0qkcoCsXvvNTfx
-         04pdiudlRQ6SOv5LXXiwahzJs80AOZ8Bwqx3r3ISZCUdmYKqgG1ypFc0XfiIxdpTh+hK
-         METjF9eWbRb3imXx98TE0D94Fyc4WKClMRJ0I/xX/L2uhhwMjRWGxAZPz0an8wbdqqVV
-         jDVXUy00RI68OlMfOhI4UCLLFkDYrcW3MYBG+yl1DfJfCZfjvsPHxRykRExGp7ZXYhsl
-         OOqHuCvMhlxsJptf4tBYUuLRytFRZO7nFMEF2qgRu19+JlSorIEobEH8nHCcCGVwS1Zk
-         PIyw==
-X-Gm-Message-State: AOJu0YwXGKbNZJAl/Cz3tpyHASfcd8m5HW9/LjHVJYuF4RbSbdIbIUYw
-	zgJPkrIC2U6TVb88J+H0C10UEUn6qog=
-X-Google-Smtp-Source: AGHT+IGMRYf422gsAhq04hJnKRMCzmHg+RO6tAl4JuMhPFGeve1lxsPBrReypZbUvK9g95iFN5O303NMZlw=
+        bh=qnQOjymnTrZBwkJL50GP/1+n+ilT5bo3LZ+viwIL69A=;
+        b=iqn9KPeSHvuH77VdxJeHQw+SFr5yVmvS2isXbYUSTBBv27sjU+acIfM0UFcpfdr/cC
+         p+/Gd/zAGer9Jk6Y9WNIkImlJZ/qNNsuNE/alre9mp0VJdPMDHOUtNqNV0jkd8gELri8
+         7uL/2eMbBSk+ZNc/W7PNwnRRXZqUzmV9PrfZI1tkXOrADpmSXkWjfsmU2Sr13ChiOwyP
+         8inkAX3Kn90M127OjzvpleWNNjdGP+pXJc99tNLIqInBsJMebbtgP7Bs27uWKMMwTb2F
+         e3SyliRIMXxz3Efb2lGgdUsneuprJB++mpFvGLEnY0mEvAPSEt6e86t9IG/hPWkzi7G3
+         kE6Q==
+X-Gm-Message-State: AOJu0Yxl+NgmkKkF6iXDJoj24WaSgY1+B10zfd4l651a8zKHCcFcIKaW
+	CAapozJDaCQ9x+8D26YN8D1NkiJDvS4=
+X-Google-Smtp-Source: AGHT+IHZDXQi7UJsz3IrNX3ZHQxUCVwQKR+0lKBMLeJ46WZVaPkGJ08yzTLT3JODvkoGCJ0IGZA0c9r9iJw=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:6902:1083:b0:d9a:c3b8:4274 with SMTP id
- v3-20020a056902108300b00d9ac3b84274mr301710ybu.7.1698761092559; Tue, 31 Oct
- 2023 07:04:52 -0700 (PDT)
-Date: Tue, 31 Oct 2023 07:04:51 -0700
-In-Reply-To: <2edd908a-9699-4d8e-9063-c655f1fc9712@intel.com>
+ (user=seanjc job=sendgmr) by 2002:a81:a14c:0:b0:59b:eea4:a5a6 with SMTP id
+ y73-20020a81a14c000000b0059beea4a5a6mr274540ywg.0.1698761410163; Tue, 31 Oct
+ 2023 07:10:10 -0700 (PDT)
+Date: Tue, 31 Oct 2023 07:10:08 -0700
+In-Reply-To: <ZUCe/PGL2Q4OzDOX@chao-email>
 Mime-Version: 1.0
-References: <20231027182217.3615211-1-seanjc@google.com> <20231027182217.3615211-9-seanjc@google.com>
- <2edd908a-9699-4d8e-9063-c655f1fc9712@intel.com>
-Message-ID: <ZUEJg_rBf35NyCG3@google.com>
-Subject: Re: [PATCH v13 08/35] KVM: Introduce KVM_SET_USER_MEMORY_REGION2
+References: <20231027182217.3615211-1-seanjc@google.com> <20231027182217.3615211-17-seanjc@google.com>
+ <ZUCe/PGL2Q4OzDOX@chao-email>
+Message-ID: <ZUEKwOQoibAEWAzU@google.com>
+Subject: Re: [PATCH v13 16/35] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
 From: Sean Christopherson <seanjc@google.com>
-To: Xiaoyao Li <xiaoyao.li@intel.com>
+To: Chao Gao <chao.gao@intel.com>
 Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
 	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
@@ -79,11 +80,11 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
 	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
 	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, Xu Yilun <yilun.xu@intel.com>, 
-	Chao Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>, 
-	Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, 
-	David Matlack <dmatlack@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>, 
-	Isaku Yamahata <isaku.yamahata@intel.com>, 
+	linux-kernel@vger.kernel.org, Xiaoyao Li <xiaoyao.li@intel.com>, 
+	Xu Yilun <yilun.xu@intel.com>, Chao Peng <chao.p.peng@linux.intel.com>, 
+	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
+	Anish Moorthy <amoorthy@google.com>, David Matlack <dmatlack@google.com>, 
+	Yu Zhang <yu.c.zhang@linux.intel.com>, Isaku Yamahata <isaku.yamahata@intel.com>, 
 	"=?utf-8?Q?Micka=C3=ABl_Sala=C3=BCn?=" <mic@digikod.net>, Vlastimil Babka <vbabka@suse.cz>, 
 	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
 	Maciej Szmigiero <mail@maciej.szmigiero.name>, David Hildenbrand <david@redhat.com>, 
@@ -91,8 +92,8 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
 	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
 	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231031_070456_771011_D82DCFEA 
-X-CRM114-Status: GOOD (  25.11  )
+X-CRM114-CacheID: sfid-20231031_071011_909600_BC9D0B96 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,64 +110,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 31, 2023, Xiaoyao Li wrote:
-> On 10/28/2023 2:21 AM, Sean Christopherson wrote:
-> > Introduce a "version 2" of KVM_SET_USER_MEMORY_REGION so that additional
-> > information can be supplied without setting userspace up to fail.  The
-> > padding in the new kvm_userspace_memory_region2 structure will be used to
-> > pass a file descriptor in addition to the userspace_addr, i.e. allow
-> > userspace to point at a file descriptor and map memory into a guest that
-> > is NOT mapped into host userspace.
-> > 
-> > Alternatively, KVM could simply add "struct kvm_userspace_memory_region2"
-> > without a new ioctl(), but as Paolo pointed out, adding a new ioctl()
-> > makes detection of bad flags a bit more robust, e.g. if the new fd field
-> > is guarded only by a flag and not a new ioctl(), then a userspace bug
-> > (setting a "bad" flag) would generate out-of-bounds access instead of an
-> > -EINVAL error.
-> > 
-> > Cc: Jarkko Sakkinen <jarkko@kernel.org>
-> > Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
-> > Reviewed-by: Xiaoyao Li <xiaoyao.li@intel.com>
-> > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > ---
-> >   Documentation/virt/kvm/api.rst | 21 +++++++++++++++++++
-> >   arch/x86/kvm/x86.c             |  2 +-
-> >   include/linux/kvm_host.h       |  4 ++--
-> >   include/uapi/linux/kvm.h       | 13 ++++++++++++
-> >   virt/kvm/kvm_main.c            | 38 +++++++++++++++++++++++++++-------
-> >   5 files changed, 67 insertions(+), 11 deletions(-)
-> > 
-> > diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> > index 21a7578142a1..ace984acc125 100644
-> > --- a/Documentation/virt/kvm/api.rst
-> > +++ b/Documentation/virt/kvm/api.rst
-> > @@ -6070,6 +6070,27 @@ writes to the CNTVCT_EL0 and CNTPCT_EL0 registers using the SET_ONE_REG
-> >   interface. No error will be returned, but the resulting offset will not be
-> >   applied.
-> > +4.139 KVM_SET_USER_MEMORY_REGION2
-> > +---------------------------------
-> > +
-> > +:Capability: KVM_CAP_USER_MEMORY2
-> > +:Architectures: all
-> > +:Type: vm ioctl
-> > +:Parameters: struct kvm_userspace_memory_region2 (in)
-> > +:Returns: 0 on success, -1 on error
-> > +
-> > +::
-> > +
-> > +  struct kvm_userspace_memory_region2 {
-> > +	__u32 slot;
-> > +	__u32 flags;
-> > +	__u64 guest_phys_addr;
-> > +	__u64 memory_size; /* bytes */
-> > +	__u64 userspace_addr; /* start of the userspace allocated memory */
+On Tue, Oct 31, 2023, Chao Gao wrote:
+> >+int kvm_gmem_create(struct kvm *kvm, struct kvm_create_guest_memfd *args)
+> >+{
+> >+	loff_t size = args->size;
+> >+	u64 flags = args->flags;
+> >+	u64 valid_flags = 0;
+> >+
+> >+	if (flags & ~valid_flags)
+> >+		return -EINVAL;
+> >+
+> >+	if (size < 0 || !PAGE_ALIGNED(size))
+> >+		return -EINVAL;
 > 
-> missing
-> 
-> 	__u64 pad[16];
+> is size == 0 a valid case?
 
-I can't even copy+paste correctly :-(
+Nope, this is a bug.
+
+> >+	if (!xa_empty(&gmem->bindings) &&
+> >+	    xa_find(&gmem->bindings, &start, end - 1, XA_PRESENT)) {
+> >+		filemap_invalidate_unlock(inode->i_mapping);
+> >+		goto err;
+> >+	}
+> >+
+> >+	/*
+> >+	 * No synchronize_rcu() needed, any in-flight readers are guaranteed to
+> >+	 * be see either a NULL file or this new file, no need for them to go
+> >+	 * away.
+> >+	 */
+> >+	rcu_assign_pointer(slot->gmem.file, file);
+> >+	slot->gmem.pgoff = start;
+> >+
+> >+	xa_store_range(&gmem->bindings, start, end - 1, slot, GFP_KERNEL);
+> >+	filemap_invalidate_unlock(inode->i_mapping);
+> >+
+> >+	/*
+> >+	 * Drop the reference to the file, even on success.  The file pins KVM,
+> >+	 * not the other way 'round.  Active bindings are invalidated if the
+> >+	 * file is closed before memslots are destroyed.
+> >+	 */
+> >+	fput(file);
+> >+	return 0;
+> >+
+> >+err:
+> >+	fput(file);
+> >+	return -EINVAL;
+> 
+> The cleanup, i.e., filemap_invalidate_unlock() and fput(), is common. So, I think it
+> may be slightly better to consolidate the common part e.g.,
+
+I would prefer to keep this as-is.  Only goto needs the unlock, and I find it easier
+to understand the success vs. error paths with explicit returns.  But it's not a
+super strong preference.
 
 _______________________________________________
 linux-riscv mailing list
