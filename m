@@ -4,87 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C04BDC4167B
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 22:59:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58FDEC4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Nov 2023 00:00:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ifdv2yHvR5c1Bg66JVeTFDCpkaW4wxAW49c7FYweXn8=; b=EGXgbdgTjuh1qg
-	5S9kAt7MgSuH3LsaHFEZXjVlm8RNwUWiDnpXMQdtg0+B4Jqlq1g+SWiDCxGJGndr69NhSzPtPbI78
-	6h/6Sz7a2T0So4VB19BUXMhSmYi/UTZI+GUg7LlJGSd6+DVgOM2wtSzuH5y5GrQdBLs8Fw4m90MYr
-	4yGtO7eNHc40oLylBKQNWJE6r+u1613X+DgrFTDIuSQoknrtccHC2Eq11At2ObI5PJutOSUSGAG+c
-	Zy87UMGmwlAzgMKgEK16LEcECw3Iq8TbeTte8l1mxxSjirkkF5odX1/GWHZhh9C4gYCAJJNZjefv/
-	aBP0XA96FQcqT9WDn+jw==;
+	List-Owner; bh=QdvvfBaSlWwKpzhjKPk3U+ZzFg6vsunAe6Tiyh23m4s=; b=37msnSnvATNkrx
+	wiHLCMfb5mB0VcIX/0UYNYtjPL1oOsANOeu1oEW3OFWB8hlPrcCfvsuhW7mATEi8vFqgHSL29QuCT
+	xPBh/CZtA7jLYRPuNDf4GPlYpog4UdnEvOgClF+z6B493UvJJqcJeBtKwC4xe2LLWyo9jKZkf5HOn
+	F5b1HiOGjj1qfDNBmHqDoXksKPoclDZfm4aJrNWfbHrbTHgZYGQpZLHPFfp7Av4uz089I28s+jCzv
+	ZR5K5V3FVPPmpnwyR0lhZyjZdZo4Nqa+AUuWVrYAMAq4QDsc+v382Tw32tvepbBlWgWImPqwrIa20
+	HD1th2rW0z4NYCPUl0nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxxi3-006HOn-1N;
-	Tue, 31 Oct 2023 22:59:43 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxxhy-006HOP-23
-	for linux-riscv@lists.infradead.org;
-	Tue, 31 Oct 2023 22:59:41 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1cc1ee2d8dfso43763345ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 31 Oct 2023 15:59:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698793175; x=1699397975; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=LDJ8Iq5L9/V1OZAz3rRoxOdZZ5rvNVFmc7VfBTtpIhM=;
-        b=bGnNYFZFMyK0H5rKaFgM9bWxu574MInOnJbmAjWmKxX4oTuKbGwahtM9KOMFHtK2QZ
-         gqJkRafqfQ2QJ/BuYTpJQLS+WgYoVECmMNF9lAQqiKDG3LVcoJ+lVsAXKbWuKOK7qyyE
-         oao7SLI4i/WuSyD/pr9uJiJWSP92f96cQ3UEvtPcimpEI9RgGhm90eykKcVhTmudg/Qq
-         lJ21tyGPtdn5Re3f6l+evelhDk7vGYWBauvXh8hmHYlMKdBpXBuvVfDf1+ld61zktaHv
-         ge17JPBbppO9j5AitK1z+3ETNJgYkJMPpEtbIbJ70hI3Jl77Tl9BhgWnUJKTJXwPspLJ
-         JDxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698793175; x=1699397975;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LDJ8Iq5L9/V1OZAz3rRoxOdZZ5rvNVFmc7VfBTtpIhM=;
-        b=LKNQ9v3xDx9eggIkBdv9bZEiE9mfVmX0V6UUyzbSccbGsWuyrVsznrTc4cZLGLr8/A
-         IlCSV0o/WRr4p7fZ8N3d80wi2ApOtOgTNtPiM4q6uJx1vmaeTb5QphnyU2JoIlCsVfpD
-         J5mfNmjNk0tD7sA4eGoRlXtSZtuKpYFthhSmbDTgmi8c9cMpxaNmORg+ZT0LIkbN0SLx
-         uchLgLhkNektHdDfSjdvffj3cBSHwzVQJKu0jyt4AJi+KZjEFkYmKnvEc6ZkK5thmTVy
-         xshX1x/4eR7OYQdLVYpNEO5nSS63sSFrCFmHGPGQ7I5rwQd/tOvhq4FnpQETB9Iismjl
-         P0Pg==
-X-Gm-Message-State: AOJu0YziQvxmQcCeZjZ/ojstbAWOLjhwHIZQU6xiDN/JyAHy85EukQpf
-	sIqNIWueHgAfM+5sD4vRHTze4w==
-X-Google-Smtp-Source: AGHT+IF7cypq62FZglsiltBntullxZkWLgXL2yhaj4pSt3Ony6luiH3fIVR9OnmDImDDPQKANBZEMg==
-X-Received: by 2002:a17:902:d4c9:b0:1cc:4e79:4b38 with SMTP id o9-20020a170902d4c900b001cc4e794b38mr8017652plg.3.1698793175507;
-        Tue, 31 Oct 2023 15:59:35 -0700 (PDT)
-Received: from ghost ([12.44.203.122])
-        by smtp.gmail.com with ESMTPSA id e18-20020a17090301d200b001cc32f46757sm83952plh.107.2023.10.31.15.59.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Oct 2023 15:59:35 -0700 (PDT)
-Date: Tue, 31 Oct 2023 15:59:32 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: "Wang, Xiao W" <xiao.w.wang@intel.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	David Laight <David.Laight@aculab.com>,
-	Evan Green <evan@rivosinc.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v8 4/5] riscv: Add checksum library
-Message-ID: <ZUGG1G86AZlU0QRR@ghost>
-References: <20231027-optimize_checksum-v8-0-feb7101d128d@rivosinc.com>
- <20231027-optimize_checksum-v8-4-feb7101d128d@rivosinc.com>
- <DM8PR11MB575145F9D46C35AA3600D037B8A0A@DM8PR11MB5751.namprd11.prod.outlook.com>
+	id 1qxyeQ-006Lo8-0f;
+	Wed, 01 Nov 2023 00:00:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qxyeM-006Lmj-0P;
+	Wed, 01 Nov 2023 00:00:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5D0E81FB;
+	Tue, 31 Oct 2023 17:00:32 -0700 (PDT)
+Received: from e129154.nice.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 963DB3F738;
+	Tue, 31 Oct 2023 16:59:42 -0700 (PDT)
+Date: Wed, 1 Nov 2023 00:58:53 +0100
+From: Beata Michalska <beata.michalska@arm.com>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org,
+	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com,
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
+	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com,
+	viresh.kumar@linaro.org, lenb@kernel.org, robert.moore@intel.com,
+	lukasz.luba@arm.com, ionela.voinescu@arm.com,
+	pierre.gondois@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org,
+	acpica-devel@lists.linuxfoundation.org, conor.dooley@microchip.com,
+	suagrfillet@gmail.com, ajones@ventanamicro.com, lftan@kernel.org
+Subject: Re: [PATCH v4 7/7] arm64/amu: use capacity_ref_freq to set AMU ratio
+Message-ID: <ZUGUvdjrpw9NHSex@e129154.nice.arm.com>
+References: <20231027080400.56703-1-vincent.guittot@linaro.org>
+ <20231027080400.56703-8-vincent.guittot@linaro.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <DM8PR11MB575145F9D46C35AA3600D037B8A0A@DM8PR11MB5751.namprd11.prod.outlook.com>
+In-Reply-To: <20231027080400.56703-8-vincent.guittot@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231031_155938_682609_C98085BD 
-X-CRM114-Status: GOOD (  43.12  )
+X-CRM114-CacheID: sfid-20231031_165958_283542_D27E4594 
+X-CRM114-Status: GOOD (  25.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,440 +74,153 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 31, 2023 at 09:51:17AM +0000, Wang, Xiao W wrote:
+On Fri, Oct 27, 2023 at 10:04:00AM +0200, Vincent Guittot wrote:
+> Use the new capacity_ref_freq to set the ratio that is used by AMU for
+> computing the arch_scale_freq_capacity().
+> This helps to keep everything aligned using the same reference for
+> computing CPUs capacity.
 > 
+> The default value of the ratio (stored in per_cpu(arch_max_freq_scale)
+> ensures that arch_scale_freq_capacity() returns max capacity until it is
+> set to its correct value with the cpu capacity and capacity_ref_freq.
 > 
-> > -----Original Message-----
-> > From: Charlie Jenkins <charlie@rivosinc.com>
-> > Sent: Saturday, October 28, 2023 6:44 AM
-> > To: Charlie Jenkins <charlie@rivosinc.com>; Palmer Dabbelt
-> > <palmer@dabbelt.com>; Conor Dooley <conor@kernel.org>; Samuel Holland
-> > <samuel.holland@sifive.com>; David Laight <David.Laight@aculab.com>;
-> > Wang, Xiao W <xiao.w.wang@intel.com>; Evan Green <evan@rivosinc.com>;
-> > linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org; linux-
-> > arch@vger.kernel.org
-> > Cc: Paul Walmsley <paul.walmsley@sifive.com>; Albert Ou
-> > <aou@eecs.berkeley.edu>; Arnd Bergmann <arnd@arndb.de>; Conor Dooley
-> > <conor.dooley@microchip.com>
-> > Subject: [PATCH v8 4/5] riscv: Add checksum library
-> > 
-> > Provide a 32 and 64 bit version of do_csum. When compiled for 32-bit
-> > will load from the buffer in groups of 32 bits, and when compiled for
-> > 64-bit will load in groups of 64 bits.
-> > 
-> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> > ---
-> >  arch/riscv/lib/Makefile |   1 +
-> >  arch/riscv/lib/csum.c   | 339
-> > ++++++++++++++++++++++++++++++++++++++++++++++++
-> >  2 files changed, 340 insertions(+)
-> > 
-> > diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-> > index 26cb2502ecf8..2aa1a4ad361f 100644
-> > --- a/arch/riscv/lib/Makefile
-> > +++ b/arch/riscv/lib/Makefile
-> > @@ -6,6 +6,7 @@ lib-y			+= memmove.o
-> >  lib-y			+= strcmp.o
-> >  lib-y			+= strlen.o
-> >  lib-y			+= strncmp.o
-> > +lib-y			+= csum.o
-> >  lib-$(CONFIG_MMU)	+= uaccess.o
-> >  lib-$(CONFIG_64BIT)	+= tishift.o
-> >  lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
-> > diff --git a/arch/riscv/lib/csum.c b/arch/riscv/lib/csum.c
-> > new file mode 100644
-> > index 000000000000..f90e73606597
-> > --- /dev/null
-> > +++ b/arch/riscv/lib/csum.c
-> > @@ -0,0 +1,339 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * IP checksum library
+> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> ---
+>  arch/arm64/kernel/topology.c  | 26 ++++++++++++++------------
+>  drivers/base/arch_topology.c  | 12 +++++++++++-
+>  include/linux/arch_topology.h |  1 +
+>  3 files changed, 26 insertions(+), 13 deletions(-)
 > 
-> Same comment as patch 3/5.
-> 
-> > + *
-> > + * Influenced by arch/arm64/lib/csum.c
-> > + * Copyright (C) 2023 Rivos Inc.
-> > + */
-> > +#include <linux/bitops.h>
-> > +#include <linux/compiler.h>
-> > +#include <asm/cpufeature.h>
-> > +#include <linux/jump_label.h>
-> > +#include <linux/kasan-checks.h>
-> > +#include <linux/kernel.h>
-> > +
-> > +#include <net/checksum.h>
-> > +
-> > +/* Default version is sufficient for 32 bit */
-> > +#ifndef CONFIG_32BIT
-> 
-> Why not use the same #if macro "#ifdef CONFIG_64BIT" as in checksum.h
-> 
-> > +__sum16 csum_ipv6_magic(const struct in6_addr *saddr,
-> > +			const struct in6_addr *daddr,
-> > +			__u32 len, __u8 proto, __wsum csum)
-> > +{
-> > +	unsigned int ulen, uproto;
-> > +	unsigned long sum = csum;
-> > +
-> > +	sum += saddr->s6_addr32[0];
-> > +	sum += saddr->s6_addr32[1];
-> > +	sum += saddr->s6_addr32[2];
-> > +	sum += saddr->s6_addr32[3];
-> > +
-> > +	sum += daddr->s6_addr32[0];
-> > +	sum += daddr->s6_addr32[1];
-> > +	sum += daddr->s6_addr32[2];
-> > +	sum += daddr->s6_addr32[3];
-> > +
-> > +	ulen = htonl((unsigned int)len);
-> > +	sum += ulen;
-> > +
-> > +	uproto = htonl(proto);
-> > +	sum += uproto;
-> > +
-> > +	/*
-> > +	 * Zbb support saves 4 instructions, so not worth checking without
-> > +	 * alternatives if supported
-> > +	 */
-> > +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-> > +	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
-> > +		unsigned long fold_temp;
-> > +
-> > +		/*
-> > +		 * Zbb is likely available when the kernel is compiled with Zbb
-> > +		 * support, so nop when Zbb is available and jump when Zbb
-> > is
-> > +		 * not available.
-> > +		 */
-> > +		asm_volatile_goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
-> > +					      RISCV_ISA_EXT_ZBB, 1)
-> > +				  :
-> > +				  :
-> > +				  :
-> > +				  : no_zbb);
-> > +		asm(".option push					\n\
-> > +		.option arch,+zbb					\n\
-> > +			rori	%[fold_temp], %[sum], 32		\n\
-> > +			add	%[sum], %[fold_temp], %[sum]
-> > 	\n\
-> > +			srli	%[sum], %[sum], 32			\n\
-> > +			not	%[fold_temp], %[sum]			\n\
-> > +			roriw	%[sum], %[sum], 16			\n\
-> > +			subw	%[sum], %[fold_temp], %[sum]
-> > 	\n\
-> > +		.option pop"
-> > +		: [sum] "+r" (sum), [fold_temp] "=&r" (fold_temp));
-> > +		return (__force __sum16)(sum >> 16);
-> > +	}
-> > +no_zbb:
-> > +	sum += ror64(sum, 32);
-> > +	sum >>= 32;
-> > +	return csum_fold((__force __wsum)sum);
-> > +}
-> > +EXPORT_SYMBOL(csum_ipv6_magic);
-> > +#endif /* !CONFIG_32BIT */
-> > +
-> > +#ifdef CONFIG_32BIT
-> > +#define OFFSET_MASK 3
-> > +#elif CONFIG_64BIT
-> > +#define OFFSET_MASK 7
-> > +#endif
-> > +
-> > +/*
-> > + * Algorithm accounts for buff being misaligned.
-> > + * If buff is not aligned, will over-read bytes but not use the bytes that it
-> > + * shouldn't. The same thing will occur on the tail-end of the read.
-> > + */
-> > +static inline __no_sanitize_address unsigned int
-> > do_csum_with_alignment(const unsigned char *buff, int len)
-> > +{
-> > +	unsigned int offset, shift;
-> > +	unsigned long csum = 0, carry = 0, data;
-> > +	const unsigned long *ptr, *end;
-> > +
-> > +	end = (const unsigned long *)(buff + len);
-> > +
-> > +	/*
-> > +	 * Align address to closest word (double word on rv64) that comes
-> > before
-> > +	 * buff. This should always be in the same page and cache line.
-> > +	 * Directly call KASAN with the alignment we will be using.
-> > +	 */
-> > +	offset = (unsigned long)buff & OFFSET_MASK;
-> > +	kasan_check_read(buff, len);
-> > +	ptr = (const unsigned long *)(buff - offset);
-> > +
-> > +	/*
-> > +	 * Clear the most significant bytes that were over-read if buff was not
-> > +	 * aligned.
-> > +	 */
-> > +	shift = offset * 8;
-> > +	data = *(ptr++);
-> > +#ifdef __LITTLE_ENDIAN
-> > +	data = (data >> shift) << shift;
-> > +#else
-> > +	data = (data << shift) >> shift;
-> > +#endif
-> > +	/*
-> > +	 * Do 32-bit reads on RV32 and 64-bit reads otherwise. This should be
-> > +	 * faster than doing 32-bit reads on architectures that support larger
-> > +	 * reads.
-> > +	 */
-> > +	while (ptr < end) {
-> > +		csum += data;
-> > +		carry += csum < data;
-> > +		len -= sizeof(long);
-> > +		data = *(ptr++);
-> > +	}
-> > +
-> > +	/*
-> > +	 * Perform alignment (and over-read) bytes on the tail if any bytes
-> > +	 * leftover.
-> > +	 */
-> > +	shift = ((long)ptr - (long)end) * 8;
-> > +#ifdef __LITTLE_ENDIAN
-> > +	data = (data << shift) >> shift;
-> > +#else
-> > +	data = (data >> shift) << shift;
-> > +#endif
-> > +	csum += data;
-> > +	carry += csum < data;
-> > +	csum += carry;
-> > +	csum += csum < carry;
-> > +
-> > +	/*
-> > +	 * Zbb support saves 6 instructions, so not worth checking without
-> > +	 * alternatives if supported
-> > +	 */
-> > +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-> > +	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
-> > +		unsigned long fold_temp;
-> > +
-> > +		/*
-> > +		 * Zbb is likely available when the kernel is compiled with Zbb
-> > +		 * support, so nop when Zbb is available and jump when Zbb
-> > is
-> > +		 * not available.
-> > +		 */
-> > +		asm_volatile_goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
-> > +					      RISCV_ISA_EXT_ZBB, 1)
-> > +				  :
-> > +				  :
-> > +				  :
-> > +				  : no_zbb);
-> > +
-> > +#ifdef CONFIG_32BIT
-> > +		asm_volatile_goto(".option push			\n\
-> > +		.option arch,+zbb				\n\
-> > +			rori	%[fold_temp], %[csum], 16	\n\
-> > +			andi	%[offset], %[offset], 1		\n\
-> > +			add	%[csum], %[fold_temp], %[csum]	\n\
-> > +			beq	%[offset], zero, %l[end]	\n\
-> > +			rev8	%[csum], %[csum]		\n\
-> > +		.option pop"
-> > +			: [csum] "+r" (csum),
-> > +				[fold_temp] "=&r" (fold_temp)
-> > +			: [offset] "r" (offset)
-> > +			:
-> > +			: end);
-> > +
-> > +		return (unsigned short)csum;
-> > +#else /* !CONFIG_32BIT */
-> > +		asm_volatile_goto(".option push			\n\
-> > +		.option arch,+zbb				\n\
-> > +			rori	%[fold_temp], %[csum], 32	\n\
-> > +			add	%[csum], %[fold_temp], %[csum]	\n\
-> > +			srli	%[csum], %[csum], 32		\n\
-> > +			roriw	%[fold_temp], %[csum], 16	\n\
-> > +			addw	%[csum], %[fold_temp], %[csum]	\n\
-> > +			andi	%[offset], %[offset], 1		\n\
-> > +			beq	%[offset], zero, %l[end]	\n\
-> > +			rev8	%[csum], %[csum]		\n\
-> > +		.option pop"
-> > +			: [csum] "+r" (csum),
-> > +				[fold_temp] "=&r" (fold_temp)
-> > +			: [offset] "r" (offset)
-> > +			:
-> > +			: end);
-> > +
-> > +		return (csum << 16) >> 48;
-> > +#endif /* !CONFIG_32BIT */
-> > +end:
-> > +		return csum >> 16;
-> > +	}
-> > +no_zbb:
-> > +#ifndef CONFIG_32BIT
-> > +	csum += ror64(csum, 32);
-> > +	csum >>= 32;
-> > +#endif
-> > +	csum = (u32)csum + ror32((u32)csum, 16);
-> > +	if (offset & 1)
-> > +		return (u16)swab32(csum);
-> > +	return csum >> 16;
-> > +}
-> > +
-> > +/*
-> > + * Does not perform alignment, should only be used if machine has fast
-> > + * misaligned accesses, because buff may be misaligned.
-> > + */
-> > +static inline unsigned int do_csum_no_alignment(const unsigned char *buff,
-> > int len)
-> > +{
-> > +	unsigned int offset, shift;
-> > +	unsigned long csum = 0, carry = 0, data;
-> > +	const unsigned long *ptr, *end;
-> > +
-> > +	end = (const unsigned long *)(buff + len);
-> > +
-> 
-> kasan_check_read() missing in this function.
-> 
+> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> index 817d788cd866..626031076b75 100644
+> --- a/arch/arm64/kernel/topology.c
+> +++ b/arch/arm64/kernel/topology.c
+> @@ -82,7 +82,12 @@ int __init parse_acpi_topology(void)
+>  #undef pr_fmt
+>  #define pr_fmt(fmt) "AMU: " fmt
+>  
+> -static DEFINE_PER_CPU_READ_MOSTLY(unsigned long, arch_max_freq_scale);
+> +/*
+> + * Ensure that amu_scale_freq_tick() will return SCHED_CAPACITY_SCALE until
+> + * the CPU capacity and its assosciated frequency have been correctly
+> + * initialized.
+> + */
+> +static DEFINE_PER_CPU_READ_MOSTLY(unsigned long, arch_max_freq_scale) =  1UL << (2 * SCHED_CAPACITY_SHIFT);
+>  static DEFINE_PER_CPU(u64, arch_const_cycles_prev);
+>  static DEFINE_PER_CPU(u64, arch_core_cycles_prev);
+>  static cpumask_var_t amu_fie_cpus;
+> @@ -112,14 +117,14 @@ static inline bool freq_counters_valid(int cpu)
+>  	return true;
+>  }
+>  
+> -static int freq_inv_set_max_ratio(int cpu, u64 max_rate, u64 ref_rate)
+> +void freq_inv_set_max_ratio(int cpu, u64 max_rate)
+>  {
+> -	u64 ratio;
+> +	u64 ratio, ref_rate = arch_timer_get_rate();
+>  
+>  	if (unlikely(!max_rate || !ref_rate)) {
+> -		pr_debug("CPU%d: invalid maximum or reference frequency.\n",
+> +		WARN_ONCE(1, "CPU%d: invalid maximum or reference frequency.\n",
+>  			 cpu);
+> -		return -EINVAL;
+> +		return;
+>  	}
+>  
+>  	/*
+> @@ -139,12 +144,12 @@ static int freq_inv_set_max_ratio(int cpu, u64 max_rate, u64 ref_rate)
+>  	ratio = div64_u64(ratio, max_rate);
+>  	if (!ratio) {
+>  		WARN_ONCE(1, "Reference frequency too low.\n");
+> -		return -EINVAL;
+> +		return;
+>  	}
+>  
+> -	per_cpu(arch_max_freq_scale, cpu) = (unsigned long)ratio;
+> +	WRITE_ONCE(per_cpu(arch_max_freq_scale, cpu), (unsigned long)ratio);
+>  
+> -	return 0;
+> +	return;
+>  }
+>  
+>  static void amu_scale_freq_tick(void)
+> @@ -195,10 +200,7 @@ static void amu_fie_setup(const struct cpumask *cpus)
+>  		return;
+>  
+>  	for_each_cpu(cpu, cpus) {
+> -		if (!freq_counters_valid(cpu) ||
+> -		    freq_inv_set_max_ratio(cpu,
+> -					   cpufreq_get_hw_max_freq(cpu) * 1000ULL,
+> -					   arch_timer_get_rate()))
+> +		if (!freq_counters_valid(cpu))
+>  			return;
+>  	}
+>  
+> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+> index d4bef370feb3..3cba7dc753b3 100644
+> --- a/drivers/base/arch_topology.c
+> +++ b/drivers/base/arch_topology.c
+> @@ -344,6 +344,10 @@ bool __init topology_parse_cpu_capacity(struct device_node *cpu_node, int cpu)
+>  	return !ret;
+>  }
+>  
+> +void __weak freq_inv_set_max_ratio(int cpu, u64 max_rate)
+> +{
+> +}
+> +
+>  #ifdef CONFIG_ACPI_CPPC_LIB
+>  #include <acpi/cppc_acpi.h>
+>  
+> @@ -381,6 +385,9 @@ void topology_init_cpu_capacity_cppc(void)
+>  	}
+>  
+>  	for_each_possible_cpu(cpu) {
+> +		freq_inv_set_max_ratio(cpu,
+> +				       per_cpu(capacity_ref_freq, cpu) * HZ_PER_KHZ);
+> +
+The capacity_ref_freq set earlier will still lead to units mismatch,
+as at the point of calling topology_init_cpu_capacity_cppc the lowest & nominal
+frequencies will be provided in MHz (unless I have missed smth).
+This means that use of both, the capacity_ref_freq and the arch_freq_scale
+will generate unexpected results, so I guess this should get amended in the
+preceding patch (?) [1]
 
-I had thought it wasn't needed since this is the aligned access case so
-I removed __no_sanitize_address from the function signature. However, I
-just realized that on the tail end this function over-reads buff so it
-is still necessary.
+---
+BR
+B.
 
-> > +	ptr = (const unsigned long *)(buff);
-> > +
-> > +	data = *(ptr++);
-> > +
-> > +	/*
-> > +	 * Do 32-bit reads on RV32 and 64-bit reads otherwise. This should be
-> > +	 * faster than doing 32-bit reads on architectures that support larger
-> > +	 * reads.
-> > +	 */
-> > +	while (ptr < end) {
-> > +		csum += data;
-> > +		carry += csum < data;
-> > +		len -= sizeof(long);
-> > +		data = *(ptr++);
-> > +	}
-> > +
-> > +	/*
-> > +	 * Perform alignment (and over-read) bytes on the tail if any bytes
-> > +	 * leftover.
-> > +	 */
-> > +	shift = ((long)ptr - (long)end) * 8;
-> > +#ifdef __LITTLE_ENDIAN
-> > +	data = (data << shift) >> shift;
-> > +#else
-> > +	data = (data >> shift) << shift;
-> > +#endif
-> > +	csum += data;
-> > +	carry += csum < data;
-> > +	csum += carry;
-> > +	csum += csum < carry;
-> > +
-> > +	/*
-> > +	 * Zbb support saves 6 instructions, so not worth checking without
-> > +	 * alternatives if supported
-> > +	 */
-> > +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
-> > +	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
-> > +		unsigned long fold_temp;
-> > +
-> > +		/*
-> > +		 * Zbb is likely available when the kernel is compiled with Zbb
-> > +		 * support, so nop when Zbb is available and jump when Zbb
-> > is
-> > +		 * not available.
-> > +		 */
-> > +		asm_volatile_goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
-> > +					      RISCV_ISA_EXT_ZBB, 1)
-> > +				  :
-> > +				  :
-> > +				  :
-> > +				  : no_zbb);
-> > +
-> > +#ifdef CONFIG_32BIT
-> > +		asm (".option push				\n\
-> > +		.option arch,+zbb				\n\
-> > +			rori	%[fold_temp], %[csum], 16	\n\
-> > +			andi	%[offset], %[offset], 1		\n\
-> > +			add	%[csum], %[fold_temp], %[csum]	\n\
-> > +		.option pop"
-> > +			: [csum] "+r" (csum),
-> > +				[fold_temp] "=&r" (fold_temp)
-> 
-> It's better to align the indention here, or we can follow the below CONFIG_64BIT case.
-> 
-> > +			: [offset] "r" (offset)
-> > +			: );
-> > +
-> > +#else /* !CONFIG_32BIT */
-> > +		asm (".option push				\n\
-> > +		.option arch,+zbb				\n\
-> > +			rori	%[fold_temp], %[csum], 32	\n\
-> > +			add	%[csum], %[fold_temp], %[csum]	\n\
-> > +			srli	%[csum], %[csum], 32		\n\
-> > +			roriw	%[fold_temp], %[csum], 16	\n\
-> > +			addw	%[csum], %[fold_temp], %[csum]	\n\
-> > +		.option pop"
-> > +			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp)
-> > +			: [offset] "r" (offset)
-> > +			: );
-> > +#endif /* !CONFIG_32BIT */
-> > +		return csum >> 16;
-> > +	}
-> > +no_zbb:
-> > +#ifndef CONFIG_32BIT
-> > +	csum += ror64(csum, 32);
-> > +	csum >>= 32;
-> > +#endif
-> > +	csum = (u32)csum + ror32((u32)csum, 16);
-> > +	return csum >> 16;
-> > +}
-> > +
-> > +/*
-> > + * Perform a checksum on an arbitrary memory address.
-> > + * Will do a light-weight address alignment if buff is misaligned, unless
-> > + * cpu supports fast misaligned accesses.
-> > + */
-> > +unsigned int do_csum(const unsigned char *buff, int len)
-> > +{
-> > +	if (unlikely(len <= 0))
-> > +		return 0;
-> > +
-> > +	/*
-> > +	 * Very significant performance gains can be seen by not doing
-> > alignment
-> > +	 * on machines with fast misaligned accesses.
-> > +	 *
-> > +	 * There is some duplicate code between the "with_alignment" and
-> > +	 * "no_alignment" implmentations, but the overlap is too awkward to
-> > be
-> > +	 * able to fit in one function without introducing multiple static
-> > +	 * branches.
-> > +	 */
-> > +	if (static_branch_likely(&fast_misaligned_access_speed_key))
-> > +		return do_csum_no_alignment(buff, len);
-> 
-> When CPU doesn't support fast misaligned access but the buff addr is aligned (checking
-> by buff & OFFSET_MASK == 0), did it worth adding this check and then possibly calling 
-> do_csum_no_alignment()?
+[1] https://lore.kernel.org/linux-arm-kernel/20231027080400.56703-4-vincent.guittot@linaro.org/T/#m42daa167097edc190b1cfc05382c385ed801d909
 
-I am not sure how common it is for buff to be unaligned. Adding another
-branch here will be bad for the unaligned access pathway. However, if
-the unaligned accesses are slow on the hardware, ideally software will
-prevent calling this function with unaligned buff. With this assumption,
-I will add a branch here since that will be beneficial for the aligned pathway.
-
-- Charlie
-
-> 
-> BRs,
-> Xiao
-> 
-> > +
-> > +	return do_csum_with_alignment(buff, len);
-> > +}
-> > 
-> > --
-> > 2.42.0
+>  		capacity = raw_capacity[cpu];
+>  		capacity = div64_u64(capacity << SCHED_CAPACITY_SHIFT,
+>  				     capacity_scale);
+> @@ -422,8 +429,11 @@ init_cpu_capacity_callback(struct notifier_block *nb,
+>  
+>  	cpumask_andnot(cpus_to_visit, cpus_to_visit, policy->related_cpus);
+>  
+> -	for_each_cpu(cpu, policy->related_cpus)
+> +	for_each_cpu(cpu, policy->related_cpus) {
+>  		per_cpu(capacity_ref_freq, cpu) = policy->cpuinfo.max_freq;
+> +		freq_inv_set_max_ratio(cpu,
+> +				       per_cpu(capacity_ref_freq, cpu) * HZ_PER_KHZ);
+> +	}
+>  
+>  	if (cpumask_empty(cpus_to_visit)) {
+>  		topology_normalize_cpu_scale();
+> diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
+> index 38ca6c76af56..ffdf0b7c55fa 100644
+> --- a/include/linux/arch_topology.h
+> +++ b/include/linux/arch_topology.h
+> @@ -99,6 +99,7 @@ void update_siblings_masks(unsigned int cpu);
+>  void remove_cpu_topology(unsigned int cpuid);
+>  void reset_cpu_topology(void);
+>  int parse_acpi_topology(void);
+> +void freq_inv_set_max_ratio(int cpu, u64 max_rate);
+>  #endif
+>  
+>  #endif /* _LINUX_ARCH_TOPOLOGY_H_ */
+> -- 
+> 2.34.1
 > 
 
 _______________________________________________
