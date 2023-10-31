@@ -4,84 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1242BC00144
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 22:25:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D1E1C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 22:40:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+VGAVf5hpreGgefnQzWJr9EhA/D/x3t/SVbxk8L2fNA=; b=S8FpKKrV5x5uox
-	Xh2fO0pu9K9r1ZGXwBkc8u2TYsqitye0+8vTpnbLsYsIQ9Bx/HSg40qZTNBYoMBjtTB82dBougMdo
-	UANvRWhRj5Jv2SWvWQ9bV2plArmk60e+RkznqUbjV9PRiGwouDUPB0F1a6oALDC1MYO2jQKeIdhOw
-	D2FIEdbkCQsxKtWvXYrVHMKI0RbG+jdlUROyIZrFm9WUzq3dbA+6MFeJa4G4yARgxdOG6HsTJRGrN
-	X9aBaI1yS9zUtiTT7i2vZI7clYK+pqyMt7MMOVt3Hha/SUnpbjQRLVxchow2BjXOv80vUXkZBocx8
-	MRlJZwATQGaacdcT4adA==;
+	List-Owner; bh=jVelkxdCo+4wwWDdIJ6/4Hwinh+DyWnhaSKCPBd70yw=; b=WnAKLzgchOKZLU
+	y4QIvGWb5tDjD9agxPHWk5t58uP004dyEEG9TAFZG4VTFH4ioFq+GAoBpoSoz1J8L8MV1GZLryTc5
+	TXKQcBSAq3D/EemNwgwphpL1UxkmsJ4Zl1m4TsylGRbeaoUmEPgqgZ6Q0xZr51RM02vG8SKKyfKiV
+	tdNDLUlVHHXDFmGMEmc1LHIOATKRmRQlmoLOYCKeqoRocLJOzxzb3qZW8Ry1MWZifjcpjwgfb3S1I
+	R8U6x9QWPXvpeaVK5PxpS62zZFQpKuoOjfaaz38Mb4zN7ALYf3tk4k7doTn3ftMIKZ6ui/6BeNQIy
+	qrLcfGNT9upqkU+QnKOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxxAx-006EKh-29;
-	Tue, 31 Oct 2023 22:25:31 +0000
-Received: from mail-oi1-x22e.google.com ([2607:f8b0:4864:20::22e])
+	id 1qxxPG-006Fvq-2k;
+	Tue, 31 Oct 2023 22:40:18 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxxAr-006EHk-2A
+	id 1qxxPD-006Fto-1V
 	for linux-riscv@lists.infradead.org;
-	Tue, 31 Oct 2023 22:25:29 +0000
-Received: by mail-oi1-x22e.google.com with SMTP id 5614622812f47-3b2f28caab9so3634603b6e.1
-        for <linux-riscv@lists.infradead.org>; Tue, 31 Oct 2023 15:25:25 -0700 (PDT)
+	Tue, 31 Oct 2023 22:40:17 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-40838915cecso47855765e9.2
+        for <linux-riscv@lists.infradead.org>; Tue, 31 Oct 2023 15:40:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698791125; x=1699395925; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kzym5qAuTfM0R7xLqOGuP3tKqEclOj4G4PtzJ407Bo8=;
-        b=wMlLF2QmiGRqzLt19LjUNAIuXJDovF3F9Hy/0QiLLoCYroN3kAl+MunJGK+k0xJEY8
-         t0Jxgj8CotdnwRydJ2p0Fr64672BKk3f/FATA7n4vuyvN9eGZug+QH3ST3G6cjcTPgCT
-         8LV/5fTCi2xpNSKCk/cmE9Z2Mu52fEIzs+EeIEn3AuNw1wOPXBqiVQlOkY0qUIhtwlWK
-         F5plivzp6vqLiiBQP17wIaIMuV3l5ujS0uidnWEIiBXtte+rXfqBfcfZCJAzQGd4AgXn
-         KMJrDly/dDUtBQ3tBizdYDyC5Aka5mKsNKADni7PWqy/feF0IR0KxwoCJUnPYtJjVnlB
-         jr/Q==
+        d=google.com; s=20230601; t=1698792013; x=1699396813; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dJWbuo+9TPVToDVPf96jeRxWUliwPBKXtZxQViTwJnU=;
+        b=v/81C5A6a2IA4ZW6Iv542EJeTiwqynj7UMXf4sqRO04QZ6MxNQ1iKsfWP+4KSZVm+U
+         Gicdma8duSPqMsf/GflEfvgkc17QH0f5AbiMpqzPIK8AsnxdaIO5MdT1v5HdVNgHjfq5
+         aqMfNBFOA8zEQEAXSA28CUVk6v9fjzVyXr2oG5BU4S7hpnMHepo9s0aRzKP/WfUFKIIV
+         VNa5C8hjBuWDigtGznOoEGKkw2KH5Xtpsi1acj8x3kxHrArl35W9UIdowiG8w18oM7Pt
+         qlL4HiBjd5MuiVcOd0M3broIbkpOJFHVDe0U4VVsTSEdJGyP2ba6cN/JX+dMI93auWoK
+         H15A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698791125; x=1699395925;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1698792013; x=1699396813;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=kzym5qAuTfM0R7xLqOGuP3tKqEclOj4G4PtzJ407Bo8=;
-        b=qyfJiGjYAt/IGfTE+D38Qn+3PupQzPkDGujSZ1SHjn5kp6CpzOI70+pClWVoyadUW8
-         VCAM0UPtGR1w8f898hxvm6rO1c7zGwWmGCu/seEFgKyjLTsO/SQBXzkfEyeNTYaSctnQ
-         HmmAeyQQuj6lnhw3b/mXZd4XTDYLcCm34UVwsVXPlIfWpOLsZHKT9rPoJQQW4MYRVoLQ
-         9ZM10BcilWfTCJKN+LLIL/TLoCgRqp9V33AG7KKVibx75m97Xqarc+1uudLj0hgns+8K
-         UpvWH7eNfxGoVSnQinxKJ76HNm7wO3Rf/3GRmJGY8TTrrQqxuBjoLg6NGOhV4gdd/G4o
-         q4rw==
-X-Gm-Message-State: AOJu0YymyzAwDspomnbXK+wSVZtLX62G+GQMtNnuyvfrmvDa7UmQAfRu
-	2/NVfoeBgLsPV5rVhakizWkIgQ==
-X-Google-Smtp-Source: AGHT+IEgf8FqaI2mE6N4OT1MkxdbqtQpJvNgpToalqj732mWTMseJddPm5QirOV8siYAD8zcD8gNbA==
-X-Received: by 2002:a05:6808:2395:b0:3ae:5c36:99b2 with SMTP id bp21-20020a056808239500b003ae5c3699b2mr18350793oib.55.1698791124991;
-        Tue, 31 Oct 2023 15:25:24 -0700 (PDT)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id k16-20020a544410000000b003b2e7231faasm42975oiw.28.2023.10.31.15.25.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Oct 2023 15:25:24 -0700 (PDT)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Tue, 31 Oct 2023 15:25:15 -0700
-Subject: [PATCH v8 3/3] riscv: Add tests for riscv module loading
+        bh=dJWbuo+9TPVToDVPf96jeRxWUliwPBKXtZxQViTwJnU=;
+        b=XkYuLfK4cWkK+1xHwSSsznAZwDDZn00+WNbGAQtN+Z20lUiNtI4iJkKPsOgvmqTmP2
+         BXICO3y/Dq7Vjah2FgPux+qX0i1L6+/TJl7WmRFqME8gprl1IZiduY6O4k4lVpvrDubw
+         dMMshQ4LLopiCmM5ujldDFrHuoig247wZvzwraWA37XY21m24FJhwlnTUhRWT/kGckN+
+         AZiGnCnXVVofTlEF8u6LTESaIQTq8YJR2lCSIVZXpRepp5LLhpd/V0hFRXEE+seZwauv
+         l7KxZJzuXSCv066ZUye0VsJZ+Uz8BfizEdakN/hiAiWPlq3zd6S3NRZio4i1EBRplJFp
+         8pPQ==
+X-Gm-Message-State: AOJu0YzEJx4wUHhoTt9S0UWobQu7kJjQ6dcpghMh3tPW5mxDaAzN92Fx
+	4yoSFuvNl6/KfVcBYYYFOmlxgILJsPK8HPRr5Qds+A==
+X-Google-Smtp-Source: AGHT+IHkDiPkYLUipg1BNgD620eOceDAkQD+A32NnZclx+AVnVsN45AUMqsjx/qUof6Oj5kTmFWO4hEnjV9b1jDP2pc=
+X-Received: by 2002:adf:d1ef:0:b0:32f:7db1:22fb with SMTP id
+ g15-20020adfd1ef000000b0032f7db122fbmr8716023wrd.28.1698792012937; Tue, 31
+ Oct 2023 15:40:12 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20231031-module_relocations-v8-3-09b5b720c1fe@rivosinc.com>
-References: <20231031-module_relocations-v8-0-09b5b720c1fe@rivosinc.com>
-In-Reply-To: <20231031-module_relocations-v8-0-09b5b720c1fe@rivosinc.com>
-To: linux-riscv@lists.infradead.org, linux-mm@kvack.org, 
- linux-kernel@vger.kernel.org
-Cc: Eric Biederman <ebiederm@xmission.com>, 
- Kees Cook <keescook@chromium.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Andreas Schwab <schwab@linux-m68k.org>, 
- Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Nelson Chu <nelson@rivosinc.com>, Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: b4 0.12.3
+References: <20231027182217.3615211-1-seanjc@google.com> <20231027182217.3615211-17-seanjc@google.com>
+ <ZUFGRyQEuWj4RJS0@google.com> <ZUFzZf-YmCRYP6qo@google.com>
+In-Reply-To: <ZUFzZf-YmCRYP6qo@google.com>
+From: David Matlack <dmatlack@google.com>
+Date: Tue, 31 Oct 2023 15:39:42 -0700
+Message-ID: <CALzav=d9eXZfK=op7A=UftbpuPpUbxqV6CmkqqxxBNuNsUU4nw@mail.gmail.com>
+Subject: Re: [PATCH v13 16/35] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, Xiaoyao Li <xiaoyao.li@intel.com>, 
+	Xu Yilun <yilun.xu@intel.com>, Chao Peng <chao.p.peng@linux.intel.com>, 
+	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
+	Anish Moorthy <amoorthy@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>, 
+	Isaku Yamahata <isaku.yamahata@intel.com>, =?UTF-8?B?TWlja2HDq2wgU2FsYcO8bg==?= <mic@digikod.net>, 
+	Vlastimil Babka <vbabka@suse.cz>, Vishal Annapurve <vannapurve@google.com>, 
+	Ackerley Tng <ackerleytng@google.com>, Maciej Szmigiero <mail@maciej.szmigiero.name>, 
+	David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>, 
+	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
+	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
+	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231031_152525_741331_BBE00EA6 
-X-CRM114-Status: GOOD (  17.22  )
+X-CRM114-CacheID: sfid-20231031_154015_505426_F0ECB6E0 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,506 +105,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add test cases for the two main groups of relocations added: SUB and
-SET, along with uleb128.
-
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
----
- arch/riscv/Kconfig.debug                           |  1 +
- arch/riscv/kernel/Makefile                         |  1 +
- arch/riscv/kernel/tests/Kconfig.debug              | 35 +++++++++
- arch/riscv/kernel/tests/Makefile                   |  1 +
- arch/riscv/kernel/tests/module_test/Makefile       | 15 ++++
- .../tests/module_test/test_module_linking_main.c   | 88 ++++++++++++++++++++++
- arch/riscv/kernel/tests/module_test/test_set16.S   | 23 ++++++
- arch/riscv/kernel/tests/module_test/test_set32.S   | 20 +++++
- arch/riscv/kernel/tests/module_test/test_set6.S    | 23 ++++++
- arch/riscv/kernel/tests/module_test/test_set8.S    | 23 ++++++
- arch/riscv/kernel/tests/module_test/test_sub16.S   | 20 +++++
- arch/riscv/kernel/tests/module_test/test_sub32.S   | 20 +++++
- arch/riscv/kernel/tests/module_test/test_sub6.S    | 20 +++++
- arch/riscv/kernel/tests/module_test/test_sub64.S   | 25 ++++++
- arch/riscv/kernel/tests/module_test/test_sub8.S    | 20 +++++
- arch/riscv/kernel/tests/module_test/test_uleb128.S | 31 ++++++++
- 16 files changed, 366 insertions(+)
-
-diff --git a/arch/riscv/Kconfig.debug b/arch/riscv/Kconfig.debug
-index e69de29bb2d1..eafe17ebf710 100644
---- a/arch/riscv/Kconfig.debug
-+++ b/arch/riscv/Kconfig.debug
-@@ -0,0 +1 @@
-+source "arch/riscv/kernel/tests/Kconfig.debug"
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index 95cf25d48405..bb99657252f4 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -57,6 +57,7 @@ obj-y	+= stacktrace.o
- obj-y	+= cacheinfo.o
- obj-y	+= patch.o
- obj-y	+= probes/
-+obj-y	+= tests/
- obj-$(CONFIG_MMU) += vdso.o vdso/
- 
- obj-$(CONFIG_RISCV_M_MODE)	+= traps_misaligned.o
-diff --git a/arch/riscv/kernel/tests/Kconfig.debug b/arch/riscv/kernel/tests/Kconfig.debug
-new file mode 100644
-index 000000000000..5dba64e8e977
---- /dev/null
-+++ b/arch/riscv/kernel/tests/Kconfig.debug
-@@ -0,0 +1,35 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+menu "arch/riscv/kernel Testing and Coverage"
-+
-+config AS_HAS_ULEB128
-+	def_bool $(as-instr,.reloc label$(comma) R_RISCV_SET_ULEB128$(comma) 127\n.reloc label$(comma) R_RISCV_SUB_ULEB128$(comma) 127\nlabel:\n.word 0)
-+
-+menuconfig RUNTIME_KERNEL_TESTING_MENU
-+       bool "arch/riscv/kernel runtime Testing"
-+       def_bool y
-+       help
-+         Enable riscv kernel runtime testing.
-+
-+if RUNTIME_KERNEL_TESTING_MENU
-+
-+config RISCV_MODULE_LINKING_KUNIT
-+       bool "KUnit test riscv module linking at runtime" if !KUNIT_ALL_TESTS
-+       depends on KUNIT
-+       default KUNIT_ALL_TESTS
-+       help
-+         Enable this option to test riscv module linking at boot. This will
-+	 enable a module called "test_module_linking".
-+
-+         KUnit tests run during boot and output the results to the debug log
-+         in TAP format (http://testanything.org/). Only useful for kernel devs
-+         running the KUnit test harness, and not intended for inclusion into a
-+         production build.
-+
-+         For more information on KUnit and unit tests in general please refer
-+         to the KUnit documentation in Documentation/dev-tools/kunit/.
-+
-+         If unsure, say N.
-+
-+endif # RUNTIME_TESTING_MENU
-+
-+endmenu # "arch/riscv/kernel runtime Testing"
-diff --git a/arch/riscv/kernel/tests/Makefile b/arch/riscv/kernel/tests/Makefile
-new file mode 100644
-index 000000000000..7d6c76cffe20
---- /dev/null
-+++ b/arch/riscv/kernel/tests/Makefile
-@@ -0,0 +1 @@
-+obj-$(CONFIG_RISCV_MODULE_LINKING_KUNIT)	+= module_test/
-diff --git a/arch/riscv/kernel/tests/module_test/Makefile b/arch/riscv/kernel/tests/module_test/Makefile
-new file mode 100644
-index 000000000000..d7a6fd8943de
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/Makefile
-@@ -0,0 +1,15 @@
-+obj-m += test_module_linking.o
-+
-+test_sub := test_sub6.o test_sub8.o test_sub16.o test_sub32.o test_sub64.o
-+
-+test_set := test_set6.o test_set8.o test_set16.o test_set32.o
-+
-+test_module_linking-objs += $(test_sub)
-+
-+test_module_linking-objs += $(test_set)
-+
-+ifeq ($(CONFIG_AS_HAS_ULEB128),y)
-+test_module_linking-objs += test_uleb128.o
-+endif
-+
-+test_module_linking-objs += test_module_linking_main.o
-diff --git a/arch/riscv/kernel/tests/module_test/test_module_linking_main.c b/arch/riscv/kernel/tests/module_test/test_module_linking_main.c
-new file mode 100644
-index 000000000000..8df5fa5b834e
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_module_linking_main.c
-@@ -0,0 +1,88 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+#include <linux/module.h>
-+#include <linux/kernel.h>
-+#include <linux/init.h>
-+#include <kunit/test.h>
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("Test module linking");
-+
-+extern int test_set32(void);
-+extern int test_set16(void);
-+extern int test_set8(void);
-+extern int test_set6(void);
-+extern long test_sub64(void);
-+extern int test_sub32(void);
-+extern int test_sub16(void);
-+extern int test_sub8(void);
-+extern int test_sub6(void);
-+
-+#ifdef CONFIG_AS_HAS_ULEB128
-+extern int test_uleb_basic(void);
-+extern int test_uleb_large(void);
-+#endif
-+
-+#define CHECK_EQ(lhs, rhs) KUNIT_ASSERT_EQ(test, lhs, rhs)
-+
-+void run_test_set(struct kunit *test);
-+void run_test_sub(struct kunit *test);
-+void run_test_uleb(struct kunit *test);
-+
-+void run_test_set(struct kunit *test)
-+{
-+	int val32 = test_set32();
-+	int val16 = test_set16();
-+	int val8 = test_set8();
-+	int val6 = test_set6();
-+
-+	CHECK_EQ(val32, 0);
-+	CHECK_EQ(val16, 0);
-+	CHECK_EQ(val8, 0);
-+	CHECK_EQ(val6, 0);
-+}
-+
-+void run_test_sub(struct kunit *test)
-+{
-+	int val64 = test_sub64();
-+	int val32 = test_sub32();
-+	int val16 = test_sub16();
-+	int val8 = test_sub8();
-+	int val6 = test_sub6();
-+
-+	CHECK_EQ(val64, 0);
-+	CHECK_EQ(val32, 0);
-+	CHECK_EQ(val16, 0);
-+	CHECK_EQ(val8, 0);
-+	CHECK_EQ(val6, 0);
-+}
-+
-+#ifdef CONFIG_AS_HAS_ULEB128
-+void run_test_uleb(struct kunit *test)
-+{
-+	int val_uleb = test_uleb_basic();
-+	int val_uleb2 = test_uleb_large();
-+
-+	CHECK_EQ(val_uleb, 0);
-+	CHECK_EQ(val_uleb2, 0);
-+}
-+#endif
-+
-+static struct kunit_case __refdata riscv_module_linking_test_cases[] = {
-+	KUNIT_CASE(run_test_set),
-+	KUNIT_CASE(run_test_sub),
-+#ifdef CONFIG_AS_HAS_ULEB128
-+	KUNIT_CASE(run_test_uleb),
-+#endif
-+	{}
-+};
-+
-+static struct kunit_suite riscv_module_linking_test_suite = {
-+	.name = "riscv_checksum",
-+	.test_cases = riscv_module_linking_test_cases,
-+};
-+
-+kunit_test_suites(&riscv_module_linking_test_suite);
-diff --git a/arch/riscv/kernel/tests/module_test/test_set16.S b/arch/riscv/kernel/tests/module_test/test_set16.S
-new file mode 100644
-index 000000000000..2be0e441a12e
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_set16.S
-@@ -0,0 +1,23 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+.text
-+.global test_set16
-+test_set16:
-+	lw	a0, set16
-+	la	t0, set16
-+#ifdef CONFIG_32BIT
-+	slli	t0, t0, 16
-+	srli	t0, t0, 16
-+#else
-+	slli	t0, t0, 48
-+	srli	t0, t0, 48
-+#endif
-+	sub	a0, a0, t0
-+	ret
-+.data
-+set16:
-+	.reloc set16, R_RISCV_SET16, set16
-+	.word 0
-diff --git a/arch/riscv/kernel/tests/module_test/test_set32.S b/arch/riscv/kernel/tests/module_test/test_set32.S
-new file mode 100644
-index 000000000000..de0444537e67
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_set32.S
-@@ -0,0 +1,20 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+.text
-+.global test_set32
-+test_set32:
-+	lw	a0, set32
-+	la	t0, set32
-+#ifndef CONFIG_32BIT
-+	slli	t0, t0, 32
-+	srli	t0, t0, 32
-+#endif
-+	sub	a0, a0, t0
-+	ret
-+.data
-+set32:
-+	.reloc set32, R_RISCV_SET32, set32
-+	.word 0
-diff --git a/arch/riscv/kernel/tests/module_test/test_set6.S b/arch/riscv/kernel/tests/module_test/test_set6.S
-new file mode 100644
-index 000000000000..c39ce4c219eb
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_set6.S
-@@ -0,0 +1,23 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+.text
-+.global test_set6
-+test_set6:
-+	lw	a0, set6
-+	la	t0, set6
-+#ifdef CONFIG_32BIT
-+	slli	t0, t0, 26
-+	srli	t0, t0, 26
-+#else
-+	slli	t0, t0, 58
-+	srli	t0, t0, 58
-+#endif
-+	sub	a0, a0, t0
-+	ret
-+.data
-+set6:
-+	.reloc set6, R_RISCV_SET6, set6
-+	.word 0
-diff --git a/arch/riscv/kernel/tests/module_test/test_set8.S b/arch/riscv/kernel/tests/module_test/test_set8.S
-new file mode 100644
-index 000000000000..a656173f6f99
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_set8.S
-@@ -0,0 +1,23 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+.text
-+.global test_set8
-+test_set8:
-+	lw	a0, set8
-+	la	t0, set8
-+#ifdef CONFIG_32BIT
-+	slli	t0, t0, 24
-+	srli	t0, t0, 24
-+#else
-+	slli	t0, t0, 56
-+	srli	t0, t0, 56
-+#endif
-+	sub	a0, a0, t0
-+	ret
-+.data
-+set8:
-+	.reloc set8, R_RISCV_SET8, set8
-+	.word 0
-diff --git a/arch/riscv/kernel/tests/module_test/test_sub16.S b/arch/riscv/kernel/tests/module_test/test_sub16.S
-new file mode 100644
-index 000000000000..80f731d599ba
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_sub16.S
-@@ -0,0 +1,20 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+.text
-+.global test_sub16
-+test_sub16:
-+	lh	a0, sub16
-+	addi	a0, a0, -32
-+	ret
-+first:
-+	.space 32
-+second:
-+
-+.data
-+sub16:
-+	.reloc		sub16, R_RISCV_ADD16, second
-+	.reloc		sub16, R_RISCV_SUB16, first
-+	.half		0
-diff --git a/arch/riscv/kernel/tests/module_test/test_sub32.S b/arch/riscv/kernel/tests/module_test/test_sub32.S
-new file mode 100644
-index 000000000000..a341686e12df
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_sub32.S
-@@ -0,0 +1,20 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+.text
-+.global test_sub32
-+test_sub32:
-+	lw	a0, sub32
-+	addi	a0, a0, -32
-+	ret
-+first:
-+	.space 32
-+second:
-+
-+.data
-+sub32:
-+	.reloc		sub32, R_RISCV_ADD32, second
-+	.reloc		sub32, R_RISCV_SUB32, first
-+	.word		0
-diff --git a/arch/riscv/kernel/tests/module_test/test_sub6.S b/arch/riscv/kernel/tests/module_test/test_sub6.S
-new file mode 100644
-index 000000000000..e8b61c1ec527
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_sub6.S
-@@ -0,0 +1,20 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+.text
-+.global test_sub6
-+test_sub6:
-+	lb	a0, sub6
-+	addi	a0, a0, -32
-+	ret
-+first:
-+	.space 32
-+second:
-+
-+.data
-+sub6:
-+	.reloc		sub6, R_RISCV_SET6, second
-+	.reloc		sub6, R_RISCV_SUB6, first
-+	.byte		0
-diff --git a/arch/riscv/kernel/tests/module_test/test_sub64.S b/arch/riscv/kernel/tests/module_test/test_sub64.S
-new file mode 100644
-index 000000000000..a59e8afa88fd
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_sub64.S
-@@ -0,0 +1,25 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+.text
-+.global test_sub64
-+test_sub64:
-+#ifdef CONFIG_32BIT
-+	lw	a0, sub64
-+#else
-+	ld	a0, sub64
-+#endif
-+	addi	a0, a0, -32
-+	ret
-+first:
-+	.space 32
-+second:
-+
-+.data
-+sub64:
-+	.reloc		sub64, R_RISCV_ADD64, second
-+	.reloc		sub64, R_RISCV_SUB64, first
-+	.word		0
-+	.word		0
-diff --git a/arch/riscv/kernel/tests/module_test/test_sub8.S b/arch/riscv/kernel/tests/module_test/test_sub8.S
-new file mode 100644
-index 000000000000..ac5d0ec98de3
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_sub8.S
-@@ -0,0 +1,20 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+.text
-+.global test_sub8
-+test_sub8:
-+	lb	a0, sub8
-+	addi	a0, a0, -32
-+	ret
-+first:
-+	.space 32
-+second:
-+
-+.data
-+sub8:
-+	.reloc		sub8, R_RISCV_ADD8, second
-+	.reloc		sub8, R_RISCV_SUB8, first
-+	.byte		0
-diff --git a/arch/riscv/kernel/tests/module_test/test_uleb128.S b/arch/riscv/kernel/tests/module_test/test_uleb128.S
-new file mode 100644
-index 000000000000..90f22049d553
---- /dev/null
-+++ b/arch/riscv/kernel/tests/module_test/test_uleb128.S
-@@ -0,0 +1,31 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Rivos Inc.
-+ */
-+
-+.text
-+.global test_uleb_basic
-+test_uleb_basic:
-+	ld	a0, second
-+	addi	a0, a0, -127
-+	ret
-+
-+.global test_uleb_large
-+test_uleb_large:
-+	ld	a0, fourth
-+	addi	a0, a0, -0x07e8
-+	ret
-+
-+.data
-+first:
-+	.space 127
-+second:
-+	.reloc second, R_RISCV_SET_ULEB128, second
-+	.reloc second, R_RISCV_SUB_ULEB128, first
-+	.dword 0
-+third:
-+	.space 1000
-+fourth:
-+	.reloc fourth, R_RISCV_SET_ULEB128, fourth
-+	.reloc fourth, R_RISCV_SUB_ULEB128, third
-+	.dword 0
-
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBPY3QgMzEsIDIwMjMgYXQgMjozNuKAr1BNIFNlYW4gQ2hyaXN0b3BoZXJzb24gPHNl
+YW5qY0Bnb29nbGUuY29tPiB3cm90ZToKPiBPbiBUdWUsIE9jdCAzMSwgMjAyMywgRGF2aWQgTWF0
+bGFjayB3cm90ZToKPiA+IE9uIDIwMjMtMTAtMjcgMTE6MjEgQU0sIFNlYW4gQ2hyaXN0b3BoZXJz
+b24gd3JvdGU6Cj4gPiA+IEludHJvZHVjZSBhbiBpb2N0bCgpLCBLVk1fQ1JFQVRFX0dVRVNUX01F
+TUZELCB0byBhbGxvdyBjcmVhdGluZyBmaWxlLWJhc2VkCj4gPiA+IG1lbW9yeSB0aGF0IGlzIHRp
+ZWQgdG8gYSBzcGVjaWZpYyBLVk0gdmlydHVhbCBtYWNoaW5lIGFuZCB3aG9zZSBwcmltYXJ5Cj4g
+PiA+IHB1cnBvc2UgaXMgdG8gc2VydmUgZ3Vlc3QgbWVtb3J5Lgo+Cj4gPiBNYXliZSBjYW4geW91
+IHNrZXRjaCBvdXQgaG93IHlvdSBzZWUgdGhpcyBwcm9wb3NhbCBiZWluZyBleHRlbnNpYmxlIHRv
+Cj4gPiB1c2luZyBndWVzdF9tZW1mZCBmb3Igc2hhcmVkIG1hcHBpbmdzPwo+Cj4gRm9yIGluLXBs
+YWNlIGNvbnZlcnNpb25zLCBlLmcuIHBLVk0sIG5vIGFkZGl0aW9uYWwgZ3Vlc3RfbWVtZmQgaXMg
+bmVlZGVkLiAgV2hhdCdzCj4gbWlzc2luZyB0aGVyZSBpcyB0aGUgYWJpbGl0eSB0byAoc2FmZWx5
+KSBtbWFwKCkgZ3Vlc3RfbWVtZmQsIGUuZy4gS1ZNIG5lZWRzIHRvCj4gZW5zdXJlIHRoZXJlIGFy
+ZSBubyBvdXRzdGFuZGluZyByZWZlcmVuY2VzIHdoZW4gY29udmVydGluZyBiYWNrIHRvIHByaXZh
+dGUuCj4KPiBGb3IgVERYL1NOUCwgYXNzdW1pbmcgd2UgZG9uJ3QgZmluZCBhIHBlcmZvcm1hbnQg
+YW5kIHJvYnVzdCB3YXkgdG8gZG8gaW4tcGxhY2UKPiBjb252ZXJzaW9ucywgYSBzZWNvbmQgZmQr
+b2Zmc2V0IHBhaXIgd291bGQgYmUgbmVlZGVkLgoKSXMgdGhlcmUgYSB3YXkgdG8gc3VwcG9ydCBu
+b24taW4tcGxhY2UgY29udmVyc2lvbnMgd2l0aGluIGEgc2luZ2xlIGd1ZXN0X21lbWZkPwoKX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
+bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
+LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
