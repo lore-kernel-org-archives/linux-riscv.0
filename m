@@ -4,77 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12DF1C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 06:36:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2B5AC4167D
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 07:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V+RxlNsBwNwuTDN+OQnooN8U+0qTZPYesI1D/b2XX70=; b=moBmE6A+IGko9u
-	0+T4VXukQq1fgJ+AxJL81gwFVYveYTmq0FiuqXmwyonyUkwaR0bN7+JyINFeC5yAr+ikmGUoOb3iF
-	6L+N6xSNTOd4U7FGcyjfI0VCsT+OkGoC+GakziF4RoLlpRrcEc4Hsguq1eiiXbUyg3GPTu4m3hf6+
-	Ma474AvRQqKFtUMZDDJAFslEOZaMkVO+2n89IDIptZbPV0Ial4a5EwmIwh8Ges873QQ7iwJ3/r1zU
-	XWPv61TE1lK2HqX2yLA5zISGq5Uqi4LuKwhjg8bxmY0dB8Qb8jFWhe7mWsIFMZPiWu/Kn++fSJJ6d
-	5gIA5Nk3P/YhmkynZNfg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=5KE7DOT1k+moMAiRMKWMRExkJ88QSm6Tprc938+kHas=; b=W9Av6933TwosI+
+	/pLHJ+LlhjCrnt2jh1Epsvaua2ShXsJtt6QlaNSPGpSacOZ4W/p49m04NPKekWznAQtunfhMcB9bi
+	jW3rA0b3WmHHFAlrJ73R0GbXyAdQrQeQ+GoRbziJz3bPvukRBXS4xWIJwNtzr9wYcRkXvmLjCuo6P
+	vlHJAyxcqsilqKOoPhHp8z+qLSaAl1tGtmSCCf9QwX0l7v+zXtKn4FGu804qSAq13StkR2Vn/jdDj
+	rsHmPw2EMZk1p44IrD7ISTD8QjR/pohNSTgWhukK9OUSnnniDmxRH5sbVnchCDIvHAOhn2KKbiP6Q
+	GPzxJCpE/ND84gfXEUNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxiMR-004dUz-0E;
-	Tue, 31 Oct 2023 06:36:23 +0000
-Received: from mgamail.intel.com ([192.55.52.43])
+	id 1qxj7Z-004gbx-2C;
+	Tue, 31 Oct 2023 07:25:05 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxiML-004dSy-2Y
+	id 1qxj7V-004gYt-0C
 	for linux-riscv@lists.infradead.org;
-	Tue, 31 Oct 2023 06:36:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1698734177; x=1730270177;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=LMdgacdpQJDId28m7gM38i/zIbwoCgHbYIHNsx+v+Dk=;
-  b=K+nMWgogbxea/4GXNVMu8hZiZe1Tyr1hvT+OO7rxvXlHh1yfQ1W1NMr5
-   eFV8/+1QMf9qc+Y+umpGW0+Z00oh+uTRPWZjANMB0CDwhS6lmDknn2cMK
-   l+y6uZvjkZ2hoiXUeNfU9SBex2i2m3zibB2Ha8fKmR1hLCrinqnGOiuXU
-   Pxt4FxwKCET7GUbRVi54p2ppBtbk9Sdmy660cql3lcWkkyoZkPvpSZze8
-   vgpfSPydhqrIPwiG6Rt3KmLmdByCbode7b3WhIVKaRl1ZtbhHP9r6HD6a
-   T/tOGP90GRTE6LOdW5OLfUsqsMlqt0j25SekmMvMlRkTKlRHzNv+UO7lE
-   g==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10879"; a="474463691"
-X-IronPort-AV: E=Sophos;i="6.03,265,1694761200"; 
-   d="scan'208";a="474463691"
-Received: from fmsmga005.fm.intel.com ([10.253.24.32])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2023 23:36:14 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10879"; a="1091896353"
-X-IronPort-AV: E=Sophos;i="6.03,265,1694761200"; 
-   d="scan'208";a="1091896353"
-Received: from xiao-desktop.sh.intel.com ([10.239.46.158])
-  by fmsmga005.fm.intel.com with ESMTP; 30 Oct 2023 23:36:10 -0700
-From: Xiao Wang <xiao.w.wang@intel.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	ardb@kernel.org
-Cc: anup@brainfault.org,
-	haicheng.li@intel.com,
-	ajones@ventanamicro.com,
-	yujie.liu@intel.com,
-	charlie@rivosinc.com,
-	linux-riscv@lists.infradead.org,
-	linux-efi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Xiao Wang <xiao.w.wang@intel.com>
-Subject: [PATCH v5 2/2] riscv: Optimize bitops with Zbb extension
-Date: Tue, 31 Oct 2023 14:45:53 +0800
-Message-Id: <20231031064553.2319688-3-xiao.w.wang@intel.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20231031064553.2319688-1-xiao.w.wang@intel.com>
-References: <20231031064553.2319688-1-xiao.w.wang@intel.com>
+	Tue, 31 Oct 2023 07:25:03 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1cc330e8f58so17822855ad.3
+        for <linux-riscv@lists.infradead.org>; Tue, 31 Oct 2023 00:24:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698737098; x=1699341898; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vhAhMlUaphHl5V7P6XcsEBHb1Aahpw8dSDQur0cX8zw=;
+        b=2RjDr/HAxhs5e7wd3c8Swj6K3eINGN+/VIktN7Fp+zioSsTSlk28ulHHxSiVrGcNc2
+         1PysVDfJL+MAQ8p3fTXPaI702jJcX/mlU2UY1UnUpnn1R7SSwcr+wdMjdIm/uDsuZ2lJ
+         XmDcvKHw4Tksm0alqSIPUzgaR0ryQlSqGM6O7uEBFnNOj9hXUseGcE0GqQ98iTRR9sZH
+         X1r5tlfZGYyCk9N87c3QMldHc1c2uEfh4nbqRaLsOT0/39jfJkEKFJ3uJ8qFlrXOtQih
+         zT4MMTRnnSuaouVuph8/stjWj0kXtNsMVXT61CK5zlX2Z3y25SK+xe06aP9y5kDyE35U
+         YYww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1698737098; x=1699341898;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vhAhMlUaphHl5V7P6XcsEBHb1Aahpw8dSDQur0cX8zw=;
+        b=Vtly53yAc+q67C5r0fzezwlQdBqKKMSduYvXK61lcB5P1G0jaJKnAa9oci6N7ds91m
+         p5JzRc3J7gSY9erCS3N5J/JC2dlBXasTe3sunsCADh/cyGW+SICYSHJ9ue8vtChDnYoi
+         9QFWe2/j87b6OSMc/iAZBiGyRtJByjbceWaAGebrSgCuWVX7ldOE6QnyChWkyks+4ro1
+         e5S0c6zJ2TbelNmFc37RxvS1bZIxfHDdLVDaj9+R3fYpSp9jzivd0V+PMTSPbagsYXJj
+         7WhqCHu0YHbZQdu9L/FVCHD3taeta0QB8SrssINFe0hc1OgvRWkK9WXtso3vn1SLXRpN
+         b+Pw==
+X-Gm-Message-State: AOJu0YxFQ+dvx5fu0vklLwyApUGFssa8g3x0A60oa1Wk1p9UuArUbR7I
+	v02/yeXwTeAOyr1f8rnmqvxKWQ==
+X-Google-Smtp-Source: AGHT+IGD/aZU9vUfXBx6ayFBL19n5/oM54mKqlA9X4PoucNNNDI8a+afCb9T5z81BufqYr+mzRHhMg==
+X-Received: by 2002:a17:902:ce8e:b0:1cc:636f:f38a with SMTP id f14-20020a170902ce8e00b001cc636ff38amr1759360plg.57.1698737098025;
+        Tue, 31 Oct 2023 00:24:58 -0700 (PDT)
+Received: from charlie.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id c4-20020a170902d90400b001c74876f018sm652575plz.18.2023.10.31.00.24.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 31 Oct 2023 00:24:57 -0700 (PDT)
+From: Charlie Jenkins <charlie@rivosinc.com>
+Subject: [PATCH v7 0/3] riscv: Add remaining module relocations and tests
+Date: Tue, 31 Oct 2023 00:24:49 -0700
+Message-Id: <20231031-module_relocations-v7-0-6f4719b64bf7@rivosinc.com>
 MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAMGrQGUC/23QwWoEIQwG4FdZPNeiRuPaU9+jlDKjsSvsjkW30
+ rLMu9dZShmKxz8kX0JurFJJVNnT4cYKtVRTXnqwDwfmT9PyTjyFnpkSCoQTR37J4fNMb4XO2U/
+ X3l15RPAU0Mg5WNYHPwrF9HVHX157PqV6zeX7vqPJrfrLSRhxTXLB5xnCUaMl6+C5pJZrWvyjz
+ xe2iU39KVIIHCqqK9oaRG0gUvADBXaKHCvQlQnRxoDCSnIDRe8VO1R0VxzYaCiCxCgGitkrwzc
+ 305UQiUAFHaIf/QX3ihsquN2irUJCrUHJf8q6rj/THr9CFQIAAA==
+To: linux-riscv@lists.infradead.org, linux-mm@kvack.org, 
+ linux-kernel@vger.kernel.org
+Cc: Eric Biederman <ebiederm@xmission.com>, 
+ Kees Cook <keescook@chromium.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Andreas Schwab <schwab@linux-m68k.org>, 
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Nelson Chu <nelson@rivosinc.com>, Charlie Jenkins <charlie@rivosinc.com>, 
+ Emil Renner Berthing <kernel@esmil.dk>
+X-Mailer: b4 0.12.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231030_233617_839255_46D01229 
-X-CRM114-Status: GOOD (  18.77  )
+X-CRM114-CacheID: sfid-20231031_002501_370985_FB14A3F2 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,313 +101,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch leverages the alternative mechanism to dynamically optimize
-bitops (including __ffs, __fls, ffs, fls) with Zbb instructions. When
-Zbb ext is not supported by the runtime CPU, legacy implementation is
-used. If Zbb is supported, then the optimized variants will be selected
-via alternative patching.
+A handful of module relocations were missing, this patch includes the
+remaining ones. I also wrote some test cases to ensure that module
+loading works properly. Some relocations cannot be supported in the
+kernel, these include the ones that rely on thread local storage and
+dynamic linking.
 
-The legacy bitops support is taken from the generic C implementation as
-fallback.
+This patch also overhauls the implementation of ADD/SUB/SET/ULEB128
+relocations to handle overflow. "Overflow" is different for ULEB128
+since it is a variable-length encoding that the compiler can be expected
+to generate enough space for. Instead of overflowing, ULEB128 will
+expand into the next 8-bit segment of the location.
 
-If the parameter is a build-time constant, we leverage compiler builtin to
-calculate the result directly, this approach is inspired by x86 bitops
-implementation.
+A psABI proposal [1] was merged that mandates that SET_ULEB128 and
+SUB_ULEB128 are paired, however the discussion following the merging of
+the pull request revealed that while the pull request was valid, it
+would be better for linkers to properly handle this overflow. This patch
+proactively implements this methodology for future compatibility.
 
-EFI stub runs before the kernel, so alternative mechanism should not be
-used there, this patch introduces a macro NO_ALTERNATIVE for this purpose.
+This can be tested by enabling KUNIT, RUNTIME_KERNEL_TESTING_MENU, and
+RISCV_MODULE_LINKING_KUNIT.
 
-Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+[1] https://github.com/riscv-non-isa/riscv-elf-psabi-doc/pull/403
+
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- arch/riscv/include/asm/bitops.h       | 254 +++++++++++++++++++++++++-
- drivers/firmware/efi/libstub/Makefile |   2 +-
- 2 files changed, 252 insertions(+), 4 deletions(-)
+Changes in v7:
+- Overhaul ADD/SUB/SET/ULEB128 relocations
+- Fix ULEB128 so it produces correct values when more than 1 byte is
+  needed
+- Link to v6: https://lore.kernel.org/r/20231019-module_relocations-v6-0-94726e644321@rivosinc.com
 
-diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
-index 3540b690944b..b212c2708cda 100644
---- a/arch/riscv/include/asm/bitops.h
-+++ b/arch/riscv/include/asm/bitops.h
-@@ -15,13 +15,261 @@
- #include <asm/barrier.h>
- #include <asm/bitsperlong.h>
- 
-+#if !defined(CONFIG_RISCV_ISA_ZBB) || defined(NO_ALTERNATIVE)
- #include <asm-generic/bitops/__ffs.h>
--#include <asm-generic/bitops/ffz.h>
--#include <asm-generic/bitops/fls.h>
- #include <asm-generic/bitops/__fls.h>
-+#include <asm-generic/bitops/ffs.h>
-+#include <asm-generic/bitops/fls.h>
-+
-+#else
-+#include <asm/alternative-macros.h>
-+#include <asm/hwcap.h>
-+
-+#if (BITS_PER_LONG == 64)
-+#define CTZW	"ctzw "
-+#define CLZW	"clzw "
-+#elif (BITS_PER_LONG == 32)
-+#define CTZW	"ctz "
-+#define CLZW	"clz "
-+#else
-+#error "Unexpected BITS_PER_LONG"
-+#endif
-+
-+static __always_inline unsigned long variable__ffs(unsigned long word)
-+{
-+	int num;
-+
-+	asm_volatile_goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
-+				      RISCV_ISA_EXT_ZBB, 1)
-+			  : : : : legacy);
-+
-+	asm volatile (".option push\n"
-+		      ".option arch,+zbb\n"
-+		      "ctz %0, %1\n"
-+		      ".option pop\n"
-+		      : "=r" (word) : "r" (word) :);
-+
-+	return word;
-+
-+legacy:
-+	num = 0;
-+#if BITS_PER_LONG == 64
-+	if ((word & 0xffffffff) == 0) {
-+		num += 32;
-+		word >>= 32;
-+	}
-+#endif
-+	if ((word & 0xffff) == 0) {
-+		num += 16;
-+		word >>= 16;
-+	}
-+	if ((word & 0xff) == 0) {
-+		num += 8;
-+		word >>= 8;
-+	}
-+	if ((word & 0xf) == 0) {
-+		num += 4;
-+		word >>= 4;
-+	}
-+	if ((word & 0x3) == 0) {
-+		num += 2;
-+		word >>= 2;
-+	}
-+	if ((word & 0x1) == 0)
-+		num += 1;
-+	return num;
-+}
-+
-+/**
-+ * __ffs - find first set bit in a long word
-+ * @word: The word to search
-+ *
-+ * Undefined if no set bit exists, so code should check against 0 first.
-+ */
-+#define __ffs(word)				\
-+	(__builtin_constant_p(word) ?		\
-+	 (unsigned long)__builtin_ctzl(word) :	\
-+	 variable__ffs(word))
-+
-+static __always_inline unsigned long variable__fls(unsigned long word)
-+{
-+	int num;
-+
-+	asm_volatile_goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
-+				      RISCV_ISA_EXT_ZBB, 1)
-+			  : : : : legacy);
-+
-+	asm volatile (".option push\n"
-+		      ".option arch,+zbb\n"
-+		      "clz %0, %1\n"
-+		      ".option pop\n"
-+		      : "=r" (word) : "r" (word) :);
-+
-+	return BITS_PER_LONG - 1 - word;
-+
-+legacy:
-+	num = BITS_PER_LONG - 1;
-+#if BITS_PER_LONG == 64
-+	if (!(word & (~0ul << 32))) {
-+		num -= 32;
-+		word <<= 32;
-+	}
-+#endif
-+	if (!(word & (~0ul << (BITS_PER_LONG - 16)))) {
-+		num -= 16;
-+		word <<= 16;
-+	}
-+	if (!(word & (~0ul << (BITS_PER_LONG - 8)))) {
-+		num -= 8;
-+		word <<= 8;
-+	}
-+	if (!(word & (~0ul << (BITS_PER_LONG - 4)))) {
-+		num -= 4;
-+		word <<= 4;
-+	}
-+	if (!(word & (~0ul << (BITS_PER_LONG - 2)))) {
-+		num -= 2;
-+		word <<= 2;
-+	}
-+	if (!(word & (~0ul << (BITS_PER_LONG - 1))))
-+		num -= 1;
-+	return num;
-+}
-+
-+/**
-+ * __fls - find last set bit in a long word
-+ * @word: the word to search
-+ *
-+ * Undefined if no set bit exists, so code should check against 0 first.
-+ */
-+#define __fls(word)							\
-+	(__builtin_constant_p(word) ?					\
-+	 (unsigned long)(BITS_PER_LONG - 1 - __builtin_clzl(word)) :	\
-+	 variable__fls(word))
-+
-+static __always_inline int variable_ffs(int x)
-+{
-+	int r;
-+
-+	if (!x)
-+		return 0;
-+
-+	asm_volatile_goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
-+				      RISCV_ISA_EXT_ZBB, 1)
-+			  : : : : legacy);
-+
-+	asm volatile (".option push\n"
-+		      ".option arch,+zbb\n"
-+		      CTZW "%0, %1\n"
-+		      ".option pop\n"
-+		      : "=r" (r) : "r" (x) :);
-+
-+	return r + 1;
-+
-+legacy:
-+	r = 1;
-+	if (!(x & 0xffff)) {
-+		x >>= 16;
-+		r += 16;
-+	}
-+	if (!(x & 0xff)) {
-+		x >>= 8;
-+		r += 8;
-+	}
-+	if (!(x & 0xf)) {
-+		x >>= 4;
-+		r += 4;
-+	}
-+	if (!(x & 3)) {
-+		x >>= 2;
-+		r += 2;
-+	}
-+	if (!(x & 1)) {
-+		x >>= 1;
-+		r += 1;
-+	}
-+	return r;
-+}
-+
-+/**
-+ * ffs - find first set bit in a word
-+ * @x: the word to search
-+ *
-+ * This is defined the same way as the libc and compiler builtin ffs routines.
-+ *
-+ * ffs(value) returns 0 if value is 0 or the position of the first set bit if
-+ * value is nonzero. The first (least significant) bit is at position 1.
-+ */
-+#define ffs(x) (__builtin_constant_p(x) ? __builtin_ffs(x) : variable_ffs(x))
-+
-+static __always_inline int variable_fls(unsigned int x)
-+{
-+	int r;
-+
-+	if (!x)
-+		return 0;
-+
-+	asm_volatile_goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
-+				      RISCV_ISA_EXT_ZBB, 1)
-+			  : : : : legacy);
-+
-+	asm volatile (".option push\n"
-+		      ".option arch,+zbb\n"
-+		      CLZW "%0, %1\n"
-+		      ".option pop\n"
-+		      : "=r" (r) : "r" (x) :);
-+
-+	return 32 - r;
-+
-+legacy:
-+	r = 32;
-+	if (!(x & 0xffff0000u)) {
-+		x <<= 16;
-+		r -= 16;
-+	}
-+	if (!(x & 0xff000000u)) {
-+		x <<= 8;
-+		r -= 8;
-+	}
-+	if (!(x & 0xf0000000u)) {
-+		x <<= 4;
-+		r -= 4;
-+	}
-+	if (!(x & 0xc0000000u)) {
-+		x <<= 2;
-+		r -= 2;
-+	}
-+	if (!(x & 0x80000000u)) {
-+		x <<= 1;
-+		r -= 1;
-+	}
-+	return r;
-+}
-+
-+/**
-+ * fls - find last set bit in a word
-+ * @x: the word to search
-+ *
-+ * This is defined in a similar way as ffs, but returns the position of the most
-+ * significant set bit.
-+ *
-+ * fls(value) returns 0 if value is 0 or the position of the last set bit if
-+ * value is nonzero. The last (most significant) bit is at position 32.
-+ */
-+#define fls(x)							\
-+({								\
-+	typeof(x) x_ = (x);					\
-+	__builtin_constant_p(x_) ?				\
-+	 (int)((x_ != 0) ? (32 - __builtin_clz(x_)) : 0)	\
-+	 :							\
-+	 variable_fls(x_);					\
-+})
-+
-+#endif /* !defined(CONFIG_RISCV_ISA_ZBB) || defined(NO_ALTERNATIVE) */
-+
-+#include <asm-generic/bitops/ffz.h>
- #include <asm-generic/bitops/fls64.h>
- #include <asm-generic/bitops/sched.h>
--#include <asm-generic/bitops/ffs.h>
- 
- #include <asm-generic/bitops/hweight.h>
- 
-diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-index a1157c2a7170..d68cacd4e3af 100644
---- a/drivers/firmware/efi/libstub/Makefile
-+++ b/drivers/firmware/efi/libstub/Makefile
-@@ -28,7 +28,7 @@ cflags-$(CONFIG_ARM)		+= -DEFI_HAVE_STRLEN -DEFI_HAVE_STRNLEN \
- 				   -DEFI_HAVE_MEMCHR -DEFI_HAVE_STRRCHR \
- 				   -DEFI_HAVE_STRCMP -fno-builtin -fpic \
- 				   $(call cc-option,-mno-single-pic-base)
--cflags-$(CONFIG_RISCV)		+= -fpic
-+cflags-$(CONFIG_RISCV)		+= -fpic -DNO_ALTERNATIVE
- cflags-$(CONFIG_LOONGARCH)	+= -fpie
- 
- cflags-$(CONFIG_EFI_PARAMS_FROM_FDT)	+= -I$(srctree)/scripts/dtc/libfdt
+Changes in v6:
+- Use (void *) instead of (u32 *) for handler type
+- Constrain ULEB128 to be consecutive relocations
+- Link to v5: https://lore.kernel.org/r/20231018-module_relocations-v5-0-dfee32d4dfc3@rivosinc.com
+
+Changes in v5:
+- Brought in patch by Emil and fixed it up to force little endian
+- Fixed up issues with apply_r_riscv_32_pcrel_rela and
+  apply_r_riscv_plt32_rela (Samuel)
+- Added u8 cast in apply_r_riscv_sub6_rela (Andreas) 
+- Link to v4: https://lore.kernel.org/r/20231017-module_relocations-v4-0-937f5ef316f0@rivosinc.com
+
+Changes in v4:
+- Complete removal of R_RISCV_RVC_LUI
+- Fix bug in R_RISCV_SUB6 linking
+- Only build ULEB128 tests if supported by toolchain
+- Link to v3: https://lore.kernel.org/r/20231016-module_relocations-v3-0-a667fd6071e9@rivosinc.com
+
+Changes in v3:
+- Add prototypes to test_module_linking_main as recommended by intel
+  zero day bot
+- Improve efficiency of ULEB128 pair matching
+- Link to v2: https://lore.kernel.org/r/20231006-module_relocations-v2-0-47566453fedc@rivosinc.com
+
+Changes in v2:
+- Added ULEB128 relocations
+- Link to v1: https://lore.kernel.org/r/20230913-module_relocations-v1-0-bb3d8467e793@rivosinc.com
+
+---
+Charlie Jenkins (2):
+      riscv: Add remaining module relocations
+      riscv: Add tests for riscv module loading
+
+Emil Renner Berthing (1):
+      riscv: Avoid unaligned access when relocating modules
+
+ arch/riscv/Kconfig.debug                           |   1 +
+ arch/riscv/include/uapi/asm/elf.h                  |   5 +-
+ arch/riscv/kernel/Makefile                         |   1 +
+ arch/riscv/kernel/module.c                         | 685 ++++++++++++++++++---
+ arch/riscv/kernel/tests/Kconfig.debug              |  35 ++
+ arch/riscv/kernel/tests/Makefile                   |   1 +
+ arch/riscv/kernel/tests/module_test/Makefile       |  15 +
+ .../tests/module_test/test_module_linking_main.c   |  88 +++
+ arch/riscv/kernel/tests/module_test/test_set16.S   |  23 +
+ arch/riscv/kernel/tests/module_test/test_set32.S   |  20 +
+ arch/riscv/kernel/tests/module_test/test_set6.S    |  23 +
+ arch/riscv/kernel/tests/module_test/test_set8.S    |  23 +
+ arch/riscv/kernel/tests/module_test/test_sub16.S   |  22 +
+ arch/riscv/kernel/tests/module_test/test_sub32.S   |  22 +
+ arch/riscv/kernel/tests/module_test/test_sub6.S    |  22 +
+ arch/riscv/kernel/tests/module_test/test_sub64.S   |  27 +
+ arch/riscv/kernel/tests/module_test/test_sub8.S    |  22 +
+ arch/riscv/kernel/tests/module_test/test_uleb128.S |  31 +
+ 18 files changed, 963 insertions(+), 103 deletions(-)
+---
+base-commit: 3bcce01fcbcd868b8cf3a5632fde283e122d7213
+change-id: 20230908-module_relocations-f63ced651bd7
 -- 
-2.25.1
+- Charlie
 
 
 _______________________________________________
