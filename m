@@ -4,89 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B38C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 02:02:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6657C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 02:17:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:
+	Date:In-Reply-To:From:Subject:Mime-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3IStFFO3JsBJRR/8rIcsm91wOdnu/KevaGmQlvot3Lw=; b=H91unkFVvYjwFX
-	RWIuUhDktC5V6OC8oRjw79580bemA85gK7hev4qI1JsIQYm4bTAVFJbECZju2eJaW4GKdYZX45DY9
-	yrGi5iMwywkqb3RgIiT5ENgveZY4cCltApJnbrcvgEvuQXM9+zSE4ydj16vnMG74TfMPcLW2YBvyS
-	1JpzmbJar6acuwvGqGH+tT0ZM23O0xnTJJem++Wgd+854l3o/lW7N3/2HvbIHFeHOepDNRR5ccKTC
-	vkRnunnigedUcJayeuvlSC1V2tvhMCZEAy1hzGsuwG76WA81oy9X1pLC4kSAvbRLRrBuzIMkrCFKE
-	a6h3tEYiDMUvyteq3FhA==;
+	List-Owner; bh=RPrd04Lsf9Ku13R9FyX6B8/Dk/TN/P/Ve5EiXeZO1f4=; b=mcKVQJbb+GZUT9
+	vPRK0VAxnzqRbJkI3FtRWaVGRTHNCgybcIGQ0hOkr8D7psQahOEVdnDKFhscRLjnIUVFlrU9ujUDK
+	eCtcG/SC8xyOb6s18+TPCmPgGo9V6ZBKkZ1JfNZVHqqFzph8Ims+fdnUefPtDtnPkgW7XJ9nMG0bU
+	bGoxuh2AX5bQE75g5JoDEnVdQMoiSJLkYbP3uM5XLmt3SwDa0+rHPBQjIcHH7PeNHY4oyFiJnY9Ja
+	POEKdPGqIE/V5L0ciAKgtgWVzfNKixgadpVbVud9FJsItN8Rm8aeX6jtEnBXR+M+7aAau49psP45B
+	FOYlESljuPp09uDD/ltQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxe58-004OLQ-1J;
-	Tue, 31 Oct 2023 02:02:14 +0000
-Received: from mail-ot1-x32d.google.com ([2607:f8b0:4864:20::32d])
+	id 1qxeJm-004Pcv-33;
+	Tue, 31 Oct 2023 02:17:22 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxe54-004OKk-2J
+	id 1qxeJk-004PcY-12
 	for linux-riscv@lists.infradead.org;
-	Tue, 31 Oct 2023 02:02:13 +0000
-Received: by mail-ot1-x32d.google.com with SMTP id 46e09a7af769-6ce322b62aeso3296420a34.3
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Oct 2023 19:02:08 -0700 (PDT)
+	Tue, 31 Oct 2023 02:17:21 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-28094a3b760so655728a91.3
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Oct 2023 19:17:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698717727; x=1699322527; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=yszt55EnKWGxg6KcB1UQhlAo9GCdqqf2M9pNnFPrkT0=;
-        b=bWlMUpV3oXMGGhUCWpzgZZSP6OxL2MhAdgLUXerd+8gt5xDfdOeD4jKcKF+O2avXBf
-         bFEV+6AnPWinPLQBrglSudbaq6r0J2pS1pt2kaYsRcs6Dbab7X9/4BfZL13gUgi0EzLw
-         m+mPn8arPm5mnDw3XsLO92Zg6F17iMEfmEvfuDP1D65nZX2CIQK2XHSPwCH+3wvUZmau
-         9cvluv8v2bg4dNDMKk5TAUbrIB63667m3u7TRyyNScKdB9P6JhoaiTv5IWJa1FMxOcyk
-         T+VNIRa6mSKDAsDHwUCYjY1fQCC3SsViXmtrktL+0g0anVzIxk2h/En0hqMg+sksXHDU
-         /qEA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698717727; x=1699322527;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=sifive.com; s=google; t=1698718639; x=1699323439; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:reply-to:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=yszt55EnKWGxg6KcB1UQhlAo9GCdqqf2M9pNnFPrkT0=;
-        b=AIR+/4vvzAog5eNGC9fh4S8LvIu/+i1UiNDLcPomBgm+1505KG270Xzo2cPTxdIzyi
-         J9PSn3tAFCF6DaRf7kOypB8hjbWd1wxdqno8OtbJDQBCzT3SOjDIKIfwirupNZgNrNu8
-         gL7N+7T0IjJSj6LS6Bejf2k/nF7WxiSlVDAmu3d9+m7YTKkgWk6RQU+J48D6zLkcJatw
-         kmNsJtG+TW+0TpKO6QcsANgL49fuWv+c38tU3SSag9ci/veI97Ruq7Hsub/BX+8HFfnL
-         t0iadAC1UiBa6nv7O7Iq64VVubULPFWFGQrbgemX0yuQlu0/Wd60KtNqqWuveigZ3xzZ
-         73rA==
-X-Gm-Message-State: AOJu0Yy3cNz5E5c1xfbD6xhvH373mA2tisTw74fJgn8/xcXcVhUN0Gj0
-	Xh8efxEXLFkYJIt96dm/UJSzCQ==
-X-Google-Smtp-Source: AGHT+IGK4VqWQMIzgkqfs2IclS4XLKer/QWMyoOJ9G9Uw/cvi3bkXdHizNw68b2feXrKwcFFmIHdgQ==
-X-Received: by 2002:a9d:7d0c:0:b0:6b7:52ce:ff38 with SMTP id v12-20020a9d7d0c000000b006b752ceff38mr11470032otn.16.1698717727674;
-        Mon, 30 Oct 2023 19:02:07 -0700 (PDT)
-Received: from ghost ([2601:647:5700:6860:f2bd:1ee:3a71:49a])
-        by smtp.gmail.com with ESMTPSA id d4-20020a05683025c400b006c7c1868b05sm59121otu.50.2023.10.30.19.02.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Oct 2023 19:02:07 -0700 (PDT)
-Date: Mon, 30 Oct 2023 19:02:04 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: "Wang, Xiao W" <xiao.w.wang@intel.com>
-Cc: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"ardb@kernel.org" <ardb@kernel.org>,
-	"anup@brainfault.org" <anup@brainfault.org>,
-	"Li, Haicheng" <haicheng.li@intel.com>,
-	"ajones@ventanamicro.com" <ajones@ventanamicro.com>,
-	"Liu, Yujie" <yujie.liu@intel.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-efi@vger.kernel.org" <linux-efi@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 2/2] riscv: Optimize bitops with Zbb extension
-Message-ID: <ZUBgHC1GBm/Jg+cy@ghost>
-References: <20231030063904.2116277-1-xiao.w.wang@intel.com>
- <20231030063904.2116277-3-xiao.w.wang@intel.com>
- <ZUAT5gKXM+pU6r3w@ghost>
- <DM8PR11MB5751DE93BE278FF01576E5A5B8A0A@DM8PR11MB5751.namprd11.prod.outlook.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <DM8PR11MB5751DE93BE278FF01576E5A5B8A0A@DM8PR11MB5751.namprd11.prod.outlook.com>
+        bh=2FYXELKOgFv1uqwcp59pbFz1ZZ95RxWQk/gFtrN2AhA=;
+        b=MoBMmC7Ca9GJbFhHUhiNDMnc7tp8274Q0mb0sk1spc6q0dp71JYjNXvmherxEOCxYx
+         Wi9F7D1UMz0rtBjtOCn2DtpAcgs03BxbYVZT3gVjx3qow/LiO78548lAqwZEAqFLQ5Lg
+         Ke5TASFQgTMAoZdKc3XItfT4F4YLB+7LK0vNaP0Hge5NRC/nUc+0jzRKXm6eBhW/SUN3
+         ti3MkZDO0cF+PABdYS52p3l4qsNYvsiNMXDD9oh9S8gxOaJkbainy+EdrhXIScya2dx4
+         4LxhD5Zx6ssOrp7b/4OYwWB/iedxs8EIyrEVvjo5xMcrdlwhYww4PWizwC+176L708gw
+         0Diw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1698718639; x=1699323439;
+        h=to:references:message-id:content-transfer-encoding:reply-to:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2FYXELKOgFv1uqwcp59pbFz1ZZ95RxWQk/gFtrN2AhA=;
+        b=RKA6Tg2XOUC6+qO2+ejQGD5fVMsFEzZaoMSxiS4U/5kBnkSXty4sTvAVWnH+RwbBZj
+         U5ed6ncG+UuMHfB0Ms5yDMwmirrSaeD7yIaAbGsCZackFOlPW515zetgcBVtDjshPxBg
+         lbKquMvAwUROlCP57o8Y5BmCDIo22jTQNKoXBfrpOodC6XPkTLOLM6JhqIQs5ta/ofGJ
+         0SIspuaTNxyqmu2Lj4B3C4joN2y0ccKMiujbQQ9B6gCdwGozEfyH/Ca0DDWw8p/rF8xA
+         F6N9/9CX/Ab15bUeCwsiGPw/HMGSW/0fqBIyJD5rZZnr5Pl0pX57RDBmO9aRlU7PjH56
+         G74w==
+X-Gm-Message-State: AOJu0YyijsIEhwPvL9i0inhE6BCZPbbXLjBVyEMq/n6hVVwNm48VLZcP
+	rLHZXMQrmAgMMSIg3tJbZcODzEoNOnO9uhdRTyJIIA==
+X-Google-Smtp-Source: AGHT+IGJ28lY1cTChUE7onXf43JzC58/5Bp1fU+0G9i9fxk6B9LmIgoCIzVyIkzsla7jJzZ+dWFUiw==
+X-Received: by 2002:a17:90a:7:b0:27c:fdc6:c52 with SMTP id 7-20020a17090a000700b0027cfdc60c52mr8199049pja.30.1698718638711;
+        Mon, 30 Oct 2023 19:17:18 -0700 (PDT)
+Received: from ?IPv6:2402:7500:5d5:c8ac:c44a:458:311d:fb2c? ([2402:7500:5d5:c8ac:c44a:458:311d:fb2c])
+        by smtp.gmail.com with ESMTPSA id gq9-20020a17090b104900b002609cadc56esm133548pjb.11.2023.10.30.19.17.13
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 30 Oct 2023 19:17:16 -0700 (PDT)
+Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.7\))
+Subject: Re: [PATCH v4 00/12] RISC-V: support some cryptography accelerations
+From: Jerry Shih <jerry.shih@sifive.com>
+In-Reply-To: <20231006194741.GA68531@google.com>
+Date: Tue, 31 Oct 2023 10:17:11 +0800
+Cc: Charlie Jenkins <charlie@rivosinc.com>,
+ Heiko Stuebner <heiko@sntech.de>,
+ palmer@dabbelt.com,
+ paul.walmsley@sifive.com,
+ aou@eecs.berkeley.edu,
+ herbert@gondor.apana.org.au,
+ davem@davemloft.net,
+ conor.dooley@microchip.com,
+ linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ linux-crypto@vger.kernel.org,
+ christoph.muellner@vrull.eu,
+ Heiko Stuebner <heiko.stuebner@vrull.eu>
+Message-Id: <AB98E114-A8DE-492E-B078-7394EE4FA83E@sifive.com>
+References: <20230711153743.1970625-1-heiko@sntech.de>
+ <20230914001144.GA924@sol.localdomain> <ZQJdnCwf99Glggin@ghost>
+ <3A0F6A71-C521-44A5-A56C-076AF3E13897@gmail.com>
+ <DD3113B1-AB9F-4D6D-BD6E-8F75A83DA45D@sifive.com>
+ <20231006194741.GA68531@google.com>
+To: Eric Biggers <ebiggers@kernel.org>
+X-Mailer: Apple Mail (2.3445.9.7)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231030_190210_975428_0AE3DC02 
-X-CRM114-Status: GOOD (  42.53  )
+X-CRM114-CacheID: sfid-20231030_191720_402727_D3CA8414 
+X-CRM114-Status: GOOD (  16.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,393 +102,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: 20231006194741.GA68531@google.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 31, 2023 at 01:53:55AM +0000, Wang, Xiao W wrote:
+On Oct 7, 2023, at 03:47, Eric Biggers <ebiggers@kernel.org> wrote:
+> On Fri, Sep 15, 2023 at 11:21:28AM +0800, Jerry Shih wrote:
+>> On Sep 15, 2023, at 09:48, He-Jie Shih <bignose1007@gmail.com> wrote:
+>> 
+>> The OpenSSL PR is at [1].
+>> And we are from SiFive.
+>> 
+>> -Jerry
+>> 
+>> [1]
+>> https://github.com/openssl/openssl/pull/21923
 > 
-> 
-> > -----Original Message-----
-> > From: Charlie Jenkins <charlie@rivosinc.com>
-> > Sent: Tuesday, October 31, 2023 4:37 AM
-> > To: Wang, Xiao W <xiao.w.wang@intel.com>
-> > Cc: paul.walmsley@sifive.com; palmer@dabbelt.com;
-> > aou@eecs.berkeley.edu; ardb@kernel.org; anup@brainfault.org; Li, Haicheng
-> > <haicheng.li@intel.com>; ajones@ventanamicro.com; Liu, Yujie
-> > <yujie.liu@intel.com>; linux-riscv@lists.infradead.org; linux-
-> > efi@vger.kernel.org; linux-kernel@vger.kernel.org
-> > Subject: Re: [PATCH v4 2/2] riscv: Optimize bitops with Zbb extension
-> > 
-> > On Mon, Oct 30, 2023 at 02:39:04PM +0800, Xiao Wang wrote:
-> > > This patch leverages the alternative mechanism to dynamically optimize
-> > > bitops (including __ffs, __fls, ffs, fls) with Zbb instructions. When
-> > > Zbb ext is not supported by the runtime CPU, legacy implementation is
-> > > used. If Zbb is supported, then the optimized variants will be selected
-> > > via alternative patching.
-> > >
-> > > The legacy bitops support is taken from the generic C implementation as
-> > > fallback.
-> > >
-> > > If the parameter is a build-time constant, we leverage compiler builtin to
-> > > calculate the result directly, this approach is inspired by x86 bitops
-> > > implementation.
-> > >
-> > > EFI stub runs before the kernel, so alternative mechanism should not be
-> > > used there, this patch introduces a macro NO_ALTERNATIVE for this
-> > purpose.
-> > >
-> > > Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
-> > > ---
-> > >  arch/riscv/include/asm/bitops.h       | 255 +++++++++++++++++++++++++-
-> > >  drivers/bitopstest/Kconfig            |   1 +
-> > >  drivers/firmware/efi/libstub/Makefile |   2 +-
-> > >  3 files changed, 254 insertions(+), 4 deletions(-)
-> > >
-> > > diff --git a/arch/riscv/include/asm/bitops.h
-> > b/arch/riscv/include/asm/bitops.h
-> > > index 3540b690944b..ef35c9ebc2ed 100644
-> > > --- a/arch/riscv/include/asm/bitops.h
-> > > +++ b/arch/riscv/include/asm/bitops.h
-> > > @@ -15,13 +15,262 @@
-> > >  #include <asm/barrier.h>
-> > >  #include <asm/bitsperlong.h>
-> > >
-> > > +#if !defined(CONFIG_RISCV_ISA_ZBB) || defined(NO_ALTERNATIVE)
-> > >  #include <asm-generic/bitops/__ffs.h>
-> > > -#include <asm-generic/bitops/ffz.h>
-> > > -#include <asm-generic/bitops/fls.h>
-> > >  #include <asm-generic/bitops/__fls.h>
-> > > +#include <asm-generic/bitops/ffs.h>
-> > > +#include <asm-generic/bitops/fls.h>
-> > > +
-> > > +#else
-> > > +#include <asm/alternative-macros.h>
-> > > +#include <asm/hwcap.h>
-> > > +
-> > > +#if (BITS_PER_LONG == 64)
-> > > +#define CTZW	"ctzw "
-> > > +#define CLZW	"clzw "
-> > > +#elif (BITS_PER_LONG == 32)
-> > > +#define CTZW	"ctz "
-> > > +#define CLZW	"clz "
-> > > +#else
-> > > +#error "Unexpected BITS_PER_LONG"
-> > > +#endif
-> > > +
-> > > +static __always_inline unsigned long variable__ffs(unsigned long word)
-> > > +{
-> > > +	int num;
-> > > +
-> > > +	asm_volatile_goto(
-> > > +		ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
-> > > +		: : : : legacy);
-> > > +
-> > 
-> > On this and following asm blocks, checkpatch outputs:  "Lines should not
-> > end with a '('".
-> 
-> I did below check, but I got no warning.
-> # ./scripts/checkpatch.pl v4-0002-riscv-Optimize-bitops-with-Zbb-extension.patch
-> total: 0 errors, 0 warnings, 280 lines checked
-> May I know how you do the check?
-> BTW, I see arch/riscv/include/asm/jump_label.h and arch/riscv/include/asm/cpufeature.h have similar code.
+> Hi Jerry, I'm wondering if you have an update on this?  Do you need any help?
 
-I normally use the --strict flag since that is what the Patchwork server
-uses.
+The RISC-V vector crypto OpenSSL pr[1] is merged.
+And we also sent the vector-crypto patch based on Heiko's and OpenSSL
+works.
+Here is the link:
+https://lore.kernel.org/all/20231025183644.8735-1-jerry.shih@sifive.com/
 
-> 
-> > 
-> > > +	asm volatile (
-> > > +		".option push\n"
-> > > +		".option arch,+zbb\n"
-> > > +		"ctz %0, %1\n"
-> > > +		".option pop\n"
-> > > +		: "=r" (word) : "r" (word) :);
-> > > +
-> > > +	return word;
-> > > +
-> > > +legacy:
-> > > +	num = 0;
-> > > +#if BITS_PER_LONG == 64
-> > > +	if ((word & 0xffffffff) == 0) {
-> > > +		num += 32;
-> > > +		word >>= 32;
-> > > +	}
-> > > +#endif
-> > > +	if ((word & 0xffff) == 0) {
-> > > +		num += 16;
-> > > +		word >>= 16;
-> > > +	}
-> > > +	if ((word & 0xff) == 0) {
-> > > +		num += 8;
-> > > +		word >>= 8;
-> > > +	}
-> > > +	if ((word & 0xf) == 0) {
-> > > +		num += 4;
-> > > +		word >>= 4;
-> > > +	}
-> > > +	if ((word & 0x3) == 0) {
-> > > +		num += 2;
-> > > +		word >>= 2;
-> > > +	}
-> > > +	if ((word & 0x1) == 0)
-> > > +		num += 1;
-> > > +	return num;
-> > > +}
-> > > +
-> > > +/**
-> > > + * __ffs - find first set bit in a long word
-> > > + * @word: The word to search
-> > > + *
-> > > + * Undefined if no set bit exists, so code should check against 0 first.
-> > > + */
-> > > +#define __ffs(word)				\
-> > > +	(__builtin_constant_p(word) ?		\
-> > > +	 (unsigned long)__builtin_ctzl(word) :	\
-> > > +	 variable__ffs(word))
-> > > +
-> > > +static __always_inline unsigned long variable__fls(unsigned long word)
-> > > +{
-> > > +	int num;
-> > > +
-> > > +	asm_volatile_goto(
-> > > +		ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
-> > > +		: : : : legacy);
-> > > +
-> > > +	asm volatile (
-> > > +		".option push\n"
-> > > +		".option arch,+zbb\n"
-> > > +		"clz %0, %1\n"
-> > > +		".option pop\n"
-> > > +		: "=r" (word) : "r" (word) :);
-> > > +
-> > > +	return BITS_PER_LONG - 1 - word;
-> > > +
-> > > +legacy:
-> > > +	num = BITS_PER_LONG - 1;
-> > > +#if BITS_PER_LONG == 64
-> > > +	if (!(word & (~0ul << 32))) {
-> > > +		num -= 32;
-> > > +		word <<= 32;
-> > > +	}
-> > > +#endif
-> > > +	if (!(word & (~0ul << (BITS_PER_LONG-16)))) {
-> > > +		num -= 16;
-> > > +		word <<= 16;
-> > > +	}
-> > > +	if (!(word & (~0ul << (BITS_PER_LONG-8)))) {
-> > > +		num -= 8;
-> > > +		word <<= 8;
-> > > +	}
-> > > +	if (!(word & (~0ul << (BITS_PER_LONG-4)))) {
-> > > +		num -= 4;
-> > > +		word <<= 4;
-> > > +	}
-> > > +	if (!(word & (~0ul << (BITS_PER_LONG-2)))) {
-> > > +		num -= 2;
-> > > +		word <<= 2;
-> > > +	}
-> > > +	if (!(word & (~0ul << (BITS_PER_LONG-1))))
-> > > +		num -= 1;
-> > > +	return num;
-> > > +}
-> > > +
-> > > +/**
-> > > + * __fls - find last set bit in a long word
-> > > + * @word: the word to search
-> > > + *
-> > > + * Undefined if no set bit exists, so code should check against 0 first.
-> > > + */
-> > > +#define __fls(word)							\
-> > > +	(__builtin_constant_p(word) ?					\
-> > > +	 (unsigned long)(BITS_PER_LONG - 1 - __builtin_clzl(word)) :	\
-> > > +	 variable__fls(word))
-> > > +
-> > > +static __always_inline int variable_ffs(int x)
-> > > +{
-> > > +	int r;
-> > > +
-> > > +	if (!x)
-> > > +		return 0;
-> > > +
-> > > +	asm_volatile_goto(
-> > > +		ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
-> > > +		: : : : legacy);
-> > > +
-> > > +	asm volatile (
-> > > +		".option push\n"
-> > > +		".option arch,+zbb\n"
-> > > +		CTZW "%0, %1\n"
-> > > +		".option pop\n"
-> > > +		: "=r" (r) : "r" (x) :);
-> > > +
-> > > +	return r + 1;
-> > > +
-> > > +legacy:
-> > > +	r = 1;
-> > > +	if (!(x & 0xffff)) {
-> > > +		x >>= 16;
-> > > +		r += 16;
-> > > +	}
-> > > +	if (!(x & 0xff)) {
-> > > +		x >>= 8;
-> > > +		r += 8;
-> > > +	}
-> > > +	if (!(x & 0xf)) {
-> > > +		x >>= 4;
-> > > +		r += 4;
-> > > +	}
-> > > +	if (!(x & 3)) {
-> > > +		x >>= 2;
-> > > +		r += 2;
-> > > +	}
-> > > +	if (!(x & 1)) {
-> > > +		x >>= 1;
-> > > +		r += 1;
-> > > +	}
-> > > +	return r;
-> > > +}
-> > > +
-> > > +/**
-> > > + * ffs - find first set bit in a word
-> > > + * @x: the word to search
-> > > + *
-> > > + * This is defined the same way as the libc and compiler builtin ffs routines.
-> > > + *
-> > > + * ffs(value) returns 0 if value is 0 or the position of the first set bit if
-> > > + * value is nonzero. The first (least significant) bit is at position 1.
-> > > + */
-> > > +#define ffs(x) (__builtin_constant_p(x) ? __builtin_ffs(x) : variable_ffs(x))
-> > > +
-> > > +static __always_inline int variable_fls(unsigned int x)
-> > > +{
-> > > +	int r;
-> > > +
-> > > +	if (!x)
-> > > +		return 0;
-> > > +
-> > > +	asm_volatile_goto(
-> > > +		ALTERNATIVE("j %l[legacy]", "nop", 0, RISCV_ISA_EXT_ZBB, 1)
-> > > +		: : : : legacy);
-> > > +
-> > > +	asm volatile (
-> > > +		".option push\n"
-> > > +		".option arch,+zbb\n"
-> > > +		CLZW "%0, %1\n"
-> > > +		".option pop\n"
-> > > +		: "=r" (r) : "r" (x) :);
-> > > +
-> > > +	return 32 - r;
-> > > +
-> > > +legacy:
-> > > +	r = 32;
-> > > +	if (!(x & 0xffff0000u)) {
-> > > +		x <<= 16;
-> > > +		r -= 16;
-> > > +	}
-> > > +	if (!(x & 0xff000000u)) {
-> > > +		x <<= 8;
-> > > +		r -= 8;
-> > > +	}
-> > > +	if (!(x & 0xf0000000u)) {
-> > > +		x <<= 4;
-> > > +		r -= 4;
-> > > +	}
-> > > +	if (!(x & 0xc0000000u)) {
-> > > +		x <<= 2;
-> > > +		r -= 2;
-> > > +	}
-> > > +	if (!(x & 0x80000000u)) {
-> > > +		x <<= 1;
-> > > +		r -= 1;
-> > > +	}
-> > > +	return r;
-> > > +}
-> > > +
-> > > +/**
-> > > + * fls - find last set bit in a word
-> > > + * @x: the word to search
-> > > + *
-> > > + * This is defined in a similar way as ffs, but returns the position of the most
-> > > + * significant set bit.
-> > > + *
-> > > + * fls(value) returns 0 if value is 0 or the position of the last set bit if
-> > > + * value is nonzero. The last (most significant) bit is at position 32.
-> > > + */
-> > > +#define fls(x)
-> > 	\
-> > > +	(__builtin_constant_p(x) ?					\
-> > > +	 (int)(((x) != 0) ?						\
-> > > +	  (sizeof(unsigned int) * 8 - __builtin_clz(x)) : 0) :		\
-> > > +	 variable_fls(x))
-> > > +
-> > 
-> > Checkpath complains: "Macro argument reuse 'x' - possible side-effects"
-> > 
-> 
-> Ditto.
-> 
-> > > +#endif /* !defined(CONFIG_RISCV_ISA_ZBB) || defined(NO_ALTERNATIVE)
-> > */
-> > > +
-> > > +#include <asm-generic/bitops/ffz.h>
-> > >  #include <asm-generic/bitops/fls64.h>
-> > >  #include <asm-generic/bitops/sched.h>
-> > > -#include <asm-generic/bitops/ffs.h>
-> > >
-> > >  #include <asm-generic/bitops/hweight.h>
-> > >
-> > > diff --git a/drivers/bitopstest/Kconfig b/drivers/bitopstest/Kconfig
-> > > index d0e2af4b801e..6ef6dcd41d49 100644
-> > > --- a/drivers/bitopstest/Kconfig
-> > > +++ b/drivers/bitopstest/Kconfig
-> > > @@ -1,6 +1,7 @@
-> > >  # SPDX-License-Identifier: GPL-2.0-only
-> > >  menuconfig BITOPSTEST
-> > >  	tristate "self test for bitops optimization"
-> > > +	default y
-> > >  	help
-> > >  	  Enable this to test the bitops APIs.
-> > 
-> > Is this a test you wanted to add? The source code isn't included.
-> 
-> Sorry, I mistakenly did a "git add" for my local test. Will drop it.
-> 
-> BRs,
-> Xiao
-> 
-> > 
-> > - Charlie
+[1]
+https://github.com/openssl/openssl/pull/21923
 
-In the next version after you remove this Kconfig file you can add my
-reviewed-by signature to this series.
+> I'm also wondering about riscv.pm and the choice of generating the crypto
+> instructions from .words instead of using the assembler.  It makes it
+> significantly harder to review the code, IMO.  Can we depend on assembler
+> support for these instructions, or is that just not ready yet?
+> 
+> - Eric
 
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+There is no public assembler supports the vector-crypto asm mnemonics.
+We should still use `opcode` for vector-crypto instructions. But we might
+use asm for standard rvv parts.
+In order to reuse the codes in OpenSSL as much as possible,  we still use
+the `riscv.pm` for all standard rvv and vector-crypto instructions. If the asm
+mnemonic is still a better approach,  I will `rewrite` all standard rvv parts
+with asm mnemonics in next patch.
 
-> > 
-> > >
-> > > diff --git a/drivers/firmware/efi/libstub/Makefile
-> > b/drivers/firmware/efi/libstub/Makefile
-> > > index a1157c2a7170..d68cacd4e3af 100644
-> > > --- a/drivers/firmware/efi/libstub/Makefile
-> > > +++ b/drivers/firmware/efi/libstub/Makefile
-> > > @@ -28,7 +28,7 @@ cflags-$(CONFIG_ARM)		+= -
-> > DEFI_HAVE_STRLEN -DEFI_HAVE_STRNLEN \
-> > >  				   -DEFI_HAVE_MEMCHR -
-> > DEFI_HAVE_STRRCHR \
-> > >  				   -DEFI_HAVE_STRCMP -fno-builtin -fpic \
-> > >  				   $(call cc-option,-mno-single-pic-base)
-> > > -cflags-$(CONFIG_RISCV)		+= -fpic
-> > > +cflags-$(CONFIG_RISCV)		+= -fpic -DNO_ALTERNATIVE
-> > >  cflags-$(CONFIG_LOONGARCH)	+= -fpie
-> > >
-> > >  cflags-$(CONFIG_EFI_PARAMS_FROM_FDT)	+= -
-> > I$(srctree)/scripts/dtc/libfdt
-> > > --
-> > > 2.25.1
-> > >
+-Jerry
+
+
 
 _______________________________________________
 linux-riscv mailing list
