@@ -4,144 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 281A2C4167B
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 05:48:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62C0AC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 06:31:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UCFFcbYrLL63wDluNGXvCeqS7jYtHiboAIatL6Kc4pI=; b=aB+HN4z5aeGkbE
-	2YM8GOdufvZRRg72roUC5dCGVtZ2gxZFIBKbQNiZ16mPfcbe+YNxXWRH1+8grnF0R5kqgk48yDhiz
-	GW5e8fzt3TrNokLobE+nsruweaHh4L2SjSe1aPq0welxBwE/Rr+148mZoYNYIP1dR/3/VndkD/opM
-	bNX3VWwYmIEu2mSPBtSauvMAGlLmHwX/0oFhbkTSDBRpCFbJh5SyrOpwsSLJIeb5h/rR3+/4hBlyE
-	SVhVX64lIk5oYc8l3wrlfnuhGBh17HOArP0R2K6Ixk65YITrp2flr48SLvsdTfwR7SK5SY1KDi0Ak
-	1DESUQtrjo/r7znsE26A==;
+	List-Owner; bh=FgIXRHhagKz4IouIWtKnfEMGarsujQSOCJ5NVkvfJGQ=; b=qJwb8rSxIFfqYc
+	p1laHIRMPoqYYema11rBa7xvSuNm9vrLNcucKTqSmg/Kxhb3hB0Poyp2R/PM3BNd1Y7B+TAFlHE0C
+	H1JBIiO3cuWh9w7IFTQjlIofKMMNv3C5WYDQo4BGvRA0DhEwZp7HXHTedibhhmQiBJTZDtW2HT3w1
+	I9X6wAyGKrjFGQhCr7NXCqHmxOjrh4YI/mNYxLwKVRSCaYJu5LaGpdnLc+7nxiV4zID+fV28snU7O
+	71cQArLQSD2VmjwwsXByXJ4tGqegPTsz8Zq22K5+sRujAVNNTiO7nyV8UMVPrHATk58GrvH6BoN18
+	u4s3UTZXTkh/nOygIsAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxhcI-004aXm-22;
-	Tue, 31 Oct 2023 05:48:42 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1qxiHD-004d4r-1H;
+	Tue, 31 Oct 2023 06:30:59 +0000
+Received: from mgamail.intel.com ([192.55.52.43])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxhcF-004aVx-1d
-	for linux-riscv@lists.infradead.org;
-	Tue, 31 Oct 2023 05:48:41 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-53e07db272cso8295250a12.3
-        for <linux-riscv@lists.infradead.org>; Mon, 30 Oct 2023 22:48:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1698731317; x=1699336117; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=d8tsL5oB87Rx8sJrlG5ElUtswTptcOb5Z68cZ32EAsY=;
-        b=N5H0jdus++XyJyRisP0hqkXAqU4iRahxt0183PdJ8rG4Pgy9SKLukrmFX3KkVPdbag
-         ZOksqh1T8O3T0UNROz9hbmAbVkPMT6QcCMjYppCZfIkfD7efZpSwbybERGH+U117n8ki
-         05t0+x7g+Wh5aN+gqjguzVomKHpjJ2XEoLbB1CtQExUL9xJaI51/z9se2njwVMatFh9E
-         pmzvKkGT6gEks94aAMbpVnbgAZeUmrWnHVFxg57V1AXIMVD8ySHUio/Su9uKuaDH3z85
-         KJavjIYZ9T9lHFNaOTLajMgsBtCcVLHmbx4dPEULXv1YojfSTh5lboroJYicU/4vFocn
-         BQGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698731317; x=1699336117;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=d8tsL5oB87Rx8sJrlG5ElUtswTptcOb5Z68cZ32EAsY=;
-        b=ELda6ZifodB267k9mp0EpuQv8heiwk5c8Wr/NKVImGhb406z2Yb952zZYvIrk2InWU
-         wwI+r9Ge/Ht6OH5e5XPglO3mmVT3wcYDMqK6xeOcYVmj7FT1rd/q/+IxSF2a3T3hgYR2
-         lTcEoypYR5M5rwrzb/tUkDgj8IQNNzSeLKRLqaxcM63+zjiTAyh9yj9+ZcSV5G0y73UQ
-         c2weS/7avX0aPM3W0fuHloFleFCnTg2/n378lLuti5XtgN/m/w40pW+WClmpoSo2+B8E
-         zbRQas9aQhf/5/UWFq+lnbAnLRKKhUj8LhAzkXN4fIBDrI0OnRoT1RP3FvZL/QTMDPWs
-         CN6g==
-X-Gm-Message-State: AOJu0YwapC6YoZgXg/dtzKn/feSftZYZ2sEkp7aR/wviwUOehpP3Uejc
-	uSLeLqv8fy5gpCDmc9SDNWdJTg==
-X-Google-Smtp-Source: AGHT+IH7TmlrhHtGaYMSqpY2i7vK1vgWIGw5a4YiJB8UtrNg8R8oC1mb+KBwD5+C5OPY2DzZOFMUxQ==
-X-Received: by 2002:a05:6402:379:b0:540:9b47:4f70 with SMTP id s25-20020a056402037900b005409b474f70mr9028247edw.26.1698731317311;
-        Mon, 30 Oct 2023 22:48:37 -0700 (PDT)
-Received: from [192.168.1.20] ([178.197.218.126])
-        by smtp.gmail.com with ESMTPSA id ks24-20020a170906f85800b009ad8acac02asm361918ejb.172.2023.10.30.22.48.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 30 Oct 2023 22:48:36 -0700 (PDT)
-Message-ID: <b67ee496-397b-42f1-8109-542878934385@linaro.org>
-Date: Tue, 31 Oct 2023 06:48:34 +0100
+	id 1qxiH5-004d3l-0f;
+	Tue, 31 Oct 2023 06:30:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1698733851; x=1730269851;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=gwre9Xkm4pt6rxmGJg1oxmyhKGmfr8wSV38S8y/3Yqs=;
+  b=DghAENWv3PyPMSgJNpBq3RZV5J7rQIMAhnuUn8lvrUBL+EJgYqPBrz53
+   1zEqtxfTBqRWVOSTZgPNmTA7nSTvR1qEtodh4z2c08h6v17QOq6+qvBt0
+   ZeHsL1h2JiNEYWyNj742rBd87XDhQN7xDyas2muYn3NEwDMIAG9fIZAhq
+   oETpMBncWxWB9AhaihugAAQrqGwEnt3Csj6sNXt1ustnYzQGpMV4NRXOE
+   oUaHGeqzC8vaWO90SCuYj7LdDVvhJDkqtY5gu8ueX+nqFAFAHiUc/QcSY
+   yBLcfdciQY7qg+2XvVyLvV04Goc1Lz5rdp3Cqx5TD/pKlBdu2W0jBo7ZX
+   A==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10879"; a="474462972"
+X-IronPort-AV: E=Sophos;i="6.03,265,1694761200"; 
+   d="scan'208";a="474462972"
+Received: from fmsmga005.fm.intel.com ([10.253.24.32])
+  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2023 23:30:48 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10879"; a="1091894127"
+X-IronPort-AV: E=Sophos;i="6.03,265,1694761200"; 
+   d="scan'208";a="1091894127"
+Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
+  by fmsmga005.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 30 Oct 2023 23:30:46 -0700
+Received: from orsmsx611.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.34; Mon, 30 Oct 2023 23:30:46 -0700
+Received: from orsmsx610.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX611.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.34; Mon, 30 Oct 2023 23:30:46 -0700
+Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
+ orsmsx610.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.34 via Frontend Transport; Mon, 30 Oct 2023 23:30:46 -0700
+Received: from NAM10-MW2-obe.outbound.protection.outlook.com (104.47.55.100)
+ by edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.34; Mon, 30 Oct 2023 23:30:46 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=KVeuadb7v1hiqCjj+AHFamvfSyKRKQUjAuXv1NOjBTVoHoLynXDCvDKNumHj/wCg30Atalit9D98NRKJeQpvRTNLQcLFspIWisuCl9q4AbvqrLXvTgPAlt+GlqnRq/MVbLKu6+plLcqhxo+BJnfxPpvZOvwHd9ixyyWKFd26AZw+29MUE/mHf1RWeLR7TnCRy1kcE7/k6Q2uQMhPv9gyM+DSp74WRWtrj15Er7Y3j6IqcV9OvcITMW57yO0o1lidDx4CKzKyzPFtGcSFMmi0odD5q8AFyZgKb/s5oWnsmMG9eN+c8CpEdoWk+U7mQpYqVgMvHaQkyMUOJD7Eap40KQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5aYQ3hE2o0Pll8uyiM921Yg1krv76UJ0kxUntqgLesA=;
+ b=DuoQX3xzlHwWdJa8/xoXV/C2OxHxaAQC/aOLIMLdWQXLBQ1akdr0JTen6bDW6bp4becynnKd/Z/zyZzZ3UAOQUQXHNQuEq5nPOnPyPpRB1UiLLM9xnFXUxQ74/QlDqbmw0enc991eugkFdiq2mue0uvC5Vzg/PqZs2VckTpO6AmVu0tXO+j0d88jNSAg4oe+5MLY3KYJo5J9r2/P4MOshbvNfNaQGRscx2hmA/qaocRo1HZIS2OgRROs+hDHz8edcdIlpi6O1vkwflCgSY95R8UBxTBgQBtiCDG//2T8Grb84LELsTgNz70CpLkyFKQvmnigiyNwH0RXAz8/+E+u2Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from CH3PR11MB8660.namprd11.prod.outlook.com (2603:10b6:610:1ce::13)
+ by BL1PR11MB5256.namprd11.prod.outlook.com (2603:10b6:208:30a::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6933.29; Tue, 31 Oct
+ 2023 06:30:43 +0000
+Received: from CH3PR11MB8660.namprd11.prod.outlook.com
+ ([fe80::6227:c967:5d1d:2b72]) by CH3PR11MB8660.namprd11.prod.outlook.com
+ ([fe80::6227:c967:5d1d:2b72%5]) with mapi id 15.20.6933.027; Tue, 31 Oct 2023
+ 06:30:43 +0000
+Date: Tue, 31 Oct 2023 14:30:20 +0800
+From: Chao Gao <chao.gao@intel.com>
+To: Sean Christopherson <seanjc@google.com>
+CC: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, Oliver
+ Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, Michael
+ Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>, "Matthew Wilcox (Oracle)"
+	<willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>,
+	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>, <linux-mips@vger.kernel.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <kvm-riscv@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <linux-fsdevel@vger.kernel.org>,
+	<linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>, Xiaoyao Li
+	<xiaoyao.li@intel.com>, Xu Yilun <yilun.xu@intel.com>, Chao Peng
+	<chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>, Jarkko Sakkinen
+	<jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, David Matlack
+	<dmatlack@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>, Isaku Yamahata
+	<isaku.yamahata@intel.com>, =?iso-8859-1?Q?Micka=EBl_Sala=FCn?=
+	<mic@digikod.net>, Vlastimil Babka <vbabka@suse.cz>, Vishal Annapurve
+	<vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, Maciej
+ Szmigiero <mail@maciej.szmigiero.name>, David Hildenbrand <david@redhat.com>,
+	Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>,
+	Wang <wei.w.wang@intel.com>, "Liam Merwick" <liam.merwick@oracle.com>, Isaku
+ Yamahata <isaku.yamahata@gmail.com>, "Kirill A . Shutemov"
+	<kirill.shutemov@linux.intel.com>
+Subject: Re: [PATCH v13 16/35] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
+Message-ID: <ZUCe/PGL2Q4OzDOX@chao-email>
+References: <20231027182217.3615211-1-seanjc@google.com>
+ <20231027182217.3615211-17-seanjc@google.com>
+Content-Disposition: inline
+In-Reply-To: <20231027182217.3615211-17-seanjc@google.com>
+X-ClientProxiedBy: KL1PR01CA0019.apcprd01.prod.exchangelabs.com
+ (2603:1096:820::31) To CH3PR11MB8660.namprd11.prod.outlook.com
+ (2603:10b6:610:1ce::13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/12] dt-bindings: net: snps,dwmac: Allow exclusive
- usage of ahb reset
-Content-Language: en-US
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
- Samin Guo <samin.guo@starfivetech.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com
-References: <20231029042712.520010-1-cristian.ciocaltea@collabora.com>
- <20231029042712.520010-2-cristian.ciocaltea@collabora.com>
- <3016eff2-fce5-4b5e-bbb2-d56cbb45df85@linaro.org>
- <05186c62-fcad-4d56-8ae8-d802f87a39e2@collabora.com>
- <98d90ba9-7e69-4b54-830d-bdbc0e6c54fe@linaro.org>
- <d532514a-524c-4607-b97b-2f89bc563406@collabora.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <d532514a-524c-4607-b97b-2f89bc563406@collabora.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR11MB8660:EE_|BL1PR11MB5256:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9080adf9-9556-4df9-766f-08dbd9dae75e
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: rk/wukYvHueuzG8fIR8wgxRoya4Mo3GecLT4shuczyGgx8v6mi3PHS1hgpfUzAGCWzuL/lYDz/2Cy8X9MgLqcry4qWe/jG07klFTnSKciZwKIuTQ91t2MRg8svc8+Zybgh3iBilGyeABEl7rbWGxfZbe8bDGbL+2RpMgU3lbWHgjNt774o//yroIfFqFFmUUjyS/DHBD7UAi2KQWrGlw+kXOVQgjxszSKeIKrK2ColClqfp//3xxIaOFJjObDsPCZD2cx4MwapXkpRU6mgyl/0JuYi15nj8M7sSgDGkXb078aqh4gp6cB4ZH2Z+rdyWW3xIeB2VFbveFsM18kCRoNk5dMh/SekL+LIrKLkEVT4QdJbV+tEyPy3ULeMgeqjV4P4wSUAjLT5KFiKEnGiFxoR75XV5PqEkXbalVePy5TuWS6eOtoFuBD4t+J2DaSKZpiq5OBn8K3FePme+5kMrFfZ66uyxmavNQU63TIvEL3CF03YmzW9abIgUn6GF4Lv5kicqna9aI6ltxCXQYyQuPh9uyvEvLM9T9jbKoVpNvFVAzt5BPIxIsQvFmJQXP4VvM
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR11MB8660.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(7916004)(396003)(39860400002)(366004)(136003)(346002)(376002)(230922051799003)(64100799003)(186009)(451199024)(1800799009)(6512007)(9686003)(26005)(6506007)(478600001)(6666004)(83380400001)(7406005)(7416002)(2906002)(44832011)(41300700001)(5660300002)(66946007)(33716001)(66556008)(6486002)(66476007)(8676002)(8936002)(316002)(54906003)(6916009)(4326008)(38100700002)(82960400001)(86362001);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pZtu529NslUI8jRAJbhA+kGcDnGZOCtyuj+hBtZbU9b/T9r6moCGw6xhm/gE?=
+ =?us-ascii?Q?MHAjXU77G1ef840b/mQq+D4mlwJac4qMeQz+vWKGq7bf5O+qxXSmDHlkRFWx?=
+ =?us-ascii?Q?ctOLVgJ/8ho2GC4JCTQpFRgFBPdfvwOn/spUtooE+MIKX/BR7Q1ZzSHTfllZ?=
+ =?us-ascii?Q?7XgZxGAf+xMd/reyVs6wBpOUWqhL3uOO3/gHXaUNilxiuXfDGUHBTi82Ddi9?=
+ =?us-ascii?Q?MPBizBkWfZEkKVyTyeG4SFw5+m3SQpLoBFa5d75bc5iBgaInZKX1164lGIie?=
+ =?us-ascii?Q?JA0jyH4m4vX1fa0o2BSpd3J2PHs+N+gUexodO+JiwJ18ZRgcDDx0de0aLfhJ?=
+ =?us-ascii?Q?4tmpWJWFzELxekvRBByEQ4hjeNfHqPqPLftahXqlQ9dIZ4d52qH1WXppMvWL?=
+ =?us-ascii?Q?PyZ8QX+CVcvN8OdHS12L36x042Wd5wKQUevoRyXCDfgBlxogM0qaZnJhfRp7?=
+ =?us-ascii?Q?hLADkR6XUdhZNWQ9GW6pYO2U7QGS7JI3PDmZeihbrqIT0jdqjdqnnuW0OkK9?=
+ =?us-ascii?Q?q56DboNMeErI5YxktzfHlDtD5NQDEiStSbS+vjhkAihRy9SIPZ4tQE9irVll?=
+ =?us-ascii?Q?VAJlBrKDZlmXjfyA3hmk06RNjATNzV2wUqQ2H7Xby/KNVJlTKVPsaKyBsa0H?=
+ =?us-ascii?Q?uIlJkPTcYYMh0koXl8xzuzWHNHwdNouVBznTKwkPET1fE8LVj+loHsAbBmMH?=
+ =?us-ascii?Q?QhjPU5AZX4N3I8wg7kOldoMJ/Ouxph4ixa8z2bDA+1y/5YSY/RyKOs9QZdsj?=
+ =?us-ascii?Q?K1ojJtKhUTA0T+ZhJico/GH4r7rrGNWuBPuSysNxzL7mDAfye6OQbyvNn6nA?=
+ =?us-ascii?Q?FA36gDPVYx9RzR84CdTQ+VRKv101mbIChmF9Or7qLFIJ+JoU45vTNTy/Vyj3?=
+ =?us-ascii?Q?jRypJ3vgLTFFYxS8TDVoT1fLUT1CZbUhSZa+qzQRIT7EnmdaO14H/O0vdPvD?=
+ =?us-ascii?Q?mZfIiDJEbPh8htkVNredo/I2GQqw1LXcniPnugKcID7Ro7Ffk1YD+4mokBGW?=
+ =?us-ascii?Q?vhUAwXK82PwztXAkfmyOOckncgJE0GL3ORJxLSdEO2HHQFtZ3W09W+20t66q?=
+ =?us-ascii?Q?o1on0/JwWlx2T2A7krLlY9a0NuCVVwxPlF0IC3taW1gPrjT7mYBXqhdSLtoA?=
+ =?us-ascii?Q?q0ujvB2LYSe9GFvpMbwIs3jcF4a4ojP4AncuVZ5m3/Db/rfXvdUMLKi42IRC?=
+ =?us-ascii?Q?syz3xIgkgG3yYfx9d7HVsOu93PpdsI7LOiZg5QI3/LZblIVdUVtAWqCbOOWN?=
+ =?us-ascii?Q?uiQrDqrDdHzOwi+FzmZLUfZ4u1hBnVMlioJubgfis8v8VcxuIw09dAxAjICC?=
+ =?us-ascii?Q?1MoUdsTXprKGG2alA6MnfLnKhaeMfOkZZ/5lETsiIPjcK0I+rQSkkl4U2kvE?=
+ =?us-ascii?Q?BPO70el2x5mdccA2KGk2lwG73rzuGSQXDxKq5h2ys4rtPFPhbYfwebQp4Rnx?=
+ =?us-ascii?Q?+qMi+31Z28y76pX35aDe7RA/aXB/0dchCZrTAWj2c/6pX0AhFDxV+yIVpku1?=
+ =?us-ascii?Q?tA3NSDfakVWOdBK0nWgfb3DAYF8V8slUS2K46HKjkIKnizTMhaLWg1L3+KUl?=
+ =?us-ascii?Q?Z+mSnzB67WXYARFEel+SCbLgaCsdXym8ER9f6PF5?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9080adf9-9556-4df9-766f-08dbd9dae75e
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR11MB8660.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2023 06:30:41.9904
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7hw6kPRUNwq4O+Q/fpqiaFjdqEES3q0/0ZEJSJD50fq4JmNVRoxuY5dXtzMz8ykzoO5Rdb6DSREyL4EA9t6tFg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR11MB5256
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231030_224839_556455_ECD8C4B8 
-X-CRM114-Status: GOOD (  28.50  )
+X-CRM114-CacheID: sfid-20231030_233051_264381_C3AB05B9 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,83 +192,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 30/10/2023 20:07, Cristian Ciocaltea wrote:
-> On 10/30/23 09:26, Krzysztof Kozlowski wrote:
->> On 29/10/2023 23:24, Cristian Ciocaltea wrote:
->>> On 10/29/23 13:25, Krzysztof Kozlowski wrote:
->>>> On 29/10/2023 05:27, Cristian Ciocaltea wrote:
->>>>> The Synopsys DesignWare MAC found on the StarFive JH7100 SoC requires
->>>>> just the 'ahb' reset name, but the binding allows selecting it only in
->>>>> conjunction with 'stmmaceth'.
->>>>>
->>>>> Fix the issue by permitting exclusive usage of the 'ahb' reset name.
->>>>>
->>>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->>>>> ---
->>>>>  Documentation/devicetree/bindings/net/snps,dwmac.yaml | 2 +-
->>>>>  1 file changed, 1 insertion(+), 1 deletion(-)
->>>>>
->>>>> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
->>>>> index 5c2769dc689a..a4d7172ea701 100644
->>>>> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
->>>>> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
->>>>> @@ -146,7 +146,7 @@ properties:
->>>>>    reset-names:
->>>>>      minItems: 1
->>>>>      items:
->>>>> -      - const: stmmaceth
->>>>> +      - enum: [stmmaceth, ahb]
->>>>
->>>> Also, this makes sense only with patch #4, so this should be squashed there.
->>>
->>> I added this as a separate patch since it changes the generic schema
->>> which is included by many other bindings.  JH7100 just happens to be the
->>> first use-case requiring this update.  But I can squash the patch if
->>> that's not a good enough reason to keep it separately.
->>
->> If there is no single user of this, why changing this? I would even
->> argue that it is not correct from existing bindings point of view -
->> nothing allows and uses ahb as the only reset. Even the commit msg
->> mentions your hardware from patch 4.
-> 
-> Sorry, I'm not sure I follow. JH7100 is (or will be) the user of it and,
-> as a matter of fact, something similar has been done recently while
-> adding support for JH7110.
+>+int kvm_gmem_create(struct kvm *kvm, struct kvm_create_guest_memfd *args)
+>+{
+>+	loff_t size = args->size;
+>+	u64 flags = args->flags;
+>+	u64 valid_flags = 0;
+>+
+>+	if (flags & ~valid_flags)
+>+		return -EINVAL;
+>+
+>+	if (size < 0 || !PAGE_ALIGNED(size))
+>+		return -EINVAL;
 
-Every patch should stand on its own and at this point nothing uses it.
-We apply this patch #1 and we add dead code, unused case.
+is size == 0 a valid case?
 
-> 
-> In particular, commit [1] changed this binding before the JH7110
-> compatible was introduced in a subsequent patch. On a closer look that
-> commit made a statement which is not entirely correct:
-> 
-> "dwmac controller may require one (stmmaceth) or two (stmmaceth+ahb)
-> reset signals"
-> 
-> That's because stmmaceth is also optional in dwmac's driver, hence the
-> correct message would have been:
-> 
-> "[...] may require one (stmmaceth OR ahb) [...]"
+>+int kvm_gmem_bind(struct kvm *kvm, struct kvm_memory_slot *slot,
+>+		  unsigned int fd, loff_t offset)
+>+{
+>+	loff_t size = slot->npages << PAGE_SHIFT;
+>+	unsigned long start, end;
+>+	struct kvm_gmem *gmem;
+>+	struct inode *inode;
+>+	struct file *file;
+>+
+>+	BUILD_BUG_ON(sizeof(gfn_t) != sizeof(slot->gmem.pgoff));
+>+
+>+	file = fget(fd);
+>+	if (!file)
+>+		return -EBADF;
+>+
+>+	if (file->f_op != &kvm_gmem_fops)
+>+		goto err;
+>+
+>+	gmem = file->private_data;
+>+	if (gmem->kvm != kvm)
+>+		goto err;
+>+
+>+	inode = file_inode(file);
+>+
+>+	if (offset < 0 || !PAGE_ALIGNED(offset))
+>+		return -EINVAL;
 
-Driver does not describe the hardware. The bindings do, so according to
-that description all supported hardware required MAC reset (stmmaceth).
-Otherwise please point me to any hardware which skips MAC reset and
-requires AHB reset instead (not future hardware, but current).
+		goto err;
 
-> 
-> Hence, I think it makes sense to keep this patch, after adding the above
-> details in the commit message.
-> 
-> [1] 843f603762a5 ("dt-bindings: net: snps,dwmac: Add 'ahb'
-> reset/reset-name")
-> 
-> Thanks,
-> Cristian
+or hoist the check above fget().
 
-Best regards,
-Krzysztof
+>+
+>+	if (offset + size > i_size_read(inode))
+>+		goto err;
+>+
+>+	filemap_invalidate_lock(inode->i_mapping);
+>+
+>+	start = offset >> PAGE_SHIFT;
+>+	end = start + slot->npages;
+>+
+>+	if (!xa_empty(&gmem->bindings) &&
+>+	    xa_find(&gmem->bindings, &start, end - 1, XA_PRESENT)) {
+>+		filemap_invalidate_unlock(inode->i_mapping);
+>+		goto err;
+>+	}
+>+
+>+	/*
+>+	 * No synchronize_rcu() needed, any in-flight readers are guaranteed to
+>+	 * be see either a NULL file or this new file, no need for them to go
+>+	 * away.
+>+	 */
+>+	rcu_assign_pointer(slot->gmem.file, file);
+>+	slot->gmem.pgoff = start;
+>+
+>+	xa_store_range(&gmem->bindings, start, end - 1, slot, GFP_KERNEL);
+>+	filemap_invalidate_unlock(inode->i_mapping);
+>+
+>+	/*
+>+	 * Drop the reference to the file, even on success.  The file pins KVM,
+>+	 * not the other way 'round.  Active bindings are invalidated if the
+>+	 * file is closed before memslots are destroyed.
+>+	 */
+>+	fput(file);
+>+	return 0;
+>+
+>+err:
+>+	fput(file);
+>+	return -EINVAL;
 
+The cleanup, i.e., filemap_invalidate_unlock() and fput(), is common. So, I think it
+may be slightly better to consolidate the common part e.g.,
+
+	int ret = -EINVAL;
+
+	...
+
+	xa_store_range(&gmem->bindings, start, end - 1, slot, GFP_KERNEL);
+	ret = 0;
+unlock:
+	filemap_invalidate_unlock(inode->i_mapping);
+err:
+	/*
+	 * Drop the reference to the file, even on success.  The file pins KVM,
+	 * not the other way 'round.  Active bindings are invalidated if the
+	 * file is closed before memslots are destroyed.
+	 */
+	fput(file);
+	return ret;
 
 _______________________________________________
 linux-riscv mailing list
