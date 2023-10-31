@@ -4,77 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B689FC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 18:07:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25338C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 18:19:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dkw8UT2/FHpg93ZoKKc2JQmhwnmqPk0WUlN8dEP4fAQ=; b=E8UfW/aX8nktvM
-	3z5UOwM9st5/GMVq53DOdLwSzBTY1tqczGh5fyIyGtxoLsqlJCFSvKiBgPYs8VGegblgpdnY0bfCy
-	oYh1lgUZ3sfOMS3M7p6eTGOdbObiBORr4tlrP7E2obcDTra6ByNYjSJr4vFaaHtV4mqO8cRdXyQ2n
-	k3MhHDQ2IkkcbxhNk1fNSqbaKt1YGPd6zPot1xfqyxrnvk8OwL+7OOcbXnfBWF1mYAAmCTKMaRXqm
-	G7Lz1Pto3nl8Avsgm324SOTuAUI3BTuZ8JNVUVxqrubS/JwLjLMyF3DimhYR30BWADnQ7WP+tdtkZ
-	wkooKbMAWuivg4tsKawQ==;
+	List-Owner; bh=kFTghPvOKLqjes5IPJ14ydtQEruoftq/TWiFoz1f2VA=; b=pk1nv2hLJPtanC
+	udi88utD+DUOVsIEoYOpKghYTnGP3HHcMeWpGHCF7G9gafSu28ZuD5JxwiIQDLUIdEPaXIf36Pt/p
+	LpskDTJ2YPBVKAsm0bYHHECXmLkP4CEYrgO+lNVjDcxrMY9yUP5oLxbevhfys5c/1BIOWcwpiBjUc
+	AsLrOeAdjilF8IaXKMAkmWyXPd2WO2CatnhHV/42BAZ/sQjzLxjPH8YVwUu1wVGGGFZLjJnRVGVs4
+	r77FLw9Rat52iEFOhkVfWDVahOAoGWT669F9pQWCHY1BD5W7MfCMpHUd0O2Y3ETfN98zYWaYkw8Dk
+	AeNeWV+Hwjy+uji5ijpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxt9V-005vCh-0h;
-	Tue, 31 Oct 2023 18:07:45 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1qxtKW-005wOS-2e;
+	Tue, 31 Oct 2023 18:19:08 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxt9R-005v9p-2a
+	id 1qxtKR-005wNH-1T
 	for linux-riscv@lists.infradead.org;
-	Tue, 31 Oct 2023 18:07:43 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4079ed65582so43182525e9.1
-        for <linux-riscv@lists.infradead.org>; Tue, 31 Oct 2023 11:07:34 -0700 (PDT)
+	Tue, 31 Oct 2023 18:19:07 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1cc53d0030fso832815ad.0
+        for <linux-riscv@lists.infradead.org>; Tue, 31 Oct 2023 11:19:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1698775653; x=1699380453; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SL7XBKc+RaoWRznnIRBT+ecFmqke4jto2dLiQ9BSdJk=;
-        b=N1eYyyMQI3FLKSE889/GGxb+qxaIpisb00QE9s1YLWs0//nsviNNCBCi65tSyKl/4c
-         QVK/Lc0auxpqFJFsxBLpPzL76mTDLRx8HFgHkd5tJsBKGhhtL4sPoAgGL8yDCXnRrCVI
-         uuCth6kbdzMQXsc9EYPDVI0vUA8AUf4tQLoFWBOhrT/y76js1Nn2FkpMOmpDAYqgT8YP
-         RCAmmo2XVsa5wuwOSwCEh8cHdrYDPVn1Li4HjMc1/q60xsREJ+ne/7YhMUxISGhuA26k
-         cQTz3w/ph19OfCn+nNm/nP5sT3Zo9cso550OK2Nxmgmc+fOVlYuOQ2DLy9hkKPUrcmX4
-         ZKmw==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698776340; x=1699381140; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=+B0zTxosm9oFAOqc3bDzbqpMG6d7UlcAntIQrXTgTn4=;
+        b=uDSMSwyuzveOQm2sbItWSKYiQTibaGFomIoetMgMJZMq6cbhLrh5U9JYbCwLvYIYoQ
+         4Y6aDVNlZ6xCdKZLWQ/vhRiJyw3IT+dYmM81t7VWggBk+jNB8l/uKi0GpA7VXbij9fav
+         do/vTqjmh7gFRf+ksQzJ7fkBFDqiRIdzIeF1LRKSluVeNXNe9GwGTV2fIlKSerTdNjFE
+         1ZMaw2ntPHgg7UaS9vWLCggrjdYFH8S3UFa8+ExFkeiRtIyu8pxxjIa+KtOISPfm+OUg
+         7MN5nCKfFgjlekrNcwvt1xEcSPgOs2m0oKkj4n+0lVfsF55HW9rUXHXbAvAmASgLB2QX
+         Lm/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698775653; x=1699380453;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SL7XBKc+RaoWRznnIRBT+ecFmqke4jto2dLiQ9BSdJk=;
-        b=l9lE/hN4uoNz37CX3f23c79a+dGPZ7UkTlOQN7xdoq32r4ggUgtJSETAQwEAPnAUO2
-         oY92aJEk4QH/fbbUKwgh0r1p+USaLD2Ei3np1EfDQoKonrcCKt2ZqGzsp6ebLFkuwzPn
-         SKXohLfiILkLsIe7bWXQ+q9Z2Rjtag7msYGsvpRcPkXMJgvRQt7N6Uzt8tHDnhIOv7C/
-         rgf1zhObRQiBOPlHG2iNy1KDQQoMWzkgCtA2VtzV6Off6GoKKEi0/km4dH4xn91kac5W
-         hb0FB9Hn4lh4soruSV2lq3BaDg+w62I+ivRQy4Dsy8UqaLpFLB+Ft1xg20Qo+GehS87P
-         Jz9w==
-X-Gm-Message-State: AOJu0Yxtk+iMfC7ZWiCuXcZ7rTdH1TbDfR1fdS+3b3MfArZOp7AwLPNV
-	WBnay9N//+qOPvdAPX0xo6qoKKz7IdMIirXYjTeRqA==
-X-Google-Smtp-Source: AGHT+IHFLsB+x/Jlf8dLEZRxjUW+xtrhgdxgtcISHIyXwdiZB6X7J6AA6vWN4rFFxV90avuFKCaXlLTBqMN6bjVrnP8=
-X-Received: by 2002:a05:600c:4708:b0:402:ff8d:609b with SMTP id
- v8-20020a05600c470800b00402ff8d609bmr11137029wmo.33.1698775653184; Tue, 31
- Oct 2023 11:07:33 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1698776340; x=1699381140;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+B0zTxosm9oFAOqc3bDzbqpMG6d7UlcAntIQrXTgTn4=;
+        b=rZCV0wg4qxHNcTprnzFRby+yMFxXYG5RC8imdqn4OXuAeD8goyA8PUTu6jN7FfBX0y
+         luPkCjSItJUD7xSGQRW/YDPv1PSn+md9Nb3VeUIJqw6gl+b7SRapBPQVVUvEHEMayc0d
+         Lp20bo/jqI/+DvZuyWEBi6FGHwkiZ6xNUCIu+vBXZ33Ey32OSAL1s1UYKH21xJFn2xI9
+         NZqyhumCpxsyAAstAH9+GcY7D/4CwkgCgNxqzQ7/XgiKavDtyssQHl672vj0YoFvXsKf
+         3kKr3XqV30GjPN6kHyIw0V0S/Vzk5UYTCHwYgi0UV7XfY7GuWzasQm6ahxIpkTF/VUie
+         ZQZA==
+X-Gm-Message-State: AOJu0YwaBJtoPdIpmITJ6LabvoYJnbTrJK43hGptGP88pKVENFWiRilI
+	w+6IJOInjII6GEiZ53i6mHRG/A==
+X-Google-Smtp-Source: AGHT+IHoUpoBPRjnvSIWtg2BkrbhpNLwUCeU2fN3rddl4eadbdETRODHt5hLpLOUdVeIVTuejwCD6Q==
+X-Received: by 2002:a17:903:228d:b0:1cc:507c:edeb with SMTP id b13-20020a170903228d00b001cc507cedebmr4918605plh.0.1698776340472;
+        Tue, 31 Oct 2023 11:19:00 -0700 (PDT)
+Received: from ghost ([12.44.203.122])
+        by smtp.gmail.com with ESMTPSA id y7-20020a170902b48700b001c5fa48b9a0sm1607836plr.33.2023.10.31.11.18.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 31 Oct 2023 11:19:00 -0700 (PDT)
+Date: Tue, 31 Oct 2023 11:18:57 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: linux-riscv@lists.infradead.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	Eric Biederman <ebiederm@xmission.com>,
+	Kees Cook <keescook@chromium.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andreas Schwab <schwab@linux-m68k.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Nelson Chu <nelson@rivosinc.com>
+Subject: Re: [PATCH v7 2/3] riscv: Add remaining module relocations
+Message-ID: <ZUFFEQf/lCz4/bUn@ghost>
+References: <20231031-module_relocations-v7-0-6f4719b64bf7@rivosinc.com>
+ <20231031-module_relocations-v7-2-6f4719b64bf7@rivosinc.com>
+ <CAJM55Z_qeGwWYS7LdmkqmkRRg-tK5CsaRzPCAXS1Jfq2C8dTKQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <20231031174627.684576-1-masahiroy@kernel.org>
-In-Reply-To: <20231031174627.684576-1-masahiroy@kernel.org>
-From: Nick Desaulniers <ndesaulniers@google.com>
-Date: Tue, 31 Oct 2023 11:07:22 -0700
-Message-ID: <CAKwvOd=TmAh-eAmOzRxb6Gri8AfOXc7t9mPXgDgDTtAnegZ3iw@mail.gmail.com>
-Subject: Re: [PATCH] modpost: fix section mismatch message for RELA
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Albert Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>, 
-	Nicolas Schier <nicolas@fjasle.eu>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, 
-	Fangrui Song <maskray@google.com>
+Content-Disposition: inline
+In-Reply-To: <CAJM55Z_qeGwWYS7LdmkqmkRRg-tK5CsaRzPCAXS1Jfq2C8dTKQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231031_110741_836756_7AAF39A6 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20231031_111903_738491_7AD4311C 
+X-CRM114-Status: GOOD (  27.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,56 +96,713 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBPY3QgMzEsIDIwMjMgYXQgMTA6NDbigK9BTSBNYXNhaGlybyBZYW1hZGEgPG1hc2Fo
-aXJveUBrZXJuZWwub3JnPiB3cm90ZToKPgo+IFRoZSBzZWN0aW9uIG1pc21hdGNoIGNoZWNrIHBy
-aW50cyBhIGJvZ3VzIHN5bWJvbCBuYW1lIG9uIHNvbWUKPiBhcmNoaXRlY3R1cmVzLgo+Cj4gW3Rl
-c3QgY29kZV0KPgo+ICAgI2luY2x1ZGUgPGxpbnV4L2luaXQuaD4KPgo+ICAgaW50IF9faW5pdGRh
-dGEgZm9vOwo+ICAgaW50IGdldF9mb28odm9pZCkgeyByZXR1cm4gZm9vOyB9Cj4KPiBJZiB5b3Ug
-Y29tcGlsZSBpdCB3aXRoIEdDQyBmb3IgcmlzY3Ygb3IgbG9vbmdhcmNoLCBtb2Rwb3N0IHdpbGwg
-c2hvdyBhbgo+IGluY29ycmVjdCBzeW1ib2wgbmFtZToKPgo+ICAgV0FSTklORzogbW9kcG9zdDog
-dm1saW51eDogc2VjdGlvbiBtaXNtYXRjaCBpbiByZWZlcmVuY2U6IGdldF9mb28rMHg4IChzZWN0
-aW9uOiAudGV4dCkgLT4gZG9uZSAoc2VjdGlvbjogLmluaXQuZGF0YSkKPgo+IFRvIGdldCB0aGUg
-Y29ycmVjdCBzeW1ib2wgYWRkcmVzcywgc3RfdmFsdWUgbXVzdCBiZSBhZGRlZAo+Cj4gVGhpcyBp
-c3N1ZSBoYXMgbmV2ZXIgYmVlbiBub3RpY2VkIHNpbmNlIGNvbW1pdCA5MzY4NGQzYjgwNjIgKCJr
-YnVpbGQ6Cj4gaW5jbHVkZSBzeW1ib2wgbmFtZXMgaW4gc2VjdGlvbiBtaXNtYXRjaCB3YXJuaW5n
-cyIpIHByZXN1bWFibHkgYmVjYXVzZQo+IHN0X3ZhbHVlIGJlY29tZXMgemVybyBvbiBtb3N0IGFy
-Y2hpdGVjdHVyZXMgd2hlbiB0aGUgcmVmZXJlbmNlZCBzeW1ib2wKPiBpcyBsb29rZWQgdXAuIEl0
-IGlzIG5vdCB0cnVlIGZvciByaXNjdiBvciBsb29uZ2FyY2gsIGF0IGxlYXN0Lgo+Cj4gV2l0aCB0
-aGlzIGZpeCwgbW9kcG9zdCB3aWxsIHNob3cgdGhlIGNvcnJlY3Qgc3ltYm9sIG5hbWU6Cj4KPiAg
-IFdBUk5JTkc6IG1vZHBvc3Q6IHZtbGludXg6IHNlY3Rpb24gbWlzbWF0Y2ggaW4gcmVmZXJlbmNl
-OiBnZXRfZm9vKzB4OCAoc2VjdGlvbjogLnRleHQpIC0+IGZvbyAoc2VjdGlvbjogLmluaXQuZGF0
-YSkKPgo+IFNpZ25lZC1vZmYtYnk6IE1hc2FoaXJvIFlhbWFkYSA8bWFzYWhpcm95QGtlcm5lbC5v
-cmc+CgpUaGFua3MgZm9yIHRoZSBwYXRjaCEKUmV2aWV3ZWQtYnk6IE5pY2sgRGVzYXVsbmllcnMg
-PG5kZXNhdWxuaWVyc0Bnb29nbGUuY29tPgoKPiAtLS0KPgo+ICBzY3JpcHRzL21vZC9tb2Rwb3N0
-LmMgfCA2ICsrKystLQo+ICAxIGZpbGUgY2hhbmdlZCwgNCBpbnNlcnRpb25zKCspLCAyIGRlbGV0
-aW9ucygtKQo+Cj4gZGlmZiAtLWdpdCBhL3NjcmlwdHMvbW9kL21vZHBvc3QuYyBiL3NjcmlwdHMv
-bW9kL21vZHBvc3QuYwo+IGluZGV4IDk3M2I1ZTVhZTJkZC4uY2I2NDA2ZjQ4NWE5IDEwMDY0NAo+
-IC0tLSBhL3NjcmlwdHMvbW9kL21vZHBvc3QuYwo+ICsrKyBiL3NjcmlwdHMvbW9kL21vZHBvc3Qu
-Ywo+IEBAIC0xMzgzLDEzICsxMzgzLDE1IEBAIHN0YXRpYyB2b2lkIHNlY3Rpb25fcmVsYShzdHJ1
-Y3QgbW9kdWxlICptb2QsIHN0cnVjdCBlbGZfaW5mbyAqZWxmLAo+ICAgICAgICAgY29uc3QgRWxm
-X1JlbGEgKnJlbGE7Cj4KPiAgICAgICAgIGZvciAocmVsYSA9IHN0YXJ0OyByZWxhIDwgc3RvcDsg
-cmVsYSsrKSB7Cj4gKyAgICAgICAgICAgICAgIEVsZl9TeW0gKnRzeW07Cj4gICAgICAgICAgICAg
-ICAgIEVsZl9BZGRyIHRhZGRyLCByX29mZnNldDsKPiAgICAgICAgICAgICAgICAgdW5zaWduZWQg
-aW50IHJfdHlwZSwgcl9zeW07Cj4KPiAgICAgICAgICAgICAgICAgcl9vZmZzZXQgPSBUT19OQVRJ
-VkUocmVsYS0+cl9vZmZzZXQpOwo+ICAgICAgICAgICAgICAgICBnZXRfcmVsX3R5cGVfYW5kX3N5
-bShlbGYsIHJlbGEtPnJfaW5mbywgJnJfdHlwZSwgJnJfc3ltKTsKPgo+IC0gICAgICAgICAgICAg
-ICB0YWRkciA9IFRPX05BVElWRShyZWxhLT5yX2FkZGVuZCk7Cj4gKyAgICAgICAgICAgICAgIHRz
-eW0gPSBlbGYtPnN5bXRhYl9zdGFydCArIHJfc3ltOwo+ICsgICAgICAgICAgICAgICB0YWRkciA9
-IHRzeW0tPnN0X3ZhbHVlICsgVE9fTkFUSVZFKHJlbGEtPnJfYWRkZW5kKTsKPgo+ICAgICAgICAg
-ICAgICAgICBzd2l0Y2ggKGVsZi0+aGRyLT5lX21hY2hpbmUpIHsKPiAgICAgICAgICAgICAgICAg
-Y2FzZSBFTV9SSVNDVjoKPiBAQCAtMTQwNCw3ICsxNDA2LDcgQEAgc3RhdGljIHZvaWQgc2VjdGlv
-bl9yZWxhKHN0cnVjdCBtb2R1bGUgKm1vZCwgc3RydWN0IGVsZl9pbmZvICplbGYsCj4gICAgICAg
-ICAgICAgICAgICAgICAgICAgYnJlYWs7Cj4gICAgICAgICAgICAgICAgIH0KPgo+IC0gICAgICAg
-ICAgICAgICBjaGVja19zZWN0aW9uX21pc21hdGNoKG1vZCwgZWxmLCBlbGYtPnN5bXRhYl9zdGFy
-dCArIHJfc3ltLAo+ICsgICAgICAgICAgICAgICBjaGVja19zZWN0aW9uX21pc21hdGNoKG1vZCwg
-ZWxmLCB0c3ltLAo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZzZWNu
-ZHgsIGZyb21zZWMsIHJfb2Zmc2V0LCB0YWRkcik7Cj4gICAgICAgICB9Cj4gIH0KPiAtLQo+IDIu
-NDAuMQo+CgoKLS0gClRoYW5rcywKfk5pY2sgRGVzYXVsbmllcnMKCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
-aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Tue, Oct 31, 2023 at 06:43:19AM -0700, Emil Renner Berthing wrote:
+> Charlie Jenkins wrote:
+> > Add all final module relocations and add error logs explaining the ones
+> > that are not supported. Implement overflow checks for
+> > ADD/SUB/SET/ULEB128 relocations.
+> >
+> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > ---
+> >  arch/riscv/include/uapi/asm/elf.h |   5 +-
+> >  arch/riscv/kernel/module.c        | 534 ++++++++++++++++++++++++++++++++++++--
+> >  2 files changed, 511 insertions(+), 28 deletions(-)
+> >
+> > diff --git a/arch/riscv/include/uapi/asm/elf.h b/arch/riscv/include/uapi/asm/elf.h
+> > index d696d6610231..11a71b8533d5 100644
+> > --- a/arch/riscv/include/uapi/asm/elf.h
+> > +++ b/arch/riscv/include/uapi/asm/elf.h
+> > @@ -49,6 +49,7 @@ typedef union __riscv_fp_state elf_fpregset_t;
+> >  #define R_RISCV_TLS_DTPREL64	9
+> >  #define R_RISCV_TLS_TPREL32	10
+> >  #define R_RISCV_TLS_TPREL64	11
+> > +#define R_RISCV_IRELATIVE	58
+> >
+> >  /* Relocation types not used by the dynamic linker */
+> >  #define R_RISCV_BRANCH		16
+> > @@ -81,7 +82,6 @@ typedef union __riscv_fp_state elf_fpregset_t;
+> >  #define R_RISCV_ALIGN		43
+> >  #define R_RISCV_RVC_BRANCH	44
+> >  #define R_RISCV_RVC_JUMP	45
+> > -#define R_RISCV_LUI		46
+> >  #define R_RISCV_GPREL_I		47
+> >  #define R_RISCV_GPREL_S		48
+> >  #define R_RISCV_TPREL_I		49
+> > @@ -93,6 +93,9 @@ typedef union __riscv_fp_state elf_fpregset_t;
+> >  #define R_RISCV_SET16		55
+> >  #define R_RISCV_SET32		56
+> >  #define R_RISCV_32_PCREL	57
+> > +#define R_RISCV_PLT32		59
+> > +#define R_RISCV_SET_ULEB128	60
+> > +#define R_RISCV_SUB_ULEB128	61
+> >
+> >
+> >  #endif /* _UAPI_ASM_RISCV_ELF_H */
+> > diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+> > index a9e94e939cb5..230172ecb26e 100644
+> > --- a/arch/riscv/kernel/module.c
+> > +++ b/arch/riscv/kernel/module.c
+> > @@ -7,6 +7,9 @@
+> >  #include <linux/elf.h>
+> >  #include <linux/err.h>
+> >  #include <linux/errno.h>
+> > +#include <linux/hashtable.h>
+> > +#include <linux/kernel.h>
+> > +#include <linux/log2.h>
+> >  #include <linux/moduleloader.h>
+> >  #include <linux/vmalloc.h>
+> >  #include <linux/sizes.h>
+> > @@ -14,6 +17,27 @@
+> >  #include <asm/alternative.h>
+> >  #include <asm/sections.h>
+> >
+> > +struct used_bucket {
+> > +	struct list_head head;
+> > +	struct hlist_head *bucket;
+> > +};
+> > +
+> > +struct relocation_head {
+> > +	struct hlist_node node;
+> > +	struct list_head *rel_entry;
+> > +	void *location;
+> > +};
+> > +
+> > +struct relocation_entry {
+> > +	struct list_head head;
+> > +	Elf_Addr value;
+> > +	unsigned int type;
+> > +};
+> > +
+> > +struct hlist_head *relocation_hashtable;
+> > +
+> > +struct list_head used_buckets_list;
+> > +
+> >  /*
+> >   * The auipc+jalr instruction pair can reach any PC-relative offset
+> >   * in the range [-2^31 - 2^11, 2^31 - 2^11)
+> > @@ -269,6 +293,12 @@ static int apply_r_riscv_align_rela(struct module *me, void *location,
+> >  	return -EINVAL;
+> >  }
+> >
+> > +static int apply_r_riscv_add8_rela(struct module *me, void *location, Elf_Addr v)
+> > +{
+> > +	*(u8 *)location += (u8)v;
+> > +	return 0;
+> > +}
+> > +
+> >  static int apply_r_riscv_add16_rela(struct module *me, void *location,
+> >  				    Elf_Addr v)
+> >  {
+> > @@ -290,6 +320,12 @@ static int apply_r_riscv_add64_rela(struct module *me, void *location,
+> >  	return 0;
+> >  }
+> >
+> > +static int apply_r_riscv_sub8_rela(struct module *me, void *location, Elf_Addr v)
+> > +{
+> > +	*(u8 *)location -= (u8)v;
+> > +	return 0;
+> > +}
+> > +
+> >  static int apply_r_riscv_sub16_rela(struct module *me, void *location,
+> >  				    Elf_Addr v)
+> >  {
+> > @@ -311,33 +347,470 @@ static int apply_r_riscv_sub64_rela(struct module *me, void *location,
+> >  	return 0;
+> >  }
+> >
+> > -static int (*reloc_handlers_rela[]) (struct module *me, void *location,
+> > -				Elf_Addr v) = {
+> > -	[R_RISCV_32]			= apply_r_riscv_32_rela,
+> > -	[R_RISCV_64]			= apply_r_riscv_64_rela,
+> > -	[R_RISCV_BRANCH]		= apply_r_riscv_branch_rela,
+> > -	[R_RISCV_JAL]			= apply_r_riscv_jal_rela,
+> > -	[R_RISCV_RVC_BRANCH]		= apply_r_riscv_rvc_branch_rela,
+> > -	[R_RISCV_RVC_JUMP]		= apply_r_riscv_rvc_jump_rela,
+> > -	[R_RISCV_PCREL_HI20]		= apply_r_riscv_pcrel_hi20_rela,
+> > -	[R_RISCV_PCREL_LO12_I]		= apply_r_riscv_pcrel_lo12_i_rela,
+> > -	[R_RISCV_PCREL_LO12_S]		= apply_r_riscv_pcrel_lo12_s_rela,
+> > -	[R_RISCV_HI20]			= apply_r_riscv_hi20_rela,
+> > -	[R_RISCV_LO12_I]		= apply_r_riscv_lo12_i_rela,
+> > -	[R_RISCV_LO12_S]		= apply_r_riscv_lo12_s_rela,
+> > -	[R_RISCV_GOT_HI20]		= apply_r_riscv_got_hi20_rela,
+> > -	[R_RISCV_CALL_PLT]		= apply_r_riscv_call_plt_rela,
+> > -	[R_RISCV_CALL]			= apply_r_riscv_call_rela,
+> > -	[R_RISCV_RELAX]			= apply_r_riscv_relax_rela,
+> > -	[R_RISCV_ALIGN]			= apply_r_riscv_align_rela,
+> > -	[R_RISCV_ADD16]			= apply_r_riscv_add16_rela,
+> > -	[R_RISCV_ADD32]			= apply_r_riscv_add32_rela,
+> > -	[R_RISCV_ADD64]			= apply_r_riscv_add64_rela,
+> > -	[R_RISCV_SUB16]			= apply_r_riscv_sub16_rela,
+> > -	[R_RISCV_SUB32]			= apply_r_riscv_sub32_rela,
+> > -	[R_RISCV_SUB64]			= apply_r_riscv_sub64_rela,
+> > +static int dynamic_linking_not_supported(struct module *me, void *location,
+> > +					 Elf_Addr v)
+> > +{
+> > +	pr_err("%s: Dynamic linking not supported in kernel modules PC = %p\n",
+> > +	       me->name, location);
+> > +	return -EINVAL;
+> > +}
+> > +
+> > +static int tls_not_supported(struct module *me, void *location, Elf_Addr v)
+> > +{
+> > +	pr_err("%s: Thread local storage not supported in kernel modules PC = %p\n",
+> > +	       me->name, location);
+> > +	return -EINVAL;
+> > +}
+> > +
+> > +static int apply_r_riscv_sub6_rela(struct module *me, void *location, Elf_Addr v)
+> > +{
+> > +	*(u8 *)location = (*(u8 *)location - ((u8)v & 0x3F)) & 0x3F;
+> > +	return 0;
+> > +}
+> > +
+> > +static int apply_r_riscv_set6_rela(struct module *me, void *location, Elf_Addr v)
+> > +{
+> > +	*(u8 *)location = ((*(u8 *)location & 0xc0) | ((u8)v & 0x3F));
+> 
+> Most of these casts are simple enough for here and above I'd consider
+> something like this for readability:
+> 
+> 	u8 *byte = location;
+> 	u8 value = v;
+> 
+> 	*byte = (*byte & 0xc0) | (value & 0x3f)
+> 
+> The compiler should generate the same code.
+> 
+> > +	return 0;
+> > +}
+> > +
+> > +static int apply_r_riscv_set8_rela(struct module *me, void *location, Elf_Addr v)
+> > +{
+> > +	*(u8 *)location = (u8)v;
+> > +	return 0;
+> > +}
+> > +
+> > +static int apply_r_riscv_set16_rela(struct module *me, void *location,
+> > +				    Elf_Addr v)
+> > +{
+> > +	*(u16 *)location = (u16)v;
+> > +	return 0;
+> > +}
+> > +
+> > +static int apply_r_riscv_set32_rela(struct module *me, void *location,
+> > +				    Elf_Addr v)
+> > +{
+> > +	*(u32 *)location = (u32)v;
+> > +	return 0;
+> > +}
+> > +
+> > +static int apply_r_riscv_32_pcrel_rela(struct module *me, void *location,
+> > +				       Elf_Addr v)
+> > +{
+> > +	*(u32 *)location = v - (unsigned long)location;
+> > +	return 0;
+> > +}
+> > +
+> > +static int apply_r_riscv_plt32_rela(struct module *me, void *location,
+> > +				    Elf_Addr v)
+> > +{
+> > +	ptrdiff_t offset = (void *)v - location;
+> > +
+> > +	if (!riscv_insn_valid_32bit_offset(offset)) {
+> > +		/* Only emit the plt entry if offset over 32-bit range */
+> > +		if (IS_ENABLED(CONFIG_MODULE_SECTIONS)) {
+> > +			offset = (void *)module_emit_plt_entry(me, v) - location;
+> > +		} else {
+> > +			pr_err("%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
+> > +			       me->name, (long long)v, location);
+> > +			return -EINVAL;
+> > +		}
+> > +	}
+> > +
+> > +	*(u32 *)location = (u32)offset;
+> > +	return 0;
+> > +}
+> > +
+> > +static int apply_r_riscv_set_uleb128(struct module *me, void *location, Elf_Addr v)
+> > +{
+> > +	*(long *)location = v;
+> > +	return 0;
+> > +}
+> > +
+> > +static int apply_r_riscv_sub_uleb128(struct module *me, void *location, Elf_Addr v)
+> > +{
+> > +	*(long *)location -= v;
+> > +	return 0;
+> > +}
+> > +
+> > +/*
+> > + * Relocations defined in the riscv-elf-psabi-doc.
+> > + * This handles static linking only.
+> > + */
+> > +static int (*reloc_handlers_rela[])(struct module *me, void *location,
+> > +				    Elf_Addr v) = {
+> > +	[R_RISCV_32] =			apply_r_riscv_32_rela,
+> > +	[R_RISCV_64] =			apply_r_riscv_64_rela,
+> > +	[R_RISCV_RELATIVE] =		dynamic_linking_not_supported,
+> > +	[R_RISCV_COPY] =		dynamic_linking_not_supported,
+> > +	[R_RISCV_JUMP_SLOT] =		dynamic_linking_not_supported,
+> > +	[R_RISCV_TLS_DTPMOD32] =	dynamic_linking_not_supported,
+> > +	[R_RISCV_TLS_DTPMOD64] =	dynamic_linking_not_supported,
+> > +	[R_RISCV_TLS_DTPREL32] =	dynamic_linking_not_supported,
+> > +	[R_RISCV_TLS_DTPREL64] =	dynamic_linking_not_supported,
+> > +	[R_RISCV_TLS_TPREL32] =		dynamic_linking_not_supported,
+> > +	[R_RISCV_TLS_TPREL64] =		dynamic_linking_not_supported,
+> > +	/* 12-15 undefined */
+> > +	[R_RISCV_BRANCH] =		apply_r_riscv_branch_rela,
+> > +	[R_RISCV_JAL] =			apply_r_riscv_jal_rela,
+> > +	[R_RISCV_CALL] =		apply_r_riscv_call_rela,
+> > +	[R_RISCV_CALL_PLT] =		apply_r_riscv_call_plt_rela,
+> > +	[R_RISCV_GOT_HI20] =		apply_r_riscv_got_hi20_rela,
+> > +	[R_RISCV_TLS_GOT_HI20] =	tls_not_supported,
+> > +	[R_RISCV_TLS_GD_HI20] =		tls_not_supported,
+> > +	[R_RISCV_PCREL_HI20] =		apply_r_riscv_pcrel_hi20_rela,
+> > +	[R_RISCV_PCREL_LO12_I] =	apply_r_riscv_pcrel_lo12_i_rela,
+> > +	[R_RISCV_PCREL_LO12_S] =	apply_r_riscv_pcrel_lo12_s_rela,
+> > +	[R_RISCV_HI20] =		apply_r_riscv_hi20_rela,
+> > +	[R_RISCV_LO12_I] =		apply_r_riscv_lo12_i_rela,
+> > +	[R_RISCV_LO12_S] =		apply_r_riscv_lo12_s_rela,
+> > +	[R_RISCV_TPREL_HI20] =		tls_not_supported,
+> > +	[R_RISCV_TPREL_LO12_I] =	tls_not_supported,
+> > +	[R_RISCV_TPREL_LO12_S] =	tls_not_supported,
+> > +	[R_RISCV_TPREL_ADD] =		tls_not_supported,
+> > +	[R_RISCV_ADD8] =		apply_r_riscv_add8_rela,
+> > +	[R_RISCV_ADD16] =		apply_r_riscv_add16_rela,
+> > +	[R_RISCV_ADD32] =		apply_r_riscv_add32_rela,
+> > +	[R_RISCV_ADD64] =		apply_r_riscv_add64_rela,
+> > +	[R_RISCV_SUB8] =		apply_r_riscv_sub8_rela,
+> > +	[R_RISCV_SUB16] =		apply_r_riscv_sub16_rela,
+> > +	[R_RISCV_SUB32] =		apply_r_riscv_sub32_rela,
+> > +	[R_RISCV_SUB64] =		apply_r_riscv_sub64_rela,
+> > +	/* 41-42 reserved for future standard use */
+> > +	[R_RISCV_ALIGN] =		apply_r_riscv_align_rela,
+> > +	[R_RISCV_RVC_BRANCH] =		apply_r_riscv_rvc_branch_rela,
+> > +	[R_RISCV_RVC_JUMP] =		apply_r_riscv_rvc_jump_rela,
+> > +	/* 46-50 reserved for future standard use */
+> > +	[R_RISCV_RELAX] =		apply_r_riscv_relax_rela,
+> > +	[R_RISCV_SUB6] =		apply_r_riscv_sub6_rela,
+> > +	[R_RISCV_SET6] =		apply_r_riscv_set6_rela,
+> > +	[R_RISCV_SET8] =		apply_r_riscv_set8_rela,
+> > +	[R_RISCV_SET16] =		apply_r_riscv_set16_rela,
+> > +	[R_RISCV_SET32] =		apply_r_riscv_set32_rela,
+> > +	[R_RISCV_32_PCREL] =		apply_r_riscv_32_pcrel_rela,
+> > +	[R_RISCV_IRELATIVE] =		dynamic_linking_not_supported,
+> > +	[R_RISCV_PLT32] =		apply_r_riscv_plt32_rela,
+> > +	[R_RISCV_SET_ULEB128] =		apply_r_riscv_set_uleb128,
+> > +	[R_RISCV_SUB_ULEB128] =		apply_r_riscv_sub_uleb128,
+> > +	/* 62-191 reserved for future standard use */
+> > +	/* 192-255 nonstandard ABI extensions  */
+> > +};
+> > +
+> > +static bool accumulate_relocations[] = {
+> > +	[R_RISCV_32] =			false,
+> > +	[R_RISCV_64] =			false,
+> > +	[R_RISCV_RELATIVE] =		false,
+> > +	[R_RISCV_COPY] =		false,
+> > +	[R_RISCV_JUMP_SLOT] =		false,
+> > +	[R_RISCV_TLS_DTPMOD32] =	false,
+> > +	[R_RISCV_TLS_DTPMOD64] =	false,
+> > +	[R_RISCV_TLS_DTPREL32] =	false,
+> > +	[R_RISCV_TLS_DTPREL64] =	false,
+> > +	[R_RISCV_TLS_TPREL32] =		false,
+> > +	[R_RISCV_TLS_TPREL64] =		false,
+> > +	/* 12-15 undefined */
+> > +	[R_RISCV_BRANCH] =		false,
+> > +	[R_RISCV_JAL] =			false,
+> > +	[R_RISCV_CALL] =		false,
+> > +	[R_RISCV_CALL_PLT] =		false,
+> > +	[R_RISCV_GOT_HI20] =		false,
+> > +	[R_RISCV_TLS_GOT_HI20] =	false,
+> > +	[R_RISCV_TLS_GD_HI20] =		false,
+> > +	[R_RISCV_PCREL_HI20] =		false,
+> > +	[R_RISCV_PCREL_LO12_I] =	false,
+> > +	[R_RISCV_PCREL_LO12_S] =	false,
+> > +	[R_RISCV_HI20] =		false,
+> > +	[R_RISCV_LO12_I] =		false,
+> > +	[R_RISCV_LO12_S] =		false,
+> > +	[R_RISCV_TPREL_HI20] =		false,
+> > +	[R_RISCV_TPREL_LO12_I] =	false,
+> > +	[R_RISCV_TPREL_LO12_S] =	false,
+> > +	[R_RISCV_TPREL_ADD] =		false,
+> > +	[R_RISCV_ADD8] =		true,
+> > +	[R_RISCV_ADD16] =		true,
+> > +	[R_RISCV_ADD32] =		true,
+> > +	[R_RISCV_ADD64] =		true,
+> > +	[R_RISCV_SUB8] =		true,
+> > +	[R_RISCV_SUB16] =		true,
+> > +	[R_RISCV_SUB32] =		true,
+> > +	[R_RISCV_SUB64] =		true,
+> > +	/* 41-42 reserved for future standard use */
+> > +	[R_RISCV_ALIGN] =		false,
+> > +	[R_RISCV_RVC_BRANCH] =		false,
+> > +	[R_RISCV_RVC_JUMP] =		false,
+> > +	/* 46-50 reserved for future standard use */
+> > +	[R_RISCV_RELAX] =		false,
+> > +	[R_RISCV_SUB6] =		true,
+> > +	[R_RISCV_SET6] =		true,
+> > +	[R_RISCV_SET8] =		true,
+> > +	[R_RISCV_SET16] =		true,
+> > +	[R_RISCV_SET32] =		true,
+> > +	[R_RISCV_32_PCREL] =		false,
+> > +	[R_RISCV_IRELATIVE] =		false,
+> > +	[R_RISCV_PLT32] =		false,
+> > +	[R_RISCV_SET_ULEB128] =		true,
+> > +	[R_RISCV_SUB_ULEB128] =		true,
+> > +	/* 62-191 reserved for future standard use */
+> > +	/* 192-255 nonstandard ABI extensions  */
+> > +};
+> > +
+> > +static int accumulation_not_supported(struct module *me, void *location, long buffer)
+> > +{
+> > +	pr_err("%s: Internal error. Only ADD/SUB/SET/ULEB128 should be accumulated.", me->name);
+> > +	return -EINVAL;
+> > +}
+> > +
+> > +static int apply_6_bit_accumulation(struct module *me, void *location, long buffer)
+> > +{
+> > +	if (buffer != (buffer & 0x3F)) {
+> 
+> It may be a matter of taste, but I'd find something like this easier to read:
+> 
+> 	if (buffer > 0x3f) {
+> 
+> To me that more directly conveys that you're just checking if any if the higher
+> bits are set.
+> 
+> > +		pr_err("%s: value %ld out of range for 6-bit relocation.\n",
+> > +		       me->name, buffer);
+> > +		return -EINVAL;
+> > +	}
+> > +	*(u8 *)location = ((*(u8 *)location & 0xc0) | ((u8)buffer & 0x3F));
+> 
+> Here the casts also get a bit much.
+> 
+> > +	return 0;
+> > +}
+> > +
+> > +static int apply_8_bit_accumulation(struct module *me, void *location, long buffer)
+> > +{
+> > +	if (buffer != (u8)buffer) {
+> > +		pr_err("%s: value %ld out of range for 8-bit relocation.\n",
+> > +		       me->name, buffer);
+> > +		return -EINVAL;
+> > +	}
+> > +	*(u8 *)location = (u8)buffer;
+> > +	return 0;
+> > +}
+> > +
+> > +static int apply_16_bit_accumulation(struct module *me, void *location, long buffer)
+> > +{
+> > +	if (buffer != (u16)buffer) {
+> 
+> 	if (buffer > U16_MAX) {
+> 
+> > +		pr_err("%s: value %ld out of range for 16-bit relocation.\n",
+> > +		       me->name, buffer);
+> > +		return -EINVAL;
+> > +	}
+> > +	*(u16 *)location = (u16)buffer;
+> > +	return 0;
+> > +}
+> > +
+> > +static int apply_32_bit_accumulation(struct module *me, void *location, long buffer)
+> > +{
+> > +	if (buffer != (u32)buffer) {
+> 
+> 	if (buffer > U32_MAX) {
+> 
+> > +		pr_err("%s: value %ld out of range for 32-bit relocation.\n",
+> > +		       me->name, buffer);
+> > +		return -EINVAL;
+> > +	}
+> > +	*(u32 *)location = (u32)buffer;
+> > +	return 0;
+> > +}
+> > +
+> > +static int apply_64_bit_accumulation(struct module *me, void *location, long buffer)
+> > +{
+> > +	*(u64 *)location = (u64)buffer;
+> > +	return 0;
+> > +}
+> > +
+> > +static int apply_uleb128_accumulation(struct module *me, void *location, long buffer)
+> > +{
+> > +	/*
+> > +	 * ULEB128 is a variable length encoding. Encode the buffer into
+> > +	 * the ULEB128 data format.
+> > +	 */
+> > +	while (buffer != 0) {
+> > +		*(u8 *)location = (u8)buffer & 0x7F;
+> > +		buffer >>= 7;
+> > +		*(u8 *)location |= (buffer != 0) << 7;
+> > +		location = (u8 *)location + 1;
+> > +	}
+> 
+> How about something like
+> 
+> 	u8 *p = location;
+> 
+> 	while (buffer) {
+> 		u8 value = buffer & 0x7f;
+> 
+> 		buffer >>= 7;
+> 		value |= (!!buffer) << 7;
+> 
+> 		*p++ = value;
+> 	}
+> 
+> 
+> This sould do the same as above, but if buffer == 0 it doesn't write anything.
+> Is that the right thing to do?
+> 
+
+All great suggestions, thank you. Yes, that is the right thing to do
+when buffer == 0.
+
+- Charlie
+
+> > +	return 0;
+> > +}
+> > +
+> > +/*
+> > + * Need to duplicate this a third time to capture the handlers for accumulation.
+> > + */
+> > +static int (*accumulate_handlers[])(struct module *me, void *location, long buffer) = {
+> > +	[R_RISCV_32] =			accumulation_not_supported,
+> > +	[R_RISCV_64] =			accumulation_not_supported,
+> > +	[R_RISCV_RELATIVE] =		accumulation_not_supported,
+> > +	[R_RISCV_COPY] =		accumulation_not_supported,
+> > +	[R_RISCV_JUMP_SLOT] =		accumulation_not_supported,
+> > +	[R_RISCV_TLS_DTPMOD32] =	accumulation_not_supported,
+> > +	[R_RISCV_TLS_DTPMOD64] =	accumulation_not_supported,
+> > +	[R_RISCV_TLS_DTPREL32] =	accumulation_not_supported,
+> > +	[R_RISCV_TLS_DTPREL64] =	accumulation_not_supported,
+> > +	[R_RISCV_TLS_TPREL32] =		accumulation_not_supported,
+> > +	[R_RISCV_TLS_TPREL64] =		accumulation_not_supported,
+> > +	/* 12-15 undefined */
+> > +	[R_RISCV_BRANCH] =		accumulation_not_supported,
+> > +	[R_RISCV_JAL] =			accumulation_not_supported,
+> > +	[R_RISCV_CALL] =		accumulation_not_supported,
+> > +	[R_RISCV_CALL_PLT] =		accumulation_not_supported,
+> > +	[R_RISCV_GOT_HI20] =		accumulation_not_supported,
+> > +	[R_RISCV_TLS_GOT_HI20] =	accumulation_not_supported,
+> > +	[R_RISCV_TLS_GD_HI20] =		accumulation_not_supported,
+> > +	[R_RISCV_PCREL_HI20] =		accumulation_not_supported,
+> > +	[R_RISCV_PCREL_LO12_I] =	accumulation_not_supported,
+> > +	[R_RISCV_PCREL_LO12_S] =	accumulation_not_supported,
+> > +	[R_RISCV_HI20] =		accumulation_not_supported,
+> > +	[R_RISCV_LO12_I] =		accumulation_not_supported,
+> > +	[R_RISCV_LO12_S] =		accumulation_not_supported,
+> > +	[R_RISCV_TPREL_HI20] =		accumulation_not_supported,
+> > +	[R_RISCV_TPREL_LO12_I] =	accumulation_not_supported,
+> > +	[R_RISCV_TPREL_LO12_S] =	accumulation_not_supported,
+> > +	[R_RISCV_TPREL_ADD] =		accumulation_not_supported,
+> > +	[R_RISCV_ADD8] =		apply_8_bit_accumulation,
+> > +	[R_RISCV_ADD16] =		apply_16_bit_accumulation,
+> > +	[R_RISCV_ADD32] =		apply_32_bit_accumulation,
+> > +	[R_RISCV_ADD64] =		apply_64_bit_accumulation,
+> > +	[R_RISCV_SUB8] =		apply_8_bit_accumulation,
+> > +	[R_RISCV_SUB16] =		apply_16_bit_accumulation,
+> > +	[R_RISCV_SUB32] =		apply_32_bit_accumulation,
+> > +	[R_RISCV_SUB64] =		apply_64_bit_accumulation,
+> > +	/* 41-42 reserved for future standard use */
+> > +	[R_RISCV_ALIGN] =		accumulation_not_supported,
+> > +	[R_RISCV_RVC_BRANCH] =		accumulation_not_supported,
+> > +	[R_RISCV_RVC_JUMP] =		accumulation_not_supported,
+> > +	/* 46-50 reserved for future standard use */
+> > +	[R_RISCV_RELAX] =		accumulation_not_supported,
+> > +	[R_RISCV_SUB6] =		apply_6_bit_accumulation,
+> > +	[R_RISCV_SET6] =		apply_6_bit_accumulation,
+> > +	[R_RISCV_SET8] =		apply_8_bit_accumulation,
+> > +	[R_RISCV_SET16] =		apply_16_bit_accumulation,
+> > +	[R_RISCV_SET32] =		apply_32_bit_accumulation,
+> > +	[R_RISCV_32_PCREL] =		accumulation_not_supported,
+> > +	[R_RISCV_IRELATIVE] =		accumulation_not_supported,
+> > +	[R_RISCV_PLT32] =		accumulation_not_supported,
+> > +	[R_RISCV_SET_ULEB128] =		apply_uleb128_accumulation,
+> > +	[R_RISCV_SUB_ULEB128] =		apply_uleb128_accumulation,
+> > +	/* 62-191 reserved for future standard use */
+> > +	/* 192-255 nonstandard ABI extensions  */
+> >  };
+> >
+> > +void process_accumulated_relocations(struct module *me)
+> > +{
+> > +	/*
+> > +	 * Only ADD/SUB/SET/ULEB128 should end up here.
+> > +	 *
+> > +	 * Each bucket may have more than one relocation location. All
+> > +	 * relocations for a location are stored in a list in a bucket.
+> > +	 *
+> > +	 * Relocations are applied to a temp variable before being stored to the
+> > +	 * provided location to check for overflow. This also allows ULEB128 to
+> > +	 * properly decide how many entries are needed before storing to
+> > +	 * location. The final value is stored into location using the handler
+> > +	 * for the last relocation to an address.
+> > +	 *
+> > +	 * Three layers of indexing:
+> > +	 *	- Each of the buckets in use
+> > +	 *	- Groups of relocations in each bucket by location address
+> > +	 *	- Each relocation entry for a location address
+> > +	 */
+> > +	struct used_bucket *bucket_iter;
+> > +	struct relocation_head *rel_head_iter;
+> > +	struct relocation_entry *rel_entry_iter;
+> > +	int curr_type;
+> > +	void *location;
+> > +	long buffer;
+> > +
+> > +	list_for_each_entry(bucket_iter, &used_buckets_list, head) {
+> > +		hlist_for_each_entry(rel_head_iter, bucket_iter->bucket, node) {
+> > +			buffer = 0;
+> > +			location = rel_head_iter->location;
+> > +			list_for_each_entry(rel_entry_iter, rel_head_iter->rel_entry, head) {
+> > +				curr_type = rel_entry_iter->type;
+> > +				reloc_handlers_rela[curr_type](me, &buffer, rel_entry_iter->value);
+> > +				kfree(rel_entry_iter);
+> > +			}
+> > +			accumulate_handlers[curr_type](me, location, buffer);
+> > +			kfree(rel_head_iter);
+> > +		}
+> > +		kfree(bucket_iter);
+> > +	}
+> > +
+> > +	kfree(relocation_hashtable);
+> > +}
+> > +
+> > +int add_relocation_to_accumulate(struct module *me, int type, void *location,
+> > +				 unsigned int hashtable_bits, Elf_Addr v)
+> > +{
+> > +	struct relocation_entry *entry;
+> > +	struct relocation_head *rel_head;
+> > +	struct hlist_head *current_head;
+> > +	struct hlist_node *first;
+> > +	struct used_bucket *bucket;
+> > +	unsigned long hash;
+> > +
+> > +	entry = kmalloc(sizeof(*entry), GFP_KERNEL);
+> > +	INIT_LIST_HEAD(&entry->head);
+> > +	entry->type = type;
+> > +	entry->value = v;
+> > +
+> > +	hash = hash_min((unsigned long)location, hashtable_bits);
+> > +
+> > +	current_head = &relocation_hashtable[hash];
+> > +	first = current_head->first;
+> > +
+> > +	/* Find matching location (if any) */
+> > +	bool found = false;
+> > +	struct relocation_head *rel_head_iter;
+> > +
+> > +	hlist_for_each_entry(rel_head_iter, current_head, node) {
+> > +		if (rel_head_iter->location == location) {
+> > +			found = true;
+> > +			rel_head = rel_head_iter;
+> > +			break;
+> > +		}
+> > +	}
+> > +
+> > +	if (!found) {
+> > +		rel_head = kmalloc(sizeof(*rel_head), GFP_KERNEL);
+> > +		rel_head->rel_entry =
+> > +			kmalloc(sizeof(struct list_head), GFP_KERNEL);
+> > +		INIT_LIST_HEAD(rel_head->rel_entry);
+> > +		rel_head->location = location;
+> > +		INIT_HLIST_NODE(&rel_head->node);
+> > +		if (!current_head->first) {
+> > +			bucket =
+> > +				kmalloc(sizeof(struct used_bucket), GFP_KERNEL);
+> > +			INIT_LIST_HEAD(&bucket->head);
+> > +			bucket->bucket = current_head;
+> > +			list_add(&bucket->head, &used_buckets_list);
+> > +		}
+> > +		hlist_add_head(&rel_head->node, current_head);
+> > +	}
+> > +
+> > +	/* Add relocation to head of discovered rel_head */
+> > +	list_add_tail(&entry->head, rel_head->rel_entry);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +unsigned int initialize_relocation_hashtable(unsigned int num_relocations)
+> > +{
+> > +	/* Can safely assume that bits is not greater than sizeof(long) */
+> > +	unsigned long hashtable_size = roundup_pow_of_two(num_relocations);
+> > +	unsigned int hashtable_bits = ilog2(hashtable_size);
+> > +
+> > +	/*
+> > +	 * Double size of hashtable if num_relocations * 1.25 is greater than
+> > +	 * hashtable_size.
+> > +	 */
+> > +	int should_double_size = ((num_relocations + (num_relocations >> 2)) > (hashtable_size));
+> > +
+> > +	hashtable_bits += should_double_size;
+> > +
+> > +	hashtable_size <<= should_double_size;
+> > +
+> > +	relocation_hashtable = kmalloc_array(hashtable_size,
+> > +					     sizeof(*relocation_hashtable),
+> > +					     GFP_KERNEL);
+> > +	__hash_init(relocation_hashtable, hashtable_size);
+> > +
+> > +	INIT_LIST_HEAD(&used_buckets_list);
+> > +
+> > +	return hashtable_bits;
+> > +}
+> > +
+> >  int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+> >  		       unsigned int symindex, unsigned int relsec,
+> >  		       struct module *me)
+> > @@ -349,11 +822,13 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+> >  	unsigned int i, type;
+> >  	Elf_Addr v;
+> >  	int res;
+> > +	unsigned int num_relocations = sechdrs[relsec].sh_size / sizeof(*rel);
+> > +	unsigned int hashtable_bits = initialize_relocation_hashtable(num_relocations);
+> >
+> >  	pr_debug("Applying relocate section %u to %u\n", relsec,
+> >  	       sechdrs[relsec].sh_info);
+> >
+> > -	for (i = 0; i < sechdrs[relsec].sh_size / sizeof(*rel); i++) {
+> > +	for (i = 0; i < num_relocations; i++) {
+> >  		/* This is where to make the change */
+> >  		location = (void *)sechdrs[sechdrs[relsec].sh_info].sh_addr
+> >  			+ rel[i].r_offset;
+> > @@ -428,11 +903,16 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+> >  			}
+> >  		}
+> >
+> > -		res = handler(me, location, v);
+> > +		if (accumulate_relocations[type])
+> > +			res = add_relocation_to_accumulate(me, type, location, hashtable_bits, v);
+> > +		else
+> > +			res = handler(me, location, v);
+> >  		if (res)
+> >  			return res;
+> >  	}
+> >
+> > +	process_accumulated_relocations(me);
+> > +
+> >  	return 0;
+> >  }
+> >
+> >
+> > --
+> > 2.34.1
+> >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
