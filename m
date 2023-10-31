@@ -4,64 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E9D6C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 17:46:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFCEFC4167D
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 17:47:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=p5q0HH0w6CpvwaxTs6dAxUBy2iV8oITcgmoHDlS8OQM=; b=kHaVbOu0KsKHdx
-	hBzZYbaoB2w56rVYMXGvIW6ZrV9L1pG9+lxcvfpa9Yvsm9dKKxL5cOV4I+SCthuDfhRpsMYlaT6oJ
-	jHWIrpS2n46nNbv80dWQ1k1KCxKAk6wPVuFGWDgWfBwqzd9I3riXtu7GUM7rlYTBORyujjUS+3Q1x
-	QIJ9jfit0gtzwkbp7Hvhlf45YVbe4a2fsZaD8/maEyWr92YBBF12vsDCXqQ2oHzqCNs6JvUQMCUZA
-	6GVqiDUiR70kH0RYS+08lsqCWbskk5db9nnvX70IcbhC0AJfbaUhfBJgbMwIyYYwWhmHXR1fU8bqA
-	oEE5O/+Ehg6XDN9V95bg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=LCtOA5SK/HW+x0JndgnzIQxCKUjQJ8Eh4Psl1ji4NvU=; b=2vodoAbUhUWxGp
+	si7BQaQAgAsIjY3syXMSX0rePl/HItwQzlUQq1pYOPiuBG+iDvNmypWznP84Cn5TTrvjLYD4zRJt2
+	CVCoI5irobycINAJw+YOJTsk914uc8rjy/6nLNJldSwrhnOkKiGUCxNJ9UffVClAoW9SB6XSpHi/9
+	EIUIofwO/pIitmq+aZod1YDoL73bV/nGx6CKAWTqMFe1RgqwM0esUQpaqnTotpwaikm12vZnNC0Mf
+	3qtbN83sXnpwI7ODG/r60if6ssrh/+ZoRD5ygTmhJPalSObjx6x6H6kPpS5tYg2eGPAr4X/kUlMal
+	1Iv97bmCuzdgR2QCstPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxsp2-005shd-0P;
-	Tue, 31 Oct 2023 17:46:36 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qxspp-005spQ-2L;
+	Tue, 31 Oct 2023 17:47:25 +0000
+Received: from mgamail.intel.com ([192.55.52.151])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxsoz-005sh6-2n
+	id 1qxspm-005slt-2y
 	for linux-riscv@lists.infradead.org;
-	Tue, 31 Oct 2023 17:46:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0B61B61059;
-	Tue, 31 Oct 2023 17:46:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A0AFC433C8;
-	Tue, 31 Oct 2023 17:46:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1698774392;
-	bh=4IzIyIgoH1lhjy2rL7R+B3ys+T2C5XdwhNqqqjhol4E=;
-	h=From:To:Cc:Subject:Date:From;
-	b=iZzl3i4u3Z4lHJziJsiFVp5CwjwRspRy/Sn6vpFB+jZ1C6Y3IZKIMT0lu8bY/i68v
-	 ttEgti0JQn33NvLIaRZZmxZcXakyseqtAJl+aOMbKjipWvIx9SuwF0rDROuRJLGa94
-	 IECn7mdOuW4SbNsQdlr3hDYkcLgbxybb6fITn+CQ0epFyuWBJTtY0TyiO7skwSzaC7
-	 2UwIFVeVYPU096QD4cjtdjY6XbOvTJNIuuy3K3E54BB7vKPXev7+lYlWnylZ8Iur02
-	 d0gCSEL7LvdChiSs9S3Qi7gibTd2Nblxp+BG8aDtJsiMl6bZH3qjsfO+9gXYzaldhf
-	 SkdMlijOmtqXQ==
-From: Masahiro Yamada <masahiroy@kernel.org>
-To: linux-kbuild@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Nicolas Schier <nicolas@fjasle.eu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH] modpost: fix section mismatch message for RELA
-Date: Wed,  1 Nov 2023 02:46:27 +0900
-Message-Id: <20231031174627.684576-1-masahiroy@kernel.org>
-X-Mailer: git-send-email 2.40.1
+	Tue, 31 Oct 2023 17:47:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1698774442; x=1730310442;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=Z+Ln+aIehS39v1r+jcuApCy/UDmCuP7Oev5KB/w6ank=;
+  b=ntlXQK+HmN2YpI7XhV5sF658j73QagnV3f92fUSH/lR406RjecjqC0Qj
+   9sTFGhpHOaw9pGiMOzPkpkVxnIuMe2Q3NuC71EpoEAReWLZSy0s0tQWXw
+   Ey2qLCfGgUDBY3uUX81F4sxPPRnKXss8oIwyvW3SVXFdmtEJj/28wd2zZ
+   mkYXxZtCFJfvugJn0IKUhj35ohvj8Dia3JUoLSc5ivvrfcQ3PpdAqCnAc
+   63WCepuLQoyH0wtZht7vspazzeRJEiS30uje3OXDLO8sczYjTMn44WOty
+   w8YDTADqw5wKc4KpxrpHEuGNu2ldcwjvi5KnXoMTTQKbHSVSJJx+FIZmJ
+   Q==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10880"; a="368550379"
+X-IronPort-AV: E=Sophos;i="6.03,265,1694761200"; 
+   d="scan'208";a="368550379"
+Received: from orsmga001.jf.intel.com ([10.7.209.18])
+  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2023 10:47:10 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10880"; a="795656232"
+X-IronPort-AV: E=Sophos;i="6.03,265,1694761200"; 
+   d="scan'208";a="795656232"
+Received: from fmsmsx602.amr.corp.intel.com ([10.18.126.82])
+  by orsmga001.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 31 Oct 2023 10:47:10 -0700
+Received: from fmsmsx610.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx602.amr.corp.intel.com (10.18.126.82) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.34; Tue, 31 Oct 2023 10:47:09 -0700
+Received: from FMSEDG603.ED.cps.intel.com (10.1.192.133) by
+ fmsmsx610.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.34 via Frontend Transport; Tue, 31 Oct 2023 10:47:09 -0700
+Received: from NAM12-MW2-obe.outbound.protection.outlook.com (104.47.66.41) by
+ edgegateway.intel.com (192.55.55.68) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.34; Tue, 31 Oct 2023 10:47:09 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=UZE+DVIcGXHnqU1c6a/ucHw7cRf8QV2avIF9XilpkVFnTaFcpsdAXlPCaSIBkGUF9P8Ep9jEuiV1BEaeD9syj4dq/taJ0tJ8g9/deLECryAOqGdqXKCigAWPhjJ+Qg8GwySScrjqLH9W1+G5YnJm4owubWxYkuxJhcP2wKqXkK3i1ZER7tTWwq44Xs+UDZySuioILTvyOKlftA4z5gb+3Zyi6Jl3ZGH9d1Mvn9w8kTBm6AwKFgHhV+qrEgCsI/HmyumBlxNCHocx25+xcHuRL4SUWjpjtaiqL5IqSmcBpU9KS/yNwUbgziJndJrNSOkzF6lCm8fdMSbCZ7Me5DczgA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=izVKngJicZs5XLgQW5YVf8pHkusKM7gH5U3BEvcIzDg=;
+ b=gYn/s+JqLeAtIE31Y0haxkYCfYwhF/nrKvEX3dr2B7b7ro39iUFAAbSCgKg15Wcu0m3/437s811AWmW/6jNQP6DwTZZuV82P3GWGLG4DbDzNcw+d1IYp3Tz5zPYObas+cIvrC+39dlvgbClE/OmJIK+t31oit0Hdhm/V9T8dsXiyGUUP+4/aHaPk2V3MCasUjJfKH0xaJp+xKoraBkp1SjN5DViPcNJ7FKDB2sruhUmcHPzRjypl9JOqESdMGGiORtttnoPJsxOHOB/GwmL4+dC6/Hj6RES/PECTAzxfmhZBWMtVJLbah542Y54IgPf0IrS2pbqHV7CNmyBDwH29Ow==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
+ by CH0PR11MB5393.namprd11.prod.outlook.com (2603:10b6:610:b8::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6954.19; Tue, 31 Oct
+ 2023 17:47:07 +0000
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::e75f:ec47:9be1:e9e4]) by PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::e75f:ec47:9be1:e9e4%4]) with mapi id 15.20.6933.026; Tue, 31 Oct 2023
+ 17:47:07 +0000
+Date: Tue, 31 Oct 2023 10:47:04 -0700
+From: Dan Williams <dan.j.williams@intel.com>
+To: Bjorn Helgaas <helgaas@kernel.org>, Robert Richter <rrichter@amd.com>,
+	Terry Bowman <terry.bowman@amd.com>, Dan Williams <dan.j.williams@intel.com>,
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, Siddharth Vadapalli
+	<s-vadapalli@ti.com>
+CC: <linux-cxl@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<loongarch@lists.linux.dev>, kernel test robot <lkp@intel.com>
+Subject: Re: [linux-next:master] BUILD REGRESSION
+ c503e3eec382ac708ee7adf874add37b77c5d312
+Message-ID: <65413d98d6d5e_244c782949d@dwillia2-xfh.jf.intel.com.notmuch>
+References: <202310310457.5LusQqF6-lkp@intel.com>
+ <20231031161757.GA11354@bhelgaas>
+Content-Disposition: inline
+In-Reply-To: <20231031161757.GA11354@bhelgaas>
+X-ClientProxiedBy: MW4PR03CA0202.namprd03.prod.outlook.com
+ (2603:10b6:303:b8::27) To PH8PR11MB8107.namprd11.prod.outlook.com
+ (2603:10b6:510:256::6)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|CH0PR11MB5393:EE_
+X-MS-Office365-Filtering-Correlation-Id: 13555e45-a10f-4e33-8e5e-08dbda39667c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: XM06rREy/25wr6G5T9jLuRopMo/ybTlwU7VscuJf05tKqQz6zpxb3NVw17Xo6P0mBKL7P12aGmcsO1zvyq+Fd4vIsOPouNFM4PryTRNduoi+9bcuCKAFbSqSyU5YdFq7K9VAL14Z2sfHwD1S4mS/JvUK+PmRGpa6wujQNen3nEPqJ5KSRWsJZLFUAI4T/MODRyH320mRc8UjRZ9BwMZ5b38mAhXXH3X40J56wxkHRFm48tq3PZ0zhT/rl/1zI9jfrBGKzJPO+2LelHo7ylqVdP3HvnElsYHDGDZgh+cIRoytfEL3jhMw42THXTLhglYjjfr+fsrOd0ZDGAxHgZxSZcZoyCiQTFWnOeT/CDQCfQNGCt9OduXbYrTKzP32WMZeL4GbMMW3PRS6JD+GlSqWy6ube1rA/oV4Q71vJVEyBFhzSr95e32nvSLSFP0FzFtG1uR4NaIjkKwqFCpK5D7p13DKsKF0YCOI1XrZ1lxaOGRSE0r+4tiW0iPC+JHGQxGRnpnJTm0GMkW5QyebSfLjfJSviBc6eNHOfad2kSbEH3c87oEyIeqs9SrrtGc5eEN8pDLCM4yjGLhmTeF7k2iAigP7k+Dx3HyNAecBfG2sgDxwFZU6Uvun1bPmpNjri7NRCMtMbQxrp9d5rzckAbP295jB1HeRTM2TriOVt/D0oazkuReRI57Q1Eik19JC8AFI
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(346002)(376002)(136003)(396003)(39860400002)(366004)(230173577357003)(230273577357003)(230922051799003)(451199024)(1800799009)(186009)(64100799003)(7416002)(38100700002)(6506007)(6512007)(9686003)(26005)(107886003)(86362001)(6666004)(966005)(83380400001)(82960400001)(6486002)(2906002)(478600001)(110136005)(41300700001)(66556008)(66946007)(66476007)(316002)(8936002)(4326008)(8676002)(5660300002)(98903001);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mChbVHOfMyIaLXzI3Flq43YB0oRQK6BAOVakYmTg4vwBPlOGP3VOHGZYcOdq?=
+ =?us-ascii?Q?FwARc3ajF06SMMcgwoNKEJmgFigQNU55MwV4us2yOn7dr+TSYP+baWroT+kJ?=
+ =?us-ascii?Q?0L3odW04G/F1QJWPrgqQgCFGzE6OgUNPoXwEW2G3RkPLtXWz0juMMC6T4veO?=
+ =?us-ascii?Q?fZc5MbLdovj/D1h9BSKBAuV8tDM65LhCZru8HBbyQfj7PsVjaD64rb5Hno4E?=
+ =?us-ascii?Q?wZrTVOTGWm3FD/5KNtSlmxqJPqoFSgnkkawqzYVn7lnHCG9/UONWTulsv0rY?=
+ =?us-ascii?Q?iKsoGt47loWjQxXrKQElx8z2DOJ9IdSpJUC1DWH+srtwSLQRoL9XOM2c+TQY?=
+ =?us-ascii?Q?dRERnRUWiWlD1ceWWF9ABzNPIN1BSldnPDHuJzcE4VPa2WlBs5nItoO498LG?=
+ =?us-ascii?Q?Y0USZB43iUiMH4HB2zqCGhjkMnIWgoJEvqsRmWu7d66Mbygsshbm8akg9YWA?=
+ =?us-ascii?Q?KnxDc8Hosz49WugzjEKoomcKrS1FWAtK9NaHCtWrw+Fo2M8UqyQHwfX137lT?=
+ =?us-ascii?Q?s8DCcDVeZRaCCiKq1kmZrSmH8ytvmQJjZve5jj2E4DrJ/uVaGmLtnVU3WlE3?=
+ =?us-ascii?Q?UFRrCiH7MiQGvri1EkoqrAqePuPyQVI094OEr/5OJ63GlFJ89iSyUUvqAhpY?=
+ =?us-ascii?Q?PA/Be1TIwiksi7GQG/hV7PocEwlbr6wGSOIBQftvPeXW/OXVAdeFV3ktFTJM?=
+ =?us-ascii?Q?ruiKrBRQKxACNQinqzy8/iH5e2+4K7n7Njc14D8MtMUR9DIxDTsp2HctY6si?=
+ =?us-ascii?Q?h5q8U40nrRYP1Ts+j1k6xznMFkIPgoWOvzSxWLzqZTtgLDP1NmA6czvwgUF3?=
+ =?us-ascii?Q?+LWcSC0rqMePDRHyW9bpj6Sl9cYiBI969TMZlHKTezgRHUkSBcOFk9w2S30h?=
+ =?us-ascii?Q?bH1kGGurJequStVGGNw9+AKGj85G1N2/giD+2h7kxr8ND+Z5gSU35ydszP98?=
+ =?us-ascii?Q?1555U3dpN2vb816NeRcxMEk84C/p048Z4uAmqyNFOyJG5B+1wqnRaCPeAXZB?=
+ =?us-ascii?Q?Ss2jEMGOkT+QPN13hib2ttzdRrZt3VBYwfibJubX10TfLIFlp1etapGqDQ2W?=
+ =?us-ascii?Q?LisOew7Oq25r5PltvRYhrOb0znIPjhL1i3yx52J6wwASaFd4lX41hhNFAHr2?=
+ =?us-ascii?Q?SFAWCUec9BaapOtfndI3SlZQhpGlJ8TGhTbdwWWQcbBZWgSzdM75pZSMNw1D?=
+ =?us-ascii?Q?pzFV75iDRPMwfJghuNqRL+1EQAveG1RtEZVQ2vCnnl5UcvRGwrabyJvS/nN6?=
+ =?us-ascii?Q?yo/Ms66dyPAByn4vBnTW3BSET2erHV8J+HTxPFRU2QXm7Uegz4tLx061ELgP?=
+ =?us-ascii?Q?EsLyYs2au+MrZN0z3zSJjNK0jENjoX8SVqlbUk8Q1EstgEbJkdwydIraD+99?=
+ =?us-ascii?Q?CQly1JbXup+EFDWTnNU0bx3kKFWE728KlX7dMeAaU9WUxJAZeC+Vql0E8K9B?=
+ =?us-ascii?Q?qprJ1qUD9ciTUyxXcL6qu/fuTdioh8brJyj9U6bQrcYUoRv+LfHPRFL9wyPq?=
+ =?us-ascii?Q?dPZLvpUUFi/1Fngzt55ffA1DJ0CrSfE9bJpn5UpNzKIwLxrLhTWeN+Wj1B4B?=
+ =?us-ascii?Q?GoXq5NluWNcB+Mjw1SrIvYZVLSHY2BJoNbP9Tl+ncDzdXXa476OpTLe8OfRO?=
+ =?us-ascii?Q?fA=3D=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 13555e45-a10f-4e33-8e5e-08dbda39667c
+X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2023 17:47:07.1707
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AMh4SZYxXiycjzkZviDrUVFhsnf4tjo7ashhPI6mGzphEsZsYQgEegjyYGZWRb7lQ9qtB12BWZ6nwfwtu9CePX6QvF4G4b1lfA34oppRAQ8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR11MB5393
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231031_104633_944762_80B35C78 
-X-CRM114-Status: UNSURE (   9.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231031_104722_979425_8E492B23 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,71 +171,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The section mismatch check prints a bogus symbol name on some
-architectures.
+Bjorn Helgaas wrote:
+> On Tue, Oct 31, 2023 at 04:35:23AM +0800, kernel test robot wrote:
+> > tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> > branch HEAD: c503e3eec382ac708ee7adf874add37b77c5d312  Add linux-next specific files for 20231030
+> > 
+> > Error/Warning reports:
+> > ... 
+> > https://lore.kernel.org/oe-kbuild-all/202310302206.Pkr5eBDi-lkp@intel.com
+> 
+> > Error/Warning: (recently discovered and may have been fixed)
+> > 
+> > Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/iio/imu/bosch,bma400.yaml
+> > aarch64-linux-ld: drivers/cxl/core/pci.c:921:(.text+0xbbc): undefined reference to `pci_print_aer'
+> > ...
+> > arch/riscv/include/asm/mmio.h:67:(.text+0xd66): undefined reference to `pci_print_aer'
+> > csky-linux-ld: pci.c:(.text+0x6e8): undefined reference to `pci_print_aer'
+> > drivers/cxl/core/pci.c:921: undefined reference to `pci_print_aer'
+> > drivers/cxl/core/pci.c:921:(.text+0xbc0): undefined reference to `pci_print_aer'
+> > ...
+> > ld: drivers/cxl/core/pci.c:921: undefined reference to `pci_print_aer'
+> > loongarch64-linux-ld: drivers/cxl/core/pci.c:921:(.text+0xa38): undefined reference to `pci_print_aer'
+> > pci.c:(.text+0x662): undefined reference to `pci_print_aer'
+> > powerpc-linux-ld: pci.c:(.text+0xf10): undefined reference to `pci_print_aer'
+> > riscv64-linux-ld: pci.c:(.text+0x11ec): undefined reference to `pci_print_aer'
+> 
+> I have no idea about the above (and all the similar ones below); I
+> assume they all have to do with
+> https://lore.kernel.org/r/20231018171713.1883517-13-rrichter@amd.com
 
-[test code]
+Yes, I will get this fix folded into cxl/next:
 
-  #include <linux/init.h>
-
-  int __initdata foo;
-  int get_foo(void) { return foo; }
-
-If you compile it with GCC for riscv or loongarch, modpost will show an
-incorrect symbol name:
-
-  WARNING: modpost: vmlinux: section mismatch in reference: get_foo+0x8 (section: .text) -> done (section: .init.data)
-
-To get the correct symbol address, st_value must be added
-
-This issue has never been noticed since commit 93684d3b8062 ("kbuild:
-include symbol names in section mismatch warnings") presumably because
-st_value becomes zero on most architectures when the referenced symbol
-is looked up. It is not true for riscv or loongarch, at least.
-
-With this fix, modpost will show the correct symbol name:
-
-  WARNING: modpost: vmlinux: section mismatch in reference: get_foo+0x8 (section: .text) -> foo (section: .init.data)
-
-Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
----
-
- scripts/mod/modpost.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
-
-diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
-index 973b5e5ae2dd..cb6406f485a9 100644
---- a/scripts/mod/modpost.c
-+++ b/scripts/mod/modpost.c
-@@ -1383,13 +1383,15 @@ static void section_rela(struct module *mod, struct elf_info *elf,
- 	const Elf_Rela *rela;
- 
- 	for (rela = start; rela < stop; rela++) {
-+		Elf_Sym *tsym;
- 		Elf_Addr taddr, r_offset;
- 		unsigned int r_type, r_sym;
- 
- 		r_offset = TO_NATIVE(rela->r_offset);
- 		get_rel_type_and_sym(elf, rela->r_info, &r_type, &r_sym);
- 
--		taddr = TO_NATIVE(rela->r_addend);
-+		tsym = elf->symtab_start + r_sym;
-+		taddr = tsym->st_value + TO_NATIVE(rela->r_addend);
- 
- 		switch (elf->hdr->e_machine) {
- 		case EM_RISCV:
-@@ -1404,7 +1406,7 @@ static void section_rela(struct module *mod, struct elf_info *elf,
- 			break;
- 		}
- 
--		check_section_mismatch(mod, elf, elf->symtab_start + r_sym,
-+		check_section_mismatch(mod, elf, tsym,
- 				       fsecndx, fromsec, r_offset, taddr);
- 	}
+diff --git a/include/linux/aer.h b/include/linux/aer.h
+index f6ea2f57d808..3db310c19ab7 100644
+--- a/include/linux/aer.h
++++ b/include/linux/aer.h
+@@ -43,16 +43,20 @@ struct aer_capability_regs {
+ #if defined(CONFIG_PCIEAER)
+ int pci_aer_clear_nonfatal_status(struct pci_dev *dev);
+ int pcie_aer_is_native(struct pci_dev *dev);
++void pci_print_aer(struct pci_dev *dev, int aer_severity,
++                   struct aer_capability_regs *aer);
+ #else
+ static inline int pci_aer_clear_nonfatal_status(struct pci_dev *dev)
+ {
+        return -EINVAL;
  }
--- 
-2.40.1
-
+ static inline int pcie_aer_is_native(struct pci_dev *dev) { return 0; }
++static inline void pci_print_aer(struct pci_dev *dev, int aer_severity,
++                                struct aer_capability_regs *aer)
++{
++}
+ #endif
+ 
+-void pci_print_aer(struct pci_dev *dev, int aer_severity,
+-                   struct aer_capability_regs *aer);
+ int cper_severity_to_aer(int cper_severity);
+ void aer_recover_queue(int domain, unsigned int bus, unsigned int devfn,
+                       int severity, struct aer_capability_regs *aer_regs);
 
 _______________________________________________
 linux-riscv mailing list
