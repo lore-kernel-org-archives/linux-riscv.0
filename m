@@ -4,62 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E600C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 16:18:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AD66C4167B
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 16:41:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=FmQ9cDisdXmW3lgVlIpNDteVTHgmNdcKNJE+QM5I73I=; b=IIGT0XCaVFJyJK
-	bPreY1YdGU/30wgSdJUZqTSE3N4hfWlFQhCPDIwe1akckwatJ/++VxN/wbvGAm56wWuXI5REp9MJJ
-	c7uLmDD3k7o0oJ4YBZV/uc1Wkiy5aG1qoyjSPk9e7Kuzj7+7BFMBQbEsXbtrsxYjs7LQDIyCB/kOZ
-	U9/zkj6Y1Hz7J1DQW4pF+HDAvS/BPOAhxwX2kTBu82U4+UwnQGRxNHBYoHHbkKrVrzNDTCaXwWrIz
-	c+MzcoisZaKCc7UVzTB58fbtHu5c5vLIHHNLOB1bQqTd4cBgXrDW6AfTfVAIcDnJciOkMaGs/bgFU
-	bBQSRk52jqfafqYPehRQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pDGHdfR1uE2PzzANmsSaWJQtgcdhloBPx6wRLPnnW0M=; b=d4a7jqEUpuZ/2m
+	v7wl+aPXX5t2pWaj6j9GnSxyRza/04kxkSqyqrKVAviDIdq7cb9/haR0XhdJnzUy5y8yqd+c7pWck
+	sIclKiYmFMjAtL8H8y6LfGj0deACN5rq17bSm3Q81ZlGsqhAV6nKJLwMivtouoFexX3Z4qN5fqqcC
+	fv/faP83pQFegDM+3HwQONZ2XJQWO+v5Wb1C8XXGQnAUfdMw2OQowg+kcJG843jAode+JRHhmwkNU
+	uaPz5rVoOT8cR4y4aKqSl+m1iq8delOTcWWjSjaJX0EW1qpxTI3Y9AoXJIAaDdN8xaNRlXLMcnPFg
+	Me9Esqv8LoPuzVGgukgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxrRX-005alK-1G;
-	Tue, 31 Oct 2023 16:18:15 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1qxrnV-005hh8-1h;
+	Tue, 31 Oct 2023 16:40:57 +0000
+Received: from mail-out.m-online.net ([212.18.0.9])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxrRU-005akY-04
+	id 1qxrir-005evH-0Q
 	for linux-riscv@lists.infradead.org;
-	Tue, 31 Oct 2023 16:18:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 4813FB80E97;
-	Tue, 31 Oct 2023 16:18:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC49EC433C7;
-	Tue, 31 Oct 2023 16:17:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1698769080;
-	bh=HCX1df8KCBHXTAnQTau8yrSKPJ1ZZEmzSDDHwuNCfSQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=K8ukv2xCzOKe8u1Ay0pk568Vgiy0KmGaE6zOcWpgpdwjdD16//wndhmVNzfHDgrPp
-	 ZHPCDTqWVCqD8Ky2Ivs0b514MqOHv1+AF/hYY7TtHNXLvTaSPSpSy25/ctPvw5j+2t
-	 43QCikypsHfu09DPmbe/m9CJ/2WW+NCoB6etcNBcmS9dp9/RjYIg0rnvBgflPJs/qr
-	 RhaCxfM5dzQ5jkiThISeioN1AaoJJqIKRpA4hqMGGWnmnUicgkMVaTrEGAd0igG4Uh
-	 E3wLtLk+tRLoSYwNYHdC30Uwx1xIsu3/4NbxqqJywZAb6q9swVP6S7rVjiIEeaTFrI
-	 Rwna0lW1ysMOA==
-Date: Tue, 31 Oct 2023 11:17:57 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Robert Richter <rrichter@amd.com>, Terry Bowman <terry.bowman@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: linux-cxl@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev, kernel test robot <lkp@intel.com>
-Subject: Re: [linux-next:master] BUILD REGRESSION
- c503e3eec382ac708ee7adf874add37b77c5d312
-Message-ID: <20231031161757.GA11354@bhelgaas>
+	Tue, 31 Oct 2023 16:36:10 +0000
+Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
+	by mail-out.m-online.net (Postfix) with ESMTP id 4SKbNw3bKHz1r1sM;
+	Tue, 31 Oct 2023 17:36:00 +0100 (CET)
+Received: from localhost (dynscan1.mnet-online.de [192.168.6.68])
+	by mail.m-online.net (Postfix) with ESMTP id 4SKbNv719Xz1qqlW;
+	Tue, 31 Oct 2023 17:35:59 +0100 (CET)
+X-Virus-Scanned: amavis at mnet-online.de
+Received: from mail.mnet-online.de ([192.168.8.182])
+ by localhost (dynscan1.mail.m-online.net [192.168.6.68]) (amavis, port 10024)
+ with ESMTP id gPAjuvIpFzIo; Tue, 31 Oct 2023 17:35:58 +0100 (CET)
+X-Auth-Info: 7WVihqLGSDRZy2DvJB4lOgCCHp8jng0ZYt5id1i0l8Oow3unYQFAovJz6kwHdGof
+Received: from igel.home (aftr-62-216-205-72.dynamic.mnet-online.de [62.216.205.72])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.mnet-online.de (Postfix) with ESMTPSA;
+	Tue, 31 Oct 2023 17:35:58 +0100 (CET)
+Received: by igel.home (Postfix, from userid 1000)
+	id 943A12C12E3; Tue, 31 Oct 2023 17:35:57 +0100 (CET)
+From: Andreas Schwab <schwab@linux-m68k.org>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: Charlie Jenkins <charlie@rivosinc.com>,
+  linux-riscv@lists.infradead.org,  linux-mm@kvack.org,
+  linux-kernel@vger.kernel.org,  Eric Biederman <ebiederm@xmission.com>,
+  Kees Cook <keescook@chromium.org>,  Paul Walmsley
+ <paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>,  Albert
+ Ou <aou@eecs.berkeley.edu>,  Samuel Holland <samuel.holland@sifive.com>,
+  Nelson Chu <nelson@rivosinc.com>,  Emil Renner Berthing <kernel@esmil.dk>
+Subject: Re: [PATCH v7 1/3] riscv: Avoid unaligned access when relocating
+ modules
+In-Reply-To: <CAJM55Z-v0EwrZp876DdLSzad2u55nJV_uBs_+MUJDqFW5MTPkA@mail.gmail.com>
+	(Emil Renner Berthing's message of "Tue, 31 Oct 2023 06:11:47 -0700")
+References: <20231031-module_relocations-v7-0-6f4719b64bf7@rivosinc.com>
+	<20231031-module_relocations-v7-1-6f4719b64bf7@rivosinc.com>
+	<CAJM55Z-v0EwrZp876DdLSzad2u55nJV_uBs_+MUJDqFW5MTPkA@mail.gmail.com>
+X-Yow: Could I have a drug overdose?
+Date: Tue, 31 Oct 2023 17:35:57 +0100
+Message-ID: <878r7iiwb6.fsf@igel.home>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <202310310457.5LusQqF6-lkp@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231031_091812_386055_7A23BFAA 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20231031_093609_332276_17C06338 
+X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,81 +87,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 31, 2023 at 04:35:23AM +0800, kernel test robot wrote:
-> tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> branch HEAD: c503e3eec382ac708ee7adf874add37b77c5d312  Add linux-next specific files for 20231030
-> 
-> Error/Warning reports:
-> ... 
-> https://lore.kernel.org/oe-kbuild-all/202310302206.Pkr5eBDi-lkp@intel.com
+On Okt 31 2023, Emil Renner Berthing wrote:
 
-> Error/Warning: (recently discovered and may have been fixed)
-> 
-> Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/iio/imu/bosch,bma400.yaml
-> aarch64-linux-ld: drivers/cxl/core/pci.c:921:(.text+0xbbc): undefined reference to `pci_print_aer'
-> ...
-> arch/riscv/include/asm/mmio.h:67:(.text+0xd66): undefined reference to `pci_print_aer'
-> csky-linux-ld: pci.c:(.text+0x6e8): undefined reference to `pci_print_aer'
-> drivers/cxl/core/pci.c:921: undefined reference to `pci_print_aer'
-> drivers/cxl/core/pci.c:921:(.text+0xbc0): undefined reference to `pci_print_aer'
-> ...
-> ld: drivers/cxl/core/pci.c:921: undefined reference to `pci_print_aer'
-> loongarch64-linux-ld: drivers/cxl/core/pci.c:921:(.text+0xa38): undefined reference to `pci_print_aer'
-> pci.c:(.text+0x662): undefined reference to `pci_print_aer'
-> powerpc-linux-ld: pci.c:(.text+0xf10): undefined reference to `pci_print_aer'
-> riscv64-linux-ld: pci.c:(.text+0x11ec): undefined reference to `pci_print_aer'
+>> +static int riscv_insn_rmw(void *location, u32 keep, u32 set)
+>> +{
+>> +	u16 *parcel = location;
+>> +	u32 insn = (u32)le16_to_cpu(parcel[0]) | (u32)le16_to_cpu(parcel[1]) << 16;
+>> +
+>> +	insn &= keep;
+>> +	insn |= set;
+>> +
+>> +	parcel[0] = cpu_to_le32(insn);
+>
+> Why cpu_to_le32(insn)? Unless I've misunderstood something downcasting unsigned
+> to unsigned values in C (eg. from u32 to u16) is defined to always discard the
+> most signifcant bits, so cpu_to_le16(insn) should be fine.
 
-I have no idea about the above (and all the similar ones below); I
-assume they all have to do with
-https://lore.kernel.org/r/20231018171713.1883517-13-rrichter@amd.com
+cpu_to_le32(insn) can't be right here anyway, since it also swaps the
+two u16 halves and would be the same as cpu_to_le16(insn >> 16) on big
+endian.
 
-> Unverified Error/Warning (likely false positive, please contact us if interested):
-> 
-> drivers/pci/controller/dwc/pcie-rcar-gen4.c:439:15: warning: cast to smaller integer type 'enum dw_pcie_device_mode' from 'const void *' [-Wvoid-pointer-to-enum-cast]
-
-Safe but annoying.  Yoshihiro, can you fix this by adding structs for
-the of_device_id.data member instead of casting DW_PCIE_RC_TYPE and
-DW_PCIE_EP_TYPE?  Examples here:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/pci/controller/dwc/pci-dra7xx.c?id=v6.6#n557
-  https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/pci/controller/dwc/pci-keystone.c?id=v6.6#n1069
-  https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/pci/controller/dwc/pcie-artpec6.c?id=v6.6#n452
-  https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/pci/controller/dwc/pcie-designware-plat.c?id=v6.6#n159
-  https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/pci/controller/dwc/pcie-keembay.c?id=v6.6#n437
-  https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/pci/controller/dwc/pcie-tegra194.c?id=v6.6#n2431
-
-Siddharth, since you're looking at keystone v3.65, it looks to me like
-DW_PCIE_VER_365A is currently broken because ks_pcie_rc_of_data
-doesn't set .mode, so it defaults to zero, and it looks like we should
-end up at the INVALID device type case here:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/pci/controller/dwc/pci-keystone.c?id=v6.6#n1285
-
-> |-- arm64-buildonly-randconfig-r003-20220511
-> |   `-- aarch64-linux-ld:drivers-cxl-core-pci.c:(.text):undefined-reference-to-pci_print_aer
-
-> |-- csky-randconfig-001-20231030
-> |   |-- csky-linux-ld:pci.c:(.text):undefined-reference-to-pci_print_aer
-> |   `-- pci.c:(.text):undefined-reference-to-pci_print_aer
-
-> |-- i386-randconfig-141-20231030
-> |   |-- ld:drivers-cxl-core-pci.c:undefined-reference-to-pci_print_aer
-
-> |-- loongarch-randconfig-r014-20230225
-> |   `-- drivers-cxl-core-pci.c:(.text):undefined-reference-to-pci_print_aer
-> |-- loongarch-randconfig-r032-20220926
-> |   `-- loongarch64-linux-ld:drivers-cxl-core-pci.c:(.text):undefined-reference-to-pci_print_aer
-
-> |-- powerpc-randconfig-003-20231016
-> |   `-- powerpc-linux-ld:pci.c:(.text):undefined-reference-to-pci_print_aer
-
-> |-- riscv-randconfig-r002-20220124
-> |   `-- arch-riscv-include-asm-mmio.h:(.text):undefined-reference-to-pci_print_aer
-> |-- riscv-randconfig-r011-20220606
-> |   `-- riscv64-linux-ld:pci.c:(.text):undefined-reference-to-pci_print_aer
-
-> |-- x86_64-randconfig-x052-20230810
-> |   `-- drivers-cxl-core-pci.c:undefined-reference-to-pci_print_aer
+-- 
+Andreas Schwab, schwab@linux-m68k.org
+GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
