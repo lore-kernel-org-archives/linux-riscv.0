@@ -4,94 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D139C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 02:28:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 352CDC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 05:27:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=boFgWbee5QjNsd6m+ru2BGUUkacA94aEFp7TTYvmfvY=; b=EnrjxzO26N9WJq
-	GyPWEHCleko5pcN47Zn4mStd8f9hW2e64VtyfEAS63yahdnGzmZ7YreqD9KWpw05Skp9Cz7Rf4Xto
-	kfd/RGLyImpkGxYK7Zud5p3HD1clRaE7dhK2eKc/4aVB7OcPOlJt4dDdwYahaUfo1EjhXnnrMVo+y
-	HATs7m2fVVa2oukFVHPPPhq3A5CiEDykrYszIrC6eEsI4dfmb6u2VsGsSUz7Z0ue/+884cVVySLI/
-	+W2brx93GJdp+znp589DYIsIcYLmf0tGy1qgO8+c54CjFPghviDmDzA+LkkwsCo98wI6eQNb0YeNC
-	doggioX6xo7MZJV+xHmg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=w0E00jyy/IVqg9sy/NW0VoZPRjkR3ARP0rvaYq3DkvM=; b=BAXcrMOPNwE+kw
+	BMPfwUeHJEkP+kYL3pKn65gWcJpY3BnPxF5FnFHWdTGRX6HBBIRgflBDB3ska61jPeiFHwK3oxkKG
+	p0mph/TsvSLOB9eAXFgmRhhnIlpkQGnrapAI+/FjH8pcDBEILq59r6coWuF71G+K8eyXazih2LMJS
+	pokoOKD5ER1cDI5wqeFfY64xGjXu4ljo/3FSJAYNVxvb5COLr0SaDCvyvFKxevsew5KtAdJnlmz5H
+	D4F1hVHzNf3HV/gpQ14Otw5l3GzCvl2u267fwPTOmdESTJ+akOwhVcCjkTk3Vjl9beE4Wj2h2nIca
+	PRmX/qgXC9TdHhW9N52Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxeUG-004QId-2P;
-	Tue, 31 Oct 2023 02:28:12 +0000
-Received: from mgamail.intel.com ([134.134.136.126])
+	id 1qxhHR-004Z7o-2O;
+	Tue, 31 Oct 2023 05:27:09 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxeUE-004QHn-0R;
-	Tue, 31 Oct 2023 02:28:11 +0000
+	id 1qxhHO-004Z6o-1X
+	for linux-riscv@lists.infradead.org;
+	Tue, 31 Oct 2023 05:27:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1698719290; x=1730255290;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=vr6E776DqFsISXT/abuJv1DHpqFpjFuaZ5JfgggngVk=;
-  b=BuIMI15paS4O474D/tJ3ESPG+5u1lGEewVuhvPJe7YZ0/1HEWfN/7M3c
-   HpzVSw1qB1JI+u3zMh3NP36trFyqcHAkKXSSr7f5Rqjr1iY62B7OofwuO
-   l1F52dqdFmmbEHHERIKtgpaW4kciWfagziccCFuEhZlrwYzxqIxi7FOgI
-   UPYZ9Rtios6G1zuaTVEbKTGCOiIlBUjtoEZvAuRXf+fUHEMNPacOa+FT2
-   ntoIrjUluGFo7ilMLu7a1B5BV/LL6a6d6KnSb4KMTIMbskfw1TsJUj3A3
-   4PRUVCE/Zl6k0peS5ngn/KtHf9FH5kH5o1F38/SVmYOa9zyUfGFPHRdSi
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10879"; a="373249932"
-X-IronPort-AV: E=Sophos;i="6.03,264,1694761200"; 
-   d="scan'208";a="373249932"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2023 19:28:09 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.03,264,1694761200"; 
-   d="scan'208";a="8161979"
-Received: from xiaoyaol-hp-g830.ccr.corp.intel.com (HELO [10.93.9.145]) ([10.93.9.145])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Oct 2023 19:27:57 -0700
-Message-ID: <aecdc915-8541-4933-b8cd-04ce0ade68e6@intel.com>
-Date: Tue, 31 Oct 2023 10:27:56 +0800
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1698730026; x=1730266026;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=iRvap8S+l6/iAjI+NYP2vz5PJ2QlTLfvmIyoMb9M6DY=;
+  b=YW3TL1yIEdKUYaChMgE8oUyVXfSoh4pKVojb60wufvwNB2FjGjHreYJO
+   3DvwdFKkrtcnE5frLIJxWNeB7sIuF1yLbaXMKIeer+vfePEsyoS7aBUfb
+   1z+RBqcjwEXKepIbft3ra5CWTm8JQohyfXhpCvLMPqoZrya64gjE6SrI2
+   znIzZB1eNbWMY16EsLQUHinDrLpLu0/utMl5CytRcZ7gOw/VyWLLB54sW
+   +Z/p1KXw5Srccrl/j0WoQxGFN2o+DUh5imi8y9Fc8lF08k4G71N71pvlR
+   pDt0ZzhBZlhsMafvRbsUcwdVH/qSotCqZQpr6ICIL72ECem5sgYQx6H//
+   g==;
+X-CSE-ConnectionGUID: chmGaGncRm67Nps8P+k0sw==
+X-CSE-MsgGUID: AVwFY3bkSHuO/Xm9QlHChQ==
+X-ThreatScanner-Verdict: Negative
+X-IronPort-AV: E=Sophos;i="6.03,265,1694761200"; 
+   d="scan'208";a="10872646"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 30 Oct 2023 22:27:00 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Mon, 30 Oct 2023 22:26:43 -0700
+Received: from microchip1-OptiPlex-9020.microchip.com (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.21 via Frontend Transport; Mon, 30 Oct 2023 22:26:38 -0700
+From: shravan chippa <shravan.chippa@microchip.com>
+To: <green.wan@sifive.com>, <vkoul@kernel.org>, <robh+dt@kernel.org>,
+	<krzysztof.kozlowski+dt@linaro.org>, <palmer@dabbelt.com>,
+	<paul.walmsley@sifive.com>, <conor+dt@kernel.org>
+CC: <dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<nagasuresh.relli@microchip.com>, <praveen.kumar@microchip.com>,
+	<shravan.chippa@microchip.com>
+Subject: [PATCH v4 0/4] dma: sf-pdma: various sf-pdma updates for the mpfs platform
+Date: Tue, 31 Oct 2023 10:57:49 +0530
+Message-ID: <20231031052753.3430169-1-shravan.chippa@microchip.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 16/35] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
- guest-specific backing memory
-Content-Language: en-US
-To: Sean Christopherson <seanjc@google.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Xu Yilun <yilun.xu@intel.com>, Chao Peng <chao.p.peng@linux.intel.com>,
- Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
- Anish Moorthy <amoorthy@google.com>, David Matlack <dmatlack@google.com>,
- Yu Zhang <yu.c.zhang@linux.intel.com>,
- Isaku Yamahata <isaku.yamahata@intel.com>, =?UTF-8?B?TWlja2HDq2wgU2FsYcO8?=
- =?UTF-8?Q?n?= <mic@digikod.net>, Vlastimil Babka <vbabka@suse.cz>,
- Vishal Annapurve <vannapurve@google.com>,
- Ackerley Tng <ackerleytng@google.com>,
- Maciej Szmigiero <mail@maciej.szmigiero.name>,
- David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
- Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
- Liam Merwick <liam.merwick@oracle.com>,
- Isaku Yamahata <isaku.yamahata@gmail.com>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20231027182217.3615211-1-seanjc@google.com>
- <20231027182217.3615211-17-seanjc@google.com>
-From: Xiaoyao Li <xiaoyao.li@intel.com>
-In-Reply-To: <20231027182217.3615211-17-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231030_192810_258020_756122F8 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20231030_222706_694424_7236F4B3 
+X-CRM114-Status: UNSURE (   8.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,38 +83,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/28/2023 2:21 AM, Sean Christopherson wrote:
-...
-> +KVM_SET_USER_MEMORY_REGION2 is an extension to KVM_SET_USER_MEMORY_REGION that
-> +allows mapping guest_memfd memory into a guest.  All fields shared with
-> +KVM_SET_USER_MEMORY_REGION identically.  Userspace can set KVM_MEM_PRIVATE in
-> +flags to have KVM bind the memory region to a given guest_memfd range of
-> +[guest_memfd_offset, guest_memfd_offset + memory_size].  The target guest_memfd
-> +must point at a file created via KVM_CREATE_GUEST_MEMFD on the current VM, and
-> +the target range must not be bound to any other memory region.  All standard
-> +bounds checks apply (use common sense).
-> +
->   ::
->   
->     struct kvm_userspace_memory_region2 {
-> @@ -6087,9 +6096,24 @@ applied.
->   	__u64 guest_phys_addr;
->   	__u64 memory_size; /* bytes */
->   	__u64 userspace_addr; /* start of the userspace allocated memory */
-> +  __u64 guest_memfd_offset;
+From: Shravan Chippa <shravan.chippa@microchip.com>
 
-missing a tab
+Changes from V3 -> V4:
 
-> +	__u32 guest_memfd;
-> +	__u32 pad1;
-> +	__u64 pad2[14];
->     };
->   
+Removed unnecessary parentheses and extra space
+Added review tags
+
+Changes from V2 -> V3:
+
+Removed whitespace
+Change naming convention of the macros (modified code as per new macros)
+updated with new API device_get_match_data()
+modified dt-bindings as per the commmets from v2
+modified compatible name string for mpfs platform
+
+Changes from V1 -> V2:
+
+Removed internal review tags
+Commit massages modified.
+Added devicetree patch with new compatible name for mpfs platform
+Added of_dma_controller_free() clenup call in sf_pdma_remove() function
+
+V1:
+
+This series does the following
+1. Adds a PolarFire SoC specific compatible and code to support for
+out-of-order dma transfers 
+
+2. Adds generic device tree bindings support by using 
+of_dma_controller_register()
+
+Shravan Chippa (4):
+  dmaengine: sf-pdma: Support of_dma_controller_register()
+  dt-bindings: dma: sf-pdma: add new compatible name
+  dmaengine: sf-pdma: add mpfs-pdma compatible name
+  riscv: dts: microchip: add specific compatible for mpfs' pdma
+
+ .../bindings/dma/sifive,fu540-c000-pdma.yaml  |  1 +
+ arch/riscv/boot/dts/microchip/mpfs.dtsi       |  2 +-
+ drivers/dma/sf-pdma/sf-pdma.c                 | 71 ++++++++++++++++++-
+ drivers/dma/sf-pdma/sf-pdma.h                 |  8 ++-
+ 4 files changed, 77 insertions(+), 5 deletions(-)
+
+-- 
+2.34.1
 
 
 _______________________________________________
