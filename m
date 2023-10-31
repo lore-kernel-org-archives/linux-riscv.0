@@ -4,73 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D04C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 15:34:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 685D6C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 16:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fGc7NoSE+LBdue3j75UkAD87DWOf8wVdwUl3nnquG7g=; b=mebona3Fcujw7X
-	jwG+I46wfFHFoEbTSrDf9MqB9uIQdTk0fAW5N+oxUSQ0dEsWcq+hyOhv9w7IXJCK4A/OyjzSpzj4r
-	SocQy4gyX2NN9GSiqTzCYgFsKSEKEEa18UXd+K+MRt4RPKd8wj8IVpjm9iGH5p6cmHrWYPK3oBpAe
-	zX48l5tS/SKgZqnX5AwPDTJzPWYh2QiWh0czCoCfWzTZ70GNxhks7jN+HU1avsqfJjJ3kVyLpJC1E
-	TitNKGUioX4qnC2Anri6NUxFIGtu2owTXy5H+lSYs3TpDthWMl/IK+QfEp7BhMetWORhZ7csbDKbk
-	sIc3EP8ah/yymawkIGig==;
+	List-Owner; bh=USCwxUxuunzU63yUkKQ1eHgDEz+0DASRaTdUbvndnnk=; b=sp/A7pqvSVkACQ
+	7S+EUzCfZ0Db0H3f22Y9bSRPKjB3eqKuTxJesMKWvy8RQXr8l2I+vQJ8JTq8svquHa3+y/cX33Uvc
+	ptI0u7jxjuGxkFfnNgAKLABewEzYvzyVuZIN1gZ/ve6rUfaOxxzEaYkksiI0XFsG06lb24NPhRout
+	RM74dYGSc44uNU8p+wrLJBtm6XXLZl7NCVc+L4YNjuabA6tSIbMAHZIYqK6yqRyHregJYoloe/vWH
+	3+Afrr8RpkSYeJOIR+1QFQXaQ0IWRbHwW3kOuWEt4/jgIT5b/BxKKW1LSQq5eTfskX6gJeiECq2/w
+	4aia159iBTNzfoP4+Euw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxqlE-005XKL-1f;
-	Tue, 31 Oct 2023 15:34:32 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1qxrBd-005ZM6-32;
+	Tue, 31 Oct 2023 16:01:49 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxqlB-005XJB-2m
+	id 1qxrBb-005ZII-0L
 	for linux-riscv@lists.infradead.org;
-	Tue, 31 Oct 2023 15:34:31 +0000
-Date: Tue, 31 Oct 2023 16:34:27 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1698766468;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WJDz1UY+faR8aNgW5FPh3ep7TyJU8rHswb3s8K85yec=;
-	b=cBwLmZ7lA/S63vM3k8+zJ5pET19wh+Bl+iwgV8tZ2+sBuh+fwsCy+u59WJQ+cTe+Oo1JP0
-	QiPUBYhXSqU9MVSvzgM+gdL2qKj3heGdBwQPHbeRaG0sMHJ0mcxsUjycCcFP2T0zG1wGXH
-	jB1tlC7OpiBRBLXagXIjhng4C6CdGAt0u8s6HBFfBUsO5F/xbH1HJWN+ktRD1dtw1OULDf
-	4OxsLcJHXwtMRBH1LP5WdI/qzuf5obPtO4q/mK39zrMAXm0MU/o2WklKV+7oyraKPYZxQW
-	+zbH+XrWhhSuNz/NymmQp/eBlyHFT3sD7enivufOJ3eAv8Q1XhuyVx1/XdUzDg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1698766468;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WJDz1UY+faR8aNgW5FPh3ep7TyJU8rHswb3s8K85yec=;
-	b=uH+4gOFp27CsyIhM7FJh9npqVvAytZ0l/Vt+qstOBB2Vbc7R61mi26JzygpU1IBPbAuzmV
-	fe1NqXJyVYMyssBA==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: "Schaffner, Tobias" <tobias.schaffner@siemens.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
+	Tue, 31 Oct 2023 16:01:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id 837E3B8118A;
+	Tue, 31 Oct 2023 16:01:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FD9FC433CB;
+	Tue, 31 Oct 2023 16:01:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1698768104;
+	bh=rVGDA5l5XMBTi0V0K/IGiXNLLOmJh6uj0HeO7DdsFvk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IdQC0+K9rKvtxaBcU+6idbv/givSi+gAWgGP45ACzWF+oddgTAnhcIexRC/nFaf3m
+	 9sPc81XIUiAHxVMBQPhFoXhzNS/RAGIkr9ieo0yiDEuI1SGSTd4T5biRNR1t3wqKNF
+	 7Cb3JQsYHxhPqzxjO16r4OXfNCASuAkueobAklJCA5+nbWuBV0Hyc1qoPgwg/HOfLr
+	 eB5imTUweKjvJBLocGlnsvcvG8aUtLuz5Ht7w73XI8zmwaKxbchL6F78QUsj18FrSF
+	 URqO3hWkcDcWHffx+nO7Z9+eAF1SPMfcdZO1bI6hoFJmHJDarvwhqRMPT6IwBm5LJ3
+	 FHchhoYE7/3fg==
+Date: Tue, 31 Oct 2023 23:49:29 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
-	"minda.chen@starfivetech.com" <minda.chen@starfivetech.com>
-Subject: Re: [PATCH RT 0/3] riscv: add PREEMPT_RT support
-Message-ID: <20231031153427.goCGGJRm@linutronix.de>
-References: <20230510162406.1955-1-jszhang@kernel.org>
- <a37fc706-78cd-4721-9af3-aabb610f49b1@siemens.com>
- <ZTah9NOMbZkf6dfL@xhacker>
- <20231024061852.7BzoCFwW@linutronix.de>
- <ZUESqBTSS/s47qM/@xhacker>
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	tobias.schaffner@siemens.com, Arnd Bergmann <arnd@arndb.de>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH RT v2 0/3] riscv: add PREEMPT_RT support
+Message-ID: <ZUEiCUxcd11inlRP@xhacker>
+References: <20231031143521.441-1-jszhang@kernel.org>
+ <20231031153242.k9tLdSby@linutronix.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ZUESqBTSS/s47qM/@xhacker>
+In-Reply-To: <20231031153242.k9tLdSby@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231031_083430_043851_F459E9E2 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20231031_090147_290640_76008AF1 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,32 +77,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023-10-31 22:43:52 [+0800], Jisheng Zhang wrote:
-> Hi Sebastian,
-Hi Jisheng,
-
-> Thank you so much for pointing out PREEMPT_AUTO, I read the discussions
-> last weekend, glad to know PREEMPT_AUTO. And riscv has switched to
-> generic entry, so it's easy to support PREEMPT_AUTO for riscv. V2 was
-> sent out a few mintues ago. Could you please review?
-
-Sure. I have no idea what the upstream status about PREEMPT_AUTO but I
-think we want this.
-
-> > Are there any reports of this booting without warnings with LOCKDEP and
-> > CONFIG_DEBUG_ATOMIC_SLEEP enabled? I remember there was something
-> > earlier.
+On Tue, Oct 31, 2023 at 04:32:42PM +0100, Sebastian Andrzej Siewior wrote:
+> On 2023-10-31 22:35:19 [+0800], Jisheng Zhang wrote:
+> > This series is to add PREEMPT_RT support to riscv. Compared with last
+> > year's try[1], there are two major changes:
+> > 
+> > 1. riscv has been converted to Generic Entry. And RT maintainers has
+> > introduced PREEMPT_AUTO, so its support for riscv as well.
+> > 
+> > 2. three preparation patches(patch1/2/3 in [1]) has been merged in
+> > mainline.
 > 
-> IIRC, Conor reported the warning and stack trace is ext4 related. But
-> I didn't reproduce the warning. And Schaffner also tried the series
-> but it seems he didn't see the warning either. So I'm asking for Conor's
-> help to retry v2.
+> There is no third patch in the series, right? If so then the amount in
+> shortlog is consistent with I received.
 
-oki.
+Yes there's no third patch. I didn't use the correct number in patch0's
+subject.
 
-> Thanks
-
-Sebastian
+> 
+> > Jisheng Zhang (2):
+> >   riscv: add PREEMPT_AUTO support
+> >   riscv: allow to enable RT
+> > 
+> >  arch/riscv/Kconfig                   | 2 ++
+> >  arch/riscv/include/asm/thread_info.h | 2 ++
+> >  2 files changed, 4 insertions(+)
+> 
+> Sebastian
 
 _______________________________________________
 linux-riscv mailing list
