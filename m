@@ -4,87 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25338C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 18:19:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1622FC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 18:24:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kFTghPvOKLqjes5IPJ14ydtQEruoftq/TWiFoz1f2VA=; b=pk1nv2hLJPtanC
-	udi88utD+DUOVsIEoYOpKghYTnGP3HHcMeWpGHCF7G9gafSu28ZuD5JxwiIQDLUIdEPaXIf36Pt/p
-	LpskDTJ2YPBVKAsm0bYHHECXmLkP4CEYrgO+lNVjDcxrMY9yUP5oLxbevhfys5c/1BIOWcwpiBjUc
-	AsLrOeAdjilF8IaXKMAkmWyXPd2WO2CatnhHV/42BAZ/sQjzLxjPH8YVwUu1wVGGGFZLjJnRVGVs4
-	r77FLw9Rat52iEFOhkVfWDVahOAoGWT669F9pQWCHY1BD5W7MfCMpHUd0O2Y3ETfN98zYWaYkw8Dk
-	AeNeWV+Hwjy+uji5ijpA==;
+	List-Owner; bh=Xbe+fzLoPbw1ufok0/rM/Ms3l+Rx7+30I0OY5slv/Dg=; b=lFQV5HQdj68FYc
+	t3hmhB2s0KgIRZxCo41BFjc1n2C0YqnncysVTuykZoTViih9FX/E9hBqkZhAkk+UymKu3IXz9X4yf
+	rPzDFk8/T0X3I1JsACw4OgzPEd6n7LwYI4V7vf6q7QvOzz+fXMaCHOpS+lUGQTpIg3wUydvjljtcF
+	K+hiIX9/LCX1shzqbWIf2Oiz3R6R+McwRCpY4P5gSu+wToBIBoqnLgJIgrZy/isVhKROqGGkhvnX7
+	RLaoMWtXg5PsCCidckadq1XL/L2Bj60cvxR5/ZPZYgz80RDYAd6ry4J3c1mewaT2LjoFP5OoCK2zz
+	913YA9YLzcifEyUkveNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxtKW-005wOS-2e;
-	Tue, 31 Oct 2023 18:19:08 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1qxtPb-005wtA-2Y;
+	Tue, 31 Oct 2023 18:24:23 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxtKR-005wNH-1T
+	id 1qxtPY-005wqR-1o
 	for linux-riscv@lists.infradead.org;
-	Tue, 31 Oct 2023 18:19:07 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1cc53d0030fso832815ad.0
-        for <linux-riscv@lists.infradead.org>; Tue, 31 Oct 2023 11:19:01 -0700 (PDT)
+	Tue, 31 Oct 2023 18:24:22 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1cc1ee2d8dfso41800515ad.3
+        for <linux-riscv@lists.infradead.org>; Tue, 31 Oct 2023 11:24:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698776340; x=1699381140; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+B0zTxosm9oFAOqc3bDzbqpMG6d7UlcAntIQrXTgTn4=;
-        b=uDSMSwyuzveOQm2sbItWSKYiQTibaGFomIoetMgMJZMq6cbhLrh5U9JYbCwLvYIYoQ
-         4Y6aDVNlZ6xCdKZLWQ/vhRiJyw3IT+dYmM81t7VWggBk+jNB8l/uKi0GpA7VXbij9fav
-         do/vTqjmh7gFRf+ksQzJ7fkBFDqiRIdzIeF1LRKSluVeNXNe9GwGTV2fIlKSerTdNjFE
-         1ZMaw2ntPHgg7UaS9vWLCggrjdYFH8S3UFa8+ExFkeiRtIyu8pxxjIa+KtOISPfm+OUg
-         7MN5nCKfFgjlekrNcwvt1xEcSPgOs2m0oKkj4n+0lVfsF55HW9rUXHXbAvAmASgLB2QX
-         Lm/g==
+        d=google.com; s=20230601; t=1698776653; x=1699381453; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=fA4BSuC8POmGjMQJ0k8vnna5BPAxY9Ekm8SCU7EDDBY=;
+        b=ofL2l/62U8yrQ90hM9BCwDgXAR3/uuCpSfLhVmQhIXziXOZDIiBMLmkadApz1ed4DZ
+         h1tnEQrZjnE1QCQJHodnIOnM3OU9oZBcf+k7UBVWexds3WwDRU6OmWtaHxClrXnfBion
+         ZTlYaqcNyPT4kNp0myNVeQxix9Ar1/PlxMxn7whiJcJaAASnPU4G7O5Y4noAUJtbAMLB
+         Tb8nt0fMBwXKZt3/7k/wS9VeZOYbJN9m0bHRETq80uZzLim7ncenzHMYPD/5HmVNi8aq
+         kOGGhk2IfR/FbLBHPcTRDQkM2f7X06EIOp/VrR/eUnuSEtpniUd4LMJS4gFDtyFIvhaS
+         /9tQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698776340; x=1699381140;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+B0zTxosm9oFAOqc3bDzbqpMG6d7UlcAntIQrXTgTn4=;
-        b=rZCV0wg4qxHNcTprnzFRby+yMFxXYG5RC8imdqn4OXuAeD8goyA8PUTu6jN7FfBX0y
-         luPkCjSItJUD7xSGQRW/YDPv1PSn+md9Nb3VeUIJqw6gl+b7SRapBPQVVUvEHEMayc0d
-         Lp20bo/jqI/+DvZuyWEBi6FGHwkiZ6xNUCIu+vBXZ33Ey32OSAL1s1UYKH21xJFn2xI9
-         NZqyhumCpxsyAAstAH9+GcY7D/4CwkgCgNxqzQ7/XgiKavDtyssQHl672vj0YoFvXsKf
-         3kKr3XqV30GjPN6kHyIw0V0S/Vzk5UYTCHwYgi0UV7XfY7GuWzasQm6ahxIpkTF/VUie
-         ZQZA==
-X-Gm-Message-State: AOJu0YwaBJtoPdIpmITJ6LabvoYJnbTrJK43hGptGP88pKVENFWiRilI
-	w+6IJOInjII6GEiZ53i6mHRG/A==
-X-Google-Smtp-Source: AGHT+IHoUpoBPRjnvSIWtg2BkrbhpNLwUCeU2fN3rddl4eadbdETRODHt5hLpLOUdVeIVTuejwCD6Q==
-X-Received: by 2002:a17:903:228d:b0:1cc:507c:edeb with SMTP id b13-20020a170903228d00b001cc507cedebmr4918605plh.0.1698776340472;
-        Tue, 31 Oct 2023 11:19:00 -0700 (PDT)
-Received: from ghost ([12.44.203.122])
-        by smtp.gmail.com with ESMTPSA id y7-20020a170902b48700b001c5fa48b9a0sm1607836plr.33.2023.10.31.11.18.59
+        d=1e100.net; s=20230601; t=1698776653; x=1699381453;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=fA4BSuC8POmGjMQJ0k8vnna5BPAxY9Ekm8SCU7EDDBY=;
+        b=FhIouD4C1YOmJ4sXvLtKdQkHvO09zV3by4q4X6arq42JXSNAzWDFn2CKMT2sB9n4dO
+         sFFA0/cXh1sOPGM53CI3tVCSIzLLJeMaCWWLVSlSNpfvKfUUzeNsShPxFrYKjDrvmCq6
+         fYdGFE93v3PqwcaXbojAyP6dMS1THwMvx0uocErllr3y59VwWs1e2+OyKN5vz6wTPrwZ
+         JG2TDfCoXrkM8oq7cFk0M/qf5nuSPctK+3vJnblh4b2oQID1VYSxQAaPscCVSK/cB2gx
+         GIKLwj4YqM+T1CcEMrjYz7Ysa8nmgEfRDgHPvoiFK9qoPhiMaW//8PYeFCbFDE3HXXRx
+         vArQ==
+X-Gm-Message-State: AOJu0Yx0T9jd9StBBONcGDA5eQ2dQifEezYUOWpaXjG/F3iiYL+X1x1A
+	QGe+08BcK4wvUWyvyN1EmeAcLA==
+X-Google-Smtp-Source: AGHT+IFxkiDdZGGfHsdazjXYZcfW0cI1Huw/6T3VggKB9s0vUh/sA7Jolgtag5oCOtU2pTLnT1L5FA==
+X-Received: by 2002:a17:902:ecca:b0:1cc:54b5:b4fa with SMTP id a10-20020a170902ecca00b001cc54b5b4famr5681643plh.18.1698776652868;
+        Tue, 31 Oct 2023 11:24:12 -0700 (PDT)
+Received: from google.com (175.199.125.34.bc.googleusercontent.com. [34.125.199.175])
+        by smtp.gmail.com with ESMTPSA id 13-20020a170902c20d00b001c5dea67c26sm1620267pll.233.2023.10.31.11.24.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Oct 2023 11:19:00 -0700 (PDT)
-Date: Tue, 31 Oct 2023 11:18:57 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: linux-riscv@lists.infradead.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>,
+        Tue, 31 Oct 2023 11:24:11 -0700 (PDT)
+Date: Tue, 31 Oct 2023 11:24:07 -0700
+From: David Matlack <dmatlack@google.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Anup Patel <anup@brainfault.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Andreas Schwab <schwab@linux-m68k.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Nelson Chu <nelson@rivosinc.com>
-Subject: Re: [PATCH v7 2/3] riscv: Add remaining module relocations
-Message-ID: <ZUFFEQf/lCz4/bUn@ghost>
-References: <20231031-module_relocations-v7-0-6f4719b64bf7@rivosinc.com>
- <20231031-module_relocations-v7-2-6f4719b64bf7@rivosinc.com>
- <CAJM55Z_qeGwWYS7LdmkqmkRRg-tK5CsaRzPCAXS1Jfq2C8dTKQ@mail.gmail.com>
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Andrew Morton <akpm@linux-foundation.org>, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, Xiaoyao Li <xiaoyao.li@intel.com>,
+	Xu Yilun <yilun.xu@intel.com>,
+	Chao Peng <chao.p.peng@linux.intel.com>,
+	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
+	Anish Moorthy <amoorthy@google.com>,
+	Yu Zhang <yu.c.zhang@linux.intel.com>,
+	Isaku Yamahata <isaku.yamahata@intel.com>,
+	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Vishal Annapurve <vannapurve@google.com>,
+	Ackerley Tng <ackerleytng@google.com>,
+	Maciej Szmigiero <mail@maciej.szmigiero.name>,
+	David Hildenbrand <david@redhat.com>,
+	Quentin Perret <qperret@google.com>,
+	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
+	Liam Merwick <liam.merwick@oracle.com>,
+	Isaku Yamahata <isaku.yamahata@gmail.com>,
+	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+Subject: Re: [PATCH v13 16/35] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
+Message-ID: <ZUFGRyQEuWj4RJS0@google.com>
+References: <20231027182217.3615211-1-seanjc@google.com>
+ <20231027182217.3615211-17-seanjc@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAJM55Z_qeGwWYS7LdmkqmkRRg-tK5CsaRzPCAXS1Jfq2C8dTKQ@mail.gmail.com>
+In-Reply-To: <20231027182217.3615211-17-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231031_111903_738491_7AD4311C 
-X-CRM114-Status: GOOD (  27.63  )
+X-CRM114-CacheID: sfid-20231031_112420_601262_DDC4322D 
+X-CRM114-Status: GOOD (  19.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,713 +121,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 31, 2023 at 06:43:19AM -0700, Emil Renner Berthing wrote:
-> Charlie Jenkins wrote:
-> > Add all final module relocations and add error logs explaining the ones
-> > that are not supported. Implement overflow checks for
-> > ADD/SUB/SET/ULEB128 relocations.
-> >
-> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > ---
-> >  arch/riscv/include/uapi/asm/elf.h |   5 +-
-> >  arch/riscv/kernel/module.c        | 534 ++++++++++++++++++++++++++++++++++++--
-> >  2 files changed, 511 insertions(+), 28 deletions(-)
-> >
-> > diff --git a/arch/riscv/include/uapi/asm/elf.h b/arch/riscv/include/uapi/asm/elf.h
-> > index d696d6610231..11a71b8533d5 100644
-> > --- a/arch/riscv/include/uapi/asm/elf.h
-> > +++ b/arch/riscv/include/uapi/asm/elf.h
-> > @@ -49,6 +49,7 @@ typedef union __riscv_fp_state elf_fpregset_t;
-> >  #define R_RISCV_TLS_DTPREL64	9
-> >  #define R_RISCV_TLS_TPREL32	10
-> >  #define R_RISCV_TLS_TPREL64	11
-> > +#define R_RISCV_IRELATIVE	58
-> >
-> >  /* Relocation types not used by the dynamic linker */
-> >  #define R_RISCV_BRANCH		16
-> > @@ -81,7 +82,6 @@ typedef union __riscv_fp_state elf_fpregset_t;
-> >  #define R_RISCV_ALIGN		43
-> >  #define R_RISCV_RVC_BRANCH	44
-> >  #define R_RISCV_RVC_JUMP	45
-> > -#define R_RISCV_LUI		46
-> >  #define R_RISCV_GPREL_I		47
-> >  #define R_RISCV_GPREL_S		48
-> >  #define R_RISCV_TPREL_I		49
-> > @@ -93,6 +93,9 @@ typedef union __riscv_fp_state elf_fpregset_t;
-> >  #define R_RISCV_SET16		55
-> >  #define R_RISCV_SET32		56
-> >  #define R_RISCV_32_PCREL	57
-> > +#define R_RISCV_PLT32		59
-> > +#define R_RISCV_SET_ULEB128	60
-> > +#define R_RISCV_SUB_ULEB128	61
-> >
-> >
-> >  #endif /* _UAPI_ASM_RISCV_ELF_H */
-> > diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-> > index a9e94e939cb5..230172ecb26e 100644
-> > --- a/arch/riscv/kernel/module.c
-> > +++ b/arch/riscv/kernel/module.c
-> > @@ -7,6 +7,9 @@
-> >  #include <linux/elf.h>
-> >  #include <linux/err.h>
-> >  #include <linux/errno.h>
-> > +#include <linux/hashtable.h>
-> > +#include <linux/kernel.h>
-> > +#include <linux/log2.h>
-> >  #include <linux/moduleloader.h>
-> >  #include <linux/vmalloc.h>
-> >  #include <linux/sizes.h>
-> > @@ -14,6 +17,27 @@
-> >  #include <asm/alternative.h>
-> >  #include <asm/sections.h>
-> >
-> > +struct used_bucket {
-> > +	struct list_head head;
-> > +	struct hlist_head *bucket;
-> > +};
-> > +
-> > +struct relocation_head {
-> > +	struct hlist_node node;
-> > +	struct list_head *rel_entry;
-> > +	void *location;
-> > +};
-> > +
-> > +struct relocation_entry {
-> > +	struct list_head head;
-> > +	Elf_Addr value;
-> > +	unsigned int type;
-> > +};
-> > +
-> > +struct hlist_head *relocation_hashtable;
-> > +
-> > +struct list_head used_buckets_list;
-> > +
-> >  /*
-> >   * The auipc+jalr instruction pair can reach any PC-relative offset
-> >   * in the range [-2^31 - 2^11, 2^31 - 2^11)
-> > @@ -269,6 +293,12 @@ static int apply_r_riscv_align_rela(struct module *me, void *location,
-> >  	return -EINVAL;
-> >  }
-> >
-> > +static int apply_r_riscv_add8_rela(struct module *me, void *location, Elf_Addr v)
-> > +{
-> > +	*(u8 *)location += (u8)v;
-> > +	return 0;
-> > +}
-> > +
-> >  static int apply_r_riscv_add16_rela(struct module *me, void *location,
-> >  				    Elf_Addr v)
-> >  {
-> > @@ -290,6 +320,12 @@ static int apply_r_riscv_add64_rela(struct module *me, void *location,
-> >  	return 0;
-> >  }
-> >
-> > +static int apply_r_riscv_sub8_rela(struct module *me, void *location, Elf_Addr v)
-> > +{
-> > +	*(u8 *)location -= (u8)v;
-> > +	return 0;
-> > +}
-> > +
-> >  static int apply_r_riscv_sub16_rela(struct module *me, void *location,
-> >  				    Elf_Addr v)
-> >  {
-> > @@ -311,33 +347,470 @@ static int apply_r_riscv_sub64_rela(struct module *me, void *location,
-> >  	return 0;
-> >  }
-> >
-> > -static int (*reloc_handlers_rela[]) (struct module *me, void *location,
-> > -				Elf_Addr v) = {
-> > -	[R_RISCV_32]			= apply_r_riscv_32_rela,
-> > -	[R_RISCV_64]			= apply_r_riscv_64_rela,
-> > -	[R_RISCV_BRANCH]		= apply_r_riscv_branch_rela,
-> > -	[R_RISCV_JAL]			= apply_r_riscv_jal_rela,
-> > -	[R_RISCV_RVC_BRANCH]		= apply_r_riscv_rvc_branch_rela,
-> > -	[R_RISCV_RVC_JUMP]		= apply_r_riscv_rvc_jump_rela,
-> > -	[R_RISCV_PCREL_HI20]		= apply_r_riscv_pcrel_hi20_rela,
-> > -	[R_RISCV_PCREL_LO12_I]		= apply_r_riscv_pcrel_lo12_i_rela,
-> > -	[R_RISCV_PCREL_LO12_S]		= apply_r_riscv_pcrel_lo12_s_rela,
-> > -	[R_RISCV_HI20]			= apply_r_riscv_hi20_rela,
-> > -	[R_RISCV_LO12_I]		= apply_r_riscv_lo12_i_rela,
-> > -	[R_RISCV_LO12_S]		= apply_r_riscv_lo12_s_rela,
-> > -	[R_RISCV_GOT_HI20]		= apply_r_riscv_got_hi20_rela,
-> > -	[R_RISCV_CALL_PLT]		= apply_r_riscv_call_plt_rela,
-> > -	[R_RISCV_CALL]			= apply_r_riscv_call_rela,
-> > -	[R_RISCV_RELAX]			= apply_r_riscv_relax_rela,
-> > -	[R_RISCV_ALIGN]			= apply_r_riscv_align_rela,
-> > -	[R_RISCV_ADD16]			= apply_r_riscv_add16_rela,
-> > -	[R_RISCV_ADD32]			= apply_r_riscv_add32_rela,
-> > -	[R_RISCV_ADD64]			= apply_r_riscv_add64_rela,
-> > -	[R_RISCV_SUB16]			= apply_r_riscv_sub16_rela,
-> > -	[R_RISCV_SUB32]			= apply_r_riscv_sub32_rela,
-> > -	[R_RISCV_SUB64]			= apply_r_riscv_sub64_rela,
-> > +static int dynamic_linking_not_supported(struct module *me, void *location,
-> > +					 Elf_Addr v)
-> > +{
-> > +	pr_err("%s: Dynamic linking not supported in kernel modules PC = %p\n",
-> > +	       me->name, location);
-> > +	return -EINVAL;
-> > +}
-> > +
-> > +static int tls_not_supported(struct module *me, void *location, Elf_Addr v)
-> > +{
-> > +	pr_err("%s: Thread local storage not supported in kernel modules PC = %p\n",
-> > +	       me->name, location);
-> > +	return -EINVAL;
-> > +}
-> > +
-> > +static int apply_r_riscv_sub6_rela(struct module *me, void *location, Elf_Addr v)
-> > +{
-> > +	*(u8 *)location = (*(u8 *)location - ((u8)v & 0x3F)) & 0x3F;
-> > +	return 0;
-> > +}
-> > +
-> > +static int apply_r_riscv_set6_rela(struct module *me, void *location, Elf_Addr v)
-> > +{
-> > +	*(u8 *)location = ((*(u8 *)location & 0xc0) | ((u8)v & 0x3F));
-> 
-> Most of these casts are simple enough for here and above I'd consider
-> something like this for readability:
-> 
-> 	u8 *byte = location;
-> 	u8 value = v;
-> 
-> 	*byte = (*byte & 0xc0) | (value & 0x3f)
-> 
-> The compiler should generate the same code.
-> 
-> > +	return 0;
-> > +}
-> > +
-> > +static int apply_r_riscv_set8_rela(struct module *me, void *location, Elf_Addr v)
-> > +{
-> > +	*(u8 *)location = (u8)v;
-> > +	return 0;
-> > +}
-> > +
-> > +static int apply_r_riscv_set16_rela(struct module *me, void *location,
-> > +				    Elf_Addr v)
-> > +{
-> > +	*(u16 *)location = (u16)v;
-> > +	return 0;
-> > +}
-> > +
-> > +static int apply_r_riscv_set32_rela(struct module *me, void *location,
-> > +				    Elf_Addr v)
-> > +{
-> > +	*(u32 *)location = (u32)v;
-> > +	return 0;
-> > +}
-> > +
-> > +static int apply_r_riscv_32_pcrel_rela(struct module *me, void *location,
-> > +				       Elf_Addr v)
-> > +{
-> > +	*(u32 *)location = v - (unsigned long)location;
-> > +	return 0;
-> > +}
-> > +
-> > +static int apply_r_riscv_plt32_rela(struct module *me, void *location,
-> > +				    Elf_Addr v)
-> > +{
-> > +	ptrdiff_t offset = (void *)v - location;
-> > +
-> > +	if (!riscv_insn_valid_32bit_offset(offset)) {
-> > +		/* Only emit the plt entry if offset over 32-bit range */
-> > +		if (IS_ENABLED(CONFIG_MODULE_SECTIONS)) {
-> > +			offset = (void *)module_emit_plt_entry(me, v) - location;
-> > +		} else {
-> > +			pr_err("%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
-> > +			       me->name, (long long)v, location);
-> > +			return -EINVAL;
-> > +		}
-> > +	}
-> > +
-> > +	*(u32 *)location = (u32)offset;
-> > +	return 0;
-> > +}
-> > +
-> > +static int apply_r_riscv_set_uleb128(struct module *me, void *location, Elf_Addr v)
-> > +{
-> > +	*(long *)location = v;
-> > +	return 0;
-> > +}
-> > +
-> > +static int apply_r_riscv_sub_uleb128(struct module *me, void *location, Elf_Addr v)
-> > +{
-> > +	*(long *)location -= v;
-> > +	return 0;
-> > +}
-> > +
-> > +/*
-> > + * Relocations defined in the riscv-elf-psabi-doc.
-> > + * This handles static linking only.
-> > + */
-> > +static int (*reloc_handlers_rela[])(struct module *me, void *location,
-> > +				    Elf_Addr v) = {
-> > +	[R_RISCV_32] =			apply_r_riscv_32_rela,
-> > +	[R_RISCV_64] =			apply_r_riscv_64_rela,
-> > +	[R_RISCV_RELATIVE] =		dynamic_linking_not_supported,
-> > +	[R_RISCV_COPY] =		dynamic_linking_not_supported,
-> > +	[R_RISCV_JUMP_SLOT] =		dynamic_linking_not_supported,
-> > +	[R_RISCV_TLS_DTPMOD32] =	dynamic_linking_not_supported,
-> > +	[R_RISCV_TLS_DTPMOD64] =	dynamic_linking_not_supported,
-> > +	[R_RISCV_TLS_DTPREL32] =	dynamic_linking_not_supported,
-> > +	[R_RISCV_TLS_DTPREL64] =	dynamic_linking_not_supported,
-> > +	[R_RISCV_TLS_TPREL32] =		dynamic_linking_not_supported,
-> > +	[R_RISCV_TLS_TPREL64] =		dynamic_linking_not_supported,
-> > +	/* 12-15 undefined */
-> > +	[R_RISCV_BRANCH] =		apply_r_riscv_branch_rela,
-> > +	[R_RISCV_JAL] =			apply_r_riscv_jal_rela,
-> > +	[R_RISCV_CALL] =		apply_r_riscv_call_rela,
-> > +	[R_RISCV_CALL_PLT] =		apply_r_riscv_call_plt_rela,
-> > +	[R_RISCV_GOT_HI20] =		apply_r_riscv_got_hi20_rela,
-> > +	[R_RISCV_TLS_GOT_HI20] =	tls_not_supported,
-> > +	[R_RISCV_TLS_GD_HI20] =		tls_not_supported,
-> > +	[R_RISCV_PCREL_HI20] =		apply_r_riscv_pcrel_hi20_rela,
-> > +	[R_RISCV_PCREL_LO12_I] =	apply_r_riscv_pcrel_lo12_i_rela,
-> > +	[R_RISCV_PCREL_LO12_S] =	apply_r_riscv_pcrel_lo12_s_rela,
-> > +	[R_RISCV_HI20] =		apply_r_riscv_hi20_rela,
-> > +	[R_RISCV_LO12_I] =		apply_r_riscv_lo12_i_rela,
-> > +	[R_RISCV_LO12_S] =		apply_r_riscv_lo12_s_rela,
-> > +	[R_RISCV_TPREL_HI20] =		tls_not_supported,
-> > +	[R_RISCV_TPREL_LO12_I] =	tls_not_supported,
-> > +	[R_RISCV_TPREL_LO12_S] =	tls_not_supported,
-> > +	[R_RISCV_TPREL_ADD] =		tls_not_supported,
-> > +	[R_RISCV_ADD8] =		apply_r_riscv_add8_rela,
-> > +	[R_RISCV_ADD16] =		apply_r_riscv_add16_rela,
-> > +	[R_RISCV_ADD32] =		apply_r_riscv_add32_rela,
-> > +	[R_RISCV_ADD64] =		apply_r_riscv_add64_rela,
-> > +	[R_RISCV_SUB8] =		apply_r_riscv_sub8_rela,
-> > +	[R_RISCV_SUB16] =		apply_r_riscv_sub16_rela,
-> > +	[R_RISCV_SUB32] =		apply_r_riscv_sub32_rela,
-> > +	[R_RISCV_SUB64] =		apply_r_riscv_sub64_rela,
-> > +	/* 41-42 reserved for future standard use */
-> > +	[R_RISCV_ALIGN] =		apply_r_riscv_align_rela,
-> > +	[R_RISCV_RVC_BRANCH] =		apply_r_riscv_rvc_branch_rela,
-> > +	[R_RISCV_RVC_JUMP] =		apply_r_riscv_rvc_jump_rela,
-> > +	/* 46-50 reserved for future standard use */
-> > +	[R_RISCV_RELAX] =		apply_r_riscv_relax_rela,
-> > +	[R_RISCV_SUB6] =		apply_r_riscv_sub6_rela,
-> > +	[R_RISCV_SET6] =		apply_r_riscv_set6_rela,
-> > +	[R_RISCV_SET8] =		apply_r_riscv_set8_rela,
-> > +	[R_RISCV_SET16] =		apply_r_riscv_set16_rela,
-> > +	[R_RISCV_SET32] =		apply_r_riscv_set32_rela,
-> > +	[R_RISCV_32_PCREL] =		apply_r_riscv_32_pcrel_rela,
-> > +	[R_RISCV_IRELATIVE] =		dynamic_linking_not_supported,
-> > +	[R_RISCV_PLT32] =		apply_r_riscv_plt32_rela,
-> > +	[R_RISCV_SET_ULEB128] =		apply_r_riscv_set_uleb128,
-> > +	[R_RISCV_SUB_ULEB128] =		apply_r_riscv_sub_uleb128,
-> > +	/* 62-191 reserved for future standard use */
-> > +	/* 192-255 nonstandard ABI extensions  */
-> > +};
-> > +
-> > +static bool accumulate_relocations[] = {
-> > +	[R_RISCV_32] =			false,
-> > +	[R_RISCV_64] =			false,
-> > +	[R_RISCV_RELATIVE] =		false,
-> > +	[R_RISCV_COPY] =		false,
-> > +	[R_RISCV_JUMP_SLOT] =		false,
-> > +	[R_RISCV_TLS_DTPMOD32] =	false,
-> > +	[R_RISCV_TLS_DTPMOD64] =	false,
-> > +	[R_RISCV_TLS_DTPREL32] =	false,
-> > +	[R_RISCV_TLS_DTPREL64] =	false,
-> > +	[R_RISCV_TLS_TPREL32] =		false,
-> > +	[R_RISCV_TLS_TPREL64] =		false,
-> > +	/* 12-15 undefined */
-> > +	[R_RISCV_BRANCH] =		false,
-> > +	[R_RISCV_JAL] =			false,
-> > +	[R_RISCV_CALL] =		false,
-> > +	[R_RISCV_CALL_PLT] =		false,
-> > +	[R_RISCV_GOT_HI20] =		false,
-> > +	[R_RISCV_TLS_GOT_HI20] =	false,
-> > +	[R_RISCV_TLS_GD_HI20] =		false,
-> > +	[R_RISCV_PCREL_HI20] =		false,
-> > +	[R_RISCV_PCREL_LO12_I] =	false,
-> > +	[R_RISCV_PCREL_LO12_S] =	false,
-> > +	[R_RISCV_HI20] =		false,
-> > +	[R_RISCV_LO12_I] =		false,
-> > +	[R_RISCV_LO12_S] =		false,
-> > +	[R_RISCV_TPREL_HI20] =		false,
-> > +	[R_RISCV_TPREL_LO12_I] =	false,
-> > +	[R_RISCV_TPREL_LO12_S] =	false,
-> > +	[R_RISCV_TPREL_ADD] =		false,
-> > +	[R_RISCV_ADD8] =		true,
-> > +	[R_RISCV_ADD16] =		true,
-> > +	[R_RISCV_ADD32] =		true,
-> > +	[R_RISCV_ADD64] =		true,
-> > +	[R_RISCV_SUB8] =		true,
-> > +	[R_RISCV_SUB16] =		true,
-> > +	[R_RISCV_SUB32] =		true,
-> > +	[R_RISCV_SUB64] =		true,
-> > +	/* 41-42 reserved for future standard use */
-> > +	[R_RISCV_ALIGN] =		false,
-> > +	[R_RISCV_RVC_BRANCH] =		false,
-> > +	[R_RISCV_RVC_JUMP] =		false,
-> > +	/* 46-50 reserved for future standard use */
-> > +	[R_RISCV_RELAX] =		false,
-> > +	[R_RISCV_SUB6] =		true,
-> > +	[R_RISCV_SET6] =		true,
-> > +	[R_RISCV_SET8] =		true,
-> > +	[R_RISCV_SET16] =		true,
-> > +	[R_RISCV_SET32] =		true,
-> > +	[R_RISCV_32_PCREL] =		false,
-> > +	[R_RISCV_IRELATIVE] =		false,
-> > +	[R_RISCV_PLT32] =		false,
-> > +	[R_RISCV_SET_ULEB128] =		true,
-> > +	[R_RISCV_SUB_ULEB128] =		true,
-> > +	/* 62-191 reserved for future standard use */
-> > +	/* 192-255 nonstandard ABI extensions  */
-> > +};
-> > +
-> > +static int accumulation_not_supported(struct module *me, void *location, long buffer)
-> > +{
-> > +	pr_err("%s: Internal error. Only ADD/SUB/SET/ULEB128 should be accumulated.", me->name);
-> > +	return -EINVAL;
-> > +}
-> > +
-> > +static int apply_6_bit_accumulation(struct module *me, void *location, long buffer)
-> > +{
-> > +	if (buffer != (buffer & 0x3F)) {
-> 
-> It may be a matter of taste, but I'd find something like this easier to read:
-> 
-> 	if (buffer > 0x3f) {
-> 
-> To me that more directly conveys that you're just checking if any if the higher
-> bits are set.
-> 
-> > +		pr_err("%s: value %ld out of range for 6-bit relocation.\n",
-> > +		       me->name, buffer);
-> > +		return -EINVAL;
-> > +	}
-> > +	*(u8 *)location = ((*(u8 *)location & 0xc0) | ((u8)buffer & 0x3F));
-> 
-> Here the casts also get a bit much.
-> 
-> > +	return 0;
-> > +}
-> > +
-> > +static int apply_8_bit_accumulation(struct module *me, void *location, long buffer)
-> > +{
-> > +	if (buffer != (u8)buffer) {
-> > +		pr_err("%s: value %ld out of range for 8-bit relocation.\n",
-> > +		       me->name, buffer);
-> > +		return -EINVAL;
-> > +	}
-> > +	*(u8 *)location = (u8)buffer;
-> > +	return 0;
-> > +}
-> > +
-> > +static int apply_16_bit_accumulation(struct module *me, void *location, long buffer)
-> > +{
-> > +	if (buffer != (u16)buffer) {
-> 
-> 	if (buffer > U16_MAX) {
-> 
-> > +		pr_err("%s: value %ld out of range for 16-bit relocation.\n",
-> > +		       me->name, buffer);
-> > +		return -EINVAL;
-> > +	}
-> > +	*(u16 *)location = (u16)buffer;
-> > +	return 0;
-> > +}
-> > +
-> > +static int apply_32_bit_accumulation(struct module *me, void *location, long buffer)
-> > +{
-> > +	if (buffer != (u32)buffer) {
-> 
-> 	if (buffer > U32_MAX) {
-> 
-> > +		pr_err("%s: value %ld out of range for 32-bit relocation.\n",
-> > +		       me->name, buffer);
-> > +		return -EINVAL;
-> > +	}
-> > +	*(u32 *)location = (u32)buffer;
-> > +	return 0;
-> > +}
-> > +
-> > +static int apply_64_bit_accumulation(struct module *me, void *location, long buffer)
-> > +{
-> > +	*(u64 *)location = (u64)buffer;
-> > +	return 0;
-> > +}
-> > +
-> > +static int apply_uleb128_accumulation(struct module *me, void *location, long buffer)
-> > +{
-> > +	/*
-> > +	 * ULEB128 is a variable length encoding. Encode the buffer into
-> > +	 * the ULEB128 data format.
-> > +	 */
-> > +	while (buffer != 0) {
-> > +		*(u8 *)location = (u8)buffer & 0x7F;
-> > +		buffer >>= 7;
-> > +		*(u8 *)location |= (buffer != 0) << 7;
-> > +		location = (u8 *)location + 1;
-> > +	}
-> 
-> How about something like
-> 
-> 	u8 *p = location;
-> 
-> 	while (buffer) {
-> 		u8 value = buffer & 0x7f;
-> 
-> 		buffer >>= 7;
-> 		value |= (!!buffer) << 7;
-> 
-> 		*p++ = value;
-> 	}
-> 
-> 
-> This sould do the same as above, but if buffer == 0 it doesn't write anything.
-> Is that the right thing to do?
-> 
-
-All great suggestions, thank you. Yes, that is the right thing to do
-when buffer == 0.
-
-- Charlie
-
-> > +	return 0;
-> > +}
-> > +
-> > +/*
-> > + * Need to duplicate this a third time to capture the handlers for accumulation.
-> > + */
-> > +static int (*accumulate_handlers[])(struct module *me, void *location, long buffer) = {
-> > +	[R_RISCV_32] =			accumulation_not_supported,
-> > +	[R_RISCV_64] =			accumulation_not_supported,
-> > +	[R_RISCV_RELATIVE] =		accumulation_not_supported,
-> > +	[R_RISCV_COPY] =		accumulation_not_supported,
-> > +	[R_RISCV_JUMP_SLOT] =		accumulation_not_supported,
-> > +	[R_RISCV_TLS_DTPMOD32] =	accumulation_not_supported,
-> > +	[R_RISCV_TLS_DTPMOD64] =	accumulation_not_supported,
-> > +	[R_RISCV_TLS_DTPREL32] =	accumulation_not_supported,
-> > +	[R_RISCV_TLS_DTPREL64] =	accumulation_not_supported,
-> > +	[R_RISCV_TLS_TPREL32] =		accumulation_not_supported,
-> > +	[R_RISCV_TLS_TPREL64] =		accumulation_not_supported,
-> > +	/* 12-15 undefined */
-> > +	[R_RISCV_BRANCH] =		accumulation_not_supported,
-> > +	[R_RISCV_JAL] =			accumulation_not_supported,
-> > +	[R_RISCV_CALL] =		accumulation_not_supported,
-> > +	[R_RISCV_CALL_PLT] =		accumulation_not_supported,
-> > +	[R_RISCV_GOT_HI20] =		accumulation_not_supported,
-> > +	[R_RISCV_TLS_GOT_HI20] =	accumulation_not_supported,
-> > +	[R_RISCV_TLS_GD_HI20] =		accumulation_not_supported,
-> > +	[R_RISCV_PCREL_HI20] =		accumulation_not_supported,
-> > +	[R_RISCV_PCREL_LO12_I] =	accumulation_not_supported,
-> > +	[R_RISCV_PCREL_LO12_S] =	accumulation_not_supported,
-> > +	[R_RISCV_HI20] =		accumulation_not_supported,
-> > +	[R_RISCV_LO12_I] =		accumulation_not_supported,
-> > +	[R_RISCV_LO12_S] =		accumulation_not_supported,
-> > +	[R_RISCV_TPREL_HI20] =		accumulation_not_supported,
-> > +	[R_RISCV_TPREL_LO12_I] =	accumulation_not_supported,
-> > +	[R_RISCV_TPREL_LO12_S] =	accumulation_not_supported,
-> > +	[R_RISCV_TPREL_ADD] =		accumulation_not_supported,
-> > +	[R_RISCV_ADD8] =		apply_8_bit_accumulation,
-> > +	[R_RISCV_ADD16] =		apply_16_bit_accumulation,
-> > +	[R_RISCV_ADD32] =		apply_32_bit_accumulation,
-> > +	[R_RISCV_ADD64] =		apply_64_bit_accumulation,
-> > +	[R_RISCV_SUB8] =		apply_8_bit_accumulation,
-> > +	[R_RISCV_SUB16] =		apply_16_bit_accumulation,
-> > +	[R_RISCV_SUB32] =		apply_32_bit_accumulation,
-> > +	[R_RISCV_SUB64] =		apply_64_bit_accumulation,
-> > +	/* 41-42 reserved for future standard use */
-> > +	[R_RISCV_ALIGN] =		accumulation_not_supported,
-> > +	[R_RISCV_RVC_BRANCH] =		accumulation_not_supported,
-> > +	[R_RISCV_RVC_JUMP] =		accumulation_not_supported,
-> > +	/* 46-50 reserved for future standard use */
-> > +	[R_RISCV_RELAX] =		accumulation_not_supported,
-> > +	[R_RISCV_SUB6] =		apply_6_bit_accumulation,
-> > +	[R_RISCV_SET6] =		apply_6_bit_accumulation,
-> > +	[R_RISCV_SET8] =		apply_8_bit_accumulation,
-> > +	[R_RISCV_SET16] =		apply_16_bit_accumulation,
-> > +	[R_RISCV_SET32] =		apply_32_bit_accumulation,
-> > +	[R_RISCV_32_PCREL] =		accumulation_not_supported,
-> > +	[R_RISCV_IRELATIVE] =		accumulation_not_supported,
-> > +	[R_RISCV_PLT32] =		accumulation_not_supported,
-> > +	[R_RISCV_SET_ULEB128] =		apply_uleb128_accumulation,
-> > +	[R_RISCV_SUB_ULEB128] =		apply_uleb128_accumulation,
-> > +	/* 62-191 reserved for future standard use */
-> > +	/* 192-255 nonstandard ABI extensions  */
-> >  };
-> >
-> > +void process_accumulated_relocations(struct module *me)
-> > +{
-> > +	/*
-> > +	 * Only ADD/SUB/SET/ULEB128 should end up here.
-> > +	 *
-> > +	 * Each bucket may have more than one relocation location. All
-> > +	 * relocations for a location are stored in a list in a bucket.
-> > +	 *
-> > +	 * Relocations are applied to a temp variable before being stored to the
-> > +	 * provided location to check for overflow. This also allows ULEB128 to
-> > +	 * properly decide how many entries are needed before storing to
-> > +	 * location. The final value is stored into location using the handler
-> > +	 * for the last relocation to an address.
-> > +	 *
-> > +	 * Three layers of indexing:
-> > +	 *	- Each of the buckets in use
-> > +	 *	- Groups of relocations in each bucket by location address
-> > +	 *	- Each relocation entry for a location address
-> > +	 */
-> > +	struct used_bucket *bucket_iter;
-> > +	struct relocation_head *rel_head_iter;
-> > +	struct relocation_entry *rel_entry_iter;
-> > +	int curr_type;
-> > +	void *location;
-> > +	long buffer;
-> > +
-> > +	list_for_each_entry(bucket_iter, &used_buckets_list, head) {
-> > +		hlist_for_each_entry(rel_head_iter, bucket_iter->bucket, node) {
-> > +			buffer = 0;
-> > +			location = rel_head_iter->location;
-> > +			list_for_each_entry(rel_entry_iter, rel_head_iter->rel_entry, head) {
-> > +				curr_type = rel_entry_iter->type;
-> > +				reloc_handlers_rela[curr_type](me, &buffer, rel_entry_iter->value);
-> > +				kfree(rel_entry_iter);
-> > +			}
-> > +			accumulate_handlers[curr_type](me, location, buffer);
-> > +			kfree(rel_head_iter);
-> > +		}
-> > +		kfree(bucket_iter);
-> > +	}
-> > +
-> > +	kfree(relocation_hashtable);
-> > +}
-> > +
-> > +int add_relocation_to_accumulate(struct module *me, int type, void *location,
-> > +				 unsigned int hashtable_bits, Elf_Addr v)
-> > +{
-> > +	struct relocation_entry *entry;
-> > +	struct relocation_head *rel_head;
-> > +	struct hlist_head *current_head;
-> > +	struct hlist_node *first;
-> > +	struct used_bucket *bucket;
-> > +	unsigned long hash;
-> > +
-> > +	entry = kmalloc(sizeof(*entry), GFP_KERNEL);
-> > +	INIT_LIST_HEAD(&entry->head);
-> > +	entry->type = type;
-> > +	entry->value = v;
-> > +
-> > +	hash = hash_min((unsigned long)location, hashtable_bits);
-> > +
-> > +	current_head = &relocation_hashtable[hash];
-> > +	first = current_head->first;
-> > +
-> > +	/* Find matching location (if any) */
-> > +	bool found = false;
-> > +	struct relocation_head *rel_head_iter;
-> > +
-> > +	hlist_for_each_entry(rel_head_iter, current_head, node) {
-> > +		if (rel_head_iter->location == location) {
-> > +			found = true;
-> > +			rel_head = rel_head_iter;
-> > +			break;
-> > +		}
-> > +	}
-> > +
-> > +	if (!found) {
-> > +		rel_head = kmalloc(sizeof(*rel_head), GFP_KERNEL);
-> > +		rel_head->rel_entry =
-> > +			kmalloc(sizeof(struct list_head), GFP_KERNEL);
-> > +		INIT_LIST_HEAD(rel_head->rel_entry);
-> > +		rel_head->location = location;
-> > +		INIT_HLIST_NODE(&rel_head->node);
-> > +		if (!current_head->first) {
-> > +			bucket =
-> > +				kmalloc(sizeof(struct used_bucket), GFP_KERNEL);
-> > +			INIT_LIST_HEAD(&bucket->head);
-> > +			bucket->bucket = current_head;
-> > +			list_add(&bucket->head, &used_buckets_list);
-> > +		}
-> > +		hlist_add_head(&rel_head->node, current_head);
-> > +	}
-> > +
-> > +	/* Add relocation to head of discovered rel_head */
-> > +	list_add_tail(&entry->head, rel_head->rel_entry);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +unsigned int initialize_relocation_hashtable(unsigned int num_relocations)
-> > +{
-> > +	/* Can safely assume that bits is not greater than sizeof(long) */
-> > +	unsigned long hashtable_size = roundup_pow_of_two(num_relocations);
-> > +	unsigned int hashtable_bits = ilog2(hashtable_size);
-> > +
-> > +	/*
-> > +	 * Double size of hashtable if num_relocations * 1.25 is greater than
-> > +	 * hashtable_size.
-> > +	 */
-> > +	int should_double_size = ((num_relocations + (num_relocations >> 2)) > (hashtable_size));
-> > +
-> > +	hashtable_bits += should_double_size;
-> > +
-> > +	hashtable_size <<= should_double_size;
-> > +
-> > +	relocation_hashtable = kmalloc_array(hashtable_size,
-> > +					     sizeof(*relocation_hashtable),
-> > +					     GFP_KERNEL);
-> > +	__hash_init(relocation_hashtable, hashtable_size);
-> > +
-> > +	INIT_LIST_HEAD(&used_buckets_list);
-> > +
-> > +	return hashtable_bits;
-> > +}
-> > +
-> >  int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
-> >  		       unsigned int symindex, unsigned int relsec,
-> >  		       struct module *me)
-> > @@ -349,11 +822,13 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
-> >  	unsigned int i, type;
-> >  	Elf_Addr v;
-> >  	int res;
-> > +	unsigned int num_relocations = sechdrs[relsec].sh_size / sizeof(*rel);
-> > +	unsigned int hashtable_bits = initialize_relocation_hashtable(num_relocations);
-> >
-> >  	pr_debug("Applying relocate section %u to %u\n", relsec,
-> >  	       sechdrs[relsec].sh_info);
-> >
-> > -	for (i = 0; i < sechdrs[relsec].sh_size / sizeof(*rel); i++) {
-> > +	for (i = 0; i < num_relocations; i++) {
-> >  		/* This is where to make the change */
-> >  		location = (void *)sechdrs[sechdrs[relsec].sh_info].sh_addr
-> >  			+ rel[i].r_offset;
-> > @@ -428,11 +903,16 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
-> >  			}
-> >  		}
-> >
-> > -		res = handler(me, location, v);
-> > +		if (accumulate_relocations[type])
-> > +			res = add_relocation_to_accumulate(me, type, location, hashtable_bits, v);
-> > +		else
-> > +			res = handler(me, location, v);
-> >  		if (res)
-> >  			return res;
-> >  	}
-> >
-> > +	process_accumulated_relocations(me);
-> > +
-> >  	return 0;
-> >  }
-> >
-> >
-> > --
-> > 2.34.1
-> >
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjAyMy0xMC0yNyAxMToyMSBBTSwgU2VhbiBDaHJpc3RvcGhlcnNvbiB3cm90ZToKPiBJbnRy
+b2R1Y2UgYW4gaW9jdGwoKSwgS1ZNX0NSRUFURV9HVUVTVF9NRU1GRCwgdG8gYWxsb3cgY3JlYXRp
+bmcgZmlsZS1iYXNlZAo+IG1lbW9yeSB0aGF0IGlzIHRpZWQgdG8gYSBzcGVjaWZpYyBLVk0gdmly
+dHVhbCBtYWNoaW5lIGFuZCB3aG9zZSBwcmltYXJ5Cj4gcHVycG9zZSBpcyB0byBzZXJ2ZSBndWVz
+dCBtZW1vcnkuCj4gCj4gQSBndWVzdC1maXJzdCBtZW1vcnkgc3Vic3lzdGVtIGFsbG93cyBmb3Ig
+b3B0aW1pemF0aW9ucyBhbmQgZW5oYW5jZW1lbnRzCj4gdGhhdCBhcmUga2x1ZGd5IG9yIG91dHJp
+Z2h0IGluZmVhc2libGUgdG8gaW1wbGVtZW50L3N1cHBvcnQgaW4gYSBnZW5lcmljCj4gbWVtb3J5
+IHN1YnN5c3RlbS4gIFdpdGggZ3Vlc3RfbWVtZmQsIGd1ZXN0IHByb3RlY3Rpb25zIGFuZCBtYXBw
+aW5nIHNpemVzCj4gYXJlIGZ1bGx5IGRlY291cGxlZCBmcm9tIGhvc3QgdXNlcnNwYWNlIG1hcHBp
+bmdzLiAgIEUuZy4gS1ZNIGN1cnJlbnRseQo+IGRvZXNuJ3Qgc3VwcG9ydCBtYXBwaW5nIG1lbW9y
+eSBhcyB3cml0YWJsZSBpbiB0aGUgZ3Vlc3Qgd2l0aG91dCBpdCBhbHNvCj4gYmVpbmcgd3JpdGFi
+bGUgaW4gaG9zdCB1c2Vyc3BhY2UsIGFzIEtWTSdzIEFCSSB1c2VzIFZNQSBwcm90ZWN0aW9ucyB0
+bwo+IGRlZmluZSB0aGUgYWxsb3cgZ3Vlc3QgcHJvdGVjdGlvbi4gIFVzZXJzcGFjZSBjYW4gZnVk
+Z2UgdGhpcyBieQo+IGVzdGFibGlzaGluZyB0d28gbWFwcGluZ3MsIGEgd3JpdGFibGUgbWFwcGlu
+ZyBmb3IgdGhlIGd1ZXN0IGFuZCByZWFkYWJsZQo+IG9uZSBmb3IgaXRzZWxmLCBidXQgdGhhdOKA
+mXMgc3Vib3B0aW1hbCBvbiBtdWx0aXBsZSBmcm9udHMuCj4gCj4gU2ltaWxhcmx5LCBLVk0gY3Vy
+cmVudGx5IHJlcXVpcmVzIHRoZSBndWVzdCBtYXBwaW5nIHNpemUgdG8gYmUgYSBzdHJpY3QKPiBz
+dWJzZXQgb2YgdGhlIGhvc3QgdXNlcnNwYWNlIG1hcHBpbmcgc2l6ZSwgZS5nLiBLVk0gZG9lc27i
+gJl0IHN1cHBvcnQKPiBjcmVhdGluZyBhIDFHaUIgZ3Vlc3QgbWFwcGluZyB1bmxlc3MgdXNlcnNw
+YWNlIGFsc28gaGFzIGEgMUdpQiBndWVzdAo+IG1hcHBpbmcuICBEZWNvdXBsaW5nIHRoZSBtYXBw
+aW5ncyBzaXplcyB3b3VsZCBhbGxvdyB1c2Vyc3BhY2UgdG8gcHJlY2lzZWx5Cj4gbWFwIG9ubHkg
+d2hhdCBpcyBuZWVkZWQgd2l0aG91dCBpbXBhY3RpbmcgZ3Vlc3QgcGVyZm9ybWFuY2UsIGUuZy4g
+dG8KPiBoYXJkZW4gYWdhaW5zdCB1bmludGVudGlvbmFsIGFjY2Vzc2VzIHRvIGd1ZXN0IG1lbW9y
+eS4KPiAKPiBEZWNvdXBsaW5nIGd1ZXN0IGFuZCB1c2Vyc3BhY2UgbWFwcGluZ3MgbWF5IGFsc28g
+YWxsb3cgZm9yIGEgY2xlYW5lcgo+IGFsdGVybmF0aXZlIHRvIGhpZ2gtZ3JhbnVsYXJpdHkgbWFw
+cGluZ3MgZm9yIEh1Z2VUTEIsIHdoaWNoIGhhcyByZWFjaGVkIGEKPiBiaXQgb2YgYW4gaW1wYXNz
+ZSBhbmQgaXMgdW5saWtlbHkgdG8gZXZlciBiZSBtZXJnZWQuCj4gCj4gQSBndWVzdC1maXJzdCBt
+ZW1vcnkgc3Vic3lzdGVtIGFsc28gcHJvdmlkZXMgY2xlYXJlciBsaW5lIG9mIHNpZ2h0IHRvCj4g
+dGhpbmdzIGxpa2UgYSBkZWRpY2F0ZWQgbWVtb3J5IHBvb2wgKGZvciBzbGljZS1vZi1oYXJkd2Fy
+ZSBWTXMpIGFuZAo+IGVsaW1pbmF0aW9uIG9mICJzdHJ1Y3QgcGFnZSIgKGZvciBvZmZsb2FkIHNl
+dHVwcyB3aGVyZSB1c2Vyc3BhY2UgX25ldmVyXwo+IG5lZWRzIHRvIG1tYXAoKSBndWVzdCBtZW1v
+cnkpLgoKQWxsIG9mIHRoZXNlIHVzZS1jYXNlcyBpbnZvbHZlIHVzaW5nIGd1ZXN0X21lbWZkIGZv
+ciBzaGFyZWQgcGFnZXMsIGJ1dAp0aGlzIGVudGlyZSBzZXJpZXMgc2V0cyB1cCBLVk0gdG8gb25s
+eSB1c2UgZ3Vlc3RfbWVtZmQgZm9yIHByaXZhdGUKcGFnZXMuCgpGb3IgZXhhbXBsZSwgdGhlIHBl
+ci1wYWdlIGF0dHJpYnV0ZXMgYXJlIGEgcHJvcGVydHkgb2YgYSBLVk0gVk0sIG5vdCB0aGUKdW5k
+ZXJseWluZyBndWVzdF9tZW1mZC4gU28gdGhhdCBpbXBsaWVzIHdlIHdpbGwgbmVlZCBzZXBhcmF0
+ZQpndWVzdF9tZW1mZHMgZm9yIHByaXZhdGUgYW5kIHNoYXJlZCBwYWdlcy4gQnV0IGEgZ2l2ZW4g
+bWVtc2xvdCBjYW4gaGF2ZQphIG1peCBvZiBwcml2YXRlIGFuZCBzaGFyZWQgcGFnZXMuIFNvIHRo
+YXQgaW1wbGllcyBhIG1lbXNsb3Qgd2lsbCBuZWVkCnRvIHN1cHBvcnQgMiBndWVzdF9tZW1mZHM/
+IEJ1dCB0aGUgVUFQSSBvbmx5IGFsbG93cyAxIGFuZCB1c2VzIHRoZSBIVkEKZm9yIHNoYXJlZCBt
+YXBwaW5ncy4KCk15IGluaXRpYWwgcmVhY3Rpb24gYWZ0ZXIgcmVhZGluZyB0aHJvdWdoIHRoaXMg
+c2VyaWVzIGlzIHRoYXQgdGhlCnBlci1wYWdlIHByaXZhdGUvc2hhcmVkIHNob3VsZCBiZSBhIHBy
+b3BlcnR5IG9mIHRoZSBndWVzdF9tZW1mZCwgbm90IHRoZQpWTS4gTWF5YmUgaXQgd291bGQgZXZl
+biBiZSBjbGVhbmVyIGluIHRoZSBsb25nLXJ1biB0byBtYWtlIGFsbCBtZW1vcnkKYXR0cmlidXRl
+cyBhIHByb3BlcnR5IG9mIHRoZSBndWVzdF9tZW1mZC4gVGhhdCB3YXkgd2UgY2FuIHNjb3BlIHRo
+ZQpzdXBwb3J0IHRvIG9ubHkgZ3Vlc3RfbWVtZmRzIGFuZCBub3QgaGF2ZSB0byB3b3JyeSBhYm91
+dCBtYWtpbmcgcGVyLXBhZ2UKYXR0cmlidXRlcyB3b3JrIHdpdGggImxlZ2FjeSIgSFZBLWJhc2Vk
+IG1lbXNsb3RzLgoKTWF5YmUgY2FuIHlvdSBza2V0Y2ggb3V0IGhvdyB5b3Ugc2VlIHRoaXMgcHJv
+cG9zYWwgYmVpbmcgZXh0ZW5zaWJsZSB0bwp1c2luZyBndWVzdF9tZW1mZCBmb3Igc2hhcmVkIG1h
+cHBpbmdzPwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
+bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
+aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
