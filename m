@@ -4,158 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E826C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 17:57:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD2E6C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 18:07:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c2N4ekKQYbtjn/ztgPNEI3wQedrGqfKqg9R1nw81KFk=; b=qctNfcrFiQ3XIq
-	/ZrmhfAFGy6K0uu9brL4QN+kXgxxtTmbNtOIO+K9kmzluuzo4/Ht3wpkodz293db320CmmLQ2L9DQ
-	IrGvVOx3Yg6iHnK2HJChXBOZIvd382oYmDPmxUhRlkgF4+OL/EbGgZh2LNN+13pBIBUQpBEdvEO8m
-	ftEc1hczdWyR8hVVwTtQFb5mkn6T69LEaoByD9UUr7Mcwqp28Ma70Ol81vgnirAdi8S8ahTZLBhjN
-	FV612adrI7OeHhywYojDF+hMelx8/zj+frI8Tabfjn1Rn7aIbeZGnuih4JqUPC9rcdI80GSHYGQ7g
-	CPTWxYWEOKuCYlo4yAtg==;
+	List-Owner; bh=dgTQX5IOqravS9RU2gbKJHBr1xX97qqSAvx3YD4NCQA=; b=j1q8kvA0CvP9Nv
+	kZnsFYvGwvOffwa2KsDQ6CGTrWzrZiCZ0gpPOmgBfZuWdi7eMKmoMqvSHTLLbhDwHUuVk+kAnPN3b
+	g9qFRkAVF5UZqzeilFnrsnCiL14rZ6bNyYp/mT9+GWH0N3/B8Vvs46YaIEBXhlWzDWPg+ckLbk48h
+	UpDOPfrr+vpBMu8upJbtGfW/soSwMpORoHQYwu/1m/VVgDCu51lgmcoVL/NQzfQfhZaxCdZsu3Bv7
+	kwbQwvp4Aad4EZaINNLLQ1P1GbdY8BFXc0opryTPRVgJ/+cFpScVV1u7t27/Q0YpLlnnw8Zqt+af8
+	oLZwHkC7sTtiwVhyH6zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxszW-005uAw-2B;
-	Tue, 31 Oct 2023 17:57:26 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1qxt9N-005vAS-1H;
+	Tue, 31 Oct 2023 18:07:37 +0000
+Received: from madras.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e5ab])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxszS-005u94-07
-	for linux-riscv@lists.infradead.org;
-	Tue, 31 Oct 2023 17:57:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1698775042; x=1730311042;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=ulhSKjq76SGgHxPymClJpcNVPMtZHI8V9rRoyr4ii4o=;
-  b=iYdryq/KjC9bzOjUe6BFglrMkaP/0tK0UMN1cV1REO7KsO+8LyLffEjg
-   rd8uNwsJlQ2gY9oDjst3U4CGe0xeaCG7kA8oZxsblzXJKWoD5gfzJ1Ga/
-   4G1Vst25iTW9hZlf3CnYQ6wux1Ux5G7eqpKBzeZg2SMa88NU0usPw+nPa
-   YbqCtRsWDRefAXKq31BZ1SNzT4NYV5joVtU19rfPupzn/AHuWidaIH8nk
-   btP09fEcae3sOwSKSJpxKiFu3onFlteRKMSS3wsdI8LNHTG0JnMD0ARk0
-   dvFQaMFEpnResdDEP7g7rYTFt0lLYkj+QzpW8iNHfpgkQ/38YrvDrTjd3
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10880"; a="9872339"
-X-IronPort-AV: E=Sophos;i="6.03,265,1694761200"; 
-   d="scan'208";a="9872339"
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Oct 2023 10:57:19 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10880"; a="789864089"
-X-IronPort-AV: E=Sophos;i="6.03,265,1694761200"; 
-   d="scan'208";a="789864089"
-Received: from fmsmsx602.amr.corp.intel.com ([10.18.126.82])
-  by orsmga008.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 31 Oct 2023 10:57:18 -0700
-Received: from fmsmsx610.amr.corp.intel.com (10.18.126.90) by
- fmsmsx602.amr.corp.intel.com (10.18.126.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.34; Tue, 31 Oct 2023 10:57:17 -0700
-Received: from FMSEDG603.ED.cps.intel.com (10.1.192.133) by
- fmsmsx610.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.34 via Frontend Transport; Tue, 31 Oct 2023 10:57:17 -0700
-Received: from NAM10-MW2-obe.outbound.protection.outlook.com (104.47.55.100)
- by edgegateway.intel.com (192.55.55.68) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.34; Tue, 31 Oct 2023 10:57:17 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=J/7OSczPW/a+OsICdfZxSIzvNSVqSATGF5anWMFida+GoDfWoC30tQmKuuoziAXNQaM5LWUZsue/KWpW/oqRRcyNqrGAKrSsA+8o0lhI5xFVOTew5Q6k9YmaenL0ZlFPS3/KgghoLn4DDOZSbOzX7fpZnGW1ln93u6tBm+rH/oUPxxJqqBGNP9UaZBGEoi11ThnTEimF4US2sj1NI2BPukSU7oFfXal91Vc2VygxzutCkn+Mcg6uLYFk5IVmWYqJmDIqa/jamd6AoBqVYWHI38RultVm4XFQa+4v4ls1Blmp6mUkxAKOETOXepFCi3hagNYDMGMiEVesrrxiNyZ9Vg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ywu+Z1Qx26NgLmVJJ1Na1Fm2gnnTlV/8PYD52pkks54=;
- b=lI/Dfm20lrIKPj6CPwieaIfLZ+kHcugp/2AH84G33+entHCholbddVl0+kVWBrOdD0UroAdE7mmOuZGjV396XbmyCBrQcFv/mzVnV1UVUbtjHVBmem9ga5ro4WWG9igk8Ho2iAlXYnhp7rT76JCx5ia2vH+5C9Tg6rs/UI7GhPDukU3bGWExuaRC/EfVuggWDAi5qQ78IkfLbtW5NAFavtLqa9pOvxbj2wc5p42c1zKaPtMBCVJW665aUh4dfrQiWpeUV0fPeMPXGCgssikFpispFENQirULIm0HmnWBlIjxFlU7pLAxzM1dgfJ+5T0ZEoutBddZen1iejn4eDzOqA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
- by CH0PR11MB5377.namprd11.prod.outlook.com (2603:10b6:610:b8::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6933.28; Tue, 31 Oct
- 2023 17:57:15 +0000
-Received: from PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::e75f:ec47:9be1:e9e4]) by PH8PR11MB8107.namprd11.prod.outlook.com
- ([fe80::e75f:ec47:9be1:e9e4%4]) with mapi id 15.20.6933.026; Tue, 31 Oct 2023
- 17:57:15 +0000
-Date: Tue, 31 Oct 2023 10:57:12 -0700
-From: Dan Williams <dan.j.williams@intel.com>
-To: Dan Williams <dan.j.williams@intel.com>, Bjorn Helgaas
-	<helgaas@kernel.org>, Robert Richter <rrichter@amd.com>, Terry Bowman
-	<terry.bowman@amd.com>, Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>
-CC: <linux-cxl@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<loongarch@lists.linux.dev>, kernel test robot <lkp@intel.com>
-Subject: Re: [linux-next:master] BUILD REGRESSION
- c503e3eec382ac708ee7adf874add37b77c5d312
-Message-ID: <65413ff8dd849_244c78294c2@dwillia2-xfh.jf.intel.com.notmuch>
-References: <202310310457.5LusQqF6-lkp@intel.com>
- <20231031161757.GA11354@bhelgaas>
- <65413d98d6d5e_244c782949d@dwillia2-xfh.jf.intel.com.notmuch>
-Content-Disposition: inline
-In-Reply-To: <65413d98d6d5e_244c782949d@dwillia2-xfh.jf.intel.com.notmuch>
-X-ClientProxiedBy: MW4PR04CA0225.namprd04.prod.outlook.com
- (2603:10b6:303:87::20) To PH8PR11MB8107.namprd11.prod.outlook.com
- (2603:10b6:510:256::6)
+	id 1qxt9G-005v9H-2d;
+	Tue, 31 Oct 2023 18:07:34 +0000
+Received: from [100.116.17.117] (cola.collaboradmins.com [195.201.22.229])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id 1520966072F7;
+	Tue, 31 Oct 2023 18:07:25 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1698775646;
+	bh=ARXAsPmFxCGbvMvWFqVbwkT8xs88S/Oot9kZ7ny7v/Q=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Zd+wjSr1TMzzlQWdtl0zpPfdYESDiPbAODKkE5qPYSsIW3TSCCtSX+x9wZfxPDjRL
+	 eoAfnuuFjrRgRjzwxx0PYphqSkBhPLjgZOI1Bs8p6L63rf+guamOzwqv+hHDoO7JsY
+	 UrsSy3BawDmzIQjs1cKt2CW4r+ahoDh2F68Fk+hlIGXDnaNA+OKgVrokUU2+hMxR7g
+	 vqssdH7/6JMW3Wax36527BZAyhHCbBWe0DvjxGAhTIN6sVB+K3m9Z6ki/z7TXZIzLH
+	 FspdVYI6KG9IGq8FsXIz34mFahY53ukYuvuRMj8SdfQMi1Trv3BrheqsoAafOq9CU9
+	 /+Cw4Cz39ePmw==
+Message-ID: <519fae84-cc40-47ab-8e6b-9967ce046104@collabora.com>
+Date: Tue, 31 Oct 2023 20:07:22 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|CH0PR11MB5377:EE_
-X-MS-Office365-Filtering-Correlation-Id: 08ad6ef1-a8d1-4b84-bd4f-08dbda3ad0d9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 3mgGoBLiLOg/xdCx3GQnNQxH92cd1myP2JbEcNFr409O222rdPRe4K6KrCQ+xj+IEEWYMJnGAcFlElj85OhUq9nIfQ0yDs+S37pBCrByEOfK6C9dKbQC+AlMkarJzbH6waFi5f3to/2W3dTZS+I+txMcRzmG3mO9JsvNsbp332TJbvDB+RFcvGycQpcShXdnoNanNwJRy/NtjgnNm6z9mbv5bhYPRa5xPKjQTrn+CK77Jq52WC9/IEGlh3GAPNim5qC7Mfge17+kaVXK08A3+FfD1+8Yp2tHkH1S7O7Wm8tCV4GMT9p1m52g/N0GQgUnUiwshKr3VdTTlg067KjJFqBw/lXDpULrtRoBeddMulOrXrsLrVethkF0li/xfv7PcBuoePTWjTkJcUuK1sjtz1JkGVFKK2FgRn/KRXv1FUzJ+zsGBgSQ7XsaSBgRL6N0dRITQegpiQS70Yg+Ut33fkIuxbAomI8qakUVAx/Jmi1XVwng1smhB07xBPSvsJSvbnSq01PO7AkCfcaMR7iZpte83PsZ8W4y3Qgt64mXnRefG+HvPWYoPtY/ALIPSHycj6Ignka9UHHwXNh/hEAMuwy3W22c+TRlSVbtU39OrVt6niypuq1cxgEZPGAr5jYuzzb6cVI6nqPSGjxS6x21+zgKdOxTvquIeJoX2Z+yerF40U7SZ6dBidv2q05m0HqW
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(376002)(396003)(346002)(136003)(39860400002)(366004)(230922051799003)(230273577357003)(230173577357003)(186009)(1800799009)(64100799003)(451199024)(7416002)(9686003)(6512007)(26005)(38100700002)(86362001)(82960400001)(83380400001)(2906002)(6506007)(478600001)(8676002)(6666004)(8936002)(6486002)(966005)(66476007)(316002)(4326008)(5660300002)(107886003)(41300700001)(66946007)(66556008)(110136005)(98903001);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Tk+3zMopqdfmdVgPzjKx26UF7ycidHsb6R0Irx+WiLCzIBxr6O7Czg8XQG3m?=
- =?us-ascii?Q?O1A72qfrDGQHDkEbudJsbf3wfFCQ+tl9d7dgRARjfOBPZL49tXqRBlUYevmR?=
- =?us-ascii?Q?HXNhFfqvm5tyf3oJpCzPLVn7Cu+KvYNZqzKcyATxAhfdtW2cJ4CVP/2wrbPM?=
- =?us-ascii?Q?/ApN6Z+kXO2UGuP9PHpiGRdgZKKfQNhXRme7H6t16EBU+PxWoPo7U5M8xahE?=
- =?us-ascii?Q?DqF3L5xTyNkwkeSbFM34CqQ7JHPZtG9+iZ4hFK8wPLj5FoSjWh1CkvWE2Crv?=
- =?us-ascii?Q?MPVFOj5BBnRHimPDDoG07oSejRXqJRZJvLweKKKLif1HssRg68bvXCzvSUI2?=
- =?us-ascii?Q?xVw2PeDGiWeneO1E5l/AaPKpKArvR/aL+Q7+7FBcVcsPe0TfBAePJPbfGuHi?=
- =?us-ascii?Q?O5SKQ39EKqwCORD/1G6fICLtTg3aT3yg2sj5xLemNEB6L4/MAjVQRELfymj8?=
- =?us-ascii?Q?F9/UK29UKjIG6BDgklN1pSDqwwISxlYLXkIKtWYZt8iuMpz/aH+VXB5DgKvK?=
- =?us-ascii?Q?kjAZmY/Enk04PGQHMfNtzqwDkNMA2Tbyg2uRu+AXtxS3LK1CNFlk1Iy7fg5i?=
- =?us-ascii?Q?bE838ZmtXMYun0Zv6N8H8HrUhJveKM62pnFgCA7gl02TeSdLfi8GXI6ndoJX?=
- =?us-ascii?Q?um5IM9Z6Nb/i4C9MahDBBC9EZGsxfgjC826Bs2oKwarfaTdhAX7GxWW3A068?=
- =?us-ascii?Q?c9s1XzhuJN9j1lXHr883mefVIeonWK4VdEcsUHINQxNJ9A5zxNZ6TRqt5kzw?=
- =?us-ascii?Q?5q5zz4pQoJzluoJGrcs0EIcSmbxVWmCQfGekZQA9zkHYiiUywoCNFzUvnbUC?=
- =?us-ascii?Q?Qz0o4lTAoEjQEs7WzgIt9bODTAZ5KB68CKqXNuxjq0lkHYEU+fkqK0cRj/3F?=
- =?us-ascii?Q?IZL9WpU4UPYv/eogNiV9LgVY33yUd8zDY3fqqAFVALbEptmcwrya9bTt3yI+?=
- =?us-ascii?Q?qIjDDoMpL9tn3vbbERI6SorUCItJ5+6FIBA5yipiX9MrJb3tBa0w3Y2GMjFk?=
- =?us-ascii?Q?FUyQCvS9HFQ8xBlsFfXkqMm7Wzmlqy4685luIaB0EycYzQLHrWIK89EMWwVD?=
- =?us-ascii?Q?GoQRuwNk0B2I3MQEFCIj2BnW3ImtJUcZFzX10umiop05Y1r2v+IV3bAY2Bo6?=
- =?us-ascii?Q?SipMh8IIb9s4nX2GkNCwsVRGGZ3p2lrqWdHN4IgV0TwaSFUyFLdLZkmTgans?=
- =?us-ascii?Q?S6pE8DFJDSVGeTIHTsE5jjsltEi+DZN//FxEqNtwIBM3rX7b6PCtHMdBub7W?=
- =?us-ascii?Q?1zLbC/0BghsubHSmGKy1qdtj/3buU2PWI81JAxXuoRRT4nKexdy2qMUEM5Ul?=
- =?us-ascii?Q?D0VRtnsdB5a6hsbam0Isjs0Pcxu5LDWDe0QSsFzB33PFvLjCCp6uP1NspfKf?=
- =?us-ascii?Q?+asbhzC6GBTNkI1OVlbs44zF+96mJUGeL7VDhORKIgqkl8aUrwO4N6ESM1pa?=
- =?us-ascii?Q?NPdsur1+ZLGyU4OlLGrH8lOAIrr7so0DfOnjju6rFdcfgtDNJZmXn0FYuXQc?=
- =?us-ascii?Q?Zb2HGjJpspmpFNyH270OzFL8X1RvaMGEyHhrALyx0xBCtQGhEVauGqTkftxL?=
- =?us-ascii?Q?TQz6lI/Bvv9nWL9Wn7PaS4EduNA1XFojLmCex9lgJfo9a0Ar4t0D/ZGoMUea?=
- =?us-ascii?Q?ug=3D=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 08ad6ef1-a8d1-4b84-bd4f-08dbda3ad0d9
-X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Oct 2023 17:57:15.1703
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ILWQvVVwr+0YfGSrKojQ4JxxPWuf9fuu59Lchd2oX8CKWb1KHZkNPq2T0TvhoHfk8WPANXP4meOu8r9hXzEH5awvsxLmFKN5HzUXqkq4rHk=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR11MB5377
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 05/12] net: stmmac: dwmac-starfive: Add support for
+ JH7100 SoC
+Content-Language: en-US
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Samin Guo <samin.guo@starfivetech.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+References: <20231029042712.520010-1-cristian.ciocaltea@collabora.com>
+ <20231029042712.520010-6-cristian.ciocaltea@collabora.com>
+ <CAJM55Z8K5QztgU9NYiJ1kv+-BSsgP=LCABN7BYDtQ30_G1Nc7w@mail.gmail.com>
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <CAJM55Z8K5QztgU9NYiJ1kv+-BSsgP=LCABN7BYDtQ30_G1Nc7w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231031_105722_084173_50918ACB 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20231031_110731_131787_90DD55A7 
+X-CRM114-Status: GOOD (  31.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,74 +92,158 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Dan Williams wrote:
-> Bjorn Helgaas wrote:
-> > On Tue, Oct 31, 2023 at 04:35:23AM +0800, kernel test robot wrote:
-> > > tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> > > branch HEAD: c503e3eec382ac708ee7adf874add37b77c5d312  Add linux-next specific files for 20231030
-> > > 
-> > > Error/Warning reports:
-> > > ... 
-> > > https://lore.kernel.org/oe-kbuild-all/202310302206.Pkr5eBDi-lkp@intel.com
-> > 
-> > > Error/Warning: (recently discovered and may have been fixed)
-> > > 
-> > > Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/iio/imu/bosch,bma400.yaml
-> > > aarch64-linux-ld: drivers/cxl/core/pci.c:921:(.text+0xbbc): undefined reference to `pci_print_aer'
-> > > ...
-> > > arch/riscv/include/asm/mmio.h:67:(.text+0xd66): undefined reference to `pci_print_aer'
-> > > csky-linux-ld: pci.c:(.text+0x6e8): undefined reference to `pci_print_aer'
-> > > drivers/cxl/core/pci.c:921: undefined reference to `pci_print_aer'
-> > > drivers/cxl/core/pci.c:921:(.text+0xbc0): undefined reference to `pci_print_aer'
-> > > ...
-> > > ld: drivers/cxl/core/pci.c:921: undefined reference to `pci_print_aer'
-> > > loongarch64-linux-ld: drivers/cxl/core/pci.c:921:(.text+0xa38): undefined reference to `pci_print_aer'
-> > > pci.c:(.text+0x662): undefined reference to `pci_print_aer'
-> > > powerpc-linux-ld: pci.c:(.text+0xf10): undefined reference to `pci_print_aer'
-> > > riscv64-linux-ld: pci.c:(.text+0x11ec): undefined reference to `pci_print_aer'
-> > 
-> > I have no idea about the above (and all the similar ones below); I
-> > assume they all have to do with
-> > https://lore.kernel.org/r/20231018171713.1883517-13-rrichter@amd.com
+On 10/31/23 16:33, Emil Renner Berthing wrote:
+> Cristian Ciocaltea wrote:
+>> Add a missing quirk to enable support for the StarFive JH7100 SoC.
+>>
+>> Additionally, for greater flexibility in operation, allow using the
+>> rgmii-rxid and rgmii-txid phy modes.
+>>
+>> Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
+>> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 > 
-> Yes, I will get this fix folded into cxl/next:
+> Hi Cristian,
 > 
-> diff --git a/include/linux/aer.h b/include/linux/aer.h
-> index f6ea2f57d808..3db310c19ab7 100644
-> --- a/include/linux/aer.h
-> +++ b/include/linux/aer.h
-> @@ -43,16 +43,20 @@ struct aer_capability_regs {
->  #if defined(CONFIG_PCIEAER)
->  int pci_aer_clear_nonfatal_status(struct pci_dev *dev);
->  int pcie_aer_is_native(struct pci_dev *dev);
-> +void pci_print_aer(struct pci_dev *dev, int aer_severity,
-> +                   struct aer_capability_regs *aer);
->  #else
->  static inline int pci_aer_clear_nonfatal_status(struct pci_dev *dev)
->  {
->         return -EINVAL;
->  }
->  static inline int pcie_aer_is_native(struct pci_dev *dev) { return 0; }
-> +static inline void pci_print_aer(struct pci_dev *dev, int aer_severity,
-> +                                struct aer_capability_regs *aer)
-> +{
-> +}
->  #endif
->  
-> -void pci_print_aer(struct pci_dev *dev, int aer_severity,
-> -                   struct aer_capability_regs *aer);
->  int cper_severity_to_aer(int cper_severity);
->  void aer_recover_queue(int domain, unsigned int bus, unsigned int devfn,
->                        int severity, struct aer_capability_regs *aer_regs);
+> Thanks for working on this! This driver has code to update the phy clock for
+> different line speeds. I don't think that will work without the
+> CLK_SET_RATE_PARENT flag added to the clock in [1] which in turn depends on
+> [2].
+> 
+> [1]: https://github.com/esmil/linux/commit/b200c3054b58a49ba25af67aff82d9045e3c3666
+> [2]: https://github.com/esmil/linux/commit/dce189542c16bf0eb8533d96c0305cb59d149dae
+> 
+> Two more comments below..
 
-Actually, no this was my fault for inadvertantly including this patch in
-the branch:
+Hi Emil,
 
-http://lore.kernel.org/r/653c7eb29265c_244c8f2944b@dwillia2-xfh.jf.intel.com.notmuch
+Thanks for the review!
 
-...which had the desired effect, but at the cost of thrashing
-linux-next. Apologies for that.
+I've been only testing this at 1000 Mbps and so far it seems to work
+fine. I will try with different line speeds and report back.
 
+>> ---
+>>  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  6 ++--
+>>  .../ethernet/stmicro/stmmac/dwmac-starfive.c  | 32 ++++++++++++++++---
+>>  2 files changed, 31 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+>> index a2b9e289aa36..c3c2c8360047 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+>> @@ -165,9 +165,9 @@ config DWMAC_STARFIVE
+>>  	help
+>>  	  Support for ethernet controllers on StarFive RISC-V SoCs
+>>
+>> -	  This selects the StarFive platform specific glue layer support for
+>> -	  the stmmac device driver. This driver is used for StarFive JH7110
+>> -	  ethernet controller.
+>> +	  This selects the StarFive platform specific glue layer support
+>> +	  for the stmmac device driver. This driver is used for the
+>> +	  StarFive JH7100 and JH7110 ethernet controllers.
+>>
+>>  config DWMAC_STI
+>>  	tristate "STi GMAC support"
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+>> index 5d630affb4d1..88c431edcea0 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+>> @@ -15,13 +15,20 @@
+>>
+>>  #include "stmmac_platform.h"
+>>
+>> -#define STARFIVE_DWMAC_PHY_INFT_RGMII	0x1
+>> -#define STARFIVE_DWMAC_PHY_INFT_RMII	0x4
+>> -#define STARFIVE_DWMAC_PHY_INFT_FIELD	0x7U
+>> +#define STARFIVE_DWMAC_PHY_INFT_RGMII		0x1
+>> +#define STARFIVE_DWMAC_PHY_INFT_RMII		0x4
+>> +#define STARFIVE_DWMAC_PHY_INFT_FIELD		0x7U
+>> +
+>> +#define JH7100_SYSMAIN_REGISTER49_DLYCHAIN	0xc8
+>> +
+>> +struct starfive_dwmac_data {
+>> +	unsigned int gtxclk_dlychain;
+>> +};
+>>
+>>  struct starfive_dwmac {
+>>  	struct device *dev;
+>>  	struct clk *clk_tx;
+>> +	const struct starfive_dwmac_data *data;
+>>  };
+>>
+>>  static void starfive_dwmac_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
+>> @@ -67,6 +74,8 @@ static int starfive_dwmac_set_mode(struct plat_stmmacenet_data *plat_dat)
+>>
+>>  	case PHY_INTERFACE_MODE_RGMII:
+>>  	case PHY_INTERFACE_MODE_RGMII_ID:
+>> +	case PHY_INTERFACE_MODE_RGMII_RXID:
+>> +	case PHY_INTERFACE_MODE_RGMII_TXID:
+>>  		mode = STARFIVE_DWMAC_PHY_INFT_RGMII;
+>>  		break;
+>>
+>> @@ -89,6 +98,14 @@ static int starfive_dwmac_set_mode(struct plat_stmmacenet_data *plat_dat)
+>>  	if (err)
+>>  		return dev_err_probe(dwmac->dev, err, "error setting phy mode\n");
+>>
+>> +	if (dwmac->data) {
+> 
+> I think you want something like this so future quirks don't need to touch this
+> code:
+> 
+> 	if (dwmac->data && dwmac->data->gtxclk_dlychain)
+
+Yes, but that would prevent having a quirk that explicitly wants to write 0.
+
+I was initially thinking to something more generic, like providing a
+list of register-value pairs, but I'm not sure this is going to be ever
+needed.
+
+I'm still open to apply the suggested change, though.
+
+>> +		err = regmap_write(regmap, JH7100_SYSMAIN_REGISTER49_DLYCHAIN,
+>> +				   dwmac->data->gtxclk_dlychain);
+>> +		if (err)
+>> +			return dev_err_probe(dwmac->dev, err,
+>> +					     "error selecting gtxclk delay chain\n");
+>> +	}
+>> +
+>>  	return 0;
+>>  }
+>>
+>> @@ -114,6 +131,8 @@ static int starfive_dwmac_probe(struct platform_device *pdev)
+>>  	if (!dwmac)
+>>  		return -ENOMEM;
+>>
+>> +	dwmac->data = device_get_match_data(&pdev->dev);
+>> +
+>>  	dwmac->clk_tx = devm_clk_get_enabled(&pdev->dev, "tx");
+>>  	if (IS_ERR(dwmac->clk_tx))
+>>  		return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_tx),
+>> @@ -144,8 +163,13 @@ static int starfive_dwmac_probe(struct platform_device *pdev)
+>>  	return stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
+>>  }
+>>
+>> +static const struct starfive_dwmac_data jh7100_data = {
+>> +	.gtxclk_dlychain = 4
+> 
+> Please add a , at the end of this line. I know it's unlikely that we need to
+> add more properties, but it's still good practice to do. This way such patches
+> won't need to touch this line.
+
+Sure, will do.
+
+>> +};
+>> +
+>>  static const struct of_device_id starfive_dwmac_match[] = {
+>> -	{ .compatible = "starfive,jh7110-dwmac"	},
+>> +	{ .compatible = "starfive,jh7100-dwmac", .data = &jh7100_data },
+>> +	{ .compatible = "starfive,jh7110-dwmac" },
+>>  	{ /* sentinel */ }
+>>  };
+>>  MODULE_DEVICE_TABLE(of, starfive_dwmac_match);
+>> --
+>> 2.42.0
+>>
 
 _______________________________________________
 linux-riscv mailing list
