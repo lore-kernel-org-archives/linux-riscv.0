@@ -4,86 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D3A1C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 14:15:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B02D0C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 14:16:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7lvSefnjmhuxe73/mTJTZK8VYXgY8qHd1pDyDCCOq+E=; b=SyoydLGmx9L6i6
-	qVzYAQGYUXdwNribNmk6n1VewGUHtQ2QqmB9ltQg+xFAaW6uPUM7LuQInuC/szGYxuJ+DqpmqMa/P
-	aq2if2X3nbblQNDjdJ5X1CETqJfF6czXXficUzCwDD2FUQBn+Q5f6EmC874FNGN/NLll0nKr4Ik2O
-	/71QxVdHUg+a1PQaNDwcM7rkDkYp9fuJ3aPHHpLgoM85mybPWj5QNTAb0TWJL0jQklxu6o6THySyx
-	r9noarxnhodT7NoYKew6L6bxnQFPmVFPzy5y2ztivScz+B8P93OGPM/1Sbfvtu1aEhi+OUSSRDnZv
-	WgHP5FUbj+BoofySlkqw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=eClB8kMwFeKjnGkoe0iw+i7jw33TBaa6My7nPeBGr/k=; b=claUB8AFf+xLOMUuQ1EeB4ds2i
+	HaZXcgZMx3qMMA61NzyepcvZJI8FNjm9bPcSK5K9BHxVogPLHg68qlfoRyrSH+Wy2WaSliknfJICw
+	RpMOwq6Antxd5dqnOhOJsGzbD6PnAsMXwzHvdZCS6lsu1wzj30rgdbUyTuJKeAkQ2G5HDWE9ywLUQ
+	waXlM/De2aTGc09y30IdMbdGZzb9dYNpjqRJkKoYOrBY9lDbTF6UBcBIwfy+lH5+DL1vzQo9qXhnW
+	i9fDM+aQA2xGtsLQ/mxbYtE0Pk+aRBSm22p8gD6K4mT5LcZ7zVnYHcOWt1qTOtRg5DTvMh41Yy+bw
+	oZWu/bBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxpWM-005PY6-0V;
-	Tue, 31 Oct 2023 14:15:06 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1qxpXc-005Pnu-0Q;
+	Tue, 31 Oct 2023 14:16:24 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxpWK-005PWo-0J
+	id 1qxpXY-005Plh-2f
 	for linux-riscv@lists.infradead.org;
-	Tue, 31 Oct 2023 14:15:05 +0000
-Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com [209.85.218.71])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 6C00E4094F
-	for <linux-riscv@lists.infradead.org>; Tue, 31 Oct 2023 14:14:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1698761695;
-	bh=XnEjgTb1m78EWwQDGRYEFN4m8CDZaDkjNTK8j9cPE/A=;
-	h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
-	 MIME-Version;
-	b=Zvn1cEceYUnjD45So4hjGezozXswGQDlmlCn6KBov7v4NLa9UxFC24qq6ZPEWl1Ki
-	 SKTbUoBH4sm4i0Te2183hy3Zag4gHNAlnnQxLZbH0eTrx9t9ZM5rE1Qi5ibuqw5mEi
-	 9W2iWw7Z7dfkve9rqVG5kS8xI9CO5KfK9hSY7xt14IBNpheq9BaGo6RCLyDmHVuNSO
-	 h3K3nCkmz+Qn6qw3t223AwOHDTkX7CUPl3EBHVoDePTc0jdfHx5+a8+VdCMY0IiGa0
-	 1EJsuugTJOfoFRbIh0jHzH3EQ2ycZCBcNIXvbsrxX1I3m4MPq9WVKvKZijQD8JzX3F
-	 gyKjEIeQvF2Kg==
-Received: by mail-ej1-f71.google.com with SMTP id a640c23a62f3a-9a62adedadbso396206166b.1
-        for <linux-riscv@lists.infradead.org>; Tue, 31 Oct 2023 07:14:55 -0700 (PDT)
+	Tue, 31 Oct 2023 14:16:22 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-1cc591d8177so15197515ad.3
+        for <linux-riscv@lists.infradead.org>; Tue, 31 Oct 2023 07:16:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1698761777; x=1699366577; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=+SCWDVcx1K76tZHWI6JguONJ6NnGeKLP7+QbYfrb3Rs=;
+        b=KBY6N2Lbd87l9vaXmLehzeqK+hRZwP8dJVF6XwdV4rjbeNUQVnHg5X0ef6Hjs1lCFk
+         b32LAMNidP+u3WB14OP54SJ6j3+kaVOoTUWSF6ixinumkKoHwKao1oKEjozFoNYo9EBL
+         EIUQd1AkK+xx/IUmnlByJPZkPu3T3/pVgiBb3GXdc6w0dmQdJc6Vj5kfg1Jlh/Bo5SG8
+         OTIOCxRJApLVL+AY4LC65gySo2ZqIj1agg1vihUSUQfoGf60dO1cVPRl6hZKMq2sD8m6
+         E+XmXgy3dNH3+4voCB9g4EdP2jTDU1pA1xWF7kQDps5E84fjpoaP4RzXmuWkoKMVBjox
+         rRTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698761690; x=1699366490;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XnEjgTb1m78EWwQDGRYEFN4m8CDZaDkjNTK8j9cPE/A=;
-        b=JBshkXv3255JnB/y2EWmu5fut1WJFjXjZ6neDgqxLxho3HQDeP8z1qXX+GfHXn3Xe5
-         EJhEwIQs8Ta8IXgjzLRnQujCrWVZzc9mcVqOAdtUai3gQl+ZPMUmfqWCzmKAUW+YQw7y
-         e5tXvctaT+gusWzBPFg/P3Cklumgk+siCiZxGOb2jb0vVqWJT1pC0GVS+8uB/X4JxHXx
-         HSlUsYfviqRlrPDiKSnPXYGSjNj5QaWX7tXNLFbU5xTa/HbMWw/3UJo1rojaBK9orIVz
-         xPux2bSu738Rdi/ieo0s8eX9k34kZc+68u2eXiO0GX99BT83jDM4x4+C5MdoJeRaduJf
-         DdXQ==
-X-Gm-Message-State: AOJu0YymOnrAWrqc78Epjmy0YJCAYfLtMa4OoDM5FkmeSIJUE/yAfVRz
-	Vw0e0RfAuBcKSkFjYHypMpMLO3+gyjdDUZldT8Bm8i2Ldugks3EMsXK0QDbbi8l9WOLJE2QAzM2
-	QvWUFHYNls1hZ3oKYG2rAw/3iZY5EErvQeldLVN0Id3lIkq+yqV8tiQ==
-X-Received: by 2002:a17:907:3184:b0:9c5:844f:a7f4 with SMTP id xe4-20020a170907318400b009c5844fa7f4mr10802111ejb.35.1698761690446;
-        Tue, 31 Oct 2023 07:14:50 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEfXx1RuCQtYqjPRoFL8zYiifdddYy2acqzq59Ogj9Q205dxFWWWX8UcYcvHsioLJG5MGwW2w==
-X-Received: by 2002:a17:907:3184:b0:9c5:844f:a7f4 with SMTP id xe4-20020a170907318400b009c5844fa7f4mr10802092ejb.35.1698761690172;
-        Tue, 31 Oct 2023 07:14:50 -0700 (PDT)
-Received: from stitch.. ([2a02:aa7:4003:190e:bd47:7b6e:876:4bdc])
-        by smtp.gmail.com with ESMTPSA id p5-20020a1709061b4500b009d23e00a90esm1037395ejg.24.2023.10.31.07.14.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Oct 2023 07:14:49 -0700 (PDT)
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-To: linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] soc: sifive: ccache: Add StarFive JH7100 support
-Date: Tue, 31 Oct 2023 15:14:44 +0100
-Message-Id: <20231031141444.53426-3-emil.renner.berthing@canonical.com>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20231031141444.53426-1-emil.renner.berthing@canonical.com>
-References: <20231031141444.53426-1-emil.renner.berthing@canonical.com>
-MIME-Version: 1.0
+        d=1e100.net; s=20230601; t=1698761777; x=1699366577;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+SCWDVcx1K76tZHWI6JguONJ6NnGeKLP7+QbYfrb3Rs=;
+        b=XU0GByD16agG+72fiaRYJp7Ky+PdSDICRwyxSpw8kA6kYPwZ0HpaJuH6O88yLIouYc
+         VVmQ23AVXUeiPIfMMfEcyu4fbFwL7jCuc6nxAy4HZqkj2yuRJevhCY1SGniQ9G01O8VE
+         BsHcvIkd2Xz+W7cK9qDBknq/eM4Z/Lu7Xtve15aK3l0YfQjJpn62BON/YfoKbvQxWgrl
+         lMYFlcAu5ykIFfsIgdjR47KAqEMYsT/wK3DyokhrD0yst2Nhs8Icyk/STPoLONVrutaG
+         t2LXu8A/V0mRfkRQw2AE9STxzB4kdtH+ULFLT7qYAIq0QEKGnPxtXliNyj18+RFYJy4F
+         KAGQ==
+X-Gm-Message-State: AOJu0Yw5vHCzxaHu5XeBzLYQHdDINlhLMX56k35DWsNQNnMCD/6A8jEO
+	O9tpGxRDH23qe4Qs4Sop+JZRDtwM5lQ=
+X-Google-Smtp-Source: AGHT+IG8tFKfIuO6cbI6ukftnUzYB8muWE8fOHZgWpajrHJaT+RkL+zDaTOo8ZNIlEatfvapWXD9jFRr58g=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a17:903:2616:b0:1cc:2549:c281 with SMTP id
+ jd22-20020a170903261600b001cc2549c281mr206233plb.13.1698761777291; Tue, 31
+ Oct 2023 07:16:17 -0700 (PDT)
+Date: Tue, 31 Oct 2023 07:16:15 -0700
+In-Reply-To: <7c0844d8-6f97-4904-a140-abeabeb552c1@intel.com>
+Mime-Version: 1.0
+References: <20231027182217.3615211-1-seanjc@google.com> <20231027182217.3615211-18-seanjc@google.com>
+ <7c0844d8-6f97-4904-a140-abeabeb552c1@intel.com>
+Message-ID: <ZUEML6oJXDCFJ9fg@google.com>
+Subject: Re: [PATCH v13 17/35] KVM: Add transparent hugepage support for
+ dedicated guest memory
+From: Sean Christopherson <seanjc@google.com>
+To: Xiaoyao Li <xiaoyao.li@intel.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, Xu Yilun <yilun.xu@intel.com>, 
+	Chao Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>, 
+	Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, 
+	David Matlack <dmatlack@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>, 
+	Isaku Yamahata <isaku.yamahata@intel.com>, 
+	"=?utf-8?Q?Micka=C3=ABl_Sala=C3=BCn?=" <mic@digikod.net>, Vlastimil Babka <vbabka@suse.cz>, 
+	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
+	Maciej Szmigiero <mail@maciej.szmigiero.name>, David Hildenbrand <david@redhat.com>, 
+	Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
+	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
+	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231031_071504_286195_848C1D28 
-X-CRM114-Status: GOOD (  22.21  )
+X-CRM114-CacheID: sfid-20231031_071620_869703_9DC1FE08 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,173 +105,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Emil Renner Berthing <kernel@esmil.dk>
+On Tue, Oct 31, 2023, Xiaoyao Li wrote:
+> On 10/28/2023 2:21 AM, Sean Christopherson wrote:
+> > Extended guest_memfd to allow backing guest memory with transparent
+> > hugepages. Require userspace to opt-in via a flag even though there's no
+> > known/anticipated use case for forcing small pages as THP is optional,
+> > i.e. to avoid ending up in a situation where userspace is unaware that
+> > KVM can't provide hugepages.
+> 
+> Personally, it seems not so "transparent" if requiring userspace to opt-in.
+> 
+> People need to 1) check if the kernel built with TRANSPARENT_HUGEPAGE
+> support, or check is the sysfs of transparent hugepage exists; 2)get the
+> maximum support hugepage size 3) ensure the size satisfies the alignment;
+> before opt-in it.
+> 
+> Even simpler, userspace can blindly try to create guest memfd with
+> transparent hugapage flag. If getting error, fallback to create without the
+> transparent hugepage flag.
+> 
+> However, it doesn't look transparent to me.
 
-This adds support for the StarFive JH7100 SoC which also features this
-SiFive cache controller.
+The "transparent" part is referring to the underlying kernel mechanism, it's not
+saying anything about the API.  The "transparent" part of THP is that the kernel
+doesn't guarantee hugepages, i.e. whether or not hugepages are actually used is
+(mostly) transparent to userspace.
 
-The JH7100 has non-coherent DMAs but predate the standard RISC-V Zicbom
-exension, so instead we need to use this cache controller for
-non-standard cache management operations.
+Paolo also isn't the biggest fan[*], but there are also downsides to always
+allowing hugepages, e.g. silent failure due to lack of THP or unaligned size,
+and there's precedent in the form of MADV_HUGEPAGE.
 
-Unfortunately the interrupt for uncorrected data is broken on the JH7100
-and fires continuously, so add a quirk to not register a handler for it.
-
-Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
----
- drivers/soc/sifive/sifive_ccache.c | 62 +++++++++++++++++++++++++++++-
- 1 file changed, 60 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/soc/sifive/sifive_ccache.c b/drivers/soc/sifive/sifive_ccache.c
-index 3684f5b40a80..0da3d1bd0866 100644
---- a/drivers/soc/sifive/sifive_ccache.c
-+++ b/drivers/soc/sifive/sifive_ccache.c
-@@ -8,13 +8,16 @@
- 
- #define pr_fmt(fmt) "CCACHE: " fmt
- 
-+#include <linux/align.h>
- #include <linux/debugfs.h>
- #include <linux/interrupt.h>
- #include <linux/of_irq.h>
- #include <linux/of_address.h>
- #include <linux/device.h>
- #include <linux/bitfield.h>
-+#include <asm/cacheflush.h>
- #include <asm/cacheinfo.h>
-+#include <asm/dma-noncoherent.h>
- #include <soc/sifive/sifive_ccache.h>
- 
- #define SIFIVE_CCACHE_DIRECCFIX_LOW 0x100
-@@ -39,10 +42,14 @@
- #define SIFIVE_CCACHE_CONFIG_SETS_MASK GENMASK_ULL(23, 16)
- #define SIFIVE_CCACHE_CONFIG_BLKS_MASK GENMASK_ULL(31, 24)
- 
-+#define SIFIVE_CCACHE_FLUSH64 0x200
-+#define SIFIVE_CCACHE_FLUSH32 0x240
-+
- #define SIFIVE_CCACHE_WAYENABLE 0x08
- #define SIFIVE_CCACHE_ECCINJECTERR 0x40
- 
- #define SIFIVE_CCACHE_MAX_ECCINTR 4
-+#define SIFIVE_CCACHE_LINE_SIZE 64
- 
- static void __iomem *ccache_base;
- static int g_irq[SIFIVE_CCACHE_MAX_ECCINTR];
-@@ -56,6 +63,11 @@ enum {
- 	DIR_UNCORR,
- };
- 
-+enum {
-+	QUIRK_NONSTANDARD_CACHE_OPS	= BIT(0),
-+	QUIRK_BROKEN_DATA_UNCORR	= BIT(1),
-+};
-+
- #ifdef CONFIG_DEBUG_FS
- static struct dentry *sifive_test;
- 
-@@ -106,6 +118,8 @@ static void ccache_config_read(void)
- static const struct of_device_id sifive_ccache_ids[] = {
- 	{ .compatible = "sifive,fu540-c000-ccache" },
- 	{ .compatible = "sifive,fu740-c000-ccache" },
-+	{ .compatible = "starfive,jh7100-ccache",
-+	  .data = (void *)(QUIRK_NONSTANDARD_CACHE_OPS | QUIRK_BROKEN_DATA_UNCORR) },
- 	{ .compatible = "sifive,ccache0" },
- 	{ /* end of table */ }
- };
-@@ -124,6 +138,34 @@ int unregister_sifive_ccache_error_notifier(struct notifier_block *nb)
- }
- EXPORT_SYMBOL_GPL(unregister_sifive_ccache_error_notifier);
- 
-+#ifdef CONFIG_RISCV_NONSTANDARD_CACHE_OPS
-+static void ccache_flush_range(phys_addr_t start, size_t len)
-+{
-+	phys_addr_t end = start + len;
-+	phys_addr_t line;
-+
-+	if (!len)
-+		return;
-+
-+	mb();
-+	for (line = ALIGN_DOWN(start, SIFIVE_CCACHE_LINE_SIZE); line < end;
-+			line += SIFIVE_CCACHE_LINE_SIZE) {
-+#ifdef CONFIG_32BIT
-+		writel(line >> 4, ccache_base + SIFIVE_CCACHE_FLUSH32);
-+#else
-+		writeq(line, ccache_base + SIFIVE_CCACHE_FLUSH64);
-+#endif
-+		mb();
-+	}
-+}
-+
-+static const struct riscv_nonstd_cache_ops ccache_mgmt_ops __initdata = {
-+	.wback = &ccache_flush_range,
-+	.inv = &ccache_flush_range,
-+	.wback_inv = &ccache_flush_range,
-+};
-+#endif /* CONFIG_RISCV_NONSTANDARD_CACHE_OPS */
-+
- static int ccache_largest_wayenabled(void)
- {
- 	return readl(ccache_base + SIFIVE_CCACHE_WAYENABLE) & 0xFF;
-@@ -210,11 +252,15 @@ static int __init sifive_ccache_init(void)
- 	struct device_node *np;
- 	struct resource res;
- 	int i, rc, intr_num;
-+	const struct of_device_id *match;
-+	unsigned long quirks;
- 
--	np = of_find_matching_node(NULL, sifive_ccache_ids);
-+	np = of_find_matching_node_and_match(NULL, sifive_ccache_ids, &match);
- 	if (!np)
- 		return -ENODEV;
- 
-+	quirks = (uintptr_t)match->data;
-+
- 	if (of_address_to_resource(np, 0, &res)) {
- 		rc = -ENODEV;
- 		goto err_node_put;
-@@ -240,6 +286,10 @@ static int __init sifive_ccache_init(void)
- 
- 	for (i = 0; i < intr_num; i++) {
- 		g_irq[i] = irq_of_parse_and_map(np, i);
-+
-+		if (i == DATA_UNCORR && (quirks & QUIRK_BROKEN_DATA_UNCORR))
-+			continue;
-+
- 		rc = request_irq(g_irq[i], ccache_int_handler, 0, "ccache_ecc",
- 				 NULL);
- 		if (rc) {
-@@ -249,6 +299,14 @@ static int __init sifive_ccache_init(void)
- 	}
- 	of_node_put(np);
- 
-+#ifdef CONFIG_RISCV_NONSTANDARD_CACHE_OPS
-+	if (quirks & QUIRK_NONSTANDARD_CACHE_OPS) {
-+		riscv_cbom_block_size = SIFIVE_CCACHE_LINE_SIZE;
-+		riscv_noncoherent_supported();
-+		riscv_noncoherent_register_cache_ops(&ccache_mgmt_ops);
-+	}
-+#endif
-+
- 	ccache_config_read();
- 
- 	ccache_cache_ops.get_priv_group = ccache_get_priv_group;
-@@ -269,4 +327,4 @@ static int __init sifive_ccache_init(void)
- 	return rc;
- }
- 
--device_initcall(sifive_ccache_init);
-+arch_initcall(sifive_ccache_init);
--- 
-2.40.1
-
+[*] https://lore.kernel.org/all/84a908ae-04c7-51c7-c9a8-119e1933a189@redhat.com
 
 _______________________________________________
 linux-riscv mailing list
