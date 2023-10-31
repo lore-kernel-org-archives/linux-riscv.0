@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C76DCC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 07:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70671C00142
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 Oct 2023 07:25:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FF/6JNh3lpSX1WKnso7E7RgLELjZ+CsuEGCd47xucY8=; b=1N1u2Qkcov8Gez
-	+W22gOlElaeq+O28nstZgP0+i3tSzh0CrUGaw7onMth4sq/l16ZJohV/QTibeVSGTBX41rP6KOcys
-	fZ07LWl16bN0xRO9qPyQ4g8WFTsnmEAQR3M7SbMZh5cqXuShQiV/XVw/O/m+Q1ZfbHIjadssKJWsI
-	41yStP4aWUgmARIknwVY89zjw6C5+IUdrRnwgWFHpQ+T5LmLpOX3BvOSfkgZNj3DUfNtcRH55RlCG
-	xDMgzKeUIbFD1P1b1YSdq8jTO6lJ44fr/UUOH40pBgODGLPdbf+wAxESZmWyvj3dgp4EhRVsknDih
-	f/xjsRImFUU1wbN6Hmpw==;
+	List-Owner; bh=W1jGpHA3fPCg9q2s+McswGcfFa2wLR9tQuijgaBOMfU=; b=gR4lLo81eUiETY
+	etbYBsib+VlRo69/90mpkNs7hIcgA7rPrtaClHdtps4yO/RY4UDTbV/x4BxfeaHrmltwhgLvYHJ5H
+	pRngKi1/nuVSix/Mx9qNXzXKjnJtC/dpIPH5GpVH5ml3D0uBrKGugnbFVYrg2E054U05xiZdOz0p8
+	RuPLZiHuRwTkYQg3qi1tPfEwYoNMtIlIh8en9PyehxxPag4R6LGttehRQWWH+33uSd2XnuqBE0PzP
+	Bp/7P4Vbh7NiJerCLU0Ig/U33CifC8WLkKBrw35BwaX0A3Anr2WA8OcwWIkGQGOVA8SUX81mKkEJH
+	THbw0uFkJS/BFYYUjtAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxj7a-004gcH-1B;
-	Tue, 31 Oct 2023 07:25:06 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1qxj7g-004gfc-20;
+	Tue, 31 Oct 2023 07:25:12 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qxj7U-004gZ1-39
+	id 1qxj7X-004gZH-0H
 	for linux-riscv@lists.infradead.org;
-	Tue, 31 Oct 2023 07:25:03 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-5b9377e71acso3623170a12.0
-        for <linux-riscv@lists.infradead.org>; Tue, 31 Oct 2023 00:24:59 -0700 (PDT)
+	Tue, 31 Oct 2023 07:25:06 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1cbf47fa563so41313975ad.2
+        for <linux-riscv@lists.infradead.org>; Tue, 31 Oct 2023 00:25:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698737099; x=1699341899; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698737101; x=1699341901; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=URk3OdUManeok/shpPwBhUNFZ0p313A2y5YhZgjx0S8=;
-        b=lxc0zSOCzcO6G/0BzgHOe1O4t33kGAQds3Nw9iZLpm4N4puwbNZnMXDVScfkntY1gk
-         o94niVwOagJRYJlT/13NbHKZej3F7SmD97lHjoAvN13nFrmQm4YQiAc4+NZqXwyK762D
-         /NKcwwM0biRRtRnfX7/rYR+rf9j0P1RdO3B5E7GYGHvefL2+Sm28DuuOAwLR84iCmeYM
-         Mk22LE96caQ7ZJeKcrpXuZXwUxyW0Zh8Zju6//9Lqt4vui5TkIshR3ZHgVYRL52SEmHb
-         T3OXqmYIT1rhlBhAlrE1WOwB2+JFI9iYseLE4eilR+ZXTb5TLu9LIZSArgwaR3t6whMe
-         BFdw==
+        bh=5i3k60W5/54VCxlVjAMqVLQstP2YA2cW2PpQMpTpfy4=;
+        b=YCr09L2eZOih5RCItEP/th8Jm470atDYdCHADd+7i4Yanb35LzFUQKTzwZVjhWgLsG
+         +cg5zkqcYQVGiiZUzfcoSBEqTXaEAArS5Y7LB652k8ZTSKWAnuUsB6WwYcwsbcdM/4hJ
+         2zJ2hppEZa7ULiKlDRFMMpzC+S9MoZD09MnVXb3g3khh3cZCd7rI5b93y8Ga849awfdg
+         bZHE5hjGIW/tR/6vEXhqnWQDFcNsk+g66Ge+fIqqsTYQVwOr3e1MTYepG1BKuU06i3So
+         TDv4oqViesn4FFgPPHgKKiRWsJ3THGc7pux54hyW4+QYa1wnak/Ha98ufWuxynuKwb+N
+         aQSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698737099; x=1699341899;
+        d=1e100.net; s=20230601; t=1698737101; x=1699341901;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=URk3OdUManeok/shpPwBhUNFZ0p313A2y5YhZgjx0S8=;
-        b=Xq6s5J5uQKZJ3H75Dbr/g/w9EA0eV25a+hhHYmrXywZBHQ7Y0xYMvQDsfpwmBskoi8
-         5uwmYlB6xN+JrOzV7FNpRcm/ehqt5Rz8Ze8AF/PYMKPd0htATNbMjWT1fdclQzy+qo5W
-         LsuYVVWhmvyKHd9ZvyHaRPBzcYv5Nd4KswFp3iBU8S8PZd0jLM2l2UOiy5gu71wOtcAV
-         1WO2mjvHBL/Yc8A9ZwosebRnDQ6R9J8AACYz4mZ9kKYTmLA16t+80doc54AstREoK5Pv
-         ORi6mafTjJCd/raK39XL8meoyCcVvdxofkndoEuw9nW6x+UfafPP/X/EoeSYFTRNmmpW
-         Je8w==
-X-Gm-Message-State: AOJu0Yx7+M/sXEH1v0Q+d7EEEZOT3zdHPP4aDZB32jyq0QilCw5PLka0
-	fjczr+RGoIfEXMo2ugU28ofrAw==
-X-Google-Smtp-Source: AGHT+IGMiYHXnhGdC7cRoaxFCEKMq3w/10RpLtJzNqO9zNSb0eOy2g2uER1RInnmVou5GpnGB/rkDw==
-X-Received: by 2002:a05:6a20:748b:b0:17a:de5d:1d7e with SMTP id p11-20020a056a20748b00b0017ade5d1d7emr15340331pzd.55.1698737098947;
-        Tue, 31 Oct 2023 00:24:58 -0700 (PDT)
+        bh=5i3k60W5/54VCxlVjAMqVLQstP2YA2cW2PpQMpTpfy4=;
+        b=qRh1TQS8v+hMn7qzKJ04f6r3tnbZLiFDefS+0wfokYTVLfuHy7jR8+LlWYpMdrEZa1
+         iY6hAaeRAZ7pEP3kfE+cEApTHviwMDcwxzYPamc96o0ODn8VONQaIHuHT+ymqEC9UXg+
+         Hml9E0aBWlZf019VQ2miv9pnO8hlnsi3PToDGVLwxkR6e9/02lTpLCUGrrAiDVFTPE2H
+         wNZk9zFvJPfAmICG3PtpxBMcqN9PJ1RIRnA9YqmGc9BGM+25NYU1NuN+pwbqHyNSJFnO
+         t2zx52Wh/u90HICkhkGcbMaOg7V3xMQ4tRlabNHTww4u4TLYEuN6QBcVlON8FmpJ3F6R
+         i7GA==
+X-Gm-Message-State: AOJu0Yw2EwmnjWdLoZG1VDeFwcH/i+bxPIW9CYF8BJ7qslS7djenLw7k
+	8Ood4Zds+IfM1mpUIgX6oSbSqA==
+X-Google-Smtp-Source: AGHT+IHYw1sEq+TX3dLuh4zd1B+p1vMfwxCGO8Bx9w0chWLeTkhzcORUw1ztdOvFhe38SDcO1QOs+Q==
+X-Received: by 2002:a17:902:f9ce:b0:1ca:a07b:36d with SMTP id kz14-20020a170902f9ce00b001caa07b036dmr9301419plb.48.1698737101008;
+        Tue, 31 Oct 2023 00:25:01 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id c4-20020a170902d90400b001c74876f018sm652575plz.18.2023.10.31.00.24.58
+        by smtp.gmail.com with ESMTPSA id c4-20020a170902d90400b001c74876f018sm652575plz.18.2023.10.31.00.25.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Oct 2023 00:24:58 -0700 (PDT)
+        Tue, 31 Oct 2023 00:25:00 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Tue, 31 Oct 2023 00:24:50 -0700
-Subject: [PATCH v7 1/3] riscv: Avoid unaligned access when relocating
- modules
+Date: Tue, 31 Oct 2023 00:24:52 -0700
+Subject: [PATCH v7 3/3] riscv: Add tests for riscv module loading
 MIME-Version: 1.0
-Message-Id: <20231031-module_relocations-v7-1-6f4719b64bf7@rivosinc.com>
+Message-Id: <20231031-module_relocations-v7-3-6f4719b64bf7@rivosinc.com>
 References: <20231031-module_relocations-v7-0-6f4719b64bf7@rivosinc.com>
 In-Reply-To: <20231031-module_relocations-v7-0-6f4719b64bf7@rivosinc.com>
 To: linux-riscv@lists.infradead.org, linux-mm@kvack.org, 
@@ -78,12 +77,11 @@ Cc: Eric Biederman <ebiederm@xmission.com>,
  Andreas Schwab <schwab@linux-m68k.org>, 
  Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
  Samuel Holland <samuel.holland@sifive.com>, 
- Nelson Chu <nelson@rivosinc.com>, Charlie Jenkins <charlie@rivosinc.com>, 
- Emil Renner Berthing <kernel@esmil.dk>
+ Nelson Chu <nelson@rivosinc.com>, Charlie Jenkins <charlie@rivosinc.com>
 X-Mailer: b4 0.12.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231031_002501_370898_C7603F3A 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20231031_002503_127975_D9485968 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,391 +98,505 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Emil Renner Berthing <kernel@esmil.dk>
+Add test cases for the two main groups of relocations added: SUB and
+SET, along with uleb128.
 
-With the C-extension regular 32bit instructions are not
-necessarily aligned on 4-byte boundaries. RISC-V instructions
-are in fact an ordered list of 16bit little-endian
-"parcels", so access the instruction as such.
-
-This should also make the code work in case someone builds
-a big-endian RISC-V machine.
-
-Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- arch/riscv/kernel/module.c | 153 +++++++++++++++++++++++----------------------
- 1 file changed, 77 insertions(+), 76 deletions(-)
+ arch/riscv/Kconfig.debug                           |  1 +
+ arch/riscv/kernel/Makefile                         |  1 +
+ arch/riscv/kernel/tests/Kconfig.debug              | 35 +++++++++
+ arch/riscv/kernel/tests/Makefile                   |  1 +
+ arch/riscv/kernel/tests/module_test/Makefile       | 15 ++++
+ .../tests/module_test/test_module_linking_main.c   | 88 ++++++++++++++++++++++
+ arch/riscv/kernel/tests/module_test/test_set16.S   | 23 ++++++
+ arch/riscv/kernel/tests/module_test/test_set32.S   | 20 +++++
+ arch/riscv/kernel/tests/module_test/test_set6.S    | 23 ++++++
+ arch/riscv/kernel/tests/module_test/test_set8.S    | 23 ++++++
+ arch/riscv/kernel/tests/module_test/test_sub16.S   | 22 ++++++
+ arch/riscv/kernel/tests/module_test/test_sub32.S   | 22 ++++++
+ arch/riscv/kernel/tests/module_test/test_sub6.S    | 22 ++++++
+ arch/riscv/kernel/tests/module_test/test_sub64.S   | 27 +++++++
+ arch/riscv/kernel/tests/module_test/test_sub8.S    | 22 ++++++
+ arch/riscv/kernel/tests/module_test/test_uleb128.S | 31 ++++++++
+ 16 files changed, 376 insertions(+)
 
-diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-index 7c651d55fcbd..a9e94e939cb5 100644
---- a/arch/riscv/kernel/module.c
-+++ b/arch/riscv/kernel/module.c
-@@ -27,68 +27,86 @@ static bool riscv_insn_valid_32bit_offset(ptrdiff_t val)
- #endif
- }
+diff --git a/arch/riscv/Kconfig.debug b/arch/riscv/Kconfig.debug
+index e69de29bb2d1..eafe17ebf710 100644
+--- a/arch/riscv/Kconfig.debug
++++ b/arch/riscv/Kconfig.debug
+@@ -0,0 +1 @@
++source "arch/riscv/kernel/tests/Kconfig.debug"
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 95cf25d48405..bb99657252f4 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -57,6 +57,7 @@ obj-y	+= stacktrace.o
+ obj-y	+= cacheinfo.o
+ obj-y	+= patch.o
+ obj-y	+= probes/
++obj-y	+= tests/
+ obj-$(CONFIG_MMU) += vdso.o vdso/
  
--static int apply_r_riscv_32_rela(struct module *me, u32 *location, Elf_Addr v)
-+static int riscv_insn_rmw(void *location, u32 keep, u32 set)
+ obj-$(CONFIG_RISCV_M_MODE)	+= traps_misaligned.o
+diff --git a/arch/riscv/kernel/tests/Kconfig.debug b/arch/riscv/kernel/tests/Kconfig.debug
+new file mode 100644
+index 000000000000..5dba64e8e977
+--- /dev/null
++++ b/arch/riscv/kernel/tests/Kconfig.debug
+@@ -0,0 +1,35 @@
++# SPDX-License-Identifier: GPL-2.0-only
++menu "arch/riscv/kernel Testing and Coverage"
++
++config AS_HAS_ULEB128
++	def_bool $(as-instr,.reloc label$(comma) R_RISCV_SET_ULEB128$(comma) 127\n.reloc label$(comma) R_RISCV_SUB_ULEB128$(comma) 127\nlabel:\n.word 0)
++
++menuconfig RUNTIME_KERNEL_TESTING_MENU
++       bool "arch/riscv/kernel runtime Testing"
++       def_bool y
++       help
++         Enable riscv kernel runtime testing.
++
++if RUNTIME_KERNEL_TESTING_MENU
++
++config RISCV_MODULE_LINKING_KUNIT
++       bool "KUnit test riscv module linking at runtime" if !KUNIT_ALL_TESTS
++       depends on KUNIT
++       default KUNIT_ALL_TESTS
++       help
++         Enable this option to test riscv module linking at boot. This will
++	 enable a module called "test_module_linking".
++
++         KUnit tests run during boot and output the results to the debug log
++         in TAP format (http://testanything.org/). Only useful for kernel devs
++         running the KUnit test harness, and not intended for inclusion into a
++         production build.
++
++         For more information on KUnit and unit tests in general please refer
++         to the KUnit documentation in Documentation/dev-tools/kunit/.
++
++         If unsure, say N.
++
++endif # RUNTIME_TESTING_MENU
++
++endmenu # "arch/riscv/kernel runtime Testing"
+diff --git a/arch/riscv/kernel/tests/Makefile b/arch/riscv/kernel/tests/Makefile
+new file mode 100644
+index 000000000000..7d6c76cffe20
+--- /dev/null
++++ b/arch/riscv/kernel/tests/Makefile
+@@ -0,0 +1 @@
++obj-$(CONFIG_RISCV_MODULE_LINKING_KUNIT)	+= module_test/
+diff --git a/arch/riscv/kernel/tests/module_test/Makefile b/arch/riscv/kernel/tests/module_test/Makefile
+new file mode 100644
+index 000000000000..d7a6fd8943de
+--- /dev/null
++++ b/arch/riscv/kernel/tests/module_test/Makefile
+@@ -0,0 +1,15 @@
++obj-m += test_module_linking.o
++
++test_sub := test_sub6.o test_sub8.o test_sub16.o test_sub32.o test_sub64.o
++
++test_set := test_set6.o test_set8.o test_set16.o test_set32.o
++
++test_module_linking-objs += $(test_sub)
++
++test_module_linking-objs += $(test_set)
++
++ifeq ($(CONFIG_AS_HAS_ULEB128),y)
++test_module_linking-objs += test_uleb128.o
++endif
++
++test_module_linking-objs += test_module_linking_main.o
+diff --git a/arch/riscv/kernel/tests/module_test/test_module_linking_main.c b/arch/riscv/kernel/tests/module_test/test_module_linking_main.c
+new file mode 100644
+index 000000000000..8df5fa5b834e
+--- /dev/null
++++ b/arch/riscv/kernel/tests/module_test/test_module_linking_main.c
+@@ -0,0 +1,88 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2023 Rivos Inc.
++ */
++
++#include <linux/module.h>
++#include <linux/kernel.h>
++#include <linux/init.h>
++#include <kunit/test.h>
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("Test module linking");
++
++extern int test_set32(void);
++extern int test_set16(void);
++extern int test_set8(void);
++extern int test_set6(void);
++extern long test_sub64(void);
++extern int test_sub32(void);
++extern int test_sub16(void);
++extern int test_sub8(void);
++extern int test_sub6(void);
++
++#ifdef CONFIG_AS_HAS_ULEB128
++extern int test_uleb_basic(void);
++extern int test_uleb_large(void);
++#endif
++
++#define CHECK_EQ(lhs, rhs) KUNIT_ASSERT_EQ(test, lhs, rhs)
++
++void run_test_set(struct kunit *test);
++void run_test_sub(struct kunit *test);
++void run_test_uleb(struct kunit *test);
++
++void run_test_set(struct kunit *test)
 +{
-+	u16 *parcel = location;
-+	u32 insn = (u32)le16_to_cpu(parcel[0]) | (u32)le16_to_cpu(parcel[1]) << 16;
++	int val32 = test_set32();
++	int val16 = test_set16();
++	int val8 = test_set8();
++	int val6 = test_set6();
 +
-+	insn &= keep;
-+	insn |= set;
-+
-+	parcel[0] = cpu_to_le32(insn);
-+	parcel[1] = cpu_to_le16(insn >> 16);
-+	return 0;
++	CHECK_EQ(val32, 0);
++	CHECK_EQ(val16, 0);
++	CHECK_EQ(val8, 0);
++	CHECK_EQ(val6, 0);
 +}
 +
-+static int riscv_insn_rvc_rmw(void *location, u16 keep, u16 set)
++void run_test_sub(struct kunit *test)
 +{
-+	u16 *parcel = location;
++	int val64 = test_sub64();
++	int val32 = test_sub32();
++	int val16 = test_sub16();
++	int val8 = test_sub8();
++	int val6 = test_sub6();
 +
-+	*parcel = cpu_to_le16((le16_to_cpu(*parcel) & keep) | set);
-+	return 0;
++	CHECK_EQ(val64, 0);
++	CHECK_EQ(val32, 0);
++	CHECK_EQ(val16, 0);
++	CHECK_EQ(val8, 0);
++	CHECK_EQ(val6, 0);
 +}
 +
-+static int apply_r_riscv_32_rela(struct module *me, void *location, Elf_Addr v)
- {
- 	if (v != (u32)v) {
- 		pr_err("%s: value %016llx out of range for 32-bit field\n",
- 		       me->name, (long long)v);
- 		return -EINVAL;
- 	}
--	*location = v;
-+	*(u32 *)location = v;
- 	return 0;
- }
- 
--static int apply_r_riscv_64_rela(struct module *me, u32 *location, Elf_Addr v)
-+static int apply_r_riscv_64_rela(struct module *me, void *location, Elf_Addr v)
- {
- 	*(u64 *)location = v;
- 	return 0;
- }
- 
--static int apply_r_riscv_branch_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_branch_rela(struct module *me, void *location,
- 				     Elf_Addr v)
- {
--	ptrdiff_t offset = (void *)v - (void *)location;
-+	ptrdiff_t offset = (void *)v - location;
- 	u32 imm12 = (offset & 0x1000) << (31 - 12);
- 	u32 imm11 = (offset & 0x800) >> (11 - 7);
- 	u32 imm10_5 = (offset & 0x7e0) << (30 - 10);
- 	u32 imm4_1 = (offset & 0x1e) << (11 - 4);
- 
--	*location = (*location & 0x1fff07f) | imm12 | imm11 | imm10_5 | imm4_1;
--	return 0;
-+	return riscv_insn_rmw(location, 0x1fff07f, imm12 | imm11 | imm10_5 | imm4_1);
- }
- 
--static int apply_r_riscv_jal_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_jal_rela(struct module *me, void *location,
- 				  Elf_Addr v)
- {
--	ptrdiff_t offset = (void *)v - (void *)location;
-+	ptrdiff_t offset = (void *)v - location;
- 	u32 imm20 = (offset & 0x100000) << (31 - 20);
- 	u32 imm19_12 = (offset & 0xff000);
- 	u32 imm11 = (offset & 0x800) << (20 - 11);
- 	u32 imm10_1 = (offset & 0x7fe) << (30 - 10);
- 
--	*location = (*location & 0xfff) | imm20 | imm19_12 | imm11 | imm10_1;
--	return 0;
-+	return riscv_insn_rmw(location, 0xfff, imm20 | imm19_12 | imm11 | imm10_1);
- }
- 
--static int apply_r_riscv_rvc_branch_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_rvc_branch_rela(struct module *me, void *location,
- 					 Elf_Addr v)
- {
--	ptrdiff_t offset = (void *)v - (void *)location;
-+	ptrdiff_t offset = (void *)v - location;
- 	u16 imm8 = (offset & 0x100) << (12 - 8);
- 	u16 imm7_6 = (offset & 0xc0) >> (6 - 5);
- 	u16 imm5 = (offset & 0x20) >> (5 - 2);
- 	u16 imm4_3 = (offset & 0x18) << (12 - 5);
- 	u16 imm2_1 = (offset & 0x6) << (12 - 10);
- 
--	*(u16 *)location = (*(u16 *)location & 0xe383) |
--		    imm8 | imm7_6 | imm5 | imm4_3 | imm2_1;
--	return 0;
-+	return riscv_insn_rvc_rmw(location, 0xe383,
-+			imm8 | imm7_6 | imm5 | imm4_3 | imm2_1);
- }
- 
--static int apply_r_riscv_rvc_jump_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_rvc_jump_rela(struct module *me, void *location,
- 				       Elf_Addr v)
- {
--	ptrdiff_t offset = (void *)v - (void *)location;
-+	ptrdiff_t offset = (void *)v - location;
- 	u16 imm11 = (offset & 0x800) << (12 - 11);
- 	u16 imm10 = (offset & 0x400) >> (10 - 8);
- 	u16 imm9_8 = (offset & 0x300) << (12 - 11);
-@@ -98,16 +116,14 @@ static int apply_r_riscv_rvc_jump_rela(struct module *me, u32 *location,
- 	u16 imm4 = (offset & 0x10) << (12 - 5);
- 	u16 imm3_1 = (offset & 0xe) << (12 - 10);
- 
--	*(u16 *)location = (*(u16 *)location & 0xe003) |
--		    imm11 | imm10 | imm9_8 | imm7 | imm6 | imm5 | imm4 | imm3_1;
--	return 0;
-+	return riscv_insn_rvc_rmw(location, 0xe003,
-+			imm11 | imm10 | imm9_8 | imm7 | imm6 | imm5 | imm4 | imm3_1);
- }
- 
--static int apply_r_riscv_pcrel_hi20_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_pcrel_hi20_rela(struct module *me, void *location,
- 					 Elf_Addr v)
- {
--	ptrdiff_t offset = (void *)v - (void *)location;
--	s32 hi20;
-+	ptrdiff_t offset = (void *)v - location;
- 
- 	if (!riscv_insn_valid_32bit_offset(offset)) {
- 		pr_err(
-@@ -116,23 +132,20 @@ static int apply_r_riscv_pcrel_hi20_rela(struct module *me, u32 *location,
- 		return -EINVAL;
- 	}
- 
--	hi20 = (offset + 0x800) & 0xfffff000;
--	*location = (*location & 0xfff) | hi20;
--	return 0;
-+	return riscv_insn_rmw(location, 0xfff, (offset + 0x800) & 0xfffff000);
- }
- 
--static int apply_r_riscv_pcrel_lo12_i_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_pcrel_lo12_i_rela(struct module *me, void *location,
- 					   Elf_Addr v)
- {
- 	/*
- 	 * v is the lo12 value to fill. It is calculated before calling this
- 	 * handler.
- 	 */
--	*location = (*location & 0xfffff) | ((v & 0xfff) << 20);
--	return 0;
-+	return riscv_insn_rmw(location, 0xfffff, (v & 0xfff) << 20);
- }
- 
--static int apply_r_riscv_pcrel_lo12_s_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_pcrel_lo12_s_rela(struct module *me, void *location,
- 					   Elf_Addr v)
- {
- 	/*
-@@ -142,15 +155,12 @@ static int apply_r_riscv_pcrel_lo12_s_rela(struct module *me, u32 *location,
- 	u32 imm11_5 = (v & 0xfe0) << (31 - 11);
- 	u32 imm4_0 = (v & 0x1f) << (11 - 4);
- 
--	*location = (*location & 0x1fff07f) | imm11_5 | imm4_0;
--	return 0;
-+	return riscv_insn_rmw(location, 0x1fff07f, imm11_5 | imm4_0);
- }
- 
--static int apply_r_riscv_hi20_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_hi20_rela(struct module *me, void *location,
- 				   Elf_Addr v)
- {
--	s32 hi20;
--
- 	if (IS_ENABLED(CONFIG_CMODEL_MEDLOW)) {
- 		pr_err(
- 		  "%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
-@@ -158,22 +168,20 @@ static int apply_r_riscv_hi20_rela(struct module *me, u32 *location,
- 		return -EINVAL;
- 	}
- 
--	hi20 = ((s32)v + 0x800) & 0xfffff000;
--	*location = (*location & 0xfff) | hi20;
--	return 0;
-+	return riscv_insn_rmw(location, 0xfff, ((s32)v + 0x800) & 0xfffff000);
- }
- 
--static int apply_r_riscv_lo12_i_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_lo12_i_rela(struct module *me, void *location,
- 				     Elf_Addr v)
- {
- 	/* Skip medlow checking because of filtering by HI20 already */
- 	s32 hi20 = ((s32)v + 0x800) & 0xfffff000;
- 	s32 lo12 = ((s32)v - hi20);
--	*location = (*location & 0xfffff) | ((lo12 & 0xfff) << 20);
--	return 0;
++#ifdef CONFIG_AS_HAS_ULEB128
++void run_test_uleb(struct kunit *test)
++{
++	int val_uleb = test_uleb_basic();
++	int val_uleb2 = test_uleb_large();
 +
-+	return riscv_insn_rmw(location, 0xfffff, (lo12 & 0xfff) << 20);
- }
- 
--static int apply_r_riscv_lo12_s_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_lo12_s_rela(struct module *me, void *location,
- 				     Elf_Addr v)
- {
- 	/* Skip medlow checking because of filtering by HI20 already */
-@@ -181,20 +189,18 @@ static int apply_r_riscv_lo12_s_rela(struct module *me, u32 *location,
- 	s32 lo12 = ((s32)v - hi20);
- 	u32 imm11_5 = (lo12 & 0xfe0) << (31 - 11);
- 	u32 imm4_0 = (lo12 & 0x1f) << (11 - 4);
--	*location = (*location & 0x1fff07f) | imm11_5 | imm4_0;
--	return 0;
++	CHECK_EQ(val_uleb, 0);
++	CHECK_EQ(val_uleb2, 0);
++}
++#endif
 +
-+	return riscv_insn_rmw(location, 0x1fff07f, imm11_5 | imm4_0);
- }
- 
--static int apply_r_riscv_got_hi20_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_got_hi20_rela(struct module *me, void *location,
- 				       Elf_Addr v)
- {
--	ptrdiff_t offset = (void *)v - (void *)location;
--	s32 hi20;
-+	ptrdiff_t offset = (void *)v - location;
- 
- 	/* Always emit the got entry */
- 	if (IS_ENABLED(CONFIG_MODULE_SECTIONS)) {
--		offset = module_emit_got_entry(me, v);
--		offset = (void *)offset - (void *)location;
-+		offset = (void *)module_emit_got_entry(me, v) - location;
- 	} else {
- 		pr_err(
- 		  "%s: can not generate the GOT entry for symbol = %016llx from PC = %p\n",
-@@ -202,22 +208,19 @@ static int apply_r_riscv_got_hi20_rela(struct module *me, u32 *location,
- 		return -EINVAL;
- 	}
- 
--	hi20 = (offset + 0x800) & 0xfffff000;
--	*location = (*location & 0xfff) | hi20;
--	return 0;
-+	return riscv_insn_rmw(location, 0xfff, (offset + 0x800) & 0xfffff000);
- }
- 
--static int apply_r_riscv_call_plt_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_call_plt_rela(struct module *me, void *location,
- 				       Elf_Addr v)
- {
--	ptrdiff_t offset = (void *)v - (void *)location;
-+	ptrdiff_t offset = (void *)v - location;
- 	u32 hi20, lo12;
- 
- 	if (!riscv_insn_valid_32bit_offset(offset)) {
- 		/* Only emit the plt entry if offset over 32-bit range */
- 		if (IS_ENABLED(CONFIG_MODULE_SECTIONS)) {
--			offset = module_emit_plt_entry(me, v);
--			offset = (void *)offset - (void *)location;
-+			offset = (void *)module_emit_plt_entry(me, v) - location;
- 		} else {
- 			pr_err(
- 			  "%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
-@@ -228,15 +231,14 @@ static int apply_r_riscv_call_plt_rela(struct module *me, u32 *location,
- 
- 	hi20 = (offset + 0x800) & 0xfffff000;
- 	lo12 = (offset - hi20) & 0xfff;
--	*location = (*location & 0xfff) | hi20;
--	*(location + 1) = (*(location + 1) & 0xfffff) | (lo12 << 20);
--	return 0;
-+	riscv_insn_rmw(location, 0xfff, hi20);
-+	return riscv_insn_rmw(location + 4, 0xfffff, lo12 << 20);
- }
- 
--static int apply_r_riscv_call_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_call_rela(struct module *me, void *location,
- 				   Elf_Addr v)
- {
--	ptrdiff_t offset = (void *)v - (void *)location;
-+	ptrdiff_t offset = (void *)v - location;
- 	u32 hi20, lo12;
- 
- 	if (!riscv_insn_valid_32bit_offset(offset)) {
-@@ -248,18 +250,17 @@ static int apply_r_riscv_call_rela(struct module *me, u32 *location,
- 
- 	hi20 = (offset + 0x800) & 0xfffff000;
- 	lo12 = (offset - hi20) & 0xfff;
--	*location = (*location & 0xfff) | hi20;
--	*(location + 1) = (*(location + 1) & 0xfffff) | (lo12 << 20);
--	return 0;
-+	riscv_insn_rmw(location, 0xfff, hi20);
-+	return riscv_insn_rmw(location + 4, 0xfffff, lo12 << 20);
- }
- 
--static int apply_r_riscv_relax_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_relax_rela(struct module *me, void *location,
- 				    Elf_Addr v)
- {
- 	return 0;
- }
- 
--static int apply_r_riscv_align_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_align_rela(struct module *me, void *location,
- 				    Elf_Addr v)
- {
- 	pr_err(
-@@ -268,49 +269,49 @@ static int apply_r_riscv_align_rela(struct module *me, u32 *location,
- 	return -EINVAL;
- }
- 
--static int apply_r_riscv_add16_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_add16_rela(struct module *me, void *location,
- 				    Elf_Addr v)
- {
- 	*(u16 *)location += (u16)v;
- 	return 0;
- }
- 
--static int apply_r_riscv_add32_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_add32_rela(struct module *me, void *location,
- 				    Elf_Addr v)
- {
- 	*(u32 *)location += (u32)v;
- 	return 0;
- }
- 
--static int apply_r_riscv_add64_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_add64_rela(struct module *me, void *location,
- 				    Elf_Addr v)
- {
- 	*(u64 *)location += (u64)v;
- 	return 0;
- }
- 
--static int apply_r_riscv_sub16_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_sub16_rela(struct module *me, void *location,
- 				    Elf_Addr v)
- {
- 	*(u16 *)location -= (u16)v;
- 	return 0;
- }
- 
--static int apply_r_riscv_sub32_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_sub32_rela(struct module *me, void *location,
- 				    Elf_Addr v)
- {
- 	*(u32 *)location -= (u32)v;
- 	return 0;
- }
- 
--static int apply_r_riscv_sub64_rela(struct module *me, u32 *location,
-+static int apply_r_riscv_sub64_rela(struct module *me, void *location,
- 				    Elf_Addr v)
- {
- 	*(u64 *)location -= (u64)v;
- 	return 0;
- }
- 
--static int (*reloc_handlers_rela[]) (struct module *me, u32 *location,
-+static int (*reloc_handlers_rela[]) (struct module *me, void *location,
- 				Elf_Addr v) = {
- 	[R_RISCV_32]			= apply_r_riscv_32_rela,
- 	[R_RISCV_64]			= apply_r_riscv_64_rela,
-@@ -342,9 +343,9 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
- 		       struct module *me)
- {
- 	Elf_Rela *rel = (void *) sechdrs[relsec].sh_addr;
--	int (*handler)(struct module *me, u32 *location, Elf_Addr v);
-+	int (*handler)(struct module *me, void *location, Elf_Addr v);
- 	Elf_Sym *sym;
--	u32 *location;
-+	void *location;
- 	unsigned int i, type;
- 	Elf_Addr v;
- 	int res;
++static struct kunit_case __refdata riscv_module_linking_test_cases[] = {
++	KUNIT_CASE(run_test_set),
++	KUNIT_CASE(run_test_sub),
++#ifdef CONFIG_AS_HAS_ULEB128
++	KUNIT_CASE(run_test_uleb),
++#endif
++	{}
++};
++
++static struct kunit_suite riscv_module_linking_test_suite = {
++	.name = "riscv_checksum",
++	.test_cases = riscv_module_linking_test_cases,
++};
++
++kunit_test_suites(&riscv_module_linking_test_suite);
+diff --git a/arch/riscv/kernel/tests/module_test/test_set16.S b/arch/riscv/kernel/tests/module_test/test_set16.S
+new file mode 100644
+index 000000000000..2be0e441a12e
+--- /dev/null
++++ b/arch/riscv/kernel/tests/module_test/test_set16.S
+@@ -0,0 +1,23 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2023 Rivos Inc.
++ */
++
++.text
++.global test_set16
++test_set16:
++	lw	a0, set16
++	la	t0, set16
++#ifdef CONFIG_32BIT
++	slli	t0, t0, 16
++	srli	t0, t0, 16
++#else
++	slli	t0, t0, 48
++	srli	t0, t0, 48
++#endif
++	sub	a0, a0, t0
++	ret
++.data
++set16:
++	.reloc set16, R_RISCV_SET16, set16
++	.word 0
+diff --git a/arch/riscv/kernel/tests/module_test/test_set32.S b/arch/riscv/kernel/tests/module_test/test_set32.S
+new file mode 100644
+index 000000000000..de0444537e67
+--- /dev/null
++++ b/arch/riscv/kernel/tests/module_test/test_set32.S
+@@ -0,0 +1,20 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2023 Rivos Inc.
++ */
++
++.text
++.global test_set32
++test_set32:
++	lw	a0, set32
++	la	t0, set32
++#ifndef CONFIG_32BIT
++	slli	t0, t0, 32
++	srli	t0, t0, 32
++#endif
++	sub	a0, a0, t0
++	ret
++.data
++set32:
++	.reloc set32, R_RISCV_SET32, set32
++	.word 0
+diff --git a/arch/riscv/kernel/tests/module_test/test_set6.S b/arch/riscv/kernel/tests/module_test/test_set6.S
+new file mode 100644
+index 000000000000..c39ce4c219eb
+--- /dev/null
++++ b/arch/riscv/kernel/tests/module_test/test_set6.S
+@@ -0,0 +1,23 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2023 Rivos Inc.
++ */
++
++.text
++.global test_set6
++test_set6:
++	lw	a0, set6
++	la	t0, set6
++#ifdef CONFIG_32BIT
++	slli	t0, t0, 26
++	srli	t0, t0, 26
++#else
++	slli	t0, t0, 58
++	srli	t0, t0, 58
++#endif
++	sub	a0, a0, t0
++	ret
++.data
++set6:
++	.reloc set6, R_RISCV_SET6, set6
++	.word 0
+diff --git a/arch/riscv/kernel/tests/module_test/test_set8.S b/arch/riscv/kernel/tests/module_test/test_set8.S
+new file mode 100644
+index 000000000000..a656173f6f99
+--- /dev/null
++++ b/arch/riscv/kernel/tests/module_test/test_set8.S
+@@ -0,0 +1,23 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2023 Rivos Inc.
++ */
++
++.text
++.global test_set8
++test_set8:
++	lw	a0, set8
++	la	t0, set8
++#ifdef CONFIG_32BIT
++	slli	t0, t0, 24
++	srli	t0, t0, 24
++#else
++	slli	t0, t0, 56
++	srli	t0, t0, 56
++#endif
++	sub	a0, a0, t0
++	ret
++.data
++set8:
++	.reloc set8, R_RISCV_SET8, set8
++	.word 0
+diff --git a/arch/riscv/kernel/tests/module_test/test_sub16.S b/arch/riscv/kernel/tests/module_test/test_sub16.S
+new file mode 100644
+index 000000000000..c561e155d1db
+--- /dev/null
++++ b/arch/riscv/kernel/tests/module_test/test_sub16.S
+@@ -0,0 +1,22 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2023 Rivos Inc.
++ */
++
++.text
++.global test_sub16
++test_sub16:
++	lh	a0, sub16
++	addi	a0, a0, -32
++	ret
++first:
++	.rept 8
++	.word 0
++	.endr
++second:
++
++.data
++sub16:
++	.reloc		sub16, R_RISCV_ADD16, second
++	.reloc		sub16, R_RISCV_SUB16, first
++	.half		0
+diff --git a/arch/riscv/kernel/tests/module_test/test_sub32.S b/arch/riscv/kernel/tests/module_test/test_sub32.S
+new file mode 100644
+index 000000000000..93232c70cae6
+--- /dev/null
++++ b/arch/riscv/kernel/tests/module_test/test_sub32.S
+@@ -0,0 +1,22 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2023 Rivos Inc.
++ */
++
++.text
++.global test_sub32
++test_sub32:
++	lw	a0, sub32
++	addi	a0, a0, -32
++	ret
++first:
++	.rept 8
++	.word 0
++	.endr
++second:
++
++.data
++sub32:
++	.reloc		sub32, R_RISCV_ADD32, second
++	.reloc		sub32, R_RISCV_SUB32, first
++	.word		0
+diff --git a/arch/riscv/kernel/tests/module_test/test_sub6.S b/arch/riscv/kernel/tests/module_test/test_sub6.S
+new file mode 100644
+index 000000000000..d9c9526ceb62
+--- /dev/null
++++ b/arch/riscv/kernel/tests/module_test/test_sub6.S
+@@ -0,0 +1,22 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2023 Rivos Inc.
++ */
++
++.text
++.global test_sub6
++test_sub6:
++	lb	a0, sub6
++	addi	a0, a0, -32
++	ret
++first:
++	.rept 8
++	.word 0
++	.endr
++second:
++
++.data
++sub6:
++	.reloc		sub6, R_RISCV_SET6, second
++	.reloc		sub6, R_RISCV_SUB6, first
++	.byte		0
+diff --git a/arch/riscv/kernel/tests/module_test/test_sub64.S b/arch/riscv/kernel/tests/module_test/test_sub64.S
+new file mode 100644
+index 000000000000..6d260e2a5d98
+--- /dev/null
++++ b/arch/riscv/kernel/tests/module_test/test_sub64.S
+@@ -0,0 +1,27 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2023 Rivos Inc.
++ */
++
++.text
++.global test_sub64
++test_sub64:
++#ifdef CONFIG_32BIT
++	lw	a0, sub64
++#else
++	ld	a0, sub64
++#endif
++	addi	a0, a0, -32
++	ret
++first:
++	.rept 8
++	.word 0
++	.endr
++second:
++
++.data
++sub64:
++	.reloc		sub64, R_RISCV_ADD64, second
++	.reloc		sub64, R_RISCV_SUB64, first
++	.word		0
++	.word		0
+diff --git a/arch/riscv/kernel/tests/module_test/test_sub8.S b/arch/riscv/kernel/tests/module_test/test_sub8.S
+new file mode 100644
+index 000000000000..af7849115d4d
+--- /dev/null
++++ b/arch/riscv/kernel/tests/module_test/test_sub8.S
+@@ -0,0 +1,22 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2023 Rivos Inc.
++ */
++
++.text
++.global test_sub8
++test_sub8:
++	lb	a0, sub8
++	addi	a0, a0, -32
++	ret
++first:
++	.rept 8
++	.word 0
++	.endr
++second:
++
++.data
++sub8:
++	.reloc		sub8, R_RISCV_ADD8, second
++	.reloc		sub8, R_RISCV_SUB8, first
++	.byte		0
+diff --git a/arch/riscv/kernel/tests/module_test/test_uleb128.S b/arch/riscv/kernel/tests/module_test/test_uleb128.S
+new file mode 100644
+index 000000000000..51e23808136c
+--- /dev/null
++++ b/arch/riscv/kernel/tests/module_test/test_uleb128.S
+@@ -0,0 +1,31 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2023 Rivos Inc.
++ */
++
++.text
++.global test_uleb
++test_uleb:
++	ld	a0, second
++	addi	a0, a0, -127
++	ret
++
++.global test_uleb_large
++test_uleb_large:
++	ld	a0, fourth
++	addi	a0, a0, 0x07e8
++	ret
++
++.data
++first:
++	.rept 127
++	.byte 0
++	.endr
++second:
++	.reloc second, R_RISCV_SET_ULEB128, second
++	.reloc second, R_RISCV_SUB_ULEB128, first
++	.dword 0
++third:
++	.space 1000
++fourth:
++	.uleb128 fourth - third
 
 -- 
 2.34.1
