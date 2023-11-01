@@ -4,101 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BB66C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Nov 2023 17:37:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 288C8C001B5
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Nov 2023 18:33:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=PtdKZ+sDKkt7ieC/RVOKSUs68T8wYfZO4L17JEc86Us=; b=YsHeiECyArNTtHwuAfvL6vpGnV
-	Frns2qjfUU2jaU97D0RPMIZraNsKIN9eYncmEa2pdYhJ2ORoRkVYVbSmjzlTO8vLM/B1hS8k3jd85
-	5dhD/iP0dPQUEJh/JXYagrZaAbm7Mu3JHV5AYecyp+9V/jhxxHzGoyj7t2Q9Kn0hxWUGUm09BO8tP
-	3HLtfztOEy0igwJ4s0oXvsa5dSfcE9nCf577VNWu/t5m+Qf1AsQTDpI3sa0kusBsbfHhRFnsERFoX
-	k+QPXK3pic1wG1++eSsHm8vxPMEvxvDcjWjpnSUtivrunEO0nGOPSo994SAOdUhksWb6hYIHsE5Lo
-	kwa2nCRA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LW6AByAIdK4+2B2j2BLvaNMTDFXZGlk7M0wYRwcvNb8=; b=mDFFnLqegwspWl
+	ipzb9F1FQkKztLbIsR/mTO5cpls2cTusLIFApoOYe8G2nNIG5j9Twrr4zK7B8CUEwGFUIJMpw+bBg
+	7GG6bVdm4ahPzUewocx9tQEr7WqIkQ7nMlqYYCcKORdkhPV5EpmV74KbVgloFRLFzHV0oasPfc74O
+	KwI21ySTumyBFjzy89oixSwiR2MgeA6PkGULwQ1185I2igRL7oQpalVSoE7rEEjkvs0HX04/qFHwD
+	H/Klct0+4ve0amgNR4sx9AxoWRAHT6I51R7sbIouabx4cuK+0PQj7zc/JxmSbKC7rfE9RTIGfbsGb
+	TnFN9SaL5C3YdC2VuAAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyF9D-007t3e-1Z;
-	Wed, 01 Nov 2023 17:36:55 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1qyG1e-007x7c-2U;
+	Wed, 01 Nov 2023 18:33:10 +0000
+Received: from mail-oo1-xc2b.google.com ([2607:f8b0:4864:20::c2b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyF9B-007t2m-08
+	id 1qyG1a-007x6w-2T
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Nov 2023 17:36:54 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-da03390793fso7108560276.3
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Nov 2023 10:36:50 -0700 (PDT)
+	Wed, 01 Nov 2023 18:33:08 +0000
+Received: by mail-oo1-xc2b.google.com with SMTP id 006d021491bc7-581ed744114so53678eaf.0
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Nov 2023 11:33:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1698860209; x=1699465009; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Aa5pPv4/g+I3C3eNDgudVhrFstr6S8Xmtwrf0OlljDI=;
-        b=fsWpC2RbvONMs14YuuPPJ87cpSMciGnAp3NRcfWv9OyXeXZNvgSWupK0xUpWdyxBGo
-         N36noxpgT0QR315yX3qcrTr/jpAvzd38Y4hKG1B7cXvQwPNpDcjZsnMdLTM7Yk2mPRK1
-         JK6ldkc2i95VZ1lvxkzRwxnwkdZ+7zQrfhbe3+gc5qJw0u3TDX7WZD34Da1xbDDlergl
-         Or/4zGeuB3YBczWd975+NLs/f0dZGC0E2dDkBrvM4MoGUGas+B9oJZlhILEjU98M+Beo
-         7Q0dglUyPstrdb6sMJ2wL+BAtbbcbVX/TTN/kXgZ/881m4bNSO4snBvlaj8QSzEUD+Ep
-         3nLA==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698863584; x=1699468384; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=YlYNLy4VnSwlzJ5T98YglMe9qEBY6q8tyB3afSFZj/k=;
+        b=RtuAO2OisXFeauTJjrtSW0eRAR8uMY3lWJVeCoYpYDdzWPrcZHEc/CoF6zW62IgCIU
+         n9izBBCdo0cAoWP21lGxJOTggGZkqWxVHBLX3YgFLLFK1w3VO89W2idilYQyrGFpTV4v
+         9sb/yM15Gnm6UXlSiV8eLSDnt9aPVGJqhpLRHefmlnwhMQi5ZQuJplbpKQc+7M5OTETL
+         ZIvFmhnktSw2BImWii191DNmeXtBRG+1u8G0YThzK1bRkDYPNqRsNPYfSbixMmPrHBq8
+         iA6ugYzevadn5/9o6Dws7dLrqt4m9RNnPkMBtVH0+HAHWm01Z1R7g9noguZ1QWh+67cn
+         KEzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698860209; x=1699465009;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Aa5pPv4/g+I3C3eNDgudVhrFstr6S8Xmtwrf0OlljDI=;
-        b=MWxA88vfIrX8Kb9af1xHGSJGxR31xDB1AVcUMYKTZ2ZJ7uowHML5JyJL8ul+3/g9Ub
-         iUvR2nbD6NcAnB3xtsLzMiJVmA+zIzeyFUaAKugR3BpqUhcR+UplDM9WBg2QPMufgE2K
-         xR91ibWXhu2Ahw9uKjN43u4pZd5iNA9o18SGlkSwNtU8UMGgWyiXFMiE92VoY+2GrIDT
-         40pcvLsMazm5+F3b4eeHjkTvuTsVGLdxiGHnaocqUCXjzHXgkQy8JLHSHolZNC40kkoh
-         rSzy7toQNXV0KezYwmGN0CngvzVfXj2oXEFTCPG+BlDiv8lBu9ikDLLDKvwZoNpFTQP/
-         1zlQ==
-X-Gm-Message-State: AOJu0YxVH1aO94FkozWuNuXMzmJICQKmtbsXH7E4ryCbok0Lu7wKzLEV
-	Z92X51J0OB95gPlWXJG1cnXhEMyhdQc=
-X-Google-Smtp-Source: AGHT+IG/a6Sj0mASs5/8PEJQnR69sSphX+9SHKWYEjRPOLGEF4l6c52AgzjYtmdhHr7JL68mzkGP7JI8NEg=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:6902:168c:b0:da0:3e46:8ba5 with SMTP id
- bx12-20020a056902168c00b00da03e468ba5mr304342ybb.8.1698860209654; Wed, 01 Nov
- 2023 10:36:49 -0700 (PDT)
-Date: Wed, 1 Nov 2023 10:36:48 -0700
-In-Reply-To: <482bfea6f54ea1bb7d1ad75e03541d0ba0e5be6f.camel@intel.com>
-Mime-Version: 1.0
-References: <20231027182217.3615211-1-seanjc@google.com> <20231027182217.3615211-10-seanjc@google.com>
- <482bfea6f54ea1bb7d1ad75e03541d0ba0e5be6f.camel@intel.com>
-Message-ID: <ZUKMsOdg3N9wmEzy@google.com>
-Subject: Re: [PATCH v13 09/35] KVM: Add KVM_EXIT_MEMORY_FAULT exit to report
- faults to userspace
-From: Sean Christopherson <seanjc@google.com>
-To: Kai Huang <kai.huang@intel.com>
-Cc: "viro@zeniv.linux.org.uk" <viro@zeniv.linux.org.uk>, 
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "brauner@kernel.org" <brauner@kernel.org>, 
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>, 
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, 
-	"maz@kernel.org" <maz@kernel.org>, "pbonzini@redhat.com" <pbonzini@redhat.com>, 
-	"mpe@ellerman.id.au" <mpe@ellerman.id.au>, "willy@infradead.org" <willy@infradead.org>, 
-	"anup@brainfault.org" <anup@brainfault.org>, 
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>, Xiaoyao Li <xiaoyao.li@intel.com>, 
-	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>, "mic@digikod.net" <mic@digikod.net>, 
-	"liam.merwick@oracle.com" <liam.merwick@oracle.com>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
-	Isaku Yamahata <isaku.yamahata@intel.com>, 
-	"kirill.shutemov@linux.intel.com" <kirill.shutemov@linux.intel.com>, "david@redhat.com" <david@redhat.com>, 
-	"tabba@google.com" <tabba@google.com>, "amoorthy@google.com" <amoorthy@google.com>, 
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, 
-	"michael.roth@amd.com" <michael.roth@amd.com>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
-	"chao.p.peng@linux.intel.com" <chao.p.peng@linux.intel.com>, 
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>, Vishal Annapurve <vannapurve@google.com>, 
-	"vbabka@suse.cz" <vbabka@suse.cz>, "mail@maciej.szmigiero.name" <mail@maciej.szmigiero.name>, 
-	"yu.c.zhang@linux.intel.com" <yu.c.zhang@linux.intel.com>, "qperret@google.com" <qperret@google.com>, 
-	"dmatlack@google.com" <dmatlack@google.com>, Yilun Xu <yilun.xu@intel.com>, 
-	"isaku.yamahata@gmail.com" <isaku.yamahata@gmail.com>, 
-	"ackerleytng@google.com" <ackerleytng@google.com>, "jarkko@kernel.org" <jarkko@kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-mm@kvack.org" <linux-mm@kvack.org>, Wei W Wang <wei.w.wang@intel.com>
+        d=1e100.net; s=20230601; t=1698863584; x=1699468384;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YlYNLy4VnSwlzJ5T98YglMe9qEBY6q8tyB3afSFZj/k=;
+        b=FLZ4ja5b0n59zd15hRxZgMObOjX9rOMy2Ko7qJTatjx3Hb8PeosNKrYdXp8+4MbuNB
+         4t7UpYUhFUmtBvLC+z2Myw9DomljHwPNIMH7iL0k5tsnR8V6AwCiaDOarG4YjtpEJala
+         qhnToGx+wvDmyHBw2Z4ymQ+1Ddag1KLvLGjfEz2C/errEEZaBH7rQ21w8MUnlEFVjKAJ
+         iBPo1WOuOI6msUn798gTXDzWOSiXNTOgQAJVs03+TN2Ya1oHmezQLO4dwBO1KlqELrCo
+         yShiyAHUkYvp+Om0s/nqEfiPZESlzAvNiKzGniR9zM7PnrdVjNpDH757ECxhYGk6jyZP
+         8tgg==
+X-Gm-Message-State: AOJu0Yx7Ln2Y0udgMXKA/eYcvHhVPikm25KdtigIBnitJo5bPVzvX1E2
+	hj10w1z/93QKwn02EAyUzqXIGw==
+X-Google-Smtp-Source: AGHT+IEjD1wkkctBbU+7K5oihsH7H4HSTVQxge9RCOX/Hymo2C9jI2bYeaR39S7Le6kXF5cz9OqAFw==
+X-Received: by 2002:a4a:c885:0:b0:587:2b9b:985a with SMTP id t5-20020a4ac885000000b005872b9b985amr5701208ooq.9.1698863584599;
+        Wed, 01 Nov 2023 11:33:04 -0700 (PDT)
+Received: from charlie.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id m14-20020a4aab8e000000b00581e090fd1fsm686331oon.8.2023.11.01.11.33.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Nov 2023 11:33:04 -0700 (PDT)
+From: Charlie Jenkins <charlie@rivosinc.com>
+Subject: [PATCH v9 0/3] riscv: Add remaining module relocations and tests
+Date: Wed, 01 Nov 2023 11:32:58 -0700
+Message-Id: <20231101-module_relocations-v9-0-8dfa3483c400@rivosinc.com>
+MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIANqZQmUC/4XQwWrDMAwG4FcpPi/Dtmwp7mnvMcaobXk1tM1Iu
+ rBR8u5zyhhhCHb8hfRJ6KYmHitPar+7qZHnOtXh0kJ42Kl0PFzeuKu5ZWW1BR10352H/HHi15F
+ PQzpcW/fUFYTEGb2JmVQbfB+51M87+vzS8rFO12H8uu+YzVr94QxI3Gw63cUIuXdITAGexjoPU
+ 72kxzSc1SrO9lcxWqOo2KY48ojOQ+GcBAU2ipEVaMoBkUpGTYaDoLitQqLimhKAiucCBosWFL9
+ VxDfPvim5MIPNLpck/QW3ShAVXG9xZJHRObBGUGijgBEVagoWRyZEdLGQoPT/K31TdIg+ktXJF
+ P6jLMvyDSROhxShAgAA
+To: linux-riscv@lists.infradead.org, linux-mm@kvack.org, 
+ linux-kernel@vger.kernel.org
+Cc: Eric Biederman <ebiederm@xmission.com>, 
+ Kees Cook <keescook@chromium.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Andreas Schwab <schwab@linux-m68k.org>, 
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Nelson Chu <nelson@rivosinc.com>, Charlie Jenkins <charlie@rivosinc.com>, 
+ Emil Renner Berthing <kernel@esmil.dk>
+X-Mailer: b4 0.12.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231101_103653_101470_B83919FC 
-X-CRM114-Status: GOOD (  20.90  )
+X-CRM114-CacheID: sfid-20231101_113307_042902_E3AEF147 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,78 +102,115 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 01, 2023, Kai Huang wrote:
-> 
-> > +7.34 KVM_CAP_MEMORY_FAULT_INFO
-> > +------------------------------
-> > +
-> > +:Architectures: x86
-> > +:Returns: Informational only, -EINVAL on direct KVM_ENABLE_CAP.
-> > +
-> > +The presence of this capability indicates that KVM_RUN will fill
-> > +kvm_run.memory_fault if KVM cannot resolve a guest page fault VM-Exit, e.g. if
-> > +there is a valid memslot but no backing VMA for the corresponding host virtual
-> > +address.
-> > +
-> > +The information in kvm_run.memory_fault is valid if and only if KVM_RUN returns
-> > +an error with errno=EFAULT or errno=EHWPOISON *and* kvm_run.exit_reason is set
-> > +to KVM_EXIT_MEMORY_FAULT.
-> 
-> IIUC returning -EFAULT or whatever -errno is sort of KVM internal
-> implementation.
+A handful of module relocations were missing, this patch includes the
+remaining ones. I also wrote some test cases to ensure that module
+loading works properly. Some relocations cannot be supported in the
+kernel, these include the ones that rely on thread local storage and
+dynamic linking.
 
-The errno that is returned to userspace is ABI.  In KVM, it's a _very_ poorly
-defined ABI for the vast majority of ioctls(), but it's still technically ABI.
-KVM gets away with being cavalier with errno because the vast majority of errors
-are considered fatal by userespace, i.e. in most cases, userspace simply doesn't
-care about the exact errno.
+This patch also overhauls the implementation of ADD/SUB/SET/ULEB128
+relocations to handle overflow. "Overflow" is different for ULEB128
+since it is a variable-length encoding that the compiler can be expected
+to generate enough space for. Instead of overflowing, ULEB128 will
+expand into the next 8-bit segment of the location.
 
-A good example is KVM_RUN with -EINTR; if KVM were to return something other than
--EINTR on a pending signal or vcpu->run->immediate_exit, userspace would fall over.
+A psABI proposal [1] was merged that mandates that SET_ULEB128 and
+SUB_ULEB128 are paired, however the discussion following the merging of
+the pull request revealed that while the pull request was valid, it
+would be better for linkers to properly handle this overflow. This patch
+proactively implements this methodology for future compatibility.
 
-> Is it better to relax the validity of kvm_run.memory_fault when
-> KVM_RUN returns any -errno?
+This can be tested by enabling KUNIT, RUNTIME_KERNEL_TESTING_MENU, and
+RISCV_MODULE_LINKING_KUNIT.
 
-Not unless there's a need to do so, and if there is then we can update the
-documentation accordingly.  If KVM's ABI is that kvm_run.memory_fault is valid
-for any errno, then KVM would need to purge kvm_run.exit_reason super early in
-KVM_RUN, e.g. to prevent an -EINTR return due to immediate_exit from being
-misinterpreted as KVM_EXIT_MEMORY_FAULT.  And purging exit_reason super early is
-subtly tricky because KVM's (again, poorly documented) ABI is that *some* exit
-reasons are preserved across KVM_RUN with vcpu->run->immediate_exit (or with a
-pending signal).
+[1] https://github.com/riscv-non-isa/riscv-elf-psabi-doc/pull/403
 
-https://lore.kernel.org/all/ZFFbwOXZ5uI%2Fgdaf@google.com
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+---
+Changes in v9:
+- Use uintptr_t where applicable (Emil)
+- Split up insn_rmw changes into correct patch (Emil)
+- Make reloc_handlers const and simplify struct (Emil)
+- Link to v8: https://lore.kernel.org/r/20231031-module_relocations-v8-0-09b5b720c1fe@rivosinc.com
 
-> [...]
-> 
-> 
-> > --- a/include/linux/kvm_host.h
-> > +++ b/include/linux/kvm_host.h
-> > @@ -2327,4 +2327,15 @@ static inline void kvm_account_pgtable_pages(void *virt, int nr)
-> >  /* Max number of entries allowed for each kvm dirty ring */
-> >  #define  KVM_DIRTY_RING_MAX_ENTRIES  65536
-> >  
-> > +static inline void kvm_prepare_memory_fault_exit(struct kvm_vcpu *vcpu,
-> > +						 gpa_t gpa, gpa_t size)
-> > +{
-> > +	vcpu->run->exit_reason = KVM_EXIT_MEMORY_FAULT;
-> > +	vcpu->run->memory_fault.gpa = gpa;
-> > +	vcpu->run->memory_fault.size = size;
-> > +
-> > +	/* Flags are not (yet) defined or communicated to userspace. */
-> > +	vcpu->run->memory_fault.flags = 0;
-> > +}
-> > +
-> 
-> KVM_CAP_MEMORY_FAULT_INFO is x86 only, is it better to put this function to
-> <asm/kvm_host.h>?
+Changes in v8:
+- Fix up riscv_insn_rmw to work with big-endian systems (Andreas/Emil)
+- Improve readability of bitops throughout module.c (Emil)
+- Consolidate all relocation handler functions into a single struct so
+  array doesn't need to be duplicated 3 times
+- Use .space assember op instead of .rept
+- Fix up name of uleb128 testcase
+- Define prototypes of some new functions to conform to -Wmissing-prototypes
+- Remove unused variable "first"
+- Link to v7: https://lore.kernel.org/r/20231031-module_relocations-v7-0-6f4719b64bf7@rivosinc.com
 
-I'd prefer to keep it in generic code, as it's highly likely to end up there
-sooner than later.  There's a known use case for ARM (exit to userspace on missing
-userspace mapping[*]), and I'm guessing pKVM (also ARM) will also utilize this API.
+Changes in v7:
+- Overhaul ADD/SUB/SET/ULEB128 relocations
+- Fix ULEB128 so it produces correct values when more than 1 byte is
+  needed
+- Link to v6: https://lore.kernel.org/r/20231019-module_relocations-v6-0-94726e644321@rivosinc.com
 
-[*] https://lore.kernel.org/all/20230908222905.1321305-8-amoorthy@google.com
+Changes in v6:
+- Use (void *) instead of (u32 *) for handler type
+- Constrain ULEB128 to be consecutive relocations
+- Link to v5: https://lore.kernel.org/r/20231018-module_relocations-v5-0-dfee32d4dfc3@rivosinc.com
+
+Changes in v5:
+- Brought in patch by Emil and fixed it up to force little endian
+- Fixed up issues with apply_r_riscv_32_pcrel_rela and
+  apply_r_riscv_plt32_rela (Samuel)
+- Added u8 cast in apply_r_riscv_sub6_rela (Andreas) 
+- Link to v4: https://lore.kernel.org/r/20231017-module_relocations-v4-0-937f5ef316f0@rivosinc.com
+
+Changes in v4:
+- Complete removal of R_RISCV_RVC_LUI
+- Fix bug in R_RISCV_SUB6 linking
+- Only build ULEB128 tests if supported by toolchain
+- Link to v3: https://lore.kernel.org/r/20231016-module_relocations-v3-0-a667fd6071e9@rivosinc.com
+
+Changes in v3:
+- Add prototypes to test_module_linking_main as recommended by intel
+  zero day bot
+- Improve efficiency of ULEB128 pair matching
+- Link to v2: https://lore.kernel.org/r/20231006-module_relocations-v2-0-47566453fedc@rivosinc.com
+
+Changes in v2:
+- Added ULEB128 relocations
+- Link to v1: https://lore.kernel.org/r/20230913-module_relocations-v1-0-bb3d8467e793@rivosinc.com
+
+---
+Charlie Jenkins (2):
+      riscv: Add remaining module relocations
+      riscv: Add tests for riscv module loading
+
+Emil Renner Berthing (1):
+      riscv: Avoid unaligned access when relocating modules
+
+ arch/riscv/Kconfig.debug                           |   1 +
+ arch/riscv/include/uapi/asm/elf.h                  |   5 +-
+ arch/riscv/kernel/Makefile                         |   1 +
+ arch/riscv/kernel/module.c                         | 603 +++++++++++++++++----
+ arch/riscv/kernel/tests/Kconfig.debug              |  35 ++
+ arch/riscv/kernel/tests/Makefile                   |   1 +
+ arch/riscv/kernel/tests/module_test/Makefile       |  15 +
+ .../tests/module_test/test_module_linking_main.c   |  88 +++
+ arch/riscv/kernel/tests/module_test/test_set16.S   |  23 +
+ arch/riscv/kernel/tests/module_test/test_set32.S   |  20 +
+ arch/riscv/kernel/tests/module_test/test_set6.S    |  23 +
+ arch/riscv/kernel/tests/module_test/test_set8.S    |  23 +
+ arch/riscv/kernel/tests/module_test/test_sub16.S   |  20 +
+ arch/riscv/kernel/tests/module_test/test_sub32.S   |  20 +
+ arch/riscv/kernel/tests/module_test/test_sub6.S    |  20 +
+ arch/riscv/kernel/tests/module_test/test_sub64.S   |  25 +
+ arch/riscv/kernel/tests/module_test/test_sub8.S    |  20 +
+ arch/riscv/kernel/tests/module_test/test_uleb128.S |  31 ++
+ 18 files changed, 869 insertions(+), 105 deletions(-)
+---
+base-commit: 3bcce01fcbcd868b8cf3a5632fde283e122d7213
+change-id: 20230908-module_relocations-f63ced651bd7
+-- 
+- Charlie
+
 
 _______________________________________________
 linux-riscv mailing list
