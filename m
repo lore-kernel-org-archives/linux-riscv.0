@@ -4,94 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25017C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Nov 2023 14:20:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C64DC4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Nov 2023 14:44:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KqNLyn5I/t60PMbbSjst0qXsWGyaSyuXLrpzwC34kdY=; b=Zgd8LmJ/xtvaCV
-	snkkG3WalBBuZbtINAvSXwF2vQUjie1p85ap93jXGIVfR65h5eaKvj5Se3TjkwjzciW5cuL8DoMm8
-	AcIq52Y7ouNzr1XyTROlXoNAQcxri/F2AW8xDfLLbsMoT2TVwyiS8OIa+fQYxSMz8NeF+aCC7OgLa
-	wo9NKqGMp2SD35qHs5yZ9rrFX5olCLmLdr2bfuHOjzxG8V4bKnxDp4VsWRKPY2wrNWkZkG1T0RwAN
-	RoZYFxlMo4bFQe6cNYzBa1NlBVle3mTTkqUpAMjkLYc5zZgyVybB5X396QUDFpjck/GOcQur5yQsg
-	Sj132OiMVNrYWxSe6H/Q==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=qAwudXT3NgMuds/6vG+soFLA/DkyBkrqNfLhhJ5/22Q=; b=mpA8CG+5AofVS5mxBasgRtAyYy
+	YQM128rRM/VK2OaD+nMun6r/ktIEdv8AZ4HXtdMvOrOV6MAZ6ms4z7EwQWY42kvn3y6AB/l4V8eP0
+	kctREzKMO5t711PuuUC4k0tIMHhQfYF5zAxB0WOfvzykBsNCuj68R6lm4P9PCKBmw2XJSFemqJBWV
+	8zrFeP4/T+nuHOitIcwwEUZ4dfI5IR7vwQexDX5jj4PiqzwAmSrDH6srsUXyo6Fgwk4jKNR9B0rcb
+	Mr3sBUd3Wt0ONdO+hsDc+5+DLWJc0Xbwc5ibr4yD39YjcMVVqd02t9D8+p7huN1Q+otcuKKJYUwv0
+	tCszAvIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyC4p-007e4x-1V;
-	Wed, 01 Nov 2023 14:20:11 +0000
-Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
+	id 1qyCSc-007foZ-0q;
+	Wed, 01 Nov 2023 14:44:46 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyC4l-007e2J-1e
+	id 1qyCSW-007fn3-2p
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Nov 2023 14:20:10 +0000
-Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-66d060aa2a4so47200786d6.2
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Nov 2023 07:20:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1698848403; x=1699453203; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Bjt3QR9Oyt0AfbOrG8Ks+Z2RSKpEyu9CpvIK66pVo08=;
-        b=wy89hxnWHXY/cqyAhy0cYACRUSRWOGUyvpqZcPd+k9pzedfB+6E4wrd/ApFEwLTc4z
-         QvCB20ULi/L0XafWznGyDE6zDOPWOeWv61FkVx11T3QKFRSRRbxhCmAq8gW8NHRAzRRR
-         F8lNQSQviM9AR9cVbjubzWWkBWrZSTWK/OdRLvaQNtMG994Lt61CbIRzVevTVMUcQQHZ
-         K9jKbFyEgG+0kNAMFyhyguDGcbnLWtXUQYiun5YSsAI8Y6eE86IkGwTBVDZBfvhuv2Ez
-         CtodYp38NnWJPg7sSzPiMECP+fHqEMdv8U8MmFOwKVV55re/LvWn/nAgRnlOq+vr92xw
-         Z1Yg==
+	Wed, 01 Nov 2023 14:44:45 +0000
+Received: from mail-lj1-f197.google.com (mail-lj1-f197.google.com [209.85.208.197])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id D17C43F6A0
+	for <linux-riscv@lists.infradead.org>; Wed,  1 Nov 2023 14:44:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1698849873;
+	bh=Krk06Mbiwmqz1nqWi3xOtE3pHx1q0sr4aocMS4DzPnQ=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=sjETFT1MHYIn1yDY/uZBoX3g5KSdqKRD0tcMfgRwXys3TXD2GLtZ/1feeLnLtyQt2
+	 /oF/wtFwW3SfEIFMKDEUsazqTowt1tUFsjX0FyWfdbopJZMYf/a5tLjHLR5DG+QuNO
+	 /XoOKeK6U0WeQeP3sbSs9cRHp2JC0NFJdd4xENL6HszBAWCtszqqkaQ5cltZeVae3y
+	 BDObcsW6ZOV53y/sFcOvME9B3X/2StZwpcJTxxOmAigoC6SUEa9eHjV6buBNJ4P+nI
+	 JLRHTnNn41d/WgS1iphH3vK4JIvnJAIKi8kQ5vMoaXfrYeNG3DMFRx6RF4Z3lleoGp
+	 eKr1kJefaOJSA==
+Received: by mail-lj1-f197.google.com with SMTP id 38308e7fff4ca-2c50c873604so77742831fa.1
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Nov 2023 07:44:33 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698848403; x=1699453203;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Bjt3QR9Oyt0AfbOrG8Ks+Z2RSKpEyu9CpvIK66pVo08=;
-        b=ZuRF/K8rSgM6d0ZLrr5ioXKmpOrb1jgeq0ONxKEJklKv94J4699f58YByuPuAXaEwf
-         AwAXaTTKBTXWB6WfA6Hab0qqFmCiUVBq0ZSxH3vYXShD9evcq4kdtmOSF03YzDcsktsI
-         /F8/0BtXN08UmInT8AoG+ks5w+BmAsY3NZw+r7Sv2EShamgqpVeV3NIeFEFPbQ05bTR7
-         VD6QB+O8m3vznH9ddgkETECPcBOdi8h7wHfIsCSVGsYxo+eHNSQ52f5oyjZzKjXY1fH+
-         8kjJaFlpLsAatviSRiFyZXf8rGjyQxxgb/XXbRSYxpb45B2lcItMXXQ7A+w6s9JY+qkw
-         6wew==
-X-Gm-Message-State: AOJu0YxCQBUxpizxgQfKB2qHFX2XZ/Fbb6DByKzJZ9Ip4TmDnktLDu1k
-	R54roZYtVjYymF/3XSQeggR2/ggY0ZOaNh7LVmJ+UQ==
-X-Google-Smtp-Source: AGHT+IHK1fieD/BgK48oE6vj2OwKc097KW4M2L6co0EoihJHDvl5lPyutAVieGa2E49DOF2qJpRq12aLhod9YaGzUi0=
-X-Received: by 2002:ad4:596c:0:b0:65b:220d:72a5 with SMTP id
- eq12-20020ad4596c000000b0065b220d72a5mr16187853qvb.51.1698848403231; Wed, 01
- Nov 2023 07:20:03 -0700 (PDT)
-MIME-Version: 1.0
-References: <20231027182217.3615211-1-seanjc@google.com> <20231027182217.3615211-9-seanjc@google.com>
-In-Reply-To: <20231027182217.3615211-9-seanjc@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Wed, 1 Nov 2023 14:19:26 +0000
-Message-ID: <CA+EHjTwEr4rLcs9VGQnhRKyBW7A_jGOjQe=zxYbmHnium5=W6Q@mail.gmail.com>
-Subject: Re: [PATCH v13 08/35] KVM: Introduce KVM_SET_USER_MEMORY_REGION2
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
+        d=1e100.net; s=20230601; t=1698849873; x=1699454673;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Krk06Mbiwmqz1nqWi3xOtE3pHx1q0sr4aocMS4DzPnQ=;
+        b=lQ/J8X80X2naHhmb5MH5yDIputNX0XMFBrEJWwRU+rN9xdg6luBXLcCgH9xVNJJB7p
+         G5WWmXqYlZ4ZFi/c62YxCVfM3xRLa5RKoFEnPNi2VkWVXKqzdgYDRChMjbVrimWC+nUh
+         DqYp6mbAL0DNFwsOzeYMDa0FAELpgDx3UcmCfPHq1+incDmnoe2XYr+Q61MhDOJPvx+c
+         iDlzevWacr3spna2l+d60ry9ib1/j13P6YE+ZK3ZRnttt8mlE/2d/PuBdVjmAthjMwyw
+         67K/9G35lbcE7lfAFpcxSkdw8ZDo822Pf6mJKJdvP056aSJ3CxagWqdpoSqmbz+ISZ5s
+         ufUA==
+X-Gm-Message-State: AOJu0YwlCLFVFzkyFUnn6Pazyt4+pv7cb7qHj+unKp6M9zzq6bYv839R
+	IU17hRff81MC9dJKV+9mM0VQANC3/++Rh4BUv5iaS5TsvihtrWLavbesL1EWA6iNE1BLEJVb0bi
+	V2tkLJmzM4H0C+dBwRW7O52tyiFYXlLAD2FyCPGZeSGe7sB8zE7S8HxMlVJcgJg==
+X-Received: by 2002:ac2:4982:0:b0:509:d86:fb2c with SMTP id f2-20020ac24982000000b005090d86fb2cmr8386676lfl.58.1698849872953;
+        Wed, 01 Nov 2023 07:44:32 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH65D3J2ONGqMjqbilt6uelnF2nA9viQzuvJaz3Z7Octc6msG4T81UJFCfcFgQMg8310PrtyKMeIzfEN6hiprw=
+X-Received: by 2002:ac2:4982:0:b0:509:d86:fb2c with SMTP id
+ f2-20020ac24982000000b005090d86fb2cmr8386653lfl.58.1698849872495; Wed, 01 Nov
+ 2023 07:44:32 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 1 Nov 2023 15:44:30 +0100
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20231031-module_relocations-v8-2-09b5b720c1fe@rivosinc.com>
+References: <20231031-module_relocations-v8-0-09b5b720c1fe@rivosinc.com> <20231031-module_relocations-v8-2-09b5b720c1fe@rivosinc.com>
+Mime-Version: 1.0
+Date: Wed, 1 Nov 2023 15:44:30 +0100
+Message-ID: <CAJM55Z8Q7jG60TGakAhvg90zosdbNq8NeAuQeHVwHomvD+heAQ@mail.gmail.com>
+Subject: Re: [PATCH v8 2/3] riscv: Add remaining module relocations
+To: Charlie Jenkins <charlie@rivosinc.com>, linux-riscv@lists.infradead.org, 
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org
+Cc: Eric Biederman <ebiederm@xmission.com>, Kees Cook <keescook@chromium.org>, 
 	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, Xiaoyao Li <xiaoyao.li@intel.com>, 
-	Xu Yilun <yilun.xu@intel.com>, Chao Peng <chao.p.peng@linux.intel.com>, 
-	Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, 
-	David Matlack <dmatlack@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>, 
-	Isaku Yamahata <isaku.yamahata@intel.com>, =?UTF-8?B?TWlja2HDq2wgU2FsYcO8bg==?= <mic@digikod.net>, 
-	Vlastimil Babka <vbabka@suse.cz>, Vishal Annapurve <vannapurve@google.com>, 
-	Ackerley Tng <ackerleytng@google.com>, Maciej Szmigiero <mail@maciej.szmigiero.name>, 
-	David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>, 
-	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
-	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+	Albert Ou <aou@eecs.berkeley.edu>, Andreas Schwab <schwab@linux-m68k.org>, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+	Samuel Holland <samuel.holland@sifive.com>, Nelson Chu <nelson@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231101_072007_552427_084B6C6E 
-X-CRM114-Status: GOOD (  35.16  )
+X-CRM114-CacheID: sfid-20231101_074441_192960_84625CE4 
+X-CRM114-Status: GOOD (  27.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,183 +97,681 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBPY3QgMjcsIDIwMjMgYXQgNzoyMuKAr1BNIFNlYW4gQ2hyaXN0b3BoZXJzb24gPHNl
-YW5qY0Bnb29nbGUuY29tPiB3cm90ZToKPgo+IEludHJvZHVjZSBhICJ2ZXJzaW9uIDIiIG9mIEtW
-TV9TRVRfVVNFUl9NRU1PUllfUkVHSU9OIHNvIHRoYXQgYWRkaXRpb25hbAo+IGluZm9ybWF0aW9u
-IGNhbiBiZSBzdXBwbGllZCB3aXRob3V0IHNldHRpbmcgdXNlcnNwYWNlIHVwIHRvIGZhaWwuICBU
-aGUKPiBwYWRkaW5nIGluIHRoZSBuZXcga3ZtX3VzZXJzcGFjZV9tZW1vcnlfcmVnaW9uMiBzdHJ1
-Y3R1cmUgd2lsbCBiZSB1c2VkIHRvCj4gcGFzcyBhIGZpbGUgZGVzY3JpcHRvciBpbiBhZGRpdGlv
-biB0byB0aGUgdXNlcnNwYWNlX2FkZHIsIGkuZS4gYWxsb3cKPiB1c2Vyc3BhY2UgdG8gcG9pbnQg
-YXQgYSBmaWxlIGRlc2NyaXB0b3IgYW5kIG1hcCBtZW1vcnkgaW50byBhIGd1ZXN0IHRoYXQKPiBp
-cyBOT1QgbWFwcGVkIGludG8gaG9zdCB1c2Vyc3BhY2UuCj4KPiBBbHRlcm5hdGl2ZWx5LCBLVk0g
-Y291bGQgc2ltcGx5IGFkZCAic3RydWN0IGt2bV91c2Vyc3BhY2VfbWVtb3J5X3JlZ2lvbjIiCj4g
-d2l0aG91dCBhIG5ldyBpb2N0bCgpLCBidXQgYXMgUGFvbG8gcG9pbnRlZCBvdXQsIGFkZGluZyBh
-IG5ldyBpb2N0bCgpCj4gbWFrZXMgZGV0ZWN0aW9uIG9mIGJhZCBmbGFncyBhIGJpdCBtb3JlIHJv
-YnVzdCwgZS5nLiBpZiB0aGUgbmV3IGZkIGZpZWxkCj4gaXMgZ3VhcmRlZCBvbmx5IGJ5IGEgZmxh
-ZyBhbmQgbm90IGEgbmV3IGlvY3RsKCksIHRoZW4gYSB1c2Vyc3BhY2UgYnVnCj4gKHNldHRpbmcg
-YSAiYmFkIiBmbGFnKSB3b3VsZCBnZW5lcmF0ZSBvdXQtb2YtYm91bmRzIGFjY2VzcyBpbnN0ZWFk
-IG9mIGFuCj4gLUVJTlZBTCBlcnJvci4KPgo+IENjOiBKYXJra28gU2Fra2luZW4gPGphcmtrb0Br
-ZXJuZWwub3JnPgo+IFJldmlld2VkLWJ5OiBQYW9sbyBCb256aW5pIDxwYm9uemluaUByZWRoYXQu
-Y29tPgo+IFJldmlld2VkLWJ5OiBYaWFveWFvIExpIDx4aWFveWFvLmxpQGludGVsLmNvbT4KPiBT
-aWduZWQtb2ZmLWJ5OiBTZWFuIENocmlzdG9waGVyc29uIDxzZWFuamNAZ29vZ2xlLmNvbT4KPiAt
-LS0KCldpdGggdGhlIG1pc3NpbmcgcGFkIGluIGFwaS5yc3QgZml4ZWQ6ClJldmlld2VkLWJ5OiBG
-dWFkIFRhYmJhIDx0YWJiYUBnb29nbGUuY29tPgpUZXN0ZWQtYnk6IEZ1YWQgVGFiYmEgPHRhYmJh
-QGdvb2dsZS5jb20+CgpDaGVlcnMsCi9mdWFkCgo+ICBEb2N1bWVudGF0aW9uL3ZpcnQva3ZtL2Fw
-aS5yc3QgfCAyMSArKysrKysrKysrKysrKysrKysrCj4gIGFyY2gveDg2L2t2bS94ODYuYyAgICAg
-ICAgICAgICB8ICAyICstCj4gIGluY2x1ZGUvbGludXgva3ZtX2hvc3QuaCAgICAgICB8ICA0ICsr
-LS0KPiAgaW5jbHVkZS91YXBpL2xpbnV4L2t2bS5oICAgICAgIHwgMTMgKysrKysrKysrKysrCj4g
-IHZpcnQva3ZtL2t2bV9tYWluLmMgICAgICAgICAgICB8IDM4ICsrKysrKysrKysrKysrKysrKysr
-KysrKysrKy0tLS0tLS0KPiAgNSBmaWxlcyBjaGFuZ2VkLCA2NyBpbnNlcnRpb25zKCspLCAxMSBk
-ZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL3ZpcnQva3ZtL2FwaS5y
-c3QgYi9Eb2N1bWVudGF0aW9uL3ZpcnQva3ZtL2FwaS5yc3QKPiBpbmRleCAyMWE3NTc4MTQyYTEu
-LmFjZTk4NGFjYzEyNSAxMDA2NDQKPiAtLS0gYS9Eb2N1bWVudGF0aW9uL3ZpcnQva3ZtL2FwaS5y
-c3QKPiArKysgYi9Eb2N1bWVudGF0aW9uL3ZpcnQva3ZtL2FwaS5yc3QKPiBAQCAtNjA3MCw2ICs2
-MDcwLDI3IEBAIHdyaXRlcyB0byB0aGUgQ05UVkNUX0VMMCBhbmQgQ05UUENUX0VMMCByZWdpc3Rl
-cnMgdXNpbmcgdGhlIFNFVF9PTkVfUkVHCj4gIGludGVyZmFjZS4gTm8gZXJyb3Igd2lsbCBiZSBy
-ZXR1cm5lZCwgYnV0IHRoZSByZXN1bHRpbmcgb2Zmc2V0IHdpbGwgbm90IGJlCj4gIGFwcGxpZWQu
-Cj4KPiArNC4xMzkgS1ZNX1NFVF9VU0VSX01FTU9SWV9SRUdJT04yCj4gKy0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLQo+ICsKPiArOkNhcGFiaWxpdHk6IEtWTV9DQVBfVVNFUl9NRU1P
-UlkyCj4gKzpBcmNoaXRlY3R1cmVzOiBhbGwKPiArOlR5cGU6IHZtIGlvY3RsCj4gKzpQYXJhbWV0
-ZXJzOiBzdHJ1Y3Qga3ZtX3VzZXJzcGFjZV9tZW1vcnlfcmVnaW9uMiAoaW4pCj4gKzpSZXR1cm5z
-OiAwIG9uIHN1Y2Nlc3MsIC0xIG9uIGVycm9yCj4gKwo+ICs6Ogo+ICsKPiArICBzdHJ1Y3Qga3Zt
-X3VzZXJzcGFjZV9tZW1vcnlfcmVnaW9uMiB7Cj4gKyAgICAgICBfX3UzMiBzbG90Owo+ICsgICAg
-ICAgX191MzIgZmxhZ3M7Cj4gKyAgICAgICBfX3U2NCBndWVzdF9waHlzX2FkZHI7Cj4gKyAgICAg
-ICBfX3U2NCBtZW1vcnlfc2l6ZTsgLyogYnl0ZXMgKi8KPiArICAgICAgIF9fdTY0IHVzZXJzcGFj
-ZV9hZGRyOyAvKiBzdGFydCBvZiB0aGUgdXNlcnNwYWNlIGFsbG9jYXRlZCBtZW1vcnkgKi8KPiAr
-ICB9Owo+ICsKPiArU2VlIEtWTV9TRVRfVVNFUl9NRU1PUllfUkVHSU9OLgo+ICsKPiAgNS4gVGhl
-IGt2bV9ydW4gc3RydWN0dXJlCj4gID09PT09PT09PT09PT09PT09PT09PT09PQo+Cj4gZGlmZiAt
-LWdpdCBhL2FyY2gveDg2L2t2bS94ODYuYyBiL2FyY2gveDg2L2t2bS94ODYuYwo+IGluZGV4IDQx
-Y2NlNTAzMTEyNi4uNjQwOTkxNDQyOGNhIDEwMDY0NAo+IC0tLSBhL2FyY2gveDg2L2t2bS94ODYu
-Ywo+ICsrKyBiL2FyY2gveDg2L2t2bS94ODYuYwo+IEBAIC0xMjQ1NSw3ICsxMjQ1NSw3IEBAIHZv
-aWQgX191c2VyICogX194ODZfc2V0X21lbW9yeV9yZWdpb24oc3RydWN0IGt2bSAqa3ZtLCBpbnQg
-aWQsIGdwYV90IGdwYSwKPiAgICAgICAgIH0KPgo+ICAgICAgICAgZm9yIChpID0gMDsgaSA8IEtW
-TV9BRERSRVNTX1NQQUNFX05VTTsgaSsrKSB7Cj4gLSAgICAgICAgICAgICAgIHN0cnVjdCBrdm1f
-dXNlcnNwYWNlX21lbW9yeV9yZWdpb24gbTsKPiArICAgICAgICAgICAgICAgc3RydWN0IGt2bV91
-c2Vyc3BhY2VfbWVtb3J5X3JlZ2lvbjIgbTsKPgo+ICAgICAgICAgICAgICAgICBtLnNsb3QgPSBp
-ZCB8IChpIDw8IDE2KTsKPiAgICAgICAgICAgICAgICAgbS5mbGFncyA9IDA7Cj4gZGlmZiAtLWdp
-dCBhL2luY2x1ZGUvbGludXgva3ZtX2hvc3QuaCBiL2luY2x1ZGUvbGludXgva3ZtX2hvc3QuaAo+
-IGluZGV4IDVmYWJhNjk0MDNhYy4uNGU3NDFmZjI3YWYzIDEwMDY0NAo+IC0tLSBhL2luY2x1ZGUv
-bGludXgva3ZtX2hvc3QuaAo+ICsrKyBiL2luY2x1ZGUvbGludXgva3ZtX2hvc3QuaAo+IEBAIC0x
-MTQ2LDkgKzExNDYsOSBAQCBlbnVtIGt2bV9tcl9jaGFuZ2Ugewo+ICB9Owo+Cj4gIGludCBrdm1f
-c2V0X21lbW9yeV9yZWdpb24oc3RydWN0IGt2bSAqa3ZtLAo+IC0gICAgICAgICAgICAgICAgICAg
-ICAgICAgY29uc3Qgc3RydWN0IGt2bV91c2Vyc3BhY2VfbWVtb3J5X3JlZ2lvbiAqbWVtKTsKPiAr
-ICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnN0IHN0cnVjdCBrdm1fdXNlcnNwYWNlX21lbW9y
-eV9yZWdpb24yICptZW0pOwo+ICBpbnQgX19rdm1fc2V0X21lbW9yeV9yZWdpb24oc3RydWN0IGt2
-bSAqa3ZtLAo+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICBjb25zdCBzdHJ1Y3Qga3ZtX3Vz
-ZXJzcGFjZV9tZW1vcnlfcmVnaW9uICptZW0pOwo+ICsgICAgICAgICAgICAgICAgICAgICAgICAg
-ICBjb25zdCBzdHJ1Y3Qga3ZtX3VzZXJzcGFjZV9tZW1vcnlfcmVnaW9uMiAqbWVtKTsKPiAgdm9p
-ZCBrdm1fYXJjaF9mcmVlX21lbXNsb3Qoc3RydWN0IGt2bSAqa3ZtLCBzdHJ1Y3Qga3ZtX21lbW9y
-eV9zbG90ICpzbG90KTsKPiAgdm9pZCBrdm1fYXJjaF9tZW1zbG90c191cGRhdGVkKHN0cnVjdCBr
-dm0gKmt2bSwgdTY0IGdlbik7Cj4gIGludCBrdm1fYXJjaF9wcmVwYXJlX21lbW9yeV9yZWdpb24o
-c3RydWN0IGt2bSAqa3ZtLAo+IGRpZmYgLS1naXQgYS9pbmNsdWRlL3VhcGkvbGludXgva3ZtLmgg
-Yi9pbmNsdWRlL3VhcGkvbGludXgva3ZtLmgKPiBpbmRleCAxMzA2NWRkOTYxMzIuLmJkMWFiZTA2
-N2YyOCAxMDA2NDQKPiAtLS0gYS9pbmNsdWRlL3VhcGkvbGludXgva3ZtLmgKPiArKysgYi9pbmNs
-dWRlL3VhcGkvbGludXgva3ZtLmgKPiBAQCAtOTUsNiArOTUsMTYgQEAgc3RydWN0IGt2bV91c2Vy
-c3BhY2VfbWVtb3J5X3JlZ2lvbiB7Cj4gICAgICAgICBfX3U2NCB1c2Vyc3BhY2VfYWRkcjsgLyog
-c3RhcnQgb2YgdGhlIHVzZXJzcGFjZSBhbGxvY2F0ZWQgbWVtb3J5ICovCj4gIH07Cj4KPiArLyog
-Zm9yIEtWTV9TRVRfVVNFUl9NRU1PUllfUkVHSU9OMiAqLwo+ICtzdHJ1Y3Qga3ZtX3VzZXJzcGFj
-ZV9tZW1vcnlfcmVnaW9uMiB7Cj4gKyAgICAgICBfX3UzMiBzbG90Owo+ICsgICAgICAgX191MzIg
-ZmxhZ3M7Cj4gKyAgICAgICBfX3U2NCBndWVzdF9waHlzX2FkZHI7Cj4gKyAgICAgICBfX3U2NCBt
-ZW1vcnlfc2l6ZTsKPiArICAgICAgIF9fdTY0IHVzZXJzcGFjZV9hZGRyOwo+ICsgICAgICAgX191
-NjQgcGFkWzE2XTsKPiArfTsKPiArCj4gIC8qCj4gICAqIFRoZSBiaXQgMCB+IGJpdCAxNSBvZiBr
-dm1fdXNlcnNwYWNlX21lbW9yeV9yZWdpb246OmZsYWdzIGFyZSB2aXNpYmxlIGZvcgo+ICAgKiB1
-c2Vyc3BhY2UsIG90aGVyIGJpdHMgYXJlIHJlc2VydmVkIGZvciBrdm0gaW50ZXJuYWwgdXNlIHdo
-aWNoIGFyZSBkZWZpbmVkCj4gQEAgLTExOTIsNiArMTIwMiw3IEBAIHN0cnVjdCBrdm1fcHBjX3Jl
-c2l6ZV9ocHQgewo+ICAjZGVmaW5lIEtWTV9DQVBfQ09VTlRFUl9PRkZTRVQgMjI3Cj4gICNkZWZp
-bmUgS1ZNX0NBUF9BUk1fRUFHRVJfU1BMSVRfQ0hVTktfU0laRSAyMjgKPiAgI2RlZmluZSBLVk1f
-Q0FQX0FSTV9TVVBQT1JURURfQkxPQ0tfU0laRVMgMjI5Cj4gKyNkZWZpbmUgS1ZNX0NBUF9VU0VS
-X01FTU9SWTIgMjMwCj4KPiAgI2lmZGVmIEtWTV9DQVBfSVJRX1JPVVRJTkcKPgo+IEBAIC0xNDcz
-LDYgKzE0ODQsOCBAQCBzdHJ1Y3Qga3ZtX3ZmaW9fc3BhcHJfdGNlIHsKPiAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgc3RydWN0IGt2bV91c2Vyc3BhY2VfbWVtb3J5X3Jl
-Z2lvbikKPiAgI2RlZmluZSBLVk1fU0VUX1RTU19BRERSICAgICAgICAgIF9JTyhLVk1JTywgICAw
-eDQ3KQo+ICAjZGVmaW5lIEtWTV9TRVRfSURFTlRJVFlfTUFQX0FERFIgX0lPVyhLVk1JTywgIDB4
-NDgsIF9fdTY0KQo+ICsjZGVmaW5lIEtWTV9TRVRfVVNFUl9NRU1PUllfUkVHSU9OMiBfSU9XKEtW
-TUlPLCAweDQ5LCBcCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBz
-dHJ1Y3Qga3ZtX3VzZXJzcGFjZV9tZW1vcnlfcmVnaW9uMikKPgo+ICAvKiBlbmFibGUgdWNvbnRy
-b2wgZm9yIHMzOTAgKi8KPiAgc3RydWN0IGt2bV9zMzkwX3VjYXNfbWFwcGluZyB7Cj4gZGlmZiAt
-LWdpdCBhL3ZpcnQva3ZtL2t2bV9tYWluLmMgYi92aXJ0L2t2bS9rdm1fbWFpbi5jCj4gaW5kZXgg
-NmU3MDgwMTcwNjRkLi4zZjViN2MyYzUzMjcgMTAwNjQ0Cj4gLS0tIGEvdmlydC9rdm0va3ZtX21h
-aW4uYwo+ICsrKyBiL3ZpcnQva3ZtL2t2bV9tYWluLmMKPiBAQCAtMTU3OCw3ICsxNTc4LDcgQEAg
-c3RhdGljIHZvaWQga3ZtX3JlcGxhY2VfbWVtc2xvdChzdHJ1Y3Qga3ZtICprdm0sCj4gICAgICAg
-ICB9Cj4gIH0KPgo+IC1zdGF0aWMgaW50IGNoZWNrX21lbW9yeV9yZWdpb25fZmxhZ3MoY29uc3Qg
-c3RydWN0IGt2bV91c2Vyc3BhY2VfbWVtb3J5X3JlZ2lvbiAqbWVtKQo+ICtzdGF0aWMgaW50IGNo
-ZWNrX21lbW9yeV9yZWdpb25fZmxhZ3MoY29uc3Qgc3RydWN0IGt2bV91c2Vyc3BhY2VfbWVtb3J5
-X3JlZ2lvbjIgKm1lbSkKPiAgewo+ICAgICAgICAgdTMyIHZhbGlkX2ZsYWdzID0gS1ZNX01FTV9M
-T0dfRElSVFlfUEFHRVM7Cj4KPiBAQCAtMTk4MCw3ICsxOTgwLDcgQEAgc3RhdGljIGJvb2wga3Zt
-X2NoZWNrX21lbXNsb3Rfb3ZlcmxhcChzdHJ1Y3Qga3ZtX21lbXNsb3RzICpzbG90cywgaW50IGlk
-LAo+ICAgKiBNdXN0IGJlIGNhbGxlZCBob2xkaW5nIGt2bS0+c2xvdHNfbG9jayBmb3Igd3JpdGUu
-Cj4gICAqLwo+ICBpbnQgX19rdm1fc2V0X21lbW9yeV9yZWdpb24oc3RydWN0IGt2bSAqa3ZtLAo+
-IC0gICAgICAgICAgICAgICAgICAgICAgICAgICBjb25zdCBzdHJ1Y3Qga3ZtX3VzZXJzcGFjZV9t
-ZW1vcnlfcmVnaW9uICptZW0pCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnN0IHN0
-cnVjdCBrdm1fdXNlcnNwYWNlX21lbW9yeV9yZWdpb24yICptZW0pCj4gIHsKPiAgICAgICAgIHN0
-cnVjdCBrdm1fbWVtb3J5X3Nsb3QgKm9sZCwgKm5ldzsKPiAgICAgICAgIHN0cnVjdCBrdm1fbWVt
-c2xvdHMgKnNsb3RzOwo+IEBAIC0yMDg0LDcgKzIwODQsNyBAQCBpbnQgX19rdm1fc2V0X21lbW9y
-eV9yZWdpb24oc3RydWN0IGt2bSAqa3ZtLAo+ICBFWFBPUlRfU1lNQk9MX0dQTChfX2t2bV9zZXRf
-bWVtb3J5X3JlZ2lvbik7Cj4KPiAgaW50IGt2bV9zZXRfbWVtb3J5X3JlZ2lvbihzdHJ1Y3Qga3Zt
-ICprdm0sCj4gLSAgICAgICAgICAgICAgICAgICAgICAgICBjb25zdCBzdHJ1Y3Qga3ZtX3VzZXJz
-cGFjZV9tZW1vcnlfcmVnaW9uICptZW0pCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICBjb25z
-dCBzdHJ1Y3Qga3ZtX3VzZXJzcGFjZV9tZW1vcnlfcmVnaW9uMiAqbWVtKQo+ICB7Cj4gICAgICAg
-ICBpbnQgcjsKPgo+IEBAIC0yMDk2LDcgKzIwOTYsNyBAQCBpbnQga3ZtX3NldF9tZW1vcnlfcmVn
-aW9uKHN0cnVjdCBrdm0gKmt2bSwKPiAgRVhQT1JUX1NZTUJPTF9HUEwoa3ZtX3NldF9tZW1vcnlf
-cmVnaW9uKTsKPgo+ICBzdGF0aWMgaW50IGt2bV92bV9pb2N0bF9zZXRfbWVtb3J5X3JlZ2lvbihz
-dHJ1Y3Qga3ZtICprdm0sCj4gLSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgc3RydWN0IGt2bV91c2Vyc3BhY2VfbWVtb3J5X3JlZ2lvbiAqbWVtKQo+ICsgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0cnVjdCBrdm1fdXNlcnNwYWNlX21lbW9y
-eV9yZWdpb24yICptZW0pCj4gIHsKPiAgICAgICAgIGlmICgodTE2KW1lbS0+c2xvdCA+PSBLVk1f
-VVNFUl9NRU1fU0xPVFMpCj4gICAgICAgICAgICAgICAgIHJldHVybiAtRUlOVkFMOwo+IEBAIC00
-NTY2LDYgKzQ1NjYsNyBAQCBzdGF0aWMgaW50IGt2bV92bV9pb2N0bF9jaGVja19leHRlbnNpb25f
-Z2VuZXJpYyhzdHJ1Y3Qga3ZtICprdm0sIGxvbmcgYXJnKQo+ICB7Cj4gICAgICAgICBzd2l0Y2gg
-KGFyZykgewo+ICAgICAgICAgY2FzZSBLVk1fQ0FQX1VTRVJfTUVNT1JZOgo+ICsgICAgICAgY2Fz
-ZSBLVk1fQ0FQX1VTRVJfTUVNT1JZMjoKPiAgICAgICAgIGNhc2UgS1ZNX0NBUF9ERVNUUk9ZX01F
-TU9SWV9SRUdJT05fV09SS1M6Cj4gICAgICAgICBjYXNlIEtWTV9DQVBfSk9JTl9NRU1PUllfUkVH
-SU9OU19XT1JLUzoKPiAgICAgICAgIGNhc2UgS1ZNX0NBUF9JTlRFUk5BTF9FUlJPUl9EQVRBOgo+
-IEBAIC00ODIxLDYgKzQ4MjIsMTQgQEAgc3RhdGljIGludCBrdm1fdm1faW9jdGxfZ2V0X3N0YXRz
-X2ZkKHN0cnVjdCBrdm0gKmt2bSkKPiAgICAgICAgIHJldHVybiBmZDsKPiAgfQo+Cj4gKyNkZWZp
-bmUgU0FOSVRZX0NIRUNLX01FTV9SRUdJT05fRklFTEQoZmllbGQpICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICBcCj4gK2RvIHsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gKyAgICAgICBC
-VUlMRF9CVUdfT04ob2Zmc2V0b2Yoc3RydWN0IGt2bV91c2Vyc3BhY2VfbWVtb3J5X3JlZ2lvbiwg
-ZmllbGQpICE9ICAgICAgICAgICAgIFwKPiArICAgICAgICAgICAgICAgICAgICBvZmZzZXRvZihz
-dHJ1Y3Qga3ZtX3VzZXJzcGFjZV9tZW1vcnlfcmVnaW9uMiwgZmllbGQpKTsgICAgIFwKPiArICAg
-ICAgIEJVSUxEX0JVR19PTihzaXplb2ZfZmllbGQoc3RydWN0IGt2bV91c2Vyc3BhY2VfbWVtb3J5
-X3JlZ2lvbiwgZmllbGQpICE9ICAgICAgICAgXAo+ICsgICAgICAgICAgICAgICAgICAgIHNpemVv
-Zl9maWVsZChzdHJ1Y3Qga3ZtX3VzZXJzcGFjZV9tZW1vcnlfcmVnaW9uMiwgZmllbGQpKTsgXAo+
-ICt9IHdoaWxlICgwKQo+ICsKPiAgc3RhdGljIGxvbmcga3ZtX3ZtX2lvY3RsKHN0cnVjdCBmaWxl
-ICpmaWxwLAo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIHVuc2lnbmVkIGludCBpb2N0bCwg
-dW5zaWduZWQgbG9uZyBhcmcpCj4gIHsKPiBAQCAtNDg0MywxNSArNDg1MiwyOCBAQCBzdGF0aWMg
-bG9uZyBrdm1fdm1faW9jdGwoc3RydWN0IGZpbGUgKmZpbHAsCj4gICAgICAgICAgICAgICAgIHIg
-PSBrdm1fdm1faW9jdGxfZW5hYmxlX2NhcF9nZW5lcmljKGt2bSwgJmNhcCk7Cj4gICAgICAgICAg
-ICAgICAgIGJyZWFrOwo+ICAgICAgICAgfQo+ICsgICAgICAgY2FzZSBLVk1fU0VUX1VTRVJfTUVN
-T1JZX1JFR0lPTjI6Cj4gICAgICAgICBjYXNlIEtWTV9TRVRfVVNFUl9NRU1PUllfUkVHSU9OOiB7
-Cj4gLSAgICAgICAgICAgICAgIHN0cnVjdCBrdm1fdXNlcnNwYWNlX21lbW9yeV9yZWdpb24ga3Zt
-X3VzZXJzcGFjZV9tZW07Cj4gKyAgICAgICAgICAgICAgIHN0cnVjdCBrdm1fdXNlcnNwYWNlX21l
-bW9yeV9yZWdpb24yIG1lbTsKPiArICAgICAgICAgICAgICAgdW5zaWduZWQgbG9uZyBzaXplOwo+
-ICsKPiArICAgICAgICAgICAgICAgaWYgKGlvY3RsID09IEtWTV9TRVRfVVNFUl9NRU1PUllfUkVH
-SU9OKQo+ICsgICAgICAgICAgICAgICAgICAgICAgIHNpemUgPSBzaXplb2Yoc3RydWN0IGt2bV91
-c2Vyc3BhY2VfbWVtb3J5X3JlZ2lvbik7Cj4gKyAgICAgICAgICAgICAgIGVsc2UKPiArICAgICAg
-ICAgICAgICAgICAgICAgICBzaXplID0gc2l6ZW9mKHN0cnVjdCBrdm1fdXNlcnNwYWNlX21lbW9y
-eV9yZWdpb24yKTsKPiArCj4gKyAgICAgICAgICAgICAgIC8qIEVuc3VyZSB0aGUgY29tbW9uIHBh
-cnRzIG9mIHRoZSB0d28gc3RydWN0cyBhcmUgaWRlbnRpY2FsLiAqLwo+ICsgICAgICAgICAgICAg
-ICBTQU5JVFlfQ0hFQ0tfTUVNX1JFR0lPTl9GSUVMRChzbG90KTsKPiArICAgICAgICAgICAgICAg
-U0FOSVRZX0NIRUNLX01FTV9SRUdJT05fRklFTEQoZmxhZ3MpOwo+ICsgICAgICAgICAgICAgICBT
-QU5JVFlfQ0hFQ0tfTUVNX1JFR0lPTl9GSUVMRChndWVzdF9waHlzX2FkZHIpOwo+ICsgICAgICAg
-ICAgICAgICBTQU5JVFlfQ0hFQ0tfTUVNX1JFR0lPTl9GSUVMRChtZW1vcnlfc2l6ZSk7Cj4gKyAg
-ICAgICAgICAgICAgIFNBTklUWV9DSEVDS19NRU1fUkVHSU9OX0ZJRUxEKHVzZXJzcGFjZV9hZGRy
-KTsKPgo+ICAgICAgICAgICAgICAgICByID0gLUVGQVVMVDsKPiAtICAgICAgICAgICAgICAgaWYg
-KGNvcHlfZnJvbV91c2VyKCZrdm1fdXNlcnNwYWNlX21lbSwgYXJncCwKPiAtICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzaXplb2Yoa3ZtX3VzZXJzcGFjZV9t
-ZW0pKSkKPiArICAgICAgICAgICAgICAgaWYgKGNvcHlfZnJvbV91c2VyKCZtZW0sIGFyZ3AsIHNp
-emUpKQo+ICAgICAgICAgICAgICAgICAgICAgICAgIGdvdG8gb3V0Owo+Cj4gLSAgICAgICAgICAg
-ICAgIHIgPSBrdm1fdm1faW9jdGxfc2V0X21lbW9yeV9yZWdpb24oa3ZtLCAma3ZtX3VzZXJzcGFj
-ZV9tZW0pOwo+ICsgICAgICAgICAgICAgICByID0ga3ZtX3ZtX2lvY3RsX3NldF9tZW1vcnlfcmVn
-aW9uKGt2bSwgJm1lbSk7Cj4gICAgICAgICAgICAgICAgIGJyZWFrOwo+ICAgICAgICAgfQo+ICAg
-ICAgICAgY2FzZSBLVk1fR0VUX0RJUlRZX0xPRzogewo+IC0tCj4gMi40Mi4wLjgyMC5nODNhNzIx
-YTEzNy1nb29nCj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+Charlie Jenkins wrote:
+> Add all final module relocations and add error logs explaining the ones
+> that are not supported. Implement overflow checks for
+> ADD/SUB/SET/ULEB128 relocations.
+>
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> ---
+>  arch/riscv/include/uapi/asm/elf.h |   5 +-
+>  arch/riscv/kernel/module.c        | 503 +++++++++++++++++++++++++++++++++++---
+>  2 files changed, 476 insertions(+), 32 deletions(-)
+>
+> diff --git a/arch/riscv/include/uapi/asm/elf.h b/arch/riscv/include/uapi/asm/elf.h
+> index d696d6610231..11a71b8533d5 100644
+> --- a/arch/riscv/include/uapi/asm/elf.h
+> +++ b/arch/riscv/include/uapi/asm/elf.h
+> @@ -49,6 +49,7 @@ typedef union __riscv_fp_state elf_fpregset_t;
+>  #define R_RISCV_TLS_DTPREL64	9
+>  #define R_RISCV_TLS_TPREL32	10
+>  #define R_RISCV_TLS_TPREL64	11
+> +#define R_RISCV_IRELATIVE	58
+>
+>  /* Relocation types not used by the dynamic linker */
+>  #define R_RISCV_BRANCH		16
+> @@ -81,7 +82,6 @@ typedef union __riscv_fp_state elf_fpregset_t;
+>  #define R_RISCV_ALIGN		43
+>  #define R_RISCV_RVC_BRANCH	44
+>  #define R_RISCV_RVC_JUMP	45
+> -#define R_RISCV_LUI		46
+>  #define R_RISCV_GPREL_I		47
+>  #define R_RISCV_GPREL_S		48
+>  #define R_RISCV_TPREL_I		49
+> @@ -93,6 +93,9 @@ typedef union __riscv_fp_state elf_fpregset_t;
+>  #define R_RISCV_SET16		55
+>  #define R_RISCV_SET32		56
+>  #define R_RISCV_32_PCREL	57
+> +#define R_RISCV_PLT32		59
+> +#define R_RISCV_SET_ULEB128	60
+> +#define R_RISCV_SUB_ULEB128	61
+>
+>
+>  #endif /* _UAPI_ASM_RISCV_ELF_H */
+> diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+> index a9e94e939cb5..0f5d41eaa596 100644
+> --- a/arch/riscv/kernel/module.c
+> +++ b/arch/riscv/kernel/module.c
+> @@ -7,6 +7,9 @@
+>  #include <linux/elf.h>
+>  #include <linux/err.h>
+>  #include <linux/errno.h>
+> +#include <linux/hashtable.h>
+> +#include <linux/kernel.h>
+> +#include <linux/log2.h>
+>  #include <linux/moduleloader.h>
+>  #include <linux/vmalloc.h>
+>  #include <linux/sizes.h>
+> @@ -14,6 +17,39 @@
+>  #include <asm/alternative.h>
+>  #include <asm/sections.h>
+>
+> +struct used_bucket {
+> +	struct list_head head;
+> +	struct hlist_head *bucket;
+> +};
+> +
+> +struct relocation_head {
+> +	struct hlist_node node;
+> +	struct list_head *rel_entry;
+> +	void *location;
+> +};
+> +
+> +struct relocation_entry {
+> +	struct list_head head;
+> +	Elf_Addr value;
+> +	unsigned int type;
+> +};
+> +
+> +struct relocation_handlers {
+> +	int (*reloc_handler)(struct module *me, void *location, Elf_Addr v);
+> +	bool accumulate_relocations;
+> +	int (*accumulate_handler)(struct module *me, void *location,
+> +				  long buffer);
+> +};
+> +
+> +unsigned int initialize_relocation_hashtable(unsigned int num_relocations);
+> +void process_accumulated_relocations(struct module *me);
+> +int add_relocation_to_accumulate(struct module *me, int type, void *location,
+> +				 unsigned int hashtable_bits, Elf_Addr v);
+> +
+> +struct hlist_head *relocation_hashtable;
+> +
+> +struct list_head used_buckets_list;
+> +
+>  /*
+>   * The auipc+jalr instruction pair can reach any PC-relative offset
+>   * in the range [-2^31 - 2^11, 2^31 - 2^11)
+> @@ -35,7 +71,7 @@ static int riscv_insn_rmw(void *location, u32 keep, u32 set)
+>  	insn &= keep;
+>  	insn |= set;
+>
+> -	parcel[0] = cpu_to_le32(insn);
+> +	parcel[0] = cpu_to_le16(insn);
+>  	parcel[1] = cpu_to_le16(insn >> 16);
+>  	return 0;
+>  }
+> @@ -43,8 +79,12 @@ static int riscv_insn_rmw(void *location, u32 keep, u32 set)
+>  static int riscv_insn_rvc_rmw(void *location, u16 keep, u16 set)
+>  {
+>  	u16 *parcel = location;
+> +	u16 insn = le16_to_cpu(*parcel);
+>
+> -	*parcel = cpu_to_le16((le16_to_cpu(*parcel) & keep) | set);
+> +	insn &= keep;
+> +	insn |= set;
+> +
+> +	*parcel = cpu_to_le16(insn);
+>  	return 0;
+>  }
+
+I think you meant to squash these two chunks into the previous patch.
+
+>
+> @@ -269,6 +309,12 @@ static int apply_r_riscv_align_rela(struct module *me, void *location,
+>  	return -EINVAL;
+>  }
+>
+> +static int apply_r_riscv_add8_rela(struct module *me, void *location, Elf_Addr v)
+> +{
+> +	*(u8 *)location += (u8)v;
+> +	return 0;
+> +}
+> +
+>  static int apply_r_riscv_add16_rela(struct module *me, void *location,
+>  				    Elf_Addr v)
+>  {
+> @@ -290,6 +336,12 @@ static int apply_r_riscv_add64_rela(struct module *me, void *location,
+>  	return 0;
+>  }
+>
+> +static int apply_r_riscv_sub8_rela(struct module *me, void *location, Elf_Addr v)
+> +{
+> +	*(u8 *)location -= (u8)v;
+> +	return 0;
+> +}
+> +
+>  static int apply_r_riscv_sub16_rela(struct module *me, void *location,
+>  				    Elf_Addr v)
+>  {
+> @@ -311,33 +363,415 @@ static int apply_r_riscv_sub64_rela(struct module *me, void *location,
+>  	return 0;
+>  }
+>
+> -static int (*reloc_handlers_rela[]) (struct module *me, void *location,
+> -				Elf_Addr v) = {
+> -	[R_RISCV_32]			= apply_r_riscv_32_rela,
+> -	[R_RISCV_64]			= apply_r_riscv_64_rela,
+> -	[R_RISCV_BRANCH]		= apply_r_riscv_branch_rela,
+> -	[R_RISCV_JAL]			= apply_r_riscv_jal_rela,
+> -	[R_RISCV_RVC_BRANCH]		= apply_r_riscv_rvc_branch_rela,
+> -	[R_RISCV_RVC_JUMP]		= apply_r_riscv_rvc_jump_rela,
+> -	[R_RISCV_PCREL_HI20]		= apply_r_riscv_pcrel_hi20_rela,
+> -	[R_RISCV_PCREL_LO12_I]		= apply_r_riscv_pcrel_lo12_i_rela,
+> -	[R_RISCV_PCREL_LO12_S]		= apply_r_riscv_pcrel_lo12_s_rela,
+> -	[R_RISCV_HI20]			= apply_r_riscv_hi20_rela,
+> -	[R_RISCV_LO12_I]		= apply_r_riscv_lo12_i_rela,
+> -	[R_RISCV_LO12_S]		= apply_r_riscv_lo12_s_rela,
+> -	[R_RISCV_GOT_HI20]		= apply_r_riscv_got_hi20_rela,
+> -	[R_RISCV_CALL_PLT]		= apply_r_riscv_call_plt_rela,
+> -	[R_RISCV_CALL]			= apply_r_riscv_call_rela,
+> -	[R_RISCV_RELAX]			= apply_r_riscv_relax_rela,
+> -	[R_RISCV_ALIGN]			= apply_r_riscv_align_rela,
+> -	[R_RISCV_ADD16]			= apply_r_riscv_add16_rela,
+> -	[R_RISCV_ADD32]			= apply_r_riscv_add32_rela,
+> -	[R_RISCV_ADD64]			= apply_r_riscv_add64_rela,
+> -	[R_RISCV_SUB16]			= apply_r_riscv_sub16_rela,
+> -	[R_RISCV_SUB32]			= apply_r_riscv_sub32_rela,
+> -	[R_RISCV_SUB64]			= apply_r_riscv_sub64_rela,
+> +static int dynamic_linking_not_supported(struct module *me, void *location,
+> +					 Elf_Addr v)
+> +{
+> +	pr_err("%s: Dynamic linking not supported in kernel modules PC = %p\n",
+> +	       me->name, location);
+> +	return -EINVAL;
+> +}
+> +
+> +static int tls_not_supported(struct module *me, void *location, Elf_Addr v)
+> +{
+> +	pr_err("%s: Thread local storage not supported in kernel modules PC = %p\n",
+> +	       me->name, location);
+> +	return -EINVAL;
+> +}
+> +
+> +static int apply_r_riscv_sub6_rela(struct module *me, void *location, Elf_Addr v)
+> +{
+> +	u8 *byte = location;
+> +	u8 value = v;
+> +
+> +	*byte = (*byte - (value & 0x3f)) & 0x3f;
+> +	return 0;
+> +}
+> +
+> +static int apply_r_riscv_set6_rela(struct module *me, void *location, Elf_Addr v)
+> +{
+> +	u8 *byte = location;
+> +	u8 value = v;
+> +
+> +	*byte = (*byte & 0xc0) | (value & 0x3f);
+> +	return 0;
+> +}
+> +
+> +static int apply_r_riscv_set8_rela(struct module *me, void *location, Elf_Addr v)
+> +{
+> +	*(u8 *)location = (u8)v;
+> +	return 0;
+> +}
+> +
+> +static int apply_r_riscv_set16_rela(struct module *me, void *location,
+> +				    Elf_Addr v)
+> +{
+> +	*(u16 *)location = (u16)v;
+> +	return 0;
+> +}
+> +
+> +static int apply_r_riscv_set32_rela(struct module *me, void *location,
+> +				    Elf_Addr v)
+> +{
+> +	*(u32 *)location = (u32)v;
+> +	return 0;
+> +}
+> +
+> +static int apply_r_riscv_32_pcrel_rela(struct module *me, void *location,
+> +				       Elf_Addr v)
+> +{
+> +	*(u32 *)location = v - (unsigned long)location;
+
+nit: in other reviews i've been told to use uintptr_t when casting pointers to
+an unsigned integer.
+
+> +	return 0;
+> +}
+> +
+> +static int apply_r_riscv_plt32_rela(struct module *me, void *location,
+> +				    Elf_Addr v)
+> +{
+> +	ptrdiff_t offset = (void *)v - location;
+> +
+> +	if (!riscv_insn_valid_32bit_offset(offset)) {
+> +		/* Only emit the plt entry if offset over 32-bit range */
+> +		if (IS_ENABLED(CONFIG_MODULE_SECTIONS)) {
+> +			offset = (void *)module_emit_plt_entry(me, v) - location;
+> +		} else {
+> +			pr_err("%s: target %016llx can not be addressed by the 32-bit offset from PC = %p\n",
+> +			       me->name, (long long)v, location);
+> +			return -EINVAL;
+> +		}
+> +	}
+> +
+> +	*(u32 *)location = (u32)offset;
+> +	return 0;
+> +}
+> +
+> +static int apply_r_riscv_set_uleb128(struct module *me, void *location, Elf_Addr v)
+> +{
+> +	*(long *)location = v;
+> +	return 0;
+> +}
+> +
+> +static int apply_r_riscv_sub_uleb128(struct module *me, void *location, Elf_Addr v)
+> +{
+> +	*(long *)location -= v;
+> +	return 0;
+> +}
+> +
+> +static int accumulation_not_supported(struct module *me, void *location, long buffer)
+> +{
+> +	pr_err("%s: Internal error. Only ADD/SUB/SET/ULEB128 should be accumulated.", me->name);
+> +	return -EINVAL;
+> +}
+> +
+> +static int apply_6_bit_accumulation(struct module *me, void *location, long buffer)
+> +{
+> +	u8 *byte = location;
+> +	u8 value = buffer;
+> +
+> +	if (buffer > 0x3f) {
+> +		pr_err("%s: value %ld out of range for 6-bit relocation.\n",
+> +		       me->name, buffer);
+> +		return -EINVAL;
+> +	}
+> +
+> +	*byte = (*byte & 0xc0) | (value & 0x3f);
+> +	return 0;
+> +}
+> +
+> +static int apply_8_bit_accumulation(struct module *me, void *location, long buffer)
+> +{
+> +	if (buffer > U8_MAX) {
+> +		pr_err("%s: value %ld out of range for 8-bit relocation.\n",
+> +		       me->name, buffer);
+> +		return -EINVAL;
+> +	}
+> +	*(u8 *)location = (u8)buffer;
+> +	return 0;
+> +}
+> +
+> +static int apply_16_bit_accumulation(struct module *me, void *location, long buffer)
+> +{
+> +	if (buffer > U16_MAX) {
+> +		pr_err("%s: value %ld out of range for 16-bit relocation.\n",
+> +		       me->name, buffer);
+> +		return -EINVAL;
+> +	}
+> +	*(u16 *)location = (u16)buffer;
+> +	return 0;
+> +}
+> +
+> +static int apply_32_bit_accumulation(struct module *me, void *location, long buffer)
+> +{
+> +	if (buffer > U32_MAX) {
+> +		pr_err("%s: value %ld out of range for 32-bit relocation.\n",
+> +		       me->name, buffer);
+> +		return -EINVAL;
+> +	}
+> +	*(u32 *)location = (u32)buffer;
+> +	return 0;
+> +}
+> +
+> +static int apply_64_bit_accumulation(struct module *me, void *location, long buffer)
+> +{
+> +	*(u64 *)location = (u64)buffer;
+> +	return 0;
+> +}
+> +
+> +static int apply_uleb128_accumulation(struct module *me, void *location, long buffer)
+> +{
+> +	/*
+> +	 * ULEB128 is a variable length encoding. Encode the buffer into
+> +	 * the ULEB128 data format.
+> +	 */
+> +	u8 *p = location;
+> +
+> +	while (buffer != 0) {
+> +		u8 value = buffer & 0x7f;
+> +
+> +		buffer >>= 7;
+> +		value |= (!!buffer) << 7;
+> +
+> +		*p++ = value;
+> +	}
+> +	return 0;
+> +}
+> +
+> +/*
+> + * Relocations defined in the riscv-elf-psabi-doc.
+> + * This handles static linking only.
+> + */
+> +static struct relocation_handlers reloc_handlers[] = {
+
+I don't see anywhere this table is written to. Can we maybe make it const?
+
+> +	[R_RISCV_32] = { apply_r_riscv_32_rela, false,
+> +			 accumulation_not_supported },
+> +	[R_RISCV_64] = { apply_r_riscv_64_rela, false,
+> +			 accumulation_not_supported },
+> +	[R_RISCV_RELATIVE] = { dynamic_linking_not_supported, false,
+> +			       accumulation_not_supported },
+> +	[R_RISCV_COPY] = { dynamic_linking_not_supported, false,
+> +			   accumulation_not_supported },
+> +	[R_RISCV_JUMP_SLOT] = { dynamic_linking_not_supported, false,
+> +				accumulation_not_supported },
+> +	[R_RISCV_TLS_DTPMOD32] = { dynamic_linking_not_supported, false,
+> +				   accumulation_not_supported },
+> +	[R_RISCV_TLS_DTPMOD64] = { dynamic_linking_not_supported, false,
+> +				   accumulation_not_supported },
+> +	[R_RISCV_TLS_DTPREL32] = { dynamic_linking_not_supported, false,
+> +				   accumulation_not_supported },
+> +	[R_RISCV_TLS_DTPREL64] = { dynamic_linking_not_supported, false,
+> +				   accumulation_not_supported },
+> +	[R_RISCV_TLS_TPREL32] = { dynamic_linking_not_supported, false,
+> +				  accumulation_not_supported },
+> +	[R_RISCV_TLS_TPREL64] = { dynamic_linking_not_supported, false,
+> +				  accumulation_not_supported },
+> +	/* 12-15 undefined */
+> +	[R_RISCV_BRANCH] = { apply_r_riscv_branch_rela, false,
+> +			     accumulation_not_supported },
+> +	[R_RISCV_JAL] = { apply_r_riscv_jal_rela, false,
+> +			  accumulation_not_supported },
+> +	[R_RISCV_CALL] = { apply_r_riscv_call_rela, false,
+> +			   accumulation_not_supported },
+> +	[R_RISCV_CALL_PLT] = { apply_r_riscv_call_plt_rela, false,
+> +			       accumulation_not_supported },
+> +	[R_RISCV_GOT_HI20] = { apply_r_riscv_got_hi20_rela, false,
+> +			       accumulation_not_supported },
+> +	[R_RISCV_TLS_GOT_HI20] = { tls_not_supported, false,
+> +				   accumulation_not_supported },
+> +	[R_RISCV_TLS_GD_HI20] = { tls_not_supported, false,
+> +				  accumulation_not_supported },
+> +	[R_RISCV_PCREL_HI20] = { apply_r_riscv_pcrel_hi20_rela, false,
+> +				 accumulation_not_supported },
+> +	[R_RISCV_PCREL_LO12_I] = { apply_r_riscv_pcrel_lo12_i_rela, false,
+> +				   accumulation_not_supported },
+> +	[R_RISCV_PCREL_LO12_S] = { apply_r_riscv_pcrel_lo12_s_rela, false,
+> +				   accumulation_not_supported },
+> +	[R_RISCV_HI20] = { apply_r_riscv_hi20_rela, false,
+> +			   accumulation_not_supported },
+> +	[R_RISCV_LO12_I] = { apply_r_riscv_lo12_i_rela, false,
+> +			     accumulation_not_supported },
+> +	[R_RISCV_LO12_S] = { apply_r_riscv_lo12_s_rela, false,
+> +			     accumulation_not_supported },
+> +	[R_RISCV_TPREL_HI20] = { tls_not_supported, false,
+> +				 accumulation_not_supported },
+> +	[R_RISCV_TPREL_LO12_I] = { tls_not_supported, false,
+> +				   accumulation_not_supported },
+> +	[R_RISCV_TPREL_LO12_S] = { tls_not_supported, false,
+> +				   accumulation_not_supported },
+> +	[R_RISCV_TPREL_ADD] = { tls_not_supported, false,
+> +				accumulation_not_supported },
+> +	[R_RISCV_ADD8] = { apply_r_riscv_add8_rela, true,
+> +			   apply_8_bit_accumulation },
+> +	[R_RISCV_ADD16] = { apply_r_riscv_add16_rela, true,
+> +			    apply_16_bit_accumulation },
+> +	[R_RISCV_ADD32] = { apply_r_riscv_add32_rela, true,
+> +			    apply_32_bit_accumulation },
+> +	[R_RISCV_ADD64] = { apply_r_riscv_add64_rela, true,
+> +			    apply_64_bit_accumulation },
+> +	[R_RISCV_SUB8] = { apply_r_riscv_sub8_rela, true,
+> +			   apply_8_bit_accumulation },
+> +	[R_RISCV_SUB16] = { apply_r_riscv_sub16_rela, true,
+> +			    apply_16_bit_accumulation },
+> +	[R_RISCV_SUB32] = { apply_r_riscv_sub32_rela, true,
+> +			    apply_32_bit_accumulation },
+> +	[R_RISCV_SUB64] = { apply_r_riscv_sub64_rela, true,
+> +			    apply_64_bit_accumulation },
+> +	/* 41-42 reserved for future standard use */
+> +	[R_RISCV_ALIGN] = { apply_r_riscv_align_rela, false,
+> +			    accumulation_not_supported },
+> +	[R_RISCV_RVC_BRANCH] = { apply_r_riscv_rvc_branch_rela, false,
+> +				 accumulation_not_supported },
+> +	[R_RISCV_RVC_JUMP] = { apply_r_riscv_rvc_jump_rela, false,
+> +			       accumulation_not_supported },
+> +	/* 46-50 reserved for future standard use */
+> +	[R_RISCV_RELAX] = { apply_r_riscv_relax_rela, false,
+> +			    accumulation_not_supported },
+> +	[R_RISCV_SUB6] = { apply_r_riscv_sub6_rela, true,
+> +			   apply_6_bit_accumulation },
+> +	[R_RISCV_SET6] = { apply_r_riscv_set6_rela, true,
+> +			   apply_6_bit_accumulation },
+> +	[R_RISCV_SET8] = { apply_r_riscv_set8_rela, true,
+> +			   apply_8_bit_accumulation },
+> +	[R_RISCV_SET16] = { apply_r_riscv_set16_rela, true,
+> +			    apply_16_bit_accumulation },
+> +	[R_RISCV_SET32] = { apply_r_riscv_set32_rela, true,
+> +			    apply_32_bit_accumulation },
+> +	[R_RISCV_32_PCREL] = { apply_r_riscv_32_pcrel_rela, false,
+> +			       accumulation_not_supported },
+> +	[R_RISCV_IRELATIVE] = { dynamic_linking_not_supported, false,
+> +				accumulation_not_supported },
+> +	[R_RISCV_PLT32] = { apply_r_riscv_plt32_rela, false,
+> +			    accumulation_not_supported },
+> +	[R_RISCV_SET_ULEB128] = { apply_r_riscv_set_uleb128, true,
+> +				  apply_uleb128_accumulation },
+> +	[R_RISCV_SUB_ULEB128] = { apply_r_riscv_sub_uleb128, true,
+> +				  apply_uleb128_accumulation },
+> +	/* 62-191 reserved for future standard use */
+> +	/* 192-255 nonstandard ABI extensions  */
+>  };
+>
+> +void process_accumulated_relocations(struct module *me)
+> +{
+> +	/*
+> +	 * Only ADD/SUB/SET/ULEB128 should end up here.
+> +	 *
+> +	 * Each bucket may have more than one relocation location. All
+> +	 * relocations for a location are stored in a list in a bucket.
+> +	 *
+> +	 * Relocations are applied to a temp variable before being stored to the
+> +	 * provided location to check for overflow. This also allows ULEB128 to
+> +	 * properly decide how many entries are needed before storing to
+> +	 * location. The final value is stored into location using the handler
+> +	 * for the last relocation to an address.
+> +	 *
+> +	 * Three layers of indexing:
+> +	 *	- Each of the buckets in use
+> +	 *	- Groups of relocations in each bucket by location address
+> +	 *	- Each relocation entry for a location address
+> +	 */
+> +	struct used_bucket *bucket_iter;
+> +	struct relocation_head *rel_head_iter;
+> +	struct relocation_entry *rel_entry_iter;
+> +	int curr_type;
+> +	void *location;
+> +	long buffer;
+> +
+> +	list_for_each_entry(bucket_iter, &used_buckets_list, head) {
+> +		hlist_for_each_entry(rel_head_iter, bucket_iter->bucket, node) {
+> +			buffer = 0;
+> +			location = rel_head_iter->location;
+> +			list_for_each_entry(rel_entry_iter,
+> +					    rel_head_iter->rel_entry, head) {
+> +				curr_type = rel_entry_iter->type;
+> +				reloc_handlers[curr_type].reloc_handler(
+> +					me, &buffer, rel_entry_iter->value);
+> +				kfree(rel_entry_iter);
+> +			}
+> +			reloc_handlers[curr_type].accumulate_handler(
+> +				me, location, buffer);
+> +			kfree(rel_head_iter);
+> +		}
+> +		kfree(bucket_iter);
+> +	}
+> +
+> +	kfree(relocation_hashtable);
+> +}
+> +
+> +int add_relocation_to_accumulate(struct module *me, int type, void *location,
+> +				 unsigned int hashtable_bits, Elf_Addr v)
+> +{
+> +	struct relocation_entry *entry;
+> +	struct relocation_head *rel_head;
+> +	struct hlist_head *current_head;
+> +	struct used_bucket *bucket;
+> +	unsigned long hash;
+> +
+> +	entry = kmalloc(sizeof(*entry), GFP_KERNEL);
+> +	INIT_LIST_HEAD(&entry->head);
+> +	entry->type = type;
+> +	entry->value = v;
+> +
+> +	hash = hash_min((unsigned long)location, hashtable_bits);
+
+uintptr_t
+
+> +
+> +	current_head = &relocation_hashtable[hash];
+> +
+> +	/* Find matching location (if any) */
+> +	bool found = false;
+> +	struct relocation_head *rel_head_iter;
+> +
+> +	hlist_for_each_entry(rel_head_iter, current_head, node) {
+> +		if (rel_head_iter->location == location) {
+> +			found = true;
+> +			rel_head = rel_head_iter;
+> +			break;
+> +		}
+> +	}
+> +
+> +	if (!found) {
+> +		rel_head = kmalloc(sizeof(*rel_head), GFP_KERNEL);
+> +		rel_head->rel_entry =
+> +			kmalloc(sizeof(struct list_head), GFP_KERNEL);
+> +		INIT_LIST_HEAD(rel_head->rel_entry);
+> +		rel_head->location = location;
+> +		INIT_HLIST_NODE(&rel_head->node);
+> +		if (!current_head->first) {
+> +			bucket =
+> +				kmalloc(sizeof(struct used_bucket), GFP_KERNEL);
+> +			INIT_LIST_HEAD(&bucket->head);
+> +			bucket->bucket = current_head;
+> +			list_add(&bucket->head, &used_buckets_list);
+> +		}
+> +		hlist_add_head(&rel_head->node, current_head);
+> +	}
+> +
+> +	/* Add relocation to head of discovered rel_head */
+> +	list_add_tail(&entry->head, rel_head->rel_entry);
+> +
+> +	return 0;
+> +}
+> +
+> +unsigned int initialize_relocation_hashtable(unsigned int num_relocations)
+> +{
+> +	/* Can safely assume that bits is not greater than sizeof(long) */
+> +	unsigned long hashtable_size = roundup_pow_of_two(num_relocations);
+> +	unsigned int hashtable_bits = ilog2(hashtable_size);
+> +
+> +	/*
+> +	 * Double size of hashtable if num_relocations * 1.25 is greater than
+> +	 * hashtable_size.
+> +	 */
+> +	int should_double_size = ((num_relocations + (num_relocations >> 2)) > (hashtable_size));
+> +
+> +	hashtable_bits += should_double_size;
+> +
+> +	hashtable_size <<= should_double_size;
+> +
+> +	relocation_hashtable = kmalloc_array(hashtable_size,
+> +					     sizeof(*relocation_hashtable),
+> +					     GFP_KERNEL);
+> +	__hash_init(relocation_hashtable, hashtable_size);
+> +
+> +	INIT_LIST_HEAD(&used_buckets_list);
+> +
+> +	return hashtable_bits;
+> +}
+> +
+>  int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+>  		       unsigned int symindex, unsigned int relsec,
+>  		       struct module *me)
+> @@ -349,11 +783,13 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+>  	unsigned int i, type;
+>  	Elf_Addr v;
+>  	int res;
+> +	unsigned int num_relocations = sechdrs[relsec].sh_size / sizeof(*rel);
+> +	unsigned int hashtable_bits = initialize_relocation_hashtable(num_relocations);
+>
+>  	pr_debug("Applying relocate section %u to %u\n", relsec,
+>  	       sechdrs[relsec].sh_info);
+>
+> -	for (i = 0; i < sechdrs[relsec].sh_size / sizeof(*rel); i++) {
+> +	for (i = 0; i < num_relocations; i++) {
+>  		/* This is where to make the change */
+>  		location = (void *)sechdrs[sechdrs[relsec].sh_info].sh_addr
+>  			+ rel[i].r_offset;
+> @@ -371,8 +807,8 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+>
+>  		type = ELF_RISCV_R_TYPE(rel[i].r_info);
+>
+> -		if (type < ARRAY_SIZE(reloc_handlers_rela))
+> -			handler = reloc_handlers_rela[type];
+> +		if (type < ARRAY_SIZE(reloc_handlers))
+> +			handler = reloc_handlers[type].reloc_handler;
+>  		else
+>  			handler = NULL;
+>
+> @@ -428,11 +864,16 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+>  			}
+>  		}
+>
+> -		res = handler(me, location, v);
+> +		if (reloc_handlers[type].accumulate_relocations)
+
+As far as I can tell the table above has accumulate_relocations == false if and
+only if .accumulate_handler == accumulation_not_supported. Could we maybe drop
+the bool and just check for that?
+
+Are there situations where we might end up calling
+accumulation_not_supported()? If not we could just let .accumulate_handler be
+NULL where accumulation is not supported. Then the table could be initialised
+with
+
+  { reloc_handler }, // when accumulation is not supported and
+  { reloc_handler, accumulate_handler }, // when it is
+
+..and the test above would just be
+
+	if (reloc_handlers[type].accumulate_handler)
+
+> +			res = add_relocation_to_accumulate(me, type, location, hashtable_bits, v);
+> +		else
+> +			res = handler(me, location, v);
+>  		if (res)
+>  			return res;
+>  	}
+>
+> +	process_accumulated_relocations(me);
+> +
+>  	return 0;
+>  }
+>
+>
+> --
+> 2.34.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
