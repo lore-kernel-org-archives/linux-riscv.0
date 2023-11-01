@@ -4,64 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB0CDC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Nov 2023 07:05:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FE3EC4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Nov 2023 07:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jAZ7p7RuV4iL7pbXGJuDTPkBinQQSi6x95OfbkYIXxM=; b=lsYuHMyOuAPPdF
-	R5J6TQzy/xqmdDekYg/3B/EKn1lhCuw5YSVJ9eEKSeDfQ1TxrKXYx6dTNXLQ+YIdZlG7DPqERLVcf
-	1RxFI3owsuQEiYrCukIk/ZBAAEANoAo4x4Fjs8YmDPsdk765uELSfaS7eWCQztRH/5DY9CnPZuiI0
-	TFezq0Zb0e1PBIofk9+VgYqPkvKuxezBRJvNxyL7G3ZaovQUOFaDAua7JIjZO8HIeagXjZT6njlHp
-	XYecqF56Q620Cp2T/mBXlVYwH4swy2dBK2bdFW+iFCqqpwl3uTTYL+0Km+aiyqvR7alkjue1/Lg8K
-	NeNL4uxpAsdVJQJ+4ZiQ==;
+	List-Owner; bh=aGgI2mi/ysYgEpIviajLpHBe5hrf8CMAL45TAic5sSw=; b=gITrgPj++wl8Ad
+	Fj/jNmp3UsJGuDCxcPBhsHq4zbkbDr1RjsVqPcgQu94lVldA++3gshd9Bp1jkHKZbyiTabQcbUz37
+	dpt/7+3fQm8XbRgDwDTPM0odwthDxwky3YGXoMcxQfs5iVKkWe7ohtJsq5ZUOjVhAst4mJrxqwDiK
+	8tWSC8l5VboKnJ6xHp0RKFim2VARhwFUCRxpvrhUavW4AKd8tgHJ4geTAa6teu+Y5xWSGIQBboSwe
+	uaUX+rucpsLJjbxZ6IqKfbzSBZuUZkwhEfKl1kj3ZAsYs8pxkedD33mVElwUWogl9+VPtKahg82DD
+	bYIzS6Tm10Ktc5o0w/Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qy5Hw-006msd-1d;
-	Wed, 01 Nov 2023 07:05:16 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1qy5bo-006o65-1P;
+	Wed, 01 Nov 2023 07:25:48 +0000
+Received: from mgamail.intel.com ([134.134.136.65])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qy5Hp-006ms4-2m
-	for linux-riscv@lists.infradead.org;
-	Wed, 01 Nov 2023 07:05:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 7A3ECCE091A;
-	Wed,  1 Nov 2023 07:05:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEA7CC433C7;
-	Wed,  1 Nov 2023 07:05:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1698822305;
-	bh=j9ykpsBlFRKe7DDjM3F4E4o0mNxil1zOXhS2aCHKGpY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YjjLTuv/okiR0psaAHUqPoY3KJE0Gv/tCKYbFkgJeyb0/c+tpUKx31DNUnNenjA7w
-	 6s/plmHRr6YIa6EK1qtNHfQ/Zzk/6z628H5q4SCaF1nNjBfaEekACsBKoWbTGxnkj6
-	 s7fbZnl47gRFwAAgaXkIFGcOvegKVhGlPlQSiEelu40AL15FkE8pp9BWxhgb0/cw6d
-	 M7fnP1rqhZyQE7NQPx20WxeguOaxMr7WqpRAEWRkAlqXL8FCgjYQI4wsNn/H2Dj5kl
-	 Ov7/yxXdxQFd21AEobNmSkerlr9FQKjoq6Liz3/kzE1ljkqF9R4cXxwIjJVgoKEnsb
-	 SJAKIeqWUglow==
-Message-ID: <5d80e129-b3b3-4bad-b432-897728113bb7@kernel.org>
-Date: Wed, 1 Nov 2023 16:05:01 +0900
+	id 1qy5bi-006o47-1q;
+	Wed, 01 Nov 2023 07:25:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1698823542; x=1730359542;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=qWRVoltW9FVs6NYX3CWyFfOjxesJ7ml8CJp5xBKO3/4=;
+  b=Y5Nq997gQF5kfHd/I1WmSaL8NYQy6m9jij3t/4M5K7FSEwhzd3aFEtl+
+   4HkH9RbdXDWI8DOXUOuxIEMzPpKJ1uL0wrj+cF/BXZQCa2SpWlrO0VyZS
+   CZwu9Pntmcptb5tDoQpY2hYBHbhJF7GkRSGuq3sW2usLU6cNSlsTzgo1A
+   o/2dI1/tydX5UOmUyQj4axMThXQ4SHdRBz29Jenb4pQS7apbu6Ms9UJtg
+   KCBgEkDIwDbPdgXztnd+Hn78nQDCFBLuWHjSENHA1UJxRrUGeAPxzi7CL
+   H7bg0AMWurZOrb8VkCpoYGX3aoH3zz+apjWYOJph2wECbtwPK3VUUZ6U9
+   Q==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10880"; a="392307407"
+X-IronPort-AV: E=Sophos;i="6.03,267,1694761200"; 
+   d="scan'208";a="392307407"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Nov 2023 00:25:37 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.03,267,1694761200"; 
+   d="scan'208";a="8964294"
+Received: from xiaoyaol-hp-g830.ccr.corp.intel.com (HELO [10.93.9.145]) ([10.93.9.145])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Nov 2023 00:25:26 -0700
+Message-ID: <92ba7ddd-2bc8-4a8d-bd67-d6614b21914f@intel.com>
+Date: Wed, 1 Nov 2023 15:25:23 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: Support RANDOMIZE_KSTACK_OFFSET
-To: Song Shuai <songshuaishuai@tinylab.org>, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, keescook@chromium.org,
- guoren@kernel.org, bjorn@rivosinc.com, jszhang@kernel.org,
- conor.dooley@microchip.com, andy.chiu@sifive.com, samitolvanen@google.com,
- coelacanthushex@gmail.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org
-References: <20231101064423.1906122-1-songshuaishuai@tinylab.org>
+Subject: Re: [PATCH v13 17/35] KVM: Add transparent hugepage support for
+ dedicated guest memory
 Content-Language: en-US
-From: Damien Le Moal <dlemoal@kernel.org>
-Organization: Western Digital Research
-In-Reply-To: <20231101064423.1906122-1-songshuaishuai@tinylab.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
+ Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Andrew Morton <akpm@linux-foundation.org>, kvm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, Xu Yilun <yilun.xu@intel.com>,
+ Chao Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>,
+ Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>,
+ David Matlack <dmatlack@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>,
+ Isaku Yamahata <isaku.yamahata@intel.com>, =?UTF-8?B?TWlja2HDq2wgU2FsYcO8?=
+ =?UTF-8?Q?n?= <mic@digikod.net>, Vlastimil Babka <vbabka@suse.cz>,
+ Vishal Annapurve <vannapurve@google.com>,
+ Ackerley Tng <ackerleytng@google.com>,
+ Maciej Szmigiero <mail@maciej.szmigiero.name>,
+ David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
+ Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
+ Liam Merwick <liam.merwick@oracle.com>,
+ Isaku Yamahata <isaku.yamahata@gmail.com>,
+ "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+References: <20231027182217.3615211-1-seanjc@google.com>
+ <20231027182217.3615211-18-seanjc@google.com>
+ <7c0844d8-6f97-4904-a140-abeabeb552c1@intel.com>
+ <ZUEML6oJXDCFJ9fg@google.com>
+From: Xiaoyao Li <xiaoyao.li@intel.com>
+In-Reply-To: <ZUEML6oJXDCFJ9fg@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231101_000510_262504_61A10145 
-X-CRM114-Status: GOOD (  19.96  )
+X-CRM114-CacheID: sfid-20231101_002542_677517_0E5DFA8C 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,100 +104,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/1/23 15:44, Song Shuai wrote:
-> Inspired from arm64's implement -- commit 70918779aec9
-> ("arm64: entry: Enable random_kstack_offset support")
+On 10/31/2023 10:16 PM, Sean Christopherson wrote:
+> On Tue, Oct 31, 2023, Xiaoyao Li wrote:
+>> On 10/28/2023 2:21 AM, Sean Christopherson wrote:
+>>> Extended guest_memfd to allow backing guest memory with transparent
+>>> hugepages. Require userspace to opt-in via a flag even though there's no
+>>> known/anticipated use case for forcing small pages as THP is optional,
+>>> i.e. to avoid ending up in a situation where userspace is unaware that
+>>> KVM can't provide hugepages.
+>>
+>> Personally, it seems not so "transparent" if requiring userspace to opt-in.
+>>
+>> People need to 1) check if the kernel built with TRANSPARENT_HUGEPAGE
+>> support, or check is the sysfs of transparent hugepage exists; 2)get the
+>> maximum support hugepage size 3) ensure the size satisfies the alignment;
+>> before opt-in it.
+>>
+>> Even simpler, userspace can blindly try to create guest memfd with
+>> transparent hugapage flag. If getting error, fallback to create without the
+>> transparent hugepage flag.
+>>
+>> However, it doesn't look transparent to me.
 > 
-> Add support of kernel stack offset randomization while handling syscall,
-> the offset is defaultly limited by KSTACK_OFFSET_MAX() (i.e. 10 bits).
+> The "transparent" part is referring to the underlying kernel mechanism, it's not
+> saying anything about the API.  The "transparent" part of THP is that the kernel
+> doesn't guarantee hugepages, i.e. whether or not hugepages are actually used is
+> (mostly) transparent to userspace.
 > 
-> In order to avoid trigger stack canaries (due to __builtin_alloca) and
-> slowing down the entry path, use __no_stack_protector attribute to
-> disable stack protector for do_trap_ecall_u() at the function level.
+> Paolo also isn't the biggest fan[*], but there are also downsides to always
+> allowing hugepages, e.g. silent failure due to lack of THP or unaligned size,
+> and there's precedent in the form of MADV_HUGEPAGE.
 > 
-> Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
-> ---
-> Testing with randomize_kstack_offset=y cmdline, lkdtm/stack-entropy.sh
-> showed appropriate stack offset instead of zero.
-> ---
->  arch/riscv/Kconfig        |  1 +
->  arch/riscv/kernel/traps.c | 18 +++++++++++++++++-
->  2 files changed, 18 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index d607ab0f7c6d..0e843de33f0c 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -100,6 +100,7 @@ config RISCV
->  	select HAVE_ARCH_KGDB_QXFER_PKT
->  	select HAVE_ARCH_MMAP_RND_BITS if MMU
->  	select HAVE_ARCH_MMAP_RND_COMPAT_BITS if COMPAT
-> +	select HAVE_ARCH_RANDOMIZE_KSTACK_OFFSET
->  	select HAVE_ARCH_SECCOMP_FILTER
->  	select HAVE_ARCH_THREAD_STRUCT_WHITELIST
->  	select HAVE_ARCH_TRACEHOOK
-> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> index 19807c4d3805..3f869b2d47c3 100644
-> --- a/arch/riscv/kernel/traps.c
-> +++ b/arch/riscv/kernel/traps.c
-> @@ -6,6 +6,7 @@
->  #include <linux/cpu.h>
->  #include <linux/kernel.h>
->  #include <linux/init.h>
-> +#include <linux/randomize_kstack.h>
->  #include <linux/sched.h>
->  #include <linux/sched/debug.h>
->  #include <linux/sched/signal.h>
-> @@ -296,9 +297,11 @@ asmlinkage __visible __trap_section void do_trap_break(struct pt_regs *regs)
->  	}
->  }
->  
-> -asmlinkage __visible __trap_section void do_trap_ecall_u(struct pt_regs *regs)
-> +asmlinkage __visible __trap_section  __no_stack_protector
-> +void do_trap_ecall_u(struct pt_regs *regs)
->  {
->  	if (user_mode(regs)) {
-> +
+> [*] https://lore.kernel.org/all/84a908ae-04c7-51c7-c9a8-119e1933a189@redhat.com
 
-White line change.
+But it's different than MADV_HUGEPAGE, in a way. Per my understanding, 
+the failure of MADV_HUGEPAGE is not fatal, user space can ignore it and 
+continue.
 
->  		long syscall = regs->a7;
->  
->  		regs->epc += 4;
-> @@ -308,10 +311,23 @@ asmlinkage __visible __trap_section void do_trap_ecall_u(struct pt_regs *regs)
->  
->  		syscall = syscall_enter_from_user_mode(regs, syscall);
->  
-> +		add_random_kstack_offset();
-> +
->  		if (syscall >= 0 && syscall < NR_syscalls)
->  			syscall_handler(regs, syscall);
->  		else if (syscall != -1)
->  			regs->a0 = -ENOSYS;
-> +		/*
-> +		 * Ultimately, this value will get limited by KSTACK_OFFSET_MAX(),
-> +		 * so the maximum stack offset is 1k bytes (10 bits).
-> +		 *
-> +		 * The actual entropy will be further reduced by the compiler when
-> +		 * applying stack alignment constraints: 16-byte (i.e. 4-bit) aligned
-> +		 * for RV32I or RV64I.
-> +		 *
-> +		 * The resulting 6 bits of entropy is seen in SP[9:4].
-> +		 */
-> +		choose_random_kstack_offset(get_random_u16());
->  
->  		syscall_exit_to_user_mode(regs);
->  	} else {
+However, the failure of KVM_GUEST_MEMFD_ALLOW_HUGEPAGE is fatal, which 
+leads to failure of guest memfd creation.
 
--- 
-Damien Le Moal
-Western Digital Research
-
+For current implementation, I think maybe 
+KVM_GUEST_MEMFD_DESIRE_HUGEPAGE fits better than 
+KVM_GUEST_MEMFD_ALLOW_HUGEPAGE? or maybe *PREFER*?
 
 _______________________________________________
 linux-riscv mailing list
