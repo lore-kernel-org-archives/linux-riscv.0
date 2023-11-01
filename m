@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A868C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Nov 2023 22:48:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9696EC001B5
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Nov 2023 22:48:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bOprndq+UaWCHClizi5Z7v+VaZQhXo625rtCXoUA80Q=; b=WNR9InX1z8UYJW
-	Pgnz/mXRjT3n0ZJEgAd1AztJ/5jOU1UhSsiEQ+ljwn6Nz0M8pCo3e0+t97R+R+w12I29OI7kHjFTg
-	EPgJnhPIbZ+JngYlrqTOyq2qtU/uutPUxvkGhL6mtRqnpgQyTNub07DJjudRjeB7s6U1F4rj2aSyv
-	GIfjyHkChKjgS6hB/YM7n4dZfWyhbQWtWHENPKbVzJlV0Xjcu8Ant5J/4Tt9HHu/eEvGdMEkl5td6
-	TArlLW8VTJ2XTdscNzoO6KlSu4rzwpYFwkZj9PoHgOkRykbE3jKDdXcEiTNuvsVUcylDjQEMp22fe
-	C061Ym3MQzZfDH2S8kdg==;
+	List-Owner; bh=dO8RDnCrzm9/9r2gVfnhHxWOnoXPcJt98Kfy+5YOvPI=; b=dvbpDu2o67QtHS
+	KpPGgJwhBvE3EjhZePVDObYn0yXnUtsp/UjyXdyMC1EI42FItm9Ve1G2JZqHy6sI7P0yzgEYbpoHw
+	P6zotSSj3Rgc3b6PXnRrzy6c7mDg+89sfDYsottgth0oTxrbWcJOmDaK0ignIul49YrDVd66zjQ3O
+	qvvxExyWq9iG4eC8uOuqDNfVqpN4fMk1KyVOV+TuJj8M2oiNhYlAtVXbb3BaFv6aIbcsX5ySpWSQF
+	0SRYzQtbqDs+MRLtOUDvpWztYn6W67KYHfkgVl8ZW8mh4T1u4SEbgY/HLnjb3MVXWq9ZKLYdxb8sF
+	Q1w2kSDCAGi+W8+IyLTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyK0a-008Epl-00;
-	Wed, 01 Nov 2023 22:48:20 +0000
-Received: from mail-oi1-x232.google.com ([2607:f8b0:4864:20::232])
+	id 1qyK0b-008ErM-2X;
+	Wed, 01 Nov 2023 22:48:21 +0000
+Received: from mail-oi1-x22a.google.com ([2607:f8b0:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyK0X-008EoW-0j
+	id 1qyK0Z-008EpB-1Y
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Nov 2023 22:48:18 +0000
-Received: by mail-oi1-x232.google.com with SMTP id 5614622812f47-3b2f28caab9so203536b6e.1
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Nov 2023 15:48:16 -0700 (PDT)
+	Wed, 01 Nov 2023 22:48:20 +0000
+Received: by mail-oi1-x22a.google.com with SMTP id 5614622812f47-3b2e22f1937so189629b6e.1
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Nov 2023 15:48:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698878895; x=1699483695; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698878898; x=1699483698; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=iQdBfGrxgT0Dp0rMc/ALsHZTaxuvWcxH/0MUqWK8IuU=;
-        b=hL5KC94b9+X5Qf4WxVq/FT+Va+DnJTf1W/6Y9cl+mQGfsrRq85n7ksLWl9gjt2f9cR
-         XSu/IAmAHcA7an7y45IohQiTMRGJP0z7luJgC4iL+4u7y0pAAgpxgCEG4441nhukyKvu
-         W1EPfFdUEYgkPEToAXpbtD3Fu9LrByCS02Qa5vumAhLnwbr/444pwrUT1OD2vLfOttPJ
-         79vVqM4uF/kjimL+u9vynlOVlJZlfvUISwa16F6i15znzf0FMXWqV9FoKkmQAoZ0cV7v
-         LXRI45x5DS1Sk/ZiQM+f8o8FseCs93PeMkQJSp3tTQDHwJm/KkknVMWbH4tymLpQHLW3
-         nMgA==
+        bh=Ed3AceHMZkBHW3Y7G0fWRXKUFOz+aro++Yp4kYAVXuk=;
+        b=pHjBAZCimXD3tvlHsdyQWZvbIenbUE5mbKSuXNFlxEDGt5Z4xWnzxF2tqzZUf6VtiE
+         1+al4VUVkNXI6OK/JZ40Zt8ckSLud9z5nIZAsaDQqCi6jCvZehllrkqNjxLef3ygVE4y
+         rmAT8fw2+nzJy313gKqN8D+fyChCHzk6p1QIjsYOt5DcqfFSaCj1Fjj0IjZYSGnyF+gx
+         cr9LPVUHzo2KxnNu4Nv4S6Q4LxB7uRLMXDERJnXpZMu14roJELLDdurkZSgnM6vG2VRI
+         hHit24Vl1l9WKWbHjTPaAP6E/u08Thw/ChG428F8PTIvvYgGqnNNnGPmsL78/L62fgZe
+         +UWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698878895; x=1699483695;
+        d=1e100.net; s=20230601; t=1698878898; x=1699483698;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=iQdBfGrxgT0Dp0rMc/ALsHZTaxuvWcxH/0MUqWK8IuU=;
-        b=cb5MO+9leH2M+8HHa6fYy2X1fx5MshXMA6552+R2XVl8x4C0dxZcQNXJJffbxuPzXI
-         OCR9Pufd1JpgxA1UBX2sZxIIW1UureNCS8DDr6hBp23BP47A/wiLm+VWWuu5dX2zMlNq
-         +9C43M7ckE7pUXrzgJGaGZPmfy2ltQh3yJXwDYPNDszgu3xDM8YqdDwjCRj9SlncKrwD
-         Gv5kyx4V0XMuiFihYjUxJ6Ebs8wAEWTWC+kca5rU1yWzG+C8mCgcP4FoUfsLtuMYmcMH
-         m1oELT5gcCq1ykkQfOOq6oq8aiF2gXPvBSFIEtg0XwqLCXkgh1BfXqfxrqaEM83wTbLj
-         yHMQ==
-X-Gm-Message-State: AOJu0YwFVzMcweUV6ih5h0wm0ijDZnkpPGHzgEYLEonni2aKhCvgQUiD
-	CdA+CzdLeO6tyCELgI35sflFyw==
-X-Google-Smtp-Source: AGHT+IFzBCyL2t03Y1FiJ9LyIJnMA8zrXeS9r4tc6wfUloR8MlbKpjUOkT8jBL2SJ1RUlCdhsNdOCA==
-X-Received: by 2002:a05:6808:1b20:b0:3a1:dfa0:7e18 with SMTP id bx32-20020a0568081b2000b003a1dfa07e18mr21827450oib.25.1698878895176;
-        Wed, 01 Nov 2023 15:48:15 -0700 (PDT)
+        bh=Ed3AceHMZkBHW3Y7G0fWRXKUFOz+aro++Yp4kYAVXuk=;
+        b=V3IlXLop6xMY0saH2wPHB7g99r8dGiwgtvA+4YMJzowSaQ93FUMqty41hya1qO+T2s
+         AT+T0/sxFiRY8BDxjZe92ZKv/eVcQ0hXYiLE7af2fioczsDkh/dk5wafxXJk7LNTC8Sv
+         z0ccaMBn8LJ59Oi7ogOERsKfJ6aLCnBBluEnAk0wsMf6JaWV2W2koBtuvUwpjJ28JMuk
+         GrV1nojFRY6IqEVMlu0yYgpJ9u3CFvlqJpMe5nAHrG+ymWy9JIU3Sa+Ae9vaYw8Ihj19
+         pDS83QuwSPP26L4GDOcniNocSvfOHHVZpeyxFT5IxlbMNS7sX2b44Yw9JMuk8ixytKqA
+         w7SA==
+X-Gm-Message-State: AOJu0YxgNqyTfVNs73wdCu8VLAJ6qD0r9HiL4aGv9rlGmak8t6k2+Sgj
+	u8bqdka7Yl2sUeSDm7/VNtozNw==
+X-Google-Smtp-Source: AGHT+IHopUzoXmnmWd14ia19E+/4HILvhDaQ9lTPnrMCLKpAh1AzG9vNZBvySp5as5cAaQjvBxPEhQ==
+X-Received: by 2002:a05:6808:1920:b0:3b5:64c9:5146 with SMTP id bf32-20020a056808192000b003b564c95146mr7234179oib.42.1698878898191;
+        Wed, 01 Nov 2023 15:48:18 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id be24-20020a056808219800b003b274008e46sm376580oib.0.2023.11.01.15.48.13
+        by smtp.gmail.com with ESMTPSA id be24-20020a056808219800b003b274008e46sm376580oib.0.2023.11.01.15.48.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Nov 2023 15:48:14 -0700 (PDT)
+        Wed, 01 Nov 2023 15:48:17 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Wed, 01 Nov 2023 15:48:11 -0700
-Subject: [PATCH v10 1/5] asm-generic: Improve csum_fold
+Date: Wed, 01 Nov 2023 15:48:13 -0700
+Subject: [PATCH v10 3/5] riscv: Checksum header
 MIME-Version: 1.0
-Message-Id: <20231101-optimize_checksum-v10-1-a498577bb969@rivosinc.com>
+Message-Id: <20231101-optimize_checksum-v10-3-a498577bb969@rivosinc.com>
 References: <20231101-optimize_checksum-v10-0-a498577bb969@rivosinc.com>
 In-Reply-To: <20231101-optimize_checksum-v10-0-a498577bb969@rivosinc.com>
 To: Charlie Jenkins <charlie@rivosinc.com>, 
@@ -77,11 +77,11 @@ To: Charlie Jenkins <charlie@rivosinc.com>,
  linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
 Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
  Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, 
- David Laight <david.laight@aculab.com>
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.12.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231101_154817_260874_8ECFB85F 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20231101_154819_521150_22FF2649 
+X-CRM114-Status: GOOD (  15.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,45 +98,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This csum_fold implementation introduced into arch/arc by Vineet Gupta
-is better than the default implementation on at least arc, x86, and
-riscv. Using GCC trunk and compiling non-inlined version, this
-implementation has 41.6667%, 25% fewer instructions on riscv64, x86-64
-respectively with -O3 optimization. Most implmentations override this
-default in asm, but this should be more performant than all of those
-other implementations except for arm which has barrel shifting and
-sparc32 which has a carry flag.
+Provide checksum algorithms that have been designed to leverage riscv
+instructions such as rotate. In 64-bit, can take advantage of the larger
+register to avoid some overflow checking.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-Reviewed-by: David Laight <david.laight@aculab.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- include/asm-generic/checksum.h | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/riscv/include/asm/checksum.h | 81 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 81 insertions(+)
 
-diff --git a/include/asm-generic/checksum.h b/include/asm-generic/checksum.h
-index 43e18db89c14..ad928cce268b 100644
---- a/include/asm-generic/checksum.h
-+++ b/include/asm-generic/checksum.h
-@@ -2,6 +2,8 @@
- #ifndef __ASM_GENERIC_CHECKSUM_H
- #define __ASM_GENERIC_CHECKSUM_H
- 
-+#include <linux/bitops.h>
+diff --git a/arch/riscv/include/asm/checksum.h b/arch/riscv/include/asm/checksum.h
+new file mode 100644
+index 000000000000..3d77cac338fe
+--- /dev/null
++++ b/arch/riscv/include/asm/checksum.h
+@@ -0,0 +1,81 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Checksum routines
++ *
++ * Copyright (C) 2023 Rivos Inc.
++ */
++#ifndef __ASM_RISCV_CHECKSUM_H
++#define __ASM_RISCV_CHECKSUM_H
 +
- /*
-  * computes the checksum of a memory block at buff, length len,
-  * and adds in "sum" (32-bit)
-@@ -31,9 +33,7 @@ extern __sum16 ip_fast_csum(const void *iph, unsigned int ihl);
- static inline __sum16 csum_fold(__wsum csum)
- {
- 	u32 sum = (__force u32)csum;
--	sum = (sum & 0xffff) + (sum >> 16);
--	sum = (sum & 0xffff) + (sum >> 16);
--	return (__force __sum16)~sum;
-+	return (__force __sum16)((~sum - ror32(sum, 16)) >> 16);
- }
- #endif
- 
++#include <linux/in6.h>
++#include <linux/uaccess.h>
++
++#define ip_fast_csum ip_fast_csum
++
++/* Define riscv versions of functions before importing asm-generic/checksum.h */
++#include <asm-generic/checksum.h>
++
++/*
++ * Quickly compute an IP checksum with the assumption that IPv4 headers will
++ * always be in multiples of 32-bits, and have an ihl of at least 5.
++ * @ihl is the number of 32 bit segments and must be greater than or equal to 5.
++ * @iph is assumed to be word aligned given that NET_IP_ALIGN is set to 2 on
++ *	riscv, defining IP headers to be aligned.
++ */
++static inline __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
++{
++	unsigned long csum = 0;
++	int pos = 0;
++
++	do {
++		csum += ((const unsigned int *)iph)[pos];
++		if (IS_ENABLED(CONFIG_32BIT))
++			csum += csum < ((const unsigned int *)iph)[pos];
++	} while (++pos < ihl);
++
++	/*
++	 * ZBB only saves three instructions on 32-bit and five on 64-bit so not
++	 * worth checking if supported without Alternatives.
++	 */
++	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
++	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
++		unsigned long fold_temp;
++
++		asm_volatile_goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
++					      RISCV_ISA_EXT_ZBB, 1)
++		    :
++		    :
++		    :
++		    : no_zbb);
++
++		if (IS_ENABLED(CONFIG_32BIT)) {
++			asm(".option push				\n\
++			.option arch,+zbb				\n\
++				not	%[fold_temp], %[csum]		\n\
++				rori	%[csum], %[csum], 16		\n\
++				sub	%[csum], %[fold_temp], %[csum]	\n\
++			.option pop"
++			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp));
++		} else {
++			asm(".option push				\n\
++			.option arch,+zbb				\n\
++				rori	%[fold_temp], %[csum], 32	\n\
++				add	%[csum], %[fold_temp], %[csum]	\n\
++				srli	%[csum], %[csum], 32		\n\
++				not	%[fold_temp], %[csum]		\n\
++				roriw	%[csum], %[csum], 16		\n\
++				subw	%[csum], %[fold_temp], %[csum]	\n\
++			.option pop"
++			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp));
++		}
++		return csum >> 16;
++	}
++no_zbb:
++#ifndef CONFIG_32BIT
++	csum += ror64(csum, 32);
++	csum >>= 32;
++#endif
++	return csum_fold((__force __wsum)csum);
++}
++
++#endif /* __ASM_RISCV_CHECKSUM_H */
 
 -- 
 2.34.1
