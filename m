@@ -4,94 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6FECC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Nov 2023 07:30:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7DE2C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Nov 2023 09:04:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/hSX+Q63DGlluUsTvmbdIm/1z7pNFonpcCBNGq80tRM=; b=ZZSeJ9cXMbu9fd
-	5zUb5zrUJsrLFtrNy/1Y3e9iZQoTvK1S0MYL1wYTFQfzUskRrtrrB6EZH7hfexRzrNxthhXtIH0LK
-	XJwlkkyBeRpFGRNGVmW5jqmLGyuz25GZeUutsnTrUGl+Ixe/00P9gqTcSnBpjtVACwNJYDlxiIt/5
-	5ftI3+Tbq4G8n6QKM1YjjyMB1B+t9lJbbETXkbZMHoQymKsfdUx3tEVnxXRDb/XRpRp3BhYhJlPBl
-	bR+t665oQ11qzI6hJj6pC/GkpnKEHOieBJ85ODJGtVJ+FsfH/xpZ09QjE6ujdSq0t0ayZyNSOKXG/
-	wRJXYUFgkLcxFALgyhLQ==;
+	List-Owner; bh=urz7F1gW5JywKdAWCQ5leeO0AZalrnUokwQ7L70azBs=; b=DarJ+TZgoMfWbg
+	TeThKflYEie6p5mCM/JQrqBP/G0/bWJDIGwra4waZc4bjK1/od/it5a1KQXJ+TlWQBxQj7O+j5jFP
+	ESQ3MGOkfhHHYdHcqtZrWwv7C4Hc608QZDvMbyNpj9joRcY9K10Tuwm6sUS5RjtR2YfKg+WN7AllH
+	QzLM2dS75vPUTC9eSOnL2lz3+f9ObLdm2FlKGrnC0Vma3n4Yvs3dK0H6h64CC2nCJgbKpotxLNIo0
+	cdDiVG+xJRt+m3vQw+Fwuh3ejekFQC5Kb7lnARntUCmscnJPYS4gtBdMEgVWZ2w4SLumygsyKi/p/
+	rl4V96FM/TG5YqmQGNzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qy5gg-006ocm-2M;
-	Wed, 01 Nov 2023 07:30:50 +0000
-Received: from mgamail.intel.com ([134.134.136.100])
+	id 1qy79b-006v5x-0M;
+	Wed, 01 Nov 2023 09:04:47 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qy5ga-006obb-1T;
-	Wed, 01 Nov 2023 07:30:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1698823844; x=1730359844;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=38bUYl9zGRcXqgO3kvm3wpVN8MNciUwqMVCV5OnvF8E=;
-  b=er2QJ/d7AotNpisKBRo5fdDhuaQLxKd1yGNkSg+gP1yQR+mrsy2NuNz7
-   gV9P7+qbsPspIWDOD8+waGk83ZjLSFGYmCBMQZZ1Tdkt4M4wYZPUdriwB
-   Wi6h4wFvCrpcI755Dstzngyyf/yLHahbUNf1jyso9UlUg//MqKg8pduVO
-   q+5KWV7VpBeHg/m+lfQ/ka35MA/OwtHzD1U9C7taZrnkHiKL8ahda+RQt
-   bDDYhiqcaReYgd0QcMOq5Pswg4Ta4Z0GieukUpunrfN20RRZrqpr+Hsaj
-   /xel4RHB3IlxguCFUUGT/vVL+5kjiJuC/T4ED5xqOsQISvBLsgV0EgcGa
-   A==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10880"; a="454923849"
-X-IronPort-AV: E=Sophos;i="6.03,267,1694761200"; 
-   d="scan'208";a="454923849"
-Received: from orsmga004.jf.intel.com ([10.7.209.38])
-  by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Nov 2023 00:30:42 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10880"; a="884461159"
-X-IronPort-AV: E=Sophos;i="6.03,267,1694761200"; 
-   d="scan'208";a="884461159"
-Received: from binbinwu-mobl.ccr.corp.intel.com (HELO [10.238.10.126]) ([10.238.10.126])
-  by orsmga004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Nov 2023 00:30:30 -0700
-Message-ID: <b2e1f4ed-9954-4bea-b5b5-04b0041df5ec@linux.intel.com>
-Date: Wed, 1 Nov 2023 15:30:12 +0800
+	id 1qy79V-006v3q-0j
+	for linux-riscv@lists.infradead.org;
+	Wed, 01 Nov 2023 09:04:45 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-53fa455cd94so4901654a12.2
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Nov 2023 02:04:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1698829480; x=1699434280; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=T97XsuQPDMRDtHy08B+rqECq/pabjxSIR/W6V7wvFWM=;
+        b=d48COgA863Kw7K4ZW/mIHHxO5ViM2TY10GfgT+yeFmzggMSNFfTv0/I9P0Y1Hr8mPP
+         h7jJftKugVDvdivV6HDuqkz/xF2ZOGC8CaF1CT7nK2nikeKiqlwHs6+IsesEhvcMUVr1
+         cKkZAznApizSOtHYj0kwajfH9MWP0IOaYYmue5KcSE1mhXyeUN1vYm2q6kn0cF9bAWZ5
+         isv7uM/FA/MdahfRtYSXsVE3xcYqDkxCKByPBYJYHj8/GRVTf6NY/gI0dUwc9o4sGZZR
+         +C2L9W8KTXAaI1t0mgrB5JNKSWFmvKVw5BLxyVaB5oL3dp6aleGA8yBIuWQLqgsOWrbi
+         5LQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1698829480; x=1699434280;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=T97XsuQPDMRDtHy08B+rqECq/pabjxSIR/W6V7wvFWM=;
+        b=sZrLBqfXlVLk3yLzJgqtkHXOAi9ZY74M0bxDZzDSIPC1QmyBkTyMMxpduCpau/uiQd
+         /7jYkxq3oQsvSFUPu6fra8TFbaruLo2vorY4E+UYKxlemgMLLkITQ0mMNvf5zODU1eEM
+         VoKsbd4xxMv+0OH2r5hVzBHtxzWOWgC26j4cEb1vY7mxqmH7r3EBeTuyBanM+bStMhtC
+         KfmO8aKs7NXjJwiqDZ5477tCs3WrtV0Gk0MSOdROhldUdQb0Yh3CptFvhh1nhwD7nTII
+         OYm7ZufiN4yjVI1r15IEsxyGr4OnzoJFe4AvXGDOnwFrnBolkJSvKOqA4/TNdDqOl9KP
+         ljRw==
+X-Gm-Message-State: AOJu0YwMNLt9MSIdp5tlJ7CwZQbypsL18P6BGj8LPlgV6kc6TErBzBli
+	Ks3Q2akZbi2e+t1v+U7XDS6JmIPk/1DKA3U3nJVlGQ==
+X-Google-Smtp-Source: AGHT+IE3lvIVL/RqHctY3lvCHB1fhOmc51H/phVezjStkLmOqrn9OaDOQHPPmsK4zrwvjKKx4RwmqYLMKXfHu3BQP9o=
+X-Received: by 2002:a05:6a20:4327:b0:16b:b4a0:e06b with SMTP id
+ h39-20020a056a20432700b0016bb4a0e06bmr14390989pzk.43.1698829479791; Wed, 01
+ Nov 2023 02:04:39 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 09/35] KVM: Add KVM_EXIT_MEMORY_FAULT exit to report
- faults to userspace
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>, kvm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, Xiaoyao Li <xiaoyao.li@intel.com>,
- Xu Yilun <yilun.xu@intel.com>, Chao Peng <chao.p.peng@linux.intel.com>,
- Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
- Anish Moorthy <amoorthy@google.com>, David Matlack <dmatlack@google.com>,
- Yu Zhang <yu.c.zhang@linux.intel.com>,
- Isaku Yamahata <isaku.yamahata@intel.com>, =?UTF-8?B?TWlja2HDq2wgU2FsYcO8?=
- =?UTF-8?Q?n?= <mic@digikod.net>, Vlastimil Babka <vbabka@suse.cz>,
- Vishal Annapurve <vannapurve@google.com>,
- Ackerley Tng <ackerleytng@google.com>,
- Maciej Szmigiero <mail@maciej.szmigiero.name>,
- David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
- Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
- Liam Merwick <liam.merwick@oracle.com>,
- Isaku Yamahata <isaku.yamahata@gmail.com>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20231027182217.3615211-1-seanjc@google.com>
- <20231027182217.3615211-10-seanjc@google.com>
-From: Binbin Wu <binbin.wu@linux.intel.com>
-In-Reply-To: <20231027182217.3615211-10-seanjc@google.com>
+References: <20231027080400.56703-1-vincent.guittot@linaro.org>
+ <20231027080400.56703-8-vincent.guittot@linaro.org> <ZUGUvdjrpw9NHSex@e129154.nice.arm.com>
+In-Reply-To: <ZUGUvdjrpw9NHSex@e129154.nice.arm.com>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Wed, 1 Nov 2023 10:04:27 +0100
+Message-ID: <CAKfTPtDDouduP57P8GH6J4qDjbKUasVRe-K0QUKcZHC2NZ+syQ@mail.gmail.com>
+Subject: Re: [PATCH v4 7/7] arm64/amu: use capacity_ref_freq to set AMU ratio
+To: Beata Michalska <beata.michalska@arm.com>
+Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org, 
+	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com, 
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com, 
+	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com, 
+	viresh.kumar@linaro.org, lenb@kernel.org, robert.moore@intel.com, 
+	lukasz.luba@arm.com, ionela.voinescu@arm.com, pierre.gondois@arm.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, acpica-devel@lists.linuxfoundation.org, 
+	conor.dooley@microchip.com, suagrfillet@gmail.com, ajones@ventanamicro.com, 
+	lftan@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231101_003044_603214_2714749C 
-X-CRM114-Status: GOOD (  37.85  )
+X-CRM114-CacheID: sfid-20231101_020441_265554_50015343 
+X-CRM114-Status: GOOD (  20.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,201 +94,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Beata,
 
+On Wed, 1 Nov 2023 at 00:59, Beata Michalska <beata.michalska@arm.com> wrote:
+>
+> On Fri, Oct 27, 2023 at 10:04:00AM +0200, Vincent Guittot wrote:
+> > Use the new capacity_ref_freq to set the ratio that is used by AMU for
+> > computing the arch_scale_freq_capacity().
+> > This helps to keep everything aligned using the same reference for
+> > computing CPUs capacity.
+> >
 
-On 10/28/2023 2:21 AM, Sean Christopherson wrote:
-> From: Chao Peng <chao.p.peng@linux.intel.com>
->
-> Add a new KVM exit type to allow userspace to handle memory faults that
-> KVM cannot resolve, but that userspace *may* be able to handle (without
-> terminating the guest).
->
-> KVM will initially use KVM_EXIT_MEMORY_FAULT to report implicit
-> conversions between private and shared memory.  With guest private memory,
-> there will be two kind of memory conversions:
->
->    - explicit conversion: happens when the guest explicitly calls into KVM
->      to map a range (as private or shared)
->
->    - implicit conversion: happens when the guest attempts to access a gfn
->      that is configured in the "wrong" state (private vs. shared)
->
-> On x86 (first architecture to support guest private memory), explicit
-> conversions will be reported via KVM_EXIT_HYPERCALL+KVM_HC_MAP_GPA_RANGE,
-> but reporting KVM_EXIT_HYPERCALL for implicit conversions is undesriable
-> as there is (obviously) no hypercall, and there is no guarantee that the
-> guest actually intends to convert between private and shared, i.e. what
-> KVM thinks is an implicit conversion "request" could actually be the
-> result of a guest code bug.
->
-> KVM_EXIT_MEMORY_FAULT will be used to report memory faults that appear to
-> be implicit conversions.
->
-> Note!  To allow for future possibilities where KVM reports
-> KVM_EXIT_MEMORY_FAULT and fills run->memory_fault on _any_ unresolved
-> fault, KVM returns "-EFAULT" (-1 with errno == EFAULT from userspace's
-> perspective), not '0'!
-Is "-EHWPOISON" case not considered unresolved, so it is not mentioned here?
+[..]
 
-> Due to historical baggage within KVM, exiting to
-> userspace with '0' from deep callstacks, e.g. in emulation paths, is
-> infeasible as doing so would require a near-complete overhaul of KVM,
-> whereas KVM already propagates -errno return codes to userspace even when
-> the -errno originated in a low level helper.
+> > @@ -381,6 +385,9 @@ void topology_init_cpu_capacity_cppc(void)
+> >       }
+> >
+> >       for_each_possible_cpu(cpu) {
+> > +             freq_inv_set_max_ratio(cpu,
+> > +                                    per_cpu(capacity_ref_freq, cpu) * HZ_PER_KHZ);
+> > +
+> The capacity_ref_freq set earlier will still lead to units mismatch,
+> as at the point of calling topology_init_cpu_capacity_cppc the lowest & nominal
+> frequencies will be provided in MHz (unless I have missed smth).
+
+I don't get your point:
+the unit of per_cpu(capacity_freq_ref, cpu) is Khz
+
+For cppc, we have
+per_cpu(capacity_freq_ref, cpu) = cppc_perf_to_khz(&perf_caps,
+raw_capacity[cpu]);
+
+freq_inv_set_max_ratio() uses
+arch_timer_get_rate() which returns a freq in Hz
+and
+per_cpu(capacity_freq_ref, cpu) * HZ_PER_KHZ. to get a freq in Hz too.
+
+> This means that use of both, the capacity_ref_freq and the arch_freq_scale
+> will generate unexpected results, so I guess this should get amended in the
+> preceding patch (?) [1]
 >
-> Report the gpa+size instead of a single gfn even though the initial usage
-> is expected to always report single pages.  It's entirely possible, likely
-> even, that KVM will someday support sub-page granularity faults, e.g.
-> Intel's sub-page protection feature allows for additional protections at
-> 128-byte granularity.
->
-> Link: https://lore.kernel.org/all/20230908222905.1321305-5-amoorthy@google.com
-> Link: https://lore.kernel.org/all/ZQ3AmLO2SYv3DszH@google.com
-> Cc: Anish Moorthy <amoorthy@google.com>
-> Cc: David Matlack <dmatlack@google.com>
-> Suggested-by: Sean Christopherson <seanjc@google.com>
-> Co-developed-by: Yu Zhang <yu.c.zhang@linux.intel.com>
-> Signed-off-by: Yu Zhang <yu.c.zhang@linux.intel.com>
-> Signed-off-by: Chao Peng <chao.p.peng@linux.intel.com>
-> Co-developed-by: Sean Christopherson <seanjc@google.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
->   Documentation/virt/kvm/api.rst | 41 ++++++++++++++++++++++++++++++++++
->   arch/x86/kvm/x86.c             |  1 +
->   include/linux/kvm_host.h       | 11 +++++++++
->   include/uapi/linux/kvm.h       |  8 +++++++
->   4 files changed, 61 insertions(+)
+> BR
+> B.
 >
-> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> index ace984acc125..860216536810 100644
-> --- a/Documentation/virt/kvm/api.rst
-> +++ b/Documentation/virt/kvm/api.rst
-> @@ -6723,6 +6723,26 @@ array field represents return values. The userspace should update the return
->   values of SBI call before resuming the VCPU. For more details on RISC-V SBI
->   spec refer, https://github.com/riscv/riscv-sbi-doc.
->   
-> +::
-> +
-> +		/* KVM_EXIT_MEMORY_FAULT */
-> +		struct {
-> +			__u64 flags;
-> +			__u64 gpa;
-> +			__u64 size;
-> +		} memory;
-> +
-> +KVM_EXIT_MEMORY_FAULT indicates the vCPU has encountered a memory fault that
-> +could not be resolved by KVM.  The 'gpa' and 'size' (in bytes) describe the
-> +guest physical address range [gpa, gpa + size) of the fault.  The 'flags' field
-> +describes properties of the faulting access that are likely pertinent.
-> +Currently, no flags are defined.
-> +
-> +Note!  KVM_EXIT_MEMORY_FAULT is unique among all KVM exit reasons in that it
-> +accompanies a return code of '-1', not '0'!  errno will always be set to EFAULT
-> +or EHWPOISON when KVM exits with KVM_EXIT_MEMORY_FAULT, userspace should assume
-> +kvm_run.exit_reason is stale/undefined for all other error numbers.
-> +
->   ::
->   
->       /* KVM_EXIT_NOTIFY */
-> @@ -7757,6 +7777,27 @@ This capability is aimed to mitigate the threat that malicious VMs can
->   cause CPU stuck (due to event windows don't open up) and make the CPU
->   unavailable to host or other VMs.
->   
-> +7.34 KVM_CAP_MEMORY_FAULT_INFO
-> +------------------------------
-> +
-> +:Architectures: x86
-> +:Returns: Informational only, -EINVAL on direct KVM_ENABLE_CAP.
-> +
-> +The presence of this capability indicates that KVM_RUN will fill
-> +kvm_run.memory_fault if KVM cannot resolve a guest page fault VM-Exit, e.g. if
-> +there is a valid memslot but no backing VMA for the corresponding host virtual
-> +address.
-> +
-> +The information in kvm_run.memory_fault is valid if and only if KVM_RUN returns
-> +an error with errno=EFAULT or errno=EHWPOISON *and* kvm_run.exit_reason is set
-> +to KVM_EXIT_MEMORY_FAULT.
-> +
-> +Note: Userspaces which attempt to resolve memory faults so that they can retry
-> +KVM_RUN are encouraged to guard against repeatedly receiving the same
-> +error/annotated fault.
-> +
-> +See KVM_EXIT_MEMORY_FAULT for more information.
-> +
->   8. Other capabilities.
->   ======================
->   
-> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-> index 6409914428ca..ee3cd8c3c0ef 100644
-> --- a/arch/x86/kvm/x86.c
-> +++ b/arch/x86/kvm/x86.c
-> @@ -4518,6 +4518,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->   	case KVM_CAP_ENABLE_CAP:
->   	case KVM_CAP_VM_DISABLE_NX_HUGE_PAGES:
->   	case KVM_CAP_IRQFD_RESAMPLE:
-> +	case KVM_CAP_MEMORY_FAULT_INFO:
->   		r = 1;
->   		break;
->   	case KVM_CAP_EXIT_HYPERCALL:
-> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-> index 4e741ff27af3..96aa930536b1 100644
-> --- a/include/linux/kvm_host.h
-> +++ b/include/linux/kvm_host.h
-> @@ -2327,4 +2327,15 @@ static inline void kvm_account_pgtable_pages(void *virt, int nr)
->   /* Max number of entries allowed for each kvm dirty ring */
->   #define  KVM_DIRTY_RING_MAX_ENTRIES  65536
->   
-> +static inline void kvm_prepare_memory_fault_exit(struct kvm_vcpu *vcpu,
-> +						 gpa_t gpa, gpa_t size)
-> +{
-> +	vcpu->run->exit_reason = KVM_EXIT_MEMORY_FAULT;
-> +	vcpu->run->memory_fault.gpa = gpa;
-> +	vcpu->run->memory_fault.size = size;
-> +
-> +	/* Flags are not (yet) defined or communicated to userspace. */
-> +	vcpu->run->memory_fault.flags = 0;
-> +}
-> +
->   #endif
-> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-> index bd1abe067f28..7ae9987b48dd 100644
-> --- a/include/uapi/linux/kvm.h
-> +++ b/include/uapi/linux/kvm.h
-> @@ -274,6 +274,7 @@ struct kvm_xen_exit {
->   #define KVM_EXIT_RISCV_SBI        35
->   #define KVM_EXIT_RISCV_CSR        36
->   #define KVM_EXIT_NOTIFY           37
-> +#define KVM_EXIT_MEMORY_FAULT     38
->   
->   /* For KVM_EXIT_INTERNAL_ERROR */
->   /* Emulate instruction failed. */
-> @@ -520,6 +521,12 @@ struct kvm_run {
->   #define KVM_NOTIFY_CONTEXT_INVALID	(1 << 0)
->   			__u32 flags;
->   		} notify;
-> +		/* KVM_EXIT_MEMORY_FAULT */
-> +		struct {
-> +			__u64 flags;
-> +			__u64 gpa;
-> +			__u64 size;
-> +		} memory_fault;
->   		/* Fix the size of the union. */
->   		char padding[256];
->   	};
-> @@ -1203,6 +1210,7 @@ struct kvm_ppc_resize_hpt {
->   #define KVM_CAP_ARM_EAGER_SPLIT_CHUNK_SIZE 228
->   #define KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES 229
->   #define KVM_CAP_USER_MEMORY2 230
-> +#define KVM_CAP_MEMORY_FAULT_INFO 231
->   
->   #ifdef KVM_CAP_IRQ_ROUTING
->   
-
+> [1] https://lore.kernel.org/linux-arm-kernel/20231027080400.56703-4-vincent.guittot@linaro.org/T/#m42daa167097edc190b1cfc05382c385ed801d909
+>
+> >               capacity = raw_capacity[cpu];
+> >               capacity = div64_u64(capacity << SCHED_CAPACITY_SHIFT,
+> >                                    capacity_scale);
+> > @@ -422,8 +429,11 @@ init_cpu_capacity_callback(struct notifier_block *nb,
+> >
+> >       cpumask_andnot(cpus_to_visit, cpus_to_visit, policy->related_cpus);
+> >
+> > -     for_each_cpu(cpu, policy->related_cpus)
+> > +     for_each_cpu(cpu, policy->related_cpus) {
+> >               per_cpu(capacity_ref_freq, cpu) = policy->cpuinfo.max_freq;
+> > +             freq_inv_set_max_ratio(cpu,
+> > +                                    per_cpu(capacity_ref_freq, cpu) * HZ_PER_KHZ);
+> > +     }
+> >
+> >       if (cpumask_empty(cpus_to_visit)) {
+> >               topology_normalize_cpu_scale();
+> > diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
+> > index 38ca6c76af56..ffdf0b7c55fa 100644
+> > --- a/include/linux/arch_topology.h
+> > +++ b/include/linux/arch_topology.h
+> > @@ -99,6 +99,7 @@ void update_siblings_masks(unsigned int cpu);
+> >  void remove_cpu_topology(unsigned int cpuid);
+> >  void reset_cpu_topology(void);
+> >  int parse_acpi_topology(void);
+> > +void freq_inv_set_max_ratio(int cpu, u64 max_rate);
+> >  #endif
+> >
+> >  #endif /* _LINUX_ARCH_TOPOLOGY_H_ */
+> > --
+> > 2.34.1
+> >
 
 _______________________________________________
 linux-riscv mailing list
