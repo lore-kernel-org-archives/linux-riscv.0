@@ -4,99 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF171C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Nov 2023 22:35:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B765BC4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Nov 2023 22:48:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=QP3nR+Oplytw3ZN38rVQADmyvHpGowUj9p8d5v5LhWw=; b=Kdlmzv9xoMliv6bP1WMKg8XxO9
-	9dNKUIvxqObaumhkRZB+Rbv/KXgMGsMiu44kd7U2sI4gaGcgM0acMQQqBco9k5Z7aCKW6+nU0MVYi
-	Xe4sWyry0C87NNmYVf2eopRWN+XjS5F0PrJ9P4TRpuoQwmBLkve3OET1apEZhh7RMnSAAnc6/qiGi
-	KrNCz4wbI2Un2us9n+jGtvwq0jKctJjSk0gzg06eS6aaMqpgMXo/R7/tlNWzmyyTxQpLGvnbG9DnB
-	XGN2sH7pJTiy4o7ttAJCEFMRIfd+epxX+diwx/UmTE5rveRtKNlt0JbWtLsGv/2NelF/+Ww2U2itt
-	rE/iKKGw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xaI/kP1aKGI/RMyAMWq6KOwyxBFpPP2dufXK6sgkDkM=; b=IQ4ZZ+EwTk8OuX
+	bOH2ofOwk01TUEXDsBg2feayfyq6saDcuw1hr+U7U3v8w5fooCJ3OPK+RhM3GMbw1GC7WTCAGMqLW
+	cw/Lqa0BCfrL3wfyw25H4DZoPyBnuIZrRH2ZP57xd6OgnhD4BI4zv6OPFBnkNwTDue5jzfCbUeE0d
+	XWVvFLBbjgOKPXSc7ngs/VWwMezgEBlwdyZSiPAPFp/lk4eg76ThFJ6oy+xdLLbPCXXmL2SQXVQI1
+	vVFgP16eGAchdl2bu4E1K4AoFIEll6vSz+UDQr0M56QJHnd+JS5u5iYc7QqkcQkMF5ALNwL3aga7P
+	IIS6P/xwKj9pufsoQSJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyJnl-008DnB-0t;
-	Wed, 01 Nov 2023 22:35:05 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1qyK0b-008Eqb-0X;
+	Wed, 01 Nov 2023 22:48:21 +0000
+Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyJnh-008DlM-36
+	id 1qyK0X-008Eok-37
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Nov 2023 22:35:03 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-5af16e00fadso6181307b3.0
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Nov 2023 15:35:00 -0700 (PDT)
+	Wed, 01 Nov 2023 22:48:19 +0000
+Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-3b2ea7cc821so222659b6e.1
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Nov 2023 15:48:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1698878099; x=1699482899; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=oVrvOLECZXxSaWjRNpKGTaiE8FNIaCo3DEHHzsR8PGo=;
-        b=Y7FVLg9uRM3k8sa5rupVUKF1s7vSFf6R/qtTfM4wWD42ez4OthzC36VIj81VB5rKhk
-         9EyD4/8W9/IAOYqPzsenUbjXO2+jvzGghMukJyaonrK2baeUPO4Fajo9RNJLmVI2+iSe
-         p4q7b7A++Qucv+pg4T8D0p/ehsvS6e+KmpUiey5pcAUSkYO4cJthNKCyz9zu0LMDw2e0
-         MmuoJgcgGuogCebL7Iq2MGEQ0uJfBMiuxUf/9ARgs2nZvNJaoPwsFiKMwJUHeIerYpzY
-         IdcxCv75+48Ka1CP8DS39Nv1ZyEFn9auheZuu7XucfjiA34dr+mjKChgUwhlXFCPXXL5
-         CW2Q==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698878896; x=1699483696; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+Jfb6hOBzZpUnQKwLCoqR3E0xQBxJXpYyz1BMSpxkFw=;
+        b=i5Qn7Fxs9rtRqQoJpAW6BkJSJJIYxwUHYXiGLu1rY6ZS3muuXG+3dIATd70tz6l0nQ
+         hGWdzj2vUtzU39FRokpjGgvfKfFCgMFkut76EQQ/nJt+YJLZanchRwmVY656QsKGRXOC
+         tmHfE4PQAje67sw/pxcnJG/EL04eZlcYALE5njTkleVSrvJQ3MNdVmwul8zDX2r1vIS7
+         z7XuOUte7lb7cuH5XU3/1G0CRt6cCPttZwrWmaMax/pUGmOcbhQKtXzb6IhLu5aMNp8R
+         aPt2hLeneziLDL0bIr0WTx7WjrBLmiebv85uRckDcn4d9MFZ5K8QAeEnmUrrOnxtut5a
+         v2YA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698878099; x=1699482899;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=oVrvOLECZXxSaWjRNpKGTaiE8FNIaCo3DEHHzsR8PGo=;
-        b=AhYAdeqRKP/wLEQlfeI59eJzcxrZ1tZHuWwpH0+L2JOUncXcZ57P0HLqn1YXBoVPh9
-         emSXoKzI8eyTSitxa/DxcfXBB1y84npHSf/vrEJ/fRr2asey53GsxOhfW2a+JeNZyqaW
-         pPIq8YkhmMVwm/UgaAXEPW8jT0yrUi9faJ2BQa4EWy1aHd39tPmHhMrouXtuaZJha9FP
-         AyyJb6ijIctN7G/4pgVCl7tFXAng3fuzMFtqzAb56Hr5niwrNrqixA/zdG9bDUL3GLoW
-         cj5vOUy+OWXCMCeNhI4VW4o95s2PssJTVHOCpTg90BJSdfuABBfkl6BqM8gm3+77GHcI
-         chSQ==
-X-Gm-Message-State: AOJu0YzB/Bu4Efkn0YYwbFk2NyT0i8LPwly8ICXgbx6VnVvUNZYd8kNs
-	T4gi3BT5Qgfv2NcdS1dNTP89f5SwJkw=
-X-Google-Smtp-Source: AGHT+IGD6UN3MOOerdMFLEmny4gzkak60wHqIVXKsA4NlWLNqw1UJj00i84usFlUQuEsQ45Qnt2ok92VRKM=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a81:9214:0:b0:5a7:bbdb:6b39 with SMTP id
- j20-20020a819214000000b005a7bbdb6b39mr350826ywg.3.1698878099514; Wed, 01 Nov
- 2023 15:34:59 -0700 (PDT)
-Date: Wed, 1 Nov 2023 15:34:58 -0700
-In-Reply-To: <4ca2253d-276f-43c5-8e9f-0ded5d5b2779@redhat.com>
-Mime-Version: 1.0
-References: <20231027182217.3615211-1-seanjc@google.com> <20231027182217.3615211-18-seanjc@google.com>
- <7c0844d8-6f97-4904-a140-abeabeb552c1@intel.com> <ZUEML6oJXDCFJ9fg@google.com>
- <92ba7ddd-2bc8-4a8d-bd67-d6614b21914f@intel.com> <ZUJVfCkIYYFp5VwG@google.com>
- <CABgObfaw4Byuzj5J3k48jdwT0HCKXLJNiuaA9H8Dtg+GOq==Sw@mail.gmail.com>
- <ZUJ-cJfofk2d_I0B@google.com> <4ca2253d-276f-43c5-8e9f-0ded5d5b2779@redhat.com>
-Message-ID: <ZULSkilO-tdgDGyT@google.com>
-Subject: Re: [PATCH v13 17/35] KVM: Add transparent hugepage support for
- dedicated guest memory
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Xiaoyao Li <xiaoyao.li@intel.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, Xu Yilun <yilun.xu@intel.com>, 
-	Chao Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>, 
-	Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, 
-	David Matlack <dmatlack@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>, 
-	Isaku Yamahata <isaku.yamahata@intel.com>, 
-	"=?utf-8?Q?Micka=C3=ABl_Sala=C3=BCn?=" <mic@digikod.net>, Vlastimil Babka <vbabka@suse.cz>, 
-	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Maciej Szmigiero <mail@maciej.szmigiero.name>, David Hildenbrand <david@redhat.com>, 
-	Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
-	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+        d=1e100.net; s=20230601; t=1698878896; x=1699483696;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+Jfb6hOBzZpUnQKwLCoqR3E0xQBxJXpYyz1BMSpxkFw=;
+        b=Qj6M1YonRzQEFQd0jz04LYvH4MFpEbyDVuG/fVZCAzzrNMjqRt7ywx0zOvKPQyEq9O
+         oDSCl2P96VFH7FDlOsxxxJc3C4jIwz4zDkq8Fiy3px61Y4ZmGJJmcoYN+Yy747uc/ycp
+         o9CJ7h7CP0dHc6zyYfuzB97YqbWFfFb8fkxpLeLt0wxOOCyB6r442mayc/or7I7xNpU1
+         qGuYhCw5SGeLkXYlJmae0Od5ufweUVRlM49aTB4cmEekmWc6TbU89gkZAIUbmYLg/DRv
+         yU7I2zrs3mLhL3Adi56tPX1lbtlLGCF7vlH7t2uGxGW1BDn1PP5kRaYjY0OfZfQZy/Ut
+         kaZA==
+X-Gm-Message-State: AOJu0YzvB1LDDWWKpUzoQb6GwCvABx/I/t36lydEkz0c7Zv7O5Pm2Dja
+	YTSr8NO/o+aBDeB33rTjTvhMfA==
+X-Google-Smtp-Source: AGHT+IFrRQ4RvXCeg9zgcc6gQJKyxMZycIJwRZBo6fv/AO0GuJFj60KRW9zeICB72WblOqK7tOZRDw==
+X-Received: by 2002:a05:6808:13d6:b0:3b2:ef9a:4339 with SMTP id d22-20020a05680813d600b003b2ef9a4339mr21460103oiw.49.1698878896675;
+        Wed, 01 Nov 2023 15:48:16 -0700 (PDT)
+Received: from charlie.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id be24-20020a056808219800b003b274008e46sm376580oib.0.2023.11.01.15.48.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Nov 2023 15:48:16 -0700 (PDT)
+From: Charlie Jenkins <charlie@rivosinc.com>
+Date: Wed, 01 Nov 2023 15:48:12 -0700
+Subject: [PATCH v10 2/5] riscv: Add static key for misaligned accesses
+MIME-Version: 1.0
+Message-Id: <20231101-optimize_checksum-v10-2-a498577bb969@rivosinc.com>
+References: <20231101-optimize_checksum-v10-0-a498577bb969@rivosinc.com>
+In-Reply-To: <20231101-optimize_checksum-v10-0-a498577bb969@rivosinc.com>
+To: Charlie Jenkins <charlie@rivosinc.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ David Laight <David.Laight@aculab.com>, Xiao Wang <xiao.w.wang@intel.com>, 
+ Evan Green <evan@rivosinc.com>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>
+X-Mailer: b4 0.12.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231101_153502_037695_410A50A8 
-X-CRM114-Status: GOOD (  26.54  )
+X-CRM114-CacheID: sfid-20231101_154818_002802_DA2DA3C4 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,61 +97,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 01, 2023, Paolo Bonzini wrote:
-> On 11/1/23 17:36, Sean Christopherson wrote:
-> > > > "Allow" isn't perfect, e.g. I would much prefer a straight KVM_GUEST_MEMFD_USE_HUGEPAGES
-> > > > or KVM_GUEST_MEMFD_HUGEPAGES flag, but I wanted the name to convey that KVM doesn't
-> > > > (yet) guarantee hugepages.  I.e. KVM_GUEST_MEMFD_ALLOW_HUGEPAGE is stronger than
-> > > > a hint, but weaker than a requirement.  And if/when KVM supports a dedicated memory
-> > > > pool of some kind, then we can add KVM_GUEST_MEMFD_REQUIRE_HUGEPAGE.
-> > > I think that the current patch is fine, but I will adjust it to always
-> > > allow the flag, and to make the size check even if !CONFIG_TRANSPARENT_HUGEPAGE.
-> > > If hugepages are not guaranteed, and (theoretically) you could have no
-> > > hugepage at all in the result, it's okay to get this result even if THP is not
-> > > available in the kernel.
-> > Can you post a fixup patch?  It's not clear to me exactly what behavior you intend
-> > to end up with.
-> 
-> Sure, just this:
-> 
-> diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
-> index 7d1a33c2ad42..34fd070e03d9 100644
-> --- a/virt/kvm/guest_memfd.c
-> +++ b/virt/kvm/guest_memfd.c
-> @@ -430,10 +430,7 @@ int kvm_gmem_create(struct kvm *kvm, struct kvm_create_guest_memfd *args)
->  {
->  	loff_t size = args->size;
->  	u64 flags = args->flags;
-> -	u64 valid_flags = 0;
-> -
-> -	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE))
-> -		valid_flags |= KVM_GUEST_MEMFD_ALLOW_HUGEPAGE;
-> +	u64 valid_flags = KVM_GUEST_MEMFD_ALLOW_HUGEPAGE;
->  	if (flags & ~valid_flags)
->  		return -EINVAL;
-> @@ -441,11 +438,9 @@ int kvm_gmem_create(struct kvm *kvm, struct kvm_create_guest_memfd *args)
->  	if (size < 0 || !PAGE_ALIGNED(size))
->  		return -EINVAL;
-> -#ifdef CONFIG_TRANSPARENT_HUGEPAGE
->  	if ((flags & KVM_GUEST_MEMFD_ALLOW_HUGEPAGE) &&
->  	    !IS_ALIGNED(size, HPAGE_PMD_SIZE))
->  		return -EINVAL;
-> -#endif
+Support static branches depending on the value of misaligned accesses.
+This will be used by a later patch in the series. All cpus must be
+considered "fast" for this static branch to be flipped.
 
-That won't work, HPAGE_PMD_SIZE is valid only for CONFIG_TRANSPARENT_HUGEPAGE=y.
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+---
+ arch/riscv/include/asm/cpufeature.h |  3 +++
+ arch/riscv/kernel/cpufeature.c      | 30 ++++++++++++++++++++++++++++++
+ 2 files changed, 33 insertions(+)
 
-#else /* CONFIG_TRANSPARENT_HUGEPAGE */
-#define HPAGE_PMD_SHIFT ({ BUILD_BUG(); 0; })
-#define HPAGE_PMD_MASK ({ BUILD_BUG(); 0; })
-#define HPAGE_PMD_SIZE ({ BUILD_BUG(); 0; })
+diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+index b139796392d0..febd9de4373e 100644
+--- a/arch/riscv/include/asm/cpufeature.h
++++ b/arch/riscv/include/asm/cpufeature.h
+@@ -7,6 +7,7 @@
+ #define _ASM_CPUFEATURE_H
+ 
+ #include <linux/bitmap.h>
++#include <linux/jump_label.h>
+ #include <asm/hwcap.h>
+ 
+ /*
+@@ -32,4 +33,6 @@ extern struct riscv_isainfo hart_isa[NR_CPUS];
+ 
+ int check_unaligned_access(void *unused);
+ 
++DECLARE_STATIC_KEY_FALSE(fast_misaligned_access_speed_key);
++
+ #endif
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 40bb854fcb96..8935481d32da 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -9,6 +9,7 @@
+ #include <linux/acpi.h>
+ #include <linux/bitmap.h>
+ #include <linux/ctype.h>
++#include <linux/jump_label.h>
+ #include <linux/log2.h>
+ #include <linux/memory.h>
+ #include <linux/module.h>
+@@ -665,6 +666,35 @@ static int check_unaligned_access_all_cpus(void)
+ 
+ arch_initcall(check_unaligned_access_all_cpus);
+ 
++DEFINE_STATIC_KEY_FALSE(fast_misaligned_access_speed_key);
++
++static int set_unaligned_access_static_branches(void)
++{
++	/*
++	 * This will be called after check_unaligned_access_all_cpus so the
++	 * result of unaligned access speed for all cpus will be available.
++	 */
++
++	int cpu;
++	bool fast_misaligned_access_speed = true;
++
++	for_each_online_cpu(cpu) {
++		int this_perf = per_cpu(misaligned_access_speed, cpu);
++
++		if (this_perf != RISCV_HWPROBE_MISALIGNED_FAST) {
++			fast_misaligned_access_speed = false;
++			break;
++		}
++	}
++
++	if (fast_misaligned_access_speed)
++		static_branch_enable(&fast_misaligned_access_speed_key);
++
++	return 0;
++}
++
++arch_initcall_sync(set_unaligned_access_static_branches);
++
+ #ifdef CONFIG_RISCV_ALTERNATIVE
+ /*
+  * Alternative patch sites consider 48 bits when determining when to patch
 
-...
+-- 
+2.34.1
 
->  	return __kvm_gmem_create(kvm, size, flags);
->  }
-> 
-> Paolo
-> 
 
 _______________________________________________
 linux-riscv mailing list
