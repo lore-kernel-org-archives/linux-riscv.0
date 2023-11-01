@@ -4,95 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DE56C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Nov 2023 14:00:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E314C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Nov 2023 14:11:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WR71oVwN0sul41BaiRCY0ycP9iOkdSDjmae1QKmk+88=; b=n2VJL7Ec02R9at
-	b+lnq+KTw6/w2AWIT4LLHzsniWRV6ziYxTqa2D5GuRyXiq0CCufA63niQYe3WkWPlDYfX1r9MUavT
-	IOkwkQmH1KsLSxKBxSwnZNAQ2xNOhFmhptMQqvtUgEweBvxGPZCOoYdYBrcRT4SsC+nBRHtFquGeq
-	xQD+EB9X7i6tE189W7iSVfGlndGUXCbatPfQ36rXP80nultPY0ejwpI2d1LSrxMBXU2i9gMpx7KVN
-	4SA0CKAHCch62qYDPw7YiIvTTZvD3GRaJRhnx/htcUzXailH63VWBX34j/rHu8N+yy6zFt+uJMiHg
-	oXgP1W+ARuzp/1S4TiSA==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-ID:Date
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yd9zBWv2+xz0d+WaNzYjH3Kb92YMGc12XH9w7AqLUzE=; b=s8E0Eo6MI3ht5i
+	kM0l4Qh8tl0Ok0OoLYOILEUGsxm9Bd/m3BOVO1bPAxOJV4Md6ymnlv+eJsniAu113fQ9artRfGBuK
+	DGCiAk7GuaEx/QopydSMJyN1oy49VMW3IHfwuYbuFoF5skUU82LwZ6kXxH0PNoZabd8fd6gdWyzgu
+	eIHq/PLM4PRE03PsiSiy9kOsmh25zqAKqHop5J7BnidQDIwz44dgkL90F4NqJ/kK51Llfu7QJae8D
+	z0aKMItQ2WjAu6Xv5cftDL0+RjjWe2iU5g05iVg2Ofiesu9Q9Z5GPF6+CaTniej/h0N/6UXS59k3R
+	FGnH2L5ONi9zt0XdWVOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyBlo-007cGT-11;
-	Wed, 01 Nov 2023 14:00:32 +0000
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
+	id 1qyBwm-007dIX-1o;
+	Wed, 01 Nov 2023 14:11:52 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyAcp-007WLn-2i
+	id 1qyBwj-007dHw-0L
 	for linux-riscv@lists.infradead.org;
-	Wed, 01 Nov 2023 12:47:13 +0000
-Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-7788db95652so470718785a.2
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Nov 2023 05:47:02 -0700 (PDT)
+	Wed, 01 Nov 2023 14:11:51 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-53fa455cd94so5140772a12.2
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Nov 2023 07:11:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1698842822; x=1699447622; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=i1rvjvqySA8gfoAJ2h4xCVn6r+FVikEwY0ryqbt6qgE=;
-        b=OV2JDZzr8O4gYJVd6m9GslCUL7ZoKSlPkB286gRfYDsfRiuLLfEx+NEKqtyOC0pyYM
-         UXk9X0ZD7yVElX/A4/gaXKLdo2IrNGJ3aipkfhTzAcai6637tW3Q7aDYsZbr7pX4H7rH
-         ePFyz7Rq6swOsfPTyYKrKVyNFbW9cIApcN4XhNTuDZu3THPOdcrcyibxy/igyX4yK1oP
-         NQxoGpAriJwr1kWAoHDLbu/usEQNmY+sFYd2ssWRKX8I7QwjZGZt6k6hQMnAyC3449MW
-         xTZR5Fg8f/vwJSu1Gm9EH6i4VynYvBfAZqUEoJGhxRg/803pjpj2uqVrkll/oRk9LmnQ
-         rIZw==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698847907; x=1699452707; darn=lists.infradead.org;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:to:cc:subject:date:message-id:reply-to;
+        bh=kJCSl6f6X4o6XuXPdXYwbMzr8jK43syYXHj7vVymgkA=;
+        b=Y1CCTm0VtBUEhHQVG7V1S55b1ExRRY4oDsjqKyMxN8hxgWBc5udjfOzWq/sYvQ/Xxu
+         DyktqPH43nXX66xVev17v0XXr2JBUcusKivMp2F3h0SGpYH2IDDKQ3ZOQowgF7yTRv52
+         JXuiDAAFiBNxwrq7H1m5IbesCCxFeMm72yV94h8h5kt2QM9H16OqoxxJ8ZvikVlKX29l
+         ZExUuX38mrilcTnRH+fearz9akuhZY4kPPl271eB2i1bM9znn5A5+5yaZrQt46V+lzVM
+         BLBq/kVR05H2Q8jZVnraxNBUAvDwoJKrR79vQ0tR8FieOcL4zvZ3p5KMLjWt1HUidDm7
+         Mu7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698842822; x=1699447622;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=i1rvjvqySA8gfoAJ2h4xCVn6r+FVikEwY0ryqbt6qgE=;
-        b=Jl+JVac6rCxvJuL7meYPoVAK35UMtSUH3PlgFmT5rJ2lzc4+JPc/FRh0Gp09KKLvaP
-         5FYZH/BSMfRXkdlcJtsxkPhrIr/dt5M62CyI6SUHcunlFUhw+8BHExIeZpTqmJES/8uV
-         fNr9MZ6YLODtfIm3ZKAoqhbfvpeHgeCH4dDEaOHa8RkT+Rt1zULh7ZxDsBE2vGg8VDBl
-         teOZvy2YA7ye9vHw0DCAQyDy2ehWeT7FxU2u4/MWQsgOgOWQaKq0Py+jj585CHWLVLNk
-         4leFa7feCOSCTpu1S1cXxky2NkIMOVJFpRsxUv2X3ZRwhmaCNUv7OVfazhxpoVaOjhFP
-         fJKg==
-X-Gm-Message-State: AOJu0YybNrz/7E1Ndaz2lxRRf9qREpZ6HtVjUAYFAGeSIsc480++mzL7
-	zfdiQ+temuwXHtreWm0Wq2q5vps/sfx1tDVzzuFznA==
-X-Google-Smtp-Source: AGHT+IEwNefwVjOpplfsdA5Dp0BgUdMFZ8Gr0x2pIdj0EOquTk7Lrcu3yjtemmSczlmcSeWnvG38gd5iU/oYIFP7LzQ=
-X-Received: by 2002:ad4:5de9:0:b0:65d:31e:b810 with SMTP id
- jn9-20020ad45de9000000b0065d031eb810mr19758846qvb.34.1698842821613; Wed, 01
- Nov 2023 05:47:01 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1698847907; x=1699452707;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kJCSl6f6X4o6XuXPdXYwbMzr8jK43syYXHj7vVymgkA=;
+        b=SAb+gv7Z5e1GPuzC2afncr3BhA4KWNt9r7FQlE0iBQMPqv+X5Jdg5HQyZyIf8gN1br
+         iCu0QkDz09mgDuMYZpmmnub3PwEAbUBU8/stbN0U0sX7PMU8B53a1WSKKTD4BGd01C5P
+         /z5NqPKLuCKP3cETl4skWfgqinohOQRa0eI/YMNkKl1yt+JfrkI2jYn56nCY6XYpWQhU
+         qoe7AvhAUwI7Z632bWe8KNeBvRzr0HpWI1pM02YSKfGgQtgwiBm1wn1LlNdIi+85IfXp
+         aXvh6BWX7mdQpDn64SETNZVoiluRCVr1Gylw9oGQLOQxdMRO7YACSyyx3uUIExqg5aOJ
+         +C/g==
+X-Gm-Message-State: AOJu0Yx7W59PLIqWR+znhvItSE4AaeiO9GvRxEzRdamCpk6YQo6GR4OD
+	RquWovMrLA4Rw6wpyUc+4sY+5ggwCp+tx3y/f1Q=
+X-Google-Smtp-Source: AGHT+IFg/u+au8kvxjjsxG/97ywGGhA/F2in6OG6bv3wuozncJhNO2IsVmNTo4FBJvM6S96qNOMbQA==
+X-Received: by 2002:a17:90a:4b07:b0:27f:f260:ceaf with SMTP id g7-20020a17090a4b0700b0027ff260ceafmr12192187pjh.10.1698847906641;
+        Wed, 01 Nov 2023 07:11:46 -0700 (PDT)
+Received: from localhost ([12.44.203.122])
+        by smtp.gmail.com with ESMTPSA id ei4-20020a17090ae54400b00280c9ba1176sm794823pjb.48.2023.11.01.07.11.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Nov 2023 07:11:46 -0700 (PDT)
+Subject: [PATCH] RISC-V: Provide the frequency of mtime via hwprobe
+Date: Wed,  1 Nov 2023 07:11:04 -0700
+Message-ID: <20231101141103.30682-2-palmer@rivosinc.com>
+X-Mailer: git-send-email 2.42.0
 MIME-Version: 1.0
-References: <20231027182217.3615211-1-seanjc@google.com> <20231027182217.3615211-3-seanjc@google.com>
-In-Reply-To: <20231027182217.3615211-3-seanjc@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Wed, 1 Nov 2023 12:46:25 +0000
-Message-ID: <CA+EHjTycVAL11xCKQAfm-q4NGbgSH7yMswu+c1XaJdyhUh61zw@mail.gmail.com>
-Subject: Re: [PATCH v13 02/35] KVM: Assert that mmu_invalidate_in_progress
- *never* goes negative
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, Xiaoyao Li <xiaoyao.li@intel.com>, 
-	Xu Yilun <yilun.xu@intel.com>, Chao Peng <chao.p.peng@linux.intel.com>, 
-	Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, 
-	David Matlack <dmatlack@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>, 
-	Isaku Yamahata <isaku.yamahata@intel.com>, =?UTF-8?B?TWlja2HDq2wgU2FsYcO8bg==?= <mic@digikod.net>, 
-	Vlastimil Babka <vbabka@suse.cz>, Vishal Annapurve <vannapurve@google.com>, 
-	Ackerley Tng <ackerleytng@google.com>, Maciej Szmigiero <mail@maciej.szmigiero.name>, 
-	David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>, 
-	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
-	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231101_054711_881930_F575B0B1 
-X-CRM114-Status: GOOD (  19.45  )
+X-CRM114-CacheID: sfid-20231101_071149_145846_BBB123E4 
+X-CRM114-Status: GOOD (  19.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,49 +83,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBPY3QgMjcsIDIwMjMgYXQgNzoyMuKAr1BNIFNlYW4gQ2hyaXN0b3BoZXJzb24gPHNl
-YW5qY0Bnb29nbGUuY29tPiB3cm90ZToKPgo+IE1vdmUgdGhlIGFzc2VydGlvbiBvbiB0aGUgaW4t
-cHJvZ3Jlc3MgaW52YWxpZGF0aW9uIGNvdW50IGZyb20gdGhlIHByaW1hcnkKPiBNTVUncyBub3Rp
-ZmllciBwYXRoIHRvIEtWTSdzIGNvbW1vbiBub3RpZmljYXRpb24gcGF0aCwgaS5lLiBhc3NlcnQg
-dGhhdAo+IHRoZSBjb3VudCBkb2Vzbid0IGdvIG5lZ2F0aXZlIGV2ZW4gd2hlbiB0aGUgaW52YWxp
-ZGF0aW9uIGlzIGNvbWluZyBmcm9tCj4gS1ZNIGl0c2VsZi4KPgo+IE9wcG9ydHVuaXN0aWNhbGx5
-IGNvbnZlcnQgdGhlIGFzc2VydGlvbiB0byBhIEtWTV9CVUdfT04oKSwgaS5lLiBraWxsIG9ubHkK
-PiB0aGUgYWZmZWN0ZWQgVk0sIG5vdCB0aGUgZW50aXJlIGtlcm5lbC4gIEEgY29ycnVwdGVkIGNv
-dW50IGlzIGZhdGFsIHRvIHRoZQo+IFZNLCBlLmcuIHRoZSBub24temVybyAobmVnYXRpdmUpIGNv
-dW50IHdpbGwgY2F1c2UgbW11X2ludmFsaWRhdGVfcmV0cnkoKQo+IHRvIGJsb2NrIGFueSBhbmQg
-YWxsIGF0dGVtcHRzIHRvIGluc3RhbGwgbmV3IG1hcHBpbmdzLiAgQnV0IGl0J3MgZmFyIGZyb20K
-PiBndWFyYW50ZWVkIHRoYXQgYW4gZW5kKCkgd2l0aG91dCBhIHN0YXJ0KCkgaXMgZmF0YWwgb3Ig
-ZXZlbiBwcm9ibGVtYXRpYyB0bwo+IGFueXRoaW5nIG90aGVyIHRoYW4gdGhlIHRhcmdldCBWTSwg
-ZS5nLiB0aGUgdW5kZXJseWluZyBidWcgY291bGQgc2ltcGx5IGJlCj4gYSBkdXBsaWNhdGUgY2Fs
-bCB0byBlbmQoKS4gIEFuZCBpdCdzIG11Y2ggbW9yZSBsaWtlbHkgdGhhdCBhIG1pc3NlZAo+IGlu
-dmFsaWRhdGlvbiwgaS5lLiBhIHBvdGVudGlhbCB1c2UtYWZ0ZXItZnJlZSwgd291bGQgbWFuaWZl
-c3QgYXMgbm8KPiBub3RpZmljYXRpb24gd2hhdHNvZXZlciwgbm90IGFuIGVuZCgpIHdpdGhvdXQg
-YSBzdGFydCgpLgo+Cj4gU2lnbmVkLW9mZi1ieTogU2VhbiBDaHJpc3RvcGhlcnNvbiA8c2Vhbmpj
-QGdvb2dsZS5jb20+Cj4gLS0tCgpSZXZpZXdlZC1ieTogRnVhZCBUYWJiYSA8dGFiYmFAZ29vZ2xl
-LmNvbT4KVGVzdGVkLWJ5OiBGdWFkIFRhYmJhIDx0YWJiYUBnb29nbGUuY29tPgoKQ2hlZXJzLAov
-ZnVhZAoKPiAgdmlydC9rdm0va3ZtX21haW4uYyB8IDMgKy0tCj4gIDEgZmlsZSBjaGFuZ2VkLCAx
-IGluc2VydGlvbigrKSwgMiBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS92aXJ0L2t2bS9r
-dm1fbWFpbi5jIGIvdmlydC9rdm0va3ZtX21haW4uYwo+IGluZGV4IDA1MjQ5MzM4NTZkNC4uNWE5
-N2U2YzdkOWMyIDEwMDY0NAo+IC0tLSBhL3ZpcnQva3ZtL2t2bV9tYWluLmMKPiArKysgYi92aXJ0
-L2t2bS9rdm1fbWFpbi5jCj4gQEAgLTgzMyw2ICs4MzMsNyBAQCB2b2lkIGt2bV9tbXVfaW52YWxp
-ZGF0ZV9lbmQoc3RydWN0IGt2bSAqa3ZtLCB1bnNpZ25lZCBsb25nIHN0YXJ0LAo+ICAgICAgICAg
-ICogaW4gY29uanVuY3Rpb24gd2l0aCB0aGUgc21wX3JtYiBpbiBtbXVfaW52YWxpZGF0ZV9yZXRy
-eSgpLgo+ICAgICAgICAgICovCj4gICAgICAgICBrdm0tPm1tdV9pbnZhbGlkYXRlX2luX3Byb2dy
-ZXNzLS07Cj4gKyAgICAgICBLVk1fQlVHX09OKGt2bS0+bW11X2ludmFsaWRhdGVfaW5fcHJvZ3Jl
-c3MgPCAwLCBrdm0pOwo+ICB9Cj4KPiAgc3RhdGljIHZvaWQga3ZtX21tdV9ub3RpZmllcl9pbnZh
-bGlkYXRlX3JhbmdlX2VuZChzdHJ1Y3QgbW11X25vdGlmaWVyICptbiwKPiBAQCAtODYzLDggKzg2
-NCw2IEBAIHN0YXRpYyB2b2lkIGt2bV9tbXVfbm90aWZpZXJfaW52YWxpZGF0ZV9yYW5nZV9lbmQo
-c3RydWN0IG1tdV9ub3RpZmllciAqbW4sCj4gICAgICAgICAgKi8KPiAgICAgICAgIGlmICh3YWtl
-KQo+ICAgICAgICAgICAgICAgICByY3V3YWl0X3dha2VfdXAoJmt2bS0+bW5fbWVtc2xvdHNfdXBk
-YXRlX3JjdXdhaXQpOwo+IC0KPiAtICAgICAgIEJVR19PTihrdm0tPm1tdV9pbnZhbGlkYXRlX2lu
-X3Byb2dyZXNzIDwgMCk7Cj4gIH0KPgo+ICBzdGF0aWMgaW50IGt2bV9tbXVfbm90aWZpZXJfY2xl
-YXJfZmx1c2hfeW91bmcoc3RydWN0IG1tdV9ub3RpZmllciAqbW4sCj4gLS0KPiAyLjQyLjAuODIw
-Lmc4M2E3MjFhMTM3LWdvb2cKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+A handful of user-visible behavior is based on the frequency of the
+machine-mode time.
+
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+---
+"Stat_headcrabed" on IRC asked for this.  I said it was easy and they
+should do it themselves, but they'd logged off by the time I got around
+to reading messages this morning.  This is more of an example than
+anything, but I figured it'd be easier to just send it.
+
+We likely need to think a bit about exactly how this is defined: there's
+more than just mtime now, and we've also got things like virtualization
+and perf.  I'm not even sure it's sane to put this in hwprobe as opposed
+to providing it via some perf-related infrastructure...
+
+It's the merge window so I'm not going to think about it, if someone
+wants to pick this up they're more than welcome to.
+---
+ Documentation/riscv/hwprobe.rst       | 2 ++
+ arch/riscv/include/asm/hwprobe.h      | 2 +-
+ arch/riscv/include/uapi/asm/hwprobe.h | 1 +
+ arch/riscv/kernel/sys_riscv.c         | 5 +++++
+ 4 files changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprobe.rst
+index a52996b22f75..3ec35c1f3819 100644
+--- a/Documentation/riscv/hwprobe.rst
++++ b/Documentation/riscv/hwprobe.rst
+@@ -96,3 +96,5 @@ The following keys are defined:
+ 
+   * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNSUPPORTED`: Misaligned accesses are
+     not supported at all and will generate a misaligned address fault.
++
++* :c:macro:`RISCV_HWPROBE_KEY_MTIME_FREQ`: Frequency (in Hz) of `mtime`.
+diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
+index 78936f4ff513..39df8604fea1 100644
+--- a/arch/riscv/include/asm/hwprobe.h
++++ b/arch/riscv/include/asm/hwprobe.h
+@@ -8,6 +8,6 @@
+ 
+ #include <uapi/asm/hwprobe.h>
+ 
+-#define RISCV_HWPROBE_MAX_KEY 5
++#define RISCV_HWPROBE_MAX_KEY 6
+ 
+ #endif
+diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
+index 006bfb48343d..2dc34d474724 100644
+--- a/arch/riscv/include/uapi/asm/hwprobe.h
++++ b/arch/riscv/include/uapi/asm/hwprobe.h
+@@ -36,6 +36,7 @@ struct riscv_hwprobe {
+ #define		RISCV_HWPROBE_MISALIGNED_FAST		(3 << 0)
+ #define		RISCV_HWPROBE_MISALIGNED_UNSUPPORTED	(4 << 0)
+ #define		RISCV_HWPROBE_MISALIGNED_MASK		(7 << 0)
++#define RISCV_HWPROBE_KEY_MTIME_FREQ	6
+ /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
+ 
+ #endif
+diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+index 473159b5f303..facfa38f4c8a 100644
+--- a/arch/riscv/kernel/sys_riscv.c
++++ b/arch/riscv/kernel/sys_riscv.c
+@@ -8,6 +8,7 @@
+ #include <linux/syscalls.h>
+ #include <asm/cacheflush.h>
+ #include <asm/cpufeature.h>
++#include <asm/delay.h>
+ #include <asm/hwprobe.h>
+ #include <asm/sbi.h>
+ #include <asm/vector.h>
+@@ -215,6 +216,10 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+ 		pair->value = hwprobe_misaligned(cpus);
+ 		break;
+ 
++	case RISCV_HWPROBE_KEY_MTIME_FREQ:
++		pair->value = riscv_timebase;
++		break;
++
+ 	/*
+ 	 * For forward compatibility, unknown keys don't fail the whole
+ 	 * call, but get their element key set to -1 and value set to 0
+-- 
+2.42.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
