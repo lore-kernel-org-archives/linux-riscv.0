@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 786C8C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Nov 2023 04:52:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2911C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Nov 2023 05:17:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T/Yx2MGA+PGOw+GandKMssKqF6VVr0C6i9xqdedLzS0=; b=zhZfhXKckmu8Lw
-	WZbvRSXfD0xM0SlyeylD0+iTeHt1xrPeyxe3zcKpff/OKne51W9uBAG7yiuST6cRSzqEB0ToJ1b/0
-	wQjZ+u1HUTCZZi2Pyx9KQ/2ew+BkpjSdZS9Mg+/vqpWvWqdSpeZzRCjipzLoUGvjIRQioabQ2nRpy
-	RYFC3lOor29S3UzxMqaZB4XJZXiOuFI7Dv0QNPx3F45qu3ppZrSJqTcoiI5B2t88tHfd9YwwI7eCa
-	onZnawV06FBpYEXG5xvspylWXZKLn/19TnwtvAsghtwdQDzjFas/vdjIuX1WkEGjQOpIvTIOz491Z
-	WGmo5bQ31PqYjnLvI25Q==;
+	List-Owner; bh=Xsm9avRQaokKPVZ3HQWT/wAzDjNFrHZjXUv3ZdpQd9o=; b=nYQ1QYW6zEeNzA
+	D01sAHIDiz3UWi71yMfnIfwPYYu09v/pSGho9TUPHoQB4adCOboChSS74rRgpJ8wavorOce5y4ft2
+	9Fs142+z38DG2j791Udyvfjz75Wc1ZWpyHSAdzb7G5jt7NDjBUTu4IGaR5WAxmQLYN9a0OXERDk9E
+	Q/jxZTMqJLG5UQz2IOtTo8bzHZ8H/muPu8ugCKQeCv98fUTzqtE1xfECCcFtXcLU2iY1vd7ewBDFO
+	8e1Kir98ELS44e3eDixxypPonCCJ+BKxcB7cAlk7n/Z6NEA9TbqNEJNeLziy6HdNtBp9rT0QAvEXC
+	d4/tzkp84HjGHiPE75Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyPgX-008iob-2v;
-	Thu, 02 Nov 2023 04:52:01 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1qyQ4W-008kLb-1c;
+	Thu, 02 Nov 2023 05:16:48 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyPgV-008io5-04
+	id 1qyQ4S-008kKn-1O
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Nov 2023 04:52:00 +0000
+	Thu, 02 Nov 2023 05:16:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 2A9EDCE1F31;
-	Thu,  2 Nov 2023 04:51:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C998EC433C7;
-	Thu,  2 Nov 2023 04:51:55 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 87F67CE1F31;
+	Thu,  2 Nov 2023 05:16:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35137C433C8;
+	Thu,  2 Nov 2023 05:16:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1698900716;
-	bh=N5PhYckyJitNvUVEQLxwfu9qQj+65o8OQSQa8fX1Z4I=;
+	s=k20201202; t=1698902201;
+	bh=CkuAO4YfABv6nx78RNeYwkWi8XTCIrEQLGEg/E2HryQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=l1SQS0MHoqVwhvRH46guTdDbWvcHFjJubtcCBXl2LP/liJt/QnAk4oIMabRWHzSBu
-	 tfNJ03Bil97OTREOXuvpb9/fihGxVpjy+TaOx1bDzqK+E5zVRNRq4Uo6ngrQ1BRXHQ
-	 rTWCcO+YvS9Xv7aRJgBYt8q1+b9D7p1EMHK6GuZTB8uFX+5eKNNbtAjZ/bib7XlbmP
-	 1COfydaKwVcY73i+IKI68UB5xFvl2fsXz9Kda4l40itjtgc6I2N1Tja1kuSwY4+/xT
-	 xbt19c6AmHbu0hPjDm3E/KbqXASc2o4C+SSUVm74K8fFLdviT2obMlPEcB3yx5kZOC
-	 gq9miRdJL3iEg==
-Date: Wed, 1 Nov 2023 21:51:54 -0700
+	b=XSYepTXPWoR7riWtRFAmmKQQiXRHmxeMoohJRM6BkLJCkcAMhVOZ0cSdG97H8j8V6
+	 y9f1XRke/cmD38xmbDgTOw2vWKPYf4pqhWW+XSNfB26nOJEwU0/FvYTZa9E9qdBS7O
+	 WC3M2Cu/4qsdWwxQrvF8qpAu3vskQL6bcWoG/kf25kll8Yw2cvvLIbedJwP4Wv2Chq
+	 z1RGVvl4IV0hrLcIII8OFI139lUeY0uNi9RwKQKo+Ae20xJb2Juarh4X76vMhZCCrK
+	 /cN3ZT6W/WymVFEybO+/l2+0M3igefmmqCfTu9CJ2P+Sy05tkrENxaote4Oiy+NzdE
+	 G6z9zz6IW+hKA==
+Date: Wed, 1 Nov 2023 22:16:39 -0700
 From: Eric Biggers <ebiggers@kernel.org>
 To: Jerry Shih <jerry.shih@sifive.com>
 Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
@@ -52,17 +52,17 @@ Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
 	heiko@sntech.de, ardb@kernel.org, phoebe.chen@sifive.com,
 	hongrong.hsu@sifive.com, linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org
-Subject: Re: [PATCH 04/12] RISC-V: crypto: add Zvkned accelerated AES
- implementation
-Message-ID: <20231102045154.GE1498@sol.localdomain>
+Subject: Re: [PATCH 06/12] RISC-V: crypto: add accelerated
+ AES-CBC/CTR/ECB/XTS implementations
+Message-ID: <20231102051639.GF1498@sol.localdomain>
 References: <20231025183644.8735-1-jerry.shih@sifive.com>
- <20231025183644.8735-5-jerry.shih@sifive.com>
+ <20231025183644.8735-7-jerry.shih@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231025183644.8735-5-jerry.shih@sifive.com>
+In-Reply-To: <20231025183644.8735-7-jerry.shih@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231101_215159_398737_6A441E42 
-X-CRM114-Status: GOOD (  22.27  )
+X-CRM114-CacheID: sfid-20231101_221644_821918_6584AE57 
+X-CRM114-Status: GOOD (  23.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,110 +79,180 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 26, 2023 at 02:36:36AM +0800, Jerry Shih wrote:
-> diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
-> index 10d60edc0110..500938317e71 100644
-> --- a/arch/riscv/crypto/Kconfig
-> +++ b/arch/riscv/crypto/Kconfig
-> @@ -2,4 +2,16 @@
->  
->  menu "Accelerated Cryptographic Algorithms for CPU (riscv)"
->  
-> +config CRYPTO_AES_RISCV64
+On Thu, Oct 26, 2023 at 02:36:38AM +0800, Jerry Shih wrote:
+> +config CRYPTO_AES_BLOCK_RISCV64
 > +	default y if RISCV_ISA_V
-> +	tristate "Ciphers: AES"
+> +	tristate "Ciphers: AES, modes: ECB/CBC/CTR/XTS"
 > +	depends on 64BIT && RISCV_ISA_V
-> +	select CRYPTO_AES
-> +	select CRYPTO_ALGAPI
+> +	select CRYPTO_AES_RISCV64
+> +	select CRYPTO_SKCIPHER
 > +	help
-> +	  Block ciphers: AES cipher algorithms (FIPS-197)
+> +	  Length-preserving ciphers: AES cipher algorithms (FIPS-197)
+> +	  with block cipher modes:
+> +	  - ECB (Electronic Codebook) mode (NIST SP 800-38A)
+> +	  - CBC (Cipher Block Chaining) mode (NIST SP 800-38A)
+> +	  - CTR (Counter) mode (NIST SP 800-38A)
+> +	  - XTS (XOR Encrypt XOR Tweakable Block Cipher with Ciphertext
+> +	    Stealing) mode (NIST SP 800-38E and IEEE 1619)
 > +
 > +	  Architecture: riscv64 using:
+> +	  - Zvbb vector extension (XTS)
+> +	  - Zvkb vector crypto extension (CTR/XTS)
+> +	  - Zvkg vector crypto extension (XTS)
 > +	  - Zvkned vector crypto extension
 
-kconfig options should default to off.
+Maybe list Zvkned first since it's the most important one in this context.
 
-I.e., remove the line "default y if RISCV_ISA_V"
+> +#define AES_BLOCK_VALID_SIZE_MASK (~(AES_BLOCK_SIZE - 1))
+> +#define AES_BLOCK_REMAINING_SIZE_MASK (AES_BLOCK_SIZE - 1)
 
-> + *
-> + * All zvkned-based functions use encryption expending keys for both encryption
-> + * and decryption.
-> + */
+I think it would be easier to read if these values were just used directly.
 
-The above comment is a bit confusing.  It's describing the 'key' field of struct
-aes_key; maybe there should be a comment there instead:
-
-    struct aes_key {
-            u32 key[AES_MAX_KEYLENGTH_U32]; /* round keys in encryption order */
-            u32 rounds;
-    };
-
-> +int riscv64_aes_setkey(struct riscv64_aes_ctx *ctx, const u8 *key,
-> +		       unsigned int keylen)
+> +static int ecb_encrypt(struct skcipher_request *req)
 > +{
-> +	/*
-> +	 * The RISC-V AES vector crypto key expending doesn't support AES-192.
-> +	 * We just use the generic software key expending here to simplify the key
-> +	 * expending flow.
-> +	 */
-
-expending => expanding
-
-> +	u32 aes_rounds;
-> +	u32 key_length;
-> +	int ret;
+> +	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
+> +	const struct riscv64_aes_ctx *ctx = crypto_skcipher_ctx(tfm);
+> +	struct skcipher_walk walk;
+> +	unsigned int nbytes;
+> +	int err;
 > +
-> +	ret = aes_expandkey(&ctx->fallback_ctx, key, keylen);
-> +	if (ret < 0)
+> +	/* If we have error here, the `nbytes` will be zero. */
+> +	err = skcipher_walk_virt(&walk, req, false);
+> +	while ((nbytes = walk.nbytes)) {
+> +		kernel_vector_begin();
+> +		rv64i_zvkned_ecb_encrypt(walk.src.virt.addr, walk.dst.virt.addr,
+> +					 nbytes & AES_BLOCK_VALID_SIZE_MASK,
+> +					 &ctx->key);
+> +		kernel_vector_end();
+> +		err = skcipher_walk_done(
+> +			&walk, nbytes & AES_BLOCK_REMAINING_SIZE_MASK);
+> +	}
+> +
+> +	return err;
+> +}
+
+There's no fallback for !crypto_simd_usable() here.  I really like it this way.
+However, for it to work (for skciphers and aeads), RISC-V needs to allow the
+vector registers to be used in softirq context.  Is that already the case?
+
+> +/* ctr */
+> +static int ctr_encrypt(struct skcipher_request *req)
+> +{
+> +	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
+> +	const struct riscv64_aes_ctx *ctx = crypto_skcipher_ctx(tfm);
+> +	struct skcipher_walk walk;
+> +	unsigned int ctr32;
+> +	unsigned int nbytes;
+> +	unsigned int blocks;
+> +	unsigned int current_blocks;
+> +	unsigned int current_length;
+> +	int err;
+> +
+> +	/* the ctr iv uses big endian */
+> +	ctr32 = get_unaligned_be32(req->iv + 12);
+> +	err = skcipher_walk_virt(&walk, req, false);
+> +	while ((nbytes = walk.nbytes)) {
+> +		if (nbytes != walk.total) {
+> +			nbytes &= AES_BLOCK_VALID_SIZE_MASK;
+> +			blocks = nbytes / AES_BLOCK_SIZE;
+> +		} else {
+> +			/* This is the last walk. We should handle the tail data. */
+> +			blocks = (nbytes + (AES_BLOCK_SIZE - 1)) /
+> +				 AES_BLOCK_SIZE;
+
+'(nbytes + (AES_BLOCK_SIZE - 1)) / AES_BLOCK_SIZE' can be replaced with
+'DIV_ROUND_UP(nbytes, AES_BLOCK_SIZE)'
+
+> +static int xts_crypt(struct skcipher_request *req, aes_xts_func func)
+> +{
+> +	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
+> +	const struct riscv64_aes_xts_ctx *ctx = crypto_skcipher_ctx(tfm);
+> +	struct skcipher_request sub_req;
+> +	struct scatterlist sg_src[2], sg_dst[2];
+> +	struct scatterlist *src, *dst;
+> +	struct skcipher_walk walk;
+> +	unsigned int walk_size = crypto_skcipher_walksize(tfm);
+> +	unsigned int tail_bytes;
+> +	unsigned int head_bytes;
+> +	unsigned int nbytes;
+> +	unsigned int update_iv = 1;
+> +	int err;
+> +
+> +	/* xts input size should be bigger than AES_BLOCK_SIZE */
+> +	if (req->cryptlen < AES_BLOCK_SIZE)
 > +		return -EINVAL;
 > +
 > +	/*
-> +	 * Copy the key from `crypto_aes_ctx` to `aes_key` for zvkned-based AES
-> +	 * implementations.
+> +	 * The tail size should be small than walk_size. Thus, we could make sure the
+> +	 * walk size for tail elements could be bigger than AES_BLOCK_SIZE.
 > +	 */
-> +	aes_rounds = aes_round_num(keylen);
-> +	ctx->key.rounds = aes_rounds;
-> +	key_length = AES_BLOCK_SIZE * (aes_rounds + 1);
-> +	memcpy(ctx->key.key, ctx->fallback_ctx.key_enc, key_length);
+> +	if (req->cryptlen <= walk_size) {
+> +		tail_bytes = req->cryptlen;
+> +		head_bytes = 0;
+> +	} else {
+> +		if (req->cryptlen & AES_BLOCK_REMAINING_SIZE_MASK) {
+> +			tail_bytes = req->cryptlen &
+> +				     AES_BLOCK_REMAINING_SIZE_MASK;
+> +			tail_bytes = walk_size + tail_bytes - AES_BLOCK_SIZE;
+> +			head_bytes = req->cryptlen - tail_bytes;
+> +		} else {
+> +			tail_bytes = 0;
+> +			head_bytes = req->cryptlen;
+> +		}
+> +	}
 > +
-> +	return 0;
+> +	riscv64_aes_encrypt_zvkned(&ctx->ctx2, req->iv, req->iv);
+> +
+> +	if (head_bytes && tail_bytes) {
+> +		skcipher_request_set_tfm(&sub_req, tfm);
+> +		skcipher_request_set_callback(
+> +			&sub_req, skcipher_request_flags(req), NULL, NULL);
+> +		skcipher_request_set_crypt(&sub_req, req->src, req->dst,
+> +					   head_bytes, req->iv);
+> +		req = &sub_req;
+> +	}
+> +
+> +	if (head_bytes) {
+> +		err = skcipher_walk_virt(&walk, req, false);
+> +		while ((nbytes = walk.nbytes)) {
+> +			if (nbytes == walk.total)
+> +				update_iv = (tail_bytes > 0);
+> +
+> +			nbytes &= AES_BLOCK_VALID_SIZE_MASK;
+> +			kernel_vector_begin();
+> +			func(walk.src.virt.addr, walk.dst.virt.addr, nbytes,
+> +			     &ctx->ctx1.key, req->iv, update_iv);
+> +			kernel_vector_end();
+> +
+> +			err = skcipher_walk_done(&walk, walk.nbytes - nbytes);
+> +		}
+> +		if (err || !tail_bytes)
+> +			return err;
+> +
+> +		dst = src = scatterwalk_next(sg_src, &walk.in);
+> +		if (req->dst != req->src)
+> +			dst = scatterwalk_next(sg_dst, &walk.out);
+> +		skcipher_request_set_crypt(req, src, dst, tail_bytes, req->iv);
+> +	}
+> +
+> +	/* tail */
+> +	err = skcipher_walk_virt(&walk, req, false);
+> +	if (err)
+> +		return err;
+> +	if (walk.nbytes != tail_bytes)
+> +		return -EINVAL;
+> +	kernel_vector_begin();
+> +	func(walk.src.virt.addr, walk.dst.virt.addr, walk.nbytes,
+> +	     &ctx->ctx1.key, req->iv, 0);
+> +	kernel_vector_end();
+> +
+> +	return skcipher_walk_done(&walk, 0);
 > +}
 
-Ideally this would use the same crypto_aes_ctx for both the fallback and the
-assembly code.  I suppose we don't want to diverge from the OpenSSL code (unless
-it gets rewritten), though.  So I guess this is fine for now.
-
-> void riscv64_aes_encrypt_zvkned(const struct riscv64_aes_ctx *ctx, u8 *dst,
->                                const u8 *src)
-
-These functions can be called from a different module (aes-block-riscv64), so
-they need EXPORT_SYMBOL_GPL.
-
-> +static inline bool check_aes_ext(void)
-> +{
-> +	return riscv_isa_extension_available(NULL, ZVKNED) &&
-> +	       riscv_vector_vlen() >= 128;
-> +}
-> +
-> +static int __init riscv64_aes_mod_init(void)
-> +{
-> +	if (check_aes_ext())
-> +		return crypto_register_alg(&riscv64_aes_alg_zvkned);
-> +
-> +	return -ENODEV;
-> +}
-> +
-> +static void __exit riscv64_aes_mod_fini(void)
-> +{
-> +	if (check_aes_ext())
-> +		crypto_unregister_alg(&riscv64_aes_alg_zvkned);
-> +}
-> +
-> +module_init(riscv64_aes_mod_init);
-> +module_exit(riscv64_aes_mod_fini);
-
-module_exit can only run if module_init succeeded.  So, in cases like this it's
-not necessary to check for CPU features before unregistering the algorithm.
+This function looks a bit weird.  I see it's also the only caller of the
+scatterwalk_next() function that you're adding.  I haven't looked at this super
+closely, but I expect that there's a cleaner way of handling the "tail" than
+this -- maybe use scatterwalk_map_and_copy() to copy from/to a stack buffer?
 
 - Eric
 
