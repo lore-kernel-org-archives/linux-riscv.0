@@ -4,108 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13BD9C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Nov 2023 02:20:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92BA3C4167D
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Nov 2023 02:49:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
+	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aS0ZuPCgqw0rPsLt6Onj4iFL0GqpWeE6Km0C6OpoJ0I=; b=hIBLwRwcS1QirS
-	e5fSC/UQbnc2DWnp8UEKqyMEs3AQMWfgsGOk+FsFqmhVHInGCaPXwufRIfg89OTaGOwsR+Aax2SUb
-	lq40wXy5VeWPVDDnP6g0oH00qYhOq+jIp1t8D7DtAA6JsT3UKtNx7JDqupIhDcVKK/yYuUmy45jQa
-	auk046H1oR9w0mRqkKGS+UU2I8p7bjtYEhAJjsPLTROUOhBs/PwXNCXvIyzqiSugJBCUhbtScHgKB
-	uxTCn1rw0+tctpOZIcpLCDKGAqKdoBufwfjfqmXfvKJLUdSyfzguqztokZXLCg1xab2475LAz+XS6
-	86AzqsRWIX1fyOlmu4JA==;
+	List-Owner; bh=i0/advgDImAUm1TIKn0MHtl3pXE08/RKQtDVAhlwAaQ=; b=BdK+s1apXLHsuT
+	XtVOsY046nSRCo6lY12dwIMmtVABzhTA7QhNg/VEwJvFIrIN+I/eN1e0j9I/eFBoqYoF2zi/XHJdF
+	9xfH025t0ieiHDMDMqurZzzkH1Zclq146q7CYUjb8GxaBfG4WNU3k98RqgXPwY1JU3i1yxIgnAm1W
+	i1UEIfHvyajm+p19uLCALHlEYJYoa+QaZL65R8t+XzWfH+lzQD31l84m+HxShUVAPzEW0utejfJYo
+	bh46YnMo0bkhQBT10WgG93JZ/zhRdIbT3UKTWstDKB4lK3HIMhqQFOV/ddmPBVis5DLw3edhGYQuF
+	Dcp6sQkjcoSY6pzHIiqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyNJn-008XGp-2f;
-	Thu, 02 Nov 2023 02:20:23 +0000
-Received: from mgamail.intel.com ([134.134.136.126])
+	id 1qyNll-008a3A-1a;
+	Thu, 02 Nov 2023 02:49:17 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyNJi-008XAC-0o;
-	Thu, 02 Nov 2023 02:20:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1698891618; x=1730427618;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=qMSrBq5gKSfvneC99jG0ycqZi9wUzkwKrG5m2lwT0dM=;
-  b=GUP3IY6lcx0aIRxEz2bjLNrGq7EPd3IdUeeUM4+ny8hsLV4xnJe4SRJQ
-   kCcz/GAZSRsMKVdC7Xxt3IsdDRK3Zap3SAci1/j+ifuJRt073AIwEz/NN
-   SEo/4sycs2YElc94IlFMPw+abwaAuTG1MiEpA5wkk29S+EtumEWu4lVdn
-   rmEOonre8M2sO5ewSxCaUz0BTfa3gJmWJ1mZ6jyYdXSLKW5UbehsoLff1
-   M6WgdCbCAopiaCIFsG5rLODo9wJq5f9aqIMZd+OXSa/4LUwCSt74SLd5B
-   IP/0y6BinULV3IhlUlcUjHbFRG828CzXnJamKW/yQjwXlc9fBCWnCNuHH
-   A==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10881"; a="373665324"
-X-IronPort-AV: E=Sophos;i="6.03,270,1694761200"; 
-   d="scan'208";a="373665324"
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
-  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Nov 2023 19:20:03 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10881"; a="851761891"
-X-IronPort-AV: E=Sophos;i="6.03,270,1694761200"; 
-   d="scan'208";a="851761891"
-Received: from xiaoyaol-hp-g830.ccr.corp.intel.com (HELO [10.93.9.145]) ([10.93.9.145])
-  by fmsmga003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Nov 2023 19:19:53 -0700
-Message-ID: <33686031-c1df-4ef5-a6ac-1aab7f5c656e@intel.com>
-Date: Thu, 2 Nov 2023 10:19:50 +0800
+	id 1qyNlh-008a0g-0H
+	for linux-riscv@lists.infradead.org;
+	Thu, 02 Nov 2023 02:49:14 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-5a9d8f4388bso337689a12.3
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Nov 2023 19:49:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1698893352; x=1699498152; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=l++Rbeq1YJ0LFMw4HKx/yirX8siQghzI93qQn3u3z5E=;
+        b=FVtj5W+hDFnHVXt7+44MMx0lj/I1p6cMbdh6L/+Bo+emDysG3FLeKQ81Cs7eu2L90y
+         de1N1ZbBoqCItW9GOKBso3fAncKxyrdKxeOppcVO1W1VJ9iapmsjr+m4ZIH1/06XREbI
+         OLmVaYW0zonfkj9zvpqnQNsuewuFY7155ax3qMAjPqqGUl5M+e+MTXD9vvJA9mttXJO6
+         13w2QoXRasGWOd7hZ6OOrZFlmAxd+O8lf/7OH3DC6i5Vj+zxu45mPE84TINLmooCoY9I
+         lunr0gaFUT7e25mZnGX6uVSf8UUpUA5sBC8Auvaz6NF//m2DD0fEYu6jKz3kxEd6eyGa
+         0i/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1698893352; x=1699498152;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=l++Rbeq1YJ0LFMw4HKx/yirX8siQghzI93qQn3u3z5E=;
+        b=mJNP2hnVXl8xxtswlq/TY4sz3E/FtZ28EZ95nKalV1/SrL2OUzwYavh9svBviCYocW
+         1x/qN/jnbGm/eXSDwNYMg1Hs6sbfmBx1u0IOQwxcvnnPzMUkQvs9F5Ji47gH9/2l0Zm1
+         sjFEFl7mSIkelGOHM36Qair6EgJi0WDHaIdC3q0vfxoDLVJWhuu0937M2pb8zdGAgv5K
+         AqRoSg8g+eUuHnXy3oxCj4SpeCed3RQywczTE13H1e9hglR51VQ0Y9ACGis1frqtIU6f
+         1K+59HLPa0CpNAo+kcWZbM+JMzY75lSfVDtF6aY3+NV8fT+S2EpIkUKWnsTSO2/7Oy8V
+         1omw==
+X-Gm-Message-State: AOJu0YybNKajffMGounUeHNoI5RL998qAXD0+rr0sXHtwfDU75G/YHOd
+	mN95p9Ij+AMErMACQJFQhulqbg==
+X-Google-Smtp-Source: AGHT+IF6H7iALM4kXriivWJWeUhTUNwySvr9ZxIwWfw3Qv3hEFAdQDBio6I+smOxkk0K56iCSkXjuw==
+X-Received: by 2002:a17:902:e28a:b0:1c6:2ae1:dc28 with SMTP id o10-20020a170902e28a00b001c62ae1dc28mr11966568plc.36.1698893351862;
+        Wed, 01 Nov 2023 19:49:11 -0700 (PDT)
+Received: from [127.0.1.1] ([2601:1c2:1800:f680:7e4c:4d4e:6943:bc0f])
+        by smtp.gmail.com with ESMTPSA id n4-20020a170902e54400b001b850c9d7b3sm1925787plf.249.2023.11.01.19.49.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Nov 2023 19:49:11 -0700 (PDT)
+From: Drew Fustini <dfustini@baylibre.com>
+Date: Wed, 01 Nov 2023 19:48:53 -0700
+Subject: [PATCH v4 2/7] mmc: sdhci: add __sdhci_execute_tuning() to header
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 09/35] KVM: Add KVM_EXIT_MEMORY_FAULT exit to report
- faults to userspace
-Content-Language: en-US
-To: Sean Christopherson <seanjc@google.com>, Kai Huang <kai.huang@intel.com>
-Cc: "viro@zeniv.linux.org.uk" <viro@zeniv.linux.org.uk>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "brauner@kernel.org" <brauner@kernel.org>,
- "oliver.upton@linux.dev" <oliver.upton@linux.dev>,
- "chenhuacai@kernel.org" <chenhuacai@kernel.org>,
- "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
- "palmer@dabbelt.com" <palmer@dabbelt.com>, "maz@kernel.org"
- <maz@kernel.org>, "pbonzini@redhat.com" <pbonzini@redhat.com>,
- "mpe@ellerman.id.au" <mpe@ellerman.id.au>,
- "willy@infradead.org" <willy@infradead.org>,
- "anup@brainfault.org" <anup@brainfault.org>,
- "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
- "kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
- "mic@digikod.net" <mic@digikod.net>,
- "liam.merwick@oracle.com" <liam.merwick@oracle.com>,
- "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
- Isaku Yamahata <isaku.yamahata@intel.com>,
- "kirill.shutemov@linux.intel.com" <kirill.shutemov@linux.intel.com>,
- "david@redhat.com" <david@redhat.com>, "tabba@google.com"
- <tabba@google.com>, "amoorthy@google.com" <amoorthy@google.com>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "michael.roth@amd.com" <michael.roth@amd.com>,
- "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "chao.p.peng@linux.intel.com" <chao.p.peng@linux.intel.com>,
- "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- Vishal Annapurve <vannapurve@google.com>, "vbabka@suse.cz" <vbabka@suse.cz>,
- "mail@maciej.szmigiero.name" <mail@maciej.szmigiero.name>,
- "yu.c.zhang@linux.intel.com" <yu.c.zhang@linux.intel.com>,
- "qperret@google.com" <qperret@google.com>,
- "dmatlack@google.com" <dmatlack@google.com>, Yilun Xu <yilun.xu@intel.com>,
- "isaku.yamahata@gmail.com" <isaku.yamahata@gmail.com>,
- "ackerleytng@google.com" <ackerleytng@google.com>,
- "jarkko@kernel.org" <jarkko@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>, Wei W Wang <wei.w.wang@intel.com>
-References: <20231027182217.3615211-1-seanjc@google.com>
- <20231027182217.3615211-10-seanjc@google.com>
- <482bfea6f54ea1bb7d1ad75e03541d0ba0e5be6f.camel@intel.com>
- <ZUKMsOdg3N9wmEzy@google.com>
-From: Xiaoyao Li <xiaoyao.li@intel.com>
-In-Reply-To: <ZUKMsOdg3N9wmEzy@google.com>
+Message-Id: <20231101-th1520-mmc-v4-2-86e0216b5994@baylibre.com>
+References: <20231101-th1520-mmc-v4-0-86e0216b5994@baylibre.com>
+In-Reply-To: <20231101-th1520-mmc-v4-0-86e0216b5994@baylibre.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, 
+ Adrian Hunter <adrian.hunter@intel.com>, Guo Ren <guoren@kernel.org>, 
+ Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Conor Dooley <conor@kernel.org>
+X-Mailer: b4 0.12.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1698893345; l=2057;
+ i=dfustini@baylibre.com; s=20230430; h=from:subject:message-id;
+ bh=O0pl7kPWnknxTc+1ciCix3vi2PmSyK8UTzQqhv8rZP0=;
+ b=5GZXJKYUX2PFkk79fptSj56AIJweFxSSLNmoeJAhqhhT1nEb/6DFj2Ax/BGJa/TaoghgrIX10
+ cU1vL2QBWy9BYkEYSEo48YklZTTrxD2hSaGn6Vgf6Is+H9lAI4Fza/e
+X-Developer-Key: i=dfustini@baylibre.com; a=ed25519;
+ pk=p3GKE9XFmjhwAayAHG4U108yag7V8xQVd4zJLdW0g7g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231101_192018_328565_19A24A58 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20231101_194913_120854_5EC65E66 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,34 +98,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Drew Fustini <dfustini@baylibre.com>, Han Gao <gaohan@iscas.ac.cn>, linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org, Robert Nelson <robertcnelson@beagleboard.org>, Jason Kridner <jkridner@beagleboard.org>, Xi Ruoyao <xry111@xry111.site>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/2/2023 1:36 AM, Sean Christopherson wrote:
->> KVM_CAP_MEMORY_FAULT_INFO is x86 only, is it better to put this function to
->> <asm/kvm_host.h>?
-> I'd prefer to keep it in generic code, as it's highly likely to end up there
-> sooner than later.  There's a known use case for ARM (exit to userspace on missing
-> userspace mapping[*]), and I'm guessing pKVM (also ARM) will also utilize this API.
-> 
-> [*]https://lore.kernel.org/all/20230908222905.1321305-8-amoorthy@google.com
+Expose __sdhci_execute_tuning() so that it can be called from the
+mmc host controller drivers.
 
-I wonder how this CAP is supposed to be checked in userspace, for guest 
-memfd case? something like this?
+In the sdhci-of-dwcmshc driver, sdhci_dwcmshc_th1520_ops sets
+platform_execute_tuning to th1520_execute_tuning(). That function has
+to manipulate phy registers before tuning can be performed. To avoid
+copying the code verbatim from __sdhci_execute_tuning() into
+th1520_execute_tuning(), make it possible for __sdhci_execute_tuning()
+to be called from sdhci-of-dwcmshc.
 
-	if (!kvm_check_extension(s, KVM_CAP_MEMORY_FAULT_INFO) &&
-	    run->exit_reason == KVM_EXIT_MEMORY_FAULT)
-		abort("unexpected KVM_EXIT_MEMORY_FAULT");
+Signed-off-by: Drew Fustini <dfustini@baylibre.com>
+---
+ drivers/mmc/host/sdhci.c | 3 ++-
+ drivers/mmc/host/sdhci.h | 1 +
+ 2 files changed, 3 insertions(+), 1 deletion(-)
 
-In my implementation of QEMU patches, I find it's unnecessary. When 
-userspace gets an exit with KVM_EXIT_MEMORY_FAULT, it implies 
-"KVM_CAP_MEMORY_FAULT_INFO".
+diff --git a/drivers/mmc/host/sdhci.c b/drivers/mmc/host/sdhci.c
+index ff41aa56564e..c79f73459915 100644
+--- a/drivers/mmc/host/sdhci.c
++++ b/drivers/mmc/host/sdhci.c
+@@ -2841,7 +2841,7 @@ void sdhci_send_tuning(struct sdhci_host *host, u32 opcode)
+ }
+ EXPORT_SYMBOL_GPL(sdhci_send_tuning);
+ 
+-static int __sdhci_execute_tuning(struct sdhci_host *host, u32 opcode)
++int __sdhci_execute_tuning(struct sdhci_host *host, u32 opcode)
+ {
+ 	int i;
+ 
+@@ -2879,6 +2879,7 @@ static int __sdhci_execute_tuning(struct sdhci_host *host, u32 opcode)
+ 	sdhci_reset_tuning(host);
+ 	return -EAGAIN;
+ }
++EXPORT_SYMBOL_GPL(__sdhci_execute_tuning);
+ 
+ int sdhci_execute_tuning(struct mmc_host *mmc, u32 opcode)
+ {
+diff --git a/drivers/mmc/host/sdhci.h b/drivers/mmc/host/sdhci.h
+index f219bdea8f28..a20864fc0641 100644
+--- a/drivers/mmc/host/sdhci.h
++++ b/drivers/mmc/host/sdhci.h
+@@ -793,6 +793,7 @@ void sdhci_set_bus_width(struct sdhci_host *host, int width);
+ void sdhci_reset(struct sdhci_host *host, u8 mask);
+ void sdhci_set_uhs_signaling(struct sdhci_host *host, unsigned timing);
+ int sdhci_execute_tuning(struct mmc_host *mmc, u32 opcode);
++int __sdhci_execute_tuning(struct sdhci_host *host, u32 opcode);
+ void sdhci_set_ios(struct mmc_host *mmc, struct mmc_ios *ios);
+ int sdhci_start_signal_voltage_switch(struct mmc_host *mmc,
+ 				      struct mmc_ios *ios);
 
-So I don't see how it is necessary in this series. Whether it's 
-necessary or not for [*], I don't have the answer but we can leave the 
-discussion to that patch series.
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
