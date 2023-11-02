@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38557C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Nov 2023 08:03:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BECFBC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Nov 2023 09:07:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jwfSDemmL13PjLukiXwhf0tQKcl+hnnEW1Mbh3tOIck=; b=hEUc/EYWACq4U+
-	7RIJezJE9116fjtECbiGuUTgrYCVlvmgaYktRj45fXWsZGnNEkHIV5nWT5mC1HcqvlbuP7QDOFp2q
-	0QZ+cMedjuKLvuGnFs0sfuKucX9hwvIYlPnXrD3jKMdBAa2048ocWUuXgocqZk8sgqHCJEST+xJCy
-	MKypsFhS34LGBCS5kSdSmE5qaW4eId4clCNT61aLf4dvRUUPIqz5SoIvAGdgU51NDENLbBx9JbnN/
-	owYLKZRMmthEDv17w4XlTdZxh0wIe0+DnKi0YdIjzHze73UCOxClUkcdT4yW688I5JwIeX5FWmm/+
-	7miSUFvmh1SFi5n9G47Q==;
+	List-Owner; bh=OvLDD9z4OEEJMsTyPP4tM6cANC9Qylm0k2ZvhuQsLek=; b=1QhypzPPZ6miXy
+	Pwe0giH2bM2/yL/Z3TqrYHPbDlyet28lezZI8KqE5q/ipstjdswQ16GKpc/jUN7y0jBNv7wL4qjdK
+	hIY7W5CdGHzvi90kMyYpUTz4XNValgVf/Js+YkLej0flQgKoa3aQUmwh22bVW62dCq+BKvBCFS6Hb
+	EnaU0LE4+08SqYiU6EL3TNvfHMpMgbUPFUqpfWpMcI2AbtvQCr3bm4YCkoRKpdh5T1MdBAnrcep44
+	EXXogJlrMyP22k1CrMIWAIeBtQb5GEk8azNY7HW92xL8W2OriFx+fTWy6IrFMSfSJcjshujO4okxF
+	GyQkCvW2eDI/dlpj7rUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qySfx-008wRk-1n;
-	Thu, 02 Nov 2023 08:03:37 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qySfq-008wQM-0m
-	for linux-riscv@lists.infradead.org;
-	Thu, 02 Nov 2023 08:03:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1698912208;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WvS8MNTF0hgInyS69OR8wJBPNbNz7HePMphlox+7hLE=;
-	b=HMh6mc1oUNhcz81BnkRCFEpRE+aNqlpgVmqGmWCajxUHei+9zwYZmlsVXAQa1HL6IelWpC
-	m88JuZto6TvNZOm8f83wgXkFyp2e4Hp9tJWTJQXyAQ7cSI/3czfm49F5LPPriIFxtkg7CL
-	avh3/wAmGKWWiOYy2IyRIl76vaESK8g=
-Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-127-ZXeI0wL_OGCPKuuv_BOOQg-1; Thu,
- 02 Nov 2023 04:03:23 -0400
-X-MC-Unique: ZXeI0wL_OGCPKuuv_BOOQg-1
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5121F3810D23;
-	Thu,  2 Nov 2023 08:03:23 +0000 (UTC)
-Received: from localhost (unknown [10.72.113.33])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1F192492BE0;
-	Thu,  2 Nov 2023 08:03:21 +0000 (UTC)
-Date: Thu, 2 Nov 2023 16:03:18 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Vivek Goyal <vgoyal@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-kernel@vger.kernel.org, kexec@lists.infradead.org,
-	x86@kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-crypto@vger.kernel.org, eric_devolder@yahoo.com
-Subject: Re: [PATCH 1/2] kexec: fix KEXEC_FILE dependencies
-Message-ID: <ZUNXxp9AIkjQkP9s@MiWiFi-R3L-srv>
-References: <20231023110308.1202042-1-arnd@kernel.org>
- <ZTe8NOgAjvKDA6z0@MiWiFi-R3L-srv>
- <b71034f4-5cdc-44e0-b72f-1a8ffae0593e@app.fastmail.com>
+	id 1qyTfS-0090Ru-1z;
+	Thu, 02 Nov 2023 09:07:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qyTfO-0090QM-1p;
+	Thu, 02 Nov 2023 09:07:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC0E02F4;
+	Thu,  2 Nov 2023 02:07:42 -0700 (PDT)
+Received: from [10.34.100.114] (e126645.nice.arm.com [10.34.100.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7638D3F67D;
+	Thu,  2 Nov 2023 02:06:56 -0700 (PDT)
+Message-ID: <89b5db0e-1121-4d0c-a8f4-1202465f5251@arm.com>
+Date: Thu, 2 Nov 2023 10:06:50 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <b71034f4-5cdc-44e0-b72f-1a8ffae0593e@app.fastmail.com>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.9
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 6/7] cpufreq/cppc: set the frequency used for computing
+ the capacity
+To: Vincent Guittot <vincent.guittot@linaro.org>, linux@armlinux.org.uk,
+ catalin.marinas@arm.com, will@kernel.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, sudeep.holla@arm.com,
+ gregkh@linuxfoundation.org, rafael@kernel.org, mingo@redhat.com,
+ peterz@infradead.org, juri.lelli@redhat.com, dietmar.eggemann@arm.com,
+ rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
+ bristot@redhat.com, vschneid@redhat.com, viresh.kumar@linaro.org,
+ lenb@kernel.org, robert.moore@intel.com, lukasz.luba@arm.com,
+ ionela.voinescu@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org,
+ acpica-devel@lists.linuxfoundation.org
+Cc: conor.dooley@microchip.com, suagrfillet@gmail.com,
+ ajones@ventanamicro.com, lftan@kernel.org
+References: <20231027080400.56703-1-vincent.guittot@linaro.org>
+ <20231027080400.56703-7-vincent.guittot@linaro.org>
+Content-Language: en-US
+From: Pierre Gondois <pierre.gondois@arm.com>
+In-Reply-To: <20231027080400.56703-7-vincent.guittot@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231102_010330_371011_F639A723 
-X-CRM114-Status: GOOD (  38.46  )
+X-CRM114-CacheID: sfid-20231102_020706_716141_26CD621D 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,131 +71,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+Hello Vincent,
 
-On 10/24/23 at 03:17pm, Arnd Bergmann wrote:
-> On Tue, Oct 24, 2023, at 14:44, Baoquan He wrote:
-> > Just add people and mailing list to CC since I didn't find this mail in
-> > my box, just drag it via 'b4 am'.
-> >
-> > On 10/23/23 at 01:01pm, Arnd Bergmann wrote:
-> > ......
+On 10/27/23 10:03, Vincent Guittot wrote:
+> Save the frequency associated to the performance that has been used when
+> initializing the capacity of CPUs.
+> Also, cppc cpufreq driver can register an artificial energy model. In such
+> case, it needs the frequency for this compute capacity.
 > 
-> >> diff --git a/kernel/Kconfig.kexec b/kernel/Kconfig.kexec
-> >> index 7aff28ded2f48..bfc636d64ff2b 100644
-> >> --- a/kernel/Kconfig.kexec
-> >> +++ b/kernel/Kconfig.kexec
-> >> @@ -36,6 +36,7 @@ config KEXEC
-> >>  config KEXEC_FILE
-> >>  	bool "Enable kexec file based system call"
-> >>  	depends on ARCH_SUPPORTS_KEXEC_FILE
-> >> +	depends on CRYPTO_SHA256=y || !ARCH_SUPPORTS_KEXEC_PURGATORY
-> >
-> > I am not sure if the logic is correct. In theory, kexec_file code
-> > utilizes purgatory to verify the checksum digested during kernel loading
-> > when try to jump to the kernel. That means kexec_file depends on
-> > purgatory, but not contrary?
+> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> ---
+>   drivers/base/arch_topology.c | 15 ++++++++++++++-
+>   1 file changed, 14 insertions(+), 1 deletion(-)
 > 
-> The expression I wrote is a bit confusing, but I think this just
-> keeps the existing behavior:
-> 
-> - on architectures that select ARCH_SUPPORTS_KEXEC_PURGATORY
->   (powerpc, riscv, s390 and x86), we also require CRYPTO_SHA256
->   to be built-in.
-> - on architectures that do not have ARCH_SUPPORTS_KEXEC_PURGATORY
->   (arm64 and parisc), CRYPTO_SHA256 is not used and can be disabled
->   or =m.
-> 
-> Since ARCH_SUPPORTS_KEXEC_PURGATORY is a 'bool' symbol, it could
-> be written as
-> 
-> depends on (ARCH_SUPPORTS_KEXEC_PURGATORY && CRYPTO_SHA256=y) \
->            || !ARCH_SUPPORTS_KEXEC_PURGATORY
-> 
-> if you find that clearer. I see that the second patch
-> actually gets this wrong, it should actually do
-> 
-> select CRYPTO if ARCH_SUPPORTS_KEXEC_PURGATORY
-> select CRYPTO_SHA256 if ARCH_SUPPORTS_KEXEC_PURGATORY
-> 
-> > With these changes, we can achieve the goal to avoid building issue,
-> > whereas the code logic becomes confusing. E.g people could disable
-> > CONFIG_KEXEC_FILE, but still get purgatory code built in which is
-> > totally useless.
-> >
-> > Not sure if I think too much over this.
-> 
-> I see your point here, and I would suggest changing the
-> CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY symbol to just indicate
-> the availability of the purgatory code for the arch, rather
-> than actually controlling the code itself. I already mentioned
-> this for s390, but riscv would need the same thing on top.
-> 
-> I think the change below should address your concern.
+> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+> index 9a073c2d2086..d4bef370feb3 100644
+> --- a/drivers/base/arch_topology.c
+> +++ b/drivers/base/arch_topology.c
+> @@ -349,6 +349,7 @@ bool __init topology_parse_cpu_capacity(struct device_node *cpu_node, int cpu)
+>   
+>   void topology_init_cpu_capacity_cppc(void)
+>   {
+> +	u64 capacity, capacity_scale = 0;
+>   	struct cppc_perf_caps perf_caps;
+>   	int cpu;
+>   
+> @@ -365,6 +366,10 @@ void topology_init_cpu_capacity_cppc(void)
+>   		    (perf_caps.highest_perf >= perf_caps.nominal_perf) &&
+>   		    (perf_caps.highest_perf >= perf_caps.lowest_perf)) {
+>   			raw_capacity[cpu] = perf_caps.highest_perf;
+> +			capacity_scale = max_t(u64, capacity_scale, raw_capacity[cpu]);
+> +
+> +			per_cpu(capacity_ref_freq, cpu) = cppc_perf_to_khz(&perf_caps, raw_capacity[cpu]);
+> +
 
-Since no new comment, do you mind spinning v2 to wrap all these up?
+To continue Beata's point, I think there is an issue with the following:
+cppc_perf_to_khz() and cppc_khz_to_perf() were previously used with a struct containing
+frequencies in KHz, cf. [1].
+In the original _CPC object, frequencies are in MHz. It means that the perf_caps struct
+here contains frequencies in MHz, and per_cpu(capacity_ref_freq, cpu) is in MHz aswell.
 
-Thanks
-Baoquan
+[1] https://github.com/torvalds/linux/blob/master/drivers/cpufreq/cppc_cpufreq.c#L682
 
-> 
->      Arnd
-> 
-> diff --git a/arch/riscv/kernel/elf_kexec.c b/arch/riscv/kernel/elf_kexec.c
-> index e60fbd8660c4..3ac341d296db 100644
-> --- a/arch/riscv/kernel/elf_kexec.c
-> +++ b/arch/riscv/kernel/elf_kexec.c
-> @@ -266,7 +266,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
->                 cmdline = modified_cmdline;
->         }
->  
-> -#ifdef CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY
-> +#ifdef CONFIG_KEXEC_FILE
->         /* Add purgatory to the image */
->         kbuf.top_down = true;
->         kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
-> @@ -280,7 +280,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
->                                              sizeof(kernel_start), 0);
->         if (ret)
->                 pr_err("Error update purgatory ret=%d\n", ret);
-> -#endif /* CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY */
-> +#endif /* CONFIG_KEXEC_FILE */
->  
->         /* Add the initrd to the image */
->         if (initrd != NULL) {
-> diff --git a/arch/riscv/Kbuild b/arch/riscv/Kbuild
-> index d25ad1c19f88..ab181d187c23 100644
-> --- a/arch/riscv/Kbuild
-> +++ b/arch/riscv/Kbuild
-> @@ -5,7 +5,7 @@ obj-$(CONFIG_BUILTIN_DTB) += boot/dts/
->  obj-y += errata/
->  obj-$(CONFIG_KVM) += kvm/
->  
-> -obj-$(CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY) += purgatory/
-> +obj-$(CONFIG_KEXEC_FILE) += purgatory/
->  
->  # for cleaning
->  subdir- += boot
-> diff --git a/arch/s390/Kbuild b/arch/s390/Kbuild
-> index a5d3503b353c..361aa01dbd49 100644
-> --- a/arch/s390/Kbuild
-> +++ b/arch/s390/Kbuild
-> @@ -7,7 +7,7 @@ obj-$(CONFIG_S390_HYPFS)        += hypfs/
->  obj-$(CONFIG_APPLDATA_BASE)    += appldata/
->  obj-y                          += net/
->  obj-$(CONFIG_PCI)              += pci/
-> -obj-$(CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY) += purgatory/
-> +obj-$(CONFIG_KEXEC_FILE)       += purgatory/
->  
->  # for cleaning
->  subdir- += boot tools
-> 
 
+>   			pr_debug("cpu_capacity: CPU%d cpu_capacity=%u (raw).\n",
+>   				 cpu, raw_capacity[cpu]);
+>   			continue;
+> @@ -375,7 +380,15 @@ void topology_init_cpu_capacity_cppc(void)
+>   		goto exit;
+>   	}
+>   
+> -	topology_normalize_cpu_scale();
+> +	for_each_possible_cpu(cpu) {
+> +		capacity = raw_capacity[cpu];
+> +		capacity = div64_u64(capacity << SCHED_CAPACITY_SHIFT,
+> +				     capacity_scale);
+> +		topology_set_cpu_scale(cpu, capacity);
+> +		pr_debug("cpu_capacity: CPU%d cpu_capacity=%lu\n",
+> +			cpu, topology_get_cpu_scale(cpu));
+> +	}
+> +
+>   	schedule_work(&update_topology_flags_work);
+>   	pr_debug("cpu_capacity: cpu_capacity initialization done\n");
+>   
 
 _______________________________________________
 linux-riscv mailing list
