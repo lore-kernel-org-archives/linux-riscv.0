@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64FECC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Nov 2023 04:03:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 786C8C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Nov 2023 04:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d4o3ZhFQW5J1446MxpSJ1xgccG/aYZZ1yz/dOTmxGB8=; b=5D+sRUyb/t6p5m
-	0lvKByI0eWBBB2VfemalLHGneQGrbCuGX8vb/JRR1YZwzIpqGbubNWmp7/YmAYYbxUBCqSMEjceZy
-	y/3+7UEzhvIiCTjcIwi9xHcN34XaCvUCCTeLLTAZ/UXKwkzA26mgYNgWE2lNq4TQ6NhaRuNr0l0CS
-	WHRmVjkTN2uzU7sG89Z1NtRdRxtepBRszv5wswcNpvu1BLnctzkUuJu4RFkdwxZzLisA2neh1FbO3
-	sk+NnS8W4RPMrCrjNyp9YbdNpduOiA/RI5pcq8A4sxsf3UvGFkb/rznGTgryD6z0z48bS9VS2BHoe
-	NSI5onM4YpO8jQTZ4J7Q==;
+	List-Owner; bh=T/Yx2MGA+PGOw+GandKMssKqF6VVr0C6i9xqdedLzS0=; b=zhZfhXKckmu8Lw
+	WZbvRSXfD0xM0SlyeylD0+iTeHt1xrPeyxe3zcKpff/OKne51W9uBAG7yiuST6cRSzqEB0ToJ1b/0
+	wQjZ+u1HUTCZZi2Pyx9KQ/2ew+BkpjSdZS9Mg+/vqpWvWqdSpeZzRCjipzLoUGvjIRQioabQ2nRpy
+	RYFC3lOor29S3UzxMqaZB4XJZXiOuFI7Dv0QNPx3F45qu3ppZrSJqTcoiI5B2t88tHfd9YwwI7eCa
+	onZnawV06FBpYEXG5xvspylWXZKLn/19TnwtvAsghtwdQDzjFas/vdjIuX1WkEGjQOpIvTIOz491Z
+	WGmo5bQ31PqYjnLvI25Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyOvq-008fvc-1N;
-	Thu, 02 Nov 2023 04:03:46 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1qyPgX-008iob-2v;
+	Thu, 02 Nov 2023 04:52:01 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyOvk-008ftH-1x
+	id 1qyPgV-008io5-04
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Nov 2023 04:03:45 +0000
+	Thu, 02 Nov 2023 04:52:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id B82DDB81AC7;
-	Thu,  2 Nov 2023 04:03:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A13E5C433C7;
-	Thu,  2 Nov 2023 04:03:34 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 2A9EDCE1F31;
+	Thu,  2 Nov 2023 04:51:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C998EC433C7;
+	Thu,  2 Nov 2023 04:51:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1698897815;
-	bh=z1CJVAu9bc078uGAGfkWMIJJMJkesFaxTcqS0804NqU=;
+	s=k20201202; t=1698900716;
+	bh=N5PhYckyJitNvUVEQLxwfu9qQj+65o8OQSQa8fX1Z4I=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HrkO3QQiEApYXLUZUDNMyQcaUcE9RB6RWC/n1riSwundUKbH73zf5u8Kc4P41ntFo
-	 Jf6rQ/FT8nilsemPzXXxlfBgqcjSxf9uikItJ/61C/vUcNigHM+bAZVH5xzQ1Sb2Qn
-	 bIrJQfS7+OW0ULduVofgmVHbtXtfOXeBCZR1kNvmuNGsXYw470TXixzzGxRBrUOJFq
-	 GPEeKzGe8Hkmac7xNUxGK1IHinHBV8uJyKYF63Tsgii0QwwKR5IpaqrDV8J5do5cli
-	 rfxnQw3fdupMIFcTku+txaWjCuXQMdSEsbhJZqnH8pWyzVM93hj1TCUXsf44/JdNxJ
-	 qN8Bjq0tU0W8Q==
-Date: Wed, 1 Nov 2023 21:03:33 -0700
+	b=l1SQS0MHoqVwhvRH46guTdDbWvcHFjJubtcCBXl2LP/liJt/QnAk4oIMabRWHzSBu
+	 tfNJ03Bil97OTREOXuvpb9/fihGxVpjy+TaOx1bDzqK+E5zVRNRq4Uo6ngrQ1BRXHQ
+	 rTWCcO+YvS9Xv7aRJgBYt8q1+b9D7p1EMHK6GuZTB8uFX+5eKNNbtAjZ/bib7XlbmP
+	 1COfydaKwVcY73i+IKI68UB5xFvl2fsXz9Kda4l40itjtgc6I2N1Tja1kuSwY4+/xT
+	 xbt19c6AmHbu0hPjDm3E/KbqXASc2o4C+SSUVm74K8fFLdviT2obMlPEcB3yx5kZOC
+	 gq9miRdJL3iEg==
+Date: Wed, 1 Nov 2023 21:51:54 -0700
 From: Eric Biggers <ebiggers@kernel.org>
 To: Jerry Shih <jerry.shih@sifive.com>
-Cc: Charlie Jenkins <charlie@rivosinc.com>,
-	Heiko Stuebner <heiko@sntech.de>, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
 	herbert@gondor.apana.org.au, davem@davemloft.net,
-	conor.dooley@microchip.com, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
-	christoph.muellner@vrull.eu,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: Re: [PATCH v4 00/12] RISC-V: support some cryptography accelerations
-Message-ID: <20231102040333.GC1498@sol.localdomain>
-References: <20230711153743.1970625-1-heiko@sntech.de>
- <20230914001144.GA924@sol.localdomain>
- <ZQJdnCwf99Glggin@ghost>
- <3A0F6A71-C521-44A5-A56C-076AF3E13897@gmail.com>
- <DD3113B1-AB9F-4D6D-BD6E-8F75A83DA45D@sifive.com>
- <20231006194741.GA68531@google.com>
- <AB98E114-A8DE-492E-B078-7394EE4FA83E@sifive.com>
+	andy.chiu@sifive.com, greentime.hu@sifive.com,
+	conor.dooley@microchip.com, guoren@kernel.org, bjorn@rivosinc.com,
+	heiko@sntech.de, ardb@kernel.org, phoebe.chen@sifive.com,
+	hongrong.hsu@sifive.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org
+Subject: Re: [PATCH 04/12] RISC-V: crypto: add Zvkned accelerated AES
+ implementation
+Message-ID: <20231102045154.GE1498@sol.localdomain>
+References: <20231025183644.8735-1-jerry.shih@sifive.com>
+ <20231025183644.8735-5-jerry.shih@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <AB98E114-A8DE-492E-B078-7394EE4FA83E@sifive.com>
+In-Reply-To: <20231025183644.8735-5-jerry.shih@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231101_210340_960271_44207413 
-X-CRM114-Status: GOOD (  23.50  )
+X-CRM114-CacheID: sfid-20231101_215159_398737_6A441E42 
+X-CRM114-Status: GOOD (  22.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,66 +79,110 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jerry,
+On Thu, Oct 26, 2023 at 02:36:36AM +0800, Jerry Shih wrote:
+> diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
+> index 10d60edc0110..500938317e71 100644
+> --- a/arch/riscv/crypto/Kconfig
+> +++ b/arch/riscv/crypto/Kconfig
+> @@ -2,4 +2,16 @@
+>  
+>  menu "Accelerated Cryptographic Algorithms for CPU (riscv)"
+>  
+> +config CRYPTO_AES_RISCV64
+> +	default y if RISCV_ISA_V
+> +	tristate "Ciphers: AES"
+> +	depends on 64BIT && RISCV_ISA_V
+> +	select CRYPTO_AES
+> +	select CRYPTO_ALGAPI
+> +	help
+> +	  Block ciphers: AES cipher algorithms (FIPS-197)
+> +
+> +	  Architecture: riscv64 using:
+> +	  - Zvkned vector crypto extension
 
-(Just so you know, you still need to fix your email configuration.  Your emails
-have a bogus Reply-To header, which makes replies not be sent to you by default.
-I had to manually set the "To:" address when replying.)
+kconfig options should default to off.
 
-On Tue, Oct 31, 2023 at 10:17:11AM +0800, Jerry Shih wrote:
-> 
-> The RISC-V vector crypto OpenSSL pr[1] is merged.
-> And we also sent the vector-crypto patch based on Heiko's and OpenSSL
-> works.
-> Here is the link:
-> https://lore.kernel.org/all/20231025183644.8735-1-jerry.shih@sifive.com/
-> 
-> [1]
-> https://github.com/openssl/openssl/pull/21923
+I.e., remove the line "default y if RISCV_ISA_V"
 
-Awesome, thanks!
+> + *
+> + * All zvkned-based functions use encryption expending keys for both encryption
+> + * and decryption.
+> + */
 
-> 
-> > I'm also wondering about riscv.pm and the choice of generating the crypto
-> > instructions from .words instead of using the assembler.  It makes it
-> > significantly harder to review the code, IMO.  Can we depend on assembler
-> > support for these instructions, or is that just not ready yet?
-> > 
-> > - Eric
-> 
-> There is no public assembler supports the vector-crypto asm mnemonics.
-> We should still use `opcode` for vector-crypto instructions. But we might
-> use asm for standard rvv parts.
-> In order to reuse the codes in OpenSSL as much as possible,  we still use
-> the `riscv.pm` for all standard rvv and vector-crypto instructions. If the asm
-> mnemonic is still a better approach,  I will `rewrite` all standard rvv parts
-> with asm mnemonics in next patch.
+The above comment is a bit confusing.  It's describing the 'key' field of struct
+aes_key; maybe there should be a comment there instead:
 
-Tip-of-tree gcc + binutils seems to support them.  Building some of the sample
-code from the riscv-crypto repository:
+    struct aes_key {
+            u32 key[AES_MAX_KEYLENGTH_U32]; /* round keys in encryption order */
+            u32 rounds;
+    };
 
-    $ riscv64-linux-gnu-as --version
-    GNU assembler (GNU Binutils) 2.41.50.20231021
-    $ riscv64-linux-gnu-gcc --version
-    riscv64-linux-gnu-gcc (GCC) 14.0.0 20231021 (experimental)
-    $ riscv64-linux-gnu-gcc -march=rv64ivzvkned -c riscv-crypto/doc/vector/code-samples/zvkned.s
+> +int riscv64_aes_setkey(struct riscv64_aes_ctx *ctx, const u8 *key,
+> +		       unsigned int keylen)
+> +{
+> +	/*
+> +	 * The RISC-V AES vector crypto key expending doesn't support AES-192.
+> +	 * We just use the generic software key expending here to simplify the key
+> +	 * expending flow.
+> +	 */
 
-And tip-of-tree clang supports them experimentally:
+expending => expanding
 
-    $ clang --version
-    clang version 18.0.0 (https://github.com/llvm/llvm-project 30416f39be326b403e19f23da387009736483119)
-    $ clang -menable-experimental-extensions -target riscv64-linux-gnu -march=rv64ivzvkned1 -c riscv-crypto/doc/vector/code-samples/zvkned.s
+> +	u32 aes_rounds;
+> +	u32 key_length;
+> +	int ret;
+> +
+> +	ret = aes_expandkey(&ctx->fallback_ctx, key, keylen);
+> +	if (ret < 0)
+> +		return -EINVAL;
+> +
+> +	/*
+> +	 * Copy the key from `crypto_aes_ctx` to `aes_key` for zvkned-based AES
+> +	 * implementations.
+> +	 */
+> +	aes_rounds = aes_round_num(keylen);
+> +	ctx->key.rounds = aes_rounds;
+> +	key_length = AES_BLOCK_SIZE * (aes_rounds + 1);
+> +	memcpy(ctx->key.key, ctx->fallback_ctx.key_enc, key_length);
+> +
+> +	return 0;
+> +}
 
-It would be nice to use a real assembler, so that people won't have to worry
-about potential mistakes or inconsistencies in the perl-based "assembler".  Also
-keep in mind that if we allow people to compile this code without the real
-assembler support from the beginning, it might end up staying that way for quite
-a while in order to avoid breaking the build for people.
+Ideally this would use the same crypto_aes_ctx for both the fallback and the
+assembly code.  I suppose we don't want to diverge from the OpenSSL code (unless
+it gets rewritten), though.  So I guess this is fine for now.
 
-Ultimately it's up to you though; I think that you and others who have been
-working on RISC-V crypto can make the best decision about what to do here.  I
-also don't want this patchset to be delayed waiting for other projects, so maybe
-that indeed means the perl-based "assembler" needs to be used for now.
+> void riscv64_aes_encrypt_zvkned(const struct riscv64_aes_ctx *ctx, u8 *dst,
+>                                const u8 *src)
+
+These functions can be called from a different module (aes-block-riscv64), so
+they need EXPORT_SYMBOL_GPL.
+
+> +static inline bool check_aes_ext(void)
+> +{
+> +	return riscv_isa_extension_available(NULL, ZVKNED) &&
+> +	       riscv_vector_vlen() >= 128;
+> +}
+> +
+> +static int __init riscv64_aes_mod_init(void)
+> +{
+> +	if (check_aes_ext())
+> +		return crypto_register_alg(&riscv64_aes_alg_zvkned);
+> +
+> +	return -ENODEV;
+> +}
+> +
+> +static void __exit riscv64_aes_mod_fini(void)
+> +{
+> +	if (check_aes_ext())
+> +		crypto_unregister_alg(&riscv64_aes_alg_zvkned);
+> +}
+> +
+> +module_init(riscv64_aes_mod_init);
+> +module_exit(riscv64_aes_mod_fini);
+
+module_exit can only run if module_init succeeded.  So, in cases like this it's
+not necessary to check for CPU features before unregistering the algorithm.
 
 - Eric
 
