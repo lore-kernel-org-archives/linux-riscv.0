@@ -4,79 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F0FAC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Nov 2023 15:58:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9675CC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Nov 2023 16:03:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AjkIdVAZUL6seIpAq1KMiQhb79uLVa4sn7dLZuKLNZM=; b=wcx7wPcLuSYFns
-	kFcDK+n0tTpS0+ivruqjQJLC/EXPcBaK5Ug6I2C4wO/NQbGtlHwkNU4WQr/kXkJ6s8fN16bvBfpg1
-	w70alDC+wGj4P1O1iAZBGvW10E4bdx8A0QGg1VKYn/JvCivNp6R2vKCRjNtgXd3fGtKgDy0id6usb
-	S6Z+cxML0aDQ5SUXZC7c6oCNZZi91uwYTdSmJOaiVoTQg9j6VWv7nZi6T9oTdnHvE/ihl5D3UCmcT
-	Oblh6FQrC3MOlFTTDi9kwxe5JJG52V6GXnTFsN2uWgtdeU2sMRizZ2FkMCXEgBrTaeoUEN7NOBcgm
-	7ymQKbXw1MEnUqiTGv7w==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=YnxxYb3/tUyd9T+f8ECKz73x8ncUtXa31XakLY4s6V4=; b=XdEOXJSrwXoudPizT6F/Dh2k7z
+	J5Lz0g4xuSbS/CiPrVNCmDvgz9zEP69r76mJN7GDtIKmr8+pnYucmDCPC3bsmgxDkZZ3Ij3SKbhBT
+	5+p07PM4u22Fe/nO8gboPPDILfH05xEzE85z1FMs4CaivR+mZsEkeggbmmPPLhacbU9tkMx322V1l
+	1IO4yLHl8u4z884yl1LDniLMcrqybh7zJTL6+d1A7R1N0sB1kQmoAdPf1Vv2lIMwqu1VrdZ+yeAop
+	HMmQzJMrGePKAma47kF5nTQRenteJkgrdJUkCsYA2HE1x/9DPETKSAsGNRc81yT4rppNwoRib3e4K
+	P2G9I2Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qya5Z-009oxk-2x;
-	Thu, 02 Nov 2023 15:58:33 +0000
-Received: from mail-yb1-xb33.google.com ([2607:f8b0:4864:20::b33])
+	id 1qyaAf-009pbr-1Y;
+	Thu, 02 Nov 2023 16:03:49 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qya5X-009owt-02
+	id 1qyaAb-009pa6-39
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Nov 2023 15:58:32 +0000
-Received: by mail-yb1-xb33.google.com with SMTP id 3f1490d57ef6-da0344eb3fdso1105425276.3
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Nov 2023 08:58:29 -0700 (PDT)
+	Thu, 02 Nov 2023 16:03:47 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1cc1682607eso9219585ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Nov 2023 09:03:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1698940709; x=1699545509; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XNEPrHtpWZXoQfJIOfV77wIMEMFhpxTl9HwUi1VWxhY=;
-        b=nwcvmD27+l+qVACQkL5ADdLrhIFciRc/u8u+rz4DnnEDmLpWvioT1/Kv4dJ9j1KorW
-         YYV2jezXomisSFrResEJBJ+3SgcU8z/+WtkiwQnvrP3RPMyfRbM1lnM53cWHRhGbfhL1
-         0KmdfDUV0TA227WwrzLMUTWWXr46K8JE+NcPwQKOY5s4T4aYnSB6Y+v5jA5bed5t71ou
-         k9fLnYQ1eWUlE07YE0oXQ0jE1tHcLtqquTxWtslqqyuj2DpjRqDh6P5ML9N5O0F/MHhN
-         JfRSQVeotWHbJSXMfmYjLOJi6DtmESbBx1zLAR8yOgQLxmmLmgZ0B5CXNv4bxJKyupAr
-         cDpA==
+        d=google.com; s=20230601; t=1698941024; x=1699545824; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2iqXbuRKMyvTfyAi0R6oHncN26PfYTo3tctDI41vJWU=;
+        b=TAFpmrBa6wglHpMXGA7RDVQHBx8jbTjSCpOtOHe/63peXSXd+7bdYSIMpkhHUpjlX6
+         N9YTqoLFLdX5NnYRptIVJ4/Bb8oqSZfJg5lMZFbf19jUUj8FRwFvw4m5M3Vi1FgUPg+J
+         ZEn4+RHahHbPh0tjTZqfsvXZGF9GnS3QQj0jPHZiDVLYBOC28CmjA/VP6vjUB3iaeotX
+         526YWgcmVuBTXn7ZblWa4QtHvE0SQu4TON4TGKkchxE90j0U/gzC6cWV7I7gKznhPLxc
+         2GzSju69r4lbfTP28VK0YVWMSut8VDIjbh33RSBhqkj8Tbn6UIKWxeCB4nKLAu0FxobY
+         4XaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698940709; x=1699545509;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XNEPrHtpWZXoQfJIOfV77wIMEMFhpxTl9HwUi1VWxhY=;
-        b=qOFb1AkUbH00nTTTFXFuDqzn9fJHriZjJ3XFjAkVDCWLKYORCuCkGhtpJxjbnyTbHf
-         H421LaY//Jeti82pb1KLj8ahv1efen7F9KdPvZlCGZv3sai/IRrf2OAMasPYDg27+iwf
-         ZNlOqxS8jnUK8nmprF9G/Jr6BX6a0RfsWaX0RywDlZo+U6APsvpdUK0osBToH00Y+ZU+
-         fd3tvmnyaJBsyIFijXfCY2hCPdAsqnbMJXY12qRs2i5M0ygpziw222QyW68dOkgb3a3l
-         5gSVMLz5L3iD1GhbDEsh2zzhO4d/CWi+tf5aP915+lCfJTNwFpVag1NX5CezigyGPSTh
-         enxA==
-X-Gm-Message-State: AOJu0Ywryu8WB3lNuPpuCgjM0tIgTeVqCe1zyr8RwWu/xemSPmalKFXY
-	VP1Gm+1bVxezjLtppjHwDzP4AJEXsV2fb9HDOb9ujA==
-X-Google-Smtp-Source: AGHT+IF1f4Ty+Vh8knd8cOh5yMOedkwEBaET2+CuYstsFQXP9Qws7opMHu00sYoRsA3vWpGcDnE57SVqvvlBibRBQiQ=
-X-Received: by 2002:a25:ae10:0:b0:da0:5b63:d062 with SMTP id
- a16-20020a25ae10000000b00da05b63d062mr19548830ybj.35.1698940708790; Thu, 02
- Nov 2023 08:58:28 -0700 (PDT)
-MIME-Version: 1.0
-References: <20231026233837.612405-1-debug@rivosinc.com> <ZUPEDWofcqgzsgMS@debug.ba.rivosinc.com>
- <20231102085609.39a22424bba9a75a1523e23b@linux-foundation.org>
-In-Reply-To: <20231102085609.39a22424bba9a75a1523e23b@linux-foundation.org>
-From: Deepak Gupta <debug@rivosinc.com>
-Date: Thu, 2 Nov 2023 08:58:17 -0700
-Message-ID: <CAKC1njQH_WgvQOonme8bgWm9FXvayBQKR1536Z8G_yX9LuvCcg@mail.gmail.com>
-Subject: Re: [PATCH v6] scripts/gdb: add lx_current support for riscv
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: woodrow.shen@sifive.com, Andrew Jones <ajones@ventanamicro.com>, 
-	Palmer Dabbelt <palmer@rivosinc.com>, Jan Kiszka <jan.kiszka@siemens.com>, 
-	Kieran Bingham <kbingham@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Glenn Washburn <development@efficientek.com>, Jeff Xie <xiehuan09@gmail.com>, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+        d=1e100.net; s=20230601; t=1698941024; x=1699545824;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2iqXbuRKMyvTfyAi0R6oHncN26PfYTo3tctDI41vJWU=;
+        b=cLGlRmojOV2EJw+qUyeQDxEFRDTM6QQifWyoHPoTNClU0/e+qFtf/UssmdWY37u5nX
+         t1NRL7NnVKiEoNnSoHjEmUdS224GmvS7EaDkUekNy8pLFS8czY70eZS9jm0GLNpkFRGL
+         8kt/P/wNmpPO6bhDdPoqEIBPc1K+GKBXDwCldRm+nT/kCh+Hq6ZAniA7HXm45CPU7OAU
+         01ZvDIXXemacNZ0s/aZXYqAgRtwcEtI6MF40NDT8jBt1KNHrx6eRWabqV8rU6t1/NiDI
+         8mufrjkedVhccBl/Y+WY1QS+xRi2jmbsXgyV1EWwBobWumwkvNF1P2upX35+GaPw1ifb
+         dJvw==
+X-Gm-Message-State: AOJu0YyJJ7JOuEGjpvh0VjGevgmwYLhdmEoXTqWvo5mxpwn1DFvVXxZk
+	ScPC+czoNzJTUgVK9tEhIMhiMbuEkBM=
+X-Google-Smtp-Source: AGHT+IFM1Nz2eAP9Xmws9JoQjAGGS19Q55KF/ifRxAflcrAzQHFBFIOS8V+26ERzfv1Lm5CG2bErCCPJO0Q=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a17:903:1304:b0:1cc:2ffe:5a33 with SMTP id
+ iy4-20020a170903130400b001cc2ffe5a33mr266680plb.8.1698941024519; Thu, 02 Nov
+ 2023 09:03:44 -0700 (PDT)
+Date: Thu, 2 Nov 2023 09:03:42 -0700
+In-Reply-To: <6642c379-1023-4716-904f-4bbf076744c2@redhat.com>
+Mime-Version: 1.0
+References: <20231027182217.3615211-1-seanjc@google.com> <20231027182217.3615211-17-seanjc@google.com>
+ <ZUFGRyQEuWj4RJS0@google.com> <ZUFzZf-YmCRYP6qo@google.com>
+ <CALzav=d9eXZfK=op7A=UftbpuPpUbxqV6CmkqqxxBNuNsUU4nw@mail.gmail.com> <6642c379-1023-4716-904f-4bbf076744c2@redhat.com>
+Message-ID: <ZUPIXt1XzZrriswG@google.com>
+Subject: Re: [PATCH v13 16/35] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: David Matlack <dmatlack@google.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, Xiaoyao Li <xiaoyao.li@intel.com>, 
+	Xu Yilun <yilun.xu@intel.com>, Chao Peng <chao.p.peng@linux.intel.com>, 
+	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
+	Anish Moorthy <amoorthy@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>, 
+	Isaku Yamahata <isaku.yamahata@intel.com>, 
+	"=?utf-8?Q?Micka=C3=ABl_Sala=C3=BCn?=" <mic@digikod.net>, Vlastimil Babka <vbabka@suse.cz>, 
+	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
+	Maciej Szmigiero <mail@maciej.szmigiero.name>, David Hildenbrand <david@redhat.com>, 
+	Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
+	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
+	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231102_085831_050192_05198EA2 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20231102_090346_018276_289BAE1D 
+X-CRM114-Status: GOOD (  23.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,21 +106,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBOb3YgMiwgMjAyMyBhdCA4OjU24oCvQU0gQW5kcmV3IE1vcnRvbiA8YWtwbUBsaW51
-eC1mb3VuZGF0aW9uLm9yZz4gd3JvdGU6Cj4KPiBPbiBUaHUsIDIgTm92IDIwMjMgMDg6NDU6MTcg
-LTA3MDAgRGVlcGFrIEd1cHRhIDxkZWJ1Z0ByaXZvc2luYy5jb20+IHdyb3RlOgo+Cj4gPiBQaW5n
-Cj4gPgo+ID4gKyBDQzogYWtwbUBsaW51eC1mb3VuZGF0aW9uLm9yZwo+ID4KPiA+IFdobyBzaG91
-bGQgSSBwaW5nIHRvIG1ha2Ugc3VyZSB0aGF0IGl0IGxhbmRzIHVwIGluIG1haW5saW5lPwo+ID4g
-SXQncyBxdWl0ZSBhIHRyaXZpYWwgY2hhbmdlIHRvIHN1cHBvcnQgbHhfY3VycmVudCByaXNjdiBh
-cmNoLgo+Cj4gSSBtb3ZlZCBpdCBmcm9tIG1tLmdpdCdzIG1tLW5vbm1tLXVuc3RhYmxlIGJyYW5j
-aCBpbnRvIHRoZQo+IG1tLW5vbm1tLXN0YWJsZSBicmFuY2ggZWFybGllciB0aGlzIHdlZWsuICBt
-bS1ub25tbS1zdGFibGUgaXMgd2hhdCBJJ2xsCj4gYmUgc2VuZGluZyB0byBMaW51cyBsYXRlciB0
-aGlzIG1lcmdlIHdpbmRvdy4KPgpUaGFua3MKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+On Thu, Nov 02, 2023, Paolo Bonzini wrote:
+> On 10/31/23 23:39, David Matlack wrote:
+> > > > Maybe can you sketch out how you see this proposal being extensible to
+> > > > using guest_memfd for shared mappings?
+> > > For in-place conversions, e.g. pKVM, no additional guest_memfd is needed.  What's
+> > > missing there is the ability to (safely) mmap() guest_memfd, e.g. KVM needs to
+> > > ensure there are no outstanding references when converting back to private.
+> > > 
+> > > For TDX/SNP, assuming we don't find a performant and robust way to do in-place
+> > > conversions, a second fd+offset pair would be needed.
+> > Is there a way to support non-in-place conversions within a single guest_memfd?
+> 
+> For TDX/SNP, you could have a hook from KVM_SET_MEMORY_ATTRIBUTES to guest
+> memory.  The hook would invalidate now-private parts if they have a VMA,
+> causing a SIGSEGV/EFAULT if the host touches them.
+> 
+> It would forbid mappings from multiple gfns to a single offset of the
+> guest_memfd, because then the shared vs. private attribute would be tied to
+> the offset.  This should not be a problem; for example, in the case of SNP,
+> the RMP already requires a single mapping from host physical address to
+> guest physical address.
+
+I don't see how this can work.  It's not a M:1 scenario (where M is multiple gfns),
+it's a 1:N scenario (wheren N is multiple offsets).  The *gfn* doesn't change on
+a conversion, what needs to change to do non-in-place conversion is the pfn, which
+is effectively the guest_memfd+offset pair.
+
+So yes, we *could* support non-in-place conversions within a single guest_memfd,
+but it would require a second offset, at which point it makes sense to add a
+second file descriptor as well.  Userspace could still use a single guest_memfd
+instance, i.e. pass in the same file descriptor but different offsets.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
