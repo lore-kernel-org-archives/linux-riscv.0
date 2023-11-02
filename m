@@ -4,125 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70142C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Nov 2023 11:03:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13E27C4167D
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Nov 2023 11:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gNnhiSrvefHhpa9y0uCRxG+cE/cQsl/wJU1gAf97X/U=; b=MGmh0bLsOkUs/2
-	wRqXQAe0GP/0Vb6d+oKHrdfriDEBPV4Qfb6mWF8oVLoU7HaWZbD7iO6XtNUilxuGh0ofzs/rDfOvi
-	IK2Kr+Zhu7vXaX28annpuKFNMZjLL2oNhVpTcGHJsk4ofiW6hqfM4um2XArTiNeEE+2gdbSpHwrns
-	Z9lkKBN2UAK2LCNFxtIXpaJI8pdbeenhhAlQsPKVIZP/rfMleRZbffDtVv9GYp0oUa4VidO+CUBsx
-	cAMGI2YnG9hSB1CFu+z27Uyf+TiVGYz391iTKub1A1AFHyPDcvb7t0CGmTjskB/jzXJAn63GMJKk6
-	siH1fyYHrSfnCa/iYsug==;
+	List-Owner; bh=Y72dMjE8pAQXS9XHx/r5gdz3YaIcEzOv6+GGfNTQ/dM=; b=1u+mv+uPv+KR9/
+	PZn/7S3W5eFCEvsjdeB5MczsQ2/0r1Zzb+pWjdvvkbZNZXQAbTAJvmuxm+tlQe3bNn/igk43RYpfD
+	Ntn5uRvWWvLojYCPD4f1PvTTs+Yzkczj/Iix8N7p1aXsq3rOfnf+sg1B+lDX9PIfAe9qJmQ7af5oB
+	XhC9JEx0dKSoF1i+EVU0yMrODvtWiPEuA6EHLyJIRGmABOpQDdk0lKDGXo6X6ygukkZ9iD/v+amcE
+	qfG8DBXGnX2DDoME4qCnSA12pBX3lCEn1vMNS1U1LR5Zw/rdk//VzNAHXVRPmVUZDuePnA/CH1cHv
+	W/dhWisb0jeQWloy7Yiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyVUN-009HUw-1U;
-	Thu, 02 Nov 2023 11:03:51 +0000
+	id 1qyVeb-009KTJ-2q;
+	Thu, 02 Nov 2023 11:14:25 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyVUK-009HRG-1D
+	id 1qyVeY-009KRb-06
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Nov 2023 11:03:49 +0000
+	Thu, 02 Nov 2023 11:14:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1698923027;
+	s=mimecast20190719; t=1698923660;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=o+sUvKh0Fq9LjCXdXIyTK4b/elLQxFDSaWn4T3QHjyo=;
-	b=IU52yQO0qxcz35Fs/5V0uCHcBEKycD54EakTck4PlEo8a2TRHMfHGgGhw+SGPR6npcKNxx
-	9+od4kqgrYIcPrPVkNx6QW0aE35QpNGv5BF5rrD8qn6ngT2zhAq2MRaSfxDBZAcesTlW9D
-	eTMcLXREvK87atjn3VTZKgiGZXDUMmk=
-Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com
- [209.85.218.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=nE+jpziewfIiESFBa36vSQ59b0yur6c77ORQ4q4A4TQ=;
+	b=VMjjnme95siBMGJmpyz6WxwVYbrc9lgpnUMkAtw9NP6iASHrjDoMMm5SzTitgQz4Bcf3DY
+	wCbp6o9iCcdq94+f8rsVxEDUTZB5AaN0z9zb/nB4IU6hpVET+9EM8MydeXiQICKm97d5pK
+	IIee8Twyb6jAWJG3fTGcHQrOOcIu9sg=
+Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com
+ [209.85.208.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-395-pKR0-og0M8Kh-Sm_nHiMhQ-1; Thu, 02 Nov 2023 07:03:44 -0400
-X-MC-Unique: pKR0-og0M8Kh-Sm_nHiMhQ-1
-Received: by mail-ej1-f72.google.com with SMTP id a640c23a62f3a-9d2ab03a586so54295366b.0
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Nov 2023 04:03:44 -0700 (PDT)
+ us-mta-489-ee5OAqnSOnCkveU8hxFRbw-1; Thu, 02 Nov 2023 07:14:19 -0400
+X-MC-Unique: ee5OAqnSOnCkveU8hxFRbw-1
+Received: by mail-ed1-f69.google.com with SMTP id 4fb4d7f45d1cf-53e02a0ebfdso605808a12.3
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Nov 2023 04:14:19 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698923023; x=1699527823;
+        d=1e100.net; s=20230601; t=1698923658; x=1699528458;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=o+sUvKh0Fq9LjCXdXIyTK4b/elLQxFDSaWn4T3QHjyo=;
-        b=UPa3jSOdyIxu/w7DcycLpx7eshB1sgNn7Psa2nfpcPwTdQPPSgia0FFzEs+4vjHe1n
-         A1aV23YEohgDdqdJz5SusNCKjBgOXPP3dUgDSI5cf2zcJjtbzAC0Hmherl4KBfsbWAlD
-         AfU2lzMemzr1h7/KY5SL/Ruey+9n5sOHK9Q7C7ry5l3ygrOMX/p3tSVNZSlXm4eLj3Jl
-         82SH3iUXoOvmrhs88seGaN4BcGzhtQSEd6HIzmAbNi88bdYH/xF9wBh5rPNhT6AiwO9Q
-         8LrIJCEFub7G1mzFa7Xvmxd3/v6GIABE368Ro+pZgkSCsXOyA4cvr4aeeeCqGvdIv4eZ
-         HQBQ==
-X-Gm-Message-State: AOJu0Yzr+aN4eeDr7tq4J05YSz5svLGx58nBoucjI7eM8HBFaNnZy6ei
-	08TmCal7geZPfZKXsZnngu7lKkbRHwS0R7pH72v5urTCfgpNLdi/kbUPr1Li4I3TlXxrtvpU+gZ
-	JKbCVhHN3zut56TEZIxRLsnzdubjO
-X-Received: by 2002:a17:907:7b99:b0:9be:30c2:b8fd with SMTP id ne25-20020a1709077b9900b009be30c2b8fdmr4830858ejc.66.1698923023218;
-        Thu, 02 Nov 2023 04:03:43 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGAextU6brGleAr873WsCzugduD1+qH+WMku84F2ppJAKPGqD6aYcxwyzrmazywVumiiQ5fXg==
-X-Received: by 2002:a17:907:7b99:b0:9be:30c2:b8fd with SMTP id ne25-20020a1709077b9900b009be30c2b8fdmr4830827ejc.66.1698923022777;
-        Thu, 02 Nov 2023 04:03:42 -0700 (PDT)
+        bh=nE+jpziewfIiESFBa36vSQ59b0yur6c77ORQ4q4A4TQ=;
+        b=HgaC0/mexxISm1dEWhFsysgWS6AF627rKLK1aiiGDlDxf6PS9bzez3JxxqWscjdiUc
+         2Ck7Ou2OAW37ibzcRuwh5zT0ZX5GYPvwVH0cXAgovmyX8+HlO9t+2IzC6EsuwEcp9gxF
+         SN6gmvDwts+EvD3lBTUdfxmy8zicVfPMGTPkTVrDwcyaOPXQx0P9tyjCGzFVkP5TYH2Z
+         SD0kPFbjnKt8GahYRHOHfVFduL0bvWiayYBYyuOlzehjXXkk+Z0Gwu3/v6YsUyk8tVDm
+         FX133U0kMVlio25G6SNIU95I5uVQjGL6FYpf27sd2VnzueVH2Od5B1XKi6XPb1sVZpSD
+         3bMA==
+X-Gm-Message-State: AOJu0Yys3PeCi6ZUa8nh3QopHZIkhyrda+sG3Emsl68QZ98mh3GeHDcg
+	tYeoEG/n5aMZF1GsAbjeyrhPAKxQ6rrR3rFzFw5CHbO4e96mp+8VFSBF0SOU82LtrdrOEvsRXPR
+	AcHJnq7mxe+zbk9Ez4loTHIJFpp70
+X-Received: by 2002:a05:6402:d6b:b0:541:29c8:959b with SMTP id ec43-20020a0564020d6b00b0054129c8959bmr12074272edb.39.1698923658430;
+        Thu, 02 Nov 2023 04:14:18 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEXhppfRa15KEqVY2rnJoTwoiSC4PZM5XqKpBQUyQg58A1nLwAa47Vx7RLL9LFOmphAlpAU2Q==
+X-Received: by 2002:a05:6402:d6b:b0:541:29c8:959b with SMTP id ec43-20020a0564020d6b00b0054129c8959bmr12074247edb.39.1698923658101;
+        Thu, 02 Nov 2023 04:14:18 -0700 (PDT)
 Received: from ?IPV6:2001:b07:6468:f312:9af8:e5f5:7516:fa89? ([2001:b07:6468:f312:9af8:e5f5:7516:fa89])
-        by smtp.googlemail.com with ESMTPSA id hk22-20020a170906c9d600b0099cb0a7098dsm1010698ejb.19.2023.11.02.04.03.39
+        by smtp.googlemail.com with ESMTPSA id r25-20020a50c019000000b00537666d307csm2257960edb.32.2023.11.02.04.14.14
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 02 Nov 2023 04:03:42 -0700 (PDT)
-Message-ID: <496b78bb-ad12-4eed-a62c-8c2fd725ec61@redhat.com>
-Date: Thu, 2 Nov 2023 12:03:39 +0100
+        Thu, 02 Nov 2023 04:14:17 -0700 (PDT)
+Message-ID: <cbd46f04-c53b-4d22-9730-76f2ace141d9@redhat.com>
+Date: Thu, 2 Nov 2023 12:14:13 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 09/35] KVM: Add KVM_EXIT_MEMORY_FAULT exit to report
- faults to userspace
-To: "Huang, Kai" <kai.huang@intel.com>,
- "Christopherson,, Sean" <seanjc@google.com>
-Cc: "Li, Xiaoyao" <xiaoyao.li@intel.com>,
- "kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
- "mic@digikod.net" <mic@digikod.net>,
- "liam.merwick@oracle.com" <liam.merwick@oracle.com>,
- "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
- "Yamahata, Isaku" <isaku.yamahata@intel.com>,
- "viro@zeniv.linux.org.uk" <viro@zeniv.linux.org.uk>,
- "kirill.shutemov@linux.intel.com" <kirill.shutemov@linux.intel.com>,
- "david@redhat.com" <david@redhat.com>,
- "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- "amoorthy@google.com" <amoorthy@google.com>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "tabba@google.com" <tabba@google.com>,
- "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
- "oliver.upton@linux.dev" <oliver.upton@linux.dev>,
- "michael.roth@amd.com" <michael.roth@amd.com>,
- "chao.p.peng@linux.intel.com" <chao.p.peng@linux.intel.com>,
- "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "chenhuacai@kernel.org" <chenhuacai@kernel.org>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "mpe@ellerman.id.au" <mpe@ellerman.id.au>,
- "Annapurve, Vishal" <vannapurve@google.com>, "vbabka@suse.cz"
- <vbabka@suse.cz>, "mail@maciej.szmigiero.name" <mail@maciej.szmigiero.name>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "maz@kernel.org" <maz@kernel.org>, "willy@infradead.org"
- <willy@infradead.org>, "dmatlack@google.com" <dmatlack@google.com>,
- "anup@brainfault.org" <anup@brainfault.org>,
- "yu.c.zhang@linux.intel.com" <yu.c.zhang@linux.intel.com>,
- "Xu, Yilun" <yilun.xu@intel.com>, "qperret@google.com" <qperret@google.com>,
- "brauner@kernel.org" <brauner@kernel.org>,
- "isaku.yamahata@gmail.com" <isaku.yamahata@gmail.com>,
- "ackerleytng@google.com" <ackerleytng@google.com>,
- "jarkko@kernel.org" <jarkko@kernel.org>,
- "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>, "Wang, Wei W"
- <wei.w.wang@intel.com>, "akpm@linux-foundation.org"
- <akpm@linux-foundation.org>
+Subject: Re: [PATCH v13 12/35] KVM: Prepare for handling only shared mappings
+ in mmu_notifier events
+To: Binbin Wu <binbin.wu@linux.intel.com>,
+ Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Andrew Morton <akpm@linux-foundation.org>, kvm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, Xiaoyao Li <xiaoyao.li@intel.com>,
+ Xu Yilun <yilun.xu@intel.com>, Chao Peng <chao.p.peng@linux.intel.com>,
+ Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
+ Anish Moorthy <amoorthy@google.com>, David Matlack <dmatlack@google.com>,
+ Yu Zhang <yu.c.zhang@linux.intel.com>,
+ Isaku Yamahata <isaku.yamahata@intel.com>, =?UTF-8?B?TWlja2HDq2wgU2FsYcO8?=
+ =?UTF-8?Q?n?= <mic@digikod.net>, Vlastimil Babka <vbabka@suse.cz>,
+ Vishal Annapurve <vannapurve@google.com>,
+ Ackerley Tng <ackerleytng@google.com>,
+ Maciej Szmigiero <mail@maciej.szmigiero.name>,
+ David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
+ Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
+ Liam Merwick <liam.merwick@oracle.com>,
+ Isaku Yamahata <isaku.yamahata@gmail.com>,
+ "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 References: <20231027182217.3615211-1-seanjc@google.com>
- <20231027182217.3615211-10-seanjc@google.com>
- <482bfea6f54ea1bb7d1ad75e03541d0ba0e5be6f.camel@intel.com>
- <ZUKMsOdg3N9wmEzy@google.com>
- <64e3764e36ba7a00d94cc7db1dea1ef06b620aaf.camel@intel.com>
- <32cb71700aedcbd1f65276cf44a601760ffc364b.camel@intel.com>
+ <20231027182217.3615211-13-seanjc@google.com>
+ <9963b77c-3a38-4f89-b21e-48d0fdda8f53@linux.intel.com>
 From: Paolo Bonzini <pbonzini@redhat.com>
 Autocrypt: addr=pbonzini@redhat.com; keydata=
  xsEhBFRCcBIBDqDGsz4K0zZun3jh+U6Z9wNGLKQ0kSFyjN38gMqU1SfP+TUNQepFHb/Gc0E2
@@ -159,13 +142,13 @@ Autocrypt: addr=pbonzini@redhat.com; keydata=
  JBrdmNZSQDz0iKmSrx8xkoXYfA3bgtFN8WJH2xgFL28XnqY4M6dLhJwV3z08tPSRqYFm4NMP
  dRsn0/7oymhneL8RthIvjDDQ5ktUjMe8LtHr70OZE/TT88qvEdhiIVUogHdo4qBrk41+gGQh
  b906Dudw5YhTJFU3nC6bbF2nrLlB4C/XSiH76ZvqzV0Z/cAMBo5NF/w=
-In-Reply-To: <32cb71700aedcbd1f65276cf44a601760ffc364b.camel@intel.com>
+In-Reply-To: <9963b77c-3a38-4f89-b21e-48d0fdda8f53@linux.intel.com>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231102_040348_499066_CB9B1D60 
-X-CRM114-Status: GOOD (  13.62  )
+X-CRM114-CacheID: sfid-20231102_041422_147011_9076A142 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,39 +165,24 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/2/23 10:35, Huang, Kai wrote:
-> IIUC KVM can already handle the case of poisoned
-> page by sending signal to user app: 
+On 11/2/23 06:59, Binbin Wu wrote:
 > 
-> 	static int kvm_handle_error_pfn(struct kvm_vcpu *vcpu, 
-> 			struct kvm_page_fault *fault)                                               
-> 	{       
-> 		...
-> 
->        		if (fault->pfn == KVM_PFN_ERR_HWPOISON) {
->               		kvm_send_hwpoison_signal(fault->slot, fault->gfn);
->                 	return RET_PF_RETRY;                                          
->         	}
-> 	}
+>> Add flags to "struct kvm_gfn_range" to let notifier events target
+>> only shared and only private mappings, and write up the existing
+>> mmu_notifier events to be shared-only (private memory is never
+>> associated with a userspace virtual address, i.e. can't be reached
+>> via mmu_notifiers).
+>> 
+>> Add two flags so that KVM can handle the three possibilities
+>> (shared, private, and shared+private) without needing something
+>> like a tri-state enum.
+>
+> I see the two flags are set/cleared in __kvm_handle_hva_range() in
+> this patch and kvm_handle_gfn_range() from the later patch 13/35, but
+> I didn't see they are used/read in this patch series if I didn't miss
+> anything.  How are they supposed to be used in KVM?
 
-EHWPOISON is not implemented by this series, so it should be left out of 
-the documentation.
-
-
-> Currently as mentioned above when
-> vepc fault handler cannot allocate EPC page KVM returns -EFAULT to Qemu, and
-> Qemu prints ...
-> 
-> 	...: Bad address
-> 	<dump guest cpu registers>
-> 
-> ... which is nonsense.
-> 
-> If we can use memory_fault.flags (or is 'fault_reason' a better name?) to carry
-> a specific value for EPC to let Qemu know and Qemu can then do more reasonable
-> things.
-
-Yes, that's a good idea that can be implemented on top.
+They are going to be used by SNP/TDX patches.
 
 Paolo
 
