@@ -4,151 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E77AC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Nov 2023 15:49:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E89C4167B
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Nov 2023 15:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/Cc9GjwZdP3/Fv9N3icoiFZDZpxhxcQ/r/y4xUb59jo=; b=vntG/SdQf9+yTv
-	SqWFVB8EOLei+/iLWJja4nM1ZuwZ4+3c5O4ypoLw9lXkca9LTBBECt0UFRE6FnllWSXc8NzCtSKmh
-	cOClsnnKnZnEgx8Cnpv91xlOaJyRhk+Ef4iAZbFTdZlWpS7E4W3l1mUiKrvC7+3Em/sAuHaqOCkO5
-	Ojt614+uExMYT8S+gmCrnpD4kIJ68sOj7Hb6j404W1Ahyy9A7iWEuS0tePL9S1iDhV4JRl91xcdk1
-	/hUpyN86np1J7zpPqpmc/HyYIK2ZbIzI1S8MvTVMW6nuPBpbF2TXf/LDZp0tRc4px+MWY1Yj+lQUu
-	Tc6XhZIYmUu04HfPTEfA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=uEXw7IR7WlLfkxM6ojpPU92FGHLCqIzimZKKRYo9l5c=; b=id24/kdv3UmKpGIBfzySZgoL4m
+	G6phRCEAiRZ1ry44TgcuJ6vrxGrRyh8+b2tIgg7fBd1QbCes7vKg8s611IkZOwW3+FX7HDVvhxq3c
+	oTXbpy/ZztA5TABAGgcuHpDOYgHyfttFIJ+LIYv8qPaq/NJ8Ie7NS1/ZxaLhyZ7U2yEievmBSQth7
+	U2w3K01B2WqPeRssYb0212KXz8PM5LrP9wgkr72K2e5HL3v77AXLriPFmEgUzkMVHY23CU8Rx3SwA
+	i1KItMUPIPEqiDWw8Om/TU+lszqNnZoNpm8xUxV9dz1ZWzaVxM0VPlx/qsvMhuv0agDmrBzRpgkSM
+	yG5ynZfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyZwI-009nWg-1w;
-	Thu, 02 Nov 2023 15:48:58 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qyZzH-009nxE-2l;
+	Thu, 02 Nov 2023 15:52:03 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyZwF-009nVD-2c
+	id 1qyZzD-009nvB-33
 	for linux-riscv@lists.infradead.org;
-	Thu, 02 Nov 2023 15:48:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1698940134;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=bDYfxJY1gaw7RnFMn6xzv+L48r7jo/5hW3rLClryTog=;
-	b=PeQuXs9HjVlIJj/qTZw0oTAQdm5yCTPF3u8zPW6ZuZbnf9gizl97aqgWsaOQg5UF5kxQHo
-	qWVAZ4xB7NqC4eYtCsoAD79PCRazXpeqdSwWoO/icYuFtJnjLeo1L17Eoj1O9tJAN3bJs4
-	g1jRSfzUedYGCbOkcX+5i4q+kDrWrrw=
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
- [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-319-ChxepqvaOcedIYRT_TnplQ-1; Thu, 02 Nov 2023 11:48:51 -0400
-X-MC-Unique: ChxepqvaOcedIYRT_TnplQ-1
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-779ffb552eeso110230285a.3
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Nov 2023 08:48:51 -0700 (PDT)
+	Thu, 02 Nov 2023 15:52:02 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1cc29f3afe0so9031855ad.2
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Nov 2023 08:51:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1698940317; x=1699545117; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=n3KS4TORQ08dXaJsqxd4Pb+jR6Q6AdhcH6h0cpJ7xRs=;
+        b=bgvWx/KDd6p3mFuFoGgkySCNIqF83NgcrE1w+1A3HBrRf5m2H5m8tJlEDr82fUMa+U
+         DbNT7IFWifN66Hljpea7RTmg38DX53ayN4kCZXzJMBHVyUseDEr4Z3NqU/jvrfZEAX7s
+         LLXuMPIhOZCiIfOsxZmOhmUgPlN31+do1RXT111WsKAYPbV9c31n9l3CwPbdZYgAld9Y
+         XSrDCwJiEE8ZR6K0lnEBWzdyF4dBg26dhrlcZKCK/DyouHr37L6biapQavlgfBFTSBuc
+         snCQEQ1uF4yrzxBZtsN8NiHpfRA2+TmFLahTI2LmiWiFWLqTYAsTpektE8VWJ2Rqv0z5
+         SAig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698940131; x=1699544931;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bDYfxJY1gaw7RnFMn6xzv+L48r7jo/5hW3rLClryTog=;
-        b=PiCCP+aEv9ldTlZgU5MHyt2HNXJn5zn9HfEAhdXBz5VropQ5NcMepLvZUY0JxhqOP/
-         8ZBp2X5Dn0lhHhKRQRTWgSmx8Hl7X4u0TvbwlodZCQcjeG+7XLt1dSfBJWd/5/uD56iU
-         /USGCsGzs+zjQRdoutacC1JUd8oclg1ReK+S536FjWsE90Zd7MnGc9VZTS35yPqfPfEV
-         qwDIYBSRnkq75DPQcqeg//bM/6OCXGf0J0aBDwJvg0j4ezAo5/o8d9BFaVP4cxqOq/X9
-         CKO9ZqYNU26EZ9xDDIrmm/JtJrev1XYRjtosQeyuU2e31arMQPh/iK0OLeyqRwfohPsJ
-         h/MA==
-X-Gm-Message-State: AOJu0Ywsg64YOFgx7HFjdeKnq8M4J0rJoO0SFGSJcNqaCPqrVK+XegNv
-	DDAtIEKPBa4flVGQ9ptcGh3RRXY4t7eo6cX+aMqbMYWy2f/XSl+8S1uGdd3e3qVUJ89BD2yiqjm
-	08nsHaqpPyvGWcKC+q2cdJl/jJYuP
-X-Received: by 2002:a05:620a:8404:b0:76f:456:3916 with SMTP id pc4-20020a05620a840400b0076f04563916mr16196085qkn.43.1698940131036;
-        Thu, 02 Nov 2023 08:48:51 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGqtKxPa6ov2/TGHeca6u2VwNNxhp886CBhsTSKw0SJ9In1XWY7oX/tNvp/RnEBykosnX1E5Q==
-X-Received: by 2002:a05:620a:8404:b0:76f:456:3916 with SMTP id pc4-20020a05620a840400b0076f04563916mr16196036qkn.43.1698940130729;
-        Thu, 02 Nov 2023 08:48:50 -0700 (PDT)
-Received: from [192.168.1.174] ([151.48.250.237])
-        by smtp.googlemail.com with ESMTPSA id m2-20020a05620a290200b00767da10efb6sm39016qkp.97.2023.11.02.08.48.43
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 02 Nov 2023 08:48:50 -0700 (PDT)
-Message-ID: <6642c379-1023-4716-904f-4bbf076744c2@redhat.com>
-Date: Thu, 2 Nov 2023 16:48:41 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 16/35] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
- guest-specific backing memory
-To: David Matlack <dmatlack@google.com>,
- Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>, kvm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, Xiaoyao Li <xiaoyao.li@intel.com>,
- Xu Yilun <yilun.xu@intel.com>, Chao Peng <chao.p.peng@linux.intel.com>,
- Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
- Anish Moorthy <amoorthy@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>,
- Isaku Yamahata <isaku.yamahata@intel.com>, =?UTF-8?B?TWlja2HDq2wgU2FsYcO8?=
- =?UTF-8?Q?n?= <mic@digikod.net>, Vlastimil Babka <vbabka@suse.cz>,
- Vishal Annapurve <vannapurve@google.com>,
- Ackerley Tng <ackerleytng@google.com>,
- Maciej Szmigiero <mail@maciej.szmigiero.name>,
- David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
- Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
- Liam Merwick <liam.merwick@oracle.com>,
- Isaku Yamahata <isaku.yamahata@gmail.com>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20231027182217.3615211-1-seanjc@google.com>
- <20231027182217.3615211-17-seanjc@google.com> <ZUFGRyQEuWj4RJS0@google.com>
- <ZUFzZf-YmCRYP6qo@google.com>
- <CALzav=d9eXZfK=op7A=UftbpuPpUbxqV6CmkqqxxBNuNsUU4nw@mail.gmail.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Autocrypt: addr=pbonzini@redhat.com; keydata=
- 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
-In-Reply-To: <CALzav=d9eXZfK=op7A=UftbpuPpUbxqV6CmkqqxxBNuNsUU4nw@mail.gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+        d=1e100.net; s=20230601; t=1698940317; x=1699545117;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=n3KS4TORQ08dXaJsqxd4Pb+jR6Q6AdhcH6h0cpJ7xRs=;
+        b=G9sJlFPlPwkIFRw5g81WlriCgCUXJc7vXagCK8AxWduILcj+G31/eJ7JZXduf97RJB
+         kOg7uLPGKyi6vMRXkuTtbNnwjibcGECbTxuIy2CaI2C4Gz6DdFnI5xYn+n57dDUcyZp5
+         T2TOCK4VHiX4zL/Q5ndndX61+0wUiJuyLLNpr3QX6rOK4nknf9ohBuPVCsUkPoI6ZxIn
+         E84pNzuTsyT/RO2Wzy30BNROUi2S73lD02WJ6bndgHp2qOhPCW7Crc+YY40o6KtuKaso
+         BuVMFzAIiDS0+LNWmX68+B3dh1R3q+wWH5YQS3QGYkVAX1MLC+v24ANL/u//+LExx2xT
+         tqeQ==
+X-Gm-Message-State: AOJu0YwvQnIiE8K0ToMQJ09fhU5evcHZf0MvPPkEsT8JSQkDhZddG0j6
+	s4udYPHjT1fWeoPY2fj8HGamyD+mnuA=
+X-Google-Smtp-Source: AGHT+IFDcwl4s8UdqmTM5rWncqnvjP5M1c0a+jaZEj3IxvzEAcY13jClAPWsClQownnFGH/6j2HG46oUm7Q=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a17:902:efd1:b0:1c6:2b9d:570b with SMTP id
+ ja17-20020a170902efd100b001c62b9d570bmr344133plb.7.1698940317130; Thu, 02 Nov
+ 2023 08:51:57 -0700 (PDT)
+Date: Thu, 2 Nov 2023 08:51:55 -0700
+In-Reply-To: <33686031-c1df-4ef5-a6ac-1aab7f5c656e@intel.com>
+Mime-Version: 1.0
+References: <20231027182217.3615211-1-seanjc@google.com> <20231027182217.3615211-10-seanjc@google.com>
+ <482bfea6f54ea1bb7d1ad75e03541d0ba0e5be6f.camel@intel.com>
+ <ZUKMsOdg3N9wmEzy@google.com> <33686031-c1df-4ef5-a6ac-1aab7f5c656e@intel.com>
+Message-ID: <ZUPFmwWjPFlXRlPi@google.com>
+Subject: Re: [PATCH v13 09/35] KVM: Add KVM_EXIT_MEMORY_FAULT exit to report
+ faults to userspace
+From: Sean Christopherson <seanjc@google.com>
+To: Xiaoyao Li <xiaoyao.li@intel.com>
+Cc: Kai Huang <kai.huang@intel.com>, 
+	"viro@zeniv.linux.org.uk" <viro@zeniv.linux.org.uk>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, 
+	"brauner@kernel.org" <brauner@kernel.org>, "oliver.upton@linux.dev" <oliver.upton@linux.dev>, 
+	"chenhuacai@kernel.org" <chenhuacai@kernel.org>, 
+	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, 
+	"maz@kernel.org" <maz@kernel.org>, "pbonzini@redhat.com" <pbonzini@redhat.com>, 
+	"mpe@ellerman.id.au" <mpe@ellerman.id.au>, "willy@infradead.org" <willy@infradead.org>, 
+	"anup@brainfault.org" <anup@brainfault.org>, 
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>, 
+	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>, "mic@digikod.net" <mic@digikod.net>, 
+	"liam.merwick@oracle.com" <liam.merwick@oracle.com>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
+	Isaku Yamahata <isaku.yamahata@intel.com>, 
+	"kirill.shutemov@linux.intel.com" <kirill.shutemov@linux.intel.com>, "david@redhat.com" <david@redhat.com>, 
+	"tabba@google.com" <tabba@google.com>, "amoorthy@google.com" <amoorthy@google.com>, 
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, 
+	"michael.roth@amd.com" <michael.roth@amd.com>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+	"chao.p.peng@linux.intel.com" <chao.p.peng@linux.intel.com>, 
+	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>, Vishal Annapurve <vannapurve@google.com>, 
+	"vbabka@suse.cz" <vbabka@suse.cz>, "mail@maciej.szmigiero.name" <mail@maciej.szmigiero.name>, 
+	"yu.c.zhang@linux.intel.com" <yu.c.zhang@linux.intel.com>, "qperret@google.com" <qperret@google.com>, 
+	"dmatlack@google.com" <dmatlack@google.com>, Yilun Xu <yilun.xu@intel.com>, 
+	"isaku.yamahata@gmail.com" <isaku.yamahata@gmail.com>, 
+	"ackerleytng@google.com" <ackerleytng@google.com>, "jarkko@kernel.org" <jarkko@kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-mm@kvack.org" <linux-mm@kvack.org>, Wei W Wang <wei.w.wang@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231102_084855_925205_5E90C792 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20231102_085159_986366_47C75557 
+X-CRM114-Status: GOOD (  18.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,33 +112,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/31/23 23:39, David Matlack wrote:
->>> Maybe can you sketch out how you see this proposal being extensible to
->>> using guest_memfd for shared mappings?
->> For in-place conversions, e.g. pKVM, no additional guest_memfd is needed.  What's
->> missing there is the ability to (safely) mmap() guest_memfd, e.g. KVM needs to
->> ensure there are no outstanding references when converting back to private.
->>
->> For TDX/SNP, assuming we don't find a performant and robust way to do in-place
->> conversions, a second fd+offset pair would be needed.
-> Is there a way to support non-in-place conversions within a single guest_memfd?
+On Thu, Nov 02, 2023, Xiaoyao Li wrote:
+> On 11/2/2023 1:36 AM, Sean Christopherson wrote:
+> > > KVM_CAP_MEMORY_FAULT_INFO is x86 only, is it better to put this function to
+> > > <asm/kvm_host.h>?
+> > I'd prefer to keep it in generic code, as it's highly likely to end up there
+> > sooner than later.  There's a known use case for ARM (exit to userspace on missing
+> > userspace mapping[*]), and I'm guessing pKVM (also ARM) will also utilize this API.
+> > 
+> > [*]https://lore.kernel.org/all/20230908222905.1321305-8-amoorthy@google.com
+> 
+> I wonder how this CAP is supposed to be checked in userspace, for guest
+> memfd case? 
 
-For TDX/SNP, you could have a hook from KVM_SET_MEMORY_ATTRIBUTES to 
-guest memory.  The hook would invalidate now-private parts if they have 
-a VMA, causing a SIGSEGV/EFAULT if the host touches them.
+It's basically useless for guest_memfd.
 
-It would forbid mappings from multiple gfns to a single offset of the 
-guest_memfd, because then the shared vs. private attribute would be tied 
-to the offset.  This should not be a problem; for example, in the case 
-of SNP, the RMP already requires a single mapping from host physical 
-address to guest physical address.
+> 	if (!kvm_check_extension(s, KVM_CAP_MEMORY_FAULT_INFO) &&
+> 	    run->exit_reason == KVM_EXIT_MEMORY_FAULT)
+> 		abort("unexpected KVM_EXIT_MEMORY_FAULT");
+> 
+> In my implementation of QEMU patches, I find it's unnecessary. When
+> userspace gets an exit with KVM_EXIT_MEMORY_FAULT, it implies
+> "KVM_CAP_MEMORY_FAULT_INFO".
+> 
+> So I don't see how it is necessary in this series. Whether it's necessary or
+> not for [*], I don't have the answer but we can leave the discussion to that
+> patch series.
 
-Paolo
+It's not strictly necessary there either.
+
+However, Oliver felt (and presumably still feels) quite strongly, and I agree,
+that neither reporting extra information shouldn't be tightly coupled to
+KVM_CAP_EXIT_ON_MISSING or KVM_CAP_GUEST_MEMFD.
+
+E.g. if userspace develops a "standalone" use case for KVM_CAP_MEMORY_FAULT_INFO,
+userspace should be able to check for support without having to take a dependency
+on KVM_CAP_GUEST_MEMFD, especially since because KVM_CAP_GUEST_MEMFD may not be
+supported, i.e. userspace should be able to do:
+
+	if (!kvm_check_extension(s, KVM_CAP_MEMORY_FAULT_INFO))
+		abort("KVM_CAP_MEMORY_FAULT_INFO required for fancy feature XYZ");
+
 
 
 _______________________________________________
