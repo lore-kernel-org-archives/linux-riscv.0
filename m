@@ -4,79 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A98FEC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Nov 2023 10:22:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42049C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Nov 2023 10:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tEvlrpJjbZ9zWTgih+YS0y+6F2b66GB4+xLuMEhATzw=; b=ognggfne5FzBJkiJyOS0WJ0/o+
-	/Pk30a/jxfQwS3/y1H+KyvW1TcqhH0QqR+E0Aa8fMSIZ88vwgUuGVlRotWGHv7kFji4cDrPOvMYws
-	Wxy8oKfQKI+p6oVt6q3WwcCRxGCibiNdRKY4kHrt1uW/nyZHpGoPY2PoVPNrzIoCiK4HbKWm40Q5+
-	dgcKu50mwUSIb/ehUFvmMOCzKMWRGMjvkPOs4UmvesPl7zVE9oEcK7TnEY4od3GoBke1bGEZz/q6j
-	EklLMwl1CW/7CiRpFlIiI9G9feiCbBf5ZLkAtOdYDxd8gtDZw/Nx6ed/Q5AXqDgvADgWGrAAdBqqM
-	oI6cKQmg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9VX8CwhXeURowgD0jmHl/CJZPHz61ZHlwpNgz48DgeE=; b=l4rgN2Ov63/Z2i
+	mEsKiPjPJS2NRVV17dHMKwRkQRjtNowLzIvs+kWcMsFeS0sdpAhzXY0gXF/jxbwmeKO464e1Rm8cm
+	yHxNHkNCdhh80GdzsElV4yTaWxFzMAB8WX4X1WsER29zsi9v2TJp0AkZSUuxFtDzsNk338zzy6LVf
+	wulUKeVbgeqeb7ChD5eRKkve6PUm6pXVmjPO6Bg10YONhL/atahz+nAY3uPM+yQiiy0FYiGWqMeDR
+	kidWhmqujzZc/qPZgEykQ3Lm6hUHA5wXPHScpAn6XmKfInflQi0oJaQB461/XukVuGF6xqi54a0kI
+	4OQIxt13i9qAkrUjbQrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyUqX-0097DQ-2x;
-	Thu, 02 Nov 2023 10:22:41 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyUqS-0097Ci-2u
-	for linux-riscv@lists.infradead.org;
-	Thu, 02 Nov 2023 10:22:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1698920557; x=1730456557;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=QTIJe6fBmHZ5pDGO2297HJQPTJ63MepYsAuffQjdfjA=;
-  b=t4yD8j4UylEbW4CcGyFbVUnUhY8ytqLCCP9tz0QwiII20VZwggwcPnSf
-   wbgRWV45JnABuL2fE6VFSPa31RohEXWPlFg02/4HgLMb2MuIVz3WpIjQc
-   BrtOjPkqUjronn9DXGYCyUi58Q3d0edXBzo0xGOWkOD7kmXiu0NsYslHV
-   TFfhMqVKn//QpifHVHuWrL86A3yAJ3klPmpUviJMtmb/qtAPdD9UiPfAx
-   o/PfL0oZqh5es8qjrLTLxrdkDLDRQLjrLMPztsysOJCtgmtIP0Iuu5okP
-   zbPoSNxKYktuJZYYPvy1bHEOfENAijvdyDy9ep5FUiC55jsC2HPxLvqe5
-   Q==;
-X-CSE-ConnectionGUID: dttG3pA+QG+SpyyA/RvAEA==
-X-CSE-MsgGUID: fmLvno0mTHGxaLzBwfDWtA==
-X-ThreatScanner-Verdict: Negative
-X-IronPort-AV: E=Sophos;i="6.03,271,1694761200"; 
-   d="asc'?scan'208";a="241755710"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 02 Nov 2023 03:22:35 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 2 Nov 2023 03:22:18 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Thu, 2 Nov 2023 03:22:16 -0700
-Date: Thu, 2 Nov 2023 10:21:51 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
-CC: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Samuel Holland <samuel.holland@sifive.com>, David Laight
-	<David.Laight@aculab.com>, Xiao Wang <xiao.w.wang@intel.com>, Evan Green
-	<evan@rivosinc.com>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arch@vger.kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann
-	<arnd@arndb.de>
-Subject: Re: [PATCH v9 0/5] riscv: Add fine-tuned checksum functions
-Message-ID: <20231102-express-deplete-4dd19e21a82c@wendy>
-References: <20231031-optimize_checksum-v9-0-ea018e69b229@rivosinc.com>
- <20231101-palace-tightly-97a1d35a4597@spud>
- <ZUKFkn/PzOjw129p@ghost>
+	id 1qyUyo-0097px-2T;
+	Thu, 02 Nov 2023 10:31:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qyUyk-0097o9-0p;
+	Thu, 02 Nov 2023 10:31:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1803B2F4;
+	Thu,  2 Nov 2023 03:31:46 -0700 (PDT)
+Received: from e129154.nice.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8044E3F67D;
+	Thu,  2 Nov 2023 03:30:56 -0700 (PDT)
+Date: Thu, 2 Nov 2023 11:30:03 +0100
+From: Beata Michalska <beata.michalska@arm.com>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org,
+	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com,
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
+	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com,
+	viresh.kumar@linaro.org, lenb@kernel.org, robert.moore@intel.com,
+	lukasz.luba@arm.com, ionela.voinescu@arm.com,
+	pierre.gondois@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org,
+	acpica-devel@lists.linuxfoundation.org, conor.dooley@microchip.com,
+	suagrfillet@gmail.com, ajones@ventanamicro.com, lftan@kernel.org
+Subject: Re: [PATCH v4 7/7] arm64/amu: use capacity_ref_freq to set AMU ratio
+Message-ID: <ZUN6K4d9FD31phbs@e129154.nice.arm.com>
+References: <20231027080400.56703-1-vincent.guittot@linaro.org>
+ <20231027080400.56703-8-vincent.guittot@linaro.org>
+ <ZUGUvdjrpw9NHSex@e129154.nice.arm.com>
+ <CAKfTPtDDouduP57P8GH6J4qDjbKUasVRe-K0QUKcZHC2NZ+syQ@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <ZUKFkn/PzOjw129p@ghost>
+Content-Disposition: inline
+In-Reply-To: <CAKfTPtDDouduP57P8GH6J4qDjbKUasVRe-K0QUKcZHC2NZ+syQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231102_032237_008163_4317DD49 
-X-CRM114-Status: GOOD (  33.19  )
+X-CRM114-CacheID: sfid-20231102_033110_408197_BE59934F 
+X-CRM114-Status: GOOD (  28.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,94 +71,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8983055560314441111=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8983055560314441111==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="iP257PpdxnYzWyml"
-Content-Disposition: inline
+Hi Vincent,
 
---iP257PpdxnYzWyml
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Wed, Nov 01, 2023 at 10:04:27AM +0100, Vincent Guittot wrote:
+> Hi Beata,
+> 
+> On Wed, 1 Nov 2023 at 00:59, Beata Michalska <beata.michalska@arm.com> wrote:
+> >
+> > On Fri, Oct 27, 2023 at 10:04:00AM +0200, Vincent Guittot wrote:
+> > > Use the new capacity_ref_freq to set the ratio that is used by AMU for
+> > > computing the arch_scale_freq_capacity().
+> > > This helps to keep everything aligned using the same reference for
+> > > computing CPUs capacity.
+> > >
+> 
+> [..]
+> 
+> > > @@ -381,6 +385,9 @@ void topology_init_cpu_capacity_cppc(void)
+> > >       }
+> > >
+> > >       for_each_possible_cpu(cpu) {
+> > > +             freq_inv_set_max_ratio(cpu,
+> > > +                                    per_cpu(capacity_ref_freq, cpu) * HZ_PER_KHZ);
+> > > +
+> > The capacity_ref_freq set earlier will still lead to units mismatch,
+> > as at the point of calling topology_init_cpu_capacity_cppc the lowest & nominal
+> > frequencies will be provided in MHz (unless I have missed smth).
+> 
+> I don't get your point:
+> the unit of per_cpu(capacity_freq_ref, cpu) is Khz
+> 
+> For cppc, we have
+> per_cpu(capacity_freq_ref, cpu) = cppc_perf_to_khz(&perf_caps,
+> raw_capacity[cpu]);
+> 
+> freq_inv_set_max_ratio() uses
+> arch_timer_get_rate() which returns a freq in Hz
+> and
+> per_cpu(capacity_freq_ref, cpu) * HZ_PER_KHZ. to get a freq in Hz too.
+> 
+Apologies, I should have been more verbose here.
+Before the change made in [1] the cppc_perf_to_khz was indeed operating on
+lowest & nominal frequency values expressed in kHZ, as those were appropriately
+amended:
+cppc_cpufreq_cpu_init
+	|__> cppc_cpufreq_get_cpu_data:
+		|__> 	...
+			/* Convert the lowest and nominal freq from MHz to KHz */
+			cpu_data->perf_caps.lowest_freq *= 1000;
+			cpu_data->perf_caps.nominal_freq *= 1000;
 
-On Wed, Nov 01, 2023 at 10:06:26AM -0700, Charlie Jenkins wrote:
-> On Wed, Nov 01, 2023 at 11:50:46AM +0000, Conor Dooley wrote:
-> > On Tue, Oct 31, 2023 at 05:18:50PM -0700, Charlie Jenkins wrote:
-> > > Each architecture generally implements fine-tuned checksum functions =
-to
-> > > leverage the instruction set. This patch adds the main checksum
-> > > functions that are used in networking.
-> > >=20
-> > > This patch takes heavy use of the Zbb extension using alternatives
-> > > patching.
-> > >=20
-> > > To test this patch, enable the configs for KUNIT, then CHECKSUM_KUNIT
-> > > and RISCV_CHECKSUM_KUNIT.
-> > >=20
-> > > I have attempted to make these functions as optimal as possible, but I
-> > > have not ran anything on actual riscv hardware. My performance testing
-> > > has been limited to inspecting the assembly, running the algorithms on
-> > > x86 hardware, and running in QEMU.
-> > >=20
-> > > ip_fast_csum is a relatively small function so even though it is
-> > > possible to read 64 bits at a time on compatible hardware, the
-> > > bottleneck becomes the clean up and setup code so loading 32 bits at a
-> > > time is actually faster.
-> > >=20
-> > > Relies on https://lore.kernel.org/lkml/20230920193801.3035093-1-evan@=
-rivosinc.com/
-> >=20
-> > I coulda sworn I reported build issues against the v8 of this series
-> > that are still present in this v9. For example:
-> > https://patchwork.kernel.org/project/linux-riscv/patch/20231031-optimiz=
-e_checksum-v9-3-ea018e69b229@rivosinc.com/
+So far cppc_perf_to_khz (previously cppc_cpufreq_perf_to_khz) was being called
+with the post-processed CPC data (through cppc_cpufreq_get_cpu_data) and thus
+guaranteed to be operating on values in kHz.
+With the new changes the cppc_perf_to_khz will operate on raw CPC data,
+which are expressed in MHz.(as per acpi spec)
 
-> You did, and I fixed the build issues. This is another instance of how
-> Patchwork reports the results of the previous build before the new build
-> completes. Patchwork was very far behind so it took around 15 hours for
-> the result to be ready.
-
-:clown_face:
-
-> There are some miscellaneous warnings in random
-> drivers that I don't think can be attributed to this patch.
-
-Yeah, there sometimes are warnings that seem spurious when you touch a
-bunch of header files. I'm not really sure how to improve on that, since
-it was newly introduced. My theory is that how we do a build of commit
-A, then commit A~1 and then commit A again & take the difference between
-the 2nd and 3rd builds (which should both be partial rebuilds) is not as
-symmetrical as I might've thought and is the source of those seemingly
-unrelated issues that come up from time to time.
-
---iP257PpdxnYzWyml
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZUN4PwAKCRB4tDGHoIJi
-0jV3AP9c6KociGHuayEHtzK5fniiLEgkWkN9CfAqobQ+jqH0lAEA7HISbiX11E5K
-Exvq77KvbRkFrOWUcY+p5/1Ke/8UYwU=
-=M/iI
------END PGP SIGNATURE-----
-
---iP257PpdxnYzWyml--
-
-
---===============8983055560314441111==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+---
+Best Regards
+B.
+> > This means that use of both, the capacity_ref_freq and the arch_freq_scale
+> > will generate unexpected results, so I guess this should get amended in the
+> > preceding patch (?) [1]
+> >
+> > ---
+> > BR
+> > B.
+> >
+> > [1] https://lore.kernel.org/linux-arm-kernel/20231027080400.56703-4-vincent.guittot@linaro.org/T/#m42daa167097edc190b1cfc05382c385ed801d909
+> >
+> > >               capacity = raw_capacity[cpu];
+> > >               capacity = div64_u64(capacity << SCHED_CAPACITY_SHIFT,
+> > >                                    capacity_scale);
+> > > @@ -422,8 +429,11 @@ init_cpu_capacity_callback(struct notifier_block *nb,
+> > >
+> > >       cpumask_andnot(cpus_to_visit, cpus_to_visit, policy->related_cpus);
+> > >
+> > > -     for_each_cpu(cpu, policy->related_cpus)
+> > > +     for_each_cpu(cpu, policy->related_cpus) {
+> > >               per_cpu(capacity_ref_freq, cpu) = policy->cpuinfo.max_freq;
+> > > +             freq_inv_set_max_ratio(cpu,
+> > > +                                    per_cpu(capacity_ref_freq, cpu) * HZ_PER_KHZ);
+> > > +     }
+> > >
+> > >       if (cpumask_empty(cpus_to_visit)) {
+> > >               topology_normalize_cpu_scale();
+> > > diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
+> > > index 38ca6c76af56..ffdf0b7c55fa 100644
+> > > --- a/include/linux/arch_topology.h
+> > > +++ b/include/linux/arch_topology.h
+> > > @@ -99,6 +99,7 @@ void update_siblings_masks(unsigned int cpu);
+> > >  void remove_cpu_topology(unsigned int cpuid);
+> > >  void reset_cpu_topology(void);
+> > >  int parse_acpi_topology(void);
+> > > +void freq_inv_set_max_ratio(int cpu, u64 max_rate);
+> > >  #endif
+> > >
+> > >  #endif /* _LINUX_ARCH_TOPOLOGY_H_ */
+> > > --
+> > > 2.34.1
+> > >
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8983055560314441111==--
-
