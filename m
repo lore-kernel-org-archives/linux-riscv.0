@@ -4,86 +4,199 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DF7AC4167B
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Nov 2023 10:43:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4023FC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Nov 2023 10:56:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f7nc6/oQUeMnSH3DfgP6CzuDKgBi/lre038CZlWGg3s=; b=uvcn8zqj2J5/+t
-	8ca2k01dRdNZtYwWPnwIH7WuD1Ro9QuJxeeGdrjA2GXdE0qC6j+n1I0x5vtaL08JqHheJcpofcudh
-	E7zCYjbfKNqPFvaVM7FgOWJwjs9ZYuvlmH6D7h6Nh1CtUE51Ll2t+8fhmKCJeHukLE0tvw0CmAdrU
-	AEwQBR4FTxk4bcpV5p7oCXqQxLMA6HcOoIZ3XkZhVscfO7T3IiLbDzhrldVzqNebgVDYWFbHDC3qV
-	temoX1JYOBhog2wZkThnbgQ5Sv4scQN+/nvwIqUPn5X6iV+xgqz85+/X2pQCwvCXfXee2Fx/BMZX0
-	blApGGa38u2B9ylVZ7cg==;
+	List-Owner; bh=F0UaJiT6O1wU/Y74OoQhj2F1HFmiiTDqrE/viSQ8Wwg=; b=oXT5KFL6gI9VJl
+	2z8i/a81ocb+lYpr5hS0CqksqprreajZr3vokf7ZW2Qq6D3WgsQM2klp08sCsvTGAbsgdMYh/aJhI
+	MJCbX9zANBSmOQw7eIE8ilED0kiwx9wxF5glFK3KIvyP7ACA32hn348r5/49eMs65iUjMP8YRuG8B
+	pwkDnsE+1kNbqxUt6cLw/edqmdp38YnxvPvPSiFFTO8Rgg1EbjnYXaSjCgx07R6OMElXATDMTJXbv
+	Tej3TpYxImiivGwpncfppOhsJpk0wsliisMcJFvr0Yxv4jqu8+tQWjSLUUaHqOb7lU7VrqTQfI0QS
+	3Ivo9pklA16o2x40aMvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyVA7-00990I-1u;
-	Thu, 02 Nov 2023 10:42:55 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1qyVMl-009Ccb-1L;
+	Thu, 02 Nov 2023 10:55:59 +0000
+Received: from mgamail.intel.com ([192.55.52.115])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyVA2-0098z1-26
-	for linux-riscv@lists.infradead.org;
-	Thu, 02 Nov 2023 10:42:54 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-5a9bf4fbd3fso567818a12.1
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Nov 2023 03:42:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1698921768; x=1699526568; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Pd/NLx66E9zKbyZKSmW6GKzzom6QC7VJQH4VG6waGJI=;
-        b=NpYGyl7+Q9MnjvKI1QtLgav5ForuMPyDdrzoinZfW43mCokzKxtc640yH1zFnaRh0o
-         88LSPoNdmp2Ir3PhU0XI4bq115/pPPDKEaWUv9iJ8YujItO9dI9HhmLlE+z9CxcuUpiO
-         42UBNzQWuP4aU4PXVZjSkF2OOdcrc8DdGCgApiytiXgOTmChITDlHWoJvF19DB7+/zA1
-         mDIZsk79Us9l6wAKvIElsIeftt/8flA45NOzy5yQWm7Mk4emaf3e/hbgvovT72PqRRz4
-         JCWCwv9oSD3XEzzQimPRFEhQhCY2imA/yf0C0aqVuKmBf1qqLc3racC4f2s8WM2wRDxn
-         lZsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698921768; x=1699526568;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Pd/NLx66E9zKbyZKSmW6GKzzom6QC7VJQH4VG6waGJI=;
-        b=waCP+YQwMpk85C414x2qD0Oh4ty9+aMnIiWWxsDTl96Geci7IPHxTp8rUorZ5FKrFg
-         i3pR4F62j1n4uQLbBWJj1hdY86llx0IBqxayT/22/IVs+/ErfUFwBn8lx4eBSq7OH09t
-         d8Fs32eegUsvr+h8mkC9jH5wpJ9BD7J7hquYr0PMSx3LBpA4earnN9gfT2NjQOYGCpZ+
-         pwf+/GWePajxuwjijOnGRrmQjitR5AcFIdmTVqjrI1wFiAlDp5lXEjV6XhmB2uigslAu
-         swro+JRriv7RC++L3/Ah+MPo8sY5F1fxtJdj8Gn2aH3c7dvlrACGOw7QMhgbUHByg/6Y
-         mW7w==
-X-Gm-Message-State: AOJu0YzXSib+1GZtZASAb7TxW+iE1V9zC9eovCs7dkZ+06NM+QqI3BJN
-	ttVRZu8F6xaRMe9wv5yiRSLf/HbPZHBl6Hrnkr/oPg==
-X-Google-Smtp-Source: AGHT+IG9q8u5gOigN0kAQNp7r+iSnUd3jOn4cu/HyW0nSc2d2OH3QUFya3mfy+9toAaBAa+OcGAKzvricdwJEQfd/c4=
-X-Received: by 2002:a05:6a21:7903:b0:181:7914:7b34 with SMTP id
- bg3-20020a056a21790300b0018179147b34mr3334001pzc.21.1698921768594; Thu, 02
- Nov 2023 03:42:48 -0700 (PDT)
+	id 1qyVMe-009CRa-1T;
+	Thu, 02 Nov 2023 10:55:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1698922552; x=1730458552;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=YgZ2eYSzUjpjNVzDSTQGHYgS096UR5GeSSRvck88unc=;
+  b=NzaybaVp4h7oUflMsGNcjEe+35I4ayfQfw2a31GOYSSciuBkBkPZxx6b
+   ha0xmNokOKYJAyxZQlAECcIfEJ9gvxcd71kIew7O77XxU8gwkmCer4j59
+   i2bH0tsqzZCiuHsFks1L/FbXl2Xd84Th51aGUAT1boqVZH7Bi8qxhWAFk
+   S83/YVvavJtwMwTV68Vcwek+sSIDSv6o4yhpdmsK5R84qywEJ8/ewG8R6
+   ZG7YVu+CHajkOy+bNtWxPbT2OIJpi/qaIrbJky2+m/scHYKpwLb3UntTu
+   JFdhyZMdVA1loUoCbj0DZoE9ZV0E9Y30TzZ4W3ijU0T2ketCGStpzE6yW
+   g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10881"; a="388505736"
+X-IronPort-AV: E=Sophos;i="6.03,271,1694761200"; 
+   d="scan'208";a="388505736"
+Received: from fmsmga002.fm.intel.com ([10.253.24.26])
+  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Nov 2023 03:55:44 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10881"; a="878202295"
+X-IronPort-AV: E=Sophos;i="6.03,271,1694761200"; 
+   d="scan'208";a="878202295"
+Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
+  by fmsmga002.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 02 Nov 2023 03:55:41 -0700
+Received: from orsmsx610.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.34; Thu, 2 Nov 2023 03:55:40 -0700
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ orsmsx610.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.34 via Frontend Transport; Thu, 2 Nov 2023 03:55:40 -0700
+Received: from NAM10-BN7-obe.outbound.protection.outlook.com (104.47.70.100)
+ by edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.34; Thu, 2 Nov 2023 03:55:40 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=HYEc12Pti53H8iEIEQDM5dkX3u66Jh6116mqqOlNNRV7ZSHNgYWQvs5pG6rbmA2uI7wpaCt3YRFScG5PVhmFM7mohnHvETyDzb3y/rOAayENJlKUc2OD5XQBy+8yXO1grB9eFjb7jAJmb2VLoW3OY8DCnq++ZTEyoRXj74lu5k6ixBC0OL4BhbLKJluXim866zRs379PrhCoqNM3LlzHJ1P5XOOI/czRLRKnP0fHBt4c7PManB93Mng5j6Lrmixf1x3MrgauueT4ybr2fFc8N8JfJDixQh8SNleDzIKaAn+UVSjjXZX1zpcH4NvBtNhhPNUaixOI3h9Dl8TvIQtsCw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YgZ2eYSzUjpjNVzDSTQGHYgS096UR5GeSSRvck88unc=;
+ b=GpLZ2TNHE3pWGWKAC4co+0R0sok6eRNWK8CnhGLRDucJFwX/bBMEcnUSNfqts5Tudx1M12XC//pn4l9z6JBtn4tHCpnsuGFgZVihTZgGg/wNJEoOASuMqnfp/6w+/NZQ9z4d+e5qKXFblf5c6IVIY5IsvN+0RApSc+iU2qNadJGA+M343Sqo5Nssmw+FyT99Vikx2qs8VsGNYtnqlRph3hBPs3h8h0YzLQR999aEAv4OygnyPtdFJZe1aHmyzef9jWskoKM0m1JpXs4l/3Lw9BkKJ0Rc6QdoY4x06FT6wUE3pZDYZCxyuT3Di6gIhdqf8W/LGhjIYpGDahrH8TcOUw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BL1PR11MB5978.namprd11.prod.outlook.com (2603:10b6:208:385::18)
+ by IA1PR11MB8099.namprd11.prod.outlook.com (2603:10b6:208:448::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6933.19; Thu, 2 Nov
+ 2023 10:55:31 +0000
+Received: from BL1PR11MB5978.namprd11.prod.outlook.com
+ ([fe80::5d1:aa22:7c98:f3c6]) by BL1PR11MB5978.namprd11.prod.outlook.com
+ ([fe80::5d1:aa22:7c98:f3c6%6]) with mapi id 15.20.6954.019; Thu, 2 Nov 2023
+ 10:55:31 +0000
+From: "Huang, Kai" <kai.huang@intel.com>
+To: "willy@infradead.org" <willy@infradead.org>, "Christopherson,, Sean"
+	<seanjc@google.com>, "brauner@kernel.org" <brauner@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "paul.walmsley@sifive.com"
+	<paul.walmsley@sifive.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>, "chenhuacai@kernel.org"
+	<chenhuacai@kernel.org>, "viro@zeniv.linux.org.uk" <viro@zeniv.linux.org.uk>,
+	"pbonzini@redhat.com" <pbonzini@redhat.com>, "maz@kernel.org"
+	<maz@kernel.org>, "anup@brainfault.org" <anup@brainfault.org>,
+	"mpe@ellerman.id.au" <mpe@ellerman.id.au>, "akpm@linux-foundation.org"
+	<akpm@linux-foundation.org>
+CC: "Li, Xiaoyao" <xiaoyao.li@intel.com>, "kvm-riscv@lists.infradead.org"
+	<kvm-riscv@lists.infradead.org>, "mic@digikod.net" <mic@digikod.net>,
+	"liam.merwick@oracle.com" <liam.merwick@oracle.com>, "kvm@vger.kernel.org"
+	<kvm@vger.kernel.org>, "Yamahata, Isaku" <isaku.yamahata@intel.com>,
+	"kirill.shutemov@linux.intel.com" <kirill.shutemov@linux.intel.com>,
+	"david@redhat.com" <david@redhat.com>, "tabba@google.com" <tabba@google.com>,
+	"amoorthy@google.com" <amoorthy@google.com>, "linuxppc-dev@lists.ozlabs.org"
+	<linuxppc-dev@lists.ozlabs.org>, "michael.roth@amd.com"
+	<michael.roth@amd.com>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+	"chao.p.peng@linux.intel.com" <chao.p.peng@linux.intel.com>, "Annapurve,
+ Vishal" <vannapurve@google.com>, "vbabka@suse.cz" <vbabka@suse.cz>,
+	"mail@maciej.szmigiero.name" <mail@maciej.szmigiero.name>,
+	"yu.c.zhang@linux.intel.com" <yu.c.zhang@linux.intel.com>,
+	"qperret@google.com" <qperret@google.com>, "dmatlack@google.com"
+	<dmatlack@google.com>, "Xu, Yilun" <yilun.xu@intel.com>,
+	"isaku.yamahata@gmail.com" <isaku.yamahata@gmail.com>,
+	"ackerleytng@google.com" <ackerleytng@google.com>, "jarkko@kernel.org"
+	<jarkko@kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mm@kvack.org"
+	<linux-mm@kvack.org>, "Wang, Wei W" <wei.w.wang@intel.com>
+Subject: Re: [PATCH v13 13/35] KVM: Introduce per-page memory attributes
+Thread-Topic: [PATCH v13 13/35] KVM: Introduce per-page memory attributes
+Thread-Index: AQHaCQK3kNRHfZahgEebBaAjW/uRc7BmX58AgAB+IwCAAAZhAA==
+Date: Thu, 2 Nov 2023 10:55:31 +0000
+Message-ID: <72e15d0a3f1b2e8ddd2b880f9f433423b6614dcb.camel@intel.com>
+References: <20231027182217.3615211-1-seanjc@google.com>
+	 <20231027182217.3615211-14-seanjc@google.com>
+	 <b486ed5036fab6d6d4e13a6c68abddcb9541d51b.camel@intel.com>
+	 <a03d0e36-7b38-4841-9c62-66c9029e388d@redhat.com>
+In-Reply-To: <a03d0e36-7b38-4841-9c62-66c9029e388d@redhat.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.48.4 (3.48.4-1.fc38) 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BL1PR11MB5978:EE_|IA1PR11MB8099:EE_
+x-ms-office365-filtering-correlation-id: a433efab-7831-4592-9a2f-08dbdb923b8b
+x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: NFwDAjxDrm7N83kq8TlEVS2Pf9+CZIHn/gVSgMSR8FwxTl2jQa5PplmtJcv1UdtM/llF/gbo8uv0qpbmS2wcYNAXuhBuLi14W2soHV4JpP025L+jmu0ulZdcx04VjFu4FtcKvaIfurzhvBa1/8J3S/jVhyjD2bWtiB8PSuIYruajxoS1rSvp8/xNx11B6BHYwhcN5z2lMXxepDr1OJx/RoRUwp4ThzJ1aUBD8fIefqNDrRgYn1yaAfwhdZXVDWBlj3/vr7TBSQOoMfbmhpY9wln3V+2yyP1H3tyB0nRDdFDfYDzs+hGeq3d171my8i6sT6pviS5OmQOPMaXuRmFVBmxcK2M1xd86he5gQQoigHP/VW5hdvRI5+VS2mHsOheEtsrXgyyr2DcuhEbMtXypNVLKarVrE0yFFXDZ5qpsEVi7rvNbQquDHVbgzc3C7TUfnr7bhePKHrvQuuAErjKhHu0VPx4qY5c99w34sSdR41JKI/0cS4G5stCqzrE7XieRCTi+8YbIMTKJm/iuH7BQwMnujrTKCtL/TCzJIgpxEgXTL79eEAoDQ9FzYA8/oVaBweUfg8MYoNFHo4bfdH12U+pcOYP7ZfWppQTZJ9spsHFfLkwiD7s+YVYMcdjYKVU3tLd4YZGr453B1ZB/kgxZCA==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR11MB5978.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(396003)(39860400002)(346002)(376002)(136003)(366004)(230922051799003)(451199024)(64100799003)(1800799009)(186009)(4744005)(41300700001)(7416002)(5660300002)(82960400001)(7406005)(86362001)(921008)(36756003)(38070700009)(2906002)(6512007)(316002)(38100700002)(122000001)(66946007)(2616005)(66556008)(54906003)(76116006)(91956017)(64756008)(66446008)(66476007)(110136005)(26005)(6506007)(71200400001)(6486002)(478600001)(4326008)(8936002)(8676002);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Rk5DUmVaS3NzajdLc0Q3aTY3Rkk4SGpWUThMbnpZcm0yQ0xESHljN09Na0xU?=
+ =?utf-8?B?TXViVnoyTlFwUEVoOVpaMWx0TWpzNW1pd3RLaFNQT0Q4Mlc4NkFwZmozenF6?=
+ =?utf-8?B?Zk8raG5CcXNTZ2RzQXhPS05URHhvRlA3bWFMalo3ZEN0MUlaZldldXVIeGJ2?=
+ =?utf-8?B?SVVPeFpYdVZwSFFyTXdCdEs1WXJnY2hPeWdBaC9kdHNwc2x5N3U3RVNHSWk0?=
+ =?utf-8?B?Y0hNTVh5Wmk5K3R0ZXc2QTdwS2QxWlpnY1JIdVFVY05zOUQ0TWs4b1RFUHdi?=
+ =?utf-8?B?bE5HMHZZY2lnbHVrNC9xaGJsSnQ5MUtUeXk3VTdDeW1DWFp4YmhQRS9OOFl5?=
+ =?utf-8?B?ZnFzcnpJVGkrK3FiS0F3MWJPcTduOEJNdWl2M2VVVWFOVHk4QmdQaHhhK1Q3?=
+ =?utf-8?B?MFh3ZndqbldyTlgxaW1CblRha2hBN1VoTHNWRmdtOXBwMGpsTVM2M05pcVZQ?=
+ =?utf-8?B?aFUxbmgzdmFnZVhtbmpmY3h4QktZNTM0Z24zVGxDS3lvTWhXWGREdEpKVHhU?=
+ =?utf-8?B?UDFyU2VOL2FaZEdzQ2l6aXBzbFJieUpWdU8wZHp3dmszRFcwaVR1aXZNVXBt?=
+ =?utf-8?B?SUg4M2UrVEtRZGZSa1g1YWtjM1dpVXROVkVhUSsrVEVhdm9VTFBIVDNtSlV2?=
+ =?utf-8?B?ZnhaQTVoYjRYcjM3OHl1R0RYOHdPYTFLOHRXdUxHODVRUGlSQ0U1ZXhubnJS?=
+ =?utf-8?B?dnp4S2V2TDBWWXBtdXZVclJzMEVocjFCVTJPZzJXU0FmRkNQR2dOSjFEbXdQ?=
+ =?utf-8?B?STF0cll1bUJPd0dma0c2QlpqWDJDRTZhSjhURWxTWUl5SlpJMXlRRU5UcUVx?=
+ =?utf-8?B?S0djZzFYUXJhUVdZMEFXY1l0OGlnVjJBWWFiN3JZd3gvOVNobDAvVkswZXA0?=
+ =?utf-8?B?N1hHZmJSZGswMjhpaXAxMXpHbUZBRk51Vk41ME5ROWdQL21vbHhHdStFNUI4?=
+ =?utf-8?B?UVNXUTlzVjhFbWtPSVpyNVV0ck9CNHRUUlB0SGxUeUEwNU5kNi9OSUNIbkhH?=
+ =?utf-8?B?QUZzVWszTzhXYzhZdTFTNEpoR011TEFsOWhzUWo3MnN0ZzBuaVhOcWtzL211?=
+ =?utf-8?B?ODZJemE1Zm1QUXJNdThPZklTWmtEMlI1bGhrakJzc0cxSW5KK2FxWjV3Vkc2?=
+ =?utf-8?B?Vk9vaDhhUXVWRXVmbU9hU3BmQzNCTUVVUytzUkRCemR5di8rVTRqL08vQmdV?=
+ =?utf-8?B?WWJ2cGk4cjhZVlJpOWF5Z0ZPc0Q4N05nQmM5R0hhaFhzbC9UZWRDYlJ3RDBG?=
+ =?utf-8?B?d1h1a00wdXViOWVwQTV5S0ZGZk5OMW52dlo3eE1YUW41c0NiQTRLZDVtTXhJ?=
+ =?utf-8?B?Rkkxd05TK0NYVkFxWGhqTGY2UVk2VmoxUU4xY3A4QXN4TEJhNDRMaEI0R3NT?=
+ =?utf-8?B?OFRlcGtWM3Q5OTZnS2hwbS9QVFhuejVXRmVpbWJvNFRxMFNmQ3d0bGwwbEM5?=
+ =?utf-8?B?VHNlOFFkU2RuZWVLOTNPVXFDUG41RUNJdDNoakxaMVJvN1Y3ODNOZDI4U0lP?=
+ =?utf-8?B?UUZrV1pPNFJNV1dNeE91WG5OZ1FMd25BS0tmc0cvSVUxY2FwQUl2Qmx1TWJC?=
+ =?utf-8?B?czZ5UVl6cjBRREhHbUdIMTYwWlU1NlRpd1hpVVdrejR1VVpPODk5ejJuVkZV?=
+ =?utf-8?B?b2ZOOTRlWDJGN3I0OW5xakIvYjNnUFQ3dWlDL2tONEhsWDMvOFpEV0xzMUY0?=
+ =?utf-8?B?QWorWkgwdndOV0lIUlppcXIxcDZ1NURHNFJwWHY5d2VPd2Rac2hlRStHcE1W?=
+ =?utf-8?B?MmJNLzJBMUFJMVJaL3FqckUzdEVJdUQ2Nkw5Ykwwa0l5RlpOOG1Hd0dWUnBZ?=
+ =?utf-8?B?R0N5ZWZiRGxxUHlKMk1LSW1vRlFyeTJCN0dFUUw0OHg1ZWNybWM0cEZDMDBP?=
+ =?utf-8?B?aVNNeDhKZjFRaURTQWRDSTZnSDd1N0FZbjB1TlN6alhXeGc3SjBXS3c5bGhv?=
+ =?utf-8?B?Wml4OUsra1REMndOeHV3bmJwRkJjcFJ1YUlJclRmV0I4U2Nma1puQzNPcVJk?=
+ =?utf-8?B?ZEd4b2hqd1BYdHYyL1MvWDVqTUdpYjJNWnljZHNrU2lIMUh3K3dPNXBXUG5J?=
+ =?utf-8?B?TnZGWjJFQ3A4aWI3WkxLbWx4Ym94Qk5GVGJTTkVrMzgyZTRsd1I2MjkrakFY?=
+ =?utf-8?B?M3FUdi9EQzJWb2JKNlV3MUIzb2k5QXF5Qkd4VERYQ2ZvZ0tXVkhMaEhmM2pq?=
+ =?utf-8?B?MEE9PQ==?=
+Content-ID: <C0D2CDF1769E124DAF3EC8325C1EFA93@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-References: <20231027080400.56703-1-vincent.guittot@linaro.org>
- <20231027080400.56703-7-vincent.guittot@linaro.org> <89b5db0e-1121-4d0c-a8f4-1202465f5251@arm.com>
-In-Reply-To: <89b5db0e-1121-4d0c-a8f4-1202465f5251@arm.com>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Thu, 2 Nov 2023 11:42:37 +0100
-Message-ID: <CAKfTPtDKMhNpjATHtVuTvas59=ugtw7Q2T3fVKx8T83=-nM3xQ@mail.gmail.com>
-Subject: Re: [PATCH v4 6/7] cpufreq/cppc: set the frequency used for computing
- the capacity
-To: Pierre Gondois <pierre.gondois@arm.com>
-Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org, 
-	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com, 
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com, 
-	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com, 
-	viresh.kumar@linaro.org, lenb@kernel.org, robert.moore@intel.com, 
-	lukasz.luba@arm.com, ionela.voinescu@arm.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, acpica-devel@lists.linuxfoundation.org, 
-	conor.dooley@microchip.com, suagrfillet@gmail.com, ajones@ventanamicro.com, 
-	lftan@kernel.org
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BL1PR11MB5978.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a433efab-7831-4592-9a2f-08dbdb923b8b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Nov 2023 10:55:31.3378
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: zS6dCgXksNhbv3pnR7CFAFiDaFqPoNducKKneKC6Ty6X13yJv4d8FNGvAZdodOkcwJzUOhPBrj2zLOOo87SitA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR11MB8099
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231102_034250_715799_BF814596 
-X-CRM114-Status: GOOD (  20.68  )
+X-CRM114-CacheID: sfid-20231102_035552_535044_D6BB75D4 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,84 +208,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Pierre,
-
-On Thu, 2 Nov 2023 at 10:07, Pierre Gondois <pierre.gondois@arm.com> wrote:
->
-> Hello Vincent,
->
-> On 10/27/23 10:03, Vincent Guittot wrote:
-> > Save the frequency associated to the performance that has been used when
-> > initializing the capacity of CPUs.
-> > Also, cppc cpufreq driver can register an artificial energy model. In such
-> > case, it needs the frequency for this compute capacity.
-> >
-> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > ---
-> >   drivers/base/arch_topology.c | 15 ++++++++++++++-
-> >   1 file changed, 14 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-> > index 9a073c2d2086..d4bef370feb3 100644
-> > --- a/drivers/base/arch_topology.c
-> > +++ b/drivers/base/arch_topology.c
-> > @@ -349,6 +349,7 @@ bool __init topology_parse_cpu_capacity(struct device_node *cpu_node, int cpu)
-> >
-> >   void topology_init_cpu_capacity_cppc(void)
-> >   {
-> > +     u64 capacity, capacity_scale = 0;
-> >       struct cppc_perf_caps perf_caps;
-> >       int cpu;
-> >
-> > @@ -365,6 +366,10 @@ void topology_init_cpu_capacity_cppc(void)
-> >                   (perf_caps.highest_perf >= perf_caps.nominal_perf) &&
-> >                   (perf_caps.highest_perf >= perf_caps.lowest_perf)) {
-> >                       raw_capacity[cpu] = perf_caps.highest_perf;
-> > +                     capacity_scale = max_t(u64, capacity_scale, raw_capacity[cpu]);
-> > +
-> > +                     per_cpu(capacity_ref_freq, cpu) = cppc_perf_to_khz(&perf_caps, raw_capacity[cpu]);
-> > +
->
-> To continue Beata's point, I think there is an issue with the following:
-> cppc_perf_to_khz() and cppc_khz_to_perf() were previously used with a struct containing
-> frequencies in KHz, cf. [1].
-> In the original _CPC object, frequencies are in MHz. It means that the perf_caps struct
-> here contains frequencies in MHz, and per_cpu(capacity_ref_freq, cpu) is in MHz aswell.
-
-Yeah, I haven't noticed this intermediate step in cppc_cpufreq. I'm
-going to fix this
-
->
-> [1] https://github.com/torvalds/linux/blob/master/drivers/cpufreq/cppc_cpufreq.c#L682
->
->
-> >                       pr_debug("cpu_capacity: CPU%d cpu_capacity=%u (raw).\n",
-> >                                cpu, raw_capacity[cpu]);
-> >                       continue;
-> > @@ -375,7 +380,15 @@ void topology_init_cpu_capacity_cppc(void)
-> >               goto exit;
-> >       }
-> >
-> > -     topology_normalize_cpu_scale();
-> > +     for_each_possible_cpu(cpu) {
-> > +             capacity = raw_capacity[cpu];
-> > +             capacity = div64_u64(capacity << SCHED_CAPACITY_SHIFT,
-> > +                                  capacity_scale);
-> > +             topology_set_cpu_scale(cpu, capacity);
-> > +             pr_debug("cpu_capacity: CPU%d cpu_capacity=%lu\n",
-> > +                     cpu, topology_get_cpu_scale(cpu));
-> > +     }
-> > +
-> >       schedule_work(&update_topology_flags_work);
-> >       pr_debug("cpu_capacity: cpu_capacity initialization done\n");
-> >
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCAyMDIzLTExLTAyIGF0IDExOjMyICswMTAwLCBQYW9sbyBCb256aW5pIHdyb3RlOg0K
+PiA+ID4gKyNpZmRlZiBDT05GSUdfS1ZNX0dFTkVSSUNfTUVNT1JZX0FUVFJJQlVURVMNCj4gPiA+
+ICtzdGF0aWMgaW5saW5lIHVuc2lnbmVkIGxvbmcga3ZtX2dldF9tZW1vcnlfYXR0cmlidXRlcyhz
+dHJ1Y3Qga3ZtICprdm0sIGdmbl90IGdmbikNCj4gPiA+ICt7DQo+ID4gPiArCXJldHVybiB4YV90
+b192YWx1ZSh4YV9sb2FkKCZrdm0tPm1lbV9hdHRyX2FycmF5LCBnZm4pKTsNCj4gPiA+ICt9DQo+
+ID4gDQo+ID4gT25seSBjYWxsIHhhX3RvX3ZhbHVlKCkgd2hlbiB4YV9sb2FkKCkgcmV0dXJucyAh
+TlVMTD8NCj4gDQo+IFRoaXMgeGFycmF5IGRvZXMgbm90IHN0b3JlIGEgcG9pbnRlciwgdGhlcmVm
+b3JlIHhhX2xvYWQoKSBhY3R1YWxseSANCj4gcmV0dXJucyBhbiBpbnRlZ2VyIHRoYXQgaXMgdGFn
+Z2VkIHdpdGggMSBpbiB0aGUgbG93IGJpdDoNCj4gDQo+IHN0YXRpYyBpbmxpbmUgdW5zaWduZWQg
+bG9uZyB4YV90b192YWx1ZShjb25zdCB2b2lkICplbnRyeSkNCj4gew0KPiDCoMKgwqDCoMKgwqDC
+oMKgIHJldHVybiAodW5zaWduZWQgbG9uZyllbnRyeSA+PiAxOw0KPiB9DQo+IA0KPiBSZXR1cm5p
+bmcgemVybyBmb3IgYW4gZW1wdHkgZW50cnkgaXMgb2theSwgc28gdGhlIHJlc3VsdCBvZiB4YV9s
+b2FkKCkgDQo+IGNhbiBiZSB1c2VkIGRpcmVjdGx5Lg0KDQpUaGFua3MgZm9yIGV4cGxhaW5pbmcu
+ICBJIHdhcyB0aGlua2luZyBwZXJoYXBzIGl0J3MgYmV0dGVyIHRvIGRvOg0KDQoJdm9pZCAqZW50
+cnkgPSB4YV9sb2FkKC4uLik7DQoJDQoJcmV0dXJuIHhhX2lzX3ZhbHVlKGVudHJ5KSA/IHhhX3Rv
+X3ZhbHVlKGVudHJ5KSA6IDA7DQoNCkJ1dCAiTlVMTCAoMCkgPj4gMSIgaXMgc3RpbGwgMCwgc28g
+eWVzIHdlIGNhbiB1c2UgZGlyZWN0bHkuDQpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
