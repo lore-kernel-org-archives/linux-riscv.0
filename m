@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF495C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 15:59:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 321AEC4167D
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 16:00:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f77aUZPazatdUIzsXrMJgbeottLVPv2+pxnSIvz4BHk=; b=nfHRyHJckech7K
-	5T1ZvzFVIsTyxwzFW9PyCSGQJz4wsi5EDMv57jau/zBpBGkMqqsoHuKuhFX6p3Lke+XHoOlJdXR1o
-	rRf3zCKgFrvEDYXnQ3URKrRrDQdHwxIO+zziUjs42awpA+qhWFVsdB3F7jC8/2qX8kWZtWeKYjmMs
-	5JsuMfpsUB0p+qMWNZIU+bbUPq3IrmdWEaeSNC7KU29g3+yI+ck8BktRiodeXKAHKK7yDBSsCz+CA
-	1AaJcevcnyvZS11oGuSRakeix7LHcUV30LIzljh18blfjFV6b7yTBMSnqBAN6xLanI/66s/StDdft
-	UYvTG8YDmUKU2LcGTZPQ==;
+	List-Owner; bh=WDaXLJrVUrJHYx0+B8N/nUMo+d1YEnnvd5Q7flknT+I=; b=FcfypRtmNFWf27
+	MJH6rgZdA7D9KUmvisXWVWi8xdT4NxM9K7vDl7ig5Uf4V3sRW2Fn0+jzsb9xO1JCRg0LXjxHZ65c9
+	2cvyMKqVoOLFf3aDRsj/PdAg3iUNakxpv4c5trC/6nqeG+Xv9IiT55Ukcsw+Og9Lw4nCHomzQmios
+	BPpZunobfO1avlKFa/nPMg5SOeQNDVa9hGOtEa1xXAyJZ1JGaKBOnzpF0M6W9lquBoyV1Yznjh5ko
+	jpdYNZgiMbkcrHK9e6/FLq/fGM0HYrvaRWW+dNtCJ5uc0qmro2lJTd+QJorqtRQ/NARwp8Cd9orGz
+	mtTwnsJdbqoAb2f94pfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qywa9-00BjWw-2M;
-	Fri, 03 Nov 2023 15:59:37 +0000
-Received: from bg4.exmail.qq.com ([43.155.67.158])
+	id 1qywap-00Bjgy-1a;
+	Fri, 03 Nov 2023 16:00:19 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qywa6-00BjVK-1y
+	id 1qywam-00Bjfw-2J
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Nov 2023 15:59:36 +0000
-X-QQ-mid: bizesmtp64t1699027156tvs9nek9
+	Fri, 03 Nov 2023 16:00:18 +0000
+X-QQ-mid: bizesmtp89t1699027199tr6cexfv
 Received: from main2-ubuntu.tail147f4.ts.net ( [202.201.15.117])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 03 Nov 2023 23:59:13 +0800 (CST)
+	id ; Fri, 03 Nov 2023 23:59:56 +0800 (CST)
 X-QQ-SSF: 01200000000000B06000000A0000000
-X-QQ-FEAT: znfcQSa1hKbGuZsoOVNlc1WvbvEkFGnTx1nx7spI6Tuzd0sHLnkw7AiMgni3t
-	ZggaII50uNhW4y9QfvuvOyeS4F6auFyNTJw8NQCg+vLjRI5V2SC6LCN9adAn0v67sJ3OSX/
-	ApylcxyFajCfrERC+YlFJVy8SGFJrBzCX2pVZ4xg8IbilwZDlWfF607cx65tZkc/N5v0pBo
-	5KJ44BzBG+chXyP6BguFE6wzB2WGXdJq47gbtwJbgnW6dVctfCnU818SNsx7tWsczxLqyqh
-	u4yC+u7f5c5hMGNKdyDBqUc2ZmUsHeTUO2gp5wzAo1jI1qkf08kTw9ItQQe6yQ05zfvbyXV
-	s7UC4ZqDN0fbnt0BzlvuczseCniFWDH+IfzMMqsezOL6Jc3njt6dIop1FXbag==
+X-QQ-FEAT: J5JfekO1WsiW/sSK9b0/2SRgOwgztbvJaqippsUrhkBT0nfPERe3CiBmcwtjz
+	QpzvzTaAyarFENK22g18sd4WrJtroYvGBndfc+80wj7YD8GXTPFE63PYdZfssoaggn37JF1
+	CeT4asgR6uqXE743WuMFyc0x2/w6p5rmPS5RdVkWpq1wdgAirUOvzdxBnfp/BH/yVAOG+VK
+	nuqwGFmYsfi5b7WwIDnPQEhZN6hZb6/eGcz4PwK7TFD10lDLnMuVyHe9WS6+GDJ8RvQ2t0+
+	CRr+zifxj6GjZOuv7Gm2iGWovRvgRTB53/KK2DBFh1siV3bXj3z8JS2Obvsu+/t7oibKU9q
+	0uW9Al7Boxi073MJVkzuvWKDvgsnA==
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 3788500215190827511
+X-BIZMAIL-ID: 6517666058283072593
 From: Yuan Tan <tanyuan@tinylab.org>
 To: falcon@tinylab.org,
 	arnd@arndb.de,
@@ -58,9 +58,9 @@ Cc: linux@weissschuh.net,
 	w@1wt.eu,
 	tanyuan@tinylab.org,
 	i@maskray.me
-Subject: [PATCH v1 04/14] compiler: add unique LABEL_NAME()
-Date: Fri,  3 Nov 2023 23:59:11 +0800
-Message-Id: <db3498efc33b3065a0acb534d034f7d33ad03e19.1699025537.git.tanyuan@tinylab.org>
+Subject: [PATCH v1 05/14] DCE/DSE: add HAVE_SECTION_SHF_LINK_ORDER_SUPPORT option
+Date: Fri,  3 Nov 2023 23:59:54 +0800
+Message-Id: <141030de2b3d470251d1588b39cb041ec505d84f.1699025537.git.tanyuan@tinylab.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1699025537.git.tanyuan@tinylab.org>
 References: <cover.1699025537.git.tanyuan@tinylab.org>
@@ -68,8 +68,8 @@ MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231103_085934_961181_EF5CD423 
-X-CRM114-Status: UNSURE (   5.64  )
+X-CRM114-CacheID: sfid-20231103_090017_070443_3AE74D1A 
+X-CRM114-Status: UNSURE (   6.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,32 +87,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Zhangjin Wu <falcon@tinylab.org>
+SHF_LINK_ORDER requires ld >= 2.35.
 
-unique LABEL is required by SHF_LINK_ORDER support.
+LLD supports SHF_LINK_ORDER to, but it does not support riscv
+HAVE_LD_DEAD_CODE_DATA_ELIMINATION. Therefore, I haven't tested the
+minimum compatible version yet.
 
+Signed-off-by: Yuan Tan <tanyuan@tinylab.org>
 Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
 ---
- include/linux/compiler.h | 6 ++++++
- 1 file changed, 6 insertions(+)
+ init/Kconfig | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/include/linux/compiler.h b/include/linux/compiler.h
-index 5a9cc3209b12..b178f5d51ad6 100644
---- a/include/linux/compiler.h
-+++ b/include/linux/compiler.h
-@@ -246,6 +246,12 @@ static inline void *offset_to_ptr(const int *off)
- #endif
- #endif
+diff --git a/init/Kconfig b/init/Kconfig
+index aa648ce8bca1..1ef5b19918e5 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -1462,6 +1462,11 @@ config HAVE_TRIM_UNUSED_SYSCALLS
+ 	depends on HAVE_LD_DEAD_CODE_DATA_ELIMINATION
+ 	default n
  
-+/* Unique Label NAME. */
-+/* Label is file scope, __LINE__ is enough, and not change in the same macro call */
-+#ifndef __LABEL_NAME
-+# define __LABEL_NAME(prefix) __stringify(__PASTE(__PASTE(prefix, _), __LINE__))
-+#endif
++config HAVE_SECTION_SHF_LINK_ORDER_SUPPORT
++	bool
++	depends on AS_IS_GNU && AS_VERSION >= 23500
++	default y
 +
- /* &a[0] degrades to a pointer: a different type from an array */
- #define __must_be_array(a)	BUILD_BUG_ON_ZERO(__same_type((a), &(a)[0]))
- 
+ menuconfig EXPERT
+ 	bool "Configure standard kernel features (expert users)"
+ 	# Unhide debug options, to make the on-by-default options visible
 -- 
 2.34.1
 
