@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6979C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 15:58:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D41FC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 15:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=iMlINUDkTuIFDvUCBZzwNUvMk4vQ/s43e4IpO1jBaIw=; b=Cc6x0uhLzy0QIY
-	wrrq3GZSaYLULPu0ngB+LZAaQcjUWjUZpI6dO+uPKRFwgGlaH54cP39s5hbA+6JvvRepUq3/3VXD/
-	LJ0DxEk1kdUUPkrBDsPKnQ7ZzTmfbwH6U6pQ2WqlEObgTGPSZIhYLbjWa3xskOGDu9vgRp3N2AaL+
-	BrhPMBlBI1fNUqInGGHVuu1qKKzFTaAFhW2jYZ0Liv+VHycoy0T0i9wz+6SeZN2HvA1Fig7nz4F8L
-	Ny+1O6iTDYozWUS6WfG/qxIelNW9JqNSwNcawrkdrUEwZ+8qocbCIxN1wIbf/TT/nJRUGu5b7lXpP
-	VGB9g54d5Z4CK+0ysGNw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PA9CPmEV6HgYwEKRceHYI2VvP27h+2e5tMLjCljlj7Q=; b=u88krqBhcbnOJj
+	GPuqiX9qh7a99wmzXPYdiDd9r4t4TIzL8XUzrrAzlYfPdgTr3pX0Xu17GPx2cgE2O5QX0rkYVBt+6
+	x/zXEXClFTG38t2EsaI2ndTeQl+zOKqnoUeRZ78cSsRZekaMDdohrDfQciI86OfvEdk1dbFoykRzB
+	RuRDtt29zeeT1KSzi8Ire+21MhUGouXmB3SBNvCdzh7g7zNS5ED9moyW4dgNZtVCEyjQU7pM5NAzo
+	sryErEhxgKSkn03o+VCQLnn6zxeIqY7ztamIuxsR98u9KNogyFd2KuDvGLjJJYVkQmYAOb/Yvltij
+	sdkT5M+Vj+4g8P3ocx9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qywYZ-00BjDP-23;
-	Fri, 03 Nov 2023 15:57:59 +0000
-Received: from bg4.exmail.qq.com ([43.155.67.158])
+	id 1qywZZ-00BjNs-2F;
+	Fri, 03 Nov 2023 15:59:01 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qywYS-00Bj5i-0N
+	id 1qywZW-00BjMn-2m
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Nov 2023 15:57:57 +0000
-X-QQ-mid: bizesmtp78t1699027037tibjddzq
+	Fri, 03 Nov 2023 15:59:00 +0000
+X-QQ-mid: bizesmtp83t1699027115tqmp7mar
 Received: from main2-ubuntu.tail147f4.ts.net ( [202.201.15.117])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 03 Nov 2023 23:57:14 +0800 (CST)
+	id ; Fri, 03 Nov 2023 23:58:32 +0800 (CST)
 X-QQ-SSF: 01200000000000B06000000A0000000
-X-QQ-FEAT: QityeSR92A0CP7ledumJcL/YcFg/S2vCRasLnx4V41TLMZugGiWPhdXyRvEjd
-	NU48y/mVScgRq0fQozHdMCgD4Xnou/kbN39qvapr+jCESqwElCbQD54Ib/JBgMdsLkB96UB
-	M3jhs9MFqlqy2shevC4BLkj/hf6npz1vl8J6spTtbn4BVbDAnNWUHTcXRHaW/ppO0M60ae3
-	Js6L8NjWL5oHz8R3iTbMVYCFm5OMNnFgs7EM1Y0lH9RFylCi3Krfhdqc9Ktp4e9UlZ63HNs
-	TrnY+TU8JL/R1brTVWiAb6dX7W7wXxfeSF0XwINpSFbxJjKtpPiOusLQjvWJLBZWQJ2c1zF
-	XvDr/++U8V9kUDk7qZmnFbFnnW+xV+++Cbc13mk
+X-QQ-FEAT: 3M0okmaRx3gtg4dkowId3SRZK6iJt7bmG/bknUDKf+3ULUZKiHp/tkQ2jHTjZ
+	qCAJtCYV+PBISnAzK2lTT9gQ93lFd4WLGlpACg09bFke2VMU51xGkofztcVkF64kLeB/I40
+	gt7AiMXFEF2xrMMx0HrXUSXv2jHoH+pff3Xms4oos9d5sxvTKIeoM4HgumgCEXWN1DXMZGG
+	mOnRKFHyB0tdauEDaWiRCJ4WkEsUYt3jBksdkZqXTIOM4Sg1erJZuCIGNrgNzHJvUOE0TQI
+	qfM8VoqG8AKNC9mj7MLM6aOKtJ7PJZrzG9XhTTXhE/GAatyk3aTKEWjcCrmwWhXqp/YBb1k
+	Fal2Ut2duOE5o37lshvTGlRfYJ/VnEvHOdQu3tDN7OWkjvzEFMMskq1oA1G7g==
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 3192958384466937205
+X-BIZMAIL-ID: 4824966276626844455
 From: Yuan Tan <tanyuan@tinylab.org>
 To: falcon@tinylab.org,
 	arnd@arndb.de,
@@ -58,16 +58,18 @@ Cc: linux@weissschuh.net,
 	w@1wt.eu,
 	tanyuan@tinylab.org,
 	i@maskray.me
-Subject: [PATCH v1 00/14] DCE/DSE: Add Dead Syscalls Elimination support, part2
-Date: Fri,  3 Nov 2023 23:56:35 +0800
-Message-Id: <cover.1699025537.git.tanyuan@tinylab.org>
+Subject: [PATCH v1 01/14] DCE/DSE: allow keep unique bounded sections
+Date: Fri,  3 Nov 2023 23:58:30 +0800
+Message-Id: <c1af88e9c5e5956f22de6b9e7e69186dfad68767.1699025537.git.tanyuan@tinylab.org>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1699025537.git.tanyuan@tinylab.org>
+References: <cover.1699025537.git.tanyuan@tinylab.org>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231103_085752_457872_B423985A 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20231103_085859_210752_B001399B 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,122 +86,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, all
+From: Zhangjin Wu <falcon@tinylab.org>
 
-This series aims to add Dead Code Elimination(DCE) based Dead Syscalls
-Elimination(DSE) support, here is the RFC patchset[1]. The whole series
-includes three parts, here is the Part2.
+The bounded sections may break the elimination of some dead code.
 
-Part1 adds basic DCE based DSE support [5].
+Some unused syscalls have been wrongly kept by `__ex_table`, we will
+unique `__ex_table` for every inserting and then remove the unused ones
+explicitly and eventually, the unused syscalls will be eliminated.
 
-Part3 will add DSE test support with nolibc-test.c.
+In the future, we should find better methods to solve such issue:
 
-This Part2 further eliminates the unused syscalls forcely kept by the
-exception tables. This is just a preliminary approach and requires a lot
-of discussion and modifications.
+  Some code may use '.pushsection/.popsection' to insert data
+  to a bounded section, use `sys_sendfile` as an example:
 
-Some syscalls use put_user()/get_user() to access memory from
-user-space, the exception tables are added for such memory addresses to
-fixup potential exceptions fairily.
+      sys_sendfile:
 
-These exception tables are added by the simple '.pushsection' directive
-and there is no explicit section relationship between them and their
-syscall functions, So, all of such tables are explicitly kept by the
-KEEP() directive in vmlinux.lds, but such forcely KEEP() operations
-prevent DCE from eliminating their syscall functions for the tables used
-some addresses in their syscall functions, the insn and fixup addresses
-(arch/riscv/include/asm/asm-extable.h) are from their syscall functions,
-as a result, the ownership reverses.
+        ".pushsection __ex_table,\"\"\n"
+        ...
+	".long		((" insn ") - .)\n"
+        ...
+        ".popsection"
 
-To further eliminate such syscalls, we must fix up this ownership
-reversal issue. At first, the KEEP() operations must be removed from
-vmlinux.lds, but at the same time, we must find a way to tell ld the
-real ownership between the syscalls and their exceptions tables.
+  `insn` is an address in `sys_sendfile`, even if no real user uses
+  sys_sendfile, the keeping of __ex_table will become a 'user' and
+  break the elimination of `sys_sendfile`.
 
-Fortunately, under the guidance of Zhangjin Wu, I discovered that both
-SHF_GROUP and SHF_LINK_ORDER can be helpful for such targets ([6] [7]
-[8]), but the former method triggers a warning from as. The binary files
-compiled using both methods turn out to be identical. So maybe we just
-choose the later one?
+All of the bounded sections should be uniqued, and we should check if
+they are the last users of the code, if so, those sections should be
+removed and the code should be eliminated.
 
-This series adds a very elementary level of patchset to demonstate how
-to use them to drop KEEP() for all of the exception tables, only for
-RISC-V currently.
-
-This may also be a good start for us to rethink the widely used KEEP().
-This approach can thoroughly eliminate orphan sections, providing the
-compiler with more information. Eventually, most of the KEEP() calls
-can be eliminated.
-
-The nolibc-test based initrd run well on riscv64 kernel image with dead
-syscalls eliminated:
-
-    $ nm build/riscv64/virt/linux/v6.6-rc2/vmlinux | grep "T __riscv_sys" | grep -v sys_ni_syscall | wc -l
-    40
-
-These options should be enabled:
-
-    CONFIG_LD_DEAD_CODE_DATA_ELIMINATION=y
-    CONFIG_LD_DEAD_CODE_DATA_ELIMINATION_DEBUG=y
-    CONFIG_TRIM_UNUSED_SYSCALLS=y
-    CONFIG_SECTION_SHF_LINK_ORDER_SUPPORT=y
-    CONFIG_USED_SYSCALLS="sys_dup sys_dup3 sys_ioctl sys_mknodat sys_mkdirat sys_unlinkat sys_symlinkat sys_linkat sys_mount sys_chdir sys_chroot sys_fchmodat sys_fchownat sys_openat sys_close sys_pipe2 sys_getdents64 sys_lseek sys_read sys_write sys_pselect6 sys_ppoll sys_exit sys_sched_yield sys_kill sys_reboot sys_getpgid sys_prctl sys_gettimeofday sys_getpid sys_getppid sys_getuid sys_geteuid sys_brk sys_munmap sys_clone sys_execve sys_mmap sys_wait4 sys_statx"
-
-Or using section group intead of section link order:
-
-    CONFIG_SECTION_SHF_GROUP_SUPPORT=y
-
-Thanks to Song Fangrui's idea [9] of SHF_LINK_ORDER. To be honest, this
-part is hard to understand, and there may be some mistakes in my
-solutions. Welcome your further advice. :)
-
-Besides, I want to express my thanks to Zhangjin Wu, Zhiming Xu, Anqi
-Xiao, Jun Kong, and Yuzhe Ling for their help during the investigation
-stage.
-
-Best Regards,
-Yuan Tan
-
+Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
 ---
-[1]: https://lore.kernel.org/lkml/cover.1676594211.git.falcon@tinylab.org/
-[2]: https://lore.kernel.org/lkml/234017be6d06ef84844583230542e31068fa3685.1676594211.git.falcon@tinylab.org/
-[3]: https://lore.kernel.org/lkml/CAFP8O3+41QFVyNTVJ2iZYkB0tqnvdLTAoGShgGy-qPP1PHjBEw@mail.gmail.com/
-[4]: https://lore.kernel.org/lkml/cbcbfbb37cabfd9aed6088c75515e4ea86006cff.1676594211.git.falcon@tinylab.org/
-[5]: https://lore.kernel.org/lkml/cover.1695679700.git.falcon@tinylab.org/
-[6]: https://maskray.me/blog/2021-07-25-comdat-and-section-group
-[7]: https://maskray.me/blog/2021-01-31-metadata-sections-comdat-and-shf-link-order
-[8]: https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html
-[9]: https://sourceware.org/pipermail/binutils/2023-July/128521.html
+ include/asm-generic/vmlinux.lds.h | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-Yuan Tan (10):
-  DCE/DSE: add HAVE_SECTION_SHF_LINK_ORDER_SUPPORT option
-  DCE/DSE: add HAVE_SECTION_SHF_GROUP_SUPPORT option
-  DCE/DSE: add HAVE_SECTION_NO_KEEP_SUPPORT option
-  DCE/DSE: add choice of methods to build reference for orphan sections
-  DCE/DSE: inhibit .size directive for SHF_GROUP
-  DCE/DSE: riscv: make every ex_table's name unique
-  DCE/DSE: riscv: build reference for .pushsection in C functions
-  DCE/DSE: riscv: build reference for .pushsection in assembly
-  DCE/DSE: add SECTION_NO_KEEP_SUPPORT option
-  DCE/DSE: vmlinux.lds.h: allow NO_KEEP on __ex_table sections
-
-Zhangjin Wu (4):
-  DCE/DSE: allow keep unique bounded sections
-  compiler: add a global __QUITE_UNIQUE_ID()
-  compiler: add unique __SECTION_NAME()
-  compiler: add unique LABEL_NAME()
-
- Makefile                             |  3 ++
- arch/riscv/include/asm/asm-extable.h | 43 +++++++++++++---
- arch/riscv/lib/uaccess.S             | 60 +++++++++++-----------
- include/asm-generic/vmlinux.lds.h    | 28 ++++++++---
- include/linux/compiler.h             | 25 ++++++++++
- include/linux/compiler_types.h       |  8 +--
- init/Kconfig                         | 74 ++++++++++++++++++++++++++++
- 7 files changed, 193 insertions(+), 48 deletions(-)
-
+diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
+index 9c59409104f6..ea8170e11ab1 100644
+--- a/include/asm-generic/vmlinux.lds.h
++++ b/include/asm-generic/vmlinux.lds.h
+@@ -103,6 +103,7 @@
+ #define RODATA_MAIN .rodata .rodata.[0-9a-zA-Z_]* .rodata..L*
+ #define BSS_MAIN .bss .bss.[0-9a-zA-Z_]* .bss..compoundliteral*
+ #define SBSS_MAIN .sbss .sbss.[0-9a-zA-Z_]*
++#define BSEC_MAIN(sec) sec sec##.[0-9a-zA-Z_]*
+ #else
+ #define TEXT_MAIN .text
+ #define DATA_MAIN .data
+@@ -110,6 +111,7 @@
+ #define RODATA_MAIN .rodata
+ #define BSS_MAIN .bss
+ #define SBSS_MAIN .sbss
++#define BSEC_MAIN(sec) sec
+ #endif
+ 
+ /*
+@@ -201,12 +203,12 @@
+ 
+ #define BOUNDED_SECTION_PRE_LABEL(_sec_, _label_, _BEGIN_, _END_)	\
+ 	_BEGIN_##_label_ = .;						\
+-	KEEP(*(_sec_))							\
++	KEEP(*(BSEC_MAIN(_sec_)))					\
+ 	_END_##_label_ = .;
+ 
+ #define BOUNDED_SECTION_POST_LABEL(_sec_, _label_, _BEGIN_, _END_)	\
+ 	_label_##_BEGIN_ = .;						\
+-	KEEP(*(_sec_))							\
++	KEEP(*(BSEC_MAIN(_sec_)))					\
+ 	_label_##_END_ = .;
+ 
+ #define BOUNDED_SECTION_BY(_sec_, _label_)				\
 -- 
 2.34.1
+
 
 
 _______________________________________________
