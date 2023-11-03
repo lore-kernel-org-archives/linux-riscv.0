@@ -4,56 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E606C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 08:34:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D281C4167D
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 09:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=II9bM9h73QNp18PO+dvt7pKom7Js3YR9vrAmVHdN6ko=; b=y/Vs5h+bGIyjCZTvzTPd+Y7ylC
-	ACu/AlDLjj98OLRiI13YlPBTxFhtG+bA36QutZv5vh4o/rWw1um7rflMVgDo5eJJboel9QWjy/x83
-	7ygEzkCY5TdaUHcJIkiivr8Ge03u7+iLXk7wIAb8s1LHlF+My1PYNamLUOSfbPeJPMWDoSGoPW5Tw
-	v2Ttyr13rHIFL5deIotKBFGNiMlUDrqmZe1k4q0ZHx2L3m3eCdVTZoIHFqqcJVxYKauVjKv1nQ2FZ
-	wgAXseigtxaftjlC8vNnODbsI5LqtapcRncniOgv01EaeAR7382JjD9xGdCyzCq19AFGcUn2s7vI+
-	rlb7ZwZQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=DHoUIsM/b/BIYlaGUn9fIx58leZMmM54UCMcSw8qKtY=; b=X9iroZV/eb8dix
+	7Sw0Igk3daJ5YaFAI5JkevtaENg1n+tYxRX+E7Jg1ODa3unZdnfGIr4GtnJ517j9xLc13688tzZFi
+	NWH9U1q06S+9lUFqoybJL8Lguh8cphhghgGAWfnP04UKh6QOYJBANaFVAFO5gtxt5EWKQcTbtoQL7
+	5hpVsMET/+5nM80UES39bmiGnkTqlyFoHJcZo9lb3wdnpMnX24/eBs4b2tg9Dx8k8v+PaJ2izx9G/
+	Uz5U84E02+/Imd9rfphxutBc2F2P4Lh2lxFPOM3JbRAoDqvVdayanupNMJCZJ/Rj7WLOJzSadowHb
+	E1akYA9y+IZpqXSMcCNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qypdi-00Azhi-05;
-	Fri, 03 Nov 2023 08:34:50 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1qyq4Y-00B1YD-00;
+	Fri, 03 Nov 2023 09:02:34 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qypde-00Azh1-1f
+	id 1qyq4V-00B1XG-0E
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Nov 2023 08:34:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id B6EE2B81DDF;
-	Fri,  3 Nov 2023 08:34:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB571C433C7;
-	Fri,  3 Nov 2023 08:34:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699000484;
-	bh=sE+MpiHqWgJ5iIw/npYzRDsl6/Gv+LYVgh0WxYn1jWU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nXpshMam9XLnIcy9bgwXkkE6rGoW0x477Hcqyz2l524SMDdjizinUd1BnNDHh+nPT
-	 Zd37Mk7T1KdVVXG9Q0UrCCdAZ2QlWcSpjlRTewSsqLAaf045giyTjiIfZIkyXdWYF0
-	 nafF8hPZlK95LobtO+FgH5631ypn0hiZET+/GKRBwPJJQMtefPzfh1MGnPUdLxHK4g
-	 GwvVRKHx3i+2Lti2fcur6Jn6PcBDPwPFIkhL+CtRX5Hm2hNZFyC2fGT0qolgmuF5sS
-	 JlYTtP63IjQpkImjxAITzg/fHhXZL1IeOGgWpp34KrkfK6pGZsnO+ULdT0soxL/rDl
-	 W88rmsv0i9FJQ==
-Date: Fri, 3 Nov 2023 08:34:38 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Evan Green <evan@rivosinc.com>
-Subject: Re: [PATCH] RISC-V: Probe misaligned access speed in parallel
-Message-ID: <20231103-uproar-rumbling-0a7a5ecb385e@spud>
-References: <20230915184904.1976183-1-evan@rivosinc.com>
- <CALs-Hsu_1x2FpjWXbmioSi6x30NXdNgrQ=t=EBknB0O06DA12A@mail.gmail.com>
+	Fri, 03 Nov 2023 09:02:32 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-407acb21f27so1279855e9.0
+        for <linux-riscv@lists.infradead.org>; Fri, 03 Nov 2023 02:02:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1699002148; x=1699606948; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=m+1tHEC+sLfsTYbEucEalWJbhmfqSui8PoKCdZjk+zI=;
+        b=UlFnfU9oDATc1/JEct5XI02xmpyYA3IlJU/+x0vBeySdjVGU8W4GaQvEmx7OZzWvgH
+         LOve6ZIy2cn63x14Qz/GmfCiWSen7arMmZ0h9J3g5MRE6NPudwXuesCqZVwyYqnl/XM7
+         0rK6OjxWlXUjyU54cOmq4nan6qsnnALxkGweDlPL+NPVcn9tvGJ7EsKDgwTipaWUZ3zW
+         febjDGMmIDrkRlNSvcQqMw2mn+wXmV/w1QrDHHkx7jgnL+FCmZE2hMKhb3JVdSRNbBt7
+         wtSfgGBJOh0erpUqrCJcNaYDQH8sSOiKoKNNrQjyA/t31KUC351NPrTdklWaJSfRqtzW
+         fUHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1699002148; x=1699606948;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=m+1tHEC+sLfsTYbEucEalWJbhmfqSui8PoKCdZjk+zI=;
+        b=ZDpBFW1UINHFpjALp5aZosBfeaYrcscIdV8k25+Zg5aj8K831cAtPYqZf0KtMlNQ9I
+         1wtwkBHC1k+yGI4F1zGXuEOAIcSQ4rkE6RUvMCzGx8rSD5hrhF8k/bv3nQ4IclcvJWLg
+         8JmN5LVYusLyH8WER0GFYEmDOdti8QOiXSPYbqMn/WrmhIJKHKoJw6tAxdv7XTwpdWxL
+         XzSvADq/iU/4+vAaHpEgAzVOHfsPsaxbcfkHujORh7rrInW5RDk1XYFIJztCU1WBjrKa
+         shvUropdNcqS59ZeZNY8oPfVrvyEy6EP+ZJzdfKC6IakXSaKWuye9IlHdDXxV0H0Lj1a
+         fQMA==
+X-Gm-Message-State: AOJu0YxLjKgxLFbLm/CdANQ+Qti3DDpxlsJ0GDfrwwxkIBGgJSZXlnI3
+	5n/p8vKb9YVID2axT3jAXv9lWPJ+TkTJDf+lCKCfnA==
+X-Google-Smtp-Source: AGHT+IEUKIxfzHqdx0bBHDfjL1JpFeGuQKT+ZUC9qvVxD+L3bcl3Xt888YkC73FNzyQScI+PUg41eQ==
+X-Received: by 2002:a05:600c:1c21:b0:401:7d3b:cc84 with SMTP id j33-20020a05600c1c2100b004017d3bcc84mr16977354wms.0.1699002148251;
+        Fri, 03 Nov 2023 02:02:28 -0700 (PDT)
+Received: from carbon-x1.home (2a01cb008a4f7000834139aab36b6ffb.ipv6.abo.wanadoo.fr. [2a01:cb00:8a4f:7000:8341:39aa:b36b:6ffb])
+        by smtp.gmail.com with ESMTPSA id m21-20020a056000175500b0032326908972sm1346558wrf.17.2023.11.03.02.02.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Nov 2023 02:02:27 -0700 (PDT)
+From: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
+Subject: [PATCH] riscv: fix misaligned access handling of C.SWSP and C.SDSP
+Date: Fri,  3 Nov 2023 10:02:23 +0100
+Message-ID: <20231103090223.702340-1-cleger@rivosinc.com>
+X-Mailer: git-send-email 2.42.0
 MIME-Version: 1.0
-In-Reply-To: <CALs-Hsu_1x2FpjWXbmioSi6x30NXdNgrQ=t=EBknB0O06DA12A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231103_013446_868438_BBACA905 
-X-CRM114-Status: GOOD (  24.11  )
+X-CRM114-CacheID: sfid-20231103_020231_323736_C3A887FE 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,97 +87,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Ley Foon Tan <leyfoon.tan@starfivetech.com>, Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, David Laight <David.Laight@aculab.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Greentime Hu <greentime.hu@sifive.com>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
-Content-Type: multipart/mixed; boundary="===============9057414601931590556=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============9057414601931590556==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="G1VAzj1/yjoi+Jgm"
-Content-Disposition: inline
-
-
---G1VAzj1/yjoi+Jgm
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Nov 02, 2023 at 03:41:58PM -0700, Evan Green wrote:
-> On Fri, Sep 15, 2023 at 11:49=E2=80=AFAM Evan Green <evan@rivosinc.com> w=
-rote:
-> >
-> > Probing for misaligned access speed takes about 0.06 seconds. On a
-> > system with 64 cores, doing this in smp_callin() means it's done
-> > serially, extending boot time by 3.8 seconds. That's a lot of boot time.
-> >
-> > Instead of measuring each CPU serially, let's do the measurements on
-> > all CPUs in parallel. If we disable preemption on all CPUs, the
-> > jiffies stop ticking, so we can do this in stages of 1) everybody
-> > except core 0, then 2) core 0.
-> >
-> > The measurement call in smp_callin() stays around, but is now
-> > conditionalized to only run if a new CPU shows up after the round of
-> > in-parallel measurements has run. The goal is to have the measurement
-> > call not run during boot or suspend/resume, but only on a hotplug
-> > addition.
-> >
-> > Signed-off-by: Evan Green <evan@rivosinc.com>
->=20
-> Shoot, I saw the other thread [1] where it seems like my use of
-> alloc_pages() in this context is improper? I had thought I was
-> alright, as Documentation/core-api/memory-allocation.rst says:
->=20
->  > If the allocation is performed from an atomic context, e.g interrupt
->  > handler, use ``GFP_NOWAIT``.
->=20
-> Any tips for reproducing that splat? I have CONFIG_DEBUG_ATOMIC_SLEEP
-> on (it's in the defconfig), and lockdep, and I'm on Conor's
-> linux-6.6.y-rt, but so far I'm not seeing it.
-
-It was originally produced in hardware, but I can also see these issues
-in QEMU's emulation of my hardware (although as you may have seen, I get
-them both with and without this patch). My qemu incantation was
-something like:
-	$(qemu) -M microchip-icicle-kit \
-		-m 3G -smp 5 \
-		-kernel vmlinux.bin \
-		-dtb mpfs-icicle.dtb \
-		-initrd initramfs \
-		-display none -serial null \
-		-serial stdio \
-		-D qemu.log -d unimp
-
-Where the kernel was built from the .config in that branch in my repo.
-
-Cheers,
-Conor.
-
---G1VAzj1/yjoi+Jgm
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZUSwngAKCRB4tDGHoIJi
-0pnVAQDoGrbuX8WYBNusBkNvYdfa6NNmwBhgyGi8nakTAO0FNwD+I6uqKJlLCnrN
-Gas947oBPmncixilSkkp8KNlJBLUlAA=
-=BjY9
------END PGP SIGNATURE-----
-
---G1VAzj1/yjoi+Jgm--
-
-
---===============9057414601931590556==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============9057414601931590556==--
-
+VGhpcyBpcyBhIGJhY2twb3J0IG9mIGEgZml4IHRoYXQgd2FzIGRvbmUgaW4gT3BlblNCSTogZWMw
+NTU5ZWIzMTViCigibGliOiBzYmlfbWlzYWxpZ25lZF9sZHN0OiBGaXggaGFuZGxpbmcgb2YgQy5T
+V1NQIGFuZCBDLlNEU1AiKS4KClVubGlrZSBDLkxXU1AvQy5MRFNQLCB0aGVzZSBlbmNvZGluZ3Mg
+Y2FuIGJlIHVzZWQgd2l0aCB0aGUgemVybwpyZWdpc3Rlciwgc28gY2hlY2tpbmcgdGhhdCB0aGUg
+cnMyIGZpZWxkIGlzIG5vbi16ZXJvIGlzIHVubmVjZXNzYXJ5LgoKQWRkaXRpb25hbGx5LCB0aGUg
+cHJldmlvdXMgY2hlY2sgd2FzIGluY29ycmVjdCBzaW5jZSBpdCB3YXMgY2hlY2tpbmcKdGhlIGlt
+bWVkaWF0ZSBmaWVsZCBvZiB0aGUgaW5zdHJ1Y3Rpb24gaW5zdGVhZCBvZiB0aGUgcnMyIGZpZWxk
+LgoKRml4ZXM6IDk1NmQ3MDVkZDI3OSAoInJpc2N2OiBVbmFsaWduZWQgbG9hZC9zdG9yZSBoYW5k
+bGluZyBmb3IgTV9NT0RFIikKU2lnbmVkLW9mZi1ieTogQ2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJA
+cml2b3NpbmMuY29tPgotLS0KIGFyY2gvcmlzY3Yva2VybmVsL3RyYXBzX21pc2FsaWduZWQuYyB8
+IDYgKystLS0tCiAxIGZpbGUgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspLCA0IGRlbGV0aW9ucygt
+KQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzX21pc2FsaWduZWQuYyBiL2Fy
+Y2gvcmlzY3Yva2VybmVsL3RyYXBzX21pc2FsaWduZWQuYwppbmRleCAzNzhmNWIxNTE0NDMuLjUz
+NDhkODQyYzc0NSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHNfbWlzYWxpZ25l
+ZC5jCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzX21pc2FsaWduZWQuYwpAQCAtMzQyLDE2
+ICszNDIsMTQgQEAgaW50IGhhbmRsZV9taXNhbGlnbmVkX3N0b3JlKHN0cnVjdCBwdF9yZWdzICpy
+ZWdzKQogCX0gZWxzZSBpZiAoKGluc24gJiBJTlNOX01BU0tfQ19TRCkgPT0gSU5TTl9NQVRDSF9D
+X1NEKSB7CiAJCWxlbiA9IDg7CiAJCXZhbC5kYXRhX3Vsb25nID0gR0VUX1JTMlMoaW5zbiwgcmVn
+cyk7Ci0JfSBlbHNlIGlmICgoaW5zbiAmIElOU05fTUFTS19DX1NEU1ApID09IElOU05fTUFUQ0hf
+Q19TRFNQICYmCi0JCSAgICgoaW5zbiA+PiBTSF9SRCkgJiAweDFmKSkgeworCX0gZWxzZSBpZiAo
+KGluc24gJiBJTlNOX01BU0tfQ19TRFNQKSA9PSBJTlNOX01BVENIX0NfU0RTUCkgewogCQlsZW4g
+PSA4OwogCQl2YWwuZGF0YV91bG9uZyA9IEdFVF9SUzJDKGluc24sIHJlZ3MpOwogI2VuZGlmCiAJ
+fSBlbHNlIGlmICgoaW5zbiAmIElOU05fTUFTS19DX1NXKSA9PSBJTlNOX01BVENIX0NfU1cpIHsK
+IAkJbGVuID0gNDsKIAkJdmFsLmRhdGFfdWxvbmcgPSBHRVRfUlMyUyhpbnNuLCByZWdzKTsKLQl9
+IGVsc2UgaWYgKChpbnNuICYgSU5TTl9NQVNLX0NfU1dTUCkgPT0gSU5TTl9NQVRDSF9DX1NXU1Ag
+JiYKLQkJICAgKChpbnNuID4+IFNIX1JEKSAmIDB4MWYpKSB7CisJfSBlbHNlIGlmICgoaW5zbiAm
+IElOU05fTUFTS19DX1NXU1ApID09IElOU05fTUFUQ0hfQ19TV1NQKSB7CiAJCWxlbiA9IDQ7CiAJ
+CXZhbC5kYXRhX3Vsb25nID0gR0VUX1JTMkMoaW5zbiwgcmVncyk7CiAJfSBlbHNlIHsKLS0gCjIu
+NDIuMAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
