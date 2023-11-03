@@ -4,101 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30F1AC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 04:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80A0CC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 05:18:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h/ETirgE+UiNhShEQCcL7d7tYd8L0bMLRO1O1zvIeM4=; b=ehqNWa2Pkzmbzr
-	BohhmT4iu2CV6Gzsv4zzEZj2ZYiJJJLeyJmqnhWCA6jLv4o847kdkKeYDQjRk7uA+ltXYFcGodorL
-	AxzXWX5Z8K/A/hFxSBGC7+2JjubsxbyZCO4PRIKF6DT43nYOIG3R9+wXYe/4bRJIYBMjPGK01t40k
-	hS3ehMu0BtkFJg0ikOOasGUwg7fRRPl3WRE+qHO7lOjR7PBD4A8NR5cZDYXLDkvM9YP3Ys5Af9oz3
-	fVJ8fsARzFWke1V2WIYAMQ6LciX0zlIjuPKv+X0gnq5smKNK3LUWK9TkQ+R1tbO84gNMxyVzfpIm5
-	X3plOQ3F8sj+yjpa3Xhw==;
+	List-Owner; bh=cgCBdUTWW96tsYgLKrXytZAegUFI90DDW69drjmq7+c=; b=Yf9THZiqDsl1ow
+	l5uI8K18kilZbwdt8eirws1XkHVw1UcHnt0RnJo+atbN9pAYGjRfBJuH9Tp2cRJfbPxGcuYzHkzdt
+	nNnReiOW6rlMYHyXXbVPvFC+UpP3K9ETRTCp55OjQcO+e3lM9RGMLL3j/0gnMRe9b1QmIHfpJpdGl
+	b842OX0m6yEYeCxlNeWrqNMQrDAaorpK+qCVM8V6WzuadJ0EnXS6Co1EgB7dQ6ttw/jnppLCTT3LU
+	eYjYHzx0g6rhcQJtNVforJQnc8o2jLM4PHuaUQGZ/dFxbjb/B2OKk4yOS0grE9VxOheTG46o7rJSq
+	eGzwK8G+AbJMeltVcGaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qylWG-00Aija-0G;
-	Fri, 03 Nov 2023 04:10:52 +0000
-Received: from mgamail.intel.com ([192.55.52.120])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qylW9-00Aiho-2s;
-	Fri, 03 Nov 2023 04:10:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1698984645; x=1730520645;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=juHXPhfl2UOyfQDlVnje9FjGKXxO1moD004mEr2wKcQ=;
-  b=oHPxE1ypkL2a/9YYG+fekNYzyMkCqRZqpAeHQnQvu3mT7uxoUwsRX5Wq
-   r8np6B8zgHeL0XvcyWsLZUEJovzzI7S+u51xFGw2SmflA/OnerqBXQQ6O
-   8Rq8kOPtVm2L20B4sNoQGTWiqPlTsrGEm/bydQQeX/4sED41OicjjVJlG
-   O343ZTiXhGyPyF41XPzoRXQMavNZn6+3dctQwxvnHeD+PNwWJCyC0MyLG
-   C6bL5VRu7evKADaktAIehdvw6rQ9bHEIAzrL/feoTtoLkKgqEeW7YXPEH
-   M4bhJJ+sIj4ya7K/braYEpisR6AIjNj8UlLH1RYX24gTW2oYzyy7EcgOh
-   A==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10882"; a="387762860"
-X-IronPort-AV: E=Sophos;i="6.03,273,1694761200"; 
-   d="scan'208";a="387762860"
-Received: from fmsmga006.fm.intel.com ([10.253.24.20])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Nov 2023 21:10:37 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10882"; a="1008694807"
-X-IronPort-AV: E=Sophos;i="6.03,273,1694761200"; 
-   d="scan'208";a="1008694807"
-Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.159.165])
-  by fmsmga006.fm.intel.com with ESMTP; 02 Nov 2023 21:10:28 -0700
-Date: Fri, 3 Nov 2023 12:09:01 +0800
-From: Xu Yilun <yilun.xu@linux.intel.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Andrew Morton <akpm@linux-foundation.org>, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, Xiaoyao Li <xiaoyao.li@intel.com>,
-	Xu Yilun <yilun.xu@intel.com>,
-	Chao Peng <chao.p.peng@linux.intel.com>,
-	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
-	Anish Moorthy <amoorthy@google.com>,
-	David Matlack <dmatlack@google.com>,
-	Yu Zhang <yu.c.zhang@linux.intel.com>,
-	Isaku Yamahata <isaku.yamahata@intel.com>,
-	=?utf-8?Q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Vishal Annapurve <vannapurve@google.com>,
-	Ackerley Tng <ackerleytng@google.com>,
-	Maciej Szmigiero <mail@maciej.szmigiero.name>,
-	David Hildenbrand <david@redhat.com>,
-	Quentin Perret <qperret@google.com>,
-	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
-	Liam Merwick <liam.merwick@oracle.com>,
-	Isaku Yamahata <isaku.yamahata@gmail.com>,
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-Subject: Re: [PATCH v13 09/35] KVM: Add KVM_EXIT_MEMORY_FAULT exit to report
- faults to userspace
-Message-ID: <ZURyXWhZDSCBnMV1@yilunxu-OptiPlex-7050>
-References: <20231027182217.3615211-1-seanjc@google.com>
- <20231027182217.3615211-10-seanjc@google.com>
+	id 1qymZ8-00Am2x-1w;
+	Fri, 03 Nov 2023 05:17:54 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qymZ4-00Am1q-0V
+	for linux-riscv@lists.infradead.org;
+	Fri, 03 Nov 2023 05:17:53 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id E53DB24E288;
+	Fri,  3 Nov 2023 13:17:02 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Nov
+ 2023 13:17:02 +0800
+Received: from localhost.localdomain (202.188.176.82) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 3 Nov
+ 2023 13:16:56 +0800
+From: Ji Sheng Teoh <jisheng.teoh@starfivetech.com>
+To: <irogers@google.com>
+CC: <acme@kernel.org>, <adrian.hunter@intel.com>,
+	<alexander.shishkin@linux.intel.com>, <aou@eecs.berkeley.edu>,
+	<beeman@rivosinc.com>, <jisheng.teoh@starfivetech.com>, <jolsa@kernel.org>,
+	<kconsul@ventanamicro.com>, <leyfoon.tan@starfivetech.com>,
+	<linux-kernel@vger.kernel.org>, <linux-perf-users@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <mark.rutland@arm.com>,
+	<mingo@redhat.com>, <n.shubin@yadro.com>, <namhyung@kernel.org>,
+	<palmer@dabbelt.com>, <paul.walmsley@sifive.com>, <peterz@infradead.org>
+Subject: Re: [PATCH] perf vendor events riscv: add StarFive Dubhe-80 JSON file
+Date: Fri, 3 Nov 2023 13:15:30 +0800
+Message-ID: <20231103051530.912669-1-jisheng.teoh@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <CAP-5=fW6Qeu8Q_mQ7zUBsHn+BiMmDJvjn0nT1YAZaLH6EaBjnA@mail.gmail.com>
+References: <CAP-5=fW6Qeu8Q_mQ7zUBsHn+BiMmDJvjn0nT1YAZaLH6EaBjnA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231027182217.3615211-10-seanjc@google.com>
+X-Originating-IP: [202.188.176.82]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231102_211045_966007_A81485B0 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20231102_221750_509515_DDBA7A21 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,45 +78,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 27, 2023 at 11:21:51AM -0700, Sean Christopherson wrote:
-> --- a/Documentation/virt/kvm/api.rst
-> +++ b/Documentation/virt/kvm/api.rst
-> @@ -6723,6 +6723,26 @@ array field represents return values. The userspace should update the return
->  values of SBI call before resuming the VCPU. For more details on RISC-V SBI
->  spec refer, https://github.com/riscv/riscv-sbi-doc.
->  
-> +::
-> +
-> +		/* KVM_EXIT_MEMORY_FAULT */
-> +		struct {
-> +			__u64 flags;
-> +			__u64 gpa;
-> +			__u64 size;
-> +		} memory;
-                  ^
+>>
+>> StarFive's Dubhe-80 supports raw event id 0x00 - 0x22.
+>> The raw events are enabled through PMU node of DT binding.
+>>
+>> Example of PMU DT node:
+>> pmu {
+>>         compatible = "riscv,pmu";
+>>         riscv,raw-event-to-mhpmcounters =
+>>                 /* Event ID 1-31 */
+>>                 <0x00 0x00 0xFFFFFFFF 0xFFFFFFE0 0x00007FF8>,
+>>                 /* Event ID 32-33 */
+>>                 <0x00 0x20 0xFFFFFFFF 0xFFFFFFFE 0x00007FF8>,
+>>                 /* Event ID 34 */
+>>                 <0x00 0x22 0xFFFFFFFF 0xFFFFFF22 0x00007FF8>;
+>> };
+>>
+>> Example of Perf stat output:
+>> [root@user]# perf stat -a \
+>>         -e access_mmu_stlb \
+>>         -e miss_mmu_stlb \
+>>         -e access_mmu_pte_c \
+>>         -e rob_flush \
+>>         -e btb_prediction_miss \
+>>         -e itlb_miss \
+>>         -e sync_del_fetch_g \
+>>         -e icache_miss \
+>>         -e bpu_br_retire \
+>>         -e bpu_br_miss \
+>>         -e ret_ins_retire \
+>>         -e ret_ins_miss \
+>>         -- openssl speed rsa2048
+>>
+>> Doing 2048 bits private rsa's for 10s: 39 2048 bits private RSA's in
+>> 10.14s
+>> Doing 2048 bits public rsa's for 10s: 1563 2048 bits public RSA's in
+>> 10.00s
+>> version: 3.0.11
+>> built on: Tue Sep 19 13:02:31 2023 UTC
+>> options: bn(64,64)
+>> CPUINFO: N/A
+>>                   sign    verify    sign/s verify/s
+>> rsa 2048 bits 0.260000s 0.006398s      3.8    156.3
+>>
+>>  Performance counter stats for 'system wide':
+>>
+>>            1338350      access_mmu_stlb
+>>            1154025      miss_mmu_stlb
+>>            1162691      access_mmu_pte_c
+>>              34067      rob_flush
+>>           11212384      btb_prediction_miss
+>>            1256242      itlb_miss
+>>          652523491      sync_del_fetch_g
+>>             384465      icache_miss
+>>           64635789      bpu_br_retire
+>>             323440      bpu_br_miss
+>>            8785143      ret_ins_retire
+>>              31236      ret_ins_miss
+>>
+>>       20.760822480 seconds time elapsed
+>>
+>> Signed-off-by: Ji Sheng Teoh <jisheng.teoh@xxxxxxxxxxxxxxxx>
+>
+> Thanks Ji Sheng,
+>
+> in adding these events for this new architecture is there a reason not
+> to add the architecture standard events in
+> tools/perf/pmu-events/arch/riscv/riscv-sbi-firmware.json ?
+> https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/tree/tools/perf/pmu-events/arch/riscv/riscv-sbi-firmware.json?h=perf-tools-next
+>
+> Perhaps it is worth commenting in the commit message whether or not
+> these events are supported.
+>
+> Thanks,
+> Ian
 
-Should update to "memory_fault" to align with other places.
+Thanks Ian for the comment,
 
-[...]
-
-> @@ -520,6 +521,12 @@ struct kvm_run {
->  #define KVM_NOTIFY_CONTEXT_INVALID	(1 << 0)
->  			__u32 flags;
->  		} notify;
-> +		/* KVM_EXIT_MEMORY_FAULT */
-> +		struct {
-> +			__u64 flags;
-> +			__u64 gpa;
-> +			__u64 size;
-> +		} memory_fault;
->  		/* Fix the size of the union. */
->  		char padding[256];
->  	};
+The architecture standard events are supported as well.
+I will include them in v2.
 
 Thanks,
-Yilun
-
-> 
+Ji Sheng
 
 _______________________________________________
 linux-riscv mailing list
