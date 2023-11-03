@@ -4,82 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B0EC4167D
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 18:23:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA627C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 19:01:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EOE3j88hzC5XUR80mLlejzQvqCZwKWJbWRl35TUdtD4=; b=n7tKIZ4ygxqvb+
-	ZGXhNCxX541bRiW8XKSR2zAbwxOXs80R2ha51Z8NREv3TbmaxZ3PoMEzfjNNXqu83GVIXwemVDiZt
-	AXn4/sadOBMemtHQn7eFR804FAn5ykwGj5DAqXmgr/Agw6YHtcE3SdU9gcYoXGiwZAQkJ3j73qDP8
-	CargJJdmPBVdRwGBDH8xDqBa/e3lIHHYdxdFFGqyXojM4Rx2MpdFYKYMe8RjwEo4Lcz0bRfyYVcG7
-	XGa1JjNHOV26LbFtyd6J8TRdrxeVGFW7sYMSwWuaCTxmFPivIQ/LMBMOmYcFWtomsodg020uyGn0F
-	fBtM8OgeIOaxT2nWex6A==;
+	List-Owner; bh=kIOi1oqbs0WbYz/sk8T3/5zDYfHI1840bQviuj847y0=; b=aO80lOGuri6hLB
+	u+PI/k7RpMq+H2SqGvWE5smjzM4LPwvOX9D6V1p+PeMw5Basd2AP8FSiyfT/bjajTtAJcxmYBfBg6
+	Z+mprjQIgmd8gyRC6y/ZVIQHznPtqOQfZuS1IdGbaJV+FmPcG2UNV646/luMDaavH8dexS1o6MhvY
+	9OJ5u2+0wvZlkRxTHsRYuALwiGJJCild30gi2XbNhwSlPBJWE6QbH9Ck4+GfzN0wzMGl/HVeWMdyE
+	/cy3RSwQFPu0u57OOSI2tRpyqiZFhBRyulVzxt7nU4vq/eU6hjODNEPIXUxxjZsW9eqIY1YLDTPy7
+	oK94+lWQ1aPCX7VDeeUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyypM-00BxUm-1D;
-	Fri, 03 Nov 2023 18:23:28 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
+	id 1qyzPV-00C0Jo-2r;
+	Fri, 03 Nov 2023 19:00:49 +0000
+Received: from mail-bn8nam04on20610.outbound.protection.outlook.com ([2a01:111:f400:7e8d::610] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyypE-00BxTA-1d
-	for linux-riscv@lists.infradead.org;
-	Fri, 03 Nov 2023 18:23:26 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-2c50ec238aeso33576861fa.0
-        for <linux-riscv@lists.infradead.org>; Fri, 03 Nov 2023 11:23:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1699035797; x=1699640597; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7L/JnhoP1I1IV3t09zBtQ/9SwF5NvE0r64reb+C7F0U=;
-        b=QMQbqrP42mp+DFHrYyDjRl5Wx9ARWsQeaUJsyewdS2E27qN6U15Z6v/KX+rgvutZ4K
-         XAzCwye2Ul2cxZ4lLr7PhyWTuhX/0iLPECHWZ4olbUDd5cNiIxtYSaYbe8msEMcWcpRq
-         hfa/2RZu3Bi8YHE8ACb8hrzBXne7Nsxo3BMXCxv1F9oT0GorU5By4ymvxEYWBR6cqH4T
-         6YNuJADeScZvvIRu5177AMwu4Dw2St4UKTZjgacWuUvIuhrnqO4ST43aB4pf507cWb6+
-         vACpr7HPH7YKGPz38P1cAQ1SgSCBe+sQuWNYucFZKQHAIxAq27pReMnTT0JSykK8XqlU
-         doQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699035797; x=1699640597;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7L/JnhoP1I1IV3t09zBtQ/9SwF5NvE0r64reb+C7F0U=;
-        b=XSRFvySiBXck/B6J/T/evMA+sc9dVzwPQDzC4H5fczgQij9oc5m5cvUoOj5yxgjZre
-         db94Mx9mHFCPQZ42FvtzrqwYfZM/ZtCrKcsCbS2taLt0RRoujSXnR12Iq4ijEU1KYWWf
-         l6tOMnS05kdtYRz2XDbnBNWGNDOJUWb+VuURRhD/DGByQTdNR+TsO9muBiFSUHI4y9mS
-         j37y5zVjRWJtFtEnstsFB3UI+95RBc53YkNPO9EqAI+iAFE1j/GntLm+On2wHLWvV8Zl
-         JDCGGKMbLH3apX+qgL9gfR0cOwu1H8ZmyYlb+zWqARoge360w3ysZR8UUowj4Etvvfh6
-         GJ4g==
-X-Gm-Message-State: AOJu0YxZXJw5+xp4zPZKCe/Rs81UdOTuSf2NO6cBGIu4l8lr+Q8aqh4I
-	7lvH7LhTcT7Kd9J/hHS1PJSghf9WZ59DMlTdAapwIw==
-X-Google-Smtp-Source: AGHT+IFJH1/xAYK0iBADVJnydOuqpcNAyexzetfc6RbL8HxRDJ5dx8tx/aHUOvNuYbs98x1IS/G6FnQ4MPOoUklwmbk=
-X-Received: by 2002:a2e:a4c6:0:b0:2c0:2ab7:9ab1 with SMTP id
- p6-20020a2ea4c6000000b002c02ab79ab1mr16517611ljm.35.1699035796898; Fri, 03
- Nov 2023 11:23:16 -0700 (PDT)
+	id 1qyxIZ-00Bo7c-1T;
+	Fri, 03 Nov 2023 16:45:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=cLnkdNDUhe6sSiRX/hKITZxDyEMPE52fp+aQsco/UMGRldTKgOwY2AK6A4776fJ2e/2/9DIQ7Zu6C/5CbtxiD4I+9aO6TTmrogLI/LW3NY9JOlg5OIvOr620xgzcd9vy6oakKDqT+SEWGIyZMlxF4l/MLaQ3J2zt1aY7etplq5C3igbTfjiwNtrrL3qx/ch46VXYjpOJysI+qKMCEOFaqsiV33nIqMWOW2Z/MRBWoF4FRqh+QBmqrTbBzrPZkUp6qgpzq9ApGjVCYFtvpoQmWnGzhkavBPpvXS64coSsqw0GGD7KiduX08bG65F+0u9MX0zK6Z//Em7bJUVa8rTchg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fmE0NhIPVyfgk5oqoV569KUNfHY8bHemcOTponDtm+w=;
+ b=B/OiKWX3xPwMBuSWYVJfVkfyDobbvjPhE/mAvfXGYBBkaPlt8tT2HQzV2sBqHNzPejS5ohgmCfUXyJrXzB1BpR5C/Zh2W6LNRl8yFai7ORjXM6lbWlontTaamzCI2nsqtdhqfY0FMo4JHYY5JPMcWtBk25CJOUfjLtajeIvdlj+e4EnOugkHpoiwA1AGpaXrQaUD+jPhD0H8yJ7MkupT2xMVKKObXyktzjcr3hmiPOFWmenJqn4c7ZQAluK7qU/ZRMA42dA1F5WcPu2HKg1W9yQlMJWZNEc/alDmioT1F7oWACrCPNbYU06sgGHzt4hekgubTRHF7B7arXsO8UUF9w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fmE0NhIPVyfgk5oqoV569KUNfHY8bHemcOTponDtm+w=;
+ b=L/OsCeKGNV/oDH+CnJPsnhvvLVq/l2ywYQbUZ3Q28jaMMKyVzG5LdPah6G+LR4z1WW6WzCMnb8uBN4JDbMKyCzeThgtG7v2rJuii1qbc1hoPY5Yqo5oJwM4cDyhKgSWtBm0qo7jdXfBWFR6irJ7QQAHbDqS9JUhY/B+h6UzZWjlOkqbOfMqu221KZKI2WDgQZk5dE+NQggXCUu45cDK6tCmqEp69n/KGZ3w0Xw2O17uDMLhs18YTlA/HiI+0WIsAosyKRno8FEzQCoZvj+FpZ2kMUz4FjLXlY8ZYTFVEOOe+hkuLNQ2Tcw8smJCQW8qarg3jR08WFk+lY0o5HOfoLg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV2PR12MB5869.namprd12.prod.outlook.com (2603:10b6:408:176::16)
+ by CH3PR12MB9394.namprd12.prod.outlook.com (2603:10b6:610:1cf::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6954.21; Fri, 3 Nov
+ 2023 16:45:07 +0000
+Received: from LV2PR12MB5869.namprd12.prod.outlook.com
+ ([fe80::b53a:1092:9be2:cfb9]) by LV2PR12MB5869.namprd12.prod.outlook.com
+ ([fe80::b53a:1092:9be2:cfb9%4]) with mapi id 15.20.6933.027; Fri, 3 Nov 2023
+ 16:45:07 +0000
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: acpica-devel@lists.linuxfoundation.org,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	asahi@lists.linux.dev,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dexuan Cui <decui@microsoft.com>,
+	devicetree@vger.kernel.org,
+	David Woodhouse <dwmw2@infradead.org>,
+	Frank Rowand <frowand.list@gmail.com>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Christoph Hellwig <hch@lst.de>,
+	iommu@lists.linux.dev,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	Len Brown <lenb@kernel.org>,
+	linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-hyperv@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-tegra@vger.kernel.org,
+	Russell King <linux@armlinux.org.uk>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Hector Martin <marcan@marcan.st>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Robert Moore <robert.moore@intel.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Krishna Reddy <vdumpa@nvidia.com>,
+	Vineet Gupta <vgupta@kernel.org>,
+	virtualization@lists.linux-foundation.org,
+	Wei Liu <wei.liu@kernel.org>,
+	Will Deacon <will@kernel.org>
+Cc: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+Subject: [PATCH RFC 15/17] iommu: Add ops->of_xlate_fwspec()
+Date: Fri,  3 Nov 2023 13:45:00 -0300
+Message-ID: <15-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com>
+In-Reply-To: <0-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com>
+References: 
+X-ClientProxiedBy: MN2PR16CA0042.namprd16.prod.outlook.com
+ (2603:10b6:208:234::11) To LV2PR12MB5869.namprd12.prod.outlook.com
+ (2603:10b6:408:176::16)
 MIME-Version: 1.0
-References: <20231031143521.441-1-jszhang@kernel.org> <20231031153242.k9tLdSby@linutronix.de>
- <ZUEiCUxcd11inlRP@xhacker> <20231031164411.9YRGasL-@linutronix.de>
- <ZUI5h6eIhTlPAmGh@xhacker> <20231102-spearman-overcrowd-a86bfb958609@wendy>
- <20231102155423.SyuAibSe@linutronix.de> <20231103-army-gloater-af710df04628@spud>
- <20231103082411.f_ZU1E7V@linutronix.de> <CALs-HstDSr6arKw+b-HWbEQAgQCNbicJv4H-UKAooa8VxcpnMw@mail.gmail.com>
- <20231103173936.OHevJ107@linutronix.de>
-In-Reply-To: <20231103173936.OHevJ107@linutronix.de>
-From: Evan Green <evan@rivosinc.com>
-Date: Fri, 3 Nov 2023 11:22:40 -0700
-Message-ID: <CALs-Hsun_6SfdWXHPx-D4djhrKTfwCSm4rkMpt68i+djyDb+RQ@mail.gmail.com>
-Subject: Re: [PATCH RT v2 0/3] riscv: add PREEMPT_RT support
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, 
-	Jisheng Zhang <jszhang@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
-	tobias.schaffner@siemens.com, Arnd Bergmann <arnd@arndb.de>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV2PR12MB5869:EE_|CH3PR12MB9394:EE_
+X-MS-Office365-Filtering-Correlation-Id: ff239b23-fe73-4c29-3348-08dbdc8c3ad7
+X-LD-Processed: 43083d15-7273-40c1-b7db-39efd9ccc17a,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: QQaLaRWBr7IY/OOb8TX5+dzTh6nuj4g2Y9jAcdXBB3NFa1WZYb3Z+Hwe7bAeY7eCHLFz3CP6oyClLj82ub3UyLqfQdSTCbj/BWFnVhLCfWx1r0ajBHfpPyxFpvJtD+2EQ7AG3ze8QEUNH1sJSX0BUuhJeZXj3fPJOxok9x/diHhcz1enB1ADZ9dYJUJIuiWbfkYbkZqbvRHTT0aCj5ia/sDLK09YTgJNzv9XfBEhJ2ABcieeo1j5XeY/ov9NeWFE7n4FKXPi0oy8MoGPlQPBBJu2uSatXHvWVpAtkdG+Hl4Ul3hJzbN79fYX9GDjMv753Jw/+7MEEyfbrvALxsN0bz5w+vWPrZOCKFsGGyhb4kfYC2BTfiqDaZLxFkn7A5H0J96P7vtAF5VizaWKAZYGQ4RQuStA4VUaDpiMm7hBb0jg/vbSDQVPiDHvjDSQHCOXadprMqkAyovKbyvAgP1MH/G6/Nli8Jno3PeWMlL9ba+nBDvQUpQRZ/rVmZ94HPfg8FYANHaeBc1jGA28fa2kdwCqYhZPuhDzqQda9pBrI/k+i9h58PufFrBoF32+4/ZhtQmy6sCUnoprnm7c8xU3ZFiJ7pc1LzPgi78tfO+GGx8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR12MB5869.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(346002)(136003)(366004)(39860400002)(396003)(376002)(230922051799003)(64100799003)(186009)(1800799009)(451199024)(6506007)(38100700002)(2616005)(36756003)(86362001)(26005)(41300700001)(7406005)(2906002)(7416002)(83380400001)(8676002)(8936002)(4326008)(66556008)(66476007)(316002)(5660300002)(110136005)(478600001)(66946007)(6486002)(921008)(6512007)(6666004);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cAVU1gLjit9nMW/NCvVrYENNumxYpu8A4Ru9pz7+O15IwhWfRGKKEBmlqaxs?=
+ =?us-ascii?Q?lIIKKnWCJSogPAg6KYVSp43SW5VhzSgKE4AZLCzfCUvzqrsf1jPpNHLPuZ6S?=
+ =?us-ascii?Q?AOXqu/CWfMk2a9IPD2XTqLhfvKXL38jw892xFPiJxqG640UdUvkOn+1NEVvT?=
+ =?us-ascii?Q?ijrQ90K5gIZQE3rI8Igv3jMxWEQaPA+0oFvRetyj8/4YNfESVyJuQdq7X6Fz?=
+ =?us-ascii?Q?ar5KTidfip+82P0y0Z9VOsj3B3a9GxB9P6V6G6EIuMPjLVoFaRR/M8pJ2e+p?=
+ =?us-ascii?Q?yLVG2W4eBRFiyEzl39QlD40AhQjJKjU7wBBoZTp238/ozq5S0tqkYUgm0Ok+?=
+ =?us-ascii?Q?mY3TCHO5WMHqoiXcZ6uXqQCw1nC8F3ZuEhPwcEG4Q9gHKuhUXBJmDgj+C466?=
+ =?us-ascii?Q?/tBja6Q3xFmm7VNk6O3MDBh6GfTcKds0L6A0tJU2e7HXt4DE6kjawo5YjxnG?=
+ =?us-ascii?Q?ILlZPNZ1aUSdNa351M7619RaGrUj8DW3VeWPEdUB9brunq89D9hiN+ORWZrd?=
+ =?us-ascii?Q?azTRq7mBk51RhwTpUkWhpertx77TVOnzeb+8AIZiEn10f8wYUBBLMHsiocMd?=
+ =?us-ascii?Q?cIWAzqmzQ8BK/oqsY8VH2KfKzAKRYglF203NtQZrUT74Kt7BImEwBrRlmoE4?=
+ =?us-ascii?Q?BBE5XuGDtfRSsWAJ0ayPMenykMuPu/4/2SBAJvICvKkupF7I4S4l2a3fZ553?=
+ =?us-ascii?Q?JXD+84OOwUJxXq0kATUpGMyuJjjPSG+BKYywOTUYIucUoTZcA7Bz7gPf/YEw?=
+ =?us-ascii?Q?+MLzvryUioA6dOMcTLm2ouYNGs4Xg7ivwT0uubW+z0xergoa0C9ifDmD+Bgh?=
+ =?us-ascii?Q?Prj6V6Dpf112csoew/vBwkDRc/tT0T7OaQTzP5UF1TUrm0JDDDXXR4BSTeoy?=
+ =?us-ascii?Q?l8aNjZDTWwDcrcIU/W9Dci6FQ8VVm1GcwIkXV6tp4eZhDuC3abnSc2JEflUM?=
+ =?us-ascii?Q?ti45BP5ZzVMcJqDIMzJ4ESEe1opw3VgXp7Fh2kyLF783IMMZlNy203iTX7I3?=
+ =?us-ascii?Q?skapxb5TWuUzKBxU5QqfgE0C6FDArJryqzmqfJY4prK4KIVTsT3x6VBIBkUn?=
+ =?us-ascii?Q?p+6HJn6o8Penm1NNcW1D0EGCBdbDmITxtlNM3nFpoLR3dohlze0PECnct2uJ?=
+ =?us-ascii?Q?Oitkrf7zSX/dqMgSsBrdXXl1Td141uCbAIgxo5KqiAD/OO12sX1+geLZtOaQ?=
+ =?us-ascii?Q?FHnVHM89baBEKFEqOy8ByvknZ/YZZt+UkXuzuEuJYNXXyxnPEG/wDUkpujiv?=
+ =?us-ascii?Q?zVJ4cjYeaLzo3ZlA6glL7Ezx68IO426GE8IYpqS+FuK/+7OWSUvAweR3bTaC?=
+ =?us-ascii?Q?LbVEQqVHOHx1EdT+/wO6AoW6Wsp8Z5Xm1eg3esfs9D/3iVc65cOsgv2X8HAJ?=
+ =?us-ascii?Q?S1lTIgulRpQkgsJkHT6UYVcpNgkFj92FJfZ4ZxBKqRl6/nDBYoo0LIE9wwSM?=
+ =?us-ascii?Q?En8039zcKnEvwYHS/K1eAjdZFgLhtehmQ/RKVlre3Cy+9zOqDS3tdZOGBjM6?=
+ =?us-ascii?Q?0MQwIda7rOF8AaVdblMGI3SUP90Q87ssIQdMjjMQSsxBT+SAtsnwg4SSA4mi?=
+ =?us-ascii?Q?I+BaXs4kMHPhXKPKeHj6SFk3O11tyzelA5hQml0u?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ff239b23-fe73-4c29-3348-08dbdc8c3ad7
+X-MS-Exchange-CrossTenant-AuthSource: LV2PR12MB5869.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2023 16:45:04.6009
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: L0Qw02wNFYpBZkFKEQZGiJKDdQdPClZqngoZEbUhJfy14DilRykbJyXsRgnJZfBl
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9394
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231103_112320_884359_6AF5103A 
-X-CRM114-Status: GOOD (  34.23  )
+X-CRM114-CacheID: sfid-20231103_094531_542065_C7287B2E 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,72 +171,157 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBOb3YgMywgMjAyMyBhdCAxMDozOeKAr0FNIFNlYmFzdGlhbiBBbmRyemVqIFNpZXdp
-b3IKPGJpZ2Vhc3lAbGludXRyb25peC5kZT4gd3JvdGU6Cj4KPiBPbiAyMDIzLTExLTAzIDEwOjE5
-OjQ5IFstMDcwMF0sIEV2YW4gR3JlZW4gd3JvdGU6Cj4gPiBIaSBTZWJhc3RpZW4sCj4KPiBIaSBF
-dmFuLAo+Cj4gPiBDb3VsZCB5b3UgZWxhYm9yYXRlIGEgbGl0dGxlIG9uIHRoZSBydWxlIHZpb2xh
-dGlvbiBoZXJlPyBUaGUKPiA+IGRvY3VtZW50YXRpb24gZm9yIEdGUF9OT1dBSVQgc2F5czoKPiA+
-Cj4gPiA+IElmIHRoZSBhbGxvY2F0aW9uIGlzIHBlcmZvcm1lZCBmcm9tIGFuIGF0b21pYyBjb250
-ZXh0LCBlLmcgaW50ZXJydXB0Cj4gPiA+IGhhbmRsZXIsIHVzZSBgYEdGUF9OT1dBSVRgYC4KPiA+
-Cj4gPiB3aGljaCBzZWVtcyBsaWtlIGl0IGJhc2ljYWxseSBmaXRzIG15IHNpdHVhdGlvbi4gSWYg
-SSBkbyBhIHNlYXJjaCBmb3IKPiA+IEdGUF9OT1dBSVQgdG8gaHVudCBmb3IgaW5zdGFuY2VzIG9m
-IGFsbG9jYXRpbmcgd2l0aCBpbnRlcnJ1cHRzCj4gPiBkaXNhYmxlZCwgSSBzZWUgYXQgbGVhc3Qg
-dGhlIGZvbGxvd2luZyBleGFtcGxlcyAobW9yZSBhdmFpbGFibGUgdXBvbgo+ID4gcmVxdWVzdCk6
-Cj4KPiBXZSB0YWxrIGhlcmUgYWJvdXQgUFJFRU1QVF9SVC4gVGhlIGVhcmx5LUNQVSB1cCBvciBh
-IFNNUC1mdW5jdGlvbiBjYWxscwo+IGhhcHBlbnMgaW4gaGFyZGlycSBjb250ZXh0IHdpdGggZGlz
-YWJsZWQgaW50ZXJydXB0cy4gQWx3YXlzLgo+IFRoZSBzZXF1ZW5jZQo+ICAgICAgICAgc3Bpbl9s
-b2NrX2lycSgpOwo+ICAgICAgICAga21hbGxvYygsIEdGUF9BVE9NSUMpOwo+Cj4gaXMgZmluZSBi
-ZWNhdXNlIG9uIFBSRUVNUFRfUlQgc3Bpbl9sb2NrX2lycSgpIGRvZXMgbm90IHJlYWxseSBkaXNh
-YmxlCj4gaW50ZXJydXB0cyBhbmQgdGhlIHNwaW5fbG9ja190IGJlY29tZXMgYSBzbGVlcGluZyBs
-b2NrLiBTZWUKPiAgICAgICAgIGh0dHBzOi8vZG9jcy5rZXJuZWwub3JnL2xvY2tpbmcvbG9ja3R5
-cGVzLmh0bWwKPgoKVGhhbmtzLCB0aGF0IHBhZ2UgaGVscHMuIFBSRUVNUFRfUlQgaXMgd2lsZCA6
-KQoKPiBUaGUgcHJvYmxlbSBpcyB0aGF0IHNsZWVwaW5nIGxvY2tzIG11c3QgYmUgYWNxdWlyZWQg
-aW4gYSBjb250ZXh0IHdoZXJlCj4gc2xlZXBpbmcgaXMgbm90IHBvc3NpYmxlLiBBbmQga21hbGxv
-YygpIG1heSBuZWVkIHRvIGFjcXVpcmUgc2xlZXBpbmcKPiBsb2Nrcy4gVGhlcmVmb3JlIG5vIG1l
-bW9yeSBhbGxvY2F0aW9ucyBpbiBJUlEtb2ZmIHNlY3Rpb25zLgo+Cj4gPiBGaW5kaW5nIHRoZSBk
-b2N1bWVudGF0aW9uIHRoYXQgc3RhdGVzIHRoaXMgaXMgaWxsZWdhbCBtaWdodCBoZWxwIG1lCj4g
-PiB1bmRlcnN0YW5kIHdoYXQgSSBzaG91bGQgYmUgZG9pbmcgaW5zdGVhZC4gRm9yIGV4YW1wbGUs
-IEknbSBmdXp6eSBvbgo+ID4gc29tZXRoaW5nIHRoYXQncyBkaXNhbGxvd2VkIHdoZW4gaW50ZXJy
-dXB0cyBhcmUgZGlzYWJsZWQgYnV0IG9rIGluCj4gPiBzbXBfY2FsbGluKCkuCj4KPiBzbXBfY2Fs
-bGluKCkgaXMgdGhlIFNNUCBmdW5jdGlvbnMgY2FsbCBzbyBpdCBpcyBub3Qgb2theS4gSGF2aW5n
-IGEKPiBrd29ya2VyIHdvdWxkIG9rYXkgZm9yIGluc3RhbmNlLiBUaGlzIGhvd2V2ZXIgcmVxdWly
-ZXMgYSBmdWxseSBzZXR1cAo+IHNjaGVkdWxlci4gSGF2aW5nIHRoZSBtZW1vcnkgYWxsb2NhdGVk
-IHVwZnJvbnQgYW5kIHBhc3NpbmcgdG8gZXZlcnkgQ1BVCj4gd291bGQgd29yayBmaW5lLCB0b28u
-Cj4KPiA+IE9uZSBvcHRpb24gaXMgdG8gZG8gYWxsIHRoZSBhbGxvY2F0aW9ucyBpbgo+ID4gY2hl
-Y2tfdW5hbGlnbmVkX2FjY2Vzc19hbGxfY3B1cygpLCBhbmQgcGFzcyB0aGVtIGluLCBidXQgdW50
-aWwgSSBjYW4KPiA+IGZpbmQgdGhlIHJ1bGVzIGl0J3MgaGFyZCB0byB2ZXJpZnkgdGhhdCdzIGEg
-Y29ycmVjdCBmaXguIEl0J3MgYWxzbyBhCj4gPiBsaXR0bGUgY2x1bmt5LCBhbmQgd291bGRuJ3Qg
-YXBwbHkgdG8gdGhlIGhvdHBsdWcgcGF0aCwgc28gSSB3YW50IHRvCj4gPiBtYWtlIHN1cmUgaXQn
-cyBuZWNlc3NhcnkgYW5kIHN1ZmZpY2llbnQgYmVmb3JlIGVtYmFya2luZyBvbiB0aGF0Cj4gPiBq
-b3VybmV5Lgo+Cj4gSSBkb24ndCBrbm93IHdoYXQgaXQgZG9lcyBhbmQgaG93IG9mdGVuIGl0IG5l
-ZWRzIHRvIGJlIGRvbmUuIFRoZQo+IHF1ZXN0aW9uIGlzIHdvdWxkIGl0IGJlIG9rYXkgdG8gZG8g
-b25jZSBvbiBzeXN0ZW0gYm9vdCBvciBkb2VzIGl0IG5lZWQKPiB0byBiZSBkb25lIGVhY2ggdGlt
-ZSB0aGUgQ1BVIGdvZXMgdXA/IElzIGl0IHJlcXVpcmVkIHRvIGJlIHRoZSBmaXJzdAo+IHRoaW5n
-IGl0IGRvZXMgb3IgY2FuIGl0IGJlIGRlbGF5ZWQgdG8gc2xpZ2h0bHkgbGF0ZXIgcG9pbnQgaW4g
-dGltZT8KCkl0J3MgZXNzZW50aWFsbHkgYSBjaGFyYWN0ZXJpemF0aW9uIHdlIGRvIG9uIGVhY2gg
-Q1BVIHRvIGZpZ3VyZSBvdXQgaWYKbWlzYWxpZ25lZCB3b3JkIGFjY2Vzc2VzIGFyZSBmYXN0IG9y
-IHNsb3cuIFRoaXMgaW5mbyBpcyByZXBvcnRlZCB0bwp1c2VybW9kZSwgYW5kIHBvdGVudGlhbGx5
-IGhhcyBrZXJuZWwgY29uc3VtZXJzIGFzIHdlbGwgKENoYXJsaWUncyBpcApjaGVja3N1bW1pbmcg
-c2VyaWVzIHdhbnRzIHRvIGZsaXAgYSBzdGF0aWMgYnJhbmNoIGJhc2VkIG9uIGl0KS4KCkluIGEg
-c2Vuc2UgSSBiYXJlbHkgbmVlZCB0aGUgYnVmZmVyLCB0aGUgYnVmZmVyIGlzIGp1c3QgYSBydW53
-YXkgSSB1c2UKdG8gZG8gZHVtbXkgbWVtY3B5cyBhY3Jvc3MuIEkgbmVlZCB0byBkbyBpdCBvbmNl
-IG9uIGJvb3QgZm9yIGVhY2ggQ1BVLAphbmQgZm9yIGFueSBhZGRpdGlvbmFsIENQVXMgdGhhdCBz
-aG93IHVwIHZpYSBob3RwbHVnLiBJdCBkb2VzIG5vdCBuZWVkCnRvIGJlIGRvbmUgYWNyb3NzIHN1
-c3BlbmQvcmVzdW1lLgoKVGhlIHBhdGNoIGluIHF1ZXN0aW9uIHdhcyBhbiBhdHRlbXB0IHRvIG1v
-dmUgdGhpcyB3b3JrIHRvIGJlIGRvbmUgaW4KcGFyYWxsZWwsIHNpbmNlIG9uIHN5c3RlbXMgd2l0
-aCBsb3RzIG9mIENQVXMsIGRvaW5nIGl0IHNlcmlhbGx5IGluCnNtcF9jYWxsaW4oKSB3YXMgY2F1
-c2luZyBib290IHRpbWUgcmVncmVzc2lvbnMuCgpGb3IgYm9vdCwgSSB0aGluayB0aGUgcGxhbiBJ
-IG91dGxpbmVkIHNob3VsZCB3b3JrOiBhbGxvY2F0ZSBhbGwgcGFnZXMKaW4gdGhlIGluaXRjYWxs
-IGJlZm9yZSBjYWxsaW5nIG9uX2VhY2hfY3B1KCkuIEZvciBob3RwbHVnLCBJJ2xsIGhhdmUKdG8g
-ZmluZCBhIHNwb3QgdG8gYWxsb2NhdGUgYSBidWZmZXIgYmVmb3JlIHRoZSBDUFUgY29tZXMgdXAs
-IHNvIGl0IGNhbgp1c2UgaXQgaW4gc21wX2NhbGxpbigpLgoKUGFsbWVyJ3MgZHJvcHBlZCB0aGlz
-IHBhdGNoIGZvciBub3csIHNvIEknbGwgcGxhbiB0byBzcGluIHdpdGggdGhvc2UKY2hhbmdlcyB1
-bmxlc3MgYW55b25lIGhhcyB0aG91Z2h0cyBvbiB0aGlzIGFwcHJvYWNoLgotRXZhbgoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+The new callback takes in the fwspec instead of retrieving it from the
+dev->iommu. Provide iommu_fwspec_append_ids() to work directly on the
+fwspec.
+
+Convert SMMU, SMMUv3, and virtio to use iommu_fwspec_append_ids() and the
+new entry point.
+
+This avoids having to touch dev->iommu at all, and doesn't require the
+iommu_probe_device_lock.
+
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 8 +++++---
+ drivers/iommu/arm/arm-smmu/arm-smmu.c       | 8 +++++---
+ drivers/iommu/iommu.c                       | 3 +++
+ drivers/iommu/virtio-iommu.c                | 8 +++++---
+ include/linux/iommu.h                       | 3 +++
+ 5 files changed, 21 insertions(+), 9 deletions(-)
+
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 7445454c2af244..b1309f04ebc0d9 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -2748,9 +2748,11 @@ static int arm_smmu_enable_nesting(struct iommu_domain *domain)
+ 	return ret;
+ }
+ 
+-static int arm_smmu_of_xlate(struct device *dev, struct of_phandle_args *args)
++static int arm_smmu_of_xlate_fwspec(struct iommu_fwspec *fwspec,
++				    struct device *dev,
++				    struct of_phandle_args *args)
+ {
+-	return iommu_fwspec_add_ids(dev, args->args, 1);
++	return iommu_fwspec_append_ids(fwspec, args->args, 1);
+ }
+ 
+ static void arm_smmu_get_resv_regions(struct device *dev,
+@@ -2858,7 +2860,7 @@ static struct iommu_ops arm_smmu_ops = {
+ 	.probe_device		= arm_smmu_probe_device,
+ 	.release_device		= arm_smmu_release_device,
+ 	.device_group		= arm_smmu_device_group,
+-	.of_xlate		= arm_smmu_of_xlate,
++	.of_xlate_fwspec	= arm_smmu_of_xlate_fwspec,
+ 	.get_resv_regions	= arm_smmu_get_resv_regions,
+ 	.remove_dev_pasid	= arm_smmu_remove_dev_pasid,
+ 	.dev_enable_feat	= arm_smmu_dev_enable_feature,
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+index 854efcb1b84ddf..8c4a60d8e5d522 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+@@ -1510,7 +1510,9 @@ static int arm_smmu_set_pgtable_quirks(struct iommu_domain *domain,
+ 	return ret;
+ }
+ 
+-static int arm_smmu_of_xlate(struct device *dev, struct of_phandle_args *args)
++static int arm_smmu_of_xlate_fwspec(struct iommu_fwspec *fwspec,
++				    struct device *dev,
++				    struct of_phandle_args *args)
+ {
+ 	u32 mask, fwid = 0;
+ 
+@@ -1522,7 +1524,7 @@ static int arm_smmu_of_xlate(struct device *dev, struct of_phandle_args *args)
+ 	else if (!of_property_read_u32(args->np, "stream-match-mask", &mask))
+ 		fwid |= FIELD_PREP(ARM_SMMU_SMR_MASK, mask);
+ 
+-	return iommu_fwspec_add_ids(dev, &fwid, 1);
++	return iommu_fwspec_append_ids(fwspec, &fwid, 1);
+ }
+ 
+ static void arm_smmu_get_resv_regions(struct device *dev,
+@@ -1562,7 +1564,7 @@ static struct iommu_ops arm_smmu_ops = {
+ 	.release_device		= arm_smmu_release_device,
+ 	.probe_finalize		= arm_smmu_probe_finalize,
+ 	.device_group		= arm_smmu_device_group,
+-	.of_xlate		= arm_smmu_of_xlate,
++	.of_xlate_fwspec	= arm_smmu_of_xlate_fwspec,
+ 	.get_resv_regions	= arm_smmu_get_resv_regions,
+ 	.def_domain_type	= arm_smmu_def_domain_type,
+ 	.pgsize_bitmap		= -1UL, /* Restricted during device attach */
+diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+index d14438ffb0feb7..9f23e113f46bc7 100644
+--- a/drivers/iommu/iommu.c
++++ b/drivers/iommu/iommu.c
+@@ -3000,6 +3000,9 @@ int iommu_fwspec_of_xlate(struct iommu_fwspec *fwspec, struct device *dev,
+ 	if (ret)
+ 		return ret;
+ 
++	if (fwspec->ops->of_xlate_fwspec)
++		return fwspec->ops->of_xlate_fwspec(fwspec, dev, iommu_spec);
++
+ 	if (!fwspec->ops->of_xlate)
+ 		return -ENODEV;
+ 
+diff --git a/drivers/iommu/virtio-iommu.c b/drivers/iommu/virtio-iommu.c
+index 379ebe03efb6d4..2283f1d1155981 100644
+--- a/drivers/iommu/virtio-iommu.c
++++ b/drivers/iommu/virtio-iommu.c
+@@ -1027,9 +1027,11 @@ static struct iommu_group *viommu_device_group(struct device *dev)
+ 		return generic_device_group(dev);
+ }
+ 
+-static int viommu_of_xlate(struct device *dev, struct of_phandle_args *args)
++static int viommu_of_xlate_fwspec(struct iommu_fwspec *fwspec,
++				  struct device *dev,
++				  struct of_phandle_args *args)
+ {
+-	return iommu_fwspec_add_ids(dev, args->args, 1);
++	return iommu_fwspec_append_ids(fwspec, args->args, 1);
+ }
+ 
+ static bool viommu_capable(struct device *dev, enum iommu_cap cap)
+@@ -1050,7 +1052,7 @@ static struct iommu_ops viommu_ops = {
+ 	.release_device		= viommu_release_device,
+ 	.device_group		= viommu_device_group,
+ 	.get_resv_regions	= viommu_get_resv_regions,
+-	.of_xlate		= viommu_of_xlate,
++	.of_xlate_fwspec	= viommu_of_xlate_fwspec,
+ 	.owner			= THIS_MODULE,
+ 	.default_domain_ops = &(const struct iommu_domain_ops) {
+ 		.attach_dev		= viommu_attach_dev,
+diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+index 5e1f9222bde856..2fac54a942af54 100644
+--- a/include/linux/iommu.h
++++ b/include/linux/iommu.h
+@@ -41,6 +41,7 @@ struct notifier_block;
+ struct iommu_sva;
+ struct iommu_fault_event;
+ struct iommu_dma_cookie;
++struct iommu_fwspec;
+ 
+ /* iommu fault flags */
+ #define IOMMU_FAULT_READ	0x0
+@@ -287,6 +288,8 @@ struct iommu_ops {
+ 	/* Request/Free a list of reserved regions for a device */
+ 	void (*get_resv_regions)(struct device *dev, struct list_head *list);
+ 
++	int (*of_xlate_fwspec)(struct iommu_fwspec *fwspec, struct device *dev,
++			       struct of_phandle_args *args);
+ 	int (*of_xlate)(struct device *dev, struct of_phandle_args *args);
+ 	bool (*is_attach_deferred)(struct device *dev);
+ 
+-- 
+2.42.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
