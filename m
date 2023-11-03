@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23A20C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 16:01:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F35FC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 16:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jso41RErdgCJIRvOCuC+QcE/wVLSGEBrdn8EZKt4o4A=; b=qvzI6gJAzTzKQ6
-	6MEG6/Yd8KnWF84wh09EcVof6liuHAN/rKtPE6yv1aRsAYqnXp9rfVxJ4LdoOc66YC68eMJcpQEAr
-	+xM/PW8vuwa9QOG7GHHp86kIq4XvEe8EVf5uqEm/Yk2Hb5XuYx1QlCBE7aDvsEIO+ab/rzyv3vWBH
-	ywpcyg3/kWiLmwlCT4s8Kg2JUICKeK7rr6he+BoSRT8Tr/IcfHpVb+zDDuGhMNssW61ez3wts5Yta
-	d5yGi9K7BDYNy9zjwzM+tMdNmlVVxWy//CpWVEhhr6f6+Y6Wx9eY3b/Q1bQi/B7GRXyTYGAY3k5Xq
-	hHlEGTTP2xmh886cIHCw==;
+	List-Owner; bh=jso41RErdgCJIRvOCuC+QcE/wVLSGEBrdn8EZKt4o4A=; b=Btb8/y+ohHCNrc
+	tqEiFh6m91xwbCVvw85Fepq4In1cJiUgGew/quUgK+2IRLd8BOY/0+vXckv0gGKWB1ga1Vu+MJZnp
+	W/SK+QFJh38lFCUe6sqnAg2r7xrgeIqnsZOrla9OxeJE85eXIykSVFiVbKLB7Eyt2Z00xADOe8xqt
+	PVRKOWR5kJNYKtOPSLHI5NR7OS+n8m6TMTPBtjEnir9lQmCAvkkyVfe20XFiO1FI4iO4M6w12Yz8k
+	7LDRsL7YdbZuYQ71KpMZm+RR19bg0pwff7LAo5Jvx43SoD+tgwWik+XXVKk18K0LplF9pL43BLvII
+	b6DYwuH/liqFb3Z6RVtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qywbP-00Bjqm-2J;
-	Fri, 03 Nov 2023 16:00:55 +0000
+	id 1qywbj-00BjvO-2w;
+	Fri, 03 Nov 2023 16:01:15 +0000
 Received: from bg4.exmail.qq.com ([43.155.67.158])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qywbM-00BjpE-2n
+	id 1qywbg-00Bjtx-2N
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Nov 2023 16:00:54 +0000
-X-QQ-mid: bizesmtp64t1699027236t5ijv5ky
+	Fri, 03 Nov 2023 16:01:14 +0000
+X-QQ-mid: bizesmtp90t1699027252t9kbwhgd
 Received: from main2-ubuntu.tail147f4.ts.net ( [202.201.15.117])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sat, 04 Nov 2023 00:00:33 +0800 (CST)
+	id ; Sat, 04 Nov 2023 00:00:49 +0800 (CST)
 X-QQ-SSF: 01200000000000B06000000A0000000
-X-QQ-FEAT: rZJGTgY0+YOXiDRtSv5jrBH+Ok8Gp19fhcj4KioUSMpuqQklo5ZZQc/JPJ8NP
-	EtrPZ1izysnRKGJpccJps5x7PACRlaGOgqrbhQsoXPYIL0wptOzTr59TlmxVaci9hDwmWW3
-	p2AG5vAakwXzlGOvAVJVj+6geI4kiy35fnAl8Hxgjur7eOzsHK3fr/I5H8UeJZfgM66PbGn
-	yeYjqTHLgymXpyzEuYFaXxOuqvZ/uCI5ZmMmOhTzMnqvs5W/vD7crDXrQQkhlJGtCD99gYw
-	TlsX5JstKOh466iu7/6cBHsznx3S3ZdcSo34kwI/IMvXXT09A715opfHEEVuc05iI+uAU/L
-	64Ij+YmTR0MwCKVFG9rPTnOMLXFsQg6LeXI01q9jVrDUx/zPUETEnoZ/zd554YXkD/vc5qy
+X-QQ-FEAT: CR3LFp2JE4mhkRVIWx93LBUmhAe9K8E83iOUA42iJlD/ysMdwtv2Jg9+XFACH
+	SQSIO5fAX3mLZ19bQUyf6+J2iJt5DAjSeZV8qd5TE7eRt5KTZPkIZ6MWDw6Stc1eobVw93T
+	gJ4ltxRG2FXmdNS7NmXkj3WgOs5v2VPGM4tvPuFna/ww4QE5CexKC+EWjDMgCqFU4oFIurf
+	04A2MWJtSQmGlk7Xbi7gY2JlW9ZYdjss3fPnCMib7PN/ZLq8esLub33NFPpqVdkxYy765bT
+	dmhJ3S1WoVATpjTbe80GKxgF5cqoLGZ4QoMY5o2aAaRmVLmqoAbUkrLgQcCrLUQan+LETLa
+	Kb+pGigu2qXH7uopncaqVHXmBHosfv5VsdzaPOv/VMUfjDEgt2sahS/z5ppiA==
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8259172485907225114
+X-BIZMAIL-ID: 3924603848668096724
 From: Yuan Tan <tanyuan@tinylab.org>
 To: falcon@tinylab.org,
 	arnd@arndb.de,
@@ -59,8 +59,8 @@ Cc: linux@weissschuh.net,
 	tanyuan@tinylab.org,
 	i@maskray.me
 Subject: [PATCH v1 07/14] DCE/DSE: add HAVE_SECTION_NO_KEEP_SUPPORT option
-Date: Sat,  4 Nov 2023 00:00:31 +0800
-Message-Id: <494854689a6f6f91da151ae4bd9a7a6132092271.1699025537.git.tanyuan@tinylab.org>
+Date: Sat,  4 Nov 2023 00:00:47 +0800
+Message-ID: <494854689a6f6f91da151ae4bd9a7a6132092271.1699025537.git.tanyuan@tinylab.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1699025537.git.tanyuan@tinylab.org>
 References: <cover.1699025537.git.tanyuan@tinylab.org>
@@ -68,7 +68,7 @@ MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231103_090053_213959_DABBCE92 
+X-CRM114-CacheID: sfid-20231103_090113_077086_FB980EAF 
 X-CRM114-Status: UNSURE (   6.03  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -86,6 +86,7 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
+Message-ID: <20231103160047.bMCM50MLzZwM2rd30W7w4ToPwS5bcGiortx1VXiBPmk@z>
 
 Once there's SECTION_SHF_LINK_ORDER_SUPPORT or
 SECTION_SHF_GROUP_SUPPORT, there won't be any orphan section and won't
