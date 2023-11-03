@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFEFEC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 16:03:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA5F1C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 16:04:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XCwWPRF2U7MGoqks47uDRorCGwNIpUjeQHVNKQpJGm8=; b=PpBCZDLmoW4+Ah
-	MK4EFg173/pr0Zl/j+Yh8l1S7DzKjcY9xwOCSSS7nWpUPBddJDhk4k1xj2sybyHJz9IAmSUFuAPqE
-	nVQ69nettl5St4L0NY1k7Y56aGGMt5iBxykOS8XH3SCsFOdSV8G6oM7OojFsMRS99J4CpYhUCGM9G
-	rdAOCpOaqR2jCDCrsPOjtd9x1MpxYEvcMMrKUTb7HY015PsLHN9GuBm++jXv/SpAuvi0T+asYlmqw
-	zA/DH3bCoJVEKg7k+26GYZNmSEwc0qbHLYxHUsGORFdmktTip90srlL8t4kSDb044c/3wW/a2BVJJ
-	kiNSz0f9kcsRgluFIFNA==;
+	List-Owner; bh=3O1iBlrnK1DLtDN9FVgiEtyFNbq5fertkfHPLrRbN4g=; b=EdPtfItTTyPzkC
+	wMEJgjDWqD5F1K6AC4Zj6c6JfKYHgW2u7GYB4m+EpUx/jAF4VLe1uS0hTfU3kmSaqZo03EuzqVAhH
+	Ybw824NMom9AfLXEYuVorZOq4Ke7uJ80D4rsnABdAkwsVPNaDt5wcR3pP729MJegI6zYZKA9PdHqU
+	LjrsqGvRkMrGZBqNQy28k3Bq+m+0cKvFC+3mUh3pPTMj3Vd0LhwCOJ9gAdguCj1fmsTC6Zey2o0SV
+	Gfn4IuiE0PlvJfQxgYwLv0K2pcPi1Gq+J5JAXWPhf5tyvhhkOJGErCf9ihhPEjMhNqFOUd9Dh8JlL
+	ddD9Fi7xLYEhUJ90oY7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyweF-00Bks1-1A;
-	Fri, 03 Nov 2023 16:03:51 +0000
+	id 1qywf2-00BlGg-0J;
+	Fri, 03 Nov 2023 16:04:40 +0000
 Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyweA-00BkoW-0q
+	id 1qywey-00BlEa-0Z
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Nov 2023 16:03:49 +0000
-X-QQ-mid: bizesmtp82t1699027400trjco16j
+	Fri, 03 Nov 2023 16:04:37 +0000
+X-QQ-mid: bizesmtp78t1699027456tnrc347s
 Received: from main2-ubuntu.tail147f4.ts.net ( [202.201.15.117])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sat, 04 Nov 2023 00:03:17 +0800 (CST)
+	id ; Sat, 04 Nov 2023 00:04:13 +0800 (CST)
 X-QQ-SSF: 01200000000000B06000000A0000000
-X-QQ-FEAT: 7jw2iSiCazpcnkkT53zBV9E5I5T5DJqx1+TFUtxUfN3lRCahCSRmfodfnKjxV
-	CZUVooP/s2ON1Xc7NqKw/750amPGn/HA/QmC3hjD503kq78AFBll7c+JW7zZRKRKgJ0dcBA
-	fXrP4Q/oKyJmpMBY1aZwrgZA1L/EGsKMQUoOR5PupOxOnqtERz2toMY1qeVlWz/p7KZxsIk
-	nY3oUd1ez40xtO3mx3yORZ0/HqylV4ibH6wp8aFM49EMpckQtLLAlVtwabPzzZ1qoI8noCY
-	kYqhHDaoRthiGZg8naGoZeJJbGLrnRX5aIuzhSSszoQ36q6A0qlPDzDhUQFX3EVfpuXiQec
-	mHMA3CCDPcDduASmtFWHo2AIgBomj0FnSbxAaz5DqO7Pmr8zO8=
+X-QQ-FEAT: mot7IUESEd/O3Ye3RvUm0u0JfDP8ilGw6DJ+bg2ku9yW02xqru4czyWnDR4JC
+	EQdnw8q1TsviTHclgFaJRSxxEJSFDKoZfMUzfWIOoWQW5FI9+0rOhbgL2xFjAIQLOk/WiNb
+	Ze0d8K6zH/AYLaKpQIAtAZG4jS7M72shuT9euUEJaCCA/CcImxoiQrXkdoAg+grDS7lI/xU
+	DnpaZjUvJet9LH1I1tXUT2k+8t0nGwPGjmBS7XYMcEABQ3GlVXZx8/iDCsrMmgIy1Mf4YxT
+	25ig0IbUsLLwVXn/38HbQVCzou/49TJyeRhZOCpzf0rKiNfEg1KrsIRdd33Cz5XTnn7Ws/O
+	zQ60yzEUchZNK3VB1+XcP3Ha7KKHjs9ib0py4O2
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 5481933520797404592
+X-BIZMAIL-ID: 6096022325544553150
 From: Yuan Tan <tanyuan@tinylab.org>
 To: falcon@tinylab.org,
 	arnd@arndb.de,
@@ -58,9 +58,9 @@ Cc: linux@weissschuh.net,
 	w@1wt.eu,
 	tanyuan@tinylab.org,
 	i@maskray.me
-Subject: [PATCH v1 12/14] DCE/DSE: riscv: build reference for .pushsection in assembly
-Date: Sat,  4 Nov 2023 00:03:15 +0800
-Message-Id: <26be8db18604f9a9e5eee9f03cc77ed034059d9a.1699025537.git.tanyuan@tinylab.org>
+Subject: [PATCH v1 13/14] DCE/DSE: add SECTION_NO_KEEP_SUPPORT option
+Date: Sat,  4 Nov 2023 00:04:10 +0800
+Message-Id: <4ad1b8cb7cd54c57e74e877235f64b5be5bbbe8f.1699025537.git.tanyuan@tinylab.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1699025537.git.tanyuan@tinylab.org>
 References: <cover.1699025537.git.tanyuan@tinylab.org>
@@ -68,8 +68,8 @@ MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231103_090346_639674_945E8809 
-X-CRM114-Status: UNSURE (   9.15  )
+X-CRM114-CacheID: sfid-20231103_090436_525453_F944DBF1 
+X-CRM114-Status: UNSURE (   8.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,171 +87,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the SECTION_SHF_LINK_ORDER method and the SECTION_SHF_GROUP method
-to refactor __ASM_EXTABLE_RAW, so it won't produce orphan sections
-anymore.
+It is able to drop the brute KEEP() keyword for some sections, when the
+sections are able to link or group together with one of the used
+sections.
+
+Some syscalls are actually orphan sections.
+SECTION_SHF_LINK_ORDER_SUPPORT or SECTION_SHF_GROUP_SUPPORT creates
+references for these sections, eliminating the need for the KEEP()
+directive.
 
 Signed-off-by: Yuan Tan <tanyuan@tinylab.org>
 Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
 ---
- arch/riscv/include/asm/asm-extable.h |  7 ++--
- arch/riscv/lib/uaccess.S             | 60 ++++++++++++++--------------
- 2 files changed, 32 insertions(+), 35 deletions(-)
+ include/asm-generic/vmlinux.lds.h | 24 ++++++++++++++++++------
+ init/Kconfig                      |  9 +++++++++
+ 2 files changed, 27 insertions(+), 6 deletions(-)
 
-diff --git a/arch/riscv/include/asm/asm-extable.h b/arch/riscv/include/asm/asm-extable.h
-index 7164d871e038..99e472b7a1be 100644
---- a/arch/riscv/include/asm/asm-extable.h
-+++ b/arch/riscv/include/asm/asm-extable.h
-@@ -29,7 +29,7 @@
+diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
+index ea8170e11ab1..f10afc42a1ac 100644
+--- a/include/asm-generic/vmlinux.lds.h
++++ b/include/asm-generic/vmlinux.lds.h
+@@ -201,18 +201,30 @@
+ # endif
  #endif
  
- #define __ASM_EXTABLE_RAW(insn, fixup, type, data)	\
--	.pushsection	__SECTION_NAME(__ex_table), "a";		\
-+	__ASM_EXTABLE_PUSH_SECTION;			\
- 	.balign		4;				\
- 	.long		((insn) - .);			\
- 	.long		((fixup) - .);			\
-@@ -37,9 +37,8 @@
- 	.short		(data);				\
- 	.popsection;
+-#define BOUNDED_SECTION_PRE_LABEL(_sec_, _label_, _BEGIN_, _END_)	\
++#ifdef CONFIG_SECTION_NO_KEEP_SUPPORT
++#define NO_KEEP(sec) sec
++#else
++#define NO_KEEP(sec) KEEP(sec)
++#endif
++
++#define _BOUNDED_SECTION_PRE_LABEL(_sec_, _label_, _BEGIN_, _END_, _KEEP_, ...)	\
+ 	_BEGIN_##_label_ = .;						\
+-	KEEP(*(BSEC_MAIN(_sec_)))					\
++	_KEEP_(*(BSEC_MAIN(_sec_)))					\
+ 	_END_##_label_ = .;
  
--	.macro		_asm_extable, insn, fixup
--	__ASM_EXTABLE_RAW(\insn, \fixup, EX_TYPE_FIXUP, 0)
--	.endm
-+#define _asm_extable(insn, fixup)			\
-+	__ASM_EXTABLE_RAW(insn, fixup, EX_TYPE_FIXUP, 0)
+-#define BOUNDED_SECTION_POST_LABEL(_sec_, _label_, _BEGIN_, _END_)	\
++#define BOUNDED_SECTION_PRE_LABEL(_sec_, _label_, _BEGIN_, _END_, ...)		\
++	_BOUNDED_SECTION_PRE_LABEL(_sec_, _label_, _BEGIN_, _END_, ##__VA_ARGS__, KEEP)
++
++#define _BOUNDED_SECTION_POST_LABEL(_sec_, _label_, _BEGIN_, _END_, _KEEP_, ...)\
+ 	_label_##_BEGIN_ = .;						\
+-	KEEP(*(BSEC_MAIN(_sec_)))					\
++	_KEEP_(*(BSEC_MAIN(_sec_)))					\
+ 	_label_##_END_ = .;
  
- #else /* __ASSEMBLY__ */
+-#define BOUNDED_SECTION_BY(_sec_, _label_)				\
+-	BOUNDED_SECTION_PRE_LABEL(_sec_, _label_, __start, __stop)
++#define BOUNDED_SECTION_POST_LABEL(_sec_, _label_, _BEGIN_, _END_, ...)		\
++	_BOUNDED_SECTION_POST_LABEL(_sec_, _label_, _BEGIN_, _END_, ##__VA_ARGS__, KEEP)
++
++#define BOUNDED_SECTION_BY(_sec_, _label_, ...)				\
++	_BOUNDED_SECTION_PRE_LABEL(_sec_, _label_, __start, __stop, ##__VA_ARGS__, KEEP)
  
-diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
-index 09b47ebacf2e..91c76d3fbe2f 100644
---- a/arch/riscv/lib/uaccess.S
-+++ b/arch/riscv/lib/uaccess.S
-@@ -4,11 +4,9 @@
- #include <asm/asm-extable.h>
- #include <asm/csr.h>
+ #define BOUNDED_SECTION(_sec)	 BOUNDED_SECTION_BY(_sec, _sec)
  
--	.macro fixup op reg addr lbl
--100:
--	\op \reg, \addr
--	_asm_extable	100b, \lbl
--	.endm
-+#define fixup(op, reg, addr, lbl)	\
-+	100: op reg, addr;		\
-+	_asm_extable(100b, lbl)
+diff --git a/init/Kconfig b/init/Kconfig
+index 9599d2de44e8..aeb859e410b2 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -1467,6 +1467,13 @@ config HAVE_SECTION_NO_KEEP_SUPPORT
+ 	depends on HAVE_SECTION_SHF_LINK_ORDER_SUPPORT || HAVE_SECTION_SHF_GROUP_SUPPORT
+ 	default y
  
- ENTRY(__asm_copy_to_user)
- ENTRY(__asm_copy_from_user)
-@@ -50,9 +48,9 @@ ENTRY(__asm_copy_from_user)
- 	beq	a0, t1, .Lskip_align_dst
- 1:
- 	/* a5 - one byte for copying data */
--	fixup lb      a5, 0(a1), 10f
-+	fixup(lb, a5, 0(a1), 10f)
- 	addi	a1, a1, 1	/* src */
--	fixup sb      a5, 0(a0), 10f
-+	fixup(sb, a5, 0(a0), 10f)
- 	addi	a0, a0, 1	/* dst */
- 	bltu	a0, t1, 1b	/* t1 - start of aligned dst */
- 
-@@ -77,22 +75,22 @@ ENTRY(__asm_copy_from_user)
- 	 */
- 	addi	t0, t0, -(8*SZREG) /* not to over run */
- 2:
--	fixup REG_L   a4,        0(a1), 10f
--	fixup REG_L   a5,    SZREG(a1), 10f
--	fixup REG_L   a6,  2*SZREG(a1), 10f
--	fixup REG_L   a7,  3*SZREG(a1), 10f
--	fixup REG_L   t1,  4*SZREG(a1), 10f
--	fixup REG_L   t2,  5*SZREG(a1), 10f
--	fixup REG_L   t3,  6*SZREG(a1), 10f
--	fixup REG_L   t4,  7*SZREG(a1), 10f
--	fixup REG_S   a4,        0(a0), 10f
--	fixup REG_S   a5,    SZREG(a0), 10f
--	fixup REG_S   a6,  2*SZREG(a0), 10f
--	fixup REG_S   a7,  3*SZREG(a0), 10f
--	fixup REG_S   t1,  4*SZREG(a0), 10f
--	fixup REG_S   t2,  5*SZREG(a0), 10f
--	fixup REG_S   t3,  6*SZREG(a0), 10f
--	fixup REG_S   t4,  7*SZREG(a0), 10f
-+	fixup(REG_L, a4,        0(a1), 10f)
-+	fixup(REG_L, a5,    SZREG(a1), 10f)
-+	fixup(REG_L, a6,  2*SZREG(a1), 10f)
-+	fixup(REG_L, a7,  3*SZREG(a1), 10f)
-+	fixup(REG_L, t1,  4*SZREG(a1), 10f)
-+	fixup(REG_L, t2,  5*SZREG(a1), 10f)
-+	fixup(REG_L, t3,  6*SZREG(a1), 10f)
-+	fixup(REG_L, t4,  7*SZREG(a1), 10f)
-+	fixup(REG_S, a4,        0(a0), 10f)
-+	fixup(REG_S, a5,    SZREG(a0), 10f)
-+	fixup(REG_S, a6,  2*SZREG(a0), 10f)
-+	fixup(REG_S, a7,  3*SZREG(a0), 10f)
-+	fixup(REG_S, t1,  4*SZREG(a0), 10f)
-+	fixup(REG_S, t2,  5*SZREG(a0), 10f)
-+	fixup(REG_S, t3,  6*SZREG(a0), 10f)
-+	fixup(REG_S, t4,  7*SZREG(a0), 10f)
- 	addi	a0, a0, 8*SZREG
- 	addi	a1, a1, 8*SZREG
- 	bltu	a0, t0, 2b
-@@ -130,7 +128,7 @@ ENTRY(__asm_copy_from_user)
- 	sub	t4, a5, t3
- 
- 	/* Load the first word to combine with second word */
--	fixup REG_L   a5, 0(a1), 10f
-+	fixup(REG_L, a5, 0(a1), 10f)
- 
- 3:
- 	/* Main shifting copy
-@@ -142,11 +140,11 @@ ENTRY(__asm_copy_from_user)
- 
- 	/* At least one iteration will be executed */
- 	srl	a4, a5, t3
--	fixup REG_L   a5, SZREG(a1), 10f
-+	fixup(REG_L, a5, SZREG(a1), 10f)
- 	addi	a1, a1, SZREG
- 	sll	a2, a5, t4
- 	or	a2, a2, a4
--	fixup REG_S   a2, 0(a0), 10f
-+	fixup(REG_S, a2, 0(a0), 10f)
- 	addi	a0, a0, SZREG
- 	bltu	a0, t1, 3b
- 
-@@ -163,9 +161,9 @@ ENTRY(__asm_copy_from_user)
- 	 */
- 	bgeu	a0, t0, .Lout_copy_user  /* check if end of copy */
- 4:
--	fixup lb      a5, 0(a1), 10f
-+	fixup(lb, a5, 0(a1), 10f)
- 	addi	a1, a1, 1	/* src */
--	fixup sb      a5, 0(a0), 10f
-+	fixup(sb, a5, 0(a0), 10f)
- 	addi	a0, a0, 1	/* dst */
- 	bltu	a0, t0, 4b	/* t0 - end of dst */
- 
-@@ -205,7 +203,7 @@ ENTRY(__clear_user)
- 	bgeu t0, t1, 2f
- 	bltu a0, t0, 4f
- 1:
--	fixup REG_S, zero, (a0), 11f
-+	fixup(REG_S, zero, (a0), 11f)
- 	addi a0, a0, SZREG
- 	bltu a0, t1, 1b
- 2:
-@@ -217,12 +215,12 @@ ENTRY(__clear_user)
- 	li a0, 0
- 	ret
- 4: /* Edge case: unalignment */
--	fixup sb, zero, (a0), 11f
-+	fixup(sb, zero, (a0), 11f)
- 	addi a0, a0, 1
- 	bltu a0, t0, 4b
- 	j 1b
- 5: /* Edge case: remainder */
--	fixup sb, zero, (a0), 11f
-+	fixup(sb, zero, (a0), 11f)
- 	addi a0, a0, 1
- 	bltu a0, a3, 5b
- 	j 3b
++config SECTION_NO_KEEP_SUPPORT
++	bool
++	depends on SECTION_SHF_LINK_ORDER_SUPPORT || SECTION_SHF_GROUP_SUPPORT
++	default y
++	help
++	  This option allows some sections unkept so they can be GC
++
+ config HAVE_SECTION_SHF_LINK_ORDER_SUPPORT
+ 	bool
+ 	depends on AS_IS_GNU && AS_VERSION >= 23500
+@@ -1765,6 +1772,7 @@ config RESTRICTED_TRIM_UNUSED_SYSCALLS
+ config SECTION_SHF_LINK_ORDER_SUPPORT
+ 	bool "Using SHF_LINK_ORDER attribute (EXPERIMENTAL)" if EXPERT
+ 	depends on HAVE_SECTION_SHF_LINK_ORDER_SUPPORT
++	select SECTION_NO_KEEP_SUPPORT
+ 	help
+ 	  Say Y here to trim more 'unused' syscalls wrongly kept by __ex_table
+ 	  like sections in kernel space.
+@@ -1778,6 +1786,7 @@ config SECTION_SHF_LINK_ORDER_SUPPORT
+ config SECTION_SHF_GROUP_SUPPORT
+ 	bool "Using SHF_GROUP attribute (EXPERIMENTAL)" if EXPERT
+ 	depends on HAVE_SECTION_SHF_GROUP_SUPPORT
++	select SECTION_NO_KEEP_SUPPORT
+ 	help
+ 	  Say Y here to trim more 'unused' syscalls wrongly kept by __ex_table
+ 	  like sections in kernel space.
 -- 
 2.34.1
 
