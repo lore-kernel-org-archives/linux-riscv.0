@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D41FC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 15:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB69AC0018A
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 15:59:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PA9CPmEV6HgYwEKRceHYI2VvP27h+2e5tMLjCljlj7Q=; b=u88krqBhcbnOJj
-	GPuqiX9qh7a99wmzXPYdiDd9r4t4TIzL8XUzrrAzlYfPdgTr3pX0Xu17GPx2cgE2O5QX0rkYVBt+6
-	x/zXEXClFTG38t2EsaI2ndTeQl+zOKqnoUeRZ78cSsRZekaMDdohrDfQciI86OfvEdk1dbFoykRzB
-	RuRDtt29zeeT1KSzi8Ire+21MhUGouXmB3SBNvCdzh7g7zNS5ED9moyW4dgNZtVCEyjQU7pM5NAzo
-	sryErEhxgKSkn03o+VCQLnn6zxeIqY7ztamIuxsR98u9KNogyFd2KuDvGLjJJYVkQmYAOb/Yvltij
-	sdkT5M+Vj+4g8P3ocx9g==;
+	List-Owner; bh=mQu8Ca6ZzzKEcAslom85TEOQT4F4ao4rYYLhnInUrlQ=; b=wxSczEHKvBrvjY
+	OrGwbSWaLEOG9yytx379FafBP5zeSjd333nLLDSx2ZfuspuVbiJo5Phfn/2AyGYyqZ3nv0BzBqwpZ
+	xKSzMaIwdt14v82W/2rqC1cI8vPHRIGe+EGKclIFAyoY2BCgsVfX7za5HZNrDzYr+Ye+HUvnpzvVG
+	NuvwNvQkrWph5Sin6W0XKmQQSlDPznc91QOV9q1roE9JQq37YjtEj/WwAv8N2ltC2GJckPX+LMqLF
+	w7eYegK+NZsZjV63uzJHEUIzMbCdCQTSy3cnXPlOB1lH1IEsYYhyC2uH6LXZcUfcKVUhKDXNIP9vk
+	yZHFOlHtE5fRf9NuY6Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qywZZ-00BjNs-2F;
-	Fri, 03 Nov 2023 15:59:01 +0000
+	id 1qywZp-00BjRj-07;
+	Fri, 03 Nov 2023 15:59:17 +0000
 Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qywZW-00BjMn-2m
+	id 1qywZl-00BjQZ-3B
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Nov 2023 15:59:00 +0000
-X-QQ-mid: bizesmtp83t1699027115tqmp7mar
+	Fri, 03 Nov 2023 15:59:15 +0000
+X-QQ-mid: bizesmtp86t1699027134tyw2b1v4
 Received: from main2-ubuntu.tail147f4.ts.net ( [202.201.15.117])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 03 Nov 2023 23:58:32 +0800 (CST)
+	id ; Fri, 03 Nov 2023 23:58:50 +0800 (CST)
 X-QQ-SSF: 01200000000000B06000000A0000000
-X-QQ-FEAT: 3M0okmaRx3gtg4dkowId3SRZK6iJt7bmG/bknUDKf+3ULUZKiHp/tkQ2jHTjZ
-	qCAJtCYV+PBISnAzK2lTT9gQ93lFd4WLGlpACg09bFke2VMU51xGkofztcVkF64kLeB/I40
-	gt7AiMXFEF2xrMMx0HrXUSXv2jHoH+pff3Xms4oos9d5sxvTKIeoM4HgumgCEXWN1DXMZGG
-	mOnRKFHyB0tdauEDaWiRCJ4WkEsUYt3jBksdkZqXTIOM4Sg1erJZuCIGNrgNzHJvUOE0TQI
-	qfM8VoqG8AKNC9mj7MLM6aOKtJ7PJZrzG9XhTTXhE/GAatyk3aTKEWjcCrmwWhXqp/YBb1k
-	Fal2Ut2duOE5o37lshvTGlRfYJ/VnEvHOdQu3tDN7OWkjvzEFMMskq1oA1G7g==
+X-QQ-FEAT: eSZ1CZgv+JCVHfF1wGxh8nF1q0geFQVjdp7+4eC2s5jBRXYvF4MCh5LGR7B+E
+	8+fmWyYidCbzrgu0MyIjfriJ59BganbsFbgX/5YcVpNzFbubzZ6dLiMjHahc457QS0HWkpM
+	Fs+rI0pdcMyYCTK4SUwz0pMd3PBl01wPTUvQesEcQq+EJG/XuR2vXuTHrlODVWPty+yV/29
+	2Vnc8zaKv9YE6DbotW/r8+csDUkR1pa5ZtDVaUUN5+YVN0eCeGjKznkQB0jsEaGSMDKdrln
+	4vKFNLZIoLjH5UocAwhtcmVuhVONXyw1aSP1/0oQeB7WlrjtTw1rgFghaFSj/mHgl+ZkWO2
+	yA9Fx5mYFZAXRB61jZpB7Sq3gDPes8pPxQZSZMLehfXO4a96th3jTtVgpf52ywStnBsM5Uq
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 4824966276626844455
+X-BIZMAIL-ID: 9783515542256517097
 From: Yuan Tan <tanyuan@tinylab.org>
 To: falcon@tinylab.org,
 	arnd@arndb.de,
@@ -58,9 +58,9 @@ Cc: linux@weissschuh.net,
 	w@1wt.eu,
 	tanyuan@tinylab.org,
 	i@maskray.me
-Subject: [PATCH v1 01/14] DCE/DSE: allow keep unique bounded sections
-Date: Fri,  3 Nov 2023 23:58:30 +0800
-Message-Id: <c1af88e9c5e5956f22de6b9e7e69186dfad68767.1699025537.git.tanyuan@tinylab.org>
+Subject: [PATCH v1 02/14] compiler: add a global __QUITE_UNIQUE_ID()
+Date: Fri,  3 Nov 2023 23:58:49 +0800
+Message-Id: <152d812cb6fa2c6018794ea7f05f487631542d6e.1699025537.git.tanyuan@tinylab.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1699025537.git.tanyuan@tinylab.org>
 References: <cover.1699025537.git.tanyuan@tinylab.org>
@@ -68,8 +68,8 @@ MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231103_085859_210752_B001399B 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20231103_085914_338847_D72FD8C0 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,76 +88,66 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Zhangjin Wu <falcon@tinylab.org>
 
-The bounded sections may break the elimination of some dead code.
+Differs from __UNIQUE_ID(), __QUITE_UNIQUE_ID() also appends the
+__COUNTER__ info to make it more unique.
 
-Some unused syscalls have been wrongly kept by `__ex_table`, we will
-unique `__ex_table` for every inserting and then remove the unused ones
-explicitly and eventually, the unused syscalls will be eliminated.
-
-In the future, we should find better methods to solve such issue:
-
-  Some code may use '.pushsection/.popsection' to insert data
-  to a bounded section, use `sys_sendfile` as an example:
-
-      sys_sendfile:
-
-        ".pushsection __ex_table,\"\"\n"
-        ...
-	".long		((" insn ") - .)\n"
-        ...
-        ".popsection"
-
-  `insn` is an address in `sys_sendfile`, even if no real user uses
-  sys_sendfile, the keeping of __ex_table will become a 'user' and
-  break the elimination of `sys_sendfile`.
-
-All of the bounded sections should be uniqued, and we should check if
-they are the last users of the code, if so, those sections should be
-removed and the code should be eliminated.
+Besides, seems assembly code also require such a unique id, let's make
+it global, the same to the required __PASTE macro.
 
 Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
 ---
- include/asm-generic/vmlinux.lds.h | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+I am not sure whether it is proper to put the __QUITE_UNIQUE_ID and
+other stuff later in compiler.h. Welcome discussion as this is just
+a preliminary approach.
 
-diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-index 9c59409104f6..ea8170e11ab1 100644
---- a/include/asm-generic/vmlinux.lds.h
-+++ b/include/asm-generic/vmlinux.lds.h
-@@ -103,6 +103,7 @@
- #define RODATA_MAIN .rodata .rodata.[0-9a-zA-Z_]* .rodata..L*
- #define BSS_MAIN .bss .bss.[0-9a-zA-Z_]* .bss..compoundliteral*
- #define SBSS_MAIN .sbss .sbss.[0-9a-zA-Z_]*
-+#define BSEC_MAIN(sec) sec sec##.[0-9a-zA-Z_]*
- #else
- #define TEXT_MAIN .text
- #define DATA_MAIN .data
-@@ -110,6 +111,7 @@
- #define RODATA_MAIN .rodata
- #define BSS_MAIN .bss
- #define SBSS_MAIN .sbss
-+#define BSEC_MAIN(sec) sec
- #endif
+ include/linux/compiler.h       | 5 +++++
+ include/linux/compiler_types.h | 8 ++++----
+ 2 files changed, 9 insertions(+), 4 deletions(-)
+
+diff --git a/include/linux/compiler.h b/include/linux/compiler.h
+index d7779a18b24f..405b19cf6cf3 100644
+--- a/include/linux/compiler.h
++++ b/include/linux/compiler.h
+@@ -227,6 +227,11 @@ static inline void *offset_to_ptr(const int *off)
  
+ #endif /* __ASSEMBLY__ */
+ 
++/* Quite-unique ID. */
++#ifndef __QUITE_UNIQUE_ID
++# define __QUITE_UNIQUE_ID(prefix) __PASTE(__PASTE(prefix, __LINE__), __COUNTER__)
++#endif
++
+ /* &a[0] degrades to a pointer: a different type from an array */
+ #define __must_be_array(a)	BUILD_BUG_ON_ZERO(__same_type((a), &(a)[0]))
+ 
+diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
+index c523c6683789..0b79e19d1017 100644
+--- a/include/linux/compiler_types.h
++++ b/include/linux/compiler_types.h
+@@ -70,10 +70,6 @@ static inline void __chk_io_ptr(const volatile void __iomem *ptr) { }
+ # define __builtin_warning(x, y...) (1)
+ #endif /* __CHECKER__ */
+ 
+-/* Indirect macros required for expanded argument pasting, eg. __LINE__. */
+-#define ___PASTE(a,b) a##b
+-#define __PASTE(a,b) ___PASTE(a,b)
+-
+ #ifdef __KERNEL__
+ 
+ /* Attributes */
+@@ -308,6 +304,10 @@ struct ftrace_likely_data {
+ 
+ #endif /* __ASSEMBLY__ */
+ 
++/* Indirect macros required for expanded argument pasting, eg. __LINE__. */
++#define ___PASTE(a, b) a##b
++#define __PASTE(a, b) ___PASTE(a, b)
++
  /*
-@@ -201,12 +203,12 @@
- 
- #define BOUNDED_SECTION_PRE_LABEL(_sec_, _label_, _BEGIN_, _END_)	\
- 	_BEGIN_##_label_ = .;						\
--	KEEP(*(_sec_))							\
-+	KEEP(*(BSEC_MAIN(_sec_)))					\
- 	_END_##_label_ = .;
- 
- #define BOUNDED_SECTION_POST_LABEL(_sec_, _label_, _BEGIN_, _END_)	\
- 	_label_##_BEGIN_ = .;						\
--	KEEP(*(_sec_))							\
-+	KEEP(*(BSEC_MAIN(_sec_)))					\
- 	_label_##_END_ = .;
- 
- #define BOUNDED_SECTION_BY(_sec_, _label_)				\
+  * The below symbols may be defined for one or more, but not ALL, of the above
+  * compilers. We don't consider that to be an error, so set them to nothing.
 -- 
 2.34.1
-
 
 
 _______________________________________________
