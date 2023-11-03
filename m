@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DBACC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 16:02:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1503FC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 16:02:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5XCBmylLTj5uU5QjE5DJA0QqTxGTV2b3otcR2YbBTfM=; b=RWvcMZQjPJ9or3
-	1xFJpoNpWOfj/ifYecC5IIGhsp1nfInhLFTTyJ9wHRqOdTnyWNAXKrgsTLIccLxwvg2iBbDImF4f7
-	rO1nRz1x73iSNW4ttOwloVsOKrL965Qxj8xIo0r34vFbeCSbpqS/kTZdBArE9qPBs1b/2Pk/Bh2+2
-	X9TEYCYBZvAMhw1n4PyXHMWvKIUYb7tun5osaWWzsaZVIfsv++CRzTC92VewfhfzfgNND9mCtFhyV
-	dGyVjxvtrSXT/AOlZ34/mdw4Fr1EToikI/fhZH0+1NQR2zpuf0JUkS8sxS9epvgcZX3dWsyxIoGwy
-	3d67YcSt0+LmbHF3CWsw==;
+	List-Owner; bh=bCSjY9YkWb/Je9sP3MLhvtl0AX6y+4H94z8FmsR4U5o=; b=G5ts7zJC6nYNSY
+	KU9V6Q2qIRPp2hP7drOKD0DxFOuVcAED7MBVdi2mMnf6Cza0kqHovD5I3TDMVMT5FJnFxkrb4D8S7
+	6IfYFUrYgEH1mKmTR5qAR53wdufO4L+q0FL+phq1Z7EFx6xBf5kKvJocN9isCQij0TSBdQOYMtEU5
+	cbA82J0AENPmUZbIW6g3M9M6855j2+05/B+ehAca4fNKZA1twkTvFrfmb8Hg+bDvD7c/nVOyFPfSN
+	hoYmVOtRTRw76siV/fSD9KKt/GYuKZ78Wae1wrawvqXbeINqlovtGSo6BxW2mCiq1LMJUcZksCVhT
+	EvmnNnaPA7l+JzOaqLfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qywcm-00BkLN-2R;
-	Fri, 03 Nov 2023 16:02:20 +0000
+	id 1qywdC-00BkT3-00;
+	Fri, 03 Nov 2023 16:02:46 +0000
 Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qywcj-00BkK1-2E
+	id 1qywd8-00BkRB-24
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Nov 2023 16:02:19 +0000
-X-QQ-mid: bizesmtp66t1699027320t0x8xgof
+	Fri, 03 Nov 2023 16:02:44 +0000
+X-QQ-mid: bizesmtp91t1699027345tuzi88hk
 Received: from main2-ubuntu.tail147f4.ts.net ( [202.201.15.117])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sat, 04 Nov 2023 00:01:57 +0800 (CST)
+	id ; Sat, 04 Nov 2023 00:02:22 +0800 (CST)
 X-QQ-SSF: 01200000000000B06000000A0000000
-X-QQ-FEAT: WQH7Uj+YMzXZTIeeYrzzH5itva0gXKImwAhNhNH+6I4DrfveqC5LRL/AcrFVZ
-	2/7bONsuYtIn2ySjQU5hL5gWFOT7EvhlXQ1iFCFG8OaKZP82pUKHeAwChH+M65VreM8t5le
-	MEaIGsQTivG4RvqDkHbOYJyCINDKGWbhCKa0dUgjtXcRjNQmYo+pBt7KJc23OgX11rPo9HH
-	eolIdA7eZrnIQZKidwNzLUodbR1P5fT1YDTe/GJ96w1sqVpiiORBTxHvJJR8fCReTgImbhn
-	xk8Hctv3kJsMKpvxmjJqlVVP2vs4VDq6gBW71Z2pzucXzcbSYEcpsDNDwo0ITDvRO3EglyR
-	gZFh+VYSI8gOs/YSPsMhwdqkvgrOUqcnzKKQlenAv7mO2o1OXg=
+X-QQ-FEAT: YlW+rreuxxXoxvlIlb1sqNHnSOT+l5Yn7jheMGM0MN7wg16F1FQezu3ESPCIn
+	SG4dX7pl9FbKYtPlw5xFGKF9hdEiY4GXCO8Dcbx8/cg7Og+QCU3+CXMPCfzr3ILF+7b8OJC
+	We3CArNs3/RzbQomd2+K7yNXkmGAdxxgFstmrUQolP47JcSLPCcnWVH+pzG+WBKc95SRuk6
+	GRNeVQS005EaooagskyJFuMF58jFp792MV4/nMVDor5tdI0R+v9ntYb8OLdlo+bjQBPaFjZ
+	3tXMXILkQNqiZOfSFuWlhMCs5t5EvoYMyXZptegM68V3A/gfjehT5qri7Me9UwyV2uMy7Yw
+	qI4nF3fFj9RVpkTbEo40dXUlw5DXyqiA0exePUzOcNNH73+MM0=
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8381555887930633905
+X-BIZMAIL-ID: 1289692222090341736
 From: Yuan Tan <tanyuan@tinylab.org>
 To: falcon@tinylab.org,
 	arnd@arndb.de,
@@ -58,9 +58,9 @@ Cc: linux@weissschuh.net,
 	w@1wt.eu,
 	tanyuan@tinylab.org,
 	i@maskray.me
-Subject: [PATCH v1 09/14] DCE/DSE: inhibit .size directive for SHF_GROUP
-Date: Sat,  4 Nov 2023 00:01:55 +0800
-Message-Id: <7807078d4612beaa3f450df9f3f3cf70b2bccb4a.1699025537.git.tanyuan@tinylab.org>
+Subject: [PATCH v1 10/14] DCE/DSE: riscv: make every ex_table's name unique
+Date: Sat,  4 Nov 2023 00:02:18 +0800
+Message-Id: <f0ee9abfd8d7b27489a4efe3196813225ce5680f.1699025537.git.tanyuan@tinylab.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1699025537.git.tanyuan@tinylab.org>
 References: <cover.1699025537.git.tanyuan@tinylab.org>
@@ -68,8 +68,8 @@ MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231103_090218_039211_73918C8E 
-X-CRM114-Status: UNSURE (   6.00  )
+X-CRM114-CacheID: sfid-20231103_090242_987811_847520E9 
+X-CRM114-Status: UNSURE (   6.09  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,30 +87,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-.size directive fails in some functions with SHF_GROUP, this is not
-really required for normal building, inhibit it to silence the compiling
-failures with SHF_GROUP.
+gc-sections require section names to be unique.
 
 Signed-off-by: Yuan Tan <tanyuan@tinylab.org>
 Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
 ---
- Makefile | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/riscv/include/asm/asm-extable.h | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/Makefile b/Makefile
-index a4e522b747cb..f67b6e8d2c45 100644
---- a/Makefile
-+++ b/Makefile
-@@ -936,6 +936,9 @@ endif
- # `rustc`'s `-Zfunction-sections` applies to data too (as of 1.59.0).
- ifdef CONFIG_LD_DEAD_CODE_DATA_ELIMINATION
- KBUILD_CFLAGS_KERNEL += -ffunction-sections -fdata-sections
-+ifdef CONFIG_SECTION_SHF_GROUP_SUPPORT
-+KBUILD_CFLAGS_KERNEL += -finhibit-size-directive
-+endif
- KBUILD_RUSTFLAGS_KERNEL += -Zfunction-sections=y
- LDFLAGS_vmlinux += --gc-sections
- ifdef CONFIG_LD_DEAD_CODE_DATA_ELIMINATION_DEBUG
+diff --git a/arch/riscv/include/asm/asm-extable.h b/arch/riscv/include/asm/asm-extable.h
+index 00a96e7a9664..d0be5a838242 100644
+--- a/arch/riscv/include/asm/asm-extable.h
++++ b/arch/riscv/include/asm/asm-extable.h
+@@ -9,10 +9,12 @@
+ 
+ #ifdef CONFIG_MMU
+ 
++#include <linux/compiler.h>
++
+ #ifdef __ASSEMBLY__
+ 
+ #define __ASM_EXTABLE_RAW(insn, fixup, type, data)	\
+-	.pushsection	__ex_table, "a";		\
++	.pushsection	__SECTION_NAME(__ex_table), "a";		\
+ 	.balign		4;				\
+ 	.long		((insn) - .);			\
+ 	.long		((fixup) - .);			\
+@@ -31,7 +33,7 @@
+ #include <asm/gpr-num.h>
+ 
+ #define __ASM_EXTABLE_RAW(insn, fixup, type, data)	\
+-	".pushsection	__ex_table, \"a\"\n"		\
++	".pushsection "	__SECTION_NAME(__ex_table) ", \"a\"\n"		\
+ 	".balign	4\n"				\
+ 	".long		((" insn ") - .)\n"		\
+ 	".long		((" fixup ") - .)\n"		\
 -- 
 2.34.1
 
