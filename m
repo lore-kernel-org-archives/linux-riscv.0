@@ -4,72 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA608C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 14:37:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C47E5C4167B
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 15:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AEbyj8laz0lN/jF4k22Y3SB33CsNtSAyc6odGZGuBGY=; b=cTkaMocI+LZ316
-	HVeyv1jGQyUN217ckgrd36BhbN1uqQKTMh53SftBiH3e6psqyrsbOCjObXnX+mge7QmtYF/3PwTZG
-	YHDxggtnaqBVGlMi+MNVCDnfT2gjsuFFfq4QDWf43Wge2cJKzGD2FYtsWG015k+kgnVXYxnIF86no
-	fbebMXFacRpby6i9873jyfwcIv+6CtHDvw1otj4jt7e26Lyy0GSifHd/xUA+Ea5CixEzuNFSP9gFl
-	4RTLsFu+I/VJPmhSjpG748wyev8s0BNN1U5GaqmDVJQWaVjLXObze7NzGItcjT1Hfaf8h/1wTaUZt
-	kwpg+Fw618lNjT1Mj4lw==;
+	List-Owner; bh=S4KRGvnjYXe/SuhAi0dDUBoG/KzFypWJ4kgbxtrXyFI=; b=WDyNKaui5eS0/4
+	WWkZbNfGPLnWDXbCas/ihZepDqf3Oc/1G+f+U8NzXQE68RYihRXS0RnGiPYBrSmrGJURk6U61urSV
+	AV3mGAzJxJy/w4AIkkz/AR/u6DpY0LgoHartP1eRzzQbYdXckrxGvVi1bOoM5ufhV7JfsDrKBaiMC
+	4iRRcUar0qlko36xMciePQ2+EJmvARrxyy0fdMuTptS0lPUuKaO4MmXB/QIkJ7QsASHxR9dSnVX4N
+	YSTuDVN9XNhdXN6vvcLQ6bdspBu5Phm0Qq6XaKporA3W9U1udfeNZKqLP+rxfUK+oGD9F74YqcHB0
+	7XjTDKJ3IJfnI/nDphAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyvIn-00Baz0-39;
-	Fri, 03 Nov 2023 14:37:37 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1qywMr-00BiHu-23;
+	Fri, 03 Nov 2023 15:45:53 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qyvIi-00Baxn-2J;
-	Fri, 03 Nov 2023 14:37:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=72hxmQCBkLT/0leJQbNO6c+d3oMFYZOQGMSD17s25rI=; b=q8smHBP7DkeRlLmtBpuVNpbR3l
-	Xsq9Jg+jETRWE9W6AuGqCDDiqxwTUQfqg0tFog/sx8M46baq9d88THW80uQlFB4fqAYCq/DzxQVtR
-	g+/2VpoltDLb+HANTiWd7cpJg0mw85W6TI5UDDVSr2mh9gorJBllB4eQsCGu1APZJcTsAOhGxLMOF
-	rSERDI7IL5O8ysT9mss7VBj65MH8WJWsPtnKokF1trUFWaDHPGx5/Vd1P9pA1ypJccnB9lslaWTOy
-	kAjrpoOnuaYuqlvim1kLdN33vhWIuNl3wQW0SUOYQZtw8JeMgy8G8ndUDUjLI2wchB2QT/eSQVcIQ
-	Y4XdND7w==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54582)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1qyvIX-0005cb-1Y;
-	Fri, 03 Nov 2023 14:37:21 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1qyvIY-0008Tw-8D; Fri, 03 Nov 2023 14:37:22 +0000
-Date: Fri, 3 Nov 2023 14:37:22 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Gavin Shan <gshan@redhat.com>
-Cc: James Morse <james.morse@arm.com>, linux-pm@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-acpi@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
-	x86@kernel.org, Salil Mehta <salil.mehta@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	jianyong.wu@arm.com, justin.he@arm.com
-Subject: Re: [RFC PATCH v2 22/35] ACPI: Check _STA present bit before making
- CPUs not present
-Message-ID: <ZUUFovp4x9TkWBYn@shell.armlinux.org.uk>
-References: <20230913163823.7880-1-james.morse@arm.com>
- <20230913163823.7880-23-james.morse@arm.com>
- <518859b1-64a9-d723-963c-56c7f6fc2da1@redhat.com>
+	id 1qywMn-00BiGz-1u
+	for linux-riscv@lists.infradead.org;
+	Fri, 03 Nov 2023 15:45:52 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-51e24210395so14863a12.0
+        for <linux-riscv@lists.infradead.org>; Fri, 03 Nov 2023 08:45:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1699026345; x=1699631145; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IjRwo1IGVBygAppKkGTjsepd5un/ZpXB7p4VbVCjoI8=;
+        b=c9G3OmYLG7FhqNa06BiaFd+6QtOnd7K6T8f7kQMOcNRg189Ga+2E+Mobl0UHKdenFN
+         DF7pQKavT4hRCkrnu6ikn+JSSfo4WAuGhLL9SZYK7BA4QooStkKRBZw0ppCWIueO+548
+         KHCBEQZ5dFDYuKG63fZyDdVCxGe5suuE213PxHEKJlfDjCNTqhr2+zOfNsRukgDqPjWH
+         AlgoK2ol2oC5G4pMmzlJAzXeb41pD7If2I1EE0R+hLRfzpDI+/TNphDVqUN45uXLREPx
+         PCrcNEEWOoYgK6VxuHy4sBvJBVgFUs7OqkxX9K50vHzakr7LtE59Sc/nPMJFUazSSXQP
+         XOmA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1699026345; x=1699631145;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=IjRwo1IGVBygAppKkGTjsepd5un/ZpXB7p4VbVCjoI8=;
+        b=m+06lSMVG25v+y5ATpzNWmCTBzq1HQ5iMRyOFKY2JQOvOK7pzfhWgwSRRhWf1HxjkU
+         GISbo22uSB+RZXgHR0QzlXF28QBkQTRNRQ2CMhxiUNMa1LZkW8Uf75kvm0XQYtWN2W8t
+         XdinfK4Q9ordKz84YwBAQcK+sjJys/FkMajecGzE/gcb4ni7dcdxl0twF7YE3JoIOQ3y
+         rvhpbnB98lYUVmD3G144zNooD/zJpIMYTWG6EqTkWoFNOxarCVYrENXU00Y06JOZdLIG
+         GFcnTZH9N9J2MwV1lOAc0BNKAnoeu1F8yMZd0x+/4r+LCOFMaFGa8eoHimCW6qHkjZS7
+         HUKA==
+X-Gm-Message-State: AOJu0Ywh8cp2Aoj9NyyWET37cvl/os9MLGAr2hUu1TpAbYahJRCYjv6A
+	89Ly3Yy9io7MUFpfGsxbbjKbp9gUE9M5pWV9yR1g7g==
+X-Google-Smtp-Source: AGHT+IHkqI6reqbvYFSR1zZzyPUAt09vCldvmbNvBfqW7ZhzxrLZuWblZNw6SMoFfLURSlI4Q0L7glx/y9ttQADPMr0=
+X-Received: by 2002:a50:a68b:0:b0:542:d6e7:1e09 with SMTP id
+ e11-20020a50a68b000000b00542d6e71e09mr230479edc.0.1699026345421; Fri, 03 Nov
+ 2023 08:45:45 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <518859b1-64a9-d723-963c-56c7f6fc2da1@redhat.com>
+References: <20231103082441.1389842-1-jisheng.teoh@starfivetech.com>
+In-Reply-To: <20231103082441.1389842-1-jisheng.teoh@starfivetech.com>
+From: Ian Rogers <irogers@google.com>
+Date: Fri, 3 Nov 2023 08:45:33 -0700
+Message-ID: <CAP-5=fW4T_j02RLghg=_OB1TkRWFuHKOR59xFyEsdEH5gGnUPA@mail.gmail.com>
+Subject: Re: [PATCH v2] perf vendor events riscv: add StarFive Dubhe-80 JSON file
+To: Ji Sheng Teoh <jisheng.teoh@starfivetech.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Namhyung Kim <namhyung@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Nikita Shubin <n.shubin@yadro.com>, 
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231103_073732_774918_7E611DF1 
-X-CRM114-Status: GOOD (  34.96  )
+X-CRM114-CacheID: sfid-20231103_084549_652385_43E748CD 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,141 +89,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 19, 2023 at 10:45:39AM +1000, Gavin Shan wrote:
-> On 9/14/23 02:38, James Morse wrote:
-> > When called acpi_processor_post_eject() unconditionally make a CPU
-> > not-present and unregisters it.
-> > 
-> > To add support for AML events where the CPU has become disabled, but
-> > remains present, the _STA method should be checked before calling
-> > acpi_processor_remove().
-> > 
-> > Rename acpi_processor_post_eject() acpi_processor_remove_possible(), and
-> > check the _STA before calling.
-> > 
-> > Adding the function prototype for arch_unregister_cpu() allows the
-> > preprocessor guards to be removed.
-> > 
-> > After this change CPUs will remain registered and visible to
-> > user-space as offline if buggy firmware triggers an eject-request,
-> > but doesn't clear the corresponding _STA bits after _EJ0 has been
-> > called.
-> > 
-> > Signed-off-by: James Morse <james.morse@arm.com>
-> > ---
-> >   drivers/acpi/acpi_processor.c | 31 +++++++++++++++++++++++++------
-> >   include/linux/cpu.h           |  1 +
-> >   2 files changed, 26 insertions(+), 6 deletions(-)
-> > 
-> > diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
-> > index 00dcc23d49a8..2cafea1edc24 100644
-> > --- a/drivers/acpi/acpi_processor.c
-> > +++ b/drivers/acpi/acpi_processor.c
-> > @@ -457,13 +457,12 @@ static int acpi_processor_add(struct acpi_device *device,
-> >   	return result;
-> >   }
-> > -#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
-> >   /* Removal */
-> > -static void acpi_processor_post_eject(struct acpi_device *device)
-> > +static void acpi_processor_make_not_present(struct acpi_device *device)
-> >   {
-> >   	struct acpi_processor *pr;
-> > -	if (!device || !acpi_driver_data(device))
-> > +	if (!IS_ENABLED(CONFIG_ACPI_HOTPLUG_PRESENT_CPU))
-> >   		return;
-> 
-> In order to use IS_ENABLED(),
-
-And the rest of this statement is where?
-
-> >   	pr = acpi_driver_data(device);
-> > @@ -501,7 +500,29 @@ static void acpi_processor_post_eject(struct acpi_device *device)
-> >   	free_cpumask_var(pr->throttling.shared_cpu_map);
-> >   	kfree(pr);
-> >   }
-> > -#endif /* CONFIG_ACPI_HOTPLUG_PRESENT_CPU */
-> > +
-> > +static void acpi_processor_post_eject(struct acpi_device *device)
-> > +{
-> > +	struct acpi_processor *pr;
-> > +	unsigned long long sta;
-> > +	acpi_status status;
-> > +
-> > +	if (!device)
-> > +		return;
-> > +
-> > +	pr = acpi_driver_data(device);
-> > +	if (!pr || pr->id >= nr_cpu_ids || invalid_phys_cpuid(pr->phys_id))
-> > +		return;
-> > +
-> 
-> Do we really need to validate the logic and hardware CPU IDs here? I think
-> the ACPI processor device can't be added successfully if one of them is
-> invalid.
-> 
-> > +	status = acpi_evaluate_integer(pr->handle, "_STA", NULL, &sta);
-> > +	if (ACPI_FAILURE(status))
-> > +		return;
-> > +
-> > +	if (cpu_present(pr->id) && !(sta & ACPI_STA_DEVICE_PRESENT)) {
-> > +		acpi_processor_make_not_present(device);
-> > +		return;
-> > +	}
-> > +}
-> >   #ifdef CONFIG_ARCH_MIGHT_HAVE_ACPI_PDC
-> >   bool __init processor_physically_present(acpi_handle handle)
-> > @@ -626,9 +647,7 @@ static const struct acpi_device_id processor_device_ids[] = {
-> >   static struct acpi_scan_handler processor_handler = {
-> >   	.ids = processor_device_ids,
-> >   	.attach = acpi_processor_add,
-> > -#ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
-> >   	.post_eject = acpi_processor_post_eject,
-> > -#endif
-> >   	.hotplug = {
-> >   		.enabled = true,
-> >   	},
-> > diff --git a/include/linux/cpu.h b/include/linux/cpu.h
-> > index a71691d7c2ca..e117c06e0c6b 100644
-> > --- a/include/linux/cpu.h
-> > +++ b/include/linux/cpu.h
-> > @@ -81,6 +81,7 @@ struct device *cpu_device_create(struct device *parent, void *drvdata,
-> >   				 const struct attribute_group **groups,
-> >   				 const char *fmt, ...);
-> >   extern int arch_register_cpu(int cpu);
-> > +extern void arch_unregister_cpu(int cpu);
-> 
-> arch_unregister_cpu() is protected by CONFIG_HOTPLUG_CPU in the individual architectures,
-> for example arch/ia64/kernel/topology.c
-
-Yes, I agree, there _may_ be a reference to arch_unregister_cpu() if
-the compiler doesn't optimise the "if(0) return".
-
-As things stand in my "head" tree (which I'll be posting once 6.7-rc1
-is out) at the point that this patch exists in the series, there are
-no architectures which provide arch_unregister_cpu(), and the only
-implementation of it is the __weak one in drivers/base/cpu.c
-
-That implementation is also ifdef'd with CONFIG_HOTPLUG_CPU and also
-CONFIG_GENERIC_CPU_DEVICES.
-
-Meanwhile, acpi_processor.c is always built with ACPI, and while we
-have IS_ENABLED() clauses with James' patches for both of these
-symbols, if the compiler doesn't optimise the code away, we will end
-up with a reference and a link-time error. That being said, the 0-day
-bot has not reported anything as yet (and it builds my tree.)
-
-So, is this a problem that needs to be solved or not?
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBOb3YgMywgMjAyMyBhdCAxOjI34oCvQU0gSmkgU2hlbmcgVGVvaAo8amlzaGVuZy50
+ZW9oQHN0YXJmaXZldGVjaC5jb20+IHdyb3RlOgo+Cj4gU3RhckZpdmUncyBEdWJoZS04MCBzdXBw
+b3J0cyByYXcgZXZlbnQgaWQgMHgwMCAtIDB4MjIuCj4gVGhlIHJhdyBldmVudHMgYXJlIGVuYWJs
+ZWQgdGhyb3VnaCBQTVUgbm9kZSBvZiBEVCBiaW5kaW5nLgo+IEJlc2lkZXMgcmF3IGV2ZW50LCBh
+ZGQgc3RhbmRhcmQgUklTQy1WIGZpcm13YXJlIGV2ZW50cyB0bwo+IHN1cHBvcnQgbW9uaXRvcmlu
+ZyBvZiBmaXJtd2FyZSBldmVudC4KPgo+IEV4YW1wbGUgb2YgUE1VIERUIG5vZGU6Cj4gcG11IHsK
+PiAgICAgICAgIGNvbXBhdGlibGUgPSAicmlzY3YscG11IjsKPiAgICAgICAgIHJpc2N2LHJhdy1l
+dmVudC10by1taHBtY291bnRlcnMgPQo+ICAgICAgICAgICAgICAgICAvKiBFdmVudCBJRCAxLTMx
+ICovCj4gICAgICAgICAgICAgICAgIDwweDAwIDB4MDAgMHhGRkZGRkZGRiAweEZGRkZGRkUwIDB4
+MDAwMDdGRjg+LAo+ICAgICAgICAgICAgICAgICAvKiBFdmVudCBJRCAzMi0zMyAqLwo+ICAgICAg
+ICAgICAgICAgICA8MHgwMCAweDIwIDB4RkZGRkZGRkYgMHhGRkZGRkZGRSAweDAwMDA3RkY4PiwK
+PiAgICAgICAgICAgICAgICAgLyogRXZlbnQgSUQgMzQgKi8KPiAgICAgICAgICAgICAgICAgPDB4
+MDAgMHgyMiAweEZGRkZGRkZGIDB4RkZGRkZGMjIgMHgwMDAwN0ZGOD47Cj4gfTsKPgo+IEV4YW1w
+bGUgb2YgUGVyZiBzdGF0IG91dHB1dDoKPiBbcm9vdEB1c2VyXSMgcGVyZiBzdGF0IC1hIFwKPiAg
+ICAgICAgIC1lIGFjY2Vzc19tbXVfc3RsYiBcCj4gICAgICAgICAtZSBtaXNzX21tdV9zdGxiIFwK
+PiAgICAgICAgIC1lIGFjY2Vzc19tbXVfcHRlX2MgXAo+ICAgICAgICAgLWUgcm9iX2ZsdXNoIFwK
+PiAgICAgICAgIC1lIGJ0Yl9wcmVkaWN0aW9uX21pc3MgXAo+ICAgICAgICAgLWUgaXRsYl9taXNz
+IFwKPiAgICAgICAgIC1lIHN5bmNfZGVsX2ZldGNoX2cgXAo+ICAgICAgICAgLWUgaWNhY2hlX21p
+c3MgXAo+ICAgICAgICAgLWUgYnB1X2JyX3JldGlyZSBcCj4gICAgICAgICAtZSBicHVfYnJfbWlz
+cyBcCj4gICAgICAgICAtZSByZXRfaW5zX3JldGlyZSBcCj4gICAgICAgICAtZSByZXRfaW5zX21p
+c3MgXAo+ICAgICAgICAgLS0gb3BlbnNzbCBzcGVlZCByc2EyMDQ4Cj4KPiBEb2luZyAyMDQ4IGJp
+dHMgcHJpdmF0ZSByc2EncyBmb3IgMTBzOiAzOSAyMDQ4IGJpdHMgcHJpdmF0ZSBSU0EncyBpbgo+
+IDEwLjE0cwo+IERvaW5nIDIwNDggYml0cyBwdWJsaWMgcnNhJ3MgZm9yIDEwczogMTU2MyAyMDQ4
+IGJpdHMgcHVibGljIFJTQSdzIGluCj4gMTAuMDBzCj4gdmVyc2lvbjogMy4wLjExCj4gYnVpbHQg
+b246IFR1ZSBTZXAgMTkgMTM6MDI6MzEgMjAyMyBVVEMKPiBvcHRpb25zOiBibig2NCw2NCkKPiBD
+UFVJTkZPOiBOL0EKPiAgICAgICAgICAgICAgICAgICBzaWduICAgIHZlcmlmeSAgICBzaWduL3Mg
+dmVyaWZ5L3MKPiByc2EgMjA0OCBiaXRzIDAuMjYwMDAwcyAwLjAwNjM5OHMgICAgICAzLjggICAg
+MTU2LjMKPgo+ICBQZXJmb3JtYW5jZSBjb3VudGVyIHN0YXRzIGZvciAnc3lzdGVtIHdpZGUnOgo+
+Cj4gICAgICAgICAgICAxMzM4MzUwICAgICAgYWNjZXNzX21tdV9zdGxiCj4gICAgICAgICAgICAx
+MTU0MDI1ICAgICAgbWlzc19tbXVfc3RsYgo+ICAgICAgICAgICAgMTE2MjY5MSAgICAgIGFjY2Vz
+c19tbXVfcHRlX2MKPiAgICAgICAgICAgICAgMzQwNjcgICAgICByb2JfZmx1c2gKPiAgICAgICAg
+ICAgMTEyMTIzODQgICAgICBidGJfcHJlZGljdGlvbl9taXNzCj4gICAgICAgICAgICAxMjU2MjQy
+ICAgICAgaXRsYl9taXNzCj4gICAgICAgICAgNjUyNTIzNDkxICAgICAgc3luY19kZWxfZmV0Y2hf
+Zwo+ICAgICAgICAgICAgIDM4NDQ2NSAgICAgIGljYWNoZV9taXNzCj4gICAgICAgICAgIDY0NjM1
+Nzg5ICAgICAgYnB1X2JyX3JldGlyZQo+ICAgICAgICAgICAgIDMyMzQ0MCAgICAgIGJwdV9icl9t
+aXNzCj4gICAgICAgICAgICA4Nzg1MTQzICAgICAgcmV0X2luc19yZXRpcmUKPiAgICAgICAgICAg
+ICAgMzEyMzYgICAgICByZXRfaW5zX21pc3MKPgo+ICAgICAgIDIwLjc2MDgyMjQ4MCBzZWNvbmRz
+IHRpbWUgZWxhcHNlZAo+Cj4gU2lnbmVkLW9mZi1ieTogSmkgU2hlbmcgVGVvaCA8amlzaGVuZy50
+ZW9oQHN0YXJmaXZldGVjaC5jb20+CgpSZXZpZXdlZC1ieTogSWFuIFJvZ2VycyA8aXJvZ2Vyc0Bn
+b29nbGUuY29tPgoKVGhhbmtzIEppIFNoZW5nLCBnbWFpbCBtYWRlIGEgbWVzcyBvZiB0aGUgcGF0
+Y2hlcyBmb3IgbWUsIGJ1dCBkb2luZzoKCmI0IGFtIDIwMjMxMTAzMDgyNDQxLjEzODk4NDItMS1q
+aXNoZW5nLnRlb2hAc3RhcmZpdmV0ZWNoLmNvbQoKdGhlIGNvbnRlbnRzIGxvb2tlZCBjb3JyZWN0
+LgoKSWFuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
