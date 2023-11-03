@@ -4,65 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88863C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 08:17:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0959C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Nov 2023 08:24:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=96YkBAuCGawhZSSnVUs2jscm8IJaIiX58wkBO1Gbggc=; b=e7nCel44c/WQYP
-	Ik6aLnNUPjtWOrkDd1VNSb1ca8N9kESyxmVPUOW20IFBMoQGMNJ1fp0BNaylY9NnhsR9gs5IRqYFD
-	ooY7nP/UkOR1Tf45XGTrxlkwiKIzfWqEOdWyOlRxcPTxOwCNzgkmlvLdshO0uwe7pKuty0CwbjrFh
-	V3upHU4QknmjEITMijAL6DbCjNpo5/p8K8ExbaFbmtuq/xtLmh7jaICIk4d2GsuFBIBybzgcR6jAo
-	wU1jl21lH/z76deEbr6kAKYOi7g8vluI5UIntiIWwZOq073tpJB4pkBHrjCweHAG8i5IJrHSa7ALi
-	zOqeB+LJzauZxyIKlhZQ==;
+	List-Owner; bh=7hd5kXurFh307kBSsfAGGlM/GBvyjOyGyP6xWLeOvmc=; b=z5wv91HPGZJHOO
+	T9rSQF2SkZHYmjHFiAi8TNdUm5P2omeBmVKTPl4qCtgdqpgCbLKJMt/5xL/PgruvTfPgDbBwDTiPO
+	4p9dcYMbKRavUyjnoGJSvgpOdWz9wooekcONun55ZpR7gu8T/OKKbmHy0YW7RCvPicgs6UXBilogS
+	q+qRTl3lC3aAZ11oxUjLiVUs3YErBnHQ1/Kb/mgWK1dEUI7GKwdENK9mKiOEwstSAa1IzVsRprnE+
+	HGMRGFE2QPpBZtuz1AS70E3kEn/shnBb2iiKOCQVSjrPTnOBo3OVP8EoRZaHG9CCd6VYhaEwfN4i9
+	yhD/zZAF45IgYNjf2oEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qypMp-00AxxJ-2v;
-	Fri, 03 Nov 2023 08:17:23 +0000
+	id 1qypTX-00Ayak-0i;
+	Fri, 03 Nov 2023 08:24:19 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qypMk-00Axv7-3B
+	id 1qypTS-00AyaF-1C
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Nov 2023 08:17:23 +0000
-Date: Fri, 3 Nov 2023 09:17:11 +0100
+	Fri, 03 Nov 2023 08:24:18 +0000
+Date: Fri, 3 Nov 2023 09:24:11 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1698999432;
+	s=2020; t=1698999852;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ETbouZ+CrQgEz7EJjJRMHaZjihGSRuRwMcQKg7+EB6w=;
-	b=L78CKellLOrHdHfFpmtlbGzQbrsaXzor1nLEeMM9y/eych7qLKIsW39/t1V3DbqCe/ILuz
-	o4rJ2W8GbEpjYBcEZfNw9EDA5VPG83SQzypbbv47HRJSEph+Y1DyT5LsMXGIPkg1aYsOTv
-	l8YNJUPa7RQFZ686C/LKQs6jRuRbO1N0+9fVZ4dDuvjpb2S6TcA+0lbp7U2PENh4CG9KYf
-	nQ9FgtfIQMfvPIQnUjDDEA1FUrlqULoRkSvVozxJ3VWVRuC7JXkyyJLJBfpZpsMqTZEbWk
-	m/D6hyxHXTdhuKhtLRB4IfvxfXBZ1TfapOD2d7xcU1Q9hP2+VydqDJH/ezq4Iw==
+	bh=KLYp/YjUyNDhjZTCYnhpNaQBgYYzsOafrESIpFIhprk=;
+	b=SQDMjvZkfu2VDSApg810j2hNg84zGOnRjxsZSWgYjmFGBfGAe0g4y9ts3zGH0iuwX9zvI6
+	ERad0qyGPF+LOsTpnYC+n3QySQsqbY0tT3yXjlsXm+u5ByJTB6BLMhZQTHIZvqvI9dVbi4
+	Ca/vZNEHrLYIhqRrZtpFgkSoQBAKCa3JUUWiGAv+FZBEWtupXMkXmI/dOydFlz7EweFOiW
+	oQByov2qsu/1KZEMGcPJ3buZNtVDT3llqL0FqwOPK7deYrUW89YPLRD5omLfWZ8k1p0C8K
+	U1ZipmSqUiiAYTkls/GSB5Ev0ODdFX5kJHHuwYlOGoGe2AL2n9zqQhxmr4hWSg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1698999432;
+	s=2020e; t=1698999852;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ETbouZ+CrQgEz7EJjJRMHaZjihGSRuRwMcQKg7+EB6w=;
-	b=K/Qb4FBw244S5mpKEVyOqUKv0isnGN3SCJQr+6auMeBMktfkmBb7zJqF7C7A/3wfANLPdJ
-	XM7RjSZQMe04YKBQ==
+	bh=KLYp/YjUyNDhjZTCYnhpNaQBgYYzsOafrESIpFIhprk=;
+	b=frCSluB9u3q9wyWJjleru+7disehc3Dg6ANXy3F123Lv8guXKoZFiHrweycSkwQMoy55lS
+	nx0dD0Q9tZ+pWCBQ==
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>, jszhang@kernel.org,
-	tglx@linutronix.de, Paul Walmsley <paul.walmsley@sifive.com>,
-	aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
-	tobias.schaffner@siemens.com, Arnd Bergmann <arnd@arndb.de>
+To: Conor Dooley <conor@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	tobias.schaffner@siemens.com, Arnd Bergmann <arnd@arndb.de>,
+	Evan Green <evan@rivosinc.com>
 Subject: Re: [PATCH RT v2 0/3] riscv: add PREEMPT_RT support
-Message-ID: <20231103081711.Vp2nQhf6@linutronix.de>
-References: <20231102155423.SyuAibSe@linutronix.de>
- <mhng-e4437055-dc5b-4105-859c-02297f54d0bd@palmer-ri-x1c9>
+Message-ID: <20231103082411.f_ZU1E7V@linutronix.de>
+References: <20231031143521.441-1-jszhang@kernel.org>
+ <20231031153242.k9tLdSby@linutronix.de>
+ <ZUEiCUxcd11inlRP@xhacker>
+ <20231031164411.9YRGasL-@linutronix.de>
+ <ZUI5h6eIhTlPAmGh@xhacker>
+ <20231102-spearman-overcrowd-a86bfb958609@wendy>
+ <20231102155423.SyuAibSe@linutronix.de>
+ <20231103-army-gloater-af710df04628@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <mhng-e4437055-dc5b-4105-859c-02297f54d0bd@palmer-ri-x1c9>
+In-Reply-To: <20231103-army-gloater-af710df04628@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231103_011719_167299_337875F7 
-X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-CacheID: sfid-20231103_012414_555191_C94FDD90 
+X-CRM114-Status: UNSURE (   5.06  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,33 +90,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023-11-02 14:37:05 [-0700], Palmer Dabbelt wrote:
-> On Thu, 02 Nov 2023 08:54:23 PDT (-0700), bigeasy@linutronix.de wrote:
-> > On 2023-11-02 12:31:15 [+0000], Conor Dooley wrote:
-> > > [    1.130384] BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:48
-> > > [    1.130418]
-> > > [    1.130414] in_atomic(): 1, irqs_disabled(): 1, non_block: 0, pid: 0, name: swapper/1
-> > > [    1.130971] [<ffffffff80267d78>] __alloc_pages+0xac/0x1be
-> > > [    1.130978]   alloc_workqueue+0x96/0x6de
-> > > [    1.131005] [<ffffffff8000412a>] check_unaligned_access+0x34/0x336
-> > > [    1.131010]   kmem_cache_init_late+0x1c/0x36
-> > > [    1.131038] [<ffffffff80004660>] check_unaligned_access_nonboot_cpu+0x12/0x1a
-> > > [    1.131046]   start_kernel+0x204/0x7e6
-> > > [    1.131082] irq event stamp: 822
-> > > [    1.131071] [<ffffffff800fcba0>] __flush_smp_call_function_queue+0x1de/0x790
-> > > [    1.131093] hardirqs last  enabled at (821): [<ffffffff80bd75b0>] default_idle_call+0xfa/0x152
-> > > [    1.131111] [<ffffffff800fd3a0>] generic_smp_call_function_single_interrupt+0xe/0x1a
-> > > [    1.131124] hardirqs last disabled at (822): [<ffffffff80bd52a0>] do_irq+0x16/0xa6
-> > 
-> > Without the patch check_unaligned_access_boot_cpu() ->
-> > check_unaligned_access() is okay. The SMP/IPI variant (the patch imho)
-> > is bad. There must be no memory allocation from IRQ-off region - the
-> 
-> Ya, sorry I didn't catch it.  I'm just going to drop Evan's patch, it'd
-> missed the batch I was going to send tomorrow anyway.
+On 2023-11-03 08:14:01 [+0000], Conor Dooley wrote:
+> I'm don't think that problems are restricted to a tree containing Evan's
+> patch for parallel checks. For example:
 
-The bring up of the secondary CPUs still has the memory in IRQ-off
-path, only the primary CPU is fine.
+I saw check_unaligned_access() being invoked from arch_initcall()/
+check_unaligned_access_boot_cpu() which is fine. The other invocation
+from smp_callin() (secondary bring up). This is not. Evan's patch makes
+them all happen from SMP-function call which happens always with
+disabled interrupts.
 
 Sebastian
 
