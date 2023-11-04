@@ -4,72 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A38C4332F
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Nov 2023 01:00:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3F1EC4332F
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Nov 2023 10:28:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
-	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k6Q07YD/gOgElW5I0egyoEP9xWvqaY4GQ/opv/hVQfY=; b=V/rJlz6B6l3uV5
-	C+M8Qgt7J1s0FRQ7dw8kLIu+OynbAyqZp/rrORsgHX/8fftfU3FbhiKkxx1zA/4KKNzWW7ky9gbrX
-	6IPl7DwcFOPA/RCU+uAD+n2LWkodDoAzHKli+sui/TrHDQ/nyBhJvRdRjOD5UA84pANpE0v1GRWGd
-	b/LODGCoHWYCHlcm+YVBACN9/2QvksCqSPVOMzL2OR9L2mh04P9fxDRSyNSwMTGBee+MOetPoi2Il
-	uZPf4HJlnNp9w9fUcMGTx20faydZy+3BXqz2g/a9tc113S+v2CRYVwlpJAZCArNB2TCMbr34a0GjY
-	HVANIZnB7BLwzWsb1wbA==;
+	List-Owner; bh=CnP9wExJsIC2eOa2g6virOyC862+BkYTYTbMQUBrWXQ=; b=w1QQLjCWzlqiUV
+	NGL4tQBEUxb/wL7IyU2t/IJaDhvJ2XHsYdGWBMGCNJYUFBRRB07uTntLSg5ClR/+gbzJNGXnD1SPh
+	kVTlcGgvR1L0zXwSjr/cZjjFV2TssoKA+ZezUIhMff8whY5B9j/pQqosq8ylzSSlsLno1wdZGFiMr
+	GnDQ5aUrJR63Lhnd90Q/apXWpxlvvVOgPrKz/DJS6t1S/ND4V2dAsMunaC5WEr9T+xSUeKVhB4kLs
+	jk3CVxDR/TU6UrgG00Lb2HEhOqA3ToYgv0Oz/zqXj1I6mFVjjg9DifVad64K0QYXykOdrsMU98NeG
+	UVg37JzLOwv2tL7T1IYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qz51q-00CQMy-2e;
-	Sat, 04 Nov 2023 01:00:46 +0000
-Received: from m1524.mail.126.com ([220.181.15.24])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qz51m-00CQLy-1A
-	for linux-riscv@lists.infradead.org;
-	Sat, 04 Nov 2023 01:00:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=6zQfb+8twt4T4FD2mQ4A4tTb1mluKFRDvk1KlxsrBK4=; b=n
-	xzESeJRAlwObEdw5a4GFmXx0aYrmCTlmGRuTZrKYsp0+SyhnmNQZnvsmlMn7v4ch
-	bEV+lB5HeEOV3Gc2pvNW3SYJ7lpvkJ1klEtUSg0eZHzVvbB4vzknMCIPtPf1dVS5
-	1/ZmnKdOfNZ/B7TAUXJiJtS1pA+YqwOTX3NQYHpQt4=
-Received: from figure1802$126.com ( [183.193.16.145] ) by
- ajax-webmail-wmsvr24 (Coremail) ; Sat, 4 Nov 2023 08:58:10 +0800 (CST)
-X-Originating-IP: [183.193.16.145]
-Date: Sat, 4 Nov 2023 08:58:10 +0800 (CST)
-From: Ben  <figure1802@126.com>
-To: "Anup Patel" <apatel@ventanamicro.com>
-Cc: "Palmer Dabbelt" <palmer@dabbelt.com>, 
-	"Paul Walmsley" <paul.walmsley@sifive.com>, 
-	"Thomas Gleixner" <tglx@linutronix.de>, 
-	"Rob Herring" <robh+dt@kernel.org>, 
-	"Krzysztof Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, 
-	"Frank Rowand" <frowand.list@gmail.com>, 
-	"Conor Dooley" <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
-	"Saravana Kannan" <saravanak@google.com>, 
-	"Marc Zyngier" <maz@kernel.org>, "Anup Patel" <anup@brainfault.org>, 
-	linux-kernel@vger.kernel.org, 
-	=?UTF-8?Q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, 
-	"Atish Patra" <atishp@atishpatra.org>, 
-	linux-riscv@lists.infradead.org, 
-	"Andrew Jones" <ajones@ventanamicro.com>
-Subject: Re:[PATCH v11 12/14] irqchip/riscv-aplic: Add support for MSI-mode
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20230109(dcb5de15)
- Copyright (c) 2002-2023 www.mailtech.cn 126com
-In-Reply-To: <20231023172800.315343-13-apatel@ventanamicro.com>
-References: <20231023172800.315343-1-apatel@ventanamicro.com>
- <20231023172800.315343-13-apatel@ventanamicro.com>
-X-NTES-SC: AL_QuySC/yetkwi5iCZbekfm08Xhew/XsK1vfkm3I5QN5FwjAnkxyI9b2VZAGbp4uS2DDCzvAKNSwF1w+lFZ4JIfqg0k76SzIPhAEayQPBd9VSaeQ==
+	id 1qzDtT-00D1ne-1N;
+	Sat, 04 Nov 2023 10:28:43 +0000
+Received: from mgamail.intel.com ([134.134.136.31])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qzDtO-00D1mP-22;
+	Sat, 04 Nov 2023 10:28:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1699093718; x=1730629718;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=5TP8v/J0LaSvm65b/oAssWoyHA+UqQe21NaYSLdqziw=;
+  b=eCvCFcR5eQGDbg3rQjuOL1aZdmfSUoex52Napj0npEv6CdmAEQTCRauH
+   BZxQk6ZwTAozowtzK5SaD33nhLtyVygeYsBwvX6FcsU4m6UvHeThFHL50
+   GVz+1AqGb4nGrKeCaj1br1FDuLqn5fJrxyp0A5/g0f0CSGP4s2PuBRrGX
+   N0rk7AJe54u6WMI36rELEWObXlWwojEaQRDYueckdTGD7yyLlG9l06YkY
+   WHB1heDFvHYuQpnOhda9W4H+1rmLDcKcP2zCwvqVf+IrF6dM3rMOXiUBx
+   6kbJbk3u2LaN0mqxyl7yZCkrVK8v7fbDZCJsvB28BP/0dpXCjezYwqPOH
+   A==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10883"; a="453377388"
+X-IronPort-AV: E=Sophos;i="6.03,276,1694761200"; 
+   d="scan'208";a="453377388"
+Received: from orsmga001.jf.intel.com ([10.7.209.18])
+  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2023 03:28:34 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10883"; a="796860179"
+X-IronPort-AV: E=Sophos;i="6.03,276,1694761200"; 
+   d="scan'208";a="796860179"
+Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.159.165])
+  by orsmga001.jf.intel.com with ESMTP; 04 Nov 2023 03:28:23 -0700
+Date: Sat, 4 Nov 2023 18:26:55 +0800
+From: Xu Yilun <yilun.xu@linux.intel.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Andrew Morton <akpm@linux-foundation.org>, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, Xiaoyao Li <xiaoyao.li@intel.com>,
+	Xu Yilun <yilun.xu@intel.com>,
+	Chao Peng <chao.p.peng@linux.intel.com>,
+	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
+	Anish Moorthy <amoorthy@google.com>,
+	David Matlack <dmatlack@google.com>,
+	Yu Zhang <yu.c.zhang@linux.intel.com>,
+	Isaku Yamahata <isaku.yamahata@intel.com>,
+	=?utf-8?Q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Vishal Annapurve <vannapurve@google.com>,
+	Ackerley Tng <ackerleytng@google.com>,
+	Maciej Szmigiero <mail@maciej.szmigiero.name>,
+	David Hildenbrand <david@redhat.com>,
+	Quentin Perret <qperret@google.com>,
+	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
+	Liam Merwick <liam.merwick@oracle.com>,
+	Isaku Yamahata <isaku.yamahata@gmail.com>,
+	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+Subject: Re: [PATCH v13 16/35] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
+Message-ID: <ZUYcb6no9ADYytrx@yilunxu-OptiPlex-7050>
+References: <20231027182217.3615211-1-seanjc@google.com>
+ <20231027182217.3615211-17-seanjc@google.com>
 MIME-Version: 1.0
-Message-ID: <22d5d9e9.258.18b97d65ce7.Coremail.figure1802@126.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: GMqowAD3H3kjl0Vl+44YAA--.30406W
-X-CM-SenderInfo: pilj32bhryija6rslhhfrp/1tbiqAcdXlpECV3s7wAGsj
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Disposition: inline
+In-Reply-To: <20231027182217.3615211-17-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231103_180042_920702_82E1E129 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20231104_032838_713444_AE6697AB 
+X-CRM114-Status: GOOD (  24.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,198 +115,173 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-At 2023-10-24 01:27:58, "Anup Patel" <apatel@ventanamicro.com> wrote:
->The RISC-V advanced platform-level interrupt controller (APLIC) has
->two modes of operation: 1) Direct mode and 2) MSI mode.
->(For more details, refer https://github.com/riscv/riscv-aia)
->
->In APLIC MSI-mode, wired interrupts are forwared as message signaled
->interrupts (MSIs) to CPUs via IMSIC.
->
->We extend the existing APLIC irqchip driver to support MSI-mode for
->RISC-V platforms having both wired interrupts and MSIs.
->
->Signed-off-by: Anup Patel <apatel@ventanamicro.com>
->---
-> drivers/irqchip/Kconfig                |   6 +
-> drivers/irqchip/Makefile               |   1 +
-> drivers/irqchip/irq-riscv-aplic-main.c |   2 +-
-> drivers/irqchip/irq-riscv-aplic-main.h |   8 +
-> drivers/irqchip/irq-riscv-aplic-msi.c  | 285 +++++++++++++++++++++++++
-> 5 files changed, 301 insertions(+), 1 deletion(-)
-> create mode 100644 drivers/irqchip/irq-riscv-aplic-msi.c
->
->diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
->index 1996cc6f666a..7adc4dbe07ff 100644
->--- a/drivers/irqchip/Kconfig
->+++ b/drivers/irqchip/Kconfig
->@@ -551,6 +551,12 @@ config RISCV_APLIC
-> 	depends on RISCV
-> 	select IRQ_DOMAIN_HIERARCHY
-> 
->+config RISCV_APLIC_MSI
->+	bool
->+	depends on RISCV_APLIC
->+	select GENERIC_MSI_IRQ
->+	default RISCV_APLIC
->+
-> config RISCV_IMSIC
-> 	bool
-> 	depends on RISCV
->diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
->index 7f8289790ed8..47995fdb2c60 100644
->--- a/drivers/irqchip/Makefile
->+++ b/drivers/irqchip/Makefile
->@@ -96,6 +96,7 @@ obj-$(CONFIG_CSKY_MPINTC)		+= irq-csky-mpintc.o
-> obj-$(CONFIG_CSKY_APB_INTC)		+= irq-csky-apb-intc.o
-> obj-$(CONFIG_RISCV_INTC)		+= irq-riscv-intc.o
-> obj-$(CONFIG_RISCV_APLIC)		+= irq-riscv-aplic-main.o irq-riscv-aplic-direct.o
->+obj-$(CONFIG_RISCV_APLIC_MSI)		+= irq-riscv-aplic-msi.o
-> obj-$(CONFIG_RISCV_IMSIC)		+= irq-riscv-imsic-state.o irq-riscv-imsic-early.o irq-riscv-imsic-platform.o
-> obj-$(CONFIG_SIFIVE_PLIC)		+= irq-sifive-plic.o
-> obj-$(CONFIG_IMX_IRQSTEER)		+= irq-imx-irqsteer.o
->diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
->index 87450708a733..d1b342b66551 100644
->--- a/drivers/irqchip/irq-riscv-aplic-main.c
->+++ b/drivers/irqchip/irq-riscv-aplic-main.c
->@@ -205,7 +205,7 @@ static int aplic_probe(struct platform_device *pdev)
-> 		msi_mode = of_property_present(to_of_node(dev->fwnode),
-> 						"msi-parent");
-> 	if (msi_mode)
->-		rc = -ENODEV;
->+		rc = aplic_msi_setup(dev, regs);
-> 	else
-> 		rc = aplic_direct_setup(dev, regs);
-> 	if (rc) {
->diff --git a/drivers/irqchip/irq-riscv-aplic-main.h b/drivers/irqchip/irq-riscv-aplic-main.h
->index 474a04229334..78267ec58098 100644
->--- a/drivers/irqchip/irq-riscv-aplic-main.h
->+++ b/drivers/irqchip/irq-riscv-aplic-main.h
->@@ -41,5 +41,13 @@ void aplic_init_hw_global(struct aplic_priv *priv, bool msi_mode);
-> int aplic_setup_priv(struct aplic_priv *priv, struct device *dev,
-> 		     void __iomem *regs);
-> int aplic_direct_setup(struct device *dev, void __iomem *regs);
->+#ifdef CONFIG_RISCV_APLIC_MSI
->+int aplic_msi_setup(struct device *dev, void __iomem *regs);
->+#else
->+static inline int aplic_msi_setup(struct device *dev, void __iomem *regs)
->+{
->+	return -ENODEV;
->+}
->+#endif
-> 
-> #endif
->diff --git a/drivers/irqchip/irq-riscv-aplic-msi.c b/drivers/irqchip/irq-riscv-aplic-msi.c
->new file mode 100644
->index 000000000000..086d00e0429e
->--- /dev/null
->+++ b/drivers/irqchip/irq-riscv-aplic-msi.c
->@@ -0,0 +1,285 @@
->+// SPDX-License-Identifier: GPL-2.0
->+/*
->+ * Copyright (C) 2021 Western Digital Corporation or its affiliates.
->+ * Copyright (C) 2022 Ventana Micro Systems Inc.
->+ */
->+
->+#include <linux/bitops.h>
->+#include <linux/cpu.h>
->+#include <linux/interrupt.h>
->+#include <linux/irqchip.h>
->+#include <linux/irqchip/riscv-aplic.h>
->+#include <linux/irqchip/riscv-imsic.h>
->+#include <linux/module.h>
->+#include <linux/msi.h>
->+#include <linux/of_irq.h>
->+#include <linux/platform_device.h>
->+#include <linux/printk.h>
->+#include <linux/smp.h>
->+
->+#include "irq-riscv-aplic-main.h"
->+
->+static void aplic_msi_irq_unmask(struct irq_data *d)
->+{
->+	aplic_irq_unmask(d);
->+	irq_chip_unmask_parent(d);
->+}
->+
->+static void aplic_msi_irq_mask(struct irq_data *d)
->+{
->+	aplic_irq_mask(d);
->+	irq_chip_mask_parent(d);
->+}
->+
->+static void aplic_msi_irq_eoi(struct irq_data *d)
->+{
->+	struct aplic_priv *priv = irq_data_get_irq_chip_data(d);
->+	u32 reg_off, reg_mask;
->+
->+	/*
->+	 * EOI handling only required only for level-triggered
->+	 * interrupts in APLIC MSI mode.
->+	 */
->+
->+	reg_off = APLIC_CLRIP_BASE + ((d->hwirq / APLIC_IRQBITS_PER_REG) * 4);
->+	reg_mask = BIT(d->hwirq % APLIC_IRQBITS_PER_REG);
->+	switch (irqd_get_trigger_type(d)) {
->+	case IRQ_TYPE_LEVEL_LOW:
->+		if (!(readl(priv->regs + reg_off) & reg_mask))
->+			writel(d->hwirq, priv->regs + APLIC_SETIPNUM_LE);
->+		break;
->+	case IRQ_TYPE_LEVEL_HIGH:
->+		if (readl(priv->regs + reg_off) & reg_mask)
->+			writel(d->hwirq, priv->regs + APLIC_SETIPNUM_LE);
->+		break;
->+	}
->+}
->+
->+static struct irq_chip aplic_msi_chip = {
->+	.name		= "APLIC-MSI",
->+	.irq_mask	= aplic_msi_irq_mask,
->+	.irq_unmask	= aplic_msi_irq_unmask,
->+	.irq_set_type	= aplic_irq_set_type,
->+	.irq_eoi	= aplic_msi_irq_eoi,
->+#ifdef CONFIG_SMP
->+	.irq_set_affinity = irq_chip_set_affinity_parent,
->+#endif
->+	.flags		= IRQCHIP_SET_TYPE_MASKED |
->+			  IRQCHIP_SKIP_SET_WAKE |
->+			  IRQCHIP_MASK_ON_SUSPEND,
->+};
->+
->+static int aplic_msi_irqdomain_translate(struct irq_domain *d,
->+					 struct irq_fwspec *fwspec,
->+					 unsigned long *hwirq,
->+					 unsigned int *type)
->+{
->+	struct aplic_priv *priv = platform_msi_get_host_data(d);
->+
->+	return aplic_irqdomain_translate(fwspec, priv->gsi_base, hwirq, type);
->+}
->+
->+static int aplic_msi_irqdomain_alloc(struct irq_domain *domain,
->+				     unsigned int virq, unsigned int nr_irqs,
->+				     void *arg)
->+{
->+	int i, ret;
->+	unsigned int type;
->+	irq_hw_number_t hwirq;
->+	struct irq_fwspec *fwspec = arg;
->+	struct aplic_priv *priv = platform_msi_get_host_data(domain);
->+
->+	ret = aplic_irqdomain_translate(fwspec, priv->gsi_base, &hwirq, &type);
->+	if (ret)
->+		return ret;
+> +KVM_SET_USER_MEMORY_REGION2 is an extension to KVM_SET_USER_MEMORY_REGION that
+> +allows mapping guest_memfd memory into a guest.  All fields shared with
+> +KVM_SET_USER_MEMORY_REGION identically.  Userspace can set KVM_MEM_PRIVATE in
+> +flags to have KVM bind the memory region to a given guest_memfd range of
+> +[guest_memfd_offset, guest_memfd_offset + memory_size].  The target guest_memfd
+                                                        ^
+The range end should be exclusive, is it?
 
-In your patchset, the wired IRQ and IRQ of platform device will go into APLIC-MSI domain firstly.
-Let me assume here is a MSI IRQ not wired IRQ on a device, and it is a platform device in system.
-so in aplic_irqdomain_translate() function, it will parse the APLIC physical IRQ number by fwspec->param[0],
-but this is not a wried IRQ, it is a MSI IRQ, it should not has a APLIC physical IRQ number, the hwirq number should be allocated by MSI bitmap,
-what value will be parse by DTS? zero or negative? 
+> +must point at a file created via KVM_CREATE_GUEST_MEMFD on the current VM, and
+> +the target range must not be bound to any other memory region.  All standard
+> +bounds checks apply (use common sense).
+> +
+>  ::
+>  
+>    struct kvm_userspace_memory_region2 {
+> @@ -6087,9 +6096,24 @@ applied.
+>  	__u64 guest_phys_addr;
+>  	__u64 memory_size; /* bytes */
+>  	__u64 userspace_addr; /* start of the userspace allocated memory */
+> +  __u64 guest_memfd_offset;
+> +	__u32 guest_memfd;
+> +	__u32 pad1;
+> +	__u64 pad2[14];
+>    };
+>  
 
-if this is a nonexistent physical IRQ number for APLIC, in aplic_msi_irq_unmask()->aplic_irq_unmask(), how it works?
+[...]
 
-writel(d->hwirq, priv->regs + APLIC_SETIENUM);
+> +static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags)
+> +{
+> +	const char *anon_name = "[kvm-gmem]";
+> +	struct kvm_gmem *gmem;
+> +	struct inode *inode;
+> +	struct file *file;
+> +	int fd, err;
+> +
+> +	fd = get_unused_fd_flags(0);
+> +	if (fd < 0)
+> +		return fd;
+> +
+> +	gmem = kzalloc(sizeof(*gmem), GFP_KERNEL);
+> +	if (!gmem) {
+> +		err = -ENOMEM;
+> +		goto err_fd;
+> +	}
+> +
+> +	/*
+> +	 * Use the so called "secure" variant, which creates a unique inode
+> +	 * instead of reusing a single inode.  Each guest_memfd instance needs
+> +	 * its own inode to track the size, flags, etc.
+> +	 */
+> +	file = anon_inode_getfile_secure(anon_name, &kvm_gmem_fops, gmem,
+> +					 O_RDWR, NULL);
+> +	if (IS_ERR(file)) {
+> +		err = PTR_ERR(file);
+> +		goto err_gmem;
+> +	}
+> +
+> +	file->f_flags |= O_LARGEFILE;
+> +
+> +	inode = file->f_inode;
+> +	WARN_ON(file->f_mapping != inode->i_mapping);
 
+Just curious, why should we check the mapping fields which is garanteed in
+other subsystem?
+
+> +
+> +	inode->i_private = (void *)(unsigned long)flags;
+> +	inode->i_op = &kvm_gmem_iops;
+> +	inode->i_mapping->a_ops = &kvm_gmem_aops;
+> +	inode->i_mode |= S_IFREG;
+> +	inode->i_size = size;
+> +	mapping_set_gfp_mask(inode->i_mapping, GFP_HIGHUSER);
+> +	mapping_set_unmovable(inode->i_mapping);
+> +	/* Unmovable mappings are supposed to be marked unevictable as well. */
+> +	WARN_ON_ONCE(!mapping_unevictable(inode->i_mapping));
+> +
+> +	kvm_get_kvm(kvm);
+> +	gmem->kvm = kvm;
+> +	xa_init(&gmem->bindings);
+> +	list_add(&gmem->entry, &inode->i_mapping->private_list);
+> +
+> +	fd_install(fd, file);
+> +	return fd;
+> +
+> +err_gmem:
+> +	kfree(gmem);
+> +err_fd:
+> +	put_unused_fd(fd);
+> +	return err;
+> +}
+
+[...]
+
+> +int kvm_gmem_bind(struct kvm *kvm, struct kvm_memory_slot *slot,
+> +		  unsigned int fd, loff_t offset)
+> +{
+> +	loff_t size = slot->npages << PAGE_SHIFT;
+> +	unsigned long start, end;
+> +	struct kvm_gmem *gmem;
+> +	struct inode *inode;
+> +	struct file *file;
+> +
+> +	BUILD_BUG_ON(sizeof(gfn_t) != sizeof(slot->gmem.pgoff));
+> +
+> +	file = fget(fd);
+> +	if (!file)
+> +		return -EBADF;
+> +
+> +	if (file->f_op != &kvm_gmem_fops)
+> +		goto err;
+> +
+> +	gmem = file->private_data;
+> +	if (gmem->kvm != kvm)
+> +		goto err;
+> +
+> +	inode = file_inode(file);
+> +
+> +	if (offset < 0 || !PAGE_ALIGNED(offset))
+> +		return -EINVAL;
+
+Should also "goto err" here.
+
+> +
+> +	if (offset + size > i_size_read(inode))
+> +		goto err;
+> +
+> +	filemap_invalidate_lock(inode->i_mapping);
+> +
+> +	start = offset >> PAGE_SHIFT;
+> +	end = start + slot->npages;
+> +
+> +	if (!xa_empty(&gmem->bindings) &&
+> +	    xa_find(&gmem->bindings, &start, end - 1, XA_PRESENT)) {
+> +		filemap_invalidate_unlock(inode->i_mapping);
+> +		goto err;
+> +	}
+> +
+> +	/*
+> +	 * No synchronize_rcu() needed, any in-flight readers are guaranteed to
+> +	 * be see either a NULL file or this new file, no need for them to go
+> +	 * away.
+> +	 */
+> +	rcu_assign_pointer(slot->gmem.file, file);
+> +	slot->gmem.pgoff = start;
+> +
+> +	xa_store_range(&gmem->bindings, start, end - 1, slot, GFP_KERNEL);
+> +	filemap_invalidate_unlock(inode->i_mapping);
+> +
+> +	/*
+> +	 * Drop the reference to the file, even on success.  The file pins KVM,
+> +	 * not the other way 'round.  Active bindings are invalidated if the
+                             ^
+around?
+
+Thanks,
+Yilun
+
+> +	 * file is closed before memslots are destroyed.
+> +	 */
+> +	fput(file);
+> +	return 0;
+> +
+> +err:
+> +	fput(file);
+> +	return -EINVAL;
+> +}
 
 _______________________________________________
 linux-riscv mailing list
