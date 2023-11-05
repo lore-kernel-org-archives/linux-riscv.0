@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D386DC4332F
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Nov 2023 16:32:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08926C4167D
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Nov 2023 16:33:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RrPX8qTBlxqmwJpCOVI8J1z7qK5OpEBQPT4cAL7rD/k=; b=oAGPK32JY7G/Py
-	RAENavC4g4yi6ObyGBTkDVVrcGabrQAf+9k3ZsiaFa12oFu1ToDX45GKQNRIDSidXKyzeY6OyufJ8
-	s5TFPyMixXRZHB7MPwcH/CXEDwO6pYmLmOFqUvH5Ol5sXG6ItSgIhSAwUdI+Bl9iuYb6SsnViQYJW
-	sdfdqD6dOgMd0f9tgWPsHli09CXDzNUDaJnqPYjyNQ9Q4iSsyd4lyBmKPCZDRqD0Xh30wU110cYLr
-	LbfnlHnlqRzes9lMWDVk0irV9WMXBOkUGNkaWQPjwy6m4O0O6E7Nnpi7WoZfSNUGvQ4aUmnltnKzX
-	l8uBvPXDiUcXGWeU4n2g==;
+	List-Owner; bh=ZTT+cCEwZr+CoEFLFNU4LbFJjUBlhmPL6wvigg8fbUo=; b=fUSutiqWmQLXxc
+	NnuLtREGwp8ji83XA0YxjDORMTbfxz9jSP5dJc6JVFG0LAZKMAZGouN9UDgATgDZPG/hVmwJqDH6F
+	e5MBfuEt/fx5FoZXHl51207Hn2srAWd2knJGQ2tsvZ1TRUKgiPPhX+h7/bcxcLQqcRD+8htrJYkHR
+	P73kkwTdHEVC8jnEZwZBF+t6Rr5/Yj4AzU/D+X9Oe2xjcti9cWiW0/MjI44Uso4ijAIoHwbjJiuQc
+	SoNLpfYGjzBJYDz6+Zsz7QNCMKXUCRZW/U5myTL75V4zIiio2qNpJqc2ymPtpojnsf50u5jLvXAeu
+	7QH1tg3agTUNSbI59iNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qzg3Q-00FCm3-0J;
-	Sun, 05 Nov 2023 16:32:52 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qzg3v-00FDHH-26;
+	Sun, 05 Nov 2023 16:33:23 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qzg3M-00FChF-1Q
+	id 1qzg3o-00FD9z-0V
 	for linux-riscv@lists.infradead.org;
-	Sun, 05 Nov 2023 16:32:50 +0000
+	Sun, 05 Nov 2023 16:33:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1699201967;
+	s=mimecast20190719; t=1699201995;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=QDV7FR51iWOMltM/VmsXZPQKZgkpdKCmFVnuH3pv968=;
-	b=CqVD7AVoEwtSpw31Y1g0saKB9wlMFi2CPr/engVWEOrk0aqN9NgHw2Aial6YrREHyVCCWs
-	TZtGj3UCO1R6AFZPliKOcz6ObW48D/zwtgvYjt+7qN6IMUe6Cau+EicLzRVPgMywPyz1Ra
-	RS4HBpE/jlg+xNXOX7kzFyLuBqP2Fss=
-Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-219-nShYWNVxMUWCchNAK9cRGw-1; Sun,
- 05 Nov 2023 11:32:39 -0500
-X-MC-Unique: nShYWNVxMUWCchNAK9cRGw-1
+	bh=FUHANpSUCQq/Vn3VmA5evrMLSRbIjN8Q7uWLc36lk+E=;
+	b=CIE3hpQfq4plAj5hK27WTjhI776PTUjAmDLDjHWvcNsBYG3VwmPaDkcR4T7OyR6rIDS0uZ
+	RwBofpeD3cQLQQZWMqOqtUeNkQLKAnbKCzvhLEgsPXpjThM2pCtQv81c+aBsrvg8Ky9Gha
+	V2vAHe3PRzZFUqLMzh7Q+uNG+jH10lg=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-606-GPp6iyB1NIaokvN2T6Vd7g-1; Sun, 05 Nov 2023 11:33:12 -0500
+X-MC-Unique: GPp6iyB1NIaokvN2T6Vd7g-1
 Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5163538117F2;
-	Sun,  5 Nov 2023 16:32:37 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E3EE5185A782;
+	Sun,  5 Nov 2023 16:33:09 +0000 (UTC)
 Received: from avogadro.redhat.com (unknown [10.39.192.93])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 88C082166B26;
-	Sun,  5 Nov 2023 16:32:30 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 0D7222166B28;
+	Sun,  5 Nov 2023 16:33:01 +0000 (UTC)
 From: Paolo Bonzini <pbonzini@redhat.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Marc Zyngier <maz@kernel.org>,
@@ -97,16 +97,16 @@ Cc: kvm@vger.kernel.org,
 	Liam Merwick <liam.merwick@oracle.com>,
 	Isaku Yamahata <isaku.yamahata@gmail.com>,
 	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-Subject: [PATCH 14/34] fs: Rename anon_inode_getfile_secure() and anon_inode_getfd_secure()
-Date: Sun,  5 Nov 2023 17:30:17 +0100
-Message-ID: <20231105163040.14904-15-pbonzini@redhat.com>
+Subject: [PATCH 18/34] KVM: x86/mmu: Handle page fault for private memory
+Date: Sun,  5 Nov 2023 17:30:21 +0100
+Message-ID: <20231105163040.14904-19-pbonzini@redhat.com>
 In-Reply-To: <20231105163040.14904-1-pbonzini@redhat.com>
 References: <20231105163040.14904-1-pbonzini@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231105_083248_552274_C39DBB06 
-X-CRM114-Status: GOOD (  26.29  )
+X-CRM114-CacheID: sfid-20231105_083316_329475_131C55A4 
+X-CRM114-Status: GOOD (  25.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,215 +123,280 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The call to the inode_init_security_anon() LSM hook is not the sole
-reason to use anon_inode_getfile_secure() or anon_inode_getfd_secure().
-For example, the functions also allow one to create a file with non-zero
-size, without needing a full-blown filesystem.  In this case, you don't
-need a "secure" version, just unique inodes; the current name of the
-functions is confusing and does not explain well the difference with
-the more "standard" anon_inode_getfile() and anon_inode_getfd().
+From: Chao Peng <chao.p.peng@linux.intel.com>
 
-Of course, there is another side of the coin; neither io_uring nor
-userfaultfd strictly speaking need distinct inodes, and it is not
-that clear anymore that anon_inode_create_get{file,fd}() allow the LSM
-to intercept and block the inode's creation.  If one was so inclined,
-anon_inode_getfile_secure() and anon_inode_getfd_secure() could be kept,
-using the shared inode or a new one depending on CONFIG_SECURITY.
-However, this is probably overkill, and potentially a cause of bugs in
-different configurations.  Therefore, just add a comment to io_uring
-and userfaultfd explaining the choice of the function.
+Add support for resolving page faults on guest private memory for VMs
+that differentiate between "shared" and "private" memory.  For such VMs,
+KVM_MEM_PRIVATE memslots can include both fd-based private memory and
+hva-based shared memory, and KVM needs to map in the "correct" variant,
+i.e. KVM needs to map the gfn shared/private as appropriate based on the
+current state of the gfn's KVM_MEMORY_ATTRIBUTE_PRIVATE flag.
 
-While at it, remove the export for what is now anon_inode_create_getfd().
-There is no in-tree module that uses it, and the old name is gone anyway.
-If anybody actually needs the symbol, they can ask or they can just use
-anon_inode_create_getfile(), which will be exported very soon for use
-in KVM.
+For AMD's SEV-SNP and Intel's TDX, the guest effectively gets to request
+shared vs. private via a bit in the guest page tables, i.e. what the guest
+wants may conflict with the current memory attributes.  To support such
+"implicit" conversion requests, exit to user with KVM_EXIT_MEMORY_FAULT
+to forward the request to userspace.  Add a new flag for memory faults,
+KVM_MEMORY_EXIT_FLAG_PRIVATE, to communicate whether the guest wants to
+map memory as shared vs. private.
 
-Suggested-by: Christian Brauner <brauner@kernel.org>
+Like KVM_MEMORY_ATTRIBUTE_PRIVATE, use bit 3 for flagging private memory
+so that KVM can use bits 0-2 for capturing RWX behavior if/when userspace
+needs such information, e.g. a likely user of KVM_EXIT_MEMORY_FAULT is to
+exit on missing mappings when handling guest page fault VM-Exits.  In
+that case, userspace will want to know RWX information in order to
+correctly/precisely resolve the fault.
+
+Note, private memory *must* be backed by guest_memfd, i.e. shared mappings
+always come from the host userspace page tables, and private mappings
+always come from a guest_memfd instance.
+
+Co-developed-by: Yu Zhang <yu.c.zhang@linux.intel.com>
+Signed-off-by: Yu Zhang <yu.c.zhang@linux.intel.com>
+Signed-off-by: Chao Peng <chao.p.peng@linux.intel.com>
+Co-developed-by: Sean Christopherson <seanjc@google.com>
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+Reviewed-by: Fuad Tabba <tabba@google.com>
+Tested-by: Fuad Tabba <tabba@google.com>
+Message-Id: <20231027182217.3615211-21-seanjc@google.com>
 Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
 ---
- fs/anon_inodes.c            | 46 +++++++++++++++++++++++--------------
- fs/userfaultfd.c            |  5 ++--
- include/linux/anon_inodes.h |  4 ++--
- io_uring/io_uring.c         |  3 ++-
- 4 files changed, 36 insertions(+), 22 deletions(-)
+ Documentation/virt/kvm/api.rst  |   8 ++-
+ arch/x86/kvm/mmu/mmu.c          | 101 ++++++++++++++++++++++++++++++--
+ arch/x86/kvm/mmu/mmu_internal.h |   1 +
+ include/linux/kvm_host.h        |   8 ++-
+ include/uapi/linux/kvm.h        |   1 +
+ 5 files changed, 110 insertions(+), 9 deletions(-)
 
-diff --git a/fs/anon_inodes.c b/fs/anon_inodes.c
-index 24192a7667ed..3d4a27f8b4fe 100644
---- a/fs/anon_inodes.c
-+++ b/fs/anon_inodes.c
-@@ -79,7 +79,7 @@ static struct file *__anon_inode_getfile(const char *name,
- 					 const struct file_operations *fops,
- 					 void *priv, int flags,
- 					 const struct inode *context_inode,
--					 bool secure)
-+					 bool make_inode)
- {
- 	struct inode *inode;
- 	struct file *file;
-@@ -87,7 +87,7 @@ static struct file *__anon_inode_getfile(const char *name,
- 	if (fops->owner && !try_module_get(fops->owner))
- 		return ERR_PTR(-ENOENT);
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index 6d681f45969e..4a9a291380ad 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -6953,6 +6953,7 @@ spec refer, https://github.com/riscv/riscv-sbi-doc.
  
--	if (secure) {
-+	if (make_inode) {
- 		inode =	anon_inode_make_secure_inode(name, context_inode);
- 		if (IS_ERR(inode)) {
- 			file = ERR_CAST(inode);
-@@ -149,13 +149,10 @@ struct file *anon_inode_getfile(const char *name,
- EXPORT_SYMBOL_GPL(anon_inode_getfile);
+ 		/* KVM_EXIT_MEMORY_FAULT */
+ 		struct {
++  #define KVM_MEMORY_EXIT_FLAG_PRIVATE	(1ULL << 3)
+ 			__u64 flags;
+ 			__u64 gpa;
+ 			__u64 size;
+@@ -6961,8 +6962,11 @@ spec refer, https://github.com/riscv/riscv-sbi-doc.
+ KVM_EXIT_MEMORY_FAULT indicates the vCPU has encountered a memory fault that
+ could not be resolved by KVM.  The 'gpa' and 'size' (in bytes) describe the
+ guest physical address range [gpa, gpa + size) of the fault.  The 'flags' field
+-describes properties of the faulting access that are likely pertinent.
+-Currently, no flags are defined.
++describes properties of the faulting access that are likely pertinent:
++
++ - KVM_MEMORY_EXIT_FLAG_PRIVATE - When set, indicates the memory fault occurred
++   on a private memory access.  When clear, indicates the fault occurred on a
++   shared access.
  
- /**
-- * anon_inode_getfile_secure - Like anon_inode_getfile(), but creates a new
-+ * anon_inode_create_getfile - Like anon_inode_getfile(), but creates a new
-  *                             !S_PRIVATE anon inode rather than reuse the
-  *                             singleton anon inode and calls the
-- *                             inode_init_security_anon() LSM hook.  This
-- *                             allows for both the inode to have its own
-- *                             security context and for the LSM to enforce
-- *                             policy on the inode's creation.
-+ *                             inode_init_security_anon() LSM hook.
-  *
-  * @name:    [in]    name of the "class" of the new file
-  * @fops:    [in]    file operations for the new file
-@@ -164,11 +161,19 @@ EXPORT_SYMBOL_GPL(anon_inode_getfile);
-  * @context_inode:
-  *           [in]    the logical relationship with the new inode (optional)
-  *
-+ * Create a new anonymous inode and file pair.  This can be done for two
-+ * reasons:
-+ * - for the inode to have its own security context, so that LSMs can enforce
-+ *   policy on the inode's creation;
-+ * - if the caller needs a unique inode, for example in order to customize
-+ *   the size returned by fstat()
-+ *
-  * The LSM may use @context_inode in inode_init_security_anon(), but a
-- * reference to it is not held.  Returns the newly created file* or an error
-- * pointer.  See the anon_inode_getfile() documentation for more information.
-+ * reference to it is not held.
-+ *
-+ * Returns the newly created file* or an error pointer.
-  */
--struct file *anon_inode_getfile_secure(const char *name,
-+struct file *anon_inode_create_getfile(const char *name,
- 				       const struct file_operations *fops,
- 				       void *priv, int flags,
- 				       const struct inode *context_inode)
-@@ -181,7 +186,7 @@ static int __anon_inode_getfd(const char *name,
- 			      const struct file_operations *fops,
- 			      void *priv, int flags,
- 			      const struct inode *context_inode,
--			      bool secure)
-+			      bool make_inode)
- {
- 	int error, fd;
- 	struct file *file;
-@@ -192,7 +197,7 @@ static int __anon_inode_getfd(const char *name,
- 	fd = error;
- 
- 	file = __anon_inode_getfile(name, fops, priv, flags, context_inode,
--				    secure);
-+				    make_inode);
- 	if (IS_ERR(file)) {
- 		error = PTR_ERR(file);
- 		goto err_put_unused_fd;
-@@ -231,10 +236,9 @@ int anon_inode_getfd(const char *name, const struct file_operations *fops,
- EXPORT_SYMBOL_GPL(anon_inode_getfd);
- 
- /**
-- * anon_inode_getfd_secure - Like anon_inode_getfd(), but creates a new
-+ * anon_inode_create_getfd - Like anon_inode_getfd(), but creates a new
-  * !S_PRIVATE anon inode rather than reuse the singleton anon inode, and calls
-- * the inode_init_security_anon() LSM hook. This allows the inode to have its
-- * own security context and for a LSM to reject creation of the inode.
-+ * the inode_init_security_anon() LSM hook.
-  *
-  * @name:    [in]    name of the "class" of the new file
-  * @fops:    [in]    file operations for the new file
-@@ -243,16 +247,24 @@ EXPORT_SYMBOL_GPL(anon_inode_getfd);
-  * @context_inode:
-  *           [in]    the logical relationship with the new inode (optional)
-  *
-+ * Create a new anonymous inode and file pair.  This can be done for two
-+ * reasons:
-+ * - for the inode to have its own security context, so that LSMs can enforce
-+ *   policy on the inode's creation;
-+ * - if the caller needs a unique inode, for example in order to customize
-+ *   the size returned by fstat()
-+ *
-  * The LSM may use @context_inode in inode_init_security_anon(), but a
-  * reference to it is not held.
-+ *
-+ * Returns a newly created file descriptor or an error code.
-  */
--int anon_inode_getfd_secure(const char *name, const struct file_operations *fops,
-+int anon_inode_create_getfd(const char *name, const struct file_operations *fops,
- 			    void *priv, int flags,
- 			    const struct inode *context_inode)
- {
- 	return __anon_inode_getfd(name, fops, priv, flags, context_inode, true);
+ Note!  KVM_EXIT_MEMORY_FAULT is unique among all KVM exit reasons in that it
+ accompanies a return code of '-1', not '0'!  errno will always be set to EFAULT
+diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+index f5c6b0643645..754a5aaebee5 100644
+--- a/arch/x86/kvm/mmu/mmu.c
++++ b/arch/x86/kvm/mmu/mmu.c
+@@ -3147,9 +3147,9 @@ static int host_pfn_mapping_level(struct kvm *kvm, gfn_t gfn,
+ 	return level;
  }
--EXPORT_SYMBOL_GPL(anon_inode_getfd_secure);
  
- static int __init anon_inode_init(void)
+-int kvm_mmu_max_mapping_level(struct kvm *kvm,
+-			      const struct kvm_memory_slot *slot, gfn_t gfn,
+-			      int max_level)
++static int __kvm_mmu_max_mapping_level(struct kvm *kvm,
++				       const struct kvm_memory_slot *slot,
++				       gfn_t gfn, int max_level, bool is_private)
  {
-diff --git a/fs/userfaultfd.c b/fs/userfaultfd.c
-index 56eaae9dac1a..7a1cf8bab5eb 100644
---- a/fs/userfaultfd.c
-+++ b/fs/userfaultfd.c
-@@ -1033,7 +1033,7 @@ static int resolve_userfault_fork(struct userfaultfd_ctx *new,
+ 	struct kvm_lpage_info *linfo;
+ 	int host_level;
+@@ -3161,6 +3161,9 @@ int kvm_mmu_max_mapping_level(struct kvm *kvm,
+ 			break;
+ 	}
+ 
++	if (is_private)
++		return max_level;
++
+ 	if (max_level == PG_LEVEL_4K)
+ 		return PG_LEVEL_4K;
+ 
+@@ -3168,6 +3171,16 @@ int kvm_mmu_max_mapping_level(struct kvm *kvm,
+ 	return min(host_level, max_level);
+ }
+ 
++int kvm_mmu_max_mapping_level(struct kvm *kvm,
++			      const struct kvm_memory_slot *slot, gfn_t gfn,
++			      int max_level)
++{
++	bool is_private = kvm_slot_can_be_private(slot) &&
++			  kvm_mem_is_private(kvm, gfn);
++
++	return __kvm_mmu_max_mapping_level(kvm, slot, gfn, max_level, is_private);
++}
++
+ void kvm_mmu_hugepage_adjust(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
  {
- 	int fd;
+ 	struct kvm_memory_slot *slot = fault->slot;
+@@ -3188,8 +3201,9 @@ void kvm_mmu_hugepage_adjust(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault
+ 	 * Enforce the iTLB multihit workaround after capturing the requested
+ 	 * level, which will be used to do precise, accurate accounting.
+ 	 */
+-	fault->req_level = kvm_mmu_max_mapping_level(vcpu->kvm, slot,
+-						     fault->gfn, fault->max_level);
++	fault->req_level = __kvm_mmu_max_mapping_level(vcpu->kvm, slot,
++						       fault->gfn, fault->max_level,
++						       fault->is_private);
+ 	if (fault->req_level == PG_LEVEL_4K || fault->huge_page_disallowed)
+ 		return;
  
--	fd = anon_inode_getfd_secure("[userfaultfd]", &userfaultfd_fops, new,
-+	fd = anon_inode_create_getfd("[userfaultfd]", &userfaultfd_fops, new,
- 			O_RDONLY | (new->flags & UFFD_SHARED_FCNTL_FLAGS), inode);
- 	if (fd < 0)
- 		return fd;
-@@ -2205,7 +2205,8 @@ static int new_userfaultfd(int flags)
- 	/* prevent the mm struct to be freed */
- 	mmgrab(ctx->mm);
+@@ -4269,6 +4283,55 @@ void kvm_arch_async_page_ready(struct kvm_vcpu *vcpu, struct kvm_async_pf *work)
+ 	kvm_mmu_do_page_fault(vcpu, work->cr2_or_gpa, 0, true, NULL);
+ }
  
--	fd = anon_inode_getfd_secure("[userfaultfd]", &userfaultfd_fops, ctx,
-+	/* Create a new inode so that the LSM can block the creation.  */
-+	fd = anon_inode_create_getfd("[userfaultfd]", &userfaultfd_fops, ctx,
- 			O_RDONLY | (flags & UFFD_SHARED_FCNTL_FLAGS), NULL);
- 	if (fd < 0) {
- 		mmdrop(ctx->mm);
-diff --git a/include/linux/anon_inodes.h b/include/linux/anon_inodes.h
-index 5deaddbd7927..93a5f16d03f3 100644
---- a/include/linux/anon_inodes.h
-+++ b/include/linux/anon_inodes.h
-@@ -15,13 +15,13 @@ struct inode;
- struct file *anon_inode_getfile(const char *name,
- 				const struct file_operations *fops,
- 				void *priv, int flags);
--struct file *anon_inode_getfile_secure(const char *name,
-+struct file *anon_inode_create_getfile(const char *name,
- 				       const struct file_operations *fops,
- 				       void *priv, int flags,
- 				       const struct inode *context_inode);
- int anon_inode_getfd(const char *name, const struct file_operations *fops,
- 		     void *priv, int flags);
--int anon_inode_getfd_secure(const char *name,
-+int anon_inode_create_getfd(const char *name,
- 			    const struct file_operations *fops,
- 			    void *priv, int flags,
- 			    const struct inode *context_inode);
-diff --git a/io_uring/io_uring.c b/io_uring/io_uring.c
-index 8d1bc6cdfe71..22b98f47bb28 100644
---- a/io_uring/io_uring.c
-+++ b/io_uring/io_uring.c
-@@ -3835,7 +3835,8 @@ static struct file *io_uring_get_file(struct io_ring_ctx *ctx)
- 		return ERR_PTR(ret);
- #endif
++static inline u8 kvm_max_level_for_order(int order)
++{
++	BUILD_BUG_ON(KVM_MAX_HUGEPAGE_LEVEL > PG_LEVEL_1G);
++
++	KVM_MMU_WARN_ON(order != KVM_HPAGE_GFN_SHIFT(PG_LEVEL_1G) &&
++			order != KVM_HPAGE_GFN_SHIFT(PG_LEVEL_2M) &&
++			order != KVM_HPAGE_GFN_SHIFT(PG_LEVEL_4K));
++
++	if (order >= KVM_HPAGE_GFN_SHIFT(PG_LEVEL_1G))
++		return PG_LEVEL_1G;
++
++	if (order >= KVM_HPAGE_GFN_SHIFT(PG_LEVEL_2M))
++		return PG_LEVEL_2M;
++
++	return PG_LEVEL_4K;
++}
++
++static void kvm_mmu_prepare_memory_fault_exit(struct kvm_vcpu *vcpu,
++					      struct kvm_page_fault *fault)
++{
++	kvm_prepare_memory_fault_exit(vcpu, fault->gfn << PAGE_SHIFT,
++				      PAGE_SIZE, fault->write, fault->exec,
++				      fault->is_private);
++}
++
++static int kvm_faultin_pfn_private(struct kvm_vcpu *vcpu,
++				   struct kvm_page_fault *fault)
++{
++	int max_order, r;
++
++	if (!kvm_slot_can_be_private(fault->slot)) {
++		kvm_mmu_prepare_memory_fault_exit(vcpu, fault);
++		return -EFAULT;
++	}
++
++	r = kvm_gmem_get_pfn(vcpu->kvm, fault->slot, fault->gfn, &fault->pfn,
++			     &max_order);
++	if (r) {
++		kvm_mmu_prepare_memory_fault_exit(vcpu, fault);
++		return r;
++	}
++
++	fault->max_level = min(kvm_max_level_for_order(max_order),
++			       fault->max_level);
++	fault->map_writable = !(fault->slot->flags & KVM_MEM_READONLY);
++
++	return RET_PF_CONTINUE;
++}
++
+ static int __kvm_faultin_pfn(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
+ {
+ 	struct kvm_memory_slot *slot = fault->slot;
+@@ -4301,6 +4364,14 @@ static int __kvm_faultin_pfn(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault
+ 			return RET_PF_EMULATE;
+ 	}
  
--	file = anon_inode_getfile_secure("[io_uring]", &io_uring_fops, ctx,
-+	/* Create a new inode so that the LSM can block the creation.  */
-+	file = anon_inode_create_getfile("[io_uring]", &io_uring_fops, ctx,
- 					 O_RDWR | O_CLOEXEC, NULL);
- #if defined(CONFIG_UNIX)
- 	if (IS_ERR(file)) {
++	if (fault->is_private != kvm_mem_is_private(vcpu->kvm, fault->gfn)) {
++		kvm_mmu_prepare_memory_fault_exit(vcpu, fault);
++		return -EFAULT;
++	}
++
++	if (fault->is_private)
++		return kvm_faultin_pfn_private(vcpu, fault);
++
+ 	async = false;
+ 	fault->pfn = __gfn_to_pfn_memslot(slot, fault->gfn, false, false, &async,
+ 					  fault->write, &fault->map_writable,
+@@ -7188,6 +7259,26 @@ void kvm_mmu_pre_destroy_vm(struct kvm *kvm)
+ }
+ 
+ #ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
++bool kvm_arch_pre_set_memory_attributes(struct kvm *kvm,
++					struct kvm_gfn_range *range)
++{
++	/*
++	 * Zap SPTEs even if the slot can't be mapped PRIVATE.  KVM x86 only
++	 * supports KVM_MEMORY_ATTRIBUTE_PRIVATE, and so it *seems* like KVM
++	 * can simply ignore such slots.  But if userspace is making memory
++	 * PRIVATE, then KVM must prevent the guest from accessing the memory
++	 * as shared.  And if userspace is making memory SHARED and this point
++	 * is reached, then at least one page within the range was previously
++	 * PRIVATE, i.e. the slot's possible hugepage ranges are changing.
++	 * Zapping SPTEs in this case ensures KVM will reassess whether or not
++	 * a hugepage can be used for affected ranges.
++	 */
++	if (WARN_ON_ONCE(!kvm_arch_has_private_mem(kvm)))
++		return false;
++
++	return kvm_unmap_gfn_range(kvm, range);
++}
++
+ static bool hugepage_test_mixed(struct kvm_memory_slot *slot, gfn_t gfn,
+ 				int level)
+ {
+diff --git a/arch/x86/kvm/mmu/mmu_internal.h b/arch/x86/kvm/mmu/mmu_internal.h
+index decc1f153669..86c7cb692786 100644
+--- a/arch/x86/kvm/mmu/mmu_internal.h
++++ b/arch/x86/kvm/mmu/mmu_internal.h
+@@ -201,6 +201,7 @@ struct kvm_page_fault {
+ 
+ 	/* Derived from mmu and global state.  */
+ 	const bool is_tdp;
++	const bool is_private;
+ 	const bool nx_huge_page_workaround_enabled;
+ 
+ 	/*
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index a6de526c0426..67dfd4d79529 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -2357,14 +2357,18 @@ static inline void kvm_account_pgtable_pages(void *virt, int nr)
+ #define  KVM_DIRTY_RING_MAX_ENTRIES  65536
+ 
+ static inline void kvm_prepare_memory_fault_exit(struct kvm_vcpu *vcpu,
+-						 gpa_t gpa, gpa_t size)
++						 gpa_t gpa, gpa_t size,
++						 bool is_write, bool is_exec,
++						 bool is_private)
+ {
+ 	vcpu->run->exit_reason = KVM_EXIT_MEMORY_FAULT;
+ 	vcpu->run->memory_fault.gpa = gpa;
+ 	vcpu->run->memory_fault.size = size;
+ 
+-	/* Flags are not (yet) defined or communicated to userspace. */
++	/* RWX flags are not (yet) defined or communicated to userspace. */
+ 	vcpu->run->memory_fault.flags = 0;
++	if (is_private)
++		vcpu->run->memory_fault.flags |= KVM_MEMORY_EXIT_FLAG_PRIVATE;
+ }
+ 
+ #ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
+diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+index 2802d10aa88c..8eb10f560c69 100644
+--- a/include/uapi/linux/kvm.h
++++ b/include/uapi/linux/kvm.h
+@@ -535,6 +535,7 @@ struct kvm_run {
+ 		} notify;
+ 		/* KVM_EXIT_MEMORY_FAULT */
+ 		struct {
++#define KVM_MEMORY_EXIT_FLAG_PRIVATE	(1ULL << 3)
+ 			__u64 flags;
+ 			__u64 gpa;
+ 			__u64 size;
 -- 
 2.39.1
 
