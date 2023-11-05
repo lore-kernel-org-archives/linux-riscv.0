@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DFD1C4332F
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Nov 2023 16:35:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC7EBC4167D
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Nov 2023 16:35:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OlK+25bMQJN81nP3O1I8u08pNnGDJsdY+0tNN2+gzi8=; b=1j94HnBKmuC8dK
-	upkCach5YWC8ump1QHUAodsWF150TJNGT8XRCsPGA2PzsDXhV0fw2KtHmgkdhgQfg4CRAv9CQO2hY
-	XGvvCdf0qfoiP1sh0EWQ/CPm3i01DsNNwBDzyoI/llfxCb2Rqc16JQjb/W5IqC+1xOyxuAfwNc5HB
-	sImdtX2tizxNts73KSaVZk+qxzP2kX7T+maVcxf6CLjJ2fzGA8Hm4jXCOuABVHcNyHS4e3QRk9IrU
-	sfgRS/QYViUwWqmo1DO5yBUzC/yzMypM+LO7FHws5OhPrDmCDKoKWQUVhhrA0jv1CrS1NBYx+ewfe
-	NLtZR0WA9ZZK5BrU8i+Q==;
+	List-Owner; bh=/imJ8CTPFzRRIOaHnZ3ZZHy+N9ElkW6vf3K9ydHBLNs=; b=aq+8GPw85j5W7S
+	zP1VyW2mwnrKzC6BZuDgb2uXwiiMSRUromD7jcAn3qzTmNFmbLcVR5xjedW8s5QPZxFv0fCaXSMyB
+	37KeDrVNkKnpvNhpVGwf0+ZDidptM/iD5uRSMlyQ4AaDzgmldOGPoLIsW7Alxik+lrUPnHBz8PJxl
+	VU84o2TQXJytuO2PgapGfFN52wqjcR6dlQD6s7bL9v2ES/1GQvJ8AWSnfZwZ0XJB9iakCfj9yNEhg
+	L8CIthS0ad7Jp7jDZC2YxDf1tM7FcigOKtV1OSsk6m56oBxHpTh1d7H+kaqHgiMHai70fbRq71rCY
+	gW+DnHp7fzOXqXFjjCgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qzg6B-00FFol-1j;
-	Sun, 05 Nov 2023 16:35:43 +0000
+	id 1qzg6I-00FFwn-0R;
+	Sun, 05 Nov 2023 16:35:50 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qzg5r-00FFSP-0N
+	id 1qzg5x-00FFZd-15
 	for linux-riscv@bombadil.infradead.org;
-	Sun, 05 Nov 2023 16:35:23 +0000
+	Sun, 05 Nov 2023 16:35:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=C3cPw9fVJCr14nLNRz67sgxMTBasbZijMDuS/BBzhTY=; b=WXR5QtJ75TwpxyULQWzlBYXOV6
-	SGLjX1Li7hGd1LPaQA/ivd9fpOGZkNnXO93Q1QJhd2OzpK9YjEdKHOX+wrum7v3RCkdjiETXJW96Q
-	yd2fbRSq8exmZeeQRnFNoe1D/SAsuYwSQhYlPQwaT8uj0v4HYm0+2dupEl4ZPLMd3J3zb2cEN+djR
-	UyIzQpTBIXMtg+OgpV9j0T2AoIQJ5vRuPimd8u2YV+EKJNWoTQqJXB594YVduSCY9sEqdeUGT3gvM
-	yYfaDu5ZpObwtYFgj9uyeU0k+5/eR3l1Dce2SdSlYlBQPCRUFc4AbLCiXSyctUDR3ScJM0d8xiHg7
-	ENajw5Tg==;
+	bh=JI038vGa+9l4j36u3/UOgkDOr4COidrQJinDT6XHM/0=; b=SmxZ9VpaVXMyPI40EfimfGPsvE
+	VLF7+5dItt2IYBdk4L+8qUw1WMpbVqNZbEdDUl7KD7Ajsj0/GAezyGPOvtlynmBPIZEM/X0BCpD16
+	SxRK30K+8h/bs2liEbT2zFNanB4HyftLTIqAJ4FQwNfHTAmNFg2dfYnE2G90Pnu7BL6cUmG8gFQ5F
+	dI5DSCNUWtYHxgCGoUFWbphFYGGYFPiYUPVZdlZs2U95sZuGCpaJuLNyfFQDFZ+f2K8svlZ16gdgo
+	qt2dIFUv6Iag27xNsjbYnbz57kbG7HQ0EhuldKtVd7R/HBbuMTSkqdeX38MyfwaMZYPlSyesxSlDq
+	7C1d3zYw==;
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qzg5m-009drK-1w
+	id 1qzg5s-009dtw-1u
 	for linux-riscv@lists.infradead.org;
-	Sun, 05 Nov 2023 16:35:21 +0000
+	Sun, 05 Nov 2023 16:35:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1699202117;
+	s=mimecast20190719; t=1699202122;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=C3cPw9fVJCr14nLNRz67sgxMTBasbZijMDuS/BBzhTY=;
-	b=OAsiww1bhXdHIKwXq3GS2SM8nu16Zcnfh7Yx+3/zITveFrHmlH6lLx+7YXKMHePZsw6xI2
-	UTY+htrmbHlcXWuf/kBFOJKmcIIHhmgFOXC6gUpLD7Lyn8JUnSJ0+Zf4ZAJe7RqnYFDq6P
-	lOXBa5tPdFC+9Kkd/K40R+eMfKtKGKM=
+	bh=JI038vGa+9l4j36u3/UOgkDOr4COidrQJinDT6XHM/0=;
+	b=K5S88On0oHV0S9YMAUsKZ9e6q9JoSJc5u1LciseRe/OLTiY7cCMfg1nzAHi8+rHPPczZUq
+	Smd1sTx52CMr0wPBSL/utgQL99W1bf/tYJYcKTI9wbxM5GFeZRpyX+djlDw/ifuXz4+piX
+	EG5DktbYoDyBwNTModE3VJx+IJOn5RI=
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1699202117;
+	s=mimecast20190719; t=1699202123;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=C3cPw9fVJCr14nLNRz67sgxMTBasbZijMDuS/BBzhTY=;
-	b=OAsiww1bhXdHIKwXq3GS2SM8nu16Zcnfh7Yx+3/zITveFrHmlH6lLx+7YXKMHePZsw6xI2
-	UTY+htrmbHlcXWuf/kBFOJKmcIIHhmgFOXC6gUpLD7Lyn8JUnSJ0+Zf4ZAJe7RqnYFDq6P
-	lOXBa5tPdFC+9Kkd/K40R+eMfKtKGKM=
+	bh=JI038vGa+9l4j36u3/UOgkDOr4COidrQJinDT6XHM/0=;
+	b=Rm0I2MdZ3MEezwszd3nCiwXIO+cetEdAEwoTFBVLHa8vcKDkT6n1CIEK3glwhfOUx1Xg89
+	XLUjZH9HxbomzapE5UbHbyWp4Z1lCPrGttZkWWnYYVue0kpXXV5LvSknsV2s/OvuTgOG5D
+	XsxftzrzHl9LUwH/4A4YhmX+yC9+2t0=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-689-u2wPgqfeNgKSVK3J8tJjNw-1; Sun, 05 Nov 2023 11:35:12 -0500
-X-MC-Unique: u2wPgqfeNgKSVK3J8tJjNw-1
+ us-mta-299-4FlDTlVyN5-dKH0IlJkdsg-1; Sun, 05 Nov 2023 11:35:19 -0500
+X-MC-Unique: 4FlDTlVyN5-dKH0IlJkdsg-1
 Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CF79D80C344;
-	Sun,  5 Nov 2023 16:35:10 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id DD3E7101A52D;
+	Sun,  5 Nov 2023 16:35:17 +0000 (UTC)
 Received: from avogadro.redhat.com (unknown [10.39.192.93])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 101EF2166B26;
-	Sun,  5 Nov 2023 16:35:03 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 2596C2166B26;
+	Sun,  5 Nov 2023 16:35:11 +0000 (UTC)
 From: Paolo Bonzini <pbonzini@redhat.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Marc Zyngier <maz@kernel.org>,
@@ -122,16 +122,16 @@ Cc: kvm@vger.kernel.org,
 	Liam Merwick <liam.merwick@oracle.com>,
 	Isaku Yamahata <isaku.yamahata@gmail.com>,
 	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-Subject: [PATCH 34/34] KVM: selftests: Add a memory region subtest to validate invalid flags
-Date: Sun,  5 Nov 2023 17:30:37 +0100
-Message-ID: <20231105163040.14904-35-pbonzini@redhat.com>
+Subject: [PATCH 35/34] KVM: Prepare for handling only shared mappings in mmu_notifier events
+Date: Sun,  5 Nov 2023 17:30:38 +0100
+Message-ID: <20231105163040.14904-36-pbonzini@redhat.com>
 In-Reply-To: <20231105163040.14904-1-pbonzini@redhat.com>
 References: <20231105163040.14904-1-pbonzini@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231105_163519_154949_849B1044 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20231105_163524_891955_37B53EE4 
+X-CRM114-Status: GOOD (  13.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,84 +150,72 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Sean Christopherson <seanjc@google.com>
 
-Add a subtest to set_memory_region_test to verify that KVM rejects invalid
-flags and combinations with -EINVAL.  KVM might or might not fail with
-EINVAL anyways, but we can at least try.
+Add flags to "struct kvm_gfn_range" to let notifier events target only
+shared and only private mappings, and write up the existing mmu_notifier
+events to be shared-only (private memory is never associated with a
+userspace virtual address, i.e. can't be reached via mmu_notifiers).
 
+Add two flags so that KVM can handle the three possibilities (shared,
+private, and shared+private) without needing something like a tri-state
+enum.
+
+Link: https://lore.kernel.org/all/ZJX0hk+KpQP0KUyB@google.com
 Signed-off-by: Sean Christopherson <seanjc@google.com>
-Message-Id: <20231031002049.3915752-1-seanjc@google.com>
+Message-Id: <20231027182217.3615211-13-seanjc@google.com>
 Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
 ---
- .../selftests/kvm/set_memory_region_test.c    | 49 +++++++++++++++++++
- 1 file changed, 49 insertions(+)
+ include/linux/kvm_host.h |  2 ++
+ virt/kvm/kvm_main.c      | 17 +++++++++++++++++
+ 2 files changed, 19 insertions(+)
 
-diff --git a/tools/testing/selftests/kvm/set_memory_region_test.c b/tools/testing/selftests/kvm/set_memory_region_test.c
-index 1891774eb6d4..343e807043e1 100644
---- a/tools/testing/selftests/kvm/set_memory_region_test.c
-+++ b/tools/testing/selftests/kvm/set_memory_region_test.c
-@@ -326,6 +326,53 @@ static void test_zero_memory_regions(void)
- }
- #endif /* __x86_64__ */
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 3ebc6912c54a..4d5d139b0bde 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -264,6 +264,8 @@ struct kvm_gfn_range {
+ 	gfn_t start;
+ 	gfn_t end;
+ 	union kvm_mmu_notifier_arg arg;
++	bool only_private;
++	bool only_shared;
+ 	bool may_block;
+ };
+ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range);
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 8758cb799e18..9170a61ea99f 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -635,6 +635,13 @@ static __always_inline kvm_mn_ret_t __kvm_handle_hva_range(struct kvm *kvm,
+ 			 * the second or later invocation of the handler).
+ 			 */
+ 			gfn_range.arg = range->arg;
++
++			/*
++			 * HVA-based notifications provide a userspace address,
++			 * and as such are only relevant for shared mappings.
++			 */
++			gfn_range.only_private = false;
++			gfn_range.only_shared = true;
+ 			gfn_range.may_block = range->may_block;
  
-+static void test_invalid_memory_region_flags(void)
-+{
-+	uint32_t supported_flags = KVM_MEM_LOG_DIRTY_PAGES;
-+	const uint32_t v2_only_flags = KVM_MEM_GUEST_MEMFD;
-+	struct kvm_vm *vm;
-+	int r, i;
-+
-+#ifdef __x86_64__
-+	supported_flags |= KVM_MEM_READONLY;
-+
-+	if (kvm_check_cap(KVM_CAP_VM_TYPES) & BIT(KVM_X86_SW_PROTECTED_VM))
-+		vm = vm_create_barebones_protected_vm();
-+	else
-+#endif
-+		vm = vm_create_barebones();
-+
-+	if (kvm_check_cap(KVM_CAP_MEMORY_ATTRIBUTES) & KVM_MEMORY_ATTRIBUTE_PRIVATE)
-+		supported_flags |= KVM_MEM_GUEST_MEMFD;
-+
-+	for (i = 0; i < 32; i++) {
-+		if ((supported_flags & BIT(i)) && !(v2_only_flags & BIT(i)))
-+			continue;
-+
-+		r = __vm_set_user_memory_region(vm, MEM_REGION_SLOT, BIT(i),
-+						MEM_REGION_GPA, MEM_REGION_SIZE, NULL);
-+
-+		TEST_ASSERT(r && errno == EINVAL,
-+			    "KVM_SET_USER_MEMORY_REGION should have failed on v2 only flag 0x%lx", BIT(i));
-+
-+		if (supported_flags & BIT(i))
-+			continue;
-+
-+		r = __vm_set_user_memory_region2(vm, MEM_REGION_SLOT, BIT(i),
-+						 MEM_REGION_GPA, MEM_REGION_SIZE, NULL, 0, 0);
-+		TEST_ASSERT(r && errno == EINVAL,
-+			    "KVM_SET_USER_MEMORY_REGION2 should have failed on unsupported flag 0x%lx", BIT(i));
-+	}
-+
-+	if (supported_flags & KVM_MEM_GUEST_MEMFD) {
-+		r = __vm_set_user_memory_region2(vm, MEM_REGION_SLOT,
-+						 KVM_MEM_LOG_DIRTY_PAGES | KVM_MEM_GUEST_MEMFD,
-+						 MEM_REGION_GPA, MEM_REGION_SIZE, NULL, 0, 0);
-+		TEST_ASSERT(r && errno == EINVAL,
-+			    "KVM_SET_USER_MEMORY_REGION2 should have failed, dirty logging private memory is unsupported");
-+	}
-+}
-+
- /*
-  * Test it can be added memory slots up to KVM_CAP_NR_MEMSLOTS, then any
-  * tentative to add further slots should fail.
-@@ -491,6 +538,8 @@ int main(int argc, char *argv[])
- 	test_zero_memory_regions();
- #endif
+ 			/*
+@@ -2493,6 +2500,16 @@ static __always_inline void kvm_handle_gfn_range(struct kvm *kvm,
+ 	gfn_range.arg = range->arg;
+ 	gfn_range.may_block = range->may_block;
  
-+	test_invalid_memory_region_flags();
++	/*
++	 * If/when KVM supports more attributes beyond private .vs shared, this
++	 * _could_ set only_{private,shared} appropriately if the entire target
++	 * range already has the desired private vs. shared state (it's unclear
++	 * if that is a net win).  For now, KVM reaches this point if and only
++	 * if the private flag is being toggled, i.e. all mappings are in play.
++	 */
++	gfn_range.only_private = false;
++	gfn_range.only_shared = false;
 +
- 	test_add_max_memory_regions();
+ 	for (i = 0; i < kvm_arch_nr_memslot_as_ids(kvm); i++) {
+ 		slots = __kvm_memslots(kvm, i);
  
- 	if (kvm_has_cap(KVM_CAP_GUEST_MEMFD) &&
 -- 
 2.39.1
 
