@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A852CC4167D
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Nov 2023 16:31:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC56C4167B
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Nov 2023 16:31:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Mw9PgZywvZB+uzpSkXZGjlpw6jboo7VE/NJObOP0bGM=; b=F9I9h6cxLcBLrR
-	oww+sLIJA/kO9QVNFrY4Rz4WNdRyH8c5m5UInzD10wgewq3dL78SnPe4L7LeauzuYGVbiZY6Vv2je
-	x9ACEymurfEIfUkUicy+72/xm2t7OvhTT81Y6/Pq9+NdttSPVMif24+4V9meKpKFCHu+/bwBcc1tW
-	Jrr+k3Jdalrqpf7rDxieebVfpy4VMtfdI1rKH0+gzkSYG88W8kdBKwTR4+C8qmdfQqtm29d2AxTwK
-	wpywxrmi7pOPF6UF6lB6eleg97/PzUWoDDJ2hJkhwf479gqCcPiR09MwD90u4tKWh9WnRebXk1Kd3
-	ggeeMESb+aWY2cGAQMFA==;
+	List-Owner; bh=IAuTmpdpyIAFFaVPxruPqbKXG754xLusUukpdXgJD7Q=; b=HkzmtFdnb1uQkx
+	slritNI3j3VIbr7Oe3ASMH6X1xNTTAaoYcHc4o44aYgAjCgqdFhHZ7KWWb1A+ApTDS53j3n4/sb7T
+	J9irw9pQowX+Gtmuhatg9uwaaPvqA8SDu+uu+3MJoY3LT03hVz4LTh7Pz7HWkAwAaRHGHYv5dSetY
+	8PxASkYpoBYCApKRg7go34y3wuItT38fUvQlZictUgZ8ndJhbpsSUmZBuhMiSrF5ZWOQMQPNJyGPf
+	GCVmIQU4/HTEcWrl9hyqOY5NAS97qB/3EohNwDmfLtiqLZaIEwdoS5T/k7qwyS7xToLS8obbYNiL8
+	EclXvxXXyAPwENmaTDGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qzg2C-00FBVE-0y;
-	Sun, 05 Nov 2023 16:31:36 +0000
+	id 1qzg2L-00FBfB-0J;
+	Sun, 05 Nov 2023 16:31:45 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qzg29-00FBRc-09
+	id 1qzg2G-00FBZZ-2o
 	for linux-riscv@lists.infradead.org;
-	Sun, 05 Nov 2023 16:31:34 +0000
+	Sun, 05 Nov 2023 16:31:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1699201892;
+	s=mimecast20190719; t=1699201900;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=DWUecQBqSYxsthfLu6yki5WSdxeUb1n6BavJ65xrvCw=;
-	b=VJ+gfaoToO4dac86IkDJqnU/7LhVGNtgiQYtmkhASS3yaW2WTFci0hsZwnzB9POW0BPjKE
-	sq3dotzFERBx2phlFLS0wfIfHDp3FzUlrt9eptuOEeDvw07Xg8I8q+yfQDnnalu93zSfD2
-	cc7UFq+EJs4UAoxhIMAvgWZMSsNtFvE=
-Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-670-AWEpPfAoPNOq6EpWV5eR7w-1; Sun,
- 05 Nov 2023 11:31:28 -0500
-X-MC-Unique: AWEpPfAoPNOq6EpWV5eR7w-1
+	bh=Wy7aPpHLtWOGAPHruBeDz3atnMm25qsUem0Te4OsDCw=;
+	b=U4I8IYh0Z9Ny1I2oBd6+a50l9gMziqH8eQf0QNBD1xhqXnPQCR6T0zlCWyZG+WLiEJOZbk
+	EyIbflqjGLt2Myg2TdY2pVbN2iz0TlC3vX4REghGVkJ/bBjfdgrpG0n4EVNN+cdkLalH+Z
+	1kNZrCsDdfDdY93g5Cak1+HFY5OKqXE=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-22-Q5mEPktMNSW-r_iLFNaPsQ-1; Sun, 05 Nov 2023 11:31:35 -0500
+X-MC-Unique: Q5mEPktMNSW-r_iLFNaPsQ-1
 Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4769138117F2;
-	Sun,  5 Nov 2023 16:31:26 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5395580B639;
+	Sun,  5 Nov 2023 16:31:33 +0000 (UTC)
 Received: from avogadro.redhat.com (unknown [10.39.192.93])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 8B09E2166B26;
-	Sun,  5 Nov 2023 16:31:19 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 92C8D2166B26;
+	Sun,  5 Nov 2023 16:31:26 +0000 (UTC)
 From: Paolo Bonzini <pbonzini@redhat.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Marc Zyngier <maz@kernel.org>,
@@ -97,16 +97,16 @@ Cc: kvm@vger.kernel.org,
 	Liam Merwick <liam.merwick@oracle.com>,
 	Isaku Yamahata <isaku.yamahata@gmail.com>,
 	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-Subject: [PATCH 05/34] KVM: PPC: Drop dead code related to KVM_ARCH_WANT_MMU_NOTIFIER
-Date: Sun,  5 Nov 2023 17:30:08 +0100
-Message-ID: <20231105163040.14904-6-pbonzini@redhat.com>
+Subject: [PATCH 06/34] KVM: PPC: Return '1' unconditionally for KVM_CAP_SYNC_MMU
+Date: Sun,  5 Nov 2023 17:30:09 +0100
+Message-ID: <20231105163040.14904-7-pbonzini@redhat.com>
 In-Reply-To: <20231105163040.14904-1-pbonzini@redhat.com>
 References: <20231105163040.14904-1-pbonzini@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231105_083133_161927_CC2227F6 
-X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-CacheID: sfid-20231105_083141_003029_E5105BE5 
+X-CRM114-Status: UNSURE (   8.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -126,55 +126,39 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Sean Christopherson <seanjc@google.com>
 
-Assert that both KVM_ARCH_WANT_MMU_NOTIFIER and CONFIG_MMU_NOTIFIER are
-defined when KVM is enabled, and return '1' unconditionally for the
-CONFIG_KVM_BOOK3S_HV_POSSIBLE=n path.  All flavors of PPC support for KVM
-select MMU_NOTIFIER, and KVM_ARCH_WANT_MMU_NOTIFIER is unconditionally
-defined by arch/powerpc/include/asm/kvm_host.h.
+Advertise that KVM's MMU is synchronized with the primary MMU for all
+flavors of PPC KVM support, i.e. advertise that the MMU is synchronized
+when CONFIG_KVM_BOOK3S_HV_POSSIBLE=y but the VM is not using hypervisor
+mode (a.k.a. PR VMs).  PR VMs, via kvm_unmap_gfn_range_pr(), do the right
+thing for mmu_notifier invalidation events, and more tellingly, KVM
+returns '1' for KVM_CAP_SYNC_MMU when CONFIG_KVM_BOOK3S_HV_POSSIBLE=n
+and CONFIG_KVM_BOOK3S_PR_POSSIBLE=y, i.e. KVM already advertises a
+synchronized MMU for PR VMs, just not when CONFIG_KVM_BOOK3S_HV_POSSIBLE=y.
 
-Effectively dropping use of KVM_ARCH_WANT_MMU_NOTIFIER will simplify a
-future cleanup to turn KVM_ARCH_WANT_MMU_NOTIFIER into a Kconfig, i.e.
-will allow combining all of the
-
-  #if defined(CONFIG_MMU_NOTIFIER) && defined(KVM_ARCH_WANT_MMU_NOTIFIER)
-
-checks into a single
-
-  #ifdef CONFIG_KVM_GENERIC_MMU_NOTIFIER
-
-without having to worry about PPC's "bare" usage of
-KVM_ARCH_WANT_MMU_NOTIFIER.
-
+Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
-Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
-Reviewed-by: Fuad Tabba <tabba@google.com>
-Message-Id: <20231027182217.3615211-6-seanjc@google.com>
+Message-Id: <20231027182217.3615211-7-seanjc@google.com>
 Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
 ---
- arch/powerpc/kvm/powerpc.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+ arch/powerpc/kvm/powerpc.c | 4 ----
+ 1 file changed, 4 deletions(-)
 
 diff --git a/arch/powerpc/kvm/powerpc.c b/arch/powerpc/kvm/powerpc.c
-index 7197c8256668..b0a512ede764 100644
+index b0a512ede764..8d3ec483bc2b 100644
 --- a/arch/powerpc/kvm/powerpc.c
 +++ b/arch/powerpc/kvm/powerpc.c
-@@ -632,12 +632,13 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- 		break;
+@@ -635,11 +635,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+ #if !defined(CONFIG_MMU_NOTIFIER) || !defined(KVM_ARCH_WANT_MMU_NOTIFIER)
+ 		BUILD_BUG();
  #endif
- 	case KVM_CAP_SYNC_MMU:
-+#if !defined(CONFIG_MMU_NOTIFIER) || !defined(KVM_ARCH_WANT_MMU_NOTIFIER)
-+		BUILD_BUG();
-+#endif
- #ifdef CONFIG_KVM_BOOK3S_HV_POSSIBLE
- 		r = hv_enabled;
--#elif defined(KVM_ARCH_WANT_MMU_NOTIFIER)
--		r = 1;
- #else
--		r = 0;
-+		r = 1;
- #endif
+-#ifdef CONFIG_KVM_BOOK3S_HV_POSSIBLE
+-		r = hv_enabled;
+-#else
+ 		r = 1;
+-#endif
  		break;
  #ifdef CONFIG_KVM_BOOK3S_HV_POSSIBLE
+ 	case KVM_CAP_PPC_HTAB_FD:
 -- 
 2.39.1
 
