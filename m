@@ -4,53 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59BB8C4167D
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Nov 2023 16:34:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FC55C4332F
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Nov 2023 16:34:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9z39LZHqaiO2AzIg39LsOu815ERouDwkk4PJIaI851U=; b=nQJPwKXCyyINM9
-	x8vdbeNziQkxXZ9PbaqLlRfZjUI2iPYFF0EdhLN0ey8jTVk+DiTqRfw4B09x06UPNqWn0veMcF/c6
-	7lrn1ninuspISI4CGFHVA+Fd49w51y/CQSd5wAsR4J26kEFAHQrCHdei+l9g9m+uGL1HPAPDJ+ECC
-	FpyXKFwlQ+APuEO7M8J/adHkhHy55uutlkmfFij6xUOwSMJE9iwD8G7nmQDEHBtzQ4y4/SCqukvXQ
-	ImX+4Q69ANsrwDL8L3YLgeCOgGKVSoJoPLuB4+bDajWZqSMOagqmS8cEjjvFMtT2njzn0xmabrNNs
-	cVHv0xSe7MJ27OYIEb4g==;
+	List-Owner; bh=jyWuujpfPyc0F4m3jWzyUOGqbKBv8QllhAERZglgO60=; b=kI5f+IfIW9BvSK
+	YQKyzL6SKWMDxslK6VJWZhBZ7FhWP0MC22HKL4pYxFYRmH3R+xsX2YxXV3RZw4ue1FdNT4QjVhtM5
+	L3ytDcnpZ9ZAPX78zQcPuN7SCNNWjNDWa5zOuzcEl1VqdIXog8sjdEGp4FZfDHY8iJJsaVlIk7rG7
+	NzfH9MT05jJREBlFv9l79Ls8S7cglyRSx4PBoiytEMtmgLy3xuzULFMbVowQoSXCHaOJJSRLyY5oE
+	RxoS03F8TFZvTnbvt6gEmsrBhUFLwiGH8mr1G4UkWFXWgtmuIgv/yhgDUMG20RjBsRo5N2zo52Hfl
+	lAndnZIYKAdpZqyDyRCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qzg4s-00FEN1-1q;
-	Sun, 05 Nov 2023 16:34:22 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qzg5A-00FEiU-09;
+	Sun, 05 Nov 2023 16:34:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qzg4X-00FDy4-1h
+	id 1qzg4r-00FELo-2D
+	for linux-riscv@bombadil.infradead.org;
+	Sun, 05 Nov 2023 16:34:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=bLOqqs5CF8yk4LC9a+1vwMzoSy4qflmSUsjtCkwDz0I=; b=dLn/yOmyEaQ5+slBiwiKN7Lcn/
+	00iqyYVLn+wYHRZoAQ2WbaO6QMNfYGb9kZ26R3e5DGb/w4MxQgVa4tJ/Hyul9tCcjmxR721s9eBZn
+	vpD0l7oVBpJMSM1B/9mZvpNbo5umitu8K/f82rlEyTA9j+wO3BMf7POaYDHgCcfTZb0A9pwdLaLEY
+	xVymyiP8nTXMurXY6xwjlaeu+a+hNeU43Jb0EdfU3LYnHkfAQE5sgt2imj4n37n0gLz9teGvwLmZa
+	N349uIw/RK6trI7hvxCH481AM+kE5eCx/vWh8Mzhr8bnbemi8Xpe7D4oggnoPCStDoMf4WwFeqdhT
+	IQ0VllJw==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qzg4o-009dgG-0a
 	for linux-riscv@lists.infradead.org;
-	Sun, 05 Nov 2023 16:34:05 +0000
+	Sun, 05 Nov 2023 16:34:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1699202040;
+	s=mimecast20190719; t=1699202056;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=B1ldUB6ou+0P1E1drMyZOUxJwq+BJM9HrE783LsQMzo=;
-	b=NAm9kNysbepMjNlT1hVM2S4Xn8GEc3VY56p+Hw+YmQ0CGgAxwsw4AF3VdlghIRXPoWBF3P
-	WQPzQ1Sz54I/Crs2gTb4mj/u04CD+Y9EvkF8wyHQERjdfHKo+9E1FFlJ63w0KPiUWl+Quh
-	KEpXx/YZ/kJM30kJB7QogpLmspCDW64=
+	bh=bLOqqs5CF8yk4LC9a+1vwMzoSy4qflmSUsjtCkwDz0I=;
+	b=ZMHsGPqmpfrhnXuhVvX3WD8v0tPIey61A8xogejlhGfXAUWkWBpJgOIATlZjOi2sAa3nXL
+	QXMSk7MYxK9/kGiIjS6cFGH28+ujb5EkbNnQ3qoorKHNHd5cV/pFWLkZE808TvwkYwGnf0
+	KXoUA3W7OfHDWrfX6nM+RTt7c4+eio4=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1699202057;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bLOqqs5CF8yk4LC9a+1vwMzoSy4qflmSUsjtCkwDz0I=;
+	b=C2TjZUkkagdZTuzQJYta05l7kMuZsAh1pXg8CIAGpo21orMO0inQrF8pl8xfUJEpl4NbeO
+	JySPHdoMECmwCFCotlM94aF5Bu4rp3uvcI3+rONGHt5i1Pnh2OzDlpI25DgecnlqLbxXS5
+	Vz5ep5I9E/W2AXZIDl7JgOAK8Y6Yj7Q=
 Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
  by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-641-P_yDh12lOQqky4BeDxYozQ-1; Sun,
- 05 Nov 2023 11:33:59 -0500
-X-MC-Unique: P_yDh12lOQqky4BeDxYozQ-1
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-609-RNp8mDoTP1q6dpHOGd7mDg-1; Sun,
+ 05 Nov 2023 11:34:13 -0500
+X-MC-Unique: RNp8mDoTP1q6dpHOGd7mDg-1
 Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7EC5E29ABA21;
-	Sun,  5 Nov 2023 16:33:57 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A0FE33C0FC8E;
+	Sun,  5 Nov 2023 16:34:11 +0000 (UTC)
 Received: from avogadro.redhat.com (unknown [10.39.192.93])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id BC2CA2166B26;
-	Sun,  5 Nov 2023 16:33:50 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id E29DF2166B26;
+	Sun,  5 Nov 2023 16:34:04 +0000 (UTC)
 From: Paolo Bonzini <pbonzini@redhat.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Marc Zyngier <maz@kernel.org>,
@@ -97,16 +122,17 @@ Cc: kvm@vger.kernel.org,
 	Liam Merwick <liam.merwick@oracle.com>,
 	Isaku Yamahata <isaku.yamahata@gmail.com>,
 	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-Subject: [PATCH 24/34] KVM: selftests: Add support for creating private memslots
-Date: Sun,  5 Nov 2023 17:30:27 +0100
-Message-ID: <20231105163040.14904-25-pbonzini@redhat.com>
+Subject: [PATCH 26/34] KVM: selftests: Add helpers to do KVM_HC_MAP_GPA_RANGE hypercalls (x86)
+Date: Sun,  5 Nov 2023 17:30:29 +0100
+Message-ID: <20231105163040.14904-27-pbonzini@redhat.com>
 In-Reply-To: <20231105163040.14904-1-pbonzini@redhat.com>
 References: <20231105163040.14904-1-pbonzini@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231105_083401_648972_56A2D72D 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20231105_163418_517799_0E8EE172 
+X-CRM114-Status: UNSURE (   8.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,224 +149,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Sean Christopherson <seanjc@google.com>
+From: Vishal Annapurve <vannapurve@google.com>
 
-Add support for creating "private" memslots via KVM_CREATE_GUEST_MEMFD and
-KVM_SET_USER_MEMORY_REGION2.  Make vm_userspace_mem_region_add() a wrapper
-to its effective replacement, vm_mem_add(), so that private memslots are
-fully opt-in, i.e. don't require update all tests that add memory regions.
+Add helpers for x86 guests to invoke the KVM_HC_MAP_GPA_RANGE hypercall,
+which KVM will forward to userspace and thus can be used by tests to
+coordinate private<=>shared conversions between host userspace code and
+guest code.
 
-Pivot on the KVM_MEM_PRIVATE flag instead of the validity of the "gmem"
-file descriptor so that simple tests can let vm_mem_add() do the heavy
-lifting of creating the guest memfd, but also allow the caller to pass in
-an explicit fd+offset so that fancier tests can do things like back
-multiple memslots with a single file.  If the caller passes in a fd, dup()
-the fd so that (a) __vm_mem_region_delete() can close the fd associated
-with the memory region without needing yet another flag, and (b) so that
-the caller can safely close its copy of the fd without having to first
-destroy memslots.
-
-Co-developed-by: Ackerley Tng <ackerleytng@google.com>
-Signed-off-by: Ackerley Tng <ackerleytng@google.com>
+Signed-off-by: Vishal Annapurve <vannapurve@google.com>
+[sean: drop shared/private helpers (let tests specify flags)]
 Signed-off-by: Sean Christopherson <seanjc@google.com>
-Message-Id: <20231027182217.3615211-27-seanjc@google.com>
+Message-Id: <20231027182217.3615211-29-seanjc@google.com>
 Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
 ---
- .../selftests/kvm/include/kvm_util_base.h     | 23 ++++++
- .../testing/selftests/kvm/include/test_util.h |  5 ++
- tools/testing/selftests/kvm/lib/kvm_util.c    | 76 +++++++++++--------
- 3 files changed, 73 insertions(+), 31 deletions(-)
+ .../selftests/kvm/include/x86_64/processor.h      | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-diff --git a/tools/testing/selftests/kvm/include/kvm_util_base.h b/tools/testing/selftests/kvm/include/kvm_util_base.h
-index 9f144841c2ee..9f861182c02a 100644
---- a/tools/testing/selftests/kvm/include/kvm_util_base.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util_base.h
-@@ -431,6 +431,26 @@ static inline uint64_t vm_get_stat(struct kvm_vm *vm, const char *stat_name)
+diff --git a/tools/testing/selftests/kvm/include/x86_64/processor.h b/tools/testing/selftests/kvm/include/x86_64/processor.h
+index 25bc61dac5fb..a84863503fcb 100644
+--- a/tools/testing/selftests/kvm/include/x86_64/processor.h
++++ b/tools/testing/selftests/kvm/include/x86_64/processor.h
+@@ -15,6 +15,7 @@
+ #include <asm/msr-index.h>
+ #include <asm/prctl.h>
  
- void vm_create_irqchip(struct kvm_vm *vm);
++#include <linux/kvm_para.h>
+ #include <linux/stringify.h>
  
-+static inline int __vm_create_guest_memfd(struct kvm_vm *vm, uint64_t size,
-+					uint64_t flags)
+ #include "../kvm_util.h"
+@@ -1194,6 +1195,20 @@ uint64_t kvm_hypercall(uint64_t nr, uint64_t a0, uint64_t a1, uint64_t a2,
+ uint64_t __xen_hypercall(uint64_t nr, uint64_t a0, void *a1);
+ void xen_hypercall(uint64_t nr, uint64_t a0, void *a1);
+ 
++static inline uint64_t __kvm_hypercall_map_gpa_range(uint64_t gpa,
++						     uint64_t size, uint64_t flags)
 +{
-+	struct kvm_create_guest_memfd guest_memfd = {
-+		.size = size,
-+		.flags = flags,
-+	};
-+
-+	return __vm_ioctl(vm, KVM_CREATE_GUEST_MEMFD, &guest_memfd);
++	return kvm_hypercall(KVM_HC_MAP_GPA_RANGE, gpa, size >> PAGE_SHIFT, flags, 0);
 +}
 +
-+static inline int vm_create_guest_memfd(struct kvm_vm *vm, uint64_t size,
-+					uint64_t flags)
++static inline void kvm_hypercall_map_gpa_range(uint64_t gpa, uint64_t size,
++					       uint64_t flags)
 +{
-+	int fd = __vm_create_guest_memfd(vm, size, flags);
++	uint64_t ret = __kvm_hypercall_map_gpa_range(gpa, size, flags);
 +
-+	TEST_ASSERT(fd >= 0, KVM_IOCTL_ERROR(KVM_CREATE_GUEST_MEMFD, fd));
-+	return fd;
++	GUEST_ASSERT(!ret);
 +}
 +
- void vm_set_user_memory_region(struct kvm_vm *vm, uint32_t slot, uint32_t flags,
- 			       uint64_t gpa, uint64_t size, void *hva);
- int __vm_set_user_memory_region(struct kvm_vm *vm, uint32_t slot, uint32_t flags,
-@@ -439,6 +459,9 @@ void vm_userspace_mem_region_add(struct kvm_vm *vm,
- 	enum vm_mem_backing_src_type src_type,
- 	uint64_t guest_paddr, uint32_t slot, uint64_t npages,
- 	uint32_t flags);
-+void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
-+		uint64_t guest_paddr, uint32_t slot, uint64_t npages,
-+		uint32_t flags, int guest_memfd_fd, uint64_t guest_memfd_offset);
+ void __vm_xsave_require_permission(uint64_t xfeature, const char *name);
  
- void vm_mem_region_set_flags(struct kvm_vm *vm, uint32_t slot, uint32_t flags);
- void vm_mem_region_move(struct kvm_vm *vm, uint32_t slot, uint64_t new_gpa);
-diff --git a/tools/testing/selftests/kvm/include/test_util.h b/tools/testing/selftests/kvm/include/test_util.h
-index 7e614adc6cf4..7257f2243ab9 100644
---- a/tools/testing/selftests/kvm/include/test_util.h
-+++ b/tools/testing/selftests/kvm/include/test_util.h
-@@ -142,6 +142,11 @@ static inline bool backing_src_is_shared(enum vm_mem_backing_src_type t)
- 	return vm_mem_backing_src_alias(t)->flag & MAP_SHARED;
- }
- 
-+static inline bool backing_src_can_be_huge(enum vm_mem_backing_src_type t)
-+{
-+	return t != VM_MEM_SRC_ANONYMOUS && t != VM_MEM_SRC_SHMEM;
-+}
-+
- /* Aligns x up to the next multiple of size. Size must be a power of 2. */
- static inline uint64_t align_up(uint64_t x, uint64_t size)
- {
-diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-index 3676b37bea38..b63500fca627 100644
---- a/tools/testing/selftests/kvm/lib/kvm_util.c
-+++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-@@ -669,6 +669,8 @@ static void __vm_mem_region_delete(struct kvm_vm *vm,
- 		TEST_ASSERT(!ret, __KVM_SYSCALL_ERROR("munmap()", ret));
- 		close(region->fd);
- 	}
-+	if (region->region.guest_memfd >= 0)
-+		close(region->region.guest_memfd);
- 
- 	free(region);
- }
-@@ -870,36 +872,15 @@ void vm_set_user_memory_region(struct kvm_vm *vm, uint32_t slot, uint32_t flags,
- 		    errno, strerror(errno));
- }
- 
--/*
-- * VM Userspace Memory Region Add
-- *
-- * Input Args:
-- *   vm - Virtual Machine
-- *   src_type - Storage source for this region.
-- *              NULL to use anonymous memory.
-- *   guest_paddr - Starting guest physical address
-- *   slot - KVM region slot
-- *   npages - Number of physical pages
-- *   flags - KVM memory region flags (e.g. KVM_MEM_LOG_DIRTY_PAGES)
-- *
-- * Output Args: None
-- *
-- * Return: None
-- *
-- * Allocates a memory area of the number of pages specified by npages
-- * and maps it to the VM specified by vm, at a starting physical address
-- * given by guest_paddr.  The region is created with a KVM region slot
-- * given by slot, which must be unique and < KVM_MEM_SLOTS_NUM.  The
-- * region is created with the flags given by flags.
-- */
--void vm_userspace_mem_region_add(struct kvm_vm *vm,
--	enum vm_mem_backing_src_type src_type,
--	uint64_t guest_paddr, uint32_t slot, uint64_t npages,
--	uint32_t flags)
-+/* FIXME: This thing needs to be ripped apart and rewritten. */
-+void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
-+		uint64_t guest_paddr, uint32_t slot, uint64_t npages,
-+		uint32_t flags, int guest_memfd, uint64_t guest_memfd_offset)
- {
- 	int ret;
- 	struct userspace_mem_region *region;
- 	size_t backing_src_pagesz = get_backing_src_pagesz(src_type);
-+	size_t mem_size = npages * vm->page_size;
- 	size_t alignment;
- 
- 	TEST_ASSERT(vm_adjust_num_guest_pages(vm->mode, npages) == npages,
-@@ -952,7 +933,7 @@ void vm_userspace_mem_region_add(struct kvm_vm *vm,
- 	/* Allocate and initialize new mem region structure. */
- 	region = calloc(1, sizeof(*region));
- 	TEST_ASSERT(region != NULL, "Insufficient Memory");
--	region->mmap_size = npages * vm->page_size;
-+	region->mmap_size = mem_size;
- 
- #ifdef __s390x__
- 	/* On s390x, the host address must be aligned to 1M (due to PGSTEs) */
-@@ -999,14 +980,38 @@ void vm_userspace_mem_region_add(struct kvm_vm *vm,
- 	/* As needed perform madvise */
- 	if ((src_type == VM_MEM_SRC_ANONYMOUS ||
- 	     src_type == VM_MEM_SRC_ANONYMOUS_THP) && thp_configured()) {
--		ret = madvise(region->host_mem, npages * vm->page_size,
-+		ret = madvise(region->host_mem, mem_size,
- 			      src_type == VM_MEM_SRC_ANONYMOUS ? MADV_NOHUGEPAGE : MADV_HUGEPAGE);
- 		TEST_ASSERT(ret == 0, "madvise failed, addr: %p length: 0x%lx src_type: %s",
--			    region->host_mem, npages * vm->page_size,
-+			    region->host_mem, mem_size,
- 			    vm_mem_backing_src_alias(src_type)->name);
- 	}
- 
- 	region->backing_src_type = src_type;
-+
-+	if (flags & KVM_MEM_GUEST_MEMFD) {
-+		if (guest_memfd < 0) {
-+			uint32_t guest_memfd_flags = 0;
-+			TEST_ASSERT(!guest_memfd_offset,
-+				    "Offset must be zero when creating new guest_memfd");
-+			guest_memfd = vm_create_guest_memfd(vm, mem_size, guest_memfd_flags);
-+		} else {
-+			/*
-+			 * Install a unique fd for each memslot so that the fd
-+			 * can be closed when the region is deleted without
-+			 * needing to track if the fd is owned by the framework
-+			 * or by the caller.
-+			 */
-+			guest_memfd = dup(guest_memfd);
-+			TEST_ASSERT(guest_memfd >= 0, __KVM_SYSCALL_ERROR("dup()", guest_memfd));
-+		}
-+
-+		region->region.guest_memfd = guest_memfd;
-+		region->region.guest_memfd_offset = guest_memfd_offset;
-+	} else {
-+		region->region.guest_memfd = -1;
-+	}
-+
- 	region->unused_phy_pages = sparsebit_alloc();
- 	sparsebit_set_num(region->unused_phy_pages,
- 		guest_paddr >> vm->page_shift, npages);
-@@ -1019,9 +1024,10 @@ void vm_userspace_mem_region_add(struct kvm_vm *vm,
- 	TEST_ASSERT(ret == 0, "KVM_SET_USER_MEMORY_REGION2 IOCTL failed,\n"
- 		"  rc: %i errno: %i\n"
- 		"  slot: %u flags: 0x%x\n"
--		"  guest_phys_addr: 0x%lx size: 0x%lx",
-+		"  guest_phys_addr: 0x%lx size: 0x%lx guest_memfd: %d\n",
- 		ret, errno, slot, flags,
--		guest_paddr, (uint64_t) region->region.memory_size);
-+		guest_paddr, (uint64_t) region->region.memory_size,
-+		region->region.guest_memfd);
- 
- 	/* Add to quick lookup data structures */
- 	vm_userspace_mem_region_gpa_insert(&vm->regions.gpa_tree, region);
-@@ -1042,6 +1048,14 @@ void vm_userspace_mem_region_add(struct kvm_vm *vm,
- 	}
- }
- 
-+void vm_userspace_mem_region_add(struct kvm_vm *vm,
-+				 enum vm_mem_backing_src_type src_type,
-+				 uint64_t guest_paddr, uint32_t slot,
-+				 uint64_t npages, uint32_t flags)
-+{
-+	vm_mem_add(vm, src_type, guest_paddr, slot, npages, flags, -1, 0);
-+}
-+
- /*
-  * Memslot to region
-  *
+ #define vm_xsave_require_permission(xfeature)	\
 -- 
 2.39.1
 
