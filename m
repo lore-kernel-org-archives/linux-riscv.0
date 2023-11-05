@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28DAFC4167B
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Nov 2023 16:32:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F9FBC4332F
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Nov 2023 16:32:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6Q4hUi1vU+lbHH71IjzOK+nJOfWSyfhKjrep0Yq4YzY=; b=v230UET4iRm1CN
-	uPF+NgDBuR1ck5qJaQrsqqOj8rctt4ooI9V/b9YOtrCfGR2IN/nRiiZopcnRPknxk32rpF+VA7GU1
-	WFdt6L9Qw6Fjl/UdIsixFHJju62I5+SP3jxz9KKvGCxI5KkmT33VyWThSVwREdSdRpMCHTNpd0oYi
-	OiRG1gAr+AY6cSiuhEIBsg+ruI5KplAttYcJgA5MHqWRfZWqZJDfn44ObrF5pFoQ3f0Ui5yTPTUC8
-	fSBbV1R7G377rTjEZdcB6TcjRTDMZPqhpNtprnR9bIbTwAh5/b688qMy6uUNIJAX8d1JoCNwLjZvT
-	OnLUt2uDX33EXgvBkyug==;
+	List-Owner; bh=OCbpdTIUaTgwR+oeGbOYkQVFZpEYTrQKkcF5E3q+1UM=; b=QRVsnKbwnh0W2j
+	r+sVrQ8f2aZYFLvx5DdxZPokWop1+XDQlSQJd2c4wvQHyLnl+2e7so1XIl3tuwl1Z0wr7D9Tf5Yzf
+	Pgpz1wD7xQsgzSDzS0wFApalj0Wqagr9PSUEo8l4eGE3zeLhgSizw29hJZkjRcDogXpDy/ezLXf7+
+	SdXZniO8pNFo8oD54a3ymEMP2iqRYC54doGuhMEZZCfdXztvkZo2xQYyYEo8TMsFXK2qv2rDbgNgK
+	EsTYXKEEB23ZvmGx1dMYtzgHXiyw0nGaeAe/ALYTk67ziwKCmTv47sGC1p2tPcKYjGrFDdiOb+kq1
+	Vrv3fIL5pk5lvvY/9IxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qzg39-00FCSR-00;
-	Sun, 05 Nov 2023 16:32:35 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1qzg3H-00FCcP-1m;
+	Sun, 05 Nov 2023 16:32:43 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qzg32-00FCKx-25
+	id 1qzg3A-00FCSw-0V
 	for linux-riscv@lists.infradead.org;
-	Sun, 05 Nov 2023 16:32:31 +0000
+	Sun, 05 Nov 2023 16:32:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1699201947;
+	s=mimecast20190719; t=1699201955;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=JW6MWV7ggVeSMblnueMAykpNKrW9E69j7p153d688oM=;
-	b=BDZXK1encjrya+OPjZM6XvJdB2SLS7GWPhxNQlBu1ruEhM+mcIUei9yescZf46QHHSdDpu
-	gxIx1BwqX9cCWGETdCp5AdQicGx3IU9rBrlj/P8Hc1YG7m1fRbcXgouhCK5BpDCM5YLOIN
-	6JSlHiIHMcpKs73Jv3/Ol3ZQH5oWEdQ=
+	bh=AdANIEnF562apfJyOTMYsmSKgc8hkZrlNovbg28IThg=;
+	b=FqGt3wtFHq0kXwI4QmEBMHDZbaoQW/vY/1J35zqwJGhtPo7UNzL0128TeZVQhzUjZSwHVG
+	J2mU56t7xJSpKC33T7J6hJ0aNCZnydmmwtCn5XZwf/VAMyU4p9rvfiMNErOLOWeZGXbsgN
+	Ap+GO9Vb9l8aJ2619rCs2gBX4zqA5zk=
 Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
  by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-138-1qNMyg5EPcizAR9tFcoIUw-1; Sun,
- 05 Nov 2023 11:32:25 -0500
-X-MC-Unique: 1qNMyg5EPcizAR9tFcoIUw-1
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-303-c8LRdjnxO_20IIX1RMc9ZA-1; Sun,
+ 05 Nov 2023 11:32:32 -0500
+X-MC-Unique: c8LRdjnxO_20IIX1RMc9ZA-1
 Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id EFA5229ABA1A;
-	Sun,  5 Nov 2023 16:32:22 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3DB2738117F4;
+	Sun,  5 Nov 2023 16:32:30 +0000 (UTC)
 Received: from avogadro.redhat.com (unknown [10.39.192.93])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id E636B2166B26;
-	Sun,  5 Nov 2023 16:32:15 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 4E1F52166B26;
+	Sun,  5 Nov 2023 16:32:23 +0000 (UTC)
 From: Paolo Bonzini <pbonzini@redhat.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Marc Zyngier <maz@kernel.org>,
@@ -97,16 +97,16 @@ Cc: kvm@vger.kernel.org,
 	Liam Merwick <liam.merwick@oracle.com>,
 	Isaku Yamahata <isaku.yamahata@gmail.com>,
 	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-Subject: [PATCH 12/34] KVM: Introduce per-page memory attributes
-Date: Sun,  5 Nov 2023 17:30:15 +0100
-Message-ID: <20231105163040.14904-13-pbonzini@redhat.com>
+Subject: [PATCH 13/34] mm: Add AS_UNMOVABLE to mark mapping as completely unmovable
+Date: Sun,  5 Nov 2023 17:30:16 +0100
+Message-ID: <20231105163040.14904-14-pbonzini@redhat.com>
 In-Reply-To: <20231105163040.14904-1-pbonzini@redhat.com>
 References: <20231105163040.14904-1-pbonzini@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231105_083228_844542_6E0AD82D 
-X-CRM114-Status: GOOD (  30.01  )
+X-CRM114-CacheID: sfid-20231105_083236_287206_8C6AE916 
+X-CRM114-Status: GOOD (  19.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,259 +118,170 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQ2hhbyBQZW5nIDxjaGFvLnAucGVuZ0BsaW51eC5pbnRlbC5jb20+CgpJbiBjb25maWRl
-bnRpYWwgY29tcHV0aW5nIHVzYWdlcywgd2hldGhlciBhIHBhZ2UgaXMgcHJpdmF0ZSBvciBzaGFy
-ZWQgaXMKbmVjZXNzYXJ5IGluZm9ybWF0aW9uIGZvciBLVk0gdG8gcGVyZm9ybSBvcGVyYXRpb25z
-IGxpa2UgcGFnZSBmYXVsdApoYW5kbGluZywgcGFnZSB6YXBwaW5nIGV0Yy4gVGhlcmUgYXJlIG90
-aGVyIHBvdGVudGlhbCB1c2UgY2FzZXMgZm9yCnBlci1wYWdlIG1lbW9yeSBhdHRyaWJ1dGVzLCBl
-LmcuIHRvIG1ha2UgbWVtb3J5IHJlYWQtb25seSAob3Igbm8tZXhlYywKb3IgZXhlYy1vbmx5LCBl
-dGMuKSB3aXRob3V0IGhhdmluZyB0byBtb2RpZnkgbWVtc2xvdHMuCgpJbnRyb2R1Y2UgdGhlIEtW
-TV9TRVRfTUVNT1JZX0FUVFJJQlVURVMgaW9jdGwsIGFkdmVydGlzZWQgYnkKS1ZNX0NBUF9NRU1P
-UllfQVRUUklCVVRFUywgdG8gYWxsb3cgdXNlcnNwYWNlIHRvIHNldCB0aGUgcGVyLXBhZ2UgbWVt
-b3J5CmF0dHJpYnV0ZXMgdG8gYSBndWVzdCBtZW1vcnkgcmFuZ2UuCgpVc2UgYW4geGFycmF5IHRv
-IHN0b3JlIHRoZSBwZXItcGFnZSBhdHRyaWJ1dGVzIGludGVybmFsbHksIHdpdGggYSBuYWl2ZSwK
-bm90IGZ1bGx5IG9wdGltaXplZCBpbXBsZW1lbnRhdGlvbiwgaS5lLiBwcmlvcml0aXplIGNvcnJl
-Y3RuZXNzIG92ZXIKcGVyZm9ybWFuY2UgZm9yIHRoZSBpbml0aWFsIGltcGxlbWVudGF0aW9uLgoK
-VXNlIGJpdCAzIGZvciB0aGUgUFJJVkFURSBhdHRyaWJ1dGUgc28gdGhhdCBLVk0gY2FuIHVzZSBi
-aXRzIDAtMiBmb3IgUldYCmF0dHJpYnV0ZXMvcHJvdGVjdGlvbnMgaW4gdGhlIGZ1dHVyZSwgZS5n
-LiB0byBnaXZlIHVzZXJzcGFjZSBmaW5lLWdyYWluZWQKY29udHJvbCBvdmVyIHJlYWQsIHdyaXRl
-LCBhbmQgZXhlY3V0ZSBwcm90ZWN0aW9ucyBmb3IgZ3Vlc3QgbWVtb3J5LgoKUHJvdmlkZSBhcmNo
-IGhvb2tzIGZvciBoYW5kbGluZyBhdHRyaWJ1dGUgY2hhbmdlcyBiZWZvcmUgYW5kIGFmdGVyIGNv
-bW1vbgpjb2RlIHNldHMgdGhlIG5ldyBhdHRyaWJ1dGVzLCBlLmcuIHg4NiB3aWxsIHVzZSB0aGUg
-InByZSIgaG9vayB0byB6YXAgYWxsCnJlbGV2YW50IG1hcHBpbmdzLCBhbmQgdGhlICJwb3N0IiBo
-b29rIHRvIHRyYWNrIHdoZXRoZXIgb3Igbm90IGh1Z2VwYWdlcwpjYW4gYmUgdXNlZCB0byBtYXAg
-dGhlIHJhbmdlLgoKVG8gc2ltcGxpZnkgdGhlIGltcGxlbWVudGF0aW9uIHdyYXAgdGhlIGVudGly
-ZSBzZXF1ZW5jZSB3aXRoCmt2bV9tbXVfaW52YWxpZGF0ZV97YmVnaW4sZW5kfSgpIGV2ZW4gdGhv
-dWdoIHRoZSBvcGVyYXRpb24gaXNuJ3Qgc3RyaWN0bHkKZ3VhcmFudGVlZCB0byBiZSBhbiBpbnZh
-bGlkYXRpb24uICBGb3IgdGhlIGluaXRpYWwgdXNlIGNhc2UsIHg4NiAqd2lsbCoKYWx3YXlzIGlu
-dmFsaWRhdGUgbWVtb3J5LCBhbmQgcHJldmVudGluZyBhcmNoIGNvZGUgZnJvbSBjcmVhdGluZyBu
-ZXcKbWFwcGluZ3Mgd2hpbGUgdGhlIGF0dHJpYnV0ZXMgYXJlIGluIGZsdXggbWFrZXMgaXQgbXVj
-aCBlYXNpZXIgdG8gcmVhc29uCmFib3V0IHRoZSBjb3JyZWN0bmVzcyBvZiBjb25zdW1pbmcgYXR0
-cmlidXRlcy4KCkl0J3MgcG9zc2libGUgdGhhdCBmdXR1cmUgdXNhZ2VzIG1heSBub3QgcmVxdWly
-ZSBhbiBpbnZhbGlkYXRpb24sIGUuZy4KaWYgS1ZNIGVuZHMgdXAgc3VwcG9ydGluZyBSV1ggcHJv
-dGVjdGlvbnMgYW5kIHVzZXJzcGFjZSBncmFudHMgX21vcmVfCnByb3RlY3Rpb25zLCBidXQgYWdh
-aW4gb3B0IGZvciBzaW1wbGljaXR5IGFuZCBwdW50IG9wdGltaXphdGlvbnMgdG8KaWYvd2hlbiB0
-aGV5IGFyZSBuZWVkZWQuCgpTdWdnZXN0ZWQtYnk6IFNlYW4gQ2hyaXN0b3BoZXJzb24gPHNlYW5q
-Y0Bnb29nbGUuY29tPgpMaW5rOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvWTJXQjQ4a0Qw
-SjRWR3luWEBnb29nbGUuY29tCkNjOiBGdWFkIFRhYmJhIDx0YWJiYUBnb29nbGUuY29tPgpDYzog
-WHUgWWlsdW4gPHlpbHVuLnh1QGludGVsLmNvbT4KQ2M6IE1pY2thw6tsIFNhbGHDvG4gPG1pY0Bk
-aWdpa29kLm5ldD4KU2lnbmVkLW9mZi1ieTogQ2hhbyBQZW5nIDxjaGFvLnAucGVuZ0BsaW51eC5p
-bnRlbC5jb20+CkNvLWRldmVsb3BlZC1ieTogU2VhbiBDaHJpc3RvcGhlcnNvbiA8c2VhbmpjQGdv
-b2dsZS5jb20+ClNpZ25lZC1vZmYtYnk6IFNlYW4gQ2hyaXN0b3BoZXJzb24gPHNlYW5qY0Bnb29n
-bGUuY29tPgpNZXNzYWdlLUlkOiA8MjAyMzEwMjcxODIyMTcuMzYxNTIxMS0xNC1zZWFuamNAZ29v
-Z2xlLmNvbT4KU2lnbmVkLW9mZi1ieTogUGFvbG8gQm9uemluaSA8cGJvbnppbmlAcmVkaGF0LmNv
-bT4KLS0tCiBEb2N1bWVudGF0aW9uL3ZpcnQva3ZtL2FwaS5yc3QgfCAgMzYgKysrKysrCiBpbmNs
-dWRlL2xpbnV4L2t2bV9ob3N0LmggICAgICAgfCAgMTkgKysrCiBpbmNsdWRlL3VhcGkvbGludXgv
-a3ZtLmggICAgICAgfCAgMTMgKysKIHZpcnQva3ZtL0tjb25maWcgICAgICAgICAgICAgICB8ICAg
-NCArCiB2aXJ0L2t2bS9rdm1fbWFpbi5jICAgICAgICAgICAgfCAyMTYgKysrKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysrCiA1IGZpbGVzIGNoYW5nZWQsIDI4OCBpbnNlcnRpb25zKCspCgpk
-aWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi92aXJ0L2t2bS9hcGkucnN0IGIvRG9jdW1lbnRhdGlv
-bi92aXJ0L2t2bS9hcGkucnN0CmluZGV4IDQ4MWZiMGUyY2U5MC4uMDgzZWQ1MDdlMjAwIDEwMDY0
-NAotLS0gYS9Eb2N1bWVudGF0aW9uL3ZpcnQva3ZtL2FwaS5yc3QKKysrIGIvRG9jdW1lbnRhdGlv
-bi92aXJ0L2t2bS9hcGkucnN0CkBAIC02MjE0LDYgKzYyMTQsNDIgQEAgc3VwZXJzZXQgb2YgdGhl
-IGZlYXR1cmVzIHN1cHBvcnRlZCBieSB0aGUgc3lzdGVtLgogCiBTZWUgS1ZNX1NFVF9VU0VSX01F
-TU9SWV9SRUdJT04uCiAKKzQuMTQxIEtWTV9TRVRfTUVNT1JZX0FUVFJJQlVURVMKKy0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KKworOkNhcGFiaWxpdHk6IEtWTV9DQVBfTUVNT1JZX0FU
-VFJJQlVURVMKKzpBcmNoaXRlY3R1cmVzOiB4ODYKKzpUeXBlOiB2bSBpb2N0bAorOlBhcmFtZXRl
-cnM6IHN0cnVjdCBrdm1fbWVtb3J5X2F0dHJpYnV0ZXMgKGluKQorOlJldHVybnM6IDAgb24gc3Vj
-Y2VzcywgPDAgb24gZXJyb3IKKworS1ZNX1NFVF9NRU1PUllfQVRUUklCVVRFUyBhbGxvd3MgdXNl
-cnNwYWNlIHRvIHNldCBtZW1vcnkgYXR0cmlidXRlcyBmb3IgYSByYW5nZQorb2YgZ3Vlc3QgcGh5
-c2ljYWwgbWVtb3J5LgorCis6OgorCisgIHN0cnVjdCBrdm1fbWVtb3J5X2F0dHJpYnV0ZXMgewor
-CV9fdTY0IGFkZHJlc3M7CisJX191NjQgc2l6ZTsKKwlfX3U2NCBhdHRyaWJ1dGVzOworCV9fdTY0
-IGZsYWdzOworICB9OworCisgICNkZWZpbmUgS1ZNX01FTU9SWV9BVFRSSUJVVEVfUFJJVkFURSAg
-ICAgICAgICAgKDFVTEwgPDwgMykKKworVGhlIGFkZHJlc3MgYW5kIHNpemUgbXVzdCBiZSBwYWdl
-IGFsaWduZWQuICBUaGUgc3VwcG9ydGVkIGF0dHJpYnV0ZXMgY2FuIGJlCityZXRyaWV2ZWQgdmlh
-IGlvY3RsKEtWTV9DSEVDS19FWFRFTlNJT04pIG9uIEtWTV9DQVBfTUVNT1JZX0FUVFJJQlVURVMu
-ICBJZgorZXhlY3V0ZWQgb24gYSBWTSwgS1ZNX0NBUF9NRU1PUllfQVRUUklCVVRFUyBwcmVjaXNl
-bHkgcmV0dXJucyB0aGUgYXR0cmlidXRlcworc3VwcG9ydGVkIGJ5IHRoYXQgVk0uICBJZiBleGVj
-dXRlZCBhdCBzeXN0ZW0gc2NvcGUsIEtWTV9DQVBfTUVNT1JZX0FUVFJJQlVURVMKK3JldHVybnMg
-YWxsIGF0dHJpYnV0ZXMgc3VwcG9ydGVkIGJ5IEtWTS4gIFRoZSBvbmx5IGF0dHJpYnV0ZSBkZWZp
-bmVkIGF0IHRoaXMKK3RpbWUgaXMgS1ZNX01FTU9SWV9BVFRSSUJVVEVfUFJJVkFURSwgd2hpY2gg
-bWFya3MgdGhlIGFzc29jaWF0ZWQgZ2ZuIGFzIGJlaW5nCitndWVzdCBwcml2YXRlIG1lbW9yeS4K
-KworTm90ZSwgdGhlcmUgaXMgbm8gImdldCIgQVBJLiAgVXNlcnNwYWNlIGlzIHJlc3BvbnNpYmxl
-IGZvciBleHBsaWNpdGx5IHRyYWNraW5nCit0aGUgc3RhdGUgb2YgYSBnZm4vcGFnZSBhcyBuZWVk
-ZWQuCisKK1RoZSAiZmxhZ3MiIGZpZWxkIGlzIHJlc2VydmVkIGZvciBmdXR1cmUgZXh0ZW5zaW9u
-cyBhbmQgbXVzdCBiZSAnMCcuCisKIDUuIFRoZSBrdm1fcnVuIHN0cnVjdHVyZQogPT09PT09PT09
-PT09PT09PT09PT09PT09CiAKZGlmZiAtLWdpdCBhL2luY2x1ZGUvbGludXgva3ZtX2hvc3QuaCBi
-L2luY2x1ZGUvbGludXgva3ZtX2hvc3QuaAppbmRleCA5NmFhOTMwNTM2YjEuLjY4YTE0NGNiN2Ri
-YyAxMDA2NDQKLS0tIGEvaW5jbHVkZS9saW51eC9rdm1faG9zdC5oCisrKyBiL2luY2x1ZGUvbGlu
-dXgva3ZtX2hvc3QuaApAQCAtMjU2LDYgKzI1Niw3IEBAIGludCBrdm1fYXN5bmNfcGZfd2FrZXVw
-X2FsbChzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpOwogI2lmZGVmIENPTkZJR19LVk1fR0VORVJJQ19N
-TVVfTk9USUZJRVIKIHVuaW9uIGt2bV9tbXVfbm90aWZpZXJfYXJnIHsKIAlwdGVfdCBwdGU7CisJ
-dW5zaWduZWQgbG9uZyBhdHRyaWJ1dGVzOwogfTsKIAogc3RydWN0IGt2bV9nZm5fcmFuZ2UgewpA
-QCAtODA2LDYgKzgwNywxMCBAQCBzdHJ1Y3Qga3ZtIHsKIAogI2lmZGVmIENPTkZJR19IQVZFX0tW
-TV9QTV9OT1RJRklFUgogCXN0cnVjdCBub3RpZmllcl9ibG9jayBwbV9ub3RpZmllcjsKKyNlbmRp
-ZgorI2lmZGVmIENPTkZJR19LVk1fR0VORVJJQ19NRU1PUllfQVRUUklCVVRFUworCS8qIFByb3Rl
-Y3RlZCBieSBzbG90c19sb2NrcyAoZm9yIHdyaXRlcykgYW5kIFJDVSAoZm9yIHJlYWRzKSAqLwor
-CXN0cnVjdCB4YXJyYXkgbWVtX2F0dHJfYXJyYXk7CiAjZW5kaWYKIAljaGFyIHN0YXRzX2lkW0tW
-TV9TVEFUU19OQU1FX1NJWkVdOwogfTsKQEAgLTIzMzgsNCArMjM0MywxOCBAQCBzdGF0aWMgaW5s
-aW5lIHZvaWQga3ZtX3ByZXBhcmVfbWVtb3J5X2ZhdWx0X2V4aXQoc3RydWN0IGt2bV92Y3B1ICp2
-Y3B1LAogCXZjcHUtPnJ1bi0+bWVtb3J5X2ZhdWx0LmZsYWdzID0gMDsKIH0KIAorI2lmZGVmIENP
-TkZJR19LVk1fR0VORVJJQ19NRU1PUllfQVRUUklCVVRFUworc3RhdGljIGlubGluZSB1bnNpZ25l
-ZCBsb25nIGt2bV9nZXRfbWVtb3J5X2F0dHJpYnV0ZXMoc3RydWN0IGt2bSAqa3ZtLCBnZm5fdCBn
-Zm4pCit7CisJcmV0dXJuIHhhX3RvX3ZhbHVlKHhhX2xvYWQoJmt2bS0+bWVtX2F0dHJfYXJyYXks
-IGdmbikpOworfQorCitib29sIGt2bV9yYW5nZV9oYXNfbWVtb3J5X2F0dHJpYnV0ZXMoc3RydWN0
-IGt2bSAqa3ZtLCBnZm5fdCBzdGFydCwgZ2ZuX3QgZW5kLAorCQkJCSAgICAgdW5zaWduZWQgbG9u
-ZyBhdHRycyk7Citib29sIGt2bV9hcmNoX3ByZV9zZXRfbWVtb3J5X2F0dHJpYnV0ZXMoc3RydWN0
-IGt2bSAqa3ZtLAorCQkJCQlzdHJ1Y3Qga3ZtX2dmbl9yYW5nZSAqcmFuZ2UpOworYm9vbCBrdm1f
-YXJjaF9wb3N0X3NldF9tZW1vcnlfYXR0cmlidXRlcyhzdHJ1Y3Qga3ZtICprdm0sCisJCQkJCSBz
-dHJ1Y3Qga3ZtX2dmbl9yYW5nZSAqcmFuZ2UpOworI2VuZGlmIC8qIENPTkZJR19LVk1fR0VORVJJ
-Q19NRU1PUllfQVRUUklCVVRFUyAqLworCiAjZW5kaWYKZGlmZiAtLWdpdCBhL2luY2x1ZGUvdWFw
-aS9saW51eC9rdm0uaCBiL2luY2x1ZGUvdWFwaS9saW51eC9rdm0uaAppbmRleCA1OTAxMGE2ODUw
-MDcuLmU4ZDE2N2U1NDk4MCAxMDA2NDQKLS0tIGEvaW5jbHVkZS91YXBpL2xpbnV4L2t2bS5oCisr
-KyBiL2luY2x1ZGUvdWFwaS9saW51eC9rdm0uaApAQCAtMTIyMCw2ICsxMjIwLDcgQEAgc3RydWN0
-IGt2bV9wcGNfcmVzaXplX2hwdCB7CiAjZGVmaW5lIEtWTV9DQVBfQVJNX1NVUFBPUlRFRF9SRUdf
-TUFTS19SQU5HRVMgMjMwCiAjZGVmaW5lIEtWTV9DQVBfVVNFUl9NRU1PUlkyIDIzMQogI2RlZmlu
-ZSBLVk1fQ0FQX01FTU9SWV9GQVVMVF9JTkZPIDIzMgorI2RlZmluZSBLVk1fQ0FQX01FTU9SWV9B
-VFRSSUJVVEVTIDIzMwogCiAjaWZkZWYgS1ZNX0NBUF9JUlFfUk9VVElORwogCkBAIC0yMjg4LDQg
-KzIyODksMTYgQEAgc3RydWN0IGt2bV9zMzkwX3pwY2lfb3AgewogLyogZmxhZ3MgZm9yIGt2bV9z
-MzkwX3pwY2lfb3AtPnUucmVnX2Flbi5mbGFncyAqLwogI2RlZmluZSBLVk1fUzM5MF9aUENJT1Bf
-UkVHQUVOX0hPU1QgICAgKDEgPDwgMCkKIAorLyogQXZhaWxhYmxlIHdpdGggS1ZNX0NBUF9NRU1P
-UllfQVRUUklCVVRFUyAqLworI2RlZmluZSBLVk1fU0VUX01FTU9SWV9BVFRSSUJVVEVTICAgICAg
-ICAgICAgICBfSU9XKEtWTUlPLCAgMHhkMiwgc3RydWN0IGt2bV9tZW1vcnlfYXR0cmlidXRlcykK
-Kworc3RydWN0IGt2bV9tZW1vcnlfYXR0cmlidXRlcyB7CisJX191NjQgYWRkcmVzczsKKwlfX3U2
-NCBzaXplOworCV9fdTY0IGF0dHJpYnV0ZXM7CisJX191NjQgZmxhZ3M7Cit9OworCisjZGVmaW5l
-IEtWTV9NRU1PUllfQVRUUklCVVRFX1BSSVZBVEUgICAgICAgICAgICgxVUxMIDw8IDMpCisKICNl
-bmRpZiAvKiBfX0xJTlVYX0tWTV9IICovCmRpZmYgLS1naXQgYS92aXJ0L2t2bS9LY29uZmlnIGIv
-dmlydC9rdm0vS2NvbmZpZwppbmRleCBlY2FlMjkxNGM5N2UuLjViZDdmY2FmOTA4OSAxMDA2NDQK
-LS0tIGEvdmlydC9rdm0vS2NvbmZpZworKysgYi92aXJ0L2t2bS9LY29uZmlnCkBAIC05NiwzICs5
-Niw3IEBAIGNvbmZpZyBLVk1fR0VORVJJQ19IQVJEV0FSRV9FTkFCTElORwogY29uZmlnIEtWTV9H
-RU5FUklDX01NVV9OT1RJRklFUgogICAgICAgIHNlbGVjdCBNTVVfTk9USUZJRVIKICAgICAgICBi
-b29sCisKK2NvbmZpZyBLVk1fR0VORVJJQ19NRU1PUllfQVRUUklCVVRFUworICAgICAgIHNlbGVj
-dCBLVk1fR0VORVJJQ19NTVVfTk9USUZJRVIKKyAgICAgICBib29sCmRpZmYgLS1naXQgYS92aXJ0
-L2t2bS9rdm1fbWFpbi5jIGIvdmlydC9rdm0va3ZtX21haW4uYwppbmRleCA3ZjMyOTFkZWM3YTYu
-LmYxYTU3NWQzOWIzYiAxMDA2NDQKLS0tIGEvdmlydC9rdm0va3ZtX21haW4uYworKysgYi92aXJ0
-L2t2bS9rdm1fbWFpbi5jCkBAIC0xMjExLDYgKzEyMTEsOSBAQCBzdGF0aWMgc3RydWN0IGt2bSAq
-a3ZtX2NyZWF0ZV92bSh1bnNpZ25lZCBsb25nIHR5cGUsIGNvbnN0IGNoYXIgKmZkbmFtZSkKIAlz
-cGluX2xvY2tfaW5pdCgma3ZtLT5tbl9pbnZhbGlkYXRlX2xvY2spOwogCXJjdXdhaXRfaW5pdCgm
-a3ZtLT5tbl9tZW1zbG90c191cGRhdGVfcmN1d2FpdCk7CiAJeGFfaW5pdCgma3ZtLT52Y3B1X2Fy
-cmF5KTsKKyNpZmRlZiBDT05GSUdfS1ZNX0dFTkVSSUNfTUVNT1JZX0FUVFJJQlVURVMKKwl4YV9p
-bml0KCZrdm0tPm1lbV9hdHRyX2FycmF5KTsKKyNlbmRpZgogCiAJSU5JVF9MSVNUX0hFQUQoJmt2
-bS0+Z3BjX2xpc3QpOwogCXNwaW5fbG9ja19pbml0KCZrdm0tPmdwY19sb2NrKTsKQEAgLTEzOTEs
-NiArMTM5NCw5IEBAIHN0YXRpYyB2b2lkIGt2bV9kZXN0cm95X3ZtKHN0cnVjdCBrdm0gKmt2bSkK
-IAl9CiAJY2xlYW51cF9zcmN1X3N0cnVjdCgma3ZtLT5pcnFfc3JjdSk7CiAJY2xlYW51cF9zcmN1
-X3N0cnVjdCgma3ZtLT5zcmN1KTsKKyNpZmRlZiBDT05GSUdfS1ZNX0dFTkVSSUNfTUVNT1JZX0FU
-VFJJQlVURVMKKwl4YV9kZXN0cm95KCZrdm0tPm1lbV9hdHRyX2FycmF5KTsKKyNlbmRpZgogCWt2
-bV9hcmNoX2ZyZWVfdm0oa3ZtKTsKIAlwcmVlbXB0X25vdGlmaWVyX2RlYygpOwogCWhhcmR3YXJl
-X2Rpc2FibGVfYWxsKCk7CkBAIC0yMzk3LDYgKzI0MDMsMjAwIEBAIHN0YXRpYyBpbnQga3ZtX3Zt
-X2lvY3RsX2NsZWFyX2RpcnR5X2xvZyhzdHJ1Y3Qga3ZtICprdm0sCiB9CiAjZW5kaWYgLyogQ09O
-RklHX0tWTV9HRU5FUklDX0RJUlRZTE9HX1JFQURfUFJPVEVDVCAqLwogCisjaWZkZWYgQ09ORklH
-X0tWTV9HRU5FUklDX01FTU9SWV9BVFRSSUJVVEVTCisvKgorICogUmV0dXJucyB0cnVlIGlmIF9h
-bGxfIGdmbnMgaW4gdGhlIHJhbmdlIFtAc3RhcnQsIEBlbmQpIGhhdmUgYXR0cmlidXRlcworICog
-bWF0Y2hpbmcgQGF0dHJzLgorICovCitib29sIGt2bV9yYW5nZV9oYXNfbWVtb3J5X2F0dHJpYnV0
-ZXMoc3RydWN0IGt2bSAqa3ZtLCBnZm5fdCBzdGFydCwgZ2ZuX3QgZW5kLAorCQkJCSAgICAgdW5z
-aWduZWQgbG9uZyBhdHRycykKK3sKKwlYQV9TVEFURSh4YXMsICZrdm0tPm1lbV9hdHRyX2FycmF5
-LCBzdGFydCk7CisJdW5zaWduZWQgbG9uZyBpbmRleDsKKwlib29sIGhhc19hdHRyczsKKwl2b2lk
-ICplbnRyeTsKKworCXJjdV9yZWFkX2xvY2soKTsKKworCWlmICghYXR0cnMpIHsKKwkJaGFzX2F0
-dHJzID0gIXhhc19maW5kKCZ4YXMsIGVuZCAtIDEpOworCQlnb3RvIG91dDsKKwl9CisKKwloYXNf
-YXR0cnMgPSB0cnVlOworCWZvciAoaW5kZXggPSBzdGFydDsgaW5kZXggPCBlbmQ7IGluZGV4Kysp
-IHsKKwkJZG8geworCQkJZW50cnkgPSB4YXNfbmV4dCgmeGFzKTsKKwkJfSB3aGlsZSAoeGFzX3Jl
-dHJ5KCZ4YXMsIGVudHJ5KSk7CisKKwkJaWYgKHhhcy54YV9pbmRleCAhPSBpbmRleCB8fCB4YV90
-b192YWx1ZShlbnRyeSkgIT0gYXR0cnMpIHsKKwkJCWhhc19hdHRycyA9IGZhbHNlOworCQkJYnJl
-YWs7CisJCX0KKwl9CisKK291dDoKKwlyY3VfcmVhZF91bmxvY2soKTsKKwlyZXR1cm4gaGFzX2F0
-dHJzOworfQorCitzdGF0aWMgdTY0IGt2bV9zdXBwb3J0ZWRfbWVtX2F0dHJpYnV0ZXMoc3RydWN0
-IGt2bSAqa3ZtKQoreworCWlmICgha3ZtKQorCQlyZXR1cm4gS1ZNX01FTU9SWV9BVFRSSUJVVEVf
-UFJJVkFURTsKKworCXJldHVybiAwOworfQorCitzdGF0aWMgX19hbHdheXNfaW5saW5lIHZvaWQg
-a3ZtX2hhbmRsZV9nZm5fcmFuZ2Uoc3RydWN0IGt2bSAqa3ZtLAorCQkJCQkJIHN0cnVjdCBrdm1f
-bW11X25vdGlmaWVyX3JhbmdlICpyYW5nZSkKK3sKKwlzdHJ1Y3Qga3ZtX2dmbl9yYW5nZSBnZm5f
-cmFuZ2U7CisJc3RydWN0IGt2bV9tZW1vcnlfc2xvdCAqc2xvdDsKKwlzdHJ1Y3Qga3ZtX21lbXNs
-b3RzICpzbG90czsKKwlzdHJ1Y3Qga3ZtX21lbXNsb3RfaXRlciBpdGVyOworCWJvb2wgZm91bmRf
-bWVtc2xvdCA9IGZhbHNlOworCWJvb2wgcmV0ID0gZmFsc2U7CisJaW50IGk7CisKKwlnZm5fcmFu
-Z2UuYXJnID0gcmFuZ2UtPmFyZzsKKwlnZm5fcmFuZ2UubWF5X2Jsb2NrID0gcmFuZ2UtPm1heV9i
-bG9jazsKKworCWZvciAoaSA9IDA7IGkgPCBLVk1fQUREUkVTU19TUEFDRV9OVU07IGkrKykgewor
-CQlzbG90cyA9IF9fa3ZtX21lbXNsb3RzKGt2bSwgaSk7CisKKwkJa3ZtX2Zvcl9lYWNoX21lbXNs
-b3RfaW5fZ2ZuX3JhbmdlKCZpdGVyLCBzbG90cywgcmFuZ2UtPnN0YXJ0LCByYW5nZS0+ZW5kKSB7
-CisJCQlzbG90ID0gaXRlci5zbG90OworCQkJZ2ZuX3JhbmdlLnNsb3QgPSBzbG90OworCisJCQln
-Zm5fcmFuZ2Uuc3RhcnQgPSBtYXgocmFuZ2UtPnN0YXJ0LCBzbG90LT5iYXNlX2dmbik7CisJCQln
-Zm5fcmFuZ2UuZW5kID0gbWluKHJhbmdlLT5lbmQsIHNsb3QtPmJhc2VfZ2ZuICsgc2xvdC0+bnBh
-Z2VzKTsKKwkJCWlmIChnZm5fcmFuZ2Uuc3RhcnQgPj0gZ2ZuX3JhbmdlLmVuZCkKKwkJCQljb250
-aW51ZTsKKworCQkJaWYgKCFmb3VuZF9tZW1zbG90KSB7CisJCQkJZm91bmRfbWVtc2xvdCA9IHRy
-dWU7CisJCQkJS1ZNX01NVV9MT0NLKGt2bSk7CisJCQkJaWYgKCFJU19LVk1fTlVMTF9GTihyYW5n
-ZS0+b25fbG9jaykpCisJCQkJCXJhbmdlLT5vbl9sb2NrKGt2bSk7CisJCQl9CisKKwkJCXJldCB8
-PSByYW5nZS0+aGFuZGxlcihrdm0sICZnZm5fcmFuZ2UpOworCQl9CisJfQorCisJaWYgKHJhbmdl
-LT5mbHVzaF9vbl9yZXQgJiYgcmV0KQorCQlrdm1fZmx1c2hfcmVtb3RlX3RsYnMoa3ZtKTsKKwor
-CWlmIChmb3VuZF9tZW1zbG90KQorCQlLVk1fTU1VX1VOTE9DSyhrdm0pOworfQorCitzdGF0aWMg
-Ym9vbCBrdm1fcHJlX3NldF9tZW1vcnlfYXR0cmlidXRlcyhzdHJ1Y3Qga3ZtICprdm0sCisJCQkJ
-CSAgc3RydWN0IGt2bV9nZm5fcmFuZ2UgKnJhbmdlKQoreworCS8qCisJICogVW5jb25kaXRpb25h
-bGx5IGFkZCB0aGUgcmFuZ2UgdG8gdGhlIGludmFsaWRhdGlvbiBzZXQsIHJlZ2FyZGxlc3Mgb2YK
-KwkgKiB3aGV0aGVyIG9yIG5vdCB0aGUgYXJjaCBjYWxsYmFjayBhY3R1YWxseSBuZWVkcyB0byB6
-YXAgU1BURXMuICBFLmcuCisJICogaWYgS1ZNIHN1cHBvcnRzIFJXWCBhdHRyaWJ1dGVzIGluIHRo
-ZSBmdXR1cmUgYW5kIHRoZSBhdHRyaWJ1dGVzIGFyZQorCSAqIGdvaW5nIGZyb20gUj0+UlcsIHph
-cHBpbmcgaXNuJ3Qgc3RyaWN0bHkgbmVjZXNzYXJ5LiAgVW5jb25kaXRpb25hbGx5CisJICogYWRk
-aW5nIHRoZSByYW5nZSBhbGxvd3MgS1ZNIHRvIHJlcXVpcmUgdGhhdCBNTVUgaW52YWxpZGF0aW9u
-cyBhZGQgYXQKKwkgKiBsZWFzdCBvbmUgcmFuZ2UgYmV0d2VlbiBiZWdpbigpIGFuZCBlbmQoKSwg
-ZS5nLiBhbGxvd3MgS1ZNIHRvIGRldGVjdAorCSAqIGJ1Z3Mgd2hlcmUgdGhlIGFkZCgpIGlzIG1p
-c3NlZC4gIFJlbGF4aW5nIHRoZSBydWxlICptaWdodCogYmUgc2FmZSwKKwkgKiBidXQgaXQncyBu
-b3Qgb2J2aW91cyB0aGF0IGFsbG93aW5nIG5ldyBtYXBwaW5ncyB3aGlsZSB0aGUgYXR0cmlidXRl
-cworCSAqIGFyZSBpbiBmbHV4IGlzIGRlc2lyYWJsZSBvciB3b3J0aCB0aGUgY29tcGxleGl0eS4K
-KwkgKi8KKwlrdm1fbW11X2ludmFsaWRhdGVfcmFuZ2VfYWRkKGt2bSwgcmFuZ2UtPnN0YXJ0LCBy
-YW5nZS0+ZW5kKTsKKworCXJldHVybiBrdm1fYXJjaF9wcmVfc2V0X21lbW9yeV9hdHRyaWJ1dGVz
-KGt2bSwgcmFuZ2UpOworfQorCisvKiBTZXQgQGF0dHJpYnV0ZXMgZm9yIHRoZSBnZm4gcmFuZ2Ug
-W0BzdGFydCwgQGVuZCkuICovCitzdGF0aWMgaW50IGt2bV92bV9zZXRfbWVtX2F0dHJpYnV0ZXMo
-c3RydWN0IGt2bSAqa3ZtLCBnZm5fdCBzdGFydCwgZ2ZuX3QgZW5kLAorCQkJCSAgICAgdW5zaWdu
-ZWQgbG9uZyBhdHRyaWJ1dGVzKQoreworCXN0cnVjdCBrdm1fbW11X25vdGlmaWVyX3JhbmdlIHBy
-ZV9zZXRfcmFuZ2UgPSB7CisJCS5zdGFydCA9IHN0YXJ0LAorCQkuZW5kID0gZW5kLAorCQkuaGFu
-ZGxlciA9IGt2bV9wcmVfc2V0X21lbW9yeV9hdHRyaWJ1dGVzLAorCQkub25fbG9jayA9IGt2bV9t
-bXVfaW52YWxpZGF0ZV9iZWdpbiwKKwkJLmZsdXNoX29uX3JldCA9IHRydWUsCisJCS5tYXlfYmxv
-Y2sgPSB0cnVlLAorCX07CisJc3RydWN0IGt2bV9tbXVfbm90aWZpZXJfcmFuZ2UgcG9zdF9zZXRf
-cmFuZ2UgPSB7CisJCS5zdGFydCA9IHN0YXJ0LAorCQkuZW5kID0gZW5kLAorCQkuYXJnLmF0dHJp
-YnV0ZXMgPSBhdHRyaWJ1dGVzLAorCQkuaGFuZGxlciA9IGt2bV9hcmNoX3Bvc3Rfc2V0X21lbW9y
-eV9hdHRyaWJ1dGVzLAorCQkub25fbG9jayA9IGt2bV9tbXVfaW52YWxpZGF0ZV9lbmQsCisJCS5t
-YXlfYmxvY2sgPSB0cnVlLAorCX07CisJdW5zaWduZWQgbG9uZyBpOworCXZvaWQgKmVudHJ5Owor
-CWludCByID0gMDsKKworCWVudHJ5ID0gYXR0cmlidXRlcyA/IHhhX21rX3ZhbHVlKGF0dHJpYnV0
-ZXMpIDogTlVMTDsKKworCW11dGV4X2xvY2soJmt2bS0+c2xvdHNfbG9jayk7CisKKwkvKiBOb3Ro
-aW5nIHRvIGRvIGlmIHRoZSBlbnRpcmUgcmFuZ2UgYXMgdGhlIGRlc2lyZWQgYXR0cmlidXRlcy4g
-Ki8KKwlpZiAoa3ZtX3JhbmdlX2hhc19tZW1vcnlfYXR0cmlidXRlcyhrdm0sIHN0YXJ0LCBlbmQs
-IGF0dHJpYnV0ZXMpKQorCQlnb3RvIG91dF91bmxvY2s7CisKKwkvKgorCSAqIFJlc2VydmUgbWVt
-b3J5IGFoZWFkIG9mIHRpbWUgdG8gYXZvaWQgaGF2aW5nIHRvIGRlYWwgd2l0aCBmYWlsdXJlcwor
-CSAqIHBhcnR3YXkgdGhyb3VnaCBzZXR0aW5nIHRoZSBuZXcgYXR0cmlidXRlcy4KKwkgKi8KKwlm
-b3IgKGkgPSBzdGFydDsgaSA8IGVuZDsgaSsrKSB7CisJCXIgPSB4YV9yZXNlcnZlKCZrdm0tPm1l
-bV9hdHRyX2FycmF5LCBpLCBHRlBfS0VSTkVMX0FDQ09VTlQpOworCQlpZiAocikKKwkJCWdvdG8g
-b3V0X3VubG9jazsKKwl9CisKKwlrdm1faGFuZGxlX2dmbl9yYW5nZShrdm0sICZwcmVfc2V0X3Jh
-bmdlKTsKKworCWZvciAoaSA9IHN0YXJ0OyBpIDwgZW5kOyBpKyspIHsKKwkJciA9IHhhX2Vycih4
-YV9zdG9yZSgma3ZtLT5tZW1fYXR0cl9hcnJheSwgaSwgZW50cnksCisJCQkJICAgIEdGUF9LRVJO
-RUxfQUNDT1VOVCkpOworCQlLVk1fQlVHX09OKHIsIGt2bSk7CisJfQorCisJa3ZtX2hhbmRsZV9n
-Zm5fcmFuZ2Uoa3ZtLCAmcG9zdF9zZXRfcmFuZ2UpOworCitvdXRfdW5sb2NrOgorCW11dGV4X3Vu
-bG9jaygma3ZtLT5zbG90c19sb2NrKTsKKworCXJldHVybiByOworfQorc3RhdGljIGludCBrdm1f
-dm1faW9jdGxfc2V0X21lbV9hdHRyaWJ1dGVzKHN0cnVjdCBrdm0gKmt2bSwKKwkJCQkJICAgc3Ry
-dWN0IGt2bV9tZW1vcnlfYXR0cmlidXRlcyAqYXR0cnMpCit7CisJZ2ZuX3Qgc3RhcnQsIGVuZDsK
-KworCS8qIGZsYWdzIGlzIGN1cnJlbnRseSBub3QgdXNlZC4gKi8KKwlpZiAoYXR0cnMtPmZsYWdz
-KQorCQlyZXR1cm4gLUVJTlZBTDsKKwlpZiAoYXR0cnMtPmF0dHJpYnV0ZXMgJiB+a3ZtX3N1cHBv
-cnRlZF9tZW1fYXR0cmlidXRlcyhrdm0pKQorCQlyZXR1cm4gLUVJTlZBTDsKKwlpZiAoYXR0cnMt
-PnNpemUgPT0gMCB8fCBhdHRycy0+YWRkcmVzcyArIGF0dHJzLT5zaXplIDwgYXR0cnMtPmFkZHJl
-c3MpCisJCXJldHVybiAtRUlOVkFMOworCWlmICghUEFHRV9BTElHTkVEKGF0dHJzLT5hZGRyZXNz
-KSB8fCAhUEFHRV9BTElHTkVEKGF0dHJzLT5zaXplKSkKKwkJcmV0dXJuIC1FSU5WQUw7CisKKwlz
-dGFydCA9IGF0dHJzLT5hZGRyZXNzID4+IFBBR0VfU0hJRlQ7CisJZW5kID0gKGF0dHJzLT5hZGRy
-ZXNzICsgYXR0cnMtPnNpemUpID4+IFBBR0VfU0hJRlQ7CisKKwkvKgorCSAqIHhhcnJheSB0cmFj
-a3MgZGF0YSB1c2luZyAidW5zaWduZWQgbG9uZyIsIGFuZCBhcyBhIHJlc3VsdCBzbyBkb2VzCisJ
-ICogS1ZNLiAgRm9yIHNpbXBsaWNpdHksIHN1cHBvcnRzIGdlbmVyaWMgYXR0cmlidXRlcyBvbmx5
-IG9uIDY0LWJpdAorCSAqIGFyY2hpdGVjdHVyZXMuCisJICovCisJQlVJTERfQlVHX09OKHNpemVv
-ZihhdHRycy0+YXR0cmlidXRlcykgIT0gc2l6ZW9mKHVuc2lnbmVkIGxvbmcpKTsKKworCXJldHVy
-biBrdm1fdm1fc2V0X21lbV9hdHRyaWJ1dGVzKGt2bSwgc3RhcnQsIGVuZCwgYXR0cnMtPmF0dHJp
-YnV0ZXMpOworfQorI2VuZGlmIC8qIENPTkZJR19LVk1fR0VORVJJQ19NRU1PUllfQVRUUklCVVRF
-UyAqLworCiBzdHJ1Y3Qga3ZtX21lbW9yeV9zbG90ICpnZm5fdG9fbWVtc2xvdChzdHJ1Y3Qga3Zt
-ICprdm0sIGdmbl90IGdmbikKIHsKIAlyZXR1cm4gX19nZm5fdG9fbWVtc2xvdChrdm1fbWVtc2xv
-dHMoa3ZtKSwgZ2ZuKTsKQEAgLTQ2NDEsNiArNDg0MSwxMCBAQCBzdGF0aWMgaW50IGt2bV92bV9p
-b2N0bF9jaGVja19leHRlbnNpb25fZ2VuZXJpYyhzdHJ1Y3Qga3ZtICprdm0sIGxvbmcgYXJnKQog
-CWNhc2UgS1ZNX0NBUF9CSU5BUllfU1RBVFNfRkQ6CiAJY2FzZSBLVk1fQ0FQX1NZU1RFTV9FVkVO
-VF9EQVRBOgogCQlyZXR1cm4gMTsKKyNpZmRlZiBDT05GSUdfS1ZNX0dFTkVSSUNfTUVNT1JZX0FU
-VFJJQlVURVMKKwljYXNlIEtWTV9DQVBfTUVNT1JZX0FUVFJJQlVURVM6CisJCXJldHVybiBrdm1f
-c3VwcG9ydGVkX21lbV9hdHRyaWJ1dGVzKGt2bSk7CisjZW5kaWYKIAlkZWZhdWx0OgogCQlicmVh
-azsKIAl9CkBAIC01MDM0LDYgKzUyMzgsMTggQEAgc3RhdGljIGxvbmcga3ZtX3ZtX2lvY3RsKHN0
-cnVjdCBmaWxlICpmaWxwLAogCQlicmVhazsKIAl9CiAjZW5kaWYgLyogQ09ORklHX0hBVkVfS1ZN
-X0lSUV9ST1VUSU5HICovCisjaWZkZWYgQ09ORklHX0tWTV9HRU5FUklDX01FTU9SWV9BVFRSSUJV
-VEVTCisJY2FzZSBLVk1fU0VUX01FTU9SWV9BVFRSSUJVVEVTOiB7CisJCXN0cnVjdCBrdm1fbWVt
-b3J5X2F0dHJpYnV0ZXMgYXR0cnM7CisKKwkJciA9IC1FRkFVTFQ7CisJCWlmIChjb3B5X2Zyb21f
-dXNlcigmYXR0cnMsIGFyZ3AsIHNpemVvZihhdHRycykpKQorCQkJZ290byBvdXQ7CisKKwkJciA9
-IGt2bV92bV9pb2N0bF9zZXRfbWVtX2F0dHJpYnV0ZXMoa3ZtLCAmYXR0cnMpOworCQlicmVhazsK
-Kwl9CisjZW5kaWYgLyogQ09ORklHX0tWTV9HRU5FUklDX01FTU9SWV9BVFRSSUJVVEVTICovCiAJ
-Y2FzZSBLVk1fQ1JFQVRFX0RFVklDRTogewogCQlzdHJ1Y3Qga3ZtX2NyZWF0ZV9kZXZpY2UgY2Q7
-CiAKLS0gCjIuMzkuMQoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+From: Sean Christopherson <seanjc@google.com>
+
+Add an "unmovable" flag for mappings that cannot be migrated under any
+circumstance.  KVM will use the flag for its upcoming GUEST_MEMFD support,
+which will not support compaction/migration, at least not in the
+foreseeable future.
+
+Test AS_UNMOVABLE under folio lock as already done for the async
+compaction/dirty folio case, as the mapping can be removed by truncation
+while compaction is running.  To avoid having to lock every folio with a
+mapping, assume/require that unmovable mappings are also unevictable, and
+have mapping_set_unmovable() also set AS_UNEVICTABLE.
+
+Cc: Matthew Wilcox <willy@infradead.org>
+Co-developed-by: Vlastimil Babka <vbabka@suse.cz>
+Signed-off-by: Vlastimil Babka <vbabka@suse.cz>
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+Message-Id: <20231027182217.3615211-15-seanjc@google.com>
+Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
+---
+ include/linux/pagemap.h | 19 +++++++++++++++++-
+ mm/compaction.c         | 43 +++++++++++++++++++++++++++++------------
+ mm/migrate.c            |  2 ++
+ 3 files changed, 51 insertions(+), 13 deletions(-)
+
+diff --git a/include/linux/pagemap.h b/include/linux/pagemap.h
+index 351c3b7f93a1..82c9bf506b79 100644
+--- a/include/linux/pagemap.h
++++ b/include/linux/pagemap.h
+@@ -203,7 +203,8 @@ enum mapping_flags {
+ 	/* writeback related tags are not used */
+ 	AS_NO_WRITEBACK_TAGS = 5,
+ 	AS_LARGE_FOLIO_SUPPORT = 6,
+-	AS_RELEASE_ALWAYS,	/* Call ->release_folio(), even if no private data */
++	AS_RELEASE_ALWAYS = 7,	/* Call ->release_folio(), even if no private data */
++	AS_UNMOVABLE	= 8,	/* The mapping cannot be moved, ever */
+ };
+ 
+ /**
+@@ -289,6 +290,22 @@ static inline void mapping_clear_release_always(struct address_space *mapping)
+ 	clear_bit(AS_RELEASE_ALWAYS, &mapping->flags);
+ }
+ 
++static inline void mapping_set_unmovable(struct address_space *mapping)
++{
++	/*
++	 * It's expected unmovable mappings are also unevictable. Compaction
++	 * migrate scanner (isolate_migratepages_block()) relies on this to
++	 * reduce page locking.
++	 */
++	set_bit(AS_UNEVICTABLE, &mapping->flags);
++	set_bit(AS_UNMOVABLE, &mapping->flags);
++}
++
++static inline bool mapping_unmovable(struct address_space *mapping)
++{
++	return test_bit(AS_UNMOVABLE, &mapping->flags);
++}
++
+ static inline gfp_t mapping_gfp_mask(struct address_space * mapping)
+ {
+ 	return mapping->gfp_mask;
+diff --git a/mm/compaction.c b/mm/compaction.c
+index 38c8d216c6a3..12b828aed7c8 100644
+--- a/mm/compaction.c
++++ b/mm/compaction.c
+@@ -883,6 +883,7 @@ isolate_migratepages_block(struct compact_control *cc, unsigned long low_pfn,
+ 
+ 	/* Time to isolate some pages for migration */
+ 	for (; low_pfn < end_pfn; low_pfn++) {
++		bool is_dirty, is_unevictable;
+ 
+ 		if (skip_on_failure && low_pfn >= next_skip_pfn) {
+ 			/*
+@@ -1080,8 +1081,10 @@ isolate_migratepages_block(struct compact_control *cc, unsigned long low_pfn,
+ 		if (!folio_test_lru(folio))
+ 			goto isolate_fail_put;
+ 
++		is_unevictable = folio_test_unevictable(folio);
++
+ 		/* Compaction might skip unevictable pages but CMA takes them */
+-		if (!(mode & ISOLATE_UNEVICTABLE) && folio_test_unevictable(folio))
++		if (!(mode & ISOLATE_UNEVICTABLE) && is_unevictable)
+ 			goto isolate_fail_put;
+ 
+ 		/*
+@@ -1093,26 +1096,42 @@ isolate_migratepages_block(struct compact_control *cc, unsigned long low_pfn,
+ 		if ((mode & ISOLATE_ASYNC_MIGRATE) && folio_test_writeback(folio))
+ 			goto isolate_fail_put;
+ 
+-		if ((mode & ISOLATE_ASYNC_MIGRATE) && folio_test_dirty(folio)) {
+-			bool migrate_dirty;
++		is_dirty = folio_test_dirty(folio);
++
++		if (((mode & ISOLATE_ASYNC_MIGRATE) && is_dirty) ||
++		    (mapping && is_unevictable)) {
++			bool migrate_dirty = true;
++			bool is_unmovable;
+ 
+ 			/*
+ 			 * Only folios without mappings or that have
+-			 * a ->migrate_folio callback are possible to
+-			 * migrate without blocking.  However, we may
+-			 * be racing with truncation, which can free
+-			 * the mapping.  Truncation holds the folio lock
+-			 * until after the folio is removed from the page
+-			 * cache so holding it ourselves is sufficient.
++			 * a ->migrate_folio callback are possible to migrate
++			 * without blocking.
++			 *
++			 * Folios from unmovable mappings are not migratable.
++			 *
++			 * However, we can be racing with truncation, which can
++			 * free the mapping that we need to check. Truncation
++			 * holds the folio lock until after the folio is removed
++			 * from the page so holding it ourselves is sufficient.
++			 *
++			 * To avoid locking the folio just to check unmovable,
++			 * assume every unmovable folio is also unevictable,
++			 * which is a cheaper test.  If our assumption goes
++			 * wrong, it's not a correctness bug, just potentially
++			 * wasted cycles.
+ 			 */
+ 			if (!folio_trylock(folio))
+ 				goto isolate_fail_put;
+ 
+ 			mapping = folio_mapping(folio);
+-			migrate_dirty = !mapping ||
+-					mapping->a_ops->migrate_folio;
++			if ((mode & ISOLATE_ASYNC_MIGRATE) && is_dirty) {
++				migrate_dirty = !mapping ||
++						mapping->a_ops->migrate_folio;
++			}
++			is_unmovable = mapping && mapping_unmovable(mapping);
+ 			folio_unlock(folio);
+-			if (!migrate_dirty)
++			if (!migrate_dirty || is_unmovable)
+ 				goto isolate_fail_put;
+ 		}
+ 
+diff --git a/mm/migrate.c b/mm/migrate.c
+index 06086dc9da28..60f2ff6b36aa 100644
+--- a/mm/migrate.c
++++ b/mm/migrate.c
+@@ -956,6 +956,8 @@ static int move_to_new_folio(struct folio *dst, struct folio *src,
+ 
+ 		if (!mapping)
+ 			rc = migrate_folio(mapping, dst, src, mode);
++		else if (mapping_unmovable(mapping))
++			rc = -EOPNOTSUPP;
+ 		else if (mapping->a_ops->migrate_folio)
+ 			/*
+ 			 * Most folios have a mapping and most filesystems
+-- 
+2.39.1
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
