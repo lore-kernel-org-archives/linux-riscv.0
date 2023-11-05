@@ -4,53 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC85BC41535
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Nov 2023 16:34:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5288CC4332F
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Nov 2023 16:35:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bLBnJ2xENqS1E9vu+MPeU8QjbuJ204FvhhM+l/G+zs0=; b=olrZDBAqjzHVrp
-	bW353UdJ+4fAvwBqw/Qia2VzWuHcyvIk99lezrYXhykT0EVJNcjFseWs8SB9yoOl0VyHPu2mqXzHX
-	+fjdVLCozIYX+A72d41WfEsfjVQ0CnFYX7Jh7jwem+vZ08Kvet/HH9Nl3XhkVnRipOF1+W+1aqM2y
-	oaT2+RCHPbvl/A8zuiH0MnfV3Rsx7puOK48NpxBeO9UCvgA9iItXrpBCDSLXDZn+iBCVgemmTx2yH
-	pBZh4GC8RF2ERc0iPlWYg0t6tvAdWCCNO4Mv2QWuIGkQYxMO7a8/MNUirtp0dGFzhSJujz322yKdW
-	sla87//2Jd/sTGsZ+wNw==;
+	List-Owner; bh=AzYKPbiCBnMsbM7W+Km1OLS4WdIpisOmZNUhSpQFwlw=; b=MEcj+b+Cpzb1fS
+	mS2Ozh9W77OQNkszmgqpPpb+DGJhlVtGDtTtdOL1TmzLlpbvWAzEanHsmvnaWAXyu4FMO33+cxI+7
+	oPJA/j0hVF50x3zFMsNFtMsnFZV+PMdFsFhjywTsTpInlm6Z+r9BP8bW+l0BB4oG3kiDWkBWvhh/w
+	jGctuogKriZizsd9DyydTxEJOXkWmnqMGkwcWR/aXx2a5nZ/xzFgj5z65WKshBZoZ/cjq/Hto3f+M
+	6km+bfkmsYY3Y0WmPDAmRaG5A3F+jOiSBPPqdKIoTx16tLIvbfzVcvAtkHmTgBFIPDm7rOZxqmOtA
+	8MD/5sVlRXEpKPHKeLzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qzg5N-00FEw8-0d;
-	Sun, 05 Nov 2023 16:34:53 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1qzg5P-00FEzA-1J;
+	Sun, 05 Nov 2023 16:34:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qzg56-00FEe4-2r
+	id 1qzg5J-00FEs4-3D
+	for linux-riscv@bombadil.infradead.org;
+	Sun, 05 Nov 2023 16:34:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=w6Yxa9MSsZ8N3H0JDDBq80QCW5wtuVY46hruYnL608k=; b=UaB42dgvgDSK713m9SCnCwpP66
+	zALu5qh/rGD8bevYFoNW5vqxSK7Hkv6qOzrxGIaBxQPC29a0APTJbFY8Jzo3spqgu2QQqmd/byJT7
+	dZyf7f3xWfjNkPwOjtWDGjVr/LdZ6cP3P6o6s0qRY4VmpPRtOhIcyUtre8uclzxL7bVHSwjHtFysK
+	GPHt5sLGj7jiTRVJmR2aKJNKH8v2GiNnx2+QdancrrAgPszf/2aXbaB6+pwUkpCc+Xd/UIr2hw+c/
+	9yvBTiI2YlwIldnr2Aqo1MhbFx/cOCa1Itp8eqeY1SUYXh2AaH4PybqxYJ2jFzenDu9x8+JCAnwDy
+	XxqUIGyA==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qzg5G-009dlD-2C
 	for linux-riscv@lists.infradead.org;
 	Sun, 05 Nov 2023 16:34:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1699202075;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tZSxOU/afb1AYemia9RbTGAHPmX5iyTSarNrb86gzhc=;
-	b=cti4rCKJpTbp4BA1nQGvfY4Oo+sC3mlb5zrvtA8fbx8HnecTn+KSQ2h6KRUMt2sdE9y8/0
-	UAaT8lhrnSNiZB/mhMvjw1AEU6O9yx2xBHYywbI3EW8yiv691ngW5s+FN2fS6lUF9lIQAs
-	QdP/4r0KYn1CnooxWr9MoI4rt2DQ+1Y=
-Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-472-1AZxmGEfNPitrzdXhM_Ldg-1; Sun,
- 05 Nov 2023 11:34:28 -0500
-X-MC-Unique: 1AZxmGEfNPitrzdXhM_Ldg-1
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-75-movnItozOMmwEXWg-YFLhg-1; Sun, 05 Nov 2023 11:34:42 -0500
+X-MC-Unique: movnItozOMmwEXWg-YFLhg-1
 Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 49FC238117F2;
-	Sun,  5 Nov 2023 16:34:26 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 940DE185A780;
+	Sun,  5 Nov 2023 16:34:40 +0000 (UTC)
 Received: from avogadro.redhat.com (unknown [10.39.192.93])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 1AF502166B27;
-	Sun,  5 Nov 2023 16:34:18 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id D126B2166B26;
+	Sun,  5 Nov 2023 16:34:33 +0000 (UTC)
 From: Paolo Bonzini <pbonzini@redhat.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Marc Zyngier <maz@kernel.org>,
@@ -97,16 +102,16 @@ Cc: kvm@vger.kernel.org,
 	Liam Merwick <liam.merwick@oracle.com>,
 	Isaku Yamahata <isaku.yamahata@gmail.com>,
 	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-Subject: [PATCH 28/34] KVM: selftests: Add GUEST_SYNC[1-6] macros for synchronizing more data
-Date: Sun,  5 Nov 2023 17:30:31 +0100
-Message-ID: <20231105163040.14904-29-pbonzini@redhat.com>
+Subject: [PATCH 30/34] KVM: selftests: Add KVM_SET_USER_MEMORY_REGION2 helper
+Date: Sun,  5 Nov 2023 17:30:33 +0100
+Message-ID: <20231105163040.14904-31-pbonzini@redhat.com>
 In-Reply-To: <20231105163040.14904-1-pbonzini@redhat.com>
 References: <20231105163040.14904-1-pbonzini@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231105_083437_207289_662385F0 
-X-CRM114-Status: UNSURE (   7.34  )
+X-CRM114-CacheID: sfid-20231105_163446_947118_355145E8 
+X-CRM114-Status: UNSURE (   9.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,41 +129,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Sean Christopherson <seanjc@google.com>
+From: Chao Peng <chao.p.peng@linux.intel.com>
 
-Add GUEST_SYNC[1-6]() so that tests can pass the maximum amount of
-information supported via ucall(), without needing to resort to shared
-memory.
+Add helpers to invoke KVM_SET_USER_MEMORY_REGION2 directly so that tests
+can validate of features that are unique to "version 2" of "set user
+memory region", e.g. do negative testing on gmem_fd and gmem_offset.
 
+Provide a raw version as well as an assert-success version to reduce
+the amount of boilerplate code need for basic usage.
+
+Signed-off-by: Chao Peng <chao.p.peng@linux.intel.com>
+Signed-off-by: Ackerley Tng <ackerleytng@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
-Message-Id: <20231027182217.3615211-31-seanjc@google.com>
+Message-Id: <20231027182217.3615211-33-seanjc@google.com>
 Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
 ---
- tools/testing/selftests/kvm/include/ucall_common.h | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ .../selftests/kvm/include/kvm_util_base.h     |  7 +++++
+ tools/testing/selftests/kvm/lib/kvm_util.c    | 29 +++++++++++++++++++
+ 2 files changed, 36 insertions(+)
 
-diff --git a/tools/testing/selftests/kvm/include/ucall_common.h b/tools/testing/selftests/kvm/include/ucall_common.h
-index ce33d306c2cb..0fb472a5a058 100644
---- a/tools/testing/selftests/kvm/include/ucall_common.h
-+++ b/tools/testing/selftests/kvm/include/ucall_common.h
-@@ -52,6 +52,17 @@ int ucall_nr_pages_required(uint64_t page_size);
- #define GUEST_SYNC_ARGS(stage, arg1, arg2, arg3, arg4)	\
- 				ucall(UCALL_SYNC, 6, "hello", stage, arg1, arg2, arg3, arg4)
- #define GUEST_SYNC(stage)	ucall(UCALL_SYNC, 2, "hello", stage)
-+#define GUEST_SYNC1(arg0)	ucall(UCALL_SYNC, 1, arg0)
-+#define GUEST_SYNC2(arg0, arg1)	ucall(UCALL_SYNC, 2, arg0, arg1)
-+#define GUEST_SYNC3(arg0, arg1, arg2) \
-+				ucall(UCALL_SYNC, 3, arg0, arg1, arg2)
-+#define GUEST_SYNC4(arg0, arg1, arg2, arg3) \
-+				ucall(UCALL_SYNC, 4, arg0, arg1, arg2, arg3)
-+#define GUEST_SYNC5(arg0, arg1, arg2, arg3, arg4) \
-+				ucall(UCALL_SYNC, 5, arg0, arg1, arg2, arg3, arg4)
-+#define GUEST_SYNC6(arg0, arg1, arg2, arg3, arg4, arg5) \
-+				ucall(UCALL_SYNC, 6, arg0, arg1, arg2, arg3, arg4, arg5)
+diff --git a/tools/testing/selftests/kvm/include/kvm_util_base.h b/tools/testing/selftests/kvm/include/kvm_util_base.h
+index 157508c071f3..8ec122f5fcc8 100644
+--- a/tools/testing/selftests/kvm/include/kvm_util_base.h
++++ b/tools/testing/selftests/kvm/include/kvm_util_base.h
+@@ -522,6 +522,13 @@ void vm_set_user_memory_region(struct kvm_vm *vm, uint32_t slot, uint32_t flags,
+ 			       uint64_t gpa, uint64_t size, void *hva);
+ int __vm_set_user_memory_region(struct kvm_vm *vm, uint32_t slot, uint32_t flags,
+ 				uint64_t gpa, uint64_t size, void *hva);
++void vm_set_user_memory_region2(struct kvm_vm *vm, uint32_t slot, uint32_t flags,
++				uint64_t gpa, uint64_t size, void *hva,
++				uint32_t guest_memfd, uint64_t guest_memfd_offset);
++int __vm_set_user_memory_region2(struct kvm_vm *vm, uint32_t slot, uint32_t flags,
++				 uint64_t gpa, uint64_t size, void *hva,
++				 uint32_t guest_memfd, uint64_t guest_memfd_offset);
 +
- #define GUEST_PRINTF(_fmt, _args...) ucall_fmt(UCALL_PRINTF, _fmt, ##_args)
- #define GUEST_DONE()		ucall(UCALL_DONE, 0)
+ void vm_userspace_mem_region_add(struct kvm_vm *vm,
+ 	enum vm_mem_backing_src_type src_type,
+ 	uint64_t guest_paddr, uint32_t slot, uint64_t npages,
+diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+index 1c74310f1d44..d05d95cc3693 100644
+--- a/tools/testing/selftests/kvm/lib/kvm_util.c
++++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+@@ -873,6 +873,35 @@ void vm_set_user_memory_region(struct kvm_vm *vm, uint32_t slot, uint32_t flags,
+ 		    errno, strerror(errno));
+ }
  
++int __vm_set_user_memory_region2(struct kvm_vm *vm, uint32_t slot, uint32_t flags,
++				 uint64_t gpa, uint64_t size, void *hva,
++				 uint32_t guest_memfd, uint64_t guest_memfd_offset)
++{
++	struct kvm_userspace_memory_region2 region = {
++		.slot = slot,
++		.flags = flags,
++		.guest_phys_addr = gpa,
++		.memory_size = size,
++		.userspace_addr = (uintptr_t)hva,
++		.guest_memfd = guest_memfd,
++		.guest_memfd_offset = guest_memfd_offset,
++	};
++
++	return ioctl(vm->fd, KVM_SET_USER_MEMORY_REGION2, &region);
++}
++
++void vm_set_user_memory_region2(struct kvm_vm *vm, uint32_t slot, uint32_t flags,
++				uint64_t gpa, uint64_t size, void *hva,
++				uint32_t guest_memfd, uint64_t guest_memfd_offset)
++{
++	int ret = __vm_set_user_memory_region2(vm, slot, flags, gpa, size, hva,
++					       guest_memfd, guest_memfd_offset);
++
++	TEST_ASSERT(!ret, "KVM_SET_USER_MEMORY_REGION2 failed, errno = %d (%s)",
++		    errno, strerror(errno));
++}
++
++
+ /* FIXME: This thing needs to be ripped apart and rewritten. */
+ void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
+ 		uint64_t guest_paddr, uint32_t slot, uint64_t npages,
 -- 
 2.39.1
 
