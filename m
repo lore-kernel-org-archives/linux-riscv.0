@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8F69C4332F
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Nov 2023 16:35:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38623C4332F
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Nov 2023 17:45:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WRvf1g2U2Hy2aQkZAanGWOCfbDk32GtJylCYcOHnkns=; b=a3m3R7Had11H0z
-	2alTe+0pRY7Q4HbuvGEU0E+iFU73lHKF4S4D/EV89tPKs65fGC3t2syTQdl74Fj/6TFqGfMD+5s8u
-	5NcoP+oxLAfdwkGZRSecDgulDZ9dELshg8wB2mycLQBr9+7wDjOpqN2mn9wuUAdF/lSJZg897Bmkz
-	M87Ag54eK6heSVwanrvJrg0xz3LBpBsUXC1n2nyjbCtab/QLbh2ufJA9wajpVzTgRQ//QTW7EB1e1
-	zfWhovAgLCRTGZROpvw2UejwJmgAtg5luoQu7vdULFeC6JIg9L4dgIyRPOODzQc/8ag+z179fitjc
-	Es7r1P1VM5mc7D0Y2Sgw==;
+	List-Owner; bh=rvffcjFrCShv46HuRb0toBGANAkTp5r6Ke9MdY69N3A=; b=Co/oaFKUzOKWse
+	BYokvBqApPONQczyTK+3ErdhMumUKpJO1E4YGsCK8KRZ+mXKf+R4M6A8qFqex1Jut8Yh3oEg5WIUJ
+	eI1Ffsf121vjcJrp3n4exvXbFpVdhcTjzkKf4hly46L7wGZj5mb6k6kjD5cMP4Kf5h80cmF6tQIQy
+	ekdickxiuFgl2rwSVb+EN4/6ZJJ8cf6LBy32mDTYykDePaWTSSd8iZbYh3NYBz7VyKzCaiTSEdUGm
+	U9zm5dUfayjiYX6PFGou797SrXTSHD4BWHtQ7xxOzMAsr17dZ9oS3Nnn2esuwu0MuvguK9NUKRfhi
+	Nn8uAA/uDNi/01uyqCIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qzg6L-00FG0I-2v;
-	Sun, 05 Nov 2023 16:35:54 +0000
+	id 1qzhBT-00FLrF-2l;
+	Sun, 05 Nov 2023 17:45:15 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qzg66-00FFkF-3C
+	id 1qzg4n-00FEGI-1Y
 	for linux-riscv@bombadil.infradead.org;
-	Sun, 05 Nov 2023 16:35:39 +0000
+	Sun, 05 Nov 2023 16:34:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=8ZW+m7fzifdbbb8Tiv4ZhouifvIpC5SDmH0wH7ReCao=; b=J3lVj3GIZcE55YmTNGtWAkGHAq
-	Q5yXROeROOm0fdJX8Zf4u9pip10dx79AFumBbcUaBux2i09rh4DVBRsFs90aeIQKbsW49A1IIGkv4
-	tWe1RMoCLecmf1D7eoEja7wiZmzkkEe+5FxLlDxL2nZe0/i6ZWXr11n1uhrkPCsSd6Z3soVVkZr3N
-	4EqnX4IV4kAS2HoQCJ32UdjygRorP0i3hGQMoMG14qdMTVSjsdUVPY0fkK/M7ZfsSvG1AFn/gRcRW
-	7Zs0wSdtD852+qwhzdsnZYeUMs8hi4OcysVZxCCHDj54RBBKv9Dj87PBT7NGneifsX0xAE+LIWs/C
-	IWGX+K2g==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	bh=aob/HiQIP/7aYZpu38fmRgeTdSE9NBs8jIzjIkXyvck=; b=fafQPfCFqW4Ez9PRJ6rknCr7hT
+	YRLzbhOSQGmD3nJHlPjeXrhD7yyCgaI43uzZFsqyMqSY+b/9FYhQkM3CGf3WQd1XBggm01IgtrOaM
+	yNtrHlGF18fX5gOKlOuQ7fseiuLA2UA1hg1mutmBXZzdnw1LcHY15nAZS4ZM2hs2BD7RNbyydqq3J
+	i1QZjePjPRZ4bpf7TZBqIo86zAUv0GXorY845ZUC49mFRji/6nTCXFEQ9VlAG7qJ08w2G1CW9Wc6H
+	+w7XTi+3AibdbZuHft4GaENY5zVHEyIcXB6/fF9y/gM4CUXpfdmMjtHBj5zS57wSlY5W+aU582McD
+	FAVm6P7Q==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qzg5z-009dvT-06
+	id 1qzg4k-009dfS-13
 	for linux-riscv@lists.infradead.org;
-	Sun, 05 Nov 2023 16:35:37 +0000
+	Sun, 05 Nov 2023 16:34:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1699202129;
+	s=mimecast20190719; t=1699202053;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=8ZW+m7fzifdbbb8Tiv4ZhouifvIpC5SDmH0wH7ReCao=;
-	b=MV0TCY8Qm2GvQAx9Pjx3XDaejh6DmtAaI9+8YwlQlTKKcl5pr7dp79Eqtd5gN8Bb27tOsG
-	hndrhBlz1yvohlByc3Znx+FOD4HDQRMqm+VBps1hpbue6JkA/z7U5QpXrjIKmEGuPmfzkW
-	wXFS041Py5wgZ1XXsVkHTyFFkTUwv5k=
+	bh=aob/HiQIP/7aYZpu38fmRgeTdSE9NBs8jIzjIkXyvck=;
+	b=Y3WqSDp2b1aCPn4P92kwyMgqaTLX/y50HPcMf+ifXsZsWUfJXfomVW0Qzc6frx9UOOW+WN
+	EQ/o1TObxDBUEnqYOaoh0YlAqDVA/2MXLdqe6S1J0UV5Oz2h8eNVAUBXmUjk0NN4bsetw/
+	u9PKXJRj2govv5c6EiGqBUHCTAw2O58=
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1699202130;
+	s=mimecast20190719; t=1699202053;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=8ZW+m7fzifdbbb8Tiv4ZhouifvIpC5SDmH0wH7ReCao=;
-	b=MgaRyQ/MgGhUQg00I7eL+uZNuQdOVzbbc84+3su6abLGuaOJ4g+pggTcTgS3YleJSovihr
-	LFEuEFWd+xApNVmboOiY1O9y1AUEtTiUC1mERPWLtytWk5DDz4Z4Ro+gExqLXG6nvOVPUb
-	R7NEujJfjSMFRk/lgxOJ3fRpEn22Uek=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-451-vnKJsSWtOUuKYV4SpqWoPg-1; Sun, 05 Nov 2023 11:35:27 -0500
-X-MC-Unique: vnKJsSWtOUuKYV4SpqWoPg-1
+	bh=aob/HiQIP/7aYZpu38fmRgeTdSE9NBs8jIzjIkXyvck=;
+	b=Y3WqSDp2b1aCPn4P92kwyMgqaTLX/y50HPcMf+ifXsZsWUfJXfomVW0Qzc6frx9UOOW+WN
+	EQ/o1TObxDBUEnqYOaoh0YlAqDVA/2MXLdqe6S1J0UV5Oz2h8eNVAUBXmUjk0NN4bsetw/
+	u9PKXJRj2govv5c6EiGqBUHCTAw2O58=
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-136-OE1C7L4KMAOYl24Q5dP8aw-1; Sun,
+ 05 Nov 2023 11:34:06 -0500
+X-MC-Unique: OE1C7L4KMAOYl24Q5dP8aw-1
 Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2AA34185A782;
-	Sun,  5 Nov 2023 16:35:25 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 93FEF29ABA19;
+	Sun,  5 Nov 2023 16:34:04 +0000 (UTC)
 Received: from avogadro.redhat.com (unknown [10.39.192.93])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 3AD9D2166B26;
-	Sun,  5 Nov 2023 16:35:18 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id D731E2166B26;
+	Sun,  5 Nov 2023 16:33:57 +0000 (UTC)
 From: Paolo Bonzini <pbonzini@redhat.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Marc Zyngier <maz@kernel.org>,
@@ -122,16 +122,16 @@ Cc: kvm@vger.kernel.org,
 	Liam Merwick <liam.merwick@oracle.com>,
 	Isaku Yamahata <isaku.yamahata@gmail.com>,
 	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-Subject: [PATCH 36/34] KVM: Add transparent hugepage support for dedicated guest memory
-Date: Sun,  5 Nov 2023 17:30:39 +0100
-Message-ID: <20231105163040.14904-37-pbonzini@redhat.com>
+Subject: [PATCH 25/34] KVM: selftests: Add helpers to convert guest memory b/w private and shared
+Date: Sun,  5 Nov 2023 17:30:28 +0100
+Message-ID: <20231105163040.14904-26-pbonzini@redhat.com>
 In-Reply-To: <20231105163040.14904-1-pbonzini@redhat.com>
 References: <20231105163040.14904-1-pbonzini@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231105_163532_491368_88850760 
-X-CRM114-Status: GOOD (  28.80  )
+X-CRM114-CacheID: sfid-20231105_163414_561238_E17AA45D 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,284 +148,127 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Sean Christopherson <seanjc@google.com>
+From: Vishal Annapurve <vannapurve@google.com>
 
-Extended guest_memfd to allow backing guest memory with transparent
-hugepages.  Require userspace to opt-in via a flag even though there's no
-known/anticipated use case for forcing small pages as THP is optional,
-i.e. to avoid ending up in a situation where userspace is unaware that
-KVM can't provide hugepages.
+Add helpers to convert memory between private and shared via KVM's
+memory attributes, as well as helpers to free/allocate guest_memfd memory
+via fallocate().  Userspace, i.e. tests, is NOT required to do fallocate()
+when converting memory, as the attributes are the single source of true.
+Provide allocate() helpers so that tests can mimic a userspace that frees
+private memory on conversion, e.g. to prioritize memory usage over
+performance.
 
-For simplicity, require the guest_memfd size to be a multiple of the
-hugepage size, e.g. so that KVM doesn't need to do bounds checking when
-deciding whether or not to allocate a huge folio.
-
-When reporting the max order when KVM gets a pfn from guest_memfd, force
-order-0 pages if the hugepage is not fully contained by the memslot
-binding, e.g. if userspace requested hugepages but punches a hole in the
-memslot bindings in order to emulate x86's VGA hole.
-
+Signed-off-by: Vishal Annapurve <vannapurve@google.com>
+Co-developed-by: Sean Christopherson <seanjc@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
-Message-Id: <20231027182217.3615211-18-seanjc@google.com>
-[Allow even with CONFIG_TRANSPARENT_HUGEPAGE; dropped momentarily due to
- uneasiness about the API. - Paolo]
+Message-Id: <20231027182217.3615211-28-seanjc@google.com>
 Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
 ---
- Documentation/virt/kvm/api.rst                |  7 ++
- include/uapi/linux/kvm.h                      |  2 +
- .../testing/selftests/kvm/guest_memfd_test.c  | 15 ++++
- tools/testing/selftests/kvm/lib/kvm_util.c    |  9 +++
- .../kvm/x86_64/private_mem_conversions_test.c |  7 +-
- virt/kvm/guest_memfd.c                        | 70 ++++++++++++++++---
- 6 files changed, 101 insertions(+), 9 deletions(-)
+ .../selftests/kvm/include/kvm_util_base.h     | 48 +++++++++++++++++++
+ tools/testing/selftests/kvm/lib/kvm_util.c    | 28 +++++++++++
+ 2 files changed, 76 insertions(+)
 
-diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-index 38882263278d..c13ede498369 100644
---- a/Documentation/virt/kvm/api.rst
-+++ b/Documentation/virt/kvm/api.rst
-@@ -6318,6 +6318,8 @@ and cannot be resized  (guest_memfd files do however support PUNCH_HOLE).
- 	__u64 reserved[6];
-   };
- 
-+  #define KVM_GUEST_MEMFD_ALLOW_HUGEPAGE         (1ULL << 0)
-+
- Conceptually, the inode backing a guest_memfd file represents physical memory,
- i.e. is coupled to the virtual machine as a thing, not to a "struct kvm".  The
- file itself, which is bound to a "struct kvm", is that instance's view of the
-@@ -6334,6 +6336,11 @@ most one mapping per page, i.e. binding multiple memory regions to a single
- guest_memfd range is not allowed (any number of memory regions can be bound to
- a single guest_memfd file, but the bound ranges must not overlap).
- 
-+If KVM_GUEST_MEMFD_ALLOW_HUGEPAGE is set in flags, KVM will attempt to allocate
-+and map hugepages for the guest_memfd file.  This is currently best effort.  If
-+KVM_GUEST_MEMFD_ALLOW_HUGEPAGE is set, the size must be aligned to the maximum
-+transparent hugepage size supported by the kernel
-+
- See KVM_SET_USER_MEMORY_REGION2 for additional details.
- 
- 5. The kvm_run structure
-diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-index e9cb2df67a1d..b4ba4b53b834 100644
---- a/include/uapi/linux/kvm.h
-+++ b/include/uapi/linux/kvm.h
-@@ -2316,4 +2316,6 @@ struct kvm_create_guest_memfd {
- 	__u64 reserved[6];
- };
- 
-+#define KVM_GUEST_MEMFD_ALLOW_HUGEPAGE		(1ULL << 0)
-+
- #endif /* __LINUX_KVM_H */
-diff --git a/tools/testing/selftests/kvm/guest_memfd_test.c b/tools/testing/selftests/kvm/guest_memfd_test.c
-index ea0ae7e25330..c15de9852316 100644
---- a/tools/testing/selftests/kvm/guest_memfd_test.c
-+++ b/tools/testing/selftests/kvm/guest_memfd_test.c
-@@ -123,6 +123,7 @@ static void test_invalid_punch_hole(int fd, size_t page_size, size_t total_size)
- 
- static void test_create_guest_memfd_invalid(struct kvm_vm *vm)
- {
-+	uint64_t valid_flags = 0;
- 	size_t page_size = getpagesize();
- 	uint64_t flag;
- 	size_t size;
-@@ -135,9 +136,23 @@ static void test_create_guest_memfd_invalid(struct kvm_vm *vm)
- 			    size);
- 	}
- 
-+	if (thp_configured()) {
-+		for (size = page_size * 2; size < get_trans_hugepagesz(); size += page_size) {
-+			fd = __vm_create_guest_memfd(vm, size, KVM_GUEST_MEMFD_ALLOW_HUGEPAGE);
-+			TEST_ASSERT(fd == -1 && errno == EINVAL,
-+				    "guest_memfd() with non-hugepage-aligned page size '0x%lx' should fail with EINVAL",
-+				    size);
-+		}
-+
-+		valid_flags = KVM_GUEST_MEMFD_ALLOW_HUGEPAGE;
-+	}
-+
- 	for (flag = 1; flag; flag <<= 1) {
- 		uint64_t bit;
- 
-+		if (flag & valid_flags)
-+			continue;
-+
- 		fd = __vm_create_guest_memfd(vm, page_size, flag);
- 		TEST_ASSERT(fd == -1 && errno == EINVAL,
- 			    "guest_memfd() with flag '0x%lx' should fail with EINVAL",
-diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-index d05d95cc3693..ed81a00e5df1 100644
---- a/tools/testing/selftests/kvm/lib/kvm_util.c
-+++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-@@ -1022,6 +1022,15 @@ void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
- 	if (flags & KVM_MEM_GUEST_MEMFD) {
- 		if (guest_memfd < 0) {
- 			uint32_t guest_memfd_flags = 0;
-+
-+			/*
-+			 * Allow hugepages for the guest memfd backing if the
-+			 * "normal" backing is allowed/required to be huge.
-+			 */
-+			if (src_type != VM_MEM_SRC_ANONYMOUS &&
-+			    src_type != VM_MEM_SRC_SHMEM)
-+				guest_memfd_flags |= KVM_GUEST_MEMFD_ALLOW_HUGEPAGE;
-+
- 			TEST_ASSERT(!guest_memfd_offset,
- 				    "Offset must be zero when creating new guest_memfd");
- 			guest_memfd = vm_create_guest_memfd(vm, mem_size, guest_memfd_flags);
-diff --git a/tools/testing/selftests/kvm/x86_64/private_mem_conversions_test.c b/tools/testing/selftests/kvm/x86_64/private_mem_conversions_test.c
-index 4d6a37a5d896..f707fd401a4f 100644
---- a/tools/testing/selftests/kvm/x86_64/private_mem_conversions_test.c
-+++ b/tools/testing/selftests/kvm/x86_64/private_mem_conversions_test.c
-@@ -380,6 +380,7 @@ static void test_mem_conversions(enum vm_mem_backing_src_type src_type, uint32_t
- 	const size_t slot_size = memfd_size / nr_memslots;
- 	struct kvm_vcpu *vcpus[KVM_MAX_VCPUS];
- 	pthread_t threads[KVM_MAX_VCPUS];
-+	uint64_t memfd_flags;
- 	struct kvm_vm *vm;
- 	int memfd, i, r;
- 
-@@ -395,7 +396,11 @@ static void test_mem_conversions(enum vm_mem_backing_src_type src_type, uint32_t
- 
- 	vm_enable_cap(vm, KVM_CAP_EXIT_HYPERCALL, (1 << KVM_HC_MAP_GPA_RANGE));
- 
--	memfd = vm_create_guest_memfd(vm, memfd_size, 0);
-+	if (backing_src_can_be_huge(src_type))
-+		memfd_flags = KVM_GUEST_MEMFD_ALLOW_HUGEPAGE;
-+	else
-+		memfd_flags = 0;
-+	memfd = vm_create_guest_memfd(vm, memfd_size, memfd_flags);
- 
- 	for (i = 0; i < nr_memslots; i++)
- 		vm_mem_add(vm, src_type, BASE_DATA_GPA + slot_size * i,
-diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
-index e65f4170425c..3e48e8997626 100644
---- a/virt/kvm/guest_memfd.c
-+++ b/virt/kvm/guest_memfd.c
-@@ -13,14 +13,44 @@ struct kvm_gmem {
- 	struct list_head entry;
- };
- 
-+static struct folio *kvm_gmem_get_huge_folio(struct inode *inode, pgoff_t index, unsigned order)
-+{
-+	pgoff_t npages = 1UL << order;
-+	pgoff_t huge_index = round_down(index, npages);
-+	unsigned long flags = (unsigned long)inode->i_private;
-+	struct address_space *mapping  = inode->i_mapping;
-+	gfp_t gfp = mapping_gfp_mask(mapping);
-+	struct folio *folio;
-+
-+	if (!(flags & KVM_GUEST_MEMFD_ALLOW_HUGEPAGE))
-+		return NULL;
-+
-+	if (filemap_range_has_page(mapping, (loff_t)huge_index << PAGE_SHIFT,
-+				   (loff_t)(huge_index + npages - 1) << PAGE_SHIFT))
-+		return NULL;
-+
-+	folio = filemap_alloc_folio(gfp, order);
-+	if (!folio)
-+		return NULL;
-+
-+	if (filemap_add_folio(mapping, folio, huge_index, gfp)) {
-+		folio_put(folio);
-+		return NULL;
-+	}
-+
-+	return folio;
-+}
-+
- static struct folio *kvm_gmem_get_folio(struct inode *inode, pgoff_t index)
- {
- 	struct folio *folio;
- 
--	/* TODO: Support huge pages. */
--	folio = filemap_grab_folio(inode->i_mapping, index);
--	if (IS_ERR_OR_NULL(folio))
--		return NULL;
-+	folio = kvm_gmem_get_huge_folio(inode, index, PMD_ORDER);
-+	if (!folio) {
-+		folio = filemap_grab_folio(inode->i_mapping, index);
-+		if (IS_ERR_OR_NULL(folio))
-+			return NULL;
-+	}
- 
- 	/*
- 	 * Use the up-to-date flag to track whether or not the memory has been
-@@ -366,6 +396,7 @@ static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags)
- 	inode->i_mode |= S_IFREG;
- 	inode->i_size = size;
- 	mapping_set_gfp_mask(inode->i_mapping, GFP_HIGHUSER);
-+	mapping_set_large_folios(inode->i_mapping);
- 	mapping_set_unmovable(inode->i_mapping);
- 	/* Unmovable mappings are supposed to be marked unevictable as well. */
- 	WARN_ON_ONCE(!mapping_unevictable(inode->i_mapping));
-@@ -389,7 +420,7 @@ int kvm_gmem_create(struct kvm *kvm, struct kvm_create_guest_memfd *args)
- {
- 	loff_t size = args->size;
- 	u64 flags = args->flags;
--	u64 valid_flags = 0;
-+	u64 valid_flags = KVM_GUEST_MEMFD_ALLOW_HUGEPAGE;
- 
- 	if (flags & ~valid_flags)
- 		return -EINVAL;
-@@ -397,6 +428,13 @@ int kvm_gmem_create(struct kvm *kvm, struct kvm_create_guest_memfd *args)
- 	if (size <= 0 || !PAGE_ALIGNED(size))
- 		return -EINVAL;
- 
-+#ifdef CONFIG_TRANSPARENT_HUGEPAGE
-+	BUILD_BUG_ON(PMD_SIZE != HPAGE_PMD_SIZE);
-+#endif
-+	if ((flags & KVM_GUEST_MEMFD_ALLOW_HUGEPAGE) &&
-+	    !IS_ALIGNED(size, PMD_SIZE))
-+		return -EINVAL;
-+
- 	return __kvm_gmem_create(kvm, size, flags);
+diff --git a/tools/testing/selftests/kvm/include/kvm_util_base.h b/tools/testing/selftests/kvm/include/kvm_util_base.h
+index 9f861182c02a..1441fca6c273 100644
+--- a/tools/testing/selftests/kvm/include/kvm_util_base.h
++++ b/tools/testing/selftests/kvm/include/kvm_util_base.h
+@@ -333,6 +333,54 @@ static inline void vm_enable_cap(struct kvm_vm *vm, uint32_t cap, uint64_t arg0)
+ 	vm_ioctl(vm, KVM_ENABLE_CAP, &enable_cap);
  }
  
-@@ -491,7 +529,7 @@ void kvm_gmem_unbind(struct kvm_memory_slot *slot)
- int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
- 		     gfn_t gfn, kvm_pfn_t *pfn, int *max_order)
- {
--	pgoff_t index = gfn - slot->base_gfn + slot->gmem.pgoff;
-+	pgoff_t index, huge_index;
- 	struct kvm_gmem *gmem;
- 	struct folio *folio;
- 	struct page *page;
-@@ -504,6 +542,7 @@ int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
- 
- 	gmem = file->private_data;
- 
-+	index = gfn - slot->base_gfn + slot->gmem.pgoff;
- 	if (WARN_ON_ONCE(xa_load(&gmem->bindings, index) != slot)) {
- 		r = -EIO;
- 		goto out_fput;
-@@ -523,9 +562,24 @@ int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
- 	page = folio_file_page(folio, index);
- 
- 	*pfn = page_to_pfn(page);
--	if (max_order)
--		*max_order = 0;
-+	if (!max_order)
-+		goto success;
- 
-+	*max_order = compound_order(compound_head(page));
-+	if (!*max_order)
-+		goto success;
++static inline void vm_set_memory_attributes(struct kvm_vm *vm, uint64_t gpa,
++					    uint64_t size, uint64_t attributes)
++{
++	struct kvm_memory_attributes attr = {
++		.attributes = attributes,
++		.address = gpa,
++		.size = size,
++		.flags = 0,
++	};
 +
 +	/*
-+	 * The folio can be mapped with a hugepage if and only if the folio is
-+	 * fully contained by the range the memslot is bound to.  Note, the
-+	 * caller is responsible for handling gfn alignment, this only deals
-+	 * with the file binding.
++	 * KVM_SET_MEMORY_ATTRIBUTES overwrites _all_ attributes.  These flows
++	 * need significant enhancements to support multiple attributes.
 +	 */
-+	huge_index = ALIGN(index, 1ull << *max_order);
-+	if (huge_index < ALIGN(slot->gmem.pgoff, 1ull << *max_order) ||
-+	    huge_index + (1ull << *max_order) > slot->gmem.pgoff + slot->npages)
-+		*max_order = 0;
-+success:
- 	r = 0;
++	TEST_ASSERT(!attributes || attributes == KVM_MEMORY_ATTRIBUTE_PRIVATE,
++		    "Update me to support multiple attributes!");
++
++	vm_ioctl(vm, KVM_SET_MEMORY_ATTRIBUTES, &attr);
++}
++
++
++static inline void vm_mem_set_private(struct kvm_vm *vm, uint64_t gpa,
++				      uint64_t size)
++{
++	vm_set_memory_attributes(vm, gpa, size, KVM_MEMORY_ATTRIBUTE_PRIVATE);
++}
++
++static inline void vm_mem_set_shared(struct kvm_vm *vm, uint64_t gpa,
++				     uint64_t size)
++{
++	vm_set_memory_attributes(vm, gpa, size, 0);
++}
++
++void vm_guest_mem_fallocate(struct kvm_vm *vm, uint64_t gpa, uint64_t size,
++			    bool punch_hole);
++
++static inline void vm_guest_mem_punch_hole(struct kvm_vm *vm, uint64_t gpa,
++					   uint64_t size)
++{
++	vm_guest_mem_fallocate(vm, gpa, size, true);
++}
++
++static inline void vm_guest_mem_allocate(struct kvm_vm *vm, uint64_t gpa,
++					 uint64_t size)
++{
++	vm_guest_mem_fallocate(vm, gpa, size, false);
++}
++
+ void vm_enable_dirty_ring(struct kvm_vm *vm, uint32_t ring_size);
+ const char *vm_guest_mode_string(uint32_t i);
  
- out_unlock:
+diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+index b63500fca627..95a553400ea9 100644
+--- a/tools/testing/selftests/kvm/lib/kvm_util.c
++++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+@@ -1167,6 +1167,34 @@ void vm_mem_region_delete(struct kvm_vm *vm, uint32_t slot)
+ 	__vm_mem_region_delete(vm, memslot2region(vm, slot), true);
+ }
+ 
++void vm_guest_mem_fallocate(struct kvm_vm *vm, uint64_t base, uint64_t size,
++			    bool punch_hole)
++{
++	const int mode = FALLOC_FL_KEEP_SIZE | (punch_hole ? FALLOC_FL_PUNCH_HOLE : 0);
++	struct userspace_mem_region *region;
++	uint64_t end = base + size;
++	uint64_t gpa, len;
++	off_t fd_offset;
++	int ret;
++
++	for (gpa = base; gpa < end; gpa += len) {
++		uint64_t offset;
++
++		region = userspace_mem_region_find(vm, gpa, gpa);
++		TEST_ASSERT(region && region->region.flags & KVM_MEM_GUEST_MEMFD,
++			    "Private memory region not found for GPA 0x%lx", gpa);
++
++		offset = (gpa - region->region.guest_phys_addr);
++		fd_offset = region->region.guest_memfd_offset + offset;
++		len = min_t(uint64_t, end - gpa, region->region.memory_size - offset);
++
++		ret = fallocate(region->region.guest_memfd, mode, fd_offset, len);
++		TEST_ASSERT(!ret, "fallocate() failed to %s at %lx (len = %lu), fd = %d, mode = %x, offset = %lx\n",
++			    punch_hole ? "punch hole" : "allocate", gpa, len,
++			    region->region.guest_memfd, mode, fd_offset);
++	}
++}
++
+ /* Returns the size of a vCPU's kvm_run structure. */
+ static int vcpu_mmap_sz(void)
+ {
 -- 
 2.39.1
+
 
 
 _______________________________________________
