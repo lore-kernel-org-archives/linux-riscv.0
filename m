@@ -4,55 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B915AC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Nov 2023 19:21:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 206B3C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Nov 2023 20:43:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lvtK+OSAxPeQoN+kd+544LZNF7cKhANyfAG5TK0SieY=; b=hJbt4jiteqyYn+
-	rrvJjqOuqJlcGrhBMyurgVj8bWin8jTSJUV+gh4F/Q43dGEdJZmFWQRgOCIPlqsbiGYqLjaIL+w5R
-	nEdQ2axotgqWbqMEhgcva0RnTVpPeXE0Izmw1RBbo9+P5rVG4N5H2lPQfddxn7mtXXVGXAimbNEbx
-	ioX+naB521HPwKsl9o+KENTN5RWGMH+U5EVzjoIvLiOryjlw8eO5SNdn2+g6rpmLRl2gRgvDKlGXH
-	4fL1VowFPkecqD9RT847mA8OsCQBSfNOE5YKUd6jvayWaQP7mGyX5Bw34gL522qiE+gUBqRPPHVLg
-	fFt6puYa/O9ZCM6tMIPA==;
+	List-Owner; bh=IhCPPWB0/yrGcpJkgCIvlwJwiyJjn6VxQBCNYpvkyXA=; b=h2GZOSlQnIj74j
+	UZgo7v89XJ3GMx+WGigLMFQYiA91ndpqYrODpSEoq9HoAer+DN5QtGxAsAE/Y8IrmqfW+R5CdR5fy
+	qbLZ8x1t2ypQSJbpX2ii5h00TQGm4jPtzXsMa3wAKjEhFIemhYdIHuq4hvF5kc5W5+nusXBXaIRnf
+	ThVTMHjcGO1AYgh1E1z4XP1iA64kXj4g/M6mTGC4b5XVRgqU7mxe8eN7LxexC7DzQ94eD+ckbCnnx
+	kvxPcg4No5mVnkslt5NljMkBRwSEmsVyPtSOciCj09fFeXdQsBU/wG8sm+dqJj+PQGsejUupqp/Mg
+	FGaZNjPg+H1Ishdu//lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r059r-00HNyF-19;
-	Mon, 06 Nov 2023 19:21:11 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1r06R0-00HWhL-37;
+	Mon, 06 Nov 2023 20:42:58 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r059o-00HNxt-2F
+	id 1r06Qw-00HWf1-2y
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Nov 2023 19:21:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 85986B811C7;
-	Mon,  6 Nov 2023 19:21:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEE79C433C8;
-	Mon,  6 Nov 2023 19:21:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699298465;
-	bh=DNSe1kWEmQIx9RbnW/5BezE7eNr7BvDl2djBhzSMnZI=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=CzC22BIRJwDgnZhVgMFNrwGQ5hFQ1zOJg1uk/iLLj+M01dpVFAB45brwdB7ujupSF
-	 R7/p/7lDbOlboRHRksVysmedjqGCD1rEj15+YNNxEcKbvR0ZcwMgUd15YNSmtAWfSV
-	 guY0MJwBtUmQzi//vxXtES0P3GhkIEwIpD6Bu8fdpkAi2FC7brpjThZtcDfG93o4e5
-	 g/sK7RDWpD17ghwsc1iI92Jxz6pi5YwauAUg8efYDQQD0IIAWjka94bIdhbjb81feI
-	 nIwR6qQSwjozFZsIPET4cK/SLAYZD9UfZILECpFhS4zLNlFRJ3+QUjJMOCt3em/XSW
-	 HkMIi/enxHOpQ==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Subject: Re: [PATCH] riscv: CONFIG_EFI should not depend on CONFIG_RISCV_ISA_C
-In-Reply-To: <mhng-7bef396f-1601-4934-8c85-08196c54aa76@palmer-ri-x1c9>
-References: <mhng-7bef396f-1601-4934-8c85-08196c54aa76@palmer-ri-x1c9>
-Date: Mon, 06 Nov 2023 20:21:04 +0100
-Message-ID: <87ttpyu1r3.fsf@all.your.base.are.belong.to.us>
+	Mon, 06 Nov 2023 20:42:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1699303372;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nIbeoR7FArvGosJRrKLNWkopuKKdjMraBxoXduHpSoU=;
+	b=cc9sCRnsWw9bVF0SsmscEVVUfKeP5cBk454QgJn44ha83owNHf58N+I+cTF1FPyZTgVwyc
+	aQ8uIAiko/lNEV5dl6u+HOVNZ1YPQfO2A9kMREvxPqXgjWIRB++bdXwQ4XCoK7S3UFoVr8
+	KJ9scRPhJhLcarB2/Iy5mb1nN6SoONg=
+Received: from mail-yw1-f197.google.com (mail-yw1-f197.google.com
+ [209.85.128.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-52--18uCTsHOsiOTkmB2I3lHw-1; Mon, 06 Nov 2023 15:42:50 -0500
+X-MC-Unique: -18uCTsHOsiOTkmB2I3lHw-1
+Received: by mail-yw1-f197.google.com with SMTP id 00721157ae682-5b02ed0f886so68034657b3.0
+        for <linux-riscv@lists.infradead.org>; Mon, 06 Nov 2023 12:42:50 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1699303370; x=1699908170;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nIbeoR7FArvGosJRrKLNWkopuKKdjMraBxoXduHpSoU=;
+        b=KpBefcR37hIEZLdJIYWpLDhR+u4pWZ4TcX+t+Kcz6i77n/Uo/SLuj7GatCyof0A14z
+         rA5CLjKh1uiwVF1Y9n+A7wZJlxXvNfnmOifPt2YjQlEfC+14zW5gL/jGI+r5iDKYhv3H
+         tGNTVAwUcEkz9IUS6PqqagB7IXDuSmOsEKZu4zaCCDoX5rCUBXr7p05+iSCS1KnmFDSw
+         aXbTn7N6ZhXuo6TFfbZ77GcAhFETqDVVwdPi8qBPWqO1uyKHpFB44bd0FyxGya7s5jJg
+         KKyJWaF/mayM0D4j32/NkKer0hDh/W2/a2v4K8ujf2ZqsJhyfEiOP1fWmBDVSy5aip3r
+         FGPg==
+X-Gm-Message-State: AOJu0YxmS7e78J+xlZVrrBb/vMJifTVX0P48j9TbrZ1zL3CDFXW9tPvG
+	IRseiMIZ+BbamzFoCOF9cr1Kpm877pVhNmh1sAmdK4StgeQ0Chh3ZN/8Fbr2HYz7j/QEuUiW9ZD
+	VxgUpPuvH4IVi4vmJarazUZ88QGYk
+X-Received: by 2002:a0d:e20c:0:b0:5a7:db27:7794 with SMTP id l12-20020a0de20c000000b005a7db277794mr11573841ywe.25.1699303370233;
+        Mon, 06 Nov 2023 12:42:50 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEwtd2X6F7/R7ZrTLh3R6r1mZwDFf6I2+lQzpb1LF3XnOH0G65oHruWj+GCEutdN8FtocsRJA==
+X-Received: by 2002:a0d:e20c:0:b0:5a7:db27:7794 with SMTP id l12-20020a0de20c000000b005a7db277794mr11573819ywe.25.1699303369879;
+        Mon, 06 Nov 2023 12:42:49 -0800 (PST)
+Received: from redhat.com ([2804:1b3:a801:5cb:ba24:b17c:ecf0:ca67])
+        by smtp.gmail.com with ESMTPSA id g3-20020a0ddd03000000b00594fff48796sm4754710ywe.75.2023.11.06.12.42.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Nov 2023 12:42:49 -0800 (PST)
+Date: Mon, 6 Nov 2023 17:42:41 -0300
+From: Leonardo Bras <leobras@redhat.com>
+To: guoren@kernel.org
+Cc: paul.walmsley@sifive.com, anup@brainfault.org, peterz@infradead.org,
+	mingo@redhat.com, will@kernel.org, palmer@rivosinc.com,
+	longman@redhat.com, boqun.feng@gmail.com, tglx@linutronix.de,
+	paulmck@kernel.org, rostedt@goodmis.org, rdunlap@infradead.org,
+	catalin.marinas@arm.com, conor.dooley@microchip.com,
+	xiaoguang.xing@sophgo.com, bjorn@rivosinc.com,
+	alexghiti@rivosinc.com, keescook@chromium.org,
+	greentime.hu@sifive.com, ajones@ventanamicro.com,
+	jszhang@kernel.org, wefu@redhat.com, wuwei2016@iscas.ac.cn,
+	linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-doc@vger.kernel.org, kvm@vger.kernel.org,
+	virtualization@lists.linux-foundation.org,
+	linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH V11 00/17] riscv: Add Native/Paravirt qspinlock support
+Message-ID: <ZUlPwQVG4OTkighB@redhat.com>
+References: <20230910082911.3378782-1-guoren@kernel.org>
 MIME-Version: 1.0
+In-Reply-To: <20230910082911.3378782-1-guoren@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231106_112109_021899_00A1D4ED 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20231106_124255_121903_D682A7F1 
+X-CRM114-Status: GOOD (  28.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,55 +105,266 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, anup@brainfault.org, atishp@atishpatra.org, Atish Patra <atishp@rivosinc.com>, Bjorn Topel <bjorn@rivosinc.com>, linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UGFsbWVyIERhYmJlbHQgPHBhbG1lckBkYWJiZWx0LmNvbT4gd3JpdGVzOgoKPiBPbiBUdWUsIDI0
-IE9jdCAyMDIzIDEyOjI2OjQ4IFBEVCAoLTA3MDApLCBiam9ybkBrZXJuZWwub3JnIHdyb3RlOgo+
-PiBGcm9tOiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+Cj4+Cj4+IFVFRkkvUEUg
-bWFuZGF0ZXMgdGhhdCB0aGUga2VybmVsIEltYWdlIHN0YXJ0cyB3aXRoICJNWiIgQVNDSUkKPj4g
-KDB4NUE0RCkuIENvbnZlbmllbnQgZW5vdWdoLCAiTVoiIGlzIGEgdmFsaWQgY29tcHJlc3NlZCBS
-SVNDLVYKPj4gaW5zdHJ1Y3Rpb24uIFRoaXMgbWVhbnMgdGhhdCBhIG5vbi1VRUZJIGxvYWRlciBj
-YW4gc2ltcGx5IGp1bXAgdG8KPj4gImNvZGUwIiBpbiB0aGUgSW1hZ2UgaGVhZGVyIFsxXSBhbmQg
-c3RhcnQgZXhlY3V0aW5nLgo+Pgo+PiBUaGUgSW1hZ2Ugc3BlY2lmaWNhdGlvbiBbMV0gc2F5cyB0
-aGUgZm9sbG93aW5nIGFib3V0ICJjb2RlMCI6Cj4+ICAgfCAgIFRoaXMgaGVhZGVyIGlzIGFsc28g
-cmV1c2VkIHRvIHN1cHBvcnQgRUZJIHN0dWIgZm9yIFJJU0MtVi4gRUZJCj4+ICAgfCAgIHNwZWNp
-ZmljYXRpb24gbmVlZHMgUEUvQ09GRiBpbWFnZSBoZWFkZXIgaW4gdGhlIGJlZ2lubmluZyBvZiB0
-aGUKPj4gICB8ICAga2VybmVsIGltYWdlIGluIG9yZGVyIHRvIGxvYWQgaXQgYXMgYW4gRUZJIGFw
-cGxpY2F0aW9uLiBJbiBvcmRlcgo+PiAgIHwgICB0byBzdXBwb3J0IEVGSSBzdHViLCBjb2RlMCBp
-cyByZXBsYWNlZCB3aXRoICJNWiIgbWFnaWMgc3RyaW5nCj4+ICAgfCAgIGFuZCByZXMzKGF0IG9m
-ZnNldCAweDNjKSBwb2ludHMgdG8gdGhlIHJlc3Qgb2YgdGhlIFBFL0NPRkYKPj4gICB8ICAgaGVh
-ZGVyLgo+Pgo+PiAiTVoiIGlzIG5vdCBhIHZhbGlkIGluc3RydWN0aW9uIGZvciBpbXBsZW1lbnRh
-dGlvbnMgd2l0aG91dCB0aGUgQwo+PiBleHRlbnNpb24uCj4+Cj4+IEEgbm9uLVVFRkkgbG9hZGVy
-LCBsb2FkaW5nIGEgbm9uLUMgVUVGSSBpbWFnZSBoYXZlIHRoZSBmb2xsb3dpbmcKPj4gb3B0aW9u
-czoKPj4gICAxLiBUcmFwIGFuZCBlbXVsYXRlICJjb2RlMCIKPj4gICAyLiBBdm9pZCAiY29kZTAi
-IGlmIGl0IGlzICJNWiIsIGFuZCBoYXZlIHRoZSBrZXJuZWwgZW50cnkgYXQKPj4gICAgICAiY29k
-ZTEiLgo+Pgo+PiBSZXBsYWNlIHRoZSBjb21wcmVzc2VkIGluc3RydWN0aW9uIHdpdGggYSBoZXgg
-Y29kZSB2YXJpYW50LCB0aGF0IHdvcmtzCj4+IGZvciBDT05GSUdfUklTQ1ZfSVNBX0M9biBidWls
-ZHMuIEZ1cnRoZXIsIHRoaXMgY2hhbmdlIGFsc28gbWFrZSBzdXJlCj4+IHRoYXQgdGhlICJjb2Rl
-MCIgaW5zdHJ1Y3Rpb24gaXMgMzJiIGFsaWduZWQuCj4KPiBJTU8gdGhpcyBicmVha3MgdGhlIElt
-YWdlIGZvcm1hdCBvbiBub24tQyBzeXN0ZW1zOiB0aGV5J2xsIGp1bXAgc3RyYWlnaHQgCj4gdG8g
-dGhlIHN0YXJ0IChhcyB0aGVyZSdzIG5vIHN5bWJvbHMgbGVmdCBvciBhbnl0aGluZykgYW5kIHRo
-ZW4ganVzdCBmYWlsIAo+IHRvIGV4ZWN1dGUgdGhlIEMgaW5zdHJ1Y3Rpb25zLgoKVGhhdCdzIHJp
-Z2h0ISBNeSBpZGVhLCB3aGljaCB3YXMgcHJvYmFibHkgcmVhbGx5IHBvb3IgYXJ0aWN1bGF0ZWQs
-IHdhcwp0byBhZGQgdHJhcC9lbXVsYXRlIGluIE9wZW5TQkkvbm9uLUMgZm9yIHRoZSBNWiBpbnN0
-cnVjdGlvbnMuCgo+IFdlIGNvdWxkIGFtZW5kIHRoZSBJbWFnZSBmb3JtYXQgdG8gcmVxdWlyZSBi
-b290bG9hZGVycyB0byBoYW5kbGUgdGhpcyAKPiAoaWUsIGxvb2sgYXQgdGhlIGZpcnN0IGluc3Ry
-dWN0aW9ucyBhbmQgZW11bGF0ZSB0aGVtIGlmIHRoZXJlJ3Mgbm8gQyksIAo+IHRoYXQgd291bGQg
-cmVxdWlyZSBzb21lIGJvb3Rsb2FkZXIgdXBkYXRlcyBidXQgZ2l2ZW4gdGhpcyBkb2Vzbid0IHdv
-cmsgCj4gbWF5YmUgdGhhdCdzIGZpbmUuCj4KPiBXZSBjb3VsZCBhbHNvIGp1c3Qgc3RvcCBwcm9k
-dWNpbmcgSW1hZ2UrUEUgYmluYXJpZXMgb24gbm9uLUMgc3lzdGVtcyAKPiAoaWUsIGp1c3QgcHJv
-ZHVjZSBQRSkuCgpZZXMsIG9yIG1ha2UgdGhlIEltYWdlIGxvYWRlciBpbiBRZW11IGV0IGFsIG1v
-cmUgcm9idXN0LCBieSBlLmcuCmNoZWNraW5nIGNvZGUwL2NvZGUxLiBUaGUgSW1hZ2Ugc3BlYyBk
-b2VzIHNheSB0aGF0IGNvZGUwIGlzICdNWicgZm9yClBFK0ltYWdlIGJ1aWxkcywgYW5kIGZvciBu
-b24tQyBjYXBhYmxlIHN5c3RlbXMgb25lIGNvdWxkIGFyZ3VlIHRoYXQgaXQKc2hvdWxkIGJlIGNo
-ZWNrZWQvc2tpcHBlZCBieSB0aGUgbG9hZGVyLgoKRG9lcyB0aGUgYXJndW1lbnRzIGFib3ZlIG1h
-a2Ugc2Vuc2UgZm9yIHlvdT8gSS5lLjoKICAxLiAgIE1lcmdlIHRoaXMgcGF0Y2gKICAyYS4gIEFk
-ZCB0aGUgdHJhcC9lbXUgdG8gT3BlblNCSQogICgyYi4gSW1wcm92ZSB0aGUgaW1hZ2UgbG9hZGVy
-IGluIFFlbXU/KQoKCkJqw7ZybgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+On Sun, Sep 10, 2023 at 04:28:54AM -0400, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
+> 
+> patch[1 - 10]: Native   qspinlock
+> patch[11 -17]: Paravirt qspinlock
+> 
+> patch[4]: Add prefetchw in qspinlock's xchg_tail when cpus >= 16k
+> 
+> This series based on:
+>  - [RFC PATCH v5 0/5] Rework & improve riscv cmpxchg.h and atomic.h
+>    https://lore.kernel.org/linux-riscv/20230810040349.92279-2-leobras@redhat.com/
+>  - [PATCH V3] asm-generic: ticket-lock: Optimize arch_spin_value_unlocked
+>    https://lore.kernel.org/linux-riscv/20230908154339.3250567-1-guoren@kernel.org/ 
+> 
+> I merge them into sg2042-master branch, then you could directly try it on
+> sg2042 hardware platform:
+> 
+> https://github.com/guoren83/linux/tree/sg2042-master-qspinlock-64ilp32_v5
+> 
+> Use sophgo_mango_ubuntu_defconfig for sg2042 64/128 cores hardware
+> platform.
+> 
+> Native qspinlock
+> ================
+> 
+> This time we've proved the qspinlock on th1520 [1] & sg2042 [2], which
+> gives stability and performance improvement. All T-HEAD processors have
+> a strong LR/SC forward progress guarantee than the requirements of the
+> ISA, which could satisfy the xchg_tail of native_qspinlock. Now,
+> qspinlock has been run with us for more than 1 year, and we have enough
+> confidence to enable it for all the T-HEAD processors. Of causes, we
+> found a livelock problem with the qspinlock lock torture test from the
+> CPU store merge buffer delay mechanism, which caused the queued spinlock
+> becomes a dead ring and RCU warning to come out. We introduce a custom
+> WRITE_ONCE to solve this. Do we need explicit ISA instruction to signal
+> it? Or let hardware handle this.
+> 
+> We've tested the patch on SOPHGO sg2042 & th1520 and passed the stress
+> test on Fedora & Ubuntu & OpenEuler ... Here is the performance
+> comparison between qspinlock and ticket_lock on sg2042 (64 cores):
+> 
+> sysbench test=threads threads=32 yields=100 lock=8 (+13.8%):
+>   queued_spinlock 0.5109/0.00
+>   ticket_spinlock 0.5814/0.00
+> 
+> perf futex/hash (+6.7%):
+>   queued_spinlock 1444393 operations/sec (+- 0.09%)
+>   ticket_spinlock 1353215 operations/sec (+- 0.15%)
+> 
+> perf futex/wake-parallel (+8.6%):
+>   queued_spinlock (waking 1/64 threads) in 0.0253 ms (+-2.90%)
+>   ticket_spinlock (waking 1/64 threads) in 0.0275 ms (+-3.12%)
+> 
+> perf futex/requeue (+4.2%):
+>   queued_spinlock Requeued 64 of 64 threads in 0.0785 ms (+-0.55%)
+>   ticket_spinlock Requeued 64 of 64 threads in 0.0818 ms (+-4.12%)
+> 
+> System Benchmarks (+6.4%)
+>   queued_spinlock:
+>     System Benchmarks Index Values               BASELINE       RESULT    INDEX
+>     Dhrystone 2 using register variables         116700.0  628613745.4  53865.8
+>     Double-Precision Whetstone                       55.0     182422.8  33167.8
+>     Execl Throughput                                 43.0      13116.6   3050.4
+>     File Copy 1024 bufsize 2000 maxblocks          3960.0    7762306.2  19601.8
+>     File Copy 256 bufsize 500 maxblocks            1655.0    3417556.8  20649.9
+>     File Copy 4096 bufsize 8000 maxblocks          5800.0    7427995.7  12806.9
+>     Pipe Throughput                               12440.0   23058600.5  18535.9
+>     Pipe-based Context Switching                   4000.0    2835617.7   7089.0
+>     Process Creation                                126.0      12537.3    995.0
+>     Shell Scripts (1 concurrent)                     42.4      57057.4  13456.9
+>     Shell Scripts (8 concurrent)                      6.0       7367.1  12278.5
+>     System Call Overhead                          15000.0   33308301.3  22205.5
+>                                                                        ========
+>     System Benchmarks Index Score                                       12426.1
+> 
+>   ticket_spinlock:
+>     System Benchmarks Index Values               BASELINE       RESULT    INDEX
+>     Dhrystone 2 using register variables         116700.0  626541701.9  53688.2
+>     Double-Precision Whetstone                       55.0     181921.0  33076.5
+>     Execl Throughput                                 43.0      12625.1   2936.1
+>     File Copy 1024 bufsize 2000 maxblocks          3960.0    6553792.9  16550.0
+>     File Copy 256 bufsize 500 maxblocks            1655.0    3189231.6  19270.3
+>     File Copy 4096 bufsize 8000 maxblocks          5800.0    7221277.0  12450.5
+>     Pipe Throughput                               12440.0   20594018.7  16554.7
+>     Pipe-based Context Switching                   4000.0    2571117.7   6427.8
+>     Process Creation                                126.0      10798.4    857.0
+>     Shell Scripts (1 concurrent)                     42.4      57227.5  13497.1
+>     Shell Scripts (8 concurrent)                      6.0       7329.2  12215.3
+>     System Call Overhead                          15000.0   30766778.4  20511.2
+>                                                                        ========
+>     System Benchmarks Index Score                                       11670.7
+> 
+> The qspinlock has a significant improvement on SOPHGO SG2042 64
+> cores platform than the ticket_lock.
+> 
+> Paravirt qspinlock
+> ==================
+> 
+> We implemented kvm_kick_cpu/kvm_wait_cpu and add tracepoints to observe the
+> behaviors. Also, introduce a new SBI extension SBI_EXT_PVLOCK (0xAB0401). If the
+> name and number are approved, I will send a formal proposal to the SBI spec.
+> 
+
+Hello Guo Ren,
+
+Any update on this series?
+
+Thanks!
+Leo
+
+
+> Changlog:
+> V11:
+>  - Based on Leonardo Bras's cmpxchg_small patches v5.
+>  - Based on Guo Ren's Optimize arch_spin_value_unlocked patch v3.
+>  - Remove abusing alternative framework and use jump_label instead.
+>  - Introduce prefetch.w to improve T-HEAD processors' LR/SC forward progress
+>    guarantee.
+>  - Optimize qspinlock xchg_tail when NR_CPUS >= 16K.
+> 
+> V10:
+> https://lore.kernel.org/linux-riscv/20230802164701.192791-1-guoren@kernel.org/
+>  - Using an alternative framework instead of static_key_branch in the
+>    asm/spinlock.h.
+>  - Fixup store merge buffer problem, which causes qspinlock lock
+>    torture test livelock.
+>  - Add paravirt qspinlock support, include KVM backend
+>  - Add Compact NUMA-awared qspinlock support 
+> 
+> V9:
+> https://lore.kernel.org/linux-riscv/20220808071318.3335746-1-guoren@kernel.org/
+>  - Cleanup generic ticket-lock code, (Using smp_mb__after_spinlock as
+>    RCsc)
+>  - Add qspinlock and combo-lock for riscv
+>  - Add qspinlock to openrisc
+>  - Use generic header in csky
+>  - Optimize cmpxchg & atomic code
+> 
+> V8:
+> https://lore.kernel.org/linux-riscv/20220724122517.1019187-1-guoren@kernel.org/
+>  - Coding convention ticket fixup
+>  - Move combo spinlock into riscv and simply asm-generic/spinlock.h
+>  - Fixup xchg16 with wrong return value
+>  - Add csky qspinlock
+>  - Add combo & qspinlock & ticket-lock comparison
+>  - Clean up unnecessary riscv acquire and release definitions
+>  - Enable ARCH_INLINE_READ*/WRITE*/SPIN* for riscv & csky
+> 
+> V7:
+> https://lore.kernel.org/linux-riscv/20220628081946.1999419-1-guoren@kernel.org/
+>  - Add combo spinlock (ticket & queued) support
+>  - Rename ticket_spinlock.h
+>  - Remove unnecessary atomic_read in ticket_spin_value_unlocked  
+> 
+> V6:
+> https://lore.kernel.org/linux-riscv/20220621144920.2945595-1-guoren@kernel.org/
+>  - Fixup Clang compile problem Reported-by: kernel test robot
+>  - Cleanup asm-generic/spinlock.h
+>  - Remove changelog in patch main comment part, suggested by
+>    Conor.Dooley
+>  - Remove "default y if NUMA" in Kconfig
+> 
+> V5:
+> https://lore.kernel.org/linux-riscv/20220620155404.1968739-1-guoren@kernel.org/
+>  - Update comment with RISC-V forward guarantee feature.
+>  - Back to V3 direction and optimize asm code.
+> 
+> V4:
+> https://lore.kernel.org/linux-riscv/1616868399-82848-4-git-send-email-guoren@kernel.org/
+>  - Remove custom sub-word xchg implementation
+>  - Add ARCH_USE_QUEUED_SPINLOCKS_XCHG32 in locking/qspinlock
+> 
+> V3:
+> https://lore.kernel.org/linux-riscv/1616658937-82063-1-git-send-email-guoren@kernel.org/
+>  - Coding convention by Peter Zijlstra's advices
+> 
+> V2:
+> https://lore.kernel.org/linux-riscv/1606225437-22948-2-git-send-email-guoren@kernel.org/
+>  - Coding convention in cmpxchg.h
+>  - Re-implement short xchg
+>  - Remove char & cmpxchg implementations
+> 
+> V1:
+> https://lore.kernel.org/linux-riscv/20190211043829.30096-1-michaeljclark@mac.com/
+>  - Using cmpxchg loop to implement sub-word atomic
+> 
+> 
+> Guo Ren (17):
+>   asm-generic: ticket-lock: Reuse arch_spinlock_t of qspinlock
+>   asm-generic: ticket-lock: Move into ticket_spinlock.h
+>   riscv: Use Zicbop in arch_xchg when available
+>   locking/qspinlock: Improve xchg_tail for number of cpus >= 16k
+>   riscv: qspinlock: Add basic queued_spinlock support
+>   riscv: qspinlock: Introduce combo spinlock
+>   riscv: qspinlock: Introduce qspinlock param for command line
+>   riscv: qspinlock: Add virt_spin_lock() support for KVM guest
+>   riscv: qspinlock: errata: Add ERRATA_THEAD_WRITE_ONCE fixup
+>   riscv: qspinlock: errata: Enable qspinlock for T-HEAD processors
+>   RISC-V: paravirt: pvqspinlock: Add paravirt qspinlock skeleton
+>   RISC-V: paravirt: pvqspinlock: Add nopvspin kernel parameter
+>   RISC-V: paravirt: pvqspinlock: Add SBI implementation
+>   RISC-V: paravirt: pvqspinlock: Add kconfig entry
+>   RISC-V: paravirt: pvqspinlock: Add trace point for pv_kick/wait
+>   RISC-V: paravirt: pvqspinlock: KVM: Add paravirt qspinlock skeleton
+>   RISC-V: paravirt: pvqspinlock: KVM: Implement
+>     kvm_sbi_ext_pvlock_kick_cpu()
+> 
+>  .../admin-guide/kernel-parameters.txt         |   8 +-
+>  arch/riscv/Kconfig                            |  50 ++++++++
+>  arch/riscv/Kconfig.errata                     |  19 +++
+>  arch/riscv/errata/thead/errata.c              |  29 +++++
+>  arch/riscv/include/asm/Kbuild                 |   2 +-
+>  arch/riscv/include/asm/cmpxchg.h              |   4 +-
+>  arch/riscv/include/asm/errata_list.h          |  13 --
+>  arch/riscv/include/asm/hwcap.h                |   1 +
+>  arch/riscv/include/asm/insn-def.h             |   5 +
+>  arch/riscv/include/asm/kvm_vcpu_sbi.h         |   1 +
+>  arch/riscv/include/asm/processor.h            |  13 ++
+>  arch/riscv/include/asm/qspinlock.h            |  35 ++++++
+>  arch/riscv/include/asm/qspinlock_paravirt.h   |  29 +++++
+>  arch/riscv/include/asm/rwonce.h               |  24 ++++
+>  arch/riscv/include/asm/sbi.h                  |  14 +++
+>  arch/riscv/include/asm/spinlock.h             | 113 ++++++++++++++++++
+>  arch/riscv/include/asm/vendorid_list.h        |  14 +++
+>  arch/riscv/include/uapi/asm/kvm.h             |   1 +
+>  arch/riscv/kernel/Makefile                    |   1 +
+>  arch/riscv/kernel/cpufeature.c                |   1 +
+>  arch/riscv/kernel/qspinlock_paravirt.c        |  83 +++++++++++++
+>  arch/riscv/kernel/sbi.c                       |   2 +-
+>  arch/riscv/kernel/setup.c                     |  60 ++++++++++
+>  .../kernel/trace_events_filter_paravirt.h     |  60 ++++++++++
+>  arch/riscv/kvm/Makefile                       |   1 +
+>  arch/riscv/kvm/vcpu_sbi.c                     |   4 +
+>  arch/riscv/kvm/vcpu_sbi_pvlock.c              |  57 +++++++++
+>  include/asm-generic/rwonce.h                  |   2 +
+>  include/asm-generic/spinlock.h                |  87 +-------------
+>  include/asm-generic/spinlock_types.h          |  12 +-
+>  include/asm-generic/ticket_spinlock.h         | 103 ++++++++++++++++
+>  kernel/locking/qspinlock.c                    |   5 +-
+>  32 files changed, 739 insertions(+), 114 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/qspinlock.h
+>  create mode 100644 arch/riscv/include/asm/qspinlock_paravirt.h
+>  create mode 100644 arch/riscv/include/asm/rwonce.h
+>  create mode 100644 arch/riscv/include/asm/spinlock.h
+>  create mode 100644 arch/riscv/kernel/qspinlock_paravirt.c
+>  create mode 100644 arch/riscv/kernel/trace_events_filter_paravirt.h
+>  create mode 100644 arch/riscv/kvm/vcpu_sbi_pvlock.c
+>  create mode 100644 include/asm-generic/ticket_spinlock.h
+> 
+> -- 
+> 2.36.1
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
