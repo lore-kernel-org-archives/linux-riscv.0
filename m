@@ -4,149 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24045C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Nov 2023 14:27:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48AAEC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Nov 2023 14:33:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J5DeWCwU0JXA4p5TG1P+ruPkSqAQhD/ujPBAPZ38Cs4=; b=wdDfnVXw0BgzWF
-	jtVXOP/hDsKRboP6PHmqGh6jVCOm4YITE6Rx7Gvha7SDrxq+cVWQMKzlKcIQRM/u1hORXdyVMxkN4
-	EkFiSQ+tbDGdhnb9d2Zw9eQsxwADkJQUm1oTcPyIM24KswXaeY0HU1dmZxH/bV6R1IiTkytYi5t6a
-	4t2ejc3WT2kqRlMBZgWmQ0wnSP3COR54JAcLlxFA1Lp1B41Q+2aWj+J+TFVox2s+5JQaIhIm26KIC
-	vh78rgfb/55zbZKiqYWR5KVZD/vwWJflGqvuPIcVbNCLAdM7XQTiOqn3qU/ckcrJgzfE0VRrNfXZ8
-	npFHiyWj99I55x60g3Ig==;
+	List-Owner; bh=rIgv7LHOluRg+Vcg0x02ZBZdgm2yz5RnvWC1bA6DHMI=; b=b8bIDQDiFRHuXd
+	JvB3Zff9ngnn+oMxKosGX7xRJBCHnX7OdGgVnUr+aUxSNkCL//eqAM+IaUzosXo551PdMNhEW8lLA
+	iLsm7wrWNHVIibrlHUYG8+GwAgNYaIB0DqM7uQ2KaDhDxD5UCaQeyqoW2/GhtYQX/ALavfthDrzRS
+	lD0s0SiYXjfGcskw+OpOQMWR6B3bNCZxac+dLh/4Tn+UxMRVBASkILgjvUFbW/Ws5A6hIyTA7XfYE
+	IV8g+Jg1zpC+TykzMRP6GSIweIzWzffGf1Ag/6fH7/i7vnpFvCUrhUSW8OMdFs2o89OmXIkRz8HMi
+	lp82ts/zHj3m3Qo/Ynfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r00ZD-00GqNq-30;
-	Mon, 06 Nov 2023 14:27:03 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1r00f7-00Gr85-2i;
+	Mon, 06 Nov 2023 14:33:09 +0000
+Received: from mail-oo1-f41.google.com ([209.85.161.41])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r00ZA-00GqJ4-0l
-	for linux-riscv@lists.infradead.org;
-	Mon, 06 Nov 2023 14:27:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1699280810;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=EQEY0yLpyjybbnIksSuJ4Z5QD7aeTkworRxg3pV8noA=;
-	b=gw9KfQ+X1O+MfbcCQxnNJC6CL99Wkg2OwASArQmi9tNKwqr3p5A6vRqSHszc3cpXkl5TWA
-	fIm5MYHJfrEwfbufMCAlOF2zQjVgfv71HcplV2w2VDpHUITblrwFStA4xcUIvFtxzkXGGq
-	u5t69z8o4Gb27sJyEgjvCULetiajfIQ=
-Received: from mail-lj1-f199.google.com (mail-lj1-f199.google.com
- [209.85.208.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-166-Odh72wxnMQKVNl9LCQ4-qw-1; Mon, 06 Nov 2023 09:26:49 -0500
-X-MC-Unique: Odh72wxnMQKVNl9LCQ4-qw-1
-Received: by mail-lj1-f199.google.com with SMTP id 38308e7fff4ca-2c6eec16401so47425411fa.2
-        for <linux-riscv@lists.infradead.org>; Mon, 06 Nov 2023 06:26:49 -0800 (PST)
+	id 1r00f4-00Gr5x-1I;
+	Mon, 06 Nov 2023 14:33:07 +0000
+Received: by mail-oo1-f41.google.com with SMTP id 006d021491bc7-582a82e6d10so1012457eaf.0;
+        Mon, 06 Nov 2023 06:33:03 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699280808; x=1699885608;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=EQEY0yLpyjybbnIksSuJ4Z5QD7aeTkworRxg3pV8noA=;
-        b=T0mXDJ3TsL7eOA7uPIbQhL+uHemNT2ji4EylB/eJqrW9XwkSeHvNBRFBW+dBtlWHW/
-         Z/hADzzd43QqVaLszYhY851AbQIeW/GsccubScKuve9R6V7aLh4YYqvlmmInfN/XuV8G
-         aIvOnW5CrUlJGYoz35u60xQYepmknBxx6HFOeoR20zZG/PK0bXaXyBAK0bwWk5fCm3SZ
-         rF2LhElx+0xg26CLHVovFswu7iQSbceixNV32/yCE/kOMUejA6HyjYrlf5icUJKgnizD
-         xeBQrFT6pKZ+86rrP7MESZH7epQFquz6Nl+v6wE/27C/hvHIWPjA6ZLtYYhlj/hZ6LhG
-         Ybqw==
-X-Gm-Message-State: AOJu0YyzlhAmneX7b4y1CkYZeHp/U1dQogsky8LzgUeLr6pSWjZk721Z
-	ElpklVEVGZtETcHX9we7vyenOsCGrvHV9l/6WFEnyNjqhPdBJU5ki15AsGXLS/4UID54bJEPYy2
-	zvURjz3+FxgujIrI47htxnazK7oWR
-X-Received: by 2002:a2e:b953:0:b0:2c5:2d02:ed14 with SMTP id 19-20020a2eb953000000b002c52d02ed14mr21572216ljs.23.1699280808166;
-        Mon, 06 Nov 2023 06:26:48 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGe0jlmDLWFqZf1fufd7JZlCly/w1zvo9x6RPHgHPz0rI92EPGNolcWdP4AapnywQ3Fs4WFBA==
-X-Received: by 2002:a2e:b953:0:b0:2c5:2d02:ed14 with SMTP id 19-20020a2eb953000000b002c52d02ed14mr21572194ljs.23.1699280807790;
-        Mon, 06 Nov 2023 06:26:47 -0800 (PST)
-Received: from ?IPV6:2001:b07:6468:f312:5e2c:eb9a:a8b6:fd3e? ([2001:b07:6468:f312:5e2c:eb9a:a8b6:fd3e])
-        by smtp.googlemail.com with ESMTPSA id l41-20020a05600c1d2900b004083a105f27sm12541348wms.26.2023.11.06.06.26.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 06 Nov 2023 06:26:47 -0800 (PST)
-Message-ID: <affca7a8-116e-4b0f-9edf-6cdc05ba65ca@redhat.com>
-Date: Mon, 6 Nov 2023 15:26:44 +0100
+        d=1e100.net; s=20230601; t=1699281182; x=1699885982;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hdHOkDDDq2uDsqnfkV1g2ITyJ/uBNt8L8qaNucWn9Lg=;
+        b=gGe3XtfTZGgmXJcb+3vMhjgJl/6EJxwhaO8ChdezehSCXrFC5ro9FszrOt5ACBpu5I
+         ONzG97YmM2RIfk1E4Jy6ESHQPezlXYUmmhI17BUcmoRobRjgtnlnIO35rkc2LtsO71P3
+         1dorQDmUDS5PaemvkQyXQvVN7xKM8ZhT7hu14C+7HIEQtFw1StUUaqvO0vSQbV1g54kG
+         DBsz/hoUuj76Q9ir7C1qumXJQqqNP09sBr9PW4yG+b1d6tIRs/E1qXMeNwKP73m3LdEN
+         Vi6xDrfeAkEohZ+lZdt0dvzY6i/13KYsKRzuL7pfnAekicXOd52IWuCOeROAUM24DYpI
+         PItQ==
+X-Gm-Message-State: AOJu0YyoUexiUTklwLu9CJtW2mIsDKFyuIOrCMLKzVIZmwjQ8TkAN6D0
+	PSpQivy7Ap60/IqUPNsGYorIpsZXYuAbVLNS3Mo=
+X-Google-Smtp-Source: AGHT+IHyHB4kzvcjkEhTb+3sUVIPXXX0cO5Y7IiQxSg2gu4OXnnfVIuOscNqmkEqJcDtSiyYa7NRTI4+Cg8Mb+uLm9Y=
+X-Received: by 2002:a4a:d68a:0:b0:584:1080:f0a5 with SMTP id
+ i10-20020a4ad68a000000b005841080f0a5mr31132550oot.1.1699281182420; Mon, 06
+ Nov 2023 06:33:02 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 31/34] KVM: selftests: Expand set_memory_region_test to
- validate guest_memfd()
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Sean Christopherson <seanjc@google.com>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Xiaoyao Li <xiaoyao.li@intel.com>, Xu Yilun <yilun.xu@intel.com>,
- Chao Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>,
- Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>,
- David Matlack <dmatlack@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>,
- Isaku Yamahata <isaku.yamahata@intel.com>, =?UTF-8?B?TWlja2HDq2wgU2FsYcO8?=
- =?UTF-8?Q?n?= <mic@digikod.net>, Vlastimil Babka <vbabka@suse.cz>,
- Vishal Annapurve <vannapurve@google.com>,
- Ackerley Tng <ackerleytng@google.com>,
- Maciej Szmigiero <mail@maciej.szmigiero.name>,
- David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
- Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
- Liam Merwick <liam.merwick@oracle.com>,
- Isaku Yamahata <isaku.yamahata@gmail.com>,
- "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20231105163040.14904-1-pbonzini@redhat.com>
- <20231105163040.14904-32-pbonzini@redhat.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Autocrypt: addr=pbonzini@redhat.com; keydata=
- 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
-In-Reply-To: <20231105163040.14904-32-pbonzini@redhat.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+References: <0-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com> <4-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com>
+In-Reply-To: <4-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Mon, 6 Nov 2023 15:32:51 +0100
+Message-ID: <CAJZ5v0hepKO0QKuBF3d38r=7nG0tjTtEwXdPNPv_2jYPnToUsg@mail.gmail.com>
+Subject: Re: [PATCH RFC 04/17] acpi: Do not return struct iommu_ops from acpi_iommu_configure_id()
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: acpica-devel@lists.linuxfoundation.org, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev, 
+	Lu Baolu <baolu.lu@linux.intel.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Dexuan Cui <decui@microsoft.com>, devicetree@vger.kernel.org, 
+	David Woodhouse <dwmw2@infradead.org>, Frank Rowand <frowand.list@gmail.com>, 
+	Hanjun Guo <guohanjun@huawei.com>, Haiyang Zhang <haiyangz@microsoft.com>, 
+	Christoph Hellwig <hch@lst.de>, iommu@lists.linux.dev, 
+	Jean-Philippe Brucker <jean-philippe@linaro.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Joerg Roedel <joro@8bytes.org>, "K. Y. Srinivasan" <kys@microsoft.com>, Len Brown <lenb@kernel.org>, 
+	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-snps-arc@lists.infradead.org, 
+	linux-tegra@vger.kernel.org, Russell King <linux@armlinux.org.uk>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Hector Martin <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Robert Moore <robert.moore@intel.com>, Rob Herring <robh+dt@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>, Sven Peter <sven@svenpeter.dev>, 
+	Thierry Reding <thierry.reding@gmail.com>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	Krishna Reddy <vdumpa@nvidia.com>, Vineet Gupta <vgupta@kernel.org>, 
+	virtualization@lists.linux-foundation.org, Wei Liu <wei.liu@kernel.org>, 
+	Will Deacon <will@kernel.org>, Zhenhua Huang <quic_zhenhuah@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231106_062700_348431_C4F4D53A 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20231106_063306_441368_78405B4E 
+X-CRM114-Status: GOOD (  20.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,93 +91,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/5/23 17:30, Paolo Bonzini wrote:
-> From: Chao Peng <chao.p.peng@linux.intel.com>
-> 
-> Expand set_memory_region_test to exercise various positive and negative
-> testcases for private memory.
-> 
->   - Non-guest_memfd() file descriptor for private memory
->   - guest_memfd() from different VM
->   - Overlapping bindings
->   - Unaligned bindings
-
-This needs a small fixup:
-
-diff --git a/tools/testing/selftests/kvm/include/kvm_util_base.h b/tools/testing/selftests/kvm/include/kvm_util_base.h
-index e4d2cd9218b2..1b58f943562f 100644
---- a/tools/testing/selftests/kvm/include/kvm_util_base.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util_base.h
-@@ -819,6 +819,7 @@ static inline struct kvm_vm *vm_create_barebones(void)
-  	return ____vm_create(VM_SHAPE_DEFAULT);
-  }
-  
-+#ifdef __x86_64__
-  static inline struct kvm_vm *vm_create_barebones_protected_vm(void)
-  {
-  	const struct vm_shape shape = {
-@@ -828,6 +829,7 @@ static inline struct kvm_vm *vm_create_barebones_protected_vm(void)
-  
-  	return ____vm_create(shape);
-  }
-+#endif
-  
-  static inline struct kvm_vm *vm_create(uint32_t nr_runnable_vcpus)
-  {
-diff --git a/tools/testing/selftests/kvm/set_memory_region_test.c b/tools/testing/selftests/kvm/set_memory_region_test.c
-index 1891774eb6d4..302c7a46955b 100644
---- a/tools/testing/selftests/kvm/set_memory_region_test.c
-+++ b/tools/testing/selftests/kvm/set_memory_region_test.c
-@@ -386,6 +386,7 @@ static void test_add_max_memory_regions(void)
-  }
-  
-  
-+#ifdef __x86_64__
-  static void test_invalid_guest_memfd(struct kvm_vm *vm, int memfd,
-  				     size_t offset, const char *msg)
-  {
-@@ -476,14 +477,13 @@ static void test_add_overlapping_private_memory_regions(void)
-  	close(memfd);
-  	kvm_vm_free(vm);
-  }
-+#endif
-  
-  int main(int argc, char *argv[])
-  {
-  #ifdef __x86_64__
-  	int i, loops;
--#endif
-  
--#ifdef __x86_64__
-  	/*
-  	 * FIXME: the zero-memslot test fails on aarch64 and s390x because
-  	 * KVM_RUN fails with ENOEXEC or EFAULT.
-@@ -493,6 +493,7 @@ int main(int argc, char *argv[])
-  
-  	test_add_max_memory_regions();
-  
-+#ifdef __x86_64__
-  	if (kvm_has_cap(KVM_CAP_GUEST_MEMFD) &&
-  	    (kvm_check_cap(KVM_CAP_VM_TYPES) & BIT(KVM_X86_SW_PROTECTED_VM))) {
-  		test_add_private_memory_region();
-@@ -501,7 +502,6 @@ int main(int argc, char *argv[])
-  		pr_info("Skipping tests for KVM_MEM_GUEST_MEMFD memory regions\n");
-  	}
-  
--#ifdef __x86_64__
-  	if (argc > 1)
-  		loops = atoi_positive("Number of iterations", argv[1]);
-  	else
-
-in order to compile successfully on non-x86 platforms.
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBOb3YgMywgMjAyMyBhdCA1OjQ14oCvUE0gSmFzb24gR3VudGhvcnBlIDxqZ2dAbnZp
+ZGlhLmNvbT4gd3JvdGU6Cj4KPiBOb3RoaW5nIG5lZWRzIHRoaXMgcG9pbnRlci4gUmV0dXJuIGEg
+bm9ybWFsIGVycm9yIGNvZGUgd2l0aCB0aGUgdXN1YWwKPiBJT01NVSBzZW1hbnRpYyB0aGF0IEVO
+T0RFViBtZWFucyAndGhlcmUgaXMgbm8gSU9NTVUgZHJpdmVyJy4KPgo+IFNpZ25lZC1vZmYtYnk6
+IEphc29uIEd1bnRob3JwZSA8amdnQG52aWRpYS5jb20+CgpBY2tlZC1ieTogUmFmYWVsIEouIFd5
+c29ja2kgPHJhZmFlbC5qLnd5c29ja2lAaW50ZWwuY29tPgoKPiAtLS0KPiAgZHJpdmVycy9hY3Bp
+L3NjYW4uYyB8IDI0ICsrKysrKysrKysrKysrKy0tLS0tLS0tLQo+ICAxIGZpbGUgY2hhbmdlZCwg
+MTUgaW5zZXJ0aW9ucygrKSwgOSBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9kcml2ZXJz
+L2FjcGkvc2Nhbi5jIGIvZHJpdmVycy9hY3BpL3NjYW4uYwo+IGluZGV4IGE2ODkxYWQwY2VlZTJj
+Li5mYmFiZGUwMDFhMjNhMiAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL2FjcGkvc2Nhbi5jCj4gKysr
+IGIvZHJpdmVycy9hY3BpL3NjYW4uYwo+IEBAIC0xNTYyLDggKzE1NjIsNyBAQCBzdGF0aWMgaW5s
+aW5lIGNvbnN0IHN0cnVjdCBpb21tdV9vcHMgKmFjcGlfaW9tbXVfZndzcGVjX29wcyhzdHJ1Y3Qg
+ZGV2aWNlICpkZXYpCj4gICAgICAgICByZXR1cm4gZndzcGVjID8gZndzcGVjLT5vcHMgOiBOVUxM
+Owo+ICB9Cj4KPiAtc3RhdGljIGNvbnN0IHN0cnVjdCBpb21tdV9vcHMgKmFjcGlfaW9tbXVfY29u
+ZmlndXJlX2lkKHN0cnVjdCBkZXZpY2UgKmRldiwKPiAtICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29uc3QgdTMyICppZF9pbikKPiArc3RhdGlj
+IGludCBhY3BpX2lvbW11X2NvbmZpZ3VyZV9pZChzdHJ1Y3QgZGV2aWNlICpkZXYsIGNvbnN0IHUz
+MiAqaWRfaW4pCj4gIHsKPiAgICAgICAgIGludCBlcnI7Cj4gICAgICAgICBjb25zdCBzdHJ1Y3Qg
+aW9tbXVfb3BzICpvcHM7Cj4gQEAgLTE1NzQsNyArMTU3Myw3IEBAIHN0YXRpYyBjb25zdCBzdHJ1
+Y3QgaW9tbXVfb3BzICphY3BpX2lvbW11X2NvbmZpZ3VyZV9pZChzdHJ1Y3QgZGV2aWNlICpkZXYs
+Cj4gICAgICAgICAgKi8KPiAgICAgICAgIG9wcyA9IGFjcGlfaW9tbXVfZndzcGVjX29wcyhkZXYp
+Owo+ICAgICAgICAgaWYgKG9wcykKPiAtICAgICAgICAgICAgICAgcmV0dXJuIG9wczsKPiArICAg
+ICAgICAgICAgICAgcmV0dXJuIDA7Cj4KPiAgICAgICAgIGVyciA9IGlvcnRfaW9tbXVfY29uZmln
+dXJlX2lkKGRldiwgaWRfaW4pOwo+ICAgICAgICAgaWYgKGVyciAmJiBlcnIgIT0gLUVQUk9CRV9E
+RUZFUikKPiBAQCAtMTU4OSwxMiArMTU4OCwxNCBAQCBzdGF0aWMgY29uc3Qgc3RydWN0IGlvbW11
+X29wcyAqYWNwaV9pb21tdV9jb25maWd1cmVfaWQoc3RydWN0IGRldmljZSAqZGV2LAo+Cj4gICAg
+ICAgICAvKiBJZ25vcmUgYWxsIG90aGVyIGVycm9ycyBhcGFydCBmcm9tIEVQUk9CRV9ERUZFUiAq
+Lwo+ICAgICAgICAgaWYgKGVyciA9PSAtRVBST0JFX0RFRkVSKSB7Cj4gLSAgICAgICAgICAgICAg
+IHJldHVybiBFUlJfUFRSKGVycik7Cj4gKyAgICAgICAgICAgICAgIHJldHVybiBlcnI7Cj4gICAg
+ICAgICB9IGVsc2UgaWYgKGVycikgewo+ICAgICAgICAgICAgICAgICBkZXZfZGJnKGRldiwgIkFk
+ZGluZyB0byBJT01NVSBmYWlsZWQ6ICVkXG4iLCBlcnIpOwo+IC0gICAgICAgICAgICAgICByZXR1
+cm4gTlVMTDsKPiArICAgICAgICAgICAgICAgcmV0dXJuIC1FTk9ERVY7Cj4gICAgICAgICB9Cj4g
+LSAgICAgICByZXR1cm4gYWNwaV9pb21tdV9md3NwZWNfb3BzKGRldik7Cj4gKyAgICAgICBpZiAo
+IWFjcGlfaW9tbXVfZndzcGVjX29wcyhkZXYpKQo+ICsgICAgICAgICAgICAgICByZXR1cm4gLUVO
+T0RFVjsKPiArICAgICAgIHJldHVybiAwOwo+ICB9Cj4KPiAgI2Vsc2UgLyogIUNPTkZJR19JT01N
+VV9BUEkgKi8KPiBAQCAtMTYyMyw3ICsxNjI0LDcgQEAgc3RhdGljIGNvbnN0IHN0cnVjdCBpb21t
+dV9vcHMgKmFjcGlfaW9tbXVfY29uZmlndXJlX2lkKHN0cnVjdCBkZXZpY2UgKmRldiwKPiAgaW50
+IGFjcGlfZG1hX2NvbmZpZ3VyZV9pZChzdHJ1Y3QgZGV2aWNlICpkZXYsIGVudW0gZGV2X2RtYV9h
+dHRyIGF0dHIsCj4gICAgICAgICAgICAgICAgICAgICAgICAgICBjb25zdCB1MzIgKmlucHV0X2lk
+KQo+ICB7Cj4gLSAgICAgICBjb25zdCBzdHJ1Y3QgaW9tbXVfb3BzICppb21tdTsKPiArICAgICAg
+IGludCByZXQ7Cj4KPiAgICAgICAgIGlmIChhdHRyID09IERFVl9ETUFfTk9UX1NVUFBPUlRFRCkg
+ewo+ICAgICAgICAgICAgICAgICBzZXRfZG1hX29wcyhkZXYsICZkbWFfZHVtbXlfb3BzKTsKPiBA
+QCAtMTYzMiwxMCArMTYzMywxNSBAQCBpbnQgYWNwaV9kbWFfY29uZmlndXJlX2lkKHN0cnVjdCBk
+ZXZpY2UgKmRldiwgZW51bSBkZXZfZG1hX2F0dHIgYXR0ciwKPgo+ICAgICAgICAgYWNwaV9hcmNo
+X2RtYV9zZXR1cChkZXYpOwo+Cj4gLSAgICAgICBpb21tdSA9IGFjcGlfaW9tbXVfY29uZmlndXJl
+X2lkKGRldiwgaW5wdXRfaWQpOwo+IC0gICAgICAgaWYgKFBUUl9FUlIoaW9tbXUpID09IC1FUFJP
+QkVfREVGRVIpCj4gKyAgICAgICByZXQgPSBhY3BpX2lvbW11X2NvbmZpZ3VyZV9pZChkZXYsIGlu
+cHV0X2lkKTsKPiArICAgICAgIGlmIChyZXQgPT0gLUVQUk9CRV9ERUZFUikKPiAgICAgICAgICAg
+ICAgICAgcmV0dXJuIC1FUFJPQkVfREVGRVI7Cj4KPiArICAgICAgIC8qCj4gKyAgICAgICAgKiBI
+aXN0b3JpY2FsbHkgdGhpcyByb3V0aW5lIGRvZXNuJ3QgZmFpbCBkcml2ZXIgcHJvYmluZyBkdWUg
+dG8gZXJyb3JzCj4gKyAgICAgICAgKiBpbiBhY3BpX2lvbW11X2NvbmZpZ3VyZSgpCj4gKyAgICAg
+ICAgKi8KPiArCj4gICAgICAgICBhcmNoX3NldHVwX2RtYV9vcHMoZGV2LCAwLCBVNjRfTUFYLCBh
+dHRyID09IERFVl9ETUFfQ09IRVJFTlQpOwo+Cj4gICAgICAgICByZXR1cm4gMDsKPiAtLQo+IDIu
+NDIuMAo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
