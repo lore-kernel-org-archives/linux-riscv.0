@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D44D4C00A5A
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Nov 2023 15:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D3EAC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Nov 2023 15:02:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=woYeXpvn1wlIjNoCDppIvV5cTCEF2Mx5iF6/kRODvA0=; b=T+bZg/Hz0/Cb+8
-	FOCkY2oYRpdfuEN+Ysm/PeTHmAZBnuxTm1Yj5TgR5WqgIiaI8YofowX9xR5P4fifd3FWXsWuoAWwu
-	xz09j7gRz4u6Z/rjIsSQ80xwIFHWGMVc8NQ42uOL1Zd2thMCz3iOZ4IAnBZ4SrIle9k4M7t1Pe9IT
-	byX3JmvfStTzJb0YJlTsNKxj/52pszzBkQ0sqn3Q6odGWVXDk2gDhUxXkLh/bPhRphcddmv0z3ELv
-	xR2V5y11InE2CUQC0L8IdfKD6w0sUQQwkJpZ1wLLe11NxmAGYQcav7id0LcrMAikQYyYXUDX3mbwZ
-	pwYGjF04NN3k4up/ww2g==;
+	List-Owner; bh=Lncuh9essi4Lj27BzM9Dsi8nE1CXEqz9mEygJEWozPI=; b=defnUGr41cpImr
+	lLS3dY4B9phOoWsDp45Odn/+9pL+E685LO4rH8nS7Amw8Yw1AJCoP2GimE3XBwCslKIroRC0kq7I3
+	xR5wFWr5DyfYgTaiQ9PCjuSsU/HNgJhYukhfUZ0TC5qgQ0hx3tqnkHwfSXirBtA9rjD3DWK7TbTxB
+	2qsNtzMkore9NuOZCuUVkRp7vLRZbYuSaoEytmKh5WGsuv7dxc0DfLIQn2sjWdEvbE0UCK7RalJy1
+	LM1EktNDp6CLssa37kNQhN2ZV68fi42beuPLJNZ90iifYL9SZzqXjFyfnQW8dPRj4Dw+ATP3XNbyr
+	HzFRJoSvLq6e2crCL4sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r015j-00GvgQ-0V;
-	Mon, 06 Nov 2023 15:00:39 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1r0171-00GwB6-1H;
+	Mon, 06 Nov 2023 15:01:59 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r015c-00Gvbw-1J
+	id 1r016y-00Gw9F-1n
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Nov 2023 15:00:35 +0000
+	Mon, 06 Nov 2023 15:01:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5870060FBA;
-	Mon,  6 Nov 2023 15:00:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 287D5C433D9;
-	Mon,  6 Nov 2023 15:00:29 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 563FECE098F;
+	Mon,  6 Nov 2023 15:01:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EE65C433C7;
+	Mon,  6 Nov 2023 15:01:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699282830;
-	bh=fsH0EcJFPJldadwX9edPxnf9TI0xu3QSOxwn6f0XkpU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=TkqsSIj2ElDEAeFUuPjTIskNX4GnW42wgemrPBhq7LpMuyUPMC1At+isID90JzUBY
-	 J5yEE6nRBUbk2QHeshVAsKsh3R2oKUe0tMpoh63bKflSJnNqTSTxxZLCV3cmf6FGK+
-	 tPziAYD12gRWMd5HwZoB88H+Ktu2q+1u7HbRlYs4mCbrmpARjqOSvrHlhVEw9ZOLPt
-	 IOLfyXpy3yi0MZrPCZNIH9aDQl5u5Jx6xwoxR9DXQwCvXKkb2YzgkeROfRxg7cifej
-	 ml3g9rJBI4/JCItaFWO8EDcsvr+uolcMdvNTac/M/2sVt1jXQRftTgN5lw2uLrObgl
-	 zyzXivdFeoaZQ==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 1345EE00089;
-	Mon,  6 Nov 2023 15:00:29 +0000 (UTC)
+	s=k20201202; t=1699282913;
+	bh=R/cSiyOAFRrqVhth3W2n5h61tFeVSdShjJRDQj6czH0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZUTy7kEFxYsF/koXOeL9ejldwPeR/VMnlbzSAsKZczqy5XRzb+OfUaZG3VAlG2kQS
+	 thRBrISP/mcyuHif2TfZM7A/Yw106zfROyEIZTGQN8Om4RW1Aa8CDTVpzB+bckC+Vp
+	 yXa7s5lX1p0u2J3AcCTx/nOeNqf0KSkE9Nrm3hkO6YDmcg4gWoQtmoTIZN+LzXMnp1
+	 YaBoFQohLbxhKyIM+1VaLfnPLwcvsm/7pZRnBKzz0+XsEXQf7UVHPv1J+obnd8Mi8V
+	 gN7hFzEdjVHwBRekbFUi0iRrUdb5bpiYeNlfb7kpvQIQ4bCormrcd9/Er50Vh/x+zj
+	 W5RSB+DvZf4Cg==
+Date: Mon, 6 Nov 2023 22:49:33 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Thierry Reding <thierry.reding@gmail.com>,
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>
+Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 0/2] pwm: add driver for T-THEAD TH1520 SoC
+Message-ID: <ZUj8/fhitNf8fRMf@xhacker>
+References: <20231005130519.3864-1-jszhang@kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] riscv: defconfig : add CONFIG_MMC_DW for starfive
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <169928282907.16503.712664664958063675.git-patchwork-notify@kernel.org>
-Date: Mon, 06 Nov 2023 15:00:29 +0000
-References: <20230912133128.5247-1-tangjinyu@tinylab.org>
-In-Reply-To: <20230912133128.5247-1-tangjinyu@tinylab.org>
-To: Jinyu Tang <tangjinyu@tinylab.org>
-Cc: linux-riscv@lists.infradead.org, william.qiu@starfivetech.com,
- hal.feng@starfivetech.com, conor.dooley@microchip.com, palmer@dabbelt.com,
- apatel@ventanamicro.com, ttjjyystupid@163.com, falcon@tinylab.org,
- wangjiexun@tinylab.org, linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <20231005130519.3864-1-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231106_070032_516018_0A7DF261 
-X-CRM114-Status: UNSURE (   8.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231106_070156_800067_B358B059 
+X-CRM114-Status: GOOD (  19.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,32 +77,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to riscv/linux.git (for-next)
-by Palmer Dabbelt <palmer@rivosinc.com>:
-
-On Tue, 12 Sep 2023 21:31:28 +0800 you wrote:
-> If these config not set, mmc can't run for jh7110, rootfs can't
-> be found when using SD card. So set CONFIG_MMC_DW=y like arm64
-> defconfig, and set CONFIG_MMC_DW_STARFIVE=y for starfive. Then
-> starfive vf2 board can start SD card rootfs with mainline defconfig
-> and dtb.
+On Thu, Oct 05, 2023 at 09:05:17PM +0800, Jisheng Zhang wrote:
+> T-HEAD SoCs such as the TH1520 contain a PWM controller used to
+> control the LCD backlight, fan and so on. Add the PWM driver support
+> for it.
 > 
-> Signed-off-by: Jinyu Tang <tangjinyu@tinylab.org>
+> Since the clk part isn't mainlined, so SoC dts(i) changes are not
+> included in this series. However, it can be tested by using fixed-clock.
 > 
-> [...]
+> since v2:
+>  - collect Reviewed-by tag
+>  - add CTRL_ prefix for THEAD_PWM_CTRL register bit macros
+>  - use pm_runtime_resume_and_get() instead of pm_runtime_get_sync() and
+>    check its return value.
+>  - remove unnecessary casts
+>  - call pm_runtime_put_sync() when pwm channel is disabled
+>  - use devm_pm_runtime_enable() and then drop .remove()
+>  - properly consider if pwm is programmed by bootloader or other
+>    pre-linux env.
+>  - simplify thead_pwm_runtime_resume() code as Uwe suggested
+>  - bool ever_started -> u8 channel_ever_started since we have 6 channels
+>  - use 3 for #pwm-cells 
+> 
+> since v1:
+>  - update commit msg and yaml filename to address Conor's comment
+>  - use devm_clk_get_enabled() and devm_pwmchip_add()
+>  - implement .get_state()
+>  - properly handle overflow
+>  - introduce thead_pwm_from_chip() inline function
+>  - document Limitations
+>  - address pm_runtime_get/put pingpong comment
+> 
+> 
+> Jisheng Zhang (2):
+>   dt-bindings: pwm: Add T-HEAD PWM controller
+>   pwm: add T-HEAD PWM driver
 
-Here is the summary with links:
-  - [v2] riscv: defconfig : add CONFIG_MMC_DW for starfive
-    https://git.kernel.org/riscv/c/07863871dfb1
+Hi Thierry, Uwe,
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Kind ping, is there any chance for this series to be merged for v6.7?
 
-
+Thanks
+> 
+>  .../bindings/pwm/thead,th1520-pwm.yaml        |  44 +++
+>  drivers/pwm/Kconfig                           |  11 +
+>  drivers/pwm/Makefile                          |   1 +
+>  drivers/pwm/pwm-thead.c                       | 270 ++++++++++++++++++
+>  4 files changed, 326 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pwm/thead,th1520-pwm.yaml
+>  create mode 100644 drivers/pwm/pwm-thead.c
+> 
+> -- 
+> 2.40.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
