@@ -4,76 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7086BC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Nov 2023 18:43:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B915AC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Nov 2023 19:21:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oFeG5JAECWNgt2lvR1lN7XCcS57CmXxIkwKF8Vm7EwM=; b=tfehsvo+t+Rmll
-	E9WhdKqy9KBoxKD2geY2cwVZzm9YiVUoD8DsOnSWeUOEKgNUM8k6cYQVm2fGo2VytI67/8LLqANBt
-	Hr9N3YqeAztIYZMjDuOyQImNUSL73W+Fa4sfO6NNJSx5XGr1Q2mCdW/ykq92A2F4YxIj3x886/Nri
-	HWXkEN4x9Xwjx3JcwFQyJWfWEJ/uwO1kGnm8JBggb8tLMuwXAXMQpvLDStyqntNmXPP/r2rCdvCrg
-	KJBgFApL5KaTSrrhgruWBGXgTQ071K1SmyCWSK07w8LDVNzISRI+9KKM263H97WGY6Q2Y1TFmYl8x
-	MnnPd2LHxb+WuDC/IXvw==;
+	List-Owner; bh=lvtK+OSAxPeQoN+kd+544LZNF7cKhANyfAG5TK0SieY=; b=hJbt4jiteqyYn+
+	rrvJjqOuqJlcGrhBMyurgVj8bWin8jTSJUV+gh4F/Q43dGEdJZmFWQRgOCIPlqsbiGYqLjaIL+w5R
+	nEdQ2axotgqWbqMEhgcva0RnTVpPeXE0Izmw1RBbo9+P5rVG4N5H2lPQfddxn7mtXXVGXAimbNEbx
+	ioX+naB521HPwKsl9o+KENTN5RWGMH+U5EVzjoIvLiOryjlw8eO5SNdn2+g6rpmLRl2gRgvDKlGXH
+	4fL1VowFPkecqD9RT847mA8OsCQBSfNOE5YKUd6jvayWaQP7mGyX5Bw34gL522qiE+gUBqRPPHVLg
+	fFt6puYa/O9ZCM6tMIPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r04Yq-00HLO3-04;
-	Mon, 06 Nov 2023 18:42:56 +0000
-Received: from mgamail.intel.com ([192.55.52.151])
+	id 1r059r-00HNyF-19;
+	Mon, 06 Nov 2023 19:21:11 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r04Yl-00HLMy-2E
+	id 1r059o-00HNxt-2F
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Nov 2023 18:42:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1699296171; x=1730832171;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=er1N9aYMBDvrx3ulT79uQx6Hq4jnccJW+KmDUnYtEDA=;
-  b=S1g1foe1m3HrDQfkqKGRXAAP/R2qWA6Z8S3vh3q2kMZD0+A7Q+SQCjXp
-   RFC0VzVRfBJwZ4KNiBA8o/ZqSU/vKseYTV/ALdfUFz5StGjy3FXqcJnXz
-   UTP2w8jP98R1ZSnddXWbzPqXT8Dq4eGvAjq88XD0KgtTH+wQn02GEFlgs
-   /Ag4BGR4gXzGLR4TF1o/Qqel1sQeWCJQoKOlAhnvzmESHx1ilWMGgygOI
-   fWqxwbdDqnv193aAdZCyRNauWHFIy8Xzp8glBvSxRpV+4XGD/W4SB+vVs
-   1guUyVCUbRhaqhjydl8JI4zfKXYn6FsGOxzZfqKfPS7oxyYGUjc6Z6v5j
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10886"; a="369549618"
-X-IronPort-AV: E=Sophos;i="6.03,282,1694761200"; 
-   d="scan'208";a="369549618"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Nov 2023 10:42:47 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.03,282,1694761200"; 
-   d="scan'208";a="3542096"
-Received: from ahunter6-mobl1.ger.corp.intel.com (HELO [10.0.2.15]) ([10.251.215.231])
-  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Nov 2023 10:42:42 -0800
-Message-ID: <6f68ab16-5512-4a48-ae28-e86ce989f578@intel.com>
-Date: Mon, 6 Nov 2023 20:42:38 +0200
+	Mon, 06 Nov 2023 19:21:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id 85986B811C7;
+	Mon,  6 Nov 2023 19:21:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEE79C433C8;
+	Mon,  6 Nov 2023 19:21:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1699298465;
+	bh=DNSe1kWEmQIx9RbnW/5BezE7eNr7BvDl2djBhzSMnZI=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=CzC22BIRJwDgnZhVgMFNrwGQ5hFQ1zOJg1uk/iLLj+M01dpVFAB45brwdB7ujupSF
+	 R7/p/7lDbOlboRHRksVysmedjqGCD1rEj15+YNNxEcKbvR0ZcwMgUd15YNSmtAWfSV
+	 guY0MJwBtUmQzi//vxXtES0P3GhkIEwIpD6Bu8fdpkAi2FC7brpjThZtcDfG93o4e5
+	 g/sK7RDWpD17ghwsc1iI92Jxz6pi5YwauAUg8efYDQQD0IIAWjka94bIdhbjb81feI
+	 nIwR6qQSwjozFZsIPET4cK/SLAYZD9UfZILECpFhS4zLNlFRJ3+QUjJMOCt3em/XSW
+	 HkMIi/enxHOpQ==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: [PATCH] riscv: CONFIG_EFI should not depend on CONFIG_RISCV_ISA_C
+In-Reply-To: <mhng-7bef396f-1601-4934-8c85-08196c54aa76@palmer-ri-x1c9>
+References: <mhng-7bef396f-1601-4934-8c85-08196c54aa76@palmer-ri-x1c9>
+Date: Mon, 06 Nov 2023 20:21:04 +0100
+Message-ID: <87ttpyu1r3.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/7] mmc: sdhci-of-dwcmshc: Add support for T-Head
- TH1520
-Content-Language: en-US
-To: Drew Fustini <dfustini@baylibre.com>, Ulf Hansson
- <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
- Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Conor Dooley <conor@kernel.org>
-References: <20231101-th1520-mmc-v4-0-86e0216b5994@baylibre.com>
- <20231101-th1520-mmc-v4-3-86e0216b5994@baylibre.com>
-From: Adrian Hunter <adrian.hunter@intel.com>
-Organization: Intel Finland Oy, Registered Address: PL 281, 00181 Helsinki,
- Business Identity Code: 0357606 - 4, Domiciled in Helsinki
-In-Reply-To: <20231101-th1520-mmc-v4-3-86e0216b5994@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231106_104251_780301_905C69F4 
-X-CRM114-Status: GOOD (  25.83  )
+X-CRM114-CacheID: sfid-20231106_112109_021899_00A1D4ED 
+X-CRM114-Status: GOOD (  19.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,475 +64,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>, linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org, Robert Nelson <robertcnelson@beagleboard.org>, Jason Kridner <jkridner@beagleboard.org>, Xi Ruoyao <xry111@xry111.site>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: aou@eecs.berkeley.edu, anup@brainfault.org, atishp@atishpatra.org, Atish Patra <atishp@rivosinc.com>, Bjorn Topel <bjorn@rivosinc.com>, linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/11/23 04:48, Drew Fustini wrote:
-> Add support for the mmc controller in the T-Head TH1520 with the new
-> compatible "thead,th1520-dwcmshc". Implement custom sdhci_ops for
-> set_uhs_signaling, reset, voltage_switch, and platform_execute_tuning.
-> 
-> Signed-off-by: Drew Fustini <dfustini@baylibre.com>
-
-One question below, otherwise:
-
-Acked-by: Adrian Hunter <adrian.hunter@intel.com>
-
-> ---
->  drivers/mmc/host/sdhci-of-dwcmshc.c | 348 ++++++++++++++++++++++++++++++++++++
->  1 file changed, 348 insertions(+)
-> 
-> diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-> index 3a3bae6948a8..1a1386b742c1 100644
-> --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
-> +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
-> @@ -8,6 +8,7 @@
->   */
->  
->  #include <linux/acpi.h>
-> +#include <linux/bitfield.h>
->  #include <linux/clk.h>
->  #include <linux/dma-mapping.h>
->  #include <linux/iopoll.h>
-> @@ -35,6 +36,21 @@
->  #define DWCMSHC_CARD_IS_EMMC		BIT(0)
->  #define DWCMSHC_ENHANCED_STROBE		BIT(8)
->  #define DWCMSHC_EMMC_ATCTRL		0x40
-> +/* Tuning and auto-tuning fields in AT_CTRL_R control register */
-> +#define AT_CTRL_AT_EN			BIT(0) /* autotuning is enabled */
-> +#define AT_CTRL_CI_SEL			BIT(1) /* interval to drive center phase select */
-> +#define AT_CTRL_SWIN_TH_EN		BIT(2) /* sampling window threshold enable */
-> +#define AT_CTRL_RPT_TUNE_ERR		BIT(3) /* enable reporting framing errors */
-> +#define AT_CTRL_SW_TUNE_EN		BIT(4) /* enable software managed tuning */
-> +#define AT_CTRL_WIN_EDGE_SEL_MASK	GENMASK(11, 8) /* bits [11:8] */
-> +#define AT_CTRL_WIN_EDGE_SEL		0xf /* sampling window edge select */
-> +#define AT_CTRL_TUNE_CLK_STOP_EN	BIT(16) /* clocks stopped during phase code change */
-> +#define AT_CTRL_PRE_CHANGE_DLY_MASK	GENMASK(18, 17) /* bits [18:17] */
-> +#define AT_CTRL_PRE_CHANGE_DLY		0x1  /* 2-cycle latency */
-> +#define AT_CTRL_POST_CHANGE_DLY_MASK	GENMASK(20, 19) /* bits [20:19] */
-> +#define AT_CTRL_POST_CHANGE_DLY		0x3  /* 4-cycle latency */
-> +#define AT_CTRL_SWIN_TH_VAL_MASK	GENMASK(31, 24) /* bits [31:24] */
-> +#define AT_CTRL_SWIN_TH_VAL		0x9  /* sampling window threshold */
->  
->  /* Rockchip specific Registers */
->  #define DWCMSHC_EMMC_DLL_CTRL		0x800
-> @@ -72,6 +88,82 @@
->  	(((x) & DWCMSHC_EMMC_DLL_TIMEOUT) == 0))
->  #define RK35xx_MAX_CLKS 3
->  
-> +/* PHY register area pointer */
-> +#define DWC_MSHC_PTR_PHY_R	0x300
-> +
-> +/* PHY general configuration */
-> +#define PHY_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x00)
-> +#define PHY_CNFG_RSTN_DEASSERT	0x1  /* Deassert PHY reset */
-> +#define PHY_CNFG_PAD_SP_MASK	GENMASK(19, 16) /* bits [19:16] */
-> +#define PHY_CNFG_PAD_SP		0x0c /* PMOS TX drive strength */
-> +#define PHY_CNFG_PAD_SN_MASK	GENMASK(23, 20) /* bits [23:20] */
-> +#define PHY_CNFG_PAD_SN		0x0c /* NMOS TX drive strength */
-> +
-> +/* PHY command/response pad settings */
-> +#define PHY_CMDPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x04)
-> +
-> +/* PHY data pad settings */
-> +#define PHY_DATAPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x06)
-> +
-> +/* PHY clock pad settings */
-> +#define PHY_CLKPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x08)
-> +
-> +/* PHY strobe pad settings */
-> +#define PHY_STBPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x0a)
-> +
-> +/* PHY reset pad settings */
-> +#define PHY_RSTNPAD_CNFG_R	(DWC_MSHC_PTR_PHY_R + 0x0c)
-> +
-> +/* Bitfields are common for all pad settings */
-> +#define PHY_PAD_RXSEL_1V8		0x1 /* Receiver type select for 1.8V */
-> +#define PHY_PAD_RXSEL_3V3		0x2 /* Receiver type select for 3.3V */
-> +
-> +#define PHY_PAD_WEAKPULL_MASK		GENMASK(4, 3) /* bits [4:3] */
-> +#define PHY_PAD_WEAKPULL_PULLUP		0x1 /* Weak pull up enabled */
-> +#define PHY_PAD_WEAKPULL_PULLDOWN	0x2 /* Weak pull down enabled */
-> +
-> +#define PHY_PAD_TXSLEW_CTRL_P_MASK	GENMASK(8, 5) /* bits [8:5] */
-> +#define PHY_PAD_TXSLEW_CTRL_P		0x3 /* Slew control for P-Type pad TX */
-> +#define PHY_PAD_TXSLEW_CTRL_N_MASK	GENMASK(12, 9) /* bits [12:9] */
-> +#define PHY_PAD_TXSLEW_CTRL_N		0x3 /* Slew control for N-Type pad TX */
-> +
-> +/* PHY CLK delay line settings */
-> +#define PHY_SDCLKDL_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x1d)
-> +#define PHY_SDCLKDL_CNFG_UPDATE	BIT(4) /* set before writing to SDCLKDL_DC */
-> +
-> +/* PHY CLK delay line delay code */
-> +#define PHY_SDCLKDL_DC_R		(DWC_MSHC_PTR_PHY_R + 0x1e)
-> +#define PHY_SDCLKDL_DC_INITIAL		0x40 /* initial delay code */
-> +#define PHY_SDCLKDL_DC_DEFAULT		0x32 /* default delay code */
-> +#define PHY_SDCLKDL_DC_HS400		0x18 /* delay code for HS400 mode */
-> +
-> +/* PHY drift_cclk_rx delay line configuration setting */
-> +#define PHY_ATDL_CNFG_R			(DWC_MSHC_PTR_PHY_R + 0x21)
-> +#define PHY_ATDL_CNFG_INPSEL_MASK	GENMASK(3, 2) /* bits [3:2] */
-> +#define PHY_ATDL_CNFG_INPSEL		0x3 /* delay line input source */
-> +
-> +/* PHY DLL control settings */
-> +#define PHY_DLL_CTRL_R			(DWC_MSHC_PTR_PHY_R + 0x24)
-> +#define PHY_DLL_CTRL_DISABLE		0x0 /* PHY DLL is enabled */
-> +#define PHY_DLL_CTRL_ENABLE		0x1 /* PHY DLL is disabled */
-> +
-> +/* PHY DLL  configuration register 1 */
-> +#define PHY_DLL_CNFG1_R			(DWC_MSHC_PTR_PHY_R + 0x25)
-> +#define PHY_DLL_CNFG1_SLVDLY_MASK	GENMASK(5, 4) /* bits [5:4] */
-> +#define PHY_DLL_CNFG1_SLVDLY		0x2 /* DLL slave update delay input */
-> +#define PHY_DLL_CNFG1_WAITCYCLE		0x5 /* DLL wait cycle input */
-> +
-> +/* PHY DLL configuration register 2 */
-> +#define PHY_DLL_CNFG2_R			(DWC_MSHC_PTR_PHY_R + 0x26)
-> +#define PHY_DLL_CNFG2_JUMPSTEP		0xa /* DLL jump step input */
-> +
-> +/* PHY DLL master and slave delay line configuration settings */
-> +#define PHY_DLLDL_CNFG_R		(DWC_MSHC_PTR_PHY_R + 0x28)
-> +#define PHY_DLLDL_CNFG_SLV_INPSEL_MASK	GENMASK(6, 5) /* bits [6:5] */
-> +#define PHY_DLLDL_CNFG_SLV_INPSEL	0x3 /* clock source select for slave DL */
-> +
-> +#define FLAG_IO_FIXED_1V8	BIT(0)
-> +
->  #define BOUNDARY_OK(addr, len) \
->  	((addr | (SZ_128M - 1)) == ((addr + len - 1) | (SZ_128M - 1)))
->  
-> @@ -92,6 +184,8 @@ struct dwcmshc_priv {
->  	struct clk	*bus_clk;
->  	int vendor_specific_area1; /* P_VENDOR_SPECIFIC_AREA reg */
->  	void *priv; /* pointer to SoC private stuff */
-> +	u16 delay_line;
-> +	u16 flags;
->  };
->  
->  /*
-> @@ -157,6 +251,126 @@ static void dwcmshc_request(struct mmc_host *mmc, struct mmc_request *mrq)
->  	sdhci_request(mmc, mrq);
->  }
->  
-> +static void dwcmshc_phy_1_8v_init(struct sdhci_host *host)
-> +{
-> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> +	u32 val;
-> +
-> +	/* deassert phy reset & set tx drive strength */
-> +	val = PHY_CNFG_RSTN_DEASSERT;
-> +	val |= FIELD_PREP(PHY_CNFG_PAD_SP_MASK, PHY_CNFG_PAD_SP);
-> +	val |= FIELD_PREP(PHY_CNFG_PAD_SN_MASK, PHY_CNFG_PAD_SN);
-> +	sdhci_writel(host, val, PHY_CNFG_R);
-> +
-> +	/* disable delay line */
-> +	sdhci_writeb(host, PHY_SDCLKDL_CNFG_UPDATE, PHY_SDCLKDL_CNFG_R);
-> +
-> +	/* set delay line */
-> +	sdhci_writeb(host, priv->delay_line, PHY_SDCLKDL_DC_R);
-> +	sdhci_writeb(host, PHY_DLL_CNFG2_JUMPSTEP, PHY_DLL_CNFG2_R);
-> +
-> +	/* enable delay lane */
-> +	val = sdhci_readb(host, PHY_SDCLKDL_CNFG_R);
-> +	val &= ~(PHY_SDCLKDL_CNFG_UPDATE);
-> +	sdhci_writeb(host, val, PHY_SDCLKDL_CNFG_R);
-> +
-> +	/* configure phy pads */
-> +	val = PHY_PAD_RXSEL_1V8;
-> +	val |= FIELD_PREP(PHY_PAD_WEAKPULL_MASK, PHY_PAD_WEAKPULL_PULLUP);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, PHY_PAD_TXSLEW_CTRL_P);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, PHY_PAD_TXSLEW_CTRL_N);
-> +	sdhci_writew(host, val, PHY_CMDPAD_CNFG_R);
-> +	sdhci_writew(host, val, PHY_DATAPAD_CNFG_R);
-> +	sdhci_writew(host, val, PHY_RSTNPAD_CNFG_R);
-> +
-> +	val = FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, PHY_PAD_TXSLEW_CTRL_P);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, PHY_PAD_TXSLEW_CTRL_N);
-> +	sdhci_writew(host, val, PHY_CLKPAD_CNFG_R);
-> +
-> +	val = PHY_PAD_RXSEL_1V8;
-> +	val |= FIELD_PREP(PHY_PAD_WEAKPULL_MASK, PHY_PAD_WEAKPULL_PULLDOWN);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, PHY_PAD_TXSLEW_CTRL_P);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, PHY_PAD_TXSLEW_CTRL_N);
-> +	sdhci_writew(host, val, PHY_STBPAD_CNFG_R);
-> +
-> +	/* enable data strobe mode */
-> +	sdhci_writeb(host, FIELD_PREP(PHY_DLLDL_CNFG_SLV_INPSEL_MASK, PHY_DLLDL_CNFG_SLV_INPSEL),
-> +		     PHY_DLLDL_CNFG_R);
-> +
-> +	/* enable phy dll */
-> +	sdhci_writeb(host, PHY_DLL_CTRL_ENABLE, PHY_DLL_CTRL_R);
-> +}
-> +
-> +static void dwcmshc_phy_3_3v_init(struct sdhci_host *host)
-> +{
-> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> +	u32 val;
-> +
-> +	/* deassert phy reset & set tx drive strength */
-> +	val = PHY_CNFG_RSTN_DEASSERT;
-> +	val |= FIELD_PREP(PHY_CNFG_PAD_SP_MASK, PHY_CNFG_PAD_SP);
-> +	val |= FIELD_PREP(PHY_CNFG_PAD_SN_MASK, PHY_CNFG_PAD_SN);
-> +	sdhci_writel(host, val, PHY_CNFG_R);
-> +
-> +	/* disable delay line */
-> +	sdhci_writeb(host, PHY_SDCLKDL_CNFG_UPDATE, PHY_SDCLKDL_CNFG_R);
-> +
-> +	/* set delay line */
-> +	sdhci_writeb(host, priv->delay_line, PHY_SDCLKDL_DC_R);
-> +	sdhci_writeb(host, PHY_DLL_CNFG2_JUMPSTEP, PHY_DLL_CNFG2_R);
-> +
-> +	/* enable delay lane */
-> +	val = sdhci_readb(host, PHY_SDCLKDL_CNFG_R);
-> +	val &= ~(PHY_SDCLKDL_CNFG_UPDATE);
-> +	sdhci_writeb(host, val, PHY_SDCLKDL_CNFG_R);
-> +
-> +	/* configure phy pads */
-> +	val = PHY_PAD_RXSEL_3V3;
-> +	val |= FIELD_PREP(PHY_PAD_WEAKPULL_MASK, PHY_PAD_WEAKPULL_PULLUP);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, PHY_PAD_TXSLEW_CTRL_P);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, PHY_PAD_TXSLEW_CTRL_N);
-> +	sdhci_writew(host, val, PHY_CMDPAD_CNFG_R);
-> +	sdhci_writew(host, val, PHY_DATAPAD_CNFG_R);
-> +	sdhci_writew(host, val, PHY_RSTNPAD_CNFG_R);
-> +
-> +	val = FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, PHY_PAD_TXSLEW_CTRL_P);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, PHY_PAD_TXSLEW_CTRL_N);
-> +	sdhci_writew(host, val, PHY_CLKPAD_CNFG_R);
-> +
-> +	val = PHY_PAD_RXSEL_3V3;
-> +	val |= FIELD_PREP(PHY_PAD_WEAKPULL_MASK, PHY_PAD_WEAKPULL_PULLDOWN);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_P_MASK, PHY_PAD_TXSLEW_CTRL_P);
-> +	val |= FIELD_PREP(PHY_PAD_TXSLEW_CTRL_N_MASK, PHY_PAD_TXSLEW_CTRL_N);
-> +	sdhci_writew(host, val, PHY_STBPAD_CNFG_R);
-> +
-> +	/* enable phy dll */
-> +	sdhci_writeb(host, PHY_DLL_CTRL_ENABLE, PHY_DLL_CTRL_R);
-> +}
-> +
-> +static void th1520_sdhci_set_phy(struct sdhci_host *host)
-> +{
-> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> +	u16 emmc_ctrl;
-> +
-> +	/* Before power on, set PHY configs */
-> +	if (priv->flags & FLAG_IO_FIXED_1V8)
-> +		dwcmshc_phy_1_8v_init(host);
-> +	else
-> +		dwcmshc_phy_3_3v_init(host);
-> +
-> +	if (host->mmc->caps2 & (MMC_CAP2_NO_SD | MMC_CAP2_NO_SDIO)) {
-
-Perhaps you mean both MMC_CAP2_NO_SD and MMC_CAP2_NO_SDIO which would be as below?
-
-	if ((host->mmc->caps2 & (MMC_CAP2_NO_SD | MMC_CAP2_NO_SDIO)) == (MMC_CAP2_NO_SD | MMC_CAP2_NO_SDIO)) {
-
-or
-
-	if (host->mmc->caps2 & MMC_CAP2_NO_SD && host->mmc->caps2 & MMC_CAP2_NO_SDIO) {
-
-or some such?
-
-
-> +		emmc_ctrl = sdhci_readw(host, priv->vendor_specific_area1 + DWCMSHC_EMMC_CONTROL);
-> +		emmc_ctrl |= DWCMSHC_CARD_IS_EMMC;
-> +		sdhci_writew(host, emmc_ctrl, priv->vendor_specific_area1 + DWCMSHC_EMMC_CONTROL);
-> +	}
-> +
-> +	sdhci_writeb(host, FIELD_PREP(PHY_DLL_CNFG1_SLVDLY_MASK, PHY_DLL_CNFG1_SLVDLY) |
-> +		     PHY_DLL_CNFG1_WAITCYCLE, PHY_DLL_CNFG1_R);
-> +}
-> +
->  static void dwcmshc_set_uhs_signaling(struct sdhci_host *host,
->  				      unsigned int timing)
->  {
-> @@ -189,9 +403,25 @@ static void dwcmshc_set_uhs_signaling(struct sdhci_host *host,
->  		ctrl_2 |= DWCMSHC_CTRL_HS400;
->  	}
->  
-> +	if (priv->flags & FLAG_IO_FIXED_1V8)
-> +		ctrl_2 |= SDHCI_CTRL_VDD_180;
->  	sdhci_writew(host, ctrl_2, SDHCI_HOST_CONTROL2);
->  }
->  
-> +static void th1520_set_uhs_signaling(struct sdhci_host *host,
-> +				     unsigned int timing)
-> +{
-> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> +
-> +	dwcmshc_set_uhs_signaling(host, timing);
-> +	if (timing == MMC_TIMING_MMC_HS400)
-> +		priv->delay_line = PHY_SDCLKDL_DC_HS400;
-> +	else
-> +		sdhci_writeb(host, 0, PHY_DLLDL_CNFG_R);
-> +	th1520_sdhci_set_phy(host);
-> +}
-> +
->  static void dwcmshc_hs400_enhanced_strobe(struct mmc_host *mmc,
->  					  struct mmc_ios *ios)
->  {
-> @@ -338,6 +568,79 @@ static void rk35xx_sdhci_reset(struct sdhci_host *host, u8 mask)
->  	sdhci_reset(host, mask);
->  }
->  
-> +static int th1520_execute_tuning(struct sdhci_host *host, u32 opcode)
-> +{
-> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> +	u32 val = 0;
-> +
-> +	if (host->flags & SDHCI_HS400_TUNING)
-> +		return 0;
-> +
-> +	sdhci_writeb(host, FIELD_PREP(PHY_ATDL_CNFG_INPSEL_MASK, PHY_ATDL_CNFG_INPSEL),
-> +		     PHY_ATDL_CNFG_R);
-> +	val = sdhci_readl(host, priv->vendor_specific_area1 + DWCMSHC_EMMC_ATCTRL);
-> +
-> +	/*
-> +	 * configure tuning settings:
-> +	 *  - center phase select code driven in block gap interval
-> +	 *  - disable reporting of framing errors
-> +	 *  - disable software managed tuning
-> +	 *  - disable user selection of sampling window edges,
-> +	 *    instead tuning calculated edges are used
-> +	 */
-> +	val &= ~(AT_CTRL_CI_SEL | AT_CTRL_RPT_TUNE_ERR | AT_CTRL_SW_TUNE_EN |
-> +		 FIELD_PREP(AT_CTRL_WIN_EDGE_SEL_MASK, AT_CTRL_WIN_EDGE_SEL));
-> +
-> +	/*
-> +	 * configure tuning settings:
-> +	 *  - enable auto-tuning
-> +	 *  - enable sampling window threshold
-> +	 *  - stop clocks during phase code change
-> +	 *  - set max latency in cycles between tx and rx clocks
-> +	 *  - set max latency in cycles to switch output phase
-> +	 *  - set max sampling window threshold value
-> +	 */
-> +	val |= AT_CTRL_AT_EN | AT_CTRL_SWIN_TH_EN | AT_CTRL_TUNE_CLK_STOP_EN;
-> +	val |= FIELD_PREP(AT_CTRL_PRE_CHANGE_DLY_MASK, AT_CTRL_PRE_CHANGE_DLY);
-> +	val |= FIELD_PREP(AT_CTRL_POST_CHANGE_DLY_MASK, AT_CTRL_POST_CHANGE_DLY);
-> +	val |= FIELD_PREP(AT_CTRL_SWIN_TH_VAL_MASK, AT_CTRL_SWIN_TH_VAL);
-> +
-> +	sdhci_writel(host, val, priv->vendor_specific_area1 + DWCMSHC_EMMC_ATCTRL);
-> +	val = sdhci_readl(host, priv->vendor_specific_area1 + DWCMSHC_EMMC_ATCTRL);
-> +
-> +	/* perform tuning */
-> +	sdhci_start_tuning(host);
-> +	host->tuning_err = __sdhci_execute_tuning(host, opcode);
-> +	if (host->tuning_err) {
-> +		/* disable auto-tuning upon tuning error */
-> +		val &= ~AT_CTRL_AT_EN;
-> +		sdhci_writel(host, val, priv->vendor_specific_area1 + DWCMSHC_EMMC_ATCTRL);
-> +		dev_err(mmc_dev(host->mmc), "tuning failed: %d\n", host->tuning_err);
-> +		return -EIO;
-> +	}
-> +	sdhci_end_tuning(host);
-> +
-> +	return 0;
-> +}
-> +
-> +static void th1520_sdhci_reset(struct sdhci_host *host, u8 mask)
-> +{
-> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> +	struct dwcmshc_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> +	u16 ctrl_2;
-> +
-> +	sdhci_reset(host, mask);
-> +
-> +	if (priv->flags & FLAG_IO_FIXED_1V8) {
-> +		ctrl_2 = sdhci_readw(host, SDHCI_HOST_CONTROL2);
-> +		if (!(ctrl_2 & SDHCI_CTRL_VDD_180)) {
-> +			ctrl_2 |= SDHCI_CTRL_VDD_180;
-> +			sdhci_writew(host, ctrl_2, SDHCI_HOST_CONTROL2);
-> +		}
-> +	}
-> +}
-> +
->  static const struct sdhci_ops sdhci_dwcmshc_ops = {
->  	.set_clock		= sdhci_set_clock,
->  	.set_bus_width		= sdhci_set_bus_width,
-> @@ -356,6 +659,17 @@ static const struct sdhci_ops sdhci_dwcmshc_rk35xx_ops = {
->  	.adma_write_desc	= dwcmshc_adma_write_desc,
->  };
->  
-> +static const struct sdhci_ops sdhci_dwcmshc_th1520_ops = {
-> +	.set_clock		= sdhci_set_clock,
-> +	.set_bus_width		= sdhci_set_bus_width,
-> +	.set_uhs_signaling	= th1520_set_uhs_signaling,
-> +	.get_max_clock		= dwcmshc_get_max_clock,
-> +	.reset			= th1520_sdhci_reset,
-> +	.adma_write_desc	= dwcmshc_adma_write_desc,
-> +	.voltage_switch		= dwcmshc_phy_1_8v_init,
-> +	.platform_execute_tuning = &th1520_execute_tuning,
-> +};
-> +
->  static const struct sdhci_pltfm_data sdhci_dwcmshc_pdata = {
->  	.ops = &sdhci_dwcmshc_ops,
->  	.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN,
-> @@ -379,6 +693,12 @@ static const struct sdhci_pltfm_data sdhci_dwcmshc_rk35xx_pdata = {
->  		   SDHCI_QUIRK2_CLOCK_DIV_ZERO_BROKEN,
->  };
->  
-> +static const struct sdhci_pltfm_data sdhci_dwcmshc_th1520_pdata = {
-> +	.ops = &sdhci_dwcmshc_th1520_ops,
-> +	.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN,
-> +	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
-> +};
-> +
->  static int dwcmshc_rk35xx_init(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
->  {
->  	int err;
-> @@ -447,6 +767,10 @@ static const struct of_device_id sdhci_dwcmshc_dt_ids[] = {
->  		.compatible = "snps,dwcmshc-sdhci",
->  		.data = &sdhci_dwcmshc_pdata,
->  	},
-> +	{
-> +		.compatible = "thead,th1520-dwcmshc",
-> +		.data = &sdhci_dwcmshc_th1520_pdata,
-> +	},
->  	{},
->  };
->  MODULE_DEVICE_TABLE(of, sdhci_dwcmshc_dt_ids);
-> @@ -542,6 +866,30 @@ static int dwcmshc_probe(struct platform_device *pdev)
->  			goto err_clk;
->  	}
->  
-> +	if (pltfm_data == &sdhci_dwcmshc_th1520_pdata) {
-> +		priv->delay_line = PHY_SDCLKDL_DC_DEFAULT;
-> +
-> +		if ((device_property_read_bool(dev, "mmc-ddr-1_8v")) |
-> +		    (device_property_read_bool(dev, "mmc-hs200-1_8v")) |
-> +		    (device_property_read_bool(dev, "mmc-hs400-1_8v")))
-> +			priv->flags |= FLAG_IO_FIXED_1V8;
-> +		else
-> +			priv->flags &= ~FLAG_IO_FIXED_1V8;
-> +
-> +		/*
-> +		 * start_signal_voltage_switch() will try 3.3V first
-> +		 * then 1.8V. Use SDHCI_SIGNALING_180 rather than
-> +		 * SDHCI_SIGNALING_330 to avoid setting voltage to 3.3V
-> +		 * in sdhci_start_signal_voltage_switch().
-> +		 */
-> +		if (priv->flags & FLAG_IO_FIXED_1V8) {
-> +			host->flags &= ~SDHCI_SIGNALING_330;
-> +			host->flags |=  SDHCI_SIGNALING_180;
-> +		}
-> +
-> +		sdhci_enable_v4_mode(host);
-> +	}
-> +
->  #ifdef CONFIG_ACPI
->  	if (pltfm_data == &sdhci_dwcmshc_bf3_pdata)
->  		sdhci_enable_v4_mode(host);
-> 
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+UGFsbWVyIERhYmJlbHQgPHBhbG1lckBkYWJiZWx0LmNvbT4gd3JpdGVzOgoKPiBPbiBUdWUsIDI0
+IE9jdCAyMDIzIDEyOjI2OjQ4IFBEVCAoLTA3MDApLCBiam9ybkBrZXJuZWwub3JnIHdyb3RlOgo+
+PiBGcm9tOiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+Cj4+Cj4+IFVFRkkvUEUg
+bWFuZGF0ZXMgdGhhdCB0aGUga2VybmVsIEltYWdlIHN0YXJ0cyB3aXRoICJNWiIgQVNDSUkKPj4g
+KDB4NUE0RCkuIENvbnZlbmllbnQgZW5vdWdoLCAiTVoiIGlzIGEgdmFsaWQgY29tcHJlc3NlZCBS
+SVNDLVYKPj4gaW5zdHJ1Y3Rpb24uIFRoaXMgbWVhbnMgdGhhdCBhIG5vbi1VRUZJIGxvYWRlciBj
+YW4gc2ltcGx5IGp1bXAgdG8KPj4gImNvZGUwIiBpbiB0aGUgSW1hZ2UgaGVhZGVyIFsxXSBhbmQg
+c3RhcnQgZXhlY3V0aW5nLgo+Pgo+PiBUaGUgSW1hZ2Ugc3BlY2lmaWNhdGlvbiBbMV0gc2F5cyB0
+aGUgZm9sbG93aW5nIGFib3V0ICJjb2RlMCI6Cj4+ICAgfCAgIFRoaXMgaGVhZGVyIGlzIGFsc28g
+cmV1c2VkIHRvIHN1cHBvcnQgRUZJIHN0dWIgZm9yIFJJU0MtVi4gRUZJCj4+ICAgfCAgIHNwZWNp
+ZmljYXRpb24gbmVlZHMgUEUvQ09GRiBpbWFnZSBoZWFkZXIgaW4gdGhlIGJlZ2lubmluZyBvZiB0
+aGUKPj4gICB8ICAga2VybmVsIGltYWdlIGluIG9yZGVyIHRvIGxvYWQgaXQgYXMgYW4gRUZJIGFw
+cGxpY2F0aW9uLiBJbiBvcmRlcgo+PiAgIHwgICB0byBzdXBwb3J0IEVGSSBzdHViLCBjb2RlMCBp
+cyByZXBsYWNlZCB3aXRoICJNWiIgbWFnaWMgc3RyaW5nCj4+ICAgfCAgIGFuZCByZXMzKGF0IG9m
+ZnNldCAweDNjKSBwb2ludHMgdG8gdGhlIHJlc3Qgb2YgdGhlIFBFL0NPRkYKPj4gICB8ICAgaGVh
+ZGVyLgo+Pgo+PiAiTVoiIGlzIG5vdCBhIHZhbGlkIGluc3RydWN0aW9uIGZvciBpbXBsZW1lbnRh
+dGlvbnMgd2l0aG91dCB0aGUgQwo+PiBleHRlbnNpb24uCj4+Cj4+IEEgbm9uLVVFRkkgbG9hZGVy
+LCBsb2FkaW5nIGEgbm9uLUMgVUVGSSBpbWFnZSBoYXZlIHRoZSBmb2xsb3dpbmcKPj4gb3B0aW9u
+czoKPj4gICAxLiBUcmFwIGFuZCBlbXVsYXRlICJjb2RlMCIKPj4gICAyLiBBdm9pZCAiY29kZTAi
+IGlmIGl0IGlzICJNWiIsIGFuZCBoYXZlIHRoZSBrZXJuZWwgZW50cnkgYXQKPj4gICAgICAiY29k
+ZTEiLgo+Pgo+PiBSZXBsYWNlIHRoZSBjb21wcmVzc2VkIGluc3RydWN0aW9uIHdpdGggYSBoZXgg
+Y29kZSB2YXJpYW50LCB0aGF0IHdvcmtzCj4+IGZvciBDT05GSUdfUklTQ1ZfSVNBX0M9biBidWls
+ZHMuIEZ1cnRoZXIsIHRoaXMgY2hhbmdlIGFsc28gbWFrZSBzdXJlCj4+IHRoYXQgdGhlICJjb2Rl
+MCIgaW5zdHJ1Y3Rpb24gaXMgMzJiIGFsaWduZWQuCj4KPiBJTU8gdGhpcyBicmVha3MgdGhlIElt
+YWdlIGZvcm1hdCBvbiBub24tQyBzeXN0ZW1zOiB0aGV5J2xsIGp1bXAgc3RyYWlnaHQgCj4gdG8g
+dGhlIHN0YXJ0IChhcyB0aGVyZSdzIG5vIHN5bWJvbHMgbGVmdCBvciBhbnl0aGluZykgYW5kIHRo
+ZW4ganVzdCBmYWlsIAo+IHRvIGV4ZWN1dGUgdGhlIEMgaW5zdHJ1Y3Rpb25zLgoKVGhhdCdzIHJp
+Z2h0ISBNeSBpZGVhLCB3aGljaCB3YXMgcHJvYmFibHkgcmVhbGx5IHBvb3IgYXJ0aWN1bGF0ZWQs
+IHdhcwp0byBhZGQgdHJhcC9lbXVsYXRlIGluIE9wZW5TQkkvbm9uLUMgZm9yIHRoZSBNWiBpbnN0
+cnVjdGlvbnMuCgo+IFdlIGNvdWxkIGFtZW5kIHRoZSBJbWFnZSBmb3JtYXQgdG8gcmVxdWlyZSBi
+b290bG9hZGVycyB0byBoYW5kbGUgdGhpcyAKPiAoaWUsIGxvb2sgYXQgdGhlIGZpcnN0IGluc3Ry
+dWN0aW9ucyBhbmQgZW11bGF0ZSB0aGVtIGlmIHRoZXJlJ3Mgbm8gQyksIAo+IHRoYXQgd291bGQg
+cmVxdWlyZSBzb21lIGJvb3Rsb2FkZXIgdXBkYXRlcyBidXQgZ2l2ZW4gdGhpcyBkb2Vzbid0IHdv
+cmsgCj4gbWF5YmUgdGhhdCdzIGZpbmUuCj4KPiBXZSBjb3VsZCBhbHNvIGp1c3Qgc3RvcCBwcm9k
+dWNpbmcgSW1hZ2UrUEUgYmluYXJpZXMgb24gbm9uLUMgc3lzdGVtcyAKPiAoaWUsIGp1c3QgcHJv
+ZHVjZSBQRSkuCgpZZXMsIG9yIG1ha2UgdGhlIEltYWdlIGxvYWRlciBpbiBRZW11IGV0IGFsIG1v
+cmUgcm9idXN0LCBieSBlLmcuCmNoZWNraW5nIGNvZGUwL2NvZGUxLiBUaGUgSW1hZ2Ugc3BlYyBk
+b2VzIHNheSB0aGF0IGNvZGUwIGlzICdNWicgZm9yClBFK0ltYWdlIGJ1aWxkcywgYW5kIGZvciBu
+b24tQyBjYXBhYmxlIHN5c3RlbXMgb25lIGNvdWxkIGFyZ3VlIHRoYXQgaXQKc2hvdWxkIGJlIGNo
+ZWNrZWQvc2tpcHBlZCBieSB0aGUgbG9hZGVyLgoKRG9lcyB0aGUgYXJndW1lbnRzIGFib3ZlIG1h
+a2Ugc2Vuc2UgZm9yIHlvdT8gSS5lLjoKICAxLiAgIE1lcmdlIHRoaXMgcGF0Y2gKICAyYS4gIEFk
+ZCB0aGUgdHJhcC9lbXUgdG8gT3BlblNCSQogICgyYi4gSW1wcm92ZSB0aGUgaW1hZ2UgbG9hZGVy
+IGluIFFlbXU/KQoKCkJqw7ZybgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
+aW51eC1yaXNjdgo=
