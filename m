@@ -4,78 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A93E6C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Nov 2023 21:59:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4F63C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Nov 2023 22:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=wajDTopR/VlFBW3nRMpirPBr1717dZ9IUrFMk967Kls=; b=0/JrzVAp81uipZfUmB2wDSh1Cd
-	+UoJZvZa2eTJxlvjZhRJ49IVqCOwDSC2bm+T8Opqc/5KW5FOiZaS25JKLZTUjHTglrgJFiEmzmH2S
-	HFoW3+fD0Uu0glNYtisawsm1RIXgMif9cSkEKgqEq5jEe08CdyTujUyHTcYjeWWOctXj+DtBqeIGI
-	Sy7nbGPmiiReoOTTMrmD3glII146+OjsLDMmApZsKsHZUkNJZaDbYg/ckr7P2K+8rkLWZ1gPb/YRD
-	46yzELRFaIK6A2JsAt3d2x0fv+Z3u1lyVq1QyM1nj5RLqPHRZbHV7Qwhi87OszVBEktx5Oradm/k7
-	94IsokWQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=a15SYqr+YQzqvLF94kptNXFFlDXPg/XTpiZLliXia2E=; b=j6AgdANOi/0gJt
+	xYXmLsVt19rFgZM+u5ZSZ4/JrPWHw1i2A8mUN6Z8BI7VfmnZ0bWQL+apU0uUQCpAFajy0L1BIP3Qa
+	luoFTq51VsehbRXG2uXTmvA0TVGDNoopjrnXtVNjOzilRqGmptRRaVWWy+eF0/Mza50xO7F+JWmHv
+	SBkFhNS8Ux8wkXBGwb9NHtocull36xE/YRFxAfrOrDX5JkztEtrQFa4vGBa+T67dO+4VsENqycpVl
+	XQ89RPw4wOoRZB7HVtmp1SXdShAvmhK14yM9luAhzgLNY5rDnLMFhAxi9zKkMB9o8Ci/hoFzX+cIa
+	XRM1CXa2+3QqBw6nbqHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r07cd-0001PU-0q;
-	Mon, 06 Nov 2023 21:59:03 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1r07tK-0002wg-0k;
+	Mon, 06 Nov 2023 22:16:18 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r07cZ-0001OW-38
-	for linux-riscv@lists.infradead.org;
-	Mon, 06 Nov 2023 21:59:01 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-6bd73395bceso4026648b3a.0
-        for <linux-riscv@lists.infradead.org>; Mon, 06 Nov 2023 13:58:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1699307937; x=1699912737; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=IBg0Lkvc3ITtHaKPYKkLVkZ8x1yGuJbEQ60epjmnxsE=;
-        b=e/9A4k4B/B7zv36xpHeorUqOi1gHzZw2XpRlRrURmilzajQCqkoxXSn7Fu7zZ0OkBw
-         wItXh2ZEM15ye/cvXg8iCpS7aN4ZeazaWurYvOW6s40Cl+UYs+dHr0kSKVejhuhBy+lI
-         2v0hzgG80nqbhvAfzyToVrfB0dWBuo0+d3RuwM2AV5c2xQod3EbEHxTL+6Y3SpfY1jf0
-         zkv4rVb2Pgr/Tm/BE83Xb1le078ozy3/TXpzG9KhFagmZV3o9C5BI/5G4/Qd9WvnF9vI
-         5G0aJ4kE/2vgs7y8FRVT6aO6qUmd25nrlVzaFa8MSvpcVRnTwNOHmwWoMMpmzzPmrajc
-         zrpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699307937; x=1699912737;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IBg0Lkvc3ITtHaKPYKkLVkZ8x1yGuJbEQ60epjmnxsE=;
-        b=RG1d2E0bImUe7sgMb+RLK+6w8vZZUe375wVAseMs92UdHrGIngAXWfGPWVD2dcoKAS
-         U06T6wmAPVFTN0GEiBltbj9Az59HwGAhkzZZmJOV4UwF7Wf6nOStjPgV3gNBpEQckzFe
-         NB2LRTVSxbx/RhqjRUIY/WAW1r8x5l1EwiN89IlXuJIsQRE4wLvgPFzZ1izsV9fiVLRs
-         GXYiKuVj12/3s+Z0+O8f6lPBBu2OvwR36dqBX9J63rPE/zrjsEPImy0v/fRHwwkfKTuQ
-         +tRmT1Y4/0jHq/IKHRBfnLTVxTcWzYZNHdIeCbo1Jt/qKSIZXuSZSmYm3E98a2aE2AMB
-         fRxA==
-X-Gm-Message-State: AOJu0Yy3F1Fkp2Sru1wkhBft7CWELabKdEHFqS3iRDpWqJAndVTV29v3
-	a+26wiDtVrLqJCFv3G1E7A0cfDaEbm7gW7a5KDM=
-X-Google-Smtp-Source: AGHT+IG9REg3fYQF+EF4knUe4wjpr3kBUng81WAks8bDMo2cHkuJLiLicsVZOWPXxqcMeQzZjXN9XA==
-X-Received: by 2002:a05:6a00:99e:b0:6c3:415a:5c05 with SMTP id u30-20020a056a00099e00b006c3415a5c05mr876270pfg.14.1699307936948;
-        Mon, 06 Nov 2023 13:58:56 -0800 (PST)
-Received: from localhost ([12.44.203.122])
-        by smtp.gmail.com with ESMTPSA id ka19-20020a056a00939300b006905f6bfc37sm6038808pfb.31.2023.11.06.13.58.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Nov 2023 13:58:56 -0800 (PST)
-Date: Mon, 06 Nov 2023 13:58:56 -0800 (PST)
-X-Google-Original-Date: Mon, 06 Nov 2023 13:58:53 PST (-0800)
-Subject: Re: [PATCH RT v2 0/3] riscv: add PREEMPT_RT support
-In-Reply-To: <20231031143521.441-1-jszhang@kernel.org>
-CC: bigeasy@linutronix.de, tglx@linutronix.de,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
-  tobias.schaffner@siemens.com, Arnd Bergmann <arnd@arndb.de>, Conor Dooley <conor.dooley@microchip.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: jszhang@kernel.org
-Message-ID: <mhng-fee5ae9b-0e8c-45f0-a1c7-84459fa718ab@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	id 1r07tF-0002ve-32;
+	Mon, 06 Nov 2023 22:16:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id 68B24B80FC3;
+	Mon,  6 Nov 2023 22:16:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 654D4C433C7;
+	Mon,  6 Nov 2023 22:16:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1699308968;
+	bh=WqMPMf39yh9ITC8OB+ZJDb9Ky2cXoNVF1zs0fDuZdN0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=s9wsq7xSaMr7iJ3kiO+j9shFPCu8qXLQJrWBsw5/DIGa63jW9h/MG2FWa4Q2525Fk
+	 OjpRYf8HorKnxNU3Hxd7c9qYr5lVgIQ2x2GKK4SW3NQG2m2DrhvB+H4HSpgNcBV0Xm
+	 UexMpN5ETc1fwqspUoTwns6vzMNGIZVNuuUpM3LRhO2Bm4e0H3XmyhB/R8RnmgY61O
+	 RMkozKDLwcq2NKMzwnpifndjlCiTKAbwke2cUF3PmrGJ1apjCeBMdRlf9vbK3njNaf
+	 nd2W1a1Kw3zJIXfyl08QIw/lVuVFqZH09q5OGyu7ra9oxT7+g50f5xlVeku7nKzyeu
+	 VvuUm+kw/bHlQ==
+Date: Mon, 6 Nov 2023 16:16:06 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Sunil V L <sunilvl@ventanamicro.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-serial@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Anup Patel <anup@brainfault.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Haibo Xu <haibo1.xu@intel.com>
+Subject: Re: [RFC PATCH v2 06/21] RISC-V: Kconfig: Select deferred GSI probe
+ for ACPI systems
+Message-ID: <20231106221606.GA264641@bhelgaas>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <ZTuzJ1nsicZYp+uh@sunil-laptop>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231106_135900_254642_84AD948B 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20231106_141614_307939_959B7D84 
+X-CRM114-Status: GOOD (  35.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,49 +82,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 31 Oct 2023 07:35:19 PDT (-0700), jszhang@kernel.org wrote:
-> This series is to add PREEMPT_RT support to riscv. Compared with last
-> year's try[1], there are two major changes:
->
-> 1. riscv has been converted to Generic Entry. And RT maintainers has
-> introduced PREEMPT_AUTO, so its support for riscv as well.
->
-> 2. three preparation patches(patch1/2/3 in [1]) has been merged in
-> mainline.
->
-> Link: https://lore.kernel.org/linux-riscv/20220831175920.2806-1-jszhang@kernel.org/ [1]
->
-> Hi @Conor,
->
-> IIRC, you reported warnings with LOCKDEP(and DEBUG_ATOMIC_SLEEP?) with
-> previous version RT patch, but I tried on c906, c910 platforms and
-> can't reproduce the warnings. And Schaffner also tried them and
-> didn't reproduce warnings either. So could you please help try
-> v6.6-RT + this series again?
->
-> Thanks
->
-> Since v1:
->  - rebase on v6.6-rt
->  - support the new PREEMPT_AUTO instead of Lazy preempt
->
-> Jisheng Zhang (2):
->   riscv: add PREEMPT_AUTO support
->   riscv: allow to enable RT
->
->  arch/riscv/Kconfig                   | 2 ++
->  arch/riscv/include/asm/thread_info.h | 2 ++
->  2 files changed, 4 insertions(+)
+On Fri, Oct 27, 2023 at 06:25:03PM +0530, Sunil V L wrote:
+> On Thu, Oct 26, 2023 at 12:04:08PM -0500, Bjorn Helgaas wrote:
+> > On Thu, Oct 26, 2023 at 01:53:29AM +0530, Sunil V L wrote:
+> > > On RISC-V platforms, apart from root interrupt controllers (which
+> > > provide local interrupts and IPI), other interrupt controllers in the
+> > > hierarchy are probed late. Enable this select this CONFIG option for
+> > > RISC-V platforms so that device drivers which connect to deferred
+> > > interrupt controllers can take appropriate action.
+> > 
+> > Quite a bit of this series seems related to the question of interrupt
+> > controllers being probed "late".
+> > 
+> > I don't see anything specific about *how* late this might be, but from
+> > the use of -EPROBE_DEFER in individual drivers (8250_pnp explicitly,
+> > and acpi_register_gsi() and pnp_irq() and acpi_pci_irq_enable(), which
+> > are called from driver .probe() paths) it seems like interrupt
+> > controllers might be detected even after devices that use them.
+> > 
+> > That seems like a fairly invasive change to the driver probe flow.
+> > If we really need to do that, I think it might merit a little more
+> > background as justification since we haven't had to do it for any
+> > other arch yet.
+> 
+> In RISC-V, the APLIC can be a converter from wired (GSI) to MSI interrupts.
+> Hence, especially in this mode, it has to be a platform device to use
+> device MSI domain. Also, according to Marc Zyngier there is no reason to
+> probe interrupt controllers early apart from root controller. So, the
+> device drivers which use wired interrupts need to be probed after APLIC.
+> 
+> The PNP devices and PCI INTx GSI links use either
+> acpi_dev_resource_interrupt() (PNP) or acpi_register_gsi() directly
+> (PCI). The approach taken here is to follow the example of
+> acpi_irq_get() which is enhanced to return EPROBE_DEFER and several
+> platform device drivers which use platform_get_irq() seem to be handling
+> this already.
 
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+This series (patch 04/21 "ACPI: irq: Add support for deferred probe in
+acpi_register_gsi()" [1]) makes acpi_register_gsi() return
+-EPROBE_DEFER, which percolates up through pci_enable_device().
 
-In case you guys wanted to take this.  I'm also happy doing a shared tag 
-or something, no rush on my end.
+Maybe that's ok, but this affects *all* PCI drivers, and it's a new
+case that did not occur before.  Many drivers emit warning or error
+messages for any pci_enable_device() failure, which you probably don't
+want in this case, since -EPROBE_DEFER is not really a "failure";
+IIUC, it just means "probe again later."
+
+> Using ResourceSource dependency (mbigen uses) in the namespace as part of
+> Extended Interrupt Descriptor will not ensure the order since PNP/INTx
+> GSI devices don't work with that.
+
+Are these PNP/INTx GSI devices described in ACPI?  In the namespace?
+Or in a static table?
+
+> Is there any other better way to create dependency between IO devices
+> and the interrupt controllers when interrupt controller itself is a
+> platform device? While using core_initcall() for interrupt controllers
+> seem to work which forces the interrupt controller to be probed first,
+> Marc is not in favor of that approach since it is fragile.
+
+I guess PCI interrupts from the PCI host bridges (PNP0A03 devices)
+feed into the APLIC?  And APLIC is described via MADT?  Based on this
+series, it looks like this:
+
+    acpi_init
+  +   acpi_riscv_init
+  +     riscv_acpi_aplic_platform_init
+  +       acpi_table_parse_madt(ACPI_MADT_TYPE_APLIC, aplic_parse_madt, 0)
+      acpi_scan_init
+        acpi_pci_root_init
+        acpi_pci_link_init
+	acpi_bus_scan             # add PCI host bridges, etc
+
+If that's the sequence, it looks like aplic_parse_madt() should be
+called before the PCI host bridges are added.
+
+Or maybe this isn't how the APLICs are enumerated?
+
+Bjorn
+
+[1] https://lore.kernel.org/r/20231025202344.581132-5-sunilvl@ventanamicro.com
 
 _______________________________________________
 linux-riscv mailing list
