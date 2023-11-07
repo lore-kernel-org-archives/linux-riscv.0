@@ -4,82 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBBF7C4167D
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Nov 2023 11:45:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87518C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Nov 2023 11:47:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:MIME-Version:Subject:Cc
-	:To:From:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YnkCMPMStVqaS8FeMYU8vnoo3rpyqGHhVlgWhTtYRpQ=; b=OS4dfpS4quoTXi
-	Sg73/ag3gPhtYlti7oSnyn/egbDANYJ0b7dbiSFC17N1rXIWbBFYQa64ryqZSBT2fsH1HYXeP2C+u
-	PvGZvaN4M5Ft3UVPVlMyGCAfs60jxhgoSevgxq0+r+vZunF0nT2Dm14eEmw9Ttng0uw7mDnLqBH8d
-	qQet30En5BvSqHcqKNV31jBvAdD28ST+R7zN5p9844SRkFFGxQXS30fuhFdayBf8TX40XzkYfd+4j
-	J5zStu8dgtKb5h8QY95TcP4/nCe0zF95tAma2N2nct+al/Ornc2DSthHsbPp0uW7+ugk1DOwcmrGp
-	/kRSZC1duaN56JX9c7IQ==;
+	List-Owner; bh=DLHLoDC7NJB7E4dM5M6iTfqQYgESCCFMKGX1NNW8rs8=; b=bXSG9KcTyVlLc1
+	EzxVnnTVMvGBqmvDqQ3AdUX9v4TLmhGp7oEG+onmFbtCutfGQYBlrMZb0lmjxq5pbr+PWfxLRvIuR
+	X4jjD0I+1K3Zal7VpHAcgeQbLKJNnZtntbKSjCWMLsGicXZD1eZCT9BS/FIYFgWCATqGV9T2za1im
+	bum/eLNRaEtTyHmhvka0fT+j3s3DjYfflfppNM0s10B8p88cDvickN5ajbuJGbV2KvcSx2mKC/LYt
+	9OJxOss5S5g79kVqKB2LL+2j7s4Fn27QhZ/l89mCKrvEcw+DCyfFtR36RYtgEKqfH3scxdhNwq3Qx
+	7y5249XXkrOoyo8Be3Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0KWM-001MCc-1L;
-	Tue, 07 Nov 2023 11:45:26 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0JLi-0013HE-1e;
-	Tue, 07 Nov 2023 10:30:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=L39JlpOE9/9CplZsg27RCjms0dZNEQGXOpabTHId0/o=; b=aROF6+R2XtK3lBysJONjCeHJu/
-	U0NNYX04FcX0h+nxoECSlL4SEsjkNfvaaw4xMTtERNmuCQcpXy3lBZ/p1C2gXp2DLEUA3AGPzAike
-	GCMpQ66isY1S/EnSFhbj1irjZ5gi9Xhf3leVSG/I+988BPorw6vc2a/CHcZ7T08ZLnczR+jG805aN
-	jqer8K6Kevg8fYCGX6w8iTSJwDDXUf308eYJXMQ5ExiLUAwfJ4Un0bsKtRNXKblwQgzQj7MO8zdLW
-	jm21TPrOpkGvDW8oDhwIfnl7LetnsISGkqxbTU5KYqBO/J9vHp40UnF0UVjYTs8giDbilGTvza3Y1
-	6sknCDGg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:54884 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1r0JLQ-0000FU-0r;
-	Tue, 07 Nov 2023 10:30:04 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1r0JLQ-00CTxK-Ln; Tue, 07 Nov 2023 10:30:04 +0000
-In-Reply-To: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
-References: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: linux-pm@vger.kernel.org,
-	 loongarch@lists.linux.dev,
-	 linux-acpi@vger.kernel.org,
-	 linux-arch@vger.kernel.org,
-	 linux-kernel@vger.kernel.org,
-	 linux-arm-kernel@lists.infradead.org,
-	 linux-riscv@lists.infradead.org,
-	 kvmarm@lists.linux.dev,
-	 x86@kernel.org,
-	 linux-csky@vger.kernel.org,
-	 linux-doc@vger.kernel.org,
-	 linux-ia64@vger.kernel.org,
-	 linux-parisc@vger.kernel.org
-Cc: Salil Mehta <salil.mehta@huawei.com>,
-	 Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	 jianyong.wu@arm.com,
-	 justin.he@arm.com,
-	 James Morse <james.morse@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Peter Zijlstra <peterz@infradead.org>
-Subject: [PATCH RFC 09/22] drivers: base: add arch_cpu_is_hotpluggable()
+	id 1r0KY0-001Ma5-2N;
+	Tue, 07 Nov 2023 11:47:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1r0KXx-001MYP-0g;
+	Tue, 07 Nov 2023 11:47:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 08FE613D5;
+	Tue,  7 Nov 2023 03:47:45 -0800 (PST)
+Received: from bogus (unknown [10.57.82.249])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9B8933F6C4;
+	Tue,  7 Nov 2023 03:46:54 -0800 (PST)
+Date: Tue, 7 Nov 2023 11:45:21 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
+	Sudeep Holla <sudeep.holla@arm.com>, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	gregkh@linuxfoundation.org, rafael@kernel.org, mingo@redhat.com,
+	peterz@infradead.org, juri.lelli@redhat.com,
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
+	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com,
+	viresh.kumar@linaro.org, lenb@kernel.org, robert.moore@intel.com,
+	lukasz.luba@arm.com, ionela.voinescu@arm.com,
+	pierre.gondois@arm.com, beata.michalska@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org,
+	linux-acpi@vger.kernel.org, conor.dooley@microchip.com,
+	suagrfillet@gmail.com, ajones@ventanamicro.com, lftan@kernel.org
+Subject: Re: [PATCH v5 1/7] topology: Add a new arch_scale_freq_reference
+Message-ID: <20231107114521.GD954129@bogus>
+References: <20231104105907.1365392-1-vincent.guittot@linaro.org>
+ <20231104105907.1365392-2-vincent.guittot@linaro.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-Message-Id: <E1r0JLQ-00CTxK-Ln@rmk-PC.armlinux.org.uk>
-Date: Tue, 07 Nov 2023 10:30:04 +0000
+In-Reply-To: <20231104105907.1365392-2-vincent.guittot@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231107_023022_564783_7C2DE908 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20231107_034705_319147_BADF7650 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,56 +75,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The differences between architecture specific implementations of
-arch_register_cpu() are down to whether the CPU is hotpluggable or not.
-Rather than overriding the weak version of arch_register_cpu(), provide
-a function that can be used to provide this detail instead.
+On Sat, Nov 04, 2023 at 11:59:01AM +0100, Vincent Guittot wrote:
+> Create a new method to get a unique and fixed max frequency. Currently
+> cpuinfo.max_freq or the highest (or last) state of performance domain are
+> used as the max frequency when computing the frequency for a level of
+> utilization but:
+> - cpuinfo_max_freq can change at runtime. boost is one example of
+>   such change.
+> - cpuinfo.max_freq and last item of the PD can be different leading to
+>   different results between cpufreq and energy model.
+> 
+> We need to save the reference frequency that has been used when computing
+> the CPUs capacity and use this fixed and coherent value to convert between
+> frequency and CPU's capacity.
+> 
+> In fact, we already save the frequency that has been used when computing
+> the capacity of each CPU. We extend the precision to save kHz instead of
+> MHz currently and we modify the type to be aligned with other variables
+> used when converting frequency to capacity and the other way.
+> 
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/base/cpu.c  | 11 ++++++++++-
- include/linux/cpu.h |  1 +
- 2 files changed, 11 insertions(+), 1 deletion(-)
+For all the topology related changes here and patch 6/7 and 7/7:
 
-diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
-index 58bb86091b34..221ffbeb1c9b 100644
---- a/drivers/base/cpu.c
-+++ b/drivers/base/cpu.c
-@@ -527,9 +527,18 @@ EXPORT_SYMBOL_GPL(cpu_is_hotpluggable);
- #ifdef CONFIG_GENERIC_CPU_DEVICES
- DEFINE_PER_CPU(struct cpu, cpu_devices);
- 
-+bool __weak arch_cpu_is_hotpluggable(int cpu)
-+{
-+	return false;
-+}
-+
- int __weak arch_register_cpu(int cpu)
- {
--	return register_cpu(&per_cpu(cpu_devices, cpu), cpu);
-+	struct cpu *c = &per_cpu(cpu_devices, cpu);
-+
-+	c->hotpluggable = arch_cpu_is_hotpluggable(cpu);
-+
-+	return register_cpu(c, cpu);
- }
- 
- #ifdef CONFIG_HOTPLUG_CPU
-diff --git a/include/linux/cpu.h b/include/linux/cpu.h
-index 1e982d63eae8..dcb89c987164 100644
---- a/include/linux/cpu.h
-+++ b/include/linux/cpu.h
-@@ -80,6 +80,7 @@ extern __printf(4, 5)
- struct device *cpu_device_create(struct device *parent, void *drvdata,
- 				 const struct attribute_group **groups,
- 				 const char *fmt, ...);
-+extern bool arch_cpu_is_hotpluggable(int cpu);
- extern int arch_register_cpu(int cpu);
- extern void arch_unregister_cpu(int cpu);
- #ifdef CONFIG_HOTPLUG_CPU
+Acked-by: Sudeep Holla <sudeep.holla@arm.com>
+
 -- 
-2.30.2
-
+Regards,
+Sudeep
 
 _______________________________________________
 linux-riscv mailing list
