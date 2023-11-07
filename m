@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB8CC04A68
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Nov 2023 10:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78C50C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Nov 2023 10:30:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:MIME-Version:Subject:Cc
 	:To:From:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5St5EKAy89lJl0k9TgSEA5x1yKxqRUbz02uh3ZdMbQ4=; b=lcTgRxmEptKT8S
-	ohjr8PCnjsE5J2pLBJr0VIFuhaugBTJ8qo/SpcBpwUeLXXhIFYgHlISk+B9NPWJnYBH7YF9+Fk1+H
-	6HlGGhPjBjn/wSEv23UaiLrPxDxSiwTBf/Ey9zeSJJzBFnXOYVgpOtn/MixfB45DSlrim+5O6rEl3
-	IFy+eL+8zS8pybqrCYBIK+FuJboOGjRsWpg9o0KU44P3s6mv+2y4JpvYH1vKQ0iPCKozPpgjl5fd2
-	g2CcHFmpXcd69N6CcJ8IGUdT8c96DvOgzIe4rhmelaDFr1fLx6pmVMxVFAr78PwKsFMD2gzJLwuXg
-	DLF+Vc5t4nFIKrXXLXwg==;
+	List-Owner; bh=k4Wnjyad5xBKmB9QoATW8nvbYUFhpVRZTyJGNQvJSdo=; b=2ozEGalik4OdKl
+	5ByufR3sMyHWhSkMm7pXjnV0KxEebSBHKCDHCz9Szmt7VC6/v1o8y89kKwLtr07pYDfvHcrik2m9d
+	3k6XY0ZqqNFtCjhZT1ekvZZO2pAEmaNl35d5kLvQMNiuWYrvMpfOTUg41JDGevmZ+Ck0Uutymgdq5
+	1eXuCJs4Hu75sQxsk/ik8tKh+8vFnlbRNGProPD7525zWo7tqhODNGUC1gx8kueiACyEiERX+Y0A7
+	PqkqmdTE+Uri3b0DcpGagkdri4eomT6H3EwZumshU8uMfDe9D5OdSkyxi2lt4jKc28Ns+NKMqAD/Y
+	0IZcC7xMMadwD9GsNBlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0JLg-0013IW-2n;
-	Tue, 07 Nov 2023 10:30:20 +0000
+	id 1r0JLp-0013T0-3B;
+	Tue, 07 Nov 2023 10:30:30 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0JLb-0013DG-2L;
-	Tue, 07 Nov 2023 10:30:17 +0000
+	id 1r0JLi-0013GI-1G;
+	Tue, 07 Nov 2023 10:30:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=rpX32JELJVRxbBajbNmSR45zpZhhmbYGw/k55Nv6FvI=; b=XN47gDlFG8oQadHagMkhORXF23
-	NRjFhMOv+fOecI9DuYcspnJ2wjxtrLSw4kI7bc6Pzft54dDr9K/i4r6/Gb3KEDyFfKfWMGKLgGrYB
-	OSevVF3x5B/KPXN/975w4BVriOHzRvLd6esz2xUFlZRQoIRMjLTlSsaeP/Kceq2ToGjYHJ6dEQsLx
-	fQrD1VL6a3tObH1/Fg4nNXaFBxAZCLqI4T5fb3Bnlg3+oIueijd3Enrj9JH7iCFWC6RLcKnDFwV7U
-	8rtN7+DW9WSr+UgP69IdSopcQdt+6g65W/qa/h/ObeMek38otWK872SHRRsHD1tTzmreGVN6/GjkW
-	7mlyujLw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:59044 helo=rmk-PC.armlinux.org.uk)
+	bh=AMLeOPj97UWFUJITi7pviQd/DMBECoV/Ju2iA1XroZM=; b=iWpNzX/iPGoOYZQkZm1FIQXbPq
+	l/1gVppyboPmC6oMcfXlstcdMZwkQemSDC3sAWAcxjAeobj3XzuPCbPhXny1YZMJO2nRHG63r3Mh0
+	jNvRH7k+2oC8ySGSAk8U2dvBaMevMXVHN0gC+MMpsqaWK0L8ihN0bQUJoxLPTYxrKgZM+Pjlih3fs
+	LcT8t4CZjhVC6MPxRxQ/d17Q4R2MW+G5mBgCs6797LrxnXap9B7GaDDQT/BHu44vMbeZ+KHsAGb5e
+	MKJai+jRkoPwqj8S97N9deRW2n8XWFl+QX4UABVhRevJwiRLKylNLlAEpPAjcV2W5jTxW4wJunXYc
+	Rs7uQr5g==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:54898 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1r0JLB-0000Er-05;
-	Tue, 07 Nov 2023 10:29:49 +0000
+	id 1r0JLU-0000GD-0Y;
+	Tue, 07 Nov 2023 10:30:08 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1r0JLB-00CTwy-7y; Tue, 07 Nov 2023 10:29:49 +0000
+	id 1r0JLV-00CTxS-QB; Tue, 07 Nov 2023 10:30:09 +0000
 In-Reply-To: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
 References: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
 From: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
@@ -69,20 +69,17 @@ Cc: Salil Mehta <salil.mehta@huawei.com>,
 	 justin.he@arm.com,
 	 James Morse <james.morse@arm.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Guo Ren <guoren@kernel.org>
-Subject: [PATCH RFC 06/22] drivers: base: Use present CPUs in
- GENERIC_CPU_DEVICES
+	"Rafael J. Wysocki" <rafael@kernel.org>
+Subject: [PATCH RFC 10/22] drivers: base: Move cpu_dev_init() after
+ node_dev_init()
 MIME-Version: 1.0
 Content-Disposition: inline
-Message-Id: <E1r0JLB-00CTwy-7y@rmk-PC.armlinux.org.uk>
-Date: Tue, 07 Nov 2023 10:29:49 +0000
+Message-Id: <E1r0JLV-00CTxS-QB@rmk-PC.armlinux.org.uk>
+Date: Tue, 07 Nov 2023 10:30:09 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231107_023015_764047_2A7EF47F 
-X-CRM114-Status: GOOD (  15.83  )
+X-CRM114-CacheID: sfid-20231107_023022_446169_413FEDD0 
+X-CRM114-Status: UNSURE (   9.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,77 +98,38 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: James Morse <james.morse@arm.com>
 
-Three of the five ACPI architectures create sysfs entries using
-register_cpu() for present CPUs, whereas arm64, riscv and all
-GENERIC_CPU_DEVICES do this for possible CPUs.
+NUMA systems require the node descriptions to be ready before CPUs are
+registered. This is so that the node symlinks can be created in sysfs.
 
-Registering a CPU is what causes them to show up in sysfs.
+Currently no NUMA platform uses GENERIC_CPU_DEVICES, meaning that CPUs
+are registered by arch code, instead of cpu_dev_init().
 
-It makes very little sense to register all possible CPUs. Registering
-a CPU is what triggers the udev notifications allowing user-space to
-react to newly added CPUs.
-
-To allow all five ACPI architectures to use GENERIC_CPU_DEVICES, change
-it to use for_each_present_cpu(). Making the ACPI architectures use
-GENERIC_CPU_DEVICES is a pre-requisite step to centralise their
-cpu_register() logic, before moving it into the ACPI processor driver.
-When ACPI is disabled this work would be done by
-cpu_dev_register_generic().
-
-Of the ACPI architectures that register possible CPUs, arm64 and riscv
-do not support making possible CPUs present as they use the weak 'always
-fails' version of arch_register_cpu().
-
-Only two of the eight architectures that use GENERIC_CPU_DEVICES have a
-distinction between present and possible CPUs.
-
-The following architectures use GENERIC_CPU_DEVICES but are not SMP,
-so possible == present:
- * m68k
- * microblaze
- * nios2
-
-The following architectures use GENERIC_CPU_DEVICES and consider
-possible == present:
- * csky: setup_smp()
- * processor_probe() sets possible for all CPUs and present for all CPUs
-   except the boot cpu, which will have been done by
-   init/main.c::start_kernel().
-
-um appears to be a subarchitecture of x86.
-
-The remaining architecture using GENERIC_CPU_DEVICES are:
- * openrisc and hexagon:
-   where smp_init_cpus() makes all CPUs < NR_CPUS possible,
-   whereas smp_prepare_cpus() only makes CPUs < setup_max_cpus present.
-
-After this change, openrisc and hexagon systems that use the max_cpus
-command line argument would not see the other CPUs present in sysfs.
-This should not be a problem as these CPUs can't bre brought online as
-_cpu_up() checks cpu_present().
-
-After this change, only CPUs which are present appear in sysfs.
+Move cpu_dev_init() after node_dev_init() so that NUMA architectures
+can use GENERIC_CPU_DEVICES.
 
 Signed-off-by: James Morse <james.morse@arm.com>
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/base/cpu.c | 2 +-
+Note: Jonathan's comment still needs addressing - see
+  https://lore.kernel.org/r/20230914121612.00006ac7@Huawei.com
+---
+ drivers/base/init.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
-index 9ea22e165acd..34b48f660b6b 100644
---- a/drivers/base/cpu.c
-+++ b/drivers/base/cpu.c
-@@ -533,7 +533,7 @@ static void __init cpu_dev_register_generic(void)
- #ifdef CONFIG_GENERIC_CPU_DEVICES
- 	int i;
- 
--	for_each_possible_cpu(i) {
-+	for_each_present_cpu(i) {
- 		if (register_cpu(&per_cpu(cpu_devices, i), i))
- 			panic("Failed to register CPU device");
- 	}
+diff --git a/drivers/base/init.c b/drivers/base/init.c
+index 397eb9880cec..c4954835128c 100644
+--- a/drivers/base/init.c
++++ b/drivers/base/init.c
+@@ -35,8 +35,8 @@ void __init driver_init(void)
+ 	of_core_init();
+ 	platform_bus_init();
+ 	auxiliary_bus_init();
+-	cpu_dev_init();
+ 	memory_dev_init();
+ 	node_dev_init();
++	cpu_dev_init();
+ 	container_dev_init();
+ }
 -- 
 2.30.2
 
