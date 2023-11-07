@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E62FC4167B
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Nov 2023 10:30:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB8CC04A68
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Nov 2023 10:30:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:MIME-Version:Subject:Cc
 	:To:From:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yds9BePwl6emCNfBZqG+DEUtjrSGKyuRcOB5FU0ZYz4=; b=EhO/amUi1j7PN3
-	k1PXTnrXqW1l80VyP8sR6QRJE2S7Aow89pJP4kTMscuE9U+8Jn+UpznQ8wKQLPeIhk9LcU4p6DzQK
-	7mNGHx2lXvCYQIEw6NcAPD40HDi5KTV+smG8UWGX31Lhkof3p/IJE6VU4KEzoA8Aw5/jXdGZFc6rZ
-	XnTtsg8v78JgPoGw5zr7wC7Ix1HeW+9TGJaQmt0PyRIyOhYuoyKEq0HNkvZ6KW7UjHhKKpRpwradW
-	bX0vTEsvMjnR8Vh5e5n3Xy4fJrVcNzxY9t1xhcwI/ouu2xgh+dOiyjoqzGB45zXjzQV3GoVOTbdU7
-	cb1iTry4HOE21JwYztXA==;
+	List-Owner; bh=5St5EKAy89lJl0k9TgSEA5x1yKxqRUbz02uh3ZdMbQ4=; b=lcTgRxmEptKT8S
+	ohjr8PCnjsE5J2pLBJr0VIFuhaugBTJ8qo/SpcBpwUeLXXhIFYgHlISk+B9NPWJnYBH7YF9+Fk1+H
+	6HlGGhPjBjn/wSEv23UaiLrPxDxSiwTBf/Ey9zeSJJzBFnXOYVgpOtn/MixfB45DSlrim+5O6rEl3
+	IFy+eL+8zS8pybqrCYBIK+FuJboOGjRsWpg9o0KU44P3s6mv+2y4JpvYH1vKQ0iPCKozPpgjl5fd2
+	g2CcHFmpXcd69N6CcJ8IGUdT8c96DvOgzIe4rhmelaDFr1fLx6pmVMxVFAr78PwKsFMD2gzJLwuXg
+	DLF+Vc5t4nFIKrXXLXwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0JLe-0013GJ-2c;
-	Tue, 07 Nov 2023 10:30:18 +0000
+	id 1r0JLg-0013IW-2n;
+	Tue, 07 Nov 2023 10:30:20 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0JLb-0013DF-0p;
-	Tue, 07 Nov 2023 10:30:16 +0000
+	id 1r0JLb-0013DG-2L;
+	Tue, 07 Nov 2023 10:30:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=SNsUqv3mHEJC05AIRv8JP1Jps5pzoeiw8iuzzTO88jM=; b=gaYb0AGpNaGyoeAwB30k2zFAeu
-	QtE/mEgx2bN+6/cRgeApfIsEGJb5BL+f4bWGno6vbNHXGoTsCsxHtO0KnvHEuiHfneaXcVDdgwQiW
-	YFfzzRt7XVvbgHS3f6+K+sKJzN4D6hyQXJnEsqD4fn1yKl5PoIpHkx3vrfiWVoCl248NoqIfc9bdM
-	+lapY16Nh7cPph9APkox+294r9ekgPv7okr3Udzy0ho27B/UyD7w5g/JQ8wTyEc8jRbp5pzJj48zv
-	KxlKag3ePeznKBc6qDe594xO56tMzv/1jI3u5/9/ONDwx/tUUqNCSI10JpZOAbpICTK9NFkA6zXK7
-	lxjWydMQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:41354 helo=rmk-PC.armlinux.org.uk)
+	bh=rpX32JELJVRxbBajbNmSR45zpZhhmbYGw/k55Nv6FvI=; b=XN47gDlFG8oQadHagMkhORXF23
+	NRjFhMOv+fOecI9DuYcspnJ2wjxtrLSw4kI7bc6Pzft54dDr9K/i4r6/Gb3KEDyFfKfWMGKLgGrYB
+	OSevVF3x5B/KPXN/975w4BVriOHzRvLd6esz2xUFlZRQoIRMjLTlSsaeP/Kceq2ToGjYHJ6dEQsLx
+	fQrD1VL6a3tObH1/Fg4nNXaFBxAZCLqI4T5fb3Bnlg3+oIueijd3Enrj9JH7iCFWC6RLcKnDFwV7U
+	8rtN7+DW9WSr+UgP69IdSopcQdt+6g65W/qa/h/ObeMek38otWK872SHRRsHD1tTzmreGVN6/GjkW
+	7mlyujLw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:59044 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1r0JLP-0000FP-2Y;
-	Tue, 07 Nov 2023 10:30:04 +0000
+	id 1r0JLB-0000Er-05;
+	Tue, 07 Nov 2023 10:29:49 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1r0JLL-00CTxD-Gc; Tue, 07 Nov 2023 10:29:59 +0000
+	id 1r0JLB-00CTwy-7y; Tue, 07 Nov 2023 10:29:49 +0000
 In-Reply-To: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
 References: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
 From: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
@@ -72,16 +72,17 @@ Cc: Salil Mehta <salil.mehta@huawei.com>,
 	"Rafael J. Wysocki" <rafael@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH RFC 08/22] drivers: base: Implement weak arch_unregister_cpu()
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Guo Ren <guoren@kernel.org>
+Subject: [PATCH RFC 06/22] drivers: base: Use present CPUs in
+ GENERIC_CPU_DEVICES
 MIME-Version: 1.0
 Content-Disposition: inline
-Message-Id: <E1r0JLL-00CTxD-Gc@rmk-PC.armlinux.org.uk>
-Date: Tue, 07 Nov 2023 10:29:59 +0000
+Message-Id: <E1r0JLB-00CTwy-7y@rmk-PC.armlinux.org.uk>
+Date: Tue, 07 Nov 2023 10:29:49 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231107_023015_294315_5C965314 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231107_023015_764047_2A7EF47F 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,41 +101,77 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: James Morse <james.morse@arm.com>
 
-Add arch_unregister_cpu() to allow the ACPI machinery to call
-unregister_cpu(). This is enough for arm64, riscv and loongarch, but
-needs to be overridden by x86 and ia64 who need to do more work.
+Three of the five ACPI architectures create sysfs entries using
+register_cpu() for present CPUs, whereas arm64, riscv and all
+GENERIC_CPU_DEVICES do this for possible CPUs.
 
-CC: Jean-Philippe Brucker <jean-philippe@linaro.org>
+Registering a CPU is what causes them to show up in sysfs.
+
+It makes very little sense to register all possible CPUs. Registering
+a CPU is what triggers the udev notifications allowing user-space to
+react to newly added CPUs.
+
+To allow all five ACPI architectures to use GENERIC_CPU_DEVICES, change
+it to use for_each_present_cpu(). Making the ACPI architectures use
+GENERIC_CPU_DEVICES is a pre-requisite step to centralise their
+cpu_register() logic, before moving it into the ACPI processor driver.
+When ACPI is disabled this work would be done by
+cpu_dev_register_generic().
+
+Of the ACPI architectures that register possible CPUs, arm64 and riscv
+do not support making possible CPUs present as they use the weak 'always
+fails' version of arch_register_cpu().
+
+Only two of the eight architectures that use GENERIC_CPU_DEVICES have a
+distinction between present and possible CPUs.
+
+The following architectures use GENERIC_CPU_DEVICES but are not SMP,
+so possible == present:
+ * m68k
+ * microblaze
+ * nios2
+
+The following architectures use GENERIC_CPU_DEVICES and consider
+possible == present:
+ * csky: setup_smp()
+ * processor_probe() sets possible for all CPUs and present for all CPUs
+   except the boot cpu, which will have been done by
+   init/main.c::start_kernel().
+
+um appears to be a subarchitecture of x86.
+
+The remaining architecture using GENERIC_CPU_DEVICES are:
+ * openrisc and hexagon:
+   where smp_init_cpus() makes all CPUs < NR_CPUS possible,
+   whereas smp_prepare_cpus() only makes CPUs < setup_max_cpus present.
+
+After this change, openrisc and hexagon systems that use the max_cpus
+command line argument would not see the other CPUs present in sysfs.
+This should not be a problem as these CPUs can't bre brought online as
+_cpu_up() checks cpu_present().
+
+After this change, only CPUs which are present appear in sysfs.
+
 Signed-off-by: James Morse <james.morse@arm.com>
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
-Changes since v1:
- * Added CONFIG_HOTPLUG_CPU ifdeffery around unregister_cpu
-Changes since RFC v2:
- * Move earlier in the series
----
- drivers/base/cpu.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ drivers/base/cpu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
-index 579064fda97b..58bb86091b34 100644
+index 9ea22e165acd..34b48f660b6b 100644
 --- a/drivers/base/cpu.c
 +++ b/drivers/base/cpu.c
-@@ -531,7 +531,14 @@ int __weak arch_register_cpu(int cpu)
- {
- 	return register_cpu(&per_cpu(cpu_devices, cpu), cpu);
- }
--#endif
-+
-+#ifdef CONFIG_HOTPLUG_CPU
-+void __weak arch_unregister_cpu(int num)
-+{
-+	unregister_cpu(&per_cpu(cpu_devices, num));
-+}
-+#endif /* CONFIG_HOTPLUG_CPU */
-+#endif /* CONFIG_GENERIC_CPU_DEVICES */
+@@ -533,7 +533,7 @@ static void __init cpu_dev_register_generic(void)
+ #ifdef CONFIG_GENERIC_CPU_DEVICES
+ 	int i;
  
- static void __init cpu_dev_register_generic(void)
- {
+-	for_each_possible_cpu(i) {
++	for_each_present_cpu(i) {
+ 		if (register_cpu(&per_cpu(cpu_devices, i), i))
+ 			panic("Failed to register CPU device");
+ 	}
 -- 
 2.30.2
 
