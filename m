@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 756CCC0018C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CAF8C4167D
 	for <linux-riscv@archiver.kernel.org>; Tue,  7 Nov 2023 06:50:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,51 +12,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BZKrJZeUdCsCfcCKxqrhgiGlj1wRM6umqvvxwNB90YU=; b=NlkNzEl9s1DX97
-	PjrlL0dvBalMqpFlqeZMIzFj8ZGAhB/l886KQLJvJ2KerUEcjju5B0+0FDLtFX77XyaJlVhrZhGFf
-	MsDa/lchOuHY/j2IYyFZZAIle5T66JNX9KDos1qwCdDtVQ1EOL9EQFhpWou5PRY8TrNLwXYYsGNIm
-	3OKe167tJyLn4QJ7rGUnGripReaaaYNY3knmOdUdx6mYVOmzULD3Vexv/BfDikHd2YoqBbMM1YtzN
-	hdU/BctCjimZXd2RjFai8cZM73gSWjVpV+NXI/p9620+sxcdYyd62Rj5bdi3+jXmR9nyW5cp8Kmka
-	VvjUqOog+ZH78vW+e17A==;
+	List-Owner; bh=SCNfw5NoLh6JOwmvYNiHu5JGJMe9omQekEJIp93vutg=; b=blIb+lMwNyBzC+
+	WQ/2g2hT9D3xb776WJsvsxFspWDAvlHr4Oy4Y4TlfK9KlcEbT/ZSDvmmgg0854+/pgCmg+mVyvaR5
+	EGNmakailRwsoNC0kKbWD560e4QU9Ynb8Ay5WCtvwfl7OnC9buk6wvlwlxmVtv6Z2x9Okab3VAfB6
+	ejwitZ2OsB6EcVnI5joOj9/CgPHFnpXyTpDAjIBfOQX45stMAKGwvMTr8M5H4yCXOg2h8j5ruiNEO
+	8WuAD7vpTPuXHniCnIDxhK8upA688NCwpcdZHDUS6Erz78KI6NeZAdkpZ9arICMm4BDD0LJhVS5Hm
+	lu2JWFZABOK3OoX8T3JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0Fv2-000fFC-01;
-	Tue, 07 Nov 2023 06:50:36 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1r0Fv4-000fH8-1i;
+	Tue, 07 Nov 2023 06:50:38 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0Fux-000fCS-0J
+	id 1r0Fuy-000fCc-1d
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 Nov 2023 06:50:32 +0000
+	Tue, 07 Nov 2023 06:50:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 98B1960FF1;
-	Tue,  7 Nov 2023 06:50:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D5025C433C7;
+	by sin.source.kernel.org (Postfix) with ESMTP id 78375CE0B89;
+	Tue,  7 Nov 2023 06:50:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E211FC433CC;
 	Tue,  7 Nov 2023 06:50:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1699339826;
-	bh=5vJFCthJBHnqzQsMTJKYhKI5Gq7pc6ns3CeZeQFkjmE=;
+	bh=+cTlWJxTAf872aDvdexyZnpvcYSn14wI9GuK2A/2+GQ=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=sQB4ahFDb5uo5bEqJaXoFZtULW/ef/6vzARSKTAB8E0jSrPKyS3A1VeZ77TLqPlwE
-	 zFv6663hCUS3shgvT1qdAcHTDhQJr5cPN/qpynC6uSroI97sCXbCmstYGA06hQI7ni
-	 3432KmUtiSiErARGdFCQKvXaKySIDrgDD+xUMO5OdA9tRHS5JP5tN5BWpJtTODfi9A
-	 4jNg0NX3/rmCq8RvJvmM1w3hE8w/o/vYwmEWC0AQ1jt1SzgoXF7ahsq4dp8o7jFrEU
-	 iAe8knlPXP/Dc/rlSGGtiNf0uSLF8maNjpw33CGsJutIlgNnJe1tt1/YmoeA6Gt4QP
-	 P4jI7sW3jB+zg==
+	b=byAIYpNEkPlqwWpI6oNdRkOvONsD7yqV9Y5qKdaH5gDE3bmkwyqoMUkO5B+FWJOYG
+	 o/Yk1nwq0gqWymAaXcIeqQFcg1/R9dr1OsCqXJWouRMSGm0ZZIC9PPD67RU8DJgS7S
+	 ZQHmp5a4PVg2kkZjGlD5btd9Cd1C7PonHGPOKczkuagSOqKZ45erDm1VhZRtNGXRoI
+	 2qK/SVM8g7TDIOXm9OxtP8bY1R6d+SRXoRnZRJQFCjHSqKiAGu4KMxcpUJQUOlpiqV
+	 5lgFYIOezQ3s08/P7Sqs7bkUbYrke4CZnezo944UxXoRbHMIo5TZeYfBe/H+0y3NLu
+	 ySaaLBRYFCcGQ==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id B7B73C395FC;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id CA204E00089;
 	Tue,  7 Nov 2023 06:50:26 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: select ARCH_PROC_KCORE_TEXT
+Subject: Re: [PATCH v2 00/11] riscv: ASID-related and UP-related TLB flush
+ enhancements
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <169933982674.6233.7158351943021387815.git-patchwork-notify@kernel.org>
+Message-Id: <169933982682.6233.11600132793189977124.git-patchwork-notify@kernel.org>
 Date: Tue, 07 Nov 2023 06:50:26 +0000
-References: <mvmh6m758ao.fsf@suse.de>
-In-Reply-To: <mvmh6m758ao.fsf@suse.de>
-To: Andreas Schwab <schwab@suse.de>
-Cc: linux-riscv@lists.infradead.org
+References: <20231028231339.3116618-1-samuel.holland@sifive.com>
+In-Reply-To: <20231028231339.3116618-1-samuel.holland@sifive.com>
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+ alexghiti@rivosinc.com, linux-kernel@vger.kernel.org, linux-mm@kvack.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231106_225031_174574_04E5222B 
-X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-CacheID: sfid-20231106_225032_724767_B58ECE35 
+X-CRM114-Status: UNSURE (   9.45  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,21 +78,43 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (for-next)
+This series was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Tue, 31 Oct 2023 12:40:47 +0100 you wrote:
-> This adds a separate segment for kernel text in /proc/kcore, which has a
-> different address than the direct linear map.
+On Sat, 28 Oct 2023 16:11:58 -0700 you wrote:
+> While reviewing Alexandre Ghiti's "riscv: tlb flush improvements"
+> series[1], I noticed that most TLB flush functions end up as a call to
+> local_flush_tlb_all() when SMP is disabled. This series resolves that.
+> Along the way, I realized that we should be using single-ASID flushes
+> wherever possible, so I implemented that as well.
 > 
-> Signed-off-by: Andreas Schwab <schwab@suse.de>
-> ---
->  arch/riscv/Kconfig | 3 +++
->  1 file changed, 3 insertions(+)
+> [1]: https://lore.kernel.org/linux-riscv/20231019140151.21629-1-alexghiti@rivosinc.com/
+> 
+> [...]
 
 Here is the summary with links:
-  - riscv: select ARCH_PROC_KCORE_TEXT
-    https://git.kernel.org/riscv/c/e0c0a7c35f67
+  - [v2,01/11] riscv: Improve tlb_flush()
+    https://git.kernel.org/riscv/c/c5e9b2c2ae82
+  - [v2,02/11] riscv: Improve flush_tlb_range() for hugetlb pages
+    https://git.kernel.org/riscv/c/c962a6e74639
+  - [v2,03/11] riscv: Make __flush_tlb_range() loop over pte instead of flushing the whole tlb
+    https://git.kernel.org/riscv/c/9d4e8d5fa7db
+  - [v2,04/11] riscv: Improve flush_tlb_kernel_range()
+    https://git.kernel.org/riscv/c/5e22bfd520ea
+  - [v2,05/11] riscv: mm: Combine the SMP and UP TLB flush code
+    (no matching commit)
+  - [v2,06/11] riscv: Apply SiFive CIP-1200 workaround to single-ASID sfence.vma
+    (no matching commit)
+  - [v2,07/11] riscv: mm: Introduce cntx2asid/cntx2version helper macros
+    (no matching commit)
+  - [v2,08/11] riscv: mm: Use a fixed layout for the MM context ID
+    (no matching commit)
+  - [v2,09/11] riscv: mm: Make asid_bits a local variable
+    (no matching commit)
+  - [v2,10/11] riscv: mm: Preserve global TLB entries when switching contexts
+    (no matching commit)
+  - [v2,11/11] riscv: mm: Always use ASID to flush MM contexts
+    (no matching commit)
 
 You are awesome, thank you!
 -- 
