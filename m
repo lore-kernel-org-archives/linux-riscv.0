@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B379CC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Nov 2023 10:30:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 217C8C4167B
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Nov 2023 10:30:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:MIME-Version:Subject:Cc
 	:To:From:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=exJgJJl0O8tQKK/UjDnHQgwoUAXe5wRMi00gOEaRu1s=; b=L6UCEqIOUw/QFf
-	LwyVicYSeXAl8vIu2ecO9MiZLdkMqoHT+QJzuiFdbCXD5bxPT3mgus7PIo0G6dfx1ok08ngMvGwSX
-	6nqdNJ2ODbYaPlYBRBJJINIRwFaOwMNPnqKJyn0aLz45VOnZ8E1BYuBygUGxDSQjg63kQVAuQw9iF
-	wOI+nZCLSaGri4rBFzqbwrpaRxvM0s+ac21LdnH1jjCQU9ACIgK8DV3DMqYAasCcyOFQYT2X0Kndy
-	R8XfaIYHFmlMekQq4KufFDGYyf2PeSdpx9VnoCKObC+aoisO+SneGmT1ZDBaLf6M+UlKMsoQ7g5sP
-	u2DsxTZxzj0twhy1jZXw==;
+	List-Owner; bh=l4M2PXeEHnNblNUPX4guIyd4VmDObBj2KS3OF8jiiKc=; b=tBpY2a490+SbBE
+	j8cbLfmjO2Thg2EM15g5EBNab3HbNwo7hg8VuqLMxLbS6KgojIRkioErGU3RW0NaSroxkxP1lEtwV
+	GMHRTsqk2hwEvvS0BUFXkEeyigwRCubU9fW6ZiGM3V/PoOA01+s/kLTCtDIDw9OU5EyIra3ql+MqR
+	UmTquPhX4pwafIuUFi/5ktKt+ximp6N7N+pUWKHJAxvvoO9X8+svJVw7X4Yl1I7K7OVuXOPjNSQz9
+	YuTfIsQpaouS3XC0ifqRphguGG15DEC19XFCcwguPst9Z3BSom0g+AYkJMMyGDDqDYiEvZalAovsF
+	RnjYJWupPoUL+5/PGHSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0JLv-0013Yw-12;
-	Tue, 07 Nov 2023 10:30:35 +0000
+	id 1r0JM0-0013fv-1X;
+	Tue, 07 Nov 2023 10:30:40 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0JLk-0013Lo-0o;
-	Tue, 07 Nov 2023 10:30:28 +0000
+	id 1r0JLq-0013TK-1j;
+	Tue, 07 Nov 2023 10:30:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=3fCPJuPh66A145NyojK7gfO29TxsgMpnhu8xTyJe1WA=; b=WaLKyrGLBMkcCmUMJn6/ul7F5q
-	Te7IlVBEzleOwZlu5ZHaVweKGrbUcfThN8JU6sRjvm9mA1seNrTHpCceTYwMCoUgVHkODdyN4Tzx1
-	O4wkRlE3DCvOLbpvObPsMXGwwhUWmndTTHMRBz45ig+8f1qf1E026uCdRlbIsF/vWqaV+ljmh6uUQ
-	DR6+rmOmouS6AvO/UGK9b37rA99l2x2Ctl6bCUjoFezcFb2LT0q3gHos1BPd/dvRZ5u8RWdiQG7Kd
-	1lfxs/rF+C5zswU2Bur1qGRQRXfUdLE0Dv3sgUUZc0eOJMoNi9klAbPfG8vW+TJlewxUdYxHHgKRf
-	TTe38ptQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:49892 helo=rmk-PC.armlinux.org.uk)
+	bh=XvIpI/fOswr56cvCQAdqf8hdZkC9UDpjjIC5xLTkoXs=; b=MZ0naxFz3vids07yM45pty4W0P
+	d/bJc0iiIcMu2WMIvxlsdkQ48DYAqikA1U1XIPKonM/Mz+2Iav738rVRM3IqwFFfP+jriZ7nKNrhd
+	2+yW/E2p3S1VBDGQA30p4wMAkO02wThiHZslySfz63HPYdrwCLZfTzFRUwWX6iyYv37UvqdBQeHFt
+	ft+ZCf3/DZpaHpUoktVg0SXl9U/xDWqKLhVVNZfDCcuj6zCP8nE4mGpYMQsE0RUSNoBR++2zhE54h
+	4iqc47813sdIbYiWv8ILtQbGZHv3QjU+8uBNJ3IDTx+qPEEkl6VuC9EotVzNj3/Y8xf0Hz/usasWL
+	IvZbpsIA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42222 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1r0JL4-0000EZ-1T;
-	Tue, 07 Nov 2023 10:29:42 +0000
+	id 1r0JLg-0000HM-0F;
+	Tue, 07 Nov 2023 10:30:20 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1r0JL6-00CTws-3z; Tue, 07 Nov 2023 10:29:44 +0000
+	id 1r0JLg-00CTxd-31; Tue, 07 Nov 2023 10:30:20 +0000
 In-Reply-To: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
 References: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
 From: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
@@ -68,27 +68,20 @@ Cc: Salil Mehta <salil.mehta@huawei.com>,
 	 jianyong.wu@arm.com,
 	 justin.he@arm.com,
 	 James Morse <james.morse@arm.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH RFC 05/22] ACPI: Move ACPI_HOTPLUG_CPU to be disabled on arm64
- and riscv
+Subject: [PATCH RFC 12/22] drivers: base: Print a warning instead of panic()
+ when register_cpu() fails
 MIME-Version: 1.0
 Content-Disposition: inline
-Message-Id: <E1r0JL6-00CTws-3z@rmk-PC.armlinux.org.uk>
-Date: Tue, 07 Nov 2023 10:29:44 +0000
+Message-Id: <E1r0JLg-00CTxd-31@rmk-PC.armlinux.org.uk>
+Date: Tue, 07 Nov 2023 10:30:20 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231107_023024_301620_BCC2A6FF 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20231107_023030_619243_F0D51802 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,109 +100,48 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: James Morse <james.morse@arm.com>
 
-Neither arm64 nor riscv support physical hotadd of CPUs that were not
-present at boot. For arm64 much of the platform description is in static
-tables which do not have update methods. arm64 does support HOTPLUG_CPU,
-which is backed by a firmware interface to turn CPUs on and off.
+loongarch, mips, parisc, riscv and sh all print a warning if
+register_cpu() returns an error. Architectures that use
+GENERIC_CPU_DEVICES call panic() instead.
 
-acpi_processor_hotadd_init() and acpi_processor_remove() are for adding
-and removing CPUs that were not present at boot. arm64 systems that do this
-are not supported as there is currently insufficient information in the
-platform description. (e.g. did the GICR get removed too?)
+Errors in this path indicate something is wrong with the firmware
+description of the platform, but the kernel is able to keep running.
 
-arm64 currently relies on the MADT enabled flag check in map_gicc_mpidr()
-to prevent CPUs that were not described as present at boot from being
-added to the system. Similarly, riscv relies on the same check in
-map_rintc_hartid(). Both architectures also rely on the weak 'always fails'
-definitions of acpi_map_cpu() and arch_register_cpu().
+Downgrade this to a warning to make it easier to debug this issue.
 
-Subsequent changes will redefine ACPI_HOTPLUG_CPU as making possible
-CPUs present. Neither arm64 nor riscv support this.
-
-Disable ACPI_HOTPLUG_CPU for arm64 and riscv by removing 'default y' and
-selecting it on the other three ACPI architectures. This allows the weak
-definitions of some symbols to be removed.
+This will allow architectures that switching over to GENERIC_CPU_DEVICES
+to drop their warning, but keep the existing behaviour.
 
 Signed-off-by: James Morse <james.morse@arm.com>
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
-Changes since RFC:
- * Expanded conditions to avoid ACPI_HOTPLUG_CPU being enabled when
-   HOTPLUG_CPU isn't.
-Changes since RFC v3:
- * Dropped ia64 changes
----
- arch/loongarch/Kconfig        |  1 +
- arch/x86/Kconfig              |  1 +
- drivers/acpi/Kconfig          |  1 -
- drivers/acpi/acpi_processor.c | 18 ------------------
- 4 files changed, 2 insertions(+), 19 deletions(-)
+ drivers/base/cpu.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
-index d889a0b97bc1..64620e90c12c 100644
---- a/arch/loongarch/Kconfig
-+++ b/arch/loongarch/Kconfig
-@@ -5,6 +5,7 @@ config LOONGARCH
- 	select ACPI
- 	select ACPI_GENERIC_GSI if ACPI
- 	select ACPI_MCFG if ACPI
-+	select ACPI_HOTPLUG_CPU if ACPI_PROCESSOR && HOTPLUG_CPU
- 	select ACPI_PPTT if ACPI
- 	select ACPI_SYSTEM_POWER_STATES_SUPPORT	if ACPI
- 	select ARCH_BINFMT_ELF_STATE
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 3762f41bb092..dbdcfc708369 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -59,6 +59,7 @@ config X86
- 	#
- 	select ACPI_LEGACY_TABLES_LOOKUP	if ACPI
- 	select ACPI_SYSTEM_POWER_STATES_SUPPORT	if ACPI
-+	select ACPI_HOTPLUG_CPU			if ACPI_PROCESSOR && HOTPLUG_CPU
- 	select ARCH_32BIT_OFF_T			if X86_32
- 	select ARCH_CLOCKSOURCE_INIT
- 	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE
-diff --git a/drivers/acpi/Kconfig b/drivers/acpi/Kconfig
-index f819e760ff19..a3acfc750fce 100644
---- a/drivers/acpi/Kconfig
-+++ b/drivers/acpi/Kconfig
-@@ -310,7 +310,6 @@ config ACPI_HOTPLUG_CPU
- 	bool
- 	depends on ACPI_PROCESSOR && HOTPLUG_CPU
- 	select ACPI_CONTAINER
--	default y
+diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
+index 221ffbeb1c9b..82b6a76125f5 100644
+--- a/drivers/base/cpu.c
++++ b/drivers/base/cpu.c
+@@ -551,14 +551,15 @@ void __weak arch_unregister_cpu(int num)
  
- config ACPI_PROCESSOR_AGGREGATOR
- 	tristate "Processor Aggregator"
-diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
-index 0f5218e361df..4fe2ef54088c 100644
---- a/drivers/acpi/acpi_processor.c
-+++ b/drivers/acpi/acpi_processor.c
-@@ -184,24 +184,6 @@ static void __init acpi_pcc_cpufreq_init(void) {}
- 
- /* Initialization */
- #ifdef CONFIG_ACPI_HOTPLUG_CPU
--int __weak acpi_map_cpu(acpi_handle handle,
--		phys_cpuid_t physid, u32 acpi_id, int *pcpu)
--{
--	return -ENODEV;
--}
--
--int __weak acpi_unmap_cpu(int cpu)
--{
--	return -ENODEV;
--}
--
--int __weak arch_register_cpu(int cpu)
--{
--	return -ENODEV;
--}
--
--void __weak arch_unregister_cpu(int cpu) {}
--
- static int acpi_processor_hotadd_init(struct acpi_processor *pr)
+ static void __init cpu_dev_register_generic(void)
  {
- 	unsigned long long sta;
+-	int i;
++	int i, ret;
+ 
+ 	if (!IS_ENABLED(CONFIG_GENERIC_CPU_DEVICES))
+ 		return;
+ 
+ 	for_each_present_cpu(i) {
+-		if (arch_register_cpu(i))
+-			panic("Failed to register CPU device");
++		ret = arch_register_cpu(i);
++		if (ret)
++			pr_warn("register_cpu %d failed (%d)\n", i, ret);
+ 	}
+ }
+ 
 -- 
 2.30.2
 
