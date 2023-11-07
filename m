@@ -4,96 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01388C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Nov 2023 08:53:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30BEFC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Nov 2023 09:19:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:
-	Date:In-Reply-To:From:Subject:Mime-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6pJ3y1uq/KhPOFA1PzbpnlFp+e+t6EJYGiFDBKqStvM=; b=aZCnRgAVK6rYI+
-	KaEwccJF4/Q30a+3OO8RSoaCx8H6vOi8nQXnaz3ogXKxMG6NkDYsZE4GzA2PzP6HEeqSh/Vd+V4jG
-	qcEtx/PD9LhbVZmyeE/XUSyqAuLRCv5f8n5LmigoSwPc3Mk+aIii5bplpkfjhkWMDpB+O4LMnQU1c
-	ByIBKnVZXBErDNuVhTY1vwnmNGpYUjdBpVxaWHDefPQK2s58zwO4F0fMV6rB367KUDgoBmV0nF66M
-	n9dkbm+YK820pCGnywB5HeM9Y1F/1x0i4Dbq2oyq9ASS/YzsDJ1SfDT5Yj0EeLuQBPOVIZxxhb47I
-	mgdFfUUEKyil60I3WrxQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6+I+QFnt9mVmWqMD81sZvw/3U72ha12NPkWswj3MaWg=; b=S9o0j9z/h5Rimus0NIbshGSaKV
+	W58Qo+O4a17XJDg7J8cHAFtaJNjPaTrXP47egtR0iHDB208VdEF87A2gORxf5bDDpR9sYudxDTcIv
+	TmwIxhhoHbhsFssY/VNEKWZIYuj6Mr5xyfpUkWE1zLHA2AqLCWlJOQleALv4wjsUk99z7m4TsfjQl
+	ArvkIfTc5llpG69Ho8ybyl2DzMzTGvmEZej6G1+yiYLxeDPdFQzJ8bgaUbbj8qX9va2w5xG9HIz9t
+	Due2+OEsBcGzRKpBnqNUdGnJbiqk/1l5SjmqlI0fcFT+BMbxaD56jwn9hzE4X7DtJf3rKUS/NUNAN
+	N1Z75tDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0Hpt-000rY0-0E;
-	Tue, 07 Nov 2023 08:53:25 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1r0IF9-000tm4-0g;
+	Tue, 07 Nov 2023 09:19:31 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0Hpq-000rXF-2h
+	id 1r0IF5-000tlA-32
 	for linux-riscv@lists.infradead.org;
-	Tue, 07 Nov 2023 08:53:24 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1c9b7c234a7so49394485ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Nov 2023 00:53:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1699347199; x=1699951999; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:reply-to:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mp3uon/3Fyp4maghAodzXPtq76RuAivTg8nwoG+3C0c=;
-        b=cjqvjfwFJlKe5VX5MDRsMFAimZ8vddTC6dV6W82hahtE1vgcQeYTDogATf22PsV8DW
-         QBEXqb6XRqO9aisu6tE7SB4vSN2g/2OA6q6hypE94eB54T/bx8nOztLnG9udUcL8awGW
-         L0F4BBB9170rLPkWGg8cm1TUfIH06NZMGbfTHwLefw7Vg4DLbSxclIu5+8BiEEA8RgIJ
-         swrgucuOWu0jIOdf5PTnJ2j0IhoUNu+RVBWmlH8HxRd4T4plnzqneJtnYbY4lTmdrlfZ
-         ZUXa9iXvDnRNWWLN0QV9f2E6gd29aCL5qNDGBsAipgxeNcEWrTCYfIdzhX2qyJLSne9K
-         LXAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699347199; x=1699951999;
-        h=to:references:message-id:content-transfer-encoding:reply-to:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mp3uon/3Fyp4maghAodzXPtq76RuAivTg8nwoG+3C0c=;
-        b=Sd0qG5+Oklrvflv7E9v9tMYuobGk6MzfKXAJxkN3E5JEn9doXb7p6J7TZuqytnHzaQ
-         /t6oSThYs6aYW6cIe7n1GNsKG6J0UHt2ZgcAXg+aeGsOQMiZeSvRuIz1tZ8VADZAJpO4
-         U2RSnJ9mTj4i/M4DNcr4kX2dkKykeoo4Ay/jgGmP/x6T5r9ighr09ErwHeP0OzyElQrP
-         uhO2t5MOoCe124qv5Bg9F86FP9O3Do/63MRNYqL8CwkL7dK5ePtbMAYjU8HuARTs8nww
-         +AEgN3XEFLcv7KA0T2wktaY+7RKBsM7jQw49HTzZjOVqhneiO1eiojSCcgATTsy0D2/o
-         vIfQ==
-X-Gm-Message-State: AOJu0YwxBn3ezfgDHsMTDh4gmkc8/TWnOGeMmrlyPmc1i3tHzMKOyJPc
-	SMU3x5Ggz39fogJipYkOzuIs/Q==
-X-Google-Smtp-Source: AGHT+IHL7EnzEs9/TsQ0th1iANW9oVAkCWSJCyHyWJvnKsiTXsDOfMf5GeqEirhaJ/X//VBTrJhfPA==
-X-Received: by 2002:a17:902:f392:b0:1cc:64bc:ecf3 with SMTP id f18-20020a170902f39200b001cc64bcecf3mr17796493ple.34.1699347199308;
-        Tue, 07 Nov 2023 00:53:19 -0800 (PST)
-Received: from ?IPv6:2402:7500:4ce:8d0c:a813:4d0:7247:8a5e? ([2402:7500:4ce:8d0c:a813:4d0:7247:8a5e])
-        by smtp.gmail.com with ESMTPSA id g23-20020a1709029f9700b001c625d6ffccsm7136099plq.129.2023.11.07.00.53.15
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 07 Nov 2023 00:53:18 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.7\))
-Subject: Re: [PATCH 06/12] RISC-V: crypto: add accelerated AES-CBC/CTR/ECB/XTS
- implementations
-From: Jerry Shih <jerry.shih@sifive.com>
-In-Reply-To: <20231102051639.GF1498@sol.localdomain>
-Date: Tue, 7 Nov 2023 16:53:13 +0800
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- palmer@dabbelt.com,
- Albert Ou <aou@eecs.berkeley.edu>,
- herbert@gondor.apana.org.au,
- davem@davemloft.net,
- andy.chiu@sifive.com,
- greentime.hu@sifive.com,
- conor.dooley@microchip.com,
- guoren@kernel.org,
- bjorn@rivosinc.com,
- heiko@sntech.de,
- ardb@kernel.org,
- phoebe.chen@sifive.com,
- hongrong.hsu@sifive.com,
- linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- linux-crypto@vger.kernel.org
-Message-Id: <39126F19-8FEB-4E18-B61D-4494B59C43A1@sifive.com>
-References: <20231025183644.8735-1-jerry.shih@sifive.com>
- <20231025183644.8735-7-jerry.shih@sifive.com>
- <20231102051639.GF1498@sol.localdomain>
-To: Eric Biggers <ebiggers@kernel.org>
-X-Mailer: Apple Mail (2.3445.9.7)
+	Tue, 07 Nov 2023 09:19:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4A83C61171;
+	Tue,  7 Nov 2023 09:19:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CE03C433C8;
+	Tue,  7 Nov 2023 09:19:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1699348767;
+	bh=VDrXsVNkm+N8iNlJC3ZwEH4c+vJY+PF2deM4StXlHO8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NYHtnTJnvG6VbnZXS27Xlyz8fAbAUOKKK+C0hD/yaEtP3hsK1Ft/lHn10pWx8x1ar
+	 lvK7xSDqD7EuZfakWhLeb+ssDHh2t/ywB0jfMWGhw0gQ7PD0kmMLqM52eTbYssUDAU
+	 0b+6+E6otlZyPvBUDvMpMsvMC80povFl+2nQNBvX7nCWH+5ucojPZNMfaeK1Z076i8
+	 Mk3Y3AaVvEcXbmZ1safxJou7RShM8a6rP+ur+hRMrkOU4u4ojoBlei0eTHmSOB9+eG
+	 PxF2bIabLg/DSeV0GPKgiGapHIOaZLvAViYf+VDWadCax+CBHM6PCRQZyguJRXGzRG
+	 b8tJ6WJhB2NUA==
+Date: Tue, 7 Nov 2023 10:19:24 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Keith Zhao <keith.zhao@starfivetech.com>, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Sumit Semwal <sumit.semwal@linaro.org>, 
+	Emil Renner Berthing <kernel@esmil.dk>, Shengyang Chen <shengyang.chen@starfivetech.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Jagan Teki <jagan@edgeble.ai>, Rob Herring <robh+dt@kernel.org>, 
+	Chris Morgan <macromorgan@hotmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Bjorn Andersson <andersson@kernel.org>, Changhuang Liang <changhuang.liang@starfivetech.com>, 
+	Jack Zhu <jack.zhu@starfivetech.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Shawn Guo <shawnguo@kernel.org>, christian.koenig@amd.com
+Subject: Re: [PATCH v2 6/6] drm/vs: Add hdmi driver
+Message-ID: <rx7oxrxs6dgwdkdu4l7y74yek4656jejixzccryml6jl6t5elp@jvk7agdcljwg>
+References: <20231025103957.3776-1-keith.zhao@starfivetech.com>
+ <20231025103957.3776-7-keith.zhao@starfivetech.com>
+ <70805ff2-56a8-45e1-a31c-ffb0e84749e5@linaro.org>
+ <3twc4zoohon7uujypgjtlnryfmebx4osvpykagnwr5nemmqz2w@w4vw55uswebh>
+ <CAA8EJppxQ7J8DEDFsWzPL8bDpNW-KY0nhUA++zDBRpMCpP-bkA@mail.gmail.com>
+ <344veqjvvwlo7vls2kdlgjggf77of2ijxwc2hmk7tarm75ugcs@bmozk23uqxqr>
+ <CAA8EJpomaDoJVkq+_NhcxqOs6X-dFd=Vo9Wtqnp8egNaWzDH2Q@mail.gmail.com>
+MIME-Version: 1.0
+In-Reply-To: <CAA8EJpomaDoJVkq+_NhcxqOs6X-dFd=Vo9Wtqnp8egNaWzDH2Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231107_005322_889312_15A0A694 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20231107_011928_087484_A194553B 
+X-CRM114-Status: GOOD (  39.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,48 +81,144 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: 20231102051639.GF1498@sol.localdomain
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0140124980236562808=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Nov 2, 2023, at 13:16, Eric Biggers <ebiggers@kernel.org> wrote:
-> On Thu, Oct 26, 2023 at 02:36:38AM +0800, Jerry Shih wrote:
->> +static int ecb_encrypt(struct skcipher_request *req)
->> +{
->> +	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
->> +	const struct riscv64_aes_ctx *ctx = crypto_skcipher_ctx(tfm);
->> +	struct skcipher_walk walk;
->> +	unsigned int nbytes;
->> +	int err;
->> +
->> +	/* If we have error here, the `nbytes` will be zero. */
->> +	err = skcipher_walk_virt(&walk, req, false);
->> +	while ((nbytes = walk.nbytes)) {
->> +		kernel_vector_begin();
->> +		rv64i_zvkned_ecb_encrypt(walk.src.virt.addr, walk.dst.virt.addr,
->> +					 nbytes & AES_BLOCK_VALID_SIZE_MASK,
->> +					 &ctx->key);
->> +		kernel_vector_end();
->> +		err = skcipher_walk_done(
->> +			&walk, nbytes & AES_BLOCK_REMAINING_SIZE_MASK);
->> +	}
->> +
->> +	return err;
->> +}
-> 
-> There's no fallback for !crypto_simd_usable() here.  I really like it this way.
-> However, for it to work (for skciphers and aeads), RISC-V needs to allow the
-> vector registers to be used in softirq context.  Is that already the case?
 
-The kernel-mode-vector could be enabled in softirq, but we don't have nesting
-vector contexts. Will we have the case that kernel needs to jump to softirq for
-encryptions during the regular crypto function? If yes, we need to have fallbacks
-for all algorithms.
+--===============0140124980236562808==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="sx3kokd2nvv34uc7"
+Content-Disposition: inline
 
--Jerry
+
+--sx3kokd2nvv34uc7
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hi,
+
+On Sun, Oct 29, 2023 at 06:52:24PM +0200, Dmitry Baryshkov wrote:
+> On Thu, 26 Oct 2023 at 14:53, Maxime Ripard <mripard@kernel.org> wrote:
+> >
+> > On Thu, Oct 26, 2023 at 11:57:22AM +0300, Dmitry Baryshkov wrote:
+> > > On Thu, 26 Oct 2023 at 11:07, Maxime Ripard <mripard@kernel.org> wrot=
+e:
+> > > >
+> > > > On Thu, Oct 26, 2023 at 01:23:53AM +0300, Dmitry Baryshkov wrote:
+> > > > > > +static int starfive_hdmi_register(struct drm_device *drm, stru=
+ct starfive_hdmi *hdmi)
+> > > > > > +{
+> > > > > > +   struct drm_encoder *encoder =3D &hdmi->encoder;
+> > > > > > +   struct device *dev =3D hdmi->dev;
+> > > > > > +
+> > > > > > +   encoder->possible_crtcs =3D drm_of_find_possible_crtcs(drm,=
+ dev->of_node);
+> > > > > > +
+> > > > > > +   /*
+> > > > > > +    * If we failed to find the CRTC(s) which this encoder is
+> > > > > > +    * supposed to be connected to, it's because the CRTC has
+> > > > > > +    * not been registered yet.  Defer probing, and hope that
+> > > > > > +    * the required CRTC is added later.
+> > > > > > +    */
+> > > > > > +   if (encoder->possible_crtcs =3D=3D 0)
+> > > > > > +           return -EPROBE_DEFER;
+> > > > > > +
+> > > > > > +   drm_encoder_helper_add(encoder, &starfive_hdmi_encoder_help=
+er_funcs);
+> > > > > > +
+> > > > > > +   hdmi->connector.polled =3D DRM_CONNECTOR_POLL_HPD;
+> > > > > > +
+> > > > > > +   drm_connector_helper_add(&hdmi->connector,
+> > > > > > +                            &starfive_hdmi_connector_helper_fu=
+ncs);
+> > > > > > +   drmm_connector_init(drm, &hdmi->connector,
+> > > > > > +                       &starfive_hdmi_connector_funcs,
+> > > > > > +                       DRM_MODE_CONNECTOR_HDMIA,
+> > > > >
+> > > > > On an embedded device one can not be so sure. There can be MHL or=
+ HDMI
+> > > > > Alternative Mode. Usually we use drm_bridge here and drm_bridge_c=
+onnector.
+> > > >
+> > > > On an HDMI driver, it's far from being a requirement, especially gi=
+ven
+> > > > the limitations bridges have.
+> > >
+> > > It's a blessing that things like MHL / HDMI-in-USB-C / HDMI-to-MyDP
+> > > are not widely used in the wild and are mostly non-existing except
+> > > several phones that preate wide DP usage.
+> >
+> > And those can be supported without relying on bridges.
+>=20
+> Yes, they likely can, in the way that nouveau handles I2C TV encoders.
+> But I don't think this can scale. We can have different devices
+> attached to the DSI, LVDS, HDMI and even DP image sources. I don't see
+> a scalable solution for either of them. E.g. by switching drm/msm to
+> use panel bridges for DSI panels we were able to significantly unify
+> and simplify code paths.
+
+I'm glad it worked fine for drm/msm, but what I don't really like is the
+current dogma that *everything* should be a bridge, and that's just a
+poor guideline.
+
+> > > Using drm_connector directly prevents one from handling possible
+> > > modifications on the board level. For example, with the DRM connector
+> > > in place, handling a separate HPD GPIO will result in code duplication
+> > > from the hdmi-connector driver. Handling any other variations in the
+> > > board design (which are pretty common in the embedded world) will also
+> > > require changing the driver itself. drm_bridge / drm_bridge_connector
+> > > save us from those issues.
+> >
+> > And we have other solutions there too. Like, EDIDs are pretty much in
+> > the same spot with a lot of device variations, but it also works without
+> > a common driver. I'd really wish we were having less bridges and more
+> > helpers, but here we are.
+> >
+> > > BTW: what are the limitations of the drm_bridge wrt. HDMI output? I'm
+> > > asking because we heavily depend on the bridge infrastructure for HDMI
+> > > output. Maybe we are missing something there, which went unnoticed to
+> > > me and my colleagues.
+> >
+> > A bridge cannot extend the connector state or use properties, for
+> > example. It works for basic stuff but falls apart as soon as you're
+> > trying to do something slightly advanced.
+>=20
+> Ack. I agree, we didn't have a necessity to implement properties up to
+> now. But that sounds like an interesting topic for DSI-to-HDMI bridges
+> and HDCP support. I'll need to check if any of the RB3/RB5/Dragonboard
+> bridges are programmed with the HDCP keys.
+
+Aside from HDCP, the current color management work will also require to
+expose properties on the connectors.
+
+Maxime
+
+--sx3kokd2nvv34uc7
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRcEzekXsqa64kGDp7j7w1vZxhRxQUCZUoBHAAKCRDj7w1vZxhR
+xWiBAP4sevvTIl4u+we2L7l/PqToVfQ/nXueZ0RTUgw/AJ/I1wEA+wM7mB5NCTiB
+uAat91IEFc4bWWOTLkkDTh9pBOjkfwg=
+=28g0
+-----END PGP SIGNATURE-----
+
+--sx3kokd2nvv34uc7--
+
+
+--===============0140124980236562808==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0140124980236562808==--
+
