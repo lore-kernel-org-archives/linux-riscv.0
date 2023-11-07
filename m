@@ -4,72 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FAB1C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Nov 2023 12:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8891C4167B
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Nov 2023 12:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ILVQi25rY6THIKf0eVYzFxSKZvx/u19KxmHbEbuLrEI=; b=zS6NwPNEj67eMD
-	xQe4XgEEDGJt579ECZ2nK692uFbNKPXu6r25JjqT6iGYsMMVi0PZ8rYBAtxGZrYIE5tLlbXIdeDVi
-	c7LH5EZDaOCUnSaVQWMTYJbUdrYUlkqoHMzYQzKWQThcGfcX0drDXVQN/IjgyYbgyjYuzBYbxEP0s
-	2yAmic4/H5BGCOYYPCjqFNfTebsfPYzp7zgDJcmLLtj0381PyrN7RrdDFn8BlfRHLB3qOThbuMBa1
-	ZPCk7unCRwh0nnqob1/gjCiJIjWI7w1AJt/Px/srfQ5zAlzI/9XNxvKbiIFfxYQRTOTQwO7EX4ICl
-	egUN6GeUKRFXmwuPIhKA==;
+	List-Owner; bh=5XHErt4jSAbCl0w025tJS0VoSDor73OzE5tds9tisG0=; b=ezHuZ3LBWvXCnk
+	CNC7VvGKeRxGDTLVnYdok+fAYqWkGhbLm+amMd+OX3sAsHdVqkHGP1egZNB+eGyd/S/9Dgexehnml
+	8HmjgLtyUH4rLYHQtfpXiF5q8LhyxHdf+h3J3Ya3Uy67n+orCkB/qf4MiVKPQHeoq+hskw//YoofF
+	AL8+pgPdmc655bgajgiTpcL1LtYl/EE1uSJOg43mOkNoR9HiNVR9NXKarftWSmb+/AaG9RCcqzVHy
+	86cfiQjIayWokMvK37pFyjRw16HTES6/j46Szs+nvtSjwXYfs64piVrNtz07rbSjw1CLguRkqeWqz
+	E9V41QAVSrg28JuTZwyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0Klk-001OJ5-0i;
-	Tue, 07 Nov 2023 12:01:20 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1r0Lbd-001YJ5-18;
+	Tue, 07 Nov 2023 12:54:57 +0000
+Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0Klf-001OGe-2P;
-	Tue, 07 Nov 2023 12:01:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 0DD9BB815F2;
-	Tue,  7 Nov 2023 12:01:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E6A0C433C7;
-	Tue,  7 Nov 2023 12:01:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699358473;
-	bh=tVWRGGc71sN6ZG4ZOL5Bnx/rxUu20LoXAci7bQ26qpg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dBqe9XvBR+ZlWTzfjrZfXvXyM+zZdPEKwwYg2CIlyTrOS/DKjxejuSgEEgf2H37TG
-	 edaV5smRAEYnefcZu2Zh3/co1ONyekPN6FOgy4RVpmXzB9sg8+X2tc/jCd2ZPr/jAE
-	 5lbbkGIf+rZk4850UpmwarrbeFDoY0KoZuw2awLB7p/y76Vtz0nDPQRC87LGtQmZIb
-	 Kj/EFJdN01iL4vLvgSu7N/XPyxOt97yKXs7t/YTkzGGE5zOzc5S41woEsklqRwZWDG
-	 qhmZiD22GJicMnFQ+HtBXkmq8ad33U0E7TrpVDebamqOp/DN6qrPez5725c61DBlFx
-	 z7FTxjR8WbDsQ==
-Date: Tue, 7 Nov 2023 12:01:03 +0000
-From: Will Deacon <will@kernel.org>
-To: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: linux@armlinux.org.uk, catalin.marinas@arm.com,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org,
-	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com,
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
-	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com,
-	viresh.kumar@linaro.org, lenb@kernel.org, robert.moore@intel.com,
-	lukasz.luba@arm.com, ionela.voinescu@arm.com,
-	pierre.gondois@arm.com, beata.michalska@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org,
-	linux-acpi@vger.kernel.org, conor.dooley@microchip.com,
-	suagrfillet@gmail.com, ajones@ventanamicro.com, lftan@kernel.org
-Subject: Re: [PATCH v5 7/7] arm64/amu: Use capacity_ref_freq to set AMU ratio
-Message-ID: <20231107120103.GA19367@willie-the-truck>
-References: <20231104105907.1365392-1-vincent.guittot@linaro.org>
- <20231104105907.1365392-8-vincent.guittot@linaro.org>
- <20231107103808.GF18944@willie-the-truck>
- <CAKfTPtBb+qea61OH-B0L=MHJWnQMLL80EBR-nSHZtoWTbYeHhw@mail.gmail.com>
+	id 1r0Lba-001YGy-2N
+	for linux-riscv@lists.infradead.org;
+	Tue, 07 Nov 2023 12:54:56 +0000
+Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-67131800219so38590406d6.3
+        for <linux-riscv@lists.infradead.org>; Tue, 07 Nov 2023 04:54:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1699361687; x=1699966487; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FuFbqjfsVCp34XchBGKV0CWjcihho4T2q4FA5kjS7eU=;
+        b=DUPB+PqdxTx5wlBzU3F6aYrbQchH+ZEia2NaDKLQV63WHwzxwXrqVS53bneTshy2GW
+         qIpNiUgNYB1NDN9ukD1m1bIchzWh9e5djXxJ7uLCbZOcpgDQT2FN/HDbsneBISb7gHXm
+         UIuKlkwTDIq4oz/KZ+aQ+w7j58u8hPY4ZKZ8HqJjiVGviAkc3TgFKHj6Ycu1QZhWvLpj
+         4d4dnYeSE83udoZuSoUaQq3MBSiRR+sKWtIJS9GOZ0r7XtAuSXnmLNyB/210P0gs1otV
+         XA6KklDNnIHEo2YEgsmgf9w59z99lyfFGmH+lDtwZIUELOU86WXaW/y3DtTTBbZdPMOM
+         n7Nw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1699361687; x=1699966487;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FuFbqjfsVCp34XchBGKV0CWjcihho4T2q4FA5kjS7eU=;
+        b=bLqGBxarUSHLCQnA/ceqGMxgAuNGGR7exErsTUFPNe3R7+QZC1xozg8oMn0H8cjrRo
+         ktwe+bm1Q534uQVsZuiQkXBLzanKaHOOgxB8PEaXtvOuYjK75CywekkYrYmUW90goaWu
+         9krfXc3OTF+4sHKnd/BirUeDcc8OexcRIHAR/jgLzdl5TVoTiW29EH5WB2IyssRZIOs0
+         mul1uvJ1w4sFREDlCixMOoOmCvGNwQ7BjGb+Dt22khUbitbarKYCbrmOivuIzQjnLpW4
+         5uCVehLlG+7QjlIfPnUF/UxUGxhOB9epLNYf4iDdI4/CCZ0UlcNjMlas3M0Zv1lmSTjP
+         1WYg==
+X-Gm-Message-State: AOJu0YyvW3vRX1rBLCrOwRVPLSyzGEDRULhT1/kyW1TkKRswEMofUGI7
+	49JRVNf5+p8eNdurg58cDNL+lmmqUbD1Bm8G6GJ8ig==
+X-Google-Smtp-Source: AGHT+IHS9JUkEkC/BybEMf4UmdGXo/DmXLNK4bOT/jrKIAqRMkLyM4gXD6uMK1OzLS09666PL8dXekXtndn5vIwFZqQ=
+X-Received: by 2002:a05:6214:260c:b0:66f:bb36:9a51 with SMTP id
+ gu12-20020a056214260c00b0066fbb369a51mr33614248qvb.36.1699361687221; Tue, 07
+ Nov 2023 04:54:47 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAKfTPtBb+qea61OH-B0L=MHJWnQMLL80EBR-nSHZtoWTbYeHhw@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+References: <20231105163040.14904-1-pbonzini@redhat.com> <20231105163040.14904-31-pbonzini@redhat.com>
+In-Reply-To: <20231105163040.14904-31-pbonzini@redhat.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Tue, 7 Nov 2023 12:54:10 +0000
+Message-ID: <CA+EHjTyZoLLv1nRfCEY4nHrbHadphn37jw3OPS17x1dAm_YUxA@mail.gmail.com>
+Subject: Re: [PATCH 30/34] KVM: selftests: Add KVM_SET_USER_MEMORY_REGION2 helper
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Sean Christopherson <seanjc@google.com>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, Xiaoyao Li <xiaoyao.li@intel.com>, 
+	Xu Yilun <yilun.xu@intel.com>, Chao Peng <chao.p.peng@linux.intel.com>, 
+	Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, 
+	David Matlack <dmatlack@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>, 
+	Isaku Yamahata <isaku.yamahata@intel.com>, =?UTF-8?B?TWlja2HDq2wgU2FsYcO8bg==?= <mic@digikod.net>, 
+	Vlastimil Babka <vbabka@suse.cz>, Vishal Annapurve <vannapurve@google.com>, 
+	Ackerley Tng <ackerleytng@google.com>, Maciej Szmigiero <mail@maciej.szmigiero.name>, 
+	David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>, 
+	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
+	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231107_040116_052301_B03FBEA3 
-X-CRM114-Status: GOOD (  33.19  )
+X-CRM114-CacheID: sfid-20231107_045454_778330_AA089351 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,126 +103,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 07, 2023 at 12:18:20PM +0100, Vincent Guittot wrote:
-> On Tue, 7 Nov 2023 at 11:38, Will Deacon <will@kernel.org> wrote:
-> >
-> > On Sat, Nov 04, 2023 at 11:59:07AM +0100, Vincent Guittot wrote:
-> > > Use the new capacity_ref_freq to set the ratio that is used by AMU for
-> > > computing the arch_scale_freq_capacity().
-> > > This helps to keep everything aligned using the same reference for
-> > > computing CPUs capacity.
-> > >
-> > > The default value of the ratio (stored in per_cpu(arch_max_freq_scale=
-))
-> > > ensures that arch_scale_freq_capacity() returns max capacity until it=
- is
-> > > set to its correct value with the cpu capacity and capacity_ref_freq.
-> > >
-> > > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > > ---
-> > >  arch/arm64/kernel/topology.c  | 26 ++++++++++++++------------
-> > >  drivers/base/arch_topology.c  | 12 +++++++++++-
-> > >  include/linux/arch_topology.h |  1 +
-> > >  3 files changed, 26 insertions(+), 13 deletions(-)
-> > >
-> > > diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topolog=
-y.c
-> > > index 817d788cd866..615c1a20129f 100644
-> > > --- a/arch/arm64/kernel/topology.c
-> > > +++ b/arch/arm64/kernel/topology.c
-> > > @@ -82,7 +82,12 @@ int __init parse_acpi_topology(void)
-> > >  #undef pr_fmt
-> > >  #define pr_fmt(fmt) "AMU: " fmt
-> > >
-> > > -static DEFINE_PER_CPU_READ_MOSTLY(unsigned long, arch_max_freq_scale=
-);
-> > > +/*
-> > > + * Ensure that amu_scale_freq_tick() will return SCHED_CAPACITY_SCAL=
-E until
-> > > + * the CPU capacity and its associated frequency have been correctly
-> > > + * initialized.
-> > > + */
-> > > +static DEFINE_PER_CPU_READ_MOSTLY(unsigned long, arch_max_freq_scale=
-) =3D  1UL << (2 * SCHED_CAPACITY_SHIFT);
-> >
-> > This doesn't seem to match the comment? SCHED_CAPACITY_SCALE doesn't ha=
-ve
-> > the '2 *' multiplier.
-> =
-
-> The comment in freq_inv_set_max_ratio() says:
-> =
-
-> * We use a factor of 2 * SCHED_CAPACITY_SHIFT -> SCHED_CAPACITY_SCALE=B2
-> * in order to ensure a good resolution for arch_max_freq_scale for
-> * very low reference frequencies (down to the KHz range which should
-> * be unlikely).
-> =
-
-> Then there is a  "  * arch_max_freq_scale) >> SCHED_CAPACITY_SHIFT"
-> when computing the scale which brings the result back to
-> SCHED_CAPACITY_SHIFT
-
-Ah, I see; I'd not spotted that amu_scale_freq_tick() is doing some
-arithmetic on the value (it doesn't return anything because it's 'void').
-It's slightly confusing because the comment talks about SCHED_CAPACITY_SCALE
-whereas all the code works on the shift, but I get it now.
-
-> > >  static DEFINE_PER_CPU(u64, arch_const_cycles_prev);
-> > >  static DEFINE_PER_CPU(u64, arch_core_cycles_prev);
-> > >  static cpumask_var_t amu_fie_cpus;
-> > > @@ -112,14 +117,14 @@ static inline bool freq_counters_valid(int cpu)
-> > >       return true;
-> > >  }
-> > >
-> > > -static int freq_inv_set_max_ratio(int cpu, u64 max_rate, u64 ref_rat=
-e)
-> > > +void freq_inv_set_max_ratio(int cpu, u64 max_rate)
-> > >  {
-> > > -     u64 ratio;
-> > > +     u64 ratio, ref_rate =3D arch_timer_get_rate();
-> > >
-> > >       if (unlikely(!max_rate || !ref_rate)) {
-> > > -             pr_debug("CPU%d: invalid maximum or reference frequency=
-.\n",
-> > > +             WARN_ONCE(1, "CPU%d: invalid maximum or reference frequ=
-ency.\n",
-> > >                        cpu);
-> > > -             return -EINVAL;
-> > > +             return;
-> > >       }
-> > >
-> > >       /*
-> > > @@ -139,12 +144,12 @@ static int freq_inv_set_max_ratio(int cpu, u64 =
-max_rate, u64 ref_rate)
-> > >       ratio =3D div64_u64(ratio, max_rate);
-> > >       if (!ratio) {
-> > >               WARN_ONCE(1, "Reference frequency too low.\n");
-> > > -             return -EINVAL;
-> > > +             return;
-> > >       }
-> > >
-> > > -     per_cpu(arch_max_freq_scale, cpu) =3D (unsigned long)ratio;
-> > > +     WRITE_ONCE(per_cpu(arch_max_freq_scale, cpu), (unsigned long)ra=
-tio);
-> >
-> > Why is WRITE_ONCE() now needed?
-> =
-
-> the tick can already use it. We want to make sure to use either the
-> old or the new one but not an intermediate value
-
-Isn't that already the case without this patch? In other words, this should
-be a separate change.
-
-Will
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU3VuLCBOb3YgNSwgMjAyMyBhdCA0OjM04oCvUE0gUGFvbG8gQm9uemluaSA8cGJvbnppbmlA
+cmVkaGF0LmNvbT4gd3JvdGU6Cj4KPiBGcm9tOiBDaGFvIFBlbmcgPGNoYW8ucC5wZW5nQGxpbnV4
+LmludGVsLmNvbT4KPgo+IEFkZCBoZWxwZXJzIHRvIGludm9rZSBLVk1fU0VUX1VTRVJfTUVNT1JZ
+X1JFR0lPTjIgZGlyZWN0bHkgc28gdGhhdCB0ZXN0cwo+IGNhbiB2YWxpZGF0ZSBvZiBmZWF0dXJl
+cyB0aGF0IGFyZSB1bmlxdWUgdG8gInZlcnNpb24gMiIgb2YgInNldCB1c2VyCj4gbWVtb3J5IHJl
+Z2lvbiIsIGUuZy4gZG8gbmVnYXRpdmUgdGVzdGluZyBvbiBnbWVtX2ZkIGFuZCBnbWVtX29mZnNl
+dC4KPgo+IFByb3ZpZGUgYSByYXcgdmVyc2lvbiBhcyB3ZWxsIGFzIGFuIGFzc2VydC1zdWNjZXNz
+IHZlcnNpb24gdG8gcmVkdWNlCj4gdGhlIGFtb3VudCBvZiBib2lsZXJwbGF0ZSBjb2RlIG5lZWQg
+Zm9yIGJhc2ljIHVzYWdlLgo+Cj4gU2lnbmVkLW9mZi1ieTogQ2hhbyBQZW5nIDxjaGFvLnAucGVu
+Z0BsaW51eC5pbnRlbC5jb20+Cj4gU2lnbmVkLW9mZi1ieTogQWNrZXJsZXkgVG5nIDxhY2tlcmxl
+eXRuZ0Bnb29nbGUuY29tPgo+IFNpZ25lZC1vZmYtYnk6IFNlYW4gQ2hyaXN0b3BoZXJzb24gPHNl
+YW5qY0Bnb29nbGUuY29tPgo+IE1lc3NhZ2UtSWQ6IDwyMDIzMTAyNzE4MjIxNy4zNjE1MjExLTMz
+LXNlYW5qY0Bnb29nbGUuY29tPgo+IFNpZ25lZC1vZmYtYnk6IFBhb2xvIEJvbnppbmkgPHBib256
+aW5pQHJlZGhhdC5jb20+Cj4gLS0tCgpSZXZpZXdlZC1ieTogRnVhZCBUYWJiYSA8dGFiYmFAZ29v
+Z2xlLmNvbT4KVGVzdGVkLWJ5OiBGdWFkIFRhYmJhIDx0YWJiYUBnb29nbGUuY29tPgoKQ2hlZXJz
+LAovZnVhZAoKPiAgLi4uL3NlbGZ0ZXN0cy9rdm0vaW5jbHVkZS9rdm1fdXRpbF9iYXNlLmggICAg
+IHwgIDcgKysrKysKPiAgdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMva3ZtL2xpYi9rdm1fdXRpbC5j
+ICAgIHwgMjkgKysrKysrKysrKysrKysrKysrKwo+ICAyIGZpbGVzIGNoYW5nZWQsIDM2IGluc2Vy
+dGlvbnMoKykKPgo+IGRpZmYgLS1naXQgYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9rdm0vaW5j
+bHVkZS9rdm1fdXRpbF9iYXNlLmggYi90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9rdm0vaW5jbHVk
+ZS9rdm1fdXRpbF9iYXNlLmgKPiBpbmRleCAxNTc1MDhjMDcxZjMuLjhlYzEyMmY1ZmNjOCAxMDA2
+NDQKPiAtLS0gYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9rdm0vaW5jbHVkZS9rdm1fdXRpbF9i
+YXNlLmgKPiArKysgYi90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9rdm0vaW5jbHVkZS9rdm1fdXRp
+bF9iYXNlLmgKPiBAQCAtNTIyLDYgKzUyMiwxMyBAQCB2b2lkIHZtX3NldF91c2VyX21lbW9yeV9y
+ZWdpb24oc3RydWN0IGt2bV92bSAqdm0sIHVpbnQzMl90IHNsb3QsIHVpbnQzMl90IGZsYWdzLAo+
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB1aW50NjRfdCBncGEsIHVpbnQ2NF90IHNp
+emUsIHZvaWQgKmh2YSk7Cj4gIGludCBfX3ZtX3NldF91c2VyX21lbW9yeV9yZWdpb24oc3RydWN0
+IGt2bV92bSAqdm0sIHVpbnQzMl90IHNsb3QsIHVpbnQzMl90IGZsYWdzLAo+ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgdWludDY0X3QgZ3BhLCB1aW50NjRfdCBzaXplLCB2b2lkICpo
+dmEpOwo+ICt2b2lkIHZtX3NldF91c2VyX21lbW9yeV9yZWdpb24yKHN0cnVjdCBrdm1fdm0gKnZt
+LCB1aW50MzJfdCBzbG90LCB1aW50MzJfdCBmbGFncywKPiArICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIHVpbnQ2NF90IGdwYSwgdWludDY0X3Qgc2l6ZSwgdm9pZCAqaHZhLAo+ICsgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgdWludDMyX3QgZ3Vlc3RfbWVtZmQsIHVpbnQ2NF90
+IGd1ZXN0X21lbWZkX29mZnNldCk7Cj4gK2ludCBfX3ZtX3NldF91c2VyX21lbW9yeV9yZWdpb24y
+KHN0cnVjdCBrdm1fdm0gKnZtLCB1aW50MzJfdCBzbG90LCB1aW50MzJfdCBmbGFncywKPiArICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICB1aW50NjRfdCBncGEsIHVpbnQ2NF90IHNpemUs
+IHZvaWQgKmh2YSwKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB1aW50MzJfdCBn
+dWVzdF9tZW1mZCwgdWludDY0X3QgZ3Vlc3RfbWVtZmRfb2Zmc2V0KTsKPiArCj4gIHZvaWQgdm1f
+dXNlcnNwYWNlX21lbV9yZWdpb25fYWRkKHN0cnVjdCBrdm1fdm0gKnZtLAo+ICAgICAgICAgZW51
+bSB2bV9tZW1fYmFja2luZ19zcmNfdHlwZSBzcmNfdHlwZSwKPiAgICAgICAgIHVpbnQ2NF90IGd1
+ZXN0X3BhZGRyLCB1aW50MzJfdCBzbG90LCB1aW50NjRfdCBucGFnZXMsCj4gZGlmZiAtLWdpdCBh
+L3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9saWIva3ZtX3V0aWwuYyBiL3Rvb2xzL3Rlc3Rp
+bmcvc2VsZnRlc3RzL2t2bS9saWIva3ZtX3V0aWwuYwo+IGluZGV4IDFjNzQzMTBmMWQ0NC4uZDA1
+ZDk1Y2MzNjkzIDEwMDY0NAo+IC0tLSBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9saWIv
+a3ZtX3V0aWwuYwo+ICsrKyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9saWIva3ZtX3V0
+aWwuYwo+IEBAIC04NzMsNiArODczLDM1IEBAIHZvaWQgdm1fc2V0X3VzZXJfbWVtb3J5X3JlZ2lv
+bihzdHJ1Y3Qga3ZtX3ZtICp2bSwgdWludDMyX3Qgc2xvdCwgdWludDMyX3QgZmxhZ3MsCj4gICAg
+ICAgICAgICAgICAgICAgICBlcnJubywgc3RyZXJyb3IoZXJybm8pKTsKPiAgfQo+Cj4gK2ludCBf
+X3ZtX3NldF91c2VyX21lbW9yeV9yZWdpb24yKHN0cnVjdCBrdm1fdm0gKnZtLCB1aW50MzJfdCBz
+bG90LCB1aW50MzJfdCBmbGFncywKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB1
+aW50NjRfdCBncGEsIHVpbnQ2NF90IHNpemUsIHZvaWQgKmh2YSwKPiArICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICB1aW50MzJfdCBndWVzdF9tZW1mZCwgdWludDY0X3QgZ3Vlc3RfbWVt
+ZmRfb2Zmc2V0KQo+ICt7Cj4gKyAgICAgICBzdHJ1Y3Qga3ZtX3VzZXJzcGFjZV9tZW1vcnlfcmVn
+aW9uMiByZWdpb24gPSB7Cj4gKyAgICAgICAgICAgICAgIC5zbG90ID0gc2xvdCwKPiArICAgICAg
+ICAgICAgICAgLmZsYWdzID0gZmxhZ3MsCj4gKyAgICAgICAgICAgICAgIC5ndWVzdF9waHlzX2Fk
+ZHIgPSBncGEsCj4gKyAgICAgICAgICAgICAgIC5tZW1vcnlfc2l6ZSA9IHNpemUsCj4gKyAgICAg
+ICAgICAgICAgIC51c2Vyc3BhY2VfYWRkciA9ICh1aW50cHRyX3QpaHZhLAo+ICsgICAgICAgICAg
+ICAgICAuZ3Vlc3RfbWVtZmQgPSBndWVzdF9tZW1mZCwKPiArICAgICAgICAgICAgICAgLmd1ZXN0
+X21lbWZkX29mZnNldCA9IGd1ZXN0X21lbWZkX29mZnNldCwKPiArICAgICAgIH07Cj4gKwo+ICsg
+ICAgICAgcmV0dXJuIGlvY3RsKHZtLT5mZCwgS1ZNX1NFVF9VU0VSX01FTU9SWV9SRUdJT04yLCAm
+cmVnaW9uKTsKPiArfQo+ICsKPiArdm9pZCB2bV9zZXRfdXNlcl9tZW1vcnlfcmVnaW9uMihzdHJ1
+Y3Qga3ZtX3ZtICp2bSwgdWludDMyX3Qgc2xvdCwgdWludDMyX3QgZmxhZ3MsCj4gKyAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICB1aW50NjRfdCBncGEsIHVpbnQ2NF90IHNpemUsIHZvaWQg
+Kmh2YSwKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHVpbnQzMl90IGd1ZXN0X21l
+bWZkLCB1aW50NjRfdCBndWVzdF9tZW1mZF9vZmZzZXQpCj4gK3sKPiArICAgICAgIGludCByZXQg
+PSBfX3ZtX3NldF91c2VyX21lbW9yeV9yZWdpb24yKHZtLCBzbG90LCBmbGFncywgZ3BhLCBzaXpl
+LCBodmEsCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBn
+dWVzdF9tZW1mZCwgZ3Vlc3RfbWVtZmRfb2Zmc2V0KTsKPiArCj4gKyAgICAgICBURVNUX0FTU0VS
+VCghcmV0LCAiS1ZNX1NFVF9VU0VSX01FTU9SWV9SRUdJT04yIGZhaWxlZCwgZXJybm8gPSAlZCAo
+JXMpIiwKPiArICAgICAgICAgICAgICAgICAgIGVycm5vLCBzdHJlcnJvcihlcnJubykpOwo+ICt9
+Cj4gKwo+ICsKPiAgLyogRklYTUU6IFRoaXMgdGhpbmcgbmVlZHMgdG8gYmUgcmlwcGVkIGFwYXJ0
+IGFuZCByZXdyaXR0ZW4uICovCj4gIHZvaWQgdm1fbWVtX2FkZChzdHJ1Y3Qga3ZtX3ZtICp2bSwg
+ZW51bSB2bV9tZW1fYmFja2luZ19zcmNfdHlwZSBzcmNfdHlwZSwKPiAgICAgICAgICAgICAgICAg
+dWludDY0X3QgZ3Vlc3RfcGFkZHIsIHVpbnQzMl90IHNsb3QsIHVpbnQ2NF90IG5wYWdlcywKPiAt
+LQo+IDIuMzkuMQo+Cj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
