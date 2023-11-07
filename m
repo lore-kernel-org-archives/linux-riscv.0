@@ -4,52 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 217C8C4167B
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Nov 2023 10:30:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF7BDC4708E
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Nov 2023 10:30:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:MIME-Version:Subject:Cc
 	:To:From:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l4M2PXeEHnNblNUPX4guIyd4VmDObBj2KS3OF8jiiKc=; b=tBpY2a490+SbBE
-	j8cbLfmjO2Thg2EM15g5EBNab3HbNwo7hg8VuqLMxLbS6KgojIRkioErGU3RW0NaSroxkxP1lEtwV
-	GMHRTsqk2hwEvvS0BUFXkEeyigwRCubU9fW6ZiGM3V/PoOA01+s/kLTCtDIDw9OU5EyIra3ql+MqR
-	UmTquPhX4pwafIuUFi/5ktKt+ximp6N7N+pUWKHJAxvvoO9X8+svJVw7X4Yl1I7K7OVuXOPjNSQz9
-	YuTfIsQpaouS3XC0ifqRphguGG15DEC19XFCcwguPst9Z3BSom0g+AYkJMMyGDDqDYiEvZalAovsF
-	RnjYJWupPoUL+5/PGHSQ==;
+	List-Owner; bh=l0kYMMKX8s10ZQy/o0AlAtlE2Ue6Sbde9+fM7Ik9jUY=; b=ADyGE0IPCmMTFG
+	PzHgVZzCcwStvwTLrISrA9fhTsXP9kzOOcu2PYF2z/8E1d+LUid/h3kLVXQsmusobjy0zP/xaRq9b
+	yMAU+Vm088PoUwiOKqb7zqDxLBMN5RJdNA3xqUV57FuD8nBWBb6Zpko7tTq5HsGtXyDVX7I3LN6CA
+	dFr+H6R9p1w4fqslSAbpsN22KlT/FjJk7a5KH429x1Lb8dFJ0/8PHsSOUnwPk7+hu85qf+3Hrrm60
+	M+rbJinPXNjHfrf5VDSx3H+TtRowGuixg2yr1DTj3gLPMPjVgMfZm6BcgpPvlSBTwuxcoMlhA+kWK
+	R/zUO4dPIZZcWd+mfrtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0JM0-0013fv-1X;
-	Tue, 07 Nov 2023 10:30:40 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1r0JMC-0013pD-21;
+	Tue, 07 Nov 2023 10:30:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0JLq-0013TK-1j;
-	Tue, 07 Nov 2023 10:30:36 +0000
+	id 1r0JMA-0013nj-28;
+	Tue, 07 Nov 2023 10:30:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description;
+	bh=GkdeqsXOg8rKv49jTJX2d/LBiktqtOBS+rLmfKOoquM=; b=jAbo0/+/ponHan5AAgYVYEtOov
+	X1uVGFn9TeO9ROUs0nONZBLZ5Wth0gkyzIm28QKbXb7yKYrhdWClCU9g1AqXZEFlGuxrasPVJJTkv
+	zRIdPFcIR+AAEtCrWNOItE9P7DHWVt4a5VNVVyWe/zEQwMImFFpH2odgcp80GAb7Z53feYay3cnge
+	dWXXPH4jhybETAei76mqWivKfLnE//mj9DkAZ/yZLFiDAkaAUZujKBj+7Rmp2MO72RThOk+wu7fyq
+	1wp/x/R0Sf2rdTMQzGQChI/PuaPkl8d5DooglLY/wulmWX9MTHkEwsF1OZI9CHM1vkSopRsY4a+Pe
+	954e1x8g==;
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1r0JM1-00BvYa-15;
+	Tue, 07 Nov 2023 10:30:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=XvIpI/fOswr56cvCQAdqf8hdZkC9UDpjjIC5xLTkoXs=; b=MZ0naxFz3vids07yM45pty4W0P
-	d/bJc0iiIcMu2WMIvxlsdkQ48DYAqikA1U1XIPKonM/Mz+2Iav738rVRM3IqwFFfP+jriZ7nKNrhd
-	2+yW/E2p3S1VBDGQA30p4wMAkO02wThiHZslySfz63HPYdrwCLZfTzFRUwWX6iyYv37UvqdBQeHFt
-	ft+ZCf3/DZpaHpUoktVg0SXl9U/xDWqKLhVVNZfDCcuj6zCP8nE4mGpYMQsE0RUSNoBR++2zhE54h
-	4iqc47813sdIbYiWv8ILtQbGZHv3QjU+8uBNJ3IDTx+qPEEkl6VuC9EotVzNj3/Y8xf0Hz/usasWL
-	IvZbpsIA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42222 helo=rmk-PC.armlinux.org.uk)
+	bh=GkdeqsXOg8rKv49jTJX2d/LBiktqtOBS+rLmfKOoquM=; b=MyYKTlQ4jHWTasvjC6TbG0Pn5v
+	P9AN29GtgNwpSvjFIVRwMBpOzm/tMulHHlu+yyH/OyTX5s4WWIz37Dtjl1y/WPH/X4zy9J+zBaUy/
+	sQPRWr9EHhLLcjqfRf9xu+CVbx8l/Q6xnAx+idFJmKecFP7iInqaTMLv73dIIMZMCLoHJWhR2TVa8
+	SQwyLuS4qnOC8vvYex+DMwPWotgCmLwYpvp5cTabGyV115o0oOWVeAcISMgyk2teMl71o2T3pEIXU
+	bpadyxfoNPuvSVkPS4G0Z6g/V+Lyt1FbdZz19EPvAnmAg69SlXeIHGx9nn99a8ORaDXNta2gFZbpf
+	GuA08UgA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:54780 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1r0JLg-0000HM-0F;
-	Tue, 07 Nov 2023 10:30:20 +0000
+	id 1r0JLo-0000IB-29;
+	Tue, 07 Nov 2023 10:30:28 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1r0JLg-00CTxd-31; Tue, 07 Nov 2023 10:30:20 +0000
+	id 1r0JLq-00CTxq-CF; Tue, 07 Nov 2023 10:30:30 +0000
 In-Reply-To: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
 References: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
-From: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 To: linux-pm@vger.kernel.org,
 	 loongarch@lists.linux.dev,
 	 linux-acpi@vger.kernel.org,
@@ -68,20 +82,17 @@ Cc: Salil Mehta <salil.mehta@huawei.com>,
 	 jianyong.wu@arm.com,
 	 justin.he@arm.com,
 	 James Morse <james.morse@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH RFC 12/22] drivers: base: Print a warning instead of panic()
- when register_cpu() fails
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH RFC 14/22] arm64: convert to arch_cpu_is_hotpluggable()
 MIME-Version: 1.0
 Content-Disposition: inline
-Message-Id: <E1r0JLg-00CTxd-31@rmk-PC.armlinux.org.uk>
-Date: Tue, 07 Nov 2023 10:30:20 +0000
+Message-Id: <E1r0JLq-00CTxq-CF@rmk-PC.armlinux.org.uk>
+Date: Tue, 07 Nov 2023 10:30:30 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231107_023030_619243_F0D51802 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20231107_103041_525449_A21F5F19 
+X-CRM114-Status: UNSURE (   7.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,50 +109,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
+Convert arm64 to use the arch_cpu_is_hotpluggable() helper rather than
+arch_register_cpu().
 
-loongarch, mips, parisc, riscv and sh all print a warning if
-register_cpu() returns an error. Architectures that use
-GENERIC_CPU_DEVICES call panic() instead.
-
-Errors in this path indicate something is wrong with the firmware
-description of the platform, but the kernel is able to keep running.
-
-Downgrade this to a warning to make it easier to debug this issue.
-
-This will allow architectures that switching over to GENERIC_CPU_DEVICES
-to drop their warning, but keep the existing behaviour.
-
-Signed-off-by: James Morse <james.morse@arm.com>
-Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/base/cpu.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+ arch/arm64/kernel/setup.c | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
-index 221ffbeb1c9b..82b6a76125f5 100644
---- a/drivers/base/cpu.c
-+++ b/drivers/base/cpu.c
-@@ -551,14 +551,15 @@ void __weak arch_unregister_cpu(int num)
- 
- static void __init cpu_dev_register_generic(void)
- {
--	int i;
-+	int i, ret;
- 
- 	if (!IS_ENABLED(CONFIG_GENERIC_CPU_DEVICES))
- 		return;
- 
- 	for_each_present_cpu(i) {
--		if (arch_register_cpu(i))
--			panic("Failed to register CPU device");
-+		ret = arch_register_cpu(i);
-+		if (ret)
-+			pr_warn("register_cpu %d failed (%d)\n", i, ret);
- 	}
+diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
+index 165bd2c0dd5a..42c690bb2d60 100644
+--- a/arch/arm64/kernel/setup.c
++++ b/arch/arm64/kernel/setup.c
+@@ -402,13 +402,9 @@ static inline bool cpu_can_disable(unsigned int cpu)
+ 	return false;
  }
  
+-int arch_register_cpu(int num)
++bool arch_cpu_is_hotpluggable(int num)
+ {
+-	struct cpu *cpu = &per_cpu(cpu_devices, num);
+-
+-	cpu->hotpluggable = cpu_can_disable(num);
+-
+-	return register_cpu(cpu, num);
++	return cpu_can_disable(num);
+ }
+ 
+ static void dump_kernel_offset(void)
 -- 
 2.30.2
 
