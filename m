@@ -4,82 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5409C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Nov 2023 10:31:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 615C0C4167B
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Nov 2023 10:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1dA70wvd9JEYCDQriT1Zb0Rs7XC9DSLxb02w8IEFvUY=; b=Wuzdl4cKsKqG/x
-	SOXu4EhtYnwogUAUnjVHnCRgzFBNhBflPqrJMaiO3Jmxmr6RJleb7ywz55o7w4U5/DhLycuxQSP0G
-	QT+TwCc20SCrh9m/pzbIfwlGhKLeG/OSfheIdJ1qXLyFjWVRNq5q2tRa9+1fw2gEVhS1hMqWn45Il
-	ycfhPbX3xsld2jAfnlrXviRtNB7lT2ITWPsQlIAHczXjBn2wcowrfCd731LyxfzDv9bSwa5yJMkdq
-	w3+8FA9WMQiuDGPyW4g6b/ADOrbNNqtoDMcIu0e0p4bPiQiyE0CWZ+sQDyEMr1RBVGj8WFe87zFa6
-	1IpWt5eMsti6sUEof/YQ==;
+	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:MIME-Version:Subject:Cc
+	:To:From:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=meZUnZibcIOQ96kRj0yDEmR/y2rUmeJI+xhxhDDYMN0=; b=JJQGR8CrKh5ka3
+	zdZrrKKNjYJ6XxtvcpvM8wua33oDF+NPJNiHjNKcREanbmTO7wYRpCXtiQhKbpAxdeN2JbO0qTFhI
+	AZ0Ozy1yF8Ve0Z8mxjXhtDfIH609F2vB/44l8JQxWKC50sQmybuBT9fyytO7GSMtJznB08HO5dK40
+	vrS6VOH8gxdR/ahQqjSPgNRh2vWBeyd63t9XZcYoleBSKkPfI6mSZek9UXSIhNUi751Yg6hYMcI0V
+	DZ3VJnw3jKPW2HD1Lj8Pphjrn+B+h5wIuKVEreLNIP+nEFd4Y1RsNmXg2ggeA8yOAVmAdHERiLAZ/
+	EM3qa2/ueMIwFeUyqrfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0JMb-0014E1-0y;
-	Tue, 07 Nov 2023 10:31:17 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1r0JMn-0014Sz-2T;
+	Tue, 07 Nov 2023 10:31:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0JMW-0012ue-0A;
-	Tue, 07 Nov 2023 10:31:13 +0000
+	id 1r0JMc-0014F1-2F;
+	Tue, 07 Nov 2023 10:31:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=mnU5AkoHae2A4t/6hUnkAeF1QeR2fa8gldl6fabdpys=; b=Xvbg8rVwQvptDasFluB1GivJJR
-	lkmYK9tHPkK3vfKg66aLbO07r9lL+qDWdsMtP1fVlOa8E6KTkOYoEs2lwy4BuATJgRxBHul9tXxli
-	QGqH/a1GwQbXH4Ty2qge3vzSS6Lc2LavAFmQ5ENfzpAimPTrAHwq4g364DPRdQkTj0tDP0qjcdxfK
-	STyjqt1AJWeyZh74VX0SvsNhUiKdGJQ5F9Q8X2OntVFa17qD+omT8nLqUX52QnKNsc7MXWynhIz17
-	xiLH8jwcSjSqGdcRk8+6xspJu1Yko/6rlvG1nsItzUsrSafRMYvzk7lo3JLicVij5zIccje25TllF
-	GUWgjCdw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:37708)
+	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description;
+	bh=m3xZZLoBnSq7UmzJgGvVrvaxRH67D0JzR/58Y1dSI2A=; b=RJXvcrGmc9tuZLJowM5QOEYbRy
+	HoHOfzsoCTyH5W8cRPkCw74vPjgnnubzauEzlM9oHiBt1dRgUd7F8jmoCIMR3BCbsf2HBaP6YJdR0
+	GSpCiKUama1RdbwoolCBLUg7H7+p4QD1lory0QeHC+rOq6xQqcLiSWTzGYJfZyXm5jPmWhgjqSgX5
+	/hdz2Sxx9hvJlhiNB0R3jNeuIjuzCfJgtMvE+wJwvOiTktWD6f1PHEQ/JxTjJVlgFwB7fVvuuxDKU
+	jOlaKYIYJ7iZDwN44N3TVv2h9/Vo+GcAaENlgqlpmiRYF+G/5/k+rEroXgB8/dMm1MBBLleuB4ha3
+	A2Sb6kTA==;
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1r0JMJ-00Bvbc-0b;
+	Tue, 07 Nov 2023 10:31:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=m3xZZLoBnSq7UmzJgGvVrvaxRH67D0JzR/58Y1dSI2A=; b=KOfg7Erft+/myd21Gc1g4bsxYO
+	qb3Z5q2vWEWZ5VRsdxLIuLg2Vfp5SRajsKhOOqbok/JeJUX9zMWuZT4aOq8iaGgY4LwR3yGhtNgWU
+	HNsb3S1jcGaDpX1V+dVaWPriMA+IZwzKFC9+qK8CsB22Ljjo6SvH8prK/HRrOKG+TVQRZsHbjik3i
+	tMl6NH34TEfJF807OjGakQO/fFUBybkolqtpMpuXxfmpvIJCYSi9HFcQ6pqHeS+cI35BnXuI9IukU
+	LJwYTl+LzCfsFoInxenz2nZKh4bLcQ1IVJjmfbsqNJDgQcVPvj/E6ZdmdlNuL77RA/jpTnfA6EXrL
+	rpg0YC0A==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:55722 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1r0JKK-0000DJ-2j;
-	Tue, 07 Nov 2023 10:28:56 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1r0JKF-0006qX-KE; Tue, 07 Nov 2023 10:28:51 +0000
-Date: Tue, 7 Nov 2023 10:28:51 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
-	x86@kernel.org, linux-csky@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-ia64@vger.kernel.org,
-	linux-parisc@vger.kernel.org
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Guo Ren <guoren@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	James Morse <james.morse@arm.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	jianyong.wu@arm.com, justin.he@arm.com, Len Brown <lenb@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Salil Mehta <salil.mehta@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	WANG Xuerui <kernel@xen0n.name>, Will Deacon <will@kernel.org>
-Subject: [PATCH RFC 00/22] Initial cleanups for vCPU hotplug
-Message-ID: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1r0JM9-0000JR-0l;
+	Tue, 07 Nov 2023 10:30:49 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1r0JMB-00CTyJ-08; Tue, 07 Nov 2023 10:30:51 +0000
+In-Reply-To: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
+References: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
+From: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+To: linux-pm@vger.kernel.org,
+	 loongarch@lists.linux.dev,
+	 linux-acpi@vger.kernel.org,
+	 linux-arch@vger.kernel.org,
+	 linux-kernel@vger.kernel.org,
+	 linux-arm-kernel@lists.infradead.org,
+	 linux-riscv@lists.infradead.org,
+	 kvmarm@lists.linux.dev,
+	 x86@kernel.org,
+	 linux-csky@vger.kernel.org,
+	 linux-doc@vger.kernel.org,
+	 linux-ia64@vger.kernel.org,
+	 linux-parisc@vger.kernel.org
+Cc: Salil Mehta <salil.mehta@huawei.com>,
+	 Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	 jianyong.wu@arm.com,
+	 justin.he@arm.com,
+	 James Morse <james.morse@arm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>
+Subject: [PATCH RFC 18/22] LoongArch: Switch over to GENERIC_CPU_DEVICES
 MIME-Version: 1.0
 Content-Disposition: inline
+Message-Id: <E1r0JMB-00CTyJ-08@rmk-PC.armlinux.org.uk>
+Date: Tue, 07 Nov 2023 10:30:51 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231107_023112_086761_436CEAEF 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20231107_103100_031596_433FDEB5 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,65 +108,106 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: James Morse <james.morse@arm.com>
 
-Rather than posting the entire set of vCPU kernel patches, this is a
-subset of those patches which I hope will be able to be appropriately
-queued for the next merge window. I am also hoping that nothing here
-is covered by Rafael's concerns he alluded to in his response to the
-RFC v3 series.
+Now that GENERIC_CPU_DEVICES calls arch_register_cpu(), which can be
+overridden by the arch code, switch over to this to allow common code
+to choose when the register_cpu() call is made.
 
-This series aims to switch most architectures over to using generic CPU
-devices rather than arch specific implementations, which I think is
-worthwhile doing even if the vCPU hotplug series needs further work.
+This allows topology_init() to be removed.
 
-Since this series changes the init order (node_dev_init() vs
-cpu_dev_init()) and later on in the vCPU hotplug series move the
-location that CPUs are registered, the first two patches head off
-problems with register_cpu_capacity_sysctl() and the intel_epb code.
-These two were ordered later in the original series.
+This is an intermediate step to the logic being moved to drivers/acpi,
+where GENERIC_CPU_DEVICES will do the work when booting with acpi=off.
 
-The next pair of patches are new and remove the exports of
-arch_*register_cpu() which are not necessary - these functions are only
-called from non-modular code - drivers/base/cpu.c and acpi_processor.c
-both of which can only be built-in.
+This is a subtle change. Originally:
+- on boot, topology_init() would have marked present CPUs that
+  io_master() is true for as hotplug-incapable.
+- if a CPU is hotplugged that is an io_master(), it can later be
+  hot-unplugged.
 
-The majority of the other patches come from the vCPU hotplug RFC v3
-series I posted earlier, rebased on Linus' current tip, but with some
-new patches adding arch_cpu_is_hotpluggable() as the remaining
-arch_register_cpu() functions only differ in the setting of the
-hotpluggable member of the CPU device - so let's get generic code
-doing that and provide a way for an architecture to specify whether a
-CPU is hotpluggable.
+The new behaviour is that any CPU that io_master() is true for will
+now always be marked as hotplug-incapable, thus even if it was
+hotplugged, it can no longer be hot-unplugged.
 
-I would appreciate testing reports on loongarch, riscv and x86
-platforms please.
+This patch also has the effect of moving the registration of CPUs from
+subsys to driver core initialisation, prior to any initcalls running.
 
-Thanks!
+Signed-off-by: James Morse <james.morse@arm.com>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+Changes since RFC v2:
+ * Explain the change in behaviour in the patch description
+   (highlighted by Jonathan Cameron - thanks.) Add note about
+   initialisation order change.
+---
+ arch/loongarch/Kconfig           |  1 +
+ arch/loongarch/kernel/topology.c | 29 ++---------------------------
+ 2 files changed, 3 insertions(+), 27 deletions(-)
 
- arch/arm64/Kconfig               |  1 +
- arch/arm64/include/asm/cpu.h     |  1 -
- arch/arm64/kernel/setup.c        | 13 ++-----------
- arch/loongarch/Kconfig           |  2 ++
- arch/loongarch/kernel/topology.c | 42 ++--------------------------------------
- arch/riscv/Kconfig               |  1 +
- arch/riscv/kernel/setup.c        | 18 ++---------------
- arch/x86/Kconfig                 |  2 ++
- arch/x86/include/asm/cpu.h       |  4 ----
- arch/x86/kernel/cpu/intel_epb.c  |  2 +-
- arch/x86/kernel/topology.c       | 33 ++-----------------------------
- drivers/acpi/Kconfig             |  1 -
- drivers/acpi/acpi_processor.c    | 18 -----------------
- drivers/base/arch_topology.c     | 38 ++++++++++++++++++++++++------------
- drivers/base/cpu.c               | 39 +++++++++++++++++++++++++++++--------
- drivers/base/init.c              |  2 +-
- drivers/base/node.c              |  7 -------
- include/linux/cpu.h              |  5 +++++
- 18 files changed, 78 insertions(+), 151 deletions(-)
-
+diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
+index 64620e90c12c..632de780a490 100644
+--- a/arch/loongarch/Kconfig
++++ b/arch/loongarch/Kconfig
+@@ -72,6 +72,7 @@ config LOONGARCH
+ 	select GENERIC_CLOCKEVENTS
+ 	select GENERIC_CMOS_UPDATE
+ 	select GENERIC_CPU_AUTOPROBE
++	select GENERIC_CPU_DEVICES
+ 	select GENERIC_ENTRY
+ 	select GENERIC_GETTIMEOFDAY
+ 	select GENERIC_IOREMAP if !ARCH_IOREMAP
+diff --git a/arch/loongarch/kernel/topology.c b/arch/loongarch/kernel/topology.c
+index ae860fe81536..7dfb46c68f58 100644
+--- a/arch/loongarch/kernel/topology.c
++++ b/arch/loongarch/kernel/topology.c
+@@ -10,20 +10,13 @@
+ 
+ #include <acpi/processor.h>
+ 
+-static DEFINE_PER_CPU(struct cpu, cpu_devices);
+-
+ #ifdef CONFIG_HOTPLUG_CPU
+ int arch_register_cpu(int cpu)
+ {
+-	int ret;
+ 	struct cpu *c = &per_cpu(cpu_devices, cpu);
+ 
+-	c->hotpluggable = 1;
+-	ret = register_cpu(c, cpu);
+-	if (ret < 0)
+-		pr_warn("register_cpu %d failed (%d)\n", cpu, ret);
+-
+-	return ret;
++	c->hotpluggable = !io_master(cpu);
++	return register_cpu(c, cpu);
+ }
+ 
+ void arch_unregister_cpu(int cpu)
+@@ -34,21 +27,3 @@ void arch_unregister_cpu(int cpu)
+ 	unregister_cpu(c);
+ }
+ #endif
+-
+-static int __init topology_init(void)
+-{
+-	int i, ret;
+-
+-	for_each_present_cpu(i) {
+-		struct cpu *c = &per_cpu(cpu_devices, i);
+-
+-		c->hotpluggable = !io_master(i);
+-		ret = register_cpu(c, i);
+-		if (ret < 0)
+-			pr_warn("topology_init: register_cpu %d failed (%d)\n", i, ret);
+-	}
+-
+-	return 0;
+-}
+-
+-subsys_initcall(topology_init);
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.30.2
+
 
 _______________________________________________
 linux-riscv mailing list
