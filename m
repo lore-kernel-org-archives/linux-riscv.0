@@ -4,96 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC6E5C4167B
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Nov 2023 10:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC3FBC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Nov 2023 10:38:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:MIME-Version:Subject:Cc
-	:To:From:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cv8Zri68E+Bj1ISf0Ip8ipGyP7roZro6sRw4UUm0q4U=; b=Dp8G7ZWM8Aixqq
-	Jvks3M13C3D6EwreZYbuMNApO9M+G+pgD6c6BLvBwjIy8a2EXV1Kx2JrhdL12aZdxg0EGqxeDjrrK
-	iDQsI/uS+FpY1mDxxcl0TMgJUUH6ykt5iU57QJhYDz/hp172O9j+Mdjyoy7RM0owK5I75GMJbOBfp
-	JSX95YGRdoB4xRVb9TwJlor+Pv7FL+UQk5lGI8uC6+QEG9Wu20s3L4atBQelvFbJLC4fEpqYsYo6x
-	0ZcqKQ9Y6fuj/pX5RQbgH7KsbmsTVZkOr0MWhA87ZAE65D9laS6lOZvXMmXjGE12OzTUfwtF5ksmD
-	eBGVmXlBUGneu1AGNKmg==;
+	List-Owner; bh=yUemoyD0Q2Eidz2bI7AQhZgSvCqh06DmxkFb8NZ55RM=; b=J0J5KE2rmjWYvo
+	/qc6BMxzNXFVHCVU6rzFES8cydD/RT0COdTHCqfd7CFCiRhCcsHpU6kNpfeandOeRq6LB+tsVNZLB
+	LdlS7O2L1VMvmMOLzbafmav4gmYrIiH2PKDCAKYbPB8U1wJHl7DtmLbf7Lm7NObf182usPtm/IkES
+	gJRPJUOrMpmUmEvaFZyJ4MDBPnTuUVKif6UB1TmIu/pdnFuvb/qoawg/xGvca8CSvUaaXtK5xXyA+
+	qK0RCT3A1zPa1yhgZUAsjkx3wB7ypXdbNHo3MOSPibh3wh9AIOKdvfozXudmjwZicHRFYa/eczOMb
+	Ol8+6kU7pgUeiOT4CZRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0JOB-0015cK-1f;
-	Tue, 07 Nov 2023 10:32:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1r0JTU-0016fV-1k;
+	Tue, 07 Nov 2023 10:38:24 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0JO8-0015ZH-17;
-	Tue, 07 Nov 2023 10:32:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description;
-	bh=B2mYLeaTLi2RKWi068dxPknxY80IYTqbrhnkvkRDiuE=; b=StuWzkV+OftH34tM4tK4DwyjXS
-	7Q524DIazsLJH7tW9qybQ+z+SAs/S1I1AWXti5Yun6uBzHAHy/VKjOPZgIVFrTXjaanenLF4/w9mv
-	s4W1JztTlXEh/wAhQtbaX5+AO8Yb7YcKHu4X+0l234BusDgTleqPhJXEcLxGiTl/m2+na0c/I3uAv
-	6cfWQ+7akonXI/qomQ5whFDPcYU7vpZVJMWHrQlKK/Jd7lJk0IiK23NZxVF5V2b/RiM5y3OsP9fvE
-	Q53mJcV0lYjCJoEERAXz9dRkDCvMcnzDt2qjmT07pGa53MY4cv7D/V76IRpWFPVb3XYnuLc+pRaUr
-	38O+2TIg==;
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0JNy-00BvXl-0s;
-	Tue, 07 Nov 2023 10:32:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=B2mYLeaTLi2RKWi068dxPknxY80IYTqbrhnkvkRDiuE=; b=dqcnH4JHbhq+YyuErnnwbDz8AN
-	0aZHSKx0GUxYcKgXYu+ufg2cb8kYEmwx+9kFA1w4O4SyrvG+1OUdeuxsMHh2eLeLdkByAWX4X3oAz
-	2NO1ccm9fwHvFF2bXexmTLIQFvhf3Qz/DmRmQrmP+rcr76RnT2KsoSlxcfXP+7GCe+AP8as7RQRsh
-	PmNfmj8Cg3tcxdNxPxdJVtZXPcRFD/Kr+zcnE867HVQbpMciT0HRPaxiHcaaDbAvZ36cCRU1uznTv
-	t2z4hpxFimnFtmEAgZQioZfNIPtAqdcKWzGgkyzsh3sSohV2F7UJLYN38lWTMr+ZWxB3YwUcNX/qc
-	768F37qQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42208 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1r0JLd-0000Gy-1D;
-	Tue, 07 Nov 2023 10:30:17 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1r0JLa-00CTxY-Uv; Tue, 07 Nov 2023 10:30:15 +0000
-In-Reply-To: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
-References: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: linux-pm@vger.kernel.org,
-	 loongarch@lists.linux.dev,
-	 linux-acpi@vger.kernel.org,
-	 linux-arch@vger.kernel.org,
-	 linux-kernel@vger.kernel.org,
-	 linux-arm-kernel@lists.infradead.org,
-	 linux-riscv@lists.infradead.org,
-	 kvmarm@lists.linux.dev,
-	 x86@kernel.org,
-	 linux-csky@vger.kernel.org,
-	 linux-doc@vger.kernel.org,
-	 linux-ia64@vger.kernel.org,
-	 linux-parisc@vger.kernel.org
-Cc: Salil Mehta <salil.mehta@huawei.com>,
-	 Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	 jianyong.wu@arm.com,
-	 justin.he@arm.com,
-	 James Morse <james.morse@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>
-Subject: [PATCH RFC 11/22] drivers: base: remove unnecessary call to
- register_cpu_under_node()
+	id 1r0JTQ-0016e6-21;
+	Tue, 07 Nov 2023 10:38:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id A26A5CE0E56;
+	Tue,  7 Nov 2023 10:38:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D2C9C433C7;
+	Tue,  7 Nov 2023 10:38:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1699353497;
+	bh=vJRAI9RGy/58A+FlzWE10PI0MfMhXjXb/jXWE3sfgoA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=P8DR9XQVqGWE/jSsPbBMbBE96MY+i3o2DaeBsP5f6BDjvx/DOhiZNZZkcqIWdiFKJ
+	 TQMPoAXJ0x2TtXE67Y62VjspTbRGAOufa4CRGNzTRwseWqPxAx2JnJvge/Pd8SFd/C
+	 652UC6kbexqs2g1LA//blK+R2I/ceR0tGVIZOvphJyLJCKGKy/GV+1hSXjmqkt/xhR
+	 QmDw9YouENrjpbSlFvRNGZ4uqm5R6SOn8pBYci5FtRJOl5X53LgfZP6jDSFRzvsNRb
+	 AqCng9dzoPE8U7OlzHAE3pB05STFWs0eE49/RyTVp5RDEpT6znfC9+1yYkxANs1vFN
+	 9OLw0jdWTTD0A==
+Date: Tue, 7 Nov 2023 10:38:09 +0000
+From: Will Deacon <will@kernel.org>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: linux@armlinux.org.uk, catalin.marinas@arm.com,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org,
+	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com,
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
+	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com,
+	viresh.kumar@linaro.org, lenb@kernel.org, robert.moore@intel.com,
+	lukasz.luba@arm.com, ionela.voinescu@arm.com,
+	pierre.gondois@arm.com, beata.michalska@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org,
+	linux-acpi@vger.kernel.org, conor.dooley@microchip.com,
+	suagrfillet@gmail.com, ajones@ventanamicro.com, lftan@kernel.org
+Subject: Re: [PATCH v5 7/7] arm64/amu: Use capacity_ref_freq to set AMU ratio
+Message-ID: <20231107103808.GF18944@willie-the-truck>
+References: <20231104105907.1365392-1-vincent.guittot@linaro.org>
+ <20231104105907.1365392-8-vincent.guittot@linaro.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-Message-Id: <E1r0JLa-00CTxY-Uv@rmk-PC.armlinux.org.uk>
-Date: Tue, 07 Nov 2023 10:30:14 +0000
+In-Reply-To: <20231104105907.1365392-8-vincent.guittot@linaro.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231107_103242_503418_ABC3942A 
-X-CRM114-Status: UNSURE (   8.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231107_023821_103732_FCED0771 
+X-CRM114-Status: GOOD (  22.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,53 +84,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since "drivers: base: Move cpu_dev_init() after node_dev_init()", we
-can remove some redundant code.
+On Sat, Nov 04, 2023 at 11:59:07AM +0100, Vincent Guittot wrote:
+> Use the new capacity_ref_freq to set the ratio that is used by AMU for
+> computing the arch_scale_freq_capacity().
+> This helps to keep everything aligned using the same reference for
+> computing CPUs capacity.
+> 
+> The default value of the ratio (stored in per_cpu(arch_max_freq_scale))
+> ensures that arch_scale_freq_capacity() returns max capacity until it is
+> set to its correct value with the cpu capacity and capacity_ref_freq.
+> 
+> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> ---
+>  arch/arm64/kernel/topology.c  | 26 ++++++++++++++------------
+>  drivers/base/arch_topology.c  | 12 +++++++++++-
+>  include/linux/arch_topology.h |  1 +
+>  3 files changed, 26 insertions(+), 13 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> index 817d788cd866..615c1a20129f 100644
+> --- a/arch/arm64/kernel/topology.c
+> +++ b/arch/arm64/kernel/topology.c
+> @@ -82,7 +82,12 @@ int __init parse_acpi_topology(void)
+>  #undef pr_fmt
+>  #define pr_fmt(fmt) "AMU: " fmt
+>  
+> -static DEFINE_PER_CPU_READ_MOSTLY(unsigned long, arch_max_freq_scale);
+> +/*
+> + * Ensure that amu_scale_freq_tick() will return SCHED_CAPACITY_SCALE until
+> + * the CPU capacity and its associated frequency have been correctly
+> + * initialized.
+> + */
+> +static DEFINE_PER_CPU_READ_MOSTLY(unsigned long, arch_max_freq_scale) =  1UL << (2 * SCHED_CAPACITY_SHIFT);
 
-node_dev_init() will walk through the nodes calling register_one_node()
-on each. This will trickle down to __register_one_node() which walks
-all present CPUs, calling register_cpu_under_node() on each.
+This doesn't seem to match the comment? SCHED_CAPACITY_SCALE doesn't have
+the '2 *' multiplier.
 
-register_cpu_under_node() will call get_cpu_device(cpu) for each, which
-will return NULL until the CPU is registered using register_cpu(). This
-now happens _after_ node_dev_init().
+>  static DEFINE_PER_CPU(u64, arch_const_cycles_prev);
+>  static DEFINE_PER_CPU(u64, arch_core_cycles_prev);
+>  static cpumask_var_t amu_fie_cpus;
+> @@ -112,14 +117,14 @@ static inline bool freq_counters_valid(int cpu)
+>  	return true;
+>  }
+>  
+> -static int freq_inv_set_max_ratio(int cpu, u64 max_rate, u64 ref_rate)
+> +void freq_inv_set_max_ratio(int cpu, u64 max_rate)
+>  {
+> -	u64 ratio;
+> +	u64 ratio, ref_rate = arch_timer_get_rate();
+>  
+>  	if (unlikely(!max_rate || !ref_rate)) {
+> -		pr_debug("CPU%d: invalid maximum or reference frequency.\n",
+> +		WARN_ONCE(1, "CPU%d: invalid maximum or reference frequency.\n",
+>  			 cpu);
+> -		return -EINVAL;
+> +		return;
+>  	}
+>  
+>  	/*
+> @@ -139,12 +144,12 @@ static int freq_inv_set_max_ratio(int cpu, u64 max_rate, u64 ref_rate)
+>  	ratio = div64_u64(ratio, max_rate);
+>  	if (!ratio) {
+>  		WARN_ONCE(1, "Reference frequency too low.\n");
+> -		return -EINVAL;
+> +		return;
+>  	}
+>  
+> -	per_cpu(arch_max_freq_scale, cpu) = (unsigned long)ratio;
+> +	WRITE_ONCE(per_cpu(arch_max_freq_scale, cpu), (unsigned long)ratio);
 
-Therefore, calling register_cpu_under_node() from __register_one_node()
-becomes a no-op, and can be removed.
+Why is WRITE_ONCE() now needed?
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/base/node.c | 7 -------
- 1 file changed, 7 deletions(-)
+> -	return 0;
+> +	return;
 
-diff --git a/drivers/base/node.c b/drivers/base/node.c
-index 493d533f8375..4d5ac7cf8757 100644
---- a/drivers/base/node.c
-+++ b/drivers/base/node.c
-@@ -867,7 +867,6 @@ void register_memory_blocks_under_node(int nid, unsigned long start_pfn,
- int __register_one_node(int nid)
- {
- 	int error;
--	int cpu;
- 
- 	node_devices[nid] = kzalloc(sizeof(struct node), GFP_KERNEL);
- 	if (!node_devices[nid])
-@@ -875,12 +874,6 @@ int __register_one_node(int nid)
- 
- 	error = register_node(node_devices[nid], nid);
- 
--	/* link cpu under this node */
--	for_each_present_cpu(cpu) {
--		if (cpu_to_node(cpu) == nid)
--			register_cpu_under_node(cpu, nid);
--	}
--
- 	INIT_LIST_HEAD(&node_devices[nid]->access_list);
- 	node_init_caches(nid);
- 
--- 
-2.30.2
+Pointless 'return;' statement.
 
+Will
 
 _______________________________________________
 linux-riscv mailing list
