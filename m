@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFC2CC4167D
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Nov 2023 13:04:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01778C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Nov 2023 13:04:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7ZCXRvBE3B01bYM0eKlFTMQokVa9Iyp+oY+Zg8SP5+k=; b=JTpgLGLSfNc6kI
-	zWY0drShUQJSrfXqI3LvRDB7H0qJoKQc9SrDr4fnzdJOcb+yy/eKxonotEXrKwwU5kYS6B97f4VrZ
-	xBqOZnUarPF7pFb2v5oz7rq25sjik2apqMy2PyCY377pSb8vG0wr0a4ED2gcCk6YcGmtEGs7LL9NQ
-	6R4NzekmEsOMkYepSbJgPtzpube79fc+mYdIiMfJKBGQWukQjiXl5FrqCUbyLFaJaWe8hU4IVd+lV
-	q0ZkpqOPhr6apxht+uBz3iz8sJjLouoIq+oPGWEwbyDM0YD+gN079crN2CHpMn7NPAlypIqTM/P/S
-	4B354Iz5tZV5HhL7gVwA==;
+	List-Owner; bh=8C4IPkQEqAivIX+u6ORBWHG5YvAw2V9FLy7CwD+v3gg=; b=ULbPwYKdIcSFm1
+	4ivv7hgjXELV8pxGbSysU/wZKCOskK1BraCgQn+kPu/cyYAbKwHjd7+AN/nNbrZV+jo72yZsOFl93
+	7Bk31Z5LhRYwb3wAVFWd6xXT4fXMxq/dFfLP6TKuDZSSFuG/n9o7Ueml0EtX0V7j/ib/e3kmbkKAI
+	fzkXrdJJ8LJrxtArzinoxJSqP7C/tVXejBUPsc84nDtzrcxTA+tu33eeoVLs1PDU5gQjRA3HXPlsr
+	QVx8iVacrLHTv2daGeyD3GlYAE9RzgEclekduh76YH9HhkTr817+/abIxI54DuLbvs9PRLNA+x5/J
+	Kp2/fApjMAbfVYSm6bow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0iE0-003sXU-2J;
-	Wed, 08 Nov 2023 13:04:04 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1r0iEG-003slK-0O;
+	Wed, 08 Nov 2023 13:04:20 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0iDs-003sPo-2N;
-	Wed, 08 Nov 2023 13:03:59 +0000
+	id 1r0iE5-003sbZ-10;
+	Wed, 08 Nov 2023 13:04:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 0587EB81C6B;
-	Wed,  8 Nov 2023 13:03:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D62C9C433B6;
-	Wed,  8 Nov 2023 13:03:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 93B61615E7;
+	Wed,  8 Nov 2023 13:04:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D51A7C4339A;
+	Wed,  8 Nov 2023 13:03:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699448634;
-	bh=f7fNKO5gnWJA/d4ZFMRTEakv5+W/QOqilqMHW6JFmn4=;
+	s=k20201202; t=1699448648;
+	bh=Nx8Vn2zgScg8dIFdjbuCnuMwcXn8NC4yH/1zIRuXFKU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DBJ5jR4CXtPbJPYGq5r5xOFK0mCJWbOQOLyr3aUZajjqm4iLO0JsvUKUO0uN+hUJe
-	 Msij0+2zs+jlyWA/41ZMIpSg/OOLqS9wyqGkpDKqxxZeodHNCH+//AzBMyQlzRQ4K3
-	 7vkTtk3yfTrs5D2GEKfRiTYosKYtejRV4Z5eqoQ2wuHtMIflJUm0yDGmV6pBS19TOS
-	 2Ez2H9AYDV2mhlQ/YZ2KYGXkuQQZFFbFW2mzc4LfBS4S4LMUXzPxTWZ+3A/rp0/+V5
-	 eF8Sn8vPAZf/juaHTFs3VeqE1LtKB2kpkk8oTSn5Tr/GceC5v9b2j4wWO5bmgoEaVk
-	 3OcTg1l38QHTg==
+	b=jM23eUv5FMlKZU6BTGV1ePPaE3RTcAWRXDzcXAcjOqA/ZqCE81ar4bVn2a2r75AKm
+	 jflHQH/BYiBETTY3g9IoyJRr+2hYEdyLCZV96oyvyWq2ogp98/QmGboBx7Dt00jY3G
+	 T2yyCpZ97F+U44qiklj3/qmthIoQi+rfc2I6iwn29l6Yx1Aa4hEPyXCWRNDvKN7BVm
+	 RRHAmCXQIZv6jYLGfTgwkeOX1UsnUHrOOm9LQLQaG/WsU1PiIR54QxRx9rzy3qyX5I
+	 LvmxOxUIQrgDSPyInQ9FstpMGLBcD5o3qVnRy4F0RrfTjaf20bD3r98NBPFpzpVdby
+	 bdKtp2p5lyJ8Q==
 From: Arnd Bergmann <arnd@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	linux-kernel@vger.kernel.org,
@@ -112,16 +112,16 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	dri-devel@lists.freedesktop.org,
 	linux-bcachefs@vger.kernel.org,
 	linux-mtd@lists.infradead.org
-Subject: [PATCH 20/22] usb: fsl-mph-dr-of: mark fsl_usb2_mpc5121_init() static
-Date: Wed,  8 Nov 2023 13:58:41 +0100
-Message-Id: <20231108125843.3806765-21-arnd@kernel.org>
+Subject: [PATCH 21/22] fbdev/fsl-diu-fb: mark wr_reg_wa() static
+Date: Wed,  8 Nov 2023 13:58:42 +0100
+Message-Id: <20231108125843.3806765-22-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20231108125843.3806765-1-arnd@kernel.org>
 References: <20231108125843.3806765-1-arnd@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231108_050357_071339_851D140C 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20231108_050409_451240_D68182ED 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,29 +140,30 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-This function is only called locally and should always have been static:
+wr_reg_wa() is not an appropriate name for a global function, and doesn't need
+to be global anyway, so mark it static and avoid the warning:
 
-drivers/usb/host/fsl-mph-dr-of.c:291:5: error: no previous prototype for 'fsl_usb2_mpc5121_init' [-Werror=missing-prototypes]
+drivers/video/fbdev/fsl-diu-fb.c:493:6: error: no previous prototype for 'wr_reg_wa' [-Werror=missing-prototypes]
 
-Fixes: 230f7ede6c2f ("USB: add USB EHCI support for MPC5121 SoC")
+Fixes: 0d9dab39fbbe ("powerpc/5121: fsl-diu-fb: fix issue with re-enabling DIU area descriptor")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- drivers/usb/host/fsl-mph-dr-of.c | 2 +-
+ drivers/video/fbdev/fsl-diu-fb.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/usb/host/fsl-mph-dr-of.c b/drivers/usb/host/fsl-mph-dr-of.c
-index 8508d37a2aff..6cdc3d805c32 100644
---- a/drivers/usb/host/fsl-mph-dr-of.c
-+++ b/drivers/usb/host/fsl-mph-dr-of.c
-@@ -288,7 +288,7 @@ static void fsl_usb2_mph_dr_of_remove(struct platform_device *ofdev)
- #define PHYCTRL_LSFE		(1 << 1)	/* Line State Filter Enable */
- #define PHYCTRL_PXE		(1 << 0)	/* PHY oscillator enable */
- 
--int fsl_usb2_mpc5121_init(struct platform_device *pdev)
-+static int fsl_usb2_mpc5121_init(struct platform_device *pdev)
+diff --git a/drivers/video/fbdev/fsl-diu-fb.c b/drivers/video/fbdev/fsl-diu-fb.c
+index 7fbd9f069ac2..0bced82fa494 100644
+--- a/drivers/video/fbdev/fsl-diu-fb.c
++++ b/drivers/video/fbdev/fsl-diu-fb.c
+@@ -490,7 +490,7 @@ static enum fsl_diu_monitor_port fsl_diu_name_to_port(const char *s)
+  * Workaround for failed writing desc register of planes.
+  * Needed with MPC5121 DIU rev 2.0 silicon.
+  */
+-void wr_reg_wa(u32 *reg, u32 val)
++static void wr_reg_wa(u32 *reg, u32 val)
  {
- 	struct fsl_usb2_platform_data *pdata = dev_get_platdata(&pdev->dev);
- 	struct clk *clk;
+ 	do {
+ 		out_be32(reg, val);
 -- 
 2.39.2
 
