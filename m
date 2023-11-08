@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAFC3C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Nov 2023 13:03:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFC2CC4167D
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Nov 2023 13:04:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hx/p4ZQhURBl13NTYSI/k/GYliK9I5U5pKOxLKIwGZQ=; b=4ZVi9XlZUMUfk0
-	KvujNRzAGG3tbZU8Rf5r5/ifWzBtTqjbsFOjggvcwNaHNmF3Rwf/ksSFVAU9O2EC3B/1QHhyJ4Deo
-	IvmKF8kAB/PURYKD/wGSOBmB2RJUc34aLt6/sHfk3eXNSnTCmoIDu2E5ZIYq8wHw+wyEbuvE57SUJ
-	8VCyjM3DX6Rf8eTP7z0V7ATBbM8elnS6A+bDoz9xl/qWlRi3/rLrKs60O68SoF/zYIG4vS+uzgxs4
-	iOg8MhS0c8ElZQo9hI+6h82egjOR5YDjHvuxE/vwCL7AIoBpj6mZ+lG20TRY85+VaTvQDqJ2rS2oL
-	1z+qqE9eY5bIYTtKWRiQ==;
+	List-Owner; bh=7ZCXRvBE3B01bYM0eKlFTMQokVa9Iyp+oY+Zg8SP5+k=; b=JTpgLGLSfNc6kI
+	zWY0drShUQJSrfXqI3LvRDB7H0qJoKQc9SrDr4fnzdJOcb+yy/eKxonotEXrKwwU5kYS6B97f4VrZ
+	xBqOZnUarPF7pFb2v5oz7rq25sjik2apqMy2PyCY377pSb8vG0wr0a4ED2gcCk6YcGmtEGs7LL9NQ
+	6R4NzekmEsOMkYepSbJgPtzpube79fc+mYdIiMfJKBGQWukQjiXl5FrqCUbyLFaJaWe8hU4IVd+lV
+	q0ZkpqOPhr6apxht+uBz3iz8sJjLouoIq+oPGWEwbyDM0YD+gN079crN2CHpMn7NPAlypIqTM/P/S
+	4B354Iz5tZV5HhL7gVwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0iDp-003sNS-01;
-	Wed, 08 Nov 2023 13:03:53 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1r0iE0-003sXU-2J;
+	Wed, 08 Nov 2023 13:04:04 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0iDg-003sFW-3A;
-	Wed, 08 Nov 2023 13:03:48 +0000
+	id 1r0iDs-003sPo-2N;
+	Wed, 08 Nov 2023 13:03:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 58272CE10D3;
-	Wed,  8 Nov 2023 13:03:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7383C433CD;
-	Wed,  8 Nov 2023 13:03:26 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 0587EB81C6B;
+	Wed,  8 Nov 2023 13:03:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D62C9C433B6;
+	Wed,  8 Nov 2023 13:03:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699448620;
-	bh=bnImJ/ObQ6B/nPGCBESa5sKS25GC8i0wwxIop7YcLiQ=;
+	s=k20201202; t=1699448634;
+	bh=f7fNKO5gnWJA/d4ZFMRTEakv5+W/QOqilqMHW6JFmn4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fB+20slfPiqKAzspVuOp7lysgQWfK95LP/RKlxiC8AEKx8BhFN4kkk4QP6uLjjcZa
-	 wj1ifWdy+iqHN8jUfTP7LMVixMNQzf+PdxJ5aRFwn8+sF8x5oxrMJ+cw7Tf1SY6evs
-	 aTHloPIblEvwjvbG5tJspyjJPZMcOELbwuprmNsKC8br0ev0EeD+X5Pv+YyMMBcX7a
-	 fT29jHc3T0fxWzZcbGd7mitVkS7vZsG9opCG70PpS8kj6ljhs3UbNxZWIByHhdYChg
-	 /Twm4eSdr3h6kTuBlQTn9xPE9UHRMNkG+6odLROmc+7rhVe0JD5IS0bLdAqqjskcMv
-	 HeN+BJ0kN316g==
+	b=DBJ5jR4CXtPbJPYGq5r5xOFK0mCJWbOQOLyr3aUZajjqm4iLO0JsvUKUO0uN+hUJe
+	 Msij0+2zs+jlyWA/41ZMIpSg/OOLqS9wyqGkpDKqxxZeodHNCH+//AzBMyQlzRQ4K3
+	 7vkTtk3yfTrs5D2GEKfRiTYosKYtejRV4Z5eqoQ2wuHtMIflJUm0yDGmV6pBS19TOS
+	 2Ez2H9AYDV2mhlQ/YZ2KYGXkuQQZFFbFW2mzc4LfBS4S4LMUXzPxTWZ+3A/rp0/+V5
+	 eF8Sn8vPAZf/juaHTFs3VeqE1LtKB2kpkk8oTSn5Tr/GceC5v9b2j4wWO5bmgoEaVk
+	 3OcTg1l38QHTg==
 From: Arnd Bergmann <arnd@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	linux-kernel@vger.kernel.org,
@@ -112,16 +112,16 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	dri-devel@lists.freedesktop.org,
 	linux-bcachefs@vger.kernel.org,
 	linux-mtd@lists.infradead.org
-Subject: [PATCH 19/22] powerpc: powermac: mark smp_psurge_{give,take}_timebase static
-Date: Wed,  8 Nov 2023 13:58:40 +0100
-Message-Id: <20231108125843.3806765-20-arnd@kernel.org>
+Subject: [PATCH 20/22] usb: fsl-mph-dr-of: mark fsl_usb2_mpc5121_init() static
+Date: Wed,  8 Nov 2023 13:58:41 +0100
+Message-Id: <20231108125843.3806765-21-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20231108125843.3806765-1-arnd@kernel.org>
 References: <20231108125843.3806765-1-arnd@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231108_050345_373979_5506BE0C 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20231108_050357_071339_851D140C 
+X-CRM114-Status: GOOD (  15.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,43 +140,29 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-These functions are only called locally and should be static like the
-other corresponding functions are:
+This function is only called locally and should always have been static:
 
-arch/powerpc/platforms/powermac/smp.c:416:13: error: no previous prototype for 'smp_psurge_take_timebase' [-Werror=missing-prototypes]
-  416 | void __init smp_psurge_take_timebase(void)
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~
-arch/powerpc/platforms/powermac/smp.c:432:13: error: no previous prototype for 'smp_psurge_give_timebase' [-Werror=missing-prototypes]
-  432 | void __init smp_psurge_give_timebase(void)
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+drivers/usb/host/fsl-mph-dr-of.c:291:5: error: no previous prototype for 'fsl_usb2_mpc5121_init' [-Werror=missing-prototypes]
 
+Fixes: 230f7ede6c2f ("USB: add USB EHCI support for MPC5121 SoC")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/powerpc/platforms/powermac/smp.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/usb/host/fsl-mph-dr-of.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/powerpc/platforms/powermac/smp.c b/arch/powerpc/platforms/powermac/smp.c
-index c83d1e14077e..15644be31990 100644
---- a/arch/powerpc/platforms/powermac/smp.c
-+++ b/arch/powerpc/platforms/powermac/smp.c
-@@ -413,7 +413,7 @@ static void __init smp_psurge_setup_cpu(int cpu_nr)
- 		printk(KERN_ERR "Couldn't get primary IPI interrupt");
- }
+diff --git a/drivers/usb/host/fsl-mph-dr-of.c b/drivers/usb/host/fsl-mph-dr-of.c
+index 8508d37a2aff..6cdc3d805c32 100644
+--- a/drivers/usb/host/fsl-mph-dr-of.c
++++ b/drivers/usb/host/fsl-mph-dr-of.c
+@@ -288,7 +288,7 @@ static void fsl_usb2_mph_dr_of_remove(struct platform_device *ofdev)
+ #define PHYCTRL_LSFE		(1 << 1)	/* Line State Filter Enable */
+ #define PHYCTRL_PXE		(1 << 0)	/* PHY oscillator enable */
  
--void __init smp_psurge_take_timebase(void)
-+static void __init smp_psurge_take_timebase(void)
+-int fsl_usb2_mpc5121_init(struct platform_device *pdev)
++static int fsl_usb2_mpc5121_init(struct platform_device *pdev)
  {
- 	if (psurge_type != PSURGE_DUAL)
- 		return;
-@@ -429,7 +429,7 @@ void __init smp_psurge_take_timebase(void)
- 	set_dec(tb_ticks_per_jiffy/2);
- }
- 
--void __init smp_psurge_give_timebase(void)
-+static void __init smp_psurge_give_timebase(void)
- {
- 	/* Nothing to do here */
- }
+ 	struct fsl_usb2_platform_data *pdata = dev_get_platdata(&pdev->dev);
+ 	struct clk *clk;
 -- 
 2.39.2
 
