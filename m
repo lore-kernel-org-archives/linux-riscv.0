@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE285C4167D
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Nov 2023 13:00:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 401EBC4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Nov 2023 13:01:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jFZ85KlD+zZAmcsXq0pbrjAvun3oMLSvvntAEhxOGlc=; b=KbrxZf+4lryPg2
-	2EDm6GJCVP4eBYez2d1bpZ10+aZHt5xgwa/+Yemu9jvWlWFt8HrE0mxKm3SDOCy2kfRWPqbBYHsym
-	BacpgrhPa4LBOJuq+4b4jHCh6Pa9HncbdqfWzcGorsEs8nuE49kJ94xPBihoAsLXkIPps1cCsW0TD
-	Y2neZBDygMxJUnpENq9XQcYZZ4slw2rN5iZdiePJpFKF34AhZK1tsl0zY3Ccq/gYmbJRExQZIGRT/
-	5E4crq92rijXKwf+HLdiw9xfGaqcermEtI35bs6BP9JrI7ZdcBHGjPLVg0GoQXeHuY+b0gzovRGE8
-	tHYngwFn4ATdzP26Fk2g==;
+	List-Owner; bh=ne4IEBi8gocq7GRHM5pf5tkz/uMf1+pjThnRPaMoPx0=; b=ZVOWWYkRS+tPdq
+	r3uSz5ahfm7RVWqekzxWBNVPrtQqH4nIzLl20C0HxheBsm5rMDorMjhfXZKZcwtYUlsUZpcncuvdl
+	DrLVL4hWc67SO5cY+0E6h62Q/sUHwDZBuGh3ECNXjIw/oqeU/1rBZZ6/l4HF//9lWFXuzbPpZmIBF
+	GvnX/mcEaVt8uxvoogWlr/vdgj4uB3dZRyTscNa3cfMqn80JjfBjV3EKFKRvohSk/u8U57f64wNNu
+	6xHPcyQkeaCGDWqoM/ejdmpnE2MklEPHr8hoUqig8irwugJa2fl2FyBKy3ugOAscAbqT/2aMl7htL
+	iPK5PA87xvoh68Q39ZCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0iAj-003pjV-15;
-	Wed, 08 Nov 2023 13:00:41 +0000
+	id 1r0iB2-003pwD-2Y;
+	Wed, 08 Nov 2023 13:01:00 +0000
 Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0iAd-003pes-2Z;
-	Wed, 08 Nov 2023 13:00:37 +0000
+	id 1r0iAt-003ppL-0c;
+	Wed, 08 Nov 2023 13:00:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 3F15ACE109D;
-	Wed,  8 Nov 2023 13:00:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE3C9C43395;
-	Wed,  8 Nov 2023 13:00:16 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 9D321CE10D2;
+	Wed,  8 Nov 2023 13:00:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C32BFC433C7;
+	Wed,  8 Nov 2023 13:00:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699448431;
-	bh=K9YdPzoARD4njnEo80jUrY+DZkb+0aAdqYzClA8UgAI=;
+	s=k20201202; t=1699448446;
+	bh=AsWQYHzG9sipb7sEr1JLntaPFi93f1pC9EyAKGQfMYU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HyUdTwUXtZOlnyvxdNKc+kj+jb0JvSjpSyNuNfinD/hOMX3R5j5WCRvrkFeKCIoaK
-	 dck1LhuXouzgxrjEZ+GfXmwACWuIHu7Z5T4tv5Ur3mBUern292mV3o4hHeM6goJmTl
-	 07hDeR7Iqhwa3/f+qzmGQajf1dFdpx/z/q8jYxJI4nnayQSqsNQMlgpL0fthML/+e1
-	 RUA1p/Ek88IwoPkFfFrEZT9/Y2MOyc8v/2srZE3JErq77d73XQLbdWL9p5SFFwRzqp
-	 V4Zk/JhktD/mAeNqOSIIMV3pGJDyvfJKmq7usGaEaG4ltRDerYT+4+zq3kRGWGhqoG
-	 rX6LOl910Dk3Q==
+	b=IVsQ8P2dntVCqOp290JiIjSeAiJc+VMO2pw8M5wXect2MBBRk+jOoldL7GU96ZMeA
+	 HuTE9Cemzwdgusy0jqMNAGrkZljxwDe/bga3g2m7k9eEuDPGq3KBsmaI6dmPkl/wlE
+	 2sJ8x5zpsds68NNoBAImql8aGu/sRESukQSJx2yQtofDYlD6qoDUcqJIsRbgMEAgD5
+	 pBWkZwSHNGyEjrYKkBLIDiDk/X/C6tnjuGAPAvyQxIP+Clu91AntgrZdhbNIFgmOBm
+	 NDqic6B3ehDAmy+JcPX7W+ZFcv2EJF1l6Qv/grGtIBAqxH+1Q7icIKEapV1+6GP4HA
+	 hAP9sw3MNsZDA==
 From: Arnd Bergmann <arnd@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	linux-kernel@vger.kernel.org,
@@ -112,16 +112,16 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	dri-devel@lists.freedesktop.org,
 	linux-bcachefs@vger.kernel.org,
 	linux-mtd@lists.infradead.org
-Subject: [PATCH 06/22] [RESEND] stackleak: add declarations for global functions
-Date: Wed,  8 Nov 2023 13:58:27 +0100
-Message-Id: <20231108125843.3806765-7-arnd@kernel.org>
+Subject: [PATCH 07/22] [RESEND] sched: fair: move unused stub functions to header
+Date: Wed,  8 Nov 2023 13:58:28 +0100
+Message-Id: <20231108125843.3806765-8-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20231108125843.3806765-1-arnd@kernel.org>
 References: <20231108125843.3806765-1-arnd@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231108_050036_205940_5080DF72 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20231108_050051_583306_8F6CC92E 
+X-CRM114-Status: GOOD (  17.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,45 +140,82 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-With -Wmissing-prototypes enabled, the stackleak code produces a couple of
-warnings that have no declarations because they are only called from assembler:
+These four functions have a normal definition for CONFIG_FAIR_GROUP_SCHED,
+and empty one that is only referenced when FAIR_GROUP_SCHED is disabled
+but CGROUP_SCHED is still enabled. If both are turned off, the functions
+are still defined but the misisng prototype causes a W=1 warning:
 
-stackleak.c:127:25: error: no previous prototype for 'stackleak_erase' [-Werror=missing-prototypes]
-stackleak.c:139:25: error: no previous prototype for 'stackleak_erase_on_task_stack' [-Werror=missing-prototypes]
-stackleak.c:151:25: error: no previous prototype for 'stackleak_erase_off_task_stack' [-Werror=missing-prototypes]
-stackleak.c:159:49: error: no previous prototype for 'stackleak_track_stack' [-Werror=missing-prototypes]
+kernel/sched/fair.c:12544:6: error: no previous prototype for 'free_fair_sched_group'
+kernel/sched/fair.c:12546:5: error: no previous prototype for 'alloc_fair_sched_group'
+kernel/sched/fair.c:12553:6: error: no previous prototype for 'online_fair_sched_group'
+kernel/sched/fair.c:12555:6: error: no previous prototype for 'unregister_fair_sched_group'
 
-Add declarations to the stackleak header to shut up the warnings.
+Move the alternatives into the header as static inline functions with
+the correct combination of #ifdef checks to avoid the warning without
+adding even more complexity.
 
+[A different patch with the same description got applied by accident
+ and was later reverted, but the original patch is still missing]
+
+Fixes: 7aa55f2a5902 ("sched/fair: Move unused stub functions to header")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- include/linux/stackleak.h | 6 ++++++
- 1 file changed, 6 insertions(+)
+A patch with the same commit log has
+---
+ kernel/sched/fair.c  | 13 -------------
+ kernel/sched/sched.h | 11 +++++++++++
+ 2 files changed, 11 insertions(+), 13 deletions(-)
 
-diff --git a/include/linux/stackleak.h b/include/linux/stackleak.h
-index c36e7a3b45e7..3be2cb564710 100644
---- a/include/linux/stackleak.h
-+++ b/include/linux/stackleak.h
-@@ -14,6 +14,7 @@
- 
- #ifdef CONFIG_GCC_PLUGIN_STACKLEAK
- #include <asm/stacktrace.h>
-+#include <linux/linkage.h>
- 
- /*
-  * The lowest address on tsk's stack which we can plausibly erase.
-@@ -76,6 +77,11 @@ static inline void stackleak_task_init(struct task_struct *t)
- # endif
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index 2048138ce54b..82b82fa1d81b 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -12927,19 +12927,6 @@ int sched_group_set_idle(struct task_group *tg, long idle)
+ 	return 0;
  }
  
-+asmlinkage void noinstr stackleak_erase(void);
-+asmlinkage void noinstr stackleak_erase_on_task_stack(void);
-+asmlinkage void noinstr stackleak_erase_off_task_stack(void);
-+void __no_caller_saved_registers noinstr stackleak_track_stack(void);
+-#else /* CONFIG_FAIR_GROUP_SCHED */
+-
+-void free_fair_sched_group(struct task_group *tg) { }
+-
+-int alloc_fair_sched_group(struct task_group *tg, struct task_group *parent)
+-{
+-	return 1;
+-}
+-
+-void online_fair_sched_group(struct task_group *tg) { }
+-
+-void unregister_fair_sched_group(struct task_group *tg) { }
+-
+ #endif /* CONFIG_FAIR_GROUP_SCHED */
+ 
+ 
+diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+index 2e5a95486a42..8f5df5250b8d 100644
+--- a/kernel/sched/sched.h
++++ b/kernel/sched/sched.h
+@@ -436,10 +436,21 @@ static inline int walk_tg_tree(tg_visitor down, tg_visitor up, void *data)
+ 
+ extern int tg_nop(struct task_group *tg, void *data);
+ 
++#ifdef CONFIG_FAIR_GROUP_SCHED
+ extern void free_fair_sched_group(struct task_group *tg);
+ extern int alloc_fair_sched_group(struct task_group *tg, struct task_group *parent);
+ extern void online_fair_sched_group(struct task_group *tg);
+ extern void unregister_fair_sched_group(struct task_group *tg);
++#else
++static inline void free_fair_sched_group(struct task_group *tg) { }
++static inline int alloc_fair_sched_group(struct task_group *tg, struct task_group *parent)
++{
++       return 1;
++}
++static inline void online_fair_sched_group(struct task_group *tg) { }
++static inline void unregister_fair_sched_group(struct task_group *tg) { }
++#endif
 +
- #else /* !CONFIG_GCC_PLUGIN_STACKLEAK */
- static inline void stackleak_task_init(struct task_struct *t) { }
- #endif
+ extern void init_tg_cfs_entry(struct task_group *tg, struct cfs_rq *cfs_rq,
+ 			struct sched_entity *se, int cpu,
+ 			struct sched_entity *parent);
 -- 
 2.39.2
 
