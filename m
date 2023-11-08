@@ -4,93 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E246C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Nov 2023 23:37:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53378C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Nov 2023 23:52:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=ePmrfXxGS5bbu45tUj9CPXSWuLR9ecsJwxKyrCyMFNE=; b=ufjbmPFB8GDGOST/ayu/M/mbSi
-	iZqg8V2StqusG1zvqDZtWKXlH4hHhOx75OnDjxlIzUTeOHONgKltXn+hJAiIs9TbMb6fqGl8MM+vY
-	dO1l8lKckCRuBeO43OIKufWd+xoRnrbxDjv1CFFqGLHCDzfLMw6SndrSYnxhMlYqp4ZUtEhsr7eFJ
-	nwpYY2rHFafaUQq0yK1nbmlHdwFaDcSU3T+6eMYCDW4jqekM6PdML/nik5k088H4jI8HTTUmDjH9g
-	48UdSAe9qSC9yE8Nx+NrY9eykm6DJ8pctdY0G7OaN/dOwtipFP5KUSNQfIm0z3FLd1D07+/hUlVSd
-	eCpzZKuQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0Lw8gdX/ZGu1gdlLdblYlmgL1lorxkwT+ug6DuAco6I=; b=JrQS2r7lDetTKr
+	kODo8qE6s3tKhbypJkhyGI/7LcpMOAztGiH8B3+cqXpWYe7kk69EUTm4oYW7yqa245xftpen8kJwC
+	+4fJ4pewcx1hVeTp20ghHi+ugRdKJCEUby2HbXmdtVABjg0coU5KLws4XWV75/Mu0F76IFc5HKRtA
+	wzG8wXRYifqS0X5SD2vGwa6NHS7CjP2X5SvjF+AI1Gvyw6REHlBb94vjL8SxQ9gxVpA9v0GWOSCIN
+	T+OCC6G0YPJFo6rd6gKwB6ZRnbjvnvx0G6nC3+7OP0t4Uy5kF0uTvSB5w+DWyqqkXaCAs+iIamhTl
+	xlrvKJKm0cHQa6fAX6Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0s70-004wSP-2r;
-	Wed, 08 Nov 2023 23:37:30 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1r0sLh-004xhp-0y;
+	Wed, 08 Nov 2023 23:52:41 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0s6x-004wQW-1g
+	id 1r0sLd-004xh9-1I
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 Nov 2023 23:37:28 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-da04776a869so337943276.0
-        for <linux-riscv@lists.infradead.org>; Wed, 08 Nov 2023 15:37:26 -0800 (PST)
+	Wed, 08 Nov 2023 23:52:38 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1cc131e52f1so10486995ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 08 Nov 2023 15:52:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1699486645; x=1700091445; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=oIcgmcP1EY6htEGo1pN6EVJRVE+qt/I8BKL1s/KEy5I=;
-        b=SSp1B4g9AdyzcufdLZJpOWUUYGpmPF3LMVGOVGG7p1xns+dwl632N+R4Hh/ouNCZT+
-         nzlxiySLZCtvDv/lEEeBNu8G/lUZWCEHP9wbwnZieJ8iOH/ys03aBsSU/TTrigy/Dg0Z
-         MbHCwebl1ikkvwkggUAYfhx8oyAGr8lqqRuATcqPu3DNn6+hvNmxanIgkSQ3Ik2ZemCr
-         iNoFeIZ3EMGnMCpgX3yKHKfZ6Xw7f39T7irsGZEIJv0YWclshzNYXXBEJVpXA2cjFKn6
-         APrL/0GN+aMTVT5jHkOliJ5kbA/oVo03Sh4mbpNHgH5h/y5lekL+8KWCLM213q3wD8QO
-         T0sA==
+        d=chromium.org; s=google; t=1699487555; x=1700092355; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=AvjSg1y4bT22KnIGIJJ0Cbw4BydLG7eim8o3gquiKz8=;
+        b=GfCtJpyVM82cdk83cfvZxxW7oP5lNJrbm9cOfSvkSwVKwbiBxTHKt3gSO6wH0eWyd1
+         lm8X+/Pw3aZDJXaaETlaQeBsmiMNFIBwP3qK0DY565rX8ulH5ImqfMIXgwP4ncNEmV/G
+         8gXk0A0JjaV7WZpeLvhFy58hLsDtYEKwqVD+I=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699486645; x=1700091445;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=oIcgmcP1EY6htEGo1pN6EVJRVE+qt/I8BKL1s/KEy5I=;
-        b=MtlRim53rjOnoz2j2bS9QnFkhuajqBAKqok+pF7/5xUx0TFz+X9VqJdQadEioWNuiL
-         o+1VZ2PAzvNBckPmcrbl919uB0y0Ibqq8lEaxMpF5olq8oojw2p4iHp/hL2u68B5BbVi
-         nQp8pdFWfG8msuUzbPOtEgtaRy9VU1yR+tMvziDVyJk8/iFptNktpbR1BoLhIjcWxOJz
-         w8ocCU3DickwdYyQiC4wp3Lc6SFptjf46xatL8co0F9V/0m1NAiRbPC5IFVfnMNiuri/
-         XhBSBmz0n6Zfc+ppdjX6AbQFAURzLRvIKUYZvHsKdptDrLJwuWcuLoLdIHbETo/xaknz
-         jr8w==
-X-Gm-Message-State: AOJu0Yz3mySlyH4/s4yxnFeuuIw8vtrnmJWDftWPh6Lnyq/6d0fXk/u/
-	//GFk+QJSmLRSYs3f7ycwBsQTnStQcclxg==
-X-Google-Smtp-Source: AGHT+IEQyf2yih5ALlCfgSEkVLSLt0Zq5IBGBmP/Cna+y8K3zSa/6bcCrG6olPCsXpdGmctjh3MSlNk2LvNOvw==
-X-Received: from laogai.c.googlers.com ([fda3:e722:ac3:cc00:2b:7d90:c0a8:2c9])
- (user=amoorthy job=sendgmr) by 2002:a05:6902:102:b0:da3:723b:b2a4 with SMTP
- id o2-20020a056902010200b00da3723bb2a4mr72222ybh.7.1699486645232; Wed, 08 Nov
- 2023 15:37:25 -0800 (PST)
-Date: Wed,  8 Nov 2023 23:37:19 +0000
-In-Reply-To: <CAF7b7mrGYuyjyEPAesYzZ6+KDuNAmvRxEonT7JC8NDPsSP+qDA@mail.gmail.com>
-Mime-Version: 1.0
-References: <CAF7b7mrGYuyjyEPAesYzZ6+KDuNAmvRxEonT7JC8NDPsSP+qDA@mail.gmail.com>
-X-Mailer: git-send-email 2.42.0.869.gea05f2083d-goog
-Message-ID: <20231108233723.3380042-1-amoorthy@google.com>
-Subject: Re: [PATCH 27/34] KVM: selftests: Introduce VM "shape" to allow tests
- to specify the VM type
-From: Anish Moorthy <amoorthy@google.com>
-To: amoorthy@google.com
-Cc: ackerleytng@google.com, akpm@linux-foundation.org, anup@brainfault.org, 
-	aou@eecs.berkeley.edu, brauner@kernel.org, chao.p.peng@linux.intel.com, 
-	chenhuacai@kernel.org, david@redhat.com, dmatlack@google.com, 
-	isaku.yamahata@gmail.com, isaku.yamahata@intel.com, jarkko@kernel.org, 
-	kirill.shutemov@linux.intel.com, kvm-riscv@lists.infradead.org, 
-	kvm@vger.kernel.org, kvmarm@lists.linux.dev, liam.merwick@oracle.com, 
-	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, linux-mm@kvack.org, 
-	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
-	mail@maciej.szmigiero.name, maz@kernel.org, mic@digikod.net, 
-	michael.roth@amd.com, mpe@ellerman.id.au, oliver.upton@linux.dev, 
-	palmer@dabbelt.com, paul.walmsley@sifive.com, pbonzini@redhat.com, 
-	qperret@google.com, seanjc@google.com, tabba@google.com, 
-	vannapurve@google.com, vbabka@suse.cz, viro@zeniv.linux.org.uk, 
-	wei.w.wang@intel.com, willy@infradead.org, xiaoyao.li@intel.com, 
-	yilun.xu@intel.com, yu.c.zhang@linux.intel.com
+        d=1e100.net; s=20230601; t=1699487555; x=1700092355;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AvjSg1y4bT22KnIGIJJ0Cbw4BydLG7eim8o3gquiKz8=;
+        b=IhUSbN4PXkFlpFZJTEidOmVq2v8ABbTejAr8C4hZYQGS3mN4xhpWXmmbYKx+FoL1cG
+         SD9W5rDPDCRjxiOJQWmHrxQyPdD+K7pD49JgilhYfsu69B4CXfCtaVEmButgLq1TCPja
+         MfFTm9buQxUPmacnSzLaN6XA/f5kvB03vlhExt7psTELMEcMCTHYHFJeU+tb996QCCs7
+         C8q9ZLuGsWuGNTH87Qj06DvLdirtBsg2kKIsrWcSN02iXyyw/NXbGE0/mDGRf1EhNNnK
+         /YxTya3u8cYLZJKwJG84swzsBcFYkdW3UA0oJ0Og57GIZYWRNF0MU6w+Ck5QaTSTWrnN
+         eXNw==
+X-Gm-Message-State: AOJu0YyLHSJTFy9PugEPBM0mmm/aBnVNblrYwkRncSagAnz9QOCRMLGm
+	h1VPJyt/TIn5bBsb4QU3GoQo19nqkrjCa7IAyPGp/w==
+X-Google-Smtp-Source: AGHT+IE56iyH+j6M2vVGHUa3z3ealRKT2+uoIcQR+3BIJD6IhmJ2vPyWIcKCRvZ0dai7YaSYbWg6zg==
+X-Received: by 2002:a17:903:4304:b0:1cc:3004:750c with SMTP id jz4-20020a170903430400b001cc3004750cmr7931071plb.20.1699487555307;
+        Wed, 08 Nov 2023 15:52:35 -0800 (PST)
+Received: from www.outflux.net (198-0-35-241-static.hfc.comcastbusiness.net. [198.0.35.241])
+        by smtp.gmail.com with ESMTPSA id y16-20020a17090264d000b001cc311ef152sm2267003pli.286.2023.11.08.15.52.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Nov 2023 15:52:34 -0800 (PST)
+Date: Wed, 8 Nov 2023 15:52:34 -0800
+From: Kees Cook <keescook@chromium.org>
+To: Song Shuai <songshuaishuai@tinylab.org>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	guoren@kernel.org, bjorn@rivosinc.com, jszhang@kernel.org,
+	conor.dooley@microchip.com, andy.chiu@sifive.com,
+	samitolvanen@google.com, coelacanthushex@gmail.com,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH] riscv: Support RANDOMIZE_KSTACK_OFFSET
+Message-ID: <202311081552.062D21EB@keescook>
+References: <20231101064423.1906122-1-songshuaishuai@tinylab.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20231101064423.1906122-1-songshuaishuai@tinylab.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231108_153727_555975_DC953E75 
-X-CRM114-Status: UNSURE (   8.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231108_155237_490410_F3DE240F 
+X-CRM114-Status: GOOD (  24.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,25 +87,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBOb3YgOCwgMjAyMyBhdCA5OjAw4oCvQU0gQW5pc2ggTW9vcnRoeSA8YW1vb3J0aHlA
-Z29vZ2xlLmNvbT4gd3JvdGU6Cj4KPiBUaGlzIGNvbW1pdCBicmVha3MgdGhlIGFybTY0IHNlbGZ0
-ZXN0cyBidWlsZCBidHc6IGxvb2tzIGxpa2UgYSBzaW1wbGUgb3ZlcnNpZ2h0PwoKWXVwLCBmaXgg
-aXMgYSBvbmUtbGluZXIuIFBvc3RlZCBiZWxvdy4KCmRpZmYgLS1naXQgYS90b29scy90ZXN0aW5n
-L3NlbGZ0ZXN0cy9rdm0vYWFyY2g2NC9wYWdlX2ZhdWx0X3Rlc3QuYyBiL3Rvb2xzL3Rlc3Rpbmcv
-c2VsZnRlc3RzL2t2bS9hYXJjaDY0L3BhZ2VfZmF1bHRfdGVzdC5jCmluZGV4IGViNDIxN2I3Yzc2
-OC4uMDhhNWNhNWJlZDU2IDEwMDY0NAotLS0gYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9rdm0v
-YWFyY2g2NC9wYWdlX2ZhdWx0X3Rlc3QuYworKysgYi90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9r
-dm0vYWFyY2g2NC9wYWdlX2ZhdWx0X3Rlc3QuYwpAQCAtNzA1LDcgKzcwNSw3IEBAIHN0YXRpYyB2
-b2lkIHJ1bl90ZXN0KGVudW0gdm1fZ3Vlc3RfbW9kZSBtb2RlLCB2b2lkICphcmcpCiAKIAlwcmlu
-dF90ZXN0X2Jhbm5lcihtb2RlLCBwKTsKIAotCXZtID0gX19fX3ZtX2NyZWF0ZShtb2RlKTsKKwl2
-bSA9IF9fX192bV9jcmVhdGUoVk1fU0hBUEUobW9kZSkpOwogCXNldHVwX21lbXNsb3RzKHZtLCBw
-KTsKIAlrdm1fdm1fZWxmX2xvYWQodm0sIHByb2dyYW1faW52b2NhdGlvbl9uYW1lKTsKIAlzZXR1
-cF91Y2FsbCh2bSk7CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+On Wed, Nov 01, 2023 at 02:44:23PM +0800, Song Shuai wrote:
+> Inspired from arm64's implement -- commit 70918779aec9
+> ("arm64: entry: Enable random_kstack_offset support")
+> 
+> Add support of kernel stack offset randomization while handling syscall,
+> the offset is defaultly limited by KSTACK_OFFSET_MAX() (i.e. 10 bits).
+> 
+> In order to avoid trigger stack canaries (due to __builtin_alloca) and
+> slowing down the entry path, use __no_stack_protector attribute to
+> disable stack protector for do_trap_ecall_u() at the function level.
+> 
+> Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
+
+I can't speak to the correctness of the entropy level, but the usage of
+the helpers looks correct to me.
+
+Reviewed-by: Kees Cook <keescook@chromium.org>
+
+-Kees
+
+> ---
+> Testing with randomize_kstack_offset=y cmdline, lkdtm/stack-entropy.sh
+> showed appropriate stack offset instead of zero.
+> ---
+>  arch/riscv/Kconfig        |  1 +
+>  arch/riscv/kernel/traps.c | 18 +++++++++++++++++-
+>  2 files changed, 18 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index d607ab0f7c6d..0e843de33f0c 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -100,6 +100,7 @@ config RISCV
+>  	select HAVE_ARCH_KGDB_QXFER_PKT
+>  	select HAVE_ARCH_MMAP_RND_BITS if MMU
+>  	select HAVE_ARCH_MMAP_RND_COMPAT_BITS if COMPAT
+> +	select HAVE_ARCH_RANDOMIZE_KSTACK_OFFSET
+>  	select HAVE_ARCH_SECCOMP_FILTER
+>  	select HAVE_ARCH_THREAD_STRUCT_WHITELIST
+>  	select HAVE_ARCH_TRACEHOOK
+> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+> index 19807c4d3805..3f869b2d47c3 100644
+> --- a/arch/riscv/kernel/traps.c
+> +++ b/arch/riscv/kernel/traps.c
+> @@ -6,6 +6,7 @@
+>  #include <linux/cpu.h>
+>  #include <linux/kernel.h>
+>  #include <linux/init.h>
+> +#include <linux/randomize_kstack.h>
+>  #include <linux/sched.h>
+>  #include <linux/sched/debug.h>
+>  #include <linux/sched/signal.h>
+> @@ -296,9 +297,11 @@ asmlinkage __visible __trap_section void do_trap_break(struct pt_regs *regs)
+>  	}
+>  }
+>  
+> -asmlinkage __visible __trap_section void do_trap_ecall_u(struct pt_regs *regs)
+> +asmlinkage __visible __trap_section  __no_stack_protector
+> +void do_trap_ecall_u(struct pt_regs *regs)
+>  {
+>  	if (user_mode(regs)) {
+> +
+>  		long syscall = regs->a7;
+>  
+>  		regs->epc += 4;
+> @@ -308,10 +311,23 @@ asmlinkage __visible __trap_section void do_trap_ecall_u(struct pt_regs *regs)
+>  
+>  		syscall = syscall_enter_from_user_mode(regs, syscall);
+>  
+> +		add_random_kstack_offset();
+> +
+>  		if (syscall >= 0 && syscall < NR_syscalls)
+>  			syscall_handler(regs, syscall);
+>  		else if (syscall != -1)
+>  			regs->a0 = -ENOSYS;
+> +		/*
+> +		 * Ultimately, this value will get limited by KSTACK_OFFSET_MAX(),
+> +		 * so the maximum stack offset is 1k bytes (10 bits).
+> +		 *
+> +		 * The actual entropy will be further reduced by the compiler when
+> +		 * applying stack alignment constraints: 16-byte (i.e. 4-bit) aligned
+> +		 * for RV32I or RV64I.
+> +		 *
+> +		 * The resulting 6 bits of entropy is seen in SP[9:4].
+> +		 */
+> +		choose_random_kstack_offset(get_random_u16());
+>  
+>  		syscall_exit_to_user_mode(regs);
+>  	} else {
+> -- 
+> 2.20.1
+> 
+
+-- 
+Kees Cook
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
