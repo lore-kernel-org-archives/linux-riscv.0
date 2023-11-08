@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 398BBC41535
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Nov 2023 13:00:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE285C4167D
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Nov 2023 13:00:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=59CJV30bHiTHs1Sw40Z8cB7UUkIGSXCF1TKY386pWSQ=; b=J6f6emM5SnnCai
-	tQYI1GNjWFZOC+Qg9dXK5NMvVbndBDCFagmwE4J/Lu0i24jFG6A/r1gZkDzB/cR09lDJekWFb26v/
-	kpE3rwyE1nlfIyd5Ph2/qLB1YuxfXVJj5Wzo6UF/OglwhuW+3SUqj87Uxvc7EUwG/cwKJTV4GTboq
-	gbXgnsW5UlHqFRGXZjEYIPbdFIq364MvXYA7Z7K5RNRmS+/t3pbLrAojnjunqAqPu2SBm5lPeJt0D
-	FHsGUrDP07PnAVKPH76i4G5fJKI1vmS5t5ClAwJDbWq96pXY8z3HGYgdIBvD3Zu62/2eDz+fIcE/X
-	jNVdrCZNZb9HjIma6Ojg==;
+	List-Owner; bh=jFZ85KlD+zZAmcsXq0pbrjAvun3oMLSvvntAEhxOGlc=; b=KbrxZf+4lryPg2
+	2EDm6GJCVP4eBYez2d1bpZ10+aZHt5xgwa/+Yemu9jvWlWFt8HrE0mxKm3SDOCy2kfRWPqbBYHsym
+	BacpgrhPa4LBOJuq+4b4jHCh6Pa9HncbdqfWzcGorsEs8nuE49kJ94xPBihoAsLXkIPps1cCsW0TD
+	Y2neZBDygMxJUnpENq9XQcYZZ4slw2rN5iZdiePJpFKF34AhZK1tsl0zY3Ccq/gYmbJRExQZIGRT/
+	5E4crq92rijXKwf+HLdiw9xfGaqcermEtI35bs6BP9JrI7ZdcBHGjPLVg0GoQXeHuY+b0gzovRGE8
+	tHYngwFn4ATdzP26Fk2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0iAR-003pXX-1p;
-	Wed, 08 Nov 2023 13:00:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1r0iAj-003pjV-15;
+	Wed, 08 Nov 2023 13:00:41 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0iAL-003pTF-0O;
-	Wed, 08 Nov 2023 13:00:19 +0000
+	id 1r0iAd-003pes-2Z;
+	Wed, 08 Nov 2023 13:00:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 782B661594;
+	by sin.source.kernel.org (Postfix) with ESMTP id 3F15ACE109D;
+	Wed,  8 Nov 2023 13:00:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE3C9C43395;
 	Wed,  8 Nov 2023 13:00:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76C0EC433AD;
-	Wed,  8 Nov 2023 13:00:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699448416;
-	bh=ZBKce+BclKJuPvfrGVaMlCG97KikRMQHFUuD4JaMpbQ=;
+	s=k20201202; t=1699448431;
+	bh=K9YdPzoARD4njnEo80jUrY+DZkb+0aAdqYzClA8UgAI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=B+f+/ny3qeJrR82O1C3PdnsXhEckmoDYhsV1vM5jFM7YlOprDL7q1wVovHZzO0od3
-	 499YY5TVYKzHq9eBMv3aYUirkmP6OZPe1fJ2h/Mg+S2sNhq4zXAR2Gwx7MoYvCVASU
-	 /bLoMQIPrglEOLJeGr4JPh3PDHW2NWOAViM8Pb8hdageFlq4VTahBUzddj3pHyTr52
-	 iGfe3Ul3olMGEGMt0WgZTqlKADqJR5tv399+1fcxttnnTSaKPF7rdZ2LT+sZV1AiC9
-	 bLfJaYESDDX5QTyMltr33GK7z00KWyXS8Ric8qjmd34KzH2arXpPmz9opQe/7smFnY
-	 iNa78T2aQ5d2g==
+	b=HyUdTwUXtZOlnyvxdNKc+kj+jb0JvSjpSyNuNfinD/hOMX3R5j5WCRvrkFeKCIoaK
+	 dck1LhuXouzgxrjEZ+GfXmwACWuIHu7Z5T4tv5Ur3mBUern292mV3o4hHeM6goJmTl
+	 07hDeR7Iqhwa3/f+qzmGQajf1dFdpx/z/q8jYxJI4nnayQSqsNQMlgpL0fthML/+e1
+	 RUA1p/Ek88IwoPkFfFrEZT9/Y2MOyc8v/2srZE3JErq77d73XQLbdWL9p5SFFwRzqp
+	 V4Zk/JhktD/mAeNqOSIIMV3pGJDyvfJKmq7usGaEaG4ltRDerYT+4+zq3kRGWGhqoG
+	 rX6LOl910Dk3Q==
 From: Arnd Bergmann <arnd@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	linux-kernel@vger.kernel.org,
@@ -112,16 +112,16 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	dri-devel@lists.freedesktop.org,
 	linux-bcachefs@vger.kernel.org,
 	linux-mtd@lists.infradead.org
-Subject: [PATCH 05/22] [RESEND] parport: gsc: mark init function static
-Date: Wed,  8 Nov 2023 13:58:26 +0100
-Message-Id: <20231108125843.3806765-6-arnd@kernel.org>
+Subject: [PATCH 06/22] [RESEND] stackleak: add declarations for global functions
+Date: Wed,  8 Nov 2023 13:58:27 +0100
+Message-Id: <20231108125843.3806765-7-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20231108125843.3806765-1-arnd@kernel.org>
 References: <20231108125843.3806765-1-arnd@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231108_050017_253805_C4DE94C9 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20231108_050036_205940_5080DF72 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,30 +140,45 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-This is only used locally, so mark it static to avoid a warning:
+With -Wmissing-prototypes enabled, the stackleak code produces a couple of
+warnings that have no declarations because they are only called from assembler:
 
-drivers/parport/parport_gsc.c:395:5: error: no previous prototype for 'parport_gsc_init' [-Werror=missing-prototypes]
+stackleak.c:127:25: error: no previous prototype for 'stackleak_erase' [-Werror=missing-prototypes]
+stackleak.c:139:25: error: no previous prototype for 'stackleak_erase_on_task_stack' [-Werror=missing-prototypes]
+stackleak.c:151:25: error: no previous prototype for 'stackleak_erase_off_task_stack' [-Werror=missing-prototypes]
+stackleak.c:159:49: error: no previous prototype for 'stackleak_track_stack' [-Werror=missing-prototypes]
 
-Acked-by: Helge Deller <deller@gmx.de>
-Acked-by: Sudip Mukherjee <sudipm.mukherjee@gmail.com>
+Add declarations to the stackleak header to shut up the warnings.
+
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- drivers/parport/parport_gsc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ include/linux/stackleak.h | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/parport/parport_gsc.c b/drivers/parport/parport_gsc.c
-index 5e4475254bd0..c7e18382dc01 100644
---- a/drivers/parport/parport_gsc.c
-+++ b/drivers/parport/parport_gsc.c
-@@ -392,7 +392,7 @@ static struct parisc_driver parport_driver __refdata = {
- 	.remove		= __exit_p(parport_remove_chip),
- };
+diff --git a/include/linux/stackleak.h b/include/linux/stackleak.h
+index c36e7a3b45e7..3be2cb564710 100644
+--- a/include/linux/stackleak.h
++++ b/include/linux/stackleak.h
+@@ -14,6 +14,7 @@
  
--int parport_gsc_init(void)
-+static int parport_gsc_init(void)
- {
- 	return register_parisc_driver(&parport_driver);
+ #ifdef CONFIG_GCC_PLUGIN_STACKLEAK
+ #include <asm/stacktrace.h>
++#include <linux/linkage.h>
+ 
+ /*
+  * The lowest address on tsk's stack which we can plausibly erase.
+@@ -76,6 +77,11 @@ static inline void stackleak_task_init(struct task_struct *t)
+ # endif
  }
+ 
++asmlinkage void noinstr stackleak_erase(void);
++asmlinkage void noinstr stackleak_erase_on_task_stack(void);
++asmlinkage void noinstr stackleak_erase_off_task_stack(void);
++void __no_caller_saved_registers noinstr stackleak_track_stack(void);
++
+ #else /* !CONFIG_GCC_PLUGIN_STACKLEAK */
+ static inline void stackleak_task_init(struct task_struct *t) { }
+ #endif
 -- 
 2.39.2
 
