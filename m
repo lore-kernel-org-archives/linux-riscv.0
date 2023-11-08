@@ -4,83 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEEAAC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Nov 2023 08:02:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01142C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Nov 2023 08:19:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:Cc:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G2OHyX2o8gA3vd7I0EbUfKApSTOwzFrgyvUjdc4Q6Ms=; b=tGXxGQ/LfWTFYF
-	Q2bTzVSnAD9QMWkLXmvU5q0KNFLJ3e99uob8kCwsvOIlu2l6yhGTcksd03/Ey/AMlis/tWuWzMJ+K
-	fI/bGiKbGTVsuuj9WxyWp5oblMPPm1gtew0dyGNzwtQpHEIAa8BPySw4JJ5DctB2bgIxO3j7/k4vW
-	X2cIBIfTFLdtB2+tDMrekrH9tkqyrKMV9VuDq8MEq+pjGNwCkCI1XwqIa9uBO9ftsAqGiWhWZtN6A
-	s2J4v4BmjB4yq++Rfwj9x6ncmQOl7/Tpq3YEr86BwrYOxlBkmwyXVcJvYuDFIfcnhwuFsO332NzHV
-	wJCRsou9K3wxyH1nxpew==;
+	List-Owner; bh=SjzV/QN61eYb52XRJfdi0AxeNZrNH1K8NhM1p3cuwFU=; b=Xwb/JQ54+t5W0j
+	5QtbHqo7yAr/2bu/yRl9AxqUAKsgGfaSwiatvzCr9V7QL95inEVZTCzMC7w/VOo7WOpX3QJPSTPnd
+	4iAv6p673c/5fayze66cEhNeWCR7mcCBCVYbgtrxzOl6rgk7AcEWB/DWqhlCDRrJsvr/1g+tjokxB
+	O36RGNyT0LAagI854hIrNpKkTyAPrvY85x941E0vn5M0hG3Kz4mvUtCkoznW37o5h22vmyPm8WmWJ
+	Jjp5ptH5usdpSY5dyiYZksVLPs1z9GDLUZ8GpHWSKI2mHrVDxarr29x5N5yvNv3zrB5nJ6V5gFuKH
+	hf42TERoGaQsrPOn6eow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0dVc-003ERe-1S;
-	Wed, 08 Nov 2023 08:01:56 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1r0dm5-003GZT-0B;
+	Wed, 08 Nov 2023 08:18:57 +0000
+Received: from mgamail.intel.com ([192.55.52.88])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0dVY-003EQE-0j
-	for linux-riscv@lists.infradead.org;
-	Wed, 08 Nov 2023 08:01:54 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4083740f92dso48015745e9.3
-        for <linux-riscv@lists.infradead.org>; Wed, 08 Nov 2023 00:01:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1699430511; x=1700035311; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xUvzkpfZJslkqpYiEl2gbMDcHOpTegWwJJ2kuhRtB18=;
-        b=CBsc8szrE+AgSPpTYGjPT76EpBDI6bOQ8n38MQPXqwuDBrh6TxwfBtbp0IKNn8+fR0
-         AcEaOY7hCY8Xwj7R8hZC/fgCwup1CY5O9excGaMzfVd4/gYr7mFqPcXbKdZgm7gOYsTx
-         6IDCX7QNNJhKUCneURrqg6svlaaBDN4AbI4TSEHHPAieiVLc+oE9jCpoEXZxq7fQBBmk
-         4kzDG4awmBOqdE1TYiaCricNMV24+MUJi0VveX8jaHDy8gs6j0JS78mqmxDz+6DnnvyT
-         z/Jq6gh3Lnu0EnMGAr6n8+J6UO4XnSsfaeOL86EL/HYaFSwfKGB/yM0+l3hZyy193/JZ
-         LNxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699430511; x=1700035311;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xUvzkpfZJslkqpYiEl2gbMDcHOpTegWwJJ2kuhRtB18=;
-        b=L3Nmd8dBrVlmO2viy0B6sQ1pN4RYDiQPeZKoWNR4411EXbBKXRUb8md6LLS+zebGSa
-         RT6gssWGJ9HCLyQITosgjHzTHwX5zFUOztu/F1l0TeyMlngq07SZTtYEKvltPRYfA805
-         DYVqO3T0c/pH+ZnpstiHodfgYbi8ySvJE+BbNY5fqc8GKvSbIR3UYZJrOLJJ6wNlOgUu
-         ukBo6HjpUOoQI0FRB7hu4rY2X7+liCci/rObWTs7HEm24y0GfVON7nEMtY2vjEr+NCbt
-         7NgC7AkYW3Q0+OBL0GJWVDrHgaN62wIahX0KpmyAkX8QIg8ZoCo9D9wrtsTw+3c30Qyz
-         zVqw==
-X-Gm-Message-State: AOJu0YxpyCKeSXJb6AfcXp/kqvWUQfjNR2IdQYndUbnsOTWdstsJiqHL
-	VMak2+1p9YSm0oJ0G3hySxV4Db3jgPJSKdWsQzw=
-X-Google-Smtp-Source: AGHT+IH2dGhcK2G/D5OBlYtTn1fjQvYZbS0LB5a8gEupyNYYUH9bxRLuspT7rFEherKSYR5gqKTojA==
-X-Received: by 2002:a05:600c:4e87:b0:405:82c0:d9d9 with SMTP id f7-20020a05600c4e8700b0040582c0d9d9mr1032390wmq.41.1699430510733;
-        Wed, 08 Nov 2023 00:01:50 -0800 (PST)
-Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id fc13-20020a05600c524d00b004068de50c64sm18545572wmb.46.2023.11.08.00.01.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Nov 2023 00:01:50 -0800 (PST)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Mike Rapoport <rppt@kernel.org>,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH RESEND v2 2/2] riscv: Fix set_memory_XX() and set_direct_map_XX() by splitting huge linear mappings
-Date: Wed,  8 Nov 2023 08:59:30 +0100
-Message-Id: <20231108075930.7157-3-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20231108075930.7157-1-alexghiti@rivosinc.com>
-References: <20231108075930.7157-1-alexghiti@rivosinc.com>
+	id 1r0dm0-003GXA-2M;
+	Wed, 08 Nov 2023 08:18:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1699431532; x=1730967532;
+  h=message-id:date:mime-version:cc:subject:to:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=o4b+vqtKY9OOVsB1rEVpRTkAptYNaJoA44xLfvE+DI0=;
+  b=Quu8QugOE4Cv9TYmdnDyRrA8nVedqC3uIIXwW6uwAZIj/wmTXV6KP8lu
+   z0j//AUxn8eIVW5qlfxODVzTtXrXqYwBdPcTpuXaipAT2Wov07Cjjt/b4
+   AEuRQyEmiyPey8PZSObJ+OGQRSZGXeAUgExRWivGeWxTSrMikKc8J5D17
+   ohziUPO0G6Zf561DE6Dbc2JC9Rd3Quie+7SMqXLgDedfJox8yE6MH17pb
+   vmPQ0UCIgqvD5uZ9B1FaALg/Yipu09YKZAh6KHtzlSopsx+irKfjIVMTB
+   sAWlRBr+v5YQt9N+bidNxLtZ5ehFrRCAeb9dnyNlFwHwggx7g+RifTHco
+   Q==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10887"; a="420823093"
+X-IronPort-AV: E=Sophos;i="6.03,285,1694761200"; 
+   d="scan'208";a="420823093"
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Nov 2023 00:18:45 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10887"; a="828883803"
+X-IronPort-AV: E=Sophos;i="6.03,285,1694761200"; 
+   d="scan'208";a="828883803"
+Received: from blu2-mobl.ccr.corp.intel.com (HELO [10.254.215.63]) ([10.254.215.63])
+  by fmsmga008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Nov 2023 00:18:32 -0800
+Message-ID: <f7e69801-e651-471d-9768-43ddf1702f91@linux.intel.com>
+Date: Wed, 8 Nov 2023 16:18:30 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Cc: baolu.lu@linux.intel.com, Zhenhua Huang <quic_zhenhuah@quicinc.com>
+Subject: Re: [PATCH RFC 17/17] iommu: Mark dev_iommu_priv_set() with a lockdep
+Content-Language: en-US
+To: Jason Gunthorpe <jgg@nvidia.com>, acpica-devel@lists.linuxfoundation.org,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
+ asahi@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
+ Dexuan Cui <decui@microsoft.com>, devicetree@vger.kernel.org,
+ David Woodhouse <dwmw2@infradead.org>, Frank Rowand
+ <frowand.list@gmail.com>, Hanjun Guo <guohanjun@huawei.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Christoph Hellwig <hch@lst.de>,
+ iommu@lists.linux.dev, Jean-Philippe Brucker <jean-philippe@linaro.org>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
+ "K. Y. Srinivasan" <kys@microsoft.com>, Len Brown <lenb@kernel.org>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-snps-arc@lists.infradead.org,
+ linux-tegra@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Hector Martin
+ <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Robert Moore <robert.moore@intel.com>, Rob Herring <robh+dt@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Krishna Reddy <vdumpa@nvidia.com>, Vineet Gupta <vgupta@kernel.org>,
+ virtualization@lists.linux-foundation.org, Wei Liu <wei.liu@kernel.org>,
+ Will Deacon <will@kernel.org>
+References: <17-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com>
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <17-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231108_000152_372327_53C83A2D 
-X-CRM114-Status: GOOD (  21.79  )
+X-CRM114-CacheID: sfid-20231108_001852_786760_485263C0 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,446 +101,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When STRICT_KERNEL_RWX is set, any change of permissions on any kernel
-mapping (vmalloc/modules/kernel text...etc) should be applied on its
-linear mapping alias. The problem is that the riscv kernel uses huge
-mappings for the linear mapping and walk_page_range_novma() does not
-split those huge mappings.
+On 2023/11/4 0:45, Jason Gunthorpe wrote:
+> A perfect driver would only call dev_iommu_priv_set() from its probe
+> callback. We've made it functionally correct to call it from the of_xlate
+> by adding a lock around that call.
+> 
+> lockdep assert that iommu_probe_device_lock is held to discourage misuse.
+> 
+> Exclude PPC kernels with CONFIG_FSL_PAMU turned on because FSL_PAMU uses a
+> global static for its priv and abuses priv for its domain.
+> 
+> Remove the pointless stores of NULL, all these are on paths where the core
+> code will free dev->iommu after the op returns.
+> 
+> Signed-off-by: Jason Gunthorpe<jgg@nvidia.com>
+> ---
+>   drivers/iommu/amd/iommu.c                   | 2 --
+>   drivers/iommu/apple-dart.c                  | 1 -
+>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 1 -
+>   drivers/iommu/arm/arm-smmu/arm-smmu.c       | 1 -
+>   drivers/iommu/intel/iommu.c                 | 2 --
+>   drivers/iommu/iommu.c                       | 9 +++++++++
+>   drivers/iommu/omap-iommu.c                  | 1 -
+>   include/linux/iommu.h                       | 5 +----
+>   8 files changed, 10 insertions(+), 12 deletions(-)
 
-So this patchset implements such split in order to apply fine-grained
-permissions on the linear mapping.
+Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
 
-Below is the difference before and after (the first PUD mapping is split
-into PTE/PMD mappings):
-
-Before:
-
----[ Linear mapping ]---
-0xffffaf8000080000-0xffffaf8000200000    0x0000000080080000      1536K PTE     D A G . . W R V
-0xffffaf8000200000-0xffffaf8077c00000    0x0000000080200000      1914M PMD     D A G . . W R V
-0xffffaf8077c00000-0xffffaf8078800000    0x00000000f7c00000        12M PMD     D A G . . . R V
-0xffffaf8078800000-0xffffaf8078c00000    0x00000000f8800000         4M PMD     D A G . . W R V
-0xffffaf8078c00000-0xffffaf8079200000    0x00000000f8c00000         6M PMD     D A G . . . R V
-0xffffaf8079200000-0xffffaf807e600000    0x00000000f9200000        84M PMD     D A G . . W R V
-0xffffaf807e600000-0xffffaf807e716000    0x00000000fe600000      1112K PTE     D A G . . W R V
-0xffffaf807e717000-0xffffaf807e71a000    0x00000000fe717000        12K PTE     D A G . . W R V
-0xffffaf807e71d000-0xffffaf807e71e000    0x00000000fe71d000         4K PTE     D A G . . W R V
-0xffffaf807e722000-0xffffaf807e800000    0x00000000fe722000       888K PTE     D A G . . W R V
-0xffffaf807e800000-0xffffaf807fe00000    0x00000000fe800000        22M PMD     D A G . . W R V
-0xffffaf807fe00000-0xffffaf807ff54000    0x00000000ffe00000      1360K PTE     D A G . . W R V
-0xffffaf807ff55000-0xffffaf8080000000    0x00000000fff55000       684K PTE     D A G . . W R V
-0xffffaf8080000000-0xffffaf8400000000    0x0000000100000000        14G PUD     D A G . . W R V
-
-After:
-
----[ Linear mapping ]---
-0xffffaf8000080000-0xffffaf8000200000    0x0000000080080000      1536K PTE     D A G . . W R V
-0xffffaf8000200000-0xffffaf8077c00000    0x0000000080200000      1914M PMD     D A G . . W R V
-0xffffaf8077c00000-0xffffaf8078800000    0x00000000f7c00000        12M PMD     D A G . . . R V
-0xffffaf8078800000-0xffffaf8078a00000    0x00000000f8800000         2M PMD     D A G . . W R V
-0xffffaf8078a00000-0xffffaf8078c00000    0x00000000f8a00000         2M PTE     D A G . . W R V
-0xffffaf8078c00000-0xffffaf8079200000    0x00000000f8c00000         6M PMD     D A G . . . R V
-0xffffaf8079200000-0xffffaf807e600000    0x00000000f9200000        84M PMD     D A G . . W R V
-0xffffaf807e600000-0xffffaf807e716000    0x00000000fe600000      1112K PTE     D A G . . W R V
-0xffffaf807e717000-0xffffaf807e71a000    0x00000000fe717000        12K PTE     D A G . . W R V
-0xffffaf807e71d000-0xffffaf807e71e000    0x00000000fe71d000         4K PTE     D A G . . W R V
-0xffffaf807e722000-0xffffaf807e800000    0x00000000fe722000       888K PTE     D A G . . W R V
-0xffffaf807e800000-0xffffaf807fe00000    0x00000000fe800000        22M PMD     D A G . . W R V
-0xffffaf807fe00000-0xffffaf807ff54000    0x00000000ffe00000      1360K PTE     D A G . . W R V
-0xffffaf807ff55000-0xffffaf8080000000    0x00000000fff55000       684K PTE     D A G . . W R V
-0xffffaf8080000000-0xffffaf8080800000    0x0000000100000000         8M PMD     D A G . . W R V
-0xffffaf8080800000-0xffffaf8080af6000    0x0000000100800000      3032K PTE     D A G . . W R V
-0xffffaf8080af6000-0xffffaf8080af8000    0x0000000100af6000         8K PTE     D A G . X . R V
-0xffffaf8080af8000-0xffffaf8080c00000    0x0000000100af8000      1056K PTE     D A G . . W R V
-0xffffaf8080c00000-0xffffaf8081a00000    0x0000000100c00000        14M PMD     D A G . . W R V
-0xffffaf8081a00000-0xffffaf8081a40000    0x0000000101a00000       256K PTE     D A G . . W R V
-0xffffaf8081a40000-0xffffaf8081a44000    0x0000000101a40000        16K PTE     D A G . X . R V
-0xffffaf8081a44000-0xffffaf8081a52000    0x0000000101a44000        56K PTE     D A G . . W R V
-0xffffaf8081a52000-0xffffaf8081a54000    0x0000000101a52000         8K PTE     D A G . X . R V
-...
-0xffffaf809e800000-0xffffaf80c0000000    0x000000011e800000       536M PMD     D A G . . W R V
-0xffffaf80c0000000-0xffffaf8400000000    0x0000000140000000        13G PUD     D A G . . W R V
-
-Note that this also fixes memfd_secret() syscall which uses
-set_direct_map_invalid_noflush() and set_direct_map_default_noflush() to
-remove the pages from the linear mapping. Below is the kernel page table
-while a memfd_secret() syscall is running, you can see all the !valid
-page table entries in the linear mapping:
-
-...
-0xffffaf8082240000-0xffffaf8082241000    0x0000000102240000         4K PTE     D A G . . W R .
-0xffffaf8082241000-0xffffaf8082250000    0x0000000102241000        60K PTE     D A G . . W R V
-0xffffaf8082250000-0xffffaf8082252000    0x0000000102250000         8K PTE     D A G . . W R .
-0xffffaf8082252000-0xffffaf8082256000    0x0000000102252000        16K PTE     D A G . . W R V
-0xffffaf8082256000-0xffffaf8082257000    0x0000000102256000         4K PTE     D A G . . W R .
-0xffffaf8082257000-0xffffaf8082258000    0x0000000102257000         4K PTE     D A G . . W R V
-0xffffaf8082258000-0xffffaf8082259000    0x0000000102258000         4K PTE     D A G . . W R .
-0xffffaf8082259000-0xffffaf808225a000    0x0000000102259000         4K PTE     D A G . . W R V
-0xffffaf808225a000-0xffffaf808225c000    0x000000010225a000         8K PTE     D A G . . W R .
-0xffffaf808225c000-0xffffaf8082266000    0x000000010225c000        40K PTE     D A G . . W R V
-0xffffaf8082266000-0xffffaf8082268000    0x0000000102266000         8K PTE     D A G . . W R .
-0xffffaf8082268000-0xffffaf8082284000    0x0000000102268000       112K PTE     D A G . . W R V
-0xffffaf8082284000-0xffffaf8082288000    0x0000000102284000        16K PTE     D A G . . W R .
-0xffffaf8082288000-0xffffaf808229c000    0x0000000102288000        80K PTE     D A G . . W R V
-0xffffaf808229c000-0xffffaf80822a0000    0x000000010229c000        16K PTE     D A G . . W R .
-0xffffaf80822a0000-0xffffaf80822a5000    0x00000001022a0000        20K PTE     D A G . . W R V
-0xffffaf80822a5000-0xffffaf80822a6000    0x00000001022a5000         4K PTE     D A G . . . R V
-0xffffaf80822a6000-0xffffaf80822ab000    0x00000001022a6000        20K PTE     D A G . . W R V
-...
-
-And when the memfd_secret() fd is released, the linear mapping is
-correctly reset:
-
-...
-0xffffaf8082240000-0xffffaf80822a5000    0x0000000102240000       404K PTE     D A G . . W R V
-0xffffaf80822a5000-0xffffaf80822a6000    0x00000001022a5000         4K PTE     D A G . . . R V
-0xffffaf80822a6000-0xffffaf80822af000    0x00000001022a6000        36K PTE     D A G . . W R V
-...
-
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/riscv/mm/pageattr.c | 270 +++++++++++++++++++++++++++++++++------
- 1 file changed, 230 insertions(+), 40 deletions(-)
-
-diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-index 161d0b34c2cb..fc5fc4f785c4 100644
---- a/arch/riscv/mm/pageattr.c
-+++ b/arch/riscv/mm/pageattr.c
-@@ -5,6 +5,7 @@
- 
- #include <linux/pagewalk.h>
- #include <linux/pgtable.h>
-+#include <linux/vmalloc.h>
- #include <asm/tlbflush.h>
- #include <asm/bitops.h>
- #include <asm/set_memory.h>
-@@ -25,19 +26,6 @@ static unsigned long set_pageattr_masks(unsigned long val, struct mm_walk *walk)
- 	return new_val;
- }
- 
--static int pageattr_pgd_entry(pgd_t *pgd, unsigned long addr,
--			      unsigned long next, struct mm_walk *walk)
--{
--	pgd_t val = READ_ONCE(*pgd);
--
--	if (pgd_leaf(val)) {
--		val = __pgd(set_pageattr_masks(pgd_val(val), walk));
--		set_pgd(pgd, val);
--	}
--
--	return 0;
--}
--
- static int pageattr_p4d_entry(p4d_t *p4d, unsigned long addr,
- 			      unsigned long next, struct mm_walk *walk)
- {
-@@ -96,7 +84,6 @@ static int pageattr_pte_hole(unsigned long addr, unsigned long next,
- }
- 
- static const struct mm_walk_ops pageattr_ops = {
--	.pgd_entry = pageattr_pgd_entry,
- 	.p4d_entry = pageattr_p4d_entry,
- 	.pud_entry = pageattr_pud_entry,
- 	.pmd_entry = pageattr_pmd_entry,
-@@ -105,12 +92,181 @@ static const struct mm_walk_ops pageattr_ops = {
- 	.walk_lock = PGWALK_RDLOCK,
- };
- 
-+#ifdef CONFIG_64BIT
-+static int __split_linear_mapping_pmd(pud_t *pudp,
-+				      unsigned long vaddr, unsigned long end)
-+{
-+	pmd_t *pmdp;
-+	unsigned long next;
-+
-+	pmdp = pmd_offset(pudp, vaddr);
-+
-+	do {
-+		next = pmd_addr_end(vaddr, end);
-+
-+		if (next - vaddr >= PMD_SIZE &&
-+		    vaddr <= (vaddr & PMD_MASK) && end >= next)
-+			continue;
-+
-+		if (pmd_leaf(*pmdp)) {
-+			struct page *pte_page;
-+			unsigned long pfn = _pmd_pfn(*pmdp);
-+			pgprot_t prot = __pgprot(pmd_val(*pmdp) & ~_PAGE_PFN_MASK);
-+			pte_t *ptep_new;
-+			int i;
-+
-+			pte_page = alloc_page(GFP_KERNEL);
-+			if (!pte_page)
-+				return -ENOMEM;
-+
-+			ptep_new = (pte_t *)page_address(pte_page);
-+			for (i = 0; i < PTRS_PER_PTE; ++i, ++ptep_new)
-+				set_pte(ptep_new, pfn_pte(pfn + i, prot));
-+
-+			smp_wmb();
-+
-+			set_pmd(pmdp, pfn_pmd(page_to_pfn(pte_page), PAGE_TABLE));
-+		}
-+	} while (pmdp++, vaddr = next, vaddr != end);
-+
-+	return 0;
-+}
-+
-+static int __split_linear_mapping_pud(p4d_t *p4dp,
-+				      unsigned long vaddr, unsigned long end)
-+{
-+	pud_t *pudp;
-+	unsigned long next;
-+	int ret;
-+
-+	pudp = pud_offset(p4dp, vaddr);
-+
-+	do {
-+		next = pud_addr_end(vaddr, end);
-+
-+		if (next - vaddr >= PUD_SIZE &&
-+		    vaddr <= (vaddr & PUD_MASK) && end >= next)
-+			continue;
-+
-+		if (pud_leaf(*pudp)) {
-+			struct page *pmd_page;
-+			unsigned long pfn = _pud_pfn(*pudp);
-+			pgprot_t prot = __pgprot(pud_val(*pudp) & ~_PAGE_PFN_MASK);
-+			pmd_t *pmdp_new;
-+			int i;
-+
-+			pmd_page = alloc_page(GFP_KERNEL);
-+			if (!pmd_page)
-+				return -ENOMEM;
-+
-+			pmdp_new = (pmd_t *)page_address(pmd_page);
-+			for (i = 0; i < PTRS_PER_PMD; ++i, ++pmdp_new)
-+				set_pmd(pmdp_new,
-+					pfn_pmd(pfn + ((i * PMD_SIZE) >> PAGE_SHIFT), prot));
-+
-+			smp_wmb();
-+
-+			set_pud(pudp, pfn_pud(page_to_pfn(pmd_page), PAGE_TABLE));
-+		}
-+
-+		ret = __split_linear_mapping_pmd(pudp, vaddr, next);
-+		if (ret)
-+			return ret;
-+	} while (pudp++, vaddr = next, vaddr != end);
-+
-+	return 0;
-+}
-+
-+static int __split_linear_mapping_p4d(pgd_t *pgdp,
-+				      unsigned long vaddr, unsigned long end)
-+{
-+	p4d_t *p4dp;
-+	unsigned long next;
-+	int ret;
-+
-+	p4dp = p4d_offset(pgdp, vaddr);
-+
-+	do {
-+		next = p4d_addr_end(vaddr, end);
-+
-+		/*
-+		 * If [vaddr; end] contains [vaddr & P4D_MASK; next], we don't
-+		 * need to split, we'll change the protections on the whole P4D.
-+		 */
-+		if (next - vaddr >= P4D_SIZE &&
-+		    vaddr <= (vaddr & P4D_MASK) && end >= next)
-+			continue;
-+
-+		if (p4d_leaf(*p4dp)) {
-+			struct page *pud_page;
-+			unsigned long pfn = _p4d_pfn(*p4dp);
-+			pgprot_t prot = __pgprot(p4d_val(*p4dp) & ~_PAGE_PFN_MASK);
-+			pud_t *pudp_new;
-+			int i;
-+
-+			pud_page = alloc_page(GFP_KERNEL);
-+			if (!pud_page)
-+				return -ENOMEM;
-+
-+			/*
-+			 * Fill the pud level with leaf puds that have the same
-+			 * protections as the leaf p4d.
-+			 */
-+			pudp_new = (pud_t *)page_address(pud_page);
-+			for (i = 0; i < PTRS_PER_PUD; ++i, ++pudp_new)
-+				set_pud(pudp_new,
-+					pfn_pud(pfn + ((i * PUD_SIZE) >> PAGE_SHIFT), prot));
-+
-+			/*
-+			 * Make sure the pud filling is not reordered with the
-+			 * p4d store which could result in seeing a partially
-+			 * filled pud level.
-+			 */
-+			smp_wmb();
-+
-+			set_p4d(p4dp, pfn_p4d(page_to_pfn(pud_page), PAGE_TABLE));
-+		}
-+
-+		ret = __split_linear_mapping_pud(p4dp, vaddr, next);
-+		if (ret)
-+			return ret;
-+	} while (p4dp++, vaddr = next, vaddr != end);
-+
-+	return 0;
-+}
-+
-+static int __split_linear_mapping_pgd(pgd_t *pgdp,
-+				      unsigned long vaddr,
-+				      unsigned long end)
-+{
-+	unsigned long next;
-+	int ret;
-+
-+	do {
-+		next = pgd_addr_end(vaddr, end);
-+		/* We never use PGD mappings for the linear mapping */
-+		ret = __split_linear_mapping_p4d(pgdp, vaddr, next);
-+		if (ret)
-+			return ret;
-+	} while (pgdp++, vaddr = next, vaddr != end);
-+
-+	return 0;
-+}
-+
-+static int split_linear_mapping(unsigned long start, unsigned long end)
-+{
-+	return __split_linear_mapping_pgd(pgd_offset_k(start), start, end);
-+}
-+#endif	/* CONFIG_64BIT */
-+
- static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
- 			pgprot_t clear_mask)
- {
- 	int ret;
- 	unsigned long start = addr;
- 	unsigned long end = start + PAGE_SIZE * numpages;
-+	unsigned long __maybe_unused lm_start;
-+	unsigned long __maybe_unused lm_end;
- 	struct pageattr_masks masks = {
- 		.set_mask = set_mask,
- 		.clear_mask = clear_mask
-@@ -120,11 +276,67 @@ static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
- 		return 0;
- 
- 	mmap_write_lock(&init_mm);
-+
-+#ifdef CONFIG_64BIT
-+	/*
-+	 * We are about to change the permissions of a kernel mapping, we must
-+	 * apply the same changes to its linear mapping alias, which may imply
-+	 * splitting a huge mapping.
-+	 */
-+
-+	if (is_vmalloc_or_module_addr((void *)start)) {
-+		struct vm_struct *area = NULL;
-+		int i, page_start;
-+
-+		area = find_vm_area((void *)start);
-+		page_start = (start - (unsigned long)area->addr) >> PAGE_SHIFT;
-+
-+		for (i = page_start; i < page_start + numpages; ++i) {
-+			lm_start = (unsigned long)page_address(area->pages[i]);
-+			lm_end = lm_start + PAGE_SIZE;
-+
-+			ret = split_linear_mapping(lm_start, lm_end);
-+			if (ret)
-+				goto unlock;
-+
-+			ret = walk_page_range_novma(&init_mm, lm_start, lm_end,
-+						    &pageattr_ops, NULL, &masks);
-+			if (ret)
-+				goto unlock;
-+		}
-+	} else if (is_kernel_mapping(start) || is_linear_mapping(start)) {
-+		lm_start = (unsigned long)lm_alias(start);
-+		lm_end = (unsigned long)lm_alias(end);
-+
-+		ret = split_linear_mapping(lm_start, lm_end);
-+		if (ret)
-+			goto unlock;
-+
-+		ret = walk_page_range_novma(&init_mm, lm_start, lm_end,
-+					    &pageattr_ops, NULL, &masks);
-+		if (ret)
-+			goto unlock;
-+	}
-+
- 	ret =  walk_page_range_novma(&init_mm, start, end, &pageattr_ops, NULL,
- 				     &masks);
-+
-+unlock:
-+	mmap_write_unlock(&init_mm);
-+
-+	/*
-+	 * We can't use flush_tlb_kernel_range() here as we may have split a
-+	 * hugepage that is larger than that, so let's flush everything.
-+	 */
-+	flush_tlb_all();
-+#else
-+	ret =  walk_page_range_novma(&init_mm, start, end, &pageattr_ops, NULL,
-+				     &masks);
-+
- 	mmap_write_unlock(&init_mm);
- 
- 	flush_tlb_kernel_range(start, end);
-+#endif
- 
- 	return ret;
- }
-@@ -159,36 +371,14 @@ int set_memory_nx(unsigned long addr, int numpages)
- 
- int set_direct_map_invalid_noflush(struct page *page)
- {
--	int ret;
--	unsigned long start = (unsigned long)page_address(page);
--	unsigned long end = start + PAGE_SIZE;
--	struct pageattr_masks masks = {
--		.set_mask = __pgprot(0),
--		.clear_mask = __pgprot(_PAGE_PRESENT)
--	};
--
--	mmap_read_lock(&init_mm);
--	ret = walk_page_range(&init_mm, start, end, &pageattr_ops, &masks);
--	mmap_read_unlock(&init_mm);
--
--	return ret;
-+	return __set_memory((unsigned long)page_address(page), 1,
-+			    __pgprot(0), __pgprot(_PAGE_PRESENT));
- }
- 
- int set_direct_map_default_noflush(struct page *page)
- {
--	int ret;
--	unsigned long start = (unsigned long)page_address(page);
--	unsigned long end = start + PAGE_SIZE;
--	struct pageattr_masks masks = {
--		.set_mask = PAGE_KERNEL,
--		.clear_mask = __pgprot(0)
--	};
--
--	mmap_read_lock(&init_mm);
--	ret = walk_page_range(&init_mm, start, end, &pageattr_ops, &masks);
--	mmap_read_unlock(&init_mm);
--
--	return ret;
-+	return __set_memory((unsigned long)page_address(page), 1,
-+			    PAGE_KERNEL, __pgprot(0));
- }
- 
- #ifdef CONFIG_DEBUG_PAGEALLOC
--- 
-2.39.2
-
+Best regards,
+baolu
 
 _______________________________________________
 linux-riscv mailing list
