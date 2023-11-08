@@ -4,92 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7537C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Nov 2023 18:37:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88529C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Nov 2023 19:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1UoKlqQAgSDixIhiTinBpb1ELAqeqmv3asN0zl4xBjc=; b=Y5bdqHnLIs0dKg
-	588l144yJfJpqdrzRMpVbySvoN9GELScSUGvJ6xeu8SULQhhlqVTpvhFvJ6V9BNMyx+yi1BoolUot
-	csrxmiIH9YV7H20Xt7xljeKPUJkAZwXObtbOh4QWFMbuH0Vof25AB5aYiy7i7ryUQxgDw5+59Bngl
-	vNFkE21mZxBZhyi81XthiYmjd/Tw3o+KVScQVQOaBJIpzuz5fkw+yGW0f/nGdLHdGryuMmk4MUuan
-	InCu9vcsQW5QkOrRBGxjH0aSCGy+0bPeY/fUrjRnrthNg5i4hRWrJUNtTbarOBptlDG6ZzP/J3e/o
-	VBSjE15yzOebhVVWvpQA==;
+	List-Owner; bh=4eT2VPkPVaSvHAAdKKv4dpwYd6GHuBc2Gf4nMLCOKbE=; b=MWIiD7ti5+qekb
+	tZT3kwi/hVPpK5X0B+Y1Cd/o3DKh04a/Idl1ay4ax8F+lkO82yo87spI1aHLEy5FV7SptfHbOld7L
+	7v9QTAXEr85yNwNN0HGlHjKlBEEZ/StHbhyGURtAyIL+Iv6SWD3tsQWLXM9GzYVxg2HYtUkxS0jUW
+	trGti94UkvhQaIvJ3JRzTUWqdlE4wlvc2HNVMXIyWpZ4JuVPWdAwiFxP5jIRMFPuFzuLnOP9ue1jZ
+	2RYm6bhbe+ekcbwevx4TUs+Eg2AHJCWWia/O/pTvJdFsJryFfiKo6zbuq44KkFrRUXotXlR02bFmj
+	PjGY3LhXS+YzcKKRIa5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0nQQ-004VaC-1i;
-	Wed, 08 Nov 2023 18:37:14 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1r0nxI-004aRv-08;
+	Wed, 08 Nov 2023 19:11:12 +0000
+Received: from mailrelay2-1.pub.mailoutpod2-cph3.one.com ([2a02:2350:5:401::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0nQK-004VYj-0U;
-	Wed, 08 Nov 2023 18:37:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4C0BE616F5;
-	Wed,  8 Nov 2023 18:37:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2E37C433C7;
-	Wed,  8 Nov 2023 18:37:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699468625;
-	bh=EoZDLxwmLFbEEIkyOEmztWMHpHCSGiYEo4ayX1PT9GY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=GPHv4DtiTNP/0xV1Zk9vqsAbNJUeKn0ZJKyBIpObozF5wckFlaJGMe4CNBfdiOI8d
-	 gFRKV7FHCWQYH9IN+bD+8yBXzmTkcCNIkd7ietT4ZSPSBAgDkVqh4s6HVLzl+zmRRc
-	 HhYwTYSI0dS7lXRzfwNnkZE19FBS/IVOt7h385+r+XZyWMYGXr2Z+bDlLLp/FjclZ0
-	 94Rqnp7IPuCKVgysW/jZttyZQGjUUQJsHtmuOSZpUG4YoOsvs7s/LtgntArPAEj6I+
-	 w9kLmzAcyhCLPFYdnwf9g4iudvMu0qn4Gb8KHiTb7Z4HypxrLZl2z2Ij/lL2k4hm3X
-	 dzhS2/GBDPGGw==
-Received: from [185.201.63.253] (helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1r0nQD-00BW1k-GG;
-	Wed, 08 Nov 2023 18:37:02 +0000
-Date: Wed, 08 Nov 2023 18:36:13 +0000
-Message-ID: <87leb85bz6.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: Bjorn Helgaas <helgaas@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-acpi@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-serial@vger.kernel.org,
+	id 1r0nxB-004aL9-2D
+	for linux-riscv@lists.infradead.org;
+	Wed, 08 Nov 2023 19:11:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=ravnborg.org; s=rsa2;
+	h=in-reply-to:content-type:mime-version:references:message-id:subject:cc:to:
+	 from:date:from;
+	bh=t0PhdPpL9ITFkVHWShkqwebGTKveq1EAqYCULbPtu5I=;
+	b=HOH6miiY3B+TPoRIYH1MiG21R2R+dh1yYG8FVwEQyDXIhn1Ao3kJLxPWfeHQZl9v5C+Z5Chab0l7C
+	 HikW4LWGdU4we9PVHZJww6fDwD1yj+77Jj5I/65wiERNQSINaBzToUrUeOoJSPC/FGkywpiTFZYc/w
+	 G5VUedzBJU7HvjvKlrHVnE6S2n/CsFEdiawBE7NIbof73jQYss2IVV4HvlcVLH+T8ZX3pzF6bx9t1o
+	 bMg34L0eMDuXbRC6rLKy6PjcIUoJKPRTeePAKA2fUAAx68YXNhrJFCda5nk8ULj+i07dneXw+hSXiH
+	 JNZyftfJd+q/T1+u1UqHapE9CdUwJnw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed;
+	d=ravnborg.org; s=ed2;
+	h=in-reply-to:content-type:mime-version:references:message-id:subject:cc:to:
+	 from:date:from;
+	bh=t0PhdPpL9ITFkVHWShkqwebGTKveq1EAqYCULbPtu5I=;
+	b=xWIbuz4e/7unjVoPKeu7dePVTkZEjAQgGTQa2oJ1BHdQOZexDAZtyLcvnX3YqDagH5rAul9U45aVe
+	 EhYmmucCA==
+X-HalOne-ID: 87baf6c1-7e6a-11ee-909c-a34c9b1f9040
+Received: from ravnborg.org (2-105-2-98-cable.dk.customer.tdc.net [2.105.2.98])
+	by mailrelay2 (Halon) with ESMTPSA
+	id 87baf6c1-7e6a-11ee-909c-a34c9b1f9040;
+	Wed, 08 Nov 2023 19:10:52 +0000 (UTC)
+Date: Wed, 8 Nov 2023 20:10:50 +0100
+From: Sam Ravnborg <sam@ravnborg.org>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	linux-kbuild@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+	Matt Turner <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	Will Deacon <will@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Guo Ren <guoren@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Geoff Levand <geoff@infradead.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Anup Patel <anup@brainfault.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andy Lutomirski <luto@kernel.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, x86@kernel.org,
+	Helge Deller <deller@gmx.de>,
+	Sudip Mukherjee <sudipm.mukherjee@gmail.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Haibo Xu <haibo1.xu@intel.com>
-Subject: Re: [RFC PATCH v2 06/21] RISC-V: Kconfig: Select deferred GSI probe for ACPI systems
-In-Reply-To: <ZUtailOcozI9xIou@sunil-laptop>
-References: <ZTuzJ1nsicZYp+uh@sunil-laptop>
-	<20231106221606.GA264641@bhelgaas>
-	<ZUtailOcozI9xIou@sunil-laptop>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.201.63.253
-X-SA-Exim-Rcpt-To: sunilvl@ventanamicro.com, helgaas@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org, linux-serial@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, rafael@kernel.org, lenb@kernel.org, bhelgaas@google.com, anup@brainfault.org, tglx@linutronix.de, gregkh@linuxfoundation.org, jirislaby@kernel.org, conor.dooley@microchip.com, ajones@ventanamicro.com, atishp@rivosinc.com, haibo1.xu@intel.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Timur Tabi <timur@kernel.org>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	David Woodhouse <dwmw2@infradead.org>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
+	Kees Cook <keescook@chromium.org>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Nicolas Schier <nicolas@fjasle.eu>,
+	Al Viro <viro@zeniv.linux.org.uk>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
+	linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-trace-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+	netdev@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-usb@vger.kernel.org, linux-fbdev@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linux-bcachefs@vger.kernel.org,
+	linux-mtd@lists.infradead.org
+Subject: Re: [PATCH 09/22] [v2] arch: fix asm-offsets.c building with
+ -Wmissing-prototypes
+Message-ID: <20231108191050.GA171153@ravnborg.org>
+References: <20231108125843.3806765-1-arnd@kernel.org>
+ <20231108125843.3806765-10-arnd@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20231108125843.3806765-10-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231108_103708_292628_A108644A 
-X-CRM114-Status: GOOD (  28.31  )
+X-CRM114-CacheID: sfid-20231108_111107_323651_421E484B 
+X-CRM114-Status: GOOD (  15.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,65 +133,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 08 Nov 2023 09:53:14 +0000,
-Sunil V L <sunilvl@ventanamicro.com> wrote:
+On Wed, Nov 08, 2023 at 01:58:30PM +0100, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> That's partly correct. APLIC platform devices are created prior to PCI
-> host bridges added. But the actual APLIC driver which creates the
-> irqdomain will be probed as a regular platform driver for the APLIC
-> device. The platform driver probe will happen using DD framework and
-> devices don't have any dependency on APLIC which can cause device probe
-> prior to APLIC driver probe.
+> When -Wmissing-prototypes is enabled, the some asm-offsets.c files fail
+> to build, even when this warning is disabled in the Makefile for normal
+> files:
 > 
-> DT supports fw_devlink framework which makes it easier for IRQ devices
-> to use regular platform drivers and produces-consumers are probed in the
-> order without requiring drivers to do deferred probe. But I don't see
-> that supported for ACPI framework.  Also, the way PNP devices get added
-> there is an assumption that interrupt controller is already setup fully.
+> arch/sparc/kernel/asm-offsets.c:22:5: error: no previous prototype for 'sparc32_foo' [-Werror=missing-prototypes]
+> arch/sparc/kernel/asm-offsets.c:48:5: error: no previous prototype for 'foo' [-Werror=missing-prototypes]
 > 
-> With this new use case in RISC-V, here are the alternatives I am aware of.
+> Address this by making use of the same trick as x86, marking these
+> functions as 'static __used' to avoid the need for a prototype
+> by not drop them in dead-code elimination.
 > 
-> 1) Use core_initcall() in the APLIC drivers which makes APLIC driver to
-> be probed prior to PNP or PCI INTx devices. But this was ruled out in
-> the context of DT from Marc.
->
-> 2) Like the approach tried in this series, add support for deferred
-> probe in drivers. This will be invasive change requiring many drivers to
-> change like you pointed.
-> 
-> I don't know which is less evil or if there is any other alternative
-> which I am not aware of.
-> 
-> Thomas/Marc, could you allow APLIC (and PLIC) irqchip drivers to use
-> core_initcall() for ACPI?
-
-I don't have a say about this anymore, so this is only a passing
-comment, which you are free to cast aside.
-
-My personal view is that if you need to rely on core_initcall() for a
-particular firmware interface, then your architecture will end-up
-being an unmaintainable ball of hacks, with conflicting requirements
-and increasingly diverging behaviours. Those who had the 'privilege'
-to deal with the 32bit ARM transition to DT will understand what I
-mean.
-
-Having to rely on initcalls can only mean two things:
-
-- you're missing crucial topology information that will eventually
-  bite you where it hurts, and you're better off going back to the
-  drawing board to fix it before any HW ships,
-
-- you're not making use of the kernel's dependency management
-  infrastructure, which is pretty sad. Yes, it is DT specific for now,
-  but nothing prevents you from improving it to make it grok another
-  firmware interface.
-
-But as I said, I don't have much skin in that game anymore.
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+> Suggested-by: Masahiro Yamada <masahiroy@kernel.org>
+> Link: https://lore.kernel.org/lkml/CAK7LNARfEmFk0Du4Hed19eX_G6tUC5wG0zP+L1AyvdpOF4ybXQ@mail.gmail.com/
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Looks good. I sometimes looks at sparc patches so I looked at this one.
+Reviewed-by: Sam Ravnborg <sam@ravnborg.org>
 
 _______________________________________________
 linux-riscv mailing list
