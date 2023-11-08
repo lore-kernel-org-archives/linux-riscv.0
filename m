@@ -4,95 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D49BC4167D
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Nov 2023 09:53:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 704ABC4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Nov 2023 11:29:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wXDGsgM3FkSiwHIXbaR+yqfjumfkV2i65RIZ0qjw8rI=; b=En17StKEwOcIAc
-	ORaQfR91xmI/Dkymg2eGyldIsFvE1H3wDlejYHW0jXxrFT5Y5qSwzF4KVpNuQ3ehTgQsNXGAY0r9O
-	1UAoAb1qZ6+DNGyH0yl+NiRkWk3srRRGplJgwNKDox9X9ytyUbXyZmBk64/5r39eXrliSDu0CY6MG
-	+wGQvjcHXwtwYa1fGShi/Fg1LBymOlqK16MxaRABOohI3vOovAO7QWTfc7hbBKWEFwl9Wd+3DsG8C
-	cbbwYc7BDX8S5hOPUx7xhYrC3lRjk8fjgBa/qHEifbt/t+lh8gAB/vpAAN0sQVn+7/rczl+Z+r8jT
-	yH2hDbFI+iLgSEjifd1A==;
+	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:Message-Id:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=JfeojaCO5AxH31/2vDnYR5RNXzOZlo8Our7kZLr89tA=; b=a5pipg+zR1jh0/
+	GDaJ3u5jbXMOOgR2fz9U22RJTOUcThk5ER7uCChhztbcZNoJ6cvaeKlgCfk0U1D/zf2rH8z3mlEYk
+	pd3HXTlpzj/5B560JVCYKNnGOPL1qFmLUvcbv/xZ5UnSVGDV1NlzrxhwuKz2dX1yVTx7uQ785rYkx
+	U+nnxxPzP3ZcbMDryWvECtjmIwtX5Qz/+XUoyFXnaThA9mIzXCqQr27VXaKF8GNglz63sQl2sTmHF
+	5TN42OVD6+d+X51YaF8kFQPp+Qiav4naQxjlm557w8yMC/24HcxJJr5yMWuFPn6/fCdoj3dZOl/Uz
+	vEI2AJmFUR7hdg/CTorg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0fFe-003OYg-2L;
-	Wed, 08 Nov 2023 09:53:34 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1r0gkZ-003ZU5-2f;
+	Wed, 08 Nov 2023 11:29:35 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0fFb-003OXR-0o
+	id 1r0gkV-003ZSR-1T
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 Nov 2023 09:53:32 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-6c398717726so3597089b3a.2
-        for <linux-riscv@lists.infradead.org>; Wed, 08 Nov 2023 01:53:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1699437206; x=1700042006; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=juZI1n0aMz+KCog5r3XPutHhgq5o1lm8dusNtuYCGmE=;
-        b=SgZe+8pIgfO7cI85U+TC0y6B8aEMd5sYlEFFYjOID+HjO2/bIWsp2/H5bh9BHdkVP+
-         +sVMTioGiRcpVQQmFvRxnyu8LOhumPHStI2lQE/4T165ziuBMf3H5kIZguN6E8krU1hF
-         NaHNaY/LQyVpjV1T9wPVT73UI5sr+Ia6NFC9C4yKPoASxzyQ00NjiTsfLwvasN+6JeEk
-         ijD9PA1P9d81/54KSPuq6nRfk/S9W/mqr69mwSSxAAmo0HWhP2E/zo331+huz+Po8dqR
-         rGm9kTROBziiyVgMRVNFs6nJ9sr1Flzp7tBEV7vwxKFNCu3i64yi0WE14mMhG5SNah0g
-         DWDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699437206; x=1700042006;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=juZI1n0aMz+KCog5r3XPutHhgq5o1lm8dusNtuYCGmE=;
-        b=OUgErVmKjxGYZfxS8epZpUXHilhLoWJm5hv0uiVAEJUuy9JKNP9aMWQ07vkyAVkAoz
-         cCRLv7pbDDfbwEZ6v55qMgdvhJ0p4AjNScuZGfIS2k2IwnBHdFpuXwfKKcdlVf001Nfk
-         nXdx9/r8Kqo35SgKtd7AdC1CoMoVo83bpyDmnxja76rJgTuvzC0QalzAEU7H8zWbiblP
-         24jsd677oLXZJ90dqiiWUt3ogyRcL1ax5rrnOkVPcvaG4ouFIj3s27jIUN5TYU0+GJSF
-         9xD/sT3DFJCAt60euuF0yT2kIgCKoDJj97mwoOrreUBJ4V5sW+Xku7oAR4Ck3U/1X62g
-         AgkQ==
-X-Gm-Message-State: AOJu0Yz25AzTQ0uz7a4fBlE5QRQjJvxA8Osmcv4akxdG3K+oy4EUU8k3
-	A+79CDSqZi+foVFrKD71bz/bOY+EGBZ1BjeEB/qgmw==
-X-Google-Smtp-Source: AGHT+IEEgxtG4vAOOXAzU0cQ43q+y/GuzULUrpgSTtLmSEOIhXbF+HzsEiLo0Th7PmwROQ6HsMZIlg==
-X-Received: by 2002:a05:6a20:7495:b0:14e:43b0:5f99 with SMTP id p21-20020a056a20749500b0014e43b05f99mr1462760pzd.52.1699437206593;
-        Wed, 08 Nov 2023 01:53:26 -0800 (PST)
-Received: from sunil-laptop ([106.51.188.78])
-        by smtp.gmail.com with ESMTPSA id c24-20020a170902d91800b001c728609574sm1346631plz.6.2023.11.08.01.53.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Nov 2023 01:53:25 -0800 (PST)
-Date: Wed, 8 Nov 2023 15:23:14 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-serial@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Anup Patel <anup@brainfault.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Haibo Xu <haibo1.xu@intel.com>, Marc Zyngier <maz@kernel.org>
-Subject: Re: [RFC PATCH v2 06/21] RISC-V: Kconfig: Select deferred GSI probe
- for ACPI systems
-Message-ID: <ZUtailOcozI9xIou@sunil-laptop>
-References: <ZTuzJ1nsicZYp+uh@sunil-laptop>
- <20231106221606.GA264641@bhelgaas>
+	Wed, 08 Nov 2023 11:29:33 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20231108112923euoutp0139f87b313437260d20b72941be350ebf~Vol8ouY_m2144021440euoutp01I
+	for <linux-riscv@lists.infradead.org>; Wed,  8 Nov 2023 11:29:23 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20231108112923euoutp0139f87b313437260d20b72941be350ebf~Vol8ouY_m2144021440euoutp01I
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1699442964;
+	bh=li73imUSCXRL1KLtY7SVTzDJF8se41kHvK+GR9zfnlY=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=padvNFtCYxF+Sh5dBt2tBmy4dqtIygcxAvvVP+HZMxMVlJD70DbBJAMuefeBOvk4z
+	 LRJDQsmUSXZw7HICFDa8mGGa2JSU3WM7l+MwEY9BAFdQj75VqwC5H8aEEx7X1wFJWi
+	 AGCJKEHMDY9iVx5IYP2JgrUyuj96ZSNCfqn5IZ44=
+Received: from eusmges2new.samsung.com (unknown [203.254.199.244]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
+	20231108112923eucas1p1d0be2cb9e1c6432a5391da0cfb60ff31~Vol8TdNcR1900119001eucas1p1Y;
+	Wed,  8 Nov 2023 11:29:23 +0000 (GMT)
+Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
+	eusmges2new.samsung.com (EUCPMTA) with SMTP id 5D.8F.11320.3117B456; Wed,  8
+	Nov 2023 11:29:23 +0000 (GMT)
+Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20231108112923eucas1p27474e921565e3f175e27e6598f0b71c3~Vol783UbC0768707687eucas1p2T;
+	Wed,  8 Nov 2023 11:29:23 +0000 (GMT)
+Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
+	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20231108112923eusmtrp292e05c11017f017fb2659021c103da80~Vol78MlCn1145311453eusmtrp2C;
+	Wed,  8 Nov 2023 11:29:23 +0000 (GMT)
+X-AuditID: cbfec7f4-993ff70000022c38-e8-654b711342dd
+Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
+	eusmgms2.samsung.com (EUCPMTA) with SMTP id 6E.4E.25043.3117B456; Wed,  8
+	Nov 2023 11:29:23 +0000 (GMT)
+Received: from AMDC4653.digital.local (unknown [106.120.51.32]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20231108112922eusmtip159190efd4fc28d99b4abf2982c2ba574~Vol7Mj0zD1977919779eusmtip1d;
+	Wed,  8 Nov 2023 11:29:22 +0000 (GMT)
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Conor Dooley <conor.dooley@microchip.com>, Andrew
+	Jones <ajones@ventanamicro.com>, Heiko Stuebner <heiko@sntech.de>, Evan
+	Green <evan@rivosinc.com>, Jisheng Zhang <jszhang@kernel.org>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
+Subject: [PATCH] riscv: fix potential panic during CPU hot-plug
+Date: Wed,  8 Nov 2023 12:29:09 +0100
+Message-Id: <20231108112909.591987-1-m.szyprowski@samsung.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231106221606.GA264641@bhelgaas>
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrCKsWRmVeSWpSXmKPExsWy7djP87rChd6pBhd+KlncmqRusfX3LHaL
+	hSeTLaZs2sFucWSKncX/R69ZLZqPrWezuLxrDpvFts8tbBZrj9xlt3h5uYfZom0WvwOPx5uX
+	L1k8Dnd8YffYtKqTzWPzknqPOz+WMnrcmBXh0bdlFaPHpebr7B7br81j9vj7cyuLx+dNcgHc
+	UVw2Kak5mWWpRfp2CVwZO+d8Zio4p1WxqX0jUwNjq2oXIyeHhICJxIWLu5i6GLk4hARWMEos
+	ffmWEcL5wigx5+ErdpAqIYHPjBK7lvnAdBzbshOqaDmjxIoNM5jhOo7/Xc0GUsUmYCjR9bYL
+	zBYRcJS40dcLtoNZYCGzxNyrUxlBEsIC9hKbNk4Hs1kEVCUO/X4O1sArYCfx7Hg7I8Q6eYn9
+	B88yQ8QFJU7OfMICYjMDxZu3zgbbLCHwgkNi86IdTBANLhK35nZB2cISr45vYYewZST+75zP
+	BNHQziix4Pd9KGcCo0TD81tQ66wl7pz7BXQGB9AKTYn1u/Qhwo4SXb1rGUHCEgJ8EjfeCkIc
+	wScxadt0Zogwr0RHmxBEtZrErOPr4NYevHCJGcL2kLi29jkzJEhjJS69+M00gVFhFpLXZiF5
+	bRbCDQsYmVcxiqeWFuempxYb5aWW6xUn5haX5qXrJefnbmIEJrTT/45/2cG4/NVHvUOMTByM
+	hxglOJiVRHj/2nukCvGmJFZWpRblxxeV5qQWH2KU5mBREudVTZFPFRJITyxJzU5NLUgtgsky
+	cXBKNTAV5J4NM/N54PlHZENE8aQ1MlGvo1tMEnpmvdT5dN173Zr2i0qnZZbz2Bf8urE3TfNP
+	0NZdDKmyFcz8JVW5Ypa3HR/LarjGu8hae+zkadmdsDcyMeb8H8HTPGF1JxZXpXvdZD125dy5
+	18FW7Q0iHxqNzp7I/L99o5nX1V9ZzFse3/guv9Xij5CLME+pRGnu9bVmsnr6gdwup4p2WB6Y
+	/rPvUFEPe9Ere4G9jJ6rP6v4NrY8m8n040zDvz/T1lo28S4pZ3Fn2z5Jd3GZypvHtvFVa1Vk
+	FS9uXnU89Vz9wx9XmSZaP3oqbMyzfY/Hr12vf0Tc91/8973CnxCOxyEVSySMffgnnz1gvP5R
+	9Qe9L+uVWIozEg21mIuKEwFEB0uz1wMAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprFIsWRmVeSWpSXmKPExsVy+t/xu7rChd6pBl9nc1jcmqRusfX3LHaL
+	hSeTLaZs2sFucWSKncX/R69ZLZqPrWezuLxrDpvFts8tbBZrj9xlt3h5uYfZom0WvwOPx5uX
+	L1k8Dnd8YffYtKqTzWPzknqPOz+WMnrcmBXh0bdlFaPHpebr7B7br81j9vj7cyuLx+dNcgHc
+	UXo2RfmlJakKGfnFJbZK0YYWRnqGlhZ6RiaWeobG5rFWRqZK+nY2Kak5mWWpRfp2CXoZO+d8
+	Zio4p1WxqX0jUwNjq2oXIyeHhICJxLEtOxm7GLk4hASWMkrc+LaaESIhI3FyWgMrhC0s8eda
+	FxtE0SdGif9/VjKBJNgEDCW63oIkODlEBJwlZv2bzwxSxCywklni7LLj7CAJYQF7iU0bp4NN
+	ZRFQlTj0+zlYA6+AncSz4+1Q2+Ql9h88ywwRF5Q4OfMJC4jNDBRv3jqbeQIj3ywkqVlIUgsY
+	mVYxiqSWFuem5xYb6RUn5haX5qXrJefnbmIERtK2Yz+37GBc+eqj3iFGJg7GQ4wSHMxKIrx/
+	7T1ShXhTEiurUovy44tKc1KLDzGaAt03kVlKNDkfGMt5JfGGZgamhiZmlgamlmbGSuK8ngUd
+	iUIC6YklqdmpqQWpRTB9TBycUg1MvG/yL+3XmJVnW/418sTX+qq2nDc6dvOvBzLEHjSIvFPM
+	G7JvhnX+waftK/Ia5HWe+x8Q9v3zbjebrO2fu+rfop8vmdy6gy9t+Y8Td+8wVjFdc9jzXvdx
+	IaPO9vIt1u4OsjVTay2X7Ni0OZfX+GTrSaM0fpUXfZ/c1pqJFs3ey5fyymB+3RtL/ocKNdPq
+	JpT9mSn4OTw3HZg65a2eh0/8ESz9r976ctabnGeSSXkShyOmsMu2zfku8ec2Y1j/TNYG98e/
+	qg49+Tij6vp+7V1rtSSXyscUNua6739imvJzQVyBG3fVbmP5S781RB592yAub1rJ8HP1ix07
+	2TtCTee+Knht9SWmQvd2iDBftp0SS3FGoqEWc1FxIgA0BeAvLQMAAA==
+X-CMS-MailID: 20231108112923eucas1p27474e921565e3f175e27e6598f0b71c3
+X-Msg-Generator: CA
+X-RootMTR: 20231108112923eucas1p27474e921565e3f175e27e6598f0b71c3
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20231108112923eucas1p27474e921565e3f175e27e6598f0b71c3
+References: <CGME20231108112923eucas1p27474e921565e3f175e27e6598f0b71c3@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231108_015331_289889_1CD9C160 
-X-CRM114-Status: GOOD (  51.65  )
+X-CRM114-CacheID: sfid-20231108_032931_760187_1DAEA1CF 
+X-CRM114-Status: GOOD (  20.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,123 +132,128 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Bjorn,
+Commit 584ea6564bca ("RISC-V: Probe for unaligned access speed") added a
+test for unaligned access speed. It is being performed when given CPU is
+onlined. Then, another test for misaligned access emulation has been
+added in commit 71c54b3d169d ("riscv: report misaligned accesses
+emulation to hwprobe"). This unaligned access speed doesn't really change
+after the boot, so it is sufficient to do this test only once. This has
+been partially added by commit c20d36cc2a20 ("riscv: don't probe
+unaligned access speed if already done"), but this optimisation works
+only if RISCV_HWPROBE_MISALIGNED_EMULATED is returned by the latter
+check. Otherwise the 'misaligned_access_speed' pcpu varliable is
+overwritten with RISCV_HWPROBE_MISALIGNED_UNKNOWN value, what makes the
+first check to be always performed.
 
-On Mon, Nov 06, 2023 at 04:16:06PM -0600, Bjorn Helgaas wrote:
-> On Fri, Oct 27, 2023 at 06:25:03PM +0530, Sunil V L wrote:
-> > On Thu, Oct 26, 2023 at 12:04:08PM -0500, Bjorn Helgaas wrote:
-> > > On Thu, Oct 26, 2023 at 01:53:29AM +0530, Sunil V L wrote:
-> > > > On RISC-V platforms, apart from root interrupt controllers (which
-> > > > provide local interrupts and IPI), other interrupt controllers in the
-> > > > hierarchy are probed late. Enable this select this CONFIG option for
-> > > > RISC-V platforms so that device drivers which connect to deferred
-> > > > interrupt controllers can take appropriate action.
-> > > 
-> > > Quite a bit of this series seems related to the question of interrupt
-> > > controllers being probed "late".
-> > > 
-> > > I don't see anything specific about *how* late this might be, but from
-> > > the use of -EPROBE_DEFER in individual drivers (8250_pnp explicitly,
-> > > and acpi_register_gsi() and pnp_irq() and acpi_pci_irq_enable(), which
-> > > are called from driver .probe() paths) it seems like interrupt
-> > > controllers might be detected even after devices that use them.
-> > > 
-> > > That seems like a fairly invasive change to the driver probe flow.
-> > > If we really need to do that, I think it might merit a little more
-> > > background as justification since we haven't had to do it for any
-> > > other arch yet.
-> > 
-> > In RISC-V, the APLIC can be a converter from wired (GSI) to MSI interrupts.
-> > Hence, especially in this mode, it has to be a platform device to use
-> > device MSI domain. Also, according to Marc Zyngier there is no reason to
-> > probe interrupt controllers early apart from root controller. So, the
-> > device drivers which use wired interrupts need to be probed after APLIC.
-> > 
-> > The PNP devices and PCI INTx GSI links use either
-> > acpi_dev_resource_interrupt() (PNP) or acpi_register_gsi() directly
-> > (PCI). The approach taken here is to follow the example of
-> > acpi_irq_get() which is enhanced to return EPROBE_DEFER and several
-> > platform device drivers which use platform_get_irq() seem to be handling
-> > this already.
-> 
-> This series (patch 04/21 "ACPI: irq: Add support for deferred probe in
-> acpi_register_gsi()" [1]) makes acpi_register_gsi() return
-> -EPROBE_DEFER, which percolates up through pci_enable_device().
-> 
-> Maybe that's ok, but this affects *all* PCI drivers, and it's a new
-> case that did not occur before.  Many drivers emit warning or error
-> messages for any pci_enable_device() failure, which you probably don't
-> want in this case, since -EPROBE_DEFER is not really a "failure";
-> IIUC, it just means "probe again later."
->
-Yeah, I think all the drivers which need to be supported on RISC-V
-ACPI based systems will have to support deferred probe with this scheme.
+Recently I've noticed that the first check introduced a regression in the
+CPU hot-plug mechanism. This can be observed as a following panic on
+QEmu:
 
-> > Using ResourceSource dependency (mbigen uses) in the namespace as part of
-> > Extended Interrupt Descriptor will not ensure the order since PNP/INTx
-> > GSI devices don't work with that.
-> 
-> Are these PNP/INTx GSI devices described in ACPI?  In the namespace?
-> Or in a static table?
-> 
-Yes, these are standard devices in the namespace. For ex: PNP0501(16550)
-or PNP0C0F (PCI interrupt link devices) are in the namespace.
+CPU1: off
+cpu1: Ratio of byte access time to unaligned word access is 7.00, unaligned accesses are fast
+CPU1: off
+CPU1: failed to come online
+------------[ cut here ]------------
+WARNING: CPU: 0 PID: 215 at kernel/smp.c:437 __flush_smp_call_function_queue+0x90/0x292
+Modules linked in:
+CPU: 0 PID: 215 Comm: bash Not tainted 6.5.0-rc1+ #7524
+Hardware name: riscv-virtio,qemu (DT)
+epc : __flush_smp_call_function_queue+0x90/0x292
+ ra : smpcfd_dying_cpu+0xe/0x1c
+...
+[<ffffffff800c904a>] __flush_smp_call_function_queue+0x90/0x292
+[<ffffffff800c9ae8>] smpcfd_dying_cpu+0xe/0x1c
+[<ffffffff80012b2e>] cpuhp_invoke_callback+0x124/0x322
+[<ffffffff800142f8>] _cpu_up+0x218/0x322
+[<ffffffff8001445e>] cpu_up+0x5c/0x98
+[<ffffffff80014bb8>] cpu_device_up+0x14/0x1c
+[<ffffffff8066d68e>] cpu_subsys_online+0x10/0x18
+[<ffffffff806680e8>] device_online+0x56/0x72
+[<ffffffff80668190>] online_store+0x8c/0xae
+[<ffffffff80662dde>] dev_attr_store+0xe/0x1a
+[<ffffffff802b53bc>] sysfs_kf_write+0x2e/0x4c
+[<ffffffff802b4750>] kernfs_fop_write_iter+0xe8/0x14e
+[<ffffffff80230170>] vfs_write+0x2a4/0x3e0
+[<ffffffff802303e8>] ksys_write+0x5e/0xc8
+[<ffffffff80230460>] sys_write+0xe/0x16
+[<ffffffff80a4a8de>] do_trap_ecall_u+0xe0/0xf4
+[<ffffffff80003e8c>] ret_from_exception+0x0/0x64
+irq event stamp: 12335
+hardirqs last  enabled at (12335): [<ffffffff8007e542>] console_unlock+0x156/0x186
+hardirqs last disabled at (12334): [<ffffffff8007e52c>] console_unlock+0x140/0x186
+softirqs last  enabled at (12154): [<ffffffff80a560d0>] __do_softirq+0x3b0/0x470
+softirqs last disabled at (12147): [<ffffffff80019340>] __irq_exit_rcu+0xa6/0xd0
+---[ end trace 0000000000000000 ]---
+------------[ cut here ]------------
+kernel BUG at kernel/irq_work.c:245!
+Kernel BUG [#1]
+Modules linked in:
+CPU: 0 PID: 215 Comm: bash Tainted: G        W          6.5.0-rc1+ #7524
+Hardware name: riscv-virtio,qemu (DT)
+epc : irq_work_run_list+0x30/0x32
+ ra : irq_work_run+0x2a/0x4c
+...
+[<ffffffff8011a346>] irq_work_run_list+0x30/0x32
+[<ffffffff8011a372>] irq_work_run+0x2a/0x4c
+[<ffffffff800c9aec>] smpcfd_dying_cpu+0x12/0x1c
+[<ffffffff80012b2e>] cpuhp_invoke_callback+0x124/0x322
+[<ffffffff800142f8>] _cpu_up+0x218/0x322
+[<ffffffff8001445e>] cpu_up+0x5c/0x98
+[<ffffffff80014bb8>] cpu_device_up+0x14/0x1c
+[<ffffffff8066d68e>] cpu_subsys_online+0x10/0x18
+[<ffffffff806680e8>] device_online+0x56/0x72
+[<ffffffff80668190>] online_store+0x8c/0xae
+[<ffffffff80662dde>] dev_attr_store+0xe/0x1a
+[<ffffffff802b53bc>] sysfs_kf_write+0x2e/0x4c
+[<ffffffff802b4750>] kernfs_fop_write_iter+0xe8/0x14e
+[<ffffffff80230170>] vfs_write+0x2a4/0x3e0
+[<ffffffff802303e8>] ksys_write+0x5e/0xc8
+[<ffffffff80230460>] sys_write+0xe/0x16
+[<ffffffff80a4a8de>] do_trap_ecall_u+0xe0/0xf4
+[<ffffffff80003e8c>] ret_from_exception+0x0/0x64
+Code: 8526 6084 f0ef f71f fce5 60e2 6442 64a2 6105 8082 (9002) 1101
+---[ end trace 0000000000000000 ]---
+Kernel panic - not syncing: Fatal exception in interrupt
+SMP: stopping secondary CPUs
+SMP: failed to stop secondary CPUs 0-1
+---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---
 
-> > Is there any other better way to create dependency between IO devices
-> > and the interrupt controllers when interrupt controller itself is a
-> > platform device? While using core_initcall() for interrupt controllers
-> > seem to work which forces the interrupt controller to be probed first,
-> > Marc is not in favor of that approach since it is fragile.
-> 
-> I guess PCI interrupts from the PCI host bridges (PNP0A03 devices)
-> feed into the APLIC?  And APLIC is described via MADT?  Based on this
-> series, it looks like this:
-> 
->     acpi_init
->   +   acpi_riscv_init
->   +     riscv_acpi_aplic_platform_init
->   +       acpi_table_parse_madt(ACPI_MADT_TYPE_APLIC, aplic_parse_madt, 0)
->       acpi_scan_init
->         acpi_pci_root_init
->         acpi_pci_link_init
-> 	acpi_bus_scan             # add PCI host bridges, etc
-> 
-> If that's the sequence, it looks like aplic_parse_madt() should be
-> called before the PCI host bridges are added.
-> 
-> Or maybe this isn't how the APLICs are enumerated?
-> 
-That's partly correct. APLIC platform devices are created prior to PCI
-host bridges added. But the actual APLIC driver which creates the
-irqdomain will be probed as a regular platform driver for the APLIC
-device. The platform driver probe will happen using DD framework and
-devices don't have any dependency on APLIC which can cause device probe
-prior to APLIC driver probe.
+To avoid calling those checks in the CPU hot-plug paths again and again,
+simply move the check at the beginning of the check_unaligned_access()
+function and rely on the value determined during the system boot.
 
-DT supports fw_devlink framework which makes it easier for IRQ devices
-to use regular platform drivers and produces-consumers are probed in the
-order without requiring drivers to do deferred probe. But I don't see
-that supported for ACPI framework.  Also, the way PNP devices get added
-there is an assumption that interrupt controller is already setup fully.
+Fixes: 584ea6564bca ("RISC-V: Probe for unaligned access speed")
+Fixes: c20d36cc2a20 ("riscv: don't probe unaligned access speed if already done")
+Fixes: 71c54b3d169d ("riscv: report misaligned accesses emulation to hwprobe")
+Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
+---
+ arch/riscv/kernel/cpufeature.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-With this new use case in RISC-V, here are the alternatives I am aware of.
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 2f51dc4eaf77..3c502840a548 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -571,13 +571,13 @@ void check_unaligned_access(int cpu)
+ 	void *src;
+ 	long speed = RISCV_HWPROBE_MISALIGNED_SLOW;
+ 
+-	if (check_unaligned_access_emulated(cpu))
+-		return;
+-
+ 	/* We are already set since the last check */
+ 	if (per_cpu(misaligned_access_speed, cpu) != RISCV_HWPROBE_MISALIGNED_UNKNOWN)
+ 		return;
+ 
++	if (check_unaligned_access_emulated(cpu))
++		return;
++
+ 	page = alloc_pages(GFP_NOWAIT, get_order(MISALIGNED_BUFFER_SIZE));
+ 	if (!page) {
+ 		pr_warn("Can't alloc pages to measure memcpy performance");
+-- 
+2.34.1
 
-1) Use core_initcall() in the APLIC drivers which makes APLIC driver to
-be probed prior to PNP or PCI INTx devices. But this was ruled out in
-the context of DT from Marc.
-
-2) Like the approach tried in this series, add support for deferred
-probe in drivers. This will be invasive change requiring many drivers to
-change like you pointed.
-
-I don't know which is less evil or if there is any other alternative
-which I am not aware of.
-
-Thomas/Marc, could you allow APLIC (and PLIC) irqchip drivers to use
-core_initcall() for ACPI?
-
-Thanks,
-Sunil
 
 _______________________________________________
 linux-riscv mailing list
