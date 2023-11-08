@@ -4,98 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10835C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Nov 2023 09:10:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D49BC4167D
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Nov 2023 09:53:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PNauXQJBFF+C2K9b9ayw7GrvtkiRYvvYwx5MziXwl5M=; b=sq9UtoT3eCl5Mc
-	DoAbGbub2KpEj/aU1iamofZ71UtguYE85uHVffY4PX8IDnu6xMPvJNyr0fdl5+2kl8VFCuoYjvSJv
-	4aTdUO9sYZMHMIeBV3zAEG1jARQRk6/NOqr7GJIlMSecfMSr339Q3k/tsXyDdZNgblS1SPH0PFVnM
-	ymRz54eXRbxHZ6MH/VV6ukE4BNqKCgdU1G9RiT/oN2uQZJyEbpmJduR7ts46UbDL+M4bigEchg5m+
-	rO+57jFgaVgVkgAQqhd6PPySDPg2jY3O590gxje0eKST3hVXfF+TQ9IVq4ATDpxEBLB76jPZFhsVC
-	FfGtrEwOEiHe/FchoLuQ==;
+	List-Owner; bh=wXDGsgM3FkSiwHIXbaR+yqfjumfkV2i65RIZ0qjw8rI=; b=En17StKEwOcIAc
+	ORaQfR91xmI/Dkymg2eGyldIsFvE1H3wDlejYHW0jXxrFT5Y5qSwzF4KVpNuQ3ehTgQsNXGAY0r9O
+	1UAoAb1qZ6+DNGyH0yl+NiRkWk3srRRGplJgwNKDox9X9ytyUbXyZmBk64/5r39eXrliSDu0CY6MG
+	+wGQvjcHXwtwYa1fGShi/Fg1LBymOlqK16MxaRABOohI3vOovAO7QWTfc7hbBKWEFwl9Wd+3DsG8C
+	cbbwYc7BDX8S5hOPUx7xhYrC3lRjk8fjgBa/qHEifbt/t+lh8gAB/vpAAN0sQVn+7/rczl+Z+r8jT
+	yH2hDbFI+iLgSEjifd1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0eaD-003LJr-22;
-	Wed, 08 Nov 2023 09:10:45 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1r0fFe-003OYg-2L;
+	Wed, 08 Nov 2023 09:53:34 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0eaA-003LJ6-0T
+	id 1r0fFb-003OXR-0o
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 Nov 2023 09:10:43 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-5079f3f3d7aso8992887e87.1
-        for <linux-riscv@lists.infradead.org>; Wed, 08 Nov 2023 01:10:39 -0800 (PST)
+	Wed, 08 Nov 2023 09:53:32 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-6c398717726so3597089b3a.2
+        for <linux-riscv@lists.infradead.org>; Wed, 08 Nov 2023 01:53:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1699434638; x=1700039438; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=jcINFlc5Bxzgrbc4MTS9NCkyZbTVVfqU+tkYks0UGuM=;
-        b=KY8N4jA9TPHMtxY6IbCXAXKkbKhWtAe5Ubqi0HfzE829quePdD8MgT3whgI1Es52NK
-         OAGhrRmnCn9AhptX4Zreggfq5ayVUqr1hxOzLtlemAgQTZdiU4nUGIgFdZ0dORhX/dhM
-         WSfmVTps8Vh00xNCYAJKofB92LOy+zHjsxnNJKyTo37PdfJ4tLS5RmrHtZPG6d0n/sbN
-         Vra8pzaBoIoyGRjrPuEwWtp2/8IwAF63t62dnxuPd2woiYkr3yApo3VZNf4Ek61rwj+6
-         D0hlCMAq6k6OV0ZDsLA1yaA3h1d9kfXBgZaYDnsKf2Bh8p5SkcMhlcr3hxDM7zt3laIs
-         9tGA==
+        d=ventanamicro.com; s=google; t=1699437206; x=1700042006; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=juZI1n0aMz+KCog5r3XPutHhgq5o1lm8dusNtuYCGmE=;
+        b=SgZe+8pIgfO7cI85U+TC0y6B8aEMd5sYlEFFYjOID+HjO2/bIWsp2/H5bh9BHdkVP+
+         +sVMTioGiRcpVQQmFvRxnyu8LOhumPHStI2lQE/4T165ziuBMf3H5kIZguN6E8krU1hF
+         NaHNaY/LQyVpjV1T9wPVT73UI5sr+Ia6NFC9C4yKPoASxzyQ00NjiTsfLwvasN+6JeEk
+         ijD9PA1P9d81/54KSPuq6nRfk/S9W/mqr69mwSSxAAmo0HWhP2E/zo331+huz+Po8dqR
+         rGm9kTROBziiyVgMRVNFs6nJ9sr1Flzp7tBEV7vwxKFNCu3i64yi0WE14mMhG5SNah0g
+         DWDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699434638; x=1700039438;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jcINFlc5Bxzgrbc4MTS9NCkyZbTVVfqU+tkYks0UGuM=;
-        b=lX9qQq9fTMkk8EAVNPlqTX3a0Q2oqW8PNZYL03fKj53W3dexDdybewNOwwwtCMxabO
-         LMqVu+iEDv9MkqiGy6uNokneEx7QAOJgywy9GN96GazalligQDBA7zCLhaLzyIWSqdNA
-         VaVW6grHE5vnlJFtzO4ga42zfomnkB/0siL8HH7E6nfh2rxcQm8TH4VYOY0lFfeaWsRH
-         zJ3YTGoJncGZE529oDazdkNttzh25IucpYJXKrXV4TLTgQZU3J5Kv1c7i66+M1zYsD43
-         Z7Tt4YbTr0IK1N/HCNr853ZqMHkowu/UTbSLaxVUNZ5gHF9FDGKCOi1yWEFPuVR9hY5o
-         7lJw==
-X-Gm-Message-State: AOJu0Yxld8O00h/k20G0IX35jzDADIQa2kFdy/idf7CYeBQac3oVSPcF
-	N/vuHi39T4hp1bT+P55fkmkyYg==
-X-Google-Smtp-Source: AGHT+IFWrJhq0yyPZFGkfsmVVYe9rpitNrcZX/tgpoj4oWjopGFCXaydqgPa9BfS1sjHZGerGEiZTg==
-X-Received: by 2002:a19:4351:0:b0:504:2d54:b4d0 with SMTP id m17-20020a194351000000b005042d54b4d0mr788039lfj.19.1699434637594;
-        Wed, 08 Nov 2023 01:10:37 -0800 (PST)
-Received: from ?IPV6:2a05:6e02:1041:c10:55a2:c282:5ca3:a855? ([2a05:6e02:1041:c10:55a2:c282:5ca3:a855])
-        by smtp.googlemail.com with ESMTPSA id y11-20020adff6cb000000b0032fc609c118sm4397265wrp.66.2023.11.08.01.10.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 08 Nov 2023 01:10:37 -0800 (PST)
-Message-ID: <1dd3d765-c583-4db9-a0aa-303bfcf871db@linaro.org>
-Date: Wed, 8 Nov 2023 10:10:36 +0100
+        d=1e100.net; s=20230601; t=1699437206; x=1700042006;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=juZI1n0aMz+KCog5r3XPutHhgq5o1lm8dusNtuYCGmE=;
+        b=OUgErVmKjxGYZfxS8epZpUXHilhLoWJm5hv0uiVAEJUuy9JKNP9aMWQ07vkyAVkAoz
+         cCRLv7pbDDfbwEZ6v55qMgdvhJ0p4AjNScuZGfIS2k2IwnBHdFpuXwfKKcdlVf001Nfk
+         nXdx9/r8Kqo35SgKtd7AdC1CoMoVo83bpyDmnxja76rJgTuvzC0QalzAEU7H8zWbiblP
+         24jsd677oLXZJ90dqiiWUt3ogyRcL1ax5rrnOkVPcvaG4ouFIj3s27jIUN5TYU0+GJSF
+         9xD/sT3DFJCAt60euuF0yT2kIgCKoDJj97mwoOrreUBJ4V5sW+Xku7oAR4Ck3U/1X62g
+         AgkQ==
+X-Gm-Message-State: AOJu0Yz25AzTQ0uz7a4fBlE5QRQjJvxA8Osmcv4akxdG3K+oy4EUU8k3
+	A+79CDSqZi+foVFrKD71bz/bOY+EGBZ1BjeEB/qgmw==
+X-Google-Smtp-Source: AGHT+IEEgxtG4vAOOXAzU0cQ43q+y/GuzULUrpgSTtLmSEOIhXbF+HzsEiLo0Th7PmwROQ6HsMZIlg==
+X-Received: by 2002:a05:6a20:7495:b0:14e:43b0:5f99 with SMTP id p21-20020a056a20749500b0014e43b05f99mr1462760pzd.52.1699437206593;
+        Wed, 08 Nov 2023 01:53:26 -0800 (PST)
+Received: from sunil-laptop ([106.51.188.78])
+        by smtp.gmail.com with ESMTPSA id c24-20020a170902d91800b001c728609574sm1346631plz.6.2023.11.08.01.53.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Nov 2023 01:53:25 -0800 (PST)
+Date: Wed, 8 Nov 2023 15:23:14 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-serial@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Anup Patel <anup@brainfault.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Haibo Xu <haibo1.xu@intel.com>, Marc Zyngier <maz@kernel.org>
+Subject: Re: [RFC PATCH v2 06/21] RISC-V: Kconfig: Select deferred GSI probe
+ for ACPI systems
+Message-ID: <ZUtailOcozI9xIou@sunil-laptop>
+References: <ZTuzJ1nsicZYp+uh@sunil-laptop>
+ <20231106221606.GA264641@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/3] clocksource: Add JH7110 timer driver
-Content-Language: en-US
-To: Xingyu Wu <xingyu.wu@starfivetech.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Walker Chen <walker.chen@starfivetech.com>,
- Samin Guo <samin.guo@starfivetech.com>, linux-kernel@vger.kernel.org,
- Conor Dooley <conor@kernel.org>
-References: <20231019053501.46899-1-xingyu.wu@starfivetech.com>
- <20231019053501.46899-3-xingyu.wu@starfivetech.com>
- <3f76f965-7c7b-109e-2ee0-3033e332e84b@linaro.org>
- <bb819333-52d3-49fc-9bb9-1a227bd5ca8f@starfivetech.com>
- <d0e70434-e273-4799-c5ec-bbee1b3f5cc7@linaro.org>
- <540136d4-6f8f-49a6-80ff-cc621f2f462b@starfivetech.com>
- <65c38717-3e0c-46d3-a124-29cae48f1a2e@linaro.org>
- <72ad5029-42b2-481a-887f-8f6079d8859b@starfivetech.com>
- <a8f0011c-5689-4071-b5e0-90bd6b7c66bc@linaro.org>
- <b402eb4d-a770-4988-8274-8a2544362229@starfivetech.com>
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <b402eb4d-a770-4988-8274-8a2544362229@starfivetech.com>
+Content-Disposition: inline
+In-Reply-To: <20231106221606.GA264641@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231108_011042_204337_9B4859DC 
-X-CRM114-Status: GOOD (  15.23  )
+X-CRM114-CacheID: sfid-20231108_015331_289889_1CD9C160 
+X-CRM114-Status: GOOD (  51.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,41 +104,130 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMDgvMTEvMjAyMyAwNDo0NSwgWGluZ3l1IFd1IHdyb3RlOgo+IE9uIDIwMjMvMTEvMiAyMjoy
-OSwgRGFuaWVsIExlemNhbm8gd3JvdGU6CgpbIC4uLiBdCgo+IFRoYW5rcy4gVGhlIHJpc2N2LXRp
-bWVyIGhhcyBhIGNsb2Nrc291cmNlIHdpdGggYSBoaWdoZXIgcmF0aW5nIGJ1dCBhCj4gY2xvY2tl
-dmVudCB3aXRoIGxvd2VyIHJhdGluZ1sxXSB0aGFuIGpoNzExMC10aW1lci4gSSB0ZXN0ZWQgdGhl
-Cj4gamg3MTEwLXRpbWVyIGFzIGNsb2NrZXZlbnQgYW5kIGZsYWdnZWQgYXMgb25lIHNob3QsIHdo
-aWNoIGNvdWxkIGRvCj4gc29tZSBvZiB0aGUgd29ya3MgaW5zdGVhZCBvZiByaXNjdi10aW1lci4g
-QW5kIHRoZSBjdXJyZW50X2Nsb2NrZXZlbnQKPiBjaGFuZ2VkIHRvIGpoNzExMC10aW1lci4KPiAK
-PiBCZWNhdXNlIHRoZSBqaDcxMTAtdGltZXIgd29ya3MgYXMgY2xvY2tzb3VyY2Ugd2l0aCBsb3dl
-ciByYXRpbmcgYW5kCj4gb25seSB3aWxsIGJlIHVzZWQgYXMgZ2xvYmFsIHRpbWVyIGF0IENQVSBp
-ZGxlIHRpbWUuIElzIGl0IG5lY2Vzc2FyeQo+IHRvIGJlIHJlZ2lzdGVyZWQgYXMgY2xvY2tzb3Vy
-Y2U/IElmIG5vdCwgc2hvdWxkIGl0IGp1c3QgYmUgcmVnaXN0ZXJlZAo+IGFzIGNsb2NrZXZlbnQ/
-CgpZZXMsIHlvdSBjYW4gcmVnaXN0ZXIgdGhlIGNsb2NrZXZlbnQgd2l0aG91dCB0aGUgY2xvY2tz
-b3VyY2UuCgpZb3UgbWVudGlvbmVkIHRoZSBKSDcxMTAgaGFzIGEgYmV0dGVyIHJhdGluZyB0aGFu
-IHRoZSBDUFUgYXJjaGl0ZWN0ZWQgCnRpbWVycy4gVGhlIHJhdGluZyBpcyB0aGVyZSB0byAiY2hv
-b3NlIiB0aGUgYmVzdCB0aW1lciwgc28gaXQgaXMgdXAgdG8gCnRoZSBhdXRob3Igb2YgdGhlIGRy
-aXZlciBjaGVjayBhZ2FpbnN0IHdoaWNoIHRpbWVycyBpdCBjb21wYXJlcyBvbiB0aGUgCnBsYXRm
-b3JtLgoKVXN1YWxseSwgQ1BVIHRpbWVycyBhcmUgdGhlIGJlc3QuCgpJdCBpcyBzdXJwcmlzaW5n
-IHRoZSB0aW1lci1yaXNjdiBoYXMgYSBzbyBsb3cgcmF0aW5nLiBZb3UgbWF5IGRvdWJsZSAKY2hl
-Y2sgaWYgamg3MTEwIGlzIHJlYWxseSBiZXR0ZXIuIElmIGl0IGlzIHRoZSBjYXNlLCB0aGVuIGlt
-cGxlbWVudGluZyBhIApjbG9ja2V2ZW50IHBlciBjcHUgd291bGQgbWFrZSBtb3JlIHNlbnNlLCBv
-dGhlcndpc2Ugb25lIGNsb2NrZXZlbnQgYXMgYSAKZ2xvYmFsIHRpbWVyIGlzIGVub3VnaC4KClVu
-dXNlZCBjbG9ja3NvdXJjZSwgY2xvY2tldmVudHMgc2hvdWxkIGJlIHN0b3BwZWQgaW4gY2FzZSB0
-aGUgZmlybXdhcmUgCmxldCB0aGVtIGluIGEgdW5kZXRlcm1pbmVkIHN0YXRlLgoKCj4gWzFdCj4g
-aHR0cHM6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvdGhlcm1hbC9s
-aW51eC5naXQvdHJlZS9kcml2ZXJzL2Nsb2Nrc291cmNlL3RpbWVyLXJpc2N2LmMjbjQ1Cj4KPiAg
-VGhhbmtzLCBYaW5neXUgV3UKCi0tIAo8aHR0cDovL3d3dy5saW5hcm8ub3JnLz4gTGluYXJvLm9y
-ZyDilIIgT3BlbiBzb3VyY2Ugc29mdHdhcmUgZm9yIEFSTSBTb0NzCgpGb2xsb3cgTGluYXJvOiAg
-PGh0dHA6Ly93d3cuZmFjZWJvb2suY29tL3BhZ2VzL0xpbmFybz4gRmFjZWJvb2sgfAo8aHR0cDov
-L3R3aXR0ZXIuY29tLyMhL2xpbmFyb29yZz4gVHdpdHRlciB8CjxodHRwOi8vd3d3LmxpbmFyby5v
-cmcvbGluYXJvLWJsb2cvPiBCbG9nCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+Hi Bjorn,
+
+On Mon, Nov 06, 2023 at 04:16:06PM -0600, Bjorn Helgaas wrote:
+> On Fri, Oct 27, 2023 at 06:25:03PM +0530, Sunil V L wrote:
+> > On Thu, Oct 26, 2023 at 12:04:08PM -0500, Bjorn Helgaas wrote:
+> > > On Thu, Oct 26, 2023 at 01:53:29AM +0530, Sunil V L wrote:
+> > > > On RISC-V platforms, apart from root interrupt controllers (which
+> > > > provide local interrupts and IPI), other interrupt controllers in the
+> > > > hierarchy are probed late. Enable this select this CONFIG option for
+> > > > RISC-V platforms so that device drivers which connect to deferred
+> > > > interrupt controllers can take appropriate action.
+> > > 
+> > > Quite a bit of this series seems related to the question of interrupt
+> > > controllers being probed "late".
+> > > 
+> > > I don't see anything specific about *how* late this might be, but from
+> > > the use of -EPROBE_DEFER in individual drivers (8250_pnp explicitly,
+> > > and acpi_register_gsi() and pnp_irq() and acpi_pci_irq_enable(), which
+> > > are called from driver .probe() paths) it seems like interrupt
+> > > controllers might be detected even after devices that use them.
+> > > 
+> > > That seems like a fairly invasive change to the driver probe flow.
+> > > If we really need to do that, I think it might merit a little more
+> > > background as justification since we haven't had to do it for any
+> > > other arch yet.
+> > 
+> > In RISC-V, the APLIC can be a converter from wired (GSI) to MSI interrupts.
+> > Hence, especially in this mode, it has to be a platform device to use
+> > device MSI domain. Also, according to Marc Zyngier there is no reason to
+> > probe interrupt controllers early apart from root controller. So, the
+> > device drivers which use wired interrupts need to be probed after APLIC.
+> > 
+> > The PNP devices and PCI INTx GSI links use either
+> > acpi_dev_resource_interrupt() (PNP) or acpi_register_gsi() directly
+> > (PCI). The approach taken here is to follow the example of
+> > acpi_irq_get() which is enhanced to return EPROBE_DEFER and several
+> > platform device drivers which use platform_get_irq() seem to be handling
+> > this already.
+> 
+> This series (patch 04/21 "ACPI: irq: Add support for deferred probe in
+> acpi_register_gsi()" [1]) makes acpi_register_gsi() return
+> -EPROBE_DEFER, which percolates up through pci_enable_device().
+> 
+> Maybe that's ok, but this affects *all* PCI drivers, and it's a new
+> case that did not occur before.  Many drivers emit warning or error
+> messages for any pci_enable_device() failure, which you probably don't
+> want in this case, since -EPROBE_DEFER is not really a "failure";
+> IIUC, it just means "probe again later."
+>
+Yeah, I think all the drivers which need to be supported on RISC-V
+ACPI based systems will have to support deferred probe with this scheme.
+
+> > Using ResourceSource dependency (mbigen uses) in the namespace as part of
+> > Extended Interrupt Descriptor will not ensure the order since PNP/INTx
+> > GSI devices don't work with that.
+> 
+> Are these PNP/INTx GSI devices described in ACPI?  In the namespace?
+> Or in a static table?
+> 
+Yes, these are standard devices in the namespace. For ex: PNP0501(16550)
+or PNP0C0F (PCI interrupt link devices) are in the namespace.
+
+> > Is there any other better way to create dependency between IO devices
+> > and the interrupt controllers when interrupt controller itself is a
+> > platform device? While using core_initcall() for interrupt controllers
+> > seem to work which forces the interrupt controller to be probed first,
+> > Marc is not in favor of that approach since it is fragile.
+> 
+> I guess PCI interrupts from the PCI host bridges (PNP0A03 devices)
+> feed into the APLIC?  And APLIC is described via MADT?  Based on this
+> series, it looks like this:
+> 
+>     acpi_init
+>   +   acpi_riscv_init
+>   +     riscv_acpi_aplic_platform_init
+>   +       acpi_table_parse_madt(ACPI_MADT_TYPE_APLIC, aplic_parse_madt, 0)
+>       acpi_scan_init
+>         acpi_pci_root_init
+>         acpi_pci_link_init
+> 	acpi_bus_scan             # add PCI host bridges, etc
+> 
+> If that's the sequence, it looks like aplic_parse_madt() should be
+> called before the PCI host bridges are added.
+> 
+> Or maybe this isn't how the APLICs are enumerated?
+> 
+That's partly correct. APLIC platform devices are created prior to PCI
+host bridges added. But the actual APLIC driver which creates the
+irqdomain will be probed as a regular platform driver for the APLIC
+device. The platform driver probe will happen using DD framework and
+devices don't have any dependency on APLIC which can cause device probe
+prior to APLIC driver probe.
+
+DT supports fw_devlink framework which makes it easier for IRQ devices
+to use regular platform drivers and produces-consumers are probed in the
+order without requiring drivers to do deferred probe. But I don't see
+that supported for ACPI framework.  Also, the way PNP devices get added
+there is an assumption that interrupt controller is already setup fully.
+
+With this new use case in RISC-V, here are the alternatives I am aware of.
+
+1) Use core_initcall() in the APLIC drivers which makes APLIC driver to
+be probed prior to PNP or PCI INTx devices. But this was ruled out in
+the context of DT from Marc.
+
+2) Like the approach tried in this series, add support for deferred
+probe in drivers. This will be invasive change requiring many drivers to
+change like you pointed.
+
+I don't know which is less evil or if there is any other alternative
+which I am not aware of.
+
+Thomas/Marc, could you allow APLIC (and PLIC) irqchip drivers to use
+core_initcall() for ACPI?
+
+Thanks,
+Sunil
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
