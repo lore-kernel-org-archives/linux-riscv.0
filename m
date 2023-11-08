@@ -4,95 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DDCAC04FDE
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Nov 2023 14:18:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 280C6C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Nov 2023 14:22:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=moNn2oXy5uZS1du/6MLwLPwips/kcJ/6WvLouLPmIa4=; b=saMO1EvYMGkvGk
-	rf64smXHKjeoTQHG3LYzozRSLssD/YcW2YYXdB5yLpv3oRR2ADQ6Z6e/aXThzR59/O27VMZLXbaj7
-	f+GpGNzXGjOStTFulQRpWO8Q4+4dvGXlqRQSlgCOjUTLg5ySFGliac60nuZWHknB/qRBozB2IpEJS
-	ffXIxj+REBaMTVaXMdWRRVNGqdtrBdeXKfFlXi6KOkkoAco78BI/kYnW8inuGh5vdOmiQJCgMwKKz
-	844F6YBEcm5PbZak0Of8FdbLHSgpIp8DT2pVymrM94qRr6fc8inE3MqAPGkPiXHD83yM19vmUxW/4
-	vHjbV5DSxpsX4NUHTfAw==;
+	List-Owner; bh=ZEUi2SLlaYnKUoMi3R2fAfOc2p2zXk+2NnseF/nlTQ8=; b=ZcLCT4PGg9nF9B
+	T7LRrdKXIJk7HL5VZtpkLyEB52bQ4ZRUi3AxnnGjIA2fPi8wwjg0edbk7Z83kIrLQl2JsR8gJ3LOq
+	JNRtNIt0B0RKeYZaWBxr+yVLRFWNRGN2YgM2AA+kfqdJ10txEwM95RXa71pU/dU9Ws9Ia6k8QT2Z9
+	6iyKKUWejuaHCSs100/mK3QyNL0FwYbV2zBJMhstRV+24Zi4ZBKPiNzkv/EjLqFRr7pC+dxOvsGzh
+	KDdKDq7x20s/V3LUKvbyZ/vYPhY8HGCDR+lC5lenHML9p1/gvoeXAYxTtIjqVllYP/g20Nb4sYxPa
+	F6ezMXkG7kS6jXd9Wdgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0jO4-003zXz-0K;
-	Wed, 08 Nov 2023 14:18:32 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0jO1-003zXU-1M;
-	Wed, 08 Nov 2023 14:18:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=oPbIgwC0BijVgGIquFkJt/4vZ7saVONMlD6xtHIWlpI=; b=Ce8QxVd4WKG0h9ztVM/Vn/nozc
-	8DRtZ9C1JiuIIVlzxZxS+Ui3PxxM3jqb/akrMqXYO3WvQUBJmaQyrGweyeK/v/2+8fZJtis97EdQ/
-	Z2OUj+WkOgKAiPwjdTmxLpAN/0e+qc+yEGVcCGOKaE6IPc3x5sP1qOZYrVD/iYkmeJ7ckobeBHTNA
-	IarXDpeU/s6fQAOkNZdunXkH+NJj5F0m3DXdHv+wbdxzqwV/TXUawSYG3lJPeRoYipVWG2Yq80nQd
-	BOosblKbS23sgiPA/jNunjiRIP4lrtzpk4Tekhmsx6ugm9zT+y/qPe6q2ru9aKlrV+bDPpPIT9NHA
-	JfjaNGoA==;
-Received: from [2001:8a0:6c72:c100:c7fb:dbc0:2c8e:ab9a]
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1r0jNp-001S65-JA; Wed, 08 Nov 2023 14:18:18 +0000
-Message-ID: <1b3ccc4a-41f7-46ad-9c5c-5ef44a96426e@infradead.org>
-Date: Wed, 8 Nov 2023 14:18:09 +0000
+	id 1r0jRg-00400D-1E;
+	Wed, 08 Nov 2023 14:22:16 +0000
+Received: from m1563.mail.126.com ([220.181.15.63])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1r0jRc-003zy6-1J
+	for linux-riscv@lists.infradead.org;
+	Wed, 08 Nov 2023 14:22:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=ETzSHXEE7w/Yufa7DZyCIIqAzyabzEzJwUezfaNJedA=; b=I
+	qBRb8AGzeW3c4z1jeW6MVFHDUuiYSFcFaDKSRupgN2YmVvuQI5reiBBzHzHBEoPy
+	k3Qen0YPdScP3pKKpYz2veejlcdpqt9L8W/UZfH8BkymcnGlqMAvztSIseIJEgXb
+	WLQNFVGwI9NvfHbtzI1qgqTtx/cUFnoZdxsCWSzr6c=
+Received: from figure1802$126.com ( [183.193.16.145] ) by
+ ajax-webmail-wmsvr63 (Coremail) ; Wed, 8 Nov 2023 22:20:09 +0800 (CST)
+X-Originating-IP: [183.193.16.145]
+Date: Wed, 8 Nov 2023 22:20:09 +0800 (CST)
+From: Ben  <figure1802@126.com>
+To: "Anup Patel" <apatel@ventanamicro.com>
+Cc: "Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Paul Walmsley" <paul.walmsley@sifive.com>, 
+	"Thomas Gleixner" <tglx@linutronix.de>, 
+	"Rob Herring" <robh+dt@kernel.org>, 
+	"Krzysztof Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, 
+	"Frank Rowand" <frowand.list@gmail.com>, 
+	"Conor Dooley" <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	"Saravana Kannan" <saravanak@google.com>, 
+	"Marc Zyngier" <maz@kernel.org>, "Anup Patel" <anup@brainfault.org>, 
+	linux-kernel@vger.kernel.org, 
+	=?UTF-8?Q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, 
+	"Atish Patra" <atishp@atishpatra.org>, 
+	linux-riscv@lists.infradead.org, 
+	"Andrew Jones" <ajones@ventanamicro.com>
+Subject: Re:Re:[PATCH v11 12/14] irqchip/riscv-aplic: Add support for
+ MSI-mode
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20230109(dcb5de15)
+ Copyright (c) 2002-2023 www.mailtech.cn 126com
+In-Reply-To: <22d5d9e9.258.18b97d65ce7.Coremail.figure1802@126.com>
+References: <20231023172800.315343-1-apatel@ventanamicro.com>
+ <20231023172800.315343-13-apatel@ventanamicro.com>
+ <22d5d9e9.258.18b97d65ce7.Coremail.figure1802@126.com>
+X-NTES-SC: AL_QuySC/ievEor7yOYZ+kfm08Xhew/XsK1vfkm3I5QN5FwjD3n4xE7X2FoJUnu1MCENR2ViTO8Sz5zwOFVdqtZZr8S8+CyQJdKJrlBrPGvK1p2iw==
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 17/22] powerpc: ps3: move udbg_shutdown_ps3gelic prototype
-To: Arnd Bergmann <arnd@kernel.org>, Andrew Morton
- <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org,
- Masahiro Yamada <masahiroy@kernel.org>, linux-kbuild@vger.kernel.org
-Cc: Arnd Bergmann <arnd@arndb.de>, Matt Turner <mattst88@gmail.com>,
- Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
- <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Guo Ren <guoren@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Ard Biesheuvel <ardb@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
- Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Dinh Nguyen <dinguyen@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Palmer Dabbelt <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>,
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- "David S. Miller" <davem@davemloft.net>, Andy Lutomirski <luto@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- x86@kernel.org, Helge Deller <deller@gmx.de>,
- Sudip Mukherjee <sudipm.mukherjee@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Timur Tabi <timur@kernel.org>, Kent Overstreet <kent.overstreet@linux.dev>,
- David Woodhouse <dwmw2@infradead.org>,
- "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
- Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
- Kees Cook <keescook@chromium.org>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Juri Lelli <juri.lelli@redhat.com>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>,
- Nicolas Schier <nicolas@fjasle.eu>, Al Viro <viro@zeniv.linux.org.uk>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
- linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, netdev@vger.kernel.org,
- linux-parisc@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-bcachefs@vger.kernel.org, linux-mtd@lists.infradead.org
-References: <20231108125843.3806765-1-arnd@kernel.org>
- <20231108125843.3806765-18-arnd@kernel.org>
-Content-Language: en-US
-From: Geoff Levand <geoff@infradead.org>
-In-Reply-To: <20231108125843.3806765-18-arnd@kernel.org>
+Message-ID: <246db5c.5817.18baf4e0ad9.Coremail.figure1802@126.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: P8qowAD3f9MamUtlOHAcAA--.29571W
+X-CM-SenderInfo: pilj32bhryija6rslhhfrp/1tbiuR8iXlpECjIOvgACsO
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20231108_062212_953565_3B42157F 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,29 +88,207 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
 
-On 11/8/23 12:58, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> Allmodconfig kernels produce a missing-prototypes warning:
-> 
-> arch/powerpc/platforms/ps3/gelic_udbg.c:239:6: error: no previous prototype for 'udbg_shutdown_ps3gelic' [-Werror=missing-prototypes]
-> 
-> Move the declaration from a local header to asm/ps3.h where it can be
-> seen from both the caller and the definition.
-> 
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  arch/powerpc/include/asm/ps3.h               | 6 ++++++
->  arch/powerpc/platforms/ps3/gelic_udbg.c      | 1 +
->  drivers/net/ethernet/toshiba/ps3_gelic_net.h | 6 ------
->  3 files changed, 7 insertions(+), 6 deletions(-)
 
-Seems good to me.  I'll test it next chance I get.
 
-Signed-off-by: Geoff Levand <geoff@infradead.org>
+At 2023-11-04 08:58:10, "Ben" <figure1802@126.com> wrote:
+>At 2023-10-24 01:27:58, "Anup Patel" <apatel@ventanamicro.com> wrote:
+>>The RISC-V advanced platform-level interrupt controller (APLIC) has
+>>two modes of operation: 1) Direct mode and 2) MSI mode.
+>>(For more details, refer https://github.com/riscv/riscv-aia)
+>>
+>>In APLIC MSI-mode, wired interrupts are forwared as message signaled
+>>interrupts (MSIs) to CPUs via IMSIC.
+>>
+>>We extend the existing APLIC irqchip driver to support MSI-mode for
+>>RISC-V platforms having both wired interrupts and MSIs.
+>>
+>>Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+>>---
+>> drivers/irqchip/Kconfig                |   6 +
+>> drivers/irqchip/Makefile               |   1 +
+>> drivers/irqchip/irq-riscv-aplic-main.c |   2 +-
+>> drivers/irqchip/irq-riscv-aplic-main.h |   8 +
+>> drivers/irqchip/irq-riscv-aplic-msi.c  | 285 +++++++++++++++++++++++++
+>> 5 files changed, 301 insertions(+), 1 deletion(-)
+>> create mode 100644 drivers/irqchip/irq-riscv-aplic-msi.c
+>>
+>>diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+>>index 1996cc6f666a..7adc4dbe07ff 100644
+>>--- a/drivers/irqchip/Kconfig
+>>+++ b/drivers/irqchip/Kconfig
+>>@@ -551,6 +551,12 @@ config RISCV_APLIC
+>> 	depends on RISCV
+>> 	select IRQ_DOMAIN_HIERARCHY
+>> 
+>>+config RISCV_APLIC_MSI
+>>+	bool
+>>+	depends on RISCV_APLIC
+>>+	select GENERIC_MSI_IRQ
+>>+	default RISCV_APLIC
+>>+
+>> config RISCV_IMSIC
+>> 	bool
+>> 	depends on RISCV
+>>diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
+>>index 7f8289790ed8..47995fdb2c60 100644
+>>--- a/drivers/irqchip/Makefile
+>>+++ b/drivers/irqchip/Makefile
+>>@@ -96,6 +96,7 @@ obj-$(CONFIG_CSKY_MPINTC)		+= irq-csky-mpintc.o
+>> obj-$(CONFIG_CSKY_APB_INTC)		+= irq-csky-apb-intc.o
+>> obj-$(CONFIG_RISCV_INTC)		+= irq-riscv-intc.o
+>> obj-$(CONFIG_RISCV_APLIC)		+= irq-riscv-aplic-main.o irq-riscv-aplic-direct.o
+>>+obj-$(CONFIG_RISCV_APLIC_MSI)		+= irq-riscv-aplic-msi.o
+>> obj-$(CONFIG_RISCV_IMSIC)		+= irq-riscv-imsic-state.o irq-riscv-imsic-early.o irq-riscv-imsic-platform.o
+>> obj-$(CONFIG_SIFIVE_PLIC)		+= irq-sifive-plic.o
+>> obj-$(CONFIG_IMX_IRQSTEER)		+= irq-imx-irqsteer.o
+>>diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
+>>index 87450708a733..d1b342b66551 100644
+>>--- a/drivers/irqchip/irq-riscv-aplic-main.c
+>>+++ b/drivers/irqchip/irq-riscv-aplic-main.c
+>>@@ -205,7 +205,7 @@ static int aplic_probe(struct platform_device *pdev)
+>> 		msi_mode = of_property_present(to_of_node(dev->fwnode),
+>> 						"msi-parent");
+>> 	if (msi_mode)
+>>-		rc = -ENODEV;
+>>+		rc = aplic_msi_setup(dev, regs);
+>> 	else
+>> 		rc = aplic_direct_setup(dev, regs);
+>> 	if (rc) {
+>>diff --git a/drivers/irqchip/irq-riscv-aplic-main.h b/drivers/irqchip/irq-riscv-aplic-main.h
+>>index 474a04229334..78267ec58098 100644
+>>--- a/drivers/irqchip/irq-riscv-aplic-main.h
+>>+++ b/drivers/irqchip/irq-riscv-aplic-main.h
+>>@@ -41,5 +41,13 @@ void aplic_init_hw_global(struct aplic_priv *priv, bool msi_mode);
+>> int aplic_setup_priv(struct aplic_priv *priv, struct device *dev,
+>> 		     void __iomem *regs);
+>> int aplic_direct_setup(struct device *dev, void __iomem *regs);
+>>+#ifdef CONFIG_RISCV_APLIC_MSI
+>>+int aplic_msi_setup(struct device *dev, void __iomem *regs);
+>>+#else
+>>+static inline int aplic_msi_setup(struct device *dev, void __iomem *regs)
+>>+{
+>>+	return -ENODEV;
+>>+}
+>>+#endif
+>> 
+>> #endif
+>>diff --git a/drivers/irqchip/irq-riscv-aplic-msi.c b/drivers/irqchip/irq-riscv-aplic-msi.c
+>>new file mode 100644
+>>index 000000000000..086d00e0429e
+>>--- /dev/null
+>>+++ b/drivers/irqchip/irq-riscv-aplic-msi.c
+>>@@ -0,0 +1,285 @@
+>>+// SPDX-License-Identifier: GPL-2.0
+>>+/*
+>>+ * Copyright (C) 2021 Western Digital Corporation or its affiliates.
+>>+ * Copyright (C) 2022 Ventana Micro Systems Inc.
+>>+ */
+>>+
+>>+#include <linux/bitops.h>
+>>+#include <linux/cpu.h>
+>>+#include <linux/interrupt.h>
+>>+#include <linux/irqchip.h>
+>>+#include <linux/irqchip/riscv-aplic.h>
+>>+#include <linux/irqchip/riscv-imsic.h>
+>>+#include <linux/module.h>
+>>+#include <linux/msi.h>
+>>+#include <linux/of_irq.h>
+>>+#include <linux/platform_device.h>
+>>+#include <linux/printk.h>
+>>+#include <linux/smp.h>
+>>+
+>>+#include "irq-riscv-aplic-main.h"
+>>+
+>>+static void aplic_msi_irq_unmask(struct irq_data *d)
+>>+{
+>>+	aplic_irq_unmask(d);
+>>+	irq_chip_unmask_parent(d);
+>>+}
+>>+
+>>+static void aplic_msi_irq_mask(struct irq_data *d)
+>>+{
+>>+	aplic_irq_mask(d);
+>>+	irq_chip_mask_parent(d);
+>>+}
+>>+
+>>+static void aplic_msi_irq_eoi(struct irq_data *d)
+>>+{
+>>+	struct aplic_priv *priv = irq_data_get_irq_chip_data(d);
+>>+	u32 reg_off, reg_mask;
+>>+
+>>+	/*
+>>+	 * EOI handling only required only for level-triggered
+>>+	 * interrupts in APLIC MSI mode.
+>>+	 */
+>>+
+>>+	reg_off = APLIC_CLRIP_BASE + ((d->hwirq / APLIC_IRQBITS_PER_REG) * 4);
+>>+	reg_mask = BIT(d->hwirq % APLIC_IRQBITS_PER_REG);
+>>+	switch (irqd_get_trigger_type(d)) {
+>>+	case IRQ_TYPE_LEVEL_LOW:
+>>+		if (!(readl(priv->regs + reg_off) & reg_mask))
+>>+			writel(d->hwirq, priv->regs + APLIC_SETIPNUM_LE);
+>>+		break;
+>>+	case IRQ_TYPE_LEVEL_HIGH:
+>>+		if (readl(priv->regs + reg_off) & reg_mask)
+>>+			writel(d->hwirq, priv->regs + APLIC_SETIPNUM_LE);
+>>+		break;
+>>+	}
+>>+}
+>>+
+>>+static struct irq_chip aplic_msi_chip = {
+>>+	.name		= "APLIC-MSI",
+>>+	.irq_mask	= aplic_msi_irq_mask,
+>>+	.irq_unmask	= aplic_msi_irq_unmask,
+>>+	.irq_set_type	= aplic_irq_set_type,
+>>+	.irq_eoi	= aplic_msi_irq_eoi,
+>>+#ifdef CONFIG_SMP
+>>+	.irq_set_affinity = irq_chip_set_affinity_parent,
+>>+#endif
+>>+	.flags		= IRQCHIP_SET_TYPE_MASKED |
+>>+			  IRQCHIP_SKIP_SET_WAKE |
+>>+			  IRQCHIP_MASK_ON_SUSPEND,
+>>+};
+>>+
+>>+static int aplic_msi_irqdomain_translate(struct irq_domain *d,
+>>+					 struct irq_fwspec *fwspec,
+>>+					 unsigned long *hwirq,
+>>+					 unsigned int *type)
+>>+{
+>>+	struct aplic_priv *priv = platform_msi_get_host_data(d);
+>>+
+>>+	return aplic_irqdomain_translate(fwspec, priv->gsi_base, hwirq, type);
+>>+}
+>>+
+>>+static int aplic_msi_irqdomain_alloc(struct irq_domain *domain,
+>>+				     unsigned int virq, unsigned int nr_irqs,
+>>+				     void *arg)
+>>+{
+>>+	int i, ret;
+>>+	unsigned int type;
+>>+	irq_hw_number_t hwirq;
+>>+	struct irq_fwspec *fwspec = arg;
+>>+	struct aplic_priv *priv = platform_msi_get_host_data(domain);
+>>+
+>>+	ret = aplic_irqdomain_translate(fwspec, priv->gsi_base, &hwirq, &type);
+>>+	if (ret)
+>>+		return ret;
+>
+>In your patchset, the wired IRQ and IRQ of platform device will go into APLIC-MSI domain firstly.
+>Let me assume here is a MSI IRQ not wired IRQ on a device, and it is a platform device in system.
+>so in aplic_irqdomain_translate() function, it will parse the APLIC physical IRQ number by fwspec->param[0],
+>but this is not a wried IRQ, it is a MSI IRQ, it should not has a APLIC physical IRQ number, the hwirq number should be allocated by MSI bitmap,
+>what value will be parse by DTS? zero or negative? 
+>
+>if this is a nonexistent physical IRQ number for APLIC, in aplic_msi_irq_unmask()->aplic_irq_unmask(), how it works?
+>
+>writel(d->hwirq, priv->regs + APLIC_SETIENUM);
 
+hi Anup,
+Any comments about this question for an MSI interrupt (not wired interrupt) of non-PCI device?
+
+Thanks,
+Ben
 
 
 _______________________________________________
