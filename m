@@ -4,114 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C30D9C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Nov 2023 12:23:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C89FC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Nov 2023 13:39:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=onqGpSs44UfQbVdMmMxgQnxrs9PfDTxmPX83ApqZUEM=; b=cM1TcqZ3SIaaeN
-	xhY8+jRrPgRx1g5tdvK7clItu6IqSQ/XnpVMZQ/a0VK23IjDVVwoJkifJS+oEYiOiYZOHPALcpZSG
-	eQYG6lwyassfwimUFqyv2pPfO7lBywkhoIa4vT2R7UveoqlUEj6y0Mgkoo6l8ELqTKNg0uATmRJ52
-	jkS5VxZWzBgc3Jfd2potpVfq1TSS8aoF1QJn7ymuJwV8ykTQFORHtrEB30e6/VCEIk2c7gZ1jVJdh
-	wo2y/PBtA8SgUFyWA68ilkdqefDZI9BH4qUln9/xiMKf4kImKUE3ALOrA5FEMYN/eK+wPP8RUR0ko
-	2CwIJaE/HrgkFm5allrQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tNsrKGU/QjAhZx6QCO1frUCh9lDCpbwOQhvwjRqQyjQ=; b=BOCvSGGgame3YH
+	k3/wMDgxM63PyJLK+/ZIXQqGnKNIDLY+fDwVh96l2RuAk/EzmzDfq0gYvqcR3c7EuuFc5Vgy9kQK/
+	omtnSPSYdH7DeaKM5LcgdcGu6e3pknM6HjUh5MJtKhPnZJxygEvcazsJnPtQguzB9ucSYD4kIanIB
+	c09nbz2u83Ijgu0K/jna4J2z8QbggAEEbAFm12UezVagSa8Mg6YKsOgtu6WHVh8+VFvWpFA3tIQMu
+	x6OpomWcw4a9mvrrqyISELYxKDNLitWqAu2kdZGvYCQkXaOZklMqPL4rvLEKEh3TdH2j9sWxq8DB9
+	bxHf1ztv10h1Id9GEO/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r144R-006J5Q-2r;
-	Thu, 09 Nov 2023 12:23:39 +0000
-Received: from gandalf.ozlabs.org ([150.107.74.76])
+	id 1r15Fg-006P0F-1a;
+	Thu, 09 Nov 2023 13:39:20 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r144M-006J33-0z;
-	Thu, 09 Nov 2023 12:23:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ellerman.id.au;
-	s=201909; t=1699532610;
-	bh=R2IIgl4ZRFgwipCQ4ZBWquxZCbtnLxeQT8yMzVcSClk=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=JOE+Y96nQb0g0fD7YjgIsTtXOrsQ0zdJ9Xit6bae239vdgrtE8Xe20tGEjOEwp6b5
-	 bBGasTtN2qhciM6Vxj5gO1APMLHXfhhNabxTTxDpDoDz6AXcIv0hdu9+rRXuZNmSj3
-	 PriUuPEOny5OCaNxYhuQeMYyhW0D7Uuip11fA5kii4KmxM9zaRV2MnEviCDpMHy6zq
-	 fUfZ9elCA6bj44/a3P1CQqNaCruTVzrNA2B2UxDQEd/EBpaSM5DHluHgXy74J1JLYp
-	 rlgnpTfcT5fdD0htnPYkbVFENF7DqxPzxI5N3NUPYBgm/lUlPDoiySV3dJVovZ01Br
-	 M0UtCQNJ+RaEQ==
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4SR1MD6jtmz4wd2;
-	Thu,  9 Nov 2023 23:23:20 +1100 (AEDT)
-From: Michael Ellerman <mpe@ellerman.id.au>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>, Arnd Bergmann
- <arnd@arndb.de>, Arnd
- Bergmann <arnd@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Masahiro
- Yamada <masahiroy@kernel.org>, "linux-kbuild@vger.kernel.org"
- <linux-kbuild@vger.kernel.org>
-Cc: Matt Turner <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
- Russell King <linux@armlinux.org.uk>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Steven Rostedt
- <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, Mark
- Rutland <mark.rutland@arm.com>, guoren <guoren@kernel.org>, Peter Zijlstra
- <peterz@infradead.org>, Ard Biesheuvel <ardb@kernel.org>, Huacai Chen
- <chenhuacai@kernel.org>, Greg Ungerer <gerg@linux-m68k.org>, Michal Simek
- <monstr@monstr.eu>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Dinh
- Nguyen <dinguyen@kernel.org>, Nicholas Piggin <npiggin@gmail.com>, Geoff
- Levand <geoff@infradead.org>, Palmer Dabbelt <palmer@dabbelt.com>, Heiko
- Carstens <hca@linux.ibm.com>, John Paul Adrian Glaubitz
- <glaubitz@physik.fu-berlin.de>, "David S . Miller" <davem@davemloft.net>,
- Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo
- Molnar <mingo@redhat.com>, "x86@kernel.org" <x86@kernel.org>, Helge Deller
- <deller@gmx.de>, Sudip Mukherjee <sudipm.mukherjee@gmail.com>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, Timur Tabi <timur@kernel.org>,
- Kent Overstreet <kent.overstreet@linux.dev>, David Woodhouse
- <dwmw2@infradead.org>, "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Anil
- S
- Keshavamurthy <anil.s.keshavamurthy@intel.com>, Kees Cook
- <keescook@chromium.org>, Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Juri
- Lelli <juri.lelli@redhat.com>, Vincent Guittot
- <vincent.guittot@linaro.org>, Nathan Chancellor <nathan@kernel.org>, Nick
- Desaulniers <ndesaulniers@google.com>, Nicolas Schier <nicolas@fjasle.eu>,
- Alexander Viro <viro@zeniv.linux.org.uk>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?=
- <u.kleine-koenig@pengutronix.de>, "linux-alpha@vger.kernel.org"
- <linux-alpha@vger.kernel.org>, "linux-snps-arc@lists.infradead.org"
- <linux-snps-arc@lists.infradead.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
- "linux-m68k@lists.linux-m68k.org" <linux-m68k@lists.linux-m68k.org>,
- "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
- "linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>,
- "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>, Netdev
- <netdev@vger.kernel.org>, "linux-parisc@vger.kernel.org"
- <linux-parisc@vger.kernel.org>, "linux-usb@vger.kernel.org"
- <linux-usb@vger.kernel.org>, "linux-fbdev@vger.kernel.org"
- <linux-fbdev@vger.kernel.org>, "dri-devel@lists.freedesktop.org"
- <dri-devel@lists.freedesktop.org>, "linux-bcachefs@vger.kernel.org"
- <linux-bcachefs@vger.kernel.org>, "linux-mtd@lists.infradead.org"
- <linux-mtd@lists.infradead.org>
-Subject: Re: [PATCH 15/22] arch: vdso: consolidate gettime prototypes
-In-Reply-To: <886df4e4-9fc2-ca52-e7e9-53688e6e821a@csgroup.eu>
-References: <20231108125843.3806765-1-arnd@kernel.org>
- <20231108125843.3806765-16-arnd@kernel.org>
- <ecedb0f1-9543-35c6-18bd-723e6bf21173@csgroup.eu>
- <d94de5b8-db92-4055-9484-f2666973c02a@app.fastmail.com>
- <87o7g3qlf5.fsf@mail.lhotse>
- <886df4e4-9fc2-ca52-e7e9-53688e6e821a@csgroup.eu>
-Date: Thu, 09 Nov 2023 23:23:20 +1100
-Message-ID: <87il6bqfnr.fsf@mail.lhotse>
+	id 1r15Fb-006Oz5-2q
+	for linux-riscv@lists.infradead.org;
+	Thu, 09 Nov 2023 13:39:18 +0000
+X-QQ-mid: bizesmtp69t1699537093txdqplh1
+Received: from localhost.localdomain ( [123.113.186.121])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 09 Nov 2023 21:37:59 +0800 (CST)
+X-QQ-SSF: 01200000000000B0B000000A0000000
+X-QQ-FEAT: +ynUkgUhZJmSoLLIHIXW1BjoHW98x7fmJOzVL7zWM/NfqGYiLws58TvK3E7+G
+	1/6CyJLBqICXwA0l2mzvKP7MilohTEGMnnarDhPlIClAV40z6/1Pg8WWjcXybBeMeT88igY
+	BASQJ/AhX3p7MRuVnPYsLQXYzyUtNmdFv6s6YtsE67ITjEgaF+lUir24yscyLeSt++1gz4X
+	58Q+dmmW+uKJHUAVsYNQsa5l8sbf1mguwwS1M7uEsQSc6rhpwc7lIBM/yLa9NQwxrgAR3+9
+	N065IZNppXZrQAU30J78v+VcIVMnuPVLbSvt6FMUBqXFZXdwq6TCvVG6fuRQKsKwZKVL+aC
+	By0S4kZufciBEXhppBPK9usJTQ7Sxa4H4oQBlrk
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 5075732993716896576
+From: Song Shuai <songshuaishuai@tinylab.org>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	keescook@chromium.org,
+	guoren@kernel.org,
+	bjorn@rivosinc.com,
+	jszhang@kernel.org,
+	conor.dooley@microchip.com,
+	andy.chiu@sifive.com,
+	samitolvanen@google.com,
+	songshuaishuai@tinylab.org,
+	coelacanthushex@gmail.com,
+	dlemoal@kernel.org
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	Palmer Dabbelt <palmer@rivosinc.com>
+Subject: [PATCH V2] riscv: Support RANDOMIZE_KSTACK_OFFSET
+Date: Thu,  9 Nov 2023 21:37:51 +0800
+Message-Id: <20231109133751.212079-1-songshuaishuai@tinylab.org>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz4a-0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231109_042334_629165_AB6EA76B 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20231109_053916_249609_812610B4 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,55 +79,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Q2hyaXN0b3BoZSBMZXJveSA8Y2hyaXN0b3BoZS5sZXJveUBjc2dyb3VwLmV1PiB3cml0ZXM6Cj4g
-TGUgMDkvMTEvMjAyMyDDoCAxMToxOCwgTWljaGFlbCBFbGxlcm1hbiBhIMOpY3JpdMKgOgo+PiAi
-QXJuZCBCZXJnbWFubiIgPGFybmRAYXJuZGIuZGU+IHdyaXRlczoKPj4+IE9uIFdlZCwgTm92IDgs
-IDIwMjMsIGF0IDE5OjMxLCBDaHJpc3RvcGhlIExlcm95IHdyb3RlOgo+Pj4+IExlIDA4LzExLzIw
-MjMgw6AgMTM6NTgsIEFybmQgQmVyZ21hbm4gYSDDqWNyaXTCoDoKPj4+Cj4+Pj4gcG93ZXJwYyBo
-YXMgZnVuY3Rpb25zIGRvaW5nIG1vcmUgb3IgbGVzcyB0aGUgc2FtZSwgdGhleSBhcmUgY2FsbGVk
-Cj4+Pj4gX19jX2tlcm5lbF9jbG9ja19nZXR0aW1lKCkgYW5kIGFsaWtlIHdpdGggdGhlaXIgcHJv
-dG90eXBlcyBzaXRpbmcgaW4KPj4+PiBhcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20vdmRzby9nZXR0
-aW1lb2ZkYXkuaAo+Pj4+Cj4+Pj4gU2hvdWxkIHRob3NlIHByb3RvdHlwZXMgYmUgbW92ZWQgdG8g
-aW5jbHVkZS92ZHNvL2dldHRpbWUuaCB0b28gYW5kCj4+Pj4gZXZlbnR1YWxseSByZW5hbWVkLCBv
-ciBhcmUgdGhleSBjb25zaWRlcmVkIHRvbyBwb3dlcnBjIHNwZWNpZmljID8KPj4+Cj4+PiBJIGRv
-bid0IGFjdHVhbGx5IGtub3csIG15IGluaXRpYWwgaW50ZXJwcmV0YXRpb24gd2FzIHRoYXQKPj4+
-IHRoZXNlIGZ1bmN0aW9uIG5hbWVzIGFyZSBwYXJ0IG9mIHRoZSB1c2VyIEFCSSBmb3IgdGhlIHZk
-c28sCj4+PiBidXQgSSBuZXZlciBsb29rZWQgY2xvc2VseSBlbm91Z2ggYXQgaG93IHZkc28gd29y
-a3MgdG8KPj4+IGJlIHN1cmUgd2hhdCB0aGUgYWN0dWFsIEFCSSBpcy4KPj4gCj4+IEFGQUlLIHRo
-ZSBBQkkgaXMganVzdCB0aGUgc3ltYm9scyB3ZSBleHBvcnQsIGFzIGRlZmluZWQgaW4gdGhlIGxp
-bmtlcgo+PiBzY3JpcHQ6Cj4+IAo+PiAvKgo+PiAgICogVGhpcyBjb250cm9scyB3aGF0IHN5bWJv
-bHMgd2UgZXhwb3J0IGZyb20gdGhlIERTTy4KPj4gICAqLwo+PiBWRVJTSU9OCj4+IHsKPj4gCVZE
-U09fVkVSU0lPTl9TVFJJTkcgewo+PiAJZ2xvYmFsOgo+PiAJCV9fa2VybmVsX2dldF9zeXNjYWxs
-X21hcDsKPj4gCQlfX2tlcm5lbF9nZXR0aW1lb2ZkYXk7Cj4+IAkJX19rZXJuZWxfY2xvY2tfZ2V0
-dGltZTsKPj4gCQlfX2tlcm5lbF9jbG9ja19nZXRyZXM7Cj4+IAkJX19rZXJuZWxfZ2V0X3RiZnJl
-cTsKPj4gCQlfX2tlcm5lbF9zeW5jX2RpY2FjaGU7Cj4+IAkJX19rZXJuZWxfc2lndHJhbXBfcnQ2
-NDsKPj4gCQlfX2tlcm5lbF9nZXRjcHU7Cj4+IAkJX19rZXJuZWxfdGltZTsKPj4gCj4+IGh0dHBz
-Oi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L3RvcnZhbGRzL2xpbnV4
-LmdpdC90cmVlL2FyY2gvcG93ZXJwYy9rZXJuZWwvdmRzby92ZHNvNjQubGRzLlM/aD12Ni42JiNu
-MTE3Cj4+IAo+Pj4gSWYgX19jX2tlcm5lbF9jbG9ja19nZXR0aW1lKCkgZXRjIGFyZSBub3QgcGFy
-dCBvZiB0aGUgdXNlci1mYWNpbmcKPj4+IEFCSSwgSSB0aGluayByZW5hbWluZyB0aGVtIGZvciBj
-b25zaXN0ZW5jeSB3aXRoIHRoZSBvdGhlcgo+Pj4gYXJjaGl0ZWN0dXJlcyB3b3VsZCBiZSBiZXN0
-Lgo+PiAKPj4gVGhlIF9fYyBzeW1ib2xzIGFyZSBub3QgcGFydCBvZiB0aGUgQUJJLCBzbyB3ZSBj
-b3VsZCByZW5hbWUgdGhlbS4KPj4gCj4+IEF0IHRoZSBtb21lbnQgdGhvdWdoIHRoZXkgZG9uJ3Qg
-aGF2ZSB0aGUgc2FtZSBwcm90b3R5cGUgYXMgdGhlIGdlbmVyaWMKPj4gdmVyc2lvbnMsIGJlY2F1
-c2Ugd2UgZmluZCB0aGUgVkRTTyBkYXRhIGluIGFzbSBhbmQgcGFzcyBpdCB0byB0aGUgQwo+PiBm
-dW5jdGlvbnMsIGVnOgo+PiAKPj4gaW50IF9fY19rZXJuZWxfZ2V0dGltZW9mZGF5KHN0cnVjdCBf
-X2tlcm5lbF9vbGRfdGltZXZhbCAqdHYsIHN0cnVjdCB0aW1lem9uZSAqdHosCj4+IAkJCSAgICBj
-b25zdCBzdHJ1Y3QgdmRzb19kYXRhICp2ZCk7Cj4+IAo+PiBJIHRoaW5rIHdlIGNhbiByZXdvcmsg
-dGhhdCB0aG91Z2gsIGJ5IGltcGxlbWVudGluZwo+PiBfX2FyY2hfZ2V0X3Zkc29fZGF0YSgpIGFu
-ZCBnZXR0aW5nIHRoZSB2ZHNvX2RhdGEgaW4gQy4gVGhlbiB3ZSdkIGJlIGFibGUKPj4gdG8gc2hh
-cmUgdGhlIHByb3RvdHlwZXMuCj4KPiBJIHRoaW5rIGl0IHdvdWxkIG5vdCBhIGJlZW4gZ29vZCBp
-ZGVhLCBpdCB3b3VsZCBiZSBsZXNzIHBlcmZvcm1hbnQsIGZvciAKPiBleHBsYW5hdGlvbiBzZWUg
-Y29tbWl0IAo+IGh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0
-L3RvcnZhbGRzL2xpbnV4LmdpdC9jb21taXQvP2lkPWU4NzZmMGI2OWRjOTkzZTg2Y2E3Nzk1ZTYz
-ZTk4Mzg1YWE5YTdlZjMKCkFoIHRoYW5rcy4gSSB3YXMgd29uZGVyaW5nIHdoeSB5b3UgaGFkIGRv
-bmUgaXQgaW4gYXNtLgoKSXQncyBhIHBpdHkgYnV0IHlvdSdyZSByaWdodCB0aGF0J3MgcHJvYmFi
-bHkgYSBtZWFzdXJhYmxlIHBlcmZvcm1hbmNlCmhpdCBmb3Igc29tZSBvZiB0aG9zZSBjYWxscy4K
-CmNoZWVycwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Inspired from arm64's implement -- commit 70918779aec9
+("arm64: entry: Enable random_kstack_offset support")
+
+Add support of kernel stack offset randomization while handling syscall,
+the offset is defaultly limited by KSTACK_OFFSET_MAX() (i.e. 10 bits).
+
+In order to avoid trigger stack canaries (due to __builtin_alloca) and
+slowing down the entry path, use __no_stack_protector attribute to
+disable stack protector for do_trap_ecall_u() at the function level.
+
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+Reviewed-by: Kees Cook <keescook@chromium.org>
+Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
+---
+Changes since V1:
+https://lore.kernel.org/linux-riscv/20231101064423.1906122-1-songshuaishuai@tinylab.org/
+- fix whitespace errors Damien pointed out
+- add Acked-by and Reviewed-by tags
+
+---
+ arch/riscv/Kconfig        |  1 +
+ arch/riscv/kernel/traps.c | 17 ++++++++++++++++-
+ 2 files changed, 17 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index d607ab0f7c6d..0e843de33f0c 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -100,6 +100,7 @@ config RISCV
+ 	select HAVE_ARCH_KGDB_QXFER_PKT
+ 	select HAVE_ARCH_MMAP_RND_BITS if MMU
+ 	select HAVE_ARCH_MMAP_RND_COMPAT_BITS if COMPAT
++	select HAVE_ARCH_RANDOMIZE_KSTACK_OFFSET
+ 	select HAVE_ARCH_SECCOMP_FILTER
+ 	select HAVE_ARCH_THREAD_STRUCT_WHITELIST
+ 	select HAVE_ARCH_TRACEHOOK
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 19807c4d3805..a1a75163fb81 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -6,6 +6,7 @@
+ #include <linux/cpu.h>
+ #include <linux/kernel.h>
+ #include <linux/init.h>
++#include <linux/randomize_kstack.h>
+ #include <linux/sched.h>
+ #include <linux/sched/debug.h>
+ #include <linux/sched/signal.h>
+@@ -296,7 +297,8 @@ asmlinkage __visible __trap_section void do_trap_break(struct pt_regs *regs)
+ 	}
+ }
+ 
+-asmlinkage __visible __trap_section void do_trap_ecall_u(struct pt_regs *regs)
++asmlinkage __visible __trap_section  __no_stack_protector
++void do_trap_ecall_u(struct pt_regs *regs)
+ {
+ 	if (user_mode(regs)) {
+ 		long syscall = regs->a7;
+@@ -308,10 +310,23 @@ asmlinkage __visible __trap_section void do_trap_ecall_u(struct pt_regs *regs)
+ 
+ 		syscall = syscall_enter_from_user_mode(regs, syscall);
+ 
++		add_random_kstack_offset();
++
+ 		if (syscall >= 0 && syscall < NR_syscalls)
+ 			syscall_handler(regs, syscall);
+ 		else if (syscall != -1)
+ 			regs->a0 = -ENOSYS;
++		/*
++		 * Ultimately, this value will get limited by KSTACK_OFFSET_MAX(),
++		 * so the maximum stack offset is 1k bytes (10 bits).
++		 *
++		 * The actual entropy will be further reduced by the compiler when
++		 * applying stack alignment constraints: 16-byte (i.e. 4-bit) aligned
++		 * for RV32I or RV64I.
++		 *
++		 * The resulting 6 bits of entropy is seen in SP[9:4].
++		 */
++		choose_random_kstack_offset(get_random_u16());
+ 
+ 		syscall_exit_to_user_mode(regs);
+ 	} else {
+-- 
+2.20.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
