@@ -4,77 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A2DAC4167D
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Nov 2023 03:26:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D58D3C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Nov 2023 03:48:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=XNXIRNMntAn5PkjIvjt3tZUTvkzv4G8Z/7tIZ4pQ5VY=; b=REVEcMhU3qsTJtAYT6VMtrcOqB
-	UAiFzFpp1khdu0hygBeor84yC0W+3mXYGgvubSeq6IeyDbLJV4X2srZbfFcuwLKQiAjHETly4sWRh
-	O0d9/tzUKBx3udievNT5ehg6VGzv6VU/PuXimNe7aFFyPPdI90twgirDncPJgrN5YvrcrMQyeQkmj
-	8PcOVobKaRcYmbBgR7i0wyAlo+hOWYlozp9pAH7IkO8TDXv0ULeBWH7GDPL4/qslBxKJd+4lfNhxN
-	nLJM652fP4NBAmOzPWWIb75CCNoGn1mte3q7IZ8/n6fE87xzabuxB+0s4btUcClDbeeWcSBQyttN3
-	3DopQoJQ==;
+	bh=akheSsfgzgRwhUCnR67lThVS5mD1tYntJfkqWRqGB8g=; b=iVOHmJR5gh2ZBfCsTv7N2za2UV
+	XenOzM+LeK8qt+MZWlWc9gXfOc6TwnXENwjzIpPKBSiutq8etTZJnUF6yUxiUG5lJRzd17gC5UOVm
+	EvX2QFMwDtLpjsWV5rq9CDcsX2E5SWvPKxLI6Zy9ehU1s9BhSjVrhxeJ6SsG2t/Lnp5UHiZGD9MOc
+	QStrsBhF+mVXcNm3AaBtN8vEu6YHDmgjRrFO6y3FMaoReD+56bQnn8BgijZSYZ63Y80hqtWLGOz5d
+	HOwljz9uJF1BtDTd45sunoMYeBiNfUy42K7D6LrZrWByXmwdnuq/lOnf08Boy0tI1opUicmTrCxUA
+	3gsULNLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0vgq-005AtN-00;
-	Thu, 09 Nov 2023 03:26:44 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1r0w1O-005Ci5-30;
+	Thu, 09 Nov 2023 03:47:58 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0vgm-005ArU-36
+	id 1r0w1K-005ChK-0K
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Nov 2023 03:26:42 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1cc938f9612so2915985ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 08 Nov 2023 19:26:35 -0800 (PST)
+	Thu, 09 Nov 2023 03:47:56 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-5bd5809f63aso309244a12.3
+        for <linux-riscv@lists.infradead.org>; Wed, 08 Nov 2023 19:47:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1699500395; x=1700105195; darn=lists.infradead.org;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1699501671; x=1700106471; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=SL43KqdoOApMZsa3YMezQNkvoYmYG9YJ6cT/naFj7n0=;
-        b=VRcxDV8PKE64nWoC/ljvNbzPaWSldigzxdpQ32DCmmGCnG+mJ5f69iROWiNn78biax
-         xC1bG4bJgma1IdsErb1IpwzO+yOFss9/BX2YdMg2gTEdtfNNw/gvpxO+eeRrrPbefP2Z
-         aWfGXqa+iyVRrDEBfzMBJa+J5cZLW1xccJDpKGggEiS+ikE9kohhqk6w5TeNNaNp+XeG
-         H1pa3d/5+46Nq80zgmg/b58H71QDTCn8403ydjeAks3eOR1rRL3VUsxbvAQ8VkdJRdy8
-         jFaIlbsmQxI5PbsPBf3Af7VMxWGYBbaoB7bwqH3/cKaxAAXWqGVF5CPszdKasJbzvQzP
-         EfCQ==
+        bh=T3uuAi3G0X6OpIHwR9Kx+exCB4k+x+TH2JOVCfjs18U=;
+        b=NXKw+t3Z3Pi0aP887H2JIQ8elwg4oZICU16IsBa8ZOYacNFeTZz550HrH2mYlOZD9/
+         4YXETohB0BdkFjxBJ4s5nwMMxiAmU3ApxLcRyH7KrBD7dK7o3u2nj/zUzj6MCvBdDiVH
+         CHZ3Ci6wa9Zba+HXXk1Qh8HUWpJ14a9z+Gc1mQ4JvY8r9XPjsd8SDuRGiIwte8hyQCYK
+         fcFM6/sHr1Uzo892nOaawwikLZCqJdpEZsG28YlmZpFk3B5Zz8sNJjXkTmF8W+tIU9P/
+         8Gs9KReii/hCz8aGustCNv1hOC9lX20YQD209q7XP536nfdH3f+NyZOaWGJgAgvidplH
+         NLKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699500395; x=1700105195;
+        d=1e100.net; s=20230601; t=1699501671; x=1700106471;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=SL43KqdoOApMZsa3YMezQNkvoYmYG9YJ6cT/naFj7n0=;
-        b=ayJMU1O9w/C3Cj3S46YYX2fwFxPxkyqlxqc5jK0hGWw7dJqufZeiIXT9FnYWTJHZJz
-         yoM/3hFCfX6CX4HSVOcBn0AhZ33u/vyaxv3dcke693Ulo0IvM8Ack3dyo/L88D4pHX1x
-         Obsax+Lk2s3a35dRq0bdiZxn/E4DNP+4cBUTHsTBIBnDpLCBoTvN8I/riFo2CUzfTcot
-         qESfoGDjRdCcH+LpXZzqEzjd4qs96s42Qssv8bUpwq5TmeUnHs5IELZ12ff3uZsQmXPC
-         4TfMyQ6bYR6BrgfnhQhzm+cl0PL5kaJ38uWDjGbA4nwCb1ymnZG+NJu4Vw8u/swThLxx
-         bDhw==
-X-Gm-Message-State: AOJu0YwiW13XtHX44ejOIOdEYWbnpaQSiIJjwtnsQFD/4GFm+kZPhNja
-	wbq/igb5ZfS5KcUbNvaICis48A==
-X-Google-Smtp-Source: AGHT+IGr7vGXKEc3TQWEMfgM2CHVvt0ly+Zqz32FmWgjh6G8g9LT1+KY6vb72CQ295XvF9UU+LAVYQ==
-X-Received: by 2002:a17:902:ee89:b0:1cc:87f8:96ab with SMTP id a9-20020a170902ee8900b001cc87f896abmr4072748pld.38.1699500394683;
-        Wed, 08 Nov 2023 19:26:34 -0800 (PST)
+        bh=T3uuAi3G0X6OpIHwR9Kx+exCB4k+x+TH2JOVCfjs18U=;
+        b=fWNkXg4wt9bD466BEEkpU37GvPbTQybR+1NmRLbsmJgBaWWrHQ09mjO3d10MTqegcN
+         v3SfXmT7b4MgBjJk9ZkBqsDOzJoHbwAwCJmq6wr6tR2W3Eau4DxZ6pGB4ThytM3mQGTA
+         t+XIXZ1KqoFcgdAX1PIz8J6xIRrjhdu2LYt7UGOUWR8/so67+s/cWytDIfnt8a7TFkbf
+         XFlAHaUatWO/706g8dKARB5vDe5rOgIpyoci0TUoRcD3A1UTq4eEygxDAbAQd5WO87HI
+         YSD0umqp406WN2ngG7FSRJ+M/QYgei7PoCGlYOSnMCQdP9yAmXsZcgXHj8mixd6zzPVj
+         eN+A==
+X-Gm-Message-State: AOJu0Yyq3cSw+qw1eBudNrfpuMigee5TTtwexgBnBML+tmtb/wRh1nL5
+	tEsrCJlyfOosyZAp/nBDPSkSTA==
+X-Google-Smtp-Source: AGHT+IGd95v1zf1mFgt3p+A2cD4Le4/ZKMGHeN96e3WanzcnJLKSR08bIEh6isDGiR4jdH35vgs7Bw==
+X-Received: by 2002:a05:6a20:9f90:b0:174:63a9:2aa with SMTP id mm16-20020a056a209f9000b0017463a902aamr4999017pzb.18.1699501671292;
+        Wed, 08 Nov 2023 19:47:51 -0800 (PST)
 Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id jj19-20020a170903049300b001bbb25dd3a7sm2388288plb.187.2023.11.08.19.26.33
+        by smtp.gmail.com with ESMTPSA id z6-20020a170903018600b001b03a1a3151sm2426300plg.70.2023.11.08.19.47.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Nov 2023 19:26:34 -0800 (PST)
-Date: Wed, 08 Nov 2023 19:26:34 -0800 (PST)
-X-Google-Original-Date: Wed, 08 Nov 2023 19:26:29 PST (-0800)
-Subject: Re: [PATCH] selftests: sud_test: return correct emulated syscall value on RISC-V
-In-Reply-To: <20230913140711.266975-1-cleger@rivosinc.com>
-CC: shuah@kernel.org, krisman@collabora.com, linux-kselftest@vger.kernel.org,
-  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, cleger@rivosinc.com
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: cleger@rivosinc.com
-Message-ID: <mhng-bd15a99e-2c1e-4f0e-95ff-b6f14fe26681@palmer-ri-x1c9>
+        Wed, 08 Nov 2023 19:47:49 -0800 (PST)
+Date: Wed, 08 Nov 2023 19:47:49 -0800 (PST)
+X-Google-Original-Date: Wed, 08 Nov 2023 19:47:45 PST (-0800)
+Subject: Re: [PATCH] riscv: Support RANDOMIZE_KSTACK_OFFSET
+In-Reply-To: <202311081552.062D21EB@keescook>
+CC: songshuaishuai@tinylab.org, Paul Walmsley <paul.walmsley@sifive.com>,
+  aou@eecs.berkeley.edu, guoren@kernel.org, Bjorn Topel <bjorn@rivosinc.com>, jszhang@kernel.org,
+  Conor Dooley <conor.dooley@microchip.com>, andy.chiu@sifive.com, samitolvanen@google.com, coelacanthushex@gmail.com,
+  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: keescook@chromium.org
+Message-ID: <mhng-32bb45f6-c7eb-4afb-a42a-a167a83ca760@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231108_192641_003675_99C36907 
-X-CRM114-Status: GOOD (  23.81  )
+X-CRM114-CacheID: sfid-20231108_194755_168585_2606735A 
+X-CRM114-Status: GOOD (  26.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,59 +88,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAxMyBTZXAgMjAyMyAwNzowNzoxMSBQRFQgKC0wNzAwKSwgY2xlZ2VyQHJpdm9zaW5j
-LmNvbSB3cm90ZToKPiBDdXJyZW50bHksIHRoZSBzdWRfdGVzdCBleHBlY3RzIHRoZSBlbXVsYXRl
-ZCBzeXNjYWxsIHRvIHJldHVybiB0aGUKPiBlbXVsYXRlZCBzeXNjYWxsIG51bWJlci4gVGhpcyBh
-c3N1bXB0aW9uIG9ubHkgd29ya3Mgb24gYXJjaGl0ZWN0dXJlcwo+IHdlcmUgdGhlIHN5c2NhbGwg
-Y2FsbGluZyBjb252ZW50aW9uIHVzZSB0aGUgc2FtZSByZWdpc3RlciBmb3Igc3lzY2FsbAo+IG51
-bWJlci9zeXNjYWxsIHJldHVybiB2YWx1ZS4gVGhpcyBpcyBub3QgdGhlIGNhc2UgZm9yIFJJU0Mt
-ViBhbmQgdGh1cwo+IHRoZSByZXR1cm4gdmFsdWUgbXVzdCBiZSBhbHNvIGVtdWxhdGVkIHVzaW5n
-IHRoZSBwcm92aWRlZCB1Y29udGV4dC4KPgo+IFNpZ25lZC1vZmYtYnk6IENsw6ltZW50IEzDqWdl
-ciA8Y2xlZ2VyQHJpdm9zaW5jLmNvbT4KPiAtLS0KPiAgdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMv
-c3lzY2FsbF91c2VyX2Rpc3BhdGNoL3N1ZF90ZXN0LmMgfCA4ICsrKysrKysrCj4gIDEgZmlsZSBj
-aGFuZ2VkLCA4IGluc2VydGlvbnMoKykKPgo+IGRpZmYgLS1naXQgYS90b29scy90ZXN0aW5nL3Nl
-bGZ0ZXN0cy9zeXNjYWxsX3VzZXJfZGlzcGF0Y2gvc3VkX3Rlc3QuYyBiL3Rvb2xzL3Rlc3Rpbmcv
-c2VsZnRlc3RzL3N5c2NhbGxfdXNlcl9kaXNwYXRjaC9zdWRfdGVzdC5jCj4gaW5kZXggYjVkNTky
-ZDQwOTllLi4xYjU1NTNjMTk3MDAgMTAwNjQ0Cj4gLS0tIGEvdG9vbHMvdGVzdGluZy9zZWxmdGVz
-dHMvc3lzY2FsbF91c2VyX2Rpc3BhdGNoL3N1ZF90ZXN0LmMKPiArKysgYi90b29scy90ZXN0aW5n
-L3NlbGZ0ZXN0cy9zeXNjYWxsX3VzZXJfZGlzcGF0Y2gvc3VkX3Rlc3QuYwo+IEBAIC0xNTgsNiAr
-MTU4LDE0IEBAIHN0YXRpYyB2b2lkIGhhbmRsZV9zaWdzeXMoaW50IHNpZywgc2lnaW5mb190ICpp
-bmZvLCB2b2lkICp1Y29udGV4dCkKPgo+ICAJLyogSW4gcHJlcGFyYXRpb24gZm9yIHNpZ3JldHVy
-bi4gKi8KPiAgCVNZU0NBTExfRElTUEFUQ0hfT0ZGKGdsb2Jfc2VsKTsKPiArCj4gKwkvKgo+ICsJ
-ICogTW9kaWZ5IGludGVycnVwdGVkIGNvbnRleHQgcmV0dXJuZWQgdmFsdWUgYWNjb3JkaW5nIHRv
-IHN5c2NhbGwKPiArCSAqIGNhbGxpbmcgY29udmVudGlvbgo+ICsJICovCj4gKyNpZiBkZWZpbmVk
-KF9fcmlzY3YpCj4gKwkoKHVjb250ZXh0X3QqKXVjb250ZXh0KS0+dWNfbWNvbnRleHQuX19ncmVn
-c1tSRUdfQTBdID0gTUFHSUNfU1lTQ0FMTF8xOwo+ICsjZW5kaWYKPiAgfQo+Cj4gIFRFU1QoZGlz
-cGF0Y2hfYW5kX3JldHVybikKCkknbSBub3Qgc3VyZSBpZiBJJ20ganVzdCB0aXJlZCwgYnV0IGl0
-IHRvb2sgbWUgYSB3aGlsZSB0byBmaWd1cmUgb3V0IHdoeSAKdGhpcyB3YXMgbmVjZXNzYXJ5LiAg
-SSB0aGluayB0aGlzIGlzIGEgYmV0dGVyIGV4cGxhbmF0aW9uOgoKICAgIGRpZmYgLS1naXQgYS90
-b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9zeXNjYWxsX3VzZXJfZGlzcGF0Y2gvc3VkX3Rlc3QuYyBi
-L3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3N5c2NhbGxfdXNlcl9kaXNwYXRjaC9zdWRfdGVzdC5j
-CiAgICBpbmRleCBiNWQ1OTJkNDA5OWUuLmE5MTNmZDkwY2ZhMyAxMDA2NDQKICAgIC0tLSBhL3Rv
-b2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3N5c2NhbGxfdXNlcl9kaXNwYXRjaC9zdWRfdGVzdC5jCiAg
-ICArKysgYi90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9zeXNjYWxsX3VzZXJfZGlzcGF0Y2gvc3Vk
-X3Rlc3QuYwogICAgQEAgLTE1OCw2ICsxNTgsMTYgQEAgc3RhdGljIHZvaWQgaGFuZGxlX3NpZ3N5
-cyhpbnQgc2lnLCBzaWdpbmZvX3QgKmluZm8sIHZvaWQgKnVjb250ZXh0KQogICAgCiAgICAgCS8q
-IEluIHByZXBhcmF0aW9uIGZvciBzaWdyZXR1cm4uICovCiAgICAgCVNZU0NBTExfRElTUEFUQ0hf
-T0ZGKGdsb2Jfc2VsKTsKICAgICsJLyoKICAgICsJICogVGhlIHRlc3RzIGZvciBhcmd1bWVudCBo
-YW5kbGluZyBhc3N1bWUgdGhhdCBgc3lzY2FsbCh4KSA9PSB4YC4gIFRoaXMKICAgICsJICogaXMg
-YSBOT1Agb24geDg2IGJlY2F1c2UgdGhlIHN5c2NhbGwgbnVtYmVyIGlzIHBhc3NlZCBpbiAlcmF4
-LCB3aGljaAogICAgKwkgKiBoYXBwZW5zIHRvIGFsc28gYmUgdGhlIGZ1bmN0aW9uIEFCSSByZXR1
-cm4gcmVnaXN0ZXIuICBPdGhlcgogICAgKwkgKiBhcmNoaXRlY3R1cmVzIG1heSBuZWVkIHRvIHN3
-aXp6bGUgdGhlIGFyZ3VtZW50cyBhcm91bmQuCiAgICArCSAqLwogICAgKyNpZiBkZWZpbmVkKF9f
-cmlzY3YpCiAgICArCSh1Y29udGV4dF90Kil1Y29udGV4dCktPnVjX21jb250ZXh0Ll9fZ3JlZ3Nb
-UkVHX0EwXSA9CiAgICArCQkodWNvbnRleHRfdCopdWNvbnRleHQpLT51Y19tY29udGV4dC5fX2dy
-ZWdzW1JFR19BN107CiAgICArI2VuZGlmCiAgICAgfQogICAgCiAgICAgVEVTVChkaXNwYXRjaF9h
-bmRfcmV0dXJuKQoKYnV0IGFsc28KClJldmlld2VkLWJ5OiBQYWxtZXIgRGFiYmVsdCA8cGFsbWVy
-QHJpdm9zaW5jLmNvbT4KQWNrZWQtYnk6IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMu
-Y29tPgoKYXMgSSBhZ3JlZSB0aGlzIGlzIGNvcnJlY3QuCgphbHNvOiB3b3VsZG4ndCBhcm02NCBh
-bHNvIG5lZWQgdG8gbW92ZSB4OCBpbnRvIHgwIGhlcmUsIGZvciBlc3NlbnRpYWxseSAKdGhlIHNh
-bWUgcmVhc29uIGFzIHdlIGRvPwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+On Wed, 08 Nov 2023 15:52:34 PST (-0800), keescook@chromium.org wrote:
+> On Wed, Nov 01, 2023 at 02:44:23PM +0800, Song Shuai wrote:
+>> Inspired from arm64's implement -- commit 70918779aec9
+>> ("arm64: entry: Enable random_kstack_offset support")
+>>
+>> Add support of kernel stack offset randomization while handling syscall,
+>> the offset is defaultly limited by KSTACK_OFFSET_MAX() (i.e. 10 bits).
+>>
+>> In order to avoid trigger stack canaries (due to __builtin_alloca) and
+>> slowing down the entry path, use __no_stack_protector attribute to
+>> disable stack protector for do_trap_ecall_u() at the function level.
+>>
+>> Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
+>
+> I can't speak to the correctness of the entropy level, but the usage of
+> the helpers looks correct to me.
+
+As far as I can tell the comment matches how the system behaves.  I'm 
+not sure if that much entropy is useful.  I was poking around for a bit 
+to try and figure that out, but after reading that comment at the top of 
+include/linux/randomize_kstack.h I decided to stop ;)
+
+So aside from those whitespace errors Damien pointed out,
+
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+
+It's too late for the merge window for me, but
+
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+
+in case someone else wants to take it still.  Otherwise I'll try and 
+remember to pick it up right after the merge window, but with Plumbers 
+things might be a bit clunky.
+
+> Reviewed-by: Kees Cook <keescook@chromium.org>
+>
+> -Kees
+>
+>> ---
+>> Testing with randomize_kstack_offset=y cmdline, lkdtm/stack-entropy.sh
+>> showed appropriate stack offset instead of zero.
+>> ---
+>>  arch/riscv/Kconfig        |  1 +
+>>  arch/riscv/kernel/traps.c | 18 +++++++++++++++++-
+>>  2 files changed, 18 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>> index d607ab0f7c6d..0e843de33f0c 100644
+>> --- a/arch/riscv/Kconfig
+>> +++ b/arch/riscv/Kconfig
+>> @@ -100,6 +100,7 @@ config RISCV
+>>  	select HAVE_ARCH_KGDB_QXFER_PKT
+>>  	select HAVE_ARCH_MMAP_RND_BITS if MMU
+>>  	select HAVE_ARCH_MMAP_RND_COMPAT_BITS if COMPAT
+>> +	select HAVE_ARCH_RANDOMIZE_KSTACK_OFFSET
+>>  	select HAVE_ARCH_SECCOMP_FILTER
+>>  	select HAVE_ARCH_THREAD_STRUCT_WHITELIST
+>>  	select HAVE_ARCH_TRACEHOOK
+>> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+>> index 19807c4d3805..3f869b2d47c3 100644
+>> --- a/arch/riscv/kernel/traps.c
+>> +++ b/arch/riscv/kernel/traps.c
+>> @@ -6,6 +6,7 @@
+>>  #include <linux/cpu.h>
+>>  #include <linux/kernel.h>
+>>  #include <linux/init.h>
+>> +#include <linux/randomize_kstack.h>
+>>  #include <linux/sched.h>
+>>  #include <linux/sched/debug.h>
+>>  #include <linux/sched/signal.h>
+>> @@ -296,9 +297,11 @@ asmlinkage __visible __trap_section void do_trap_break(struct pt_regs *regs)
+>>  	}
+>>  }
+>>
+>> -asmlinkage __visible __trap_section void do_trap_ecall_u(struct pt_regs *regs)
+>> +asmlinkage __visible __trap_section  __no_stack_protector
+>> +void do_trap_ecall_u(struct pt_regs *regs)
+>>  {
+>>  	if (user_mode(regs)) {
+>> +
+>>  		long syscall = regs->a7;
+>>
+>>  		regs->epc += 4;
+>> @@ -308,10 +311,23 @@ asmlinkage __visible __trap_section void do_trap_ecall_u(struct pt_regs *regs)
+>>
+>>  		syscall = syscall_enter_from_user_mode(regs, syscall);
+>>
+>> +		add_random_kstack_offset();
+>> +
+>>  		if (syscall >= 0 && syscall < NR_syscalls)
+>>  			syscall_handler(regs, syscall);
+>>  		else if (syscall != -1)
+>>  			regs->a0 = -ENOSYS;
+>> +		/*
+>> +		 * Ultimately, this value will get limited by KSTACK_OFFSET_MAX(),
+>> +		 * so the maximum stack offset is 1k bytes (10 bits).
+>> +		 *
+>> +		 * The actual entropy will be further reduced by the compiler when
+>> +		 * applying stack alignment constraints: 16-byte (i.e. 4-bit) aligned
+>> +		 * for RV32I or RV64I.
+>> +		 *
+>> +		 * The resulting 6 bits of entropy is seen in SP[9:4].
+>> +		 */
+>> +		choose_random_kstack_offset(get_random_u16());
+>>
+>>  		syscall_exit_to_user_mode(regs);
+>>  	} else {
+>> --
+>> 2.20.1
+>>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
