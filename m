@@ -4,183 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE3DEC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Nov 2023 07:51:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08B58C4167D
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Nov 2023 07:51:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v6tqrpM9bz9v0/1KL1SsN0FpsRp9gqaSGYH7EWsHqfg=; b=QHMbG8O5PVvqgU
-	HQmp9RjFgP882na7ch/NEyIP2la+sDA8Q5t0vEze0IK94AW8vQUc2DgKrlJ07zZulQWsdohnXVMlA
-	se8t07e+Eb5jTMkxeBXJg2wdP3ASVXtDvzzekjKezbVpdZxrVswJlR0niMKX6aSvBnnkLE6W2VoY7
-	xOwxcd4VdLWo3hXEyHSsCbab0PBqor6sFwCuSo4fihf11RHqoUcCTzGgQkTwmpwNpL1E3vHfS4I9+
-	mG9sdsAkIubBv3iliqVWUUvjNmHyy+NOxZM0GJEWHjdIwUTfY+/5uOFUTeqNqMz2cP/BH5/1YCBmT
-	Xx+gergGlf8SXVo74HjQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=44QxJjT45nUlo2Hn/JF/L4mY9XcCj+qEDcxmEJoqIms=; b=FxZAXavk2CtYWy
+	yL29IZGmJgPWmIBzw/NoAV3u3PuwSBE4Pl68mWGBN//4Drczhqo0eJA/wrcJehxUZPBwXAM+hKhTC
+	C46rqdCtsR3KiP8pfvQNlzhgNMtIqt95c3iT6QSZir33hwI7JiH+t2hdeeop0qS9kLfh88hsbxhrr
+	k2P8SLkEBghH92fZh0LSu4O71wKgc6oGQBZnUiyOi1dVR6dlHTVlQcHZLKVSRyApOAXcoQTxWv9NO
+	d311RssksL5RdVXc1Yeur/8PyEy7PbuaWNU8YRRJjoZERtB9RP1nRgQtKKmwUh0M+xE8DLwuiM+EN
+	yIqsjsDiqtc2uLz5sRCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0zoq-005XXy-1W;
-	Thu, 09 Nov 2023 07:51:16 +0000
-Received: from mail-pr2fra01on20621.outbound.protection.outlook.com ([2a01:111:f400:7e18::621] helo=FRA01-PR2-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0zol-005XUd-09;
-	Thu, 09 Nov 2023 07:51:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Gez0/G1mCD+PhwYzccbK7HnNolg7+ar01RUnR87+ImavIEpjwL7qAvGFTKTj6BGiMBO61bX4usAJcTkj3Z0brhsS8mBYgNyyqNkScyx6+tO3lNp5JvTCbYL/OZPDP7dcsNq01zY9nDLYVKj2bi/quYGdsxo6GipMKe6+Wzp0e2BWaymBjsiwmvvPqUqzN0sZOEbDKgxowCDajCLVgdmBnQsOjxtzzxqNLByw4jY+upjsWc1cmxW8o7z3IEZon7W1087IhEWh2nV6IIIITky52pNxT1RZtw2tPOb/2vbrEF3Oma6skKv6kyvGhGjcMxGSZiaIB3mFzTpT2gOn7BXpKA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+2eikrIvlQMysYuM6u0fRDWCLfWqS7aaq5BFW/jxHc8=;
- b=IYMBQPFEvQZSZn8Ffui4Tr0gK89zqi+6ldBXyiw/1rE151znz9dJ98+SfXMry8xi/3CiKrA3p8I/HqM4yKyFxDuhZ6Dtzl9oUaZAQNA+DnpF4C9vKh5+QOBaXs6r9Vx70U6qhOaXCVV75ma1nw7k5pZzUj7xGQJRFq1nC8MbnwKdVa04gRlkjj9o7cvStrx3I2BXbjtLKa9JGFYhqKcc/bUWy1OYzMI7wMokhqwHE4ooKMmkZWF4JP89GWlQ1W69xyTgPqYmxLoSSzXF5mnOj/gqCbVpo9JxJKHEok/gu4czPGuhgeUEehXD/h4o4E5tcGPnCOV8U48pkrzafmCFCQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=csgroup.eu; dmarc=pass action=none header.from=csgroup.eu;
- dkim=pass header.d=csgroup.eu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=csgroup.eu;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+2eikrIvlQMysYuM6u0fRDWCLfWqS7aaq5BFW/jxHc8=;
- b=B8vIy1ybcPgZQDxKEwmYuC+a2brKKmIKurGqsGw4CAapwaKS534T8Fg41c2rS0XTCNLbDu/CGG1/ciGUt6xzDHFjrYsQQ5CuUxmqcALLKpNpPBeP3nZCgOmgQI1Gk2AJpUWWulPJ8MBMMpMpaEDxYC1PrpNiml+lqEe8c9tJG1NonL0/WMtYt+5utYraekI2unAmg0JSBwf8mq/lKELAie7IqhalFE6X1Tgg7eGDTKNLlGiq+J/bmPyShv4reBz2YCpZD+kOzIjpecUu/2cCe+oDc/GJrdDa4igHwN/1NJOW9Ep61xYg7dTHzCpVvTDds7bdb0VN1bUjF66S9YXHSA==
-Received: from MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM (2603:10a6:501:31::15)
- by PR0P264MB2060.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:166::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7002.7; Thu, 9 Nov
- 2023 07:50:59 +0000
-Received: from MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM
- ([fe80::5bfe:e2f2:6d89:8d97]) by MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM
- ([fe80::5bfe:e2f2:6d89:8d97%3]) with mapi id 15.20.7002.007; Thu, 9 Nov 2023
- 07:50:59 +0000
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-To: Arnd Bergmann <arnd@arndb.de>, Arnd Bergmann <arnd@kernel.org>, Andrew
- Morton <akpm@linux-foundation.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Masahiro Yamada <masahiroy@kernel.org>,
-	"linux-kbuild@vger.kernel.org" <linux-kbuild@vger.kernel.org>
-CC: Matt Turner <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
-	Russell King <linux@armlinux.org.uk>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Steven Rostedt
-	<rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland
-	<mark.rutland@arm.com>, guoren <guoren@kernel.org>, Peter Zijlstra
-	<peterz@infradead.org>, Ard Biesheuvel <ardb@kernel.org>, Huacai Chen
-	<chenhuacai@kernel.org>, Greg Ungerer <gerg@linux-m68k.org>, Michal Simek
-	<monstr@monstr.eu>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Dinh
- Nguyen <dinguyen@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas
- Piggin <npiggin@gmail.com>, Geoff Levand <geoff@infradead.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>, John Paul
- Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, "David S . Miller"
-	<davem@davemloft.net>, Andy Lutomirski <luto@kernel.org>, Thomas Gleixner
-	<tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, "x86@kernel.org"
-	<x86@kernel.org>, Helge Deller <deller@gmx.de>, Sudip Mukherjee
-	<sudipm.mukherjee@gmail.com>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, Timur Tabi <timur@kernel.org>, Kent Overstreet
-	<kent.overstreet@linux.dev>, David Woodhouse <dwmw2@infradead.org>, "Naveen
- N. Rao" <naveen.n.rao@linux.ibm.com>, Anil S Keshavamurthy
-	<anil.s.keshavamurthy@intel.com>, Kees Cook <keescook@chromium.org>, Vincenzo
- Frascino <vincenzo.frascino@arm.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>, Nathan Chancellor
-	<nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, Nicolas
- Schier <nicolas@fjasle.eu>, Alexander Viro <viro@zeniv.linux.org.uk>,
-	=?utf-8?B?VXdlIEtsZWluZS1Lw7ZuaWc=?= <u.kleine-koenig@pengutronix.de>,
-	"linux-alpha@vger.kernel.org" <linux-alpha@vger.kernel.org>,
-	"linux-snps-arc@lists.infradead.org" <linux-snps-arc@lists.infradead.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-trace-kernel@vger.kernel.org"
-	<linux-trace-kernel@vger.kernel.org>, "linux-csky@vger.kernel.org"
-	<linux-csky@vger.kernel.org>, "loongarch@lists.linux.dev"
-	<loongarch@lists.linux.dev>, "linux-m68k@lists.linux-m68k.org"
-	<linux-m68k@lists.linux-m68k.org>, "linux-mips@vger.kernel.org"
-	<linux-mips@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
-	<linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-s390@vger.kernel.org"
-	<linux-s390@vger.kernel.org>, "linux-sh@vger.kernel.org"
-	<linux-sh@vger.kernel.org>, "sparclinux@vger.kernel.org"
-	<sparclinux@vger.kernel.org>, Netdev <netdev@vger.kernel.org>,
-	"linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
-	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
-	"linux-fbdev@vger.kernel.org" <linux-fbdev@vger.kernel.org>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"linux-bcachefs@vger.kernel.org" <linux-bcachefs@vger.kernel.org>,
-	"linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>
-Subject: Re: [PATCH 15/22] arch: vdso: consolidate gettime prototypes
-Thread-Topic: [PATCH 15/22] arch: vdso: consolidate gettime prototypes
-Thread-Index: AQHaEkPkiwEWo83izEmVhjzNZW4UOLBwvvwAgAASbACAAM0CgA==
-Date: Thu, 9 Nov 2023 07:50:58 +0000
-Message-ID: <9cbfbd59-0761-406d-e97e-75e83bc4e6d0@csgroup.eu>
-References: <20231108125843.3806765-1-arnd@kernel.org>
- <20231108125843.3806765-16-arnd@kernel.org>
- <ecedb0f1-9543-35c6-18bd-723e6bf21173@csgroup.eu>
- <d94de5b8-db92-4055-9484-f2666973c02a@app.fastmail.com>
-In-Reply-To: <d94de5b8-db92-4055-9484-f2666973c02a@app.fastmail.com>
-Accept-Language: fr-FR, en-US
-Content-Language: fr-FR
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=csgroup.eu;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: MRZP264MB2988:EE_|PR0P264MB2060:EE_
-x-ms-office365-filtering-correlation-id: 7fd46605-a5a3-4429-7fe6-08dbe0f89cc6
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: CotvFx75DMMuKHwjPh2tXnWiHwsxyYHENTBYC1puuKnRMcbQUY4adXRJxExQ/HzFzIMHzN35wsMH3iE7TOqI6RYzUwuDVyyXlfjxA59YKtgE2uroyFAcnB/oSQjxm5nibe8NhSbRUgU9F42GEn4wSMq1jDTxl0mGQjJ1EHcIBe7kH2Ik0nbjnPLnGC+qyWJMifT8Na5K+e2lwRZoIoYf3mnZw7wg95MUOl6FE1WiMusyeNqxGlK6M8w7Vw5AlX97OdrTwdxRD7pekgqpv17utzAQWfWCSEb+wx7TFt8ZELxwn8yP4l/Qx+OXPr/u5+ANojBDEHq/Io89KJSFmcBcoMP7X45IpOZ4CZbV84LvkYq/7o/C9PeZYw3LJ5+IlditUdyUZxECHCHfrbAX9PS/p+DceKpDJmbdcNoINdxy7mdbw0k7US2W0ankT/9tYApKOoNchr31ZOLyjLbBklY5LpFeow3TVXA5VibHRmwLuzFn/gvRc/SX2/ceZcS7NDjJTsWnkbtadIFLk3G4Ll+02/ZySr/I/cV8Uhb7JqAv2lgFz5MDuhDz+woJDl+FEKiXA8cq8AUFKByafmrA02Eq3RJVWlqivQ5GzrRtScU5bagNQkSYKGvC4c9tlojLdfdruvy1Z6X9cD+op+vUz41G/yRig98scD2krjPBw0pTcGT00UhEhaeOGf1uc/HWe0FG
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230031)(396003)(366004)(39850400004)(346002)(376002)(136003)(230922051799003)(451199024)(64100799003)(1800799009)(186009)(31686004)(6486002)(478600001)(2616005)(71200400001)(6506007)(6512007)(36756003)(38100700002)(122000001)(86362001)(31696002)(66476007)(7366002)(7416002)(5660300002)(7406005)(64756008)(110136005)(76116006)(66556008)(66446008)(54906003)(316002)(66946007)(41300700001)(91956017)(44832011)(83380400001)(2906002)(38070700009)(4326008)(8936002)(8676002)(45980500001)(43740500002);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?UEdnV051TnhxRWI3c05VY1JMN3pQNWpYeTdQK3pWZVZHSk5QdFRoOUhjRHdo?=
- =?utf-8?B?MWE5RmN5bGlCZitWMUluTldmZE5HM1U5ck1TOWxpQ3pVd25pc3lCSGt3YVBC?=
- =?utf-8?B?WStCSDRRMWFPZ0o5SHlhNDRBczdQcS9LOHZzTTlrb1IrREhTdXBqTWNkMzNx?=
- =?utf-8?B?NlFZVmN4M3FBYzVmQzAxd3k4c2gvV25rczQ2Z2xoZk5tejlqRnhyampaOXh4?=
- =?utf-8?B?bDdKbzhEOVFMSitudmIvWERWT2xrd3pneE8zdUlkdjZXYlk4NElmbSt5V29p?=
- =?utf-8?B?ZS94SDZRMXladGMxUHRiS0lxeExHU1pBRkRlMHVsRU9TSW5VWjllVUhKM2Fk?=
- =?utf-8?B?VnlvaXNTRFR5RnFwTDFETm96cDJyQnQxRndrNXkyVzJ1RTFXYlVhaURuUUxr?=
- =?utf-8?B?STlTbklzL0pTenRBM3dIZVVqRTZZU1dEbVN3eXRMZmNmV1ZlTmpROHZZd3dB?=
- =?utf-8?B?clI4eTR4azVSWkxFQ2ZnODZJZE1MWlJCRWZVU00vaDRKYzczS1QrVzhQbkpi?=
- =?utf-8?B?azNsL3NSZlBNbmtKTXk1V0Nqbm1VckNlQWZLODQxVmdrYzY3dHlXemYxdjlN?=
- =?utf-8?B?NGpENTlDTWhMSWxMRlBUcnQwNGl4MDNKUjl6dlZzSDhCRFRtdnZFcmFicEty?=
- =?utf-8?B?cjdQOUpwV0pnS0pHZEw5YzNDa1BtWGxnbXQwOUxsTjNuSjY2aHlhYUtQeVJm?=
- =?utf-8?B?WFdpRmN3MEc0QVJEUWhvLy9CK2E1bGFBUlZNUC9YQ3FuaDRuRUJsTThieTZZ?=
- =?utf-8?B?Y1M3Y05lSTlsRkNTSnB5WGhWSVk0NFErNGdURC82UGN1d1RrZTJNYkNSWk1u?=
- =?utf-8?B?YWJ0KzBOUDVUMTFuQmVkNG9xOU5WY0M0MTNkbFpsTDRJZUorWUM0b0k3WlYy?=
- =?utf-8?B?clN1WGFQMldEd0ZwWlU3TVcxMERSZEo0UzlQRTBoUFo1YUhnTzhrQ081NHJI?=
- =?utf-8?B?YXhtcUFJNEdvUlR3OU5IN3VxSzdoK0xqTFZiTG1IanFPK3g4VCtEQnVzTDBi?=
- =?utf-8?B?VUQ0TnV1cjNzMEZhbzZCeUdoUWRFUVVVbmQwWnBMSkp1U2lwMmhLUXJsR0ZU?=
- =?utf-8?B?ZVNyYnF5U3hUekljYmFvT29VZW5SeTNEUm5McFUzdUtLdzJLbmRFdG9XSDRF?=
- =?utf-8?B?TDFaQ01vZGUrZThPS2tSS0ZBcDBzcFU0cHliang5YVQ5c0V6UkNCZ2Y5bVpr?=
- =?utf-8?B?OHRPTkdZcnpsbDNja0VaZlJmNE9xR0xZYTRvQ3YyS253NThuV0srbmdVbnBR?=
- =?utf-8?B?TUZLRTUzZDNoRDVFSHM3bk9BNU5lRkJJU2ZwaGhldE5qOUhLY1BGaG1yTmE5?=
- =?utf-8?B?K2RTN1prSFpiZ05IQ0xxWHlnaGFPSjhaeWVzYmdNQWovcGMrYjBFbHJ2MmtV?=
- =?utf-8?B?eXk2bFpBd0RoaWZHeDFyak9EUTZxbTRYWTliSThaU29VUmZHWTBFd1FQbVdx?=
- =?utf-8?B?Q3REN05SV2NqWE9XVk5senRKc2FiSHJNcWNObkdSc1dHS3lhWDduL0swUXJF?=
- =?utf-8?B?S3ZWY2IzTmZjSzkwVXAxWVZKbXRZOGVQNXphYzZtZTB5RllxZFB0dkJ2Ymdq?=
- =?utf-8?B?SWhYdDFrdkZCdnNqUkp5VFI4c1N4aHQ2MG41OHlISlJrbTJYMWJybkdXV2Zh?=
- =?utf-8?B?ZXV6NHpJWU5FK243Q1gzZkJMa0J6dFRZeFVVS09PQ2R4RFcwM2VtT0pVWkli?=
- =?utf-8?B?MWIrZU9RZjJ3MkFVYU9HVEcwRlNIVjA3cmNJcC9ZYVIzb1FyS2xYWVk3MlFh?=
- =?utf-8?B?bStkZkVQenZYMFRUazlsT04xeFMwb1VjVTg1bmU4b1hXc1RBYWY4bzltL2pP?=
- =?utf-8?B?M0wzN0thaFl4bTBwWXRVdzAxM0RabmMxNjFQTE5XN2s0K1gxbWFZZ0ZLbUIx?=
- =?utf-8?B?ckE2UXJaQ0RmQXdyZnNoZ3dPaHJwRmo3TjNJNFozc2JNQlB1OTRpSDY5YVNR?=
- =?utf-8?B?aXFmT2VKUkNMaGNlOGhhM0tRaEZ1eWRneCtyNU4zVS9FRU9YSDNwYWFYcGVt?=
- =?utf-8?B?QlJDVE5LdU1uQkZkK09FekdrTHNKZzFQcG50Uk5nZHBOUWpMeFJnWXd2bk1B?=
- =?utf-8?B?YVREV0NoU1ZUOE5Wc1p6QWtSMHNldXRYUjFucm54NmtQN0FPSVYzTW5EUUc3?=
- =?utf-8?B?N0tmQ2ttZHF4VjF2cEdUMHZZSzlZSk1xeW5ZVVdFTUxSTUJsdGJ4YS9wUjAv?=
- =?utf-8?B?eEF2WXRvKzhNSXUvVWMyT1ZYc2Q1QmxISVRsbkpEOXhVcys4bUcrVlordlM3?=
- =?utf-8?B?MGN3Rm9hTGhaY0VPUW9KSDZoMjFnPT0=?=
-Content-ID: <6ADA312F05CBD14886F7686E9E3B661D@FRAP264.PROD.OUTLOOK.COM>
+	id 1r0zpQ-005Xjx-1u;
+	Thu, 09 Nov 2023 07:51:52 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1r0zpM-005Xaw-1j
+	for linux-riscv@lists.infradead.org;
+	Thu, 09 Nov 2023 07:51:51 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id BC1AD24E2A3;
+	Thu,  9 Nov 2023 15:50:56 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Nov
+ 2023 15:50:56 +0800
+Received: from localhost.localdomain (202.188.176.82) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Nov
+ 2023 15:50:45 +0800
+From: Ji Sheng Teoh <jisheng.teoh@starfivetech.com>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland
+	<mark.rutland@arm.com>, Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, "Namhyung
+ Kim" <namhyung@kernel.org>, Ian Rogers <irogers@google.com>, Adrian Hunter
+	<adrian.hunter@intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Nikita
+ Shubin" <n.shubin@yadro.com>
+CC: Ji Sheng Teoh <jisheng.teoh@starfivetech.com>, Ley Foon Tan
+	<leyfoon.tan@starfivetech.com>, <linux-perf-users@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: [PATCH v3] perf vendor events riscv: add StarFive Dubhe-90 JSON file
+Date: Thu, 9 Nov 2023 15:49:00 +0800
+Message-ID: <20231109074900.1971266-1-jisheng.teoh@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-OriginatorOrg: csgroup.eu
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7fd46605-a5a3-4429-7fe6-08dbe0f89cc6
-X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Nov 2023 07:50:58.9770
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 9914def7-b676-4fda-8815-5d49fb3b45c8
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: XhXpgb1F2l6xtfeDBb9/frhCt+QuHDXHsK2ocb0duLDJUEQTcU0qq5eUKD6YhHGrBYQ38DA1iI/n+JUTe0W4xwlIAzSyupKvu+IsauF1FpQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR0P264MB2060
+X-Originating-IP: [202.188.176.82]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231108_235111_086745_D4B47DC0 
-X-CRM114-Status: GOOD (  18.72  )
+X-CRM114-CacheID: sfid-20231108_235149_067589_BB371601 
+X-CRM114-Status: GOOD (  14.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,37 +73,358 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-DQoNCkxlIDA4LzExLzIwMjMgw6AgMjA6MzcsIEFybmQgQmVyZ21hbm4gYSDDqWNyaXTCoDoNCj4g
-T24gV2VkLCBOb3YgOCwgMjAyMywgYXQgMTk6MzEsIENocmlzdG9waGUgTGVyb3kgd3JvdGU6DQo+
-PiBMZSAwOC8xMS8yMDIzIMOgIDEzOjU4LCBBcm5kIEJlcmdtYW5uIGEgw6ljcml0wqA6DQo+IA0K
-Pj4gcG93ZXJwYyBoYXMgZnVuY3Rpb25zIGRvaW5nIG1vcmUgb3IgbGVzcyB0aGUgc2FtZSwgdGhl
-eSBhcmUgY2FsbGVkDQo+PiBfX2Nfa2VybmVsX2Nsb2NrX2dldHRpbWUoKSBhbmQgYWxpa2Ugd2l0
-aCB0aGVpciBwcm90b3R5cGVzIHNpdGluZyBpbg0KPj4gYXJjaC9wb3dlcnBjL2luY2x1ZGUvYXNt
-L3Zkc28vZ2V0dGltZW9mZGF5LmgNCj4+DQo+PiBTaG91bGQgdGhvc2UgcHJvdG90eXBlcyBiZSBt
-b3ZlZCB0byBpbmNsdWRlL3Zkc28vZ2V0dGltZS5oIHRvbyBhbmQNCj4+IGV2ZW50dWFsbHkgcmVu
-YW1lZCwgb3IgYXJlIHRoZXkgY29uc2lkZXJlZCB0b28gcG93ZXJwYyBzcGVjaWZpYyA/DQo+IA0K
-PiBJIGRvbid0IGFjdHVhbGx5IGtub3csIG15IGluaXRpYWwgaW50ZXJwcmV0YXRpb24gd2FzIHRo
-YXQNCj4gdGhlc2UgZnVuY3Rpb24gbmFtZXMgYXJlIHBhcnQgb2YgdGhlIHVzZXIgQUJJIGZvciB0
-aGUgdmRzbywNCj4gYnV0IEkgbmV2ZXIgbG9va2VkIGNsb3NlbHkgZW5vdWdoIGF0IGhvdyB2ZHNv
-IHdvcmtzIHRvDQo+IGJlIHN1cmUgd2hhdCB0aGUgYWN0dWFsIEFCSSBpcy4NCj4gDQo+IElmIF9f
-Y19rZXJuZWxfY2xvY2tfZ2V0dGltZSgpIGV0YyBhcmUgbm90IHBhcnQgb2YgdGhlIHVzZXItZmFj
-aW5nDQo+IEFCSSwgSSB0aGluayByZW5hbWluZyB0aGVtIGZvciBjb25zaXN0ZW5jeSB3aXRoIHRo
-ZSBvdGhlcg0KPiBhcmNoaXRlY3R1cmVzIHdvdWxkIGJlIGJlc3QuDQo+IA0KDQpVc2VyLWZhY2lu
-ZyBBQkkgZnVuY3Rpb24gaXMgX19rZXJuZWxfY2xvY2tfZ2V0dGltZSgpLCBkZWZpbmVkIGluIA0K
-YXJjaC9wb3dlcnBjL2tlcm5lbC92ZHNvL2dldHRpbWVvZmRheS5TICwgc2VlIG1hbiB2ZHNvLg0K
-VGhlcmUgaXMgbm8gcHJvdG90eXBlIGRlZmluZWQgZm9yIGl0IGFueXdoZXJlLCBvYnZpb3VzbHkg
-dGhhdCdzIA0KdW5kZXRlY3RlZCBiZWNhdXNlIGl0IGlzIGFzc2VtYmx5LiBTaG91bGQgYSBwcm90
-b3R5cGUgYmUgYWRkZWQgc29tZXdoZXJlIA0KYW55d2F5ID8NCg0KX19rZXJuZWxfY2xvY2tfZ2V0
-dGltZSgpIHNldHMgdXAgYSBzdGFjayBmcmFtZSwgcmV0cmlldmVzIHRoZSBhZGRyZXNzIG9mIA0K
-dGhlIGRhdGFwYWdlIHRoZW4gY2FsbHMgX19jX2tlcm5lbF9jbG9ja19nZXR0aW1lKCkgd2hpY2gg
-dGhlbiBjYWxscyANCl9fY3Zkc29fY2xvY2tfZ2V0dGltZV9kYXRhKCkgd2hpY2ggaXMgcGFydCBv
-ZiB0aGUgZ2VuZXJpYyBDVkRTTy4NCg0KTWF5YmUgdGhhdCdzIHRvbyBkaWZmZXJlbnQgZnJvbSB3
-aGF0IG90aGVyIGFyY2hpdGVjdHVyZXMgZG8gPw0KDQpDaHJpc3RvcGhlDQpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+StarFive's Dubhe-90 supports raw event id 0x00 - 0x22.
+The raw events are enabled through PMU node of DT binding.
+Besides raw event, add standard RISC-V firmware events to
+support monitoring of firmware event.
+
+Example of PMU DT node:
+pmu {
+	compatible = "riscv,pmu";
+	riscv,raw-event-to-mhpmcounters =
+		/* Event ID 1-31 */
+		<0x00 0x00 0xFFFFFFFF 0xFFFFFFE0 0x00007FF8>,
+		/* Event ID 32-33 */
+		<0x00 0x20 0xFFFFFFFF 0xFFFFFFFE 0x00007FF8>,
+		/* Event ID 34 */
+		<0x00 0x22 0xFFFFFFFF 0xFFFFFF22 0x00007FF8>;
+};
+
+Perf stat output:
+[root@user]# perf stat -a \
+	-e access_mmu_stlb \
+	-e miss_mmu_stlb \
+	-e access_mmu_pte_c \
+	-e rob_flush \
+	-e btb_prediction_miss \
+	-e itlb_miss \
+	-e sync_del_fetch_g \
+	-e icache_miss \
+	-e bpu_br_retire \
+	-e bpu_br_miss \
+	-e ret_ins_retire \
+	-e ret_ins_miss \
+	-- openssl speed rsa2048
+Doing 2048 bits private rsa's for 10s: 39 2048 bits private RSA's in
+10.03s
+Doing 2048 bits public rsa's for 10s: 1469 2048 bits public RSA's in
+9.47s
+version: 3.0.10
+built on: Tue Aug  1 13:47:24 2023 UTC
+options: bn(64,64)
+CPUINFO: N/A
+                  sign    verify    sign/s verify/s
+rsa 2048 bits 0.257179s 0.006447s      3.9    155.1
+
+ Performance counter stats for 'system wide':
+
+           3112882      access_mmu_stlb
+             10550      miss_mmu_stlb
+             18251      access_mmu_pte_c
+            274765      rob_flush
+          22470560      btb_prediction_miss
+           3035839      itlb_miss
+         643549060      sync_del_fetch_g
+            133013      icache_miss
+          62982796      bpu_br_retire
+            287548      bpu_br_miss
+           8935910      ret_ins_retire
+              8308      ret_ins_miss
+
+      20.656182600 seconds time elapsed
+
+Signed-off-by: Ji Sheng Teoh <jisheng.teoh@starfivetech.com>
+Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+---
+Changelog:
+v2 -> v3:
+- Add standard RISC-V firmware event
+- Update commit message to reflect addition of standard
+  RISC-V firmware event.
+v1 -> v2:
+- Rename 'Starfive Dubhe' to 'StarFive Dubhe-90' in commit message.
+- Rename 'starfive/dubhe' pmu-events folder to 'starfive/dubhe-90'
+- Update MARCHID to 0x80000000db000090 in mapfile.csv
+---
+ tools/perf/pmu-events/arch/riscv/mapfile.csv  |   1 +
+ .../arch/riscv/starfive/dubhe-90/common.json  | 172 ++++++++++++++++++
+ .../riscv/starfive/dubhe-90/firmware.json     |  68 +++++++
+ 3 files changed, 241 insertions(+)
+ create mode 100644 tools/perf/pmu-events/arch/riscv/starfive/dubhe-90/common.json
+ create mode 100644 tools/perf/pmu-events/arch/riscv/starfive/dubhe-90/firmware.json
+
+diff --git a/tools/perf/pmu-events/arch/riscv/mapfile.csv b/tools/perf/pmu-events/arch/riscv/mapfile.csv
+index c61b3d6ef616..5b75ecfe206d 100644
+--- a/tools/perf/pmu-events/arch/riscv/mapfile.csv
++++ b/tools/perf/pmu-events/arch/riscv/mapfile.csv
+@@ -15,3 +15,4 @@
+ #
+ #MVENDORID-MARCHID-MIMPID,Version,Filename,EventType
+ 0x489-0x8000000000000007-0x[[:xdigit:]]+,v1,sifive/u74,core
++0x67e-0x80000000db000090-0x[[:xdigit:]]+,v1,starfive/dubhe-90,core
+\ No newline at end of file
+diff --git a/tools/perf/pmu-events/arch/riscv/starfive/dubhe-90/common.json b/tools/perf/pmu-events/arch/riscv/starfive/dubhe-90/common.json
+new file mode 100644
+index 000000000000..fbffcacb2ace
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/starfive/dubhe-90/common.json
+@@ -0,0 +1,172 @@
++[
++  {
++    "EventName": "ACCESS_MMU_STLB",
++    "EventCode": "0x1",
++    "BriefDescription": "access MMU STLB"
++  },
++  {
++    "EventName": "MISS_MMU_STLB",
++    "EventCode": "0x2",
++    "BriefDescription": "miss MMU STLB"
++  },
++  {
++    "EventName": "ACCESS_MMU_PTE_C",
++    "EventCode": "0x3",
++    "BriefDescription": "access MMU PTE-Cache"
++  },
++  {
++    "EventName": "MISS_MMU_PTE_C",
++    "EventCode": "0x4",
++    "BriefDescription": "miss MMU PTE-Cache"
++  },
++  {
++    "EventName": "ROB_FLUSH",
++    "EventCode": "0x5",
++    "BriefDescription": "ROB flush (all kinds of exceptions)"
++  },
++  {
++    "EventName": "BTB_PREDICTION_MISS",
++    "EventCode": "0x6",
++    "BriefDescription": "BTB prediction miss"
++  },
++  {
++    "EventName": "ITLB_MISS",
++    "EventCode": "0x7",
++    "BriefDescription": "ITLB miss"
++  },
++  {
++    "EventName": "SYNC_DEL_FETCH_G",
++    "EventCode": "0x8",
++    "BriefDescription": "SYNC delivery a fetch-group"
++  },
++  {
++    "EventName": "ICACHE_MISS",
++    "EventCode": "0x9",
++    "BriefDescription": "ICache miss"
++  },
++  {
++    "EventName": "BPU_BR_RETIRE",
++    "EventCode": "0xA",
++    "BriefDescription": "condition branch instruction retire"
++  },
++  {
++    "EventName": "BPU_BR_MISS",
++    "EventCode": "0xB",
++    "BriefDescription": "condition branch instruction miss"
++  },
++  {
++    "EventName": "RET_INS_RETIRE",
++    "EventCode": "0xC",
++    "BriefDescription": "return instruction retire"
++  },
++  {
++    "EventName": "RET_INS_MISS",
++    "EventCode": "0xD",
++    "BriefDescription": "return instruction miss"
++  },
++  {
++    "EventName": "INDIRECT_JR_MISS",
++    "EventCode": "0xE",
++    "BriefDescription": "indirect JR instruction miss (inlcude without target)"
++  },
++  {
++    "EventName": "IBUF_VAL_ID_NORDY",
++    "EventCode": "0xF",
++    "BriefDescription": "IBUF valid while ID not ready"
++  },
++  {
++    "EventName": "IBUF_NOVAL_ID_RDY",
++    "EventCode": "0x10",
++    "BriefDescription": "IBUF not valid while ID ready"
++  },
++  {
++    "EventName": "REN_INT_PHY_REG_NORDY",
++    "EventCode": "0x11",
++    "BriefDescription": "REN integer physical register file is not ready"
++  },
++  {
++    "EventName": "REN_FP_PHY_REG_NORDY",
++    "EventCode": "0x12",
++    "BriefDescription": "REN floating point physical register file is not ready"
++  },
++  {
++    "EventName": "REN_CP_NORDY",
++    "EventCode": "0x13",
++    "BriefDescription": "REN checkpoint is not ready"
++  },
++  {
++    "EventName": "DEC_VAL_ROB_NORDY",
++    "EventCode": "0x14",
++    "BriefDescription": "DEC is valid and ROB is not ready"
++  },
++  {
++    "EventName": "OOD_FLUSH_LS_DEP",
++    "EventCode": "0x15",
++    "BriefDescription": "out of order flush due to load/store dependency"
++  },
++  {
++    "EventName": "BRU_RET_IJR_INS",
++    "EventCode": "0x16",
++    "BriefDescription": "BRU retire an IJR instruction"
++  },
++  {
++    "EventName": "ACCESS_DTLB",
++    "EventCode": "0x17",
++    "BriefDescription": "access DTLB"
++  },
++  {
++    "EventName": "MISS_DTLB",
++    "EventCode": "0x18",
++    "BriefDescription": "miss DTLB"
++  },
++  {
++    "EventName": "LOAD_INS_DCACHE",
++    "EventCode": "0x19",
++    "BriefDescription": "load instruction access DCache"
++  },
++  {
++    "EventName": "LOAD_INS_MISS_DCACHE",
++    "EventCode": "0x1A",
++    "BriefDescription": "load instruction miss DCache"
++  },
++  {
++    "EventName": "STORE_INS_DCACHE",
++    "EventCode": "0x1B",
++    "BriefDescription": "store/amo instruction access DCache"
++  },
++  {
++    "EventName": "STORE_INS_MISS_DCACHE",
++    "EventCode": "0x1C",
++    "BriefDescription": "store/amo instruction miss DCache"
++  },
++  {
++    "EventName": "LOAD_SCACHE",
++    "EventCode": "0x1D",
++    "BriefDescription": "load access SCache"
++  },
++  {
++    "EventName": "STORE_SCACHE",
++    "EventCode": "0x1E",
++    "BriefDescription": "store access SCache"
++  },
++  {
++    "EventName": "LOAD_MISS_SCACHE",
++    "EventCode": "0x1F",
++    "BriefDescription": "load miss SCache"
++  },
++  {
++    "EventName": "STORE_MISS_SCACHE",
++    "EventCode": "0x20",
++    "BriefDescription": "store miss SCache"
++  },
++  {
++    "EventName": "L2C_PF_REQ",
++    "EventCode": "0x21",
++    "BriefDescription": "L2C data-prefetcher request"
++  },
++  {
++    "EventName": "L2C_PF_HIT",
++    "EventCode": "0x22",
++    "BriefDescription": "L2C data-prefetcher hit"
++  }
++]
+diff --git a/tools/perf/pmu-events/arch/riscv/starfive/dubhe-90/firmware.json b/tools/perf/pmu-events/arch/riscv/starfive/dubhe-90/firmware.json
+new file mode 100644
+index 000000000000..9b4a032186a7
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/starfive/dubhe-90/firmware.json
+@@ -0,0 +1,68 @@
++[
++  {
++    "ArchStdEvent": "FW_MISALIGNED_LOAD"
++  },
++  {
++    "ArchStdEvent": "FW_MISALIGNED_STORE"
++  },
++  {
++    "ArchStdEvent": "FW_ACCESS_LOAD"
++  },
++  {
++    "ArchStdEvent": "FW_ACCESS_STORE"
++  },
++  {
++    "ArchStdEvent": "FW_ILLEGAL_INSN"
++  },
++  {
++    "ArchStdEvent": "FW_SET_TIMER"
++  },
++  {
++    "ArchStdEvent": "FW_IPI_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_IPI_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_FENCE_I_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_FENCE_I_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_SFENCE_VMA_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_SFENCE_VMA_ASID_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_GVMA_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_GVMA_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_GVMA_VMID_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_GVMA_VMID_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_VVMA_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_VVMA_RECEIVED"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_VVMA_ASID_SENT"
++  },
++  {
++    "ArchStdEvent": "FW_HFENCE_VVMA_ASID_RECEIVED"
++  }
++]
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
