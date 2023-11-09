@@ -4,64 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08B58C4167D
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Nov 2023 07:51:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72D85C4167D
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Nov 2023 07:54:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=44QxJjT45nUlo2Hn/JF/L4mY9XcCj+qEDcxmEJoqIms=; b=FxZAXavk2CtYWy
-	yL29IZGmJgPWmIBzw/NoAV3u3PuwSBE4Pl68mWGBN//4Drczhqo0eJA/wrcJehxUZPBwXAM+hKhTC
-	C46rqdCtsR3KiP8pfvQNlzhgNMtIqt95c3iT6QSZir33hwI7JiH+t2hdeeop0qS9kLfh88hsbxhrr
-	k2P8SLkEBghH92fZh0LSu4O71wKgc6oGQBZnUiyOi1dVR6dlHTVlQcHZLKVSRyApOAXcoQTxWv9NO
-	d311RssksL5RdVXc1Yeur/8PyEy7PbuaWNU8YRRJjoZERtB9RP1nRgQtKKmwUh0M+xE8DLwuiM+EN
-	yIqsjsDiqtc2uLz5sRCQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RBmLloa/JXKaQ+w+VLwUxbNB0Z/2i7zFc2kkB/0eEh4=; b=mujjnx9r7DobJrVzfoKadR0gNn
+	K48QXbEbFmwcGghVfJefUnSvU54eNXeR/B1t3JAIpTXiqUZ+3jfZ1dKC5qVKuYxRC25/IbbL3nSlQ
+	P7bZAt6CchikDJHpeVk4UQPClOqA8hnKDTQZ2n4PUs5UuBKBZGj42+hZow5hipE3jYMZQzFmGOssp
+	hlXykKFfHvEjS5ZG2VKpZrdsFZZGZG7jjIcvX3Cn5M5wNJPkggvuekr8G5wB7/TsT8VPkz+/fERhg
+	7LTwgsuTZ5wvVowa6UAQhjI5oo4WQ28rywHFIxjw327ntmHV+NWgCEe3lkzt0antY/SZ+kDUKLd+l
+	tufexIRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0zpQ-005Xjx-1u;
-	Thu, 09 Nov 2023 07:51:52 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0zpM-005Xaw-1j
+	id 1r0zsJ-005Y55-1t;
+	Thu, 09 Nov 2023 07:54:51 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1r0zsG-005Y3f-22
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Nov 2023 07:51:51 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id BC1AD24E2A3;
-	Thu,  9 Nov 2023 15:50:56 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Nov
- 2023 15:50:56 +0800
-Received: from localhost.localdomain (202.188.176.82) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 9 Nov
- 2023 15:50:45 +0800
-From: Ji Sheng Teoh <jisheng.teoh@starfivetech.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland
-	<mark.rutland@arm.com>, Alexander Shishkin
-	<alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, "Namhyung
- Kim" <namhyung@kernel.org>, Ian Rogers <irogers@google.com>, Adrian Hunter
-	<adrian.hunter@intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Nikita
- Shubin" <n.shubin@yadro.com>
-CC: Ji Sheng Teoh <jisheng.teoh@starfivetech.com>, Ley Foon Tan
-	<leyfoon.tan@starfivetech.com>, <linux-perf-users@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH v3] perf vendor events riscv: add StarFive Dubhe-90 JSON file
-Date: Thu, 9 Nov 2023 15:49:00 +0800
-Message-ID: <20231109074900.1971266-1-jisheng.teoh@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
+	Thu, 09 Nov 2023 07:54:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1699516488; x=1731052488;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=4pPfBmiUINhRoPJo2eY11blRCwfArWzDBp253sWlEgM=;
+  b=Msi3vmVxl1siX5raOHb27mfSP/YW1tTLX4f+IpeYKxuOzh30KcgJx1/8
+   g5D2p7cGwFCCxF2pK6hFlsav5OZsM5/EJDVVWpl33vcZ2mbUgG8Af6v5C
+   NtPTLNnIC/E1PtsWn/KLKlMJt1pO5BfFw4fEHNeDxV7btwRPv7yRPw6BL
+   lCBLBRLZCfwWDan5HUdSDtWKfqOFZTIq576TT2Si52vvJMdiGZEqp1loG
+   55muj+ik4yz1fNlJXjukVMMtXo+2W69vCKULDGzqnTiTzNOwZ1Msx5Pd8
+   mYp0PVlsYNkOIon2s+1p3ka+YrVqWTSMBApBv79G5200AZLVlvU1tPUWw
+   Q==;
+X-CSE-ConnectionGUID: se6pjHG5SuelUARNIWzFMg==
+X-CSE-MsgGUID: vlGbOKuDThK6JpzYW9mFPQ==
+X-ThreatScanner-Verdict: Negative
+X-IronPort-AV: E=Sophos;i="6.03,288,1694761200"; 
+   d="asc'?scan'208";a="12060742"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Nov 2023 00:54:45 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Thu, 9 Nov 2023 00:54:35 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Thu, 9 Nov 2023 00:54:32 -0700
+Date: Thu, 9 Nov 2023 07:54:07 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Jerry Shih <jerry.shih@sifive.com>
+CC: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>, Palmer Dabbelt
+	<palmer@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Albert Ou <aou@eecs.berkeley.edu>,
+	Jonathan Corbet <corbet@lwn.net>, Andrew Jones <ajones@ventanamicro.com>,
+	Evan Green <evan@rivosinc.com>, Conor Dooley <conor@kernel.org>, Samuel Ortiz
+	<sameo@rivosinc.com>
+Subject: Re: [PATCH v3 06/20] riscv: add ISA extension parsing for vector
+ crypto
+Message-ID: <20231109-prevalent-serrated-d40eb5f71236@wendy>
+References: <20231107105556.517187-1-cleger@rivosinc.com>
+ <20231107105556.517187-7-cleger@rivosinc.com>
+ <5EF129A2-195B-4207-A2F6-DBA1FBB9F65D@sifive.com>
+ <20231109-revolver-heat-9f4788c51bbf@wendy>
 MIME-Version: 1.0
-X-Originating-IP: [202.188.176.82]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
+In-Reply-To: <20231109-revolver-heat-9f4788c51bbf@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231108_235149_067589_BB371601 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20231108_235448_671677_D0BF6F43 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,358 +92,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8899465520248980463=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-StarFive's Dubhe-90 supports raw event id 0x00 - 0x22.
-The raw events are enabled through PMU node of DT binding.
-Besides raw event, add standard RISC-V firmware events to
-support monitoring of firmware event.
+--===============8899465520248980463==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="LUyl317BBN37OabN"
+Content-Disposition: inline
 
-Example of PMU DT node:
-pmu {
-	compatible = "riscv,pmu";
-	riscv,raw-event-to-mhpmcounters =
-		/* Event ID 1-31 */
-		<0x00 0x00 0xFFFFFFFF 0xFFFFFFE0 0x00007FF8>,
-		/* Event ID 32-33 */
-		<0x00 0x20 0xFFFFFFFF 0xFFFFFFFE 0x00007FF8>,
-		/* Event ID 34 */
-		<0x00 0x22 0xFFFFFFFF 0xFFFFFF22 0x00007FF8>;
-};
+--LUyl317BBN37OabN
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Perf stat output:
-[root@user]# perf stat -a \
-	-e access_mmu_stlb \
-	-e miss_mmu_stlb \
-	-e access_mmu_pte_c \
-	-e rob_flush \
-	-e btb_prediction_miss \
-	-e itlb_miss \
-	-e sync_del_fetch_g \
-	-e icache_miss \
-	-e bpu_br_retire \
-	-e bpu_br_miss \
-	-e ret_ins_retire \
-	-e ret_ins_miss \
-	-- openssl speed rsa2048
-Doing 2048 bits private rsa's for 10s: 39 2048 bits private RSA's in
-10.03s
-Doing 2048 bits public rsa's for 10s: 1469 2048 bits public RSA's in
-9.47s
-version: 3.0.10
-built on: Tue Aug  1 13:47:24 2023 UTC
-options: bn(64,64)
-CPUINFO: N/A
-                  sign    verify    sign/s verify/s
-rsa 2048 bits 0.257179s 0.006447s      3.9    155.1
+On Thu, Nov 09, 2023 at 07:44:46AM +0000, Conor Dooley wrote:
+> On Thu, Nov 09, 2023 at 10:58:41AM +0800, Jerry Shih wrote:
+> > On Nov 7, 2023, at 18:55, Cl=E9ment L=E9ger <cleger@rivosinc.com> wrote:
+> > > +static const unsigned int riscv_zvknhb_exts[] =3D {
+> > > +	RISCV_ISA_EXT_ZVKNHA
+> > > +};
+> > > +
+> >=20
+> > > +	__RISCV_ISA_EXT_SUPERSET(zvknhb, RISCV_ISA_EXT_ZVKNHB, riscv_zvknhb=
+_exts),
+> > > +	__RISCV_ISA_EXT_BUNDLE(zvks, riscv_zvks_bundled_exts),
+> >=20
+> > The Zvknha and Zvknhb are exclusive. It's not the superset relationship.
+> >=20
+> > Please check:
+> > https://github.com/riscv/riscv-crypto/issues/364#issuecomment-1726782096
+>=20
+> You got a response to this on the previous version, but didn't engage
+> with it:
+> https://lore.kernel.org/all/c64d9ddb-edbd-4c8f-b56f-1b90d82100b7@rivosinc=
+=2Ecom/#t
 
- Performance counter stats for 'system wide':
+Ahh, I now see what that happened. Your mailer is broken and puts the
+message-id of what you are replying to in the In-Reply-To and Reply-To
+headers. The former is correct, the latter is bogus & means you don't even
+get delivered the response.
 
-           3112882      access_mmu_stlb
-             10550      miss_mmu_stlb
-             18251      access_mmu_pte_c
-            274765      rob_flush
-          22470560      btb_prediction_miss
-           3035839      itlb_miss
-         643549060      sync_del_fetch_g
-            133013      icache_miss
-          62982796      bpu_br_retire
-            287548      bpu_br_miss
-           8935910      ret_ins_retire
-              8308      ret_ins_miss
+--LUyl317BBN37OabN
+Content-Type: application/pgp-signature; name="signature.asc"
 
-      20.656182600 seconds time elapsed
+-----BEGIN PGP SIGNATURE-----
 
-Signed-off-by: Ji Sheng Teoh <jisheng.teoh@starfivetech.com>
-Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
----
-Changelog:
-v2 -> v3:
-- Add standard RISC-V firmware event
-- Update commit message to reflect addition of standard
-  RISC-V firmware event.
-v1 -> v2:
-- Rename 'Starfive Dubhe' to 'StarFive Dubhe-90' in commit message.
-- Rename 'starfive/dubhe' pmu-events folder to 'starfive/dubhe-90'
-- Update MARCHID to 0x80000000db000090 in mapfile.csv
----
- tools/perf/pmu-events/arch/riscv/mapfile.csv  |   1 +
- .../arch/riscv/starfive/dubhe-90/common.json  | 172 ++++++++++++++++++
- .../riscv/starfive/dubhe-90/firmware.json     |  68 +++++++
- 3 files changed, 241 insertions(+)
- create mode 100644 tools/perf/pmu-events/arch/riscv/starfive/dubhe-90/common.json
- create mode 100644 tools/perf/pmu-events/arch/riscv/starfive/dubhe-90/firmware.json
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZUyQHwAKCRB4tDGHoIJi
+0nowAP0W6kYqZfjp8aXoOoQXmmbdkMNZc5Iz55LCZY1/uNSHywD9EzrcQKDZ70d+
+CQXwkQCx/EhZ3XtYSRbz+3Q65lor3gQ=
+=zJio
+-----END PGP SIGNATURE-----
 
-diff --git a/tools/perf/pmu-events/arch/riscv/mapfile.csv b/tools/perf/pmu-events/arch/riscv/mapfile.csv
-index c61b3d6ef616..5b75ecfe206d 100644
---- a/tools/perf/pmu-events/arch/riscv/mapfile.csv
-+++ b/tools/perf/pmu-events/arch/riscv/mapfile.csv
-@@ -15,3 +15,4 @@
- #
- #MVENDORID-MARCHID-MIMPID,Version,Filename,EventType
- 0x489-0x8000000000000007-0x[[:xdigit:]]+,v1,sifive/u74,core
-+0x67e-0x80000000db000090-0x[[:xdigit:]]+,v1,starfive/dubhe-90,core
-\ No newline at end of file
-diff --git a/tools/perf/pmu-events/arch/riscv/starfive/dubhe-90/common.json b/tools/perf/pmu-events/arch/riscv/starfive/dubhe-90/common.json
-new file mode 100644
-index 000000000000..fbffcacb2ace
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/starfive/dubhe-90/common.json
-@@ -0,0 +1,172 @@
-+[
-+  {
-+    "EventName": "ACCESS_MMU_STLB",
-+    "EventCode": "0x1",
-+    "BriefDescription": "access MMU STLB"
-+  },
-+  {
-+    "EventName": "MISS_MMU_STLB",
-+    "EventCode": "0x2",
-+    "BriefDescription": "miss MMU STLB"
-+  },
-+  {
-+    "EventName": "ACCESS_MMU_PTE_C",
-+    "EventCode": "0x3",
-+    "BriefDescription": "access MMU PTE-Cache"
-+  },
-+  {
-+    "EventName": "MISS_MMU_PTE_C",
-+    "EventCode": "0x4",
-+    "BriefDescription": "miss MMU PTE-Cache"
-+  },
-+  {
-+    "EventName": "ROB_FLUSH",
-+    "EventCode": "0x5",
-+    "BriefDescription": "ROB flush (all kinds of exceptions)"
-+  },
-+  {
-+    "EventName": "BTB_PREDICTION_MISS",
-+    "EventCode": "0x6",
-+    "BriefDescription": "BTB prediction miss"
-+  },
-+  {
-+    "EventName": "ITLB_MISS",
-+    "EventCode": "0x7",
-+    "BriefDescription": "ITLB miss"
-+  },
-+  {
-+    "EventName": "SYNC_DEL_FETCH_G",
-+    "EventCode": "0x8",
-+    "BriefDescription": "SYNC delivery a fetch-group"
-+  },
-+  {
-+    "EventName": "ICACHE_MISS",
-+    "EventCode": "0x9",
-+    "BriefDescription": "ICache miss"
-+  },
-+  {
-+    "EventName": "BPU_BR_RETIRE",
-+    "EventCode": "0xA",
-+    "BriefDescription": "condition branch instruction retire"
-+  },
-+  {
-+    "EventName": "BPU_BR_MISS",
-+    "EventCode": "0xB",
-+    "BriefDescription": "condition branch instruction miss"
-+  },
-+  {
-+    "EventName": "RET_INS_RETIRE",
-+    "EventCode": "0xC",
-+    "BriefDescription": "return instruction retire"
-+  },
-+  {
-+    "EventName": "RET_INS_MISS",
-+    "EventCode": "0xD",
-+    "BriefDescription": "return instruction miss"
-+  },
-+  {
-+    "EventName": "INDIRECT_JR_MISS",
-+    "EventCode": "0xE",
-+    "BriefDescription": "indirect JR instruction miss (inlcude without target)"
-+  },
-+  {
-+    "EventName": "IBUF_VAL_ID_NORDY",
-+    "EventCode": "0xF",
-+    "BriefDescription": "IBUF valid while ID not ready"
-+  },
-+  {
-+    "EventName": "IBUF_NOVAL_ID_RDY",
-+    "EventCode": "0x10",
-+    "BriefDescription": "IBUF not valid while ID ready"
-+  },
-+  {
-+    "EventName": "REN_INT_PHY_REG_NORDY",
-+    "EventCode": "0x11",
-+    "BriefDescription": "REN integer physical register file is not ready"
-+  },
-+  {
-+    "EventName": "REN_FP_PHY_REG_NORDY",
-+    "EventCode": "0x12",
-+    "BriefDescription": "REN floating point physical register file is not ready"
-+  },
-+  {
-+    "EventName": "REN_CP_NORDY",
-+    "EventCode": "0x13",
-+    "BriefDescription": "REN checkpoint is not ready"
-+  },
-+  {
-+    "EventName": "DEC_VAL_ROB_NORDY",
-+    "EventCode": "0x14",
-+    "BriefDescription": "DEC is valid and ROB is not ready"
-+  },
-+  {
-+    "EventName": "OOD_FLUSH_LS_DEP",
-+    "EventCode": "0x15",
-+    "BriefDescription": "out of order flush due to load/store dependency"
-+  },
-+  {
-+    "EventName": "BRU_RET_IJR_INS",
-+    "EventCode": "0x16",
-+    "BriefDescription": "BRU retire an IJR instruction"
-+  },
-+  {
-+    "EventName": "ACCESS_DTLB",
-+    "EventCode": "0x17",
-+    "BriefDescription": "access DTLB"
-+  },
-+  {
-+    "EventName": "MISS_DTLB",
-+    "EventCode": "0x18",
-+    "BriefDescription": "miss DTLB"
-+  },
-+  {
-+    "EventName": "LOAD_INS_DCACHE",
-+    "EventCode": "0x19",
-+    "BriefDescription": "load instruction access DCache"
-+  },
-+  {
-+    "EventName": "LOAD_INS_MISS_DCACHE",
-+    "EventCode": "0x1A",
-+    "BriefDescription": "load instruction miss DCache"
-+  },
-+  {
-+    "EventName": "STORE_INS_DCACHE",
-+    "EventCode": "0x1B",
-+    "BriefDescription": "store/amo instruction access DCache"
-+  },
-+  {
-+    "EventName": "STORE_INS_MISS_DCACHE",
-+    "EventCode": "0x1C",
-+    "BriefDescription": "store/amo instruction miss DCache"
-+  },
-+  {
-+    "EventName": "LOAD_SCACHE",
-+    "EventCode": "0x1D",
-+    "BriefDescription": "load access SCache"
-+  },
-+  {
-+    "EventName": "STORE_SCACHE",
-+    "EventCode": "0x1E",
-+    "BriefDescription": "store access SCache"
-+  },
-+  {
-+    "EventName": "LOAD_MISS_SCACHE",
-+    "EventCode": "0x1F",
-+    "BriefDescription": "load miss SCache"
-+  },
-+  {
-+    "EventName": "STORE_MISS_SCACHE",
-+    "EventCode": "0x20",
-+    "BriefDescription": "store miss SCache"
-+  },
-+  {
-+    "EventName": "L2C_PF_REQ",
-+    "EventCode": "0x21",
-+    "BriefDescription": "L2C data-prefetcher request"
-+  },
-+  {
-+    "EventName": "L2C_PF_HIT",
-+    "EventCode": "0x22",
-+    "BriefDescription": "L2C data-prefetcher hit"
-+  }
-+]
-diff --git a/tools/perf/pmu-events/arch/riscv/starfive/dubhe-90/firmware.json b/tools/perf/pmu-events/arch/riscv/starfive/dubhe-90/firmware.json
-new file mode 100644
-index 000000000000..9b4a032186a7
---- /dev/null
-+++ b/tools/perf/pmu-events/arch/riscv/starfive/dubhe-90/firmware.json
-@@ -0,0 +1,68 @@
-+[
-+  {
-+    "ArchStdEvent": "FW_MISALIGNED_LOAD"
-+  },
-+  {
-+    "ArchStdEvent": "FW_MISALIGNED_STORE"
-+  },
-+  {
-+    "ArchStdEvent": "FW_ACCESS_LOAD"
-+  },
-+  {
-+    "ArchStdEvent": "FW_ACCESS_STORE"
-+  },
-+  {
-+    "ArchStdEvent": "FW_ILLEGAL_INSN"
-+  },
-+  {
-+    "ArchStdEvent": "FW_SET_TIMER"
-+  },
-+  {
-+    "ArchStdEvent": "FW_IPI_SENT"
-+  },
-+  {
-+    "ArchStdEvent": "FW_IPI_RECEIVED"
-+  },
-+  {
-+    "ArchStdEvent": "FW_FENCE_I_SENT"
-+  },
-+  {
-+    "ArchStdEvent": "FW_FENCE_I_RECEIVED"
-+  },
-+  {
-+    "ArchStdEvent": "FW_SFENCE_VMA_SENT"
-+  },
-+  {
-+    "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
-+  },
-+  {
-+    "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
-+  },
-+  {
-+    "ArchStdEvent": "FW_SFENCE_VMA_ASID_RECEIVED"
-+  },
-+  {
-+    "ArchStdEvent": "FW_HFENCE_GVMA_SENT"
-+  },
-+  {
-+    "ArchStdEvent": "FW_HFENCE_GVMA_RECEIVED"
-+  },
-+  {
-+    "ArchStdEvent": "FW_HFENCE_GVMA_VMID_SENT"
-+  },
-+  {
-+    "ArchStdEvent": "FW_HFENCE_GVMA_VMID_RECEIVED"
-+  },
-+  {
-+    "ArchStdEvent": "FW_HFENCE_VVMA_SENT"
-+  },
-+  {
-+    "ArchStdEvent": "FW_HFENCE_VVMA_RECEIVED"
-+  },
-+  {
-+    "ArchStdEvent": "FW_HFENCE_VVMA_ASID_SENT"
-+  },
-+  {
-+    "ArchStdEvent": "FW_HFENCE_VVMA_ASID_RECEIVED"
-+  }
-+]
--- 
-2.25.1
+--LUyl317BBN37OabN--
 
+
+--===============8899465520248980463==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8899465520248980463==--
+
