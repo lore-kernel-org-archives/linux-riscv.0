@@ -4,83 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A36EC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Nov 2023 08:21:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9C33C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Nov 2023 08:22:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=flYnFrspeX64iNshSDPHppAtwhUcmdQSfU2aZJ9OEko=; b=YfxXvST2r9Q14o
-	btSSPF9NeuVd15sz125j/Z3GSYmI36xbfHBgiJVvuNbnVdwzWe8/UWh/2x6Q0HIlBDydE0/lPtLZ4
-	Pn4q2angl8UdHnI5fZ7U/PVvJCR8SJLCEajZJw1Is58YcA+nvoWWtXn3Wju3fl6n7bMUIZmAZWijz
-	Rb5M41XvQ/jigXCIghVNP79UdmwO3Pvq+CxZlwOUWTyYhlk5IKnar8UCUtIw2KYhue/qQsutKn4EE
-	CjdKB79IrLPd0Ft/VfOKZun3qcW/2EtklBGar6dDq+bx5WZqhxESvgbbLop4q+3J+TMb+qMBKzvGr
-	+KUUwKZ+8aK4Y2GleMwA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ju0yUVlPGTKOZ728vA4eSKs0fassOFZMIkb/kH7WNdY=; b=YpZ1DKiXPnspaD
+	zMOD5sjp590Nq6wGBgEABR7zuY9MJonQORe7K5lmTSOxbRaPwgsFDqQ2/zUAeVvhIEwphg3UFzYNA
+	YP0OVWuQ2nyI01b1c1YHIrznDfhZ78KWwdk6uPeyjuHg0Nnhs0A/GBJkm+0Lym4xt319TAdS/LTF8
+	6nNnEw1cqkxP3UwzXNOPEk8P94IJI05NNF8fLV4xDsPBh72Ba8JuXMcJixkLswIA04kqW3DTWdDu5
+	ZRNU4qxpTC3T8xquHrVkpcFqujsefpNXqhEC5ZvC8PuMJyPfE9etSgTvymxeyUoSRer6AxwIAHDn/
+	pOcpWw6atnGKGLDwGubQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r10ID-005bAy-2h;
-	Thu, 09 Nov 2023 08:21:37 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1r10Ii-005bHk-0n;
+	Thu, 09 Nov 2023 08:22:08 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r10IA-005b97-0B
+	id 1r10If-005bGy-1y
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Nov 2023 08:21:36 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-32d849cc152so364653f8f.1
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Nov 2023 00:21:31 -0800 (PST)
+	Thu, 09 Nov 2023 08:22:06 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-9c41e95efcbso93276366b.3
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Nov 2023 00:22:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1699518090; x=1700122890; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Zx8fHoMz9t2Gib58EAFChiWLDxqT6xmc1EVOXsB54GM=;
-        b=io32C9xqPm1AfX4x/tqNPFWiLfcqXsRyDy5wSv3lE9x+HnbLllrsSWHKarcxP0Q88y
-         hCj1CRQ+Hzu7Q4fOs19joGnKrV1yn0oHOMe27FuywwakJezfKBFymRCWu6MCXcH/tpza
-         I0mHuyS21Me0wAUi5ark0iJooTbbLDbgl8az7Qpc1CNnk58BumC5uTFCKvANTR0Vtt71
-         oojMxZd/xSraSkc7Z6+CSDAs1KWiCASo0liFnL2ryIhGtZ+UvneClG6FQQmXCTlZGcZt
-         4NYzS0KuYj5BiBGoxKWCPhiNY1pnTdcfHqpWegO3Jvc3HWqIZmZf8lBLInIqYK+v5IGZ
-         Xn2A==
+        d=linaro.org; s=google; t=1699518123; x=1700122923; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=hv4PgBiFzbjP9oz6HdNNblDKMIM3N0BIjQs5GkFzzUA=;
+        b=NaCR5xAMhgTOPC9I5BDO58WYuq2d5UR0BR6PKme0cdQc6VFUnR8EhbaOo5yktBYPQs
+         BqoeE0czMBVyoSbRPPd+d8522/faYuqqc6LxK4jgcgU8dACa0qFNsT5rEASVWdP5yHza
+         BAKf3Qu8Joyzzzih9tF5n/ERCUxUg8lIUiUdtloDQkoWNPkt9gz2LDbZDAWzPTAOPgdA
+         LGqYLKXYVUCfW4BDI6C6uDfzfnEo3ICzGKO3+Iv7S6gMC/4mei4263uEcwN4pqwWl0bB
+         8JjQqkfR43oLUDQF1v/g0Gfb1oMd8evnULOh0zfbftzbvZWtcMPSEBf/JMgCdtVtwYYC
+         5uDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699518090; x=1700122890;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Zx8fHoMz9t2Gib58EAFChiWLDxqT6xmc1EVOXsB54GM=;
-        b=eRzUZLS+GbgWrm9PxRh3b9o6l2atVXVpd6qJYdUBBdlgaalPyd+fYrUvhQ5o8cyaz4
-         xKvbYdcQTy2DBpKuwkTMfUQuXDOsNmmUncuNlwVgNgJjaKS+cUAhNpLhmNbnZm4RKYEY
-         rwQITJQfgq3LyEnTvWWp/GwPwVDYU67rHBzwMZBjzThbpxOt9EEf/VH85pmkAknIJt06
-         +kWBT7PeWalJ+8T8wgA23eSv0stgZCa8habC1gta7OS/zlR7NKacjWkUUreMOrvurtxa
-         /ljxFCiJHkynFuiPds5UubdEZebT1sXNjqpcEZK4mMYmEkNTS188QsuGk35W9FCv+wlG
-         0yiA==
-X-Gm-Message-State: AOJu0YyhlQ8pnQGlQw4WLR5Ur2inroIrxxV+7lwwfowENPxAMW0ojTTN
-	mT9FE3iF7sps+lPcw5cY77AIxgUfNUxNTv2u7K4=
-X-Google-Smtp-Source: AGHT+IGniq9nlBb4PH71R4r1mS9EUVv34YGMqQ4t648eQ9pLjugNiZlIlsamHM2xFhcJMWzKwDzDCQ==
-X-Received: by 2002:a5d:4352:0:b0:32d:bc6e:7f0d with SMTP id u18-20020a5d4352000000b0032dbc6e7f0dmr2702303wrr.18.1699518090397;
-        Thu, 09 Nov 2023 00:21:30 -0800 (PST)
-Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id m17-20020a056000181100b0032da6f17ffdsm6821506wrh.38.2023.11.09.00.21.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Nov 2023 00:21:30 -0800 (PST)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Atish Patra <atishp@atishpatra.org>,
-	Anup Patel <anup@brainfault.org>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH] drivers: perf: Check find_first_bit() return value
-Date: Thu,  9 Nov 2023 09:21:28 +0100
-Message-Id: <20231109082128.40777-1-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
+        d=1e100.net; s=20230601; t=1699518123; x=1700122923;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hv4PgBiFzbjP9oz6HdNNblDKMIM3N0BIjQs5GkFzzUA=;
+        b=lukD7h0nZ+4f0P4gh1K74jnQgEI83R44fQ9d58BCFO6Xe5LrTZLmQc2dUuiBMmkNNc
+         eOwT+tFO8xnhbTAJc0f+HPadEer53XRGxRNWeNST+WeuLEy+0NcmyVRrl9j0HC2LA9bx
+         vPuCk+PjO5w/y+dLgrvLBtkKC04jdtteb3hfdu3XtluZAMtUsekQ5Pd4KCNC8F7vgBNQ
+         DDer02NjRaDbRGFLvcJkpggXZsM8gXSVQWvFmqUZDvGhvvZ4+0c5awo19hAO/3dBOOSk
+         7v/WHS+i6StR7Ns2ZtHGT0RDMeEXbtHHCqbvoOE4SvCq31/sDs97iTT9/uG9JYI9Xm2m
+         YaLA==
+X-Gm-Message-State: AOJu0YweFP73boDuNafbsoyo33qnOgxAaoM9D18H+gYtkoh10NnmuPQ9
+	EtYQ2jHMbIEWZADbuUglh2P+Sg==
+X-Google-Smtp-Source: AGHT+IHSHORVaT6XKnK8gUahhTZkt/1vlizz03qWWEmzHwBJDYTNLBuvHHHFPFrGQwnkeAQ9SfFqoA==
+X-Received: by 2002:a17:906:dc8c:b0:9a2:185b:5375 with SMTP id cs12-20020a170906dc8c00b009a2185b5375mr3617729ejc.18.1699518123664;
+        Thu, 09 Nov 2023 00:22:03 -0800 (PST)
+Received: from [192.168.1.20] ([178.197.218.126])
+        by smtp.gmail.com with ESMTPSA id q8-20020a1709060e4800b009de61c89f6fsm2199570eji.1.2023.11.09.00.22.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 09 Nov 2023 00:22:03 -0800 (PST)
+Message-ID: <21985579-e017-4a56-b5e3-697fd9d0c9d7@linaro.org>
+Date: Thu, 9 Nov 2023 09:22:00 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v5 2/2] pwm: sifive: change the PWM controlled LED algorithm
+To: Nylon Chen <nylon.chen@sifive.com>, linux-pwm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, robh+dt@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ thierry.reding@gmail.com, u.kleine-koenig@pengutronix.de,
+ emil.renner.berthing@canonical.com, vincent.chen@sifive.com
+Cc: greentime.hu@sifive.com, zong.li@sifive.com, nylon7717@gmail.com
+References: <20231024101902.6689-1-nylon.chen@sifive.com>
+ <20231024101902.6689-3-nylon.chen@sifive.com>
+ <CAHh=Yk_i-tH-n_5wuwp6H8QRu3cZovkukDzMbeUZrgiih46V8g@mail.gmail.com>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <CAHh=Yk_i-tH-n_5wuwp6H8QRu3cZovkukDzMbeUZrgiih46V8g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231109_002134_094640_25D773C8 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20231109_002205_655229_B09F4D75 
+X-CRM114-Status: UNSURE (   6.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,64 +146,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We must check the return value of find_first_bit() before using the
-return value as an index array since it happens to overflow the array
-and then panic:
+On 09/11/2023 08:02, Nylon Chen wrote:
+> Hi, Ping on the series.
+> 
+> Uwe, is there anything more I can do to push the process forward?
 
-[  107.318430] Kernel BUG [#1]
-[  107.319434] CPU: 3 PID: 1238 Comm: kill Tainted: G            E      6.6.0-rc6ubuntu-defconfig #2
-[  107.319465] Hardware name: riscv-virtio,qemu (DT)
-[  107.319551] epc : pmu_sbi_ovf_handler+0x3a4/0x3ae
-[  107.319840]  ra : pmu_sbi_ovf_handler+0x52/0x3ae
-[  107.319868] epc : ffffffff80a0a77c ra : ffffffff80a0a42a sp : ffffaf83fecda350
-[  107.319884]  gp : ffffffff823961a8 tp : ffffaf8083db1dc0 t0 : ffffaf83fecda480
-[  107.319899]  t1 : ffffffff80cafe62 t2 : 000000000000ff00 s0 : ffffaf83fecda520
-[  107.319921]  s1 : ffffaf83fecda380 a0 : 00000018fca29df0 a1 : ffffffffffffffff
-[  107.319936]  a2 : 0000000001073734 a3 : 0000000000000004 a4 : 0000000000000000
-[  107.319951]  a5 : 0000000000000040 a6 : 000000001d1c8774 a7 : 0000000000504d55
-[  107.319965]  s2 : ffffffff82451f10 s3 : ffffffff82724e70 s4 : 000000000000003f
-[  107.319980]  s5 : 0000000000000011 s6 : ffffaf8083db27c0 s7 : 0000000000000000
-[  107.319995]  s8 : 0000000000000001 s9 : 00007fffb45d6558 s10: 00007fffb45d81a0
-[  107.320009]  s11: ffffaf7ffff60000 t3 : 0000000000000004 t4 : 0000000000000000
-[  107.320023]  t5 : ffffaf7f80000000 t6 : ffffaf8000000000
-[  107.320037] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
-[  107.320081] [<ffffffff80a0a77c>] pmu_sbi_ovf_handler+0x3a4/0x3ae
-[  107.320112] [<ffffffff800b42d0>] handle_percpu_devid_irq+0x9e/0x1a0
-[  107.320131] [<ffffffff800ad92c>] generic_handle_domain_irq+0x28/0x36
-[  107.320148] [<ffffffff8065f9f8>] riscv_intc_irq+0x36/0x4e
-[  107.320166] [<ffffffff80caf4a0>] handle_riscv_irq+0x54/0x86
-[  107.320189] [<ffffffff80cb0036>] do_irq+0x64/0x96
-[  107.320271] Code: 85a6 855e b097 ff7f 80e7 9220 b709 9002 4501 bbd9 (9002) 6097
-[  107.320585] ---[ end trace 0000000000000000 ]---
-[  107.320704] Kernel panic - not syncing: Fatal exception in interrupt
-[  107.320775] SMP: stopping secondary CPUs
-[  107.321219] Kernel Offset: 0x0 from 0xffffffff80000000
-[  107.333051] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---
+It's merge window. What do you exactly expect to happen?
 
-Fixes: 4905ec2fb7e6 ("RISC-V: Add sscofpmf extension support")
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- drivers/perf/riscv_pmu_sbi.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 439da49dd0a9..93d729213140 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -687,6 +687,11 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
- 
- 	/* Firmware counter don't support overflow yet */
- 	fidx = find_first_bit(cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS);
-+	if (fidx == RISCV_MAX_COUNTERS) {
-+		csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
-+		return IRQ_NONE;
-+	}
-+
- 	event = cpu_hw_evt->events[fidx];
- 	if (!event) {
- 		csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
--- 
-2.39.2
+Best regards,
+Krzysztof
 
 
 _______________________________________________
