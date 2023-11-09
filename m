@@ -4,108 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2ED1C4167D
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Nov 2023 10:19:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B4EEC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Nov 2023 10:29:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ecqpv+gbzW2G084WeoFeaIN+dCPGxGbP6JIACTw9T7Q=; b=DnNnd/oBTESTGi
-	mzd/eIDndsndFxBI4iizwOY/OwpbrGYrAg7zF/eWRe/7qEvYM2bp+DBZbzHHh1kRmhjyKntNNEY2h
-	Q/fHdm4aywV329SHruvUE7DSjUA8TGRUFfkwGmOP1wzdNyKSaG2tcdSoOh+vVIk12lcVQHerZfU3M
-	ZkNgHdy3v4pPH0SkzYM2+pL8HAnAhekpwec9SGURC4dx8VmnNWuZe3BX6OLtfl0Hrh28Yd3QKjyA2
-	TYGcsPjnJvNWNlu1QBNPBCEjsCNIprI1r34rylOOaKtVTCliAjnrGnQIVvwYVvwSO4WNzjeNRqzSp
-	HUN6gAIzkiAx7c3RirGw==;
+	List-Owner; bh=wtWqqa7s6cJNtXXFM+MJtUddLVQHGdY9upD2QHlnFdg=; b=ElXndVZ4gnOlVE
+	dxhYSenlZlqogZ4kJ/F8HrWXM6NA2mzruyUAM9arCtQUR7mwiHdCcwGGZf54917qX0HaQKSOWxu0v
+	RdhMMarYvR98XVxLyLze4711sRRKP3dmTdtyKecfjUuj88w+9Rbjt//I6OnKtSR0oNrlmFo7BpCn4
+	ABZZ7BPPDsMR51H0K6dENSoluvIoUDYY/xaF1B+RIfmMpQOSQIId7dopkGawRAo6K57F4idtDlp6F
+	LcpDWSMhcapXLaArlwperY1Hh4feCsp0U9fmxzuEjy1D0gKdozf2PB/n/Ewz32xwF14BQ2tFgpFxd
+	rhGCt5xrk5lp+t+ONP/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r128J-005vJH-30;
-	Thu, 09 Nov 2023 10:19:31 +0000
-Received: from gandalf.ozlabs.org ([150.107.74.76])
+	id 1r12IC-005xGu-1G;
+	Thu, 09 Nov 2023 10:29:44 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r128E-005vFi-1t;
-	Thu, 09 Nov 2023 10:19:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ellerman.id.au;
-	s=201909; t=1699525158;
-	bh=Z7EokJ1UdALEP2SiDB7dbNsZW0NCKV/oetJXlal69iM=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=RkjdJPjVAbZzNEKAPr8JL0kTpGz0UCZJIdVVndOCvDWZpxSw6ec518RfWPQG/IkiI
-	 3U4qG8PeFJgQ1oMBVz7fnILZyAKQ1zplGG4nJux7vUUQsPp8SkZBfT889gzvIRdpmw
-	 WUQ+WW+9cu902RASJ4kEWsLYh3rMgChUmz1/ldOW9QzCrZm2l5oTa8LM/dau5laC33
-	 KuCy2ECFzxgm0lOmPhhDCsKGLIbtABjZozYU/ee/LMkGnCNdVshd/3IasKaSCJFT9/
-	 KHxNE3JhUBjryUMosmrOQrOBshaRABEKKf3tZkVHzFqfXwk5cxkuGy4gRH9dIH1XGz
-	 jvo7A0kAqYwOw==
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4SQybm4Pg2z4xhd;
-	Thu,  9 Nov 2023 21:19:00 +1100 (AEDT)
-From: Michael Ellerman <mpe@ellerman.id.au>
-To: Arnd Bergmann <arnd@arndb.de>, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Arnd Bergmann <arnd@kernel.org>, Andrew
- Morton <akpm@linux-foundation.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, Masahiro Yamada <masahiroy@kernel.org>,
- "linux-kbuild@vger.kernel.org" <linux-kbuild@vger.kernel.org>
-Cc: Matt Turner <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
- Russell King <linux@armlinux.org.uk>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Steven Rostedt
- <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, Mark
- Rutland <mark.rutland@arm.com>, guoren <guoren@kernel.org>, Peter Zijlstra
- <peterz@infradead.org>, Ard Biesheuvel <ardb@kernel.org>, Huacai Chen
- <chenhuacai@kernel.org>, Greg Ungerer <gerg@linux-m68k.org>, Michal Simek
- <monstr@monstr.eu>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Dinh
- Nguyen <dinguyen@kernel.org>, Nicholas Piggin <npiggin@gmail.com>, Geoff
- Levand <geoff@infradead.org>, Palmer Dabbelt <palmer@dabbelt.com>, Heiko
- Carstens <hca@linux.ibm.com>, John Paul Adrian Glaubitz
- <glaubitz@physik.fu-berlin.de>, "David S . Miller" <davem@davemloft.net>,
- Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, "x86@kernel.org" <x86@kernel.org>, Helge
- Deller <deller@gmx.de>, Sudip Mukherjee <sudipm.mukherjee@gmail.com>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, Timur Tabi <timur@kernel.org>,
- Kent Overstreet <kent.overstreet@linux.dev>, David Woodhouse
- <dwmw2@infradead.org>, "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Anil
- S Keshavamurthy <anil.s.keshavamurthy@intel.com>, Kees Cook
- <keescook@chromium.org>, Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot
- <vincent.guittot@linaro.org>, Nathan Chancellor <nathan@kernel.org>, Nick
- Desaulniers <ndesaulniers@google.com>, Nicolas Schier <nicolas@fjasle.eu>,
- Alexander Viro <viro@zeniv.linux.org.uk>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?=
- <u.kleine-koenig@pengutronix.de>, "linux-alpha@vger.kernel.org"
- <linux-alpha@vger.kernel.org>, "linux-snps-arc@lists.infradead.org"
- <linux-snps-arc@lists.infradead.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
- "linux-m68k@lists.linux-m68k.org" <linux-m68k@lists.linux-m68k.org>,
- "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
- "linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>,
- "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>, Netdev
- <netdev@vger.kernel.org>, "linux-parisc@vger.kernel.org"
- <linux-parisc@vger.kernel.org>, "linux-usb@vger.kernel.org"
- <linux-usb@vger.kernel.org>, "linux-fbdev@vger.kernel.org"
- <linux-fbdev@vger.kernel.org>, "dri-devel@lists.freedesktop.org"
- <dri-devel@lists.freedesktop.org>, "linux-bcachefs@vger.kernel.org"
- <linux-bcachefs@vger.kernel.org>, "linux-mtd@lists.infradead.org"
- <linux-mtd@lists.infradead.org>
-Subject: Re: [PATCH 15/22] arch: vdso: consolidate gettime prototypes
-In-Reply-To: <d94de5b8-db92-4055-9484-f2666973c02a@app.fastmail.com>
-References: <20231108125843.3806765-1-arnd@kernel.org>
- <20231108125843.3806765-16-arnd@kernel.org>
- <ecedb0f1-9543-35c6-18bd-723e6bf21173@csgroup.eu>
- <d94de5b8-db92-4055-9484-f2666973c02a@app.fastmail.com>
-Date: Thu, 09 Nov 2023 21:18:54 +1100
-Message-ID: <87o7g3qlf5.fsf@mail.lhotse>
+	id 1r12I9-005xFC-1U;
+	Thu, 09 Nov 2023 10:29:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=k2gkeOQrNAEjn39cRXCfbpgo6HGUJfn9iHjQZ+mCvpE=; b=IHSMPuWYcuLCdYJoZFFHEG8thf
+	9jhhPJSykRLloUzaTWB4BUbFOkPu8loXs39HW9H8x4N5rRmEh38UyjZQIwLCF0Afp6ktJOPMGz+Xf
+	ueHVW9YySJOX2vw4OEy4zJjjj4EE5/zCN4jUZNjweQ9e8s8yknfigbErHK8XcLW/MiKh9Qn+PPDBV
+	DU5IAe2iD5JjtMfuW7zFqO82ZzKbT9eSsLuUBjL5fihCHqnuQjdhggMMaZMgZPerYH9MCj0pvIhb5
+	iSXhbPROGKwd+XCrFhhcWjsE88bL9nzHMW3hg2V8Cza4PBuLBnLCJhi8oPMvNNVaX/vdxFPFI/N2i
+	AjY9v+WA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40426)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1r12Hx-0002KD-09;
+	Thu, 09 Nov 2023 10:29:29 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1r12Hv-0000TA-GL; Thu, 09 Nov 2023 10:29:27 +0000
+Date: Thu, 9 Nov 2023 10:29:27 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Shaoqin Huang <shahuang@redhat.com>
+Cc: linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
+	x86@kernel.org, linux-csky@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-ia64@vger.kernel.org,
+	linux-parisc@vger.kernel.org, Salil Mehta <salil.mehta@huawei.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	jianyong.wu@arm.com, justin.he@arm.com,
+	James Morse <james.morse@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>
+Subject: Re: [PATCH RFC 06/22] drivers: base: Use present CPUs in
+ GENERIC_CPU_DEVICES
+Message-ID: <ZUy0h/lc3QCPsuU8@shell.armlinux.org.uk>
+References: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
+ <E1r0JLB-00CTwy-7y@rmk-PC.armlinux.org.uk>
+ <f00dd1cf-5b4c-38a8-a337-817d474d53d1@redhat.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <f00dd1cf-5b4c-38a8-a337-817d474d53d1@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231109_021926_909424_73E92EA7 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20231109_022941_505451_BA928582 
+X-CRM114-Status: GOOD (  26.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,44 +88,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-IkFybmQgQmVyZ21hbm4iIDxhcm5kQGFybmRiLmRlPiB3cml0ZXM6Cj4gT24gV2VkLCBOb3YgOCwg
-MjAyMywgYXQgMTk6MzEsIENocmlzdG9waGUgTGVyb3kgd3JvdGU6Cj4+IExlIDA4LzExLzIwMjMg
-w6AgMTM6NTgsIEFybmQgQmVyZ21hbm4gYSDDqWNyaXTCoDoKPgo+PiBwb3dlcnBjIGhhcyBmdW5j
-dGlvbnMgZG9pbmcgbW9yZSBvciBsZXNzIHRoZSBzYW1lLCB0aGV5IGFyZSBjYWxsZWQgCj4+IF9f
-Y19rZXJuZWxfY2xvY2tfZ2V0dGltZSgpIGFuZCBhbGlrZSB3aXRoIHRoZWlyIHByb3RvdHlwZXMg
-c2l0aW5nIGluIAo+PiBhcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20vdmRzby9nZXR0aW1lb2ZkYXku
-aAo+Pgo+PiBTaG91bGQgdGhvc2UgcHJvdG90eXBlcyBiZSBtb3ZlZCB0byBpbmNsdWRlL3Zkc28v
-Z2V0dGltZS5oIHRvbyBhbmQgCj4+IGV2ZW50dWFsbHkgcmVuYW1lZCwgb3IgYXJlIHRoZXkgY29u
-c2lkZXJlZCB0b28gcG93ZXJwYyBzcGVjaWZpYyA/Cj4KPiBJIGRvbid0IGFjdHVhbGx5IGtub3cs
-IG15IGluaXRpYWwgaW50ZXJwcmV0YXRpb24gd2FzIHRoYXQKPiB0aGVzZSBmdW5jdGlvbiBuYW1l
-cyBhcmUgcGFydCBvZiB0aGUgdXNlciBBQkkgZm9yIHRoZSB2ZHNvLAo+IGJ1dCBJIG5ldmVyIGxv
-b2tlZCBjbG9zZWx5IGVub3VnaCBhdCBob3cgdmRzbyB3b3JrcyB0bwo+IGJlIHN1cmUgd2hhdCB0
-aGUgYWN0dWFsIEFCSSBpcy4KCkFGQUlLIHRoZSBBQkkgaXMganVzdCB0aGUgc3ltYm9scyB3ZSBl
-eHBvcnQsIGFzIGRlZmluZWQgaW4gdGhlIGxpbmtlcgpzY3JpcHQ6CgovKgogKiBUaGlzIGNvbnRy
-b2xzIHdoYXQgc3ltYm9scyB3ZSBleHBvcnQgZnJvbSB0aGUgRFNPLgogKi8KVkVSU0lPTgp7CglW
-RFNPX1ZFUlNJT05fU1RSSU5HIHsKCWdsb2JhbDoKCQlfX2tlcm5lbF9nZXRfc3lzY2FsbF9tYXA7
-CgkJX19rZXJuZWxfZ2V0dGltZW9mZGF5OwoJCV9fa2VybmVsX2Nsb2NrX2dldHRpbWU7CgkJX19r
-ZXJuZWxfY2xvY2tfZ2V0cmVzOwoJCV9fa2VybmVsX2dldF90YmZyZXE7CgkJX19rZXJuZWxfc3lu
-Y19kaWNhY2hlOwoJCV9fa2VybmVsX3NpZ3RyYW1wX3J0NjQ7CgkJX19rZXJuZWxfZ2V0Y3B1OwoJ
-CV9fa2VybmVsX3RpbWU7CgpodHRwczovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2Vy
-bmVsL2dpdC90b3J2YWxkcy9saW51eC5naXQvdHJlZS9hcmNoL3Bvd2VycGMva2VybmVsL3Zkc28v
-dmRzbzY0Lmxkcy5TP2g9djYuNiYjbjExNwoKPiBJZiBfX2Nfa2VybmVsX2Nsb2NrX2dldHRpbWUo
-KSBldGMgYXJlIG5vdCBwYXJ0IG9mIHRoZSB1c2VyLWZhY2luZwo+IEFCSSwgSSB0aGluayByZW5h
-bWluZyB0aGVtIGZvciBjb25zaXN0ZW5jeSB3aXRoIHRoZSBvdGhlcgo+IGFyY2hpdGVjdHVyZXMg
-d291bGQgYmUgYmVzdC4KClRoZSBfX2Mgc3ltYm9scyBhcmUgbm90IHBhcnQgb2YgdGhlIEFCSSwg
-c28gd2UgY291bGQgcmVuYW1lIHRoZW0uCgpBdCB0aGUgbW9tZW50IHRob3VnaCB0aGV5IGRvbid0
-IGhhdmUgdGhlIHNhbWUgcHJvdG90eXBlIGFzIHRoZSBnZW5lcmljCnZlcnNpb25zLCBiZWNhdXNl
-IHdlIGZpbmQgdGhlIFZEU08gZGF0YSBpbiBhc20gYW5kIHBhc3MgaXQgdG8gdGhlIEMKZnVuY3Rp
-b25zLCBlZzoKCmludCBfX2Nfa2VybmVsX2dldHRpbWVvZmRheShzdHJ1Y3QgX19rZXJuZWxfb2xk
-X3RpbWV2YWwgKnR2LCBzdHJ1Y3QgdGltZXpvbmUgKnR6LAoJCQkgICAgY29uc3Qgc3RydWN0IHZk
-c29fZGF0YSAqdmQpOwoKSSB0aGluayB3ZSBjYW4gcmV3b3JrIHRoYXQgdGhvdWdoLCBieSBpbXBs
-ZW1lbnRpbmcKX19hcmNoX2dldF92ZHNvX2RhdGEoKSBhbmQgZ2V0dGluZyB0aGUgdmRzb19kYXRh
-IGluIEMuIFRoZW4gd2UnZCBiZSBhYmxlCnRvIHNoYXJlIHRoZSBwcm90b3R5cGVzLgoKY2hlZXJz
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Thu, Nov 09, 2023 at 06:09:32PM +0800, Shaoqin Huang wrote:
+> Hi Russell,
+> 
+> On 11/7/23 18:29, Russell King (Oracle) wrote:
+> > From: James Morse <james.morse@arm.com>
+> > 
+> > Three of the five ACPI architectures create sysfs entries using
+> > register_cpu() for present CPUs, whereas arm64, riscv and all
+> > GENERIC_CPU_DEVICES do this for possible CPUs.
+> > 
+> > Registering a CPU is what causes them to show up in sysfs.
+> > 
+> > It makes very little sense to register all possible CPUs. Registering
+> > a CPU is what triggers the udev notifications allowing user-space to
+> > react to newly added CPUs.
+> > 
+> > To allow all five ACPI architectures to use GENERIC_CPU_DEVICES, change
+> > it to use for_each_present_cpu(). Making the ACPI architectures use
+> > GENERIC_CPU_DEVICES is a pre-requisite step to centralise their
+> > cpu_register() logic, before moving it into the ACPI processor driver.
+> > When ACPI is disabled this work would be done by
+> > cpu_dev_register_generic().
+> 
+> What do you actually mean about when ACPI is disabled this work would be
+
+Firstly, please note that "you" is not appropriate here. This is James'
+commit message, not mine.
+
+> done by cpu_dev_register_generic()? Is the work means register the cpu?
+
+When ACPI is disabled _and_ CONFIG_GENERIC_CPU_DEVICES is enabled, then
+cpu_dev_register_generic() will call arch_register_cpu() for each present
+CPU after this commit, rather than for each _possible_ CPU (which is the
+actual code change here.)
+
+> I'm not quite understand that, and how about when ACPI is enabled, which
+> function do this work?
+
+This is what happens later in the series.
+
+"drivers: base: Allow parts of GENERIC_CPU_DEVICES to be overridden"
+adds a test for CONFIG_GENERIC_CPU_DEVICES, so this will only be used
+with architectures using GENERIC_CPU_DEVICES. Then in:
+
+"ACPI: processor: Register all CPUs from acpi_processor_get_info()"
+which is not part of this series, this adds a call to arch_register_cpu()
+in the ACPI code, and disables this path via a test for !acpi_disabled.
+
+Essentially, this path gets used to register the present CPUs when
+firmware (ACPI) isn't going to be registering the present CPUs.
+
+I've changed this to:
+
+"It makes very little sense to register all possible CPUs. Registering
+a CPU is what triggers the udev notifications allowing user-space to
+react to newly added CPUs.
+
+"To allow all five ACPI architectures to use GENERIC_CPU_DEVICES, change
+it to use for_each_present_cpu().
+
+"Making the ACPI architectures use GENERIC_CPU_DEVICES is a pre-requisite
+step to centralise their register_cpu() logic, before moving it into the
+ACPI processor driver. When we add support for register CPUs from ACPI
+in a later patch, we will avoid registering CPUs in this path."
+
+which I hope makes it clearer.
+
+> > After this change, openrisc and hexagon systems that use the max_cpus
+> > command line argument would not see the other CPUs present in sysfs.
+> > This should not be a problem as these CPUs can't bre brought online as
+>                                              ^ nit: can't be
+
+Thanks, I'll fix that.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
