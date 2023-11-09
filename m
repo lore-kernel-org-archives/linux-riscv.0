@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D58D3C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Nov 2023 03:48:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A915C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Nov 2023 07:02:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=akheSsfgzgRwhUCnR67lThVS5mD1tYntJfkqWRqGB8g=; b=iVOHmJR5gh2ZBfCsTv7N2za2UV
-	XenOzM+LeK8qt+MZWlWc9gXfOc6TwnXENwjzIpPKBSiutq8etTZJnUF6yUxiUG5lJRzd17gC5UOVm
-	EvX2QFMwDtLpjsWV5rq9CDcsX2E5SWvPKxLI6Zy9ehU1s9BhSjVrhxeJ6SsG2t/Lnp5UHiZGD9MOc
-	QStrsBhF+mVXcNm3AaBtN8vEu6YHDmgjRrFO6y3FMaoReD+56bQnn8BgijZSYZ63Y80hqtWLGOz5d
-	HOwljz9uJF1BtDTd45sunoMYeBiNfUy42K7D6LrZrWByXmwdnuq/lOnf08Boy0tI1opUicmTrCxUA
-	3gsULNLQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=y2E77D09ZAeX18Xn1R7lHEk9DkHHthT+TjhO1IxSgZY=; b=XiwWn8LEcgIlj/
+	YrqbNE2jsRtdOTJnk6DZs+ouDysIUUJcMjJSar9vbMfPH6IyDMwo0SJtX5pazmDx+J/uclLoL90Wq
+	97RsEu8byT6OxPkvHcyDKueeW8jGzOR848G9yxMNhMYsgVYOzApqkAYj+IBAsz/43CJV2DS109/xf
+	iSJfrzuGP2ZE9ocBAI2tY42MSJ1E0z/3A9rnAh4CbGd6nBC+bsjBzrAoQRK18/stt+56rqGNPLmQf
+	hc4J+xigyp4EdErd90Xg0bgO77koATPVMPsZQ/ATX7PYuOSLt6C7C6AD0CIONm+viDlGxu3C08vPg
+	ndhD3HpRmKd333H1QTDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0w1O-005Ci5-30;
-	Thu, 09 Nov 2023 03:47:58 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1r0z3j-005SyI-39;
+	Thu, 09 Nov 2023 07:02:35 +0000
+Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r0w1K-005ChK-0K
+	id 1r0z3g-005Sv3-3B
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Nov 2023 03:47:56 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-5bd5809f63aso309244a12.3
-        for <linux-riscv@lists.infradead.org>; Wed, 08 Nov 2023 19:47:51 -0800 (PST)
+	Thu, 09 Nov 2023 07:02:34 +0000
+Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-da077db5145so586208276.0
+        for <linux-riscv@lists.infradead.org>; Wed, 08 Nov 2023 23:02:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1699501671; x=1700106471; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=T3uuAi3G0X6OpIHwR9Kx+exCB4k+x+TH2JOVCfjs18U=;
-        b=NXKw+t3Z3Pi0aP887H2JIQ8elwg4oZICU16IsBa8ZOYacNFeTZz550HrH2mYlOZD9/
-         4YXETohB0BdkFjxBJ4s5nwMMxiAmU3ApxLcRyH7KrBD7dK7o3u2nj/zUzj6MCvBdDiVH
-         CHZ3Ci6wa9Zba+HXXk1Qh8HUWpJ14a9z+Gc1mQ4JvY8r9XPjsd8SDuRGiIwte8hyQCYK
-         fcFM6/sHr1Uzo892nOaawwikLZCqJdpEZsG28YlmZpFk3B5Zz8sNJjXkTmF8W+tIU9P/
-         8Gs9KReii/hCz8aGustCNv1hOC9lX20YQD209q7XP536nfdH3f+NyZOaWGJgAgvidplH
-         NLKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699501671; x=1700106471;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+        d=sifive.com; s=google; t=1699513350; x=1700118150; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=T3uuAi3G0X6OpIHwR9Kx+exCB4k+x+TH2JOVCfjs18U=;
-        b=fWNkXg4wt9bD466BEEkpU37GvPbTQybR+1NmRLbsmJgBaWWrHQ09mjO3d10MTqegcN
-         v3SfXmT7b4MgBjJk9ZkBqsDOzJoHbwAwCJmq6wr6tR2W3Eau4DxZ6pGB4ThytM3mQGTA
-         t+XIXZ1KqoFcgdAX1PIz8J6xIRrjhdu2LYt7UGOUWR8/so67+s/cWytDIfnt8a7TFkbf
-         XFlAHaUatWO/706g8dKARB5vDe5rOgIpyoci0TUoRcD3A1UTq4eEygxDAbAQd5WO87HI
-         YSD0umqp406WN2ngG7FSRJ+M/QYgei7PoCGlYOSnMCQdP9yAmXsZcgXHj8mixd6zzPVj
-         eN+A==
-X-Gm-Message-State: AOJu0Yyq3cSw+qw1eBudNrfpuMigee5TTtwexgBnBML+tmtb/wRh1nL5
-	tEsrCJlyfOosyZAp/nBDPSkSTA==
-X-Google-Smtp-Source: AGHT+IGd95v1zf1mFgt3p+A2cD4Le4/ZKMGHeN96e3WanzcnJLKSR08bIEh6isDGiR4jdH35vgs7Bw==
-X-Received: by 2002:a05:6a20:9f90:b0:174:63a9:2aa with SMTP id mm16-20020a056a209f9000b0017463a902aamr4999017pzb.18.1699501671292;
-        Wed, 08 Nov 2023 19:47:51 -0800 (PST)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id z6-20020a170903018600b001b03a1a3151sm2426300plg.70.2023.11.08.19.47.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Nov 2023 19:47:49 -0800 (PST)
-Date: Wed, 08 Nov 2023 19:47:49 -0800 (PST)
-X-Google-Original-Date: Wed, 08 Nov 2023 19:47:45 PST (-0800)
-Subject: Re: [PATCH] riscv: Support RANDOMIZE_KSTACK_OFFSET
-In-Reply-To: <202311081552.062D21EB@keescook>
-CC: songshuaishuai@tinylab.org, Paul Walmsley <paul.walmsley@sifive.com>,
-  aou@eecs.berkeley.edu, guoren@kernel.org, Bjorn Topel <bjorn@rivosinc.com>, jszhang@kernel.org,
-  Conor Dooley <conor.dooley@microchip.com>, andy.chiu@sifive.com, samitolvanen@google.com, coelacanthushex@gmail.com,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: keescook@chromium.org
-Message-ID: <mhng-32bb45f6-c7eb-4afb-a42a-a167a83ca760@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+        bh=FoLz//LH1CjVmWy0eAZ6OsQtm1+A5S0uKqoA43bqdiA=;
+        b=hdT3EvJKLoiipKHPiR7AQPIDvIZLh27VXbXgxRB5aKxdKEytP5SfpJJyvD4gruxApx
+         T8xTdTSnHg/AVON7f1ZnS6daI3EF4qO9tF3cKLkoUDIN/qIFLCX+SoFyrstq83h1XS/c
+         hOW6BajDHoHqbptYCOGZAlOI1DsrAtGW2uK3yLNLI7S6MMPuzN/xoyAUpWcW3/iybQpw
+         ygWCngaMP9PblW6cXdxhbToRx25gQJ5mYrgxZzTodFRs68rGC/mSUkg4UZhtxyScq9UZ
+         iBB4Rucu8+nm6Xo5q+MttpJ33rMH+3wp0YFT/LcptcDC3XfZ+Cl/ESOmKAxXCbEgkp11
+         azhQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1699513350; x=1700118150;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FoLz//LH1CjVmWy0eAZ6OsQtm1+A5S0uKqoA43bqdiA=;
+        b=Hd165kGKZ1ZxmVqg204W/jPeM/WKh943qUGRbY1YJ+CaNaRE2GmOLY7ESWxV5VTQ+A
+         kZOCcysqvwfLWBoQrBursCvrdhFDYVOonh6Jv45D/pieHn7ux4MRcKq05dnNH0tvU7ur
+         ywXfBoB4BLswsrTVUeZpT0Bl/iNKdss4FVFJAqpNgZRZ4Fg6LJAJAkay1VojbWh5Dcjr
+         MSKwXwXXo2JbqOYPZdwo4P+9f0bPbCyPH1TRVH4t8ZJNCaEfuPuN+8YTXEUo8uRSnhWT
+         z+aAEbmcnhAiv1UwgkOAN//7Pk+7WHwtJTfteU2OFCPIuDNrwxPbdxE6T7Cy9Ie+yU0a
+         44Yg==
+X-Gm-Message-State: AOJu0Ywv9DswzzLR/z/TO9Vo4bNwckmQYPUn28rujc7upV1NEHbCh+9W
+	f1dCoE67mzk5dtBI6X6J1UoR8oV5yu5ftTVQ4TIByQ==
+X-Google-Smtp-Source: AGHT+IE8BBe1spx8hqF4fLpehhdYAM3HZKZD6rH75vUkL6sQG9EjJs+CVFPxWIJCWp5BEcf+mXPhNKGZGdoG3oWQXio=
+X-Received: by 2002:a25:2396:0:b0:d86:5a8d:6e34 with SMTP id
+ j144-20020a252396000000b00d865a8d6e34mr3697289ybj.29.1699513349774; Wed, 08
+ Nov 2023 23:02:29 -0800 (PST)
+MIME-Version: 1.0
+References: <20231024101902.6689-1-nylon.chen@sifive.com> <20231024101902.6689-3-nylon.chen@sifive.com>
+In-Reply-To: <20231024101902.6689-3-nylon.chen@sifive.com>
+From: Nylon Chen <nylon.chen@sifive.com>
+Date: Thu, 9 Nov 2023 15:02:18 +0800
+Message-ID: <CAHh=Yk_i-tH-n_5wuwp6H8QRu3cZovkukDzMbeUZrgiih46V8g@mail.gmail.com>
+Subject: Re: [v5 2/2] pwm: sifive: change the PWM controlled LED algorithm
+To: linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	thierry.reding@gmail.com, u.kleine-koenig@pengutronix.de, 
+	emil.renner.berthing@canonical.com, vincent.chen@sifive.com
+Cc: greentime.hu@sifive.com, zong.li@sifive.com, nylon7717@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231108_194755_168585_2606735A 
-X-CRM114-Status: GOOD (  26.34  )
+X-CRM114-CacheID: sfid-20231108_230233_061133_EC7F4FD1 
+X-CRM114-Status: GOOD (  16.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,123 +87,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 08 Nov 2023 15:52:34 PST (-0800), keescook@chromium.org wrote:
-> On Wed, Nov 01, 2023 at 02:44:23PM +0800, Song Shuai wrote:
->> Inspired from arm64's implement -- commit 70918779aec9
->> ("arm64: entry: Enable random_kstack_offset support")
->>
->> Add support of kernel stack offset randomization while handling syscall,
->> the offset is defaultly limited by KSTACK_OFFSET_MAX() (i.e. 10 bits).
->>
->> In order to avoid trigger stack canaries (due to __builtin_alloca) and
->> slowing down the entry path, use __no_stack_protector attribute to
->> disable stack protector for do_trap_ecall_u() at the function level.
->>
->> Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
->
-> I can't speak to the correctness of the entropy level, but the usage of
-> the helpers looks correct to me.
-
-As far as I can tell the comment matches how the system behaves.  I'm 
-not sure if that much entropy is useful.  I was poking around for a bit 
-to try and figure that out, but after reading that comment at the top of 
-include/linux/randomize_kstack.h I decided to stop ;)
-
-So aside from those whitespace errors Damien pointed out,
-
-Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
-
-It's too late for the merge window for me, but
-
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-
-in case someone else wants to take it still.  Otherwise I'll try and 
-remember to pick it up right after the merge window, but with Plumbers 
-things might be a bit clunky.
-
-> Reviewed-by: Kees Cook <keescook@chromium.org>
->
-> -Kees
->
->> ---
->> Testing with randomize_kstack_offset=y cmdline, lkdtm/stack-entropy.sh
->> showed appropriate stack offset instead of zero.
->> ---
->>  arch/riscv/Kconfig        |  1 +
->>  arch/riscv/kernel/traps.c | 18 +++++++++++++++++-
->>  2 files changed, 18 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->> index d607ab0f7c6d..0e843de33f0c 100644
->> --- a/arch/riscv/Kconfig
->> +++ b/arch/riscv/Kconfig
->> @@ -100,6 +100,7 @@ config RISCV
->>  	select HAVE_ARCH_KGDB_QXFER_PKT
->>  	select HAVE_ARCH_MMAP_RND_BITS if MMU
->>  	select HAVE_ARCH_MMAP_RND_COMPAT_BITS if COMPAT
->> +	select HAVE_ARCH_RANDOMIZE_KSTACK_OFFSET
->>  	select HAVE_ARCH_SECCOMP_FILTER
->>  	select HAVE_ARCH_THREAD_STRUCT_WHITELIST
->>  	select HAVE_ARCH_TRACEHOOK
->> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
->> index 19807c4d3805..3f869b2d47c3 100644
->> --- a/arch/riscv/kernel/traps.c
->> +++ b/arch/riscv/kernel/traps.c
->> @@ -6,6 +6,7 @@
->>  #include <linux/cpu.h>
->>  #include <linux/kernel.h>
->>  #include <linux/init.h>
->> +#include <linux/randomize_kstack.h>
->>  #include <linux/sched.h>
->>  #include <linux/sched/debug.h>
->>  #include <linux/sched/signal.h>
->> @@ -296,9 +297,11 @@ asmlinkage __visible __trap_section void do_trap_break(struct pt_regs *regs)
->>  	}
->>  }
->>
->> -asmlinkage __visible __trap_section void do_trap_ecall_u(struct pt_regs *regs)
->> +asmlinkage __visible __trap_section  __no_stack_protector
->> +void do_trap_ecall_u(struct pt_regs *regs)
->>  {
->>  	if (user_mode(regs)) {
->> +
->>  		long syscall = regs->a7;
->>
->>  		regs->epc += 4;
->> @@ -308,10 +311,23 @@ asmlinkage __visible __trap_section void do_trap_ecall_u(struct pt_regs *regs)
->>
->>  		syscall = syscall_enter_from_user_mode(regs, syscall);
->>
->> +		add_random_kstack_offset();
->> +
->>  		if (syscall >= 0 && syscall < NR_syscalls)
->>  			syscall_handler(regs, syscall);
->>  		else if (syscall != -1)
->>  			regs->a0 = -ENOSYS;
->> +		/*
->> +		 * Ultimately, this value will get limited by KSTACK_OFFSET_MAX(),
->> +		 * so the maximum stack offset is 1k bytes (10 bits).
->> +		 *
->> +		 * The actual entropy will be further reduced by the compiler when
->> +		 * applying stack alignment constraints: 16-byte (i.e. 4-bit) aligned
->> +		 * for RV32I or RV64I.
->> +		 *
->> +		 * The resulting 6 bits of entropy is seen in SP[9:4].
->> +		 */
->> +		choose_random_kstack_offset(get_random_u16());
->>
->>  		syscall_exit_to_user_mode(regs);
->>  	} else {
->> --
->> 2.20.1
->>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksIFBpbmcgb24gdGhlIHNlcmllcy4KClV3ZSwgaXMgdGhlcmUgYW55dGhpbmcgbW9yZSBJIGNh
+biBkbyB0byBwdXNoIHRoZSBwcm9jZXNzIGZvcndhcmQ/CgpOeWxvbiBDaGVuIDxueWxvbi5jaGVu
+QHNpZml2ZS5jb20+IOaWvCAyMDIz5bm0MTDmnIgyNOaXpSDpgLHkuowg5LiL5Y2INjoxOeWvq+mB
+k++8mgoKPgo+IFRoZSBgZnJhY2AgdmFyaWFibGUgcmVwcmVzZW50cyB0aGUgcHVsc2UgaW5hY3Rp
+dmUgdGltZSwgYW5kIHRoZSByZXN1bHQKPiBvZiB0aGlzIGFsZ29yaXRobSBpcyB0aGUgcHVsc2Ug
+YWN0aXZlIHRpbWUuIFRoZXJlZm9yZSwgd2UgbXVzdCByZXZlcnNlIHRoZSByZXN1bHQuCj4KPiBU
+aGUgcmVmZXJlbmNlIGlzIFNpRml2ZSBGVTc0MC1DMDAwIE1hbnVhbFswXQo+Cj4gTGluazogaHR0
+cHM6Ly9zaWZpdmUuY2RuLnByaXNtaWMuaW8vc2lmaXZlLzFhODJlNjAwLTFmOTMtNGY0MS1iMmQ4
+LTg2ZWQ4YjE2YWNiYV9mdTc0MC1jMDAwLW1hbnVhbC12MXA2LnBkZiBbMF0KPgo+IFNpZ25lZC1v
+ZmYtYnk6IE55bG9uIENoZW4gPG55bG9uLmNoZW5Ac2lmaXZlLmNvbT4KPiBTaWduZWQtb2ZmLWJ5
+OiBWaW5jZW50IENoZW4gPHZpbmNlbnQuY2hlbkBzaWZpdmUuY29tPgo+IC0tLQo+ICBkcml2ZXJz
+L3B3bS9wd20tc2lmaXZlLmMgfCAxMCArKysrKystLS0tCj4gIDEgZmlsZSBjaGFuZ2VkLCA2IGlu
+c2VydGlvbnMoKyksIDQgZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9wd20v
+cHdtLXNpZml2ZS5jIGIvZHJpdmVycy9wd20vcHdtLXNpZml2ZS5jCj4gaW5kZXggZWFiZGRiN2M3
+ODIwLi4zNTNjMjM0MmZiZjEgMTAwNjQ0Cj4gLS0tIGEvZHJpdmVycy9wd20vcHdtLXNpZml2ZS5j
+Cj4gKysrIGIvZHJpdmVycy9wd20vcHdtLXNpZml2ZS5jCj4gQEAgLTEwMSw3ICsxMDEsNyBAQCBz
+dGF0aWMgdm9pZCBwd21fc2lmaXZlX3VwZGF0ZV9jbG9jayhzdHJ1Y3QgcHdtX3NpZml2ZV9kZGF0
+YSAqZGRhdGEsCj4KPiAgICAgICAgIC8qIEFzIHNjYWxlIDw9IDE1IHRoZSBzaGlmdCBvcGVyYXRp
+b24gY2Fubm90IG92ZXJmbG93LiAqLwo+ICAgICAgICAgbnVtID0gKHVuc2lnbmVkIGxvbmcgbG9u
+ZylOU0VDX1BFUl9TRUMgPDwgKFBXTV9TSUZJVkVfQ01QV0lEVEggKyBzY2FsZSk7Cj4gLSAgICAg
+ICBkZGF0YS0+cmVhbF9wZXJpb2QgPSBkaXY2NF91bChudW0sIHJhdGUpOwo+ICsgICAgICAgZGRh
+dGEtPnJlYWxfcGVyaW9kID0gRElWX1JPVU5EX1VQX1VMTChudW0sIHJhdGUpOwo+ICAgICAgICAg
+ZGV2X2RiZyhkZGF0YS0+Y2hpcC5kZXYsCj4gICAgICAgICAgICAgICAgICJOZXcgcmVhbF9wZXJp
+b2QgPSAldSBuc1xuIiwgZGRhdGEtPnJlYWxfcGVyaW9kKTsKPiAgfQo+IEBAIC0xMjEsMTMgKzEy
+MSwxNCBAQCBzdGF0aWMgaW50IHB3bV9zaWZpdmVfZ2V0X3N0YXRlKHN0cnVjdCBwd21fY2hpcCAq
+Y2hpcCwgc3RydWN0IHB3bV9kZXZpY2UgKnB3bSwKPiAgICAgICAgICAgICAgICAgc3RhdGUtPmVu
+YWJsZWQgPSBmYWxzZTsKPgo+ICAgICAgICAgc3RhdGUtPnBlcmlvZCA9IGRkYXRhLT5yZWFsX3Bl
+cmlvZDsKPiArCj4gKyAgICAgICBkdXR5ID0gKDFVIDw8IFBXTV9TSUZJVkVfQ01QV0lEVEgpIC0g
+MSAtIGR1dHk7Cj4gICAgICAgICBzdGF0ZS0+ZHV0eV9jeWNsZSA9Cj4gICAgICAgICAgICAgICAg
+ICh1NjQpZHV0eSAqIGRkYXRhLT5yZWFsX3BlcmlvZCA+PiBQV01fU0lGSVZFX0NNUFdJRFRIOwo+
+IC0gICAgICAgc3RhdGUtPnBvbGFyaXR5ID0gUFdNX1BPTEFSSVRZX0lOVkVSU0VEOwo+ICsgICAg
+ICAgc3RhdGUtPnBvbGFyaXR5ID0gUFdNX1BPTEFSSVRZX05PUk1BTDsKPgo+ICAgICAgICAgcmV0
+dXJuIDA7Cj4gIH0KPiAtCj4gIHN0YXRpYyBpbnQgcHdtX3NpZml2ZV9hcHBseShzdHJ1Y3QgcHdt
+X2NoaXAgKmNoaXAsIHN0cnVjdCBwd21fZGV2aWNlICpwd20sCj4gICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIGNvbnN0IHN0cnVjdCBwd21fc3RhdGUgKnN0YXRlKQo+ICB7Cj4gQEAgLTEzOSw3
+ICsxNDAsNyBAQCBzdGF0aWMgaW50IHB3bV9zaWZpdmVfYXBwbHkoc3RydWN0IHB3bV9jaGlwICpj
+aGlwLCBzdHJ1Y3QgcHdtX2RldmljZSAqcHdtLAo+ICAgICAgICAgaW50IHJldCA9IDA7Cj4gICAg
+ICAgICB1MzIgZnJhYzsKPgo+IC0gICAgICAgaWYgKHN0YXRlLT5wb2xhcml0eSAhPSBQV01fUE9M
+QVJJVFlfSU5WRVJTRUQpCj4gKyAgICAgICBpZiAoc3RhdGUtPnBvbGFyaXR5ICE9IFBXTV9QT0xB
+UklUWV9OT1JNQUwpCj4gICAgICAgICAgICAgICAgIHJldHVybiAtRUlOVkFMOwo+Cj4gICAgICAg
+ICBjdXJfc3RhdGUgPSBwd20tPnN0YXRlOwo+IEBAIC0xNTgsNiArMTU5LDcgQEAgc3RhdGljIGlu
+dCBwd21fc2lmaXZlX2FwcGx5KHN0cnVjdCBwd21fY2hpcCAqY2hpcCwgc3RydWN0IHB3bV9kZXZp
+Y2UgKnB3bSwKPiAgICAgICAgIG51bSA9ICh1NjQpZHV0eV9jeWNsZSAqICgxVSA8PCBQV01fU0lG
+SVZFX0NNUFdJRFRIKTsKPiAgICAgICAgIGZyYWMgPSBESVY2NF9VNjRfUk9VTkRfQ0xPU0VTVChu
+dW0sIHN0YXRlLT5wZXJpb2QpOwo+ICAgICAgICAgLyogVGhlIGhhcmR3YXJlIGNhbm5vdCBnZW5l
+cmF0ZSBhIDEwMCUgZHV0eSBjeWNsZSAqLwo+ICsgICAgICAgZnJhYyA9ICgxVSA8PCBQV01fU0lG
+SVZFX0NNUFdJRFRIKSAtIDEgLSBmcmFjOwo+ICAgICAgICAgZnJhYyA9IG1pbihmcmFjLCAoMVUg
+PDwgUFdNX1NJRklWRV9DTVBXSURUSCkgLSAxKTsKPgo+ICAgICAgICAgbXV0ZXhfbG9jaygmZGRh
+dGEtPmxvY2spOwo+IC0tCj4gMi40Mi4wCj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
