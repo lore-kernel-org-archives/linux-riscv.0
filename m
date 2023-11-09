@@ -4,82 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4290C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Nov 2023 19:33:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC7ACC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Nov 2023 22:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k5nH6/PuArDBwq3nU2umIqAhIYpRDLugQySZwnvWat8=; b=Lky7GAyGYqqjbp
-	Sd9phGAjnuhTZqzwqG32gwy6LtQOjQZZSJVWGeGYhgX0kTBniNoYDL1EKY51PtFZ90e5sLe3ilHXm
-	8luz3n9ATdWF4a0c6PWFCmwW2aHbFXud2WeF3qsql+GC/5xF0O7PZojQ8bHBSvaJaBraRADd1TwtL
-	UVqsuZX1UkQsvodUFXhDRyx3U8bsaQkfkAEGcvPA2Fb2vSiKs/Wo3FL13CcUO6Ks2malUkn/jjyIy
-	f8fJpszm9fwpn9suppkajAlUfRxo2hcM5LpOBFeSK3OovY5oDllb5tSOC6V0z+iinHknP+3PqqQUV
-	ylcfdlGAvyFEPY90AIpg==;
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:Subject:Date:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WtLw1JLjH48yOg3LEV2mWVxXBu6BugUNdj8F5Fkh5OM=; b=xzK+VDibZzggOa
+	Z6gWXMYQvRBAYofmI3xaYxKtktgptS62yReSLYTecbf00nrb9uMi0aGfSFKhTw7OVO/vNzAPh3ZcU
+	ZDB8yOWx02Fbtpwph7QM4BFm/AjiUUHLkH1V5SUUYlClqjPEQLnPqE42t+ljdRjZHn1NhxNncOSwD
+	FWaQgWaZTkGEGnQUwfC/1o7jEWSwygTMaRbw2NKGdzUd3GTh1AyZkRzJfHlDIbELCVvgn3twgmB1V
+	4LKzro0XMl+7xc41lncKQfdpZSNjkKRCDrVuIUJYlu/tlR7JlURue3pkd3t1cizpAstI+o/pBZhJR
+	U3Bb95UtUe91+3yD+OpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1AmW-00779r-2d;
-	Thu, 09 Nov 2023 19:33:36 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1r1DKU-007L6B-11;
+	Thu, 09 Nov 2023 22:16:50 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1AmU-007796-0q
+	id 1r1DKQ-007L5S-3B
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Nov 2023 19:33:35 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-6ba54c3ed97so1303389b3a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Nov 2023 11:33:31 -0800 (PST)
+	Thu, 09 Nov 2023 22:16:48 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-6c34e87b571so1313469b3a.3
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Nov 2023 14:16:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1699558411; x=1700163211; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=LmQUwtKqBsbUaMBDQyLDzBgdhUAqOrOc7yxWsj82q/k=;
-        b=igWt2+txPzHI627AHitzhvfduqDkyOdi26ibF5SZ7EYz/saKk+t2s76zbtbR0GTfRk
-         /CzpGYDpe/dfrxL7nOCZsnp4m8/yBOGcVB942S9QYs7Qmjm9xwPhNKseoG6gBAlYJpqc
-         fH66kq+lEtitf2zF+jWrtDq4gXpy4XxaMPkBGnoHDzU9IUstnEMiZLHeHGPvhfqeGO4e
-         28JMVJ+/dliJEfLMAQ5HjPNipCwRViaBkjqMeVo+QVff+sQFj6iaFDS6pMXAO93a2tX4
-         6Y6+GBZeEH4Jj4esaXh88VqMtk7hG0+iQ2EhthxBqRzBZmssbkTmMw/XzAJ7bezw/r6N
-         iYBQ==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1699568203; x=1700173003; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:subject
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=6HKduoMG8Yp5vWx4/ewVg9EZz5GecYW5CAOZ1rPgLq8=;
+        b=A2YDhurYoo3nsLLVDPepmkp+nF/kpq9ydevgDdVG7NTkkhkCzoMfVajAfbJp12bBBt
+         vDESN66aQvculvMTO0lX90hfz5ge4IdFP30FG31xPwHDGbLk3nNUic6CyG7ag1lBpa9o
+         iqt34cpr50OG6bN8WooZmt933D9Oxa6glCA2x0+AXx1F2co2SR5u71tFmCFGtjNtD1lK
+         hH0zcSyRA21Ym4NinD/HZe7SiKcK+LJr2cmcEiX5WWomMbdj8J4/1Z1um9LnwPg2+B7k
+         b1UrmGMX3hUnR9Lq4sP3BvhGuvO6CLkZxUnhZU6VsfYh5Ej3GHwNO9PrhWVEctkPawoq
+         P5hQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699558411; x=1700163211;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=LmQUwtKqBsbUaMBDQyLDzBgdhUAqOrOc7yxWsj82q/k=;
-        b=BtI1xRkSH0J5FL9lghOvoqu3ezNMoLNRqk8c0CSxWR9x5s4MYVXcC3fZ1eZk2kWBvK
-         XsRufRJoKr5Xw3OuKdI0F7lUf9Hxn/zyT7dvUniB0Zqo8LkX3L55B+pXWRVbXRwrXQAL
-         3oGSbVq4IUhDKtFhaAUsenVjlVAADrw/FWD9U+B+FDz8da9DfZsrcPsMDFd3mrwZGpf8
-         mmZesw9hB+tX2YRDNVX4rAteziREev9tfDdmGPFS3fa7Yyhx8twAdGzAJfiXiq5JBQyY
-         8JOqFRY9aGRfUdxp8v9Klu0FUTnw8g20LM2+8w1YtjE8lKdm3C/YUQB2bVUvBD+hX40K
-         rIZw==
-X-Gm-Message-State: AOJu0YzQmuW8WZummhbD87OK6cCHa+a7XE1GZBE8wPxxHS8vPPL3nqoZ
-	FzRt4g2DLSbNtZscluaRZ7jN9Q==
-X-Google-Smtp-Source: AGHT+IGH69bRWqdVbLK+NVzUA93eXn4nsYO4Al4pSQgrJlCb5OqnjuN8XHVwkFHQJEaiAPcbiFvo0Q==
-X-Received: by 2002:a05:6a20:3955:b0:15c:b7ba:6a4d with SMTP id r21-20020a056a20395500b0015cb7ba6a4dmr7445798pzg.50.1699558410754;
-        Thu, 09 Nov 2023 11:33:30 -0800 (PST)
-Received: from [192.168.68.107] ([179.193.10.161])
-        by smtp.gmail.com with ESMTPSA id fi20-20020a056a00399400b006c4d0b53365sm138627pfb.88.2023.11.09.11.33.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 09 Nov 2023 11:33:30 -0800 (PST)
-Message-ID: <5d60b71e-d470-449c-b23f-77ae0a6528bb@ventanamicro.com>
-Date: Thu, 9 Nov 2023 16:33:25 -0300
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/6] RISC-V: KVM: return ENOENT in *_one_reg() when reg is
- unknown
-To: Andreas Schwab <schwab@suse.de>
-Cc: kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- kvm@vger.kernel.org, anup@brainfault.org, atishp@atishpatra.org,
- ajones@ventanamicro.com
-References: <20230731120420.91007-1-dbarboza@ventanamicro.com>
- <20230731120420.91007-2-dbarboza@ventanamicro.com> <mvmr0kz469m.fsf@suse.de>
-Content-Language: en-US
-From: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
-In-Reply-To: <mvmr0kz469m.fsf@suse.de>
+        d=1e100.net; s=20230601; t=1699568203; x=1700173003;
+        h=content-transfer-encoding:mime-version:message-id:to:from:subject
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=6HKduoMG8Yp5vWx4/ewVg9EZz5GecYW5CAOZ1rPgLq8=;
+        b=E15H8z9om4nAs8S9hioR3timoDiQ1njuCT3eRmPP/ULzMUa345/Wd3pElYI+SwFOIR
+         4NZdL6Jyk0/zRC049oDum9fIBvY6dLfW3v2vS9mlqJUrrK01Fag9QVT0PI+fJZQHgO1G
+         7QTd5I8AInxZ/xlVGJDLDWqNzucV+B7oTpAKOpVJKOBmaViBdvwSE4zSfdoEiMtE8xG7
+         DSp6RlpdCLv77YehzyJwPn/I6tAbkzs1c/BIOk8vRaYiZ3Ox+tCwjQqd6uhVI4TNLjKa
+         dypBdA96jPoXbnqOpvhf7JwdIezYLvLECHyfL7BKfxZJQPaWG1wVOEjmiPjZTkkfDk4G
+         ld8A==
+X-Gm-Message-State: AOJu0YyR0uhF0sdQs/ArNrCnwCVJ3rimSIILIKsbmJ5xB++kXaw4NYED
+	1KTAcXAFN9BCvh+1DHEfIy+GvO6ZL/ubbB11fRY=
+X-Google-Smtp-Source: AGHT+IF8mwIxK+9xpTYJSOq5Io4CWENcACz4DUMFPEYcamlSLMwbTcGeVjmciI0L8KsOVtQe6B5EZQ==
+X-Received: by 2002:a05:6a21:a58e:b0:174:129d:3978 with SMTP id gd14-20020a056a21a58e00b00174129d3978mr8012528pzc.32.1699568202945;
+        Thu, 09 Nov 2023 14:16:42 -0800 (PST)
+Received: from localhost ([12.44.203.122])
+        by smtp.gmail.com with ESMTPSA id p12-20020a170902eacc00b001c61901ed37sm3978242pld.191.2023.11.09.14.16.42
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Nov 2023 14:16:42 -0800 (PST)
+Date: Thu, 09 Nov 2023 14:16:42 -0800 (PST)
+X-Google-Original-Date: Thu, 09 Nov 2023 14:16:39 PST (-0800)
+Subject: RISC-V Linux Patchwork Sync on Nov 15th and 22nd
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: linux-riscv@lists.infradead.org
+Message-ID: <mhng-0507c0a6-e72c-4c0b-bb0d-7ad60afd30b5@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231109_113334_326824_B168CC9A 
-X-CRM114-Status: UNSURE (   7.59  )
+X-CRM114-CacheID: sfid-20231109_141647_286337_3ECCDB28 
+X-CRM114-Status: UNSURE (   6.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,42 +88,8 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 11/9/23 06:37, Andreas Schwab wrote:
-> On Jul 31 2023, Daniel Henrique Barboza wrote:
-> 
->> Existing userspaces can be affected by this error code change. We
->> checked a few. As of current upstream code, crosvm doesn't check for any
->> particular errno code when using kvm_(get|set)_one_reg(). Neither does
->> QEMU.
-> 
-> That may break qemu:
-> 
-> $ qemu-system-riscv64 -cpu rv64 -machine virt,accel=kvm
-> qemu-system-riscv64: Unable to read ISA_EXT KVM register ssaia, error -1
-
-Which QEMU version are you using? This is a problem that was fixed upstream by:
-
-
-commit 608bdebb6075b757e5505f6bbc60c45a54a1390b
-Author: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
-Date:   Tue Oct 3 10:21:48 2023 -0300
-
-     target/riscv/kvm: support KVM_GET_REG_LIST
-
-
-If you're getting this error with upstream QEMU let me know and I'll take a look
-there.
-
-
-Thanks,
-
-
-Daniel
-
-
-> 
+I'm going to be traveling for the next two weeks (Plumbers and then
+Thanksgiving), so I won't be at the patchwork syncs.
 
 _______________________________________________
 linux-riscv mailing list
