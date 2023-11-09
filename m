@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E6A9C4167B
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Nov 2023 19:30:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75495C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Nov 2023 19:30:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bnUKp+DSQvViVo14Yq6hg+OlqZCQav7Di7/IW7URNSo=; b=XAPWD04gVdLmki
-	85KtGzRDU2F5+LtesFsEoh23li+nZYEKtBAdtgk60jgDWb5WHPavMQiBt0foSoFn4Amq3nQQJCVrz
-	QK/9uCuODIONiLAh2zbx5qK/EawN16XRTwmr7mGE8ahelt3eo6UIDewkikJhNoiT9997YIhfE+3PC
-	tukIuokEyo/5w/P3vytXK5rHfbGcDcBqL/0Vh7zpDAzeRXGzrcnAW/DBgHBpthvkrfYftV/uH9kt7
-	WCSme0Fcn1YkTyXl012KXwJTshTrzLPqDMjgZGC70LO6L0lKBAqqsffuHKt48h5P5lZ+wo7SfIkNm
-	D8qnJKXFJQhrGEcJZcBQ==;
+	List-Owner; bh=ik37x49Pc/1tLK7V7QN0BfNZRGCPwP0Io0zHGzIrqW0=; b=pQs7xn3xcPwLUD
+	Q5xoc9eaMLnaxj6aNjuaAlxbnoSafMMIp7axcjVlzWK/ZLYS4Kxhzculd7yI+JXN6PBWV+xmc4z+A
+	lushMiTvrniASy5tVTMwc+683LdDBKsW2xi56wK92To9QfpoK55XRPvtXVzpePohc9hRBRbSeLj0O
+	Oq1scaqOQj7MyI/dQtSZybDKfdXB6CMBG8O1j6BjZIZ3MgkQVN3NhQeo74MAG8Qt+R2+HYcTzHfPA
+	K+czZWdnhs+TsXcKjTVamijviy4YF0J7NKJScMSfdwekLf+e9M2Fs+vXKZvOFw+t1tJo58EUC9j7E
+	g2+5uN9waF1i0rsbCg9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1AjY-0076hn-2j;
-	Thu, 09 Nov 2023 19:30:32 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1r1Ajc-0076jV-0f;
+	Thu, 09 Nov 2023 19:30:36 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1AjV-0076gi-2Y;
-	Thu, 09 Nov 2023 19:30:31 +0000
+	id 1r1AjW-0076gk-12;
+	Thu, 09 Nov 2023 19:30:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 73C746116C;
+	by ams.source.kernel.org (Postfix) with ESMTP id B7C76B82166;
 	Thu,  9 Nov 2023 19:30:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 165E7C433C9;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 102BFC433C8;
 	Thu,  9 Nov 2023 19:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1699558228;
-	bh=KqVoMWqDd+E2EyR7rl60ZOeBi5OJfRT+yFEADYzm+Io=;
+	bh=phixewqizGe+SBDzZcFJRD1v4skCnp3xVsHaSY0lgYw=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=tVF2iN1FInSUL+GFPK8pXeonyFJ2l4wEFqyYJj40cNm+DLeZTF5RInzK6QM5xQLHC
-	 FGMwZgQ8H6wKKQKYmC4RNErwZtzeSnGE7ySZV85tef3vqJdBJWy+eZWfn0MzbyXtGd
-	 U/AFCSTaoesrK0U2VwfaZHCwaTQoPFiUzOTZWLERGMlkHZaEoswH3lWK5wOOf+JIsV
-	 cOBenYMpWLyZpCi9Qf6dakgysHtyAhtXMH+fit+veNmAaad12xzvPMAXsXswECkwSS
-	 UpqKO0eljvaLKZK6Vq6AldHFhSiZTcCtf5tiS6ZaH/C84Luw/O3DuxHRsh/HRLY3Jx
-	 FVmHBcWL60YHw==
+	b=huSZHBmEaowJqPBfCijYdwP27Yg2gGZpPEiF0Vd53KsJbxGmK3xVIMbbtzBUiWXAU
+	 j/PviM/cw/JkiczVOVrUspBfiAiDse0qJWJmJ/VyPG3uwLIg09qonzwNkEfeKHH3Tk
+	 iJLgS1eHUEecuH2IRfMqQyueXTo0uDBUTQpyZqR0PkcH1KYI0GD+q1+96C2tY44PDX
+	 fMlifMaNls50CWBjXKUpwtUPWNlRaxTPj+OKBC7joc92E0uV+Ungx4wOXeZF+tN9br
+	 68Sj4zCpY7DAPcZkXlpi3uAyK4xXfuXSuiciVWl/HmuCFGJTXjIStkSi3w2cyiMrmR
+	 +nFYB5UMJ/ZNQ==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id F0F80C43158;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id E865FC3274C;
 	Thu,  9 Nov 2023 19:30:27 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] drivers: perf: Check find_first_bit() return value
+Subject: Re: [PATCH -fixes v2] drivers: perf: Do not broadcast to other cpus when
+ starting a counter
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <169955822798.13763.2357053646375342945.git-patchwork-notify@kernel.org>
+Message-Id: <169955822794.13763.6368866008257927086.git-patchwork-notify@kernel.org>
 Date: Thu, 09 Nov 2023 19:30:27 +0000
-References: <20231109082128.40777-1-alexghiti@rivosinc.com>
-In-Reply-To: <20231109082128.40777-1-alexghiti@rivosinc.com>
+References: <20231026084010.11888-1-alexghiti@rivosinc.com>
+In-Reply-To: <20231026084010.11888-1-alexghiti@rivosinc.com>
 To: Alexandre Ghiti <alexghiti@rivosinc.com>
 Cc: linux-riscv@lists.infradead.org, atishp@atishpatra.org,
  anup@brainfault.org, will@kernel.org, mark.rutland@arm.com,
  paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+ ajones@ventanamicro.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, cleger@rivosinc.com, peterlin@andestech.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231109_113029_937959_EF029C05 
-X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-CacheID: sfid-20231109_113030_647833_D5595A06 
+X-CRM114-Status: UNSURE (   8.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,46 +83,56 @@ Hello:
 This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Thu,  9 Nov 2023 09:21:28 +0100 you wrote:
-> We must check the return value of find_first_bit() before using the
-> return value as an index array since it happens to overflow the array
-> and then panic:
+On Thu, 26 Oct 2023 10:40:10 +0200 you wrote:
+> This command:
 > 
-> [  107.318430] Kernel BUG [#1]
-> [  107.319434] CPU: 3 PID: 1238 Comm: kill Tainted: G            E      6.6.0-rc6ubuntu-defconfig #2
-> [  107.319465] Hardware name: riscv-virtio,qemu (DT)
-> [  107.319551] epc : pmu_sbi_ovf_handler+0x3a4/0x3ae
-> [  107.319840]  ra : pmu_sbi_ovf_handler+0x52/0x3ae
-> [  107.319868] epc : ffffffff80a0a77c ra : ffffffff80a0a42a sp : ffffaf83fecda350
-> [  107.319884]  gp : ffffffff823961a8 tp : ffffaf8083db1dc0 t0 : ffffaf83fecda480
-> [  107.319899]  t1 : ffffffff80cafe62 t2 : 000000000000ff00 s0 : ffffaf83fecda520
-> [  107.319921]  s1 : ffffaf83fecda380 a0 : 00000018fca29df0 a1 : ffffffffffffffff
-> [  107.319936]  a2 : 0000000001073734 a3 : 0000000000000004 a4 : 0000000000000000
-> [  107.319951]  a5 : 0000000000000040 a6 : 000000001d1c8774 a7 : 0000000000504d55
-> [  107.319965]  s2 : ffffffff82451f10 s3 : ffffffff82724e70 s4 : 000000000000003f
-> [  107.319980]  s5 : 0000000000000011 s6 : ffffaf8083db27c0 s7 : 0000000000000000
-> [  107.319995]  s8 : 0000000000000001 s9 : 00007fffb45d6558 s10: 00007fffb45d81a0
-> [  107.320009]  s11: ffffaf7ffff60000 t3 : 0000000000000004 t4 : 0000000000000000
-> [  107.320023]  t5 : ffffaf7f80000000 t6 : ffffaf8000000000
-> [  107.320037] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
-> [  107.320081] [<ffffffff80a0a77c>] pmu_sbi_ovf_handler+0x3a4/0x3ae
-> [  107.320112] [<ffffffff800b42d0>] handle_percpu_devid_irq+0x9e/0x1a0
-> [  107.320131] [<ffffffff800ad92c>] generic_handle_domain_irq+0x28/0x36
-> [  107.320148] [<ffffffff8065f9f8>] riscv_intc_irq+0x36/0x4e
-> [  107.320166] [<ffffffff80caf4a0>] handle_riscv_irq+0x54/0x86
-> [  107.320189] [<ffffffff80cb0036>] do_irq+0x64/0x96
-> [  107.320271] Code: 85a6 855e b097 ff7f 80e7 9220 b709 9002 4501 bbd9 (9002) 6097
-> [  107.320585] ---[ end trace 0000000000000000 ]---
-> [  107.320704] Kernel panic - not syncing: Fatal exception in interrupt
-> [  107.320775] SMP: stopping secondary CPUs
-> [  107.321219] Kernel Offset: 0x0 from 0xffffffff80000000
-> [  107.333051] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---
+> $ perf record -e cycles:k -e instructions:k -c 10000 -m 64M dd if=/dev/zero of=/dev/null count=1000
+> 
+> gives rise to this kernel warning:
+> 
+> [  444.364395] WARNING: CPU: 0 PID: 104 at kernel/smp.c:775 smp_call_function_many_cond+0x42c/0x436
+> [  444.364515] Modules linked in:
+> [  444.364657] CPU: 0 PID: 104 Comm: perf-exec Not tainted 6.6.0-rc6-00051-g391df82e8ec3-dirty #73
+> [  444.364771] Hardware name: riscv-virtio,qemu (DT)
+> [  444.364868] epc : smp_call_function_many_cond+0x42c/0x436
+> [  444.364917]  ra : on_each_cpu_cond_mask+0x20/0x32
+> [  444.364948] epc : ffffffff8009f9e0 ra : ffffffff8009fa5a sp : ff20000000003800
+> [  444.364966]  gp : ffffffff81500aa0 tp : ff60000002b83000 t0 : ff200000000038c0
+> [  444.364982]  t1 : ffffffff815021f0 t2 : 000000000000001f s0 : ff200000000038b0
+> [  444.364998]  s1 : ff60000002c54d98 a0 : ff60000002a73940 a1 : 0000000000000000
+> [  444.365013]  a2 : 0000000000000000 a3 : 0000000000000003 a4 : 0000000000000100
+> [  444.365029]  a5 : 0000000000010100 a6 : 0000000000f00000 a7 : 0000000000000000
+> [  444.365044]  s2 : 0000000000000000 s3 : ffffffffffffffff s4 : ff60000002c54d98
+> [  444.365060]  s5 : ffffffff81539610 s6 : ffffffff80c20c48 s7 : 0000000000000000
+> [  444.365075]  s8 : 0000000000000000 s9 : 0000000000000001 s10: 0000000000000001
+> [  444.365090]  s11: ffffffff80099394 t3 : 0000000000000003 t4 : 00000000eac0c6e6
+> [  444.365104]  t5 : 0000000400000000 t6 : ff60000002e010d0
+> [  444.365120] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
+> [  444.365226] [<ffffffff8009f9e0>] smp_call_function_many_cond+0x42c/0x436
+> [  444.365295] [<ffffffff8009fa5a>] on_each_cpu_cond_mask+0x20/0x32
+> [  444.365311] [<ffffffff806e90dc>] pmu_sbi_ctr_start+0x7a/0xaa
+> [  444.365327] [<ffffffff806e880c>] riscv_pmu_start+0x48/0x66
+> [  444.365339] [<ffffffff8012111a>] perf_adjust_freq_unthr_context+0x196/0x1ac
+> [  444.365356] [<ffffffff801237aa>] perf_event_task_tick+0x78/0x8c
+> [  444.365368] [<ffffffff8003faf4>] scheduler_tick+0xe6/0x25e
+> [  444.365383] [<ffffffff8008a042>] update_process_times+0x80/0x96
+> [  444.365398] [<ffffffff800991ec>] tick_sched_handle+0x26/0x52
+> [  444.365410] [<ffffffff800993e4>] tick_sched_timer+0x50/0x98
+> [  444.365422] [<ffffffff8008a6aa>] __hrtimer_run_queues+0x126/0x18a
+> [  444.365433] [<ffffffff8008b350>] hrtimer_interrupt+0xce/0x1da
+> [  444.365444] [<ffffffff806cdc60>] riscv_timer_interrupt+0x30/0x3a
+> [  444.365457] [<ffffffff8006afa6>] handle_percpu_devid_irq+0x80/0x114
+> [  444.365470] [<ffffffff80065b82>] generic_handle_domain_irq+0x1c/0x2a
+> [  444.365483] [<ffffffff8045faec>] riscv_intc_irq+0x2e/0x46
+> [  444.365497] [<ffffffff808a9c62>] handle_riscv_irq+0x4a/0x74
+> [  444.365521] [<ffffffff808aa760>] do_irq+0x7c/0x7e
+> [  444.365796] ---[ end trace 0000000000000000 ]---
 > 
 > [...]
 
 Here is the summary with links:
-  - drivers: perf: Check find_first_bit() return value
-    https://git.kernel.org/riscv/c/c6e316ac0553
+  - [-fixes,v2] drivers: perf: Do not broadcast to other cpus when starting a counter
+    https://git.kernel.org/riscv/c/61e3d993c8bd
 
 You are awesome, thank you!
 -- 
