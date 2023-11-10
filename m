@@ -4,95 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD5B9C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Nov 2023 08:49:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3ECEC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Nov 2023 09:17:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DLHyfb8hrERyP/ArEz2w/wT0C9aykP6uZ331KMy+p3s=; b=wVXw20RctDVOC6
-	G1CSEHNDKp3x0XkPv0w3NoGGOVCzApYAEXyGFfjvIWnP2aT6Nb2wNeyVXaQD8GUDz+SnwvsAcwL8L
-	lFBRPyqPfJg/wUaxBTEomydyD2hrzwqvfftHL/DVp4CK/eYgaEBAegr3kMbLOsVtocBAPhX9RhaKm
-	Nnn9x7v6TjrJTuOyFKydZZy+YUY1dg/VsQ7E4PUmMgmAdsGfmZd7DzkKCiPJhCy/QuaRQFpja8zNK
-	HHwl5MuWm/WjZ1+zDeJIRHECEdeJcJyW83IWyOLjR6C8F0iH5pZkTmWpCy3qzI6XIDwZQvjtvO6NQ
-	R3Nj8jJf2yX/SXRoUNug==;
+	List-Owner; bh=pMDB5ga0BY2LSw5CLUexgh02lCnAAAUof5xf/EMw3do=; b=rdi+mvcrrJqWip
+	akinywr+T/mt1bv7tT1eP9UMvw7++oQAeK/u9DQkxIEeCjU8AXC7oVObajE9kBo9vgHYqfBLwUg7F
+	XvMZJ9RsuXxWYk/UN6CJpJ4walyBqLtR5ZQZymRCTK6tr4hmgsz5HFnMMYf/vb9GYdItxIeuITSBD
+	I1YD+L803WnUFPtjTQNlXoBRx46nklD+Z9J9ZqkQMz2NG7J8yjIZ3WzAJYR80eQ2dZ+/hekHvBJrD
+	u9qr+/PyA6+ljY61AELU2XxMYOT4v+KoK2SkAIN/6Qs0ZyEkzCERrEhWQ3xWJlyDRAqr3jaegZbEd
+	wpQtkiUUGooLVJplUsZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1NCw-0087SS-1p;
-	Fri, 10 Nov 2023 08:49:42 +0000
-Received: from mgamail.intel.com ([134.134.136.20])
+	id 1r1NdX-008A3r-0A;
+	Fri, 10 Nov 2023 09:17:11 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1NCt-0087RT-2l;
-	Fri, 10 Nov 2023 08:49:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1699606179; x=1731142179;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=+ZJrwu8dlZjYjWjLp1gdXlOokUQXh0jEVn+ZKnk4oik=;
-  b=LG9jFMeNpgUHCozFn/Vg5nl9IcdHRV0R1puIt7KvfQ+bLNhTizeonOeR
-   RXJEw3O2sRALcMdB9FQjeKSVqe9EFvclobg1yPP2LriALZOoj1V5MN1m4
-   rvwsbjHfCSN9R9C/TysviaQDWo7CW1hKTF4NsaqplmsLNZ7PZDo88B3ZO
-   ZbllVuyHBGYkSR2MBMLLwia8o8lrimVouFjzSGX84Q0vVKqas1pCOG/U+
-   vj3EgkjS0XRtI5waVgXGxHPZ1COs6WyU6Ww1wrV2J4jq1A96UQqdXNpmm
-   DfQ2/6yr9ZLI+UCPgsaQwA+OQ32Wx1NqTKIAM4SIJCUG77wXkcKejNPF+
-   A==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10889"; a="380545615"
-X-IronPort-AV: E=Sophos;i="6.03,291,1694761200"; 
-   d="scan'208";a="380545615"
-Received: from orsmga004.jf.intel.com ([10.7.209.38])
-  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Nov 2023 00:49:36 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10889"; a="887305217"
-X-IronPort-AV: E=Sophos;i="6.03,291,1694761200"; 
-   d="scan'208";a="887305217"
-Received: from xiaoyaol-hp-g830.ccr.corp.intel.com (HELO [10.93.9.145]) ([10.93.9.145])
-  by orsmga004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Nov 2023 00:49:24 -0800
-Message-ID: <b4ec10ab-9d06-4784-8893-6e2e895cd9b1@intel.com>
-Date: Fri, 10 Nov 2023 16:49:21 +0800
+	id 1r1NdU-008A2a-1I
+	for linux-riscv@lists.infradead.org;
+	Fri, 10 Nov 2023 09:17:09 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-28120aa1c24so1560485a91.0
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Nov 2023 01:17:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1699607825; x=1700212625; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=JNAKGQcfwtX1sEelGFUcCMMKPbFCHvv7FrRIow0M5oA=;
+        b=S0sG2K1tzkW4Hh6KTpszOtbEi/X+94tvt5mUNK3kXloil5phAFwaype9QTPe3WLCZJ
+         Ldm+NXK8dyXSgO8TndufOPFAHAUTRFMVf9ikcydNX5Bt8xgnsRkOoKsYlMA4muY6F6e4
+         EJLJMa97blqE9gLRzUkqsGhe+Zl1te0KpH9D+w3oWwVLpkpTn+1ECamWbhhDVQvDoSmO
+         H297nu+wzPQLwgZMB/D4e567X8ywkjp1fN+XT1WZfclk3R/AkDH1TGOqU/dtF2Fj198B
+         cU7i7BJ3gmRF9AIld3MFuKVQ8vwEteMZ3GQ4b483Aok0G7cTLEyntJiPvO39uUyQUlLi
+         BjQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1699607825; x=1700212625;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JNAKGQcfwtX1sEelGFUcCMMKPbFCHvv7FrRIow0M5oA=;
+        b=U2WKga4qxJzW1DFP0ltoSRXYacRA4KoP/FpzcdRn4u8jH5P5gcRMXl5p7kcBs+jhn6
+         V812NALzyio6xyFPrDWdUdY9Ko8Xkmnc7qOzLSYBC/mz0YDY/nWgrJdus70vAVta0uo0
+         wnkOCe2HtVE9QUU4mF4DoHVtbstAO63QQhCGdvIzpmapg8uMiMc5LCNXCGPTDEtfIB6o
+         cHMnA1/GNnxRjYLICGlqFFTEhzqgv8tqsiRYqkOgKe8A6JGYfiloEZq79SKPxc7r9b23
+         eo4/cnSyQ2jxBxPlmxgw6isg6QRxfFrNRbxMqtfv1BFONXFZwbu9gNjVm0+YvelSbAXy
+         2fhg==
+X-Gm-Message-State: AOJu0Yy0cInjNsBHImmDiOFCeS9iPWmxFfn7E01fhK/cbaLmZ6ZeObGH
+	m3GXqlnhKnSxoMufj2zxkKTIxQ==
+X-Google-Smtp-Source: AGHT+IEex3kLeiwKyEz2es872zjMNmrevn40/2l4PbaRjQ1owa57zfxwzE3YTcFU8WWcXat6tXWPLw==
+X-Received: by 2002:a17:90b:4b82:b0:280:74fc:ac2c with SMTP id lr2-20020a17090b4b8200b0028074fcac2cmr4523903pjb.13.1699607825201;
+        Fri, 10 Nov 2023 01:17:05 -0800 (PST)
+Received: from localhost ([122.172.82.6])
+        by smtp.gmail.com with ESMTPSA id m17-20020a17090a7f9100b0027ce254fed8sm5666457pjl.0.2023.11.10.01.17.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 10 Nov 2023 01:17:04 -0800 (PST)
+Date: Fri, 10 Nov 2023 14:47:02 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org,
+	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com,
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
+	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com,
+	lenb@kernel.org, robert.moore@intel.com, lukasz.luba@arm.com,
+	ionela.voinescu@arm.com, pierre.gondois@arm.com,
+	beata.michalska@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org,
+	conor.dooley@microchip.com, suagrfillet@gmail.com,
+	ajones@ventanamicro.com, lftan@kernel.org
+Subject: Re: [PATCH v6 3/7] cpufreq/schedutil: Use a fixed reference frequency
+Message-ID: <20231110091702.z3phucnffoe44kxy@vireshk-i7>
+References: <20231109101438.1139696-1-vincent.guittot@linaro.org>
+ <20231109101438.1139696-4-vincent.guittot@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 16/34] KVM: x86: "Reset" vcpu->run->exit_reason early in
- KVM_RUN
-To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Sean Christopherson <seanjc@google.com>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Xu Yilun <yilun.xu@intel.com>, Chao Peng <chao.p.peng@linux.intel.com>,
- Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
- Anish Moorthy <amoorthy@google.com>, David Matlack <dmatlack@google.com>,
- Yu Zhang <yu.c.zhang@linux.intel.com>,
- Isaku Yamahata <isaku.yamahata@intel.com>, =?UTF-8?B?TWlja2HDq2wgU2FsYcO8?=
- =?UTF-8?Q?n?= <mic@digikod.net>, Vlastimil Babka <vbabka@suse.cz>,
- Vishal Annapurve <vannapurve@google.com>,
- Ackerley Tng <ackerleytng@google.com>,
- Maciej Szmigiero <mail@maciej.szmigiero.name>,
- David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
- Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
- Liam Merwick <liam.merwick@oracle.com>,
- Isaku Yamahata <isaku.yamahata@gmail.com>,
- "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20231105163040.14904-1-pbonzini@redhat.com>
- <20231105163040.14904-17-pbonzini@redhat.com>
-Content-Language: en-US
-From: Xiaoyao Li <xiaoyao.li@intel.com>
-In-Reply-To: <20231105163040.14904-17-pbonzini@redhat.com>
+Content-Disposition: inline
+In-Reply-To: <20231109101438.1139696-4-vincent.guittot@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231110_004939_940008_C4392A70 
-X-CRM114-Status: GOOD (  20.81  )
+X-CRM114-CacheID: sfid-20231110_011708_439025_C692CA0B 
+X-CRM114-Status: GOOD (  12.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,68 +98,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/6/2023 12:30 AM, Paolo Bonzini wrote:
-> From: Sean Christopherson <seanjc@google.com>
+On 09-11-23, 11:14, Vincent Guittot wrote:
+> cpuinfo.max_freq can change at runtime because of boost as an example. This
+> implies that the value could be different than the one that has been
+> used when computing the capacity of a CPU.
 > 
-> Initialize run->exit_reason to KVM_EXIT_UNKNOWN early in KVM_RUN to reduce
-> the probability of exiting to userspace with a stale run->exit_reason that
-> *appears* to be valid.
+> The new arch_scale_freq_ref() returns a fixed and coherent reference
+> frequency that can be used when computing a frequency based on utilization.
 > 
-> To support fd-based guest memory (guest memory without a corresponding
-> userspace virtual address), KVM will exit to userspace for various memory
-> related errors, which userspace *may* be able to resolve, instead of using
-> e.g. BUS_MCEERR_AR.  And in the more distant future, KVM will also likely
-> utilize the same functionality to let userspace "intercept" and handle
-> memory faults when the userspace mapping is missing, i.e. when fast gup()
-> fails.
+> Use this arch_scale_freq_ref() when available and fallback to
+> policy otherwise.
 > 
-> Because many of KVM's internal APIs related to guest memory use '0' to
-> indicate "success, continue on" and not "exit to userspace", reporting
-> memory faults/errors to userspace will set run->exit_reason and
-> corresponding fields in the run structure fields in conjunction with a
-> a non-zero, negative return code, e.g. -EFAULT or -EHWPOISON.  And because
-> KVM already returns  -EFAULT in many paths, there's a relatively high
-> probability that KVM could return -EFAULT without setting run->exit_reason,
-> in which case reporting KVM_EXIT_UNKNOWN is much better than reporting
-> whatever exit reason happened to be in the run structure.
-> 
-> Note, KVM must wait until after run->immediate_exit is serviced to
-> sanitize run->exit_reason as KVM's ABI is that run->exit_reason is
-> preserved across KVM_RUN when run->immediate_exit is true.
-> 
-> Link: https://lore.kernel.org/all/20230908222905.1321305-1-amoorthy@google.com
-> Link: https://lore.kernel.org/all/ZFFbwOXZ5uI%2Fgdaf@google.com
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
-> Reviewed-by: Fuad Tabba <tabba@google.com>
-> Tested-by: Fuad Tabba <tabba@google.com>
-> Message-Id: <20231027182217.3615211-19-seanjc@google.com>
-> Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
-
-Reviewed-by: Xiaoyao Li <xiaoyao.li@intel.com>
-
+> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
+> Tested-by: Lukasz Luba <lukasz.luba@arm.com>
+> Acked-by: Rafael J. Wysocki <rafael@kernel.org>
+> Reviewed-by: Dietmar Eggemann <dietmar.eggemann@arm.com>
 > ---
->   arch/x86/kvm/x86.c | 1 +
->   1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-> index 8f9d8939b63b..f661acb01c58 100644
-> --- a/arch/x86/kvm/x86.c
-> +++ b/arch/x86/kvm/x86.c
-> @@ -11082,6 +11082,7 @@ static int vcpu_run(struct kvm_vcpu *vcpu)
->   {
->   	int r;
->   
-> +	vcpu->run->exit_reason = KVM_EXIT_UNKNOWN;
->   	vcpu->arch.l1tf_flush_l1d = true;
->   
->   	for (;;) {
+>  kernel/sched/cpufreq_schedutil.c | 26 ++++++++++++++++++++++++--
+>  1 file changed, 24 insertions(+), 2 deletions(-)
 
+Acked-by: Viresh Kumar <viresh.kumar@linaro.org>
+
+-- 
+viresh
 
 _______________________________________________
 linux-riscv mailing list
