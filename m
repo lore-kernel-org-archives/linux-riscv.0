@@ -4,112 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C88CC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Nov 2023 12:45:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88DD1C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Nov 2023 14:07:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PD8boWVCkjTz2Y7beL5h12hAFF990lReIwyBojDjOyk=; b=wrPmznhLD3lZkHI+y9fxKMk/li
-	I8K++A7RAI3y8VPAjn0v+0Lo7lz5N5PsCDTL9uvOhulKH0CnturDKtnLo7debYT8Qx7Z7H/e9FiaN
-	PWcCtm7F/RseirLUGU0xz3jXlhfL4YVSKaokCmborYTRaaaNrqgoCTOQ5hWpqQNpedim5gX6pyIu/
-	U8QOuObJNKdBvQRUnIByhsWT+Tqt7I/bsfu3lkAUn0g14oKN/l4r14S8inX+Em7ND1GMFeXodg4im
-	Ev/HBhZTWRZUJep0LoA5YWC3TXwE01VM6yyh2Y9K6PUyYa4qa9Da9wXs1D6geu3vAWl4gSieCgyr8
-	+TJ5/Uyg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Cfe1qjWd9rKCrm4qzKXFkQomQNvFmSrCJ3qTq5bzzMc=; b=JhqIT0PkCZv5PR
+	E6SfQqFuEtvXwgktFCNYTjGpjYWWUANNa2opJIwhca33n5Y3X+xhOVS6sBnCgbPLpJYxfekmfvZnP
+	H3efrKY3XL/xoV9Q2tjA7FsDR+cTmtBB7CmnyPOnXsaVJ8JxmXkqxNkwZi992eqsR+TCpEPzvl4oY
+	Z8eyX573J9MTdUVBh8KDP4VfkLqPZsSYEWmaCOAwLGHmaT+UVr/zp3PIAX7vjdDyFMo5vhnXBuZtC
+	y6HehRfSTDBE79heIr57P6kuTsb5YXfXaKw9JrdPpyD3CC3SNdyYO3e1cJ7UkNCSwchMTwfmrC3vA
+	lZEMKYXerKHIon7xbPjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1Qsp-008heA-1K;
-	Fri, 10 Nov 2023 12:45:11 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1r1SAS-008tbU-2k;
+	Fri, 10 Nov 2023 14:07:28 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1Qsl-008hcK-2T
+	id 1r1SAQ-008tan-0b
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Nov 2023 12:45:09 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1r1Qqm-0008RY-G3; Fri, 10 Nov 2023 13:43:04 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1r1Qqd-0081VE-CM; Fri, 10 Nov 2023 13:42:55 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1r1Qqd-00Gimy-0Z; Fri, 10 Nov 2023 13:42:55 +0100
-Date: Fri, 10 Nov 2023 13:41:23 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	linux-kbuild@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
-	Matt Turner <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Guo Ren <guoren@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Geoff Levand <geoff@infradead.org>,
+	Fri, 10 Nov 2023 14:07:27 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-40a46ea95f0so4445025e9.2
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Nov 2023 06:07:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1699625243; x=1700230043; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=8Lab8I/AjLwx8QNQ8rr3txbgHn2fsKjkqhEzna/zmzw=;
+        b=USdzxBoaJz64wyQfbj+Dms0pznq+jBOsuna/lqeCzqezvk01GtH+3I+Y96TiuzIWrJ
+         GxwFC3uITYnTJ0Yu9ClnTvEfpi6CMzjYqMqSbmZHFk9wGNoFRrGLFQwG6G4IMs9cn2oH
+         A1QyMznzyWaYNXXqW7KleHtlQVDYxtit5D1qbXtCL5KJ428kMTJgOgysnQu45HiUtBB9
+         hmXGMbh5KQ0iFa92ZqECG920etquJCmaj7HuG7oZKNSezw1Hdo/5C6PLATYBjklfKwzJ
+         w594Oll5b19r4qOvs4RfBH3wj1teumizzAMYEBvrAO5DtNFJsNnOJeSruLOK7enXMxDf
+         +0Ww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1699625243; x=1700230043;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8Lab8I/AjLwx8QNQ8rr3txbgHn2fsKjkqhEzna/zmzw=;
+        b=CiYqtnGSWnww9h9/NlbON3yucxVjCBfzfc/aJ2qO+aXiU6r56ONCpg86TE1V3ioOA7
+         qTgriB5UCsoSuKfHuETAa+HOKk8SA9+OHsg09WRWJVOH9YUCeMW4m8WKB+IoZ/UW1zg2
+         6+ft2EnJl86C7vv9uszV51mTJ/qhCu6It12WMQUTQmMR6s078+RYZoReYqxO0zSHgxaJ
+         HDoUnS/oRrRWlIzUyA/yJNVdUXZv1ZwWFYH2tx6l4qdiIJdNkdPzDHe6q5d2Sw4PMTeo
+         f0h6b8PC2WmSEbaa/LYvPReMCaGpzW8VjjWm9MYuKytIAADcj+AOjHsAM9N9rzbu6Jhd
+         /vxw==
+X-Gm-Message-State: AOJu0Yy3WVgPDmtPfUscPXnQcvF2tbZ5FmEemXIbODKbHo1GVSGBbAUl
+	WHB60HxzzQIQb/vnNzTQPOEfIQ==
+X-Google-Smtp-Source: AGHT+IG/nzRUsjO/+F11wysLbEQoEvuhHFDBxf/OGj/AjOAzkEpq6agysQ71COSHFWk4cO26ym7ZUg==
+X-Received: by 2002:a05:6000:18a1:b0:32f:bd90:c22 with SMTP id b1-20020a05600018a100b0032fbd900c22mr6532442wri.62.1699625243298;
+        Fri, 10 Nov 2023 06:07:23 -0800 (PST)
+Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id l10-20020a5d560a000000b0032f7865a4c7sm1983318wrv.21.2023.11.10.06.07.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 10 Nov 2023 06:07:22 -0800 (PST)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andy Lutomirski <luto@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, x86@kernel.org,
-	Helge Deller <deller@gmx.de>,
-	Sudip Mukherjee <sudipm.mukherjee@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Timur Tabi <timur@kernel.org>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	David Woodhouse <dwmw2@infradead.org>,
-	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
-	Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
-	Kees Cook <keescook@chromium.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
 	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Nicolas Schier <nicolas@fjasle.eu>,
-	Al Viro <viro@zeniv.linux.org.uk>, linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	netdev@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linux-usb@vger.kernel.org, linux-fbdev@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linux-bcachefs@vger.kernel.org,
-	linux-mtd@lists.infradead.org
-Subject: Re: [PATCH 04/22] [RESEND] time: make sysfs_get_uname() function
- visible in header
-Message-ID: <20231110124123.5mado2cc5vnywqfx@pengutronix.de>
-References: <20231108125843.3806765-1-arnd@kernel.org>
- <20231108125843.3806765-5-arnd@kernel.org>
+	Arnd Bergmann <arnd@arndb.de>,
+	Dennis Zhou <dennis@kernel.org>,
+	Tejun Heo <tj@kernel.org>,
+	Christoph Lameter <cl@linux.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kasan-dev@googlegroups.com,
+	linux-arch@vger.kernel.org,
+	linux-mm@kvack.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH 0/2] riscv: Enable percpu page first chunk allocator
+Date: Fri, 10 Nov 2023 15:07:19 +0100
+Message-Id: <20231110140721.114235-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-In-Reply-To: <20231108125843.3806765-5-arnd@kernel.org>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231110_044507_801364_6C39F709 
-X-CRM114-Status: GOOD (  16.64  )
+X-CRM114-CacheID: sfid-20231110_060726_578149_1105F968 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,78 +100,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4836681911653096655=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+While working with pcpu variables, I noticed that riscv did not support
+first chunk allocation in the vmalloc area which may be needed as a fallback
+in case of a sparse NUMA configuration.
 
---===============4836681911653096655==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ljpauxr7qypfgjtq"
-Content-Disposition: inline
+patch 1 starts by introducing a new function flush_cache_vmap_early() which
+is needed since a new vmalloc mapping is established and directly accessed:
+on riscv, this would likely fail in case of a reordered access or if the
+uarch caches invalid entries in TLB.
 
+patch 2 simply enables the page percpu first chunk allocator in riscv.
 
---ljpauxr7qypfgjtq
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Alexandre Ghiti (2):
+  mm: Introduce flush_cache_vmap_early() and its riscv implementation
+  riscv: Enable pcpu page first chunk allocator
 
-Hello Arnd,
+ arch/riscv/Kconfig                  | 2 ++
+ arch/riscv/include/asm/cacheflush.h | 3 ++-
+ arch/riscv/include/asm/tlbflush.h   | 2 ++
+ arch/riscv/mm/kasan_init.c          | 8 ++++++++
+ arch/riscv/mm/tlbflush.c            | 5 +++++
+ include/asm-generic/cacheflush.h    | 6 ++++++
+ mm/percpu.c                         | 8 +-------
+ 7 files changed, 26 insertions(+), 8 deletions(-)
 
-On Wed, Nov 08, 2023 at 01:58:25PM +0100, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
->=20
-> This function is defined globally in clocksource.c and used conditionally
-> in clockevent.c, which the declaration hidden when clockevent support
+-- 
+2.39.2
 
-s/which/with/ ?
-
-> is disabled. This causes a harmless warning in the definition:
->=20
-> kernel/time/clocksource.c:1324:9: warning: no previous prototype for 'sys=
-fs_get_uname' [-Wmissing-prototypes]
->  1324 | ssize_t sysfs_get_uname(const char *buf, char *dst, size_t cnt)
->=20
-> Move the declaration out of the #ifdef so it is always visible.
->=20
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-
-Other than that:
-
-Reviewed-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---ljpauxr7qypfgjtq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmVOJO4ACgkQj4D7WH0S
-/k65EAf/UjDsSsmivHFeg9uWSJLPICzRXZuL3swrSrbDypaI8PuJaX8767ZWsiYT
-oDeWDpXzpAvyvz7WUCuFkRJIytR6EpscoR2t39XsflnxAYmcgYmiBDesY/A6xtuZ
-k2ZldHp9NVszzJP3PiXQ8JOcEFA1LEc08SjHzEz4F6QAsno6WZD/do4yBIU+ikEg
-57Rbk4CJghGfXhgOAmwcWrN91qOFQwhPpKHHDgFfYSZ3zLo+f6H9hSUkzOuLGDhx
-zbK1UnRCuRi3iiJlIqS2LzaSySmRQ9tsbtjk9aQx7+GqdGprHajLMikxQ13xn8jh
-U+F4kOqRAwsIV6i5/GUFGEGtLnMsSQ==
-=9raj
------END PGP SIGNATURE-----
-
---ljpauxr7qypfgjtq--
-
-
---===============4836681911653096655==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4836681911653096655==--
-
