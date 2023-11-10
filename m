@@ -4,97 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2080C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Nov 2023 03:37:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AADDC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Nov 2023 03:58:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YB5AdD6nN7t0HBXoBs12PY6qoUzpb2zp3Z+hRc5dU9E=; b=aKlu7z+dyHCcYX
-	ecx/zr8ElATSghG5jxNtezODreCABfXNlHHRi6vRtYdBCRzLgd3m7LYP/uxuqwvJOYTvRMm0JheKq
-	dK6j707dglU98A3kp1CGkQROFNndIgtLKMkvxA1Jv6U8U3NghcatzNTCMsA0rU2udbhn7kobWJipy
-	5YPwd/eZlUw1nJovGyOTeioKgh7btMaaL8AJE18K8A5MpVMasRf2v1rnd545zhNk5jgSjCMR0fN9x
-	jJqFZwDUcG5O6kOxcjK7Gp5RTjT7Eja7KtTsNSjjLwwHId4/2JSQul+X9FlJMrIG3SeR+tiSsR17q
-	XKVBDNp+tZQ3ZVefD0aA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DKfyJ7WhT569rBoMQaJUsmSC/J10blLgkAOcwSsl+O8=; b=V8OFsCildyUxPB
+	7dOmhjpdPzSS3C4RhqfG5nIH/Nnvnwton/4r73ORLa4XDALYCHCvTLQXHahniIer52BjWCOIZGroS
+	VOG+MYK2fBVje5AoOWeaEzv6B93KkbETdmDoDNkUqQH1ugaFmposZhKrqYEhwnCFJ2jCsEolwxUJO
+	hrReM9/TsMNARALxsJzAp28YFvAoIM1rr0JISlCa4bY1ECuFUnFFInLxSpXLAHjAPN03FT5Ut5hLh
+	bkjUZgoqy9b6aQlWvI1opK11TUMPHQrOqV0yw8jn42il6OtdRbif5xrAB5sGCJThYphA7Y3v7uooA
+	2WmqIgLCafPD0p7jH4sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1IKo-007nfL-1c;
-	Fri, 10 Nov 2023 03:37:30 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1r1Iev-007piq-0X;
+	Fri, 10 Nov 2023 03:58:17 +0000
+Received: from mail-ua1-x92f.google.com ([2607:f8b0:4864:20::92f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1IKj-007ndr-0Y
+	id 1r1Ier-007phP-1h
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Nov 2023 03:37:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1699587444;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pROeszy9ePncz4nZyjZpb065/8N1ucMk0OODbP+hams=;
-	b=b5345Xd4CfAHxovucD90DpRX2u+HjGodmOo2tM1PmGl9pbs2YS6YMFg3bqB0yoWOn1BbbP
-	kSRaQ7GbD/VFxoBBbMZmqlPSaliyNc6mf939PPMsN/5At0ps8De3tzo/lvpMo0Zeyv3N1Z
-	QtstkZ2hLbue4IfyLhwRBcqnee8hqNw=
-Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com
- [209.85.167.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-689-4icyUY2WOF-6rxGUFkwayA-1; Thu, 09 Nov 2023 22:37:23 -0500
-X-MC-Unique: 4icyUY2WOF-6rxGUFkwayA-1
-Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-3b3ecd1be0bso67904b6e.0
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Nov 2023 19:37:23 -0800 (PST)
+	Fri, 10 Nov 2023 03:58:15 +0000
+Received: by mail-ua1-x92f.google.com with SMTP id a1e0cc1a2514c-7bae0c07086so736184241.1
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Nov 2023 19:58:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1699588688; x=1700193488; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YGF1v/gqhKIfK3lN8tg1lEaaH/f3W7AggG6onMYyyAU=;
+        b=jtnnWvzc5q5O0vXIzcTZ5IA6ajyiV4/Fbz5o18s1u9VxQ3QLpMhV+4aEv1X/vRNSiU
+         dBV+f/YyCCAd60KTteABVIwn/kY5g7U5FFEp4ZgWlg3TCEnGmVub1IkOodelkkNBSwKU
+         cmI8JMNX2Lcy1BJjdHLyqO790rLZFMXypVRGba1jyOEK5fYX3EjdfEcsw4qXENPO27Ck
+         MmEwkbX6Aot6wDbJmn1ifwbThgBH5dbWPLGBJbiOm1CmeWKFhlq0WwPQiEbxX+gwLBPi
+         J0Vy+2KwlLkQtTk5VD2K+qagYO3CkYlSqK0cWIFHEjjIyAggdUpSdzrvs/Had0JyK9Rn
+         jPjg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699587442; x=1700192242;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pROeszy9ePncz4nZyjZpb065/8N1ucMk0OODbP+hams=;
-        b=u5VqVUE4cQn0EMbIGql/xhCoWMmB4pkf+q+UVx9hYFK577j3y1At4T/4qjy7hGTFEh
-         KAGNeLfhkTIhn8dXTAFOA9zkYFEAmEOnag8C0gSzhuzB5y3FTH8nVQYGRxs0Cfpf1Rve
-         Xxuuuamvcsy2QN/cHYEHl6ArgeyxBlHGcS699Ff83txJn2oz8tii3BtvRSl+hRVA5tXR
-         OMNvambo3Vv4dKcvhbIkvdWixAYDMh6wlg8UQK9pp8ONG217Fz5/8O62pWPtEie2n/l9
-         VBPeydS8syIAjyvoe/iQF3G/A+H28pLFeloeQcekkBb9dbrPTvoSduddRpCI4RtteFTD
-         9xhg==
-X-Gm-Message-State: AOJu0YxEoQCIUBRIKWP4BAJyRFASvCuEnlHRrEQdvREfHzleQi5z3xBS
-	0IcEGaS3rY5wSRPBOib+p6+B6820Leni3ZHWhDE4AEniehShCbVbbIGmkYqlz+bLXRpHbds/emk
-	1aPV7nAeGbeeFJYjn9y7LG+CLjiCr
-X-Received: by 2002:a05:6808:199c:b0:3a9:e8e2:579d with SMTP id bj28-20020a056808199c00b003a9e8e2579dmr8276263oib.2.1699587442463;
-        Thu, 09 Nov 2023 19:37:22 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFPdXOyaUAzV6aldemEymWFIQu5uK8SS6EoZEeBtta4Ue7SEB3JH44cFaCIyyqf1iZkLKsTPg==
-X-Received: by 2002:a05:6808:199c:b0:3a9:e8e2:579d with SMTP id bj28-20020a056808199c00b003a9e8e2579dmr8276228oib.2.1699587442206;
-        Thu, 09 Nov 2023 19:37:22 -0800 (PST)
-Received: from [10.66.61.39] ([43.228.180.230])
-        by smtp.gmail.com with ESMTPSA id e8-20020a63d948000000b005a9b20408a7sm5370547pgj.23.2023.11.09.19.37.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 09 Nov 2023 19:37:21 -0800 (PST)
-Message-ID: <fd78bb81-1f83-13a4-ec37-3fe0cd040ec0@redhat.com>
-Date: Fri, 10 Nov 2023 11:37:16 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Subject: Re: [PATCH RFC 14/22] arm64: convert to arch_cpu_is_hotpluggable()
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
- linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev, x86@kernel.org,
- linux-csky@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-parisc@vger.kernel.org
-Cc: Salil Mehta <salil.mehta@huawei.com>,
- Jean-Philippe Brucker <jean-philippe@linaro.org>, jianyong.wu@arm.com,
- justin.he@arm.com, James Morse <james.morse@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-References: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
- <E1r0JLq-00CTxq-CF@rmk-PC.armlinux.org.uk>
-From: Shaoqin Huang <shahuang@redhat.com>
-In-Reply-To: <E1r0JLq-00CTxq-CF@rmk-PC.armlinux.org.uk>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+        d=1e100.net; s=20230601; t=1699588688; x=1700193488;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=YGF1v/gqhKIfK3lN8tg1lEaaH/f3W7AggG6onMYyyAU=;
+        b=KgB1VqtO9ChkwrUUoD8T9eFqhSXaamWwioAZIrdf/7oefSSDGb7mDSOhbFzuzESyiy
+         Vy8uMMAazthj3yK6PdOUEbOUKHDFslYUl2Ajs//PbGHprXMvdkwubCkZPud+T3snYyof
+         wXjYvMcKJhm/Pz4saAs+06nPB0bh+JCQlrsHnuILylQuoxA5eF7okqL3DmldcRP8EpXF
+         8/7IS+mYaj1FMmTJXuR8CnWx/HMJBldoguGuNYSz90hQ+KiiWDWElx3lILeq3uhQUM8/
+         A+pK4SNEqsbGryS7xYf0UlrtkvoyTD8qtOyMUn6Y0eos8K+HXq/ZYhONfTynMw53ytN/
+         RLuA==
+X-Gm-Message-State: AOJu0Yy0jO6tu+9L++9fouZRzgeINwIwSP0a0zXDsVfNztsveMXWJJvt
+	f9UFSgGEwNPA0JLpTZ9w8Bg9AQ==
+X-Google-Smtp-Source: AGHT+IH9dKkq1F5Ww/wHqKo0Olzi4faKaa+VUqagiGOI3qwKWLaQqIZvl/khSG+4iZp6x2Dc6RGO1Q==
+X-Received: by 2002:a67:ef49:0:b0:452:6178:642c with SMTP id k9-20020a67ef49000000b004526178642cmr6819492vsr.1.1699588687911;
+        Thu, 09 Nov 2023 19:58:07 -0800 (PST)
+Received: from ?IPv6:2402:7500:4ce:aeef:99fc:78aa:eebe:b7e0? ([2402:7500:4ce:aeef:99fc:78aa:eebe:b7e0])
+        by smtp.gmail.com with ESMTPSA id 13-20020a170902c24d00b001cc307bcdbdsm4303356plg.211.2023.11.09.19.58.04
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 09 Nov 2023 19:58:07 -0800 (PST)
+Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.7\))
+Subject: Re: [PATCH 06/12] RISC-V: crypto: add accelerated AES-CBC/CTR/ECB/XTS
+ implementations
+From: Jerry Shih <jerry.shih@sifive.com>
+In-Reply-To: <20231109071623.GB1245@sol.localdomain>
+Date: Fri, 10 Nov 2023 11:58:02 +0800
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ palmer@dabbelt.com,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ herbert@gondor.apana.org.au,
+ davem@davemloft.net,
+ andy.chiu@sifive.com,
+ greentime.hu@sifive.com,
+ conor.dooley@microchip.com,
+ guoren@kernel.org,
+ bjorn@rivosinc.com,
+ heiko@sntech.de,
+ ardb@kernel.org,
+ phoebe.chen@sifive.com,
+ hongrong.hsu@sifive.com,
+ linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ linux-crypto@vger.kernel.org
+Message-Id: <659DE1CF-4F42-4935-9DFD-E127269CEC54@sifive.com>
+References: <20231025183644.8735-1-jerry.shih@sifive.com>
+ <20231025183644.8735-7-jerry.shih@sifive.com>
+ <20231102051639.GF1498@sol.localdomain>
+ <39126F19-8FEB-4E18-B61D-4494B59C43A1@sifive.com>
+ <20231109071623.GB1245@sol.localdomain>
+To: Eric Biggers <ebiggers@kernel.org>
+X-Mailer: Apple Mail (2.3445.9.7)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231109_193725_276903_C131ACC3 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20231109_195813_635543_E061ABDF 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,48 +107,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 11/7/23 18:30, Russell King (Oracle) wrote:
-> Convert arm64 to use the arch_cpu_is_hotpluggable() helper rather than
-> arch_register_cpu().
+On Nov 9, 2023, at 15:16, Eric Biggers <ebiggers@kernel.org> wrote:
+> On Tue, Nov 07, 2023 at 04:53:13PM +0800, Jerry Shih wrote:
+>> On Nov 2, 2023, at 13:16, Eric Biggers <ebiggers@kernel.org> wrote:
+>>> On Thu, Oct 26, 2023 at 02:36:38AM +0800, Jerry Shih wrote:
+>>>> +static int ecb_encrypt(struct skcipher_request *req)
+>>>> +{
+>>> 
+>>> There's no fallback for !crypto_simd_usable() here.  I really like it this way.
+>>> However, for it to work (for skciphers and aeads), RISC-V needs to allow the
+>>> vector registers to be used in softirq context.  Is that already the case?
+>> 
+>> The kernel-mode-vector could be enabled in softirq, but we don't have nesting
+>> vector contexts. Will we have the case that kernel needs to jump to softirq for
+>> encryptions during the regular crypto function? If yes, we need to have fallbacks
+>> for all algorithms.
 > 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
-> ---
->   arch/arm64/kernel/setup.c | 8 ++------
->   1 file changed, 2 insertions(+), 6 deletions(-)
+> Are you asking what happens if a softirq is taken while the CPU is between
+> kernel_vector_begin() and kernel_vector_end()?  I think that needs to be
+> prevented by making kernel_vector_begin() and kernel_vector_end() disable and
+> re-enable softirqs, like what kernel_neon_begin() and kernel_neon_end() do on
+> arm64.  Refer to commit 13150149aa6ded which implemented that behavior on arm64.
 > 
-> diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
-> index 165bd2c0dd5a..42c690bb2d60 100644
-> --- a/arch/arm64/kernel/setup.c
-> +++ b/arch/arm64/kernel/setup.c
-> @@ -402,13 +402,9 @@ static inline bool cpu_can_disable(unsigned int cpu)
->   	return false;
->   }
->   
-> -int arch_register_cpu(int num)
-> +bool arch_cpu_is_hotpluggable(int num)
->   {
-> -	struct cpu *cpu = &per_cpu(cpu_devices, num);
-> -
-> -	cpu->hotpluggable = cpu_can_disable(num);
-> -
-> -	return register_cpu(cpu, num);
-> +	return cpu_can_disable(num);
->   }
->   
->   static void dump_kernel_offset(void)
+> - Eric
 
--- 
-Shaoqin
+The current kernel-mode-vector implementation, it only calls `preempt_disable()` during
+vector context. So, we will hit nesting vector context issue from softirq which also use
+kernel-vector.
+https://lore.kernel.org/all/20230721112855.1006-1-andy.chiu@sifive.com/
 
+Maybe we could use the `simd_register_aeads_compat()` wrapping as x86 platform
+first in a simpler way first.
 
+-Jerry
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
