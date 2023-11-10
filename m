@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD80EC4167B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D25DBC41535
 	for <linux-riscv@archiver.kernel.org>; Fri, 10 Nov 2023 05:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,61 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/fDZQCNEQwHERkS9CCsTRr62wN48SJm30QA4DPUmKAU=; b=GjV/B0lk2CRLn3
-	aZ4wVNI7kqCIDZ18hqNoUYKelXS0MFGotUQ5Kd+xp58yETPZaKwE9aiMjdnfcgb80TcAvVOYlCR7W
-	KUPUMdPY2LoA52OE8BoYhDj9mgc7QYEWMjWI6nic4Vj8hM2RBCE9qG1yOT/uDmT3WYgVwnv1fD0YI
-	7K3dnm423rKnpuwoz4xchA3CJvGTfpHZJleCSrBVZc/J+bUAlXxA+Tqenu4ahpC4ObUEHP5+wzaDp
-	k3Bt0nusLSPxeGWVJ+3rOTHNPQEVEhV7bqzbq0pdYdvxAA8vQ6BUhcXlrFrClTa2EBI1Lz53YCeid
-	gUD9ay5NQy634CJB/W0A==;
+	List-Owner; bh=1mMv4ofHgIshuICtxw8YXyj2s3VD9uu6c5Ar80uMv8M=; b=OokDkIvGvBdAZt
+	tMj4T1SbE/Lnoyf7m5pih9dG1KoHyFZvqE7Q26jji0MwmeKba/L60jOr+NFPUkez0eslueZ287u+y
+	kF5Ea8XvESoyD9eaOhtRNmscz9v7pIENNWY451b5rT6u9JC9VHJt3EaFvlIcmDAU5ULJe1877cL45
+	wlfYC84neaqtK8nJUm1o+UjC2yPd7iZgVou+gltxdHNKYFOGxcdy1uGfzVb1HVJ/f7CEP6AEhIEgT
+	dwPYkrhWyNYfKw1uuMQ2J7pETOKgwxpFG+26wBITBY80WXG2W2aqXA/NvbJuRe8WLS07tVekUtRhI
+	jcWzPoaDW0f+CRlNZKVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1KHq-007u5w-1a;
-	Fri, 10 Nov 2023 05:42:34 +0000
+	id 1r1KHr-007u6U-1q;
+	Fri, 10 Nov 2023 05:42:35 +0000
 Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1KHm-007u4W-1P
+	id 1r1KHp-007u5S-0W
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Nov 2023 05:42:31 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1cc3216b2a1so14377895ad.2
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Nov 2023 21:42:29 -0800 (PST)
+	Fri, 10 Nov 2023 05:42:34 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1cc0d0a0355so14633915ad.3
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Nov 2023 21:42:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1699594949; x=1700199749; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1699594952; x=1700199752; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Uci5Rd8hU8lrREOeKMYxmj/9fXU4uXy75tEQ4ik3o2A=;
-        b=eoqhm015CBMt/RW6jvEAHyMenTIUNmxUGgCFqSlewK7OUlpecj+ca3a6gVVz/GDguY
-         Aj2x2AUUlSSIE4ZABxKoSIZiQ9v5suI1Zytirp8L5szXEJrdQD+S+JoYtD6Qz3H4geLh
-         hcLS+9UHUUCHbX5/sYI7vD8qiPctDtZfurUtA/vfYxWxC5M+9/9yd/LJpKb9EynL8Den
-         sm4R7aEQUWjKRUhGWZWqFCCd6aBqAoI3VGRW0rJPJiswL0nFxIy00WBAgLbVTqIBwZxi
-         p8U/V26e5sPGKDTiEuLDJOg/L7KwR+2f9Yfs4zGYLOehSiz1VBf3lrGNwzLc8XPNliNi
-         +7lg==
+        bh=xY9e61NSBd34WKgwLiextVdIl1pEHWCBao7kYEHaYbc=;
+        b=hZ6SDC9bgrGTZONNTZS+2p76iQC84tRs5QbEd6g4JnfMHUOoCLnhMyCDd1XgJ+rUMf
+         STWuPQgdJM/fWeepCHgNaTOCS13yRgRg0bH1673Bf7Aw/tctvD7oe9eqsOtEXHuAY59N
+         T69QEwWqFwSu276socxAEB6tuz0JOl00SUWbYcBcSxE3mXy3cmefjp6R46Coz0Y5hw7d
+         IwNG53LSBoWZhBwXnuQ4Uh5S3FtsrgAWMsrsS3x4ermyuIytbJ1H+m9AUaQx03HmsdtV
+         kE3o1pfrHlSU3p3SA/nxW2SSvFwAcnQpyKGU/Z+8lYxmLQ1mfw5ZelywHN8ToRYket3o
+         Xo3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699594949; x=1700199749;
+        d=1e100.net; s=20230601; t=1699594952; x=1700199752;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Uci5Rd8hU8lrREOeKMYxmj/9fXU4uXy75tEQ4ik3o2A=;
-        b=TZ8AMpYafS6FG7oe4+7HgV6zOy4+HZO1AKU1pqMHHRwulLa4uW2t9iH5UMS6hyVtJN
-         HW+31rW09clFUNyIcGqZJux/VY/0ivOx+Sv2dPxt7PNsQX+lvibQO6gvWprSUuomxxVu
-         C93lDaXJCf5S6qcdABgDkBipyWZ95MSQgZ/vMWWwP4ui8s7sT4fDbOLW6hmiCyCXmcMK
-         kG1914voW+lEf4Gu4t35d+rB/o42fjtwl+y0mH+OzrHrMqJUiIXHaXS0FFMCvKYGDOrG
-         EOzh39itDpgb18qKGXQXN6QW6YeDIdHinRrPXPzbb2bDo2LO0xPvZ3PFIMuiSzDiZpuF
-         xfRA==
-X-Gm-Message-State: AOJu0YzFkLa64bCEyc3RMn9P6JtebhvWWSFNjD7gHUvxc9KTE1XpH0ya
-	NUdMLsC2+RZYEukZA1bdXGDBNw==
-X-Google-Smtp-Source: AGHT+IEm6KXk26L3ye2gZwOvNYVy1AjnP5ci3hCfE3ga9E1mFtlkQmutISdGpl9sbvobplDpccZsqw==
-X-Received: by 2002:a17:902:d506:b0:1cc:3825:7ba2 with SMTP id b6-20020a170902d50600b001cc38257ba2mr8168039plg.4.1699594949041;
-        Thu, 09 Nov 2023 21:42:29 -0800 (PST)
+        bh=xY9e61NSBd34WKgwLiextVdIl1pEHWCBao7kYEHaYbc=;
+        b=oZcQv+OoVnuyN6nVOAoEPKIgNHMYrkONS8AqOHGah4bQA8qofHPBs1Smkk/F+ZnXMj
+         dShvEK+LrcpYEukTG61VzlOdwhShLkp99GgTv98Eu+43wwgThZGXquSM6FuGEfVoUlYX
+         /sW5kCs+/Tq6GW8AzIg0TKSKzJ8WXct23eK2lgXw/7OiZ6MZTJ+2vGPglR6Qf1XAGJOz
+         PAWBJ37krHSUtX3qg0/92KIMx+UYUIPN3ZlbG8yTf8vIy9+/miNZbsio1wqOcASoK417
+         DxCGdrDiiWKntC+asUxeHtWxXwmeVwYQ348XDLyJ4H4mjL0PyERqgCj4e6zqLmyXJElO
+         //Kg==
+X-Gm-Message-State: AOJu0Yx+6lolW+P04WZIh2BB0t1jsnCGF6NJCP5ycBLsYADt/JHsglzm
+	VwQ2iEhz/F5fl2BCCO+AbxK3pw==
+X-Google-Smtp-Source: AGHT+IGXmrfa4qbmD8PufQBo8ECvg8/RA13eLrik89guDJz1lWQRgT5GoM06ddfpEcVwZ1Qo931DgQ==
+X-Received: by 2002:a17:902:8c92:b0:1ca:8b90:1cbd with SMTP id t18-20020a1709028c9200b001ca8b901cbdmr6854012plo.0.1699594952706;
+        Thu, 09 Nov 2023 21:42:32 -0800 (PST)
 Received: from [127.0.1.1] ([2601:1c2:1800:f680:2071:4479:98b8:cc69])
-        by smtp.gmail.com with ESMTPSA id ix22-20020a170902f81600b001b8a00d4f7asm4498845plb.9.2023.11.09.21.42.27
+        by smtp.gmail.com with ESMTPSA id ix22-20020a170902f81600b001b8a00d4f7asm4498845plb.9.2023.11.09.21.42.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Nov 2023 21:42:28 -0800 (PST)
+        Thu, 09 Nov 2023 21:42:32 -0800 (PST)
 From: Drew Fustini <dfustini@baylibre.com>
-Date: Thu, 09 Nov 2023 21:41:12 -0800
-Subject: [PATCH v5 2/7] mmc: sdhci: add __sdhci_execute_tuning() to header
+Date: Thu, 09 Nov 2023 21:41:14 -0800
+Subject: [PATCH v5 4/7] riscv: defconfig: Enable mmc and dma drivers for
+ T-Head TH1520
 MIME-Version: 1.0
-Message-Id: <20231109-th1520-mmc-v5-2-018bd039cf17@baylibre.com>
+Message-Id: <20231109-th1520-mmc-v5-4-018bd039cf17@baylibre.com>
 References: <20231109-th1520-mmc-v5-0-018bd039cf17@baylibre.com>
 In-Reply-To: <20231109-th1520-mmc-v5-0-018bd039cf17@baylibre.com>
 To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>, 
@@ -81,16 +82,17 @@ Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
  Drew Fustini <dfustini@baylibre.com>
 X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1699594943; l=2108;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1699594943; l=915;
  i=dfustini@baylibre.com; s=20230430; h=from:subject:message-id;
- bh=vV7D9g0JyI+aykknduEYFaEeV4K8xwyLfp1qBkgVUvA=;
- b=wiXFL4D9Q3411BhcGKUB1ePUooVyFCo6lIXJGCjVRVhgVo/MthWkxzFvbNGGV91mDj8tIZhb9
- 3ad00+5H/oQC96F88xLLDDeHjyQTU7R4MEvXiEmQLL2+zlo1saaRuND
+ bh=ht5Rt9iMCRM1t5yThjxoCTbuOVz3OXmRTAYLzzfd3/s=;
+ b=81YrMX/6Pup0Mk4t9Mpny542tULxqVs1k+13xNQqBbmGqkaQgZCsQjsJdqcuxcUGHQdm9Sdy0
+ DormnbG2KwrClt9J1tjQHZ3FwqQMqAeqmWYK1a5r2HceKW/UQkdU9DC
 X-Developer-Key: i=dfustini@baylibre.com; a=ed25519;
  pk=p3GKE9XFmjhwAayAHG4U108yag7V8xQVd4zJLdW0g7g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231109_214230_473789_A9E5A908 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20231109_214233_196133_B83E2012 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,56 +109,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Expose __sdhci_execute_tuning() so that it can be called from the
-mmc host controller drivers.
+Enable the mmc controller driver and dma controller driver needed for
+T-Head TH1520 based boards, like the LicheePi 4A and BeagleV-Ahead, to
+boot from eMMC storage.
 
-In the sdhci-of-dwcmshc driver, sdhci_dwcmshc_th1520_ops sets
-platform_execute_tuning to th1520_execute_tuning(). That function has
-to manipulate phy registers before tuning can be performed. To avoid
-copying the code verbatim from __sdhci_execute_tuning() into
-th1520_execute_tuning(), make it possible for __sdhci_execute_tuning()
-to be called from sdhci-of-dwcmshc.
-
-Acked-by: Adrian Hunter <adrian.hunter@intel.com>
+Reviewed-by: Guo Ren <guoren@kernel.org>
 Signed-off-by: Drew Fustini <dfustini@baylibre.com>
 ---
- drivers/mmc/host/sdhci.c | 3 ++-
- drivers/mmc/host/sdhci.h | 1 +
- 2 files changed, 3 insertions(+), 1 deletion(-)
+ arch/riscv/configs/defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/mmc/host/sdhci.c b/drivers/mmc/host/sdhci.c
-index ff41aa56564e..c79f73459915 100644
---- a/drivers/mmc/host/sdhci.c
-+++ b/drivers/mmc/host/sdhci.c
-@@ -2841,7 +2841,7 @@ void sdhci_send_tuning(struct sdhci_host *host, u32 opcode)
- }
- EXPORT_SYMBOL_GPL(sdhci_send_tuning);
- 
--static int __sdhci_execute_tuning(struct sdhci_host *host, u32 opcode)
-+int __sdhci_execute_tuning(struct sdhci_host *host, u32 opcode)
- {
- 	int i;
- 
-@@ -2879,6 +2879,7 @@ static int __sdhci_execute_tuning(struct sdhci_host *host, u32 opcode)
- 	sdhci_reset_tuning(host);
- 	return -EAGAIN;
- }
-+EXPORT_SYMBOL_GPL(__sdhci_execute_tuning);
- 
- int sdhci_execute_tuning(struct mmc_host *mmc, u32 opcode)
- {
-diff --git a/drivers/mmc/host/sdhci.h b/drivers/mmc/host/sdhci.h
-index f219bdea8f28..a20864fc0641 100644
---- a/drivers/mmc/host/sdhci.h
-+++ b/drivers/mmc/host/sdhci.h
-@@ -793,6 +793,7 @@ void sdhci_set_bus_width(struct sdhci_host *host, int width);
- void sdhci_reset(struct sdhci_host *host, u8 mask);
- void sdhci_set_uhs_signaling(struct sdhci_host *host, unsigned timing);
- int sdhci_execute_tuning(struct mmc_host *mmc, u32 opcode);
-+int __sdhci_execute_tuning(struct sdhci_host *host, u32 opcode);
- void sdhci_set_ios(struct mmc_host *mmc, struct mmc_ios *ios);
- int sdhci_start_signal_voltage_switch(struct mmc_host *mmc,
- 				      struct mmc_ios *ios);
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index ab86ec3b9eab..c5a8583236d0 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -168,12 +168,14 @@ CONFIG_MMC=y
+ CONFIG_MMC_SDHCI=y
+ CONFIG_MMC_SDHCI_PLTFM=y
+ CONFIG_MMC_SDHCI_CADENCE=y
++CONFIG_MMC_SDHCI_OF_DWCMSHC=y
+ CONFIG_MMC_SPI=y
+ CONFIG_MMC_SUNXI=y
+ CONFIG_RTC_CLASS=y
+ CONFIG_RTC_DRV_SUN6I=y
+ CONFIG_DMADEVICES=y
+ CONFIG_DMA_SUN6I=m
++CONFIG_DW_AXI_DMAC=y
+ CONFIG_VIRTIO_PCI=y
+ CONFIG_VIRTIO_BALLOON=y
+ CONFIG_VIRTIO_INPUT=y
 
 -- 
 2.34.1
