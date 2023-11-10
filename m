@@ -4,60 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82852C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Nov 2023 08:31:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD5B9C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Nov 2023 08:49:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=29YExunbKNnmihdCFmPseWaSuvK3/w7Zcb0nPLkTQqI=; b=2qfXZY3liUxceL
-	K9SthSG4K5Ooy6Q3Obs0VaDqBQtNJfHQ8QvSRfS63CMmKXRLTsc4trQANdY5b8KBUytO2NCK9WKoY
-	pbxmhDtlVwoHTV96tF8hS/Bdr5v8EJ+UHvjbavnp7Ula4k0rf3GirNxtUvvHlz3L0BbUt+QQjdVZk
-	/nejEbi6mSDcjno+xqAUiyE7039NkA5FlKzseoZ8mBYhqBOedgdZsujn29EIndu2F62+wZrynIBE1
-	BoT73dou3qt2a27Zp3vv88IoBU5tHWMilhonkEt9scvZ8X0gQhbYtzpy7gnC3MQMl82FFBFmzvEVw
-	xa899hHIkDG0GZxJ72Pg==;
+	List-Owner; bh=DLHyfb8hrERyP/ArEz2w/wT0C9aykP6uZ331KMy+p3s=; b=wVXw20RctDVOC6
+	G1CSEHNDKp3x0XkPv0w3NoGGOVCzApYAEXyGFfjvIWnP2aT6Nb2wNeyVXaQD8GUDz+SnwvsAcwL8L
+	lFBRPyqPfJg/wUaxBTEomydyD2hrzwqvfftHL/DVp4CK/eYgaEBAegr3kMbLOsVtocBAPhX9RhaKm
+	Nnn9x7v6TjrJTuOyFKydZZy+YUY1dg/VsQ7E4PUmMgmAdsGfmZd7DzkKCiPJhCy/QuaRQFpja8zNK
+	HHwl5MuWm/WjZ1+zDeJIRHECEdeJcJyW83IWyOLjR6C8F0iH5pZkTmWpCy3qzI6XIDwZQvjtvO6NQ
+	R3Nj8jJf2yX/SXRoUNug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1Mv0-0085yE-1j;
-	Fri, 10 Nov 2023 08:31:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1Muu-0085wg-2e;
-	Fri, 10 Nov 2023 08:31:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 73B9B106F;
-	Fri, 10 Nov 2023 00:31:43 -0800 (PST)
-Received: from [192.168.1.25] (unknown [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 221603F6C4;
-	Fri, 10 Nov 2023 00:30:51 -0800 (PST)
-Message-ID: <00ce01bf-1612-46cd-926d-ac283cfddff9@arm.com>
-Date: Fri, 10 Nov 2023 09:30:47 +0100
+	id 1r1NCw-0087SS-1p;
+	Fri, 10 Nov 2023 08:49:42 +0000
+Received: from mgamail.intel.com ([134.134.136.20])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1r1NCt-0087RT-2l;
+	Fri, 10 Nov 2023 08:49:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1699606179; x=1731142179;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=+ZJrwu8dlZjYjWjLp1gdXlOokUQXh0jEVn+ZKnk4oik=;
+  b=LG9jFMeNpgUHCozFn/Vg5nl9IcdHRV0R1puIt7KvfQ+bLNhTizeonOeR
+   RXJEw3O2sRALcMdB9FQjeKSVqe9EFvclobg1yPP2LriALZOoj1V5MN1m4
+   rvwsbjHfCSN9R9C/TysviaQDWo7CW1hKTF4NsaqplmsLNZ7PZDo88B3ZO
+   ZbllVuyHBGYkSR2MBMLLwia8o8lrimVouFjzSGX84Q0vVKqas1pCOG/U+
+   vj3EgkjS0XRtI5waVgXGxHPZ1COs6WyU6Ww1wrV2J4jq1A96UQqdXNpmm
+   DfQ2/6yr9ZLI+UCPgsaQwA+OQ32Wx1NqTKIAM4SIJCUG77wXkcKejNPF+
+   A==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10889"; a="380545615"
+X-IronPort-AV: E=Sophos;i="6.03,291,1694761200"; 
+   d="scan'208";a="380545615"
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Nov 2023 00:49:36 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10889"; a="887305217"
+X-IronPort-AV: E=Sophos;i="6.03,291,1694761200"; 
+   d="scan'208";a="887305217"
+Received: from xiaoyaol-hp-g830.ccr.corp.intel.com (HELO [10.93.9.145]) ([10.93.9.145])
+  by orsmga004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Nov 2023 00:49:24 -0800
+Message-ID: <b4ec10ab-9d06-4784-8893-6e2e895cd9b1@intel.com>
+Date: Fri, 10 Nov 2023 16:49:21 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/7] consolidate and cleanup CPU capacity
-To: Vincent Guittot <vincent.guittot@linaro.org>, linux@armlinux.org.uk,
- catalin.marinas@arm.com, will@kernel.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, sudeep.holla@arm.com,
- gregkh@linuxfoundation.org, rafael@kernel.org, mingo@redhat.com,
- peterz@infradead.org, juri.lelli@redhat.com, dietmar.eggemann@arm.com,
- rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
- bristot@redhat.com, vschneid@redhat.com, viresh.kumar@linaro.org,
- lenb@kernel.org, robert.moore@intel.com, lukasz.luba@arm.com,
- ionela.voinescu@arm.com, beata.michalska@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org,
- linux-acpi@vger.kernel.org
-Cc: conor.dooley@microchip.com, suagrfillet@gmail.com,
- ajones@ventanamicro.com, lftan@kernel.org
-References: <20231109101438.1139696-1-vincent.guittot@linaro.org>
+Subject: Re: [PATCH 16/34] KVM: x86: "Reset" vcpu->run->exit_reason early in
+ KVM_RUN
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
+ Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Sean Christopherson <seanjc@google.com>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Xu Yilun <yilun.xu@intel.com>, Chao Peng <chao.p.peng@linux.intel.com>,
+ Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
+ Anish Moorthy <amoorthy@google.com>, David Matlack <dmatlack@google.com>,
+ Yu Zhang <yu.c.zhang@linux.intel.com>,
+ Isaku Yamahata <isaku.yamahata@intel.com>, =?UTF-8?B?TWlja2HDq2wgU2FsYcO8?=
+ =?UTF-8?Q?n?= <mic@digikod.net>, Vlastimil Babka <vbabka@suse.cz>,
+ Vishal Annapurve <vannapurve@google.com>,
+ Ackerley Tng <ackerleytng@google.com>,
+ Maciej Szmigiero <mail@maciej.szmigiero.name>,
+ David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
+ Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
+ Liam Merwick <liam.merwick@oracle.com>,
+ Isaku Yamahata <isaku.yamahata@gmail.com>,
+ "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+References: <20231105163040.14904-1-pbonzini@redhat.com>
+ <20231105163040.14904-17-pbonzini@redhat.com>
 Content-Language: en-US
-From: Pierre Gondois <pierre.gondois@arm.com>
-In-Reply-To: <20231109101438.1139696-1-vincent.guittot@linaro.org>
+From: Xiaoyao Li <xiaoyao.li@intel.com>
+In-Reply-To: <20231105163040.14904-17-pbonzini@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231110_003104_976951_DBBAA5F7 
-X-CRM114-Status: GOOD (  25.40  )
+X-CRM114-CacheID: sfid-20231110_004939_940008_C4392A70 
+X-CRM114-Status: GOOD (  20.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,93 +109,63 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-For a CPPC platform + EM/EAS (but without AMU):
-Tested-by: Pierre Gondois <pierre.gondois@arm.com>
+On 11/6/2023 12:30 AM, Paolo Bonzini wrote:
+> From: Sean Christopherson <seanjc@google.com>
+> 
+> Initialize run->exit_reason to KVM_EXIT_UNKNOWN early in KVM_RUN to reduce
+> the probability of exiting to userspace with a stale run->exit_reason that
+> *appears* to be valid.
+> 
+> To support fd-based guest memory (guest memory without a corresponding
+> userspace virtual address), KVM will exit to userspace for various memory
+> related errors, which userspace *may* be able to resolve, instead of using
+> e.g. BUS_MCEERR_AR.  And in the more distant future, KVM will also likely
+> utilize the same functionality to let userspace "intercept" and handle
+> memory faults when the userspace mapping is missing, i.e. when fast gup()
+> fails.
+> 
+> Because many of KVM's internal APIs related to guest memory use '0' to
+> indicate "success, continue on" and not "exit to userspace", reporting
+> memory faults/errors to userspace will set run->exit_reason and
+> corresponding fields in the run structure fields in conjunction with a
+> a non-zero, negative return code, e.g. -EFAULT or -EHWPOISON.  And because
+> KVM already returns  -EFAULT in many paths, there's a relatively high
+> probability that KVM could return -EFAULT without setting run->exit_reason,
+> in which case reporting KVM_EXIT_UNKNOWN is much better than reporting
+> whatever exit reason happened to be in the run structure.
+> 
+> Note, KVM must wait until after run->immediate_exit is serviced to
+> sanitize run->exit_reason as KVM's ABI is that run->exit_reason is
+> preserved across KVM_RUN when run->immediate_exit is true.
+> 
+> Link: https://lore.kernel.org/all/20230908222905.1321305-1-amoorthy@google.com
+> Link: https://lore.kernel.org/all/ZFFbwOXZ5uI%2Fgdaf@google.com
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
+> Reviewed-by: Fuad Tabba <tabba@google.com>
+> Tested-by: Fuad Tabba <tabba@google.com>
+> Message-Id: <20231027182217.3615211-19-seanjc@google.com>
+> Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
 
-On 11/9/23 11:14, Vincent Guittot wrote:
-> This is the 1st part of consolidating how the max compute capacity is
-> used in the scheduler and how we calculate the frequency for a level of
-> utilization.
+Reviewed-by: Xiaoyao Li <xiaoyao.li@intel.com>
+
+> ---
+>   arch/x86/kvm/x86.c | 1 +
+>   1 file changed, 1 insertion(+)
 > 
-> Fix some unconsistancy when computing frequency for an utilization. There
-> can be a mismatch between energy model and schedutil.
-> 
-> Next step will be to make a difference between the original
-> max compute capacity of a CPU and what is currently available when
-> there is a capping applying forever (i.e. seconds or more).
-> 
-> Changes since v5:
-> - remove useless return in freq_inv_set_max_ratio()
-> - Add tags
-> 
-> Changes since v4:
-> - Capitalize the verb in subject
-> - Remove usless parentheses in cppc_get_dmi_max_khz()
-> - Use freq_ref pattern everywhere
-> - Fix MHz / kHz units conversion for cppc_cpufreq
-> - Move default definition of arch_scale_freq_ref() in
->    include/linux/sched/topology.h beside arch_scale_cpu_capacity
->    which faces similar default declaration behavior. This location covers
->    all cases with arch and CONFIG_* which was not the case with previous
->    attempts.
-> 
-> Changes since v3:
-> - Split patch 5 cpufreq/cppc
-> - Fix topology_init_cpu_capacity_cppc()
-> - Fix init if AMU ratio
-> - Added some tags
-> 
-> Changes since v2:
-> - Remove the 1st patch which has been queued in tip
-> - Rework how to initialize the reference frequency for cppc_cpufreq and
->    change topology_init_cpu_capacity_cppc() to also set capacity_ref_freq
-> - Add a RFC to convert AMU to use arch_scale_freq_ref and move the config
->    of the AMU ratio to be done when intializing cpu capacity and
->    capacity_ref_freq
-> - Added some tags
-> 
-> Changes since v1:
-> - Fix typos
-> - Added changes in cpufreq to use arch_scale_freq_ref() when calling
->    arch_set_freq_scale (patch 3).
-> - arch_scale_freq_ref() is always defined and returns 0 (as proposed
->    by Ionela) when not defined by the arch. This simplifies the code with
->    the addition of patch 3.
-> - Simplify Energy Model which always uses arch_scale_freq_ref(). The
->    latter returns 0 when not defined by arch instead of last item of the
->    perf domain. This is not a problem because the function is only defined
->    for compilation purpose in this case and we don't care about the
->    returned value. (patch 5)
-> - Added changes in cppc cpufreq to set capacity_ref_freq (patch 6)
-> - Added reviewed tag for patch 1 which got a minor change but not for
->    others as I did some changes which could make previous reviewed tag
->    no more relevant.
-> 
-> Vincent Guittot (7):
->    topology: Add a new arch_scale_freq_reference
->    cpufreq: Use the fixed and coherent frequency for scaling capacity
->    cpufreq/schedutil: Use a fixed reference frequency
->    energy_model: Use a fixed reference frequency
->    cpufreq/cppc: Move and rename cppc_cpufreq_{perf_to_khz|khz_to_perf}
->    cpufreq/cppc: Set the frequency used for computing the capacity
->    arm64/amu: Use capacity_ref_freq to set AMU ratio
-> 
->   arch/arm/include/asm/topology.h   |   1 +
->   arch/arm64/include/asm/topology.h |   1 +
->   arch/arm64/kernel/topology.c      |  26 +++---
->   arch/riscv/include/asm/topology.h |   1 +
->   drivers/acpi/cppc_acpi.c          | 104 ++++++++++++++++++++++
->   drivers/base/arch_topology.c      |  56 ++++++++----
->   drivers/cpufreq/cppc_cpufreq.c    | 139 ++++--------------------------
->   drivers/cpufreq/cpufreq.c         |   4 +-
->   include/acpi/cppc_acpi.h          |   2 +
->   include/linux/arch_topology.h     |   8 ++
->   include/linux/cpufreq.h           |   1 +
->   include/linux/energy_model.h      |   6 +-
->   include/linux/sched/topology.h    |   8 ++
->   kernel/sched/cpufreq_schedutil.c  |  26 +++++-
->   14 files changed, 224 insertions(+), 159 deletions(-)
-> 
+> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+> index 8f9d8939b63b..f661acb01c58 100644
+> --- a/arch/x86/kvm/x86.c
+> +++ b/arch/x86/kvm/x86.c
+> @@ -11082,6 +11082,7 @@ static int vcpu_run(struct kvm_vcpu *vcpu)
+>   {
+>   	int r;
+>   
+> +	vcpu->run->exit_reason = KVM_EXIT_UNKNOWN;
+>   	vcpu->arch.l1tf_flush_l1d = true;
+>   
+>   	for (;;) {
+
 
 _______________________________________________
 linux-riscv mailing list
