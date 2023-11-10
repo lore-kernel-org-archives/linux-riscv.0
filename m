@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B177FC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Nov 2023 15:48:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ED07C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Nov 2023 16:34:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
-	:List-Id:Message-ID:To:From:CC:Subject:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=iWgMeNpcAM0c4M6C143G/re/6JA2l+rOw3Gtan0ck6Y=; b=Zs3
-	adcwtqMSouY2Q+OrcWeRYwKvH665n0mtffpq+mCjBjXsnaeL4OLO5ijFcqVfB4OyCMTPaOVJ0y+Pf
-	SuH1XROsYLCkLxRSHhdBJtXZ7A5tiyAtbo8gsJ94eILea79b2/ZAYSil9Ls9KyyGQ/UzDHpPIg2W0
-	uxWnV9ioEnwdR+8zmEUHJv0/i4yICiFRwFbCWXEPN7tpE1ajCDf3e3tRwAfsswg+l4IPinjlSgeIg
-	DMmjEsQ3LT3LdJnRq5WQLWSJ0m4nqeAJkQ4PeLydi6eq++z1lmWxz+X11Wa5vrdgPr00E5sENJ6AJ
-	sio5cXQvwW/cRMMpoz22oHTxm0XEXMg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=PZ5MqMwbF+J9V2393FtZvCSydG7HGQlemmHwJKIbFw8=; b=HZeX7nDK6On10M
+	DOpK7SHepl+LT9Z1KUDz/VaW9jsrymvoaLODdYk68LxyOsHfoRhWJryzMldL3Bk/azZX2BZRuW63+
+	b1Oq84exLN8dJ8uoUbjtR+XpDwjcXEu+3yUzNtkVtahAZvS0naHLGX7uc1N01F3KXMbDibcQZjgpy
+	vjPZFlMM2o57e4G/4iQFDePpsAIp6h1wgbTYUTZPI7upv60h9r0n0q0bmsYF9dtuV5nxureDATbBE
+	1jQZ9BnzsWcn7HEN3gozYe5S+702AOnIBZxzngBtD1QtJByZj2jvccVExLJg3LTfhMlUmTPBcI+rX
+	ARlPxLxt5egQDL2WvxSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1TkW-0092kJ-27;
-	Fri, 10 Nov 2023 15:48:48 +0000
-Received: from mail-io1-xd30.google.com ([2607:f8b0:4864:20::d30])
+	id 1r1USj-0095Ue-1G;
+	Fri, 10 Nov 2023 16:34:29 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1TkS-0092jb-2R
+	id 1r1TUy-0091oC-0W
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Nov 2023 15:48:46 +0000
-Received: by mail-io1-xd30.google.com with SMTP id ca18e2360f4ac-7afff3ea94dso37966839f.3
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Nov 2023 07:48:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1699631320; x=1700236120; darn=lists.infradead.org;
-        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MdJHmwBJ9/m07mk31SGh6elzGpd6nJhwryHWg/U7k+4=;
-        b=pCaa+Ow0MCX1lH+D3mFlr6RTh1qGyq0T42B6lN9UbS0W4deOYUQFfKjT6rbcgtojvz
-         X3exwvWkhik1C2CJMH8xcEytTsl4VCFSC2BUu3efEluEgi5t2Qjvbp1pY9TqSMF2BEvk
-         xgy8eGqXf7pf2yJUBjUuRTzLoLxaO/2fYprY6fIXPjCgNqmAUMvPcyYvaMFKOFNfLjZ4
-         GFFyW0jUaf5lotLVxicl57ZrtTmj+9/sgBVZoIM5hasKLbSWsRiZhZll2are9sW8Y3fP
-         DJIel1G3/Uc4d8QxnaRuMX6YTM/uGjUw8a0YxxB0H3u0KbHL/iPIfNlDZ126DdMsnGLM
-         /N8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699631320; x=1700236120;
-        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MdJHmwBJ9/m07mk31SGh6elzGpd6nJhwryHWg/U7k+4=;
-        b=MpTXncuVp+DqkIuDl8N8Ez54nTqyq/eWHOYbiRx1MiXbaYyoyp33ce09uN8G++uxL1
-         /HpBShvgaFCloz7JZu38s7ibmLhibzggwUn9hR1At2gNua/he55tMWNO3aiJLblWI2r7
-         Te0YeFjHtrQ0sw/vClYW3ncz7OF4no9qM8A3uixx2U90pdCEqCJ8mC9DxngwHhoqI0Oj
-         l2RrUWEhmFdI8TjOMQAhPIMUzwe1RMcSDueIjGDBOs8nnyentv2PBNul5tGgph4p9jBW
-         q/YEDfOb61UnaLBljYCD1gAthvmqTGdgYIGriouZca6XSH+EAR5ZPvuLJnk14Ds15v0/
-         p6vQ==
-X-Gm-Message-State: AOJu0YyLAXT3pS5IcsZIYMYQyEUWFh/wYNwHgvj22G+sAAwOcWgWzvHj
-	95JjbBa3NI1w9R46mBXAupc60FhEe/qyuJ5h6Ow=
-X-Google-Smtp-Source: AGHT+IFL45lf9gGvwrbLkFzwQa/Izw/v0uIwJrBy6da0KxBIFLAPdud3MISjfO4lBjoIn6t+zsKBiQ==
-X-Received: by 2002:a05:6e02:1b07:b0:359:4199:1fe2 with SMTP id i7-20020a056e021b0700b0035941991fe2mr10499846ilv.8.1699631320013;
-        Fri, 10 Nov 2023 07:48:40 -0800 (PST)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id k76-20020a636f4f000000b005b529d633b7sm6482643pgc.14.2023.11.10.07.48.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Nov 2023 07:48:39 -0800 (PST)
-Date: Fri, 10 Nov 2023 07:48:39 -0800 (PST)
-X-Google-Original-Date: Fri, 10 Nov 2023 07:48:28 PST (-0800)
-Subject: [GIT PULL] RISC-V Patches for the 6.7 Merge Window, Part 2
-CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-9011bd86-9f72-4223-b78a-b4c69c1c927f@palmer-ri-x1c9>
+	Fri, 10 Nov 2023 15:32:46 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1r1TT8-00065R-WB; Fri, 10 Nov 2023 16:30:51 +0100
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1r1TSy-0083Ie-0c; Fri, 10 Nov 2023 16:30:40 +0100
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1r1TSx-00Gnuj-JI; Fri, 10 Nov 2023 16:30:39 +0100
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Tony Lindgren <tony@atomide.com>,
+	Alexander Shiyan <shc_work@mail.ru>
+Cc: John Ogness <john.ogness@linutronix.de>, =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, Thomas Richard <thomas.richard@bootlin.com>, Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@linutronix.de>, kernel@pengutronix.de, linux-serial@vger.kernel.org, Richard GENOUD <richard.genoud@gmail.com>, Christophe JAILLET <christophe.jaillet@wanadoo.fr>, Yangtao Li <frank.li@vivo.com>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Florian Fainelli <florian.fainelli@broadcom.com>, Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, Al Cooper <alcooperx@gmail.com>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Paul Cercueil <paul@crapouillou.net>, Vladimir Zapolskiy <vz@mleia.com>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>, Petr Mladek <pmladek@suse.com>, Biju Das <biju.das.jz@bp.renesas.com>, Johan Hovold <johan@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>, Andi Shyti <andi.shyti@linux.intel.com>, Rob Herring <robh@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, =?utf-8?q?Duje_Mihanovi=C4=87?= <duje.mihanovic@skole.hr>, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, Jacob Keller <jacob.e.keller@intel.com>, linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org, linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org, Tobias Klauser <tklauser@distanz.ch>, Russell King <linux@armlinux.org.uk>, Lino Sanfilippo <l.sanfilippo@kunbus.com>, Jiamei Xie <jiamei.xie@arm.com>, Hongyu Xie <xiehongyu1@kylinos.cn>, delisun <delisun@pateo.com.cn>, Fabio Estevam <festevam@denx.de>, Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Arend van Spriel <arend.vanspriel@broadcom.com>, "Maciej W. Rozycki" <macro@orcam.me.uk>, Christophe Leroy <christophe.leroy@csgroup.eu>, Baruch Siach <baruch@tkos.co.il>, Thierry Reding <treding@nvidia.com>, Max Filippov <jcmvbkbc@gmail.com>, Zhang Shurong <zhang_shurong@foxmail.com>, Sherry Sun <sherry.sun@nxp.com>, Shenwei Wang <shenwei.wang@nxp.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>, Sergey Organov <sorganov@gmail.com>, Tom Rix <trix@redhat.com>, Martin Fuzzey <martin.fuzzey@flowbird.group>, Bernhard Seibold <mail@bernhard-seibold.de>, Karol Gugala <kgugala@antmicro.com>, Mateusz Holenko <mholenko@antmicro.com>, Gabriel Somlo <gsomlo@gmail.com>, Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Dmitry Rokosov <ddrokosov@sberdevices.ru>, Lucas Tanure <tanure@linux.com>, Pavel Krasavin <pkrasavin@imaqliq.com>, linux-amlogic@lists.infradead.org, Taichi Sugaya <sugaya.taichi@socionext.com>, Takao Orito <orito.takao@socionext.com>, Andy Gross <agross@kernel.org>, Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konrad.dybcio@linaro.org>, linux-arm-msm@vger.kernel.org, =?utf-8?q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, Manivannan Sadhasivam <mani@kernel.org>, linux-actions@lists.infradead.org, Yuan Can <yuancan@huawei.com>, linux-unisoc@lists.infradead.org, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, linux-samsung-soc@vger.kernel.org, Laxman Dewangan <ldewangan@nvidia.com>, Geert Uytterhoeven <geert+renesas@glider.be>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Ben Dooks <ben.dooks@codethink.co.uk>, Nick Hu <nick.hu@sifive.com>,
+ Samuel Holland <samuel.holland@sifive.com>, Ruan Jinjie <ruanjinjie@huawei.com>, linux-riscv@lists.infradead.org, Orson Zhai <orsonzhai@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, Valentin Caron <valentin.caron@foss.st.com>, Marek Vasut <marex@denx.de>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Erwan Le Ray <erwan.leray@foss.st.com>, linux-stm32@st-md-mailman.stormreply.com, "David S. Miller" <davem@davemloft.net>, sparclinux@vger.kernel.org, Hammer Hsieh <hammerh0314@gmail.com>, Peter Korsgaard <jacmet@sunsite.dk>, Timur Tabi <timur@kernel.org>, linuxppc-dev@lists.ozlabs.org, Michal Simek <michal.simek@amd.com>, Julien Malik <julien.malik@unseenlabs.fr>
+Subject: [PATCH 00/52] serial: Convert to platform remove callback returning void
+Date: Fri, 10 Nov 2023 16:29:28 +0100
+Message-ID: <20231110152927.70601-1-u.kleine-koenig@pengutronix.de>
+X-Mailer: git-send-email 2.42.0.586.gbc5204569f7d.dirty
+MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8575; i=u.kleine-koenig@pengutronix.de; h=from:subject; bh=uSjGK//3oFZ52v8CbMudZ2zWDpIf+rV/Bz06fMr6GWo=; b=owGbwMvMwMXY3/A7olbonx/jabUkhlQ/nwgpw9SOtCV6v+pmM2qvy30b4Lq49LLWF9d7/DeVZ WUfT6vrZDRmYWDkYpAVU2Sxb1yTaVUlF9m59t9lmEGsTCBTGLg4BWAit63Y/3DeWbXNbsaN6owD v7zeKjbpJWlH1DLLuAtpXzizckMmx203llrb1/+nvTIsPrdq+5X595O9r7k579Bw9+82qJzub57 xYRLnlnOf3z5I0jkjI3+hnSlh3u7CZtWj17OsTwtF9Zh1VPec575QJnDf2cNMZ92auiNbfa0U1I K4NMS4nGKWL9M2r8plO87j5ygYa/6+RbEk4fm2VxMXr107Q7gswU3y947dArnBDXHf36sIsmiEc f/g4GZMEG/dF80S1BrAt/VW0ITwlZUaT7adCHP/6ih/oXzv47Wsk5b57sm0tYvXmXys/bGln80K A/VHR2RlH3V3/5h2e8W6Lbt3hnOZavQfU+68c0/+U304AA==
+X-Developer-Key: i=u.kleine-koenig@pengutronix.de; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231110_074845_003837_8071F852 
-X-CRM114-Status: GOOD (  16.95  )
+X-CRM114-CacheID: sfid-20231110_073244_355410_07988953 
+X-CRM114-Status: GOOD (  12.49  )
+X-Mailman-Approved-At: Fri, 10 Nov 2023 08:34:28 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,265 +73,159 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="===============2717982158026174313=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============2717982158026174313==
-Content-Type: text/plain
-
-The following changes since commit e1c05b3bf80f829ced464bdca90f1dfa96e8d251:
-
-  RISC-V: hwprobe: Fix vDSO SIGSEGV (2023-11-02 14:05:30 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.7-mw2
-
-for you to fetch changes up to 457926b253200bd9bdfae9a016a3b1d1dc661d55:
-
-  riscv: Optimize bitops with Zbb extension (2023-11-09 10:15:52 -0800)
-
-----------------------------------------------------------------
-RISC-V Patches for the 6.7 Merge Window, Part 2
-
-* Support for handling misaligned accesses in S-mode.
-* Probing for misaligned access support is now properly cached and
-  handled in parallel.
-* PTDUMP now reflects the SW reserved bits, as well as the PBMT and
-  NAPOT extensions.
-* Performance improvements for TLB flushing.
-* Support for many new relocations in the module loader.
-* Various bug fixes and cleanups.
-
-----------------------------------------------------------------
-Alexandre Ghiti (12):
-      riscv: Improve tlb_flush()
-      riscv: Improve flush_tlb_range() for hugetlb pages
-      riscv: Make __flush_tlb_range() loop over pte instead of flushing the whole tlb
-      riscv: Improve flush_tlb_kernel_range()
-      riscv: Improve tlb_flush()
-      riscv: Improve flush_tlb_range() for hugetlb pages
-      riscv: Make __flush_tlb_range() loop over pte instead of flushing the whole tlb
-      riscv: Improve flush_tlb_kernel_range()
-      riscv: Don't use PGD entries for the linear mapping
-      riscv: Fix set_memory_XX() and set_direct_map_XX() by splitting huge linear mappings
-      drivers: perf: Check find_first_bit() return value
-      drivers: perf: Do not broadcast to other cpus when starting a counter
-
-Andreas Schwab (1):
-      riscv: select ARCH_PROC_KCORE_TEXT
-
-Anup Patel (2):
-      RISC-V: Don't fail in riscv_of_parent_hartid() for disabled HARTs
-      of: property: Add fw_devlink support for msi-parent
-
-Charlie Jenkins (2):
-      riscv: Add remaining module relocations
-      riscv: Add tests for riscv module loading
-
-Christoph Hellwig (1):
-      riscv: split cache ops out of dma-noncoherent.c
-
-Clément Léger (11):
-      riscv: remove unused functions in traps_misaligned.c
-      riscv: add support for misaligned trap handling in S-mode
-      riscv: report perf event for misaligned fault
-      riscv: add floating point insn support to misaligned access emulation
-      riscv: add support for sysctl unaligned_enabled control
-      riscv: annotate check_unaligned_access_boot_cpu() with __init
-      riscv: report misaligned accesses emulation to hwprobe
-      riscv: add support for PR_SET_UNALIGN and PR_GET_UNALIGN
-      riscv: use ".L" local labels in assembly when applicable
-      riscv: Use SYM_*() assembly macros instead of deprecated ones
-      riscv: kernel: Use correct SYM_DATA_*() macro for data
-
-Conor Dooley (1):
-      RISC-V: capitalise CMO op macros
-
-Emil Renner Berthing (1):
-      riscv: Avoid unaligned access when relocating modules
-
-Evan Green (3):
-      RISC-V: Show accurate per-hart isa in /proc/cpuinfo
-      RISC-V: Remove __init on unaligned_emulation_finish()
-      RISC-V: Probe misaligned access speed in parallel
-
-Geert Uytterhoeven (1):
-      riscv: boot: Fix creation of loader.bin
-
-Haorong Lu (1):
-      riscv: signal: handle syscall restart before get_signal
-
-Jinyu Tang (1):
-      riscv: defconfig : add CONFIG_MMC_DW for starfive
-
-Jisheng Zhang (5):
-      riscv: don't probe unaligned access speed if already done
-      riscv: vdso.lds.S: drop __alt_start and __alt_end symbols
-      riscv: vdso.lds.S: merge .data section into .rodata section
-      riscv: vdso.lds.S: remove hardcoded 0x800 .text start addr
-      riscv: mm: update T-Head memory type definitions
-
-Nam Cao (2):
-      riscv: provide riscv-specific is_trap_insn()
-      riscv: kprobes: allow writing to x0
-
-Palmer Dabbelt (10):
-      Merge patch series "Add support to handle misaligned accesses in S-mode"
-      Merge patch series "Improve PTDUMP and introduce new fields"
-      Merge patch series "riscv: vdso.lds.S: some improvement"
-      Merge patch series "riscv: tlb flush improvements"
-      Merge patch series "riscv: tlb flush improvements"
-      Merge patch series "riscv: Add remaining module relocations and tests"
-      RISC-V: Don't rely on positional structure initialization
-      Merge patch series "riscv: Fix set_memory_XX() and set_direct_map_XX()"
-      Merge patch series "Linux RISC-V AIA Preparatory Series"
-      Merge patch "drivers: perf: Do not broadcast to other cpus when starting a counter"
-
-Xiao Wang (2):
-      riscv: Rearrange hwcap.h and cpufeature.h
-      riscv: Optimize bitops with Zbb extension
-
-Yu Chien Peter Lin (3):
-      riscv: Improve PTDUMP to show RSW with non-zero value
-      riscv: Introduce PBMT field to PTDUMP
-      riscv: Introduce NAPOT field to PTDUMP
-
-Yunhui Cui (1):
-      riscv: add userland instruction dump to RISC-V splats
-
- Documentation/riscv/uabi.rst                       |  20 +
- arch/riscv/Kconfig                                 |  12 +
- arch/riscv/Kconfig.debug                           |   1 +
- arch/riscv/Makefile                                |   1 -
- arch/riscv/boot/Makefile                           |   1 +
- arch/riscv/configs/defconfig                       |   2 +
- arch/riscv/errata/andes/Makefile                   |   4 +
- arch/riscv/include/asm/bitops.h                    | 254 ++++++++-
- arch/riscv/include/asm/cpufeature.h                | 102 +++-
- arch/riscv/include/asm/elf.h                       |   2 +-
- arch/riscv/include/asm/entry-common.h              |  14 +
- arch/riscv/include/asm/errata_list.h               |   6 +-
- arch/riscv/include/asm/ftrace.h                    |  21 +
- arch/riscv/include/asm/hwcap.h                     |  91 ---
- arch/riscv/include/asm/insn-def.h                  |   8 +-
- arch/riscv/include/asm/kprobes.h                   |  11 +-
- arch/riscv/include/asm/pgtable-64.h                |  14 +-
- arch/riscv/include/asm/pgtable-bits.h              |   4 +-
- arch/riscv/include/asm/pgtable.h                   |   1 +
- arch/riscv/include/asm/processor.h                 |   9 +
- arch/riscv/include/asm/sbi.h                       |   3 -
- arch/riscv/include/asm/switch_to.h                 |   2 +-
- arch/riscv/include/asm/tlb.h                       |   8 +-
- arch/riscv/include/asm/tlbflush.h                  |  15 +-
- arch/riscv/include/asm/uprobes.h                   |  13 +-
- arch/riscv/include/asm/vector.h                    |   2 +-
- arch/riscv/include/uapi/asm/elf.h                  |   5 +-
- arch/riscv/kernel/Makefile                         |   3 +-
- arch/riscv/kernel/copy-unaligned.S                 |   8 +-
- arch/riscv/kernel/cpu.c                            |  33 +-
- arch/riscv/kernel/cpufeature.c                     |  92 +++-
- arch/riscv/kernel/entry.S                          |  15 +-
- arch/riscv/kernel/fpu.S                            | 129 ++++-
- arch/riscv/kernel/head.S                           |  30 +-
- arch/riscv/kernel/hibernate-asm.S                  |  12 +-
- arch/riscv/kernel/irq.c                            |   4 +-
- arch/riscv/kernel/mcount-dyn.S                     |  20 +-
- arch/riscv/kernel/mcount.S                         |  18 +-
- arch/riscv/kernel/module.c                         | 608 +++++++++++++++++----
- arch/riscv/kernel/probes/rethook_trampoline.S      |   4 +-
- arch/riscv/kernel/probes/simulate-insn.c           |   2 +-
- arch/riscv/kernel/probes/uprobes.c                 |   6 +
- arch/riscv/kernel/process.c                        |  18 +
- arch/riscv/kernel/sbi.c                            |  32 +-
- arch/riscv/kernel/setup.c                          |  13 -
- arch/riscv/kernel/signal.c                         |  92 ++--
- arch/riscv/kernel/smpboot.c                        |   1 -
- arch/riscv/kernel/suspend_entry.S                  |   4 +-
- arch/riscv/kernel/tests/Kconfig.debug              |  35 ++
- arch/riscv/kernel/tests/Makefile                   |   1 +
- arch/riscv/kernel/tests/module_test/Makefile       |  15 +
- .../tests/module_test/test_module_linking_main.c   |  88 +++
- arch/riscv/kernel/tests/module_test/test_set16.S   |  23 +
- arch/riscv/kernel/tests/module_test/test_set32.S   |  20 +
- arch/riscv/kernel/tests/module_test/test_set6.S    |  23 +
- arch/riscv/kernel/tests/module_test/test_set8.S    |  23 +
- arch/riscv/kernel/tests/module_test/test_sub16.S   |  20 +
- arch/riscv/kernel/tests/module_test/test_sub32.S   |  20 +
- arch/riscv/kernel/tests/module_test/test_sub6.S    |  20 +
- arch/riscv/kernel/tests/module_test/test_sub64.S   |  25 +
- arch/riscv/kernel/tests/module_test/test_sub8.S    |  20 +
- arch/riscv/kernel/tests/module_test/test_uleb128.S |  31 ++
- arch/riscv/kernel/traps.c                          |  58 +-
- arch/riscv/kernel/traps_misaligned.c               | 375 +++++++++++--
- arch/riscv/kernel/vdso/flush_icache.S              |   4 +-
- arch/riscv/kernel/vdso/getcpu.S                    |   4 +-
- arch/riscv/kernel/vdso/rt_sigreturn.S              |   4 +-
- arch/riscv/kernel/vdso/sys_hwprobe.S               |   4 +-
- arch/riscv/kernel/vdso/vdso.lds.S                  |  30 +-
- arch/riscv/kvm/aia.c                               |   2 +-
- arch/riscv/kvm/main.c                              |   2 +-
- arch/riscv/kvm/tlb.c                               |   2 +-
- arch/riscv/kvm/vcpu_fp.c                           |   2 +-
- arch/riscv/kvm/vcpu_onereg.c                       |   2 +-
- arch/riscv/kvm/vcpu_vector.c                       |   2 +-
- arch/riscv/lib/clear_page.S                        |  32 +-
- arch/riscv/lib/memcpy.S                            |   6 +-
- arch/riscv/lib/memmove.S                           |  57 +-
- arch/riscv/lib/memset.S                            |   6 +-
- arch/riscv/lib/uaccess.S                           |  11 +-
- arch/riscv/mm/Makefile                             |   1 +
- arch/riscv/mm/cache-ops.c                          |  17 +
- arch/riscv/mm/dma-noncoherent.c                    |  23 +-
- arch/riscv/mm/init.c                               |  12 +-
- arch/riscv/mm/pageattr.c                           | 270 +++++++--
- arch/riscv/mm/pmem.c                               |   4 +-
- arch/riscv/mm/ptdump.c                             |  53 +-
- arch/riscv/mm/tlbflush.c                           | 181 +++---
- arch/riscv/purgatory/entry.S                       |  16 +-
- drivers/clocksource/timer-riscv.c                  |   2 +-
- drivers/firmware/efi/libstub/Makefile              |   2 +-
- drivers/of/property.c                              |   2 +
- drivers/perf/riscv_pmu.c                           |   3 +-
- drivers/perf/riscv_pmu_sbi.c                       |  17 +-
- tools/testing/selftests/riscv/mm/Makefile          |   6 +-
- .../riscv/mm/{testcases => }/mmap_bottomup.c       |   2 +-
- .../riscv/mm/{testcases => }/mmap_default.c        |   2 +-
- .../selftests/riscv/mm/{testcases => }/mmap_test.h |   0
- .../selftests/riscv/mm/{testcases => }/run_mmap.sh |   0
- 99 files changed, 2619 insertions(+), 731 deletions(-)
- create mode 100644 arch/riscv/kernel/tests/Kconfig.debug
- create mode 100644 arch/riscv/kernel/tests/Makefile
- create mode 100644 arch/riscv/kernel/tests/module_test/Makefile
- create mode 100644 arch/riscv/kernel/tests/module_test/test_module_linking_main.c
- create mode 100644 arch/riscv/kernel/tests/module_test/test_set16.S
- create mode 100644 arch/riscv/kernel/tests/module_test/test_set32.S
- create mode 100644 arch/riscv/kernel/tests/module_test/test_set6.S
- create mode 100644 arch/riscv/kernel/tests/module_test/test_set8.S
- create mode 100644 arch/riscv/kernel/tests/module_test/test_sub16.S
- create mode 100644 arch/riscv/kernel/tests/module_test/test_sub32.S
- create mode 100644 arch/riscv/kernel/tests/module_test/test_sub6.S
- create mode 100644 arch/riscv/kernel/tests/module_test/test_sub64.S
- create mode 100644 arch/riscv/kernel/tests/module_test/test_sub8.S
- create mode 100644 arch/riscv/kernel/tests/module_test/test_uleb128.S
- create mode 100644 arch/riscv/mm/cache-ops.c
- rename tools/testing/selftests/riscv/mm/{testcases => }/mmap_bottomup.c (97%)
- rename tools/testing/selftests/riscv/mm/{testcases => }/mmap_default.c (97%)
- rename tools/testing/selftests/riscv/mm/{testcases => }/mmap_test.h (100%)
- rename tools/testing/selftests/riscv/mm/{testcases => }/run_mmap.sh (100%)
-
-
---===============2717982158026174313==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2717982158026174313==--
+SGVsbG8sCgp0aGlzIHNlcmllcyBzdGFydHMgd2l0aCB0d28gZml4ZXMuIFRoZSBmaXJzdCBvbmUg
+Zml4ZXMgYSByZXNvdXJjZSBsZWFrCmFuZCB1c2UgYWZ0ZXIgZnJlZS4gVGhlIHNlY29uZCBvbmx5
+IGltcHJvdmVzIGVycm9yIHJlcG9ydGluZy4gSSBhZGRlZCBhCkZpeGVzOiBtYXJrZXIgdG8gdGhl
+c2UuIEkgbGV0IHlvdSBkZWNpZGUgaWYgeW91IHdhbnQgdG8gZHJvcCB0aGVtIChvcgp0aGUgc2Vj
+b25kIG9ubHkpIG9yIGFkZCBhIENjOiBzdGFibGUgKHRvIGJvdGggb3Igb25seSB0aGUgZmlyc3Qg
+b25lKS4KCkFmdGVyIHRoYXQgYWxsIGRyaXZlcnMgYmVsb3cgZHJpdmVycy90dHkvc2VyaWFsIGFy
+ZSBjb252ZXJ0ZWQgdG8gc3RydWN0CnBsYXRmb3JtX2RyaXZlcjo6cmVtb3ZlX25ldy4gU2VlIGNv
+bW1pdCA1YzVhNzY4MGU2N2IgKCJwbGF0Zm9ybTogUHJvdmlkZQphIHJlbW92ZSBjYWxsYmFjayB0
+aGF0IHJldHVybnMgbm8gdmFsdWUiKSBmb3IgYW4gZXh0ZW5kZWQgZXhwbGFuYXRpb24KYW5kIHRo
+ZSBldmVudHVhbCBnb2FsLiBUaGUgVEw7RFI7IGlzIHRvIHByZXZlbnQgYnVncyBsaWtlIHRoZSB0
+d28gZml4ZWQKaGVyZS4KCkFmdGVyIHRoZXNlIHR3byBmaXhlcyBhbGwgY29udmVyc2F0aW9ucyBh
+cmUgdHJpdmlhbCwgYmVjYXVzZSBhbGwKLnJlbW92ZSgpIGNhbGxiYWNrcyByZXR1cm5lZCB6ZXJv
+IHVuY29uZGl0aW9uYWxseS4KClRoZSBjb252ZXJzaW9uIHBhdGNoZXMgYXJlIG1lcmdlIHdpbmRv
+dyBtYXRlcmlhbC4gVGhlIHR3byBmaXhlcyBtaWdodCBnbwppbiBhbHNvIGJlZm9yZSB2Ni43LCBi
+dXQgZ2l2ZW4gdGhlIGZpeGVkIHByb2JsZW1zIGFyZSBhbHJlYWR5IG9sZAoodjYuMS1yYzYgKyB2
+My4xMC1yYzEpIHRoZXJlIGlzIHByb2JhYmx5IG5vIHVyZ2UuCgpCZXN0IHJlZ2FyZHMKVXdlCgpV
+d2UgS2xlaW5lLUvDtm5pZyAoNTIpOgogIHNlcmlhbDogODI1MDogb21hcDogRG9uJ3Qgc2tpcCBy
+ZXNvdXJjZSBmcmVlaW5nIGlmCiAgICBwbV9ydW50aW1lX3Jlc3VtZV9hbmRfZ2V0KCkgZmFpbGVk
+CiAgc2VyaWFsOiBzY2NueHA6IEltcHJvdmUgZXJyb3IgbWVzc2FnZSBpZiByZWd1bGF0b3JfZGlz
+YWJsZSgpIGZhaWxzCiAgc2VyaWFsOiA4MjUwOiBDb252ZXJ0IHRvIHBsYXRmb3JtIHJlbW92ZSBj
+YWxsYmFjayByZXR1cm5pbmcgdm9pZAogIHNlcmlhbDogYWx0ZXJhX2p0YWd1YXJ0OiBDb252ZXJ0
+IHRvIHBsYXRmb3JtIHJlbW92ZSBjYWxsYmFjayByZXR1cm5pbmcKICAgIHZvaWQKICBzZXJpYWw6
+IGFsdGVyYTogQ29udmVydCB0byBwbGF0Zm9ybSByZW1vdmUgY2FsbGJhY2sgcmV0dXJuaW5nIHZv
+aWQKICBzZXJpYWw6IGFtYmEtcGwwMTE6IENvbnZlcnQgdG8gcGxhdGZvcm0gcmVtb3ZlIGNhbGxi
+YWNrIHJldHVybmluZyB2b2lkCiAgc2VyaWFsOiBhcjkzM3g6IENvbnZlcnQgdG8gcGxhdGZvcm0g
+cmVtb3ZlIGNhbGxiYWNrIHJldHVybmluZyB2b2lkCiAgc2VyaWFsOiBhdG1lbDogQ29udmVydCB0
+byBwbGF0Zm9ybSByZW1vdmUgY2FsbGJhY2sgcmV0dXJuaW5nIHZvaWQKICBzZXJpYWw6IGJjbTYz
+eHg6IENvbnZlcnQgdG8gcGxhdGZvcm0gcmVtb3ZlIGNhbGxiYWNrIHJldHVybmluZyB2b2lkCiAg
+c2VyaWFsOiBjbHBzNzExeDogQ29udmVydCB0byBwbGF0Zm9ybSByZW1vdmUgY2FsbGJhY2sgcmV0
+dXJuaW5nIHZvaWQKICBzZXJpYWw6IGNwbTogQ29udmVydCB0byBwbGF0Zm9ybSByZW1vdmUgY2Fs
+bGJhY2sgcmV0dXJuaW5nIHZvaWQKICBzZXJpYWw6IGRpZ2ljb2xvcjogQ29udmVydCB0byBwbGF0
+Zm9ybSByZW1vdmUgY2FsbGJhY2sgcmV0dXJuaW5nIHZvaWQKICBzZXJpYWw6IGVzcDMyX2FjbTog
+Q29udmVydCB0byBwbGF0Zm9ybSByZW1vdmUgY2FsbGJhY2sgcmV0dXJuaW5nIHZvaWQKICBzZXJp
+YWw6IGVzcDMyOiBDb252ZXJ0IHRvIHBsYXRmb3JtIHJlbW92ZSBjYWxsYmFjayByZXR1cm5pbmcg
+dm9pZAogIHNlcmlhbDogZnNsX2xpbmZsZXh1YXJ0OiBDb252ZXJ0IHRvIHBsYXRmb3JtIHJlbW92
+ZSBjYWxsYmFjayByZXR1cm5pbmcKICAgIHZvaWQKICBzZXJpYWw6IGZzbF9scHVhcnQ6IENvbnZl
+cnQgdG8gcGxhdGZvcm0gcmVtb3ZlIGNhbGxiYWNrIHJldHVybmluZyB2b2lkCiAgc2VyaWFsOiBp
+bXg6IENvbnZlcnQgdG8gcGxhdGZvcm0gcmVtb3ZlIGNhbGxiYWNrIHJldHVybmluZyB2b2lkCiAg
+c2VyaWFsOiBsYW50aXE6IENvbnZlcnQgdG8gcGxhdGZvcm0gcmVtb3ZlIGNhbGxiYWNrIHJldHVy
+bmluZyB2b2lkCiAgc2VyaWFsOiBsaXRldWFydDogQ29udmVydCB0byBwbGF0Zm9ybSByZW1vdmUg
+Y2FsbGJhY2sgcmV0dXJuaW5nIHZvaWQKICBzZXJpYWw6IGxwYzMyeHhfaHM6IENvbnZlcnQgdG8g
+cGxhdGZvcm0gcmVtb3ZlIGNhbGxiYWNrIHJldHVybmluZyB2b2lkCiAgc2VyaWFsOiBtYTM1ZDE6
+IENvbnZlcnQgdG8gcGxhdGZvcm0gcmVtb3ZlIGNhbGxiYWNrIHJldHVybmluZyB2b2lkCiAgc2Vy
+aWFsOiBtY2Y6IENvbnZlcnQgdG8gcGxhdGZvcm0gcmVtb3ZlIGNhbGxiYWNrIHJldHVybmluZyB2
+b2lkCiAgc2VyaWFsOiBtZXNvbjogQ29udmVydCB0byBwbGF0Zm9ybSByZW1vdmUgY2FsbGJhY2sg
+cmV0dXJuaW5nIHZvaWQKICBzZXJpYWw6IG1pbGJlYXV0X3VzaW86IENvbnZlcnQgdG8gcGxhdGZv
+cm0gcmVtb3ZlIGNhbGxiYWNrIHJldHVybmluZwogICAgdm9pZAogIHNlcmlhbDogbXBjNTJ4eDog
+Q29udmVydCB0byBwbGF0Zm9ybSByZW1vdmUgY2FsbGJhY2sgcmV0dXJuaW5nIHZvaWQKICBzZXJp
+YWw6IG1zbTogQ29udmVydCB0byBwbGF0Zm9ybSByZW1vdmUgY2FsbGJhY2sgcmV0dXJuaW5nIHZv
+aWQKICBzZXJpYWw6IG14cy1hdWFydDogQ29udmVydCB0byBwbGF0Zm9ybSByZW1vdmUgY2FsbGJh
+Y2sgcmV0dXJuaW5nIHZvaWQKICBzZXJpYWw6IG9tYXA6IENvbnZlcnQgdG8gcGxhdGZvcm0gcmVt
+b3ZlIGNhbGxiYWNrIHJldHVybmluZyB2b2lkCiAgc2VyaWFsOiBvd2w6IENvbnZlcnQgdG8gcGxh
+dGZvcm0gcmVtb3ZlIGNhbGxiYWNrIHJldHVybmluZyB2b2lkCiAgc2VyaWFsOiBwaWMzMjogQ29u
+dmVydCB0byBwbGF0Zm9ybSByZW1vdmUgY2FsbGJhY2sgcmV0dXJuaW5nIHZvaWQKICBzZXJpYWw6
+IHFjb21fZ2VuaTogQ29udmVydCB0byBwbGF0Zm9ybSByZW1vdmUgY2FsbGJhY2sgcmV0dXJuaW5n
+IHZvaWQKICBzZXJpYWw6IHJkYTogQ29udmVydCB0byBwbGF0Zm9ybSByZW1vdmUgY2FsbGJhY2sg
+cmV0dXJuaW5nIHZvaWQKICBzZXJpYWw6IHNhMTEwMDogQ29udmVydCB0byBwbGF0Zm9ybSByZW1v
+dmUgY2FsbGJhY2sgcmV0dXJuaW5nIHZvaWQKICBzZXJpYWw6IHNhbXN1bmc6IENvbnZlcnQgdG8g
+cGxhdGZvcm0gcmVtb3ZlIGNhbGxiYWNrIHJldHVybmluZyB2b2lkCiAgc2VyaWFsOiBzY2NueHA6
+IENvbnZlcnQgdG8gcGxhdGZvcm0gcmVtb3ZlIGNhbGxiYWNrIHJldHVybmluZyB2b2lkCiAgc2Vy
+aWFsOiB0ZWdyYTogQ29udmVydCB0byBwbGF0Zm9ybSByZW1vdmUgY2FsbGJhY2sgcmV0dXJuaW5n
+IHZvaWQKICBzZXJpYWw6IHR4eDk6IENvbnZlcnQgdG8gcGxhdGZvcm0gcmVtb3ZlIGNhbGxiYWNr
+IHJldHVybmluZyB2b2lkCiAgc2VyaWFsOiBzaC1zY2k6IENvbnZlcnQgdG8gcGxhdGZvcm0gcmVt
+b3ZlIGNhbGxiYWNrIHJldHVybmluZyB2b2lkCiAgc2VyaWFsOiBzaWZpdmU6IENvbnZlcnQgdG8g
+cGxhdGZvcm0gcmVtb3ZlIGNhbGxiYWNrIHJldHVybmluZyB2b2lkCiAgc2VyaWFsOiBzcHJkOiBD
+b252ZXJ0IHRvIHBsYXRmb3JtIHJlbW92ZSBjYWxsYmFjayByZXR1cm5pbmcgdm9pZAogIHNlcmlh
+bDogc3QtYXNjOiBDb252ZXJ0IHRvIHBsYXRmb3JtIHJlbW92ZSBjYWxsYmFjayByZXR1cm5pbmcg
+dm9pZAogIHNlcmlhbDogc3RtMzI6IENvbnZlcnQgdG8gcGxhdGZvcm0gcmVtb3ZlIGNhbGxiYWNr
+IHJldHVybmluZyB2b2lkCiAgc2VyaWFsOiBzdW5odjogQ29udmVydCB0byBwbGF0Zm9ybSByZW1v
+dmUgY2FsbGJhY2sgcmV0dXJuaW5nIHZvaWQKICBzZXJpYWw6IHN1bnBsdXM6IENvbnZlcnQgdG8g
+cGxhdGZvcm0gcmVtb3ZlIGNhbGxiYWNrIHJldHVybmluZyB2b2lkCiAgc2VyaWFsOiBzdW5zYWI6
+IENvbnZlcnQgdG8gcGxhdGZvcm0gcmVtb3ZlIGNhbGxiYWNrIHJldHVybmluZyB2b2lkCiAgc2Vy
+aWFsOiBzdW5zdTogQ29udmVydCB0byBwbGF0Zm9ybSByZW1vdmUgY2FsbGJhY2sgcmV0dXJuaW5n
+IHZvaWQKICBzZXJpYWw6IHN1bnppbG9nOiBDb252ZXJ0IHRvIHBsYXRmb3JtIHJlbW92ZSBjYWxs
+YmFjayByZXR1cm5pbmcgdm9pZAogIHNlcmlhbDogdGVncmEtdGN1OiBDb252ZXJ0IHRvIHBsYXRm
+b3JtIHJlbW92ZSBjYWxsYmFjayByZXR1cm5pbmcgdm9pZAogIHNlcmlhbDogdGltYnVhcnQ6IENv
+bnZlcnQgdG8gcGxhdGZvcm0gcmVtb3ZlIGNhbGxiYWNrIHJldHVybmluZyB2b2lkCiAgc2VyaWFs
+OiB1YXJ0bGl0ZTogQ29udmVydCB0byBwbGF0Zm9ybSByZW1vdmUgY2FsbGJhY2sgcmV0dXJuaW5n
+IHZvaWQKICBzZXJpYWw6IHVjYzogQ29udmVydCB0byBwbGF0Zm9ybSByZW1vdmUgY2FsbGJhY2sg
+cmV0dXJuaW5nIHZvaWQKICBzZXJpYWw6IHhpbGlueF91YXJ0cHM6IENvbnZlcnQgdG8gcGxhdGZv
+cm0gcmVtb3ZlIGNhbGxiYWNrIHJldHVybmluZwogICAgdm9pZAoKIGRyaXZlcnMvdHR5L3Nlcmlh
+bC84MjUwLzgyNTBfYXNwZWVkX3Z1YXJ0LmMgfCAgNiArKy0tLS0KIGRyaXZlcnMvdHR5L3Nlcmlh
+bC84MjUwLzgyNTBfYmNtMjgzNWF1eC5jICAgfCAgNiArKy0tLS0KIGRyaXZlcnMvdHR5L3Nlcmlh
+bC84MjUwLzgyNTBfYmNtNzI3MS5jICAgICAgfCAgNSArKy0tLQogZHJpdmVycy90dHkvc2VyaWFs
+LzgyNTAvODI1MF9jb3JlLmMgICAgICAgICB8ICA1ICsrLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwv
+ODI1MC84MjUwX2R3LmMgICAgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwv
+ODI1MC84MjUwX2VtLmMgICAgICAgICAgIHwgIDUgKystLS0KIGRyaXZlcnMvdHR5L3NlcmlhbC84
+MjUwLzgyNTBfZnNsLmMgICAgICAgICAgfCAgNSArKy0tLQogZHJpdmVycy90dHkvc2VyaWFsLzgy
+NTAvODI1MF9pbmdlbmljLmMgICAgICB8ICA1ICsrLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwvODI1
+MC84MjUwX2lvYzMuYyAgICAgICAgIHwgIDUgKystLS0KIGRyaXZlcnMvdHR5L3NlcmlhbC84MjUw
+LzgyNTBfbHBjMTh4eC5jICAgICAgfCAgNiArKy0tLS0KIGRyaXZlcnMvdHR5L3NlcmlhbC84MjUw
+LzgyNTBfbXRrLmMgICAgICAgICAgfCAgNiArKy0tLS0KIGRyaXZlcnMvdHR5L3NlcmlhbC84MjUw
+LzgyNTBfb2YuYyAgICAgICAgICAgfCAgNSArKy0tLQogZHJpdmVycy90dHkvc2VyaWFsLzgyNTAv
+ODI1MF9vbWFwLmMgICAgICAgICB8ICA3ICsrKy0tLS0KIGRyaXZlcnMvdHR5L3NlcmlhbC84MjUw
+LzgyNTBfcHhhLmMgICAgICAgICAgfCAgNiArKy0tLS0KIGRyaXZlcnMvdHR5L3NlcmlhbC84MjUw
+LzgyNTBfdGVncmEuYyAgICAgICAgfCAgNiArKy0tLS0KIGRyaXZlcnMvdHR5L3NlcmlhbC84MjUw
+LzgyNTBfdW5pcGhpZXIuYyAgICAgfCAgNiArKy0tLS0KIGRyaXZlcnMvdHR5L3NlcmlhbC9hbHRl
+cmFfanRhZ3VhcnQuYyAgICAgICAgfCAgNiArKy0tLS0KIGRyaXZlcnMvdHR5L3NlcmlhbC9hbHRl
+cmFfdWFydC5jICAgICAgICAgICAgfCAgNiArKy0tLS0KIGRyaXZlcnMvdHR5L3NlcmlhbC9hbWJh
+LXBsMDExLmMgICAgICAgICAgICAgfCAgNSArKy0tLQogZHJpdmVycy90dHkvc2VyaWFsL2FyOTMz
+eF91YXJ0LmMgICAgICAgICAgICB8ICA2ICsrLS0tLQogZHJpdmVycy90dHkvc2VyaWFsL2F0bWVs
+X3NlcmlhbC5jICAgICAgICAgICB8ICA2ICsrLS0tLQogZHJpdmVycy90dHkvc2VyaWFsL2JjbTYz
+eHhfdWFydC5jICAgICAgICAgICB8ICA1ICsrLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwvY2xwczcx
+MXguYyAgICAgICAgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwvY3BtX3Vh
+cnQuYyAgICAgICAgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwvZGlnaWNv
+bG9yLXVzYXJ0LmMgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwvZXNwMzJf
+YWNtLmMgICAgICAgICAgICAgIHwgIDUgKystLS0KIGRyaXZlcnMvdHR5L3NlcmlhbC9lc3AzMl91
+YXJ0LmMgICAgICAgICAgICAgfCAgNiArKy0tLS0KIGRyaXZlcnMvdHR5L3NlcmlhbC9mc2xfbGlu
+ZmxleHVhcnQuYyAgICAgICAgfCAgNiArKy0tLS0KIGRyaXZlcnMvdHR5L3NlcmlhbC9mc2xfbHB1
+YXJ0LmMgICAgICAgICAgICAgfCAgNSArKy0tLQogZHJpdmVycy90dHkvc2VyaWFsL2lteC5jICAg
+ICAgICAgICAgICAgICAgICB8ICA2ICsrLS0tLQogZHJpdmVycy90dHkvc2VyaWFsL2xhbnRpcS5j
+ICAgICAgICAgICAgICAgICB8ICA2ICsrLS0tLQogZHJpdmVycy90dHkvc2VyaWFsL2xpdGV1YXJ0
+LmMgICAgICAgICAgICAgICB8ICA2ICsrLS0tLQogZHJpdmVycy90dHkvc2VyaWFsL2xwYzMyeHhf
+aHMuYyAgICAgICAgICAgICB8ICA2ICsrLS0tLQogZHJpdmVycy90dHkvc2VyaWFsL21hMzVkMV9z
+ZXJpYWwuYyAgICAgICAgICB8ICA1ICsrLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwvbWNmLmMgICAg
+ICAgICAgICAgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwvbWVzb25fdWFy
+dC5jICAgICAgICAgICAgIHwgIDggKysrLS0tLS0KIGRyaXZlcnMvdHR5L3NlcmlhbC9taWxiZWF1
+dF91c2lvLmMgICAgICAgICAgfCAgNiArKy0tLS0KIGRyaXZlcnMvdHR5L3NlcmlhbC9tcGM1Mnh4
+X3VhcnQuYyAgICAgICAgICAgfCAgNyArKy0tLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwvbXNtX3Nl
+cmlhbC5jICAgICAgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwvbXhzLWF1
+YXJ0LmMgICAgICAgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwvb21hcC1z
+ZXJpYWwuYyAgICAgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwvb3dsLXVh
+cnQuYyAgICAgICAgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwvcGljMzJf
+dWFydC5jICAgICAgICAgICAgIHwgIDcgKystLS0tLQogZHJpdmVycy90dHkvc2VyaWFsL3Fjb21f
+Z2VuaV9zZXJpYWwuYyAgICAgICB8ICA2ICsrLS0tLQogZHJpdmVycy90dHkvc2VyaWFsL3JkYS11
+YXJ0LmMgICAgICAgICAgICAgICB8ICA2ICsrLS0tLQogZHJpdmVycy90dHkvc2VyaWFsL3NhMTEw
+MC5jICAgICAgICAgICAgICAgICB8ICA2ICsrLS0tLQogZHJpdmVycy90dHkvc2VyaWFsL3NhbXN1
+bmdfdHR5LmMgICAgICAgICAgICB8ICA2ICsrLS0tLQogZHJpdmVycy90dHkvc2VyaWFsL3NjY254
+cC5jICAgICAgICAgICAgICAgICB8IDEzICsrKysrKystLS0tLS0KIGRyaXZlcnMvdHR5L3Nlcmlh
+bC9zZXJpYWwtdGVncmEuYyAgICAgICAgICAgfCAgNSArKy0tLQogZHJpdmVycy90dHkvc2VyaWFs
+L3NlcmlhbF90eHg5LmMgICAgICAgICAgICB8ICA1ICsrLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwv
+c2gtc2NpLmMgICAgICAgICAgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwv
+c2lmaXZlLmMgICAgICAgICAgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwv
+c3ByZF9zZXJpYWwuYyAgICAgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwv
+c3QtYXNjLmMgICAgICAgICAgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwv
+c3RtMzItdXNhcnQuYyAgICAgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwv
+c3VuaHYuYyAgICAgICAgICAgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwv
+c3VucGx1cy11YXJ0LmMgICAgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwv
+c3Vuc2FiLmMgICAgICAgICAgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwv
+c3Vuc3UuYyAgICAgICAgICAgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwv
+c3Vuemlsb2cuYyAgICAgICAgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwv
+dGVncmEtdGN1LmMgICAgICAgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwv
+dGltYnVhcnQuYyAgICAgICAgICAgICAgIHwgIDYgKystLS0tCiBkcml2ZXJzL3R0eS9zZXJpYWwv
+dWFydGxpdGUuYyAgICAgICAgICAgICAgIHwgIDUgKystLS0KIGRyaXZlcnMvdHR5L3NlcmlhbC91
+Y2NfdWFydC5jICAgICAgICAgICAgICAgfCAgNiArKy0tLS0KIGRyaXZlcnMvdHR5L3NlcmlhbC94
+aWxpbnhfdWFydHBzLmMgICAgICAgICAgfCAgNSArKy0tLQogNjUgZmlsZXMgY2hhbmdlZCwgMTM3
+IGluc2VydGlvbnMoKyksIDI0OSBkZWxldGlvbnMoLSkKCgpiYXNlLWNvbW1pdDogODcyOGMxNDEy
+OWRmN2E2ZTI5MTg4YTJlNzM3YjQ3NzRmYjIwMDk1MwotLSAKMi40Mi4wCgoKX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
+aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
+ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
