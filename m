@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B28FC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Nov 2023 03:37:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2080C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Nov 2023 03:37:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yPAlDk7FU/tlNAihlZr3l5gBf0Z7XZl6JnjjE0nLcvw=; b=yfxwaXb4h3ZrfY
-	CRRUe5HpERIYgQgnTwPNjkTKmaKBXlqy5F6blg2SdzUdKg4zoSsTikx5VjKVxPJoH8JlejVuhiDzI
-	TrBrcPR9ZRYvPYdHsUdbtxZwGbBH5yh4aXN2f0tLhdAv/VxDtfaTVnyjdYY5LouFNCSYavkkGw3O0
-	I7KeDgOOR28ontG7m6COkOdZL9JG8ko0SQvIcCKHYerwEZS73eXxeHw8+QMlxOPrI4/aJ9UQfAmMx
-	j9ZFTI2xa1jjKFm/NbD6Sa5URf+GBovE14/hR5K8Izi7hOy0jjZl62FJcX0eUPY8uqmztbNxlJ2gd
-	K2ceO9zrF+kC7ndXHlww==;
+	List-Owner; bh=YB5AdD6nN7t0HBXoBs12PY6qoUzpb2zp3Z+hRc5dU9E=; b=aKlu7z+dyHCcYX
+	ecx/zr8ElATSghG5jxNtezODreCABfXNlHHRi6vRtYdBCRzLgd3m7LYP/uxuqwvJOYTvRMm0JheKq
+	dK6j707dglU98A3kp1CGkQROFNndIgtLKMkvxA1Jv6U8U3NghcatzNTCMsA0rU2udbhn7kobWJipy
+	5YPwd/eZlUw1nJovGyOTeioKgh7btMaaL8AJE18K8A5MpVMasRf2v1rnd545zhNk5jgSjCMR0fN9x
+	jJqFZwDUcG5O6kOxcjK7Gp5RTjT7Eja7KtTsNSjjLwwHId4/2JSQul+X9FlJMrIG3SeR+tiSsR17q
+	XKVBDNp+tZQ3ZVefD0aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1IKL-007nYV-0R;
-	Fri, 10 Nov 2023 03:37:01 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1r1IKo-007nfL-1c;
+	Fri, 10 Nov 2023 03:37:30 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1IKH-007nXX-2w
+	id 1r1IKj-007ndr-0Y
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Nov 2023 03:36:59 +0000
+	Fri, 10 Nov 2023 03:37:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1699587417;
+	s=mimecast20190719; t=1699587444;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=HClD7CV8xk/CCQ0atS0PXuNYo2X0BsEeurSAtsmTxpQ=;
-	b=RbJkcdoqPlFXyb9tYaaD/NTdmuF+NjKk1xye4dA88Rp08y/AKUf+cNpSrULbBlXHXPeBlF
-	MdWcNobaSLoxIIXPEIv+p3kRz5GvE8h1cCZZ6WzbGpjLxYupoPY4THF/ZqRWRBMg/EOhkt
-	XMs4sgRxGsKfrEkjCmrwERmBW2Nvg4U=
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com
- [209.85.215.199]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=pROeszy9ePncz4nZyjZpb065/8N1ucMk0OODbP+hams=;
+	b=b5345Xd4CfAHxovucD90DpRX2u+HjGodmOo2tM1PmGl9pbs2YS6YMFg3bqB0yoWOn1BbbP
+	kSRaQ7GbD/VFxoBBbMZmqlPSaliyNc6mf939PPMsN/5At0ps8De3tzo/lvpMo0Zeyv3N1Z
+	QtstkZ2hLbue4IfyLhwRBcqnee8hqNw=
+Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com
+ [209.85.167.197]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-570-sF2Iy8JHMDK7nulkQtJgIg-1; Thu, 09 Nov 2023 22:36:55 -0500
-X-MC-Unique: sF2Iy8JHMDK7nulkQtJgIg-1
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-5bdb39cd60dso5068a12.1
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Nov 2023 19:36:55 -0800 (PST)
+ us-mta-689-4icyUY2WOF-6rxGUFkwayA-1; Thu, 09 Nov 2023 22:37:23 -0500
+X-MC-Unique: 4icyUY2WOF-6rxGUFkwayA-1
+Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-3b3ecd1be0bso67904b6e.0
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Nov 2023 19:37:23 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699587414; x=1700192214;
+        d=1e100.net; s=20230601; t=1699587442; x=1700192242;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HClD7CV8xk/CCQ0atS0PXuNYo2X0BsEeurSAtsmTxpQ=;
-        b=rCJ7t/7BHLLkZ7zpn4cRxrx5RuBP4sw5cUbF3PSb59RCnr2MAhGpBJE/ERfQ4tLLjk
-         wgYSG/XZ5v8CVONGidCZ1EDxMri2OeluQfS9ddeOubrz6v6gCKPfaWdParPX/UD4Ex5Z
-         o1Skw1vEeZ9NOs3vQGFPaO+BEBa+X9XONcFJ2Gf+M0ZhJ5OChvd49Lusc6mok7IKHefk
-         0rjgTjhr/2sqSwyKCdPkBBk+aj++aD8eNGnqc+UMBnN4IkdTMcDsi/TVpsxTrw6TAEcU
-         lYIs5JOIL6c5J4jZKJA3dBs1r5PbGHtFWiBqm7Oo0Cf5wfKJ6ouPDNwVV0FfxwdXtE9g
-         tLvg==
-X-Gm-Message-State: AOJu0Yyj/8Qi1djz4pkFYcg0LUnQ/h5PAeRUPx3G8tGp4BqUzAMczLsZ
-	KGBpUPOOA4UNIaFhmmywPznozpnq6EMAvHMTqe363Is58azEcE6hCDY5SVFjIcMe4vltBt5zdAN
-	m0g5owaUzrO2dEz7fAGI0VQSRp9tb
-X-Received: by 2002:a05:6a20:7d9b:b0:183:e7bb:591b with SMTP id v27-20020a056a207d9b00b00183e7bb591bmr7377787pzj.3.1699587414399;
-        Thu, 09 Nov 2023 19:36:54 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEtZaVuVapXbb3y/agfJhHkenHQPRDZ+pGnicgr3kUFB4Kcn/5cEWlfctiRqhGPrLHUlDRuVQ==
-X-Received: by 2002:a05:6a20:7d9b:b0:183:e7bb:591b with SMTP id v27-20020a056a207d9b00b00183e7bb591bmr7377759pzj.3.1699587413961;
-        Thu, 09 Nov 2023 19:36:53 -0800 (PST)
+        bh=pROeszy9ePncz4nZyjZpb065/8N1ucMk0OODbP+hams=;
+        b=u5VqVUE4cQn0EMbIGql/xhCoWMmB4pkf+q+UVx9hYFK577j3y1At4T/4qjy7hGTFEh
+         KAGNeLfhkTIhn8dXTAFOA9zkYFEAmEOnag8C0gSzhuzB5y3FTH8nVQYGRxs0Cfpf1Rve
+         Xxuuuamvcsy2QN/cHYEHl6ArgeyxBlHGcS699Ff83txJn2oz8tii3BtvRSl+hRVA5tXR
+         OMNvambo3Vv4dKcvhbIkvdWixAYDMh6wlg8UQK9pp8ONG217Fz5/8O62pWPtEie2n/l9
+         VBPeydS8syIAjyvoe/iQF3G/A+H28pLFeloeQcekkBb9dbrPTvoSduddRpCI4RtteFTD
+         9xhg==
+X-Gm-Message-State: AOJu0YxEoQCIUBRIKWP4BAJyRFASvCuEnlHRrEQdvREfHzleQi5z3xBS
+	0IcEGaS3rY5wSRPBOib+p6+B6820Leni3ZHWhDE4AEniehShCbVbbIGmkYqlz+bLXRpHbds/emk
+	1aPV7nAeGbeeFJYjn9y7LG+CLjiCr
+X-Received: by 2002:a05:6808:199c:b0:3a9:e8e2:579d with SMTP id bj28-20020a056808199c00b003a9e8e2579dmr8276263oib.2.1699587442463;
+        Thu, 09 Nov 2023 19:37:22 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFPdXOyaUAzV6aldemEymWFIQu5uK8SS6EoZEeBtta4Ue7SEB3JH44cFaCIyyqf1iZkLKsTPg==
+X-Received: by 2002:a05:6808:199c:b0:3a9:e8e2:579d with SMTP id bj28-20020a056808199c00b003a9e8e2579dmr8276228oib.2.1699587442206;
+        Thu, 09 Nov 2023 19:37:22 -0800 (PST)
 Received: from [10.66.61.39] ([43.228.180.230])
-        by smtp.gmail.com with ESMTPSA id iy18-20020a170903131200b001cc2bc10510sm4267420plb.128.2023.11.09.19.36.48
+        by smtp.gmail.com with ESMTPSA id e8-20020a63d948000000b005a9b20408a7sm5370547pgj.23.2023.11.09.19.37.17
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 09 Nov 2023 19:36:53 -0800 (PST)
-Message-ID: <7e7f37c9-c364-7749-c700-8bc29ac0c5d1@redhat.com>
-Date: Fri, 10 Nov 2023 11:36:47 +0800
+        Thu, 09 Nov 2023 19:37:21 -0800 (PST)
+Message-ID: <fd78bb81-1f83-13a4-ec37-3fe0cd040ec0@redhat.com>
+Date: Fri, 10 Nov 2023 11:37:16 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.15.1
-Subject: Re: [PATCH RFC 13/22] arm64: setup: Switch over to
- GENERIC_CPU_DEVICES using arch_register_cpu()
+Subject: Re: [PATCH RFC 14/22] arm64: convert to arch_cpu_is_hotpluggable()
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
  linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
  linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
@@ -87,15 +86,15 @@ Cc: Salil Mehta <salil.mehta@huawei.com>,
  justin.he@arm.com, James Morse <james.morse@arm.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
 References: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
- <E1r0JLl-00CTxk-7O@rmk-PC.armlinux.org.uk>
+ <E1r0JLq-00CTxq-CF@rmk-PC.armlinux.org.uk>
 From: Shaoqin Huang <shahuang@redhat.com>
-In-Reply-To: <E1r0JLl-00CTxk-7O@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1r0JLq-00CTxq-CF@rmk-PC.armlinux.org.uk>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231109_193658_018591_E4041B1C 
-X-CRM114-Status: GOOD (  24.40  )
+X-CRM114-CacheID: sfid-20231109_193725_276903_C131ACC3 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,94 +114,35 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 On 11/7/23 18:30, Russell King (Oracle) wrote:
-> From: James Morse <james.morse@arm.com>
+> Convert arm64 to use the arch_cpu_is_hotpluggable() helper rather than
+> arch_register_cpu().
 > 
-> To allow ACPI's _STA value to hide CPUs that are present, but not
-> available to online right now due to VMM or firmware policy, the
-> register_cpu() call needs to be made by the ACPI machinery when ACPI
-> is in use. This allows it to hide CPUs that are unavailable from sysfs.
-> 
-> Switching to GENERIC_CPU_DEVICES is an intermediate step to allow all
-> five ACPI architectures to be modified at once.
-> 
-> Switch over to GENERIC_CPU_DEVICES, and provide an arch_register_cpu()
-> that populates the hotpluggable flag. arch_register_cpu() is also the
-> interface the ACPI machinery expects.
-> 
-> The struct cpu in struct cpuinfo_arm64 is never used directly, remove
-> it to use the one GENERIC_CPU_DEVICES provides.
-> 
-> This changes the CPUs visible in sysfs from possible to present, but
-> on arm64 smp_prepare_cpus() ensures these are the same.
-> 
-> This patch also has the effect of moving the registration of CPUs from
-> subsys to driver core initialisation, prior to any initcalls running.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
 > ---
-> Changes since RFC v2:
->   * Add note about initialisation order change.
-> ---
->   arch/arm64/Kconfig           |  1 +
->   arch/arm64/include/asm/cpu.h |  1 -
->   arch/arm64/kernel/setup.c    | 13 ++++---------
->   3 files changed, 5 insertions(+), 10 deletions(-)
+>   arch/arm64/kernel/setup.c | 8 ++------
+>   1 file changed, 2 insertions(+), 6 deletions(-)
 > 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 7b071a00425d..84bce830e365 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -132,6 +132,7 @@ config ARM64
->   	select GENERIC_ARCH_TOPOLOGY
->   	select GENERIC_CLOCKEVENTS_BROADCAST
->   	select GENERIC_CPU_AUTOPROBE
-> +	select GENERIC_CPU_DEVICES
->   	select GENERIC_CPU_VULNERABILITIES
->   	select GENERIC_EARLY_IOREMAP
->   	select GENERIC_IDLE_POLL_SETUP
-> diff --git a/arch/arm64/include/asm/cpu.h b/arch/arm64/include/asm/cpu.h
-> index f3034099fd95..b1e43f56ee46 100644
-> --- a/arch/arm64/include/asm/cpu.h
-> +++ b/arch/arm64/include/asm/cpu.h
-> @@ -38,7 +38,6 @@ struct cpuinfo_32bit {
->   };
->   
->   struct cpuinfo_arm64 {
-> -	struct cpu	cpu;
->   	struct kobject	kobj;
->   	u64		reg_ctr;
->   	u64		reg_cntfrq;
 > diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
-> index 417a8a86b2db..165bd2c0dd5a 100644
+> index 165bd2c0dd5a..42c690bb2d60 100644
 > --- a/arch/arm64/kernel/setup.c
 > +++ b/arch/arm64/kernel/setup.c
-> @@ -402,19 +402,14 @@ static inline bool cpu_can_disable(unsigned int cpu)
+> @@ -402,13 +402,9 @@ static inline bool cpu_can_disable(unsigned int cpu)
 >   	return false;
 >   }
 >   
-> -static int __init topology_init(void)
-> +int arch_register_cpu(int num)
+> -int arch_register_cpu(int num)
+> +bool arch_cpu_is_hotpluggable(int num)
 >   {
-> -	int i;
-> +	struct cpu *cpu = &per_cpu(cpu_devices, num);
->   
-> -	for_each_possible_cpu(i) {
-> -		struct cpu *cpu = &per_cpu(cpu_data.cpu, i);
-> -		cpu->hotpluggable = cpu_can_disable(i);
-> -		register_cpu(cpu, i);
-> -	}
-> +	cpu->hotpluggable = cpu_can_disable(num);
->   
-> -	return 0;
-> +	return register_cpu(cpu, num);
+> -	struct cpu *cpu = &per_cpu(cpu_devices, num);
+> -
+> -	cpu->hotpluggable = cpu_can_disable(num);
+> -
+> -	return register_cpu(cpu, num);
+> +	return cpu_can_disable(num);
 >   }
-> -subsys_initcall(topology_init);
 >   
 >   static void dump_kernel_offset(void)
->   {
 
 -- 
 Shaoqin
