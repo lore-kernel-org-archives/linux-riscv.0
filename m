@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88DD1C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Nov 2023 14:07:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D45C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Nov 2023 14:08:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Cfe1qjWd9rKCrm4qzKXFkQomQNvFmSrCJ3qTq5bzzMc=; b=JhqIT0PkCZv5PR
-	E6SfQqFuEtvXwgktFCNYTjGpjYWWUANNa2opJIwhca33n5Y3X+xhOVS6sBnCgbPLpJYxfekmfvZnP
-	H3efrKY3XL/xoV9Q2tjA7FsDR+cTmtBB7CmnyPOnXsaVJ8JxmXkqxNkwZi992eqsR+TCpEPzvl4oY
-	Z8eyX573J9MTdUVBh8KDP4VfkLqPZsSYEWmaCOAwLGHmaT+UVr/zp3PIAX7vjdDyFMo5vhnXBuZtC
-	y6HehRfSTDBE79heIr57P6kuTsb5YXfXaKw9JrdPpyD3CC3SNdyYO3e1cJ7UkNCSwchMTwfmrC3vA
-	lZEMKYXerKHIon7xbPjw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SLpQtCn7WDMSqBMFLxWPdQTuD8XB4Zcnl+8RtrRSDh8=; b=EiUN6YIn9uNH3f
+	Xk3L+C25+iPYie+LJApsT5Rf/7RGtzRQTxjeIRnvPGkcUIJBxWsnPdlkqqI27gvEa8qQep9Egy+IA
+	ptwCLmXTWd2JFRkiuy/9GX+803VIUxnBPWiy4KCfpTrZGQG4E5hD4AubK6m1HcsLQ/Yo6CfpvJiiI
+	M94X6FMPlEbbkOrCLsKedi6/ihoFFOUcWpbZxdKxvvwy8rgeu5jix9KcPH1Q5tuXtc/HJ5uawoSob
+	r33My4EuIjfk/K6hrz9JJfdWiD1ObcbuJRnldv/Si+d3xUBJfgFsi5S7Wi4B+hLctv0tTaKh27ugh
+	VQyRQ6i95TtR9TwsgIUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1SAS-008tbU-2k;
-	Fri, 10 Nov 2023 14:07:28 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1r1SBT-008tgl-09;
+	Fri, 10 Nov 2023 14:08:31 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1SAQ-008tan-0b
+	id 1r1SBP-008tfp-2t
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Nov 2023 14:07:27 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-40a46ea95f0so4445025e9.2
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Nov 2023 06:07:24 -0800 (PST)
+	Fri, 10 Nov 2023 14:08:29 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-50970c2115eso2768163e87.1
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Nov 2023 06:08:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1699625243; x=1700230043; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=8Lab8I/AjLwx8QNQ8rr3txbgHn2fsKjkqhEzna/zmzw=;
-        b=USdzxBoaJz64wyQfbj+Dms0pznq+jBOsuna/lqeCzqezvk01GtH+3I+Y96TiuzIWrJ
-         GxwFC3uITYnTJ0Yu9ClnTvEfpi6CMzjYqMqSbmZHFk9wGNoFRrGLFQwG6G4IMs9cn2oH
-         A1QyMznzyWaYNXXqW7KleHtlQVDYxtit5D1qbXtCL5KJ428kMTJgOgysnQu45HiUtBB9
-         hmXGMbh5KQ0iFa92ZqECG920etquJCmaj7HuG7oZKNSezw1Hdo/5C6PLATYBjklfKwzJ
-         w594Oll5b19r4qOvs4RfBH3wj1teumizzAMYEBvrAO5DtNFJsNnOJeSruLOK7enXMxDf
-         +0Ww==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1699625304; x=1700230104; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2AMKJOgOBU+36iIxGMD9Trqw8IVdjZaTyhAA3F26Egw=;
+        b=mPUc8i/tViO9SOL4X3xmKRuoEENxH04WAr08fTCikATCChm+f8ydfeoqwTFDmGuyRz
+         xdr1ABdspHUXQVi0AuQBpRh2w+LXC6MeE+p6a+UdStcO9fi5zvtbTbjgEBZzFbyEYdWm
+         yN7H/Aa6S9UUcK09VOTeM0zDJ+GuNf8lwtYlqvBrF76dQyZGHGuZEQ72ckeO+WrL0Yee
+         bIao2ygQJKjT7s3A0QYwzv3RaDvOdeNvSt1ZhMqSvVYmTYD4kTtOAcugfPLLCA1juhMr
+         rwnAcvS6jXCz66NOuDEKB/9ZOfHj8S2HLwvC8inHC7DmlrSUPiEqMAthdCiriDxDYfis
+         VZig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699625243; x=1700230043;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=8Lab8I/AjLwx8QNQ8rr3txbgHn2fsKjkqhEzna/zmzw=;
-        b=CiYqtnGSWnww9h9/NlbON3yucxVjCBfzfc/aJ2qO+aXiU6r56ONCpg86TE1V3ioOA7
-         qTgriB5UCsoSuKfHuETAa+HOKk8SA9+OHsg09WRWJVOH9YUCeMW4m8WKB+IoZ/UW1zg2
-         6+ft2EnJl86C7vv9uszV51mTJ/qhCu6It12WMQUTQmMR6s078+RYZoReYqxO0zSHgxaJ
-         HDoUnS/oRrRWlIzUyA/yJNVdUXZv1ZwWFYH2tx6l4qdiIJdNkdPzDHe6q5d2Sw4PMTeo
-         f0h6b8PC2WmSEbaa/LYvPReMCaGpzW8VjjWm9MYuKytIAADcj+AOjHsAM9N9rzbu6Jhd
-         /vxw==
-X-Gm-Message-State: AOJu0Yy3WVgPDmtPfUscPXnQcvF2tbZ5FmEemXIbODKbHo1GVSGBbAUl
-	WHB60HxzzQIQb/vnNzTQPOEfIQ==
-X-Google-Smtp-Source: AGHT+IG/nzRUsjO/+F11wysLbEQoEvuhHFDBxf/OGj/AjOAzkEpq6agysQ71COSHFWk4cO26ym7ZUg==
-X-Received: by 2002:a05:6000:18a1:b0:32f:bd90:c22 with SMTP id b1-20020a05600018a100b0032fbd900c22mr6532442wri.62.1699625243298;
-        Fri, 10 Nov 2023 06:07:23 -0800 (PST)
+        d=1e100.net; s=20230601; t=1699625304; x=1700230104;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2AMKJOgOBU+36iIxGMD9Trqw8IVdjZaTyhAA3F26Egw=;
+        b=OYqftgsTyGI1WyMtqh4coLmjBN5Uz8/k5n+zl/FlRu+4PQe8L+JEXZvNbPSqOkqXVd
+         CTLxH8mOp9WCKgiz4WyRhK4KOQmZpwitA7q0O1MRVfrGiCDu9/+tQ8H9emYBplnt5AtA
+         bn221P330lRmpnv0/BRiZ789okXsoLJU8TSp6mfUJzcA5hP9se0oI6cFASMVC4dMQHvC
+         HDVHi8y2m5mhWljH3NdlvVrP6nSyY3tsVhuok6CaMG39MWdTHNCgeGxP4uII8NuVCffI
+         OXJiHACJ4UW/jVXF0/ZhwW/sojMEKSPlcTnGm0dPMLi/3hNGMQ5+oXElX98CVJJGtqAi
+         4lNA==
+X-Gm-Message-State: AOJu0Yw9oVpkOJN+VuFCBlr0PYs3xdlpX+E0Kro6DBLRnOCHfceZwMHi
+	p4hhgjozk24M73ePFiR3nqAG6w==
+X-Google-Smtp-Source: AGHT+IEGn96XLIR0ZFAsjYB2eJfL/m69l1crDYV4Ee9Qc9cnFj8KCnXUpx20enm/StvHsssXdR1xaw==
+X-Received: by 2002:ac2:5209:0:b0:503:1783:d5a9 with SMTP id a9-20020ac25209000000b005031783d5a9mr3895555lfl.3.1699625304483;
+        Fri, 10 Nov 2023 06:08:24 -0800 (PST)
 Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id l10-20020a5d560a000000b0032f7865a4c7sm1983318wrv.21.2023.11.10.06.07.22
+        by smtp.gmail.com with ESMTPSA id t18-20020a05600c451200b004076f522058sm5366438wmo.0.2023.11.10.06.08.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Nov 2023 06:07:22 -0800 (PST)
+        Fri, 10 Nov 2023 06:08:24 -0800 (PST)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -81,14 +82,16 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-arch@vger.kernel.org,
 	linux-mm@kvack.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH 0/2] riscv: Enable percpu page first chunk allocator
-Date: Fri, 10 Nov 2023 15:07:19 +0100
-Message-Id: <20231110140721.114235-1-alexghiti@rivosinc.com>
+Subject: [PATCH 1/2] mm: Introduce flush_cache_vmap_early() and its riscv implementation
+Date: Fri, 10 Nov 2023 15:07:20 +0100
+Message-Id: <20231110140721.114235-2-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20231110140721.114235-1-alexghiti@rivosinc.com>
+References: <20231110140721.114235-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231110_060726_578149_1105F968 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20231110_060827_934110_745A77E2 
+X-CRM114-Status: GOOD (  16.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,30 +108,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-While working with pcpu variables, I noticed that riscv did not support
-first chunk allocation in the vmalloc area which may be needed as a fallback
-in case of a sparse NUMA configuration.
+The pcpu setup when using the page allocator sets up a new vmalloc
+mapping very early in the boot process, so early that it cannot use the
+flush_cache_vmap() function which may depend on structures not yet
+initialized (for example in riscv, we currently send an IPI to flush
+other cpus TLB).
 
-patch 1 starts by introducing a new function flush_cache_vmap_early() which
-is needed since a new vmalloc mapping is established and directly accessed:
-on riscv, this would likely fail in case of a reordered access or if the
-uarch caches invalid entries in TLB.
+But on some architectures, we must call flush_cache_vmap(): for example,
+in riscv, some uarchs can cache invalid TLB entries so we need to flush
+the new established mapping to avoid taking an exception.
 
-patch 2 simply enables the page percpu first chunk allocator in riscv.
+So fix this by introducing a new function flush_cache_vmap_early() which
+is called right after setting the new page table entry and before
+accessing this new mapping. This new function implements a local flush
+tlb on riscv and is no-op for other architectures (same as today).
 
-Alexandre Ghiti (2):
-  mm: Introduce flush_cache_vmap_early() and its riscv implementation
-  riscv: Enable pcpu page first chunk allocator
-
- arch/riscv/Kconfig                  | 2 ++
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
  arch/riscv/include/asm/cacheflush.h | 3 ++-
  arch/riscv/include/asm/tlbflush.h   | 2 ++
- arch/riscv/mm/kasan_init.c          | 8 ++++++++
  arch/riscv/mm/tlbflush.c            | 5 +++++
  include/asm-generic/cacheflush.h    | 6 ++++++
  mm/percpu.c                         | 8 +-------
- 7 files changed, 26 insertions(+), 8 deletions(-)
+ 5 files changed, 16 insertions(+), 8 deletions(-)
 
+diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
+index 3cb53c4df27c..a129dac4521d 100644
+--- a/arch/riscv/include/asm/cacheflush.h
++++ b/arch/riscv/include/asm/cacheflush.h
+@@ -37,7 +37,8 @@ static inline void flush_dcache_page(struct page *page)
+ 	flush_icache_mm(vma->vm_mm, 0)
+ 
+ #ifdef CONFIG_64BIT
+-#define flush_cache_vmap(start, end)	flush_tlb_kernel_range(start, end)
++#define flush_cache_vmap(start, end)		flush_tlb_kernel_range(start, end)
++#define flush_cache_vmap_early(start, end)	local_flush_tlb_kernel_range(start, end)
+ #endif
+ 
+ #ifndef CONFIG_SMP
+diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+index 8f3418c5f172..f0d6328076b6 100644
+--- a/arch/riscv/include/asm/tlbflush.h
++++ b/arch/riscv/include/asm/tlbflush.h
+@@ -41,6 +41,7 @@ void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr);
+ void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 		     unsigned long end);
+ void flush_tlb_kernel_range(unsigned long start, unsigned long end);
++void local_flush_tlb_kernel_range(unsigned long start, unsigned long end);
+ #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+ #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
+ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
+@@ -64,6 +65,7 @@ static inline void flush_tlb_kernel_range(unsigned long start,
+ 	local_flush_tlb_all();
+ }
+ 
++#define local_flush_tlb_kernel_range(start, end) flush_tlb_kernel_range(start, end)
+ #define flush_tlb_mm(mm) flush_tlb_all()
+ #define flush_tlb_mm_range(mm, start, end, page_size) flush_tlb_all()
+ #endif /* !CONFIG_SMP || !CONFIG_MMU */
+diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+index e6659d7368b3..8aadc5f71c93 100644
+--- a/arch/riscv/mm/tlbflush.c
++++ b/arch/riscv/mm/tlbflush.c
+@@ -66,6 +66,11 @@ static inline void local_flush_tlb_range_asid(unsigned long start,
+ 		local_flush_tlb_range_threshold_asid(start, size, stride, asid);
+ }
+ 
++void local_flush_tlb_kernel_range(unsigned long start, unsigned long end)
++{
++	local_flush_tlb_range_asid(start, end, PAGE_SIZE, FLUSH_TLB_NO_ASID);
++}
++
+ static void __ipi_flush_tlb_all(void *info)
+ {
+ 	local_flush_tlb_all();
+diff --git a/include/asm-generic/cacheflush.h b/include/asm-generic/cacheflush.h
+index 84ec53ccc450..7ee8a179d103 100644
+--- a/include/asm-generic/cacheflush.h
++++ b/include/asm-generic/cacheflush.h
+@@ -91,6 +91,12 @@ static inline void flush_cache_vmap(unsigned long start, unsigned long end)
+ }
+ #endif
+ 
++#ifndef flush_cache_vmap_early
++static inline void flush_cache_vmap_early(unsigned long start, unsigned long end)
++{
++}
++#endif
++
+ #ifndef flush_cache_vunmap
+ static inline void flush_cache_vunmap(unsigned long start, unsigned long end)
+ {
+diff --git a/mm/percpu.c b/mm/percpu.c
+index a7665de8485f..d287cebd58ca 100644
+--- a/mm/percpu.c
++++ b/mm/percpu.c
+@@ -3306,13 +3306,7 @@ int __init pcpu_page_first_chunk(size_t reserved_size, pcpu_fc_cpu_to_node_fn_t
+ 		if (rc < 0)
+ 			panic("failed to map percpu area, err=%d\n", rc);
+ 
+-		/*
+-		 * FIXME: Archs with virtual cache should flush local
+-		 * cache for the linear mapping here - something
+-		 * equivalent to flush_cache_vmap() on the local cpu.
+-		 * flush_cache_vmap() can't be used as most supporting
+-		 * data structures are not set up yet.
+-		 */
++		flush_cache_vmap_early(unit_addr, unit_addr + ai->unit_size);
+ 
+ 		/* copy static data */
+ 		memcpy((void *)unit_addr, __per_cpu_load, ai->static_size);
 -- 
 2.39.2
 
