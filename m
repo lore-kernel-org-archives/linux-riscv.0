@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D31CC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Nov 2023 11:10:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06E22C4167B
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Nov 2023 12:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d2XdiAjqQUscddAGHyYoHmEsibWu7LAgW+klz13t8kU=; b=fJgRUBqCB7TJTN
-	usNmiiekTxSo8iRnR8ApjuE7A2y6q+176lr2KFV5SzjGM3100SR0/Vked7979AWkpKMtifwEO+/UA
-	D7+/mf5VfNCfwdaHHz6n089/dS35ZjL3iVDfCUaPZ9akA8Apzq6yHCG6llk2kPaBGkiBQ6qGf78fl
-	GXRe1a2VBfvj1xxYSAwrit6eLkhRDRsV4ISjAvUGEc6XH8InDnahTEQ7TVQFn8NNjSuPeQl7CW142
-	9EAbq+hAqyrMwpL0PBIn/XZdot53ika9AEX82OKkEzCGHj0nXwlKnO2vQ58rb8Y2xJlCndDTZdxXE
-	UHIAZJ2EqDa2jCzvGN8A==;
+	List-Owner; bh=+RhW/gIAWEb5IjX4ta27hiKt35VyzjF4yx+HVZbly/M=; b=JLXVPLYhKPM/Ww
+	NnSOy7OZez4D4ruk8ZjNLHE/kCCWlSVxX+Nt4/PK+CyvLQ0d5Fhf+HVw1qAhtBN8dGWU56+Phh966
+	sPKq0l2f3yVSfybR5yfdIY3JfPSiYRPPRdoLC7rALzAqe6SW+P+h5VrVO6zHlbG5IwGZ6/IAD/NYV
+	tAn6k89MmxjOCuJW/DKFug4Zh7EA5I3XQAhC+Zb2+CNVgoCxGW6BL60fE6/HJyzrHpJ3sg5JaAyuz
+	pbbUT/rHHxHSHDC3WYQse9O2Ic6nsQgc4KpkCK8JsTO6ppqM9s3JufIPSiSQcI0uWT23sRcp+KkKi
+	plSMxI3skRnIZxyZhFCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1PPR-008Mbz-12;
-	Fri, 10 Nov 2023 11:10:45 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1r1QYi-008dDP-2t;
+	Fri, 10 Nov 2023 12:24:24 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1PPN-008Maz-2p
+	id 1r1QYg-008dBv-10
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Nov 2023 11:10:43 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-9e4675c7a5fso307074866b.0
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Nov 2023 03:10:38 -0800 (PST)
+	Fri, 10 Nov 2023 12:24:24 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-9c53e8b7cf4so329357066b.1
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Nov 2023 04:24:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1699614637; x=1700219437; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1699619058; x=1700223858; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=a5+pLgFcuQzVB7VyT/mmdvsCQPmXOBYaF3kVg/yi6FE=;
-        b=Ls16SmwfNcwUJHCciJs2wlZL3L5xpsTdWTvw7NWZedjczGvM6nzKEeG9Hcs8eP/uhA
-         ryCFJI21+bnQk3TerEOdcrgXGc8WvV3IMBfVmFUD7Tpz7VtBKBpCRCIGZbRv3Nh0J5Do
-         oyUIwHpVzwVEEeJ+uyT86V2LGuvaNIZThWQskyVowP40/gxcbsuGG9UGS3GW3ayzV6bb
-         tePsw64/zRsJs7k0BebWdAJCjF5e0IviMwTCggY5udRGOEzv4uTprzp2kMB+VAJlrw4j
-         Hf1kSjyhKk/xzPJMVXoAfYLdF3FrOWYxdGlKlkXdYn8RFqQnKzar3fTYS1+2zGI3okSj
-         +VFQ==
+        bh=7Zsf7JEF9G2S0gCX24v8Qass1UslutuFrUMowdFCYww=;
+        b=OOkPwq65DUuB7UP5g3OsAFLXdUKCMa/Lkb0tyliMsgTSVZ05opO0ch7pUbDmd2pwfR
+         rKkinwDbo5Js6DOP1dlgt96S2ZcezK3S2xIzS4yEqDYhWHlbPv7RP8U8cShx+EG5vfxv
+         5cndMTsWIkf651ISR18n06+Zvn0VTuJ1svJtAmtQE8CAVkskyDev3GitpWk3/WxBMOSx
+         vzytpYiKP9zMsDbBhrDzDQlObmeaTdf0NkaYbmPq2HxtQ1T98LENeJ6NkOeH/+Km+d/l
+         qespqIVVigHyWPi5zk0/22KMmskD/5XmCChQPfZ5oC9BtgWRzBOpEOvOxwV9NebApuLA
+         BAsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699614637; x=1700219437;
+        d=1e100.net; s=20230601; t=1699619058; x=1700223858;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=a5+pLgFcuQzVB7VyT/mmdvsCQPmXOBYaF3kVg/yi6FE=;
-        b=xLoRHUaKRsx8JTWi4JfsyQaKKezHeI4VwK9NoKcNagjQOKNvhpRW4Y/iJqVrCfoCeT
-         YFgxBPG0wxP06SS+Y0+iVxtQCb4xJJ08GVaxJXtlcZ0ZBk3LNX6vXHkr0kg1Ivy7PA00
-         Bq+hW49A7yLmf1qBLnARFnpJ4S0uShq/CiK64CSaOp4wYfx1FNFUlXSxucYiFO3qU4YT
-         sCp5h/vVc960TFzOEOJh4HCkcpDshPBM6b3DK5lzdQaPI+toC5rj5Jv24mljPbVPBaSZ
-         ljtd8BTUFJ/8VCpOKIUCmHz1RdcW/Ny5DcGcmA2EE4tcGORMBMazFLz6sHemHO/tzO1G
-         YjYA==
-X-Gm-Message-State: AOJu0Ywmu8ndFSmdBogtvskl/NWsqPbdBmdxoVTY8UPsoIsGmXoX0ZgV
-	ZjhurTeRnv5Hg1qpRmOLrLjstg==
-X-Google-Smtp-Source: AGHT+IE+y5aZiqh+tzEhpycSmG8UkDXJ2gMeavrh9mL6aSrPqkPVStsyQfjAwVwwbTj7wfwtgcvNlw==
-X-Received: by 2002:a17:907:7fac:b0:9bf:6200:fe33 with SMTP id qk44-20020a1709077fac00b009bf6200fe33mr7651309ejc.16.1699614637414;
-        Fri, 10 Nov 2023 03:10:37 -0800 (PST)
+        bh=7Zsf7JEF9G2S0gCX24v8Qass1UslutuFrUMowdFCYww=;
+        b=ScvauCbFGzvMt+S5GHzYqDLo3DTuy/LfZRAc28QxmhS37Rtr8aZgw90hBR8L9Lq7Fb
+         x1QBk3rW92lWw+WEiETEC3/0nEdD8YpkVhOEwJRGn+NOxE/qw8WHVLn8kH1piFUiKiJH
+         9EotG3kMI4+5ZpVWWtfvDcnSTGmscJTPNGgSpBXzaLA6TO7mJ4o4aajMvtX5mmF8JDeC
+         1W1WcKGh4FKsEDCDpGAdHlI5NR6zutEzfmGgAnhbnrYogCbBXhORezfxhFL9r47lgUGI
+         SYPS/HM65rBtGIl5ATf+I6A5qQvn4UOWRQRsDE/XsjfdAvYobKo7k4suguAstoe59vHd
+         4YEA==
+X-Gm-Message-State: AOJu0YxxYgkERL6FL5+lMEslrE6y1zgn7WNQdcC1vd7Aj8rbTQDV5iw4
+	UvyxRDyco+Gqs6ONUS1Dm7RcuNfGNCls2DdZwD0=
+X-Google-Smtp-Source: AGHT+IGBMZT8jJJ3VvtocSNOjD98iBlaQYUo7YcIt8tMuslt3z+wAjxAxdGyVD/TZHDVPoWNDbrrIw==
+X-Received: by 2002:a17:907:1ca3:b0:9bf:889e:32a4 with SMTP id nb35-20020a1709071ca300b009bf889e32a4mr6701472ejc.54.1699619058496;
+        Fri, 10 Nov 2023 04:24:18 -0800 (PST)
 Received: from [192.168.1.20] ([178.197.218.126])
-        by smtp.gmail.com with ESMTPSA id r20-20020aa7cb94000000b00543597cd190sm978412edt.47.2023.11.10.03.10.35
+        by smtp.gmail.com with ESMTPSA id z15-20020a1709060acf00b0099cb0a7098dsm3876197ejf.19.2023.11.10.04.24.17
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 10 Nov 2023 03:10:36 -0800 (PST)
-Message-ID: <4cf3d481-c16d-4b1c-ab45-3ceff80b0b1b@linaro.org>
-Date: Fri, 10 Nov 2023 12:10:34 +0100
+        Fri, 10 Nov 2023 04:24:18 -0800 (PST)
+Message-ID: <afce202d-6234-4c5f-9018-facd9a56b5eb@linaro.org>
+Date: Fri, 10 Nov 2023 13:24:16 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 5/7] riscv: dts: thead: Add TH1520 mmc controllers and
- sdhci clock
+Subject: Re: [PATCH v7 1/4] dt-bindings: pwm: Add OpenCores PWM module
 Content-Language: en-US
-To: Drew Fustini <dfustini@baylibre.com>, Ulf Hansson
- <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>,
+To: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-pwm@vger.kernel.org
+Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
- Adrian Hunter <adrian.hunter@intel.com>,
+ Conor Dooley <conor+dt@kernel.org>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+ Hal Feng <hal.feng@starfivetech.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
- Conor Dooley <conor@kernel.org>
-Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20231109-th1520-mmc-v5-0-018bd039cf17@baylibre.com>
- <20231109-th1520-mmc-v5-5-018bd039cf17@baylibre.com>
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+References: <20231110062039.103339-1-william.qiu@starfivetech.com>
+ <20231110062039.103339-2-william.qiu@starfivetech.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -127,10 +127,10 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20231109-th1520-mmc-v5-5-018bd039cf17@baylibre.com>
+In-Reply-To: <20231110062039.103339-2-william.qiu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231110_031041_926495_55BCDBDC 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20231110_042422_351127_D43FF534 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,47 +147,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/11/2023 06:41, Drew Fustini wrote:
-> Add node for the SDHCI fixed clock. Add mmc0 node for the first mmc
-> controller instance which is typically connected to the eMMC device.
-> Add mmc1 node for the second mmc controller instance which is typically
-> connected to microSD slot.
+On 10/11/2023 07:20, William Qiu wrote:
+> Add documentation to describe OpenCores Pulse Width Modulation
+> controller driver.
 > 
-> Signed-off-by: Drew Fustini <dfustini@baylibre.com>
+> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
 > ---
->  arch/riscv/boot/dts/thead/th1520.dtsi | 23 +++++++++++++++++++++++
->  1 file changed, 23 insertions(+)
+>  .../bindings/pwm/opencores,pwm.yaml           | 56 +++++++++++++++++++
+>  1 file changed, 56 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
 > 
-> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-> index ff364709a6df..f5ec9326c4b8 100644
-> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
-> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-> @@ -134,6 +134,13 @@ uart_sclk: uart-sclk-clock {
->  		#clock-cells = <0>;
->  	};
->  
-> +	sdhci_clk: sdhci-clock {
-> +		compatible = "fixed-clock";
-> +		clock-frequency = <198000000>;
-> +		clock-output-names = "sdhci_clk";
-> +		#clock-cells = <0>;
-> +	};
+> diff --git a/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml b/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+> new file mode 100644
+> index 000000000000..8f776bbc1112
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+> @@ -0,0 +1,56 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pwm/opencores,pwm.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
->  	soc {
->  		compatible = "simple-bus";
->  		interrupt-parent = <&plic>;
-> @@ -292,6 +299,22 @@ dmac0: dma-controller@ffefc00000 {
->  			status = "disabled";
->  		};
->  
-> +		mmc0: mmc@ffe7080000 {
-> +			compatible = "thead,th1520-dwcmshc";
-> +			reg = <0xff 0xe7080000 0x0 0x10000>;
-> +			interrupts = <62 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&sdhci_clk>;
-> +			clock-names = "core";
+> +title: OpenCores PWM controller
+> +
+> +maintainers:
+> +  - William Qiu <william.qiu@starfivetech.com>
+> +
+> +description:
+> +  OpenCores PTC ip core contains a PWM controller. When operating in PWM mode, the PTC core
+> +  generates binary signal with user-programmable low and high periods. All PTC counters and
+> +  registers are 32-bit.
 
-You miss disable in each mmc node.
+Wrap at 80 (as Coding Style asks)
+
+> +
+> +allOf:
+> +  - $ref: pwm.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - starfive,jh7100-pwm
+> +              - starfive,jh7110-pwm
+> +          - const: opencores,pwm
+
+That's a very, very generic compatible. Are you sure, 100% sure, that
+all designs from OpenCores from now till next 100 years will be 100%
+compatible?
+
 
 Best regards,
 Krzysztof
