@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1C35C4167B
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Nov 2023 12:25:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AF67C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Nov 2023 12:27:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ddAF0XmlIt7uPQcCexA9Z2haDZQwSS3N14zm3mzmWlo=; b=tA321Bs3SDtkg+
-	zHm1/FNY/G8ksAozMV3Pm+WY3VVdNkKgIRvZ+Jui46cYPGdgiH5j6/6OB4juzq+JnUxkEhZBH0jBa
-	YL9/UCkbK4O+XBAntIBDHjckfpkyGfr0ME0aRKzqlrpEcNb3h4dClughjhUXeaZUxK/vl7eXuVhtc
-	GPf2Z9l0UrmNGxMXwz674m52mGGY1w9xdgzDUGEIKMEjB0rqJmCA+7DV8x8RUk7PPfllwfZ6n+Qu3
-	t1lYUASMKjYHcNwQBFhf+Wbm+p7uOKoo9ED62kR14yA1sVluUymkhFR2ZRztVMgVdcILbWb7qjmrK
-	QLNSEMcaSEFE/LFN9qvw==;
+	List-Owner; bh=6CRhpf906qZ3YRW7lNqMy3YTm9f8bgpe+CM8SWq9q4I=; b=z0iGacMwQrLzxw
+	PITGOektJwHSjR1zNvCZ+7iqZpPga5WX/aPRdv81Dc2mECRaNKbnk2pP7Rr3RucW1rCsPcZAILfd0
+	CEXFkTrL0MVAFQnlEr5hCQ9bI3RiJRjwhUO/5TIfX/vxpBuc7fz1PMT2ODt6/4xOArIhXirGA07HJ
+	b8wPtLMt/u3w4TU07YD5yYNNF5wAih36zFKC+z8/ip4ms9DP/bNbw65luAP4aeXkjRV9azhXKeYQy
+	K/N55fOeZBpXOMczovIHabBJAii8i3tZF6pSqtqT24D9iBQnbH9rqagGM5ncrowD/zyU7y6DBV/7k
+	WH4wQxagzUmgpqLw/vUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1QZE-008dNB-0r;
-	Fri, 10 Nov 2023 12:24:56 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1r1Qbv-008dzI-3D;
+	Fri, 10 Nov 2023 12:27:44 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1QZB-008dLm-2a
+	id 1r1Qbt-008dy2-15
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Nov 2023 12:24:54 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-9d2e7726d5bso319231166b.0
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Nov 2023 04:24:53 -0800 (PST)
+	Fri, 10 Nov 2023 12:27:42 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-40806e4106dso12173055e9.1
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Nov 2023 04:27:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1699619092; x=1700223892; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1699619259; x=1700224059; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=kSMxTW9sdJk1INNkesPXXGzPLDqsgagFo7VWqT4Pqyc=;
-        b=anE1pqvDmIEHh9a4dq5XpWESYqyes4oCFZW5JgSN2QgAwfrW26mgHrqdq6Kng2HuH1
-         ZqE93lomzGAY9ZBOCQNj0rnQY+OrXKu3i0KnV0qKVXvo3kyhuPiqP2lH28uQKSC2mjeg
-         66q7P8xDZ9LUB5TKt21W3eF7yNVb0ds/pbzo7FHkojZOOumUl1nvc7+T8IGrn6CpLe5P
-         XcUak2x0S2Leqk8VdWyww7Nejhfhtq0ZhM3x8fVC1CA7y+adVT1xP0MG/NOrN/Sx86kv
-         rQsyKdobrI60etkcvmkbxnZYkSEfqP62aYBT7Y8agoLFaQj3sQjx2aHponDH9ylWWvzW
-         CGOg==
+        bh=8EJtfoWrYibrvvyf7DDtBK1pc0WtivZ03vd9ez0zk9M=;
+        b=o9lC4lXQH8c9GRB3YVkHDhgWVS6SbSaA1J9hilgb4xMeYWi8hI5HEY+z7n2YP6g4b7
+         8aGoj8z6TcW2YCJxBYJck1bNwiMs7hmIl3BZiT5z2TFvWJcA/76FgVUzA+bVcCeyO1xw
+         wsRU9vT+gD1PGPg8j1Z/YeeX+yk9EcpKdHTCRmorMk7XsloJS3WmeZfIuUkQ4bBlEXzz
+         cYzmr0C2Cg7sqXbJYOMDzecT9Id2TPds2PQ+EANXoMFdL/Ix5t4+dUQrBjpqd3ECXS9/
+         Soyp6x6o5OCZvAIGXi3gezUYBIKkefGFstxdsrJx510u0hmGTvGlGdZn3lvCcVg5rB+u
+         diGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699619092; x=1700223892;
+        d=1e100.net; s=20230601; t=1699619259; x=1700224059;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kSMxTW9sdJk1INNkesPXXGzPLDqsgagFo7VWqT4Pqyc=;
-        b=B5igGpSsHNzWy5FYulpCAp3p2EeFoduMd3hmQPoObWIzAt/dH89W7Kq5XgP3h7DW6g
-         MFZ4UbKw9/C2fjx3Muyrxw12SmBOrDqXNMKJ7uzIRG1qfxK4T4yFWz+/k+wc9zHkqmbM
-         kXSURGBSVVpJxW6JVcBugXU3C3PcRZPMNL67hHUJMJGB++pmKR8fc+XWa0r1tWiFKG6j
-         GeyuS//y7Ws3bfGfuYU8xc8PkevZ4RqC24dMcSTDRamAd0wgd/Ox5v246uC7C1/Mrsjc
-         +KQ0m15tI99fmfLx33461SJdDPCgLCDnkOk8EMq3xwBFJjRNjQbiutuvYq9Q8B5WZATz
-         Bieg==
-X-Gm-Message-State: AOJu0YzzPVb/KvXGoSI0tsZOwpmIwm2Ey19vGI54wKF3YSqPmrxGOOJp
-	IG+hbXCp89KVMhOlSM9yXrszpg==
-X-Google-Smtp-Source: AGHT+IFXV9SgLbEufj4ibWueYQFMBtT3EW6RJNVbmMciQn9n+OCJDJW1Q20T3iKuWcXZvJ6u8YC2gQ==
-X-Received: by 2002:a17:907:3e9e:b0:9d0:51d4:4d87 with SMTP id hs30-20020a1709073e9e00b009d051d44d87mr7415872ejc.62.1699619091806;
-        Fri, 10 Nov 2023 04:24:51 -0800 (PST)
+        bh=8EJtfoWrYibrvvyf7DDtBK1pc0WtivZ03vd9ez0zk9M=;
+        b=pl2XHx8Pss3YabNCBQFcknmq9AD/2h7bmO28P9O/0Mm1eMHCHoXEOiO9nov9GXq/a4
+         +Ux6noLtQBJR7/vaoe6yCMxnOfvYwYqAX0boiTmnHvaDUmAo1LmmcH3jW6nCSKrRZXIW
+         6kvmAn7/kogQa75w/U30m25lLQaPohAtNHEejPg4u7TvcjJbE7qMuwZuUzH38WOtLHeC
+         HTM9orWbIgGaM5hg09N2sUIjBF5h/EPJpIlD3xRB8cxAx0JM2pmkWraJOA1tnB6A8Phv
+         5FB7r1zKASIH4e/mXuKjprPUWqeLmQzXGAe+878mS/0jGMw8e0OkulpL1UNW7dJ0E2/q
+         RohQ==
+X-Gm-Message-State: AOJu0Yz+USVMHnaIJwGGwPSt8S/S2yFxjQekoWqwkQUsTR1tD3Wv/pST
+	yMp+No+sVfRAOesTqLPxAIqKHA==
+X-Google-Smtp-Source: AGHT+IHhFC8+acrJ15sJ9jd+I8MBXyTvFfbwQZyiZ96JDCYY/icKa8sVEJYynTX87bbtgHzKDsC12w==
+X-Received: by 2002:a05:600c:3c85:b0:401:c7ec:b930 with SMTP id bg5-20020a05600c3c8500b00401c7ecb930mr2859919wmb.10.1699619259077;
+        Fri, 10 Nov 2023 04:27:39 -0800 (PST)
 Received: from [192.168.1.20] ([178.197.218.126])
-        by smtp.gmail.com with ESMTPSA id z15-20020a1709060acf00b0099cb0a7098dsm3876197ejf.19.2023.11.10.04.24.50
+        by smtp.gmail.com with ESMTPSA id d14-20020a05600c34ce00b00406443c8b4fsm5028154wmq.19.2023.11.10.04.27.37
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 10 Nov 2023 04:24:51 -0800 (PST)
-Message-ID: <faa1835b-4488-4e10-998d-f77ac7e396a5@linaro.org>
-Date: Fri, 10 Nov 2023 13:24:49 +0100
+        Fri, 10 Nov 2023 04:27:38 -0800 (PST)
+Message-ID: <66173ccd-4478-4622-a386-557a8d35102f@linaro.org>
+Date: Fri, 10 Nov 2023 13:27:36 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/4] dt-bindings: pwm: Add OpenCores PWM module
+Subject: Re: [PATCH v7 2/4] pwm: opencores: Add PWM driver support
 Content-Language: en-US
 To: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
@@ -81,7 +81,7 @@ Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
 References: <20231110062039.103339-1-william.qiu@starfivetech.com>
- <20231110062039.103339-2-william.qiu@starfivetech.com>
+ <20231110062039.103339-3-william.qiu@starfivetech.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -127,11 +127,10 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20231110062039.103339-2-william.qiu@starfivetech.com>
+In-Reply-To: <20231110062039.103339-3-william.qiu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231110_042453_842216_E8E19F30 
-X-CRM114-Status: UNSURE (   5.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231110_042741_399218_CECF4BE1 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,10 +148,86 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 10/11/2023 07:20, William Qiu wrote:
-> Add documentation to describe OpenCores Pulse Width Modulation
-> controller driver.
+> Add Pulse Width Modulation driver support for OpenCores.
 
-Please describe the hardware, not the driver.
+What is OpenCores? Why all your commit messages lack basic explanation
+of the hardware you are working on?
+
+> 
+
+
+> +static const struct ocores_pwm_data jh7100_pwm_data = {
+> +	.get_ch_base = starfive_jh71x0_get_ch_base,
+> +};
+> +
+> +static const struct ocores_pwm_data jh7110_pwm_data = {
+> +	.get_ch_base = starfive_jh71x0_get_ch_base,
+> +};
+> +
+> +static const struct of_device_id ocores_pwm_of_match[] = {
+> +	{ .compatible = "opencores,pwm" },
+> +	{ .compatible = "starfive,jh7100-pwm", .data = &jh7100_pwm_data},
+> +	{ .compatible = "starfive,jh7110-pwm", .data = &jh7110_pwm_data},
+
+Your bindings say something entirely else.
+
+I don't understand what is happening with this patchset.
+
+
+> +	{ /* sentinel */ }
+> +};
+
+...
+
+> +	ddata->regs = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(ddata->regs))
+> +		return dev_err_probe(dev, PTR_ERR(ddata->regs),
+> +				     "Unable to map IO resources\n");
+> +
+> +	ddata->clk = devm_clk_get(dev, NULL);
+> +	if (IS_ERR(ddata->clk))
+> +		return dev_err_probe(dev, PTR_ERR(ddata->clk),
+> +				     "Unable to get pwm's clock\n");
+> +
+> +	ret = clk_prepare_enable(ddata->clk);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Clock enable failed\n");
+
+dev_clk_get_enabled() or whatever the API is called
+
+> +
+> +	ddata->rst = devm_reset_control_get_optional_exclusive(dev, NULL);
+> +	reset_control_deassert(ddata->rst);
+> +
+> +	ddata->clk_rate = clk_get_rate(ddata->clk);
+> +	if (ddata->clk_rate <= 0)
+> +		return dev_err_probe(dev, ddata->clk_rate,
+> +				     "Unable to get clock's rate\n");
+> +
+> +	ret = devm_pwmchip_add(dev, chip);
+> +	if (ret < 0) {
+> +		dev_err_probe(dev, ret, "Could not register PWM chip\n");
+> +		clk_disable_unprepare(ddata->clk);
+> +		reset_control_assert(ddata->rst);
+
+return dev_err_probe
+
+> +	}
+> +
+> +	platform_set_drvdata(pdev, ddata);
+> +
+> +	return ret;
+> +}
+> +
+> +static void ocores_pwm_remove(struct platform_device *dev)
+> +{
+> +	struct ocores_pwm_device *ddata = platform_get_drvdata(dev);
+> +
+> +	reset_control_assert(ddata->rst);
+> +	clk_disable_unprepare(ddata->clk);
+
+You have confusing order of cleanups. It's like random, once clock then
+reset, in other place reset then clock.
 
 Best regards,
 Krzysztof
