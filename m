@@ -4,75 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8367C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Nov 2023 21:42:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70BCBC4167B
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Nov 2023 00:08:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-ID:Date
-	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=df9oYsHb2Bz61+LvgIkn+XvAVNv25QwH7aaVo1vJZwA=; b=VjTsL4yFhUlrnC
-	plXKimANfpxmiCyPS48QomSflJp3NeYnAVTNqryfHbRPsP0wcSFEog+FrtgTSQ8MiX6uycBPyjByK
-	KVYo8gc30gN6lbCY8diEpsuUihRRrHBAbEoSZrEXbx9nENX6FQLqJYTeBDZnFmYzfRxDMrmBk4kKB
-	Qol6vihKoWqARvUk6Rhbeptp+9D0iT6kbiLd9vzY2HUDu5vtLV2uA5uI0h/8IyVN4I+9h5SuQrL1E
-	BpSetmMvzrGmysRml/S9yHPy5Q90/OGcZsgGVLBl5oKn8QKm4tYv5jGmJTLDllK04oNKE2gGjrpqJ
-	6/8Ybg22Etin3nXF7/ig==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=NW8GlLX2UO4ZqvxE0TratbNP0bA6fB+QBRqcP7ad/XU=; b=rkIjjvtPocEdm/
+	YDskI714fa2y4/aQxe3IMQuL/2vlT+g3XiwZq6gV2dB/Jw7dfKCfOoSygHUhROHIk/KqcYX/z+K5p
+	X2Rcjnk05J8KohoNhk2STNA5mUbJeVYZrbCmq+QkxgJ+cDRpyfhDsgmrFObdugBPCMqCj37aABvIo
+	TKJcYzGL1zA4EAwYxUGEySpSWJM9hzzDW/F0MeRzPigtRu6KuYz3Ea1OLAzH/QpkyW9O3Atju4HMK
+	3x5KvQg/rIE1uS9ShD5D3dwovYMukfZj5dQMqibIaXyCHfgXduddoH4JjJZueONBUGOXm45PfePyt
+	VDtgEHFu2L1DpwQ7hMgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1ZGb-009U1J-2p;
-	Fri, 10 Nov 2023 21:42:17 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1r1bXX-009grm-34;
+	Sat, 11 Nov 2023 00:07:55 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1ZGU-009U0b-35
+	id 1r1bXT-009gr5-0R
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Nov 2023 21:42:13 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1cc58219376so22598215ad.1
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Nov 2023 13:42:01 -0800 (PST)
+	Sat, 11 Nov 2023 00:07:53 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-5bdf5a025c1so1952799a12.0
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Nov 2023 16:07:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1699652521; x=1700257321; darn=lists.infradead.org;
-        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:to:cc:subject:date:message-id:reply-to;
-        bh=e7ngW1LCsowvE5Rv4ISLN9pQON0Gdkso3VUKWqRYMi8=;
-        b=BK0vJdjmcLEUofWiw7LHwG/ikR6bQ/WlJPNSETgtS1/XzDXpIX/niJBbTrjQD9cXOO
-         8GGRujwCzbgXSO7Is3dzNH/U8j6LXR/D08A5t4xpQS51CFIacLVmZgpJvMvOtH4AMEix
-         uNOJC/ZJyvb57ztUcsOnWGgBxn5nIPYqZVExK5vt/RyPKbPXvJ6VsHHCo8DtlXf5/+DW
-         9eeSjCG4gGL6Br4l3VWU4J9aS7yPGx19oaC7sgF/x/palfe9+Ub7eCzUpGnGcZeZ3d4Z
-         RP2uk/K3gYiHxteM5Mm4yhHqA/SXsYEl9gkP3OibJDBG6tyvw8xQmouhyZQK18Pf0U9v
-         bz+w==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1699661268; x=1700266068; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=oZOLx6piJ84WzMT/cgtNzYXyAwxaq83dr7vI8k16AOs=;
+        b=tkknYGsjCCAuGoow12tqa6rORCHo51TRaORvnMdtBHrwxwjn0LG2GJzieR059OUXkj
+         PygO3Tm2hHsRomfSccWyKQnMePITOP53zRovq6i+12jU62xNrTm3T7IagkWsi7GXlfLU
+         1rl9wo5Jo22NQStJ2zmiCBvxQ8FMt+UZjgfemIyinAiBDkFMNRQQgVRDQe473ly5+eX9
+         zhCWOZZ7uIgLhrwQ4/QvKk6AEQ+2fkcjUVbC+/iE6Sej8bpt2dEaeQwSTng9PVb71soA
+         WF3IQvWO9Mocmd/iruefbGiJ7nkURe0zaqeYoukdniz2wai9tiTxub/3qzUcAT44X5B5
+         rAHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699652521; x=1700257321;
-        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
-         :subject:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=e7ngW1LCsowvE5Rv4ISLN9pQON0Gdkso3VUKWqRYMi8=;
-        b=q/W+dvTfi3ySWw2gV53d2h6Z6H6Rw7j1UcOSsEt1K4gD1hvoMrV2QuegbSI5ElVVQk
-         1qpDvhJKiIN70yb9kgO6IFax5X7bYhoCjM7N3j4WOIGxek9r5JRILez+oJyJu6+hHoBz
-         e7x/ZuZsvCJQTnxd/lVZkp9+H7eeJiGUz7N1MP2mH/CC29EsWh01ooUIpGzEZKdJdRXt
-         hl38iNjiq1GP84OR8sAx1lr+LYrXazKS6thwWefep48fUmUDX3+xzs1qP/j25n8HYWq0
-         boiXLqPLuCks6UlcfYTakjYu/JetOvPZ6W2Dw7W+fivwIiMICA3rKmsyRh/uiSDsJHli
-         Osfw==
-X-Gm-Message-State: AOJu0YxT2j5KCLs6bO/E9jt1S7gmiCu+QjkZi0x0zOaj0dWFsCGG4NcA
-	D8/qNXF3Ay/jKtDLg0pp4rWDAsJ7k6IoH1WN8zQ=
-X-Google-Smtp-Source: AGHT+IF8MG8BiNXFCNKCdqPYdVGlMaMvaFvnL2dUjSE2YEsRSxASqqj91G912Jg5PpGZdpAhYWn4HA==
-X-Received: by 2002:a17:902:d70c:b0:1cc:5549:aabb with SMTP id w12-20020a170902d70c00b001cc5549aabbmr617128ply.30.1699652520512;
-        Fri, 10 Nov 2023 13:42:00 -0800 (PST)
-Received: from localhost ([12.44.203.122])
-        by smtp.gmail.com with ESMTPSA id n23-20020a170902969700b001c74718f2f3sm103666plp.119.2023.11.10.13.41.59
+        d=1e100.net; s=20230601; t=1699661268; x=1700266068;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=oZOLx6piJ84WzMT/cgtNzYXyAwxaq83dr7vI8k16AOs=;
+        b=GrTnyByvPnuAnS30P6w7C0fMKfdReDZqrPL7jsU4FhETgHwOEMLLRxr3h+l6YJUuUL
+         gLM2/WNG7XoIUWYmrBGW5tXj3KjqQVgpzU9rbN62dDPx5Zx36Q8GhC+Wpq3KROYY/bpn
+         da/YXmnJOShdU0ImchOGD5x+hieJLngdyNp7YSfz1/AjW5b4ANaMDIUQOHn/+GLxXSYl
+         Xzi9jfNLh1U1dHv2YcjIhnnpJ2U+8F3f0VbmjioHCKLWGHTbeSMwZOBjmlNGXUIRFfs4
+         EMo91hVjaMHhVsbHmmCDrXVOSfrBkYkOzoZuPW+Dwq1KO57M3KkB98Gn71OODtyjD9Qr
+         XUGA==
+X-Gm-Message-State: AOJu0YzPX7lpxt18VeauCnuP+XyZRFGmEpBjFgUSohDPBwSh0CliF5kl
+	EF1ZznyiCNqNtrhqLtHJvZpiHw==
+X-Google-Smtp-Source: AGHT+IEf3RnQ6vghHFIDkcaI3xfo22n0ICD/Y7dXSaL4pgL+HjLTqobf8F4Ab5nqLI350QpkYuW/Ow==
+X-Received: by 2002:a05:6a20:daa3:b0:14e:a1f0:a8ea with SMTP id iy35-20020a056a20daa300b0014ea1f0a8eamr792191pzb.3.1699661267932;
+        Fri, 10 Nov 2023 16:07:47 -0800 (PST)
+Received: from x1 ([2601:1c2:1800:f680:e564:eb78:dbd8:6618])
+        by smtp.gmail.com with ESMTPSA id p47-20020a056a0026ef00b00692754580f0sm272439pfw.187.2023.11.10.16.07.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Nov 2023 13:42:00 -0800 (PST)
-Subject: [PATCH] RISC-V: Remove the removed single-letter extensions
-Date: Fri, 10 Nov 2023 09:59:03 -0800
-Message-ID: <20231110175903.2631-1-palmer@rivosinc.com>
-X-Mailer: git-send-email 2.42.1
+        Fri, 10 Nov 2023 16:07:47 -0800 (PST)
+Date: Fri, 10 Nov 2023 16:07:45 -0800
+From: Drew Fustini <dfustini@baylibre.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Conor Dooley <conor@kernel.org>,
+	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v5 5/7] riscv: dts: thead: Add TH1520 mmc controllers and
+ sdhci clock
+Message-ID: <ZU7F0d+MCefRskPn@x1>
+References: <20231109-th1520-mmc-v5-0-018bd039cf17@baylibre.com>
+ <20231109-th1520-mmc-v5-5-018bd039cf17@baylibre.com>
+ <4cf3d481-c16d-4b1c-ab45-3ceff80b0b1b@linaro.org>
 MIME-Version: 1.0
-Cc: Palmer Dabbelt <palmer@rivosinc.com>
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <4cf3d481-c16d-4b1c-ab45-3ceff80b0b1b@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231110_134211_353393_A5D23F86 
-X-CRM114-Status: UNSURE (   8.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231110_160751_359619_1C39B11D 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,59 +103,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There were a few single-letter extensions that we had references to
-floating around in the kernel, but that never ended up as actual ISA
-specs and have mostly been replaced by multi-letter extensions.  This
-removes the references to those extensions.
+On Fri, Nov 10, 2023 at 12:10:34PM +0100, Krzysztof Kozlowski wrote:
+> On 10/11/2023 06:41, Drew Fustini wrote:
+> > Add node for the SDHCI fixed clock. Add mmc0 node for the first mmc
+> > controller instance which is typically connected to the eMMC device.
+> > Add mmc1 node for the second mmc controller instance which is typically
+> > connected to microSD slot.
+> > 
+> > Signed-off-by: Drew Fustini <dfustini@baylibre.com>
+> > ---
+> >  arch/riscv/boot/dts/thead/th1520.dtsi | 23 +++++++++++++++++++++++
+> >  1 file changed, 23 insertions(+)
+> > 
+> > diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+> > index ff364709a6df..f5ec9326c4b8 100644
+> > --- a/arch/riscv/boot/dts/thead/th1520.dtsi
+> > +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+> > @@ -134,6 +134,13 @@ uart_sclk: uart-sclk-clock {
+> >  		#clock-cells = <0>;
+> >  	};
+> >  
+> > +	sdhci_clk: sdhci-clock {
+> > +		compatible = "fixed-clock";
+> > +		clock-frequency = <198000000>;
+> > +		clock-output-names = "sdhci_clk";
+> > +		#clock-cells = <0>;
+> > +	};
+> > +
+> >  	soc {
+> >  		compatible = "simple-bus";
+> >  		interrupt-parent = <&plic>;
+> > @@ -292,6 +299,22 @@ dmac0: dma-controller@ffefc00000 {
+> >  			status = "disabled";
+> >  		};
+> >  
+> > +		mmc0: mmc@ffe7080000 {
+> > +			compatible = "thead,th1520-dwcmshc";
+> > +			reg = <0xff 0xe7080000 0x0 0x10000>;
+> > +			interrupts = <62 IRQ_TYPE_LEVEL_HIGH>;
+> > +			clocks = <&sdhci_clk>;
+> > +			clock-names = "core";
+> 
+> You miss disable in each mmc node.
+> 
+> Best regards,
+> Krzysztof
 
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
----
- arch/riscv/include/asm/hwcap.h | 6 ------
- arch/riscv/kernel/cpufeature.c | 4 ----
- 2 files changed, 10 deletions(-)
+Thank you for reviewing. I will add 'status = "disabled"' to each node.
 
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index fe6656af967a..d0a5804c7d78 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -14,19 +14,13 @@
- #include <uapi/asm/hwcap.h>
- 
- #define RISCV_ISA_EXT_a		('a' - 'a')
--#define RISCV_ISA_EXT_b		('b' - 'a')
- #define RISCV_ISA_EXT_c		('c' - 'a')
- #define RISCV_ISA_EXT_d		('d' - 'a')
- #define RISCV_ISA_EXT_f		('f' - 'a')
- #define RISCV_ISA_EXT_h		('h' - 'a')
- #define RISCV_ISA_EXT_i		('i' - 'a')
--#define RISCV_ISA_EXT_j		('j' - 'a')
--#define RISCV_ISA_EXT_k		('k' - 'a')
- #define RISCV_ISA_EXT_m		('m' - 'a')
--#define RISCV_ISA_EXT_p		('p' - 'a')
- #define RISCV_ISA_EXT_q		('q' - 'a')
--#define RISCV_ISA_EXT_s		('s' - 'a')
--#define RISCV_ISA_EXT_u		('u' - 'a')
- #define RISCV_ISA_EXT_v		('v' - 'a')
- 
- /*
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 7aeba01dcfd4..bb0d1f242f24 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -158,10 +158,6 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 	__RISCV_ISA_EXT_DATA(d, RISCV_ISA_EXT_d),
- 	__RISCV_ISA_EXT_DATA(q, RISCV_ISA_EXT_q),
- 	__RISCV_ISA_EXT_DATA(c, RISCV_ISA_EXT_c),
--	__RISCV_ISA_EXT_DATA(b, RISCV_ISA_EXT_b),
--	__RISCV_ISA_EXT_DATA(k, RISCV_ISA_EXT_k),
--	__RISCV_ISA_EXT_DATA(j, RISCV_ISA_EXT_j),
--	__RISCV_ISA_EXT_DATA(p, RISCV_ISA_EXT_p),
- 	__RISCV_ISA_EXT_DATA(v, RISCV_ISA_EXT_v),
- 	__RISCV_ISA_EXT_DATA(h, RISCV_ISA_EXT_h),
- 	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
--- 
-2.42.1
-
+Drew
+> 
 
 _______________________________________________
 linux-riscv mailing list
