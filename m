@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47EE2C4332F
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Nov 2023 06:18:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5D20C4332F
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Nov 2023 06:18:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wfeKG+2qVF+oPrEKz1ZaaLLfC1c2a6mIrMhMymFP9QQ=; b=V6UBJIUzOL7f/b
-	/RyTZlgCeKkmYp/dTJ2zyItxAs9cob2F7M4rhkQ9KRa58wf3i+8xQUtzNy3TVHnWLYY4mx6Auy+np
-	RX+U7+om7AuFWCMQTkGnBbZf9INKkuM881qzHPS3woJfiV+GY7o6uNbUH/7Y6ZhiIRKN02NAQcU0S
-	yVkT/0Pggo52wzYZmdaThpIUOF4+NO0SiBfxWUfDkj9FCxOjYIxHDGnt76sdRfaWG7Pis50OkvMaC
-	bVokqlSYvuSl1ifHlXLJkvKk97555ebQAAsg7aXHXUmMLMm8Pp6RaWseYzeqBBhHEXwJnkMVixXQe
-	nYW6so64ibwgJpRblRrQ==;
+	List-Owner; bh=Ve+bwgCjXjqy8xWdqYfrdwPWwbwKoetMlj00vtPQH88=; b=e3wzWYVsg+roer
+	PKlfaRawHNYAPNmixNvdZT8/i4mPZOmC/6xYby+a/U1FInpK8ay4ev1p70Gb82wUMjpizpLQroc0O
+	OBET2O09fJ6ZCEQZ0/TToFDO4TLCxTO0/kfwVv76Dcmb0S3vJZkt5bsp1r9JhjkXRf5foCSz4N4du
+	j9Y3YmEuK7EBcnd7Uup6eva3HY4ZyWhES1FSCYxRGzHSoeQaJMWxT6TQHKZKsiwNFTNROTUwlXUtN
+	NLLiusaMeG4y4EOTO30ROOH+EOKxxovwdOT7xkzL1c9M8QXGUdMP1k+tHdudV5AcNRxNCwBLfkLhR
+	g+dFIvEf9mesT/X3TluA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r23nQ-00BkgV-1K;
-	Sun, 12 Nov 2023 06:18:12 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1r23nU-00BkjQ-0I;
+	Sun, 12 Nov 2023 06:18:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r23nM-00Bkcu-26
+	id 1r23nR-00Bkh2-0l
 	for linux-riscv@lists.infradead.org;
-	Sun, 12 Nov 2023 06:18:10 +0000
+	Sun, 12 Nov 2023 06:18:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 502E7B80A2C;
-	Sun, 12 Nov 2023 06:18:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E993CC433CA;
-	Sun, 12 Nov 2023 06:18:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8635B60C1E;
+	Sun, 12 Nov 2023 06:18:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 139DCC433C8;
+	Sun, 12 Nov 2023 06:18:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699769886;
-	bh=pCbLyhlTiTCPVyjC6F0x/RIOJUl3eHTLK6u1tDMFHiQ=;
+	s=k20201202; t=1699769892;
+	bh=Se41gQju7esb4eo2kifFLRU4bWbFiAHi/+vBMhWFQy0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CbhMDVf5Ls3HY7vX7w6FISj1kn1U4VVPGZX4dsUZKDlZoIDE6gN68LYCDykSmzwq/
-	 HW0hrA9GMbmEYenBeVuylzxp0i40jlJS2sb74sRLRaQ7a28yqIyPj9pyIMqLEXwWdH
-	 womA6+yJRG46rjsiYplmtxAQnB1q+T0g11SjcvYIFwMpeVdQxIM03g9v2CFzu3QD95
-	 4kfemghrnDw8pcpdHOqG0p/JJMRLzSyTLGUTIt1gBNht3bc8n9RJ547lfMACGeRf9M
-	 0cQcGwBytXmIbT0qepXitV/1fhx0YB7aPqbEHs86kXMbtwoNMJH7ZAyUeICU2LVS3C
-	 QAYg6f/FQx6MQ==
+	b=q9FS9ARUamXXaaEY7AQz3NchiLDA2ZkD57Sll0hRZts0OLQyJeawiSN2smXN0fSE0
+	 9PCu9cIbHg9iqvXzLl0HAhBfnbf4do6AlWl+bRNTlhzz27lrJqQtK64ckOa9E4hSMK
+	 vIS/YyelQCO8j9btqRE99cEzhSJxcPhTJ7KZcb3yesHRJHsMQD3mArJ9eZS8l5puCe
+	 ab+J9RECiexXhAchKZMaZaCjwLxoOPo+ETD4GaceQQhFDVJ5aOVfz8L1cTVmhjb4pV
+	 7cC/lbI7m1gRb5qiB+sXzaBhgMXzocyyV36Ef52nSiA5IxVqlGcyxRr3ZMG8vsSlfE
+	 nPYSCj8r+4F+g==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	guoren@kernel.org,
@@ -73,16 +73,16 @@ Cc: linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Guo Ren <guoren@linux.alibaba.com>
-Subject: [RFC PATCH V2 26/38] riscv: s64ilp32: Disable KVM
-Date: Sun, 12 Nov 2023 01:15:02 -0500
-Message-Id: <20231112061514.2306187-27-guoren@kernel.org>
+Subject: [RFC PATCH V2 27/38] riscv: s64ilp32: Correct the rv64ilp32 stackframe layout
+Date: Sun, 12 Nov 2023 01:15:03 -0500
+Message-Id: <20231112061514.2306187-28-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20231112061514.2306187-1-guoren@kernel.org>
 References: <20231112061514.2306187-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231111_221808_827105_EFDACA25 
-X-CRM114-Status: UNSURE (   6.91  )
+X-CRM114-CacheID: sfid-20231111_221813_321031_E060E78C 
+X-CRM114-Status: UNSURE (   7.86  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,28 +102,67 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Disable the KVM host feature for s64ilp32 first, and let's work on this
-feature after the s64ilp32 main feature is merged.
+The callee saved fp & ra are xlen size, not long size. This patch
+corrects the layout for the struct stackframe.
+
+echo c > /proc/sysrq-trigger
+
+Before the patch:
+
+sysrq: Trigger a crash
+Kernel panic - not syncing: sysrq triggered crash
+CPU: 0 PID: 102 Comm: sh Not tainted 6.3.0-rc1-00084-g9e2ba938797e-dirty #2
+Hardware name: riscv-virtio,qemu (DT)
+Call Trace:
+---[ end Kernel panic - not syncing: sysrq triggered crash ]---
+
+After the patch:
+
+sysrq: Trigger a crash
+Kernel panic - not syncing: sysrq triggered crash
+CPU: 0 PID: 102 Comm: sh Not tainted 6.3.0-rc1-00084-g9e2ba938797e-dirty #1
+Hardware name: riscv-virtio,qemu (DT)
+Call Trace:
+[<c00050c8>] dump_backtrace+0x1e/0x26
+[<c086dcae>] show_stack+0x2e/0x3c
+[<c0878e00>] dump_stack_lvl+0x40/0x5a
+[<c0878e30>] dump_stack+0x16/0x1e
+[<c086df7c>] panic+0x10c/0x2a8
+[<c04f4c1e>] sysrq_reset_seq_param_set+0x0/0x76
+[<c04f52cc>] __handle_sysrq+0x9c/0x19c
+[<c04f5946>] write_sysrq_trigger+0x64/0x78
+[<c020c7f6>] proc_reg_write+0x4a/0xa2
+[<c01acf0a>] vfs_write+0xac/0x308
+[<c01ad2b8>] ksys_write+0x62/0xda
+[<c01ad33e>] sys_write+0xe/0x16
+[<c0879860>] do_trap_ecall_u+0xd8/0xda
+[<c00037de>] ret_from_exception+0x0/0x66
+---[ end Kernel panic - not syncing: sysrq triggered crash ]---
 
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
-Cc: Anup Patel <anup@brainfault.org>
 ---
- arch/riscv/kvm/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/include/asm/stacktrace.h | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
-index dfc237d7875b..3033fc1f7271 100644
---- a/arch/riscv/kvm/Kconfig
-+++ b/arch/riscv/kvm/Kconfig
-@@ -20,6 +20,7 @@ if VIRTUALIZATION
- config KVM
- 	tristate "Kernel-based Virtual Machine (KVM) support (EXPERIMENTAL)"
- 	depends on RISCV_SBI && MMU
-+	depends on !ARCH_RV64ILP32
- 	select HAVE_KVM_EVENTFD
- 	select HAVE_KVM_IRQCHIP
- 	select HAVE_KVM_IRQFD
+diff --git a/arch/riscv/include/asm/stacktrace.h b/arch/riscv/include/asm/stacktrace.h
+index f7e8ef2418b9..cea8aafbecca 100644
+--- a/arch/riscv/include/asm/stacktrace.h
++++ b/arch/riscv/include/asm/stacktrace.h
+@@ -8,7 +8,13 @@
+ 
+ struct stackframe {
+ 	unsigned long fp;
++#ifdef CONFIG_ARCH_RV64ILP32
++	unsigned long pad1;
++#endif
+ 	unsigned long ra;
++#ifdef CONFIG_ARCH_RV64ILP32
++	unsigned long pad2;
++#endif
+ };
+ 
+ extern void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
 -- 
 2.36.1
 
