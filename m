@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF9B9C4332F
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Nov 2023 06:17:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E76AFC4167B
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Nov 2023 06:17:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mbwl2QMNDr7S+GWE61tbLxMKzT3jleZGBgwTLMlVlP4=; b=X/kSTAAjmlxduP
-	m35+XBXUggnbuRUd0ib+7PNTN4iIRcR4A+7FsXx0RDZUC8d06mMY/h0cVyEVye7VcBQdLuX5oOxKU
-	FtLaE4jG+pL016IWWSgkUBq4ZWd4BU324h4oQEw9zEBZxazPMnt+5xc72xwmWxoE41FUqu6armDHi
-	+RuEhEX+iwat0ArO5emmj+NQM1X/MU210bQ7wZfa0pL9c0PjPAgJ0hdpjnhHuKFupJlhpHTNHzJ7I
-	m+5t9A9FZYjZDZbjsC0oYOlFy7J/A6XaXrjv/K9snHs42N4q3uJy+pKUnQpkjXr7sQtGmDx8PVtdt
-	0egNAm5NaCH326fmS9og==;
+	List-Owner; bh=ii6LyYifp8ESV4Q16A1ueeWxY3xTRCUNJNptgvClEuo=; b=FbJz18ftt9uPSG
+	zvYxRuC0vzSjPq4asrRwc/8AG+iabWkPzYaA7mCk/X3WdXX3MGHVph8JLWOHQKBHzO3xeT8ev/VN+
+	cyMRjtOFChdQiSF8pU3oephHitMsuBxHMnpiXOD9noJ9FHh8J1wNpvknB/Lmm/2oG676bZT6hYbiH
+	YOw8yqCVL4AEMWGd6cLcrNUp9g/2wgGHefPEZZdg/0YijF0BABAn9IebDWOnzLsm/la/PyMDDH+4a
+	6uDv5Vj+EDwMqoYp+p17puhAYiqfORs7xPv+kICXrH5DBVsoeE3RhXL/4V01G89zWvCHQvLgNkak0
+	9RuFQlKlIV+fn/6WzBtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r23mV-00Bjzl-00;
-	Sun, 12 Nov 2023 06:17:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1r23me-00Bk6E-30;
+	Sun, 12 Nov 2023 06:17:24 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r23mS-00BjxL-0D
+	id 1r23mb-00Bk2m-2P
 	for linux-riscv@lists.infradead.org;
-	Sun, 12 Nov 2023 06:17:13 +0000
+	Sun, 12 Nov 2023 06:17:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 894DB60C09;
+	by sin.source.kernel.org (Postfix) with ESMTP id AD153CE0E9F;
+	Sun, 12 Nov 2023 06:17:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2DD9C433D9;
 	Sun, 12 Nov 2023 06:17:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AAE4C433C9;
-	Sun, 12 Nov 2023 06:17:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699769831;
-	bh=xvz1rya1E02xCfXGsQlwgCTl+atNWzPl7o+rS0iSLkM=;
+	s=k20201202; t=1699769837;
+	bh=yJ53jomTLG+j+rzKLDFglTmPOzUq4xATJqhV03Y8NDA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fBDFivBo3T7J24ZloTMhISNIG/bND0s7vrrL2C1z8x/tqG8opLe99Kjlqlz3jI79y
-	 uhVNHaWLH1ArFXGXJEiub688pP0XTpJCHrrhV2xUf6gEw2MjHITF02A1OGHKPSvyMm
-	 gNV7Nk3ktsoNitWRPxry1/3uJKsYM9LO/fesvwLysYBUXJAdctqslxu60+Xi3YOeZG
-	 Nz4hNdgyJbdNDW+icuW/5mS5/HQq4rq8O/X2y7OsxXv5Ro6gNIRmAyXqNN58djw1sI
-	 PbAF/PpwCCzWVyeqctUo5NQ6CWFpLrSM5VNtrKLDVlU2i4CyPLVAQfVkRd+2tI6xaF
-	 ABhUyCTRybIjg==
+	b=uXWH+71BlkB0gLhz3M2X15BE4B4oEYB9gyycQqZ8+FdLYqMz3funNQkzHc0Dy9XBp
+	 8ObE/BWmXibABF2C3xM83Jafy7ZAcI0Mt/kEddZ5fp3qHw4s8Sm5JNY7WKFOnwlTHF
+	 XebaLVFboE5rnhqBdO5/ZdqxwmPOogqsgCllKNUnGJo0WlEBkq4RTDjX8YLafHMWJ5
+	 5PqFLGR5t8hI3HrTmU+l0D0GDKxB0il/JGfS2b455jexb153+6vOha/HJiAAaVRPMD
+	 JUj6goF6Ow1Gm47Z17xP/gMVRHN6sFy0NoVDBX0XwqO3xDgrIkSCjn1gSZSqBbhqhi
+	 fdcFURboW9taw==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	guoren@kernel.org,
@@ -73,16 +73,16 @@ Cc: linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Guo Ren <guoren@linux.alibaba.com>
-Subject: [RFC PATCH V2 17/38] riscv: s64ilp32: Adjust TASK_SIZE for s64ilp32 kernel
-Date: Sun, 12 Nov 2023 01:14:53 -0500
-Message-Id: <20231112061514.2306187-18-guoren@kernel.org>
+Subject: [RFC PATCH V2 18/38] riscv: s64ilp32: Add ebpf jit support
+Date: Sun, 12 Nov 2023 01:14:54 -0500
+Message-Id: <20231112061514.2306187-19-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20231112061514.2306187-1-guoren@kernel.org>
 References: <20231112061514.2306187-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231111_221712_147128_41B4A51D 
-X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-CacheID: sfid-20231111_221722_126177_2EB7BEDC 
+X-CRM114-Status: UNSURE (   8.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,38 +95,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgoKVGhlIFJWNjRJTFAzMiAz
-Mi1iaXQgTGludXgga2VybmVsIHVzZXMgdGhlIHNhbWUgdXNlcnNwYWNlIGFkZHJlc3MgcmFuZ2UK
-YXMgdGhlIDY0LWJpdCBMaW51eCBjb21wYXQgbW9kZSwgYWJvdXQgMkdCLiBUaGV5IGhhdmUgbm8g
-ZGlmZmVyZW5jZSBmcm9tCnRoZSBoYXJkd2FyZSB2aWV3LCBhbmQgYWxsIGFyZSBydW5uaW5nIElM
-UDMyIG9uIGEgNjQtYml0IElTQS4gQnV0IHRoZQpzdGFuZGFyZCAzMmlscDMyIExpbnV4IGhhcyBh
-IHNsaWdodGx5IGJpZ2dlciB1c2Vyc3BhY2UgYWRkcmVzcyBzcGFjZSwKYWJvdXQgMi40R0IuCgpT
-aWduZWQtb2ZmLWJ5OiBHdW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+ClNpZ25lZC1v
-ZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPgotLS0KIGFyY2gvcmlzY3YvaW5jbHVk
-ZS9hc20vcGd0YWJsZS5oIHwgNyArKysrKystCiAxIGZpbGUgY2hhbmdlZCwgNiBpbnNlcnRpb25z
-KCspLCAxIGRlbGV0aW9uKC0pCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9w
-Z3RhYmxlLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaAppbmRleCA3NTk3MGVl
-MmJkYTIuLmU1ZTdhOTI5OTQ5YSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9w
-Z3RhYmxlLmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmgKQEAgLTgzOSwy
-MCArODM5LDI1IEBAIHN0YXRpYyBpbmxpbmUgcHRlX3QgcHRlX3N3cF9jbGVhcl9leGNsdXNpdmUo
-cHRlX3QgcHRlKQogICogImxvYWQgYW5kIHN0b3JlIGVmZmVjdGl2ZSBhZGRyZXNzZXMsIHdoaWNo
-IGFyZSA2NGJpdHMsIG11c3QgaGF2ZSBiaXRzCiAgKiA2M+KAkzQ4IGFsbCBlcXVhbCB0byBiaXQg
-NDcsIG9yIGVsc2UgYSBwYWdlLWZhdWx0IGV4Y2VwdGlvbiB3aWxsIG9jY3VyLiIKICAqLworI2Rl
-ZmluZSBUQVNLX1NJWkVfMzIJKF9BQygweDgwMDAwMDAwLCBVTCkgLSBQQUdFX1NJWkUpCisKICNp
-ZmRlZiBDT05GSUdfNjRCSVQKICNkZWZpbmUgVEFTS19TSVpFXzY0CShQR0RJUl9TSVpFICogUFRS
-U19QRVJfUEdEIC8gMikKICNkZWZpbmUgVEFTS19TSVpFX01JTgkoUEdESVJfU0laRV9MMyAqIFBU
-UlNfUEVSX1BHRCAvIDIpCiAKICNpZmRlZiBDT05GSUdfQ09NUEFUCi0jZGVmaW5lIFRBU0tfU0la
-RV8zMgkoX0FDKDB4ODAwMDAwMDAsIFVMKSAtIFBBR0VfU0laRSkKICNkZWZpbmUgVEFTS19TSVpF
-CSh0ZXN0X3RocmVhZF9mbGFnKFRJRl8zMkJJVCkgPyBcCiAJCQkgVEFTS19TSVpFXzMyIDogVEFT
-S19TSVpFXzY0KQogI2Vsc2UKICNkZWZpbmUgVEFTS19TSVpFCVRBU0tfU0laRV82NAogI2VuZGlm
-CiAKKyNlbHNlCisjaWZkZWYgQ09ORklHX0FSQ0hfUlY2NElMUDMyCisjZGVmaW5lIFRBU0tfU0la
-RQlUQVNLX1NJWkVfMzIKICNlbHNlCiAjZGVmaW5lIFRBU0tfU0laRQlGSVhBRERSX1NUQVJUCisj
-ZW5kaWYKICNkZWZpbmUgVEFTS19TSVpFX01JTglUQVNLX1NJWkUKICNlbmRpZgogCi0tIAoyLjM2
-LjEKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Guo Ren <guoren@linux.alibaba.com>
+
+The s64ilp32 uses the rv64 ISA instruction set, not the rv32 ISA. So
+bpf_jit_comp32.c can't be used for s64ilp32, and we use bpf_jit_comp64.c
+instead. This patch makes s64ilp32 ebpf jit correct and improves the
+performance because bpf_jit_comp32.c has significant gaps in mapping
+ebpf 64-bit ISA.
+
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+---
+ arch/riscv/include/asm/extable.h | 2 +-
+ arch/riscv/net/Makefile          | 6 +++---
+ arch/riscv/net/bpf_jit_comp64.c  | 6 +++---
+ 3 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/arch/riscv/include/asm/extable.h b/arch/riscv/include/asm/extable.h
+index 3eb5c1f7bf34..7e22bb520309 100644
+--- a/arch/riscv/include/asm/extable.h
++++ b/arch/riscv/include/asm/extable.h
+@@ -38,7 +38,7 @@ bool fixup_exception(struct pt_regs *regs);
+ static inline bool fixup_exception(struct pt_regs *regs) { return false; }
+ #endif
+ 
+-#if defined(CONFIG_BPF_JIT) && defined(CONFIG_ARCH_RV64I)
++#if defined(CONFIG_BPF_JIT) && !defined(CONFIG_ARCH_RV32I)
+ bool ex_handler_bpf(const struct exception_table_entry *ex, struct pt_regs *regs);
+ #else
+ static inline bool
+diff --git a/arch/riscv/net/Makefile b/arch/riscv/net/Makefile
+index 9a1e5f0a94e5..907edce21acc 100644
+--- a/arch/riscv/net/Makefile
++++ b/arch/riscv/net/Makefile
+@@ -2,8 +2,8 @@
+ 
+ obj-$(CONFIG_BPF_JIT) += bpf_jit_core.o
+ 
+-ifeq ($(CONFIG_ARCH_RV64I),y)
+-	obj-$(CONFIG_BPF_JIT) += bpf_jit_comp64.o
+-else
++ifeq ($(CONFIG_ARCH_RV32I),y)
+ 	obj-$(CONFIG_BPF_JIT) += bpf_jit_comp32.o
++else
++	obj-$(CONFIG_BPF_JIT) += bpf_jit_comp64.o
+ endif
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index c648864c8cd1..ec0b7fb6982b 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -126,7 +126,7 @@ static u8 rv_tail_call_reg(struct rv_jit_context *ctx)
+ 
+ static bool is_32b_int(s64 val)
+ {
+-	return -(1L << 31) <= val && val < (1L << 31);
++	return -(1LL << 31) <= val && val < (1LL << 31);
+ }
+ 
+ static bool in_auipc_jalr_range(s64 val)
+@@ -135,8 +135,8 @@ static bool in_auipc_jalr_range(s64 val)
+ 	 * auipc+jalr can reach any signed PC-relative offset in the range
+ 	 * [-2^31 - 2^11, 2^31 - 2^11).
+ 	 */
+-	return (-(1L << 31) - (1L << 11)) <= val &&
+-		val < ((1L << 31) - (1L << 11));
++	return (-(1LL << 31) - (1LL << 11)) <= val &&
++		val < ((1LL << 31) - (1LL << 11));
+ }
+ 
+ /* Emit fixed-length instructions for address */
+-- 
+2.36.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
