@@ -4,58 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C098C4167B
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Nov 2023 00:56:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D08D4C4332F
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Nov 2023 00:56:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Date:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lZ3hXZb5MruyoHhgMNf/9BLtalkvbFagKudsJjZXkVQ=; b=oNfy/wh0cKZX8R
-	Ts2dsioNZuJj48wnZ21UUmEYL746zcmkLnq+3A5JJ5AjvCwNeKNTlM8cfOv9bTsuZXrkz3o/nJBNZ
-	EGeCYL6XTX8cHFj6OEAiWQV7twmRnWs+xAiG9vZAvCBnbpZyl61ZMETR9WO+UNehSSGtCUieOK+fn
-	LpartnnFowqBh49FkfymxSDrKSOzaQJmvMA/kfxuXqVCOXZsm0t9kKLxQFmp2HdLRfv2qcadt70PI
-	jV+Ab21TqyyA2V8ELj0HrqiAlOCIbe47eOnIRFj62WYXoNaj/Som3SYHgS6j/guCYsdkdo0rPg8mp
-	pW92omHLrSlEk7Fsgx/g==;
+	List-Owner; bh=fTrg28FwX/BwTwwgqUzPJ0FZqt9d+tro5jKvMb61oKw=; b=gVXX0lmpm4JiQU
+	Anw6sEj+dOCNPQ8vjahlK6z/L7i4ChH9IQp72zSp7UhvoG3EtJ1O6V0Ss4q86nxJPTXLqgKEdqGYc
+	b2cfVI5uX42d5QYyuRiA3ffKzf4HV9Ted+wSEXjoYiE02m4AO2EJzMxUBRP30khmnf1d9rvSWQBeo
+	jB/woMrJd3lUNf5mQ1R1qkd2JZDc68Dm7aEi6ypd2/rdVoArY3tjLyecpkP8JFqIhpnhwE48AqqJh
+	9tRy+5n1YIl3lM4XUkzqKkXlqpVxwsjmGm1u0eDi3zq/BzIMMLS6E+DxQ81P2AyTkQoMacHih25YO
+	GUr7+DAOjCmq9J/Qy7vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1ylZ-00BWn1-0g;
-	Sun, 12 Nov 2023 00:55:57 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1r1ylW-00BWl3-1W;
+	Sun, 12 Nov 2023 00:55:54 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1ylS-00BWhK-1b
+	id 1r1ylR-00BWhB-23
 	for linux-riscv@lists.infradead.org;
 	Sun, 12 Nov 2023 00:55:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id A5E2AB8076E;
-	Sun, 12 Nov 2023 00:55:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 904A9C433B6;
+	by dfw.source.kernel.org (Postfix) with ESMTP id A28B560BCA;
+	Sun, 12 Nov 2023 00:55:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 68ACAC433C9;
 	Sun, 12 Nov 2023 00:55:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1699750546;
-	bh=GWFlwV5YPrVZ6YqtdodHarmTAW1nmW1GwfZG0HStF+4=;
+	bh=VgTVM+5WP2BDA8+eWnnrND2B8DSs8IWm3pfXn96hH5M=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=CLW3YqRliByr8MVQWRDb96pqbs+bgb8VYnYzh8IgZuWvnLxifxD1laYtt6yXJaCas
-	 mv2WgeLdJKaJNW2i4omu/dTUTBVCDYoOTVuNvNqL1mxZfPoLICkDFUWX5LCAfyZlGw
-	 rWzlCyMrwStgDH/r4b9Xgrs650LOTj3m4AQujf4KSEAo9ZOuKxS2SkGLELPR8H60TW
-	 gUW6+PrJwfGEdTaQxBiAECGR7JgEn9BDdRRsSgl3j5Q+PbfWBetaaVFS3UBwHNhwt7
-	 ZZuOd1sudlgi0QrmPefAsQSKA1aL74V/QYMzTvOc4Trja3vUQH6Bz3ipGNVJaeu6H4
-	 loRxLJnJOUeGA==
+	b=JLb3QwkYkbpfY3FNvlq0ln90cjF2dCJ/FBjoJvohtlKl5++jjxUpLiRvVRrzLfnMw
+	 vqIx6cIMfKr070kpufEO4pDDNYZBrsbey74LmD56VyB6rtMKEMS2PuHv8FlOzAdnko
+	 OCS/Hdjzh6S+iL7nZNY1du7wFsPrQPCaydb5KK9mUDp8BLAfADd2autchrBUsE5bXS
+	 wtlaPjOEbe6qAkDlAIfra6VZWq2xAq3pay7+/5hPxAYOmrUCJZap1/rY5guetPn+MO
+	 WzYBiUUdpnzpd6S0tZndmFihAyu/lQnh1zU4pQRpK3GfZZ53EnlYT1MgSfx2vEGWUx
+	 pSeNNz6aY733A==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 71B15E0008A;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 4447AE00088;
 	Sun, 12 Nov 2023 00:55:46 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v1] docs: move riscv under arch
+Subject: Re: [PATCH 1/4] kbuild: remove ARCH_POSTLINK from module builds
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <169975054646.11360.7774579809979814716.git-patchwork-notify@kernel.org>
+Message-Id: <169975054627.11360.14371365860315312701.git-patchwork-notify@kernel.org>
 Date: Sun, 12 Nov 2023 00:55:46 +0000
-References: <20230930185354.3034118-1-costa.shul@redhat.com>
-In-Reply-To: <20230930185354.3034118-1-costa.shul@redhat.com>
-To: Costa Shulyupin <costa.shul@redhat.com>
+References: <20231017103742.130927-1-masahiroy@kernel.org>
+In-Reply-To: <20231017103742.130927-1-masahiroy@kernel.org>
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kbuild@vger.kernel.org,
+ linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu, bp@alien8.de,
+ christophe.leroy@csgroup.eu, dave.hansen@linux.intel.com, hpa@zytor.com,
+ mingo@redhat.com, mpe@ellerman.id.au, nathan@kernel.org, npiggin@gmail.com,
+ ndesaulniers@google.com, nicolas@fjasle.eu, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, tsbogend@alpha.franken.de, tglx@linutronix.de,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, x86@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231111_165550_663626_D61B1D79 
-X-CRM114-Status: UNSURE (   7.47  )
+X-CRM114-CacheID: sfid-20231111_165549_742820_71ECF860 
+X-CRM114-Status: UNSURE (   7.44  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,7 +75,6 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: heiko@sntech.de, linux-doc@vger.kernel.org, catalin.marinas@arm.com, atishp@rivosinc.com, bjorn@rivosinc.com, conor.dooley@microchip.com, bagasdotme@gmail.com, linux-riscv@lists.infradead.org, ardb@kernel.org, alexs@kernel.org, siyanteng@loongson.cn, corbet@lwn.net, anup@brainfault.org, federico.vaga@vaga.pv.it, workflows@vger.kernel.org, samitolvanen@google.com, ajones@ventanamicro.com, aou@eecs.berkeley.edu, alexghiti@rivosinc.com, hca@linux.ibm.com, charlie@rivosinc.com, bobwxc@email.cn, songshuaishuai@tinylab.org, paul.walmsley@sifive.com, bhelgaas@google.com, philmd@linaro.org, linux-kernel@vger.kernel.org, evan@rivosinc.com, palmer@dabbelt.com, andy.chiu@sifive.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -77,22 +83,21 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This patch was applied to riscv/linux.git (fixes)
-by Jonathan Corbet <corbet@lwn.net>:
+by Masahiro Yamada <masahiroy@kernel.org>:
 
-On Sat, 30 Sep 2023 21:52:00 +0300 you wrote:
-> and fix all in-tree references.
+On Tue, 17 Oct 2023 19:37:39 +0900 you wrote:
+> The '%.ko' rule in arch/*/Makefile.postlink does nothing but call the
+> 'true' command.
 > 
-> Architecture-specific documentation is being moved into Documentation/arch/
-> as a way of cleaning up the top-level documentation directory and making
-> the docs hierarchy more closely match the source hierarchy.
+> Remove the meaningless code.
 > 
-> Signed-off-by: Costa Shulyupin <costa.shul@redhat.com>
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 > 
 > [...]
 
 Here is the summary with links:
-  - [v1] docs: move riscv under arch
-    https://git.kernel.org/riscv/c/ed843ae947f8
+  - [1/4] kbuild: remove ARCH_POSTLINK from module builds
+    https://git.kernel.org/riscv/c/7f6d8f7e43fb
 
 You are awesome, thank you!
 -- 
