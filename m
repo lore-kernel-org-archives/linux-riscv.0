@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB6ABC4332F
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Nov 2023 06:17:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 838D6C4332F
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Nov 2023 06:17:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xdPAhzU9HbAcoIHBmiI/pjnYGcLRdNZNRq+qjrjDjQc=; b=1K9lb0TvfvhFWv
-	oQ6b3xhQi0djcvldIRosaAfX2tuQYDvjeev66KMhFjh1Lt+GKd12yYUmxrH+kiPtLzLJJpwFYx3V7
-	H2dgAcYyyX3n9SgmNTup8JqtZctJ1ux1AKQ3GTAj5GbRigfan8jUnNfIzQlNPE5HGZ7vmTLCk8qLw
-	5T84zZsy0lya+whU+wcwmKAWjfmpPb49OY1pzG2TL7OmIehwrlN14HzuOUTA+8ZrsFxvBFOqDBM/+
-	M/X1AP4ecAxRACr3vvwcXapGS41gRmWCsm5LYBIgAHeHYkvYDDrP1/qsmDEd/ppYtS/CSUIK+xweN
-	gBqhOgochzpd67NbbPWQ==;
+	List-Owner; bh=HK0FUcKs7wnUqyrPik1SRkfLOWdjTT8HseYbBysTayM=; b=KFCQptgMwq9LJv
+	LrXCHqnykqFCUl5Qk47t1ezjZ7uUyY+sH+Y6jt7XcAwnpCSEDytCMUoNaTjj7KGON1VJUqm1UXbOd
+	3fab9r3qoJMDPzVM44HrH7xcaS9A091xWqz8q1Khf1Rs9ExVWldUnfjNM52utFxfL14nwtnWGO74P
+	5xcBcchsFp/mRZ0vHGehXKmUSIGPQbZiAbx2Rqg7iyXrKV8BlCiipw7cwzy9dU7hvBYBOcagUPANN
+	w/gCaRs9t7yFmteRjntGSI+2ILf6rQ6t/qtOklczAnxRPPYcistl6XhjPuk5yS2Q7HxiyJqHheEEg
+	vrByiUTzJ2RNDiVtRmQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r23mD-00BjpG-2H;
-	Sun, 12 Nov 2023 06:16:57 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1r23mI-00Bjrf-1J;
+	Sun, 12 Nov 2023 06:17:02 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r23mA-00BjnM-35
+	id 1r23mG-00BjqD-0G
 	for linux-riscv@lists.infradead.org;
-	Sun, 12 Nov 2023 06:16:56 +0000
+	Sun, 12 Nov 2023 06:17:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 46425B80A28;
-	Sun, 12 Nov 2023 06:16:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5991FC43391;
-	Sun, 12 Nov 2023 06:16:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 664A460C09;
+	Sun, 12 Nov 2023 06:16:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1329EC433C7;
+	Sun, 12 Nov 2023 06:16:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699769812;
-	bh=KzofBJzeuKk0qp4eF9L9DEUx4e3dBBIpOr5GwI2s4xM=;
+	s=k20201202; t=1699769819;
+	bh=qenSRo414Gnjw+wPdqdNQw1NfHZPaPnw9rVg2h6yowQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sAK0/0GpSij3kNhaPmA6LVyHDvgxIc1JHc5AkAwijYyI8lphNpC1PjlRLdOFcsOxa
-	 EowF9tSMXhm6SCbPasrxhCfW9nYjdxGNITDjjzS52qsBRltnf+n9uXjHQ32DzTfGhc
-	 HQ5FAG778U0Nol34rADQidp3Y4zUk0nRzpYSyDq3Nj0Z0bEJVkeNCXgg1GB+g+CMye
-	 uLsQyuAE3i8i1P8STb3mvrJCx/1wzdG0AObitTdYUsAs/7EiTJNNiRnK4doG/wzG3e
-	 S90BCyjQi0iB5S/2f2OT/dqhU/MC6m5P9dt308Xi2BESDHoRMgQbHPVvoF+E508OFN
-	 ItPJoQXnweIMg==
+	b=GW5NoU+InHnAHzio8lhZKosW6whn3JdHi4Q/dDOScdYFN7QjZKPUKXXs98dTQuw5h
+	 45fW+a6Y1YPCVIa5T3cobF6lQUZPjawcP2Rzn99jvtgGE2vyakm09BCpPlZb+f/Wpq
+	 V7/4h6YGJTPwA6oP6a40o0SLfLK1XOhj0GOTCKell0jihsJuECN2NX8iPeKiTVDdC3
+	 Cuu39HlcRospB1qSF0c6582N41+vi7tkSLS1EraM9vhN/CiwbKNoyOwJUVU4DgYCVt
+	 boYhSj6vK3kQM6iBLcEMiNPReyKIpaZOH1WO1KMsffukC32HjUXV4rWj7RpgPeJVkF
+	 64h+bIhWZynBQ==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	guoren@kernel.org,
@@ -73,16 +73,16 @@ Cc: linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Guo Ren <guoren@linux.alibaba.com>
-Subject: [RFC PATCH V2 14/38] riscv: s64ilp32: Add sbi support
-Date: Sun, 12 Nov 2023 01:14:50 -0500
-Message-Id: <20231112061514.2306187-15-guoren@kernel.org>
+Subject: [RFC PATCH V2 15/38] riscv: s64ilp32: Add asid support
+Date: Sun, 12 Nov 2023 01:14:51 -0500
+Message-Id: <20231112061514.2306187-16-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20231112061514.2306187-1-guoren@kernel.org>
 References: <20231112061514.2306187-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231111_221655_360478_FE238D8C 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20231111_221700_210794_A325D9C9 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,137 +101,81 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-The sbi uses xlen as base argument elements to connect m-mode and
-s-mode. The previous implementation assumes sizeof(xlen_t) =
-sizeof(long), but the s64ilp32's are different. So modify the sbi code
-suitable with the s64ilp32 change.
+The s32ilp32 uses 9 bits as asid_bits because of the xlen=32
+limitation of CSR. The xlen of s64ilp32 is 64 bits in width, and
+the SATP CSR format is the same for Sv32, Sv39, Sv48, and Sv57. So
+this patch makes asid mechanism support s64ilp32 with maximum
+num_asids.
 
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
 ---
- arch/riscv/include/asm/cpu_ops_sbi.h |  4 ++--
- arch/riscv/include/asm/sbi.h         | 24 ++++++++++++------------
- arch/riscv/kernel/cpu_ops_sbi.c      |  4 ++--
- arch/riscv/kernel/sbi.c              | 24 ++++++++++++------------
- 4 files changed, 28 insertions(+), 28 deletions(-)
+ arch/riscv/include/asm/tlbflush.h |  2 +-
+ arch/riscv/mm/context.c           | 16 ++++++++++------
+ 2 files changed, 11 insertions(+), 7 deletions(-)
 
-diff --git a/arch/riscv/include/asm/cpu_ops_sbi.h b/arch/riscv/include/asm/cpu_ops_sbi.h
-index d6e4665b3195..d967adad6b48 100644
---- a/arch/riscv/include/asm/cpu_ops_sbi.h
-+++ b/arch/riscv/include/asm/cpu_ops_sbi.h
-@@ -19,8 +19,8 @@ extern const struct cpu_operations cpu_ops_sbi;
-  * @stack_ptr: A pointer to the hart specific sp
-  */
- struct sbi_hart_boot_data {
--	void *task_ptr;
--	void *stack_ptr;
-+	xlen_t task_ptr;
-+	xlen_t stack_ptr;
- };
- #endif
+diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+index a09196f8de68..6793c3f835a0 100644
+--- a/arch/riscv/include/asm/tlbflush.h
++++ b/arch/riscv/include/asm/tlbflush.h
+@@ -12,7 +12,7 @@
+ #include <asm/errata_list.h>
  
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 5b4a1bf5f439..501e06e52078 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -123,16 +123,16 @@ enum sbi_ext_pmu_fid {
- };
+ #ifdef CONFIG_MMU
+-extern unsigned long asid_mask;
++extern xlen_t asid_mask;
  
- union sbi_pmu_ctr_info {
--	unsigned long value;
-+	xlen_t value;
- 	struct {
--		unsigned long csr:12;
--		unsigned long width:6;
-+		xlen_t csr:12;
-+		xlen_t width:6;
- #if __riscv_xlen == 32
--		unsigned long reserved:13;
-+		xlen_t reserved:13;
- #else
--		unsigned long reserved:45;
-+		xlen_t reserved:45;
- #endif
--		unsigned long type:1;
-+		xlen_t type:1;
- 	};
- };
- 
-@@ -254,15 +254,15 @@ enum sbi_pmu_ctr_type {
- 
- extern unsigned long sbi_spec_version;
- struct sbiret {
--	long error;
--	long value;
-+	xlen_t error;
-+	xlen_t value;
- };
- 
- void sbi_init(void);
--struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
--			unsigned long arg1, unsigned long arg2,
--			unsigned long arg3, unsigned long arg4,
--			unsigned long arg5);
-+struct sbiret sbi_ecall(int ext, int fid, xlen_t arg0,
-+			xlen_t arg1, xlen_t arg2,
-+			xlen_t arg3, xlen_t arg4,
-+			xlen_t arg5);
- 
- void sbi_console_putchar(int ch);
- int sbi_console_getchar(void);
-diff --git a/arch/riscv/kernel/cpu_ops_sbi.c b/arch/riscv/kernel/cpu_ops_sbi.c
-index efa0f0816634..01a1e270ec1d 100644
---- a/arch/riscv/kernel/cpu_ops_sbi.c
-+++ b/arch/riscv/kernel/cpu_ops_sbi.c
-@@ -71,8 +71,8 @@ static int sbi_cpu_start(unsigned int cpuid, struct task_struct *tidle)
- 
- 	/* Make sure tidle is updated */
- 	smp_mb();
--	bdata->task_ptr = tidle;
--	bdata->stack_ptr = task_stack_page(tidle) + THREAD_SIZE;
-+	bdata->task_ptr = (ulong)tidle;
-+	bdata->stack_ptr = (ulong)task_stack_page(tidle) + THREAD_SIZE;
- 	/* Make sure boot data is updated */
- 	smp_mb();
- 	hsm_data = __pa(bdata);
-diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-index c672c8ba9a2a..88eea3a99ee0 100644
---- a/arch/riscv/kernel/sbi.c
-+++ b/arch/riscv/kernel/sbi.c
-@@ -22,21 +22,21 @@ static int (*__sbi_rfence)(int fid, const struct cpumask *cpu_mask,
- 			   unsigned long start, unsigned long size,
- 			   unsigned long arg4, unsigned long arg5) __ro_after_init;
- 
--struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
--			unsigned long arg1, unsigned long arg2,
--			unsigned long arg3, unsigned long arg4,
--			unsigned long arg5)
-+struct sbiret sbi_ecall(int ext, int fid, xlen_t arg0,
-+			xlen_t arg1, xlen_t arg2,
-+			xlen_t arg3, xlen_t arg4,
-+			xlen_t arg5)
+ static inline void local_flush_tlb_all(void)
  {
- 	struct sbiret ret;
+diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+index 12e22e7330e7..9eab9aa87dc6 100644
+--- a/arch/riscv/mm/context.c
++++ b/arch/riscv/mm/context.c
+@@ -20,9 +20,9 @@
  
--	register uintptr_t a0 asm ("a0") = (uintptr_t)(arg0);
--	register uintptr_t a1 asm ("a1") = (uintptr_t)(arg1);
--	register uintptr_t a2 asm ("a2") = (uintptr_t)(arg2);
--	register uintptr_t a3 asm ("a3") = (uintptr_t)(arg3);
--	register uintptr_t a4 asm ("a4") = (uintptr_t)(arg4);
--	register uintptr_t a5 asm ("a5") = (uintptr_t)(arg5);
--	register uintptr_t a6 asm ("a6") = (uintptr_t)(fid);
--	register uintptr_t a7 asm ("a7") = (uintptr_t)(ext);
-+	register xlen_t a0 asm ("a0") = arg0;
-+	register xlen_t a1 asm ("a1") = arg1;
-+	register xlen_t a2 asm ("a2") = arg2;
-+	register xlen_t a3 asm ("a3") = arg3;
-+	register xlen_t a4 asm ("a4") = arg4;
-+	register xlen_t a5 asm ("a5") = arg5;
-+	register xlen_t a6 asm ("a6") = fid;
-+	register xlen_t a7 asm ("a7") = ext;
- 	asm volatile ("ecall"
- 		      : "+r" (a0), "+r" (a1)
- 		      : "r" (a2), "r" (a3), "r" (a4), "r" (a5), "r" (a6), "r" (a7)
+ DEFINE_STATIC_KEY_FALSE(use_asid_allocator);
+ 
+-static unsigned long asid_bits;
++static xlen_t asid_bits;
+ static unsigned long num_asids;
+-unsigned long asid_mask;
++xlen_t asid_mask;
+ 
+ static atomic_long_t current_version;
+ 
+@@ -227,14 +227,18 @@ static inline void set_mm(struct mm_struct *prev,
+ 
+ static int __init asids_init(void)
+ {
+-	unsigned long old;
++	xlen_t old;
+ 
+ 	/* Figure-out number of ASID bits in HW */
+ 	old = csr_read(CSR_SATP);
+ 	asid_bits = old | (SATP_ASID_MASK << SATP_ASID_SHIFT);
+ 	csr_write(CSR_SATP, asid_bits);
+ 	asid_bits = (csr_read(CSR_SATP) >> SATP_ASID_SHIFT)  & SATP_ASID_MASK;
+-	asid_bits = fls_long(asid_bits);
++#if __riscv_xlen == 64
++	asid_bits = fls64(asid_bits);
++#else
++	asid_bits = fls(asid_bits);
++#endif
+ 	csr_write(CSR_SATP, old);
+ 
+ 	/*
+@@ -267,9 +271,9 @@ static int __init asids_init(void)
+ 		static_branch_enable(&use_asid_allocator);
+ 
+ 		pr_info("ASID allocator using %lu bits (%lu entries)\n",
+-			asid_bits, num_asids);
++			(ulong)asid_bits, num_asids);
+ 	} else {
+-		pr_info("ASID allocator disabled (%lu bits)\n", asid_bits);
++		pr_info("ASID allocator disabled (%lu bits)\n", (ulong)asid_bits);
+ 	}
+ 
+ 	return 0;
 -- 
 2.36.1
 
