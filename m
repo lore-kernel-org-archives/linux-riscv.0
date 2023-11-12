@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B6BC4332F
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Nov 2023 06:17:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF9B9C4332F
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Nov 2023 06:17:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kEleL7jc61HTxFc9FxP9nk/IeJpuCwlAmqxtyR0S8rQ=; b=tmkDAs7574eL4M
-	ZpJXlCwkenu2/zN1dEh0v4+IOtrNpPP+ms7WyzR/ySJv9lVa0CPuxlhKjt5qPoYyvSqsYtp72v8/E
-	ODEjn23Nz60atPlUaY88QFOljtDZ2zjnGeAj11K3968JNtnJAQxSZzLE244sQ0QCpqaklY2OwVrC3
-	xsEGYGNzc3B44N6E+zBl91UY7xhbfTYkWKxtQ1wUq8yNRUN3dPV7rzRanUo5+XRgooG7XisGoqgtV
-	NcvhRnfvRMBOJ120pO2G8bELTmEY4jV9mp05dKKrck662guy9Zwj+OY/aX/n1eOcFssS0QYuOJ+gV
-	2b65ni0MtOoFd6clfVCA==;
+	List-Owner; bh=mbwl2QMNDr7S+GWE61tbLxMKzT3jleZGBgwTLMlVlP4=; b=X/kSTAAjmlxduP
+	m35+XBXUggnbuRUd0ib+7PNTN4iIRcR4A+7FsXx0RDZUC8d06mMY/h0cVyEVye7VcBQdLuX5oOxKU
+	FtLaE4jG+pL016IWWSgkUBq4ZWd4BU324h4oQEw9zEBZxazPMnt+5xc72xwmWxoE41FUqu6armDHi
+	+RuEhEX+iwat0ArO5emmj+NQM1X/MU210bQ7wZfa0pL9c0PjPAgJ0hdpjnhHuKFupJlhpHTNHzJ7I
+	m+5t9A9FZYjZDZbjsC0oYOlFy7J/A6XaXrjv/K9snHs42N4q3uJy+pKUnQpkjXr7sQtGmDx8PVtdt
+	0egNAm5NaCH326fmS9og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r23mP-00BjvJ-0Y;
-	Sun, 12 Nov 2023 06:17:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1r23mV-00Bjzl-00;
+	Sun, 12 Nov 2023 06:17:15 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r23mM-00Bjtx-0x
+	id 1r23mS-00BjxL-0D
 	for linux-riscv@lists.infradead.org;
-	Sun, 12 Nov 2023 06:17:07 +0000
+	Sun, 12 Nov 2023 06:17:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7423D60C2C;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 894DB60C09;
+	Sun, 12 Nov 2023 06:17:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AAE4C433C9;
 	Sun, 12 Nov 2023 06:17:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82818C43395;
-	Sun, 12 Nov 2023 06:16:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699769824;
-	bh=DWYO8HfbmOxkQ7VOjim84D6teiWTnlk7kC8va8cLcv0=;
+	s=k20201202; t=1699769831;
+	bh=xvz1rya1E02xCfXGsQlwgCTl+atNWzPl7o+rS0iSLkM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bV45f/JgIiGFRTg5S0AN/PHrCkBHhftZm7i/2pzQT6PrA1mtuK9niI57Wbnc6hZNn
-	 DNzPjVhb5yf9WJ05jumRT1MgJqhv47bGnaa52/ecG1CgPF8f8YeLsAV98KQIT5dwC+
-	 MGGcsA+XhgKzrpJ6Oso3SNMf0ULjY8bi9H11DoxDFBgmkKzjGdjYU/zzmNa7MCiQRe
-	 qQG1C3hL5jhotJdWO7GMu/BYzaq71+gd6+1JnjZcgJajOqu4vfN1mXj0KLdubPqbUx
-	 +1aElC/nIN0Np8bwNn60bYFGYominKepff/ED6pMd5X1zz48wOyfhkEmq5dqPVOxRO
-	 2DRwStoq9f/xA==
+	b=fBDFivBo3T7J24ZloTMhISNIG/bND0s7vrrL2C1z8x/tqG8opLe99Kjlqlz3jI79y
+	 uhVNHaWLH1ArFXGXJEiub688pP0XTpJCHrrhV2xUf6gEw2MjHITF02A1OGHKPSvyMm
+	 gNV7Nk3ktsoNitWRPxry1/3uJKsYM9LO/fesvwLysYBUXJAdctqslxu60+Xi3YOeZG
+	 Nz4hNdgyJbdNDW+icuW/5mS5/HQq4rq8O/X2y7OsxXv5Ro6gNIRmAyXqNN58djw1sI
+	 PbAF/PpwCCzWVyeqctUo5NQ6CWFpLrSM5VNtrKLDVlU2i4CyPLVAQfVkRd+2tI6xaF
+	 ABhUyCTRybIjg==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	guoren@kernel.org,
@@ -73,16 +73,17 @@ Cc: linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Guo Ren <guoren@linux.alibaba.com>
-Subject: [RFC PATCH V2 16/38] riscv: s64ilp32: Introduce PTR_L and PTR_S
-Date: Sun, 12 Nov 2023 01:14:52 -0500
-Message-Id: <20231112061514.2306187-17-guoren@kernel.org>
+Subject: [RFC PATCH V2 17/38] riscv: s64ilp32: Adjust TASK_SIZE for s64ilp32 kernel
+Date: Sun, 12 Nov 2023 01:14:53 -0500
+Message-Id: <20231112061514.2306187-18-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20231112061514.2306187-1-guoren@kernel.org>
 References: <20231112061514.2306187-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231111_221706_422463_89C23535 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20231111_221712_147128_41B4A51D 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,178 +95,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
-
-REG_L and REG_S can't satisfy s64ilp32 situation, because its
-__SIZEOF_POINTER__*8 != __riscv_xlen. So we introduce new PTR_L
-and PTR_S macro to help head.S and entry.S deal with the pointer
-data type and replace all REG_L/S by PTR_L/S to fit the current
-algorithm in memcpy, memove, memset, strcmp, strlen and strncmp.
-
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
----
- arch/riscv/include/asm/asm.h |  5 +++++
- arch/riscv/kernel/entry.S    | 24 ++++++++++++------------
- arch/riscv/kernel/head.S     |  8 ++++----
- 3 files changed, 21 insertions(+), 16 deletions(-)
-
-diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
-index 114bbadaef41..1cf20027bdbd 100644
---- a/arch/riscv/include/asm/asm.h
-+++ b/arch/riscv/include/asm/asm.h
-@@ -38,6 +38,7 @@
- #define RISCV_SZPTR		"8"
- #define RISCV_LGPTR		"3"
- #endif
-+#define __PTR_SEL(a, b)		__ASM_STR(a)
- #elif __SIZEOF_POINTER__ == 4
- #ifdef __ASSEMBLY__
- #define RISCV_PTR		.word
-@@ -48,10 +49,14 @@
- #define RISCV_SZPTR		"4"
- #define RISCV_LGPTR		"2"
- #endif
-+#define __PTR_SEL(a, b)		__ASM_STR(b)
- #else
- #error "Unexpected __SIZEOF_POINTER__"
- #endif
- 
-+#define PTR_L		__PTR_SEL(ld, lw)
-+#define PTR_S		__PTR_SEL(sd, sw)
-+
- #if (__SIZEOF_INT__ == 4)
- #define RISCV_INT		__ASM_STR(.word)
- #define RISCV_SZINT		__ASM_STR(4)
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 143a2bb3e697..7dc7603a86ba 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -25,19 +25,19 @@ SYM_CODE_START(handle_exception)
- 
- _restore_kernel_tpsp:
- 	csrr tp, CSR_SCRATCH
--	REG_S sp, TASK_TI_KERNEL_SP(tp)
-+	PTR_S sp, TASK_TI_KERNEL_SP(tp)
- 
- #ifdef CONFIG_VMAP_STACK
- 	addi sp, sp, -(PT_SIZE_ON_STACK)
- 	srli sp, sp, THREAD_SHIFT
- 	andi sp, sp, 0x1
- 	bnez sp, handle_kernel_stack_overflow
--	REG_L sp, TASK_TI_KERNEL_SP(tp)
-+	PTR_L sp, TASK_TI_KERNEL_SP(tp)
- #endif
- 
- _save_context:
--	REG_S sp, TASK_TI_USER_SP(tp)
--	REG_L sp, TASK_TI_KERNEL_SP(tp)
-+	PTR_S sp, TASK_TI_USER_SP(tp)
-+	PTR_L sp, TASK_TI_KERNEL_SP(tp)
- 	addi sp, sp, -(PT_SIZE_ON_STACK)
- 	REG_S x1,  PT_RA(sp)
- 	REG_S x3,  PT_GP(sp)
-@@ -53,7 +53,7 @@ _save_context:
- 	 */
- 	li t0, SR_SUM | SR_FS_VS
- 
--	REG_L s0, TASK_TI_USER_SP(tp)
-+	PTR_L s0, TASK_TI_USER_SP(tp)
- 	csrrc s1, CSR_STATUS, t0
- 	csrr s2, CSR_EPC
- 	csrr s3, CSR_TVAL
-@@ -96,7 +96,7 @@ _save_context:
- 	add t0, t1, t0
- 	/* Check if exception code lies within bounds */
- 	bgeu t0, t2, 1f
--	REG_L t0, 0(t0)
-+	PTR_L t0, 0(t0)
- 	jr t0
- 1:
- 	tail do_trap_unknown
-@@ -121,7 +121,7 @@ SYM_CODE_START_NOALIGN(ret_from_exception)
- 
- 	/* Save unwound kernel stack pointer in thread_info */
- 	addi s0, sp, PT_SIZE_ON_STACK
--	REG_S s0, TASK_TI_KERNEL_SP(tp)
-+	PTR_S s0, TASK_TI_KERNEL_SP(tp)
- 
- 	/*
- 	 * Save TP into the scratch register , so we can find the kernel data
-@@ -239,7 +239,7 @@ restore_caller_reg:
- 	REG_S x5,  PT_T0(sp)
- 	save_from_x6_to_x31
- 
--	REG_L s0, TASK_TI_KERNEL_SP(tp)
-+	PTR_L s0, TASK_TI_KERNEL_SP(tp)
- 	csrr s1, CSR_STATUS
- 	csrr s2, CSR_EPC
- 	csrr s3, CSR_TVAL
-@@ -283,8 +283,8 @@ SYM_FUNC_START(__switch_to)
- 	li    a4,  TASK_THREAD_RA
- 	add   a3, a0, a4
- 	add   a4, a1, a4
--	REG_S ra,  TASK_THREAD_RA_RA(a3)
--	REG_S sp,  TASK_THREAD_SP_RA(a3)
-+	PTR_S ra,  TASK_THREAD_RA_RA(a3)
-+	PTR_S sp,  TASK_THREAD_SP_RA(a3)
- 	REG_S s0,  TASK_THREAD_S0_RA(a3)
- 	REG_S s1,  TASK_THREAD_S1_RA(a3)
- 	REG_S s2,  TASK_THREAD_S2_RA(a3)
-@@ -298,8 +298,8 @@ SYM_FUNC_START(__switch_to)
- 	REG_S s10, TASK_THREAD_S10_RA(a3)
- 	REG_S s11, TASK_THREAD_S11_RA(a3)
- 	/* Restore context from next->thread */
--	REG_L ra,  TASK_THREAD_RA_RA(a4)
--	REG_L sp,  TASK_THREAD_SP_RA(a4)
-+	PTR_L ra,  TASK_THREAD_RA_RA(a4)
-+	PTR_L sp,  TASK_THREAD_SP_RA(a4)
- 	REG_L s0,  TASK_THREAD_S0_RA(a4)
- 	REG_L s1,  TASK_THREAD_S1_RA(a4)
- 	REG_L s2,  TASK_THREAD_S2_RA(a4)
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 11c3b94c4534..bff21ad7f077 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -42,7 +42,7 @@ ENTRY(_start)
- 	/* Image load offset (0MB) from start of RAM for M-mode */
- 	.dword 0
- #else
--#if __riscv_xlen == 64
-+#ifdef CONFIG_64BIT
- 	/* Image load offset(2MB) from start of RAM */
- 	.dword 0x200000
- #else
-@@ -75,7 +75,7 @@ relocate_enable_mmu:
- 	/* Relocate return address */
- 	la a1, kernel_map
- 	XIP_FIXUP_OFFSET a1
--	REG_L a1, KERNEL_MAP_VIRT_ADDR(a1)
-+	PTR_L a1, KERNEL_MAP_VIRT_ADDR(a1)
- 	la a2, _start
- 	sub a1, a1, a2
- 	add ra, ra, a1
-@@ -348,8 +348,8 @@ clear_bss_done:
- 	 */
- .Lwait_for_cpu_up:
- 	/* FIXME: We should WFI to save some energy here. */
--	REG_L sp, (a1)
--	REG_L tp, (a2)
-+	PTR_L sp, (a1)
-+	PTR_L tp, (a2)
- 	beqz sp, .Lwait_for_cpu_up
- 	beqz tp, .Lwait_for_cpu_up
- 	fence
--- 
-2.36.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgoKVGhlIFJWNjRJTFAzMiAz
+Mi1iaXQgTGludXgga2VybmVsIHVzZXMgdGhlIHNhbWUgdXNlcnNwYWNlIGFkZHJlc3MgcmFuZ2UK
+YXMgdGhlIDY0LWJpdCBMaW51eCBjb21wYXQgbW9kZSwgYWJvdXQgMkdCLiBUaGV5IGhhdmUgbm8g
+ZGlmZmVyZW5jZSBmcm9tCnRoZSBoYXJkd2FyZSB2aWV3LCBhbmQgYWxsIGFyZSBydW5uaW5nIElM
+UDMyIG9uIGEgNjQtYml0IElTQS4gQnV0IHRoZQpzdGFuZGFyZCAzMmlscDMyIExpbnV4IGhhcyBh
+IHNsaWdodGx5IGJpZ2dlciB1c2Vyc3BhY2UgYWRkcmVzcyBzcGFjZSwKYWJvdXQgMi40R0IuCgpT
+aWduZWQtb2ZmLWJ5OiBHdW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+ClNpZ25lZC1v
+ZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPgotLS0KIGFyY2gvcmlzY3YvaW5jbHVk
+ZS9hc20vcGd0YWJsZS5oIHwgNyArKysrKystCiAxIGZpbGUgY2hhbmdlZCwgNiBpbnNlcnRpb25z
+KCspLCAxIGRlbGV0aW9uKC0pCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9w
+Z3RhYmxlLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaAppbmRleCA3NTk3MGVl
+MmJkYTIuLmU1ZTdhOTI5OTQ5YSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9w
+Z3RhYmxlLmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmgKQEAgLTgzOSwy
+MCArODM5LDI1IEBAIHN0YXRpYyBpbmxpbmUgcHRlX3QgcHRlX3N3cF9jbGVhcl9leGNsdXNpdmUo
+cHRlX3QgcHRlKQogICogImxvYWQgYW5kIHN0b3JlIGVmZmVjdGl2ZSBhZGRyZXNzZXMsIHdoaWNo
+IGFyZSA2NGJpdHMsIG11c3QgaGF2ZSBiaXRzCiAgKiA2M+KAkzQ4IGFsbCBlcXVhbCB0byBiaXQg
+NDcsIG9yIGVsc2UgYSBwYWdlLWZhdWx0IGV4Y2VwdGlvbiB3aWxsIG9jY3VyLiIKICAqLworI2Rl
+ZmluZSBUQVNLX1NJWkVfMzIJKF9BQygweDgwMDAwMDAwLCBVTCkgLSBQQUdFX1NJWkUpCisKICNp
+ZmRlZiBDT05GSUdfNjRCSVQKICNkZWZpbmUgVEFTS19TSVpFXzY0CShQR0RJUl9TSVpFICogUFRS
+U19QRVJfUEdEIC8gMikKICNkZWZpbmUgVEFTS19TSVpFX01JTgkoUEdESVJfU0laRV9MMyAqIFBU
+UlNfUEVSX1BHRCAvIDIpCiAKICNpZmRlZiBDT05GSUdfQ09NUEFUCi0jZGVmaW5lIFRBU0tfU0la
+RV8zMgkoX0FDKDB4ODAwMDAwMDAsIFVMKSAtIFBBR0VfU0laRSkKICNkZWZpbmUgVEFTS19TSVpF
+CSh0ZXN0X3RocmVhZF9mbGFnKFRJRl8zMkJJVCkgPyBcCiAJCQkgVEFTS19TSVpFXzMyIDogVEFT
+S19TSVpFXzY0KQogI2Vsc2UKICNkZWZpbmUgVEFTS19TSVpFCVRBU0tfU0laRV82NAogI2VuZGlm
+CiAKKyNlbHNlCisjaWZkZWYgQ09ORklHX0FSQ0hfUlY2NElMUDMyCisjZGVmaW5lIFRBU0tfU0la
+RQlUQVNLX1NJWkVfMzIKICNlbHNlCiAjZGVmaW5lIFRBU0tfU0laRQlGSVhBRERSX1NUQVJUCisj
+ZW5kaWYKICNkZWZpbmUgVEFTS19TSVpFX01JTglUQVNLX1NJWkUKICNlbmRpZgogCi0tIAoyLjM2
+LjEKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
