@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49AF0C4332F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D5C8C4167B
 	for <linux-riscv@archiver.kernel.org>; Sun, 12 Nov 2023 00:56:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,55 +12,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CI8u8YVlNGo+eD6GH60LYxac1J7NanLU46dRASaegUA=; b=cS1+/3GQpjAEFw
-	gMrPm3GBqxsvCEm+jmi0kOooxmEPKCLt3KQWXdIn1E+5/vUwTDC27YUcLDYiH2axFAXaavVaMP6Tz
-	NGGUaQ8ml8F6v/zYDliExeUGLXnikQ2+8keEKU/isVt99+G6bOVw96U44eojpmYQ/E5LAu8ndUO0g
-	NxTjLUoyzpOiMUa66Q/W2KXAgj54a1qXXw/wZt5yQpW/zWRpWWdGqMZVfWeeDWtS1YRwsNr3a9UgS
-	y0VWALbeXQ+mxEPYVlZzixfouq1yF5UtPloDbHVHwBUNmG4YTeuHmGtgZYd1bFlvX9RokHUMadX0M
-	amllgoxvlR7oEvrNksww==;
+	List-Owner; bh=H/43N4+ARAsBYx8kBsfjFay/tpV67/e3C4LtWyNPBdY=; b=MxuxJ37vKMvA3z
+	DsalSAtNoLe6LNpeOKBxvhDSczstc38hmZ5+bsryjzXcGaTRTkSLoTzZxU3ay/dJm7ojrlMYpUiOO
+	kTtSa/Kjl8HRsnxUa01FwGvHZHnwGTnmMJwVPFa6l3ZfLWMWp6sDjeXfZxSiU7ZtxG2YircUr13rT
+	3uzOA0mlenh4VBXKWJXM0TWNoMPOMHmAgfi3gAUwINLr4w2MVj80939Xn6k+5ZPQx5FgPs7GxLqMU
+	vvO8jF3rS6zTU28s6PJVmwLNG6jMv5fMAmgSR8lwCe5DspC5/O7BZ5DCVFYgWiAarFwW7gxx7oh8h
+	CFXpPYdF1J1DKRWpO9Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1ylb-00BWp2-1x;
-	Sun, 12 Nov 2023 00:55:59 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1r1ylX-00BWmI-0x;
+	Sun, 12 Nov 2023 00:55:55 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r1ylR-00BWhE-35;
-	Sun, 12 Nov 2023 00:55:53 +0000
+	id 1r1ylR-00BWhC-2t
+	for linux-riscv@lists.infradead.org;
+	Sun, 12 Nov 2023 00:55:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E9CBD60BED;
+	by ams.source.kernel.org (Postfix) with ESMTP id 99725B80760;
 	Sun, 12 Nov 2023 00:55:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8B3C5C433A9;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6BE13C433CD;
 	Sun, 12 Nov 2023 00:55:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1699750546;
-	bh=XrSajqyIX/GMIupsbLdryjwZSJcnce+GPP7KDkPQhtc=;
+	bh=uwSYhoJGjrvnFMdxDjEZiJOR3nt1YfMreVZ/T2Dv+hw=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=eWIdIwNOLNdqkngfPRmCRaOwzQqWEdVf4fyQfsJ9hX51PDQ3bhmSI9QZtsMgYrcIF
-	 8aHZMYs4gOL/4gSqcMm7IRvWe1PcqRpqOtwPinsNQE/yPNH1jAjAZc0qUF+cE2rkNp
-	 nglRwyteoICzPFjGnf2iZ6kKToydLI7h8VBgwrPRWc0yrSSWvf4CHXHy6ARxGcy9DF
-	 YIFq9xAbPweOOdZvVR9AfcNgB3Ga1hsegS0aAjb+9DN11BMP4pAVieNjxsE9qae8rb
-	 FS/26AIT3WSbus8G7Vwa6iQL37+L3sU0hhWl6PyV4EpenSbokJHdqOpR8gqAekhlG3
-	 5K+C9ET1I0p3w==
+	b=XNBBHv9eHQp/Z6l4k9c5NcC5YsIo8pDl+fvRJ5scAEYpVIoWr7GZu+ub2rCHIzket
+	 Ie+eKE8oK9wLGtvBLS7r+xI/B6KugX0WE005mXpgRbmG+XI7yGnZvSlvehXLdZ4q6D
+	 nP2QGCdvbxGwcB5+ZAFmWAZN+Ya/A1rFB36hc5CWt/GgSQ2lVeaKgg3Xp6WV89EXf6
+	 kgxQ2kC5b1dwMg08GI13fkOpTrwFiGtvghFHyGAoTUFiZRyHvu4CBM1sB11oEPB8Ar
+	 3k6MbiLkyF28K95zlgEybVq1cltRlruf+96/EwM0L8K599HcxIyGfzKaJ/rg1Zl026
+	 o9hXrL1oEdnFg==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 68EEAE0008E;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 54C48C3274D;
 	Sun, 12 Nov 2023 00:55:46 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 1/2] kbuild: unify vdso_install rules
+Subject: Re: [GIT PULL] RISC-V Patches for the 6.7 Merge Window, Part 2
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <169975054642.11360.1289704479646976676.git-patchwork-notify@kernel.org>
+Message-Id: <169975054634.11360.7607646896972532722.git-patchwork-notify@kernel.org>
 Date: Sun, 12 Nov 2023 00:55:46 +0000
-References: <20231014105436.2119702-1-masahiroy@kernel.org>
-In-Reply-To: <20231014105436.2119702-1-masahiroy@kernel.org>
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kbuild@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-parisc@vger.kernel.org,
- linux-s390@vger.kernel.org, linux-um@lists.infradead.org,
- loongarch@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org,
- svens@linux.ibm.com, nicolas@fjasle.eu, guoren@kernel.org, deller@gmx.de
+References: <mhng-9011bd86-9f72-4223-b78a-b4c69c1c927f@palmer-ri-x1c9>
+In-Reply-To: <mhng-9011bd86-9f72-4223-b78a-b4c69c1c927f@palmer-ri-x1c9>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231111_165550_058972_933B3335 
-X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-CacheID: sfid-20231111_165550_080235_78616988 
+X-CRM114-Status: UNSURE (   6.52  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,25 +77,23 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Masahiro Yamada <masahiroy@kernel.org>:
+This pull request was applied to riscv/linux.git (fixes)
+by Linus Torvalds <torvalds@linux-foundation.org>:
 
-On Sat, 14 Oct 2023 19:54:35 +0900 you wrote:
-> Currently, there is no standard implementation for vdso_install,
-> leading to various issues:
+On Fri, 10 Nov 2023 07:48:39 -0800 (PST) you wrote:
+> The following changes since commit e1c05b3bf80f829ced464bdca90f1dfa96e8d251:
 > 
->  1. Code duplication
+>   RISC-V: hwprobe: Fix vDSO SIGSEGV (2023-11-02 14:05:30 -0700)
 > 
->     Many architectures duplicate similar code just for copying files
->     to the install destination.
+> are available in the Git repository at:
+> 
+>   git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.7-mw2
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2,1/2] kbuild: unify vdso_install rules
-    https://git.kernel.org/riscv/c/56769ba4b297
-  - [v2,2/2] kbuild: unify no-compiler-targets and no-sync-config-targets
-    https://git.kernel.org/riscv/c/9d361173edc4
+  - [GIT,PULL] RISC-V Patches for the 6.7 Merge Window, Part 2
+    https://git.kernel.org/riscv/c/56d428ae1c4e
 
 You are awesome, thank you!
 -- 
