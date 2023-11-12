@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 511BAC41535
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Nov 2023 06:15:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4A46C4332F
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Nov 2023 06:15:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dZ5bdK9UBm1UNdMHeZAzcmlx4eA/H6OXbOQgfuugErc=; b=d5zsNiMgAaRJf+
-	0CDi49WTHi7kwwU4VYdnuErpcVnEVDGKn7JDBx9XaExqQBk/nGMnWenznAcGdoE4EYYiLSheq0yE7
-	NPKhstLsdFPfSkoYZfUiYOdnmiLUa50/+nqkjJsqrYbcZoc0SIFQS3hfqcjCVb+SCE65Y7oURVMRy
-	RiCXoWiFs47FK9gsM7b0m5ykuw9QE30+TZa4hTervqAPR2Phq1BMiojScxTcjx+gv9gBSY46aJtcE
-	aBZAnuhfyOsUeZO0oP9a6TBRP42q5bOSBXk3TKD/kRcZj1rOcLvSlkhSFLUmwDSlSCgEvFXFAkSRx
-	RIp7V+qzgxGHkej+7fjQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=FP4v8d7BozXN9SJLcfwRhMkDYib8NDP5kfXrjY0LOwY=; b=1BUTwlgZf5jPU/
+	Q15UBlE09mweeI8/ZNjRJp0ax462q7lWsxTnSL4c3ztRTjG9RN/4ybw0/dYIFEtkLYV64hAJ9f8qT
+	AlBpiXpWEpjC90aWGGhEY1Q8GhkEJtaajE8JC4ZnG+XS0282k9QtNQUL1FZmmZq2zuSv51QqULFDf
+	WI62dWmndY0bIexNGLzP3HlJWaXtpvDN9RMMAV5q1fxDl3p85Z4aHOmAko1Dhv41oUPpI6p8b/yXi
+	/+nBtq5LVVdJmIgpEmoKnKUCVzuZvg+o31DeD5MbhHAar+yrT61JeE2Ry7x1EovbK3JNK2EySwhfC
+	2u7Zs9OrqgAeasXkm7Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r23kv-00BjCw-0n;
-	Sun, 12 Nov 2023 06:15:37 +0000
+	id 1r23l9-00BjGk-12;
+	Sun, 12 Nov 2023 06:15:51 +0000
 Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r23kp-00BjC1-2Z
+	id 1r23l6-00BjFM-0U
 	for linux-riscv@lists.infradead.org;
-	Sun, 12 Nov 2023 06:15:35 +0000
+	Sun, 12 Nov 2023 06:15:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 98ADCCE0AF0;
-	Sun, 12 Nov 2023 06:15:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C76B5C433C8;
-	Sun, 12 Nov 2023 06:15:20 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 030A8CE0E13;
+	Sun, 12 Nov 2023 06:15:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EB45C433BA;
+	Sun, 12 Nov 2023 06:15:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699769726;
-	bh=z2M9q/AWNZkCO7nyXIhOrITPzs/S8nVC8HXQuxkdgN4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=tYUuwnpJ3keyBXywpkLLK1pNYf21tCXdmNokPZf6rjeu5zIcyy2GAwi+kgGZ0AuIr
-	 Hys2m7pqrU034QQmAnI1IUsc42stbcRJWd4V4Ss92adYrQPSII1PtUO/urBBhs21ne
-	 MsFbS2drGotYk82zOqKv1VyTjP5XImcoSeWTeBZtS+roEuaUTASAIClVNmmG26I3Z/
-	 L4HfPmzGjMr2kwpewhyxd1DTJsjzZT7aNrECORPj/xdVHuWfBiJUsqvbgXoqhcRzRw
-	 xLbXhpgGzhLVAbLxrQQazuQxVhLUQfr5EHNJdAFkc94nRO6+OuUYwPxzB90IhwFSZ0
-	 QuB4yHdWeKtbA==
+	s=k20201202; t=1699769745;
+	bh=UaIimKGmjnUGloTxOFJqXp6BBypHnPKUh6PUNXXTMXs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=F6KmQ0ARB15XFhwVM92q1sSvcWPHdHSLnGPo9uASPmW8Sria6bLRbQHM2cgYauygP
+	 9J0kEy5PuGbYrhMbUxb6NtRYWgl37HZJsMW9qoZ2a9PDv+I+0wEaoazEKl1x37MVUU
+	 2T/NJzoNRRy+scLjqOwig2UUCY7o4YVSVgNvXRj5Wwv75ehWyu2dev30VlnhuFLPwn
+	 3M45DE7Bd9fwJq5nBDnQdILSd0zdlWxEBXZCiL3/+JVMOZwJNw3yo7UoOb6rs2vz4t
+	 r2UznWm5UwhRgEyF29EVBtD1qiSV2wezQGOeE9ubeS+HvxJo6nvajz3pvtfMJPzDf1
+	 e2t7yGi3ZVRVg==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	guoren@kernel.org,
@@ -73,14 +73,16 @@ Cc: linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Guo Ren <guoren@linux.alibaba.com>
-Subject: [RFC PATCH V2 00/38] rv64ilp32: Running ILP32 on RV64 ISA
-Date: Sun, 12 Nov 2023 01:14:36 -0500
-Message-Id: <20231112061514.2306187-1-guoren@kernel.org>
+Subject: [RFC PATCH V2 03/38] riscv: u64ilp32: Add time-related vDSO common flow for vdso32
+Date: Sun, 12 Nov 2023 01:14:39 -0500
+Message-Id: <20231112061514.2306187-4-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20231112061514.2306187-1-guoren@kernel.org>
+References: <20231112061514.2306187-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231111_221532_213990_B13198F3 
-X-CRM114-Status: GOOD (  19.91  )
+X-CRM114-CacheID: sfid-20231111_221548_545423_A2E20ED8 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,545 +101,347 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-This patch series adds s64ilp32 & u64ilp32 support to riscv. The term
-s64ilp32 means smode-xlen=64 and -mabi=ilp32 (ints, longs, and pointers
-are all 32-bit) and u64ilp32 means umode-xlen=64 and -mabi=ilp32, i.e.,
-running 32-bit Linux kernel on 64-bit supervisor mode or running 32-bit
-Linux applications on 32-bit user mode. There have been many 64ilp32
-abis existing, such as mips-n32 [1], arm-aarch64ilp32 [2], and x86-x32
-[3], but they are all about userspace. Thus, this should be the first
-time running a 32-bit Linux kernel with the 64ilp32 ABI at supervisor
-mode (If not, correct me).
+This patch adds time-related vDSO common flow for vdso32, and it's an
+addition to commit: ad5d1122b82f ("riscv: use vDSO common flow to reduce
+the latency of the time-related functions"). Then we could reduce the
+latency of collecting clock information for u32ilp32 (native 32-bit
+userspace ecosystem), just like what we've done for u64lp64.
 
- +--------------------------------+------------+
- | +-------------------+--------+ | +--------+ |
- | |           (compat)|(compat)| | |        | |
- | |u64lp64    u64ilp32|u32ilp32| | |u32ilp32| | ABI
- | |           ^^^^^^^^|        | | |        | |
- | +-------------------+--------+ | +--------+ |
- | +-------------------+--------+ | +--------+ |
- | |       UXL=64      | UXL=32 | | | UXL=32 | | ISA
- | +-------------------+--------+ | +--------+ |
- +--------------------------------+------------+-------
- | +----------------------------+ | +--------+ |
- | |            64BIT           | | |   32BIT| | Kernel
- | |     s64lp64 & s64ilp32     | | |s32ilp32| | ABI
- | |               ^^^^^^^^     | | |        | |
- | +----------------------------+ | +--------+ |
- | +----------------------------+ | +--------+ |
- | |            SXL=64          | | | SXL=32 | | ISA
- | +----------------------------+ | +--------+ |
- +--------------------------------+------------+
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+---
+ arch/riscv/Kconfig                         |  4 +-
+ arch/riscv/include/asm/vdso/gettimeofday.h | 90 ++++++++++++++++++++++
+ arch/riscv/include/uapi/asm/unistd.h       |  1 +
+ arch/riscv/kernel/vdso/Makefile            | 42 +++++-----
+ arch/riscv/kernel/vdso/vdso.lds.S          |  2 -
+ arch/riscv/kernel/vdso/vgettimeofday.c     | 39 ++++++++--
+ 6 files changed, 145 insertions(+), 33 deletions(-)
 
-Motivation:
-===========
-The current RISC-V has the 64-bit ISA profiles of RVA20, RVA22, and RVA23
-(ongoing) [4], but no 32-bit RVA profile exists or any ongoing plan. That
-means when a vendor wants to produce a 32-bit ISA RISC-V Application
-Processor, they have no shape to follow. Therefore, many cheap riscv
-chips have come out but follow the 64-bit RVA profiles, such as Allwinner
-D1/D1s/F133 [5], SOPHGO CV1800B [6], Canaan Kendryte k230 [7], and
-Bouffalo Lab BL808[3] which are typically cortex-a7 (arm 32-bit) product
-scenarios. So running ILP32 on rv64 ISA is the only choice for these
-chips.
-
-The ilp32 and lp64 have different scenarios, but if the address space
-and data range are under 2GB. The ilp32, compared to the lp64, has three
-advantages:
- - Better memory footprint cost.
- - Better benchmark performance (SPEC CPU 2006/2017).
- - Compatible with ilp32 code.
-
-Memory Footprint
-================
-rv64lp64 has 25% more memory footprint than rv64ilp32!
-
-Calculation Process:
- rv64lp64  = (4096 - 3407) = 689
- rv64ilp32 = (4096 - 3231) = 865
- (865 - 689)/689 = 25.54426%
-
-Here are the ILP32 v.s. LP64 Linux kernel data type comparison:
-			32-bit		64-bit
-sizeof(page):		32bytes		64bytes
-sizeof(list_head):	8bytes		16bytes
-sizeof(hlist_head):	8bytes		16bytes
-sizeof(vm_area):	68bytes		136bytes
-...
-
-The size of ilp32's long & pointer is just half of lp64's (rv64 default
-abi - longs and pointers are all 64-bit). This significant difference
-in data type causes different memory & cache footprint costs. Here is
-the comparison log between rv64ilp32 and rv64lp64 in the same 20MB(16MB
-for Linux) qemu system environment:
-
-rv64ilp32:
- Memory: 14008K/16384K available (1253K kernel code, 474K rwdata, 114K
- rodata, 134K init, 192K bss, 2376K reserved, 0K cma-reserved)
- Mem-Info:
- active_anon:0 inactive_anon:0 isolated_anon:0
-  active_file:0 inactive_file:0 isolated_file:0
-  unevictable:0 dirty:0 writeback:0
-  slab_reclaimable:0 slab_unreclaimable:47
-  mapped:0 shmem:0 pagetables:0
-  sec_pagetables:0 bounce:0
-  kernel_misc_reclaimable:0
-  free:3407 free_pcp:45 free_cma:0
-  ^^^^^^^^^
- Node 0 active_anon:0kB inactive_anon:0kB active_file:0kB
- inactive_file:0kB unevictable:0kB isolated(anon):0kB isolated(file):0kB
- mapped:0kB dirty:0kB writeback:0kB shmem:0kB writeback_tmp:0kB
- kernel_stack:104kB pagetables:0kB sec_pagetabl
- es:0kB all_unreclaimable? no
- Normal free:13628kB boost:0kB min:472kB low:588kB high:704kB
- reserved_highatomic:0KB active_anon:0kB inactive_anon:0kB
- active_file:0kB inactive_file:0kB unevictable:0kB writepending:0kB
- present:16384kB managed:14140kB mlocked:0kB bounce:0
- kB free_pcp:180kB local_pcp:180kB free_cma:0kB
- lowmem_reserve[]: 0 0
- Normal: 3*4kB (UM) 2*8kB (M) 2*16kB (M) 2*32kB (M) 3*64kB (M) 2*128kB
- (UM) 3*256kB (M) 4*512kB (UM) 2*1024kB (UM) 2*2048kB (UM) 1*4096kB (M) =
- 13628kB
- 0 total pagecache pages
- 4096 pages RAM
- 0 pages HighMem/MovableOnly
- 561 pages reserved
-
-rv64lp64:
- Memory: 13776K/16384K available (1234K kernel code, 539K rwdata, 129K
- rodata, 161K init, 207K bss, 2608K reserved, 0K cma-reserved)
- Mem-Info:
- active_anon:0 inactive_anon:0 isolated_anon:0
-  active_file:0 inactive_file:0 isolated_file:0
-  unevictable:0 dirty:0 writeback:0
-  slab_reclaimable:0 slab_unreclaimable:69
-  mapped:0 shmem:0 pagetables:1
-  sec_pagetables:0 bounce:0
-  kernel_misc_reclaimable:0
-  free:3231 free_pcp:55 free_cma:0
-  ^^^^^^^^^
- Node 0 active_anon:0kB inactive_anon:0kB active_file:0kB
- inactive_file:0kB unevictable:0kB isolated(anon):0kB isolated(file):0kB
- mapped:0kB dirty:0kB writeback:0kB shmem:0kB writeback_tmp:0kB
- kernel_stack:208kB pagetables:4kB sec_pagetabl
- es:0kB all_unreclaimable? no
- Normal free:12924kB boost:0kB min:468kB low:584kB high:700kB
- reserved_highatomic:0KB active_anon:0kB inactive_anon:0kB
- active_file:0kB inactive_file:0kB unevictable:0kB writepending:0kB
- present:16384kB managed:13936kB mlocked:0kB bounce:0
- kB free_pcp:220kB local_pcp:220kB free_cma:0kB
- lowmem_reserve[]: 0 0
- Normal: 3*4kB (UM) 4*8kB (UM) 3*16kB (M) 3*32kB (UM) 1*64kB (M) 3*128kB
- (UM) 2*256kB (M) 3*512kB (M) 2*1024kB (UM) 2*2048kB (UM) 1*4096kB (M) =
- 12924kB
- 0 total pagecache pages
- 4096 pages RAM
- 0 pages HighMem/MovableOnly
- 612 pages reserved
-
-Why rv64 isa?
-==============
-Generally speaking, we should build a 32-bit hardware s-mode to run
-32-bit Linux on a 64/32-bit processor (such as cortex-a35/a53).
-But, it can't reuse performance-related features and instructions of
-the 64-bit hardware, such as 64-bit ALU, AMO, and LD/SD, which would
-cause significant performance gaps on many Linux kernel features:
-
- - memcpy/memset/strcmp (s64ilp32 has half of the instructions count
-   and double the bandwidth of load/store instructions than s32ilp32.)
-
- - ebpf JIT is a 64-bit Language virtual machine ISA, which is not
-   suitable for mapping to s32ilp32.
-
- - Atomic64 (s64ilp32 has the exact native instructions mapping as
-   s64lp64, but s32ilp32 only uses generic_atomic64, a tradeoff &
-   limited software solution.)
-
- - Support cmxchg_double for slub (The 2nd 32-bit Linux
-   supports the feature, the 1st is i386.)
-
- - ...
-
-Compared with the user space ecosystem, the 32-bit Linux kernel is more
-eager to need 64ilp32 to improve performance because the Linux kernel
-can't utilize float-point/vector features of the ISA.
-
-Simplifies CPU Design
-=====================
-Yes, there are a lot of runing 32-bit Linux on 64-bit hardware examples
-in history, such as arm cortex a35/a53/a55, which implements the 32-bit
-EL1/EL2/EL3 hardware mode to support 32-bit Linux. We could follow Arm's
-style, but riscv could choose another better way. Compared to UXL=32,
-the MXL=SXL=32 has many CSR-related hardware functionalities, which
-causes a lot of effort to mix them into 64-bit hardware. The s64ilp32
-works on MXL=SXL=64 mode, so the CPU vendors needn't implement 32-bit
-machine and supervisor modes.
-
-How does rv64ilp32 work?
-========================
-The s64ilp32 is the same as the s64lp64 compat mode from a hardware
-view, i.e., MXL=SXL=64 + UXL=32. Because the s64ilp32 uses CONFIG_32BIT
-of Linux, it only supports u32ilp32 abi user space, the current standard
-rv32 software ecosystem, and it can't work with u64lp64 abi (I don't
-want that complex and useless stuff). But it may work with u64ilp32 in the
-future; now, the s64ilp32 depends on the UXL=32 feature of the hardware.
-
-The 64ilp32 gcc still uses sign-extend lw & auipc to generate address
-variables because inserting zero-extend instructions to mask the highest
-32-bit would cause significant code size and performance problems. Thus,
-we invented an OS approach to solve the problem:
- - When satp=bare and start physical address < 2GB, there is no sign-extend
-   address problem.
- - When satp=bare and start physical address > 2GB, we need zjpm liked
-   hardware extensions to mask high 32bit.
-   (Fortunately, all existed SoCs' (D1/D1s/F133, CV1800B, k230, BL808)
-    start physical address < 2GB.)
- - When satp=sv39, we invent double mapping to make the sign-extended
-   virtual address the same as the zero-extended virtual address.
-
-   +--------+      +---------+      +--------+
-   |        |   +--| 511:PUD1|      |        |
-   |        |   |  +---------+      |        |
-   |        |   |  | 510:PUD0|--+   |        |
-   |        |   |  +---------+  |   |        |
-   |        |   |  |         |  |   |        |
-   |        |   |  |         |  |   |        |
-   |        |   |  |         |  |   |        |
-   |        |   |  | INVALID |  |   |        |
-   |        |   |  |         |  |   |        |
-   |  ....  |   |  |         |  |   |  ....  |
-   |        |   |  |         |  |   |        |
-   |        |   |  +---------+  |   |        |
-   |        |   +--|  3:PUD1 |  |   |        |
-   |        |   |  +---------+  |   |        |
-   |        |   |  |  2:PUD0 |--+   |        |
-   |        |   |  +---------+  |   |        |
-   |        |   |  |1:USR_PUD|  |   |        |
-   |        |   |  +---------+  |   |        |
-   |        |   |  |0:USR_PUD|  |   |        |
-   +--------+<--+  +---------+  +-->+--------+
-      PUD1         ^   PGD             PUD0 
-      1GB          |   4GB             1GB
-                   |
-                   +----------+      
-                   | Sv39 PGDP|
-                   +----------+      
-                       SATP
-
-The size of xlen was always equal to the pointer/long size before
-s64ilp32 emerged. So we need to introduce a new type of data - xlen_t,
-which could deal with CSR-related and callee-save/restore operations.
-
-Some kernel features use 32BIT/64BIT to determine the exact ISA, such as
-ebpf JIT would map to rv32 ISA when CONFIG_32BIT=y. But s64ilp32 needs
-the ebpf JIT map to rv64 ISA when CONFIG_32BIT=y and we need to use
-another config to distinguish the difference.
-
-More detials, please review the path series.
-
-How to run s64ilp32?
-====================
-
-GNU toolchain
--------------
-git clone https://github.com/Liaoshihua/riscv-gnu-toolchain.git
-cd riscv-gnu-toolchain
-./configure --prefix="$PWD/opt-rv64-ilp32/" --with-arch=rv64imac --with-abi=ilp32
-make linux
-export PATH=$PATH:$PWD/opt-rv64-ilp32/bin/
-
-Opensbi
--------
-git clone https://github.com/riscv-software-src/opensbi.git
-CROSS_COMPILE=riscv64-unknown-linux-gnu- make PLATFORM=generic
-
-Linux kernel
-------------
-v6.5-rc1 + patches
-cd linux
-make ARCH=riscv CROSS_COMPILE=riscv64-unknown-linux-gnu- rv64ilp32_defconfig
-make ARCH=riscv CROSS_COMPILE=riscv64-unknown-linux-gnu- all
-
-Qemu
-----
-git clone https://github.com/plctlab/plct-qemu.git -b plct-s64ilp32-dev
-cd plct-qemu
-mkdir build
-cd build
-../qemu/configure --target-list="riscv64-softmmu riscv32-softmmu"
-make
-
-Patch organization
-==================
-PATCH [ 1-11] u64ilp32: User space support
-PATCH [12-36] adds time-related vDSO common flow for vdso32
-PATCH [37] Add tiny defconfig for ilp32 v.s. lp64
-PATCH [38] Unify ilp32 & lp64 configs and memory 
-
-Open issues
-===========
-
-Callee saved the register width
--------------------------------
-For 64-bit ISA (including 64lp64, 64ilp32), callee can't determine the
-correct width used in the register, so they saved the maximum width of
-the ISA register, i.e., xlen size. We also found this rule in x86-x32,
-mips-n32, and aarch64ilp32, which comes from 64lp64. See PATCH [20]
-
-Here are two downsides of this:
- - It would cause a difference with 32ilp32's stack frame, and s64ilp32
-   reuses 32ilp32 software stack. Thus, many additional compatible
-   problems would happen during the porting of 64ilp32 software.
- - It also increases the budget of the stack usage.
-   <setup_vm>:
-     auipc   a3,0xff3fb
-     add     a3,a3,1234 # c0000000
-     li      a5,-1
-     lui     a4,0xc0000
-     addw    sp,sp,-96
-     srl     a5,a5,0x20
-     subw    a4,a4,a3
-     auipc   a2,0x111a
-     add     a2,a2,1212 # c1d1f000
-     sd      s0,80(sp)----+
-     sd      s1,72(sp)    |
-     sd      s2,64(sp)    |
-     sd      s7,24(sp)    |
-     sd      s8,16(sp)    |
-     sd      s9,8(sp)     |-> All <= 32b widths, but occupy 64b
-     sd      ra,88(sp)    |   stack space.
-     sd      s3,56(sp)    |   Affect memory footprint & cache
-     sd      s4,48(sp)    |   performance.
-     sd      s5,40(sp)    |
-     sd      s6,32(sp)    |
-     sd      s10,0(sp)----+
-     sll     a1,a4,0x20
-     subw    a2,a2,a3
-     and     a4,a4,a5
-
-So here is a proposal to riscv 64ilp32 ABI:
- - Let the compiler prevent callee saving ">32b variables" in
-   callee-registers. (Q: We need to measure, how the influence of
-   64b variables cross function call?)
-
-EF_RISCV_X32
-------------
-We add an e_flag (EF_RISCV_X32) to distinguish the 32-bit ELF, which
-occupies BIT[6] of the e_flags layout.
-
-ELF Header:
-  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00
-  Class:                             ELF32
-  Data:                              2's complement, little endian
-  Version:                           1 (current)
-  OS/ABI:                            UNIX - System V
-  ABI Version:                       0
-  Type:                              REL (Relocatable file)
-  Machine:                           RISC-V
-  Version:                           0x1
-  Entry point address:               0x0
-  Start of program headers:          0 (bytes into file)
-  Start of section headers:          24620 (bytes into file)
-  Flags:                             0x21, RVC, X32, soft-float ABI
-                                                ^^^
-64-bit Optimization problem
----------------------------
-There is an existing problem in 64ilp32 gcc that combines two pointers
-in one register. Liao is solving that problem. Before he finishes the
-job, we could prevent it with a simple noinline attribute, fortunately.
-    struct path {
-            struct vfsmount *mnt;
-            struct dentry *dentry;
-    } __randomize_layout;
-
-    struct nameidata {
-            struct path     path;
-            ...
-            struct path     root;
-    ...
-    } __randomize_layout;
-
-            struct nameidata *nd
-            ...
-            nd->path = nd->root;
-    6c88                    ld      a0,24(s1)
-                                    ^^ // a0 contains two pointers
-    e088                    sd      a0,0(s1)
-            mntget(path->mnt);
-            // Need "lw a0,0(s1)" or "a0 << 32; a0 >> 32"
-    2a6150ef                jal     c01ce946 <mntget> // bug!
-
-Acknowledge
-===========
- - GNU:			LiaoShihua <shihua@iscas.ac.cn>
-			Jiawe Chen<jiawei@iscas.ac.cn>
- - Qemu:		Weiwei Li <liweiwei@iscas.ac.cn>
- - Benchmark:		Junqiang Wang <wangjunqiang@iscas.ac.cn> 
-			XiaoOu Chen <chenxiaoou@iscas.ac.cn>
- - Fedora:		Wei Fu <wefu@redhat.com>
-			Songsong Zhang <U2FsdGVkX1@gmail.com>
-
-References
-==========
-[1] https://techpubs.jurassic.nl/manuals/0630/developer/Mpro_...
-[2] https://wiki.debian.org/Arm64ilp32Port
-[3] https://lwn.net/Articles/456731/
-[4] https://github.com/riscv/riscv-profiles/releases
-[5] https://www.cnx-software.com/2021/10/25/allwinner-d1s-f13...
-[6] https://milkv.io/duo/
-[7] https://twitter.com/tphuang/status/1631308330256801793
-[8] https://www.cnx-software.com/2022/12/02/pine64-ox64-sbc-b...
-
-Changelog:
-V2:
- - Add u64ilp32 support
- - Rebase v6.5-rc1
- - Enable 64ilp32 vgettimeofday for benchmarking
-
-V1:
-https://lore.kernel.org/linux-riscv/20230518131013.3366406-1-guoren@kernel.org/
-
-Guo Ren (38):
-  riscv: u64ilp32: Unify vdso32 & compat_vdso into vdso/Makefile
-  riscv: u64ilp32: Remove compat_vdso/
-  riscv: u64ilp32: Add time-related vDSO common flow for vdso32
-  riscv: u64ilp32: Introduce ILP32 vdso for UXL=64
-  riscv: u64ilp32: Adjust vDSO kernel flow for 64ilp32 abi
-  riscv: u64ilp32: Add signal support for compat
-  riscv: u64ilp32: Add ptrace interface support
-  riscv: u64ilp32: Adjust vDSO alternative for 64ilp32 abi
-  riscv: u64ilp32: Add xlen_t in user_regs_struct
-  riscv: u64ilp32: Remove the restriction of UXL=32
-  riscv: u64ilp32: Enable user space runtime switch
-  riscv: s64ilp32: Unify ULL & UL into UXL in csr
-  riscv: s64ilp32: Introduce xlen_t for 64ILP32 kernel
-  riscv: s64ilp32: Add sbi support
-  riscv: s64ilp32: Add asid support
-  riscv: s64ilp32: Introduce PTR_L and PTR_S
-  riscv: s64ilp32: Adjust TASK_SIZE for s64ilp32 kernel
-  riscv: s64ilp32: Add ebpf jit support
-  riscv: s64ilp32: Add ELF32 support
-  riscv: s64ilp32: Add ARCH_RV64ILP32 Kconfig option
-  riscv: s64ilp32: Add MMU_SV32 mode support
-  riscv: s64ilp32: Add MMU_SV39 mode support
-  riscv: s64ilp32: Enable native atomic64
-  riscv: s64ilp32: Add TImode (128 int) support
-  riscv: s64ilp32: Implement cmpxchg_double
-  riscv: s64ilp32: Disable KVM
-  riscv: s64ilp32: Correct the rv64ilp32 stackframe layout
-  riscv: s64ilp32: Temporary workaround solution to gcc problem
-  riscv: s64ilp32: Introduce ARCH_HAS_64ILP32_KERNEL for syscall
-  riscv: s64ilp32: Add u32ilp32 ptrace support
-  riscv: s64ilp32: Add u32ilp32 signal support
-  riscv: s64ilp32: Validate harts by architecture name
-  riscv: s64ilp32: Add rv64ilp32_defconfig
-  riscv: Cleanup rv32_defconfig
-  clocksource: riscv: s64ilp32: Use __riscv_xlen instead of CONFIG_32BIT
-  irqchip: riscv: s64ilp32: Use __riscv_xlen instead of CONFIG_32BIT
-  add tinylab defconfig
-  64ilp32 v.s. 64lp64
-
- arch/Kconfig                                  |  10 +
- arch/riscv/Kconfig                            |  49 +++-
- arch/riscv/Kconfig.errata                     |   2 +-
- arch/riscv/Makefile                           |  28 ++-
- arch/riscv/configs/32-bit.config              |   2 -
- arch/riscv/configs/64ilp32.config             |   2 +
- arch/riscv/configs/tinylab32ilp32_defconfig   |  88 +++++++
- arch/riscv/configs/tinylab64ilp32_defconfig   |  89 +++++++
- arch/riscv/configs/tinylab_defconfig          |  89 +++++++
- arch/riscv/include/asm/asm.h                  |   5 +
- arch/riscv/include/asm/atomic.h               |   6 +
- arch/riscv/include/asm/cmpxchg.h              |  53 ++++
- arch/riscv/include/asm/cpu_ops_sbi.h          |   4 +-
- arch/riscv/include/asm/csr.h                  | 189 +++++++-------
- arch/riscv/include/asm/elf.h                  |   7 +-
- arch/riscv/include/asm/extable.h              |   2 +-
- arch/riscv/include/asm/module.h               |  30 +++
- arch/riscv/include/asm/page.h                 |  26 +-
- arch/riscv/include/asm/pgtable-64.h           |  50 ++--
- arch/riscv/include/asm/pgtable.h              |  26 +-
- arch/riscv/include/asm/processor.h            |   8 +-
- arch/riscv/include/asm/ptrace.h               |  96 ++++----
- arch/riscv/include/asm/sbi.h                  |  24 +-
- arch/riscv/include/asm/signal32.h             |  11 +-
- arch/riscv/include/asm/stacktrace.h           |   6 +
- arch/riscv/include/asm/syscall.h              |   2 +-
- arch/riscv/include/asm/thread_info.h          |   1 +
- arch/riscv/include/asm/timex.h                |  10 +-
- arch/riscv/include/asm/tlbflush.h             |   2 +-
- arch/riscv/include/asm/vdso.h                 |  34 ++-
- arch/riscv/include/asm/vdso/gettimeofday.h    |  95 +++++++
- arch/riscv/include/uapi/asm/elf.h             |   2 +-
- arch/riscv/include/uapi/asm/ptrace.h          |  72 +++---
- arch/riscv/include/uapi/asm/unistd.h          |   1 +
- arch/riscv/kernel/Makefile                    |   5 +-
- arch/riscv/kernel/alternative.c               |  50 +++-
- arch/riscv/kernel/compat_signal.c             |  23 +-
- arch/riscv/kernel/compat_vdso/.gitignore      |   2 -
- arch/riscv/kernel/compat_vdso/compat_vdso.S   |   8 -
- .../kernel/compat_vdso/compat_vdso.lds.S      |   3 -
- arch/riscv/kernel/compat_vdso/flush_icache.S  |   3 -
- arch/riscv/kernel/compat_vdso/getcpu.S        |   3 -
- arch/riscv/kernel/compat_vdso/note.S          |   3 -
- arch/riscv/kernel/compat_vdso/rt_sigreturn.S  |   3 -
- arch/riscv/kernel/cpu.c                       |   9 +-
- arch/riscv/kernel/cpu_ops_sbi.c               |   4 +-
- arch/riscv/kernel/entry.S                     |  24 +-
- arch/riscv/kernel/head.S                      |   8 +-
- arch/riscv/kernel/process.c                   |  10 +-
- arch/riscv/kernel/ptrace.c                    |   9 +-
- arch/riscv/kernel/sbi.c                       |  24 +-
- arch/riscv/kernel/signal.c                    |  79 ++++--
- arch/riscv/kernel/traps.c                     |   4 +-
- arch/riscv/kernel/vdso.c                      | 102 ++++++--
- arch/riscv/kernel/vdso/Makefile               | 232 ++++++++++++++----
- ..._vdso_offsets.sh => gen_vdso32_offsets.sh} |   2 +-
- .../gen_vdso64_offsets.sh}                    |   2 +-
- .../kernel/vdso/gen_vdso64ilp32_offsets.sh    |   5 +
- arch/riscv/kernel/vdso/vdso.lds.S             |   2 -
- arch/riscv/kernel/vdso/vgettimeofday.c        |  39 ++-
- arch/riscv/kernel/vdso32.S                    |   8 +
- arch/riscv/kernel/{vdso/vdso.S => vdso64.S}   |   8 +-
- arch/riscv/kernel/vdso64ilp32.S               |   8 +
- arch/riscv/kernel/vector.c                    |   2 +-
- arch/riscv/kvm/Kconfig                        |   1 +
- arch/riscv/lib/Makefile                       |   1 +
- arch/riscv/lib/memset.S                       |   4 +-
- arch/riscv/mm/context.c                       |  16 +-
- arch/riscv/mm/fault.c                         |  13 +-
- arch/riscv/mm/init.c                          |  24 +-
- arch/riscv/net/Makefile                       |   6 +-
- arch/riscv/net/bpf_jit_comp64.c               |   6 +-
- drivers/clocksource/timer-riscv.c             |   2 +-
- drivers/irqchip/irq-riscv-intc.c              |   9 +-
- fs/namei.c                                    |   2 +-
- fs/open.c                                     |  22 ++
- fs/read_write.c                               |  17 ++
- fs/sync.c                                     |  22 ++
- include/linux/syscalls.h                      |  35 ++-
- init/main.c                                   |   2 +
- kernel/signal.c                               |  24 +-
- mm/fadvise.c                                  |  24 ++
- 82 files changed, 1526 insertions(+), 509 deletions(-)
- create mode 100644 arch/riscv/configs/64ilp32.config
- create mode 100644 arch/riscv/configs/tinylab32ilp32_defconfig
- create mode 100644 arch/riscv/configs/tinylab64ilp32_defconfig
- create mode 100644 arch/riscv/configs/tinylab_defconfig
- delete mode 100644 arch/riscv/kernel/compat_vdso/.gitignore
- delete mode 100644 arch/riscv/kernel/compat_vdso/compat_vdso.S
- delete mode 100644 arch/riscv/kernel/compat_vdso/compat_vdso.lds.S
- delete mode 100644 arch/riscv/kernel/compat_vdso/flush_icache.S
- delete mode 100644 arch/riscv/kernel/compat_vdso/getcpu.S
- delete mode 100644 arch/riscv/kernel/compat_vdso/note.S
- delete mode 100644 arch/riscv/kernel/compat_vdso/rt_sigreturn.S
- rename arch/riscv/kernel/vdso/{gen_vdso_offsets.sh => gen_vdso32_offsets.sh} (78%)
- rename arch/riscv/kernel/{compat_vdso/gen_compat_vdso_offsets.sh => vdso/gen_vdso64_offsets.sh} (77%)
- create mode 100755 arch/riscv/kernel/vdso/gen_vdso64ilp32_offsets.sh
- create mode 100644 arch/riscv/kernel/vdso32.S
- rename arch/riscv/kernel/{vdso/vdso.S => vdso64.S} (73%)
- create mode 100644 arch/riscv/kernel/vdso64ilp32.S
-
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 4b91e2ba7815..24b1b6abf0a7 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -82,7 +82,7 @@ config RISCV
+ 	select GENERIC_PTDUMP if MMU
+ 	select GENERIC_SCHED_CLOCK
+ 	select GENERIC_SMP_IDLE_THREAD
+-	select GENERIC_TIME_VSYSCALL if MMU && 64BIT
++	select GENERIC_TIME_VSYSCALL if MMU
+ 	select GENERIC_VDSO_TIME_NS if HAVE_GENERIC_VDSO
+ 	select HARDIRQS_SW_RESEND
+ 	select HAS_IOPORT if MMU
+@@ -118,7 +118,7 @@ config RISCV
+ 	select HAVE_FUNCTION_ARG_ACCESS_API
+ 	select HAVE_FUNCTION_ERROR_INJECTION
+ 	select HAVE_GCC_PLUGINS
+-	select HAVE_GENERIC_VDSO if MMU && 64BIT
++	select HAVE_GENERIC_VDSO if MMU
+ 	select HAVE_IRQ_TIME_ACCOUNTING
+ 	select HAVE_KPROBES if !XIP_KERNEL
+ 	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
+diff --git a/arch/riscv/include/asm/vdso/gettimeofday.h b/arch/riscv/include/asm/vdso/gettimeofday.h
+index a7ae8576797b..4c362bb9a16b 100644
+--- a/arch/riscv/include/asm/vdso/gettimeofday.h
++++ b/arch/riscv/include/asm/vdso/gettimeofday.h
+@@ -36,6 +36,7 @@ int gettimeofday_fallback(struct __kernel_old_timeval *_tv,
+ }
+ #endif
+ 
++#if __SIZEOF_POINTER__ == 8
+ #ifdef __NR_clock_gettime
+ static __always_inline
+ long clock_gettime_fallback(clockid_t _clkid, struct __kernel_timespec *_ts)
+@@ -71,6 +72,84 @@ int clock_getres_fallback(clockid_t _clkid, struct __kernel_timespec *_ts)
+ 	return ret;
+ }
+ #endif
++
++#elif __SIZEOF_POINTER__ == 4
++
++#define BUILD_VDSO32		1
++
++#ifdef __NR_clock_gettime64
++static __always_inline
++long clock_gettime_fallback(clockid_t _clkid, struct __kernel_timespec *_ts)
++{
++	register clockid_t clkid asm("a0") = _clkid;
++	register struct __kernel_timespec *ts asm("a1") = _ts;
++	register long ret asm("a0");
++	register long nr asm("a7") = __NR_clock_gettime64;
++
++	asm volatile ("ecall\n"
++		      : "=r" (ret)
++		      : "r"(clkid), "r"(ts), "r"(nr)
++		      : "memory");
++
++	return ret;
++}
++#endif
++
++#ifdef __NR_clock_getres_time64
++static __always_inline
++int clock_getres_fallback(clockid_t _clkid, struct __kernel_timespec *_ts)
++{
++	register clockid_t clkid asm("a0") = _clkid;
++	register struct __kernel_timespec *ts asm("a1") = _ts;
++	register long ret asm("a0");
++	register long nr asm("a7") = __NR_clock_getres_time64;
++
++	asm volatile ("ecall\n"
++		      : "=r" (ret)
++		      : "r"(clkid), "r"(ts), "r"(nr)
++		      : "memory");
++
++	return ret;
++}
++#endif
++
++#ifdef __NR_clock_gettime
++static __always_inline
++int clock_gettime32_fallback(clockid_t _clkid, struct old_timespec32 *_ts)
++{
++	register clockid_t clkid asm("a0") = _clkid;
++	register struct old_timespec32 *ts asm("a1") = _ts;
++	register long ret asm("a0");
++	register long nr asm("a7") = __NR_clock_gettime;
++
++	asm volatile ("ecall\n"
++		      : "=r" (ret)
++		      : "r"(clkid), "r"(ts), "r"(nr)
++		      : "memory");
++
++	return ret;
++}
++#endif
++
++#ifdef __NR_clock_getres
++static __always_inline
++int clock_getres32_fallback(clockid_t _clkid, struct old_timespec32 *_ts)
++{
++	register clockid_t clkid asm("a0") = _clkid;
++	register struct old_timespec32 *ts asm("a1") = _ts;
++	register long ret asm("a0");
++	register long nr asm("a7") = __NR_clock_getres;
++
++	asm volatile ("ecall\n"
++		      : "=r" (ret)
++		      : "r"(clkid), "r"(ts), "r"(nr)
++		      : "memory");
++
++	return ret;
++}
++#endif
++
++#endif /* __SIZEOF_POINTER__ */
+ #endif /* CONFIG_GENERIC_TIME_VSYSCALL */
+ 
+ static __always_inline u64 __arch_get_hw_counter(s32 clock_mode,
+@@ -81,7 +160,18 @@ static __always_inline u64 __arch_get_hw_counter(s32 clock_mode,
+ 	 * M-mode to obtain the value of CSR_TIME. Hence, unlike other
+ 	 * architecture, no fence instructions surround the csr_read()
+ 	 */
++#if __riscv_xlen == 64
+ 	return csr_read(CSR_TIME);
++#else
++	u32 hi, lo;
++
++	do {
++		hi = csr_read(CSR_TIMEH);
++		lo = csr_read(CSR_TIME);
++	} while (hi != csr_read(CSR_TIMEH));
++
++	return ((u64)hi << 32) | lo;
++#endif
+ }
+ 
+ static __always_inline const struct vdso_data *__arch_get_vdso_data(void)
+diff --git a/arch/riscv/include/uapi/asm/unistd.h b/arch/riscv/include/uapi/asm/unistd.h
+index 950ab3fd4409..0ee86ef907e4 100644
+--- a/arch/riscv/include/uapi/asm/unistd.h
++++ b/arch/riscv/include/uapi/asm/unistd.h
+@@ -22,6 +22,7 @@
+ 
+ #define __ARCH_WANT_SYS_CLONE3
+ #define __ARCH_WANT_MEMFD_SECRET
++#define __ARCH_WANT_TIME32_SYSCALLS
+ 
+ #include <asm-generic/unistd.h>
+ 
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index a9720e816e1f..df8f68bb0937 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -16,9 +16,6 @@ ccflags-y := -fno-stack-protector
+ ccflags-y += -DDISABLE_BRANCH_PROFILING
+ 
+ CPPFLAGS_vdso.lds += -P -C -U$(ARCH)
+-ifneq ($(filter vgettimeofday, $(vdso-cc-syms)),)
+-	CPPFLAGS_vdso.lds += -DHAS_VGETTIMEOFDAY
+-endif
+ 
+ # strip rule for the .so file
+ $(obj)/%.so: OBJCOPYFLAGS := -S
+@@ -29,20 +26,20 @@ $(obj)/%.so: $(obj)/%.so.dbg FORCE
+ quiet_cmd_vdso_install = INSTALL $@
+       cmd_vdso_install = cp $(obj)/$@.dbg $(MODLIB)/vdso/$@
+ 
+-# Symbols present in the vdso
+-ifdef CONFIG_VDSO64
+-vdso64-as-syms  = rt_sigreturn
+-vdso64-as-syms += getcpu
+-vdso64-as-syms += flush_icache
+-vdso64-as-syms += sys_hwprobe
++vdso-as-syms  = rt_sigreturn
++vdso-as-syms += getcpu
++vdso-as-syms += flush_icache
++vdso-as-syms += sys_hwprobe
+ 
+-vdso64-cc-syms  = vgettimeofday
+-vdso64-cc-syms += hwprobe
++vdso-cc-syms  = vgettimeofday
++vdso-cc-syms += hwprobe
+ 
+-obj-as-vdso64  = $(patsubst %, %-64.o, $(vdso64-as-syms)) note-64.o
++# Symbols present in the vdso
++ifdef CONFIG_VDSO64
++obj-as-vdso64  = $(patsubst %, %-64.o, $(vdso-as-syms)) note-64.o
+ obj-as-vdso64 := $(addprefix $(obj)/, $(obj-as-vdso64))
+ 
+-obj-cc-vdso64  = $(patsubst %, %-64.o, $(vdso64-cc-syms))
++obj-cc-vdso64  = $(patsubst %, %-64.o, $(vdso-cc-syms))
+ obj-cc-vdso64 := $(addprefix $(obj)/, $(obj-cc-vdso64))
+ 
+ targets += $(obj-as-vdso64) $(obj-cc-vdso64) vdso64.so vdso64.so.dbg vdso64.lds
+@@ -55,7 +52,7 @@ LDFLAGS_vdso64.so.dbg = -shared -S -soname=linux-vdso64.so.1 \
+ # Make sure only to export the intended __vdso_xxx symbol offsets.
+ quiet_cmd_vdso64ld = VDSO64LD  $@
+       cmd_vdso64ld = $(VDSO_LD) $(ld_flags) $(VDSO64_LD_FLAGS) -T $(filter-out FORCE,$^) -o $@.tmp && \
+-                   $(OBJCOPY) $(patsubst %, -G __vdso_%, $(vdso64-as-syms) $(vdso64-cc-syms)) $@.tmp $@ && \
++                   $(OBJCOPY) $(patsubst %, -G __vdso_%, $(vdso-as-syms) $(vdso-cc-syms)) $@.tmp $@ && \
+                    rm $@.tmp
+ 
+ # actual build commands
+@@ -94,20 +91,13 @@ vdso64_install: vdso64.so
+ endif
+ 
+ ifdef CONFIG_VDSO32
+-vdso32-as-syms  = rt_sigreturn
+-vdso32-as-syms += getcpu
+-vdso32-as-syms += flush_icache
+-vdso32-as-syms += sys_hwprobe
+-
+-vdso32-cc-syms += hwprobe
+-
+ VDSO32_CC_FLAGS := -march=rv32g -mabi=ilp32
+ VDSO32_LD_FLAGS := -melf32lriscv
+ 
+-obj-as-vdso32  = $(patsubst %, %-32.o, $(vdso32-as-syms)) note-32.o
++obj-as-vdso32  = $(patsubst %, %-32.o, $(vdso-as-syms)) note-32.o
+ obj-as-vdso32 := $(addprefix $(obj)/, $(obj-as-vdso32))
+ 
+-obj-cc-vdso32  = $(patsubst %, %-32.o, $(vdso32-cc-syms))
++obj-cc-vdso32  = $(patsubst %, %-32.o, $(vdso-cc-syms))
+ obj-cc-vdso32 := $(addprefix $(obj)/, $(obj-cc-vdso32))
+ 
+ targets += $(obj-as-vdso32) $(obj-cc-vdso32) vdso32.so vdso32.so.dbg vdso32.lds
+@@ -121,7 +111,7 @@ LDFLAGS_vdso32.so.dbg = -shared -S -soname=linux-vdso32.so.1 \
+ # Make sure only to export the intended __vdso_xxx symbol offsets.
+ quiet_cmd_vdso32ld = VDSO32LD  $@
+       cmd_vdso32ld = $(VDSO_LD) $(ld_flags) $(VDSO32_LD_FLAGS) -T $(filter-out FORCE,$^) -o $@.tmp && \
+-                   $(OBJCOPY) $(patsubst %, -G __vdso_%, $(vdso32-as-syms) $(vdso32-cc-syms)) $@.tmp $@ && \
++                   $(OBJCOPY) $(patsubst %, -G __vdso_%, $(vdso-as-syms) $(vdso-cc-syms)) $@.tmp $@ && \
+                    rm $@.tmp
+ 
+ # actual build commands
+@@ -140,6 +130,10 @@ $(obj-cc-vdso32): %-32.o: %.c FORCE
+ 
+ CFLAGS_hwprobe-32.o += -fPIC
+ 
++CFLAGS_vgettimeofday-32.o += -fPIC -include $(c-gettimeofday-y)
++# Disable -pg to prevent insert call site
++CFLAGS_REMOVE_vgettimeofday-32.o = $(CC_FLAGS_FTRACE)
++
+ # Generate VDSO offsets using helper script
+ gen-vdso32sym := $(srctree)/$(src)/gen_vdso32_offsets.sh
+ quiet_cmd_vdso32sym = VDSO32SYM $@
+diff --git a/arch/riscv/kernel/vdso/vdso.lds.S b/arch/riscv/kernel/vdso/vdso.lds.S
+index 82ce64900f3d..d28202283b72 100644
+--- a/arch/riscv/kernel/vdso/vdso.lds.S
++++ b/arch/riscv/kernel/vdso/vdso.lds.S
+@@ -75,11 +75,9 @@ VERSION
+ 	LINUX_4.15 {
+ 	global:
+ 		__vdso_rt_sigreturn;
+-#ifdef HAS_VGETTIMEOFDAY
+ 		__vdso_gettimeofday;
+ 		__vdso_clock_gettime;
+ 		__vdso_clock_getres;
+-#endif
+ 		__vdso_getcpu;
+ 		__vdso_flush_icache;
+ #ifndef COMPAT_VDSO
+diff --git a/arch/riscv/kernel/vdso/vgettimeofday.c b/arch/riscv/kernel/vdso/vgettimeofday.c
+index cc0d80699c31..056b465eb161 100644
+--- a/arch/riscv/kernel/vdso/vgettimeofday.c
++++ b/arch/riscv/kernel/vdso/vgettimeofday.c
+@@ -9,6 +9,14 @@
+ #include <linux/time.h>
+ #include <linux/types.h>
+ 
++extern
++int __vdso_gettimeofday(struct __kernel_old_timeval *tv, struct timezone *tz);
++int __vdso_gettimeofday(struct __kernel_old_timeval *tv, struct timezone *tz)
++{
++	return __cvdso_gettimeofday(tv, tz);
++}
++
++#if __SIZEOF_POINTER__ == 8
+ extern
+ int __vdso_clock_gettime(clockid_t clock, struct __kernel_timespec *ts);
+ int __vdso_clock_gettime(clockid_t clock, struct __kernel_timespec *ts)
+@@ -17,15 +25,36 @@ int __vdso_clock_gettime(clockid_t clock, struct __kernel_timespec *ts)
+ }
+ 
+ extern
+-int __vdso_gettimeofday(struct __kernel_old_timeval *tv, struct timezone *tz);
+-int __vdso_gettimeofday(struct __kernel_old_timeval *tv, struct timezone *tz)
++int __vdso_clock_getres(clockid_t clock_id, struct __kernel_timespec *res);
++int __vdso_clock_getres(clockid_t clock_id, struct __kernel_timespec *res)
+ {
+-	return __cvdso_gettimeofday(tv, tz);
++	return __cvdso_clock_getres(clock_id, res);
++}
++#elif __SIZEOF_POINTER__ == 4
++extern
++int __vdso_clock_gettime(clockid_t clock, struct old_timespec32 *ts);
++int __vdso_clock_gettime(clockid_t clock, struct old_timespec32 *ts)
++{
++	return __cvdso_clock_gettime32(clock, ts);
++}
++
++int __vdso_clock_gettime64(clockid_t clock, struct __kernel_timespec *ts);
++int __vdso_clock_gettime64(clockid_t clock, struct __kernel_timespec *ts)
++{
++	return __cvdso_clock_gettime(clock, ts);
+ }
+ 
+ extern
+-int __vdso_clock_getres(clockid_t clock_id, struct __kernel_timespec *res);
+-int __vdso_clock_getres(clockid_t clock_id, struct __kernel_timespec *res)
++int __vdso_clock_getres(clockid_t clock_id, struct old_timespec32 *res);
++int __vdso_clock_getres(clockid_t clock_id, struct old_timespec32 *res)
++{
++	return __cvdso_clock_getres_time32(clock_id, res);
++}
++
++extern
++int __vdso_clock_getres64(clockid_t clock_id, struct __kernel_timespec *res);
++int __vdso_clock_getres64(clockid_t clock_id, struct __kernel_timespec *res)
+ {
+ 	return __cvdso_clock_getres(clock_id, res);
+ }
++#endif
 -- 
 2.36.1
 
