@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0568C4332F
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Nov 2023 06:16:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B9F7C4332F
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Nov 2023 06:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L2ofTy4vx3I7w6OK9o7kH0m4g4+s3A4ou8oWWIcCvBA=; b=ULXDSL8Bl8xptR
-	fV0wD5H5/n8nagCrtEfe1wsakdByyDQPgU/ywIsQQ/Y/ea3p7yLnnUoHckFgT+z1KOmc5kij8Qolh
-	hgYJCV8ywBf94vr+Q4wj5ljXsd68dTqguIuuop63mleZjs6MCKuRrx7d93Na1kxnB0Iixv16YtKWX
-	14yqti4LYxBsgAR2BwOKxqKTCv7XARqzIB2wTf7xubfLgemxizK3WBemiP2e2V0jHcWCh5AMK0qBw
-	DjNXsxMf6uf/wcRH0WdEzbMX3lJI+AulfuOFskhwECbr0KcJw0ihHvVUiimfdjzV2rb2EEl78RrjV
-	FMu6a5u+wEi4zZ/ySO2A==;
+	List-Owner; bh=Au96yCYKpGaWlMrhnCCzxGEapqI1F0Z3GN3jkzClP+0=; b=m4LX3m8Qso+STC
+	G51MiwpFEeF+6TEDLliib4euXisr2QGbHJrM3c3aj1OplrC6tgtOuE/Bn7Vo4ZnwKx1mP9IYqZdmI
+	DhS+2wGv+j1Lm96FDQC69CQpVqw9VQBGMxHTAVGbiGuiJVnWSixUpsHz3a7lkTbpj0ZpqNATuReWe
+	OiAsTPc1CH0/AvRp7viI4LS6q5DQ2jcYjs0i3AinXiECfOuAQtNdrjmL7Wb4FsO7BhS1W7Lz1s0uk
+	YyEwNfNE+qyY0Av+x2o6BS5Jl30PmeDA2Ri6K88R0GZwcciUGyuo6XsoJ3TuY7mCj1zK1rg9Lq466
+	SRjv0219VWawIR9MQYtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r23lP-00BjMh-1d;
-	Sun, 12 Nov 2023 06:16:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1r23lX-00BjPi-0z;
+	Sun, 12 Nov 2023 06:16:15 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r23lM-00BjKn-0z
+	id 1r23lU-00BjOZ-26
 	for linux-riscv@lists.infradead.org;
-	Sun, 12 Nov 2023 06:16:05 +0000
+	Sun, 12 Nov 2023 06:16:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AA3E360C21;
+	by ams.source.kernel.org (Postfix) with ESMTP id 55B9EB80926;
+	Sun, 12 Nov 2023 06:16:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2F82C43391;
 	Sun, 12 Nov 2023 06:16:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33BFBC433D9;
-	Sun, 12 Nov 2023 06:15:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699769763;
-	bh=VEdgkasnG6WV+UwznjmxtCe/+1EnOyvijw2TTDpGzls=;
+	s=k20201202; t=1699769770;
+	bh=DKk902dUzJRu+EpHJ3Wk2xXFN2nL8OoR25SRcqCxR2Q=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LijSfjXMXwZ7v68ahlqw4zv5xx9HIG5ohVA/+6HsSiQeE6I7KIp+zAYxquYYx/Rki
-	 ORMbca9Aps4wycU1ZctklwUJXamKPqduNqusNNGaelIfaYzuWcHUkxeSos9v3CrfTW
-	 SW46dQcdrj4xifPGeNtBTOo6OxlfB+gEmMnxGTBvxp/3JO3dMkdjCJkn7KUmrexuLh
-	 U4yZFJ6UfL0ORGcYa4dE0dXoPXbtBFfYyeJW9eWh1G/n26IPfND3rjkIzIStV2kaNe
-	 dFApL15ryILb9lETfRSDUR+68KH4ZPQWqsi6v5T8LmZBfloe0pJOno4PcqrQCNPhTJ
-	 SWU0cH/7PPD0g==
+	b=c59OtDgxKoaL5H+8t/esEfV4kKvicRpVLj8v1lnhz3siL7SoX+2IByEa0bFClwdAn
+	 gWRKRChuD0ELQzyxEhYYTrZ2c111YRbKdTtjo5SAXQ7zbrerldn80owtj+w72YJl8o
+	 XyBcE5AGmM3J9GulU7mgINeZo+r9aq4447aDD8rL7aO3bGorg4INoFvR5ly2W5eWa/
+	 PGT6kAuUzfr9kOZVP9bqms7r2XiNrBnF3kWDsm3W6ESHZ9jx35kFCdp06buDcYrX2T
+	 idUnQF9oVyN4PTA5ImVxyC9kkYF+rJYoA+Xbsf33gcQdiYEuMw0BkhIdKmJkuKVy2l
+	 qZ113gkQTjpoA==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	guoren@kernel.org,
@@ -73,16 +73,17 @@ Cc: linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Guo Ren <guoren@linux.alibaba.com>
-Subject: [RFC PATCH V2 06/38] riscv: u64ilp32: Add signal support for compat
-Date: Sun, 12 Nov 2023 01:14:42 -0500
-Message-Id: <20231112061514.2306187-7-guoren@kernel.org>
+Subject: [RFC PATCH V2 07/38] riscv: u64ilp32: Add ptrace interface support
+Date: Sun, 12 Nov 2023 01:14:43 -0500
+Message-Id: <20231112061514.2306187-8-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20231112061514.2306187-1-guoren@kernel.org>
 References: <20231112061514.2306187-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231111_221604_431141_A1E60195 
-X-CRM114-Status: GOOD (  12.96  )
+X-CRM114-CacheID: sfid-20231111_221612_825523_A3907353 
+X-CRM114-Status: UNSURE (   8.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,181 +102,29 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-The u64ilp32 reuses compat mode on the 64-bit Linux kernel, but the
-signal context is the same as the native 64-bit, not u32ilp32. So use
-the native signal procedure for u64ilp32 applications.
+The pt_regs of u64ilp32 is the same as the 64-bit kernel's. So, change
+to use native_view instead.
 
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
 ---
- arch/riscv/include/asm/signal32.h |  9 ++++++
- arch/riscv/kernel/compat_signal.c | 21 ++++--------
- arch/riscv/kernel/signal.c        | 53 ++++++++++++++++++++++---------
- 3 files changed, 54 insertions(+), 29 deletions(-)
+ arch/riscv/kernel/ptrace.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/signal32.h b/arch/riscv/include/asm/signal32.h
-index 96dc56932e76..cda62d7eb0a5 100644
---- a/arch/riscv/include/asm/signal32.h
-+++ b/arch/riscv/include/asm/signal32.h
-@@ -6,6 +6,7 @@
- #if IS_ENABLED(CONFIG_COMPAT)
- int compat_setup_rt_frame(struct ksignal *ksig, sigset_t *set,
- 			  struct pt_regs *regs);
-+long __riscv_compat_rt_sigreturn(void);
- #else
- static inline
- int compat_setup_rt_frame(struct ksignal *ksig, sigset_t *set,
-@@ -13,6 +14,14 @@ int compat_setup_rt_frame(struct ksignal *ksig, sigset_t *set,
+diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+index 1d572cf3140f..5471b12127da 100644
+--- a/arch/riscv/kernel/ptrace.c
++++ b/arch/riscv/kernel/ptrace.c
+@@ -369,7 +369,8 @@ long compat_arch_ptrace(struct task_struct *child, compat_long_t request,
+ const struct user_regset_view *task_user_regset_view(struct task_struct *task)
  {
- 	return -1;
- }
-+
-+static inline
-+long __riscv_compat_rt_sigreturn(void)
-+{
-+	return -1;
-+}
- #endif
- 
-+void __riscv_rt_sigreturn_badframe(void);
-+
- #endif
-diff --git a/arch/riscv/kernel/compat_signal.c b/arch/riscv/kernel/compat_signal.c
-index 8dea2012836e..955a638da2a4 100644
---- a/arch/riscv/kernel/compat_signal.c
-+++ b/arch/riscv/kernel/compat_signal.c
-@@ -116,18 +116,16 @@ static long compat_restore_sigcontext(struct pt_regs *regs,
- 	return err;
- }
- 
--COMPAT_SYSCALL_DEFINE0(rt_sigreturn)
-+long __riscv_compat_rt_sigreturn(void)
- {
--	struct pt_regs *regs = current_pt_regs();
--	struct compat_rt_sigframe __user *frame;
--	struct task_struct *task;
- 	sigset_t set;
-+	struct pt_regs *regs = current_pt_regs();
-+	struct compat_rt_sigframe __user *frame =
-+		(struct compat_rt_sigframe __user *)kernel_stack_pointer(regs);
- 
- 	/* Always make any pending restarted system calls return -EINTR */
- 	current->restart_block.fn = do_no_restart_syscall;
- 
--	frame = (struct compat_rt_sigframe __user *)regs->sp;
--
- 	if (!access_ok(frame, sizeof(*frame)))
- 		goto badframe;
- 
-@@ -142,17 +140,12 @@ COMPAT_SYSCALL_DEFINE0(rt_sigreturn)
- 	if (compat_restore_altstack(&frame->uc.uc_stack))
- 		goto badframe;
- 
-+	regs->cause = -1UL;
-+
- 	return regs->a0;
- 
- badframe:
--	task = current;
--	if (show_unhandled_signals) {
--		pr_info_ratelimited(
--			"%s[%d]: bad frame in %s: frame=%p pc=%p sp=%p\n",
--			task->comm, task_pid_nr(task), __func__,
--			frame, (void *)regs->epc, (void *)regs->sp);
--	}
--	force_sig(SIGSEGV);
-+	__riscv_rt_sigreturn_badframe();
- 	return 0;
- }
- 
-diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-index 95c4a8d8a3f5..1c51a6783c98 100644
---- a/arch/riscv/kernel/signal.c
-+++ b/arch/riscv/kernel/signal.c
-@@ -224,19 +224,34 @@ static size_t get_rt_frame_size(bool cal_all)
- 	return frame_size;
- }
- 
--SYSCALL_DEFINE0(rt_sigreturn)
-+void __riscv_rt_sigreturn_badframe(void)
-+{
-+	struct task_struct *task = current;
-+	struct pt_regs *regs = task_pt_regs(task);
-+
-+	if (show_unhandled_signals) {
-+		pr_info_ratelimited(
-+			"%s[%d]: bad frame in %s: frame=%p pc=%p sp=%p\n",
-+			task->comm, task_pid_nr(task), __func__,
-+			(void *)kernel_stack_pointer(regs),
-+			(void *)instruction_pointer(regs),
-+			(void *)kernel_stack_pointer(regs));
-+	}
-+
-+	force_sig(SIGSEGV);
-+}
-+
-+static long __riscv_rt_sigreturn(void)
- {
--	struct pt_regs *regs = current_pt_regs();
--	struct rt_sigframe __user *frame;
--	struct task_struct *task;
- 	sigset_t set;
- 	size_t frame_size = get_rt_frame_size(false);
-+	struct pt_regs *regs = current_pt_regs();
-+	struct rt_sigframe __user *frame =
-+		(struct rt_sigframe __user *)kernel_stack_pointer(regs);
- 
- 	/* Always make any pending restarted system calls return -EINTR */
- 	current->restart_block.fn = do_no_restart_syscall;
- 
--	frame = (struct rt_sigframe __user *)regs->sp;
--
- 	if (!access_ok(frame, frame_size))
- 		goto badframe;
- 
-@@ -256,17 +271,25 @@ SYSCALL_DEFINE0(rt_sigreturn)
- 	return regs->a0;
- 
- badframe:
--	task = current;
--	if (show_unhandled_signals) {
--		pr_info_ratelimited(
--			"%s[%d]: bad frame in %s: frame=%p pc=%p sp=%p\n",
--			task->comm, task_pid_nr(task), __func__,
--			frame, (void *)regs->epc, (void *)regs->sp);
--	}
--	force_sig(SIGSEGV);
-+	__riscv_rt_sigreturn_badframe();
- 	return 0;
- }
- 
-+SYSCALL_DEFINE0(rt_sigreturn)
-+{
-+	return __riscv_rt_sigreturn();
-+}
-+
-+#ifdef CONFIG_COMPAT
-+COMPAT_SYSCALL_DEFINE0(rt_sigreturn)
-+{
-+	if (test_thread_flag(TIF_32BIT) && !test_thread_flag(TIF_64ILP32))
-+		return __riscv_compat_rt_sigreturn();
-+	else
-+		return __riscv_rt_sigreturn();
-+}
-+#endif
-+
- static long setup_sigcontext(struct rt_sigframe __user *frame,
- 	struct pt_regs *regs)
- {
-@@ -433,7 +456,7 @@ static void handle_signal(struct ksignal *ksig, struct pt_regs *regs)
- 	rseq_signal_deliver(ksig, regs);
- 
- 	/* Set up the stack frame */
--	if (is_compat_task())
-+	if (test_thread_flag(TIF_32BIT) && !test_thread_flag(TIF_64ILP32))
- 		ret = compat_setup_rt_frame(ksig, oldset, regs);
+ #ifdef CONFIG_COMPAT
+-	if (test_tsk_thread_flag(task, TIF_32BIT))
++	if (test_tsk_thread_flag(task, TIF_32BIT) &&
++	   !test_tsk_thread_flag(task, TIF_64ILP32))
+ 		return &compat_riscv_user_native_view;
  	else
- 		ret = setup_rt_frame(ksig, oldset, regs);
+ #endif
 -- 
 2.36.1
 
