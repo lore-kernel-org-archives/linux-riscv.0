@@ -4,70 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 717A4C4332F
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Nov 2023 09:43:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DAE2C4332F
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Nov 2023 17:35:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=IekL3fz+IvT0mIWiZDO2Dp3qSXE6QRfXW47Zqx4HXuo=; b=YtEj5KNh+uyiWD
-	3KqIkW50aoQCzq/bWTZmS4UhalBrwdLNBqpmWWr4qef3DjSJizzpbLFt/NurdrS8jxXK+POYIvJkk
-	86wm52ah5VEonTciqGmPvUc4r0ZDXFi0fxYGrRtMoiikQKn38+5k8vjFlfqO9T3Trc/JkFlNAzibD
-	rajE/S5bkqRtvk95Q/ieRt3mlg47aPpDM0zNEeHy27ffVrGeu0SZtSPxy9H1uKGXeNxLg5Q8pVun3
-	D8qHlx7nFa9MSaUYXXBjbLbsw7MddcSc3XOzMhMKNrBRQhGEU66sg95xxKP3u1C2aDwkPvRkZ2tac
-	j4XGpAeol+VN7dN2trCg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CCYVZ3zRTTDeOK/L/zZdmf1VzY2g7FCvusN21+RZSnc=; b=nsYwHJ4S0K8DRq
+	PJ9pwzml91WYsg3ODAUQ6S2QIzvDmYPFC6Rh9unk8qHt3EpZDiH/lNXnNjOfJqKDu/RWGOjj6POP1
+	+tTJqlapNozLLae3erwk6NBTtNZf8AX1oilheTCErQiuruB5/gi6SkY9xu1cI3o/i29422mOXpeuA
+	tDKpflrcv9ezZjZTTzlXcvHVimeHvpUX10AD+F0kw+8AJWRi+rUIDi3HYAv3B40qp6DrUYcDPDBMJ
+	psPZFvq7xvPqf9uA7GS5kiRhKl+hsSSrrdVuKbpWEmglD0/pOGM31H07jLbgq6wfI6SpygHzWghOz
+	jmnwcsHYWq190S/OPzBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r26zc-00Bvs7-1P;
-	Sun, 12 Nov 2023 09:43:00 +0000
-Received: from mgamail.intel.com ([192.55.52.88])
+	id 1r2EMt-00CcvE-0w;
+	Sun, 12 Nov 2023 17:35:31 +0000
+Received: from mail-pl1-f174.google.com ([209.85.214.174])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r26zZ-00Bvrg-22
-	for linux-riscv@lists.infradead.org;
-	Sun, 12 Nov 2023 09:42:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1699782177; x=1731318177;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=dE0hghh+wuYV8oKVl43s7OS4ftZk66STgAdHkYO/4fw=;
-  b=NaCebm40VgNDzxSf/X11YVs4DsdpQbPxeYlEx+7e0UffwoHdr+ZSsOx7
-   VF7UwcCgkb3nXu1SjGPj2tDNbF9iWJZFUvdAX4gNl9Dl6nGTcGCNrXE5o
-   DKLovac9dlQ8ZRjSvfzs0jiEZdhBw9DYSrCe0Qx/UitegVIgSqDin3FhJ
-   9W8j2pz05KMYPOgt6RQDGHcQfKTok037k+RZASP6OBYk0lDczsnax29Gd
-   Rs498Iv9E52KjQAHShBzHcjL/v922sCrtrBlO9hMPJmW2LMVG3Uffpafg
-   iC8ckU0fiAhU+9HQBmpR9BLM6xny5AmX8f91D6+u9mHrFKoHCSQcbTvU6
-   g==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10891"; a="421418574"
-X-IronPort-AV: E=Sophos;i="6.03,297,1694761200"; 
-   d="scan'208";a="421418574"
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
-  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Nov 2023 01:42:57 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10891"; a="907800337"
-X-IronPort-AV: E=Sophos;i="6.03,297,1694761200"; 
-   d="scan'208";a="907800337"
-Received: from xiao-desktop.sh.intel.com ([10.239.46.158])
-  by fmsmga001.fm.intel.com with ESMTP; 12 Nov 2023 01:42:54 -0800
-From: Xiao Wang <xiao.w.wang@intel.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: anup@brainfault.org,
-	haicheng.li@intel.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Xiao Wang <xiao.w.wang@intel.com>
-Subject: [PATCH] riscv: Optimize hweight API with Zbb extension
-Date: Sun, 12 Nov 2023 17:52:44 +0800
-Message-Id: <20231112095244.4015351-1-xiao.w.wang@intel.com>
-X-Mailer: git-send-email 2.25.1
+	id 1r2EMq-00Cctm-0e;
+	Sun, 12 Nov 2023 17:35:29 +0000
+Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-1cc37fb1310so26101365ad.1;
+        Sun, 12 Nov 2023 09:35:24 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1699810524; x=1700415324;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WoHWK6gINi+EEwKTGP1Dg7yIjtZGVaNrtn4vb+1P0Pc=;
+        b=X8Kqu9nzqKbEkMDV+cVtpiip7QkbvjjakVv12lK7LZ24Qnv0bkeA8BaWsI7ogSQ/OZ
+         4XEPKqhrVshcsRBxyMkzcdpdbb+oYhwMnBSC6d2sLMWh69Bxd3IdugqOziAFYX0lMZsV
+         vOBwpw2H9AaTa+tYjsWwb0SgTodNZ2z/bwM3gGMCXa88LMREK5YEQ2SbGpDsbXUxb7Lf
+         SexZyD8Hk41vX1K7T2nwfN+gquKLmsTCJc882M+at1JskpndLTdoVIHk9Ol7x9eRwdQi
+         RZeP5wxrZ11Pmxhlpq0ZyeezrVy2yvlxZAHj9weRuq+AChQ5UbZWkppxdF8pSOE2dXd8
+         9OLA==
+X-Gm-Message-State: AOJu0Yw4XPvdt/XbSz9lRGW68lew/cmn1zOsmjB5pQtBhsCv0zpYyzO+
+	umKc8SKfQfWnaXfCN6Or71Xz1PzCZE1peQ==
+X-Google-Smtp-Source: AGHT+IFd+7BefBv/n/fSSGw7xmysLeuCAiNT7/refCQp1UZ16kLfECcyF3DpQcfnxFHM4Pm1w5+ajw==
+X-Received: by 2002:a17:902:b618:b0:1cc:138a:287b with SMTP id b24-20020a170902b61800b001cc138a287bmr2491072pls.3.1699810524296;
+        Sun, 12 Nov 2023 09:35:24 -0800 (PST)
+Received: from localhost ([156.39.10.100])
+        by smtp.gmail.com with ESMTPSA id b5-20020a170903228500b001cc32f46757sm2761359plh.107.2023.11.12.09.35.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 12 Nov 2023 09:35:23 -0800 (PST)
+Date: Sun, 12 Nov 2023 09:35:23 -0800
+From: Moritz Fischer <mdf@kernel.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: acpica-devel@lists.linuxfoundation.org,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dexuan Cui <decui@microsoft.com>, devicetree@vger.kernel.org,
+	David Woodhouse <dwmw2@infradead.org>,
+	Frank Rowand <frowand.list@gmail.com>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Christoph Hellwig <hch@lst.de>, iommu@lists.linux.dev,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	"K. Y. Srinivasan" <kys@microsoft.com>, Len Brown <lenb@kernel.org>,
+	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-snps-arc@lists.infradead.org,
+	linux-tegra@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Hector Martin <marcan@marcan.st>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Robert Moore <robert.moore@intel.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Krishna Reddy <vdumpa@nvidia.com>, Vineet Gupta <vgupta@kernel.org>,
+	virtualization@lists.linux-foundation.org,
+	Wei Liu <wei.liu@kernel.org>, Will Deacon <will@kernel.org>,
+	Zhenhua Huang <quic_zhenhuah@quicinc.com>
+Subject: Re: [PATCH RFC 01/17] iommu: Remove struct iommu_ops *iommu from
+ arch_setup_dma_ops()
+Message-ID: <ZVEM23qFzLnnXiEz@archbook>
+References: <0-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com>
+ <1-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <1-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231112_014257_736689_CDE24AB8 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20231112_093528_331906_27A04C5B 
+X-CRM114-Status: GOOD (  24.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,119 +116,204 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Hamming Weight of a number is the total number of bits set in it, so
-the cpop/cpopw instruction from Zbb extension can be used to accelerate
-hweight() API.
+On Fri, Nov 03, 2023 at 01:44:46PM -0300, Jason Gunthorpe wrote:
+> This is not being used to pass ops, it is just a way to tell if an
+> iommu driver was probed. These days this can be detected directly via
+> device_iommu_mapped(). Call device_iommu_mapped() in the two places that
+> need to check it and remove the iommu parameter everywhere.
+> 
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 
-Signed-off-by: Xiao Wang <xiao.w.wang@intel.com>
----
- arch/riscv/include/asm/arch_hweight.h | 78 +++++++++++++++++++++++++++
- arch/riscv/include/asm/bitops.h       |  4 +-
- 2 files changed, 81 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/include/asm/arch_hweight.h
-
-diff --git a/arch/riscv/include/asm/arch_hweight.h b/arch/riscv/include/asm/arch_hweight.h
-new file mode 100644
-index 000000000000..c20236a0725b
---- /dev/null
-+++ b/arch/riscv/include/asm/arch_hweight.h
-@@ -0,0 +1,78 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Based on arch/x86/include/asm/arch_hweight.h
-+ */
-+
-+#ifndef _ASM_RISCV_HWEIGHT_H
-+#define _ASM_RISCV_HWEIGHT_H
-+
-+#include <asm/alternative-macros.h>
-+#include <asm/hwcap.h>
-+
-+#if (BITS_PER_LONG == 64)
-+#define CPOPW	"cpopw "
-+#elif (BITS_PER_LONG == 32)
-+#define CPOPW	"cpop "
-+#else
-+#error "Unexpected BITS_PER_LONG"
-+#endif
-+
-+static __always_inline unsigned int __arch_hweight32(unsigned int w)
-+{
-+#ifdef CONFIG_RISCV_ISA_ZBB
-+	asm_volatile_goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
-+				      RISCV_ISA_EXT_ZBB, 1)
-+			  : : : : legacy);
-+
-+	asm (".option push\n"
-+	     ".option arch,+zbb\n"
-+	     CPOPW "%0, %0\n"
-+	     ".option pop\n"
-+	     : "+r" (w) : :);
-+
-+	return w;
-+
-+legacy:
-+#endif
-+	return __sw_hweight32(w);
-+}
-+
-+static inline unsigned int __arch_hweight16(unsigned int w)
-+{
-+	return __arch_hweight32(w & 0xffff);
-+}
-+
-+static inline unsigned int __arch_hweight8(unsigned int w)
-+{
-+	return __arch_hweight32(w & 0xff);
-+}
-+
-+#if BITS_PER_LONG == 64
-+static __always_inline unsigned long __arch_hweight64(__u64 w)
-+{
-+# ifdef CONFIG_RISCV_ISA_ZBB
-+	asm_volatile_goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
-+				      RISCV_ISA_EXT_ZBB, 1)
-+			  : : : : legacy);
-+
-+	asm (".option push\n"
-+	     ".option arch,+zbb\n"
-+	     "cpop %0, %0\n"
-+	     ".option pop\n"
-+	     : "+r" (w) : :);
-+
-+	return w;
-+
-+legacy:
-+# endif
-+	return __sw_hweight64(w);
-+}
-+#else /* BITS_PER_LONG == 64 */
-+static inline unsigned long __arch_hweight64(__u64 w)
-+{
-+	return  __arch_hweight32((u32)w) +
-+		__arch_hweight32((u32)(w >> 32));
-+}
-+#endif /* !(BITS_PER_LONG == 64) */
-+
-+#endif /* _ASM_RISCV_HWEIGHT_H */
-diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
-index b212c2708cda..f7c167646460 100644
---- a/arch/riscv/include/asm/bitops.h
-+++ b/arch/riscv/include/asm/bitops.h
-@@ -271,7 +271,9 @@ static __always_inline int variable_fls(unsigned int x)
- #include <asm-generic/bitops/fls64.h>
- #include <asm-generic/bitops/sched.h>
- 
--#include <asm-generic/bitops/hweight.h>
-+#include <asm/arch_hweight.h>
-+
-+#include <asm-generic/bitops/const_hweight.h>
- 
- #if (BITS_PER_LONG == 64)
- #define __AMO(op)	"amo" #op ".d"
--- 
-2.25.1
-
+Reviewed-by: Moritz Fischer <mdf@kernel.org>
+> ---
+>  arch/arc/mm/dma.c               |  2 +-
+>  arch/arm/mm/dma-mapping-nommu.c |  2 +-
+>  arch/arm/mm/dma-mapping.c       | 10 +++++-----
+>  arch/arm64/mm/dma-mapping.c     |  4 ++--
+>  arch/mips/mm/dma-noncoherent.c  |  2 +-
+>  arch/riscv/mm/dma-noncoherent.c |  2 +-
+>  drivers/acpi/scan.c             |  3 +--
+>  drivers/hv/hv_common.c          |  2 +-
+>  drivers/of/device.c             |  2 +-
+>  include/linux/dma-map-ops.h     |  4 ++--
+>  10 files changed, 16 insertions(+), 17 deletions(-)
+> 
+> diff --git a/arch/arc/mm/dma.c b/arch/arc/mm/dma.c
+> index 2a7fbbb83b7056..197707bc765889 100644
+> --- a/arch/arc/mm/dma.c
+> +++ b/arch/arc/mm/dma.c
+> @@ -91,7 +91,7 @@ void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
+>   * Plug in direct dma map ops.
+>   */
+>  void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
+> -			const struct iommu_ops *iommu, bool coherent)
+> +			bool coherent)
+>  {
+>  	/*
+>  	 * IOC hardware snoops all DMA traffic keeping the caches consistent
+> diff --git a/arch/arm/mm/dma-mapping-nommu.c b/arch/arm/mm/dma-mapping-nommu.c
+> index cfd9c933d2f09c..b94850b579952a 100644
+> --- a/arch/arm/mm/dma-mapping-nommu.c
+> +++ b/arch/arm/mm/dma-mapping-nommu.c
+> @@ -34,7 +34,7 @@ void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
+>  }
+>  
+>  void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
+> -			const struct iommu_ops *iommu, bool coherent)
+> +			bool coherent)
+>  {
+>  	if (IS_ENABLED(CONFIG_CPU_V7M)) {
+>  		/*
+> diff --git a/arch/arm/mm/dma-mapping.c b/arch/arm/mm/dma-mapping.c
+> index 5409225b4abc06..6c359a3af8d9c7 100644
+> --- a/arch/arm/mm/dma-mapping.c
+> +++ b/arch/arm/mm/dma-mapping.c
+> @@ -1713,7 +1713,7 @@ void arm_iommu_detach_device(struct device *dev)
+>  EXPORT_SYMBOL_GPL(arm_iommu_detach_device);
+>  
+>  static void arm_setup_iommu_dma_ops(struct device *dev, u64 dma_base, u64 size,
+> -				    const struct iommu_ops *iommu, bool coherent)
+> +				    bool coherent)
+>  {
+>  	struct dma_iommu_mapping *mapping;
+>  
+> @@ -1748,7 +1748,7 @@ static void arm_teardown_iommu_dma_ops(struct device *dev)
+>  #else
+>  
+>  static void arm_setup_iommu_dma_ops(struct device *dev, u64 dma_base, u64 size,
+> -				    const struct iommu_ops *iommu, bool coherent)
+> +				    bool coherent)
+>  {
+>  }
+>  
+> @@ -1757,7 +1757,7 @@ static void arm_teardown_iommu_dma_ops(struct device *dev) { }
+>  #endif	/* CONFIG_ARM_DMA_USE_IOMMU */
+>  
+>  void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
+> -			const struct iommu_ops *iommu, bool coherent)
+> +			bool coherent)
+>  {
+>  	/*
+>  	 * Due to legacy code that sets the ->dma_coherent flag from a bus
+> @@ -1776,8 +1776,8 @@ void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
+>  	if (dev->dma_ops)
+>  		return;
+>  
+> -	if (iommu)
+> -		arm_setup_iommu_dma_ops(dev, dma_base, size, iommu, coherent);
+> +	if (device_iommu_mapped(dev))
+> +		arm_setup_iommu_dma_ops(dev, dma_base, size, coherent);
+>  
+>  	xen_setup_dma_ops(dev);
+>  	dev->archdata.dma_ops_setup = true;
+> diff --git a/arch/arm64/mm/dma-mapping.c b/arch/arm64/mm/dma-mapping.c
+> index 3cb101e8cb29ba..61886e43e3a10f 100644
+> --- a/arch/arm64/mm/dma-mapping.c
+> +++ b/arch/arm64/mm/dma-mapping.c
+> @@ -47,7 +47,7 @@ void arch_teardown_dma_ops(struct device *dev)
+>  #endif
+>  
+>  void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
+> -			const struct iommu_ops *iommu, bool coherent)
+> +			bool coherent)
+>  {
+>  	int cls = cache_line_size_of_cpu();
+>  
+> @@ -58,7 +58,7 @@ void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
+>  		   ARCH_DMA_MINALIGN, cls);
+>  
+>  	dev->dma_coherent = coherent;
+> -	if (iommu)
+> +	if (device_iommu_mapped(dev))
+>  		iommu_setup_dma_ops(dev, dma_base, dma_base + size - 1);
+>  
+>  	xen_setup_dma_ops(dev);
+> diff --git a/arch/mips/mm/dma-noncoherent.c b/arch/mips/mm/dma-noncoherent.c
+> index 3c4fc97b9f394b..0f3cec663a12cd 100644
+> --- a/arch/mips/mm/dma-noncoherent.c
+> +++ b/arch/mips/mm/dma-noncoherent.c
+> @@ -138,7 +138,7 @@ void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
+>  
+>  #ifdef CONFIG_ARCH_HAS_SETUP_DMA_OPS
+>  void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
+> -		const struct iommu_ops *iommu, bool coherent)
+> +		bool coherent)
+>  {
+>  	dev->dma_coherent = coherent;
+>  }
+> diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
+> index b76e7e192eb183..f91fa741c41211 100644
+> --- a/arch/riscv/mm/dma-noncoherent.c
+> +++ b/arch/riscv/mm/dma-noncoherent.c
+> @@ -135,7 +135,7 @@ void arch_dma_prep_coherent(struct page *page, size_t size)
+>  }
+>  
+>  void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
+> -		const struct iommu_ops *iommu, bool coherent)
+> +			bool coherent)
+>  {
+>  	WARN_TAINT(!coherent && riscv_cbom_block_size > ARCH_DMA_MINALIGN,
+>  		   TAINT_CPU_OUT_OF_SPEC,
+> diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+> index 691d4b7686ee7e..a6891ad0ceee2c 100644
+> --- a/drivers/acpi/scan.c
+> +++ b/drivers/acpi/scan.c
+> @@ -1636,8 +1636,7 @@ int acpi_dma_configure_id(struct device *dev, enum dev_dma_attr attr,
+>  	if (PTR_ERR(iommu) == -EPROBE_DEFER)
+>  		return -EPROBE_DEFER;
+>  
+> -	arch_setup_dma_ops(dev, 0, U64_MAX,
+> -				iommu, attr == DEV_DMA_COHERENT);
+> +	arch_setup_dma_ops(dev, 0, U64_MAX, attr == DEV_DMA_COHERENT);
+>  
+>  	return 0;
+>  }
+> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+> index ccad7bca3fd3da..fd938b6dfa7ed4 100644
+> --- a/drivers/hv/hv_common.c
+> +++ b/drivers/hv/hv_common.c
+> @@ -489,7 +489,7 @@ void hv_setup_dma_ops(struct device *dev, bool coherent)
+>  	 * Hyper-V does not offer a vIOMMU in the guest
+>  	 * VM, so pass 0/NULL for the IOMMU settings
+>  	 */
+> -	arch_setup_dma_ops(dev, 0, 0, NULL, coherent);
+> +	arch_setup_dma_ops(dev, 0, 0, coherent);
+>  }
+>  EXPORT_SYMBOL_GPL(hv_setup_dma_ops);
+>  
+> diff --git a/drivers/of/device.c b/drivers/of/device.c
+> index 1ca42ad9dd159d..65c71be71a8d45 100644
+> --- a/drivers/of/device.c
+> +++ b/drivers/of/device.c
+> @@ -193,7 +193,7 @@ int of_dma_configure_id(struct device *dev, struct device_node *np,
+>  	dev_dbg(dev, "device is%sbehind an iommu\n",
+>  		iommu ? " " : " not ");
+>  
+> -	arch_setup_dma_ops(dev, dma_start, size, iommu, coherent);
+> +	arch_setup_dma_ops(dev, dma_start, size, coherent);
+>  
+>  	if (!iommu)
+>  		of_dma_set_restricted_buffer(dev, np);
+> diff --git a/include/linux/dma-map-ops.h b/include/linux/dma-map-ops.h
+> index f2fc203fb8a1a2..2cb98a12c50348 100644
+> --- a/include/linux/dma-map-ops.h
+> +++ b/include/linux/dma-map-ops.h
+> @@ -426,10 +426,10 @@ bool arch_dma_unmap_sg_direct(struct device *dev, struct scatterlist *sg,
+>  
+>  #ifdef CONFIG_ARCH_HAS_SETUP_DMA_OPS
+>  void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
+> -		const struct iommu_ops *iommu, bool coherent);
+> +		bool coherent);
+>  #else
+>  static inline void arch_setup_dma_ops(struct device *dev, u64 dma_base,
+> -		u64 size, const struct iommu_ops *iommu, bool coherent)
+> +		u64 size, bool coherent)
+>  {
+>  }
+>  #endif /* CONFIG_ARCH_HAS_SETUP_DMA_OPS */
+> -- 
+> 2.42.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
