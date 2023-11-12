@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C8ACC4167B
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Nov 2023 06:17:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45C5DC4167D
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Nov 2023 06:18:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aVqFx79qhs4SUASdCbVPlgjhGhyPSWtzS2eDbVK3hDo=; b=jqkQwxDjBvpt0i
-	y5EsoOxp9uwxV5jNlc58RSMdrNUGcbjSPVZ//YhGqeVs36b5hvepTAfgHFWSJFelxNC32hoPxXkxs
-	JqQuSvJG2hYFJuknewTi1VTQJVBIqX+r2FQEa9q21ZO+K2RAwDmXOepPivSsKbY7/9nef2zXyAYpW
-	U4CWlx/MJzhjGiviwgfBhUqpnndULdMDE0uCnrrFyDN/VVuNL/qxMsmK3uRWUKdT/N2Gq+GKjUM3z
-	fXl5JQYz9Lx83Y3vkglvGnFyqIxcUOoERZWdyUa8GEXq5R/zyGyyP6Qe6wTqaukSo2POXkaskFm4O
-	XIjtnoL6kIFbZeAotGSQ==;
+	List-Owner; bh=+CoNETZ8Kn2JYLlCLEBYZHyq20A2SON6z2qC28XV6Ps=; b=Em0lHsws86zfJJ
+	hzJfwu6YvKuPsx5g5AoLZVYbfBIMcH0yY+T4qyXRgO8ZZko/aGPS3pwLuacnk3DolCMfnWOCLaa56
+	Gsx/pJos5TeSk3cHFGkizgy3vCr0+xgOc4ndlOGnuy5A7uK+z6hCZswjRtcodMO16qCP6IznR6Otm
+	4qaZMidWo688bTQcuLJrh1A+MCfmpm2j0LXYIkILJEOE/cGCxVFcIQzTFU3Ju5D+Zl3/WhkCxBwu9
+	AscRp0tokWL0JiiD3DWFjeNOR24I+hx58jIxYtKTOPLMQbJv8wPhrA+m7zN1Ytb3AwEqlbNaJQlrE
+	2ttA8dLwtMKT/FCgIzBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r23n9-00BkTc-20;
-	Sun, 12 Nov 2023 06:17:55 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1r23nC-00BkW5-1e;
+	Sun, 12 Nov 2023 06:17:58 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r23n4-00BkOD-0v
+	id 1r23n9-00BkSs-18
 	for linux-riscv@lists.infradead.org;
-	Sun, 12 Nov 2023 06:17:53 +0000
+	Sun, 12 Nov 2023 06:17:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id A31ABCE0D85;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 91CAE60B80;
+	Sun, 12 Nov 2023 06:17:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5733CC433CD;
 	Sun, 12 Nov 2023 06:17:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5A01C433D9;
-	Sun, 12 Nov 2023 06:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699769867;
-	bh=DJd0JPnD4tdXPL2F5/pVMn7+3pGHc/BdFV5e1StNJ0o=;
+	s=k20201202; t=1699769874;
+	bh=i54fNqJU7sp4UXlnwp+YcKfJLY+fhfGViunXjtd8s+k=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=u3mYKvvVcCXgok8Svx8v4kF7mGHdEIkfptFpvN3AkwLdtO3ntnvI1tFetv8IzkGud
-	 QsqcEzsuLOpPvYOMq//OcMmUt1bX8nDoBgAPmTAQ3RWqjuHAZ6Dde0eSs6C2/y+VxI
-	 PDCLedfjiu12dGTFD/L2dYd544DJHkuziYtfgdvNe+TXgj8RPvV5f8jK6eJT4fAhxf
-	 aqzzh/LVK8k8ktL94w2cpBMh0gvgCZ0CJTHTeQQHWNyUaWzvHLESSAINDdDCvDxL1V
-	 uaLDgFyGRBaolDP18QX6VtyYB/IDSyturZGmHAbMRjanSPG5ujOcv/4DT0ZxwCN0zU
-	 kKb1zgIB6qstA==
+	b=dYK86b7k9E9ZF7LvDQjIBzOpnNCn2Tujmh+DY478+1v491siLxIcYO0XXQgtr9EVD
+	 YkEwCIQ4bhW7o/fcNbcZb/CyIbKvZVeIM0ZLvKgqSNz4mE/hbpOofOpaq6KIteEm2E
+	 NDE1JUNUwoUxAErCY+HvrykIdHI4hC1y1H7uBvjC/mftXKkKthQD4PY0PVlpMSh0Fm
+	 cBcLqp+5nzEVrOpEydk2FAcQcTNNnk1nFA7kKzCu1WTF+KacRCT6G0Lar9mOQr9EnD
+	 l8PhPryyGvgqTaJ/BJl4gFTdKbC3Ci7jYtE4dnIr6q2i9ZItvDNaYcZH7K7ew3DzqS
+	 7DQjQWfnd13tQ==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	guoren@kernel.org,
@@ -73,16 +73,16 @@ Cc: linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Guo Ren <guoren@linux.alibaba.com>
-Subject: [RFC PATCH V2 23/38] riscv: s64ilp32: Enable native atomic64
-Date: Sun, 12 Nov 2023 01:14:59 -0500
-Message-Id: <20231112061514.2306187-24-guoren@kernel.org>
+Subject: [RFC PATCH V2 24/38] riscv: s64ilp32: Add TImode (128 int) support
+Date: Sun, 12 Nov 2023 01:15:00 -0500
+Message-Id: <20231112061514.2306187-25-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20231112061514.2306187-1-guoren@kernel.org>
 References: <20231112061514.2306187-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231111_221750_500180_1BF052C5 
-X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-CacheID: sfid-20231111_221755_429938_469CACA8 
+X-CRM114-Status: UNSURE (   7.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,60 +95,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
-
-The traditional rv32 Linux (s32ilp32) uses a generic version of the
-lib/atomic64.c, which are inaccurate atomic64 primitives and couldn't
-co-work with READ_ONCE/WRITE_ONCE,  atomic_8/16/32. The s64ilp32 could
-use native AMO instructions to implement accurate atomic64 primitives.
-
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
----
- arch/riscv/Kconfig              | 2 +-
- arch/riscv/include/asm/atomic.h | 6 ++++++
- 2 files changed, 7 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index f364d2436b1d..0fc03aa076e6 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -65,7 +65,7 @@ config RISCV
- 	select CPU_PM if CPU_IDLE || HIBERNATION
- 	select EDAC_SUPPORT
- 	select GENERIC_ARCH_TOPOLOGY
--	select GENERIC_ATOMIC64 if !64BIT
-+	select GENERIC_ATOMIC64 if ARCH_RV32I
- 	select GENERIC_CLOCKEVENTS_BROADCAST if SMP
- 	select GENERIC_EARLY_IOREMAP
- 	select GENERIC_ENTRY
-diff --git a/arch/riscv/include/asm/atomic.h b/arch/riscv/include/asm/atomic.h
-index f5dfef6c2153..8f6579b33ecc 100644
---- a/arch/riscv/include/asm/atomic.h
-+++ b/arch/riscv/include/asm/atomic.h
-@@ -16,6 +16,12 @@
- # endif
- #endif
- 
-+#ifdef CONFIG_ARCH_RV64ILP32
-+typedef struct {
-+	s64 counter;
-+} atomic64_t;
-+#endif
-+
- #include <asm/cmpxchg.h>
- #include <asm/barrier.h>
- 
--- 
-2.36.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgoKVGhlIHM2NGlscDMyIHVz
+ZXMgNjRiaXQgY29tcGlsZXIsIHNvIGl0IGNvdWxkIHN1cHBvcnQg4oCcVGV0cmEKSW50ZWdlcuKA
+nSBtb2RlLCB3aGljaCByZXByZXNlbnRzIGEgc2l4dGVlbi1ieXRlICgxMjgpIGludGVnZXIuCgpJ
+dCdzIHRoZSBmaXJzdCAzMkJJVCBsaW51eCBzdXBwb3J0IFRJbW9kZSA6KQoKU2lnbmVkLW9mZi1i
+eTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgpTaWduZWQtb2ZmLWJ5OiBHdW8g
+UmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KLS0tCiBhcmNoL3Jpc2N2L0tjb25maWcgICAgICB8IDEg
+KwogYXJjaC9yaXNjdi9saWIvTWFrZWZpbGUgfCAxICsKIDIgZmlsZXMgY2hhbmdlZCwgMiBpbnNl
+cnRpb25zKCspCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9LY29uZmlnIGIvYXJjaC9yaXNjdi9L
+Y29uZmlnCmluZGV4IDBmYzAzYWEwNzZlNi4uYTQ1ZTMxZWYzYjJjIDEwMDY0NAotLS0gYS9hcmNo
+L3Jpc2N2L0tjb25maWcKKysrIGIvYXJjaC9yaXNjdi9LY29uZmlnCkBAIC0zMzksNiArMzM5LDcg
+QEAgY29uZmlnIEFSQ0hfUlY2NEkKIGNvbmZpZyBBUkNIX1JWNjRJTFAzMgogCWJvb2wgIlJWNjRJ
+TFAzMiIKIAlkZXBlbmRzIG9uIE5PTlBPUlRBQkxFCisJc2VsZWN0IEFSQ0hfU1VQUE9SVFNfSU5U
+MTI4IGlmICEkKGNjLW9wdGlvbiwkKG02NC1mbGFnKSAtRF9fU0laRU9GX0lOVDEyOF9fPTApCiAJ
+c2VsZWN0IDMyQklUCiAJc2VsZWN0IE1NVQogCXNlbGVjdCBWRFNPNjRJTFAzMgpkaWZmIC0tZ2l0
+IGEvYXJjaC9yaXNjdi9saWIvTWFrZWZpbGUgYi9hcmNoL3Jpc2N2L2xpYi9NYWtlZmlsZQppbmRl
+eCAyNmNiMjUwMmVjZjguLjY4YWY0NjM3OTVlMSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9saWIv
+TWFrZWZpbGUKKysrIGIvYXJjaC9yaXNjdi9saWIvTWFrZWZpbGUKQEAgLTksNSArOSw2IEBAIGxp
+Yi15CQkJKz0gc3RybmNtcC5vCiBsaWItJChDT05GSUdfTU1VKQkrPSB1YWNjZXNzLm8KIGxpYi0k
+KENPTkZJR182NEJJVCkJKz0gdGlzaGlmdC5vCiBsaWItJChDT05GSUdfUklTQ1ZfSVNBX1pJQ0JP
+WikJKz0gY2xlYXJfcGFnZS5vCitsaWItJChDT05GSUdfQVJDSF9SVjY0SUxQMzIpICs9IHRpc2hp
+ZnQubwogCiBvYmotJChDT05GSUdfRlVOQ1RJT05fRVJST1JfSU5KRUNUSU9OKSArPSBlcnJvci1p
+bmplY3QubwotLSAKMi4zNi4xCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
+aW51eC1yaXNjdgo=
