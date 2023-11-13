@@ -4,67 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD433C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 13:15:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC574C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 13:18:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rROwQy9+omquUeKiX+t2YFqww3Cn7F7IM63VmBmjkwM=; b=O+wmtnWtBnZ11i
-	5yfRhFaY2Nv0yBYEEC29JmXoBz3pfedfoUxSul9ihLupq/jhbdkGu8ymf+SFqMinfcPdCNoczFOXp
-	fcRSSFQO38rlJ4P7Tv1UHgK0FoO2oTi07WkwkSSYoFB0qEy5V/gJou+WsajOh1wEfG7KnSZx59/9G
-	2c9zc73PErfIVJfWGGdTtNbpF+BaXB3p4/VncKep+2Rj6uI9/5bnVCBSsFtUEX28Y5Zys955fb0dE
-	Mce83IO9zAksri+q1Qdl9teNV3suG1RVsTQXKtRsO8G1ZVnkn7z5MHThfCLoW0ZOp5FBR/jhyJNLL
-	E0ZiKhXVltAAdFBYBYzw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=W2sCeoYgdmzEqWwBYyhV0PScSwPFqI5oZ/LJID68Ff8=; b=rFsTEcsFAzIxm6
+	0SQOgf3MCW16jAhJkG46egVm+3HW8kRrpq75HG9Rn/odBGJlLQ+zTpcPvQt+YsA7wv5+JZBPhrfyL
+	GSPe2wKeLCBjzY4xlkmq8dlA70V/eVEjlSyqYuBfiiXkGce0FZMfjEt2w2z9FjYPLzhf6Op9L018E
+	GvTad7V8jGj1sY5eHFBpZqWtrtRMlkQBWM1biETNchBSn1p7OFhZYzVZkQ46l++onYUqBfKcYnBuR
+	RNp7j8ksgIWDGcDmNm87Hul7jLUwWSBh9LPxYqmtRMAmZ1kK3e+3WF8KfTUSp3VJbVuj1/nvnZUAp
+	jL+NpCWqVqVO1Y5cBnYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2Wmv-00E1uZ-0W;
-	Mon, 13 Nov 2023 13:15:37 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1r2WpU-00E2Ch-04;
+	Mon, 13 Nov 2023 13:18:16 +0000
+Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2Wmr-00E1tn-1t
+	id 1r2WpR-00E29K-0N
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Nov 2023 13:15:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9788960EDD;
-	Mon, 13 Nov 2023 13:15:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC16CC433C8;
-	Mon, 13 Nov 2023 13:15:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699881332;
-	bh=IUou9g1eC7eRyhYqxTZ2wecJaQRhh+vOQhsR2yztLhY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Za5Hz+lfHckCYadClxj9S0HmEayg0pbrmOvWPNveXQM/WkSLZXIDPV+PF8DOId7ba
-	 53CZUqxcsNJl3kGjiSzF5hUxbt0ONRMxi7QL6efvnR09VEVUA5159sq2m6I/FRL1j3
-	 j+sFscRcacyHwWiDba9D0GeFD+H3GgjmSoKPq0IFoBOGG24+piLxfuQVC5EypMSJcp
-	 2sA8cry5c8+XiHGZy/J3S3TML4us/VSr+lWvXxfiTA/Yf0O+mAX/plKxTr62YFSPMw
-	 hnL59cvZmWjmMtJMufOcp04JY8MuzNNquCr7RmvuUz38PSFwTmhuwMugmGv65z4dKI
-	 sD5XqKbud0cTQ==
-Date: Mon, 13 Nov 2023 21:03:11 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Samuel Holland <samuel.holland@sifive.com>,
-	Tony Lindgren <tony@atomide.com>
-Cc: devicetree@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+	Mon, 13 Nov 2023 13:18:14 +0000
+Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-3b2e73a17a0so2721949b6e.3
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Nov 2023 05:17:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1699881472; x=1700486272; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=sMYVHHaJeCjmpAavU23RMpRyLk0TWskkcBNgC6viZA4=;
+        b=DWcwhCC9NM9a4XqXKbHTKIYdK6whwbCN040zIhlU/jop2xAPHp4jiwpsiftJfFeTGz
+         EggQtzlcBg0GPhGwd7iBqyPQIHE0Hi25R2E4DUZ8QDnYG8lR7vTk+t3QDm2GSstuaCG2
+         1FsmT/aYswk5nBFqcXk+Sdm4y+QtEuk3E1uVndtAGPzPZxVquIe5CIHDbwhutyJzg9v/
+         qIXPTZIMB97DUAMCZk0/o+OFoYxRF7Lpve0FZFSwiePsZ9197oZl2SO+onsJPVcRpDuu
+         j/7RINwFN/riN6s7KCde3zx5d1Xtp7lndIzU2m3wByngsnz18Juyq1aVCPkCgK+0vfKd
+         1jlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1699881472; x=1700486272;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sMYVHHaJeCjmpAavU23RMpRyLk0TWskkcBNgC6viZA4=;
+        b=ggMPrkduGGYyPzccHVA2B+fODsuyRrwtc1kpU/dbUbz2WyLC5zmsBIO0yOxboYquBk
+         Cs2gKPQ4ncDwLUqB1ojIhkhsFP/TbL2p0R6VM7LacftR7nKkQ54k+kd94afPGID5ZodU
+         POU9yzjwcA22rvlqD4E5/tpkfw/2AA+NqG0PURY/LaecdP+jV4V1HJGutwttAsmXH1kC
+         XV3cuyE2BTgssbW370kJ2ctfO3eR4sP9dyVG/9NpLLsx3WZkr8QSaHxy21d61YrFKVXK
+         k1lGixGTLMT4GtSLk9rt2v0cq7S3ADV6QpEm7XG4ZtYE5hJflezAFYhR8bnjtmQXqQ9x
+         AuHw==
+X-Gm-Message-State: AOJu0Yx0csAnmNkf7v9Uum/ofx07jSjDqFrp/DSmLRJlA1tB53NQXP1a
+	ITHQt1ANsqDc26+4A+PD8Y4=
+X-Google-Smtp-Source: AGHT+IH2iVeNtxuhSNYqil+kIbOodUzZxXB+mr47hLTS7HskUTvpMjqRwlUgtDQCXwNRY57D0S0omA==
+X-Received: by 2002:a05:6808:b13:b0:3a8:6b4d:6b78 with SMTP id s19-20020a0568080b1300b003a86b4d6b78mr7628082oij.35.1699881471814;
+        Mon, 13 Nov 2023 05:17:51 -0800 (PST)
+Received: from localhost.localdomain ([122.8.183.87])
+        by smtp.gmail.com with ESMTPSA id g34-20020a0568080de200b003b2df32d9a9sm773426oic.19.2023.11.13.05.17.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Nov 2023 05:17:51 -0800 (PST)
+From: Chen Wang <unicornxw@gmail.com>
+To: aou@eecs.berkeley.edu,
+	chao.wei@sophgo.com,
+	conor@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	mturquette@baylibre.com,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	richardcochran@gmail.com,
+	robh+dt@kernel.org,
+	sboyd@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>
-Subject: Re: [PATCH 1/2] riscv: dts: cv1800b: add pinctrl node for cv1800b
-Message-ID: <ZVIejw2O6on8QMYy@xhacker>
-References: <20231113005702.2467-1-jszhang@kernel.org>
- <20231113005702.2467-2-jszhang@kernel.org>
- <58a99001-8260-4970-9fc7-25fe81e557a5@sifive.com>
+	haijiao.liu@sophgo.com,
+	xiaoguang.xing@sophgo.com
+Cc: Chen Wang <unicorn_wang@outlook.com>
+Subject: [PATCH 0/5] riscv: sophgo: add clock support for sg2042
+Date: Mon, 13 Nov 2023 21:16:36 +0800
+Message-Id: <cover.1699879741.git.unicorn_wang@outlook.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <58a99001-8260-4970-9fc7-25fe81e557a5@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231113_051533_708690_67C5ACD9 
-X-CRM114-Status: GOOD (  26.38  )
+X-CRM114-CacheID: sfid-20231113_051813_153538_8608CA48 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,120 +104,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 12, 2023 at 08:51:20PM -0500, Samuel Holland wrote:
-> On 2023-11-12 6:57 PM, Jisheng Zhang wrote:
-> > Add the reset device tree node to cv1800b SoC reusing the
->           ^^^^^
->           I assume you mean pinctrl here?
+From: Chen Wang <unicorn_wang@outlook.com>
 
-oops copy and paste the commit msg ;) thanks
-> 
-> > pinctrl-single driver.
-> > 
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > ---
-> >  arch/riscv/boot/dts/sophgo/cv-pinctrl.h | 19 +++++++++++++++++++
-> >  arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 10 ++++++++++
-> >  2 files changed, 29 insertions(+)
-> >  create mode 100644 arch/riscv/boot/dts/sophgo/cv-pinctrl.h
-> > 
-> > diff --git a/arch/riscv/boot/dts/sophgo/cv-pinctrl.h b/arch/riscv/boot/dts/sophgo/cv-pinctrl.h
-> > new file mode 100644
-> > index 000000000000..ed78b6fb3142
-> > --- /dev/null
-> > +++ b/arch/riscv/boot/dts/sophgo/cv-pinctrl.h
-> 
-> A couple of questions: Should this go in include/dt-bindings? And is it worth
+This series adds clock controller support for sophgo sg2042.
 
-When I cooked this series two weeks ago, I did put it in dt-binding, but
-then I found commit fe49f2d776f799 ("arm64: dts: ti: Use local header for
-pinctrl register values"), "These definitions were previously put in the
-bindings header to avoid code duplication and to provide some context
-meaning (name), but they do not fit the purpose of bindings." which is
-suggested and acked by Krzysztof, so I just want to follow the style
-here.
+Chen Wang (5):
+  dt-bindings: clock: sophgo: Add SG2042 clock definitions
+  dt-bindings: soc: sophgo: Add Sophgo syscon module
+  dt-bindings: clock: sophgo: Add SG2042 bindings
+  clk: sophgo: Add SG2042 clock generator driver
+  riscv: dts: add clock generator for Sophgo SG2042 SoC
+
+ .../clock/sophgo/sophgo,sg2042-clkgen.yaml    |   48 +
+ .../soc/sophgo/sophgo,sg2042-syscon.yaml      |   38 +
+ MAINTAINERS                                   |    8 +
+ arch/riscv/boot/dts/sophgo/sg2042-clock.dtsi  |   76 +
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi        |   10 +
+ drivers/clk/Kconfig                           |    1 +
+ drivers/clk/Makefile                          |    1 +
+ drivers/clk/sophgo/Kconfig                    |    8 +
+ drivers/clk/sophgo/Makefile                   |    2 +
+ drivers/clk/sophgo/clk-sophgo-sg2042.c        | 1259 +++++++++++++++++
+ drivers/clk/sophgo/clk-sophgo-sg2042.h        |  226 +++
+ include/dt-bindings/clock/sophgo-sg2042-clk.h |  169 +++
+ 12 files changed, 1846 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/sophgo/sophgo,sg2042-clkgen.yaml
+ create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-syscon.yaml
+ create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-clock.dtsi
+ create mode 100644 drivers/clk/sophgo/Kconfig
+ create mode 100644 drivers/clk/sophgo/Makefile
+ create mode 100644 drivers/clk/sophgo/clk-sophgo-sg2042.c
+ create mode 100644 drivers/clk/sophgo/clk-sophgo-sg2042.h
+ create mode 100644 include/dt-bindings/clock/sophgo-sg2042-clk.h
 
 
-> including macros for the actual function mappings, like in the vendor source[1]?
+base-commit: b85ea95d086471afb4ad062012a4d73cd328fa86
+-- 
+2.25.1
 
-Do you want something as the following?
-
-#define UART0_TX	0
-#define CAM_MCLK1	1
-...
-
-#define REG_UART0_TX	0x24
-...
-
-pinctrl-single,pins = <REG_UART0_TX UART0_TX>;
-
-Other pinctl-single users just uses the register value directly, I have
-no preference. But I'd like to get suggestions from DT and pinctl-single
-maintainers. Hi Rob, Krzysztof, Conor, Tony, what's your opinion?
-
-> 
-> [1]:
-> https://github.com/milkv-duo/duo-buildroot-sdk/blob/develop/linux_5.10/drivers/pinctrl/cvitek/cv180x_pinlist_swconfig.h
-> 
-> > @@ -0,0 +1,19 @@
-> > +/* SPDX-License-Identifier: GPL-2.0 */
-> > +/*
-> > + * This header provides constants for pinctrl bindings for Sophgo CV* SoC.
-> > + *
-> > + * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-> > + */
-> > +#ifndef _DTS_RISCV_SOPHGO_CV_PINCTRL_H
-> > +#define _DTS_RISCV_SOPHGO_CV_PINCTRL_H
-> > +
-> > +#define MUX_M0		0
-> > +#define MUX_M1		1
-> > +#define MUX_M2		2
-> > +#define MUX_M3		3
-> > +#define MUX_M4		4
-> > +#define MUX_M5		5
-> > +#define MUX_M6		6
-> > +#define MUX_M7		7
-> > +
-> > +#endif
-> > diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> > index e04df04a91c0..7a44d8e8672b 100644
-> > --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> > +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> > @@ -6,6 +6,8 @@
-> >  #include <dt-bindings/interrupt-controller/irq.h>
-> >  #include <dt-bindings/reset/sophgo,cv1800b-reset.h>
-> >  
-> > +#include "cv-pinctrl.h"
-> > +
-> >  / {
-> >  	compatible = "sophgo,cv1800b";
-> >  	#address-cells = <1>;
-> > @@ -55,6 +57,14 @@ soc {
-> >  		dma-noncoherent;
-> >  		ranges;
-> >  
-> > +		pinctrl0: pinctrl@3001000 {
-> > +			compatible = "pinctrl-single";
-> > +			reg = <0x3001000 0x130>;
-> > +			#pinctrl-cells = <1>;
-> > +			pinctrl-single,register-width = <32>;
-> > +			pinctrl-single,function-mask = <0x00000007>;
-> > +		};
-> 
-> From the vendor driver[2], it looks like this peripheral block only handles
-> pinmuxing, so indeed this looks like a good use of pinctrl-single.
-
-This is deffinitely pinctrl-single style pinmux controller ;)
-
-> 
-> [2]:
-> https://github.com/milkv-duo/duo-buildroot-sdk/blob/develop/linux_5.10/drivers/pinctrl/cvitek/pinctrl-cv180x.h
-> 
-> > +
-> >  		rst: reset-controller@3003000 {
-> >  			compatible = "sophgo,cv1800b-reset";
-> >  			reg = <0x03003000 0x1000>;
-> 
 
 _______________________________________________
 linux-riscv mailing list
