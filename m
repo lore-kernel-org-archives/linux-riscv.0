@@ -4,47 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DF47C3DA6E
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 01:07:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28FD9C41535
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 01:09:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dNkMPsFoTY9HU+SmwK+I/T1MXRvVfw7dBkTQT085VgE=; b=T5smRasTbJx8LN
-	W86dHfWpRwAg6UPaCvps4V02ZikYkm3+CNugWtL6mQ8fX4J59pi+LMM905eEuKYUSJJ+iJap2rHO3
-	cjNOhbS3/BwwygLqQO5uIHZawgwFgiN+jgDZlWEWxldZS+soFftwbfCYjXi0WzUwiles4/w1TW+PE
-	PLbMT4MrzeXjv6ZFvT3a1JN42D43p1g0shgpUCftFsk3x3UcLVifJDbAhkKrcGLPFSRudMRU3HBqY
-	po0w0VePzAhSehfP5SJ2ovRrkqF7BfKg25jbJthEbAqMZBVh5Sbz9vAC41fdLEvE35k8U8F8yhjnT
-	t+/3TsNvj3Co+VItG2QA==;
+	List-Owner; bh=3dJH9yjVnNDmMg0/t0ZUPi4Rr95zIZIcp7Pjeq0t91M=; b=fteRKk/xU+Mpoy
+	K80AJC2PYHh+p/N3Ll+t4IdgHgvns7qOimfqeQBX9NZ5OsgDrD7E92pyARdig12LqwzBacusBMbIx
+	qJqH7X69aLUtO11uQcei0dN3UolYyumS3oejcUsaKowICudsUYtNHw152YAT1oDrl+T+SKz33mSZO
+	MXpWm9KbLMqN7T7qAdAeAB1LF9L0cxfmyvmR9JW8gl3OKXwWFGU3IjneFVU/0bSsgGiWMmvcg5fjF
+	z6joHDkKzIhNhad3Q9KZC1S17aEIMRK2GN1uOjhSA029P8kuXlq8If+cLb0sTvE12CoqCUMxlFvmG
+	PGZHTQVoiNl/sjwKdpKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2LQZ-00CxpN-0t;
-	Mon, 13 Nov 2023 01:07:47 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1r2LS9-00Cy68-22;
+	Mon, 13 Nov 2023 01:09:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2LQW-00Cxls-0N
+	id 1r2LS7-00Cy5c-2E
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Nov 2023 01:07:45 +0000
+	Mon, 13 Nov 2023 01:09:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id BE0CCCE0F9C;
-	Mon, 13 Nov 2023 01:07:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43E3EC433C7;
-	Mon, 13 Nov 2023 01:07:31 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DC40260C40;
+	Mon, 13 Nov 2023 01:09:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 514F7C433C8;
+	Mon, 13 Nov 2023 01:09:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699837653;
-	bh=sOrImuVHq65cb4dbzAFQe06ipFaS43Ps0KtMNSiSL3k=;
+	s=k20201202; t=1699837762;
+	bh=NWIlzFEgg2A3+SpkYxmsGisYK5SmdcnCfOPvo5IDKK8=;
 	h=From:To:Cc:Subject:Date:From;
-	b=K/EOtILU4kBTOHK7+AdCwY8JyGDr76XunsubN2vOGquSeXlCGQMjrQFf3+VkM8M4o
-	 PiK2sko+N34cPWapww8zBMNkefZtbnf0MHniQyP8eOPt19uwn+c2juEPbgySOSVStC
-	 Uh6M/jErqlDoFracJmQMdY6r3ZvVz1vpNG0HPNb61dMC6mkWS4w5WRMvh/alwf/ZwP
-	 JuMlUetTxVetL2WcWgtOfIHfH0JjZ0tbYRSgQosojcg0PQeAL6V0AwK3Kfg20bzozx
-	 SpS6HBQhKUVuv9XrQMFvonY4j41+AdpS+wXjmBICDpkTHCf6oyBSbKk4eEU0dV78Br
-	 5kai7HYXRn3mw==
+	b=PMq3rYRZJrQbhLBj0X7qQDeo5yg0CezYYjpfZRMrnxhUFb9ku/AgdcENPQSUJoY40
+	 A1Fmg2/M2FooliyANBTSfsMsXAcww1LNdwTkno680bvuvDhzfhCTwTfi223qqhN6PQ
+	 oXMN3GC4sOfSPfLZWocDw0RjZYr1PQ+82yZGeAz+gievaNco5TfNvbGnZHR80lMmBk
+	 pDwAeS+w+TPD/ILgA1auQ6UbjiW5XuA2nXVC9JGK7sPxt1pHxS+Dq26L/OcnZcWscf
+	 EgiH+mp/3nO8PPPCaZRwb4vJTD4lK4+4gA1BITRgjEc448aZB488XxJrMF4emnIBvM
+	 Cla/YDhGteDaA==
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh+dt@kernel.org>,
+To: Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -55,14 +54,15 @@ To: Philipp Zabel <p.zabel@pengutronix.de>,
 Cc: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 0/4] riscv: sophgo: add reset support for cv1800b
-Date: Mon, 13 Nov 2023 08:54:59 +0800
-Message-Id: <20231113005503.2423-1-jszhang@kernel.org>
+Subject: [PATCH 0/2] riscv: sophgo: add pinctrl support for cv1800b
+Date: Mon, 13 Nov 2023 08:57:00 +0800
+Message-Id: <20231113005702.2467-1-jszhang@kernel.org>
 X-Mailer: git-send-email 2.40.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231112_170744_321373_822E3720 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20231112_170923_767973_CF3B7C0A 
+X-CRM114-Status: UNSURE (   7.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,23 +79,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds reset controller support for sophgo cv1800b using
-reset-simple driver.
+This series adds pinctrl support for cv1800b reusing the
+pinctrl-single driver.
 
-Jisheng Zhang (4):
-  dt-bindings: reset: Add binding for Sophgo CV1800B reset controller
-  reset: Add reset controller support for Sophgo CV1800B SoC
-  riscv: dts: sophgo: add reset dt node for cv1800b
-  riscv: dts: sophgo: add reset phandle to all uart nodes
+Jisheng Zhang (2):
+  riscv: dts: cv1800b: add pinctrl node for cv1800b
+  riscv: dts: sophgo: set pinctrl for uart0
 
- .../bindings/reset/sophgo,cv1800b-reset.yaml  | 38 ++++++++
- arch/riscv/boot/dts/sophgo/cv1800b.dtsi       | 12 +++
- drivers/reset/Kconfig                         |  3 +-
- drivers/reset/reset-simple.c                  |  2 +
- .../dt-bindings/reset/sophgo,cv1800b-reset.h  | 96 +++++++++++++++++++
- 5 files changed, 150 insertions(+), 1 deletion(-)
- create mode 100644 Documentation/devicetree/bindings/reset/sophgo,cv1800b-reset.yaml
- create mode 100644 include/dt-bindings/reset/sophgo,cv1800b-reset.h
+ arch/riscv/boot/dts/sophgo/cv-pinctrl.h       | 19 +++++++++++++++++++
+ .../boot/dts/sophgo/cv1800b-milkv-duo.dts     | 11 +++++++++++
+ arch/riscv/boot/dts/sophgo/cv1800b.dtsi       | 10 ++++++++++
+ 3 files changed, 40 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/sophgo/cv-pinctrl.h
 
 -- 
 2.42.0
