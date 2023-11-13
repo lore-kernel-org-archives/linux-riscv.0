@@ -4,147 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AE27C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 12:21:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30072C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 13:14:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=02wRFYHIqUXFlsxA6ZGYzlnEnH0Fn+XdJvCdsU+Wn8s=; b=Tdt54V6WNPu+21
-	VDMSlmKR+wAGbo9MEXrxVTMOO9+6lUzpkgnI22F8M1QqGtV80pNPUHMqVs/N6TCbV/RWi2oTbFtlV
-	+UcO57IBv5RpfdRg9f/xfjxlyVGD7mPWEUbia1h2oEez171p2pnf/6AfEbXKtkuv1D4W8M/0ppTnn
-	+FzudidvwJujfGCdAPRzMJpUy1PmpWU7zVknT6HhpV+pIBRUSF3DwFKIQ0yE0J/+fJA3I+VRQ6aS6
-	WS1lnJaDBWlQKtVYx0holtWPH+8NVrcBGfcREs5vdbq2Q8hQvB9LyTWj+P6Bw5YGD6jQnvnOHZSzn
-	I/MAx4w6h5SbX1GLNDAg==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=25iyHHVbUMSkQyxcfQaAQPGLuDEs5EuNX9nw/KyOPhA=; b=AMjI8XFmwhB09HR0lFBAqRKTii
+	BIaRUFIr25uvaXE314+eDmGbLd4qT8zLeGi+1T4QEdoOZXZVVZw2wYOrwM0agstITy+LYVbCOi5mI
+	XDNQ+UK/A5yTYTWeQxdEggb7hPt+fx3JSVbng0LewA4/HZlvhzlzjjMmoshWomZWmLf3R1MT7TSs1
+	vqvUOnQ+qEERIJs9dETeC7V25G9VrJQR0EdwnnKrKFcor8OqGrAOuJpfnbc808evxt1G9EHSjGo5b
+	UeDw7nPA25UHI5x7XHbMarDRt7HYmXJAr22wBuqnVyfKxo1dYXcq98N7eXbaRHC7IYn6iyyXzXEOo
+	G9ht6EKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2Vwi-00Dwd8-1a;
-	Mon, 13 Nov 2023 12:21:40 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1r2Wm3-00E1nj-0g;
+	Mon, 13 Nov 2023 13:14:43 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2Vwd-00Dwbf-0J
+	id 1r2Wm1-00E1n5-0x
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Nov 2023 12:21:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1699878092;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=zIHSrYUcQnxoKXdjZZpZq5jMd/3daIfiQKpFrLHTsdU=;
-	b=Yu7Hdo/5plblCptHPcHHXf+9vRvOj/Zk8ApYb0pxBvJ66oGqymud4iKofR7RbBenSPB2SZ
-	i4CeNmmAZVYqgVegeajfF9gLmPOZYcbPHoP1x+LFH+ypB+/47TyRCHY7EcD/QcF50rd7T7
-	4Jy5iTD5qb94R8BKs3JXOJUpIzc6iVA=
-Received: from mail-ua1-f70.google.com (mail-ua1-f70.google.com
- [209.85.222.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-178-qouNQyLwPCupwD_9xE0xUQ-1; Mon, 13 Nov 2023 07:21:31 -0500
-X-MC-Unique: qouNQyLwPCupwD_9xE0xUQ-1
-Received: by mail-ua1-f70.google.com with SMTP id a1e0cc1a2514c-7bd9a477073so1559879241.1
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Nov 2023 04:21:31 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699878091; x=1700482891;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zIHSrYUcQnxoKXdjZZpZq5jMd/3daIfiQKpFrLHTsdU=;
-        b=BF1afcweISkpa5VF7tppWIIhHSDSnn/keO3CLxOyZYNp9gtF3oiMkkAwmhraINzcbq
-         75MC10+Z6Jr9tdDsReOQ4lFG2ThtG175AbqU8kJxQ4XMc9gY1qfmLk5kZfEwkcu452sR
-         /+b3q1tV5TVnrf0R5e4UTgjmS8L9Dp0lob6twnuwWo/ERMTcjh828PU6vv6tSkMUnGrQ
-         XSfO90ea1SR9CvtnFXJ1lRQGXFnnNGL1cSanRYjSEuK1D96pFtjUYF8bg/wrYU7Sjk+2
-         4wkQeWEYbFFy2OX0ONEqE/9YIJ3B00WGFuCoUGhD6SJjucon3djH0BvgiLrC7YO1xakN
-         mSxw==
-X-Gm-Message-State: AOJu0YyBXWmXWWUH0WUUOX/dC63Q23GsAF8Kg6RTOoUo8TCwofOpKU4e
-	1irUeRMbh3WadWJMWyERgwS5sogV+DQWUxBw1VtVg3EAPs6Rdn/Vx2ixsrYutByV9lPsyeaKXIU
-	5GuAD0iZW3e+QQWo22MY6CP0VfBXh
-X-Received: by 2002:a67:f2c8:0:b0:457:670f:e2eb with SMTP id a8-20020a67f2c8000000b00457670fe2ebmr6417783vsn.20.1699878091021;
-        Mon, 13 Nov 2023 04:21:31 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFKSa6ruCnuzN9s2Ejc4l9S4h3ZVAauCQx41zE3qMS0kOL2lujOmHkFT5dC7rrBHQxe5Bi5+A==
-X-Received: by 2002:a67:f2c8:0:b0:457:670f:e2eb with SMTP id a8-20020a67f2c8000000b00457670fe2ebmr6417723vsn.20.1699878090682;
-        Mon, 13 Nov 2023 04:21:30 -0800 (PST)
-Received: from [192.168.157.67] ([12.191.197.195])
-        by smtp.googlemail.com with ESMTPSA id j22-20020ac874d6000000b00419801b1094sm1904299qtr.13.2023.11.13.04.21.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Nov 2023 04:21:29 -0800 (PST)
-Message-ID: <d3071794-7c02-4ca1-850d-1d5242de4f98@redhat.com>
-Date: Mon, 13 Nov 2023 13:21:28 +0100
+	Mon, 13 Nov 2023 13:14:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 1394DCE138D;
+	Mon, 13 Nov 2023 13:14:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2109CC433C8;
+	Mon, 13 Nov 2023 13:14:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1699881278;
+	bh=EtMfTCKsUg7ufBalhxFNF8jrs+peRdy0cY2hZzRhWmE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nS7ZNMw0hmdXGtW9w0SMYVBq4p59yvF5bYxvk/T84uxjzZf4zpFYR2Ozd7OH2gTCz
+	 u2AqN6RpKU4MZp/AkMYYpbeRp3zMOpry8A4u+d/t4zz47VuOUn+TtpUhPVsdG81X0E
+	 L0m7EAeVjdkCdzGXaXqPsWSNOGYOb51/E8G/YyTHFtEz7ujWpSSqWXjL0ZUqyq+ecN
+	 a9H9EGuWSJw+5DItCmAI5N7bJP5e9hRB0euEJfdiw6PM7LPeGUrL/FVrJc0Ls1U8m9
+	 CaqJQhoCyQIo5oI++GMPhggi9LWuB0tP0YzouBFu1To6wLb+VtEj89fAX48qkQdQAT
+	 uCMFAS8aTnMyw==
+Date: Mon, 13 Nov 2023 13:14:34 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Inochi Amaoto <inochiama@outlook.com>
+Cc: Chao Wei <chao.wei@sophgo.com>, Chen Wang <unicorn_wang@outlook.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jisheng Zhang <jszhang@kernel.org>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: dts: sophgo: remove address-cells from CV1800B
+ intc node
+Message-ID: <20231113-portable-garnet-8a04dbb71b51@squawk>
+References: <IA1PR20MB49532613F5B4BD9753A1BB4DBBB3A@IA1PR20MB4953.namprd20.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 00/34] KVM: guest_memfd() and per-page attributes
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Sean Christopherson <seanjc@google.com>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Xiaoyao Li <xiaoyao.li@intel.com>, Xu Yilun <yilun.xu@intel.com>,
- Chao Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>,
- Jarkko Sakkinen <jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>,
- David Matlack <dmatlack@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>,
- Isaku Yamahata <isaku.yamahata@intel.com>, =?UTF-8?B?TWlja2HDq2wgU2FsYcO8?=
- =?UTF-8?Q?n?= <mic@digikod.net>, Vlastimil Babka <vbabka@suse.cz>,
- Vishal Annapurve <vannapurve@google.com>,
- Ackerley Tng <ackerleytng@google.com>,
- Maciej Szmigiero <mail@maciej.szmigiero.name>,
- David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
- Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
- Liam Merwick <liam.merwick@oracle.com>,
- Isaku Yamahata <isaku.yamahata@gmail.com>,
- "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20231105163040.14904-1-pbonzini@redhat.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Autocrypt: addr=pbonzini@redhat.com; keydata=
- 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
-In-Reply-To: <20231105163040.14904-1-pbonzini@redhat.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+In-Reply-To: <IA1PR20MB49532613F5B4BD9753A1BB4DBBB3A@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231113_042135_229596_D7B72AFD 
-X-CRM114-Status: GOOD (  20.46  )
+X-CRM114-CacheID: sfid-20231113_051441_523987_ADF491E3 
+X-CRM114-Status: GOOD (  18.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,181 +74,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============2920103764798430644=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/5/23 17:30, Paolo Bonzini wrote:
-> The "development cycle" for this version is going to be very short;
-> ideally, next week I will merge it as is in kvm/next, taking this through
-> the KVM tree for 6.8 immediately after the end of the merge window.
-> The series is still based on 6.6 (plus KVM changes for 6.7) so it
-> will require a small fixup for changes to get_file_rcu() introduced in
-> 6.7 by commit 0ede61d8589c ("file: convert to SLAB_TYPESAFE_BY_RCU").
-> The fixup will be done as part of the merge commit, and most of the text
-> above will become the commit message for the merge.
 
-The changes from review are small enough and entirely in tests, so
-I went ahead and pushed it to kvm/next, together with "selftests: kvm/s390x: use vm_create_barebones()" which also fixed testcase failures (similar to the aarch64/page_fault_test.c hunk below).
+--===============2920103764798430644==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="HnJ3G1ILUKIB0LMn"
+Content-Disposition: inline
 
-The guestmemfd branch on kvm.git was force-pushed, and can be used for further
-development if you don't want to run 6.7-rc1 for whatever reason.
 
-diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-index 38882263278d..926241e23aeb 100644
---- a/Documentation/virt/kvm/api.rst
-+++ b/Documentation/virt/kvm/api.rst
-@@ -1359,7 +1359,6 @@ yet and must be cleared on entry.
-  	__u64 guest_phys_addr;
-  	__u64 memory_size; /* bytes */
-  	__u64 userspace_addr; /* start of the userspace allocated memory */
--	__u64 pad[16];
-    };
-  
-    /* for kvm_userspace_memory_region::flags */
-diff --git a/tools/testing/selftests/kvm/aarch64/page_fault_test.c b/tools/testing/selftests/kvm/aarch64/page_fault_test.c
-index eb4217b7c768..08a5ca5bed56 100644
---- a/tools/testing/selftests/kvm/aarch64/page_fault_test.c
-+++ b/tools/testing/selftests/kvm/aarch64/page_fault_test.c
-@@ -705,7 +705,7 @@ static void run_test(enum vm_guest_mode mode, void *arg)
-  
-  	print_test_banner(mode, p);
-  
--	vm = ____vm_create(mode);
-+	vm = ____vm_create(VM_SHAPE(mode));
-  	setup_memslots(vm, p);
-  	kvm_vm_elf_load(vm, program_invocation_name);
-  	setup_ucall(vm);
-diff --git a/tools/testing/selftests/kvm/guest_memfd_test.c b/tools/testing/selftests/kvm/guest_memfd_test.c
-index ea0ae7e25330..fd389663c49b 100644
---- a/tools/testing/selftests/kvm/guest_memfd_test.c
-+++ b/tools/testing/selftests/kvm/guest_memfd_test.c
-@@ -6,14 +6,6 @@
-   */
-  
-  #define _GNU_SOURCE
--#include "test_util.h"
--#include "kvm_util_base.h"
--#include <linux/bitmap.h>
--#include <linux/falloc.h>
--#include <sys/mman.h>
--#include <sys/types.h>
--#include <sys/stat.h>
--
-  #include <stdlib.h>
-  #include <string.h>
-  #include <unistd.h>
-@@ -21,6 +13,15 @@
-  #include <stdio.h>
-  #include <fcntl.h>
-  
-+#include <linux/bitmap.h>
-+#include <linux/falloc.h>
-+#include <sys/mman.h>
-+#include <sys/types.h>
-+#include <sys/stat.h>
-+
-+#include "test_util.h"
-+#include "kvm_util_base.h"
-+
-  static void test_file_read_write(int fd)
-  {
-  	char buf[64];
-diff --git a/tools/testing/selftests/kvm/include/kvm_util_base.h b/tools/testing/selftests/kvm/include/kvm_util_base.h
-index e4d2cd9218b2..1b58f943562f 100644
---- a/tools/testing/selftests/kvm/include/kvm_util_base.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util_base.h
-@@ -819,6 +819,7 @@ static inline struct kvm_vm *vm_create_barebones(void)
-  	return ____vm_create(VM_SHAPE_DEFAULT);
-  }
-  
-+#ifdef __x86_64__
-  static inline struct kvm_vm *vm_create_barebones_protected_vm(void)
-  {
-  	const struct vm_shape shape = {
-@@ -828,6 +829,7 @@ static inline struct kvm_vm *vm_create_barebones_protected_vm(void)
-  
-  	return ____vm_create(shape);
-  }
-+#endif
-  
-  static inline struct kvm_vm *vm_create(uint32_t nr_runnable_vcpus)
-  {
-diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-index d05d95cc3693..9b29cbf49476 100644
---- a/tools/testing/selftests/kvm/lib/kvm_util.c
-+++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-@@ -1214,7 +1214,7 @@ void vm_guest_mem_fallocate(struct kvm_vm *vm, uint64_t base, uint64_t size,
-  		TEST_ASSERT(region && region->region.flags & KVM_MEM_GUEST_MEMFD,
-  			    "Private memory region not found for GPA 0x%lx", gpa);
-  
--		offset = (gpa - region->region.guest_phys_addr);
-+		offset = gpa - region->region.guest_phys_addr;
-  		fd_offset = region->region.guest_memfd_offset + offset;
-  		len = min_t(uint64_t, end - gpa, region->region.memory_size - offset);
-  
-diff --git a/tools/testing/selftests/kvm/set_memory_region_test.c b/tools/testing/selftests/kvm/set_memory_region_test.c
-index 343e807043e1..1efee1cfcff0 100644
---- a/tools/testing/selftests/kvm/set_memory_region_test.c
-+++ b/tools/testing/selftests/kvm/set_memory_region_test.c
-@@ -433,6 +433,7 @@ static void test_add_max_memory_regions(void)
-  }
-  
-  
-+#ifdef __x86_64__
-  static void test_invalid_guest_memfd(struct kvm_vm *vm, int memfd,
-  				     size_t offset, const char *msg)
-  {
-@@ -523,14 +524,13 @@ static void test_add_overlapping_private_memory_regions(void)
-  	close(memfd);
-  	kvm_vm_free(vm);
-  }
-+#endif
-  
-  int main(int argc, char *argv[])
-  {
-  #ifdef __x86_64__
-  	int i, loops;
--#endif
-  
--#ifdef __x86_64__
-  	/*
-  	 * FIXME: the zero-memslot test fails on aarch64 and s390x because
-  	 * KVM_RUN fails with ENOEXEC or EFAULT.
-@@ -542,6 +542,7 @@ int main(int argc, char *argv[])
-  
-  	test_add_max_memory_regions();
-  
-+#ifdef __x86_64__
-  	if (kvm_has_cap(KVM_CAP_GUEST_MEMFD) &&
-  	    (kvm_check_cap(KVM_CAP_VM_TYPES) & BIT(KVM_X86_SW_PROTECTED_VM))) {
-  		test_add_private_memory_region();
-@@ -550,7 +551,6 @@ int main(int argc, char *argv[])
-  		pr_info("Skipping tests for KVM_MEM_GUEST_MEMFD memory regions\n");
-  	}
-  
--#ifdef __x86_64__
-  	if (argc > 1)
-  		loops = atoi_positive("Number of iterations", argv[1]);
-  	else
-diff --git a/tools/testing/selftests/kvm/x86_64/private_mem_kvm_exits_test.c b/tools/testing/selftests/kvm/x86_64/private_mem_kvm_exits_test.c
-index 2f02f6128482..13e72fcec8dd 100644
---- a/tools/testing/selftests/kvm/x86_64/private_mem_kvm_exits_test.c
-+++ b/tools/testing/selftests/kvm/x86_64/private_mem_kvm_exits_test.c
-@@ -1,6 +1,6 @@
-  // SPDX-License-Identifier: GPL-2.0-only
-  /*
-- * Copyright (C) 2022, Google LLC.
-+ * Copyright (C) 2023, Google LLC.
-   */
-  #include <linux/kvm.h>
-  #include <pthread.h>
+--HnJ3G1ILUKIB0LMn
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Paolo
+On Mon, Nov 13, 2023 at 05:26:15PM +0800, Inochi Amaoto wrote:
+> A recent submission from Rob has added additionalProperties: false
+> to the interrupt-controller child node of RISC-V cpus. But CV1800B does
+> not follow this change and still uses #address-cells in its interrupt
+> controller. As it has no child nodes, #address-cells is not needed and
+> can be removed.
+>=20
+> Fixes: c3dffa879cca ("riscv: dts: sophgo: add initial CV1800B SoC device =
+tree")
+> Link: https://patchwork.kernel.org/project/linux-riscv/patch/202309152019=
+46.4184468-1-robh@kernel.org/
 
+This is a dupe of a patch I already applied, but have not yet sent a PR
+for:
+https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/commit/?h=
+=3Driscv-dt-for-next&id=3Db99df62818919b84e970eea5aec60b0dbc57da18
+
+Cheers,
+Conor.
+
+>=20
+> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+> ---
+>  arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 1 -
+>  1 file changed, 1 deletion(-)
+>=20
+> diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dt=
+s/sophgo/cv1800b.dtsi
+> index df40e87ee063..aec6401a467b 100644
+> --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> @@ -34,7 +34,6 @@ cpu0: cpu@0 {
+>  			cpu0_intc: interrupt-controller {
+>  				compatible =3D "riscv,cpu-intc";
+>  				interrupt-controller;
+> -				#address-cells =3D <0>;
+>  				#interrupt-cells =3D <1>;
+>  			};
+>  		};
+> --
+> 2.42.1
+>=20
+
+--HnJ3G1ILUKIB0LMn
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZVIhNwAKCRB4tDGHoIJi
+0rkAAQCDRGINzffMT6MvCnhOlveVMvDNHnDgSN+m8Wjdp5iJ6gD/Zh+u83XnVzPH
+evBzqZTo5OoPvBJr4cZdAXjyS7KMPgY=
+=Kphh
+-----END PGP SIGNATURE-----
+
+--HnJ3G1ILUKIB0LMn--
+
+
+--===============2920103764798430644==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2920103764798430644==--
+
