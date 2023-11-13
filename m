@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28283C4167B
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 00:38:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6743C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 00:43:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=01AI3ZHotktYM+FvQKZTQz5znsUfVjDk5K5bXW93JS4=; b=nhPMlrSUom68Ti
-	0j8MF2NiP5l8XPdZLnHj4pP/GDjaQ2nTTEfPhGN0Ob1+r9Ta3RAwj5dwbQdtePCJUAfM+rjxY5QU5
-	yt9B+xA+UJZu7tErALZ3vhIPrPjJPHpW6DOGUIu4SFDtYWAAJAUUskgupToX8QsMCoTr2+GTjPt57
-	j3l5T3aWzyKUz3Hg3oH+OZ+BBX1eFNyfxBchW9CbsgfULZqXoneCtW2knUsQFvUxMKsFGDOQIIZOc
-	aIK9gj2tI7cuXULAz7MbCAJUZK/3ByPtGtxSyuQo/Ev/CSYxvPV778tiJA1FUbpNrkOMdRGoTdlfx
-	LevIZevm9JLilc09bTTA==;
+	List-Owner; bh=0rF1rN+OKqP+hSr842peaoHceI7bphhfZ/Bibhq7cfk=; b=fROAD/eKYXihpW
+	CfbM9ntsGErRWfdbuAeul5lP3+Wnm/x1b9SugcWowpTH2T1zlsCV3HhzFbFu+pAZCkNFFb8q0aSah
+	2UUgfODte6zMdCBRUB37d5Zf0fGxgM0Or+XX65w9BqSJoQ3S0Lz0FZ8OWRJzjnfDSrOI1qJRsEhG/
+	Apf4f7QZttACPPcf9y/ww9HV74O5klw7B00f57wcqoOdESt0s8Tl9vSQKXjUKj5HwZa4vc1AkrShA
+	hHkRJNB0qrhmYV3VcNLZQDm8GxmPCcnOjTBl1MW0WSUTI7Nry/59KwTVRgfcbcvoIkfQBcLjZRX5s
+	U9rnfTJtbned2HH+ZLmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2Kxx-00Cvj3-2F;
-	Mon, 13 Nov 2023 00:38:13 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1r2L2e-00Cw33-0s;
+	Mon, 13 Nov 2023 00:43:04 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2Kxv-00CviP-0y
+	id 1r2L2b-00Cw2G-2i
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Nov 2023 00:38:12 +0000
+	Mon, 13 Nov 2023 00:43:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1699835889;
+	s=mimecast20190719; t=1699836181;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=O1nf6XEV98s0CEk667q+uBgTZE/SGODZkiF15Lal4kk=;
-	b=h8KQd98/GEKJzORHx2wfKS2d8qiY110UBpsBEbdRXv4/y5PivgPj1JbxDbPZfB/3DNYR3T
-	q6BDqln+8FIoznZ0EG2zfUCjCovb/uDlIxVUJoGzTB7QCrvpNzS3Bpxc1ZOm27oiyA11iq
-	2Q6QXeGzN0ooFxHKhSCfkip+mko+0es=
-Received: from mail-oa1-f69.google.com (mail-oa1-f69.google.com
- [209.85.160.69]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=iQsxdmKsC9+VQQMbyUjXPaZGEeJW41wCAFBZ7vfsBQE=;
+	b=io/e/jaKxSZL01hVJsdPZ/cR6b0f5bvPaBCFFgl7qayS3qbmNOCHCfsOnbd6Y/2jHTsUQm
+	SToS9+yl+K+4Q7VUFjOIFLL3ymfGYvFCNouS4tZOekqpoGEFKRyVBzV5hkH+WkR9eogUew
+	ChoIf5kV9PoRAY5gTiobe+7g+VNbhak=
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com
+ [209.85.215.200]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-219-LSwxaZk9M4aEp4YjvJiLkQ-1; Sun, 12 Nov 2023 19:38:08 -0500
-X-MC-Unique: LSwxaZk9M4aEp4YjvJiLkQ-1
-Received: by mail-oa1-f69.google.com with SMTP id 586e51a60fabf-1f08758b52cso3720923fac.3
-        for <linux-riscv@lists.infradead.org>; Sun, 12 Nov 2023 16:38:08 -0800 (PST)
+ us-mta-590-QyH-TD8KMx-NXiUHUVGujw-1; Sun, 12 Nov 2023 19:42:57 -0500
+X-MC-Unique: QyH-TD8KMx-NXiUHUVGujw-1
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-5c19a2f606dso356448a12.3
+        for <linux-riscv@lists.infradead.org>; Sun, 12 Nov 2023 16:42:57 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699835887; x=1700440687;
+        d=1e100.net; s=20230601; t=1699836176; x=1700440976;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=O1nf6XEV98s0CEk667q+uBgTZE/SGODZkiF15Lal4kk=;
-        b=djv1vWIsJldwxkZX0hiVFxqc3zQmrJVMZ2WSFsPYrVdR+LujzUOjfVcOUkdirTdAsO
-         ESLeQoFPxBXbyXsh0igvRqmQQiAku7F1j2WdyB/v7TKIGU1LcXeE5POL2iRWpXXda/5G
-         402NcGlM368T4RYc65A8vNhcxtiSFGnOcbNyaN3SH6gmX3F5tf0bJvER1n/C/D7u3Ljf
-         nae86rhqDZeRHclZA4fUL3m9RGIE+LbGYQRGPlPSXf418kNRl8q0RuuwVG0M3iZ3q8aD
-         RIW0qLVxB613SBHaD4GqPlqeMmBU0W0GXAVJskQJQ+v2Fg6v4CHvYREFsSJE8llXWkyD
-         k4PQ==
-X-Gm-Message-State: AOJu0Yzhn1ju6rxX59al6v23awZJZklvaSjKIUbQeiccQEXUHkV4RyDW
-	7nd++6pEaH88jR3CJYUXqfpgyonXh5KkrbopiG7vk1Ge+L87o+1GLkjC2wbIfeUu4ykCC1vTC0W
-	7k6v4oR0Wtxl2NH/0EpHclT7zOOyH
-X-Received: by 2002:a05:6870:d0c6:b0:1e9:e605:27a2 with SMTP id k6-20020a056870d0c600b001e9e60527a2mr7371009oaa.40.1699835887694;
-        Sun, 12 Nov 2023 16:38:07 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEHcRcNW/0WRXgRcvJUbygUPuUiuO/tgZdTNz8Uw3rp5U7itGOHSrxQdNmH0YwAJkfF7sIkzQ==
-X-Received: by 2002:a05:6870:d0c6:b0:1e9:e605:27a2 with SMTP id k6-20020a056870d0c600b001e9e60527a2mr7370991oaa.40.1699835887444;
-        Sun, 12 Nov 2023 16:38:07 -0800 (PST)
+        bh=iQsxdmKsC9+VQQMbyUjXPaZGEeJW41wCAFBZ7vfsBQE=;
+        b=io/WIZZwATV1Lag+5Znj59bHVq0PsltIhvWbWMawaCq5w5H7378K7un5kqC9Fr1PRB
+         yPcy6xnkeJvM7bYrTnxW9CuEmY0n5F5IWZC/55hJ0QUZ9bThOmwVL14xcSTDK12GVthc
+         a3GHshClFx2PO8WYdOkc4T4WbslqIjjdF7MvxLaJALnvu3RaZrHkv4BRUkIPN//uYAdR
+         z3oLi6fQT4QYlGTFUSl/2m1QJdhNSnlIQpZ62JqrbVa8kfbOUacBhzskQHy6C63961iz
+         awXz+QcMGuHIJ/H9EDFymSOMc8vZXW2HFg5ljOZ7FippRritbVAVR9frEdIfyKUOrl+h
+         5B4w==
+X-Gm-Message-State: AOJu0YxiUTs7hOoWwmMIhng8XIqEMb2ta+KS+Qwj6WoYao6zFf9M7myC
+	GpXLqwGjGLsi1HoahSMxXUtMVsTlMCU6MxsUjEct6fQy+teKxtP1V1krMeiRO9KDpXT5xCxwgOQ
+	DbSIRsdjNsFCuds0O+qV64A1x4Kq1
+X-Received: by 2002:a05:6a20:7494:b0:174:373b:4381 with SMTP id p20-20020a056a20749400b00174373b4381mr3583335pzd.49.1699836176466;
+        Sun, 12 Nov 2023 16:42:56 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IE+UqzLZrYxi+tnG161U/VKxrumNhVvJntX1X+LzLVicHXhCNQwDg9kYlUeFf4mFvRVo9YyxA==
+X-Received: by 2002:a05:6a20:7494:b0:174:373b:4381 with SMTP id p20-20020a056a20749400b00174373b4381mr3583318pzd.49.1699836176231;
+        Sun, 12 Nov 2023 16:42:56 -0800 (PST)
 Received: from ?IPV6:2001:8003:e5b0:9f00:b890:3e54:96bb:2a15? ([2001:8003:e5b0:9f00:b890:3e54:96bb:2a15])
-        by smtp.gmail.com with ESMTPSA id lx7-20020a17090b4b0700b00280c6f35546sm2774851pjb.49.2023.11.12.16.37.59
+        by smtp.gmail.com with ESMTPSA id q23-20020a62e117000000b006c0328b2440sm2948031pfh.150.2023.11.12.16.42.48
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 12 Nov 2023 16:38:07 -0800 (PST)
-Message-ID: <8cdb97b5-515a-474d-918c-2f0d5ecad266@redhat.com>
-Date: Mon, 13 Nov 2023 10:37:56 +1000
+        Sun, 12 Nov 2023 16:42:55 -0800 (PST)
+Message-ID: <a51eab2e-5d23-420a-a46e-aad79af1ad50@redhat.com>
+Date: Mon, 13 Nov 2023 10:42:46 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 06/22] drivers: base: Use present CPUs in
- GENERIC_CPU_DEVICES
+Subject: Re: [PATCH RFC 07/22] drivers: base: Allow parts of
+ GENERIC_CPU_DEVICES to be overridden
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
  linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
  linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
@@ -85,20 +85,18 @@ Cc: Salil Mehta <salil.mehta@huawei.com>,
  Jean-Philippe Brucker <jean-philippe@linaro.org>, jianyong.wu@arm.com,
  justin.he@arm.com, James Morse <james.morse@arm.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Guo Ren <guoren@kernel.org>
+ "Rafael J. Wysocki" <rafael@kernel.org>, Thomas Gleixner
+ <tglx@linutronix.de>, Peter Zijlstra <peterz@infradead.org>
 References: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
- <E1r0JLB-00CTwy-7y@rmk-PC.armlinux.org.uk>
+ <E1r0JLG-00CTx8-CG@rmk-PC.armlinux.org.uk>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <E1r0JLB-00CTwy-7y@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1r0JLG-00CTx8-CG@rmk-PC.armlinux.org.uk>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231112_163811_420427_4B2EE737 
-X-CRM114-Status: GOOD (  22.47  )
+X-CRM114-CacheID: sfid-20231112_164302_032272_C06DA519 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,63 +116,27 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 11/7/23 20:29, Russell King (Oracle) wrote:
 > From: James Morse <james.morse@arm.com>
 > 
-> Three of the five ACPI architectures create sysfs entries using
-> register_cpu() for present CPUs, whereas arm64, riscv and all
-> GENERIC_CPU_DEVICES do this for possible CPUs.
+> Architectures often have extra per-cpu work that needs doing
+> before a CPU is registered, often to determine if a CPU is
+> hotpluggable.
 > 
-> Registering a CPU is what causes them to show up in sysfs.
-> 
-> It makes very little sense to register all possible CPUs. Registering
-> a CPU is what triggers the udev notifications allowing user-space to
-> react to newly added CPUs.
-> 
-> To allow all five ACPI architectures to use GENERIC_CPU_DEVICES, change
-> it to use for_each_present_cpu(). Making the ACPI architectures use
-> GENERIC_CPU_DEVICES is a pre-requisite step to centralise their
-> cpu_register() logic, before moving it into the ACPI processor driver.
-> When ACPI is disabled this work would be done by
-> cpu_dev_register_generic().
-> 
-> Of the ACPI architectures that register possible CPUs, arm64 and riscv
-> do not support making possible CPUs present as they use the weak 'always
-> fails' version of arch_register_cpu().
-> 
-> Only two of the eight architectures that use GENERIC_CPU_DEVICES have a
-> distinction between present and possible CPUs.
-> 
-> The following architectures use GENERIC_CPU_DEVICES but are not SMP,
-> so possible == present:
->   * m68k
->   * microblaze
->   * nios2
-> 
-> The following architectures use GENERIC_CPU_DEVICES and consider
-> possible == present:
->   * csky: setup_smp()
->   * processor_probe() sets possible for all CPUs and present for all CPUs
->     except the boot cpu, which will have been done by
->     init/main.c::start_kernel().
-> 
-> um appears to be a subarchitecture of x86.
-> 
-> The remaining architecture using GENERIC_CPU_DEVICES are:
->   * openrisc and hexagon:
->     where smp_init_cpus() makes all CPUs < NR_CPUS possible,
->     whereas smp_prepare_cpus() only makes CPUs < setup_max_cpus present.
-> 
-> After this change, openrisc and hexagon systems that use the max_cpus
-> command line argument would not see the other CPUs present in sysfs.
-> This should not be a problem as these CPUs can't bre brought online as
-> _cpu_up() checks cpu_present().
-> 
-> After this change, only CPUs which are present appear in sysfs.
+> To allow the ACPI architectures to use GENERIC_CPU_DEVICES, move
+> the cpu_register() call into arch_register_cpu(), which is made __weak
+> so architectures with extra work can override it.
+> This aligns with the way x86, ia64 and loongarch register hotplug CPUs
+> when they become present.
 > 
 > Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 > ---
->   drivers/base/cpu.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+> Changes since RFC:
+>   * Dropped __init from x86/ia64 arch_register_cpu()
+> Changes since RFC v2:
+>   * Dropped unnecessary Loongarch asm/cpu.h changes
+> ---
+>   drivers/base/cpu.c  | 14 ++++++++++----
+>   include/linux/cpu.h |  4 ++++
+>   2 files changed, 14 insertions(+), 4 deletions(-)
 > 
 
 Reviewed-by: Gavin Shan <gshan@redhat.com>
