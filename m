@@ -4,92 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F77C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 13:20:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02D07C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 13:21:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5LXQtyFqJK1cUbXFgpWO7GUCZmwg/8tMda9rpUlIi/E=; b=iNDRgqtZ8zmjDt
-	lzKnlKIPwGOtpY5eCN8NNqvTULX5o89VODl7Pt+78qdIs2pIZiuOp+ipBDnzu6rMiPFOzGwaOpy3a
-	mjUvOC8ghXfUnpKqrXhBd31Sojofv1J3uGXDVTAnOgU0KeWeZjg3zBkQE74IFqzfSEHQ6WEjff+Or
-	SaTw8D4uPae2DQ5OnGKVpDLK0z4zYlcApDbILZQslXt4VTzBTkvLrMgz+u2eXgJ59IvqlqkhAp7yJ
-	2ayKnR2UeWqXZVjzDlRcwB4zMGX5YKNNsgvEWwKWNBaNVpOw6s5vw3BHVeurXeu4HFjT+dyZAyFDx
-	BD9Wef8lYOFq4+UTwu2Q==;
+	List-Owner; bh=cBvpuzlLsSruz3pIgKjymrUWdjo8zf42p6QjiXsYkOs=; b=PxRbI11E22a8x/
+	Tv9Q2DkJeM65ZeUJxzFAnDJ0d7Z28mTUd0xw4XnLRTUZFNLg2likvDIm9tIN7DnuZCoi3altGOmSc
+	wM7iLjPENfvK0DpUTtqBeZI3LvmVSpsAAkcpz6u1gbGOi8AsJ+bhwWc/4BWpSpl6ykauGbCFuQJ6F
+	5V3+mGJ5BBnWM8xW+IT6HYvIKJtRSES+DkY+GZQf2ncsmZ3jN14fk77UU0xD0FL8+zBbHa8065AMd
+	ZveR3v0oaJGjLSh/vPOz7U5nPLVJvUXxaret4TevX2EdkZJZP7JaU5O+a+esh3l3HyUWT2hYFTc1M
+	a0Wewk37M1/Pux6sAZvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2WrV-00E2hR-2r;
-	Mon, 13 Nov 2023 13:20:21 +0000
-Received: from mail-ot1-x336.google.com ([2607:f8b0:4864:20::336])
+	id 1r2Wsa-00E2v0-0p;
+	Mon, 13 Nov 2023 13:21:28 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2WrT-00E2gS-2q
+	id 1r2WsX-00E2to-0w
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Nov 2023 13:20:21 +0000
-Received: by mail-ot1-x336.google.com with SMTP id 46e09a7af769-6ce31c4a653so2672522a34.3
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Nov 2023 05:20:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1699881619; x=1700486419; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=r2oQtEPIutglTe0zePH4EdTxwpuD5Zb7G2ePiU4NwmQ=;
-        b=TB7BT7CCrXclWe0WgpE/GSZNQYGpWZJFNGWbGRuZTtGJmDQMr8AdS6xIRLo5UnCJCs
-         kaF9BUl0qUmLU94un59IZl1lKZQ/ropbpaHhwwTH4+5IChe0o1UI68vJnWPtcuc/AvrG
-         c9maiTZe3eu0C98RLww2kjRcT+6v0l/2EH6WfC31xahQ+cWf2YgtNZsWp1Qd4eHuWXg4
-         m2jHZ56Al0fSS9Nz1VJ8K3pWjGphx6xQScuP2VT/hy8JNAcg+z6ToN3AUBCEpvg9jxLk
-         W/7k+5KbeQaIJ53V2YrXzb++ZXWrdggUfnJPOhC+JmlQQXDeD9iIge9H+yGPKpA7tXlr
-         UxFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699881619; x=1700486419;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=r2oQtEPIutglTe0zePH4EdTxwpuD5Zb7G2ePiU4NwmQ=;
-        b=b4GD/3gl0aImeJ9Ofu79g0rMdtOYcPPe9e86y2hod2rDO3vY02rQn2opxlwySSM+gm
-         y6nEaPCB2Hw0a7H0DIZ3ky0pkkaiETL4kzzTHwRInaAWtTEzDCaoyD/R8W1MF7p7s9Aq
-         E2SSfV28BawGz8i4GAbp4+CgoOw6poNIfQ0QiWsPMFIS5pD+EH38zwKZJzLbAc2g0Byf
-         32KgbKRAgIHjWzH0R5UDhUiK8xyuZG6G9QoEhJ2Ji8YNFrjEsGyzUr6fCXg7NG7+eyKt
-         pz/atB5Qr3K+RQ7JGZAZn12k42QAibcw02OOn09Xr2dd3YWAs2k4arSQfBCIiX3b3CKm
-         HOCg==
-X-Gm-Message-State: AOJu0YxT3lyloemnwWadwAlqTuEBjBCtYG+jGb4Mef4q4A5gRbRk1DkD
-	ZzZI5xsbxPGkGWRtzeNvF/c080jkhwkGlQ==
-X-Google-Smtp-Source: AGHT+IGdyfd3Iw8wc2oNjooMchUT5EXKOY6OdN9KO1iBklie7kMMadIh4BY1epZEyrW1KogBEF8e+w==
-X-Received: by 2002:a9d:7752:0:b0:6d6:4cf3:d908 with SMTP id t18-20020a9d7752000000b006d64cf3d908mr7631954otl.33.1699881619198;
-        Mon, 13 Nov 2023 05:20:19 -0800 (PST)
-Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id v7-20020a9d69c7000000b006d646763942sm799989oto.23.2023.11.13.05.20.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Nov 2023 05:20:18 -0800 (PST)
-From: Chen Wang <unicornxw@gmail.com>
-To: aou@eecs.berkeley.edu,
-	chao.wei@sophgo.com,
-	conor@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	mturquette@baylibre.com,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	richardcochran@gmail.com,
-	robh+dt@kernel.org,
-	sboyd@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	haijiao.liu@sophgo.com,
-	xiaoguang.xing@sophgo.com
-Cc: Chen Wang <unicorn_wang@outlook.com>
-Subject: [PATCH 5/5] riscv: dts: add clock generator for Sophgo SG2042 SoC
-Date: Mon, 13 Nov 2023 21:20:11 +0800
-Message-Id: <25fcbab4c04bcbbdc4577dc58822540829f91dc9.1699879741.git.unicorn_wang@outlook.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1699879741.git.unicorn_wang@outlook.com>
-References: <cover.1699879741.git.unicorn_wang@outlook.com>
+	Mon, 13 Nov 2023 13:21:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id 19BCFB80DB8;
+	Mon, 13 Nov 2023 13:21:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AB0CC433C9;
+	Mon, 13 Nov 2023 13:21:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1699881682;
+	bh=KCjtPGRJNG1e0l55yc9Fl85FksaID/z/6qmz2c02TJs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ru41IK3OjWDOaCHPpcYqHm3fHFO5FRHCFL0FJbo2Y83ZKmHP5bOm4QNc0vImoxxh5
+	 W8pK8ec66mMOEZBcl8QQcycHoQnP856N2TWp7LHx/gHrqCaRceS6nMqi1jMaOwGVvm
+	 rOtTxdv3Njs+wM3stEj2CqnL8iTNdldYRY8NVzI8X+KTlq8c6eUbv6nqwkjGXVcGlb
+	 REiwdE5bkoAOYhBkj6CMue73qy43GrBvQwiGq46F9CDBJDUyr0PFVOz5gPJTbbH7B0
+	 wP2KaM6MUkDyVjrmQdkTCNG5teii+HJdqM2PsT2Xlskh3Cnw8DrqLu+VJzUvndBeZB
+	 ne0EleduG7Q0Q==
+Date: Mon, 13 Nov 2023 21:09:01 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Chao Wei <chao.wei@sophgo.com>,
+	Chen Wang <unicorn_wang@outlook.com>
+Subject: Re: [PATCH 4/4] riscv: dts: sophgo: add reset phandle to all uart
+ nodes
+Message-ID: <ZVIf7cw1ak+nxnuW@xhacker>
+References: <20231113005503.2423-1-jszhang@kernel.org>
+ <20231113005503.2423-5-jszhang@kernel.org>
+ <95c20c6c-66cd-4f87-920b-5da766317e19@sifive.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <95c20c6c-66cd-4f87-920b-5da766317e19@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231113_052019_917652_DE1A4C14 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20231113_052126_139634_5EB493A9 
+X-CRM114-Status: GOOD (  20.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,139 +82,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chen Wang <unicorn_wang@outlook.com>
+On Sun, Nov 12, 2023 at 09:04:55PM -0500, Samuel Holland wrote:
+> Hi Jisheng,
+> 
+> On 2023-11-12 6:55 PM, Jisheng Zhang wrote:
+> > Although, the resets are deasserted by default. Add them for
+> > completeness.
+> > 
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > ---
+> >  arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 6 ++++++
+> >  1 file changed, 6 insertions(+)
+> > 
+> > diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> > index 4032419486be..e04df04a91c0 100644
+> > --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> > +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> > @@ -4,6 +4,7 @@
+> >   */
+> >  
+> >  #include <dt-bindings/interrupt-controller/irq.h>
+> > +#include <dt-bindings/reset/sophgo,cv1800b-reset.h>
+> >  
+> >  / {
+> >  	compatible = "sophgo,cv1800b";
+> > @@ -65,6 +66,7 @@ uart0: serial@4140000 {
+> >  			reg = <0x04140000 0x100>;
+> >  			interrupts = <44 IRQ_TYPE_LEVEL_HIGH>;
+> >  			clocks = <&osc>;
+> > +			resets = <&rst RST_UART0>;
+> 
+> Since it's not obvious: this breaks devicetree forward compatibility. An
+> existing kernel will fail the devm_reset_control_get_optional_exclusive() in
+> 8250_dw.c because it has no driver for the reset controller.
+> 
+> This may not be a concern yet, since the devicetree is still "in development".
+> But it is something to keep in mind for the future. To avoid this sort of
+> problem, it's best to fully model the clocks/resets/other dependencies as early
+> as possible, and not rely on the firmware setting anything up.
 
-Add clock generator node to device tree for SG2042, and enable clock for
-uart0.
+Thank you. This may be discussed before, "DT backward compatibility is a
+must while forward compatibility is optional"? maybe I'm wrong.
 
-Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
----
- arch/riscv/boot/dts/sophgo/sg2042-clock.dtsi | 76 ++++++++++++++++++++
- arch/riscv/boot/dts/sophgo/sg2042.dtsi       | 10 +++
- 2 files changed, 86 insertions(+)
- create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-clock.dtsi
+And Indeed, it's better if we can have forward compatibility, will take
+care this in future.
 
-diff --git a/arch/riscv/boot/dts/sophgo/sg2042-clock.dtsi b/arch/riscv/boot/dts/sophgo/sg2042-clock.dtsi
-new file mode 100644
-index 000000000000..66d2723fab35
---- /dev/null
-+++ b/arch/riscv/boot/dts/sophgo/sg2042-clock.dtsi
-@@ -0,0 +1,76 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (C) 2023 Sophgo Technology Inc. All rights reserved.
-+ */
-+
-+/ {
-+	cgi: oscillator {
-+		compatible = "fixed-clock";
-+		clock-frequency = <25000000>;
-+		clock-output-names = "cgi";
-+		#clock-cells = <0>;
-+	};
-+
-+	clkgen: clock-controller {
-+		compatible = "sophgo,sg2042-clkgen";
-+		#clock-cells = <1>;
-+		system-ctrl = <&sys_ctrl>;
-+		clocks = <&cgi>;
-+		assigned-clocks = \
-+			<&clkgen DIV_CLK_FPLL_RP_CPU_NORMAL_1>,
-+			<&clkgen DIV_CLK_FPLL_50M_A53>,
-+			<&clkgen DIV_CLK_FPLL_TOP_RP_CMN_DIV2>,
-+			<&clkgen DIV_CLK_FPLL_UART_500M>,
-+			<&clkgen DIV_CLK_FPLL_AHB_LPC>,
-+			<&clkgen DIV_CLK_FPLL_EFUSE>,
-+			<&clkgen DIV_CLK_FPLL_TX_ETH0>,
-+			<&clkgen DIV_CLK_FPLL_PTP_REF_I_ETH0>,
-+			<&clkgen DIV_CLK_FPLL_REF_ETH0>,
-+			<&clkgen DIV_CLK_FPLL_EMMC>,
-+			<&clkgen DIV_CLK_FPLL_SD>,
-+			<&clkgen DIV_CLK_FPLL_TOP_AXI0>,
-+			<&clkgen DIV_CLK_FPLL_TOP_AXI_HSPERI>,
-+			<&clkgen DIV_CLK_FPLL_AXI_DDR_1>,
-+			<&clkgen DIV_CLK_FPLL_DIV_TIMER1>,
-+			<&clkgen DIV_CLK_FPLL_DIV_TIMER2>,
-+			<&clkgen DIV_CLK_FPLL_DIV_TIMER3>,
-+			<&clkgen DIV_CLK_FPLL_DIV_TIMER4>,
-+			<&clkgen DIV_CLK_FPLL_DIV_TIMER5>,
-+			<&clkgen DIV_CLK_FPLL_DIV_TIMER6>,
-+			<&clkgen DIV_CLK_FPLL_DIV_TIMER7>,
-+			<&clkgen DIV_CLK_FPLL_DIV_TIMER8>,
-+			<&clkgen DIV_CLK_FPLL_100K_EMMC>,
-+			<&clkgen DIV_CLK_FPLL_100K_SD>,
-+			<&clkgen DIV_CLK_FPLL_GPIO_DB>,
-+			<&clkgen DIV_CLK_MPLL_RP_CPU_NORMAL_0>,
-+			<&clkgen DIV_CLK_MPLL_AXI_DDR_0>;
-+		assigned-clock-rates = \
-+			<2000000000>,
-+			<50000000>,
-+			<1000000000>,
-+			<500000000>,
-+			<200000000>,
-+			<25000000>,
-+			<125000000>,
-+			<50000000>,
-+			<25000000>,
-+			<100000000>,
-+			<100000000>,
-+			<100000000>,
-+			<250000000>,
-+			<1000000000>,
-+			<50000000>,
-+			<50000000>,
-+			<50000000>,
-+			<50000000>,
-+			<50000000>,
-+			<50000000>,
-+			<50000000>,
-+			<50000000>,
-+			<100000>,
-+			<100000>,
-+			<100000>,
-+			<2000000000>,
-+			<1000000000>;
-+	};
-+};
-diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-index 93256540d078..de79c0cdb4c1 100644
---- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-@@ -5,8 +5,10 @@
- 
- /dts-v1/;
- #include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/clock/sophgo-sg2042-clk.h>
- 
- #include "sg2042-cpus.dtsi"
-+#include "sg2042-clock.dtsi"
- 
- / {
- 	compatible = "sophgo,sg2042";
-@@ -311,12 +313,20 @@ intc: interrupt-controller@7090000000 {
- 			riscv,ndev = <224>;
- 		};
- 
-+		sys_ctrl: syscon@7030010000 {
-+			compatible = "sophgo,sg2042-syscon", "syscon";
-+			reg = <0x70 0x30010000 0x0 0x8000>;
-+		};
-+
- 		uart0: serial@7040000000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x00000070 0x40000000 0x00000000 0x00001000>;
- 			interrupt-parent = <&intc>;
- 			interrupts = <112 IRQ_TYPE_LEVEL_HIGH>;
- 			clock-frequency = <500000000>;
-+			clocks = <&clkgen GATE_CLK_UART_500M>,
-+				 <&clkgen GATE_CLK_APB_UART>;
-+			clock-names = "baudclk", "apb_pclk";
- 			reg-shift = <2>;
- 			reg-io-width = <4>;
- 			status = "disabled";
--- 
-2.25.1
-
+> 
+> Regards,
+> Samuel
+> 
+> >  			reg-shift = <2>;
+> >  			reg-io-width = <4>;
+> >  			status = "disabled";
+> > @@ -75,6 +77,7 @@ uart1: serial@4150000 {
+> >  			reg = <0x04150000 0x100>;
+> >  			interrupts = <45 IRQ_TYPE_LEVEL_HIGH>;
+> >  			clocks = <&osc>;
+> > +			resets = <&rst RST_UART1>;
+> >  			reg-shift = <2>;
+> >  			reg-io-width = <4>;
+> >  			status = "disabled";
+> > @@ -85,6 +88,7 @@ uart2: serial@4160000 {
+> >  			reg = <0x04160000 0x100>;
+> >  			interrupts = <46 IRQ_TYPE_LEVEL_HIGH>;
+> >  			clocks = <&osc>;
+> > +			resets = <&rst RST_UART2>;
+> >  			reg-shift = <2>;
+> >  			reg-io-width = <4>;
+> >  			status = "disabled";
+> > @@ -95,6 +99,7 @@ uart3: serial@4170000 {
+> >  			reg = <0x04170000 0x100>;
+> >  			interrupts = <47 IRQ_TYPE_LEVEL_HIGH>;
+> >  			clocks = <&osc>;
+> > +			resets = <&rst RST_UART3>;
+> >  			reg-shift = <2>;
+> >  			reg-io-width = <4>;
+> >  			status = "disabled";
+> > @@ -105,6 +110,7 @@ uart4: serial@41c0000 {
+> >  			reg = <0x041c0000 0x100>;
+> >  			interrupts = <48 IRQ_TYPE_LEVEL_HIGH>;
+> >  			clocks = <&osc>;
+> > +			resets = <&rst RST_UART4>;
+> >  			reg-shift = <2>;
+> >  			reg-io-width = <4>;
+> >  			status = "disabled";
+> 
 
 _______________________________________________
 linux-riscv mailing list
