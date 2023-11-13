@@ -4,80 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DB73C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 02:27:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66DEDC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 02:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/BZhSECfs1xL8iz5/H0MedzdSf2V2MDBrseycfSIUrw=; b=tOrYQy8AxePwgd
-	Uzco/sY1hGQSq8Q1DevhxNU3dhT/lRGWZVsOpCefUmUee0bvanmUCCtVNkkXmKTOSd5yGreE0Qo6K
-	ztM5uQbRoXW5SjE8/x3rgCE3GG46BU1hWsIoFj8h6MmXtgWGAVnt7M1n6X7PogzJb0kfjc2rfoayR
-	UdLgwHQgzBVqfcJvbWw1ayso3cAm5nmNsZu4mOtEO38GpGEICiM2mNED0oE7AuY622oSnB8vm32Cr
-	14vaGsCxj2eF/0lbh5I15NiNeI3XOn+5zwNrE1T7CcM4RkZTDI6jjv1Bo/5lkl96ZzTHnr5ecgRx6
-	F6dCVUOhRxEwcSRfiVMw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sUlIk1ACj4VILvf0dn3S3ZHsC/SWE8d+lAtfHmcms8A=; b=Kn0Z3JI4B7yp31
+	vqPd6dI5Mt9D0hM6k1bal2H0nxKoSj6x+T2Ttw8rDVgliijwXx2tHjvvYiscZdTIfT0X2WT8GRLwP
+	/d5T13HAnqPxZ8a99A8G7x+DwwjkX+7qR4uE3q+Yb8+xG6uUzqYpC3yxZBKnwcUb4fm3V935CZ88r
+	Pw2zV0omGp8u4pcmKB8hPoQ8ariF2Q6gAdlpZXYSKo3P5U0YOAdyG8Oph4xAZSuQ/faJY0QiEvj+X
+	5lG/Qxuc0Dy1aDZsJLpWdQh5r5um+5Dky93fMzNH+1SWZV+gJLliJ3e11QiDv6nHjwWpVBGuoo2xP
+	yPXUIwa9+rkkzKQXsLtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2MfB-00D4XF-3D;
-	Mon, 13 Nov 2023 02:26:58 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2Mf7-00D4TS-1E
+	id 1r2MjZ-00D4sL-1x;
+	Mon, 13 Nov 2023 02:31:29 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1r2MjV-00D4rv-37
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Nov 2023 02:26:56 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 1C44F24E004;
-	Mon, 13 Nov 2023 10:26:18 +0800 (CST)
-Received: from EXMBX161.cuchost.com (172.16.6.71) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 13 Nov
- 2023 10:26:17 +0800
-Received: from [192.168.125.131] (113.72.144.54) by EXMBX161.cuchost.com
- (172.16.6.71) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 13 Nov
- 2023 10:26:16 +0800
-Message-ID: <f1d39129-c4ae-4264-a414-fd18f1d66e9f@starfivetech.com>
-Date: Mon, 13 Nov 2023 10:19:38 +0800
+	Mon, 13 Nov 2023 02:31:27 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1cc30bf9e22so29534105ad.1
+        for <linux-riscv@lists.infradead.org>; Sun, 12 Nov 2023 18:31:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1699842685; x=1700447485; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=sd10hTgpNqYujYyn3UZDz1YnF+lDmSTrk9YJNSbPP8c=;
+        b=Y2c9NEvVx1lZgD3PJLOtrYISEkCu7YEcep6WGDqHImqGTfylX4Xuf/o7yX8hCo5SIW
+         dMKi8vNw/Gj4H5tAHpgCvBfJHBn8POAupT/bl4Zb3QhSVcveGxmGdNW7/lhY+JBpgI3q
+         8QpL/zgsZlc8y2GOTFXrW6L3W4qug9aN0G1FCGvYN1XgqkeMG9A5K0+hIISPC05AEfh4
+         eWces9HeowSOZtymkJxlDBvJmrDaLqH4K3bGCPjjvKf039rEVudullcMt3QfyHnOFNcB
+         /pVEjqHljJL/8QITu3PQZgD0zgHjnEcU66FJmHc1YWzbmrCbcMB+z3GFRN73Iqc/AZlD
+         1opg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1699842685; x=1700447485;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sd10hTgpNqYujYyn3UZDz1YnF+lDmSTrk9YJNSbPP8c=;
+        b=QuRZxOCy0djmTooAbciBuzX+hqZGjja/YNrWICQ7ZzI2OdjUW+gS/zDiZo5sfp7Ufg
+         FHe+RyqJQCc6LduHqSOeS9x7c8pL53zSwjlyfa9rMlAzk++++Yb6tk5XkVawCbkkrwcB
+         l/SsnyN+Wmp9u8ou3k5pW7l9Hvd0kOJ5Psw+Cy3VZhw5+tr0KINOHTZic0PkLiDJLsvs
+         2Hijlqtpe3HPSaZWX0xJ9O029nRrPM8g27RXWGky9KcTZxpjd+hPcrr09vSTE7KhPH7W
+         vO2JiiWRNpJoDrwdymhUzEH0yXEURAcar4getXV6jc8Fbyh5R/jH1Ypqmbr0+vpIsUAW
+         DIfw==
+X-Gm-Message-State: AOJu0YxtCeewqZ3wr8eHCDARecd/x0yr7O1hwi2CvVavNYJ8EcgAPBgs
+	D+681RRYuB+2IdUGViDrsOFwiA==
+X-Google-Smtp-Source: AGHT+IGH+R3Li3avmxjpcVqHSD9l7bHR0YYeJvyXAI9k1LPViN5lzWQ03fiF6Iics7iinolaM2XpYw==
+X-Received: by 2002:a17:903:32c9:b0:1cc:332f:9e4b with SMTP id i9-20020a17090332c900b001cc332f9e4bmr8122899plr.1.1699842684834;
+        Sun, 12 Nov 2023 18:31:24 -0800 (PST)
+Received: from sw06.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id ji19-20020a170903325300b001c9c5a1b477sm3143643plb.169.2023.11.12.18.31.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 12 Nov 2023 18:31:24 -0800 (PST)
+From: Samuel Holland <samuel.holland@sifive.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	John Ogness <john.ogness@linutronix.de>,
+	Nick Hu <nick.hu@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Ruan Jinjie <ruanjinjie@huawei.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Yangtao Li <frank.li@vivo.com>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-serial@vger.kernel.org
+Subject: [PATCH] serial: sifive: Declare PM operations as static
+Date: Sun, 12 Nov 2023 18:31:19 -0800
+Message-ID: <20231113023122.1185407-1-samuel.holland@sifive.com>
+X-Mailer: git-send-email 2.42.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/3] clocksource: Add JH7110 timer driver
-Content-Language: en-US
-To: Daniel Lezcano <daniel.lezcano@linaro.org>, Samuel Holland
-	<samuel.holland@sifive.com>
-CC: Thomas Gleixner <tglx@linutronix.de>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, Christophe JAILLET
-	<christophe.jaillet@wanadoo.fr>, <linux-riscv@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Walker Chen
-	<walker.chen@starfivetech.com>, Samin Guo <samin.guo@starfivetech.com>,
-	<linux-kernel@vger.kernel.org>, Conor Dooley <conor@kernel.org>
-References: <20231019053501.46899-1-xingyu.wu@starfivetech.com>
- <20231019053501.46899-3-xingyu.wu@starfivetech.com>
- <3f76f965-7c7b-109e-2ee0-3033e332e84b@linaro.org>
- <bb819333-52d3-49fc-9bb9-1a227bd5ca8f@starfivetech.com>
- <d0e70434-e273-4799-c5ec-bbee1b3f5cc7@linaro.org>
- <540136d4-6f8f-49a6-80ff-cc621f2f462b@starfivetech.com>
- <65c38717-3e0c-46d3-a124-29cae48f1a2e@linaro.org>
- <72ad5029-42b2-481a-887f-8f6079d8859b@starfivetech.com>
- <a8f0011c-5689-4071-b5e0-90bd6b7c66bc@linaro.org>
- <b402eb4d-a770-4988-8274-8a2544362229@starfivetech.com>
- <1dd3d765-c583-4db9-a0aa-303bfcf871db@linaro.org>
- <7c2e9b70-201c-45f8-9871-a823cc2ded16@starfivetech.com>
- <a37be8f7-64a4-4cec-8692-28ad92a02b00@sifive.com>
- <bbd2ee8d-4349-4752-859a-02fb0252d496@linaro.org>
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-In-Reply-To: <bbd2ee8d-4349-4752-859a-02fb0252d496@linaro.org>
-X-Originating-IP: [113.72.144.54]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX161.cuchost.com
- (172.16.6.71)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231112_182653_731740_C5191E21 
-X-CRM114-Status: GOOD (  24.18  )
+X-CRM114-CacheID: sfid-20231112_183126_040423_E79497E9 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,80 +100,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/11/11 2:02, Daniel Lezcano wrote:
-> 
-> Hi Samuel,
-> 
-> On 10/11/2023 18:40, Samuel Holland wrote:
->> On 2023-11-08 11:51 PM, Xingyu Wu wrote:
->>> On 2023/11/8 17:10, Daniel Lezcano wrote:
->>>> On 08/11/2023 04:45, Xingyu Wu wrote:
->>>>> On 2023/11/2 22:29, Daniel Lezcano wrote:
->>>>
->>>> [ ... ]
->>>>
->>>>> Thanks. The riscv-timer has a clocksource with a higher rating but a
->>>>> clockevent with lower rating[1] than jh7110-timer. I tested the
->>>>> jh7110-timer as clockevent and flagged as one shot, which could do some
->>>>> of the works instead of riscv-timer. And the current_clockevent changed
->>>>> to jh7110-timer.
->>>>>
->>>>> Because the jh7110-timer works as clocksource with lower rating and only
->>>>> will be used as global timer at CPU idle time. Is it necessary to be
->>>>> registered as clocksource? If not, should it just be registered as
->>>>> clockevent?
->>>>
->>>> Yes, you can register the clockevent without the clocksource.
->>>>
->>>> You mentioned the JH7110 has a better rating than the CPU architected
->>>> timers. The rating is there to "choose" the best timer, so it is up to the
->>>> author of the driver check against which timers it compares on the
->>>> platform.
->>>>
->>>> Usually, CPU timers are the best.
->>>>
->>>> It is surprising the timer-riscv has a so low rating. You may double check
->>>> if jh7110 is really better. If it is the case, then implementing a
->>>> clockevent per cpu would make more sense, otherwise one clockevent as a
->>>> global timer is enough.
->>
->> The timer-riscv clockevent has a low rating because it requires a call to
->> firmware to set the timer, as well as a trap to firmware to handle the
->> interrupt, which both add overhead. Implementations which support the Sstc
->> extension[1] do not require firmware assistance to implement the clockevent, so
->> in that case we register the clockevent with a higher rating.
->>
->> [1]: https://github.com/riscv/riscv-time-compare
-> 
-> Thanks for the pointer and the clarification.
-> 
->>>> Unused clocksource, clockevents should be stopped in case the firmware let
->>>> them in a undetermined state.
->>>
->>> The interrupts of jh7110-timer each channel are global interrupts like
->>> SPI(Shared Peripheral Interrupt) not PPI (Private Peripheral Interrupt). They
->>> are up to PLIC to select which core to respond to. So it is hard to implement
->>> a clockevent per cpu core. I tested this with request_percpu_irq() and it
->>> failed.
->>
->> You cannot use request_percpu_irq(), but the driver should be able to set the
->> affinity of each IRQ to a separate CPU.
-> 
-> Absolutely. And given the bad rating of the local timers, it may be worth to implement this driver in a per CPU (affinity set) basis.
-> 
-> At the first glance, the arm_global_timer can be used as an example.
-> 
-> Note in this case, you may want to double check what does with an idle state with a local timer stop flag and this timer which is always on.
-> 
-> 
-> 
+They are only used within this file, so they should have static linkage.
 
-Hi Daniel and Samuel,
+Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+---
 
-Thanks for your pointers. I will check it. If it works, I will send the new version of this patch.
+ drivers/tty/serial/sifive.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Best regards,
-Xingyu Wu
+diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
+index b296e57a9dee..3babc6c3a527 100644
+--- a/drivers/tty/serial/sifive.c
++++ b/drivers/tty/serial/sifive.c
+@@ -1033,8 +1033,8 @@ static int sifive_serial_resume(struct device *dev)
+ 	return uart_resume_port(&sifive_serial_uart_driver, &ssp->port);
+ }
+ 
+-DEFINE_SIMPLE_DEV_PM_OPS(sifive_uart_pm_ops, sifive_serial_suspend,
+-			 sifive_serial_resume);
++static DEFINE_SIMPLE_DEV_PM_OPS(sifive_uart_pm_ops, sifive_serial_suspend,
++				sifive_serial_resume);
+ 
+ static const struct of_device_id sifive_serial_of_match[] = {
+ 	{ .compatible = "sifive,fu540-c000-uart0" },
+-- 
+2.42.0
+
 
 _______________________________________________
 linux-riscv mailing list
