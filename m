@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31FF1C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 01:09:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE2D4C072AB
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 01:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vLcreWZspmJWrio3CuBdNcQlxMiP+HaCad31B7o3pgc=; b=IfSZUZsoFL3IIT
-	WtAz7A0xXxlEPGJ1u19j1ryd9Y3qULVUFWOxRvCh8lj0wa4zXO6nwFLFyqEfiAS+qzsLCJQXD5sw8
-	xkYPydtob846AWrQAp7LjTxDZPd511i6VAkBISHQSANLXj91xFja5ltxO3ymg8JOqkd9Svv2upcqh
-	hWM8rj8KaVCPbUQCwPGIn9nK8kJFaGz2G/PTApPlqyh0ey+fM0qZ9wjhKa1tWN2/3r4oGTpVXqArQ
-	hWBwLVSsWx7AjUbPdIEjuZ1FcmudgGWuwCLgOE3QWLWzFHckmBllBI6jbLoy9RG07flxGOn93EDfJ
-	ItynsWWKAl2DDwX3Zc9g==;
+	List-Owner; bh=PDSLn/H8n9N+hNIpQbttx05avH8H/Ryxy/Ni1Ki4C+I=; b=mJIot6wOuNlGAk
+	6OHlSs89T2U9weZAik2OzsxA82b84BIIHnNF6/Lz5K+CTW1clzh/vKS/wRpVKDCvLjE0soJjaOhFi
+	Y9a17BIOdfpP1YVW5QAqRj2kbEffV34LsyN6VLFzqrShBmmDbejxBc+NpwufkjwxUAoiH8BijHx3y
+	FjqU7SkhO2NVtIUm9Ew/Eq4Pirizwwe+oXxzVTpRu1IbM/mdBMETQNs3FUCkmQRgFfi6/o/EkbfGI
+	2kZ2iakC8nP+fLybPFJcQ55RWmoIbpJdOsPXVele3ooRMNhEZJZtQidmRiqiuJnSyuT/gBbKoVkBI
+	MGNAw/SEGmOAMaRTIs4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2LSD-00Cy81-17;
-	Mon, 13 Nov 2023 01:09:29 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1r2LSF-00Cy9D-04;
+	Mon, 13 Nov 2023 01:09:31 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2LSA-00Cy6f-3B
+	id 1r2LSC-00Cy7V-0i
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Nov 2023 01:09:28 +0000
+	Mon, 13 Nov 2023 01:09:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 967D9B80B25;
+	by dfw.source.kernel.org (Postfix) with ESMTP id A1EB660C03;
+	Mon, 13 Nov 2023 01:09:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E644C433C9;
 	Mon, 13 Nov 2023 01:09:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D71F6C433CB;
-	Mon, 13 Nov 2023 01:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699837765;
-	bh=eM8d9IMh9iQd7b2YIyNC18c8crry0l3aFLLjrqGpruk=;
+	s=k20201202; t=1699837767;
+	bh=L5ZkrNb3URDoBLVtQbTpXvk5/4TaeCMTB1Cqnnepk28=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=O6rb0rquzaUvuzBIP52vidXntbBi5DW5ejXnhTOUBEwOPsf8ZN5BMhV8fR34Lx5ip
-	 5JkRoKxH41DzNnuB04HSXBupca8B9hDi3cuIWjczJ6JO9eqnJQjjOKE5KAzpzEwBuE
-	 qdHLIdJgAiRr+fpy1YJIYi9/snJYD66jf17nwDh0zfWscpB/IrbuKSo0AqTX7GqCZT
-	 mfPbCUYYhl+XKOfLGNeWMs4YC3IJh+ZPH27RTLGyIJ+H5rB9fan8N90hM5IGyKWU45
-	 0DiSQnTobBsQZMU/NTDqwFFaG2iLFJdsVVA/szOWrjgG6Jx3PKHUTUWDkV7EpLP0Tu
-	 epwC5wBII2xww==
+	b=ZyYsLd4xs9jlXvllEtYeTitkoWtKWg8X2W5zxDCxDHCUVMH4qKx+UipUETexTXk2z
+	 TayIBz5QsWaigjp+EhQy+HnXdoPDE3iw2NbOp3lH72lFdyBrxQsTaWuDQgbg3g35f3
+	 PBD5oHkiWz7PFkI40HvDDQUD/HMzHklTeLAQD+MaCHkGfYCw3R+UWJtQZeJyr9rOZ4
+	 6mGSl+aYJdkCGnrP2fEiRPeFmjbIg9BPvsQBxl4CHlIJo86mwST/UqNu9952ffWi3y
+	 B/8rfCJvcEFbclweKrcW4QfKO33pQx7kUQbntnsnJS3cgtg2t1BoUyERraYHRoDjmz
+	 2wT/8FZdDQmjA==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
@@ -54,16 +54,17 @@ To: Rob Herring <robh+dt@kernel.org>,
 Cc: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 1/2] riscv: dts: cv1800b: add pinctrl node for cv1800b
-Date: Mon, 13 Nov 2023 08:57:01 +0800
-Message-Id: <20231113005702.2467-2-jszhang@kernel.org>
+Subject: [PATCH 2/2] riscv: dts: sophgo: set pinctrl for uart0
+Date: Mon, 13 Nov 2023 08:57:02 +0800
+Message-Id: <20231113005702.2467-3-jszhang@kernel.org>
 X-Mailer: git-send-email 2.40.0
 In-Reply-To: <20231113005702.2467-1-jszhang@kernel.org>
 References: <20231113005702.2467-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231112_170927_168747_2399E376 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20231112_170928_297204_32F286D4 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,69 +81,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the reset device tree node to cv1800b SoC reusing the
-pinctrl-single driver.
+Although the mux function is uart by default, add it for
+completeness.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- arch/riscv/boot/dts/sophgo/cv-pinctrl.h | 19 +++++++++++++++++++
- arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 10 ++++++++++
- 2 files changed, 29 insertions(+)
- create mode 100644 arch/riscv/boot/dts/sophgo/cv-pinctrl.h
+ arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/sophgo/cv-pinctrl.h b/arch/riscv/boot/dts/sophgo/cv-pinctrl.h
-new file mode 100644
-index 000000000000..ed78b6fb3142
---- /dev/null
-+++ b/arch/riscv/boot/dts/sophgo/cv-pinctrl.h
-@@ -0,0 +1,19 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * This header provides constants for pinctrl bindings for Sophgo CV* SoC.
-+ *
-+ * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-+ */
-+#ifndef _DTS_RISCV_SOPHGO_CV_PINCTRL_H
-+#define _DTS_RISCV_SOPHGO_CV_PINCTRL_H
-+
-+#define MUX_M0		0
-+#define MUX_M1		1
-+#define MUX_M2		2
-+#define MUX_M3		3
-+#define MUX_M4		4
-+#define MUX_M5		5
-+#define MUX_M6		6
-+#define MUX_M7		7
-+
-+#endif
-diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-index e04df04a91c0..7a44d8e8672b 100644
---- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-@@ -6,6 +6,8 @@
- #include <dt-bindings/interrupt-controller/irq.h>
- #include <dt-bindings/reset/sophgo,cv1800b-reset.h>
+diff --git a/arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts b/arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts
+index 3af9e34b3bc7..cc10688908bc 100644
+--- a/arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts
++++ b/arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts
+@@ -33,6 +33,17 @@ &osc {
+ 	clock-frequency = <25000000>;
+ };
  
-+#include "cv-pinctrl.h"
++&pinctrl0 {
++	uart0_pins: uart0-pins {
++		pinctrl-single,pins = <
++			0x24 MUX_M0 /* UART0_TX */
++			0x28 MUX_M0 /* UART0_RX */
++		>;
++	};
++};
 +
- / {
- 	compatible = "sophgo,cv1800b";
- 	#address-cells = <1>;
-@@ -55,6 +57,14 @@ soc {
- 		dma-noncoherent;
- 		ranges;
- 
-+		pinctrl0: pinctrl@3001000 {
-+			compatible = "pinctrl-single";
-+			reg = <0x3001000 0x130>;
-+			#pinctrl-cells = <1>;
-+			pinctrl-single,register-width = <32>;
-+			pinctrl-single,function-mask = <0x00000007>;
-+		};
-+
- 		rst: reset-controller@3003000 {
- 			compatible = "sophgo,cv1800b-reset";
- 			reg = <0x03003000 0x1000>;
+ &uart0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart0_pins>;
+ 	status = "okay";
+ };
 -- 
 2.42.0
 
