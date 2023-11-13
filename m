@@ -4,109 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C58CC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 20:14:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0745C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 20:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WQcyhUpvZwPJm/+EadJYfbl4aixd8tEXum0xLgl4JFc=; b=n3dilP9if8A61l
-	ZbbKH5ERrQM2WbVLSWUSpmBsCRfi06DhrObVV65GJb+o7MCxxeIeSfphzg7GIpCOYYaf8D9v0M+/I
-	Te6nHVQv08ES1Y5BYZx+8hJHIJKsB+a6VZM1h6xRPKAOwfKiaK5pCRDSYNAeRBwWziwLOG1Gff6Xi
-	5pF6e3dbicE+r4BTz054MF3A/4OOQYcbLYtXjJ+xW+5LpQic06mw31M6tKIfC37GUHP812Zw0gSRq
-	NChmHJmw4sc/Tlln3o9Bw5GpCgDAMqO08kXKIhHOy3zFc4NkC23MezV6E2XqQo7dfRNqOtHHXVCpv
-	7VcnBX6otUv2r8/M199Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vyTyG/4E9sT3+Da0cuRIXhvmf75WZDtsNkvxQ8QpqvI=; b=SVAnBPTn+541UiIPBu6oVJbr+h
+	LB7Liu7IfOrEH/4KAaThFWVkS+KtbyBPWWVhRsblovcVMZDwwGkePv8WWf5rvfyivePUlhobSOOb4
+	1wKlCPFNuyQLObMejkEW74gTtQzBT5ynAWtug1jUe3NUJiv0LtbfIcQKUTTak7vPOuQoUs4p3Yx/y
+	zgGBa+fd3wPscFej4eLdSxGdZ4aY6mWpKDKldiP7PIAY1W+qnvcI7CC7zwjvb0YrmJeWhoY3EB9/d
+	ztRiT54D9LEuOmacowT5YfjXtUFSomm9/X46F4C98S4pY6y97kgpzwMVcv+oJRG5H8nP9mVQZCOUy
+	dF8jg29Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2dKg-00EeNk-03;
-	Mon, 13 Nov 2023 20:14:54 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1r2dNP-00Eee4-0s;
+	Mon, 13 Nov 2023 20:17:43 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2dKc-00EeM2-1n
+	id 1r2dNM-00EedO-1f
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Nov 2023 20:14:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1699906489;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sqWGwV812/CXYndzj2W50PA7KOMPm+tHC+e+xjD2/M0=;
-	b=ZhrbQhRZR1NNIm3C+HVzlzFTddOkFA1UG9qmPZhAMZeZSJKHBxrQIZIJKvq7l0nQvf96FW
-	IIpTCRts0b3rpD9LvtBKuAEMlIxNc0NPR3jlLVb9os890hwmI0NZilJnpGNCSnhYMvalEL
-	cHnrIWaKk1BvAjInZck82wc5atTglog=
-Received: from mail-yw1-f200.google.com (mail-yw1-f200.google.com
- [209.85.128.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-144-BxfNTBDnMQefVFTVJ4i-AQ-1; Mon, 13 Nov 2023 15:14:48 -0500
-X-MC-Unique: BxfNTBDnMQefVFTVJ4i-AQ-1
-Received: by mail-yw1-f200.google.com with SMTP id 00721157ae682-5afa071d100so100405277b3.1
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Nov 2023 12:14:48 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699906488; x=1700511288;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sqWGwV812/CXYndzj2W50PA7KOMPm+tHC+e+xjD2/M0=;
-        b=Hu0pb8uuNUAM999GyvYKmBE/cVNnr8v7WKc7PVEnLA+2sLtlWazkczkMzAnbuQp84b
-         ibDLTs4cxEwVJJjGZAXvJG7TValqoAI2y5g8cb7dgyvK9Qtf6y7kBNWcN06OKPMrbaIH
-         xKRMb2aBeBSfRpPSWkfbMazIMzYvZwh3av+I+Ic7yobm7g4CSArechYfakFWZtqsw5Hy
-         em74Q0P8T+4gTVBsL8jEVffTAGaipJ8ETcFfMcBG7JEotcbplPZAzl3Fe7xYpOkK8Sa7
-         TAWWTBsxBRdFDlD7U7Onpc/drSj0wNi5Yaq4EmA8uSoc//ZaVh9CZ0wvXXoDGN9HcOrk
-         qokA==
-X-Gm-Message-State: AOJu0Yw32wMOB6ZPmzJNTYjrfBYPw0gRyyQioZWIXkERoRkMWQlLZxzN
-	sLsPwV64RalROdNxKJrq/vDp9C8zBduaR7p8IpfC3iyHwe1CmJ7ftCrxLmk8vNT73yTZF3ELyDP
-	rYWD0n22zuf1PKhEPSXCg65OyDBjs
-X-Received: by 2002:a25:5:0:b0:da0:3510:d46b with SMTP id 5-20020a250005000000b00da03510d46bmr6598111yba.52.1699906487885;
-        Mon, 13 Nov 2023 12:14:47 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHtyhAPtrfBL5j0rs4OChIjX0J0MQ7pAdoQ6mY8g3IfqhpmTKneVz9ovn0oCERZBj6Wc4LsPQ==
-X-Received: by 2002:a25:5:0:b0:da0:3510:d46b with SMTP id 5-20020a250005000000b00da03510d46bmr6598052yba.52.1699906487554;
-        Mon, 13 Nov 2023 12:14:47 -0800 (PST)
-Received: from localhost (ip98-179-76-75.ph.ph.cox.net. [98.179.76.75])
-        by smtp.gmail.com with ESMTPSA id mg3-20020a056214560300b0065afcf19e23sm2297469qvb.62.2023.11.13.12.14.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Nov 2023 12:14:47 -0800 (PST)
-Date: Mon, 13 Nov 2023 13:14:45 -0700
-From: Jerry Snitselaar <jsnitsel@redhat.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: acpica-devel@lists.linuxfoundation.org, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev, 
-	Lu Baolu <baolu.lu@linux.intel.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Dexuan Cui <decui@microsoft.com>, devicetree@vger.kernel.org, 
-	David Woodhouse <dwmw2@infradead.org>, Frank Rowand <frowand.list@gmail.com>, 
-	Hanjun Guo <guohanjun@huawei.com>, Haiyang Zhang <haiyangz@microsoft.com>, 
-	Christoph Hellwig <hch@lst.de>, iommu@lists.linux.dev, 
-	Jean-Philippe Brucker <jean-philippe@linaro.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Joerg Roedel <joro@8bytes.org>, "K. Y. Srinivasan" <kys@microsoft.com>, 
-	Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-snps-arc@lists.infradead.org, linux-tegra@vger.kernel.org, 
-	Russell King <linux@armlinux.org.uk>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Hector Martin <marcan@marcan.st>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Robert Moore <robert.moore@intel.com>, 
-	Rob Herring <robh+dt@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>, 
-	Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Krishna Reddy <vdumpa@nvidia.com>, 
-	Vineet Gupta <vgupta@kernel.org>, virtualization@lists.linux-foundation.org, 
-	Wei Liu <wei.liu@kernel.org>, Will Deacon <will@kernel.org>, 
-	Zhenhua Huang <quic_zhenhuah@quicinc.com>
-Subject: Re: [PATCH RFC 11/17] iommu: Hold iommu_probe_device_lock while
- calling ops->of_xlate
-Message-ID: <5qix66x7f4mgnnylgy4uv2g5oeqxkwvdkrbleyxxfw3hlrhsth@fsqukzhyal6r>
-References: <0-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com>
- <11-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com>
+	Mon, 13 Nov 2023 20:17:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id 7F940B8100C;
+	Mon, 13 Nov 2023 20:17:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32326C433C8;
+	Mon, 13 Nov 2023 20:17:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1699906657;
+	bh=SwYHSTS3rTDa7Clubx8Dvf8G10g50QTr2Ibg/KW4oWc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WEVjZcuRKwNGSQo9Z6hggcHjls2BO5bwob2sN4A61qPt1Uh6cI04CVwi9R2lNafsk
+	 xPKVEfsNctoAo553B7Xq6hoXvJFPysMDNE78i1wBmptzl6gqTGF5BgB0N28fEzY1aK
+	 st537PkxXo0+tfaXS9L3+rfGrv5TIvO1ysTsQjMGfxC+Zt/mxpI/56hN+xtKlrezi8
+	 e4PO3k//uYLFRfXmK8+nPg2pCeTZeLHCYVSS/oA04kREcTwxfn/FHl1IxxIEQh3ZXk
+	 x74FxaEUvqhxZAVD1rKJkcBXFuibj9IRyz3Tf9ouXuS/KIM2exjrISpl9x0hTn9VlI
+	 E8nyjOsK4wQDg==
+Date: Mon, 13 Nov 2023 20:17:34 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-pwm@vger.kernel.org, Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh+dt@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH v7 1/4] dt-bindings: pwm: Add OpenCores PWM module
+Message-ID: <20231113-sprung-tantrum-94659009b9d4@squawk>
+References: <20231110062039.103339-1-william.qiu@starfivetech.com>
+ <20231110062039.103339-2-william.qiu@starfivetech.com>
+ <afce202d-6234-4c5f-9018-facd9a56b5eb@linaro.org>
+ <f4551a7a-61e6-4d97-94c2-da2e4e9e8cb3@starfivetech.com>
+ <824cee7b-e4d3-461a-8bfb-4ad095c240fd@linaro.org>
 MIME-Version: 1.0
-In-Reply-To: <11-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
+In-Reply-To: <824cee7b-e4d3-461a-8bfb-4ad095c240fd@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231113_121450_667436_C29E074E 
-X-CRM114-Status: UNSURE (   6.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231113_121740_863278_4ADEEAC9 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,15 +81,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1577190156725224525=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Reviewed-by: Jerry Snitselaar <jsnitsel@redhat.com>
 
+--===============1577190156725224525==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="+lpp7srQCeLErYm2"
+Content-Disposition: inline
+
+
+--+lpp7srQCeLErYm2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Nov 13, 2023 at 09:07:15PM +0100, Krzysztof Kozlowski wrote:
+> On 13/11/2023 10:42, William Qiu wrote:
+> > Will update.
+> >>> +
+> >>> +allOf:
+> >>> +  - $ref: pwm.yaml#
+> >>> +
+> >>> +properties:
+> >>> +  compatible:
+> >>> +    oneOf:
+> >>> +      - items:
+> >>> +          - enum:
+> >>> +              - starfive,jh7100-pwm
+> >>> +              - starfive,jh7110-pwm
+> >>> +          - const: opencores,pwm
+> >>
+> >> That's a very, very generic compatible. Are you sure, 100% sure, that
+> >> all designs from OpenCores from now till next 100 years will be 100%
+> >> compatible?
+> >>
+> > My description is not accurate enough, this is OpenCores PTC IP, and PWM
+> > is one of those modes, so it might be better to replace compatible with
+> > "opencores, ptc-pwm"
+> >=20
+> > What do you think?
+>=20
+> Sorry, maybe this answers maybe doesn't. What is "PTC"?
+
+"pwm timer counter". AFAIU, the IP can be configured to provide all 3.
+I think that William pointed out on an earlier revision that they have
+only implemented the pwm on their hardware.
+I don't think putting in "ptc" is a sufficient differentiator though, as
+clearly there could be several different versions of "ptc-pwm" that have
+the same concern about "all designs from OpenCores for now till the next
+100 years" being compatible.
+
+Cheers.
+Conor.
+
+--+lpp7srQCeLErYm2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZVKEWgAKCRB4tDGHoIJi
+0lg6AQDoetFH+2Q0R2VopRs52W7OWITEOpAFd04nMYVyHdsONgD+LawAuiiSLaEB
+0ECkKGOudEZJ6nR1cZ/Vt+FGfB1MyAs=
+=sVnT
+-----END PGP SIGNATURE-----
+
+--+lpp7srQCeLErYm2--
+
+
+--===============1577190156725224525==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1577190156725224525==--
+
