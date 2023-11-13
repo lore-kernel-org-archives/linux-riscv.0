@@ -4,135 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D465BC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 20:07:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0237CC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 20:10:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VbuWde/uHvMtUxk1vU3xc+ArljjbTj4lsOF03OuKmjM=; b=oY1lmvfmR0P+xi
-	+Omtl+tcfzBXHh82qAO6h4wAvJOkl1plitWarCBoPHQhWZv41lYc4nIRM7mhJQU0B6rjw78UNVatQ
-	Xr5DJM4plvCjdH+dqaQbzViZmLMKsY9tZMf+TZWscCAMTtXfeu8vNPG+aIHzJpuHHygf3+GSoKLYM
-	o4LQd/IK9WKERCrcytVnrWYrSacxxqDJKpX8PzB9liSyXbzeYZuu0vzNrSDJREsLQ+PjPRM842oV+
-	WSKXWAoJ6MADuOWHzhDRr2zE4X833IXVCCIt33lk/qmvIGhyP5cKTh+IOj/mmrqkLdA5ARV2a5PcT
-	Dc4Rwt3ar5R291Rsp0QA==;
+	List-Owner; bh=WQcyhUpvZwPJm/+EadJYfbl4aixd8tEXum0xLgl4JFc=; b=bdxir01tyim3gy
+	L0R+LucC17zLzhWqJNY+d9Otv/N0UkStHrL0RAjxtIlBggZDczHs5+HCn96KkR2Kqbg20PTPKv02b
+	sb8QC6JFg9g5nMmLgqitZJlQsVJ9u6nfbUBOTR4bk0rl5DxRy7MSV46EcnJ7NZnynsYbNTL8lt/0E
+	CnsIshFvNEmW50fPZRPibe4itJOtXqaS8uAHHU7dLtqGRopMioOXz9tDDee3cdmKBW/517Jmy/yEp
+	S7lLhC2mwi+x20C8rpoWEAVlRFmuIXPfJxOFsBVIcq1fH5giAgKuo+ZkFU4xBpwFuyg3qEQ92UvYr
+	+wqDMKb1qblDxRJLxhvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2dDP-00Ech8-20;
-	Mon, 13 Nov 2023 20:07:23 +0000
-Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
+	id 1r2dGl-00Ed5O-28;
+	Mon, 13 Nov 2023 20:10:51 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2dDM-00EcgI-2K
+	id 1r2dGi-00Ed4J-1n
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Nov 2023 20:07:22 +0000
-Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-77896da2118so313708185a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Nov 2023 12:07:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1699906037; x=1700510837; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=a1jEPxeJGtmfYQcT6WJ61rN62rCZrCVcvumNLFWoazM=;
-        b=vDUoAhPQT5KDCCorjp9gQ63/Thm5WlD+/7XNWYBVgK3mjoC8DYNDya4tOreqX5fjFP
-         ADbQcCHEZYHRyrBsj5YuXYmiXHfFyIxKZQbQdJUdgVlN6jgx+QVdsFOC756iZGDcm55H
-         gUHAXKbuDbtHYtGLLegh31GpfPmx+97Bc+kpxMG9PHD/hoGKzLQtASp0Gylcne0pmVpW
-         k7LZXGEgs49cn7MDIgF0Kn69UWiHPvdSS3VTmV/AiE3SF2BW4WXd64RSk+8YkLsIp7Le
-         IIUx4Vo1YgDyR2fTtbDr3AwRCkYS5fCd+3DrT8MoB0B9JdoS95Ye9UF697YvaZTmJfSb
-         /atg==
+	Mon, 13 Nov 2023 20:10:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1699906247;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=sqWGwV812/CXYndzj2W50PA7KOMPm+tHC+e+xjD2/M0=;
+	b=QkFuWos4vfqSVbsvh7QXl3XJOrAGYJSPnYDADtfbc8++qTReh8+Cy97GqqC0DtipgMXCg0
+	JjJGp3JKhqZTYh7Murx8cPeU8g15IeViWjFOufEFMGlR/uge1TBg8Ho3JfVgfPbEwDwceL
+	eS+pdVvMhOmQefXQa3jc4AMiw4HnVGY=
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com
+ [209.85.222.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-376-hmofBB_BOAysj_m_UWYmvQ-1; Mon, 13 Nov 2023 15:10:46 -0500
+X-MC-Unique: hmofBB_BOAysj_m_UWYmvQ-1
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-7789a691086so580920885a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Nov 2023 12:10:46 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699906037; x=1700510837;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=a1jEPxeJGtmfYQcT6WJ61rN62rCZrCVcvumNLFWoazM=;
-        b=r8LlHxvVtoUPN6I+FUaUdFkrrDcsB8VZBxaLn1AoGV5psf/N17mxdKLDA1IlvxH1jz
-         HRNvGl7FBnq+zrmzc4kRRAhFzL/G+CMrBL1FHa6gPUEiHVGBxzF5KfzkP+As+A41tfhY
-         TxjP1zl548QT3vT7+ko8p+vzF+fbEMmAUWbEFvkySeadVLeYv8c89ITe5kHepv/2EXIE
-         k8ecJTci8IlD99knWMvzrAAxT3cEdjuGoZzYhBpCgp1WhOdCcoIv5av+rSO2TBIBeGQo
-         PhG9O+90QySlkwUVjAyzw37Z1gW+6OjidvmZqxQmoqmr1TD0DE5nxSbZ8y+rD6nxnYkY
-         bTeg==
-X-Gm-Message-State: AOJu0Yyu+4A5+H+wagWcg0dQP49PaPKbIW2vhaevAeVUlaarFq7yHKGy
-	o3uxP74GiYquGiAPU9coz7eSvQXQdB6gxnTpt2A=
-X-Google-Smtp-Source: AGHT+IEi078hI6JWHsulI1eD2jNU1SLFI6/KtYGd73pb83dy6qFl+RSYFhxfbPVwwrRCGYycNcy0vg==
-X-Received: by 2002:a05:620a:c42:b0:775:d7d7:cdbb with SMTP id u2-20020a05620a0c4200b00775d7d7cdbbmr263450qki.38.1699906037501;
-        Mon, 13 Nov 2023 12:07:17 -0800 (PST)
-Received: from [172.25.83.73] ([12.186.190.1])
-        by smtp.gmail.com with ESMTPSA id h27-20020a05620a21db00b00767dba7a4d3sm2107467qka.109.2023.11.13.12.07.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Nov 2023 12:07:17 -0800 (PST)
-Message-ID: <824cee7b-e4d3-461a-8bfb-4ad095c240fd@linaro.org>
-Date: Mon, 13 Nov 2023 21:07:15 +0100
+        d=1e100.net; s=20230601; t=1699906246; x=1700511046;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sqWGwV812/CXYndzj2W50PA7KOMPm+tHC+e+xjD2/M0=;
+        b=nD+b1DV3WHcZSVpS83A9TnPKUtpQjDAhVflj9l44Uw+woPQtz/g5KbzowLezelKRaI
+         2wst8hwt79PmBFOSsmFc3MUrAD1Z3V+hBHzqnDKjz5MBU6fF3OZGtjIvqCZTmU7DNqUi
+         HsHKWgH3mDWxFHUdPageOSJnWS6CMxyubeEwGmXEndhEvfoRJeC+uxwOa4WN2l5RVnkm
+         e+q+nRasjDrecVxhPOa4RABY2pXpaD51DZjgpF+bWXlLANQ3+EFT+v38Ri/rjS5f2k/C
+         wmzNH+AUtdmALNDpuJKnLOwqIl/B3/uVenFmhzOc3p2kHpcndBnX25jsHL+gh6zWblaA
+         LMhw==
+X-Gm-Message-State: AOJu0YxLd9qs/UUbhTEliNQpRGZQZED1/qrHra375GfczSOptVsgiA4t
+	S6vxJIS2GM1Q/3xVek6SQo+REPffS+A8vWARkcIgf0Fhena83h7UaRJYqxJih1btsryGPOJ/NKr
+	WbML7Vzq04SFBBRbKp5IZlNivx0xa
+X-Received: by 2002:a05:620a:3710:b0:776:fb0c:6b5c with SMTP id de16-20020a05620a371000b00776fb0c6b5cmr322023qkb.13.1699906245971;
+        Mon, 13 Nov 2023 12:10:45 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFTedyYglCJvmi92iRdR2D4BIAbVzeajOKcDR1OXvlL6dJaLGV+tVe1Q6WIBYPyxZBc3gPFSw==
+X-Received: by 2002:a05:620a:3710:b0:776:fb0c:6b5c with SMTP id de16-20020a05620a371000b00776fb0c6b5cmr321979qkb.13.1699906245767;
+        Mon, 13 Nov 2023 12:10:45 -0800 (PST)
+Received: from localhost (ip98-179-76-75.ph.ph.cox.net. [98.179.76.75])
+        by smtp.gmail.com with ESMTPSA id o6-20020a05620a130600b007742bc74184sm2112406qkj.110.2023.11.13.12.10.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Nov 2023 12:10:45 -0800 (PST)
+Date: Mon, 13 Nov 2023 13:10:44 -0700
+From: Jerry Snitselaar <jsnitsel@redhat.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: acpica-devel@lists.linuxfoundation.org, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev, 
+	Lu Baolu <baolu.lu@linux.intel.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Dexuan Cui <decui@microsoft.com>, devicetree@vger.kernel.org, 
+	David Woodhouse <dwmw2@infradead.org>, Frank Rowand <frowand.list@gmail.com>, 
+	Hanjun Guo <guohanjun@huawei.com>, Haiyang Zhang <haiyangz@microsoft.com>, 
+	Christoph Hellwig <hch@lst.de>, iommu@lists.linux.dev, 
+	Jean-Philippe Brucker <jean-philippe@linaro.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Joerg Roedel <joro@8bytes.org>, "K. Y. Srinivasan" <kys@microsoft.com>, 
+	Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-snps-arc@lists.infradead.org, linux-tegra@vger.kernel.org, 
+	Russell King <linux@armlinux.org.uk>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Hector Martin <marcan@marcan.st>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Robert Moore <robert.moore@intel.com>, 
+	Rob Herring <robh+dt@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>, 
+	Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Krishna Reddy <vdumpa@nvidia.com>, 
+	Vineet Gupta <vgupta@kernel.org>, virtualization@lists.linux-foundation.org, 
+	Wei Liu <wei.liu@kernel.org>, Will Deacon <will@kernel.org>, 
+	Zhenhua Huang <quic_zhenhuah@quicinc.com>
+Subject: Re: [PATCH RFC 05/17] iommu: Make iommu_fwspec->ids a distinct
+ allocation
+Message-ID: <bhbvxv5bt7b5tad27cuvy6efpkg2fwxx2delgcmnsd7sttqngl@irtpllmr7wq4>
+References: <0-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com>
+ <5-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/4] dt-bindings: pwm: Add OpenCores PWM module
-Content-Language: en-US
-To: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-pwm@vger.kernel.org
-Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
- Thierry Reding <thierry.reding@gmail.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
- Hal Feng <hal.feng@starfivetech.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-References: <20231110062039.103339-1-william.qiu@starfivetech.com>
- <20231110062039.103339-2-william.qiu@starfivetech.com>
- <afce202d-6234-4c5f-9018-facd9a56b5eb@linaro.org>
- <f4551a7a-61e6-4d97-94c2-da2e4e9e8cb3@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <f4551a7a-61e6-4d97-94c2-da2e4e9e8cb3@starfivetech.com>
+In-Reply-To: <5-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231113_120720_772711_E2C75877 
-X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-CacheID: sfid-20231113_121048_697492_27FA7166 
+X-CRM114-Status: UNSURE (   6.68  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -150,35 +123,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13/11/2023 10:42, William Qiu wrote:
-> Will update.
->>> +
->>> +allOf:
->>> +  - $ref: pwm.yaml#
->>> +
->>> +properties:
->>> +  compatible:
->>> +    oneOf:
->>> +      - items:
->>> +          - enum:
->>> +              - starfive,jh7100-pwm
->>> +              - starfive,jh7110-pwm
->>> +          - const: opencores,pwm
->>
->> That's a very, very generic compatible. Are you sure, 100% sure, that
->> all designs from OpenCores from now till next 100 years will be 100%
->> compatible?
->>
-> My description is not accurate enough, this is OpenCores PTC IP, and PWM
-> is one of those modes, so it might be better to replace compatible with
-> "opencores, ptc-pwm"
-> 
-> What do you think?
-
-Sorry, maybe this answers maybe doesn't. What is "PTC"?
-
-Best regards,
-Krzysztof
+Reviewed-by: Jerry Snitselaar <jsnitsel@redhat.com>
 
 
 _______________________________________________
