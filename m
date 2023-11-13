@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDA0DC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 07:20:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDC3DC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 08:00:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jl2xOMgQsT//jYCpl6nK/VPOq2kUmlZUK1kEeac/sqA=; b=W+oxIJ+MhnNEdT
-	c2fyjDkf18q5c8GqsMPbOOCu0qsAsAqEfqtJx5XRQBeENiH3wW6WqgpEdpTBXeA2R1Q5BP60som7v
-	n+/3lcpUfp907PMW+UYzPm4ldF7vGlR4FJTekuVUl7gX+o5RQClVBrzcyyJBf60HylSE4ZlRP8j/h
-	NxSGNN710lgJfu7Q4DQqY8MsKmnyqxmrKM0VZLX6ZGrjV/eAms7lotnGgxNiPKG9W0K2kFZ8rKKcn
-	VOtIznhBosWOq4aIGBesXFHA3GPXn5fFEKu8EI/Y9MMiIgbGqoXfmaX8gApLLzmzMdRKgxcDLxf8v
-	tsQjF/xjq6xz2192D4sQ==;
+	List-Owner; bh=hhqwmLNyiyBg6NaslVn0Nq1QfSJsSXSDSPfVH735dm0=; b=mu5ikLiVFBHZKY
+	TIK5WW2r7wBVDdCgfvoGMXWr7B4/zdlxKwhb3/JUM8Oprs9c5S06vyBxTR+ToiemIKPkL1WprWv80
+	nEvHE1IlPfbN6ynfSqrfAGEUiNNqQMZ/sipL1Tikka1OeD1F7EFUb8UHqpsF5WYysFU4zwEU0u8b5
+	cUUPcOd2CHIX0aifdThB6F8jSjcX3k4uwQkIX/xrBI3acYNSY+R+MYTKnktnlaMYql2CDMvGDTGgO
+	ilzk7kZj7b6Q6mXlFciQvn7p2N7g9iBUY3jilJGr4ytJsOi7NDLkemUH9XwDiMDs3wjEuhn+hkZgQ
+	u1wlXRnnM0KLIR/kDeFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2RF6-00DQdF-0T;
-	Mon, 13 Nov 2023 07:20:20 +0000
-Received: from bg4.exmail.qq.com ([43.155.67.158])
+	id 1r2RsA-00DSU2-2p;
+	Mon, 13 Nov 2023 08:00:42 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2RF1-00DQbv-2a
-	for linux-riscv@lists.infradead.org;
-	Mon, 13 Nov 2023 07:20:18 +0000
-X-QQ-mid: bizesmtp63t1699859986trcai2ec
-Received: from main2-ubuntu.tail147f4.ts.net ( [202.201.15.117])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 13 Nov 2023 15:19:43 +0800 (CST)
-X-QQ-SSF: 01200000000000B06000000A0000000
-X-QQ-FEAT: CR3LFp2JE4kJjXOcdkorczscpSzH6+axHpSU32WFVYbv/RGXMGwZNm0mqCz6D
-	gz9/sgtHdEu0Hpdze0GuS3D6Irg4Df8QiNwDsaA6ysM60/Ho50JMfM3UXJDjxhxTAQJmf08
-	2g+pmLbzG6sqegUOfI7Bqk0cBi8wPyNlP79jzi4+2G/4EB+bteo4XqATZZMPqdIZxNerVW7
-	zYzBrU5bsvqnxAgq9RY7WWSKOF4WLCtt1HmqlkFh/RReaAs7ttv7DELAls5+VJ7BadjYxZ5
-	lnXtZ30WpuH37gpQ2xpywx2N6bQQzJWukdBKANUZas2U6RtWXYUj1hf5q4jZyp24XNNb9tI
-	jXfxcsenjYsV+UPuIj2lO0Tur+eydKLmUqICFwU
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 17312017847681261293
-From: Yuan Tan <tanyuan@tinylab.org>
-To: i@maskray.me
-Cc: arnd@arndb.de,
-	falcon@tinylab.org,
-	linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-sparse@vger.kernel.org,
-	linux@weissschuh.net,
-	luc.vanoostenryck@gmail.com,
-	palmer@rivosinc.com,
-	paul.walmsley@sifive.com,
-	paulburton@kernel.org,
-	paulmck@kernel.org,
-	tanyuan@tinylab.org,
-	tim.bird@sony.com,
-	tsbogend@alpha.franken.de,
-	w@1wt.eu
-Subject: Re: [PATCH v1 09/14] DCE/DSE: inhibit .size directive for SHF_GROUP
-Date: Mon, 13 Nov 2023 15:19:42 +0800
-Message-Id: <20231113071942.35259-1-tanyuan@tinylab.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <DS7PR12MB576503711253C682DCE40524CBABA@DS7PR12MB5765.namprd12.prod.outlook.com>
-References: <DS7PR12MB576503711253C682DCE40524CBABA@DS7PR12MB5765.namprd12.prod.outlook.com>
+	id 1r2Rs7-00DSTN-0H;
+	Mon, 13 Nov 2023 08:00:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ZIUo6SitpM+vYIkRKxMDsTWGye+BOau+Sdl+Rn/5gvc=; b=1ra6n9fv04zKcULX0AWUO9GzA/
+	GpGAL8Jbl8giKBKycwRVVUW9hmYaNT2a8BcpyTaoD9qhz8Q404iRE6t+uJ3Zble869e2Rf/BjOOr7
+	DptWz9p9DZQClZG+IdD27GCb8Y6NRn9vJ9oiP7ZFt+3sBDc6c1MIdgB2DuXM6SQa6MaBgxg5XFxCX
+	y9OWsNsBQotBj3bvpgF59e+ItDN4y576At2fVXf+8VUinUr6c47UW8eUkQgOBX6Mu61EUJlRXkZNs
+	dPmUA6GU4Neh5R7kEw4gh2iV9kGepqciieG4SCtP6unGOd8lZrYFQCreT3yMDFP5kgaWnhippJHkx
+	t/XlG99Q==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:49754)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1r2Rrr-0006Lc-08;
+	Mon, 13 Nov 2023 08:00:24 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1r2Rrn-0004Mt-JQ; Mon, 13 Nov 2023 08:00:19 +0000
+Date: Mon, 13 Nov 2023 08:00:19 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Gavin Shan <gshan@redhat.com>
+Cc: linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
+	x86@kernel.org, linux-csky@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-ia64@vger.kernel.org,
+	linux-parisc@vger.kernel.org, Salil Mehta <salil.mehta@huawei.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	jianyong.wu@arm.com, justin.he@arm.com,
+	James Morse <james.morse@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>
+Subject: Re: [PATCH RFC 10/22] drivers: base: Move cpu_dev_init() after
+ node_dev_init()
+Message-ID: <ZVHXk9JG7gUjtERt@shell.armlinux.org.uk>
+References: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
+ <E1r0JLV-00CTxS-QB@rmk-PC.armlinux.org.uk>
+ <095c2d24-735b-4ce2-ba2e-9ec2164f2237@redhat.com>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
+Content-Disposition: inline
+In-Reply-To: <095c2d24-735b-4ce2-ba2e-9ec2164f2237@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231112_232016_178968_9222EE50 
-X-CRM114-Status: GOOD (  21.56  )
+X-CRM114-CacheID: sfid-20231113_000039_422584_C830951F 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,60 +85,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksIEZhbmdydWkKClRoYW5rIHlvdSBmb3IgeW91ciB0aW1lIDopCgpPbiAxMS82LzIwMjMgNDo1
-MCBBTSwgRmFuZ3J1aSBTb25nIHdyb3RlOgo+IE9uIEZyaSwgTm92IDMsIDIwMjMgYXQgOTowMeKA
-r0FNIFl1YW4gVGFuIDx0YW55dWFuQHRpbnlsYWIub3JnPiB3cm90ZToKPiA+Cj4gPiAuc2l6ZSBk
-aXJlY3RpdmUgZmFpbHMgaW4gc29tZSBmdW5jdGlvbnMgd2l0aCBTSEZfR1JPVVAsIHRoaXMgaXMg
-bm90Cj4gPiByZWFsbHkgcmVxdWlyZWQgZm9yIG5vcm1hbCBidWlsZGluZywgaW5oaWJpdCBpdCB0
-byBzaWxlbmNlIHRoZSBjb21waWxpbmcKPiA+IGZhaWx1cmVzIHdpdGggU0hGX0dST1VQLgo+ID4K
-PiA+IFNpZ25lZC1vZmYtYnk6IFl1YW4gVGFuIDx0YW55dWFuQHRpbnlsYWIub3JnPgo+ID4gU2ln
-bmVkLW9mZi1ieTogWmhhbmdqaW4gV3UgPGZhbGNvbkB0aW55bGFiLm9yZz4KPiA+IC0tLQo+ID4g
-IE1ha2VmaWxlIHwgMyArKysKPiA+ICAxIGZpbGUgY2hhbmdlZCwgMyBpbnNlcnRpb25zKCspCj4g
-Pgo+ID4gZGlmZiAtLWdpdCBhL01ha2VmaWxlIGIvTWFrZWZpbGUKPiA+IGluZGV4IGE0ZTUyMmI3
-NDdjYi4uZjY3YjZlOGQyYzQ1IDEwMDY0NAo+ID4gLS0tIGEvTWFrZWZpbGUKPiA+ICsrKyBiL01h
-a2VmaWxlCj4gPiBAQCAtOTM2LDYgKzkzNiw5IEBAIGVuZGlmCj4gPiAgIyBgcnVzdGNgJ3MgYC1a
-ZnVuY3Rpb24tc2VjdGlvbnNgIGFwcGxpZXMgdG8gZGF0YSB0b28gKGFzIG9mIDEuNTkuMCkuCj4g
-PiAgaWZkZWYgQ09ORklHX0xEX0RFQURfQ09ERV9EQVRBX0VMSU1JTkFUSU9OCj4gPiAgS0JVSUxE
-X0NGTEFHU19LRVJORUwgKz0gLWZmdW5jdGlvbi1zZWN0aW9ucyAtZmRhdGEtc2VjdGlvbnMKPiA+
-ICtpZmRlZiBDT05GSUdfU0VDVElPTl9TSEZfR1JPVVBfU1VQUE9SVAo+ID4gK0tCVUlMRF9DRkxB
-R1NfS0VSTkVMICs9IC1maW5oaWJpdC1zaXplLWRpcmVjdGl2ZQo+ID4gK2VuZGlmCj4gPiAgS0JV
-SUxEX1JVU1RGTEFHU19LRVJORUwgKz0gLVpmdW5jdGlvbi1zZWN0aW9ucz15Cj4gPiAgTERGTEFH
-U192bWxpbnV4ICs9IC0tZ2Mtc2VjdGlvbnMKPiA+ICBpZmRlZiBDT05GSUdfTERfREVBRF9DT0RF
-X0RBVEFfRUxJTUlOQVRJT05fREVCVUcKPiA+IC0tCj4gPiAyLjM0LjEKPiA+Cj4gCj4gQ2xhbmcg
-ZG9lc24ndCBzdXBwb3J0IC1maW5oaWJpdC1zaXplLWRpcmVjdGl2ZSwgc28gdGhpcyB3b3VsZCBi
-cmVhawo+IENsYW5nIGJ1aWxkcy4KCkN1cnJlbnRseSwgQ2xhbmcgZG9lc24ndCBzdXBwb3J0IExE
-X0RFQURfQ09ERV9EQVRBX0VMSU1JTkFUSU9OLiBTbyBpbiB0aGlzCnBhdGNoIHNlcmllcyBJIGRp
-ZG4ndCB0YWtlIG11Y2ggdGhvdWdodCBhYm91dCBjbGFuZy4KCj4gCj4gR0NDIGhhcyBoYWQgdGhp
-cyBvcHRpb24gc2luY2UgMTk5MiwgYnV0IGl0IGlzIG5vdCB1c2VkIGluIHRoZSB3aWxkLgo+IGh0
-dHBzOi8vZ2NjLmdudS5vcmcvb25saW5lZG9jcy9nY2MvQ29kZS1HZW4tT3B0aW9ucy5odG1sI2lu
-ZGV4LWZpbmhpYml0LXNpemUtZGlyZWN0aXZlCj4gc2F5cwo+IAo+ID4gLi4uIFRoaXMgb3B0aW9u
-IGlzIHVzZWQgd2hlbiBjb21waWxpbmcgY3J0c3R1ZmYuYzsgeW91IHNob3VsZCBub3QgbmVlZCB0
-byB1c2UgaXQgZm9yIGFueXRoaW5nIGVsc2UuCj4gCj4gV2hhdCBwcm9ibGVtIGhhdmUgeW91IHNl
-ZW4gd2l0aCAuc2l6ZSBkaXJlY3RpdmVzIChzdF9zaXplIGZpZWxkIGluCj4gc3ltYm9sIHRhYmxl
-IGVudHJpZXMpPwoKJCBtYWtlIEFSQ0g9cmlzY3YgQ1JPU1NfQ09NUElMRT1yaXNjdjY0LWxpbnV4
-LWdudS0gZnMvaW9jdGwubwovdG1wL2NjeTVFM3dOLnM6IEVycm9yOiAuc2l6ZSBleHByZXNzaW9u
-IGZvciBfX3Jpc2N2X3N5c19pb2N0bCBkb2VzIG5vdCBldmFsdWF0ZSB0byBhIGNvbnN0YW50Cm1h
-a2VbM106ICoqKiBbc2NyaXB0cy9NYWtlZmlsZS5idWlsZDoyNDM6IGZzL2lvY3RsLm9dIEVycm9y
-IDEKbWFrZVsyXTogKioqIFtzY3JpcHRzL01ha2VmaWxlLmJ1aWxkOjQ4MDogZnNdIEVycm9yIDIK
-bWFrZVsxXTogKioqIFsvaG9tZS90YW55dWFuL3Byb2plY3RzL2xpbnV4L01ha2VmaWxlOjE5MTY6
-IC5dIEVycm9yIDIKbWFrZTogKioqIFtNYWtlZmlsZToyMzQ6IF9fc3ViLW1ha2VdIEVycm9yIDIK
-CkFuZCB0aGUgZnMvaW9jdGwucyBpcyBsaWtlCgkuc2VjdGlvbgkudGV4dC5fX3Jpc2N2X3N5c19p
-b2N0bCwiYXgiLEBwcm9nYml0cwoJLmFsaWduCTEKCS5nbG9ibAlfX3Jpc2N2X3N5c19pb2N0bAoJ
-LnR5cGUJX19yaXNjdl9zeXNfaW9jdGwsIEBmdW5jdGlvbgpfX3Jpc2N2X3N5c19pb2N0bDoKICAg
-ICAgICAuLi4KICAgICAgICAuLi4KCS5zaXplCV9fcmlzY3Zfc3lzX2lvY3RsLCAuLV9fcmlzY3Zf
-c3lzX2lvY3RsCgpJIGNhbm5vdCB1bmRlcnN0YW5kIHRoaXMgZXJyb3IgYW5kIHRoaXMgb3B0aW9u
-IGp1c3Qgc29sdmUgdGhlIHByb2JsZW0gOikKCj4gCj4gJSBjYXQgYS5jCj4gaW50IHY7Cj4gdm9p
-ZCBmKCkge30KPiAlIGRpZmYgLXUwIDwoZ2NjIC1TIGEuYyAtbyAtKSA8KGdjYyAtUyAtZmluaGli
-aXQtc2l6ZS1kaXJlY3RpdmUgYS5jIC1vIC0pCj4gLS0tIC9wcm9jL3NlbGYvZmQvMTEgICAgMjAy
-My0xMS0wNSAxMjo0Mjo1MS4yOTg2MTg0NzUgLTA4MDAKPiArKysgL3Byb2Mvc2VsZi9mZC8xNSAg
-ICAyMDIzLTExLTA1IDEyOjQyOjUxLjI5ODYxODQ3NSAtMDgwMAo+IEBAIC03ICs2LDAgQEAKPiAt
-ICAgICAgIC5zaXplICAgdiwgNAo+IEBAIC0yNyArMjUsMCBAQAo+IC0gICAgICAgLnNpemUgICBm
-LCAuLWYKPiAKPiAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+On Mon, Nov 13, 2023 at 10:58:46AM +1000, Gavin Shan wrote:
+> 
+> 
+> On 11/7/23 20:30, Russell King (Oracle) wrote:
+> > From: James Morse <james.morse@arm.com>
+> > 
+> > NUMA systems require the node descriptions to be ready before CPUs are
+> > registered. This is so that the node symlinks can be created in sysfs.
+> > 
+> > Currently no NUMA platform uses GENERIC_CPU_DEVICES, meaning that CPUs
+> > are registered by arch code, instead of cpu_dev_init().
+> > 
+> > Move cpu_dev_init() after node_dev_init() so that NUMA architectures
+> > can use GENERIC_CPU_DEVICES.
+> > 
+> > Signed-off-by: James Morse <james.morse@arm.com>
+> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > ---
+> > Note: Jonathan's comment still needs addressing - see
+> >    https://lore.kernel.org/r/20230914121612.00006ac7@Huawei.com
+> > ---
+> >   drivers/base/init.c | 2 +-
+> >   1 file changed, 1 insertion(+), 1 deletion(-)
+> > 
+> 
+> With Jonathan's comments addressed:
+
+That needs James' input, which is why I made the note on the patch.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
