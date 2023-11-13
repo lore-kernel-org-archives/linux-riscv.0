@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC574C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 13:18:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBD3BC4167D
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 13:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=W2sCeoYgdmzEqWwBYyhV0PScSwPFqI5oZ/LJID68Ff8=; b=rFsTEcsFAzIxm6
-	0SQOgf3MCW16jAhJkG46egVm+3HW8kRrpq75HG9Rn/odBGJlLQ+zTpcPvQt+YsA7wv5+JZBPhrfyL
-	GSPe2wKeLCBjzY4xlkmq8dlA70V/eVEjlSyqYuBfiiXkGce0FZMfjEt2w2z9FjYPLzhf6Op9L018E
-	GvTad7V8jGj1sY5eHFBpZqWtrtRMlkQBWM1biETNchBSn1p7OFhZYzVZkQ46l++onYUqBfKcYnBuR
-	RNp7j8ksgIWDGcDmNm87Hul7jLUwWSBh9LPxYqmtRMAmZ1kK3e+3WF8KfTUSp3VJbVuj1/nvnZUAp
-	jL+NpCWqVqVO1Y5cBnYA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=H6cPejp1iO5Ru9JNm0aA6ZrmvXG0FqOtAJxQEnpigZk=; b=o8NTCxsMk5WTyY
+	qUde370xHTnMbKBYu0ughkCBK8D1KqGoYA7g+A4chLMbljCTHzoWUuPsT6SExuQAaNHwhE2S6V3wv
+	QjMB/rMTZ5tkRt1cigXFwonnTyap/RHGRe5EuRGTunI8Kjc1/p1vkWsU3jMabdsbJeZ5fVaeohDb7
+	oxPbN7ST+r/w00m4z5ycdNSSn3SisJRnKEFH9xWfx6wPeUyytIxa5uMaRquJpTJxNExKZh5lOpcR/
+	jf8E0MXi9VZntpThLNx5T/1eWCkgp9rfmP7a8kXVc4ek+gfcro5cNN+7P+iRGg/BqP1tfuIJwKF+p
+	XRLPG/U96WQ9nK7Y0+KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2WpU-00E2Ch-04;
-	Mon, 13 Nov 2023 13:18:16 +0000
-Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
+	id 1r2Wpv-00E2Hw-12;
+	Mon, 13 Nov 2023 13:18:43 +0000
+Received: from mail-oo1-xc36.google.com ([2607:f8b0:4864:20::c36])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2WpR-00E29K-0N
+	id 1r2Wpr-00E2Go-2l
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Nov 2023 13:18:14 +0000
-Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-3b2e73a17a0so2721949b6e.3
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Nov 2023 05:17:52 -0800 (PST)
+	Mon, 13 Nov 2023 13:18:41 +0000
+Received: by mail-oo1-xc36.google.com with SMTP id 006d021491bc7-58a03280aa7so1962755eaf.2
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Nov 2023 05:18:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1699881472; x=1700486272; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=sMYVHHaJeCjmpAavU23RMpRyLk0TWskkcBNgC6viZA4=;
-        b=DWcwhCC9NM9a4XqXKbHTKIYdK6whwbCN040zIhlU/jop2xAPHp4jiwpsiftJfFeTGz
-         EggQtzlcBg0GPhGwd7iBqyPQIHE0Hi25R2E4DUZ8QDnYG8lR7vTk+t3QDm2GSstuaCG2
-         1FsmT/aYswk5nBFqcXk+Sdm4y+QtEuk3E1uVndtAGPzPZxVquIe5CIHDbwhutyJzg9v/
-         qIXPTZIMB97DUAMCZk0/o+OFoYxRF7Lpve0FZFSwiePsZ9197oZl2SO+onsJPVcRpDuu
-         j/7RINwFN/riN6s7KCde3zx5d1Xtp7lndIzU2m3wByngsnz18Juyq1aVCPkCgK+0vfKd
-         1jlQ==
+        d=gmail.com; s=20230601; t=1699881518; x=1700486318; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jnidoTz18poFRJQVm3zc9EXikrZGMBjL2/WTAOtgT3Q=;
+        b=MTXd+jvZG9ykDceZBX5ipHDJEe+8TMGpttygqtsxHhuasplBT3hD9PAsxt0WDJCTq4
+         cz7lsUwkLEhpv4dRlZNxvpxw+nBU2n8LdxrWeve/ow2D+ISXIGBdPLfXKPJh7uJP/KMs
+         uEPcIZYLiZUGkbJVNLIXYDsIluCN0mKer5y+Q73iyoaadfrkwqOOyV+ILwhUiUcKiFx+
+         /Ym3a0yQSJ5etohipRSoMnCiUCqF5rBhi9FVEceCGGwSt+W99opTM0eCMXEIxKd0C6+t
+         hPwzk0iwwyIiewKJHGf7B75hRyHilFUdUoeOS15HmAxmoDX9NfFL+wLGIRVqrWuAH/Qv
+         vmYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699881472; x=1700486272;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=sMYVHHaJeCjmpAavU23RMpRyLk0TWskkcBNgC6viZA4=;
-        b=ggMPrkduGGYyPzccHVA2B+fODsuyRrwtc1kpU/dbUbz2WyLC5zmsBIO0yOxboYquBk
-         Cs2gKPQ4ncDwLUqB1ojIhkhsFP/TbL2p0R6VM7LacftR7nKkQ54k+kd94afPGID5ZodU
-         POU9yzjwcA22rvlqD4E5/tpkfw/2AA+NqG0PURY/LaecdP+jV4V1HJGutwttAsmXH1kC
-         XV3cuyE2BTgssbW370kJ2ctfO3eR4sP9dyVG/9NpLLsx3WZkr8QSaHxy21d61YrFKVXK
-         k1lGixGTLMT4GtSLk9rt2v0cq7S3ADV6QpEm7XG4ZtYE5hJflezAFYhR8bnjtmQXqQ9x
-         AuHw==
-X-Gm-Message-State: AOJu0Yx0csAnmNkf7v9Uum/ofx07jSjDqFrp/DSmLRJlA1tB53NQXP1a
-	ITHQt1ANsqDc26+4A+PD8Y4=
-X-Google-Smtp-Source: AGHT+IH2iVeNtxuhSNYqil+kIbOodUzZxXB+mr47hLTS7HskUTvpMjqRwlUgtDQCXwNRY57D0S0omA==
-X-Received: by 2002:a05:6808:b13:b0:3a8:6b4d:6b78 with SMTP id s19-20020a0568080b1300b003a86b4d6b78mr7628082oij.35.1699881471814;
-        Mon, 13 Nov 2023 05:17:51 -0800 (PST)
+        d=1e100.net; s=20230601; t=1699881518; x=1700486318;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=jnidoTz18poFRJQVm3zc9EXikrZGMBjL2/WTAOtgT3Q=;
+        b=kFYBqslQDRU4h9XNfeYu7rIc8CFQ4407tqEmFoluq/70MBQsE5m9TZD3xjr/5LKFWh
+         BjzUdelLqup7KkYenuL9Cn1rDJKZo9RA8qPTyuZ/1aOhHijNTb5H2yWxs4hTM1W63Azv
+         2dGj9g4289yCHJOwDsXbU4xsE+Bp479vincyqZirGQetlNBgtuqHacy9iubFKQuUxS2m
+         9CgxlemWiqwNJB34O0JIu4auAxzTOITogB/rDy1kHBPJjm5Rj+ono8n0yohyLHxBe6+I
+         BZ+h0S9iMgINP39T+bJO06EsRRMEO6cWe6mrhJ2cpq7zvQBFPYwRF1x/B9rHa1AtQY1u
+         28UQ==
+X-Gm-Message-State: AOJu0YzQDl815y70nC+gUrYCaJn0don8Ej0BHcE1RwnhGU5OQ9BixT6R
+	i5+n4W/GOLuRvEKIQAZAJLw=
+X-Google-Smtp-Source: AGHT+IErVlENwNFoUaikVtgiveOPcnMlOEvlb7jtsVqbcfIi1GqKdqrG/nLsqJuvi2GnD70tlc268w==
+X-Received: by 2002:a4a:85c1:0:b0:57b:eee7:4a40 with SMTP id u1-20020a4a85c1000000b0057beee74a40mr5924139ooh.7.1699881517629;
+        Mon, 13 Nov 2023 05:18:37 -0800 (PST)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id g34-20020a0568080de200b003b2df32d9a9sm773426oic.19.2023.11.13.05.17.49
+        by smtp.gmail.com with ESMTPSA id q8-20020a4ad548000000b0056d361ca33fsm926509oos.16.2023.11.13.05.18.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Nov 2023 05:17:51 -0800 (PST)
+        Mon, 13 Nov 2023 05:18:37 -0800 (PST)
 From: Chen Wang <unicornxw@gmail.com>
 To: aou@eecs.berkeley.edu,
 	chao.wei@sophgo.com,
@@ -79,15 +80,16 @@ To: aou@eecs.berkeley.edu,
 	haijiao.liu@sophgo.com,
 	xiaoguang.xing@sophgo.com
 Cc: Chen Wang <unicorn_wang@outlook.com>
-Subject: [PATCH 0/5] riscv: sophgo: add clock support for sg2042
-Date: Mon, 13 Nov 2023 21:16:36 +0800
-Message-Id: <cover.1699879741.git.unicorn_wang@outlook.com>
+Subject: [PATCH 1/5] dt-bindings: clock: sophgo: Add SG2042 clock definitions
+Date: Mon, 13 Nov 2023 21:18:25 +0800
+Message-Id: <db59acdc99357d52ede5fc9738bdb161649c8fa1.1699879741.git.unicorn_wang@outlook.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1699879741.git.unicorn_wang@outlook.com>
+References: <cover.1699879741.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231113_051813_153538_8608CA48 
-X-CRM114-Status: UNSURE (   8.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231113_051839_897417_977EE912 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,39 +108,189 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Chen Wang <unicorn_wang@outlook.com>
 
-This series adds clock controller support for sophgo sg2042.
+Add all clock outputs for the Sophgo SG2042 clock generator.
 
-Chen Wang (5):
-  dt-bindings: clock: sophgo: Add SG2042 clock definitions
-  dt-bindings: soc: sophgo: Add Sophgo syscon module
-  dt-bindings: clock: sophgo: Add SG2042 bindings
-  clk: sophgo: Add SG2042 clock generator driver
-  riscv: dts: add clock generator for Sophgo SG2042 SoC
-
- .../clock/sophgo/sophgo,sg2042-clkgen.yaml    |   48 +
- .../soc/sophgo/sophgo,sg2042-syscon.yaml      |   38 +
- MAINTAINERS                                   |    8 +
- arch/riscv/boot/dts/sophgo/sg2042-clock.dtsi  |   76 +
- arch/riscv/boot/dts/sophgo/sg2042.dtsi        |   10 +
- drivers/clk/Kconfig                           |    1 +
- drivers/clk/Makefile                          |    1 +
- drivers/clk/sophgo/Kconfig                    |    8 +
- drivers/clk/sophgo/Makefile                   |    2 +
- drivers/clk/sophgo/clk-sophgo-sg2042.c        | 1259 +++++++++++++++++
- drivers/clk/sophgo/clk-sophgo-sg2042.h        |  226 +++
- include/dt-bindings/clock/sophgo-sg2042-clk.h |  169 +++
- 12 files changed, 1846 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/sophgo/sophgo,sg2042-clkgen.yaml
- create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-syscon.yaml
- create mode 100644 arch/riscv/boot/dts/sophgo/sg2042-clock.dtsi
- create mode 100644 drivers/clk/sophgo/Kconfig
- create mode 100644 drivers/clk/sophgo/Makefile
- create mode 100644 drivers/clk/sophgo/clk-sophgo-sg2042.c
- create mode 100644 drivers/clk/sophgo/clk-sophgo-sg2042.h
+Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+---
+ include/dt-bindings/clock/sophgo-sg2042-clk.h | 169 ++++++++++++++++++
+ 1 file changed, 169 insertions(+)
  create mode 100644 include/dt-bindings/clock/sophgo-sg2042-clk.h
 
-
-base-commit: b85ea95d086471afb4ad062012a4d73cd328fa86
+diff --git a/include/dt-bindings/clock/sophgo-sg2042-clk.h b/include/dt-bindings/clock/sophgo-sg2042-clk.h
+new file mode 100644
+index 000000000000..a8e05c00c3bf
+--- /dev/null
++++ b/include/dt-bindings/clock/sophgo-sg2042-clk.h
+@@ -0,0 +1,169 @@
++/* SPDX-License-Identifier: GPL-2.0 OR MIT */
++/*
++ * Copyright (C) 2023 Sophgo Technology Inc. All rights reserved.
++ */
++
++#ifndef __DT_BINDINGS_CLOCK_SOPHGO_SG2042_H__
++#define __DT_BINDINGS_CLOCK_SOPHGO_SG2042_H__
++
++/* Divider clocks */
++#define DIV_CLK_MPLL_RP_CPU_NORMAL_0 0
++#define DIV_CLK_MPLL_AXI_DDR_0 1
++#define DIV_CLK_FPLL_DDR01_1 2
++#define DIV_CLK_FPLL_DDR23_1 3
++#define DIV_CLK_FPLL_RP_CPU_NORMAL_1 4
++#define DIV_CLK_FPLL_50M_A53 5
++#define DIV_CLK_FPLL_TOP_RP_CMN_DIV2 6
++#define DIV_CLK_FPLL_UART_500M 7
++#define DIV_CLK_FPLL_AHB_LPC 8
++#define DIV_CLK_FPLL_EFUSE 9
++#define DIV_CLK_FPLL_TX_ETH0 10
++#define DIV_CLK_FPLL_PTP_REF_I_ETH0 11
++#define DIV_CLK_FPLL_REF_ETH0 12
++#define DIV_CLK_FPLL_EMMC 13
++#define DIV_CLK_FPLL_SD 14
++#define DIV_CLK_FPLL_TOP_AXI0 15
++#define DIV_CLK_FPLL_TOP_AXI_HSPERI 16
++#define DIV_CLK_FPLL_AXI_DDR_1 17
++#define DIV_CLK_FPLL_DIV_TIMER1 18
++#define DIV_CLK_FPLL_DIV_TIMER2 19
++#define DIV_CLK_FPLL_DIV_TIMER3 20
++#define DIV_CLK_FPLL_DIV_TIMER4 21
++#define DIV_CLK_FPLL_DIV_TIMER5 22
++#define DIV_CLK_FPLL_DIV_TIMER6 23
++#define DIV_CLK_FPLL_DIV_TIMER7 24
++#define DIV_CLK_FPLL_DIV_TIMER8 25
++#define DIV_CLK_FPLL_100K_EMMC 26
++#define DIV_CLK_FPLL_100K_SD 27
++#define DIV_CLK_FPLL_GPIO_DB 28
++#define DIV_CLK_DPLL0_DDR01_0 29
++#define DIV_CLK_DPLL1_DDR23_0 30
++
++/* Gate clocks */
++#define GATE_CLK_RP_CPU_NORMAL_DIV0 31
++#define GATE_CLK_AXI_DDR_DIV0 32
++
++#define GATE_CLK_RP_CPU_NORMAL_DIV1 33
++#define GATE_CLK_A53_50M 34
++#define GATE_CLK_TOP_RP_CMN_DIV2 35
++#define GATE_CLK_HSDMA 36
++#define GATE_CLK_EMMC_100M 37
++#define GATE_CLK_SD_100M 38
++#define GATE_CLK_TX_ETH0 39
++#define GATE_CLK_PTP_REF_I_ETH0 40
++#define GATE_CLK_REF_ETH0 41
++#define GATE_CLK_UART_500M 42
++#define GATE_CLK_EFUSE 43
++
++#define GATE_CLK_AHB_LPC 44
++#define GATE_CLK_AHB_ROM 45
++#define GATE_CLK_AHB_SF 46
++
++#define GATE_CLK_APB_UART 47
++#define GATE_CLK_APB_TIMER 48
++#define GATE_CLK_APB_EFUSE 49
++#define GATE_CLK_APB_GPIO 50
++#define GATE_CLK_APB_GPIO_INTR 51
++#define GATE_CLK_APB_SPI 52
++#define GATE_CLK_APB_I2C 53
++#define GATE_CLK_APB_WDT 54
++#define GATE_CLK_APB_PWM 55
++#define GATE_CLK_APB_RTC 56
++
++#define GATE_CLK_AXI_PCIE0 57
++#define GATE_CLK_AXI_PCIE1 58
++#define GATE_CLK_SYSDMA_AXI 59
++#define GATE_CLK_AXI_DBG_I2C 60
++#define GATE_CLK_AXI_SRAM 61
++#define GATE_CLK_AXI_ETH0 62
++#define GATE_CLK_AXI_EMMC 63
++#define GATE_CLK_AXI_SD 64
++#define GATE_CLK_TOP_AXI0 65
++#define GATE_CLK_TOP_AXI_HSPERI 66
++
++#define GATE_CLK_TIMER1 67
++#define GATE_CLK_TIMER2 68
++#define GATE_CLK_TIMER3 69
++#define GATE_CLK_TIMER4 70
++#define GATE_CLK_TIMER5 71
++#define GATE_CLK_TIMER6 72
++#define GATE_CLK_TIMER7 73
++#define GATE_CLK_TIMER8 74
++#define GATE_CLK_100K_EMMC 75
++#define GATE_CLK_100K_SD 76
++#define GATE_CLK_GPIO_DB 77
++
++#define GATE_CLK_AXI_DDR_DIV1 78
++#define GATE_CLK_DDR01_DIV1 79
++#define GATE_CLK_DDR23_DIV1 80
++/* DPLL0 */
++#define GATE_CLK_DDR01_DIV0 81
++/* DPLL1 */
++#define GATE_CLK_DDR23_DIV0 82
++
++#define GATE_CLK_DDR01 83
++#define GATE_CLK_DDR23 84
++#define GATE_CLK_RP_CPU_NORMAL 85
++#define GATE_CLK_AXI_DDR 86
++#define GATE_CLK_RXU0 87
++#define GATE_CLK_RXU1 88
++#define GATE_CLK_RXU2 89
++#define GATE_CLK_RXU3 90
++#define GATE_CLK_RXU4 91
++#define GATE_CLK_RXU5 92
++#define GATE_CLK_RXU6 93
++#define GATE_CLK_RXU7 94
++#define GATE_CLK_RXU8 95
++#define GATE_CLK_RXU9 96
++#define GATE_CLK_RXU10 97
++#define GATE_CLK_RXU11 98
++#define GATE_CLK_RXU12 99
++#define GATE_CLK_RXU13 100
++#define GATE_CLK_RXU14 101
++#define GATE_CLK_RXU15 102
++#define GATE_CLK_RXU16 103
++#define GATE_CLK_RXU17 104
++#define GATE_CLK_RXU18 105
++#define GATE_CLK_RXU19 106
++#define GATE_CLK_RXU20 107
++#define GATE_CLK_RXU21 108
++#define GATE_CLK_RXU22 109
++#define GATE_CLK_RXU23 110
++#define GATE_CLK_RXU24 111
++#define GATE_CLK_RXU25 112
++#define GATE_CLK_RXU26 113
++#define GATE_CLK_RXU27 114
++#define GATE_CLK_RXU28 115
++#define GATE_CLK_RXU29 116
++#define GATE_CLK_RXU30 117
++#define GATE_CLK_RXU31 118
++#define GATE_CLK_MP0 119
++#define GATE_CLK_MP1 120
++#define GATE_CLK_MP2 121
++#define GATE_CLK_MP3 122
++#define GATE_CLK_MP4 123
++#define GATE_CLK_MP5 124
++#define GATE_CLK_MP6 125
++#define GATE_CLK_MP7 126
++#define GATE_CLK_MP8 127
++#define GATE_CLK_MP9 128
++#define GATE_CLK_MP10 129
++#define GATE_CLK_MP11 130
++#define GATE_CLK_MP12 131
++#define GATE_CLK_MP13 132
++#define GATE_CLK_MP14 133
++#define GATE_CLK_MP15 134
++
++/* MUX clocks */
++#define MUX_CLK_DDR01 135
++#define MUX_CLK_DDR23 136
++#define MUX_CLK_RP_CPU_NORMAL 137
++#define MUX_CLK_AXI_DDR 138
++
++/* PLL clocks */
++#define MPLL_CLK	139
++#define FPLL_CLK	140
++#define DPLL0_CLK	141
++#define DPLL1_CLK	142
++
++#endif /* __DT_BINDINGS_CLOCK_SOPHGO_SG2042_H__ */
 -- 
 2.25.1
 
