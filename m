@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30072C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 13:14:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD433C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 13:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=25iyHHVbUMSkQyxcfQaAQPGLuDEs5EuNX9nw/KyOPhA=; b=AMjI8XFmwhB09HR0lFBAqRKTii
-	BIaRUFIr25uvaXE314+eDmGbLd4qT8zLeGi+1T4QEdoOZXZVVZw2wYOrwM0agstITy+LYVbCOi5mI
-	XDNQ+UK/A5yTYTWeQxdEggb7hPt+fx3JSVbng0LewA4/HZlvhzlzjjMmoshWomZWmLf3R1MT7TSs1
-	vqvUOnQ+qEERIJs9dETeC7V25G9VrJQR0EdwnnKrKFcor8OqGrAOuJpfnbc808evxt1G9EHSjGo5b
-	UeDw7nPA25UHI5x7XHbMarDRt7HYmXJAr22wBuqnVyfKxo1dYXcq98N7eXbaRHC7IYn6iyyXzXEOo
-	G9ht6EKA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rROwQy9+omquUeKiX+t2YFqww3Cn7F7IM63VmBmjkwM=; b=O+wmtnWtBnZ11i
+	5yfRhFaY2Nv0yBYEEC29JmXoBz3pfedfoUxSul9ihLupq/jhbdkGu8ymf+SFqMinfcPdCNoczFOXp
+	fcRSSFQO38rlJ4P7Tv1UHgK0FoO2oTi07WkwkSSYoFB0qEy5V/gJou+WsajOh1wEfG7KnSZx59/9G
+	2c9zc73PErfIVJfWGGdTtNbpF+BaXB3p4/VncKep+2Rj6uI9/5bnVCBSsFtUEX28Y5Zys955fb0dE
+	Mce83IO9zAksri+q1Qdl9teNV3suG1RVsTQXKtRsO8G1ZVnkn7z5MHThfCLoW0ZOp5FBR/jhyJNLL
+	E0ZiKhXVltAAdFBYBYzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2Wm3-00E1nj-0g;
-	Mon, 13 Nov 2023 13:14:43 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1r2Wmv-00E1uZ-0W;
+	Mon, 13 Nov 2023 13:15:37 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2Wm1-00E1n5-0x
+	id 1r2Wmr-00E1tn-1t
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Nov 2023 13:14:42 +0000
+	Mon, 13 Nov 2023 13:15:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 1394DCE138D;
-	Mon, 13 Nov 2023 13:14:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2109CC433C8;
-	Mon, 13 Nov 2023 13:14:37 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9788960EDD;
+	Mon, 13 Nov 2023 13:15:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC16CC433C8;
+	Mon, 13 Nov 2023 13:15:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699881278;
-	bh=EtMfTCKsUg7ufBalhxFNF8jrs+peRdy0cY2hZzRhWmE=;
+	s=k20201202; t=1699881332;
+	bh=IUou9g1eC7eRyhYqxTZ2wecJaQRhh+vOQhsR2yztLhY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nS7ZNMw0hmdXGtW9w0SMYVBq4p59yvF5bYxvk/T84uxjzZf4zpFYR2Ozd7OH2gTCz
-	 u2AqN6RpKU4MZp/AkMYYpbeRp3zMOpry8A4u+d/t4zz47VuOUn+TtpUhPVsdG81X0E
-	 L0m7EAeVjdkCdzGXaXqPsWSNOGYOb51/E8G/YyTHFtEz7ujWpSSqWXjL0ZUqyq+ecN
-	 a9H9EGuWSJw+5DItCmAI5N7bJP5e9hRB0euEJfdiw6PM7LPeGUrL/FVrJc0Ls1U8m9
-	 CaqJQhoCyQIo5oI++GMPhggi9LWuB0tP0YzouBFu1To6wLb+VtEj89fAX48qkQdQAT
-	 uCMFAS8aTnMyw==
-Date: Mon, 13 Nov 2023 13:14:34 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Inochi Amaoto <inochiama@outlook.com>
-Cc: Chao Wei <chao.wei@sophgo.com>, Chen Wang <unicorn_wang@outlook.com>,
-	Rob Herring <robh+dt@kernel.org>,
+	b=Za5Hz+lfHckCYadClxj9S0HmEayg0pbrmOvWPNveXQM/WkSLZXIDPV+PF8DOId7ba
+	 53CZUqxcsNJl3kGjiSzF5hUxbt0ONRMxi7QL6efvnR09VEVUA5159sq2m6I/FRL1j3
+	 j+sFscRcacyHwWiDba9D0GeFD+H3GgjmSoKPq0IFoBOGG24+piLxfuQVC5EypMSJcp
+	 2sA8cry5c8+XiHGZy/J3S3TML4us/VSr+lWvXxfiTA/Yf0O+mAX/plKxTr62YFSPMw
+	 hnL59cvZmWjmMtJMufOcp04JY8MuzNNquCr7RmvuUz38PSFwTmhuwMugmGv65z4dKI
+	 sD5XqKbud0cTQ==
+Date: Mon, 13 Nov 2023 21:03:11 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Samuel Holland <samuel.holland@sifive.com>,
+	Tony Lindgren <tony@atomide.com>
+Cc: devicetree@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jisheng Zhang <jszhang@kernel.org>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: sophgo: remove address-cells from CV1800B
- intc node
-Message-ID: <20231113-portable-garnet-8a04dbb71b51@squawk>
-References: <IA1PR20MB49532613F5B4BD9753A1BB4DBBB3A@IA1PR20MB4953.namprd20.prod.outlook.com>
+	Albert Ou <aou@eecs.berkeley.edu>, Chao Wei <chao.wei@sophgo.com>,
+	Chen Wang <unicorn_wang@outlook.com>
+Subject: Re: [PATCH 1/2] riscv: dts: cv1800b: add pinctrl node for cv1800b
+Message-ID: <ZVIejw2O6on8QMYy@xhacker>
+References: <20231113005702.2467-1-jszhang@kernel.org>
+ <20231113005702.2467-2-jszhang@kernel.org>
+ <58a99001-8260-4970-9fc7-25fe81e557a5@sifive.com>
 MIME-Version: 1.0
-In-Reply-To: <IA1PR20MB49532613F5B4BD9753A1BB4DBBB3A@IA1PR20MB4953.namprd20.prod.outlook.com>
+Content-Disposition: inline
+In-Reply-To: <58a99001-8260-4970-9fc7-25fe81e557a5@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231113_051441_523987_ADF491E3 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20231113_051533_708690_67C5ACD9 
+X-CRM114-Status: GOOD (  26.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,89 +76,127 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2920103764798430644=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sun, Nov 12, 2023 at 08:51:20PM -0500, Samuel Holland wrote:
+> On 2023-11-12 6:57 PM, Jisheng Zhang wrote:
+> > Add the reset device tree node to cv1800b SoC reusing the
+>           ^^^^^
+>           I assume you mean pinctrl here?
 
---===============2920103764798430644==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="HnJ3G1ILUKIB0LMn"
-Content-Disposition: inline
+oops copy and paste the commit msg ;) thanks
+> 
+> > pinctrl-single driver.
+> > 
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > ---
+> >  arch/riscv/boot/dts/sophgo/cv-pinctrl.h | 19 +++++++++++++++++++
+> >  arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 10 ++++++++++
+> >  2 files changed, 29 insertions(+)
+> >  create mode 100644 arch/riscv/boot/dts/sophgo/cv-pinctrl.h
+> > 
+> > diff --git a/arch/riscv/boot/dts/sophgo/cv-pinctrl.h b/arch/riscv/boot/dts/sophgo/cv-pinctrl.h
+> > new file mode 100644
+> > index 000000000000..ed78b6fb3142
+> > --- /dev/null
+> > +++ b/arch/riscv/boot/dts/sophgo/cv-pinctrl.h
+> 
+> A couple of questions: Should this go in include/dt-bindings? And is it worth
 
-
---HnJ3G1ILUKIB0LMn
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Nov 13, 2023 at 05:26:15PM +0800, Inochi Amaoto wrote:
-> A recent submission from Rob has added additionalProperties: false
-> to the interrupt-controller child node of RISC-V cpus. But CV1800B does
-> not follow this change and still uses #address-cells in its interrupt
-> controller. As it has no child nodes, #address-cells is not needed and
-> can be removed.
->=20
-> Fixes: c3dffa879cca ("riscv: dts: sophgo: add initial CV1800B SoC device =
-tree")
-> Link: https://patchwork.kernel.org/project/linux-riscv/patch/202309152019=
-46.4184468-1-robh@kernel.org/
-
-This is a dupe of a patch I already applied, but have not yet sent a PR
-for:
-https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/commit/?h=
-=3Driscv-dt-for-next&id=3Db99df62818919b84e970eea5aec60b0dbc57da18
-
-Cheers,
-Conor.
-
->=20
-> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> ---
->  arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 1 -
->  1 file changed, 1 deletion(-)
->=20
-> diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dt=
-s/sophgo/cv1800b.dtsi
-> index df40e87ee063..aec6401a467b 100644
-> --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> @@ -34,7 +34,6 @@ cpu0: cpu@0 {
->  			cpu0_intc: interrupt-controller {
->  				compatible =3D "riscv,cpu-intc";
->  				interrupt-controller;
-> -				#address-cells =3D <0>;
->  				#interrupt-cells =3D <1>;
->  			};
->  		};
-> --
-> 2.42.1
->=20
-
---HnJ3G1ILUKIB0LMn
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZVIhNwAKCRB4tDGHoIJi
-0rkAAQCDRGINzffMT6MvCnhOlveVMvDNHnDgSN+m8Wjdp5iJ6gD/Zh+u83XnVzPH
-evBzqZTo5OoPvBJr4cZdAXjyS7KMPgY=
-=Kphh
------END PGP SIGNATURE-----
-
---HnJ3G1ILUKIB0LMn--
+When I cooked this series two weeks ago, I did put it in dt-binding, but
+then I found commit fe49f2d776f799 ("arm64: dts: ti: Use local header for
+pinctrl register values"), "These definitions were previously put in the
+bindings header to avoid code duplication and to provide some context
+meaning (name), but they do not fit the purpose of bindings." which is
+suggested and acked by Krzysztof, so I just want to follow the style
+here.
 
 
---===============2920103764798430644==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> including macros for the actual function mappings, like in the vendor source[1]?
+
+Do you want something as the following?
+
+#define UART0_TX	0
+#define CAM_MCLK1	1
+...
+
+#define REG_UART0_TX	0x24
+...
+
+pinctrl-single,pins = <REG_UART0_TX UART0_TX>;
+
+Other pinctl-single users just uses the register value directly, I have
+no preference. But I'd like to get suggestions from DT and pinctl-single
+maintainers. Hi Rob, Krzysztof, Conor, Tony, what's your opinion?
+
+> 
+> [1]:
+> https://github.com/milkv-duo/duo-buildroot-sdk/blob/develop/linux_5.10/drivers/pinctrl/cvitek/cv180x_pinlist_swconfig.h
+> 
+> > @@ -0,0 +1,19 @@
+> > +/* SPDX-License-Identifier: GPL-2.0 */
+> > +/*
+> > + * This header provides constants for pinctrl bindings for Sophgo CV* SoC.
+> > + *
+> > + * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
+> > + */
+> > +#ifndef _DTS_RISCV_SOPHGO_CV_PINCTRL_H
+> > +#define _DTS_RISCV_SOPHGO_CV_PINCTRL_H
+> > +
+> > +#define MUX_M0		0
+> > +#define MUX_M1		1
+> > +#define MUX_M2		2
+> > +#define MUX_M3		3
+> > +#define MUX_M4		4
+> > +#define MUX_M5		5
+> > +#define MUX_M6		6
+> > +#define MUX_M7		7
+> > +
+> > +#endif
+> > diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> > index e04df04a91c0..7a44d8e8672b 100644
+> > --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> > +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> > @@ -6,6 +6,8 @@
+> >  #include <dt-bindings/interrupt-controller/irq.h>
+> >  #include <dt-bindings/reset/sophgo,cv1800b-reset.h>
+> >  
+> > +#include "cv-pinctrl.h"
+> > +
+> >  / {
+> >  	compatible = "sophgo,cv1800b";
+> >  	#address-cells = <1>;
+> > @@ -55,6 +57,14 @@ soc {
+> >  		dma-noncoherent;
+> >  		ranges;
+> >  
+> > +		pinctrl0: pinctrl@3001000 {
+> > +			compatible = "pinctrl-single";
+> > +			reg = <0x3001000 0x130>;
+> > +			#pinctrl-cells = <1>;
+> > +			pinctrl-single,register-width = <32>;
+> > +			pinctrl-single,function-mask = <0x00000007>;
+> > +		};
+> 
+> From the vendor driver[2], it looks like this peripheral block only handles
+> pinmuxing, so indeed this looks like a good use of pinctrl-single.
+
+This is deffinitely pinctrl-single style pinmux controller ;)
+
+> 
+> [2]:
+> https://github.com/milkv-duo/duo-buildroot-sdk/blob/develop/linux_5.10/drivers/pinctrl/cvitek/pinctrl-cv180x.h
+> 
+> > +
+> >  		rst: reset-controller@3003000 {
+> >  			compatible = "sophgo,cv1800b-reset";
+> >  			reg = <0x03003000 0x1000>;
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2920103764798430644==--
-
