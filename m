@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16DFFC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 02:22:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E37EBC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 02:23:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WVcrNafMavk+9w9JyqjdLwOHTm8qp/JuumLcF6ylWa0=; b=A45EVweBpaVCZ1
-	DWP2VOcH7BgHbCEKTsYaclawD1jYjkWyYzM8H7adyfmzrJ0EyJ7lpmlhb7WweqlxW4cRB1rxc4EcV
-	Bu2kcrbBmrGhvxb7HDNX59nQjua2YjRxONkntvITSks1e24AzXTcf3JutpgNIFD8MbrcWLHcgrhh1
-	fgIn7nmlWk7sNH7E2iubMnvrGIijXNDD3bhbCA848hALzYiAdYN/4gnDYMBe8tuzbQPtgk9NJWEYL
-	1M4KPFtbuQnwzOGunBWy5xkhs1CvnBEXMRf/W9hXa3lIHwlZRRf7z9YzoFWSv/KMFuhrL//wU9o6O
-	t/B/Dmd5pPM3XXR+Mqlw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QUZ12X2ZZzFLHQVvLWysL0Ij9vsJWVR8oGqaLGkMHrI=; b=qwhw2podvLwMh2
+	Cmu/knbUE6b0Ch6kkS1B0omxvsNX8whtapvcnb4T8d2cAQPbvQ7JhZymHNLdtWRZwvumtJKKvsMpw
+	vDjCVE/V4zzcM19sMqVDko4uanwsD4QqfI2C1dUkFxD5KromAa7DxIwH5yUEiaQBAREW3FjgGbYZZ
+	hwv8zCVofvDh3ZNaYmTivK/WmHR54bYEfliwg5S4+lDKVmUdTcihX7hur0oSAMcgCFm/0hCZT/kXv
+	Foe1cyxVD5/SF4NYLJjPCKKb1cFK0BYz4vDEPRuoD8YL+Vw32OE9WuvcSln4pxtwv5lpNUl+gjRi5
+	KSL8/k529jZOoVzMBuBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2Maf-00D3ci-1t;
-	Mon, 13 Nov 2023 02:22:17 +0000
-Received: from mail-dm3nam02olkn20803.outbound.protection.outlook.com ([2a01:111:f400:7e83::803] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
+	id 1r2Mbs-00D3oO-0O;
+	Mon, 13 Nov 2023 02:23:32 +0000
+Received: from mail-bn8nam12olkn20824.outbound.protection.outlook.com ([2a01:111:f400:fe5b::824] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2Mad-00D3bW-0a
+	id 1r2Mbq-00D3nL-0q
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Nov 2023 02:22:16 +0000
+	Mon, 13 Nov 2023 02:23:31 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=SilCnvCQ8et+7ewDOGZJ73dUzNbIhkH8eaNwuXgseZqKqUdkretRccQCR0O0nXT11zEj1DTkjlf/uRuXy6K9ob8KcxUDg2NJEopZqBVcyzgV75gevSlbMuKLJj8VzIrymMH1efeVSRAAB11waNmbVCGkek3MT13MYGo2P7HztbvH7PoWvdsPDvnMOelqEkv8R4lthfOape+h/sAyfAcTTqPP0Qmx2dhcxfyht7PQqkpzvT0ym6FCjZtBdcVX9S9F8LEYM4xTvjPs+ihYubQ58Bc9zVGLAMZA2lgDU2b0AsmO+f1QhO3qAUijh88kyZU5Czw/sq/Z3bouLllQ2Lar0g==
+ b=U0iCFeWoVsRtDGJt5DdHjwtvwS885tnWJnCPUC1jeOx/z9Ld32E9MY+Gs008TLibf/9p/msITmTnPyWpP5KkQixijKypY//wocrmgg8E9lPv53sV/ZUzyqsD99hAMSIRjxiIxU9QaEChCXlYP8iPjcy8dSrY7WwgHsF/nOrYVt+zCtiHGzsMrhEDsdYgG9Df0pKkg+N1P9CYVc/TDlNemAFMYZd7EDTY2WWHLL+qyh96SWA97drEIBdOQjXJZEldkbVu/jZTStkfTHcCOY3f/UwiLq1knCpgIpHAObMj6N8s9MEg3oyjfm51hHClibW1RkX7IDIoDwetTJURGjlwwg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qQMWpymeoTpuaMalh1DVoOuuEFVWgQql0iJzlOGxR4E=;
- b=gjYcst6mdQcQ6fOHV3Oo3nkKCqQpdJW4zvYyxI/Y08DVTwHDchB612+fht0hbm1MDLgcZveLkDzml2y3wWM7O/XEbSyys9xYcs0owB3nApmRCIvLV6LnWMhHr/UEv7PjwEAACl0k9ttDyy+8ARe1rhTElRdYgcFIZF3PmQ0ajb43VWU5+2eHxre7ArZOrvpGHl8uUYlYJQzAzpfrzbF6tQIuMU6gNlVPItdvRhASEdSrRAIuYH9tgJNeVYSCtKdwp7NroS8cPxGjFodPwJmfqoe5SlQN5CpmrjzH9zqXmwWDmDIXJS0uGqVtDFt2d/qlXnJk2347W1hVg/sMdfpe2A==
+ bh=LpU5gCj9Do/cH/wu/rkfmj9yggEU+9OjpG/hwnYqUoM=;
+ b=cFtjKMH/5DzxT58XcEjryBhKlZL4whZbO6f37OcbOsrC1AgMsiAO4jl6bWt4Oig+EEJwkpTEbdJGfZceU44WLiaKucPCDC801QrcAGxTLFFGs+4qXF2fevasZAbh3kNV/BEef1Sh4MOtHXRbsb0tiJVbfmpKP7tpaAetfM1M5abMYkOMxSY6r6nFG2NPJK7OLlsfdo34ZvYZwy4g6jaLU0bF/e4GTiuLyP5YL9muUNGr08Sx31koCPvE1n0j5kJ4K5MI42BG2O3gy9DTO48KJEPjgC4iWt4kAPBDG0v8H+F18uQCPEq4FOdhmZfMNA91P11zTBrOCWDmAofm8zXTEA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qQMWpymeoTpuaMalh1DVoOuuEFVWgQql0iJzlOGxR4E=;
- b=g36lSVu1ysTuGf0D4+0ZpAySu0UQAxUnNsI5JXLnKopFNhTkJ8L4IyP6wupY7mleFFGpRwEOW1GvD0VTxk0JvKbV7bDGVYTfFMtn8feTYpalgWfgXXnY6l+uWpVWTh1jYYC0kSsNEImM707gOjJ5C2n05ccmzuk0NHdSiOrt7KxfXlaszqc2XcJeNhoFO4RGrIposvje3R+7L0r5sv8DKsoCHlg6Id7jcTkVinq0xDqbVlQonVSTKhr5mqw8v0tE0BnNq75QndkF7zzfeY0vsdOB8lFFa82jwTk6TYCLH6l1zDwKLk2V5dug77nBAzv/tq3n4rlhUHX1E+TYcnSjcA==
+ bh=LpU5gCj9Do/cH/wu/rkfmj9yggEU+9OjpG/hwnYqUoM=;
+ b=FLjOPkYbHuLqVTMvUqO7jX9oQFG0ba1fgeGCHXciyLa90biZktK65yMgF/KKuPU2E/D2ugbfZ5/RtqlQ6Ix6wOKxbVeAEqUhUYKCcR/Ttks/g6gx8cOgwGdmiXga9AJkw2IU2leQd8xYpaHjSnXhfbn2BhW/YREw+NZKutLiEeuXvaRleNYEUITeNDUzqviRnmiR5lfmeXVDlaZBg85Rxf4QLwDwf9hjiKUesv7m35ERN7Sq/EKvRWWVed9B0oFTctWy/NUr21Bs7W7LBid4fd6y4BbGW4lg4TrMUiu7WRUOyK7RdBNUK5XDm32zrloisUO9cSH+JUCmhvJlYLQq7g==
 Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by SJ0PR20MB4533.namprd20.prod.outlook.com (2603:10b6:a03:3ec::17) with
+ by MW5PR20MB4404.namprd20.prod.outlook.com (2603:10b6:303:199::20) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6977.28; Mon, 13 Nov
- 2023 02:22:04 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6977.26; Mon, 13 Nov
+ 2023 02:23:21 +0000
 Received: from IA1PR20MB4953.namprd20.prod.outlook.com
  ([fe80::55b:c350:980:ad8]) by IA1PR20MB4953.namprd20.prod.outlook.com
  ([fe80::55b:c350:980:ad8%6]) with mapi id 15.20.6933.029; Mon, 13 Nov 2023
- 02:22:04 +0000
+ 02:23:21 +0000
 From: Inochi Amaoto <inochiama@outlook.com>
 To: Guo Ren <guoren@kernel.org>,
 	Jisheng Zhang <jszhang@kernel.org>,
@@ -58,67 +58,68 @@ To: Guo Ren <guoren@kernel.org>,
 	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Inochi Amaoto <inochiama@outlook.com>
+	Inochi Amaoto <inochiama@outlook.com>,
+	Chen Wang <unicorn_wang@outlook.com>
 Cc: linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 0/2] Change the sg2042 timer layout to fit aclint format
-Date: Mon, 13 Nov 2023 10:22:36 +0800
-Message-ID: <IA1PR20MB49538304E99DABF0208C00A0BBB3A@IA1PR20MB4953.namprd20.prod.outlook.com>
+Subject: [PATCH 1/2] dt-bindings: timer: thead,c900-aclint-mtimer: separate mtime and mtimecmp regs
+Date: Mon, 13 Nov 2023 10:23:59 +0800
+Message-ID: <IA1PR20MB49538E6F9B462DD40E98C998BBB3A@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-Mailer: git-send-email 2.42.1
-X-TMN: [tD0OtFIvJ4wZ/yk8YKvmWx02inennZONpGrb9so1Lpk=]
-X-ClientProxiedBy: TYCP301CA0055.JPNP301.PROD.OUTLOOK.COM
- (2603:1096:400:384::6) To IA1PR20MB4953.namprd20.prod.outlook.com
+In-Reply-To: <IA1PR20MB49538304E99DABF0208C00A0BBB3A@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: <IA1PR20MB49538304E99DABF0208C00A0BBB3A@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-TMN: [NdSFdl8D1J/KNdb1Jw2n+dBp1hKcMzyIK4ShqDiJjW8=]
+X-ClientProxiedBy: SJ0PR13CA0160.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c7::15) To IA1PR20MB4953.namprd20.prod.outlook.com
  (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20231113022236.35992-1-inochiama@outlook.com>
+X-Microsoft-Original-Message-ID: <20231113022400.36203-1-inochiama@outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SJ0PR20MB4533:EE_
-X-MS-Office365-Filtering-Correlation-Id: 01adb556-87f2-4fff-dd09-08dbe3ef5376
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|MW5PR20MB4404:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2bb3733d-91a3-41f5-91e5-08dbe3ef8125
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: vNqHbGWbq+JgB+ukfxv28Z+dAeKNwon5Zu4Cl362zjSfhfbX2ozYhoG/UqeRG3/c2h8tj1p3507sCKPBSomUL9gFBeI+n6GLkDSlXkTLZ9y8LK1ux9abAl33M/53ktC4+mbEkPriPIH+mmDhXn2IxBiP0Bo/+OzNB6nrUQXfRQX0GjNSLSF1wt3tAWNRgjbDPzrCd7AMhKgWFL89x9X4gltyQGYY5Pj6f9gkeBl7SQssQB2hNeGMarfbwdQUHqzeufKy56yJtYAtR97ZsfeJWAqr/7ppEbIW8UkMxSX/LAp97tEU+AoDJCWDErZeP5lGNC7zirD10hUg2QDxT7f7dClxJVfqGumRV0m1Z81iej0UKOKWIqDupa4oPHU60I4cEkKlUn2c5Hbn8thBZdIDvi1dXciooXDg6YqiQTBf9c/XI1GCUhW1R37Ha5bkangQayqKTmAM3Oh+DvSWyLUx16Vox+F1RGcwX+DNwxb5ks88z3pVE0zJIs1yDUNc4p8Dfz2MVbsXbxHmgFH3q44D7XuGg0hqzui6saAy/yrhfk28mYCCiQ+Dv9KmqvVWPyj7dpcXYhSb4cZbOOczfG4brJtmm04uV5rVHu6QZ4hDaIuS+ALtB/fmA+JWvVVxCB/3
+X-Microsoft-Antispam-Message-Info: pGTDLKvdumGcnYWbLifUJ6CT7wHFGfj18s3C7bXy5K1+ZUvNDeKUVdxXzYO4pBxyrd9ERjtUkSJqzAefd4VUCQjhvQgreidfgDk5W9XJUnlFvPdStkXPlxnMpK2qLc6NBRd78WUEy2FBjACVd45zpkPb9jFPUIfBGJYVNhg3pNy75vGmgYyTqySWjxNcf37JgDWvRMbeNRHRx1AkWltt2AaEt6KoaDPt3uzqEg1r1K6EbROlbnkcwHXqV77Zqkkj0MUdgW7Vx+d7FnUWinTvPVAYnpCwNpeR9b+4BomyTtdey4fv6yG0lZ4SX22S68vcbQuPaG0RpWkNQWvBHgk3OtRyyF8h0NVdjGHYXEJI8z75pVmhslhAmWfHP1G7WSNG2IktQT+vseij+XMpxRxrrQ/uNt6DFBi8eL3WDv7jrDCT6YjAav+CvfRzAQkqAXw2bgyp4AsayZPo43mY46R+sWLVe5uEQ583uOQHDvd3Shv+0K4oKUas7daKhTkSf1LgQ/ARsxUZ+VI6lKbTvKaw4+jfOAv0NgJWYMeUOtlzAC3YqQFPAzmJOv0l+jCwDcpfmlhAzAzeOBbdJEP3Jb9tJZC7SpxkmVKH+07rHDNV3DI+G+JbYRMcAyycjKQcQL+0
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?X0fXaavE5yyGFZyHWmRzC69Mn6eAPLXDREXs4sP+eBg0wbSAtQwyvwI7FKMV?=
- =?us-ascii?Q?DzisBzNMofkIYTqN21+cvlEa+SIqBcIjx9hjO9i1i6P6pKuAqKkqrs6a1JaU?=
- =?us-ascii?Q?I/cVAoRNBaRSP97capmQA1AKVNY2s0hlSpoqwzdAJXAe3U8GJ3utaDzZwN2D?=
- =?us-ascii?Q?1vWcD5j1slseItP9Fs62yEhwkhUyWS4KdU1EP/JGvmRHaxiK+iE2qQeOE+FZ?=
- =?us-ascii?Q?wkyn0W3tCZkgt3cc7+6/F1fpywOB8m5i7njg5UOgY6ukmWozVDnwIDdSScar?=
- =?us-ascii?Q?qeuxsvWcvHT6fMp5iShw8I6DjxKdtKUTrJYUpYPWUA2EsT7spiH7D6d+Rb02?=
- =?us-ascii?Q?V9waWO9MIm5KEwWGlCC1WkrZXjMTgLZLNfzvYB6bgyElKH5/BvC1hgIgoouv?=
- =?us-ascii?Q?0bvYjDtx1qSAW4ltoRT0WiIkX2NiwREwqzr5yv1NrEDI6eI6sl+avKNdy1kT?=
- =?us-ascii?Q?C6T8bSqiej4WfrrXyOaZ+3KGA565laWmxEm7BBzoH103urynatLWhUlPXETH?=
- =?us-ascii?Q?QF5MzPtP8QTokk73AvaHlKtEEatCoffKXqOGvLQSXAUxLk3h17AejXWCbDGl?=
- =?us-ascii?Q?p5snhu/g+ZTo3k0oqvnjzDY/wJ58jAN1hHeKNUOA/NRSTgdnSECcEQE91/FZ?=
- =?us-ascii?Q?sqbI0emJg7uLxUS6mEXv1a4W2m1nk5/Hr74vkCXPGTT0XzzRKER5nYPCE4oX?=
- =?us-ascii?Q?99lNf/nZWNwI5qWEzTGV5cZvfi/ui9tWYg3cWXBqQ2GL+yyLfsWAEuPdljQF?=
- =?us-ascii?Q?mO1CgFY9bICJ77onYfi4OfBYgYJhWOI4hEs9jbULgrnfSlNoQI6CBeEa3hjB?=
- =?us-ascii?Q?3bt31ik6BUfEmDZHDUjMbLHQzR26fYuUfLyDopJqCG0mYnfH0rkLuFYSIkuO?=
- =?us-ascii?Q?Dc1RmOb66aOd/U8jBFiVy6TeDTwoyiOBNpWb1k3f7tX5iEyJ4cNNynz7uLCP?=
- =?us-ascii?Q?oMAGwsQH/59zfhRRYfJtMJVGDQ4nnbIxJOpR76W92neAUHdwcmk2Q/vHcyW3?=
- =?us-ascii?Q?uHo2e+Dv/IVeoCZMWhlgboyQcVqACdSts4uPfa51fQ6zd9HYHFig3wFurIm0?=
- =?us-ascii?Q?x5UZ89A9i1RfAEfmaam7eaFU4hQRqtMR9B3WOfenggyzrksziljT6nn3475H?=
- =?us-ascii?Q?us4fejXB9n+q8n94b1WtWTw4+LEuCQgG85+x613on+iNKpFGLTKSVc1lFjcy?=
- =?us-ascii?Q?w4iOsmOOyoQjwrmqYidVo0qvm9qjQaDMkdjVMM5Ab2jpoYwYLQA5UdOxcgk?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nUHZ/ow1OlEvByHMSJMkXpxOjs5FP4FAhEjmF4CR7DJOX65CfEW2RA1Agch0?=
+ =?us-ascii?Q?qOeGwZWClHg7U1T+sMamhq4+QL8JxN6WxGOe25cF28rKNdqGBWUPkpQA4iX7?=
+ =?us-ascii?Q?9Eo3O6bblbjcon8HujoOnKZHHuN7anFweI5snFi5dBRVT/DccAJB59WaDi8S?=
+ =?us-ascii?Q?ZWmPx+ShVaxfny2jcKLDOeGTG+/aN7AYHNUjyL+RFS5PPZw6xTsIyZibbxi4?=
+ =?us-ascii?Q?sTMZa17ZzoASkEju9VhbafaZ6rlqBsYHLODksPTvoaCwtZhwgkHzvCyZUacJ?=
+ =?us-ascii?Q?ULfaLMtGId/oQbdQkmMT1QkYYS0COb1RZa5KFUdfkMZSy5T8XGdWFcRW0l4b?=
+ =?us-ascii?Q?WFYU0y2ZLfpksSHaKCztYIWMzRi7MEF4bK5G9A/2YqaS1x/yyEXkD8Y3umrU?=
+ =?us-ascii?Q?E/NOlutrcGNySJDnjWRqgyDBHbP9HlVOEO+Phn+bFmc7A8UU6QapbDi3L9Kr?=
+ =?us-ascii?Q?xaHB9Q9VJTghEWtIX3GrdFOtvfMX2DSvjrj0UUtNTX5Y/ym2kddk2Db83S20?=
+ =?us-ascii?Q?JRjV2vmqdGKdLWkiUWWjvXK5WMTItOi1Ls4y2lnVUTNV7Dxnr3oeWW25Gi67?=
+ =?us-ascii?Q?INGsSWnz5Nj9gzykQsPl41Clu0C2DDGBit9jk0j1Ry8vynZpqkpczsxG3lfn?=
+ =?us-ascii?Q?ZwCCSg8NUcBihWEJmEm6IyEU2c540DrkBYeAbQ27aS25SJRlmMUQS/iovR7A?=
+ =?us-ascii?Q?nWRzSutmrnNAUS8skzkfTGJqTglaY9HDhjxyIflFQeP6JQKCExV6bbitwARi?=
+ =?us-ascii?Q?/K+KcSwAW6LeOv2BbfSHNYNYoSDcLxSVkGos+/ZS5HsOVgXsgh+6pMLjzeoJ?=
+ =?us-ascii?Q?uvFnd9x3doMaWvHTvKZSmmYoOfjnOnbX6rHV4FwFxTolXGRiKnlJsD6z6dDP?=
+ =?us-ascii?Q?4MZwQkiglS3WMWUUF/iRho83MfWXWC97PlyJhHpVNTjGaB0LNHqZuy595x7/?=
+ =?us-ascii?Q?4wGgS22wY9WZKnTUTg+UbDkpxHR/8W+BcI5lUJX0WtVk/vMCz71b5PXT9RC0?=
+ =?us-ascii?Q?kfh1I1re9ERrHZhlKAxi9AadXe2oXrWR/px7+H78Dhhx8XniBRbxudK9W60w?=
+ =?us-ascii?Q?cn6fB+R4l1K6hEJMlUlktNncJdw1Cl58+yzzvOQHlZA/R1T3AuxeZlcd6yMO?=
+ =?us-ascii?Q?K+3kAr0E4qsLoxEP1noIzzUL6MzLUdme9wwB7if4W5Azz6gT3yG9JtKwJHn+?=
+ =?us-ascii?Q?NkktjEQ/Hb/mFD3/a5+KZpj5YXSzbWpePVnW6eVjGFmA5cn2+itPr3fmCjg?=
  =?us-ascii?Q?=3D?=
 X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 01adb556-87f2-4fff-dd09-08dbe3ef5376
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2bb3733d-91a3-41f5-91e5-08dbe3ef8125
 X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2023 02:22:04.6836
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2023 02:23:20.8836
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR20MB4533
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR20MB4404
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231112_182215_222427_117EEFB2 
-X-CRM114-Status: UNSURE (   6.65  )
+X-CRM114-CacheID: sfid-20231112_182330_302886_829ADE8C 
+X-CRM114-Status: UNSURE (   8.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -136,26 +137,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As the sg2042 uses different address for timer and mswi of its clint
-device, it should follow the aclint format. For the previous patchs,
-it only use only one address for both mtime and mtimer, this is can
-not be parsed by OpenSBI. To resolve this, separate these two registers
-in the dtb.
+To make thead aclint timer more closer to the aclint spec, use two regs
+to represent the mtime and mtimecmp.
 
+Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+Fixes: 4734449f7311 ("dt-bindings: timer: Add Sophgo sg2042 CLINT timer")
 Link: https://lists.infradead.org/pipermail/opensbi/2023-October/005693.html
 Link: https://lists.infradead.org/pipermail/opensbi/2023-October/005738.html
 Link: https://github.com/riscv/riscv-aclint/blob/main/riscv-aclint.adoc
+---
+ .../devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml  | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-Inochi Amaoto (2):
-  dt-bindings: timer: thead,c900-aclint-mtimer: separate mtime and
-    mtimecmp regs
-  riscv: dts: sophgo: separate sg2042 mtime and mtimecmp to fit aclint
-    format
+diff --git a/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml b/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
+index fbd235650e52..c3080962d902 100644
+--- a/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
++++ b/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
+@@ -17,7 +17,7 @@ properties:
+       - const: thead,c900-aclint-mtimer
 
- .../timer/thead,c900-aclint-mtimer.yaml       |  5 +-
- arch/riscv/boot/dts/sophgo/sg2042.dtsi        | 80 +++++++++++--------
- 2 files changed, 51 insertions(+), 34 deletions(-)
+   reg:
+-    maxItems: 1
++    maxItems: 2
 
+   interrupts-extended:
+     minItems: 1
+@@ -38,6 +38,7 @@ examples:
+                             <&cpu2intc 7>,
+                             <&cpu3intc 7>,
+                             <&cpu4intc 7>;
+-      reg = <0xac000000 0x00010000>;
++      reg = <0xac000000 0x00000000>,
++            <0xac000000 0x0000c000>;
+     };
+ ...
 --
 2.42.1
 
