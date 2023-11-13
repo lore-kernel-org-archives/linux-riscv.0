@@ -4,86 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 277F1C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 15:37:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6750EC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 20:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eoTzQ06+jByGPI4O+z0prdRAKA5XczXK9vXtXh2iYlY=; b=jRi0Z+t1ZQe8Il
-	2y95f+mUU6qnRXm+gZKCCIUrSArj6MuuuN8YSxVCz0684xibPZ0Sj/Fxbipnvk9YM5cR0XM2UGurj
-	JpDLep7RqqhyHfAMyq5sNlamSqp0ZxlZ74yy47VDzZEQgFmf1Fzgm4fusNfRjjec8LJvq4FKjmz6x
-	27As9zl/dmJ9RtlkiT66kSNgVcdPKh4M8Ca90MOjxwhz/bOw1EUjx+15DKZ8nUXNp/WaM5SyQ6SeL
-	XA05iY/YbLMLbHKpBkVZhGFa8iTzS0cZfJFsxKbQ3WO9wp2DTnek08nww0jXg8yU7D+/GYC52XXb/
-	2tq29oxppffZmODIHuKg==;
+	List-Owner; bh=VRLfwt436hsnt2kN40rE5VAXTIK1pQ0I6nsNYJMaX3Q=; b=Cv72mb2Rv35m7W
+	/T7oDu4Bv//IDdMaVEmME6IDgmJRG8DUD0/1bzaUiTU1KsYUihweUdl/GjyLZszz6pVieC9lKZWXB
+	+30sOFLcPcE283gb2XExeps9ve2LKXspQzuVDjgmkRLEFuDQNWUvGw6VtqSTj4f1mdgzKdFdyRMhA
+	CPWRBdC4DvqJDKQjvXv0RCPE5Il9+FOFGcVR6esINBahEo4X9NAWQHG60FS6L93521NoaCakM+fw0
+	yyOYVV4iMG22wA5UX6O0cr3p+1PSAAQgvwpoUWoKCj512/n4zzmWf1zYF+NoMketF2SCeiSDdXzZA
+	KIXQMdXMLb4ULWWnH6Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2Z0Q-00EFap-31;
-	Mon, 13 Nov 2023 15:37:42 +0000
-Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
+	id 1r2d90-00Ec9W-0q;
+	Mon, 13 Nov 2023 20:02:50 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2Z0N-00EFa3-17
+	id 1r2d8x-00Ec7y-10
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Nov 2023 15:37:40 +0000
-Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-41b7fd8f458so28967471cf.0
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Nov 2023 07:37:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1699889857; x=1700494657; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=4tzWoq297WulTYALKaxRqew5uETGDYoNQPFDim6ud7Y=;
-        b=TLEe9KUm+ru31W0vscGHiNxbO4sihi56Umcy+zY8dQA34RpW3udV4DyjC0ccBxcNgm
-         DrVMPjZEVhW2sehJD5OB27/VNMRJTQ739LQoen/01JlfT9Gpvzm4LpfIl8NedmocwIs8
-         WDaGMwAcuQrAEbkqbd7rAiwcnpW4hF0Yy1alb3ubn4Q/KMoPB7LI9YM6fx/90a3NIg6D
-         Qsu/Lm0jw5fzp9Fg9fsWPU6NvsId03sryHpLCznYrjQZ+IMOKMSjukybbIBPRd4ulbI2
-         lpr3wrwTJ+LR+Tr3rMtBjwMk2iQmiW6eYKa9V0DTiz/s40dj5yhoKiWfsZzXwSaeLiz8
-         tb5w==
+	Mon, 13 Nov 2023 20:02:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1699905764;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=x5sbsbZrhM7njh7UJ8Gfj3jbjPzQiV5xODIk6atjKoU=;
+	b=FC7cvOMY36DbgQF+XdGUaq5cSkrqnGGK8IZ5rJQqIIfaIxYX+Mn86Wz7CycVKWpBCKUfuz
+	bcYI/a7egw3rPRjnbMrvjM4Su5TfBp0kxvoVe27CFAJ4Z3/jA18aUyGsKozAbK9ssl+Yso
+	27Xgx5Y3DlLNQDeGasEJTIBsGoXsR9g=
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
+ [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-639-PronPfz4OJy3AXHfNGqMIg-1; Mon, 13 Nov 2023 15:02:43 -0500
+X-MC-Unique: PronPfz4OJy3AXHfNGqMIg-1
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-66d159f725cso63271976d6.2
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Nov 2023 12:02:43 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699889857; x=1700494657;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4tzWoq297WulTYALKaxRqew5uETGDYoNQPFDim6ud7Y=;
-        b=ktyw9RvM42zfyH7NLAxMBjbz7jfnmTKORKoMMlzCsrBQM0VWUvf2onnnoKfG8z/iAr
-         IGi4mtyXVWHXCCN8PfgNpNKarpfrRN7BTg7FfRiOf544Wn65NiE4/8p1rr7uzw+YVlyp
-         VwflSlT6nhAlxR+V+rAxWuSECnJz2nQq5kTYCQxxRoFX/BErK603yacoHQQJK7tPeq7z
-         7iLEq6lFpawTomvD+CaNum2ZQ8eDybfk1tooEjxjJ5a2FLoI5QiJ/hPYmF8FtLYo6PjE
-         0X7sy7nyqNXd1QrKn/3dokyjR9asgiE/gLzdSnjo0De1Bb69iD2ThUyZZYqJ1gdVhyxt
-         BdsA==
-X-Gm-Message-State: AOJu0YxEAHOI+oNKvSXZBOSLvnRGfNF0L4Xg6WnjmiylStXXSeVNLdp1
-	SMlWsqMFWIuwznnEkoHKP58Zqw==
-X-Google-Smtp-Source: AGHT+IG8E/omZHPUI+v3RUdT6i8N7Zm0/RMqKn+N3J3X13lnSqMYv1fnuditgTZu1q3iP19bWHlFNg==
-X-Received: by 2002:a05:622a:245:b0:41e:a932:31f8 with SMTP id c5-20020a05622a024500b0041ea93231f8mr9811668qtx.6.1699889857255;
-        Mon, 13 Nov 2023 07:37:37 -0800 (PST)
-Received: from [172.25.81.170] ([12.186.190.1])
-        by smtp.gmail.com with ESMTPSA id t19-20020ac85313000000b004180fb5c6adsm1996974qtn.25.2023.11.13.07.37.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Nov 2023 07:37:36 -0800 (PST)
-Message-ID: <7cccf188-c47f-4865-95ce-dcfedc1429dc@sifive.com>
-Date: Mon, 13 Nov 2023 10:37:35 -0500
+        d=1e100.net; s=20230601; t=1699905763; x=1700510563;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=x5sbsbZrhM7njh7UJ8Gfj3jbjPzQiV5xODIk6atjKoU=;
+        b=HFgDSAf1j+eH2CrXnbaREx++f5Ag3CESck9Vu2zfaqsgnSICghqyfjqoctwoocYvXk
+         H+ubqg/eTzhw7DWCAvnmb3I6EPIiich6q2B2xhPuFyMZzOuH0QH6PwH0l6iJudIZpZk2
+         on5WYzJ/GNZHujNGcGUA+izivS2jdbtLMPM8GKArIgeWsIANb1KAA3UibxxH7mw7o1Vx
+         ir7tU61s2JqaI8nmB/FAtVylDdRU2vRhAYDW/+K4JIBo1aJQO9+JnKb2sezf++Btp160
+         Or0Q9WeEJs/U8HvE/MoWCzg3gjAuFv1jl7akogmE0I0juBvzsWddek19CGiZb9pn2tO4
+         bPjQ==
+X-Gm-Message-State: AOJu0YzGEES4xVxQgRms+CWecrbZIjPnuvu3cDMUGPtiq3ncUHGcOO5G
+	abQcBVj/Eg7k7XRhgnrMzeWSvfYMhPY5hV6lXwZZddGd5IB2hvMlK8PIj/GOXxu9UQrkvFLmK9D
+	IaYYx5022iEKgYrXgVkTKW1C4ZDd2
+X-Received: by 2002:a0c:f9d2:0:b0:66d:9970:6464 with SMTP id j18-20020a0cf9d2000000b0066d99706464mr233537qvo.13.1699905762794;
+        Mon, 13 Nov 2023 12:02:42 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHVvfJ/8QycB4sitSkyNc9BJr+XhgbESVoJGYkT8lKAjf1cMgXzof7Oqc5lCEmlPE1oL2APNQ==
+X-Received: by 2002:a0c:f9d2:0:b0:66d:9970:6464 with SMTP id j18-20020a0cf9d2000000b0066d99706464mr233490qvo.13.1699905762358;
+        Mon, 13 Nov 2023 12:02:42 -0800 (PST)
+Received: from localhost (ip98-179-76-75.ph.ph.cox.net. [98.179.76.75])
+        by smtp.gmail.com with ESMTPSA id vr2-20020a05620a55a200b007757fefea79sm2097337qkn.130.2023.11.13.12.02.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Nov 2023 12:02:41 -0800 (PST)
+Date: Mon, 13 Nov 2023 13:02:40 -0700
+From: Jerry Snitselaar <jsnitsel@redhat.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: acpica-devel@lists.linuxfoundation.org, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev, 
+	Lu Baolu <baolu.lu@linux.intel.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Dexuan Cui <decui@microsoft.com>, devicetree@vger.kernel.org, 
+	David Woodhouse <dwmw2@infradead.org>, Frank Rowand <frowand.list@gmail.com>, 
+	Hanjun Guo <guohanjun@huawei.com>, Haiyang Zhang <haiyangz@microsoft.com>, 
+	Christoph Hellwig <hch@lst.de>, iommu@lists.linux.dev, 
+	Jean-Philippe Brucker <jean-philippe@linaro.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Joerg Roedel <joro@8bytes.org>, "K. Y. Srinivasan" <kys@microsoft.com>, 
+	Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-snps-arc@lists.infradead.org, linux-tegra@vger.kernel.org, 
+	Russell King <linux@armlinux.org.uk>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Hector Martin <marcan@marcan.st>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Robert Moore <robert.moore@intel.com>, 
+	Rob Herring <robh+dt@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>, 
+	Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Krishna Reddy <vdumpa@nvidia.com>, 
+	Vineet Gupta <vgupta@kernel.org>, virtualization@lists.linux-foundation.org, 
+	Wei Liu <wei.liu@kernel.org>, Will Deacon <will@kernel.org>, 
+	Zhenhua Huang <quic_zhenhuah@quicinc.com>
+Subject: Re: [PATCH RFC 12/17] iommu: Make iommu_ops_from_fwnode() static
+Message-ID: <gg6ecoukkia32t33vjfunny4y54pulz6k6zfkfpp6nahav4otj@z6e62pbavceb>
+References: <0-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com>
+ <12-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] riscv: dts: sophgo: add reset dt node for cv1800b
-Content-Language: en-US
-To: Jisheng Zhang <jszhang@kernel.org>, Yixun Lan <dlan@gentoo.org>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Chao Wei <chao.wei@sophgo.com>,
- Chen Wang <unicorn_wang@outlook.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20231113005503.2423-1-jszhang@kernel.org>
- <20231113005503.2423-4-jszhang@kernel.org> <20231113143224.GA130254@ofsar>
- <ZVI9bzAhPnHhVg8A@xhacker>
-From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <ZVI9bzAhPnHhVg8A@xhacker>
+In-Reply-To: <12-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231113_073739_401125_65FA3092 
-X-CRM114-Status: GOOD (  20.74  )
+X-CRM114-CacheID: sfid-20231113_120247_422446_AD71755F 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,74 +121,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jisheng,
+On Fri, Nov 03, 2023 at 01:44:57PM -0300, Jason Gunthorpe wrote:
+...
+> @@ -1044,11 +1043,6 @@ static inline int iommu_fwspec_add_ids(struct device *dev, u32 *ids,
+>  }
+>  
+>  static inline
 
-On 2023-11-13 9:14 AM, Jisheng Zhang wrote:
-> On Mon, Nov 13, 2023 at 02:32:24PM +0000, Yixun Lan wrote:
->> On 08:55 Mon 13 Nov     , Jisheng Zhang wrote:
->>> Add the reset device tree node to cv1800b SoC.
->>>
->>> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
->>> ---
->>>  arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 6 ++++++
->>>  1 file changed, 6 insertions(+)
->>>
->>> diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
->>> index df40e87ee063..4032419486be 100644
->>> --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
->>> +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
->>> @@ -54,6 +54,12 @@ soc {
->>>  		dma-noncoherent;
->>>  		ranges;
->>>  
->>> +		rst: reset-controller@3003000 {
->>> +			compatible = "sophgo,cv1800b-reset";
->>> +			reg = <0x03003000 0x1000>;
->>                                           ~~~~~~~
->> 			        it should be 0x28
-> 
-> The reg space is 4KB, but only 0x28 are used. I think 0x1000 or 0x28 are fine
-> since the ioremap granule is 4kB.
->>
->> while please also note the 0x24 == SOFT_CPUAC_RSTN, does not compatible
->> with the reset-simple driver, but as it's not implemented nor used in this driver,
-> 
-> But the functionality of this "autoclear" reg isn't used at all since we also
-> have "sticky" reset to acchieve the same feature, I.E reset cpusys. And in the
-> usage case of reseting cpusys, I believe "sticky" reset is preferred.
-> 
-> And except the cpusys reset which has both autoclear and sticky, other
-> resets are sticky only. I'm not sure whether it's worth to write a new
-> driver for almost useless feature.
+   ^ was missed in the deletion below
 
-As long as the device has its own binding/compatible string, it is always
-possible to replace RESET_SIMPLE with a custom driver later if needed. (Or use a
-more complicated driver in some other context, e.g. firmware).
-
-Regards,
-Samuel
-
->> so we should be fine with this?
->>
->>> +			#reset-cells = <1>;
->>> +		};
->>> +
->>>  		uart0: serial@4140000 {
->>>  			compatible = "snps,dw-apb-uart";
->>>  			reg = <0x04140000 0x100>;
->>> -- 
->>> 2.42.0
->>>
->>
->> -- 
->> Yixun Lan (dlan)
->> Gentoo Linux Developer
->> GPG Key ID AABEFD55
+> -const struct iommu_ops *iommu_ops_from_fwnode(struct fwnode_handle *fwnode)
+> -{
+> -	return NULL;
+> -}
+> -
+>  static inline int
+>  iommu_dev_enable_feature(struct device *dev, enum iommu_dev_features feat)
+>  {
+> -- 
+> 2.42.0
 > 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 
 _______________________________________________
