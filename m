@@ -4,98 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD6F7C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 00:59:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39CEEC41535
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 01:07:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WgjgJ3UFsfchkgi4NDtFRpgm4QLquU1j1v46D2SUCbc=; b=Oa0Nlsx7kT63CT
-	Wqv0SvE3meAaNBUN5k/MpSG/qFaoFLaFX7ky1IqsJdSYOqRn8r0lcKcqxTu0LMLlA3n9M1m62bSPF
-	BlxZQRtZvbY29mTaHEmhF21kdeLJW0EbIMRC0YPt2nPZH4rshbR1RUvwLgf+VLpnM2BzkPoIM9LF/
-	BhAyuO5PB8cD3+t/bfKwEbl1XA5oWtpCQ7E9lpqs6o/aiOnWOboj1CCAHl3GjbrTcZqyRmOPwMjCc
-	+BwTWbNjcKJOd9rzYa/3TqHjICiwJ6jNgeRmyXT1eoR6Nz6H6HqN+XVQAgS28ML24vJvhfJTxzCXm
-	Qs2UluIfdkeMm6HU3N4g==;
+	List-Owner; bh=OoAG5I2L2waC+VX0bLMSgNazTUl5xdobdaApMvPhqlE=; b=Z/EvOn2woJADB+
+	20QD9+U0dzyFT4kC7r6tJMMb0t789rr7jzgu28zurzAUXo2bjVkFVQ26CRbpHgpMVU21QJt07GBBD
+	KJLFnStfgo4WMRLlM3PrqTlHIWigTyHgMhABcQ9IN0mZJUbdSwgzs/Qw322zrJFkm0BSqBJM5JxzO
+	AcAV2rmj52zkAf1VGAGC2Dj8OQJMrQagakWS7/3c+Q7mmPmAn2dDo039uIXY5d+Cccja9hkMSPLzF
+	OC2TtYP3AC7vluEAbq4oag/4orZOS5te4S0JD6yG6sliwzgOXX0qsAAcWd9uYHC+PTEOrs/GxG8GU
+	FRgc0kQQ9dMjPETbf4nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2LI4-00CxHT-0m;
-	Mon, 13 Nov 2023 00:59:00 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1r2LQY-00Cxp3-2N;
+	Mon, 13 Nov 2023 01:07:46 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2LI2-00CxGj-16
+	id 1r2LQV-00Cxmt-2C
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Nov 2023 00:58:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1699837137;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cDT/Yw6MepTUY5berRyzp+iGTh5/71yTqnFQ/kYgufg=;
-	b=F2nQ34+LtuVNAzyHYMhY7XKF8bKgDNlg2lTV3kPzOyfNVqMTnoyZycOp3/kc191s/cPkOT
-	X9y36lz/hegBsN5yN0+KnUJa1Wh3z27wNu1V7y1dhKJHdpVpaZ/Uzz59iae17ivmd+/piC
-	IaPEuDzPSDJOa3dvZmFTGJa+XSk1Ruo=
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com
- [209.85.214.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-672-E8vRCkkHN8OJnMhk7p9CGw-1; Sun, 12 Nov 2023 19:58:56 -0500
-X-MC-Unique: E8vRCkkHN8OJnMhk7p9CGw-1
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-1cc23f2226fso37856085ad.0
-        for <linux-riscv@lists.infradead.org>; Sun, 12 Nov 2023 16:58:55 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699837135; x=1700441935;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cDT/Yw6MepTUY5berRyzp+iGTh5/71yTqnFQ/kYgufg=;
-        b=Lsb6CB8lTjaHxYfMlkGEpt4lU03mveBRfPa7lxLi1LH5U+j48ixsN21S6Cj4es/hLU
-         4b9hBqZRCjduuOVbIjUIYOLlsNrBnmX7nJcwBfShzU7GcrGmNHFK/P1AhdPHwS6wqPgc
-         dkvMtQb1heE7CB/AVX1s/gHJmSZ3BRUWlg8LMlMqR0B8dyRM99v3nnAw7JMPN7pOiHiJ
-         +SxqJpnndh4uKKFre3vCzY9Q4I4eYpoAEwsMmrtcKjk6YZtfQxDMZWQIZJ2SbQfppDz2
-         U0B28JurbMrHdDZsmLw86ln7n/m8hzprRTL2hSLQ0uNqxXlwNo1gbhe/V4NsmHK90i5/
-         UQWA==
-X-Gm-Message-State: AOJu0Ywcl9mB3pkAjWomS0lpwGMGsCMrNhU4epJH6szf7gPh6P8DZuae
-	Bpmt5OrNgi1P7cH7xU1xYeB+q0Nz2VHbWksmTUH8hK99mZ3YakPk1+uhwJbj8cmfBu9Q5WEYnxu
-	PI1hI1C7XuLn5LNdbjDRnfO+8iknb
-X-Received: by 2002:a17:903:18a:b0:1c5:d063:b70e with SMTP id z10-20020a170903018a00b001c5d063b70emr3527462plg.53.1699837134995;
-        Sun, 12 Nov 2023 16:58:54 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEYIxs5W0nH5PRlEPeC7HszJcExOhwxIk5eQviHGK0uTrxM/8D+SW3tGS+WkqqASqjIUf7rPA==
-X-Received: by 2002:a17:903:18a:b0:1c5:d063:b70e with SMTP id z10-20020a170903018a00b001c5d063b70emr3527451plg.53.1699837134747;
-        Sun, 12 Nov 2023 16:58:54 -0800 (PST)
-Received: from ?IPV6:2001:8003:e5b0:9f00:b890:3e54:96bb:2a15? ([2001:8003:e5b0:9f00:b890:3e54:96bb:2a15])
-        by smtp.gmail.com with ESMTPSA id 13-20020a170902c24d00b001c5fc291ef9sm3053276plg.209.2023.11.12.16.58.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 12 Nov 2023 16:58:54 -0800 (PST)
-Message-ID: <095c2d24-735b-4ce2-ba2e-9ec2164f2237@redhat.com>
-Date: Mon, 13 Nov 2023 10:58:46 +1000
+	Mon, 13 Nov 2023 01:07:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id 3046FB80B41;
+	Mon, 13 Nov 2023 01:07:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41267C433CB;
+	Mon, 13 Nov 2023 01:07:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1699837661;
+	bh=FU5cMxpykFA89J/z1Xx5vbxIOEU9bDayGjmJTED/4UY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=uQezJXBfixXFEnDr2uPowPMWRFtaZ5r1q34O5kMOfhXgqt6xRQJok/YdVKhr753Sc
+	 U3brf0s5laXn8qH+WlE5rwINpOTqG7YY5Gf+KvG7ZuE5RAyC4QMGnW7qPhkbtsI73i
+	 LOgFM2tUGynRSL8KRffQbgT3N+4ali7B0V4blEFMYQcYw6R2gfBJbjiQcU+4vHywGL
+	 rSuLw91jQFndlfabvrHICBhGjhAOdvNpgyWQC1JDvxgIBBNYQI/6GODycyIxNxpJWx
+	 hRWvuIIn2U2/HUSuhFuaw5nsb+TkehY43Oq1390yw7oCoKg0AiXMDqcPh15OhD3Sg/
+	 6E0laeQm1YkTw==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Chao Wei <chao.wei@sophgo.com>,
+	Chen Wang <unicorn_wang@outlook.com>
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH 3/4] riscv: dts: sophgo: add reset dt node for cv1800b
+Date: Mon, 13 Nov 2023 08:55:02 +0800
+Message-Id: <20231113005503.2423-4-jszhang@kernel.org>
+X-Mailer: git-send-email 2.40.0
+In-Reply-To: <20231113005503.2423-1-jszhang@kernel.org>
+References: <20231113005503.2423-1-jszhang@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 10/22] drivers: base: Move cpu_dev_init() after
- node_dev_init()
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
- linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev, x86@kernel.org,
- linux-csky@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-parisc@vger.kernel.org
-Cc: Salil Mehta <salil.mehta@huawei.com>,
- Jean-Philippe Brucker <jean-philippe@linaro.org>, jianyong.wu@arm.com,
- justin.he@arm.com, James Morse <james.morse@arm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>
-References: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
- <E1r0JLV-00CTxS-QB@rmk-PC.armlinux.org.uk>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <E1r0JLV-00CTxS-QB@rmk-PC.armlinux.org.uk>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231112_165858_449084_BDB48FC5 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20231112_170743_852412_5FE489D5 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,38 +77,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add the reset device tree node to cv1800b SoC.
 
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-On 11/7/23 20:30, Russell King (Oracle) wrote:
-> From: James Morse <james.morse@arm.com>
-> 
-> NUMA systems require the node descriptions to be ready before CPUs are
-> registered. This is so that the node symlinks can be created in sysfs.
-> 
-> Currently no NUMA platform uses GENERIC_CPU_DEVICES, meaning that CPUs
-> are registered by arch code, instead of cpu_dev_init().
-> 
-> Move cpu_dev_init() after node_dev_init() so that NUMA architectures
-> can use GENERIC_CPU_DEVICES.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
-> Note: Jonathan's comment still needs addressing - see
->    https://lore.kernel.org/r/20230914121612.00006ac7@Huawei.com
-> ---
->   drivers/base/init.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-
-With Jonathan's comments addressed:
-
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+index df40e87ee063..4032419486be 100644
+--- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+@@ -54,6 +54,12 @@ soc {
+ 		dma-noncoherent;
+ 		ranges;
+ 
++		rst: reset-controller@3003000 {
++			compatible = "sophgo,cv1800b-reset";
++			reg = <0x03003000 0x1000>;
++			#reset-cells = <1>;
++		};
++
+ 		uart0: serial@4140000 {
+ 			compatible = "snps,dw-apb-uart";
+ 			reg = <0x04140000 0x100>;
+-- 
+2.42.0
 
 
 _______________________________________________
