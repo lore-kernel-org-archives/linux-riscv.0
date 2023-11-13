@@ -4,99 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E1A3C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 04:24:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81ACCC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Nov 2023 04:58:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FBrzhN4c1pQRcidFk1ROc6hqTqruLD1qcM21a2VBUmQ=; b=IuMKvEXYyVKYG/
-	HIO4RQEB5Fxg/Ka0IhWGPoONpgxt9CtsJih55PpYEZ4DNXFHu+IQDH7Kb/d8G+XE81/p+k3yzGvS2
-	UVSmhfG7mYJdUi8XJd8s3GP+fxmCZt4YUKeRT1PZ4QKWX2C+bHvpikM/NEncd9Y7Liit3sCEVutU/
-	TO/6J6HvQwnRlqgcJnoKj9JCUDe/9ByxMHF/f5ITuWMOhbp+Qg33jk8UDEVcxiRRT30qZe7YvVWgx
-	+QZkhIIt3tkGGxsdhIE1RdfizeY+OkMnuTEXPCvaxuA8i9waZ6Py8vk1/55PkOx8KM2KGeHo6rKVg
-	vRLpIkKaRpo+RNQ/KiOw==;
+	List-Owner; bh=M5ciZOdgTKMe0v4QQxmlIEfFWHBSuJZwTjwJEjCUdbI=; b=o7OlKm005fEeDn
+	YhzCHVKAxF6LvGk1t0I68Kv6Uu2ZPnSFybbLcJ6I2Uhpkcnlepmdf41EzhvT5QRiVPXVPJ2b1A5wY
+	kfQSroqXzihth3AYz8hRVwAPG595gnybaQribOSy48nSUqtIRYUMZGNw5uok3GEY4hkYFgAlxEO+Y
+	l5ulig9bUipCVbMopcv54ypxexNGd8d/YrKN+jcvs+FtDh62WZ8mXUZtmMm9FWD8gLIJGI7sqC+GC
+	D90DvnScSb5mliDKiAjyB7sBD8Lzx20/jFJ2VwS2OisdtDCqzTg8bftjd3iZzYuD6VttYv/v3q5fF
+	GE8Uaov2g/eRstc3d/pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2OV7-00DEm9-2k;
-	Mon, 13 Nov 2023 04:24:41 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1r2P1Y-00DHiR-1B;
+	Mon, 13 Nov 2023 04:58:12 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2OV5-00DElQ-36
+	id 1r2P1W-00DHhl-0B
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Nov 2023 04:24:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1699849479;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+XpkXMncYpwBWWz5YM4lExGVyIZbJdd8k4LtapRIRSU=;
-	b=Mv1L+PARPY8AhwHe/Z8A1/rNwcZtJmZlfizyKaVvI+aiwbiYq5dIRYhk/5+VYmEdJJWqfB
-	zlQ6OQ6uDXcldB4MZT+AFcDEnygWTybWE89ArEAsb38142SiliScu5Ju8+8s88FikzK+xZ
-	5l4Hlx4PU/j7IS5sQTIkIVOoq9ppQPM=
-Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com
- [209.85.167.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-92-8J5GJXrtMD6ad-BSzh6qQg-1; Sun, 12 Nov 2023 23:24:36 -0500
-X-MC-Unique: 8J5GJXrtMD6ad-BSzh6qQg-1
-Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-3b2f3015ce6so4667051b6e.3
-        for <linux-riscv@lists.infradead.org>; Sun, 12 Nov 2023 20:24:35 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699849475; x=1700454275;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+XpkXMncYpwBWWz5YM4lExGVyIZbJdd8k4LtapRIRSU=;
-        b=myN5mM6Ge3i7AACUmetC6lMFzNnY1ohBlqB66+0E//Yw0bo5zUploLMu9/ZFX76c8O
-         p522Rr3dj5eVZdzUTqBt6102K3iM141zD4JWXXeeLPEIzqg993ihERGG0xTl5dhZh0I8
-         QRyNHn3k9NvELU5R7pNMxjX+D9FTpOTBCqFpf/bytcXcoe+HQKnlf2VEqMhJZ5qHykc5
-         rwGErLEsP0QBBzl+0l4ZnbEpLf/zyhSiReMlUCUB2XBvWYxSdRWM0Mke0GJC7g5z+sfm
-         5IGiI2j50cC5QVMWcPC11uzl9gxKYkj/jJRXt1s6Xd4ncYDnldwRlgeUUSgg/gtH7nGF
-         S5+g==
-X-Gm-Message-State: AOJu0YxWVAMoY07gpCu1EzhAiyEhJJUuvgHxyG+XBSMN85SP11eDToLV
-	GESAz43EvC7VgaiWGk1weA0oCPgfL0w7glJuolzB9C15ACcJznJexRa998yl98Jm4vSRIPkqwhs
-	RuxK0r688eiYruBbEpIS/MAP7Xmt+
-X-Received: by 2002:a05:6808:1907:b0:3b2:a9bd:c38f with SMTP id bf7-20020a056808190700b003b2a9bdc38fmr8909953oib.37.1699849475402;
-        Sun, 12 Nov 2023 20:24:35 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFGpLquY73YkMUU9Mlaw3xcZEgmE+1wMz9SoOzUS3eERBYDajACgA3kg4BM9OvwoIC+iQZINQ==
-X-Received: by 2002:a05:6808:1907:b0:3b2:a9bd:c38f with SMTP id bf7-20020a056808190700b003b2a9bdc38fmr8909944oib.37.1699849475200;
-        Sun, 12 Nov 2023 20:24:35 -0800 (PST)
-Received: from ?IPV6:2001:8003:e5b0:9f00:b890:3e54:96bb:2a15? ([2001:8003:e5b0:9f00:b890:3e54:96bb:2a15])
-        by smtp.gmail.com with ESMTPSA id fm6-20020a056a002f8600b006c4db182074sm3111661pfb.196.2023.11.12.20.24.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 12 Nov 2023 20:24:34 -0800 (PST)
-Message-ID: <d07a9e11-9752-4155-bbaf-b759ec4f99ac@redhat.com>
-Date: Mon, 13 Nov 2023 14:24:27 +1000
+	Mon, 13 Nov 2023 04:58:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1699851490; x=1731387490;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=3rr1CcVA1QVG5RdS7YA8zExN022F8nkhxbs95twph2A=;
+  b=Ab8XPGWUd+MUas8LJqsEFi0dpALSQYTGxyAxpETb2mdOquueNLdAb16J
+   7AMUTSGIZYApWwOYdpWov2C/QUfQ5G34echYe26Mur4GWUPhSZhRZjeU4
+   Umnj6AuUf8UoY7CL3YHTjedN/8R+XyY8KvUuDWQu+Mmykwchm8uvevXF9
+   ePGGlwm+H8hUdSsVN5EAbG5S+Hh0iRIhCviX8oVnz8v2c2EFVK2GAIPTu
+   0XYrYRkXzfMKPYJNsfDYiB2rudEG8Vp/GX7phe/gZZPGnoLHZ3gudTMQ8
+   iiQCapQv0k4/TlgN5O7IAO9aeRqP0+D+leggjrnuyb2US2Lznt0wgOSqj
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10892"; a="3417176"
+X-IronPort-AV: E=Sophos;i="6.03,298,1694761200"; 
+   d="scan'208";a="3417176"
+Received: from orsmga002.jf.intel.com ([10.7.209.21])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Nov 2023 20:58:04 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10892"; a="764237374"
+X-IronPort-AV: E=Sophos;i="6.03,298,1694761200"; 
+   d="scan'208";a="764237374"
+Received: from lkp-server01.sh.intel.com (HELO 17d9e85e5079) ([10.239.97.150])
+  by orsmga002.jf.intel.com with ESMTP; 12 Nov 2023 20:58:00 -0800
+Received: from kbuild by 17d9e85e5079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1r2P1J-000BpA-1D;
+	Mon, 13 Nov 2023 04:57:57 +0000
+Date: Mon, 13 Nov 2023 12:57:03 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jisheng Zhang <jszhang@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Chao Wei <chao.wei@sophgo.com>,
+	Chen Wang <unicorn_wang@outlook.com>
+Cc: oe-kbuild-all@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 4/4] riscv: dts: sophgo: add reset phandle to all uart
+ nodes
+Message-ID: <202311131220.lnq9Gdut-lkp@intel.com>
+References: <20231113005503.2423-5-jszhang@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 22/22] riscv: convert to use
- arch_cpu_is_hotpluggable()
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
- linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev, x86@kernel.org,
- linux-csky@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-parisc@vger.kernel.org
-Cc: Salil Mehta <salil.mehta@huawei.com>,
- Jean-Philippe Brucker <jean-philippe@linaro.org>, jianyong.wu@arm.com,
- justin.he@arm.com, James Morse <james.morse@arm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-References: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
- <E1r0JMV-00CTyh-It@rmk-PC.armlinux.org.uk>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <E1r0JMV-00CTyh-It@rmk-PC.armlinux.org.uk>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Disposition: inline
+In-Reply-To: <20231113005503.2423-5-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231112_202440_069227_256A7D45 
-X-CRM114-Status: UNSURE (   7.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231112_205810_110890_31210AF8 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,23 +89,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/7/23 20:31, Russell King (Oracle) wrote:
-> Convert riscv to use the arch_cpu_is_hotpluggable() helper rather than
-> arch_register_cpu().
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->   arch/riscv/kernel/setup.c | 7 ++-----
->   1 file changed, 2 insertions(+), 5 deletions(-)
-> 
+Hi Jisheng,
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+kernel test robot noticed the following build errors:
 
+[auto build test ERROR on next-20231110]
+[also build test ERROR on linus/master v6.7-rc1]
+[cannot apply to robh/for-next krzk/for-next krzk-dt/for-next pza/reset/next pza/imx-drm/next v6.6 v6.6-rc7 v6.6-rc6]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Jisheng-Zhang/dt-bindings-reset-Add-binding-for-Sophgo-CV1800B-reset-controller/20231113-091129
+base:   next-20231110
+patch link:    https://lore.kernel.org/r/20231113005503.2423-5-jszhang%40kernel.org
+patch subject: [PATCH 4/4] riscv: dts: sophgo: add reset phandle to all uart nodes
+config: riscv-randconfig-001-20231113 (https://download.01.org/0day-ci/archive/20231113/202311131220.lnq9Gdut-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 13.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20231113/202311131220.lnq9Gdut-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202311131220.lnq9Gdut-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from arch/riscv/boot/dts/sophgo/cv1800b.dtsi:7,
+                    from arch/riscv/boot/dts/sophgo/cv1800b-milkv-duo.dts:8:
+>> scripts/dtc/include-prefixes/dt-bindings/reset/sophgo,cv1800b-reset.h:7: error: unterminated #ifndef
+       7 | #ifndef _DT_BINDINGS_CV1800B_RESET_H
+         | 
+
+
+vim +7 scripts/dtc/include-prefixes/dt-bindings/reset/sophgo,cv1800b-reset.h
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
