@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 524CDC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Nov 2023 15:39:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 905A2C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Nov 2023 16:03:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RsjePNcbc3YQzMePZrGXQoNU8O9JA5N37kBrxY4lI4w=; b=lgeyxnQE4OHbguX1gPme/V8bim
-	4Jo2KwYeO+9E6in2MJTAvwmpOd1Ay/Riy0XJOfMtmhNulloQZFUIQ0pcVBlOOHJaKev6t4DpzcJYW
-	lIW5e8AqylT2NRQcn2W1mgJM1ZPXFnG/DH1/fSvTJ4YaeP1C2Y3hgoy74JRXRmT92gaQPC1ZmvHO1
-	6aiJT/3y6+1oR8N1EobBu26HvBDN01E287JAcDdhAsejBcQEPisRbOT5cxygT/JzXnIrIcfTxPOhY
-	GXsPKYHPtu8fzUwnhLRMeBAaPTGAyeSQDgy8c1TDtIxmkrdRmod5JTPWilh1e8tOnFmuY8YkOpxcV
-	x077K8eQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UUjAN3u6dqrz/9aOzF3bWZxansRXVMs7ACKDbtk22to=; b=myb2Xe9h3DcZPj
+	stJ/gI0PT9CH6ooYlk3lg+LJlRa3Bg52vhzbqcwJ2wcd1ee8tZNtemScprly0LP1EcGVqz+kQf4tu
+	sz0Oz9uR3MLU9jD6sTUXsgreToTfwntWAorSSFQG8JCUvL1aJVQbbLa/l9g3VqQDCAPILOvISXmc/
+	Steuxw6AVK07eVzSOF9MSuov5LVoRX7UIY3QaCZjUyPHMFxW7GLFBU8arT0cLwMcSkAvhZvL/4lWE
+	Rg276rX1lfSgCu4cPimYPtzpt1jHP8HDSAaO1mgPwm6qoaGEmA8vHZfiY8WfmhGh1OezRcf9bgd53
+	Ekot9FZgXsD4a0cCzQKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2vVV-00GLs2-2a;
-	Tue, 14 Nov 2023 15:39:17 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1r2vt1-00GOCH-06;
+	Tue, 14 Nov 2023 16:03:35 +0000
+Received: from smtprelay0011.hostedemail.com ([216.40.44.11] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2vVT-00GLrJ-0U;
-	Tue, 14 Nov 2023 15:39:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6DCBB6126C;
-	Tue, 14 Nov 2023 15:39:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7240C433C7;
-	Tue, 14 Nov 2023 15:39:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699976354;
-	bh=o/n07uroe/LsCsfhW3cCV8PEfXTLYoMNaFE2DwZDbtY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KkS/sf7PTrY1RWsoMYn24n7URroOP4x3iiWLIyViZ1mAO5OK9MsjXyV3jVdiASinM
-	 UAehNMpBbpGIuO6slNfqhrdY7gZ5zFJdVuXR3V4KpxPWh1Q6hYyW2P4JH9W11yS+7q
-	 1/W8Pu22yY9oA6Uo0VppBoCg8lGQPfIaDVzV7NPcmy5BD5GfdLoTbJOCWvglHHpZjB
-	 5Hey3i2cJY+FXkMZsnMVl1lJXz/Ur4I5XjqYR0jEFeeP2TAU+hXvxvtN8Hi0VwXD5q
-	 RaIZ5/bfrn1M2cevx4qQnk8/0uUfRpnFPDflRBaEFZLJW1fubJj5K4G57lfpI2ZJgs
-	 wEx9FHwLJXeDw==
-Date: Tue, 14 Nov 2023 15:39:10 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
-	greentime.hu@sifive.com, vincent.chen@sifive.com, tjytimi@163.com,
-	alex@ghiti.fr, conor.dooley@microchip.com, ajones@ventanamicro.com,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH v3 0/4] Add Svadu Extension Support
-Message-ID: <20231114-herald-cried-9122f8bbb218@squawk>
-References: <20231102120129.11261-1-yongxuan.wang@sifive.com>
+	id 1r2vsx-00GOB4-1p;
+	Tue, 14 Nov 2023 16:03:33 +0000
+Received: from omf17.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay09.hostedemail.com (Postfix) with ESMTP id 5849480ADD;
+	Tue, 14 Nov 2023 16:03:24 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: joe@perches.com) by omf17.hostedemail.com (Postfix) with ESMTPA id B79FD17;
+	Tue, 14 Nov 2023 16:03:19 +0000 (UTC)
+Message-ID: <1e7863ec4e4ab10b84fd0e64f30f8464d2e484a3.camel@perches.com>
+Subject: Re: [PATCH 1/7] kexec_file: add kexec_file flag to control debug
+ printing
+From: Joe Perches <joe@perches.com>
+To: Baoquan He <bhe@redhat.com>, linux-kernel@vger.kernel.org
+Cc: kexec@lists.infradead.org, x86@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-parisc@vger.kernel.org
+Date: Tue, 14 Nov 2023 08:03:17 -0800
+In-Reply-To: <20231114153253.241262-2-bhe@redhat.com>
+References: <20231114153253.241262-1-bhe@redhat.com>
+	 <20231114153253.241262-2-bhe@redhat.com>
+User-Agent: Evolution 3.48.4 (3.48.4-1.fc38) 
 MIME-Version: 1.0
-In-Reply-To: <20231102120129.11261-1-yongxuan.wang@sifive.com>
+X-Rspamd-Queue-Id: B79FD17
+X-Rspamd-Server: rspamout06
+X-Stat-Signature: hfguyu43qitk9i95uumxmjn7sq3qxaae
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Session-ID: U2FsdGVkX1+TPCSBX5eIBtFS7cutbFXyyoB+lO2Ea1A=
+X-HE-Tag: 1699977799-197779
+X-HE-Meta: U2FsdGVkX199MxvfdP2OiWMaMCgnF+zen3H+uDaMOt+eo18KFoigVkpo/j1mPnNdRxZsnaKbc/2TMWhhtZ1WYbE4xnaRnZ9D8ImVTw0nNbwHPVmM8K50LsJ54PlQr2IROfdWLMnnNPpRHRTXWI450/26vHlRs47bJHW69JfdozUlDgILIKSRfePjUbHAIXoIKr9/NzIpcA6QdsnzFrKhA8GVb/HExMWgTm+7q60/jyGC6TQFrwo3I1762UXDKC1ld2/TBOn7K4fNFKAezne04n/qoyaeJN2h75PDcDpXFrJm8izGV0wc97AWTmYxsKdc
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231114_073915_232496_25ABE6DF 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20231114_080331_684091_5F191397 
+X-CRM114-Status: GOOD (  16.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,66 +66,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6273675049050043038=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, 2023-11-14 at 23:32 +0800, Baoquan He wrote:
+> When specifying 'kexec -c -d', kexec_load interface will print loading
+> information, e.g the regions where kernel/initrd/purgatory/cmdline
+> are put, the memmap passed to 2nd kernel taken as system RAM ranges,
+> and printing all contents of struct kexec_segment, etc. These are
+> very helpful for analyzing or positioning what's happening when
+> kexec/kdump itself failed. The debugging printing for kexec_load
+> interface is made in user space utility kexec-tools.
+> 
+> Whereas, with kexec_file_load interface, 'kexec -s -d' print nothing.
+> Because kexec_file code is mostly implemented in kernel space, and the
+> debugging printing functionality is missed. It's not convenient when
+> debugging kexec/kdump loading and jumping with kexec_file_load
+> interface.
+> 
+> Now add KEXEC_FILE_DEBUG to kexec_file flag to control the debugging
+> message printing. And add global variable kexec_file_dbg_print and
+> macro kexec_dprintk() to facilitate the printing.
+> 
+> This is a preparation, later kexec_dprintk() will be used to replace the
+> existing pr_debug(). Once 'kexec -s -d' is specified, it will print out
+> kexec/kdump loading information. If '-d' is not specified, it regresses
+> to pr_debug().
 
---===============6273675049050043038==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Ssbwg8ZtZzOKdtR5"
-Content-Disposition: inline
+Not quite as pr_debug is completely eliminated with
+zero object size when DEBUG is not #defined.
+
+Now the object size will be larger and contain the
+formats in .text.
+
+[]
+> diff --git a/include/linux/kexec.h b/include/linux/kexec.h
+[]
+> @@ -264,6 +264,18 @@ arch_kexec_apply_relocations(struct purgatory_info *pi, Elf_Shdr *section,
+>  	return -ENOEXEC;
+>  }
+>  #endif
+> +
+> +extern bool kexec_file_dbg_print;
+> +
+> +#define kexec_dprintk(fmt, args...)			\
+> +	do {						\
+> +		if (kexec_file_dbg_print)		\
+> +			printk(KERN_INFO fmt, ##args);	\
+> +		else					\
+> +			printk(KERN_DEBUG fmt, ##args);	\
+> +	} while (0)
+> +
+> +
+
+I don't know how many of these printks exist and if
+overall object size matters but using
+
+#define kexec_dprintkfmt, ...)					\
+	printk("%s" fmt,					\
+	       kexec_file_dbg_print ? KERN_INFO : KERN_DEBUG,	\
+	       ##__VA_ARGS__)
+
+should reduce overall object size by eliminating the
+mostly duplicated format in .text which differs only
+by the KERN_<PREFIX>
 
 
---Ssbwg8ZtZzOKdtR5
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Nov 02, 2023 at 12:01:21PM +0000, Yong-Xuan Wang wrote:
-> Svadu is a RISC-V extension for hardware updating of PTE A/D bits. This
-> patch set adds support to enable Svadu extension for both host and guest
-> OS.
-
-=46rom patch one onwards for rv32_defconfig:
-  /tmp/tmp.TRw8gWHZCe/arch/riscv/include/asm/pgtable.h:636:9: error: call t=
-o undeclared function 'riscv_has_extension_unlikely'; ISO C99 and later do =
-not support implicit function declarations [-Wimplicit-function-declaration]
-  /tmp/tmp.TRw8gWHZCe/include/linux/signal.h:97:11: warning: array index 3 =
-is past the end of the array (that has type 'unsigned long[2]') [-Warray-bo=
-unds]
-
-There seem to be quite a few of these -Warray-bounds issues, all in
-code included from signal.h. Could you please do an rv32 build and fix
-up these build issues?
-
-Thanks,
-Conor.
-
---Ssbwg8ZtZzOKdtR5
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZVOUmwAKCRB4tDGHoIJi
-0uDSAQDZE0cpxTn2Ol12ymcPjTrD4pIq/iTCNux454LFLyvmOwEA4YJnc8ALiWOm
-WJ2tQPQG2YAC2Zap2/vi4ZCxD7+V5gU=
-=dweC
------END PGP SIGNATURE-----
-
---Ssbwg8ZtZzOKdtR5--
-
-
---===============6273675049050043038==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6273675049050043038==--
-
