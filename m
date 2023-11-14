@@ -4,60 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 373F4C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Nov 2023 13:08:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03B3AC072A2
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Nov 2023 14:13:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iWz7N/8FE3ZJ81TNp3skqNh4Sos/9IoN6+qZn2THC0U=; b=xdbL5xtbJspWtA
-	G08iMEvhn0Ns3aDYHWsl5Y6UmveTdUZysC/Whe2XaQeHZzYx/OjMJcBqspMiYzpGEpZuRi6oiXebs
-	dVQGxgjRyj05N2hQs2hnuqOl1WEveYkYbGMvEWaNUYqLT67+KSUTZXPCwxGoxvWn2cGXY0if+tZkj
-	ZalsmgO3uQogQyHVB2oisosQn+O/ZcNueOZ3hkGLLIE9jo7TPRz3POOjXzvhVbAQMcVPfNq+D5WmJ
-	5X4uEEl4fXJsawvfDuUdqwKclDJy4jV60jJWarlmk06IyJxWZ3o1MzxQfYfkOhK6WnfM8YH7EU+K/
-	hggzkLZTXf2WQ85dhItg==;
+	List-Owner; bh=Ubvjrs59XAQI0RUh2IQwfymqOqzZNL0AkiHnhxcNgUc=; b=fA99MIxRPxZwZl
+	KZhRUZ39M6Mr+N8Y5LilHkUVk7mVNm23Pbb6vKw2i9i7p+K+f2YQSvqaeOIb12PhhcaC0AHJ2BgMw
+	w/EmDK1yrmYzYVm5QYetqj1tV+XkhKPKqR4q8Nd3SjRehmYlsFgdp6jtJKMmoYAzTf2Ef/yM/xOJT
+	JeH93E8P9U1CKJsgZi1UVDHjsVpzlWGPLCwtzSrPWdXecIGPJDYO7XwJp4KeknhM5OUW4mt0ZXx7B
+	mjls8Qkz1wfu1Zd9ts++v57FYc94AAM/qS6DMHeFXLK0C3zcv5s/NrkJ3w5sBYcxGmOuUfn1CL3xk
+	xKFksIAnP8n8jnAFZlRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2t8x-00FzuZ-37;
-	Tue, 14 Nov 2023 13:07:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2t8t-00Fzt8-31;
-	Tue, 14 Nov 2023 13:07:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9A7F2C15;
-	Tue, 14 Nov 2023 05:08:29 -0800 (PST)
-Received: from e129154.nice.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 20B293F6C4;
-	Tue, 14 Nov 2023 05:07:36 -0800 (PST)
-Date: Tue, 14 Nov 2023 14:06:44 +0100
-From: Beata Michalska <beata.michalska@arm.com>
-To: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org,
-	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com,
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
-	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com,
-	viresh.kumar@linaro.org, lenb@kernel.org, robert.moore@intel.com,
-	lukasz.luba@arm.com, ionela.voinescu@arm.com,
-	pierre.gondois@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org,
-	conor.dooley@microchip.com, suagrfillet@gmail.com,
-	ajones@ventanamicro.com, lftan@kernel.org
-Subject: Re: [PATCH v6 7/7] arm64/amu: Use capacity_ref_freq to set AMU ratio
-Message-ID: <ZVNw5Ci9kCPMqV67@e129154.nice.arm.com>
-References: <20231109101438.1139696-1-vincent.guittot@linaro.org>
- <20231109101438.1139696-8-vincent.guittot@linaro.org>
+	id 1r2uAb-00G8oQ-11;
+	Tue, 14 Nov 2023 14:13:37 +0000
+Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1r2uAY-00G8mr-2K
+	for linux-riscv@lists.infradead.org;
+	Tue, 14 Nov 2023 14:13:36 +0000
+Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-77bbe4702a1so4531685a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Nov 2023 06:13:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1699971212; x=1700576012; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XMkgyvuzGYJaW56Gm45FtsJL6qswpkealapQbWKCBRw=;
+        b=1qmksupYkJQZnL25MUOZh8BdtQgwRWRiCgCpUiJtZoaRr9NiBmCkxIp3HtxPIOnWzH
+         vthJgMem+6piiCgCJ63NBNSHMosJaiOx4y22YWZZ0T77EZOprMqKnLHiipPPSbVp8xf5
+         Aj59eYX6sk5iHd1zYDxq8DYmxWKieyYQ0R8K00CLldHxhbsDifXMxL0blnCwBFSjlu8L
+         fD/dW1vLPa1EA6gudbFSHv/w9JFHT33kt/xhF7/y/rnTUUdLAnA4TTSUyrJQ0OZJRfUr
+         jbHltnM5ImL2t0rP4TWZY5YmOc3wnCqRgWlQbzsHh787x7U9DuXMd75dCFOLCkX8jiw9
+         kVNA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1699971212; x=1700576012;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=XMkgyvuzGYJaW56Gm45FtsJL6qswpkealapQbWKCBRw=;
+        b=wiQXTICsU6Fy25afWCmLMIss9/RczLXqReCfIT0Hni9cYsiEcW4gAWYKb7tSAQwyEY
+         KFCwGGYXMGW86hTDSMg5pOeSC+CBSD/1MYQJ+rloMPydCDa0YNrGz6CJyLAGsyJIfq4/
+         bOl8FgkZJdLC9YEuYXBBa13/fESCmC4Fgp32nv6z9TNKLLt6amDtS2V65p383kNbu2FA
+         K2jTyQc5gZs1Lb5rz+SB3toXpTFLxmACRhfKqFtGaSvNpDPvmIa7zQ02vEPHJLR81Hvt
+         jPMrfWnkD2l/wHKK40QCoRw0gGNTDpccwAwUs8d+lCkg5sbqOGy/Mkjotr4cX5z8uyh/
+         xq2g==
+X-Gm-Message-State: AOJu0Yz4yq1FQe2lIT9asyeADPmAmi2S8AzA6wl0vAzqw057sdbhp/XT
+	+ZLrL2YwJmHu4URN8yPA5pADAseC9kexXHDlBfRZ6w==
+X-Google-Smtp-Source: AGHT+IHnMHw8F3ryLSB+7vrra0BH+tHsLT5qn9YR2ZuZzRjWRR16+wgDWF4cMlcUDZPdu8ADN5zYkA==
+X-Received: by 2002:a05:620a:1aa2:b0:77b:c622:e7fc with SMTP id bl34-20020a05620a1aa200b0077bc622e7fcmr2526334qkb.2.1699971212064;
+        Tue, 14 Nov 2023 06:13:32 -0800 (PST)
+Received: from carbon-x1.. ([12.186.190.2])
+        by smtp.gmail.com with ESMTPSA id m2-20020a05620a220200b00777611164c5sm2701263qkh.106.2023.11.14.06.13.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Nov 2023 06:13:31 -0800 (PST)
+From: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
+To: linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Evan Green <evan@rivosinc.com>,
+	Conor Dooley <conor@kernel.org>,
+	Samuel Ortiz <sameo@rivosinc.com>,
+	Jerry Shih <jerry.shih@sifive.com>
+Subject: [PATCH v4 01/20] riscv: add ISA extension parsing for Zbc
+Date: Tue, 14 Nov 2023 09:12:37 -0500
+Message-ID: <20231114141256.126749-2-cleger@rivosinc.com>
+X-Mailer: git-send-email 2.42.0
+In-Reply-To: <20231114141256.126749-1-cleger@rivosinc.com>
+References: <20231114141256.126749-1-cleger@rivosinc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231109101438.1139696-8-vincent.guittot@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231114_050748_094089_50551E8D 
-X-CRM114-Status: GOOD (  25.09  )
+X-CRM114-CacheID: sfid-20231114_061334_965159_01EC73D4 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,161 +101,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 09, 2023 at 11:14:38AM +0100, Vincent Guittot wrote:
-> Use the new capacity_ref_freq to set the ratio that is used by AMU for
-> computing the arch_scale_freq_capacity().
-> This helps to keep everything aligned using the same reference for
-> computing CPUs capacity.
-> 
-> The default value of the ratio (stored in per_cpu(arch_max_freq_scale))
-> ensures that arch_scale_freq_capacity() returns max capacity until it is
-> set to its correct value with the cpu capacity and capacity_ref_freq.
-> 
-> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> Acked-by: Sudeep Holla <sudeep.holla@arm.com>
-> ---
->  arch/arm64/kernel/topology.c  | 26 +++++++++++++-------------
->  drivers/base/arch_topology.c  | 12 +++++++++++-
->  include/linux/arch_topology.h |  1 +
->  3 files changed, 25 insertions(+), 14 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index 817d788cd866..1a2c72f3e7f8 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -82,7 +82,12 @@ int __init parse_acpi_topology(void)
->  #undef pr_fmt
->  #define pr_fmt(fmt) "AMU: " fmt
->  
-> -static DEFINE_PER_CPU_READ_MOSTLY(unsigned long, arch_max_freq_scale);
-> +/*
-> + * Ensure that amu_scale_freq_tick() will return SCHED_CAPACITY_SCALE until
-> + * the CPU capacity and its associated frequency have been correctly
-> + * initialized.
-> + */
-> +static DEFINE_PER_CPU_READ_MOSTLY(unsigned long, arch_max_freq_scale) =  1UL << (2 * SCHED_CAPACITY_SHIFT);
->  static DEFINE_PER_CPU(u64, arch_const_cycles_prev);
->  static DEFINE_PER_CPU(u64, arch_core_cycles_prev);
->  static cpumask_var_t amu_fie_cpus;
-> @@ -112,14 +117,14 @@ static inline bool freq_counters_valid(int cpu)
->  	return true;
->  }
->  
-> -static int freq_inv_set_max_ratio(int cpu, u64 max_rate, u64 ref_rate)
-> +void freq_inv_set_max_ratio(int cpu, u64 max_rate)
->  {
-> -	u64 ratio;
-> +	u64 ratio, ref_rate = arch_timer_get_rate();
->  
->  	if (unlikely(!max_rate || !ref_rate)) {
-> -		pr_debug("CPU%d: invalid maximum or reference frequency.\n",
-> +		WARN_ONCE(1, "CPU%d: invalid maximum or reference frequency.\n",
->  			 cpu);
-> -		return -EINVAL;
-> +		return;
->  	}
->  
->  	/*
-> @@ -139,12 +144,10 @@ static int freq_inv_set_max_ratio(int cpu, u64 max_rate, u64 ref_rate)
->  	ratio = div64_u64(ratio, max_rate);
->  	if (!ratio) {
->  		WARN_ONCE(1, "Reference frequency too low.\n");
-> -		return -EINVAL;
-> +		return;
->  	}
->  
-> -	per_cpu(arch_max_freq_scale, cpu) = (unsigned long)ratio;
-> -
-> -	return 0;
-> +	WRITE_ONCE(per_cpu(arch_max_freq_scale, cpu), (unsigned long)ratio);
->  }
->  
->  static void amu_scale_freq_tick(void)
-> @@ -195,10 +198,7 @@ static void amu_fie_setup(const struct cpumask *cpus)
->  		return;
->  
->  	for_each_cpu(cpu, cpus) {
-> -		if (!freq_counters_valid(cpu) ||
-> -		    freq_inv_set_max_ratio(cpu,
-> -					   cpufreq_get_hw_max_freq(cpu) * 1000ULL,
-> -					   arch_timer_get_rate()))
-> +		if (!freq_counters_valid(cpu))
-
->  			return;
->  	}
->  
-> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-> index 0a2e43728286..0906114963ff 100644
-> --- a/drivers/base/arch_topology.c
-> +++ b/drivers/base/arch_topology.c
-> @@ -344,6 +344,10 @@ bool __init topology_parse_cpu_capacity(struct device_node *cpu_node, int cpu)
->  	return !ret;
->  }
->  
-> +void __weak freq_inv_set_max_ratio(int cpu, u64 max_rate)
-> +{
-> +}
-> +
->  #ifdef CONFIG_ACPI_CPPC_LIB
->  #include <acpi/cppc_acpi.h>
->  
-> @@ -381,6 +385,9 @@ void topology_init_cpu_capacity_cppc(void)
->  	}
->  
->  	for_each_possible_cpu(cpu) {
-> +		freq_inv_set_max_ratio(cpu,
-> +				       per_cpu(capacity_freq_ref, cpu) * HZ_PER_KHZ);
-> +
->  		capacity = raw_capacity[cpu];
->  		capacity = div64_u64(capacity << SCHED_CAPACITY_SHIFT,
->  				     capacity_scale);
-> @@ -422,8 +429,11 @@ init_cpu_capacity_callback(struct notifier_block *nb,
->  
->  	cpumask_andnot(cpus_to_visit, cpus_to_visit, policy->related_cpus);
->  
-> -	for_each_cpu(cpu, policy->related_cpus)
-> +	for_each_cpu(cpu, policy->related_cpus) {
->  		per_cpu(capacity_freq_ref, cpu) = policy->cpuinfo.max_freq;
-> +		freq_inv_set_max_ratio(cpu,
-> +				       per_cpu(capacity_freq_ref, cpu) * HZ_PER_KHZ);
-> +	}
-Just wondering if this is really necessary as freq_inv_set_max_ratio will
-originally be called upon cpufreq notification being triggered (with
-CPUFREQ_CREATE_POLICY event) which should happen after the newly introduced
-capacity_freq_ref gets properly set up, so wouldn't the change of flipping
-cpufreq_get_hw_max_freq(cpu) to capacity_freq_ref do just fine ?
-Then pushing AMU specific call to generic arch code  would not be necessary.
-Or did I miss smth on the way ?
-
----
-BR
-B.
-
->  
->  	if (cpumask_empty(cpus_to_visit)) {
->  		topology_normalize_cpu_scale();
-> diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
-> index 32c24ff4f2a8..a63d61ca55af 100644
-> --- a/include/linux/arch_topology.h
-> +++ b/include/linux/arch_topology.h
-> @@ -99,6 +99,7 @@ void update_siblings_masks(unsigned int cpu);
->  void remove_cpu_topology(unsigned int cpuid);
->  void reset_cpu_topology(void);
->  int parse_acpi_topology(void);
-> +void freq_inv_set_max_ratio(int cpu, u64 max_rate);
->  #endif
->  
->  #endif /* _LINUX_ARCH_TOPOLOGY_H_ */
-> -- 
-> 2.34.1
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+WmJjIHdhcyBkb2N1bWVudGVkIGluIHRoZSBkdC1iaW5kaW5ncyBidXQgYWN0dWFsbHkgbm90IHN1
+cHBvcnRlZCBpbiBJU0EKc3RyaW5nIHBhcnNpbmcuIEFkZCBpdC4KClNpZ25lZC1vZmYtYnk6IENs
+w6ltZW50IEzDqWdlciA8Y2xlZ2VyQHJpdm9zaW5jLmNvbT4KLS0tCiBhcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL2h3Y2FwLmggfCAxICsKIGFyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYyB8IDEg
+KwogMiBmaWxlcyBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKykKCmRpZmYgLS1naXQgYS9hcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmgK
+aW5kZXggMDZkMzA1MjZlZjNiLi5hZmE5YWJjMWEwYjAgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vaHdjYXAuaAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmgK
+QEAgLTU3LDYgKzU3LDcgQEAKICNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9aSUhQTQkJNDIKICNkZWZp
+bmUgUklTQ1ZfSVNBX0VYVF9TTVNUQVRFRU4JCTQzCiAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWklD
+T05ECQk0NAorI2RlZmluZSBSSVNDVl9JU0FfRVhUX1pCQwkJNDUKIAogI2RlZmluZSBSSVNDVl9J
+U0FfRVhUX01BWAkJNjQKIApkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVy
+ZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jCmluZGV4IGIzNzg1ZmZjMTU3MC4u
+ZWFlMTRkYWE1YTc1IDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMK
+KysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jCkBAIC0xNzYsNiArMTc2LDcgQEAg
+Y29uc3Qgc3RydWN0IHJpc2N2X2lzYV9leHRfZGF0YSByaXNjdl9pc2FfZXh0W10gPSB7CiAJX19S
+SVNDVl9JU0FfRVhUX0RBVEEoemlocG0sIFJJU0NWX0lTQV9FWFRfWklIUE0pLAogCV9fUklTQ1Zf
+SVNBX0VYVF9EQVRBKHpiYSwgUklTQ1ZfSVNBX0VYVF9aQkEpLAogCV9fUklTQ1ZfSVNBX0VYVF9E
+QVRBKHpiYiwgUklTQ1ZfSVNBX0VYVF9aQkIpLAorCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHpiYywg
+UklTQ1ZfSVNBX0VYVF9aQkMpLAogCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHpicywgUklTQ1ZfSVNB
+X0VYVF9aQlMpLAogCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHNtYWlhLCBSSVNDVl9JU0FfRVhUX1NN
+QUlBKSwKIAlfX1JJU0NWX0lTQV9FWFRfREFUQShzbXN0YXRlZW4sIFJJU0NWX0lTQV9FWFRfU01T
+VEFURUVOKSwKLS0gCjIuNDIuMAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
