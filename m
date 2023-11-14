@@ -4,73 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67909C4167B
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Nov 2023 10:04:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 373F4C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Nov 2023 13:08:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WCB5xb2Px3VvQhBWdD+WRQB3DYFb8Gha8mxmTsQf2nE=; b=v9zjFKfNhJeDnx
-	pEQNMfObURWT3MUWcHtYEvBEWZi2EeE6pozCoWNiE2yHtkSS6gz2+UWV3jBg94+5oPuyu/MLMa5IB
-	bLf2FNEOzRgUtcfscjqVZObHUfR6UXHvY9REiPZaLAH4vInZ79lqHyFA9eop9IxKPGKGSi8wcjqdf
-	JNjmvgZBdlS3Ppge+/oRhtr7LEY4WyYMEkFAxXOxeDlsUxD7Z7X2pYGcVVvgC4csVl2J52dTZ+Ufi
-	NKLPwMbG6WQoI7cz2K6dO9JKLms7AxHJu0mH77Pafe+Yf4xNWyjmeHabnwQd7gqajawE0v8MkiNBx
-	9rhEkkL4RIZo/aOA89dw==;
+	List-Owner; bh=iWz7N/8FE3ZJ81TNp3skqNh4Sos/9IoN6+qZn2THC0U=; b=xdbL5xtbJspWtA
+	G08iMEvhn0Ns3aDYHWsl5Y6UmveTdUZysC/Whe2XaQeHZzYx/OjMJcBqspMiYzpGEpZuRi6oiXebs
+	dVQGxgjRyj05N2hQs2hnuqOl1WEveYkYbGMvEWaNUYqLT67+KSUTZXPCwxGoxvWn2cGXY0if+tZkj
+	ZalsmgO3uQogQyHVB2oisosQn+O/ZcNueOZ3hkGLLIE9jo7TPRz3POOjXzvhVbAQMcVPfNq+D5WmJ
+	5X4uEEl4fXJsawvfDuUdqwKclDJy4jV60jJWarlmk06IyJxWZ3o1MzxQfYfkOhK6WnfM8YH7EU+K/
+	hggzkLZTXf2WQ85dhItg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2qHj-00FXqL-0F;
-	Tue, 14 Nov 2023 10:04:43 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2qHe-00FXny-1t;
-	Tue, 14 Nov 2023 10:04:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=MliSkT+C97r/xoKb00has1+pOVRxGmmTM9aHZqmFb/M=; b=w4XFJJSuIadpNAeBv0oFJvheSh
-	XwUK9PQmPMEhgdmwSDbAapoeDa9K9HWgMz38zdIGLe/sPLp7TUYkOcvYDg3LX9m6snr5MAMtXZp1G
-	vIR6D8/EEfGWaAmd1K5HqJ20zzwHZj47NTHQMs5MZLrvpche7UN5fFTZUSmZeSZsKEMQLad0LQu28
-	zunJCFl41N8ZLAphzoOqhGQGVtYmuTDPoGwmCXhpcmyCL6DPgOGWWOwereFReVboNc6aRwnyTdllh
-	LRSDUTGxHde7yh8aZ/Yc3qmiS/Sv9HtEFiSqz9Vn7XPbLYjDyO5VYNCX+0/pgAR76YDhy0QX4GYMr
-	Kd1NjHnw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:44278)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1r2qHP-0007em-2q;
-	Tue, 14 Nov 2023 10:04:23 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1r2qHO-0005UR-In; Tue, 14 Nov 2023 10:04:22 +0000
-Date: Tue, 14 Nov 2023 10:04:22 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: James Morse <james.morse@arm.com>, linux-pm@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-acpi@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
-	x86@kernel.org, Salil Mehta <salil.mehta@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	jianyong.wu@arm.com, justin.he@arm.com, gregkh@linuxfoundation.org
-Subject: Re: [RFC PATCH v2 11/35] arch_topology: Make
- register_cpu_capacity_sysctl() tolerant to late CPUs
-Message-ID: <ZVNGJuUEkwei+CwY@shell.armlinux.org.uk>
-References: <20230913163823.7880-1-james.morse@arm.com>
- <20230913163823.7880-12-james.morse@arm.com>
- <20230914130126.000069db@Huawei.com>
- <ZTKEQz0DJuv/tqNH@shell.armlinux.org.uk>
+	id 1r2t8x-00FzuZ-37;
+	Tue, 14 Nov 2023 13:07:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1r2t8t-00Fzt8-31;
+	Tue, 14 Nov 2023 13:07:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9A7F2C15;
+	Tue, 14 Nov 2023 05:08:29 -0800 (PST)
+Received: from e129154.nice.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 20B293F6C4;
+	Tue, 14 Nov 2023 05:07:36 -0800 (PST)
+Date: Tue, 14 Nov 2023 14:06:44 +0100
+From: Beata Michalska <beata.michalska@arm.com>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org,
+	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com,
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
+	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com,
+	viresh.kumar@linaro.org, lenb@kernel.org, robert.moore@intel.com,
+	lukasz.luba@arm.com, ionela.voinescu@arm.com,
+	pierre.gondois@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org,
+	conor.dooley@microchip.com, suagrfillet@gmail.com,
+	ajones@ventanamicro.com, lftan@kernel.org
+Subject: Re: [PATCH v6 7/7] arm64/amu: Use capacity_ref_freq to set AMU ratio
+Message-ID: <ZVNw5Ci9kCPMqV67@e129154.nice.arm.com>
+References: <20231109101438.1139696-1-vincent.guittot@linaro.org>
+ <20231109101438.1139696-8-vincent.guittot@linaro.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ZTKEQz0DJuv/tqNH@shell.armlinux.org.uk>
+In-Reply-To: <20231109101438.1139696-8-vincent.guittot@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231114_020439_075975_4606BB33 
-X-CRM114-Status: GOOD (  45.70  )
+X-CRM114-CacheID: sfid-20231114_050748_094089_50551E8D 
+X-CRM114-Status: GOOD (  25.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,160 +74,154 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Okay, after 25 days, I'm now changing James' comment to:
+On Thu, Nov 09, 2023 at 11:14:38AM +0100, Vincent Guittot wrote:
+> Use the new capacity_ref_freq to set the ratio that is used by AMU for
+> computing the arch_scale_freq_capacity().
+> This helps to keep everything aligned using the same reference for
+> computing CPUs capacity.
+> 
+> The default value of the ratio (stored in per_cpu(arch_max_freq_scale))
+> ensures that arch_scale_freq_capacity() returns max capacity until it is
+> set to its correct value with the cpu capacity and capacity_ref_freq.
+> 
+> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> Acked-by: Sudeep Holla <sudeep.holla@arm.com>
+> ---
+>  arch/arm64/kernel/topology.c  | 26 +++++++++++++-------------
+>  drivers/base/arch_topology.c  | 12 +++++++++++-
+>  include/linux/arch_topology.h |  1 +
+>  3 files changed, 25 insertions(+), 14 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> index 817d788cd866..1a2c72f3e7f8 100644
+> --- a/arch/arm64/kernel/topology.c
+> +++ b/arch/arm64/kernel/topology.c
+> @@ -82,7 +82,12 @@ int __init parse_acpi_topology(void)
+>  #undef pr_fmt
+>  #define pr_fmt(fmt) "AMU: " fmt
+>  
+> -static DEFINE_PER_CPU_READ_MOSTLY(unsigned long, arch_max_freq_scale);
+> +/*
+> + * Ensure that amu_scale_freq_tick() will return SCHED_CAPACITY_SCALE until
+> + * the CPU capacity and its associated frequency have been correctly
+> + * initialized.
+> + */
+> +static DEFINE_PER_CPU_READ_MOSTLY(unsigned long, arch_max_freq_scale) =  1UL << (2 * SCHED_CAPACITY_SHIFT);
+>  static DEFINE_PER_CPU(u64, arch_const_cycles_prev);
+>  static DEFINE_PER_CPU(u64, arch_core_cycles_prev);
+>  static cpumask_var_t amu_fie_cpus;
+> @@ -112,14 +117,14 @@ static inline bool freq_counters_valid(int cpu)
+>  	return true;
+>  }
+>  
+> -static int freq_inv_set_max_ratio(int cpu, u64 max_rate, u64 ref_rate)
+> +void freq_inv_set_max_ratio(int cpu, u64 max_rate)
+>  {
+> -	u64 ratio;
+> +	u64 ratio, ref_rate = arch_timer_get_rate();
+>  
+>  	if (unlikely(!max_rate || !ref_rate)) {
+> -		pr_debug("CPU%d: invalid maximum or reference frequency.\n",
+> +		WARN_ONCE(1, "CPU%d: invalid maximum or reference frequency.\n",
+>  			 cpu);
+> -		return -EINVAL;
+> +		return;
+>  	}
+>  
+>  	/*
+> @@ -139,12 +144,10 @@ static int freq_inv_set_max_ratio(int cpu, u64 max_rate, u64 ref_rate)
+>  	ratio = div64_u64(ratio, max_rate);
+>  	if (!ratio) {
+>  		WARN_ONCE(1, "Reference frequency too low.\n");
+> -		return -EINVAL;
+> +		return;
+>  	}
+>  
+> -	per_cpu(arch_max_freq_scale, cpu) = (unsigned long)ratio;
+> -
+> -	return 0;
+> +	WRITE_ONCE(per_cpu(arch_max_freq_scale, cpu), (unsigned long)ratio);
+>  }
+>  
+>  static void amu_scale_freq_tick(void)
+> @@ -195,10 +198,7 @@ static void amu_fie_setup(const struct cpumask *cpus)
+>  		return;
+>  
+>  	for_each_cpu(cpu, cpus) {
+> -		if (!freq_counters_valid(cpu) ||
+> -		    freq_inv_set_max_ratio(cpu,
+> -					   cpufreq_get_hw_max_freq(cpu) * 1000ULL,
+> -					   arch_timer_get_rate()))
+> +		if (!freq_counters_valid(cpu))
 
-    If the offline CPUs thing is a problem for the tools that consume
-    this value, we'd need to move cpu_capacity to be part of cpu.c's
-    common_cpu_attr_groups. However, attempts to discuss this just end
-    up in a black hole, so this is a non-starter. Thus, if this needs
-    to be done, it can be done as a separate patch.
-
-and thus I'm going to consider this patch acceptable to everyone.
-
-On Fri, Oct 20, 2023 at 02:44:35PM +0100, Russell King (Oracle) wrote:
-> On Thu, Sep 14, 2023 at 01:01:26PM +0100, Jonathan Cameron wrote:
-> > On Wed, 13 Sep 2023 16:37:59 +0000
-> > James Morse <james.morse@arm.com> wrote:
-> > 
-> > > register_cpu_capacity_sysctl() adds a property to sysfs that describes
-> > > the CPUs capacity. This is done from a subsys_initcall() that assumes
-> > > all possible CPUs are registered.
-> > > 
-> > > With CPU hotplug, possible CPUs aren't registered until they become
-> > > present, (or for arm64 enabled). This leads to messages during boot:
-> > > | register_cpu_capacity_sysctl: too early to get CPU1 device!
-> > > and once these CPUs are added to the system, the file is missing.
-> > > 
-> > > Move this to a cpuhp callback, so that the file is created once
-> > > CPUs are brought online. This covers CPUs that are added late by
-> > > mechanisms like hotplug.
-> > > One observable difference is the file is now missing for offline CPUs.
-> > > 
-> > > Signed-off-by: James Morse <james.morse@arm.com>
-> > > ---
-> > > If the offline CPUs thing is a problem for the tools that consume
-> > > this value, we'd need to move cpu_capacity to be part of cpu.c's
-> > > common_cpu_attr_groups.
-> > 
-> > I think we should do that anyway and then use an is_visible() if we want to
-> > change whether it is visible in offline cpus.
-> > 
-> > Dynamic sysfs file creation is horrible - particularly when done
-> > from an totally different file from where the rest of the attributes
-> > are registered.  I'm curious what the history behind that is.
-> > 
-> > Whilst here, why is there a common_cpu_attr_groups which is
-> > identical to the hotpluggable_cpu_attr_groups in base/cpu.c?
-> 
-> Looking into doing this, the easy bit is adding the attribute group
-> with an appropriate .is_visible dependent on cpu_present(), but we
-> need to be able to call sysfs_update_groups() when the state of the
-> .is_visible() changes.
-> 
-> Given the comment in sysfs_update_groups() about "if an error occurs",
-> rather than making this part of common_cpu_attr_groups, would it be
-> better that it's part of its own set of groups, thus limiting the
-> damage from a possible error? I suspect, however, that any error at
-> that point means that the system is rather fatally wounded.
-> 
-> This is what I have so far to implement your idea, less the necessary
-> sysfs_update_groups() call when we need to change the visibility of
-> the attributes.
-> 
+>  			return;
+>  	}
+>  
 > diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-> index 9ccb7daee78e..06c9fc6620d2 100644
+> index 0a2e43728286..0906114963ff 100644
 > --- a/drivers/base/arch_topology.c
 > +++ b/drivers/base/arch_topology.c
-> @@ -215,43 +215,24 @@ static ssize_t cpu_capacity_show(struct device *dev,
->  	return sysfs_emit(buf, "%lu\n", topology_get_cpu_scale(cpu->dev.id));
+> @@ -344,6 +344,10 @@ bool __init topology_parse_cpu_capacity(struct device_node *cpu_node, int cpu)
+>  	return !ret;
 >  }
 >  
-> -static void update_topology_flags_workfn(struct work_struct *work);
-> -static DECLARE_WORK(update_topology_flags_work, update_topology_flags_workfn);
-> -
->  static DEVICE_ATTR_RO(cpu_capacity);
->  
-> -static int cpu_capacity_sysctl_add(unsigned int cpu)
-> -{
-> -	struct device *cpu_dev = get_cpu_device(cpu);
-> -
-> -	if (!cpu_dev)
-> -		return -ENOENT;
-> -
-> -	device_create_file(cpu_dev, &dev_attr_cpu_capacity);
-> -
-> -	return 0;
-> -}
-> -
-> -static int cpu_capacity_sysctl_remove(unsigned int cpu)
-> +static umode_t cpu_present_attrs_visible(struct kobject *kobi,
-> +					 struct attribute *attr, int index)
->  {
-> -	struct device *cpu_dev = get_cpu_device(cpu);
-> -
-> -	if (!cpu_dev)
-> -		return -ENOENT;
-> -
-> -	device_remove_file(cpu_dev, &dev_attr_cpu_capacity);
-> +	struct device *dev = kobj_to_dev(kobj);
-> +	struct cpu *cpu = container_of(dev, struct cpu, dev);
->  
-> -	return 0;
-> +	return cpu_present(cpu->dev.id) ? attr->mode : 0;
->  }
->  
-> -static int register_cpu_capacity_sysctl(void)
-> -{
-> -	cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "topology/cpu-capacity",
-> -			  cpu_capacity_sysctl_add, cpu_capacity_sysctl_remove);
-> +const struct attribute_group cpu_capacity_attr_group = {
-> +	.is_visible = cpu_present_attrs_visible,
-> +	.attrs = cpu_capacity_attrs
-> +};
->  
-> -	return 0;
-> -}
-> -subsys_initcall(register_cpu_capacity_sysctl);
-> +static void update_topology_flags_workfn(struct work_struct *work);
-> +static DECLARE_WORK(update_topology_flags_work, update_topology_flags_workfn);
->  
->  static int update_topology;
->  
-> diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
-> index a19a8be93102..954b045705c2 100644
-> --- a/drivers/base/cpu.c
-> +++ b/drivers/base/cpu.c
-> @@ -192,6 +192,9 @@ static const struct attribute_group crash_note_cpu_attr_group = {
->  static const struct attribute_group *common_cpu_attr_groups[] = {
->  #ifdef CONFIG_KEXEC
->  	&crash_note_cpu_attr_group,
-> +#endif
-> +#ifdef CONFIG_GENERIC_ARCH_TOPOLOGY
-> +	&cpu_capacity_attr_group,
->  #endif
->  	NULL
->  };
-> diff --git a/include/linux/cpu.h b/include/linux/cpu.h
-> index e117c06e0c6b..745ad21e3dc8 100644
-> --- a/include/linux/cpu.h
-> +++ b/include/linux/cpu.h
-> @@ -30,6 +30,8 @@ struct cpu {
->  	struct device dev;
->  };
->  
-> +extern const struct attribute_group cpu_capacity_attr_group;
+> +void __weak freq_inv_set_max_ratio(int cpu, u64 max_rate)
+> +{
+> +}
 > +
->  extern void boot_cpu_init(void);
->  extern void boot_cpu_hotplug_init(void);
->  extern void cpu_init(void);
-> 
-> -- 
-> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+>  #ifdef CONFIG_ACPI_CPPC_LIB
+>  #include <acpi/cppc_acpi.h>
+>  
+> @@ -381,6 +385,9 @@ void topology_init_cpu_capacity_cppc(void)
+>  	}
+>  
+>  	for_each_possible_cpu(cpu) {
+> +		freq_inv_set_max_ratio(cpu,
+> +				       per_cpu(capacity_freq_ref, cpu) * HZ_PER_KHZ);
+> +
+>  		capacity = raw_capacity[cpu];
+>  		capacity = div64_u64(capacity << SCHED_CAPACITY_SHIFT,
+>  				     capacity_scale);
+> @@ -422,8 +429,11 @@ init_cpu_capacity_callback(struct notifier_block *nb,
+>  
+>  	cpumask_andnot(cpus_to_visit, cpus_to_visit, policy->related_cpus);
+>  
+> -	for_each_cpu(cpu, policy->related_cpus)
+> +	for_each_cpu(cpu, policy->related_cpus) {
+>  		per_cpu(capacity_freq_ref, cpu) = policy->cpuinfo.max_freq;
+> +		freq_inv_set_max_ratio(cpu,
+> +				       per_cpu(capacity_freq_ref, cpu) * HZ_PER_KHZ);
+> +	}
+Just wondering if this is really necessary as freq_inv_set_max_ratio will
+originally be called upon cpufreq notification being triggered (with
+CPUFREQ_CREATE_POLICY event) which should happen after the newly introduced
+capacity_freq_ref gets properly set up, so wouldn't the change of flipping
+cpufreq_get_hw_max_freq(cpu) to capacity_freq_ref do just fine ?
+Then pushing AMU specific call to generic arch code  would not be necessary.
+Or did I miss smth on the way ?
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+---
+BR
+B.
+
+>  
+>  	if (cpumask_empty(cpus_to_visit)) {
+>  		topology_normalize_cpu_scale();
+> diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
+> index 32c24ff4f2a8..a63d61ca55af 100644
+> --- a/include/linux/arch_topology.h
+> +++ b/include/linux/arch_topology.h
+> @@ -99,6 +99,7 @@ void update_siblings_masks(unsigned int cpu);
+>  void remove_cpu_topology(unsigned int cpuid);
+>  void reset_cpu_topology(void);
+>  int parse_acpi_topology(void);
+> +void freq_inv_set_max_ratio(int cpu, u64 max_rate);
+>  #endif
+>  
+>  #endif /* _LINUX_ARCH_TOPOLOGY_H_ */
+> -- 
+> 2.34.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
