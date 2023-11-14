@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA31C4167D
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Nov 2023 14:46:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCFE8C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Nov 2023 14:58:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6hyMHzT7FtKuhHszecOO9hSC24PgDhm0tJg4MexjuCg=; b=bacqKxVKCM+Wjc
-	luA9Z2CBwWZJV0l3pH6hBe/qq/UGnUCfJEgC/qHos4FLUVRPfazw1VcNgjDbAG1QIYSIhqCXmBmZv
-	DPK6yd01tKKYT3edh+yndx5KDjW9vHi/NxSSDqRCU4lMQXztJAMGfe1ikYhN7Rhsr/UOT1pIA6K26
-	N2GXKoSN5ny4sK4lc5ksHnSZJYSDAclwG1lEDzEU8NrqJG6P0/NRRvRNkJ9xNiQLUuuhz5MaQ36Nm
-	TnjK8GXP/PRHt848dz/J3OTTSK9l2Cotk0fWsXPjg6Txp0pkTxydRFJY5JIFDwc5hQ2Rg1yk7Y4yO
-	hVW5bTHybWl7o8zcGW1A==;
+	List-Owner; bh=Kxky/40BMKry3Nj4YifVFZdoU1rZwdG5D0zPNlSzoHE=; b=rxNcYVXzoijTqF
+	wkpdLdZHoDNGTothVOzEeEamg/Q0tpFi4sJwdCVO/4rHkAanhVgmbbHvrogUkPHC/OYfVG6PAiC7J
+	CMPa5DjApjhNonPlN7ZPcgNHNALuNc/X0PMo2jTUuJEIw/EyHsbIa3pGm0gcLhWV5aJv08dAvomo+
+	/ecTZ9laDfNqtWNNMpcPu685PyZp3qoYY4pdaFSl9QwCice6pHaqVUXeyAmdJIaTqMkdZQQeLKjIO
+	a/RDQV6JRzjADzBAhcoqOdxbWx3CslCO4sDO044t1ZZuRCC9e9OpyCUyo9TtBGxD11/D33kRA+JMi
+	HxYMdDOEFxNMTI6UzpWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2ug6-00GFCi-0M;
-	Tue, 14 Nov 2023 14:46:10 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1r2usF-00GG64-0Y;
+	Tue, 14 Nov 2023 14:58:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2ug3-00GFBX-2C
+	id 1r2usB-00GG5f-2z
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Nov 2023 14:46:09 +0000
+	Tue, 14 Nov 2023 14:58:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 38D0FCE192D;
-	Tue, 14 Nov 2023 14:46:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B89EC433C8;
-	Tue, 14 Nov 2023 14:46:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3884E61309;
+	Tue, 14 Nov 2023 14:58:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A79EC433C8;
+	Tue, 14 Nov 2023 14:58:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699973162;
-	bh=gyx5uorL/T7u5Zf3KBdw6WSx5NX44qtilXB2fUrTgbg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gjqpJeHCXZ2By7PxAYSg55SsIlNJlNzU9mTWAl8lkKPDNV4TmtfnPIzka8II3wW3I
-	 4QYJzqQRpNCG/ijoRB37V1pJLQ5adJDbDmBcucoZFL7KHHGjxG/A/A5jaxpSS4lWE0
-	 82duHi2SF1WnJJHu1EmSKuzJVxOtibxn0yck4MaWywpKLYq3IeIpNyRsyk2u5POLc+
-	 qxbQlkFfcR5qwuukM3ZDoo6ISfJCD9sdHQ8C57NJ/owoId9oImZPVe+jCScd5FuVMB
-	 Xv4k/LoEVTCvPACYT77Xl+j6reIEpATg8duKYCNv6YDSiSpa5rlfzOmZx+u6XgFpQX
-	 F2VeBbPMOg6Iw==
+	s=k20201202; t=1699973918;
+	bh=0EG0AEP+OoGuvIOQpS68GDDBe/uBCpjeDc5+bp7MX8g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=N0aobSsAdILu3wEY6NGHTWkUN5ZL4RJ7fB806eCXdAcEqEEuvwAom4L+HtjuSTklZ
+	 ANBiJltW/qtuqTjPzMhpDpmaGH3t17M/f1gXJ9cWunSTz46oA3s3nOfWJyIalKCJy6
+	 tI7wy+Uazfq/RX4ByDdVS+vpPHh2X9j/uH/eTFlnOTiMqxCvLITbY2XzHvDAGWK9+R
+	 USxZNZUuyWAhUuOe7jihyWNV0ukCrK4E3zRoY/1bnPMK1mSVRlcuuNbDsyD4iExwPg
+	 Xbh2gjsOcWSWa5x21UwbYS4lG9CgnDHcWErZajVjNki9liJDTkFphbQUYpv6TgY+5Y
+	 iUfyb8G+YMcTA==
+Date: Tue, 14 Nov 2023 22:46:11 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+To: Chen Wang <unicorn_wang@outlook.com>
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Guo Ren <guoren@kernel.org>
-Subject: [PATCH RESEND v4 2/2] riscv: errata: thead: use pa based instructions for CMO
-Date: Tue, 14 Nov 2023 22:33:38 +0800
-Message-Id: <20231114143338.2406-3-jszhang@kernel.org>
-X-Mailer: git-send-email 2.40.0
-In-Reply-To: <20231114143338.2406-1-jszhang@kernel.org>
-References: <20231114143338.2406-1-jszhang@kernel.org>
+	Albert Ou <aou@eecs.berkeley.edu>, Chao Wei <chao.wei@sophgo.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 1/2] riscv: dts: cv1800b: add pinctrl node for cv1800b
+Message-ID: <ZVOIMy0BB1eVwWup@xhacker>
+References: <20231113005702.2467-1-jszhang@kernel.org>
+ <20231113005702.2467-2-jszhang@kernel.org>
+ <MA0P287MB033298A1F0F1B59CDF110E52FEB2A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <MA0P287MB033298A1F0F1B59CDF110E52FEB2A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231114_064607_898764_0F68A964 
-X-CRM114-Status: UNSURE (   7.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231114_065840_070733_EB48FA7A 
+X-CRM114-Status: GOOD (  23.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,62 +80,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T-HEAD CPUs such as C906/C910/C920 support phy address based CMO, use
-them so that we don't need to convert to virt address.
+On Tue, Nov 14, 2023 at 09:38:47AM +0800, Chen Wang wrote:
+> 
+> On 2023/11/13 8:57, Jisheng Zhang wrote:
+> > Add the reset device tree node to cv1800b SoC reusing the
+> > pinctrl-single driver.
+> > 
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > ---
+> >   arch/riscv/boot/dts/sophgo/cv-pinctrl.h | 19 +++++++++++++++++++
+> >   arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 10 ++++++++++
+> >   2 files changed, 29 insertions(+)
+> >   create mode 100644 arch/riscv/boot/dts/sophgo/cv-pinctrl.h
+> 
+> 
+> I'm afraid there will not be more cv* chip in coming days. So I would
+> suggest you use "cv1800b-pinctrl.h" first here. If we see more cv* coming,
+> and if they will reuse the definition here, we can consider optimize the
+> filename, what do you think?
+> 
+> BTW, how about defining the file name as "cv1800b.h" and I'm not sure if you
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Reviewed-by: Guo Ren <guoren@kernel.org>
----
- arch/riscv/errata/thead/errata.c | 18 ++++++------------
- 1 file changed, 6 insertions(+), 12 deletions(-)
+hmm, cv1800b-pinctrl.h is fine. Only pinctrl related stuff will be put
+there.
 
-diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
-index c07d957b1468..b1c410bbc1ae 100644
---- a/arch/riscv/errata/thead/errata.c
-+++ b/arch/riscv/errata/thead/errata.c
-@@ -58,9 +58,9 @@ static bool errata_probe_pbmt(unsigned int stage,
-  * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-  *   0000000    11001     00000      000      00000  0001011
-  */
--#define THEAD_INVAL_A0	".long 0x0265000b"
--#define THEAD_CLEAN_A0	".long 0x0255000b"
--#define THEAD_FLUSH_A0	".long 0x0275000b"
-+#define THEAD_INVAL_A0	".long 0x02a5000b"
-+#define THEAD_CLEAN_A0	".long 0x0295000b"
-+#define THEAD_FLUSH_A0	".long 0x02b5000b"
- #define THEAD_SYNC_S	".long 0x0190000b"
- 
- #define THEAD_CMO_OP(_op, _start, _size, _cachesize)			\
-@@ -79,23 +79,17 @@ asm volatile("mv a0, %1\n\t"						\
- 
- static void thead_errata_cache_inv(phys_addr_t paddr, size_t size)
- {
--	void *vaddr = phys_to_virt(paddr);
--
--	THEAD_CMO_OP(INVAL, vaddr, size, riscv_cbom_block_size);
-+	THEAD_CMO_OP(INVAL, paddr, size, riscv_cbom_block_size);
- }
- 
- static void thead_errata_cache_wback(phys_addr_t paddr, size_t size)
- {
--	void *vaddr = phys_to_virt(paddr);
--
--	THEAD_CMO_OP(CLEAN, vaddr, size, riscv_cbom_block_size);
-+	THEAD_CMO_OP(CLEAN, paddr, size, riscv_cbom_block_size);
- }
- 
- static void thead_errata_cache_wback_inv(phys_addr_t paddr, size_t size)
- {
--	void *vaddr = phys_to_virt(paddr);
--
--	THEAD_CMO_OP(FLUSH, vaddr, size, riscv_cbom_block_size);
-+	THEAD_CMO_OP(FLUSH, paddr, size, riscv_cbom_block_size);
- }
- 
- static const struct riscv_nonstd_cache_ops thead_errata_cmo_ops = {
--- 
-2.40.0
-
+> will have more macro const definition for other modules?
+> 
+> > diff --git a/arch/riscv/boot/dts/sophgo/cv-pinctrl.h b/arch/riscv/boot/dts/sophgo/cv-pinctrl.h
+> > new file mode 100644
+> > index 000000000000..ed78b6fb3142
+> > --- /dev/null
+> > +++ b/arch/riscv/boot/dts/sophgo/cv-pinctrl.h
+> > @@ -0,0 +1,19 @@
+> > +/* SPDX-License-Identifier: GPL-2.0 */
+> > +/*
+> > + * This header provides constants for pinctrl bindings for Sophgo CV* SoC.
+> > + *
+> > + * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
+> > + */
+> > +#ifndef _DTS_RISCV_SOPHGO_CV_PINCTRL_H
+> > +#define _DTS_RISCV_SOPHGO_CV_PINCTRL_H
+> > +
+> > +#define MUX_M0		0
+> > +#define MUX_M1		1
+> > +#define MUX_M2		2
+> > +#define MUX_M3		3
+> > +#define MUX_M4		4
+> > +#define MUX_M5		5
+> > +#define MUX_M6		6
+> > +#define MUX_M7		7
+> > +
+> > +#endif
+> > diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> > index e04df04a91c0..7a44d8e8672b 100644
+> > --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> > +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> > @@ -6,6 +6,8 @@
+> >   #include <dt-bindings/interrupt-controller/irq.h>
+> >   #include <dt-bindings/reset/sophgo,cv1800b-reset.h>
+> > +#include "cv-pinctrl.h"
+> > +
+> >   / {
+> >   	compatible = "sophgo,cv1800b";
+> >   	#address-cells = <1>;
+> > @@ -55,6 +57,14 @@ soc {
+> >   		dma-noncoherent;
+> >   		ranges;
+> > +		pinctrl0: pinctrl@3001000 {
+> > +			compatible = "pinctrl-single";
+> > +			reg = <0x3001000 0x130>;
+> > +			#pinctrl-cells = <1>;
+> > +			pinctrl-single,register-width = <32>;
+> > +			pinctrl-single,function-mask = <0x00000007>;
+> > +		};
+> > +
+> >   		rst: reset-controller@3003000 {
+> >   			compatible = "sophgo,cv1800b-reset";
+> >   			reg = <0x03003000 0x1000>;
 
 _______________________________________________
 linux-riscv mailing list
