@@ -4,64 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA63FC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Nov 2023 17:40:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79FCCC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Nov 2023 21:08:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pvDh8l+ywH2Nq6Oo1qi5xDtBhXfql8r6SrdjRjho51E=; b=2JoztP4d56f/3nvOd9fkHMhyPw
-	THgpK21Ys/nG1V/VRf2t1xoNHWD8lWnWuIT94pSefgY8341UD+EHbJ0BaDI4lcWMKvXYpfywe723x
-	LYopJJ8U48HB7LisxmXp2iCj98AgA4ZXCV7kHAOXlHWU29jUIIxPVZ6/9CRKRLVdAtPXjz0TuYZcL
-	UBu3VHiOMhohD/J89rj7kLLQcqtg7g/aKfNoHj6t3XLjtvzZ5LYhJMAZzXvg1BCiyq/0ikG1/wp0q
-	xNDvrQMoUVA6NM+qSEX/u/3XyJcbvT4Y6ZKWTqzzEZ1oUmxBwFUYAjjUWC9D/pADx5xjmqyIA6ZXz
-	O4VCzG0Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zyjdh20muEO4UiWMCKuC/eYc3bdmbB8JdxqF/R+Vab0=; b=Yd1Z7sV9fAc/0p
+	8Zq5hv4B7m0oRKn/7hLASzPl0ukUcREFERqG4CaM3xlGMeuPPQBr1z/lCgih0CiQB/jLumM34wP4B
+	gTFKVzxuHlNWboX9aAtmbm/34lZsDk3D2BVRtesA4kVqQG47csV2AH3jcM9IheWAXgTvwhVbLs9e/
+	hvVRA7AIjNJjHVSUc6PiE2q63V3Whj0cIh4RYARVaSn8GobkkwTLmK8katJqzgCjd81HDbSfjK1km
+	PjlZVm/q00d+kD4zACHznZSaALm76pjEJ9r2fURCTmZc7e0RlAsWgFGxWo9+gmvIaWQQgdvjtxkMT
+	BMU4JT1K6UMr86J8vDNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2xOn-00GWVd-2k;
-	Tue, 14 Nov 2023 17:40:29 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1r30du-00Go4Z-2d;
+	Tue, 14 Nov 2023 21:08:18 +0000
+Received: from mail-oa1-x31.google.com ([2001:4860:4864:20::31])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2xOk-00GWV0-2S
+	id 1r30dq-00Go1B-0f
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Nov 2023 17:40:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id EF315CE1AA4;
-	Tue, 14 Nov 2023 17:40:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8121AC433C8;
-	Tue, 14 Nov 2023 17:40:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1699983624;
-	bh=z9PwBTSGVM1q27ATk+TMybFpQRzzSFtVdprhH4R8Ytk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YPq+NIIdBj7YLws2oaM2krjeCUtZ8V97BQueGz5nDfeAhkmKi1uaZYlzsRhy5NHZi
-	 7bqwW0XHxgaJpVaRgO6JMzf9dKNS2PupqbmwnOHIEPs5MMedPu1wGSSO2w1e4fWRQ8
-	 tPQLX3t8fs2p+Te3m95wj0suqTypCdHLGWW4/x8ftNwXylBPvc/zXsmwF3vXFvA8Uy
-	 4BGyuCgWCPfUYDTk1TJ/e2eu+rjkZqcNFcdlILrzE/nWc3b2Ozrs2m75OG51ZbBapX
-	 5j7bpSe/UuErrJ7VwU+PfylJT8w2bJhqMbHbEJR1g8nbyUiH+rzjjiupwRF79scyVe
-	 jHCZj+Y4QXARQ==
-Date: Tue, 14 Nov 2023 17:40:20 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Chen Wang <unicornxw@gmail.com>
-Cc: aou@eecs.berkeley.edu, chao.wei@sophgo.com,
-	krzysztof.kozlowski+dt@linaro.org, mturquette@baylibre.com,
-	palmer@dabbelt.com, paul.walmsley@sifive.com,
-	richardcochran@gmail.com, robh+dt@kernel.org, sboyd@kernel.org,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com,
-	Chen Wang <unicorn_wang@outlook.com>
-Subject: Re: [PATCH 2/5] dt-bindings: soc: sophgo: Add Sophgo syscon module
-Message-ID: <20231114-timid-habitat-a06e52e59c9c@squawk>
-References: <cover.1699879741.git.unicorn_wang@outlook.com>
- <3c286171af30101b88f0aaf645fb0a7d5880ac0a.1699879741.git.unicorn_wang@outlook.com>
+	Tue, 14 Nov 2023 21:08:15 +0000
+Received: by mail-oa1-x31.google.com with SMTP id 586e51a60fabf-1f0f94943d9so2982156fac.2
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Nov 2023 13:08:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1699996092; x=1700600892; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sez5TNXPSBGATbv4iH/EIetO26Yi46HMN2DlkNo1h/Y=;
+        b=Tw2yZKAi80PXtu8KXp3aILqws6yRdqUIMcwc8hXTMHxTrDxBr2GV7PHcNrGmRdDZfM
+         SYG4fFLgUuTLX6vrJi147dUd1CK/s0hh3MG3dNmRscLyRO79bcEP3IFJn2WjlWrzG5c5
+         bOAOo1i596lN5P86g6Aeh9/GspV0YRALpnCUufxBzpE7Cz2E+eFzzylfCbUgBA+3BXlj
+         sbQmA2zSGAJfkyNyTzsOKpkn2kXsBPLCfvWizHTADloK5vCv4mRH+H+jn5dBAqOgCdys
+         9gA39rZJtZ1a/nwySJMl1+cbZ9hde/6lrD3Vx8ENrvFpWYUhtCNWx18aXHCKT7k64ITZ
+         Gkeg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1699996092; x=1700600892;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sez5TNXPSBGATbv4iH/EIetO26Yi46HMN2DlkNo1h/Y=;
+        b=clm828zZaIJFpsWB+vb6DxC7gVMtrsVmHpFysCnG/XzpXNIVjwSIaVq1lUg9ku1VDi
+         kp5jSa/rokTyFbC/UrACCl9bJNr4SzrwS3xyTIMq2l0POSu+GnE6bRiQMTMMcXjdw5zC
+         QF/MzLEoUUD7IPuk8hTK5YfbvaploUHfJpXm4rkw1iBEYkJoi6rGWscWviDJvqwK9IEG
+         0WA0kJqrgDIQZxQLOiTV+bQpHupweCK0y7tOUJ4zL1P+mj1MVS+6VQXpk5fnyvxuqwdq
+         CBb/97mgSB+iLs0BtlGFyCbALZ//buDZ4QKsbN2udy4tJMNnreeGnBr3dhlTCp4dyS09
+         lxtQ==
+X-Gm-Message-State: AOJu0YwFORrthIim/RB75ecepvjDFexZYp2Fkl4Zxo8Kr0BHUOt0hMxK
+	+4rv8XAQUCfShMHWyE479pxh7A==
+X-Google-Smtp-Source: AGHT+IH8BurOsz3HvxflMOcmou3k9iE9yOvNj8QSVkmj8wmmZZH9NXkHgQkBGtnbIJL3wDlNIlsdBw==
+X-Received: by 2002:a05:6870:6ec4:b0:1ea:2447:5181 with SMTP id qv4-20020a0568706ec400b001ea24475181mr10001030oab.9.1699996092052;
+        Tue, 14 Nov 2023 13:08:12 -0800 (PST)
+Received: from [127.0.1.1] ([12.186.190.1])
+        by smtp.gmail.com with ESMTPSA id x16-20020ac85390000000b004198d026be6sm3027549qtp.35.2023.11.14.13.08.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Nov 2023 13:08:11 -0800 (PST)
+From: Drew Fustini <dfustini@baylibre.com>
+Date: Tue, 14 Nov 2023 16:07:59 -0500
+Subject: [PATCH v6 5/7] riscv: dts: thead: Add TH1520 mmc controllers and
+ sdhci clock
 MIME-Version: 1.0
-In-Reply-To: <3c286171af30101b88f0aaf645fb0a7d5880ac0a.1699879741.git.unicorn_wang@outlook.com>
+Message-Id: <20231114-th1520-mmc-v6-5-3273c661a571@baylibre.com>
+References: <20231114-th1520-mmc-v6-0-3273c661a571@baylibre.com>
+In-Reply-To: <20231114-th1520-mmc-v6-0-3273c661a571@baylibre.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+ Conor Dooley <conor@kernel.org>
+Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Drew Fustini <dfustini@baylibre.com>
+X-Mailer: b4 0.12.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1699996086; l=1662;
+ i=dfustini@baylibre.com; s=20230430; h=from:subject:message-id;
+ bh=5F3cUoM9uPwZr3nAbkkg8hlE/aYbHbZypGZJHmRKKkc=;
+ b=sThdFfxHu7C2ISnkASyL2+wqHUobTAv8LAVRkg+GAuiicLGX3E6KGT3ZKwLzgZL2o3ywX/aly
+ pVCC5HUCjOrDQuteATDqXpsfo/PxZDp6Iyt51XFI1h/TTmrr5Ki+T4F
+X-Developer-Key: i=dfustini@baylibre.com; a=ed25519;
+ pk=p3GKE9XFmjhwAayAHG4U108yag7V8xQVd4zJLdW0g7g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231114_094027_139656_F9C83C62 
-X-CRM114-Status: GOOD (  17.64  )
+X-CRM114-CacheID: sfid-20231114_130814_247201_884A6401 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,120 +104,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5509394424248200594=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add node for the SDHCI fixed clock. Add mmc0 node for the first mmc
+controller instance which is typically connected to the eMMC device.
+Add mmc1 node for the second mmc controller instance which is typically
+connected to microSD slot.
 
---===============5509394424248200594==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="7x2SPF0LZcIrRSv8"
-Content-Disposition: inline
+Signed-off-by: Drew Fustini <dfustini@baylibre.com>
+---
+ arch/riscv/boot/dts/thead/th1520.dtsi | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
 
+diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+index ff364709a6df..fb8a4a04d3c4 100644
+--- a/arch/riscv/boot/dts/thead/th1520.dtsi
++++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+@@ -134,6 +134,13 @@ uart_sclk: uart-sclk-clock {
+ 		#clock-cells = <0>;
+ 	};
+ 
++	sdhci_clk: sdhci-clock {
++		compatible = "fixed-clock";
++		clock-frequency = <198000000>;
++		clock-output-names = "sdhci_clk";
++		#clock-cells = <0>;
++	};
++
+ 	soc {
+ 		compatible = "simple-bus";
+ 		interrupt-parent = <&plic>;
+@@ -292,6 +299,24 @@ dmac0: dma-controller@ffefc00000 {
+ 			status = "disabled";
+ 		};
+ 
++		mmc0: mmc@ffe7080000 {
++			compatible = "thead,th1520-dwcmshc";
++			reg = <0xff 0xe7080000 0x0 0x10000>;
++			interrupts = <62 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&sdhci_clk>;
++			clock-names = "core";
++			status = "disabled";
++		};
++
++		mmc1: mmc@ffe7090000 {
++			compatible = "thead,th1520-dwcmshc";
++			reg = <0xff 0xe7090000 0x0 0x10000>;
++			interrupts = <64 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&sdhci_clk>;
++			clock-names = "core";
++			status = "disabled";
++		};
++
+ 		timer0: timer@ffefc32000 {
+ 			compatible = "snps,dw-apb-timer";
+ 			reg = <0xff 0xefc32000 0x0 0x14>;
 
---7x2SPF0LZcIrRSv8
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+-- 
+2.34.1
 
-On Mon, Nov 13, 2023 at 09:19:02PM +0800, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
->=20
-> Add documentation to describe Sophgo System Controller Registers for
-> SG2042.
->=20
-> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
-> ---
->  .../soc/sophgo/sophgo,sg2042-syscon.yaml      | 38 +++++++++++++++++++
->  1 file changed, 38 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,s=
-g2042-syscon.yaml
->=20
-> diff --git a/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-s=
-yscon.yaml b/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sys=
-con.yaml
-> new file mode 100644
-> index 000000000000..829abede4fd5
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-syscon.y=
-aml
-> @@ -0,0 +1,38 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/soc/sophgo/sophgo,sg2042-syscon.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Sophgo SG2042 SoC system controller
-> +
-> +maintainers:
-> +  - Chen Wang <unicorn_wang@outlook.com>
-> +
-> +description:
-> +  The Sophgo SG2042 SoC system controller provides register information =
-such
-> +  as offset, mask and shift to configure related modules.
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - sophgo,sg2042-syscon
-> +          - const: syscon
-
-THere's only one option here, so the oneOf should be removed. Similarly,
-since there's only one SoC, and it sounds like the next large sophgo
-system is going to be using an entirely different core provider, I think
-should just simplify this to a pair of "const:" entries.
-
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    syscon@30010000 {
-> +        compatible =3D "sophgo,sg2042-syscon", "syscon";
-> +        reg =3D <0x30010000 0x1000>;
-> +    };
-
-Per my comments elsewhere, I think the clock controller should be a
-child of this node, rather than an unrelated node, linked by a phandle.
-
-Cheers,
-Conor.
-
---7x2SPF0LZcIrRSv8
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZVOxAAAKCRB4tDGHoIJi
-0iTVAP4xqsqRPb18xDpU2gdHBpqavoQRucplJdovfCUwjpJR5gD/cxDZbzW9yvV+
-GQOC1Uef/4CbdqURfao9Zf5pzfrisgo=
-=lwGH
------END PGP SIGNATURE-----
-
---7x2SPF0LZcIrRSv8--
-
-
---===============5509394424248200594==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5509394424248200594==--
-
