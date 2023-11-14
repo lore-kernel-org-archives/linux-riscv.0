@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87953C4167D
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Nov 2023 21:12:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 792CEC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Nov 2023 21:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=erUiughRqYwAIG6bGL+8cNfdb0T9sZ4PuOhjThILZGw=; b=m5RzSL6LYrotvX
-	qghQlSSSkeBnT0ku7gFxQMX8YRkSOLldiDJNmtu+snNYEZEG5UnmTeVRahd5jUMqsJRuTvcp1Pu5x
-	q9I/Cy5fp3L18QSKpZrcisKDmyrCThg4LKOb5hBTRcAwT0rcRDmj7zoUdRBfR7th7tR4SlEiZdxHU
-	geQlsmRf7bCR2oeYEuZtaF3poma0HW8ujpDBrJXlStV+IkTdRHuKpinwXfUyqq/HrH6f8LGdWSgnD
-	kveGKj4a4fyEBf1k2FAzl6WYc5O4sOwNUs137e6+WpdcbTqumLpJP27dl7rPj68fgrHT8GXGfnvkb
-	+eFMfczU5u0I29WtniWw==;
+	List-Owner; bh=ExdXr14X7V+v1qTMcMbZuOUtgWe+cpXbpRL6y56DXbA=; b=fhLlugxVGjKk1y
+	zG89OH6XsigZXBaIbopQ+IHTmPoJJv5w+QTbL+gCKnc0q9pjGDxSjfZVF0uVruXvFWGj3ZA3x297B
+	w0ocPsIVT7rQd7RMK72QtnsEiS/0hZkLqZiG5fOJHmBxa+lmErTh3OSNKd4ucQjAorvRwuB9vO557
+	c4H9yXNpLURwNjkrXLOfDQTC1YBhhDVEd/LY9NbKRLzD4xXwU6OJVF2/jCT7bZw3k5OU/y6mU7cgs
+	B2JX8spSDJ/pW5iqdTJUMNP83zbH5NNrq3+C1rnxcOnz0a4AOefKSTL1WbNQZAkWmXo3zea+5akv9
+	3S8v5kqrw7lBOmtcuhIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r30iA-00Gp2a-37;
-	Tue, 14 Nov 2023 21:12:42 +0000
-Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
+	id 1r30it-00Gp9G-2f;
+	Tue, 14 Nov 2023 21:13:27 +0000
+Received: from mail-oa1-x34.google.com ([2001:4860:4864:20::34])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r30i9-00Gp1g-03
+	id 1r30ir-00Gp8T-0w
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Nov 2023 21:12:42 +0000
-Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-3b566ee5f1dso3578116b6e.0
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Nov 2023 13:12:37 -0800 (PST)
+	Tue, 14 Nov 2023 21:13:26 +0000
+Received: by mail-oa1-x34.google.com with SMTP id 586e51a60fabf-1f0f94a08a0so3849893fac.2
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Nov 2023 13:13:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1699996356; x=1700601156; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1699996403; x=1700601203; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=vqWQ+odAkllzaBzf32P3kSwnMrxwgxLYMWAv9lHqgiA=;
-        b=sIH699i+xmG++HltxuvjE9IfuwJnIxntMBTQPHAbNdzpccIppdW7tYMKnF1chRMhTY
-         yyLoUh365BoOYoYIjdZFdfiBXtR8y03ZiNS1NJO8pzDuf+Xj29gLDTfttbWiO9kDGYLA
-         igkJQhCq+WML68Wc42kVylJfJ42NC96Nob3p+eIfh0+UFyzBJ9C5kslUEE8tGuly42/y
-         uqWGC5bGCb+6Bma+uHPqd7Jp9cYA3Vk2w/6fgVfYXRBgxGp3QWNdORwzLksvkEODa0lC
-         aiEblYtOKE4ffMdk/OnxyCFxJ0ieKSP7XTjrwXbuGSAvvDvDKymkqgR4EXY9gwjsLSWq
-         J+YQ==
+        bh=Tb6MNC2wGxuXxd2+cPpsv13ZJEM5y6CPqgenn14e1M0=;
+        b=wGSKN3IDqDipYtUX1rz5nO9LN59fH3irGI+d6yKAIUrnqUa1sWQCNfkrcOVdIjqJ0l
+         50l97xztvJGbPu3y9pTRKVtcoh+/dezh9pSQ1YVRCHHe+qBugtw+VmDzYHlaR+OUoS/5
+         vPRnPhNK3M94/ScqOYPMeBzJ2tiUDtlAnBTCLICKWRp8ngC5+Hm9lNfvMnFvM++RjFcA
+         yfmJ6UKj8q/99+14PUYkDLmjxZIXwBxbpix0uLSxSwQw1u+mcLQXWH9faqCyd8zkT8XS
+         3ee41b0ZGELpZ2VG61jX8DM9g8/638Sj12dNFuyG8ULxHsgmNk0NLPaEr9Jk5lqdt2Mh
+         eTkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1699996356; x=1700601156;
+        d=1e100.net; s=20230601; t=1699996403; x=1700601203;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vqWQ+odAkllzaBzf32P3kSwnMrxwgxLYMWAv9lHqgiA=;
-        b=ksBD5bg9NRHR1eiegUZtsUvjYu7lBoJVjMUz4ay6i1bV2N9vequwIeqZRXJKSpPrcw
-         6ip+psl/sKRI1yGPDQOqUlZHmZ+wNpFbnzTrSEit4Tw9dnMG0r+xiN6HpA7Fzs1xZaVL
-         vvZqbTmtquJHaihwdC4XNPN9wcGKeO781jxZslQqDqGpJNaApBEfi8yWG64tfBWJTJSc
-         UX0RWEBR625iq9mGvhHbis++gwDrEM0uHqsqDkhx9Q6NjuAUediOPpGMcYEn6e3ZERxr
-         2JUHogK5bCuYumtDQfKYT/d5HO1upwhzhmGsYCeF19Nbd33Yp3t4Nq12iDA6zUbhY9ho
-         EieA==
-X-Gm-Message-State: AOJu0YyvhnRKZIe8feY0OzXE98GUnWvE2/qd0fpLgwBIAipbRLfm/V0W
-	A7MNvnSG5WXOUt8bLYcyWky+Rg==
-X-Google-Smtp-Source: AGHT+IEPoeGOb+Og3l7VEaGE9QoBLhMhl29xjKhcRQ95GKonu/RpHSsWBhmAvZNmoZRM8IZYK44yfw==
-X-Received: by 2002:a05:6808:10cb:b0:3af:c259:71e6 with SMTP id s11-20020a05680810cb00b003afc25971e6mr16618948ois.5.1699996356521;
-        Tue, 14 Nov 2023 13:12:36 -0800 (PST)
+        bh=Tb6MNC2wGxuXxd2+cPpsv13ZJEM5y6CPqgenn14e1M0=;
+        b=ahE11EbIJDuS6MiVbLDyTI1zVK4ZNFdTESSNp6x6PrDXqkeZvkkOrn5ztrSWES7aC/
+         23S2xlvVpWC1BgJWcgAWpW0hgtSSuQxHBIF8w6AxejA+y33arnH6/v5F/mwCFZXyvjE5
+         Ajzxkz3pmbTmfr+Y8K1S2YHbvpLGsHjGAmhrz7LJ0qAzeIsfuxD6cyfg0RUdLT5EMQui
+         Gg4SysyPM+wUCL9mYth42aR+qySxSjV5iq2rDllW8AHElTd40dNxC3ai7koCC8pE7Vba
+         gHDcTSX7ZgjuHuonUwdBSKUilgaXWVbQ2jWxZKPkq0PExzhKmrPHq7l3Pf+HlhuZLR/a
+         7sVg==
+X-Gm-Message-State: AOJu0YzeL6Qpx8m0JMhtIrGY08gSt/6lxGdwZ6prhqU1DRF25elZHaGL
+	jcKi7ZobZdSg/plY++OypjXTc8tzTabcma9ON2E=
+X-Google-Smtp-Source: AGHT+IGr7ycGTIdJkDJYs4jS9FBfvXGDdbQ2JaNiH72HfeNE9PkawKpgDobAFtmdlhFAeIRoidyl5A==
+X-Received: by 2002:a05:6870:670e:b0:1ef:cedd:5c32 with SMTP id gb14-20020a056870670e00b001efcedd5c32mr14491876oab.3.1699996403338;
+        Tue, 14 Nov 2023 13:13:23 -0800 (PST)
 Received: from [172.25.83.73] ([12.186.190.2])
-        by smtp.gmail.com with ESMTPSA id o2-20020ac841c2000000b0041803dfb240sm3022260qtm.45.2023.11.14.13.12.35
+        by smtp.gmail.com with ESMTPSA id o2-20020ac841c2000000b0041803dfb240sm3022260qtm.45.2023.11.14.13.13.19
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Nov 2023 13:12:36 -0800 (PST)
-Message-ID: <44f21244-5bf1-4e0f-80a9-6ec76d65eea4@linaro.org>
-Date: Tue, 14 Nov 2023 22:12:35 +0100
+        Tue, 14 Nov 2023 13:13:20 -0800 (PST)
+Message-ID: <be9a9d55-acbe-4d31-8aa9-cb0ed5945919@linaro.org>
+Date: Tue, 14 Nov 2023 22:13:19 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 1/4] dt-bindings: reset: Add binding for Sophgo CV1800B
  reset controller
 Content-Language: en-US
-To: Jisheng Zhang <jszhang@kernel.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Rob Herring <robh+dt@kernel.org>,
+To: Jisheng Zhang <jszhang@kernel.org>, Conor Dooley <conor@kernel.org>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh+dt@kernel.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
  Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
  <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
  Albert Ou <aou@eecs.berkeley.edu>, Chao Wei <chao.wei@sophgo.com>,
- Chen Wang <unicorn_wang@outlook.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
+ Chen Wang <unicorn_wang@outlook.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 References: <20231113005503.2423-1-jszhang@kernel.org>
  <20231113005503.2423-2-jszhang@kernel.org>
+ <20231113-washable-elbow-629bf42b9be1@squawk> <ZVIr8VH+29lpSpxb@xhacker>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -125,10 +125,10 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20231113005503.2423-2-jszhang@kernel.org>
+In-Reply-To: <ZVIr8VH+29lpSpxb@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231114_131241_059074_7424A860 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20231114_131325_331640_F9C86794 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,36 +145,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13/11/2023 01:55, Jisheng Zhang wrote:
-...
+On 13/11/2023 15:00, Jisheng Zhang wrote:
+> On Mon, Nov 13, 2023 at 01:36:54PM +0000, Conor Dooley wrote:
+>> On Mon, Nov 13, 2023 at 08:55:00AM +0800, Jisheng Zhang wrote:
+>>> Add devicetree binding for Sophgo CV1800B SoC reset controller.
+>>>
+>>> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+>>
+>> With the unterminated ifndef that was pointed out by the robots fixed,
+>> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+>>
+>>> +/*				0-1	*/
+>>> +/*				10	*/
+>>> +/*				13	*/
+>>> +/*				15	*/
+>>> +/*				17	*/
+>>> +/*				36-39	*/
+>>> +/*				53-57	*/
+>>> +/*				59-60	*/
+>>> +/*				63-73	*/
+>>> +/*				90	*/
+>>> +/*				94	*/
+>>> +/*				102-292	*/
+>>
+>> There are quite a lot of gaps here, do you know why that is?
+> 
+> The tail bits are for cpusys, so I guess the SoC designer want to
+> seperate them with guard? I'm not sure.
+> 
 
-> diff --git a/include/dt-bindings/reset/sophgo,cv1800b-reset.h b/include/dt-bindings/reset/sophgo,cv1800b-reset.h
-> new file mode 100644
-> index 000000000000..28dda71369b4
-> --- /dev/null
-> +++ b/include/dt-bindings/reset/sophgo,cv1800b-reset.h
-> @@ -0,0 +1,96 @@
-> +/* SPDX-License-Identifier: GPL-2.0 OR MIT */
-> +/*
-> + * Copyright (C) 2023 Sophgo Technology Inc. All rights reserved.
-> + * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-> + */
-> +
-> +#ifndef _DT_BINDINGS_CV1800B_RESET_H
-> +#define _DT_BINDINGS_CV1800B_RESET_H
-> +
-> +/*				0-1	*/
-> +#define RST_DDR			2
-> +#define RST_H264C		3
-> +#define RST_JPEG		4
-> +#define RST_H265C		5
-> +#define RST_VIPSYS		6
-> +#define RST_TDMA		7
-> +#define RST_TPU			8
-> +#define RST_TPUSYS		9
-> +/*				10	*/
-
-Why do you have empty IDs? IDs start at 0 and are incremented by 1.
+There is misunderstanding here. You add here IDs, which are abstract.
+Any gaps do not make any sense for bindings.
 
 Best regards,
 Krzysztof
