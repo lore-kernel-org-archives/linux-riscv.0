@@ -4,57 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 905A2C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Nov 2023 16:03:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C83B8C4167D
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Nov 2023 16:45:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UUjAN3u6dqrz/9aOzF3bWZxansRXVMs7ACKDbtk22to=; b=myb2Xe9h3DcZPj
-	stJ/gI0PT9CH6ooYlk3lg+LJlRa3Bg52vhzbqcwJ2wcd1ee8tZNtemScprly0LP1EcGVqz+kQf4tu
-	sz0Oz9uR3MLU9jD6sTUXsgreToTfwntWAorSSFQG8JCUvL1aJVQbbLa/l9g3VqQDCAPILOvISXmc/
-	Steuxw6AVK07eVzSOF9MSuov5LVoRX7UIY3QaCZjUyPHMFxW7GLFBU8arT0cLwMcSkAvhZvL/4lWE
-	Rg276rX1lfSgCu4cPimYPtzpt1jHP8HDSAaO1mgPwm6qoaGEmA8vHZfiY8WfmhGh1OezRcf9bgd53
-	Ekot9FZgXsD4a0cCzQKQ==;
+	List-Owner; bh=uvEbmA05O2i1IL5/1MT9ElAblVIW1x6BTbL0rHDhqSI=; b=PAJfbf/VZTYXRQ
+	ZhyhbL8qCtrH/KHB6ajC+o3hqKtbtim78zWC3M2r92vAjU0wjNvX5UPCgSpkG1ZBPR+f9wSoiMJp8
+	a64VCFFJju1fuulGEnHLzZs7fF5MFeHqlKfY0dleJcnO54/IlY/hnG+2U9yEAqY5oaZA/sERThufO
+	orKmMOfN/TpH0SqZJN/oIXUczz4eGl/jV92y4TMKElIxaWPt0oTSCUJcPdZqw77ENj7/YPfw9L6ew
+	4bDeJhWekphJec+U2KlJSEilx85oTL445dZY0VtxMG1g+X3VYmrpINzgJwSTxpcHvp0p9aDEUVAX7
+	vWTSFT2P9BhwNnc4fqOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2vt1-00GOCH-06;
-	Tue, 14 Nov 2023 16:03:35 +0000
-Received: from smtprelay0011.hostedemail.com ([216.40.44.11] helo=relay.hostedemail.com)
+	id 1r2wXd-00GSAM-2y;
+	Tue, 14 Nov 2023 16:45:33 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2vsx-00GOB4-1p;
-	Tue, 14 Nov 2023 16:03:33 +0000
-Received: from omf17.hostedemail.com (a10.router.float.18 [10.200.18.1])
-	by unirelay09.hostedemail.com (Postfix) with ESMTP id 5849480ADD;
-	Tue, 14 Nov 2023 16:03:24 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: joe@perches.com) by omf17.hostedemail.com (Postfix) with ESMTPA id B79FD17;
-	Tue, 14 Nov 2023 16:03:19 +0000 (UTC)
-Message-ID: <1e7863ec4e4ab10b84fd0e64f30f8464d2e484a3.camel@perches.com>
-Subject: Re: [PATCH 1/7] kexec_file: add kexec_file flag to control debug
- printing
-From: Joe Perches <joe@perches.com>
-To: Baoquan He <bhe@redhat.com>, linux-kernel@vger.kernel.org
-Cc: kexec@lists.infradead.org, x86@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-parisc@vger.kernel.org
-Date: Tue, 14 Nov 2023 08:03:17 -0800
-In-Reply-To: <20231114153253.241262-2-bhe@redhat.com>
+	id 1r2vPv-00GJfl-27
+	for linux-riscv@lists.infradead.org;
+	Tue, 14 Nov 2023 15:33:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1699976010;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kkmRVng/H+5xvIfC3pnGSESqdAmeGP3BqYdDpZBh2K4=;
+	b=g+4enhUf8ZaflpjVtEikYCg+5vRT3GCfj/FFItEA+L6EjMbP2gYSwkg5MhdtoF+xqbIlp+
+	Kg4lm9qOaViVJ7SGdARRfvYnD9BvgZnFmwV2GIOEeOUBNnnu7T7OYqPd84L5klxk8g2gMr
+	YmjhFF5Mgiu04tqhGej4JbgEY04HCf8=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-260-QAFHVMFcOCGlEcLIplbsXQ-1; Tue, 14 Nov 2023 10:33:25 -0500
+X-MC-Unique: QAFHVMFcOCGlEcLIplbsXQ-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7956C101A550;
+	Tue, 14 Nov 2023 15:33:18 +0000 (UTC)
+Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.112.231])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 5DF031C060B0;
+	Tue, 14 Nov 2023 15:33:15 +0000 (UTC)
+From: Baoquan He <bhe@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: kexec@lists.infradead.org,
+	x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-parisc@vger.kernel.org,
+	Baoquan He <bhe@redhat.com>
+Subject: [PATCH 5/7] kexec_file, ricv: print out debugging message if required
+Date: Tue, 14 Nov 2023 23:32:51 +0800
+Message-ID: <20231114153253.241262-6-bhe@redhat.com>
+In-Reply-To: <20231114153253.241262-1-bhe@redhat.com>
 References: <20231114153253.241262-1-bhe@redhat.com>
-	 <20231114153253.241262-2-bhe@redhat.com>
-User-Agent: Evolution 3.48.4 (3.48.4-1.fc38) 
 MIME-Version: 1.0
-X-Rspamd-Queue-Id: B79FD17
-X-Rspamd-Server: rspamout06
-X-Stat-Signature: hfguyu43qitk9i95uumxmjn7sq3qxaae
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Session-ID: U2FsdGVkX1+TPCSBX5eIBtFS7cutbFXyyoB+lO2Ea1A=
-X-HE-Tag: 1699977799-197779
-X-HE-Meta: U2FsdGVkX199MxvfdP2OiWMaMCgnF+zen3H+uDaMOt+eo18KFoigVkpo/j1mPnNdRxZsnaKbc/2TMWhhtZ1WYbE4xnaRnZ9D8ImVTw0nNbwHPVmM8K50LsJ54PlQr2IROfdWLMnnNPpRHRTXWI450/26vHlRs47bJHW69JfdozUlDgILIKSRfePjUbHAIXoIKr9/NzIpcA6QdsnzFrKhA8GVb/HExMWgTm+7q60/jyGC6TQFrwo3I1762UXDKC1ld2/TBOn7K4fNFKAezne04n/qoyaeJN2h75PDcDpXFrJm8izGV0wc97AWTmYxsKdc
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231114_080331_684091_5F191397 
-X-CRM114-Status: GOOD (  16.18  )
+X-CRM114-CacheID: sfid-20231114_073331_776812_E8864E72 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,68 +86,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2023-11-14 at 23:32 +0800, Baoquan He wrote:
-> When specifying 'kexec -c -d', kexec_load interface will print loading
-> information, e.g the regions where kernel/initrd/purgatory/cmdline
-> are put, the memmap passed to 2nd kernel taken as system RAM ranges,
-> and printing all contents of struct kexec_segment, etc. These are
-> very helpful for analyzing or positioning what's happening when
-> kexec/kdump itself failed. The debugging printing for kexec_load
-> interface is made in user space utility kexec-tools.
-> 
-> Whereas, with kexec_file_load interface, 'kexec -s -d' print nothing.
-> Because kexec_file code is mostly implemented in kernel space, and the
-> debugging printing functionality is missed. It's not convenient when
-> debugging kexec/kdump loading and jumping with kexec_file_load
-> interface.
-> 
-> Now add KEXEC_FILE_DEBUG to kexec_file flag to control the debugging
-> message printing. And add global variable kexec_file_dbg_print and
-> macro kexec_dprintk() to facilitate the printing.
-> 
-> This is a preparation, later kexec_dprintk() will be used to replace the
-> existing pr_debug(). Once 'kexec -s -d' is specified, it will print out
-> kexec/kdump loading information. If '-d' is not specified, it regresses
-> to pr_debug().
+Replace pr_debug() with the newly added kexec_dprintk() in kexec_file
+loading related codes.
 
-Not quite as pr_debug is completely eliminated with
-zero object size when DEBUG is not #defined.
+And also remove kexec_image_info() because the content has been printed
+out in generic code.
 
-Now the object size will be larger and contain the
-formats in .text.
+Signed-off-by: Baoquan He <bhe@redhat.com>
+---
+ arch/riscv/kernel/elf_kexec.c     |  9 +++++----
+ arch/riscv/kernel/machine_kexec.c | 26 --------------------------
+ 2 files changed, 5 insertions(+), 30 deletions(-)
 
-[]
-> diff --git a/include/linux/kexec.h b/include/linux/kexec.h
-[]
-> @@ -264,6 +264,18 @@ arch_kexec_apply_relocations(struct purgatory_info *pi, Elf_Shdr *section,
->  	return -ENOEXEC;
->  }
->  #endif
-> +
-> +extern bool kexec_file_dbg_print;
-> +
-> +#define kexec_dprintk(fmt, args...)			\
-> +	do {						\
-> +		if (kexec_file_dbg_print)		\
-> +			printk(KERN_INFO fmt, ##args);	\
-> +		else					\
-> +			printk(KERN_DEBUG fmt, ##args);	\
-> +	} while (0)
-> +
-> +
-
-I don't know how many of these printks exist and if
-overall object size matters but using
-
-#define kexec_dprintkfmt, ...)					\
-	printk("%s" fmt,					\
-	       kexec_file_dbg_print ? KERN_INFO : KERN_DEBUG,	\
-	       ##__VA_ARGS__)
-
-should reduce overall object size by eliminating the
-mostly duplicated format in .text which differs only
-by the KERN_<PREFIX>
-
+diff --git a/arch/riscv/kernel/elf_kexec.c b/arch/riscv/kernel/elf_kexec.c
+index e60fbd8660c4..20d941e91b5e 100644
+--- a/arch/riscv/kernel/elf_kexec.c
++++ b/arch/riscv/kernel/elf_kexec.c
+@@ -216,7 +216,6 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+ 	if (ret)
+ 		goto out;
+ 	kernel_start = image->start;
+-	pr_notice("The entry point of kernel at 0x%lx\n", image->start);
+ 
+ 	/* Add the kernel binary to the image */
+ 	ret = riscv_kexec_elf_load(image, &ehdr, &elf_info,
+@@ -252,7 +251,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+ 		image->elf_load_addr = kbuf.mem;
+ 		image->elf_headers_sz = headers_sz;
+ 
+-		pr_debug("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
++		kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
+ 			 image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
+ 
+ 		/* Setup cmdline for kdump kernel case */
+@@ -275,6 +274,8 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+ 		pr_err("Error loading purgatory ret=%d\n", ret);
+ 		goto out;
+ 	}
++	kexec_dprintk("Loaded purgatory at 0x%lx\n", kbuf.mem);
++
+ 	ret = kexec_purgatory_get_set_symbol(image, "riscv_kernel_entry",
+ 					     &kernel_start,
+ 					     sizeof(kernel_start), 0);
+@@ -293,7 +294,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+ 		if (ret)
+ 			goto out;
+ 		initrd_pbase = kbuf.mem;
+-		pr_notice("Loaded initrd at 0x%lx\n", initrd_pbase);
++		kexec_dprintk("Loaded initrd at 0x%lx\n", initrd_pbase);
+ 	}
+ 
+ 	/* Add the DTB to the image */
+@@ -318,7 +319,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+ 	}
+ 	/* Cache the fdt buffer address for memory cleanup */
+ 	image->arch.fdt = fdt;
+-	pr_notice("Loaded device tree at 0x%lx\n", kbuf.mem);
++	kexec_dprintk("Loaded device tree at 0x%lx\n", kbuf.mem);
+ 	goto out;
+ 
+ out_free_fdt:
+diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
+index 2d139b724bc8..ed9cad20c039 100644
+--- a/arch/riscv/kernel/machine_kexec.c
++++ b/arch/riscv/kernel/machine_kexec.c
+@@ -18,30 +18,6 @@
+ #include <linux/interrupt.h>
+ #include <linux/irq.h>
+ 
+-/*
+- * kexec_image_info - Print received image details
+- */
+-static void
+-kexec_image_info(const struct kimage *image)
+-{
+-	unsigned long i;
+-
+-	pr_debug("Kexec image info:\n");
+-	pr_debug("\ttype:        %d\n", image->type);
+-	pr_debug("\tstart:       %lx\n", image->start);
+-	pr_debug("\thead:        %lx\n", image->head);
+-	pr_debug("\tnr_segments: %lu\n", image->nr_segments);
+-
+-	for (i = 0; i < image->nr_segments; i++) {
+-		pr_debug("\t    segment[%lu]: %016lx - %016lx", i,
+-			image->segment[i].mem,
+-			image->segment[i].mem + image->segment[i].memsz);
+-		pr_debug("\t\t0x%lx bytes, %lu pages\n",
+-			(unsigned long) image->segment[i].memsz,
+-			(unsigned long) image->segment[i].memsz /  PAGE_SIZE);
+-	}
+-}
+-
+ /*
+  * machine_kexec_prepare - Initialize kexec
+  *
+@@ -60,8 +36,6 @@ machine_kexec_prepare(struct kimage *image)
+ 	unsigned int control_code_buffer_sz = 0;
+ 	int i = 0;
+ 
+-	kexec_image_info(image);
+-
+ 	/* Find the Flattened Device Tree and save its physical address */
+ 	for (i = 0; i < image->nr_segments; i++) {
+ 		if (image->segment[i].memsz <= sizeof(fdt))
+-- 
+2.41.0
 
 
 _______________________________________________
