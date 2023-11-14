@@ -4,120 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B97A7C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Nov 2023 02:08:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B847AC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Nov 2023 02:10:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v+uqBZ1YN57MzsSDOOB6D74blsIPj3JyrPTutxYmsYg=; b=B0MIHf5oM4sVUtFecRRwa3e5sF
-	b1leRk8FNTd9I5PIP92dF2JyYsezeshCPpQDRWrghhyjFNHaIBp/pMV0tdiuQRouH+E4MH66UsZDO
-	/suIfY3D+ur0duQ/zqHP6CWkK1xlTlMSu8AMpKdJIqPFbev1OOerMohm49cTLV6sfydVbTWg6WmXq
-	puncbOPBpdn5LbyYctXbMVOAJnOAtCGtQHUW7OmZd+6tdvkN0zV4arBstBXnn4/f5D+HjShevAWnU
-	nf+2yrP4g4ZBkc24P6U4YlFFNPV5hWDFLPzZN1GfNhmgbR1F1RE41SKam6ZwLmPB88EeY+0xL9VX3
-	WFFhOCqA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=e7Vr6hSZmjw0jTnC76MokiB53wAlTT3bopOSiybbVtU=; b=hdeZQ0+lC9fUV4
+	Pf9y04OudM6Q2t3QJuB6KHmVxPFoRKjocfpg0ciNIzwPbnyxwwDnoIVvNMUlaU7qg/i9+wb1NPJvD
+	hVugqD/HWjjZJGbC7aOpfR3iWcJP4LUUWy1qzkG8YTrCsoTGP6++X3/He1meamkiXYs0fHIPR1kyn
+	A4Ihuon00ovWP5krQPwRn16qowx/FkRt65oVbLL1K3vP55Suw5ijB52aybb/njK1QNFKxVo9gKXLk
+	AyKgkX29b7c/hzfJHdO+bqGjtPNSEHOQZBHBIMKBMRM1SK5jNusy5RDVcg2lB4gjcd3v1i5VMdtlJ
+	gf4qbjIL8wQTl8JPJPfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2iqM-00F2WD-2i;
-	Tue, 14 Nov 2023 02:07:58 +0000
-Received: from mail-bmxind01olkn20801.outbound.protection.outlook.com ([2a01:111:f403:281c::801] helo=IND01-BMX-obe.outbound.protection.outlook.com)
+	id 1r2isJ-00F2dc-29;
+	Tue, 14 Nov 2023 02:09:59 +0000
+Received: from mail-bn8nam12olkn2080c.outbound.protection.outlook.com ([2a01:111:f400:fe5b::80c] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r2iqJ-00F2Vk-1Z
+	id 1r2isG-00F2co-15
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Nov 2023 02:07:57 +0000
+	Tue, 14 Nov 2023 02:09:58 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=UV3IdLVkjVtRj4wFa/wpjRvF09teRN5/mcu1pMLtSBcjPS5iAuAmh6Anc4YAzd+c4l+4CHm6k+uWG3XWyarLFZ4kD8k038PJp/wA4tDV2iF0XfMc0JnIeMKF9bqIN0H3Gn8g7Xm/gTRpI9lHzyr3Vu3eiauBCtfIpTpgvD0tXsDC8lkjBTSpSfb80G8Iiq2+gKbjG9fQu9qeL5CzbDWMgeIrLmm7Ilk6dN9KRKzdkGB6HUDdrxec9gs5wSeHDZIQfrreWi/YCUntLEzYtmewKGrl/0ciTh12QSHUQ7cDagmTvhsP4EIAasKAA+V7/6FtqZ8679n70Z7f0m4+n/v+zA==
+ b=NUBghjbF4Ur5Pabs+xlALWLjKmrtgU/eShG3C7uNt+Wzi2mJd1Tv0bwOvv/5UPzPX7BQp634fJNMPadtyTGQxxecd1azaHcBMET/taLMn3Bk5j5kzXEs6uEMHGe/m8oW8zGqkf017zJG1Y7wUK6lOva2FqC+mTTfrcOh2vlG0hi1Eav9h5T+Y9diIKNU6ssrGvjP1q2hpvGd15sT7ojLTSWIJsUWkILoB7pTq62mXDaxbDDPx7d1mHkSE1IpAPId3paBK38L6SocF3sNGAWc1ZuWyyExtyqRIoIwnmQ1R+RcGdCcJPINN+IAYzoNdIeoKE5Vydw82Jde64H8DPfV8Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kGplRka9ruJuJj+l0iEWcI0bbUbUO6Fjb0i3/kA1mgo=;
- b=Q/g7+fZGA3UxzCOIYCZs7/GEa4LcXP/3Pfqe3miTWYjE64Sq7aX3nPJDrIzlx4gpG+GNTXG+o6WXd+TsVau+shcDrsu5MgIl6TgG7rlZxrSpvmKo3JxEz7clzl8urwsiAOQhuWs7u5KfqKAI8LNujezkZ/qwaGYlbOd2I9ID34ctOlNA69ScIDecvlsekjNXitcH/Tnd2LHfIBaf8DhiQvveV1CwzGReWsgNnpmx8VyBMs86GFdh2TghCP3tkKUDGJv7ysBfWnChCCW5UWMlnciqk/AFoA8SVx9XHWd7ol/gBypL3JSI1OGRp7YX3+g2u0iZA9iyK1zrk2/KkZWbqA==
+ bh=o2qwmDnFRypXNCpA/t4xjNRIo6v8khSI0FhOskWKppM=;
+ b=VgsIrx7f1bsjB0E1gJYY7ckbzZ35nNTNOpFO+L0mTIN+sn9/JnV/5oq6ndfEn3dlz5d64kN1kRsj9pDogrLlT1E8ySdRKvyztx4Z4yHYIcWyueF0hRale17wVvFPKqTg9Dem5zkHodAvSYWFAhTRzwYWUd/KrtlTtA7/qOsU58/MOEYF+kwkGCNCaBSQbIOTtKEfTId/JdOmMh3GkNkODvGse+VkJDE9opMZwUd/5DoPWwAG7nwJbN7l8i5V0P+v6UaGu/b6IFp6w7984pF5SwrDZGwPuMkyAV421BIOe2xteq4Jldt/PxNtYYMXJOdP6BzROSVHflWaoV/PjpIT8Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kGplRka9ruJuJj+l0iEWcI0bbUbUO6Fjb0i3/kA1mgo=;
- b=KdcHOnc73EcImtp22QTaBb/Ii3mNrC0gJRYVALUK/4CCKtZLlQ3mJaoIHFJBSTf/k+53MoHoYc+2tvDOaUSNj+Ly/GmWg/9UsJLfwQbsUA02y35BZ9jqLcIjdfoU9r1eZ1PE4zJTto0LzQLUII2DqTqUn1Mx0XCjW5yd3DUAirm2BWuWA9XVZHoQdUdhos5c44B6Wpc9d40cAPjfmwBbqiROtOLzRFmi9idKaa45Z7rTzCFA8eaVLz8qtS13jxu+tt1pgWd5Ckm8rENVZ4HwZBZ0de10vIWrbOP083mlQe+CezrKgGuPeA86/LC5nw3HOEqnmJhGQK4PdWk+kiS/cg==
-Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:ab::5) by
- MA0P287MB1450.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:f6::14) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.6977.31; Tue, 14 Nov 2023 02:07:36 +0000
-Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
- ([fe80::b1a7:eee7:e903:9ef3]) by MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
- ([fe80::b1a7:eee7:e903:9ef3%6]) with mapi id 15.20.6977.029; Tue, 14 Nov 2023
- 02:07:36 +0000
-Message-ID: <MA0P287MB03326967705EC6B97B3D1CF0FEB2A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
-Date: Tue, 14 Nov 2023 10:07:31 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] riscv: dts: cv1800b: add pinctrl node for cv1800b
-To: Jisheng Zhang <jszhang@kernel.org>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Chao Wei <chao.wei@sophgo.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20231113005702.2467-1-jszhang@kernel.org>
- <20231113005702.2467-2-jszhang@kernel.org>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <20231113005702.2467-2-jszhang@kernel.org>
-X-TMN: [k1gDzdwU9w0aeJC05+jmUzXvTHYxSQR2FhAQLTi9Wus=]
-X-ClientProxiedBy: TYCP286CA0328.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:3b7::17) To MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:ab::5)
-X-Microsoft-Original-Message-ID: <a115fe97-43fa-4166-9915-8a0d0ecf5bd9@outlook.com>
+ bh=o2qwmDnFRypXNCpA/t4xjNRIo6v8khSI0FhOskWKppM=;
+ b=AOEp/o2TUj0sSzhaqYHv/GQim0nExKoRuzmyB1QTNZ0b3hmmN0y13iUGXpcsHwZEScgzZnOOK0RDbXB+xUsbaI8+FZCzaLmPnvcht96eTwQPVPmFTbtRzlSRvfu3lxjyHH0LePK6kRAVO9/U7WOEn8jWRdXPRsOqNpP0er3UsN/QAxYifaLNjpOppjKC+GJgUFPZDqPeWYPRb3/MGJe6XDUpvbNKkGe5h04tj5lDiqsX7faU7Bfp8TsO38sEJTueFUBw4FD0WK9dfn42w6hXrGxc3VGM4Ppgt+v2jupz3T28PsaVj6qnHFryarbR39ugLquoF+DN67KtZr6XvD829w==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by DS7PR20MB4711.namprd20.prod.outlook.com (2603:10b6:8:84::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6977.29; Tue, 14 Nov
+ 2023 02:09:46 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::55b:c350:980:ad8]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::55b:c350:980:ad8%6]) with mapi id 15.20.6977.029; Tue, 14 Nov 2023
+ 02:09:46 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Chen Wang <unicorn_wang@outlook.com>,
+	Chao Wei <chao.wei@sophgo.com>,
+	Conor Dooley <conor@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Xiaoguang Xing <xiaoguang.xing@sophgo.com>
+Cc: Inochi Amaoto <inochiama@outlook.com>,
+	Guo Ren <guoren@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] riscv: dts: sophgo: separate sg2042 mtime and mtimecmp to fit aclint format
+Date: Tue, 14 Nov 2023 10:10:23 +0800
+Message-ID: <IA1PR20MB49538FC509DCB6E100D29D9CBBB2A@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.42.1
+In-Reply-To: <IA1PR20MB49531C1FCBAB0E19CAFE19DFBBB2A@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: <IA1PR20MB49531C1FCBAB0E19CAFE19DFBBB2A@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-TMN: [aDeOgO6AmmITkwnyRkKoEz2yLi7sMVcJuONfKkKQYts=]
+X-ClientProxiedBy: TYWPR01CA0010.jpnprd01.prod.outlook.com
+ (2603:1096:400:a9::15) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20231114021024.60271-1-inochiama@outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB0332:EE_|MA0P287MB1450:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7e7dc2b9-54e8-4350-bfcb-08dbe4b67882
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|DS7PR20MB4711:EE_
+X-MS-Office365-Filtering-Correlation-Id: 43853bbf-81bc-4afd-5ac6-08dbe4b6c5d1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: P5p7Jj4eO/MdA0YooPiTsJaDAw50x0xZFJI8WkFp8gklczw8vw/8Xe3BflRY7nzyGPV6wyC4wNH6XhnrjbLUbRYE0Nmjtro9u73Ijl0JAG3E2ls7wliahFTUsnZorJHlyCPCbcDX6K15BJOBG8lcy62WW46uuOnTXFRefbLS/GFhrvWtzvIf5uhcyDH9zX7BMoD6z59wA7DnxnOZd5/118M6C+KihQTxiOaGmOeboebnHQIskWSWOAlqIy8aXwkfTD2j6NuiotLo68TY5Hs+ZGLptxdY44/JVz/F9VJBjN1y6GQ0RXhkBjBtlCQKxKUIjjTe4BTebqhBRswpCM7Vb3sR+GdF6t1Zj/1pBhagCuIcjw4/g9wscyXPfbUw3iOzqaPxGYOzRPW3JWbBacTcNHf9eEv7LtKW5d5UpjRywptWxdv6WC3Y8rejRI0HmbCsS7xeDcwVQ++hbjKa8buseV6T3ddr7XUJk92WINx7szuy2e196QJhgXccpQ+B7kHbwUuvEWUtmrEa+HXx0aezx6LlJpXmgyBMFWb95iyIvhTYSjCV/dqkBxfI2eTN7NiP
+X-Microsoft-Antispam-Message-Info: yMfqElp8IEf6lF45C6lbn4d+O8b8kdpikt34Ywu/IFZwr7s2MoRbP2VieuFbxoX9RgzSj5pxujc4wo8IMt/CAVv8f62mDA16isrvQ+78xaOCA8/ss2OqUh4T3ukneR6dfucjuvEeIGcYB5gOBzx9IxzOA7TrXdUU/Sqsux9pUsZ8qH7vxZEReiXg51ovkyUhWqRq2lZa7IOBxk78hl1CzD/HLbm9Tn+lsE29TbcMGtuwL5ML0/x0DB3S0aWG1gL04cD7FzogQgiDKOQ381rwYLSXHyxa5QPlDJvjKOe2DsQDNN7URbs/Se4PbUa1bgFYVp++Yfh/LJVkVsOz0QfJwAWxsW7qXTspkczxcgL8GYCGzQVXBBO2Pbb1OqhS/QkGYbCWwTm0750SRlhw1vw9yEkrkHFxaib/JKFKRKTIw9kDeWgCo+glZkho59lEkv/nunN6NHLaGJYuJpsPVtc8XDphVv+35qd+5wjOb4NBQ4Ks1RyDU6Dxrs7DAzpi8NY70PZMMIaDa+kl6Gbb83sZN0qBtc5frA8pv9xyYzgmXHEv27Ywz/nfJmPXbx9nbHM0OGTgMefbsvtimsyJWDH5aSlcTAQ/d8J1cxJxUnitWOo0dl0sU3hBibcFT4O4dYy9
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TXdIemZYbC92TnNzamxkVUFyNW5rTTBQOGZLSnRUdlluK2FodVd0Z000bnBM?=
- =?utf-8?B?YnFLN2ZkTS9aNUp0MEVaRjdKaHZRcFdJajNhTEZydm5RQXBiSkFRanMyWWhB?=
- =?utf-8?B?WGxJKzVQd3NmNmFVbVo1UlBWUXIvcFlGRmk5bGQ4Z2ExaFFEL0toRTcydXJX?=
- =?utf-8?B?SlJlMzU3LzZWUUo4VXQwdExjZEN6K3pqK2JJUVUrYndlSzFHeGJIMUFGa0Mw?=
- =?utf-8?B?YlpYOGZBamYyWjBWNGxoTVpBV1hBQktER1Q5QXVCeVRENWpHOHk4MFdmNjFs?=
- =?utf-8?B?U3BKekVwUlppVXZaWHhmVkJnekJpTjJtUEVvWFBPUE1td0d2Zk9kYk8wS3dM?=
- =?utf-8?B?UzdZR2thTCtndnJ1WFpWU0FVWWVKS0NvY2piUFZPd28vTDVmWjdyT1dzclgx?=
- =?utf-8?B?QlJicW1PWXNsY2MvUStSanJRQ2h2SWVpOW40bytWaW5IdXNkNVdsa09zbE95?=
- =?utf-8?B?d3NXVnA4M0QxODNqVnNDbERNazhNUUNzNGZHWnhkUE9xWXJWeWo4bkp2S2Q0?=
- =?utf-8?B?bFM1U1IzaU9oMWNkdFJVWTRnWlRpKzloWTJKSk5FKy82TFEzMHZrakU1elVp?=
- =?utf-8?B?OXJ4dzQ0WDV4VWNCc0gwT1pEV3Z1bW0wSllxUjdWYW54dGdkdForUTd0M29V?=
- =?utf-8?B?MnVadmYxR21scUxpZER6ZGFjMDB5Y25KQUVqd25oTnNiUVJwR3k1Ujg1S1lI?=
- =?utf-8?B?OXU3eTZBNjF1cER3TENaZVF3RHBtQUhDWEp6dDlSdEJyNzRncnN2dXQyakNN?=
- =?utf-8?B?N0lGRXZDOUJFRVY5VnRZSFk2M0V3cndmNVRYbTNZbVNMSEZZeEdpYWhKRXIx?=
- =?utf-8?B?M0xDYnFsU1dtbzN2NGFWUkRveGUyb3hPcjArRDJ4b3Q1bFhVZXVuM3hFaXFX?=
- =?utf-8?B?UmJnWmZpdEluN0k5eFo3dnJRQXkzbnJwNHRLbjdKU0tjenlsTzZyYnVQY1li?=
- =?utf-8?B?M1BOQXRZSHBUeVJmdjhtM1hTMFpPTldqanUycGVvcy9HcXhvRnRPbEFIUVVL?=
- =?utf-8?B?ZVNvQzhxbkJqM2JiQXdkbXdXY2p1c1E4dVBsU2VKd2l6UDVJZXZCY3VOZi9q?=
- =?utf-8?B?bHRPUzhJbjFNbURnR0RyVVk1MGRqd24yeUpvY0g0RU9ReGdWZDZKV2NxM3Z2?=
- =?utf-8?B?YjBwU3pzNEs0VkQyNmpTY0lLWFJ4aHcvc25SNGJQNll5SWUxRWplMzkwcDlM?=
- =?utf-8?B?ZjJKeVZlM2xGRkREeUwrZ1hrM1Jtc2VqTHF2VzNqTklKN0JTNDJzRlpvVlRP?=
- =?utf-8?B?TWF6WVZDZjBPZXBMaGl0UlQ4NXJzcEEwcXduM2cyOHI2eGVuNi9ZejBnbVcy?=
- =?utf-8?B?S1pzSkJ6QndIQXRSK1c1aHpXNVhKbmZncFRwSkdCZmhwY3dVVVM0Z1ZCVHV1?=
- =?utf-8?B?TWNtYzV5WGVnaUxkT2hlWVQ3MllLK2srUjJDOVNWaDhVRzUzeC9MaWQ2K3Rs?=
- =?utf-8?B?UXY4M1ZZbjNjZjNCWi9MR3c5SDBYVUYzbzZZZmNJMFhaeFRBOTd5RGZuckZW?=
- =?utf-8?B?bzg3cFM0L2JhN2JENnV1aTZQQ3ZKRmhtaFpUZWkzTmhBRzA4dG42bStPOEow?=
- =?utf-8?B?aDRPWFAxdm9vMVNGQlhuVnVpbmlWcllEc002YzZ1VkEzM2IwTE9qOHoyOEkw?=
- =?utf-8?Q?hO7ewLvV3LktyRitygksLs4TQ8cc8ZjR2B9zYAQ44dKk=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PCqDI6bQ2jAk5ZUuusvBmuPjCOvXF3fabHQ1zD7FKLWesZYB5reAqfemYPaf?=
+ =?us-ascii?Q?iV6c0sVkx8P1cYKWf83G22fHzdasOcjFArLHCs4RE6l2DQoD0RhbNenUMzvh?=
+ =?us-ascii?Q?oqmVR6OUzRwfKg2ELRR71fBdNj1+9EDOt4bXLetdNujr5nwB8sRe7DM7qryn?=
+ =?us-ascii?Q?GLMSo9ILwjq4WzekJMTqQgWqy22eEQV759mbWuc8qY4ImQWsjHtQ2MouJjKM?=
+ =?us-ascii?Q?ykVOcxnUiw8NUrlBDt+7lhsuYBJx+ulEgQ0aceYRhcytZw7h9vBPGceiN3Au?=
+ =?us-ascii?Q?LYYi11FPwswCA4BEOpeBNFFaFz65EyxTC9AbVueg1rLxIb7UKbfHqh7usvsa?=
+ =?us-ascii?Q?WbSoWO4eyet9IQJwhpfOVHaJtnURcGNSGK1MgtUGDY9zPIplCkRHSInNVb4q?=
+ =?us-ascii?Q?rJjVYRkm0zwyOuA8azrAuCVnbXu5lIuyw2glEz8JxHfUaC2NWsw+FUlGVw3J?=
+ =?us-ascii?Q?lNuWYkR7O1EQ9cxI6C2xGnJ7yfRaao5oEPPFBDys1AycF6i0j1SFDX9S3GZ2?=
+ =?us-ascii?Q?slpBFFHo6oQz3nqoL0yCJT9DuobRMQJ0apxBbAd31lqCcg/rHmDZB8R3GFQ6?=
+ =?us-ascii?Q?WsfWvWtbwXuF8OWIkeqg5umljVUyjXQ698kuGzum7bnHrRlfPN0pnnQr3Oir?=
+ =?us-ascii?Q?EvW3ig6mVgnIrG7Q/H/mDh8WfQ4mlmoBxaZAdXCFivkZOuibdeHTYnTfY7N6?=
+ =?us-ascii?Q?UHVEVN6JT6MAHNEYuIUp7ENKcb/pwp+1JdgvSvvTbfMPrqBKbfs5z74Dh4Ou?=
+ =?us-ascii?Q?r727/5bg3AKT6boBTWgt4T4iezRVZkuSpF9W6yYfsjfFE9+nzNpbA//rvn1k?=
+ =?us-ascii?Q?9Nv2I+Vh0NhIlaJCe/gicvh6RhHfdrHo87qyofRJMSoyKpUKp+4cIzy0NRlo?=
+ =?us-ascii?Q?c7EYWX6nREup/JuXxx6Aph1uo5F8fHcAYblNZa5uRb+Wnl1gsZXsdNdRvxAy?=
+ =?us-ascii?Q?wtAA5YSbed1NxAKW2weJ5pKFYAflIxgQonlc/lm0UWQTcoofrnle7Bhkgj1a?=
+ =?us-ascii?Q?Jlob/OZYlKt/gywAdGhLtFzdJBWfDFszWtVl7n5agFchd0gj64upJyrGyEUs?=
+ =?us-ascii?Q?TdX7c706XjzfFkVwMI3Lwyo6cyuHuGw9YS4XZPDelrq3OVdOqJw1aEWKhF6e?=
+ =?us-ascii?Q?TBNb5JNDEwUJ7++DunGQ3T7b65apwwUQwOGSCa1GZkAJqafEl1npnisXT4FB?=
+ =?us-ascii?Q?kuhaTHwwMq04mu0rTNMaWyCrM7SimhLTDqKZAAw1U4G2Y0SKt2/FWG4P0IA?=
+ =?us-ascii?Q?=3D?=
 X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7e7dc2b9-54e8-4350-bfcb-08dbe4b67882
-X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 43853bbf-81bc-4afd-5ac6-08dbe4b6c5d1
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2023 02:07:36.6214
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2023 02:09:45.9959
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0P287MB1450
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR20MB4711
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231113_180755_530913_9979A364 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20231113_180956_449623_BABF1C3F 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,86 +131,241 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 2023/11/13 8:57, Jisheng Zhang wrote:
-> Add the reset device tree node to cv1800b SoC reusing the
-> pinctrl-single driver.
 >
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->   arch/riscv/boot/dts/sophgo/cv-pinctrl.h | 19 +++++++++++++++++++
->   arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 10 ++++++++++
->   2 files changed, 29 insertions(+)
->   create mode 100644 arch/riscv/boot/dts/sophgo/cv-pinctrl.h
+>>On 2023/11/14 8:45, Inochi Amaoto wrote:
+>>> Change the timer layout in the dtb to fit the format that needed by
+>>> the SBI.
+>>>
+>>> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+>>> Fixes: 967a94a92aaa ("riscv: dts: add initial Sophgo SG2042 SoC device tree")
+>>> ---
+>>>   arch/riscv/boot/dts/sophgo/sg2042.dtsi | 80 +++++++++++++++-----------
+>>>   1 file changed, 48 insertions(+), 32 deletions(-)
+>>>
+>>> diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+>>> index 93256540d078..0b5d93b5c783 100644
+>>> --- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+>>> +++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+>>> @@ -93,144 +93,160 @@ clint_mswi: interrupt-controller@7094000000 {
+>>>                             <&cpu63_intc 3>;
+>>>           };
+>>>
+>>> -        clint_mtimer0: timer@70ac000000 {
+>>> +        clint_mtimer0: timer@70ac004000 {
+>>
+>>The address of timer register is changed,  and I guess it is another change not directly related to the topic of this patch.
+>>
+>>Can you please add some comments in the commit message?
+>>
 >
-> diff --git a/arch/riscv/boot/dts/sophgo/cv-pinctrl.h b/arch/riscv/boot/dts/sophgo/cv-pinctrl.h
-> new file mode 100644
-> index 000000000000..ed78b6fb3142
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/sophgo/cv-pinctrl.h
-> @@ -0,0 +1,19 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * This header provides constants for pinctrl bindings for Sophgo CV* SoC.
-> + *
-> + * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-> + */
-> +#ifndef _DTS_RISCV_SOPHGO_CV_PINCTRL_H
-> +#define _DTS_RISCV_SOPHGO_CV_PINCTRL_H
-> +
-> +#define MUX_M0		0
-> +#define MUX_M1		1
-> +#define MUX_M2		2
-> +#define MUX_M3		3
-> +#define MUX_M4		4
-> +#define MUX_M5		5
-> +#define MUX_M6		6
-> +#define MUX_M7		7
-> +
-> +#endif
-> diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> index e04df04a91c0..7a44d8e8672b 100644
-> --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> @@ -6,6 +6,8 @@
->   #include <dt-bindings/interrupt-controller/irq.h>
->   #include <dt-bindings/reset/sophgo,cv1800b-reset.h>
+>As it needs to follow aclint format, the timer offset is applied to
+>identify the actual timer. So there is a change.
+>
+>>>               compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+>>> -            reg = <0x00000070 0xac000000 0x00000000 0x00007ff8>;
+>>> +            reg = <0x00000070 0xac004000 0x00000000 0x00000000>,
+>>Why the length of first item is zero? Can you please add some clarification in commit message?
+>
+>I uses length zero to address that the mtimer is not supported, so the
+>SBI can know there is no mtimer in the timer.
+>
 
-Another question:
+There is a misspell: mtimer -> mtime.
 
-Does this patch depend on anther patchset "riscv: sophgo: add reset 
-support for cv1800b"?
-
-If so, you may need to add comments in the cover-letter to clarify this. 
-But I'm afraid it does not.
-
-
->   
-> +#include "cv-pinctrl.h"
-> +
->   / {
->   	compatible = "sophgo,cv1800b";
->   	#address-cells = <1>;
-> @@ -55,6 +57,14 @@ soc {
->   		dma-noncoherent;
->   		ranges;
->   
-> +		pinctrl0: pinctrl@3001000 {
-> +			compatible = "pinctrl-single";
-> +			reg = <0x3001000 0x130>;
-> +			#pinctrl-cells = <1>;
-> +			pinctrl-single,register-width = <32>;
-> +			pinctrl-single,function-mask = <0x00000007>;
-> +		};
-> +
->   		rst: reset-controller@3003000 {
->   			compatible = "sophgo,cv1800b-reset";
->   			reg = <0x03003000 0x1000>;
+>>> +                  <0x00000070 0xac004000 0x00000000 0x0000c000>;
+>>>               interrupts-extended = <&cpu0_intc 7>,
+>>>                             <&cpu1_intc 7>,
+>>>                             <&cpu2_intc 7>,
+>>>                             <&cpu3_intc 7>;
+>>>           };
+>>>
+>>> -        clint_mtimer1: timer@70ac010000 {
+>>> +        clint_mtimer1: timer@70ac014000 {
+>>>               compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+>>> -            reg = <0x00000070 0xac010000 0x00000000 0x00007ff8>;
+>>> +            reg = <0x00000070 0xac014000 0x00000000 0x00000000>,
+>>> +                  <0x00000070 0xac014000 0x00000000 0x0000c000>;
+>>>               interrupts-extended = <&cpu4_intc 7>,
+>>>                             <&cpu5_intc 7>,
+>>>                             <&cpu6_intc 7>,
+>>>                             <&cpu7_intc 7>;
+>>>           };
+>>>
+>>> -        clint_mtimer2: timer@70ac020000 {
+>>> +        clint_mtimer2: timer@70ac024000 {
+>>>               compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+>>> -            reg = <0x00000070 0xac020000 0x00000000 0x00007ff8>;
+>>> +            reg = <0x00000070 0xac024000 0x00000000 0x00000000>,
+>>> +                  <0x00000070 0xac024000 0x00000000 0x0000c000>;
+>>>               interrupts-extended = <&cpu8_intc 7>,
+>>>                             <&cpu9_intc 7>,
+>>>                             <&cpu10_intc 7>,
+>>>                             <&cpu11_intc 7>;
+>>>           };
+>>>
+>>> -        clint_mtimer3: timer@70ac030000 {
+>>> +        clint_mtimer3: timer@70ac034000 {
+>>>               compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+>>> -            reg = <0x00000070 0xac030000 0x00000000 0x00007ff8>;
+>>> +            reg = <0x00000070 0xac034000 0x00000000 0x00000000>,
+>>> +                  <0x00000070 0xac034000 0x00000000 0x0000c000>;
+>>>               interrupts-extended = <&cpu12_intc 7>,
+>>>                             <&cpu13_intc 7>,
+>>>                             <&cpu14_intc 7>,
+>>>                             <&cpu15_intc 7>;
+>>>           };
+>>>
+>>> -        clint_mtimer4: timer@70ac040000 {
+>>> +        clint_mtimer4: timer@70ac044000 {
+>>>               compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+>>> -            reg = <0x00000070 0xac040000 0x00000000 0x00007ff8>;
+>>> +            reg = <0x00000070 0xac044000 0x00000000 0x00000000>,
+>>> +                  <0x00000070 0xac044000 0x00000000 0x0000c000>;
+>>>               interrupts-extended = <&cpu16_intc 7>,
+>>>                             <&cpu17_intc 7>,
+>>>                             <&cpu18_intc 7>,
+>>>                             <&cpu19_intc 7>;
+>>>           };
+>>>
+>>> -        clint_mtimer5: timer@70ac050000 {
+>>> +        clint_mtimer5: timer@70ac054000 {
+>>>               compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+>>> -            reg = <0x00000070 0xac050000 0x00000000 0x00007ff8>;
+>>> +            reg = <0x00000070 0xac054000 0x00000000 0x00000000>,
+>>> +                  <0x00000070 0xac054000 0x00000000 0x0000c000>;
+>>>               interrupts-extended = <&cpu20_intc 7>,
+>>>                             <&cpu21_intc 7>,
+>>>                             <&cpu22_intc 7>,
+>>>                             <&cpu23_intc 7>;
+>>>           };
+>>>
+>>> -        clint_mtimer6: timer@70ac060000 {
+>>> +        clint_mtimer6: timer@70ac064000 {
+>>>               compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+>>> -            reg = <0x00000070 0xac060000 0x00000000 0x00007ff8>;
+>>> +            reg = <0x00000070 0xac064000 0x00000000 0x00000000>,
+>>> +                  <0x00000070 0xac064000 0x00000000 0x0000c000>;
+>>>               interrupts-extended = <&cpu24_intc 7>,
+>>>                             <&cpu25_intc 7>,
+>>>                             <&cpu26_intc 7>,
+>>>                             <&cpu27_intc 7>;
+>>>           };
+>>>
+>>> -        clint_mtimer7: timer@70ac070000 {
+>>> +        clint_mtimer7: timer@70ac074000 {
+>>>               compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+>>> -            reg = <0x00000070 0xac070000 0x00000000 0x00007ff8>;
+>>> +            reg = <0x00000070 0xac074000 0x00000000 0x00000000>,
+>>> +                  <0x00000070 0xac074000 0x00000000 0x0000c000>;
+>>>               interrupts-extended = <&cpu28_intc 7>,
+>>>                             <&cpu29_intc 7>,
+>>>                             <&cpu30_intc 7>,
+>>>                             <&cpu31_intc 7>;
+>>>           };
+>>>
+>>> -        clint_mtimer8: timer@70ac080000 {
+>>> +        clint_mtimer8: timer@70ac084000 {
+>>>               compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+>>> -            reg = <0x00000070 0xac080000 0x00000000 0x00007ff8>;
+>>> +            reg = <0x00000070 0xac084000 0x00000000 0x00000000>,
+>>> +                  <0x00000070 0xac084000 0x00000000 0x0000c000>;
+>>>               interrupts-extended = <&cpu32_intc 7>,
+>>>                             <&cpu33_intc 7>,
+>>>                             <&cpu34_intc 7>,
+>>>                             <&cpu35_intc 7>;
+>>>           };
+>>>
+>>> -        clint_mtimer9: timer@70ac090000 {
+>>> +        clint_mtimer9: timer@70ac094000 {
+>>>               compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+>>> -            reg = <0x00000070 0xac090000 0x00000000 0x00007ff8>;
+>>> +            reg = <0x00000070 0xac094000 0x00000000 0x00000000>,
+>>> +                  <0x00000070 0xac094000 0x00000000 0x0000c000>;
+>>>               interrupts-extended = <&cpu36_intc 7>,
+>>>                             <&cpu37_intc 7>,
+>>>                             <&cpu38_intc 7>,
+>>>                             <&cpu39_intc 7>;
+>>>           };
+>>>
+>>> -        clint_mtimer10: timer@70ac0a0000 {
+>>> +        clint_mtimer10: timer@70ac0a4000 {
+>>>               compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+>>> -            reg = <0x00000070 0xac0a0000 0x00000000 0x00007ff8>;
+>>> +            reg = <0x00000070 0xac0a4000 0x00000000 0x00000000>,
+>>> +                  <0x00000070 0xac0a4000 0x00000000 0x0000c000>;
+>>>               interrupts-extended = <&cpu40_intc 7>,
+>>>                             <&cpu41_intc 7>,
+>>>                             <&cpu42_intc 7>,
+>>>                             <&cpu43_intc 7>;
+>>>           };
+>>>
+>>> -        clint_mtimer11: timer@70ac0b0000 {
+>>> +        clint_mtimer11: timer@70ac0b4000 {
+>>>               compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+>>> -            reg = <0x00000070 0xac0b0000 0x00000000 0x00007ff8>;
+>>> +            reg = <0x00000070 0xac0b4000 0x00000000 0x00000000>,
+>>> +                  <0x00000070 0xac0b4000 0x00000000 0x0000c000>;
+>>>               interrupts-extended = <&cpu44_intc 7>,
+>>>                             <&cpu45_intc 7>,
+>>>                             <&cpu46_intc 7>,
+>>>                             <&cpu47_intc 7>;
+>>>           };
+>>>
+>>> -        clint_mtimer12: timer@70ac0c0000 {
+>>> +        clint_mtimer12: timer@70ac0c4000 {
+>>>               compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+>>> -            reg = <0x00000070 0xac0c0000 0x00000000 0x00007ff8>;
+>>> +            reg = <0x00000070 0xac0c4000 0x00000000 0x00000000>,
+>>> +                  <0x00000070 0xac0c4000 0x00000000 0x0000c000>;
+>>>               interrupts-extended = <&cpu48_intc 7>,
+>>>                             <&cpu49_intc 7>,
+>>>                             <&cpu50_intc 7>,
+>>>                             <&cpu51_intc 7>;
+>>>           };
+>>>
+>>> -        clint_mtimer13: timer@70ac0d0000 {
+>>> +        clint_mtimer13: timer@70ac0d4000 {
+>>>               compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+>>> -            reg = <0x00000070 0xac0d0000 0x00000000 0x00007ff8>;
+>>> +            reg = <0x00000070 0xac0d4000 0x00000000 0x00000000>,
+>>> +                  <0x00000070 0xac0d4000 0x00000000 0x0000c000>;
+>>>               interrupts-extended = <&cpu52_intc 7>,
+>>>                             <&cpu53_intc 7>,
+>>>                             <&cpu54_intc 7>,
+>>>                             <&cpu55_intc 7>;
+>>>           };
+>>>
+>>> -        clint_mtimer14: timer@70ac0e0000 {
+>>> +        clint_mtimer14: timer@70ac0e4000 {
+>>>               compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+>>> -            reg = <0x00000070 0xac0e0000 0x00000000 0x00007ff8>;
+>>> +            reg = <0x00000070 0xac0e4000 0x00000000 0x00000000>,
+>>> +                  <0x00000070 0xac0e4000 0x00000000 0x0000c000>;
+>>>               interrupts-extended = <&cpu56_intc 7>,
+>>>                             <&cpu57_intc 7>,
+>>>                             <&cpu58_intc 7>,
+>>>                             <&cpu59_intc 7>;
+>>>           };
+>>>
+>>> -        clint_mtimer15: timer@70ac0f0000 {
+>>> +        clint_mtimer15: timer@70ac0f4000 {
+>>>               compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
+>>> -            reg = <0x00000070 0xac0f0000 0x00000000 0x00007ff8>;
+>>> +            reg = <0x00000070 0xac0f4000 0x00000000 0x00000000>,
+>>> +                  <0x00000070 0xac0f4000 0x00000000 0x0000c000>;
+>>>               interrupts-extended = <&cpu60_intc 7>,
+>>>                             <&cpu61_intc 7>,
+>>>                             <&cpu62_intc 7>,
+>>> --
+>>> 2.42.1
+>>>
+>>
+>
 
 _______________________________________________
 linux-riscv mailing list
