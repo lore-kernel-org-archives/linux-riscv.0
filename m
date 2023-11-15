@@ -4,76 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B092C2BB3F
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 16:24:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92AEEC072A2
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 17:00:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FZwOcjIU2W0uJtbwLKpyCE/rMDlLkhdLKnnuWyekN88=; b=mG635ugzZstSZk
-	YHb1xWMQtSSF525Hd5VkAR76A2osC5lzbPKpEoxgh635gkBI79QrGt1T5kdy5F4yudooFU684q21G
-	YbI0bGf+xomYrTL0rvxGO7A7ngIAvSm3JZfHD15zZTJmjcFSowvhBbN1wD2OHBSobSKMrrPxmWxkp
-	HqoKww7aecvS7oYo6mr1r3YxBsYzjsVghXP8ht7iT+DuI0fqQqw03Ff0k6PlAfrE0JPYFtobPtEpZ
-	1ovIeeWcGCY8d/q/KCkGWoVfl05+xz7SU/SNZ4ig5OZERd2i/ODiAkDs6JlmCRZe2yCREnAvlL1nq
-	Af4bVZnfApGwKqiP/Acg==;
+	List-Owner; bh=965ICQgVPgJHrCruuFzXwGDg44zCHsjmbVXBlHEUYcI=; b=3MDX/kLYrVGga3
+	uE/DXS2xEOrk0eIHxkMSct5lIqnyhZs3Cct7So8jElE7nX1COg+sD6WKPJV+A1PsrYMC8eCCm1GHQ
+	XtPcimy4qwFpcqco4XNWnd5c1CAtLUsTZo+rwD47a3OnW/p8OcBRoNnXSUTiMsIvBvDss5M0ztcvD
+	+IKVW96ReQ6vSvDTMx6f5Lwhu5dZm/SEHDQ7IWjZqz3B4Ts3tTTtnzmWofL6RPv/RqJTqJF1Dc82E
+	k41wynTq2blVRJB0cu6kscWqEKtRE0nmVHH9Srs2MhIbZWft3gQ93K3nK1FHAfKuMeUdXQd2UtRbf
+	IBfyyS3aOC34fD9kwoBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3Igl-001JAF-0b;
-	Wed, 15 Nov 2023 16:24:27 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1r3JF7-001NuC-32;
+	Wed, 15 Nov 2023 16:59:57 +0000
+Received: from mgamail.intel.com ([134.134.136.126])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3Igi-001J9P-2L
-	for linux-riscv@lists.infradead.org;
-	Wed, 15 Nov 2023 16:24:26 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-6bd0e1b1890so5633199b3a.3
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Nov 2023 08:24:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1700065461; x=1700670261; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Rm2s3ZZnh5AYNa/PtFkxzzQrA/071VVCNOg0IXiaNPw=;
-        b=B1IhJKKpzQym+g7CkxnQIekl6ojl+2tdLK/Jbg5l29dqmRF7v1T084KKewy5hnQUsD
-         yNh4IAylD7m7Cm33PXVVG0BgWEgk29JfqtwHbLaMgYGxDSlUdl2wh7Meh8ei3Bp2+/6L
-         fuFRGFgi96pKh4sSpLH/yiUZcTYwjbhbyXGOJZruaSWaz5VDWk5x+YuloX3ocRpmhrXi
-         S9wDwrexDXF0BETi7cutqXYimmSVt1hBlj2IlqFZQf4BxNfXd/o9Im8ChJf+L0h8oBuZ
-         P2ug04atdKcPmFJKGWRHVOmPd+/zNpIQU8Gz3tevi/xd6J7Kp0TLlBMoV9Qh2tGTLnAI
-         ohlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700065461; x=1700670261;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Rm2s3ZZnh5AYNa/PtFkxzzQrA/071VVCNOg0IXiaNPw=;
-        b=VaF021TOGYxTN39CZ/HrzTd0NCu3oBj1F61nKHj8WgOiacl4IcQ+45INkaExEmJTev
-         qXu0enVyzV2LbCR3qPdMzLP711TkaApSrjqU7NTVbqr0A0aKQomNEYE9YxJnKC/GE7HA
-         TqDs8bfWsQAck2kauHO7+d49Mm2OvwEaZvEGRJ7EUnRi72j2dbB0V4Hu6IuH8ztx0WN/
-         TGzE9Rh7HFQWp5lR8FoOTgz4/80iG+Rth0uowzRSABM/V+D338GyreWLri21RfpJpTx+
-         ljbaSrHkwQCPPg0fayQvVif7GJk6Y2Dq4pWyWBoMko/DOOAv90PRgmcqa9mz9HDuDrTA
-         PbXA==
-X-Gm-Message-State: AOJu0Yx2PXldYc51ek54ywzVk52iDheDdDd5y312iY+sP3SlFifDIfU5
-	bJhRigi60G/ZBHyrfH5VfiKQo8OD3bqd4CCb5ueDuA==
-X-Google-Smtp-Source: AGHT+IEYqoGyBOYH2CRUEUDNMopPpnlzW8Jhu4m6FA70HrcOz9vMc3lEjSBBgyTkxcz58VzywgmUSpFDneJs6jg67/I=
-X-Received: by 2002:a05:6a20:da82:b0:187:9392:cfdd with SMTP id
- iy2-20020a056a20da8200b001879392cfddmr1099674pzb.24.1700065461385; Wed, 15
- Nov 2023 08:24:21 -0800 (PST)
+	id 1r3JF3-001NtD-2w;
+	Wed, 15 Nov 2023 16:59:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1700067593; x=1731603593;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=9uKcFY4QauvFYKvl+Sytq0IYlA4lqNfQ+9TYosW5GMY=;
+  b=eOlVg1yUlxy04G8kdmFVkwz9pOoVC/S4lNN9Fd3+vdWmkWJP2+WDuPze
+   FJ2srh12iuYX5gk6cg6KzC79orv0eg/OE4s09HtSog1i0Wtd5DF4B63Dc
+   mrP7+iSZrxND7lnIMvghQCFkJ67E6dfeS2sQLApvoDNAMdSEud/N8L25e
+   idZbygIhvRyacG2NPtie9HJ6cuj7TJFPaJ0XMytM9YFJYHNwUxvxiRsfX
+   qrDr1sQagOQF/iHt5Np7pituaG97hvJiljCQc1QGo2X3b9xfqpFiyChWY
+   6KoRwFyu1CIidygmMERWajb/hqJjD3HgBGoguVjVS0CIPbHwCnoye4vKh
+   A==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10895"; a="375952892"
+X-IronPort-AV: E=Sophos;i="6.03,305,1694761200"; 
+   d="scan'208";a="375952892"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Nov 2023 08:59:39 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.03,305,1694761200"; 
+   d="scan'208";a="6220123"
+Received: from lkp-server02.sh.intel.com (HELO b8de5498638e) ([10.239.97.151])
+  by orviesa002.jf.intel.com with ESMTP; 15 Nov 2023 08:59:30 -0800
+Received: from kbuild by b8de5498638e with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1r3JEe-0000c8-0k;
+	Wed, 15 Nov 2023 16:59:28 +0000
+Date: Thu, 16 Nov 2023 00:58:29 +0800
+From: kernel test robot <lkp@intel.com>
+To: Baoquan He <bhe@redhat.com>, linux-kernel@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, kexec@lists.infradead.org,
+	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-parisc@vger.kernel.org, Baoquan He <bhe@redhat.com>
+Subject: Re: [PATCH 4/7] kexec_file, arm64: print out debugging message if
+ required
+Message-ID: <202311160022.QM6xJYSy-lkp@intel.com>
+References: <20231114153253.241262-5-bhe@redhat.com>
 MIME-Version: 1.0
-References: <20231115061811.10041-1-joshua.yeong@starfivetech.com>
- <CAK9=C2VXxNjKOq1XqQ9t6iVELdj2fFi85K77xNCOfdf3WRdy8w@mail.gmail.com> <f373645c-1e89-df76-e545-21bf0ba9ee8f@starfivetech.com>
-In-Reply-To: <f373645c-1e89-df76-e545-21bf0ba9ee8f@starfivetech.com>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Wed, 15 Nov 2023 21:54:09 +0530
-Message-ID: <CAK9=C2W3_LNjQkW0G5TypNW_=3sGOV8NMuYEwnq5Yj=RmgkE3A@mail.gmail.com>
-Subject: Re: [PATCH 1/1] clocksource/timer-risc: Add riscv_clock_shutdown callback
-To: Joshua Yeong <joshua.yeong@starfivetech.com>
-Cc: daniel.lezcano@linaro.org, tglx@linutronix.de, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, leyfoon.tan@starfivetech.com, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <20231114153253.241262-5-bhe@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231115_082424_792570_0587654B 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20231115_085954_062420_F49741F7 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,42 +81,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBOb3YgMTUsIDIwMjMgYXQgMToyMuKAr1BNIEpvc2h1YSBZZW9uZwo8am9zaHVhLnll
-b25nQHN0YXJmaXZldGVjaC5jb20+IHdyb3RlOgo+Cj4gSGkgQW51cCwKPgo+IE9uIDE1LU5vdi0y
-MyAzOjAwIFBNLCBBbnVwIFBhdGVsIHdyb3RlOgo+ID4gT24gV2VkLCBOb3YgMTUsIDIwMjMgYXQg
-MTE6NDnigK9BTSBKb3NodWEgWWVvbmcKPiA+IDxqb3NodWEueWVvbmdAc3RhcmZpdmV0ZWNoLmNv
-bT4gd3JvdGU6Cj4gPj4gQWRkIGNsb2Nrc291cmNlIGRldGFjaC9zaHV0ZG93biBjYWxsYmFjayB0
-byBkaXNhYmxlIFJJU0MtViB0aW1lciBpbnRlcnJ1cHQgd2hlbgo+ID4+IHN3aXRjaGluZyBvdXQg
-cmlzY3YgdGltZXIgYXMgY2xvY2sgc291cmNlCj4gPj4KPiA+PiBTaWduZWQtb2ZmLWJ5OiBKb3No
-dWEgWWVvbmcgPGpvc2h1YS55ZW9uZ0BzdGFyZml2ZXRlY2guY29tPgo+ID4+IC0tLQo+ID4+ICAg
-ZHJpdmVycy9jbG9ja3NvdXJjZS90aW1lci1yaXNjdi5jIHwgNyArKysrKysrCj4gPj4gICAxIGZp
-bGUgY2hhbmdlZCwgNyBpbnNlcnRpb25zKCspCj4gPj4KPiA+PiBkaWZmIC0tZ2l0IGEvZHJpdmVy
-cy9jbG9ja3NvdXJjZS90aW1lci1yaXNjdi5jIGIvZHJpdmVycy9jbG9ja3NvdXJjZS90aW1lci1y
-aXNjdi5jCj4gPj4gaW5kZXggZGEzMDcxYjM4N2ViLi41ODhhMDU0NTliNmEgMTAwNjQ0Cj4gPj4g
-LS0tIGEvZHJpdmVycy9jbG9ja3NvdXJjZS90aW1lci1yaXNjdi5jCj4gPj4gKysrIGIvZHJpdmVy
-cy9jbG9ja3NvdXJjZS90aW1lci1yaXNjdi5jCj4gPj4gQEAgLTUwLDEyICs1MCwxOSBAQCBzdGF0
-aWMgaW50IHJpc2N2X2Nsb2NrX25leHRfZXZlbnQodW5zaWduZWQgbG9uZyBkZWx0YSwKPiA+PiAg
-ICAgICAgICByZXR1cm4gMDsKPiA+PiAgIH0KPiA+Pgo+ID4+ICtzdGF0aWMgaW50IHJpc2N2X2Ns
-b2NrX3NodXRkb3duKHN0cnVjdCBjbG9ja19ldmVudF9kZXZpY2UgKmV2dCkKPiA+PiArewo+ID4+
-ICsgICAgICAgc2JpX3NldF90aW1lcigtMSk7Cj4gPiBVc2UgcmlzY3ZfY2xvY2tfZXZlbnRfc3Rv
-cCgpIGhlcmUuCj4gWW91IG1lYW4gcmVwbGFjaW5nIHJpc2N2X2Nsb2NrX3NodXRkb3duIGFzIHJp
-c2N2X2Nsb2NrX2V2ZW50X3N0b3A/CgpJIG1lYW50IHJlcGxhY2luZyBzYmlfc2V0X3RpbWVyKCkg
-d2l0aCByaXNjdl9jbG9ja19ldmVudF9zdG9wKCkuCgo+ID4KPiA+PiArICAgICAgIHJldHVybiAw
-Owo+ID4+ICt9Cj4gPj4gKwo+ID4+ICAgc3RhdGljIHVuc2lnbmVkIGludCByaXNjdl9jbG9ja19l
-dmVudF9pcnE7Cj4gPj4gICBzdGF0aWMgREVGSU5FX1BFUl9DUFUoc3RydWN0IGNsb2NrX2V2ZW50
-X2RldmljZSwgcmlzY3ZfY2xvY2tfZXZlbnQpID0gewo+ID4+ICAgICAgICAgIC5uYW1lICAgICAg
-ICAgICAgICAgICAgID0gInJpc2N2X3RpbWVyX2Nsb2NrZXZlbnQiLAo+ID4+ICAgICAgICAgIC5m
-ZWF0dXJlcyAgICAgICAgICAgICAgID0gQ0xPQ0tfRVZUX0ZFQVRfT05FU0hPVCwKPiA+PiAgICAg
-ICAgICAucmF0aW5nICAgICAgICAgICAgICAgICA9IDEwMCwKPiA+PiAgICAgICAgICAuc2V0X25l
-eHRfZXZlbnQgICAgICAgICA9IHJpc2N2X2Nsb2NrX25leHRfZXZlbnQsCj4gPj4gKyAgICAgICAu
-c2V0X3N0YXRlX3NodXRkb3duICAgICA9IHJpc2N2X2Nsb2NrX3NodXRkb3duLAo+ID4+ICAgfTsK
-PiA+Pgo+ID4+ICAgLyoKPiA+PiAtLQo+ID4+IDIuMjUuMQo+ID4+Cj4gPiBSZWdhcmRzLAo+ID4g
-QW51cAoKUmVnYXJkcywKQW51cAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+Hi Baoquan,
+
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on arm64/for-next/core]
+[also build test WARNING on tip/x86/core powerpc/next powerpc/fixes linus/master v6.7-rc1 next-20231115]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Baoquan-He/kexec_file-add-kexec_file-flag-to-control-debug-printing/20231114-234003
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
+patch link:    https://lore.kernel.org/r/20231114153253.241262-5-bhe%40redhat.com
+patch subject: [PATCH 4/7] kexec_file, arm64: print out debugging message if required
+config: arm64-randconfig-001-20231115 (https://download.01.org/0day-ci/archive/20231116/202311160022.QM6xJYSy-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 13.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20231116/202311160022.QM6xJYSy-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202311160022.QM6xJYSy-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   arch/arm64/kernel/machine_kexec.c: In function '_kexec_image_info':
+>> arch/arm64/kernel/machine_kexec.c:35:23: warning: unused variable 'i' [-Wunused-variable]
+      35 |         unsigned long i;
+         |                       ^
+
+
+vim +/i +35 arch/arm64/kernel/machine_kexec.c
+
+d28f6df1305a86 Geoff Levand 2016-06-23  27  
+221f2c770e10d3 Geoff Levand 2016-06-23  28  /**
+221f2c770e10d3 Geoff Levand 2016-06-23  29   * kexec_image_info - For debugging output.
+221f2c770e10d3 Geoff Levand 2016-06-23  30   */
+221f2c770e10d3 Geoff Levand 2016-06-23  31  #define kexec_image_info(_i) _kexec_image_info(__func__, __LINE__, _i)
+221f2c770e10d3 Geoff Levand 2016-06-23  32  static void _kexec_image_info(const char *func, int line,
+221f2c770e10d3 Geoff Levand 2016-06-23  33  	const struct kimage *kimage)
+221f2c770e10d3 Geoff Levand 2016-06-23  34  {
+221f2c770e10d3 Geoff Levand 2016-06-23 @35  	unsigned long i;
+221f2c770e10d3 Geoff Levand 2016-06-23  36  
+f24d07b8c8e272 Baoquan He   2023-11-14  37  	kexec_dprintk("%s:%d:\n", func, line);
+f24d07b8c8e272 Baoquan He   2023-11-14  38  	kexec_dprintk("  kexec kimage info:\n");
+f24d07b8c8e272 Baoquan He   2023-11-14  39  	kexec_dprintk("    type:        %d\n", kimage->type);
+f24d07b8c8e272 Baoquan He   2023-11-14  40  	kexec_dprintk("    head:        %lx\n", kimage->head);
+f24d07b8c8e272 Baoquan He   2023-11-14  41  	kexec_dprintk("    kern_reloc: %pa\n", &kimage->arch.kern_reloc);
+f24d07b8c8e272 Baoquan He   2023-11-14  42  	kexec_dprintk("    el2_vectors: %pa\n", &kimage->arch.el2_vectors);
+221f2c770e10d3 Geoff Levand 2016-06-23  43  }
+221f2c770e10d3 Geoff Levand 2016-06-23  44  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
