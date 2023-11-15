@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5BF0C07548
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 12:51:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B636C47077
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 13:00:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EBvZUMN8YVur3JSbnZHa523pkfAx9aEZ/vvOasgnhbU=; b=fXxkzF2Syy5MoF
-	r4RPapiurWz1+sMafZmI/ugaTgNA7LAslxdt+k41dajpwpbPGlSwdy6oI5walv83eM3F8EIC0XkRH
-	zl6QEwoH/Uh7Spk+6LF2Xl+NHBXj95WDe2TBWgxbmjKT+j9rTVGWH2e+U1ev74TOanToS09kY1xJW
-	h3slTVgsbIdxFJUetzXlWjxfl6iTKb5BZRN23FoBVSjmC1em4D5vYQK7vEAkKplaNZky0Cu3LbTdM
-	LeBM6aATIWFRI2xubz7yGWoPd5wFDgSNqmvYxlHKRGgOpaJ9HEh5jacV2PIW7RCVTwdwvFaQ8qb9D
-	gc4k5mdVmqsHEeuGvR1A==;
+	List-Owner; bh=ArEkRvqLlIcRl8oyutz3T6hBUO80EaauAxuHkFFil8M=; b=sp/WEeFssWsEmt
+	Nqv2iByWIkvDKLbIVAGOVKPweTku73enxz0kN4VCnjz8TrlRaF5fUlWMBPb04QKsRDAOgqV9hjlZN
+	TDNH2hKZuWdR2Mml2sSaXK9bKvFJUwvqkH1OOHZOkyMRE/Z0Yaa3qV6W86tplAhpVqgIxoIqxEpmC
+	BcyOxDvD0dDa+iV5YMCjbJDtSsOi6uUY4sfE3gTnr1QllexCF0RSs4/hq7Oy9upBNR356gZU4kcLf
+	pYbYDbkhaYCryzKmjmUeAT0Eo1++q2XZ8pcnY2z4WE2U8tp+LVw07g1y8lCO0E82bCvxZutMBBVRt
+	xzWYciLaFUl4VYu03jZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3FMd-000nn9-0S;
-	Wed, 15 Nov 2023 12:51:27 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3FMY-000nkZ-2r
+	id 1r3FVX-000ogS-2a;
+	Wed, 15 Nov 2023 13:00:39 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1r3EOy-000gnP-2Z
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Nov 2023 12:51:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1700052675;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ehFjwhsPPcv7nimSjR09jzg4Dqe1DEZTTTAxghtYd8o=;
-	b=Bbx7OUieKyLhEbhg8f/de496HWsERiEdaT/xSroutd79BNgLmrtUdInZAZwKopz82ZGCH+
-	T7aIvJV8lnSKPeJwshbok2E6AT9oaPJNbCrQ0VCxtNheaq78YvLZnHy3RNTjURQg4yYQoC
-	xLRzSkVvzkBTK9RJK6g7llQD89VSqa8=
-Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-378-LR_rUWiCNDKtUhiOdXXDbA-1; Wed,
- 15 Nov 2023 07:51:13 -0500
-X-MC-Unique: LR_rUWiCNDKtUhiOdXXDbA-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9AB1C1C068CA;
-	Wed, 15 Nov 2023 12:51:10 +0000 (UTC)
-Received: from localhost (unknown [10.72.112.9])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E5CD41121307;
-	Wed, 15 Nov 2023 12:51:09 +0000 (UTC)
-Date: Wed, 15 Nov 2023 20:51:06 +0800
-From: Baoquan He <bhe@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: kexec@lists.infradead.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	linux-parisc@vger.kernel.org
-Subject: Re: [PATCH v2 1/7] kexec_file: add kexec_file flag to control debug
- printing
-Message-ID: <ZVS+usu5jCveUIiv@MiWiFi-R3L-srv>
-References: <20231114153253.241262-1-bhe@redhat.com>
- <20231114153253.241262-2-bhe@redhat.com>
+	Wed, 15 Nov 2023 11:49:51 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 5D34724E2D9;
+	Wed, 15 Nov 2023 19:49:25 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Nov
+ 2023 19:49:25 +0800
+Received: from ubuntu.localdomain (183.27.97.246) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Nov
+ 2023 19:49:24 +0800
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?=
+	<kw@linux.com>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
+	<bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, "Daire
+ McNamara" <daire.mcnamara@microchip.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-pci@vger.kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
+	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
+	<minda.chen@starfivetech.com>
+Subject: [PATCH v11 12/20] PCI: microchip: Add request_event_irq() callback function
+Date: Wed, 15 Nov 2023 19:49:04 +0800
+Message-ID: <20231115114912.71448-13-minda.chen@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20231115114912.71448-1-minda.chen@starfivetech.com>
+References: <20231115114912.71448-1-minda.chen@starfivetech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231114153253.241262-2-bhe@redhat.com>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.3
+X-Originating-IP: [183.27.97.246]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
+ (172.16.6.91)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231115_045123_018841_1976453E 
-X-CRM114-Status: GOOD (  17.82  )
+X-CRM114-CacheID: sfid-20231115_034949_153467_1CAF1FDD 
+X-CRM114-Status: GOOD (  16.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,112 +82,113 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When specifying 'kexec -c -d', kexec_load interface will print loading
-information, e.g the regions where kernel/initrd/purgatory/cmdline
-are put, the memmap passed to 2nd kernel taken as system RAM ranges,
-and printing all contents of struct kexec_segment, etc. These are
-very helpful for analyzing or positioning what's happening when
-kexec/kdump itself failed. The debugging printing for kexec_load
-interface is made in user space utility kexec-tools.
+PolarFire implements specific PCIe interrupts except PLDA local interrupt.
+For lack of MSI controller, these interrupts have to be added to global
+event field. PolarFire driver also register additional interrupt symbol
+name.
 
-Whereas, with kexec_file_load interface, 'kexec -s -d' print nothing.
-Because kexec_file code is mostly implemented in kernel space, and the
-debugging printing functionality is missed. It's not convenient when
-debugging kexec/kdump loading and jumping with kexec_file_load
-interface.
+PolarFire PCIe contain total 28 interrupts event while PLDA contain 13
+local interrupts event, interrupt to event num mapping is different.
 
-Now add KEXEC_FILE_DEBUG to kexec_file flag to control the debugging
-message printing. And add global variable kexec_file_dbg_print and
-macro kexec_dprintk() to facilitate the printing.
+So add a callback function to support different IRQ register function.
+Also Add PLDA default handler function, which will be moved to pcie-
+plda-host.c in moving codes patch.
 
-This is a preparation, later kexec_dprintk() will be used to replace the
-existing pr_debug(). Once 'kexec -s -d' is specified, it will print out
-kexec/kdump loading information at KERN_INFO level. If '-d' is not
-specified, it regresses to print message at KERN_DEBUG level.
-
-Signed-off-by: Baoquan He <bhe@redhat.com>
+Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
-v1->v2:
-- Rewrite the kexec_dprintk() macro as Joe suggested to reduce kernel
-  text size.
+ .../pci/controller/plda/pcie-microchip-host.c | 31 ++++++++++++++++---
+ drivers/pci/controller/plda/pcie-plda.h       |  5 +++
+ 2 files changed, 32 insertions(+), 4 deletions(-)
 
- include/linux/kexec.h      | 10 +++++++++-
- include/uapi/linux/kexec.h |  1 +
- kernel/kexec_file.c        |  5 +++++
- 3 files changed, 15 insertions(+), 1 deletion(-)
-
-diff --git a/include/linux/kexec.h b/include/linux/kexec.h
-index 8227455192b7..66997efe36f1 100644
---- a/include/linux/kexec.h
-+++ b/include/linux/kexec.h
-@@ -264,6 +264,14 @@ arch_kexec_apply_relocations(struct purgatory_info *pi, Elf_Shdr *section,
- 	return -ENOEXEC;
- }
- #endif
-+
-+extern bool kexec_file_dbg_print;
-+
-+#define kexec_dprintk(fmt, ...)					\
-+	printk("%s" fmt,					\
-+	       kexec_file_dbg_print ? KERN_INFO : KERN_DEBUG,	\
-+	       ##__VA_ARGS__)
-+
- #endif /* CONFIG_KEXEC_FILE */
- 
- #ifdef CONFIG_KEXEC_ELF
-@@ -403,7 +411,7 @@ bool kexec_load_permitted(int kexec_image_type);
- 
- /* List of defined/legal kexec file flags */
- #define KEXEC_FILE_FLAGS	(KEXEC_FILE_UNLOAD | KEXEC_FILE_ON_CRASH | \
--				 KEXEC_FILE_NO_INITRAMFS)
-+				 KEXEC_FILE_NO_INITRAMFS | KEXEC_FILE_DEBUG)
- 
- /* flag to track if kexec reboot is in progress */
- extern bool kexec_in_progress;
-diff --git a/include/uapi/linux/kexec.h b/include/uapi/linux/kexec.h
-index 01766dd839b0..c17bb096ea68 100644
---- a/include/uapi/linux/kexec.h
-+++ b/include/uapi/linux/kexec.h
-@@ -25,6 +25,7 @@
- #define KEXEC_FILE_UNLOAD	0x00000001
- #define KEXEC_FILE_ON_CRASH	0x00000002
- #define KEXEC_FILE_NO_INITRAMFS	0x00000004
-+#define KEXEC_FILE_DEBUG	0x00000008
- 
- /* These values match the ELF architecture values.
-  * Unless there is a good reason that should continue to be the case.
-diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
-index f9a419cd22d4..4c35500ae40a 100644
---- a/kernel/kexec_file.c
-+++ b/kernel/kexec_file.c
-@@ -38,6 +38,8 @@ void set_kexec_sig_enforced(void)
- }
- #endif
- 
-+bool kexec_file_dbg_print;
-+
- static int kexec_calculate_store_digests(struct kimage *image);
- 
- /* Maximum size in bytes for kernel/initrd files. */
-@@ -123,6 +125,8 @@ void kimage_file_post_load_cleanup(struct kimage *image)
- 	 */
- 	kfree(image->image_loader_data);
- 	image->image_loader_data = NULL;
-+
-+	kexec_file_dbg_print = false;
+diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+index d42278c006bc..f89d102f4979 100644
+--- a/drivers/pci/controller/plda/pcie-microchip-host.c
++++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+@@ -643,6 +643,11 @@ static irqreturn_t mc_event_handler(int irq, void *dev_id)
+ 	return IRQ_HANDLED;
  }
  
- #ifdef CONFIG_KEXEC_SIG
-@@ -278,6 +282,7 @@ kimage_file_alloc_init(struct kimage **rimage, int kernel_fd,
- 	if (!image)
- 		return -ENOMEM;
++static irqreturn_t plda_event_handler(int irq, void *dev_id)
++{
++	return IRQ_HANDLED;
++}
++
+ static void plda_handle_event(struct irq_desc *desc)
+ {
+ 	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
+@@ -804,6 +809,17 @@ static int mc_pcie_init_clks(struct device *dev)
+ 	return 0;
+ }
  
-+	kexec_file_dbg_print = !!(flags & KEXEC_FILE_DEBUG);
- 	image->file_mode = 1;
++static int mc_request_event_irq(struct plda_pcie_rp *plda, int event_irq,
++				int event)
++{
++	return devm_request_irq(plda->dev, event_irq, mc_event_handler,
++				0, event_cause[event].sym, plda);
++}
++
++static const struct plda_event mc_event = {
++	.request_event_irq = mc_request_event_irq,
++};
++
+ static int plda_pcie_init_irq_domains(struct plda_pcie_rp *port)
+ {
+ 	struct device *dev = port->dev;
+@@ -904,7 +920,9 @@ static void mc_disable_interrupts(struct mc_pcie *port)
+ 	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_HOST);
+ }
  
- 	if (kexec_on_panic) {
+-static int plda_init_interrupts(struct platform_device *pdev, struct plda_pcie_rp *port)
++static int plda_init_interrupts(struct platform_device *pdev,
++				struct plda_pcie_rp *port,
++				const struct plda_event *event)
+ {
+ 	struct device *dev = &pdev->dev;
+ 	int irq;
+@@ -928,8 +946,13 @@ static int plda_init_interrupts(struct platform_device *pdev, struct plda_pcie_r
+ 			return -ENXIO;
+ 		}
+ 
+-		ret = devm_request_irq(dev, event_irq, mc_event_handler,
+-				       0, event_cause[i].sym, port);
++		if (event->request_event_irq)
++			ret = event->request_event_irq(port, event_irq, i);
++		else
++			ret = devm_request_irq(dev, event_irq,
++					       plda_event_handler,
++					       0, NULL, port);
++
+ 		if (ret) {
+ 			dev_err(dev, "failed to request IRQ %d\n", event_irq);
+ 			return ret;
+@@ -983,7 +1006,7 @@ static int mc_platform_init(struct pci_config_window *cfg)
+ 		return ret;
+ 
+ 	/* Address translation is up; safe to enable interrupts */
+-	ret = plda_init_interrupts(pdev, &port->plda);
++	ret = plda_init_interrupts(pdev, &port->plda, &mc_event);
+ 	if (ret)
+ 		return ret;
+ 
+diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
+index e3d35cef9894..28ed1374e1de 100644
+--- a/drivers/pci/controller/plda/pcie-plda.h
++++ b/drivers/pci/controller/plda/pcie-plda.h
+@@ -121,6 +121,11 @@ struct plda_pcie_rp {
+ 	int num_events;
+ };
+ 
++struct plda_event {
++	int (*request_event_irq)(struct plda_pcie_rp *pcie,
++				 int event_irq, int event);
++};
++
+ void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+ 			    phys_addr_t axi_addr, phys_addr_t pci_addr,
+ 			    size_t size);
 -- 
-2.41.0
+2.17.1
 
 
 _______________________________________________
