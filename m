@@ -4,83 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD877C07548
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 11:51:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5BF0C07548
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 12:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cyHc4zjeNJsgMsFL9xa6XFqGjMVhP9HMRpz8vnBEQSM=; b=g2n+xKyN5pqCA3
-	7SHN3vghrcY+8hJgqRkv979HK7YnaP23ctePBH80IgVznuQXc0RFtYtuZBZTkEmGUV12FkXtYtIga
-	IFXAU/2117PlLRaN1x5rsYifeaQQsK401NwxqUOmmnTxAXB51LlRWBvFFvqOKi1W7QBgMllf8AcIi
-	c5HrmANHUEjGxx+xPsEfF7WB4RqWgOA3yfaFqX1M7JVFTtZ0UBlqQzFbpOwTM3diyQMfqPUg0umzR
-	xo8L4atfzMma392/LYTZjvmEQY/U3PHhjVCrn/Y92EEG6Gb+rL8OKGuc+c8sajRImhpbzBAN1pFRN
-	YhvbZcgMjufv9BMCFuRw==;
+	List-Owner; bh=EBvZUMN8YVur3JSbnZHa523pkfAx9aEZ/vvOasgnhbU=; b=fXxkzF2Syy5MoF
+	r4RPapiurWz1+sMafZmI/ugaTgNA7LAslxdt+k41dajpwpbPGlSwdy6oI5walv83eM3F8EIC0XkRH
+	zl6QEwoH/Uh7Spk+6LF2Xl+NHBXj95WDe2TBWgxbmjKT+j9rTVGWH2e+U1ev74TOanToS09kY1xJW
+	h3slTVgsbIdxFJUetzXlWjxfl6iTKb5BZRN23FoBVSjmC1em4D5vYQK7vEAkKplaNZky0Cu3LbTdM
+	LeBM6aATIWFRI2xubz7yGWoPd5wFDgSNqmvYxlHKRGgOpaJ9HEh5jacV2PIW7RCVTwdwvFaQ8qb9D
+	gc4k5mdVmqsHEeuGvR1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3EQ3-000hdg-2x;
-	Wed, 15 Nov 2023 11:50:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1r3FMd-000nn9-0S;
+	Wed, 15 Nov 2023 12:51:27 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3EQ2-000hcg-2P
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 15 Nov 2023 11:50:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=SpS0kgbQHsO/0lkocGxUbxkqiursxFxa7Z/AQMDrk9k=; b=WB51hQMWuDWLRNiWsgGea+TcLP
-	ITdan69p9l8QjNYBA0B+7JIZpF9D0EQ+gJUASUxkhyv52DcD3jTHy1O6PktxeiYB4FZrYQgCQKNdU
-	h28jZeC4Sk8u2AdIvtW9yALUoUNt0Nfl0ycq++XMf+clMMWioor3Yf8K2gSDaGJUoceNn+DIzRghu
-	Ix4xpX+/gcQ3kQGOCoXVMq4I0Z58UgoxlQ1aD40A/z6Y1g7faKBlEibMfVBm2sfm8GwxEGGrfTHFz
-	jR3cQ8WtkbgbGj//9JIxXBhHwwKr8mE8pPQsErwcrDNUTp+X8twEB3JgAt5NHrg2hZU14vE6eySkC
-	iX5XJ8Qg==;
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by desiato.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3EPy-003xyF-0k
+	id 1r3FMY-000nkZ-2r
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Nov 2023 11:50:53 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 1D1008071;
-	Wed, 15 Nov 2023 19:49:24 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Nov
- 2023 19:49:19 +0800
-Received: from ubuntu.localdomain (183.27.97.246) by EXMBX171.cuchost.com
- (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Nov
- 2023 19:49:18 +0800
-From: Minda Chen <minda.chen@starfivetech.com>
-To: Conor Dooley <conor@kernel.org>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?=
-	<kw@linux.com>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
-	<bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, "Daire
- McNamara" <daire.mcnamara@microchip.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-pci@vger.kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
-	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
-	<minda.chen@starfivetech.com>
-Subject: [PATCH v11 05/20] PCI: microchip: Rename two PCIe data structures
-Date: Wed, 15 Nov 2023 19:48:57 +0800
-Message-ID: <20231115114912.71448-6-minda.chen@starfivetech.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20231115114912.71448-1-minda.chen@starfivetech.com>
-References: <20231115114912.71448-1-minda.chen@starfivetech.com>
+	Wed, 15 Nov 2023 12:51:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1700052675;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ehFjwhsPPcv7nimSjR09jzg4Dqe1DEZTTTAxghtYd8o=;
+	b=Bbx7OUieKyLhEbhg8f/de496HWsERiEdaT/xSroutd79BNgLmrtUdInZAZwKopz82ZGCH+
+	T7aIvJV8lnSKPeJwshbok2E6AT9oaPJNbCrQ0VCxtNheaq78YvLZnHy3RNTjURQg4yYQoC
+	xLRzSkVvzkBTK9RJK6g7llQD89VSqa8=
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-378-LR_rUWiCNDKtUhiOdXXDbA-1; Wed,
+ 15 Nov 2023 07:51:13 -0500
+X-MC-Unique: LR_rUWiCNDKtUhiOdXXDbA-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9AB1C1C068CA;
+	Wed, 15 Nov 2023 12:51:10 +0000 (UTC)
+Received: from localhost (unknown [10.72.112.9])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E5CD41121307;
+	Wed, 15 Nov 2023 12:51:09 +0000 (UTC)
+Date: Wed, 15 Nov 2023 20:51:06 +0800
+From: Baoquan He <bhe@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: kexec@lists.infradead.org, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-parisc@vger.kernel.org
+Subject: Re: [PATCH v2 1/7] kexec_file: add kexec_file flag to control debug
+ printing
+Message-ID: <ZVS+usu5jCveUIiv@MiWiFi-R3L-srv>
+References: <20231114153253.241262-1-bhe@redhat.com>
+ <20231114153253.241262-2-bhe@redhat.com>
 MIME-Version: 1.0
-X-Originating-IP: [183.27.97.246]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
- (172.16.6.91)
-X-YovoleRuleAgent: yovoleflag
+Content-Disposition: inline
+In-Reply-To: <20231114153253.241262-2-bhe@redhat.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231115_115051_200446_FAD565AB 
-X-CRM114-Status: GOOD (  21.17  )
+X-CRM114-CacheID: sfid-20231115_045123_018841_1976453E 
+X-CRM114-Status: GOOD (  17.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,356 +85,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add PLDA PCIe related data structures by rename data structure name from
-mc_* to plda_*.
+When specifying 'kexec -c -d', kexec_load interface will print loading
+information, e.g the regions where kernel/initrd/purgatory/cmdline
+are put, the memmap passed to 2nd kernel taken as system RAM ranges,
+and printing all contents of struct kexec_segment, etc. These are
+very helpful for analyzing or positioning what's happening when
+kexec/kdump itself failed. The debugging printing for kexec_load
+interface is made in user space utility kexec-tools.
 
-axi_base_addr is stayed in struct mc_pcie for it's microchip its own data.
+Whereas, with kexec_file_load interface, 'kexec -s -d' print nothing.
+Because kexec_file code is mostly implemented in kernel space, and the
+debugging printing functionality is missed. It's not convenient when
+debugging kexec/kdump loading and jumping with kexec_file_load
+interface.
 
-The event interrupt codes is still using struct mc_pcie because the event
-interrupt codes can not be re-used.
+Now add KEXEC_FILE_DEBUG to kexec_file flag to control the debugging
+message printing. And add global variable kexec_file_dbg_print and
+macro kexec_dprintk() to facilitate the printing.
 
-The modification includes:
-mc_pcie --> plda_pcie_rp (Get most of data members)
-mc_msi  --> plda_msi
+This is a preparation, later kexec_dprintk() will be used to replace the
+existing pr_debug(). Once 'kexec -s -d' is specified, it will print out
+kexec/kdump loading information at KERN_INFO level. If '-d' is not
+specified, it regresses to print message at KERN_DEBUG level.
 
-Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Baoquan He <bhe@redhat.com>
 ---
- .../pci/controller/plda/pcie-microchip-host.c | 96 ++++++++++---------
- 1 file changed, 53 insertions(+), 43 deletions(-)
+v1->v2:
+- Rewrite the kexec_dprintk() macro as Joe suggested to reduce kernel
+  text size.
 
-diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
-index 60870ee1f1c9..3dc4d4ca9d0c 100644
---- a/drivers/pci/controller/plda/pcie-microchip-host.c
-+++ b/drivers/pci/controller/plda/pcie-microchip-host.c
-@@ -22,7 +22,7 @@
- #include "pcie-plda.h"
- 
- /* Number of MSI IRQs */
--#define MC_MAX_NUM_MSI_IRQS			32
-+#define PLDA_MAX_NUM_MSI_IRQS			32
- 
- /* PCIe Bridge Phy and Controller Phy offsets */
- #define MC_PCIE1_BRIDGE_ADDR			0x00008000u
-@@ -179,25 +179,29 @@ struct event_map {
- 	u32 event_bit;
- };
- 
--struct mc_msi {
-+struct plda_msi {
- 	struct mutex lock;		/* Protect used bitmap */
- 	struct irq_domain *msi_domain;
- 	struct irq_domain *dev_domain;
- 	u32 num_vectors;
- 	u64 vector_phy;
--	DECLARE_BITMAP(used, MC_MAX_NUM_MSI_IRQS);
-+	DECLARE_BITMAP(used, PLDA_MAX_NUM_MSI_IRQS);
- };
- 
--struct mc_pcie {
--	void __iomem *axi_base_addr;
-+struct plda_pcie_rp {
- 	struct device *dev;
- 	struct irq_domain *intx_domain;
- 	struct irq_domain *event_domain;
- 	raw_spinlock_t lock;
--	struct mc_msi msi;
-+	struct plda_msi msi;
- 	void __iomem *bridge_addr;
- };
- 
-+struct mc_pcie {
-+	struct plda_pcie_rp plda;
-+	void __iomem *axi_base_addr;
-+};
+ include/linux/kexec.h      | 10 +++++++++-
+ include/uapi/linux/kexec.h |  1 +
+ kernel/kexec_file.c        |  5 +++++
+ 3 files changed, 15 insertions(+), 1 deletion(-)
+
+diff --git a/include/linux/kexec.h b/include/linux/kexec.h
+index 8227455192b7..66997efe36f1 100644
+--- a/include/linux/kexec.h
++++ b/include/linux/kexec.h
+@@ -264,6 +264,14 @@ arch_kexec_apply_relocations(struct purgatory_info *pi, Elf_Shdr *section,
+ 	return -ENOEXEC;
+ }
+ #endif
 +
- struct cause {
- 	const char *sym;
- 	const char *str;
-@@ -313,7 +317,7 @@ static struct mc_pcie *port;
++extern bool kexec_file_dbg_print;
++
++#define kexec_dprintk(fmt, ...)					\
++	printk("%s" fmt,					\
++	       kexec_file_dbg_print ? KERN_INFO : KERN_DEBUG,	\
++	       ##__VA_ARGS__)
++
+ #endif /* CONFIG_KEXEC_FILE */
  
- static void mc_pcie_enable_msi(struct mc_pcie *port, void __iomem *ecam)
- {
--	struct mc_msi *msi = &port->msi;
-+	struct plda_msi *msi = &port->plda.msi;
- 	u16 reg;
- 	u8 queue_size;
+ #ifdef CONFIG_KEXEC_ELF
+@@ -403,7 +411,7 @@ bool kexec_load_permitted(int kexec_image_type);
  
-@@ -336,10 +340,10 @@ static void mc_pcie_enable_msi(struct mc_pcie *port, void __iomem *ecam)
+ /* List of defined/legal kexec file flags */
+ #define KEXEC_FILE_FLAGS	(KEXEC_FILE_UNLOAD | KEXEC_FILE_ON_CRASH | \
+-				 KEXEC_FILE_NO_INITRAMFS)
++				 KEXEC_FILE_NO_INITRAMFS | KEXEC_FILE_DEBUG)
  
- static void mc_handle_msi(struct irq_desc *desc)
- {
--	struct mc_pcie *port = irq_desc_get_handler_data(desc);
-+	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
- 	struct irq_chip *chip = irq_desc_get_chip(desc);
- 	struct device *dev = port->dev;
--	struct mc_msi *msi = &port->msi;
-+	struct plda_msi *msi = &port->msi;
- 	void __iomem *bridge_base_addr = port->bridge_addr;
- 	unsigned long status;
- 	u32 bit;
-@@ -364,7 +368,7 @@ static void mc_handle_msi(struct irq_desc *desc)
+ /* flag to track if kexec reboot is in progress */
+ extern bool kexec_in_progress;
+diff --git a/include/uapi/linux/kexec.h b/include/uapi/linux/kexec.h
+index 01766dd839b0..c17bb096ea68 100644
+--- a/include/uapi/linux/kexec.h
++++ b/include/uapi/linux/kexec.h
+@@ -25,6 +25,7 @@
+ #define KEXEC_FILE_UNLOAD	0x00000001
+ #define KEXEC_FILE_ON_CRASH	0x00000002
+ #define KEXEC_FILE_NO_INITRAMFS	0x00000004
++#define KEXEC_FILE_DEBUG	0x00000008
  
- static void mc_msi_bottom_irq_ack(struct irq_data *data)
- {
--	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
-+	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
- 	void __iomem *bridge_base_addr = port->bridge_addr;
- 	u32 bitpos = data->hwirq;
+ /* These values match the ELF architecture values.
+  * Unless there is a good reason that should continue to be the case.
+diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
+index f9a419cd22d4..4c35500ae40a 100644
+--- a/kernel/kexec_file.c
++++ b/kernel/kexec_file.c
+@@ -38,6 +38,8 @@ void set_kexec_sig_enforced(void)
+ }
+ #endif
  
-@@ -373,7 +377,7 @@ static void mc_msi_bottom_irq_ack(struct irq_data *data)
++bool kexec_file_dbg_print;
++
+ static int kexec_calculate_store_digests(struct kimage *image);
  
- static void mc_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
- {
--	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
-+	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
- 	phys_addr_t addr = port->msi.vector_phy;
- 
- 	msg->address_lo = lower_32_bits(addr);
-@@ -400,8 +404,8 @@ static struct irq_chip mc_msi_bottom_irq_chip = {
- static int mc_irq_msi_domain_alloc(struct irq_domain *domain, unsigned int virq,
- 				   unsigned int nr_irqs, void *args)
- {
--	struct mc_pcie *port = domain->host_data;
--	struct mc_msi *msi = &port->msi;
-+	struct plda_pcie_rp *port = domain->host_data;
-+	struct plda_msi *msi = &port->msi;
- 	unsigned long bit;
- 
- 	mutex_lock(&msi->lock);
-@@ -425,8 +429,8 @@ static void mc_irq_msi_domain_free(struct irq_domain *domain, unsigned int virq,
- 				   unsigned int nr_irqs)
- {
- 	struct irq_data *d = irq_domain_get_irq_data(domain, virq);
--	struct mc_pcie *port = irq_data_get_irq_chip_data(d);
--	struct mc_msi *msi = &port->msi;
-+	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(d);
-+	struct plda_msi *msi = &port->msi;
- 
- 	mutex_lock(&msi->lock);
- 
-@@ -456,11 +460,11 @@ static struct msi_domain_info mc_msi_domain_info = {
- 	.chip = &mc_msi_irq_chip,
- };
- 
--static int mc_allocate_msi_domains(struct mc_pcie *port)
-+static int mc_allocate_msi_domains(struct plda_pcie_rp *port)
- {
- 	struct device *dev = port->dev;
- 	struct fwnode_handle *fwnode = of_node_to_fwnode(dev->of_node);
--	struct mc_msi *msi = &port->msi;
-+	struct plda_msi *msi = &port->msi;
- 
- 	mutex_init(&port->msi.lock);
- 
-@@ -484,7 +488,7 @@ static int mc_allocate_msi_domains(struct mc_pcie *port)
- 
- static void mc_handle_intx(struct irq_desc *desc)
- {
--	struct mc_pcie *port = irq_desc_get_handler_data(desc);
-+	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
- 	struct irq_chip *chip = irq_desc_get_chip(desc);
- 	struct device *dev = port->dev;
- 	void __iomem *bridge_base_addr = port->bridge_addr;
-@@ -511,7 +515,7 @@ static void mc_handle_intx(struct irq_desc *desc)
- 
- static void mc_ack_intx_irq(struct irq_data *data)
- {
--	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
-+	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
- 	void __iomem *bridge_base_addr = port->bridge_addr;
- 	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
- 
-@@ -520,7 +524,7 @@ static void mc_ack_intx_irq(struct irq_data *data)
- 
- static void mc_mask_intx_irq(struct irq_data *data)
- {
--	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
-+	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
- 	void __iomem *bridge_base_addr = port->bridge_addr;
- 	unsigned long flags;
- 	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
-@@ -535,7 +539,7 @@ static void mc_mask_intx_irq(struct irq_data *data)
- 
- static void mc_unmask_intx_irq(struct irq_data *data)
- {
--	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
-+	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
- 	void __iomem *bridge_base_addr = port->bridge_addr;
- 	unsigned long flags;
- 	u32 mask = BIT(data->hwirq + PM_MSI_INT_INTX_SHIFT);
-@@ -625,21 +629,22 @@ static u32 local_events(struct mc_pcie *port)
- 	return val;
+ /* Maximum size in bytes for kernel/initrd files. */
+@@ -123,6 +125,8 @@ void kimage_file_post_load_cleanup(struct kimage *image)
+ 	 */
+ 	kfree(image->image_loader_data);
+ 	image->image_loader_data = NULL;
++
++	kexec_file_dbg_print = false;
  }
  
--static u32 get_events(struct mc_pcie *port)
-+static u32 get_events(struct plda_pcie_rp *port)
- {
-+	struct mc_pcie *mc_port = container_of(port, struct mc_pcie, plda);
- 	u32 events = 0;
- 
--	events |= pcie_events(port);
--	events |= sec_errors(port);
--	events |= ded_errors(port);
--	events |= local_events(port);
-+	events |= pcie_events(mc_port);
-+	events |= sec_errors(mc_port);
-+	events |= ded_errors(mc_port);
-+	events |= local_events(mc_port);
- 
- 	return events;
- }
- 
- static irqreturn_t mc_event_handler(int irq, void *dev_id)
- {
--	struct mc_pcie *port = dev_id;
-+	struct plda_pcie_rp *port = dev_id;
- 	struct device *dev = port->dev;
- 	struct irq_data *data;
- 
-@@ -655,7 +660,7 @@ static irqreturn_t mc_event_handler(int irq, void *dev_id)
- 
- static void mc_handle_event(struct irq_desc *desc)
- {
--	struct mc_pcie *port = irq_desc_get_handler_data(desc);
-+	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
- 	unsigned long events;
- 	u32 bit;
- 	struct irq_chip *chip = irq_desc_get_chip(desc);
-@@ -672,12 +677,13 @@ static void mc_handle_event(struct irq_desc *desc)
- 
- static void mc_ack_event_irq(struct irq_data *data)
- {
--	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
-+	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
-+	struct mc_pcie *mc_port = container_of(port, struct mc_pcie, plda);
- 	u32 event = data->hwirq;
- 	void __iomem *addr;
- 	u32 mask;
- 
--	addr = port->axi_base_addr + event_descs[event].base +
-+	addr = mc_port->axi_base_addr + event_descs[event].base +
- 		event_descs[event].offset;
- 	mask = event_descs[event].mask;
- 	mask |= event_descs[event].enb_mask;
-@@ -687,13 +693,14 @@ static void mc_ack_event_irq(struct irq_data *data)
- 
- static void mc_mask_event_irq(struct irq_data *data)
- {
--	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
-+	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
-+	struct mc_pcie *mc_port = container_of(port, struct mc_pcie, plda);
- 	u32 event = data->hwirq;
- 	void __iomem *addr;
- 	u32 mask;
- 	u32 val;
- 
--	addr = port->axi_base_addr + event_descs[event].base +
-+	addr = mc_port->axi_base_addr + event_descs[event].base +
- 		event_descs[event].mask_offset;
- 	mask = event_descs[event].mask;
- 	if (event_descs[event].enb_mask) {
-@@ -717,13 +724,14 @@ static void mc_mask_event_irq(struct irq_data *data)
- 
- static void mc_unmask_event_irq(struct irq_data *data)
- {
--	struct mc_pcie *port = irq_data_get_irq_chip_data(data);
-+	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
-+	struct mc_pcie *mc_port = container_of(port, struct mc_pcie, plda);
- 	u32 event = data->hwirq;
- 	void __iomem *addr;
- 	u32 mask;
- 	u32 val;
- 
--	addr = port->axi_base_addr + event_descs[event].base +
-+	addr = mc_port->axi_base_addr + event_descs[event].base +
- 		event_descs[event].mask_offset;
- 	mask = event_descs[event].mask;
- 
-@@ -811,7 +819,7 @@ static int mc_pcie_init_clks(struct device *dev)
- 	return 0;
- }
- 
--static int mc_pcie_init_irq_domains(struct mc_pcie *port)
-+static int mc_pcie_init_irq_domains(struct plda_pcie_rp *port)
- {
- 	struct device *dev = port->dev;
- 	struct device_node *node = dev->of_node;
-@@ -889,7 +897,7 @@ static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
- }
- 
- static int mc_pcie_setup_windows(struct platform_device *pdev,
--				 struct mc_pcie *port)
-+				 struct plda_pcie_rp *port)
- {
- 	void __iomem *bridge_base_addr = port->bridge_addr;
- 	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
-@@ -970,7 +978,7 @@ static void mc_disable_interrupts(struct mc_pcie *port)
- 	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_HOST);
- }
- 
--static int mc_init_interrupts(struct platform_device *pdev, struct mc_pcie *port)
-+static int mc_init_interrupts(struct platform_device *pdev, struct plda_pcie_rp *port)
- {
- 	struct device *dev = &pdev->dev;
- 	int irq;
-@@ -1043,12 +1051,12 @@ static int mc_platform_init(struct pci_config_window *cfg)
- 	mc_pcie_enable_msi(port, cfg->win);
- 
- 	/* Configure non-config space outbound ranges */
--	ret = mc_pcie_setup_windows(pdev, port);
-+	ret = mc_pcie_setup_windows(pdev, &port->plda);
- 	if (ret)
- 		return ret;
- 
- 	/* Address translation is up; safe to enable interrupts */
--	ret = mc_init_interrupts(pdev, port);
-+	ret = mc_init_interrupts(pdev, &port->plda);
- 	if (ret)
- 		return ret;
- 
-@@ -1059,6 +1067,7 @@ static int mc_host_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
- 	void __iomem *bridge_base_addr;
-+	struct plda_pcie_rp *plda;
- 	int ret;
- 	u32 val;
- 
-@@ -1066,7 +1075,8 @@ static int mc_host_probe(struct platform_device *pdev)
- 	if (!port)
+ #ifdef CONFIG_KEXEC_SIG
+@@ -278,6 +282,7 @@ kimage_file_alloc_init(struct kimage **rimage, int kernel_fd,
+ 	if (!image)
  		return -ENOMEM;
  
--	port->dev = dev;
-+	plda = &port->plda;
-+	plda->dev = dev;
++	kexec_file_dbg_print = !!(flags & KEXEC_FILE_DEBUG);
+ 	image->file_mode = 1;
  
- 	port->axi_base_addr = devm_platform_ioremap_resource(pdev, 1);
- 	if (IS_ERR(port->axi_base_addr))
-@@ -1075,7 +1085,7 @@ static int mc_host_probe(struct platform_device *pdev)
- 	mc_disable_interrupts(port);
- 
- 	bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
--	port->bridge_addr = bridge_base_addr;
-+	plda->bridge_addr = bridge_base_addr;
- 
- 	/* Allow enabling MSI by disabling MSI-X */
- 	val = readl(bridge_base_addr + PCIE_PCI_IRQ_DW0);
-@@ -1087,10 +1097,10 @@ static int mc_host_probe(struct platform_device *pdev)
- 	val &= NUM_MSI_MSGS_MASK;
- 	val >>= NUM_MSI_MSGS_SHIFT;
- 
--	port->msi.num_vectors = 1 << val;
-+	plda->msi.num_vectors = 1 << val;
- 
- 	/* Pick vector address from design */
--	port->msi.vector_phy = readl_relaxed(bridge_base_addr + IMSI_ADDR);
-+	plda->msi.vector_phy = readl_relaxed(bridge_base_addr + IMSI_ADDR);
- 
- 	ret = mc_pcie_init_clks(dev);
- 	if (ret) {
+ 	if (kexec_on_panic) {
 -- 
-2.17.1
+2.41.0
 
 
 _______________________________________________
