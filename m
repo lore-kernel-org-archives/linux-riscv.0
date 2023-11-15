@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E62C47076
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 13:00:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FD3FC07548
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 13:00:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ElgLE97bSAWM5iGiJb3B1bz0Fy4E2JIYkIy+dDN+uqQ=; b=fvzywS1Mt5zjgF
-	fm7OvG1ZQ7dKf1v2maAXV1XX0oK/w602fug8u7MzEuP33/6oUNLOIrPXEPciiQHmkjtBQPzxT78lP
-	1LERYmW1pjojsrsJ5Enfs+ja8DEth+l0+ppJUkNm39c0fJKQUvJiGhFb6Di5a1R/1f6E4HFKOipVq
-	Ua6OpwFA8j89Qgf3ihbIrH9VoK4SPDyCpemJvy3MfgW9Bj2Jf68oKsaSMQvb1eXrYaEtCMe/m982+
-	mA5NF3ekLCZHaaMlxTh7mxOF5hHuYUo1gHPE4CfW+MvHhVmI0T8eWn8Mk6T/t/jshdQGLb2EbuaAw
-	A8ySrqADCqvzr7MCRnig==;
+	List-Owner; bh=rmK6g8/nLWX+bVRw+U2PSAE8XCKJhKH7I4iPZKCTcBs=; b=kfeXWWncZrcSqw
+	fbaB7x4pgb950QaRINnLSfHtM1b8JTnVlWFLwRsT2f/RqqUiWpiQxPI6pLraabbb/OFfzwsx+wNRk
+	fTgXYFuIL1oRLCuY913+SFBizjfverWsKhwBrKiyg2/BbRP83z1F04EgcXlIBywD51heGs2tExxlZ
+	yfmmC5w0aIPjmGPomQCA2QLUgz4t2LGIRAQ446c+aJdKjkZnai/M5liXscl7x0bp9UkZFQjaqBKRt
+	mHFPmiNc0cwC4rSxacNxYza47yCcQyx2XnPI9+sX0b36IpmAph8EkWHpsMEpbnFbtpIA5Mojamf8H
+	tIi1yXSU0m+VjJfpQ+ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3FVb-000oi6-0I;
-	Wed, 15 Nov 2023 13:00:43 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3FVY-000ogU-1k
+	id 1r3FVY-000ogX-19;
+	Wed, 15 Nov 2023 13:00:40 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1r3EP0-000goq-31
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Nov 2023 13:00:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1700053239;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MsmoLDm3Vg05W8pfD2SPdYXQ50SnWlB0SUHodkqBzuQ=;
-	b=dL/znG0fed4dL/aHj7n1nD5I9brZSsdYSqh9HCCIXLofBN6LIlLctf7twcRHap0xZXeChi
-	WzH3BABOwN41mDAAralSIFu2WbQrE8BwIOK8lz3FEDdyF9szIJbTPol9xuzBqg8UIzAkAb
-	mhXzZoM+b6zrkB0tUlxMTcLMeJEIFgQ=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-625-1eLEqSY3OeWVW86v4Tny6A-1; Wed, 15 Nov 2023 08:00:32 -0500
-X-MC-Unique: 1eLEqSY3OeWVW86v4Tny6A-1
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C3AC4810FC1;
-	Wed, 15 Nov 2023 13:00:31 +0000 (UTC)
-Received: from localhost (unknown [10.72.112.9])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id BA6FF492BFD;
-	Wed, 15 Nov 2023 13:00:30 +0000 (UTC)
-Date: Wed, 15 Nov 2023 21:00:27 +0800
-From: Baoquan He <bhe@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: kexec@lists.infradead.org, x86@kernel.org, linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, akpm@linux-foundation.org,
-	ebiederm@xmission.com, takahiro.akashi@linaro.org
-Subject: [PATCH v2 1/2] resource: add walk_system_ram_res_rev()
-Message-ID: <ZVTA6z/06cLnWKUz@MiWiFi-R3L-srv>
-References: <20231114091658.228030-1-bhe@redhat.com>
- <20231114091658.228030-2-bhe@redhat.com>
+	Wed, 15 Nov 2023 11:49:53 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 1B2A67F8A;
+	Wed, 15 Nov 2023 19:49:20 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Nov
+ 2023 19:49:20 +0800
+Received: from ubuntu.localdomain (183.27.97.246) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Nov
+ 2023 19:49:19 +0800
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?=
+	<kw@linux.com>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
+	<bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, "Daire
+ McNamara" <daire.mcnamara@microchip.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-pci@vger.kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
+	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
+	<minda.chen@starfivetech.com>
+Subject: [PATCH v11 06/20] PCI: microchip: Move PCIe host data structures to plda-pcie.h
+Date: Wed, 15 Nov 2023 19:48:58 +0800
+Message-ID: <20231115114912.71448-7-minda.chen@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20231115114912.71448-1-minda.chen@starfivetech.com>
+References: <20231115114912.71448-1-minda.chen@starfivetech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231114091658.228030-2-bhe@redhat.com>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.10
+X-Originating-IP: [183.27.97.246]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
+ (172.16.6.91)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231115_050040_654157_7DFACCAA 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20231115_034951_366729_490DE559 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,116 +82,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This function, being a variant of walk_system_ram_res() introduced in
-commit 8c86e70acead ("resource: provide new functions to walk through
-resources"), walks through a list of all the resources of System RAM
-in reversed order, i.e., from higher to lower.
+Move the common data structures definition to head file for these two data
+structures can be re-used.
 
-It will be used in kexec_file code to load kernel, initrd etc when
-preparing kexec reboot.
-
-Signed-off-by: AKASHI Takahiro <takahiro.akashi@linaro.org>
-Signed-off-by: Baoquan He <bhe@redhat.com>
+Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
-v1->v2:
-- Use kvrealloc() to reallocate memory instead of kvcalloc(), this
-  simplifies code. Suggested by Andrew.
+ .../pci/controller/plda/pcie-microchip-host.c | 20 ------------------
+ drivers/pci/controller/plda/pcie-plda.h       | 21 +++++++++++++++++++
+ 2 files changed, 21 insertions(+), 20 deletions(-)
 
- include/linux/ioport.h |  3 +++
- kernel/resource.c      | 57 ++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 60 insertions(+)
-
-diff --git a/include/linux/ioport.h b/include/linux/ioport.h
-index 14f5cfabbbc8..db7fe25f3370 100644
---- a/include/linux/ioport.h
-+++ b/include/linux/ioport.h
-@@ -331,6 +331,9 @@ extern int
- walk_system_ram_res(u64 start, u64 end, void *arg,
- 		    int (*func)(struct resource *, void *));
- extern int
-+walk_system_ram_res_rev(u64 start, u64 end, void *arg,
-+			int (*func)(struct resource *, void *));
-+extern int
- walk_iomem_res_desc(unsigned long desc, unsigned long flags, u64 start, u64 end,
- 		    void *arg, int (*func)(struct resource *, void *));
+diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+index 3dc4d4ca9d0c..261147a0a446 100644
+--- a/drivers/pci/controller/plda/pcie-microchip-host.c
++++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+@@ -21,9 +21,6 @@
+ #include "../../pci.h"
+ #include "pcie-plda.h"
  
-diff --git a/kernel/resource.c b/kernel/resource.c
-index 866ef3663a0b..e8a244300e5b 100644
---- a/kernel/resource.c
-+++ b/kernel/resource.c
-@@ -27,6 +27,8 @@
- #include <linux/mount.h>
- #include <linux/resource_ext.h>
- #include <uapi/linux/magic.h>
-+#include <linux/string.h>
-+#include <linux/vmalloc.h>
- #include <asm/io.h>
+-/* Number of MSI IRQs */
+-#define PLDA_MAX_NUM_MSI_IRQS			32
+-
+ /* PCIe Bridge Phy and Controller Phy offsets */
+ #define MC_PCIE1_BRIDGE_ADDR			0x00008000u
+ #define MC_PCIE1_CTRL_ADDR			0x0000a000u
+@@ -179,23 +176,6 @@ struct event_map {
+ 	u32 event_bit;
+ };
  
+-struct plda_msi {
+-	struct mutex lock;		/* Protect used bitmap */
+-	struct irq_domain *msi_domain;
+-	struct irq_domain *dev_domain;
+-	u32 num_vectors;
+-	u64 vector_phy;
+-	DECLARE_BITMAP(used, PLDA_MAX_NUM_MSI_IRQS);
+-};
+-
+-struct plda_pcie_rp {
+-	struct device *dev;
+-	struct irq_domain *intx_domain;
+-	struct irq_domain *event_domain;
+-	raw_spinlock_t lock;
+-	struct plda_msi msi;
+-	void __iomem *bridge_addr;
+-};
  
-@@ -429,6 +431,61 @@ int walk_system_ram_res(u64 start, u64 end, void *arg,
- 				     func);
- }
+ struct mc_pcie {
+ 	struct plda_pcie_rp plda;
+diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
+index 727fc54312c9..363fcbbaf6ec 100644
+--- a/drivers/pci/controller/plda/pcie-plda.h
++++ b/drivers/pci/controller/plda/pcie-plda.h
+@@ -6,6 +6,9 @@
+ #ifndef _PCIE_PLDA_H
+ #define _PCIE_PLDA_H
  
-+/*
-+ * This function, being a variant of walk_system_ram_res(), calls the @func
-+ * callback against all memory ranges of type System RAM which are marked as
-+ * IORESOURCE_SYSTEM_RAM and IORESOUCE_BUSY in reversed order, i.e., from
-+ * higher to lower.
-+ */
-+int walk_system_ram_res_rev(u64 start, u64 end, void *arg,
-+				int (*func)(struct resource *, void *))
-+{
-+	struct resource res, *rams;
-+	int rams_size = 16, i;
-+	unsigned long flags;
-+	int ret = -1;
++/* Number of MSI IRQs */
++#define PLDA_MAX_NUM_MSI_IRQS			32
 +
-+	/* create a list */
-+	rams = kvcalloc(rams_size, sizeof(struct resource), GFP_KERNEL);
-+	if (!rams)
-+		return ret;
+ /* PCIe Bridge Phy Regs */
+ #define PCIE_PCI_IRQ_DW0			0xa8
+ #define  MSIX_CAP_MASK				BIT(31)
+@@ -99,4 +102,22 @@
+ #define EVENT_PM_MSI_INT_SYS_ERR		12
+ #define NUM_PLDA_EVENTS				13
+ 
++struct plda_msi {
++	struct mutex lock;		/* Protect used bitmap */
++	struct irq_domain *msi_domain;
++	struct irq_domain *dev_domain;
++	u32 num_vectors;
++	u64 vector_phy;
++	DECLARE_BITMAP(used, PLDA_MAX_NUM_MSI_IRQS);
++};
 +
-+	flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
-+	i = 0;
-+	while ((start < end) &&
-+		(!find_next_iomem_res(start, end, flags, IORES_DESC_NONE, &res))) {
-+		if (i >= rams_size) {
-+			/* re-alloc */
-+			struct resource *rams_new;
++struct plda_pcie_rp {
++	struct device *dev;
++	struct irq_domain *intx_domain;
++	struct irq_domain *event_domain;
++	raw_spinlock_t lock;
++	struct plda_msi msi;
++	void __iomem *bridge_addr;
++};
 +
-+			rams_new = kvrealloc(rams, rams_size * sizeof(struct resource),
-+					     (rams_size + 16) * sizeof(struct resource),
-+					     GFP_KERNEL);
-+			if (!rams_new)
-+				goto out;
-+
-+			rams = rams_new;
-+			rams_size += 16;
-+		}
-+
-+		rams[i].start = res.start;
-+		rams[i++].end = res.end;
-+
-+		start = res.end + 1;
-+	}
-+
-+	/* go reverse */
-+	for (i--; i >= 0; i--) {
-+		ret = (*func)(&rams[i], arg);
-+		if (ret)
-+			break;
-+	}
-+
-+out:
-+	kvfree(rams);
-+	return ret;
-+}
-+
- /*
-  * This function calls the @func callback against all memory ranges, which
-  * are ranges marked as IORESOURCE_MEM and IORESOUCE_BUSY.
+ #endif
 -- 
-2.41.0
+2.17.1
 
 
 _______________________________________________
