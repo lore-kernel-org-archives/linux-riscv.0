@@ -4,168 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05947C54FB9
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 15:15:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5600C072A2
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 15:22:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Pq5VhosmRPIEKirK24t3NqsrcSQzVnlGxn0qlanvulA=; b=p8S2rbOTO10yts
-	l7T75n/jDANeT/YBCp4UH1sp+ILF7upwTeNXj3K5synYXYxZVQ6+uu9HJKJPtrqbxROhQP3TeM6+z
-	uhjKlVXQjPCsG8y0euKkRiIk2wFsJ9xqoa9jrySRl74D7v8G2+o0wZWnYyYSYnlhGKlrtfGn4qaSg
-	OwFAFNEnFFBRSWfRGHARrxloYgnhHwvoiFUTkO87XkHlbp3vqTkrys9w2JcDllJ32qmvIwpj/ZY6Q
-	JhnJg95nCiQGb7NXo6QtLVc0J3vCCkX4GkFdUyJPFs5grnIoddJxcbeZqbTNHmBOXiCQ9i+JirnOn
-	NkN8EBeO9WNKCwkPO40A==;
+	List-Owner; bh=9DGbFYoLGDGplxPXwkSNH2s3slXDvZfv17xEw+PvYVk=; b=cqM8n7w6ge4pOv
+	fnnJu0xDuIoiJcf7a/983e4KpaO2fwoJqpcL5mXI7YFC2CS+VqbJ9FDlMV3fav4oDQOUQY8yRFLvK
+	SFJ21eNJYmeHLFRrU9/o3UYnaMYnbrl6QNym38fQFU272ltF1Tzf7XbPcZVM7CBRgJBSOJIRpZwNv
+	HSVGjKadXaq6SmPcpJbcLKaAUTwE5OK2/fIG0s5dTJpaQHyJ4bBu9+h4+v9k5oDvAu/OAeAQ9kCU5
+	WzpJopCqXDK+iPkXLMPc8M4r/gA3vE/9JY6Xzrl142GBTN31/uAGCTKRS4QBzFbSDbOK8PW9rFm3a
+	xfQdW6vDEwBuTQ/tWxqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3HcE-0019Ln-2S;
-	Wed, 15 Nov 2023 15:15:42 +0000
-Received: from mail-bn8nam11on20600.outbound.protection.outlook.com ([2a01:111:f400:7eae::600] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3GXO-000wQS-1M;
-	Wed, 15 Nov 2023 14:06:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=BeFtZ2oBEnRSk6pcAbR9UPHhDr5buxBf6cvEHVlu+FXnmYmfe/iYVdIGA99I5QHCO7R3gPrCuLrlv2/BeC2csuuFOJeyn4RH10uVowqm0Sq3gmZRAQ6lCPMO4N6LsQfjMSLCMTDww0SLX1K7ejSn/cEhAqTuxoIzazPNOZUAe6Cy1nC9u52wWJBtRlzxr7zPR2OzuZo3jn3rjlvLB72xvKElY3SFy55YnfYd6J67Uv73weav8nAdF0uUUDykRIgSn2WYW0N775Z3ZsuG8MPDa/A4RBduIPHMn2yTph7JfyySkHvN0SbEVfRlxoLfXp5D85L0ZqpM7UU9Hh0ZpWY9RA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PmGfuwpBfs0ZJ2gl8sOhab20hFl7awpkh2gd4isoKzQ=;
- b=K9wD3KaVgC9JZIQLzdxksAqwqF3BIZJq4M5I8WX5q97rsGydI41DhvYAQ3yIu6/OsCLDv2irRq+k37z7PH1m3lwgaCtMpbXTB5jzx0Z416v2ara2fTnROvOo/JxBrgN/M/i2ecel87Cwk6BdyR6Od86qOaksK3dC8YPJy3ms2h7baX/L2K5nlAVnKDIQjSN7rXNogm7cRtlQ2wxYsPeYYIY5sVoPiWMLBNAHqtjx0u/jT4rVFeR3jDUZyZWrhtDNXT+D8rZyyZRJStF2wKvsPy7HoD1KSk8IEh6wbvVMGH2Cdd+bni3ZCWafntecBjO90YPUh9w3hSj5giOz1+jSEg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PmGfuwpBfs0ZJ2gl8sOhab20hFl7awpkh2gd4isoKzQ=;
- b=PuP9lH3K4NeaYY7XmJaMFKhttIWANqTx2kZKoNgXr/svmAO6+Wac2y8dTkIsa5bnub12R2timnIh7YL62LaBRqH0c80hN29y4W0O5Ui+E4F/Oa2gwWXutCOH2IxlRCSQffZvofCwgR/mzstYvJM0ek96fX/H5kF5KsOh+FsYEKJbbwCOc/d0eNJhIgT0Rcm+S+dfjDycp1w/64ZkvXAr9gm3JqP/k/Qbcn49Aainu297+iZEpMjPOnwUCi9elmsE1RMRpr2Qo+033hVaALrX1pixkmjQMrqyolY5qaZB7fGsEN+iQlmn5LOl5+6DUo01dKYqL4FYAaWESO5cHqQIAQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV2PR12MB5869.namprd12.prod.outlook.com (2603:10b6:408:176::16)
- by PH8PR12MB6916.namprd12.prod.outlook.com (2603:10b6:510:1bd::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6977.31; Wed, 15 Nov
- 2023 14:06:19 +0000
-Received: from LV2PR12MB5869.namprd12.prod.outlook.com
- ([fe80::60d4:c1e3:e1aa:8f93]) by LV2PR12MB5869.namprd12.prod.outlook.com
- ([fe80::60d4:c1e3:e1aa:8f93%4]) with mapi id 15.20.6977.029; Wed, 15 Nov 2023
- 14:06:19 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: acpica-devel@lists.linux.dev,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	asahi@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dexuan Cui <decui@microsoft.com>,
-	devicetree@vger.kernel.org,
-	David Woodhouse <dwmw2@infradead.org>,
-	Frank Rowand <frowand.list@gmail.com>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	iommu@lists.linux.dev,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	"K. Y. Srinivasan" <kys@microsoft.com>,
-	Len Brown <lenb@kernel.org>,
-	linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-hyperv@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-tegra@vger.kernel.org,
-	Russell King <linux@armlinux.org.uk>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Hector Martin <marcan@marcan.st>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	patches@lists.linux.dev,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Robert Moore <robert.moore@intel.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	Vineet Gupta <vgupta@kernel.org>,
-	virtualization@lists.linux.dev,
-	Wei Liu <wei.liu@kernel.org>,
-	Will Deacon <will@kernel.org>
-Cc: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Christoph Hellwig <hch@lst.de>,
-	Jerry Snitselaar <jsnitsel@redhat.com>,
-	Moritz Fischer <mdf@kernel.org>,
-	Zhenhua Huang <quic_zhenhuah@quicinc.com>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Rob Herring <robh@kernel.org>
-Subject: [PATCH v2 06/17] iommu: Add iommu_fwspec_alloc/dealloc()
-Date: Wed, 15 Nov 2023 10:05:57 -0400
-Message-ID: <6-v2-36a0088ecaa7+22c6e-iommu_fwspec_jgg@nvidia.com>
-In-Reply-To: <0-v2-36a0088ecaa7+22c6e-iommu_fwspec_jgg@nvidia.com>
-References: 
-X-ClientProxiedBy: BLAPR03CA0103.namprd03.prod.outlook.com
- (2603:10b6:208:32a::18) To LV2PR12MB5869.namprd12.prod.outlook.com
- (2603:10b6:408:176::16)
+	id 1r3Him-001ADp-1W;
+	Wed, 15 Nov 2023 15:22:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1r3Hii-001AD2-0r;
+	Wed, 15 Nov 2023 15:22:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6CF5FC15;
+	Wed, 15 Nov 2023 07:23:07 -0800 (PST)
+Received: from [10.57.83.164] (unknown [10.57.83.164])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 30E023F641;
+	Wed, 15 Nov 2023 07:22:11 -0800 (PST)
+Message-ID: <1316b55e-8074-4b2f-99df-585df2f3dd06@arm.com>
+Date: Wed, 15 Nov 2023 15:22:09 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV2PR12MB5869:EE_|PH8PR12MB6916:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2479645a-7070-4d20-26fc-08dbe5e405e4
-X-LD-Processed: 43083d15-7273-40c1-b7db-39efd9ccc17a,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: qvQIGdIbnetbXvAiA6j+3d7hEfbp/uXG3r5kcdKULkMblPlrXKIFOwVQP9t/rKPABrYGjMjix5ugjbCXkl96xGpK2wTtA/yUqfZo+IonC2jVYU1S5jb+BCOfsTYiTb7qbkOGuqjbqHg2VNVABfJ3Zq4IvP3hxHHmybJy1qguxaqckyCJuD4NDl5xqHk0RUoUliB7562reBUgGw2umeCkbTCPItMC//APp+5ljbtyzouJB0OI7Ir68SDpGHif4agRSoWFaiX3P5O3wSYwX19KP/OYle6FJ+iSk5mWYSx1LnVpQibd/LfnZslIU/RN318tTMwA00cB5MgeoovdLtDCVZeLb6o6bICBha94K3mbVDQaVDG2EEOiCmIkL3N/B1bu0Gz+iNDIQZCrK1eMADzP5luY2/KXi3dBipRYZHu97UQe9JHImtMDKeDiKuAwlUrVPfoBBZXAFPXID8F/x4zBZ6t3hMc0fnMUM3vn7mXbwYhP1S6vinLT1YgOypZtNRB0O0OvIbCDkZ0UpzGdUedMGy0hB17fivOJ/EGQ86DkG26CEuSNRllW2M5xi+OJWfS8OOFByiUfnUxgNVWc9ggtMb2qmWmZduXyYl5Nmq3i74iqABgglDCLvwupU0JBCJb4
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR12MB5869.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(39860400002)(376002)(346002)(396003)(366004)(136003)(230922051799003)(1800799009)(64100799003)(186009)(451199024)(66899024)(110136005)(316002)(66946007)(54906003)(66476007)(66556008)(6486002)(478600001)(6666004)(7366002)(86362001)(5660300002)(7406005)(7416002)(921008)(41300700001)(2906002)(36756003)(8676002)(4326008)(8936002)(2616005)(38100700002)(26005)(83380400001)(6506007)(6512007)(4216001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9QkYoRJepClUNE4YNwnegy7f7IidUvmYAfAYOSdSy7dysEHSP0felu1PXoan?=
- =?us-ascii?Q?Gkz7+nSXJZ9HqW2IJsgPYAdePSfh3vAciROtKGZSQBQrbYKfujqCxqeJbxTy?=
- =?us-ascii?Q?W4Np8xznCCF2mVpmo0txiEwqMkBsmkdEbkNcxFK9TTUQMrubUjbBhaJynE06?=
- =?us-ascii?Q?eUVaqWGHW8UGUd0bS0sXVHwc7RiDSQB0GwR2CTvYdGju+7sY+DL+6n2W5DT+?=
- =?us-ascii?Q?CEoSNs3xvlgU2BQ3i4EmLj8QjZ855YI1hHDGkr03XjuCllTw3PHDmIPyxn6/?=
- =?us-ascii?Q?a5Sga3zi+pdDDhuC1Bh7j/ehKi2LcTTehdPNTa0dV+8nFj0gldU6vcX+c30n?=
- =?us-ascii?Q?UNkF44OgwMvgnPHBgE9K9eyyO4atdwTfGPI3xbDce5QRDbSaH0K6Nv0d8Lrv?=
- =?us-ascii?Q?ve4P0KGKF9T83JqXMCL035Rlqbf30jGMA9P1jV03ZwZ8tmC/tVH5wP4ULFwa?=
- =?us-ascii?Q?GVA6XzyiVyMOvef/pQGcI50OEMk/ECH+Moo0ICKyNIvEB47vG4Jn9qOCptXs?=
- =?us-ascii?Q?xo93cOMGIzpEsTw6Wy8i/1Q+OzXeQE2iSVTYOU3cTAchjr9odB1QSI8p8HOz?=
- =?us-ascii?Q?aOidAucJRAFG8xEfbqTAFc9j+or15tTP/8E+GxUpax+zCbCHX4njXeDKwmiK?=
- =?us-ascii?Q?4wdEdrtPzWgHCHrDhT7QDXQYKxpQwp+93zc3f5J2vBWv68UnUERIzsrpnJ8+?=
- =?us-ascii?Q?B1yszR2JPT2OD8PghJxKjgFev1r4XL+z9aQqByHgpuxdF9a7aDqumWLNAB1t?=
- =?us-ascii?Q?BlnAlV8+eFeXFeoLglGeCYJ+4gQp+u6V2KyE8ghQM100IvoWIudCW6x4Dipd?=
- =?us-ascii?Q?LP5RUOkaHvvlYcjyWZq0pcCWqLOMKuZEe6BB4FLEggzV5PZuJeoUitKD/2cX?=
- =?us-ascii?Q?avDPgyATzpuw1Q4tj+DSmL521DXdNFtQu62AXmpHK5rt/3+n12X1i1SgBosw?=
- =?us-ascii?Q?C2LU+rocdIlqHwwvgJzqr5rysynFJebcl1lSKikE1+B4NUa7TJutp3nOpghY?=
- =?us-ascii?Q?dClvwlq0QTY/1Fxs7bJQc/ElW8pjcwC6s6LSMsQ4jwpnrqAYKe4phGa6u+a/?=
- =?us-ascii?Q?VD8cjUFDkgjZyLTULlLQgsW+bxYZDtzSfzDCNFpvsm+dNC/ADH4kDPQIZqaM?=
- =?us-ascii?Q?Twj88p/NZd+y+uoDmwI9sO32Zt6H+34iWxRv2O2IexQLCJLBGAnH6NMD5FYr?=
- =?us-ascii?Q?7ROBYt5qIFbKBzd4u1+kGaHCFrVNlwrq3KpsojvLmrYoCjqJddngHj3T9M/t?=
- =?us-ascii?Q?ZPodH0kX+kdn5u7a9z6oUuinvjMk8FqkhlUWm69oP+mEG4s/UxfXxQJpqx4N?=
- =?us-ascii?Q?bcFwQsqJ6u9BGqgLNZXdCWImLv5CbvowUb3Rteb682oLZB+u3oKR0qp8jzFV?=
- =?us-ascii?Q?dOq2PWYGi8FlzLGsyC94ktwcn9uzteiqfzYMrHbFAGFzMEqVYmkwpG66ZdMX?=
- =?us-ascii?Q?sATXOqsTL3Fmtg0FDycC44fkqprQb/wNd6um6wfpaw1E2MroJEgGJV4gQhUG?=
- =?us-ascii?Q?K8Vy6j9neXXXK45apLh8iZ0Lmy4fnpAbwLCn6yZnop7Dl9zJhdZSzjbbno7q?=
- =?us-ascii?Q?3cUv2Bbne/jHEctu1tU=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2479645a-7070-4d20-26fc-08dbe5e405e4
-X-MS-Exchange-CrossTenant-AuthSource: LV2PR12MB5869.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Nov 2023 14:06:11.9033
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GBTxd3rAglNhCUI2cE+3v3noBNm3Tz+pgAZKI7bxEYyFvTT4dJKpeuq5pnMFjkgE
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6916
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 00/17] Solve iommu probe races around iommu_fwspec
+Content-Language: en-GB
+To: Jason Gunthorpe <jgg@nvidia.com>, acpica-devel@lists.linux.dev,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
+ asahi@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
+ Dexuan Cui <decui@microsoft.com>, devicetree@vger.kernel.org,
+ David Woodhouse <dwmw2@infradead.org>, Frank Rowand
+ <frowand.list@gmail.com>, Hanjun Guo <guohanjun@huawei.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, iommu@lists.linux.dev,
+ Jean-Philippe Brucker <jean-philippe@linaro.org>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
+ "K. Y. Srinivasan" <kys@microsoft.com>, Len Brown <lenb@kernel.org>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-snps-arc@lists.infradead.org,
+ linux-tegra@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Hector Martin
+ <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>,
+ patches@lists.linux.dev, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Robert Moore <robert.moore@intel.com>, Rob Herring <robh+dt@kernel.org>,
+ Sudeep Holla <sudeep.holla@arm.com>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Krishna Reddy <vdumpa@nvidia.com>, Vineet Gupta <vgupta@kernel.org>,
+ virtualization@lists.linux.dev, Wei Liu <wei.liu@kernel.org>,
+ Will Deacon <will@kernel.org>
+Cc: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Lu Baolu <baolu.lu@linux.intel.com>, Christoph Hellwig <hch@lst.de>,
+ Jerry Snitselaar <jsnitsel@redhat.com>, Moritz Fischer <mdf@kernel.org>,
+ Zhenhua Huang <quic_zhenhuah@quicinc.com>,
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+ Rob Herring <robh@kernel.org>
+References: <0-v2-36a0088ecaa7+22c6e-iommu_fwspec_jgg@nvidia.com>
+From: Robin Murphy <robin.murphy@arm.com>
+In-Reply-To: <0-v2-36a0088ecaa7+22c6e-iommu_fwspec_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231115_060638_489325_1B1D2189 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20231115_072224_406240_673E407F 
+X-CRM114-Status: GOOD (  28.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,168 +88,120 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Allow fwspec to exist independently from the dev->iommu by providing
-functions to allow allocating and freeing the raw struct iommu_fwspec.
+On 2023-11-15 2:05 pm, Jason Gunthorpe wrote:
+> [Several people have tested this now, so it is something that should sit in
+> linux-next for a while]
 
-Reflow the existing paths to call the new alloc/dealloc functions.
+What's the aim here? This is obviously far, far too much for a stable 
+fix, but then it's also not the refactoring we want for the future 
+either, since it's moving in the wrong direction of cementing the 
+fundamental brokenness further in place rather than getting any closer 
+to removing it.
 
-Reviewed-by: Jerry Snitselaar <jsnitsel@redhat.com>
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
----
- drivers/iommu/iommu.c | 82 ++++++++++++++++++++++++++++++++-----------
- include/linux/iommu.h | 11 +++++-
- 2 files changed, 72 insertions(+), 21 deletions(-)
+Thanks,
+Robin.
 
-diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-index 18a82a20934d53..86bbb9e75c7e03 100644
---- a/drivers/iommu/iommu.c
-+++ b/drivers/iommu/iommu.c
-@@ -361,10 +361,8 @@ static void dev_iommu_free(struct device *dev)
- 	struct dev_iommu *param = dev->iommu;
- 
- 	dev->iommu = NULL;
--	if (param->fwspec) {
--		fwnode_handle_put(param->fwspec->iommu_fwnode);
--		kfree(param->fwspec);
--	}
-+	if (param->fwspec)
-+		iommu_fwspec_dealloc(param->fwspec);
- 	kfree(param);
- }
- 
-@@ -2920,10 +2918,61 @@ const struct iommu_ops *iommu_ops_from_fwnode(struct fwnode_handle *fwnode)
- 	return ops;
- }
- 
-+static int iommu_fwspec_assign_iommu(struct iommu_fwspec *fwspec,
-+				     struct device *dev,
-+				     struct fwnode_handle *iommu_fwnode)
-+{
-+	const struct iommu_ops *ops;
-+
-+	if (fwspec->iommu_fwnode) {
-+		/*
-+		 * fwspec->iommu_fwnode is the first iommu's fwnode. In the rare
-+		 * case of multiple iommus for one device they must point to the
-+		 * same driver, checked via same ops.
-+		 */
-+		ops = iommu_ops_from_fwnode(iommu_fwnode);
-+		if (fwspec->ops != ops)
-+			return -EINVAL;
-+		return 0;
-+	}
-+
-+	if (!fwspec->ops) {
-+		ops = iommu_ops_from_fwnode(iommu_fwnode);
-+		if (!ops)
-+			return driver_deferred_probe_check_state(dev);
-+		fwspec->ops = ops;
-+	}
-+
-+	of_node_get(to_of_node(iommu_fwnode));
-+	fwspec->iommu_fwnode = iommu_fwnode;
-+	return 0;
-+}
-+
-+struct iommu_fwspec *iommu_fwspec_alloc(void)
-+{
-+	struct iommu_fwspec *fwspec;
-+
-+	fwspec = kzalloc(sizeof(*fwspec), GFP_KERNEL);
-+	if (!fwspec)
-+		return ERR_PTR(-ENOMEM);
-+	return fwspec;
-+}
-+
-+void iommu_fwspec_dealloc(struct iommu_fwspec *fwspec)
-+{
-+	if (!fwspec)
-+		return;
-+
-+	if (fwspec->iommu_fwnode)
-+		fwnode_handle_put(fwspec->iommu_fwnode);
-+	kfree(fwspec);
-+}
-+
- int iommu_fwspec_init(struct device *dev, struct fwnode_handle *iommu_fwnode,
- 		      const struct iommu_ops *ops)
- {
- 	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
-+	int ret;
- 
- 	if (fwspec)
- 		return ops == fwspec->ops ? 0 : -EINVAL;
-@@ -2931,29 +2980,22 @@ int iommu_fwspec_init(struct device *dev, struct fwnode_handle *iommu_fwnode,
- 	if (!dev_iommu_get(dev))
- 		return -ENOMEM;
- 
--	fwspec = kzalloc(sizeof(*fwspec), GFP_KERNEL);
--	if (!fwspec)
--		return -ENOMEM;
-+	fwspec = iommu_fwspec_alloc();
-+	if (IS_ERR(fwspec))
-+		return PTR_ERR(fwspec);
- 
--	of_node_get(to_of_node(iommu_fwnode));
--	fwspec->iommu_fwnode = iommu_fwnode;
- 	fwspec->ops = ops;
-+	ret = iommu_fwspec_assign_iommu(fwspec, dev, iommu_fwnode);
-+	if (ret) {
-+		iommu_fwspec_dealloc(fwspec);
-+		return ret;
-+	}
-+
- 	dev_iommu_fwspec_set(dev, fwspec);
- 	return 0;
- }
- EXPORT_SYMBOL_GPL(iommu_fwspec_init);
- 
--void iommu_fwspec_free(struct device *dev)
--{
--	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
--
--	if (fwspec) {
--		fwnode_handle_put(fwspec->iommu_fwnode);
--		kfree(fwspec);
--		dev_iommu_fwspec_set(dev, NULL);
--	}
--}
--EXPORT_SYMBOL_GPL(iommu_fwspec_free);
- 
- int iommu_fwspec_add_ids(struct device *dev, u32 *ids, int num_ids)
- {
-diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-index e98a4ca8f536b7..c7c68cb59aa4dc 100644
---- a/include/linux/iommu.h
-+++ b/include/linux/iommu.h
-@@ -813,9 +813,18 @@ struct iommu_sva {
- 	struct iommu_domain		*domain;
- };
- 
-+struct iommu_fwspec *iommu_fwspec_alloc(void);
-+void iommu_fwspec_dealloc(struct iommu_fwspec *fwspec);
-+
- int iommu_fwspec_init(struct device *dev, struct fwnode_handle *iommu_fwnode,
- 		      const struct iommu_ops *ops);
--void iommu_fwspec_free(struct device *dev);
-+static inline void iommu_fwspec_free(struct device *dev)
-+{
-+	if (!dev->iommu)
-+		return;
-+	iommu_fwspec_dealloc(dev->iommu->fwspec);
-+	dev->iommu->fwspec = NULL;
-+}
- int iommu_fwspec_add_ids(struct device *dev, u32 *ids, int num_ids);
- const struct iommu_ops *iommu_ops_from_fwnode(struct fwnode_handle *fwnode);
- 
--- 
-2.42.0
-
+> The iommu subsystem uses dev->iommu to store bits of information about the
+> attached iommu driver. This has been co-opted by the ACPI/OF code to also
+> be a place to pass around the iommu_fwspec before a driver is probed.
+> 
+> Since both are using the same pointers without any locking it triggers
+> races if there is concurrent driver loading:
+> 
+>       CPU0                                     CPU1
+> of_iommu_configure()                iommu_device_register()
+>   ..                                   bus_iommu_probe()
+>    iommu_fwspec_of_xlate()              __iommu_probe_device()
+>                                          iommu_init_device()
+>     dev_iommu_get()
+>                                            .. ops->probe fails, no fwspec ..
+>                                            dev_iommu_free()
+>     dev->iommu->fwspec    *crash*
+> 
+> My first attempt get correct locking here was to use the device_lock to
+> protect the entire *_iommu_configure() and iommu_probe() paths. This
+> allowed safe use of dev->iommu within those paths. Unfortuately enough
+> drivers abuse the of_iommu_configure() flow without proper locking and
+> this approach failed.
+> 
+> This approach removes touches of dev->iommu from the *_iommu_configure()
+> code. The few remaining required touches are moved into iommu.c and
+> protected with the existing iommu_probe_device_lock.
+> 
+> To do this we change *_iommu_configure() to hold the iommu_fwspec on the
+> stack while it is being built. Once it is fully formed the core code will
+> install it into the dev->iommu when it calls probe.
+> 
+> This also removes all the touches of iommu_ops from
+> the *_iommu_configure() paths and makes that mechanism private to the
+> iommu core.
+> 
+> A few more lockdep assertions are added to discourage future mis-use.
+> 
+> This is on github: https://github.com/jgunthorpe/linux/commits/iommu_fwspec
+> 
+> v2:
+>   - Fix all the kconfig randomization 0-day stuff
+>   - Add missing kdoc parameters
+>   - Remove NO_IOMMU, replace it with ENODEV
+>   - Use PTR_ERR to print errno in the new/moved logging
+> v1: https://lore.kernel.org/r/0-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com
+> 
+> Jason Gunthorpe (17):
+>    iommu: Remove struct iommu_ops *iommu from arch_setup_dma_ops()
+>    iommmu/of: Do not return struct iommu_ops from of_iommu_configure()
+>    iommu/of: Use -ENODEV consistently in of_iommu_configure()
+>    acpi: Do not return struct iommu_ops from acpi_iommu_configure_id()
+>    iommu: Make iommu_fwspec->ids a distinct allocation
+>    iommu: Add iommu_fwspec_alloc/dealloc()
+>    iommu: Add iommu_probe_device_fwspec()
+>    iommu/of: Do not use dev->iommu within of_iommu_configure()
+>    iommu: Add iommu_fwspec_append_ids()
+>    acpi: Do not use dev->iommu within acpi_iommu_configure()
+>    iommu: Hold iommu_probe_device_lock while calling ops->of_xlate
+>    iommu: Make iommu_ops_from_fwnode() static
+>    iommu: Remove dev_iommu_fwspec_set()
+>    iommu: Remove pointless iommu_fwspec_free()
+>    iommu: Add ops->of_xlate_fwspec()
+>    iommu: Mark dev_iommu_get() with lockdep
+>    iommu: Mark dev_iommu_priv_set() with a lockdep
+> 
+>   arch/arc/mm/dma.c                           |   2 +-
+>   arch/arm/mm/dma-mapping-nommu.c             |   2 +-
+>   arch/arm/mm/dma-mapping.c                   |  10 +-
+>   arch/arm64/mm/dma-mapping.c                 |   4 +-
+>   arch/mips/mm/dma-noncoherent.c              |   2 +-
+>   arch/riscv/mm/dma-noncoherent.c             |   2 +-
+>   drivers/acpi/arm64/iort.c                   |  42 ++--
+>   drivers/acpi/scan.c                         | 104 +++++----
+>   drivers/acpi/viot.c                         |  45 ++--
+>   drivers/hv/hv_common.c                      |   2 +-
+>   drivers/iommu/amd/iommu.c                   |   2 -
+>   drivers/iommu/apple-dart.c                  |   1 -
+>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c |   9 +-
+>   drivers/iommu/arm/arm-smmu/arm-smmu.c       |  23 +-
+>   drivers/iommu/intel/iommu.c                 |   2 -
+>   drivers/iommu/iommu.c                       | 227 +++++++++++++++-----
+>   drivers/iommu/of_iommu.c                    | 133 +++++-------
+>   drivers/iommu/omap-iommu.c                  |   1 -
+>   drivers/iommu/tegra-smmu.c                  |   1 -
+>   drivers/iommu/virtio-iommu.c                |   8 +-
+>   drivers/of/device.c                         |  24 ++-
+>   include/acpi/acpi_bus.h                     |   8 +-
+>   include/linux/acpi_iort.h                   |   8 +-
+>   include/linux/acpi_viot.h                   |   5 +-
+>   include/linux/dma-map-ops.h                 |   4 +-
+>   include/linux/iommu.h                       |  47 ++--
+>   include/linux/of_iommu.h                    |  13 +-
+>   27 files changed, 424 insertions(+), 307 deletions(-)
+> 
+> 
+> base-commit: b85ea95d086471afb4ad062012a4d73cd328fa86
 
 _______________________________________________
 linux-riscv mailing list
