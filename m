@@ -4,73 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16536C5AD4C
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 15:27:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49175C2BB3F
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 15:34:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IWjVRkGU8Cl5ENScQYkQknmmRe/dJCcHIjoMkw9Li6k=; b=jAR6z/PdvSVK3X
-	jUkdBfd2gEIN77NSk1L+fa5ntgwXLU9X8sRushWv96sBa4fr4atN+ed1l+VCqaIOb3Zb18/pnkW6m
-	3vDJwaRL2Yc6dUBL4o+n+8lYfbU/Fyj7o/VYaBSNOJpgfWVLNbIRvdFMsI3VdVa7oL6DDsTQ9wnTU
-	ME7nSt3gAOH89XWsdPgIiuJMyiGRu89BstqwmHZUgatOo+EKjWoKLb2mZ5i56XD5kir3FLsTM+HrA
-	lFjXkC1Vq4NVVBJPMIIchzB2KzDTHRTvrXPKYW2jFLTCW6WnZBJt4cpxauTooZuLuqf8Njm5jJkEs
-	fhJh+wkLOLL3xTYl871g==;
+	List-Owner; bh=npa/QA7JUkTKM6qLdi7aO6VGZyxnUGbxoYBT0xtLCRA=; b=1f49YXExXxc5fW
+	7EA22zxYEUsmYz4gRiSx39axq1f0Do6j3yGaVPVpoVkP3umt2ImmDH5tU730GZvtM5Wh6jF7UfJD9
+	v+q2JndOaK/VkygrbLfhorjOEJHXy1soBUCXJpbkYIlVNdW4rpBV3ElccoWJC2TufmlSPZ/c8W5Op
+	QrL1R0ePMxBubpP5AdgF13M/wQmwBZQHefpdTwqIQUuCSd5Fgw0V/7EHwneb5INcAmBqps+G/0vNO
+	5clQMBuQfWHJ4j6X4MuwkaloBSbzEjmoKOzao0+WBBZ0rbGhuDeboD69SEaUA3GG05QSgOEsi5676
+	BcyXRJxGrs8S9dDemXeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3Hnm-001Aye-1O;
-	Wed, 15 Nov 2023 15:27:38 +0000
+	id 1r3HuL-001C3g-1h;
+	Wed, 15 Nov 2023 15:34:25 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3Hnj-001Axq-2s
+	id 1r3HuI-001C21-1N
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Nov 2023 15:27:37 +0000
+	Wed, 15 Nov 2023 15:34:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 3A18BB81AAC;
-	Wed, 15 Nov 2023 15:27:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 590ECC433C7;
-	Wed, 15 Nov 2023 15:27:30 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id D50D7B81AB9;
+	Wed, 15 Nov 2023 15:34:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F31F7C433C7;
+	Wed, 15 Nov 2023 15:34:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1700062053;
-	bh=vIyO62Y1rX3UiM9wLvewj/4J1jBrDX4ryBgvCxiLOMg=;
+	s=k20201202; t=1700062460;
+	bh=liyVVxI+t71I+vY5uI83Hmd86EuxG1knRDKO8hE8oe4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=b9uSX5wyi2/f49m9IDT2ro1jZBmesSIY6wLeLsuwUMohCuDNcwmMuo5mcp2Y5zTMl
-	 xK/u9kXS+G9rSoxpPYHC3LMBjlOl3DYBQmBlnQ0bYfQw5in+YsKGenObCOmtQt8IfG
-	 IS+uVORTkrHg9OJoJOXiaSQVt4oaFfa1mY8PHTHrraPl150MXJuTtVhhrJFyJrNJ69
-	 19Iq1lZL/R1mKu6USmOsBiVDj3SYkgRKKd4NlEVKH1lzhwEPHylHdO0iUHvosooOlz
-	 zLsIR7nnrMT0B3ltU0gYATGvZpHY9ZAljZ3RRan8ejw7RK8ANfpj5O2W2+F9VjkOHf
-	 XzBstOU1XpSoA==
-Date: Wed, 15 Nov 2023 23:15:11 +0800
+	b=uk5xbh1Ykg0ULD8pxMCIhGDb1yfEo17ac6HO50HCdD6Ll+DweurC8oXNMTMk8tCLw
+	 fUMvNqVvTWKLVb3pHAxPFS9xGMepJRsElQLDUszpSv4mEp48DB9HCNv1dJuMnnEDNO
+	 uf2gbOIdN/2EWLGv9TZNZ+0VQW4VQMPpkVqpEghylPJNN1ac/wkjayiSoQaYdGGR3y
+	 XmzZxCgHLlIt0t0vl7Gs1vdj/9av4wR/qmTsxTnkudn632rXv+6SLSejnpB+UO4aFy
+	 eq2Kc8wWRpbfcL0sjBF/sP0VA1wZM5T8aRB2HtOyfqKsQ9qIPhk2P6ECUhVKoNiB2L
+	 BBBSLMZRacqWA==
+Date: Wed, 15 Nov 2023 23:21:57 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Samuel Holland <samuel.holland@sifive.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
+To: Drew Fustini <dfustini@baylibre.com>
+Cc: Conor Dooley <conor@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
 	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Conor Dooley <conor+dt@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 1/4] dt-bindings: reset: Add binding for Sophgo CV1800B
- reset controller
-Message-ID: <ZVTgfzeK6GkKpArK@xhacker>
-References: <20231113005503.2423-1-jszhang@kernel.org>
- <20231113005503.2423-2-jszhang@kernel.org>
- <44f21244-5bf1-4e0f-80a9-6ec76d65eea4@linaro.org>
- <ZVTHMsXaPdHiuUOF@xhacker>
- <80e28d77-4a0e-4827-91c0-951094176bbd@sifive.com>
- <20231115-upward-unsworn-7746e0aeb5dd@squawk>
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, linux-mmc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v6 5/7] riscv: dts: thead: Add TH1520 mmc controllers and
+ sdhci clock
+Message-ID: <ZVTiFVHSsBxk3pLH@xhacker>
+References: <20231114-th1520-mmc-v6-0-3273c661a571@baylibre.com>
+ <20231114-th1520-mmc-v6-5-3273c661a571@baylibre.com>
+ <20231114-starring-swarm-0e1b641f888c@squawk>
+ <ZVP1AoosripWj3gs@x1>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231115-upward-unsworn-7746e0aeb5dd@squawk>
+In-Reply-To: <ZVP1AoosripWj3gs@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231115_072736_225808_EA494148 
-X-CRM114-Status: GOOD (  36.90  )
+X-CRM114-CacheID: sfid-20231115_073422_599098_B6932766 
+X-CRM114-Status: GOOD (  16.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,83 +85,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 15, 2023 at 03:02:21PM +0000, Conor Dooley wrote:
-> On Wed, Nov 15, 2023 at 09:56:07AM -0500, Samuel Holland wrote:
-> > On 2023-11-15 7:27 AM, Jisheng Zhang wrote:
-> > > On Tue, Nov 14, 2023 at 10:12:35PM +0100, Krzysztof Kozlowski wrote:
-> > >> On 13/11/2023 01:55, Jisheng Zhang wrote:
-> > >> ...
-> > >>
-> > >>> diff --git a/include/dt-bindings/reset/sophgo,cv1800b-reset.h b/include/dt-bindings/reset/sophgo,cv1800b-reset.h
-> > >>> new file mode 100644
-> > >>> index 000000000000..28dda71369b4
-> > >>> --- /dev/null
-> > >>> +++ b/include/dt-bindings/reset/sophgo,cv1800b-reset.h
-> > >>> @@ -0,0 +1,96 @@
-> > >>> +/* SPDX-License-Identifier: GPL-2.0 OR MIT */
-> > >>> +/*
-> > >>> + * Copyright (C) 2023 Sophgo Technology Inc. All rights reserved.
-> > >>> + * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-> > >>> + */
-> > >>> +
-> > >>> +#ifndef _DT_BINDINGS_CV1800B_RESET_H
-> > >>> +#define _DT_BINDINGS_CV1800B_RESET_H
-> > >>> +
-> > >>> +/*				0-1	*/
-> > >>> +#define RST_DDR			2
-> > >>> +#define RST_H264C		3
-> > >>> +#define RST_JPEG		4
-> > >>> +#define RST_H265C		5
-> > >>> +#define RST_VIPSYS		6
-> > >>> +#define RST_TDMA		7
-> > >>> +#define RST_TPU			8
-> > >>> +#define RST_TPUSYS		9
-> > >>> +/*				10	*/
-> > >>
-> > >> Why do you have empty IDs? IDs start at 0 and are incremented by 1.
-> > > 
-> > > there's 1:1 mapping between the ID and bit. Some bits are reserved, I.E
-> > > no actions at all. Is "ID start at 0 and increment by 1" documented
-> > > in some docs? From another side, I also notice some SoCs especially
-> > > those which make use of reset-simple driver don't strictly follow
-> > > this rule, for example, amlogic,meson-a1-reset.h and so on. What
-> > > happened?
-> > > 
-> > > And I'd like to ask a question here before cooking 2nd version:
-> > > if the HW programming logic is the same as reset-simple, but some
-> > > or many bits are reserved, what's the can-be-accepted way to support
-> > > the reset controller? Use reset-simple? Obviously if we want the
-> > > "ID start at 0 and increment by 1" rule, then we have to write
-> > > a custom driver which almost use the reset-simple but with a
-> > > customized mapping.
+On Tue, Nov 14, 2023 at 05:30:26PM -0500, Drew Fustini wrote:
+> On Tue, Nov 14, 2023 at 09:27:44PM +0000, Conor Dooley wrote:
+> > On Tue, Nov 14, 2023 at 04:07:59PM -0500, Drew Fustini wrote:
 > > 
-> > There are two possible situations. Either the reset specifier maps directly to
-> > something in the hardware, or you are inventing some brand new enumeration to
-> > use as a specifier.
+> > > +	sdhci_clk: sdhci-clock {
+> > > +		compatible = "fixed-clock";
+> > > +		clock-frequency = <198000000>;
+> > > +		clock-output-names = "sdhci_clk";
+> > > +		#clock-cells = <0>;
+> > > +	};
 > > 
-> > In the first situation, you do not need a header. We assume the user will look
-> > to the SoC documentation if they want to know what the numbers mean. (You aren't
-> > _creating_ an ABI, since the ABI is already defined by the hardware.)
+> > If only you had a clock driver to provide these...
 > > 
-> > In the second situation, since we are inventing something new, the numbers
-> > should be contiguous. This is what Krzysztof's comment was about.
-> > 
-> > For this reset device, the numbers are hardware bit offsets, so you are in the
-> > first situation. So I think the recommended solution here is to remove the
-> > header entirely and use the bit numbers directly in the SoC devicetree.
-> > 
-> > It's still appropriate to use reset-simple. Adding some new mapping would make
-> > things more complicated for no benefit.
+> > Is someone working on a resubmission of the clock driver?
 > 
-> Further, I think it is fine in that case to have a header, just the
-> header doesn't belong as a binding, and can instead go in the dts
-> directory.
+> Yangtao Li posted an initial revision back [1] in May but I don't think
+> there has been any follow up. It is for sure something we need to have
+> in mainline so I'll take a look at getting that effort going again.
 
-Hi Samuel, Conor,
+Hi Drew,
 
-thanks a lot for the suggestion!
+Based on Yangtao's version, I cooked an updated version in last
+development window but still can't complete it and met some issues
+which need the clk/pll register document.
+IIRC, the document was released a few days ago before soc tree frozen.
 
-Regards
+It's nice if you can continue the effort! I'll read the sdhci driver
+soon.
+
+Thanks
+> 
+> Drew
+> 
+> [1] https://lore.kernel.org/linux-riscv/20230515054402.27633-1-frank.li@vivo.com/
 
 _______________________________________________
 linux-riscv mailing list
