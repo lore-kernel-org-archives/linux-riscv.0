@@ -4,79 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D19A5C2BB3F
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 15:52:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D742C2BB3F
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 16:00:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IiAl8K2YGHQU3S0urZEZ7qrL/FR2FPMiKAeDZTSc5m0=; b=nv8smMQp3IOsz1
-	/6u6XOeUNcHKtNkSU08Onynz8dOINxkiKs7q3zuOthoOqqaHYLoxqV0D5NiDxbKlZewHDjUs41HBc
-	VHOCybocSoz4kWCBaCq3nPMdtBLH6KAb/GYH2bYE70gMXwIL3gCbeIC5Ms9YOL34eJFPNe4itbqH2
-	uZqBCUZnNsmEj5BzQnYqC2g5RLgpdSAroVCd8LZyyuHXvXl9t3YHMpUe7MfEEQ11AV+Eim/XrdYUZ
-	4MnDWbboUxIaU/NsFY25uPw3Y32GTf57xNrxk7mZIOvygIxIisvqnSIuNSRrMBl0IDoyi4/fKZbdk
-	wT3MIzBuk9sJp7dhSPYg==;
+	List-Owner; bh=tDXUJ0UnAFeEAcLflNnRPZWuau2iylQ6HKmrKKpww70=; b=KczYH5jMWtXQww
+	tET1eFl33F0enC/zImMM551W6NTNkbvKy7C4Y5q3CGfciAeJrxv5O6PPJOZYJj/sH3o5gDItUjZ55
+	vI3zE3ytRr/rX0T3zWnHOC7Xv65F0jkc9gQl3YLXbaWuZJgKiODbsOzxkeYB83dT7rfCWKyEoEd4J
+	ts5KevcudwuzrSjylt6tuW7CHHXrs3opIO3QbOCQUL3brEDGD0Sc0OKAvacouZJeF0vLPFIXpsYVL
+	4q3xPxifM4JdTIL+clNeAjqR7BqGPfhBBlMo2UmLohpYGwmAj8mcv0lnvMM56UxXy1VuhOL0i+a/2
+	vmfVjVknyjnrfO5WoP0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3IBZ-001Fr9-1u;
-	Wed, 15 Nov 2023 15:52:13 +0000
-Received: from mail-yb1-xb2b.google.com ([2607:f8b0:4864:20::b2b])
+	id 1r3IJi-001Gu2-03;
+	Wed, 15 Nov 2023 16:00:38 +0000
+Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3IBV-001FoL-27
+	id 1r3IJY-001GpS-0G
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Nov 2023 15:52:11 +0000
-Received: by mail-yb1-xb2b.google.com with SMTP id 3f1490d57ef6-dafe04717baso2694593276.1
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Nov 2023 07:52:07 -0800 (PST)
+	Wed, 15 Nov 2023 16:00:30 +0000
+Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-da7238b3eb4so7539049276.1
+        for <linux-riscv@lists.infradead.org>; Wed, 15 Nov 2023 08:00:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1700063527; x=1700668327; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1700064025; x=1700668825; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=gRwrbcoUWjBt33xllvAc3J9R6agW+FzVm9V3zSoPOqY=;
-        b=co/iHyKBg+zh31jxrbckGHT5onm+2b9G9xmQ9FBBrEAY6DZoFfNCKSluSXQOF03/FL
-         J5I5/KP+Cy0kdrL4b/RKnh4aM3flTXQ8oLaJB9q3SlvRdgyOpm5yb7NmxnoPyVFUYHR+
-         cxgcuBfp9nhQo3T33a5vr7xwx1rspIHhlbyOHwtS/nf+gi3p5PdHvfm4EhIAzZedYRxP
-         2YM6U/aafl6FY/mznOcvbKNsW8IIzwPQpOStDrUGfUMB1BY9qvLiQb0hnEtzKSeqzM4i
-         vNSRABaufGAsnq8Q+U6l1hzYA5RWWTpnS6G3NDUBUFXen4MxVtiqB+OdoWxw72t+oom+
-         CCpQ==
+        bh=2saDbyHxjODfWF9JCHAE6d3IjsRBAEN9a6Xrszmv96o=;
+        b=FDAfQ5xDeVoZ2JLX6Bh5J9SHo7AEu4hr5gjwaWSW5Xd5bDDC/f2Yrm8IhcnFexjYhv
+         zxR0gRskf57dXg546qaKAsHbK2LStkaY7xIkSu+m2p7+zFObTbbjAqk2JseVDClB4+WN
+         PEZUBQUYowBCOwg7cJqKM/nQfQYOMqCRIzif8Dwo6AOkv1NlrBOdTmoJKmGqLkwndBZ+
+         73AoE1Zfv/YJ8U1tOPV3h5+e1zUYp2gbk+1jsIlKfSeIVrvu6m3AGfS+Dej/d9PhfEuH
+         amcENvycHFll0dDcTcLKidR875WQKF1KEaO/uyMr7BDKZrlHMMXTR4wKBTfVxsx63W5b
+         gnEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700063527; x=1700668327;
+        d=1e100.net; s=20230601; t=1700064025; x=1700668825;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=gRwrbcoUWjBt33xllvAc3J9R6agW+FzVm9V3zSoPOqY=;
-        b=L39f1cEfJX+70HGS8eIXtXNJwszxVUC6brLsiB+oWEhIL/EmqH4zZ46mim+bhnD5Uw
-         FtJFt3f/pJCuRsNpx8RcW6fi5tBoCkiXioYJSvDx+dnDB6dURP+v9TVW9vbxYAa8kYhC
-         G1xnTexcnvnPUW3ukurb+RfaL+22PzvfFqEPvh46ywqM6KjmQ8kBVTUkeBAIda8S2DCE
-         M/P/YFS5DTWEemTIv5KfnzZhM/cH/Qohc6gZaSzA9/UEeKZXpu7QLzqjUZ4BkkpjW4d9
-         b0c3+PaIznIIadHsOGEIA3cKhWQJ5irAbZogQ355Geh5cPjJdjAjVfipBpborJ/Ff0Kb
-         CMLw==
-X-Gm-Message-State: AOJu0YwkeKRbkioGpB+0tN83zUrdcsHrPeu8HBGvUcXYp3mPLkbbvvga
-	DRzbNQoGeFZA3X9qqg/wuppcfbO0AMLofTbdWjYiVw==
-X-Google-Smtp-Source: AGHT+IG80u7jsi1dhFVEaxNFfuNpDnJLg/1Mkx7sJJgRyAc/r6qU9c5eA4oTzGDG/lGqsJu0Ih079z4DN8ZU/fIc8tg=
-X-Received: by 2002:a25:74d1:0:b0:daf:12d8:874 with SMTP id
- p200-20020a2574d1000000b00daf12d80874mr11423988ybc.59.1700063526672; Wed, 15
- Nov 2023 07:52:06 -0800 (PST)
+        bh=2saDbyHxjODfWF9JCHAE6d3IjsRBAEN9a6Xrszmv96o=;
+        b=OZX/KtqgDhb3r9dfd/ajzNbdMAwV1JlyL8gFy4yL5WwKE4v+uudJ8g/APPpFxik7ap
+         BGcv9jwQOixncGl41ubdgTHNw1pr4wUOUx682aLIcvCJod88nK+XF0758kbUbTdPAiot
+         CaGtfnPvRcdCbYqnKIWouw4O5a5mvk4qR52K+03XHiCZMOxRrX+RQRxIICKIXMcjO2rc
+         66aRrp9FOr1dMRD8ZXIWLvhD04biXyYOaOVpmvjnRbDMX/IAEyNAse7R9zzR+a06tzIx
+         BfgyayJKqJ0QzVnKUwt4tsKGX3y/1E0/hW27l0qf4aSRXqqEhPLaoh/YJe1qvpizjhZs
+         3vqg==
+X-Gm-Message-State: AOJu0YyewXuJ2CJ8WX/p9N6R147hnys8o69QZh9HDWhyS6Fm3iSVz3ae
+	Z/UKMZTM3k9T5fFgiAdN8ZuxHZdcHuE9tFYz7/qfSg==
+X-Google-Smtp-Source: AGHT+IHyGfXxsgIUFA87Us564YGuUM9Tw00Zqw1elNIOhFyDdqqm3I8Kb07cpwpiQ/Ii3UDho21Y4FxAgwRq6Anhyf0=
+X-Received: by 2002:a25:db90:0:b0:d7f:1749:9e59 with SMTP id
+ g138-20020a25db90000000b00d7f17499e59mr13731329ybf.11.1700064025267; Wed, 15
+ Nov 2023 08:00:25 -0800 (PST)
 MIME-Version: 1.0
-References: <20231114-th1520-mmc-v6-0-3273c661a571@baylibre.com>
-In-Reply-To: <20231114-th1520-mmc-v6-0-3273c661a571@baylibre.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 15 Nov 2023 16:51:30 +0100
-Message-ID: <CAPDyKFooGiv6fj+X9c4KXaBjvsTTRaHSrxinQYirTWXmX1Ht5Q@mail.gmail.com>
-Subject: Re: [PATCH v6 0/7] RISC-V: Add MMC support for TH1520 boards
-To: Drew Fustini <dfustini@baylibre.com>
-Cc: Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jisheng Zhang <jszhang@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	Conor Dooley <conor@kernel.org>, linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+References: <20231025103957.3776-1-keith.zhao@starfivetech.com>
+ <20231025103957.3776-6-keith.zhao@starfivetech.com> <6db09f77-31e8-4f2e-a987-e3745d0e8c24@linaro.org>
+ <a35be64b-cac2-4033-a846-afc9f2d9a0a9@starfivetech.com> <CAA8EJpokvvycFEp8Ke6wkiFf8KwOmk-SCB4pm6E0U6Qjpj6BMA@mail.gmail.com>
+ <b14264a1-cf6a-4a1e-8d19-3df8fc5a10d1@starfivetech.com>
+In-Reply-To: <b14264a1-cf6a-4a1e-8d19-3df8fc5a10d1@starfivetech.com>
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Date: Wed, 15 Nov 2023 18:00:12 +0200
+Message-ID: <CAA8EJprTbYeD5jrs95pbJrSixCJ=FTn0mdNQcFSX7P5PkU4-BA@mail.gmail.com>
+Subject: Re: [PATCH v2 5/6] drm/vs: Add KMS crtc&plane
+To: Keith Zhao <keith.zhao@starfivetech.com>
+Cc: Emil Renner Berthing <kernel@esmil.dk>, 
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Sumit Semwal <sumit.semwal@linaro.org>, 
+	Shengyang Chen <shengyang.chen@starfivetech.com>, 
+	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Maxime Ripard <mripard@kernel.org>, 
+	Jagan Teki <jagan@edgeble.ai>, 
+	"linaro-mm-sig@lists.linaro.org" <linaro-mm-sig@lists.linaro.org>, Rob Herring <robh+dt@kernel.org>, 
+	Chris Morgan <macromorgan@hotmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Bjorn Andersson <andersson@kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"christian.koenig@amd.com" <christian.koenig@amd.com>, Jack Zhu <jack.zhu@starfivetech.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	Shawn Guo <shawnguo@kernel.org>, Changhuang Liang <changhuang.liang@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231115_075209_742250_FA14558B 
-X-CRM114-Status: GOOD (  39.49  )
+X-CRM114-CacheID: sfid-20231115_080028_127391_A3164367 
+X-CRM114-Status: GOOD (  34.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,144 +104,626 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Nov 2023 at 22:08, Drew Fustini <dfustini@baylibre.com> wrote:
+On Wed, 15 Nov 2023 at 15:30, Keith Zhao <keith.zhao@starfivetech.com> wrote:
 >
-> This series adds support for the MMC controller in the T-Head TH1520
-> SoC, and it enables the eMMC and microSD slot on both the BeagleV
-> Ahead and the Sipeed LicheePi 4A.
 >
-> I tested on top of v6.6 with riscv defconfig. I was able to boot the
-> Ahead [1] and LPi4a [2] from eMMC. This patch series also exists as a
-> git branch [3].
 >
-> Note: I have only tested eMMC and microSD. I have not yet configured
-> or tested the mmc controller used for SDIO WiFi yet.
+> On 2023/11/14 18:59, Dmitry Baryshkov wrote:
+> > On Tue, 14 Nov 2023 at 12:42, Keith Zhao <keith.zhao@starfivetech.com> wrote:
+> >>
+> >>
+> >>
+> >> On 2023/10/26 3:28, Dmitry Baryshkov wrote:
+> >> > On 25/10/2023 13:39, Keith Zhao wrote:
+> >> >> add 2 crtcs and 8 planes in vs-drm
+> >> >>
+> >> >> Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
+> >> >> ---
+> >> >>   drivers/gpu/drm/verisilicon/Makefile   |    8 +-
+> >> >>   drivers/gpu/drm/verisilicon/vs_crtc.c  |  257 ++++
+> >> >>   drivers/gpu/drm/verisilicon/vs_crtc.h  |   43 +
+> >> >>   drivers/gpu/drm/verisilicon/vs_dc.c    | 1002 ++++++++++++
+> >> >>   drivers/gpu/drm/verisilicon/vs_dc.h    |   80 +
+> >> >>   drivers/gpu/drm/verisilicon/vs_dc_hw.c | 1959 ++++++++++++++++++++++++
+> >> >>   drivers/gpu/drm/verisilicon/vs_dc_hw.h |  492 ++++++
+> >> >>   drivers/gpu/drm/verisilicon/vs_drv.c   |    2 +
+> >> >>   drivers/gpu/drm/verisilicon/vs_plane.c |  526 +++++++
+> >> >>   drivers/gpu/drm/verisilicon/vs_plane.h |   58 +
+> >> >>   drivers/gpu/drm/verisilicon/vs_type.h  |   69 +
+> >> >>   11 files changed, 4494 insertions(+), 2 deletions(-)
+> >> >>   create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc.c
+> >> >>   create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc.h
+> >> >>   create mode 100644 drivers/gpu/drm/verisilicon/vs_dc.c
+> >> >>   create mode 100644 drivers/gpu/drm/verisilicon/vs_dc.h
+> >> >>   create mode 100644 drivers/gpu/drm/verisilicon/vs_dc_hw.c
+> >> >>   create mode 100644 drivers/gpu/drm/verisilicon/vs_dc_hw.h
+> >> >>   create mode 100644 drivers/gpu/drm/verisilicon/vs_plane.c
+> >> >>   create mode 100644 drivers/gpu/drm/verisilicon/vs_plane.h
+> >> >>   create mode 100644 drivers/gpu/drm/verisilicon/vs_type.h
+> >> >>
+> >> >> diff --git a/drivers/gpu/drm/verisilicon/Makefile b/drivers/gpu/drm/verisilicon/Makefile
+> >> >> index 7d3be305b..1d48016ca 100644
+> >> >> --- a/drivers/gpu/drm/verisilicon/Makefile
+> >> >> +++ b/drivers/gpu/drm/verisilicon/Makefile
+> >> >> @@ -1,7 +1,11 @@
+> >> >>   # SPDX-License-Identifier: GPL-2.0
+> >> >>
+> >> >> -vs_drm-objs := vs_drv.o \
+> >> >> -            vs_modeset.o
+> >> >> +vs_drm-objs := vs_dc_hw.o \
+> >> >> +            vs_dc.o \
+> >> >> +            vs_crtc.o \
+> >> >> +            vs_drv.o \
+> >> >> +            vs_modeset.o \
+> >> >> +            vs_plane.o
+> >> >>
+> >> >>   obj-$(CONFIG_DRM_VERISILICON) += vs_drm.o
+> >> >>
+> >> >> diff --git a/drivers/gpu/drm/verisilicon/vs_crtc.c b/drivers/gpu/drm/verisilicon/vs_crtc.c
+> >> >> new file mode 100644
+> >> >> index 000000000..8a658ea77
+> >> >> --- /dev/null
+> >> >> +++ b/drivers/gpu/drm/verisilicon/vs_crtc.c
+> >> >> @@ -0,0 +1,257 @@
+> >> >> +// SPDX-License-Identifier: GPL-2.0
+> >> >> +/*
+> >> >> + * Copyright (C) 2023 VeriSilicon Holdings Co., Ltd.
+> >> >> + *
+> >> >> + */
+> >> >> +
+> >> >> +#include <linux/clk.h>
+> >> >> +#include <linux/debugfs.h>
+> >> >> +#include <linux/media-bus-format.h>
+> >> >> +
+> >> >> +#include <drm/drm_atomic_helper.h>
+> >> >> +#include <drm/drm_atomic.h>
+> >> >> +#include <drm/drm_crtc.h>
+> >> >> +#include <drm/drm_gem_atomic_helper.h>
+> >> >> +#include <drm/drm_vblank.h>
+> >> >> +#include <drm/vs_drm.h>
+> >> >> +
+> >> >> +#include "vs_crtc.h"
+> >> >> +#include "vs_dc.h"
+> >> >> +#include "vs_drv.h"
+> >> >> +
+> >> >> +static void vs_crtc_reset(struct drm_crtc *crtc)
+> >> >> +{
+> >> >> +    struct vs_crtc_state *state;
+> >> >> +
+> >> >> +    if (crtc->state) {
+> >> >> +            __drm_atomic_helper_crtc_destroy_state(crtc->state);
+> >> >> +
+> >> >> +            state = to_vs_crtc_state(crtc->state);
+> >> >> +            kfree(state);
+> >> >> +            crtc->state = NULL;
+> >> >> +    }
+> >> >
+> >> > You can call your crtc_destroy_state function directly here.
+> >> >
+> >> >> +
+> >> >> +    state = kzalloc(sizeof(*state), GFP_KERNEL);
+> >> >> +    if (!state)
+> >> >> +            return;
+> >> >> +
+> >> >> +    __drm_atomic_helper_crtc_reset(crtc, &state->base);
+> >> >> +}
+> >> >> +
+> >> >> +static struct drm_crtc_state *
+> >> >> +vs_crtc_atomic_duplicate_state(struct drm_crtc *crtc)
+> >> >> +{
+> >> >> +    struct vs_crtc_state *ori_state;
+> >> >
+> >> > It might be a matter of taste, but it is usually old_state.
+> >> >
+> >> >> +    struct vs_crtc_state *state;
+> >> >> +
+> >> >> +    if (!crtc->state)
+> >> >> +            return NULL;
+> >> >> +
+> >> >> +    ori_state = to_vs_crtc_state(crtc->state);
+> >> >> +    state = kzalloc(sizeof(*state), GFP_KERNEL);
+> >> >> +    if (!state)
+> >> >> +            return NULL;
+> >> >> +
+> >> >> +    __drm_atomic_helper_crtc_duplicate_state(crtc, &state->base);
+> >> >> +
+> >> >> +    state->output_fmt = ori_state->output_fmt;
+> >> >> +    state->encoder_type = ori_state->encoder_type;
+> >> >> +    state->bpp = ori_state->bpp;
+> >> >> +    state->underflow = ori_state->underflow;
+> >> >
+> >> > Can you use kmemdup instead?
+> >> >
+> >> >> +
+> >> >> +    return &state->base;
+> >> >> +}
+> >> >> +
+> >> >> +static void vs_crtc_atomic_destroy_state(struct drm_crtc *crtc,
+> >> >> +                                     struct drm_crtc_state *state)
+> >> >> +{
+> >> >> +    __drm_atomic_helper_crtc_destroy_state(state);
+> >> >> +    kfree(to_vs_crtc_state(state));
+> >> >> +}
+> >> >> +
+> >> >> +static int vs_crtc_enable_vblank(struct drm_crtc *crtc)
+> >> >> +{
+> >> >> +    struct vs_crtc *vs_crtc = to_vs_crtc(crtc);
+> >> >> +    struct vs_dc *dc = dev_get_drvdata(vs_crtc->dev);
+> >> >> +
+> >> >> +    vs_dc_enable_vblank(dc, true);
+> >> >> +
+> >> >> +    return 0;
+> >> >> +}
+> >> >> +
+> >> >> +static void vs_crtc_disable_vblank(struct drm_crtc *crtc)
+> >> >> +{
+> >> >> +    struct vs_crtc *vs_crtc = to_vs_crtc(crtc);
+> >> >> +    struct vs_dc *dc = dev_get_drvdata(vs_crtc->dev);
+> >> >> +
+> >> >> +    vs_dc_enable_vblank(dc, false);
+> >> >> +}
+> >> >> +
+> >> >> +static const struct drm_crtc_funcs vs_crtc_funcs = {
+> >> >> +    .set_config             = drm_atomic_helper_set_config,
+> >> >> +    .page_flip              = drm_atomic_helper_page_flip,
+> >> >
+> >> > destroy is required, see drm_mode_config_cleanup()
+> >>
+> >> hi Dmitry:
+> >> if define destroy in drm_crtc_funcs,
+> >> it will make __drmm_crtc_init_with_planes unhappy
+> >
+> > Ack, I missed that you have been using drmm_crtc_init. BTW, I checked
+> > your code, you should be able to switch drm
+> > drmm_crtc_alloc_with_planes().
+> >
+> yes
+> I done the replace and it can work well.
 >
-> References:
-> [1] https://gist.github.com/pdp7/881342620ec1509685f23a387e2fc8d7
-> [2] https://gist.github.com/pdp7/97017ad88d83fccac18eba69bff817b7
-> [3] https://github.com/pdp7/linux/tree/b4/th1520-mmc
+> >>
+> >> see:
+> >> __printf(6, 0)
+> >> static int __drmm_crtc_init_with_planes(struct drm_device *dev,
+> >>                                         struct drm_crtc *crtc,
+> >>                                         struct drm_plane *primary,
+> >>                                         struct drm_plane *cursor,
+> >>                                         const struct drm_crtc_funcs *funcs,
+> >>                                         const char *name,
+> >>                                         va_list args)
+> >> {
+> >>         int ret;
+> >>
+> >>         drm_WARN_ON(dev, funcs && funcs->destroy);
+> >>
+> >> ........
+> >> }
+> >>
+> >> It should not need to be defined here, I think
+> >>
+> >> >
+> >> >> +    .reset                  = vs_crtc_reset,
+> >> >> +    .atomic_duplicate_state = vs_crtc_atomic_duplicate_state,
+> >> >> +    .atomic_destroy_state   = vs_crtc_atomic_destroy_state,
+> >> >
+> >> > please consider adding atomic_print_state to output driver-specific bits.
+> >> >
+> >> >> +    .enable_vblank          = vs_crtc_enable_vblank,
+> >> >> +    .disable_vblank         = vs_crtc_disable_vblank,
+> >> >> +};
+> >> >> +
+> >> >> +static u8 cal_pixel_bits(u32 bus_format)
+> >> >
+> >> > This looks like a generic helper code, which can go to a common place.
+> I don't know if I understand correctly
+> Here I remove static
+> Add 2 lines in vs_drv.h
 >
-> Changes in PATCH v6:
-> - set the mmc nodes to disabled in the th1520.dtsi
+> /* vs_crtc.c */
+> u8 cal_pixel_bits(u32 bus_format);
+>
+> to make it common
 
-Patch 1 -> 3 , applied for next, thanks!
-
-Kind regards
-Uffe
-
+I mean, move it to a generic location, like include/media/
 
 >
-> Changes in PATCH v5:
-> https://lore.kernel.org/r/20231109-th1520-mmc-v5-0-018bd039cf17@baylibre.com
-> - fix logic in th1520_sdhci_set_phy() to correctly check that both
->   MMC_CAP2_NO_SD and MMC_CAP2_NO_SDIO are set in host->mmc->caps2
-> - add Acked-by's from Adrian
+> >> >
+> >> >> +{
+> >> >> +    u8 bpp;
+> >> >> +
+> >> >> +    switch (bus_format) {
+> >> >> +    case MEDIA_BUS_FMT_RGB565_1X16:
+> >> >> +    case MEDIA_BUS_FMT_UYVY8_1X16:
+> >> >> +            bpp = 16;
+> >> >> +            break;
+> >> >> +    case MEDIA_BUS_FMT_RGB666_1X18:
+> >> >> +    case MEDIA_BUS_FMT_RGB666_1X24_CPADHI:
+> >> >> +            bpp = 18;
+> >> >> +            break;
+> >> >> +    case MEDIA_BUS_FMT_UYVY10_1X20:
+> >> >> +            bpp = 20;
+> >> >> +            break;
+> >> >> +    case MEDIA_BUS_FMT_BGR888_1X24:
+> >> >> +    case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
+> >> >> +    case MEDIA_BUS_FMT_YUV8_1X24:
+> >> >> +            bpp = 24;
+> >> >> +            break;
+> >> >> +    case MEDIA_BUS_FMT_RGB101010_1X30:
+> >> >> +    case MEDIA_BUS_FMT_UYYVYY10_0_5X30:
+> >> >> +    case MEDIA_BUS_FMT_YUV10_1X30:
+> >> >> +            bpp = 30;
+> >> >> +            break;
+> >> >> +    default:
+> >> >> +            bpp = 24;
+> >> >> +            break;
+> >> >> +    }
+> >> >> +
+> >> >> +    return bpp;
+> >> >> +}
+> >> >> +
+
+[skipped]
+
+> >> >> +struct vs_crtc *vs_crtc_create(struct drm_device *drm_dev,
+> >> >> +                           struct vs_dc_info *info)
+> >> >> +{
+> >> >> +    struct vs_crtc *crtc;
+> >> >> +    int ret;
+> >> >> +
+> >> >> +    if (!info)
+> >> >> +            return NULL;
+> >> >> +
+> >> >> +    crtc = drmm_kzalloc(drm_dev, sizeof(*crtc), GFP_KERNEL);
+> >> >> +    if (!crtc)
+> >> >> +            return NULL;
+> >> >> +
+> >> >> +    ret = drmm_crtc_init_with_planes(drm_dev, &crtc->base,
+> >> >> +                                     NULL, NULL, &vs_crtc_funcs,
+> >> >> +                                     info->name ? info->name : NULL);
+> >> >
+> >> > It might be better to add drmm_crtc_init() helper.
+>         drmm_crtc_alloc_with_planes used:
+>         ...
+>         struct vs_crtc *crtc;
+>         int ret;
 >
-> Changes in PATCH v4:
-> https://lore.kernel.org/linux-riscv/20231101-th1520-mmc-v4-0-86e0216b5994@baylibre.com/
-> - set DWCMSHC_CARD_IS_EMMC when (MMC_CAP2_NO_SD | MMC_CAP2_NO_SDIO)
->   as checking MMC_CAP_NONREMOVABLE is not sufficient
-> - change prefix of phy functions from th1520 to dwcmshc as they are not
->   th1520 specific
-> - remove unneeded check of priv in dwcmshc_phy_1_8v_init()
-> - remove unneeded check of auto-tuning in th1520_execute_tuning()
-> - fix order of new nodes in th1520-beaglev-ahead.dts: move sdhci_clk
->   before uart_sclk, move mmc0 and mmc1 before uart0
-> - fix comment typos pointed out by Adrian
-> - add trailers that I missed from v2
+>         if (!info)
+>                 return NULL;
 >
-> Changes in PATCH v3:
-> https://lore.kernel.org/r/20231023-th1520-mmc-v3-0-abc5e7491166@baylibre.com
-> - always call th1520_sdhci_set_phy() in th1520_set_uhs_signaling()
->   and not only when timing is MMC_TIMING_MMC_HS400. This allows the
->   microSD slot to work as th1520_phy_3_3v_init() is called from
->   th1520_sdhci_set_phy().
-> - add mmc1 node for mmc controller connected to the microSD slot
-> - add enable mmc1 and add properties for microSD on the Ahead and LPi4A
+>         crtc = drmm_crtc_alloc_with_planes(drm_dev, struct vs_crtc, base,
+>                                                NULL, NULL,
+>                                                &vs_crtc_funcs, info->name ? info->name : NULL);
+>         ...
+
+Ack.
+
 >
-> Changes in PATCH v2:
-> https://lore.kernel.org/r/20231017-th1520-mmc-v2-0-4678c8cc4048@baylibre.com
-> - make use of BIT(), GENMASK(), FIELD_PREP(), FIELD_GET()
-> - add EXPORT_SYMBOL_GPL(__sdhci_execute_tuning)
-> - call th1520_phy_1_8v_init() when FLAG_IO_FIXED_1V8 is set
-> - set DWCMSHC_CARD_IS_EMMC when mmc caps contains MMC_CAP_NONREMOVABLE
-> - remove manipulation of AT_CTRL_AT_EN from th1520_set_uhs_signaling()
-> - remove unneccessary cycle of enabling and disabling AT_CTRL_AT_EN in
->   th1520_execute_tuning()
-> - remove th1520_phy_1_8v_init_no_pull()
-> - remove th1520_phy_3_3v_init_no_pull()
-> - remove FLAG_PULL_UP_EN from priv->flags
-> - remove thead,phy-pull-up device tree property
+> >> >
+> >> >> +    if (ret)
+> >> >> +            return NULL;
+> >> >> +
+> >> >> +    drm_crtc_helper_add(&crtc->base, &vs_crtc_helper_funcs);
+> >> >> +
+> >> >> +    if (info->gamma_size) {
+> >> >> +            ret = drm_mode_crtc_set_gamma_size(&crtc->base,
+> >> >> +                                               info->gamma_size);
+> >> >> +            if (ret)
+> >> >> +                    return NULL;
+> >> >> +
+> >> >> +            drm_crtc_enable_color_mgmt(&crtc->base, 0, false,
+> >> >> +                                       info->gamma_size);
+> >> >> +    }
+> >> >> +
+> >> >> +    crtc->max_bpc = info->max_bpc;
+> >> >> +    crtc->color_formats = info->color_formats;
+> >> >> +    return crtc;
+> >> >> +}
+
+> >> >> +const struct component_ops dc_component_ops = {
+> >> >> +    .bind = dc_bind,
+> >> >> +    .unbind = dc_unbind,
+> >> >> +};
+> >> >> +
+> >> >> +static const struct of_device_id dc_driver_dt_match[] = {
+> >> >> +    { .compatible = "starfive,jh7110-dc8200", },
+> >> >> +    {},
+> >> >> +};
+> >> >> +MODULE_DEVICE_TABLE(of, dc_driver_dt_match);
+> >> >> +
+> >> >> +static int dc_probe(struct platform_device *pdev)
+> >> >> +{
+> >> >> +    struct device *dev = &pdev->dev;
+> >> >> +    struct vs_dc *dc;
+> >> >> +    int irq, ret, i;
+> >> >> +
+> >> >> +    dc = devm_kzalloc(dev, sizeof(*dc), GFP_KERNEL);
+> >> >> +    if (!dc)
+> >> >> +            return -ENOMEM;
+> >> >> +
+> >> >> +    dc->hw.hi_base = devm_platform_ioremap_resource(pdev, 0);
+> >> >> +    if (IS_ERR(dc->hw.hi_base))
+> >> >> +            return PTR_ERR(dc->hw.hi_base);
+> >> >> +
+> >> >> +    dc->hw.reg_base = devm_platform_ioremap_resource(pdev, 1);
+> >> >> +    if (IS_ERR(dc->hw.reg_base))
+> >> >> +            return PTR_ERR(dc->hw.reg_base);
+> >> >> +
+> >> >> +    dc->nclks = ARRAY_SIZE(dc->clk_vout);
+> >> >> +    for (i = 0; i < dc->nclks; ++i)
+> >> >> +            dc->clk_vout[i].id = vout_clocks[i];
+> >> >> +    ret = devm_clk_bulk_get(dev, dc->nclks, dc->clk_vout);
+> >> >> +    if (ret) {
+> >> >> +            dev_err(dev, "Failed to get clk controls\n");
+> >> >> +            return ret;
+> >> >> +    }
+> >> >> +
+> >> >> +    dc->nrsts = ARRAY_SIZE(dc->rst_vout);
+> >> >> +    for (i = 0; i < dc->nrsts; ++i)
+> >> >> +            dc->rst_vout[i].id = vout_resets[i];
+> >> >> +    ret = devm_reset_control_bulk_get_shared(dev, dc->nrsts,
+> >> >> +                                             dc->rst_vout);
+> >> >> +    if (ret) {
+> >> >> +            dev_err(dev, "Failed to get reset controls\n");
+> >> >> +            return ret;
+> >> >> +    }
+> >> >> +
+> >> >> +    irq = platform_get_irq(pdev, 0);
+> >> >> +
+> >> >> +    ret = devm_request_irq(dev, irq, dc_isr, 0, dev_name(dev), dc);
+> >> >
+> >> > Are you ready to handle the IRQ at this point?
+> Do you have some good suggestions?
+> Are there any hidden dangers in doing so?
+
+
+If your driver is not ready, stray interrupt can crash your driver.
+For pm_runtime-enabled devices it is even more important: the
+interrupt handled might try accessing device which is powered off.
+
+> Hope to get good opinions
+
+The usual suggestion is: request the interrupt when your data is fully
+set up. Or request_irq with IRQF_NO_AUTOEN and then enable_irq() /
+disable_irq() as required.
+
 >
-> Changes in PACH v1:
-> https://lore.kernel.org/all/20230921-th1520-mmc-v1-0-49f76c274fb3@baylibre.com/
-> - ADMA mode now works correctly due to a patch from Jisheng on the list
->   ("riscv: dts: thead: set dma-noncoherent to soc bus") and this commit
->   from Icenowy that is now merged: 8eb8fe67e2c8 ("riscv: errata: fix
->   T-Head dcache.cva encoding").
-> - Expose __sdhci_execute_tuning from sdhci.c so that it can be called
->   from th1520_execute_tuning()
-> - Refactor the define macros for all the PHY related registers to make
->   it easier to understand the bit fields that the code is manipulating
-> - Replace magic numbers in the PHY register writes with proper defines
-> - Replace non_removable in dwcmshc_priv with check of mmc_host.caps
-> - Drop dt prop "thead,io-fixed-1v8" and instead check for existing
->   properties: "mmc-ddr-1_8v", "mmc-hs200-1_8v", or "mmc-hs400-1_8v"
-> - Rename dt prop from "thead,pull-up" to "thead,phy-pull-up" and
->   improve the description in the dt binding
-> - Replace pull_up_en in dwcmshc_priv with bit field in new flags field
-> - Create th1520_set_uhs_signaling() and call dwcmshc_set_uhs_signaling()
->   from it instead of adding th1520 code to dwcmshc_set_uhs_signaling()
-> - Return -EIO instead of -1 upon errors in th1520_execute_tuning()
+> >> >
+> >> >> +    if (ret < 0) {
+> >> >> +            dev_err(dev, "Failed to install irq:%u.\n", irq);
+> >> >> +            return ret;
+> >> >> +    }
+> >> >> +
+> >> >> +    dev_set_drvdata(dev, dc);
+> >> >> +
+> >> >> +    return component_add(dev, &dc_component_ops);
+> >> >> +}
+> >> >> +
+
+[skipped]
+
+> >> >> +static int vs_plane_atomic_get_property(struct drm_plane *plane,
+> >> >> +                                    const struct drm_plane_state *state,
+> >> >> +                                    struct drm_property *property,
+> >> >> +                                    uint64_t *val)
+> >> >> +{
+> >> >> +    struct vs_plane *vs_plane = to_vs_plane(plane);
+> >> >> +    const struct vs_plane_state *vs_plane_state =
+> >> >> +            container_of(state, const struct vs_plane_state, base);
+> >> >> +
+> >> >> +    if (property == vs_plane->degamma_mode)
+> >> >> +            *val = vs_plane_state->degamma;
+> >> >> +    else if (property == vs_plane->watermark_prop)
+> >> >> +            *val = (vs_plane_state->watermark) ?
+> >> >> +                                    vs_plane_state->watermark->base.id : 0;
+> >> >> +    else if (property == vs_plane->color_mgmt_prop)
+> >> >> +            *val = (vs_plane_state->color_mgmt) ?
+> >> >> +                                    vs_plane_state->color_mgmt->base.id : 0;
+> >> >
+> >> > degamma and color management should use standard properties.
 >
-> Changes in RFC v2:
-> https://lore.kernel.org/linux-riscv/20230724-th1520-emmc-v2-0-132ed2e2171e@baylibre.com/
-> - Expand dwcmshc_priv based on driver in the T-Head 5.10 kernel:
->   delay_line, non_removable, pull_up_en, io_fixed_1v8
-> - New boolean property "thead,pull-up" indicates phy pull-up config
-> - New boolean property "thead,io-fixed-1v8" indicates that io voltage
->   should be set to 1.8V during reset
-> - Add th1520_phy_1_8v_init() as voltage_switch op
-> - Add th1520_execute_tuning() as the platform_execute_tuning op
-> - Added th1520_sdhci_reset() as the .reset op. This function will set
->   io voltage to 1.8V after calling the standard sdhci_reset() function.
-> - Modified dwcmshc_set_uhs_signaling() to enable SDHCI_CTRL_VDD_180 when
->   io_fixed_1v8 is true
-> - Add many defines for register offsets and settings based on the mmc
->   support in the T-Head downstream v5.10 kernel
+> hello Dmitry:
+> There is a question that troubles me
 >
-> RFC v1 series:
-> https://lore.kernel.org/r/20230724-th1520-emmc-v1-0-cca1b2533da2@baylibre.com
+> drm_plane include such standard properties.
+> {
+>         struct drm_property *alpha_property;
+>         struct drm_property *zpos_property;
+>         struct drm_property *rotation_property;
+>         struct drm_property *blend_mode_property;
+>         struct drm_property *color_encoding_property;
+>         struct drm_property *color_range_property;
+>         struct drm_property *scaling_filter_property;
+> }
 >
-> Signed-off-by: Drew Fustini <dfustini@baylibre.com>
-> ---
-> Drew Fustini (7):
->       dt-bindings: mmc: sdhci-of-dwcmhsc: Add T-Head TH1520 support
->       mmc: sdhci: add __sdhci_execute_tuning() to header
->       mmc: sdhci-of-dwcmshc: Add support for T-Head TH1520
->       riscv: defconfig: Enable mmc and dma drivers for T-Head TH1520
->       riscv: dts: thead: Add TH1520 mmc controllers and sdhci clock
->       riscv: dts: thead: Enable BeagleV Ahead eMMC and microSD
->       riscv: dts: thead: Enable LicheePi 4A eMMC and microSD
+> it doesn't include degamma and color management properties
+
+Which is because they are not standardised yet.
+
 >
->  .../bindings/mmc/snps,dwcmshc-sdhci.yaml           |   1 +
->  arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts |  20 ++
->  .../boot/dts/thead/th1520-lichee-module-4a.dtsi    |  20 ++
->  arch/riscv/boot/dts/thead/th1520.dtsi              |  25 ++
->  arch/riscv/configs/defconfig                       |   2 +
->  drivers/mmc/host/sdhci-of-dwcmshc.c                | 349 +++++++++++++++++++++
->  drivers/mmc/host/sdhci.c                           |   3 +-
->  drivers/mmc/host/sdhci.h                           |   1 +
->  8 files changed, 420 insertions(+), 1 deletion(-)
-> ---
-> base-commit: 8cfd133bee055fb537d2338b808079a77de60052
-> change-id: 20231031-th1520-mmc-b4e846fe6869
+> >> >
+> >> >> +    else if (property == vs_plane->roi_prop)
+> >> >> +            *val = (vs_plane_state->roi) ?
+> >> >> +                                    vs_plane_state->roi->base.id : 0;
+> >> >> +    else
+> >> >> +            return -EINVAL;
+> >> >> +
+> >> >> +    return 0;
+> >> >> +}
+> >> >> +
+> >> >> +static bool vs_format_mod_supported(struct drm_plane *plane,
+> >> >> +                                u32 format,
+> >> >> +                                u64 modifier)
+> >> >> +{
+> >> >> +    int i;
+> >> >> +
+> >> >> +    /* We always have to allow these modifiers:
+> >> >> +     * 1. Core DRM checks for LINEAR support if userspace does not provide modifiers.
+> >> >> +     * 2. Not passing any modifiers is the same as explicitly passing INVALID.
+> >> >> +     */
+> >> >> +    if (modifier == DRM_FORMAT_MOD_LINEAR)
+> >> >> +            return true;
+> >> >> +
+> >> >> +    /* Check that the modifier is on the list of the plane's supported modifiers. */
+> >> >> +    for (i = 0; i < plane->modifier_count; i++) {
+> >> >> +            if (modifier == plane->modifiers[i])
+> >> >> +                    break;
+> >> >> +    }
+> >> >> +
+> >> >> +    if (i == plane->modifier_count)
+> >> >> +            return false;
+> >> >> +
+> >> >> +    return true;
+> >> >> +}
+> >> >> +
+> >> >> +const struct drm_plane_funcs vs_plane_funcs = {
+> >> >> +    .update_plane           = drm_atomic_helper_update_plane,
+> >> >> +    .disable_plane          = drm_atomic_helper_disable_plane,
+> >> >> +    .reset                  = vs_plane_reset,
+> >> >> +    .atomic_duplicate_state = vs_plane_atomic_duplicate_state,
+> >> >> +    .atomic_destroy_state   = vs_plane_atomic_destroy_state,
+> >> >> +    .atomic_set_property    = vs_plane_atomic_set_property,
+> >> >> +    .atomic_get_property    = vs_plane_atomic_get_property,
+> >> >> +    .format_mod_supported   = vs_format_mod_supported,
+> >> >> +};
+> >> >> +
+> >> >> +static unsigned char vs_get_plane_number(struct drm_framebuffer *fb)
+> >> >> +{
+> >> >> +    const struct drm_format_info *info;
+> >> >> +
+> >> >> +    if (!fb)
+> >> >> +            return 0;
+> >> >> +
+> >> >> +    info = drm_format_info(fb->format->format);
+> >> >> +    if (!info || info->num_planes > DRM_FORMAT_MAX_PLANES)
+> >> >> +            return 0;
+> >> >> +
+> >> >> +    return info->num_planes;
+> >> >> +}
+> >> >> +
+> >> >> +static int vs_plane_atomic_check(struct drm_plane *plane,
+> >> >> +                             struct drm_atomic_state *state)
+> >> >> +{
+> >> >> +    struct drm_plane_state *new_plane_state = drm_atomic_get_new_plane_state(state,
+> >> >> +                                                                             plane);
+> >> >> +    unsigned char i, num_planes;
+> >> >> +    struct drm_framebuffer *fb = new_plane_state->fb;
+> >> >> +    struct drm_crtc *crtc = new_plane_state->crtc;
+> >> >> +    struct vs_crtc *vs_crtc = to_vs_crtc(crtc);
+> >> >> +    struct vs_dc *dc = dev_get_drvdata(vs_crtc->dev);
+> >> >> +    struct vs_plane_state *plane_state = to_vs_plane_state(new_plane_state);
+> >> >> +
+> >> >> +    if (!crtc || !fb)
+> >> >> +            return 0;
+> >> >> +
+> >> >> +    num_planes = vs_get_plane_number(fb);
+> >> >> +
+> >> >> +    for (i = 0; i < num_planes; i++) {
+> >> >> +            dma_addr_t dma_addr;
+> >> >> +
+> >> >> +            dma_addr = drm_fb_dma_get_gem_addr(fb, new_plane_state, i);
+> >> >> +            plane_state->dma_addr[i] = dma_addr;
+> >> >> +    }
+> >> >> +
+> >> >> +    return vs_dc_check_plane(dc, plane, state);
+> >> >> +}
+> >> >> +
+> >> >> +static int vs_cursor_plane_atomic_check(struct drm_plane *plane,
+> >> >> +                                    struct drm_atomic_state *state)
+> >> >> +{
+> >> >> +    struct drm_plane_state *new_plane_state = drm_atomic_get_new_plane_state(state,
+> >> >> +                                                                      plane);
+> >> >> +    unsigned char i, num_planes;
+> >> >> +    struct drm_framebuffer *fb = new_plane_state->fb;
+> >> >> +    struct drm_crtc *crtc = new_plane_state->crtc;
+> >> >> +    struct vs_crtc *vs_crtc = to_vs_crtc(crtc);
+> >> >> +    struct vs_dc *dc = dev_get_drvdata(vs_crtc->dev);
+> >> >> +    struct vs_plane_state *plane_state = to_vs_plane_state(new_plane_state);
+> >> >> +
+> >> >> +    if (!crtc || !fb)
+> >> >> +            return 0;
+> >> >> +
+> >> >> +    num_planes = vs_get_plane_number(fb);
+> >> >> +
+> >> >> +    for (i = 0; i < num_planes; i++) {
+> >> >> +            dma_addr_t dma_addr;
+> >> >> +
+> >> >> +            dma_addr = drm_fb_dma_get_gem_addr(fb, new_plane_state, i);
+> >> >> +            plane_state->dma_addr[i] = dma_addr;
+> >> >> +    }
+> >> >> +
+> >> >> +    return vs_dc_check_cursor_plane(dc, plane, state);
+> >> >> +}
+> >> >> +
+> >> >> +static void vs_plane_atomic_update(struct drm_plane *plane,
+> >> >> +                               struct drm_atomic_state *state)
+> >> >> +{
+> >> >> +    struct drm_plane_state *new_state = drm_atomic_get_new_plane_state(state,
+> >> >> +                                                                      plane);
+> >> >
+> >> > New line after the equal sign will be better.
+> >> >
+> >> >> +    struct drm_plane_state *old_state = drm_atomic_get_old_plane_state(state,
+> >> >> +                                                                      plane);
+> >> >> +
+> >> >> +    unsigned char i, num_planes;
+> >> >> +    struct drm_framebuffer *fb;
+> >> >> +    struct vs_plane *vs_plane = to_vs_plane(plane);
+> >> >> +    struct vs_crtc *vs_crtc = to_vs_crtc(new_state->crtc);
+> >> >> +    struct vs_plane_state *plane_state = to_vs_plane_state(new_state);
+> >> >> +    struct vs_dc *dc = dev_get_drvdata(vs_crtc->dev);
+> >> >> +
+> >> >> +    if (!new_state->fb || !new_state->crtc)
+> >> >> +            return;
+> >> >
+> >> > if (!new_state->visible) ?
 >
-> Best regards,
-> --
-> Drew Fustini <dfustini@baylibre.com>
+> no matter what value it is ? the driver will handle it
+> in func
 >
+> static void update_fb(struct vs_plane *plane, u8 display_id,
+>                       struct dc_hw_fb *fb, struct drm_plane_state *state)
+> {
+>         struct vs_plane_state *plane_state = to_vs_plane_state(state);
+>         struct drm_framebuffer *drm_fb = state->fb;
+>         struct drm_rect *src = &state->src;
+>
+> .......
+>         fb->enable = state->visible;
+> .......
+> }
+>
+> so no need add "if (!new_state->visible)" i think
+
+I mean instead of fb&&crtc check. Otherwise you are duplicating checks
+in drm_atomic_helper_check_plane_state(). And with the pixel_source
+being on their way this condition becomes legacy.
+
+>
+> >> >
+> >> >> +
+> >> >> +    fb = new_state->fb;
+> >> >> +
+> >> >> +    drm_fb_dma_sync_non_coherent(fb->dev, old_state, new_state);
+> >> >> +
+> >> >> +    num_planes = vs_get_plane_number(fb);
+> >> >> +
+> >> >> +    for (i = 0; i < num_planes; i++) {
+> >> >> +            dma_addr_t dma_addr;
+> >> >> +
+> >> >> +            dma_addr = drm_fb_dma_get_gem_addr(fb, new_state, i);
+> >> >> +            plane_state->dma_addr[i] = dma_addr;
+> >> >> +    }
+> >> >> +
+> >> >> +    plane_state->status.src = drm_plane_state_src(new_state);
+> >> >> +    plane_state->status.dest = drm_plane_state_dest(new_state);
+> >> >> +
+> >> >> +    vs_dc_update_plane(dc, vs_plane, plane, state);
+> >> >> +}
+> >> >> +
+
+
+-- 
+With best wishes
+Dmitry
 
 _______________________________________________
 linux-riscv mailing list
