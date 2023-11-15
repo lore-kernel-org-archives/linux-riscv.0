@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24409C47075
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 13:00:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E62C47076
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 13:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+XLLpojdMV+Im4/cROTGzbkg6ah6KfPaHbQfCY1FU/Y=; b=P3XAfGCDHvDdV3
-	9fsw4gx8mC3hV93dGGy7vH5taD2qQPe/m+JGdZbC2BRRwMXKDtaOmmCpn/dW1OMY+sm6gVkWLJuW3
-	ugsXgSG63xuF7sHWJl9LvtlXchfEQnqwdUugDv2JKdJvjUw2YoaASFPxKf82P6IklCpQVuGB5O9FE
-	6L2ezPs7440dQsGST0ITaY9GMZbt1C9cYhJPbw5LFF38a4HtRkJICj/cmVXtZixGymBZdwrql5MJT
-	eedEk5auT0Xvt41yHYALHvgKjpTYwYpQC9H+W/a7G6yGRMRFb5vsve/9MnS01+UXpxqdiyZNvczxs
-	dIYKbGIZBuhcaUbcfnyQ==;
+	List-Owner; bh=ElgLE97bSAWM5iGiJb3B1bz0Fy4E2JIYkIy+dDN+uqQ=; b=fvzywS1Mt5zjgF
+	fm7OvG1ZQ7dKf1v2maAXV1XX0oK/w602fug8u7MzEuP33/6oUNLOIrPXEPciiQHmkjtBQPzxT78lP
+	1LERYmW1pjojsrsJ5Enfs+ja8DEth+l0+ppJUkNm39c0fJKQUvJiGhFb6Di5a1R/1f6E4HFKOipVq
+	Ua6OpwFA8j89Qgf3ihbIrH9VoK4SPDyCpemJvy3MfgW9Bj2Jf68oKsaSMQvb1eXrYaEtCMe/m982+
+	mA5NF3ekLCZHaaMlxTh7mxOF5hHuYUo1gHPE4CfW+MvHhVmI0T8eWn8Mk6T/t/jshdQGLb2EbuaAw
+	A8ySrqADCqvzr7MCRnig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3FVY-000ohO-3A;
-	Wed, 15 Nov 2023 13:00:40 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3EP9-000gnY-03
+	id 1r3FVb-000oi6-0I;
+	Wed, 15 Nov 2023 13:00:43 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1r3FVY-000ogU-1k
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Nov 2023 11:50:00 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 63EA324E2D6;
-	Wed, 15 Nov 2023 19:49:24 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Nov
- 2023 19:49:24 +0800
-Received: from ubuntu.localdomain (183.27.97.246) by EXMBX171.cuchost.com
- (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Nov
- 2023 19:49:23 +0800
-From: Minda Chen <minda.chen@starfivetech.com>
-To: Conor Dooley <conor@kernel.org>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?=
-	<kw@linux.com>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
-	<bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, "Daire
- McNamara" <daire.mcnamara@microchip.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-pci@vger.kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
-	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
-	<minda.chen@starfivetech.com>
-Subject: [PATCH v11 11/20] PCI: microchip: Add num_events field to struct plda_pcie_rp
-Date: Wed, 15 Nov 2023 19:49:03 +0800
-Message-ID: <20231115114912.71448-12-minda.chen@starfivetech.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20231115114912.71448-1-minda.chen@starfivetech.com>
-References: <20231115114912.71448-1-minda.chen@starfivetech.com>
+	Wed, 15 Nov 2023 13:00:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1700053239;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MsmoLDm3Vg05W8pfD2SPdYXQ50SnWlB0SUHodkqBzuQ=;
+	b=dL/znG0fed4dL/aHj7n1nD5I9brZSsdYSqh9HCCIXLofBN6LIlLctf7twcRHap0xZXeChi
+	WzH3BABOwN41mDAAralSIFu2WbQrE8BwIOK8lz3FEDdyF9szIJbTPol9xuzBqg8UIzAkAb
+	mhXzZoM+b6zrkB0tUlxMTcLMeJEIFgQ=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-625-1eLEqSY3OeWVW86v4Tny6A-1; Wed, 15 Nov 2023 08:00:32 -0500
+X-MC-Unique: 1eLEqSY3OeWVW86v4Tny6A-1
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C3AC4810FC1;
+	Wed, 15 Nov 2023 13:00:31 +0000 (UTC)
+Received: from localhost (unknown [10.72.112.9])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id BA6FF492BFD;
+	Wed, 15 Nov 2023 13:00:30 +0000 (UTC)
+Date: Wed, 15 Nov 2023 21:00:27 +0800
+From: Baoquan He <bhe@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: kexec@lists.infradead.org, x86@kernel.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, akpm@linux-foundation.org,
+	ebiederm@xmission.com, takahiro.akashi@linaro.org
+Subject: [PATCH v2 1/2] resource: add walk_system_ram_res_rev()
+Message-ID: <ZVTA6z/06cLnWKUz@MiWiFi-R3L-srv>
+References: <20231114091658.228030-1-bhe@redhat.com>
+ <20231114091658.228030-2-bhe@redhat.com>
 MIME-Version: 1.0
-X-Originating-IP: [183.27.97.246]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
- (172.16.6.91)
-X-YovoleRuleAgent: yovoleflag
+Content-Disposition: inline
+In-Reply-To: <20231114091658.228030-2-bhe@redhat.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231115_034959_372879_AFC3DAF9 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20231115_050040_654157_7DFACCAA 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,70 +84,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The event num is different in other platform. For re-use interrupt process
-codes, replace with variable.
+This function, being a variant of walk_system_ram_res() introduced in
+commit 8c86e70acead ("resource: provide new functions to walk through
+resources"), walks through a list of all the resources of System RAM
+in reversed order, i.e., from higher to lower.
 
-Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+It will be used in kexec_file code to load kernel, initrd etc when
+preparing kexec reboot.
+
+Signed-off-by: AKASHI Takahiro <takahiro.akashi@linaro.org>
+Signed-off-by: Baoquan He <bhe@redhat.com>
 ---
- drivers/pci/controller/plda/pcie-microchip-host.c | 8 +++++---
- drivers/pci/controller/plda/pcie-plda.h           | 1 +
- 2 files changed, 6 insertions(+), 3 deletions(-)
+v1->v2:
+- Use kvrealloc() to reallocate memory instead of kvcalloc(), this
+  simplifies code. Suggested by Andrew.
 
-diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
-index 54a0d431a471..d42278c006bc 100644
---- a/drivers/pci/controller/plda/pcie-microchip-host.c
-+++ b/drivers/pci/controller/plda/pcie-microchip-host.c
-@@ -654,7 +654,7 @@ static void plda_handle_event(struct irq_desc *desc)
+ include/linux/ioport.h |  3 +++
+ kernel/resource.c      | 57 ++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 60 insertions(+)
+
+diff --git a/include/linux/ioport.h b/include/linux/ioport.h
+index 14f5cfabbbc8..db7fe25f3370 100644
+--- a/include/linux/ioport.h
++++ b/include/linux/ioport.h
+@@ -331,6 +331,9 @@ extern int
+ walk_system_ram_res(u64 start, u64 end, void *arg,
+ 		    int (*func)(struct resource *, void *));
+ extern int
++walk_system_ram_res_rev(u64 start, u64 end, void *arg,
++			int (*func)(struct resource *, void *));
++extern int
+ walk_iomem_res_desc(unsigned long desc, unsigned long flags, u64 start, u64 end,
+ 		    void *arg, int (*func)(struct resource *, void *));
  
- 	events = mc_get_events(port);
+diff --git a/kernel/resource.c b/kernel/resource.c
+index 866ef3663a0b..e8a244300e5b 100644
+--- a/kernel/resource.c
++++ b/kernel/resource.c
+@@ -27,6 +27,8 @@
+ #include <linux/mount.h>
+ #include <linux/resource_ext.h>
+ #include <uapi/linux/magic.h>
++#include <linux/string.h>
++#include <linux/vmalloc.h>
+ #include <asm/io.h>
  
--	for_each_set_bit(bit, &events, NUM_EVENTS)
-+	for_each_set_bit(bit, &events, port->num_events)
- 		generic_handle_domain_irq(port->event_domain, bit);
  
- 	chained_irq_exit(chip, desc);
-@@ -817,7 +817,8 @@ static int plda_pcie_init_irq_domains(struct plda_pcie_rp *port)
- 		return -EINVAL;
- 	}
+@@ -429,6 +431,61 @@ int walk_system_ram_res(u64 start, u64 end, void *arg,
+ 				     func);
+ }
  
--	port->event_domain = irq_domain_add_linear(pcie_intc_node, NUM_EVENTS,
-+	port->event_domain = irq_domain_add_linear(pcie_intc_node,
-+						   port->num_events,
- 						   &mc_event_domain_ops, port);
- 	if (!port->event_domain) {
- 		dev_err(dev, "failed to get event domain\n");
-@@ -920,7 +921,7 @@ static int plda_init_interrupts(struct platform_device *pdev, struct plda_pcie_r
- 	if (irq < 0)
- 		return -ENODEV;
- 
--	for (i = 0; i < NUM_EVENTS; i++) {
-+	for (i = 0; i < port->num_events; i++) {
- 		event_irq = irq_create_mapping(port->event_domain, i);
- 		if (!event_irq) {
- 			dev_err(dev, "failed to map hwirq %d\n", i);
-@@ -1012,6 +1013,7 @@ static int mc_host_probe(struct platform_device *pdev)
- 
- 	bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
- 	plda->bridge_addr = bridge_base_addr;
-+	plda->num_events = NUM_EVENTS;
- 
- 	/* Allow enabling MSI by disabling MSI-X */
- 	val = readl(bridge_base_addr + PCIE_PCI_IRQ_DW0);
-diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
-index 3deefd35fa5a..e3d35cef9894 100644
---- a/drivers/pci/controller/plda/pcie-plda.h
-+++ b/drivers/pci/controller/plda/pcie-plda.h
-@@ -118,6 +118,7 @@ struct plda_pcie_rp {
- 	raw_spinlock_t lock;
- 	struct plda_msi msi;
- 	void __iomem *bridge_addr;
-+	int num_events;
- };
- 
- void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
++/*
++ * This function, being a variant of walk_system_ram_res(), calls the @func
++ * callback against all memory ranges of type System RAM which are marked as
++ * IORESOURCE_SYSTEM_RAM and IORESOUCE_BUSY in reversed order, i.e., from
++ * higher to lower.
++ */
++int walk_system_ram_res_rev(u64 start, u64 end, void *arg,
++				int (*func)(struct resource *, void *))
++{
++	struct resource res, *rams;
++	int rams_size = 16, i;
++	unsigned long flags;
++	int ret = -1;
++
++	/* create a list */
++	rams = kvcalloc(rams_size, sizeof(struct resource), GFP_KERNEL);
++	if (!rams)
++		return ret;
++
++	flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
++	i = 0;
++	while ((start < end) &&
++		(!find_next_iomem_res(start, end, flags, IORES_DESC_NONE, &res))) {
++		if (i >= rams_size) {
++			/* re-alloc */
++			struct resource *rams_new;
++
++			rams_new = kvrealloc(rams, rams_size * sizeof(struct resource),
++					     (rams_size + 16) * sizeof(struct resource),
++					     GFP_KERNEL);
++			if (!rams_new)
++				goto out;
++
++			rams = rams_new;
++			rams_size += 16;
++		}
++
++		rams[i].start = res.start;
++		rams[i++].end = res.end;
++
++		start = res.end + 1;
++	}
++
++	/* go reverse */
++	for (i--; i >= 0; i--) {
++		ret = (*func)(&rams[i], arg);
++		if (ret)
++			break;
++	}
++
++out:
++	kvfree(rams);
++	return ret;
++}
++
+ /*
+  * This function calls the @func callback against all memory ranges, which
+  * are ranges marked as IORESOURCE_MEM and IORESOUCE_BUSY.
 -- 
-2.17.1
+2.41.0
 
 
 _______________________________________________
