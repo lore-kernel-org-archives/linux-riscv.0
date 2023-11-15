@@ -4,72 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D52ADC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 00:58:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC652C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 01:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/osRQGDsmUJO/sFssMuEzWmh/W+oWexV171eR2RCFPM=; b=pDsjDTbDweA/0l
-	lU4nVK7/W0dwObmYr/sNm/QbPH2Ixlna3sJnZyIEEESGTwco99ZUGlNOxJlRgy1HKym8VH69Z5+7L
-	36s5G7dqAegaB5eBA2SS5ahjWVClnZMHFMh0z7EK5mGYNy0HgSVvIJMk1f5Bk7VfrFgiXEsO+X92h
-	RpZiMgMAxP+EzUWa0/USsCxggqDG2gc3YQzjzOuYXmWzdqt/a3/gPn/4g/+RbeL9sZCvznz+h3VYM
-	35ys46peFiub9eyyRGo+COdKesfwoNFVQlVNw2I37rjVVugEIt/DMlHQLiMAErusFxP9xktXv3U3K
-	9FX5tFBKiZcYXFgHVGMQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f0ETXDCku/kv82FAb7stsFSbtwdU7jWnf5bbQCJ3Tg8=; b=JRnXibGEUNBpnVvyXFTQSeVxTH
+	LOjl3dPSSKpWCm/5MYef5bJ96VE+zyFMVreN7O2393FpoRKOC5riCjBeHq87Jv7DlcBdEFfV2tFgB
+	EgwzLRIu8BVM/zswbdUnOsku33utXc3YC2PVPWCJa2YkS9BcKWDU9AzdezOiAX9bJN/gT/VkLd6ca
+	UcO8MjSYNEqZ9Jw4qp5zX+AD0OBaM+kE01QBpOtd4ZcHU4VrfU6jxTPcFo6/Xa+1ejoPGkfAOsw6r
+	+F6z3t3tautNeLckk/DHj2g5mclRgPe1Ch6TNFudTcEiPv1a/wSmiLpVwBJai/OQN+QY/ZGI/P41o
+	f9j7x7uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r34Eq-00H3Nc-0f;
-	Wed, 15 Nov 2023 00:58:40 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1r34T2-00H48U-0L;
+	Wed, 15 Nov 2023 01:13:20 +0000
+Received: from mail-bmxind01olkn20801.outbound.protection.outlook.com ([2a01:111:f403:281c::801] helo=IND01-BMX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r34En-00H3Ml-2P
+	id 1r34Sx-00H47g-2g
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Nov 2023 00:58:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1700009916;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3zlBf98ARjkQaX/S5kQ5snEY5GoQGl3AvBs2Ts5bz28=;
-	b=dCn5mjJE2yY8qeEWDS4OGk9FOSMeErfwiy8Ry7HtD4+bYEJd5SlskmPheqPf61SUyyJC+b
-	5L5QRASO3XArQXBUVLPVXb+h+kJXKV+vYg7eHRjPp6Yj9dwg5VzL7BaQfldEJKuAAcp7gY
-	ZJNq7isSLpbfIKFnSaC5yhZYHzSBjvw=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-561-MZ5tl1akPnSAAv4ds1nyfQ-1; Tue, 14 Nov 2023 19:58:35 -0500
-X-MC-Unique: MZ5tl1akPnSAAv4ds1nyfQ-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8873B185A781;
-	Wed, 15 Nov 2023 00:58:34 +0000 (UTC)
-Received: from localhost (unknown [10.72.112.9])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id D1C892166B26;
-	Wed, 15 Nov 2023 00:58:33 +0000 (UTC)
-Date: Wed, 15 Nov 2023 08:58:30 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Joe Perches <joe@perches.com>
-Cc: linux-kernel@vger.kernel.org, kexec@lists.infradead.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	linux-parisc@vger.kernel.org
-Subject: Re: [PATCH 1/7] kexec_file: add kexec_file flag to control debug
- printing
-Message-ID: <ZVQXthHraBBVeNy2@MiWiFi-R3L-srv>
-References: <20231114153253.241262-1-bhe@redhat.com>
- <20231114153253.241262-2-bhe@redhat.com>
- <1e7863ec4e4ab10b84fd0e64f30f8464d2e484a3.camel@perches.com>
+	Wed, 15 Nov 2023 01:13:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=gcwQsLbt9TpYZzHKnouxqZ3I+WvctIxdjEGFgoss0wtEra35eLfLeYSgYmaetQEfmfPWG4E3ufXUUpHtN3xNVPk5zbk7ZessQsFPGuqsPoEma0grpvXzAjoiAcOt6B4yinjmhOshKNcGmqyFcOQjwvLnr3eeGyqarKlkiljI2MisMM4NFpD0iRD3U+LSyQDFkQOhm32ND7Ijr8I24DXyVlyB4/cyGy9YAWll5FQQ3ckFOvHiEiKud1xDP4Mdf/gFkSqXfuj0MSzNJXtXbWA5kXEiA0cBk20jfo7wO03k/X6sKpkM6Y8BP+YlFbX8hkH8NPhbmbMHtR2p6jKO97Dg6g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XPNzcwVTvOBWi4YQcsaKIkfPbkm4DJ4Ff/enwf6/rXo=;
+ b=d/rrBtCObT25nlmls/LXpz7ZHdbFee7s+sbQZFZ1dsKxiBloRzRJcVOEnLFPKwxturO1h8CKFDsGfpkbXo4WsOoyl8QzeCj8AmWR7js10nLKQVIhxKQ+SHcbaBqNXMOm1QpOiOxMAXNZH+1XwOfyYjz2uYbJwtuz2fM9ZiqpXWrIu2awMez61iW4dYQ0J6cD/7O6E6FewaM1KgpqZy50tZgdg2akFb8fxcjTJ7lU+Jx0H35H3DhUytP8/ADDyYh5B5qyFvSj+CoP4VmMY4UKLI7uIMRDErRB44ENBG1AzDzUAkKjctVqhnCawtZajKBcrFoU73l7gkKfDx0RANXitw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XPNzcwVTvOBWi4YQcsaKIkfPbkm4DJ4Ff/enwf6/rXo=;
+ b=uFhzGOOB4CZqDxXXiAIz2OZNYzYDCwuK+Cn1o2TWQjJb8qspJ+uCcN3vSOAB+uDhzppVMxmP1cbx1AvwVCouMeTRyFfH3fyCaeKEVUg5eQLth8MHD83DK4hIbq+vnobkVzeUVKyAR5qlvmvEOzyq8hXxxqHxTUFY2Yhq4pyIe8WtsJUc2S4OeiLzkcZl/HN4UhwkDMvcVnDDYAYFNqhTLI2+cn7DmBhx34/ju5Jq0IPMs5J9m+mcZVNriWit45Qy1icS3DscEB/lTpl25IE3dCd50wOVK/7L6AcStfWDjDZUPmYMVX+vgOEoWvirtYNwYW+mQpd9cDxc1PXh4Ie8Mw==
+Received: from PN3P287MB0324.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:d6::7) by
+ PN2P287MB2372.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:1ab::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7002.18; Wed, 15 Nov 2023 01:12:47 +0000
+Received: from PN3P287MB0324.INDP287.PROD.OUTLOOK.COM
+ ([fe80::5a24:3fd5:dd38:3ecd]) by PN3P287MB0324.INDP287.PROD.OUTLOOK.COM
+ ([fe80::5a24:3fd5:dd38:3ecd%4]) with mapi id 15.20.7002.018; Wed, 15 Nov 2023
+ 01:12:47 +0000
+Message-ID: <PN3P287MB0324B37658F300238640DCBAFEB1A@PN3P287MB0324.INDP287.PROD.OUTLOOK.COM>
+Date: Wed, 15 Nov 2023 09:12:41 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] dt-bindings: clock: sophgo: Add SG2042 clock
+ definitions
+To: Conor Dooley <conor@kernel.org>, Chen Wang <unicornxw@gmail.com>
+Cc: aou@eecs.berkeley.edu, chao.wei@sophgo.com,
+ krzysztof.kozlowski+dt@linaro.org, mturquette@baylibre.com,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, richardcochran@gmail.com,
+ robh+dt@kernel.org, sboyd@kernel.org, devicetree@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, haijiao.liu@sophgo.com,
+ xiaoguang.xing@sophgo.com
+References: <cover.1699879741.git.unicorn_wang@outlook.com>
+ <db59acdc99357d52ede5fc9738bdb161649c8fa1.1699879741.git.unicorn_wang@outlook.com>
+ <20231114-spool-hemlock-f69291a8cfa4@squawk>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <20231114-spool-hemlock-f69291a8cfa4@squawk>
+X-TMN: [CEChej6wHWO4bZUJPbWeGI+zKGWbWR5O]
+X-ClientProxiedBy: SI2PR01CA0001.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:191::13) To PN3P287MB0324.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:c01:d6::7)
+X-Microsoft-Original-Message-ID: <2d60879b-de2b-42ee-9b0d-b4c850f39559@outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1e7863ec4e4ab10b84fd0e64f30f8464d2e484a3.camel@perches.com>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.6
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PN3P287MB0324:EE_|PN2P287MB2372:EE_
+X-MS-Office365-Filtering-Correlation-Id: ab3e9922-cf24-4837-24b8-08dbe577f9cd
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 13moVOEWehUEXW8xRVED509dgbsJM2lmV7jtD/i69Scf/1isRv2lmwWKC9twtMpbCRMRir14MzDZRVb0bANPz17vLOEirjT/Xs5AoAA72CW39yDvL3gSaotRxEOcEvPv9YBzBpPMr1H7GhP7LDrnS3iX4aIPl+ix+oTzaQKqABsIpi9yaaXt9iPtlNryaBWGbXYDU71E09Cv/g/JWyBv5yRqGtyFp/xtm3P2zER1Y6a5feV9/oucIz+Z/4PBa/v0qduRo2y7cQ+Sj2GYEuKrtXJR6joQ5HfrUXrYmFCmWzsvEkFB1vOO74UQz5xil4Qj/72vKekxaZztUgO9lVjWUPkl42ImbxwEDi9Qy85qJj/DAd1YnM9LPafrYH7puR11BY4emREn9FWEjifq7k4jb5lxSZD6/1eGykGYTXX6D19HZxGU2oczQrPLIhcV+KDf923BWsgJAk5tVoY2pagN1ne1g4fVA9PDiSRwbYWuAjfcqJu3X1cafTIMa2XvT9BLdFsCjh6ilyt8f85/KFFMIOXFqIvo1uThvNeE7p/CquMMfm1JEFLbL3zjX0L23pVd
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZEZWQ3VLb21keE96TVpkTjJTQWJuQ1FFcVByRW1lTGgyYXh1aUwxWGh4Qytu?=
+ =?utf-8?B?WDQxcjQyeDlWd1RSdy96MVhmU2xLT1ZHZjd5QVlEVEQ3Q01GMTBlN2QyOSs3?=
+ =?utf-8?B?STF1UklDZFBkalRqTm1maDY4bGIwUHc1SXNINi9MbHlicnhtM1FYYTBySjl6?=
+ =?utf-8?B?dEZRbTk4UjZLTjNvbmpQUjc1MC9Ub1JWNytWSERobnhaa3laZEpRWnAvOWhn?=
+ =?utf-8?B?MHRjR2ZnK0ZwYW1WbDJFcnIvbExPSDB3RzgzQWY4TmlMd0IrWWxZdmZmMFNN?=
+ =?utf-8?B?QmJPcHVGeXo5WEF1bE1odDh0a1UvMlhZdFptVmtLUjczQXA2N2pRYWQ4cE1M?=
+ =?utf-8?B?NVpEM2pGSGM2blgvUG9ONTVFcEowK0hNWnY4eUw1a1hwVWRxNTdWS3RrOUwv?=
+ =?utf-8?B?YnBsUDNxVEZKZ1NHT2dNYlhGaVF2cjlTdytXQUw1OXZjOEQwczRKcE9ESjdD?=
+ =?utf-8?B?NEc4dlZSbTZkMnBvZVRoR3RQeVNNd0JmSUpLT1c1SUlkNEZBclpzVFpDODdH?=
+ =?utf-8?B?MkN1N25mSXRxaFp4K0xzRzNKcllOc1Y3QXFlZ3NleGZtOVhidXBySkVIajJW?=
+ =?utf-8?B?bmQvZTRKTGt2MWl5S3FRd1FhU0I1VUxmNVdQZ0Fwb0htZWNlVkZEMy9wTVN4?=
+ =?utf-8?B?elVHSm5EeHI3QS9RVGNSbzBiTHlLRUhEVnExL1MyVEJ4ZjRVK0FYZDNrVU5S?=
+ =?utf-8?B?SXppY0VKQ3pyM1c5UXJaM2JmMnJlRk03KzQ1UW02emdkbjFIZzFpZmw3Mncz?=
+ =?utf-8?B?MTJaYk16NlJkSVpIampEVktIR0JmRGQ4ckxMTTVpZUFJMWlvL3pZVEJXd1I0?=
+ =?utf-8?B?d2twNG5mQ2tUZlgxelArMGtGUFFvNWNVMlorSlU1dVBGZFM2R3hnNXhFN2JX?=
+ =?utf-8?B?eW9WdG5QbWtDd3hqSTZEY3B2SE9kV1BtTWQ3MkVqVm5pSEp3QXJhRGxEN29P?=
+ =?utf-8?B?dEtGZVFBeHJQUExQUmhtdkhpVnpyNGpPWTFJVkZMcDg3Umd0eEJMRFczMXpM?=
+ =?utf-8?B?dXhJTXlXWWYycDVZMXlXZ0liOU5XMFZyaWJJaEJiemhKRTQ2WUVYdU04OWhV?=
+ =?utf-8?B?eU13b3pNNVE0RXhvMGNGY0owQUNLMG9GU3pOeGdrVTVvUTFYcDg0RU5BS0pP?=
+ =?utf-8?B?UWMra2lHTkdhSWJ6QkFpdzRPb1RIUzc2N0VPK1hzbnBGZ1BCMVVONStuRTR2?=
+ =?utf-8?B?a2FGa2RaYUxFK3BYdjh2Y082L3FLTTdJdHdWdUIxTktEK0E4YW1Ub3NZeUN2?=
+ =?utf-8?B?b3pzUmVVaU13Rko3SHVaZEI4TTNXak1IZkdXeGFlQ2hleFRiR01WK2tqeVJV?=
+ =?utf-8?B?RllHV3JqVzFITlFISnhFWGhtTDlWOTBGRU5VL1YvYU51eWFYT3NOdE5nQWkw?=
+ =?utf-8?B?d1hNU0owL1FubndaTHcyNUE3aUx3WDJ6QittZDA0dkcxK29nMkJTdFFtRGlC?=
+ =?utf-8?B?V21takp0WDJTSTgwS01qRWM4T3JIcnY1YWxzSTJtVEVrTEFaSkhIZVM5QUFD?=
+ =?utf-8?B?eTljdmFSc2RvckNrdEJQVnMrNHNOb0wrNzdkNE56OTcyOXNHRmZHWEdjOC85?=
+ =?utf-8?B?V1l6cVIrcXdnSHQrRWQrSHV6dTgxVWh6NnJzaWs0cE5WM3ZyMnJEelRrbUMr?=
+ =?utf-8?Q?Kwc6LXEiGhmtxu0gWCIoTPbTUb8qPwXnpTp/sRuEluvE=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ab3e9922-cf24-4837-24b8-08dbe577f9cd
+X-MS-Exchange-CrossTenant-AuthSource: PN3P287MB0324.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Nov 2023 01:12:47.5412
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN2P287MB2372
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231114_165837_872122_D853465B 
-X-CRM114-Status: GOOD (  26.27  )
+X-CRM114-CacheID: sfid-20231114_171315_894217_CC08162D 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,87 +132,210 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/14/23 at 08:03am, Joe Perches wrote:
-> On Tue, 2023-11-14 at 23:32 +0800, Baoquan He wrote:
-> > When specifying 'kexec -c -d', kexec_load interface will print loading
-> > information, e.g the regions where kernel/initrd/purgatory/cmdline
-> > are put, the memmap passed to 2nd kernel taken as system RAM ranges,
-> > and printing all contents of struct kexec_segment, etc. These are
-> > very helpful for analyzing or positioning what's happening when
-> > kexec/kdump itself failed. The debugging printing for kexec_load
-> > interface is made in user space utility kexec-tools.
-> > 
-> > Whereas, with kexec_file_load interface, 'kexec -s -d' print nothing.
-> > Because kexec_file code is mostly implemented in kernel space, and the
-> > debugging printing functionality is missed. It's not convenient when
-> > debugging kexec/kdump loading and jumping with kexec_file_load
-> > interface.
-> > 
-> > Now add KEXEC_FILE_DEBUG to kexec_file flag to control the debugging
-> > message printing. And add global variable kexec_file_dbg_print and
-> > macro kexec_dprintk() to facilitate the printing.
-> > 
-> > This is a preparation, later kexec_dprintk() will be used to replace the
-> > existing pr_debug(). Once 'kexec -s -d' is specified, it will print out
-> > kexec/kdump loading information. If '-d' is not specified, it regresses
-> > to pr_debug().
-> 
-> Not quite as pr_debug is completely eliminated with
-> zero object size when DEBUG is not #defined.
-> 
-> Now the object size will be larger and contain the
-> formats in .text.
 
-Ah, I didn't realize that. Thanks for telling. I didn't take pr_info()
-and pr_debug because I want to avoid printing the pr_fmt() string in
-each file.
+On 2023/11/15 1:35, Conor Dooley wrote:
+> On Mon, Nov 13, 2023 at 09:18:25PM +0800, Chen Wang wrote:
+>> From: Chen Wang <unicorn_wang@outlook.com>
+>>
+>> Add all clock outputs for the Sophgo SG2042 clock generator.
+> This patch can be squashed with the patch adding the binding for the
+> clock controller.
+>
+> Cheers,
+> Conor.
 
-> 
-> []
-> > diff --git a/include/linux/kexec.h b/include/linux/kexec.h
-> []
-> > @@ -264,6 +264,18 @@ arch_kexec_apply_relocations(struct purgatory_info *pi, Elf_Shdr *section,
-> >  	return -ENOEXEC;
-> >  }
-> >  #endif
-> > +
-> > +extern bool kexec_file_dbg_print;
-> > +
-> > +#define kexec_dprintk(fmt, args...)			\
-> > +	do {						\
-> > +		if (kexec_file_dbg_print)		\
-> > +			printk(KERN_INFO fmt, ##args);	\
-> > +		else					\
-> > +			printk(KERN_DEBUG fmt, ##args);	\
-> > +	} while (0)
-> > +
-> > +
-> 
-> I don't know how many of these printks exist and if
-> overall object size matters but using
+Thanks, I will handle this in next revision.
 
-Not too much because they are spread in different arch.
-> 
-> #define kexec_dprintkfmt, ...)					\
-> 	printk("%s" fmt,					\
-> 	       kexec_file_dbg_print ? KERN_INFO : KERN_DEBUG,	\
-> 	       ##__VA_ARGS__)
-> 
-> should reduce overall object size by eliminating the
-> mostly duplicated format in .text which differs only
-> by the KERN_<PREFIX>
 
-Sure, the new one looks great to me, I will update code to take it.
-Thanks a lot for your great suggestion.
-
-Thanks
-Baoquan
-
+>> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+>> ---
+>>   include/dt-bindings/clock/sophgo-sg2042-clk.h | 169 ++++++++++++++++++
+>>   1 file changed, 169 insertions(+)
+>>   create mode 100644 include/dt-bindings/clock/sophgo-sg2042-clk.h
+>>
+>> diff --git a/include/dt-bindings/clock/sophgo-sg2042-clk.h b/include/dt-bindings/clock/sophgo-sg2042-clk.h
+>> new file mode 100644
+>> index 000000000000..a8e05c00c3bf
+>> --- /dev/null
+>> +++ b/include/dt-bindings/clock/sophgo-sg2042-clk.h
+>> @@ -0,0 +1,169 @@
+>> +/* SPDX-License-Identifier: GPL-2.0 OR MIT */
+>> +/*
+>> + * Copyright (C) 2023 Sophgo Technology Inc. All rights reserved.
+>> + */
+>> +
+>> +#ifndef __DT_BINDINGS_CLOCK_SOPHGO_SG2042_H__
+>> +#define __DT_BINDINGS_CLOCK_SOPHGO_SG2042_H__
+>> +
+>> +/* Divider clocks */
+>> +#define DIV_CLK_MPLL_RP_CPU_NORMAL_0 0
+>> +#define DIV_CLK_MPLL_AXI_DDR_0 1
+>> +#define DIV_CLK_FPLL_DDR01_1 2
+>> +#define DIV_CLK_FPLL_DDR23_1 3
+>> +#define DIV_CLK_FPLL_RP_CPU_NORMAL_1 4
+>> +#define DIV_CLK_FPLL_50M_A53 5
+>> +#define DIV_CLK_FPLL_TOP_RP_CMN_DIV2 6
+>> +#define DIV_CLK_FPLL_UART_500M 7
+>> +#define DIV_CLK_FPLL_AHB_LPC 8
+>> +#define DIV_CLK_FPLL_EFUSE 9
+>> +#define DIV_CLK_FPLL_TX_ETH0 10
+>> +#define DIV_CLK_FPLL_PTP_REF_I_ETH0 11
+>> +#define DIV_CLK_FPLL_REF_ETH0 12
+>> +#define DIV_CLK_FPLL_EMMC 13
+>> +#define DIV_CLK_FPLL_SD 14
+>> +#define DIV_CLK_FPLL_TOP_AXI0 15
+>> +#define DIV_CLK_FPLL_TOP_AXI_HSPERI 16
+>> +#define DIV_CLK_FPLL_AXI_DDR_1 17
+>> +#define DIV_CLK_FPLL_DIV_TIMER1 18
+>> +#define DIV_CLK_FPLL_DIV_TIMER2 19
+>> +#define DIV_CLK_FPLL_DIV_TIMER3 20
+>> +#define DIV_CLK_FPLL_DIV_TIMER4 21
+>> +#define DIV_CLK_FPLL_DIV_TIMER5 22
+>> +#define DIV_CLK_FPLL_DIV_TIMER6 23
+>> +#define DIV_CLK_FPLL_DIV_TIMER7 24
+>> +#define DIV_CLK_FPLL_DIV_TIMER8 25
+>> +#define DIV_CLK_FPLL_100K_EMMC 26
+>> +#define DIV_CLK_FPLL_100K_SD 27
+>> +#define DIV_CLK_FPLL_GPIO_DB 28
+>> +#define DIV_CLK_DPLL0_DDR01_0 29
+>> +#define DIV_CLK_DPLL1_DDR23_0 30
+>> +
+>> +/* Gate clocks */
+>> +#define GATE_CLK_RP_CPU_NORMAL_DIV0 31
+>> +#define GATE_CLK_AXI_DDR_DIV0 32
+>> +
+>> +#define GATE_CLK_RP_CPU_NORMAL_DIV1 33
+>> +#define GATE_CLK_A53_50M 34
+>> +#define GATE_CLK_TOP_RP_CMN_DIV2 35
+>> +#define GATE_CLK_HSDMA 36
+>> +#define GATE_CLK_EMMC_100M 37
+>> +#define GATE_CLK_SD_100M 38
+>> +#define GATE_CLK_TX_ETH0 39
+>> +#define GATE_CLK_PTP_REF_I_ETH0 40
+>> +#define GATE_CLK_REF_ETH0 41
+>> +#define GATE_CLK_UART_500M 42
+>> +#define GATE_CLK_EFUSE 43
+>> +
+>> +#define GATE_CLK_AHB_LPC 44
+>> +#define GATE_CLK_AHB_ROM 45
+>> +#define GATE_CLK_AHB_SF 46
+>> +
+>> +#define GATE_CLK_APB_UART 47
+>> +#define GATE_CLK_APB_TIMER 48
+>> +#define GATE_CLK_APB_EFUSE 49
+>> +#define GATE_CLK_APB_GPIO 50
+>> +#define GATE_CLK_APB_GPIO_INTR 51
+>> +#define GATE_CLK_APB_SPI 52
+>> +#define GATE_CLK_APB_I2C 53
+>> +#define GATE_CLK_APB_WDT 54
+>> +#define GATE_CLK_APB_PWM 55
+>> +#define GATE_CLK_APB_RTC 56
+>> +
+>> +#define GATE_CLK_AXI_PCIE0 57
+>> +#define GATE_CLK_AXI_PCIE1 58
+>> +#define GATE_CLK_SYSDMA_AXI 59
+>> +#define GATE_CLK_AXI_DBG_I2C 60
+>> +#define GATE_CLK_AXI_SRAM 61
+>> +#define GATE_CLK_AXI_ETH0 62
+>> +#define GATE_CLK_AXI_EMMC 63
+>> +#define GATE_CLK_AXI_SD 64
+>> +#define GATE_CLK_TOP_AXI0 65
+>> +#define GATE_CLK_TOP_AXI_HSPERI 66
+>> +
+>> +#define GATE_CLK_TIMER1 67
+>> +#define GATE_CLK_TIMER2 68
+>> +#define GATE_CLK_TIMER3 69
+>> +#define GATE_CLK_TIMER4 70
+>> +#define GATE_CLK_TIMER5 71
+>> +#define GATE_CLK_TIMER6 72
+>> +#define GATE_CLK_TIMER7 73
+>> +#define GATE_CLK_TIMER8 74
+>> +#define GATE_CLK_100K_EMMC 75
+>> +#define GATE_CLK_100K_SD 76
+>> +#define GATE_CLK_GPIO_DB 77
+>> +
+>> +#define GATE_CLK_AXI_DDR_DIV1 78
+>> +#define GATE_CLK_DDR01_DIV1 79
+>> +#define GATE_CLK_DDR23_DIV1 80
+>> +/* DPLL0 */
+>> +#define GATE_CLK_DDR01_DIV0 81
+>> +/* DPLL1 */
+>> +#define GATE_CLK_DDR23_DIV0 82
+>> +
+>> +#define GATE_CLK_DDR01 83
+>> +#define GATE_CLK_DDR23 84
+>> +#define GATE_CLK_RP_CPU_NORMAL 85
+>> +#define GATE_CLK_AXI_DDR 86
+>> +#define GATE_CLK_RXU0 87
+>> +#define GATE_CLK_RXU1 88
+>> +#define GATE_CLK_RXU2 89
+>> +#define GATE_CLK_RXU3 90
+>> +#define GATE_CLK_RXU4 91
+>> +#define GATE_CLK_RXU5 92
+>> +#define GATE_CLK_RXU6 93
+>> +#define GATE_CLK_RXU7 94
+>> +#define GATE_CLK_RXU8 95
+>> +#define GATE_CLK_RXU9 96
+>> +#define GATE_CLK_RXU10 97
+>> +#define GATE_CLK_RXU11 98
+>> +#define GATE_CLK_RXU12 99
+>> +#define GATE_CLK_RXU13 100
+>> +#define GATE_CLK_RXU14 101
+>> +#define GATE_CLK_RXU15 102
+>> +#define GATE_CLK_RXU16 103
+>> +#define GATE_CLK_RXU17 104
+>> +#define GATE_CLK_RXU18 105
+>> +#define GATE_CLK_RXU19 106
+>> +#define GATE_CLK_RXU20 107
+>> +#define GATE_CLK_RXU21 108
+>> +#define GATE_CLK_RXU22 109
+>> +#define GATE_CLK_RXU23 110
+>> +#define GATE_CLK_RXU24 111
+>> +#define GATE_CLK_RXU25 112
+>> +#define GATE_CLK_RXU26 113
+>> +#define GATE_CLK_RXU27 114
+>> +#define GATE_CLK_RXU28 115
+>> +#define GATE_CLK_RXU29 116
+>> +#define GATE_CLK_RXU30 117
+>> +#define GATE_CLK_RXU31 118
+>> +#define GATE_CLK_MP0 119
+>> +#define GATE_CLK_MP1 120
+>> +#define GATE_CLK_MP2 121
+>> +#define GATE_CLK_MP3 122
+>> +#define GATE_CLK_MP4 123
+>> +#define GATE_CLK_MP5 124
+>> +#define GATE_CLK_MP6 125
+>> +#define GATE_CLK_MP7 126
+>> +#define GATE_CLK_MP8 127
+>> +#define GATE_CLK_MP9 128
+>> +#define GATE_CLK_MP10 129
+>> +#define GATE_CLK_MP11 130
+>> +#define GATE_CLK_MP12 131
+>> +#define GATE_CLK_MP13 132
+>> +#define GATE_CLK_MP14 133
+>> +#define GATE_CLK_MP15 134
+>> +
+>> +/* MUX clocks */
+>> +#define MUX_CLK_DDR01 135
+>> +#define MUX_CLK_DDR23 136
+>> +#define MUX_CLK_RP_CPU_NORMAL 137
+>> +#define MUX_CLK_AXI_DDR 138
+>> +
+>> +/* PLL clocks */
+>> +#define MPLL_CLK	139
+>> +#define FPLL_CLK	140
+>> +#define DPLL0_CLK	141
+>> +#define DPLL1_CLK	142
+>> +
+>> +#endif /* __DT_BINDINGS_CLOCK_SOPHGO_SG2042_H__ */
+>> -- 
+>> 2.25.1
+>>
 
 _______________________________________________
 linux-riscv mailing list
