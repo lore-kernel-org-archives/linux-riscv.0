@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7622FC47255
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 11:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDFD5C47075
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 11:50:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zLxyLDETyyGXcdmNJROdsaGaUPhAG9dY+TOB6stR9zQ=; b=M7JbIJ7uoCSMGi
-	XDZQGJSjWchEgaVu2SxlW1KzfAJs8h5IUKKSY1OVuk8nla+sWSjyAa8Ff3yRSN7/VtcAp8VEhZ5cR
-	uYAetsrN/dFQL/gsKKut+KWemPUEL8UTNuu0SFlXQyOgCF8t6O9iZx54bWg9PBMXnn2yB0Cfa1hbs
-	r3XZCkQKlmHeKOTNLbomgfctn9gy5wRyJUv90naGGwx9Y4m7i5H46OVZSDyH5lHcJk2ZDNr/JvOGF
-	k4H7RhR5lYqTz4dGPcIIZYzU67etKdEd22QDQ0XjyrSfGphoFHy+6fgEiT1eUsEe44Nutk8pOniGw
-	cXh4RHPJBMMLXEPksSZQ==;
+	List-Owner; bh=3RjDNtNdnHFONxk9IaApAiihv5I7VJ+yYl5crP0hy1I=; b=ZoaMqnEmgtNpcf
+	9a9M5jHicnM8wz7yzZSRjlijEgfv0mLTdFu7oWOUU9y3UVJ1jY4j/tqyRR7cZzY6H6ttWDMMwP744
+	0IzcwgrCtCVcVLL6fpylb+isQR42N+BQR00Hn4C06kHW7bMicvMpkBOc8fhGaxrNx+whxo/yXXxRE
+	KfsRJM0rirLpTXj32MIGMxKFrrX/g6ofXY9Z/YwAQi2rJb8ac3P/RD6odUcCKse/fdESRtxvPJmtw
+	zq5gC++JBFvqj7yc/o0kc4WmHzrRzFYszD/oeDS1KKbadflefKqliG4ypR0uo3fqaae7qPlP1/JH7
+	ACxE45ikM2vHOEeIsbkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3EPM-000h8k-28;
-	Wed, 15 Nov 2023 11:50:12 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1r3EPQ-000hAZ-1N;
+	Wed, 15 Nov 2023 11:50:16 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3EPG-000gow-1C
+	id 1r3EPN-000h30-13
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Nov 2023 11:50:08 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Wed, 15 Nov 2023 11:50:15 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 0AEB57FD6;
-	Wed, 15 Nov 2023 19:49:24 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Nov
- 2023 19:49:16 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id B0A6324E2E3;
+	Wed, 15 Nov 2023 19:49:32 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Nov
+ 2023 19:49:32 +0800
 Received: from ubuntu.localdomain (183.27.97.246) by EXMBX171.cuchost.com
  (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Nov
- 2023 19:49:14 +0800
+ 2023 19:49:31 +0800
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Conor Dooley <conor@kernel.org>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?=
 	<kw@linux.com>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
@@ -52,9 +52,9 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
 	<minda.chen@starfivetech.com>
-Subject: [PATCH v11 01/20] dt-bindings: PCI: Add PLDA XpressRICH PCIe host common properties
-Date: Wed, 15 Nov 2023 19:48:53 +0800
-Message-ID: <20231115114912.71448-2-minda.chen@starfivetech.com>
+Subject: [PATCH v11 20/20] riscv: dts: starfive: add PCIe dts configuration for JH7110
+Date: Wed, 15 Nov 2023 19:49:12 +0800
+Message-ID: <20231115114912.71448-21-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20231115114912.71448-1-minda.chen@starfivetech.com>
 References: <20231115114912.71448-1-minda.chen@starfivetech.com>
@@ -64,8 +64,9 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
  (172.16.6.91)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231115_035006_791104_831824A7 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20231115_035013_652268_EC8EFD15 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,188 +83,193 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add PLDA XpressRICH PCIe host common properties dt-binding doc.
-PolarFire PCIe host using PLDA IP. Move common properties from Microchip
-PolarFire PCIe host to PLDA files.
+Add PCIe dts configuraion for JH7110 SoC platform.
 
 Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
 Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Rob Herring <robh@kernel.org>
-Tested-by: John Clark <inindev@gmail.com>
 ---
- .../bindings/pci/microchip,pcie-host.yaml     | 55 +-------------
- .../pci/plda,xpressrich3-axi-common.yaml      | 75 +++++++++++++++++++
- 2 files changed, 76 insertions(+), 54 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
+ .../jh7110-starfive-visionfive-2.dtsi         | 64 ++++++++++++++
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      | 86 +++++++++++++++++++
+ 2 files changed, 150 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
-index f7a3c2636355..7c2d51221f65 100644
---- a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
-+++ b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
-@@ -10,21 +10,13 @@ maintainers:
-   - Daire McNamara <daire.mcnamara@microchip.com>
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+index b89e9791efa7..2f8056d6f817 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+@@ -287,6 +287,22 @@
+ 	status = "okay";
+ };
  
- allOf:
--  - $ref: /schemas/pci/pci-bus.yaml#
-+  - $ref: plda,xpressrich3-axi-common.yaml#
-   - $ref: /schemas/interrupt-controller/msi-controller.yaml#
++&pcie0 {
++	perst-gpios = <&sysgpio 26 GPIO_ACTIVE_LOW>;
++	phys = <&pciephy0>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pcie0_pins>;
++	status = "okay";
++};
++
++&pcie1 {
++	perst-gpios = <&sysgpio 28 GPIO_ACTIVE_LOW>;
++	phys = <&pciephy1>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pcie1_pins>;
++	status = "okay";
++};
++
+ &qspi {
+ 	#address-cells = <1>;
+ 	#size-cells = <0>;
+@@ -513,6 +529,54 @@
+ 		};
+ 	};
  
- properties:
-   compatible:
-     const: microchip,pcie-host-1.0 # PolarFire
- 
--  reg:
--    maxItems: 2
--
--  reg-names:
--    items:
--      - const: cfg
--      - const: apb
--
-   clocks:
-     description:
-       Fabric Interface Controllers, FICs, are the interface between the FPGA
-@@ -52,18 +44,6 @@ properties:
-     items:
-       pattern: '^fic[0-3]$'
- 
--  interrupts:
--    minItems: 1
--    items:
--      - description: PCIe host controller
--      - description: builtin MSI controller
--
--  interrupt-names:
--    minItems: 1
--    items:
--      - const: pcie
--      - const: msi
--
-   ranges:
-     maxItems: 1
- 
-@@ -71,39 +51,6 @@ properties:
-     minItems: 1
-     maxItems: 6
- 
--  msi-controller:
--    description: Identifies the node as an MSI controller.
--
--  msi-parent:
--    description: MSI controller the device is capable of using.
--
--  interrupt-controller:
--    type: object
--    properties:
--      '#address-cells':
--        const: 0
--
--      '#interrupt-cells':
--        const: 1
--
--      interrupt-controller: true
--
--    required:
--      - '#address-cells'
--      - '#interrupt-cells'
--      - interrupt-controller
--
--    additionalProperties: false
--
--required:
--  - reg
--  - reg-names
--  - "#interrupt-cells"
--  - interrupts
--  - interrupt-map-mask
--  - interrupt-map
--  - msi-controller
--
- unevaluatedProperties: false
- 
- examples:
-diff --git a/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml b/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
-new file mode 100644
-index 000000000000..31bb17b11e58
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
-@@ -0,0 +1,75 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pci/plda,xpressrich3-axi-common.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++	pcie0_pins: pcie0-0 {
++		clkreq-pins {
++			pinmux = <GPIOMUX(27, GPOUT_LOW,
++					      GPOEN_DISABLE,
++					      GPI_NONE)>;
++			bias-pull-down;
++			drive-strength = <2>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
 +
-+title: PLDA XpressRICH PCIe host common properties
++		wake-pins {
++			pinmux = <GPIOMUX(32, GPOUT_LOW,
++					      GPOEN_DISABLE,
++					      GPI_NONE)>;
++			bias-pull-up;
++			drive-strength = <2>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++	};
 +
-+maintainers:
-+  - Daire McNamara <daire.mcnamara@microchip.com>
-+  - Kevin Xie <kevin.xie@starfivetech.com>
++	pcie1_pins: pcie1-0 {
++		clkreq-pins {
++			pinmux = <GPIOMUX(29, GPOUT_LOW,
++					      GPOEN_DISABLE,
++					      GPI_NONE)>;
++			bias-pull-down;
++			drive-strength = <2>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
 +
-+description:
-+  Generic PLDA XpressRICH PCIe host common properties.
++		wake-pins {
++			pinmux = <GPIOMUX(21, GPOUT_LOW,
++					      GPOEN_DISABLE,
++					      GPI_NONE)>;
++			bias-pull-up;
++			drive-strength = <2>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++	};
 +
-+allOf:
-+  - $ref: /schemas/pci/pci-bus.yaml#
+ 	spi0_pins: spi0-0 {
+ 		mosi-pins {
+ 			pinmux = <GPIOMUX(52, GPOUT_SYS_SPI0_TXD,
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index 45213cdf50dc..dfa2f94ed5b2 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -1138,5 +1138,91 @@
+ 			#reset-cells = <1>;
+ 			power-domains = <&pwrc JH7110_PD_VOUT>;
+ 		};
 +
-+properties:
-+  reg:
-+    maxItems: 2
++		pcie0: pcie@940000000 {
++			compatible = "starfive,jh7110-pcie";
++			reg = <0x9 0x40000000 0x0 0x1000000>,
++			      <0x0 0x2b000000 0x0 0x100000>;
++			reg-names = "cfg", "apb";
++			linux,pci-domain = <0>;
++			#address-cells = <3>;
++			#size-cells = <2>;
++			#interrupt-cells = <1>;
++			ranges = <0x82000000  0x0 0x30000000  0x0 0x30000000 0x0 0x08000000>,
++				 <0xc3000000  0x9 0x00000000  0x9 0x00000000 0x0 0x40000000>;
++			interrupts = <56>;
++			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
++			interrupt-map = <0x0 0x0 0x0 0x1 &pcie_intc0 0x1>,
++					<0x0 0x0 0x0 0x2 &pcie_intc0 0x2>,
++					<0x0 0x0 0x0 0x3 &pcie_intc0 0x3>,
++					<0x0 0x0 0x0 0x4 &pcie_intc0 0x4>;
++			msi-controller;
++			device_type = "pci";
++			starfive,stg-syscon = <&stg_syscon>;
++			bus-range = <0x0 0xff>;
++			clocks = <&syscrg JH7110_SYSCLK_NOC_BUS_STG_AXI>,
++				 <&stgcrg JH7110_STGCLK_PCIE0_TL>,
++				 <&stgcrg JH7110_STGCLK_PCIE0_AXI_MST0>,
++				 <&stgcrg JH7110_STGCLK_PCIE0_APB>;
++			clock-names = "noc", "tl", "axi_mst0", "apb";
++			resets = <&stgcrg JH7110_STGRST_PCIE0_AXI_MST0>,
++				 <&stgcrg JH7110_STGRST_PCIE0_AXI_SLV0>,
++				 <&stgcrg JH7110_STGRST_PCIE0_AXI_SLV>,
++				 <&stgcrg JH7110_STGRST_PCIE0_BRG>,
++				 <&stgcrg JH7110_STGRST_PCIE0_CORE>,
++				 <&stgcrg JH7110_STGRST_PCIE0_APB>;
++			reset-names = "mst0", "slv0", "slv", "brg",
++				      "core", "apb";
++			status = "disabled";
 +
-+  reg-names:
-+    items:
-+      - const: cfg
-+      - const: apb
++			pcie_intc0: interrupt-controller {
++				#address-cells = <0>;
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
 +
-+  interrupts:
-+    minItems: 1
-+    items:
-+      - description: PCIe host controller
-+      - description: builtin MSI controller
++		pcie1: pcie@9c0000000 {
++			compatible = "starfive,jh7110-pcie";
++			reg = <0x9 0xc0000000 0x0 0x1000000>,
++			      <0x0 0x2c000000 0x0 0x100000>;
++			reg-names = "cfg", "apb";
++			linux,pci-domain = <1>;
++			#address-cells = <3>;
++			#size-cells = <2>;
++			#interrupt-cells = <1>;
++			ranges = <0x82000000  0x0 0x38000000  0x0 0x38000000 0x0 0x08000000>,
++				 <0xc3000000  0x9 0x80000000  0x9 0x80000000 0x0 0x40000000>;
++			interrupts = <57>;
++			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
++			interrupt-map = <0x0 0x0 0x0 0x1 &pcie_intc1 0x1>,
++					<0x0 0x0 0x0 0x2 &pcie_intc1 0x2>,
++					<0x0 0x0 0x0 0x3 &pcie_intc1 0x3>,
++					<0x0 0x0 0x0 0x4 &pcie_intc1 0x4>;
++			msi-controller;
++			device_type = "pci";
++			starfive,stg-syscon = <&stg_syscon>;
++			bus-range = <0x0 0xff>;
++			clocks = <&syscrg JH7110_SYSCLK_NOC_BUS_STG_AXI>,
++				 <&stgcrg JH7110_STGCLK_PCIE1_TL>,
++				 <&stgcrg JH7110_STGCLK_PCIE1_AXI_MST0>,
++				 <&stgcrg JH7110_STGCLK_PCIE1_APB>;
++			clock-names = "noc", "tl", "axi_mst0", "apb";
++			resets = <&stgcrg JH7110_STGRST_PCIE1_AXI_MST0>,
++				 <&stgcrg JH7110_STGRST_PCIE1_AXI_SLV0>,
++				 <&stgcrg JH7110_STGRST_PCIE1_AXI_SLV>,
++				 <&stgcrg JH7110_STGRST_PCIE1_BRG>,
++				 <&stgcrg JH7110_STGRST_PCIE1_CORE>,
++				 <&stgcrg JH7110_STGRST_PCIE1_APB>;
++			reset-names = "mst0", "slv0", "slv", "brg",
++				      "core", "apb";
++			status = "disabled";
 +
-+  interrupt-names:
-+    minItems: 1
-+    items:
-+      - const: pcie
-+      - const: msi
-+
-+  msi-controller:
-+    description: Identifies the node as an MSI controller.
-+
-+  msi-parent:
-+    description: MSI controller the device is capable of using.
-+
-+  interrupt-controller:
-+    type: object
-+    properties:
-+      '#address-cells':
-+        const: 0
-+
-+      '#interrupt-cells':
-+        const: 1
-+
-+      interrupt-controller: true
-+
-+    required:
-+      - '#address-cells'
-+      - '#interrupt-cells'
-+      - interrupt-controller
-+
-+    additionalProperties: false
-+
-+required:
-+  - reg
-+  - reg-names
-+  - interrupts
-+  - msi-controller
-+  - "#interrupt-cells"
-+  - interrupt-map-mask
-+  - interrupt-map
-+
-+additionalProperties: true
-+
-+...
++			pcie_intc1: interrupt-controller {
++				#address-cells = <0>;
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
+ 	};
+ };
 -- 
 2.17.1
 
