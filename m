@@ -4,110 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09BC4C54FB9
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 14:45:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C76CC55825
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 14:53:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WQcyhUpvZwPJm/+EadJYfbl4aixd8tEXum0xLgl4JFc=; b=kiA+Ttzq2O/sa3
-	2a+3yUCupciin2FsJEdconIlUZzV1/gh1ITbnYesof19Ek3R1e+ZZ4i6a556Y3rPKIuGwwo0viPhb
-	UJY6NVR6IWTG+qpRzpOQxXtuc2qXXoHWpm5nS2ZXxa3+BU//4On/nDthWZXz58hIefXZdJYFf/WAk
-	fr59nzCwmNHvckmlqcCn3N9jbzJb6NOMYovJsTWbClvuV7qh1G5cittS9SAh1o1NSBjUPX1RYYc4x
-	2FxuRLs+/UZKIEmQbj9PIeRAM1RuaYsdEUDed574ANkpRJEJvEYfR6+6yu4NCbRW//FDPdCqK0jDo
-	O/m2nGCEc95VwUOpR+Lg==;
+	List-Owner; bh=GZZSvxH6tBjCOB/usvxgv0ir0SqIZoXyNQGbMdlDcE4=; b=hA02VWdY9UCxqK
+	jSjCcMyArFaJUesTwgjCsB4X1+mcYYhe0n8wG/fdBF8mRfKmY5Q09t5T5GUEpAumgTzzdxAJ4J8GP
+	dWYPiExtx5jpwqt3A1buMQEjXNb48VZM1kSuVJR7t7DLT53Vw4v30m9MQDN6bxy4BAEQ6Ms7DD1xp
+	j1KkiXPDiO/Iu/+GLxu9cf0stLW7vuOGVh1NUay7cjkdntsAFckmZ8jPuS0dGmTI4E0i2afjCkg0q
+	oDddCAOU9eFIdM04+gmjmKzocB004O4EMh+b86S8Rra4NQ2VAK+eMkt0qk0oMOdrK9KJkEG1xDMdt
+	9wG7W/Eu8HLeUnatK8PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3H9K-0014LT-1H;
-	Wed, 15 Nov 2023 14:45:50 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3H9G-0014Ii-1N
+	id 1r3HGJ-0015X5-0u;
+	Wed, 15 Nov 2023 14:53:03 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1r3HGE-0015TN-21
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Nov 2023 14:45:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1700059545;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sqWGwV812/CXYndzj2W50PA7KOMPm+tHC+e+xjD2/M0=;
-	b=eMisUO8GETcoW33XgbVvGFoZSGvcs6sr8qGR7HdNuy6l7n+3b1r3cCgVaaTc4rmVnvIdFs
-	esAP0rORkrKtXky+DkVYgB6FJ4yK+vA/nAux7Gys3mK38+iEZ1SFTozp/AS0YvkuyBj+qC
-	QN055SZdG2DH06ofT8KRCvBNYieATAE=
-Received: from mail-oo1-f70.google.com (mail-oo1-f70.google.com
- [209.85.161.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-605-SJiyLUImMjalW5OEk7elKA-1; Wed, 15 Nov 2023 09:45:43 -0500
-X-MC-Unique: SJiyLUImMjalW5OEk7elKA-1
-Received: by mail-oo1-f70.google.com with SMTP id 006d021491bc7-581dcaf04e6so6879950eaf.1
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Nov 2023 06:45:43 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700059543; x=1700664343;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sqWGwV812/CXYndzj2W50PA7KOMPm+tHC+e+xjD2/M0=;
-        b=iBQpvEVODTuQ9EBDaEr9ZpVWcqttlXnZ9C9zOmasENLcUfBgGDpWMf5Ux23NdEMCmp
-         FxiXq0T6P4zParkIXvSuFxMPUxmlvvUQcwZnqRUqcHEKDKxSWO5c1AlWzljS/s3awyT4
-         sIjtNu+CiaMNw6qHCl/oLouYkn6eDtGny5uMzAzVdZcEKfD/krrrzMO3BvJfIiPCFWYF
-         aAlQBQSav6DnYxmTsk3dNfydVGVPwN+MjOlRq/8RCc0n3BxsrRVF4inK5mu83jMvLDMz
-         SjZGYP/xEjSJV5lqC2hosT0C0GiQIgJJLkjLsr315x4kTDdrGarMF84fzexOQgJzTCO6
-         weDw==
-X-Gm-Message-State: AOJu0YyBqTNhtndbkGWcld7bozwF80eiUS566qq5pcqm1j3IStt/zQw0
-	oN2fu7dQMHUwSNhhCqKnGdH2Mn+eO6pcuInNFlo/g7H3hiEdpkWjOLAR/ksw1F5RCty//D4qQvQ
-	rWXAOm2HKHM4dWbdSaAh70hNbqqzx
-X-Received: by 2002:a05:6358:919a:b0:16b:c64b:5dad with SMTP id j26-20020a056358919a00b0016bc64b5dadmr7077892rwa.10.1700059543251;
-        Wed, 15 Nov 2023 06:45:43 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHcJVORPEWxErQUmTJ/FpxcV4QjvJjDEY7Ir6ZH3gFB8P/4S+/kGnZXTGDIbciHJXITaJ6Zhw==
-X-Received: by 2002:a05:6358:919a:b0:16b:c64b:5dad with SMTP id j26-20020a056358919a00b0016bc64b5dadmr7077772rwa.10.1700059540988;
-        Wed, 15 Nov 2023 06:45:40 -0800 (PST)
-Received: from localhost (ip98-179-76-75.ph.ph.cox.net. [98.179.76.75])
-        by smtp.gmail.com with ESMTPSA id v10-20020a0cf90a000000b00655d6d31470sm577985qvn.43.2023.11.15.06.45.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Nov 2023 06:45:40 -0800 (PST)
-Date: Wed, 15 Nov 2023 07:45:39 -0700
-From: Jerry Snitselaar <jsnitsel@redhat.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: acpica-devel@lists.linux.dev, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
-	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>, 
-	Dexuan Cui <decui@microsoft.com>, devicetree@vger.kernel.org, 
-	David Woodhouse <dwmw2@infradead.org>, Frank Rowand <frowand.list@gmail.com>, 
-	Hanjun Guo <guohanjun@huawei.com>, Haiyang Zhang <haiyangz@microsoft.com>, iommu@lists.linux.dev, 
-	Jean-Philippe Brucker <jean-philippe@linaro.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Joerg Roedel <joro@8bytes.org>, "K. Y. Srinivasan" <kys@microsoft.com>, 
-	Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-snps-arc@lists.infradead.org, linux-tegra@vger.kernel.org, 
-	Russell King <linux@armlinux.org.uk>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Hector Martin <marcan@marcan.st>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, patches@lists.linux.dev, 
-	Paul Walmsley <paul.walmsley@sifive.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Robert Moore <robert.moore@intel.com>, Rob Herring <robh+dt@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>, Sven Peter <sven@svenpeter.dev>, 
-	Thierry Reding <thierry.reding@gmail.com>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	Krishna Reddy <vdumpa@nvidia.com>, Vineet Gupta <vgupta@kernel.org>, virtualization@lists.linux.dev, 
-	Wei Liu <wei.liu@kernel.org>, Will Deacon <will@kernel.org>, 
-	=?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>, Lu Baolu <baolu.lu@linux.intel.com>, 
-	Christoph Hellwig <hch@lst.de>, Moritz Fischer <mdf@kernel.org>, 
-	Zhenhua Huang <quic_zhenhuah@quicinc.com>, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
-	Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH v2 04/17] acpi: Do not return struct iommu_ops from
- acpi_iommu_configure_id()
-Message-ID: <qmb2wshxcq75o43xikgw3ks6d72yyiranapupkwmwcm5b4vkgp@mgm36neokikv>
-References: <0-v2-36a0088ecaa7+22c6e-iommu_fwspec_jgg@nvidia.com>
- <4-v2-36a0088ecaa7+22c6e-iommu_fwspec_jgg@nvidia.com>
+	Wed, 15 Nov 2023 14:53:01 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 3CE7C24E20F;
+	Wed, 15 Nov 2023 22:52:28 +0800 (CST)
+Received: from EXMBX161.cuchost.com (172.16.6.71) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Nov
+ 2023 22:52:28 +0800
+Received: from [192.168.1.115] (180.164.60.184) by EXMBX161.cuchost.com
+ (172.16.6.71) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Nov
+ 2023 22:52:27 +0800
+Message-ID: <21e14a40-e707-4925-b43b-6656ae59d680@starfivetech.com>
+Date: Wed, 15 Nov 2023 22:52:27 +0800
 MIME-Version: 1.0
-In-Reply-To: <4-v2-36a0088ecaa7+22c6e-iommu_fwspec_jgg@nvidia.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/6] drm/vs: Add KMS crtc&plane
+Content-Language: en-US
+To: Maxime Ripard <mripard@kernel.org>
+CC: "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"linaro-mm-sig@lists.linaro.org" <linaro-mm-sig@lists.linaro.org>, "David
+ Airlie" <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
+	"Emil Renner Berthing" <kernel@esmil.dk>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Sumit Semwal
+	<sumit.semwal@linaro.org>, "christian.koenig@amd.com"
+	<christian.koenig@amd.com>, Bjorn Andersson <andersson@kernel.org>, "Heiko
+ Stuebner" <heiko@sntech.de>, Shawn Guo <shawnguo@kernel.org>, Jagan Teki
+	<jagan@edgeble.ai>, Chris Morgan <macromorgan@hotmail.com>, Jack Zhu
+	<jack.zhu@starfivetech.com>, Shengyang Chen
+	<shengyang.chen@starfivetech.com>, Changhuang Liang
+	<changhuang.liang@starfivetech.com>
+References: <20231025103957.3776-1-keith.zhao@starfivetech.com>
+ <20231025103957.3776-6-keith.zhao@starfivetech.com>
+ <pfjfxkpg4cheozhnjgql67ntfiapssba36ukusqrlo6za4owv3@mwzucmdqboy5>
+From: Keith Zhao <keith.zhao@starfivetech.com>
+In-Reply-To: <pfjfxkpg4cheozhnjgql67ntfiapssba36ukusqrlo6za4owv3@mwzucmdqboy5>
+X-Originating-IP: [180.164.60.184]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX161.cuchost.com
+ (172.16.6.71)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231115_064546_541193_6C87EC48 
-X-CRM114-Status: UNSURE (   7.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231115_065259_221042_A3261D8D 
+X-CRM114-Status: GOOD (  32.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,8 +94,205 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Reviewed-by: Jerry Snitselaar <jsnitsel@redhat.com>
 
+
+On 2023/10/25 21:57, Maxime Ripard wrote:
+> On Wed, Oct 25, 2023 at 06:39:56PM +0800, Keith Zhao wrote:
+>> +static struct drm_crtc_state *
+>> +vs_crtc_atomic_duplicate_state(struct drm_crtc *crtc)
+>> +{
+>> +	struct vs_crtc_state *ori_state;
+>> +	struct vs_crtc_state *state;
+>> +
+>> +	if (!crtc->state)
+>> +		return NULL;
+>> +
+>> +	ori_state = to_vs_crtc_state(crtc->state);
+>> +	state = kzalloc(sizeof(*state), GFP_KERNEL);
+>> +	if (!state)
+>> +		return NULL;
+>> +
+>> +	__drm_atomic_helper_crtc_duplicate_state(crtc, &state->base);
+>> +
+>> +	state->output_fmt = ori_state->output_fmt;
+> 
+> That field is never set in your patch.
+> 
+>> +	state->encoder_type = ori_state->encoder_type;
+> 
+> That isn't either, and it's not clear why you would need the
+> encoder_type stored in the CRTC?
+> 
+>> +	state->bpp = ori_state->bpp;
+> 
+> You seem to derive that from output_fmt, it doesn't need to be in the
+> CRTC state.
+> 
+>> +	state->underflow = ori_state->underflow;
+> 
+> Assuming you're setting this from the interrupt handler, it's unsafe,
+> you shouldn't do that. What are you using it for?
+I am going to use the crtc_debugfs function for printing.
+crtc_debugfs  will use it
+But now I'd better delete it
+
+> 
+>> +static const struct drm_prop_enum_list vs_sync_mode_enum_list[] = {
+>> +	{ VS_SINGLE_DC,				"single dc mode" },
+>> +	{ VS_MULTI_DC_PRIMARY,		"primary dc for multi dc mode" },
+>> +	{ VS_MULTI_DC_SECONDARY,	"secondary dc for multi dc mode" },
+>> +};
+> 
+> Custom driver properties are a no-go:
+> https://docs.kernel.org/gpu/drm-kms.html#requirements
+> 
+> And
+> 
+> https://docs.kernel.org/gpu/drm-uapi.html#open-source-userspace-requirements
+> 
+>> +void vs_dc_enable(struct vs_dc *dc, struct drm_crtc *crtc)
+>> +{
+>> +	struct vs_crtc_state *crtc_state = to_vs_crtc_state(crtc->state);
+>> +	struct drm_display_mode *mode = &crtc->state->adjusted_mode;
+>> +	struct dc_hw_display display;
+> 
+> Why are you rolling your own structure here, if it's exactly equivalent
+> to what drm_display_mode and the crtc_state provide?
+My original intention was to make the hardware part purer. and 
+want to decouple hardware from drm struct.
+
+so I define the own structure  between drm and hardware.
+Maybe doing this will make both the hardware and drm happy
+
+> 
+>> +void vs_dc_commit(struct vs_dc *dc)
+>> +{
+>> +	dc_hw_enable_shadow_register(&dc->hw, false);
+>> +
+>> +	dc_hw_commit(&dc->hw);
+>> +
+>> +	if (dc->first_frame)
+>> +		dc->first_frame = false;
+>> +
+>> +	dc_hw_enable_shadow_register(&dc->hw, true);
+>> +}
+> 
+> It's not clear to me what you're trying to do here, does the hardware
+> have latched registers that are only updated during vblank?
+> 
+>> +static int dc_bind(struct device *dev, struct device *master, void *data)
+>> +{
+>> +	struct drm_device *drm_dev = data;
+>> +	struct vs_dc *dc = dev_get_drvdata(dev);
+>> +	struct device_node *port;
+>> +	struct vs_crtc *crtc;
+>> +	struct vs_dc_info *dc_info;
+>> +	struct vs_plane *plane;
+>> +	struct vs_plane_info *plane_info;
+>> +	int i, ret;
+>> +	u32 ctrc_mask = 0;
+>> +
+>> +	if (!drm_dev || !dc) {
+>> +		dev_err(dev, "devices are not created.\n");
+>> +		return -ENODEV;
+>> +	}
+>> +
+>> +	ret = dc_init(dev);
+>> +	if (ret < 0) {
+>> +		drm_err(drm_dev, "Failed to initialize DC hardware.\n");
+>> +		return ret;
+>> +	}
+>> +
+>> +	port = of_get_child_by_name(dev->of_node, "port");
+>> +	if (!port) {
+>> +		drm_err(drm_dev, "no port node found\n");
+>> +		return -ENODEV;
+>> +	}
+>> +	of_node_put(port);
+>> +
+>> +	dc_info = dc->hw.info;
+>> +
+>> +	for (i = 0; i < dc_info->panel_num; i++) {
+>> +		crtc = vs_crtc_create(drm_dev, dc_info);
+>> +		if (!crtc) {
+>> +			drm_err(drm_dev, "Failed to create CRTC.\n");
+>> +			ret = -ENOMEM;
+>> +			return ret;
+>> +		}
+>> +
+>> +		crtc->base.port = port;
+>> +		crtc->dev = dev;
+>> +		dc->crtc[i] = crtc;
+>> +		ctrc_mask |= drm_crtc_mask(&crtc->base);
+>> +	}
+>> +
+>> +	for (i = 0; i < dc_info->plane_num; i++) {
+>> +		plane_info = (struct vs_plane_info *)&dc_info->planes[i];
+>> +
+>> +		if (!strcmp(plane_info->name, "Primary") || !strcmp(plane_info->name, "Cursor")) {
+>> +			plane = vs_plane_create(drm_dev, plane_info, dc_info->layer_num,
+>> +						drm_crtc_mask(&dc->crtc[0]->base));
+>> +		} else if (!strcmp(plane_info->name, "Primary_1") ||
+>> +				   !strcmp(plane_info->name, "Cursor_1")) {
+> 
+> Please use an enum and an id there.
+> 
+>> +static int vs_plane_atomic_set_property(struct drm_plane *plane,
+>> +					struct drm_plane_state *state,
+>> +					struct drm_property *property,
+>> +					uint64_t val)
+>> +{
+>> +	struct drm_device *dev = plane->dev;
+>> +	struct vs_plane *vs_plane = to_vs_plane(plane);
+>> +	struct vs_plane_state *vs_plane_state = to_vs_plane_state(state);
+>> +	int ret = 0;
+>> +
+>> +	if (property == vs_plane->degamma_mode) {
+>> +		if (vs_plane_state->degamma != val) {
+>> +			vs_plane_state->degamma = val;
+>> +			vs_plane_state->degamma_changed = true;
+>> +		} else {
+>> +			vs_plane_state->degamma_changed = false;
+>> +		}
+>> +	} else if (property == vs_plane->watermark_prop) {
+>> +		ret = _vs_plane_set_property_blob_from_id(dev,
+>> +							  &vs_plane_state->watermark,
+>> +							  val,
+>> +							  sizeof(struct drm_vs_watermark));
+>> +		return ret;
+>> +	} else if (property == vs_plane->color_mgmt_prop) {
+>> +		ret = _vs_plane_set_property_blob_from_id(dev,
+>> +							  &vs_plane_state->color_mgmt,
+>> +							  val,
+>> +							  sizeof(struct drm_vs_color_mgmt));
+>> +		return ret;
+>> +	} else if (property == vs_plane->roi_prop) {
+>> +		ret = _vs_plane_set_property_blob_from_id(dev,
+>> +							  &vs_plane_state->roi,
+>> +							  val,
+>> +							  sizeof(struct drm_vs_roi));
+>> +		return ret;
+>> +	} else {
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+> 
+> Same story than above for properties
+> 
+> 
+> Honestly, that driver is pretty massive, and you should be simplifying
+> it a lot of you want the initial contribution to be as smooth as
+> possible.
+> 
+> Things like all the tiling formats, the underflowing handling, all those
+> properties, etc can (and should) be added in a second step once the
+> foundations are in.
+> 
+> Maxime
+
+ok , Thanks for reminding me. I will clarify my next goal and be more likely to simplify features.
 
 _______________________________________________
 linux-riscv mailing list
