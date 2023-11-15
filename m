@@ -4,76 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C897FC07548
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 10:14:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8540AC47072
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 11:50:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iK3SgJPpGaITgXHnpHqysrL6SiK3HSvneQMlCoNWVfg=; b=TGEeVKVTT4IyKs
-	t5mHWzH5kbY1XkJODhLWP7kf+L+3yexudo+hk5x/qTDdWi5BcOiGp2EYtO7qhuVuJPHR5lM6WBUoX
-	38UXHDr/NCtCIMPYAU/LxbZAWTKbBzq62JHJ2OBqzKfgYVQfmqsz+y4PxDX3XsdqIkITSqqAMfFqT
-	ZxBfEGcsF2QaCfphfufanKoWbrsur9xDcdIXK72iurvEKXtlfOiTIMrkVL6WXQ8XnH1siknuLEsZJ
-	A9PNq8cMyCf1AMYAQe1ZgOJVNsrMD3Pz2LN1EoHgD5kNFu8HhhDIrwYm/vBAMrhpmEZeREKhwgSQA
-	FxdqelWgW0L96xkyFJkg==;
+	List-Owner; bh=bCQWDUnEt+AMolITT1VLN0Kcrr57FtHNRrXmdrbUUMI=; b=bt10ol5dXJaRwz
+	XdFT7OK8BRutonXl/btHwm7ojMoSNlRAFczgh2+G7aQ3i45271ivZT1OOHNx3awql9wpJoX9lM6AD
+	iyDKX6ef5GmLT52C3DPLStdsO3L4209wcc7F65QbktHBBhureYirv5GHqZanXtSSOVY2EB7PbQ7wg
+	8n1R1EomYVGnfgrouc0JkmvnFs9MIH3uyKrpoKS16EcKOBvLlCMMeTvqaeGzTOSfug/0obUwtJscv
+	hvIon40i7IfOLN0Ye+jsYMmxN3csqi29hzQn2Wwzqgw08Ir0ZNwe5h9QgL2QAuNBdq5zlzZ2yoHZ4
+	kN1wr7rj5hIT42rSQi/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3CuL-000Qeu-09;
-	Wed, 15 Nov 2023 10:14:05 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3CuG-000QUa-2h;
-	Wed, 15 Nov 2023 10:14:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=J+m5Wux4gCeZ5VbKE22zSD3h2vqCToIPoOglMpcMB98=; b=WMk7AaLVtN5GRy7VHSplvABKOr
-	OXRc47CE5LjYfVL1I4G9BmL9nkSst8Vh0ERKHmS8MJxRSPLKDFvaYbEeA1sMiDIYtcRhNQa/pnlI8
-	PkqOB9knMX2YL+uvuraKATTscnDpMYKl3cLLR36pzK4yKmNHGHEjAw7PZ395B53vvUhyuWvtelDyB
-	r5XhCGNIJB9iBgYQiuOIDQBOPCIGnr+az2tu1OpmA6+1stGbOEb7mZfrcCgopQw9ZYDmB/DHKIyAH
-	MGihds8I0ekCwC2YQuqoXNHvkOJ31Wt+yTJ713pnOPmQLGMyMGfLqHWpB6tvMEThA4WWseIPd1uBc
-	ry+LnBrA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56952)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1r3Crx-0000WK-1q;
-	Wed, 15 Nov 2023 10:11:37 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1r3Crw-0006Uz-QI; Wed, 15 Nov 2023 10:11:36 +0000
-Date: Wed, 15 Nov 2023 10:11:36 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Gavin Shan <gshan@redhat.com>
-Cc: linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
-	x86@kernel.org, linux-csky@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-ia64@vger.kernel.org,
-	linux-parisc@vger.kernel.org, Salil Mehta <salil.mehta@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	jianyong.wu@arm.com, justin.he@arm.com,
-	James Morse <james.morse@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>
-Subject: Re: [PATCH RFC 11/22] drivers: base: remove unnecessary call to
- register_cpu_under_node()
-Message-ID: <ZVSZWK+OmZWEce33@shell.armlinux.org.uk>
-References: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
- <E1r0JLa-00CTxY-Uv@rmk-PC.armlinux.org.uk>
- <955f2b95-76e4-4e68-830b-e6dd9f122dc1@redhat.com>
+	id 1r3EPE-000h3z-1M;
+	Wed, 15 Nov 2023 11:50:04 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1r3EP9-000goo-0x
+	for linux-riscv@lists.infradead.org;
+	Wed, 15 Nov 2023 11:50:01 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id BDB2F24DBF3;
+	Wed, 15 Nov 2023 19:49:16 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Nov
+ 2023 19:49:16 +0800
+Received: from ubuntu.localdomain (183.27.97.246) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Nov
+ 2023 19:49:15 +0800
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?=
+	<kw@linux.com>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
+	<bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, "Daire
+ McNamara" <daire.mcnamara@microchip.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-pci@vger.kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
+	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
+	<minda.chen@starfivetech.com>
+Subject: [PATCH v11 02/20] PCI: microchip: Move pcie-microchip-host.c to plda directory
+Date: Wed, 15 Nov 2023 19:48:54 +0800
+Message-ID: <20231115114912.71448-3-minda.chen@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20231115114912.71448-1-minda.chen@starfivetech.com>
+References: <20231115114912.71448-1-minda.chen@starfivetech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <955f2b95-76e4-4e68-830b-e6dd9f122dc1@redhat.com>
+X-Originating-IP: [183.27.97.246]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
+ (172.16.6.91)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231115_021400_897461_87C6921B 
-X-CRM114-Status: GOOD (  21.67  )
+X-CRM114-CacheID: sfid-20231115_034959_702972_ABC2E759 
+X-CRM114-Status: GOOD (  16.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,67 +82,137 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 13, 2023 at 02:04:32PM +1000, Gavin Shan wrote:
-> On 11/7/23 20:30, Russell King (Oracle) wrote:
-> > Since "drivers: base: Move cpu_dev_init() after node_dev_init()", we
-> > can remove some redundant code.
-> > 
-> > node_dev_init() will walk through the nodes calling register_one_node()
-> > on each. This will trickle down to __register_one_node() which walks
-> > all present CPUs, calling register_cpu_under_node() on each.
-> > 
-> > register_cpu_under_node() will call get_cpu_device(cpu) for each, which
-> > will return NULL until the CPU is registered using register_cpu(). This
-> > now happens _after_ node_dev_init().
-> > 
-> > Therefore, calling register_cpu_under_node() from __register_one_node()
-> > becomes a no-op, and can be removed.
-> > 
-> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> > ---
-> >   drivers/base/node.c | 7 -------
-> >   1 file changed, 7 deletions(-)
-> > 
-> 
-> __register_one_node() can be called in memory hot add path either. In that path,
-> a new NUMA node can be presented and becomes online. Does this become a problem
-> after the logic of associating CPU with newly added NUMA node?
+For Microchip Polarfire PCIe host is PLDA XpressRich IP, move to plda
+directory. Prepare for refactor the codes.
 
-I guess this is where ordering matters.
+Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ MAINTAINERS                                        |  4 ++--
+ drivers/pci/controller/Kconfig                     |  9 +--------
+ drivers/pci/controller/Makefile                    |  2 +-
+ drivers/pci/controller/plda/Kconfig                | 14 ++++++++++++++
+ drivers/pci/controller/plda/Makefile               |  2 ++
+ .../controller/{ => plda}/pcie-microchip-host.c    |  2 +-
+ 6 files changed, 21 insertions(+), 12 deletions(-)
+ create mode 100644 drivers/pci/controller/plda/Kconfig
+ create mode 100644 drivers/pci/controller/plda/Makefile
+ rename drivers/pci/controller/{ => plda}/pcie-microchip-host.c (99%)
 
-As mentioned in the commit message, register_cpu_under_node() does
-this:
-
-        if (!node_online(nid))
-                return 0;
-
-        obj = get_cpu_device(cpu);
-        if (!obj)
-                return 0;
-
-get_cpu_device() will return NULL if the CPU is not possible or is out
-of range, or register_cpu() has not yet been called for this CPU, and
-register_cpu() will call register_cpu_under_node().
-
-I guess it is possible for a CPU it be present, but the node its
-associated with would not be online, which means we end up with
-register_cpu_under_node() returning on !node_online(nid) but we've
-populated the CPU devices (thus get_cpu_device(cpu) would return
-non-NULL).
-
-Then when the numa node comes online, we do still need to call this
-path, so this change is incorrect.
-
-It came about trying to address Jonathan's comment for this patch:
-
-https://lore.kernel.org/r/20230913163823.7880-7-james.morse@arm.com
-
-I think my response to Jonathan is still correct - but didn't need
-a code change. I'm dropping this patch.
-
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 97f51d5ec1cf..aaccaa89ff2d 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -16844,7 +16844,7 @@ M:	Daire McNamara <daire.mcnamara@microchip.com>
+ L:	linux-pci@vger.kernel.org
+ S:	Supported
+ F:	Documentation/devicetree/bindings/pci/microchip*
+-F:	drivers/pci/controller/*microchip*
++F:	drivers/pci/controller/plda/*microchip*
+ 
+ PCIE DRIVER FOR QUALCOMM MSM
+ M:	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+@@ -18643,7 +18643,7 @@ F:	drivers/char/hw_random/mpfs-rng.c
+ F:	drivers/clk/microchip/clk-mpfs*.c
+ F:	drivers/i2c/busses/i2c-microchip-corei2c.c
+ F:	drivers/mailbox/mailbox-mpfs.c
+-F:	drivers/pci/controller/pcie-microchip-host.c
++F:	drivers/pci/controller/plda/pcie-microchip-host.c
+ F:	drivers/pwm/pwm-microchip-core.c
+ F:	drivers/reset/reset-mpfs.c
+ F:	drivers/rtc/rtc-mpfs.c
+diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
+index e534c02ee34f..4d2c188f5835 100644
+--- a/drivers/pci/controller/Kconfig
++++ b/drivers/pci/controller/Kconfig
+@@ -215,14 +215,6 @@ config PCIE_MT7621
+ 	help
+ 	  This selects a driver for the MediaTek MT7621 PCIe Controller.
+ 
+-config PCIE_MICROCHIP_HOST
+-	tristate "Microchip AXI PCIe controller"
+-	depends on PCI_MSI && OF
+-	select PCI_HOST_COMMON
+-	help
+-	  Say Y here if you want kernel to support the Microchip AXI PCIe
+-	  Host Bridge driver.
+-
+ config PCI_HYPERV_INTERFACE
+ 	tristate "Microsoft Hyper-V PCI Interface"
+ 	depends on ((X86 && X86_64) || ARM64) && HYPERV && PCI_MSI
+@@ -356,4 +348,5 @@ config PCIE_XILINX_CPM
+ source "drivers/pci/controller/cadence/Kconfig"
+ source "drivers/pci/controller/dwc/Kconfig"
+ source "drivers/pci/controller/mobiveil/Kconfig"
++source "drivers/pci/controller/plda/Kconfig"
+ endmenu
+diff --git a/drivers/pci/controller/Makefile b/drivers/pci/controller/Makefile
+index f2b19e6174af..038ccbd9e3ba 100644
+--- a/drivers/pci/controller/Makefile
++++ b/drivers/pci/controller/Makefile
+@@ -33,7 +33,6 @@ obj-$(CONFIG_PCIE_ROCKCHIP_EP) += pcie-rockchip-ep.o
+ obj-$(CONFIG_PCIE_ROCKCHIP_HOST) += pcie-rockchip-host.o
+ obj-$(CONFIG_PCIE_MEDIATEK) += pcie-mediatek.o
+ obj-$(CONFIG_PCIE_MEDIATEK_GEN3) += pcie-mediatek-gen3.o
+-obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
+ obj-$(CONFIG_VMD) += vmd.o
+ obj-$(CONFIG_PCIE_BRCMSTB) += pcie-brcmstb.o
+ obj-$(CONFIG_PCI_LOONGSON) += pci-loongson.o
+@@ -44,6 +43,7 @@ obj-$(CONFIG_PCIE_MT7621) += pcie-mt7621.o
+ # pcie-hisi.o quirks are needed even without CONFIG_PCIE_DW
+ obj-y				+= dwc/
+ obj-y				+= mobiveil/
++obj-y				+= plda/
+ 
+ 
+ # The following drivers are for devices that use the generic ACPI
+diff --git a/drivers/pci/controller/plda/Kconfig b/drivers/pci/controller/plda/Kconfig
+new file mode 100644
+index 000000000000..5cb3be4fc98c
+--- /dev/null
++++ b/drivers/pci/controller/plda/Kconfig
+@@ -0,0 +1,14 @@
++# SPDX-License-Identifier: GPL-2.0
++
++menu "PLDA-based PCIe controllers"
++	depends on PCI
++
++config PCIE_MICROCHIP_HOST
++	tristate "Microchip AXI PCIe controller"
++	depends on PCI_MSI && OF
++	select PCI_HOST_COMMON
++	help
++	  Say Y here if you want kernel to support the Microchip AXI PCIe
++	  Host Bridge driver.
++
++endmenu
+diff --git a/drivers/pci/controller/plda/Makefile b/drivers/pci/controller/plda/Makefile
+new file mode 100644
+index 000000000000..e1a265cbf91c
+--- /dev/null
++++ b/drivers/pci/controller/plda/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0
++obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
+diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+similarity index 99%
+rename from drivers/pci/controller/pcie-microchip-host.c
+rename to drivers/pci/controller/plda/pcie-microchip-host.c
+index 137fb8570ba2..cb09a8137e25 100644
+--- a/drivers/pci/controller/pcie-microchip-host.c
++++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+@@ -18,7 +18,7 @@
+ #include <linux/pci-ecam.h>
+ #include <linux/platform_device.h>
+ 
+-#include "../pci.h"
++#include "../../pci.h"
+ 
+ /* Number of MSI IRQs */
+ #define MC_MAX_NUM_MSI_IRQS			32
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
