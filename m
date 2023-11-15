@@ -4,79 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5600C072A2
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 15:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16536C5AD4C
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 15:27:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9DGbFYoLGDGplxPXwkSNH2s3slXDvZfv17xEw+PvYVk=; b=cqM8n7w6ge4pOv
-	fnnJu0xDuIoiJcf7a/983e4KpaO2fwoJqpcL5mXI7YFC2CS+VqbJ9FDlMV3fav4oDQOUQY8yRFLvK
-	SFJ21eNJYmeHLFRrU9/o3UYnaMYnbrl6QNym38fQFU272ltF1Tzf7XbPcZVM7CBRgJBSOJIRpZwNv
-	HSVGjKadXaq6SmPcpJbcLKaAUTwE5OK2/fIG0s5dTJpaQHyJ4bBu9+h4+v9k5oDvAu/OAeAQ9kCU5
-	WzpJopCqXDK+iPkXLMPc8M4r/gA3vE/9JY6Xzrl142GBTN31/uAGCTKRS4QBzFbSDbOK8PW9rFm3a
-	xfQdW6vDEwBuTQ/tWxqw==;
+	List-Owner; bh=IWjVRkGU8Cl5ENScQYkQknmmRe/dJCcHIjoMkw9Li6k=; b=jAR6z/PdvSVK3X
+	jUkdBfd2gEIN77NSk1L+fa5ntgwXLU9X8sRushWv96sBa4fr4atN+ed1l+VCqaIOb3Zb18/pnkW6m
+	3vDJwaRL2Yc6dUBL4o+n+8lYfbU/Fyj7o/VYaBSNOJpgfWVLNbIRvdFMsI3VdVa7oL6DDsTQ9wnTU
+	ME7nSt3gAOH89XWsdPgIiuJMyiGRu89BstqwmHZUgatOo+EKjWoKLb2mZ5i56XD5kir3FLsTM+HrA
+	lFjXkC1Vq4NVVBJPMIIchzB2KzDTHRTvrXPKYW2jFLTCW6WnZBJt4cpxauTooZuLuqf8Njm5jJkEs
+	fhJh+wkLOLL3xTYl871g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3Him-001ADp-1W;
-	Wed, 15 Nov 2023 15:22:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3Hii-001AD2-0r;
-	Wed, 15 Nov 2023 15:22:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6CF5FC15;
-	Wed, 15 Nov 2023 07:23:07 -0800 (PST)
-Received: from [10.57.83.164] (unknown [10.57.83.164])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 30E023F641;
-	Wed, 15 Nov 2023 07:22:11 -0800 (PST)
-Message-ID: <1316b55e-8074-4b2f-99df-585df2f3dd06@arm.com>
-Date: Wed, 15 Nov 2023 15:22:09 +0000
+	id 1r3Hnm-001Aye-1O;
+	Wed, 15 Nov 2023 15:27:38 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1r3Hnj-001Axq-2s
+	for linux-riscv@lists.infradead.org;
+	Wed, 15 Nov 2023 15:27:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id 3A18BB81AAC;
+	Wed, 15 Nov 2023 15:27:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 590ECC433C7;
+	Wed, 15 Nov 2023 15:27:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1700062053;
+	bh=vIyO62Y1rX3UiM9wLvewj/4J1jBrDX4ryBgvCxiLOMg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=b9uSX5wyi2/f49m9IDT2ro1jZBmesSIY6wLeLsuwUMohCuDNcwmMuo5mcp2Y5zTMl
+	 xK/u9kXS+G9rSoxpPYHC3LMBjlOl3DYBQmBlnQ0bYfQw5in+YsKGenObCOmtQt8IfG
+	 IS+uVORTkrHg9OJoJOXiaSQVt4oaFfa1mY8PHTHrraPl150MXJuTtVhhrJFyJrNJ69
+	 19Iq1lZL/R1mKu6USmOsBiVDj3SYkgRKKd4NlEVKH1lzhwEPHylHdO0iUHvosooOlz
+	 zLsIR7nnrMT0B3ltU0gYATGvZpHY9ZAljZ3RRan8ejw7RK8ANfpj5O2W2+F9VjkOHf
+	 XzBstOU1XpSoA==
+Date: Wed, 15 Nov 2023 23:15:11 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Chao Wei <chao.wei@sophgo.com>,
+	Chen Wang <unicorn_wang@outlook.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 1/4] dt-bindings: reset: Add binding for Sophgo CV1800B
+ reset controller
+Message-ID: <ZVTgfzeK6GkKpArK@xhacker>
+References: <20231113005503.2423-1-jszhang@kernel.org>
+ <20231113005503.2423-2-jszhang@kernel.org>
+ <44f21244-5bf1-4e0f-80a9-6ec76d65eea4@linaro.org>
+ <ZVTHMsXaPdHiuUOF@xhacker>
+ <80e28d77-4a0e-4827-91c0-951094176bbd@sifive.com>
+ <20231115-upward-unsworn-7746e0aeb5dd@squawk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/17] Solve iommu probe races around iommu_fwspec
-Content-Language: en-GB
-To: Jason Gunthorpe <jgg@nvidia.com>, acpica-devel@lists.linux.dev,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
- asahi@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
- Dexuan Cui <decui@microsoft.com>, devicetree@vger.kernel.org,
- David Woodhouse <dwmw2@infradead.org>, Frank Rowand
- <frowand.list@gmail.com>, Hanjun Guo <guohanjun@huawei.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, iommu@lists.linux.dev,
- Jean-Philippe Brucker <jean-philippe@linaro.org>,
- Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
- "K. Y. Srinivasan" <kys@microsoft.com>, Len Brown <lenb@kernel.org>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-snps-arc@lists.infradead.org,
- linux-tegra@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Marek Szyprowski <m.szyprowski@samsung.com>, Hector Martin
- <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>,
- patches@lists.linux.dev, Paul Walmsley <paul.walmsley@sifive.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Robert Moore <robert.moore@intel.com>, Rob Herring <robh+dt@kernel.org>,
- Sudeep Holla <sudeep.holla@arm.com>,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
- Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Krishna Reddy <vdumpa@nvidia.com>, Vineet Gupta <vgupta@kernel.org>,
- virtualization@lists.linux.dev, Wei Liu <wei.liu@kernel.org>,
- Will Deacon <will@kernel.org>
-Cc: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Lu Baolu <baolu.lu@linux.intel.com>, Christoph Hellwig <hch@lst.de>,
- Jerry Snitselaar <jsnitsel@redhat.com>, Moritz Fischer <mdf@kernel.org>,
- Zhenhua Huang <quic_zhenhuah@quicinc.com>,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- Rob Herring <robh@kernel.org>
-References: <0-v2-36a0088ecaa7+22c6e-iommu_fwspec_jgg@nvidia.com>
-From: Robin Murphy <robin.murphy@arm.com>
-In-Reply-To: <0-v2-36a0088ecaa7+22c6e-iommu_fwspec_jgg@nvidia.com>
+Content-Disposition: inline
+In-Reply-To: <20231115-upward-unsworn-7746e0aeb5dd@squawk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231115_072224_406240_673E407F 
-X-CRM114-Status: GOOD (  28.21  )
+X-CRM114-CacheID: sfid-20231115_072736_225808_EA494148 
+X-CRM114-Status: GOOD (  36.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,120 +82,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023-11-15 2:05 pm, Jason Gunthorpe wrote:
-> [Several people have tested this now, so it is something that should sit in
-> linux-next for a while]
+On Wed, Nov 15, 2023 at 03:02:21PM +0000, Conor Dooley wrote:
+> On Wed, Nov 15, 2023 at 09:56:07AM -0500, Samuel Holland wrote:
+> > On 2023-11-15 7:27 AM, Jisheng Zhang wrote:
+> > > On Tue, Nov 14, 2023 at 10:12:35PM +0100, Krzysztof Kozlowski wrote:
+> > >> On 13/11/2023 01:55, Jisheng Zhang wrote:
+> > >> ...
+> > >>
+> > >>> diff --git a/include/dt-bindings/reset/sophgo,cv1800b-reset.h b/include/dt-bindings/reset/sophgo,cv1800b-reset.h
+> > >>> new file mode 100644
+> > >>> index 000000000000..28dda71369b4
+> > >>> --- /dev/null
+> > >>> +++ b/include/dt-bindings/reset/sophgo,cv1800b-reset.h
+> > >>> @@ -0,0 +1,96 @@
+> > >>> +/* SPDX-License-Identifier: GPL-2.0 OR MIT */
+> > >>> +/*
+> > >>> + * Copyright (C) 2023 Sophgo Technology Inc. All rights reserved.
+> > >>> + * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
+> > >>> + */
+> > >>> +
+> > >>> +#ifndef _DT_BINDINGS_CV1800B_RESET_H
+> > >>> +#define _DT_BINDINGS_CV1800B_RESET_H
+> > >>> +
+> > >>> +/*				0-1	*/
+> > >>> +#define RST_DDR			2
+> > >>> +#define RST_H264C		3
+> > >>> +#define RST_JPEG		4
+> > >>> +#define RST_H265C		5
+> > >>> +#define RST_VIPSYS		6
+> > >>> +#define RST_TDMA		7
+> > >>> +#define RST_TPU			8
+> > >>> +#define RST_TPUSYS		9
+> > >>> +/*				10	*/
+> > >>
+> > >> Why do you have empty IDs? IDs start at 0 and are incremented by 1.
+> > > 
+> > > there's 1:1 mapping between the ID and bit. Some bits are reserved, I.E
+> > > no actions at all. Is "ID start at 0 and increment by 1" documented
+> > > in some docs? From another side, I also notice some SoCs especially
+> > > those which make use of reset-simple driver don't strictly follow
+> > > this rule, for example, amlogic,meson-a1-reset.h and so on. What
+> > > happened?
+> > > 
+> > > And I'd like to ask a question here before cooking 2nd version:
+> > > if the HW programming logic is the same as reset-simple, but some
+> > > or many bits are reserved, what's the can-be-accepted way to support
+> > > the reset controller? Use reset-simple? Obviously if we want the
+> > > "ID start at 0 and increment by 1" rule, then we have to write
+> > > a custom driver which almost use the reset-simple but with a
+> > > customized mapping.
+> > 
+> > There are two possible situations. Either the reset specifier maps directly to
+> > something in the hardware, or you are inventing some brand new enumeration to
+> > use as a specifier.
+> > 
+> > In the first situation, you do not need a header. We assume the user will look
+> > to the SoC documentation if they want to know what the numbers mean. (You aren't
+> > _creating_ an ABI, since the ABI is already defined by the hardware.)
+> > 
+> > In the second situation, since we are inventing something new, the numbers
+> > should be contiguous. This is what Krzysztof's comment was about.
+> > 
+> > For this reset device, the numbers are hardware bit offsets, so you are in the
+> > first situation. So I think the recommended solution here is to remove the
+> > header entirely and use the bit numbers directly in the SoC devicetree.
+> > 
+> > It's still appropriate to use reset-simple. Adding some new mapping would make
+> > things more complicated for no benefit.
+> 
+> Further, I think it is fine in that case to have a header, just the
+> header doesn't belong as a binding, and can instead go in the dts
+> directory.
 
-What's the aim here? This is obviously far, far too much for a stable 
-fix, but then it's also not the refactoring we want for the future 
-either, since it's moving in the wrong direction of cementing the 
-fundamental brokenness further in place rather than getting any closer 
-to removing it.
+Hi Samuel, Conor,
 
-Thanks,
-Robin.
+thanks a lot for the suggestion!
 
-> The iommu subsystem uses dev->iommu to store bits of information about the
-> attached iommu driver. This has been co-opted by the ACPI/OF code to also
-> be a place to pass around the iommu_fwspec before a driver is probed.
-> 
-> Since both are using the same pointers without any locking it triggers
-> races if there is concurrent driver loading:
-> 
->       CPU0                                     CPU1
-> of_iommu_configure()                iommu_device_register()
->   ..                                   bus_iommu_probe()
->    iommu_fwspec_of_xlate()              __iommu_probe_device()
->                                          iommu_init_device()
->     dev_iommu_get()
->                                            .. ops->probe fails, no fwspec ..
->                                            dev_iommu_free()
->     dev->iommu->fwspec    *crash*
-> 
-> My first attempt get correct locking here was to use the device_lock to
-> protect the entire *_iommu_configure() and iommu_probe() paths. This
-> allowed safe use of dev->iommu within those paths. Unfortuately enough
-> drivers abuse the of_iommu_configure() flow without proper locking and
-> this approach failed.
-> 
-> This approach removes touches of dev->iommu from the *_iommu_configure()
-> code. The few remaining required touches are moved into iommu.c and
-> protected with the existing iommu_probe_device_lock.
-> 
-> To do this we change *_iommu_configure() to hold the iommu_fwspec on the
-> stack while it is being built. Once it is fully formed the core code will
-> install it into the dev->iommu when it calls probe.
-> 
-> This also removes all the touches of iommu_ops from
-> the *_iommu_configure() paths and makes that mechanism private to the
-> iommu core.
-> 
-> A few more lockdep assertions are added to discourage future mis-use.
-> 
-> This is on github: https://github.com/jgunthorpe/linux/commits/iommu_fwspec
-> 
-> v2:
->   - Fix all the kconfig randomization 0-day stuff
->   - Add missing kdoc parameters
->   - Remove NO_IOMMU, replace it with ENODEV
->   - Use PTR_ERR to print errno in the new/moved logging
-> v1: https://lore.kernel.org/r/0-v1-5f734af130a3+34f-iommu_fwspec_jgg@nvidia.com
-> 
-> Jason Gunthorpe (17):
->    iommu: Remove struct iommu_ops *iommu from arch_setup_dma_ops()
->    iommmu/of: Do not return struct iommu_ops from of_iommu_configure()
->    iommu/of: Use -ENODEV consistently in of_iommu_configure()
->    acpi: Do not return struct iommu_ops from acpi_iommu_configure_id()
->    iommu: Make iommu_fwspec->ids a distinct allocation
->    iommu: Add iommu_fwspec_alloc/dealloc()
->    iommu: Add iommu_probe_device_fwspec()
->    iommu/of: Do not use dev->iommu within of_iommu_configure()
->    iommu: Add iommu_fwspec_append_ids()
->    acpi: Do not use dev->iommu within acpi_iommu_configure()
->    iommu: Hold iommu_probe_device_lock while calling ops->of_xlate
->    iommu: Make iommu_ops_from_fwnode() static
->    iommu: Remove dev_iommu_fwspec_set()
->    iommu: Remove pointless iommu_fwspec_free()
->    iommu: Add ops->of_xlate_fwspec()
->    iommu: Mark dev_iommu_get() with lockdep
->    iommu: Mark dev_iommu_priv_set() with a lockdep
-> 
->   arch/arc/mm/dma.c                           |   2 +-
->   arch/arm/mm/dma-mapping-nommu.c             |   2 +-
->   arch/arm/mm/dma-mapping.c                   |  10 +-
->   arch/arm64/mm/dma-mapping.c                 |   4 +-
->   arch/mips/mm/dma-noncoherent.c              |   2 +-
->   arch/riscv/mm/dma-noncoherent.c             |   2 +-
->   drivers/acpi/arm64/iort.c                   |  42 ++--
->   drivers/acpi/scan.c                         | 104 +++++----
->   drivers/acpi/viot.c                         |  45 ++--
->   drivers/hv/hv_common.c                      |   2 +-
->   drivers/iommu/amd/iommu.c                   |   2 -
->   drivers/iommu/apple-dart.c                  |   1 -
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c |   9 +-
->   drivers/iommu/arm/arm-smmu/arm-smmu.c       |  23 +-
->   drivers/iommu/intel/iommu.c                 |   2 -
->   drivers/iommu/iommu.c                       | 227 +++++++++++++++-----
->   drivers/iommu/of_iommu.c                    | 133 +++++-------
->   drivers/iommu/omap-iommu.c                  |   1 -
->   drivers/iommu/tegra-smmu.c                  |   1 -
->   drivers/iommu/virtio-iommu.c                |   8 +-
->   drivers/of/device.c                         |  24 ++-
->   include/acpi/acpi_bus.h                     |   8 +-
->   include/linux/acpi_iort.h                   |   8 +-
->   include/linux/acpi_viot.h                   |   5 +-
->   include/linux/dma-map-ops.h                 |   4 +-
->   include/linux/iommu.h                       |  47 ++--
->   include/linux/of_iommu.h                    |  13 +-
->   27 files changed, 424 insertions(+), 307 deletions(-)
-> 
-> 
-> base-commit: b85ea95d086471afb4ad062012a4d73cd328fa86
+Regards
 
 _______________________________________________
 linux-riscv mailing list
