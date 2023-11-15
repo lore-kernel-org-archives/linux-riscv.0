@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B636C47077
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24409C47075
 	for <linux-riscv@archiver.kernel.org>; Wed, 15 Nov 2023 13:00:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,32 +12,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ArEkRvqLlIcRl8oyutz3T6hBUO80EaauAxuHkFFil8M=; b=sp/WEeFssWsEmt
-	Nqv2iByWIkvDKLbIVAGOVKPweTku73enxz0kN4VCnjz8TrlRaF5fUlWMBPb04QKsRDAOgqV9hjlZN
-	TDNH2hKZuWdR2Mml2sSaXK9bKvFJUwvqkH1OOHZOkyMRE/Z0Yaa3qV6W86tplAhpVqgIxoIqxEpmC
-	BcyOxDvD0dDa+iV5YMCjbJDtSsOi6uUY4sfE3gTnr1QllexCF0RSs4/hq7Oy9upBNR356gZU4kcLf
-	pYbYDbkhaYCryzKmjmUeAT0Eo1++q2XZ8pcnY2z4WE2U8tp+LVw07g1y8lCO0E82bCvxZutMBBVRt
-	xzWYciLaFUl4VYu03jZw==;
+	List-Owner; bh=+XLLpojdMV+Im4/cROTGzbkg6ah6KfPaHbQfCY1FU/Y=; b=P3XAfGCDHvDdV3
+	9fsw4gx8mC3hV93dGGy7vH5taD2qQPe/m+JGdZbC2BRRwMXKDtaOmmCpn/dW1OMY+sm6gVkWLJuW3
+	ugsXgSG63xuF7sHWJl9LvtlXchfEQnqwdUugDv2JKdJvjUw2YoaASFPxKf82P6IklCpQVuGB5O9FE
+	6L2ezPs7440dQsGST0ITaY9GMZbt1C9cYhJPbw5LFF38a4HtRkJICj/cmVXtZixGymBZdwrql5MJT
+	eedEk5auT0Xvt41yHYALHvgKjpTYwYpQC9H+W/a7G6yGRMRFb5vsve/9MnS01+UXpxqdiyZNvczxs
+	dIYKbGIZBuhcaUbcfnyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3FVX-000ogS-2a;
-	Wed, 15 Nov 2023 13:00:39 +0000
+	id 1r3FVY-000ohO-3A;
+	Wed, 15 Nov 2023 13:00:40 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3EOy-000gnP-2Z
+	id 1r3EP9-000gnY-03
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Nov 2023 11:49:51 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	Wed, 15 Nov 2023 11:50:00 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 5D34724E2D9;
-	Wed, 15 Nov 2023 19:49:25 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Nov
- 2023 19:49:25 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 63EA324E2D6;
+	Wed, 15 Nov 2023 19:49:24 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Nov
+ 2023 19:49:24 +0800
 Received: from ubuntu.localdomain (183.27.97.246) by EXMBX171.cuchost.com
  (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 15 Nov
- 2023 19:49:24 +0800
+ 2023 19:49:23 +0800
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Conor Dooley <conor@kernel.org>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?=
 	<kw@linux.com>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
@@ -52,9 +52,9 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
 	<minda.chen@starfivetech.com>
-Subject: [PATCH v11 12/20] PCI: microchip: Add request_event_irq() callback function
-Date: Wed, 15 Nov 2023 19:49:04 +0800
-Message-ID: <20231115114912.71448-13-minda.chen@starfivetech.com>
+Subject: [PATCH v11 11/20] PCI: microchip: Add num_events field to struct plda_pcie_rp
+Date: Wed, 15 Nov 2023 19:49:03 +0800
+Message-ID: <20231115114912.71448-12-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20231115114912.71448-1-minda.chen@starfivetech.com>
 References: <20231115114912.71448-1-minda.chen@starfivetech.com>
@@ -64,8 +64,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
  (172.16.6.91)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231115_034949_153467_1CAF1FDD 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20231115_034959_372879_AFC3DAF9 
+X-CRM114-Status: GOOD (  14.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,111 +82,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-PolarFire implements specific PCIe interrupts except PLDA local interrupt.
-For lack of MSI controller, these interrupts have to be added to global
-event field. PolarFire driver also register additional interrupt symbol
-name.
-
-PolarFire PCIe contain total 28 interrupts event while PLDA contain 13
-local interrupts event, interrupt to event num mapping is different.
-
-So add a callback function to support different IRQ register function.
-Also Add PLDA default handler function, which will be moved to pcie-
-plda-host.c in moving codes patch.
+The event num is different in other platform. For re-use interrupt process
+codes, replace with variable.
 
 Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../pci/controller/plda/pcie-microchip-host.c | 31 ++++++++++++++++---
- drivers/pci/controller/plda/pcie-plda.h       |  5 +++
- 2 files changed, 32 insertions(+), 4 deletions(-)
+ drivers/pci/controller/plda/pcie-microchip-host.c | 8 +++++---
+ drivers/pci/controller/plda/pcie-plda.h           | 1 +
+ 2 files changed, 6 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
-index d42278c006bc..f89d102f4979 100644
+index 54a0d431a471..d42278c006bc 100644
 --- a/drivers/pci/controller/plda/pcie-microchip-host.c
 +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
-@@ -643,6 +643,11 @@ static irqreturn_t mc_event_handler(int irq, void *dev_id)
- 	return IRQ_HANDLED;
- }
+@@ -654,7 +654,7 @@ static void plda_handle_event(struct irq_desc *desc)
  
-+static irqreturn_t plda_event_handler(int irq, void *dev_id)
-+{
-+	return IRQ_HANDLED;
-+}
-+
- static void plda_handle_event(struct irq_desc *desc)
- {
- 	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
-@@ -804,6 +809,17 @@ static int mc_pcie_init_clks(struct device *dev)
- 	return 0;
- }
+ 	events = mc_get_events(port);
  
-+static int mc_request_event_irq(struct plda_pcie_rp *plda, int event_irq,
-+				int event)
-+{
-+	return devm_request_irq(plda->dev, event_irq, mc_event_handler,
-+				0, event_cause[event].sym, plda);
-+}
-+
-+static const struct plda_event mc_event = {
-+	.request_event_irq = mc_request_event_irq,
-+};
-+
- static int plda_pcie_init_irq_domains(struct plda_pcie_rp *port)
- {
- 	struct device *dev = port->dev;
-@@ -904,7 +920,9 @@ static void mc_disable_interrupts(struct mc_pcie *port)
- 	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_HOST);
- }
+-	for_each_set_bit(bit, &events, NUM_EVENTS)
++	for_each_set_bit(bit, &events, port->num_events)
+ 		generic_handle_domain_irq(port->event_domain, bit);
  
--static int plda_init_interrupts(struct platform_device *pdev, struct plda_pcie_rp *port)
-+static int plda_init_interrupts(struct platform_device *pdev,
-+				struct plda_pcie_rp *port,
-+				const struct plda_event *event)
- {
- 	struct device *dev = &pdev->dev;
- 	int irq;
-@@ -928,8 +946,13 @@ static int plda_init_interrupts(struct platform_device *pdev, struct plda_pcie_r
- 			return -ENXIO;
- 		}
+ 	chained_irq_exit(chip, desc);
+@@ -817,7 +817,8 @@ static int plda_pcie_init_irq_domains(struct plda_pcie_rp *port)
+ 		return -EINVAL;
+ 	}
  
--		ret = devm_request_irq(dev, event_irq, mc_event_handler,
--				       0, event_cause[i].sym, port);
-+		if (event->request_event_irq)
-+			ret = event->request_event_irq(port, event_irq, i);
-+		else
-+			ret = devm_request_irq(dev, event_irq,
-+					       plda_event_handler,
-+					       0, NULL, port);
-+
- 		if (ret) {
- 			dev_err(dev, "failed to request IRQ %d\n", event_irq);
- 			return ret;
-@@ -983,7 +1006,7 @@ static int mc_platform_init(struct pci_config_window *cfg)
- 		return ret;
+-	port->event_domain = irq_domain_add_linear(pcie_intc_node, NUM_EVENTS,
++	port->event_domain = irq_domain_add_linear(pcie_intc_node,
++						   port->num_events,
+ 						   &mc_event_domain_ops, port);
+ 	if (!port->event_domain) {
+ 		dev_err(dev, "failed to get event domain\n");
+@@ -920,7 +921,7 @@ static int plda_init_interrupts(struct platform_device *pdev, struct plda_pcie_r
+ 	if (irq < 0)
+ 		return -ENODEV;
  
- 	/* Address translation is up; safe to enable interrupts */
--	ret = plda_init_interrupts(pdev, &port->plda);
-+	ret = plda_init_interrupts(pdev, &port->plda, &mc_event);
- 	if (ret)
- 		return ret;
+-	for (i = 0; i < NUM_EVENTS; i++) {
++	for (i = 0; i < port->num_events; i++) {
+ 		event_irq = irq_create_mapping(port->event_domain, i);
+ 		if (!event_irq) {
+ 			dev_err(dev, "failed to map hwirq %d\n", i);
+@@ -1012,6 +1013,7 @@ static int mc_host_probe(struct platform_device *pdev)
  
+ 	bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
+ 	plda->bridge_addr = bridge_base_addr;
++	plda->num_events = NUM_EVENTS;
+ 
+ 	/* Allow enabling MSI by disabling MSI-X */
+ 	val = readl(bridge_base_addr + PCIE_PCI_IRQ_DW0);
 diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
-index e3d35cef9894..28ed1374e1de 100644
+index 3deefd35fa5a..e3d35cef9894 100644
 --- a/drivers/pci/controller/plda/pcie-plda.h
 +++ b/drivers/pci/controller/plda/pcie-plda.h
-@@ -121,6 +121,11 @@ struct plda_pcie_rp {
- 	int num_events;
+@@ -118,6 +118,7 @@ struct plda_pcie_rp {
+ 	raw_spinlock_t lock;
+ 	struct plda_msi msi;
+ 	void __iomem *bridge_addr;
++	int num_events;
  };
  
-+struct plda_event {
-+	int (*request_event_irq)(struct plda_pcie_rp *pcie,
-+				 int event_irq, int event);
-+};
-+
  void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
- 			    phys_addr_t axi_addr, phys_addr_t pci_addr,
- 			    size_t size);
 -- 
 2.17.1
 
