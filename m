@@ -4,79 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB1CEC54FB9
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Nov 2023 13:16:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFA95C197A0
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Nov 2023 14:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h6UpCgfDfLaJhuzlXzTb50RC6Ba166HZi2sVnVx0fVc=; b=p09KgoEnu1C04J
-	0jp2MRLjDunpl8IuMgos7+SgohBRuuRRmgXITNJznlEqHSmbp2r1zMRhRj1fJ73HSoWAKd/g0g5Ad
-	AkBjuAfaiQ+wh6cKvR+HZoNNMBnN/YWwNuS9JqaxHgJzoFc3+eeMoy+ErwVJM1cQpgSWa0LFh4jZI
-	pxqJleIzdo0S+55QJl8DH3/kySBhjAZZQsYdyYgmPSBF3sEU2OAxAVHxhEKwuXIRuN8jV3bP4ywdp
-	rVNFxIqGY5L/TfUqJY7qaFE3QmudjiuSYLrG7xXQtnd93t81AvN0n1Mqkr3Jxjj+0ZMiI+iEWbF0A
-	0L4+JmgdWkP/UB3B+J7A==;
+	List-Owner; bh=gqpmzUBcym1Osys6H9QpfUe2uyl6xlkAYh7NqmGI9gA=; b=cMtMdIGFE/WOUr
+	4lP+KSQBkFwe9gpQRS/4RFvF1VeFsb1AGvorYq/OGkvZK35hi+dVnN9/SzlH+N++iu/DPoH5/MO94
+	AaT+pr/3cGhZb5UmJG7ARzMJeAI3cEBbPBCtIU9dinw4mF3dxkKKPQ1q5SXbaV9hT9Zr4MalMtEdL
+	ThKsXc+d08xtuZhIvCiENeDPvR05Vjv2jeZ5v0AkXK0J47Yh1HtVjBOFw3XGPCBrXVIjo0W+sTTwn
+	0i6sUqp1Alz85I+7cBDmVJCb3q8XVbY3Eb8rQhLvuOcVpSnQCJm+1iPBoC9dEIoOpS7nneTGwEMC9
+	gO/ybuWKIjhAfElEgVHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3cDt-003ZCQ-2l;
-	Thu, 16 Nov 2023 13:15:57 +0000
-Received: from madras.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e5ab])
+	id 1r3dTy-003iQu-0r;
+	Thu, 16 Nov 2023 14:36:38 +0000
+Received: from mail-ot1-f45.google.com ([209.85.210.45])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3cDq-003ZBY-25;
-	Thu, 16 Nov 2023 13:15:56 +0000
-Received: from [100.116.17.117] (cola.collaboradmins.com [195.201.22.229])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by madras.collabora.co.uk (Postfix) with ESMTPSA id 4C9A56607346;
-	Thu, 16 Nov 2023 13:15:49 +0000 (GMT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1700140550;
-	bh=FheqyWG5oYvdCs8XtH6cmP60r9uz+9KnrY6VzNg5O78=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=dm27RZPNxmcmHyvomtwlEgtdO2kSvRTcyqGzL8VH0w8o5o0vVlJOZ2j5Nz0H06egL
-	 djXzOYk/C3/Tdp+XcYP9FRTbNQ3Nepoe08B/Jc8SforDRhp1DYbfu46Th2xQV8DjO+
-	 FQFujPBoHELizF0oDJcFBzjD5q7fJgJpdkHZlQ+A2rHcURp+zwJALeZi9yVia4Qlvw
-	 Jf/NwAaaod2Wz2DgOKw7N0DOR6pNuu1hDKCk7PngXmB8d4hPw8ZOKgQYuqQ+E2ueH1
-	 SbIg8i5QjI0C7kevhMN5N6XYzG6navy0j9hPV15fj25yq8yrIOJfsDgPqlafTQt16T
-	 CyXa6LEC5tR0g==
-Message-ID: <cb6597be-2185-45ad-aa47-c6804ff68c85@collabora.com>
-Date: Thu, 16 Nov 2023 15:15:46 +0200
+	id 1r3dTu-003iPK-2l;
+	Thu, 16 Nov 2023 14:36:36 +0000
+Received: by mail-ot1-f45.google.com with SMTP id 46e09a7af769-6ce2c5b2154so450885a34.3;
+        Thu, 16 Nov 2023 06:36:33 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1700145392; x=1700750192;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hQe83AHexfh3GazMLDTY5AyEL167MohegfRBMKLl7I8=;
+        b=gRsxU+dJa1YJoRRRnkRYNixDzsgUI/Ku6nWS763qt+NONL16wr/WKSA+ow1fu3tysa
+         CUc4QnFm01dkgsojB/IN6/Nmxhv0eP51viUhs6QPAvUh0Yak0+c9RuFg6dX33WENCbWp
+         69X+l69YqrnnAFvm7pk62fkawPduqpmcyUoziBery4ySx1SHWmuaPv+L3s0aPYFPg6tv
+         q5wfct8xcEd2tOoiZ6BH1mYmCMiqQKo2/s/uGJ/GRNBVuGGBrzetu4F37VQ0i8xQ9YhT
+         tIOU4dG8XV0mBLsUclhh8zye7jvMxPqjfMqmksnjgpYvR5hU0nTcgtRhCdF5rbqaD3s/
+         wcWQ==
+X-Gm-Message-State: AOJu0Yxz8OoOy7FrFcUbFwC8nrFiTn/r1T+j5Bqh7iW977CjgSjQJpzO
+	fbgEp4v1xqFYXg1Y3O+l36E=
+X-Google-Smtp-Source: AGHT+IHU4Lxx+/myT+H5YB5iQwSXHLDIA41zmD2u+pjBktk3mb+GPBhIH+yVJJ2/AO7NCTzQtZy56A==
+X-Received: by 2002:a05:6830:10c7:b0:6c4:ae52:9599 with SMTP id z7-20020a05683010c700b006c4ae529599mr9476568oto.7.1700145392505;
+        Thu, 16 Nov 2023 06:36:32 -0800 (PST)
+Received: from localhost ([2600:380:7a60:430d:7a98:972a:884d:31ff])
+        by smtp.gmail.com with ESMTPSA id l2-20020a9d7082000000b006cd099bb052sm912460otj.1.2023.11.16.06.36.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 16 Nov 2023 06:36:32 -0800 (PST)
+Date: Thu, 16 Nov 2023 06:36:30 -0800
+From: Moritz Fischer <mdf@kernel.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: acpica-devel@lists.linux.dev, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dexuan Cui <decui@microsoft.com>, devicetree@vger.kernel.org,
+	David Woodhouse <dwmw2@infradead.org>,
+	Frank Rowand <frowand.list@gmail.com>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>, iommu@lists.linux.dev,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	"K. Y. Srinivasan" <kys@microsoft.com>, Len Brown <lenb@kernel.org>,
+	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-snps-arc@lists.infradead.org,
+	linux-tegra@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Hector Martin <marcan@marcan.st>,
+	Palmer Dabbelt <palmer@dabbelt.com>, patches@lists.linux.dev,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Robert Moore <robert.moore@intel.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Krishna Reddy <vdumpa@nvidia.com>, Vineet Gupta <vgupta@kernel.org>,
+	virtualization@lists.linux.dev, Wei Liu <wei.liu@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Lu Baolu <baolu.lu@linux.intel.com>, Christoph Hellwig <hch@lst.de>,
+	Jerry Snitselaar <jsnitsel@redhat.com>,
+	Moritz Fischer <mdf@kernel.org>,
+	Zhenhua Huang <quic_zhenhuah@quicinc.com>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH v2 12/17] iommu: Make iommu_ops_from_fwnode() static
+Message-ID: <ZVYo7s_dV9HDm1qU@archbook>
+References: <0-v2-36a0088ecaa7+22c6e-iommu_fwspec_jgg@nvidia.com>
+ <12-v2-36a0088ecaa7+22c6e-iommu_fwspec_jgg@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 12/12] [UNTESTED] riscv: dts: starfive:
- beaglev-starlight: Enable gmac
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-To: Andrew Lunn <andrew@lunn.ch>, Conor Dooley <conor+dt@kernel.org>,
- Emil Renner Berthing <kernel@esmil.dk>
-Cc: "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
- Samin Guo <samin.guo@starfivetech.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com
-References: <20231029042712.520010-1-cristian.ciocaltea@collabora.com>
- <20231029042712.520010-13-cristian.ciocaltea@collabora.com>
- <f253b50a-a0ac-40c6-b13d-013de7bac407@lunn.ch>
- <233a45e1-15ac-40da-badf-dee2d3d60777@collabora.com>
-In-Reply-To: <233a45e1-15ac-40da-badf-dee2d3d60777@collabora.com>
+Content-Disposition: inline
+In-Reply-To: <12-v2-36a0088ecaa7+22c6e-iommu_fwspec_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231116_051554_860894_4C95B6E7 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20231116_063634_896196_5D4CFC96 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,26 +118,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/30/23 00:53, Cristian Ciocaltea wrote:
-> On 10/29/23 20:46, Andrew Lunn wrote:
->> On Sun, Oct 29, 2023 at 06:27:12AM +0200, Cristian Ciocaltea wrote:
->>> The BeagleV Starlight SBC uses a Microchip KSZ9031RNXCA PHY supporting
->>> RGMII-ID.
->>>
->>> TODO: Verify if manual adjustment of the RX internal delay is needed. If
->>> yes, add the mdio & phy sub-nodes.
->>
->> Please could you try to get this tested. It might shed some light on
->> what is going on here, since it is a different PHY.
+On Wed, Nov 15, 2023 at 10:06:03AM -0400, Jason Gunthorpe wrote:
+> There are no external callers now.
 > 
-> Actually, this is the main reason I added the patch. I don't have access
-> to this board, so it would be great if we could get some help with testing.
-
-@Emil, @Conor: Any idea who might help us with a quick test on the
-BeagleV Starlight board?
-
-Thanks,
-Cristian
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+Reviewed-by: Moritz Fischer <mdf@kernel.org>
+> ---
+>  drivers/iommu/iommu.c | 3 ++-
+>  include/linux/iommu.h | 7 -------
+>  2 files changed, 2 insertions(+), 8 deletions(-)
+> 
+> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+> index 5af98cad06f9ef..ea6aede326131e 100644
+> --- a/drivers/iommu/iommu.c
+> +++ b/drivers/iommu/iommu.c
+> @@ -2928,7 +2928,8 @@ bool iommu_default_passthrough(void)
+>  }
+>  EXPORT_SYMBOL_GPL(iommu_default_passthrough);
+>  
+> -const struct iommu_ops *iommu_ops_from_fwnode(struct fwnode_handle *fwnode)
+> +static const struct iommu_ops *
+> +iommu_ops_from_fwnode(struct fwnode_handle *fwnode)
+>  {
+>  	const struct iommu_ops *ops = NULL;
+>  	struct iommu_device *iommu;
+> diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+> index 72ec71bd31a376..05c5ad6bad6339 100644
+> --- a/include/linux/iommu.h
+> +++ b/include/linux/iommu.h
+> @@ -831,7 +831,6 @@ static inline void iommu_fwspec_free(struct device *dev)
+>  	dev->iommu->fwspec = NULL;
+>  }
+>  int iommu_fwspec_add_ids(struct device *dev, u32 *ids, int num_ids);
+> -const struct iommu_ops *iommu_ops_from_fwnode(struct fwnode_handle *fwnode);
+>  int iommu_fwspec_append_ids(struct iommu_fwspec *fwspec, u32 *ids, int num_ids);
+>  
+>  static inline struct iommu_fwspec *dev_iommu_fwspec_get(struct device *dev)
+> @@ -1187,12 +1186,6 @@ static inline int iommu_fwspec_add_ids(struct device *dev, u32 *ids,
+>  	return -ENODEV;
+>  }
+>  
+> -static inline
+> -const struct iommu_ops *iommu_ops_from_fwnode(struct fwnode_handle *fwnode)
+> -{
+> -	return NULL;
+> -}
+> -
+>  static inline int
+>  iommu_dev_enable_feature(struct device *dev, enum iommu_dev_features feat)
+>  {
+> -- 
+> 2.42.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
