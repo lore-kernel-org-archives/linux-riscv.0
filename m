@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F10FC197A0
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Nov 2023 18:13:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B034C197A0
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Nov 2023 18:19:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N6e4/UgcD3NK+FnsJiM5m0pGKKAF6beArp02PH1Uqis=; b=QQ7cW6leYB4MR4
-	fEUH3i9xvUSU6CPOwuHDGAuY1jHQUhC9lqrUyLwkojUyLFzBhZlqfAdSuM2Z23rz2kzV/a2cmBOrp
-	7Z/+YECabrQtOC7G+qwjeWjpsxXbnF3a/IGT45dCOKLjDQVO4yw2XeL005DIK9vfwHXJ8kMxqLy0f
-	5REaPdSQk+nNmLhEFnuWHdDBHLnDJr+CCWE0/2BXfecBGn5gs50rPVtNb11mGcRoo6ND+NTEzqgCs
-	h2gP2FegdtA8FHV0EY6NNp8Eus1HMlGkcXnknrJ2Zuj/XZ9u3oScUp5pbzpS009go6DCfhZGOw+wn
-	Bp8Bh0IQMGlv1wOdSTVw==;
+	List-Owner; bh=MDrJ0tpk0boIWGlGV5nG8Ny/AQcxACllhJaYMm4W1/8=; b=DpgcNhgM94ZPcs
+	iXmiO0atBmraMeXBK/4r2E/xklVZfaW7WlO6ObzKH4Tqux54vg2hX/iTCyytWVinnRG37gt29RoF+
+	DAdw6yaVbXexBC2rD8tIWt/wJW4IUh6X8idHJhv9eLmiYe/y9MJaAWBDs5RRkSi4mqrX2mG5pbjGR
+	PXaSuyEq2LAWK38qhYVXxs4u9otg8xu9t0ufOjbr+HnVzQN+0Je2ike8x9OYSz6qfy4fZHNMLHLue
+	ef0kkZSdZL05d+0+tBlvgVv9muwQrGS2Usvl+S8cCv7E/eOCErz/AQb0L1r1KhSqrmGKGj2e/TtZ2
+	lIu1a4nbKKD/pQFPEUlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3grf-004HAM-1o;
-	Thu, 16 Nov 2023 18:13:19 +0000
-Received: from mail-oa1-f49.google.com ([209.85.160.49])
+	id 1r3gxB-004IRb-1Y;
+	Thu, 16 Nov 2023 18:19:01 +0000
+Received: from mail-ot1-f53.google.com ([209.85.210.53])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3grd-004H8j-04
+	id 1r3gx9-004IQH-0O
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Nov 2023 18:13:18 +0000
-Received: by mail-oa1-f49.google.com with SMTP id 586e51a60fabf-1e9c42fc0c9so507421fac.1
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Nov 2023 10:13:15 -0800 (PST)
+	Thu, 16 Nov 2023 18:19:00 +0000
+Received: by mail-ot1-f53.google.com with SMTP id 46e09a7af769-6ce344fa7e4so667404a34.0
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Nov 2023 10:18:55 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700158394; x=1700763194;
+        d=1e100.net; s=20230601; t=1700158735; x=1700763535;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=WMupz1Ersx7G8Y0V72zO2fVjriizbVlDybDUE6gNC5o=;
-        b=fY6myXI7u4YqpMXXkDIjU1iV8DPlzTdW3VTQANNlNsj8WYmncA+aQXBslM5d2nxkLR
-         gLVyeTgEM+cYWjJV5W6gvfASPStBUf0Chnr0fVSgMg1VJhVGp72w4Hi4ir6Fz1Jhk83/
-         KciAr2+VB2T7LQqUfiSxXWZUMjMcbrz+FjaDWXpLjLGWiU3QXsKkFfG0P/fdf5l/iS/y
-         IaWoVUmAFDUt8xK55npE/D/+XBqF+TfTN9rjoVwaMw+rCsxzZmyLQMYyBoTE8BjAcIrb
-         gBLpPmAHY7atg1j8K6eb8ns6hdEBRa2qhW3AeC61gj5DTovIsnacr+ZBemoFHDHn2ELI
-         zCbQ==
-X-Gm-Message-State: AOJu0YzxQ1fp+ClHCmoOTDTcHGwrReLBC7Hq4cfAqeFP0G2GbAGG5Y3w
-	jiLV6jwnFzWJ2E6GYyYUgg==
-X-Google-Smtp-Source: AGHT+IE4qXE3fwLtFQUpSkyT2Q9sqt2XnsLJBMw8YKmQlxdpMl7Oyy3/SUQgOiKwtUToqHuLJZXSQg==
-X-Received: by 2002:a05:6870:538f:b0:1d5:aed5:6579 with SMTP id h15-20020a056870538f00b001d5aed56579mr17940362oan.4.1700158394319;
-        Thu, 16 Nov 2023 10:13:14 -0800 (PST)
+        bh=Mvdm8s7CLiAWc1zAvkwb+zCVPLYN6IW325FSx81hTfY=;
+        b=kG+kAKFiPmWrPk7x98aSnXC8JtHt1+Ie/ATlWoMATV98SSUduYFfGalpC1fFy9K9TS
+         MNLtvPEeEHLXDYbXPHnuh9/WnFDIuCCRsJigP6uljvMoTZfQM1Dj90rn1XRgUAGmqU+G
+         QmxBM6IMIxs9MnRsXeyXIjUilDM9/DP5kj3Ktzs6wkXNce/xiPRvNNW/dk6T8ZmJ9/Sd
+         ai/gkSQSMCO2vyxhqV02SHwMfoc0GtzRh/FFLWxnhloUbCsA0dVaEFxzyCfEtJAOswwf
+         JZ4yG26fmf1uY3ab5u7A376OUw2JBV40Tz+F9qjxPvmS4bdPkEWH7p2ds/xbjsPVxqC7
+         r9Dw==
+X-Gm-Message-State: AOJu0YxAmdfaxLgh9ESCqTqC5qxWcL2ITQemIGjNc9FO8M3ag8kLTY0j
+	0ki2oXQQaRger3YQrv54+g==
+X-Google-Smtp-Source: AGHT+IEwmVU0R+k/HtPd1oq3ffY8WltHJ7y4wNFhcwB+B3/35kMpJHdybuQBwbbX2qDPkK5mAxrwNw==
+X-Received: by 2002:a05:6870:418e:b0:1f4:be52:b14b with SMTP id y14-20020a056870418e00b001f4be52b14bmr21955186oac.12.1700158735208;
+        Thu, 16 Nov 2023 10:18:55 -0800 (PST)
 Received: from herring.priv (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id gc12-20020a056870678c00b001f48e4537b9sm2302007oab.33.2023.11.16.10.13.12
+        by smtp.gmail.com with ESMTPSA id y4-20020a056870a34400b001e9ce1b5e8fsm2220517oak.15.2023.11.16.10.18.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Nov 2023 10:13:13 -0800 (PST)
-Received: (nullmailer pid 2655665 invoked by uid 1000);
-	Thu, 16 Nov 2023 18:13:11 -0000
-Date: Thu, 16 Nov 2023 12:13:11 -0600
+        Thu, 16 Nov 2023 10:18:54 -0800 (PST)
+Received: (nullmailer pid 2710216 invoked by uid 1000);
+	Thu, 16 Nov 2023 18:18:47 -0000
+Date: Thu, 16 Nov 2023 12:18:47 -0600
 From: Rob Herring <robh@kernel.org>
-To: Conor Dooley <conor@kernel.org>, Chen Wang <unicornxw@gmail.com>
-Cc: aou@eecs.berkeley.edu, chao.wei@sophgo.com, krzysztof.kozlowski+dt@linaro.org, mturquette@baylibre.com, palmer@dabbelt.com, paul.walmsley@sifive.com, richardcochran@gmail.com, sboyd@kernel.org, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com, Chen Wang <unicorn_wang@outlook.com>
-Subject: Re: [PATCH 2/5] dt-bindings: soc: sophgo: Add Sophgo syscon module
-Message-ID: <20231116181311.GA2624502-robh@kernel.org>
+To: Chen Wang <unicornxw@gmail.com>
+Cc: aou@eecs.berkeley.edu, chao.wei@sophgo.com, conor@kernel.org, krzysztof.kozlowski+dt@linaro.org, mturquette@baylibre.com, palmer@dabbelt.com, paul.walmsley@sifive.com, richardcochran@gmail.com, sboyd@kernel.org, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com, Chen Wang <unicorn_wang@outlook.com>
+Subject: Re: [PATCH 3/5] dt-bindings: clock: sophgo: Add SG2042 bindings
+Message-ID: <20231116181847.GA2659392-robh@kernel.org>
 References: <cover.1699879741.git.unicorn_wang@outlook.com>
- <3c286171af30101b88f0aaf645fb0a7d5880ac0a.1699879741.git.unicorn_wang@outlook.com>
- <20231114-timid-habitat-a06e52e59c9c@squawk>
+ <1e5836360485b63e15bdf58da59e83139666b290.1699879741.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231114-timid-habitat-a06e52e59c9c@squawk>
+In-Reply-To: <1e5836360485b63e15bdf58da59e83139666b290.1699879741.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231116_101317_084370_43ECAB8F 
-X-CRM114-Status: GOOD (  20.62  )
+X-CRM114-CacheID: sfid-20231116_101859_184046_91310E4F 
+X-CRM114-Status: GOOD (  15.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,55 +82,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 14, 2023 at 05:40:20PM +0000, Conor Dooley wrote:
-> On Mon, Nov 13, 2023 at 09:19:02PM +0800, Chen Wang wrote:
-> > From: Chen Wang <unicorn_wang@outlook.com>
-> > 
-> > Add documentation to describe Sophgo System Controller Registers for
-> > SG2042.
-> > 
-> > Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
-> > ---
-> >  .../soc/sophgo/sophgo,sg2042-syscon.yaml      | 38 +++++++++++++++++++
-> >  1 file changed, 38 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-syscon.yaml
-> > 
-> > diff --git a/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-syscon.yaml b/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-syscon.yaml
-> > new file mode 100644
-> > index 000000000000..829abede4fd5
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-syscon.yaml
-> > @@ -0,0 +1,38 @@
-> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/soc/sophgo/sophgo,sg2042-syscon.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Sophgo SG2042 SoC system controller
-> > +
-> > +maintainers:
-> > +  - Chen Wang <unicorn_wang@outlook.com>
-> > +
-> > +description:
-> > +  The Sophgo SG2042 SoC system controller provides register information such
-> > +  as offset, mask and shift to configure related modules.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    oneOf:
-> > +      - items:
-> > +          - enum:
-> > +              - sophgo,sg2042-syscon
-> > +          - const: syscon
+On Mon, Nov 13, 2023 at 09:19:31PM +0800, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
 > 
-> THere's only one option here, so the oneOf should be removed. Similarly,
-> since there's only one SoC, and it sounds like the next large sophgo
-> system is going to be using an entirely different core provider, I think
-> should just simplify this to a pair of "const:" entries.
+> Add bindings for the clock generator on the SG2042 RISC-V SoC.
+> 
+> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+> ---
+>  .../clock/sophgo/sophgo,sg2042-clkgen.yaml    | 48 +++++++++++++++++++
+>  1 file changed, 48 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/sophgo/sophgo,sg2042-clkgen.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/clock/sophgo/sophgo,sg2042-clkgen.yaml b/Documentation/devicetree/bindings/clock/sophgo/sophgo,sg2042-clkgen.yaml
+> new file mode 100644
+> index 000000000000..e372d5dca5b9
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/sophgo/sophgo,sg2042-clkgen.yaml
+> @@ -0,0 +1,48 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/sophgo/sophgo,sg2042-clkgen.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Sophgo SG2042 Clock Generator
+> +
+> +maintainers:
+> +  - Chen Wang <unicorn_wang@outlook.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: sophgo,sg2042-clkgen
+> +
+> +  system-ctrl:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    items:
+> +      - items:
+> +          - description: phandle to System Register Controller syscon node.
+> +    description:
+> +      The phandle to System Register Controller syscon node.
 
-For a simple syscon binding like this, you can just add the compatible 
-to syscon.yaml.
+Forget what I just said about syscon.yaml...
+
+You don't need a phandle here. Just make this node a child of the 
+syscon. However, why do you need a child at all? Just add 'clocks' and 
+'#clock-cells' to the parent directly. You don't need a child node when 
+there's only 1 child node. Maybe there's other functions, but I have no 
+visibility into that. IOW, define what all the functions are so we can 
+provide better guidance.
 
 Rob
 
