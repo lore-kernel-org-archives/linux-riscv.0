@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B034C197A0
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Nov 2023 18:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF020C197A0
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Nov 2023 18:30:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MDrJ0tpk0boIWGlGV5nG8Ny/AQcxACllhJaYMm4W1/8=; b=DpgcNhgM94ZPcs
-	iXmiO0atBmraMeXBK/4r2E/xklVZfaW7WlO6ObzKH4Tqux54vg2hX/iTCyytWVinnRG37gt29RoF+
-	DAdw6yaVbXexBC2rD8tIWt/wJW4IUh6X8idHJhv9eLmiYe/y9MJaAWBDs5RRkSi4mqrX2mG5pbjGR
-	PXaSuyEq2LAWK38qhYVXxs4u9otg8xu9t0ufOjbr+HnVzQN+0Je2ike8x9OYSz6qfy4fZHNMLHLue
-	ef0kkZSdZL05d+0+tBlvgVv9muwQrGS2Usvl+S8cCv7E/eOCErz/AQb0L1r1KhSqrmGKGj2e/TtZ2
-	lIu1a4nbKKD/pQFPEUlQ==;
+	List-Owner; bh=IFgvEW3RZnDiDGgz0us+yRmdfS6dFOGgBHq6sCUZA3Q=; b=Zh437icsiEGYfZ
+	hN/2ojWyqZBV8QnXzup0qqqUKL6yJ3ijLihHt69yRAv2BAIh4jHXX2KGtxOrp8VuHlfezb+Pt03A9
+	furqhjUlA6sXmFxPt6qvx2BiXle+RTkHYUK8oHdEFqD5EWezt8YHaxghVn7AkYl85y7C5xoIVq88x
+	vj2NJcmZwHf28oTYIJdsj2X23FZ4rDYGslNRmofonmUOBQ7nLeiwtvesqM+0lM4QaLL06ev60EIWA
+	ANC/EHreh3i+1ICQwVswr0jfMjHESSSW4QVnqjExc2UOe3saaQ9DT6hHRSQB8j42z/BiLimqeOwnE
+	B/RzhDX07PIgH9XZMxDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3gxB-004IRb-1Y;
-	Thu, 16 Nov 2023 18:19:01 +0000
-Received: from mail-ot1-f53.google.com ([209.85.210.53])
+	id 1r3h8e-004Klo-27;
+	Thu, 16 Nov 2023 18:30:52 +0000
+Received: from madras.collabora.co.uk ([46.235.227.172])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3gx9-004IQH-0O
-	for linux-riscv@lists.infradead.org;
-	Thu, 16 Nov 2023 18:19:00 +0000
-Received: by mail-ot1-f53.google.com with SMTP id 46e09a7af769-6ce344fa7e4so667404a34.0
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Nov 2023 10:18:55 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700158735; x=1700763535;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Mvdm8s7CLiAWc1zAvkwb+zCVPLYN6IW325FSx81hTfY=;
-        b=kG+kAKFiPmWrPk7x98aSnXC8JtHt1+Ie/ATlWoMATV98SSUduYFfGalpC1fFy9K9TS
-         MNLtvPEeEHLXDYbXPHnuh9/WnFDIuCCRsJigP6uljvMoTZfQM1Dj90rn1XRgUAGmqU+G
-         QmxBM6IMIxs9MnRsXeyXIjUilDM9/DP5kj3Ktzs6wkXNce/xiPRvNNW/dk6T8ZmJ9/Sd
-         ai/gkSQSMCO2vyxhqV02SHwMfoc0GtzRh/FFLWxnhloUbCsA0dVaEFxzyCfEtJAOswwf
-         JZ4yG26fmf1uY3ab5u7A376OUw2JBV40Tz+F9qjxPvmS4bdPkEWH7p2ds/xbjsPVxqC7
-         r9Dw==
-X-Gm-Message-State: AOJu0YxAmdfaxLgh9ESCqTqC5qxWcL2ITQemIGjNc9FO8M3ag8kLTY0j
-	0ki2oXQQaRger3YQrv54+g==
-X-Google-Smtp-Source: AGHT+IEwmVU0R+k/HtPd1oq3ffY8WltHJ7y4wNFhcwB+B3/35kMpJHdybuQBwbbX2qDPkK5mAxrwNw==
-X-Received: by 2002:a05:6870:418e:b0:1f4:be52:b14b with SMTP id y14-20020a056870418e00b001f4be52b14bmr21955186oac.12.1700158735208;
-        Thu, 16 Nov 2023 10:18:55 -0800 (PST)
-Received: from herring.priv (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id y4-20020a056870a34400b001e9ce1b5e8fsm2220517oak.15.2023.11.16.10.18.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Nov 2023 10:18:54 -0800 (PST)
-Received: (nullmailer pid 2710216 invoked by uid 1000);
-	Thu, 16 Nov 2023 18:18:47 -0000
-Date: Thu, 16 Nov 2023 12:18:47 -0600
-From: Rob Herring <robh@kernel.org>
-To: Chen Wang <unicornxw@gmail.com>
-Cc: aou@eecs.berkeley.edu, chao.wei@sophgo.com, conor@kernel.org, krzysztof.kozlowski+dt@linaro.org, mturquette@baylibre.com, palmer@dabbelt.com, paul.walmsley@sifive.com, richardcochran@gmail.com, sboyd@kernel.org, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com, Chen Wang <unicorn_wang@outlook.com>
-Subject: Re: [PATCH 3/5] dt-bindings: clock: sophgo: Add SG2042 bindings
-Message-ID: <20231116181847.GA2659392-robh@kernel.org>
-References: <cover.1699879741.git.unicorn_wang@outlook.com>
- <1e5836360485b63e15bdf58da59e83139666b290.1699879741.git.unicorn_wang@outlook.com>
+	id 1r3h8b-004KkN-2j;
+	Thu, 16 Nov 2023 18:30:51 +0000
+Received: from [100.116.17.117] (cola.collaboradmins.com [195.201.22.229])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id 267BF6607355;
+	Thu, 16 Nov 2023 18:30:43 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1700159444;
+	bh=SfQ0+hmvmWXxSEVa4mEfgSW3GKHJePtTDvpcPdZG1Uk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=maVewsrbypH3b7HVwPhXhJEqUkk1FTC2a2CT/5Zdw8v0VmZeg8+49dqvgBb32xiWM
+	 azbq7XlRF2ladTSFgbsOB5dpUdbNs+4FMDF5xcR9fdEVZB/F+ulE6j4ZBRq0aVF6gd
+	 Ur0OkuPWF55GWXqbMfJmoU650l9DTsr8+skMC8Zswxs2w1tuaiRCRlz0AGOeQXVE52
+	 UXsV2fK1XsZojC5adNNbRtAUfgqGVyQA6/j/Ap8+LUXOiljEPcAB6Cgbz+1VDKrfA6
+	 xfLdKthrk/vZguFVZXiDOIWS6Ls/26NP4+ih04LWU6pskf7c8KzkOn65cYI6vWsUU/
+	 P7wAhHza3KzGg==
+Message-ID: <dae6284f-b94f-45d6-a76c-20f173bf7978@collabora.com>
+Date: Thu, 16 Nov 2023 20:30:40 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1e5836360485b63e15bdf58da59e83139666b290.1699879741.git.unicorn_wang@outlook.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 12/12] [UNTESTED] riscv: dts: starfive:
+ beaglev-starlight: Enable gmac
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>
+Cc: Andrew Lunn <andrew@lunn.ch>, Conor Dooley <conor+dt@kernel.org>,
+ Emil Renner Berthing <kernel@esmil.dk>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Samin Guo <samin.guo@starfivetech.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+ geert@linux-m68k.org
+References: <20231029042712.520010-1-cristian.ciocaltea@collabora.com>
+ <20231029042712.520010-13-cristian.ciocaltea@collabora.com>
+ <f253b50a-a0ac-40c6-b13d-013de7bac407@lunn.ch>
+ <233a45e1-15ac-40da-badf-dee2d3d60777@collabora.com>
+ <cb6597be-2185-45ad-aa47-c6804ff68c85@collabora.com>
+ <20231116-stellar-anguished-7cf06eb5634a@squawk>
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <20231116-stellar-anguished-7cf06eb5634a@squawk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231116_101859_184046_91310E4F 
-X-CRM114-Status: GOOD (  15.99  )
+X-CRM114-CacheID: sfid-20231116_103050_029553_D83A5CCB 
+X-CRM114-Status: GOOD (  17.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,56 +96,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 13, 2023 at 09:19:31PM +0800, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
+On 11/16/23 19:55, Conor Dooley wrote:
+> On Thu, Nov 16, 2023 at 03:15:46PM +0200, Cristian Ciocaltea wrote:
+>> On 10/30/23 00:53, Cristian Ciocaltea wrote:
+>>> On 10/29/23 20:46, Andrew Lunn wrote:
+>>>> On Sun, Oct 29, 2023 at 06:27:12AM +0200, Cristian Ciocaltea wrote:
+>>>>> The BeagleV Starlight SBC uses a Microchip KSZ9031RNXCA PHY supporting
+>>>>> RGMII-ID.
+>>>>>
+>>>>> TODO: Verify if manual adjustment of the RX internal delay is needed. If
+>>>>> yes, add the mdio & phy sub-nodes.
+>>>>
+>>>> Please could you try to get this tested. It might shed some light on
+>>>> what is going on here, since it is a different PHY.
+>>>
+>>> Actually, this is the main reason I added the patch. I don't have access
+>>> to this board, so it would be great if we could get some help with testing.
+>>
+>> @Emil, @Conor: Any idea who might help us with a quick test on the
+>> BeagleV Starlight board?
 > 
-> Add bindings for the clock generator on the SG2042 RISC-V SoC.
-> 
-> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
-> ---
->  .../clock/sophgo/sophgo,sg2042-clkgen.yaml    | 48 +++++++++++++++++++
->  1 file changed, 48 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/sophgo/sophgo,sg2042-clkgen.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/sophgo/sophgo,sg2042-clkgen.yaml b/Documentation/devicetree/bindings/clock/sophgo/sophgo,sg2042-clkgen.yaml
-> new file mode 100644
-> index 000000000000..e372d5dca5b9
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/sophgo/sophgo,sg2042-clkgen.yaml
-> @@ -0,0 +1,48 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/sophgo/sophgo,sg2042-clkgen.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Sophgo SG2042 Clock Generator
-> +
-> +maintainers:
-> +  - Chen Wang <unicorn_wang@outlook.com>
-> +
-> +properties:
-> +  compatible:
-> +    const: sophgo,sg2042-clkgen
-> +
-> +  system-ctrl:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    items:
-> +      - items:
-> +          - description: phandle to System Register Controller syscon node.
-> +    description:
-> +      The phandle to System Register Controller syscon node.
+> I don't have one & I am not sure if Emil does. Geert (CCed) should have
+> one though. Is there a specific test you need to have done?
 
-Forget what I just said about syscon.yaml...
+As Andrew already pointed out, we'd like to know if networking for this
+board works without any further adjustment of the RX internal delay.
 
-You don't need a phandle here. Just make this node a child of the 
-syscon. However, why do you need a child at all? Just add 'clocks' and 
-'#clock-cells' to the parent directly. You don't need a child node when 
-there's only 1 child node. Maybe there's other functions, but I have no 
-visibility into that. IOW, define what all the functions are so we can 
-provide better guidance.
+This was necessary for VisionFive (see previous PATCH v2 11/12), but the
+PHY is different (Motorcomm YT8521), hence this test might help us
+understand if there's a potential issue with the SoC or the PHY.
 
-Rob
+Thanks,
+Cristian
 
 _______________________________________________
 linux-riscv mailing list
