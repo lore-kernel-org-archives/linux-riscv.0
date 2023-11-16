@@ -4,104 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFA95C197A0
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Nov 2023 14:36:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34A7BC197A0
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Nov 2023 16:36:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gqpmzUBcym1Osys6H9QpfUe2uyl6xlkAYh7NqmGI9gA=; b=cMtMdIGFE/WOUr
-	4lP+KSQBkFwe9gpQRS/4RFvF1VeFsb1AGvorYq/OGkvZK35hi+dVnN9/SzlH+N++iu/DPoH5/MO94
-	AaT+pr/3cGhZb5UmJG7ARzMJeAI3cEBbPBCtIU9dinw4mF3dxkKKPQ1q5SXbaV9hT9Zr4MalMtEdL
-	ThKsXc+d08xtuZhIvCiENeDPvR05Vjv2jeZ5v0AkXK0J47Yh1HtVjBOFw3XGPCBrXVIjo0W+sTTwn
-	0i6sUqp1Alz85I+7cBDmVJCb3q8XVbY3Eb8rQhLvuOcVpSnQCJm+1iPBoC9dEIoOpS7nneTGwEMC9
-	gO/ybuWKIjhAfElEgVHw==;
+	List-Owner; bh=tKsQ6gXagNYvTAiiTJ5yOh/IcDWY2I3TNG7Msd/TiEg=; b=P+Jg+KJpTUkY7l
+	YZHjZMj6pwHNB7uVqdtUMwYd3feVPOFlcVu3MR3Vw4WbEM4iyliYi1v6ye79XFilFv1eZU9rKC0xX
+	Po4UABPhUrHghWFaPrtGRSPUN3qDuCIN0FGEQqx1vKFGfmozyNx0LVuhxOvv6ZPws7y3tMGA1nfao
+	AyhqLmzH9sxP7x38kzed6Wi7Lo7RmYMWg8QQuIFNjaRCcRVcKGvyJta+mQqDv6yp0ixqsNTtK+dZ0
+	ChqBtVusMp0f8XDmjAxpeH3yOQZ+Bu/AR8t8suBdqCRQkES8NDIEKu7gV/eIHvkG3jMGdU7ccPmCE
+	TPteXkqsQ5R2dy+/2+nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3dTy-003iQu-0r;
-	Thu, 16 Nov 2023 14:36:38 +0000
-Received: from mail-ot1-f45.google.com ([209.85.210.45])
+	id 1r3fLd-003zRL-2m;
+	Thu, 16 Nov 2023 16:36:09 +0000
+Received: from mail-oa1-f51.google.com ([209.85.160.51])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3dTu-003iPK-2l;
-	Thu, 16 Nov 2023 14:36:36 +0000
-Received: by mail-ot1-f45.google.com with SMTP id 46e09a7af769-6ce2c5b2154so450885a34.3;
-        Thu, 16 Nov 2023 06:36:33 -0800 (PST)
+	id 1r3fLb-003zQR-0R
+	for linux-riscv@lists.infradead.org;
+	Thu, 16 Nov 2023 16:36:08 +0000
+Received: by mail-oa1-f51.google.com with SMTP id 586e51a60fabf-1f066fc2a28so510041fac.0
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Nov 2023 08:36:06 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700145392; x=1700750192;
+        d=1e100.net; s=20230601; t=1700152566; x=1700757366;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=hQe83AHexfh3GazMLDTY5AyEL167MohegfRBMKLl7I8=;
-        b=gRsxU+dJa1YJoRRRnkRYNixDzsgUI/Ku6nWS763qt+NONL16wr/WKSA+ow1fu3tysa
-         CUc4QnFm01dkgsojB/IN6/Nmxhv0eP51viUhs6QPAvUh0Yak0+c9RuFg6dX33WENCbWp
-         69X+l69YqrnnAFvm7pk62fkawPduqpmcyUoziBery4ySx1SHWmuaPv+L3s0aPYFPg6tv
-         q5wfct8xcEd2tOoiZ6BH1mYmCMiqQKo2/s/uGJ/GRNBVuGGBrzetu4F37VQ0i8xQ9YhT
-         tIOU4dG8XV0mBLsUclhh8zye7jvMxPqjfMqmksnjgpYvR5hU0nTcgtRhCdF5rbqaD3s/
-         wcWQ==
-X-Gm-Message-State: AOJu0Yxz8OoOy7FrFcUbFwC8nrFiTn/r1T+j5Bqh7iW977CjgSjQJpzO
-	fbgEp4v1xqFYXg1Y3O+l36E=
-X-Google-Smtp-Source: AGHT+IHU4Lxx+/myT+H5YB5iQwSXHLDIA41zmD2u+pjBktk3mb+GPBhIH+yVJJ2/AO7NCTzQtZy56A==
-X-Received: by 2002:a05:6830:10c7:b0:6c4:ae52:9599 with SMTP id z7-20020a05683010c700b006c4ae529599mr9476568oto.7.1700145392505;
-        Thu, 16 Nov 2023 06:36:32 -0800 (PST)
-Received: from localhost ([2600:380:7a60:430d:7a98:972a:884d:31ff])
-        by smtp.gmail.com with ESMTPSA id l2-20020a9d7082000000b006cd099bb052sm912460otj.1.2023.11.16.06.36.32
+        bh=a5Wjrv89VUF6VK+5eLlsl+F92OjgJxoSWW7Pt0LnUc0=;
+        b=BYLWl7LKLyYt80AJPQ7Lr2an45ErzvwhLJWnl94Km/O70p+TV7/3pSA0YYwQwpKe+b
+         5Bvi7dGcIlme1Kke4CwJOBhXYeu40DvZNYDKQKEch2xKGr2Iebg7IH1C4vjXSBllDZ0c
+         mChVUS2DkQecVfMjvjQp/QgOj8nkD1CJvyoefqSTf1GSXMPh9YNPbL2Uv71SL7fTSz2J
+         IkQAJ6M1gl/fJT+Lj/5kpI5xPEIdLcQdcJCGdr99S7FoymYYBykJu8OAKQO9DCwdUyvX
+         UQTiYxhby8Dk6uSsw/43Xae5sBtxIa+z7lH2cdtoI76nw2ELtZbns/EYyMCf5NDgNdH/
+         urDQ==
+X-Gm-Message-State: AOJu0YymDYzcPjSNsiw/wLZGW9pccmE0AAA8YQ7QQFWpDbpWmq9oLgdL
+	1216w3t/jeZqP8ttYmPs4w==
+X-Google-Smtp-Source: AGHT+IF3gy4IUmEGMCjjYmdSclHOPslU2XoqVhRBKPtIzVctlJ4JUPqPVYgJKXB/qDqsNymCUQ1jaQ==
+X-Received: by 2002:a05:6871:a302:b0:1f4:a122:6b02 with SMTP id vx2-20020a056871a30200b001f4a1226b02mr17782043oab.45.1700152563863;
+        Thu, 16 Nov 2023 08:36:03 -0800 (PST)
+Received: from herring.priv (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id ec21-20020a0568708c1500b001e5ad4b2f65sm2216550oab.19.2023.11.16.08.36.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Nov 2023 06:36:32 -0800 (PST)
-Date: Thu, 16 Nov 2023 06:36:30 -0800
-From: Moritz Fischer <mdf@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: acpica-devel@lists.linux.dev, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dexuan Cui <decui@microsoft.com>, devicetree@vger.kernel.org,
-	David Woodhouse <dwmw2@infradead.org>,
-	Frank Rowand <frowand.list@gmail.com>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>, iommu@lists.linux.dev,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	"K. Y. Srinivasan" <kys@microsoft.com>, Len Brown <lenb@kernel.org>,
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-snps-arc@lists.infradead.org,
-	linux-tegra@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Hector Martin <marcan@marcan.st>,
-	Palmer Dabbelt <palmer@dabbelt.com>, patches@lists.linux.dev,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Robert Moore <robert.moore@intel.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Krishna Reddy <vdumpa@nvidia.com>, Vineet Gupta <vgupta@kernel.org>,
-	virtualization@lists.linux.dev, Wei Liu <wei.liu@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Lu Baolu <baolu.lu@linux.intel.com>, Christoph Hellwig <hch@lst.de>,
-	Jerry Snitselaar <jsnitsel@redhat.com>,
-	Moritz Fischer <mdf@kernel.org>,
-	Zhenhua Huang <quic_zhenhuah@quicinc.com>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH v2 12/17] iommu: Make iommu_ops_from_fwnode() static
-Message-ID: <ZVYo7s_dV9HDm1qU@archbook>
-References: <0-v2-36a0088ecaa7+22c6e-iommu_fwspec_jgg@nvidia.com>
- <12-v2-36a0088ecaa7+22c6e-iommu_fwspec_jgg@nvidia.com>
+        Thu, 16 Nov 2023 08:36:03 -0800 (PST)
+Received: (nullmailer pid 2446073 invoked by uid 1000);
+	Thu, 16 Nov 2023 16:36:02 -0000
+Date: Thu, 16 Nov 2023 10:36:02 -0600
+From: Rob Herring <robh@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Chao Wei <chao.wei@sophgo.com>, Chen Wang <unicorn_wang@outlook.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 1/2] riscv: dts: cv1800b: add pinctrl node for cv1800b
+Message-ID: <20231116163602.GA2440245-robh@kernel.org>
+References: <20231113005702.2467-1-jszhang@kernel.org>
+ <20231113005702.2467-2-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <12-v2-36a0088ecaa7+22c6e-iommu_fwspec_jgg@nvidia.com>
+In-Reply-To: <20231113005702.2467-2-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231116_063634_896196_5D4CFC96 
-X-CRM114-Status: GOOD (  17.36  )
+X-CRM114-CacheID: sfid-20231116_083607_171796_69F1FA35 
+X-CRM114-Status: GOOD (  19.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,55 +82,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 15, 2023 at 10:06:03AM -0400, Jason Gunthorpe wrote:
-> There are no external callers now.
+On Mon, Nov 13, 2023 at 08:57:01AM +0800, Jisheng Zhang wrote:
+> Add the reset device tree node to cv1800b SoC reusing the
+> pinctrl-single driver.
 > 
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-Reviewed-by: Moritz Fischer <mdf@kernel.org>
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 > ---
->  drivers/iommu/iommu.c | 3 ++-
->  include/linux/iommu.h | 7 -------
->  2 files changed, 2 insertions(+), 8 deletions(-)
+>  arch/riscv/boot/dts/sophgo/cv-pinctrl.h | 19 +++++++++++++++++++
+>  arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 10 ++++++++++
+>  2 files changed, 29 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/sophgo/cv-pinctrl.h
 > 
-> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-> index 5af98cad06f9ef..ea6aede326131e 100644
-> --- a/drivers/iommu/iommu.c
-> +++ b/drivers/iommu/iommu.c
-> @@ -2928,7 +2928,8 @@ bool iommu_default_passthrough(void)
->  }
->  EXPORT_SYMBOL_GPL(iommu_default_passthrough);
+> diff --git a/arch/riscv/boot/dts/sophgo/cv-pinctrl.h b/arch/riscv/boot/dts/sophgo/cv-pinctrl.h
+> new file mode 100644
+> index 000000000000..ed78b6fb3142
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/sophgo/cv-pinctrl.h
+> @@ -0,0 +1,19 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+
+Please match the licensing of the file(s) that include this. Not that 
+there really anything 
+
+> +/*
+> + * This header provides constants for pinctrl bindings for Sophgo CV* SoC.
+> + *
+> + * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +#ifndef _DTS_RISCV_SOPHGO_CV_PINCTRL_H
+> +#define _DTS_RISCV_SOPHGO_CV_PINCTRL_H
+> +
+> +#define MUX_M0		0
+> +#define MUX_M1		1
+> +#define MUX_M2		2
+> +#define MUX_M3		3
+> +#define MUX_M4		4
+> +#define MUX_M5		5
+> +#define MUX_M6		6
+> +#define MUX_M7		7
+
+I find defines with the number in the name to be somewhat pointless.
+
+> +
+> +#endif
+> diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> index e04df04a91c0..7a44d8e8672b 100644
+> --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> @@ -6,6 +6,8 @@
+>  #include <dt-bindings/interrupt-controller/irq.h>
+>  #include <dt-bindings/reset/sophgo,cv1800b-reset.h>
 >  
-> -const struct iommu_ops *iommu_ops_from_fwnode(struct fwnode_handle *fwnode)
-> +static const struct iommu_ops *
-> +iommu_ops_from_fwnode(struct fwnode_handle *fwnode)
->  {
->  	const struct iommu_ops *ops = NULL;
->  	struct iommu_device *iommu;
-> diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-> index 72ec71bd31a376..05c5ad6bad6339 100644
-> --- a/include/linux/iommu.h
-> +++ b/include/linux/iommu.h
-> @@ -831,7 +831,6 @@ static inline void iommu_fwspec_free(struct device *dev)
->  	dev->iommu->fwspec = NULL;
->  }
->  int iommu_fwspec_add_ids(struct device *dev, u32 *ids, int num_ids);
-> -const struct iommu_ops *iommu_ops_from_fwnode(struct fwnode_handle *fwnode);
->  int iommu_fwspec_append_ids(struct iommu_fwspec *fwspec, u32 *ids, int num_ids);
+> +#include "cv-pinctrl.h"
+> +
+>  / {
+>  	compatible = "sophgo,cv1800b";
+>  	#address-cells = <1>;
+> @@ -55,6 +57,14 @@ soc {
+>  		dma-noncoherent;
+>  		ranges;
 >  
->  static inline struct iommu_fwspec *dev_iommu_fwspec_get(struct device *dev)
-> @@ -1187,12 +1186,6 @@ static inline int iommu_fwspec_add_ids(struct device *dev, u32 *ids,
->  	return -ENODEV;
->  }
->  
-> -static inline
-> -const struct iommu_ops *iommu_ops_from_fwnode(struct fwnode_handle *fwnode)
-> -{
-> -	return NULL;
-> -}
-> -
->  static inline int
->  iommu_dev_enable_feature(struct device *dev, enum iommu_dev_features feat)
->  {
+> +		pinctrl0: pinctrl@3001000 {
+> +			compatible = "pinctrl-single";
+> +			reg = <0x3001000 0x130>;
+> +			#pinctrl-cells = <1>;
+> +			pinctrl-single,register-width = <32>;
+> +			pinctrl-single,function-mask = <0x00000007>;
+> +		};
+
+Even more pointless is the defines are not even used.
+
+> +
+>  		rst: reset-controller@3003000 {
+>  			compatible = "sophgo,cv1800b-reset";
+>  			reg = <0x03003000 0x1000>;
 > -- 
 > 2.42.0
 > 
