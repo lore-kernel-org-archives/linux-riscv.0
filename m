@@ -4,82 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF020C197A0
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Nov 2023 18:30:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 115A8C54E76
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Nov 2023 21:00:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IFgvEW3RZnDiDGgz0us+yRmdfS6dFOGgBHq6sCUZA3Q=; b=Zh437icsiEGYfZ
-	hN/2ojWyqZBV8QnXzup0qqqUKL6yJ3ijLihHt69yRAv2BAIh4jHXX2KGtxOrp8VuHlfezb+Pt03A9
-	furqhjUlA6sXmFxPt6qvx2BiXle+RTkHYUK8oHdEFqD5EWezt8YHaxghVn7AkYl85y7C5xoIVq88x
-	vj2NJcmZwHf28oTYIJdsj2X23FZ4rDYGslNRmofonmUOBQ7nLeiwtvesqM+0lM4QaLL06ev60EIWA
-	ANC/EHreh3i+1ICQwVswr0jfMjHESSSW4QVnqjExc2UOe3saaQ9DT6hHRSQB8j42z/BiLimqeOwnE
-	B/RzhDX07PIgH9XZMxDg==;
+	References:List-Owner; bh=M4E2n7fQMTMlg4PJ8O2pHNg74iBp6ggTIiWMKnF67Ps=; b=Aro
+	ResI672ehGWyeui73PlIQNgxtIk2yI2Ty1jZED6ZD0/wGnngJEEjE2dS9WObbs+AhhMPt5OS81cY7
+	HXlwYkIDEYMM/tVfPXRMyFHLZK9i6AsbnrpZM4yhre/XLJDZLkRhqxPKNb4ur4GbesOx9hfXlITrO
+	R9O/Prasgal4JhnShwTqvAlrV0J/qdLWqQYh0npD3FL67gPTHWrlDkN7ijgSPn4Ni6p3k7rK3rVIm
+	4piWc2H3LWnSacgKiccFFkU7DrpOkiHHvuq3mSRin6T4nKhxSX+jWXj1PQX9VUwvlB1bZ5AlnP7Cr
+	MtFmJpuseMQRJtivsXCpbSrDon0Gpnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3h8e-004Klo-27;
-	Thu, 16 Nov 2023 18:30:52 +0000
-Received: from madras.collabora.co.uk ([46.235.227.172])
+	id 1r3jTV-004p4H-07;
+	Thu, 16 Nov 2023 21:00:33 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3h8b-004KkN-2j;
-	Thu, 16 Nov 2023 18:30:51 +0000
-Received: from [100.116.17.117] (cola.collaboradmins.com [195.201.22.229])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by madras.collabora.co.uk (Postfix) with ESMTPSA id 267BF6607355;
-	Thu, 16 Nov 2023 18:30:43 +0000 (GMT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1700159444;
-	bh=SfQ0+hmvmWXxSEVa4mEfgSW3GKHJePtTDvpcPdZG1Uk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=maVewsrbypH3b7HVwPhXhJEqUkk1FTC2a2CT/5Zdw8v0VmZeg8+49dqvgBb32xiWM
-	 azbq7XlRF2ladTSFgbsOB5dpUdbNs+4FMDF5xcR9fdEVZB/F+ulE6j4ZBRq0aVF6gd
-	 Ur0OkuPWF55GWXqbMfJmoU650l9DTsr8+skMC8Zswxs2w1tuaiRCRlz0AGOeQXVE52
-	 UXsV2fK1XsZojC5adNNbRtAUfgqGVyQA6/j/Ap8+LUXOiljEPcAB6Cgbz+1VDKrfA6
-	 xfLdKthrk/vZguFVZXiDOIWS6Ls/26NP4+ih04LWU6pskf7c8KzkOn65cYI6vWsUU/
-	 P7wAhHza3KzGg==
-Message-ID: <dae6284f-b94f-45d6-a76c-20f173bf7978@collabora.com>
-Date: Thu, 16 Nov 2023 20:30:40 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 12/12] [UNTESTED] riscv: dts: starfive:
- beaglev-starlight: Enable gmac
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, Conor Dooley <conor+dt@kernel.org>,
- Emil Renner Berthing <kernel@esmil.dk>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Samin Guo <samin.guo@starfivetech.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
- geert@linux-m68k.org
-References: <20231029042712.520010-1-cristian.ciocaltea@collabora.com>
- <20231029042712.520010-13-cristian.ciocaltea@collabora.com>
- <f253b50a-a0ac-40c6-b13d-013de7bac407@lunn.ch>
- <233a45e1-15ac-40da-badf-dee2d3d60777@collabora.com>
- <cb6597be-2185-45ad-aa47-c6804ff68c85@collabora.com>
- <20231116-stellar-anguished-7cf06eb5634a@squawk>
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <20231116-stellar-anguished-7cf06eb5634a@squawk>
+	id 1r3jTR-004p27-0i
+	for linux-riscv@lists.infradead.org;
+	Thu, 16 Nov 2023 21:00:30 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-5a828bdcfbaso19435507b3.2
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Nov 2023 13:00:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1700168424; x=1700773224; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=pcg1jHOi88FLN7hCqkcZwcR8zkGGhGMDTBufXRqyOok=;
+        b=SLW1wcmGWqIQdH9U9eCScf56cMvnnofZTIpU28HI+27qWKjqZFuIYQgx/Jg+YLJ9Th
+         UH+x8IED2sq98SxyxRAWZs72DKGpTNXJfSA/aIjg9qjXw+KQZw0dnbEeNF0uQgfWOttv
+         qAb+mB1Zk4qlkTf1qe4Vedazc0Z0SRlNvJV5YN2YltGuWOzDt5CqQ7O5+f+zuPz3wBqv
+         GVbIa6feXid7Mmu7TFzy2WDFyiAQKPUfCPd3qYsHjMmcmiUgoisHo3mAZDNUap6PHFG6
+         0Quqmhu0jq/eCVVTQ0Ij2Orf41qcv+BT384LuSSYhIbtkLmdFq9yvmVGbDKocgX23NvD
+         cIBQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1700168424; x=1700773224;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=pcg1jHOi88FLN7hCqkcZwcR8zkGGhGMDTBufXRqyOok=;
+        b=BoRZWfoNXg+V4cXUn4Fz+DZH2D8Iuwlfu1hzbTJuWC3GK8kaY1oi7XOZKDdrvOU884
+         k49wHSF5f5iZ2Yg+w43cW6i9jmngFe4yUAwpaLRsbIFAfjKLLl9vrfT6lqPwdFoaPNAM
+         sS/NnLNMpFIcmB1gu5DT2bsK8vvTjuhIyzNRtjxMwv/ibYtpwiftR41fKQEf3Y9SoMKD
+         oX0lLwHiV0BI67foO8XJdkOAVm10TOjDwFYJx+Ij0LhJgAf3DvWab0GZGuaQwETWHWWr
+         soLvVIeTT0RjIlCuNybUg4vn7FzlNfvK4VNxUoWD1bXVWarICpdA5GcmIOlhkO1oVYco
+         00TQ==
+X-Gm-Message-State: AOJu0Yx4UbckBkpFg037nPQQt/cjMRx7aQV6xzNl/YJuyZf7LiJu8Xj7
+	xb337M2CPUr0hivyMWDByHMstLJm7M+FG0pDog==
+X-Google-Smtp-Source: AGHT+IERExc4D+qrt27go/xYBPrtoAORZdvfQFtSO07pMqMqSuTLQB8wBOPMZT1riqPUGW5/Jxx9EA2kvlBTv30QyA==
+X-Received: from ackerleytng-ctop.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:13f8])
+ (user=ackerleytng job=sendgmr) by 2002:a25:7644:0:b0:da3:a4ae:1525 with SMTP
+ id r65-20020a257644000000b00da3a4ae1525mr393167ybc.5.1700168424573; Thu, 16
+ Nov 2023 13:00:24 -0800 (PST)
+Date: Thu, 16 Nov 2023 21:00:22 +0000
+In-Reply-To: <20231105163040.14904-33-pbonzini@redhat.com> (message from Paolo
+ Bonzini on Sun,  5 Nov 2023 17:30:35 +0100)
+Mime-Version: 1.0
+Message-ID: <diqzfs15o1ll.fsf@ackerleytng-ctop.c.googlers.com>
+Subject: Re: [PATCH 32/34] KVM: selftests: Add basic selftest for guest_memfd()
+From: Ackerley Tng <ackerleytng@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: pbonzini@redhat.com, maz@kernel.org, oliver.upton@linux.dev, 
+	chenhuacai@kernel.org, mpe@ellerman.id.au, anup@brainfault.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	seanjc@google.com, viro@zeniv.linux.org.uk, brauner@kernel.org, 
+	willy@infradead.org, akpm@linux-foundation.org, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, xiaoyao.li@intel.com, yilun.xu@intel.com, 
+	chao.p.peng@linux.intel.com, tabba@google.com, jarkko@kernel.org, 
+	amoorthy@google.com, dmatlack@google.com, yu.c.zhang@linux.intel.com, 
+	isaku.yamahata@intel.com, mic@digikod.net, vbabka@suse.cz, 
+	vannapurve@google.com, mail@maciej.szmigiero.name, david@redhat.com, 
+	qperret@google.com, michael.roth@amd.com, wei.w.wang@intel.com, 
+	liam.merwick@oracle.com, isaku.yamahata@gmail.com, 
+	kirill.shutemov@linux.intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231116_103050_029553_D83A5CCB 
-X-CRM114-Status: GOOD (  17.50  )
+X-CRM114-CacheID: sfid-20231116_130029_257468_23686F43 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,38 +103,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/16/23 19:55, Conor Dooley wrote:
-> On Thu, Nov 16, 2023 at 03:15:46PM +0200, Cristian Ciocaltea wrote:
->> On 10/30/23 00:53, Cristian Ciocaltea wrote:
->>> On 10/29/23 20:46, Andrew Lunn wrote:
->>>> On Sun, Oct 29, 2023 at 06:27:12AM +0200, Cristian Ciocaltea wrote:
->>>>> The BeagleV Starlight SBC uses a Microchip KSZ9031RNXCA PHY supporting
->>>>> RGMII-ID.
->>>>>
->>>>> TODO: Verify if manual adjustment of the RX internal delay is needed. If
->>>>> yes, add the mdio & phy sub-nodes.
->>>>
->>>> Please could you try to get this tested. It might shed some light on
->>>> what is going on here, since it is a different PHY.
->>>
->>> Actually, this is the main reason I added the patch. I don't have access
->>> to this board, so it would be great if we could get some help with testing.
->>
->> @Emil, @Conor: Any idea who might help us with a quick test on the
->> BeagleV Starlight board?
-> 
-> I don't have one & I am not sure if Emil does. Geert (CCed) should have
-> one though. Is there a specific test you need to have done?
+Paolo Bonzini <pbonzini@redhat.com> writes:
 
-As Andrew already pointed out, we'd like to know if networking for this
-board works without any further adjustment of the RX internal delay.
+> <snip>
+>
+> +static void test_create_guest_memfd_invalid(struct kvm_vm *vm)
+> +{
+> +	size_t page_size = getpagesize();
+> +	uint64_t flag;
+> +	size_t size;
+> +	int fd;
+> +
+> +	for (size = 1; size < page_size; size++) {
+> +		fd = __vm_create_guest_memfd(vm, size, 0);
+> +		TEST_ASSERT(fd == -1 && errno == EINVAL,
+> +			    "guest_memfd() with non-page-aligned page size '0x%lx' should fail with EINVAL",
+> +			    size);
+> +	}
+> +
+> +	for (flag = 1; flag; flag <<= 1) {
 
-This was necessary for VisionFive (see previous PATCH v2 11/12), but the
-PHY is different (Motorcomm YT8521), hence this test might help us
-understand if there's a potential issue with the SoC or the PHY.
+Since transparent hugepage support is no longer officially part of this
+series, 
 
-Thanks,
-Cristian
+> +		uint64_t bit;
+
+this declaration of bit can be removed.
+
+> +
+> +		fd = __vm_create_guest_memfd(vm, page_size, flag);
+> +		TEST_ASSERT(fd == -1 && errno == EINVAL,
+> +			    "guest_memfd() with flag '0x%lx' should fail with EINVAL",
+> +			    flag);
+> +
+
+This loop can also be removed,
+
+> +		for_each_set_bit(bit, &valid_flags, 64) {
+> +			fd = __vm_create_guest_memfd(vm, page_size, flag | BIT_ULL(bit));
+> +			TEST_ASSERT(fd == -1 && errno == EINVAL,
+> +				    "guest_memfd() with flags '0x%llx' should fail with EINVAL",
+> +				    flag | BIT_ULL(bit));
+> +		}
+
+otherwise this won't compile because valid_flags is not declared.
+
+These lines will have to be added back when adding transparent hugepage
+support.
+
+> +	}
+> +}
+
+Tested-by: Ackerley Tng <ackerleytng@google.com>
 
 _______________________________________________
 linux-riscv mailing list
