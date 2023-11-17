@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8EB2C072A2
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Nov 2023 13:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1EA4C072A2
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Nov 2023 14:01:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZhXpOcDE425wjAOs5Lf+M/fl2YAJjDkIYk+HIkb66SE=; b=KoMMHe4lWVDXTI
-	nSBldBGeAs8YLuDrUxspxmHb3jevyFo0OhZWPAAqN0pBvXoxUBMMIDaaV2oSvSNvTqYVHl8QJ+MvT
-	aqsgNcRIbJCoXrlixDYCosqNA3howgc9d4c3tiTXzz+eA5NlOUj2d5db5fR8msC4liuaV5QVgXRSr
-	loO1ow2Xm6vXr/mXWgj7BMbZw85tKsB8nvctpP3vzCMID5s4RiYaiT6MseyEnWQpcY/KBlhG1jllN
-	APjb4wERUDaEP31KMeMIyJOGitunTKdhNEOAjyHYuW06ca9vP/u0Ss9a/4oUUq+bcFT0viO5351Z1
-	V8zjarG4+NEmYj+s1hbg==;
+	List-Owner; bh=nw3EW0H0ofAmYKYxiWz7jVDNLEvj4qv9axeJtKexrYw=; b=1o5rvynX5wBFCx
+	EPqAuEQoBxA0z0Ncg8P+aC88YVQxGHANIeHVHgqbKfKF8xGBeh5AIR8GfkZwmRQ03cHIxdOgCtvd+
+	BJJuCyiGcfflguV9OlZMBKMFtpdXPmnK9vaQl7/TifAqtYaGx87/AX3IntpzznTGXqT/YmT5hZyKa
+	RlXHvQnqY1EQDB4L89xtD2zQOZ7sdIQPyysPR8tSxm87QVkcxwCnqKXADXl/X4J3EPQDKHvweQe9C
+	AABGGGpkeSOBA/Gjed/NbllLlNbNhxYF1L7d8z2Sjo649AM7VwyYjpr1Lo0IrfVzcd2idkKiG2KLA
+	nRCDEXFhODNc2KH08sjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3ydF-006cac-2i;
-	Fri, 17 Nov 2023 13:11:37 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1r3zPZ-006gxK-0j;
+	Fri, 17 Nov 2023 14:01:33 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3ydD-006cZu-2e
+	id 1r3zPW-006gwG-0j
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Nov 2023 13:11:37 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-5bd306f86a8so1480481a12.0
-        for <linux-riscv@lists.infradead.org>; Fri, 17 Nov 2023 05:11:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1700226694; x=1700831494; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6E9rdo8qzUdOfFpLyb8P/NwaQhOJy8xXp5m1DZcVMbs=;
-        b=bLphkpCstsBLpb5Fdho9HU0LwhrdtEw6xis6hZLeKNovvu6QiQL1s6J6BYyKOdxiqF
-         CuSX+8wnfHyfLkotR9atjTydBtJH6uBCBIjeaNlylZdb9iAf+pkHjZJODIKwsxdPwXBG
-         wWmUVHSrZLdJOz99s/7ew5RqjgrTaIA3bIsXBiZsmiQO6sgUO4f0cbf2UISGJyQSagFf
-         ASUd5hAArVGD+2NlhadIi+9oCDhwn8B2ZWkkeimeDXmwdZFwebHxZFuo464g/9Vq7U+8
-         fil9CZwKWoxt75MIMpownioW3+t7A64lPA13tefXoXayK1z8AJT4oyufOncNGeL9IS6m
-         Qjjg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700226694; x=1700831494;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6E9rdo8qzUdOfFpLyb8P/NwaQhOJy8xXp5m1DZcVMbs=;
-        b=bJ5MJzn5ocCvagWhVnOItKKr6x+nsqYw1ueSTxlhd1h5t/Y7CeUtcbLhx/mlm+4qFQ
-         VQ2L9bcMfyqFqrH44cfu3gEXPQtqAE6z9J0ky7ohfqhcNTi/PxiKMF4SnWbojMaJme/n
-         qQvqWCAEKu+OnhnBwvaMkdF3h6+86v6aDDIfJdRhIIsq/DHpldR1L13weEFr5BNXRgto
-         +tgyn2VmiR1V0hg8WWOsCHNZJnL7HNBF5n1o1ThNspZ6zovzt6r7bAkNDzg6mWg9+TK7
-         WkNxxsLl3yyE36331x9z6nvg+WMjpOJ0fT6IyGop5dn772vGZedpk2q5oAu6dfLzcJUq
-         QU4A==
-X-Gm-Message-State: AOJu0YxXf3ioZEHVwcZ80NncFRja/3QOiEbU+G+cGGAH0vYyCIb7aA9a
-	AZZRehFQCV2cHda5rOsiq8jVyCiyzsybjaGx5FS/bg==
-X-Google-Smtp-Source: AGHT+IFgkLOaY0/DJgU/R9AI39sZ+6DPT8zwZKvyF4UaFzfmMFJIGvIF2iBAT0bJLBWK5QSv+GXZ5swJVYptGL1IhU4=
-X-Received: by 2002:a17:90a:974a:b0:281:3a4a:2e61 with SMTP id
- i10-20020a17090a974a00b002813a4a2e61mr14672875pjw.14.1700226694377; Fri, 17
- Nov 2023 05:11:34 -0800 (PST)
+	Fri, 17 Nov 2023 14:01:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1700229688;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pq04hPwM76I6HfjjQsgEZc2UgA6OA1Oi638JwoZfCNQ=;
+	b=XWbEkDScMgH5ZwjFuhSGvD5BLa4pKIQZTrQ6tsJefAPoqQmChQRDJC0r0VULdiJ5fkzPVU
+	o9jULUe4R9JafJE2JZqgjv5gyDSvF8/u04tUnaCBF3IdvgJWIy9wzJPi6EoclU9lIUPYZi
+	XFr+KVlZxp+J5TvO3YZNQL7bxAq/pw0=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-9-LNEJoTcXPIOoWatljCvfVA-1; Fri, 17 Nov 2023 09:01:24 -0500
+X-MC-Unique: LNEJoTcXPIOoWatljCvfVA-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0B062811E8D;
+	Fri, 17 Nov 2023 14:01:23 +0000 (UTC)
+Received: from localhost (unknown [10.72.112.24])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 46EC140C6EB9;
+	Fri, 17 Nov 2023 14:01:21 +0000 (UTC)
+Date: Fri, 17 Nov 2023 22:01:17 +0800
+From: "bhe@redhat.com" <bhe@redhat.com>
+To: "Liu, Yujie" <yujie.liu@intel.com>
+Cc: lkp <lkp@intel.com>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"kexec@lists.infradead.org" <kexec@lists.infradead.org>,
+	"x86@kernel.org" <x86@kernel.org>,
+	"oe-kbuild-all@lists.linux.dev" <oe-kbuild-all@lists.linux.dev>,
+	"llvm@lists.linux.dev" <llvm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
+Subject: Re: [PATCH 2/7] kexec_file: print out debugging message if required
+Message-ID: <ZVdyLdAzgNBXfjiW@MiWiFi-R3L-srv>
+References: <20231114153253.241262-3-bhe@redhat.com>
+ <202311160431.BXPc7NO9-lkp@intel.com>
+ <ZVcvBft/T3cbRBWr@MiWiFi-R3L-srv>
+ <39ccb4fda795a76996cf6d1c3b25909692358211.camel@intel.com>
 MIME-Version: 1.0
-References: <20231020072140.900967-1-apatel@ventanamicro.com>
- <20231020072140.900967-9-apatel@ventanamicro.com> <2023102153-retread-narrow-54ee@gregkh>
-In-Reply-To: <2023102153-retread-narrow-54ee@gregkh>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 17 Nov 2023 18:41:23 +0530
-Message-ID: <CAAhSdy1T-Ca7V21SSW=UCByujv39te7wRYGm40ZqDQ-JxH6pbA@mail.gmail.com>
-Subject: Re: [PATCH v3 8/9] tty: Add SBI debug console support to HVC SBI driver
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Anup Patel <apatel@ventanamicro.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	Conor Dooley <conor@kernel.org>, Andrew Jones <ajones@ventanamicro.com>, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-serial@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <39ccb4fda795a76996cf6d1c3b25909692358211.camel@intel.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231117_051135_861031_5CE6B4E3 
-X-CRM114-Status: GOOD (  22.33  )
+X-CRM114-CacheID: sfid-20231117_060130_375560_D11971C7 
+X-CRM114-Status: GOOD (  19.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,80 +88,116 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBPY3QgMjEsIDIwMjMgYXQgMTA6MTbigK9QTSBHcmVnIEtyb2FoLUhhcnRtYW4KPGdy
-ZWdraEBsaW51eGZvdW5kYXRpb24ub3JnPiB3cm90ZToKPgo+IE9uIEZyaSwgT2N0IDIwLCAyMDIz
-IGF0IDEyOjUxOjM5UE0gKzA1MzAsIEFudXAgUGF0ZWwgd3JvdGU6Cj4gPiBGcm9tOiBBdGlzaCBQ
-YXRyYSA8YXRpc2hwQHJpdm9zaW5jLmNvbT4KPiA+Cj4gPiBSSVNDLVYgU0JJIHNwZWNpZmljYXRp
-b24gc3VwcG9ydHMgYWR2YW5jZWQgZGVidWcgY29uc29sZQo+ID4gc3VwcG9ydCB2aWEgU0JJIERC
-Q04gZXh0ZW5zaW9uLgo+ID4KPiA+IEV4dGVuZCB0aGUgSFZDIFNCSSBkcml2ZXIgdG8gc3VwcG9y
-dCBpdC4KPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBBdGlzaCBQYXRyYSA8YXRpc2hwQHJpdm9zaW5j
-LmNvbT4KPiA+IFNpZ25lZC1vZmYtYnk6IEFudXAgUGF0ZWwgPGFwYXRlbEB2ZW50YW5hbWljcm8u
-Y29tPgo+ID4gLS0tCj4gPiAgZHJpdmVycy90dHkvaHZjL0tjb25maWcgICAgICAgICB8ICAyICst
-Cj4gPiAgZHJpdmVycy90dHkvaHZjL2h2Y19yaXNjdl9zYmkuYyB8IDgyICsrKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKy0tLQo+ID4gIDIgZmlsZXMgY2hhbmdlZCwgNzYgaW5zZXJ0aW9ucygr
-KSwgOCBkZWxldGlvbnMoLSkKPiA+Cj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy90dHkvaHZjL0tj
-b25maWcgYi9kcml2ZXJzL3R0eS9odmMvS2NvbmZpZwo+ID4gaW5kZXggNGY5MjY0ZDAwNWMwLi42
-ZTA1YzVjN2JjYTEgMTAwNjQ0Cj4gPiAtLS0gYS9kcml2ZXJzL3R0eS9odmMvS2NvbmZpZwo+ID4g
-KysrIGIvZHJpdmVycy90dHkvaHZjL0tjb25maWcKPiA+IEBAIC0xMDgsNyArMTA4LDcgQEAgY29u
-ZmlnIEhWQ19EQ0NfU0VSSUFMSVpFX1NNUAo+ID4KPiA+ICBjb25maWcgSFZDX1JJU0NWX1NCSQo+
-ID4gICAgICAgYm9vbCAiUklTQy1WIFNCSSBjb25zb2xlIHN1cHBvcnQiCj4gPiAtICAgICBkZXBl
-bmRzIG9uIFJJU0NWX1NCSV9WMDEKPiA+ICsgICAgIGRlcGVuZHMgb24gUklTQ1ZfU0JJCj4gPiAg
-ICAgICBzZWxlY3QgSFZDX0RSSVZFUgo+ID4gICAgICAgaGVscAo+ID4gICAgICAgICBUaGlzIGVu
-YWJsZXMgc3VwcG9ydCBmb3IgY29uc29sZSBvdXRwdXQgdmlhIFJJU0MtViBTQkkgY2FsbHMsIHdo
-aWNoCj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy90dHkvaHZjL2h2Y19yaXNjdl9zYmkuYyBiL2Ry
-aXZlcnMvdHR5L2h2Yy9odmNfcmlzY3Zfc2JpLmMKPiA+IGluZGV4IDMxZjUzZmE3N2U0YS4uNTZk
-YTFhNGI1YWNhIDEwMDY0NAo+ID4gLS0tIGEvZHJpdmVycy90dHkvaHZjL2h2Y19yaXNjdl9zYmku
-Ywo+ID4gKysrIGIvZHJpdmVycy90dHkvaHZjL2h2Y19yaXNjdl9zYmkuYwo+ID4gQEAgLTM5LDIx
-ICszOSw4OSBAQCBzdGF0aWMgaW50IGh2Y19zYmlfdHR5X2dldCh1aW50MzJfdCB2dGVybW5vLCBj
-aGFyICpidWYsIGludCBjb3VudCkKPiA+ICAgICAgIHJldHVybiBpOwo+ID4gIH0KPiA+Cj4gPiAt
-c3RhdGljIGNvbnN0IHN0cnVjdCBodl9vcHMgaHZjX3NiaV9vcHMgPSB7Cj4gPiArc3RhdGljIGNv
-bnN0IHN0cnVjdCBodl9vcHMgaHZjX3NiaV92MDFfb3BzID0gewo+ID4gICAgICAgLmdldF9jaGFy
-cyA9IGh2Y19zYmlfdHR5X2dldCwKPiA+ICAgICAgIC5wdXRfY2hhcnMgPSBodmNfc2JpX3R0eV9w
-dXQsCj4gPiAgfTsKPiA+Cj4gPiAtc3RhdGljIGludCBfX2luaXQgaHZjX3NiaV9pbml0KHZvaWQp
-Cj4gPiArc3RhdGljIGludCBodmNfc2JpX2RiY25fdHR5X3B1dCh1aW50MzJfdCB2dGVybW5vLCBj
-b25zdCBjaGFyICpidWYsIGludCBjb3VudCkKPiA+ICB7Cj4gPiAtICAgICByZXR1cm4gUFRSX0VS
-Ul9PUl9aRVJPKGh2Y19hbGxvYygwLCAwLCAmaHZjX3NiaV9vcHMsIDE2KSk7Cj4gPiArICAgICBw
-aHlzX2FkZHJfdCBwYTsKPiA+ICsgICAgIHN0cnVjdCBzYmlyZXQgcmV0Owo+ID4gKwo+ID4gKyAg
-ICAgaWYgKGlzX3ZtYWxsb2NfYWRkcihidWYpKSB7Cj4gPiArICAgICAgICAgICAgIHBhID0gcGFn
-ZV90b19waHlzKHZtYWxsb2NfdG9fcGFnZShidWYpKSArIG9mZnNldF9pbl9wYWdlKGJ1Zik7Cj4g
-PiArICAgICAgICAgICAgIGlmIChQQUdFX1NJWkUgPCAob2Zmc2V0X2luX3BhZ2UoYnVmKSArIGNv
-dW50KSkKPiA+ICsgICAgICAgICAgICAgICAgICAgICBjb3VudCA9IFBBR0VfU0laRSAtIG9mZnNl
-dF9pbl9wYWdlKGJ1Zik7Cj4gPiArICAgICB9IGVsc2Ugewo+ID4gKyAgICAgICAgICAgICBwYSA9
-IF9fcGEoYnVmKTsKPiA+ICsgICAgIH0KPiA+ICsKPiA+ICsgICAgIGlmIChJU19FTkFCTEVEKENP
-TkZJR18zMkJJVCkpCj4gPiArICAgICAgICAgICAgIHJldCA9IHNiaV9lY2FsbChTQklfRVhUX0RC
-Q04sIFNCSV9FWFRfREJDTl9DT05TT0xFX1dSSVRFLAo+ID4gKyAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgY291bnQsIGxvd2VyXzMyX2JpdHMocGEpLCB1cHBlcl8zMl9iaXRzKHBhKSwKPiA+
-ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDAsIDAsIDApOwo+ID4gKyAgICAgZWxzZQo+
-ID4gKyAgICAgICAgICAgICByZXQgPSBzYmlfZWNhbGwoU0JJX0VYVF9EQkNOLCBTQklfRVhUX0RC
-Q05fQ09OU09MRV9XUklURSwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvdW50
-LCBwYSwgMCwgMCwgMCwgMCk7Cj4KPiBBZ2FpbiwgeW91IG5lZWQgYSBoZWxwZXIgZnVuY3Rpb24g
-aGVyZSB0byBrZWVwIHlvdSBmcm9tIGhhdmluZyB0byBrZWVwCj4gdGhpcyBhbGwgaW4gc3luYy4K
-ClN1cmUsIEkgd2lsbCB1cGRhdGUuCgo+Cj4gPiArICAgICBpZiAocmV0LmVycm9yKQo+ID4gKyAg
-ICAgICAgICAgICByZXR1cm4gMDsKPiA+ICsKPiA+ICsgICAgIHJldHVybiBjb3VudDsKPiA+ICB9
-Cj4gPiAtZGV2aWNlX2luaXRjYWxsKGh2Y19zYmlfaW5pdCk7Cj4gPgo+ID4gLXN0YXRpYyBpbnQg
-X19pbml0IGh2Y19zYmlfY29uc29sZV9pbml0KHZvaWQpCj4gPiArc3RhdGljIGludCBodmNfc2Jp
-X2RiY25fdHR5X2dldCh1aW50MzJfdCB2dGVybW5vLCBjaGFyICpidWYsIGludCBjb3VudCkKPiA+
-ICB7Cj4gPiAtICAgICBodmNfaW5zdGFudGlhdGUoMCwgMCwgJmh2Y19zYmlfb3BzKTsKPiA+ICsg
-ICAgIHBoeXNfYWRkcl90IHBhOwo+ID4gKyAgICAgc3RydWN0IHNiaXJldCByZXQ7Cj4gPiArCj4g
-PiArICAgICBpZiAoaXNfdm1hbGxvY19hZGRyKGJ1ZikpIHsKPiA+ICsgICAgICAgICAgICAgcGEg
-PSBwYWdlX3RvX3BoeXModm1hbGxvY190b19wYWdlKGJ1ZikpICsgb2Zmc2V0X2luX3BhZ2UoYnVm
-KTsKPiA+ICsgICAgICAgICAgICAgaWYgKFBBR0VfU0laRSA8IChvZmZzZXRfaW5fcGFnZShidWYp
-ICsgY291bnQpKQo+ID4gKyAgICAgICAgICAgICAgICAgICAgIGNvdW50ID0gUEFHRV9TSVpFIC0g
-b2Zmc2V0X2luX3BhZ2UoYnVmKTsKPiA+ICsgICAgIH0gZWxzZSB7Cj4gPiArICAgICAgICAgICAg
-IHBhID0gX19wYShidWYpOwo+ID4gKyAgICAgfQo+ID4gKwo+ID4gKyAgICAgaWYgKElTX0VOQUJM
-RUQoQ09ORklHXzMyQklUKSkKPiA+ICsgICAgICAgICAgICAgcmV0ID0gc2JpX2VjYWxsKFNCSV9F
-WFRfREJDTiwgU0JJX0VYVF9EQkNOX0NPTlNPTEVfUkVBRCwKPiA+ICsgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgIGNvdW50LCBsb3dlcl8zMl9iaXRzKHBhKSwgdXBwZXJfMzJfYml0cyhwYSks
-Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAwLCAwLCAwKTsKPiA+ICsgICAgIGVs
-c2UKPiA+ICsgICAgICAgICAgICAgcmV0ID0gc2JpX2VjYWxsKFNCSV9FWFRfREJDTiwgU0JJX0VY
-VF9EQkNOX0NPTlNPTEVfUkVBRCwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNv
-dW50LCBwYSwgMCwgMCwgMCwgMCk7Cj4KPiBBbmQgaGVyZSB0b28uCgpPa2F5LgoKPgo+IHRoYW5r
-cywKPgo+IGdyZWcgay1oCgpSZWdhcmRzLApBbnVwCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 11/17/23 at 09:37am, Liu, Yujie wrote:
+> Hi Baoquan,
+> =
+
+> On Fri, 2023-11-17 at 17:14 +0800, Baoquan He wrote:
+> > Hi,
+> > =
+
+> > On 11/16/23 at 05:04am, kernel test robot wrote:
+> > > Hi Baoquan,
+> > > =
+
+> > > kernel test robot noticed the following build errors:
+> > > =
+
+> > > [auto build test ERROR on arm64/for-next/core]
+> > > [also build test ERROR on tip/x86/core powerpc/next powerpc/fixes lin=
+us/master v6.7-rc1 next-20231115]
+> > > [If your patch is applied to the wrong git tree, kindly drop us a not=
+e.
+> > > And when submitting patch, we suggest to use '--base' as documented in
+> > > https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> > > =
+
+> > > url:=A0=A0=A0 https://github.com/intel-lab-lkp/linux/commits/Baoquan-=
+He/kexec_file-add-kexec_file-flag-to-control-debug-printing/20231114-234003
+> > > base:=A0=A0 https://git.kernel.org/pub/scm/linux/kernel/git/arm64/lin=
+ux.git=A0for-next/core
+> > > patch link:=A0=A0=A0 https://lore.kernel.org/r/20231114153253.241262-=
+3-bhe%40redhat.com
+> > > patch subject: [PATCH 2/7] kexec_file: print out debugging message if=
+ required
+> > > config: hexagon-comet_defconfig (https://download.01.org/0day-ci/arch=
+ive/20231116/202311160431.BXPc7NO9-lkp@intel.com/config)
+> > > compiler: clang version 16.0.4 (https://github.com/llvm/llvm-project.=
+git=A0ae42196bc493ffe877a7e3dff8be32035dea4d07)
+> > > reproduce (this is a W=3D1 build): (https://download.01.org/0day-ci/a=
+rchive/20231116/202311160431.BXPc7NO9-lkp@intel.com/reproduce)
+> > > =
+
+> > =
+
+> > Thanks for reporting.
+> > =
+
+> > I met below failure when following the steps of provided reproducer.
+> > Could anyone help check what's wrong with that?
+> =
+
+> Sorry this seems to be a bug in the reproducer. Could you please change
+> the compiler parameter to "COMPILER=3Dclang-16" and rerun the command? We
+> will fix the issue ASAP.
+
+Here you are. Thanks for your quick response.
+------------------------------
+[root@~ linux]# COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang-16 ~/bi=
+n/make.cross W=3D1 O=3Dbuild_dir ARCH=3Dhexagon olddefconfig
+Compiler will be installed in /root/0day
+lftpget -c https://cdn.kernel.org/pub/tools/llvm/files/./llvm-16.0.6-x86_64=
+.tar.xz
+/root/linux                                                                =
+             =
+
+tar Jxf /root/0day/./llvm-16.0.6-x86_64.tar.xz -C /root/0day
+PATH=3D/root/0day/llvm-16.0.6-x86_64/bin:/root/.local/bin:/root/bin:/usr/li=
+b64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+make --keep-going LLVM=3D1 CROSS_COMPILE=3Dhexagon-linux- LLVM_IAS=3D1 --jo=
+bs=3D128 KCFLAGS=3D-Warray-bounds -Wundef -fstrict-flex-arrays=3D3 -funsign=
+ed-char -Wenum-conversion W=3D1 O=3Dbuild_dir ARCH=3Dhexagon olddefconfig
+make[1]: Entering directory '/root/linux/build_dir'
+  GEN     Makefile
+  HOSTCC  scripts/basic/fixdep
+  HOSTCC  scripts/kconfig/conf.o
+  HOSTCC  scripts/kconfig/confdata.o
+  HOSTCC  scripts/kconfig/expr.o
+  HOSTCC  scripts/kconfig/lexer.lex.o
+  HOSTCC  scripts/kconfig/menu.o
+  HOSTCC  scripts/kconfig/parser.tab.o
+  HOSTCC  scripts/kconfig/preprocess.o
+  HOSTCC  scripts/kconfig/symbol.o
+  HOSTCC  scripts/kconfig/util.o
+  HOSTLD  scripts/kconfig/conf
+#
+# configuration written to .config
+#
+make[1]: Leaving directory '/root/linux/build_dir'
+
+> =
+
+> > [root@~ linux]# COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang ~/b=
+in/make.cross W=3D1 O=3Dbuild_dir ARCH=3Dhexagon olddefconfig
+> > Compiler will be installed in /root/0day
+> > lftpget -c https://cdn.kernel.org/pub/tools/llvm/files/
+> > get1: /pub/tools/llvm/files/: files/: Is a directory
+> > Failed to download https://cdn.kernel.org/pub/tools/llvm/files/
+> > clang crosstool install failed
+> > Install clang compiler failed
+> > setup_crosstool failed
+> =
+
+> =
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
