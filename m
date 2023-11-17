@@ -4,79 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1EA4C072A2
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Nov 2023 14:01:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 622D3C072A2
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Nov 2023 14:30:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nw3EW0H0ofAmYKYxiWz7jVDNLEvj4qv9axeJtKexrYw=; b=1o5rvynX5wBFCx
-	EPqAuEQoBxA0z0Ncg8P+aC88YVQxGHANIeHVHgqbKfKF8xGBeh5AIR8GfkZwmRQ03cHIxdOgCtvd+
-	BJJuCyiGcfflguV9OlZMBKMFtpdXPmnK9vaQl7/TifAqtYaGx87/AX3IntpzznTGXqT/YmT5hZyKa
-	RlXHvQnqY1EQDB4L89xtD2zQOZ7sdIQPyysPR8tSxm87QVkcxwCnqKXADXl/X4J3EPQDKHvweQe9C
-	AABGGGpkeSOBA/Gjed/NbllLlNbNhxYF1L7d8z2Sjo649AM7VwyYjpr1Lo0IrfVzcd2idkKiG2KLA
-	nRCDEXFhODNc2KH08sjw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TPBDTzc8viU/aiqCPWfNqTT2idcmjGJlDHHEgoAsBOQ=; b=idvZ22y2DIy61n9YY4K/EMeAni
+	9C6tVD3Z7R3nbripsoEdwmnnMpfAnyDIxM10HaWo36+CHvfVXehLW81joziXxmduDIWg8rNZ/u/h7
+	nRVJJfPv6RzMsUmHiphqqJENDUdxJc1dWo9INNz8cO4u90HUHIoSEe2puyeHyQmQHWUzmfAgNgdqP
+	cstpBzh70YLZg+0t4yTtrUn/1tNZ0EFF97Bc2sSlYFeMOpD/mdZzN9+HKzkukZnX1N4M20afE+cwW
+	xK/biqdeP+LCtf8B+n3iqlN7v4hYjRCmRsK8c3ck++6WWuC/NZ7NtCx/KGvDUI+7DMPNok/qMiFkW
+	UCS0TRDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3zPZ-006gxK-0j;
-	Fri, 17 Nov 2023 14:01:33 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1r3zrJ-006jtI-2A;
+	Fri, 17 Nov 2023 14:30:13 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r3zPW-006gwG-0j
+	id 1r3zrD-006jsa-0k
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Nov 2023 14:01:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1700229688;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pq04hPwM76I6HfjjQsgEZc2UgA6OA1Oi638JwoZfCNQ=;
-	b=XWbEkDScMgH5ZwjFuhSGvD5BLa4pKIQZTrQ6tsJefAPoqQmChQRDJC0r0VULdiJ5fkzPVU
-	o9jULUe4R9JafJE2JZqgjv5gyDSvF8/u04tUnaCBF3IdvgJWIy9wzJPi6EoclU9lIUPYZi
-	XFr+KVlZxp+J5TvO3YZNQL7bxAq/pw0=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-9-LNEJoTcXPIOoWatljCvfVA-1; Fri, 17 Nov 2023 09:01:24 -0500
-X-MC-Unique: LNEJoTcXPIOoWatljCvfVA-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0B062811E8D;
-	Fri, 17 Nov 2023 14:01:23 +0000 (UTC)
-Received: from localhost (unknown [10.72.112.24])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 46EC140C6EB9;
-	Fri, 17 Nov 2023 14:01:21 +0000 (UTC)
-Date: Fri, 17 Nov 2023 22:01:17 +0800
-From: "bhe@redhat.com" <bhe@redhat.com>
-To: "Liu, Yujie" <yujie.liu@intel.com>
-Cc: lkp <lkp@intel.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"kexec@lists.infradead.org" <kexec@lists.infradead.org>,
-	"x86@kernel.org" <x86@kernel.org>,
-	"oe-kbuild-all@lists.linux.dev" <oe-kbuild-all@lists.linux.dev>,
-	"llvm@lists.linux.dev" <llvm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
-Subject: Re: [PATCH 2/7] kexec_file: print out debugging message if required
-Message-ID: <ZVdyLdAzgNBXfjiW@MiWiFi-R3L-srv>
-References: <20231114153253.241262-3-bhe@redhat.com>
- <202311160431.BXPc7NO9-lkp@intel.com>
- <ZVcvBft/T3cbRBWr@MiWiFi-R3L-srv>
- <39ccb4fda795a76996cf6d1c3b25909692358211.camel@intel.com>
+	Fri, 17 Nov 2023 14:30:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EAF4861B04;
+	Fri, 17 Nov 2023 14:30:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8170DC433C8;
+	Fri, 17 Nov 2023 14:30:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1700231405;
+	bh=Z5V1WAiAWbPaSydno6O9LOxlTlu6ntJKngism5iAvgk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pkJmHaOUf4gPzCUHJlnpPPneJsVwb+9w7Oq3B4aoBdzb9hqTULp1gHsctr16NaDk3
+	 +uxcGf1SvZGUJqjG3+l6aEitgeDkV4R02MbQFlIJSI4D/8ke6aqydvblKLzr3PT5Yq
+	 s62E7VMJrSTMPhUsxs3NPx1GPNy6zuNIRBFV0Hwf+KrfjCe1cWLXc5pu0Fgbi3nn0p
+	 wGi+n3xEQwQTEu2XHcRCZMxM6Zizowm8oFUWAzyzj6frG20WpKrRFAxmv4Yn4e41+5
+	 krUd/SRRzc6JlRojIoj4bM1URy9VRhTwm5XkVupayCaH3PmDCgC6m50TdmhpZ6EWg+
+	 By9k48Fh+024g==
+Date: Fri, 17 Nov 2023 14:30:00 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Inochi Amaoto <inochiama@outlook.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Chen Wang <unicorn_wang@outlook.com>, Guo Ren <guoren@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 1/2] dt-bindings: timer: thead,c900-aclint-mtimer:
+ separate mtime and mtimecmp regs
+Message-ID: <20231117-kindred-manor-863549870bcd@spud>
+References: <184ab92d-9246-43e4-a40d-465d51208585@linaro.org>
+ <IA1PR20MB49532AF0A7C6DA5A2184B250BBB7A@IA1PR20MB4953.namprd20.prod.outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <39ccb4fda795a76996cf6d1c3b25909692358211.camel@intel.com>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.2
+In-Reply-To: <IA1PR20MB49532AF0A7C6DA5A2184B250BBB7A@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231117_060130_375560_D11971C7 
-X-CRM114-Status: GOOD (  19.63  )
+X-CRM114-CacheID: sfid-20231117_063007_378245_4008DE5F 
+X-CRM114-Status: GOOD (  22.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,116 +78,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/mixed; boundary="===============5656225221356052806=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/17/23 at 09:37am, Liu, Yujie wrote:
-> Hi Baoquan,
-> =
 
-> On Fri, 2023-11-17 at 17:14 +0800, Baoquan He wrote:
-> > Hi,
-> > =
-
-> > On 11/16/23 at 05:04am, kernel test robot wrote:
-> > > Hi Baoquan,
-> > > =
-
-> > > kernel test robot noticed the following build errors:
-> > > =
-
-> > > [auto build test ERROR on arm64/for-next/core]
-> > > [also build test ERROR on tip/x86/core powerpc/next powerpc/fixes lin=
-us/master v6.7-rc1 next-20231115]
-> > > [If your patch is applied to the wrong git tree, kindly drop us a not=
-e.
-> > > And when submitting patch, we suggest to use '--base' as documented in
-> > > https://git-scm.com/docs/git-format-patch#_base_tree_information]
-> > > =
-
-> > > url:=A0=A0=A0 https://github.com/intel-lab-lkp/linux/commits/Baoquan-=
-He/kexec_file-add-kexec_file-flag-to-control-debug-printing/20231114-234003
-> > > base:=A0=A0 https://git.kernel.org/pub/scm/linux/kernel/git/arm64/lin=
-ux.git=A0for-next/core
-> > > patch link:=A0=A0=A0 https://lore.kernel.org/r/20231114153253.241262-=
-3-bhe%40redhat.com
-> > > patch subject: [PATCH 2/7] kexec_file: print out debugging message if=
- required
-> > > config: hexagon-comet_defconfig (https://download.01.org/0day-ci/arch=
-ive/20231116/202311160431.BXPc7NO9-lkp@intel.com/config)
-> > > compiler: clang version 16.0.4 (https://github.com/llvm/llvm-project.=
-git=A0ae42196bc493ffe877a7e3dff8be32035dea4d07)
-> > > reproduce (this is a W=3D1 build): (https://download.01.org/0day-ci/a=
-rchive/20231116/202311160431.BXPc7NO9-lkp@intel.com/reproduce)
-> > > =
-
-> > =
-
-> > Thanks for reporting.
-> > =
-
-> > I met below failure when following the steps of provided reproducer.
-> > Could anyone help check what's wrong with that?
-> =
-
-> Sorry this seems to be a bug in the reproducer. Could you please change
-> the compiler parameter to "COMPILER=3Dclang-16" and rerun the command? We
-> will fix the issue ASAP.
-
-Here you are. Thanks for your quick response.
-------------------------------
-[root@~ linux]# COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang-16 ~/bi=
-n/make.cross W=3D1 O=3Dbuild_dir ARCH=3Dhexagon olddefconfig
-Compiler will be installed in /root/0day
-lftpget -c https://cdn.kernel.org/pub/tools/llvm/files/./llvm-16.0.6-x86_64=
-.tar.xz
-/root/linux                                                                =
-             =
-
-tar Jxf /root/0day/./llvm-16.0.6-x86_64.tar.xz -C /root/0day
-PATH=3D/root/0day/llvm-16.0.6-x86_64/bin:/root/.local/bin:/root/bin:/usr/li=
-b64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
-make --keep-going LLVM=3D1 CROSS_COMPILE=3Dhexagon-linux- LLVM_IAS=3D1 --jo=
-bs=3D128 KCFLAGS=3D-Warray-bounds -Wundef -fstrict-flex-arrays=3D3 -funsign=
-ed-char -Wenum-conversion W=3D1 O=3Dbuild_dir ARCH=3Dhexagon olddefconfig
-make[1]: Entering directory '/root/linux/build_dir'
-  GEN     Makefile
-  HOSTCC  scripts/basic/fixdep
-  HOSTCC  scripts/kconfig/conf.o
-  HOSTCC  scripts/kconfig/confdata.o
-  HOSTCC  scripts/kconfig/expr.o
-  HOSTCC  scripts/kconfig/lexer.lex.o
-  HOSTCC  scripts/kconfig/menu.o
-  HOSTCC  scripts/kconfig/parser.tab.o
-  HOSTCC  scripts/kconfig/preprocess.o
-  HOSTCC  scripts/kconfig/symbol.o
-  HOSTCC  scripts/kconfig/util.o
-  HOSTLD  scripts/kconfig/conf
-#
-# configuration written to .config
-#
-make[1]: Leaving directory '/root/linux/build_dir'
-
-> =
-
-> > [root@~ linux]# COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang ~/b=
-in/make.cross W=3D1 O=3Dbuild_dir ARCH=3Dhexagon olddefconfig
-> > Compiler will be installed in /root/0day
-> > lftpget -c https://cdn.kernel.org/pub/tools/llvm/files/
-> > get1: /pub/tools/llvm/files/: files/: Is a directory
-> > Failed to download https://cdn.kernel.org/pub/tools/llvm/files/
-> > clang crosstool install failed
-> > Install clang compiler failed
-> > setup_crosstool failed
-> =
-
-> =
+--===============5656225221356052806==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="4Zw1o4HV3vYXGo0w"
+Content-Disposition: inline
 
 
+--4Zw1o4HV3vYXGo0w
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Nov 17, 2023 at 08:30:21PM +0800, Inochi Amaoto wrote:
+> >
+> >On 17/11/2023 06:07, Inochi Amaoto wrote:
+> >> The timer registers of aclint don't follow the clint layout and can
+> >> be mapped on any different offset. As sg2042 uses separated timer
+> >> and mswi for its clint, it should follow the aclint spec and have
+> >> separated registers.
+> >>
+> >> The previous patch introduced a new type of T-HEAD aclint timer which
+> >> has clint timer layout. Although it has the clint timer layout, it
+> >> should follow the aclint spec and uses the separated mtime and mtimecmp
+> >> regs. So a ABI change is needed to make the timer fit the aclint spec.
+> >>
+> >> To make T-HEAD aclint timer more closer to the aclint spec, use
+> >> regs-names to represent the mtimecmp register, which can avoid hack
+> >> for unsupport mtime register of T-HEAD aclint timer.
+> >>
+> >
+> >I don't understand this reasoning. You had one entry, you still have one
+> >entry. Adding reg-names (not regs-names) does not change it.
+> >
+>=20
+> If no "reg-names", all the register of ACLINT should be defined. However,
+> T-HEAD aclint timer of sg2042 only supports mtimecmp register. If no extra
+> prompt is provided for the SBI, it will fail to recognize aclint timer
+> registers when parsing the aclint node with one reg entry.
+>=20
+> There is another way to avoid this by using an empty entry to identify
+> unsupported mtime, but Conor have already rejected this. See [1].
+>=20
+> Link: https://lore.kernel.org/all/20231114-skedaddle-precinct-66c8897227b=
+b@squawk/ [1]
+
+Perhaps you misunderstood my suggestion. I was looking for _both_
+registers to be defined in the binding as well as adding reg-names as a
+required property. Doing what you have here might work for your use
+case, but does not make sense from a bindings point of view as there is
+no way to describe the mtime register, should it exist in another SoC.
+
+Cheers,
+Conor
+
+--4Zw1o4HV3vYXGo0w
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZVd46AAKCRB4tDGHoIJi
+0n79AQDFrauiidg4Z18gElGE0Gk9HHl1f4oB5rhwApCisLPPqgD/SIAWWeTdv3ff
+XOmoNLUC/tzBk6stx6iBfT+MgLRvjgY=
+=7L3W
+-----END PGP SIGNATURE-----
+
+--4Zw1o4HV3vYXGo0w--
+
+
+--===============5656225221356052806==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5656225221356052806==--
+
