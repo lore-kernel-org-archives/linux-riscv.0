@@ -4,125 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44997C54E76
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 Nov 2023 07:10:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79D8DC2BB3F
+	for <linux-riscv@archiver.kernel.org>; Sat, 18 Nov 2023 08:14:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VEZsZpgm88F9Iln7e314Oz3QCe5pNosbB30ulWhvxrc=; b=z2QwPg0gnR5v12
-	JSICxQjsCHXBBrM7U/qjFMsua4DSdx4NteDYZrGpcQ3t9f8O/wmMC/Ek/Sx9THwafurw3SjtlAdLb
-	lvjAWeGTCLlyIwZ0TO1uJgClC/YCayapJm+JMGSeBiXVqMTATEBVHFWZhBy63wV4v2RGInL12n8Fh
-	qtRsn4oU840/pU+v8irUtpOzgMMAqRLS9FrjCEu5pSxFrzokRKPCUJScdeUnJmEO7ejjSkSZ86kWo
-	UlY0RgnsUzK7I07QcY3LYgZ4WPGAT0vvS1hIJQninMZ7cFxJXwDXHu0YbhPsBjTHwSt6Dwcmn9wZ2
-	6HrNk3PusgIVokN6S/+Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JfxxjxQasV5NoZ8Un4T5p/+oKmmVk01ldHrEgPgnBhY=; b=hMRcyr06K+3FHQ
+	xrI0epFAX5AeJJYmV/2F1GWoFUS052GyN+kK2k7FRbWlHm+x9ySDJGsPzjHkg1gBB4+E52eh4U9vR
+	3RgIToxv0lJP2jfFnctOCwPYYgALOAtA1KypK7jh5832Ubcb7mWZ0LjMcxkGkb5pcihpiNn5p7C/c
+	VeJZST+x9boBKxCk1ykEdGubxLKn56MCfcH+lAt3r9S//wAn9GWkli8sDmOIgBPfq5In+GJKXEV6P
+	YRD0pOsf1KSVHyqgVaUrSrLyHPcjRzfKMM0YQ3JjYvy3TwSHE98n0YKY1zcNEsWWckErSMBxyr01b
+	2ZwNSvEQCNYnbBg2zzPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r4FSm-00802p-1y;
-	Sat, 18 Nov 2023 07:09:56 +0000
-Received: from mail-bn7nam10olkn2080d.outbound.protection.outlook.com ([2a01:111:f400:7e8a::80d] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1r4GTA-0084gQ-2w;
+	Sat, 18 Nov 2023 08:14:24 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r4FSj-008013-2J
+	id 1r4GT8-0084fa-10
 	for linux-riscv@lists.infradead.org;
-	Sat, 18 Nov 2023 07:09:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=IuPfV/eOMGUQonIPgpy5M1SqZc+iGIPP08PX3o32Jxu9kHn1TTM1uuN4EBMKM5DF2LesPmMgtNsBpk3p99TTEAv0X9T6EP0/HRcxoIDs/hmSWQSV0qykfQXcAsCYgrUcPOiAACIFskWcYIGp9DRWXaYdmFpBbQLz2qzOcIM+utvq90hzK+7xSan2ePDihWGRjuxAVVoV0t3x6oAcCZUPRlsARphzEuEjyLdDU5aabhls/1B6IxCKmKdiiAYnKgqppsXkaPiCb4wPRcDheY6/hDcNIvYXR3DGXGhkpa5PmjEGeV2AFdeSI7QzbXRN1NZKWxUi8tbr5gs2EwDD+U7iJA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kBBd0hiRl1kC/4CnV0dwx/zTn7/DG0Ghrwu95ZdJb3M=;
- b=lCvwJmex1yrl8pbyCpUuzqioZ2UUe5M0yq9JtxoBGAG8zyQ3gtEqK5klwcEgV6Az3Q6zuklQ/iFJIM0HQweFmGw1+vsxgUqqNLOnMGWcAo9u8ppQo6/qBy5DuZUpLczU2UUwFkZ4EldxTTGbQzNNBeKoLFrUOJMvkKusgSLmxYTUBiUy0LlG61QJtNmb1589oOJTV4W65mcz+8+r1KTswbRJu35/EoOsLKuwdL80g9ZfhrU521fubxjCFZQ/EFyHHUzR/+Q35FkOL1O9yxNClYpiQQuKCtubjYftj+LuHzqkPggiraOznfgZQ6lXk4YS1zX26gEI/5P5YwILoccbGw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kBBd0hiRl1kC/4CnV0dwx/zTn7/DG0Ghrwu95ZdJb3M=;
- b=TG3xChjkU8xbbB3Oj5C983C06uL6lTx6tHYlRqzcWs3UOIpYZEbsk6T+k3uYj+oOB9xD0ahOmBusUFRPSgdOvQ38w0+d/wvAksssMoHtBwRQWiU+duwOoRpRd4Hxl+UVQQ7IuG5+o8ClmoSWHUtUh53EC6m/twGzodfFX330ixo6lIK07mpyg0QXSyU2gC5BSqTXDAJ0imaKuXQxMucgt3+rK5Wip7D2O8XpSqjQ5FFD+xwaJD0dTojdCrslbMwYPnBrADLk6B73yiKgwFHxrwyGQ3wYDcmRIyPEKj7e3UV9Uv8jo37IgCC/Fn0sMxjPGTAuN6xotgaVnMAemoswJQ==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by DS0PR20MB5788.namprd20.prod.outlook.com (2603:10b6:8:148::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6977.29; Sat, 18 Nov
- 2023 07:09:48 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::55b:c350:980:ad8]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::55b:c350:980:ad8%6]) with mapi id 15.20.7002.025; Sat, 18 Nov 2023
- 07:09:48 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	Sat, 18 Nov 2023 08:14:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 5C4F3CE0304;
+	Sat, 18 Nov 2023 08:14:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C63ADC433C7;
+	Sat, 18 Nov 2023 08:14:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1700295258;
+	bh=CWLOUlaUDcSdXmXx8kyIUvb+xenuir3wMxbwXCYCaQU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=GpvjZlBmZ+xuExHdfa3veTtTuKQZmddDiJAgt8veLEXTCW/wk5GTlBsaSCIRp/qKh
+	 gdi6rmxZVWgtlsKCfyiVYUCxl1IRKRxaImDTxJR42b5cI427FdW7Ob+R7HNntsTza/
+	 G/pTiWih9GLZH0PcLrLb+VOwtG2fDkj7B4lP9CHu8TA3uZz3sxDpUwQo8vb5+43hgB
+	 xrmcD0bBcloK/vaumEGRNUTS3hS7QIZfTOEFGuWs7A9+Q4A967nnUl6J8D19thsl7o
+	 fzfLUnUwIY7dz2Sv+p8M8Ubg+kwbwnRcO6e+qu72mkv0GgY9ML7uNMSV0wus343ng0
+	 NMU/CDvqwHDuQ==
+From: Masahiro Yamada <masahiroy@kernel.org>
+To: linux-kbuild@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Xiaoguang Xing <xiaoguang.xing@sophgo.com>,
-	Guo Ren <guoren@kernel.org>
-Cc: Anup Patel <anup@brainfault.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 2/2] riscv: dts: sophgo: separate sg2042 mtime and mtimecmp to fit aclint format
-Date: Sat, 18 Nov 2023 15:10:27 +0800
-Message-ID: <IA1PR20MB4953C6D3C913E4D18B3E6344BBB6A@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.42.1
-In-Reply-To: <IA1PR20MB4953C82499C5D81D2C6A020BBBB6A@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <IA1PR20MB4953C82499C5D81D2C6A020BBBB6A@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-TMN: [wuBQ/QR0YUDu4LA55bZmXDV/XV/X183yKeFnFCW3dOY=]
-X-ClientProxiedBy: BY5PR04CA0002.namprd04.prod.outlook.com
- (2603:10b6:a03:1d0::12) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20231118071028.248483-2-inochiama@outlook.com>
+	Jan Kiszka <jan.kiszka@siemens.com>,
+	Kieran Bingham <kbingham@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Nicolas Schier <nicolas@fjasle.eu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH] scripts: clean up IA-64 code
+Date: Sat, 18 Nov 2023 17:13:34 +0900
+Message-Id: <20231118081334.1308242-1-masahiroy@kernel.org>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|DS0PR20MB5788:EE_
-X-MS-Office365-Filtering-Correlation-Id: 749a449c-5e2d-4435-a1ac-08dbe805598a
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: MEFcn2Zl6n6v+1asEm54Bnp8IWfAx4XkBEx3RYsIS8oIThxfV2gdkVlXxZ7rZ1001eJh4C46xXBXXtSlgrHV4ZsRNo3ZnxEBZR0WiqKPnW0eJGOwlFqKChipQqFbdF1dsCnA3QMK5YfKiwWMEWknnAMvAx5YW5h0bytfTO8tuuqnZEMnwPi+XmbhtlnUlaoACE4sDKRypoCcF48eTEqyGMSUIRe8JelXQxF+GOFuNkQVj4v6002dM1/4rljAtpFCY5IiT9HuoNeJsTcxHgY928ZInd7sHptSEpuuJYTvf7ApZZAYbf50V3bIKCqpj2E3UDgz6RXAGlRs414x3ceGU8kECj3/OBErLQRgatcyYpdzV2L/jiI1N6XliIHki9nnAXikG1ozbkH32uPKFAjQ96n9KLWxo5beRuX2Xi3P3BUHjWBsiTIEXm71KVvRe2ytEH3XZ6x+LXbwhYQpDb77rsd1tldipqcd4K3EA4GdkHN52CbH5bi3vpPJwBtzf3BNGWj91NF8nX66talJ1nAidNNYIQGEDKlMe/kBXoGEfi7XLJyunkhMpeTPe6VmgMuj8t8vlywQQfz18fYGe7/5n9W84JKrheIjBd5iUTE6MhgeN2zQ0yu+Bz7b022n++dQ
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?0npT54EXViEZTFDzmDQwCYDiJUEgypjLttlE2FcPxpQlJFd9HIWfjVojU28w?=
- =?us-ascii?Q?7O+NxXFAtXlBAx6cznVFdsKOfWODUyd2vUMtGZYygPaX5a0uZYM7jg7CywzA?=
- =?us-ascii?Q?EpaAylYP3k9BWloQbbAIZltMK/xlP3cd5OoFXCACGBnHVNUCAph57YNTdB7j?=
- =?us-ascii?Q?A1B9EcPYKZhR2A5i7Io23yI3aPzxzKJ9u6HS4caEEoMDMeXGRCRbABX/N2g3?=
- =?us-ascii?Q?+JMenlMv+icrgnu18GglLBpgvVTiFLk3+iQWSUbEoTdH/eihpAeWS0+5Teq7?=
- =?us-ascii?Q?3s0oMIuO4lIXXPLqFWwQgDHvhEHyCG5ANM5BE+PhgV20aBQtaNR7IMdUs11K?=
- =?us-ascii?Q?dZQu6xwrSI63P7kotkyhlNDRgbMp58T1IRpt/fOh1BDjZ4q3Qp9B/AXHRye9?=
- =?us-ascii?Q?WHliGCJ/9D5JKaU0VnvzJ9tiKosphFVApGU5CFfrTn639DnsNJF2/p8qX0wK?=
- =?us-ascii?Q?i67W9awGApcUwg0hXyvKQ1Wg+IkKblNXVolBYix3/SIiql122R0Pg/bgkvuR?=
- =?us-ascii?Q?r0WSw13dSdRmKUD+UY49waoe+rkUFsH8oLPjR72BWaKv5+WEzR5Fe8MwCQNm?=
- =?us-ascii?Q?M5uRF9wdYtj8WeAc95aLmi6ZLz55jDCKgf8GABJe3gkHlPPzHFpsEbjABCCk?=
- =?us-ascii?Q?hQqbCw/A4quQIk0ZM0tXUbokQk1z1BSHt1+VgQbvmQ32c8XI3nst6IWh1zox?=
- =?us-ascii?Q?IcFoAdhEMFfCopv/v0aibgx1jLEh/rZ9hjTxfUpDZ2jqHhSqOVIEgBLlVY3q?=
- =?us-ascii?Q?lCu8NBg5kDfiBAgOkKiZWOuvbqsvq+aPlOGtm65W/S6/GvIRMQDdQS/H/McZ?=
- =?us-ascii?Q?7zE0PaF1Dh+7UtlG2V960CBpfMmwE77UA74xMMC2fusUwox1u7e4+q68bWZw?=
- =?us-ascii?Q?KqF1D3LMGgTUVq5QTcthCL/o4OVwg3CsVuKwX3LzOpL2kByBXLTRZtesA/8k?=
- =?us-ascii?Q?5K/IOmIwgFl6yzrfykVWdJmlvP78BnXTDMUsKxE5V0kLjzr9Q7AP3d/oCmkl?=
- =?us-ascii?Q?yR8Ehd7qPj3OVTtyJGrmAgFRQyHtr/LfQanGd/22++ifSSAr6yJCTA8ypQdb?=
- =?us-ascii?Q?m+GQDcz+sBcGcbylIjVxNTY2hRM56NiUZgKT5J0UH7pnz50qlrLVqkN334DC?=
- =?us-ascii?Q?D/dV0NbBTs3NwFGKGil/fldtLESMI0tjD2ln3h85W7ew+OqaHGFmQXGtQGd9?=
- =?us-ascii?Q?hJyAVFNiARIKDO4orqLKsMRveK0mz3izYXEkjKgk9AWNNqXJm97o2Z5AnvA?=
- =?us-ascii?Q?=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 749a449c-5e2d-4435-a1ac-08dbe805598a
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2023 07:09:48.3195
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR20MB5788
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231117_230953_760127_25DEEE4A 
-X-CRM114-Status: UNSURE (   6.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231118_001422_732216_6288C930 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,214 +79,167 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Change the timer layout in the dtb to fit the format that needed by
-the SBI.
+A little more janitorial work after commit cf8e8658100d ("arch: Remove
+Itanium (IA-64) architecture").
 
-Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-Fixes: 967a94a92aaa ("riscv: dts: add initial Sophgo SG2042 SoC device tree")
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 ---
- arch/riscv/boot/dts/sophgo/sg2042.dtsi | 80 +++++++++++++++-----------
- 1 file changed, 48 insertions(+), 32 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-index 93256540d078..ead1cc35d88b 100644
---- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-@@ -93,144 +93,160 @@ clint_mswi: interrupt-controller@7094000000 {
- 					      <&cpu63_intc 3>;
- 		};
+ scripts/checkstack.pl        |  3 ---
+ scripts/gdb/linux/tasks.py   | 15 +++------------
+ scripts/head-object-list.txt |  1 -
+ scripts/kconfig/mconf.c      |  2 +-
+ scripts/kconfig/nconf.c      |  2 +-
+ scripts/package/kernel.spec  |  6 ------
+ scripts/package/mkdebian     |  2 +-
+ scripts/recordmcount.pl      |  7 -------
+ scripts/xz_wrap.sh           |  1 -
+ 9 files changed, 6 insertions(+), 33 deletions(-)
 
--		clint_mtimer0: timer@70ac000000 {
-+		clint_mtimer0: timer@70ac004000 {
- 			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
--			reg = <0x00000070 0xac000000 0x00000000 0x00007ff8>;
-+			reg = <0x00000070 0xac004000 0x00000000 0x0000c000>;
-+			reg-names = "mtimecmp";
- 			interrupts-extended = <&cpu0_intc 7>,
- 					      <&cpu1_intc 7>,
- 					      <&cpu2_intc 7>,
- 					      <&cpu3_intc 7>;
- 		};
-
--		clint_mtimer1: timer@70ac010000 {
-+		clint_mtimer1: timer@70ac014000 {
- 			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
--			reg = <0x00000070 0xac010000 0x00000000 0x00007ff8>;
-+			reg = <0x00000070 0xac014000 0x00000000 0x0000c000>;
-+			reg-names = "mtimecmp";
- 			interrupts-extended = <&cpu4_intc 7>,
- 					      <&cpu5_intc 7>,
- 					      <&cpu6_intc 7>,
- 					      <&cpu7_intc 7>;
- 		};
-
--		clint_mtimer2: timer@70ac020000 {
-+		clint_mtimer2: timer@70ac024000 {
- 			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
--			reg = <0x00000070 0xac020000 0x00000000 0x00007ff8>;
-+			reg = <0x00000070 0xac024000 0x00000000 0x0000c000>;
-+			reg-names = "mtimecmp";
- 			interrupts-extended = <&cpu8_intc 7>,
- 					      <&cpu9_intc 7>,
- 					      <&cpu10_intc 7>,
- 					      <&cpu11_intc 7>;
- 		};
-
--		clint_mtimer3: timer@70ac030000 {
-+		clint_mtimer3: timer@70ac034000 {
- 			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
--			reg = <0x00000070 0xac030000 0x00000000 0x00007ff8>;
-+			reg = <0x00000070 0xac034000 0x00000000 0x0000c000>;
-+			reg-names = "mtimecmp";
- 			interrupts-extended = <&cpu12_intc 7>,
- 					      <&cpu13_intc 7>,
- 					      <&cpu14_intc 7>,
- 					      <&cpu15_intc 7>;
- 		};
-
--		clint_mtimer4: timer@70ac040000 {
-+		clint_mtimer4: timer@70ac044000 {
- 			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
--			reg = <0x00000070 0xac040000 0x00000000 0x00007ff8>;
-+			reg = <0x00000070 0xac044000 0x00000000 0x0000c000>;
-+			reg-names = "mtimecmp";
- 			interrupts-extended = <&cpu16_intc 7>,
- 					      <&cpu17_intc 7>,
- 					      <&cpu18_intc 7>,
- 					      <&cpu19_intc 7>;
- 		};
-
--		clint_mtimer5: timer@70ac050000 {
-+		clint_mtimer5: timer@70ac054000 {
- 			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
--			reg = <0x00000070 0xac050000 0x00000000 0x00007ff8>;
-+			reg = <0x00000070 0xac054000 0x00000000 0x0000c000>;
-+			reg-names = "mtimecmp";
- 			interrupts-extended = <&cpu20_intc 7>,
- 					      <&cpu21_intc 7>,
- 					      <&cpu22_intc 7>,
- 					      <&cpu23_intc 7>;
- 		};
-
--		clint_mtimer6: timer@70ac060000 {
-+		clint_mtimer6: timer@70ac064000 {
- 			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
--			reg = <0x00000070 0xac060000 0x00000000 0x00007ff8>;
-+			reg = <0x00000070 0xac064000 0x00000000 0x0000c000>;
-+			reg-names = "mtimecmp";
- 			interrupts-extended = <&cpu24_intc 7>,
- 					      <&cpu25_intc 7>,
- 					      <&cpu26_intc 7>,
- 					      <&cpu27_intc 7>;
- 		};
-
--		clint_mtimer7: timer@70ac070000 {
-+		clint_mtimer7: timer@70ac074000 {
- 			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
--			reg = <0x00000070 0xac070000 0x00000000 0x00007ff8>;
-+			reg = <0x00000070 0xac074000 0x00000000 0x0000c000>;
-+			reg-names = "mtimecmp";
- 			interrupts-extended = <&cpu28_intc 7>,
- 					      <&cpu29_intc 7>,
- 					      <&cpu30_intc 7>,
- 					      <&cpu31_intc 7>;
- 		};
-
--		clint_mtimer8: timer@70ac080000 {
-+		clint_mtimer8: timer@70ac084000 {
- 			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
--			reg = <0x00000070 0xac080000 0x00000000 0x00007ff8>;
-+			reg = <0x00000070 0xac084000 0x00000000 0x0000c000>;
-+			reg-names = "mtimecmp";
- 			interrupts-extended = <&cpu32_intc 7>,
- 					      <&cpu33_intc 7>,
- 					      <&cpu34_intc 7>,
- 					      <&cpu35_intc 7>;
- 		};
-
--		clint_mtimer9: timer@70ac090000 {
-+		clint_mtimer9: timer@70ac094000 {
- 			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
--			reg = <0x00000070 0xac090000 0x00000000 0x00007ff8>;
-+			reg = <0x00000070 0xac094000 0x00000000 0x0000c000>;
-+			reg-names = "mtimecmp";
- 			interrupts-extended = <&cpu36_intc 7>,
- 					      <&cpu37_intc 7>,
- 					      <&cpu38_intc 7>,
- 					      <&cpu39_intc 7>;
- 		};
-
--		clint_mtimer10: timer@70ac0a0000 {
-+		clint_mtimer10: timer@70ac0a4000 {
- 			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
--			reg = <0x00000070 0xac0a0000 0x00000000 0x00007ff8>;
-+			reg = <0x00000070 0xac0a4000 0x00000000 0x0000c000>;
-+			reg-names = "mtimecmp";
- 			interrupts-extended = <&cpu40_intc 7>,
- 					      <&cpu41_intc 7>,
- 					      <&cpu42_intc 7>,
- 					      <&cpu43_intc 7>;
- 		};
-
--		clint_mtimer11: timer@70ac0b0000 {
-+		clint_mtimer11: timer@70ac0b4000 {
- 			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
--			reg = <0x00000070 0xac0b0000 0x00000000 0x00007ff8>;
-+			reg = <0x00000070 0xac0b4000 0x00000000 0x0000c000>;
-+			reg-names = "mtimecmp";
- 			interrupts-extended = <&cpu44_intc 7>,
- 					      <&cpu45_intc 7>,
- 					      <&cpu46_intc 7>,
- 					      <&cpu47_intc 7>;
- 		};
-
--		clint_mtimer12: timer@70ac0c0000 {
-+		clint_mtimer12: timer@70ac0c4000 {
- 			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
--			reg = <0x00000070 0xac0c0000 0x00000000 0x00007ff8>;
-+			reg = <0x00000070 0xac0c4000 0x00000000 0x0000c000>;
-+			reg-names = "mtimecmp";
- 			interrupts-extended = <&cpu48_intc 7>,
- 					      <&cpu49_intc 7>,
- 					      <&cpu50_intc 7>,
- 					      <&cpu51_intc 7>;
- 		};
-
--		clint_mtimer13: timer@70ac0d0000 {
-+		clint_mtimer13: timer@70ac0d4000 {
- 			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
--			reg = <0x00000070 0xac0d0000 0x00000000 0x00007ff8>;
-+			reg = <0x00000070 0xac0d4000 0x00000000 0x0000c000>;
-+			reg-names = "mtimecmp";
- 			interrupts-extended = <&cpu52_intc 7>,
- 					      <&cpu53_intc 7>,
- 					      <&cpu54_intc 7>,
- 					      <&cpu55_intc 7>;
- 		};
-
--		clint_mtimer14: timer@70ac0e0000 {
-+		clint_mtimer14: timer@70ac0e4000 {
- 			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
--			reg = <0x00000070 0xac0e0000 0x00000000 0x00007ff8>;
-+			reg = <0x00000070 0xac0e4000 0x00000000 0x0000c000>;
-+			reg-names = "mtimecmp";
- 			interrupts-extended = <&cpu56_intc 7>,
- 					      <&cpu57_intc 7>,
- 					      <&cpu58_intc 7>,
- 					      <&cpu59_intc 7>;
- 		};
-
--		clint_mtimer15: timer@70ac0f0000 {
-+		clint_mtimer15: timer@70ac0f4000 {
- 			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
--			reg = <0x00000070 0xac0f0000 0x00000000 0x00007ff8>;
-+			reg = <0x00000070 0xac0f4000 0x00000000 0x0000c000>;
-+			reg-names = "mtimecmp";
- 			interrupts-extended = <&cpu60_intc 7>,
- 					      <&cpu61_intc 7>,
- 					      <&cpu62_intc 7>,
---
-2.42.1
+diff --git a/scripts/checkstack.pl b/scripts/checkstack.pl
+index 84f5fb7f1cec..35fefdfd6ef2 100755
+--- a/scripts/checkstack.pl
++++ b/scripts/checkstack.pl
+@@ -68,9 +68,6 @@ my (@stack, $re, $dre, $sub, $x, $xs, $funcre, $min_stack);
+ 		#    2f60:    48 81 ec e8 05 00 00       sub    $0x5e8,%rsp
+ 		$re = qr/^.*[as][du][db]    \$(0x$x{1,8}),\%(e|r)sp$/o;
+ 		$dre = qr/^.*[as][du][db]    (%.*),\%(e|r)sp$/o;
+-	} elsif ($arch eq 'ia64') {
+-		#e0000000044011fc:       01 0f fc 8c     adds r12=-384,r12
+-		$re = qr/.*adds.*r12=-(([0-9]{2}|[3-9])[0-9]{2}),r12/o;
+ 	} elsif ($arch eq 'm68k') {
+ 		#    2b6c:       4e56 fb70       linkw %fp,#-1168
+ 		#  1df770:       defc ffe4       addaw #-28,%sp
+diff --git a/scripts/gdb/linux/tasks.py b/scripts/gdb/linux/tasks.py
+index 17ec19e9b5bf..5be53b372a69 100644
+--- a/scripts/gdb/linux/tasks.py
++++ b/scripts/gdb/linux/tasks.py
+@@ -86,21 +86,12 @@ LxPs()
+ 
+ thread_info_type = utils.CachedType("struct thread_info")
+ 
+-ia64_task_size = None
+-
+ 
+ def get_thread_info(task):
+     thread_info_ptr_type = thread_info_type.get_type().pointer()
+-    if utils.is_target_arch("ia64"):
+-        global ia64_task_size
+-        if ia64_task_size is None:
+-            ia64_task_size = gdb.parse_and_eval("sizeof(struct task_struct)")
+-        thread_info_addr = task.address + ia64_task_size
+-        thread_info = thread_info_addr.cast(thread_info_ptr_type)
+-    else:
+-        if task.type.fields()[0].type == thread_info_type.get_type():
+-            return task['thread_info']
+-        thread_info = task['stack'].cast(thread_info_ptr_type)
++    if task.type.fields()[0].type == thread_info_type.get_type():
++        return task['thread_info']
++    thread_info = task['stack'].cast(thread_info_ptr_type)
+     return thread_info.dereference()
+ 
+ 
+diff --git a/scripts/head-object-list.txt b/scripts/head-object-list.txt
+index 26359968744e..890f69005bab 100644
+--- a/scripts/head-object-list.txt
++++ b/scripts/head-object-list.txt
+@@ -17,7 +17,6 @@ arch/arm/kernel/head-nommu.o
+ arch/arm/kernel/head.o
+ arch/csky/kernel/head.o
+ arch/hexagon/kernel/head.o
+-arch/ia64/kernel/head.o
+ arch/loongarch/kernel/head.o
+ arch/m68k/68000/head.o
+ arch/m68k/coldfire/head.o
+diff --git a/scripts/kconfig/mconf.c b/scripts/kconfig/mconf.c
+index eccc87a441e7..3795c36a9181 100644
+--- a/scripts/kconfig/mconf.c
++++ b/scripts/kconfig/mconf.c
+@@ -247,7 +247,7 @@ search_help[] =
+ 	"      -> PCI support (PCI [=y])\n"
+ 	"(1)     -> PCI access mode (<choice> [=y])\n"
+ 	"  Defined at drivers/pci/Kconfig:47\n"
+-	"  Depends on: X86_LOCAL_APIC && X86_IO_APIC || IA64\n"
++	"  Depends on: X86_LOCAL_APIC && X86_IO_APIC\n"
+ 	"  Selects: LIBCRC32\n"
+ 	"  Selected by: BAR [=n]\n"
+ 	"-----------------------------------------------------------------\n"
+diff --git a/scripts/kconfig/nconf.c b/scripts/kconfig/nconf.c
+index 143a2c351d57..8cd72fe25974 100644
+--- a/scripts/kconfig/nconf.c
++++ b/scripts/kconfig/nconf.c
+@@ -216,7 +216,7 @@ search_help[] =
+ "Symbol: FOO [ = m]\n"
+ "Prompt: Foo bus is used to drive the bar HW\n"
+ "Defined at drivers/pci/Kconfig:47\n"
+-"Depends on: X86_LOCAL_APIC && X86_IO_APIC || IA64\n"
++"Depends on: X86_LOCAL_APIC && X86_IO_APIC\n"
+ "Location:\n"
+ "  -> Bus options (PCI, PCMCIA, EISA, ISA)\n"
+ "    -> PCI support (PCI [ = y])\n"
+diff --git a/scripts/package/kernel.spec b/scripts/package/kernel.spec
+index 3eee0143e0c5..89298983a169 100644
+--- a/scripts/package/kernel.spec
++++ b/scripts/package/kernel.spec
+@@ -56,13 +56,7 @@ patch -p1 < %{SOURCE2}
+ 
+ %install
+ mkdir -p %{buildroot}/boot
+-%ifarch ia64
+-mkdir -p %{buildroot}/boot/efi
+-cp $(%{make} %{makeflags} -s image_name) %{buildroot}/boot/efi/vmlinuz-%{KERNELRELEASE}
+-ln -s efi/vmlinuz-%{KERNELRELEASE} %{buildroot}/boot/
+-%else
+ cp $(%{make} %{makeflags} -s image_name) %{buildroot}/boot/vmlinuz-%{KERNELRELEASE}
+-%endif
+ %{make} %{makeflags} INSTALL_MOD_PATH=%{buildroot} modules_install
+ %{make} %{makeflags} INSTALL_HDR_PATH=%{buildroot}/usr headers_install
+ cp System.map %{buildroot}/boot/System.map-%{KERNELRELEASE}
+diff --git a/scripts/package/mkdebian b/scripts/package/mkdebian
+index 5044224cf671..c1a36da85e84 100755
+--- a/scripts/package/mkdebian
++++ b/scripts/package/mkdebian
+@@ -26,7 +26,7 @@ set_debarch() {
+ 
+ 	# Attempt to find the correct Debian architecture
+ 	case "$UTS_MACHINE" in
+-	i386|ia64|alpha|m68k|riscv*)
++	i386|alpha|m68k|riscv*)
+ 		debarch="$UTS_MACHINE" ;;
+ 	x86_64)
+ 		debarch=amd64 ;;
+diff --git a/scripts/recordmcount.pl b/scripts/recordmcount.pl
+index 6a4645a57976..f84df9e383fd 100755
+--- a/scripts/recordmcount.pl
++++ b/scripts/recordmcount.pl
+@@ -275,13 +275,6 @@ if ($arch eq "x86_64") {
+     $section_type = '%progbits';
+     $mcount_regex = "^\\s*([0-9a-fA-F]+):\\s*R_AARCH64_CALL26\\s+_mcount\$";
+     $type = ".quad";
+-} elsif ($arch eq "ia64") {
+-    $mcount_regex = "^\\s*([0-9a-fA-F]+):.*\\s_mcount\$";
+-    $type = "data8";
+-
+-    if ($is_module eq "0") {
+-	$cc .= " -mconstant-gp";
+-    }
+ } elsif ($arch eq "sparc64") {
+     # In the objdump output there are giblets like:
+     # 0000000000000000 <igmp_net_exit-0x18>:
+diff --git a/scripts/xz_wrap.sh b/scripts/xz_wrap.sh
+index 76e9cbcfbeab..d06baf626abe 100755
+--- a/scripts/xz_wrap.sh
++++ b/scripts/xz_wrap.sh
+@@ -15,7 +15,6 @@ LZMA2OPTS=
+ case $SRCARCH in
+ 	x86)            BCJ=--x86 ;;
+ 	powerpc)        BCJ=--powerpc ;;
+-	ia64)           BCJ=--ia64; LZMA2OPTS=pb=4 ;;
+ 	arm)            BCJ=--arm ;;
+ 	sparc)          BCJ=--sparc ;;
+ esac
+-- 
+2.40.1
 
 
 _______________________________________________
