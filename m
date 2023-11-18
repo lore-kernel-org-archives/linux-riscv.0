@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFED2C5AD4C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B7D8C54E76
 	for <linux-riscv@archiver.kernel.org>; Sat, 18 Nov 2023 03:39:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,56 +12,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NBPGANXUS+WnaC0YZ5X9BIb4UakfeaIilQqLr0CpoaI=; b=d5dgOvJq3Ijq9y
-	qRWd7TaBZ4fCJB4wvppVK07GWo8mbeyNzj6aRr3U1t5jqcU2DcPQCRS2gEK/2Gl326FEZjbvBVD+4
-	903HMBoQTl3AFqf736Ab2Uu0OrOiZ5njZYgG+2HIbUQb5JBZMnL2c0dEAPL9Rq+73hlhDIXTRTQwC
-	P9C+ajQOYXkiPMam4I3+IbUTVR2pwJNvntM5FFVuhm/9eJVAVVMOzcYAOddY09C4hRUgYdgCuwEhf
-	cIBp7XnzORz5FJxjsmbOmRjmr7OFZ+/vuAyzfl74gD5VEbIdeD2BX4MJfdYIkO8BonGPLinTpslEp
-	QxK2y4jkONtH61zZnWJQ==;
+	List-Owner; bh=zNT3Uew8vqLSfI+na+xDLS94CsMeZ/C35pUybSyykFA=; b=B3CPjCmSxOdxL5
+	H44Z00qPxx3LHRDW+DOhyqPkkHe4ICIEflYlMejfGZ5pjcw1NC/T6APOzxfpYJ9hTmofKzpnZiBza
+	Puc6RslwA/ei2npGUS81IvkSOP5Y89PM2FC/jiyzwhlS7humAsGGO4x1SLMbbUWDrq4/RC3mWJeo/
+	nMm7KRaOWXo9TbhhUbU8c/T4Q8vnLdn8V9NcrEkGhWR83KLf6mDlwX+9O09Oi5RXFCF7/1JGvunue
+	5YBUSUjVN7xlXm66izhd6zAjua1FHxVIG3N3xeFIX98VK+aU7RF963Gq/RSEp/uMeDm/K464gwmjb
+	blmeDDUxMQW2F6RHwlXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r4CBP-007n5o-0G;
-	Sat, 18 Nov 2023 03:39:47 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1r4CBG-007n2q-2d;
+	Sat, 18 Nov 2023 03:39:39 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r4CBM-007n4L-0B
+	id 1r4CBD-007n1q-2W
 	for linux-riscv@lists.infradead.org;
-	Sat, 18 Nov 2023 03:39:45 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-27ff7fe7fbcso2208348a91.1
-        for <linux-riscv@lists.infradead.org>; Fri, 17 Nov 2023 19:39:42 -0800 (PST)
+	Sat, 18 Nov 2023 03:39:37 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2802d218242so2299002a91.1
+        for <linux-riscv@lists.infradead.org>; Fri, 17 Nov 2023 19:39:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1700278782; x=1700883582; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1700278775; x=1700883575; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Ii/r8hzimL/XtavRWrcGkJgKEnLeFuQkfTAUm70Wb2A=;
-        b=EeALZXpxotv2ys3Or38MSTRe1ZijmWDdCnHxMdWSCVYvM343Qc0O+jySchsbNpDbp2
-         Csrd/kU2ohEDWEV3PTn1gYdP5TuzCOP6bbh0mXRESbv9wLRzMcmHdexz88exTXKjNb1V
-         +b5YOz5PpJiXei4rssLjUr3sH3dLZVLjyn2uFpQJicA/M6tJ3TaP/8nEXPYDlqRU88dB
-         gAjTFoLwzQrsvlGFoWn4aRu+K8Gc5WjWfc/BpYplfZ0N6nK1lirbsJikvmK+EF1cIBii
-         hmP7zzwKaKr4tzgQ35zXHjwomMazOv4ZwgI26PJp+3v71nBgpTFRi5OtKeOiOAMW9mpD
-         Kr+A==
+        bh=rUH3sN/jANNMbAvxiLE+FR6QScUT3piYF3Fp6n0y2EI=;
+        b=jaHELDqubaPNWLbPxgvxbTUOTY3/dOA1zC0JzuF5FrT9wTfsDmMbv3cU3mMD9/pJ6g
+         nwRL8vcRIiAiK/+5g0TGWq/AC2IqOQs5AE6MMjQmnewUS7Cd6hFCEacAKbvmdzTm4cEG
+         rE6i8mH58OgGP1UvozRpbRfle33bY78U8AH3tuSVPTjGeSz5p/mMsW04n5SobqUGeg4S
+         7bjcJYSkwLXQximS/9T2fguBnxHCtU/14O0xFjK6J1roUAnqiSyYTWI1XKoPYNa0CbqF
+         Avuh3BW3QKRJFZqqyGu3Rd+CXcleUhVTBBou+ApIpP6ny9xLTr0Cno1GEDYTELrtnA2m
+         fvAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700278782; x=1700883582;
+        d=1e100.net; s=20230601; t=1700278775; x=1700883575;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Ii/r8hzimL/XtavRWrcGkJgKEnLeFuQkfTAUm70Wb2A=;
-        b=oCQdEUK3Chb36ah3lrPVQTUc2ajKZiV27WfwV0V6TqY6qo44qW6yoJqtCizIK0fkkS
-         CGqHh8FuTYHgKINOFTL/JHzSehQ8atZ+aPziJX17CmpGwIMVDXEvtnOF84nPPhT4EHja
-         JpzIhXH3Y0LKcO1i6iLTbBIYRWx9NQC+/LtW4pWom6LVMFMRauGeTRBJ7mItZKo2AjE3
-         Z2/e1/wpCXbYU0XDoPO50mvsQKPL7dFAgVzx3i6LKswtJnwnBItgSdCWTNpZt5dXa73Q
-         p8Bz57dfNurg0TwlItmYKai4OR9YN7VQxSvp/JNX4XeSMpN1GqjnbhdMHVyVQttBGfLi
-         Eqag==
-X-Gm-Message-State: AOJu0YxUaX0C4fTG1fvJH5sX/BPW7iuDoDbgLjYdKDGFXSbC3B2bo98n
-	5cxT+89ldaFmTSKH7NSvmvlPKg==
-X-Google-Smtp-Source: AGHT+IEnlmvKg48AWLtRJlHz9Rg/Q27+8No7s5ojWvtL/WdnvFdbsfi5N3eU9MggG7ZhT0nUoF/4cA==
-X-Received: by 2002:a17:90b:38cb:b0:27d:1376:3ae1 with SMTP id nn11-20020a17090b38cb00b0027d13763ae1mr1378816pjb.0.1700278781572;
-        Fri, 17 Nov 2023 19:39:41 -0800 (PST)
+        bh=rUH3sN/jANNMbAvxiLE+FR6QScUT3piYF3Fp6n0y2EI=;
+        b=H+tXs4PbcFsHfutJTvSF7zhi6x4KbqUfxIdrgURGxkhCWDZToazlh4xh/PdsL5CuG1
+         NRMJyLy98nBfba/3VvpBJddJI0yKIe6sjiCyUH4tORU1T9jXBTO2IavLmDuvHtuM4g5y
+         AtuefHZ1pzN4pHHQxmFaOpB7EjUZcvLf2/alduy6uaJMzTVSFIiNb6tXyFo/ChoSWqeY
+         67+HOX724Ih/jFgqLotHFv08rMsDUGMLhOB1gqrws4+coORTdM100R3jmiHoLLsOn0Lw
+         wKOHZDVOCGokoPj+++t8yB7FIzKghMrXHOTTJ00ZIZyq7cK07mEBCU5IY3tGgrATcTv8
+         KQcQ==
+X-Gm-Message-State: AOJu0YwNi8Djq6tiLRUI7Dq5egT8AS00pYBCCHlpp8cIggE3UoqCIL6F
+	OSL2RVi6zCO7JkWFQEtw38KlkuUDKUaBL1ecm8k=
+X-Google-Smtp-Source: AGHT+IFL/vhOEv9SFr5vahVonbYDfe/rMF/KgPJfyv64wzi2WyOjQ+a4xtQ3OlsfO5O9XMpJ2UxSgA==
+X-Received: by 2002:a17:90b:3b45:b0:280:29cd:4802 with SMTP id ot5-20020a17090b3b4500b0028029cd4802mr1636773pjb.3.1700278774537;
+        Fri, 17 Nov 2023 19:39:34 -0800 (PST)
 Received: from anup-ubuntu-vm.localdomain ([171.76.80.108])
-        by smtp.gmail.com with ESMTPSA id cz8-20020a17090ad44800b00280fcbbe774sm2053823pjb.10.2023.11.17.19.39.38
+        by smtp.gmail.com with ESMTPSA id cz8-20020a17090ad44800b00280fcbbe774sm2053823pjb.10.2023.11.17.19.39.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Nov 2023 19:39:41 -0800 (PST)
+        Fri, 17 Nov 2023 19:39:33 -0800 (PST)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -74,16 +74,17 @@ Cc: Conor Dooley <conor@kernel.org>,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org,
 	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH v4 3/5] tty/serial: Add RISC-V SBI debug console based earlycon
-Date: Sat, 18 Nov 2023 09:08:57 +0530
-Message-Id: <20231118033859.726692-4-apatel@ventanamicro.com>
+Subject: [PATCH v4 1/5] RISC-V: Add stubs for sbi_console_putchar/getchar()
+Date: Sat, 18 Nov 2023 09:08:55 +0530
+Message-Id: <20231118033859.726692-2-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20231118033859.726692-1-apatel@ventanamicro.com>
 References: <20231118033859.726692-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231117_193944_093589_F9EC3E1B 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20231117_193935_816112_371A19AA 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,71 +101,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We extend the existing RISC-V SBI earlycon support to use the new
-RISC-V SBI debug console extension.
+The functions sbi_console_putchar() and sbi_console_getchar() are
+not defined when CONFIG_RISCV_SBI_V01 is disabled so let us add
+stub of these functions to avoid "#ifdef" on user side.
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- drivers/tty/serial/Kconfig              |  2 +-
- drivers/tty/serial/earlycon-riscv-sbi.c | 24 ++++++++++++++++++++----
- 2 files changed, 21 insertions(+), 5 deletions(-)
+ arch/riscv/include/asm/sbi.h | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
-index 732c893c8d16..1f2594b8ab9d 100644
---- a/drivers/tty/serial/Kconfig
-+++ b/drivers/tty/serial/Kconfig
-@@ -87,7 +87,7 @@ config SERIAL_EARLYCON_SEMIHOST
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 0892f4421bc4..66f3933c14f6 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -271,8 +271,13 @@ struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
+ 			unsigned long arg3, unsigned long arg4,
+ 			unsigned long arg5);
  
- config SERIAL_EARLYCON_RISCV_SBI
- 	bool "Early console using RISC-V SBI"
--	depends on RISCV_SBI_V01
-+	depends on RISCV_SBI
- 	select SERIAL_CORE
- 	select SERIAL_CORE_CONSOLE
- 	select SERIAL_EARLYCON
-diff --git a/drivers/tty/serial/earlycon-riscv-sbi.c b/drivers/tty/serial/earlycon-riscv-sbi.c
-index 27afb0b74ea7..5351e1e31f45 100644
---- a/drivers/tty/serial/earlycon-riscv-sbi.c
-+++ b/drivers/tty/serial/earlycon-riscv-sbi.c
-@@ -15,17 +15,33 @@ static void sbi_putc(struct uart_port *port, unsigned char c)
- 	sbi_console_putchar(c);
- }
- 
--static void sbi_console_write(struct console *con,
--			      const char *s, unsigned n)
-+static void sbi_0_1_console_write(struct console *con,
-+				  const char *s, unsigned int n)
- {
- 	struct earlycon_device *dev = con->data;
- 	uart_console_write(&dev->port, s, n, sbi_putc);
- }
- 
-+static void sbi_dbcn_console_write(struct console *con,
-+				   const char *s, unsigned int n)
-+{
-+	sbi_debug_console_write(n, __pa(s));
-+}
-+
- static int __init early_sbi_setup(struct earlycon_device *device,
- 				  const char *opt)
- {
--	device->con->write = sbi_console_write;
--	return 0;
-+	int ret = 0;
-+
-+	if (sbi_debug_console_available) {
-+		device->con->write = sbi_dbcn_console_write;
-+	} else {
-+		if (IS_ENABLED(CONFIG_RISCV_SBI_V01))
-+			device->con->write = sbi_0_1_console_write;
-+		else
-+			ret = -ENODEV;
-+	}
-+
-+	return ret;
- }
- EARLYCON_DECLARE(sbi, early_sbi_setup);
++#ifdef CONFIG_RISCV_SBI_V01
+ void sbi_console_putchar(int ch);
+ int sbi_console_getchar(void);
++#else
++static inline void sbi_console_putchar(int ch) { }
++static inline int sbi_console_getchar(void) { return -ENOENT; }
++#endif
+ long sbi_get_mvendorid(void);
+ long sbi_get_marchid(void);
+ long sbi_get_mimpid(void);
 -- 
 2.34.1
 
