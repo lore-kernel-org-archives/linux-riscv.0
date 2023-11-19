@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79D8DC2BB3F
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 Nov 2023 08:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 651DDC072A2
+	for <linux-riscv@archiver.kernel.org>; Sun, 19 Nov 2023 05:38:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JfxxjxQasV5NoZ8Un4T5p/+oKmmVk01ldHrEgPgnBhY=; b=hMRcyr06K+3FHQ
-	xrI0epFAX5AeJJYmV/2F1GWoFUS052GyN+kK2k7FRbWlHm+x9ySDJGsPzjHkg1gBB4+E52eh4U9vR
-	3RgIToxv0lJP2jfFnctOCwPYYgALOAtA1KypK7jh5832Ubcb7mWZ0LjMcxkGkb5pcihpiNn5p7C/c
-	VeJZST+x9boBKxCk1ykEdGubxLKn56MCfcH+lAt3r9S//wAn9GWkli8sDmOIgBPfq5In+GJKXEV6P
-	YRD0pOsf1KSVHyqgVaUrSrLyHPcjRzfKMM0YQ3JjYvy3TwSHE98n0YKY1zcNEsWWckErSMBxyr01b
-	2ZwNSvEQCNYnbBg2zzPg==;
+	List-Owner; bh=5SoDFloJpeYWJp/Bf6pC6w/S37IjNXWTCzhbaTJY85o=; b=EzC8iUcdDq8Faf
+	ItjCIye8qouQgWlo5L0/LSH+F6wJH+CHq58UYSY3is26DV0+Q1LPRBcyhYPdl2DAi32V4krjCVI1B
+	o45CbQUOdFL1/r6lY8ceXx5BxDD/Fax88RKUYU1UvVAT43W89VshjzkY5IZBpNuPy3Xdbzn+IOO4H
+	RWnApbk43+VGAuT8C2ePwQLQPCZYB+vxAjI3M0yRWUuSK02aTcWbiv6vNji1sa4ELg7nAujbAwoLO
+	efKmUBWJT5eVqnW50FTro6dGPGpKwExxEoU0CjqomWLDD46ZEO9fsRvmtxGSzCRKEmAL38+tTqqNs
+	yvm+IGYqk95U7i5V0rpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r4GTA-0084gQ-2w;
-	Sat, 18 Nov 2023 08:14:24 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1r4aVK-009Ysu-0n;
+	Sun, 19 Nov 2023 05:37:58 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r4GT8-0084fa-10
+	id 1r4aVH-009Yrq-1h
 	for linux-riscv@lists.infradead.org;
-	Sat, 18 Nov 2023 08:14:24 +0000
+	Sun, 19 Nov 2023 05:37:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 5C4F3CE0304;
-	Sat, 18 Nov 2023 08:14:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C63ADC433C7;
-	Sat, 18 Nov 2023 08:14:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id CA02E60A2A;
+	Sun, 19 Nov 2023 05:37:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24BDDC433C7;
+	Sun, 19 Nov 2023 05:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1700295258;
-	bh=CWLOUlaUDcSdXmXx8kyIUvb+xenuir3wMxbwXCYCaQU=;
+	s=k20201202; t=1700372271;
+	bh=nCPW9jBGTKyH0lUgrulKPDATJP5U30lWuKcxg55VFaY=;
 	h=From:To:Cc:Subject:Date:From;
-	b=GpvjZlBmZ+xuExHdfa3veTtTuKQZmddDiJAgt8veLEXTCW/wk5GTlBsaSCIRp/qKh
-	 gdi6rmxZVWgtlsKCfyiVYUCxl1IRKRxaImDTxJR42b5cI427FdW7Ob+R7HNntsTza/
-	 G/pTiWih9GLZH0PcLrLb+VOwtG2fDkj7B4lP9CHu8TA3uZz3sxDpUwQo8vb5+43hgB
-	 xrmcD0bBcloK/vaumEGRNUTS3hS7QIZfTOEFGuWs7A9+Q4A967nnUl6J8D19thsl7o
-	 fzfLUnUwIY7dz2Sv+p8M8Ubg+kwbwnRcO6e+qu72mkv0GgY9ML7uNMSV0wus343ng0
-	 NMU/CDvqwHDuQ==
+	b=fPXthR4SMxV1YOulnCEOsajU77bv4NJMJaOkL5W2+lOvh8ay5diPw5thg79i2pgab
+	 RJGu1pUHfJSwCN4WAOEGNZh69U6h96xhwQ596fTffX5NgvIOZzKtHAqmkveddFi9ze
+	 QI7y8x/xj0TuCyfjuLw57bgkdvtAIQ3kLUO+03GDa07HzvIhKFbQeT1FLcA8Pu2iOv
+	 zop247siEZyS6ESBv6ES7nxk3AnjaMugRD/FVjAigmHOkPji63sPG1wpEp0GtJjDVX
+	 P0s7ZioSbrbL12twnOBgNFB5zYoYZrc0TpoDaqyk3vO8w90vbmh5Ak00jdAU/ztA2l
+	 OGMYPXHw1c2VQ==
 From: Masahiro Yamada <masahiroy@kernel.org>
-To: linux-kbuild@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jan Kiszka <jan.kiszka@siemens.com>,
-	Kieran Bingham <kbingham@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Nicolas Schier <nicolas@fjasle.eu>,
+To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH] scripts: clean up IA-64 code
-Date: Sat, 18 Nov 2023 17:13:34 +0900
-Message-Id: <20231118081334.1308242-1-masahiroy@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	linux-kbuild@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Simon Glass <sjg@chromium.org>,
+	Masahiro Yamada <masahiroy@kernel.org>
+Subject: [PATCH] riscv: add dependency among Image(.gz), loader(.bin), and vmlinuz.efi
+Date: Sun, 19 Nov 2023 14:37:37 +0900
+Message-Id: <20231119053737.2367955-1-masahiroy@kernel.org>
 X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231118_001422_732216_6288C930 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20231118_213755_648820_5E663D25 
+X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,165 +77,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A little more janitorial work after commit cf8e8658100d ("arch: Remove
-Itanium (IA-64) architecture").
+A common issue in Makefile is a race in parallel building.
+
+You need to be careful to prevent multiple threads from writing to the
+same file simultaneously.
+
+Commit 3939f3345050 ("ARM: 8418/1: add boot image dependencies to not
+generate invalid images") addressed such a bad scenario.
+
+A similar symptom occurs with the following command:
+
+  $ make -j$(nproc) ARCH=riscv Image Image.gz loader loader.bin vmlinuz.efi
+    [ snip ]
+    SORTTAB vmlinux
+    OBJCOPY arch/riscv/boot/Image
+    OBJCOPY arch/riscv/boot/Image
+    OBJCOPY arch/riscv/boot/Image
+    OBJCOPY arch/riscv/boot/Image
+    OBJCOPY arch/riscv/boot/Image
+    GZIP    arch/riscv/boot/Image.gz
+    AS      arch/riscv/boot/loader.o
+    AS      arch/riscv/boot/loader.o
+    Kernel: arch/riscv/boot/Image is ready
+    PAD     arch/riscv/boot/vmlinux.bin
+    GZIP    arch/riscv/boot/vmlinuz
+    Kernel: arch/riscv/boot/loader is ready
+    OBJCOPY arch/riscv/boot/loader.bin
+    Kernel: arch/riscv/boot/loader.bin is ready
+    Kernel: arch/riscv/boot/Image.gz is ready
+    OBJCOPY arch/riscv/boot/vmlinuz.o
+    LD      arch/riscv/boot/vmlinuz.efi.elf
+    OBJCOPY arch/riscv/boot/vmlinuz.efi
+    Kernel: arch/riscv/boot/vmlinuz.efi is ready
+
+The log "OBJCOPY arch/arm64/boot/Image" is displayed 5 times.
+(also "AS      arch/riscv/boot/loader.o" twice.)
+
+It indicates that 5 threads simultaneously enter arch/riscv/boot/
+and write to arch/riscv/boot/Image.
+
+It occasionally leads to a build failure:
+
+  $ make -j$(nproc) ARCH=riscv Image Image.gz loader loader.bin vmlinuz.efi
+    [ snip ]
+    SORTTAB vmlinux
+    OBJCOPY arch/riscv/boot/Image
+    OBJCOPY arch/riscv/boot/Image
+    OBJCOPY arch/riscv/boot/Image
+    OBJCOPY arch/riscv/boot/Image
+    PAD     arch/riscv/boot/vmlinux.bin
+  truncate: Invalid number: 'arch/riscv/boot/vmlinux.bin'
+  make[2]: *** [drivers/firmware/efi/libstub/Makefile.zboot:13: arch/riscv/boot/vmlinux.bin] Error 1
+  make[2]: *** Deleting file 'arch/riscv/boot/vmlinux.bin'
+  make[1]: *** [arch/riscv/Makefile:167: vmlinuz.efi] Error 2
+  make[1]: *** Waiting for unfinished jobs....
+    Kernel: arch/riscv/boot/Image is ready
+    GZIP    arch/riscv/boot/Image.gz
+    AS      arch/riscv/boot/loader.o
+    AS      arch/riscv/boot/loader.o
+    Kernel: arch/riscv/boot/loader is ready
+    OBJCOPY arch/riscv/boot/loader.bin
+    Kernel: arch/riscv/boot/loader.bin is ready
+    Kernel: arch/riscv/boot/Image.gz is ready
+  make: *** [Makefile:234: __sub-make] Error 2
+
+Image.gz, loader, vmlinuz.efi depend on Image. loader.bin depends
+on loader. Such dependencies are not specified in arch/riscv/Makefile.
 
 Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 ---
 
- scripts/checkstack.pl        |  3 ---
- scripts/gdb/linux/tasks.py   | 15 +++------------
- scripts/head-object-list.txt |  1 -
- scripts/kconfig/mconf.c      |  2 +-
- scripts/kconfig/nconf.c      |  2 +-
- scripts/package/kernel.spec  |  6 ------
- scripts/package/mkdebian     |  2 +-
- scripts/recordmcount.pl      |  7 -------
- scripts/xz_wrap.sh           |  1 -
- 9 files changed, 6 insertions(+), 33 deletions(-)
+ arch/riscv/Makefile | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/scripts/checkstack.pl b/scripts/checkstack.pl
-index 84f5fb7f1cec..35fefdfd6ef2 100755
---- a/scripts/checkstack.pl
-+++ b/scripts/checkstack.pl
-@@ -68,9 +68,6 @@ my (@stack, $re, $dre, $sub, $x, $xs, $funcre, $min_stack);
- 		#    2f60:    48 81 ec e8 05 00 00       sub    $0x5e8,%rsp
- 		$re = qr/^.*[as][du][db]    \$(0x$x{1,8}),\%(e|r)sp$/o;
- 		$dre = qr/^.*[as][du][db]    (%.*),\%(e|r)sp$/o;
--	} elsif ($arch eq 'ia64') {
--		#e0000000044011fc:       01 0f fc 8c     adds r12=-384,r12
--		$re = qr/.*adds.*r12=-(([0-9]{2}|[3-9])[0-9]{2}),r12/o;
- 	} elsif ($arch eq 'm68k') {
- 		#    2b6c:       4e56 fb70       linkw %fp,#-1168
- 		#  1df770:       defc ffe4       addaw #-28,%sp
-diff --git a/scripts/gdb/linux/tasks.py b/scripts/gdb/linux/tasks.py
-index 17ec19e9b5bf..5be53b372a69 100644
---- a/scripts/gdb/linux/tasks.py
-+++ b/scripts/gdb/linux/tasks.py
-@@ -86,21 +86,12 @@ LxPs()
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 5cbe596345c1..1d6ed27e0a2a 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -163,6 +163,8 @@ BOOT_TARGETS := Image Image.gz loader loader.bin xipImage vmlinuz.efi
  
- thread_info_type = utils.CachedType("struct thread_info")
+ all:	$(notdir $(KBUILD_IMAGE))
  
--ia64_task_size = None
--
- 
- def get_thread_info(task):
-     thread_info_ptr_type = thread_info_type.get_type().pointer()
--    if utils.is_target_arch("ia64"):
--        global ia64_task_size
--        if ia64_task_size is None:
--            ia64_task_size = gdb.parse_and_eval("sizeof(struct task_struct)")
--        thread_info_addr = task.address + ia64_task_size
--        thread_info = thread_info_addr.cast(thread_info_ptr_type)
--    else:
--        if task.type.fields()[0].type == thread_info_type.get_type():
--            return task['thread_info']
--        thread_info = task['stack'].cast(thread_info_ptr_type)
-+    if task.type.fields()[0].type == thread_info_type.get_type():
-+        return task['thread_info']
-+    thread_info = task['stack'].cast(thread_info_ptr_type)
-     return thread_info.dereference()
- 
- 
-diff --git a/scripts/head-object-list.txt b/scripts/head-object-list.txt
-index 26359968744e..890f69005bab 100644
---- a/scripts/head-object-list.txt
-+++ b/scripts/head-object-list.txt
-@@ -17,7 +17,6 @@ arch/arm/kernel/head-nommu.o
- arch/arm/kernel/head.o
- arch/csky/kernel/head.o
- arch/hexagon/kernel/head.o
--arch/ia64/kernel/head.o
- arch/loongarch/kernel/head.o
- arch/m68k/68000/head.o
- arch/m68k/coldfire/head.o
-diff --git a/scripts/kconfig/mconf.c b/scripts/kconfig/mconf.c
-index eccc87a441e7..3795c36a9181 100644
---- a/scripts/kconfig/mconf.c
-+++ b/scripts/kconfig/mconf.c
-@@ -247,7 +247,7 @@ search_help[] =
- 	"      -> PCI support (PCI [=y])\n"
- 	"(1)     -> PCI access mode (<choice> [=y])\n"
- 	"  Defined at drivers/pci/Kconfig:47\n"
--	"  Depends on: X86_LOCAL_APIC && X86_IO_APIC || IA64\n"
-+	"  Depends on: X86_LOCAL_APIC && X86_IO_APIC\n"
- 	"  Selects: LIBCRC32\n"
- 	"  Selected by: BAR [=n]\n"
- 	"-----------------------------------------------------------------\n"
-diff --git a/scripts/kconfig/nconf.c b/scripts/kconfig/nconf.c
-index 143a2c351d57..8cd72fe25974 100644
---- a/scripts/kconfig/nconf.c
-+++ b/scripts/kconfig/nconf.c
-@@ -216,7 +216,7 @@ search_help[] =
- "Symbol: FOO [ = m]\n"
- "Prompt: Foo bus is used to drive the bar HW\n"
- "Defined at drivers/pci/Kconfig:47\n"
--"Depends on: X86_LOCAL_APIC && X86_IO_APIC || IA64\n"
-+"Depends on: X86_LOCAL_APIC && X86_IO_APIC\n"
- "Location:\n"
- "  -> Bus options (PCI, PCMCIA, EISA, ISA)\n"
- "    -> PCI support (PCI [ = y])\n"
-diff --git a/scripts/package/kernel.spec b/scripts/package/kernel.spec
-index 3eee0143e0c5..89298983a169 100644
---- a/scripts/package/kernel.spec
-+++ b/scripts/package/kernel.spec
-@@ -56,13 +56,7 @@ patch -p1 < %{SOURCE2}
- 
- %install
- mkdir -p %{buildroot}/boot
--%ifarch ia64
--mkdir -p %{buildroot}/boot/efi
--cp $(%{make} %{makeflags} -s image_name) %{buildroot}/boot/efi/vmlinuz-%{KERNELRELEASE}
--ln -s efi/vmlinuz-%{KERNELRELEASE} %{buildroot}/boot/
--%else
- cp $(%{make} %{makeflags} -s image_name) %{buildroot}/boot/vmlinuz-%{KERNELRELEASE}
--%endif
- %{make} %{makeflags} INSTALL_MOD_PATH=%{buildroot} modules_install
- %{make} %{makeflags} INSTALL_HDR_PATH=%{buildroot}/usr headers_install
- cp System.map %{buildroot}/boot/System.map-%{KERNELRELEASE}
-diff --git a/scripts/package/mkdebian b/scripts/package/mkdebian
-index 5044224cf671..c1a36da85e84 100755
---- a/scripts/package/mkdebian
-+++ b/scripts/package/mkdebian
-@@ -26,7 +26,7 @@ set_debarch() {
- 
- 	# Attempt to find the correct Debian architecture
- 	case "$UTS_MACHINE" in
--	i386|ia64|alpha|m68k|riscv*)
-+	i386|alpha|m68k|riscv*)
- 		debarch="$UTS_MACHINE" ;;
- 	x86_64)
- 		debarch=amd64 ;;
-diff --git a/scripts/recordmcount.pl b/scripts/recordmcount.pl
-index 6a4645a57976..f84df9e383fd 100755
---- a/scripts/recordmcount.pl
-+++ b/scripts/recordmcount.pl
-@@ -275,13 +275,6 @@ if ($arch eq "x86_64") {
-     $section_type = '%progbits';
-     $mcount_regex = "^\\s*([0-9a-fA-F]+):\\s*R_AARCH64_CALL26\\s+_mcount\$";
-     $type = ".quad";
--} elsif ($arch eq "ia64") {
--    $mcount_regex = "^\\s*([0-9a-fA-F]+):.*\\s_mcount\$";
--    $type = "data8";
--
--    if ($is_module eq "0") {
--	$cc .= " -mconstant-gp";
--    }
- } elsif ($arch eq "sparc64") {
-     # In the objdump output there are giblets like:
-     # 0000000000000000 <igmp_net_exit-0x18>:
-diff --git a/scripts/xz_wrap.sh b/scripts/xz_wrap.sh
-index 76e9cbcfbeab..d06baf626abe 100755
---- a/scripts/xz_wrap.sh
-+++ b/scripts/xz_wrap.sh
-@@ -15,7 +15,6 @@ LZMA2OPTS=
- case $SRCARCH in
- 	x86)            BCJ=--x86 ;;
- 	powerpc)        BCJ=--powerpc ;;
--	ia64)           BCJ=--ia64; LZMA2OPTS=pb=4 ;;
- 	arm)            BCJ=--arm ;;
- 	sparc)          BCJ=--sparc ;;
- esac
++loader.bin: loader
++Image.gz loader vmlinuz.efi: Image
+ $(BOOT_TARGETS): vmlinux
+ 	$(Q)$(MAKE) $(build)=$(boot) $(boot)/$@
+ 	@$(kecho) '  Kernel: $(boot)/$@ is ready'
 -- 
 2.40.1
 
