@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CE68C5AE5B
-	for <linux-riscv@archiver.kernel.org>; Sun, 19 Nov 2023 13:26:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53CBFC072A2
+	for <linux-riscv@archiver.kernel.org>; Sun, 19 Nov 2023 14:09:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=i6gTQWs9ORkOzO5GokOgXEpzCUVSXAF6dGNZw42B6W8=; b=fILqY8Xsj0Zbr/
-	i7lvMm7wnJlUbGWaCi+1djQDo72A5zTeuO0m2nuZiC2LPQb1CU+4q/ahKBKkcBVC26dJb3mvFK2dx
-	AeSO9rRxda1Sta3CX4GcgfntiKoYtpy3qmwZxOB9gaY56VyCSKgLrpoHX5I6SE1wqzAxvXmneEs2K
-	Da74U4rfuqHob+ccXN0rBsXY2jnLtEVZE5NaaBquy20FheuDTrfGItTl0X2cT0rB+IRjYZzPZVeqL
-	3yotpd9R+sFXwNex6u18Ed3txwGQQMqiuE30oMDGBjcM5is7LanvI6VNX2/rls0uER7uf7nyExCt1
-	XJi2EfkQF8Yf7C4NSIww==;
+	List-Owner; bh=suYucBp3g+i+hHOJx1sYl4W62RMjjcqh268JFKZ8pq8=; b=bNk0FYB4QlRX1j
+	0/+YWHroezGydgnlRVrBUp9gLkOuBORo6TSg5qCOzdPtlOemSiUUGm265llwBcIxp7BGHxUjAFM1Y
+	QE28WLg6nPyXqG0+1dqcLhdWOt7EKUpnelp3dpG+VftD/IIV6f9+NlAlf+wxm6n+JMJeCFJVTTCWz
+	/G9v6v42AnjXtIPt4hp0TRWgItHa/pXwqugyZwM+jrCFsyDjqWfNx42DPrr9ZaaWcq2FSHQkybmAw
+	Hznpmcuv7VIiuPEHIvuN3t4u10LgJTRvqHtnv2Q0Oif28SuSxta0rU+nMIjGywrqQuyh4iy+vxcuV
+	4Xnew4o0iqIAR8m3ampw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r4hoR-00ADgz-0j;
-	Sun, 19 Nov 2023 13:26:11 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1r4iUf-00AGgp-0v;
+	Sun, 19 Nov 2023 14:09:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r4hoO-00ADdv-1H
+	id 1r4iUb-00AGfn-1V
 	for linux-riscv@lists.infradead.org;
-	Sun, 19 Nov 2023 13:26:09 +0000
+	Sun, 19 Nov 2023 14:09:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id CBA78B80BA2;
-	Sun, 19 Nov 2023 13:25:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A5B6C433C7;
-	Sun, 19 Nov 2023 13:25:53 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3490860C40;
+	Sun, 19 Nov 2023 14:09:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D134C433C8;
+	Sun, 19 Nov 2023 14:09:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1700400355;
-	bh=MuFb6Jk9Fj76Lk+Y+AfZIu/0pw2dOjOHcPcPCdb0bN0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=GOx03R5nPTBsQnissHt8HthhnhQrIwZoWcMEeXlxxS2qVhJ0T92DKCneDDOWYF7SB
-	 b0AbiMh+Wgvv0gQpynwxysouNqvSPBa9b6R7TZ/UTNnnxWC9Je7K7i9C9L29jQUsbC
-	 5yYbGYggAmUXZtIf6SLdAL9J2hAgwJddAaMsSzccRfztFCIG1+dKoSB+vJPsYJwCZv
-	 RgWZ9HmsvJv836LDg6p0o6oXZlA9vEDZOSyas29qY4PFjOeU7KAoj0vJOXMuRINu6E
-	 dma626QmB3gHpnc3w5pgxF6bUKdRDTePXrXU9Hqfktdxat0cMJnvR96iJiDE5LNwAZ
-	 /YfulcGiB8N+A==
+	s=k20201202; t=1700402982;
+	bh=7N8+AO5RbylkHQ8VIxChK+V+uCnDFu5m8DO1LQeIS6Y=;
+	h=Date:From:To:Cc:Subject:From;
+	b=VQtkokfBqNQZFdmySJ7BmdDEbihdLD6pV5tBipZsroId7SLe7iqiZhWghV0s4HGpk
+	 EBlpU3NZfeRIl1opIDNDZO09G/ZOJ/mERyyoZ4UShU16EOkTB0JMLPSiVtvElD2H+b
+	 gEwoHUYoqmmq4f72d95ca+fdJMo+OqPdVsRXvgwN3pWOLLlQ3lK/mJETiG7dx3kUnx
+	 sas2WoZjIUnlXU75PYB5nVFhkEtQ/5Pf5fEXadl/OAm2h3Xs1LgWZ/63DiD/iY4SBn
+	 2FZEm9UzVh9QgyboN3+hY8mqjY/eecySD1gJWtb2IMvug7MN4gwANk8eaW9wKkg0ot
+	 /TCiPLpN53OUQ==
+Date: Sun, 19 Nov 2023 21:57:17 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>
-Subject: [PATCH 0/2] nvmem: Add Sophgo eFuse driver
-Date: Sun, 19 Nov 2023 21:13:30 +0800
-Message-Id: <20231119131332.999-1-jszhang@kernel.org>
-X-Mailer: git-send-email 2.40.0
+To: Andrew Lunn <andrew@lunn.ch>, HeinerKallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S.Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Cc: netdev@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: [RFC] support built-in ethernet phy which needs some mmio accesses
+Message-ID: <ZVoUPW8pJmv5AT10@xhacker>
 MIME-Version: 1.0
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231119_052608_583943_928731B1 
-X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-CacheID: sfid-20231119_060945_728982_C7A09410 
+X-CRM114-Status: UNSURE (   6.78  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,34 +75,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sophgo SoCs such as CV1800B contain eFuses used to store
-factory-programmed data such as calibration values for the built-in
-ethernet PHY.
+Hi,
 
-As for CV1800B, HW automatically loads the eFuse content into CONTENT
-base registers which are organized as 32bit values exposed as MMIO.
+I want to upstream milkv duo (powered by cv1800b) ethernet support. The SoC
+contains a built-in eth phy which also needs some initialization via.
+mmio access during init. So, I need to do something like this(sol A):
 
-Currently, add read support for the eFuse. This is a preparation step
-for supporting the built-in ethernet phy.
+in dtsi:
 
-Since the clk support isn't mainlined, so cv1800b DT patches are not
-included.
+ephy@abcd {
+	compatbile = "sophgo,cv1800b-ephy";
+	...
+};
 
-Jisheng Zhang (2):
-  dt-bindings: nvmem: Add sophgo,efuses
-  nvmem: Add Sophgo eFuse driver
+in ephy driver:
 
- .../bindings/nvmem/sophgo,efuse.yaml          | 54 +++++++++++
- drivers/nvmem/Kconfig                         | 13 +++
- drivers/nvmem/Makefile                        |  2 +
- drivers/nvmem/sophgo-efuse.c                  | 97 +++++++++++++++++++
- 4 files changed, 166 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/nvmem/sophgo,efuse.yaml
- create mode 100644 drivers/nvmem/sophgo-efuse.c
+static struct phy_driver ephy_driver {
+	various implementaion via standard phy_read/phy_write;
+};
 
--- 
-2.42.0
+int ephy_probe(platform_device *pdev)
+{
+	init via. readl() and writel();
+	phy_drivers_register(&ephy_driver);
+}
 
+int ephy_remove()
+{
+	phy_drivers_unregister();
+}
+I'm not sure whether this kind of driver modeling can be accepted or
+not. The advantage of this solution is there's no hardcoding at all, the
+big problem is the ephy is initialized during probe() rather than
+config_init().
+
+The vendor kernel src supports the ephy in the following way(will be
+called as sol B):
+in phy driver's .config_init() maps the ephy reg via. ioremap()
+then init via. readl/writel on the mapped space. Obviously, this
+isn't acceptable due to the hardcoding of ephy reg base and size.
+But the advantage is it delay the ephy init until config_init() is
+called.
+
+could you please give some advice?
+
+Thanks in advance
 
 _______________________________________________
 linux-riscv mailing list
