@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82B23C072A2
-	for <linux-riscv@archiver.kernel.org>; Sun, 19 Nov 2023 13:26:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 385F3C54E76
+	for <linux-riscv@archiver.kernel.org>; Sun, 19 Nov 2023 13:26:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BD3dUqjcw1nICo0io/nVSKJhm9wxo7Rzh3ZjEV/FF9w=; b=PtjSSDfdEaELzs
-	No5ywPp9kywMx0GXw5SBBusskzDYOtfvQHaGeSMjk+kHlHlY8RcLDA0qSIv0q1oivuk0cavEWTHKr
-	k+tQjTNnGVoZLsJb2Ca9vPTksE2J3wZ4zLPfxankYopdtLO0NqInW8o6imhdNWmWFMQ4KYI64loXV
-	3/yxAR7fqqpz+uUw0TFot4VtmDsr84Aa3RyB8wsl+BWQDFrSlUfrFMn8T2Fr1F3PQ61B5oJOtdiSO
-	kH6VopUZ3yrAxKsx5IJuon99XGaFmbkaspr6E6xyM2ge8XwyYHuBkx2HRioe0RSMTg86b4v8cbYn1
-	baiRc/Au972yjqTSWpEw==;
+	List-Owner; bh=xHH7Czy/146Qd5G2AfqtNM0n6IH1Xtz27TVLpOWth9w=; b=BPdFKX9j81Y6gO
+	itdjUsoBVF+8XEV0HPmROxTgJ43sIX7XOEjhNGlDZOjLVAooZpviiCkFqxDd9eJthqiRowElcFVRW
+	+VMrFfLfg2bvbPUfdJZ4UJjBffRYM7+cVOtWk5jH+rfZYplUCFRzK2lxjyoY7V3qqd4c8FCL9xLLc
+	+KaA4JwuEd1Z0RXG2SrkmCOXaSVqkTxBVn4t1D+RmPzAA6vXcog/tjQyqLMBNzwm3qM+IlsiI5xxh
+	lCYOahtmtfQd1ibQiYQGA21MfTu3nkKpFfG8v+mn8htT+7sjD5guLCdibfi1BkgIBD7FIW51fpwTx
+	TZiLLZg6/FNV9CKMxo3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r4hoK-00ADfD-0Z;
-	Sun, 19 Nov 2023 13:26:04 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1r4hoS-00ADhJ-07;
+	Sun, 19 Nov 2023 13:26:12 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r4hoH-00ADeC-1C
+	id 1r4hoO-00ADe1-1i
 	for linux-riscv@lists.infradead.org;
-	Sun, 19 Nov 2023 13:26:02 +0000
+	Sun, 19 Nov 2023 13:26:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3A0B760A2A;
-	Sun, 19 Nov 2023 13:26:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBB94C433C7;
-	Sun, 19 Nov 2023 13:25:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5B2A260C07;
+	Sun, 19 Nov 2023 13:25:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B534C433C9;
+	Sun, 19 Nov 2023 13:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1700400359;
-	bh=gn56HK2d1OyTTEnjGs+yYxtFyImiBagPEv90zBmniFw=;
+	s=k20201202; t=1700400357;
+	bh=EAoI1oPVY8eW/ZcDNqHuO5UMxZXaN5+c4qTncpj4H+c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oLTZp+OHJtnhUROcIaDB4jhD9RrNHCEhHnfAWQQxyYURjFadduuvoaO3BWrfdFnjY
-	 1/fiM4Y3bPBexCvrmCyJ5wg56/23OwBF46k27Q9R0mS0xCMcmqgSiULEWr+8pPJjrq
-	 GrUz5kAVVgQKIQzhb/cUzAeZbOEFZqjmI/AkR0i/zCPlVEOx7q8fJVkjwnIId4vBtx
-	 H1Bwz7LR097OfmJCam7jext9XkfuSwMkPSWcadp6eSK/V1zp3tuXbtQdOlNQGIvBbb
-	 n4fjHW5bQAAtnkzJNjLNK6zIA7MCcsRKrz6P7KljeyrNy13f6bdbYT+26R47W1y4wl
-	 6Z/2Kl35JMTUg==
+	b=UFFfua7e9Mb5DN9dWT4E5HE4L3nheij1HYoo6gzkEEGODsAmMsK1TbnTR/xwe1NFl
+	 q88cK0bU3qLLGYlP3fcE5ob0rTvm7IWzlJpdu9mA6qQQ+nrpk/teL4F/EZqDSQ15Ut
+	 nx5CMSChPY7E6cZkYW5k/NO4T5TjRj82VOsxUOVlZynpl9vwexAjctqef815jghD62
+	 Jv1KrffsfGR195TNCZbR/sOFd6C+FuJ/KqeejGG2eAjlQZVqG/DqPjNLW1cNtZiBH0
+	 w8pHEyHZ2CHVtRQ+VN7oDIYIVlT1RIcpvGsuJ+FOwm1sgD4GM45yblUByAK7mj6pJF
+	 ahW/wTrbz487w==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
 	Rob Herring <robh+dt@kernel.org>,
@@ -52,16 +52,16 @@ Cc: devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Chao Wei <chao.wei@sophgo.com>,
 	Chen Wang <unicorn_wang@outlook.com>
-Subject: [PATCH 2/2] nvmem: Add Sophgo eFuse driver
-Date: Sun, 19 Nov 2023 21:13:32 +0800
-Message-Id: <20231119131332.999-3-jszhang@kernel.org>
+Subject: [PATCH 1/2] dt-bindings: nvmem: Add sophgo,efuses
+Date: Sun, 19 Nov 2023 21:13:31 +0800
+Message-Id: <20231119131332.999-2-jszhang@kernel.org>
 X-Mailer: git-send-email 2.40.0
 In-Reply-To: <20231119131332.999-1-jszhang@kernel.org>
 References: <20231119131332.999-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231119_052601_518658_3F328623 
-X-CRM114-Status: GOOD (  22.00  )
+X-CRM114-CacheID: sfid-20231119_052608_612019_57975526 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,164 +78,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sophgo SoCs such as CV1800B contain eFuses used to store
-factory-programmed data such as calibration values for the built-in
+Sophgo SoCs such as CV1800B come with eFuses used to store
+factory-programmed data such as calibration settings for the built-in
 ethernet PHY.
-
-As for CV1800B, HW automatically loads the eFuse content into CONTENT
-base registers which are organized as 32bit values exposed as MMIO.
-
-Currently, add read support for the eFuse. This is a preparation step
-for supporting the built-in ethernet phy.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- drivers/nvmem/Kconfig        | 13 +++++
- drivers/nvmem/Makefile       |  2 +
- drivers/nvmem/sophgo-efuse.c | 97 ++++++++++++++++++++++++++++++++++++
- 3 files changed, 112 insertions(+)
- create mode 100644 drivers/nvmem/sophgo-efuse.c
+ .../bindings/nvmem/sophgo,efuse.yaml          | 54 +++++++++++++++++++
+ 1 file changed, 54 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/nvmem/sophgo,efuse.yaml
 
-diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
-index 5bc9c4874fe3..f2de7338c6e9 100644
---- a/drivers/nvmem/Kconfig
-+++ b/drivers/nvmem/Kconfig
-@@ -298,6 +298,19 @@ config NVMEM_SNVS_LPGPR
- 	  This driver can also be built as a module. If so, the module
- 	  will be called nvmem-snvs-lpgpr.
- 
-+config NVMEM_SOPHGO_EFUSE
-+	tristate "Sophgo eFuse support"
-+	depends on ARCH_SOPHGO || COMPILE_TEST
-+	default ARCH_SOPHGO
-+	help
-+	  Say y here to enable support for reading eFuses on Sophgo SoCs
-+	  such as the CV1800B. These are e.g. used to store factory programmed
-+	  calibration data required for the builtin ethernet PHY.
-+
-+	  This driver can also be built as a module. If so, the module will
-+	  be called nvmem-sophgo-efuse.
-+
-+
- config NVMEM_SPMI_SDAM
- 	tristate "SPMI SDAM Support"
- 	depends on SPMI
-diff --git a/drivers/nvmem/Makefile b/drivers/nvmem/Makefile
-index 423baf089515..f3602bb16efc 100644
---- a/drivers/nvmem/Makefile
-+++ b/drivers/nvmem/Makefile
-@@ -60,6 +60,8 @@ obj-$(CONFIG_NVMEM_SC27XX_EFUSE)	+= nvmem-sc27xx-efuse.o
- nvmem-sc27xx-efuse-y			:= sc27xx-efuse.o
- obj-$(CONFIG_NVMEM_SNVS_LPGPR)		+= nvmem_snvs_lpgpr.o
- nvmem_snvs_lpgpr-y			:= snvs_lpgpr.o
-+obj-$(CONFIG_NVMEM_SOPHGO_EFUSE)	+= nvmem-sophgo-efuse.o
-+nvmem-sophgo-efuse-y			:= sophgo-efuse.o
- obj-$(CONFIG_NVMEM_SPMI_SDAM)		+= nvmem_qcom-spmi-sdam.o
- nvmem_qcom-spmi-sdam-y			+= qcom-spmi-sdam.o
- obj-$(CONFIG_NVMEM_SPRD_EFUSE)		+= nvmem_sprd_efuse.o
-diff --git a/drivers/nvmem/sophgo-efuse.c b/drivers/nvmem/sophgo-efuse.c
+diff --git a/Documentation/devicetree/bindings/nvmem/sophgo,efuse.yaml b/Documentation/devicetree/bindings/nvmem/sophgo,efuse.yaml
 new file mode 100644
-index 000000000000..3b4eb4d097e3
+index 000000000000..e4ae81a1742a
 --- /dev/null
-+++ b/drivers/nvmem/sophgo-efuse.c
-@@ -0,0 +1,97 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Sophgo SoC eFuse driver
-+ *
-+ * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-+ */
++++ b/Documentation/devicetree/bindings/nvmem/sophgo,efuse.yaml
+@@ -0,0 +1,54 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/nvmem/sophgo,efuse.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+#include <linux/clk.h>
-+#include <linux/io.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/nvmem-provider.h>
-+#include <linux/platform_device.h>
++title: Sophgo SoC eFuse-based NVMEM
 +
-+#define CV1800B_EFUSE_CONTENT_BASE	0x100
-+#define CV1800B_EFUSE_CONTENT_SIZE	0x100
++description: |
++  Sophgo SoCs such as the CV1800B contain factory-programmed eFuses used to e.g. store
++  calibration data for the built-in ethernet PHY.
++maintainers:
++  - Jisheng Zhang <jszhang@kernel.org>
 +
-+struct sophgo_efuses_priv {
-+	void __iomem *base;
-+	struct clk *clk;
-+};
++allOf:
++  - $ref: nvmem.yaml#
++  - $ref: nvmem-deprecated-cells.yaml#
 +
-+static int sophgo_efuses_read(void *context, unsigned int offset, void *val,
-+			     size_t bytes)
-+{
-+	struct sophgo_efuses_priv *priv = context;
-+	u32 *dst = val;
-+	int ret;
++properties:
++  compatible:
++    items:
++      - enum:
++          - sophgo,cv1800b-efuse
 +
-+	ret = clk_prepare_enable(priv->clk);
-+	if (ret < 0)
-+		return ret;
++  reg:
++    maxItems: 1
 +
-+	while (bytes >= sizeof(u32)) {
-+		*dst++ = readl_relaxed(priv->base + CV1800B_EFUSE_CONTENT_BASE + offset);
-+		bytes -= sizeof(u32);
-+		offset += sizeof(u32);
-+	}
++  clocks:
++    description:
++      eFuse clock id.
++    maxItems: 1
 +
-+	clk_disable_unprepare(priv->clk);
++required:
++  - compatible
++  - reg
++  - clocks
 +
-+	return 0;
-+}
++unevaluatedProperties: false
 +
-+static int sophgo_efuses_probe(struct platform_device *pdev)
-+{
-+	struct sophgo_efuses_priv *priv;
-+	struct resource *res;
-+	struct nvmem_config config = {
-+		.dev = &pdev->dev,
-+		.add_legacy_fixed_of_cells = true,
-+		.read_only = true,
-+		.reg_read = sophgo_efuses_read,
-+		.stride = sizeof(u32),
-+		.word_size = sizeof(u32),
-+		.name = "sophgo_efuse_nvmem",
-+		.id = NVMEM_DEVID_AUTO,
-+		.root_only = true,
-+	};
++examples:
++  - |
++    efuse@3050000 {
++        compatible = "sophgo,cv1800b-efuse";
++        reg = <0x3050000 0x1000>;
++        #address-cells = <1>;
++        #size-cells = <1>;
++        clocks = <&clk 1>;
 +
-+	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
++        ephy_txitune: ephy-txitune@24 {
++            reg = <0x24 0x4>;
++        };
++    };
 +
-+	priv->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-+	if (IS_ERR(priv->base))
-+		return PTR_ERR(priv->base);
-+
-+	priv->clk = devm_clk_get(&pdev->dev, NULL);
-+	if (IS_ERR(priv->clk))
-+		return PTR_ERR(priv->clk);
-+
-+	config.priv = priv;
-+	config.size = CV1800B_EFUSE_CONTENT_SIZE;
-+
-+	return PTR_ERR_OR_ZERO(devm_nvmem_register(config.dev, &config));
-+}
-+
-+static const struct of_device_id sophgo_efuses_of_match[] = {
-+	{ .compatible = "sophgo,cv1800b-efuse", },
-+	{}
-+};
-+
-+MODULE_DEVICE_TABLE(of, sophgo_efuses_of_match);
-+
-+static struct platform_driver sophgo_efuses_driver = {
-+	.driver = {
-+		.name = "sophgo_efuse",
-+		.of_match_table = sophgo_efuses_of_match,
-+	},
-+	.probe = sophgo_efuses_probe,
-+};
-+
-+module_platform_driver(sophgo_efuses_driver);
-+
-+MODULE_AUTHOR("Jisheng Zhang <jszhang@kernel.org>");
-+MODULE_LICENSE("GPL");
++...
 -- 
 2.42.0
 
