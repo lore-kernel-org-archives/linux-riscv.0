@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7609EC5ACB3
-	for <linux-riscv@archiver.kernel.org>; Sun, 19 Nov 2023 11:13:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82B23C072A2
+	for <linux-riscv@archiver.kernel.org>; Sun, 19 Nov 2023 13:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7so4P5p5vUBN0m8wjHPXUYdhTZO9EA0ZtJxArsYKSuA=; b=n6YJkRyzzSW9vT
-	M4epA1HunXV2ic+294bOH3jp9V0Robh94z0o+Qn5gJCAzghx4tSmef7emgHV6VG/gHDwCDSHwrquG
-	AaFcAc1TkRDtoCU37zvTujHQbv5A1a8rqjB10eEBupq0MwfnsWpR5kFk9K9Oglu039E189eCjre/X
-	1gIe3HG/J1SbTneJMvAFGatqBVKrLuxV/RxhL6x8m8o41AzO8Qtbqf9VbCSwrGMV8vHB8FS5QtLh0
-	3AiN0BUdKdGFd2FY4WmClR0QtL3skm+IRWcCJ7PNrSPmCBgfxIO4Q8GGVJJuoHww+uDxGLAmNPd4W
-	NMNydlJD3u6x32lKvQ8g==;
+	List-Owner; bh=BD3dUqjcw1nICo0io/nVSKJhm9wxo7Rzh3ZjEV/FF9w=; b=PtjSSDfdEaELzs
+	No5ywPp9kywMx0GXw5SBBusskzDYOtfvQHaGeSMjk+kHlHlY8RcLDA0qSIv0q1oivuk0cavEWTHKr
+	k+tQjTNnGVoZLsJb2Ca9vPTksE2J3wZ4zLPfxankYopdtLO0NqInW8o6imhdNWmWFMQ4KYI64loXV
+	3/yxAR7fqqpz+uUw0TFot4VtmDsr84Aa3RyB8wsl+BWQDFrSlUfrFMn8T2Fr1F3PQ61B5oJOtdiSO
+	kH6VopUZ3yrAxKsx5IJuon99XGaFmbkaspr6E6xyM2ge8XwyYHuBkx2HRioe0RSMTg86b4v8cbYn1
+	baiRc/Au972yjqTSWpEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r4fjU-009ubh-2k;
-	Sun, 19 Nov 2023 11:12:56 +0000
-Received: from mgamail.intel.com ([134.134.136.126])
+	id 1r4hoK-00ADfD-0Z;
+	Sun, 19 Nov 2023 13:26:04 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r4fjQ-009uVW-2u
+	id 1r4hoH-00ADeC-1C
 	for linux-riscv@lists.infradead.org;
-	Sun, 19 Nov 2023 11:12:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1700392372; x=1731928372;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=l6MB7KR6Wqu2v79BBJpxIM6CND7+cD3U13FwZlh4YFU=;
-  b=OQ1orQsQLj3s1mfq2UJgiahT2nKz+gD0Qy6kTRbAqk5IjqDU1rqhNFWC
-   S5GJ+Yqn+kSrNQM+VlVnnhgYEhQgyT5D31ZmAPuPsoQOLsElP1Lm3rTuz
-   E9//HasAE3NKUyUpnfH3fDKOMtUkTjxTT9IHqCpvGSWiZhLzA81MOBoIk
-   Y3HHbdMt77qHMHB5E3HnbxL8xsZ4n3lrBNQd23KL02Czfcq0RCjr9CO6q
-   v/u26K/3WHSRfil3Pb4O/ITil+M4iHN2VG0oD+SXpVfZXHMw/RdbzncSS
-   l+10tikNRcUylrGW6YZxq1aHhOmesvT+jkUGgOQ2BMP365XCdgUxfKcCY
-   g==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10898"; a="376523982"
-X-IronPort-AV: E=Sophos;i="6.04,210,1695711600"; 
-   d="scan'208";a="376523982"
-Received: from fmsmga007.fm.intel.com ([10.253.24.52])
-  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2023 03:12:43 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10898"; a="769628656"
-X-IronPort-AV: E=Sophos;i="6.04,210,1695711600"; 
-   d="scan'208";a="769628656"
-Received: from lkp-server02.sh.intel.com (HELO b8de5498638e) ([10.239.97.151])
-  by fmsmga007.fm.intel.com with ESMTP; 19 Nov 2023 03:12:39 -0800
-Received: from kbuild by b8de5498638e with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1r4fjB-00051h-08;
-	Sun, 19 Nov 2023 11:12:37 +0000
-Date: Sun, 19 Nov 2023 19:11:43 +0800
-From: kernel test robot <lkp@intel.com>
-To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
-	chao.wei@sophgo.com, conor@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, mturquette@baylibre.com,
-	palmer@dabbelt.com, paul.walmsley@sifive.com,
-	richardcochran@gmail.com, robh+dt@kernel.org, sboyd@kernel.org,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Sun, 19 Nov 2023 13:26:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3A0B760A2A;
+	Sun, 19 Nov 2023 13:26:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBB94C433C7;
+	Sun, 19 Nov 2023 13:25:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1700400359;
+	bh=gn56HK2d1OyTTEnjGs+yYxtFyImiBagPEv90zBmniFw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=oLTZp+OHJtnhUROcIaDB4jhD9RrNHCEhHnfAWQQxyYURjFadduuvoaO3BWrfdFnjY
+	 1/fiM4Y3bPBexCvrmCyJ5wg56/23OwBF46k27Q9R0mS0xCMcmqgSiULEWr+8pPJjrq
+	 GrUz5kAVVgQKIQzhb/cUzAeZbOEFZqjmI/AkR0i/zCPlVEOx7q8fJVkjwnIId4vBtx
+	 H1Bwz7LR097OfmJCam7jext9XkfuSwMkPSWcadp6eSK/V1zp3tuXbtQdOlNQGIvBbb
+	 n4fjHW5bQAAtnkzJNjLNK6zIA7MCcsRKrz6P7KljeyrNy13f6bdbYT+26R47W1y4wl
+	 6Z/2Kl35JMTUg==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Chao Wei <chao.wei@sophgo.com>,
 	Chen Wang <unicorn_wang@outlook.com>
-Subject: Re: [PATCH 4/5] clk: sophgo: Add SG2042 clock generator driver
-Message-ID: <202311191920.5xIUxW5n-lkp@intel.com>
-References: <1000e8d546514973364478271564356352a46ed5.1699879741.git.unicorn_wang@outlook.com>
+Subject: [PATCH 2/2] nvmem: Add Sophgo eFuse driver
+Date: Sun, 19 Nov 2023 21:13:32 +0800
+Message-Id: <20231119131332.999-3-jszhang@kernel.org>
+X-Mailer: git-send-email 2.40.0
+In-Reply-To: <20231119131332.999-1-jszhang@kernel.org>
+References: <20231119131332.999-1-jszhang@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1000e8d546514973364478271564356352a46ed5.1699879741.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231119_031253_016335_28A5D2C5 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20231119_052601_518658_3F328623 
+X-CRM114-Status: GOOD (  22.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,84 +78,167 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Chen,
+Sophgo SoCs such as CV1800B contain eFuses used to store
+factory-programmed data such as calibration values for the built-in
+ethernet PHY.
 
-kernel test robot noticed the following build warnings:
+As for CV1800B, HW automatically loads the eFuse content into CONTENT
+base registers which are organized as 32bit values exposed as MMIO.
 
-[auto build test WARNING on b85ea95d086471afb4ad062012a4d73cd328fa86]
+Currently, add read support for the eFuse. This is a preparation step
+for supporting the built-in ethernet phy.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Chen-Wang/dt-bindings-clock-sophgo-Add-SG2042-clock-definitions/20231113-212401
-base:   b85ea95d086471afb4ad062012a4d73cd328fa86
-patch link:    https://lore.kernel.org/r/1000e8d546514973364478271564356352a46ed5.1699879741.git.unicorn_wang%40outlook.com
-patch subject: [PATCH 4/5] clk: sophgo: Add SG2042 clock generator driver
-config: riscv-rv32_defconfig (https://download.01.org/0day-ci/archive/20231119/202311191920.5xIUxW5n-lkp@intel.com/config)
-compiler: clang version 17.0.0 (https://github.com/llvm/llvm-project.git 4a5ac14ee968ff0ad5d2cc1ffa0299048db4c88a)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20231119/202311191920.5xIUxW5n-lkp@intel.com/reproduce)
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ drivers/nvmem/Kconfig        | 13 +++++
+ drivers/nvmem/Makefile       |  2 +
+ drivers/nvmem/sophgo-efuse.c | 97 ++++++++++++++++++++++++++++++++++++
+ 3 files changed, 112 insertions(+)
+ create mode 100644 drivers/nvmem/sophgo-efuse.c
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202311191920.5xIUxW5n-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/clk/sophgo/clk-sophgo-sg2042.c:217:44: warning: overflow in expression; result is -1094967296 with type 'long' [-Winteger-overflow]
-     217 |                         if (foutvco < PLL_FREQ_MIN || foutvco > PLL_FREQ_MAX
-         |                                                                 ^
-   drivers/clk/sophgo/clk-sophgo-sg2042.c:25:28: note: expanded from macro 'PLL_FREQ_MAX'
-      25 | #define PLL_FREQ_MAX (3200 * MHZ)
-         |                            ^
-   1 warning generated.
-
-
-vim +/long +217 drivers/clk/sophgo/clk-sophgo-sg2042.c
-
-   201	
-   202	static int __sg2042_get_pll_ctl_setting(
-   203		struct sg2042_pll_ctrl *best,
-   204		unsigned long req_rate,
-   205		unsigned long parent_rate)
-   206	{
-   207		int ret;
-   208		unsigned int fbdiv, refdiv, fref, postdiv1, postdiv2;
-   209		unsigned long tmp = 0, foutvco;
-   210	
-   211		fref = parent_rate;
-   212	
-   213		for (refdiv = REFDIV_MIN; refdiv < REFDIV_MAX + 1; refdiv++) {
-   214			for (fbdiv = FBDIV_MIN; fbdiv < FBDIV_MAX + 1; fbdiv++) {
-   215				foutvco = fref * fbdiv / refdiv;
-   216				/* check fpostdiv pfd */
- > 217				if (foutvco < PLL_FREQ_MIN || foutvco > PLL_FREQ_MAX
-   218						|| (fref / refdiv) < 10)
-   219					continue;
-   220	
-   221				ret = __sg2042_pll_get_postdiv_1_2(req_rate, fref, fbdiv,
-   222						refdiv, &postdiv1, &postdiv2);
-   223				if (ret)
-   224					continue;
-   225	
-   226				tmp = foutvco / (postdiv1 * postdiv2);
-   227				if (abs_diff(tmp, req_rate) < abs_diff(best->freq, req_rate)) {
-   228					best->freq = tmp;
-   229					best->refdiv = refdiv;
-   230					best->fbdiv = fbdiv;
-   231					best->postdiv1 = postdiv1;
-   232					best->postdiv2 = postdiv2;
-   233					if (tmp == req_rate)
-   234						return 0;
-   235				}
-   236				continue;
-   237			}
-   238		}
-   239	
-   240		return 0;
-   241	}
-   242	
-
+diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
+index 5bc9c4874fe3..f2de7338c6e9 100644
+--- a/drivers/nvmem/Kconfig
++++ b/drivers/nvmem/Kconfig
+@@ -298,6 +298,19 @@ config NVMEM_SNVS_LPGPR
+ 	  This driver can also be built as a module. If so, the module
+ 	  will be called nvmem-snvs-lpgpr.
+ 
++config NVMEM_SOPHGO_EFUSE
++	tristate "Sophgo eFuse support"
++	depends on ARCH_SOPHGO || COMPILE_TEST
++	default ARCH_SOPHGO
++	help
++	  Say y here to enable support for reading eFuses on Sophgo SoCs
++	  such as the CV1800B. These are e.g. used to store factory programmed
++	  calibration data required for the builtin ethernet PHY.
++
++	  This driver can also be built as a module. If so, the module will
++	  be called nvmem-sophgo-efuse.
++
++
+ config NVMEM_SPMI_SDAM
+ 	tristate "SPMI SDAM Support"
+ 	depends on SPMI
+diff --git a/drivers/nvmem/Makefile b/drivers/nvmem/Makefile
+index 423baf089515..f3602bb16efc 100644
+--- a/drivers/nvmem/Makefile
++++ b/drivers/nvmem/Makefile
+@@ -60,6 +60,8 @@ obj-$(CONFIG_NVMEM_SC27XX_EFUSE)	+= nvmem-sc27xx-efuse.o
+ nvmem-sc27xx-efuse-y			:= sc27xx-efuse.o
+ obj-$(CONFIG_NVMEM_SNVS_LPGPR)		+= nvmem_snvs_lpgpr.o
+ nvmem_snvs_lpgpr-y			:= snvs_lpgpr.o
++obj-$(CONFIG_NVMEM_SOPHGO_EFUSE)	+= nvmem-sophgo-efuse.o
++nvmem-sophgo-efuse-y			:= sophgo-efuse.o
+ obj-$(CONFIG_NVMEM_SPMI_SDAM)		+= nvmem_qcom-spmi-sdam.o
+ nvmem_qcom-spmi-sdam-y			+= qcom-spmi-sdam.o
+ obj-$(CONFIG_NVMEM_SPRD_EFUSE)		+= nvmem_sprd_efuse.o
+diff --git a/drivers/nvmem/sophgo-efuse.c b/drivers/nvmem/sophgo-efuse.c
+new file mode 100644
+index 000000000000..3b4eb4d097e3
+--- /dev/null
++++ b/drivers/nvmem/sophgo-efuse.c
+@@ -0,0 +1,97 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Sophgo SoC eFuse driver
++ *
++ * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
++ */
++
++#include <linux/clk.h>
++#include <linux/io.h>
++#include <linux/mod_devicetable.h>
++#include <linux/module.h>
++#include <linux/nvmem-provider.h>
++#include <linux/platform_device.h>
++
++#define CV1800B_EFUSE_CONTENT_BASE	0x100
++#define CV1800B_EFUSE_CONTENT_SIZE	0x100
++
++struct sophgo_efuses_priv {
++	void __iomem *base;
++	struct clk *clk;
++};
++
++static int sophgo_efuses_read(void *context, unsigned int offset, void *val,
++			     size_t bytes)
++{
++	struct sophgo_efuses_priv *priv = context;
++	u32 *dst = val;
++	int ret;
++
++	ret = clk_prepare_enable(priv->clk);
++	if (ret < 0)
++		return ret;
++
++	while (bytes >= sizeof(u32)) {
++		*dst++ = readl_relaxed(priv->base + CV1800B_EFUSE_CONTENT_BASE + offset);
++		bytes -= sizeof(u32);
++		offset += sizeof(u32);
++	}
++
++	clk_disable_unprepare(priv->clk);
++
++	return 0;
++}
++
++static int sophgo_efuses_probe(struct platform_device *pdev)
++{
++	struct sophgo_efuses_priv *priv;
++	struct resource *res;
++	struct nvmem_config config = {
++		.dev = &pdev->dev,
++		.add_legacy_fixed_of_cells = true,
++		.read_only = true,
++		.reg_read = sophgo_efuses_read,
++		.stride = sizeof(u32),
++		.word_size = sizeof(u32),
++		.name = "sophgo_efuse_nvmem",
++		.id = NVMEM_DEVID_AUTO,
++		.root_only = true,
++	};
++
++	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++
++	priv->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
++	if (IS_ERR(priv->base))
++		return PTR_ERR(priv->base);
++
++	priv->clk = devm_clk_get(&pdev->dev, NULL);
++	if (IS_ERR(priv->clk))
++		return PTR_ERR(priv->clk);
++
++	config.priv = priv;
++	config.size = CV1800B_EFUSE_CONTENT_SIZE;
++
++	return PTR_ERR_OR_ZERO(devm_nvmem_register(config.dev, &config));
++}
++
++static const struct of_device_id sophgo_efuses_of_match[] = {
++	{ .compatible = "sophgo,cv1800b-efuse", },
++	{}
++};
++
++MODULE_DEVICE_TABLE(of, sophgo_efuses_of_match);
++
++static struct platform_driver sophgo_efuses_driver = {
++	.driver = {
++		.name = "sophgo_efuse",
++		.of_match_table = sophgo_efuses_of_match,
++	},
++	.probe = sophgo_efuses_probe,
++};
++
++module_platform_driver(sophgo_efuses_driver);
++
++MODULE_AUTHOR("Jisheng Zhang <jszhang@kernel.org>");
++MODULE_LICENSE("GPL");
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.42.0
+
 
 _______________________________________________
 linux-riscv mailing list
