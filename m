@@ -4,88 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60020C197A0
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Nov 2023 05:16:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 973D0C54FB9
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Nov 2023 07:16:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4R3IYfGdnBFM30kOnOAnP/hNaFYwUEINd7HWqklOTbw=; b=Z90XFjGmlbl6FTK5NcNIibRv3Z
-	8/OrsaU+RhUGTuQElT2bNH+OZVxoQgWKkEW2F30r2tgSPLXIBmshQSHg1kILqgaBTknm3f6CyK4Tc
-	ZELqkGqbQuCoDiUU5b3b4ezklnskZkxAw3UkrgGznGZyGbnOV+cP0QanosWUUqUnqEYLx91YuVppq
-	Zamh/PLyhCyE7yI1R8Xf9G//uGrgS+3iHXIwH1GPAkHh6dR7A8a2q67kuDNGn+jhydmGeOmubzuFx
-	MXYX2YyNxVSRHcqEGTySvfM2TUjwrr/xAhb2nofIMK5mxK0Dp8YhU8phL4oFMWN/xgf47ESOPSiyD
-	GRBT0luA==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cFYrga1dIDQKYAOhPVBo/J2hmXDGXmdrbInOlEk+oGI=; b=HTDJb2zFJzrjDz
+	pjr03PyJrsC5GfYa02ffZak/DUJoTf0ozb6d7EwdPaRNhfT7hX7Ucz3GiDEDuvmI/Vcp/XCd0SxXx
+	2jLWjU4YbMCVb4LnNfmUomI+bzrkig4ODh/0qXTdfzKKFqhcKeUu7o8yq4umTMBcOxUlpih3473vJ
+	B2910iiCo50h+qcXEnkvtvhmBRfKIAIOs86wfRRPVfc4hpFVUUN8o/28qBkCuimzKOSvtTxTR5twR
+	Ffdh+YhoMkfqu/4KfGdpy5Oe7g6LVHZftuLJbnxbSm8sZ1g1Qot0fTHdrN8riqY0+7r72arXy+lQu
+	Ci8ltgyUhQJ2SHjaJ39w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r4wde-00B9RK-13;
-	Mon, 20 Nov 2023 05:16:02 +0000
-Received: from mout.kundenserver.de ([212.227.17.13])
+	id 1r4yVs-00BMKS-2D;
+	Mon, 20 Nov 2023 07:16:08 +0000
+Received: from mail-lj1-f174.google.com ([209.85.208.174])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r4wdU-00B9NV-2v
+	id 1r4yVp-00BMJo-0j
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Nov 2023 05:16:00 +0000
-Received: from leknes.fjasle.eu ([46.142.48.251]) by mrelayeu.kundenserver.de
- (mreue108 [212.227.15.183]) with ESMTPSA (Nemesis) id
- 1M7JrG-1qzSRp3Oii-007pR2; Mon, 20 Nov 2023 06:15:37 +0100
-Received: from localhost.fjasle.eu (unknown [10.10.0.7])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by leknes.fjasle.eu (Postfix) with ESMTPS id 6B52A3EA3A;
-	Mon, 20 Nov 2023 06:15:35 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=fjasle.eu; s=mail;
-	t=1700457335; bh=3lMLQJorMuq6B08W72WZQdUrlPYs/kOXg6s6i91JDlo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mGrwYJnTiu+uRi1VfnfrQkVG7Sd06jcxvQiYF710lgVQfY2+d4vpLQz/ASzwLIt7+
-	 xqgYIf/U/PBlkqN5g5GJu9AgJ9WlWMg4erPaLiNtttRtZl/IoO9SH18C2xZyz8avUG
-	 0CtmE2G3bRJ37syiEUyA3PUfax75nGiODZzeNJeA=
-Received: by localhost.fjasle.eu (Postfix, from userid 1000)
-	id E57F06AC; Mon, 20 Nov 2023 06:15:34 +0100 (CET)
-Date: Mon, 20 Nov 2023 06:15:34 +0100
-From: Nicolas Schier <nicolas@fjasle.eu>
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jan Kiszka <jan.kiszka@siemens.com>,
-	Kieran Bingham <kbingham@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] scripts: clean up IA-64 code
-Message-ID: <ZVrrdhsjZuKJzK-l@bergen.fjasle.eu>
-References: <20231118081334.1308242-1-masahiroy@kernel.org>
- <ZVp26K9b8Apuy3FD@fjasle.eu>
- <CAK7LNATj65c0beTb5oXMDskiaFnxp1hoMOF0yG15pGv7cujNEg@mail.gmail.com>
+	Mon, 20 Nov 2023 07:16:06 +0000
+Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-2c8790474d5so16587641fa.2
+        for <linux-riscv@lists.infradead.org>; Sun, 19 Nov 2023 23:16:03 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1700464562; x=1701069362;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
+         :to:content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=hSeL55NjTwSeqNXi2o9eh0516IEBhpvGwpNdIMjhzNc=;
+        b=HnbrSmDcD3OtQkEC1GfGf85HmK6X0pjU/JQApVNBl4r0RXZVdAhkS+99FolRsMaYST
+         0n7ja78iHHlDIjwEJwsMbwpNlu0/PJEk2dwjNJzAMhnRiffpm0cMsUyCSZ+omdnMmhuO
+         2qdAvDiuPd+dKXcI45yjSwmHhGIuLj/sp3JREqxob7pmM7OdrnqK1QSlxLIqkTvIbikM
+         LiuSSYVRoEV4YgJM+USyDtXu6SZR4vYR3CFbxuh1Jxd8t/LBnKelfETZbkYGyk2vKVuq
+         44FuBK6vO2od9fK0j0sKhkLCZ709dpzqSwIrj2vfLhR1HqUwCn82oXkPH4f1g3jw5c2D
+         x9tA==
+X-Gm-Message-State: AOJu0YxVfOzxo0RMbj7AwRtxFD1lnBrTPl3ACC61JVTun/edr56MU72z
+	mBN4Ra572yhmOAMt8qp5dWY=
+X-Google-Smtp-Source: AGHT+IEfjhe/T0cJu8gTcAueFuM3eDsqZ55RzM7qIpkwVQTnH9CeBqkr+XTR3LFfS0MILyvy3Ok1IQ==
+X-Received: by 2002:a2e:b5ba:0:b0:2c6:f1a9:e74 with SMTP id f26-20020a2eb5ba000000b002c6f1a90e74mr3710873ljn.34.1700464562147;
+        Sun, 19 Nov 2023 23:16:02 -0800 (PST)
+Received: from ?IPV6:2a0b:e7c0:0:107::aaaa:59? ([2a0b:e7c0:0:107::aaaa:59])
+        by smtp.gmail.com with ESMTPSA id u25-20020a7bcb19000000b00405391f485fsm12165750wmj.41.2023.11.19.23.16.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 19 Nov 2023 23:16:01 -0800 (PST)
+Message-ID: <1dd7f7b4-d2ba-4216-ac3f-3552c2bee24b@kernel.org>
+Date: Mon, 20 Nov 2023 08:16:00 +0100
 MIME-Version: 1.0
-In-Reply-To: <CAK7LNATj65c0beTb5oXMDskiaFnxp1hoMOF0yG15pGv7cujNEg@mail.gmail.com>
-X-Operating-System: Debian GNU/Linux trixie/sid
-Jabber-ID: nicolas@jabber.no
-X-Provags-ID: V03:K1:x0KRONtpSOd4AkYDReHWERJeRRCTo4wv5k0xPCFce0A4elJIO8O
- uHIP3X/N8VfMdOJTpNra88u8/zsotkyhztZvTorvNP4Fl2cq1gFADNla7aCQ/xc71PE9AV/
- gD0x+TevpHyvSKk45vLWNcpxSCXBW8/fNNHI2hO64YfLwQjJxPGdw9IA1pJccq9US+Zvd4T
- RYUmnqx7PxDE8CsA8A/Rg==
-UI-OutboundReport: notjunk:1;M01:P0:MwsjZfvIKhs=;90MfUd8qHzx5lXzJI+BlJEhRiQJ
- 1dqONYX5nDY3oVnB8eyBTOblxsAGhtsyJqml1oa7niFbhq34pAdPZqA5uEdV00EFeTqL36ADk
- bXYIWJ8YTCkQH4cGwanp5sqaQwNtVC3su5J/6oWUwo5E05nlQjjd/2iXygIuc2uW68lD0mhMQ
- zDdm2FM4rKcHdSjIRsKZNTNqJ2/OhwCDVIp5j+lU31YOWHSx86zPC4c3jpJF224bhOcYE0ve4
- WHYCXGQidkoJrX4x253w1T0mDJkP9ZhDaIaKKDX1k7kOF1oGyVQVZozs7b9cJR8WJ/fKvRvRw
- fAsN0vxYBW4k5knJ8ewonFK1cHZUfXieqcaXPPJJYG8Ja07oanQQIGp2Lv+d947se/bVJbjhf
- cSDVQY5bOPPCLILKfSSE7b3k8YhUbyJaNWj3Vgx9pfm0Yo8ULdCh/sZjs5cFNlueUTqG4NR/A
- AzTKFZ3X0Lx4NdMQvfdnaKdFEBCj0jELeoJOLCq6y0jiW4OhU39oTGtDLGLLHdAADYHm2ocTL
- EjkemPMvve/uFYgMpa1/gIxIGl+cM0G33Tsfi5q5weZ8KEDIjg+KoeNvNbWxlIDvML7cYjBHN
- Fgff69Z2FmZH7oExBGpxypJDM0F1ChKIwNA5Eejn3Ga0/u2nrDr0uFS66S3MNgOGAG3Rj2AOW
- Z6rxW0dpGVOL+VCBYwccrxtGtEWVDuqoscM8sZZQ2xHJaTQC3ykNnWTR4b8hRAMrYfESiJZzA
- hQbmnbzadzzHNx2lfnFa9hfzhaOeS6bc2XG+UPXE/LLg5EYq6Hzb424QXBXX7ezn8NA709m/I
- sGyoy7Uhl7n+f4x/c3dg6JZUArnHC7QeDaRb0XOM87d3TekAdWNzWReuU3CC3ckBu2u7rB3Gw
- vBymskN8nFvk/Ew==
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 4/5] tty: Add SBI debug console support to HVC SBI
+ driver
+Content-Language: en-US
+To: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Conor Dooley <conor@kernel.org>, Andrew Jones <ajones@ventanamicro.com>,
+ linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ Atish Patra <atishp@rivosinc.com>
+References: <20231118033859.726692-1-apatel@ventanamicro.com>
+ <20231118033859.726692-5-apatel@ventanamicro.com>
+From: Jiri Slaby <jirislaby@kernel.org>
+Autocrypt: addr=jirislaby@kernel.org; keydata=
+ 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
+In-Reply-To: <20231118033859.726692-5-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231119_211554_516497_4EA17F4B 
-X-CRM114-Status: GOOD (  18.70  )
+X-CRM114-CacheID: sfid-20231119_231605_269991_9BCBB905 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,96 +124,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0729477876201595211=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 18. 11. 23, 4:38, Anup Patel wrote:
+> diff --git a/drivers/tty/hvc/hvc_riscv_sbi.c b/drivers/tty/hvc/hvc_riscv_sbi.c
+> index 31f53fa77e4a..697c981221b5 100644
+> --- a/drivers/tty/hvc/hvc_riscv_sbi.c
+> +++ b/drivers/tty/hvc/hvc_riscv_sbi.c
+...
+> -static int __init hvc_sbi_console_init(void)
+> +static int hvc_sbi_dbcn_tty_get(uint32_t vtermno, char *buf, int count)
+>   {
+> -	hvc_instantiate(0, 0, &hvc_sbi_ops);
+> +	phys_addr_t pa;
+> +
+> +	if (is_vmalloc_addr(buf)) {
 
---===============0729477876201595211==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="C/HoAfnBXhbQiVdf"
-Content-Disposition: inline
+I wonder, where does this buf come from, so that you have to check for 
+vmalloc?
 
+> +		pa = page_to_phys(vmalloc_to_page(buf)) + offset_in_page(buf);
+> +		if (PAGE_SIZE < (offset_in_page(buf) + count))
 
---C/HoAfnBXhbQiVdf
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Am I the only one who would prefer:
+   if (count + offset_in_page(buf) > PAGE_SIZE)
+?
 
-On Mon 20 Nov 2023 13:18:17 GMT, Masahiro Yamada wrote:
-> On Mon, Nov 20, 2023 at 5:58=E2=80=AFAM Nicolas Schier <nicolas@fjasle.eu=
-> wrote:
-> >
-> > On Sat, Nov 18, 2023 at 05:13:34PM +0900 Masahiro Yamada wrote:
-> > > A little more janitorial work after commit cf8e8658100d ("arch: Remove
-> > > Itanium (IA-64) architecture").
-> > >
-> > > Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-> > > ---
-> > >
-> > >  scripts/checkstack.pl        |  3 ---
-> > >  scripts/gdb/linux/tasks.py   | 15 +++------------
-> > >  scripts/head-object-list.txt |  1 -
-> > >  scripts/kconfig/mconf.c      |  2 +-
-> > >  scripts/kconfig/nconf.c      |  2 +-
-> > >  scripts/package/kernel.spec  |  6 ------
-> > >  scripts/package/mkdebian     |  2 +-
-> > >  scripts/recordmcount.pl      |  7 -------
-> > >  scripts/xz_wrap.sh           |  1 -
-> > >  9 files changed, 6 insertions(+), 33 deletions(-)
-> > >
-> >
-> > Thanks, looks good to me.  Might you want to also remove replace the la=
-st
-> > references in the kbuild files?
-> >
-> > scripts/recordmcount.c  uses cpp symbol EM_IA_64
->=20
-> Thanks, I will remove it too.
->=20
-> > Makefile                contains two comments with examples naming IA64
->=20
->=20
-> Which line?  I could not spot them.
-
-oh, sorry.  Something was weird on my side.  Makefile is clean, indeed.
-
-Kind regards,
-Nicolas
-
---C/HoAfnBXhbQiVdf
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCAAdFiEEh0E3p4c3JKeBvsLGB1IKcBYmEmkFAmVa63EACgkQB1IKcBYm
-EmkALA/+NEszFXyPP39yKOPYsCbUS8p4J0FBzA0uhdlvl+1DCBIS08+HFjxIluF1
-Nzv1QZNGWSuLM5ZuQNb2QLQIsyzHIxNSp/jGe4pJq4UeJDAbzpypsFpFOp7qyIFc
-8N3qlhy10SEuzkOlKPG+qHWv3bPPxacHP7I5erPV134sap/Ffs38O6f1aMNCDL9D
-Kl/6KjyJFsPjDB0tJKcdaIvQhnnlLKyRgr6UOR6Fhn9U6+g2vEpstkfplt7YdoTB
-5pmbrzh93qDfwMvryIWeBB2g2HQpDvALRJPIdggNbko9MhrFL7uCo0+pnJ1ttop/
-Whe9OmdUHzt7cl9704YL+B4GLz1KyNxKNkxOM2Tz+wkJ8MNmqXSD5aKz0uekWbOF
-mWklu0BIz5puSMO5K3YZOEd/M7jlnj+xbRJ4oa3HK2/dwpFHwjqwJRyz0PkyWcp7
-dfI/fqQzE7IOJqxqyUsDnFaYQoHZyonN9iQrTllC2exdxRpp0c8E3wTcxuUxqQt7
-IkrhxDJg+n9A3hLMkqjGLTXzb5e9uGg2Rpz/WRPHbu4gS8ekqchgvVvoEAwSxSg6
-mxU4sNZ8sthYUextHCkklYiirpXZeE/LbFVxWDtdkxS/hH1JQ7dlChE+6lf//khT
-a/iHuGMhpa51GOB/BAlh3b1LcSGlgl0ZUWbbey5lR4/rG/ENfSg=
-=S12e
------END PGP SIGNATURE-----
-
---C/HoAfnBXhbQiVdf--
+> +			count = PAGE_SIZE - offset_in_page(buf);
+> +	} else {
+> +		pa = __pa(buf);
+> +	}
+> +
+> +	return sbi_debug_console_read(count, pa);
+> +}
 
 
---===============0729477876201595211==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+thanks,
+-- 
+js
+suse labs
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0729477876201595211==--
-
