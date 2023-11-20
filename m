@@ -4,93 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D516C2BB3F
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Nov 2023 14:10:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E744C2BB3F
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Nov 2023 14:17:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d4L0ss6bFeqfWyqQeYecSkTbOK6pskbNz48E01GJqzc=; b=UPfBJ8t2bvw1mr2bN5NkXNE4mN
-	Rchr4osS/LfwPWn9Kf/+VBov1yjbj+NBLd8IW673mZV20+xKZ8yettnRJPcAuZl4sktbjr/NS7ZV5
-	kal571AMzRDpldhipIck8YEGcuC7IaqpPkenO8xyLQWTrQuM/y/LrnjGsix/IN7rZ/4+dhbohQuYF
-	OC/wvo6ZI6a61wwY4shyQBromVHnIy1noLlq3W0/fr2Kh5YTH9wpkr/z6rELhuNbZAYfkFHyx6HyX
-	3Unh/wel8d8X7Ce9sDWkBihI2hNCBNXfS9SQ/Gf327yKTj6+nVHrQsGom459PBXm9bN3Yv2/Ialx9
-	AMNnK3Fg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=crptURpjZR1ZIKBY3xoDjVZYOYJWb9p9fzJ06srAbRs=; b=ECIme5/q+KJx5N
+	vKj+kzlu9e65qFwsTnuOFDnKzGMCTJR5Jx+Y6v9o0D7b1CxEuf+G3iCAFJhsq35z2/7/Jl27CUvk0
+	Ye58EgSD3Ju+ZMUu692wmsZSpUsbEsFZZ1n3ugy+oozoiky0k+GVtYN5/dQrW/0ROYK0aTjlPXbLj
+	Dbnzw8XJOv9XyZe9vWwBsB3NzIfW83OI21ztHnXL3gatA4aHHikemfPQr21KHiegGnaLuamDmlC5t
+	3NU5WXOhmW+I/KtTyM+MfndWEa7DYqrPMCtV88C3Q6s1fqkf+5gVW2qDT4OCj6J03RILK1G1rsNRl
+	k7qL/jnA2zHzwd8ndGFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r54yB-00CEqh-27;
-	Mon, 20 Nov 2023 14:09:48 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1r555H-00CFup-2N;
+	Mon, 20 Nov 2023 14:17:07 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r54xx-00CElf-1V;
-	Mon, 20 Nov 2023 14:09:44 +0000
+	id 1r554U-00CFfu-0C
+	for linux-riscv@lists.infradead.org;
+	Mon, 20 Nov 2023 14:17:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 6F364B817E5;
-	Mon, 20 Nov 2023 14:09:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A142C433C9;
-	Mon, 20 Nov 2023 14:09:22 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id EF29A612B7;
+	Mon, 20 Nov 2023 14:16:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91C97C433C7;
+	Mon, 20 Nov 2023 14:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1700489371;
-	bh=hoIhA8+0yRB+8xKNhUqRCTi4Cj0Q9PRSELx11+Gdf9k=;
+	s=k20201202; t=1700489774;
+	bh=qspyWLlSq8sWpiqqSuSqAERRXWBLMY+qTWVHc/Kgvh8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=r45lYZBBqyt2qIC3VTWvXeFOLpp7CslcoudAqZHo3c3ToiD3advJLwF+LCeQTSM4V
-	 ian9GJtKKF/6WQNbnSlPU6HPsyneu0ZkHaso51fhQyb5HfooUycrugoOjqW3AvaFvH
-	 JbSyG7Q6aiUwYwnG9OQSQDRK4H2FDhgaP+yGZfOW9mvm9hc6UiF2csU75mRMpuJsB/
-	 u1dCYBO9SVZu1FuLumVUvtcx32ALSNqXSMdsp9G0IufrXorcmRf7kCkpyLAOe7IGza
-	 CZVtn9hq2ML7D6TA2ZoEM+IA98iwR0d/sA7ltvFzg0zveh92v1bjHGQjv6XIUZ6hjb
-	 x08JifS0gmx4Q==
-Date: Mon, 20 Nov 2023 14:09:17 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Anish Moorthy <amoorthy@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Sean Christopherson <seanjc@google.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Andrew Morton <akpm@linux-foundation.org>, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, Xiaoyao Li <xiaoyao.li@intel.com>,
-	Xu Yilun <yilun.xu@intel.com>,
-	Chao Peng <chao.p.peng@linux.intel.com>,
-	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
-	David Matlack <dmatlack@google.com>,
-	Yu Zhang <yu.c.zhang@linux.intel.com>,
-	Isaku Yamahata <isaku.yamahata@intel.com>,
-	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Vishal Annapurve <vannapurve@google.com>,
-	Ackerley Tng <ackerleytng@google.com>,
-	Maciej Szmigiero <mail@maciej.szmigiero.name>,
-	David Hildenbrand <david@redhat.com>,
-	Quentin Perret <qperret@google.com>,
-	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
-	Liam Merwick <liam.merwick@oracle.com>,
-	Isaku Yamahata <isaku.yamahata@gmail.com>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-Subject: Re: [PATCH 34/34] KVM: selftests: Add a memory region subtest to
- validate invalid flags
-Message-ID: <13677ced-e464-4cdb-82ae-4236536e169c@sirena.org.uk>
-References: <20231105163040.14904-1-pbonzini@redhat.com>
- <20231105163040.14904-35-pbonzini@redhat.com>
- <CAF7b7mpmuYLTY6OQfRRoOryfO-2e1ZumQ6SCQDHHPD5XFyhFTQ@mail.gmail.com>
+	b=Omsrc4PyxEIUeFN5Ayq65crRl3hLKVNA3iff9/dqzjjeBE0az8zdqipvpPl6alQxk
+	 E6DOyURCSwVxCJ/NLKbEyO+bWsp1LXHzUvXLZfkGOtT9UeF6D4cs9C6FA04jsM5fab
+	 4AQu1xxSjE91ZUYq5gkaBgaRT20TCf3UJJGbXIsITYHHTvFY5IIcsL2kwklI5DwgTE
+	 3T2ZDF2tStp/ohTP5wov0fa2bLsco8HW4zeeOHvhdraCZ94aW5O4b+L/Uj9UL904Tj
+	 GdQvNSX/e2Z3mTmogcP81pMr4csmoEFcph6SdSRCGmYoxlq3H+vkxRWtoq7x4hoTph
+	 czBc15KLN3UgQ==
+Date: Mon, 20 Nov 2023 22:03:48 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: HeinerKallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S.Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Conor Dooley <conor.dooley@microchip.com>, netdev@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [RFC] support built-in ethernet phy which needs some mmio
+ accesses
+Message-ID: <ZVtnRHsnDd+ZdZpq@xhacker>
+References: <ZVoUPW8pJmv5AT10@xhacker>
+ <b8c29d27-e0a2-4378-ba5f-6d95a438c023@lunn.ch>
 MIME-Version: 1.0
-In-Reply-To: <CAF7b7mpmuYLTY6OQfRRoOryfO-2e1ZumQ6SCQDHHPD5XFyhFTQ@mail.gmail.com>
-X-Cookie: Happiness is twin floppies.
+Content-Disposition: inline
+In-Reply-To: <b8c29d27-e0a2-4378-ba5f-6d95a438c023@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231120_060934_020528_CB743DEC 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20231120_061618_585733_6503A29F 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,67 +74,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5312622698115977536=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sun, Nov 19, 2023 at 05:18:49PM +0100, Andrew Lunn wrote:
+> On Sun, Nov 19, 2023 at 09:57:17PM +0800, Jisheng Zhang wrote:
+> > Hi,
+> > 
+> > I want to upstream milkv duo (powered by cv1800b) ethernet support. The SoC
+> > contains a built-in eth phy which also needs some initialization via.
+> > mmio access during init. So, I need to do something like this(sol A):
+> 
+> What does this initialisation do?
 
---===============5312622698115977536==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="61dY8WQ8Ox8wOW0h"
-Content-Disposition: inline
+Per my understanding of the vendor code, it reads calibration data from
+efuse then apply the setting, set tx bias current, set MLT3 phase code,
+and so on. I can see it switches to page 5, page 16, page 17 etc. to
+apply settings. Compared with normal phy driver, the programming is
+done via. the mmio rather than phy_read/write.
 
+Here is the vendor source code:
+https://github.com/milkv-duo/duo-buildroot-sdk/blob/develop/linux_5.10/drivers/net/phy/cvitek.c
 
---61dY8WQ8Ox8wOW0h
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Heiner,
 
-On Wed, Nov 08, 2023 at 05:08:01PM -0800, Anish Moorthy wrote:
-> Applying [1] and [2] reveals that this also breaks non-x86 builds- the
-> MEM_REGION_GPA/SLOT definitions are guarded behind an #ifdef
-> __x86_64__, while the usages introduced here aren't.
->=20
-> Should
->=20
-> On Sun, Nov 5, 2023 at 8:35=E2=80=AFAM Paolo Bonzini <pbonzini@redhat.com=
-> wrote:
-> >
-> > +       test_invalid_memory_region_flags();
->=20
-> be #ifdef'd, perhaps? I'm not quite sure what the intent is.
+IIUC, the initialization also needs redo after power off, so it's
+not init-once action.
 
-This has been broken in -next for a week now, do we have any progress
-on a fix or should we just revert the patch?
-
---61dY8WQ8Ox8wOW0h
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmVbaI0ACgkQJNaLcl1U
-h9Aj2Qf9EbUUwOLmAwUa3Jl4QMfiLrKntsPjxIsD9MYRWpqfdGr2gZb7wNXozUgD
-A1SOrSPxLG5lvE3dOdXD1O/mzrxVwLcfAssVQ6KjXu13pJtZDIQHAUpYQBJL28QR
-KIeV8OVDMKeFryWnyt+y92xYK+7d4TocCuAq2Ph3jQj/OIXp4bI5quuTV58jmIG4
-1QuJFi73b7JIL4Ksmg32pp3aWaoP7BqMqnDxx92GwdngF0Jrg1NBhgHoMkh/J28y
-zT6Vui1HZF2pSrrxexqXFLJKhveYmLyg3kaoEyvYeRwj/WjZSB3U/9LJrhBDctTJ
-2Y23Hu9kFWuPdJxy0l8BV7AiIxSr4Q==
-=GWvB
------END PGP SIGNATURE-----
-
---61dY8WQ8Ox8wOW0h--
-
-
---===============5312622698115977536==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks
+> 
+> If you are turning on clocks, write a common clock provider, which the
+> PHY driver can use. If its a reset, write a reset driver. If its a
+> regulator, write a regulator driver, etc.
+> 
+>       Andrew
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5312622698115977536==--
-
