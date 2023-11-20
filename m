@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE226C2BB3F
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Nov 2023 15:55:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DE44C197A0
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Nov 2023 15:59:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/T4WowwTOdwIGsCGsw44n1VZbBUbp/fC1bDgFzupH/o=; b=qGj6WHAo5DXxWU
-	q8Pir9sva+j7kcsyaMAa3Q1a4Eqbo7JaY2bvoeT6wr96oE/EeLMshb+o5YbiwStW+gtXV1zlbM96j
-	UOrlXQOO3ueLaxRC7l6eiPat323bbnAcfEqB7nWTYj+4YE8S0rjwWu2oN5/3mHLOWDaKhiWdv+wHr
-	CfvOqCgz3ZfXHcgq0rWgwPg+9J0yWfX1xt0uMYN3XpgvK1aSW3afnHtA3PlE0L5g/iS6ID6XEjmKd
-	/36OIbj0NKsNiNDpZZ3G5yawqp5BhozP0iB9r/wcr0TBQHJjO1XXtsAUHzebj628JH8Z1Wp7sBd5n
-	7JF37i6Eyo5mVUDFU3fg==;
+	List-Owner; bh=WaaM41NmUo0W+DmwnvJqtIEfXpNweZsJCApdZsqsYxI=; b=LQx67qJu/q9UB6
+	xOpfs+7SI16U1+8xXap8p9AIdpKIQ7U3W+bj0c4qwVj9U8HDWvg40PZ5DK2Ldxg+E6/e5q1Jp6yfw
+	wr4GPDwSwt//DFVOAurjPpaxrnWAGFcV+GTXXGK4KrVVcqYye4gdsmUdCtXwstHFSaVnpPShgHzhP
+	FqGvxozAR6BDQkLnaC4/Ytfr0vF/Zu49aR/qDaid124oZu4zlk6j7iClkQrrRoJqGP8EATd1aa8gE
+	l/wMSuZBsUKmJSKdabLCy4T3UhEbLfPdfRS/7uPiKUeEQHb529wsnAvc/oW/nx2BwF/8U765CbAn1
+	abEyKYEy8TD+FQEAN+lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r56c6-00Cuq0-0g;
-	Mon, 20 Nov 2023 15:55:06 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1r56gX-00CxWr-0e;
+	Mon, 20 Nov 2023 15:59:41 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r56c3-00Culh-2H
-	for linux-riscv@lists.infradead.org;
-	Mon, 20 Nov 2023 15:55:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=xG7MmkhhfDASThdLFI7jdgsl+nkmbg8g3VVsC+Rw/3A=; b=yjvQIh0FOXAmL5mMJvOy7gZm6G
-	bvm/LnwnGmMMyADy8vrtmVZrblKwp3Ho7/MXqX8/g+/kfv+eR5ogoBUNSzoj8Sbq+8S7692v6indO
-	ZxdUndnuBntK7ImW1yvqYNHaq0f1U+tmuZgOhd7wQ12EyrblNy4AHlCJDFv+/hPWLmq4=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1r56bo-000f3Z-Rm; Mon, 20 Nov 2023 16:54:48 +0100
-Date: Mon, 20 Nov 2023 16:54:48 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: HeinerKallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S.Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Conor Dooley <conor.dooley@microchip.com>, netdev@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [RFC] support built-in ethernet phy which needs some mmio
- accesses
-Message-ID: <e3337e9e-a53d-4480-9a99-4594625450a1@lunn.ch>
-References: <ZVoUPW8pJmv5AT10@xhacker>
- <b8c29d27-e0a2-4378-ba5f-6d95a438c023@lunn.ch>
- <ZVtnRHsnDd+ZdZpq@xhacker>
+	id 1r56gV-00CxVY-2o
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 20 Nov 2023 15:59:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:To:From:Date:Sender:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=oGHosGSu29j4EnbPxYYEuFvEX0yrbNZzWjtFhlk/JMQ=; b=i9gIV6rVlwloPazJ+Gh33k97ew
+	0wPexOGHhjKWYUEwEjw1POG5MXviv3p2Dkvb2qeyXjSmlnnhHgHlBH+E7R8wKUCIzo2/zvmWBMwaJ
+	fnXYE9gSYCylpexiN4VQRb9khJeYh02DF7L3xvwuLFQIekfP8h0jfeyN7yOA24TMykQrnAtO1dxjT
+	w8fLibW3mVqjCwfQgrygjUGG+Ox1dfH2SY75SrJll27kTkmzlprK0V4r78PEDoQzaXMa8t/reXbqC
+	zEO66Gkhz80gnyn6hUOT5Nvx3XJIyrBd1wGclGsUZ3VFpdhb8EaNx3A4tJXn7nb8jf8SBgd0f0YpF
+	lkG7cDbw==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1r56gS-004iwW-P0; Mon, 20 Nov 2023 15:59:36 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 6677D300419; Mon, 20 Nov 2023 16:59:36 +0100 (CET)
+Date: Mon, 20 Nov 2023 16:59:36 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+	davem@davemloft.net, dsahern@kernel.org, ast@kernel.org,
+	daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev,
+	song@kernel.org, yonghong.song@linux.dev, john.fastabend@gmail.com,
+	kpsingh@kernel.org, sdf@google.com, haoluo@google.com,
+	jolsa@kernel.org, Arnd Bergmann <arnd@arndb.de>,
+	samitolvanen@google.com, keescook@chromium.org, nathan@kernel.org,
+	ndesaulniers@google.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	bpf@vger.kernel.org, linux-arch@vger.kernel.org,
+	llvm@lists.linux.dev, jpoimboe@kernel.org, joao@overdrivepizza.com,
+	mark.rutland@arm.com
+Subject: Re: [PATCH 2/2] x86/cfi,bpf: Fix BPF JIT call
+Message-ID: <20231120155936.GY8262@noisy.programming.kicks-ass.net>
+References: <20231120144642.591358648@infradead.org>
+ <20231120154948.708762225@infradead.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ZVtnRHsnDd+ZdZpq@xhacker>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231120_075503_749191_B4177F5A 
-X-CRM114-Status: UNSURE (   8.91  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20231120154948.708762225@infradead.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,29 +81,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> Per my understanding of the vendor code, it reads calibration data from
-> efuse
+On Mon, Nov 20, 2023 at 03:46:44PM +0100, Peter Zijlstra wrote:
 
-Linux should have an API for accessing efuse data. So please make use
-of that.
+> @@ -2935,9 +3009,9 @@ struct bpf_prog *bpf_int_jit_compile(str
+>  			jit_data->header = header;
+>  			jit_data->rw_header = rw_header;
+>  		}
+> -		prog->bpf_func = (void *)image;
+> +		prog->bpf_func = (void *)image + ctx.prog_offset;
+>  		prog->jited = 1;
+> -		prog->jited_len = proglen;
+> +		prog->jited_len = proglen - ctx.prog_offset; // XXX?
+>  	} else {
+>  		prog = orig_prog;
+>  	}
 
-What address space is
 
-#define REG_EPHY_TOP_WRAP 0x03009800
-#define REG_EPHY_BASE 0x03009000
-
-in? Is this range dedicated to the PHY? Is it within the MAC address
-space?
-
-Does the datasheet describe the PHY pages? I'm wondering if you can
-access the same registers via MDIO?
-
-Where is the MDIO driver? Since this is integrated into the silicon,
-it could be MDIO is not actually MDIO and is much faster. If you can
-access the same registers via MIDO, that would be the cleaner way to
-do it.
-
-   Andrew
+Note the XXX there, I wasn't sure what the desired semantics of proglen
+was. As implemented it is the length from where bpf_func points to the
+end, not including the pre-preamble -- as indicated by offset.
 
 _______________________________________________
 linux-riscv mailing list
