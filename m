@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21035C5ACB3
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Nov 2023 02:53:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19ED1C5ACB3
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Nov 2023 02:55:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
 	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
 	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=elIq+t+8TYL4swmZWDAJbq1JNd24bJ/3Hd+oRey+J+w=; b=MOuXtgvfnLgBpD
-	I6vd2CBZvCNDdVQ+LMILXWg3SbxdXy0eKv8zvTfFDc8id8tCG7MGO3oeNzcV5W4q91JBZl57LGKDH
-	bECCfJl76yVbuXRNLx1A8DrQD3JHSZDpDYNBdYoiNpmYjVjHHz3KlH4lsxt0EDUQij2jDvXjPztbT
-	i67Ml0B6G6eGf/16DkbaWJcBvWLvg0FwLYpt/bTYeoIgthGkkrimU+2Yfgp6ngMz0VIqtPgRMsY55
-	Z5VrnZV2Ke3xrTL57rJouPxb7XnL/KIqgpBamTirBuVlyuLsvMe42ujPKUFEOm4tpXkLjMUQF3jn8
-	0mt1o3EkMMkCPrlBDNsA==;
+	List-Owner; bh=0EdkSQXrlfGdHMkiOVGeWm2mLvfhvLGXJeP9Sx/paqY=; b=FnHZuY1LDcr49W
+	syZD35YIqvAr5iqY8488XRuSX9RdDORCk7v4XV2AQCv5yIQGEtJzuQok7ex1uYIqmWBTdK52T51Up
+	d0N5uV0WPj43OwRpGE33D8mPvYT1PgUu3z7wmunVCnqioawNW2aI7z2oPlV9GkL9++bnwdg9as3u4
+	agP+DxWFV6dSef/taCqpcmIpRZeUg8lShYym6iPtkOYsU2Z6+vMsOjwUxu17x9LlfV/BcSJJOd5Ck
+	QZBbs9wZUIeqWUodaygyps1yySV/S4J8OdcA32oP97QY5L2eRa9/kfe1HoZ6E8WpG1rYrs4qzdeBm
+	GZ1bEplFuYf0NUDAwrfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r4uPu-00AyyG-03;
-	Mon, 20 Nov 2023 02:53:42 +0000
-Received: from mail-oo1-xc35.google.com ([2607:f8b0:4864:20::c35])
+	id 1r4uRZ-00Az8H-1l;
+	Mon, 20 Nov 2023 02:55:25 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r4uPr-00Ayxm-1T
+	id 1r4uRW-00Az7Y-2Y
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Nov 2023 02:53:41 +0000
-Received: by mail-oo1-xc35.google.com with SMTP id 006d021491bc7-581fb6f53fcso2474822eaf.2
-        for <linux-riscv@lists.infradead.org>; Sun, 19 Nov 2023 18:53:37 -0800 (PST)
+	Mon, 20 Nov 2023 02:55:24 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1ce28faa92dso30353385ad.2
+        for <linux-riscv@lists.infradead.org>; Sun, 19 Nov 2023 18:55:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1700448817; x=1701053617; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1700448921; x=1701053721; darn=lists.infradead.org;
         h=to:references:message-id:content-transfer-encoding:cc:date
          :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Zgw7AKOcjzQj/Rejwnwc+8bVuVEALNE76ynoPJrneqk=;
-        b=P95bx8RTHKdMJJ3FaqA0NK5LTTobjNEzmPAAEPnDXjNGasRvEncpcwbGW0XiPV7haD
-         h71pA0wP7gETfNckeQ7kxIXmTls839clhn7oADGTzf3QcDEvh1jLekTSrH31TKndOUi1
-         ma9yRwwSMdBL0u0Tpl3J+ZhnHXVnxewwAaTH/zA3DZ1a9PUW2CjQPpx+zKxviOnIokuA
-         Ds5U/6FallFOzkxJH+dKLOz8zmDVr6APgcz+bgypRso0i149tt/bfRo34XM8G3qiY73n
-         iNZEV566bIuQZQL4YqXD1d+d8+087/stO4bvHHYsKLQC51U7mQVX2TuUbz4sSAGN21J7
-         U7fw==
+        bh=Yg0x+T7ON9fvA/nzihMoJz0oESLmev7sCZPefVlmBec=;
+        b=FkbwW8QMkVWzm/yU8+5SlZC8Ehp4K5GlP9eK/81CNON8RTSgcgAHU0dZd6mH5bIORe
+         BeWsEVBtQDoowg9WNY5GAA9rRhjOOMAWWaWOgQ4bPSCula18DriueFp0+7iLTS1Ixb2x
+         xjwGp8PBVv1TEc6p4rkK3fGPqQOii9b2+NdqTtr+4iXVrQUmoxK0H5pKYsQV0G5QRCVI
+         pYrXRfqDRH9wWKPKH8SPDRAysd1gPJgU4kBAfjVm5RbuccT0G+kR6aYnGe4h7FMabzmn
+         cIjflQYE3p6+cPvFYcMT4AqYNUhpMqv8j8uSTFxe36r+KOnbbajXZ+kxCcB02fnZvwiH
+         9Mcg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700448817; x=1701053617;
+        d=1e100.net; s=20230601; t=1700448921; x=1701053721;
         h=to:references:message-id:content-transfer-encoding:cc:date
          :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Zgw7AKOcjzQj/Rejwnwc+8bVuVEALNE76ynoPJrneqk=;
-        b=EhI1ygfQwMMAS4u8La3tY1idlqyjFR7vuZ5aNFPHtbMJ6j5VAuO2D1nuauyFUQ9/Iy
-         L1LOFF+Qu1/s3WnVVO9T/aQk4f1ni+VujlbcQZW27ZtV63Lj1wK4zeh+ylFpyJ9f9XbZ
-         TFp6Vg3HMr3s7a0E6XXg6nkc8wqA1ejwm9CXWqKe4Vxb1xemgcVCcUssTwjDeVyhjX4p
-         ORO5Uuy0vR0rbU3fxdtdAXb+fhsiKexXBHlUkyPeMcdUxc2ZTooIxuEK48lqStu21Oyk
-         LIcqOXN5YlbHTBkhPUfH5SKRjCkTXo3hN6+BF9AShUM8IKTa5P2yliwnuzF9V+BX9GUo
-         AFIg==
-X-Gm-Message-State: AOJu0YwAIZkTSXFZL1Khf85rCqZY6zcg2rDuyTe4KvUx5aCS8ICJJlUo
-	BFLRZRNHwDMQQSNDBXpIuNo5HQ==
-X-Google-Smtp-Source: AGHT+IG8+zVUvIfaj6M56TYlUd2Q7PRlGTniaXvKvPTlRS7k2ULTLBqGIip0cGvEtuCSCawFt277vg==
-X-Received: by 2002:a05:6358:63a9:b0:16b:fa63:4f44 with SMTP id k41-20020a05635863a900b0016bfa634f44mr6528197rwh.10.1700448816832;
-        Sun, 19 Nov 2023 18:53:36 -0800 (PST)
+        bh=Yg0x+T7ON9fvA/nzihMoJz0oESLmev7sCZPefVlmBec=;
+        b=rJ9uyEVkOvbymHk2rIhZjYsReAgG8sPZjB0oL7R0kRFWePMMPK2QS7zTSZSDCw/1ey
+         g49FhN3001eL+gFXqIL0TL5dZS96ODI7356LRbLhk/z0f37fvFg2HIMqSrMc3KVzo733
+         3JNCUmrqXa2DiaW1/z1+/9NcEDyftrwpf6OD4ElyMLq2XPLfgnt7gOTJR1kSea3XO7HD
+         ZHbeE+t6r2mRXdPxiTzZvQEa91vVKkfusJwTnzuC3ksiDzu3bd8ScepcI3CxaAaAIDeZ
+         dbziZyf3o6RtaEPI4vqfHsUtDktFeouGOOfzOzEjxuoOv4bvi4i8EcYzXGdOxhB0HCVb
+         FMGw==
+X-Gm-Message-State: AOJu0Yy9K2BL8YXehlDU8bFbtl6jEvZeek61PpdDxq1AIyqGBLZXoeNx
+	TQaCsPVRM24oQ/zbJRffSYGmuA==
+X-Google-Smtp-Source: AGHT+IFuUjPi2Oe7rzisQHOcyNkxqx5t2yhJXAk9a4Ri2HQ4FV08v9d3S1jEA/pZSew+J7asN5OR5A==
+X-Received: by 2002:a17:902:8b85:b0:1ca:86b:7ed9 with SMTP id ay5-20020a1709028b8500b001ca086b7ed9mr4657249plb.40.1700448920948;
+        Sun, 19 Nov 2023 18:55:20 -0800 (PST)
 Received: from ?IPv6:2402:7500:5d5:bc21:3420:fefa:20d4:2a2f? ([2402:7500:5d5:bc21:3420:fefa:20d4:2a2f])
-        by smtp.gmail.com with ESMTPSA id u31-20020a63471f000000b0058c1383fa8bsm4979080pga.0.2023.11.19.18.53.33
+        by smtp.gmail.com with ESMTPSA id y12-20020a170902ed4c00b001cc256ce1besm4928265plb.138.2023.11.19.18.55.17
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 19 Nov 2023 18:53:36 -0800 (PST)
+        Sun, 19 Nov 2023 18:55:20 -0800 (PST)
 Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.7\))
-Subject: Re: [PATCH 04/12] RISC-V: crypto: add Zvkned accelerated AES
+Subject: Re: [PATCH 12/12] RISC-V: crypto: add Zvkb accelerated ChaCha20
  implementation
 From: Jerry Shih <jerry.shih@sifive.com>
-In-Reply-To: <20231102045154.GE1498@sol.localdomain>
-Date: Mon, 20 Nov 2023 10:53:30 +0800
+In-Reply-To: <20231102054327.GH1498@sol.localdomain>
+Date: Mon, 20 Nov 2023 10:55:15 +0800
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  palmer@dabbelt.com,
  Albert Ou <aou@eecs.berkeley.edu>,
@@ -85,15 +85,15 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org,
  linux-crypto@vger.kernel.org
-Message-Id: <4C199F94-3797-4163-9EAD-D3A4EF6D2C41@sifive.com>
+Message-Id: <90E2B1B4-ACC1-4316-81CD-E919D3BD03BA@sifive.com>
 References: <20231025183644.8735-1-jerry.shih@sifive.com>
- <20231025183644.8735-5-jerry.shih@sifive.com>
- <20231102045154.GE1498@sol.localdomain>
+ <20231025183644.8735-13-jerry.shih@sifive.com>
+ <20231102054327.GH1498@sol.localdomain>
 To: Eric Biggers <ebiggers@kernel.org>
 X-Mailer: Apple Mail (2.3445.9.7)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231119_185339_508972_CBBCF748 
-X-CRM114-Status: GOOD (  22.39  )
+X-CRM114-CacheID: sfid-20231119_185522_851583_DE2A3529 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,126 +110,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Nov 2, 2023, at 12:51, Eric Biggers <ebiggers@kernel.org> wrote:
-> On Thu, Oct 26, 2023 at 02:36:36AM +0800, Jerry Shih wrote:
->> diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
->> index 10d60edc0110..500938317e71 100644
->> --- a/arch/riscv/crypto/Kconfig
->> +++ b/arch/riscv/crypto/Kconfig
->> @@ -2,4 +2,16 @@
->> 
->> menu "Accelerated Cryptographic Algorithms for CPU (riscv)"
->> 
->> +config CRYPTO_AES_RISCV64
->> +	default y if RISCV_ISA_V
->> +	tristate "Ciphers: AES"
->> +	depends on 64BIT && RISCV_ISA_V
->> +	select CRYPTO_AES
->> +	select CRYPTO_ALGAPI
->> +	help
->> +	  Block ciphers: AES cipher algorithms (FIPS-197)
+On Nov 2, 2023, at 13:43, Eric Biggers <ebiggers@kernel.org> wrote:
+> On Thu, Oct 26, 2023 at 02:36:44AM +0800, Jerry Shih wrote:
+>> +static struct skcipher_alg riscv64_chacha_alg_zvkb[] = { {
+>> +	.base = {
+>> +		.cra_name = "chacha20",
+>> +		.cra_driver_name = "chacha20-riscv64-zvkb",
+>> +		.cra_priority = 300,
+>> +		.cra_blocksize = 1,
+>> +		.cra_ctxsize = sizeof(struct chacha_ctx),
+>> +		.cra_module = THIS_MODULE,
+>> +	},
+>> +	.min_keysize = CHACHA_KEY_SIZE,
+>> +	.max_keysize = CHACHA_KEY_SIZE,
+>> +	.ivsize = CHACHA_IV_SIZE,
+>> +	.chunksize = CHACHA_BLOCK_SIZE,
+>> +	.walksize = CHACHA_BLOCK_SIZE * 4,
+>> +	.setkey = chacha20_setkey,
+>> +	.encrypt = chacha20_encrypt,
+>> +	.decrypt = chacha20_encrypt,
+>> +} };
 >> +
->> +	  Architecture: riscv64 using:
->> +	  - Zvkned vector crypto extension
-> 
-> kconfig options should default to off.
-> 
-> I.e., remove the line "default y if RISCV_ISA_V"
-
-Fixed.
-
->> + *
->> + * All zvkned-based functions use encryption expending keys for both encryption
->> + * and decryption.
->> + */
-> 
-> The above comment is a bit confusing.  It's describing the 'key' field of struct
-> aes_key; maybe there should be a comment there instead:
-> 
->    struct aes_key {
->            u32 key[AES_MAX_KEYLENGTH_U32]; /* round keys in encryption order */
->            u32 rounds;
->    };
-
-I have updated the asm implementation to use `crypto_aes_ctx` struct.
-
->> +int riscv64_aes_setkey(struct riscv64_aes_ctx *ctx, const u8 *key,
->> +		       unsigned int keylen)
+>> +static inline bool check_chacha20_ext(void)
 >> +{
->> +	/*
->> +	 * The RISC-V AES vector crypto key expending doesn't support AES-192.
->> +	 * We just use the generic software key expending here to simplify the key
->> +	 * expending flow.
->> +	 */
-> 
-> expending => expanding
-
-Thx.
-Fixed.
-
->> +	u32 aes_rounds;
->> +	u32 key_length;
->> +	int ret;
->> +
->> +	ret = aes_expandkey(&ctx->fallback_ctx, key, keylen);
->> +	if (ret < 0)
->> +		return -EINVAL;
->> +
->> +	/*
->> +	 * Copy the key from `crypto_aes_ctx` to `aes_key` for zvkned-based AES
->> +	 * implementations.
->> +	 */
->> +	aes_rounds = aes_round_num(keylen);
->> +	ctx->key.rounds = aes_rounds;
->> +	key_length = AES_BLOCK_SIZE * (aes_rounds + 1);
->> +	memcpy(ctx->key.key, ctx->fallback_ctx.key_enc, key_length);
->> +
->> +	return 0;
->> +}
-> 
-> Ideally this would use the same crypto_aes_ctx for both the fallback and the
-> assembly code.  I suppose we don't want to diverge from the OpenSSL code (unless
-> it gets rewritten), though.  So I guess this is fine for now.
-
-I have updated the asm implementation to use `crypto_aes_ctx` struct.
-
->> void riscv64_aes_encrypt_zvkned(const struct riscv64_aes_ctx *ctx, u8 *dst,
->>                               const u8 *src)
-> 
-> These functions can be called from a different module (aes-block-riscv64), so
-> they need EXPORT_SYMBOL_GPL.
-
-Fixed.
-
->> +static inline bool check_aes_ext(void)
->> +{
->> +	return riscv_isa_extension_available(NULL, ZVKNED) &&
+>> +	return riscv_isa_extension_available(NULL, ZVKB) &&
 >> +	       riscv_vector_vlen() >= 128;
 >> +}
 >> +
->> +static int __init riscv64_aes_mod_init(void)
+>> +static int __init riscv64_chacha_mod_init(void)
 >> +{
->> +	if (check_aes_ext())
->> +		return crypto_register_alg(&riscv64_aes_alg_zvkned);
+>> +	if (check_chacha20_ext())
+>> +		return crypto_register_skciphers(
+>> +			riscv64_chacha_alg_zvkb,
+>> +			ARRAY_SIZE(riscv64_chacha_alg_zvkb));
 >> +
 >> +	return -ENODEV;
 >> +}
 >> +
->> +static void __exit riscv64_aes_mod_fini(void)
+>> +static void __exit riscv64_chacha_mod_fini(void)
 >> +{
->> +	if (check_aes_ext())
->> +		crypto_unregister_alg(&riscv64_aes_alg_zvkned);
+>> +	if (check_chacha20_ext())
+>> +		crypto_unregister_skciphers(
+>> +			riscv64_chacha_alg_zvkb,
+>> +			ARRAY_SIZE(riscv64_chacha_alg_zvkb));
 >> +}
->> +
->> +module_init(riscv64_aes_mod_init);
->> +module_exit(riscv64_aes_mod_fini);
 > 
-> module_exit can only run if module_init succeeded.  So, in cases like this it's
-> not necessary to check for CPU features before unregistering the algorithm.
+> When there's just one algorithm being registered/unregistered,
+> crypto_register_skcipher() and crypto_unregister_skcipher() can be used.
+
+Fixed.
+
+>> +# - RV64I
+>> +# - RISC-V Vector ('V') with VLEN >= 128
+>> +# - RISC-V Vector Cryptography Bit-manipulation extension ('Zvkb')
+>> +# - RISC-V Zicclsm(Main memory supports misaligned loads/stores)
+> 
+> How is the presence of the Zicclsm extension guaranteed?
 > 
 > - Eric
 
-Fixed.
+I have the addition extension parser for `Zicclsm` in the v2 patch set.
+
 
 -Jerry
 
