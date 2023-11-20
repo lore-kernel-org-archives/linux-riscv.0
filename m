@@ -4,129 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FF01C197A0
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Nov 2023 10:42:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D516C2BB3F
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Nov 2023 14:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dGgt0eZ8B95MD9hGEe7TnEYjYWL79iultGuwCoiM83g=; b=kGL9fY554M7dlp
-	n7VtrWvgpvrR0rn0paoGiwPzgRF9haGvedfHytLASCUxwwEKAk97bFxwUxm3VOmdXIbz0VzrgFZg9
-	IQLWFELEbS60s76wimXk6fEYu1bcqb/bQkwbQp9pE6SC9BwHKdx3jypkGkc81Rrfufpc3wLu+gNFi
-	rJz/Ay09Eijl7YzJog+ExrmPjiFSGQK4xjw1ISF/0zr2Mi1ajoyj1rJhzOYx5dMXXyFRuktCArXqc
-	ZPfrOhwwEQc7ynZ0wW8JfjJ+vTqEjr8EQAl4gggn2GKC5OGfgxQT6C6sxCDfxqM/IVmzw7tq+gRhO
-	yKJ7XTy0jhGhq/BhojUg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d4L0ss6bFeqfWyqQeYecSkTbOK6pskbNz48E01GJqzc=; b=UPfBJ8t2bvw1mr2bN5NkXNE4mN
+	Rchr4osS/LfwPWn9Kf/+VBov1yjbj+NBLd8IW673mZV20+xKZ8yettnRJPcAuZl4sktbjr/NS7ZV5
+	kal571AMzRDpldhipIck8YEGcuC7IaqpPkenO8xyLQWTrQuM/y/LrnjGsix/IN7rZ/4+dhbohQuYF
+	OC/wvo6ZI6a61wwY4shyQBromVHnIy1noLlq3W0/fr2Kh5YTH9wpkr/z6rELhuNbZAYfkFHyx6HyX
+	3Unh/wel8d8X7Ce9sDWkBihI2hNCBNXfS9SQ/Gf327yKTj6+nVHrQsGom459PBXm9bN3Yv2/Ialx9
+	AMNnK3Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r51jK-00Bnyn-2D;
-	Mon, 20 Nov 2023 10:42:14 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1r54yB-00CEqh-27;
+	Mon, 20 Nov 2023 14:09:48 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r51jG-00BnxS-06
-	for linux-riscv@lists.infradead.org;
-	Mon, 20 Nov 2023 10:42:13 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-53d8320f0easo6003319a12.3
-        for <linux-riscv@lists.infradead.org>; Mon, 20 Nov 2023 02:42:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1700476928; x=1701081728; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=zXef7q1NxndeoQGAm7hYwee9Pb6CdWeIDQttMrV03ZI=;
-        b=uqNrPhMtedradBnfoHde/oXF9gtgt/Hz6ITjH7081Zc2Jlu2q/JV17MjRj5YgWRw56
-         yritrsMU4P8zCM/GTGmprarM/W2pQPrwSyTrBkj2DA/QGh6t3LINg7tD4VBOh82J3i7z
-         RQGscg4sZP4Mlu7VWScJlGH7wH1IEeQ3ieEgcK82KImiGAdpqXbUfuBsIC4ntxt544vF
-         frNURR7FHVJdJMkhcJTbAL3I54/aHRg+unQdo8OwP36gY08Al8BpMyhCTjjpdSeInIVK
-         mwWmv7Vsx0irTUsN++fnTjL7WjFiS69052lqiGEQhwpcjcLKP5GpCyl8FASzKQ1lS1b9
-         f0+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700476928; x=1701081728;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zXef7q1NxndeoQGAm7hYwee9Pb6CdWeIDQttMrV03ZI=;
-        b=a/T8sp6AdE+tBnX3wUc9dx1FrL4WxdavLqbXKKO0HFbJ769A7sAjVEmlhv2d/fLcy1
-         muWQogYBtgxDig4SlHx6pbvqlq2JkH7bkplr5BoTl16EbXID+VkKDjKw2LLwkb6PfprE
-         e03a+7Dt0TXkANhZwQAe9lOs/6+oWMPeR7pm4KCrjN0+mL2YVshUa9+/c+9mmOne3wro
-         gRsefvHcPPLLPUhp23KDC0VBqgbsbzBSIQHiX7ldEJlLegHsfl8zVysqPBGk7aeVSS7M
-         bvWQA8qMsAasPsthxoaQJPKApfnmk8DhPv2B7owamvttr9pl/emODHzMgGHzCP2pQ8vF
-         W2nA==
-X-Gm-Message-State: AOJu0Yxcj7AwxYbhbEPCBFSqU6q3FKP0jJeC/E67Km+TpmB1uQZkvu9h
-	FcTLwDgG9ngr79oc63eFAbjiW9ZlcgWwrLMwsaw=
-X-Google-Smtp-Source: AGHT+IGs0lPfYBHdD9kSGPLvmqTBh0xUeXaLVSlbG8zkPgytF0vdFUzEWNIAfsAJd/aSrKsDDtdb0A==
-X-Received: by 2002:aa7:c6c5:0:b0:53f:ef96:b2ee with SMTP id b5-20020aa7c6c5000000b0053fef96b2eemr4791598eds.22.1700476928245;
-        Mon, 20 Nov 2023 02:42:08 -0800 (PST)
-Received: from [192.168.1.20] ([178.197.222.11])
-        by smtp.gmail.com with ESMTPSA id y24-20020aa7d518000000b005402c456892sm3487604edq.33.2023.11.20.02.42.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Nov 2023 02:42:07 -0800 (PST)
-Message-ID: <d28f4e15-3e47-4d6a-91ee-660b786974b2@linaro.org>
-Date: Mon, 20 Nov 2023 11:42:05 +0100
+	id 1r54xx-00CElf-1V;
+	Mon, 20 Nov 2023 14:09:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id 6F364B817E5;
+	Mon, 20 Nov 2023 14:09:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A142C433C9;
+	Mon, 20 Nov 2023 14:09:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1700489371;
+	bh=hoIhA8+0yRB+8xKNhUqRCTi4Cj0Q9PRSELx11+Gdf9k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=r45lYZBBqyt2qIC3VTWvXeFOLpp7CslcoudAqZHo3c3ToiD3advJLwF+LCeQTSM4V
+	 ian9GJtKKF/6WQNbnSlPU6HPsyneu0ZkHaso51fhQyb5HfooUycrugoOjqW3AvaFvH
+	 JbSyG7Q6aiUwYwnG9OQSQDRK4H2FDhgaP+yGZfOW9mvm9hc6UiF2csU75mRMpuJsB/
+	 u1dCYBO9SVZu1FuLumVUvtcx32ALSNqXSMdsp9G0IufrXorcmRf7kCkpyLAOe7IGza
+	 CZVtn9hq2ML7D6TA2ZoEM+IA98iwR0d/sA7ltvFzg0zveh92v1bjHGQjv6XIUZ6hjb
+	 x08JifS0gmx4Q==
+Date: Mon, 20 Nov 2023 14:09:17 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Anish Moorthy <amoorthy@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Sean Christopherson <seanjc@google.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Andrew Morton <akpm@linux-foundation.org>, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, Xiaoyao Li <xiaoyao.li@intel.com>,
+	Xu Yilun <yilun.xu@intel.com>,
+	Chao Peng <chao.p.peng@linux.intel.com>,
+	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
+	David Matlack <dmatlack@google.com>,
+	Yu Zhang <yu.c.zhang@linux.intel.com>,
+	Isaku Yamahata <isaku.yamahata@intel.com>,
+	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Vishal Annapurve <vannapurve@google.com>,
+	Ackerley Tng <ackerleytng@google.com>,
+	Maciej Szmigiero <mail@maciej.szmigiero.name>,
+	David Hildenbrand <david@redhat.com>,
+	Quentin Perret <qperret@google.com>,
+	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
+	Liam Merwick <liam.merwick@oracle.com>,
+	Isaku Yamahata <isaku.yamahata@gmail.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+Subject: Re: [PATCH 34/34] KVM: selftests: Add a memory region subtest to
+ validate invalid flags
+Message-ID: <13677ced-e464-4cdb-82ae-4236536e169c@sirena.org.uk>
+References: <20231105163040.14904-1-pbonzini@redhat.com>
+ <20231105163040.14904-35-pbonzini@redhat.com>
+ <CAF7b7mpmuYLTY6OQfRRoOryfO-2e1ZumQ6SCQDHHPD5XFyhFTQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: nvmem: Add sophgo,efuses
-Content-Language: en-US
-To: Jisheng Zhang <jszhang@kernel.org>,
- Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Chao Wei <chao.wei@sophgo.com>,
- Chen Wang <unicorn_wang@outlook.com>
-References: <20231119131332.999-1-jszhang@kernel.org>
- <20231119131332.999-2-jszhang@kernel.org>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20231119131332.999-2-jszhang@kernel.org>
+In-Reply-To: <CAF7b7mpmuYLTY6OQfRRoOryfO-2e1ZumQ6SCQDHHPD5XFyhFTQ@mail.gmail.com>
+X-Cookie: Happiness is twin floppies.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231120_024210_070803_0BC2EA4B 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20231120_060934_020528_CB743DEC 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,97 +102,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5312622698115977536=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 19/11/2023 14:13, Jisheng Zhang wrote:
-> Sophgo SoCs such as CV1800B come with eFuses used to store
-> factory-programmed data such as calibration settings for the built-in
-> ethernet PHY.
-> 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 
-Thank you for your patch. There is something to discuss/improve.
+--===============5312622698115977536==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="61dY8WQ8Ox8wOW0h"
+Content-Disposition: inline
 
 
-> ---
->  .../bindings/nvmem/sophgo,efuse.yaml          | 54 +++++++++++++++++++
->  1 file changed, 54 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/nvmem/sophgo,efuse.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/nvmem/sophgo,efuse.yaml b/Documentation/devicetree/bindings/nvmem/sophgo,efuse.yaml
-> new file mode 100644
-> index 000000000000..e4ae81a1742a
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/nvmem/sophgo,efuse.yaml
+--61dY8WQ8Ox8wOW0h
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Filename should match the compatible, unless you already have other
-devices coming.
+On Wed, Nov 08, 2023 at 05:08:01PM -0800, Anish Moorthy wrote:
+> Applying [1] and [2] reveals that this also breaks non-x86 builds- the
+> MEM_REGION_GPA/SLOT definitions are guarded behind an #ifdef
+> __x86_64__, while the usages introduced here aren't.
+>=20
+> Should
+>=20
+> On Sun, Nov 5, 2023 at 8:35=E2=80=AFAM Paolo Bonzini <pbonzini@redhat.com=
+> wrote:
+> >
+> > +       test_invalid_memory_region_flags();
+>=20
+> be #ifdef'd, perhaps? I'm not quite sure what the intent is.
 
-> @@ -0,0 +1,54 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/nvmem/sophgo,efuse.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Sophgo SoC eFuse-based NVMEM
-> +
-> +description: |
+This has been broken in -next for a week now, do we have any progress
+on a fix or should we just revert the patch?
 
-Do not need '|' unless you need to preserve formatting.
+--61dY8WQ8Ox8wOW0h
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> +  Sophgo SoCs such as the CV1800B contain factory-programmed eFuses used to e.g. store
+-----BEGIN PGP SIGNATURE-----
 
-Please wrap at Linux coding style (so 80).
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmVbaI0ACgkQJNaLcl1U
+h9Aj2Qf9EbUUwOLmAwUa3Jl4QMfiLrKntsPjxIsD9MYRWpqfdGr2gZb7wNXozUgD
+A1SOrSPxLG5lvE3dOdXD1O/mzrxVwLcfAssVQ6KjXu13pJtZDIQHAUpYQBJL28QR
+KIeV8OVDMKeFryWnyt+y92xYK+7d4TocCuAq2Ph3jQj/OIXp4bI5quuTV58jmIG4
+1QuJFi73b7JIL4Ksmg32pp3aWaoP7BqMqnDxx92GwdngF0Jrg1NBhgHoMkh/J28y
+zT6Vui1HZF2pSrrxexqXFLJKhveYmLyg3kaoEyvYeRwj/WjZSB3U/9LJrhBDctTJ
+2Y23Hu9kFWuPdJxy0l8BV7AiIxSr4Q==
+=GWvB
+-----END PGP SIGNATURE-----
 
-> +  calibration data for the built-in ethernet PHY.
+--61dY8WQ8Ox8wOW0h--
 
 
-Blank line here.
-
-> +maintainers:
-> +  - Jisheng Zhang <jszhang@kernel.org>
-> +
-> +allOf:
-> +  - $ref: nvmem.yaml#
-> +  - $ref: nvmem-deprecated-cells.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    items:
-
-Drop items, we keep just enum directly for such cases.
-
-> +      - enum:
-> +          - sophgo,cv1800b-efuse
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    description:
-> +      eFuse clock id.
-
-Drop description, quite obvious.
-
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +
-> +unevaluatedProperties: false
-> +...
-
-Best regards,
-Krzysztof
-
+--===============5312622698115977536==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5312622698115977536==--
+
