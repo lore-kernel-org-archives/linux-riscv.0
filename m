@@ -4,115 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 973D0C54FB9
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Nov 2023 07:16:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 236EAC54E76
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Nov 2023 08:05:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cFYrga1dIDQKYAOhPVBo/J2hmXDGXmdrbInOlEk+oGI=; b=HTDJb2zFJzrjDz
-	pjr03PyJrsC5GfYa02ffZak/DUJoTf0ozb6d7EwdPaRNhfT7hX7Ucz3GiDEDuvmI/Vcp/XCd0SxXx
-	2jLWjU4YbMCVb4LnNfmUomI+bzrkig4ODh/0qXTdfzKKFqhcKeUu7o8yq4umTMBcOxUlpih3473vJ
-	B2910iiCo50h+qcXEnkvtvhmBRfKIAIOs86wfRRPVfc4hpFVUUN8o/28qBkCuimzKOSvtTxTR5twR
-	Ffdh+YhoMkfqu/4KfGdpy5Oe7g6LVHZftuLJbnxbSm8sZ1g1Qot0fTHdrN8riqY0+7r72arXy+lQu
-	Ci8ltgyUhQJ2SHjaJ39w==;
+	List-Owner; bh=bsAdkcmi5Ns+PIXTMNbP91wDC2rneF/rkRmm6m4lKCY=; b=BEnZHCdIwtKT2G
+	onozrNlPxXGpI1/xydrJocPWpgB/M0rNyvO2gY0Stj6KOTNZIr1LZygCKrym2RDoSunXRsXcHFxcR
+	gTz7+oQkgofNqnv9ATwoG2Vo2V4edzB2GMH0/MNyFCSRsYizaKswqOHsCVbaq2S3ejlfAC4BNKMrg
+	toIOF66wnjcwpQoIEjE8n7R3XqwBY68MKAXvBeVWSuAc2zHvj8s/0MsZfl1Zsru2ZgySKjR69aJWj
+	JCCeF7XdJ4IUDN8OOdxLRvTtECKKvxqy/dQgmQ28WKFmUk1OAsSXJOEFbw/EEnPgMULy8hUwmVl5g
+	F0pWKiLPrhQhUbWu/kMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r4yVs-00BMKS-2D;
-	Mon, 20 Nov 2023 07:16:08 +0000
-Received: from mail-lj1-f174.google.com ([209.85.208.174])
+	id 1r4zHZ-00BTEz-24;
+	Mon, 20 Nov 2023 08:05:25 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r4yVp-00BMJo-0j
+	id 1r4zHW-00BTEW-0U
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Nov 2023 07:16:06 +0000
-Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-2c8790474d5so16587641fa.2
-        for <linux-riscv@lists.infradead.org>; Sun, 19 Nov 2023 23:16:03 -0800 (PST)
+	Mon, 20 Nov 2023 08:05:23 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4081ccf69dcso7698235e9.0
+        for <linux-riscv@lists.infradead.org>; Mon, 20 Nov 2023 00:05:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1700467519; x=1701072319; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=k/r7/AHUvU5h9gmXC8cWkhPHDiuLCW3OhU5H88ffb6E=;
+        b=Ao0h5DXPWv9LJuqt4y9tBoSb1e2YCSmpsscR7M0yEi53JFLX9xRPy+qcCwiu0G3ST+
+         fO8Nme5c/mzDxGK7Tk1M+eCJYhPJ6N/QDM6I3xpWRCtPPveHSS+dh1cjJHL+UAsvEsk2
+         xZu6HkTFaxk4DlSP4ocNtK2IG/+fWJUduJyJ6+tmdscCt3kfnQs3BmlAiul+8sfiS7qV
+         otwGpEfrrDNe1AyHnHzPbOx3CNdyC0eS2MT2z6RX6Os+1IMg5SyQHMZPDIsmZASji9lQ
+         HGiomAx6H0eyXFqyK38GfJUdbjmIytBwessrbjXE3C9uFGQLw0SaIBwl6wcX77rN1dTV
+         Z/ug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700464562; x=1701069362;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hSeL55NjTwSeqNXi2o9eh0516IEBhpvGwpNdIMjhzNc=;
-        b=HnbrSmDcD3OtQkEC1GfGf85HmK6X0pjU/JQApVNBl4r0RXZVdAhkS+99FolRsMaYST
-         0n7ja78iHHlDIjwEJwsMbwpNlu0/PJEk2dwjNJzAMhnRiffpm0cMsUyCSZ+omdnMmhuO
-         2qdAvDiuPd+dKXcI45yjSwmHhGIuLj/sp3JREqxob7pmM7OdrnqK1QSlxLIqkTvIbikM
-         LiuSSYVRoEV4YgJM+USyDtXu6SZR4vYR3CFbxuh1Jxd8t/LBnKelfETZbkYGyk2vKVuq
-         44FuBK6vO2od9fK0j0sKhkLCZ709dpzqSwIrj2vfLhR1HqUwCn82oXkPH4f1g3jw5c2D
-         x9tA==
-X-Gm-Message-State: AOJu0YxVfOzxo0RMbj7AwRtxFD1lnBrTPl3ACC61JVTun/edr56MU72z
-	mBN4Ra572yhmOAMt8qp5dWY=
-X-Google-Smtp-Source: AGHT+IEfjhe/T0cJu8gTcAueFuM3eDsqZ55RzM7qIpkwVQTnH9CeBqkr+XTR3LFfS0MILyvy3Ok1IQ==
-X-Received: by 2002:a2e:b5ba:0:b0:2c6:f1a9:e74 with SMTP id f26-20020a2eb5ba000000b002c6f1a90e74mr3710873ljn.34.1700464562147;
-        Sun, 19 Nov 2023 23:16:02 -0800 (PST)
-Received: from ?IPV6:2a0b:e7c0:0:107::aaaa:59? ([2a0b:e7c0:0:107::aaaa:59])
-        by smtp.gmail.com with ESMTPSA id u25-20020a7bcb19000000b00405391f485fsm12165750wmj.41.2023.11.19.23.16.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 19 Nov 2023 23:16:01 -0800 (PST)
-Message-ID: <1dd7f7b4-d2ba-4216-ac3f-3552c2bee24b@kernel.org>
-Date: Mon, 20 Nov 2023 08:16:00 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/5] tty: Add SBI debug console support to HVC SBI
- driver
-Content-Language: en-US
-To: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Conor Dooley <conor@kernel.org>, Andrew Jones <ajones@ventanamicro.com>,
- linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- Atish Patra <atishp@rivosinc.com>
+        d=1e100.net; s=20230601; t=1700467519; x=1701072319;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=k/r7/AHUvU5h9gmXC8cWkhPHDiuLCW3OhU5H88ffb6E=;
+        b=ttDnkpbjCkQVLjdtK9Tz26ESeioTuMtN+SluLLD/2DHvzbWuGdenW19U6aUlUfhQiF
+         qA0vrWbWPJStPcKPHupMAgRrMtDIX4hywKewXyF86NFV+uOSs4yde2h8jSXMBEDlAqbL
+         AmIixwmfeVq9uXtyinKyjqA2E/Q5oUfLhsa6ISTzf94SMGGlRS8nZelWIjjcFJ1OqVAA
+         vttn4R/Y79jqcMwXDsYV6LpAWeCuOF0Mk0QMCnl4v369RLmd+lN80kXYIF5bV8LMMyza
+         CbtBs2TXZcV+zpty6Zl/sy+RGRonm3qJxxYFQbJBSmJ0xki2OAuDU5VgapZut9YMnQzL
+         UXwA==
+X-Gm-Message-State: AOJu0YydeZuI3Dr/37sETKV2PNYbVvktyQX9RimMPiutvs2WJy17Z0vd
+	Z3vTazLLvSkwjxk7F2QnCnowRg==
+X-Google-Smtp-Source: AGHT+IFN4nwCSr0/wD+U66vM10GQFv+Nri9nZ939m/NOfkfbpyvhNkhO8KxhTxplHCfzLfcHQj8ulg==
+X-Received: by 2002:a05:600c:6001:b0:408:33ba:569a with SMTP id az1-20020a05600c600100b0040833ba569amr10872487wmb.8.1700467518744;
+        Mon, 20 Nov 2023 00:05:18 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id j7-20020a05600c190700b004064cd71aa8sm12586581wmq.34.2023.11.20.00.05.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Nov 2023 00:05:18 -0800 (PST)
+Date: Mon, 20 Nov 2023 09:05:17 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Jiri Slaby <jirislaby@kernel.org>, Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org, 
+	linux-serial@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 2/5] RISC-V: Add SBI debug console helper routines
+Message-ID: <20231120-639982716fbfd33a6fc144d6@orel>
 References: <20231118033859.726692-1-apatel@ventanamicro.com>
- <20231118033859.726692-5-apatel@ventanamicro.com>
-From: Jiri Slaby <jirislaby@kernel.org>
-Autocrypt: addr=jirislaby@kernel.org; keydata=
- xsFNBE6S54YBEACzzjLwDUbU5elY4GTg/NdotjA0jyyJtYI86wdKraekbNE0bC4zV+ryvH4j
- rrcDwGs6tFVrAHvdHeIdI07s1iIx5R/ndcHwt4fvI8CL5PzPmn5J+h0WERR5rFprRh6axhOk
- rSD5CwQl19fm4AJCS6A9GJtOoiLpWn2/IbogPc71jQVrupZYYx51rAaHZ0D2KYK/uhfc6neJ
- i0WqPlbtIlIrpvWxckucNu6ZwXjFY0f3qIRg3Vqh5QxPkojGsq9tXVFVLEkSVz6FoqCHrUTx
- wr+aw6qqQVgvT/McQtsI0S66uIkQjzPUrgAEtWUv76rM4ekqL9stHyvTGw0Fjsualwb0Gwdx
- ReTZzMgheAyoy/umIOKrSEpWouVoBt5FFSZUyjuDdlPPYyPav+hpI6ggmCTld3u2hyiHji2H
- cDpcLM2LMhlHBipu80s9anNeZhCANDhbC5E+NZmuwgzHBcan8WC7xsPXPaiZSIm7TKaVoOcL
- 9tE5aN3jQmIlrT7ZUX52Ff/hSdx/JKDP3YMNtt4B0cH6ejIjtqTd+Ge8sSttsnNM0CQUkXps
- w98jwz+Lxw/bKMr3NSnnFpUZaxwji3BC9vYyxKMAwNelBCHEgS/OAa3EJoTfuYOK6wT6nadm
- YqYjwYbZE5V/SwzMbpWu7Jwlvuwyfo5mh7w5iMfnZE+vHFwp/wARAQABzSFKaXJpIFNsYWJ5
- IDxqaXJpc2xhYnlAa2VybmVsLm9yZz7CwXcEEwEIACEFAlW3RUwCGwMFCwkIBwIGFQgJCgsC
- BBYCAwECHgECF4AACgkQvSWxBAa0cEnVTg//TQpdIAr8Tn0VAeUjdVIH9XCFw+cPSU+zMSCH
- eCZoA/N6gitEcnvHoFVVM7b3hK2HgoFUNbmYC0RdcSc80pOF5gCnACSP9XWHGWzeKCARRcQR
- 4s5YD8I4VV5hqXcKo2DFAtIOVbHDW+0okOzcecdasCakUTr7s2fXz97uuoc2gIBB7bmHUGAH
- XQXHvdnCLjDjR+eJN+zrtbqZKYSfj89s/ZHn5Slug6w8qOPT1sVNGG+eWPlc5s7XYhT9z66E
- l5C0rG35JE4PhC+tl7BaE5IwjJlBMHf/cMJxNHAYoQ1hWQCKOfMDQ6bsEr++kGUCbHkrEFwD
- UVA72iLnnnlZCMevwE4hc0zVhseWhPc/KMYObU1sDGqaCesRLkE3tiE7X2cikmj/qH0CoMWe
- gjnwnQ2qVJcaPSzJ4QITvchEQ+tbuVAyvn9H+9MkdT7b7b2OaqYsUP8rn/2k1Td5zknUz7iF
- oJ0Z9wPTl6tDfF8phaMIPISYrhceVOIoL+rWfaikhBulZTIT5ihieY9nQOw6vhOfWkYvv0Dl
- o4GRnb2ybPQpfEs7WtetOsUgiUbfljTgILFw3CsPW8JESOGQc0Pv8ieznIighqPPFz9g+zSu
- Ss/rpcsqag5n9rQp/H3WW5zKUpeYcKGaPDp/vSUovMcjp8USIhzBBrmI7UWAtuedG9prjqfO
- wU0ETpLnhgEQAM+cDWLL+Wvc9cLhA2OXZ/gMmu7NbYKjfth1UyOuBd5emIO+d4RfFM02XFTI
- t4MxwhAryhsKQQcA4iQNldkbyeviYrPKWjLTjRXT5cD2lpWzr+Jx7mX7InV5JOz1Qq+P+nJW
- YIBjUKhI03ux89p58CYil24Zpyn2F5cX7U+inY8lJIBwLPBnc9Z0An/DVnUOD+0wIcYVnZAK
- DiIXODkGqTg3fhZwbbi+KAhtHPFM2fGw2VTUf62IHzV+eBSnamzPOBc1XsJYKRo3FHNeLuS8
- f4wUe7bWb9O66PPFK/RkeqNX6akkFBf9VfrZ1rTEKAyJ2uqf1EI1olYnENk4+00IBa+BavGQ
- 8UW9dGW3nbPrfuOV5UUvbnsSQwj67pSdrBQqilr5N/5H9z7VCDQ0dhuJNtvDSlTf2iUFBqgk
- 3smln31PUYiVPrMP0V4ja0i9qtO/TB01rTfTyXTRtqz53qO5dGsYiliJO5aUmh8swVpotgK4
- /57h3zGsaXO9PGgnnAdqeKVITaFTLY1ISg+Ptb4KoliiOjrBMmQUSJVtkUXMrCMCeuPDGHo7
- 39Xc75lcHlGuM3yEB//htKjyprbLeLf1y4xPyTeeF5zg/0ztRZNKZicgEmxyUNBHHnBKHQxz
- 1j+mzH0HjZZtXjGu2KLJ18G07q0fpz2ZPk2D53Ww39VNI/J9ABEBAAHCwV8EGAECAAkFAk6S
- 54YCGwwACgkQvSWxBAa0cEk3tRAAgO+DFpbyIa4RlnfpcW17AfnpZi9VR5+zr496n2jH/1ld
- wRO/S+QNSA8qdABqMb9WI4BNaoANgcg0AS429Mq0taaWKkAjkkGAT7mD1Q5PiLr06Y/+Kzdr
- 90eUVneqM2TUQQbK+Kh7JwmGVrRGNqQrDk+gRNvKnGwFNeTkTKtJ0P8jYd7P1gZb9Fwj9YLx
- jhn/sVIhNmEBLBoI7PL+9fbILqJPHgAwW35rpnq4f/EYTykbk1sa13Tav6btJ+4QOgbcezWI
- wZ5w/JVfEJW9JXp3BFAVzRQ5nVrrLDAJZ8Y5ioWcm99JtSIIxXxt9FJaGc1Bgsi5K/+dyTKL
- wLMJgiBzbVx8G+fCJJ9YtlNOPWhbKPlrQ8+AY52Aagi9WNhe6XfJdh5g6ptiOILm330mkR4g
- W6nEgZVyIyTq3ekOuruftWL99qpP5zi+eNrMmLRQx9iecDNgFr342R9bTDlb1TLuRb+/tJ98
- f/bIWIr0cqQmqQ33FgRhrG1+Xml6UXyJ2jExmlO8JljuOGeXYh6ZkIEyzqzffzBLXZCujlYQ
- DFXpyMNVJ2ZwPmX2mWEoYuaBU0JN7wM+/zWgOf2zRwhEuD3A2cO2PxoiIfyUEfB9SSmffaK/
- S4xXoB6wvGENZ85Hg37C7WDNdaAt6Xh2uQIly5grkgvWppkNy4ZHxE+jeNsU7tg=
-In-Reply-To: <20231118033859.726692-5-apatel@ventanamicro.com>
+ <20231118033859.726692-3-apatel@ventanamicro.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20231118033859.726692-3-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231119_231605_269991_9BCBB905 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20231120_000522_222210_219523C1 
+X-CRM114-Status: GOOD (  21.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,49 +89,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 18. 11. 23, 4:38, Anup Patel wrote:
-> diff --git a/drivers/tty/hvc/hvc_riscv_sbi.c b/drivers/tty/hvc/hvc_riscv_sbi.c
-> index 31f53fa77e4a..697c981221b5 100644
-> --- a/drivers/tty/hvc/hvc_riscv_sbi.c
-> +++ b/drivers/tty/hvc/hvc_riscv_sbi.c
-...
-> -static int __init hvc_sbi_console_init(void)
-> +static int hvc_sbi_dbcn_tty_get(uint32_t vtermno, char *buf, int count)
->   {
-> -	hvc_instantiate(0, 0, &hvc_sbi_ops);
-> +	phys_addr_t pa;
+On Sat, Nov 18, 2023 at 09:08:56AM +0530, Anup Patel wrote:
+> Let us provide SBI debug console helper routines which can be
+> shared by serial/earlycon-riscv-sbi.c and hvc/hvc_riscv_sbi.c.
+> 
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  arch/riscv/include/asm/sbi.h |  5 +++++
+>  arch/riscv/kernel/sbi.c      | 43 ++++++++++++++++++++++++++++++++++++
+>  2 files changed, 48 insertions(+)
+> 
+> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+> index 66f3933c14f6..ee7aef5f6233 100644
+> --- a/arch/riscv/include/asm/sbi.h
+> +++ b/arch/riscv/include/asm/sbi.h
+> @@ -334,6 +334,11 @@ static inline unsigned long sbi_mk_version(unsigned long major,
+>  }
+>  
+>  int sbi_err_map_linux_errno(int err);
 > +
-> +	if (is_vmalloc_addr(buf)) {
-
-I wonder, where does this buf come from, so that you have to check for 
-vmalloc?
-
-> +		pa = page_to_phys(vmalloc_to_page(buf)) + offset_in_page(buf);
-> +		if (PAGE_SIZE < (offset_in_page(buf) + count))
-
-Am I the only one who would prefer:
-   if (count + offset_in_page(buf) > PAGE_SIZE)
-?
-
-> +			count = PAGE_SIZE - offset_in_page(buf);
-> +	} else {
-> +		pa = __pa(buf);
-> +	}
+> +extern bool sbi_debug_console_available;
+> +int sbi_debug_console_write(unsigned int num_bytes, phys_addr_t base_addr);
+> +int sbi_debug_console_read(unsigned int num_bytes, phys_addr_t base_addr);
 > +
-> +	return sbi_debug_console_read(count, pa);
+>  #else /* CONFIG_RISCV_SBI */
+>  static inline int sbi_remote_fence_i(const struct cpumask *cpu_mask) { return -1; }
+>  static inline void sbi_init(void) {}
+> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> index 5a62ed1da453..73a9c22c3945 100644
+> --- a/arch/riscv/kernel/sbi.c
+> +++ b/arch/riscv/kernel/sbi.c
+> @@ -571,6 +571,44 @@ long sbi_get_mimpid(void)
+>  }
+>  EXPORT_SYMBOL_GPL(sbi_get_mimpid);
+>  
+> +bool sbi_debug_console_available;
+> +
+> +int sbi_debug_console_write(unsigned int num_bytes, phys_addr_t base_addr)
+> +{
+> +	struct sbiret ret;
+> +
+> +	if (!sbi_debug_console_available)
+> +		return -EOPNOTSUPP;
+> +
+> +	if (IS_ENABLED(CONFIG_32BIT))
+> +		ret = sbi_ecall(SBI_EXT_DBCN, SBI_EXT_DBCN_CONSOLE_WRITE,
+> +				num_bytes, lower_32_bits(base_addr),
+> +				upper_32_bits(base_addr), 0, 0, 0);
+> +	else
+> +		ret = sbi_ecall(SBI_EXT_DBCN, SBI_EXT_DBCN_CONSOLE_WRITE,
+> +				num_bytes, base_addr, 0, 0, 0, 0);
+> +
+> +	return ret.error ? sbi_err_map_linux_errno(ret.error) : ret.value;
+
+We can't get perfect mappings, but I wonder if we can do better than
+returning ENOTSUPP for "Failed to write the byte due to I/O errors."
+
+How about
+
+ if (ret.error == SBI_ERR_FAILURE)
+     return -EIO;
+
+ return ret.error ? sbi_err_map_linux_errno(ret.error) : ret.value;
+
+
 > +}
+> +
+> +int sbi_debug_console_read(unsigned int num_bytes, phys_addr_t base_addr)
+> +{
+> +	struct sbiret ret;
+> +
+> +	if (!sbi_debug_console_available)
+> +		return -EOPNOTSUPP;
+> +
+> +	if (IS_ENABLED(CONFIG_32BIT))
+> +		ret = sbi_ecall(SBI_EXT_DBCN, SBI_EXT_DBCN_CONSOLE_READ,
+> +				num_bytes, lower_32_bits(base_addr),
+> +				upper_32_bits(base_addr), 0, 0, 0);
+> +	else
+> +		ret = sbi_ecall(SBI_EXT_DBCN, SBI_EXT_DBCN_CONSOLE_READ,
+> +				num_bytes, base_addr, 0, 0, 0, 0);
+> +
+> +	return ret.error ? sbi_err_map_linux_errno(ret.error) : ret.value;
 
+Same comment as above.
 
-thanks,
--- 
-js
-suse labs
+> +}
+> +
+>  void __init sbi_init(void)
+>  {
+>  	int ret;
+> @@ -612,6 +650,11 @@ void __init sbi_init(void)
+>  			sbi_srst_reboot_nb.priority = 192;
+>  			register_restart_handler(&sbi_srst_reboot_nb);
+>  		}
+> +		if ((sbi_spec_version >= sbi_mk_version(2, 0)) &&
+> +		    (sbi_probe_extension(SBI_EXT_DBCN) > 0)) {
+> +			pr_info("SBI DBCN extension detected\n");
+> +			sbi_debug_console_available = true;
+> +		}
+>  	} else {
+>  		__sbi_set_timer = __sbi_set_timer_v01;
+>  		__sbi_send_ipi	= __sbi_send_ipi_v01;
+> -- 
+> 2.34.1
+>
 
+Otherwise,
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
