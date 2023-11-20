@@ -4,80 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 236EAC54E76
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Nov 2023 08:05:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 855BEC54E76
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Nov 2023 09:25:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bsAdkcmi5Ns+PIXTMNbP91wDC2rneF/rkRmm6m4lKCY=; b=BEnZHCdIwtKT2G
-	onozrNlPxXGpI1/xydrJocPWpgB/M0rNyvO2gY0Stj6KOTNZIr1LZygCKrym2RDoSunXRsXcHFxcR
-	gTz7+oQkgofNqnv9ATwoG2Vo2V4edzB2GMH0/MNyFCSRsYizaKswqOHsCVbaq2S3ejlfAC4BNKMrg
-	toIOF66wnjcwpQoIEjE8n7R3XqwBY68MKAXvBeVWSuAc2zHvj8s/0MsZfl1Zsru2ZgySKjR69aJWj
-	JCCeF7XdJ4IUDN8OOdxLRvTtECKKvxqy/dQgmQ28WKFmUk1OAsSXJOEFbw/EEnPgMULy8hUwmVl5g
-	F0pWKiLPrhQhUbWu/kMQ==;
+	List-Owner; bh=Rx0FSOsw3QsHe94yP6qEPxdlL8P+fxtakjvAb9ZqgLg=; b=Zx0Q2RxQEULfa5
+	7hccMCBQpSDUSteCCki7XzKGTQCipe2yCzZWBuVe3jKAlh8erlaVfbVCTruqjiKrI08i05F2rpeEW
+	Mowe287W4j/+HRH+CKXxPbrNMp7MgkAC2itWCI6Mpb/rhE6/wB+qVQuPYgH3kBrnV7KXhdDMHd1A4
+	pOdJt7ZZrimdMuh5u6goToDQiSMIpFemsB5nElsTnrwo4aHKbz5xve944vefrobqY+YAA/K/5Ia9P
+	hlSf6iRyJyq8UUzrp45dkvz1hARjItwIRLaG3exhL+fCbx01YD4tYxXkccMEpNjo+Bo+9FIYTFlWa
+	CisSueXhtDmoQHaKtNMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r4zHZ-00BTEz-24;
-	Mon, 20 Nov 2023 08:05:25 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1r50WV-00BdjX-0L;
+	Mon, 20 Nov 2023 09:24:55 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r4zHW-00BTEW-0U
-	for linux-riscv@lists.infradead.org;
-	Mon, 20 Nov 2023 08:05:23 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4081ccf69dcso7698235e9.0
-        for <linux-riscv@lists.infradead.org>; Mon, 20 Nov 2023 00:05:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1700467519; x=1701072319; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=k/r7/AHUvU5h9gmXC8cWkhPHDiuLCW3OhU5H88ffb6E=;
-        b=Ao0h5DXPWv9LJuqt4y9tBoSb1e2YCSmpsscR7M0yEi53JFLX9xRPy+qcCwiu0G3ST+
-         fO8Nme5c/mzDxGK7Tk1M+eCJYhPJ6N/QDM6I3xpWRCtPPveHSS+dh1cjJHL+UAsvEsk2
-         xZu6HkTFaxk4DlSP4ocNtK2IG/+fWJUduJyJ6+tmdscCt3kfnQs3BmlAiul+8sfiS7qV
-         otwGpEfrrDNe1AyHnHzPbOx3CNdyC0eS2MT2z6RX6Os+1IMg5SyQHMZPDIsmZASji9lQ
-         HGiomAx6H0eyXFqyK38GfJUdbjmIytBwessrbjXE3C9uFGQLw0SaIBwl6wcX77rN1dTV
-         Z/ug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700467519; x=1701072319;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=k/r7/AHUvU5h9gmXC8cWkhPHDiuLCW3OhU5H88ffb6E=;
-        b=ttDnkpbjCkQVLjdtK9Tz26ESeioTuMtN+SluLLD/2DHvzbWuGdenW19U6aUlUfhQiF
-         qA0vrWbWPJStPcKPHupMAgRrMtDIX4hywKewXyF86NFV+uOSs4yde2h8jSXMBEDlAqbL
-         AmIixwmfeVq9uXtyinKyjqA2E/Q5oUfLhsa6ISTzf94SMGGlRS8nZelWIjjcFJ1OqVAA
-         vttn4R/Y79jqcMwXDsYV6LpAWeCuOF0Mk0QMCnl4v369RLmd+lN80kXYIF5bV8LMMyza
-         CbtBs2TXZcV+zpty6Zl/sy+RGRonm3qJxxYFQbJBSmJ0xki2OAuDU5VgapZut9YMnQzL
-         UXwA==
-X-Gm-Message-State: AOJu0YydeZuI3Dr/37sETKV2PNYbVvktyQX9RimMPiutvs2WJy17Z0vd
-	Z3vTazLLvSkwjxk7F2QnCnowRg==
-X-Google-Smtp-Source: AGHT+IFN4nwCSr0/wD+U66vM10GQFv+Nri9nZ939m/NOfkfbpyvhNkhO8KxhTxplHCfzLfcHQj8ulg==
-X-Received: by 2002:a05:600c:6001:b0:408:33ba:569a with SMTP id az1-20020a05600c600100b0040833ba569amr10872487wmb.8.1700467518744;
-        Mon, 20 Nov 2023 00:05:18 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id j7-20020a05600c190700b004064cd71aa8sm12586581wmq.34.2023.11.20.00.05.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Nov 2023 00:05:18 -0800 (PST)
-Date: Mon, 20 Nov 2023 09:05:17 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org, 
-	linux-serial@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/5] RISC-V: Add SBI debug console helper routines
-Message-ID: <20231120-639982716fbfd33a6fc144d6@orel>
-References: <20231118033859.726692-1-apatel@ventanamicro.com>
- <20231118033859.726692-3-apatel@ventanamicro.com>
+	id 1r50WQ-00Bdgb-1U;
+	Mon, 20 Nov 2023 09:24:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=VaLCPpptCPl4dd3HPwfC9h62KXrs4QNdYGscUChirrc=; b=Y7u3kRAFMUjm3/j4LodjYSA3LZ
+	VC/v4Le7llOshhtVIeZgByL9Ta8EV6wWiKc32k2oFctq/SRATcfURY2PKHwM1fQ3e8O0y94oymLQc
+	xUrw2kmBGd5PWCfen4xrhtknxW1A3VcIcPuln0pl6/3f9+djfDci/m0DmbTJbLwDqHwz9uzkkrzpc
+	n5mOUp+mG/7fnMgC/NdjC9qKdJiht8DNMXVImILTIBATOw8lyvNOwlhTzaZeudVzzfnwbvVIrj3yR
+	uYAf8x/ctMS3iNKwDTV/DFOkBJ4dwsZmpT9F11ZEBjlVG0bZ2GIoNmwdcP+kaiqwUeH0SI0NgvPw4
+	bHPb0sAw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:49586)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1r50WD-0005DX-2m;
+	Mon, 20 Nov 2023 09:24:37 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1r50WD-00033Q-J2; Mon, 20 Nov 2023 09:24:37 +0000
+Date: Mon, 20 Nov 2023 09:24:37 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jianyong Wu <Jianyong.Wu@arm.com>
+Cc: "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
+	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"x86@kernel.org" <x86@kernel.org>,
+	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
+	"linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
+	Salil Mehta <salil.mehta@huawei.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Justin He <Justin.He@arm.com>, James Morse <James.Morse@arm.com>,
+	Catalin Marinas <Catalin.Marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <Mark.Rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH 34/39] arm64: psci: Ignore DENIED CPUs
+Message-ID: <ZVsl1ZQ9JRXPf4qH@shell.armlinux.org.uk>
+References: <ZTffkAdOqL2pI2la@shell.armlinux.org.uk>
+ <E1qvJBQ-00AqS8-8B@rmk-PC.armlinux.org.uk>
+ <DB9PR08MB7511B178CA811C412766FDBAF4B0A@DB9PR08MB7511.eurprd08.prod.outlook.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231118033859.726692-3-apatel@ventanamicro.com>
+In-Reply-To: <DB9PR08MB7511B178CA811C412766FDBAF4B0A@DB9PR08MB7511.eurprd08.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231120_000522_222210_219523C1 
-X-CRM114-Status: GOOD (  21.46  )
+X-CRM114-CacheID: sfid-20231120_012450_538396_FB1642E2 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,118 +96,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 18, 2023 at 09:08:56AM +0530, Anup Patel wrote:
-> Let us provide SBI debug console helper routines which can be
-> shared by serial/earlycon-riscv-sbi.c and hvc/hvc_riscv_sbi.c.
+On Thu, Nov 16, 2023 at 07:45:51AM +0000, Jianyong Wu wrote:
+> Hi Russell,
 > 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  arch/riscv/include/asm/sbi.h |  5 +++++
->  arch/riscv/kernel/sbi.c      | 43 ++++++++++++++++++++++++++++++++++++
->  2 files changed, 48 insertions(+)
+> One inline comment.
+...
+> > Changes since RFC v2
+> >  * Add specification reference
+> >  * Use EPERM rather than EPROBE_DEFER
+...
+> > @@ -40,7 +40,7 @@ static int cpu_psci_cpu_boot(unsigned int cpu)  {
+> >  	phys_addr_t pa_secondary_entry = __pa_symbol(secondary_entry);
+> >  	int err = psci_ops.cpu_on(cpu_logical_map(cpu), pa_secondary_entry);
+> > -	if (err)
+> > +	if (err && err != -EPROBE_DEFER)
 > 
-> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> index 66f3933c14f6..ee7aef5f6233 100644
-> --- a/arch/riscv/include/asm/sbi.h
-> +++ b/arch/riscv/include/asm/sbi.h
-> @@ -334,6 +334,11 @@ static inline unsigned long sbi_mk_version(unsigned long major,
->  }
->  
->  int sbi_err_map_linux_errno(int err);
-> +
-> +extern bool sbi_debug_console_available;
-> +int sbi_debug_console_write(unsigned int num_bytes, phys_addr_t base_addr);
-> +int sbi_debug_console_read(unsigned int num_bytes, phys_addr_t base_addr);
-> +
->  #else /* CONFIG_RISCV_SBI */
->  static inline int sbi_remote_fence_i(const struct cpumask *cpu_mask) { return -1; }
->  static inline void sbi_init(void) {}
-> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-> index 5a62ed1da453..73a9c22c3945 100644
-> --- a/arch/riscv/kernel/sbi.c
-> +++ b/arch/riscv/kernel/sbi.c
-> @@ -571,6 +571,44 @@ long sbi_get_mimpid(void)
->  }
->  EXPORT_SYMBOL_GPL(sbi_get_mimpid);
->  
-> +bool sbi_debug_console_available;
-> +
-> +int sbi_debug_console_write(unsigned int num_bytes, phys_addr_t base_addr)
-> +{
-> +	struct sbiret ret;
-> +
-> +	if (!sbi_debug_console_available)
-> +		return -EOPNOTSUPP;
-> +
-> +	if (IS_ENABLED(CONFIG_32BIT))
-> +		ret = sbi_ecall(SBI_EXT_DBCN, SBI_EXT_DBCN_CONSOLE_WRITE,
-> +				num_bytes, lower_32_bits(base_addr),
-> +				upper_32_bits(base_addr), 0, 0, 0);
-> +	else
-> +		ret = sbi_ecall(SBI_EXT_DBCN, SBI_EXT_DBCN_CONSOLE_WRITE,
-> +				num_bytes, base_addr, 0, 0, 0, 0);
-> +
-> +	return ret.error ? sbi_err_map_linux_errno(ret.error) : ret.value;
+> Should this be EPERM? As the following psci cpu_on op will return it. I
+> think you miss to change this when apply Jean-Philippe's patch.
 
-We can't get perfect mappings, but I wonder if we can do better than
-returning ENOTSUPP for "Failed to write the byte due to I/O errors."
+It looks like James didn't properly update all places. Also,
 
-How about
+> > diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c index
+> > d9629ff87861..ee82e7880d8c 100644
+> > --- a/drivers/firmware/psci/psci.c
+> > +++ b/drivers/firmware/psci/psci.c
+> > @@ -218,6 +218,8 @@ static int __psci_cpu_on(u32 fn, unsigned long cpuid,
+> > unsigned long entry_point)
+> >  	int err;
+> > 
+> >  	err = invoke_psci_fn(fn, cpuid, entry_point, 0);
+> > +	if (err == PSCI_RET_DENIED)
+> > +		return -EPERM;
+> >  	return psci_to_linux_errno(err);
 
- if (ret.error == SBI_ERR_FAILURE)
-     return -EIO;
+This change is unnecessary - probably comes from when -EPROBE_DEFER was
+being used. psci_to_linux_errno() already does:
 
- return ret.error ? sbi_err_map_linux_errno(ret.error) : ret.value;
+       case PSCI_RET_DENIED:
+               return -EPERM;
 
+Thanks.
 
-> +}
-> +
-> +int sbi_debug_console_read(unsigned int num_bytes, phys_addr_t base_addr)
-> +{
-> +	struct sbiret ret;
-> +
-> +	if (!sbi_debug_console_available)
-> +		return -EOPNOTSUPP;
-> +
-> +	if (IS_ENABLED(CONFIG_32BIT))
-> +		ret = sbi_ecall(SBI_EXT_DBCN, SBI_EXT_DBCN_CONSOLE_READ,
-> +				num_bytes, lower_32_bits(base_addr),
-> +				upper_32_bits(base_addr), 0, 0, 0);
-> +	else
-> +		ret = sbi_ecall(SBI_EXT_DBCN, SBI_EXT_DBCN_CONSOLE_READ,
-> +				num_bytes, base_addr, 0, 0, 0, 0);
-> +
-> +	return ret.error ? sbi_err_map_linux_errno(ret.error) : ret.value;
-
-Same comment as above.
-
-> +}
-> +
->  void __init sbi_init(void)
->  {
->  	int ret;
-> @@ -612,6 +650,11 @@ void __init sbi_init(void)
->  			sbi_srst_reboot_nb.priority = 192;
->  			register_restart_handler(&sbi_srst_reboot_nb);
->  		}
-> +		if ((sbi_spec_version >= sbi_mk_version(2, 0)) &&
-> +		    (sbi_probe_extension(SBI_EXT_DBCN) > 0)) {
-> +			pr_info("SBI DBCN extension detected\n");
-> +			sbi_debug_console_available = true;
-> +		}
->  	} else {
->  		__sbi_set_timer = __sbi_set_timer_v01;
->  		__sbi_send_ipi	= __sbi_send_ipi_v01;
-> -- 
-> 2.34.1
->
-
-Otherwise,
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-Thanks,
-drew
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
