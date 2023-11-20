@@ -4,71 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AD62C197A0
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Nov 2023 16:52:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2EB4C2BB3F
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Nov 2023 17:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ARAc3fOUIrW+qXPJ1G0Ldo3niEeWSD585iIZkN0/3dQ=; b=zEqcX7TZdm0knheaxqIWGlt4e3
-	82Gaw+fYuJnjEyTd2ouNfKK/UPPDWXMOAycZXt+9+2w7fY3Xn4asljduWqP5XFl4ys39QjPynOJhe
-	F+msq3VP9etyubftWRv8uZWYgdHN15pJYi048GX83tzBrZwoLDYEfEeGlHdffZYRV/5ksOOUeNro0
-	iRFH7xouPq5P6lo3gqeOOk7A5TyHsObP+TF7bRGnSG9xqDS0E7Ei6rMDwapuZg19UcA1ugbBCvmHZ
-	xd9sYcIne1FFLid95alZqpNxiZ6FpZlDEA1e0645dxUW1ivFQrZfz2gax9lq9zZwefFZijXoJGfle
-	j182aOoA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Rkj8m5VD7pXCKqsVXB+5InzK/Q0ao2P4oseRtj6Q5OY=; b=QMfkJ4PIUIURh2
+	OW3546hnZn/rh7uumVngU1O4GK6YyETkUASkmtdxejS0u3NSwTA5nkmZ2Vy0BjR3pUjX95CwVaHt9
+	Gab+k0HgOxzh2XU5GsD0p+ZUJhRQ+CtmE1NJOsDlD1ZuQ1M7/mSkIdRUUmsItahW6CeyOar3MA/ok
+	nKEVBCv9L6eBggO2UJg+a2fxg0dn0g+0w1ZjCMuVMwVmLO2/BVAlfpBfeAIsbzXCJsKZUrSeOL+JP
+	9tJEvg/PjuOVLy95kwIBqjrUeWR+Eu4839lB0umT3oYNGURy/v5tD9ObEiELY6iOV6vaK6PSTP+fm
+	YQTyCPXflgnjUrDlbfLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r57VQ-00DSHL-1P;
-	Mon, 20 Nov 2023 16:52:16 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1r58Cc-00Dtnu-0c;
+	Mon, 20 Nov 2023 17:36:54 +0000
+Received: from mail-oa1-x2f.google.com ([2001:4860:4864:20::2f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r57VM-00DSDe-1z
+	id 1r58CZ-00DtlK-0d
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Nov 2023 16:52:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 02C8CB8198A;
-	Mon, 20 Nov 2023 16:52:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C29AC433C7;
-	Mon, 20 Nov 2023 16:52:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1700499129;
-	bh=z+uggHQMjKoAbxyCf88m6HvumZukoCO2tr4KQ+XI2wk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IoAIyUvxhqiQY4jivygg20akkYxVre2lsLT+tqFsNQ3Nqy071EkFNQ1BKZsQ9CN2E
-	 JThL4ZA+RaGqhKtNCdg7rDC7tBQcn4hbNXoLyWP6U6KpIXC3byeVmvNhy18maQouAO
-	 2OL3a56K3dhYOOaobGiQHm4MxGAGsJlsNSEIxeQJi0F/bNIXgXhnGRr9wAn0eTJEGq
-	 Ff7ORxkAipElAzfC+lYdGgjKdlBRfVLYlRODJT+wt9Eg7lRMxOGrhaHGeoDGNy1iEz
-	 ewTlbbpMnXNQ2Rc87svL8vUYbC3bbw1KbidkmaxMNNs24khT9Cxma/QrDWvvz5HDIn
-	 5Vb5eZmKEJWLA==
-Date: Mon, 20 Nov 2023 16:52:03 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Inochi Amaoto <inochiama@outlook.com>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Anup Patel <anup@brainfault.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 1/2] dt-bindings: timer: thead,c900-aclint-mtimer:
- separate mtime and mtimecmp regs
-Message-ID: <20231120-banshee-traverse-554723cd9490@spud>
-References: <IA1PR20MB4953C82499C5D81D2C6A020BBBB6A@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB4953F9D77FFC76A9D236922DBBB6A@IA1PR20MB4953.namprd20.prod.outlook.com>
+	Mon, 20 Nov 2023 17:36:53 +0000
+Received: by mail-oa1-x2f.google.com with SMTP id 586e51a60fabf-1f9601fd9b1so84385fac.1
+        for <linux-riscv@lists.infradead.org>; Mon, 20 Nov 2023 09:36:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1700501809; x=1701106609; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=6S4PK8WT3cwW+G2GrOmybB1YODe/+PbVzMA49NRihL0=;
+        b=AZ2xjK6g3Rz5013+NCCGqQXCFDH7JoLxSMgh2TYDEKaYPM2HJdU0AiW3eNCJNhuUhF
+         b5SEc1gL4ypYh0tyfuu9cLBXmYnQ2twl93hO2HVP6fLkQT7RmRJ/acY1kDvF8/il6LYV
+         6LE8Fe3YTn5XGo3f5U8rRVUpPh9C90+cqoVbOmi4jxdGHpI1iGd5rB4uywk9YAmf1UQw
+         JTamPGdfodb6LwW9KSkhSEu2NW6TsbxVMRYEKWT4IeNrLh6LlUTHpI2ZQItt0Y+gODXM
+         Kjed/7Yrt08+OVi/n6rbJX8JE7vCH4bVSGjS1/Jiuy3eKid3XigLufPP6NF9qi01vvCd
+         9sTA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1700501809; x=1701106609;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6S4PK8WT3cwW+G2GrOmybB1YODe/+PbVzMA49NRihL0=;
+        b=is1dep5oFktezCzLOJQPR0zsYtJKpiLjPE1kJJsGAXykJYik9pm82cbxl+CLbxfvlD
+         P52nWr8U0CX3Dr/8ew8MK93NOT661NXrrWYhNIdU71M8slgudsDz/PDE6Bvg9L2DALQg
+         vG+5UD9oQ+vdiDZVhKIbi4nteDQmx+IHoRSugCsEr1Fs2tNYm4CtIeEOX6w/+SlaFfpO
+         rHZZmCckss8mh5pNza7p+p1L+1pCMRDmlSO4hQrh+S80bsXcH+TViuMrSuYaH6Q3/src
+         3XwlGXqObmaG76RrBE1NMDh+TKWQLCGXjnEFm/455vBYJh/WYrq3ZrpUnVoqO6L2yZsH
+         hGng==
+X-Gm-Message-State: AOJu0YwFDNjyFSYJLIO65mVhUgXevjpWa5+EZQU6B1InvGzbreYnH8kb
+	aOoguoXNu3EVBBdlGzPtgKejWg==
+X-Google-Smtp-Source: AGHT+IGl6FR1QPuWw83tR4YZijGxBbFwW2zBDfGjF5hcAg8Pg3Q6u4xrWAUQF0k15hXtsQj+Z3VEbA==
+X-Received: by 2002:a05:6870:d3c3:b0:1f0:4e1f:e09a with SMTP id l3-20020a056870d3c300b001f04e1fe09amr116089oag.4.1700501809323;
+        Mon, 20 Nov 2023 09:36:49 -0800 (PST)
+Received: from charlie.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id x55-20020a056830247700b006d64b970519sm1245547otr.2.2023.11.20.09.36.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Nov 2023 09:36:48 -0800 (PST)
+From: Charlie Jenkins <charlie@rivosinc.com>
+Date: Mon, 20 Nov 2023 09:36:39 -0800
+Subject: [PATCH] riscv: Safely remove entries from relocation list
 MIME-Version: 1.0
-In-Reply-To: <IA1PR20MB4953F9D77FFC76A9D236922DBBB6A@IA1PR20MB4953.namprd20.prod.outlook.com>
+Message-Id: <20231120-module_linking_freeing-v1-1-fff81d7289fc@rivosinc.com>
+X-B4-Tracking: v=1; b=H4sIACaZW2UC/x2MQQqAIBQFrxJ/naA/3HSViMh61aeyUIogvHvSa
+ pjFzEsRQRCpLl4KuCXK4bOYsqBh6f0MJWN2Ys2VMazVfozXhm4Tv4qfuykAmYqd7SvH1joLyvE
+ ZMMnzj5s2pQ90t4V7aAAAAA==
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Ron Economos <re@w6rz.net>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Charlie Jenkins <charlie@rivosinc.com>
+X-Mailer: b4 0.12.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231120_085212_969395_9B597AB9 
-X-CRM114-Status: GOOD (  22.67  )
+X-CRM114-CacheID: sfid-20231120_093651_456558_6C1E6EA8 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,150 +90,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7950032506405678745=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Use the safe versions of list and hlist iteration to safely remove
+entries from the module relocation lists.
 
---===============7950032506405678745==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="SyM6lyfFJB4JBnze"
-Content-Disposition: inline
+Fixes: 8fd6c5142395 ("riscv: Add remaining module relocations")
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+---
+ arch/riscv/kernel/module.c | 15 +++++++++++----
+ 1 file changed, 11 insertions(+), 4 deletions(-)
 
+diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+index 56a8c78e9e21..209db949a06e 100644
+--- a/arch/riscv/kernel/module.c
++++ b/arch/riscv/kernel/module.c
+@@ -624,18 +624,25 @@ void process_accumulated_relocations(struct module *me)
+ 	 *	- Each relocation entry for a location address
+ 	 */
+ 	struct used_bucket *bucket_iter;
++	struct used_bucket *bucket_iter_tmp;
+ 	struct relocation_head *rel_head_iter;
++	struct hlist_node *rel_head_iter_tmp;
+ 	struct relocation_entry *rel_entry_iter;
++	struct relocation_entry *rel_entry_iter_tmp;
+ 	int curr_type;
+ 	void *location;
+ 	long buffer;
+ 
+-	list_for_each_entry(bucket_iter, &used_buckets_list, head) {
+-		hlist_for_each_entry(rel_head_iter, bucket_iter->bucket, node) {
++	list_for_each_entry_safe(bucket_iter, bucket_iter_tmp,
++				 &used_buckets_list, head) {
++		hlist_for_each_entry_safe(rel_head_iter, rel_head_iter_tmp,
++					  bucket_iter->bucket, node) {
+ 			buffer = 0;
+ 			location = rel_head_iter->location;
+-			list_for_each_entry(rel_entry_iter,
+-					    rel_head_iter->rel_entry, head) {
++			list_for_each_entry_safe(rel_entry_iter,
++						 rel_entry_iter_tmp,
++						 rel_head_iter->rel_entry,
++						 head) {
+ 				curr_type = rel_entry_iter->type;
+ 				reloc_handlers[curr_type].reloc_handler(
+ 					me, &buffer, rel_entry_iter->value);
 
---SyM6lyfFJB4JBnze
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+---
+base-commit: b85ea95d086471afb4ad062012a4d73cd328fa86
+change-id: 20231120-module_linking_freeing-2b5a3b255b5e
+-- 
+- Charlie
 
-Yo,
-
-On Sat, Nov 18, 2023 at 03:10:26PM +0800, Inochi Amaoto wrote:
-> The timer registers of aclint don't follow the clint layout and can
-> be mapped on any different offset. As sg2042 uses separated timer
-> and mswi for its clint, it should follow the aclint spec and have
-> separated registers.
->=20
-> The previous patch introduced a new type of T-HEAD aclint timer which
-> has clint timer layout. Although it has the clint timer layout, it
-> should follow the aclint spec and uses the separated mtime and mtimecmp
-> regs. So a ABI change is needed to make the timer fit the aclint spec.
->=20
-> To make T-HEAD aclint timer more closer to the aclint spec, use
-> regs-names to represent the mtimecmp register, which can avoid hack
-> for unsupport mtime register of T-HEAD aclint timer.
->=20
-> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> Fixes: 4734449f7311 ("dt-bindings: timer: Add Sophgo sg2042 CLINT timer")
-> Link: https://lists.infradead.org/pipermail/opensbi/2023-October/005693.h=
-tml
-> Link: https://github.com/riscv/riscv-aclint/blob/main/riscv-aclint.adoc
-> ---
->  .../timer/thead,c900-aclint-mtimer.yaml       | 42 ++++++++++++++++++-
->  1 file changed, 41 insertions(+), 1 deletion(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/timer/thead,c900-aclint-mt=
-imer.yaml b/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtime=
-r.yaml
-> index fbd235650e52..053488fb1286 100644
-> --- a/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.ya=
-ml
-> +++ b/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.ya=
-ml
-> @@ -17,7 +17,20 @@ properties:
->        - const: thead,c900-aclint-mtimer
->=20
->    reg:
-> -    maxItems: 1
-> +    oneOf:
-> +      - items:
-> +          - description: MTIME Registers
-> +          - description: MTIMECMP Registers
-> +      - items:
-> +          - description: MTIMECMP Registers
-> +
-> +  reg-names:
-> +    oneOf:
-> +      - items:
-> +          - const: mtime
-> +          - const: mtimecmp
-> +      - items:
-> +          - const: mtimecmp
->=20
->    interrupts-extended:
->      minItems: 1
-> @@ -28,8 +41,34 @@ additionalProperties: false
->  required:
->    - compatible
->    - reg
-> +  - reg-names
->    - interrupts-extended
->=20
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: thead,c900-aclint-mtimer
-
-Is this being the c900 compatible correct? You mention in your commit
-message that this split is done on the sg2042, but the rule is applied
-here for any c900 series "aclint". Do we know if this is a sophgo
-specific thing (or even sg2042 specific), or if it applies generally?
-
-> +    then:
-> +      properties:
-> +        reg:
-> +          items:
-> +            - description: MTIMECMP Registers
-> +        reg-names:
-> +          items:
-> +            - const: mtimecmp
-
-> +    else:
-> +      properties:
-> +        reg:
-> +          items:
-> +            - description: MTIME Registers
-> +            - description: MTIMECMP Registers
-> +        reg-names:
-> +          items:
-> +            - const: mtime
-> +            - const: mtimecmp
-
-If it applies generally, I would probably just delete this, but unless
-someone can confirm this to be general, I'd probably leave the else
-clause and swap for the specific sg2042 compatible above.
-
-Otherwise, this looks like a better fix than you had proposed before :)
-
-Thanks,
-Conor.
-
---SyM6lyfFJB4JBnze
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZVuOswAKCRB4tDGHoIJi
-0nUgAP9Qh7o82eKAfQthXVortYfkS6wXhMlYq7MkGEyue00G5AD7BR46o/k6lslh
-FIQz+iWXPJH+kSgGoq/KvFIQUph8TwU=
-=JOFi
------END PGP SIGNATURE-----
-
---SyM6lyfFJB4JBnze--
-
-
---===============7950032506405678745==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7950032506405678745==--
-
