@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95EC4C61D96
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Nov 2023 13:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62250C61D96
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Nov 2023 13:45:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:MIME-Version:Subject:Cc
 	:To:From:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k4Wnjyad5xBKmB9QoATW8nvbYUFhpVRZTyJGNQvJSdo=; b=RkBtXCNKRokNbF
-	i4opH/vf5BDhZ1aVvwxIhUPGpvrPXWLC/wdpkCf82bhpa8ESMLYefd3SnZxwG6l4v1+VCATZRmgEO
-	wAtXETO/h1ZG1no3nBEHgAkf4DQbeipRREvBknsUQZ1Y5nM+n/ZmOxwdNru2hhGbH5Var7DVbWjV+
-	PrHIwFGaVivKlCLQGt2FeEWrZ7Wee2lK3+3Jj4k1dT1ureBwofnCYdD3eeBnR8CQTiC52qH5ew5FE
-	eRfns9F2kZLy5IuvGfffu9l4/576El3LYeBspKAQAyGDdmnxWBZzGTFLvFkpTFjmSicbRPMNUjijw
-	/e7sqG4el96u62yNgAlw==;
+	List-Owner; bh=Jvis421iKFuU0yhVqUciCW3HqYK9DrVvqvZMI2YV+ok=; b=jZeWzP8wCqs5DE
+	Y9RS/n6XcIrcCW82zhpp0rmJPX70vkb4YKRvMR6GwbonXU+Svtk+ubuM6RtBCUwgcenTxW8+I4Tsk
+	oGxh9JZkn6j6GsfuLBnZWDypPrM0jadicdFztTB3uMolyQauAzv40ORAEMXpxBPH4MXWU2s2t8rZZ
+	tHaVtIug2l511vzPe1T0BUc1gXGDUAp2ChcdLOQTnKj/tf/ujdYJ8O7offYXJH1B662n1eBZeov6Q
+	cJ9bXR1RvgyVpLB5/Z51BvRxK1pAMlOg2YhepMTAJG3tJsio56a/qgDGci+KnCFi0UQ5Cw84Uyf8u
+	vX339cXyYP3QJhRVJ6AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5R3k-00Gr3C-0f;
-	Tue, 21 Nov 2023 13:45:00 +0000
+	id 1r5R3q-00GrAK-1L;
+	Tue, 21 Nov 2023 13:45:06 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5R3X-00Gqpq-28;
-	Tue, 21 Nov 2023 13:44:49 +0000
+	id 1r5R3e-00GqwK-2T;
+	Tue, 21 Nov 2023 13:44:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=AMLeOPj97UWFUJITi7pviQd/DMBECoV/Ju2iA1XroZM=; b=dI9yNfhWRlCZl2+N08sQCDjYKs
-	HxjUEsFQQmz6As04wvLH79yIs+qlGPFJTWcoEZTD9UUJIr/vHeutTsr6tYoo8H3u+CsmDq7B3k1w2
-	mO6LjeSYGpAxvi5yCXLeC/ZaGCAaHLEJKBQB2YPiyqpUtfWuJlAVPoDcB46AFmA7cFsWNPCHz4+sI
-	GQQlvrIIZNDnU1gHZveHchJT4uo0fmHV0eCqzmIG408o8C120HJi05c6c0ImV71L856//EjPjMDZi
-	AunSnfERbi105QA9vE/sfd/2W7HthBqFQwE/wHLQb6sMnBM1ATBzzLWx8P5O/732oPEk1tL2TNAgg
-	nl29rHGw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:44222 helo=rmk-PC.armlinux.org.uk)
+	bh=OkDhpe8Fjqhy+RwbS5GO6YsrbQf6HnPLrJyOGiqcGrs=; b=uR0WCwzcX0Tghl5H8yimLbqsQM
+	yEr4C9gly46wqpaUIHGVKbiccXUi2NW8qB5k6JnTqH/O9Rsi0Yl1odaX14EER7zTlt7WxWUTkX9lY
+	LbS1YdCd4s8DozBLUITh/wK6QEtwSF+iis8PrEC/edX9bdlUaXzmwOxwqrc91BOEgT21goKImrNFh
+	PNPnR+SX+0QWSViOV2aVj1z6nyA8guj+7rda0ZRznfMOhsmpQi08zlAGz6oLgFQDvaKW0wy2ng0/l
+	KVZb37PuuFrS5G+iPFgYd+J+djBIW5utxZpbotE0ysEaD4MWMv5+FH0NVVw0L8BmoKYhWQxXTegIi
+	SeObvE8w==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:50550 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1r5R3P-00078T-1c;
-	Tue, 21 Nov 2023 13:44:39 +0000
+	id 1r5R3U-00078z-1k;
+	Tue, 21 Nov 2023 13:44:44 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1r5R3R-00CszO-C0; Tue, 21 Nov 2023 13:44:41 +0000
+	id 1r5R3W-00CszU-GM; Tue, 21 Nov 2023 13:44:46 +0000
 In-Reply-To: <ZVyz/Ve5pPu8AWoA@shell.armlinux.org.uk>
 References: <ZVyz/Ve5pPu8AWoA@shell.armlinux.org.uk>
 From: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
@@ -69,17 +69,19 @@ Cc: Salil Mehta <salil.mehta@huawei.com>,
 	 justin.he@arm.com,
 	 James Morse <james.morse@arm.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>
-Subject: [PATCH 10/21] drivers: base: Move cpu_dev_init() after
- node_dev_init()
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: [PATCH 11/21] drivers: base: Print a warning instead of panic() when
+ register_cpu() fails
 MIME-Version: 1.0
 Content-Disposition: inline
-Message-Id: <E1r5R3R-00CszO-C0@rmk-PC.armlinux.org.uk>
-Date: Tue, 21 Nov 2023 13:44:41 +0000
+Message-Id: <E1r5R3W-00CszU-GM@rmk-PC.armlinux.org.uk>
+Date: Tue, 21 Nov 2023 13:44:46 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231121_054447_738564_FB5E4D60 
-X-CRM114-Status: UNSURE (   9.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231121_054454_815209_2D808AD7 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,38 +100,49 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: James Morse <james.morse@arm.com>
 
-NUMA systems require the node descriptions to be ready before CPUs are
-registered. This is so that the node symlinks can be created in sysfs.
+loongarch, mips, parisc, riscv and sh all print a warning if
+register_cpu() returns an error. Architectures that use
+GENERIC_CPU_DEVICES call panic() instead.
 
-Currently no NUMA platform uses GENERIC_CPU_DEVICES, meaning that CPUs
-are registered by arch code, instead of cpu_dev_init().
+Errors in this path indicate something is wrong with the firmware
+description of the platform, but the kernel is able to keep running.
 
-Move cpu_dev_init() after node_dev_init() so that NUMA architectures
-can use GENERIC_CPU_DEVICES.
+Downgrade this to a warning to make it easier to debug this issue.
+
+This will allow architectures that switching over to GENERIC_CPU_DEVICES
+to drop their warning, but keep the existing behaviour.
 
 Signed-off-by: James Morse <james.morse@arm.com>
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
-Note: Jonathan's comment still needs addressing - see
-  https://lore.kernel.org/r/20230914121612.00006ac7@Huawei.com
----
- drivers/base/init.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/base/cpu.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/base/init.c b/drivers/base/init.c
-index 397eb9880cec..c4954835128c 100644
---- a/drivers/base/init.c
-+++ b/drivers/base/init.c
-@@ -35,8 +35,8 @@ void __init driver_init(void)
- 	of_core_init();
- 	platform_bus_init();
- 	auxiliary_bus_init();
--	cpu_dev_init();
- 	memory_dev_init();
- 	node_dev_init();
-+	cpu_dev_init();
- 	container_dev_init();
+diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
+index 221ffbeb1c9b..82b6a76125f5 100644
+--- a/drivers/base/cpu.c
++++ b/drivers/base/cpu.c
+@@ -551,14 +551,15 @@ void __weak arch_unregister_cpu(int num)
+ 
+ static void __init cpu_dev_register_generic(void)
+ {
+-	int i;
++	int i, ret;
+ 
+ 	if (!IS_ENABLED(CONFIG_GENERIC_CPU_DEVICES))
+ 		return;
+ 
+ 	for_each_present_cpu(i) {
+-		if (arch_register_cpu(i))
+-			panic("Failed to register CPU device");
++		ret = arch_register_cpu(i);
++		if (ret)
++			pr_warn("register_cpu %d failed (%d)\n", i, ret);
+ 	}
  }
+ 
 -- 
 2.30.2
 
