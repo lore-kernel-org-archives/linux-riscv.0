@@ -4,88 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13941C61D97
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Nov 2023 22:50:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92AE0C61D85
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Nov 2023 22:53:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=4a8rOTe7h1Zbzi/q4BztcXq7tdqK8M/fnhjoDHAXSrQ=; b=Evq8i5iqmZGa6V
-	yEUIr08M012m+yXHV8a7Gg+Pqm609Dl9wykGRUn5NfhgDVBO8j/g9sjkEhjs32ScEx1f3RSGbtwvu
-	xUB1Gg1g10VC7QiDs9tLcZ4AkX9XIBBCLwmR15AYO3/lBVhMobB6HI2SdfYwDV8EtXFxrp3oqcuZh
-	BOZjHr/iSX8dIwFW4fkWe1s9PQCwXsR+0PLnoKIlpsAjvj3CmgAsrVh6kxEnYhNUUcAej91riH/X1
-	EHFd/cV5sMdeaVFCVOujfSy7xE2wt1g05/2s92UHou7MrrmBLetHju6qdh4Pi3g/b68vVromcUfFj
-	+SGjIWC+X2f66V0l3ppg==;
+	List-Owner; bh=c3JItcqHNK30Qm5Aj5F2f1fMkUIDtLPRZBZV7rQ4WdM=; b=04c2w5syN94eE5
+	oOg6qikSYVRwb8lh5gkfqwoLsjeL146Tq7P89uMS/L2fYbFZGsOW6T+2tgp1vLik5tDCU21Yvh19g
+	qSk88slmJatCY85O9iJ6L/DVUWVQ3KuHFQfO1BfMF54H/qefM+ZpH+56/XBLITJgD8luXhAseQyX3
+	Keqr/Hd8BQiYEEM2EwCS3zCpSV6z2qJ/LUcl6bN3Tcjq7H3AFXZQlkJ7xJexoQNWYSrMGITf8jtk5
+	6Cr0063OzFkbqDYnabCbOrikIY8yF+Yu7atqitlt1zqj28+PU0GPhJYRKYFzA13xT4WKuJyhgDQZF
+	YDwj2WvItlVzI6Qc+bTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5ZZw-000DAn-15;
-	Tue, 21 Nov 2023 22:50:48 +0000
-Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
+	id 1r5ZcW-000DSm-0q;
+	Tue, 21 Nov 2023 22:53:28 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5ZZs-000DA2-0h
+	id 1r5ZcT-000DSF-0J
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Nov 2023 22:50:46 +0000
-Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-1f5d34235dbso135727fac.0
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Nov 2023 14:50:42 -0800 (PST)
+	Tue, 21 Nov 2023 22:53:26 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-6cbbfdf72ecso1037748b3a.2
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Nov 2023 14:53:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1700607041; x=1701211841; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=DUyHc0j6Ju2SfAIga/ld56HvjwbN/U3s1rsaQ7X5kEY=;
-        b=22jNhtCsNUepakb8gH7Y2A5UyAZpmuJG2M0hRwunnvZdB3vWphtGHtSoP6FUnTBI6n
-         dbVwwcLwqQQF2MXC9HQR4LvjLNpM/owR2oB+ff+q3Jy7/9rLFn0RR/uOMb/+aUhTUg8h
-         t6F2syBAVNC5DVQD0S3TtmTLHsABuW5B+QKVOuz6JgHH5ZX+dCybGhZRl0iO/HSPy2u8
-         ChvdcEz6jMAaBjh+nzWwpyLLxXbBLRtMKGvOhgIooKUyyVZZ6pR1HVhoLC81oaEu0Tnh
-         /azsIJQRWhLsI8agO5k5Hv8AR/0rlyrOpW6yP5Mbp3MW7Brbxq+g0wUHEf6Zjx4OKqXu
-         nnzQ==
+        d=sifive.com; s=google; t=1700607202; x=1701212002; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=s0tON6NhtrNElMNXfQn/4ERggbp9sDlCFXxxYXR10S0=;
+        b=HLXMCC3ddfQLypxyrNO890DiQgTTx/XR9/E+wdLYSQJ0OFVPFcGk4cgALXiIVPBsIv
+         hho0/ZJW55se1c7szh0XMxtG0AShvvxDFGK7EiRoCo9SUKkUh3OOL6o3Sii0f6Rtgy7m
+         0UQDLJCoK/j8Qo7Qe+RcjNi4uK4KLFe6OVxDynmwSpi+znPTTGJD+Q5eSe3lNr3UxZsk
+         de//UDj6CvaPvlUBtFt/P6AG08kpDpOT6Yu+hwZIU4HXcrkYT2gvZFxoi1siHfS/MqnQ
+         vD2g19MkjFeKWHNsXF3uhhaQREj7llTInKa5Au2khIifXFnuk5VMNb5bimI6loxRWmAH
+         H/dg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700607041; x=1701211841;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1700607202; x=1701212002;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=DUyHc0j6Ju2SfAIga/ld56HvjwbN/U3s1rsaQ7X5kEY=;
-        b=wQ4Ql12kbhUe1NqRWPVo+4bgwUEPxIsyxLeG8B8MVdMCmRI6bdY62g1utabixR3GHD
-         pagDaeamr7JLnE61VKQYDfH2x4RmEK9mCtqixi587hpwr8bRMoamB2K2yD9PW+DUzxft
-         k2Ae0lQIPnIhHEuPdshWwX1vFMIRMNhXN5fw8HFQyZy+ACFIS7gEWSotguUMGqfea1gB
-         WsIC7uTiIpnlUJ81ZYyWmb/RFzN5JlugFZjgCQj+wuGTztYkS2Zf3BV4SGyFZ+j9liTl
-         TvzPUtBKhTOv+xRaUMN6U+YP1rrQUIcBRJj14BzofxUvu5FBq8I9evOtqQ4mhIjOe+GP
-         pU3Q==
-X-Gm-Message-State: AOJu0YwGAFOM9plHHx6iGylqQdOyu0U5ssb71E0nMLXRLf79hQymIklC
-	7U4OpH0XYNtoXro+7PedbZ3y9Q==
-X-Google-Smtp-Source: AGHT+IGMIBWqRvMREzONSNPjvDKkKSJ4l9c+zeFDM9OJ5MF1Lsu7kknkgcAeKdMOtQd/CTHfWvVeHQ==
-X-Received: by 2002:a05:6870:aa94:b0:1f9:5310:90ab with SMTP id gr20-20020a056870aa9400b001f9531090abmr388557oab.3.1700607041535;
-        Tue, 21 Nov 2023 14:50:41 -0800 (PST)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id z2-20020a056870384200b001f40abd9fdbsm1924965oal.2.2023.11.21.14.50.40
+        bh=s0tON6NhtrNElMNXfQn/4ERggbp9sDlCFXxxYXR10S0=;
+        b=MH5WizW4BufwhZI6hT847QRSuCLF3cPTvpRFHk4YXIU2Cp496ogLq9OgI5l/sPzTGD
+         pGJDD/mX7oHaf4roKxENO0PWDcWvVQymh706+KpOgZDJoOhpIq8GoerO83oRt84j3kjq
+         vywayq5hWpubJsoAfoc5FAujsGDeKtjtyb2HOjPk8rMcmpEzGoVoEyoKMayVPfniiS/+
+         8qftdmCO36Wl7uAHleNCOqiDc483rluwykTQ0hDb29yhon3UhaVpGkOwdnwvMVmpfdzW
+         qD7LsYpqqEMMNdpKqrC+gsx38hNGXo0tYDxuhkvIGfOxnX7htlupV41cMZ0n1PDML+Bd
+         wZbA==
+X-Gm-Message-State: AOJu0YzCpjBChp47oEjbLpRrbkDqL5wft2fclDNwkrmnzrMMGyqV9QZH
+	bXQq9Hjav3mvjNwiuqJQICWrVQ==
+X-Google-Smtp-Source: AGHT+IEymVztgaDeCf5f5ir/N8tK8WfALZJaoFISW9RDdWSI1iKazifsGN7ra8fscYR/itU7sJHYeQ==
+X-Received: by 2002:a05:6a00:429b:b0:6c6:b5ae:15a4 with SMTP id bx27-20020a056a00429b00b006c6b5ae15a4mr742803pfb.20.1700607202051;
+        Tue, 21 Nov 2023 14:53:22 -0800 (PST)
+Received: from sw06.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id d11-20020a056a00198b00b006cb9a43ae4esm4217873pfl.215.2023.11.21.14.53.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Nov 2023 14:50:41 -0800 (PST)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Tue, 21 Nov 2023 14:50:37 -0800
-Subject: [PATCH v2] riscv: Safely remove entries from relocation list
+        Tue, 21 Nov 2023 14:53:21 -0800 (PST)
+From: Samuel Holland <samuel.holland@sifive.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Ian Kent <raven@themaw.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Sven Joachim <svenjoac@gmx.de>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: Remove obsolete rv32_defconfig file
+Date: Tue, 21 Nov 2023 14:53:18 -0800
+Message-ID: <20231121225320.3430550-1-samuel.holland@sifive.com>
+X-Mailer: git-send-email 2.42.0
 MIME-Version: 1.0
-Message-Id: <20231121-module_linking_freeing-v2-1-974bfcd3664e@rivosinc.com>
-X-B4-Tracking: v=1; b=H4sIADw0XWUC/4WNUQrCMBBEr1L220izJVj98h5SSpNu2sU2kUSDU
- nJ3Yy/g1/AG5s0GkQJThEu1QaDEkb0rgIcKzDy4iQSPhQFrbKTEWqx+fC3UL+zu7KbeBqKSArU
- aGo1KaUVQxo9Alt+7+NYVnjk+ffjsP0n+2r/KJIUU1tpWjidsz9ZcAycf2Zmj8St0Oecv4suSS
- b8AAAA=
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Ron Economos <re@w6rz.net>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1700607040; l=7292;
- i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=BPxSfHiD/1CoNWAadGRWfCiIZVum0NpgMbJUCXfSyxQ=;
- b=OSv5WsCH1yJPN+gH6kzzLT3/R3XxrdSfng66ZLM1H5O7KATPtJ9oBxNDt6QdxKQHjbE1pFmX1
- yOWFSEG6iL8AvxpARIRUmFe2hWe03M2aKE5bF3SJcZQB6DhK5AdGN1g
-X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
- pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231121_145044_447697_35D6BF53 
-X-CRM114-Status: GOOD (  15.03  )
+X-CRM114-CacheID: sfid-20231121_145325_205929_981883D0 
+X-CRM114-Status: UNSURE (   7.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,198 +95,164 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use the safe versions of list and hlist iteration to safely remove
-entries from the module relocation lists. To allow mutliple threads to
-load modules concurrently, move relocation list pointers onto the stack
-rather than using global variables.
+This file is not used since commit 72f045d19f25 ("riscv: Fixup
+difference with defconfig"), where it was replaced by the
+32-bit.config fragment. Delete the old file to avoid any confusion.
 
-Fixes: 8fd6c5142395 ("riscv: Add remaining module relocations")
-Reported-by: Ron Economos <re@w6rz.net>
-Closes: https://lore.kernel.org/linux-riscv/444de86a-7e7c-4de7-5d1d-c1c40eefa4ba@w6rz.net
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
-Changes in v2:
-- Support linking modules concurrently across threads.
-- Link to v1: https://lore.kernel.org/r/20231120-module_linking_freeing-v1-1-fff81d7289fc@rivosinc.com
----
- arch/riscv/kernel/module.c | 76 +++++++++++++++++++++++++++++++---------------
- 1 file changed, 51 insertions(+), 25 deletions(-)
 
-diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-index 56a8c78e9e21..f53e82b70dff 100644
---- a/arch/riscv/kernel/module.c
-+++ b/arch/riscv/kernel/module.c
-@@ -40,14 +40,17 @@ struct relocation_handlers {
- 				  long buffer);
- };
- 
--unsigned int initialize_relocation_hashtable(unsigned int num_relocations);
--void process_accumulated_relocations(struct module *me);
-+unsigned int
-+initialize_relocation_hashtable(unsigned int num_relocations,
-+				struct hlist_head **relocation_hashtable,
-+				struct list_head *used_buckets_list);
-+void process_accumulated_relocations(struct module *me,
-+				     struct hlist_head **relocation_hashtable,
-+				     struct list_head *used_buckets_list);
- int add_relocation_to_accumulate(struct module *me, int type, void *location,
--				 unsigned int hashtable_bits, Elf_Addr v);
--
--struct hlist_head *relocation_hashtable;
--
--struct list_head used_buckets_list;
-+				 unsigned int hashtable_bits, Elf_Addr v,
-+				struct hlist_head **relocation_hashtable,
-+				struct list_head *used_buckets_list);
- 
- /*
-  * The auipc+jalr instruction pair can reach any PC-relative offset
-@@ -604,7 +607,9 @@ static const struct relocation_handlers reloc_handlers[] = {
- 	/* 192-255 nonstandard ABI extensions  */
- };
- 
--void process_accumulated_relocations(struct module *me)
-+void process_accumulated_relocations(struct module *me,
-+				     struct hlist_head **relocation_hashtable,
-+				     struct list_head *used_buckets_list)
- {
- 	/*
- 	 * Only ADD/SUB/SET/ULEB128 should end up here.
-@@ -624,18 +629,25 @@ void process_accumulated_relocations(struct module *me)
- 	 *	- Each relocation entry for a location address
- 	 */
- 	struct used_bucket *bucket_iter;
-+	struct used_bucket *bucket_iter_tmp;
- 	struct relocation_head *rel_head_iter;
-+	struct hlist_node *rel_head_iter_tmp;
- 	struct relocation_entry *rel_entry_iter;
-+	struct relocation_entry *rel_entry_iter_tmp;
- 	int curr_type;
- 	void *location;
- 	long buffer;
- 
--	list_for_each_entry(bucket_iter, &used_buckets_list, head) {
--		hlist_for_each_entry(rel_head_iter, bucket_iter->bucket, node) {
-+	list_for_each_entry_safe(bucket_iter, bucket_iter_tmp,
-+				 used_buckets_list, head) {
-+		hlist_for_each_entry_safe(rel_head_iter, rel_head_iter_tmp,
-+					  bucket_iter->bucket, node) {
- 			buffer = 0;
- 			location = rel_head_iter->location;
--			list_for_each_entry(rel_entry_iter,
--					    rel_head_iter->rel_entry, head) {
-+			list_for_each_entry_safe(rel_entry_iter,
-+						 rel_entry_iter_tmp,
-+						 rel_head_iter->rel_entry,
-+						 head) {
- 				curr_type = rel_entry_iter->type;
- 				reloc_handlers[curr_type].reloc_handler(
- 					me, &buffer, rel_entry_iter->value);
-@@ -648,11 +660,13 @@ void process_accumulated_relocations(struct module *me)
- 		kfree(bucket_iter);
- 	}
- 
--	kfree(relocation_hashtable);
-+	kfree(*relocation_hashtable);
- }
- 
- int add_relocation_to_accumulate(struct module *me, int type, void *location,
--				 unsigned int hashtable_bits, Elf_Addr v)
-+				 unsigned int hashtable_bits, Elf_Addr v,
-+				struct hlist_head **relocation_hashtable,
-+				struct list_head *used_buckets_list)
- {
- 	struct relocation_entry *entry;
- 	struct relocation_head *rel_head;
-@@ -667,7 +681,7 @@ int add_relocation_to_accumulate(struct module *me, int type, void *location,
- 
- 	hash = hash_min((uintptr_t)location, hashtable_bits);
- 
--	current_head = &relocation_hashtable[hash];
-+	current_head = &((*relocation_hashtable)[hash]);
- 
- 	/* Find matching location (if any) */
- 	bool found = false;
-@@ -693,7 +707,7 @@ int add_relocation_to_accumulate(struct module *me, int type, void *location,
- 				kmalloc(sizeof(struct used_bucket), GFP_KERNEL);
- 			INIT_LIST_HEAD(&bucket->head);
- 			bucket->bucket = current_head;
--			list_add(&bucket->head, &used_buckets_list);
-+			list_add(&bucket->head, used_buckets_list);
- 		}
- 		hlist_add_head(&rel_head->node, current_head);
- 	}
-@@ -704,7 +718,10 @@ int add_relocation_to_accumulate(struct module *me, int type, void *location,
- 	return 0;
- }
- 
--unsigned int initialize_relocation_hashtable(unsigned int num_relocations)
-+unsigned int
-+initialize_relocation_hashtable(unsigned int num_relocations,
-+				struct hlist_head **relocation_hashtable,
-+				struct list_head *used_buckets_list)
- {
- 	/* Can safely assume that bits is not greater than sizeof(long) */
- 	unsigned long hashtable_size = roundup_pow_of_two(num_relocations);
-@@ -720,12 +737,12 @@ unsigned int initialize_relocation_hashtable(unsigned int num_relocations)
- 
- 	hashtable_size <<= should_double_size;
- 
--	relocation_hashtable = kmalloc_array(hashtable_size,
--					     sizeof(*relocation_hashtable),
--					     GFP_KERNEL);
--	__hash_init(relocation_hashtable, hashtable_size);
-+	*relocation_hashtable = kmalloc_array(hashtable_size,
-+					      sizeof(*relocation_hashtable),
-+					      GFP_KERNEL);
-+	__hash_init(*relocation_hashtable, hashtable_size);
- 
--	INIT_LIST_HEAD(&used_buckets_list);
-+	INIT_LIST_HEAD(used_buckets_list);
- 
- 	return hashtable_bits;
- }
-@@ -742,7 +759,13 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
- 	Elf_Addr v;
- 	int res;
- 	unsigned int num_relocations = sechdrs[relsec].sh_size / sizeof(*rel);
--	unsigned int hashtable_bits = initialize_relocation_hashtable(num_relocations);
-+	struct hlist_head *relocation_hashtable;
-+	struct list_head used_buckets_list;
-+	unsigned int hashtable_bits;
-+
-+	hashtable_bits = initialize_relocation_hashtable(num_relocations,
-+							 &relocation_hashtable,
-+							 &used_buckets_list);
- 
- 	pr_debug("Applying relocate section %u to %u\n", relsec,
- 	       sechdrs[relsec].sh_info);
-@@ -823,14 +846,17 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
- 		}
- 
- 		if (reloc_handlers[type].accumulate_handler)
--			res = add_relocation_to_accumulate(me, type, location, hashtable_bits, v);
-+			res = add_relocation_to_accumulate(
-+				me, type, location, hashtable_bits, v,
-+				&relocation_hashtable, &used_buckets_list);
- 		else
- 			res = handler(me, location, v);
- 		if (res)
- 			return res;
- 	}
- 
--	process_accumulated_relocations(me);
-+	process_accumulated_relocations(me, &relocation_hashtable,
-+					&used_buckets_list);
- 
- 	return 0;
- }
+ arch/riscv/configs/rv32_defconfig | 139 ------------------------------
+ 1 file changed, 139 deletions(-)
+ delete mode 100644 arch/riscv/configs/rv32_defconfig
 
----
-base-commit: 98b1cc82c4affc16f5598d4fa14b1858671b2263
-change-id: 20231120-module_linking_freeing-2b5a3b255b5e
+diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
+deleted file mode 100644
+index 89b601e253a6..000000000000
+--- a/arch/riscv/configs/rv32_defconfig
++++ /dev/null
+@@ -1,139 +0,0 @@
+-CONFIG_SYSVIPC=y
+-CONFIG_POSIX_MQUEUE=y
+-CONFIG_NO_HZ_IDLE=y
+-CONFIG_HIGH_RES_TIMERS=y
+-CONFIG_BPF_SYSCALL=y
+-CONFIG_IKCONFIG=y
+-CONFIG_IKCONFIG_PROC=y
+-CONFIG_CGROUPS=y
+-CONFIG_CGROUP_SCHED=y
+-CONFIG_CFS_BANDWIDTH=y
+-CONFIG_CGROUP_BPF=y
+-CONFIG_NAMESPACES=y
+-CONFIG_USER_NS=y
+-CONFIG_CHECKPOINT_RESTORE=y
+-CONFIG_BLK_DEV_INITRD=y
+-CONFIG_EXPERT=y
+-# CONFIG_SYSFS_SYSCALL is not set
+-CONFIG_PROFILING=y
+-CONFIG_SOC_SIFIVE=y
+-CONFIG_SOC_VIRT=y
+-CONFIG_NONPORTABLE=y
+-CONFIG_ARCH_RV32I=y
+-CONFIG_SMP=y
+-CONFIG_HOTPLUG_CPU=y
+-CONFIG_PM=y
+-CONFIG_CPU_IDLE=y
+-CONFIG_VIRTUALIZATION=y
+-CONFIG_KVM=m
+-CONFIG_JUMP_LABEL=y
+-CONFIG_MODULES=y
+-CONFIG_MODULE_UNLOAD=y
+-CONFIG_NET=y
+-CONFIG_PACKET=y
+-CONFIG_UNIX=y
+-CONFIG_INET=y
+-CONFIG_IP_MULTICAST=y
+-CONFIG_IP_ADVANCED_ROUTER=y
+-CONFIG_IP_PNP=y
+-CONFIG_IP_PNP_DHCP=y
+-CONFIG_IP_PNP_BOOTP=y
+-CONFIG_IP_PNP_RARP=y
+-CONFIG_NETLINK_DIAG=y
+-CONFIG_NET_9P=y
+-CONFIG_NET_9P_VIRTIO=y
+-CONFIG_PCI=y
+-CONFIG_PCIEPORTBUS=y
+-CONFIG_PCI_HOST_GENERIC=y
+-CONFIG_PCIE_XILINX=y
+-CONFIG_DEVTMPFS=y
+-CONFIG_DEVTMPFS_MOUNT=y
+-CONFIG_BLK_DEV_LOOP=y
+-CONFIG_VIRTIO_BLK=y
+-CONFIG_BLK_DEV_SD=y
+-CONFIG_BLK_DEV_SR=y
+-CONFIG_SCSI_VIRTIO=y
+-CONFIG_ATA=y
+-CONFIG_SATA_AHCI=y
+-CONFIG_SATA_AHCI_PLATFORM=y
+-CONFIG_NETDEVICES=y
+-CONFIG_VIRTIO_NET=y
+-CONFIG_MACB=y
+-CONFIG_E1000E=y
+-CONFIG_R8169=y
+-CONFIG_MICROSEMI_PHY=y
+-CONFIG_INPUT_MOUSEDEV=y
+-CONFIG_SERIAL_8250=y
+-CONFIG_SERIAL_8250_CONSOLE=y
+-CONFIG_SERIAL_OF_PLATFORM=y
+-CONFIG_VIRTIO_CONSOLE=y
+-CONFIG_HW_RANDOM=y
+-CONFIG_HW_RANDOM_VIRTIO=y
+-CONFIG_SPI=y
+-CONFIG_SPI_SIFIVE=y
+-# CONFIG_PTP_1588_CLOCK is not set
+-CONFIG_DRM=y
+-CONFIG_DRM_RADEON=y
+-CONFIG_DRM_VIRTIO_GPU=y
+-CONFIG_FB=y
+-CONFIG_FRAMEBUFFER_CONSOLE=y
+-CONFIG_USB=y
+-CONFIG_USB_XHCI_HCD=y
+-CONFIG_USB_XHCI_PLATFORM=y
+-CONFIG_USB_EHCI_HCD=y
+-CONFIG_USB_EHCI_HCD_PLATFORM=y
+-CONFIG_USB_OHCI_HCD=y
+-CONFIG_USB_OHCI_HCD_PLATFORM=y
+-CONFIG_USB_STORAGE=y
+-CONFIG_USB_UAS=y
+-CONFIG_MMC=y
+-CONFIG_MMC_SPI=y
+-CONFIG_RTC_CLASS=y
+-CONFIG_VIRTIO_PCI=y
+-CONFIG_VIRTIO_BALLOON=y
+-CONFIG_VIRTIO_INPUT=y
+-CONFIG_VIRTIO_MMIO=y
+-CONFIG_RPMSG_CHAR=y
+-CONFIG_RPMSG_CTRL=y
+-CONFIG_RPMSG_VIRTIO=y
+-CONFIG_EXT4_FS=y
+-CONFIG_EXT4_FS_POSIX_ACL=y
+-CONFIG_AUTOFS_FS=y
+-CONFIG_MSDOS_FS=y
+-CONFIG_VFAT_FS=y
+-CONFIG_TMPFS=y
+-CONFIG_TMPFS_POSIX_ACL=y
+-CONFIG_HUGETLBFS=y
+-CONFIG_NFS_FS=y
+-CONFIG_NFS_V4=y
+-CONFIG_NFS_V4_1=y
+-CONFIG_NFS_V4_2=y
+-CONFIG_ROOT_NFS=y
+-CONFIG_9P_FS=y
+-CONFIG_CRYPTO_USER_API_HASH=y
+-CONFIG_CRYPTO_DEV_VIRTIO=y
+-CONFIG_PRINTK_TIME=y
+-CONFIG_DEBUG_FS=y
+-CONFIG_DEBUG_PAGEALLOC=y
+-CONFIG_SCHED_STACK_END_CHECK=y
+-CONFIG_DEBUG_VM=y
+-CONFIG_DEBUG_VM_PGFLAGS=y
+-CONFIG_DEBUG_MEMORY_INIT=y
+-CONFIG_DEBUG_PER_CPU_MAPS=y
+-CONFIG_SOFTLOCKUP_DETECTOR=y
+-CONFIG_WQ_WATCHDOG=y
+-CONFIG_DEBUG_TIMEKEEPING=y
+-CONFIG_DEBUG_RT_MUTEXES=y
+-CONFIG_DEBUG_SPINLOCK=y
+-CONFIG_DEBUG_MUTEXES=y
+-CONFIG_DEBUG_RWSEMS=y
+-CONFIG_DEBUG_ATOMIC_SLEEP=y
+-CONFIG_STACKTRACE=y
+-CONFIG_DEBUG_LIST=y
+-CONFIG_DEBUG_PLIST=y
+-CONFIG_DEBUG_SG=y
+-# CONFIG_RCU_TRACE is not set
+-CONFIG_RCU_EQS_DEBUG=y
+-# CONFIG_FTRACE is not set
+-# CONFIG_RUNTIME_TESTING_MENU is not set
+-CONFIG_MEMTEST=y
 -- 
-- Charlie
+2.42.0
 
 
 _______________________________________________
