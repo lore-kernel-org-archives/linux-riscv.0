@@ -4,81 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92AE0C61D85
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Nov 2023 22:53:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3783AC61D97
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Nov 2023 23:38:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=c3JItcqHNK30Qm5Aj5F2f1fMkUIDtLPRZBZV7rQ4WdM=; b=04c2w5syN94eE5
-	oOg6qikSYVRwb8lh5gkfqwoLsjeL146Tq7P89uMS/L2fYbFZGsOW6T+2tgp1vLik5tDCU21Yvh19g
-	qSk88slmJatCY85O9iJ6L/DVUWVQ3KuHFQfO1BfMF54H/qefM+ZpH+56/XBLITJgD8luXhAseQyX3
-	Keqr/Hd8BQiYEEM2EwCS3zCpSV6z2qJ/LUcl6bN3Tcjq7H3AFXZQlkJ7xJexoQNWYSrMGITf8jtk5
-	6Cr0063OzFkbqDYnabCbOrikIY8yF+Yu7atqitlt1zqj28+PU0GPhJYRKYFzA13xT4WKuJyhgDQZF
-	YDwj2WvItlVzI6Qc+bTA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8OUZsvU6xEX7YvGiVBc501fglmrr9b56Ezo95wDgLyI=; b=JNDZaps5TUHIAY
+	i99mF4a+OYvp3TxZ52yEVBBZngj7+/mFkCEtjxGSR147oxSUrShuN4efi65Ec/fNr7AZgR1IePR8P
+	luq26px7HUjNcjTyjyuh9DMFxWVM2AvnfYbBRQHhdRIVbP+bQYQyyOJJDj84ydKcDmGLeiE9X3dpl
+	hkftoNyprZpRKiQkXt6Cs003prwgCYsUvhsW7gm/2OPawNp7du6WqtA56LJkk2yQ7rErrg1Kfx5SV
+	i+A/4Q9odloY6AVpSAef80GtOkyCgGGCRyjyxN1Kdtveo4+Ppv1Cw7OtWg3yeUd/fMAX9aj6+lm7B
+	DEAh6UsJv1aXOGXLobcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5ZcW-000DSm-0q;
-	Tue, 21 Nov 2023 22:53:28 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1r5aJS-000Gww-2d;
+	Tue, 21 Nov 2023 23:37:50 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5ZcT-000DSF-0J
+	id 1r5aJQ-000GvX-0j
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Nov 2023 22:53:26 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-6cbbfdf72ecso1037748b3a.2
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Nov 2023 14:53:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1700607202; x=1701212002; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=s0tON6NhtrNElMNXfQn/4ERggbp9sDlCFXxxYXR10S0=;
-        b=HLXMCC3ddfQLypxyrNO890DiQgTTx/XR9/E+wdLYSQJ0OFVPFcGk4cgALXiIVPBsIv
-         hho0/ZJW55se1c7szh0XMxtG0AShvvxDFGK7EiRoCo9SUKkUh3OOL6o3Sii0f6Rtgy7m
-         0UQDLJCoK/j8Qo7Qe+RcjNi4uK4KLFe6OVxDynmwSpi+znPTTGJD+Q5eSe3lNr3UxZsk
-         de//UDj6CvaPvlUBtFt/P6AG08kpDpOT6Yu+hwZIU4HXcrkYT2gvZFxoi1siHfS/MqnQ
-         vD2g19MkjFeKWHNsXF3uhhaQREj7llTInKa5Au2khIifXFnuk5VMNb5bimI6loxRWmAH
-         H/dg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700607202; x=1701212002;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=s0tON6NhtrNElMNXfQn/4ERggbp9sDlCFXxxYXR10S0=;
-        b=MH5WizW4BufwhZI6hT847QRSuCLF3cPTvpRFHk4YXIU2Cp496ogLq9OgI5l/sPzTGD
-         pGJDD/mX7oHaf4roKxENO0PWDcWvVQymh706+KpOgZDJoOhpIq8GoerO83oRt84j3kjq
-         vywayq5hWpubJsoAfoc5FAujsGDeKtjtyb2HOjPk8rMcmpEzGoVoEyoKMayVPfniiS/+
-         8qftdmCO36Wl7uAHleNCOqiDc483rluwykTQ0hDb29yhon3UhaVpGkOwdnwvMVmpfdzW
-         qD7LsYpqqEMMNdpKqrC+gsx38hNGXo0tYDxuhkvIGfOxnX7htlupV41cMZ0n1PDML+Bd
-         wZbA==
-X-Gm-Message-State: AOJu0YzCpjBChp47oEjbLpRrbkDqL5wft2fclDNwkrmnzrMMGyqV9QZH
-	bXQq9Hjav3mvjNwiuqJQICWrVQ==
-X-Google-Smtp-Source: AGHT+IEymVztgaDeCf5f5ir/N8tK8WfALZJaoFISW9RDdWSI1iKazifsGN7ra8fscYR/itU7sJHYeQ==
-X-Received: by 2002:a05:6a00:429b:b0:6c6:b5ae:15a4 with SMTP id bx27-20020a056a00429b00b006c6b5ae15a4mr742803pfb.20.1700607202051;
-        Tue, 21 Nov 2023 14:53:22 -0800 (PST)
-Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id d11-20020a056a00198b00b006cb9a43ae4esm4217873pfl.215.2023.11.21.14.53.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Nov 2023 14:53:21 -0800 (PST)
-From: Samuel Holland <samuel.holland@sifive.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org
-Cc: Samuel Holland <samuel.holland@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Ian Kent <raven@themaw.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Sven Joachim <svenjoac@gmx.de>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] riscv: Remove obsolete rv32_defconfig file
-Date: Tue, 21 Nov 2023 14:53:18 -0800
-Message-ID: <20231121225320.3430550-1-samuel.holland@sifive.com>
-X-Mailer: git-send-email 2.42.0
+	Tue, 21 Nov 2023 23:37:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id 414BBB8254B;
+	Tue, 21 Nov 2023 23:37:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E285C433C8;
+	Tue, 21 Nov 2023 23:37:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1700609865;
+	bh=bmtlZPe6HRvoqFtBNOxqiOuOPnz7I9kdhgGgVtH1RBM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OczUUkhbcsyD+OnEaKiPo0eYCn/bsbWnHoaDchnGxAkffAOyOOioHOYl3xC8ONEhh
+	 4ImjoXjIelG7PdgZEluQLCmZxSOO8czzHqi1Psoq5Larss8FDmSx1LNErTILXGFJ2s
+	 M6QlsMPuOaGYOmYSyzqPMseEjwOopUldyDA/xpUfkMJRRBRNZ5352JhjswqhKyQOlH
+	 0ZCu6Kl3ltfza8nyoINplyaa/ep/m0WAymkAYkb3iDiol2xMTmEQavpjMxfJRlG4zz
+	 d7ZMpQ9pJscFNDAp8b1/ELlKJNiFG4TYXduD/2nE75aKWvQ5B4Qox6j7KjdgIGvrea
+	 uSsiDzI6H8IFg==
+Date: Tue, 21 Nov 2023 15:37:43 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Jerry Shih <jerry.shih@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>, palmer@dabbelt.com,
+	Albert Ou <aou@eecs.berkeley.edu>, herbert@gondor.apana.org.au,
+	davem@davemloft.net, andy.chiu@sifive.com, greentime.hu@sifive.com,
+	guoren@kernel.org, bjorn@rivosinc.com, heiko@sntech.de,
+	ardb@kernel.org, phoebe.chen@sifive.com, hongrong.hsu@sifive.com,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-crypto@vger.kernel.org
+Subject: Re: [PATCH 12/12] RISC-V: crypto: add Zvkb accelerated ChaCha20
+ implementation
+Message-ID: <20231121233743.GD2172@sol.localdomain>
+References: <20231025183644.8735-1-jerry.shih@sifive.com>
+ <20231025183644.8735-13-jerry.shih@sifive.com>
+ <20231102054327.GH1498@sol.localdomain>
+ <90E2B1B4-ACC1-4316-81CD-E919D3BD03BA@sifive.com>
+ <20231120191856.GA964@sol.localdomain>
+ <9724E3A5-F43C-4239-9031-2B33B72C4EF4@sifive.com>
+ <20231121-knelt-resource-5d71c9246015@wendy>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20231121-knelt-resource-5d71c9246015@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231121_145325_205929_981883D0 
-X-CRM114-Status: UNSURE (   7.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231121_153748_565074_9C72901B 
+X-CRM114-Status: GOOD (  37.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,165 +85,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This file is not used since commit 72f045d19f25 ("riscv: Fixup
-difference with defconfig"), where it was replaced by the
-32-bit.config fragment. Delete the old file to avoid any confusion.
+On Tue, Nov 21, 2023 at 01:14:47PM +0000, Conor Dooley wrote:
+> On Tue, Nov 21, 2023 at 06:55:07PM +0800, Jerry Shih wrote:
+> > On Nov 21, 2023, at 03:18, Eric Biggers <ebiggers@kernel.org> wrote:
+> > > First, I can see your updated patchset at branch
+> > > "dev/jerrys/vector-crypto-upstream-v2" of https://github.com/JerryShih/linux,
+> > > but I haven't seen it on the mailing list yet.  Are you planning to send it out?
+> > 
+> > I will send it out soon.
+> > 
+> > > Second, with your updated patchset, I'm not seeing any of the RISC-V optimized
+> > > algorithms be registered when I boot the kernel in QEMU.  This is caused by the
+> > > new check 'riscv_isa_extension_available(NULL, ZICCLSM)' not passing.  Is
+> > > checking for "Zicclsm" the correct way to determine whether unaligned memory
+> > > accesses are supported?
+> > > 
+> > > I'm using 'qemu-system-riscv64 -cpu max -machine virt', with the very latest
+> > > QEMU commit (af9264da80073435), so it should have all the CPU features.
+> > > 
+> > > - Eric
+> > 
+> > Sorry, I just use my `internal` qemu with vector-crypto and rva22 patches.
+> > 
+> > The public qemu haven't supported rva22 profiles. Here is the qemu patch[1] for
+> > that. But here is the discussion why the qemu doesn't export these
+> > `named extensions`(e.g. Zicclsm).
+> > I try to add Zicclsm in DT in the v2 patch set. Maybe we will have more discussion
+> > about the rva22 profiles in kernel DT.
+> 
+> Please do, that'll be fun! Please take some time to read what the
+> profiles spec actually defines Zicclsm fore before you send those patches
+> though. I think you might come to find you have misunderstood what it
+> means - certainly I did the first time I saw it!
+> 
+> > [1]
+> > LINK: https://lore.kernel.org/all/d1d6f2dc-55b2-4dce-a48a-4afbbf6df526@ventanamicro.com/#t
+> > 
+> > I don't know whether it's a good practice to check unaligned access using
+> > `Zicclsm`. 
+> > 
+> > Here is another related cpu feature for unaligned access:
+> > RISCV_HWPROBE_MISALIGNED_*
+> > But it looks like it always be initialized with `RISCV_HWPROBE_MISALIGNED_SLOW`[2].
+> > It implies that linux kernel always supports unaligned access. But we have the
+> > actual HW which doesn't support unaligned access for vector unit.
+> 
+> https://docs.kernel.org/arch/riscv/uabi.html#misaligned-accesses
+> 
+> Misaligned accesses are part of the user ABI & the hwprobe stuff for
+> that allows userspace to figure out whether they're fast (likely
+> implemented in hardware), slow (likely emulated in firmware) or emulated
+> in the kernel.
+> 
+> Cheers,
+> Conor.
+> 
+> > 
+> > [2]
+> > LINK: https://github.com/torvalds/linux/blob/98b1cc82c4affc16f5598d4fa14b1858671b2263/arch/riscv/kernel/cpufeature.c#L575
+> > 
+> > I will still use `Zicclsm` checking in this stage for reviewing. And I will create qemu
+> > branch with Zicclsm enabled feature for testing.
+> > 
 
-Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
----
+According to https://github.com/riscv/riscv-profiles/blob/main/profiles.adoc,
+Zicclsm means that "main memory supports misaligned loads/stores", but they
+"might execute extremely slowly."
 
- arch/riscv/configs/rv32_defconfig | 139 ------------------------------
- 1 file changed, 139 deletions(-)
- delete mode 100644 arch/riscv/configs/rv32_defconfig
+In general, the vector crypto routines that Jerry is adding assume that
+misaligned vector loads/stores are supported *and* are fast.  I think the kernel
+mustn't register those algorithms if that isn't the case.  Zicclsm sounds like
+the wrong thing to check.  Maybe RISCV_HWPROBE_MISALIGNED_FAST is the right
+thing to check?
 
-diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-deleted file mode 100644
-index 89b601e253a6..000000000000
---- a/arch/riscv/configs/rv32_defconfig
-+++ /dev/null
-@@ -1,139 +0,0 @@
--CONFIG_SYSVIPC=y
--CONFIG_POSIX_MQUEUE=y
--CONFIG_NO_HZ_IDLE=y
--CONFIG_HIGH_RES_TIMERS=y
--CONFIG_BPF_SYSCALL=y
--CONFIG_IKCONFIG=y
--CONFIG_IKCONFIG_PROC=y
--CONFIG_CGROUPS=y
--CONFIG_CGROUP_SCHED=y
--CONFIG_CFS_BANDWIDTH=y
--CONFIG_CGROUP_BPF=y
--CONFIG_NAMESPACES=y
--CONFIG_USER_NS=y
--CONFIG_CHECKPOINT_RESTORE=y
--CONFIG_BLK_DEV_INITRD=y
--CONFIG_EXPERT=y
--# CONFIG_SYSFS_SYSCALL is not set
--CONFIG_PROFILING=y
--CONFIG_SOC_SIFIVE=y
--CONFIG_SOC_VIRT=y
--CONFIG_NONPORTABLE=y
--CONFIG_ARCH_RV32I=y
--CONFIG_SMP=y
--CONFIG_HOTPLUG_CPU=y
--CONFIG_PM=y
--CONFIG_CPU_IDLE=y
--CONFIG_VIRTUALIZATION=y
--CONFIG_KVM=m
--CONFIG_JUMP_LABEL=y
--CONFIG_MODULES=y
--CONFIG_MODULE_UNLOAD=y
--CONFIG_NET=y
--CONFIG_PACKET=y
--CONFIG_UNIX=y
--CONFIG_INET=y
--CONFIG_IP_MULTICAST=y
--CONFIG_IP_ADVANCED_ROUTER=y
--CONFIG_IP_PNP=y
--CONFIG_IP_PNP_DHCP=y
--CONFIG_IP_PNP_BOOTP=y
--CONFIG_IP_PNP_RARP=y
--CONFIG_NETLINK_DIAG=y
--CONFIG_NET_9P=y
--CONFIG_NET_9P_VIRTIO=y
--CONFIG_PCI=y
--CONFIG_PCIEPORTBUS=y
--CONFIG_PCI_HOST_GENERIC=y
--CONFIG_PCIE_XILINX=y
--CONFIG_DEVTMPFS=y
--CONFIG_DEVTMPFS_MOUNT=y
--CONFIG_BLK_DEV_LOOP=y
--CONFIG_VIRTIO_BLK=y
--CONFIG_BLK_DEV_SD=y
--CONFIG_BLK_DEV_SR=y
--CONFIG_SCSI_VIRTIO=y
--CONFIG_ATA=y
--CONFIG_SATA_AHCI=y
--CONFIG_SATA_AHCI_PLATFORM=y
--CONFIG_NETDEVICES=y
--CONFIG_VIRTIO_NET=y
--CONFIG_MACB=y
--CONFIG_E1000E=y
--CONFIG_R8169=y
--CONFIG_MICROSEMI_PHY=y
--CONFIG_INPUT_MOUSEDEV=y
--CONFIG_SERIAL_8250=y
--CONFIG_SERIAL_8250_CONSOLE=y
--CONFIG_SERIAL_OF_PLATFORM=y
--CONFIG_VIRTIO_CONSOLE=y
--CONFIG_HW_RANDOM=y
--CONFIG_HW_RANDOM_VIRTIO=y
--CONFIG_SPI=y
--CONFIG_SPI_SIFIVE=y
--# CONFIG_PTP_1588_CLOCK is not set
--CONFIG_DRM=y
--CONFIG_DRM_RADEON=y
--CONFIG_DRM_VIRTIO_GPU=y
--CONFIG_FB=y
--CONFIG_FRAMEBUFFER_CONSOLE=y
--CONFIG_USB=y
--CONFIG_USB_XHCI_HCD=y
--CONFIG_USB_XHCI_PLATFORM=y
--CONFIG_USB_EHCI_HCD=y
--CONFIG_USB_EHCI_HCD_PLATFORM=y
--CONFIG_USB_OHCI_HCD=y
--CONFIG_USB_OHCI_HCD_PLATFORM=y
--CONFIG_USB_STORAGE=y
--CONFIG_USB_UAS=y
--CONFIG_MMC=y
--CONFIG_MMC_SPI=y
--CONFIG_RTC_CLASS=y
--CONFIG_VIRTIO_PCI=y
--CONFIG_VIRTIO_BALLOON=y
--CONFIG_VIRTIO_INPUT=y
--CONFIG_VIRTIO_MMIO=y
--CONFIG_RPMSG_CHAR=y
--CONFIG_RPMSG_CTRL=y
--CONFIG_RPMSG_VIRTIO=y
--CONFIG_EXT4_FS=y
--CONFIG_EXT4_FS_POSIX_ACL=y
--CONFIG_AUTOFS_FS=y
--CONFIG_MSDOS_FS=y
--CONFIG_VFAT_FS=y
--CONFIG_TMPFS=y
--CONFIG_TMPFS_POSIX_ACL=y
--CONFIG_HUGETLBFS=y
--CONFIG_NFS_FS=y
--CONFIG_NFS_V4=y
--CONFIG_NFS_V4_1=y
--CONFIG_NFS_V4_2=y
--CONFIG_ROOT_NFS=y
--CONFIG_9P_FS=y
--CONFIG_CRYPTO_USER_API_HASH=y
--CONFIG_CRYPTO_DEV_VIRTIO=y
--CONFIG_PRINTK_TIME=y
--CONFIG_DEBUG_FS=y
--CONFIG_DEBUG_PAGEALLOC=y
--CONFIG_SCHED_STACK_END_CHECK=y
--CONFIG_DEBUG_VM=y
--CONFIG_DEBUG_VM_PGFLAGS=y
--CONFIG_DEBUG_MEMORY_INIT=y
--CONFIG_DEBUG_PER_CPU_MAPS=y
--CONFIG_SOFTLOCKUP_DETECTOR=y
--CONFIG_WQ_WATCHDOG=y
--CONFIG_DEBUG_TIMEKEEPING=y
--CONFIG_DEBUG_RT_MUTEXES=y
--CONFIG_DEBUG_SPINLOCK=y
--CONFIG_DEBUG_MUTEXES=y
--CONFIG_DEBUG_RWSEMS=y
--CONFIG_DEBUG_ATOMIC_SLEEP=y
--CONFIG_STACKTRACE=y
--CONFIG_DEBUG_LIST=y
--CONFIG_DEBUG_PLIST=y
--CONFIG_DEBUG_SG=y
--# CONFIG_RCU_TRACE is not set
--CONFIG_RCU_EQS_DEBUG=y
--# CONFIG_FTRACE is not set
--# CONFIG_RUNTIME_TESTING_MENU is not set
--CONFIG_MEMTEST=y
--- 
-2.42.0
+BTW, something else I was wondering about is endianness.  Most of the vector
+crypto routines also assume little endian byte order, but I don't see that being
+explicitly checked for anywhere.  Should it be?
 
+- Eric
 
 _______________________________________________
 linux-riscv mailing list
