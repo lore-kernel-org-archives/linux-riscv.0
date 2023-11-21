@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7AE2C61D85
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Nov 2023 22:41:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 308ACC61D97
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Nov 2023 22:46:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dnK51mUg77j27lW2uJEkEzY+sbskTBb683OPhBjTu64=; b=wtqZUlDB/8lSjp
-	FWxrnTsp4kzExiZPLwXfbufBP/ZIJ088x6OHfsgXdKv1DlvUs7v8h5KCzoh6i+yFgyPHUdNHR7w+m
-	R+nL/ynud/Fn5SNuDA6xyG1U0g329lJI8WBbgNVymyrvgHkwLwu0qRFl67LLll9ElXQt8hzVpYTR7
-	3hyYdpe7t3wwAlnpQ6MDoQ4FsXied+C2CZ4MmeKMnMj/55GNkwcOHcvpOcFoU/lRv7CzjRIY4C7V0
-	xbVjmHwhAwSR1EghM21t0fFAbDXZUdOMZ5NIU7iP94tIWDqLcIH8miOuzjnJvIvksOGF3ubTFe8+N
-	UxAUXPUzqrpXjVtcSnrA==;
+	List-Owner; bh=5HB1bYExmCgmVpPhIJKzR6hY75wq7C/oQz9gLjDkSQ8=; b=SxPF/0O5i9FCSQ
+	YtwfQ76F7n9ailuLXkey7HK8Jp9lH1jJpEYjDNds0oFSxfmsFJbxzodUoY/DfyLVvPC9IrmkvhnIC
+	b0bYw5ugqqNBZ/xreU+VyhuIqnWbr7ue6sk7nbfzrDeqbF1rRZ1n8kMMeYaDhSEP5NfnxTDxkBX50
+	vr0HtK9kQaQDE+76REXXP4NnIUmITOCjel1ywddXBzKYHIPqJ/NgOEcD4KLqetboEOhbqY04K1TCH
+	X9Hup5PiZM79XH7CmoFnEIOEPbrO/MTBrx/L581SNO5MTjIFKvJjbdf/7kTofy+B2nXseFfVl8R9p
+	Dd6Elxvk5EQzakhfj2OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5ZQz-000CLn-1K;
-	Tue, 21 Nov 2023 22:41:33 +0000
-Received: from mail-io1-xd2f.google.com ([2607:f8b0:4864:20::d2f])
+	id 1r5ZVF-000CfC-2h;
+	Tue, 21 Nov 2023 22:45:57 +0000
+Received: from mail-io1-xd2c.google.com ([2607:f8b0:4864:20::d2c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5ZQw-000CL3-1A
+	id 1r5ZVC-000CeO-2Z
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Nov 2023 22:41:31 +0000
-Received: by mail-io1-xd2f.google.com with SMTP id ca18e2360f4ac-7a6889f33b9so211165739f.0
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Nov 2023 14:41:28 -0800 (PST)
+	Tue, 21 Nov 2023 22:45:56 +0000
+Received: by mail-io1-xd2c.google.com with SMTP id ca18e2360f4ac-7ad501cb1f9so241145039f.0
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Nov 2023 14:45:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1700606488; x=1701211288; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1700606753; x=1701211553; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=P6Y5P6vvizTkCcH4d/w5IMJ1P3rAQH0RFmdfD+hCzFk=;
-        b=Dx5H+ieFe2Sp1aG6CPwpJO0O2JxpfC+KA+1OEUosdV0K6bE9m/tVn93pCyTd/UItFD
-         D+kfleawjD7HV/l6X7aGygtPtn1uIbGK5VFKpipwsNo58B/cJlfzbOao5qmHLSXQXtHO
-         CGeMU+QbMeHpw/Zzbd7BkET7qDFNeit9pWg24AA3s4j7AkNYjouX8DXgFO0h/+NivhP2
-         tl+FQygCWI/z32XfGpj6LnbDVZlV4Fwq5SJbCc/L5RH7RFM5/iBwHFA5o1VyaMCgeQp7
-         CHKx9Z8i9oUl7t6APYhr69Cma52++IvDSF1CqcWw3+CwgRCc3/UZo45xJj0NgqLmZrCG
-         WmPg==
+        bh=7iA+kWZUEVLsdUBXgt5tCOpWMD0Y1GKECDIJZh9fHq4=;
+        b=POv+Gwfuc3bVuWj93POKzW566a7dmjF759aL4Iya7Lqedz5/bsJrvXYQMxVeguwx0L
+         Cfnli2wDTiuxbzqMseirH7w/0HMRP/EHIE6NxXa6WAW/FBlSOY6cXqNa3+aRhRVNHtpM
+         MYMWgksosyP6bpdCrlbxKGgxIsA34bhx+tS1gYYvlvz0uyyuugbThLB+aoQlLbLUr36V
+         AcrzkJLzYJGaffy0s5rbeOnGGf4tqFedAxlmwofGlFJ8qiJ0fScpgxpVuArq5azpNZd+
+         QJ0V9v9Bj5hK1rbtt7oUvoPYomMzji417Z5VKVNx+cN7vyYoPeYIMVZ4Op4FiUR73L2l
+         v2QQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700606488; x=1701211288;
+        d=1e100.net; s=20230601; t=1700606753; x=1701211553;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=P6Y5P6vvizTkCcH4d/w5IMJ1P3rAQH0RFmdfD+hCzFk=;
-        b=u7QXRxmEGAmAZsGpm0sAQHALtqNohiVafgOmvtNOUK4mwSXHEeblvEbiqA/yL2pB8j
-         1FR5WDZVB8UbHCOOOGCRSoxJjAjVZyIkB5iyERlh8AgFjYhJy+uMqeFHdtkPXfs11JAg
-         K1q55Pok/sf39SMhOfrarKZA+WnvxPFH6ljfTelJZnVFleqJEwsPb4CXenk32g9e3tWl
-         E9JeCNaY6/avmn6hw99p07qC/CWq0CGf6C9g6qmVjjsvH1CnNul79EAbq8fjeDNeOzCY
-         imHB09rjpfaA8BqBnEsggT7JybL2NSi1sxLMOlSlMOa4KK5SPqCt4fGCew3dWkY0eaMj
-         gcEQ==
-X-Gm-Message-State: AOJu0YwTPjnNfPrFzl4nv6UmVITuPNty4WNuOiealB5ewRQmU5xqUzLC
-	i4utMN8/2/tdk9E0LqXMN3YBZA==
-X-Google-Smtp-Source: AGHT+IFH/7RqkC4+CMkzTbT30NHfcCp/3hQroU+yf96S1nn9LE96a/StCjzs0+QoFrxTjKwkdSqwCg==
-X-Received: by 2002:a6b:f719:0:b0:79f:d04d:ce5a with SMTP id k25-20020a6bf719000000b0079fd04dce5amr326806iog.2.1700606488169;
-        Tue, 21 Nov 2023 14:41:28 -0800 (PST)
+        bh=7iA+kWZUEVLsdUBXgt5tCOpWMD0Y1GKECDIJZh9fHq4=;
+        b=dJfcxET3KLPpKymqX6dTUYEtPQXPEcBxLIYZSdBsYfVASXe337aug503WIpafwwWQQ
+         4aXfVz2hErU1bW0VMb8VFnpHhIsx5EmNFtvTvCDyCsQYR56bKTVaTLDLNBam+BQzWeCn
+         wkbCjKkzYvPykUTLYR6YrZh30g7a9QI2TnSm74l4CifcnHu9lNLVGty/7IoUD1hCp0p3
+         EoaFR7p9VVYGyV97jyTAJ4oHYv2svsc1wMCXmW8sOCaAdv5ri+hVz/WzFQHEnNEQdQCa
+         qDRXR0gMSVj8aQzW9nAn8npMDdRzeCpdSPti61iGqkFwR4/SNcS2bH98k9n1bc61xSUL
+         h2jg==
+X-Gm-Message-State: AOJu0YyfjPTTIz3YKau+tuApjGhKzpQJ9NdA13ib5fczNhKy8lFnphqE
+	5k++kNojqPZuIrYrydvWoDwirA==
+X-Google-Smtp-Source: AGHT+IGhfz2kelvWRYhxoS/GC2I/AI6SPzGv2+DveMsAbESr2DRqPpVwoYyjSVjW8igCCV35ZmqdBw==
+X-Received: by 2002:a6b:c812:0:b0:7a6:a089:572c with SMTP id y18-20020a6bc812000000b007a6a089572cmr316749iof.21.1700606752801;
+        Tue, 21 Nov 2023 14:45:52 -0800 (PST)
 Received: from ?IPV6:2605:a601:adae:4500:3d43:c8e2:1496:e620? ([2605:a601:adae:4500:3d43:c8e2:1496:e620])
-        by smtp.gmail.com with ESMTPSA id s7-20020a056602010700b007b34b374dd1sm509116iot.18.2023.11.21.14.41.27
+        by smtp.gmail.com with ESMTPSA id p33-20020a056638192100b004664ef1a3c6sm1930255jal.155.2023.11.21.14.45.52
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 21 Nov 2023 14:41:27 -0800 (PST)
-Message-ID: <8c0f4eba-1923-4686-b07b-1f3b78b298e9@sifive.com>
-Date: Tue, 21 Nov 2023 16:41:26 -0600
+        Tue, 21 Nov 2023 14:45:52 -0800 (PST)
+Message-ID: <adf2a8f4-f675-4d27-8b46-5d80d3251b6c@sifive.com>
+Date: Tue, 21 Nov 2023 16:45:51 -0600
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/5] tty/serial: Add RISC-V SBI debug console based
- earlycon
+Subject: Re: [PATCH v4 2/5] RISC-V: Add SBI debug console helper routines
 Content-Language: en-US
 To: Anup Patel <apatel@ventanamicro.com>
 Cc: Conor Dooley <conor@kernel.org>, Andrew Jones <ajones@ventanamicro.com>,
@@ -77,12 +76,12 @@ Cc: Conor Dooley <conor@kernel.org>, Andrew Jones <ajones@ventanamicro.com>,
  <paul.walmsley@sifive.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Jiri Slaby <jirislaby@kernel.org>
 References: <20231118033859.726692-1-apatel@ventanamicro.com>
- <20231118033859.726692-4-apatel@ventanamicro.com>
+ <20231118033859.726692-3-apatel@ventanamicro.com>
 From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <20231118033859.726692-4-apatel@ventanamicro.com>
+In-Reply-To: <20231118033859.726692-3-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231121_144130_409500_F6737EA7 
-X-CRM114-Status: GOOD (  20.46  )
+X-CRM114-CacheID: sfid-20231121_144554_832135_DE7CEFCA 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,81 +101,82 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hi Anup,
 
 On 2023-11-17 9:38 PM, Anup Patel wrote:
-> We extend the existing RISC-V SBI earlycon support to use the new
-> RISC-V SBI debug console extension.
+> Let us provide SBI debug console helper routines which can be
+> shared by serial/earlycon-riscv-sbi.c and hvc/hvc_riscv_sbi.c.
 > 
 > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 > ---
->  drivers/tty/serial/Kconfig              |  2 +-
->  drivers/tty/serial/earlycon-riscv-sbi.c | 24 ++++++++++++++++++++----
->  2 files changed, 21 insertions(+), 5 deletions(-)
+>  arch/riscv/include/asm/sbi.h |  5 +++++
+>  arch/riscv/kernel/sbi.c      | 43 ++++++++++++++++++++++++++++++++++++
+>  2 files changed, 48 insertions(+)
 > 
-> diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
-> index 732c893c8d16..1f2594b8ab9d 100644
-> --- a/drivers/tty/serial/Kconfig
-> +++ b/drivers/tty/serial/Kconfig
-> @@ -87,7 +87,7 @@ config SERIAL_EARLYCON_SEMIHOST
->  
->  config SERIAL_EARLYCON_RISCV_SBI
->  	bool "Early console using RISC-V SBI"
-> -	depends on RISCV_SBI_V01
-> +	depends on RISCV_SBI
->  	select SERIAL_CORE
->  	select SERIAL_CORE_CONSOLE
->  	select SERIAL_EARLYCON
-> diff --git a/drivers/tty/serial/earlycon-riscv-sbi.c b/drivers/tty/serial/earlycon-riscv-sbi.c
-> index 27afb0b74ea7..5351e1e31f45 100644
-> --- a/drivers/tty/serial/earlycon-riscv-sbi.c
-> +++ b/drivers/tty/serial/earlycon-riscv-sbi.c
-> @@ -15,17 +15,33 @@ static void sbi_putc(struct uart_port *port, unsigned char c)
->  	sbi_console_putchar(c);
+> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+> index 66f3933c14f6..ee7aef5f6233 100644
+> --- a/arch/riscv/include/asm/sbi.h
+> +++ b/arch/riscv/include/asm/sbi.h
+> @@ -334,6 +334,11 @@ static inline unsigned long sbi_mk_version(unsigned long major,
 >  }
 >  
-> -static void sbi_console_write(struct console *con,
-> -			      const char *s, unsigned n)
-> +static void sbi_0_1_console_write(struct console *con,
-> +				  const char *s, unsigned int n)
->  {
->  	struct earlycon_device *dev = con->data;
->  	uart_console_write(&dev->port, s, n, sbi_putc);
+>  int sbi_err_map_linux_errno(int err);
+> +
+> +extern bool sbi_debug_console_available;
+> +int sbi_debug_console_write(unsigned int num_bytes, phys_addr_t base_addr);
+> +int sbi_debug_console_read(unsigned int num_bytes, phys_addr_t base_addr);
+> +
+>  #else /* CONFIG_RISCV_SBI */
+>  static inline int sbi_remote_fence_i(const struct cpumask *cpu_mask) { return -1; }
+>  static inline void sbi_init(void) {}
+> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> index 5a62ed1da453..73a9c22c3945 100644
+> --- a/arch/riscv/kernel/sbi.c
+> +++ b/arch/riscv/kernel/sbi.c
+> @@ -571,6 +571,44 @@ long sbi_get_mimpid(void)
 >  }
+>  EXPORT_SYMBOL_GPL(sbi_get_mimpid);
 >  
-> +static void sbi_dbcn_console_write(struct console *con,
-> +				   const char *s, unsigned int n)
+> +bool sbi_debug_console_available;
+> +
+> +int sbi_debug_console_write(unsigned int num_bytes, phys_addr_t base_addr)
 > +{
-> +	sbi_debug_console_write(n, __pa(s));
-
-This only works for strings in the linear mapping or the kernel mapping (not
-vmalloc, which includes the stack). So I don't think we can use __pa() here.
-
+> +	struct sbiret ret;
+> +
+> +	if (!sbi_debug_console_available)
+> +		return -EOPNOTSUPP;
+> +
+> +	if (IS_ENABLED(CONFIG_32BIT))
+> +		ret = sbi_ecall(SBI_EXT_DBCN, SBI_EXT_DBCN_CONSOLE_WRITE,
+> +				num_bytes, lower_32_bits(base_addr),
+> +				upper_32_bits(base_addr), 0, 0, 0);
+> +	else
+> +		ret = sbi_ecall(SBI_EXT_DBCN, SBI_EXT_DBCN_CONSOLE_WRITE,
+> +				num_bytes, base_addr, 0, 0, 0, 0);
+> +
+> +	return ret.error ? sbi_err_map_linux_errno(ret.error) : ret.value;
 > +}
 > +
->  static int __init early_sbi_setup(struct earlycon_device *device,
->  				  const char *opt)
->  {
-> -	device->con->write = sbi_console_write;
-> -	return 0;
-> +	int ret = 0;
+> +int sbi_debug_console_read(unsigned int num_bytes, phys_addr_t base_addr)
+> +{
+> +	struct sbiret ret;
 > +
-> +	if (sbi_debug_console_available) {
-> +		device->con->write = sbi_dbcn_console_write;
-> +	} else {
-> +		if (IS_ENABLED(CONFIG_RISCV_SBI_V01))
+> +	if (!sbi_debug_console_available)
+> +		return -EOPNOTSUPP;
+> +
+> +	if (IS_ENABLED(CONFIG_32BIT))
+> +		ret = sbi_ecall(SBI_EXT_DBCN, SBI_EXT_DBCN_CONSOLE_READ,
+> +				num_bytes, lower_32_bits(base_addr),
+> +				upper_32_bits(base_addr), 0, 0, 0);
+> +	else
+> +		ret = sbi_ecall(SBI_EXT_DBCN, SBI_EXT_DBCN_CONSOLE_READ,
+> +				num_bytes, base_addr, 0, 0, 0, 0);
+> +
+> +	return ret.error ? sbi_err_map_linux_errno(ret.error) : ret.value;
+> +}
 
-"else if", no need for the extra block/indentation.
+Since every place that calls these functions will need to do the vmalloc lookup,
+would it make sense to do it here, and have these take a pointer instead?
 
 Regards,
 Samuel
-
-> +			device->con->write = sbi_0_1_console_write;
-> +		else
-> +			ret = -ENODEV;
-> +	}
-> +
-> +	return ret;
->  }
->  EARLYCON_DECLARE(sbi, early_sbi_setup);
 
 
 _______________________________________________
