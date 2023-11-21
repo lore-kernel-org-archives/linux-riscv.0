@@ -4,84 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FC2EC61D94
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Nov 2023 13:15:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69EC2C61D94
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Nov 2023 13:27:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uHjxoFa3RjRNsGiIHkg80Y/6dNSOZUs2RVKT4cjLUqc=; b=bD8zDL3aP0orz4N904nf/p1TQ6
-	paAELj2q2j/c4vnHfJkYFG/fyUprFDYkRIDueB9BKFDiSyAqPeY8F4bzp4FKbV5L4DD1QKbOH3anp
-	rldgxOX52CZk1D2/yPLqiqkyRzVR7ufu7ftrrsU17UyUumRpsTo4x5HrFJowvtLQm5yB+YSASbaM1
-	vkj7m1c2sVgwPJFlfup1KRAy2rZtI2p9+C4j1NC+1Xe0tQolz1r7mUsCIyeOsSxGCEtxvgpIprIFg
-	SBPJrygU9HyOXCpZp7bvc44bgDrp7p+XwLB01Yp+oklNGsGGs+wcorKrhpPRe4g96sYjN5RWh4mOu
-	ZT3JRJ3Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RS/K/CUUTsnbIqVxoLmLS/q6BusS4SCseJHJ+kJgOUM=; b=n9a0eRtFoPdcnK
+	dR97EVHVIR0HVS146q09/HTQnoHDnEtrLV7m1GC62c0xt6LmdjywlC9T8JG86QVv/9zL7Rbx0vjDT
+	NFxMzHfxmhzbJAqqvzJ6z88fwoZUC9xwcf3neBiQpz4knpLkrfD2PKFZnZ2f3Vw5BrduDBqnPTOO9
+	fBRdp2zlnipyid7pKuHIk8D8AQQhazaWMCJlwdeSQ3caMNmo/gZB6nJLI48SdHxdEyUKp/WOh0l4g
+	JRpaqFQAYY+IIihA050AHuEWbOErljZKIiIKg1w/wOo1bidSNKx+cjZdo6golG7mCmoDW6v6v6RWE
+	JmhC4K+ZtB22Cq5NSwiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5QbY-00Gnnv-0j;
-	Tue, 21 Nov 2023 13:15:52 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1r5Qmh-00Gov4-1y;
+	Tue, 21 Nov 2023 13:27:23 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5QbV-00GnnO-0C
-	for linux-riscv@lists.infradead.org;
-	Tue, 21 Nov 2023 13:15:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1700572549; x=1732108549;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=dKe1oiD9X8ZrNYYlEcv1sT0fNffaLYL7IdmhxeRP7V8=;
-  b=jJND9iviczFQ/Q/InQOJIuEHO943uk532m8keMhb9fq/F+V8/13BzEeE
-   AIz5vK8Njxlf8CZpcsCN1sLCFTHIq86taoNeDVcl9Uyux5/qGb1LXkWh1
-   mV6AFdhR7o+k/nvkWGWsQghqYvPJWexG0fdzeKLmL1rkxHYkLDfZwSHUc
-   5h/Df+6glJimCHsVf7DABQFKplEI/z3IMzSYaJ0BHLxlfBgJCDs22DbE2
-   B1PoMmey4ZbA+8EOgez+2aWeM9tByAkVkWkzbe5IVqoolIepxKmfcelVM
-   y8hVTlFiG9gKNEeFsmVig4XDXPURKTwb27StxVGrmGpvuwQt6pTlbrJJw
-   Q==;
-X-CSE-ConnectionGUID: 7RKlFjUZS0C2mOVLDV6Cog==
-X-CSE-MsgGUID: TCilXAtDSmaRejXBZO/DsQ==
-X-ThreatScanner-Verdict: Negative
-X-IronPort-AV: E=Sophos;i="6.04,215,1695711600"; 
-   d="asc'?scan'208";a="12316433"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 21 Nov 2023 06:15:48 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Tue, 21 Nov 2023 06:15:18 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Tue, 21 Nov 2023 06:15:15 -0700
-Date: Tue, 21 Nov 2023 13:14:47 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Jerry Shih <jerry.shih@sifive.com>
-CC: Eric Biggers <ebiggers@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, <herbert@gondor.apana.org.au>,
-	<davem@davemloft.net>, <andy.chiu@sifive.com>, <greentime.hu@sifive.com>,
-	<guoren@kernel.org>, <bjorn@rivosinc.com>, <heiko@sntech.de>,
-	<ardb@kernel.org>, <phoebe.chen@sifive.com>, <hongrong.hsu@sifive.com>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-crypto@vger.kernel.org>
-Subject: Re: [PATCH 12/12] RISC-V: crypto: add Zvkb accelerated ChaCha20
- implementation
-Message-ID: <20231121-knelt-resource-5d71c9246015@wendy>
-References: <20231025183644.8735-1-jerry.shih@sifive.com>
- <20231025183644.8735-13-jerry.shih@sifive.com>
- <20231102054327.GH1498@sol.localdomain>
- <90E2B1B4-ACC1-4316-81CD-E919D3BD03BA@sifive.com>
- <20231120191856.GA964@sol.localdomain>
- <9724E3A5-F43C-4239-9031-2B33B72C4EF4@sifive.com>
+	id 1r5Qmd-00Gou2-1c;
+	Tue, 21 Nov 2023 13:27:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=rH4XXg0XG5JBDQqriE53B4ksPcxyNMkV8utydydYqlE=; b=GptbOphakDgWkgtVyn9kVmSZut
+	2zdws9QRSTONl2GEr2a+OIBZrE3jJeI0D17zlWvHurC71V/x0OEPF6ffv784k7DLlc2aBOLE19Z4o
+	c0tv6/9S+iTe2UkhfYWBVaiamG9EJTPv9gb0UnQ2E+mlufTRS4ZpZA3hqA7HZlRX89aSKzHu3MJ1l
+	WcQbFRHumzI7PayZveu3slicUkYT4CsYU60SPqpcv75Ku2ucJtsjbZP45akWiW287IkZ3VbUy79a4
+	0dZN0gESalrlMs8ThicaN1EXR0io2uxwvg6b/yBrH8ePzb7FDP5MvhbzHS0L7bDI0qET3jb0ExwyI
+	bdYgIQPw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:33300)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1r5QmU-00073r-1c;
+	Tue, 21 Nov 2023 13:27:10 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1r5QmS-0004DC-UA; Tue, 21 Nov 2023 13:27:08 +0000
+Date: Tue, 21 Nov 2023 13:27:08 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Gavin Shan <gshan@redhat.com>
+Cc: linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
+	x86@kernel.org, linux-csky@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-ia64@vger.kernel.org,
+	linux-parisc@vger.kernel.org, Salil Mehta <salil.mehta@huawei.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	jianyong.wu@arm.com, justin.he@arm.com,
+	James Morse <james.morse@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>
+Subject: Re: [PATCH RFC 10/22] drivers: base: Move cpu_dev_init() after
+ node_dev_init()
+Message-ID: <ZVywLPwhILp083Jk@shell.armlinux.org.uk>
+References: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
+ <E1r0JLV-00CTxS-QB@rmk-PC.armlinux.org.uk>
+ <095c2d24-735b-4ce2-ba2e-9ec2164f2237@redhat.com>
+ <ZVHXk9JG7gUjtERt@shell.armlinux.org.uk>
 MIME-Version: 1.0
-In-Reply-To: <9724E3A5-F43C-4239-9031-2B33B72C4EF4@sifive.com>
+Content-Disposition: inline
+In-Reply-To: <ZVHXk9JG7gUjtERt@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231121_051549_161547_0496E7F7 
-X-CRM114-Status: GOOD (  28.99  )
+X-CRM114-CacheID: sfid-20231121_052719_559252_EC4412A4 
+X-CRM114-Status: GOOD (  18.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,121 +86,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2393535052831273729=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============2393535052831273729==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="FNeg8t0GItiNFb8F"
-Content-Disposition: inline
+On Mon, Nov 13, 2023 at 08:00:19AM +0000, Russell King (Oracle) wrote:
+> On Mon, Nov 13, 2023 at 10:58:46AM +1000, Gavin Shan wrote:
+> > 
+> > 
+> > On 11/7/23 20:30, Russell King (Oracle) wrote:
+> > > From: James Morse <james.morse@arm.com>
+> > > 
+> > > NUMA systems require the node descriptions to be ready before CPUs are
+> > > registered. This is so that the node symlinks can be created in sysfs.
+> > > 
+> > > Currently no NUMA platform uses GENERIC_CPU_DEVICES, meaning that CPUs
+> > > are registered by arch code, instead of cpu_dev_init().
+> > > 
+> > > Move cpu_dev_init() after node_dev_init() so that NUMA architectures
+> > > can use GENERIC_CPU_DEVICES.
+> > > 
+> > > Signed-off-by: James Morse <james.morse@arm.com>
+> > > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > > ---
+> > > Note: Jonathan's comment still needs addressing - see
+> > >    https://lore.kernel.org/r/20230914121612.00006ac7@Huawei.com
+> > > ---
+> > >   drivers/base/init.c | 2 +-
+> > >   1 file changed, 1 insertion(+), 1 deletion(-)
+> > > 
+> > 
+> > With Jonathan's comments addressed:
+> 
+> That needs James' input, which is why I made the note on the patch.
 
---FNeg8t0GItiNFb8F
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I'm going to be posting the series without RFC soon, and it will be
+with Jonathan's comment unaddressed - because as I've said several
+times it needs James' input and we have sadly not yet received that.
 
-On Tue, Nov 21, 2023 at 06:55:07PM +0800, Jerry Shih wrote:
-> On Nov 21, 2023, at 03:18, Eric Biggers <ebiggers@kernel.org> wrote:
-> > First, I can see your updated patchset at branch
-> > "dev/jerrys/vector-crypto-upstream-v2" of https://github.com/JerryShih/=
-linux,
-> > but I haven't seen it on the mailing list yet.  Are you planning to sen=
-d it out?
->=20
-> I will send it out soon.
->=20
-> > Second, with your updated patchset, I'm not seeing any of the RISC-V op=
-timized
-> > algorithms be registered when I boot the kernel in QEMU.  This is cause=
-d by the
-> > new check 'riscv_isa_extension_available(NULL, ZICCLSM)' not passing.  =
-Is
-> > checking for "Zicclsm" the correct way to determine whether unaligned m=
-emory
-> > accesses are supported?
-> >=20
-> > I'm using 'qemu-system-riscv64 -cpu max -machine virt', with the very l=
-atest
-> > QEMU commit (af9264da80073435), so it should have all the CPU features.
-> >=20
-> > - Eric
->=20
-> Sorry, I just use my `internal` qemu with vector-crypto and rva22 patches.
->=20
-> The public qemu haven't supported rva22 profiles. Here is the qemu patch[=
-1] for
-> that. But here is the discussion why the qemu doesn't export these
-> `named extensions`(e.g. Zicclsm).
-> I try to add Zicclsm in DT in the v2 patch set. Maybe we will have more d=
-iscussion
-> about the rva22 profiles in kernel DT.
+Short of waiting until James can respond, I don't think there are
+any other alternatives.
 
-Please do, that'll be fun! Please take some time to read what the
-profiles spec actually defines Zicclsm fore before you send those patches
-though. I think you might come to find you have misunderstood what it
-means - certainly I did the first time I saw it!
+I do hope we can get this queued up for v6.8 though.
 
-> [1]
-> LINK: https://lore.kernel.org/all/d1d6f2dc-55b2-4dce-a48a-4afbbf6df526@ve=
-ntanamicro.com/#t
->=20
-> I don't know whether it's a good practice to check unaligned access using
-> `Zicclsm`.=20
->=20
-> Here is another related cpu feature for unaligned access:
-> RISCV_HWPROBE_MISALIGNED_*
-> But it looks like it always be initialized with `RISCV_HWPROBE_MISALIGNED=
-_SLOW`[2].
-> It implies that linux kernel always supports unaligned access. But we hav=
-e the
-> actual HW which doesn't support unaligned access for vector unit.
-
-https://docs.kernel.org/arch/riscv/uabi.html#misaligned-accesses
-
-Misaligned accesses are part of the user ABI & the hwprobe stuff for
-that allows userspace to figure out whether they're fast (likely
-implemented in hardware), slow (likely emulated in firmware) or emulated
-in the kernel.
-
-Cheers,
-Conor.
-
->=20
-> [2]
-> LINK: https://github.com/torvalds/linux/blob/98b1cc82c4affc16f5598d4fa14b=
-1858671b2263/arch/riscv/kernel/cpufeature.c#L575
->=20
-> I will still use `Zicclsm` checking in this stage for reviewing. And I wi=
-ll create qemu
-> branch with Zicclsm enabled feature for testing.
->=20
-> -Jerry
-
---FNeg8t0GItiNFb8F
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZVytRwAKCRB4tDGHoIJi
-0viAAQCm6torPYuop5E8J3sRPB3YDXMGHN9Gh2sazUdwj0zlUwEAxM05T+vdP99R
-n2EWjF1PVPMc7VvyvoGGBnXDNYZ8GQE=
-=cEix
------END PGP SIGNATURE-----
-
---FNeg8t0GItiNFb8F--
-
-
---===============2393535052831273729==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2393535052831273729==--
-
