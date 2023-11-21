@@ -4,124 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A0B0C5ACB3
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Nov 2023 05:39:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA1AC54FB9
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Nov 2023 06:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8DTAV6ucsv+gZGkAfPyZUyfQi59j5AC+gGUVeearCtA=; b=BAXipnEehiHt0t38R7PX2KRIaS
-	94FVP2L7X+nYJ3sHl7nTrPXJVPUqCe+LYLWyk3HhgRWBrEqc/p1Pr1NsAReupL6ozpwmycjSN8Jlc
-	jLWcFpuXgZkLuYqDArqcMXNAAL8bNRtTGN2S7lLSC5WP/b3LjUEiR4zCpewN1aQuP0Ln+56LRf4Qf
-	RPgjAxBmQ5dQNYTc3u17eR3gt04V/KmaVxpjC/nAVw7AKsYhaqkiiQnvklAQq+g9QcUC6JLnlBraB
-	SrAfzismhsSsTvCUkb9/B7LQNK+TnqPhA5F9iofxfCuNG4z+ofDAUw5vZAeN43eZLt6hSMoD6uDLs
-	NZcY43kQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=X2B2qyE7v/P+ytGOCNkXCO95pSZ+0EtZCrrNjfT5AFU=; b=qaJL2FlnlhpbBW
+	OVG+oiHQOvgWHWQMMP29N5b/gVHWJnV55BYj6hLGJfj1Fc5H1yzw/pIMRSQ4WwIs+gbsfD5F7lPVf
+	a7Be9CVDs1ownjsJWReRAOaaAKJzc0Q1sDPdqEjH+RiShJ5ZDjRyJQziZxaUhUYGsTnGFaa8Ker8+
+	zFX0LqXDlG85VT67IQMI489LfbPLtE5hUhCX/xb9cYCtEUVkrWiv2MY3xqlcZoO8EpFpjXjr8zE+T
+	RzD6ORgRLYqhjTXiM3wvgdW/qDeJ/2gCzQXEaMqshp3s18DRn0gIz1HGiH5K/3FdPI7gkrzzEMhnd
+	82XlgBNqRcdbbkrsBDAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5JTz-00FheO-1r;
-	Tue, 21 Nov 2023 05:39:35 +0000
-Received: from mail-bmxind01olkn20801.outbound.protection.outlook.com ([2a01:111:f403:281c::801] helo=IND01-BMX-obe.outbound.protection.outlook.com)
+	id 1r5KYT-00Fq9j-3D;
+	Tue, 21 Nov 2023 06:48:18 +0000
+Received: from marcansoft.com ([212.63.210.85] helo=mail.marcansoft.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5JTw-00Fhdm-1l
-	for linux-riscv@lists.infradead.org;
-	Tue, 21 Nov 2023 05:39:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=WSClK6lc4+ZyiQvhTiFhTnX/7Q8TSRLA8oqYi0krtMzPQb7qXoY+Z9ufegEg1AjJCzLaikxrBc8Y1Ht+qNeZRxc6sCxK88+8nRvBUQs+zwpyMcFYhkHKciP/4zjIDbbh4GvN5s5iqL6zjlT+xcmS7/ng/VnwTWx8vCItKMBkBqERRxliGxstpmfm4qfaxn8g6miRJV3q2VksQuYTv8JMF0WTQyWwtbgVSpC0SNpLGfDeDJPF49pzfOqMj+R41/unEAMMcwAml1vdgeErKkcr0mttGLZfbVXE5qJArJwsDAaps8ptsSj08pVNX7hbvyEwlnmBzCxzu1DPjUfc6Nh18A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xb6IfHB18/0TQjWknL4Vp9aEMsi+NKpkMvIcgEzHEoE=;
- b=e75NvCMhhJkSgXdwEBkxUjGDGTRnbLLj/Dp/xvrBAbVcMbEe6mDpdWyAKkgfzvYY2xmYSXkfUff85IultuP4k3NK2/it8zxmuyUPsM6IDxzX5G6vfTJ9u8yJiQw9aPAPIi5OVLK2GHE4wZgUoUKm8j1LYsk9ysxhT9PA8ivr2shv+hSvhjZ7haqmrL1RzxmX3T98aIj++BbsCVsiNRW5k3Rodgvm5kSsexiJXHCjwKFqKitVIdZN8bJQKA3ublmuNBiQfBJrrmFk7SdbxTCN7gKW5mZS2cL+j8lI6XJ2oPFRBLyADg8RaF8ukC6+/zkHUVqWcN8UN3sF+ftDyth5Og==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xb6IfHB18/0TQjWknL4Vp9aEMsi+NKpkMvIcgEzHEoE=;
- b=fn5dq86g16/Hng2LzhsdxXmYNPAZC5Gw+Ulkx/iq9QzlhXS5kmi83FepHtriqJnJbGn67rPcH2S4GdRytbMpMZdcL44uld1/d/gQUelDSwqUr3Qex4/bB7qAD84CQioFP1M7u5FSY6cqY/q7PEQwkPtlMb82mRFz8HA7ihhIMoYGkXfaoDZriyJb2f8SqJ9xR3revUa1X6gw/Zz7kQ9GVfy4X2iMtxrcPoayVoqBo6OBzhYpHfKVmZL8BjfnL09sOAJWydVtTg2emz9rhWJTy5dKgsJhqp1Fg+EMlz4b5D4lEcDB6noxnXCpGfqRPv3doxmz1bPpRpxTmeSbQbKosw==
-Received: from PN3P287MB0324.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:d6::7) by
- MA0P287MB1708.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:fe::10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.7002.28; Tue, 21 Nov 2023 05:23:55 +0000
-Received: from PN3P287MB0324.INDP287.PROD.OUTLOOK.COM
- ([fe80::5a24:3fd5:dd38:3ecd]) by PN3P287MB0324.INDP287.PROD.OUTLOOK.COM
- ([fe80::5a24:3fd5:dd38:3ecd%4]) with mapi id 15.20.7002.026; Tue, 21 Nov 2023
- 05:23:55 +0000
-Message-ID: <PN3P287MB0324E7BD72776FBBC79D2E4AFEBBA@PN3P287MB0324.INDP287.PROD.OUTLOOK.COM>
-Date: Tue, 21 Nov 2023 13:23:53 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] riscv: dts: sophgo: separate sg2042 mtime and
- mtimecmp to fit aclint format
-To: Inochi Amaoto <inochiama@outlook.com>, Chao Wei <chao.wei@sophgo.com>,
- Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Xiaoguang Xing <xiaoguang.xing@sophgo.com>, Guo Ren <guoren@kernel.org>
-Cc: Anup Patel <anup@brainfault.org>,
- Samuel Holland <samuel.holland@sifive.com>,
- Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <IA1PR20MB4953C82499C5D81D2C6A020BBBB6A@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB4953C6D3C913E4D18B3E6344BBB6A@IA1PR20MB4953.namprd20.prod.outlook.com>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <IA1PR20MB4953C6D3C913E4D18B3E6344BBB6A@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-TMN: [PQWB9DaVwIWMLfRswRqUSmBcBVJ81czq]
-X-ClientProxiedBy: SG2PR04CA0213.apcprd04.prod.outlook.com
- (2603:1096:4:187::11) To PN3P287MB0324.INDP287.PROD.OUTLOOK.COM
- (2603:1096:c01:d6::7)
-X-Microsoft-Original-Message-ID: <3b6ac5a9-ecc5-490b-879b-fab564557922@outlook.com>
+	id 1r5KYQ-00Fq7f-0j;
+	Tue, 21 Nov 2023 06:48:16 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: marcan@marcan.st)
+	by mail.marcansoft.com (Postfix) with ESMTPSA id EDDAF42137;
+	Tue, 21 Nov 2023 06:47:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=marcan.st; s=default;
+	t=1700549281; bh=ujaYq3QQkb3U4N6JNFFQq4uH4QKQpO8RJp9aJVbB0w0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=yBZ7Udel893+M2pzDMgdTushmaUgXq0nIf/5xxASROF107adcyenfoQIJKpJop3QE
+	 1+yTIUhVbWxOP7swSXHE/1waIz+ytnfqIeOR+pXsrjnxJ9YDy9OcehudknnZZfDU0W
+	 yBoxtsLq/eITHB2A8C7zHMk/QpuQDhn54/ueeppNZr5bacp1NBly8id6vI/+HcZLF9
+	 Y3o89xan9Av9novKYwloiJeRxCXK4RdvbSm3KrREtUx62PnuC+h7WkJf1goRn4PDd/
+	 8BaauSYV42Ok4T8UBbrfnw8aItI789XfEb5enuqF6bZ2I7QNWWCAUkdCy2CTlvEfD+
+	 wJAB4I2ql495A==
+Message-ID: <90855bbf-e845-4e4d-a713-df71d1e477d2@marcan.st>
+Date: Tue, 21 Nov 2023 15:47:48 +0900
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PN3P287MB0324:EE_|MA0P287MB1708:EE_
-X-MS-Office365-Filtering-Correlation-Id: 42b7283f-c936-4a55-fe81-08dbea520e4e
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: o/WBrUozWE1J0dLVXL1xTnYqKSYh2FIdipE8sQfXyQPEb2l90a++FRf0/kCgG6IWA1Hc66kVcM/wU4FDEGO8LgYOeZl7fLIGQ8FnA/L6InPfhrVlFVRjxTtCCiLEKI0KtnRhWyGlFmJyaEPsnXVRflSoABsX6HEwD6NCPe9e1J2SqCwYiQxeYzWooqq9ad6GQ4pZ7pEmRYXS5eYP28gWWJtTtL81WxjzysTIJeTozK6R0rgd7qxN+uN9PusJN7dRBqbsQqOJHrOFoEn7p0pTbiieUGcJ/0i8S8Dt71sjFXfcUiolm5W+jrMztZtRKFDaTSOwPHred90NnQ3AD6kMbBKFxLyqNiNsdwlFO0IruBUQBGRAl1lWBOoOk7FmpCO763qQqbw8Kb60V83QfQrdHCCBWe7jok//kpIK1IymrAPr2JXAX2tmQYUA1qlIA3A0xnJ7UCReFR4szgBwD1q99XHhSEVapbM02btVKtmnXfUP6fnvfHLwv3B9cIvmZSgr37jAJPWIpEQVw/JpYAAqB577Kga+1NrQxqrNMTz/1zX7S3G69qCf86Z0a5ahKPcC
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Z1k2aEUxZ2tMMjRiQXQrUVQ5dGFUY2tORE9NeUJvUVllTEtwN285dmtzWlBS?=
- =?utf-8?B?Rjh0L1Y1MWluOU9JNCtqSmZoZXBFdXRUdDFKVG9yRnNPQ2grOWFHOU1XTUNM?=
- =?utf-8?B?ZjJTMndiTUFyNmJaS2hmclprSUFjSUwyM3RsaXRSQTE3ZFJpdFYxVDNyUmtB?=
- =?utf-8?B?SEhNSXdKek9tcGlwbWVEYVZWNFZxRm1hMnJrL05CMVBwQUhwemV6VDQxRUpz?=
- =?utf-8?B?bzVnQVNJaVU1bldxcGdSV2FHdStPL0NoVkE2akF5cVpQaWJRTXJGZzR6SlNm?=
- =?utf-8?B?YitWbzhuYmFTUk01V2Z4VUFOYWVTYWZXckdXV3lHaStYMGNaOHpBVjQ1Sjhr?=
- =?utf-8?B?TXNKYWQ4SGxGNFdVU0pVQWZhR2lJMEQ5bzhiQzFBS0lsKzI4akR3MW1zMmlW?=
- =?utf-8?B?d2wyclptOVZkSkVPbTZ6UWF5UEMyY2wvUnJNTVY1ZlVaVFFDbGVMWnkzdjNp?=
- =?utf-8?B?VUtpejRUQXc3NGthWWhZS0hWbUl0ZnZWOW1ycGRvdllpVk5hcHFvV3ZadzZt?=
- =?utf-8?B?N2JMR1N4d1J1RlQzem9tR0RNWUlvdzF6b2wvR1JCcTJFVms4Y0FiRDY4M25t?=
- =?utf-8?B?bWxrZXVHbURBaXdzdkQrZGJ2MVNURG9LRDRDWVdqQktyL3EwRVhkb0hCVzlU?=
- =?utf-8?B?MG44ZnRFQWxGTHlRUVZ1bGpFbEp2ZWoxWm4rZnByNFh5MXlsSHdkMXdwL0dO?=
- =?utf-8?B?WGdLNEFzQkVPWXhaTllYM2xPWWpHRkNWbHN3bmp4WlpZamZoRHRqREJYKzNi?=
- =?utf-8?B?OTM5ZVFnSmRYVjduWnR2L205Sjhtc29DYVFWRE1NTDh2RXQvZFdhOHNqdmg5?=
- =?utf-8?B?UW1EL0pTNzFmN3JDUFVSbFErRmM4Tjl2M2ZvNUxjSHc0Z1kvUEpvWlZodkR6?=
- =?utf-8?B?MFU3Z0svbEJjcW9sR1U4QTZ1eUtMaEFXcU5nZUxwckNLNXhrVW9Pb1lJMDQz?=
- =?utf-8?B?MnZ2YnpabjhhamM0MFE2bWxOVldGd05lRGwxREFwbTgzT29JUFBtOE1UMkhs?=
- =?utf-8?B?VFlHMjRybmxKa3FkRDhoa3ZKdXNrNFVVRWFXWElKcWoxS2d3N3YyUnFGa1Rr?=
- =?utf-8?B?cUIzRklzMkdSSHBJZEFSQ2RLVjY0WUJCVGx6UlpDZUlyVlo3Tmk2MDZlTSts?=
- =?utf-8?B?QS9IZjVzeXk0RzVWN3NvZUJscUhaeUx4ZktxeDhZbjRyMmpvbW8wMzArYmt5?=
- =?utf-8?B?d3IyWVFLR3IvTERBQk1TenRQSHpaLysvd2hJSDZ4QTFVdmI5V0ptaWR3VGlH?=
- =?utf-8?B?U1lrMWtkVVdRa0d4eE5HL0lnVXhJZDBiNndMemhUZkhIMWpydVA3ZXF1NUNj?=
- =?utf-8?B?OHpid0ZMY0VEYThudUNjTzZ3My9ITHZBU1ZKZUJxQUVWTTFScXdSdHVBYTVp?=
- =?utf-8?B?dTNSdVFMZGZXYTB1ZXJBZHo4bnV3dDR6T1JybVFyZ0htVjNPR1FvRkZyTGJB?=
- =?utf-8?B?WVdtcmdrTXpLT3pySGJSVThYbzE0OStuV2xLeDlnaFIwZGhUdW1JWGRMOTlU?=
- =?utf-8?B?MkVrOEQvNTJneG5QZVFvbEtkeW1qYkRWOWlsOHd2dHZGVkZISW9zek9iZ3Vq?=
- =?utf-8?B?RnZTcUlxRzFsWmkrYTQzWDR4UDFRbTBybEF1eWJCK0VDWXg4dVdxaDVWR1ZE?=
- =?utf-8?Q?D0akhX1RFy+c7u12aqAswYB9vWTOf4yqcasvoK5LgyBE=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 42b7283f-c936-4a55-fe81-08dbea520e4e
-X-MS-Exchange-CrossTenant-AuthSource: PN3P287MB0324.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2023 05:23:55.6377
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0P287MB1708
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 06/17] iommu: Add iommu_fwspec_alloc/dealloc()
+Content-Language: en-US
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: acpica-devel@lists.linux.dev, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Dexuan Cui <decui@microsoft.com>,
+ devicetree@vger.kernel.org, David Woodhouse <dwmw2@infradead.org>,
+ Frank Rowand <frowand.list@gmail.com>, Hanjun Guo <guohanjun@huawei.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, iommu@lists.linux.dev,
+ Jean-Philippe Brucker <jean-philippe@linaro.org>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
+ "K. Y. Srinivasan" <kys@microsoft.com>, Len Brown <lenb@kernel.org>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-snps-arc@lists.infradead.org,
+ linux-tegra@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, patches@lists.linux.dev,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Robert Moore <robert.moore@intel.com>, Rob Herring <robh+dt@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Krishna Reddy <vdumpa@nvidia.com>, Vineet Gupta <vgupta@kernel.org>,
+ virtualization@lists.linux.dev, Wei Liu <wei.liu@kernel.org>,
+ Will Deacon <will@kernel.org>
+References: <6-v2-36a0088ecaa7+22c6e-iommu_fwspec_jgg@nvidia.com>
+ <20a7ef6d-a8ca-4bd8-ad7e-11856db617a2@marcan.st>
+ <1eb12c35-e64e-4c32-af99-8743dc2ec266@marcan.st>
+ <20231119141329.GA6083@nvidia.com>
+From: Hector Martin <marcan@marcan.st>
+In-Reply-To: <20231119141329.GA6083@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231120_213932_817472_46534087 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20231120_224814_432152_E2377F46 
+X-CRM114-Status: GOOD (  28.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,223 +95,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On 2023/11/18 15:10, Inochi Amaoto wrote:
-> Change the timer layout in the dtb to fit the format that needed by
-> the SBI.
->
-> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> Fixes: 967a94a92aaa ("riscv: dts: add initial Sophgo SG2042 SoC device tree")
-> ---
->   arch/riscv/boot/dts/sophgo/sg2042.dtsi | 80 +++++++++++++++-----------
->   1 file changed, 48 insertions(+), 32 deletions(-)
->
-> diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-> index 93256540d078..ead1cc35d88b 100644
-> --- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-> +++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-> @@ -93,144 +93,160 @@ clint_mswi: interrupt-controller@7094000000 {
->   					      <&cpu63_intc 3>;
->   		};
->
-> -		clint_mtimer0: timer@70ac000000 {
-> +		clint_mtimer0: timer@70ac004000 {
->   			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
-> -			reg = <0x00000070 0xac000000 0x00000000 0x00007ff8>;
-> +			reg = <0x00000070 0xac004000 0x00000000 0x0000c000>;
-> +			reg-names = "mtimecmp";
->   			interrupts-extended = <&cpu0_intc 7>,
->   					      <&cpu1_intc 7>,
->   					      <&cpu2_intc 7>,
->   					      <&cpu3_intc 7>;
->   		};
->
-> -		clint_mtimer1: timer@70ac010000 {
-> +		clint_mtimer1: timer@70ac014000 {
->   			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
-> -			reg = <0x00000070 0xac010000 0x00000000 0x00007ff8>;
-> +			reg = <0x00000070 0xac014000 0x00000000 0x0000c000>;
-> +			reg-names = "mtimecmp";
->   			interrupts-extended = <&cpu4_intc 7>,
->   					      <&cpu5_intc 7>,
->   					      <&cpu6_intc 7>,
->   					      <&cpu7_intc 7>;
->   		};
->
-> -		clint_mtimer2: timer@70ac020000 {
-> +		clint_mtimer2: timer@70ac024000 {
->   			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
-> -			reg = <0x00000070 0xac020000 0x00000000 0x00007ff8>;
-> +			reg = <0x00000070 0xac024000 0x00000000 0x0000c000>;
-> +			reg-names = "mtimecmp";
->   			interrupts-extended = <&cpu8_intc 7>,
->   					      <&cpu9_intc 7>,
->   					      <&cpu10_intc 7>,
->   					      <&cpu11_intc 7>;
->   		};
->
-> -		clint_mtimer3: timer@70ac030000 {
-> +		clint_mtimer3: timer@70ac034000 {
->   			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
-> -			reg = <0x00000070 0xac030000 0x00000000 0x00007ff8>;
-> +			reg = <0x00000070 0xac034000 0x00000000 0x0000c000>;
-> +			reg-names = "mtimecmp";
->   			interrupts-extended = <&cpu12_intc 7>,
->   					      <&cpu13_intc 7>,
->   					      <&cpu14_intc 7>,
->   					      <&cpu15_intc 7>;
->   		};
->
-> -		clint_mtimer4: timer@70ac040000 {
-> +		clint_mtimer4: timer@70ac044000 {
->   			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
-> -			reg = <0x00000070 0xac040000 0x00000000 0x00007ff8>;
-> +			reg = <0x00000070 0xac044000 0x00000000 0x0000c000>;
-> +			reg-names = "mtimecmp";
->   			interrupts-extended = <&cpu16_intc 7>,
->   					      <&cpu17_intc 7>,
->   					      <&cpu18_intc 7>,
->   					      <&cpu19_intc 7>;
->   		};
->
-> -		clint_mtimer5: timer@70ac050000 {
-> +		clint_mtimer5: timer@70ac054000 {
->   			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
-> -			reg = <0x00000070 0xac050000 0x00000000 0x00007ff8>;
-> +			reg = <0x00000070 0xac054000 0x00000000 0x0000c000>;
-> +			reg-names = "mtimecmp";
->   			interrupts-extended = <&cpu20_intc 7>,
->   					      <&cpu21_intc 7>,
->   					      <&cpu22_intc 7>,
->   					      <&cpu23_intc 7>;
->   		};
->
-> -		clint_mtimer6: timer@70ac060000 {
-> +		clint_mtimer6: timer@70ac064000 {
->   			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
-> -			reg = <0x00000070 0xac060000 0x00000000 0x00007ff8>;
-> +			reg = <0x00000070 0xac064000 0x00000000 0x0000c000>;
-> +			reg-names = "mtimecmp";
->   			interrupts-extended = <&cpu24_intc 7>,
->   					      <&cpu25_intc 7>,
->   					      <&cpu26_intc 7>,
->   					      <&cpu27_intc 7>;
->   		};
->
-> -		clint_mtimer7: timer@70ac070000 {
-> +		clint_mtimer7: timer@70ac074000 {
->   			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
-> -			reg = <0x00000070 0xac070000 0x00000000 0x00007ff8>;
-> +			reg = <0x00000070 0xac074000 0x00000000 0x0000c000>;
-> +			reg-names = "mtimecmp";
->   			interrupts-extended = <&cpu28_intc 7>,
->   					      <&cpu29_intc 7>,
->   					      <&cpu30_intc 7>,
->   					      <&cpu31_intc 7>;
->   		};
->
-> -		clint_mtimer8: timer@70ac080000 {
-> +		clint_mtimer8: timer@70ac084000 {
->   			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
-> -			reg = <0x00000070 0xac080000 0x00000000 0x00007ff8>;
-> +			reg = <0x00000070 0xac084000 0x00000000 0x0000c000>;
-> +			reg-names = "mtimecmp";
->   			interrupts-extended = <&cpu32_intc 7>,
->   					      <&cpu33_intc 7>,
->   					      <&cpu34_intc 7>,
->   					      <&cpu35_intc 7>;
->   		};
->
-> -		clint_mtimer9: timer@70ac090000 {
-> +		clint_mtimer9: timer@70ac094000 {
->   			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
-> -			reg = <0x00000070 0xac090000 0x00000000 0x00007ff8>;
-> +			reg = <0x00000070 0xac094000 0x00000000 0x0000c000>;
-> +			reg-names = "mtimecmp";
->   			interrupts-extended = <&cpu36_intc 7>,
->   					      <&cpu37_intc 7>,
->   					      <&cpu38_intc 7>,
->   					      <&cpu39_intc 7>;
->   		};
->
-> -		clint_mtimer10: timer@70ac0a0000 {
-> +		clint_mtimer10: timer@70ac0a4000 {
->   			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
-> -			reg = <0x00000070 0xac0a0000 0x00000000 0x00007ff8>;
-> +			reg = <0x00000070 0xac0a4000 0x00000000 0x0000c000>;
-> +			reg-names = "mtimecmp";
->   			interrupts-extended = <&cpu40_intc 7>,
->   					      <&cpu41_intc 7>,
->   					      <&cpu42_intc 7>,
->   					      <&cpu43_intc 7>;
->   		};
->
-> -		clint_mtimer11: timer@70ac0b0000 {
-> +		clint_mtimer11: timer@70ac0b4000 {
->   			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
-> -			reg = <0x00000070 0xac0b0000 0x00000000 0x00007ff8>;
-> +			reg = <0x00000070 0xac0b4000 0x00000000 0x0000c000>;
-> +			reg-names = "mtimecmp";
->   			interrupts-extended = <&cpu44_intc 7>,
->   					      <&cpu45_intc 7>,
->   					      <&cpu46_intc 7>,
->   					      <&cpu47_intc 7>;
->   		};
->
-> -		clint_mtimer12: timer@70ac0c0000 {
-> +		clint_mtimer12: timer@70ac0c4000 {
->   			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
-> -			reg = <0x00000070 0xac0c0000 0x00000000 0x00007ff8>;
-> +			reg = <0x00000070 0xac0c4000 0x00000000 0x0000c000>;
-> +			reg-names = "mtimecmp";
->   			interrupts-extended = <&cpu48_intc 7>,
->   					      <&cpu49_intc 7>,
->   					      <&cpu50_intc 7>,
->   					      <&cpu51_intc 7>;
->   		};
->
-> -		clint_mtimer13: timer@70ac0d0000 {
-> +		clint_mtimer13: timer@70ac0d4000 {
->   			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
-> -			reg = <0x00000070 0xac0d0000 0x00000000 0x00007ff8>;
-> +			reg = <0x00000070 0xac0d4000 0x00000000 0x0000c000>;
-> +			reg-names = "mtimecmp";
->   			interrupts-extended = <&cpu52_intc 7>,
->   					      <&cpu53_intc 7>,
->   					      <&cpu54_intc 7>,
->   					      <&cpu55_intc 7>;
->   		};
->
-> -		clint_mtimer14: timer@70ac0e0000 {
-> +		clint_mtimer14: timer@70ac0e4000 {
->   			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
-> -			reg = <0x00000070 0xac0e0000 0x00000000 0x00007ff8>;
-> +			reg = <0x00000070 0xac0e4000 0x00000000 0x0000c000>;
-> +			reg-names = "mtimecmp";
->   			interrupts-extended = <&cpu56_intc 7>,
->   					      <&cpu57_intc 7>,
->   					      <&cpu58_intc 7>,
->   					      <&cpu59_intc 7>;
->   		};
->
-> -		clint_mtimer15: timer@70ac0f0000 {
-> +		clint_mtimer15: timer@70ac0f4000 {
->   			compatible = "sophgo,sg2042-aclint-mtimer", "thead,c900-aclint-mtimer";
-> -			reg = <0x00000070 0xac0f0000 0x00000000 0x00007ff8>;
-> +			reg = <0x00000070 0xac0f4000 0x00000000 0x0000c000>;
-> +			reg-names = "mtimecmp";
->   			interrupts-extended = <&cpu60_intc 7>,
->   					      <&cpu61_intc 7>,
->   					      <&cpu62_intc 7>,
-Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
-> --
-> 2.42.1
->
+
+On 2023/11/19 23:13, Jason Gunthorpe wrote:
+> On Sun, Nov 19, 2023 at 06:19:43PM +0900, Hector Martin wrote:
+>>>> +static int iommu_fwspec_assign_iommu(struct iommu_fwspec *fwspec,
+>>>> +				     struct device *dev,
+>>>> +				     struct fwnode_handle *iommu_fwnode)
+>>>> +{
+>>>> +	const struct iommu_ops *ops;
+>>>> +
+>>>> +	if (fwspec->iommu_fwnode) {
+>>>> +		/*
+>>>> +		 * fwspec->iommu_fwnode is the first iommu's fwnode. In the rare
+>>>> +		 * case of multiple iommus for one device they must point to the
+>>>> +		 * same driver, checked via same ops.
+>>>> +		 */
+>>>> +		ops = iommu_ops_from_fwnode(iommu_fwnode);
+>>>
+>>> This carries over a related bug from the original code: If a device has
+>>> two IOMMUs and the first one probes but the second one defers, ops will
+>>> be NULL here and the check will fail with EINVAL.
+>>>
+>>> Adding a check for that case here fixes it:
+>>>
+>>> 		if (!ops)
+>>> 			return driver_deferred_probe_check_state(dev);
+> 
+> Yes!
+> 
+>>> With that, for the whole series:
+>>>
+>>> Tested-by: Hector Martin <marcan@marcan.st>
+>>>
+>>> I can't specifically test for the probe races the series intends to fix
+>>> though, since that bug we only hit extremely rarely. I'm just testing
+>>> that nothing breaks.
+>>
+>> Actually no, this fix is not sufficient. If the first IOMMU is ready
+>> then the xlate path allocates dev->iommu, which then
+>> __iommu_probe_device takes as a sign that all IOMMUs are ready and does
+>> the device init.
+> 
+> It doesn't.. The code there is:
+> 
+> 	if (!fwspec && dev->iommu)
+> 		fwspec = dev->iommu->fwspec;
+> 	if (fwspec)
+> 		ops = fwspec->ops;
+> 	else
+> 		ops = dev->bus->iommu_ops;
+> 	if (!ops) {
+> 		ret = -ENODEV;
+> 		goto out_unlock;
+> 	}
+> 
+> Which is sensitive only to !NULL fwspec, and if EPROBE_DEFER is
+> returned fwspec will be freed and dev->iommu->fwspec will be NULL
+> here.
+> 
+> In the NULL case it does a 'bus probe' with a NULL fwspec and all the
+> fwspec drivers return immediately from their probe functions.
+> 
+> Did I miss something?
+
+apple_dart is not a fwspec driver and doesn't do that :-)
+
+> 
+>> Then when the xlate comes along again after suceeding
+>> with the second IOMMU, __iommu_probe_device sees the device is already
+>> in a group and never initializes the second IOMMU, leaving the device
+>> with only one IOMMU.
+> 
+> This should be fixed by the first hunk to check every iommu and fail?
+> 
+> BTW, do you have a systems with same device attached to multiple
+> iommus?
+
+Yes, Apple ARM64 machines all have multiple ganged IOMMUs for certain
+devices (USB and ISP). We also attach all display IOMMUs to the global
+virtual display-subsystem device to handle framebuffer mappings, instead
+of trying to dynamically map them to a bunch of individual display
+controllers (which is a lot more painful). That last one is what
+reliably reproduces this problem, display breaks without both previous
+patches ever since we started supporting more than one display output.
+The first one is not enough.
+
+> I've noticed another bug here, many drivers don't actually support
+> differing iommu instances and nothing seems to check it..
+
+apple-dart does (as long as all the IOMMUs are using that driver).
+
+> 
+> Thanks,
+> Jason
+> 
+> 
+
+- Hector
 
 _______________________________________________
 linux-riscv mailing list
