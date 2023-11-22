@@ -4,81 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39582C61D9B
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 18:06:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D63ACC61D97
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 18:20:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=7odv7VUhGczoQwxg8D7uFclPDZWsDRBJcj8pWkY5cLU=; b=t/8LeS2TCECGxYq6FMbRyTuQNH
-	a8ukahx/VLURaGIKJhrjYdw3fZmz9S64yc7PKDAGG7W7VFHMA0CWTFR9UgElBTFYN6HxsZPKIUJFM
-	HcriKSi6ZELdlmJD5Bly0VYZlqE62stpm3qIz7rcMkCbiBx6zjO34pJOWEyUtuskopNiMrq6IIxXL
-	lyFEWGrvRIojFQy9fmqHFIS9+1NtC3hjh3Fv3Vitq1GfZN+xZYTFJ74QwCk16UfC6VFpxIE6yHjSW
-	1B8IpKiqgFpA/Jl7iW8pVp95l4WEzeTLQZQW0aszVBW2JaeNj1Mqpzcg5kpv5hWYkCN7w1L0ccGoG
-	jZ6hb0Ew==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hYM/9ShnVwsX/XhpTnDe2SZ8vC5L+g0bERGQz1RolZ8=; b=YTLiU/i+TDeoZafSF+GmIF9UuW
+	y3mbOanwMHoyoN0X5PuNKmXr/1EARkeo5eJJb1gbDfkpFY/1foy6//6e8uJiAruOWUyCmysFv/FuC
+	xYxhlY7CDnbHNpocCd29OGXXvKV+BMBsCxkAmR448QYAMOf96buOyxq6kYOyQc8u6Nv5OB+iu+9ny
+	H/g7O6lZiC/DvTE062Up/363qLAX63EZ8c9t4Nrct2b0Sx7FyTaV0qopdMKaisNjOx/1m8wXomuSF
+	j/b7xXOSMbB96UVjWuIkwk0ZFPKFpN5acMlJrxlE8Mvs6ocpC/HiYZtSEhx83tEK2cigPPG3O9pa8
+	uCzjerQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5rbt-002lFf-0N;
-	Wed, 22 Nov 2023 18:06:01 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1r5rpc-002ngN-1k;
+	Wed, 22 Nov 2023 18:20:12 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5rbp-002lEe-0y
+	id 1r5rpZ-002nfC-0G
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Nov 2023 18:05:59 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-5c1acc1fa98so885967a12.0
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Nov 2023 10:05:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1700676355; x=1701281155; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=sRia2Osk7RLncdx2O06OJMmemHtGkLvZU7Z5fC3vj8w=;
-        b=QSfjiH6y4T/u6z4ETxEiR1jzuGlbVmn3nGf7U4auRj8WvhX6tnYqmPXaGaJZJPjlj1
-         WpJHJNqtizVedSQ4eJ8ORywnf99MFE+j3w+nZZ43miJtLdjBFat93KBJFG/7BHprw0FD
-         QGEwbgcdtby0opYdfVisChvAR+LJS9HVxmfUqq+1cDT90+GHCSscQHX0hpz2hJjfWrJ9
-         XJTl6h7++GTijJUZFqnOcWzA71zCQnOLNdsJ9gfGXhk8IBAwXN33+d7IuSHiU8hs/2KE
-         ZkmrZJPD1c/eHziu6M1+3ebEZLup6ydFwHKijL7qMDHUsLOybLoFWNr0a+H1/Z/RdAwB
-         JSIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700676355; x=1701281155;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sRia2Osk7RLncdx2O06OJMmemHtGkLvZU7Z5fC3vj8w=;
-        b=IbF1RuwoO3pG5218+ZUAQfcAEMMbKIZTqcLfAaXbrcee6rgzQsQ1hlhiG29JDu+ADE
-         qGmw0eO+szlm4aAnLWn11XETehi6pWZ3or+8o//3rXV6NXhaPpwg7FtQ4VxE1Eh8TPkr
-         G6CWWM0Ijxax9jsdvueT0zn1dppMUEJOW14C19zVJEwipnc+Y5MoVhZa6F7W8kwVcUbC
-         D+FN9yjS3O2+XYUkvkHdbdZT1F2EwRCKgplUfiA09ZEzx4oqo5V4EfxWsDYHNNV/2e9A
-         MLGhBSjMnhTqVh5pDwU9XcBEvTkiOhW0I1jHD9JNZWSldIjGXO5meIm6B44+2TnPoMw1
-         Ho0w==
-X-Gm-Message-State: AOJu0Yx1LCDyrDjflUHedfAfNhgT9LQEQEHThsGHpbQfejETS/lMqEJ9
-	nw6PKKJRvpl3CA7QM62ZT8HQhg==
-X-Google-Smtp-Source: AGHT+IFuh32jvNbuYQwaf2abCwtPo2iaOyP3NbHblJ1kjKy0eGzHgihIRy7Qu5I3jl5CSAZMf+hz1w==
-X-Received: by 2002:a17:90b:3ecb:b0:280:735:bece with SMTP id rm11-20020a17090b3ecb00b002800735becemr267052pjb.16.1700676355055;
-        Wed, 22 Nov 2023 10:05:55 -0800 (PST)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id jw13-20020a170903278d00b001cf5d508246sm6186562plb.224.2023.11.22.10.05.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Nov 2023 10:05:53 -0800 (PST)
-Date: Wed, 22 Nov 2023 10:05:53 -0800 (PST)
-X-Google-Original-Date: Wed, 22 Nov 2023 10:05:51 PST (-0800)
-Subject: Re: [PATCH 12/12] RISC-V: crypto: add Zvkb accelerated ChaCha20 implementation
+	Wed, 22 Nov 2023 18:20:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id D3923CE2563;
+	Wed, 22 Nov 2023 18:20:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73061C433C8;
+	Wed, 22 Nov 2023 18:20:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1700677206;
+	bh=nkZlaJwfo+V2BOfC+0q1NUdNuKi157V0je+RZmbYjyY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LqMb3fRtSGpM264Q/X+r9Lc4ASZuUM8LRktFpUUOJ3hdGw+wHbwis7LyCwxrXzNYT
+	 swSwg0XYFEOhwB9k2wV1Fye/mohrmhIiAce+Uhu6yl7adJ1qPtWWAY05yGxDStf231
+	 3GbmhcLMee8pYot3pZRKhX4/AwIFGIDSTtCZKBLpeGlEHRq2GyS+9gC0TqFLNLMxM7
+	 w0tQUvxan8VETFkQEFkWZBa+NaZtk6vmLhWS3WxriAf6K/+ok/O4o6Xa2axSTWz5Ea
+	 GTAV06iAJrxIGhgh/zQonRDlzpbp18XIlJcQjb+g1w28RCn2pQCbPgObD3W/IyMNs3
+	 j94dmdB/IdptQ==
+Date: Wed, 22 Nov 2023 18:20:00 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jerry Shih <jerry.shih@sifive.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>, palmer@dabbelt.com,
+	Albert Ou <aou@eecs.berkeley.edu>, herbert@gondor.apana.org.au,
+	davem@davemloft.net, andy.chiu@sifive.com, greentime.hu@sifive.com,
+	guoren@kernel.org, bjorn@rivosinc.com, heiko@sntech.de,
+	ardb@kernel.org, phoebe.chen@sifive.com, hongrong.hsu@sifive.com,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-crypto@vger.kernel.org
+Subject: Re: [PATCH 12/12] RISC-V: crypto: add Zvkb accelerated ChaCha20
+ implementation
+Message-ID: <20231122-bulldog-deceased-7e3dadf3a833@spud>
+References: <20231025183644.8735-1-jerry.shih@sifive.com>
+ <20231025183644.8735-13-jerry.shih@sifive.com>
+ <20231102054327.GH1498@sol.localdomain>
+ <90E2B1B4-ACC1-4316-81CD-E919D3BD03BA@sifive.com>
+ <20231120191856.GA964@sol.localdomain>
+ <9724E3A5-F43C-4239-9031-2B33B72C4EF4@sifive.com>
+ <20231121-knelt-resource-5d71c9246015@wendy>
+ <3BDE7B86-0078-4C77-A383-1C83C88E44DA@sifive.com>
+MIME-Version: 1.0
 In-Reply-To: <3BDE7B86-0078-4C77-A383-1C83C88E44DA@sifive.com>
-CC: Conor Dooley <conor.dooley@microchip.com>, ebiggers@kernel.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, herbert@gondor.apana.org.au, davem@davemloft.net,
-  andy.chiu@sifive.com, greentime.hu@sifive.com, guoren@kernel.org, Bjorn Topel <bjorn@rivosinc.com>,
-  heiko@sntech.de, Ard Biesheuvel <ardb@kernel.org>, phoebe.chen@sifive.com,
-  hongrong.hsu@sifive.com, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-  linux-crypto@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: jerry.shih@sifive.com
-Message-ID: <mhng-1c7aec6e-c2bb-4ad3-a458-7dce3cda0475@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231122_100557_575903_AD54B6B1 
-X-CRM114-Status: GOOD (  35.71  )
+X-CRM114-CacheID: sfid-20231122_102009_585508_D6CE1609 
+X-CRM114-Status: GOOD (  25.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,89 +81,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============1333885808099410113=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Nov 2023 09:37:33 PST (-0800), jerry.shih@sifive.com wrote:
-> On Nov 21, 2023, at 21:14, Conor Dooley <conor.dooley@microchip.com> wrote:
->> On Tue, Nov 21, 2023 at 06:55:07PM +0800, Jerry Shih wrote:
->>> Sorry, I just use my `internal` qemu with vector-crypto and rva22 patches.
->>> 
->>> The public qemu haven't supported rva22 profiles. Here is the qemu patch[1] for
->>> that. But here is the discussion why the qemu doesn't export these
->>> `named extensions`(e.g. Zicclsm).
->>> I try to add Zicclsm in DT in the v2 patch set. Maybe we will have more discussion
->>> about the rva22 profiles in kernel DT.
->> 
->> Please do, that'll be fun! Please take some time to read what the
->> profiles spec actually defines Zicclsm fore before you send those patches
->> though. I think you might come to find you have misunderstood what it
->> means - certainly I did the first time I saw it!
->
+
+--===============1333885808099410113==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="vzAb+aUYU4qXrR/Z"
+Content-Disposition: inline
+
+
+--vzAb+aUYU4qXrR/Z
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Nov 23, 2023 at 01:37:33AM +0800, Jerry Shih wrote:
+> On Nov 21, 2023, at 21:14, Conor Dooley <conor.dooley@microchip.com> wrot=
+e:
+> > On Tue, Nov 21, 2023 at 06:55:07PM +0800, Jerry Shih wrote:
+> >> Sorry, I just use my `internal` qemu with vector-crypto and rva22 patc=
+hes.
+> >>=20
+> >> The public qemu haven't supported rva22 profiles. Here is the qemu pat=
+ch[1] for
+> >> that. But here is the discussion why the qemu doesn't export these
+> >> `named extensions`(e.g. Zicclsm).
+> >> I try to add Zicclsm in DT in the v2 patch set. Maybe we will have mor=
+e discussion
+> >> about the rva22 profiles in kernel DT.
+> >=20
+> > Please do, that'll be fun! Please take some time to read what the
+> > profiles spec actually defines Zicclsm fore before you send those patch=
+es
+> > though. I think you might come to find you have misunderstood what it
+> > means - certainly I did the first time I saw it!
+>=20
 > From the rva22 profile:
->   This requires misaligned support for all regular load and store instructions (including
+
+"rva22" is not a profile. As I pointed out to Eric, this is defined in
+the RVA22U64 profile (and the RVA20U64 one, but that is effectively a
+moot point). The profile descriptions for these only specify "the ISA
+features available to user-mode execution environments", so it is not
+suitable for use in any other context.
+
+>   This requires misaligned support for all regular load and store instruc=
+tions (including
 >   scalar and ``vector``)
->
+>=20
 > The spec includes the explicit `vector` keyword.
-> So, I still think we could use Zicclsm checking for these vector-crypto implementations.
->
-> My proposed patch is just a simple patch which only update the DT document and
-> update the isa string parser for Zicclsm. If it's still not recommend to use Zicclsm
+> So, I still think we could use Zicclsm checking for these vector-crypto i=
+mplementations.
+
+In userspace, if Zicclsm was exported somewhere, that would be a valid
+argument. Even for userspace, the hwprobe flags probably provide more
+information though, since the firmware emulation is insanely slow.
+
+> My proposed patch is just a simple patch which only update the DT documen=
+t and
+> update the isa string parser for Zicclsm.
+
+Zicclsm has no meaning outside of user mode, so it's not suitable for
+use in that context. Other "features" defined in the profiles spec might
+be suitable for inclusion, but it'll be a case-by-case basis.
+
+> If it's still not recommend to use Zicclsm
 > checking, I will turn to use `RISCV_HWPROBE_MISALIGNED_*` instead.
 
-IMO that's the way to go: even if these are required to be supported by 
-Zicclsm, we still need to deal with the performance implications.
+Palmer has commented on the rest, so no need for me :)
 
->>> [1]
->>> LINK: https://lore.kernel.org/all/d1d6f2dc-55b2-4dce-a48a-4afbbf6df526@ventanamicro.com/#t
->>> 
->>> I don't know whether it's a good practice to check unaligned access using
->>> `Zicclsm`. 
->>> 
->>> Here is another related cpu feature for unaligned access:
->>> RISCV_HWPROBE_MISALIGNED_*
->>> But it looks like it always be initialized with `RISCV_HWPROBE_MISALIGNED_SLOW`[2].
->>> It implies that linux kernel always supports unaligned access. But we have the
->>> actual HW which doesn't support unaligned access for vector unit.
->> 
->> https://docs.kernel.org/arch/riscv/uabi.html#misaligned-accesses
->> 
->> Misaligned accesses are part of the user ABI & the hwprobe stuff for
->> that allows userspace to figure out whether they're fast (likely
->> implemented in hardware), slow (likely emulated in firmware) or emulated
->> in the kernel.
->
-> The HWPROBE_MISALIGNED_* checking function is at:
-> https://github.com/torvalds/linux/blob/c2d5304e6c648ebcf653bace7e51e0e6742e46c8/arch/riscv/kernel/cpufeature.c#L564-L647
-> The tests are all scalar. No `vector` test inside. So, I'm not sure the
-> HWPROBE_MISALIGNED_* is related to vector unit or not.
->
-> The goal is to check whether `vector` support unaligned access or not
-> in this crypto patch.
->
-> I haven't seen the emulated path for unaligned-vector-access in OpenSBI
-> and kernel. Is the unaligned-vector-access included in user ABI?
+--vzAb+aUYU4qXrR/Z
+Content-Type: application/pgp-signature; name="signature.asc"
 
-I guess it's kind of a grey area, but I'd agrue that it is: we merged 
-support for V when the only implementation (ie, QEMU) supported 
-misaligned accesses, so we're stuck with that being the defacto 
-behavior.  As part of adding support for the K230 we'll need to then add 
-the kernel-mode vector misaligned access handlers, but that doesn't seem 
-so hard.
+-----BEGIN PGP SIGNATURE-----
 
-So I'd say we should update the hwprobe docs to say that key only 
-reflects scalar accesses (or maybe even just integer accesses?  that's 
-all we're testing for) -- essentially just make the documentation match 
-the implementation, as that'll keep ABI compatibility.  Then we can add 
-a new key for vector misaligned access performance.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZV5GUAAKCRB4tDGHoIJi
+0oykAP4922JGXnpu07g8YFB8/6OUEt+yMcyfCYkI5roxjxUMvAD+IKrCIgs4o3KE
+2V2NnvtXaLmpQQqGQ0bwPy/0N681yg4=
+=fOfP
+-----END PGP SIGNATURE-----
 
->
-> Thanks,
-> Jerry
+--vzAb+aUYU4qXrR/Z--
+
+
+--===============1333885808099410113==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1333885808099410113==--
+
