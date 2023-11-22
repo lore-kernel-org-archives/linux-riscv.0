@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D995C61DA7
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 09:47:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76655C61D9B
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 09:47:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6PUWz5EXTwq7vqVj8nYRCgXP88ao6R2mL/pp2TBI/Lc=; b=T3GuIKVWnyZzL4
-	fRt55CZrGD4A4b4mGx0jxt2X6a3r48hYojGdFLutLyuZxz6VTit9zHNRu/CWRez6w5TgdZY2iYTV2
-	BCTFBic0NLrY17H0R2yIRpNbS90kAxJZ3LH7gRe1wZ4u5qXxP2rcHNw9w/PfHAnhMEr8cr78KDSgz
-	8dwFpUe26AavmeOeCriXo0f8Zbl1Y3/Z9y8zIiKGGA5l/YQL4ZvT7l17NMyxCoGV08/r61SPzXseO
-	VHuSTbjaV3Wa2zSl2uYfkt4zFPRlFW9rIRWiBg+KeCNDcnAqZv6Bx90TrAcWYjbKZ4cL2CSfYucmV
-	HTsmW2s98i48OGZxlS8A==;
+	List-Owner; bh=YHU+CWD6164z4VB5k4LJwHAaN8BsC7b+T88+26h5b6Q=; b=uWnpxdLAAEEC0e
+	9ohCYpAY8YeIBSmVHlu/pr9Szm2gGSN4JAicE/lvZG5MWIe/+FJ0dIpZTfvC39T4hZ+iGFQA3+wT4
+	50GLgKSnSXbFRU6luefo0UkuKRwjryXWGTycQZz2aQuhd7SnECtvn+pqvgXLqRN7v5sq+yv4ctJPp
+	m0Z3JOkg2gJKItNkKN1KkNohqZ7tgdhBNaj97ZBKLIMuDoiIdODI0Cj+ZkdKBIZIaNQl5DoP7/gp6
+	0X2fSWmqVgI2huhn8Jige92AqKMz0Fm9RwjBsysOYUgw8qk0xLIBn2uim9yC3YmgH13STsOV89B99
+	af4M7UIYzahpo8txMzqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5jpD-001JR0-2P;
-	Wed, 22 Nov 2023 09:47:15 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1r5jpJ-001JVb-1G;
+	Wed, 22 Nov 2023 09:47:21 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5joN-001IBi-0v;
-	Wed, 22 Nov 2023 09:46:27 +0000
+	id 1r5joP-001IX7-2Z;
+	Wed, 22 Nov 2023 09:46:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id C12F9B81F71;
-	Wed, 22 Nov 2023 09:46:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0329AC433C9;
-	Wed, 22 Nov 2023 09:45:55 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 7A13ECE1EC1;
+	Wed, 22 Nov 2023 09:46:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 866E8C43395;
+	Wed, 22 Nov 2023 09:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1700646365;
-	bh=OmIISmzme0R4+ZZhAdBzRBNSULPhQIu1MUcvbR0SztM=;
+	s=k20201202; t=1700646383;
+	bh=0y6nS2SVdzl2qxV5TcDCnpKi8YQvhWLC/gR5WsuQggw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=fKnWI82whn0XtZdXkPreiufY8bmPTbg/EhFaJf6C45E2ClZ6Xv2Zhoc7zg0gpoeKF
-	 brXoGKtIf3FI21RXrD8eJdIK6zfz+RvJtBibK7z+vO32SdMZw0j02YzIsdu8hFM69t
-	 k5vymDvbbKl+So6XOiIp2P1QrhzMC8diEO4SkAXIaJT+8b/RFjhLN8r5ZCcg8ozxox
-	 s3ru+GLB8ogDtroFfmq7CVBeUd55pS39+ibUDo4S0B5qsBQA+/XTrb4PzFS9Fcq58F
-	 qp9aZp7TCaLSSPxRfKqFXEemhscbubzUQLAS4H3J2bluTM/10+9X4yKtBNgwLSoSrv
-	 DEQ1osdYiB55g==
+	b=ZNt/mhOldQGyAGrFdcd7zCoYi9c4Cpbfl611N1nCbvre1FYvH7Zl1qxYMHlLUXK/R
+	 oTr4pGgCl3ZqkdfLg9vxV823aJQE0eCLlAhRLaW1gT0pmdwjk38uP6NXqfphyDxggd
+	 Nce0uiHdxAcfp2N1Y9laenaA7HV7sOUFODNyqrBMy7XcrOzKnRNQTKmHrYboi3WFf4
+	 QOpE3cQlVvo2KE6NieOOuSEronhIGHfX5fucm1ZO0NVH0NxleNUmMK8+wdtaJLpRNh
+	 bN4Wz6vhiC+V3XP1enBFhlP/PZm5aE6IiSJnXGkBC62BqC2W7W+tQNNElkgCPc4NEY
+	 Pt1AESbQWlpmQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Wed, 22 Nov 2023 09:42:35 +0000
-Subject: [PATCH v7 25/39] arm64/signal: Expose GCS state in signal frames
+Date: Wed, 22 Nov 2023 09:42:37 +0000
+Subject: [PATCH v7 27/39] arm64: Add Kconfig for Guarded Control Stack
+ (GCS)
 MIME-Version: 1.0
-Message-Id: <20231122-arm64-gcs-v7-25-201c483bd775@kernel.org>
+Message-Id: <20231122-arm64-gcs-v7-27-201c483bd775@kernel.org>
 References: <20231122-arm64-gcs-v7-0-201c483bd775@kernel.org>
 In-Reply-To: <20231122-arm64-gcs-v7-0-201c483bd775@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -69,20 +70,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-0438c
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5977; i=broonie@kernel.org;
- h=from:subject:message-id; bh=OmIISmzme0R4+ZZhAdBzRBNSULPhQIu1MUcvbR0SztM=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlXc0JHIYxL2UrB1tx7MSl6aRe7ZhUp/W9tRbtj
- gsL6qbyLg6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZV3NCQAKCRAk1otyXVSH
- 0ItlB/97EBZweJSTZu8YX5Q8kOJfn4Y40tfmiBjCNZTMEzx/rxeR5DJ2uOALUItLzFzYwbr7xXt
- wlujHSBFfUEgz0xA9ogYtQECmdVjCE/1BTflw4B4J9zHnKw44v3FiJJJ4dLxTsH7E2+7s250vqt
- YKDkAz/HyNgSwVgfXy1zwlwovNqebe6+TENHaZPYUSn5eb5Yfm/ZX1+3AZQ35aDuvaAvvw5w0H9
- EOdFTsc5+LnecbmGHXGtOqbJCISKXhAQDlvu6GklYlCoex0A0rt9J1XZJz3zxYcZvNiJUG45SgD
- WDFtGSLC6tHpbS+rC3B+RRoHZwnU+qXse8UzLqUFOyrB50aY
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1372; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=0y6nS2SVdzl2qxV5TcDCnpKi8YQvhWLC/gR5WsuQggw=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlXc0LjTRQMrZZBOJgPLB48tbG4uiml7CZIDEV5
+ uQD798eCNqJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZV3NCwAKCRAk1otyXVSH
+ 0Iq3B/9HlE8pfPFk2nuyqu1U5wC2TDnfo30tlZoqa72rjxWoZMeOZIt03d7ifiDGT60BAhV7DR/
+ X2q4ijl0gxsqAdoQTECIT09I17i0jhkg4sOrFnUM9S88Dc3B+OIQORdu8k6AozeCurJMkcd/ICY
+ snWt5N0Nh2ox8T7U6IwsCVSrOZfctm8ylWDVAVHxsy53/DBhuI0FtT+rlbYGseRcYj1zRLPXpf+
+ BVttx7Ntz2AelFYWVTuV1+GEKIwFIHMxKR/QSrU8uS9CzItwTUAOZKN30cLz7YqjsJMsYAnSVKN
+ Bd8Eqt+f6s9NrIoUWZmOF8FfRH4sNLQwPl0XXWRCxkdsmJNx
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231122_014623_642141_131F245B 
-X-CRM114-Status: GOOD (  20.82  )
+X-CRM114-CacheID: sfid-20231122_014626_229086_63F434E9 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,209 +100,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a context for the GCS state and include it in the signal context when
-running on a system that supports GCS. We reuse the same flags that the
-prctl() uses to specify which GCS features are enabled and also provide the
-current GCS pointer.
-
-We do not support enabling GCS via signal return, there is a conflict
-between specifying GCSPR_EL0 and allocation of a new GCS and this is not
-an ancticipated use case.  We also enforce GCS configuration locking on
-signal return.
+Provide a Kconfig option allowing the user to select if GCS support is
+built into the kernel.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/uapi/asm/sigcontext.h |   9 +++
- arch/arm64/kernel/signal.c               | 107 +++++++++++++++++++++++++++++++
- 2 files changed, 116 insertions(+)
+ arch/arm64/Kconfig | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-diff --git a/arch/arm64/include/uapi/asm/sigcontext.h b/arch/arm64/include/uapi/asm/sigcontext.h
-index f23c1dc3f002..7b66d245f2d2 100644
---- a/arch/arm64/include/uapi/asm/sigcontext.h
-+++ b/arch/arm64/include/uapi/asm/sigcontext.h
-@@ -168,6 +168,15 @@ struct zt_context {
- 	__u16 __reserved[3];
- };
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 7b071a00425d..05cffc0f5786 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2078,6 +2078,26 @@ config ARM64_EPAN
+ 	  if the cpu does not implement the feature.
+ endmenu # "ARMv8.7 architectural features"
  
-+#define GCS_MAGIC	0x47435300
++menu "v9.4 architectural features"
 +
-+struct gcs_context {
-+	struct _aarch64_ctx head;
-+	__u64 gcspr;
-+	__u64 features_enabled;
-+	__u64 reserved;
-+};
++config ARM64_GCS
++	bool "Enable support for Guarded Control Stack (GCS)"
++	default y
++	select ARCH_HAS_USER_SHADOW_STACK
++	select ARCH_USES_HIGH_VMA_FLAGS
++	help
++	  Guarded Control Stack (GCS) provides support for a separate
++	  stack with restricted access which contains only return
++	  addresses.  This can be used to harden against some attacks
++	  by comparing return address used by the program with what is
++	  stored in the GCS, and may also be used to efficiently obtain
++	  the call stack for applications such as profiling.
 +
- #endif /* !__ASSEMBLY__ */
- 
- #include <asm/sve_context.h>
-diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
-index b5dff91274fb..7ff775495f3e 100644
---- a/arch/arm64/kernel/signal.c
-+++ b/arch/arm64/kernel/signal.c
-@@ -88,6 +88,7 @@ struct rt_sigframe_user_layout {
- 
- 	unsigned long fpsimd_offset;
- 	unsigned long esr_offset;
-+	unsigned long gcs_offset;
- 	unsigned long sve_offset;
- 	unsigned long tpidr2_offset;
- 	unsigned long za_offset;
-@@ -214,6 +215,8 @@ struct user_ctxs {
- 	u32 za_size;
- 	struct zt_context __user *zt;
- 	u32 zt_size;
-+	struct gcs_context __user *gcs;
-+	u32 gcs_size;
- };
- 
- static int preserve_fpsimd_context(struct fpsimd_context __user *ctx)
-@@ -606,6 +609,82 @@ extern int restore_zt_context(struct user_ctxs *user);
- 
- #endif /* ! CONFIG_ARM64_SME */
- 
-+#ifdef CONFIG_ARM64_GCS
++	  The feature is detected at runtime, and will remain disabled
++	  if the system does not implement the feature.
 +
-+static int preserve_gcs_context(struct gcs_context __user *ctx)
-+{
-+	int err = 0;
-+	u64 gcspr;
++endmenu # "v9.4 architectural features"
 +
-+	/*
-+	 * We will add a cap token to the frame, include it in the
-+	 * GCSPR_EL0 we report to support stack switching via
-+	 * sigreturn.
-+	 */
-+	gcs_preserve_current_state();
-+	gcspr = current->thread.gcspr_el0;
-+	if (task_gcs_el0_enabled(current))
-+		gcspr -= 8;
-+
-+	__put_user_error(GCS_MAGIC, &ctx->head.magic, err);
-+	__put_user_error(sizeof(*ctx), &ctx->head.size, err);
-+	__put_user_error(gcspr, &ctx->gcspr, err);
-+	__put_user_error(current->thread.gcs_el0_mode,
-+			 &ctx->features_enabled, err);
-+
-+	return err;
-+}
-+
-+static int restore_gcs_context(struct user_ctxs *user)
-+{
-+	u64 gcspr, enabled;
-+	int err = 0;
-+
-+	if (user->gcs_size != sizeof(*user->gcs))
-+		return -EINVAL;
-+
-+	__get_user_error(gcspr, &user->gcs->gcspr, err);
-+	__get_user_error(enabled, &user->gcs->features_enabled, err);
-+	if (err)
-+		return err;
-+
-+	/* Don't allow unknown modes */
-+	if (enabled & ~PR_SHADOW_STACK_SUPPORTED_STATUS_MASK)
-+		return -EINVAL;
-+
-+	err = gcs_check_locked(current, enabled);
-+	if (err != 0)
-+		return err;
-+
-+	/* Don't allow enabling */
-+	if (!task_gcs_el0_enabled(current) &&
-+	    (enabled & PR_SHADOW_STACK_ENABLE))
-+		return -EINVAL;
-+
-+	/* If we are disabling disable everything */
-+	if (!(enabled & PR_SHADOW_STACK_ENABLE))
-+		enabled = 0;
-+
-+	current->thread.gcs_el0_mode = enabled;
-+
-+	/*
-+	 * We let userspace set GCSPR_EL0 to anything here, we will
-+	 * validate later in gcs_restore_signal().
-+	 */
-+	current->thread.gcspr_el0 = gcspr;
-+	write_sysreg_s(current->thread.gcspr_el0, SYS_GCSPR_EL0);
-+
-+	return 0;
-+}
-+
-+#else /* ! CONFIG_ARM64_GCS */
-+
-+/* Turn any non-optimised out attempts to use these into a link error: */
-+extern int preserve_gcs_context(void __user *ctx);
-+extern int restore_gcs_context(struct user_ctxs *user);
-+
-+#endif /* ! CONFIG_ARM64_GCS */
-+
- static int parse_user_sigframe(struct user_ctxs *user,
- 			       struct rt_sigframe __user *sf)
- {
-@@ -622,6 +701,7 @@ static int parse_user_sigframe(struct user_ctxs *user,
- 	user->tpidr2 = NULL;
- 	user->za = NULL;
- 	user->zt = NULL;
-+	user->gcs = NULL;
- 
- 	if (!IS_ALIGNED((unsigned long)base, 16))
- 		goto invalid;
-@@ -716,6 +796,17 @@ static int parse_user_sigframe(struct user_ctxs *user,
- 			user->zt_size = size;
- 			break;
- 
-+		case GCS_MAGIC:
-+			if (!system_supports_gcs())
-+				goto invalid;
-+
-+			if (user->gcs)
-+				goto invalid;
-+
-+			user->gcs = (struct gcs_context __user *)head;
-+			user->gcs_size = size;
-+			break;
-+
- 		case EXTRA_MAGIC:
- 			if (have_extra_context)
- 				goto invalid;
-@@ -835,6 +926,9 @@ static int restore_sigframe(struct pt_regs *regs,
- 			err = restore_fpsimd_context(&user);
- 	}
- 
-+	if (err == 0 && system_supports_gcs() && user.gcs)
-+		err = restore_gcs_context(&user);
-+
- 	if (err == 0 && system_supports_tpidr2() && user.tpidr2)
- 		err = restore_tpidr2_context(&user);
- 
-@@ -949,6 +1043,13 @@ static int setup_sigframe_layout(struct rt_sigframe_user_layout *user,
- 			return err;
- 	}
- 
-+	if (system_supports_gcs()) {
-+		err = sigframe_alloc(user, &user->gcs_offset,
-+				     sizeof(struct gcs_context));
-+		if (err)
-+			return err;
-+	}
-+
- 	if (system_supports_sve() || system_supports_sme()) {
- 		unsigned int vq = 0;
- 
-@@ -1042,6 +1143,12 @@ static int setup_sigframe(struct rt_sigframe_user_layout *user,
- 		__put_user_error(current->thread.fault_code, &esr_ctx->esr, err);
- 	}
- 
-+	if (system_supports_gcs() && err == 0 && user->gcs_offset) {
-+		struct gcs_context __user *gcs_ctx =
-+			apply_user_offset(user, user->gcs_offset);
-+		err |= preserve_gcs_context(gcs_ctx);
-+	}
-+
- 	/* Scalable Vector Extension state (including streaming), if present */
- 	if ((system_supports_sve() || system_supports_sme()) &&
- 	    err == 0 && user->sve_offset) {
+ config ARM64_SVE
+ 	bool "ARM Scalable Vector Extension support"
+ 	default y
 
 -- 
 2.39.2
