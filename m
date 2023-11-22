@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9111CC61D9C
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 11:19:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2092DC61D97
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 11:22:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hr2QtVLzrc7W6qUK22F31TXBhAlcr3aaaTBQ59npnhM=; b=AMXrjI5CGaR/1iRdS5KXK32O26
-	JbSjKlMxGSLJm/QAsUTUQAcUDQaPWiDvJogeypOBjh6fTIdDMfGrVqi4muDaX6B0BZ8MTBBZk88sb
-	YqdIzhT2dEAWkMhmvlBJsnI5fx3icgm8nnnf59PC2poMRPXtvu0E/a8SY7zhfH0qDX/BEf0OrgnNY
-	vOkRUAYZIWNhLzaPb+pw/1u46vk8SDPeeK3tE4XdYbbQ/63BG0NTwvXmNM6Tu/zootWZrnOWNMNq4
-	OL1w3BdVIBw4HBdOk6IJhYGADLgC4P9n71Tua6dqPVeHiSbamSNKgnHa8L5TON/xGcKu9uiGancpu
-	zsHRe9GQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=y7dc6mC7RR4ixwWppnCB0NfQ60SAyxkpDW2xT2wwwmg=; b=1zYP4WKu84xwjE
+	itrfpkzHByf47msskch8DbKNTiajNDpYgzxbi7vOt5LuyxjV7/oBDii+2wpg9rxUw8vNiu0+cfdzk
+	WLHOEtTVUWaVM8nPX8Kk+F8r4s0vIn55UGjpl+97I4xyZagTw0gIVxhI4gZCi5VZtP6UrYgRdUqHW
+	lwyog6kRYDg2D9rnkuh06z3T8nIKd2qLvY7Y7GuXvo6cQCsppmjJktwQxciDElGNdTANSKXJ2Q6XR
+	7GACkFYktD7j5W5OHojdL752B0nqRMu0xz1vsS94TQCeHIjjMvmP+kspAoA1QtKEe2xRYTyVUhhDt
+	1zB3rqp37HYahx7aJjRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5lFx-001WxK-1e;
-	Wed, 22 Nov 2023 11:18:57 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1r5lJG-001XM2-2h;
+	Wed, 22 Nov 2023 11:22:22 +0000
+Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5lFu-001Wx0-1N
+	id 1r5lJD-001XJy-1U
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Nov 2023 11:18:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C99D561D10;
-	Wed, 22 Nov 2023 11:18:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8029CC433C8;
-	Wed, 22 Nov 2023 11:18:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1700651933;
-	bh=MQOyWaD28qGZWRp1OTCZzDWS6KW+slPGyTvC7Pw3pBI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ubRctM7gadyqCUKoLvHPNiN+FJfnNLEynLUQChmKNSRoYQ20hxlYeiqQaa4BGhYCs
-	 pmPMyiFoeQciOt7LAau1gQoK3BWyTd/RiZZpF42IqYdCN67EZ5OcummvSVkPgiBPfc
-	 ELv6GHKsNO95NRL2f5CcBk9krIck8qYiZPsS//HFQ2AGIcN3lb4qdIDPZiCsV43C6p
-	 ovupTzYwSJnyvHehql98yTQls/M8maoUqWdQhudpF4SZfGy7V1ndK8DUhE4vUAIqGY
-	 90inD5GVSIQdyU5jze6Iaggm5qwVg7sQ/GNSL7NQMhTx5bOe77Jz5zSpVuYPRWfp06
-	 sohnRbUst/K5A==
-Date: Wed, 22 Nov 2023 11:18:50 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] riscv: Deduplicate code in setup_smp()
-Message-ID: <20231122-scuff-sinner-3a6e70535efa@spud>
-References: <20231121234736.3489608-1-samuel.holland@sifive.com>
- <20231121234736.3489608-2-samuel.holland@sifive.com>
+	Wed, 22 Nov 2023 11:22:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=AlXqdHPOnHB2E+0lQ1aQJEepsIEBNaFvxect1T6h8V8=; b=E5LmH3frqzmDhyPdGS1VX0gUgw
+	42+fKueq6tq1fx3t5mAyHEjdaezuo76JzMkjcbycbQmO3wxmDvEbuzInbMt4wgj62aScpEIy5jZ8z
+	vgpxXuWGYB2DpRr8vkqJ3JXPIxuVlf8rr/DMw+XnNUHpnIHB3Gc3gE/5FceV2snBBAZ0RBTJntEdU
+	aLt8kkNwx4klJVMNMSB79oo6KgGnanNiIrVVReRTOqr7JKJNQ0PA31GUHAQgYryyZNRgEfdZamUnV
+	IxNVPWkQYxUiMpt1Jys1x5P7ufrUTOCiulVvZsJzVPri/15rJfsm3OBQOcxLwhRPQda0mqKJjaD2H
+	jvU6hMnA==;
+Received: from [167.98.27.226] (helo=rainbowdash)
+	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1r5kjs-003lIy-6s; Wed, 22 Nov 2023 10:45:49 +0000
+Received: from ben by rainbowdash with local (Exim 4.97)
+	(envelope-from <ben@rainbowdash>)
+	id 1r5kjs-000000014fr-2n0F;
+	Wed, 22 Nov 2023 10:45:48 +0000
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+To: linux-riscv@lists.infradead.org
+Cc: aou@eecs.berkeley.edu,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	Ben Dooks <ben.dooks@codethink.co.uk>
+Subject: [PATCH] riscv: fixup endian issues in module code
+Date: Wed, 22 Nov 2023 10:45:47 +0000
+Message-Id: <20231122104547.256286-1-ben.dooks@codethink.co.uk>
+X-Mailer: git-send-email 2.37.2.352.g3c44437643
 MIME-Version: 1.0
-In-Reply-To: <20231121234736.3489608-2-samuel.holland@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231122_031854_506626_0343B773 
-X-CRM114-Status: UNSURE (   9.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231122_032219_580602_A2284E90 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,57 +71,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4024014232362149034=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+There is a couple of places in the module.c file where it
+is using u16 where it meant __le16. Change this and fix
+the following sparse warnings:
 
---===============4024014232362149034==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="g4QIhuRDBzcjEDtx"
-Content-Disposition: inline
+arch/riscv/kernel/module.c:68:25: warning: cast to restricted __le16
+arch/riscv/kernel/module.c:68:55: warning: cast to restricted __le16
+arch/riscv/kernel/module.c:73:19: warning: incorrect type in assignment (different base types)
+arch/riscv/kernel/module.c:73:19:    expected unsigned short [usertype]
+arch/riscv/kernel/module.c:73:19:    got restricted __le16 [usertype]
+arch/riscv/kernel/module.c:74:19: warning: incorrect type in assignment (different base types)
+arch/riscv/kernel/module.c:74:19:    expected unsigned short [usertype]
+arch/riscv/kernel/module.c:74:19:    got restricted __le16 [usertype]
+arch/riscv/kernel/module.c:81:20: warning: cast to restricted __le16
+arch/riscv/kernel/module.c:86:17: warning: incorrect type in assignment (different base types)
+arch/riscv/kernel/module.c:86:17:    expected unsigned short [usertype]
+arch/riscv/kernel/module.c:86:17:    got restricted __le16 [usertype]
 
+Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+---
+ arch/riscv/kernel/module.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
---g4QIhuRDBzcjEDtx
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+index b5109a3889c9..82f9266ae434 100644
+--- a/arch/riscv/kernel/module.c
++++ b/arch/riscv/kernel/module.c
+@@ -64,7 +64,7 @@ static bool riscv_insn_valid_32bit_offset(ptrdiff_t val)
+ 
+ static int riscv_insn_rmw(void *location, u32 keep, u32 set)
+ {
+-	u16 *parcel = location;
++	__le16 *parcel = location;
+ 	u32 insn = (u32)le16_to_cpu(parcel[0]) | (u32)le16_to_cpu(parcel[1]) << 16;
+ 
+ 	insn &= keep;
+@@ -77,7 +77,7 @@ static int riscv_insn_rmw(void *location, u32 keep, u32 set)
+ 
+ static int riscv_insn_rvc_rmw(void *location, u16 keep, u16 set)
+ {
+-	u16 *parcel = location;
++	__le16  *parcel = location;
+ 	u16 insn = le16_to_cpu(*parcel);
+ 
+ 	insn &= keep;
+-- 
+2.37.2.352.g3c44437643
 
-On Tue, Nov 21, 2023 at 03:47:24PM -0800, Samuel Holland wrote:
-> Both the ACPI and DT implementations contain some of the same code.
-> Move it to the calling function so it is not duplicated.
->=20
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Cheers,
-Conor.
-
---g4QIhuRDBzcjEDtx
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZV3jmgAKCRB4tDGHoIJi
-0gXNAQCzo3O9dInv1Bg0Kw/qx2mGPmeeZHu568mN8CTWSE0R7gD9FNGwy279OHD1
-Xp7KTTeA4nI8ghBhuVtNT54zXGHOtgI=
-=AC/F
------END PGP SIGNATURE-----
-
---g4QIhuRDBzcjEDtx--
-
-
---===============4024014232362149034==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4024014232362149034==--
-
