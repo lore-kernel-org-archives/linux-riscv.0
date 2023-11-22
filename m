@@ -4,62 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2095C61D92
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 02:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FBE8C61D92
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 03:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g7+9RyJTZCknVkmjtlHYqyC38MGTcoQBbH7SgXUt3r0=; b=JfmA7hP0CEPnkU
-	PV3WyGI3kwCw1uYoxTuQfvyAgZ5XcQLL+/pb9NjIcMK+5J071fMi+3cODl+hR5LxiJhTqZjT2otbW
-	H+wVL9NYvyK5jrdbwn9ivaJB/dZT3Y/PLA/kvkxSj9+OarpdpeyA4B0LhjKROgnpu00dFQiEFLe0i
-	gtmghvI+BUSwh2YDRieG4JFRTqKc07PICv8lULlbl2OW9HR1LadkeaGw/tAY+eM5fQrZFVC4XkZ0y
-	R3jmI3c4iGtutT9iHiFNWVKU0kn8NOi5iBpfzFLnu+KHTN9Jn54Fw7DDo5T2Bqwj4J72E6wa7j99U
-	qKjteQ52mDLpiN/vQrfw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GYtLYqBrZ8LdexigyGDvgcDB4aETpRr3qiMRq7WQRmI=; b=TztKRWUdpWDPcj
+	/3sDbzbwUu76TlxvIp/a7m8sqBh12sXcRV9Qden/Lz+p49WjgE1aF3tyvHul3VZzl2ZyK7Y8Ilp7v
+	dxjQDWfWvlFuPp3oO2pBi1oDbyohiXS9p0SLkyxrtRwDx390wVVfiPsSMZkDpQLVo8W404YpZOibs
+	mzH/2hYDeg/CgGBxsJwmD8ZAFxadQiFqSr1yFoPAH6H7WzJ/Jh9POPYTNJ7fbqEsKczOV8bX/cS3G
+	0WSCXAbXot7DWcduGu1F7SpyBmRiMrzreBH5AHBCzg7BQnGmd5BGZ9b7xSSws0zQkSPN8Ern0lF8p
+	hkjiD5Rp7IQaoxYD6NCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5cww-000TdJ-2g;
-	Wed, 22 Nov 2023 02:26:46 +0000
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
+	id 1r5dZR-000VkW-0R;
+	Wed, 22 Nov 2023 03:06:33 +0000
+Received: from mail-oi1-x234.google.com ([2607:f8b0:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5cws-000Tch-2C
+	id 1r5dZN-000ViT-2z
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Nov 2023 02:26:45 +0000
-Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 3AM2Q9xm022966;
-	Wed, 22 Nov 2023 10:26:09 +0800 (+08)
-	(envelope-from peterlin@andestech.com)
-Received: from APC323 (10.0.12.98) by ATCPCS16.andestech.com (10.0.1.222) with
- Microsoft SMTP Server id 14.3.498.0; Wed, 22 Nov 2023 10:26:09 +0800
-Date: Wed, 22 Nov 2023 10:26:05 +0800
-From: Yu-Chien Peter Lin <peterlin@andestech.com>
-To: Prabhakar <prabhakar.csengg@gmail.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>,
-        Palmer Dabbelt
-	<palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>,
-        Conor Dooley
-	<conor.dooley@microchip.com>,
-        Geert Uytterhoeven <geert+renesas@glider.be>,
-        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-renesas-soc@vger.kernel.org>,
-        Biju Das <biju.das.jz@bp.renesas.com>,
-        Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [PATCH] riscv: errata: andes: Probe IOCP during boot stage
-Message-ID: <ZV1mvc86BdgdPL1y@APC323>
-References: <20231121202459.36874-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	Wed, 22 Nov 2023 03:06:31 +0000
+Received: by mail-oi1-x234.google.com with SMTP id 5614622812f47-3b83c4c5aefso286748b6e.1
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Nov 2023 19:06:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1700622385; x=1701227185; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=n4I/LD7GmsgMbduRtQjHbuBVYFqV+JeYB9eIa+Lz0UU=;
+        b=b3ETVAGqExkP6vyv0fd0ZRZ8JRw4I/jAtSkM/fYNVWZiACgN6IXIv0Wspj5OPRnCNG
+         AgcFVo1/iXN2FTHLbQzr4wkJX2ATe+RQAPoi0XoJhngUxR+1NlTuVTqHir1VCH+2p3qU
+         Wf1JOHLLVFiFqfLZjPBkrK9owsIbICo2CNI2Mvo0qDTuB5uiyaO4wf9tKoJkAZlwl1tH
+         1I4VO17j++jfVszv4S5IWqTZtB72dF7aFnUzfdEcjQiuqewh4SfErksvhCqBfvGcCWcW
+         Fg3N8P4eVOxc2HH8CH99uBFYELhuG/1iJGzEFt1nHIX8nBtcXfyCYx3E/HyRnSsMJhIQ
+         TtdQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1700622385; x=1701227185;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=n4I/LD7GmsgMbduRtQjHbuBVYFqV+JeYB9eIa+Lz0UU=;
+        b=QOLzG6VhQ1CBkFTF3laiQf8vv4fDBsyowpnGG5yhq3DaIRMKYUSS69pky8AUv9a0+h
+         Jt/SOtT/naArVP4Fn0/bih+vc/cW2W029j2y64nlz5zM8cQvAW92CTM5PfcfHGNnyfk8
+         iz5fue7TblWHAxb/MLWWdo1ko5/QyeNLGJ3q1/xPVChUTZaGJb64nkMqC3LCxYvLEwK4
+         82rElREXA6nVw+jcOZJM7eM1W3NqdLEL2ON2rOr0P6+D/IZwli9LOGFDrdJDWqj+PsXy
+         iXpHRVrNF0scOuvIaqGGeLhVn61lGBtKI6xlLcgZ8jxN6Hyrr9+IpawQPMlo1HtKsLtJ
+         sfag==
+X-Gm-Message-State: AOJu0Ywf9VbUKXbrNO93Xh3y7Z06zxhLbntPItEsrJJ3LxExx8SnURdp
+	fIiNGn3kvtGx9ii1RWo8BI32Cw==
+X-Google-Smtp-Source: AGHT+IEIpXI2h8pXg+ykpqNNYZiarqi3t5LKkDhtbal14Y2nnzqjhX+0ng3mTUwJLxHE3tG0iOG9Lg==
+X-Received: by 2002:a05:6808:bce:b0:3b8:3ec6:8a41 with SMTP id o14-20020a0568080bce00b003b83ec68a41mr673776oik.45.1700622383389;
+        Tue, 21 Nov 2023 19:06:23 -0800 (PST)
+Received: from sw06.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id s2-20020aa78282000000b006a77343b0ccsm8614917pfm.89.2023.11.21.19.06.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Nov 2023 19:06:23 -0800 (PST)
+From: Samuel Holland <samuel.holland@sifive.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Leo Li <sunpeng.li@amd.com>,
+	Rodrigo Siqueira <Rodrigo.Siqueira@amd.com>,
+	linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	David Airlie <airlied@gmail.com>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	Pan Xinhui <Xinhui.Pan@amd.com>,
+	Daniel Vetter <daniel@ffwll.ch>,
+	amd-gfx@lists.freedesktop.org,
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: [PATCH 0/3] riscv: Add kernel-mode FPU support for amdgpu
+Date: Tue, 21 Nov 2023 19:05:12 -0800
+Message-ID: <20231122030621.3759313-1-samuel.holland@sifive.com>
+X-Mailer: git-send-email 2.42.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231121202459.36874-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-User-Agent: Mutt/2.2.10 (2023-03-25)
-X-Originating-IP: [10.0.12.98]
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 3AM2Q9xm022966
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231121_182643_186675_FF4DCEA8 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20231121_190629_985518_882AF37B 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,76 +96,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBOb3YgMjEsIDIwMjMgYXQgMDg6MjQ6NTlQTSArMDAwMCwgUHJhYmhha2FyIHdyb3Rl
-Ogo+IEZyb206IExhZCBQcmFiaGFrYXIgPHByYWJoYWthci5tYWhhZGV2LWxhZC5yakBicC5yZW5l
-c2FzLmNvbT4KPiAKPiBXZSBzaG91bGQgYmUgcHJvYmluZyBmb3IgSU9DUCBkdXJpbmcgYm9vdCBz
-dGFnZSBvbmx5LiBBcyB3ZSB3ZXJlIHByb2JpbmcKPiBmb3IgSU9DUCBmb3IgYWxsIHRoZSBzdGFn
-ZXMgdGhpcyBjYXVzZWQgdGhlIGJlbG93IGlzc3VlIGR1cmluZyBtb2R1bGUtaW5pdAo+IHN0YWdl
-LAo+IAo+IFs5LjAxOTEwNF0gVW5hYmxlIHRvIGhhbmRsZSBrZXJuZWwgcGFnaW5nIHJlcXVlc3Qg
-YXQgdmlydHVhbCBhZGRyZXNzIGZmZmZmZmZmODEwMGQzYTAKPiBbOS4wMjcxNTNdIE9vcHMgWyMx
-XQo+IFs5LjAyOTQyMV0gTW9kdWxlcyBsaW5rZWQgaW46IHJjYXJfY2FuZmQgcmVuZXNhc191c2Jo
-cyBpMmNfcmlpYyBjYW5fZGV2IHNwaV9yc3BpIGkyY19jb3JlCj4gWzkuMDM3Njg2XSBDUFU6IDAg
-UElEOiA5MCBDb21tOiB1ZGV2ZCBOb3QgdGFpbnRlZCA2LjcuMC1yYzErICM1Nwo+IFs5LjA0Mzc1
-Nl0gSGFyZHdhcmUgbmFtZTogUmVuZXNhcyBTTUFSQyBFVksgYmFzZWQgb24gcjlhMDdnMDQzZjAx
-IChEVCkKPiBbOS4wNTAzMzldIGVwYyA6IHJpc2N2X25vbmNvaGVyZW50X3N1cHBvcnRlZCsweDEw
-LzB4M2UKPiBbOS4wNTU1NThdIMKgcmEgOiBhbmRlc19lcnJhdGFfcGF0Y2hfZnVuYysweDRhLzB4
-NTIKPiBbOS4wNjA0MThdIGVwYyA6IGZmZmZmZmZmODAwMGQ4YzIgcmEgOiBmZmZmZmZmZjgwMDBk
-OTVjIHNwIDogZmZmZmZmYzgwMDNhYmIwMAo+IFs5LjA2NzYwN10gwqBncCA6IGZmZmZmZmZmODE0
-ZTI1YTAgdHAgOiBmZmZmZmZkODAzNjFlNTQwIHQwIDogMDAwMDAwMDAwMDAwMDAwMAo+IFs5LjA3
-NDc5NV0gwqB0MSA6IDAwMDAwMDAwMDkwMDAzMWUgdDIgOiAwMDAwMDAwMDAwMDAwMDAxIHMwIDog
-ZmZmZmZmYzgwMDNhYmIyMAo+IFs5LjA4MTk4NF0gwqBzMSA6IGZmZmZmZmZmMDE1YjU3YzcgYTAg
-OiAwMDAwMDAwMDAwMDAwMDAwIGExIDogMDAwMDAwMDAwMDAwMDAwMQo+IFs5LjA4OTE3Ml0gwqBh
-MiA6IDAwMDAwMDAwMDAwMDAwMDAgYTMgOiAwMDAwMDAwMDAwMDAwMDAwIGE0IDogZmZmZmZmZmY4
-MTAwZDhiZQo+IFs5LjA5NjM2MF0gwqBhNSA6IDAwMDAwMDAwMDAwMDAwMDEgYTYgOiAwMDAwMDAw
-MDAwMDAwMDAxIGE3IDogMDAwMDAwMDAwOTAwMDMxZQo+IFs5LjEwMzU0OF0gwqBzMiA6IGZmZmZm
-ZmZmMDE1YjU3ZDcgczMgOiAwMDAwMDAwMDAwMDAwMDAxIHM0IDogMDAwMDAwMDAwMDAwMDMxZQo+
-IFs5LjExMDczNl0gwqBzNSA6IDgwMDAwMDAwMDAwMDhhNDUgczYgOiAwMDAwMDAwMDAwMDAwNTAw
-IHM3IDogMDAwMDAwMDAwMDAwMDAzZgo+IFs5LjExNzkyNF0gwqBzOCA6IGZmZmZmZmM4MDAzYWJk
-NDggczkgOiBmZmZmZmZmZjAxNWIxMTQwIHMxMDogZmZmZmZmZmY4MTUxYTFiMAo+IFs5LjEyNTEx
-M10gwqBzMTE6IGZmZmZmZmZmMDE1YjEwMDAgdDMgOiAwMDAwMDAwMDAwMDAwMDAxIHQ0IDogZmVm
-ZWZlZmVmZWZlZmVmZgo+IFs5LjEzMjMwMV0gwqB0NSA6IGZmZmZmZmZmMDE1YjU3YzcgdDYgOiBm
-ZmZmZmZkOGI2M2E2MDAwCj4gWzkuMTM3NTg3XSBzdGF0dXM6IDAwMDAwMDAyMDAwMDAxMjAgYmFk
-YWRkcjogZmZmZmZmZmY4MTAwZDNhMCBjYXVzZTogMDAwMDAwMDAwMDAwMDAwZgo+IFs5LjE0NTQ2
-OF0gWzxmZmZmZmZmZjgwMDBkOGMyPl0gcmlzY3Zfbm9uY29oZXJlbnRfc3VwcG9ydGVkKzB4MTAv
-MHgzZQo+IFs5LjE1MTk3Ml0gWzxmZmZmZmZmZjgwMDAyN2U4Pl0gX2FwcGx5X2FsdGVybmF0aXZl
-cysweDg0LzB4ODYKPiBbOS4xNTc3ODRdIFs8ZmZmZmZmZmY4MDAwMjliZT5dIGFwcGx5X21vZHVs
-ZV9hbHRlcm5hdGl2ZXMrMHgxMC8weDFhCj4gWzkuMTY0MTEzXSBbPGZmZmZmZmZmODAwMDhmY2M+
-XSBtb2R1bGVfZmluYWxpemUrMHg1ZS8weDdhCj4gWzkuMTY5NTgzXSBbPGZmZmZmZmZmODAwODVj
-ZDY+XSBsb2FkX21vZHVsZSsweGZkOC8weDE3OWMKPiBbOS4xNzQ5NjVdIFs8ZmZmZmZmZmY4MDA4
-NjYzMD5dIGluaXRfbW9kdWxlX2Zyb21fZmlsZSsweDc2LzB4YWEKPiBbOS4xODA5NDhdIFs8ZmZm
-ZmZmZmY4MDA4NjdmNj5dIF9fcmlzY3Zfc3lzX2Zpbml0X21vZHVsZSsweDE3Ni8weDJhOAo+IFs5
-LjE4NzM2NV0gWzxmZmZmZmZmZjgwODg5ODYyPl0gZG9fdHJhcF9lY2FsbF91KzB4YmUvMHgxMzAK
-PiBbOS4xOTI5MjJdIFs8ZmZmZmZmZmY4MDg5MjBiYz5dIHJldF9mcm9tX2V4Y2VwdGlvbisweDAv
-MHg2NAo+IFs5LjE5ODU3M10gQ29kZTogMDAwOSBiN2U5IDY3OTcgMDE0ZCBhNzgzIDg1YTcgYzc5
-OSA0Nzg1IDA3MTcgMDEwMCAoMDEyMykgYWVmNwo+IFs5LjIwNTk5NF0gLS0tWyBlbmQgdHJhY2Ug
-MDAwMDAwMDAwMDAwMDAwMCBdLS0tCj4gCj4gVGhpcyBpcyBiZWNhdXNlIHdlIGNhbGxlZCByaXNj
-dl9ub25jb2hlcmVudF9zdXBwb3J0ZWQoKSBmb3IgYWxsIHRoZSBzdGFnZXMKPiBkdXJpbmcgSU9D
-UCBwcm9iZS4gcmlzY3Zfbm9uY29oZXJlbnRfc3VwcG9ydGVkKCkgZnVuY3Rpb24gc2V0cwo+IG5v
-bmNvaGVyZW50X3N1cHBvcnRlZCB2YXJpYWJsZSB0byB0cnVlIHdoaWNoIGhhcyBhbiBhbm5vdGF0
-aW9uIHNldCB0bwo+ICJfX3JvX2FmdGVyX2luaXQiIGR1ZSB0byB3aGljaCB3ZSB3ZXJlIHNlZWlu
-ZyB0aGUgYWJvdmUgc3BsYXQuIEZpeCB0aGlzIGJ5Cj4gcHJvYmluZyBJT0NQIGR1cmluZyBib290
-IHN0YWdlIG9ubHkuCj4gCj4gRml4ZXM6IGUwMjFhZTdmNTE0NSAoInJpc2N2OiBlcnJhdGE6IEFk
-ZCBBbmRlcyBhbHRlcm5hdGl2ZSBwb3J0cyIpCj4gU2lnbmVkLW9mZi1ieTogTGFkIFByYWJoYWth
-ciA8cHJhYmhha2FyLm1haGFkZXYtbGFkLnJqQGJwLnJlbmVzYXMuY29tPgoKUmV2aWV3ZWQtYnk6
-IFl1IENoaWVuIFBldGVyIExpbiA8cGV0ZXJsaW5AYW5kZXN0ZWNoLmNvbT4KClRoYW5rcywKUGV0
-ZXIgTGluCgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2VycmF0YS9hbmRlcy9lcnJhdGEuYyB8IDMgKyst
-Cj4gIDEgZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKPiAKPiBk
-aWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9lcnJhdGEvYW5kZXMvZXJyYXRhLmMgYi9hcmNoL3Jpc2N2
-L2VycmF0YS9hbmRlcy9lcnJhdGEuYwo+IGluZGV4IGQyZTFhYmNhYzk2Ny4uMWMwZmVmMTExMjcz
-IDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvZXJyYXRhL2FuZGVzL2VycmF0YS5jCj4gKysrIGIv
-YXJjaC9yaXNjdi9lcnJhdGEvYW5kZXMvZXJyYXRhLmMKPiBAQCAtNjAsNyArNjAsOCBAQCB2b2lk
-IF9faW5pdF9vcl9tb2R1bGUgYW5kZXNfZXJyYXRhX3BhdGNoX2Z1bmMoc3RydWN0IGFsdF9lbnRy
-eSAqYmVnaW4sIHN0cnVjdCBhbAo+ICAJCQkJCSAgICAgIHVuc2lnbmVkIGxvbmcgYXJjaGlkLCB1
-bnNpZ25lZCBsb25nIGltcGlkLAo+ICAJCQkJCSAgICAgIHVuc2lnbmVkIGludCBzdGFnZSkKPiAg
-ewo+IC0JZXJyYXRhX3Byb2JlX2lvY3Aoc3RhZ2UsIGFyY2hpZCwgaW1waWQpOwo+ICsJaWYgKHN0
-YWdlID09IFJJU0NWX0FMVEVSTkFUSVZFU19CT09UKQo+ICsJCWVycmF0YV9wcm9iZV9pb2NwKHN0
-YWdlLCBhcmNoaWQsIGltcGlkKTsKPiAgCj4gIAkvKiB3ZSBoYXZlIG5vdGhpbmcgdG8gcGF0Y2gg
-aGVyZSBBVE0gc28ganVzdCByZXR1cm4gYmFjayAqLwo+ICB9Cj4gLS0gCj4gMi4zNC4xCj4gCgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+This series allows using newer AMD GPUs (e.g. Navi) on RISC-V boards
+such as SiFive's HiFive Unmatched. Those GPUs need CONFIG_DRM_AMD_DC_FP
+to initialize, which requires kernel-mode FPU support.
+
+I'm sending these patches as one series so there is a user along with
+the infrastructure being added. I assume patch 3 would be merged
+separately, after patches 1-2 are merged.
+
+
+Samuel Holland (3):
+  riscv: Add support for kernel-mode FPU
+  riscv: Factor out riscv-march-y to a separate Makefile
+  drm/amd/display: Support DRM_AMD_DC_FP on RISC-V
+
+ arch/riscv/Makefile                            | 12 +-----------
+ arch/riscv/Makefile.isa                        | 15 +++++++++++++++
+ arch/riscv/include/asm/switch_to.h             | 14 ++++++++++++++
+ arch/riscv/kernel/process.c                    |  3 +++
+ drivers/gpu/drm/amd/display/Kconfig            |  5 ++++-
+ drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c |  6 ++++--
+ drivers/gpu/drm/amd/display/dc/dml/Makefile    |  6 ++++++
+ drivers/gpu/drm/amd/display/dc/dml2/Makefile   |  6 ++++++
+ 8 files changed, 53 insertions(+), 14 deletions(-)
+ create mode 100644 arch/riscv/Makefile.isa
+
+-- 
+2.42.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
