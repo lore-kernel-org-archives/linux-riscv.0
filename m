@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB862C61D99
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 01:08:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D669DC61D9B
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 01:08:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EryK/siS6cp26WR4PINEBb7uP5yP/3IYm3UElUq/3bo=; b=h1Cp4own9vN8ki
-	c2K0M4WxuxUGG/gW4PdZvCCrpnFKBKJzbeNqIE9Du9dgfilbiLKo/0CQo5Pwpko0JghHjxswjZx/k
-	bVQoZHFt6YADkaGJQG4WDJkOeMBhOt6/UMMvYrW1zpEYEk8VsT6TOPFhXdXV5CnSltDaBhMOPRHDv
-	lcI8HatUfS4BnsUGE9eoHcRD5UMMH03Ur6MXucYez/zjYct6Wzv+ShA2WxwMoCaZBgMUQtuMEhhab
-	/9JRwaeEQT3rdkk7aXOQNw+f4TISpSeL0BNf1VcfYuUs3/E+d3BtDshKDHEzpLuAOid7VLfAMLOgY
-	DW0l+rcuOySZEs6yOqLQ==;
+	List-Owner; bh=Li/VAFYbscj6f9+EV6EJIvnlY67sDrtoWicRX6372nQ=; b=4+ku44dz9B0Fs+
+	Ih6dX+TGlnWuOjUcfLHl2CyFoetgXkMC9cUJyEZQWtco7XMafvUTU3+iMyge8/iB69zMsM8LbimRJ
+	me4ZkGpgrgOqBHlLZmpIp2bDuqnIu1lk4XI9+pY/gvu6fm3y1RYQFZfXueBTy4iRR5HjWxohekMKp
+	OZDqg2GxbWpQhatQY4Mrs1P3sYDVGx8cLKKPrKkjx572uBzvcMJNymzPceXBqoelH9GodZ9IXnA4u
+	akORMLAys58VPW6RMDwdeSmvJDCpyEQBq9QC1DUYYGP7TpQeSscN/QN9W0WC2gZA7fSzWLQVlkqTc
+	xAX2H4Pq2+KX+bY4Yg0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5bjD-000NFB-0M;
-	Wed, 22 Nov 2023 01:08:31 +0000
-Received: from mail-il1-x136.google.com ([2607:f8b0:4864:20::136])
+	id 1r5bjE-000NGP-1M;
+	Wed, 22 Nov 2023 01:08:32 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5bj7-000NAL-1P
+	id 1r5bj8-000NBU-1b
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Nov 2023 01:08:26 +0000
-Received: by mail-il1-x136.google.com with SMTP id e9e14a558f8ab-357ccaf982eso19996625ab.0
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Nov 2023 17:08:24 -0800 (PST)
+	Wed, 22 Nov 2023 01:08:27 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-6b2018a11efso6318582b3a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Nov 2023 17:08:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1700615304; x=1701220104; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1700615306; x=1701220106; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=b39ZSDVnn3/TpDDYcLNRgBYhWVyekPNc8OuxKxdgheo=;
-        b=gZ9oWzmwIs1krlSbt8wD13G2DgXdoqDVl02guB65Dt0/GgbBZw60/jZeaU2dShF4gG
-         RZbVHEs/c+NcmRigyjfu6y/7axnmR0BYlu+tWuTvLWXU+aSK2uU7/VANI88FQQnswfiO
-         PI81UYOW4ItgtbgtgM4oGj9ln5+IBq6tA1ppOdwkjsKq3ZL990VU3yuuBkitMKZS8HoX
-         1VWKPAQ63LOoDopv3huhkr9RJTqXkBWvzRRjfXjVMeWXsAcXnzNsb6m6CHTLhRkK5joA
-         X6bNKS+VFbGgkB3X1GQWVm4jVsyvO8aKSbNvMoLsAiWClND5RyGk+TB6w01ws7f9W5KS
-         gw+g==
+        bh=MROdnZxFJAn7brM6ye/jIKPJcvVCbRqlgsjUSxtP0PY=;
+        b=Ie3IVsVQbnTEWMjEUZhnQHztatCc7hKq6ZfVplNfGDEIBDL+DOkycGJ40jaRmZgges
+         neqN6kEDZ2HBysRy1/aUrpYlvwkDOrAif67Cc3XZKEEo8O5mM5nJop0RSlQ5xRS+t6/a
+         6gbxqflwIikkpd3OO4SOtGgK8Nr9w8o4mNMB8JHxn/sV8dyi2wgscErofSoazSPKYiJf
+         3YnDYUkrSmlNPv4mSh4Ves9ODjM5Zg7jzVqFaCCU1i3Rr6c2WIcT67wDOp/zpcHgQiyk
+         M+Xt7q/RokyD9Mr6E1fdq2aqoradbwSf9N8SBLdIWbBCA5eiOCvyeqSK5f8aZ5hJrst7
+         Zp1A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700615304; x=1701220104;
+        d=1e100.net; s=20230601; t=1700615306; x=1701220106;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=b39ZSDVnn3/TpDDYcLNRgBYhWVyekPNc8OuxKxdgheo=;
-        b=ImrdNOh1tiiGbJtzE/c0m2sAoPq3nrZram59ej/qrekQuwW52tsC5OBRqPO0jOGwhX
-         WFczNoYLhGlU+0D8uRANIkrViWgEuZwDZLDCuJhUxVa8Fw9hia/eSSLPgV6yY0PqdTwS
-         1D94QYLI2HQdb8EEm97aWOAeaYegTOq5c2UGo8NxMXA9p5VJzuhLVkl4q23Q0HvSSXGJ
-         L2vSLcMt1t4/uohGRq5DRP6eK2+NvM+gxLyxbw/NQIk421tVU2qUnTZXbgoOVMV8qLJO
-         tXp0uzmEaWWW+BStWoJUsOgiPaBwOWDBi9DfafXFv8q6UVATKb/ToAuBkJje13sMD/if
-         ov3g==
-X-Gm-Message-State: AOJu0YxlsbWc3dv9b2bbNSgdmcA9R05ZgCGrGPqzXbZw4xNEZskgs02I
-	P2xJqzX97EkvTGIXmKTQtgEJ2A==
-X-Google-Smtp-Source: AGHT+IGi2JpVuCgk8T+HgcOfCC/VHmmgf8iSnDwMNXS0Bc2add3cL906GsPfWT4iX9QyNn2xttBJig==
-X-Received: by 2002:a05:6e02:b48:b0:35b:2b49:d816 with SMTP id f8-20020a056e020b4800b0035b2b49d816mr721861ilu.13.1700615303918;
-        Tue, 21 Nov 2023 17:08:23 -0800 (PST)
+        bh=MROdnZxFJAn7brM6ye/jIKPJcvVCbRqlgsjUSxtP0PY=;
+        b=d3Y6Oc39KdDEQuovu4khE0TBCzvsBO2jsv0Tu0GDR7Iy1sS/4v3Qmp1bjFhnE6+wr8
+         jtB6jPI7tqsZUh8h8r8WV/lytqPn9YQ2HekLUM/Mf9AXrE4TvoZF8o9OQ1Mgit8twU0r
+         KQYwf9yW/mjEu9PGXSQ6ghM4qk3CvV3PiyTtmE2z4wGymHxP9JYzfgFugDdXlR9mikv6
+         CaJkdOL1h7jYXcozO2TAnUCfMovUdkMx8ETcRIXmKJa78f6+i47N7BViQGlJ61Zovvaq
+         k/sL7lZSzwvD7IxWI3Qg5Mgf0F1Ycr4jKZclL78pseyRB21NTb9YG9XZAX38WAi34ICG
+         HJsQ==
+X-Gm-Message-State: AOJu0Yxia9PkuCiNl+1gF48Nbb92WhwJVbejJ7+/dp6PwcVvv+gsK2Wq
+	1iubdSw+/rqvuwxc4RQpojY0Sw==
+X-Google-Smtp-Source: AGHT+IFVZu+XEimHfZXOsjvtj11LrkIBAYyBlYwN/UfpJ7aqLGYZgxb4tCN+mMPanboANiNPoJtK3w==
+X-Received: by 2002:a05:6a00:b54:b0:6cb:a1fe:5217 with SMTP id p20-20020a056a000b5400b006cba1fe5217mr1041980pfo.16.1700615306009;
+        Tue, 21 Nov 2023 17:08:26 -0800 (PST)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id bn5-20020a056a00324500b006be047268d5sm8713961pfb.174.2023.11.21.17.08.23
+        by smtp.gmail.com with ESMTPSA id bn5-20020a056a00324500b006be047268d5sm8713961pfb.174.2023.11.21.17.08.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Nov 2023 17:08:23 -0800 (PST)
+        Tue, 21 Nov 2023 17:08:25 -0800 (PST)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org
@@ -69,16 +69,16 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org,
 	Alexandre Ghiti <alexghiti@rivosinc.com>,
 	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v3 5/8] riscv: mm: Use a fixed layout for the MM context ID
-Date: Tue, 21 Nov 2023 17:07:16 -0800
-Message-ID: <20231122010815.3545294-6-samuel.holland@sifive.com>
+Subject: [PATCH v3 7/8] riscv: mm: Preserve global TLB entries when switching contexts
+Date: Tue, 21 Nov 2023 17:07:18 -0800
+Message-ID: <20231122010815.3545294-8-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.42.0
 In-Reply-To: <20231122010815.3545294-1-samuel.holland@sifive.com>
 References: <20231122010815.3545294-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231121_170825_474865_AFDD524F 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20231121_170826_533753_DC3B7818 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,88 +95,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, the size of the ASID field in the MM context ID dynamically
-depends on the number of hardware-supported ASID bits. This requires
-reading a global variable to extract either field from the context ID.
-Instead, allocate the maximum possible number of bits to the ASID field,
-so the layout of the context ID is known at compile-time.
+If the CPU does not support multiple ASIDs, all MM contexts use ASID 0.
+In this case, it is still beneficial to flush the TLB by ASID, as the
+single-ASID variant of the sfence.vma instruction preserves TLB entries
+for global (kernel) pages.
+
+This optimization is recommended by the RISC-V privileged specification:
+
+  If the implementation does not provide ASIDs, or software chooses
+  to always use ASID 0, then after every satp write, software should
+  execute SFENCE.VMA with rs1=x0. In the common case that no global
+  translations have been modified, rs2 should be set to a register
+  other than x0 but which contains the value zero, so that global
+  translations are not flushed.
+
+It is not possible to apply this optimization when using the ASID
+allocator, because that code must flush the TLB for all ASIDs at once
+when incrementing the version number.
 
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
 (no changes since v1)
 
- arch/riscv/include/asm/mmu.h      | 4 ++--
- arch/riscv/include/asm/tlbflush.h | 2 --
- arch/riscv/mm/context.c           | 6 ++----
- 3 files changed, 4 insertions(+), 8 deletions(-)
+ arch/riscv/mm/context.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
-index a550fbf770be..dc0273f7905f 100644
---- a/arch/riscv/include/asm/mmu.h
-+++ b/arch/riscv/include/asm/mmu.h
-@@ -26,8 +26,8 @@ typedef struct {
- #endif
- } mm_context_t;
- 
--#define cntx2asid(cntx)		((cntx) & asid_mask)
--#define cntx2version(cntx)	((cntx) & ~asid_mask)
-+#define cntx2asid(cntx)		((cntx) & SATP_ASID_MASK)
-+#define cntx2version(cntx)	((cntx) & ~SATP_ASID_MASK)
- 
- void __init create_pgd_mapping(pgd_t *pgdp, uintptr_t va, phys_addr_t pa,
- 			       phys_addr_t sz, pgprot_t prot);
-diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-index 3b393f765805..4448d907f2c9 100644
---- a/arch/riscv/include/asm/tlbflush.h
-+++ b/arch/riscv/include/asm/tlbflush.h
-@@ -15,8 +15,6 @@
- #define FLUSH_TLB_NO_ASID       ((unsigned long)-1)
- 
- #ifdef CONFIG_MMU
--extern unsigned long asid_mask;
--
- static inline void local_flush_tlb_all(void)
- {
- 	__asm__ __volatile__ ("sfence.vma" : : : "memory");
 diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-index 43d005f63253..b5170ac1b742 100644
+index 43a8bc2d5af4..3ca9b653df7d 100644
 --- a/arch/riscv/mm/context.c
 +++ b/arch/riscv/mm/context.c
-@@ -22,7 +22,6 @@ DEFINE_STATIC_KEY_FALSE(use_asid_allocator);
+@@ -200,7 +200,7 @@ static void set_mm_noasid(struct mm_struct *mm)
+ {
+ 	/* Switch the page table and blindly nuke entire local TLB */
+ 	csr_write(CSR_SATP, virt_to_pfn(mm->pgd) | satp_mode);
+-	local_flush_tlb_all();
++	local_flush_tlb_all_asid(0);
+ }
  
- static unsigned long asid_bits;
- static unsigned long num_asids;
--unsigned long asid_mask;
- 
- static atomic_long_t current_version;
- 
-@@ -128,7 +127,7 @@ static unsigned long __new_context(struct mm_struct *mm)
- 		goto set_asid;
- 
- 	/* We're out of ASIDs, so increment current_version */
--	ver = atomic_long_add_return_relaxed(num_asids, &current_version);
-+	ver = atomic_long_add_return_relaxed(BIT(SATP_ASID_BITS), &current_version);
- 
- 	/* Flush everything  */
- 	__flush_context();
-@@ -247,7 +246,6 @@ static int __init asids_init(void)
- 	/* Pre-compute ASID details */
- 	if (asid_bits) {
- 		num_asids = 1 << asid_bits;
--		asid_mask = num_asids - 1;
- 	}
- 
- 	/*
-@@ -255,7 +253,7 @@ static int __init asids_init(void)
- 	 * at-least twice more than CPUs
- 	 */
- 	if (num_asids > (2 * num_possible_cpus())) {
--		atomic_long_set(&current_version, num_asids);
-+		atomic_long_set(&current_version, BIT(SATP_ASID_BITS));
- 
- 		context_asid_map = bitmap_zalloc(num_asids, GFP_KERNEL);
- 		if (!context_asid_map)
+ static inline void set_mm(struct mm_struct *prev,
 -- 
 2.42.0
 
