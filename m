@@ -4,58 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D77CC61D97
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 11:39:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBA55C61D97
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 11:51:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7hnseTcS6meLkOHZ3SAQLZNpB/PBVDy9e/t0bgEtREM=; b=4O80kH7OBNTYJTTVcc1AEproN5
-	azWgh5kdJdSDoZ/NBuPF9O6w+GTi76JeP+h0NPQqYh/ts41oazGe39N4sV7jVBqh4jjnqmLCMDL4P
-	S08GCAeQqXRe/b1IczoaAiQpBBlrQa9SRlEAKUrw8y6IJbRMgaOLxc3gOBgypU1m/N5kS6pyNsBdw
-	spC5ZaMjzWvyFWteQ++vM81o+ZudbT0rF03J3094uBfcQqK2X2dHmiXdtKE/bPgyJwi5/I0JyHPG6
-	nZdtcRqoGJo4ux637BYbIQ1cwZEzsq0PAKDkTdat7du3qONuL93V45GTz55M9+Thhin+qxiWbHPsI
-	GouUHRig==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yZMp/2ljDYogfe6dzXYgiBDKaHM/vaddghLaIDqKeV4=; b=qABE9uiPwwo9Hm
+	7h3jaXB+gc+LC3KfoLkuyWCOYkBWhZTUBvZNVLJd70tVyfEd6WmVAjRHjFfqMdryRThDMfry8bnHT
+	fVGOw5s1o1j8FHZBSdnZ4+KflE7Qck5pvxIOzTQg/XydYGjjMx1ikhbMwfOGmGF+m41ZttmNtyZMo
+	58NMOyP/s4Vx6TYvVDISdSJm8/japnz2VIKZTk4/obIuik9k1cK0zyxSOZvsYjXbpcm7CgeklMSCF
+	ysKZBI7vZJN8q8sfqkyDhvDkyEyGN7SiDqVI/IgMm1liPHY/NQvgDPstUfEk1XPiHcYzL7YkjVp6W
+	+2rVIS4jqrAx6wFELODg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5la5-001ZQj-2r;
-	Wed, 22 Nov 2023 11:39:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1r5llU-001eib-20;
+	Wed, 22 Nov 2023 11:51:32 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5la3-001ZPw-1b
+	id 1r5llR-001efX-1j
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Nov 2023 11:39:44 +0000
+	Wed, 22 Nov 2023 11:51:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id ECEE461CEC;
-	Wed, 22 Nov 2023 11:39:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FAFDC433C8;
-	Wed, 22 Nov 2023 11:39:41 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 260F9B8269C;
+	Wed, 22 Nov 2023 11:51:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1869C433C7;
+	Wed, 22 Nov 2023 11:51:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1700653182;
-	bh=VmW4F8kTifiFSh6BqDjXyPl2aYfa/5M1kYdSXNmpqUo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Tertpv0AmfAPt/Xcz7yBNiwzLEHsFibJOnFqrOxNxUWzaf4vyZSKqm5fzaVqgbaNF
-	 rwU/xatzndvY6xFDJxR1Y/YiMokIcqJQ38M9BmdU2+Toi0Rj/J03tRlOik7JJXHo6n
-	 JwTAqYm1JI5suSLS4988ZLVMKtCdvzRR1mBHROBkZQPEOD+k1qG/V8tMO/Mon76hrL
-	 BVE/WojeVMzZKq8ssy0/Eh++OnqMZQt1Hyl81nOKzJhGfVTOAqnYHgyzu74xReLeK0
-	 ay1NyYZGvvxHGFHtZPV1lp8Pn1pLAW7DHEdpVYmrZBW4ojLYZWW2zqDg9JEC5KsMXh
-	 pT2En0DU3eMrg==
-Date: Wed, 22 Nov 2023 11:39:39 +0000
+	s=k20201202; t=1700653887;
+	bh=m43drHXqcgBGQSr49HbXEUB8692aCABtdbfAIv8Lw4M=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=bkMC/TAcG2mo6eTLcfuIGqWZXXSVTHu60Rxxif/4VrS7AEZPoUpOkgR0atrtvgS79
+	 ThJN+YRqHKbADLTeLtDgINkTJvo/923ExOwLYm6lbNFPS4qOBHYonRJkyREsDvfGOZ
+	 ebHGpaqk9V8/oydGW5u/nbp55SMw0PVb9G0+TleTaANnbRhE4sRRBqmUJ+28to5bg0
+	 kxafyHaHCeoBVv99qYiFDjRqSOBcdFeCNDNXr+KXvpYMljRAS6F6D44iZN5rYFrf77
+	 ZXY7yPkLkbmqF/ACdWIcazCjACWlDPAd4bBTFeihsi5N3wNHDsEWUB4xVREGP7L7qA
+	 Z4FEA4FABXAWQ==
 From: Conor Dooley <conor@kernel.org>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+To: linux-riscv@lists.infradead.org,
+	Conor Dooley <conor@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] riscv: Use the same CPU operations for all CPUs
-Message-ID: <20231122-helpless-shaded-64908019806e@spud>
-References: <20231121234736.3489608-1-samuel.holland@sifive.com>
- <20231121234736.3489608-4-samuel.holland@sifive.com>
+Subject: Re: [PATCH v1] soc: sifive: shunt ccache driver to drivers/cache
+Date: Wed, 22 Nov 2023 11:50:48 +0000
+Message-Id: <20231122-crucial-umbilical-1e7f08c9c4f9@spud>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20231012-mooing-refined-ad1ab421c0d3@spud>
+References: <20231012-mooing-refined-ad1ab421c0d3@spud>
 MIME-Version: 1.0
-In-Reply-To: <20231121234736.3489608-4-samuel.holland@sifive.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=391; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=CVsonUKAfn2TbOpnWsQF3eZnPZymVybzFLXKZlGamhE=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKmxr0VtWD9VbatoXHlep67t5AK7km+b/jMd+WJc++Xeu 6jL5fLrO0pZGMQ4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjCRE8kM/4sE7GOE5y4sZtnf sVo85vrM3epTfEKmxZ/5n73fS/3XdgVGhk1Ly7a1mhzU3v9+utvt2F8rb/NN2CQiu1VHkTH94eZ 5L/kB
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231122_033943_578950_987F7625 
-X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-CacheID: sfid-20231122_035129_720663_C7E424F3 
+X-CRM114-Status: UNSURE (   6.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,59 +74,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8808583712186864398=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Conor Dooley <conor.dooley@microchip.com>
 
---===============8808583712186864398==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="H0nbdlz8saF9L2tX"
-Content-Disposition: inline
+On Thu, 12 Oct 2023 10:22:09 +0100, Conor Dooley wrote:
+> Move the ccache driver over to drivers/cache, out of the drivers/soc
+> dumping ground, to this new collection point for cache controller
+> drivers.
+> 
+> 
 
+[1/1] soc: sifive: shunt ccache driver to drivers/cache
+      https://git.kernel.org/conor/c/971f128bb2d9
 
---H0nbdlz8saF9L2tX
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Nov 21, 2023 at 03:47:26PM -0800, Samuel Holland wrote:
-> RISC-V provides no binding (ACPI or DT) to describe per-cpu start/stop
-> operations, so cpu_set_ops() will always detect the same operations for
-> every CPU. Replace the cpu_ops array with a single pointer to save space
-> and reduce boot time.
->=20
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Cheers,
+Thanks,
 Conor.
-
---H0nbdlz8saF9L2tX
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZV3oewAKCRB4tDGHoIJi
-0vo3AP93PDoNlu1sONLMMAIuktMR4gdPYlMY/mfVRifvpMqYOwEAsc0afAZCXp2T
-W0/K/Y7VZa4GZyjCylaWW5XFCYaETQQ=
-=Uow1
------END PGP SIGNATURE-----
-
---H0nbdlz8saF9L2tX--
-
-
---===============8808583712186864398==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8808583712186864398==--
-
