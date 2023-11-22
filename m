@@ -4,96 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32314C61D97
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 01:22:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7181AC61D97
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 01:25:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OC+sYQJnqXN7kMzKE3Gnw10YNEwcTEPAuJ850+S4Jds=; b=wHLH1lk5o6sCG1XPcbjUf0wlJE
-	yCtCMM4GsQeKzD4IxUoOhGTRc+BwLhUAYNqYbp3dUrx4TAlxR6mxLZJky1zcCTXZni0Vg3FiE2cK/
-	SwwlfEsS5+scOqQFTtJnSWXB3WzIFSu+cK7Q/bmDOyEWyGynCpu09OHAHW1pFV4GikGEvC9Ybm+dd
-	jzVDZRxckQZoOQRASGDLxfPA0zm7siv+GjXGHPBjMspnM79bOVJ/4dyQyybMmeDACo6RCedInt79h
-	PALi7HVReJe9rrcW62OJoo0dX8HyIff0vFv9S2ivAil0ZzYObeHZA3QamxUI14fwYI0HR6hf2/NX4
-	CvvpbYCA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GVEqFoSvNAshj9cMZGdUXdUwSS75i7qoXV2Ru0r3eE0=; b=yxXHds6QYDL/bi
+	YWpOpFtgWDUdoqhdOYe2CBjoqyjGmWUlU7VMiFzdOU3/L0yQHXvTl7tVMtYypvGB1uaNN37P6vXNJ
+	AJlCin+SqWLEdEGkWjQiUG9/3lfpQvClic0kCxsyqcztSBTl59SFamXlMcJvywxPbbKc7Jl72E+Rj
+	6yA24bX9qm3hfNNiEOHetHquWydNCjfY9PRC6nRCgbjLQEa9RQocoydWCEdmEKT40HsdHC6fqTmp6
+	53GwmosrdqH1E/bCcNK2kLOo9bUILzPP0sm0xCN+aXNNJ/iLYjbg6AccuCA3jBzertHd1Y5TVM8kN
+	t3QPgfbUOeI87i6ihI0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5bx3-000P4s-1u;
-	Wed, 22 Nov 2023 01:22:49 +0000
-Received: from omta040.useast.a.cloudfilter.net ([44.202.169.39])
+	id 1r5bzc-000POL-0v;
+	Wed, 22 Nov 2023 01:25:28 +0000
+Received: from mail-io1-xd31.google.com ([2607:f8b0:4864:20::d31])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5bwz-000P2o-1v
+	id 1r5bzZ-000PND-1T
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Nov 2023 01:22:48 +0000
-Received: from eig-obgw-5008a.ext.cloudfilter.net ([10.0.29.246])
-	by cmsmtp with ESMTPS
-	id 5Wbprukpa6nOZ5bwnrA0kh; Wed, 22 Nov 2023 01:22:33 +0000
-Received: from box5620.bluehost.com ([162.241.219.59])
-	by cmsmtp with ESMTPS
-	id 5bwmrPGeEkUbt5bwmre3dc; Wed, 22 Nov 2023 01:22:32 +0000
-X-Authority-Analysis: v=2.4 cv=WpU4jPTv c=1 sm=1 tr=0 ts=655d57d8
- a=30941lsx5skRcbJ0JMGu9A==:117 a=30941lsx5skRcbJ0JMGu9A==:17
- a=OWjo9vPv0XrRhIrVQ50Ab3nP57M=:19 a=dLZJa+xiwSxG16/P+YVxDGlgEgI=:19
- a=IkcTkHD0fZMA:10 a=BNY50KLci1gA:10 a=-Ou01B_BuAIA:10 a=HaFmDPmJAAAA:8
- a=VwQbUJbxAAAA:8 a=h0uksLzaAAAA:8 a=FaRPtKN-LDzFtTmNnPgA:9 a=QEXdDO2ut3YA:10
- a=nmWuMzfKamIsx3l42hEX:22 a=AjGcO6oz07-iQ99wixmX:22 a=MSi_79tMYmZZG2gvAgS0:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=w6rz.net;
-	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:
-	Date:Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=RlgtElTiAV+jkl5pCJINQq0IuuUqHZbOY44uni2U2rE=; b=Ee+RiHyyQXj1YX0NaENvHkjCwV
-	z76604NUHk6uXKg6+ZUdadTz5DH//m/+z/UAfR3ROAfT9TbKRWXEVFQzW6JkRYBPcbnDf8RWW6eju
-	TJiDGMmP9UG1qiLqen+s3cLZ79Lxa1ZyVt3vUzt2YPpkaz/5K6mxIxh7y+KN+Dk4NXbGWXxG4I3ZC
-	M6m8n6u7w97iJL30WRG62IS/KfEbLpeRdaBIeNadmXPH+voj8Q3kLD2YF16My6P78C6Fv+JZYvyeh
-	lQ9HgZBsxF4IcnLJmqD08S8qfnR+Voqavy8iX1+mf/8BAdKbON+e8P/TbzO8Kr9xQFZZVBGrSipo/
-	n1txBuRQ==;
-Received: from c-98-207-139-8.hsd1.ca.comcast.net ([98.207.139.8]:56208 helo=[10.0.1.47])
-	by box5620.bluehost.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.96.2)
-	(envelope-from <re@w6rz.net>)
-	id 1r5bwl-003wdA-2V;
-	Tue, 21 Nov 2023 18:22:31 -0700
-Subject: Re: [PATCH v2] riscv: Safely remove entries from relocation list
-To: Charlie Jenkins <charlie@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20231121-module_linking_freeing-v2-1-974bfcd3664e@rivosinc.com>
-From: Ron Economos <re@w6rz.net>
-Message-ID: <dd1fe9eb-68ab-cbe3-8c07-1b7209236be2@w6rz.net>
-Date: Tue, 21 Nov 2023 17:22:30 -0800
-User-Agent: Mozilla/5.0 (X11; Linux armv7l; rv:78.0) Gecko/20100101
- Thunderbird/78.14.0
+	Wed, 22 Nov 2023 01:25:27 +0000
+Received: by mail-io1-xd31.google.com with SMTP id ca18e2360f4ac-7a6774da682so273903539f.3
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Nov 2023 17:25:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1700616324; x=1701221124; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=BMxupQd497LdzSfq71N2Lrlf91nzxCDS16y5//A13wo=;
+        b=YShOMuz2MetrF3TCPxjSarQq4xZc5ZDeLgUMMSzyYBwiUWGlib73wUJOO+posTIA0X
+         wCef7u1BxRwoBsNfsSNqwFP2FVQcNHtSTKRxh/846cmptDGzzJ5b9PgYf146yAHQGhA2
+         3X1tP9RJopTYnoiA0VVhdlPprPsQHjmiThUUcdqMsp8JevGrr1dsuCVtYC6cO22QWDqW
+         0iOC+VRWgwDfUS9C5TlYY+zTb3C20G2Q06BkN/O77MQ+VJ64b7s6HTD1Q7TCvT1zQEWx
+         dxymuGue3Lc9lBSsGtK9ZhDmVx4Txq2INfIp+7TRU0Uc1DjuKt1NTYxcOI1dpkjt/ZEC
+         IUAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1700616324; x=1701221124;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=BMxupQd497LdzSfq71N2Lrlf91nzxCDS16y5//A13wo=;
+        b=m+I8UGqi0X0lovjFxH0LkqpvQjDhzL3F+jURLDujZW2nEHEDWfgbKjDdB8il93kvNO
+         OAIh0bDy6wYHccjUitI/RzuYJdwQ9ejB6VAtPnKdUTvQ5q4Qpx1Mktai9GsFuwkHsR4V
+         A5i+WB5p9PEILcVLvCSqHfCsNyCJFz22hud4SsM3ZaEVIA/XqfHjUkV+0o5tJIQ0OGWD
+         pGnQu83HLO1vl+GUzkptCYFQraELOEMApbvIkSmEM952jiijKE3x7l/MnAWlXGWSU6ZF
+         SXktHhthW05UHkPT7TFPn2CEu6CXgIyH7a3lpyQSbfPSafnkniGfUSnngjnEZTIMZmnd
+         1icw==
+X-Gm-Message-State: AOJu0YxtfoFYLcu5IjXlUasTlL01XFNQ21s/twGTGT7omtvLi7ZIlBD+
+	l9KDBw/BQROMYDQ0WeamvDPEiA==
+X-Google-Smtp-Source: AGHT+IGd2vGwd7giL7IiRH+5KGiQaPdBluSITVY3kHLXCILv1oR63uIuSpDbZGfswF+tU7/fqS6Mqw==
+X-Received: by 2002:a05:6602:1b04:b0:7a2:a8d5:e146 with SMTP id dk4-20020a0566021b0400b007a2a8d5e146mr576892iob.15.1700616324211;
+        Tue, 21 Nov 2023 17:25:24 -0800 (PST)
+Received: from ?IPV6:2605:a601:adae:4500:3d43:c8e2:1496:e620? ([2605:a601:adae:4500:3d43:c8e2:1496:e620])
+        by smtp.gmail.com with ESMTPSA id az2-20020a056638418200b004664b598273sm2122901jab.49.2023.11.21.17.25.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 21 Nov 2023 17:25:23 -0800 (PST)
+Message-ID: <d94d54d2-50a3-4dc8-9178-e69c118aeefe@sifive.com>
+Date: Tue, 21 Nov 2023 19:25:20 -0600
 MIME-Version: 1.0
-In-Reply-To: <20231121-module_linking_freeing-v2-1-974bfcd3664e@rivosinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] soc: sifive: shunt ccache driver to drivers/cache
 Content-Language: en-US
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - box5620.bluehost.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - w6rz.net
-X-BWhitelist: no
-X-Source-IP: 98.207.139.8
-X-Source-L: No
-X-Exim-ID: 1r5bwl-003wdA-2V
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: c-98-207-139-8.hsd1.ca.comcast.net ([10.0.1.47]) [98.207.139.8]:56208
-X-Source-Auth: re@w6rz.net
-X-Email-Count: 5
-X-Org: HG=bhshared;ORG=bluehost;
-X-Source-Cap: d3NpeHJ6bmU7d3NpeHJ6bmU7Ym94NTYyMC5ibHVlaG9zdC5jb20=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfM+g7Wda0COkDgNtnI06M4zNO1T1pxPNO2cGlgG7OFrzhejZTZ09LPEkXmzjyT9N8NVtL+apF2QTCIxxWQv7BQvBaDhXGERMhGRjz8A6WTQuSzm2GUy5
- eEL/Dn2JbWX3Z7W+hUZbKfGveMlGUFTm1cq8uv9csPwYZaEeLipmNChB+0IINiTfW8tEzEFflW6xFFv0+HQzE1sJcRameoUSALo=
+To: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Emil Renner Berthing <kernel@esmil.dk>,
+ linux-kernel@vger.kernel.org
+References: <20231012-mooing-refined-ad1ab421c0d3@spud>
+From: Samuel Holland <samuel.holland@sifive.com>
+In-Reply-To: <20231012-mooing-refined-ad1ab421c0d3@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231121_172245_721843_EA55A79C 
-X-CRM114-Status: GOOD (  19.86  )
+X-CRM114-CacheID: sfid-20231121_172525_508959_6AF76706 
+X-CRM114-Status: GOOD (  19.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,206 +90,164 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/21/23 2:50 PM, Charlie Jenkins wrote:
-> Use the safe versions of list and hlist iteration to safely remove
-> entries from the module relocation lists. To allow mutliple threads to
-> load modules concurrently, move relocation list pointers onto the stack
-> rather than using global variables.
->
-> Fixes: 8fd6c5142395 ("riscv: Add remaining module relocations")
-> Reported-by: Ron Economos <re@w6rz.net>
-> Closes: https://lore.kernel.org/linux-riscv/444de86a-7e7c-4de7-5d1d-c1c40eefa4ba@w6rz.net
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+Hi Conor,
+
+On 2023-10-12 4:22 AM, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> Move the ccache driver over to drivers/cache, out of the drivers/soc
+> dumping ground, to this new collection point for cache controller
+> drivers.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
-> Changes in v2:
-> - Support linking modules concurrently across threads.
-> - Link to v1: https://lore.kernel.org/r/20231120-module_linking_freeing-v1-1-fff81d7289fc@rivosinc.com
+> CC: Conor Dooley <conor@kernel.org>
+> CC: Palmer Dabbelt <palmer@dabbelt.com>
+> CC: Paul Walmsley <paul.walmsley@sifive.com>
+> CC: Emil Renner Berthing <kernel@esmil.dk>
+> CC: linux-kernel@vger.kernel.org
+> CC: linux-riscv@lists.infradead.org
 > ---
->   arch/riscv/kernel/module.c | 76 +++++++++++++++++++++++++++++++---------------
->   1 file changed, 51 insertions(+), 25 deletions(-)
->
-> diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-> index 56a8c78e9e21..f53e82b70dff 100644
-> --- a/arch/riscv/kernel/module.c
-> +++ b/arch/riscv/kernel/module.c
-> @@ -40,14 +40,17 @@ struct relocation_handlers {
->   				  long buffer);
->   };
->   
-> -unsigned int initialize_relocation_hashtable(unsigned int num_relocations);
-> -void process_accumulated_relocations(struct module *me);
-> +unsigned int
-> +initialize_relocation_hashtable(unsigned int num_relocations,
-> +				struct hlist_head **relocation_hashtable,
-> +				struct list_head *used_buckets_list);
-> +void process_accumulated_relocations(struct module *me,
-> +				     struct hlist_head **relocation_hashtable,
-> +				     struct list_head *used_buckets_list);
->   int add_relocation_to_accumulate(struct module *me, int type, void *location,
-> -				 unsigned int hashtable_bits, Elf_Addr v);
-> -
-> -struct hlist_head *relocation_hashtable;
-> -
-> -struct list_head used_buckets_list;
-> +				 unsigned int hashtable_bits, Elf_Addr v,
-> +				struct hlist_head **relocation_hashtable,
-> +				struct list_head *used_buckets_list);
->   
->   /*
->    * The auipc+jalr instruction pair can reach any PC-relative offset
-> @@ -604,7 +607,9 @@ static const struct relocation_handlers reloc_handlers[] = {
->   	/* 192-255 nonstandard ABI extensions  */
->   };
->   
-> -void process_accumulated_relocations(struct module *me)
-> +void process_accumulated_relocations(struct module *me,
-> +				     struct hlist_head **relocation_hashtable,
-> +				     struct list_head *used_buckets_list)
->   {
->   	/*
->   	 * Only ADD/SUB/SET/ULEB128 should end up here.
-> @@ -624,18 +629,25 @@ void process_accumulated_relocations(struct module *me)
->   	 *	- Each relocation entry for a location address
->   	 */
->   	struct used_bucket *bucket_iter;
-> +	struct used_bucket *bucket_iter_tmp;
->   	struct relocation_head *rel_head_iter;
-> +	struct hlist_node *rel_head_iter_tmp;
->   	struct relocation_entry *rel_entry_iter;
-> +	struct relocation_entry *rel_entry_iter_tmp;
->   	int curr_type;
->   	void *location;
->   	long buffer;
->   
-> -	list_for_each_entry(bucket_iter, &used_buckets_list, head) {
-> -		hlist_for_each_entry(rel_head_iter, bucket_iter->bucket, node) {
-> +	list_for_each_entry_safe(bucket_iter, bucket_iter_tmp,
-> +				 used_buckets_list, head) {
-> +		hlist_for_each_entry_safe(rel_head_iter, rel_head_iter_tmp,
-> +					  bucket_iter->bucket, node) {
->   			buffer = 0;
->   			location = rel_head_iter->location;
-> -			list_for_each_entry(rel_entry_iter,
-> -					    rel_head_iter->rel_entry, head) {
-> +			list_for_each_entry_safe(rel_entry_iter,
-> +						 rel_entry_iter_tmp,
-> +						 rel_head_iter->rel_entry,
-> +						 head) {
->   				curr_type = rel_entry_iter->type;
->   				reloc_handlers[curr_type].reloc_handler(
->   					me, &buffer, rel_entry_iter->value);
-> @@ -648,11 +660,13 @@ void process_accumulated_relocations(struct module *me)
->   		kfree(bucket_iter);
->   	}
->   
-> -	kfree(relocation_hashtable);
-> +	kfree(*relocation_hashtable);
->   }
->   
->   int add_relocation_to_accumulate(struct module *me, int type, void *location,
-> -				 unsigned int hashtable_bits, Elf_Addr v)
-> +				 unsigned int hashtable_bits, Elf_Addr v,
-> +				struct hlist_head **relocation_hashtable,
-> +				struct list_head *used_buckets_list)
->   {
->   	struct relocation_entry *entry;
->   	struct relocation_head *rel_head;
-> @@ -667,7 +681,7 @@ int add_relocation_to_accumulate(struct module *me, int type, void *location,
->   
->   	hash = hash_min((uintptr_t)location, hashtable_bits);
->   
-> -	current_head = &relocation_hashtable[hash];
-> +	current_head = &((*relocation_hashtable)[hash]);
->   
->   	/* Find matching location (if any) */
->   	bool found = false;
-> @@ -693,7 +707,7 @@ int add_relocation_to_accumulate(struct module *me, int type, void *location,
->   				kmalloc(sizeof(struct used_bucket), GFP_KERNEL);
->   			INIT_LIST_HEAD(&bucket->head);
->   			bucket->bucket = current_head;
-> -			list_add(&bucket->head, &used_buckets_list);
-> +			list_add(&bucket->head, used_buckets_list);
->   		}
->   		hlist_add_head(&rel_head->node, current_head);
->   	}
-> @@ -704,7 +718,10 @@ int add_relocation_to_accumulate(struct module *me, int type, void *location,
->   	return 0;
->   }
->   
-> -unsigned int initialize_relocation_hashtable(unsigned int num_relocations)
-> +unsigned int
-> +initialize_relocation_hashtable(unsigned int num_relocations,
-> +				struct hlist_head **relocation_hashtable,
-> +				struct list_head *used_buckets_list)
->   {
->   	/* Can safely assume that bits is not greater than sizeof(long) */
->   	unsigned long hashtable_size = roundup_pow_of_two(num_relocations);
-> @@ -720,12 +737,12 @@ unsigned int initialize_relocation_hashtable(unsigned int num_relocations)
->   
->   	hashtable_size <<= should_double_size;
->   
-> -	relocation_hashtable = kmalloc_array(hashtable_size,
-> -					     sizeof(*relocation_hashtable),
-> -					     GFP_KERNEL);
-> -	__hash_init(relocation_hashtable, hashtable_size);
-> +	*relocation_hashtable = kmalloc_array(hashtable_size,
-> +					      sizeof(*relocation_hashtable),
-> +					      GFP_KERNEL);
-> +	__hash_init(*relocation_hashtable, hashtable_size);
->   
-> -	INIT_LIST_HEAD(&used_buckets_list);
-> +	INIT_LIST_HEAD(used_buckets_list);
->   
->   	return hashtable_bits;
->   }
-> @@ -742,7 +759,13 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
->   	Elf_Addr v;
->   	int res;
->   	unsigned int num_relocations = sechdrs[relsec].sh_size / sizeof(*rel);
-> -	unsigned int hashtable_bits = initialize_relocation_hashtable(num_relocations);
-> +	struct hlist_head *relocation_hashtable;
-> +	struct list_head used_buckets_list;
-> +	unsigned int hashtable_bits;
+>  MAINTAINERS                                   | 14 +++++++-------
+>  drivers/cache/Kconfig                         |  8 ++++++++
+>  drivers/cache/Makefile                        |  3 ++-
+>  drivers/{soc/sifive => cache}/sifive_ccache.c |  0
+>  drivers/soc/Kconfig                           |  1 -
+>  drivers/soc/Makefile                          |  1 -
+>  drivers/soc/sifive/Kconfig                    | 10 ----------
+>  drivers/soc/sifive/Makefile                   |  3 ---
+>  8 files changed, 17 insertions(+), 23 deletions(-)
+>  rename drivers/{soc/sifive => cache}/sifive_ccache.c (100%)
+>  delete mode 100644 drivers/soc/sifive/Kconfig
+>  delete mode 100644 drivers/soc/sifive/Makefile
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 90f13281d297..ab32599fc799 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -19580,6 +19580,13 @@ S:	Supported
+>  N:	sifive
+>  K:	[^@]sifive
+>  
+> +SIFIVE CACHE DRIVER
+> +M:	Conor Dooley <conor@kernel.org>
+> +L:	linux-riscv@lists.infradead.org
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
+> +F:	drivers/cache/sifive_ccache.c
 > +
-> +	hashtable_bits = initialize_relocation_hashtable(num_relocations,
-> +							 &relocation_hashtable,
-> +							 &used_buckets_list);
->   
->   	pr_debug("Applying relocate section %u to %u\n", relsec,
->   	       sechdrs[relsec].sh_info);
-> @@ -823,14 +846,17 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
->   		}
->   
->   		if (reloc_handlers[type].accumulate_handler)
-> -			res = add_relocation_to_accumulate(me, type, location, hashtable_bits, v);
-> +			res = add_relocation_to_accumulate(
-> +				me, type, location, hashtable_bits, v,
-> +				&relocation_hashtable, &used_buckets_list);
->   		else
->   			res = handler(me, location, v);
->   		if (res)
->   			return res;
->   	}
->   
-> -	process_accumulated_relocations(me);
-> +	process_accumulated_relocations(me, &relocation_hashtable,
-> +					&used_buckets_list);
->   
->   	return 0;
->   }
->
-> ---
-> base-commit: 98b1cc82c4affc16f5598d4fa14b1858671b2263
-> change-id: 20231120-module_linking_freeing-2b5a3b255b5e
+>  SIFIVE FU540 SYSTEM-ON-CHIP
+>  M:	Paul Walmsley <paul.walmsley@sifive.com>
+>  M:	Palmer Dabbelt <palmer@dabbelt.com>
+> @@ -19595,13 +19602,6 @@ S:	Maintained
+>  F:	Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
+>  F:	drivers/dma/sf-pdma/
+>  
+> -SIFIVE SOC DRIVERS
+> -M:	Conor Dooley <conor@kernel.org>
+> -L:	linux-riscv@lists.infradead.org
+> -S:	Maintained
+> -T:	git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
+> -F:	Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
+> -F:	drivers/soc/sifive/
+>  
+>  SILEAD TOUCHSCREEN DRIVER
+>  M:	Hans de Goede <hdegoede@redhat.com>
+> diff --git a/drivers/cache/Kconfig b/drivers/cache/Kconfig
+> index a57677f908f3..433b7ded8787 100644
+> --- a/drivers/cache/Kconfig
+> +++ b/drivers/cache/Kconfig
+> @@ -8,4 +8,12 @@ config AX45MP_L2_CACHE
+>  	help
+>  	  Support for the L2 cache controller on Andes Technology AX45MP platforms.
+>  
+> +if ARCH_SIFIVE || ARCH_STARFIVE
 
-That did the trick. Booted ten times on Unmatched with no problems.
+Since this is now in a file grouped/sorted by subsystem instead of by platform,
+maybe it makes sense to convert this to a "depends on" line?
 
-Tested-by: Ron Economos <re@w6rz.net>
+> +
+> +config SIFIVE_CCACHE
+> +	bool "Sifive Composable Cache controller"
+> +	help
+> +	  Support for the composable cache controller on SiFive platforms.
+> +
+> +endif
+>  endmenu
+> diff --git a/drivers/cache/Makefile b/drivers/cache/Makefile
+> index 2012e7fb978d..7657cff3bd6c 100644
+> --- a/drivers/cache/Makefile
+> +++ b/drivers/cache/Makefile
+> @@ -1,3 +1,4 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  
+> -obj-$(CONFIG_AX45MP_L2_CACHE) += ax45mp_cache.o
+> +obj-$(CONFIG_AX45MP_L2_CACHE)	+= ax45mp_cache.o
+> +obj-$(CONFIG_SIFIVE_CCACHE)	+= sifive_ccache.o
+> diff --git a/drivers/soc/sifive/sifive_ccache.c b/drivers/cache/sifive_ccache.c
+> similarity index 100%
+> rename from drivers/soc/sifive/sifive_ccache.c
+> rename to drivers/cache/sifive_ccache.c
+> diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
+> index d21e75d69294..76afeff93045 100644
+> --- a/drivers/soc/Kconfig
+> +++ b/drivers/soc/Kconfig
+> @@ -23,7 +23,6 @@ source "drivers/soc/qcom/Kconfig"
+>  source "drivers/soc/renesas/Kconfig"
+>  source "drivers/soc/rockchip/Kconfig"
+>  source "drivers/soc/samsung/Kconfig"
+> -source "drivers/soc/sifive/Kconfig"
+>  source "drivers/soc/starfive/Kconfig"
+
+This file has a conflict and needs to be rebased, but otherwise:
+
+Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+Tested-by: Samuel Holland <samuel.holland@sifive.com>
+
+>  source "drivers/soc/sunxi/Kconfig"
+>  source "drivers/soc/tegra/Kconfig"
+> diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
+> index 0706a27d13be..ba8f5b5460e1 100644
+> --- a/drivers/soc/Makefile
+> +++ b/drivers/soc/Makefile
+> @@ -28,7 +28,6 @@ obj-y				+= qcom/
+>  obj-y				+= renesas/
+>  obj-y				+= rockchip/
+>  obj-$(CONFIG_SOC_SAMSUNG)	+= samsung/
+> -obj-y				+= sifive/
+>  obj-y				+= sunxi/
+>  obj-$(CONFIG_ARCH_TEGRA)	+= tegra/
+>  obj-y				+= ti/
+> diff --git a/drivers/soc/sifive/Kconfig b/drivers/soc/sifive/Kconfig
+> deleted file mode 100644
+> index 139884addc41..000000000000
+> --- a/drivers/soc/sifive/Kconfig
+> +++ /dev/null
+> @@ -1,10 +0,0 @@
+> -# SPDX-License-Identifier: GPL-2.0
+> -
+> -if ARCH_SIFIVE || ARCH_STARFIVE
+> -
+> -config SIFIVE_CCACHE
+> -	bool "Sifive Composable Cache controller"
+> -	help
+> -	  Support for the composable cache controller on SiFive platforms.
+> -
+> -endif
+> diff --git a/drivers/soc/sifive/Makefile b/drivers/soc/sifive/Makefile
+> deleted file mode 100644
+> index 1f5dc339bf82..000000000000
+> --- a/drivers/soc/sifive/Makefile
+> +++ /dev/null
+> @@ -1,3 +0,0 @@
+> -# SPDX-License-Identifier: GPL-2.0
+> -
+> -obj-$(CONFIG_SIFIVE_CCACHE)	+= sifive_ccache.o
 
 
 _______________________________________________
