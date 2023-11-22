@@ -4,104 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D963BC61D9C
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 09:34:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68E0DC61D9D
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 09:43:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U8V4IHTtFdMRxNR+JyxcfuLMHfeelqehyvYrVM+EsmU=; b=iyL85xOfl/6JiF
-	VXUr7YmBpmZGJurSSbou8sEUxFyys8jkjTT0QREWjrH81Ce35QUijZu5W0BK2KJIFF3bA9rMk187j
-	wVL2SsOPI2YBwMqAKktNRBCkZDATM8nktYIS5VOMcOhJvAcPTDrX9/RWPtxcDLy8twY6FYPu26559
-	J1RdjLQe6iz3L+/WnqBYkZVQYOFMNhzuG+wyyz0PzpZ4c07Hqvk4ya//5SM4aj+TVBrDwRKmb952o
-	WYkSmhd3uqut+X/AK0XnAIKSdTVvA3jp+Gb5rRS9hicG4+YbxpBRYQo6Gx91DjD1EACrxSyeyqtIq
-	7mHnlM4S29ijffZieNSg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZRWx1CK7/MmJlmXinDrQowylJutbu+7cZHsCmnl+VKY=; b=niGYyWco7pcHf6
+	xXLfSnlfSw4UxdK2eI+nfB0Dp893g/Cw0Zv890b7rwx75/Czit4odfwvrCG1pu8MSM2EI3LXsGcLh
+	pfzqvU6sYGZcwFOMRnZ1ZpnJtl8idPBzn1Rfh/yZZPESzzn1isVLYpKxxXdguwsWJpI6On7BE+0Qx
+	xs2gAhWAVI87npejG0KaEzIGshNK7sZ6XbP0mc1AcSRogq/zfyNHZEM/Xn7IvXU6kdhrnznqA1EcN
+	ZUZDpA2ttYj95Q9eUmg/OEH6aip8dPpQXruFGc5nuy5nLUKensYl5B03MmN+5izi+3yKRMzJg1Z99
+	fFm8eXTiUVmzUV78cZQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5jdF-001E8B-0A;
-	Wed, 22 Nov 2023 09:34:53 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1r5jl5-001F0L-01;
+	Wed, 22 Nov 2023 09:42:59 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5jdB-001E6l-2A
-	for linux-riscv@lists.infradead.org;
-	Wed, 22 Nov 2023 09:34:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1700645684;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+OTgZltwB2ZS+YZyn6PYgFPXeR3pdRlWkz0aWS8O4HE=;
-	b=AyZdLpZ8AiKvLQrSXIR6OO2LShWad9447dErRDr6JDn9GXz4ajw8Wi/aqA6TjEWZnIF+o3
-	n4O1wCzZYsmXkZzsGZJECPH5MRhOtEsuMWOrmekZIG6ZSpfq1+pR/5TbSBum39W9BIPA3i
-	o53o/XjeGQcrCAx8QK19U9zi7vRdekg=
-Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-591-_biuZLCONCOAsgDXiclx4A-1; Wed,
- 22 Nov 2023 04:34:40 -0500
-X-MC-Unique: _biuZLCONCOAsgDXiclx4A-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8960E3C0FCA6;
-	Wed, 22 Nov 2023 09:34:39 +0000 (UTC)
-Received: from localhost (unknown [10.72.112.97])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2A80F1C060AE;
-	Wed, 22 Nov 2023 09:34:36 +0000 (UTC)
-Date: Wed, 22 Nov 2023 17:34:33 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Ignat Korchagin <ignat@cloudflare.com>
-Cc: eric_devolder@yahoo.com, linux@armlinux.org.uk, catalin.marinas@arm.com,
-	will@kernel.org, chenhuacai@kernel.org, geert@linux-m68k.org,
-	tsbogend@alpha.franken.de,
-	James Bottomley <James.Bottomley@hansenpartnership.com>,
-	deller@gmx.de, ysato@users.sourceforge.jp, dalias@libc.org,
-	glaubitz@physik.fu-berlin.de, Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	dave.hansen@linux.intel.com, x86@kernel.org,
-	linux-kernel <linux-kernel@vger.kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	kernel@xen0n.name, mpe@ellerman.id.au, npiggin@gmail.com,
-	christophe.leroy@csgroup.eu, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, hca@linux.ibm.com,
-	gor@linux.ibm.com, agordeev@linux.ibm.com,
-	borntraeger@linux.ibm.com, svens@linux.ibm.com, hpa@zytor.com,
-	keescook@chromium.org, paulmck@kernel.org,
-	Peter Zijlstra <peterz@infradead.org>, frederic@kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Ard Biesheuvel <ardb@kernel.org>, samitolvanen@google.com,
-	juerg.haefliger@canonical.com, arnd@arndb.de,
-	rmk+kernel@armlinux.org.uk, linus.walleij@linaro.org,
-	sebastian.reichel@collabora.com, rppt@kernel.org,
-	kirill.shutemov@linux.intel.com, anshuman.khandual@arm.com,
-	ziy@nvidia.com, masahiroy@kernel.org, ndesaulniers@google.com,
-	mhiramat@kernel.org, ojeda@kernel.org, thunder.leizhen@huawei.com,
-	xin3.li@intel.com, tj@kernel.org,
-	Greg KH <gregkh@linuxfoundation.org>, tsi@tuyoix.net,
-	hbathini@linux.ibm.com, sourabhjain@linux.ibm.com,
-	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com,
-	kernel-team <kernel-team@cloudflare.com>
-Subject: Re: Potential config regression after 89cde455 ("kexec: consolidate
- kexec and crash options into kernel/Kconfig.kexec")
-Message-ID: <ZV3LKVOokpx2WvKp@MiWiFi-R3L-srv>
-References: <CALrw=nHpRQQaQTP_jZfREgrQEMpS8jBF8JQCv4ygqXycE-StaA@mail.gmail.com>
- <ZVwMzXxWkgonIAfc@MiWiFi-R3L-srv>
- <CALrw=nG8xsYw7XKyL_VMHtKiaBcQCKvC8UVp-C9-BdeN4A1Daw@mail.gmail.com>
- <CALrw=nH-vcROja2W23rUKEEZMZhxsQiNB4P_ZZQ-XhPHAJGxrg@mail.gmail.com>
+	id 1r5jl0-001Exn-25;
+	Wed, 22 Nov 2023 09:42:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9E52561CCD;
+	Wed, 22 Nov 2023 09:42:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FC91C433C8;
+	Wed, 22 Nov 2023 09:42:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1700646172;
+	bh=uZKJnb2u5AhzIA9X+4vciaKQhiGepe0H1KhmYC0IwcM=;
+	h=From:Subject:Date:To:Cc:From;
+	b=mStM9wWacigBlUSqe09knkTbwekKMzDd5zJAEwJ6okaKsx9BYWSTZeYm1mA0ctn80
+	 do5ZZnRGA+A+iEknxctJAzvLPa/DRWCUqpk6c2oxUzzkEaUrLkJVrHQ4+xxb6QS5YJ
+	 4uoNjaQKaHEmv4AOhph3JDcrWRQXoTHiQfIBYMrq/57ktpVv+ZiICk3rNHq4D8quYM
+	 g730KwgJzAdlCtKvVAAdDW4nN/QYy74l7CMcZxJv1Q05FaqEFmQqiT+cDKMNscEdVi
+	 fvzJRNYMp/sTZyLS1sgjRhFSGULU/jh9nX0AHnC7Ns6HmiJpNBxqG8Sn6O7HR2unut
+	 FsipsXCNO7IYg==
+From: Mark Brown <broonie@kernel.org>
+Subject: [PATCH v7 00/39] arm64/gcs: Provide support for GCS in userspace
+Date: Wed, 22 Nov 2023 09:42:10 +0000
+Message-Id: <20231122-arm64-gcs-v7-0-201c483bd775@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CALrw=nH-vcROja2W23rUKEEZMZhxsQiNB4P_ZZQ-XhPHAJGxrg@mail.gmail.com>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.7
+X-B4-Tracking: v=1; b=H4sIAPLMXWUC/2XOy27DIBAF0F+JWJeKl3lk1f+ougBmsFEbO4LIa
+ hX534tTqaWyWN0R587cScWSsZLz6U4KrrnmZW7BPJ1InPw8Is3QMhFMSNYe9eWiFR1jpSg594G
+ BNcKR9j/4ijQUP8dpF7fLdZ9eC6b8+djw+tbylOttKV+PhSvfpz/dhuuue+WU0ZAGbZKTIXj98
+ o5lxo/npYxkr1lFR4XqqWgUoogclIoCw4HKjkreU9loBEguOcvA2QNVf9Qy01PVqLYxedlOZto
+ d6NBRIXo6NOowccsBtBTqQPUv5Yy5nupGjcVhAPReAfyj27Z9A7b2ig3gAQAA
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Andrew Morton <akpm@linux-foundation.org>, Marc Zyngier <maz@kernel.org>, 
+ Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
+ Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, 
+ Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>, 
+ "Rick P. Edgecombe" <rick.p.edgecombe@intel.com>, 
+ Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>, 
+ Szabolcs Nagy <Szabolcs.Nagy@arm.com>
+Cc: "H.J. Lu" <hjl.tools@gmail.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Florian Weimer <fweimer@redhat.com>, Christian Brauner <brauner@kernel.org>, 
+ Thiago Jung Bauermann <thiago.bauermann@linaro.org>, 
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+ kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org, 
+ linux-arch@vger.kernel.org, linux-mm@kvack.org, 
+ linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.13-dev-0438c
+X-Developer-Signature: v=1; a=openpgp-sha256; l=13583; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=uZKJnb2u5AhzIA9X+4vciaKQhiGepe0H1KhmYC0IwcM=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlXcz28WpesSScy5xWudW7kzLCWricgXNONQStW
+ f7tgXI1LMmJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZV3M9gAKCRAk1otyXVSH
+ 0NVVB/4gBoYNSuY1Oh4rqqLmn82OjtifuZDINMmJzJMVu7YXri4UWGGRfvABh4KDE6oXaUnFcP4
+ +iSBKs6Lxfo15ZuqoNw44g3MOvRTevQITaqq1JuV4oA19mbg9EqqFZCP1Ds48Pt9pFrbLVxo667
+ dJQWLb56VjUXHkdWNrUnCydfHJqsHThYBfVM5WHrYBPY3M5mPndMKQ04B14S2Kz3WQe4ddI3RqT
+ Ci3lTLCEkW6SGmBzZ5L8o5VfAWMrFlUmZBcttfnhONxFzobEW2qc7MY5UWrBGrN3gM6/MIW7nsu
+ l7ZUax9ZhhO2CLxwTVWY4mISiESUqlc85R4lx+UbGjOPjMqF
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231122_013449_785343_55E3EB21 
-X-CRM114-Status: GOOD (  48.45  )
+X-CRM114-CacheID: sfid-20231122_014254_768992_788DA9BB 
+X-CRM114-Status: GOOD (  28.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,98 +97,267 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTEvMjEvMjMgYXQgMDk6NDNhbSwgSWduYXQgS29yY2hhZ2luIHdyb3RlOgo+IE9uIFR1ZSwg
-Tm92IDIxLCAyMDIzIGF0IDc6NTPigK9BTSBJZ25hdCBLb3JjaGFnaW4gPGlnbmF0QGNsb3VkZmxh
-cmUuY29tPiB3cm90ZToKPiA+Cj4gPiBPbiBUdWUsIE5vdiAyMSwgMjAyMyBhdCAxOjUw4oCvQU0g
-QmFvcXVhbiBIZSA8YmhlQHJlZGhhdC5jb20+IHdyb3RlOgo+ID4gPgo+ID4gPiBFcmljIERlVm9s
-ZGVyJ3MgT3JhY2xlIG1haWwgYWRkcmVzcyBpcyBub3QgYXZhaWxhYmxlIGFueW1vcmUsIGFkZCBo
-aXMKPiA+ID4gY3VycmVudCBtYWlsIGFkZHJlc3MgaGUgdG9sZCBtZS4KPiA+Cj4gPiBUaGFuayB5
-b3UhCj4gPgo+ID4gPiBPbiAxMS8yMC8yMyBhdCAxMDo1MnBtLCBJZ25hdCBLb3JjaGFnaW4gd3Jv
-dGU6Cj4gPiA+ID4gR29vZCBkYXkhCj4gPiA+ID4KPiA+ID4gPiBXZSBoYXZlIHJlY2VudGx5IHN0
-YXJ0ZWQgdG8gZXZhbHVhdGUgTGludXggNi42IGFuZCBub3RpY2VkIHRoYXQgd2UKPiA+ID4gPiBj
-YW5ub3QgZGlzYWJsZSBDT05GSUdfS0VYRUMgYW55bW9yZSwgYnV0IGtlZXAgQ09ORklHX0NSQVNI
-X0RVTVAKPiA+ID4gPiBlbmFibGVkLiBJdCBzZWVtcyB0byBiZSByZWxhdGVkIHRvIGNvbW1pdCA4
-OWNkZTQ1NSAoImtleGVjOgo+ID4gPiA+IGNvbnNvbGlkYXRlIGtleGVjIGFuZCBjcmFzaCBvcHRp
-b25zIGludG8ga2VybmVsL0tjb25maWcua2V4ZWMiKSwgd2hlcmUKPiA+ID4gPiBhIENPTkZJR19L
-RVhFQyBkZXBlbmRlbmN5IHdhcyBhZGRlZCB0byBDT05GSUdfQ1JBU0hfRFVNUC4KPiA+ID4gPgo+
-ID4gPiA+IEluIG91ciBjdXJyZW50IGtlcm5lbCAoTGludXggNi4xKSB3ZSBvbmx5IGVuYWJsZSBD
-T05GSUdfS0VYRUNfRklMRQo+ID4gPiA+IHdpdGggZW5mb3JjZWQgc2lnbmF0dXJlIGNoZWNrIHRv
-IHN1cHBvcnQgdGhlIGtlcm5lbCBjcmFzaCBkdW1waW5nCj4gPiA+ID4gZnVuY3Rpb25hbGl0eSBh
-bmQgd291bGQgbGlrZSB0byBrZWVwIENPTkZJR19LRVhFQyBkaXNhYmxlZCBmb3IKPiA+ID4gPiBz
-ZWN1cml0eSByZWFzb25zIFsxXS4KPiA+ID4gPgo+ID4gPiA+IEkgd2FzIHJlYWRpbmcgdGhlIGxv
-bmcgY29tbWl0IG1lc3NhZ2UsIGJ1dCB0aGUgcmVhc29uIGZvciBhZGRpbmcKPiA+ID4gPiBDT05G
-SUdfS0VYRUMgYXMgYSBkZXBlbmRlbmN5IGZvciBDT05GSUdfQ1JBU0hfRFVNUCBldmFkZWQgbWUu
-IEFuZCBJCj4gPiA+ID4gYmVsaWV2ZSBmcm9tIHRoZSBpbXBsZW1lbnRhdGlvbiBwZXJzcGVjdGl2
-ZSBDT05GSUdfS0VYRUNfRklMRSBzaG91bGQKPiA+ID4gPiBzdWZmaWNlIGhlcmUgKGFzIHdlIHN1
-Y2Nlc3NmdWxseSB1c2VkIGl0IGZvciBjcmFzaGR1bXBzIG9uIExpbnV4IDYuMSkuCj4gPiA+ID4K
-PiA+ID4gPiBJcyB0aGVyZSBhIHJlYXNvbiBmb3IgYWRkaW5nIHRoaXMgZGVwZW5kZW5jeSBvciBp
-cyBpdCBqdXN0IGFuCj4gPiA+ID4gb3ZlcnNpZ2h0PyBXb3VsZCBzb21lIHNvbHV0aW9uIG9mIHJl
-cXVpcmluZyBlaXRoZXIgQ09ORklHX0tFWEVDIG9yCj4gPiA+ID4gQ09ORklHX0tFWEVDX0ZJTEUg
-d29yayBoZXJlPwo+ID4gPgo+ID4gPiBJIHNlYXJjaGVkIHRoZSBwYXRjaCBoaXN0b3J5LCBmb3Vu
-ZCBFcmljIGRpZG4ndCBhZGQgdGhlIGRlcGVuZGVuY3kgb24KPiA+ID4gQ09ORklHX0tFWEVDIGF0
-IHRoZSBiZWdpbm5pbmcuIExhdGVyIGEgbGludXgtbmV4dCBidWlsZGluZyBmYWlsdXJlIHdpdGgK
-PiA+ID4gcmFuZGNvbmZpZyB3YXMgcmVwb3J0ZWQsIGluIHRoZXJlIENPTkZJR19DUkFTSF9EVU1Q
-IGVuYWJsZWQsIHdoaWxlCj4gPiA+IENPTkZJR19LRVhFQyBpcyBkaXNhYmxlZC4gRmluYWxseSBF
-cmljIGFkZGVkIHRoZSBLRVhFQyBkZXBlbmRlbmN5IGZvcgo+ID4gPiBDUkFTSF9EVU1QLiBQbGVh
-c2Ugc2VlIGJlbG93IGxpbmsgZm9yIG1vcmUgZGV0YWlsczoKPiA+ID4KPiA+ID4gaHR0cHM6Ly9s
-b3JlLmtlcm5lbC5vcmcvYWxsLzNlOGVlY2QxLWEyNzctMmNmYi02OTBlLTVkZTJlYjdiOTg4ZUBv
-cmFjbGUuY29tL1QvI3UKPiA+Cj4gPiBUaGFuayB5b3UgZm9yIGRpZ2dpbmcgdGhpcyB1cC4gSG93
-ZXZlciBJJ20gc3RpbGwgY29uZnVzZWQsIGJlY2F1c2UKPiA+IHRoaXMgaXMgZXhhY3RseSBob3cg
-d2UgY29uZmlndXJlIExpbnV4IDYuMSAoYWx0aG91Z2ggd2UgZG8gaGF2ZQo+ID4gQ09ORklHX0tF
-WEVDX0ZJTEUgZW5hYmxlZCkgYW5kIHdlIGRvbid0IGhhdmUgYW55IHByb2JsZW1zLiBJIGJlbGll
-dmUKPiA+IHdlIGRpZCBub3QgaW52ZXN0aWdhdGUgdGhpcyBpc3N1ZSBwcm9wZXJseS4KPiAKPiBJ
-IGRpZCBzb21lIHByZWxpbWluYXJ5IGludmVzdGlnYXRpb24gZm9yIHRoaXMuIElmIEkgcGF0Y2gg
-b3V0IHRoZQo+IGRlcGVuZGVuY3kgb24gQ09ORklHX0tFWEVDIHRoZSBrZXJuZWwgYnVpbGRzIGp1
-c3QgZmluZSBmb3IgeDg2Cj4gKHdpdGhvdXQgQ09ORklHX0NSQVNIX0hPVFBMVUcgLSB3aGljaCBp
-cyBwcm9iYWJseSBhbm90aGVyIGlzc3VlKSAtIHNvCj4gdGhpcyB3YXMgdGhlIHByZXZpb3VzIGJl
-aGF2aW91ci4gSSBjYW4gc2VlIHRoYXQgdGhlIHJlcG9ydGVkIGVycm9yIGlzCj4gZm9yIGFybSBh
-cmNoaXRlY3R1cmUgYW5kIHdhcyBhYmxlIHRvIHJlcHJvZHVjZSBpdCB3aXRoIGEgc2ltcGxlIGNy
-b3NzCj4gY29tcGlsZXIgaW4gRGViaWFuLiBIb3dldmVyLCBJIHRoaW5rIGl0IGlzIHN0aWxsIHNv
-bWVob3cgcmVsYXRlZCB0bwo+IHRoaXMgcGF0Y2hzZXQgYXMgdGhlIHByZXZpb3VzIGtlcm5lbHMg
-KHVwIHRvIDYuNSkgYnVpbGQgZmluZSB3aXRoIGp1c3QKPiBDT05GSUdfQ1JBU0hfRFVNUCBhbmQg
-d2l0aG91dCBDT05GSUdfS0VYRUMgZm9yIGFybSBhcyB3ZWxsLiBTbyBldmVuCj4gZm9yIGFybSBp
-dCB3YXMgaW50cm9kdWNlZCBpbiA2LjYuCgpUaGFua3MgZm9yIHRoZSBpbmZvcm1hdGlvbi4KCkkg
-aGF2ZW4ndCBydW4gdGhlIHJlcHJvZHVjZXIgb2YgaXNzdWUgcmVwb3J0ZWQgb24gRXJpYydzIG9s
-ZCBwYXRjaHNldCwKd2hpbGUgY2hlY2tvdXQgdG8ga2VybmVsIDYuMSwgb25seSBzMzkwIHNlbGVj
-dGVkIEtFWEVDIGZvciBDUkFTSF9EVU1QCmFscmVhZHkuIEFuZCB3aXRoIHRoZSBBUk0gYnVpbGRp
-bmcgYnJlYWthZ2UsIHRoZSBzaW1wbGVzdCBpZGVhIGlzIAp0byBzZWxlY3QgS0VYRUMgb25seSBm
-b3IgQVJNIG9yIFMzOTAgQ1JBU0hfRFVNUC4gSSBwbGFuIHRvIHRyeSB0aGUKcmVwcm9kdWNlciBs
-YXRlci4gSWYgeW91IGhhdmUgYW55IGlkZWEgb3IgZHJhZnQgcGF0Y2gsIHBsZWFzZSBmZWVsIGZy
-ZWUKdG8gcG9zdC4KCmRpZmYgLS1naXQgYS9rZXJuZWwvS2NvbmZpZy5rZXhlYyBiL2tlcm5lbC9L
-Y29uZmlnLmtleGVjCmluZGV4IDdhZmYyOGRlZDJmNC4uMzgyZGNkOGQ3YTlkIDEwMDY0NAotLS0g
-YS9rZXJuZWwvS2NvbmZpZy5rZXhlYworKysgYi9rZXJuZWwvS2NvbmZpZy5rZXhlYwpAQCAtOTcs
-NyArOTcsNyBAQCBjb25maWcgQ1JBU0hfRFVNUAogICAgICAgIGRlcGVuZHMgb24gQVJDSF9TVVBQ
-T1JUU19LRVhFQwogICAgICAgIHNlbGVjdCBDUkFTSF9DT1JFCiAgICAgICAgc2VsZWN0IEtFWEVD
-X0NPUkUKLSAgICAgICBzZWxlY3QgS0VYRUMKKyAgICAgICBzZWxlY3QgS0VYRUMgaWYgKEFSTSB8
-fCBTMzkwKQoKCmFyY2gvczM5MC9LY29uZmlnIGluIGtlcm5lbCA2LjE6CmNvbmZpZyBDUkFTSF9E
-VU1QCiAgICAgICAgYm9vbCAia2VybmVsIGNyYXNoIGR1bXBzIgogICAgICAgIHNlbGVjdCBLRVhF
-QwogICAgICAgIGhlbHAKICAgICAgICAgIEdlbmVyYXRlIGNyYXNoIGR1bXAgYWZ0ZXIgYmVpbmcg
-c3RhcnRlZCBieSBrZXhlYy4KICAgICAgICAgIENyYXNoIGR1bXAga2VybmVscyBhcmUgbG9hZGVk
-IGluIHRoZSBtYWluIGtlcm5lbCB3aXRoIGtleGVjLXRvb2xzCiAgICAgICAgICBpbnRvIGEgc3Bl
-Y2lhbGx5IHJlc2VydmVkIHJlZ2lvbiBhbmQgdGhlbiBsYXRlciBleGVjdXRlZCBhZnRlcgogICAg
-ICAgICAgYSBjcmFzaCBieSBrZHVtcC9rZXhlYy4KICAgICAgICAgIFJlZmVyIHRvIDxmaWxlOkRv
-Y3VtZW50YXRpb24vczM5MC96ZmNwZHVtcC5yc3Q+IGZvciBtb3JlIGRldGFpbHMgb24gdGhpcy4K
-ICAgICAgICAgIFRoaXMgb3B0aW9uIGFsc28gZW5hYmxlcyBzMzkwIHpmY3BkdW1wLgogICAgICAg
-ICAgU2VlIGFsc28gPGZpbGU6RG9jdW1lbnRhdGlvbi9zMzkwL3pmY3BkdW1wLnJzdD4KCj4gCj4g
-PiA+IEFuZCBiZXNpZGVzLCB0aGUgbmV3bHkgYWRkZWQgQ09ORklHX0NSQVNIX0hPVFBMVUcgYWxz
-byBuZWVkcwo+ID4gPiBDT05GSUdfS0VYRUMgaWYgdGhlIGVsZmNvcmVoZHIgaXMgYWxsb3dlZCB0
-byBiZSBtYW5pcHVsYXRlZCB3aGVuCj4gPiA+IGNwdS9tZW1vcnkgaG90cGx1ZyBoYXBlbmVkLgo+
-ID4KPiA+IFRoaXMgc3RpbGwgZmVlbHMgbGlrZSBhIHJlZ3Jlc3Npb24gdG8gbWU6IGFueSBjcmFz
-aCBkdW1wIHN1cHBvcnQKPiA+IHNob3VsZCBiZSBpbmRlcGVuZGVudCBvZiBLRVhFQyBzeXNjYWxs
-cyBiZWluZyBwcmVzZW50LiBXaGlsZSBwcm9iYWJseQo+ID4gdGhlIGNvbW1vbiBjYXNlIChpbmNs
-dWRpbmcgdXMpIHRoYXQgdGhlIGNyYXNoaW5nIGtlcm5lbCBhbmQgcmVjb3ZlcnkKPiA+IGtlcm5l
-bCBhcmUgdGhlIHNhbWUsIHRoZXkgZG9uJ3QgaGF2ZSB0byBiZS4gV2UgbmVlZCBrZXhlYyBzeXNj
-YWxsIGluCj4gPiB0aGUgY3Jhc2hpbmcga2VybmVsLCBidXQgY3Jhc2hkdW1wIHN1cHBvcnQgaW4g
-dGhlIHJlY292ZXJ5IGtlcm5lbCAoYnV0Cj4gPiB0aGUgcmVjb3Zlcnkga2VybmVsIG5vdCBoYXZp
-bmcgdGhlIGtleGVjIHN5c2NhbGxzIHNob3VsZCBiZSB0b3RhbGx5Cj4gPiBmaW5lKS4gSWYgd2Ug
-ZG8gcmVxdWlyZSBzb21lIGNvZGUgZGVmaW5pdGlvbnMgZnJvbSBrZXhlYyAtIGF0IG1vc3Qgd2UK
-PiA+IHNob3VsZCBwdXQgdGhlbSB1bmRlciBDT05GSUdfS0VYRUNfQ09SRS4KPiA+Cj4gPiA+IFRo
-YW5rcwo+ID4gPiBCYW9xdWFuCj4gPiA+Cj4gCj4gSWduYXQKPiAKCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+The arm64 Guarded Control Stack (GCS) feature provides support for
+hardware protected stacks of return addresses, intended to provide
+hardening against return oriented programming (ROP) attacks and to make
+it easier to gather call stacks for applications such as profiling.
+
+When GCS is active a secondary stack called the Guarded Control Stack is
+maintained, protected with a memory attribute which means that it can
+only be written with specific GCS operations.  The current GCS pointer
+can not be directly written to by userspace.  When a BL is executed the
+value stored in LR is also pushed onto the GCS, and when a RET is
+executed the top of the GCS is popped and compared to LR with a fault
+being raised if the values do not match.  GCS operations may only be
+performed on GCS pages, a data abort is generated if they are not.
+
+The combination of hardware enforcement and lack of extra instructions
+in the function entry and exit paths should result in something which
+has less overhead and is more difficult to attack than a purely software
+implementation like clang's shadow stacks.
+
+This series implements support for use of GCS by userspace, along with
+support for use of GCS within KVM guests.  It does not enable use of GCS
+by either EL1 or EL2, this will be implemented separately.  Executables
+are started without GCS and must use a prctl() to enable it, it is
+expected that this will be done very early in application execution by
+the dynamic linker or other startup code.  For dynamic linking this will
+be done by checking that everything in the executable is marked as GCS
+compatible.
+
+x86 has an equivalent feature called shadow stacks, this series depends
+on the x86 patches for generic memory management support for the new
+guarded/shadow stack page type and shares APIs as much as possible.  As
+there has been extensive discussion with the wider community around the
+ABI for shadow stacks I have as far as practical kept implementation
+decisions close to those for x86, anticipating that review would lead to
+similar conclusions in the absence of strong reasoning for divergence.
+
+The main divergence I am concious of is that x86 allows shadow stack to
+be enabled and disabled repeatedly, freeing the shadow stack for the
+thread whenever disabled, while this implementation keeps the GCS
+allocated after disable but refuses to reenable it.  This is to avoid
+races with things actively walking the GCS during a disable, we do
+anticipate that some systems will wish to disable GCS at runtime but are
+not aware of any demand for subsequently reenabling it.
+
+x86 uses an arch_prctl() to manage enable and disable, since only x86
+and S/390 use arch_prctl() a generic prctl() was proposed[1] as part of a
+patch set for the equivalent RISC-V Zicfiss feature which I initially
+adopted fairly directly but following review feedback has been revised
+quite a bit.
+
+We currently maintain the x86 pattern of implicitly allocating a shadow
+stack for threads started with shadow stack enabled, there has been some
+discussion of removing this support and requiring the use of clone3()
+with explicit allocation of shadow stacks instead.  I have no strong
+feelings either way, implicit allocation is not really consistent with
+anything else we do and creates the potential for errors around thread
+exit but on the other hand it is existing ABI on x86 and minimises the
+changes needed in userspace code.
+
+There is an open issue with support for CRIU, on x86 this required the
+ability to set the GCS mode via ptrace.  This series supports
+configuring mode bits other than enable/disable via ptrace but it needs
+to be confirmed if this is sufficient.
+
+The series depends on support for shadow stacks in clone3(), that series
+includes the addition of ARCH_HAS_USER_SHADOW_STACK.
+
+   https://lore.kernel.org/r/20231120-clone3-shadow-stack-v3-0-a7b8ed3e2acc@kernel.org
+
+It also depends on the addition of more waitpid() flags to nolibc:
+
+   https://lore.kernel.org/r/20231023-nolibc-waitpid-flags-v2-1-b09d096f091f@kernel.org
+
+You can see a branch with the full set of dependencies against Linus'
+tree at:
+
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/misc.git arm64-gcs
+
+[1] https://lore.kernel.org/lkml/20230213045351.3945824-1-debug@rivosinc.com/
+
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+Changes in v7:
+- Rebase onto v6.7-rc2 via the clone3() patch series.
+- Change the token used to cap the stack during signal handling to be
+  compatible with GCSPOPM.
+- Fix flags for new page types.
+- Fold in support for clone3().
+- Replace copy_to_user_gcs() with put_user_gcs().
+- Link to v6: https://lore.kernel.org/r/20231009-arm64-gcs-v6-0-78e55deaa4dd@kernel.org
+
+Changes in v6:
+- Rebase onto v6.6-rc3.
+- Add some more gcsb_dsync() barriers following spec clarifications.
+- Due to ongoing discussion around clone()/clone3() I've not updated
+  anything there, the behaviour is the same as on previous versions.
+- Link to v5: https://lore.kernel.org/r/20230822-arm64-gcs-v5-0-9ef181dd6324@kernel.org
+
+Changes in v5:
+- Don't map any permissions for user GCSs, we always use EL0 accessors
+  or use a separate mapping of the page.
+- Reduce the standard size of the GCS to RLIMIT_STACK/2.
+- Enforce a PAGE_SIZE alignment requirement on map_shadow_stack().
+- Clarifications and fixes to documentation.
+- More tests.
+- Link to v4: https://lore.kernel.org/r/20230807-arm64-gcs-v4-0-68cfa37f9069@kernel.org
+
+Changes in v4:
+- Implement flags for map_shadow_stack() allowing the cap and end of
+  stack marker to be enabled independently or not at all.
+- Relax size and alignment requirements for map_shadow_stack().
+- Add more blurb explaining the advantages of hardware enforcement.
+- Link to v3: https://lore.kernel.org/r/20230731-arm64-gcs-v3-0-cddf9f980d98@kernel.org
+
+Changes in v3:
+- Rebase onto v6.5-rc4.
+- Add a GCS barrier on context switch.
+- Add a GCS stress test.
+- Link to v2: https://lore.kernel.org/r/20230724-arm64-gcs-v2-0-dc2c1d44c2eb@kernel.org
+
+Changes in v2:
+- Rebase onto v6.5-rc3.
+- Rework prctl() interface to allow each bit to be locked independently.
+- map_shadow_stack() now places the cap token based on the size
+  requested by the caller not the actual space allocated.
+- Mode changes other than enable via ptrace are now supported.
+- Expand test coverage.
+- Various smaller fixes and adjustments.
+- Link to v1: https://lore.kernel.org/r/20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org
+
+---
+Mark Brown (39):
+      arm64/mm: Restructure arch_validate_flags() for extensibility
+      prctl: arch-agnostic prctl for shadow stack
+      mman: Add map_shadow_stack() flags
+      arm64: Document boot requirements for Guarded Control Stacks
+      arm64/gcs: Document the ABI for Guarded Control Stacks
+      arm64/sysreg: Add new system registers for GCS
+      arm64/sysreg: Add definitions for architected GCS caps
+      arm64/gcs: Add manual encodings of GCS instructions
+      arm64/gcs: Provide put_user_gcs()
+      arm64/cpufeature: Runtime detection of Guarded Control Stack (GCS)
+      arm64/mm: Allocate PIE slots for EL0 guarded control stack
+      mm: Define VM_SHADOW_STACK for arm64 when we support GCS
+      arm64/mm: Map pages for guarded control stack
+      KVM: arm64: Manage GCS registers for guests
+      arm64/gcs: Allow GCS usage at EL0 and EL1
+      arm64/idreg: Add overrride for GCS
+      arm64/hwcap: Add hwcap for GCS
+      arm64/traps: Handle GCS exceptions
+      arm64/mm: Handle GCS data aborts
+      arm64/gcs: Context switch GCS state for EL0
+      arm64/gcs: Allocate a new GCS for threads with GCS enabled
+      arm64/gcs: Implement shadow stack prctl() interface
+      arm64/mm: Implement map_shadow_stack()
+      arm64/signal: Set up and restore the GCS context for signal handlers
+      arm64/signal: Expose GCS state in signal frames
+      arm64/ptrace: Expose GCS via ptrace and core files
+      arm64: Add Kconfig for Guarded Control Stack (GCS)
+      kselftest/arm64: Verify the GCS hwcap
+      kselftest/arm64: Add GCS as a detected feature in the signal tests
+      kselftest/arm64: Add framework support for GCS to signal handling tests
+      kselftest/arm64: Allow signals tests to specify an expected si_code
+      kselftest/arm64: Always run signals tests with GCS enabled
+      kselftest/arm64: Add very basic GCS test program
+      kselftest/arm64: Add a GCS test program built with the system libc
+      kselftest/arm64: Add test coverage for GCS mode locking
+      selftests/arm64: Add GCS signal tests
+      kselftest/arm64: Add a GCS stress test
+      kselftest/arm64: Enable GCS for the FP stress tests
+      kselftest/clone3: Enable GCS in the clone3 selftests
+
+ Documentation/admin-guide/kernel-parameters.txt    |   6 +
+ Documentation/arch/arm64/booting.rst               |  22 +
+ Documentation/arch/arm64/elf_hwcaps.rst            |   3 +
+ Documentation/arch/arm64/gcs.rst                   | 233 +++++++
+ Documentation/arch/arm64/index.rst                 |   1 +
+ Documentation/filesystems/proc.rst                 |   2 +-
+ arch/arm64/Kconfig                                 |  20 +
+ arch/arm64/include/asm/cpufeature.h                |   6 +
+ arch/arm64/include/asm/el2_setup.h                 |  17 +
+ arch/arm64/include/asm/esr.h                       |  28 +-
+ arch/arm64/include/asm/exception.h                 |   2 +
+ arch/arm64/include/asm/gcs.h                       | 107 +++
+ arch/arm64/include/asm/hwcap.h                     |   1 +
+ arch/arm64/include/asm/kvm_arm.h                   |   4 +-
+ arch/arm64/include/asm/kvm_host.h                  |  12 +
+ arch/arm64/include/asm/mman.h                      |  23 +-
+ arch/arm64/include/asm/pgtable-prot.h              |  14 +-
+ arch/arm64/include/asm/processor.h                 |   7 +
+ arch/arm64/include/asm/sysreg.h                    |  20 +
+ arch/arm64/include/asm/uaccess.h                   |  40 ++
+ arch/arm64/include/uapi/asm/hwcap.h                |   1 +
+ arch/arm64/include/uapi/asm/ptrace.h               |   8 +
+ arch/arm64/include/uapi/asm/sigcontext.h           |   9 +
+ arch/arm64/kernel/cpufeature.c                     |  19 +
+ arch/arm64/kernel/cpuinfo.c                        |   1 +
+ arch/arm64/kernel/entry-common.c                   |  23 +
+ arch/arm64/kernel/idreg-override.c                 |   2 +
+ arch/arm64/kernel/process.c                        |  81 +++
+ arch/arm64/kernel/ptrace.c                         |  59 ++
+ arch/arm64/kernel/signal.c                         | 236 ++++++-
+ arch/arm64/kernel/traps.c                          |  11 +
+ arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h         |  17 +
+ arch/arm64/kvm/sys_regs.c                          |  22 +
+ arch/arm64/mm/Makefile                             |   1 +
+ arch/arm64/mm/fault.c                              |  79 ++-
+ arch/arm64/mm/gcs.c                                | 259 +++++++
+ arch/arm64/mm/mmap.c                               |  13 +-
+ arch/arm64/tools/cpucaps                           |   1 +
+ arch/arm64/tools/sysreg                            |  55 ++
+ arch/x86/include/uapi/asm/mman.h                   |   3 -
+ fs/proc/task_mmu.c                                 |   3 +
+ include/linux/mm.h                                 |  16 +-
+ include/uapi/asm-generic/mman.h                    |   4 +
+ include/uapi/linux/elf.h                           |   1 +
+ include/uapi/linux/prctl.h                         |  22 +
+ kernel/sys.c                                       |  30 +
+ tools/testing/selftests/arm64/Makefile             |   2 +-
+ tools/testing/selftests/arm64/abi/hwcap.c          |  19 +
+ tools/testing/selftests/arm64/fp/assembler.h       |  15 +
+ tools/testing/selftests/arm64/fp/fpsimd-test.S     |   2 +
+ tools/testing/selftests/arm64/fp/sve-test.S        |   2 +
+ tools/testing/selftests/arm64/fp/za-test.S         |   2 +
+ tools/testing/selftests/arm64/fp/zt-test.S         |   2 +
+ tools/testing/selftests/arm64/gcs/.gitignore       |   5 +
+ tools/testing/selftests/arm64/gcs/Makefile         |  24 +
+ tools/testing/selftests/arm64/gcs/asm-offsets.h    |   0
+ tools/testing/selftests/arm64/gcs/basic-gcs.c      | 428 ++++++++++++
+ tools/testing/selftests/arm64/gcs/gcs-locking.c    | 200 ++++++
+ .../selftests/arm64/gcs/gcs-stress-thread.S        | 311 +++++++++
+ tools/testing/selftests/arm64/gcs/gcs-stress.c     | 532 +++++++++++++++
+ tools/testing/selftests/arm64/gcs/gcs-util.h       | 100 +++
+ tools/testing/selftests/arm64/gcs/libc-gcs.c       | 742 +++++++++++++++++++++
+ tools/testing/selftests/arm64/signal/.gitignore    |   1 +
+ .../testing/selftests/arm64/signal/test_signals.c  |  17 +-
+ .../testing/selftests/arm64/signal/test_signals.h  |   6 +
+ .../selftests/arm64/signal/test_signals_utils.c    |  32 +-
+ .../selftests/arm64/signal/test_signals_utils.h    |  39 ++
+ .../arm64/signal/testcases/gcs_exception_fault.c   |  59 ++
+ .../selftests/arm64/signal/testcases/gcs_frame.c   |  78 +++
+ .../arm64/signal/testcases/gcs_write_fault.c       |  67 ++
+ .../selftests/arm64/signal/testcases/testcases.c   |   7 +
+ .../selftests/arm64/signal/testcases/testcases.h   |   1 +
+ tools/testing/selftests/clone3/clone3.c            |  37 +
+ 73 files changed, 4234 insertions(+), 40 deletions(-)
+---
+base-commit: 3d0134d322380292c055454d9633738733992d61
+change-id: 20230303-arm64-gcs-e311ab0d8729
+
+Best regards,
+-- 
+Mark Brown <broonie@kernel.org>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
