@@ -4,86 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B137C61D9B
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 09:48:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFBBFC61D9D
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 09:48:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w+sc8v6hL6mRLCNSFKmdVT1/xcu/VmWh4jv0ZlkE69Y=; b=G5I9kuTZXr5HZU
-	gTbQfnP4bAWas9srgQwP6khBNFDvZgerJawDZlbtnbS+jEBwF4WjTCydNWfH7LLZSxrjZUPe56vnq
-	0D6hJrAeF02GKZBoTr/uvsGzX5O7Q9gDL4S5mJc15qQeP1ILCpBEdXywpCPtzjHNNeF/ZWiZxmZAH
-	BW0LyimEHfF40AbukD9xXQFo19sf7pi+5fLkNgJS6zL4329Lzy6ZjoApCwl9ItunXJYixxDQKinnd
-	bR+g7ZOhoWVOhlPVhMTDkSnv372urMixMJFxNvbnnIk8u1t9agJd6Nx9q31Lx11BSv8GxaqHJHY6A
-	bkq0DJxxexLKwwbpURcQ==;
+	List-Owner; bh=+wushWj9gjYk/oxDXkxXSgslk0piZW7rehrfZiCx5mc=; b=sRWECsZu1VyS9M
+	tLV4GmpzE7br22rlTF3IrMJOQ6XW0bs31ypNfNQLQQlFtxhrrNSsByZNjCPW2TJvxRro8haJF2Q23
+	duEdniSkyM5/0OTMK2y1gkj2ohfYN6Mwbw5/ow9p3dOIctNV4XSxcBr/B4tX+TaJw+q4Ox+HAiD3Q
+	wd1jDyOuBJAboXpcMnqvxweOc8kdPCeMw9eTy1NekeFd0eQqe88c0/OebFnskJukfb2rWD9oZbv0/
+	gonos36qdRVLdUsHmvHyoWKSY0WGv2oDxkL/nlMfZUO7lpVAEm/lMLDkdGVMeoLQt/TkgE6V+StXw
+	To1yABPDTnTh8cBaOLrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5jqQ-001Kh7-1K;
-	Wed, 22 Nov 2023 09:48:30 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1r5jqS-001Kji-2H;
+	Wed, 22 Nov 2023 09:48:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5jpT-001JeG-0y;
-	Wed, 22 Nov 2023 09:47:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 1579FCE1EC1;
-	Wed, 22 Nov 2023 09:47:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBF92C433C8;
-	Wed, 22 Nov 2023 09:47:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1700646447;
-	bh=sEl9MC/DNin35BZFtSi9ZbFCRBERfcoa8BWyWFkgIWs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=fUwhc6da4HCUQ1JOyKirZiHK2/ANZrrzC4GfdOdjuxw1++Bvu/NPAks/8twja0DQR
-	 zws3cwSCHEfo0kOz55Xzp1swY+xP4eN3m+Ns6NbaN4/z+fOyFV+SoPWdjiHhEkrwpp
-	 azekmZi61JlG9VeBGnD62iVW7AgIJQjpTighx6gj8h/hTue2+sajCxlYF4qCbyElfq
-	 OaucMa/GBhKQxAm0BuhuivNyfu/CA0/OnXwPIF2B4Vd376Khc2TmSbIiBAM4MKgguf
-	 Zf8kR1LYqAO2J8F3+rK2G4OBWeBr+NMzRJmGzVXLgdGjkR3rGqfnRwiaDGbsJLUQBk
-	 GfGj5EqPEaYsg==
-From: Mark Brown <broonie@kernel.org>
-Date: Wed, 22 Nov 2023 09:42:44 +0000
-Subject: [PATCH v7 34/39] kselftest/arm64: Add a GCS test program built
- with the system libc
+	id 1r5jpt-001K98-0z
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 22 Nov 2023 09:47:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=NnfP4RJbON+lj35IXs9J/yXXOpNJWed6Pm5g2c+cjNg=; b=lh4VQBHomebFsakjTlNeG+F31A
+	BpeKk+UKfLkwbiqyVy+LHlUoLf8vsEF79jGxmHKLix7mBcr9cA+LX3UnrxUedAwbEJdSRyY0tm7zv
+	G1JRGzZg0ppppvWzWkGFS0wWpcV5MRlOfTwTmtGoMJhqwu49CC66qTM6bx5M9rdkKDflm1ZzLz9z4
+	oVgGRtx9Vi3fn6TD6UanMTiJ4Ab5S1lsjw0uUDPF91kb9SFqvKwHGUWluVPS0t4MnfiYTCHGluAd9
+	k9cT/QVWgynj8Apwc6TxRfR6XwOHBijPzSFSbgt5pgs/mhDuZPoaoVqtcmPhM2MZms2PhgWGbFzHS
+	CWuc7GPw==;
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1r5jpn-00CGYP-1W
+	for linux-riscv@lists.infradead.org;
+	Wed, 22 Nov 2023 09:47:55 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1ce95f96edcso31466325ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 22 Nov 2023 01:47:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cloudflare.com; s=google09082023; t=1700646466; x=1701251266; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NnfP4RJbON+lj35IXs9J/yXXOpNJWed6Pm5g2c+cjNg=;
+        b=A/PjS3WFiRildghE0pTHm+e3pWcxawCyDcLyzEzWr5ABQSIO3qQIlJuA8Ey1dbNOYe
+         0mwFCemjiAdO6cgXFvQzWrtOKK4JUbH2oEi89rNDWqtybHi1DKGJ3ARRfk3v4/DTrEok
+         MWKn1iizYGaqdj3lzm07pSo9uH51HYIZuNARr/uAjsZcs5FWIbp4TXsATLD/aGDgTtGo
+         I+rS3bos+eb8zuIoP3VxU3ZIsBL83IZuAhd6lB21tlHkG9eqBb0JwlyanBny9kY3D5wZ
+         q4kR2cOn0X7AvwQlhh2B7D16SFwG+MQa74OLHmmCJtIWqrzoGF33W77Q1SzEQ2tQY4D1
+         h2Kg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1700646466; x=1701251266;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=NnfP4RJbON+lj35IXs9J/yXXOpNJWed6Pm5g2c+cjNg=;
+        b=dWyr4wiFZS5OGAeIfbB74tFQIcUSTkKMuAPoooHzMZmokjK6ygTzcJoq3yBHlaPMHU
+         Bq4u+ITnD+m9BtWcRzv4Hw+bJ2hfA9baJPLJdKVTcPiYZJ/M+s32TZAYjTI0IvyUFo6q
+         6yk7HXlGKDewHQgJrsOCGajxJwaKjwLr0MeBOV+dl0DKMFLfqisNyvGd8MO82f+cS2OD
+         GTc4G3YfDJ4yXqnzD1FaLAF/zlTYFaqhUw5d1YwctmqmCaRlPpJWbmEo0g6iWeg/c74m
+         TMVwVr02G6jpmoMJpk+mNtDeACHD7Nbcovb1KU8qNZyz6p7/WQLAPzEztPDP5sGxCakD
+         5E6g==
+X-Gm-Message-State: AOJu0YxmG6yTJ3xXfzkrdSd1DHI/UQn4YyMIB+O9djoXhzBFKupOC2E/
+	mB1sp1oHD3/LscuA7eXkq5OyDJLO4iIRjFYaTn97uA==
+X-Google-Smtp-Source: AGHT+IEoe5dhUWpYOgp49hInJ/tXkDzht17Dpr4KVAZ7DyJBSpmejqoRh7l88C3hHutZlPs8wlq5Gnw1rhenR1f8+40=
+X-Received: by 2002:a17:90b:1d04:b0:27d:5946:5e2c with SMTP id
+ on4-20020a17090b1d0400b0027d59465e2cmr1934810pjb.12.1700646466036; Wed, 22
+ Nov 2023 01:47:46 -0800 (PST)
 MIME-Version: 1.0
-Message-Id: <20231122-arm64-gcs-v7-34-201c483bd775@kernel.org>
-References: <20231122-arm64-gcs-v7-0-201c483bd775@kernel.org>
-In-Reply-To: <20231122-arm64-gcs-v7-0-201c483bd775@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
- Andrew Morton <akpm@linux-foundation.org>, Marc Zyngier <maz@kernel.org>, 
- Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
- Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, 
- Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>, 
- "Rick P. Edgecombe" <rick.p.edgecombe@intel.com>, 
- Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>, 
- Szabolcs Nagy <Szabolcs.Nagy@arm.com>
-Cc: "H.J. Lu" <hjl.tools@gmail.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Florian Weimer <fweimer@redhat.com>, Christian Brauner <brauner@kernel.org>, 
- Thiago Jung Bauermann <thiago.bauermann@linaro.org>, 
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
- kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org, 
- linux-arch@vger.kernel.org, linux-mm@kvack.org, 
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.13-dev-0438c
-X-Developer-Signature: v=1; a=openpgp-sha256; l=21534; i=broonie@kernel.org;
- h=from:subject:message-id; bh=sEl9MC/DNin35BZFtSi9ZbFCRBERfcoa8BWyWFkgIWs=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBlXc0QU2t12cNjneFFrmYQPVNXh0mD+p4w3pRe5
- sa6Q9N29buJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZV3NEAAKCRAk1otyXVSH
- 0FR1B/9dCNVB8gGgvRug+3mlZdIZTvcfwrzGaPPt/CkX/qYvH4UWG3/jz+yNQkgi38N4lNoBqxC
- CTvEmVhbj2r8hZY7pWEg3TvWDH88a4ppv8L4muH07peqmUxeeaxE6WtNDv07+1j6UaOtNGkbGet
- F4Bdh2Xr/vTMfohH/OLbEWCHgmgPRyWVvvry2CqVmnRZhHHbFHD2TWey93+K4I1umx/xXwg9wU/
- Gssvk355I2czO73nbnCYPi3BxFbVYih4w/ItEed0/WPHV57XCJ29i/X1FuURaw5F6iMP5pXSpHH
- yV3nhxLQMIgnq1VPC0zDQrksrApM9DmcMbHX403nXGON2CTG
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+References: <CALrw=nHpRQQaQTP_jZfREgrQEMpS8jBF8JQCv4ygqXycE-StaA@mail.gmail.com>
+ <ZVwMzXxWkgonIAfc@MiWiFi-R3L-srv> <CALrw=nG8xsYw7XKyL_VMHtKiaBcQCKvC8UVp-C9-BdeN4A1Daw@mail.gmail.com>
+ <CALrw=nH-vcROja2W23rUKEEZMZhxsQiNB4P_ZZQ-XhPHAJGxrg@mail.gmail.com> <ZV3LKVOokpx2WvKp@MiWiFi-R3L-srv>
+In-Reply-To: <ZV3LKVOokpx2WvKp@MiWiFi-R3L-srv>
+From: Ignat Korchagin <ignat@cloudflare.com>
+Date: Wed, 22 Nov 2023 09:47:34 +0000
+Message-ID: <CALrw=nGadgbwuNAFacatz-agpGn9NvtgaCUXu73MzAzZq07k-g@mail.gmail.com>
+Subject: Re: Potential config regression after 89cde455 ("kexec: consolidate
+ kexec and crash options into kernel/Kconfig.kexec")
+To: Baoquan He <bhe@redhat.com>
+Cc: eric_devolder@yahoo.com, linux@armlinux.org.uk, catalin.marinas@arm.com, 
+	will@kernel.org, chenhuacai@kernel.org, geert@linux-m68k.org, 
+	tsbogend@alpha.franken.de, 
+	James Bottomley <James.Bottomley@hansenpartnership.com>, deller@gmx.de, 
+	ysato@users.sourceforge.jp, dalias@libc.org, glaubitz@physik.fu-berlin.de, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	dave.hansen@linux.intel.com, x86@kernel.org, 
+	linux-kernel <linux-kernel@vger.kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-ia64@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-sh@vger.kernel.org, kernel@xen0n.name, mpe@ellerman.id.au, 
+	npiggin@gmail.com, christophe.leroy@csgroup.eu, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, hca@linux.ibm.com, 
+	gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com, 
+	svens@linux.ibm.com, hpa@zytor.com, keescook@chromium.org, paulmck@kernel.org, 
+	Peter Zijlstra <peterz@infradead.org>, frederic@kernel.org, 
+	Andrew Morton <akpm@linux-foundation.org>, Ard Biesheuvel <ardb@kernel.org>, samitolvanen@google.com, 
+	juerg.haefliger@canonical.com, arnd@arndb.de, rmk+kernel@armlinux.org.uk, 
+	linus.walleij@linaro.org, sebastian.reichel@collabora.com, rppt@kernel.org, 
+	kirill.shutemov@linux.intel.com, anshuman.khandual@arm.com, ziy@nvidia.com, 
+	masahiroy@kernel.org, ndesaulniers@google.com, mhiramat@kernel.org, 
+	ojeda@kernel.org, thunder.leizhen@huawei.com, xin3.li@intel.com, 
+	tj@kernel.org, Greg KH <gregkh@linuxfoundation.org>, tsi@tuyoix.net, 
+	hbathini@linux.ibm.com, sourabhjain@linux.ibm.com, boris.ostrovsky@oracle.com, 
+	konrad.wilk@oracle.com, kernel-team <kernel-team@cloudflare.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231122_014731_827439_0DD1D998 
-X-CRM114-Status: GOOD (  31.23  )
+X-CRM114-CacheID: sfid-20231122_094751_738483_4C2E1811 
+X-CRM114-Status: GOOD (  53.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,821 +126,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There are things like threads which nolibc struggles with which we want
-to add coverage for, and the ABI allows us to test most of these even if
-libc itself does not understand GCS so add a test application built
-using the system libc.
-
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- tools/testing/selftests/arm64/gcs/.gitignore |   1 +
- tools/testing/selftests/arm64/gcs/Makefile   |   4 +-
- tools/testing/selftests/arm64/gcs/gcs-util.h |  10 +
- tools/testing/selftests/arm64/gcs/libc-gcs.c | 742 +++++++++++++++++++++++++++
- 4 files changed, 756 insertions(+), 1 deletion(-)
-
-diff --git a/tools/testing/selftests/arm64/gcs/.gitignore b/tools/testing/selftests/arm64/gcs/.gitignore
-index 0e5e695ecba5..5810c4a163d4 100644
---- a/tools/testing/selftests/arm64/gcs/.gitignore
-+++ b/tools/testing/selftests/arm64/gcs/.gitignore
-@@ -1 +1,2 @@
- basic-gcs
-+libc-gcs
-diff --git a/tools/testing/selftests/arm64/gcs/Makefile b/tools/testing/selftests/arm64/gcs/Makefile
-index 61a30f483429..a8fdf21e9a47 100644
---- a/tools/testing/selftests/arm64/gcs/Makefile
-+++ b/tools/testing/selftests/arm64/gcs/Makefile
-@@ -6,7 +6,9 @@
- # nolibc.
- #
- 
--TEST_GEN_PROGS := basic-gcs
-+TEST_GEN_PROGS := basic-gcs libc-gcs
-+
-+LDLIBS+=-lpthread
- 
- include ../../lib.mk
- 
-diff --git a/tools/testing/selftests/arm64/gcs/gcs-util.h b/tools/testing/selftests/arm64/gcs/gcs-util.h
-index b37801c95604..4bafd1d7feb5 100644
---- a/tools/testing/selftests/arm64/gcs/gcs-util.h
-+++ b/tools/testing/selftests/arm64/gcs/gcs-util.h
-@@ -16,6 +16,16 @@
- #define __NR_prctl 167
- #endif
- 
-+#ifndef NT_ARM_GCS
-+#define NT_ARM_GCS 0x40e
-+
-+struct user_gcs {
-+	__u64 features_enabled;
-+	__u64 features_locked;
-+	__u64 gcspr_el0;
-+};
-+#endif
-+
- /* Shadow Stack/Guarded Control Stack interface */
- #define PR_GET_SHADOW_STACK_STATUS	71
- #define PR_SET_SHADOW_STACK_STATUS      72
-diff --git a/tools/testing/selftests/arm64/gcs/libc-gcs.c b/tools/testing/selftests/arm64/gcs/libc-gcs.c
-new file mode 100644
-index 000000000000..58141d46f861
---- /dev/null
-+++ b/tools/testing/selftests/arm64/gcs/libc-gcs.c
-@@ -0,0 +1,742 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2023 ARM Limited.
-+ */
-+
-+#define _GNU_SOURCE
-+
-+#include <pthread.h>
-+#include <stdbool.h>
-+
-+#include <sys/auxv.h>
-+#include <sys/mman.h>
-+#include <sys/prctl.h>
-+#include <sys/ptrace.h>
-+#include <sys/uio.h>
-+
-+#include <asm/hwcap.h>
-+#include <asm/mman.h>
-+
-+#include <linux/compiler.h>
-+
-+#include "kselftest_harness.h"
-+
-+#include "gcs-util.h"
-+
-+#define my_syscall2(num, arg1, arg2)                                          \
-+({                                                                            \
-+	register long _num  __asm__ ("x8") = (num);                           \
-+	register long _arg1 __asm__ ("x0") = (long)(arg1);                    \
-+	register long _arg2 __asm__ ("x1") = (long)(arg2);                    \
-+	register long _arg3 __asm__ ("x2") = 0;                               \
-+	register long _arg4 __asm__ ("x3") = 0;                               \
-+	register long _arg5 __asm__ ("x4") = 0;                               \
-+	                                                                      \
-+	__asm__  volatile (                                                   \
-+		"svc #0\n"                                                    \
-+		: "=r"(_arg1)                                                 \
-+		: "r"(_arg1), "r"(_arg2),                                     \
-+		  "r"(_arg3), "r"(_arg4),                                     \
-+		  "r"(_arg5), "r"(_num)					      \
-+		: "memory", "cc"                                              \
-+	);                                                                    \
-+	_arg1;                                                                \
-+})
-+
-+static noinline void gcs_recurse(int depth)
-+{
-+	if (depth)
-+		gcs_recurse(depth - 1);
-+
-+	/* Prevent tail call optimization so we actually recurse */
-+	asm volatile("dsb sy" : : : "memory");
-+}
-+
-+/* Smoke test that a function call and return works*/
-+TEST(can_call_function)
-+{
-+	gcs_recurse(0);
-+}
-+
-+static void *gcs_test_thread(void *arg)
-+{
-+	int ret;
-+	unsigned long mode;
-+
-+	/*
-+	 * Some libcs don't seem to fill unused arguments with 0 but
-+	 * the kernel validates this so we supply all 5 arguments.
-+	 */
-+	ret = prctl(PR_GET_SHADOW_STACK_STATUS, &mode, 0, 0, 0);
-+	if (ret != 0) {
-+		ksft_print_msg("PR_GET_SHADOW_STACK_STATUS failed: %d\n", ret);
-+		return NULL;
-+	}
-+
-+	if (!(mode & PR_SHADOW_STACK_ENABLE)) {
-+		ksft_print_msg("GCS not enabled in thread, mode is %u\n",
-+			       mode);
-+		return NULL;
-+	}
-+
-+	/* Just in case... */
-+	gcs_recurse(0);
-+
-+	/* Use a non-NULL value to indicate a pass */
-+	return &gcs_test_thread;
-+}
-+
-+/* Verify that if we start a new thread it has GCS enabled */
-+TEST(gcs_enabled_thread)
-+{
-+	pthread_t thread;
-+	void *thread_ret;
-+	int ret;
-+
-+	ret = pthread_create(&thread, NULL, gcs_test_thread, NULL);
-+	ASSERT_TRUE(ret == 0);
-+	if (ret != 0)
-+		return;
-+
-+	ret = pthread_join(thread, &thread_ret);
-+	ASSERT_TRUE(ret == 0);
-+	if (ret != 0)
-+		return;
-+
-+	ASSERT_TRUE(thread_ret != NULL);
-+}
-+
-+/* Read the GCS until we find the terminator */
-+TEST(gcs_find_terminator)
-+{
-+	unsigned long *gcs, *cur;
-+
-+	gcs = get_gcspr();
-+	cur = gcs;
-+	while (*cur)
-+		cur++;
-+
-+	ksft_print_msg("GCS in use from %p-%p\n", gcs, cur);
-+
-+	/*
-+	 * We should have at least whatever called into this test so
-+	 * the two pointer should differ.
-+	 */
-+	ASSERT_TRUE(gcs != cur);
-+}
-+
-+/*
-+ * We can access a GCS via ptrace
-+ *
-+ * This could usefully have a fixture but note that each test is
-+ * fork()ed into a new child whcih causes issues.  Might be better to
-+ * lift at least some of this out into a separate, non-harness, test
-+ * program.
-+ */
-+TEST(ptrace_read_write)
-+{
-+	pid_t child, pid;
-+	int ret, status;
-+	siginfo_t si;
-+	uint64_t val, rval, gcspr;
-+	struct user_gcs child_gcs;
-+	struct iovec iov, local_iov, remote_iov;
-+
-+	child = fork();
-+	if (child == -1) {
-+		ksft_print_msg("fork() failed: %d (%s)\n",
-+			       errno, strerror(errno));
-+		ASSERT_NE(child, -1);
-+	}
-+
-+	if (child == 0) {
-+		/*
-+		 * In child, make sure there's something on the stack and
-+		 * ask to be traced.
-+		 */
-+		gcs_recurse(0);
-+		if (ptrace(PTRACE_TRACEME, -1, NULL, NULL))
-+			ksft_exit_fail_msg("PTRACE_TRACEME", strerror(errno));
-+
-+		if (raise(SIGSTOP))
-+			ksft_exit_fail_msg("raise(SIGSTOP)", strerror(errno));
-+
-+		return;
-+	}
-+
-+	ksft_print_msg("Child: %d\n", child);
-+
-+	/* Attach to the child */
-+	while (1) {
-+		int sig;
-+
-+		pid = wait(&status);
-+		if (pid == -1) {
-+			ksft_print_msg("wait() failed: %s",
-+				       strerror(errno));
-+			goto error;
-+		}
-+
-+		/*
-+		 * This should never happen but it's hard to flag in
-+		 * the framework.
-+		 */
-+		if (pid != child)
-+			continue;
-+
-+		if (WIFEXITED(status) || WIFSIGNALED(status))
-+			ksft_exit_fail_msg("Child died unexpectedly\n");
-+
-+		if (!WIFSTOPPED(status))
-+			goto error;
-+
-+		sig = WSTOPSIG(status);
-+
-+		if (ptrace(PTRACE_GETSIGINFO, pid, NULL, &si)) {
-+			if (errno == ESRCH) {
-+				ASSERT_NE(errno, ESRCH);
-+				return;
-+			}
-+
-+			if (errno == EINVAL) {
-+				sig = 0; /* bust group-stop */
-+				goto cont;
-+			}
-+
-+			ksft_print_msg("PTRACE_GETSIGINFO: %s\n",
-+				       strerror(errno));
-+			goto error;
-+		}
-+
-+		if (sig == SIGSTOP && si.si_code == SI_TKILL &&
-+		    si.si_pid == pid)
-+			break;
-+
-+	cont:
-+		if (ptrace(PTRACE_CONT, pid, NULL, sig)) {
-+			if (errno == ESRCH) {
-+				ASSERT_NE(errno, ESRCH);
-+				return;
-+			}
-+
-+			ksft_print_msg("PTRACE_CONT: %s\n", strerror(errno));
-+			goto error;
-+		}
-+	}
-+
-+	/* Where is the child GCS? */
-+	iov.iov_base = &child_gcs;
-+	iov.iov_len = sizeof(child_gcs);
-+	ret = ptrace(PTRACE_GETREGSET, child, NT_ARM_GCS, &iov);
-+	if (ret != 0) {
-+		ksft_print_msg("Failed to read child GCS state: %s (%d)\n",
-+			       strerror(errno), errno);
-+		goto error;
-+	}
-+
-+	/* We should have inherited GCS over fork(), confirm */
-+	if (!(child_gcs.features_enabled & PR_SHADOW_STACK_ENABLE)) {
-+		ASSERT_TRUE(child_gcs.features_enabled &
-+			    PR_SHADOW_STACK_ENABLE);
-+		goto error;
-+	}
-+
-+	gcspr = child_gcs.gcspr_el0;
-+	ksft_print_msg("Child GCSPR 0x%lx, flags %x, locked %x\n",
-+		       gcspr, child_gcs.features_enabled,
-+		       child_gcs.features_locked);
-+
-+	/* Ideally we'd cross check with the child memory map */
-+
-+	errno = 0;
-+	val = ptrace(PTRACE_PEEKDATA, child, (void *)gcspr, NULL);
-+	ret = errno;
-+	if (ret != 0)
-+		ksft_print_msg("PTRACE_PEEKDATA failed: %s (%d)\n",
-+			       strerror(ret), ret);
-+	EXPECT_EQ(ret, 0);
-+
-+	/* The child should be in a function, the GCSPR shouldn't be 0 */
-+	EXPECT_NE(val, 0);
-+
-+	/* Same thing via process_vm_readv() */
-+	local_iov.iov_base = &rval;
-+	local_iov.iov_len = sizeof(rval);
-+	remote_iov.iov_base = (void *)gcspr;
-+	remote_iov.iov_len = sizeof(rval);
-+	ret = process_vm_writev(child, &local_iov, 1, &remote_iov, 1, 0);
-+	if (ret == -1)
-+		ksft_print_msg("process_vm_readv() failed: %s (%d)\n",
-+			       strerror(errno), errno);
-+	EXPECT_EQ(ret, sizeof(rval));
-+	EXPECT_EQ(val, rval);
-+
-+	/* Write data via a peek */
-+	ret = ptrace(PTRACE_POKEDATA, child, (void *)gcspr, NULL);
-+	if (ret == -1)
-+		ksft_print_msg("PTRACE_POKEDATA failed: %s (%d)\n",
-+			       strerror(errno), errno);
-+	EXPECT_EQ(ret, 0);
-+	EXPECT_EQ(0, ptrace(PTRACE_PEEKDATA, child, (void *)gcspr, NULL));
-+
-+	/* Restore what we had before, this time with process_vm_writev() */
-+	local_iov.iov_base = &rval;
-+	local_iov.iov_len = sizeof(val);
-+	remote_iov.iov_base = (void *)gcspr;
-+	remote_iov.iov_len = sizeof(rval);
-+	ret = process_vm_readv(child, &local_iov, 1, &remote_iov, 1, 0);
-+	if (ret == -1)
-+		ksft_print_msg("process_vm_writev() failed: %s (%d)\n",
-+			       strerror(errno), errno);
-+	EXPECT_EQ(ret, sizeof(rval));
-+
-+	EXPECT_EQ(val, ptrace(PTRACE_PEEKDATA, child, (void *)gcspr, NULL));
-+
-+	/* That's all, folks */
-+	kill(child, SIGKILL);
-+	return;
-+
-+error:
-+	kill(child, SIGKILL);
-+	ASSERT_FALSE(true);
-+}
-+
-+FIXTURE(map_gcs)
-+{
-+	unsigned long *stack;
-+};
-+
-+FIXTURE_VARIANT(map_gcs)
-+{
-+	size_t stack_size;
-+	unsigned long flags;
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s2k_cap_marker)
-+{
-+	.stack_size = 2 * 1024,
-+	.flags = SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s2k_cap)
-+{
-+	.stack_size = 2 * 1024,
-+	.flags = SHADOW_STACK_SET_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s2k_marker)
-+{
-+	.stack_size = 2 * 1024,
-+	.flags = SHADOW_STACK_SET_MARKER,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s2k)
-+{
-+	.stack_size = 2 * 1024,
-+	.flags = 0,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s4k_cap_marker)
-+{
-+	.stack_size = 4 * 1024,
-+	.flags = SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s4k_cap)
-+{
-+	.stack_size = 4 * 1024,
-+	.flags = SHADOW_STACK_SET_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s3k_marker)
-+{
-+	.stack_size = 4 * 1024,
-+	.flags = SHADOW_STACK_SET_MARKER,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s4k)
-+{
-+	.stack_size = 4 * 1024,
-+	.flags = 0,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s16k_cap_marker)
-+{
-+	.stack_size = 16 * 1024,
-+	.flags = SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s16k_cap)
-+{
-+	.stack_size = 16 * 1024,
-+	.flags = SHADOW_STACK_SET_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s16k_marker)
-+{
-+	.stack_size = 16 * 1024,
-+	.flags = SHADOW_STACK_SET_MARKER,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s16k)
-+{
-+	.stack_size = 16 * 1024,
-+	.flags = 0,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s64k_cap_marker)
-+{
-+	.stack_size = 64 * 1024,
-+	.flags = SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s64k_cap)
-+{
-+	.stack_size = 64 * 1024,
-+	.flags = SHADOW_STACK_SET_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s64k_marker)
-+{
-+	.stack_size = 64 * 1024,
-+	.flags = SHADOW_STACK_SET_MARKER,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s64k)
-+{
-+	.stack_size = 64 * 1024,
-+	.flags = 0,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s128k_cap_marker)
-+{
-+	.stack_size = 128 * 1024,
-+	.flags = SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s128k_cap)
-+{
-+	.stack_size = 128 * 1024,
-+	.flags = SHADOW_STACK_SET_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s128k_marker)
-+{
-+	.stack_size = 128 * 1024,
-+	.flags = SHADOW_STACK_SET_MARKER,
-+};
-+
-+FIXTURE_VARIANT_ADD(map_gcs, s128k)
-+{
-+	.stack_size = 128 * 1024,
-+	.flags = 0,
-+};
-+
-+FIXTURE_SETUP(map_gcs)
-+{
-+	self->stack = (void *)syscall(__NR_map_shadow_stack, 0,
-+				      variant->stack_size, 
-+				      variant->flags);
-+	ASSERT_FALSE(self->stack == MAP_FAILED);
-+	ksft_print_msg("Allocated stack from %p-%p\n", self->stack,
-+		       (unsigned long)self->stack + variant->stack_size);
-+}
-+
-+FIXTURE_TEARDOWN(map_gcs)
-+{
-+	int ret;
-+
-+	if (self->stack != MAP_FAILED) {
-+		ret = munmap(self->stack, variant->stack_size);
-+		ASSERT_EQ(ret, 0);
-+	}
-+}
-+
-+/* The stack has a cap token */
-+TEST_F(map_gcs, stack_capped)
-+{
-+	unsigned long *stack = self->stack;
-+	size_t cap_index;
-+
-+	cap_index = (variant->stack_size / sizeof(unsigned long));
-+
-+	switch (variant->flags & (SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN)) {
-+	case SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN:
-+		cap_index -= 2;
-+		break;
-+	case SHADOW_STACK_SET_TOKEN:
-+		cap_index -= 1;
-+		break;
-+	case SHADOW_STACK_SET_MARKER:
-+	case 0:
-+		/* No cap, no test */
-+		return;
-+	}
-+
-+	ASSERT_EQ(stack[cap_index], GCS_CAP(&stack[cap_index]));
-+}
-+
-+/* The top of the stack is 0 */
-+TEST_F(map_gcs, stack_terminated)
-+{
-+	unsigned long *stack = self->stack;
-+	size_t term_index;
-+
-+	if (!(variant->flags & SHADOW_STACK_SET_MARKER))
-+		return;
-+
-+	term_index = (variant->stack_size / sizeof(unsigned long)) - 1;
-+
-+	ASSERT_EQ(stack[term_index], 0);
-+}
-+
-+/* Writes should fault */
-+TEST_F_SIGNAL(map_gcs, not_writeable, SIGSEGV)
-+{
-+	self->stack[0] = 0;
-+}
-+
-+/* Put it all together, we can safely switch to and from the stack */
-+TEST_F(map_gcs, stack_switch)
-+{
-+	size_t cap_index;
-+	cap_index = (variant->stack_size / sizeof(unsigned long));
-+	unsigned long *orig_gcspr_el0, *pivot_gcspr_el0;
-+
-+	/* Skip over the stack terminator and point at the cap */
-+	switch (variant->flags & (SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN)) {
-+	case SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN:
-+		cap_index -= 2;
-+		break;
-+	case SHADOW_STACK_SET_TOKEN:
-+		cap_index -= 1;
-+		break;
-+	case SHADOW_STACK_SET_MARKER:
-+	case 0:
-+		/* No cap, no test */
-+		return;
-+	}
-+	pivot_gcspr_el0 = &self->stack[cap_index];
-+
-+	/* Pivot to the new GCS */
-+	ksft_print_msg("Pivoting to %p from %p, target has value 0x%lx\n",
-+		       pivot_gcspr_el0, get_gcspr(),
-+		       *pivot_gcspr_el0);
-+	gcsss1(pivot_gcspr_el0);
-+	orig_gcspr_el0 = gcsss2();
-+	ksft_print_msg("Pivoted to %p from %p, target has value 0x%lx\n",
-+		       pivot_gcspr_el0, get_gcspr(),
-+		       *pivot_gcspr_el0);
-+
-+	ksft_print_msg("Pivoted, GCSPR_EL0 now %p\n", get_gcspr());
-+
-+	/* New GCS must be in the new buffer */
-+	ASSERT_TRUE((unsigned long)get_gcspr() > (unsigned long)self->stack);
-+	ASSERT_TRUE((unsigned long)get_gcspr() <=
-+		    (unsigned long)self->stack + variant->stack_size);
-+
-+	/* We should be able to use all but 2 slots of the new stack */
-+	ksft_print_msg("Recursing %d levels\n", cap_index - 1);
-+	gcs_recurse(cap_index - 1);
-+
-+	/* Pivot back to the original GCS */
-+	gcsss1(orig_gcspr_el0);
-+	pivot_gcspr_el0 = gcsss2();
-+
-+	gcs_recurse(0);
-+	ksft_print_msg("Pivoted back to GCSPR_EL0 0x%lx\n", get_gcspr());
-+}
-+
-+/* We fault if we try to go beyond the end of the stack */
-+TEST_F_SIGNAL(map_gcs, stack_overflow, SIGSEGV)
-+{
-+	size_t cap_index;
-+	cap_index = (variant->stack_size / sizeof(unsigned long));
-+	unsigned long *orig_gcspr_el0, *pivot_gcspr_el0;
-+
-+	/* Skip over the stack terminator and point at the cap */
-+	switch (variant->flags & (SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN)) {
-+	case SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN:
-+		cap_index -= 2;
-+		break;
-+	case SHADOW_STACK_SET_TOKEN:
-+		cap_index -= 1;
-+		break;
-+	case SHADOW_STACK_SET_MARKER:
-+	case 0:
-+		/* No cap, no test but we need to SEGV to avoid a false fail */
-+		orig_gcspr_el0 = get_gcspr();
-+		*orig_gcspr_el0 = 0;
-+		return;
-+	}
-+	pivot_gcspr_el0 = &self->stack[cap_index];
-+
-+	/* Pivot to the new GCS */
-+	ksft_print_msg("Pivoting to %p from %p, target has value 0x%lx\n",
-+		       pivot_gcspr_el0, get_gcspr(),
-+		       *pivot_gcspr_el0);
-+	gcsss1(pivot_gcspr_el0);
-+	orig_gcspr_el0 = gcsss2();
-+	ksft_print_msg("Pivoted to %p from %p, target has value 0x%lx\n",
-+		       pivot_gcspr_el0, get_gcspr(),
-+		       *pivot_gcspr_el0);
-+
-+	ksft_print_msg("Pivoted, GCSPR_EL0 now %p\n", get_gcspr());
-+
-+	/* New GCS must be in the new buffer */
-+	ASSERT_TRUE((unsigned long)get_gcspr() > (unsigned long)self->stack);
-+	ASSERT_TRUE((unsigned long)get_gcspr() <=
-+		    (unsigned long)self->stack + variant->stack_size);
-+
-+	/* Now try to recurse, we should fault doing this. */
-+	ksft_print_msg("Recursing %d levels...\n", cap_index + 1);
-+	gcs_recurse(cap_index + 1);
-+	ksft_print_msg("...done\n");
-+
-+	/* Clean up properly to try to guard against spurious passes. */
-+	gcsss1(orig_gcspr_el0);
-+	pivot_gcspr_el0 = gcsss2();
-+	ksft_print_msg("Pivoted back to GCSPR_EL0 0x%lx\n", get_gcspr());
-+}
-+
-+FIXTURE(map_invalid_gcs)
-+{
-+};
-+
-+FIXTURE_VARIANT(map_invalid_gcs)
-+{
-+	size_t stack_size;
-+};
-+
-+FIXTURE_SETUP(map_invalid_gcs)
-+{
-+}
-+
-+FIXTURE_TEARDOWN(map_invalid_gcs)
-+{
-+}
-+
-+/* GCS must be larger than 16 bytes */
-+FIXTURE_VARIANT_ADD(map_invalid_gcs, too_small)
-+{
-+	.stack_size = 8,
-+};
-+
-+/* GCS size must be 16 byte aligned */
-+FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_1)  { .stack_size = 1024 + 1  };
-+FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_2)  { .stack_size = 1024 + 2  };
-+FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_3)  { .stack_size = 1024 + 3  };
-+FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_4)  { .stack_size = 1024 + 4  };
-+FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_5)  { .stack_size = 1024 + 5  };
-+FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_6)  { .stack_size = 1024 + 6  };
-+FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_7)  { .stack_size = 1024 + 7  };
-+
-+TEST_F(map_invalid_gcs, do_map)
-+{
-+	void *stack;
-+
-+	stack = (void *)syscall(__NR_map_shadow_stack, 0,
-+				variant->stack_size, 0);
-+	ASSERT_TRUE(stack == MAP_FAILED);
-+	if (stack != MAP_FAILED)
-+		munmap(stack, variant->stack_size);
-+}
-+
-+FIXTURE(invalid_mprotect)
-+{
-+	unsigned long *stack;
-+	size_t stack_size;
-+};
-+
-+FIXTURE_VARIANT(invalid_mprotect)
-+{
-+	unsigned long flags;
-+};
-+
-+FIXTURE_SETUP(invalid_mprotect)
-+{
-+	self->stack_size = sysconf(_SC_PAGE_SIZE);
-+	self->stack = (void *)syscall(__NR_map_shadow_stack, 0,
-+				      self->stack_size, 0);
-+	ASSERT_FALSE(self->stack == MAP_FAILED);
-+	ksft_print_msg("Allocated stack from %p-%p\n", self->stack,
-+		       (unsigned long)self->stack + self->stack_size);
-+}
-+
-+FIXTURE_TEARDOWN(invalid_mprotect)
-+{
-+	int ret;
-+
-+	if (self->stack != MAP_FAILED) {
-+		ret = munmap(self->stack, self->stack_size);
-+		ASSERT_EQ(ret, 0);
-+	}
-+}
-+
-+FIXTURE_VARIANT_ADD(invalid_mprotect, exec)
-+{
-+	.flags = PROT_EXEC,
-+};
-+
-+FIXTURE_VARIANT_ADD(invalid_mprotect, bti)
-+{
-+	.flags = PROT_BTI,
-+};
-+
-+FIXTURE_VARIANT_ADD(invalid_mprotect, exec_bti)
-+{
-+	.flags = PROT_EXEC | PROT_BTI,
-+};
-+
-+TEST_F(invalid_mprotect, do_map)
-+{
-+	int ret;
-+
-+	ret = mprotect(self->stack, self->stack_size, variant->flags);
-+	ASSERT_EQ(ret, -1);
-+}
-+
-+TEST_F(invalid_mprotect, do_map_read)
-+{
-+	int ret;
-+
-+	ret = mprotect(self->stack, self->stack_size,
-+		       variant->flags | PROT_READ);
-+	ASSERT_EQ(ret, -1);
-+}
-+
-+int main(int argc, char **argv)
-+{
-+	unsigned long gcs_mode;
-+	int ret;
-+
-+	if (!(getauxval(AT_HWCAP2) & HWCAP2_GCS))
-+		ksft_exit_skip("SKIP GCS not supported\n");
-+
-+	/* 
-+	 * Force shadow stacks on, our tests *should* be fine with or
-+	 * without libc support and with or without this having ended
-+	 * up tagged for GCS and enabled by the dynamic linker.  We
-+	 * can't use the libc prctl() function since we can't return
-+	 * from enabling the stack.  Also lock GCS if not already
-+	 * locked so we can test behaviour when it's locked.
-+	 */
-+	ret = my_syscall2(__NR_prctl, PR_GET_SHADOW_STACK_STATUS, &gcs_mode);
-+	if (ret) {
-+		ksft_print_msg("Failed to read GCS state: %d\n", ret);
-+		return EXIT_FAILURE;
-+	}
-+	
-+	if (!(gcs_mode & PR_SHADOW_STACK_ENABLE)) {
-+		gcs_mode = PR_SHADOW_STACK_ENABLE;
-+		ret = my_syscall2(__NR_prctl, PR_SET_SHADOW_STACK_STATUS,
-+				  gcs_mode);
-+		if (ret) {
-+			ksft_print_msg("Failed to configure GCS: %d\n", ret);
-+			return EXIT_FAILURE;
-+		}
-+	}
-+
-+	/* Avoid returning in case libc doesn't understand GCS */
-+	exit(test_harness_run(argc, argv));
-+}
-
--- 
-2.39.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBOb3YgMjIsIDIwMjMgYXQgOTozNOKAr0FNIEJhb3F1YW4gSGUgPGJoZUByZWRoYXQu
+Y29tPiB3cm90ZToKPgo+IE9uIDExLzIxLzIzIGF0IDA5OjQzYW0sIElnbmF0IEtvcmNoYWdpbiB3
+cm90ZToKPiA+IE9uIFR1ZSwgTm92IDIxLCAyMDIzIGF0IDc6NTPigK9BTSBJZ25hdCBLb3JjaGFn
+aW4gPGlnbmF0QGNsb3VkZmxhcmUuY29tPiB3cm90ZToKPiA+ID4KPiA+ID4gT24gVHVlLCBOb3Yg
+MjEsIDIwMjMgYXQgMTo1MOKAr0FNIEJhb3F1YW4gSGUgPGJoZUByZWRoYXQuY29tPiB3cm90ZToK
+PiA+ID4gPgo+ID4gPiA+IEVyaWMgRGVWb2xkZXIncyBPcmFjbGUgbWFpbCBhZGRyZXNzIGlzIG5v
+dCBhdmFpbGFibGUgYW55bW9yZSwgYWRkIGhpcwo+ID4gPiA+IGN1cnJlbnQgbWFpbCBhZGRyZXNz
+IGhlIHRvbGQgbWUuCj4gPiA+Cj4gPiA+IFRoYW5rIHlvdSEKPiA+ID4KPiA+ID4gPiBPbiAxMS8y
+MC8yMyBhdCAxMDo1MnBtLCBJZ25hdCBLb3JjaGFnaW4gd3JvdGU6Cj4gPiA+ID4gPiBHb29kIGRh
+eSEKPiA+ID4gPiA+Cj4gPiA+ID4gPiBXZSBoYXZlIHJlY2VudGx5IHN0YXJ0ZWQgdG8gZXZhbHVh
+dGUgTGludXggNi42IGFuZCBub3RpY2VkIHRoYXQgd2UKPiA+ID4gPiA+IGNhbm5vdCBkaXNhYmxl
+IENPTkZJR19LRVhFQyBhbnltb3JlLCBidXQga2VlcCBDT05GSUdfQ1JBU0hfRFVNUAo+ID4gPiA+
+ID4gZW5hYmxlZC4gSXQgc2VlbXMgdG8gYmUgcmVsYXRlZCB0byBjb21taXQgODljZGU0NTUgKCJr
+ZXhlYzoKPiA+ID4gPiA+IGNvbnNvbGlkYXRlIGtleGVjIGFuZCBjcmFzaCBvcHRpb25zIGludG8g
+a2VybmVsL0tjb25maWcua2V4ZWMiKSwgd2hlcmUKPiA+ID4gPiA+IGEgQ09ORklHX0tFWEVDIGRl
+cGVuZGVuY3kgd2FzIGFkZGVkIHRvIENPTkZJR19DUkFTSF9EVU1QLgo+ID4gPiA+ID4KPiA+ID4g
+PiA+IEluIG91ciBjdXJyZW50IGtlcm5lbCAoTGludXggNi4xKSB3ZSBvbmx5IGVuYWJsZSBDT05G
+SUdfS0VYRUNfRklMRQo+ID4gPiA+ID4gd2l0aCBlbmZvcmNlZCBzaWduYXR1cmUgY2hlY2sgdG8g
+c3VwcG9ydCB0aGUga2VybmVsIGNyYXNoIGR1bXBpbmcKPiA+ID4gPiA+IGZ1bmN0aW9uYWxpdHkg
+YW5kIHdvdWxkIGxpa2UgdG8ga2VlcCBDT05GSUdfS0VYRUMgZGlzYWJsZWQgZm9yCj4gPiA+ID4g
+PiBzZWN1cml0eSByZWFzb25zIFsxXS4KPiA+ID4gPiA+Cj4gPiA+ID4gPiBJIHdhcyByZWFkaW5n
+IHRoZSBsb25nIGNvbW1pdCBtZXNzYWdlLCBidXQgdGhlIHJlYXNvbiBmb3IgYWRkaW5nCj4gPiA+
+ID4gPiBDT05GSUdfS0VYRUMgYXMgYSBkZXBlbmRlbmN5IGZvciBDT05GSUdfQ1JBU0hfRFVNUCBl
+dmFkZWQgbWUuIEFuZCBJCj4gPiA+ID4gPiBiZWxpZXZlIGZyb20gdGhlIGltcGxlbWVudGF0aW9u
+IHBlcnNwZWN0aXZlIENPTkZJR19LRVhFQ19GSUxFIHNob3VsZAo+ID4gPiA+ID4gc3VmZmljZSBo
+ZXJlIChhcyB3ZSBzdWNjZXNzZnVsbHkgdXNlZCBpdCBmb3IgY3Jhc2hkdW1wcyBvbiBMaW51eCA2
+LjEpLgo+ID4gPiA+ID4KPiA+ID4gPiA+IElzIHRoZXJlIGEgcmVhc29uIGZvciBhZGRpbmcgdGhp
+cyBkZXBlbmRlbmN5IG9yIGlzIGl0IGp1c3QgYW4KPiA+ID4gPiA+IG92ZXJzaWdodD8gV291bGQg
+c29tZSBzb2x1dGlvbiBvZiByZXF1aXJpbmcgZWl0aGVyIENPTkZJR19LRVhFQyBvcgo+ID4gPiA+
+ID4gQ09ORklHX0tFWEVDX0ZJTEUgd29yayBoZXJlPwo+ID4gPiA+Cj4gPiA+ID4gSSBzZWFyY2hl
+ZCB0aGUgcGF0Y2ggaGlzdG9yeSwgZm91bmQgRXJpYyBkaWRuJ3QgYWRkIHRoZSBkZXBlbmRlbmN5
+IG9uCj4gPiA+ID4gQ09ORklHX0tFWEVDIGF0IHRoZSBiZWdpbm5pbmcuIExhdGVyIGEgbGludXgt
+bmV4dCBidWlsZGluZyBmYWlsdXJlIHdpdGgKPiA+ID4gPiByYW5kY29uZmlnIHdhcyByZXBvcnRl
+ZCwgaW4gdGhlcmUgQ09ORklHX0NSQVNIX0RVTVAgZW5hYmxlZCwgd2hpbGUKPiA+ID4gPiBDT05G
+SUdfS0VYRUMgaXMgZGlzYWJsZWQuIEZpbmFsbHkgRXJpYyBhZGRlZCB0aGUgS0VYRUMgZGVwZW5k
+ZW5jeSBmb3IKPiA+ID4gPiBDUkFTSF9EVU1QLiBQbGVhc2Ugc2VlIGJlbG93IGxpbmsgZm9yIG1v
+cmUgZGV0YWlsczoKPiA+ID4gPgo+ID4gPiA+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8z
+ZThlZWNkMS1hMjc3LTJjZmItNjkwZS01ZGUyZWI3Yjk4OGVAb3JhY2xlLmNvbS9ULyN1Cj4gPiA+
+Cj4gPiA+IFRoYW5rIHlvdSBmb3IgZGlnZ2luZyB0aGlzIHVwLiBIb3dldmVyIEknbSBzdGlsbCBj
+b25mdXNlZCwgYmVjYXVzZQo+ID4gPiB0aGlzIGlzIGV4YWN0bHkgaG93IHdlIGNvbmZpZ3VyZSBM
+aW51eCA2LjEgKGFsdGhvdWdoIHdlIGRvIGhhdmUKPiA+ID4gQ09ORklHX0tFWEVDX0ZJTEUgZW5h
+YmxlZCkgYW5kIHdlIGRvbid0IGhhdmUgYW55IHByb2JsZW1zLiBJIGJlbGlldmUKPiA+ID4gd2Ug
+ZGlkIG5vdCBpbnZlc3RpZ2F0ZSB0aGlzIGlzc3VlIHByb3Blcmx5Lgo+ID4KPiA+IEkgZGlkIHNv
+bWUgcHJlbGltaW5hcnkgaW52ZXN0aWdhdGlvbiBmb3IgdGhpcy4gSWYgSSBwYXRjaCBvdXQgdGhl
+Cj4gPiBkZXBlbmRlbmN5IG9uIENPTkZJR19LRVhFQyB0aGUga2VybmVsIGJ1aWxkcyBqdXN0IGZp
+bmUgZm9yIHg4Ngo+ID4gKHdpdGhvdXQgQ09ORklHX0NSQVNIX0hPVFBMVUcgLSB3aGljaCBpcyBw
+cm9iYWJseSBhbm90aGVyIGlzc3VlKSAtIHNvCj4gPiB0aGlzIHdhcyB0aGUgcHJldmlvdXMgYmVo
+YXZpb3VyLiBJIGNhbiBzZWUgdGhhdCB0aGUgcmVwb3J0ZWQgZXJyb3IgaXMKPiA+IGZvciBhcm0g
+YXJjaGl0ZWN0dXJlIGFuZCB3YXMgYWJsZSB0byByZXByb2R1Y2UgaXQgd2l0aCBhIHNpbXBsZSBj
+cm9zcwo+ID4gY29tcGlsZXIgaW4gRGViaWFuLiBIb3dldmVyLCBJIHRoaW5rIGl0IGlzIHN0aWxs
+IHNvbWVob3cgcmVsYXRlZCB0bwo+ID4gdGhpcyBwYXRjaHNldCBhcyB0aGUgcHJldmlvdXMga2Vy
+bmVscyAodXAgdG8gNi41KSBidWlsZCBmaW5lIHdpdGgganVzdAo+ID4gQ09ORklHX0NSQVNIX0RV
+TVAgYW5kIHdpdGhvdXQgQ09ORklHX0tFWEVDIGZvciBhcm0gYXMgd2VsbC4gU28gZXZlbgo+ID4g
+Zm9yIGFybSBpdCB3YXMgaW50cm9kdWNlZCBpbiA2LjYuCj4KPiBUaGFua3MgZm9yIHRoZSBpbmZv
+cm1hdGlvbi4KPgo+IEkgaGF2ZW4ndCBydW4gdGhlIHJlcHJvZHVjZXIgb2YgaXNzdWUgcmVwb3J0
+ZWQgb24gRXJpYydzIG9sZCBwYXRjaHNldCwKPiB3aGlsZSBjaGVja291dCB0byBrZXJuZWwgNi4x
+LCBvbmx5IHMzOTAgc2VsZWN0ZWQgS0VYRUMgZm9yIENSQVNIX0RVTVAKPiBhbHJlYWR5LiBBbmQg
+d2l0aCB0aGUgQVJNIGJ1aWxkaW5nIGJyZWFrYWdlLCB0aGUgc2ltcGxlc3QgaWRlYSBpcwo+IHRv
+IHNlbGVjdCBLRVhFQyBvbmx5IGZvciBBUk0gb3IgUzM5MCBDUkFTSF9EVU1QLiBJIHBsYW4gdG8g
+dHJ5IHRoZQo+IHJlcHJvZHVjZXIgbGF0ZXIuIElmIHlvdSBoYXZlIGFueSBpZGVhIG9yIGRyYWZ0
+IHBhdGNoLCBwbGVhc2UgZmVlbCBmcmVlCj4gdG8gcG9zdC4KClRoZSB0aGluZyBpcyAtIGJlZm9y
+ZSA2LjYgZXZlbiBBUk0gZGlkIG5vdCByZXF1aXJlIEtFWEVDIGZvcgpDUkFTSF9EVU1QIChhdCBs
+ZWFzdCB0byBzdWNjZXNzZnVsbHkgY29tcGlsZSksIHNvIEkgdGhpbmsgd2Ugc2hvdWxkCnVuZGVy
+c3RhbmQgd2hhdCBjaGFuZ2VkIGZpcnN0IGJlZm9yZSBhZGRpbmcgYSBkZXBlbmRlbmN5IGZvciBB
+Uk0uIEknbGwKdHJ5IHRvIGludmVzdGlnYXRlIG1vcmUsIGlmIEkgaGF2ZSB0aW1lLgoKPiBkaWZm
+IC0tZ2l0IGEva2VybmVsL0tjb25maWcua2V4ZWMgYi9rZXJuZWwvS2NvbmZpZy5rZXhlYwo+IGlu
+ZGV4IDdhZmYyOGRlZDJmNC4uMzgyZGNkOGQ3YTlkIDEwMDY0NAo+IC0tLSBhL2tlcm5lbC9LY29u
+ZmlnLmtleGVjCj4gKysrIGIva2VybmVsL0tjb25maWcua2V4ZWMKPiBAQCAtOTcsNyArOTcsNyBA
+QCBjb25maWcgQ1JBU0hfRFVNUAo+ICAgICAgICAgZGVwZW5kcyBvbiBBUkNIX1NVUFBPUlRTX0tF
+WEVDCj4gICAgICAgICBzZWxlY3QgQ1JBU0hfQ09SRQo+ICAgICAgICAgc2VsZWN0IEtFWEVDX0NP
+UkUKPiAtICAgICAgIHNlbGVjdCBLRVhFQwo+ICsgICAgICAgc2VsZWN0IEtFWEVDIGlmIChBUk0g
+fHwgUzM5MCkKPgo+Cj4gYXJjaC9zMzkwL0tjb25maWcgaW4ga2VybmVsIDYuMToKPiBjb25maWcg
+Q1JBU0hfRFVNUAo+ICAgICAgICAgYm9vbCAia2VybmVsIGNyYXNoIGR1bXBzIgo+ICAgICAgICAg
+c2VsZWN0IEtFWEVDCj4gICAgICAgICBoZWxwCj4gICAgICAgICAgIEdlbmVyYXRlIGNyYXNoIGR1
+bXAgYWZ0ZXIgYmVpbmcgc3RhcnRlZCBieSBrZXhlYy4KPiAgICAgICAgICAgQ3Jhc2ggZHVtcCBr
+ZXJuZWxzIGFyZSBsb2FkZWQgaW4gdGhlIG1haW4ga2VybmVsIHdpdGgga2V4ZWMtdG9vbHMKPiAg
+ICAgICAgICAgaW50byBhIHNwZWNpYWxseSByZXNlcnZlZCByZWdpb24gYW5kIHRoZW4gbGF0ZXIg
+ZXhlY3V0ZWQgYWZ0ZXIKPiAgICAgICAgICAgYSBjcmFzaCBieSBrZHVtcC9rZXhlYy4KPiAgICAg
+ICAgICAgUmVmZXIgdG8gPGZpbGU6RG9jdW1lbnRhdGlvbi9zMzkwL3pmY3BkdW1wLnJzdD4gZm9y
+IG1vcmUgZGV0YWlscyBvbiB0aGlzLgo+ICAgICAgICAgICBUaGlzIG9wdGlvbiBhbHNvIGVuYWJs
+ZXMgczM5MCB6ZmNwZHVtcC4KPiAgICAgICAgICAgU2VlIGFsc28gPGZpbGU6RG9jdW1lbnRhdGlv
+bi9zMzkwL3pmY3BkdW1wLnJzdD4KPgo+ID4KPiA+ID4gPiBBbmQgYmVzaWRlcywgdGhlIG5ld2x5
+IGFkZGVkIENPTkZJR19DUkFTSF9IT1RQTFVHIGFsc28gbmVlZHMKPiA+ID4gPiBDT05GSUdfS0VY
+RUMgaWYgdGhlIGVsZmNvcmVoZHIgaXMgYWxsb3dlZCB0byBiZSBtYW5pcHVsYXRlZCB3aGVuCj4g
+PiA+ID4gY3B1L21lbW9yeSBob3RwbHVnIGhhcGVuZWQuCj4gPiA+Cj4gPiA+IFRoaXMgc3RpbGwg
+ZmVlbHMgbGlrZSBhIHJlZ3Jlc3Npb24gdG8gbWU6IGFueSBjcmFzaCBkdW1wIHN1cHBvcnQKPiA+
+ID4gc2hvdWxkIGJlIGluZGVwZW5kZW50IG9mIEtFWEVDIHN5c2NhbGxzIGJlaW5nIHByZXNlbnQu
+IFdoaWxlIHByb2JhYmx5Cj4gPiA+IHRoZSBjb21tb24gY2FzZSAoaW5jbHVkaW5nIHVzKSB0aGF0
+IHRoZSBjcmFzaGluZyBrZXJuZWwgYW5kIHJlY292ZXJ5Cj4gPiA+IGtlcm5lbCBhcmUgdGhlIHNh
+bWUsIHRoZXkgZG9uJ3QgaGF2ZSB0byBiZS4gV2UgbmVlZCBrZXhlYyBzeXNjYWxsIGluCj4gPiA+
+IHRoZSBjcmFzaGluZyBrZXJuZWwsIGJ1dCBjcmFzaGR1bXAgc3VwcG9ydCBpbiB0aGUgcmVjb3Zl
+cnkga2VybmVsIChidXQKPiA+ID4gdGhlIHJlY292ZXJ5IGtlcm5lbCBub3QgaGF2aW5nIHRoZSBr
+ZXhlYyBzeXNjYWxscyBzaG91bGQgYmUgdG90YWxseQo+ID4gPiBmaW5lKS4gSWYgd2UgZG8gcmVx
+dWlyZSBzb21lIGNvZGUgZGVmaW5pdGlvbnMgZnJvbSBrZXhlYyAtIGF0IG1vc3Qgd2UKPiA+ID4g
+c2hvdWxkIHB1dCB0aGVtIHVuZGVyIENPTkZJR19LRVhFQ19DT1JFLgo+ID4gPgo+ID4gPiA+IFRo
+YW5rcwo+ID4gPiA+IEJhb3F1YW4KPiA+ID4gPgo+ID4KPiA+IElnbmF0Cj4gPgo+CgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
