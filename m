@@ -4,81 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7181AC61D97
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 01:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CC0CC61D85
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 01:27:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GVEqFoSvNAshj9cMZGdUXdUwSS75i7qoXV2Ru0r3eE0=; b=yxXHds6QYDL/bi
-	YWpOpFtgWDUdoqhdOYe2CBjoqyjGmWUlU7VMiFzdOU3/L0yQHXvTl7tVMtYypvGB1uaNN37P6vXNJ
-	AJlCin+SqWLEdEGkWjQiUG9/3lfpQvClic0kCxsyqcztSBTl59SFamXlMcJvywxPbbKc7Jl72E+Rj
-	6yA24bX9qm3hfNNiEOHetHquWydNCjfY9PRC6nRCgbjLQEa9RQocoydWCEdmEKT40HsdHC6fqTmp6
-	53GwmosrdqH1E/bCcNK2kLOo9bUILzPP0sm0xCN+aXNNJ/iLYjbg6AccuCA3jBzertHd1Y5TVM8kN
-	t3QPgfbUOeI87i6ihI0Q==;
+	List-Owner; bh=co0jp8z/6LfRTP9f7QgnY65ZH0Hn1B2uEaQcc2UP454=; b=Fxt5eAuFg8ZlQu
+	XM+b5ZvjrejEdvWPYwUSfPhSvrQo70TJAPdoAYkym6ysM9vrmb4qkFnMCGF64n7goAW7u0Zu05789
+	Bn4MsZUiD8tF5du3STlrcDNxqbOTDD0R7IkycLnnMXt2ku7OXi+qobhuJ2Z5NbmpW9WdXavJFiX9h
+	Rh9vuZRwT3K0CVv2aa6jCtclfQLZAmKrVrcQnUGwPT4y5AhAW4eoskwR3qyA9aTnURaWcjlVTq8gy
+	dRsteA8zDb5/EjZnfchltxUQ5ynD1dFJh2C3aYFDx+HzLOm41B/sKjCb4FMAiw/wdQeK0O3x+t5XS
+	jD1xKlCDNgIjhc08iPEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5bzc-000POL-0v;
-	Wed, 22 Nov 2023 01:25:28 +0000
-Received: from mail-io1-xd31.google.com ([2607:f8b0:4864:20::d31])
+	id 1r5c1A-000PbP-17;
+	Wed, 22 Nov 2023 01:27:04 +0000
+Received: from mail-mw2nam10olkn20803.outbound.protection.outlook.com ([2a01:111:f400:7e89::803] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5bzZ-000PND-1T
+	id 1r5c16-000PZo-2Q
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Nov 2023 01:25:27 +0000
-Received: by mail-io1-xd31.google.com with SMTP id ca18e2360f4ac-7a6774da682so273903539f.3
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Nov 2023 17:25:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1700616324; x=1701221124; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=BMxupQd497LdzSfq71N2Lrlf91nzxCDS16y5//A13wo=;
-        b=YShOMuz2MetrF3TCPxjSarQq4xZc5ZDeLgUMMSzyYBwiUWGlib73wUJOO+posTIA0X
-         wCef7u1BxRwoBsNfsSNqwFP2FVQcNHtSTKRxh/846cmptDGzzJ5b9PgYf146yAHQGhA2
-         3X1tP9RJopTYnoiA0VVhdlPprPsQHjmiThUUcdqMsp8JevGrr1dsuCVtYC6cO22QWDqW
-         0iOC+VRWgwDfUS9C5TlYY+zTb3C20G2Q06BkN/O77MQ+VJ64b7s6HTD1Q7TCvT1zQEWx
-         dxymuGue3Lc9lBSsGtK9ZhDmVx4Txq2INfIp+7TRU0Uc1DjuKt1NTYxcOI1dpkjt/ZEC
-         IUAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700616324; x=1701221124;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=BMxupQd497LdzSfq71N2Lrlf91nzxCDS16y5//A13wo=;
-        b=m+I8UGqi0X0lovjFxH0LkqpvQjDhzL3F+jURLDujZW2nEHEDWfgbKjDdB8il93kvNO
-         OAIh0bDy6wYHccjUitI/RzuYJdwQ9ejB6VAtPnKdUTvQ5q4Qpx1Mktai9GsFuwkHsR4V
-         A5i+WB5p9PEILcVLvCSqHfCsNyCJFz22hud4SsM3ZaEVIA/XqfHjUkV+0o5tJIQ0OGWD
-         pGnQu83HLO1vl+GUzkptCYFQraELOEMApbvIkSmEM952jiijKE3x7l/MnAWlXGWSU6ZF
-         SXktHhthW05UHkPT7TFPn2CEu6CXgIyH7a3lpyQSbfPSafnkniGfUSnngjnEZTIMZmnd
-         1icw==
-X-Gm-Message-State: AOJu0YxtfoFYLcu5IjXlUasTlL01XFNQ21s/twGTGT7omtvLi7ZIlBD+
-	l9KDBw/BQROMYDQ0WeamvDPEiA==
-X-Google-Smtp-Source: AGHT+IGd2vGwd7giL7IiRH+5KGiQaPdBluSITVY3kHLXCILv1oR63uIuSpDbZGfswF+tU7/fqS6Mqw==
-X-Received: by 2002:a05:6602:1b04:b0:7a2:a8d5:e146 with SMTP id dk4-20020a0566021b0400b007a2a8d5e146mr576892iob.15.1700616324211;
-        Tue, 21 Nov 2023 17:25:24 -0800 (PST)
-Received: from ?IPV6:2605:a601:adae:4500:3d43:c8e2:1496:e620? ([2605:a601:adae:4500:3d43:c8e2:1496:e620])
-        by smtp.gmail.com with ESMTPSA id az2-20020a056638418200b004664b598273sm2122901jab.49.2023.11.21.17.25.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 21 Nov 2023 17:25:23 -0800 (PST)
-Message-ID: <d94d54d2-50a3-4dc8-9178-e69c118aeefe@sifive.com>
-Date: Tue, 21 Nov 2023 19:25:20 -0600
+	Wed, 22 Nov 2023 01:27:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=jk3LrDlrPjYuqH4Knk9K7lG2BgLBmUi1Bo7PWgogAtSH5jTmwGoTU6hawtSeuEdM5zKPRl1MXBO0WQqo1ooPndOEGDA8NsC0pK21s0CxURi5KPEU39HJb7e8PLOkfdIZPOCiwvnsftlXfGIB44N6LWD6SY0Wkq0Tj8EbWWDIm+0nj4dvoBwmmmnzKe311MC0W7XV0FJdWpp2j1e6Hbgnv/IfPGRpE+mCleg0K1QwiMurWAedn411y0elPZprMvfnjcCyCbpOBg3nW4SxeC73TMNp9ydekrw+Wao47Dk5IFJ9j6G8lDuQ3HaSelF+b+/AjpTeOuX0d8Z33Luv/RkFew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5mV0PyFbgRSWX3sWUwxlLUmLdp7skid7mW1wblFed5s=;
+ b=bPPuAMKlL9AaRvY+pW1ZkPSJdsAhJMnkpCiGgzo3Vibc1FtWh6LYVC4SNbC9qI9IcmwLgP1gaXewKlETfvCytDMOrZP3I9qqVBXlDpGlXwAbD/s5MejWnMzxDda0YZvVnTgvFJ5fj/aEwnPQUd66Ndk/ZuJc3CHN9Mjiq5rryARHhyfLzn657LnwcRQhtiJJptW9+PS68/a5FuTxAJ0DK7lpQDTVoMmYpigp7pRdi/H+QA5y1rzKItFjffzheCMrVB9i39iviaFfxqDIqAKA427OUhkZNm79svIYd1M9psvjZ4P3PKAoUU3y0O9Vn6aaZjHS0Snsw41TMkm3oEw4FQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5mV0PyFbgRSWX3sWUwxlLUmLdp7skid7mW1wblFed5s=;
+ b=T95augztlrUQw4bJ2ljXOKjYJ7dz5hoWe/zGzUrP9/K8USzOT5n2gM74dcnVVfHB6ZSqZzQYUwlK6Z+urZtjT5dMASkaa2aVd4Hu2aSKqMJyZKDNS6XtISPNHKUvqp3qy2PdMilHWjP4IV5LufCsmafFBQOnQ0OQ7kKcs3vdlRL4assXyc5TfRBcKjZ0id4zTysJkr8QvIa+peQK4eYfH5Vk5nCUaCnOuGfpx3aQ21D2gyTbBzif1cVBg1MoWMlVnGu1fae6HGbviE495TC0qk/N28CjsEuQ0cwjvbapMcDgnNYuO4lbcHzGPqCj8BK394OdtdHMhnPznlCxuoCBSg==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by DS0PR20MB4958.namprd20.prod.outlook.com (2603:10b6:8:ca::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7002.27; Wed, 22 Nov
+ 2023 01:26:45 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::55b:c350:980:ad8]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::55b:c350:980:ad8%6]) with mapi id 15.20.7002.027; Wed, 22 Nov 2023
+ 01:26:45 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Inochi Amaoto <inochiama@outlook.com>,
+	Conor Dooley <conor@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Anup Patel <anup@brainfault.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 1/2] dt-bindings: timer: thead,c900-aclint-mtimer: separate mtime and mtimecmp regs
+Date: Wed, 22 Nov 2023 09:26:26 +0800
+Message-ID: <IA1PR20MB4953840B83BA1F3675BF9A5BBBBAA@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.42.1
+In-Reply-To: <20231121-vocation-clunky-17e2c77e64fa@wendy>
+References: <20231121-vocation-clunky-17e2c77e64fa@wendy>
+X-TMN: [Ey1hTHxgu8OTC0h7k6qgnjSkzc+DSqWAT37OEEZqbs4=]
+X-ClientProxiedBy: TYCP286CA0335.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:38e::13) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20231122012627.115573-1-inochiama@outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] soc: sifive: shunt ccache driver to drivers/cache
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org
-Cc: Conor Dooley <conor.dooley@microchip.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Emil Renner Berthing <kernel@esmil.dk>,
- linux-kernel@vger.kernel.org
-References: <20231012-mooing-refined-ad1ab421c0d3@spud>
-From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <20231012-mooing-refined-ad1ab421c0d3@spud>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|DS0PR20MB4958:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3605f1b2-594d-4d42-d64c-08dbeafa16e4
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: xYqDfgHpk73jOXEqltZAipY18PqaClWGCcMKDqlGRA/OkFmjr3gmalA7mJVa+Rrae9HC552Btv4Zipl8pekGDue/Ab2QYk8pHnk5+eS5/uoY8F852pcRKKD5lrFDR5+4BDrBXcnoRusREbivxWQ0+uQiA8dWaHGiDzoz+jHYKjr3oj6+tT+2ebWKGoqLIIVl5hQXSNW7fk/3bOXfeE77wR5qnY+H9QhxJ/Tuv1CVRF4gk2bgSDQbZBGLG3yq2fKp1JpA2cVURHK5a6XVXa8IyETyvPFshNGq2AIK71Th3y5C9FEkvnN4rOz8FT020saDn3hDtGhJBkZnGnRBXgW81QRgsOQzGpaBRx9vPwGIYA4WmqPERGUM0eljLcLpPj3R/taCJ6oCnpUhA4hpASZIcVrTo6JPAWh9hixXCkWjWjf/V5PNDIRrwrDQQi5clz9+mzc7Ys8834yx1ZdTagfASiAh1UDuHDih8nqmTMMAaieluOGDRBeZROaAxtKVh5GnVAG6z+gY24xOAe0b5pjDe8QUkK6n0RLjdQbaORnT3elo6B+dyqWFKFnqeKgBjbUD1ZLVNwVxGkkBuPsAw/Mg/egG+ktgL7LOKNLwuICp4TC0iB6ZySReHPzIA8i9OHjPs3rbcJSYdcSHO3KeuoX9T7HiDGLVO/mhxL4FJNwldls=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?F9V0VvXI0bvyjl81YRPq04bBqBFvv5tPnn7bnhGS7LpCZwx/gmt9mh4+ejKO?=
+ =?us-ascii?Q?KWYSozTW26Rh6AHFNm8PuS0hRYSsInS3Ap1LEampgc0PmwJ8nlgv0XGcaN7v?=
+ =?us-ascii?Q?h2QtXCtlzjrRxXyX02vOgf9yAB7N+hVt08ZIJ5ULktBkxcuF2kDGolfKtB5k?=
+ =?us-ascii?Q?V/8Zg/XP21uOM2xUVgkIY4Jwv/czXqWpCHCubpGH/0tFX6OIm1n1joy+j9P5?=
+ =?us-ascii?Q?Ns9EsmlMG2tTEWqoopbYZFpvj1wW5MhFO2INrpKeer2sY0VdOC4xUNHFWcAn?=
+ =?us-ascii?Q?6ogmebwohQ6Gh7icLlyuTiRc8ztrGR0nu4sTzyyfjECh+J02G75e3RSCMNsY?=
+ =?us-ascii?Q?GCZZJSe/SrEqVSyYxMkxBzHVPcIMcc0y1XxbyQqhJ/xXdaRAVOZkPxqdZV7i?=
+ =?us-ascii?Q?rhTGYgrQh7H2wMbE+6v9SElspunTwh+IlA/vu2VjLp2qQ/NaK0rbt8cF+K15?=
+ =?us-ascii?Q?FAYBj8i78LuwgI8ZUbqv8HjL2f13iZk8ha7k2R1XfPqsDvDqzK5Xw/7PL93I?=
+ =?us-ascii?Q?+1fSw+MoCj+gvQOAtR+Aopr+Smr65JtGepTJcNbhy4K69vhyvwcmyIqbQUFh?=
+ =?us-ascii?Q?PGQdWOguf1uPsPqU+hmj2y3v/ggQNTeJPgFSVjV1SPWMgJWeVbf5SOZeAwmx?=
+ =?us-ascii?Q?mmJqxxL93hbLtnyL7RB4PnfGAehyJFyvHRQ6H0WFP4QcZ5KGTeoUjVD2+C3G?=
+ =?us-ascii?Q?a4bsAVeU0yzdtmGL7JbRBhM3M1WarlETlnWepiXiN1RwT0rIvVmnPKjeY2t0?=
+ =?us-ascii?Q?dZOVcSmSq3UKoPE/LYvPOU7WFNKpykoZvfXPTb2rFBHBvtHeYu0uknpRgSzu?=
+ =?us-ascii?Q?4VEDON9/DIoFstlCO0Dy6bByCrdrUqkpvtLMmN75gTh8IN3edJTPs6vxyEAo?=
+ =?us-ascii?Q?sxfctgsYKpHONuIIHMKyCOcE+CRbkoau3p8U0u3VZvVJGRcYwwCHXu3RK8JM?=
+ =?us-ascii?Q?P1/u7SPQodkCLZOJfPLFmgJ31Ec7SsMZKVWTzmVStVYhSI2xfBbcxIW4Fhlo?=
+ =?us-ascii?Q?jgdOQc8llv09QKqzSlDjQ/rSsWxho9iEiaTm8354cg15YNHze33wNE06RKxS?=
+ =?us-ascii?Q?DpXXYqLi7QsTv661dDnxByus8Rxs5LnNBeB47Z/1YMjH0W4G7HwXlly1lWSy?=
+ =?us-ascii?Q?D0JBDI5k0XzymkqIbrthLxVUs8VYA7FfdshT2hpFyt3jTcZz3OGWn1BSva/K?=
+ =?us-ascii?Q?66LOCqeYoWWKuy5pd1Rjc3nkFyMdVQLxagKmwEapOfiPL/lvWjroMLNjgoE?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3605f1b2-594d-4d42-d64c-08dbeafa16e4
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Nov 2023 01:26:45.3467
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR20MB4958
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231121_172525_508959_6AF76706 
-X-CRM114-Status: GOOD (  19.97  )
+X-CRM114-CacheID: sfid-20231121_172700_813442_549CD1BD 
+X-CRM114-Status: GOOD (  30.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,160 +140,153 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+>On Tue, Nov 21, 2023 at 09:12:12AM +0800, Inochi Amaoto wrote:
+>>> Yo,
+>>>
+>>> On Sat, Nov 18, 2023 at 03:10:26PM +0800, Inochi Amaoto wrote:
+>>>> The timer registers of aclint don't follow the clint layout and can
+>>>> be mapped on any different offset. As sg2042 uses separated timer
+>>>> and mswi for its clint, it should follow the aclint spec and have
+>>>> separated registers.
+>>>>
+>>>> The previous patch introduced a new type of T-HEAD aclint timer which
+>>>> has clint timer layout. Although it has the clint timer layout, it
+>>>> should follow the aclint spec and uses the separated mtime and mtimecmp
+>>>> regs. So a ABI change is needed to make the timer fit the aclint spec.
+>>>>
+>>>> To make T-HEAD aclint timer more closer to the aclint spec, use
+>>>> regs-names to represent the mtimecmp register, which can avoid hack
+>>>> for unsupport mtime register of T-HEAD aclint timer.
+>>>>
+>>>> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+>>>> Fixes: 4734449f7311 ("dt-bindings: timer: Add Sophgo sg2042 CLINT timer")
+>>>> Link: https://lists.infradead.org/pipermail/opensbi/2023-October/005693.html
+>>>> Link: https://github.com/riscv/riscv-aclint/blob/main/riscv-aclint.adoc
+>>>> ---
+>>>>  .../timer/thead,c900-aclint-mtimer.yaml       | 42 ++++++++++++++++++-
+>>>>  1 file changed, 41 insertions(+), 1 deletion(-)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml b/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
+>>>> index fbd235650e52..053488fb1286 100644
+>>>> --- a/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
+>>>> +++ b/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
+>>>> @@ -17,7 +17,20 @@ properties:
+>>>>        - const: thead,c900-aclint-mtimer
+>>>>
+>>>>    reg:
+>>>> -    maxItems: 1
+>>>> +    oneOf:
+>>>> +      - items:
+>>>> +          - description: MTIME Registers
+>>>> +          - description: MTIMECMP Registers
+>>>> +      - items:
+>>>> +          - description: MTIMECMP Registers
+>>>> +
+>>>> +  reg-names:
+>>>> +    oneOf:
+>>>> +      - items:
+>>>> +          - const: mtime
+>>>> +          - const: mtimecmp
+>>>> +      - items:
+>>>> +          - const: mtimecmp
+>>>>
+>>>>    interrupts-extended:
+>>>>      minItems: 1
+>>>> @@ -28,8 +41,34 @@ additionalProperties: false
+>>>>  required:
+>>>>    - compatible
+>>>>    - reg
+>>>> +  - reg-names
+>>>>    - interrupts-extended
+>>>>
+>>>> +allOf:
+>>>> +  - if:
+>>>> +      properties:
+>>>> +        compatible:
+>>>> +          contains:
+>>>> +            const: thead,c900-aclint-mtimer
+>>>
+>>> Is this being the c900 compatible correct? You mention in your commit
+>>> message that this split is done on the sg2042, but the rule is applied
+>>> here for any c900 series "aclint". Do we know if this is a sophgo
+>>> specific thing (or even sg2042 specific), or if it applies generally?
+>>>
+>>
+>> This can be confirmed. The thead c900 series have no mtime support and
+>> there is no evidence that they will implement it. So I think it is OK
+>> to applied this restriction for the whole c900 series.
+>
+>Okay, great.
+>
+>>>> +    then:
+>>>> +      properties:
+>>>> +        reg:
+>>>> +          items:
+>>>> +            - description: MTIMECMP Registers
+>>>> +        reg-names:
+>>>> +          items:
+>>>> +            - const: mtimecmp
+>>>
+>>>> +    else:
+>>>> +      properties:
+>>>> +        reg:
+>>>> +          items:
+>>>> +            - description: MTIME Registers
+>>>> +            - description: MTIMECMP Registers
+>>>> +        reg-names:
+>>>> +          items:
+>>>> +            - const: mtime
+>>>> +            - const: mtimecmp
+>>>
+>>> If it applies generally, I would probably just delete this, but unless
+>>> someone can confirm this to be general, I'd probably leave the else
+>>> clause and swap for the specific sg2042 compatible above.
+>>>
+>>
+>> I suggest keeping this. By taking your advice, this binding has actually
+>> become the binding for aclint draft.
+>
+>Right. It seemed to me from the reports (and the commit message) that this
+>was a configuration choice made by sophgo for the IP.
+>
 
-On 2023-10-12 4:22 AM, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Move the ccache driver over to drivers/cache, out of the drivers/soc
-> dumping ground, to this new collection point for cache controller
-> drivers.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> CC: Conor Dooley <conor@kernel.org>
-> CC: Palmer Dabbelt <palmer@dabbelt.com>
-> CC: Paul Walmsley <paul.walmsley@sifive.com>
-> CC: Emil Renner Berthing <kernel@esmil.dk>
-> CC: linux-kernel@vger.kernel.org
-> CC: linux-riscv@lists.infradead.org
-> ---
->  MAINTAINERS                                   | 14 +++++++-------
->  drivers/cache/Kconfig                         |  8 ++++++++
->  drivers/cache/Makefile                        |  3 ++-
->  drivers/{soc/sifive => cache}/sifive_ccache.c |  0
->  drivers/soc/Kconfig                           |  1 -
->  drivers/soc/Makefile                          |  1 -
->  drivers/soc/sifive/Kconfig                    | 10 ----------
->  drivers/soc/sifive/Makefile                   |  3 ---
->  8 files changed, 17 insertions(+), 23 deletions(-)
->  rename drivers/{soc/sifive => cache}/sifive_ccache.c (100%)
->  delete mode 100644 drivers/soc/sifive/Kconfig
->  delete mode 100644 drivers/soc/sifive/Makefile
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 90f13281d297..ab32599fc799 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -19580,6 +19580,13 @@ S:	Supported
->  N:	sifive
->  K:	[^@]sifive
->  
-> +SIFIVE CACHE DRIVER
-> +M:	Conor Dooley <conor@kernel.org>
-> +L:	linux-riscv@lists.infradead.org
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
-> +F:	drivers/cache/sifive_ccache.c
-> +
->  SIFIVE FU540 SYSTEM-ON-CHIP
->  M:	Paul Walmsley <paul.walmsley@sifive.com>
->  M:	Palmer Dabbelt <palmer@dabbelt.com>
-> @@ -19595,13 +19602,6 @@ S:	Maintained
->  F:	Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
->  F:	drivers/dma/sf-pdma/
->  
-> -SIFIVE SOC DRIVERS
-> -M:	Conor Dooley <conor@kernel.org>
-> -L:	linux-riscv@lists.infradead.org
-> -S:	Maintained
-> -T:	git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
-> -F:	Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
-> -F:	drivers/soc/sifive/
->  
->  SILEAD TOUCHSCREEN DRIVER
->  M:	Hans de Goede <hdegoede@redhat.com>
-> diff --git a/drivers/cache/Kconfig b/drivers/cache/Kconfig
-> index a57677f908f3..433b7ded8787 100644
-> --- a/drivers/cache/Kconfig
-> +++ b/drivers/cache/Kconfig
-> @@ -8,4 +8,12 @@ config AX45MP_L2_CACHE
->  	help
->  	  Support for the L2 cache controller on Andes Technology AX45MP platforms.
->  
-> +if ARCH_SIFIVE || ARCH_STARFIVE
+Yes, that's true.
 
-Since this is now in a file grouped/sorted by subsystem instead of by platform,
-maybe it makes sense to convert this to a "depends on" line?
+>> So I think it is better to preserve
+>> this path, otherwise adding the mtime register seems meaningless.
+>
+>Yeah, I mistakenly thought that there were cases where we actually had
+>systems with mtime and mtimecmp registers. I don't know if that was an
+>assumption I made due to previous commit messages or from reading the
+>opensbi threads, but clearly that is not the case.
+>
+>> But if
+>> you think it is OK to add this when adding new compatible or converting it
+>> to a generic binding.
+>
+>I'm a bit conflicted. Since this is c900 specific one part of me says
+>leave it with only one "reg" entry as that is what the only hardware
+>actually has & add "reg-names" to make lives easier when someone else
+>implements the unratified spec (or it gets ratified for some reason).
+>
 
-> +
-> +config SIFIVE_CCACHE
-> +	bool "Sifive Composable Cache controller"
-> +	help
-> +	  Support for the composable cache controller on SiFive platforms.
-> +
-> +endif
->  endmenu
-> diff --git a/drivers/cache/Makefile b/drivers/cache/Makefile
-> index 2012e7fb978d..7657cff3bd6c 100644
-> --- a/drivers/cache/Makefile
-> +++ b/drivers/cache/Makefile
-> @@ -1,3 +1,4 @@
->  # SPDX-License-Identifier: GPL-2.0
->  
-> -obj-$(CONFIG_AX45MP_L2_CACHE) += ax45mp_cache.o
-> +obj-$(CONFIG_AX45MP_L2_CACHE)	+= ax45mp_cache.o
-> +obj-$(CONFIG_SIFIVE_CCACHE)	+= sifive_ccache.o
-> diff --git a/drivers/soc/sifive/sifive_ccache.c b/drivers/cache/sifive_ccache.c
-> similarity index 100%
-> rename from drivers/soc/sifive/sifive_ccache.c
-> rename to drivers/cache/sifive_ccache.c
-> diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
-> index d21e75d69294..76afeff93045 100644
-> --- a/drivers/soc/Kconfig
-> +++ b/drivers/soc/Kconfig
-> @@ -23,7 +23,6 @@ source "drivers/soc/qcom/Kconfig"
->  source "drivers/soc/renesas/Kconfig"
->  source "drivers/soc/rockchip/Kconfig"
->  source "drivers/soc/samsung/Kconfig"
-> -source "drivers/soc/sifive/Kconfig"
->  source "drivers/soc/starfive/Kconfig"
+Adding "reg-names" is necessary and does make live easier. It gives a
+clear way to avoid hack on skipping mtime register in the ACLINT timer
+definition.
 
-This file has a conflict and needs to be rebased, but otherwise:
+Now I think the only problem is whether the "mtime" register should
+exist in this binding. IMHO, adding "mtime" seems to be too much to
+keep this binding vendor specific. It is better to remove it to achieve
+minimum change.
 
-Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
-Tested-by: Samuel Holland <samuel.holland@sifive.com>
+>> Feel free to remove it.
+>
+>I might've applied the other binding as it was in a series adding
+>initial support for the SoC, but usually these things go via the
+>subsystem maintainers with a DT maintainer ack/review.
+>
 
->  source "drivers/soc/sunxi/Kconfig"
->  source "drivers/soc/tegra/Kconfig"
-> diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
-> index 0706a27d13be..ba8f5b5460e1 100644
-> --- a/drivers/soc/Makefile
-> +++ b/drivers/soc/Makefile
-> @@ -28,7 +28,6 @@ obj-y				+= qcom/
->  obj-y				+= renesas/
->  obj-y				+= rockchip/
->  obj-$(CONFIG_SOC_SAMSUNG)	+= samsung/
-> -obj-y				+= sifive/
->  obj-y				+= sunxi/
->  obj-$(CONFIG_ARCH_TEGRA)	+= tegra/
->  obj-y				+= ti/
-> diff --git a/drivers/soc/sifive/Kconfig b/drivers/soc/sifive/Kconfig
-> deleted file mode 100644
-> index 139884addc41..000000000000
-> --- a/drivers/soc/sifive/Kconfig
-> +++ /dev/null
-> @@ -1,10 +0,0 @@
-> -# SPDX-License-Identifier: GPL-2.0
-> -
-> -if ARCH_SIFIVE || ARCH_STARFIVE
-> -
-> -config SIFIVE_CCACHE
-> -	bool "Sifive Composable Cache controller"
-> -	help
-> -	  Support for the composable cache controller on SiFive platforms.
-> -
-> -endif
-> diff --git a/drivers/soc/sifive/Makefile b/drivers/soc/sifive/Makefile
-> deleted file mode 100644
-> index 1f5dc339bf82..000000000000
-> --- a/drivers/soc/sifive/Makefile
-> +++ /dev/null
-> @@ -1,3 +0,0 @@
-> -# SPDX-License-Identifier: GPL-2.0
-> -
-> -obj-$(CONFIG_SIFIVE_CCACHE)	+= sifive_ccache.o
-
+Thanks, I will also wait for feedback from the subsystem maintainers.
 
 _______________________________________________
 linux-riscv mailing list
