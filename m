@@ -4,79 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBECEC61D97
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 13:52:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F12DC61D99
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 15:33:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=m6D+oOTiGvMbBFVePrtjzpFDheThv+j1p0WtP70hK6A=; b=RcAQuDupKTfdMT
-	n5vcxllm3/HxYC2nGRxB+7prLWi8wnUVuFgWblgkrSutDUqDhB7Qnd4vV0NMfHz5z15Pf8sV2Rb2x
-	FbVlt0f1h94yeTzqjhs4qZplDLsFoomxnXFEN6OfEgOep55bk0qEK6LjUN41ctzZS2+24sOrqmdAP
-	65/uuDvX3an9tgzR16fJydDNO4kdO6g41FNd+HoqOnzk1vSgQQbkmrywuKN8dKaAyxnuHLV/jdVe6
-	F3EAkOaPpGnhhK2C6/sSEY1FAvHfXFLOXAtnXicbp24Wx4UVFY1n3+MiguKaW1RQhxVXZIvsuCsVF
-	8b93FWvwiIwzqRZXmD7w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=o8f6Ncaw3QxtggdbvCIK586Yv2nxCC9g2bxpbqtCYXw=; b=1erXPwzJyVEoy0
+	BmkkJTKSWNI+oiE8aB5io7LYCWH+ZAafNkLWquecmsC8K7iMszYBcywwdPseeJsvCtU4SqO1Kk+kK
+	EnqkXlX97NFTa9lZQDYsHu1/zdCpOwPmhhyZZUK6h0ZsQiQpM1W50X8bG+q31pwLKFh5g1WdrXrPz
+	rEMMd4a/1uvQd0gElPj13WfuxGwBA3P8c07s5p8oP3nunXhMQ3Qgaj8S7v7LKIjq5ZPD8aKKFRl74
+	Nl9KqJyZso19e7wNA5FR9/LpyRFuCcNL5k/z9IAnxhmQ3xu5UVG319FqHQWL7TBh4M+DcMx5zAgOy
+	8sMoJzeqlmliNR9aF1EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5neO-0021gO-1b;
-	Wed, 22 Nov 2023 13:52:20 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1r5pDg-002GgT-2M;
+	Wed, 22 Nov 2023 15:32:52 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5neA-0021Z9-02
+	id 1r5pDd-002Geh-23
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Nov 2023 13:52:18 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-28554922cebso3148a91.0
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Nov 2023 05:52:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1700661123; x=1701265923; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=P7husD+9d3F1Gv9OOp27OuBbyYe5n6sJHNp6uS06FL8=;
-        b=qyPUZ4V5+Kc6jG3+k8Lk3Dt+QJ47MSQCMohcNkT2I2T1GgVnC3SBFNSY7Jvun844N0
-         kjz0mYnIgGHFvZ1ZojmS8MzdScVllqYjM/HiTgZY4U1RouDTUf7khspxh3As2eiEjKtM
-         7qcLOcPK47+XxVqqqZ73+P1ilmeaGN41TuRKIK5Ct3syq/hcUSICLyF9f6OiKClkNAql
-         6V/bCBWlNl6hb0/ZMiEAgYZ35apAnMrArPNtwOfSJpdM+GW3oUE5hPzBiHiBLGvtKgPB
-         B92jNH8UAboodOk1ON+BP4Ek84d9lIIrWNdE7lWrq6Pn750/GYQtMfBsyVZt7l0QmnvG
-         dTRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700661123; x=1701265923;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=P7husD+9d3F1Gv9OOp27OuBbyYe5n6sJHNp6uS06FL8=;
-        b=oTijIVe301pLEpHfWupiC+3oglQKV12HhStG4N0Aq6IoSqZa3JBFGGaRVwtODE+zq0
-         qQGrkZqGPqfmYYHpREsGuxxI5NkmkxeBU8B3j5FNsjJyQs4HO1Rzn5x5QlypKgPXkfVI
-         cjd7FW8pMN97OLPkz6CZqbch7tXqKa6CkTTIKI7+UIffK+G2ifNgefVSUDbVrxUcu4hL
-         9n5ABrvUKU6FUeV+adHTzM2lEcItWGDPLoWDM2Ft0t7jtqCcg9Gwupr4pX96jWNrdZ6r
-         00u+VOkFOlgarJtre52OAq/6RHu8BtcTk3Z97thtyaXODyHDNyCI2mYRfFlx3F19btyb
-         jgSQ==
-X-Gm-Message-State: AOJu0YzjPAefzZTu4QnBPlam6M6lKxEIDQXXHBjq7bHbG/MQKPNoSE0+
-	iNVevQWM2GoNHlLma5jvSjoJqEj4uFfJhltNitc=
-X-Google-Smtp-Source: AGHT+IE5Dg+TMXVzZNn0mFXompSbIgWw4KFeIm5Q5UstyfAp14qFST/CkbxoGCVx/IGuAn9WPK835w==
-X-Received: by 2002:a17:90b:d8a:b0:285:e55:68b8 with SMTP id bg10-20020a17090b0d8a00b002850e5568b8mr2374428pjb.1.1700661122833;
-        Wed, 22 Nov 2023 05:52:02 -0800 (PST)
-Received: from carbon-x1.. ([2a01:e0a:999:a3a0:edca:1f11:8726:b116])
-        by smtp.gmail.com with ESMTPSA id rj1-20020a17090b3e8100b0028031e87660sm1387947pjb.16.2023.11.22.05.51.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Nov 2023 05:52:02 -0800 (PST)
-From: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH] riscv: fix incorrect use of __user pointer
-Date: Wed, 22 Nov 2023 14:51:41 +0100
-Message-ID: <20231122135141.2936663-1-cleger@rivosinc.com>
+	Wed, 22 Nov 2023 15:32:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id F353C61E02;
+	Wed, 22 Nov 2023 15:32:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90940C433C8;
+	Wed, 22 Nov 2023 15:32:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1700667168;
+	bh=fWiSFMfDLokE0fHpF4fY2qrcsRxAWpAbxo0BBd3jFug=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Bi4xC82UvOxmgWDSddxzp+EZzsxihguuFoKXKYYw+Yr/iI8oxUNDaekSuwfNXmZdD
+	 gqb/0AjGTrRRTwr2ixtT45nG7LfpEPbnuOdwD/33C4SA/NpoIOIKZdoGpuqc5Duy35
+	 u5MfaZqzAh9pqa8HEgw+7OpTwitCRBmYDLkoSAyG6Ziz5kgTMvaj3GuXBpqEJZ1bQx
+	 NMdXunVfPA6pFVKCNOAz2Afaehz5Ks2G2l64v01LUop4QrVxIcuR5FJaSRfC7dOYZJ
+	 Uc0h86kTCUrsG3vr4Sb6jC+hC9vF/G5opttEvmHJ1xWzncvsbBmLLt+c3SjYey6fHa
+	 CQ9r8VWdLZVlw==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Masahiro Yamada <masahiroy@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Sasha Levin <sashal@kernel.org>,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	linux-kbuild@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.6 11/17] modpost: fix section mismatch message for RELA
+Date: Wed, 22 Nov 2023 10:31:40 -0500
+Message-ID: <20231122153212.852040-11-sashal@kernel.org>
 X-Mailer: git-send-email 2.42.0
+In-Reply-To: <20231122153212.852040-1-sashal@kernel.org>
+References: <20231122153212.852040-1-sashal@kernel.org>
 MIME-Version: 1.0
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.6.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231122_055206_278103_D5625472 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20231122_073249_716315_9FB871E2 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,52 +77,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlc2Ugd2FybmluZ3Mgd2VyZSByZXBvcnRlZCBieSBzcGFyc2UgYW5kIHdlcmUgZHVlIHRvIGxh
-Y2sgb2YgX191c2VyCmFubm90YXRpb24gYXMgd2VsbCBhcyBkZXJlZmVyZW5jaW5nIHN1Y2ggcG9p
-bnRlci4gRml4IHRoaXMgYnkgYWRkaW5nCl9fdXNlciBjYXN0IHdlcmUgbmVlZGVkIChsb2FkX3U4
-KCkvc3RvcmVfdTgoKSkgYW5kIG1vdmUgdGhlIF9fdXNlcgphbm5vdGF0aW9uIGluIF9fcmVhZF9p
-bnNuKCkgaW50byB0aGUgaWYoKSBicmFuY2ggdGhhdCB1c2VzIF9fZ2V0X3VzZXIoKQp3aXRoIHRo
-aXMgcG9pbnRlci4KClJlcG9ydGVkLWJ5OiBrZXJuZWwgdGVzdCByb2JvdCA8bGtwQGludGVsLmNv
-bT4KQ2xvc2VzOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9vZS1rYnVpbGQtYWxsLzIwMjMxMTE2
-MDYwNi5vYkdPT3dCMy1sa3BAaW50ZWwuY29tLwpTaWduZWQtb2ZmLWJ5OiBDbMOpbWVudCBMw6ln
-ZXIgPGNsZWdlckByaXZvc2luYy5jb20+Ci0tLQogYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHNfbWlz
-YWxpZ25lZC5jIHwgMTAgKysrKystLS0tLQogMSBmaWxlIGNoYW5nZWQsIDUgaW5zZXJ0aW9ucygr
-KSwgNSBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwc19t
-aXNhbGlnbmVkLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwc19taXNhbGlnbmVkLmMKaW5kZXgg
-NWViYTM3MTQ3Y2FhLi4wMmFiYjY2MTY4NzMgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3Yva2VybmVs
-L3RyYXBzX21pc2FsaWduZWQuYworKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwc19taXNhbGln
-bmVkLmMKQEAgLTMxOSw3ICszMTksNyBAQCBzdGF0aWMgaW5saW5lIGludCBnZXRfaW5zbihzdHJ1
-Y3QgcHRfcmVncyAqcmVncywgdWxvbmcgbWVwYywgdWxvbmcgKnJfaW5zbikKIHN0YXRpYyBpbmxp
-bmUgaW50IGxvYWRfdTgoc3RydWN0IHB0X3JlZ3MgKnJlZ3MsIGNvbnN0IHU4ICphZGRyLCB1OCAq
-cl92YWwpCiB7CiAJaWYgKHVzZXJfbW9kZShyZWdzKSkgewotCQlyZXR1cm4gX19nZXRfdXNlcigq
-cl92YWwsIGFkZHIpOworCQlyZXR1cm4gX19nZXRfdXNlcigqcl92YWwsICh1OCBfX3VzZXIgKilh
-ZGRyKTsKIAl9IGVsc2UgewogCQkqcl92YWwgPSAqYWRkcjsKIAkJcmV0dXJuIDA7CkBAIC0zMjks
-NyArMzI5LDcgQEAgc3RhdGljIGlubGluZSBpbnQgbG9hZF91OChzdHJ1Y3QgcHRfcmVncyAqcmVn
-cywgY29uc3QgdTggKmFkZHIsIHU4ICpyX3ZhbCkKIHN0YXRpYyBpbmxpbmUgaW50IHN0b3JlX3U4
-KHN0cnVjdCBwdF9yZWdzICpyZWdzLCB1OCAqYWRkciwgdTggdmFsKQogewogCWlmICh1c2VyX21v
-ZGUocmVncykpIHsKLQkJcmV0dXJuIF9fcHV0X3VzZXIodmFsLCBhZGRyKTsKKwkJcmV0dXJuIF9f
-cHV0X3VzZXIodmFsLCAodTggX191c2VyICopYWRkcik7CiAJfSBlbHNlIHsKIAkJKmFkZHIgPSB2
-YWw7CiAJCXJldHVybiAwOwpAQCAtMzQxLDcgKzM0MSw3IEBAIHN0YXRpYyBpbmxpbmUgaW50IHN0
-b3JlX3U4KHN0cnVjdCBwdF9yZWdzICpyZWdzLCB1OCAqYWRkciwgdTggdmFsKQogCWludCBfX3Jl
-dDsJCQkJCVwKIAkJCQkJCQlcCiAJaWYgKHVzZXJfbW9kZShyZWdzKSkgewkJCQlcCi0JCV9fcmV0
-ID0gX19nZXRfdXNlcihpbnNuLCBpbnNuX2FkZHIpOwlcCisJCV9fcmV0ID0gX19nZXRfdXNlcihp
-bnNuLCAodHlwZW9mKCppbnNuX2FkZHIpIF9fdXNlciAqKSBpbnNuX2FkZHIpOyBcCiAJfSBlbHNl
-IHsJCQkJCVwKIAkJaW5zbiA9ICppbnNuX2FkZHI7CQkJXAogCQlfX3JldCA9IDA7CQkJCVwKQEAg
-LTM1Niw3ICszNTYsNyBAQCBzdGF0aWMgaW5saW5lIGludCBnZXRfaW5zbihzdHJ1Y3QgcHRfcmVn
-cyAqcmVncywgdWxvbmcgZXBjLCB1bG9uZyAqcl9pbnNuKQogCiAJaWYgKGVwYyAmIDB4Mikgewog
-CQl1bG9uZyB0bXAgPSAwOwotCQl1MTYgX191c2VyICppbnNuX2FkZHIgPSAodTE2IF9fdXNlciAq
-KWVwYzsKKwkJdTE2ICppbnNuX2FkZHIgPSAodTE2ICopZXBjOwogCiAJCWlmIChfX3JlYWRfaW5z
-bihyZWdzLCBpbnNuLCBpbnNuX2FkZHIpKQogCQkJcmV0dXJuIC1FRkFVTFQ7CkBAIC0zNzYsNyAr
-Mzc2LDcgQEAgc3RhdGljIGlubGluZSBpbnQgZ2V0X2luc24oc3RydWN0IHB0X3JlZ3MgKnJlZ3Ms
-IHVsb25nIGVwYywgdWxvbmcgKnJfaW5zbikKIAogCQlyZXR1cm4gMDsKIAl9IGVsc2UgewotCQl1
-MzIgX191c2VyICppbnNuX2FkZHIgPSAodTMyIF9fdXNlciAqKWVwYzsKKwkJdTMyICppbnNuX2Fk
-ZHIgPSAodTMyICopZXBjOwogCiAJCWlmIChfX3JlYWRfaW5zbihyZWdzLCBpbnNuLCBpbnNuX2Fk
-ZHIpKQogCQkJcmV0dXJuIC1FRkFVTFQ7Ci0tIAoyLjQyLjAKCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Masahiro Yamada <masahiroy@kernel.org>
+
+[ Upstream commit 1c4a7587d1bbee0fd53b63af60e4244a62775f57 ]
+
+The section mismatch check prints a bogus symbol name on some
+architectures.
+
+[test code]
+
+  #include <linux/init.h>
+
+  int __initdata foo;
+  int get_foo(void) { return foo; }
+
+If you compile it with GCC for riscv or loongarch, modpost will show an
+incorrect symbol name:
+
+  WARNING: modpost: vmlinux: section mismatch in reference: get_foo+0x8 (section: .text) -> done (section: .init.data)
+
+To get the correct symbol address, the st_value must be added.
+
+This issue has never been noticed since commit 93684d3b8062 ("kbuild:
+include symbol names in section mismatch warnings") presumably because
+st_value becomes zero on most architectures when the referenced symbol
+is looked up. It is not true for riscv or loongarch, at least.
+
+With this fix, modpost will show the correct symbol name:
+
+  WARNING: modpost: vmlinux: section mismatch in reference: get_foo+0x8 (section: .text) -> foo (section: .init.data)
+
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ scripts/mod/modpost.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
+index b3dee80497cb2..ac4ef3e206bbd 100644
+--- a/scripts/mod/modpost.c
++++ b/scripts/mod/modpost.c
+@@ -1496,13 +1496,15 @@ static void section_rela(struct module *mod, struct elf_info *elf,
+ 		return;
+ 
+ 	for (rela = start; rela < stop; rela++) {
++		Elf_Sym *tsym;
+ 		Elf_Addr taddr, r_offset;
+ 		unsigned int r_type, r_sym;
+ 
+ 		r_offset = TO_NATIVE(rela->r_offset);
+ 		get_rel_type_and_sym(elf, rela->r_info, &r_type, &r_sym);
+ 
+-		taddr = TO_NATIVE(rela->r_addend);
++		tsym = elf->symtab_start + r_sym;
++		taddr = tsym->st_value + TO_NATIVE(rela->r_addend);
+ 
+ 		switch (elf->hdr->e_machine) {
+ 		case EM_RISCV:
+@@ -1517,7 +1519,7 @@ static void section_rela(struct module *mod, struct elf_info *elf,
+ 			break;
+ 		}
+ 
+-		check_section_mismatch(mod, elf, elf->symtab_start + r_sym,
++		check_section_mismatch(mod, elf, tsym,
+ 				       fsecndx, fromsec, r_offset, taddr);
+ 	}
+ }
+-- 
+2.42.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
