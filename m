@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 850C9C61D99
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82A91C61D97
 	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 03:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,56 +12,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5xFPP1fWSBVrtT0LynmiAHZ2wX4WexeE2xGXTs/2p/4=; b=pTB4/75GyuzQ/M
-	IOyM83lUhEqQOhe00OuiXwIgUy4LdEFP59HHwcyc2yija6l8MQv5maX7/ip6r5M+V4b0lXA5uFtMt
-	p3X3dWPdJ0j1u+b0LkHwF1K+FmH74S+LEtxFu8pssn+jfLBUoG+rGnFLHYx2M2g/mttXyGXxwShLV
-	iT8pfp8mv2wWFoxcV/g2CnmU1IrK8IMDSqxwOYTwtN5RnMvajz+6cL2JfA4saI2BMWdBAdfxDa8JI
-	9esVT0osDNbMhJ07ai1kslYkXUcmQQyXmn3Fqkb5A7FEMlbUkAPjMy+gJJtv/zwYbT9V4XmTsibYn
-	+iMeUzRCPiWmVRORfFsg==;
+	List-Owner; bh=VuqiWYAjtP/RJixIbQZH5qGkkm7MRbdHpHEF8KdXL2o=; b=u8SgunORPAkuYO
+	Xo2+ygGGU5O5WCji+gbXapq5wfGnsyHG9YsYxSpJmhy+Vr2bd1JGCW4A8+tkIfkA/GqNsMMpst7wM
+	pJBRbWMLAhpqu5nu+KC6gwEVIv1yVHv5eqNTWeUm0kBe2TLG02e0BNbqXvPrF/M7+BPUctIlDj1KZ
+	ZaX/zelWv4dGSBd0XB1Lt/eVMgH7SGAjjBfurGGpGmC0fHq0np3MzTSNkzDlczU6h0IAW9khIwJoi
+	vxsM844ZD8Lf+d6dS63dIHmg89BowngD86De1mt9URpqiySpkbofaY00HgkpMQIG/yeqNoWqR3gEh
+	nLQO5BW8mr7ZkM+PloAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5dZU-000VlP-2w;
-	Wed, 22 Nov 2023 03:06:36 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5dZP-000VjW-24
-	for linux-riscv@lists.infradead.org;
+	id 1r5dZR-000Vkw-2I;
 	Wed, 22 Nov 2023 03:06:33 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-6cbc8199a2aso659633b3a.1
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Nov 2023 19:06:30 -0800 (PST)
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1r5dZO-000ViW-0x
+	for linux-riscv@lists.infradead.org;
+	Wed, 22 Nov 2023 03:06:31 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-6c115026985so6373920b3a.1
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Nov 2023 19:06:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1700622390; x=1701227190; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1700622387; x=1701227187; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=oBSDlJJdl9cJTZEKARyFff2b3kLrE8gro26mzSoUMfg=;
-        b=bIrqZCMRS5klr7Qkk5afACNTIyFNVwvNvUHv2pv8kz+MeR7rFX+fjMt9IM53g89qGD
-         SBRATvvwP5mwXIeyMTAbx7XX9pEhaUa7YyoBCKf5WzggWwNcPjZpLGwZO8U//6YhSLxB
-         5ysvqUIeXtmOJNNPdw8b1w7kZTuuWp3l9YNMpTqOl8fzZzY2JR22k04QvtuYZFD6TM7O
-         uaWGCp3tbUy8HjlZGfMgkdb9wm7P50NoFUVmJNtwzoX2XyRfxPWlTwbAChN9XwUvhbnm
-         mVSs5PiQHQuhXmDxUOX5H+5HeMAp1//aaZ00JiYJxsiO6tTciE3GfSarpbhvEm3VkaKD
-         Vo8Q==
+        bh=xQTyfvTA/sT9rfHfHNgSFRFvzietrqmBvaroSzp1CzI=;
+        b=LZzOJ/5RjVLFUPAe4YyiBAyMZMBWGTopBEFS4CXfNNJIUnQBwnEomncGP6NDelmuFM
+         9qn6qhnM/ouf+5k35vf8VrJGvsOJ/su5mBrSKWVJ7bcF/MyI+IsGPReegg12qEuNZhcb
+         o26h6ztE6emJU6CrOFGyOGwWJEBVNQKKB61zd2GSQ3veeGzRYqCiwNPB+X+KzLwHqrTy
+         TRzXBE0QVvz6Y1X2HqIZH6JQHi63MGdEciFQI85MLk54Pm4dHWSMsTDJEsPuhF66NQ2E
+         +MqAbL2aKe7OEAEsgfpf6YeS7QfcjeSD3/3TmHIyYi/yYY0NT/HWuMDPMNI7BiuFwReZ
+         97SQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700622390; x=1701227190;
+        d=1e100.net; s=20230601; t=1700622387; x=1701227187;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=oBSDlJJdl9cJTZEKARyFff2b3kLrE8gro26mzSoUMfg=;
-        b=IjpgNRQDblCa0Zu862h/JkMuq2E/u9GAgB91g28ITcd0CDN2VH88L8DlvgFCmX3yYn
-         ZUgdcWff7R9YA+DuW9kBivTSgBrchy6Nh6rVyOW/R2SPS14zKNeazoCjkwQjktTFalcv
-         3Z9N76oeZYEk4inYCvhoYoIOZCwJ6JhJa633BENyBzGi2lK08xsRUT+MxO7BgL39LpAb
-         +xwI/EJJRrJeI/tz1AZjmowAHG/Mcg+UA/8AgH/oIhBXSg79NfuiyJeaYs/j+lW5yvtt
-         VMcSd47Ue05upMJGt4N3dM+1Q44mDrguOk93IEHvFIH08MVaBBhw3TuIrZlayxSKgVw6
-         mFNQ==
-X-Gm-Message-State: AOJu0YyMiLIeTfph/HykIaPwgCLF2IwOHj8W8+5UpO56xDhJLWSu3BAW
-	/WYI3HLPWQMmLIKxsrl1O1tKBg==
-X-Google-Smtp-Source: AGHT+IGAWRMig9MTM8HwbUunWOHJsJ/tdXoUczvav4ujcqkNnMcjGyNXeyS3D3MD4r1LtBjigmKHkw==
-X-Received: by 2002:a05:6a00:98e:b0:6cb:cdd0:76f7 with SMTP id u14-20020a056a00098e00b006cbcdd076f7mr417804pfg.21.1700622390174;
-        Tue, 21 Nov 2023 19:06:30 -0800 (PST)
+        bh=xQTyfvTA/sT9rfHfHNgSFRFvzietrqmBvaroSzp1CzI=;
+        b=jFyHN4xmWqFLrogf5pdeea3fOP90wA0t3z78xtA4A7yQf0VHvQeuWBrAu5rzWn+Iyy
+         n1zYjjIgoZ6w58KRyMuJm+KliMFEFHChAfABy8opSfxHrB6rf3yOFPEbu7y5PhQNIWKU
+         VmTutxPNkkoiKDSpkncJvnkJFQwmVvW7URLO32DzJAwCJLhylZ01xV2rGM+Kp65FRQ/6
+         vnjvOORzRM7tBFDxdq1GuEdwrsm3we29ehVxJ0quxat5v06Nl6xeOGTCKH1YvdFFsEwZ
+         CCpdZVVrTlRs5N5+inllCjbKlrD/+YXa2QPEm+xBCthGx5OHKlJMHfxXUviTRUg3c3+B
+         /NFA==
+X-Gm-Message-State: AOJu0Yx4RptUiHO55PBTm+1TDoH/P3r4zwkjRnSRBw7PSQS9F69CnWqq
+	8xqXVTseyEPX8Oo5dTyRV+CWoA==
+X-Google-Smtp-Source: AGHT+IHMBi1+1x3Yt/bfrl9gyv/iDKPNW7+yCziyo+xCTBYWw/hNzj1p+tHsCVOZgnyBdWAdN+80eQ==
+X-Received: by 2002:a05:6a20:78a2:b0:186:2389:a73e with SMTP id d34-20020a056a2078a200b001862389a73emr933242pzg.55.1700622387226;
+        Tue, 21 Nov 2023 19:06:27 -0800 (PST)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id s2-20020aa78282000000b006a77343b0ccsm8614917pfm.89.2023.11.21.19.06.29
+        by smtp.gmail.com with ESMTPSA id s2-20020aa78282000000b006a77343b0ccsm8614917pfm.89.2023.11.21.19.06.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Nov 2023 19:06:29 -0800 (PST)
+        Tue, 21 Nov 2023 19:06:26 -0800 (PST)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Harry Wentland <harry.wentland@amd.com>,
@@ -77,16 +77,16 @@ Cc: linux-kernel@vger.kernel.org,
 	Daniel Vetter <daniel@ffwll.ch>,
 	amd-gfx@lists.freedesktop.org,
 	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH 3/3] drm/amd/display: Support DRM_AMD_DC_FP on RISC-V
-Date: Tue, 21 Nov 2023 19:05:15 -0800
-Message-ID: <20231122030621.3759313-4-samuel.holland@sifive.com>
+Subject: [PATCH 1/3] riscv: Add support for kernel-mode FPU
+Date: Tue, 21 Nov 2023 19:05:13 -0800
+Message-ID: <20231122030621.3759313-2-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.42.0
 In-Reply-To: <20231122030621.3759313-1-samuel.holland@sifive.com>
 References: <20231122030621.3759313-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231121_190631_687543_B7743880 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20231121_190630_335699_3425388A 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,100 +103,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISC-V uses kernel_fpu_begin()/kernel_fpu_end() like several other
-architectures. Enabling hardware FP requires overriding the ISA string
-for the relevant compilation units.
+This is needed to support recent hardware in the amdgpu DRM driver. The
+FPU code in that driver is not performance-critical, so only provide the
+minimal support.
 
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
- drivers/gpu/drm/amd/display/Kconfig            | 5 ++++-
- drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c | 6 ++++--
- drivers/gpu/drm/amd/display/dc/dml/Makefile    | 6 ++++++
- drivers/gpu/drm/amd/display/dc/dml2/Makefile   | 6 ++++++
- 4 files changed, 20 insertions(+), 3 deletions(-)
+ arch/riscv/include/asm/switch_to.h | 14 ++++++++++++++
+ arch/riscv/kernel/process.c        |  3 +++
+ 2 files changed, 17 insertions(+)
 
-diff --git a/drivers/gpu/drm/amd/display/Kconfig b/drivers/gpu/drm/amd/display/Kconfig
-index 901d1961b739..49b33b2f6701 100644
---- a/drivers/gpu/drm/amd/display/Kconfig
-+++ b/drivers/gpu/drm/amd/display/Kconfig
-@@ -8,7 +8,10 @@ config DRM_AMD_DC
- 	depends on BROKEN || !CC_IS_CLANG || ARM64 || RISCV || SPARC64 || X86_64
- 	select SND_HDA_COMPONENT if SND_HDA_CORE
- 	# !CC_IS_CLANG: https://github.com/ClangBuiltLinux/linux/issues/1752
--	select DRM_AMD_DC_FP if (X86 || LOONGARCH || (PPC64 && ALTIVEC) || (ARM64 && KERNEL_MODE_NEON && !CC_IS_CLANG))
-+	select DRM_AMD_DC_FP if ARM64 && KERNEL_MODE_NEON && !CC_IS_CLANG
-+	select DRM_AMD_DC_FP if PPC64 && ALTIVEC
-+	select DRM_AMD_DC_FP if RISCV && FPU
-+	select DRM_AMD_DC_FP if LOONGARCH || X86
- 	help
- 	  Choose this option if you want to use the new display engine
- 	  support for AMDGPU. This adds required support for Vega and
-diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c b/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
-index 4ae4720535a5..834dca0396f1 100644
---- a/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
-+++ b/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
-@@ -35,6 +35,8 @@
- #include <asm/neon.h>
- #elif defined(CONFIG_LOONGARCH)
- #include <asm/fpu.h>
-+#elif defined(CONFIG_RISCV)
-+#include <asm/switch_to.h>
- #endif
- 
- /**
-@@ -89,7 +91,7 @@ void dc_fpu_begin(const char *function_name, const int line)
- 	depth = __this_cpu_inc_return(fpu_recursion_depth);
- 
- 	if (depth == 1) {
--#if defined(CONFIG_X86) || defined(CONFIG_LOONGARCH)
-+#if defined(CONFIG_X86) || defined(CONFIG_LOONGARCH) || defined(CONFIG_RISCV)
- 		kernel_fpu_begin();
- #elif defined(CONFIG_PPC64)
- 		if (cpu_has_feature(CPU_FTR_VSX_COMP))
-@@ -122,7 +124,7 @@ void dc_fpu_end(const char *function_name, const int line)
- 
- 	depth = __this_cpu_dec_return(fpu_recursion_depth);
- 	if (depth == 0) {
--#if defined(CONFIG_X86) || defined(CONFIG_LOONGARCH)
-+#if defined(CONFIG_X86) || defined(CONFIG_LOONGARCH) || defined(CONFIG_RISCV)
- 		kernel_fpu_end();
- #elif defined(CONFIG_PPC64)
- 		if (cpu_has_feature(CPU_FTR_VSX_COMP))
-diff --git a/drivers/gpu/drm/amd/display/dc/dml/Makefile b/drivers/gpu/drm/amd/display/dc/dml/Makefile
-index ea7d60f9a9b4..5c8f840ef323 100644
---- a/drivers/gpu/drm/amd/display/dc/dml/Makefile
-+++ b/drivers/gpu/drm/amd/display/dc/dml/Makefile
-@@ -43,6 +43,12 @@ dml_ccflags := -mfpu=64
- dml_rcflags := -msoft-float
- endif
- 
-+ifdef CONFIG_RISCV
-+include $(srctree)/arch/riscv/Makefile.isa
-+# Remove V from the ISA string, like in arch/riscv/Makefile, but keep F and D.
-+dml_ccflags := -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)([^v_]*)v?/\1\2/')
-+endif
+diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
+index f90d8e42f3c7..4b15f1292fc4 100644
+--- a/arch/riscv/include/asm/switch_to.h
++++ b/arch/riscv/include/asm/switch_to.h
+@@ -63,6 +63,20 @@ static __always_inline bool has_fpu(void)
+ 	return riscv_has_extension_likely(RISCV_ISA_EXT_f) ||
+ 		riscv_has_extension_likely(RISCV_ISA_EXT_d);
+ }
 +
- ifdef CONFIG_CC_IS_GCC
- ifneq ($(call gcc-min-version, 70100),y)
- IS_OLD_GCC = 1
-diff --git a/drivers/gpu/drm/amd/display/dc/dml2/Makefile b/drivers/gpu/drm/amd/display/dc/dml2/Makefile
-index acff3449b8d7..15ad6e3a2173 100644
---- a/drivers/gpu/drm/amd/display/dc/dml2/Makefile
-+++ b/drivers/gpu/drm/amd/display/dc/dml2/Makefile
-@@ -42,6 +42,12 @@ dml2_ccflags := -mfpu=64
- dml2_rcflags := -msoft-float
- endif
- 
-+ifdef CONFIG_RISCV
-+include $(srctree)/arch/riscv/Makefile.isa
-+# Remove V from the ISA string, like in arch/riscv/Makefile, but keep F and D.
-+dml2_ccflags := -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)([^v_]*)v?/\1\2/')
-+endif
++static inline void kernel_fpu_begin(void)
++{
++	preempt_disable();
++	fstate_save(current, task_pt_regs(current));
++	csr_set(CSR_SSTATUS, SR_FS);
++}
 +
- ifdef CONFIG_CC_IS_GCC
- ifeq ($(call cc-ifversion, -lt, 0701, y), y)
- IS_OLD_GCC = 1
++static inline void kernel_fpu_end(void)
++{
++	csr_clear(CSR_SSTATUS, SR_FS);
++	fstate_restore(current, task_pt_regs(current));
++	preempt_enable();
++}
+ #else
+ static __always_inline bool has_fpu(void) { return false; }
+ #define fstate_save(task, regs) do { } while (0)
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index 4f21d970a129..6a18bc709d1c 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -225,3 +225,6 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ 	p->thread.sp = (unsigned long)childregs; /* kernel sp */
+ 	return 0;
+ }
++
++EXPORT_SYMBOL_GPL(__fstate_save);
++EXPORT_SYMBOL_GPL(__fstate_restore);
 -- 
 2.42.0
 
