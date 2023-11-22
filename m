@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84BF8C61D99
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 16:47:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 194BBC61DA7
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 16:47:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ljfXTjxdZdp3YcNV8WB807Kc7ZMJwaHnNiCG9BS/f+0=; b=gKlgFFvv0fg2SG
-	VxZWju7qP2FTFG51X5Hv5zzwn2hoZfWpVSNUkTcTfDlA3dlOld0fGl3twiU6v6Jw3DHsyWCHKDcb+
-	qG8xLLmWEy2RuunyNK1xUApkXxkt+icSGniKBmqUHyVnkRdIfcXovQPswIrD5zqnMxK4sM/rkJsU4
-	5RRZKkUBQkKl/iKOiBdetOwlItUdFObvafsBekx4eGCWGRmP/mddZR4vqQs5kZ/ntTUeYbbMJHTcO
-	DwmvbEtUCVXwn9lwKQeUnmVCVvLibk1SoFvuXD4UMcrXSnwu/y/o/dJfekvQHfNsK0BVt7tDRQ2rx
-	So88hQweS0/h1bS5IKFA==;
+	List-Owner; bh=NUjH/xvfJQ6zek06FaW2TifHv/u08YQ3/WGV2fSA2SU=; b=jEa20/cFTs5NRK
+	rkOnNaLrbvxSbIhiQM+trcqnIkdet7vJbLiy5yUyyJkgFQhFMo9qc/AOBRAAmmoOSQCwbkCRMQKsN
+	a5X0t2Rr0B5/y+/oyaeWlGProgGc6/TuC9v5ej4wC0uJvuMjmmSnpTqr3vv/mUI4Z+LL56f0CaTq8
+	uBGwjQYv6TfcFNp+4EJgDY2SniB6ydeEocK0bW0KEvxNPvitTMGYyRVT3I7fxGf6e20hsGWuo90sw
+	f+kloaclLcUfuNOnBqHLmQ1TgbxXOr3tRf+7xQ0XzGJcWayaQt0fQB0ADyKinUTpeN5H4NKwOhasE
+	IDaqR1pSMW+ngivf0qSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5qNf-002YMY-0v;
-	Wed, 22 Nov 2023 16:47:15 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1r5qNg-002YN7-1Z;
+	Wed, 22 Nov 2023 16:47:16 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5qNa-002YJ2-0z
+	id 1r5qNb-002YJA-0k
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Nov 2023 16:47:12 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-9c41e95efcbso969897366b.3
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Nov 2023 08:47:07 -0800 (PST)
+	Wed, 22 Nov 2023 16:47:13 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-54a94e68fb1so464207a12.0
+        for <linux-riscv@lists.infradead.org>; Wed, 22 Nov 2023 08:47:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1700671626; x=1701276426; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1700671627; x=1701276427; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=GbljvI7XqQABKl5lKNOqj01gq6pZViUPR2Urrs8FOnw=;
-        b=D386dJnhbU3KeMAkP09oqBeG7FUirzcfawlOywXY2RRCJT+D/wCmSc2VRId26ri7pd
-         9cYfMqrmBmomaJl7ESQjYQhAWV0HHDRWt+e8HVjifWxR8kmgVvH7lqhdZB/giJVorkvv
-         /dVv4kVB28MkKu/ytk6LqJwDN5u2tfvQsGAwLJUrGwyi9TY7+Aal/Fa/2I7nkN5lVequ
-         +l5oA5/yyfl1uKMPjmkUn/RI8V9DPbI4CZl99Kzm7/KyMqZiAtlzC+p9frxMGzvl1oYN
-         jMpiiVbABALecYUti2Ri/NgBROXspb//bwqg2JljsnEhOmw2BAUxu8/13S9LmWXqAaPq
-         /82Q==
+        bh=xW5hnIOVFV1bNWsYO0Gvhpn28ZI+z4I4pvjLzlVdAYE=;
+        b=YUUdyAM2T/b4BUGS50K9ujBJghi7SfT3HpfpjWKAKY8fgyZlQlkb25BZsd+TYpeLh+
+         EI6PdpZEIBiEAvgkihExPengGiipeAug2Tk3C1+EfM6GKZYvUuF9wAx2Rtv3P3hbSCt8
+         FDN4Dre+A5cGDVFmPwX2G7TXdbpdhpxvcsz+3CZeXvLmDpe9Z8aNXRzT11FlhG2k2D3R
+         Y0/RxMB4AcPu0D+k3wFtbPaJMMvMGlwnosTZAPOcuGqUqu9daTGUnhWfCHroBHLu84rp
+         ttCe4z8Wll4og7vYsfFPrA5oh4LvFVZNO8m/kQ7KVwwr4WE+O2RGd6dBoPhJnfBnlSxT
+         /LoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700671626; x=1701276426;
+        d=1e100.net; s=20230601; t=1700671627; x=1701276427;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=GbljvI7XqQABKl5lKNOqj01gq6pZViUPR2Urrs8FOnw=;
-        b=kCl+3QvEtL2GXyBUDeNqY/BmprRkqt7MPDeN4wHnd9EiIX1Lf9Qehpv5FDhSq/BsLR
-         jVc10dggyzU/r5zIQ1o9Tv2Gf50dd4hwQNiZWnap48JYwlZwBwYEZMLBLh/649Fb4iTj
-         TQT6pUe9E76sBnQWhJhiSNiXCrhNihvtysXtKjipVYasbINQlsH5+VTCI6o5uf+7yokq
-         h2/nTIg0m4WsN08W7cJUnxR50WmsCbILCoFRmmOl49QJKu3V+/oD4uFTBGkWeZBMk10M
-         gcaL5e+C9f83ehNvkGfS+5HwsQirQesOD8JOPyQXo2L+lUGdE7ewjQQrDdqhdLBuViyQ
-         8R2g==
-X-Gm-Message-State: AOJu0YyAk0aD+Ta5Srdt7bf5CRh1wSCie3Qe2eCo7DzONzrslFsWnEZ8
-	FyvFK59s+tbOPxmX6QCLmFSEMQIf3s+t4cL99MY=
-X-Google-Smtp-Source: AGHT+IHF0PoqBevIo+LgIHYTU50+X+azzG2E6K+R/GKIOJMQOu5zp0hv9S5ayPHlyesBfGbRSXcLbw==
-X-Received: by 2002:a17:906:5349:b0:a04:838e:861 with SMTP id j9-20020a170906534900b00a04838e0861mr1694806ejo.34.1700671626089;
-        Wed, 22 Nov 2023 08:47:06 -0800 (PST)
+        bh=xW5hnIOVFV1bNWsYO0Gvhpn28ZI+z4I4pvjLzlVdAYE=;
+        b=HO/khQ7RwzrTT/XQIaU9BG3OR4gWYrkXwqeRMjdQKLO4ASoRysfUebtIq+nkj4w5SJ
+         pXJM/JQD4+k0JFSvWTojiIZZqWDSfhuND7+q97y64vQu/H0sFQQ47EBS/TZI/z1ZHyBE
+         +ca/DnqUDx5ADC/JqjxljAN+c5tlg4Lm85a4LoLjA3GqB+71K9a/uaDuCfIsNvbT7RHn
+         D4xZmMlrQ0z8QlwfhgqFc23+bWW47+s8A2ovlZg1yqMHLshiUCk3DYa781NOP8wVHWHU
+         1GWJ/jO54Llw/DwZVJ70/WOHRiKNovTpsmtM/swjeQQKXrbAg+xzayU5BaLaz7UUV0h2
+         06tw==
+X-Gm-Message-State: AOJu0YyoTeEkslQYEJhJqrvZtrdi2EUqObEGT9+cXoGL+uAzqxAbgSJW
+	I9biuybQKP9dJ2zGgGcMbFncWbld6re+fnb//P8=
+X-Google-Smtp-Source: AGHT+IFKs3iNkpIg+1vd+99yodiRa+SNjk5MLZ/jiQPZwJK8EMei4JyXrGKBfj2tPDDq8dYnP+ZZ3Q==
+X-Received: by 2002:a17:906:224c:b0:9e5:1db7:3199 with SMTP id 12-20020a170906224c00b009e51db73199mr30956ejr.4.1700671627374;
+        Wed, 22 Nov 2023 08:47:07 -0800 (PST)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id d5-20020a170906344500b009ffb4af0505sm3536816ejb.104.2023.11.22.08.47.05
+        by smtp.gmail.com with ESMTPSA id k21-20020a1709063e1500b009fd4583851esm4584602eji.178.2023.11.22.08.47.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Nov 2023 08:47:05 -0800 (PST)
+        Wed, 22 Nov 2023 08:47:07 -0800 (PST)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: linux-riscv@lists.infradead.org
 Cc: paul.walmsley@sifive.com,
@@ -69,17 +69,18 @@ Cc: paul.walmsley@sifive.com,
 	aou@eecs.berkeley.edu,
 	evan@rivosinc.com,
 	conor.dooley@microchip.com,
-	apatel@ventanamicro.com
-Subject: [PATCH v3 3/4] RISC-V: hwprobe: Introduce which-cpus flag
-Date: Wed, 22 Nov 2023 17:47:04 +0100
-Message-ID: <20231122164700.127954-9-ajones@ventanamicro.com>
+	apatel@ventanamicro.com,
+	Palmer Dabbelt <palmer@rivosinc.com>
+Subject: [PATCH v3 4/4] RISC-V: selftests: Add which-cpus hwprobe test
+Date: Wed, 22 Nov 2023 17:47:05 +0100
+Message-ID: <20231122164700.127954-10-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.41.0
 In-Reply-To: <20231122164700.127954-6-ajones@ventanamicro.com>
 References: <20231122164700.127954-6-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231122_084710_344396_52CBC03C 
-X-CRM114-Status: GOOD (  23.90  )
+X-CRM114-CacheID: sfid-20231122_084711_285282_DE9A94F5 
+X-CRM114-Status: GOOD (  18.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,309 +97,197 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce the first flag for the hwprobe syscall. The flag basically
-reverses its behavior, i.e. instead of populating the values of keys
-for a given set of cpus, the set of cpus after the call is the result
-of finding a set which supports the values of the keys. In order to
-do this, we implement a pair compare function which takes the type of
-value (a single value vs. a bitmask of booleans) into consideration.
-We also implement vdso support for the new flag.
+Test the RISCV_HWPROBE_WHICH_CPUS flag of hwprobe. The test also
+has a command line interface in order to get the cpu list for
+arbitrary hwprobe pairs.
 
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
 Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- Documentation/arch/riscv/hwprobe.rst  | 17 ++++-
- arch/riscv/include/asm/hwprobe.h      | 24 +++++++
- arch/riscv/include/uapi/asm/hwprobe.h |  3 +
- arch/riscv/kernel/sys_hwprobe.c       | 94 +++++++++++++++++++++++++--
- arch/riscv/kernel/vdso/hwprobe.c      | 80 ++++++++++++++++++++---
- 5 files changed, 204 insertions(+), 14 deletions(-)
+ .../testing/selftests/riscv/hwprobe/Makefile  |   5 +-
+ .../selftests/riscv/hwprobe/which-cpus.c      | 154 ++++++++++++++++++
+ 2 files changed, 158 insertions(+), 1 deletion(-)
+ create mode 100644 tools/testing/selftests/riscv/hwprobe/which-cpus.c
 
-diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-index 132e9acaa8f4..12f9b0a043ac 100644
---- a/Documentation/arch/riscv/hwprobe.rst
-+++ b/Documentation/arch/riscv/hwprobe.rst
-@@ -25,8 +25,21 @@ arch, impl), the returned value will only be valid if all CPUs in the given set
- have the same value. Otherwise -1 will be returned. For boolean-like keys, the
- value returned will be a logical AND of the values for the specified CPUs.
- Usermode can supply NULL for ``cpus`` and 0 for ``cpusetsize`` as a shortcut for
--all online CPUs. There are currently no flags, this value must be zero for
--future compatibility.
-+all online CPUs. The currently supported flags are:
+diff --git a/tools/testing/selftests/riscv/hwprobe/Makefile b/tools/testing/selftests/riscv/hwprobe/Makefile
+index f224b84591fb..cec81610a5f2 100644
+--- a/tools/testing/selftests/riscv/hwprobe/Makefile
++++ b/tools/testing/selftests/riscv/hwprobe/Makefile
+@@ -4,7 +4,7 @@
+ 
+ CFLAGS += -I$(top_srcdir)/tools/include
+ 
+-TEST_GEN_PROGS := hwprobe cbo
++TEST_GEN_PROGS := hwprobe cbo which-cpus
+ 
+ include ../../lib.mk
+ 
+@@ -13,3 +13,6 @@ $(OUTPUT)/hwprobe: hwprobe.c sys_hwprobe.S
+ 
+ $(OUTPUT)/cbo: cbo.c sys_hwprobe.S
+ 	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
 +
-+* :c:macro:`RISCV_HWPROBE_WHICH_CPUS`: This flag basically reverses the behavior
-+  of sys_riscv_hwprobe().  Instead of populating the values of keys for a given
-+  set of CPUs, the values of each key are given and the set of CPUs is reduced
-+  by sys_riscv_hwprobe() to only those which match each of the key-value pairs.
-+  How matching is done depends on the key type.  For value-like keys, matching
-+  means to be the exact same as the value.  For boolean-like keys, matching
-+  means the result of a logical AND of the pair's value with the CPU's value is
-+  exactly the same as the pair's value.  Additionally, when ``cpus`` is an empty
-+  set, then it is initialized to all online CPUs which fit within it, i.e. the
-+  CPU set returned is the reduction of all the online CPUs which can be
-+  represented with a CPU set of size ``cpusetsize``.
++$(OUTPUT)/which-cpus: which-cpus.c sys_hwprobe.S
++	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
+diff --git a/tools/testing/selftests/riscv/hwprobe/which-cpus.c b/tools/testing/selftests/riscv/hwprobe/which-cpus.c
+new file mode 100644
+index 000000000000..82c121412dfc
+--- /dev/null
++++ b/tools/testing/selftests/riscv/hwprobe/which-cpus.c
+@@ -0,0 +1,154 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) 2023 Ventana Micro Systems Inc.
++ *
++ * Test the RISCV_HWPROBE_WHICH_CPUS flag of hwprobe. Also provides a command
++ * line interface to get the cpu list for arbitrary hwprobe pairs.
++ */
++#define _GNU_SOURCE
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#include <sched.h>
++#include <unistd.h>
++#include <assert.h>
 +
-+All other flags are reserved for future compatibility and must be zero.
- 
- On success 0 is returned, on failure a negative error code is returned.
- 
-diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
-index 5c48f48e79a6..630507dff5ea 100644
---- a/arch/riscv/include/asm/hwprobe.h
-+++ b/arch/riscv/include/asm/hwprobe.h
-@@ -15,4 +15,28 @@ static inline bool riscv_hwprobe_key_is_valid(__s64 key)
- 	return key >= 0 && key <= RISCV_HWPROBE_MAX_KEY;
- }
- 
-+static inline bool hwprobe_key_is_bitmask(__s64 key)
++#include "hwprobe.h"
++#include "../../kselftest.h"
++
++static void help(void)
 +{
-+	switch (key) {
-+	case RISCV_HWPROBE_KEY_BASE_BEHAVIOR:
-+	case RISCV_HWPROBE_KEY_IMA_EXT_0:
-+	case RISCV_HWPROBE_KEY_CPUPERF_0:
-+		return true;
++	printf("\n"
++	       "which-cpus: [-h] [<key=value> [<key=value> ...]]\n\n"
++	       "   Without parameters, tests the RISCV_HWPROBE_WHICH_CPUS flag of hwprobe.\n"
++	       "   With parameters, where each parameter is a hwprobe pair written as\n"
++	       "   <key=value>, outputs the cpulist for cpus which all match the given set\n"
++	       "   of pairs.  'key' and 'value' should be in numeric form, e.g. 4=0x3b\n");
++}
++
++static void print_cpulist(cpu_set_t *cpus)
++{
++	int start = 0, end = 0;
++
++	if (!CPU_COUNT(cpus)) {
++		printf("cpus: None\n");
++		return;
 +	}
 +
-+	return false;
-+}
++	printf("cpus:");
++	for (int i = 0, c = 0; i < CPU_COUNT(cpus); i++, c++) {
++		if (start != end && !CPU_ISSET(c, cpus))
++			printf("-%d", end);
 +
-+static inline bool riscv_hwprobe_pair_cmp(struct riscv_hwprobe *pair,
-+					  struct riscv_hwprobe *other_pair)
-+{
-+	if (pair->key != other_pair->key)
-+		return false;
++		while (!CPU_ISSET(c, cpus))
++			++c;
 +
-+	if (hwprobe_key_is_bitmask(pair->key))
-+		return (pair->value & other_pair->value) == other_pair->value;
-+
-+	return pair->value == other_pair->value;
-+}
-+
- #endif
-diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-index b659ffcfcdb4..7aa7d5c71e79 100644
---- a/arch/riscv/include/uapi/asm/hwprobe.h
-+++ b/arch/riscv/include/uapi/asm/hwprobe.h
-@@ -40,4 +40,7 @@ struct riscv_hwprobe {
- #define RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE	6
- /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
- 
-+/* Flags */
-+#define RISCV_HWPROBE_WHICH_CPUS	(1 << 0)
-+
- #endif
-diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-index c0ccf1f45aaa..b7cfb26ce31c 100644
---- a/arch/riscv/kernel/sys_hwprobe.c
-+++ b/arch/riscv/kernel/sys_hwprobe.c
-@@ -179,10 +179,10 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
- 	}
- }
- 
--static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
--			    size_t pair_count, size_t cpusetsize,
--			    unsigned long __user *cpus_user,
--			    unsigned int flags)
-+static int hwprobe_get_values(struct riscv_hwprobe __user *pairs,
-+			      size_t pair_count, size_t cpusetsize,
-+			      unsigned long __user *cpus_user,
-+			      unsigned int flags)
- {
- 	size_t out;
- 	int ret;
-@@ -236,6 +236,92 @@ static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
- 	return 0;
- }
- 
-+static int hwprobe_get_cpus(struct riscv_hwprobe __user *pairs,
-+			    size_t pair_count, size_t cpusetsize,
-+			    unsigned long __user *cpus_user,
-+			    unsigned int flags)
-+{
-+	cpumask_t cpus, one_cpu;
-+	bool clear_all = false;
-+	size_t i;
-+	int ret;
-+
-+	if (flags != RISCV_HWPROBE_WHICH_CPUS)
-+		return -EINVAL;
-+
-+	if (!cpusetsize || !cpus_user)
-+		return -EINVAL;
-+
-+	if (cpusetsize > cpumask_size())
-+		cpusetsize = cpumask_size();
-+
-+	ret = copy_from_user(&cpus, cpus_user, cpusetsize);
-+	if (ret)
-+		return -EFAULT;
-+
-+	if (cpumask_empty(&cpus))
-+		cpumask_copy(&cpus, cpu_online_mask);
-+
-+	cpumask_and(&cpus, &cpus, cpu_online_mask);
-+
-+	cpumask_clear(&one_cpu);
-+
-+	for (i = 0; i < pair_count; i++) {
-+		struct riscv_hwprobe pair, tmp;
-+		int cpu;
-+
-+		ret = copy_from_user(&pair, &pairs[i], sizeof(pair));
-+		if (ret)
-+			return -EFAULT;
-+
-+		if (!riscv_hwprobe_key_is_valid(pair.key)) {
-+			clear_all = true;
-+			pair = (struct riscv_hwprobe){ .key = -1, };
-+			ret = copy_to_user(&pairs[i], &pair, sizeof(pair));
-+			if (ret)
-+				return -EFAULT;
-+		}
-+
-+		if (clear_all)
++		if (i != 0 && c == end + 1) {
++			end = c;
 +			continue;
-+
-+		tmp = (struct riscv_hwprobe){ .key = pair.key, };
-+
-+		for_each_cpu(cpu, &cpus) {
-+			cpumask_set_cpu(cpu, &one_cpu);
-+
-+			hwprobe_one_pair(&tmp, &one_cpu);
-+
-+			if (!riscv_hwprobe_pair_cmp(&tmp, &pair))
-+				cpumask_clear_cpu(cpu, &cpus);
-+
-+			cpumask_clear_cpu(cpu, &one_cpu);
 +		}
++
++		printf("%c%d", i == 0 ? ' ' : ',', c);
++		start = end = c;
 +	}
-+
-+	if (clear_all)
-+		cpumask_clear(&cpus);
-+
-+	ret = copy_to_user(cpus_user, &cpus, cpusetsize);
-+	if (ret)
-+		return -EFAULT;
-+
-+	return 0;
++	if (start != end)
++		printf("-%d", end);
++	printf("\n");
 +}
 +
-+static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
-+			    size_t pair_count, size_t cpusetsize,
-+			    unsigned long __user *cpus_user,
-+			    unsigned int flags)
++static void do_which_cpus(int argc, char **argv, cpu_set_t *cpus)
 +{
-+	if (flags & RISCV_HWPROBE_WHICH_CPUS)
-+		return hwprobe_get_cpus(pairs, pair_count, cpusetsize,
-+					cpus_user, flags);
++	struct riscv_hwprobe *pairs;
++	int nr_pairs = argc - 1;
++	char *start, *end;
++	int rc;
 +
-+	return hwprobe_get_values(pairs, pair_count, cpusetsize,
-+				  cpus_user, flags);
++	pairs = malloc(nr_pairs * sizeof(struct riscv_hwprobe));
++	assert(pairs);
++
++	for (int i = 0; i < nr_pairs; i++) {
++		start = argv[i + 1];
++		pairs[i].key = strtol(start, &end, 0);
++		assert(end != start && *end == '=');
++		start = end + 1;
++		pairs[i].value = strtoul(start, &end, 0);
++		assert(end != start && *end == '\0');
++	}
++
++	rc = riscv_hwprobe(pairs, nr_pairs, sizeof(cpu_set_t), (unsigned long *)cpus, RISCV_HWPROBE_WHICH_CPUS);
++	assert(rc == 0);
++	print_cpulist(cpus);
++	free(pairs);
 +}
 +
- #ifdef CONFIG_MMU
- 
- static int __init init_hwprobe_vdso_data(void)
-diff --git a/arch/riscv/kernel/vdso/hwprobe.c b/arch/riscv/kernel/vdso/hwprobe.c
-index 026b7645c5ab..1e926e4b5881 100644
---- a/arch/riscv/kernel/vdso/hwprobe.c
-+++ b/arch/riscv/kernel/vdso/hwprobe.c
-@@ -3,6 +3,7 @@
-  * Copyright 2023 Rivos, Inc
-  */
- 
-+#include <linux/string.h>
- #include <linux/types.h>
- #include <vdso/datapage.h>
- #include <vdso/helpers.h>
-@@ -11,14 +12,9 @@ extern int riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
- 			 size_t cpusetsize, unsigned long *cpus,
- 			 unsigned int flags);
- 
--/* Add a prototype to avoid -Wmissing-prototypes warning. */
--int __vdso_riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
--			 size_t cpusetsize, unsigned long *cpus,
--			 unsigned int flags);
--
--int __vdso_riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
--			 size_t cpusetsize, unsigned long *cpus,
--			 unsigned int flags)
-+static int riscv_vdso_get_values(struct riscv_hwprobe *pairs, size_t pair_count,
-+				 size_t cpusetsize, unsigned long *cpus,
-+				 unsigned int flags)
- {
- 	const struct vdso_data *vd = __arch_get_vdso_data();
- 	const struct arch_vdso_data *avd = &vd->arch_data;
-@@ -50,3 +46,71 @@ int __vdso_riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
- 
- 	return 0;
- }
-+
-+static int riscv_vdso_get_cpus(struct riscv_hwprobe *pairs, size_t pair_count,
-+			       size_t cpusetsize, unsigned long *cpus,
-+			       unsigned int flags)
++int main(int argc, char **argv)
 +{
-+	const struct vdso_data *vd = __arch_get_vdso_data();
-+	const struct arch_vdso_data *avd = &vd->arch_data;
-+	struct riscv_hwprobe *p = pairs;
-+	struct riscv_hwprobe *end = pairs + pair_count;
-+	unsigned char *c = (unsigned char *)cpus;
-+	bool empty_cpus = true;
-+	bool clear_all = false;
-+	int i;
++	struct riscv_hwprobe pairs[2];
++	cpu_set_t cpus_aff, cpus;
++	__u64 ext0_all;
++	long rc;
 +
-+	if (!cpusetsize || !cpus)
-+		return -EINVAL;
++	rc = sched_getaffinity(0, sizeof(cpu_set_t), &cpus_aff);
++	assert(rc == 0);
 +
-+	for (i = 0; i < cpusetsize; i++) {
-+		if (c[i]) {
-+			empty_cpus = false;
-+			break;
-+		}
++	if (argc > 1) {
++		if (!strcmp(argv[1], "-h"))
++			help();
++		else
++			do_which_cpus(argc, argv, &cpus_aff);
++		return 0;
 +	}
 +
-+	if (empty_cpus || flags != RISCV_HWPROBE_WHICH_CPUS || !avd->homogeneous_cpus)
-+		return riscv_hwprobe(pairs, pair_count, cpusetsize, cpus, flags);
++	ksft_print_header();
++	ksft_set_plan(7);
 +
-+	while (p < end) {
-+		if (riscv_hwprobe_key_is_valid(p->key)) {
-+			struct riscv_hwprobe t = {
-+				.key = p->key,
-+				.value = avd->all_cpu_hwprobe_values[p->key],
-+			};
++	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, };
++	rc = riscv_hwprobe(pairs, 1, 0, NULL, 0);
++	assert(rc == 0 && pairs[0].key == RISCV_HWPROBE_KEY_BASE_BEHAVIOR &&
++	       pairs[0].value == RISCV_HWPROBE_BASE_BEHAVIOR_IMA);
 +
-+			if (!riscv_hwprobe_pair_cmp(&t, p))
-+				clear_all = true;
-+		} else {
-+			clear_all = true;
-+			p->key = -1;
-+			p->value = 0;
-+		}
-+		p++;
-+	}
++	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_IMA_EXT_0, };
++	rc = riscv_hwprobe(pairs, 1, 0, NULL, 0);
++	assert(rc == 0 && pairs[0].key == RISCV_HWPROBE_KEY_IMA_EXT_0);
++	ext0_all = pairs[0].value;
 +
-+	if (clear_all) {
-+		for (i = 0; i < cpusetsize; i++)
-+			c[i] = 0;
-+	}
++	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, .value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA, };
++	CPU_ZERO(&cpus);
++	rc = riscv_hwprobe(pairs, 1, 0, (unsigned long *)&cpus, RISCV_HWPROBE_WHICH_CPUS);
++	ksft_test_result(rc == -EINVAL, "no cpusetsize\n");
 +
-+	return 0;
-+}
++	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, .value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA, };
++	rc = riscv_hwprobe(pairs, 1, sizeof(cpu_set_t), NULL, RISCV_HWPROBE_WHICH_CPUS);
++	ksft_test_result(rc == -EINVAL, "NULL cpus\n");
 +
-+/* Add a prototype to avoid -Wmissing-prototypes warning. */
-+int __vdso_riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
-+			 size_t cpusetsize, unsigned long *cpus,
-+			 unsigned int flags);
++	pairs[0] = (struct riscv_hwprobe){ .key = 0xbadc0de, };
++	CPU_ZERO(&cpus);
++	rc = riscv_hwprobe(pairs, 1, sizeof(cpu_set_t), (unsigned long *)&cpus, RISCV_HWPROBE_WHICH_CPUS);
++	ksft_test_result(rc == 0 && CPU_COUNT(&cpus) == 0, "unknown key\n");
 +
-+int __vdso_riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
-+			 size_t cpusetsize, unsigned long *cpus,
-+			 unsigned int flags)
-+{
-+	if (flags & RISCV_HWPROBE_WHICH_CPUS)
-+		return riscv_vdso_get_cpus(pairs, pair_count, cpusetsize,
-+					   cpus, flags);
++	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, .value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA, };
++	pairs[1] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, .value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA, };
++	CPU_ZERO(&cpus);
++	rc = riscv_hwprobe(pairs, 2, sizeof(cpu_set_t), (unsigned long *)&cpus, RISCV_HWPROBE_WHICH_CPUS);
++	ksft_test_result(rc == 0, "duplicate keys\n");
 +
-+	return riscv_vdso_get_values(pairs, pair_count, cpusetsize,
-+				     cpus, flags);
++	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, .value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA, };
++	pairs[1] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_IMA_EXT_0, .value = ext0_all, };
++	CPU_ZERO(&cpus);
++	rc = riscv_hwprobe(pairs, 2, sizeof(cpu_set_t), (unsigned long *)&cpus, RISCV_HWPROBE_WHICH_CPUS);
++	ksft_test_result(rc == 0 && CPU_COUNT(&cpus) == sysconf(_SC_NPROCESSORS_ONLN), "set all cpus\n");
++
++	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, .value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA, };
++	pairs[1] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_IMA_EXT_0, .value = ext0_all, };
++	memcpy(&cpus, &cpus_aff, sizeof(cpu_set_t));
++	rc = riscv_hwprobe(pairs, 2, sizeof(cpu_set_t), (unsigned long *)&cpus, RISCV_HWPROBE_WHICH_CPUS);
++	ksft_test_result(rc == 0 && CPU_EQUAL(&cpus, &cpus_aff), "set all affinity cpus\n");
++
++	pairs[0] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_BASE_BEHAVIOR, .value = RISCV_HWPROBE_BASE_BEHAVIOR_IMA, };
++	pairs[1] = (struct riscv_hwprobe){ .key = RISCV_HWPROBE_KEY_IMA_EXT_0, .value = ~ext0_all, };
++	memcpy(&cpus, &cpus_aff, sizeof(cpu_set_t));
++	rc = riscv_hwprobe(pairs, 2, sizeof(cpu_set_t), (unsigned long *)&cpus, RISCV_HWPROBE_WHICH_CPUS);
++	ksft_test_result(rc == 0 && CPU_COUNT(&cpus) == 0, "clear all cpus\n");
++
++	ksft_finished();
 +}
 -- 
 2.41.0
