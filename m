@@ -4,100 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9855C61D97
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 17:38:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A142C61D97
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 17:46:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kjWrmdW4WtIoWXFiExLZKFHrC9I2UGoKAm04GD+NPqg=; b=DIQ/OznWwR2U7p
-	yxenjzu9fAG925rqmhi1ZPfJV2MLfX8yuYh9HenFcQWi+FxwLtvxU7a/gXs9U0UgikCE+XBGyjlLR
-	X9y9aESE+m0JqS0ZPUWTcVXolVAZg4fT+LmYyVWDkO4uA/N8Y7zl1c/4poDJm/2C71O29+6jP8IGq
-	VztXl3KVJ6ZyrzqPO/6oPuajoIywHdY7qTScAkyWJfckN+wKzb+l1EpMSuGZkBW49ir2t19iee5EF
-	Z+LAjQo9rPuEBToD8sjqZPtVAFJqWwhJ8JpTSaOFJ7wI+8B3cndNS0mRoaag9k7Ji8ui2G3pHqMSB
-	hZ0jlMKvkFyo/I6Rzdyg==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=v14pzS6C+kJpEhpbDDz6ZNXnIwFOciinKuDhaov+eLs=; b=JZ8aERsg+dFZU8
+	UGTiJfeJfWNG3NdapC2eZ+a1A+7tx+JOBBmmiEd0rvgJus8AZgCFlJnXJEMQT236Fdha3z/Jt2k+p
+	y0VstexNDS7xY6FPWXnP3oF00CQWzquVExUNvGqMzCXZT2lpbBSZhvmS8+MkOnsCgB+b9B9cUWS3+
+	PXQLLaO7PmHmJeswOgvVFhPKpMF9Q7F2ejA1RHE39lUAv8H+VOt1rvgyAMUGcKQCSCaz3qMJFmIPK
+	rQ02XQJ6dnzovdH9bnI5q/3zqmlgcOhqkF0pReu6nE81OC77jKqtqyDjSJmP4CCBQlA/cIG+wc+1H
+	2ry3k2QcpRp60l96IXaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5rAq-002hHg-3D;
-	Wed, 22 Nov 2023 17:38:05 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1r5rJ5-002j7G-0o;
+	Wed, 22 Nov 2023 17:46:35 +0000
+Received: from mail-yb1-f182.google.com ([209.85.219.182])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5rAo-002hEH-0D
-	for linux-riscv@lists.infradead.org;
-	Wed, 22 Nov 2023 17:38:03 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1cf50cc2f85so37678495ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Nov 2023 09:37:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1700674661; x=1701279461; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YB+axD1Vcc97GiHQ3MbqEUMAVWCgEbLU/Yl6K+bGqgI=;
-        b=hGeKwMC2xoHf44QjUyD24tmmTHA2PsVayXbcb5zO2ZPQzQAeb18oI8+RAUC5fKpj78
-         jbgOfgb8thWGaCfN9oqL9+JmY3htGlCZ4dDkmYnAGqML3XnxYu6n1dqVNhkN0YpDNWNa
-         OOgx7bitt/p9wIFNO9KU3gd2KBuBbV5oJBdc93IGFaFdkQzD16DUpYcFlmmhz5Zw0Q9c
-         cNANTWo5Hrqx44RylHNKFBrxVTs6Vb0roLLNH3bL+UeZAK+hZuJaaZkGeLpDTLaurnrl
-         1Dm9VuQAV/vMhKKG6xhu07KvCdCvqiMiKztyX8dHzY3fLfn4h6L0O8LlYZJYX+C0wgNq
-         E4ew==
+	id 1r5qDQ-002VO5-0I;
+	Wed, 22 Nov 2023 16:36:43 +0000
+Received: by mail-yb1-f182.google.com with SMTP id 3f1490d57ef6-da3b4b7c6bdso6832836276.2;
+        Wed, 22 Nov 2023 08:36:39 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700674661; x=1701279461;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1700670999; x=1701275799;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=YB+axD1Vcc97GiHQ3MbqEUMAVWCgEbLU/Yl6K+bGqgI=;
-        b=F3/r2EQYbmYoy4PNya25MfBep5j8huPFAEsJq0DkmzMrpDS5H8YEiTu4hBO3bztQrp
-         BJp+loc/a75RLF7VTJF2LmiRpcUBAaBHtrJWrAOW/gMadiOwNyAEc+c2jjE8SHshFIj4
-         GuDiullM+sIieWgklL8qTn0ld4dLR/KcE9P3mzkM0e/KX3LmlSToHO2eaNrHz99O8P3d
-         22Zt6V3yDpRF5t7dTM7eQ8XkVrp3HV1jx64cVZRR6LpvXST1+SFOuh9lXkDjk7TyinV1
-         BIB2e6kteqiZTjFJwBcuPkaLLihICCZNW8jIEKTmvbCWE/vhTgruN1xoGVC9Z+nyVIAb
-         i6gA==
-X-Gm-Message-State: AOJu0Yw7AfUG+9yV3VYJSdiAaNdN0jkjXMUmjNLowEsjm0cJ4IeHAosx
-	pAK9Z++g7hNQQddicPkUeDsrGw==
-X-Google-Smtp-Source: AGHT+IF46NJ+qL5ZN5PT+NT5x4N0gK+lFvsXp00qpP0ZTSDTMzWCcTLDobwk4fc21ZcVVM0Kfc+aRw==
-X-Received: by 2002:a17:902:bd06:b0:1cc:3544:ea41 with SMTP id p6-20020a170902bd0600b001cc3544ea41mr2553752pls.46.1700674661156;
-        Wed, 22 Nov 2023 09:37:41 -0800 (PST)
-Received: from ?IPv6:2402:7500:4ce:5a5b:a845:b3e1:8307:922c? ([2402:7500:4ce:5a5b:a845:b3e1:8307:922c])
-        by smtp.gmail.com with ESMTPSA id 19-20020a170902c11300b001bc6e6069a6sm8165114pli.122.2023.11.22.09.37.36
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 22 Nov 2023 09:37:40 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.7\))
-Subject: Re: [PATCH 12/12] RISC-V: crypto: add Zvkb accelerated ChaCha20
- implementation
-From: Jerry Shih <jerry.shih@sifive.com>
-In-Reply-To: <20231121-knelt-resource-5d71c9246015@wendy>
-Date: Thu, 23 Nov 2023 01:37:33 +0800
-Cc: Eric Biggers <ebiggers@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- palmer@dabbelt.com,
- Albert Ou <aou@eecs.berkeley.edu>,
- herbert@gondor.apana.org.au,
- davem@davemloft.net,
- andy.chiu@sifive.com,
- greentime.hu@sifive.com,
- guoren@kernel.org,
- bjorn@rivosinc.com,
- heiko@sntech.de,
- ardb@kernel.org,
- phoebe.chen@sifive.com,
- hongrong.hsu@sifive.com,
- linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- linux-crypto@vger.kernel.org
-Message-Id: <3BDE7B86-0078-4C77-A383-1C83C88E44DA@sifive.com>
-References: <20231025183644.8735-1-jerry.shih@sifive.com>
- <20231025183644.8735-13-jerry.shih@sifive.com>
- <20231102054327.GH1498@sol.localdomain>
- <90E2B1B4-ACC1-4316-81CD-E919D3BD03BA@sifive.com>
- <20231120191856.GA964@sol.localdomain>
- <9724E3A5-F43C-4239-9031-2B33B72C4EF4@sifive.com>
- <20231121-knelt-resource-5d71c9246015@wendy>
-To: Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: Apple Mail (2.3445.9.7)
+        bh=YnNltyNH2Qapz/Qt/SgTE3LNVbUWrueMgIGKLwuGujM=;
+        b=wD6A/2ewjR7zWxZqwALpF7riJPjiA2nxScvzDtyMfhjcL0WaQrr5R0qJ22EXNbyqbD
+         tOzCm6c5Yfpesu2Q0oSnsQVLytGNW7e91JJ4JVK2DSDbgTrvYQKOBI40zNta8zVDHiY1
+         1ITSRPvBpNAn1XB6FYMpJQN8TxEK6UVCFR40/78A6cW8pmgCba0itbvT2fbQPV5RRR1e
+         sbIY0zgI4hGNbLEz+6KtcpO64fu6AJOHo0Wupvp45ayXW14leOdJJ4UCZDX21uqiUVEU
+         EZ3rnxtFiqYIm13l9NIfNoZ9q/dBSXpf73YJSJDMpClXdbsGU2p3Xfli0/Dbf1Gj6rgX
+         THgA==
+X-Gm-Message-State: AOJu0YzDspRi36gV0ueZgxutz07xgyNgWQKWIva6ENrAXYOKEA6JejYf
+	5Y4FC3rrXjljz1FCRZxFMBMs6iEY9mS1LA==
+X-Google-Smtp-Source: AGHT+IEtat1g4d6DfbRRdiw+tDc68ZcPruPScIe6eYjbiz8n6qHy1QvckrP1zHa6dezf87xIjyrHCg==
+X-Received: by 2002:a25:8748:0:b0:d91:b6e5:54dd with SMTP id e8-20020a258748000000b00d91b6e554ddmr2674970ybn.3.1700670998799;
+        Wed, 22 Nov 2023 08:36:38 -0800 (PST)
+Received: from mail-yw1-f172.google.com (mail-yw1-f172.google.com. [209.85.128.172])
+        by smtp.gmail.com with ESMTPSA id 67-20020a250646000000b00d0b0bbe574asm1463592ybg.44.2023.11.22.08.36.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 22 Nov 2023 08:36:38 -0800 (PST)
+Received: by mail-yw1-f172.google.com with SMTP id 00721157ae682-5c85e8fdd2dso55845117b3.2;
+        Wed, 22 Nov 2023 08:36:38 -0800 (PST)
+X-Received: by 2002:a0d:d78f:0:b0:5a8:22b5:399c with SMTP id
+ z137-20020a0dd78f000000b005a822b5399cmr3089413ywd.24.1700670998325; Wed, 22
+ Nov 2023 08:36:38 -0800 (PST)
+MIME-Version: 1.0
+References: <20231122121235.827122-1-peterlin@andestech.com> <20231122121235.827122-6-peterlin@andestech.com>
+In-Reply-To: <20231122121235.827122-6-peterlin@andestech.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 22 Nov 2023 17:36:24 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVL9_VQ7e7-Cr7vcFWqpCTeptczZmgWN4seENcJKTi0eQ@mail.gmail.com>
+Message-ID: <CAMuHMdVL9_VQ7e7-Cr7vcFWqpCTeptczZmgWN4seENcJKTi0eQ@mail.gmail.com>
+Subject: Re: [PATCH v4 05/13] riscv: dts: renesas: r9a07g043f: Update
+ compatible string to use Andes INTC
+To: Yu Chien Peter Lin <peterlin@andestech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231122_093802_103096_235DEB56 
-X-CRM114-Status: GOOD (  23.67  )
+X-CRM114-CacheID: sfid-20231122_083640_144769_1361E007 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,74 +78,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: mark.rutland@arm.com, irogers@google.com, heiko@sntech.de, alexander.shishkin@linux.intel.com, paul.walmsley@sifive.com, linux-kernel@vger.kernel.org, conor.dooley@microchip.com, guoren@kernel.org, jszhang@kernel.org, linux-riscv@lists.infradead.org, will@kernel.org, linux-renesas-soc@vger.kernel.org, tim609@andestech.com, krzysztof.kozlowski+dt@linaro.org, samuel@sholland.org, anup@brainfault.org, dminus@andestech.com, magnus.damm@gmail.com, jernej.skrabec@gmail.com, peterz@infradead.org, wens@csie.org, mingo@redhat.com, inochiama@outlook.com, linux-sunxi@lists.linux.dev, ajones@ventanamicro.com, devicetree@vger.kernel.org, conor+dt@kernel.org, aou@eecs.berkeley.edu, andre.przywara@arm.com, locus84@andestech.com, acme@kernel.org, prabhakar.mahadev-lad.rj@bp.renesas.com, robh+dt@kernel.org, atishp@atishpatra.org, namhyung@kernel.org, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, ycliang@andestech.com, n.shubin@yadro.com, rdunlap@infradead.org, adrian.hunter@intel.com, conor@kernel.org, linux-perf-users@vger.kernel.org, evan@rivosinc.com, palmer@dabbelt.com, jolsa@kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Nov 21, 2023, at 21:14, Conor Dooley <conor.dooley@microchip.com> wrote:
-> On Tue, Nov 21, 2023 at 06:55:07PM +0800, Jerry Shih wrote:
->> Sorry, I just use my `internal` qemu with vector-crypto and rva22 patches.
->> 
->> The public qemu haven't supported rva22 profiles. Here is the qemu patch[1] for
->> that. But here is the discussion why the qemu doesn't export these
->> `named extensions`(e.g. Zicclsm).
->> I try to add Zicclsm in DT in the v2 patch set. Maybe we will have more discussion
->> about the rva22 profiles in kernel DT.
-> 
-> Please do, that'll be fun! Please take some time to read what the
-> profiles spec actually defines Zicclsm fore before you send those patches
-> though. I think you might come to find you have misunderstood what it
-> means - certainly I did the first time I saw it!
-
-From the rva22 profile:
-  This requires misaligned support for all regular load and store instructions (including
-  scalar and ``vector``)
-
-The spec includes the explicit `vector` keyword.
-So, I still think we could use Zicclsm checking for these vector-crypto implementations.
-
-My proposed patch is just a simple patch which only update the DT document and
-update the isa string parser for Zicclsm. If it's still not recommend to use Zicclsm
-checking, I will turn to use `RISCV_HWPROBE_MISALIGNED_*` instead.
-
->> [1]
->> LINK: https://lore.kernel.org/all/d1d6f2dc-55b2-4dce-a48a-4afbbf6df526@ventanamicro.com/#t
->> 
->> I don't know whether it's a good practice to check unaligned access using
->> `Zicclsm`. 
->> 
->> Here is another related cpu feature for unaligned access:
->> RISCV_HWPROBE_MISALIGNED_*
->> But it looks like it always be initialized with `RISCV_HWPROBE_MISALIGNED_SLOW`[2].
->> It implies that linux kernel always supports unaligned access. But we have the
->> actual HW which doesn't support unaligned access for vector unit.
-> 
-> https://docs.kernel.org/arch/riscv/uabi.html#misaligned-accesses
-> 
-> Misaligned accesses are part of the user ABI & the hwprobe stuff for
-> that allows userspace to figure out whether they're fast (likely
-> implemented in hardware), slow (likely emulated in firmware) or emulated
-> in the kernel.
-
-The HWPROBE_MISALIGNED_* checking function is at:
-https://github.com/torvalds/linux/blob/c2d5304e6c648ebcf653bace7e51e0e6742e46c8/arch/riscv/kernel/cpufeature.c#L564-L647
-The tests are all scalar. No `vector` test inside. So, I'm not sure the
-HWPROBE_MISALIGNED_* is related to vector unit or not.
-
-The goal is to check whether `vector` support unaligned access or not
-in this crypto patch.
-
-I haven't seen the emulated path for unaligned-vector-access in OpenSBI
-and kernel. Is the unaligned-vector-access included in user ABI?
-
-Thanks,
-Jerry
-
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBOb3YgMjIsIDIwMjMgYXQgMToxNuKAr1BNIFl1IENoaWVuIFBldGVyIExpbgo8cGV0
+ZXJsaW5AYW5kZXN0ZWNoLmNvbT4gd3JvdGU6Cj4gVGhlIEFuZGVzIGhhcnQtbGV2ZWwgaW50ZXJy
+dXB0IGNvbnRyb2xsZXIgKEFuZGVzIElOVEMpIGFsbG93cyBBWDQ1TVAKPiBjb3JlcyB0byBoYW5k
+bGUgY3VzdG9tIGxvY2FsIGludGVycnVwdHMsIHN1Y2ggYXMgdGhlIHBlcmZvcm1hbmNlCj4gY291
+bnRlciBvdmVyZmxvdyBpbnRlcnJ1cHQuCj4KPiBTaWduZWQtb2ZmLWJ5OiBZdSBDaGllbiBQZXRl
+ciBMaW4gPHBldGVybGluQGFuZGVzdGVjaC5jb20+CgpSZXZpZXdlZC1ieTogR2VlcnQgVXl0dGVy
+aG9ldmVuIDxnZWVydCtyZW5lc2FzQGdsaWRlci5iZT4KCkdye29ldGplLGVldGluZ31zLAoKICAg
+ICAgICAgICAgICAgICAgICAgICAgR2VlcnQKCi0tIApHZWVydCBVeXR0ZXJob2V2ZW4gLS0gVGhl
+cmUncyBsb3RzIG9mIExpbnV4IGJleW9uZCBpYTMyIC0tIGdlZXJ0QGxpbnV4LW02OGsub3JnCgpJ
+biBwZXJzb25hbCBjb252ZXJzYXRpb25zIHdpdGggdGVjaG5pY2FsIHBlb3BsZSwgSSBjYWxsIG15
+c2VsZiBhIGhhY2tlci4gQnV0CndoZW4gSSdtIHRhbGtpbmcgdG8gam91cm5hbGlzdHMgSSBqdXN0
+IHNheSAicHJvZ3JhbW1lciIgb3Igc29tZXRoaW5nIGxpa2UgdGhhdC4KICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAtLSBMaW51cyBUb3J2YWxkcwoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
