@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90229C61D9C
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 12:17:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23D0CC61D9B
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Nov 2023 12:17:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=fkHyhnhtbPcj1MxjjIbt46NfMtPJGFdaGM90tt9lnH8=; b=GW7ZI2e0D7Wsmx
-	kgZLCze7hGLZ9nfUiUo3b2LLxU5JfJYrk4TDv9dEmJAuP986RRkyoQ0CZZVUfZlN5qLGae9V1GgGO
-	Cjkto43N8o04twThNcFCaVRacr6TwvoDBykOwg/PzDJoMaqUhXhSO4SRfGMm2snIPUhGy3v4RQ4HE
-	Bjna1JRkca041R7Ba5tWmtjgvSpU7L2NQE0DEx3VKB0oF5euZL8fdT1MzgRrtZlgJo01pR4yTLPm9
-	TyViqVjoZsdk+9nn26g0mARUKQ/B2FDochCWdUiZ0jTNnpkOiOmiGE6xOcvOKczIk2NO040JRjA1P
-	k9x4OIe1e0JwXAm3I19w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ae0ZSNpE0IRDWOtwAxgFQlTXiSBW5JejqJ3I78h/hd8=; b=DCE48ujcoqz0Rg
+	HwSuYeByfxDTTdkG5hx44cI716DhLWwlkMIldW6f0At/cNjiyquaOWlox25D+tvfN4YnkbMrgHQlg
+	fSYJ3iihIW8WCl03aoiBQrPcTGc0V3ijKkLbCxzviqes308K07TCX84CgqWIJNEzLWCoNgt/Y3c96
+	Mah68DBT39YlOXznKEnZaEMuL5g8oDuRIgF0XbfKHWj3cuM8/siDVsU6u0M7pf+9GLOvE2087PXdb
+	RBMwGcGuD/fvFZDslbLAtmMwjqPcr2JtcIMj0uURon5YqyTAnhxmUujXFD5oZxarEEsuReiV4LD5j
+	iltduxYoaA3de3Li3knw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5mAw-001kpJ-2q;
-	Wed, 22 Nov 2023 12:17:50 +0000
+	id 1r5mB1-001ksI-1D;
+	Wed, 22 Nov 2023 12:17:55 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5mAh-001kgl-16;
-	Wed, 22 Nov 2023 12:17:38 +0000
+	id 1r5mAk-001kiK-0z;
+	Wed, 22 Nov 2023 12:17:40 +0000
 Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 3AMCG3fV024992;
-	Wed, 22 Nov 2023 20:16:03 +0800 (+08)
+	by Atcsqr.andestech.com with ESMTP id 3AMCGXpi025125;
+	Wed, 22 Nov 2023 20:16:33 +0800 (+08)
 	(envelope-from peterlin@andestech.com)
 Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS16.andestech.com
  (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Wed, 22 Nov 2023
- 20:16:01 +0800
+ 20:16:29 +0800
 From: Yu Chien Peter Lin <peterlin@andestech.com>
 To: <acme@kernel.org>, <adrian.hunter@intel.com>, <ajones@ventanamicro.com>,
         <alexander.shishkin@linux.intel.com>, <andre.przywara@arm.com>,
@@ -56,17 +56,20 @@ To: <acme@kernel.org>, <adrian.hunter@intel.com>, <ajones@ventanamicro.com>,
         <sunilvl@ventanamicro.com>, <tglx@linutronix.de>,
         <tim609@andestech.com>, <uwu@icenowy.me>, <wens@csie.org>,
         <will@kernel.org>, <ycliang@andestech.com>, <inochiama@outlook.com>
-Subject: [PATCH v4 00/13] Support Andes PMU extension
-Date: Wed, 22 Nov 2023 20:12:22 +0800
-Message-ID: <20231122121235.827122-1-peterlin@andestech.com>
+Subject: [PATCH v4 06/13] perf: RISC-V: Eliminate redundant interrupt enable/disable operations
+Date: Wed, 22 Nov 2023 20:12:28 +0800
+Message-ID: <20231122121235.827122-7-peterlin@andestech.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20231122121235.827122-1-peterlin@andestech.com>
+References: <20231122121235.827122-1-peterlin@andestech.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.0.15.183]
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 3AMCG3fV024992
+X-MAIL: Atcsqr.andestech.com 3AMCGXpi025125
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231122_041735_839798_00513E92 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20231122_041738_834019_F41167C8 
+X-CRM114-Status: UNSURE (   8.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,75 +86,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+The interrupt enable/disable operations are already performed by the
+IRQ chip functions riscv_intc_irq_unmask()/riscv_intc_irq_mask() during
+enable_percpu_irq()/disable_percpu_irq(). We can just do it once.
 
-This patch series introduces the Andes PMU extension, which serves
-the same purpose as Sscofpmf. To use FDT-based probing the hardware
-support of the PMU extension, instead of adding another CPU errata,
-we have converted T-Head's PMU alternative along with this series.
+Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
+---
+This patch allows us to drop unnecessary ALT_SBI_PMU_OVF_{DISABLE,ENABLE}
+in the last PATCH3 [1].
 
-Its non-standard local interrupt is assigned to bit 18 in the
-custom S-mode local interrupt enable/pending registers (slie/slip),
-while the interrupt cause is (256 + 18).
+[1] https://patchwork.kernel.org/project/linux-riscv/patch/20230907021635.1002738-4-peterlin@andestech.com/
 
-The feature needs the PMU device registered in OpenSBI.
-The OpenSBI and Linux patches can be found on Andes Technology GitHub
-- https://github.com/andestech/opensbi/commits/andes-pmu-support-v3
-- https://github.com/andestech/linux/commits/andes-pmu-support-v4
+Changes v1 -> v2:
+  - New patch
+Changes v2 -> v3:
+  - No change
+Changes v3 -> v4:
+  - No change
+---
+ drivers/perf/riscv_pmu_sbi.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-The PMU device tree node used on AX45MP:
-- https://github.com/andestech/opensbi/blob/andes-pmu-support-v3/docs/pmu_support.md#example-3
-
-Tested hardware:
-- ASUS  Tinker-V (RZ/Five, AX45MP single core)
-- Andes AE350    (AX45MP quad core)
-
-Locus Wei-Han Chen (1):
-  riscv: andes: Support symbolic FW and HW raw events
-
-Yu Chien Peter Lin (12):
-  riscv: errata: Rename defines for Andes
-  irqchip/riscv-intc: Allow large non-standard interrupt number
-  irqchip/riscv-intc: Introduce Andes hart-level interrupt controller
-  dt-bindings: riscv: Add Andes interrupt controller compatible string
-  riscv: dts: renesas: r9a07g043f: Update compatible string to use Andes
-    INTC
-  perf: RISC-V: Eliminate redundant interrupt enable/disable operations
-  RISC-V: Move T-Head PMU to CPU feature alternative framework
-  perf: RISC-V: Introduce Andes PMU for perf event sampling
-  dt-bindings: riscv: Add T-Head PMU extension description
-  dt-bindings: riscv: Add Andes PMU extension description
-  riscv: dts: allwinner: Add T-Head PMU extension
-  riscv: dts: renesas: Add Andes PMU extension
-
- .../devicetree/bindings/riscv/cpus.yaml       |   6 +-
- .../devicetree/bindings/riscv/extensions.yaml |  13 ++
- arch/riscv/Kconfig.errata                     |  13 --
- arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi |   2 +-
- arch/riscv/boot/dts/renesas/r9a07g043f.dtsi   |   4 +-
- arch/riscv/errata/andes/errata.c              |  10 +-
- arch/riscv/errata/thead/errata.c              |  19 ---
- arch/riscv/include/asm/errata_list.h          |  19 +--
- arch/riscv/include/asm/hwcap.h                |   2 +
- arch/riscv/include/asm/vendorid_list.h        |   2 +-
- arch/riscv/kernel/alternative.c               |   2 +-
- arch/riscv/kernel/cpufeature.c                |   2 +
- drivers/irqchip/irq-riscv-intc.c              |  61 +++++++--
- drivers/perf/Kconfig                          |  27 ++++
- drivers/perf/riscv_pmu_sbi.c                  |  47 +++++--
- include/linux/soc/andes/irq.h                 |  17 +++
- .../arch/riscv/andes/ax45/firmware.json       |  68 ++++++++++
- .../arch/riscv/andes/ax45/instructions.json   | 127 ++++++++++++++++++
- .../arch/riscv/andes/ax45/memory.json         |  57 ++++++++
- .../arch/riscv/andes/ax45/microarch.json      |  77 +++++++++++
- tools/perf/pmu-events/arch/riscv/mapfile.csv  |   1 +
- 21 files changed, 495 insertions(+), 81 deletions(-)
- create mode 100644 include/linux/soc/andes/irq.h
- create mode 100644 tools/perf/pmu-events/arch/riscv/andes/ax45/firmware.json
- create mode 100644 tools/perf/pmu-events/arch/riscv/andes/ax45/instructions.json
- create mode 100644 tools/perf/pmu-events/arch/riscv/andes/ax45/memory.json
- create mode 100644 tools/perf/pmu-events/arch/riscv/andes/ax45/microarch.json
-
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 16acd4dcdb96..2edbc37abadf 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -781,7 +781,6 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
+ 	if (riscv_pmu_use_irq) {
+ 		cpu_hw_evt->irq = riscv_pmu_irq;
+ 		csr_clear(CSR_IP, BIT(riscv_pmu_irq_num));
+-		csr_set(CSR_IE, BIT(riscv_pmu_irq_num));
+ 		enable_percpu_irq(riscv_pmu_irq, IRQ_TYPE_NONE);
+ 	}
+ 
+@@ -792,7 +791,6 @@ static int pmu_sbi_dying_cpu(unsigned int cpu, struct hlist_node *node)
+ {
+ 	if (riscv_pmu_use_irq) {
+ 		disable_percpu_irq(riscv_pmu_irq);
+-		csr_clear(CSR_IE, BIT(riscv_pmu_irq_num));
+ 	}
+ 
+ 	/* Disable all counters access for user mode now */
 -- 
 2.34.1
 
