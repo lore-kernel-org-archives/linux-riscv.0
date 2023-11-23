@@ -4,86 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11364C5AD4C
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 07:19:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DF8FC5AD4C
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 07:34:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6p3Yxq+h2e2zoPLrip3/4v7mmYyyAzV4wDgTcM6sMkc=; b=VvDQ8eDIYpJUsm
-	FJCJR5Iq6jdGufszIvKmJbIqcU5IHVPdmw3fByvhbGn4Z+VTtfDcgSdpZCpz5YFHTz32GOm/gL3GV
-	Ww9v1vjxDeL0YTWAqUs1f3XQ7s9v7Mws925o0G2PYILKWvbfbajq0piqRC0hJJBxqDdioe9uRZaRS
-	UmBMRZhjz5BYB024xjO4vY7c6QqkBJnHm5ZR3HjT8S691FvMhJxgR80bB3n5WidA9msIRq3CzloA9
-	HrcFaQ72KoY/Ekv7+zlGbVCMxGH1S6tjwoVto6jx4azMzOZ7hR601lIv3yDcWZODS95mL6T4xpyLT
-	aWIIdzXO/zs699qnHlAg==;
+	List-Owner; bh=wacWOiPbR90Ab+ghmW7n4NyYxox6tl1NqZP/rzsJmYk=; b=onBVyZNoc1k16Z
+	te3sCE4bgEXpgIsvbwOo1Fq0IzTVYT27KnI3zY4WR90NQq+WttDObpSO6g7RHD/zNNr1LRrfqkVmt
+	MGcOn3/vl9aT3xjsJNw5sPlgtmsBvdm8PPkKklOYtFn8eYlRXSCAuK5mK/n5NdxERkMWcnjPMrqIs
+	TJ4lrreZl9uNvPrORCd2Mj2+3LoxvPrgw3iyAZAkAfXPTRSXdMrkYalPV5XoHR/G+mb6YztMLA1at
+	YK976U0IGCC2bo3rd/VTwPvzsUjUrJl8a7LuNO9mssrdvIGUDCdGY3npZNOfkR0oZbnTXO4zRMRKk
+	u2VeuENYsr00bD9vJrCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r63zI-0040TC-13;
-	Thu, 23 Nov 2023 07:19:00 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1r64Dp-0042ve-2B;
+	Thu, 23 Nov 2023 07:34:01 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r63zF-0040S4-2V
+	id 1r64Dn-0042uu-04
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Nov 2023 07:18:58 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-2c503da4fd6so6557721fa.1
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Nov 2023 23:18:55 -0800 (PST)
+	Thu, 23 Nov 2023 07:34:00 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-50abbb23122so659807e87.3
+        for <linux-riscv@lists.infradead.org>; Wed, 22 Nov 2023 23:33:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1700723934; x=1701328734; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=/zN1f8mHuRgR0xbSE05GehVTx8BDM5eVzWwQe7s41xY=;
-        b=mOh1x4Eb/vYHWDWkL1Qe0/R/d0jHrJZBU9ZJ+AfIdGXbE/1j8h7ovTy9aeF8vqN5ju
-         yT7XIppGgFtbdZSwMsLmLLOT/D19tBiL9YbKh3a6avahzp0gdUvfy3jIj2rn12ZIQQ+g
-         dRVfTm5WU0WfAPk3fxZXr4SYRK9KoQB2talaN5DguUms+YElfIUJAMPNYtxLSGrF+jwa
-         hg8nIfVPNSK1mjqalrkiA4rhn/3xt43rIlP18+HtHW7StTlGZ01/GUx51u8IIxQ2aJH2
-         VluWY41iT04TSPhA8fDKfI+oJAs5ar7mwLuv+N563TkrKpg1mZ+S1qNwkkdEesHne/c5
-         LWRg==
+        d=linaro.org; s=google; t=1700724836; x=1701329636; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
+         :to:content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=kgvXBNohR8MD/S64tYYRwwaWovhCkn1lBTqKUGMvwT8=;
+        b=ZR2VBgcpOjiQuITEsRJLseBobbvAzJcRwUTdB9nbU8/ir2FrE5miYZSlVoTTYq1ILQ
+         6HeT39WFC9BxbNm7TST4gsY1uhOrtGYT3umUwfrm95+jk9/+t1ohMXoBfAEfQKOSV9zZ
+         1/dXNCL5hELUlrbY+dXwsfE+/10glBAVk1buaL90Ptz7I1lsYCh4wCmLbefZxLhXDLCH
+         Q7xq7iVmMsjfrzzhZnGckLE72m7LA9yrTXnHy5KDvbnamxg82TBJjphbcE77uaLtMylA
+         55u4zcH/DWA2CnsmN9/gYme8K1gjT7p1rcpGIMTaysLRGm6hEukBg+m8mbTogAEjXk7D
+         c/Eg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700723934; x=1701328734;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/zN1f8mHuRgR0xbSE05GehVTx8BDM5eVzWwQe7s41xY=;
-        b=U8uk+Ha8uIUlWM1X3E52VHEPJNAKC9NUgjZXIs4ke+TysrRSpPVAgi2Cbg8LMdbZ3R
-         qRS7g7cOLjIxadDO1L9Tj07kjQkNgYsqQpLJBOklu/IH5YAEMFnD2iTdg+aKT5ttNKNM
-         7L4oezqp/Bzhjecm+vfsybY+PSvHdjrXTUbWmmTkY3N2638xNcVBAEaMoRcBsDFcDAdw
-         2+jwQehpSxb6ogLKQJhTD0Um8EyffBcODafb1BKplK+SzV4LUWRmKlPwFMCrQJ4yQVHZ
-         IwyQDEuP2dQnvA5f08BkoB8v4abucIa1P2691zyk82BqMGeZ/mnMaNL6tHSQsr9XlmSt
-         pu3Q==
-X-Gm-Message-State: AOJu0YzZKfiDT0l5qlbI4cH2WUSZx1Izae5RA5jxnbIkyKDRcmmPmOFK
-	xeJUyRIJz+Ll4zdx0q+JPvUrRg==
-X-Google-Smtp-Source: AGHT+IGgwdLEcXT+v++no2gePCVPhRPAgYg3NEpUWiOM5aoV+DL4Ae0sQbJbqB1R1qFCRHHqFRMAdg==
-X-Received: by 2002:a2e:a99e:0:b0:2c8:3613:d07c with SMTP id x30-20020a2ea99e000000b002c83613d07cmr3597127ljq.12.1700723933904;
-        Wed, 22 Nov 2023 23:18:53 -0800 (PST)
+        d=1e100.net; s=20230601; t=1700724836; x=1701329636;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
+         :to:content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kgvXBNohR8MD/S64tYYRwwaWovhCkn1lBTqKUGMvwT8=;
+        b=tpmw1HvsV6mkp7C79Io/QnFZzBblyM4sZ03TsB4/cIplrlFRTn+e7a/9/ULvvP+qSg
+         /kkE8pQFf+LcbsvBxbMIyuYFmAYYdWgeym2+P7nyZ5JWvakgO5dc6kCqT9duJ/no/aBQ
+         PmI+dv6IkYzspj3N6PlT+yGK0cC8lQD7HH/TrEg+KuTS78MmFYUAHhhk8LximGzUMplQ
+         2u9qHiuaPMpO9+Gxh4K2lSlxW1ytCiOvfnwAksXxh0EWp1eYghX9Fo50/A2YeTsHv3/f
+         +t70EG5fR/RjRa96dfqMCN/sj3dnMm8A5Q/BEZzMuJ+e1bv7AHisdyaCIPlUsJNgsyfd
+         zWDA==
+X-Gm-Message-State: AOJu0YxUys0igiyQRvqA9oeLW903LBPJh+TMNUvwHgb2cB7YmaW7Jq3Z
+	Bmh0JIPJCeJKJde3SpBwPfHPvg==
+X-Google-Smtp-Source: AGHT+IF9Bd1OF8yDR5vrntG+MsfNOhRw5LLZYWxEOZmarqJZqBKYGlMa/2cSF5ZsYBZ8onZ8B0Y3nQ==
+X-Received: by 2002:a05:6512:4007:b0:502:fdca:2eaa with SMTP id br7-20020a056512400700b00502fdca2eaamr4058963lfb.52.1700724836680;
+        Wed, 22 Nov 2023 23:33:56 -0800 (PST)
 Received: from [192.168.1.20] ([178.197.218.100])
-        by smtp.gmail.com with ESMTPSA id az15-20020a05600c600f00b0040b2b9bf321sm1697573wmb.9.2023.11.22.23.18.52
+        by smtp.gmail.com with ESMTPSA id d11-20020adfa40b000000b003142e438e8csm816828wra.26.2023.11.22.23.33.55
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Nov 2023 23:18:53 -0800 (PST)
-Message-ID: <0eb12623-22b2-4edf-8ef7-14382a250e74@linaro.org>
-Date: Thu, 23 Nov 2023 08:18:50 +0100
+        Wed, 22 Nov 2023 23:33:56 -0800 (PST)
+Message-ID: <1b28be25-83b2-4ad4-aafd-7a7e3fa2b586@linaro.org>
+Date: Thu, 23 Nov 2023 08:33:55 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] arm/arm64: dts: samsung: Always enable extra W=1
- warnings
-To: Rob Herring <robh@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>,
- Nicolas Schier <nicolas@fjasle.eu>,
+Subject: Re: [PATCH] dt-bindings: perf: riscv,pmu: drop unneeded quotes
+Content-Language: en-US
+To: Rob Herring <robh@kernel.org>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
  Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
  <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alim Akhtar <alim.akhtar@samsung.com>,
- Conor Dooley <conor@kernel.org>
-Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-References: <20231122-dtc-warnings-v2-0-bd4087325392@kernel.org>
- <20231122-dtc-warnings-v2-4-bd4087325392@kernel.org>
-Content-Language: en-US
+ Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20231122224414.2809184-1-robh@kernel.org>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -129,10 +122,10 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20231122-dtc-warnings-v2-4-bd4087325392@kernel.org>
+In-Reply-To: <20231122224414.2809184-1-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231122_231857_813062_76D1A663 
-X-CRM114-Status: UNSURE (   6.49  )
+X-CRM114-CacheID: sfid-20231122_233359_060516_4CAFFBF9 
+X-CRM114-Status: UNSURE (   5.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -150,11 +143,11 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 22/11/2023 23:12, Rob Herring wrote:
-> Samsung platforms are clean of W=1 dtc warnings, so enable the warnings
-> by default. This way submitters don't have to remember to run a W=1
-> build of the .dts files and the grumpiness of the maintainers can be
-> reduced.
+On 22/11/2023 23:44, Rob Herring wrote:
+> Drop unneeded quotes over simple string values to fix a soon to be
+> enabled yamllint warning:
+> 
+>   [error] string value is redundantly quoted with any quotes (quoted-strings)
 > 
 > Signed-off-by: Rob Herring <robh@kernel.org>
 
