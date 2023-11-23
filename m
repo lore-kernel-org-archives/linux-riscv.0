@@ -4,58 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A772C5AD4C
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 10:55:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 842B3C5AD4C
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 11:43:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8H0f0J71XoGqi6dY4u57iRWwHMBgSrugkcG4Q1kvOqk=; b=jlk2R5r4gtinxB
-	i4dJtiFM+AsP7Hm9hFT9F5oDHPIB6ejr7gsHfUft0X8YFFt1FMY2rORGuwU1PRFHvdPBZWY+10afq
-	ZsgQaf9EZTgyibmN4oauc7+9wOrqNAwZn3xBe48H7G6UxR1E/qnpynEh8jN04CTAmooGFoiNNwy2X
-	JuarXyBTrH4nZGtlPAcyV2irQ7Onrg5G8WuGjw63NMUbtoDq9Isvd1sTOJv4B15nrpVG3VKywuYU+
-	bjbL8jaFqCSLApnP13gUYgQ5vLJj0ufWLz4IDxuQrz3hGS9dW8MECnnk21+OLCmWt/DqDS702cUMk
-	mTwqYX/E/z/2yjwvaGxg==;
+	List-Owner; bh=sC8O3TdFQctd/fh0aF97o5B4YGMRGBfkzqmAUzgJexo=; b=l4fq+GhAPqnSYm
+	KTGwqLYL4gmh5L5ioRUTeoMaTm100VOjCKOm7Wwvs7SadvSc8adNu0gRiCGnGJoKmq85YVJtrVmiG
+	uUdACNnro44LAtZg0etovfDwYk9jCA5FqfSQmh+pCq9uPW7Q6D35nyTXgt0rx5c61tI6rfjH3isJz
+	8Gy8TKnxDdwQqAK8eLj6+LTeweGIlC+d9Uzv0XUmMGK4K8GzRpp1b0beOHQF5Hoemmq88prVG+KvN
+	hLZ8GREn8egFnoPQ+OfQ38qMnib6l8b7zPjxwk9LJlr3E/vlCweVue/6iJGzkPDJejlC0TLmCoWtm
+	otYz0tUkv/PSEPwkwGOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r67MZ-004RCO-36;
-	Thu, 23 Nov 2023 10:55:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r67MW-004RAR-06;
-	Thu, 23 Nov 2023 10:55:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6263561FB1;
-	Thu, 23 Nov 2023 10:55:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9429DC433C8;
-	Thu, 23 Nov 2023 10:55:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1700736910;
-	bh=NGJuny/T+fyg0bzZg8rPSHmJVa/rpExZEmSSYXneMOg=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=DQDoVQ795iRe1AeJ0JE0DdQLKCHM4AMUcZd6QEjh2vi6f+YXd2u3WvyvdLBl0Oi0P
-	 huPpFsn58tBf+keKnxM0QvYeQXJDLg1+bnXHmslVns0T5uATrg/W5BeMXPacUQksxj
-	 TRX/HuQccMzyCcCuUbVBb88ETEpQCnFMJiDRMIOuwoLgjUCAmzBjr68DW2m60YNLp0
-	 SO+n86vKNJ40PV39QkNDdKAoiv+iNoSgf5IBk+YP95bZL2k6SWKIK3IxGnIvxBTV8p
-	 t50AMXEu4iRdmzdvehN7QV4rvKlI6Kry/UO1BFpc4qIaQJ60NQi/30PJI8dvsIMKij
-	 ptAf+w0t6mdsg==
-From: Lee Jones <lee@kernel.org>
-To: Pavel Machek <pavel@ucw.cz>, linux-leds@vger.kernel.org, 
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>
-In-Reply-To: <20231029212738.7871-1-samuel@sholland.org>
-References: <20231029212738.7871-1-samuel@sholland.org>
-Subject: Re: (subset) [PATCH v8 0/5] leds: Allwinner A100 LED controller
- support
-Message-Id: <170073690632.1239913.13249026950783494795.b4-ty@kernel.org>
-Date: Thu, 23 Nov 2023 10:55:06 +0000
+	id 1r687V-004YbS-2o;
+	Thu, 23 Nov 2023 11:43:45 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1r687O-004YMj-1T
+	for linux-riscv@lists.infradead.org;
+	Thu, 23 Nov 2023 11:43:44 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 50DAF80FC;
+	Thu, 23 Nov 2023 19:42:43 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 23 Nov
+ 2023 19:42:43 +0800
+Received: from [192.168.125.85] (183.27.97.46) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 23 Nov
+ 2023 19:42:42 +0800
+Message-ID: <ae35cfb2-2eb0-43c5-890b-47b76402ef1d@starfivetech.com>
+Date: Thu, 23 Nov 2023 19:42:41 +0800
 MIME-Version: 1.0
-X-Mailer: b4 0.12.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 19/20] PCI: starfive: Add JH7110 PCIe controller
+Content-Language: en-US
+To: Bjorn Helgaas <helgaas@kernel.org>
+CC: Conor Dooley <conor@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?=
+	<kw@linux.com>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
+	<bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, "Daire
+ McNamara" <daire.mcnamara@microchip.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-pci@vger.kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	"Philipp Zabel" <p.zabel@pengutronix.de>, Mason Huo
+	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>
+References: <20231121213213.GA258296@bhelgaas>
+From: Minda Chen <minda.chen@starfivetech.com>
+In-Reply-To: <20231121213213.GA258296@bhelgaas>
+X-Originating-IP: [183.27.97.46]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX171.cuchost.com
+ (172.16.6.91)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231123_025512_109530_2BC18020 
-X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-CacheID: sfid-20231123_034341_699785_9869C1CC 
+X-CRM114-Status: UNSURE (   8.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,25 +79,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Andre Przywara <andre.przywara@arm.com>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, linux-sunxi@lists.linux.dev, John Watts <contact@jookia.org>, Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, Maksim Kiselev <bigunclemax@gmail.com>, linux-riscv@lists.infradead.org, Marc Kleine-Budde <mkl@pengutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>, linux-arm-kernel@lists.infradead.org, Trevor Woerner <twoerner@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCAyOSBPY3QgMjAyMyAxNjoyNjo1NCAtMDUwMCwgU2FtdWVsIEhvbGxhbmQgd3JvdGU6
-Cj4gVGhpcyBzZXJpZXMgYWRkcyBiaW5kaW5ncyBhbmQgYSBkcml2ZXIgZm9yIHRoZSBSR0IgTEVE
-IGNvbnRyb2xsZXIgZm91bmQKPiBpbiBzb21lIEFsbHdpbm5lciBTb0NzLCBzdGFydGluZyB3aXRo
-IEExMDAuIFRoZSBoYXJkd2FyZSBpbiB0aGUgUjMyOSBhbmQKPiBEMSBTb0NzIGFwcGVhcnMgdG8g
-YmUgaWRlbnRpY2FsLgo+IAo+IFRoaXMgc2VyaWVzIHdhcyB0ZXN0ZWQgb24gdGhlIE5lemhhIGJv
-YXJkIChvbmUgb25ib2FyZCBMRUQpIGFuZCB0aGUKPiBEb25nc2hhbiBOZXpoYSBTVFUgYm9hcmQg
-KHdpdGggYW4gZXh0ZXJuYWwgc3RyaXAgb2YgMTYvMzIvNDggTEVEcywgYWxzbwo+IHdpdGggZ2Fw
-cyBpbiB0aGUgTEVEIGFkZHJlc3NlcykuCj4gCj4gWy4uLl0KCkFwcGxpZWQsIHRoYW5rcyEKClsx
-LzVdIGR0LWJpbmRpbmdzOiBsZWRzOiBBZGQgQWxsd2lubmVyIEExMDAgTEVEIGNvbnRyb2xsZXIK
-ICAgICAgY29tbWl0OiA1N2VmNjY2ZTE1ODY4MjNhZGMxYjc5MDllZDM0NzJkZWMxMTdkZjFmClsy
-LzVdIGxlZHM6IHN1bjUwaS1hMTAwOiBOZXcgZHJpdmVyIGZvciB0aGUgQTEwMCBMRUQgY29udHJv
-bGxlcgogICAgICBjb21taXQ6IDA5MGEyNWFkOTc5ODM3MjBmNTJiMTFkOWM1YThkMWE0NDYyMTdj
-MWQKCi0tCkxlZSBKb25lcyBb5p2O55C85pavXQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+
+
+On 2023/11/22 5:32, Bjorn Helgaas wrote:
+> On Tue, Nov 21, 2023 at 08:52:21AM +0800, Minda Chen wrote:
+>> ...
+>> BTW. Could you give any comments to Refactoring patches (patch 2 -
+>> patch 16)and PLDA patch(patch 17) next week?  Thanks.
+> 
+> I think Krzysztof or Lorenzo will handle these.  I skimmed them and
+> didn't see any major problems.
+> 
+> Bjorn
+
+Hi Krzysztof and Lorenzo 
+  Could you review and give some comments to this series patches? Thanks.
+  On microchip side, Conor have reviewed all the Refactoring patches.
+  Hope this series patches can be accepted in kernel v6.8
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
