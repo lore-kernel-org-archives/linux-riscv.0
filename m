@@ -4,71 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DDD3C624B4
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 13:27:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C6F4C5AD4C
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 13:42:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mjols0TXuVK4a7CwuV9RlnzEybdDzRXfu8zcNA5YmnU=; b=uDUamM3HPX0cyd
-	CIx4q4jtEZVEpjG/MeYs28AeG4hzcLBJ/yKr4ysqYyQeD2009Smw1qdUrdqUwGTG1K3Sgw+jyYy+B
-	ll72GAM9UQNnyJxto1Sn/5vn/dcwE5gKWkF3+7JhpnOHpjRC1tomxARBN+11xU2+mH3Tu/++RbGBZ
-	P2u01+HzVnM6lUX1CCDlGt3tAcBVxNHoF12o50vQgngRp8Bcv2Wl1/IoaOxLs+MYLtWjhU/WtXvoj
-	i8KvyBmdRJTyH5j0WaR9sLiZJEl4oLSFqB0iLY83Z1Y6ZrTQOPydJC5iyRCnJeJAfJRmGckMDbZZB
-	hofmqpZtlyctcdbflZ+Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XLrg/llSZEseQf/vUkfEpCwpvin5eeCPDGIXuRMD+wo=; b=xVHbsvbrMwZys2
+	sVG8F4qntqk/jK3aEbMDoo+QxX1sa/GPzk4IR0iAQaDjYY+MIKfsmwW15JJAzpBYnp0x2B1ENL/nO
+	Jvz5MmBZ93DmWzC8WYRnxOgFNZBhMMvjfKyMEU/8eFipAAMmGeFljBoOjqYRqPBNvLEZcdxRmg8iv
+	LB7v3c2WMuJ3tiinl9UpEMVhzvguJIFYkrQpkBtdsjf92rCBFUzquYaCn8+aaVcBtaxE1QfIKSGGT
+	3It0wGUPyyXYSInWI6rxHs2leKQd+hN86oN0V7UEOpCOxZ/L77VYKqst+psTGEUKDdXyEy3HrAaRa
+	I0e82yKJ9ym40BZLvOkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r69kD-004stb-0H;
-	Thu, 23 Nov 2023 13:27:49 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1r69yM-004vGi-2U;
+	Thu, 23 Nov 2023 13:42:26 +0000
+Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r69k9-004ss1-0J
+	id 1r69yJ-004vEb-3B
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Nov 2023 13:27:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1700746063;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XlCNcFS7+nGLr8i/szhMFxjsyTieH5TNHlOyuSvsHHk=;
-	b=PZFzrydqZjS3A9XlaeRAJRz1j8ZlE3V7H4VFf3rMIsLhSbZ8Fk+h4vfi2IYZ6H5qw3vs/s
-	MgnSsGmFNGVb8larRVrs0OelaRojawCEzl3j2Uyo9M7a+FKJXKUulGupHa2BLChbDM/+BV
-	Rti0IvreMgkiNHijaM2rM1Fx+k/bOS4=
-Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-313-LNixVYSgNR6zfKelwTaWZg-1; Thu,
- 23 Nov 2023 08:27:38 -0500
-X-MC-Unique: LNixVYSgNR6zfKelwTaWZg-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 368F43C027B1;
-	Thu, 23 Nov 2023 13:27:38 +0000 (UTC)
-Received: from localhost (unknown [10.72.112.97])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id AB1BD36E2;
-	Thu, 23 Nov 2023 13:27:29 +0000 (UTC)
-Date: Thu, 23 Nov 2023 21:27:25 +0800
-From: Baoquan He <bhe@redhat.com>
-To: akpm@linux-foundation.org
-Cc: kexec@lists.infradead.org, x86@kernel.org, linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org,
-	ebiederm@xmission.com, takahiro.akashi@linaro.org
-Subject: Re: [PATCH v2 1/2] resource: add walk_system_ram_res_rev()
-Message-ID: <ZV9TPRw65TiCeXyS@MiWiFi-R3L-srv>
-References: <20231114091658.228030-1-bhe@redhat.com>
- <20231114091658.228030-2-bhe@redhat.com>
- <ZVTA6z/06cLnWKUz@MiWiFi-R3L-srv>
+	Thu, 23 Nov 2023 13:42:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=qzDYok5oSedbjSII7O6os148H5o+A9vUBxaMvgxecfA=; b=CuVKMau+FTzX3AXW7KCMXVUHKl
+	YfKdpXuCb+4yuztswtlvNNd4yGvdqdnpnYylqNaJZGbKpaPZ+0BtOwrhXJh8kcM61FfUHLTY9Oni6
+	Q6F/4ZyQmNU8doDndFglcqLH65C9bSR0EygiFoCSFEuYIHloCCZxqBzmdrp5c/OkF+ZenUpqnPxFG
+	ONbLeHkmcFv65XvgL+5kQ3hDGotw80XIPIiLhwRfrTEy0NlMr08wsXIG3SXRYBzjuGm8mRKLoDpTE
+	vNHCZw0kEOjACXHwOeaU7iUChT9EOReye7CAqlSMHrym+IllVu7PtQNkc3H86XjmvLi+3OGJ4CprX
+	rIpJGVDg==;
+Received: from [167.98.27.226] (helo=rainbowdash)
+	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1r69yC-004SaQ-3J; Thu, 23 Nov 2023 13:42:17 +0000
+Received: from ben by rainbowdash with local (Exim 4.97)
+	(envelope-from <ben@rainbowdash>)
+	id 1r69yC-00000000LEO-1fTp;
+	Thu, 23 Nov 2023 13:42:16 +0000
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+To: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	Ben Dooks <ben.dooks@codethink.co.uk>
+Subject: [PATCH] riscv: declare overflow_stack as exported from traps.c
+Date: Thu, 23 Nov 2023 13:42:14 +0000
+Message-Id: <20231123134214.81481-1-ben.dooks@codethink.co.uk>
+X-Mailer: git-send-email 2.37.2.352.g3c44437643
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZVTA6z/06cLnWKUz@MiWiFi-R3L-srv>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231123_052745_222074_73F1925A 
-X-CRM114-Status: GOOD (  24.97  )
+X-CRM114-CacheID: sfid-20231123_054224_106273_12120197 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,129 +77,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+The percpu area overflow_stacks is exported from arch/riscv/kernel/traps.c
+for use in the entry code, but is not declared anywhere. Add the relevant
+declaration to arch/riscv/include/asm/stacktrace.h to silence the following
+sparse warning:
 
-On 11/15/23 at 09:00pm, Baoquan He wrote:
-> This function, being a variant of walk_system_ram_res() introduced in
-> commit 8c86e70acead ("resource: provide new functions to walk through
-> resources"), walks through a list of all the resources of System RAM
-> in reversed order, i.e., from higher to lower.
-> 
-> It will be used in kexec_file code to load kernel, initrd etc when
-> preparing kexec reboot.
-> 
-> Signed-off-by: AKASHI Takahiro <takahiro.akashi@linaro.org>
-> Signed-off-by: Baoquan He <bhe@redhat.com>
-> ---
-> v1->v2:
-> - Use kvrealloc() to reallocate memory instead of kvcalloc(), this
->   simplifies code. Suggested by Andrew.
-> 
->  include/linux/ioport.h |  3 +++
->  kernel/resource.c      | 57 ++++++++++++++++++++++++++++++++++++++++++
->  2 files changed, 60 insertions(+)
+arch/riscv/kernel/traps.c:395:1: warning: symbol '__pcpu_scope_overflow_stack' was not declared. Should it be static?
 
-Gentle ping.
+We don't add the stackinfo_get_overflow() call as for some of the other
+architectures as this doesn't seem to be used yet, so just silence the
+warning.
 
-Could you pick this patchset into next tree so that it can be run on
-testing robots?
+Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+---
+ arch/riscv/include/asm/stacktrace.h | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Thanks
-Baoquan
-
-> 
-> diff --git a/include/linux/ioport.h b/include/linux/ioport.h
-> index 14f5cfabbbc8..db7fe25f3370 100644
-> --- a/include/linux/ioport.h
-> +++ b/include/linux/ioport.h
-> @@ -331,6 +331,9 @@ extern int
->  walk_system_ram_res(u64 start, u64 end, void *arg,
->  		    int (*func)(struct resource *, void *));
->  extern int
-> +walk_system_ram_res_rev(u64 start, u64 end, void *arg,
-> +			int (*func)(struct resource *, void *));
-> +extern int
->  walk_iomem_res_desc(unsigned long desc, unsigned long flags, u64 start, u64 end,
->  		    void *arg, int (*func)(struct resource *, void *));
->  
-> diff --git a/kernel/resource.c b/kernel/resource.c
-> index 866ef3663a0b..e8a244300e5b 100644
-> --- a/kernel/resource.c
-> +++ b/kernel/resource.c
-> @@ -27,6 +27,8 @@
->  #include <linux/mount.h>
->  #include <linux/resource_ext.h>
->  #include <uapi/linux/magic.h>
-> +#include <linux/string.h>
-> +#include <linux/vmalloc.h>
->  #include <asm/io.h>
->  
->  
-> @@ -429,6 +431,61 @@ int walk_system_ram_res(u64 start, u64 end, void *arg,
->  				     func);
->  }
->  
-> +/*
-> + * This function, being a variant of walk_system_ram_res(), calls the @func
-> + * callback against all memory ranges of type System RAM which are marked as
-> + * IORESOURCE_SYSTEM_RAM and IORESOUCE_BUSY in reversed order, i.e., from
-> + * higher to lower.
-> + */
-> +int walk_system_ram_res_rev(u64 start, u64 end, void *arg,
-> +				int (*func)(struct resource *, void *))
-> +{
-> +	struct resource res, *rams;
-> +	int rams_size = 16, i;
-> +	unsigned long flags;
-> +	int ret = -1;
-> +
-> +	/* create a list */
-> +	rams = kvcalloc(rams_size, sizeof(struct resource), GFP_KERNEL);
-> +	if (!rams)
-> +		return ret;
-> +
-> +	flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
-> +	i = 0;
-> +	while ((start < end) &&
-> +		(!find_next_iomem_res(start, end, flags, IORES_DESC_NONE, &res))) {
-> +		if (i >= rams_size) {
-> +			/* re-alloc */
-> +			struct resource *rams_new;
-> +
-> +			rams_new = kvrealloc(rams, rams_size * sizeof(struct resource),
-> +					     (rams_size + 16) * sizeof(struct resource),
-> +					     GFP_KERNEL);
-> +			if (!rams_new)
-> +				goto out;
-> +
-> +			rams = rams_new;
-> +			rams_size += 16;
-> +		}
-> +
-> +		rams[i].start = res.start;
-> +		rams[i++].end = res.end;
-> +
-> +		start = res.end + 1;
-> +	}
-> +
-> +	/* go reverse */
-> +	for (i--; i >= 0; i--) {
-> +		ret = (*func)(&rams[i], arg);
-> +		if (ret)
-> +			break;
-> +	}
-> +
-> +out:
-> +	kvfree(rams);
-> +	return ret;
-> +}
-> +
->  /*
->   * This function calls the @func callback against all memory ranges, which
->   * are ranges marked as IORESOURCE_MEM and IORESOUCE_BUSY.
-> -- 
-> 2.41.0
-> 
+diff --git a/arch/riscv/include/asm/stacktrace.h b/arch/riscv/include/asm/stacktrace.h
+index f7e8ef2418b9..b1495a7e06ce 100644
+--- a/arch/riscv/include/asm/stacktrace.h
++++ b/arch/riscv/include/asm/stacktrace.h
+@@ -21,4 +21,9 @@ static inline bool on_thread_stack(void)
+ 	return !(((unsigned long)(current->stack) ^ current_stack_pointer) & ~(THREAD_SIZE - 1));
+ }
+ 
++
++#ifdef CONFIG_VMAP_STACK
++DECLARE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)], overflow_stack);
++#endif /* CONFIG_VMAP_STACK */
++
+ #endif /* _ASM_RISCV_STACKTRACE_H */
+-- 
+2.37.2.352.g3c44437643
 
 
 _______________________________________________
