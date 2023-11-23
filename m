@@ -4,96 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB97C5AD4C
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 09:30:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BD90C61D85
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 09:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Es/yF2IR21cwKsRNYuaXoHUlNWPBnbfjKGeCt91p+xM=; b=3LmDl1cM0bbZv2
-	/6X/QQPUk4PYCsuqF6ntTqyQ9eUJykuDDW3mG7KOGxRyLOvAjeLuieoWZ3f7dCtRQoIU01j/PqLKE
-	JvaSfkJzI0vRC7dzfQbQm8TEGi8+nZ3tEXsuc7kYcSkS/y2Y8fKmjvrsmyk3ygXJaUgkhElOQUhDn
-	zNQDUGvfDXrlJCrsjriHURpGYiG4fm6LRtgp1es+Dx74NLydC8e6CnmCoFvGjYwtjZOKelEjk7RYj
-	gz2s4KKc/w9F7dbB7WKMgZmBJW1e5maz+v+VlbE1ejEgJEA6tT1TvY/YgMAchlUpexuP5561dL9wM
-	nvR33IxPfOmclh0oANdA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eOjMwiaISzfjGZ9m7Grpmku/KtKeYHMBVo02rQZQ9j4=; b=iSdokcsQhv2VEXxMkQVkcz2QQF
+	1VXU5iG8n9K9cCCL1UbCJ4GA0qQIMFKr/rG1mO6+BuqDTnoKrrSYuMsjcBtfh9/Ea5Xw9L5kr6BgT
+	cfZfq4WDdYzusf4ifSWuONZgGe9rGKaXRlsW/KbJAXLUUpzAVS+fwmmKY7G3cV8la0SrKNl4jeJg9
+	5ANS9FuuRia2FHqLK1I6qDN/bdt/ztnlv0kZGADmyWCGR7rI2MZrofTv8wsCcohvwdPoml0fXEJC2
+	ukDAPiIIvr9jbPma7EzKQI0KjurF4pfETBRjMJ7gOrJI+X5kcDgvk86omG1A8MM8T50Gd3J86O+v9
+	ChHvC2CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r661z-004G0r-1z;
-	Thu, 23 Nov 2023 09:29:55 +0000
-Received: from out1-smtp.messagingengine.com ([66.111.4.25])
+	id 1r66Ga-004IYg-0K;
+	Thu, 23 Nov 2023 09:45:00 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r661w-004Fxi-2V
-	for linux-riscv@lists.infradead.org;
-	Thu, 23 Nov 2023 09:29:54 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailout.nyi.internal (Postfix) with ESMTP id 207155C019E;
-	Thu, 23 Nov 2023 04:29:46 -0500 (EST)
-Received: from imap51 ([10.202.2.101])
-  by compute5.internal (MEProxy); Thu, 23 Nov 2023 04:29:46 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm3; t=1700731786; x=1700818186; bh=/6
-	Jewe6s2lAA53NpQQ339J2KIqQZoaHRGTOK/DO562w=; b=3BjGUXa7ROSW9+KBsE
-	ZZDOV4JJt2L9vwcvIIRKpNKreGCXVGdmwdV1Rs/fhD15Y1mbHF5HWRVZ2QBKLnVW
-	yxChHrPogs9t3GaU1pYmIVHH9fvHpinULn2rlx3tY5U28HQv9LxihlKfysK3Ujxj
-	kH02DXm65Biede94fZu4User/nUeC17TLw0f5c5cDx5GkkXZk+0fb+mi6ECbP5NT
-	eA4sufiZOa7LGoDymo2lw44xXaJCqxY1uvNb1ODOyEsddsW4QTRCXK5bgMjZU5IX
-	DaoK5WWpDp42FG0qVTshqj7NzMimScDVkDVx1mQQdiG2ZAjFRq7R10l3ybnsTaqh
-	DvFA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm1; t=1700731786; x=1700818186; bh=/6Jewe6s2lAA5
-	3NpQQ339J2KIqQZoaHRGTOK/DO562w=; b=kcmgiuMjPl/BWEwHRyPDYEXyzCYRt
-	nV3+mrn3JcvHMyhpk/JCuUPKmDMfj4MsDjJehrnPAOjENPji1JzlkmWTXr/A0BgY
-	aeSCtZERd/1ogaqNAFQe8Wh0BFQldTDPnps9/6mTogVcYjpKBcRnM+FfvRLm0Dps
-	esEsvQO2J8wyUVrHW7p76QEoo4EtSD8PN8U0gpE36NNjybyfYJehoiPhx7m1Fwk4
-	xP0P/JIG7bfjskm3o8tbqVFSMx3ADENQliRTuPGJgiYbcsUcPY2mOWnac6qoAQNE
-	CBn1qgNFwnty0UhZmyNwDFD7TdvfVss0Z22Ep0FNEYbVl2kJgKXaF4nTQ==
-X-ME-Sender: <xms:iBtfZSMKEECZwEV9ZP714va0nu9yPvN4wqWi2Z10Y_JmoFp53VyYPw>
-    <xme:iBtfZQ_fKaq-MDHU4A5YEoDeML--aa0XFc5VkuHf_tvGjNr25wDoy1DJpZpvUIVzD
-    bL7PgoEHrimzzljx18>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvkedrudehfedgtdegucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
-    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
-    htvghrnhepvdefjeevfefhvdevjeeuheefieetvdduheeludevtdefhfekleduhfdvjedt
-    ieeinecuffhomhgrihhnpehlfihnrdhnvghtnecuvehluhhsthgvrhfuihiivgeptdenuc
-    frrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvg
-X-ME-Proxy: <xmx:iBtfZZTLb62AFDmmzt1LLsbLUMqjHHPGJFVBNYRxtHR23WcODO3ESQ>
-    <xmx:iBtfZSsS1JLCn9alYL7IEG6k2UnbCKJThpNQ7oWgxw8rmuiO4-ZzMw>
-    <xmx:iBtfZacihlKgYNoAaUoOrfEYQDXPxZeWej67eDumLlhl_NKLiplaMQ>
-    <xmx:ihtfZW0vPOCMKWwZTX17dJQF7MJabXP9p2oVv4e1g1g2IZpHTDtJjw>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id CF1F9B60089; Thu, 23 Nov 2023 04:29:44 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-1234-gac66594aae-fm-20231122.001-gac66594a
+	id 1r66GW-004IXd-1D;
+	Thu, 23 Nov 2023 09:44:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1700732696; x=1732268696;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=LPFNYR6tLm2ibdzV9smgUSVHDB6vTwM5UIqyj9DLBUM=;
+  b=gccQs3ZPwKHUc3wCAPxq0+7ZAvGTo9rG3wJ1JYI3ZFK/mZSwFzjIhlVn
+   vDDTGgpE8hUZ8LtBxoOyywqxyCSh6moaqtRPjGoOcsktOjYDX1uIpBZXF
+   44zXND1fcNmiW3GQyk8oCosiQcxmaNlOmgXqMaF+gSjffRreth39oXBNH
+   JCuJSfKTv72VCZl7QgiDrXbZbGT6mU4DcrdJ+U52y4tj5dbkhYEVx2AGL
+   9Pr3ZfyegDPxsbFntT8HxlTGkVChxA03v/wIK2G6NZKOvE/LzYNzmI0Ne
+   6DGzB0EaPa9zG+pPlytce6xNhV0LYqdfZEzrjQcLMug16bsQMKFwYKkjL
+   Q==;
+X-CSE-ConnectionGUID: Zrbw1xdKSOmkRdUe4iw5XQ==
+X-CSE-MsgGUID: e8PbdSIKRoap7LBep/y66g==
+X-ThreatScanner-Verdict: Negative
+X-IronPort-AV: E=Sophos;i="6.04,221,1695711600"; 
+   d="asc'?scan'208";a="12925617"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Nov 2023 02:44:52 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Thu, 23 Nov 2023 02:44:25 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Thu, 23 Nov 2023 02:44:21 -0700
+Date: Thu, 23 Nov 2023 09:43:53 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Masahiro Yamada <masahiroy@kernel.org>
+CC: Rob Herring <robh@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Nick
+ Desaulniers <ndesaulniers@google.com>, Nicolas Schier <nicolas@fjasle.eu>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Krzysztof
+ Kozlowski <krzysztof.kozlowski@linaro.org>, Alim Akhtar
+	<alim.akhtar@samsung.com>, Conor Dooley <conor@kernel.org>,
+	<linux-kbuild@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>
+Subject: Re: [PATCH v2 0/4] kbuild: Per arch/platform dtc warning levels
+Message-ID: <20231123-deviator-camisole-645715ad02e9@wendy>
+References: <20231122-dtc-warnings-v2-0-bd4087325392@kernel.org>
+ <CAK7LNASVMjVg4dr=KdSDHwGww_47H78H7rMXA=wf+ncugesDSA@mail.gmail.com>
 MIME-Version: 1.0
-Message-Id: <94c2e04c-4c62-4ee1-8ae7-cbd675c5064e@app.fastmail.com>
-In-Reply-To: <20231123065708.91345-1-luxu.kernel@bytedance.com>
-References: <20231123065708.91345-1-luxu.kernel@bytedance.com>
-Date: Thu, 23 Nov 2023 10:29:22 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Xu Lu" <luxu.kernel@bytedance.com>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Ard Biesheuvel" <ardb@kernel.org>, "Anup Patel" <anup@brainfault.org>,
- "Atish Patra" <atishp@atishpatra.org>
-Cc: dengliang.1214@bytedance.com, "Xie Yongji" <xieyongji@bytedance.com>,
- lihangjing@bytedance.com, "Muchun Song" <songmuchun@bytedance.com>,
- punit.agrawal@bytedance.com, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [RFC PATCH V1 00/11] riscv: Introduce 64K base page
+In-Reply-To: <CAK7LNASVMjVg4dr=KdSDHwGww_47H78H7rMXA=wf+ncugesDSA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231123_012953_234366_1DF8C794 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20231123_014456_531997_0A7A493A 
+X-CRM114-Status: GOOD (  23.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,57 +89,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0192862960530748907=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 23, 2023, at 07:56, Xu Lu wrote:
-> Some existing architectures like ARM supports base page larger than 4K
-> as their MMU supports more page sizes. Thus, besides hugetlb page and
-> transparent huge page, there is another way for these architectures to
-> enjoy the benefits of fewer TLB misses without worrying about cost of
-> splitting and merging huge pages. However, on architectures with only
-> 4K MMU, larger base page is unavailable now.
->
-> This patch series attempts to break through the limitation of MMU and
-> supports larger base page on RISC-V, which only supports 4K page size
-> now.
->
-> The key idea to implement larger base page based on 4K MMU is to
-> decouple the MMU page from the base page in view of kernel mm, which we
-> denote as software page. In contrary to software page, we denote the MMU
-> page as hardware page. Below is the difference between these two kinds
-> of pages.
+--===============0192862960530748907==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="2G62sYkADi9C8Ekb"
+Content-Disposition: inline
 
-We have played with this on arm32, but the conclusion is that it's
-almost never worth the memory overhead, as most workloads end up
-using several times the amount of physical RAM after each small
-file in the page cache and any sparse populated anonymous memory
-area explodes to up to 16 times the size.
+--2G62sYkADi9C8Ekb
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On ppc64, using 64KB pages was way to get around limitations in
-their hashed MMU design, which had a much bigger performance impact
-because any page table access ends up being a cache miss. On arm64,
-there are some CPUs like the Fujitsu A64FX that are really bad at
-4KB pages and don't support 16KB pages, so this is the only real
-option.
+Yo,
 
-You will see a notable performance benefit in synthetic benchmarks
-like speccpu with 64KB pages, or on specific computational
-workloads that have large densely packed memory chunks, but for
-real workloads, the usual answer is to just use transparent
-hugepages for larger mappings and a page size of no more than
-16KB for the page cache.
+On Thu, Nov 23, 2023 at 04:38:37PM +0900, Masahiro Yamada wrote:
+> On Thu, Nov 23, 2023 at 7:12=E2=80=AFAM Rob Herring <robh@kernel.org> wro=
+te:
+> >
+> > This series adds support to set the dtc extra warning level on a per
+> > arch or per platform (directory really) basis.
+> >
+> > The first version of this was just a simple per directory override for
+> > Samsung platforms, but Conor asked to be able to do this for all of
+> > riscv.
+> >
+> > For merging, either I can take the whole thing or the riscv and samsung
+> > patches can go via their normal trees. The added variable will have no
+> > effect until merged with patch 2.
+> >
+> > v1:
+> >  - https://lore.kernel.org/all/20231116211739.3228239-1-robh@kernel.org/
+> >
+> > Signed-off-by: Rob Herring <robh@kernel.org>
+> > ---
+>=20
+>=20
+> There were some attempts in the past to enable W=3D1 in particular subsys=
+tems,
+> so here is a similar comment.
+>=20
+> Adding a new warning flag to W=3D1 is always safe without doing any compi=
+le test.
+>=20
+> With this series, it would not be true any more because a new warning in =
+W=3D1
+> would potentially break riscv/samsung platforms.
 
-With the work going into using folios in the kernel (see e.g.
-https://lwn.net/Articles/932386/), even the workloads that
-benefit from 64KB base pages should be better off with 4KB
-pages and just using the TLB hints for large folios.
+We carry a copy of the dtc in scripts/dtc, so I would expect that before
+an upgrade is done that would introduce new warnings we can fix them in
+the relevant platforms. Perhaps I am misunderstanding something there,
+but I'm sure Rob can clear it up if I made a mistake.
 
-     Arnd
+> Linus requires a clean build (i.e. zero warning) when W=3D option is not =
+given.
+
+For RISC-V at least, there are currently no W=3D1 warnings while building
+the dtbs (because I put effort into fixing them all) and I would like to
+keep it that way, so that requirement is not a concern.
+
+Cheers,
+Conor.
+
+
+--2G62sYkADi9C8Ekb
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZV8e1AAKCRB4tDGHoIJi
+0sxaAQC2J2yJot6Q+z5RKQ6rY/Oa21cLwAgbgnGOkI0wsdpSGgD/X8W0HHWXxPfn
+qGSKWwZvElDt0/4G68GZFIxJXRd/Kwk=
+=Wtop
+-----END PGP SIGNATURE-----
+
+--2G62sYkADi9C8Ekb--
+
+
+--===============0192862960530748907==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0192862960530748907==--
+
