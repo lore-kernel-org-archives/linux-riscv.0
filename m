@@ -4,70 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDB8BC5AD4C
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 15:41:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC57C61D85
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 18:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gYxKBGQGi6HQUrtgWgKErVgjIf8JtzbojRDWylr+tNQ=; b=N8ywMIfbSRDxWX
-	WgtP2/9pttJ1tqzxBeip37y5QLzJ1VF915CuKcwYOCYphG0e5B37DzzKaCveCsf62IffFomsQvDjf
-	PEY/dC8CeTJdHkidM3rlDVtRKIjY+2dkX9SNeUDYW+RajT7BJKilQUHcXKOjBaY6+Khedj+C+rSmn
-	wKNMC1II53ys46QhGNC5jHu3eeELHPB/Qty9DMuGUAuSg3zClJGhI+wowhUhhipEWkw/8oSMFRWt5
-	S2MKBRhuM5TRLUBfwiVsuIlxq1qE8R91B9oCgiD2ptJ/WtbQ/JgrNymsrEQItJSIPpXQDwmDyhxlE
-	4IKp0fjyDeK9Vkj3Jjqw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YodStgIQBxePiNvzUhTwUemhxAMBvOuktWUg3/HTsJ8=; b=aSB5/QqfRNpli4
+	fqiw3nLgNPRsskHpCfdfHnJPM/BgHdVJK+whoWlErzFlVv35IHMF2/HSJhb4wLsJsnO5nH1v7b0nD
+	1saku7XJAdnLfwRURy8PBvdxhDU/enUAYt/lvpUXOQWVF7pcq2RaJ10SNJe/wrRWA83U7XEdMk19M
+	DkdN4/SrNtmsetcg8YcT0GVnHM1GZsX/pwd/jll52557DP0Q6u0+aI3a8XNSECQYz+Zy/nJpGcQam
+	7yfHQlWWWNaquSVrg9l4LvdoLTYNed4R/LupRNB5VhYHWBDOAKL4jdbxsfl1Ps1nPr2+Y3180F76l
+	lKX0s0vBhNiGkwjGq6VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6Bph-005CGR-1o;
-	Thu, 23 Nov 2023 15:41:37 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1r6EuG-005YGu-1x;
+	Thu, 23 Nov 2023 18:58:32 +0000
+Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6Bpc-005CEt-1y;
-	Thu, 23 Nov 2023 15:41:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 7FEDCB82DAB;
-	Thu, 23 Nov 2023 15:41:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30D54C433C8;
-	Thu, 23 Nov 2023 15:41:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1700754089;
-	bh=wYo7fAMqhxFyBFMQMLKccEbNB96HsajO4uuHMmp53Og=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZDDf/GUUb7F28lHZof2kZ/ExvVGLi3nSeT3k5MbpJeP7J0VRZNmeH0n0637NQXiJB
-	 hXe8WuNM4qKqZGi8AinuhXcYMqOENZ9/wzckFUhv+cEJRM4/HmSMMksK/WN6Dy5Ma8
-	 crPwiGQ3GaiSK00zr+Kr3EpqT8dPwQzDEBl05EUafOfTas5YObKWcowYE6HhNzwKX4
-	 gyZ7Z+k9Vr2SNTiHif5d2ZK3xPjSD8Mo/PvaRTgwaABEKoQRtpYp2i3PjOPpa3mV3f
-	 8LRmCGmlgs78DL4EGWUkJDk7QoF8PY4psFMdIZKb0OGYKJMHSvVD3m8M16G4YVYpCF
-	 3WbWtHvt69uMQ==
-Date: Thu, 23 Nov 2023 08:41:27 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: "bhe@redhat.com" <bhe@redhat.com>
-Cc: "Liu, Yujie" <yujie.liu@intel.com>, lkp <lkp@intel.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"kexec@lists.infradead.org" <kexec@lists.infradead.org>,
-	"x86@kernel.org" <x86@kernel.org>,
-	"oe-kbuild-all@lists.linux.dev" <oe-kbuild-all@lists.linux.dev>,
-	"llvm@lists.linux.dev" <llvm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
-Subject: Re: [PATCH 2/7] kexec_file: print out debugging message if required
-Message-ID: <20231123154127.GA3487126@dev-arch.thelio-3990X>
-References: <20231114153253.241262-3-bhe@redhat.com>
- <202311160431.BXPc7NO9-lkp@intel.com>
- <ZVcvBft/T3cbRBWr@MiWiFi-R3L-srv>
- <39ccb4fda795a76996cf6d1c3b25909692358211.camel@intel.com>
- <ZVdyLdAzgNBXfjiW@MiWiFi-R3L-srv>
- <ZV9YYEK4L160ECQ+@MiWiFi-R3L-srv>
+	id 1r6EuD-005YFs-2r
+	for linux-riscv@lists.infradead.org;
+	Thu, 23 Nov 2023 18:58:31 +0000
+Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-2c873cf9f74so15170221fa.0
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Nov 2023 10:58:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=vrull.eu; s=google; t=1700765906; x=1701370706; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=IGDig6YgBY65aRC6yCBQTLGsMwfbG6Dc++Rh1cU7fbM=;
+        b=nJU3hJIZcgRmYXfdCgFFrRpS8aIHDYS9Tarb4RQjJLxKuG+ZeFvNRNM2n+btQmP5Yy
+         8F4snXFEGPZj60O9lxE9rUn12ZqkiLM4wogIE+UYkXM2OQLdwTJ7pbiBm8m3nE2kDlr8
+         X64TuxkL6AC41AWDX8QxvuuIP5wH5qBgBOeWs7NWTtKiTF8K1p+NrxmrSqj0wH+bTVa/
+         OPYy9xpyLKCn9As8qJ9Atzn7QWcLUjSiAVcAmaTYK34REjawTGlyDglmEOuCX+hNdxJv
+         EMK87+g1T4QtzNP8BkmQ+vQylGqXhpO1mJfE4m6XJKa3jlvRBPhhiaHzLmAXd54mRL2D
+         BeYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1700765906; x=1701370706;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IGDig6YgBY65aRC6yCBQTLGsMwfbG6Dc++Rh1cU7fbM=;
+        b=NN4uLiM1Ljp4LFCX/Mj+CdBB4rLkePVqNiblOWHjx2eWaMKMLZkwDFueVmxXPNPCl8
+         Hgj9B67o8Xuqpo5AKGdwQ7kfwCv1P+UIwyQNekT4hJU2FW0Xh8IKHFtob/hEXIFuxgFf
+         OhRID7x5G8m8hoLv2b1SW1XS17dwtQVzK3y8Dhaq0fnPCiRxAQbGDN1vxiloCGr3NRxm
+         qpgdBMvBjUktohKYCQS6tuP7dZny/x4cwvhEBood1yvMhoAR6Z+PrNrvrg6zbqTzV0YG
+         MspF6vkEV1K0Te+8du2zkGPZzOEYKNL/y7Rj6x6pd1kIDNl5ojzGRMmB0TPTUlyA/oG/
+         IQPQ==
+X-Gm-Message-State: AOJu0Yx/pWyLy8LMu9mKiHZMX9GwTIYNjTVhxGUvxHq0yoJS2PtVhcbd
+	nQRWGU8TdkuDaBs44cZtw3xSKKn7d5yxGfKzX+EHuzq+
+X-Google-Smtp-Source: AGHT+IFY1/C0dQe7cOOy2B31dSRmgNpyJ4PnGGQCob4NYZKF2UsPTkohGqYxikaY7xsNsW23oO0U/w==
+X-Received: by 2002:a2e:9ac3:0:b0:2c5:14da:91f2 with SMTP id p3-20020a2e9ac3000000b002c514da91f2mr219754ljj.22.1700765906008;
+        Thu, 23 Nov 2023 10:58:26 -0800 (PST)
+Received: from beast.fritz.box (62-178-148-172.cable.dynamic.surfer.at. [62.178.148.172])
+        by smtp.gmail.com with ESMTPSA id l23-20020a170906231700b009ff1997ce86sm1115944eja.149.2023.11.23.10.58.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Nov 2023 10:58:25 -0800 (PST)
+From: Christoph Muellner <christoph.muellner@vrull.eu>
+To: linux-riscv@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Shuah Khan <shuah@kernel.org>
+Cc: Philipp Tomsich <philipp.tomsich@vrull.eu>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Evan Green <evan@rivosinc.com>,
+	Xiao Wang <xiao.w.wang@intel.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andy Chiu <andy.chiu@sifive.com>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	=?UTF-8?q?Christoph=20M=C3=BCllner?= <christoph.muellner@vrull.eu>
+Subject: [PATCH 0/5] tools: selftests: riscv: Fix compiler warnings
+Date: Thu, 23 Nov 2023 19:58:16 +0100
+Message-ID: <20231123185821.2272504-1-christoph.muellner@vrull.eu>
+X-Mailer: git-send-email 2.41.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZV9YYEK4L160ECQ+@MiWiFi-R3L-srv>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231123_074132_944837_AE3DCE99 
-X-CRM114-Status: GOOD (  24.81  )
+X-CRM114-CacheID: sfid-20231123_105829_930309_BD8E84EE 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,161 +98,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 23, 2023 at 09:49:20PM +0800, bhe@redhat.com wrote:
-> On 11/17/23 at 10:01pm, Baoquan He wrote:
-> > On 11/17/23 at 09:37am, Liu, Yujie wrote:
-> > > Hi Baoquan,
-> > > =
-
-> > > On Fri, 2023-11-17 at 17:14 +0800, Baoquan He wrote:
-> > > > Hi,
-> > > > =
-
-> > > > On 11/16/23 at 05:04am, kernel test robot wrote:
-> > > > > Hi Baoquan,
-> > > > > =
-
-> > > > > kernel test robot noticed the following build errors:
-> > > > > =
-
-> > > > > [auto build test ERROR on arm64/for-next/core]
-> > > > > [also build test ERROR on tip/x86/core powerpc/next powerpc/fixes=
- linus/master v6.7-rc1 next-20231115]
-> > > > > [If your patch is applied to the wrong git tree, kindly drop us a=
- note.
-> > > > > And when submitting patch, we suggest to use '--base' as document=
-ed in
-> > > > > https://git-scm.com/docs/git-format-patch#_base_tree_information]
-> > > > > =
-
-> > > > > url:=A0=A0=A0 https://github.com/intel-lab-lkp/linux/commits/Baoq=
-uan-He/kexec_file-add-kexec_file-flag-to-control-debug-printing/20231114-23=
-4003
-> > > > > base:=A0=A0 https://git.kernel.org/pub/scm/linux/kernel/git/arm64=
-/linux.git=A0for-next/core
-> > > > > patch link:=A0=A0=A0 https://lore.kernel.org/r/20231114153253.241=
-262-3-bhe%40redhat.com
-> > > > > patch subject: [PATCH 2/7] kexec_file: print out debugging messag=
-e if required
-> > > > > config: hexagon-comet_defconfig (https://download.01.org/0day-ci/=
-archive/20231116/202311160431.BXPc7NO9-lkp@intel.com/config)
-> > > > > compiler: clang version 16.0.4 (https://github.com/llvm/llvm-proj=
-ect.git=A0ae42196bc493ffe877a7e3dff8be32035dea4d07)
-> > > > > reproduce (this is a W=3D1 build): (https://download.01.org/0day-=
-ci/archive/20231116/202311160431.BXPc7NO9-lkp@intel.com/reproduce)
-> > > > > =
-
-> > > > =
-
-> > > > Thanks for reporting.
-> > > > =
-
-> > > > I met below failure when following the steps of provided reproducer.
-> > > > Could anyone help check what's wrong with that?
-> > > =
-
-> > > Sorry this seems to be a bug in the reproducer. Could you please chan=
-ge
-> > > the compiler parameter to "COMPILER=3Dclang-16" and rerun the command=
-? We
-> > > will fix the issue ASAP.
-> =
-
-> Any update for the reproducer? I would like to post v2 with the fix. I
-> doubt it's the same issue as another report on this patch, while not
-> quite sure.
-
-Shouldn't you be able to run
-
-  $ COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang-16 ~/bin/make.cross=
- W=3D1 O=3Dbuild_dir ARCH=3Dhexagon SHELL=3D/bin/bash kernel/
-
-after the command you just ran to reproduce this now? It is
-essentially the same fix that they mention above but for the second
-invocation of make.cross.
-
-You can also not even bother with the wrapper altogether if you have the
-compiler installed in the default path that they provide (W=3D1 is not
-necessary to reproduce this issue):
-
-  $ mkdir -p build_dir
-  $ curl -LSso build_dir/.config https://download.01.org/0day-ci/archive/20=
-231116/202311160431.BXPc7NO9-lkp@intel.com/config
-  $ make -skj"$(nproc)" ARCH=3Dhexagon LLVM=3D$HOME/0day/llvm-16.0.6-x86_64=
-/bin/ O=3Dbuild_dir olddefconfig kernel/crash_core.o
-  ...
-  kernel/crash_core.c:554:3: error: call to undeclared function 'kexec_dpri=
-ntk'; ISO C99 and later do not support implicit function declarations [-Wim=
-plicit-function-declaration]
-                  kexec_dprintk("Crash PT_LOAD ELF header. phdr=3D%p vaddr=
-=3D0x%llx, paddr=3D0x%llx, "
-                  ^
-  1 error generated.
-
-> > Here you are. Thanks for your quick response.
-> > ------------------------------
-> > [root@~ linux]# COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang-16 =
-~/bin/make.cross W=3D1 O=3Dbuild_dir ARCH=3Dhexagon olddefconfig
-> > Compiler will be installed in /root/0day
-> > lftpget -c https://cdn.kernel.org/pub/tools/llvm/files/./llvm-16.0.6-x8=
-6_64.tar.xz
-> > /root/linux                                                            =
-                 =
-
-> > tar Jxf /root/0day/./llvm-16.0.6-x86_64.tar.xz -C /root/0day
-> > PATH=3D/root/0day/llvm-16.0.6-x86_64/bin:/root/.local/bin:/root/bin:/us=
-r/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
-> > make --keep-going LLVM=3D1 CROSS_COMPILE=3Dhexagon-linux- LLVM_IAS=3D1 =
---jobs=3D128 KCFLAGS=3D-Warray-bounds -Wundef -fstrict-flex-arrays=3D3 -fun=
-signed-char -Wenum-conversion W=3D1 O=3Dbuild_dir ARCH=3Dhexagon olddefconf=
-ig
-> > make[1]: Entering directory '/root/linux/build_dir'
-> >   GEN     Makefile
-> >   HOSTCC  scripts/basic/fixdep
-> >   HOSTCC  scripts/kconfig/conf.o
-> >   HOSTCC  scripts/kconfig/confdata.o
-> >   HOSTCC  scripts/kconfig/expr.o
-> >   HOSTCC  scripts/kconfig/lexer.lex.o
-> >   HOSTCC  scripts/kconfig/menu.o
-> >   HOSTCC  scripts/kconfig/parser.tab.o
-> >   HOSTCC  scripts/kconfig/preprocess.o
-> >   HOSTCC  scripts/kconfig/symbol.o
-> >   HOSTCC  scripts/kconfig/util.o
-> >   HOSTLD  scripts/kconfig/conf
-> > #
-> > # configuration written to .config
-> > #
-> > make[1]: Leaving directory '/root/linux/build_dir'
-> > =
-
-> > > =
-
-> > > > [root@~ linux]# COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang=
- ~/bin/make.cross W=3D1 O=3Dbuild_dir ARCH=3Dhexagon olddefconfig
-> > > > Compiler will be installed in /root/0day
-> > > > lftpget -c https://cdn.kernel.org/pub/tools/llvm/files/
-> > > > get1: /pub/tools/llvm/files/: files/: Is a directory
-> > > > Failed to download https://cdn.kernel.org/pub/tools/llvm/files/
-> > > > clang crosstool install failed
-> > > > Install clang compiler failed
-> > > > setup_crosstool failed
-> > > =
-
-> > > =
-
-> > =
-
-> =
-
-> =
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogQ2hyaXN0b3BoIE3DvGxsbmVyIDxjaHJpc3RvcGgubXVlbGxuZXJAdnJ1bGwuZXU+CgpX
+aGVuIGJ1aWxkaW5nIHRoZSBSSVNDLVYgc2VsZnRlc3RzIHdpdGggYSByaXNjdjMyIGNvbXBpbGVy
+IEkgcmFuIGludG8KYSBjb3VwbGUgb2YgY29tcGlsZXIgd2FybmluZ3MuIFdoaWxlIHJpc2N2MzIg
+c3VwcG9ydCBmb3IgdGhlc2UgdGVzdHMgaXMKcXVlc3Rpb25hYmxlLCB0aGUgZml4ZXMgYXJlIHNv
+IHRyaXZpYWwgdGhhdCBpdCBpcyBwcm9iYWJseSBiZXN0IHRvIHNpbXBseQphcHBseSB0aGVtLgoK
+Tm90ZSB0aGF0IHRoZSBtaXNzaW5nLWluY2x1ZGUgcGF0Y2ggYW5kIHNvbWUgZm9ybWF0IHN0cmlu
+ZyB3YXJuaW5ncwphcmUgYWxzbyByZWxldmFudCBmb3IgcmlzY3Y2NC4KCkNocmlzdG9waCBNw7xs
+bG5lciAoNSk6CiAgdG9vbHM6IHNlbGZ0ZXN0czogcmlzY3Y6IEZpeCBjb21waWxlIHdhcm5pbmdz
+IGluIGh3cHJvYmUKICB0b29sczogc2VsZnRlc3RzOiByaXNjdjogRml4IGNvbXBpbGUgd2Fybmlu
+Z3MgaW4gY2JvCiAgdG9vbHM6IHNlbGZ0ZXN0czogcmlzY3Y6IEFkZCBtaXNzaW5nIGluY2x1ZGUg
+Zm9yIHZlY3RvciB0ZXN0CiAgdG9vbHM6IHNlbGZ0ZXN0czogcmlzY3Y6IEZpeCBjb21waWxlIHdh
+cm5pbmdzIGluIHZlY3RvciB0ZXN0cwogIHRvb2xzOiBzZWxmdGVzdHM6IHJpc2N2OiBGaXggY29t
+cGlsZSB3YXJuaW5ncyBpbiBtbSB0ZXN0cwoKIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3Jpc2N2
+L2h3cHJvYmUvY2JvLmMgICAgICAgICAgICAgICB8IDYgKysrLS0tCiB0b29scy90ZXN0aW5nL3Nl
+bGZ0ZXN0cy9yaXNjdi9od3Byb2JlL2h3cHJvYmUuYyAgICAgICAgICAgfCA0ICsrLS0KIHRvb2xz
+L3Rlc3Rpbmcvc2VsZnRlc3RzL3Jpc2N2L21tL21tYXBfdGVzdC5oICAgICAgICAgICAgICB8IDMg
+KysrCiB0b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9yaXNjdi92ZWN0b3Ivdl9pbml0dmFsX25vbGli
+Yy5jICAgfCAyICstCiB0b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9yaXNjdi92ZWN0b3IvdnN0YXRl
+X2V4ZWNfbm9saWJjLmMgfCAzICsrKwogdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvcmlzY3YvdmVj
+dG9yL3ZzdGF0ZV9wcmN0bC5jICAgICAgIHwgNCArKy0tCiA2IGZpbGVzIGNoYW5nZWQsIDE0IGlu
+c2VydGlvbnMoKyksIDggZGVsZXRpb25zKC0pCgotLSAKMi40MS4wCgoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
