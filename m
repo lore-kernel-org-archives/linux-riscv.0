@@ -4,63 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C6F4C5AD4C
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 13:42:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A0E5C61DF7
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 13:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=XLrg/llSZEseQf/vUkfEpCwpvin5eeCPDGIXuRMD+wo=; b=xVHbsvbrMwZys2
-	sVG8F4qntqk/jK3aEbMDoo+QxX1sa/GPzk4IR0iAQaDjYY+MIKfsmwW15JJAzpBYnp0x2B1ENL/nO
-	Jvz5MmBZ93DmWzC8WYRnxOgFNZBhMMvjfKyMEU/8eFipAAMmGeFljBoOjqYRqPBNvLEZcdxRmg8iv
-	LB7v3c2WMuJ3tiinl9UpEMVhzvguJIFYkrQpkBtdsjf92rCBFUzquYaCn8+aaVcBtaxE1QfIKSGGT
-	3It0wGUPyyXYSInWI6rxHs2leKQd+hN86oN0V7UEOpCOxZ/L77VYKqst+psTGEUKDdXyEy3HrAaRa
-	I0e82yKJ9ym40BZLvOkg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2fDxFZiKnK8QvpXF3dhgZBtoKzqVFz1h2RLE+r4FCxQ=; b=wlKE1wihjgKrkj
+	t6wpIfFztfdPc5YCoPqxzc1VlsWJejLzQxYHKE0c3o16S/nwrilVYiUhNa4kVm+EHtso81qU8coIU
+	/y9F/jeBhDUkR2r8luX3pez2NBrUD4eiZvmG/WbG+0PRf9ioW2glxVd9MTH7WtA9Tqn/sPoZWoWTe
+	ACVY3AxyJ/FSzpSnP2ctRpFqXgXkrK2xyKLAPoOR9kXpzkf5FIueIXrXxUTvbJwNkWFNQ/xkbLIKC
+	VcAhUJ6Np54uXy7AHTIzopOnUZoq/1KYCy2ykW81xIv8KrS0EWXtxH8BDPvXars7MsgEHGbaQgYW8
+	Niyb8xjKd8FUE+r+j7kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r69yM-004vGi-2U;
-	Thu, 23 Nov 2023 13:42:26 +0000
-Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
+	id 1r6A5G-004wdV-2T;
+	Thu, 23 Nov 2023 13:49:34 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r69yJ-004vEb-3B
+	id 1r6A5C-004wbH-0R
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Nov 2023 13:42:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=qzDYok5oSedbjSII7O6os148H5o+A9vUBxaMvgxecfA=; b=CuVKMau+FTzX3AXW7KCMXVUHKl
-	YfKdpXuCb+4yuztswtlvNNd4yGvdqdnpnYylqNaJZGbKpaPZ+0BtOwrhXJh8kcM61FfUHLTY9Oni6
-	Q6F/4ZyQmNU8doDndFglcqLH65C9bSR0EygiFoCSFEuYIHloCCZxqBzmdrp5c/OkF+ZenUpqnPxFG
-	ONbLeHkmcFv65XvgL+5kQ3hDGotw80XIPIiLhwRfrTEy0NlMr08wsXIG3SXRYBzjuGm8mRKLoDpTE
-	vNHCZw0kEOjACXHwOeaU7iUChT9EOReye7CAqlSMHrym+IllVu7PtQNkc3H86XjmvLi+3OGJ4CprX
-	rIpJGVDg==;
-Received: from [167.98.27.226] (helo=rainbowdash)
-	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1r69yC-004SaQ-3J; Thu, 23 Nov 2023 13:42:17 +0000
-Received: from ben by rainbowdash with local (Exim 4.97)
-	(envelope-from <ben@rainbowdash>)
-	id 1r69yC-00000000LEO-1fTp;
-	Thu, 23 Nov 2023 13:42:16 +0000
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-To: linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	Ben Dooks <ben.dooks@codethink.co.uk>
-Subject: [PATCH] riscv: declare overflow_stack as exported from traps.c
-Date: Thu, 23 Nov 2023 13:42:14 +0000
-Message-Id: <20231123134214.81481-1-ben.dooks@codethink.co.uk>
-X-Mailer: git-send-email 2.37.2.352.g3c44437643
+	Thu, 23 Nov 2023 13:49:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1700747368;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=sxe/WLsh7nIXyyUO9oSfkk7wRCeEdhack6GYCW6HjJ0=;
+	b=d6RQLGwEBO/KlAePUon008cDe56jMQPKOtWWtyXUJ673ChcM/qmSsv3Z5nQn0ONU9MbXoe
+	rDu3IsqLJtbe4HBE6youQ+cF7LU0s8BIt7UboDOpa3TWjsShYbybjjiRTTHnqUICNaJ+Z1
+	GIWdfKK+tmyYOFrjJLn1mLoviv13VS8=
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-679-01FaU-9lNxS8bxXlt4ljHw-1; Thu,
+ 23 Nov 2023 08:49:25 -0500
+X-MC-Unique: 01FaU-9lNxS8bxXlt4ljHw-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AEF9428004ED;
+	Thu, 23 Nov 2023 13:49:24 +0000 (UTC)
+Received: from localhost (unknown [10.72.112.97])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0906B1121306;
+	Thu, 23 Nov 2023 13:49:23 +0000 (UTC)
+Date: Thu, 23 Nov 2023 21:49:20 +0800
+From: "bhe@redhat.com" <bhe@redhat.com>
+To: "Liu, Yujie" <yujie.liu@intel.com>
+Cc: lkp <lkp@intel.com>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"kexec@lists.infradead.org" <kexec@lists.infradead.org>,
+	"x86@kernel.org" <x86@kernel.org>,
+	"oe-kbuild-all@lists.linux.dev" <oe-kbuild-all@lists.linux.dev>,
+	"llvm@lists.linux.dev" <llvm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
+Subject: Re: [PATCH 2/7] kexec_file: print out debugging message if required
+Message-ID: <ZV9YYEK4L160ECQ+@MiWiFi-R3L-srv>
+References: <20231114153253.241262-3-bhe@redhat.com>
+ <202311160431.BXPc7NO9-lkp@intel.com>
+ <ZVcvBft/T3cbRBWr@MiWiFi-R3L-srv>
+ <39ccb4fda795a76996cf6d1c3b25909692358211.camel@intel.com>
+ <ZVdyLdAzgNBXfjiW@MiWiFi-R3L-srv>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <ZVdyLdAzgNBXfjiW@MiWiFi-R3L-srv>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231123_054224_106273_12120197 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20231123_054930_249164_2ED91547 
+X-CRM114-Status: GOOD (  21.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,43 +89,126 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The percpu area overflow_stacks is exported from arch/riscv/kernel/traps.c
-for use in the entry code, but is not declared anywhere. Add the relevant
-declaration to arch/riscv/include/asm/stacktrace.h to silence the following
-sparse warning:
+On 11/17/23 at 10:01pm, Baoquan He wrote:
+> On 11/17/23 at 09:37am, Liu, Yujie wrote:
+> > Hi Baoquan,
+> > =
 
-arch/riscv/kernel/traps.c:395:1: warning: symbol '__pcpu_scope_overflow_stack' was not declared. Should it be static?
+> > On Fri, 2023-11-17 at 17:14 +0800, Baoquan He wrote:
+> > > Hi,
+> > > =
 
-We don't add the stackinfo_get_overflow() call as for some of the other
-architectures as this doesn't seem to be used yet, so just silence the
-warning.
+> > > On 11/16/23 at 05:04am, kernel test robot wrote:
+> > > > Hi Baoquan,
+> > > > =
 
-Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
----
- arch/riscv/include/asm/stacktrace.h | 5 +++++
- 1 file changed, 5 insertions(+)
+> > > > kernel test robot noticed the following build errors:
+> > > > =
 
-diff --git a/arch/riscv/include/asm/stacktrace.h b/arch/riscv/include/asm/stacktrace.h
-index f7e8ef2418b9..b1495a7e06ce 100644
---- a/arch/riscv/include/asm/stacktrace.h
-+++ b/arch/riscv/include/asm/stacktrace.h
-@@ -21,4 +21,9 @@ static inline bool on_thread_stack(void)
- 	return !(((unsigned long)(current->stack) ^ current_stack_pointer) & ~(THREAD_SIZE - 1));
- }
- 
-+
-+#ifdef CONFIG_VMAP_STACK
-+DECLARE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)], overflow_stack);
-+#endif /* CONFIG_VMAP_STACK */
-+
- #endif /* _ASM_RISCV_STACKTRACE_H */
--- 
-2.37.2.352.g3c44437643
+> > > > [auto build test ERROR on arm64/for-next/core]
+> > > > [also build test ERROR on tip/x86/core powerpc/next powerpc/fixes l=
+inus/master v6.7-rc1 next-20231115]
+> > > > [If your patch is applied to the wrong git tree, kindly drop us a n=
+ote.
+> > > > And when submitting patch, we suggest to use '--base' as documented=
+ in
+> > > > https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> > > > =
+
+> > > > url:=A0=A0=A0 https://github.com/intel-lab-lkp/linux/commits/Baoqua=
+n-He/kexec_file-add-kexec_file-flag-to-control-debug-printing/20231114-2340=
+03
+> > > > base:=A0=A0 https://git.kernel.org/pub/scm/linux/kernel/git/arm64/l=
+inux.git=A0for-next/core
+> > > > patch link:=A0=A0=A0 https://lore.kernel.org/r/20231114153253.24126=
+2-3-bhe%40redhat.com
+> > > > patch subject: [PATCH 2/7] kexec_file: print out debugging message =
+if required
+> > > > config: hexagon-comet_defconfig (https://download.01.org/0day-ci/ar=
+chive/20231116/202311160431.BXPc7NO9-lkp@intel.com/config)
+> > > > compiler: clang version 16.0.4 (https://github.com/llvm/llvm-projec=
+t.git=A0ae42196bc493ffe877a7e3dff8be32035dea4d07)
+> > > > reproduce (this is a W=3D1 build): (https://download.01.org/0day-ci=
+/archive/20231116/202311160431.BXPc7NO9-lkp@intel.com/reproduce)
+> > > > =
+
+> > > =
+
+> > > Thanks for reporting.
+> > > =
+
+> > > I met below failure when following the steps of provided reproducer.
+> > > Could anyone help check what's wrong with that?
+> > =
+
+> > Sorry this seems to be a bug in the reproducer. Could you please change
+> > the compiler parameter to "COMPILER=3Dclang-16" and rerun the command? =
+We
+> > will fix the issue ASAP.
+
+Any update for the reproducer? I would like to post v2 with the fix. I
+doubt it's the same issue as another report on this patch, while not
+quite sure.
+
+> =
+
+> Here you are. Thanks for your quick response.
+> ------------------------------
+> [root@~ linux]# COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang-16 ~/=
+bin/make.cross W=3D1 O=3Dbuild_dir ARCH=3Dhexagon olddefconfig
+> Compiler will be installed in /root/0day
+> lftpget -c https://cdn.kernel.org/pub/tools/llvm/files/./llvm-16.0.6-x86_=
+64.tar.xz
+> /root/linux                                                              =
+               =
+
+> tar Jxf /root/0day/./llvm-16.0.6-x86_64.tar.xz -C /root/0day
+> PATH=3D/root/0day/llvm-16.0.6-x86_64/bin:/root/.local/bin:/root/bin:/usr/=
+lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+> make --keep-going LLVM=3D1 CROSS_COMPILE=3Dhexagon-linux- LLVM_IAS=3D1 --=
+jobs=3D128 KCFLAGS=3D-Warray-bounds -Wundef -fstrict-flex-arrays=3D3 -funsi=
+gned-char -Wenum-conversion W=3D1 O=3Dbuild_dir ARCH=3Dhexagon olddefconfig
+> make[1]: Entering directory '/root/linux/build_dir'
+>   GEN     Makefile
+>   HOSTCC  scripts/basic/fixdep
+>   HOSTCC  scripts/kconfig/conf.o
+>   HOSTCC  scripts/kconfig/confdata.o
+>   HOSTCC  scripts/kconfig/expr.o
+>   HOSTCC  scripts/kconfig/lexer.lex.o
+>   HOSTCC  scripts/kconfig/menu.o
+>   HOSTCC  scripts/kconfig/parser.tab.o
+>   HOSTCC  scripts/kconfig/preprocess.o
+>   HOSTCC  scripts/kconfig/symbol.o
+>   HOSTCC  scripts/kconfig/util.o
+>   HOSTLD  scripts/kconfig/conf
+> #
+> # configuration written to .config
+> #
+> make[1]: Leaving directory '/root/linux/build_dir'
+> =
+
+> > =
+
+> > > [root@~ linux]# COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang ~=
+/bin/make.cross W=3D1 O=3Dbuild_dir ARCH=3Dhexagon olddefconfig
+> > > Compiler will be installed in /root/0day
+> > > lftpget -c https://cdn.kernel.org/pub/tools/llvm/files/
+> > > get1: /pub/tools/llvm/files/: files/: Is a directory
+> > > Failed to download https://cdn.kernel.org/pub/tools/llvm/files/
+> > > clang crosstool install failed
+> > > Install clang compiler failed
+> > > setup_crosstool failed
+> > =
+
+> > =
+
+> =
+
 
 
 _______________________________________________
