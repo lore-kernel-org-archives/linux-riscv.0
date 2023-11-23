@@ -4,77 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F1CAC624B4
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 14:08:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5DB3C61DF7
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 14:16:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=udHaUZU4Z3cT+O18JAwkASBa8L4pwSRy5Ioa/RiSYLo=; b=idhBfuQyXoyTfqPwiD/aqbqkX6
-	seOHv4ChDP/ATAYE28an3/TXEhJDww7qfSkWOwqeCrCJj9ljwAYCYhLtx1KfyNXeioEFIWYDM6tBF
-	OEN6coaFLWn4TaY1rL0FnWtq4zMZIk6P5h6uzf8D16tHt5GBhTuXyHGuhTYpb3OzM4RdFm+QqM5ZC
-	zHz1p+rWi56M7nEGhw6C+9U1aUIRO0zFtbW54c29dt69mcG4zdbjVR0mjmnDI8Eof9mP1KE/r2MLQ
-	BS1jXdBMNjdO6d0RB0mok4fiH9+FOrWyFNMPa8WGUsLDAz/7iAplIhem8sBjac3fqJk9+SuaPPSC2
-	WAJpQCIg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LLmBNbt/OJFiY9MrPhGdGu3cjK5wM+a9Vyneb6WeSfQ=; b=FYozwWTVKBP96k
+	w9jP60qUJ07srDL1Tj4SbOonUxx5kZ2keT2XYYWTJV2G71AwzzTRcGxBp0oyevYSbUCjMQNukDHl8
+	QTyrnQNWIll667+IPpBJ66tWRSVZY/Aqoyj0cMRjtVrVrYTOmIQlGgIPouzuKZmUkW4C6l4VAhUti
+	B6ROX1QGhBsMWvcYh7e0C2SSz0J/iP4yEU1tcxBys2mpmBRHzNh4hZUDftqrNKDrjJBt7jJ767jRE
+	yuPlG257jFiDL7RwXU41fskN7efUaXx2xYJrpYJPX3q+cZPkBmjLvueMnGyly1M/ufiRewKjdmhBT
+	XTT8WuIpKNY71xrFOs4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6AN0-004yh9-1q;
-	Thu, 23 Nov 2023 14:07:54 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1r6AVE-004zes-2K;
+	Thu, 23 Nov 2023 14:16:24 +0000
+Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6AMx-004yg8-0k
+	id 1r6AVC-004zde-17
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Nov 2023 14:07:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1700748471; x=1732284471;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=c9m6OVf58Xo2DNf9S/Po6djMWe3D3sOi1XkgmKgo8c4=;
-  b=R/kScdq7oqPxW0QcTqjqG8AeylXZy8EAHb3mAnJdGiAXuo4fQBe8Sb3g
-   PzeVg+0fEwf3ijpccmFy0MqzR163PH1IVSeCdsIfYuB1/4QuNKhYA0Ol6
-   MBKIuQsSvyMK6jADUQdD+qq2NTtoHbiUcoCmqbaYb8bK2MCc/v1cisJRp
-   ZbNIBvQKWfX2ktx7xkp9uMZBbNYmXML4esZfS/y4aJWBo/IoP56zSgh02
-   Ct9b/LoGaym+ka13MX1jZbL4LZUgHC9q1yXN0kLxaQ2jt4RsmINAnXPZF
-   k7VoaDB05bNksoNqDC8s5SW/6zgeOMiaZ090ggreXeFyReC0t3KtqWu0o
-   Q==;
-X-CSE-ConnectionGUID: TCqVcfDDR5mXI/gzk10ZoA==
-X-CSE-MsgGUID: qX52RZ4iQcWu/bkmDmP4Eg==
-X-ThreatScanner-Verdict: Negative
-X-IronPort-AV: E=Sophos;i="6.04,221,1695711600"; 
-   d="asc'?scan'208";a="12115149"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Nov 2023 07:07:48 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 23 Nov 2023 07:07:26 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex03.mchp-main.com (10.10.85.151)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Thu, 23 Nov 2023 07:07:23 -0700
-Date: Thu, 23 Nov 2023 14:06:55 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Samuel Holland <samuel.holland@sifive.com>
-CC: Palmer Dabbelt <palmer@dabbelt.com>, <linux-riscv@lists.infradead.org>,
-	Albert Ou <aou@eecs.berkeley.edu>, Andy Chiu <andy.chiu@sifive.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>, Greentime Hu
-	<greentime.hu@sifive.com>, Guo Ren <guoren@kernel.org>, Heiko Stuebner
-	<heiko@sntech.de>, Masahiro Yamada <masahiroy@kernel.org>, Nam Cao
-	<namcaov@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, Sami Tolvanen
-	<samitolvanen@google.com>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] riscv: Fix SMP when shadow call stacks are enabled
-Message-ID: <20231123-vision-nuttiness-b75be703f162@wendy>
-References: <20231121211958.3158576-1-samuel.holland@sifive.com>
+	Thu, 23 Nov 2023 14:16:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=X7MbYzx1WwZG7kkxbSNQXQ8lOJbHZOY6MUwMS7TQckk=; b=dakTzhCwvs3zfH7PwWIyFa1pj3
+	E0HXSUwXYGbz/8cvZX4f5ddzd61vyujZx03qE9vBtiKdolKmf8rNBeEx/z5pqhJcBD5zeYraE1/ez
+	0/hUkgBSpwf4Nqgi9Uvg0275RC8gwTbfNJs+aZiHBg9I8lbwuN0hPVVwWuG9sW0VaRi0/OVLmFDVV
+	G+/5VY/X2QoiejsrIw+xq3SLg3qqWS5sMHKZ3PwvME0vZHNO9FPJbZOPxWZGARqYS4FqQJq34uh5V
+	v2WXsMhO5F78Wbit5thqXBaDf8awJNyrihM69zTmQFAbSALFOfCLq8Uly09zTY2YWhFHodSVUMXrj
+	Z+uMCRUA==;
+Received: from [167.98.27.226] (helo=rainbowdash)
+	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1r6AV8-004Tcz-6d; Thu, 23 Nov 2023 14:16:19 +0000
+Received: from ben by rainbowdash with local (Exim 4.97)
+	(envelope-from <ben@rainbowdash>)
+	id 1r6AV8-000000015XA-3BGH;
+	Thu, 23 Nov 2023 14:16:18 +0000
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+To: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	Ben Dooks <ben.dooks@codethink.co.uk>
+Subject: [PATCH] riscv: fix __user annotation in traps_misaligned.c
+Date: Thu, 23 Nov 2023 14:16:17 +0000
+Message-Id: <20231123141617.259591-1-ben.dooks@codethink.co.uk>
+X-Mailer: git-send-email 2.37.2.352.g3c44437643
 MIME-Version: 1.0
-In-Reply-To: <20231121211958.3158576-1-samuel.holland@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231123_060751_351995_FF02E7C0 
-X-CRM114-Status: GOOD (  18.63  )
+X-CRM114-CacheID: sfid-20231123_061622_472031_87456E65 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,90 +72,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0397176466885697294=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============0397176466885697294==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="R6NWfd0pBNwexC3U"
-Content-Disposition: inline
+The instruction reading code can read from either user or kernel addresses
+and thus the use of __user on pointers to instructions depends on which
+context. Fix a few sparse warnings by using __user for user-accesses and
+remove it when not.
 
---R6NWfd0pBNwexC3U
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Fixes:
 
-On Tue, Nov 21, 2023 at 01:19:29PM -0800, Samuel Holland wrote:
-> This fixes two bugs in SCS initialization for secondary CPUs. First,
-> the SCS was not initialized at all in the spinwait boot path. Second,
-> the code for the SBI HSM path attempted to initialize the SCS before
-> enabling the MMU. However, that involves dereferencing the thread
-> pointer, which requires the MMU to be enabled.
->=20
-> Fix both issues by setting up the SCS in the common secondary entry
-> path, after enabling the MMU.
+arch/riscv/kernel/traps_misaligned.c:361:21: warning: dereference of noderef expression
+arch/riscv/kernel/traps_misaligned.c:373:21: warning: dereference of noderef expression
+arch/riscv/kernel/traps_misaligned.c:381:21: warning: dereference of noderef expression
+arch/riscv/kernel/traps_misaligned.c:322:24: warning: incorrect type in initializer (different address spaces)
+arch/riscv/kernel/traps_misaligned.c:322:24:    expected unsigned char const [noderef] __user *__gu_ptr
+arch/riscv/kernel/traps_misaligned.c:322:24:    got unsigned char const [usertype] *addr
+arch/riscv/kernel/traps_misaligned.c:361:21: warning: dereference of noderef expression
+arch/riscv/kernel/traps_misaligned.c:373:21: warning: dereference of noderef expression
+arch/riscv/kernel/traps_misaligned.c:381:21: warning: dereference of noderef expression
+arch/riscv/kernel/traps_misaligned.c:332:24: warning: incorrect type in initializer (different address spaces)
+arch/riscv/kernel/traps_misaligned.c:332:24:    expected unsigned char [noderef] __user *__gu_ptr
+arch/riscv/kernel/traps_misaligned.c:332:24:    got unsigned char [usertype] *addr
 
-I'm curious, mostly because I do not know much about the implemtnation
-of the shadow call stack, but does it actually work correctly when the
-kernel is built without mmu support?
+Fixes: 7c83232161f60 ("riscv: add support for misaligned trap handling in S-mode")
+Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+---
+ arch/riscv/kernel/traps_misaligned.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
->=20
-> Fixes: d1584d791a29 ("riscv: Implement Shadow Call Stack")
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-> ---
->=20
->  arch/riscv/kernel/head.S | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-> index b77397432403..76ace1e0b46f 100644
-> --- a/arch/riscv/kernel/head.S
-> +++ b/arch/riscv/kernel/head.S
-> @@ -154,7 +154,6 @@ secondary_start_sbi:
->  	XIP_FIXUP_OFFSET a3
->  	add a3, a3, a1
->  	REG_L sp, (a3)
-> -	scs_load_current
-> =20
->  .Lsecondary_start_common:
-> =20
-> @@ -165,6 +164,7 @@ secondary_start_sbi:
->  	call relocate_enable_mmu
->  #endif
->  	call .Lsetup_trap_vector
-> +	scs_load_current
->  	tail smp_callin
->  #endif /* CONFIG_SMP */
-> =20
-> --=20
-> 2.42.0
->=20
+diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/traps_misaligned.c
+index 5eba37147caa..446e3d4eeea9 100644
+--- a/arch/riscv/kernel/traps_misaligned.c
++++ b/arch/riscv/kernel/traps_misaligned.c
+@@ -319,7 +319,7 @@ static inline int get_insn(struct pt_regs *regs, ulong mepc, ulong *r_insn)
+ static inline int load_u8(struct pt_regs *regs, const u8 *addr, u8 *r_val)
+ {
+ 	if (user_mode(regs)) {
+-		return __get_user(*r_val, addr);
++		return __get_user(*r_val, (u8 __user *)addr);
+ 	} else {
+ 		*r_val = *addr;
+ 		return 0;
+@@ -329,7 +329,7 @@ static inline int load_u8(struct pt_regs *regs, const u8 *addr, u8 *r_val)
+ static inline int store_u8(struct pt_regs *regs, u8 *addr, u8 val)
+ {
+ 	if (user_mode(regs)) {
+-		return __put_user(val, addr);
++		return __put_user(val, (u8 __user *)addr);
+ 	} else {
+ 		*addr = val;
+ 		return 0;
+@@ -343,7 +343,7 @@ static inline int store_u8(struct pt_regs *regs, u8 *addr, u8 val)
+ 	if (user_mode(regs)) {				\
+ 		__ret = __get_user(insn, insn_addr);	\
+ 	} else {					\
+-		insn = *insn_addr;			\
++		insn = *(__force u16 *)insn_addr;	\
+ 		__ret = 0;				\
+ 	}						\
+ 							\
+-- 
+2.37.2.352.g3c44437643
 
---R6NWfd0pBNwexC3U
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZV9cfwAKCRB4tDGHoIJi
-0gIpAP9ONF1o41LhBrc0ZV8gMLPTLWtw+TTTBzcxqq0oWmjYlAEAjA9Yv8RUu/ZW
-4OmzEDkWDyFj8ja5ZmEIAp4h4yfpvAg=
-=pHOR
------END PGP SIGNATURE-----
-
---R6NWfd0pBNwexC3U--
-
-
---===============0397176466885697294==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0397176466885697294==--
-
