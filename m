@@ -4,88 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA7B9C5AD4C
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 09:09:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB97C5AD4C
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 09:30:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RgdNVE+ljNfPkTbIBrcrZgLPbzEiGlzzuJBcHbwGTDA=; b=cQLTdG2BZytzrC
-	iLJWoi8bm2CE5J+1XGTOlPc35K9JE3PfGX9wUcqGOk8fVz31JYoFLT/HlhZKbH9+qqE10/ful6Y2/
-	Kwt49BFFymvt4td7RUnK8HqS0bE0iVew3Kr3eKPr0fsjow3B/PC371rA2tn72VaLcRliQHfUWcR0z
-	C+mHIxdaqUFIUO7/3rJsT1x8K0tOeajxpXPysOf+GJ2oYI+0RoxPTAB9hbpQMt9Z9NEqDXcypGK79
-	uxqCWkfHDtGu08kAiUyBbbuXkY2HjNEN9/qnKWUYXyPaQJdBNQy6wS6/U4ppeK9mD/mz3nsg05mYU
-	xc94wL+YE+kFGEMiy7tA==;
+	List-Owner; bh=Es/yF2IR21cwKsRNYuaXoHUlNWPBnbfjKGeCt91p+xM=; b=3LmDl1cM0bbZv2
+	/6X/QQPUk4PYCsuqF6ntTqyQ9eUJykuDDW3mG7KOGxRyLOvAjeLuieoWZ3f7dCtRQoIU01j/PqLKE
+	JvaSfkJzI0vRC7dzfQbQm8TEGi8+nZ3tEXsuc7kYcSkS/y2Y8fKmjvrsmyk3ygXJaUgkhElOQUhDn
+	zNQDUGvfDXrlJCrsjriHURpGYiG4fm6LRtgp1es+Dx74NLydC8e6CnmCoFvGjYwtjZOKelEjk7RYj
+	gz2s4KKc/w9F7dbB7WKMgZmBJW1e5maz+v+VlbE1ejEgJEA6tT1TvY/YgMAchlUpexuP5561dL9wM
+	nvR33IxPfOmclh0oANdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r65hf-004Dfl-08;
-	Thu, 23 Nov 2023 09:08:55 +0000
-Received: from marcansoft.com ([212.63.210.85] helo=mail.marcansoft.com)
+	id 1r661z-004G0r-1z;
+	Thu, 23 Nov 2023 09:29:55 +0000
+Received: from out1-smtp.messagingengine.com ([66.111.4.25])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r65hb-004De3-24;
-	Thu, 23 Nov 2023 09:08:53 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: marcan@marcan.st)
-	by mail.marcansoft.com (Postfix) with ESMTPSA id 9BDB241EF0;
-	Thu, 23 Nov 2023 09:08:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=marcan.st; s=default;
-	t=1700730528; bh=tKvmM8VauJ2SKlC76Ts+IMS9Y0f1D93gbN6PS2aS1RQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=bEylMheXkP1AY7uDhyUgpvOvmafAgnH8kYOyGsGvzSEm3AG0TuKGO12XpHG7pIpPk
-	 7DWjDpQ/2UVGkEBlWmpkMsK+kkFSTbFl2mNZf+evyauyJJjLkxYiIMvQnQZccc7GYl
-	 eyA+fRFKB/4nH2lfKLFZ7jOWf+ZnhEEAdxplIRYiCSC8oH9YCENIvFOPHr97tQOVpS
-	 vFMyIE8sCHGbUWmMQTW6+kNNQZA2kAYPQ/d2k1mzDzQUzP4vU581SpL8b4NQXqoDyL
-	 Nq2SuV6KB6PtAtBepsn6kZamgJlbVvwi56sMxTDqNBWGfHkerXitbj24KAHWAlJH6q
-	 nnb+VrbjJRB5A==
-Message-ID: <ab23469f-19ce-4681-afc9-65518730b51b@marcan.st>
-Date: Thu, 23 Nov 2023 18:08:33 +0900
+	id 1r661w-004Fxi-2V
+	for linux-riscv@lists.infradead.org;
+	Thu, 23 Nov 2023 09:29:54 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+	by mailout.nyi.internal (Postfix) with ESMTP id 207155C019E;
+	Thu, 23 Nov 2023 04:29:46 -0500 (EST)
+Received: from imap51 ([10.202.2.101])
+  by compute5.internal (MEProxy); Thu, 23 Nov 2023 04:29:46 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm3; t=1700731786; x=1700818186; bh=/6
+	Jewe6s2lAA53NpQQ339J2KIqQZoaHRGTOK/DO562w=; b=3BjGUXa7ROSW9+KBsE
+	ZZDOV4JJt2L9vwcvIIRKpNKreGCXVGdmwdV1Rs/fhD15Y1mbHF5HWRVZ2QBKLnVW
+	yxChHrPogs9t3GaU1pYmIVHH9fvHpinULn2rlx3tY5U28HQv9LxihlKfysK3Ujxj
+	kH02DXm65Biede94fZu4User/nUeC17TLw0f5c5cDx5GkkXZk+0fb+mi6ECbP5NT
+	eA4sufiZOa7LGoDymo2lw44xXaJCqxY1uvNb1ODOyEsddsW4QTRCXK5bgMjZU5IX
+	DaoK5WWpDp42FG0qVTshqj7NzMimScDVkDVx1mQQdiG2ZAjFRq7R10l3ybnsTaqh
+	DvFA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm1; t=1700731786; x=1700818186; bh=/6Jewe6s2lAA5
+	3NpQQ339J2KIqQZoaHRGTOK/DO562w=; b=kcmgiuMjPl/BWEwHRyPDYEXyzCYRt
+	nV3+mrn3JcvHMyhpk/JCuUPKmDMfj4MsDjJehrnPAOjENPji1JzlkmWTXr/A0BgY
+	aeSCtZERd/1ogaqNAFQe8Wh0BFQldTDPnps9/6mTogVcYjpKBcRnM+FfvRLm0Dps
+	esEsvQO2J8wyUVrHW7p76QEoo4EtSD8PN8U0gpE36NNjybyfYJehoiPhx7m1Fwk4
+	xP0P/JIG7bfjskm3o8tbqVFSMx3ADENQliRTuPGJgiYbcsUcPY2mOWnac6qoAQNE
+	CBn1qgNFwnty0UhZmyNwDFD7TdvfVss0Z22Ep0FNEYbVl2kJgKXaF4nTQ==
+X-ME-Sender: <xms:iBtfZSMKEECZwEV9ZP714va0nu9yPvN4wqWi2Z10Y_JmoFp53VyYPw>
+    <xme:iBtfZQ_fKaq-MDHU4A5YEoDeML--aa0XFc5VkuHf_tvGjNr25wDoy1DJpZpvUIVzD
+    bL7PgoEHrimzzljx18>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvkedrudehfedgtdegucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
+    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
+    htvghrnhepvdefjeevfefhvdevjeeuheefieetvdduheeludevtdefhfekleduhfdvjedt
+    ieeinecuffhomhgrihhnpehlfihnrdhnvghtnecuvehluhhsthgvrhfuihiivgeptdenuc
+    frrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvg
+X-ME-Proxy: <xmx:iBtfZZTLb62AFDmmzt1LLsbLUMqjHHPGJFVBNYRxtHR23WcODO3ESQ>
+    <xmx:iBtfZSsS1JLCn9alYL7IEG6k2UnbCKJThpNQ7oWgxw8rmuiO4-ZzMw>
+    <xmx:iBtfZacihlKgYNoAaUoOrfEYQDXPxZeWej67eDumLlhl_NKLiplaMQ>
+    <xmx:ihtfZW0vPOCMKWwZTX17dJQF7MJabXP9p2oVv4e1g1g2IZpHTDtJjw>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id CF1F9B60089; Thu, 23 Nov 2023 04:29:44 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-1234-gac66594aae-fm-20231122.001-gac66594a
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 06/17] iommu: Add iommu_fwspec_alloc/dealloc()
-Content-Language: en-US
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: acpica-devel@lists.linux.dev, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
- Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Dexuan Cui <decui@microsoft.com>,
- devicetree@vger.kernel.org, David Woodhouse <dwmw2@infradead.org>,
- Frank Rowand <frowand.list@gmail.com>, Hanjun Guo <guohanjun@huawei.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, iommu@lists.linux.dev,
- Jean-Philippe Brucker <jean-philippe@linaro.org>,
- Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
- "K. Y. Srinivasan" <kys@microsoft.com>, Len Brown <lenb@kernel.org>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-snps-arc@lists.infradead.org,
- linux-tegra@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, patches@lists.linux.dev,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Robert Moore <robert.moore@intel.com>, Rob Herring <robh+dt@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
- Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Krishna Reddy <vdumpa@nvidia.com>, Vineet Gupta <vgupta@kernel.org>,
- virtualization@lists.linux.dev, Wei Liu <wei.liu@kernel.org>,
- Will Deacon <will@kernel.org>
-References: <6-v2-36a0088ecaa7+22c6e-iommu_fwspec_jgg@nvidia.com>
- <20a7ef6d-a8ca-4bd8-ad7e-11856db617a2@marcan.st>
- <1eb12c35-e64e-4c32-af99-8743dc2ec266@marcan.st>
- <20231119141329.GA6083@nvidia.com>
- <90855bbf-e845-4e4d-a713-df71d1e477d2@marcan.st>
- <20231121160058.GG6083@nvidia.com>
-From: Hector Martin <marcan@marcan.st>
-In-Reply-To: <20231121160058.GG6083@nvidia.com>
+Message-Id: <94c2e04c-4c62-4ee1-8ae7-cbd675c5064e@app.fastmail.com>
+In-Reply-To: <20231123065708.91345-1-luxu.kernel@bytedance.com>
+References: <20231123065708.91345-1-luxu.kernel@bytedance.com>
+Date: Thu, 23 Nov 2023 10:29:22 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Xu Lu" <luxu.kernel@bytedance.com>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Ard Biesheuvel" <ardb@kernel.org>, "Anup Patel" <anup@brainfault.org>,
+ "Atish Patra" <atishp@atishpatra.org>
+Cc: dengliang.1214@bytedance.com, "Xie Yongji" <xieyongji@bytedance.com>,
+ lihangjing@bytedance.com, "Muchun Song" <songmuchun@bytedance.com>,
+ punit.agrawal@bytedance.com, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject: Re: [RFC PATCH V1 00/11] riscv: Introduce 64K base page
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231123_010851_845981_8F701001 
-X-CRM114-Status: GOOD (  19.12  )
+X-CRM114-CacheID: sfid-20231123_012953_234366_1DF8C794 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,64 +110,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/11/22 1:00, Jason Gunthorpe wrote:
-> On Tue, Nov 21, 2023 at 03:47:48PM +0900, Hector Martin wrote:
->>> Which is sensitive only to !NULL fwspec, and if EPROBE_DEFER is
->>> returned fwspec will be freed and dev->iommu->fwspec will be NULL
->>> here.
->>>
->>> In the NULL case it does a 'bus probe' with a NULL fwspec and all the
->>> fwspec drivers return immediately from their probe functions.
->>>
->>> Did I miss something?
->>
->> apple_dart is not a fwspec driver and doesn't do that :-)
-> 
-> It implements of_xlate that makes it a driver using the fwspec probe
-> path.
-> 
-> The issue is in apple-dart. Its logic for avoiding bus probe vs
-> fwspec probe is not correct.
-> 
-> It does:
-> 
-> static int apple_dart_of_xlate(struct device *dev, struct of_phandle_args *args)
-> {
->  [..]
->  	dev_iommu_priv_set(dev, cfg);
-> 
-> 
-> Then:
-> 
-> static struct iommu_device *apple_dart_probe_device(struct device *dev)
-> {
-> 	struct apple_dart_master_cfg *cfg = dev_iommu_priv_get(dev);
-> 	struct apple_dart_stream_map *stream_map;
-> 	int i;
-> 
-> 	if (!cfg)
-> 		return ERR_PTR(-ENODEV);
-> 
-> Which leaks the cfg memory on rare error cases and wrongly allows the
-> driver to probe without a fwspec, which I think is what you are
-> hitting.
-> 
-> It should be
-> 
->        if (!dev_iommu_fwspec_get(dev) || !cfg)
-> 		return ERR_PTR(-ENODEV);
-> 
-> To ensure the driver never probes on the bus path.
-> 
-> Clearing the dev->iommu in the core code has the side effect of
-> clearing (and leaking) the cfg which would hide this issue.
+On Thu, Nov 23, 2023, at 07:56, Xu Lu wrote:
+> Some existing architectures like ARM supports base page larger than 4K
+> as their MMU supports more page sizes. Thus, besides hugetlb page and
+> transparent huge page, there is another way for these architectures to
+> enjoy the benefits of fewer TLB misses without worrying about cost of
+> splitting and merging huge pages. However, on architectures with only
+> 4K MMU, larger base page is unavailable now.
+>
+> This patch series attempts to break through the limitation of MMU and
+> supports larger base page on RISC-V, which only supports 4K page size
+> now.
+>
+> The key idea to implement larger base page based on 4K MMU is to
+> decouple the MMU page from the base page in view of kernel mm, which we
+> denote as software page. In contrary to software page, we denote the MMU
+> page as hardware page. Below is the difference between these two kinds
+> of pages.
 
-Aha! Yes, that makes it work with only the first change. I'll throw the
-apple-dart fix into our tree (and submit it once I get to clearing out
-the branch; the affected consumer driver isn't upstream yet so this
-isn't particularly urgent).
+We have played with this on arm32, but the conclusion is that it's
+almost never worth the memory overhead, as most workloads end up
+using several times the amount of physical RAM after each small
+file in the page cache and any sparse populated anonymous memory
+area explodes to up to 16 times the size.
 
-- Hector
+On ppc64, using 64KB pages was way to get around limitations in
+their hashed MMU design, which had a much bigger performance impact
+because any page table access ends up being a cache miss. On arm64,
+there are some CPUs like the Fujitsu A64FX that are really bad at
+4KB pages and don't support 16KB pages, so this is the only real
+option.
+
+You will see a notable performance benefit in synthetic benchmarks
+like speccpu with 64KB pages, or on specific computational
+workloads that have large densely packed memory chunks, but for
+real workloads, the usual answer is to just use transparent
+hugepages for larger mappings and a page size of no more than
+16KB for the page cache.
+
+With the work going into using folios in the kernel (see e.g.
+https://lwn.net/Articles/932386/), even the workloads that
+benefit from 64KB base pages should be better off with 4KB
+pages and just using the TLB hints for large folios.
+
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
