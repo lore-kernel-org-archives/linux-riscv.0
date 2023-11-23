@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C8EBC624B4
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 13:20:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DDD3C624B4
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 13:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oO+jrvwZeLVN1JCdy3re5fJEWja2N/G1J0UUIJotT/w=; b=fEn0+WFJjq44devgH+kjsm2nVo
-	TXmGws8vFlWfYRTwNSlzq2eL9ezwTqXxJFMHJdgG68D1awXG+jVAgwgBO7yeCpofTBcA2CQhz1cm1
-	gzg5hsFs1ZEyMQY/EQG6LDrQc/m2om4q25I6qjqFpYfWhSB9t3d0WtA/Y0gNGZU7m3FFlAR5bYEzQ
-	x9rHu9VCP+yczBaXVlbHcCEqGmJllexdJRVlBDL3LToo5KUM30A2TZS6Pn9iT9Jpe9bk0sL9x6IVJ
-	+EA3HiLkTdu5l1unKjYMKzTs6BoxC7fL/Rt5s8Vrf3hX36iXj+bpG+/vME2zezoOJecELaLhRMyBc
-	TYosrCcg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mjols0TXuVK4a7CwuV9RlnzEybdDzRXfu8zcNA5YmnU=; b=uDUamM3HPX0cyd
+	CIx4q4jtEZVEpjG/MeYs28AeG4hzcLBJ/yKr4ysqYyQeD2009Smw1qdUrdqUwGTG1K3Sgw+jyYy+B
+	ll72GAM9UQNnyJxto1Sn/5vn/dcwE5gKWkF3+7JhpnOHpjRC1tomxARBN+11xU2+mH3Tu/++RbGBZ
+	P2u01+HzVnM6lUX1CCDlGt3tAcBVxNHoF12o50vQgngRp8Bcv2Wl1/IoaOxLs+MYLtWjhU/WtXvoj
+	i8KvyBmdRJTyH5j0WaR9sLiZJEl4oLSFqB0iLY83Z1Y6ZrTQOPydJC5iyRCnJeJAfJRmGckMDbZZB
+	hofmqpZtlyctcdbflZ+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r69d1-004sPD-2j;
-	Thu, 23 Nov 2023 13:20:23 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1r69kD-004stb-0H;
+	Thu, 23 Nov 2023 13:27:49 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r69cx-004sO9-2d;
-	Thu, 23 Nov 2023 13:20:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1700745620; x=1732281620;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=fWNtfXHzXywCV3rJawk3X+XqobnQl2nUu8oA1ElHfxI=;
-  b=hL2V6sMuvqJYiHXYlYrKLeD0qM9j8iAyLkTgNW9EnLSQ6Non9P2rXLy6
-   Ji/MeLzfQK2hpJaid+CIHEgAedKpGL7wEFJ5jSoFK8iZj1l7g585iznTb
-   Yi1hysytfFM1L1IKxR5C1XIEsdxy325VTH/KHhNr95cN/j2J7mPt4Qrm6
-   RqcuzgAdXKkDaNYhKIs9rjk3MQeXUT4+nnACejr+abpNmQAthoexebAjk
-   xPzXQ3nJHFLauJopFf3z6p3GUhxckPJMiIh+I9CEKgwdbbNVZTiGFSLF6
-   lSTf4wRQPEbDlcutVPqmCXnHM9dLyAHfpb3Vvu+72eaNUMz6S+5a8B+Dg
-   Q==;
-X-CSE-ConnectionGUID: bvAY+6v1Q022ekVbEs8Vvw==
-X-CSE-MsgGUID: E6+Bsg93R3eTTQTJUaz5eQ==
-X-ThreatScanner-Verdict: Negative
-X-IronPort-AV: E=Sophos;i="6.04,221,1695711600"; 
-   d="asc'?scan'208";a="12192189"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Nov 2023 06:20:16 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 23 Nov 2023 06:20:08 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Thu, 23 Nov 2023 06:20:06 -0700
-Date: Thu, 23 Nov 2023 13:19:38 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Rob Herring <robh@kernel.org>
-CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] dt-bindings: perf: riscv,pmu: drop unneeded quotes
-Message-ID: <20231123-nutlike-handiwork-2b24bffc64ac@wendy>
-References: <20231122224414.2809184-1-robh@kernel.org>
+	id 1r69k9-004ss1-0J
+	for linux-riscv@lists.infradead.org;
+	Thu, 23 Nov 2023 13:27:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1700746063;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XlCNcFS7+nGLr8i/szhMFxjsyTieH5TNHlOyuSvsHHk=;
+	b=PZFzrydqZjS3A9XlaeRAJRz1j8ZlE3V7H4VFf3rMIsLhSbZ8Fk+h4vfi2IYZ6H5qw3vs/s
+	MgnSsGmFNGVb8larRVrs0OelaRojawCEzl3j2Uyo9M7a+FKJXKUulGupHa2BLChbDM/+BV
+	Rti0IvreMgkiNHijaM2rM1Fx+k/bOS4=
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-313-LNixVYSgNR6zfKelwTaWZg-1; Thu,
+ 23 Nov 2023 08:27:38 -0500
+X-MC-Unique: LNixVYSgNR6zfKelwTaWZg-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 368F43C027B1;
+	Thu, 23 Nov 2023 13:27:38 +0000 (UTC)
+Received: from localhost (unknown [10.72.112.97])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id AB1BD36E2;
+	Thu, 23 Nov 2023 13:27:29 +0000 (UTC)
+Date: Thu, 23 Nov 2023 21:27:25 +0800
+From: Baoquan He <bhe@redhat.com>
+To: akpm@linux-foundation.org
+Cc: kexec@lists.infradead.org, x86@kernel.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org,
+	ebiederm@xmission.com, takahiro.akashi@linaro.org
+Subject: Re: [PATCH v2 1/2] resource: add walk_system_ram_res_rev()
+Message-ID: <ZV9TPRw65TiCeXyS@MiWiFi-R3L-srv>
+References: <20231114091658.228030-1-bhe@redhat.com>
+ <20231114091658.228030-2-bhe@redhat.com>
+ <ZVTA6z/06cLnWKUz@MiWiFi-R3L-srv>
 MIME-Version: 1.0
-In-Reply-To: <20231122224414.2809184-1-robh@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <ZVTA6z/06cLnWKUz@MiWiFi-R3L-srv>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231123_052020_033574_6A0DA1CE 
-X-CRM114-Status: UNSURE (   7.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231123_052745_222074_73F1925A 
+X-CRM114-Status: GOOD (  24.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,58 +80,137 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2761631707902927682=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============2761631707902927682==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="VwNbz+r5L7xIZna3"
-Content-Disposition: inline
+Hi Andrew,
 
---VwNbz+r5L7xIZna3
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 11/15/23 at 09:00pm, Baoquan He wrote:
+> This function, being a variant of walk_system_ram_res() introduced in
+> commit 8c86e70acead ("resource: provide new functions to walk through
+> resources"), walks through a list of all the resources of System RAM
+> in reversed order, i.e., from higher to lower.
+> 
+> It will be used in kexec_file code to load kernel, initrd etc when
+> preparing kexec reboot.
+> 
+> Signed-off-by: AKASHI Takahiro <takahiro.akashi@linaro.org>
+> Signed-off-by: Baoquan He <bhe@redhat.com>
+> ---
+> v1->v2:
+> - Use kvrealloc() to reallocate memory instead of kvcalloc(), this
+>   simplifies code. Suggested by Andrew.
+> 
+>  include/linux/ioport.h |  3 +++
+>  kernel/resource.c      | 57 ++++++++++++++++++++++++++++++++++++++++++
+>  2 files changed, 60 insertions(+)
 
-On Wed, Nov 22, 2023 at 03:44:14PM -0700, Rob Herring wrote:
-> Drop unneeded quotes over simple string values to fix a soon to be
-> enabled yamllint warning:
->=20
->   [error] string value is redundantly quoted with any quotes (quoted-stri=
-ngs)
->=20
-> Signed-off-by: Rob Herring <robh@kernel.org>
+Gentle ping.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Could you pick this patchset into next tree so that it can be run on
+testing robots?
 
-Cheers,
-Conor.
+Thanks
+Baoquan
 
---VwNbz+r5L7xIZna3
-Content-Type: application/pgp-signature; name="signature.asc"
+> 
+> diff --git a/include/linux/ioport.h b/include/linux/ioport.h
+> index 14f5cfabbbc8..db7fe25f3370 100644
+> --- a/include/linux/ioport.h
+> +++ b/include/linux/ioport.h
+> @@ -331,6 +331,9 @@ extern int
+>  walk_system_ram_res(u64 start, u64 end, void *arg,
+>  		    int (*func)(struct resource *, void *));
+>  extern int
+> +walk_system_ram_res_rev(u64 start, u64 end, void *arg,
+> +			int (*func)(struct resource *, void *));
+> +extern int
+>  walk_iomem_res_desc(unsigned long desc, unsigned long flags, u64 start, u64 end,
+>  		    void *arg, int (*func)(struct resource *, void *));
+>  
+> diff --git a/kernel/resource.c b/kernel/resource.c
+> index 866ef3663a0b..e8a244300e5b 100644
+> --- a/kernel/resource.c
+> +++ b/kernel/resource.c
+> @@ -27,6 +27,8 @@
+>  #include <linux/mount.h>
+>  #include <linux/resource_ext.h>
+>  #include <uapi/linux/magic.h>
+> +#include <linux/string.h>
+> +#include <linux/vmalloc.h>
+>  #include <asm/io.h>
+>  
+>  
+> @@ -429,6 +431,61 @@ int walk_system_ram_res(u64 start, u64 end, void *arg,
+>  				     func);
+>  }
+>  
+> +/*
+> + * This function, being a variant of walk_system_ram_res(), calls the @func
+> + * callback against all memory ranges of type System RAM which are marked as
+> + * IORESOURCE_SYSTEM_RAM and IORESOUCE_BUSY in reversed order, i.e., from
+> + * higher to lower.
+> + */
+> +int walk_system_ram_res_rev(u64 start, u64 end, void *arg,
+> +				int (*func)(struct resource *, void *))
+> +{
+> +	struct resource res, *rams;
+> +	int rams_size = 16, i;
+> +	unsigned long flags;
+> +	int ret = -1;
+> +
+> +	/* create a list */
+> +	rams = kvcalloc(rams_size, sizeof(struct resource), GFP_KERNEL);
+> +	if (!rams)
+> +		return ret;
+> +
+> +	flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
+> +	i = 0;
+> +	while ((start < end) &&
+> +		(!find_next_iomem_res(start, end, flags, IORES_DESC_NONE, &res))) {
+> +		if (i >= rams_size) {
+> +			/* re-alloc */
+> +			struct resource *rams_new;
+> +
+> +			rams_new = kvrealloc(rams, rams_size * sizeof(struct resource),
+> +					     (rams_size + 16) * sizeof(struct resource),
+> +					     GFP_KERNEL);
+> +			if (!rams_new)
+> +				goto out;
+> +
+> +			rams = rams_new;
+> +			rams_size += 16;
+> +		}
+> +
+> +		rams[i].start = res.start;
+> +		rams[i++].end = res.end;
+> +
+> +		start = res.end + 1;
+> +	}
+> +
+> +	/* go reverse */
+> +	for (i--; i >= 0; i--) {
+> +		ret = (*func)(&rams[i], arg);
+> +		if (ret)
+> +			break;
+> +	}
+> +
+> +out:
+> +	kvfree(rams);
+> +	return ret;
+> +}
+> +
+>  /*
+>   * This function calls the @func callback against all memory ranges, which
+>   * are ranges marked as IORESOURCE_MEM and IORESOUCE_BUSY.
+> -- 
+> 2.41.0
+> 
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZV9RagAKCRB4tDGHoIJi
-0pBwAP0cuJ5+YBbNci6dtuViPbnpzFtnjRuPYpj7iZekyYXM6QD+IJJFLGfqJprA
-5v+CEke2yJopFXOGNr0Y9vZLmj/imQg=
-=G5Mg
------END PGP SIGNATURE-----
-
---VwNbz+r5L7xIZna3--
-
-
---===============2761631707902927682==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2761631707902927682==--
-
