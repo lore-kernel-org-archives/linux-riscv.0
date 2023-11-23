@@ -4,53 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E9ECC5AD4C
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 08:51:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA7B9C5AD4C
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 09:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Ga83hqxlIcUeTWlk8LnrAW7Ynq6kkPjuWH/3r4xLq8g=; b=cgfGip5XZqPYdQ
-	6xr/5z3TNxyEzSmwtsmTymlU4utQZdGK09ceIIoiuHWVgtYmHdYnfJEzcyY3F41hinEpejqHOCP4l
-	yS61fhqFpHWtKoIxtsiMC4wtiIJuENYqj/o9u8W/5q+dXERCAWuzqcFc4ZBy/TM1jrwX46YgdMyYp
-	f8I+xoC9jCGErHjI6o3RAQBLpJFx4T3Dd1igaKpZXTDklYghDCnJkaJEiHPpBIBIkCACkk4OSQmS+
-	ua3ZLT9WQrul+l//Y2CJ6eqFR5uUCXcrF9UcAhBmimiKhzhO8ojJcUIq3DXM3xCvaR4a6zfNVE9Kz
-	JWOxV8dfSG1W2FDmxdhw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RgdNVE+ljNfPkTbIBrcrZgLPbzEiGlzzuJBcHbwGTDA=; b=cQLTdG2BZytzrC
+	iLJWoi8bm2CE5J+1XGTOlPc35K9JE3PfGX9wUcqGOk8fVz31JYoFLT/HlhZKbH9+qqE10/ful6Y2/
+	Kwt49BFFymvt4td7RUnK8HqS0bE0iVew3Kr3eKPr0fsjow3B/PC371rA2tn72VaLcRliQHfUWcR0z
+	C+mHIxdaqUFIUO7/3rJsT1x8K0tOeajxpXPysOf+GJ2oYI+0RoxPTAB9hbpQMt9Z9NEqDXcypGK79
+	uxqCWkfHDtGu08kAiUyBbbuXkY2HjNEN9/qnKWUYXyPaQJdBNQy6wS6/U4ppeK9mD/mz3nsg05mYU
+	xc94wL+YE+kFGEMiy7tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r65R3-004Bwx-2B;
-	Thu, 23 Nov 2023 08:51:45 +0000
-Received: from mail.raportygospodarcze.pl ([51.195.117.175])
+	id 1r65hf-004Dfl-08;
+	Thu, 23 Nov 2023 09:08:55 +0000
+Received: from marcansoft.com ([212.63.210.85] helo=mail.marcansoft.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r65Qz-004Bvd-0D
-	for linux-riscv@lists.infradead.org;
-	Thu, 23 Nov 2023 08:51:43 +0000
-Received: by mail.raportygospodarcze.pl (Postfix, from userid 1002)
-	id 63026A37F4; Thu, 23 Nov 2023 08:51:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=raportygospodarcze.pl; s=mail; t=1700729493;
-	bh=Q787bUI8wqiKELAtyWRvCTxaBwNaZfpooGhkyk63cfU=;
-	h=Date:From:To:Subject:From;
-	b=D2XzxnXb7FKfygtE+uLWExQGD7GBYslUysiewEhByvSgpnXa3iOHY5QQnhzSojbFW
-	 18QmM3tX34m6KrVEeyfOEZH5FzLX/t5RL5fzuJJtDYHT85wvqLXepTsauxLn8W1uMH
-	 2kjE7ymx7El8uUH8OYjk3p/sDsajV8zfYazMDrD+1fFCGAu0NpyK5Ja2dEhNfPMTIz
-	 LFhcWXAChEhe1TuyP7CNY0jyduGl9vZqhsUuNkRUhTzJQYmJj48orgtYxNH7d/auvJ
-	 gDhhtexhijSqw2rvfqHWlFxnUerL4T2ECNmuLZOb04qnPgbUwHvXlguaISZSztFmtJ
-	 sigRmTtGfMO5Q==
-Received: by mail.raportygospodarcze.pl for <linux-riscv@lists.infradead.org>; Thu, 23 Nov 2023 08:50:45 GMT
-Message-ID: <20231123074500-0.1.br.1iqc9.0.j9hoge3cr2@raportygospodarcze.pl>
-Date: Thu, 23 Nov 2023 08:50:45 GMT
-From: "Maksymilian Ciszewski" <maksymilian.ciszewski@raportygospodarcze.pl>
-To: <linux-riscv@lists.infradead.org>
-Subject: =?UTF-8?Q?Prosz=C4=99_o_kontakt?=
-X-Mailer: mail.raportygospodarcze.pl
+	id 1r65hb-004De3-24;
+	Thu, 23 Nov 2023 09:08:53 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: marcan@marcan.st)
+	by mail.marcansoft.com (Postfix) with ESMTPSA id 9BDB241EF0;
+	Thu, 23 Nov 2023 09:08:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=marcan.st; s=default;
+	t=1700730528; bh=tKvmM8VauJ2SKlC76Ts+IMS9Y0f1D93gbN6PS2aS1RQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=bEylMheXkP1AY7uDhyUgpvOvmafAgnH8kYOyGsGvzSEm3AG0TuKGO12XpHG7pIpPk
+	 7DWjDpQ/2UVGkEBlWmpkMsK+kkFSTbFl2mNZf+evyauyJJjLkxYiIMvQnQZccc7GYl
+	 eyA+fRFKB/4nH2lfKLFZ7jOWf+ZnhEEAdxplIRYiCSC8oH9YCENIvFOPHr97tQOVpS
+	 vFMyIE8sCHGbUWmMQTW6+kNNQZA2kAYPQ/d2k1mzDzQUzP4vU581SpL8b4NQXqoDyL
+	 Nq2SuV6KB6PtAtBepsn6kZamgJlbVvwi56sMxTDqNBWGfHkerXitbj24KAHWAlJH6q
+	 nnb+VrbjJRB5A==
+Message-ID: <ab23469f-19ce-4681-afc9-65518730b51b@marcan.st>
+Date: Thu, 23 Nov 2023 18:08:33 +0900
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 06/17] iommu: Add iommu_fwspec_alloc/dealloc()
+Content-Language: en-US
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: acpica-devel@lists.linux.dev, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Dexuan Cui <decui@microsoft.com>,
+ devicetree@vger.kernel.org, David Woodhouse <dwmw2@infradead.org>,
+ Frank Rowand <frowand.list@gmail.com>, Hanjun Guo <guohanjun@huawei.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, iommu@lists.linux.dev,
+ Jean-Philippe Brucker <jean-philippe@linaro.org>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
+ "K. Y. Srinivasan" <kys@microsoft.com>, Len Brown <lenb@kernel.org>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-snps-arc@lists.infradead.org,
+ linux-tegra@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, patches@lists.linux.dev,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Robert Moore <robert.moore@intel.com>, Rob Herring <robh+dt@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Krishna Reddy <vdumpa@nvidia.com>, Vineet Gupta <vgupta@kernel.org>,
+ virtualization@lists.linux.dev, Wei Liu <wei.liu@kernel.org>,
+ Will Deacon <will@kernel.org>
+References: <6-v2-36a0088ecaa7+22c6e-iommu_fwspec_jgg@nvidia.com>
+ <20a7ef6d-a8ca-4bd8-ad7e-11856db617a2@marcan.st>
+ <1eb12c35-e64e-4c32-af99-8743dc2ec266@marcan.st>
+ <20231119141329.GA6083@nvidia.com>
+ <90855bbf-e845-4e4d-a713-df71d1e477d2@marcan.st>
+ <20231121160058.GG6083@nvidia.com>
+From: Hector Martin <marcan@marcan.st>
+In-Reply-To: <20231121160058.GG6083@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231123_005141_858927_4EED7722 
-X-CRM114-Status: UNSURE (   0.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231123_010851_845981_8F701001 
+X-CRM114-Status: GOOD (  19.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,16 +97,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RHppZcWEIGRvYnJ5LAoKQ3p5IGplc3QgbW/FvGxpd2/Fm8SHIG5hd2nEhXphbmlhIHdzcMOzxYJw
-cmFjeSB6IFBhxYRzdHdlbT8KClogY2jEmWNpxIUgcG9yb3ptYXdpYW0geiBvc29ixIUgemFqbXVq
-xIVjxIUgc2nEmSBkemlhxYJhbmlhbWkgendpxIV6YW55bWkgemUgc3ByemVkYcW8xIUuCgpQb21h
-Z2FteSBza3V0ZWN6bmllIHBvenlza2l3YcSHIG5vd3ljaCBrbGllbnTDs3cuCgpaYXByYXN6YW0g
-ZG8ga29udGFrdHUuCgoKUG96ZHJhd2lhbQpNYWtzeW1pbGlhbiBDaXN6ZXdza2kKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 2023/11/22 1:00, Jason Gunthorpe wrote:
+> On Tue, Nov 21, 2023 at 03:47:48PM +0900, Hector Martin wrote:
+>>> Which is sensitive only to !NULL fwspec, and if EPROBE_DEFER is
+>>> returned fwspec will be freed and dev->iommu->fwspec will be NULL
+>>> here.
+>>>
+>>> In the NULL case it does a 'bus probe' with a NULL fwspec and all the
+>>> fwspec drivers return immediately from their probe functions.
+>>>
+>>> Did I miss something?
+>>
+>> apple_dart is not a fwspec driver and doesn't do that :-)
+> 
+> It implements of_xlate that makes it a driver using the fwspec probe
+> path.
+> 
+> The issue is in apple-dart. Its logic for avoiding bus probe vs
+> fwspec probe is not correct.
+> 
+> It does:
+> 
+> static int apple_dart_of_xlate(struct device *dev, struct of_phandle_args *args)
+> {
+>  [..]
+>  	dev_iommu_priv_set(dev, cfg);
+> 
+> 
+> Then:
+> 
+> static struct iommu_device *apple_dart_probe_device(struct device *dev)
+> {
+> 	struct apple_dart_master_cfg *cfg = dev_iommu_priv_get(dev);
+> 	struct apple_dart_stream_map *stream_map;
+> 	int i;
+> 
+> 	if (!cfg)
+> 		return ERR_PTR(-ENODEV);
+> 
+> Which leaks the cfg memory on rare error cases and wrongly allows the
+> driver to probe without a fwspec, which I think is what you are
+> hitting.
+> 
+> It should be
+> 
+>        if (!dev_iommu_fwspec_get(dev) || !cfg)
+> 		return ERR_PTR(-ENODEV);
+> 
+> To ensure the driver never probes on the bus path.
+> 
+> Clearing the dev->iommu in the core code has the side effect of
+> clearing (and leaking) the cfg which would hide this issue.
+
+Aha! Yes, that makes it work with only the first change. I'll throw the
+apple-dart fix into our tree (and submit it once I get to clearing out
+the branch; the affected consumer driver isn't upstream yet so this
+isn't particularly urgent).
+
+- Hector
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
