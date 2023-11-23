@@ -4,87 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAFCDC61D99
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 01:03:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F381FC27C40
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 01:07:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=10FxXPZnlUnqz5U+WiRhAA398WIWLxD0BrExASSjhWk=; b=SA2B9JYRGSZ69H
-	/dlNYyxTX+U+ory2FSutC+xuJmBs/S1OxAhk5vuq+Vm3pNJlVfdcT/7tWHhqJfF+eCBPGbiWkgAyg
-	b+D68EbWd2L5jBjKFHcSg0Eet0D2o87nlx+GvjF3IwKp2nzOpgE9u4JTAvTaDXpEZldYU6+7zsjVn
-	W6gn/jq04lw9fXx8FhH5bMj9nRqB93sOQCJeYoX3cvK6sUhc2VbT2d6yTPJI1u5TCMQb3XwKu5OA3
-	9aMoIHbImD+OWaRwffMqqnRxd1sGMRNxAK0cgSFeHYSxDnMNQjCrLlhhx4u86bMcDwkdWMZeoc2c4
-	rnC0CsjDltMctq8NW+WQ==;
+	List-Owner; bh=MgiV+ZrRIxgSZ2lg/4KNFjt/qtptwCqMnC6FfFtPcUk=; b=i0LN8JEBJTO213
+	0quBPDeNHkl+WAq7PI+aiDZYCYoVcNj+tD4NFbVFJRHyk8Oj6Mla4L5lJmF/maLfR0sh+cDaEH/on
+	MvbVHgMw9/aASRFuYpTy8Niaw78H0IGQEN2WXR+JDbEGd/n31SmUWYfHFDEZS4WwODIRamGWl9jA7
+	bPuEoUzha0Gfgp9gvddJFaB/aiJ/nVGA3PXS20DEHbewPaMBau3csl1doql2gPqvTapXsbyN02O1P
+	an84ezk9qCDx3CwyoEEsD+MYFfc0yoaAJLKj1V0M8TiXfsxhfv8G+pZ8IEqP1nTaBBjMV4l9TaM6f
+	dGEx4q5qT/Xjk4BNqviw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5y7t-003Sll-0K;
-	Thu, 23 Nov 2023 01:03:29 +0000
-Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
+	id 1r5yBi-003TE3-1M;
+	Thu, 23 Nov 2023 01:07:26 +0000
+Received: from mail-oo1-xc36.google.com ([2607:f8b0:4864:20::c36])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r5y7p-003Skf-2P
+	id 1r5yBf-003TDF-1M
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Nov 2023 01:03:27 +0000
-Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-1efabc436e4so268694fac.1
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Nov 2023 17:03:25 -0800 (PST)
+	Thu, 23 Nov 2023 01:07:25 +0000
+Received: by mail-oo1-xc36.google.com with SMTP id 006d021491bc7-58a01a9fad0so193930eaf.1
+        for <linux-riscv@lists.infradead.org>; Wed, 22 Nov 2023 17:07:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1700701404; x=1701306204; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZVkyC6PZB7dezKGwlai9RtxoLm4mQaLK4fj0JbxGOM8=;
-        b=yFftdS7s10Ven4vId6WGM0ASMujmm7r/j6BDygdINxKjD2/lp8kZlzpkylgf+bhE5W
-         s3AxEVC1eUIuRyY4umKoe//ciJnBi9Ml/3iWOYGSVIdAWIT7drLnDPivGS4TILBrHJEO
-         6smnQb32aqfvKRYTWjC+gzkAHVk1YaKSBnZLZxz6VWamHloqhmC55PL4dHGXtDIgGN1/
-         rkPTZq05zM97qahL0uZr9/7uLvo/292UZGAoIgH069qPFWiLGq6I+OBoMwukY1scEJXw
-         XbLHE4H0o2zO2+ZFmRtAHSqmlP3VEn2zsJ02kfpXJchlTYHxTPI2RYYE12atYI6ruhE7
-         En0Q==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1700701641; x=1701306441; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=dhI6Kj7SOax34YHTzSZB20BhWZZOv5y6Dq/HW0ZZ0cE=;
+        b=e5ifCEzLwikhvNoa9uGnIY4IX/RRATpxcl5lDwakL4ww1oK1hWsYvYfztpozkmOfd4
+         c7QRNWIZTTISShHhT3auiPj/duDblYQyvQJ4esZ3w1dCZEsG5YTNpeZZe4jc850tXghm
+         LM/G2ef5jOxCmZw8I/V6zaLUW7019ttp4u3MdVcHP9jQxdVYsxUAjhTxQJD1zw0IwPBL
+         4iVZiNsbquHLI9Q8hjPktd3AbMmjWMZzdLjNjmVu9F/alCBz2UxS/bckbG4W7QPFC+M/
+         pSo/oZJPyASQxd/YQLXQ71DyALZBwMGsJTC/EFVBxFsR9jBhYVWh3C/8QIi81xM6ZIOK
+         Tmvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700701404; x=1701306204;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZVkyC6PZB7dezKGwlai9RtxoLm4mQaLK4fj0JbxGOM8=;
-        b=f6cPwb0W5ViLv3N1+ukWhRXEb9Lqm0wpTb9o43utFoIGlgERhYj4nqQkqG3YZ5l8Z3
-         6DV+J9CY8Zh5AChdl8TPCZOOItuNys8AH2uUbEHkHKlsbL1dy3U4W7DPDj6aoXvhKiUR
-         O6M7vqbFch3IwIoC9CQsLtZ84AcZ5h6mffehRGpaK+Dztqjy7RFHjrkYKwTjalXZ99uW
-         5NlFNtMjx1HRNHIzeN632isiM3Crqn+FsnDdvkCyZHq7Kyc2YDD/KjQRW4QqOSkBWxqf
-         Ai5xNZ+ksYE/BOArL9IEVhizghYJZC1gc2jJnWd31a8XDrs+RLvKR803sgyLbj9cCGHd
-         xA9Q==
-X-Gm-Message-State: AOJu0YzCQb6uQkGaxa/a9GcHw/DOEH6YDvqo/lWXMRHO7IB8SVxQM7SP
-	MsGwqCnsP9kqngJlgr9wCoH04g==
-X-Google-Smtp-Source: AGHT+IEodBf9g1G+tyRO8UTIlhuFj5nTh0XchENIQ6Z7EexAsdxCiJ1BQNqRTwDQmzUwO1iUtDys8g==
-X-Received: by 2002:a05:6870:4507:b0:1ef:9f6c:3dea with SMTP id e7-20020a056870450700b001ef9f6c3deamr5104346oao.39.1700701404455;
-        Wed, 22 Nov 2023 17:03:24 -0800 (PST)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id oq12-20020a0568707d8c00b001dcfaba6d22sm65834oab.46.2023.11.22.17.03.23
+        d=1e100.net; s=20230601; t=1700701641; x=1701306441;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dhI6Kj7SOax34YHTzSZB20BhWZZOv5y6Dq/HW0ZZ0cE=;
+        b=pr3t5JVyQjnPxCfAEz7zwjjo57h7Qb4sI5FSECKYfzrl/mcHg+cRmLorcfyee0Dbiy
+         7GuMTi4Go0ajjlBLGH5YyUY6O78ji0ZH/k+VS9MAYa5o6mt9VAxt3yxavfI7YyJy4Qbu
+         i+HPQDMClbkVjohnyaYMPmktQGumsoVH3sgYO3YWq4F4N5ykU9PpTe/8samnVUAZy9Df
+         fef9I2DAk1wth5QXQIrkmHFumw5iO5kahQ0GDtFMiwWXh9stertAZqd6/AbVKawftOu9
+         IKRexh688Xa4BwILCG+5GaWb7jEPrMKH3yIjNhv1TRMmQ5RtQXyIGQTKPcOzsfUwaJtv
+         mRlg==
+X-Gm-Message-State: AOJu0YzPY6S6ZSswDyAvWmvBocyylsWcEYLgexA/+BxVMYbPNMFxUEY2
+	j8qFoUIA5tXoOB3h/VdSBYaq9g==
+X-Google-Smtp-Source: AGHT+IGtf5Axj1D2CvTbndBHVJQCV0DJBvlAfN1QZAlbbbFDC4Q+5Vxo325iBr8SInwl65y/GBOOYw==
+X-Received: by 2002:a05:6808:14d1:b0:3b2:f500:6ee0 with SMTP id f17-20020a05680814d100b003b2f5006ee0mr550134oiw.28.1700701641228;
+        Wed, 22 Nov 2023 17:07:21 -0800 (PST)
+Received: from ghost (cpe-70-95-50-247.san.res.rr.com. [70.95.50.247])
+        by smtp.gmail.com with ESMTPSA id pt9-20020a0568709e4900b001f4d34ae2ecsm70243oab.23.2023.11.22.17.07.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Nov 2023 17:03:23 -0800 (PST)
+        Wed, 22 Nov 2023 17:07:20 -0800 (PST)
+Date: Wed, 22 Nov 2023 17:07:18 -0800
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Wed, 22 Nov 2023 17:03:20 -0800
-Subject: [PATCH 1/2] riscv: Include riscv_set_icache_flush_ctx prctl
+To: Andrea Parri <parri.andrea@gmail.com>
+Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, rehn@rivosinc.com,
+	paulmck@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+	aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, mmaas@google.com, hboehm@google.com,
+	striker@us.ibm.com
+Subject: Re: [RFC PATCH] membarrier: riscv: Provide core serializing command
+Message-ID: <ZV6lxsRmuN7bYFnD@ghost>
+References: <mhng-b720eb90-633f-498b-a487-0cfdc9f00ddd@palmer-ri-x1c9>
+ <65e98129-0617-49ca-9802-8e3a46d58d29@efficios.com>
+ <ZU0sliwUQJyNAH1y@andrea>
 MIME-Version: 1.0
-Message-Id: <20231122-fencei-v1-1-bec0811cb212@rivosinc.com>
-References: <20231122-fencei-v1-0-bec0811cb212@rivosinc.com>
-In-Reply-To: <20231122-fencei-v1-0-bec0811cb212@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Jonathan Corbet <corbet@lwn.net>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-doc@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1700701402; l=6097;
- i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=p1/wVG4oK4tPyVEB1cAzIfwRdweH+n5SlbZADGl3HN0=;
- b=pHKTD7SgU0wmTpzFJLgvdn97KMxLFMphUzl+8fEBoD15qhhADhhnZxPbG9z6yByxWqwDDvYtR
- lZoZJpQmJvLC/hLDA8UBCzU/UWEcG0NwYl5rQi08FMJS4xAZ4Z7rtbU
-X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
- pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
+Content-Disposition: inline
+In-Reply-To: <ZU0sliwUQJyNAH1y@andrea>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231122_170325_782975_9F85F8E6 
-X-CRM114-Status: GOOD (  20.27  )
+X-CRM114-CacheID: sfid-20231122_170723_465361_0D139CB5 
+X-CRM114-Status: GOOD (  47.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,177 +97,228 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Support new prctl with key PR_RISCV_SET_ICACHE_FLUSH_CTX to enable
-optimization of cross modifying code. This prctl enables userspace code
-to use icache flushing instructions such as fence.i with the guarantee
-that the icache will continue to be clean after thread migration.
+On Thu, Nov 09, 2023 at 08:24:58PM +0100, Andrea Parri wrote:
+> Mathieu, all,
+> 
+> Sorry for the delay,
+> 
+> > AFAIR this patch implements sync_core_before_usermode which gets used by
+> > membarrier_mm_sync_core_before_usermode() to handle the uthread->kthread->uthread
+> > case. It relies on switch_mm issuing a core serializing instruction as well.
+> > 
+> > Looking at RISC-V switch_mm(), I see that switch_mm() calls:
+> > 
+> >   flush_icache_deferred(next, cpu);
+> > 
+> > which only issues a fence.i if a deferred icache flush was required. We're
+> > missing the part that sets the icache_stale_mask cpumask bits when a
+> > MEMBARRIER_CMD_PRIVATE_EXPEDITED_SYNC_CORE is invoked.
+> 
+> [...]
+> 
+> > The only part where I think you may want to keep some level of deferred
+> > icache flushing as you do now is as follows:
+> > 
+> > - when membarrier MEMBARRIER_CMD_PRIVATE_EXPEDITED_SYNC_CORE is invoked,
+> >   call a new architecture hook which sets cpumask bits in the mm context
+> >   that tells the next switch_mm on each cpu to issue fence.i for that mm.
+> > - keep something like flush_icache_deferred as you have now.
+> > 
+> > Otherwise, I fear the overhead of a very expensive fence.i would be too
+> > much when processes registering with MEMBARRIER_CMD_REGISTER_PRIVATE_EXPEDITED_SYNC_CORE
+> > and start doing fence.i on each and every switch_mm().
+> > 
+> > So you'd basically rely on membarrier to only issue IPIs to the CPUs which are
+> > currently running threads belonging to the mm, and handle the switch_mm with
+> > the sync_core_before_usermode() for uthread->kthread->uthread case, and implement
+> > a deferred icache flush for the typical switch_mm() case.
+> 
+> I've (tried to) put this together and obtained the two patches reported below.
+> Please let me know if this aligns with your intentions and/or there's interest
+> in a proper submission.
+> 
+>   Andrea
+> 
+> 
+> From e7d07a6c04b2565fceedcd71c2175e7df7e11d96 Mon Sep 17 00:00:00 2001
+> From: Andrea Parri <parri.andrea@gmail.com>
+> Date: Thu, 9 Nov 2023 11:03:00 +0100
+> Subject: [PATCH 1/2] locking: Introduce prepare_sync_core_cmd()
+> 
+> Introduce an architecture function that architectures can use to set
+> up ("prepare") SYNC_CORE commands.
+> 
+> The function will be used by RISC-V to update its "deferred icache-
+> flush" data structures (icache_stale_mask).
+> 
+> Architectures defining prepare_sync_core_cmd() static inline need to
+> select ARCH_HAS_PREPARE_SYNC_CORE_CMD.
+> 
+> Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
+> Suggested-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+> ---
+>  include/linux/sync_core.h | 16 +++++++++++++++-
+>  init/Kconfig              |  3 +++
+>  kernel/sched/membarrier.c |  1 +
+>  3 files changed, 19 insertions(+), 1 deletion(-)
+> 
+> diff --git a/include/linux/sync_core.h b/include/linux/sync_core.h
+> index 013da4b8b3272..67bb9794b8758 100644
+> --- a/include/linux/sync_core.h
+> +++ b/include/linux/sync_core.h
+> @@ -17,5 +17,19 @@ static inline void sync_core_before_usermode(void)
+>  }
+>  #endif
+>  
+> -#endif /* _LINUX_SYNC_CORE_H */
+> +#ifdef CONFIG_ARCH_HAS_PREPARE_SYNC_CORE_CMD
+> +#include <asm/sync_core.h>
+> +#else
+> +/*
+> + * This is a dummy prepare_sync_core_cmd() implementation that can be used on
+> + * all architectures which provide unconditional core serializing instructions
+> + * in switch_mm().
+> + * If your architecture doesn't provide such core serializing instructions in
+> + * switch_mm(), you may need to write your own functions.
+> + */
+> +static inline void prepare_sync_core_cmd(struct mm_struct *mm)
+> +{
+> +}
+> +#endif
+>  
+> +#endif /* _LINUX_SYNC_CORE_H */
+> diff --git a/init/Kconfig b/init/Kconfig
+> index 6d35728b94b2b..61f5f982ca451 100644
+> --- a/init/Kconfig
+> +++ b/init/Kconfig
+> @@ -1972,6 +1972,9 @@ source "kernel/Kconfig.locks"
+>  config ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
+>  	bool
+>  
+> +config ARCH_HAS_PREPARE_SYNC_CORE_CMD
+> +	bool
+> +
+>  config ARCH_HAS_SYNC_CORE_BEFORE_USERMODE
+>  	bool
+>  
+> diff --git a/kernel/sched/membarrier.c b/kernel/sched/membarrier.c
+> index 2ad881d07752c..58f801e013988 100644
+> --- a/kernel/sched/membarrier.c
+> +++ b/kernel/sched/membarrier.c
+> @@ -320,6 +320,7 @@ static int membarrier_private_expedited(int flags, int cpu_id)
+>  		      MEMBARRIER_STATE_PRIVATE_EXPEDITED_SYNC_CORE_READY))
+>  			return -EPERM;
+>  		ipi_func = ipi_sync_core;
+> +		prepare_sync_core_cmd(mm);
+>  	} else if (flags == MEMBARRIER_FLAG_RSEQ) {
+>  		if (!IS_ENABLED(CONFIG_RSEQ))
+>  			return -EINVAL;
+> -- 
+> 2.34.1
+> 
+> 
+> From 617896a1d58a5f8b0e5895dbc928a54e0461d959 Mon Sep 17 00:00:00 2001
+> From: Andrea Parri <parri.andrea@gmail.com>
+> Date: Tue, 7 Nov 2023 21:08:06 +0100
+> Subject: [PATCH 2/2] membarrier: riscv: Provide core serializing command
+> 
+> RISC-V uses xRET instructions on return from interrupt and to go back
+> to user-space; the xRET instruction is not core serializing.
+> 
+> Use FENCE.I for providing core serialization as follows:
+> 
+>  - by calling sync_core_before_usermode() on return from interrupt (cf.
+>    ipi_sync_core()),
+> 
+>  - via switch_mm() and sync_core_before_usermode() (respectively, for
+>    uthread->uthread and kthread->uthread transitions) to go back to
+>    user-space.
+> 
+> On RISC-V, the serialization in switch_mm() is activated by resetting
+> the icache_stale_mask of the mm at prepare_sync_core_cmd().
+> 
+> Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
+> Suggested-by: Palmer Dabbelt <palmer@dabbelt.com>
+> ---
+>  .../membarrier-sync-core/arch-support.txt     |  2 +-
+>  arch/riscv/Kconfig                            |  3 +++
+>  arch/riscv/include/asm/sync_core.h            | 23 +++++++++++++++++++
+>  3 files changed, 27 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/riscv/include/asm/sync_core.h
+> 
+> diff --git a/Documentation/features/sched/membarrier-sync-core/arch-support.txt b/Documentation/features/sched/membarrier-sync-core/arch-support.txt
+> index 23260ca449468..a17117d76e6d8 100644
+> --- a/Documentation/features/sched/membarrier-sync-core/arch-support.txt
+> +++ b/Documentation/features/sched/membarrier-sync-core/arch-support.txt
+> @@ -44,7 +44,7 @@
+>      |    openrisc: | TODO |
+>      |      parisc: | TODO |
+>      |     powerpc: |  ok  |
+> -    |       riscv: | TODO |
+> +    |       riscv: |  ok  |
+>      |        s390: |  ok  |
+>      |          sh: | TODO |
+>      |       sparc: | TODO |
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 9c48fecc67191..b70a0b9ea3ee7 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -27,14 +27,17 @@ config RISCV
+>  	select ARCH_HAS_GCOV_PROFILE_ALL
+>  	select ARCH_HAS_GIGANTIC_PAGE
+>  	select ARCH_HAS_KCOV
+> +	select ARCH_HAS_MEMBARRIER_SYNC_CORE
+>  	select ARCH_HAS_MMIOWB
+>  	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
+>  	select ARCH_HAS_PMEM_API
+> +	select ARCH_HAS_PREPARE_SYNC_CORE_CMD
+>  	select ARCH_HAS_PTE_SPECIAL
+>  	select ARCH_HAS_SET_DIRECT_MAP if MMU
+>  	select ARCH_HAS_SET_MEMORY if MMU
+>  	select ARCH_HAS_STRICT_KERNEL_RWX if MMU && !XIP_KERNEL
+>  	select ARCH_HAS_STRICT_MODULE_RWX if MMU && !XIP_KERNEL
+> +	select ARCH_HAS_SYNC_CORE_BEFORE_USERMODE
+>  	select ARCH_HAS_SYSCALL_WRAPPER
+>  	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
+>  	select ARCH_HAS_UBSAN_SANITIZE_ALL
+> diff --git a/arch/riscv/include/asm/sync_core.h b/arch/riscv/include/asm/sync_core.h
+> new file mode 100644
+> index 0000000000000..8be5e07d641ab
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/sync_core.h
+> @@ -0,0 +1,23 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef _ASM_RISCV_SYNC_CORE_H
+> +#define _ASM_RISCV_SYNC_CORE_H
+> +
+> +/*
+> + * RISC-V implements return to user-space through an xRET instruction,
+> + * which is not core serializing.
+> + */
+> +static inline void sync_core_before_usermode(void)
+> +{
+> +	asm volatile ("fence.i" ::: "memory");
+> +}
+> +
+> +/*
+> + * Ensure the next switch_mm() on every CPU issues a core serializing
+> + * instruction for the given @mm.
+> + */
+> +static inline void prepare_sync_core_cmd(struct mm_struct *mm)
+> +{
+> +	cpumask_setall(&mm->context.icache_stale_mask);
+> +}
+> +
+> +#endif /* _ASM_RISCV_SYNC_CORE_H */
+> -- 
+> 2.34.1
+> 
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
----
- arch/riscv/include/asm/mmu.h       |  2 ++
- arch/riscv/include/asm/processor.h |  6 ++++++
- arch/riscv/mm/cacheflush.c         | 37 +++++++++++++++++++++++++++++++++++++
- arch/riscv/mm/context.c            |  8 +++++---
- include/uapi/linux/prctl.h         |  3 +++
- kernel/sys.c                       |  6 ++++++
- 6 files changed, 59 insertions(+), 3 deletions(-)
+This looks good to me, can you send out a non-RFC? I just sent out
+patches to support userspace fence.i:
+https://lore.kernel.org/linux-riscv/20231122-fencei-v1-0-bec0811cb212@rivosinc.com/T/#t.
 
-diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
-index 355504b37f8e..60be458e94da 100644
---- a/arch/riscv/include/asm/mmu.h
-+++ b/arch/riscv/include/asm/mmu.h
-@@ -19,6 +19,8 @@ typedef struct {
- #ifdef CONFIG_SMP
- 	/* A local icache flush is needed before user execution can resume. */
- 	cpumask_t icache_stale_mask;
-+	/* Force local icache flush on all migrations. */
-+	bool force_icache_flush;
- #endif
- #ifdef CONFIG_BINFMT_ELF_FDPIC
- 	unsigned long exec_fdpic_loadmap;
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index f19f861cda54..7eda6c75e0f2 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -84,6 +84,9 @@ struct thread_struct {
- 	unsigned long vstate_ctrl;
- 	struct __riscv_v_ext_state vstate;
- 	unsigned long align_ctl;
-+#ifdef CONFIG_SMP
-+	bool force_icache_flush;
-+#endif
- };
- 
- /* Whitelist the fstate from the task_struct for hardened usercopy */
-@@ -145,6 +148,9 @@ extern int set_unalign_ctl(struct task_struct *tsk, unsigned int val);
- #define GET_UNALIGN_CTL(tsk, addr)	get_unalign_ctl((tsk), (addr))
- #define SET_UNALIGN_CTL(tsk, val)	set_unalign_ctl((tsk), (val))
- 
-+#define RISCV_SET_ICACHE_FLUSH_CTX(arg1, arg2)	riscv_set_icache_flush_ctx(arg1, arg2)
-+extern int riscv_set_icache_flush_ctx(unsigned long ctx, unsigned long per_thread);
-+
- #endif /* __ASSEMBLY__ */
- 
- #endif /* _ASM_RISCV_PROCESSOR_H */
-diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-index 55a34f2020a8..36f69c71026a 100644
---- a/arch/riscv/mm/cacheflush.c
-+++ b/arch/riscv/mm/cacheflush.c
-@@ -5,6 +5,7 @@
- 
- #include <linux/acpi.h>
- #include <linux/of.h>
-+#include <linux/prctl.h>
- #include <asm/acpi.h>
- #include <asm/cacheflush.h>
- 
-@@ -152,3 +153,39 @@ void __init riscv_init_cbo_blocksizes(void)
- 	if (cboz_block_size)
- 		riscv_cboz_block_size = cboz_block_size;
- }
-+
-+/**
-+ * Enable userspace to emit icache flushing instructions.
-+ *
-+ * When in per-process context, there may be multiple threads using the same mm.
-+ * Therefore, the icache can never be assumed clean when. Multiple threads in
-+ * the process may modify instructions in the mm concurrently.
-+ *
-+ * In per-thread context, it can be assumed that all modifications to
-+ * instructions in memory will be performed by this thread. When the thread is
-+ * migrated the icache will be flushed.
-+ *
-+ * @arg arg: Sets the type of context
-+ *  - PR_RISCV_CTX_SW_FENCEI: Allow fence.i in userspace. Another fence.i will
-+ *			      emitted on thread/process migration.
-+ * @arg per_thread: When set to 0, will use the default behavior of setting the
-+ *  icache flush context per process. When set to 1, will use a per thread
-+ *  context.
-+ */
-+int riscv_set_icache_flush_ctx(unsigned long ctx, unsigned long per_thread)
-+{
-+#ifdef CONFIG_SMP
-+	switch (ctx) {
-+	case PR_RISCV_CTX_SW_FENCEI:
-+		if (per_thread)
-+			current->thread.force_icache_flush = true;
-+		else
-+			current->mm->context.force_icache_flush = true;
-+		break;
-+
-+	default:
-+		break;
-+	}
-+#endif
-+	return 0;
-+}
-diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-index 217fd4de6134..a394b146e78a 100644
---- a/arch/riscv/mm/context.c
-+++ b/arch/riscv/mm/context.c
-@@ -297,12 +297,14 @@ static inline void set_mm(struct mm_struct *prev,
-  *
-  * The "cpu" argument must be the current local CPU number.
-  */
--static inline void flush_icache_deferred(struct mm_struct *mm, unsigned int cpu)
-+static inline void flush_icache_deferred(struct mm_struct *mm, unsigned int cpu,
-+					 struct task_struct *task)
- {
- #ifdef CONFIG_SMP
- 	cpumask_t *mask = &mm->context.icache_stale_mask;
- 
--	if (cpumask_test_cpu(cpu, mask)) {
-+	if (cpumask_test_cpu(cpu, mask) || mm->context.force_icache_flush ||
-+	    mm->context.force_icache_flush) {
- 		cpumask_clear_cpu(cpu, mask);
- 		/*
- 		 * Ensure the remote hart's writes are visible to this hart.
-@@ -332,5 +334,5 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
- 
- 	set_mm(prev, next, cpu);
- 
--	flush_icache_deferred(next, cpu);
-+	flush_icache_deferred(next, cpu, task);
- }
-diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
-index 370ed14b1ae0..472801ea78cc 100644
---- a/include/uapi/linux/prctl.h
-+++ b/include/uapi/linux/prctl.h
-@@ -306,4 +306,7 @@ struct prctl_mm_map {
- # define PR_RISCV_V_VSTATE_CTRL_NEXT_MASK	0xc
- # define PR_RISCV_V_VSTATE_CTRL_MASK		0x1f
- 
-+#define PR_RISCV_SET_ICACHE_FLUSH_CTX	71
-+# define PR_RISCV_CTX_SW_FENCEI		0
-+
- #endif /* _LINUX_PRCTL_H */
-diff --git a/kernel/sys.c b/kernel/sys.c
-index 420d9cb9cc8e..e806a8a67c36 100644
---- a/kernel/sys.c
-+++ b/kernel/sys.c
-@@ -146,6 +146,9 @@
- #ifndef RISCV_V_GET_CONTROL
- # define RISCV_V_GET_CONTROL()		(-EINVAL)
- #endif
-+#ifndef RISCV_SET_ICACHE_FLUSH_CTX
-+# define RISCV_SET_ICACHE_FLUSH_CTX(a, b)	(-EINVAL)
-+#endif
- 
- /*
-  * this is where the system-wide overflow UID and GID are defined, for
-@@ -2739,6 +2742,9 @@ SYSCALL_DEFINE5(prctl, int, option, unsigned long, arg2, unsigned long, arg3,
- 	case PR_RISCV_V_GET_CONTROL:
- 		error = RISCV_V_GET_CONTROL();
- 		break;
-+	case PR_RISCV_SET_ICACHE_FLUSH_CTX:
-+		error = RISCV_SET_ICACHE_FLUSH_CTX(arg2, arg3);
-+		break;
- 	default:
- 		error = -EINVAL;
- 		break;
-
--- 
-2.42.0
+- Charlie
 
 
 _______________________________________________
