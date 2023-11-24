@@ -4,91 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA386C636D0
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Nov 2023 18:58:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B8D6C61D97
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Nov 2023 01:23:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QwcCVA3Tti0bjZWEQTj/b4q1YaJHHkcaon4lWJrRSlw=; b=vVRcPVIsPIAYr0
-	uGg7Gq/Nb75DMiTo8W0rzht445QRq5BkvDjcE6fYFNwH++NCcZaOlOSeHXPEUSf8817wqhTfA3tQS
-	Njq879zj1fnQvo8l57fqlTUBaDDhmPT07v52CQOS5Fs5P+hcfJzP7NH2ViOyrbUUw2rj73p26FKeY
-	GBlzmUZY/Xy3FfloZ01Fwi7r2HyWigc1l3jjTV2FoNOqgDSSrKJ+T5jgDvT2yaS/JP/mrUaXkOvnN
-	6oxN7+YPRGs93qaS5WqtOsRNhFm8WjpmhpemX8ZE3UdqNRAmOeAyFSdeLF/wU8lnfB1d+j6P2SAQw
-	dnjsuX/dJm8eyvYK4OmA==;
+	List-Owner; bh=URfz6UIIpZYp4dEKZuBBycbepqEhTVgTeSLfoXpuqvw=; b=N1qLq1aW25Nb57
+	j2OaDMGXuBVNLSktQXcUiIBWQrc+yIYfhMhHnRgNJ4J5tk4wR7LvuI1Ibfz5h9CHXln6tfkeVKe8v
+	VU8T2sHwDL5PIhpgj1QC20ypSsQ5NWeS89mkJu0Chyutu+xfEj2fAZ0m3Jt8im7NkITP0+VryZPtj
+	sTo+51Sz9yIo8xxmi6VEckFjQlGxOWSVRhfEMgYBzARUabBkbcI+t4PdcfmpDCRUVaCyXRLK3nv5y
+	hHiQekIqpaYT7Bh6+iZ+pZlhk35uGemrTMpNTMzYS9fh0X6iYXeVOorHB1zcKsIseW6w6hCHJzE7r
+	rPdFSpV2AeYAvKGv4l0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6EuK-005YHu-10;
-	Thu, 23 Nov 2023 18:58:36 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1r6Kul-005v71-0H;
+	Fri, 24 Nov 2023 01:23:27 +0000
+Received: from mgamail.intel.com ([192.55.52.88])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6EuF-005YG1-1x
-	for linux-riscv@lists.infradead.org;
-	Thu, 23 Nov 2023 18:58:32 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-548f0b7ab11so1680480a12.1
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Nov 2023 10:58:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=vrull.eu; s=google; t=1700765908; x=1701370708; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dhz1HO1TFrn+esU2JyrDQXLuWyA0tprcaBHDYdqjcxQ=;
-        b=f1a8ZVdtTwngh6l92e5xA2vTSlu2MY6m8y6a3Vm4LgZrmbpJzObmts4Hr84t1ygVfP
-         com1a+UnW216hnfa2Ro4k020a7xkNqhoUbqiXWG5f09e8/8fUpz9NCj+tzav1x5phN6P
-         Y+yifwGG8bz9iOvJfFPUKl8byXyRUJdGyuPtpqOHVAr+SHlj2/IxZ5ncKPOxqHN+XQ/N
-         TsclMFNywYW+cw8m2z+O+Tm53NXFZ/AHCiindXC+Gq7ECxL0PYBhy4cJsLMwLZHN+j6b
-         SWpmjukVA6m9Abu3st+929NspSZ2bnmZ7CEEgVqwWwtpPnROPi11+k38lggKrZzIxZtH
-         7G9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700765908; x=1701370708;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dhz1HO1TFrn+esU2JyrDQXLuWyA0tprcaBHDYdqjcxQ=;
-        b=vYS0NNAhtfhwbYwSdo5YiJUMMlXbuGnZ41lyDraYRJqhPY2Z8srMhehMGI5vYatFDp
-         Mrze5DIOiFRQl4D+6j1Q9q+P5lltgQhdjkde+C1jT3iy194LY6jXcIqn/oiaSE+PHleB
-         I/jzStmqaATocOs/KfPmtoC7YXO87ycnmLJEZJLRW2vFD7fR4UTFFirzGtZc74sSbX29
-         QWZPd8RQRI6fqobesd8xTvskKCQmt5NlRITHSiZnbfYO6QsC0uoZwEUziR/jLh6nI8yk
-         FXaqhhok99+MX9fOjJWRk/ENc2fueI1WT0RmP2Dzv/8Eh1UMsZ4jXxm732LEaLhRr7au
-         I4Sw==
-X-Gm-Message-State: AOJu0YxmrAkilnouKICVpA8EG8BYmaWNzAXFlPY1VDfvvVJF32/HyJz3
-	Nt3FsXqy92Y3gwlho9GhCuqGBbLyamjRcrLVtBnqRTzn
-X-Google-Smtp-Source: AGHT+IHuV5dXf2Er0VwPFonFK4Fp1h+h+XsSB+7tO9pY2bovS/v0cFYLhOuYH9heihq0E1lWqqNMWw==
-X-Received: by 2002:a17:906:d4:b0:a01:8ef2:849 with SMTP id 20-20020a17090600d400b00a018ef20849mr177665eji.4.1700765908104;
-        Thu, 23 Nov 2023 10:58:28 -0800 (PST)
-Received: from beast.fritz.box (62-178-148-172.cable.dynamic.surfer.at. [62.178.148.172])
-        by smtp.gmail.com with ESMTPSA id l23-20020a170906231700b009ff1997ce86sm1115944eja.149.2023.11.23.10.58.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Nov 2023 10:58:27 -0800 (PST)
-From: Christoph Muellner <christoph.muellner@vrull.eu>
-To: linux-riscv@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Shuah Khan <shuah@kernel.org>
-Cc: Philipp Tomsich <philipp.tomsich@vrull.eu>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Evan Green <evan@rivosinc.com>,
-	Xiao Wang <xiao.w.wang@intel.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	=?UTF-8?q?Christoph=20M=C3=BCllner?= <christoph.muellner@vrull.eu>
-Subject: [PATCH 1/5] tools: selftests: riscv: Fix compile warnings in hwprobe
-Date: Thu, 23 Nov 2023 19:58:17 +0100
-Message-ID: <20231123185821.2272504-2-christoph.muellner@vrull.eu>
-X-Mailer: git-send-email 2.41.0
-In-Reply-To: <20231123185821.2272504-1-christoph.muellner@vrull.eu>
-References: <20231123185821.2272504-1-christoph.muellner@vrull.eu>
+	id 1r6Kuh-005v5S-2P;
+	Fri, 24 Nov 2023 01:23:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1700789003; x=1732325003;
+  h=date:from:to:cc:subject:message-id:references:
+   content-transfer-encoding:in-reply-to:mime-version;
+  bh=giDLjx1pK5ou4jiCkT18aG2UVNLnT9eo67V5tjtuX/A=;
+  b=U0TQ9ng6gL9ipDdx3klEY+chdnN/+GCBTPMBqiLO00t+jxI7roo8eDdC
+   UEVSy8iglBaipFYiQSLw2QTrAkwUvnk20jqS5lZu4XLyF717g6duqQAh4
+   GIvcfCAb2W0Xs4DvmxPQOUhm3j2b0uIm228aZNTpBiw1ta2HN4JcJt9So
+   Y2c04EA0S6oxsudE4S/oc/1/dBnfGhxNStzudLshsiAv+6VAHXX3OwLzO
+   dwpSQTbGPjfhuugzqcooHPtpCpRwJhWrfqTvKiJaICXFoKDC/zdkd9Tyf
+   5sQaaxoTaoi8vPFjehn1PaCSJ25XA0NHjWcKz5bXpUstORAJVxQmDIJIB
+   Q==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10902"; a="423481099"
+X-IronPort-AV: E=Sophos;i="6.04,223,1695711600"; 
+   d="scan'208";a="423481099"
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2023 17:23:17 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10902"; a="771104816"
+X-IronPort-AV: E=Sophos;i="6.04,223,1695711600"; 
+   d="scan'208";a="771104816"
+Received: from orsmsx602.amr.corp.intel.com ([10.22.229.15])
+  by fmsmga007.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 23 Nov 2023 17:23:17 -0800
+Received: from orsmsx612.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX602.amr.corp.intel.com (10.22.229.15) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.34; Thu, 23 Nov 2023 17:23:16 -0800
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ orsmsx612.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.34 via Frontend Transport; Thu, 23 Nov 2023 17:23:16 -0800
+Received: from NAM12-MW2-obe.outbound.protection.outlook.com (104.47.66.41) by
+ edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.34; Thu, 23 Nov 2023 17:23:16 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=csMlEy/sNVgLgV6eVV8mVTCRrNpSoVt4imjbnrH4tBsciMS8RSvFC1c6+ZEZFCe+xWr6Ncevkg5bZ6+d0jzxXGzal8/5ct93Z9M4ukzt5WzpALwND2R+4ohwhNTi8rNYBXhEv9H+YObA4vrj5uRf7iVXXR4Rdt8JnpZ0DK0tJ44T5vuRLD5n7GKOq9C8XADlP/ZznqRdGTaY+w4VHSZcaru/QxmRB587XkntKan8ItVDiCkl1Y6H9TmeY7wtEr0B0nB2cgqci8DfYlf6afk06I+DoEk70oFdO34n5E+EOI8EwVGpkvk8mPDL83A0AmkYhzMxq643JofDboo6PdKpuQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CD+m0I5nQ0jMzvqRH3BmQXwMn8MaqMiFtwS64hlFCrM=;
+ b=iIYy/Ez6ZiGfPQ+vJMc4x/4q2mhhsEMi38rLcJhhs9wKaIznzsAtUgx2bB2yEKpPL/sZxGwGs1g1x1IYoK0NTPWKTLBL6s4VcN03Pcf4xt8qT7nKr9+lgkxVqL4ZGLWOaK5rXoVYbFFCx3Op95tC3/97zshi0YEQ0m/hFcq9ICSn8z6hE6Nxm17Gzyy7n9SPsZ3pGCXBkWBI9EAulEZ3fkSAmFWVnQVqoSGL5+/3Q167FwbD7xr3Ud7Ie0LBX5c0zRkA43fuILvEVIZhYLephexEPyX1xFSCPccDoPCpI7vSCSiCw/VfrC4oADOm/pTKmHkCervmD/cAxr0eIZbvtw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DS0PR11MB6397.namprd11.prod.outlook.com (2603:10b6:8:ca::12) by
+ PH0PR11MB5610.namprd11.prod.outlook.com (2603:10b6:510:e9::10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7025.20; Fri, 24 Nov 2023 01:23:07 +0000
+Received: from DS0PR11MB6397.namprd11.prod.outlook.com
+ ([fe80::e486:f8af:ca6c:7219]) by DS0PR11MB6397.namprd11.prod.outlook.com
+ ([fe80::e486:f8af:ca6c:7219%7]) with mapi id 15.20.7025.019; Fri, 24 Nov 2023
+ 01:23:07 +0000
+Date: Fri, 24 Nov 2023 09:18:28 +0800
+From: Yujie Liu <yujie.liu@intel.com>
+To: "bhe@redhat.com" <bhe@redhat.com>
+CC: lkp <lkp@intel.com>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "kexec@lists.infradead.org"
+	<kexec@lists.infradead.org>, "x86@kernel.org" <x86@kernel.org>,
+	"oe-kbuild-all@lists.linux.dev" <oe-kbuild-all@lists.linux.dev>,
+	"llvm@lists.linux.dev" <llvm@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-parisc@vger.kernel.org"
+	<linux-parisc@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linuxppc-dev@lists.ozlabs.org"
+	<linuxppc-dev@lists.ozlabs.org>
+Subject: Re: [PATCH 2/7] kexec_file: print out debugging message if required
+Message-ID: <ZV/55OkN7bV02LY8@yujie-X299>
+References: <20231114153253.241262-3-bhe@redhat.com>
+ <202311160431.BXPc7NO9-lkp@intel.com>
+ <ZVcvBft/T3cbRBWr@MiWiFi-R3L-srv>
+ <39ccb4fda795a76996cf6d1c3b25909692358211.camel@intel.com>
+ <ZVdyLdAzgNBXfjiW@MiWiFi-R3L-srv>
+ <ZV9YYEK4L160ECQ+@MiWiFi-R3L-srv>
+Content-Disposition: inline
+In-Reply-To: <ZV9YYEK4L160ECQ+@MiWiFi-R3L-srv>
+X-ClientProxiedBy: SG3P274CA0009.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:be::21)
+ To DS0PR11MB6397.namprd11.prod.outlook.com (2603:10b6:8:ca::12)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR11MB6397:EE_|PH0PR11MB5610:EE_
+X-MS-Office365-Filtering-Correlation-Id: be219e76-a4bb-4b89-244b-08dbec8be9b8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: TiCikscQSMD1iTaarxAD/5cTl8Cwdd2f4LdV5zKNfBWFEuOCplGKM22wKuWxTElYPGGEU/CqhYLTR+voPwa2yx6hoyg5tdCDZoLKmwP57KTHdVGsrYe7onQ0mDHXX9FqgxF/M+xk8Q1ptrvvMWuqk6oJQyvTpzOaqxp1vWF7s9ALEch+nJPi3wdYFXksDiIB9zZdf8R/Z93Zk7nje7r6tOc/W50x/DR6QHgq0aiKJ9V6NYF3NTkYETJa6CCwPOebAapYiQCKRU1HkSQRG/fTxs8NngrCrTnXZkp8SM67ZLk6rjeVCOEELnO/Vjcgf2kKi3+YwCda8/9c9pgt5B/OU1UfqXXAXGpfwtCqp/bWqMHE7+bRgU1GJqbRHD6GzbSYBqGx80P5kuTYumZPFBGAj1IXkvBE77nLwdEuRERkVtmc8HM4nIwlrwT95/AeR1Fqt5IwVuFfZ8mfhlb1oaEc3nv95qNsJmBPhE3K5JU54etXb/ycVtkaYhpZqmwioUc5vaelcJZ68q/xX7fQfz25ahmriBOcWVxbCQ0yHyqcMQrKe9m4K4MCVZCoILdZR3+r5gZZ2eHPN68rgbSITESt3A==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB6397.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(7916004)(366004)(39860400002)(136003)(376002)(396003)(346002)(230922051799003)(186009)(451199024)(1800799012)(64100799003)(7416002)(15650500001)(2906002)(4001150100001)(44832011)(41300700001)(8676002)(8936002)(4326008)(5660300002)(316002)(66476007)(66556008)(54906003)(6916009)(86362001)(966005)(6486002)(6666004)(478600001)(83380400001)(6506007)(9686003)(6512007)(66946007)(26005)(33716001)(82960400001)(38100700002);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?Kgji6FxfbMwf6om+C9KcMa/brpUq8Waq6ZM9hSisGicV2kWuzntJdDcIwW?=
+ =?iso-8859-1?Q?IWLkyOoPT3JVnYEbYakiqq6gnWoZ/wIQwgUpfHVOyNjFb4XNdTe8LMO3KC?=
+ =?iso-8859-1?Q?bswku3yJ3xZdWrdvDBKU/D8r5EXrwP48R8qRCeczI6APApAx2a9UaRLV9J?=
+ =?iso-8859-1?Q?3/4WcLcKMbLvS/NIuto4ZELQpwoBwVcCKwUJYOLFkPl7q1o+DeLMAkIbEh?=
+ =?iso-8859-1?Q?u3WMQqdh8YWybANHeSi2JHyVkwPGm2j+l1wq+iO1ySO1MWVVaFSSCg0t0C?=
+ =?iso-8859-1?Q?nL1vrfhQh5zhCMx962T/XF6hy10cr+1ETrWJrQYnw1mEFJ902V/FlW1NXU?=
+ =?iso-8859-1?Q?Yy3cT2BSdHjjix8DkQmggY7soC/rCqNrZVuknbYOle0AJ0CjuW9wIfOpzt?=
+ =?iso-8859-1?Q?yWGhLDmifULXShzcx8dmqnlQAU+EcLUPyUPLHz7klfRquSoIDq8t2ZI3rc?=
+ =?iso-8859-1?Q?ATT6KzxKj9lMENaXrYcYiTcnk2PS0YAsAxaOOUWUTspJEHpuFEHIisxdkV?=
+ =?iso-8859-1?Q?Xl/ANvfrkmSxQEfmh9zTnHalbvmyXDJXqXo+kKmebKWk8ePyFskI8U++9R?=
+ =?iso-8859-1?Q?OLzMDS8juAcUggupo2Xyl2sXe/IsktgBXSnsZHyZQn1L0ePcelAHNSv14t?=
+ =?iso-8859-1?Q?9fx9YqLuRwX0Ar/qyChV8xwzd645LOJWBt2smfKODUCPydIr4OxWUs8CG0?=
+ =?iso-8859-1?Q?+2w97oTWiBdsDzBNfNNEgD2Z/ZS8b98/NTXxhDjcxkuei6qRoHfwsqvaVC?=
+ =?iso-8859-1?Q?rxVsbWuqhKunbBmFn6FIkmqQwfr7DY5xdfT/hVnQHyZN6er8I2WYoNDRYM?=
+ =?iso-8859-1?Q?GlontphZlsZLI3qa+IXuec5mU/iehmKe54JZhkNq+8Q0KNsADciIPunK3U?=
+ =?iso-8859-1?Q?wvI3p4u5poUl3Rmji5GfHM9w4IGavkUNcfYdbSzRROpQKNOjk9UsSVdXQf?=
+ =?iso-8859-1?Q?vwUI4isLAg1mEeAElAAFEoplJ6+ZAp5TaXJc1Ijkyd8z9M6XsGQklfHxpQ?=
+ =?iso-8859-1?Q?inpl3S873NsFUzzHak7iqDEqbQgrnhATOJdSgTb+pXRVeAKa/V5nYMvfGO?=
+ =?iso-8859-1?Q?IDNb3hZtoEdpPN52FEIKySd5jkRg4fqIQVhub0POL+QLyAgXNXWzHhzYrP?=
+ =?iso-8859-1?Q?UeONDTVjNGCqsRGRas4hNrPruPeWz6xqHYG3AyHbvk1ntZ3HBg9goGX/Du?=
+ =?iso-8859-1?Q?iWV46gbv1sx0pz/nZJCmV1HObu+MFlE+32sKXo8txkGDX0TrBHQPS49tYE?=
+ =?iso-8859-1?Q?pwh2CTYJi25DDx5aJk5wy+BTlDZnj6i/ZL7EWi6b1QLimwiSAT2+R5Ni6F?=
+ =?iso-8859-1?Q?uzTajsJF6kgUu9/Uf70w9ZV1CqLtVJDeeNh+Errg3HKsp6SY8RHZcEYDu7?=
+ =?iso-8859-1?Q?76ORtYuys9VT7w8h+K+LBAehTM7Lo3A8sS5lXDUzj9mAM7LjLMaH6+3YKw?=
+ =?iso-8859-1?Q?jUVo+SddD+jHWcUwm2NoSoVBGTWhmPrNWb5BF3SznjEzF0XkKu6O/1Zils?=
+ =?iso-8859-1?Q?SZl00tJwwpc+/mpBCd5dJUIULSL62XPwrMRZhLtb6s316Ge+APObBHb7mR?=
+ =?iso-8859-1?Q?cEPeKWQehbIrpJDLPuCHIb87uGCx1re47rLZo9dAy900xIT6HpIkR8pqQp?=
+ =?iso-8859-1?Q?kwEqVeTX4sAZ1LuKJjTx3co+RUL3nny9jp?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: be219e76-a4bb-4b89-244b-08dbec8be9b8
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB6397.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2023 01:23:07.2136
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sV/YbkV8w1kluPULThxwkFnQVDpSyR5rxxcGE5D07ZKr5naTp2wFcBlGAGn4kRXs4fbJmNMx2SQW7Yyh0aeL6w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR11MB5610
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231123_105831_646799_5F361860 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20231123_172323_843709_56D5A073 
+X-CRM114-Status: GOOD (  25.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,36 +169,141 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQ2hyaXN0b3BoIE3DvGxsbmVyIDxjaHJpc3RvcGgubXVlbGxuZXJAdnJ1bGwuZXU+CgpH
-Q0MgcHJpbnRzIGEgY291cGxlIG9mIGZvcm1hdCBzdHJpbmcgd2FybmluZ3Mgd2hlbiBjb21waWxp
-bmcKdGhlIGh3cHJvYmUgdGVzdC4gTGV0J3MgZm9sbG93IHRoZSByZWNvbW1lbmRhdGlvbiBpbgpE
-b2N1bWVudGF0aW9uL3ByaW50ay1mb3JtYXRzLnR4dCB0byBmaXggdGhlc2Ugd2FybmluZ3MuCgpT
-aWduZWQtb2ZmLWJ5OiBDaHJpc3RvcGggTcO8bGxuZXIgPGNocmlzdG9waC5tdWVsbG5lckB2cnVs
-bC5ldT4KLS0tCiB0b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9yaXNjdi9od3Byb2JlL2h3cHJvYmUu
-YyB8IDQgKystLQogMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMo
-LSkKCmRpZmYgLS1naXQgYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9yaXNjdi9od3Byb2JlL2h3
-cHJvYmUuYyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3Jpc2N2L2h3cHJvYmUvaHdwcm9iZS5j
-CmluZGV4IGM0NzQ4OTFkZjMwNy4uYWJiODI1ODExYzcwIDEwMDY0NAotLS0gYS90b29scy90ZXN0
-aW5nL3NlbGZ0ZXN0cy9yaXNjdi9od3Byb2JlL2h3cHJvYmUuYworKysgYi90b29scy90ZXN0aW5n
-L3NlbGZ0ZXN0cy9yaXNjdi9od3Byb2JlL2h3cHJvYmUuYwpAQCAtMjksNyArMjksNyBAQCBpbnQg
-bWFpbihpbnQgYXJnYywgY2hhciAqKmFyZ3YpCiAJCS8qIEZhaWwgaWYgdGhlIGtlcm5lbCBjbGFp
-bXMgbm90IHRvIHJlY29nbml6ZSBhIGJhc2Uga2V5LiAqLwogCQlpZiAoKGkgPCA0KSAmJiAocGFp
-cnNbaV0ua2V5ICE9IGkpKQogCQkJa3NmdF9leGl0X2ZhaWxfbXNnKCJGYWlsZWQgdG8gcmVjb2du
-aXplIGJhc2Uga2V5OiBrZXkgIT0gaSwgIgotCQkJCQkgICAia2V5PSVsZCwgaT0lbGRcbiIsIHBh
-aXJzW2ldLmtleSwgaSk7CisJCQkJCSAgICJrZXk9JWxsZCwgaT0lbGRcbiIsIHBhaXJzW2ldLmtl
-eSwgaSk7CiAKIAkJaWYgKHBhaXJzW2ldLmtleSAhPSBSSVNDVl9IV1BST0JFX0tFWV9CQVNFX0JF
-SEFWSU9SKQogCQkJY29udGludWU7CkBAIC0zNyw3ICszNyw3IEBAIGludCBtYWluKGludCBhcmdj
-LCBjaGFyICoqYXJndikKIAkJaWYgKHBhaXJzW2ldLnZhbHVlICYgUklTQ1ZfSFdQUk9CRV9CQVNF
-X0JFSEFWSU9SX0lNQSkKIAkJCWNvbnRpbnVlOwogCi0JCWtzZnRfZXhpdF9mYWlsX21zZygiVW5l
-eHBlY3RlZCBwYWlyOiAoJWxkLCAlbGQpXG4iLCBwYWlyc1tpXS5rZXksIHBhaXJzW2ldLnZhbHVl
-KTsKKwkJa3NmdF9leGl0X2ZhaWxfbXNnKCJVbmV4cGVjdGVkIHBhaXI6ICglbGxkLCAlbGx1KVxu
-IiwgcGFpcnNbaV0ua2V5LCBwYWlyc1tpXS52YWx1ZSk7CiAJfQogCiAJb3V0ID0gcmlzY3ZfaHdw
-cm9iZShwYWlycywgOCwgMCwgMCwgMCk7Ci0tIAoyLjQxLjAKCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Thu, Nov 23, 2023 at 09:49:20PM +0800, bhe@redhat.com wrote:
+> On 11/17/23 at 10:01pm, Baoquan He wrote:
+> > On 11/17/23 at 09:37am, Liu, Yujie wrote:
+> > > Hi Baoquan,
+> > > =
+
+> > > On Fri, 2023-11-17 at 17:14 +0800, Baoquan He wrote:
+> > > > Hi,
+> > > > =
+
+> > > > On 11/16/23 at 05:04am, kernel test robot wrote:
+> > > > > Hi Baoquan,
+> > > > > =
+
+> > > > > kernel test robot noticed the following build errors:
+> > > > > =
+
+> > > > > [auto build test ERROR on arm64/for-next/core]
+> > > > > [also build test ERROR on tip/x86/core powerpc/next powerpc/fixes=
+ linus/master v6.7-rc1 next-20231115]
+> > > > > [If your patch is applied to the wrong git tree, kindly drop us a=
+ note.
+> > > > > And when submitting patch, we suggest to use '--base' as document=
+ed in
+> > > > > https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> > > > > =
+
+> > > > > url:=A0=A0=A0 https://github.com/intel-lab-lkp/linux/commits/Baoq=
+uan-He/kexec_file-add-kexec_file-flag-to-control-debug-printing/20231114-23=
+4003
+> > > > > base:=A0=A0 https://git.kernel.org/pub/scm/linux/kernel/git/arm64=
+/linux.git=A0for-next/core
+> > > > > patch link:=A0=A0=A0 https://lore.kernel.org/r/20231114153253.241=
+262-3-bhe%40redhat.com
+> > > > > patch subject: [PATCH 2/7] kexec_file: print out debugging messag=
+e if required
+> > > > > config: hexagon-comet_defconfig (https://download.01.org/0day-ci/=
+archive/20231116/202311160431.BXPc7NO9-lkp@intel.com/config)
+> > > > > compiler: clang version 16.0.4 (https://github.com/llvm/llvm-proj=
+ect.git=A0ae42196bc493ffe877a7e3dff8be32035dea4d07)
+> > > > > reproduce (this is a W=3D1 build): (https://download.01.org/0day-=
+ci/archive/20231116/202311160431.BXPc7NO9-lkp@intel.com/reproduce)
+> > > > > =
+
+> > > > =
+
+> > > > Thanks for reporting.
+> > > > =
+
+> > > > I met below failure when following the steps of provided reproducer.
+> > > > Could anyone help check what's wrong with that?
+> > > =
+
+> > > Sorry this seems to be a bug in the reproducer. Could you please chan=
+ge
+> > > the compiler parameter to "COMPILER=3Dclang-16" and rerun the command=
+? We
+> > > will fix the issue ASAP.
+> =
+
+> Any update for the reproducer? I would like to post v2 with the fix. I
+> doubt it's the same issue as another report on this patch, while not
+> quite sure.
+
+Setting "COMPILER=3Dclang-16" is exactly the correct fix and should
+reproduce the issue in this report. We've fixed the steps of reproducer
+but this will only take effect in future reports.
+
+Thanks,
+Yujie
+
+> > =
+
+> > Here you are. Thanks for your quick response.
+> > ------------------------------
+> > [root@~ linux]# COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang-16 =
+~/bin/make.cross W=3D1 O=3Dbuild_dir ARCH=3Dhexagon olddefconfig
+> > Compiler will be installed in /root/0day
+> > lftpget -c https://cdn.kernel.org/pub/tools/llvm/files/./llvm-16.0.6-x8=
+6_64.tar.xz
+> > /root/linux                                                            =
+                 =
+
+> > tar Jxf /root/0day/./llvm-16.0.6-x86_64.tar.xz -C /root/0day
+> > PATH=3D/root/0day/llvm-16.0.6-x86_64/bin:/root/.local/bin:/root/bin:/us=
+r/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+> > make --keep-going LLVM=3D1 CROSS_COMPILE=3Dhexagon-linux- LLVM_IAS=3D1 =
+--jobs=3D128 KCFLAGS=3D-Warray-bounds -Wundef -fstrict-flex-arrays=3D3 -fun=
+signed-char -Wenum-conversion W=3D1 O=3Dbuild_dir ARCH=3Dhexagon olddefconf=
+ig
+> > make[1]: Entering directory '/root/linux/build_dir'
+> >   GEN     Makefile
+> >   HOSTCC  scripts/basic/fixdep
+> >   HOSTCC  scripts/kconfig/conf.o
+> >   HOSTCC  scripts/kconfig/confdata.o
+> >   HOSTCC  scripts/kconfig/expr.o
+> >   HOSTCC  scripts/kconfig/lexer.lex.o
+> >   HOSTCC  scripts/kconfig/menu.o
+> >   HOSTCC  scripts/kconfig/parser.tab.o
+> >   HOSTCC  scripts/kconfig/preprocess.o
+> >   HOSTCC  scripts/kconfig/symbol.o
+> >   HOSTCC  scripts/kconfig/util.o
+> >   HOSTLD  scripts/kconfig/conf
+> > #
+> > # configuration written to .config
+> > #
+> > make[1]: Leaving directory '/root/linux/build_dir'
+> > =
+
+> > > =
+
+> > > > [root@~ linux]# COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang=
+ ~/bin/make.cross W=3D1 O=3Dbuild_dir ARCH=3Dhexagon olddefconfig
+> > > > Compiler will be installed in /root/0day
+> > > > lftpget -c https://cdn.kernel.org/pub/tools/llvm/files/
+> > > > get1: /pub/tools/llvm/files/: files/: Is a directory
+> > > > Failed to download https://cdn.kernel.org/pub/tools/llvm/files/
+> > > > clang crosstool install failed
+> > > > Install clang compiler failed
+> > > > setup_crosstool failed
+> > > =
+
+> > > =
+
+> > =
+
+> =
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
