@@ -4,76 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F36E6C61DF4
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Nov 2023 03:38:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31098C61D97
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Nov 2023 05:05:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZGqyFrl6B5naytNbU75KEHpfC3jZLsPbxkQN4pR8Qmw=; b=Vesaq403cnPmC8
-	533Iu0b40EEjp1854haYzIKcqNbHbpcX5u+U9eECfDWriR++N0btf3FhdRfYJasK1R4ULIrWFutSu
-	Ve/8gVuE395WmO9VXibzK8GFd9SeeJOrfrgvuIhVUPBbQhW7rpqfB+pPOv7RTCrn++HQBYVM8c87O
-	xRDK20vE8LBQATNyy048BiTbuNOhrcayUvhhgnh/CY7PetDvW6w7dvqN/jbspsxkzxCQi5ZHVSJRa
-	jZX1fYy4giigXjNjsTOFIo1l/x7n3CK+xCkWwPfJT32WvSa+JuH9cEiUcYplCRqWoGWTLxB0AO79v
-	X9488/K9lPObS2eUK+zA==;
+	List-Owner; bh=zJDpc3ROmNDXvwQOajYCFlo5PMxxB4gyBeZJ1Wm3CYk=; b=vGgi1DsUtgrhrr
+	+XxiOcunpSV/FDOXtLTkg5R8+SN6EDifuvRaK9ISSzCH5ZJuHRv3vnW7DRvdrnRtAkz9W+/0TgErM
+	6nvngSABL+DgM8xkO1xUHcTF4dTYQJhyQq9LwqUJ/o2jOjrAjMpVkaPQBMuwLXX11v9nQ3HqrVS6b
+	qKbOQJTfsJysfSFS86oqBkeoy3HkQ6oBmPLfxszHXJB6s+L3eZrqTmdhL3pJtVy4Kdclu59f/5zk5
+	bXZFALYgVzWa7v0oCguF+yTKwCC9HkKJur+Iau2OideLso5O5wxp/xDqVe65wdXeSywbpPOBxwbqP
+	GBRr69eZ/RQlDN7AV75Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6N11-0063Wj-2b;
-	Fri, 24 Nov 2023 03:38:03 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1r6ONf-006AE7-1i;
+	Fri, 24 Nov 2023 05:05:31 +0000
+Received: from mail-oa1-x2a.google.com ([2001:4860:4864:20::2a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6N0w-0063Sg-2m
+	id 1r6ONb-006ADi-2w
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Nov 2023 03:38:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1700797078;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ddYSvqzlkNogyoNHz/ZYeptUXFMRcqTi26tdLDKHB50=;
-	b=WM0rAqmRf5NfDmobIZtVwS+Dl/WlAlAV4zm6KqpSaboMO1+WzEEJH+mrRDL2ExiG2rflO1
-	AOOsCComJS0JPIqPsPb/8Q0v1Y8O/8ZcojkL7uyVaeL/4wemFEjbDo6JM/du2ZiNGh+/28
-	51KaMSSxbEilkq+8gZeTM7S3Ts1bwFM=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-50-8nebnkVBMhyBq-CpvVeZag-1; Thu, 23 Nov 2023 22:37:21 -0500
-X-MC-Unique: 8nebnkVBMhyBq-CpvVeZag-1
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8D23F185A782;
-	Fri, 24 Nov 2023 03:37:20 +0000 (UTC)
-Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.112.8])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 19020492BE7;
-	Fri, 24 Nov 2023 03:37:15 +0000 (UTC)
-From: Baoquan He <bhe@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: kexec@lists.infradead.org,
-	x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-parisc@vger.kernel.org,
-	akpm@linux-foundation.org,
-	joe@perches.com,
-	nathan@kernel.org,
-	yujie.liu@intel.com,
-	Baoquan He <bhe@redhat.com>
-Subject: [PATCH v2 6/7] kexec_file, power: print out debugging message if required
-Date: Fri, 24 Nov 2023 11:36:41 +0800
-Message-ID: <20231124033642.520686-7-bhe@redhat.com>
-In-Reply-To: <20231124033642.520686-1-bhe@redhat.com>
-References: <20231124033642.520686-1-bhe@redhat.com>
+	Fri, 24 Nov 2023 05:05:29 +0000
+Received: by mail-oa1-x2a.google.com with SMTP id 586e51a60fabf-1f5bd86ceb3so943246fac.2
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Nov 2023 21:05:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1700802326; x=1701407126; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NSqVVlNqay+tkbRQW9+dH1P4yW/ANJSftxzN49AnClI=;
+        b=pbLn5zp+t7zirR9qzekquIYZ/7VLWA+FO+ekshs6Z+25Ka5HKtyDDYse8PhF6yUefO
+         BhPujDy7OmNKVYq2El/1na+MwPOTVshb1IRH/GqKZxshbEyNGtWLOka7kYBqkc78nlTZ
+         TqqoKlQlCT1zHtYXuSRXAEhQ6gcCYIgPFyHik6OY4fxIgV63NrVksbuhGdjY4D24ft8u
+         drLqRL7/t0RNKkxeqY3sl0CeF3z9bLpkWSpvyzw8K/3Am39pzFFyzf3413mPX1c8gz01
+         Ytl6M4zAP6lm6QQh39QSYkK6bJIUDQN29pEUVVy/KMexISTk8u4X0q3NOU9WELJwa02i
+         KT9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1700802326; x=1701407126;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=NSqVVlNqay+tkbRQW9+dH1P4yW/ANJSftxzN49AnClI=;
+        b=hwPONGlheNqEMHkA250C52Wiq8LYya2IxiOEKY1ittNEYkxjWyNSN0y80I+80Ltxtx
+         cmpN/qT4fRimD8w/Yr2eTEHzuvUQCjKpd+lRoyOkTj2m/S7xRVtpnKzALWUQsTqGGoUN
+         ZDkSxOALOCmBn8EgqZmoInHTJqqwG4QVHBnpOpCnx1NLX01lab9u2bgrsH08yutC/Ju+
+         j2vptHQF4MhBeh9twqshj/RfaqPsFXbEKZik9rQKHK6fon6zDIh3vfT2zqTB5ZokD5v1
+         TP9qUe+Ym/0XTXX2KpzEaqvIWwUXvXLuEaK7RZH3WqbrftMyN8K91mHF3+ZzHUoCvnbN
+         x6qg==
+X-Gm-Message-State: AOJu0YzrSs+s9OoboPfF6f8Ndr0l0LRXGGG1vLjTjYgVpsSCdycUW1+8
+	UjUsyb1UHEGlQnNjP9spkq+U0BOctD+LDmF0CNyT1Q==
+X-Google-Smtp-Source: AGHT+IFB5hLdEj2Vo3fmacGt2M6/9IlhJVsJ7X1oKygLIIziwPw2RA7a2JJFveCBHs2/AbOlS1f1+OTbypCtVFPqtnI=
+X-Received: by 2002:a05:6871:5315:b0:1f9:a468:dd01 with SMTP id
+ hx21-20020a056871531500b001f9a468dd01mr2133739oac.53.1700802325856; Thu, 23
+ Nov 2023 21:05:25 -0800 (PST)
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.9
+References: <MEYP282MB3659BA22E1535379D06A0D3583B8A@MEYP282MB3659.AUSP282.PROD.OUTLOOK.COM>
+In-Reply-To: <MEYP282MB3659BA22E1535379D06A0D3583B8A@MEYP282MB3659.AUSP282.PROD.OUTLOOK.COM>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Fri, 24 Nov 2023 10:35:14 +0530
+Message-ID: <CAK9=C2V4Gkx6tcymNdm=WmPv+vqFgJ=0hm2hrPw7kS0qGP79yg@mail.gmail.com>
+Subject: Re: [PATCH v2 7/9] irqchip: Add RISC-V advanced PLIC driver
+To: =?UTF-8?B?6LCiIOazog==?= <xiebo_60@live.com>
+Cc: "Alistair.Francis@wdc.com" <Alistair.Francis@wdc.com>, "anup@brainfault.org" <anup@brainfault.org>, 
+	"atishp@atishpatra.org" <atishp@atishpatra.org>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "maz@kernel.org" <maz@kernel.org>, 
+	"palmer@dabbelt.com" <palmer@dabbelt.com>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, 
+	"robh+dt@kernel.org" <robh+dt@kernel.org>, "tglx@linutronix.de" <tglx@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231123_193759_002943_58B4DA0B 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20231123_210527_975878_D41DD3E9 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,125 +89,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Replace pr_debug() with the newly added kexec_dprintk() in kexec_file
-loading related codes.
-
-Signed-off-by: Baoquan He <bhe@redhat.com>
----
- arch/powerpc/kexec/elf_64.c       |  8 ++++----
- arch/powerpc/kexec/file_load_64.c | 14 +++++++-------
- 2 files changed, 11 insertions(+), 11 deletions(-)
-
-diff --git a/arch/powerpc/kexec/elf_64.c b/arch/powerpc/kexec/elf_64.c
-index eeb258002d1e..904016cf89ea 100644
---- a/arch/powerpc/kexec/elf_64.c
-+++ b/arch/powerpc/kexec/elf_64.c
-@@ -59,7 +59,7 @@ static void *elf64_load(struct kimage *image, char *kernel_buf,
- 	if (ret)
- 		goto out;
- 
--	pr_debug("Loaded the kernel at 0x%lx\n", kernel_load_addr);
-+	kexec_dprintk("Loaded the kernel at 0x%lx\n", kernel_load_addr);
- 
- 	ret = kexec_load_purgatory(image, &pbuf);
- 	if (ret) {
-@@ -67,7 +67,7 @@ static void *elf64_load(struct kimage *image, char *kernel_buf,
- 		goto out;
- 	}
- 
--	pr_debug("Loaded purgatory at 0x%lx\n", pbuf.mem);
-+	kexec_dprintk("Loaded purgatory at 0x%lx\n", pbuf.mem);
- 
- 	/* Load additional segments needed for panic kernel */
- 	if (image->type == KEXEC_TYPE_CRASH) {
-@@ -99,7 +99,7 @@ static void *elf64_load(struct kimage *image, char *kernel_buf,
- 			goto out;
- 		initrd_load_addr = kbuf.mem;
- 
--		pr_debug("Loaded initrd at 0x%lx\n", initrd_load_addr);
-+		kexec_dprintk("Loaded initrd at 0x%lx\n", initrd_load_addr);
- 	}
- 
- 	fdt = of_kexec_alloc_and_setup_fdt(image, initrd_load_addr,
-@@ -132,7 +132,7 @@ static void *elf64_load(struct kimage *image, char *kernel_buf,
- 
- 	fdt_load_addr = kbuf.mem;
- 
--	pr_debug("Loaded device tree at 0x%lx\n", fdt_load_addr);
-+	kexec_dprintk("Loaded device tree at 0x%lx\n", fdt_load_addr);
- 
- 	slave_code = elf_info.buffer + elf_info.proghdrs[0].p_offset;
- 	ret = setup_purgatory_ppc64(image, slave_code, fdt, kernel_load_addr,
-diff --git a/arch/powerpc/kexec/file_load_64.c b/arch/powerpc/kexec/file_load_64.c
-index 961a6dd67365..45089f53f875 100644
---- a/arch/powerpc/kexec/file_load_64.c
-+++ b/arch/powerpc/kexec/file_load_64.c
-@@ -577,7 +577,7 @@ static int add_usable_mem_property(void *fdt, struct device_node *dn,
- 		       NODE_PATH_LEN, dn);
- 		return -EOVERFLOW;
- 	}
--	pr_debug("Memory node path: %s\n", path);
-+	kexec_dprintk("Memory node path: %s\n", path);
- 
- 	/* Now that we know the path, find its offset in kdump kernel's fdt */
- 	node = fdt_path_offset(fdt, path);
-@@ -590,8 +590,8 @@ static int add_usable_mem_property(void *fdt, struct device_node *dn,
- 	/* Get the address & size cells */
- 	n_mem_addr_cells = of_n_addr_cells(dn);
- 	n_mem_size_cells = of_n_size_cells(dn);
--	pr_debug("address cells: %d, size cells: %d\n", n_mem_addr_cells,
--		 n_mem_size_cells);
-+	kexec_dprintk("address cells: %d, size cells: %d\n", n_mem_addr_cells,
-+		      n_mem_size_cells);
- 
- 	um_info->idx  = 0;
- 	if (!check_realloc_usable_mem(um_info, 2)) {
-@@ -664,7 +664,7 @@ static int update_usable_mem_fdt(void *fdt, struct crash_mem *usable_mem)
- 
- 	node = fdt_path_offset(fdt, "/ibm,dynamic-reconfiguration-memory");
- 	if (node == -FDT_ERR_NOTFOUND)
--		pr_debug("No dynamic reconfiguration memory found\n");
-+		kexec_dprintk("No dynamic reconfiguration memory found\n");
- 	else if (node < 0) {
- 		pr_err("Malformed device tree: error reading /ibm,dynamic-reconfiguration-memory.\n");
- 		return -EINVAL;
-@@ -776,7 +776,7 @@ static void update_backup_region_phdr(struct kimage *image, Elf64_Ehdr *ehdr)
- 	for (i = 0; i < ehdr->e_phnum; i++) {
- 		if (phdr->p_paddr == BACKUP_SRC_START) {
- 			phdr->p_offset = image->arch.backup_start;
--			pr_debug("Backup region offset updated to 0x%lx\n",
-+			kexec_dprintk("Backup region offset updated to 0x%lx\n",
- 				 image->arch.backup_start);
- 			return;
- 		}
-@@ -850,7 +850,7 @@ int load_crashdump_segments_ppc64(struct kimage *image,
- 		pr_err("Failed to load backup segment\n");
- 		return ret;
- 	}
--	pr_debug("Loaded the backup region at 0x%lx\n", kbuf->mem);
-+	kexec_dprintk("Loaded the backup region at 0x%lx\n", kbuf->mem);
- 
- 	/* Load elfcorehdr segment - to export crashing kernel's vmcore */
- 	ret = load_elfcorehdr_segment(image, kbuf);
-@@ -858,7 +858,7 @@ int load_crashdump_segments_ppc64(struct kimage *image,
- 		pr_err("Failed to load elfcorehdr segment\n");
- 		return ret;
- 	}
--	pr_debug("Loaded elf core header at 0x%lx, bufsz=0x%lx memsz=0x%lx\n",
-+	kexec_dprintk("Loaded elf core header at 0x%lx, bufsz=0x%lx memsz=0x%lx\n",
- 		 image->elf_load_addr, kbuf->bufsz, kbuf->memsz);
- 
- 	return 0;
--- 
-2.41.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBOb3YgMjQsIDIwMjMgYXQgODozM+KAr0FNIOiwoiDms6IgPHhpZWJvXzYwQGxpdmUu
+Y29tPiB3cm90ZToKPgo+IEhlbGxvIGFsbCwKPgo+Cj4gSSBoYXZlIGEgcXVlc3Rpb24gcmVnYXJk
+aW5nIHRoZSBoYW5kbGluZyBvZiBwb3RlbnRpYWwgaXNzdWVzIGR1cmluZyB0aGUgTVNJIGludGVy
+cnVwdCBzZW5kaW5nIHByb2Nlc3MuIEl0IGFwcGVhcnMgdGhhdCBpZiB0aGUgQVBMSUMgdGFyZ2V0
+IHJlZ2lzdGVyJ3MgdmFsdWUgaXMgbW9kaWZpZWQgZHVyaW5nIHRoZSBNU0kgaW50ZXJydXB0IHNl
+bmRpbmcgcHJvY2VzcywgaXQgY291bGQgcG90ZW50aWFsbHkgbGVhZCB0byBNU0kgaW50ZXJydXB0
+IHNlbmQgZmFpbHVyZXMuIFRoZSBjb2RlIGRvZXNuJ3Qgc2VlbSB0byBhY2NvdW50IGZvciB0aGlz
+IHNjZW5hcmlvIG9yIHRha2UgYXBwcm9wcmlhdGUgbWVhc3VyZXMuCj4KPiBJIGFtIHJlYWNoaW5n
+IG91dCB0byBzZWVrIGNsYXJpZmljYXRpb24gb24gd2hldGhlciB0aGlzIHNpdHVhdGlvbiBoYXMg
+YmVlbiBjb25zaWRlcmVkIGFuZCBpZiB0aGVyZSBhcmUgc3BlY2lmaWMgcmVhc29ucyBmb3Igbm90
+IGFkZHJlc3NpbmcgaXQgaW4gdGhlIGNvZGUuIFlvdXIgaW5zaWdodHMgaW50byB0aGlzIG1hdHRl
+ciB3b3VsZCBiZSBoaWdobHkgYXBwcmVjaWF0ZWQuCj4KPiBUaGFuayB5b3UgZm9yIHlvdXIgdGlt
+ZSwgYW5kIEkgbG9vayBmb3J3YXJkIHRvIHlvdXIgcmVzcG9uc2UuCgpUaGlzIGhhcyBiZWVuIHRh
+a2VuIGNhcmUgb2YgaW4gdGhlIElNU0lDIGRyaXZlciBpbiB0aGUgaXJxX3NldF9hZmZpbml0eSgp
+CmJlY2F1c2UgdGhlIElNU0lDIGRyaXZlciBtYW5hZ2VzIHRoZSByZS13cml0aW5nIG9mIE1TSSBt
+ZXNzYWdlcwp1cG9uIElSUSBhZmZpbml0eSBjaGFuZ2VzLgoKUGxlYXNlIGxvb2sgYXQgUEFUQ0g3
+IGFuZCBQQVRDSDggb2YgdGhlICJbUEFUQ0ggdjExIDAwLzE0XSBMaW51eApSSVNDLVYgQUlBIFN1
+cHBvcnQiIHNlcmllcy4KKFJlZmVyLCBodHRwczovL3d3dy5zcGluaWNzLm5ldC9saXN0cy9kZXZp
+Y2V0cmVlL21zZzY0Mzc2NC5odG1sKQoKUmVnYXJkcywKQW51cAoKPgo+IEJlc3QgcmVnYXJkcwo+
+Cj4KPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
