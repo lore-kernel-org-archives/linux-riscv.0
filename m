@@ -4,83 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4E3EC61DF4
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Nov 2023 09:40:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C5F9C61DF4
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Nov 2023 10:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9kriMDDqgnxNZKqCGJsHQK+3WDsIGUCMdiDrWwTIjTU=; b=EVp1UwG65liDXy
-	OnDerHPf8RMQAKr/Aq7gGhLnLG08brflxwDM5P3U6NSARrvq6M3b8+T+xtlSv1+a1lwP1EV21490A
-	CvfLawC0if9k64Jy7xidHaPl34rcBTjNlRnG7b1pH0qiXEqdia99SnFAX280VEHKKN9jxauRV+AMW
-	xMi+1I9TvArTs4drCOSAM0oMiWijK5GyHACLO27RSPuP16L4Tmdai+VAvbJfWCejHNMNx4c8coAQk
-	jjBImTAiXoHtucIiZuwGwU17NxXcvdgBPN7fVbsBHjXrASLAJFo6+g9yBeBqxdUmONHgS5oKAHRwf
-	tll3rcBccZeSmDbXOITg==;
+	List-Owner; bh=UrLZ0CNpaEDz/nqynsmF4u8/yy7W6KRnFmwljht9xtI=; b=0dlb8mtPBNJuHR
+	BLo0u0xcWPN+AUcLrF2hcnhgs9oP4kD4D4AojrxVv3kB3QAXlvUWIu1zdLc1a9VebMcf9s2ZNziXP
+	ujP6B4KMskpHQqpy2Bo0irTNj6pzcqR3awcJAThNDPiFxJl+IZ7m6KN2GQ4NxguoXhYWeb9/aCqIJ
+	RW0bflLh0NaNQQl06nxXwz3Eec6Rf9ya1xfOo2n9hq86idjkiyZJWFmLRe1nmQ2S35QToQaZKthg7
+	5NDIqo5Y0OHuKb71AwnPTpxuEEemiBTH0wFG6OgaWiQJfUJRGkQXRxgza0y1MYvYL5YpDr0WP0v8/
+	iHgvF1TADTeTT5VsgaPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6Sg0-006hmf-1m;
-	Fri, 24 Nov 2023 09:40:44 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1r6TDd-006naJ-1b;
+	Fri, 24 Nov 2023 10:15:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6Sfy-006hmK-1V
-	for linux-riscv@lists.infradead.org;
-	Fri, 24 Nov 2023 09:40:43 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-40b358f216dso10936835e9.1
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Nov 2023 01:40:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1700818840; x=1701423640; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=liKWi3k1bQmGEMyLltDAEJD618fY1ygP7q9s9GKBNQY=;
-        b=gM6I6t5OvUPTyW6Z7pmY6XHzacP3iM3WdXeO/Vj4qnNllKg+yuQHndzU2zYJ2stcpk
-         ytxurouybS2HVAlANo9fwV8F27VK6K/g3JJZEA4wmmDJbpqL+74mDhEp226rlRMtpAli
-         4eIIJBMObsyZ70cXbr/jsn2jaJbJAfFAHCq1pBMQ0v8ZCkq5CvhleE02h6QElj4RbyZa
-         GTZipXPrW5toEmt/U8RwlPNTVqe5TI/HfIF7MWpF7rxzA+epHNWqk0IwUGvK5rbq2IQ8
-         zXAA5nJG2KkdyTzxQ9gOZHTrlUaleHUsRYX92LuweyZJSA5cSLHsv7fhREK741p4O7Qt
-         K5WA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700818840; x=1701423640;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=liKWi3k1bQmGEMyLltDAEJD618fY1ygP7q9s9GKBNQY=;
-        b=A7V1PBrRlP8b/81M3ufrYHANujVWUJH9MVw23FEDE7C/eZvYQqTFWVuQ1GxehFD583
-         6VBOSfxeO5DhHM9Sk7zNkluZUGQBIfEvyAnSiCxwhqGA1YR/Xrcw1dmsZCX1nvtdrGfW
-         9osfT7f27fM1Pc1J3jZH5fPr0FK9mVptm6uLeo45rNmIF4827tozlPRirJRU6sVa9Ryw
-         6F2Cg6yqwNAeKy5d5EprPRvSVe7rfZD8J+090qmPV07UF8cFicd1VIPqTF8XDUy4ddUx
-         NROBMdpdDi0i/24AQXhur/kfo2grt3sg/Hadl9XvB2s2a0F5IHjjSjxeieSU7xcMEHGU
-         5nog==
-X-Gm-Message-State: AOJu0YyAyHRBNf8fff2HSIO3luztdJZCHcG+P4QQQk3Vf5EoL5AE1VPJ
-	rVXe2rmtgpquCWw2UUbbjT6B0g==
-X-Google-Smtp-Source: AGHT+IF9VLUBW6WyHhdlX2rn3vRUYeHRnBcJF0nS6mbPXvTDrFDn41SBn1hGDsyIKy9IjON6i7vOzg==
-X-Received: by 2002:a05:600c:a0b:b0:408:3cdf:32c with SMTP id z11-20020a05600c0a0b00b004083cdf032cmr2103866wmp.41.1700818840312;
-        Fri, 24 Nov 2023 01:40:40 -0800 (PST)
-Received: from localhost (cst-prg-91-180.cust.vodafone.cz. [46.135.91.180])
-        by smtp.gmail.com with ESMTPSA id q19-20020a05600c46d300b0040b35195e54sm4550012wmo.5.2023.11.24.01.40.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Nov 2023 01:40:39 -0800 (PST)
-Date: Fri, 24 Nov 2023 10:40:34 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
+	id 1r6TDc-006nZG-1D
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 24 Nov 2023 10:15:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=X/ymfIJYGS3rgfsyyKZPvatWK1hMRdU56iYMTo6mr84=; b=rCFKbF3mDACBFhTXzRNdFrFO4O
+	eoXOKmJ9nZiGJbfFMIBv6nwz3CsjBdIoMhWkUoG1xIESyQX9y7utknNb2crx4yYaVl0TokaNQnX59
+	UQEefO9tha/lsxyx4F65ZPyZ5QCqVo0rlZL/kdkYuCLGIjIenfBE0G4ANfmh4TiCyiHjQw5pCSoOw
+	9nE6YLG7xrJLF6VvKnJbRf5H0lcpRBYkeFjXyVCwHcJ8GALVBfL/W2eebEDWHFXmQx9wxeHAVLh5J
+	AP7Md+iD5Lbnbp5HhKqJfhCerVvC52VYb0wyb/cpFm3UZZNXbX+76free6tqI6J6N/OKWjkdwAGLS
+	Lh31sbQw==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
+	id 1r6TDU-00DqKC-0M;
+	Fri, 24 Nov 2023 10:15:20 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 83119300338; Fri, 24 Nov 2023 11:15:19 +0100 (CET)
+Date: Fri, 24 Nov 2023 11:15:19 +0100
+From: Peter Zijlstra <peterz@infradead.org>
 To: Christoph Muellner <christoph.muellner@vrull.eu>
-Cc: linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>, 
-	Philipp Tomsich <philipp.tomsich@vrull.eu>, Evan Green <evan@rivosinc.com>, 
-	Xiao Wang <xiao.w.wang@intel.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
-	Andy Chiu <andy.chiu@sifive.com>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	Charlie Jenkins <charlie@rivosinc.com>
-Subject: Re: [PATCH 0/5] tools: selftests: riscv: Fix compiler warnings
-Message-ID: <20231124-3934c1b3c4b6dc3f076b0f9a@orel>
-References: <20231123185821.2272504-1-christoph.muellner@vrull.eu>
+Cc: linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Philipp Tomsich <philipp.tomsich@vrull.eu>,
+	Andrew Jones <ajones@ventanamicro.com>, Guo Ren <guoren@kernel.org>,
+	Daniel Henrique Barboza <dbarboza@ventanamicro.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	Andrea Parri <parri.andrea@gmail.com>,
+	Will Deacon <will@kernel.org>, Daniel Lustig <dlustig@nvidia.com>
+Subject: Re: [RFC PATCH 0/5] RISC-V: Add dynamic TSO support
+Message-ID: <20231124101519.GP3818@noisy.programming.kicks-ass.net>
+References: <20231124072142.2786653-1-christoph.muellner@vrull.eu>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231123185821.2272504-1-christoph.muellner@vrull.eu>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231124_014042_523277_A6BC4D3A 
-X-CRM114-Status: GOOD (  11.02  )
+In-Reply-To: <20231124072142.2786653-1-christoph.muellner@vrull.eu>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,31 +84,39 @@ Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 23, 2023 at 07:58:16PM +0100, Christoph Muellner wrote:
+On Fri, Nov 24, 2023 at 08:21:37AM +0100, Christoph Muellner wrote:
 > From: Christoph M=FCllner <christoph.muellner@vrull.eu>
 > =
 
-> When building the RISC-V selftests with a riscv32 compiler I ran into
-> a couple of compiler warnings. While riscv32 support for these tests is
-> questionable, the fixes are so trivial that it is probably best to simply
-> apply them.
+> The upcoming RISC-V Ssdtso specification introduces a bit in the senvcfg
+> CSR to switch the memory consistency model at run-time from RVWMO to TSO
+> (and back). The active consistency model can therefore be switched on a
+> per-hart base and managed by the kernel on a per-process/thread base.
+
+You guys, computers are hartless, nobody told ya?
+
+> This patch implements basic Ssdtso support and adds a prctl API on top
+> so that user-space processes can switch to a stronger memory consistency
+> model (than the kernel was written for) at run-time.
 > =
 
-> Note that the missing-include patch and some format string warnings
-> are also relevant for riscv64.
+> I am not sure if other architectures support switching the memory
+> consistency model at run-time, but designing the prctl API in an
+> arch-independent way allows reusing it in the future.
 
-I also posted [1] a couple days ago for the format warnings, but, as this
-series also includes rv32 fixes, then we can drop [1] in favor of this.
+IIRC some Sparc chips could do this, but I don't think anybody ever
+exposed this to userspace (or used it much).
 
-[1] https://lore.kernel.org/all/20231122171821.130854-2-ajones@ventanamicro=
-.com/
+IA64 had planned to do this, except they messed it up and did it the
+wrong way around (strong first and then relax it later), which lead to
+the discovery that all existing software broke (d'uh).
 
-For the series,
+I think ARM64 approached this problem by adding the
+load-acquire/store-release instructions and for TSO based code,
+translate into those (eg. x86 -> arm64 transpilers).
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-Thanks,
-drew
+IIRC Risc-V actually has such instructions as well, so *why* are you
+doing this?!?!
 
 _______________________________________________
 linux-riscv mailing list
