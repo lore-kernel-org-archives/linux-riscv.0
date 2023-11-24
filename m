@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 808D3C61D97
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Nov 2023 14:09:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07836C61DF4
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Nov 2023 14:57:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3Dxu3PPhzwdaGVrpHgd+8WmKb59MDHGmtttsbe/Y74I=; b=cPx8dpENTE5wFG
-	IyW9ejcx60/VnyRdhutOOUz2UftCpLjzVKOwNyrwERPQrXgrAfeJ7i9cWZ7tC9xvAaOTYjHhkPV/s
-	xVODCV8VfJgv2yPHC7dl0Px1kQ0ukvIszSxeMIfl+iWi8hkObiIT+WldWXEt0Kq9fuRY/2eMnBx+I
-	7xBqs9QkuMTLRYcKnmIbnPAgFZBO/e44uL9rCN4qHBbKbi5q4AjQU57OM1zNQys8pkZPfp5M3eVaR
-	TAGtzogkVTVc3781ZcqKhkZbACOQEhwUNZbGKdY6Zipbfg+TZg9cWMzjwkiT3lfyUHncxE1zxzEWc
-	RteNklzmjv0qv2BkJbxA==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Q/Mn+8T2qEYJUS6trMZ7QErqiD8oEpj8JvplpZmGwBA=; b=UvTpipdnxX3TmS
+	FdQkOdkjaQTwa7GGTtxn0gIHjsUt8yMWkKF3HnnYz6zECoJttMqVJIC612LnDbimrNBu3SQGYgPIs
+	LouwigMak0jFP2WmFNY/9JWuai22Q0Bm5u7dnKzOSdIOuSy7SusUo/BGUls4ggOmjTxywk0ycjSY+
+	tMILGUgt08uNPBaVKpLhNT/FnYfFEnQY3yybP2xztOWPPyHqVylAsd0JDSbq3PjRLt0NL5q345wPr
+	WeS5Afd4wXa7571/bjO8eOlPMOomvXSG+q3POqsV4fXby9lyllmCMbA7zvm3mHc/IGrpJ5zFGq7JD
+	alqmmL6XGMsVrdyEshMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6Ws4-007NND-2o;
-	Fri, 24 Nov 2023 14:09:28 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1r6Xco-007U48-0n;
+	Fri, 24 Nov 2023 14:57:46 +0000
+Received: from mail-oi1-x229.google.com ([2607:f8b0:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6Ws1-007NMU-1l
-	for linux-riscv@lists.infradead.org;
-	Fri, 24 Nov 2023 14:09:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 252D062280;
-	Fri, 24 Nov 2023 14:09:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E19E1C433C7;
-	Fri, 24 Nov 2023 14:09:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1700834963;
-	bh=sxGYh7/GYIMz4WH2k/w5kHFpO2frsblxcmxj4XUHjnM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=BB+DrMlh0Mi4XS5V/n4O3HNDwjWAL/Iwd+xgyTp7xjBo/Zyzr9MfgWtbFs7J16N+Y
-	 U9kdUKd5jYNAGnbScP2CWHpfZ+8GIBUtojRdFcG+nvLrWbkyZuN22Zhsq7v/5Hl8/z
-	 Fmh9uQdVpVdEchT+z0+aT3jp3lG5SX3Pq2ciugNI0NFpOlLgKP5TzLeMr29sNWXQJT
-	 2kT2JaJ7qEKPLD2yRlAvvdttpeBvFiUJMGPmreNeuH4SONL7qewnegjSVNC8ivrFb2
-	 13dgiUKdGaFnxardQyBKeX1AtCbIPTMcFBgzQYUvHFzo16HxSFfcBnSot043mksyb/
-	 LKIW8kzp3LkIg==
-From: Masahiro Yamada <masahiroy@kernel.org>
-To: linux-kbuild@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nicolas Schier <nicolas@fjasle.eu>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jan Kiszka <jan.kiszka@siemens.com>,
-	Kieran Bingham <kbingham@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v2] scripts: clean up IA-64 code
-Date: Fri, 24 Nov 2023 23:09:08 +0900
-Message-Id: <20231124140908.708960-1-masahiroy@kernel.org>
-X-Mailer: git-send-email 2.40.1
+	id 1r6Xck-007U3Q-0X;
+	Fri, 24 Nov 2023 14:57:43 +0000
+Received: by mail-oi1-x229.google.com with SMTP id 5614622812f47-3b83fc26e4cso1197461b6e.2;
+        Fri, 24 Nov 2023 06:57:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1700837861; x=1701442661; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=McONVnnVXBzrRAKYWOt6koN2Gq2PdEQz7Bj2evyzgvA=;
+        b=it/wEbhpoykXc6ETD2p6tkd5xXHoa9w3K+0i98nO1QSZKGbFyXvBgxttKp637q0/+2
+         ozkwF5xb5ySKw+bNdZpsWkgR3UCHECmMna04pERHaJscOhuZy7qf5OZOzxxNPtSCTAtj
+         5EGfpqOXAiONS+3Dl/LM/o1LiS371Se3EegFp+E/FT5SEhLBfq+RMv/Il7AU9t6TkkJb
+         IajGVpBhtFucqCC7Yc4tLnxqSIi2DGXJ/ToRkz66DzDLuWwu1bJnWaKRzFSVMS/Ngujt
+         uCzDPbANyd6G2kVuQ9o9uwCFqFtIOeyF/xLMzYMgLBwqdFPR/8aVWXCxm0MsUwua1vV7
+         OgkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1700837861; x=1701442661;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=McONVnnVXBzrRAKYWOt6koN2Gq2PdEQz7Bj2evyzgvA=;
+        b=sy7GI+7MCGwWBBABAoriAjmaMXAxsK8nX3V84qH+A9RlXahXoAnZucaz/ywaS61R/u
+         ds1OGLtpiWMmBwK4jPqjIGwue2uBegdS67Kz3MJbWu1RQChh59GU4g9IiBkRqPkJYFEh
+         mswNzndcW2wmhALpywZzshcIbiQlW7S9qmaolVXIsU8ItGA+U2mte77+npMiiSXzQeus
+         lOVqP1Qq0Sh+G7tmIEQ3fJyKqjmDmuYPlHrL6spi2Cu+uzp3vg1sb6Wc75iOJXsm9UXK
+         H5vyX796Plrt9ej3bjQ3kypm7YjFHVgX/0ojHK8waTfI7mOmiIwlHa+8OMD41tr9R0np
+         Gqtw==
+X-Gm-Message-State: AOJu0YzEUC668gHuXUxlHPhBDFDEkZ4SacejAlsR+gi0kuGdTStWgcoZ
+	E+22OOMCGS9M4t3z5/Ro8xwy2Xgc4G9eusPt5TA=
+X-Google-Smtp-Source: AGHT+IFyw54KdvX5NZtpjxNOebZ/DdQWx5nul4bTgzQLtaMiqrgW8bakiEzPtq/Ulcd5S/faM446P2Jo1/UeRTY/fHI=
+X-Received: by 2002:a05:6358:9198:b0:16d:f02d:d394 with SMTP id
+ j24-20020a056358919800b0016df02dd394mr2754632rwa.14.1700837860947; Fri, 24
+ Nov 2023 06:57:40 -0800 (PST)
 MIME-Version: 1.0
+References: <20231122121235.827122-1-peterlin@andestech.com> <20231122121235.827122-2-peterlin@andestech.com>
+In-Reply-To: <20231122121235.827122-2-peterlin@andestech.com>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Fri, 24 Nov 2023 14:57:15 +0000
+Message-ID: <CA+V-a8tS0hE_aDEk6RwhhjjEPP-OQpg1zuRbFrK7JdHtLCUTYA@mail.gmail.com>
+Subject: Re: [PATCH v4 01/13] riscv: errata: Rename defines for Andes
+To: Yu Chien Peter Lin <peterlin@andestech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231124_060925_686057_A3DA021D 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20231124_065742_202911_CF0628FB 
+X-CRM114-Status: GOOD (  15.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,192 +80,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: mark.rutland@arm.com, irogers@google.com, heiko@sntech.de, geert+renesas@glider.be, alexander.shishkin@linux.intel.com, paul.walmsley@sifive.com, linux-kernel@vger.kernel.org, conor.dooley@microchip.com, guoren@kernel.org, krzysztof.kozlowski+dt@linaro.org, linux-riscv@lists.infradead.org, will@kernel.org, linux-renesas-soc@vger.kernel.org, tim609@andestech.com, samuel@sholland.org, anup@brainfault.org, dminus@andestech.com, magnus.damm@gmail.com, jernej.skrabec@gmail.com, peterz@infradead.org, wens@csie.org, mingo@redhat.com, linux-arm-kernel@lists.infradead.org, inochiama@outlook.com, linux-sunxi@lists.linux.dev, ajones@ventanamicro.com, devicetree@vger.kernel.org, conor+dt@kernel.org, aou@eecs.berkeley.edu, andre.przywara@arm.com, locus84@andestech.com, acme@kernel.org, prabhakar.mahadev-lad.rj@bp.renesas.com, robh+dt@kernel.org, atishp@atishpatra.org, namhyung@kernel.org, tglx@linutronix.de, jszhang@kernel.org, ycliang@andestech.com, n.shubin@yadro.com, rdunlap@infradead.org, adrian.hunter@intel.com, conor@kernel.org, linux-perf-users@vger.kernel.org, evan@rivosinc.com, palmer@dabbelt.com, jolsa@kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A little more janitorial work after commit cf8e8658100d ("arch: Remove
-Itanium (IA-64) architecture").
-
-Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-Reviewed-by: Nicolas Schier <nicolas@fjasle.eu>
----
-
-Changes in v2:
-  - Clean up scripts/recordmcount.c
-
- scripts/checkstack.pl        |  3 ---
- scripts/gdb/linux/tasks.py   | 15 +++------------
- scripts/head-object-list.txt |  1 -
- scripts/kconfig/mconf.c      |  2 +-
- scripts/kconfig/nconf.c      |  2 +-
- scripts/package/kernel.spec  |  6 ------
- scripts/package/mkdebian     |  2 +-
- scripts/recordmcount.c       |  1 -
- scripts/recordmcount.pl      |  7 -------
- scripts/xz_wrap.sh           |  1 -
- 10 files changed, 6 insertions(+), 34 deletions(-)
-
-diff --git a/scripts/checkstack.pl b/scripts/checkstack.pl
-index 84f5fb7f1cec..35fefdfd6ef2 100755
---- a/scripts/checkstack.pl
-+++ b/scripts/checkstack.pl
-@@ -68,9 +68,6 @@ my (@stack, $re, $dre, $sub, $x, $xs, $funcre, $min_stack);
- 		#    2f60:    48 81 ec e8 05 00 00       sub    $0x5e8,%rsp
- 		$re = qr/^.*[as][du][db]    \$(0x$x{1,8}),\%(e|r)sp$/o;
- 		$dre = qr/^.*[as][du][db]    (%.*),\%(e|r)sp$/o;
--	} elsif ($arch eq 'ia64') {
--		#e0000000044011fc:       01 0f fc 8c     adds r12=-384,r12
--		$re = qr/.*adds.*r12=-(([0-9]{2}|[3-9])[0-9]{2}),r12/o;
- 	} elsif ($arch eq 'm68k') {
- 		#    2b6c:       4e56 fb70       linkw %fp,#-1168
- 		#  1df770:       defc ffe4       addaw #-28,%sp
-diff --git a/scripts/gdb/linux/tasks.py b/scripts/gdb/linux/tasks.py
-index 17ec19e9b5bf..5be53b372a69 100644
---- a/scripts/gdb/linux/tasks.py
-+++ b/scripts/gdb/linux/tasks.py
-@@ -86,21 +86,12 @@ LxPs()
- 
- thread_info_type = utils.CachedType("struct thread_info")
- 
--ia64_task_size = None
--
- 
- def get_thread_info(task):
-     thread_info_ptr_type = thread_info_type.get_type().pointer()
--    if utils.is_target_arch("ia64"):
--        global ia64_task_size
--        if ia64_task_size is None:
--            ia64_task_size = gdb.parse_and_eval("sizeof(struct task_struct)")
--        thread_info_addr = task.address + ia64_task_size
--        thread_info = thread_info_addr.cast(thread_info_ptr_type)
--    else:
--        if task.type.fields()[0].type == thread_info_type.get_type():
--            return task['thread_info']
--        thread_info = task['stack'].cast(thread_info_ptr_type)
-+    if task.type.fields()[0].type == thread_info_type.get_type():
-+        return task['thread_info']
-+    thread_info = task['stack'].cast(thread_info_ptr_type)
-     return thread_info.dereference()
- 
- 
-diff --git a/scripts/head-object-list.txt b/scripts/head-object-list.txt
-index 26359968744e..890f69005bab 100644
---- a/scripts/head-object-list.txt
-+++ b/scripts/head-object-list.txt
-@@ -17,7 +17,6 @@ arch/arm/kernel/head-nommu.o
- arch/arm/kernel/head.o
- arch/csky/kernel/head.o
- arch/hexagon/kernel/head.o
--arch/ia64/kernel/head.o
- arch/loongarch/kernel/head.o
- arch/m68k/68000/head.o
- arch/m68k/coldfire/head.o
-diff --git a/scripts/kconfig/mconf.c b/scripts/kconfig/mconf.c
-index eccc87a441e7..3795c36a9181 100644
---- a/scripts/kconfig/mconf.c
-+++ b/scripts/kconfig/mconf.c
-@@ -247,7 +247,7 @@ search_help[] =
- 	"      -> PCI support (PCI [=y])\n"
- 	"(1)     -> PCI access mode (<choice> [=y])\n"
- 	"  Defined at drivers/pci/Kconfig:47\n"
--	"  Depends on: X86_LOCAL_APIC && X86_IO_APIC || IA64\n"
-+	"  Depends on: X86_LOCAL_APIC && X86_IO_APIC\n"
- 	"  Selects: LIBCRC32\n"
- 	"  Selected by: BAR [=n]\n"
- 	"-----------------------------------------------------------------\n"
-diff --git a/scripts/kconfig/nconf.c b/scripts/kconfig/nconf.c
-index 143a2c351d57..8cd72fe25974 100644
---- a/scripts/kconfig/nconf.c
-+++ b/scripts/kconfig/nconf.c
-@@ -216,7 +216,7 @@ search_help[] =
- "Symbol: FOO [ = m]\n"
- "Prompt: Foo bus is used to drive the bar HW\n"
- "Defined at drivers/pci/Kconfig:47\n"
--"Depends on: X86_LOCAL_APIC && X86_IO_APIC || IA64\n"
-+"Depends on: X86_LOCAL_APIC && X86_IO_APIC\n"
- "Location:\n"
- "  -> Bus options (PCI, PCMCIA, EISA, ISA)\n"
- "    -> PCI support (PCI [ = y])\n"
-diff --git a/scripts/package/kernel.spec b/scripts/package/kernel.spec
-index 3eee0143e0c5..89298983a169 100644
---- a/scripts/package/kernel.spec
-+++ b/scripts/package/kernel.spec
-@@ -56,13 +56,7 @@ patch -p1 < %{SOURCE2}
- 
- %install
- mkdir -p %{buildroot}/boot
--%ifarch ia64
--mkdir -p %{buildroot}/boot/efi
--cp $(%{make} %{makeflags} -s image_name) %{buildroot}/boot/efi/vmlinuz-%{KERNELRELEASE}
--ln -s efi/vmlinuz-%{KERNELRELEASE} %{buildroot}/boot/
--%else
- cp $(%{make} %{makeflags} -s image_name) %{buildroot}/boot/vmlinuz-%{KERNELRELEASE}
--%endif
- %{make} %{makeflags} INSTALL_MOD_PATH=%{buildroot} modules_install
- %{make} %{makeflags} INSTALL_HDR_PATH=%{buildroot}/usr headers_install
- cp System.map %{buildroot}/boot/System.map-%{KERNELRELEASE}
-diff --git a/scripts/package/mkdebian b/scripts/package/mkdebian
-index 5044224cf671..c1a36da85e84 100755
---- a/scripts/package/mkdebian
-+++ b/scripts/package/mkdebian
-@@ -26,7 +26,7 @@ set_debarch() {
- 
- 	# Attempt to find the correct Debian architecture
- 	case "$UTS_MACHINE" in
--	i386|ia64|alpha|m68k|riscv*)
-+	i386|alpha|m68k|riscv*)
- 		debarch="$UTS_MACHINE" ;;
- 	x86_64)
- 		debarch=amd64 ;;
-diff --git a/scripts/recordmcount.c b/scripts/recordmcount.c
-index 40ae6b2c7a6d..3e4f54799cc0 100644
---- a/scripts/recordmcount.c
-+++ b/scripts/recordmcount.c
-@@ -590,7 +590,6 @@ static int do_file(char const *const fname)
- 		ideal_nop = ideal_nop4_arm64;
- 		is_fake_mcount64 = arm64_is_fake_mcount;
- 		break;
--	case EM_IA_64:	reltype = R_IA64_IMM64; break;
- 	case EM_MIPS:	/* reltype: e_class    */ break;
- 	case EM_LOONGARCH:	/* reltype: e_class    */ break;
- 	case EM_PPC:	reltype = R_PPC_ADDR32; break;
-diff --git a/scripts/recordmcount.pl b/scripts/recordmcount.pl
-index 6a4645a57976..f84df9e383fd 100755
---- a/scripts/recordmcount.pl
-+++ b/scripts/recordmcount.pl
-@@ -275,13 +275,6 @@ if ($arch eq "x86_64") {
-     $section_type = '%progbits';
-     $mcount_regex = "^\\s*([0-9a-fA-F]+):\\s*R_AARCH64_CALL26\\s+_mcount\$";
-     $type = ".quad";
--} elsif ($arch eq "ia64") {
--    $mcount_regex = "^\\s*([0-9a-fA-F]+):.*\\s_mcount\$";
--    $type = "data8";
--
--    if ($is_module eq "0") {
--	$cc .= " -mconstant-gp";
--    }
- } elsif ($arch eq "sparc64") {
-     # In the objdump output there are giblets like:
-     # 0000000000000000 <igmp_net_exit-0x18>:
-diff --git a/scripts/xz_wrap.sh b/scripts/xz_wrap.sh
-index 76e9cbcfbeab..d06baf626abe 100755
---- a/scripts/xz_wrap.sh
-+++ b/scripts/xz_wrap.sh
-@@ -15,7 +15,6 @@ LZMA2OPTS=
- case $SRCARCH in
- 	x86)            BCJ=--x86 ;;
- 	powerpc)        BCJ=--powerpc ;;
--	ia64)           BCJ=--ia64; LZMA2OPTS=pb=4 ;;
- 	arm)            BCJ=--arm ;;
- 	sparc)          BCJ=--sparc ;;
- esac
--- 
-2.40.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBOb3YgMjIsIDIwMjMgYXQgMTI6MTjigK9QTSBZdSBDaGllbiBQZXRlciBMaW4KPHBl
+dGVybGluQGFuZGVzdGVjaC5jb20+IHdyb3RlOgo+Cj4gVXNpbmcgIkFOREVTIiByYXRoZXIgdGhh
+biAiQU5ERVNURUNIIiB0byB1bmlmeSB0aGUgbmFtaW5nCj4gY29udmVudGlvbiB3aXRoIGRpcmVj
+dG9yeSwgZmlsZSBuYW1lcywgS2NvbmZpZyBvcHRpb25zCj4gYW5kIG90aGVyIGRlZmluaXRpb25z
+Lgo+Cj4gU2lnbmVkLW9mZi1ieTogWXUgQ2hpZW4gUGV0ZXIgTGluIDxwZXRlcmxpbkBhbmRlc3Rl
+Y2guY29tPgo+IFJldmlld2VkLWJ5OiBDaGFybGVzIENpLUp5dW4gV3UgPGRtaW51c0BhbmRlc3Rl
+Y2guY29tPgo+IFJldmlld2VkLWJ5OiBMZW8gWXUtQ2hpIExpYW5nIDx5Y2xpYW5nQGFuZGVzdGVj
+aC5jb20+Cj4gQWNrZWQtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5j
+b20+Cj4gLS0tCj4gQ2hhbmdlcyB2MSAtPiB2MjoKPiAgIC0gTm8gY2hhbmdlCj4gQ2hhbmdlcyB2
+MiAtPiB2MzoKPiAgIC0gUmV3cm90ZSBjb21taXQgbWVzc2FnZSAoc3VnZ2VzdGVkIGJ5IENvbm9y
+KQo+IENoYW5nZXMgdjMgLT4gdjQ6Cj4gICAtIEluY2x1ZGUgQ29ub3IncyBBY2tlZC1ieSB0YWcK
+PiAtLS0KPiAgYXJjaC9yaXNjdi9lcnJhdGEvYW5kZXMvZXJyYXRhLmMgICAgICAgfCAxMCArKysr
+Ky0tLS0tCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vZXJyYXRhX2xpc3QuaCAgIHwgIDQgKyst
+LQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3ZlbmRvcmlkX2xpc3QuaCB8ICAyICstCj4gIGFy
+Y2gvcmlzY3Yva2VybmVsL2FsdGVybmF0aXZlLmMgICAgICAgIHwgIDIgKy0KPiAgNCBmaWxlcyBj
+aGFuZ2VkLCA5IGluc2VydGlvbnMoKyksIDkgZGVsZXRpb25zKC0pCj4KUmV2aWV3ZWQtYnk6IExh
+ZCBQcmFiaGFrYXIgPHByYWJoYWthci5tYWhhZGV2LWxhZC5yakBicC5yZW5lc2FzLmNvbT4KCkNo
+ZWVycywKUHJhYmhha2FyCgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2VycmF0YS9hbmRlcy9l
+cnJhdGEuYyBiL2FyY2gvcmlzY3YvZXJyYXRhL2FuZGVzL2VycmF0YS5jCj4gaW5kZXggMTk3ZGI2
+OGNjOGRhLi5kMmUxYWJjYWM5NjcgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9lcnJhdGEvYW5k
+ZXMvZXJyYXRhLmMKPiArKysgYi9hcmNoL3Jpc2N2L2VycmF0YS9hbmRlcy9lcnJhdGEuYwo+IEBA
+IC0xOCw5ICsxOCw5IEBACj4gICNpbmNsdWRlIDxhc20vc2JpLmg+Cj4gICNpbmNsdWRlIDxhc20v
+dmVuZG9yaWRfbGlzdC5oPgo+Cj4gLSNkZWZpbmUgQU5ERVNURUNIX0FYNDVNUF9NQVJDSElEICAg
+ICAgIDB4ODAwMDAwMDAwMDAwOGE0NVVMCj4gLSNkZWZpbmUgQU5ERVNURUNIX0FYNDVNUF9NSU1Q
+SUQgICAgICAgICAgICAgICAgMHg1MDBVTAo+IC0jZGVmaW5lIEFOREVTVEVDSF9TQklfRVhUX0FO
+REVTICAgICAgICAgICAgICAgIDB4MDkwMDAzMUUKPiArI2RlZmluZSBBTkRFU19BWDQ1TVBfTUFS
+Q0hJRCAgICAgICAgICAgMHg4MDAwMDAwMDAwMDA4YTQ1VUwKPiArI2RlZmluZSBBTkRFU19BWDQ1
+TVBfTUlNUElEICAgICAgICAgICAgMHg1MDBVTAo+ICsjZGVmaW5lIEFOREVTX1NCSV9FWFRfQU5E
+RVMgICAgICAgICAgICAweDA5MDAwMzFFCj4KPiAgI2RlZmluZSBBTkRFU19TQklfRVhUX0lPQ1Bf
+U1dfV09SS0FST1VORCAgICAgICAxCj4KPiBAQCAtMzIsNyArMzIsNyBAQCBzdGF0aWMgbG9uZyBh
+eDQ1bXBfaW9jcF9zd193b3JrYXJvdW5kKHZvaWQpCj4gICAgICAgICAgKiBBTkRFU19TQklfRVhU
+X0lPQ1BfU1dfV09SS0FST1VORCBTQkkgRVhUIGNoZWNrcyBpZiB0aGUgSU9DUCBpcyBtaXNzaW5n
+IGFuZAo+ICAgICAgICAgICogY2FjaGUgaXMgY29udHJvbGxhYmxlIG9ubHkgdGhlbiBDTU8gd2ls
+bCBiZSBhcHBsaWVkIHRvIHRoZSBwbGF0Zm9ybS4KPiAgICAgICAgICAqLwo+IC0gICAgICAgcmV0
+ID0gc2JpX2VjYWxsKEFOREVTVEVDSF9TQklfRVhUX0FOREVTLCBBTkRFU19TQklfRVhUX0lPQ1Bf
+U1dfV09SS0FST1VORCwKPiArICAgICAgIHJldCA9IHNiaV9lY2FsbChBTkRFU19TQklfRVhUX0FO
+REVTLCBBTkRFU19TQklfRVhUX0lPQ1BfU1dfV09SS0FST1VORCwKPiAgICAgICAgICAgICAgICAg
+ICAgICAgICAwLCAwLCAwLCAwLCAwLCAwKTsKPgo+ICAgICAgICAgcmV0dXJuIHJldC5lcnJvciA/
+IDAgOiByZXQudmFsdWU7Cj4gQEAgLTQzLDcgKzQzLDcgQEAgc3RhdGljIGJvb2wgZXJyYXRhX3By
+b2JlX2lvY3AodW5zaWduZWQgaW50IHN0YWdlLCB1bnNpZ25lZCBsb25nIGFyY2hfaWQsIHVuc2ln
+bmUKPiAgICAgICAgIGlmICghSVNfRU5BQkxFRChDT05GSUdfRVJSQVRBX0FOREVTX0NNTykpCj4g
+ICAgICAgICAgICAgICAgIHJldHVybiBmYWxzZTsKPgo+IC0gICAgICAgaWYgKGFyY2hfaWQgIT0g
+QU5ERVNURUNIX0FYNDVNUF9NQVJDSElEIHx8IGltcGlkICE9IEFOREVTVEVDSF9BWDQ1TVBfTUlN
+UElEKQo+ICsgICAgICAgaWYgKGFyY2hfaWQgIT0gQU5ERVNfQVg0NU1QX01BUkNISUQgfHwgaW1w
+aWQgIT0gQU5ERVNfQVg0NU1QX01JTVBJRCkKPiAgICAgICAgICAgICAgICAgcmV0dXJuIGZhbHNl
+Owo+Cj4gICAgICAgICBpZiAoIWF4NDVtcF9pb2NwX3N3X3dvcmthcm91bmQoKSkKPiBkaWZmIC0t
+Z2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9lcnJhdGFfbGlzdC5oIGIvYXJjaC9yaXNjdi9p
+bmNsdWRlL2FzbS9lcnJhdGFfbGlzdC5oCj4gaW5kZXggODNlZDI1ZTQzNTUzLi40ZWQyMWE2MjE1
+OGMgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9lcnJhdGFfbGlzdC5oCj4g
+KysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9lcnJhdGFfbGlzdC5oCj4gQEAgLTEyLDggKzEy
+LDggQEAKPiAgI2luY2x1ZGUgPGFzbS92ZW5kb3JpZF9saXN0Lmg+Cj4KPiAgI2lmZGVmIENPTkZJ
+R19FUlJBVEFfQU5ERVMKPiAtI2RlZmluZSBFUlJBVEFfQU5ERVNURUNIX05PX0lPQ1AgICAgICAg
+MAo+IC0jZGVmaW5lIEVSUkFUQV9BTkRFU1RFQ0hfTlVNQkVSICAgICAgICAgICAgICAgIDEKPiAr
+I2RlZmluZSBFUlJBVEFfQU5ERVNfTk9fSU9DUCAwCj4gKyNkZWZpbmUgRVJSQVRBX0FOREVTX05V
+TUJFUiAxCj4gICNlbmRpZgo+Cj4gICNpZmRlZiBDT05GSUdfRVJSQVRBX1NJRklWRQo+IGRpZmYg
+LS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3ZlbmRvcmlkX2xpc3QuaCBiL2FyY2gvcmlz
+Y3YvaW5jbHVkZS9hc20vdmVuZG9yaWRfbGlzdC5oCj4gaW5kZXggZTU1NDA3YWNlMGMzLi4yZjJi
+YjBjODRmOWEgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZW5kb3JpZF9s
+aXN0LmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3ZlbmRvcmlkX2xpc3QuaAo+IEBA
+IC01LDcgKzUsNyBAQAo+ICAjaWZuZGVmIEFTTV9WRU5ET1JfTElTVF9ICj4gICNkZWZpbmUgQVNN
+X1ZFTkRPUl9MSVNUX0gKPgo+IC0jZGVmaW5lIEFOREVTVEVDSF9WRU5ET1JfSUQgICAgMHgzMWUK
+PiArI2RlZmluZSBBTkRFU19WRU5ET1JfSUQgICAgICAgICAgICAgICAgMHgzMWUKPiAgI2RlZmlu
+ZSBTSUZJVkVfVkVORE9SX0lEICAgICAgIDB4NDg5Cj4gICNkZWZpbmUgVEhFQURfVkVORE9SX0lE
+ICAgICAgICAgICAgICAgIDB4NWI3Cj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwv
+YWx0ZXJuYXRpdmUuYyBiL2FyY2gvcmlzY3Yva2VybmVsL2FsdGVybmF0aXZlLmMKPiBpbmRleCAz
+MTlhMWRhMDM1OGIuLjAxMjhiMTYxYmZkYSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5l
+bC9hbHRlcm5hdGl2ZS5jCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvYWx0ZXJuYXRpdmUuYwo+
+IEBAIC00Myw3ICs0Myw3IEBAIHN0YXRpYyB2b2lkIHJpc2N2X2ZpbGxfY3B1X21mcl9pbmZvKHN0
+cnVjdCBjcHVfbWFudWZhY3R1cmVyX2luZm9fdCAqY3B1X21mcl9pbmZvCj4KPiAgICAgICAgIHN3
+aXRjaCAoY3B1X21mcl9pbmZvLT52ZW5kb3JfaWQpIHsKPiAgI2lmZGVmIENPTkZJR19FUlJBVEFf
+QU5ERVMKPiAtICAgICAgIGNhc2UgQU5ERVNURUNIX1ZFTkRPUl9JRDoKPiArICAgICAgIGNhc2Ug
+QU5ERVNfVkVORE9SX0lEOgo+ICAgICAgICAgICAgICAgICBjcHVfbWZyX2luZm8tPnBhdGNoX2Z1
+bmMgPSBhbmRlc19lcnJhdGFfcGF0Y2hfZnVuYzsKPiAgICAgICAgICAgICAgICAgYnJlYWs7Cj4g
+ICNlbmRpZgo+IC0tCj4gMi4zNC4xCj4KPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
