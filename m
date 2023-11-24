@@ -4,111 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02F70C61DF4
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Nov 2023 12:05:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C19BC61DF4
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Nov 2023 12:09:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ovxFceTw3lH+YE/vYLrTuyAd6YyJ3GPv6KyF6WeTmws=; b=jRSuKWtW3MAaFTTde1JqgPzZYH
-	UPgjAtH7We6LOxM9SVX/xhAHMfUOviIh+Bu4yTLo3HlemJlJHgY0uHAS7qMxi7yywmbNkkRWAueVv
-	8wAHMtWBFTtn5w2xQQU3WKlrDkKJS2FDzAUPZ7/lzGKyAe/Hz9+De7nKs1o8JaiyKHb8vB20POwhr
-	oQazNhItvSlZZZ2qloF9oBGaytYRQPSwcNUl02NMx3ZSmCp1dQk4VAg+j0B+3K6SpQ29e/66IOkZG
-	TLTvs2UbWBCiK0k5lOhyfjAoiVtMrGVcpvsLl27uE3iCFFcfICUSaLijS/5XbNXfAylHeKd8sdb9M
-	MfgDDnWA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UX+qHc5D/ii5JuVhEDLXi+hcTSvg5L7RAgFXSqHRIgg=; b=Kp/mLohvApe849
+	nTEpIpCoZmEHD6lzu9T8X9cWJ6eOEsm2j2PnzLN6zsmUAr9Tt3x71oCVnbzYAbWzr68W5yHNCrhKj
+	/VV66N46gJUI5vDSBS0exnl2fD6KpCzho7indyudCeaA67Duv+JTo4oX0xnxBsv0fjuja0vu/qUDE
+	AuDbfjqU3dNr9DtXmQTrATLyt7+EHC+gmDg98u0U5z25RosBQliOqRl1pDgge7oZWeICconmUgJCf
+	E+rEDWpttvXEb14590wtQqyNmTe+SsYie3q8X9hgNuy/8YfWeWlFoqfXDn/JN3wp8wq43J3kgPJiY
+	IQnfcrCN6dYwLJj0p32g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6UvW-007A0j-2u;
-	Fri, 24 Nov 2023 12:04:54 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1r6Uzk-007AUk-0G;
+	Fri, 24 Nov 2023 12:09:16 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6UvR-0079yY-0q;
-	Fri, 24 Nov 2023 12:04:50 +0000
+	id 1r6Uzg-007ATO-2c
+	for linux-riscv@lists.infradead.org;
+	Fri, 24 Nov 2023 12:09:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 0A61EB8301D;
-	Fri, 24 Nov 2023 12:04:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C12FAC433C7;
-	Fri, 24 Nov 2023 12:04:43 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 5CF13CE2923;
+	Fri, 24 Nov 2023 12:09:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22583C433CC;
+	Fri, 24 Nov 2023 12:08:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1700827484;
-	bh=iYS7ANsuZ6vwOLgQk5XN795HJ5oXfHcHZNUjCJ6SXCw=;
+	s=k20201202; t=1700827727;
+	bh=GmiTsGtZkHaCeXTzHWMEwflW5T9uYFI6FuYPKmtSRmE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ASSOqFUTTJHCjKWaYnDmAWOsdJx6xpTr/qPcu1HB+Fm5a/QclWrV0vncK2Q3Q7xX2
-	 aCCX9KBbw2Az9X58fZvG86NOH/nrOeX7BVzsNXr5gajrQU9ziayJ62atPHT8DwDcCc
-	 ahgZtb/ixwvuzDrehPu48aUVx6G2ccUCRb+KcZHUWGGyWnosZcOgffotJMEG6Q3zmg
-	 BKh8HHr1sjhFvHUZ1Iby4sERa66rD1silvF54u1GkmzyyDomzoGyssBaqUowuIrSEm
-	 G36HFkUDw4hjv0/b3iAj4rjrfH4/y0Ks3nDD/1Xr+xB/Qamv83b+9r9W6Jyz43KFdu
-	 6MPuY/CW+rmPA==
-Date: Fri, 24 Nov 2023 12:04:40 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	linux-kbuild@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
-	Matt Turner <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Guo Ren <guoren@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Geoff Levand <geoff@infradead.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andy Lutomirski <luto@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, x86@kernel.org,
-	Helge Deller <deller@gmx.de>,
-	Sudip Mukherjee <sudipm.mukherjee@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Timur Tabi <timur@kernel.org>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	David Woodhouse <dwmw2@infradead.org>,
-	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
-	Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
-	Kees Cook <keescook@chromium.org>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Nicolas Schier <nicolas@fjasle.eu>,
-	Al Viro <viro@zeniv.linux.org.uk>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
-	linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	netdev@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linux-usb@vger.kernel.org, linux-fbdev@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linux-bcachefs@vger.kernel.org,
-	linux-mtd@lists.infradead.org,
-	Aishwarya TCV <aishwarya.tcv@arm.com>
-Subject: Re: [PATCH 15/22] arch: vdso: consolidate gettime prototypes
-Message-ID: <ZWCRWArzbTYUjvon@finisterre.sirena.org.uk>
-References: <20231108125843.3806765-1-arnd@kernel.org>
- <20231108125843.3806765-16-arnd@kernel.org>
+	b=BDV2VTHm7KKeLd+Vmf8zPIy9vQN6GsySYSxO9z9iDtyDh9QNRTyjI7lq+8w/AhcFH
+	 h3MtG3dVtx0/32c4kXeUs8mYqujSf6DhPwt6ewwbT48bYifcoc04yqMxFA4AzkEajw
+	 BXrlGqBu9EvIw2thyrABW9n8YByTmZ8Tt7rOF1xlAEEIaQfopXAf8mCxGmyEOiN6pa
+	 S2B8WxTF9oUU/lc7LS2/fZz7Wx3Ef1CrGEAK1sZOoAvjry96M6WLR+3/zRi3zlAtWS
+	 InXn9hsgZ8k6bqNR5Za3nCt7eT5sp9XDfBU/ZIDhhGkbmFDuI+tNul1HjXajqOMoux
+	 bEYng6buVCr4A==
+Date: Fri, 24 Nov 2023 17:38:43 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: shravan chippa <shravan.chippa@microchip.com>
+Cc: green.wan@sifive.com, robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, conor+dt@kernel.org,
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	nagasuresh.relli@microchip.com, praveen.kumar@microchip.com
+Subject: Re: [PATCH v4 1/4] dmaengine: sf-pdma: Support
+ of_dma_controller_register()
+Message-ID: <ZWCSS+UXpRO+4y9h@matsya>
+References: <20231031052753.3430169-1-shravan.chippa@microchip.com>
+ <20231031052753.3430169-2-shravan.chippa@microchip.com>
 MIME-Version: 1.0
-In-Reply-To: <20231108125843.3806765-16-arnd@kernel.org>
-X-Cookie: Am I in GRADUATE SCHOOL yet?
+Content-Disposition: inline
+In-Reply-To: <20231031052753.3430169-2-shravan.chippa@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231124_040449_567656_E9AD16C4 
-X-CRM114-Status: GOOD (  14.32  )
+X-CRM114-CacheID: sfid-20231124_040913_211152_BACF2D64 
+X-CRM114-Status: GOOD (  22.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,93 +73,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8746821055136309079=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 31-10-23, 10:57, shravan chippa wrote:
+> From: Shravan Chippa <shravan.chippa@microchip.com>
+> 
+> Update sf-pdma driver to adopt generic DMA device tree bindings.
+> It calls of_dma_controller_register() with sf-pdma specific
+> of_dma_xlate to get the generic DMA device tree helper support
+> and the DMA clients can look up the sf-pdma controller using
+> standard APIs.
+> 
+> Signed-off-by: Shravan Chippa <shravan.chippa@microchip.com>
+> ---
+>  drivers/dma/sf-pdma/sf-pdma.c | 44 +++++++++++++++++++++++++++++++++++
+>  1 file changed, 44 insertions(+)
+> 
+> diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
+> index d1c6956af452..4c456bdef882 100644
+> --- a/drivers/dma/sf-pdma/sf-pdma.c
+> +++ b/drivers/dma/sf-pdma/sf-pdma.c
+> @@ -20,6 +20,7 @@
+>  #include <linux/mod_devicetable.h>
+>  #include <linux/dma-mapping.h>
+>  #include <linux/of.h>
+> +#include <linux/of_dma.h>
+>  #include <linux/slab.h>
+>  
+>  #include "sf-pdma.h"
+> @@ -490,6 +491,33 @@ static void sf_pdma_setup_chans(struct sf_pdma *pdma)
+>  	}
+>  }
+>  
+> +static struct dma_chan *sf_pdma_of_xlate(struct of_phandle_args *dma_spec,
+> +					 struct of_dma *ofdma)
+> +{
+> +	struct sf_pdma *pdma = ofdma->of_dma_data;
+> +	struct device *dev = pdma->dma_dev.dev;
+> +	struct sf_pdma_chan *chan;
+> +	struct dma_chan *c;
+> +	u32 channel_id;
+> +
+> +	if (dma_spec->args_count != 1) {
+> +		dev_err(dev, "Bad number of cells\n");
+> +		return NULL;
+> +	}
+> +
+> +	channel_id = dma_spec->args[0];
+> +
+> +	chan = &pdma->chans[channel_id];
+> +
+> +	c = dma_get_slave_channel(&chan->vchan.chan);
+> +	if (!c) {
+> +		dev_err(dev, "No more channels available\n");
+> +		return NULL;
+> +	}
+> +
+> +	return c;
+> +}
 
---===============8746821055136309079==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="woSdJmrFfLwaS8m2"
-Content-Disposition: inline
+This seems could be replaced by of_dma_xlate_by_chan_id() can you tell
+me why that cant be used?
 
+> +
+>  static int sf_pdma_probe(struct platform_device *pdev)
+>  {
+>  	struct sf_pdma *pdma;
+> @@ -563,7 +591,20 @@ static int sf_pdma_probe(struct platform_device *pdev)
+>  		return ret;
+>  	}
+>  
+> +	ret = of_dma_controller_register(pdev->dev.of_node,
+> +					 sf_pdma_of_xlate, pdma);
+> +	if (ret < 0) {
+> +		dev_err(&pdev->dev,
+> +			"Can't register SiFive Platform OF_DMA. (%d)\n", ret);
+> +		goto err_unregister;
+> +	}
+> +
+>  	return 0;
+> +
+> +err_unregister:
+> +	dma_async_device_unregister(&pdma->dma_dev);
+> +
+> +	return ret;
+>  }
+>  
+>  static int sf_pdma_remove(struct platform_device *pdev)
+> @@ -583,6 +624,9 @@ static int sf_pdma_remove(struct platform_device *pdev)
+>  		tasklet_kill(&ch->err_tasklet);
+>  	}
+>  
+> +	if (pdev->dev.of_node)
+> +		of_dma_controller_free(pdev->dev.of_node);
+> +
+>  	dma_async_device_unregister(&pdma->dma_dev);
+>  
+>  	return 0;
+> -- 
+> 2.34.1
 
---woSdJmrFfLwaS8m2
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Nov 08, 2023 at 01:58:36PM +0100, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
->=20
-> The VDSO functions are defined as globals in the kernel sources but inten=
-ded
-> to be called from userspace, so there is no need to declare them in a ker=
-nel
-> side header.
-
-This is in -next as commit 42874e4eb35bdfc54f8514685e50434098ba4f6c and
-breaks an arm64 defconfig build, the 32 bit vDSO build is broken:
-
-/build/stage/linux/arch/arm64/kernel/vdso32/vgettimeofday.c:10:5: error: co=
-nflic
-ting types for =E2=80=98__vdso_clock_gettime=E2=80=99; have =E2=80=98int(cl=
-ockid_t,  struct old_timespec
-32 *)=E2=80=99 {aka =E2=80=98int(int,  struct old_timespec32 *)=E2=80=99}
-   10 | int __vdso_clock_gettime(clockid_t clock,
-      |     ^~~~~~~~~~~~~~~~~~~~
-In file included from /build/stage/linux/arch/arm64/kernel/vdso32/vgettimeo=
-fday.
-c:8:
-/build/stage/linux/include/vdso/gettime.h:16:5: note: previous declaration =
-of =E2=80=98__vdso_clock_gettime=E2=80=99 with type =E2=80=98int(clockid_t,=
-  struct __kernel_timespec *)=E2=80=99 {aka =E2=80=98int(int,  struct __ker=
-nel_timespec *)=E2=80=99}
-   16 | int __vdso_clock_gettime(clockid_t clock, struct __kernel_timespec =
-*ts);
-      |     ^~~~~~~~~~~~~~~~~~~~
-/build/stage/linux/arch/arm64/kernel/vdso32/vgettimeofday.c:28:5: error: co=
-nflicting types for =E2=80=98__vdso_clock_getres=E2=80=99; have =E2=80=98in=
-t(clockid_t,  struct old_timespec32 *)=E2=80=99 {aka =E2=80=98int(int,  str=
-uct old_timespec32 *)=E2=80=99}
-   28 | int __vdso_clock_getres(clockid_t clock_id,
-      |     ^~~~~~~~~~~~~~~~~~~
-/build/stage/linux/include/vdso/gettime.h:15:5: note: previous declaration =
-of =E2=80=98__vdso_clock_getres=E2=80=99 with type =E2=80=98int(clockid_t, =
- struct __kernel_timespec *)=E2=80=99 {aka =E2=80=98int(int,  struct __kern=
-el_timespec *)=E2=80=99}
-   15 | int __vdso_clock_getres(clockid_t clock, struct __kernel_timespec *=
-res);
-      |     ^~~~~~~~~~~~~~~~~~~
-
---woSdJmrFfLwaS8m2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmVgkVgACgkQJNaLcl1U
-h9Dz9gf/VMa1PvhU/bO1IxdTJVCJWAk44qPipqzqyUg2pLaBosU5v8Dx8eAPyIg0
-DgxKA9Cycd3l3JSSqWIwJ1xEztqi2CvdmV5Ljrml8UqOvqHNPtg16JgCCOZ+Ssww
-82B8fl93C3CmUtTLFx3u3lZRKd7FjyeOiiemekfHvdbZSOn+K6Dk9zvPAE63gI0I
-5m6xp+q1eJ7Uyq7o4kCOnJOo/y9eDGX3lGqOsVQ7bnQAH6Id5y32aplMkStvzLKI
-TrSlxBsnU/wry1msxEbcgmhN2YebA1wWGNC0j6fT4xg0MzuHevZwPTSm/2sK5Exc
-fOQ/QL09MCXtNwNJ3QpItc8VaAFrVQ==
-=sHT7
------END PGP SIGNATURE-----
-
---woSdJmrFfLwaS8m2--
-
-
---===============8746821055136309079==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+~Vinod
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8746821055136309079==--
-
