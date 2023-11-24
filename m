@@ -4,64 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96430C61DF4
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Nov 2023 12:11:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D29F1C61DF7
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Nov 2023 12:44:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t2ifdqIpOj7zdRXRY3Kai+N4OdP8b5MHklqTnTujAkc=; b=3f9jUNyfY7k4f4
-	xGGVcZJe6Ka7hW0bb6sH8ZxeNIJxwVSeA3syM86ARLequNn+b6MEA14w5V9SiCvOsPvh8Xg6/qhq0
-	T0T+UJZtJbKlSj3JtoY8+VtZAe2sNq6SJ5elvC6BgDI+iUejWrmpIs87ZyXi7NDwvBAupyKs09UBk
-	ZjQfbJ9jK5Vc078qbTSCi6euoiPVUBFDGfsb6wmhE5ZbzFh2rI1uCy9YBlv6y8d0Jp0Nr/fZznVME
-	Tr4UDQda1Bl0uiMH7tO85VQlxlmVCxfWu5A0c1A6hdyqSMVwFoFNVlCokd9NzCIEUSe6F2Y5G6+rX
-	y7IskerDhtFlJpQbCEGA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=taCruEagEjbb59yJQIn8MqiWMIFns1/b9WZ5fifN9Y0=; b=dXk0EhtWMCjL20Gf7T99L9PmIZ
+	t8WDnU4/wwFfBr1frROjB6zDutcfv+5V6zW5CUKbJjyNx2W+/OGB+jnQI6lKiu/fIT1emUD6zUJji
+	ff8yh6GKNliEmnV27K/xVWH+p4PuxIzvjB7Nv8JFqxvlh+aJdf85S16zK8ZU9FA9PvziJbj84JeCC
+	xwsVufOi9+8g+yH2qyK3iQzCJz8X/2sJVzX9Ir3Q8U3ecZYuXZDLSNt6rd0bHxQ3HMCQBod0DcnJz
+	U9qDErxmOqYJuCwGaYBJFT7xLFeb66Zy4K/P68v0Uw84TumLmq9NlWMaQcMcm0xV/q801LlMfmSWF
+	40vMndrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6V28-007AkC-2A;
-	Fri, 24 Nov 2023 12:11:44 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1r6VXs-007E7G-2J;
+	Fri, 24 Nov 2023 12:44:32 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6V25-007Ajf-1M
+	id 1r6VXp-007E5l-1A
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Nov 2023 12:11:42 +0000
+	Fri, 24 Nov 2023 12:44:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 91651621E0;
-	Fri, 24 Nov 2023 12:11:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98825C433C8;
-	Fri, 24 Nov 2023 12:11:39 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id D9B10B82FF6;
+	Fri, 24 Nov 2023 12:44:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E744BC433C7;
+	Fri, 24 Nov 2023 12:44:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1700827900;
-	bh=hUSNeT8w2Ovv/qRsF9dJwQ3T21rZ7awLhr/c8/siSeQ=;
+	s=k20201202; t=1700829867;
+	bh=eKoPXmjt1vLT0zHIRWJlxGg5yDvAkaj76XFVfYVmlUI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FjFsjhJcdh1kjeVJRqLvqBmHLs4+QeKFabtHHpvqWZ/Boaf/jqKpCKggvUdVkb9tV
-	 /D8tU/7yDwqTsja4jZ97ifEMOtJkfWivJYMBG2+OJSoH5QwvtIkdVX90YO2Sf6cXgp
-	 fh2HSVF5TWjSpwo4m1NRsSyrRUTWBYGL7ckc5Yz5P0Ki7Ti32oLYQ4wf/QS9Z0SHEf
-	 15DHso6QUEGOZWQAijtG+krZPUHaPQqUOZv62NK0OqCgpCzvR8xN+rKzc1QDEoAuH7
-	 qTCfwM4IgXEdLA/ZtD7XBr8P+pIljJZhK8p0+2iMB0U8JCGm4YojupWhaj8FknLrKX
-	 OXjM3MGXJ9IKw==
-Date: Fri, 24 Nov 2023 17:41:36 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: shravan chippa <shravan.chippa@microchip.com>
-Cc: green.wan@sifive.com, robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, conor+dt@kernel.org,
-	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	nagasuresh.relli@microchip.com, praveen.kumar@microchip.com,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Subject: Re: [PATCH v4 3/4] dmaengine: sf-pdma: add mpfs-pdma compatible name
-Message-ID: <ZWCS+ECGTgwVPR1u@matsya>
-References: <20231031052753.3430169-1-shravan.chippa@microchip.com>
- <20231031052753.3430169-4-shravan.chippa@microchip.com>
+	b=tu77iqqkan/0awoezxvxgdZ58rXcwbBQbr9BDkPshaN/6k2A/ZSrJ2pivmd9lOFY+
+	 NREejYYTNhP/hctnKVNlW9xxR9lOl+AAm7HvNldBpZvBaPQMEigjoRdtwfXxrXh301
+	 xcE5cM2cmXq5hf51Kdghxsk63Sag2CqgUuB6yNEq28E8L65Oyjl9MWvH7nxnqjZ6ZV
+	 bPoST1WHx4nvffOJs/rEx7CMwjv5E2tG76Wfga3NEm1722XSU7nPTOoqxy2VuICMy3
+	 CAFsSJdA9pNu8oGTQE5EueslGQ1+Qg0gTqOWNKkRhpsXFw6yEa3xfrggB19O6t3xdL
+	 6jFiujCW9LqYA==
+Date: Fri, 24 Nov 2023 12:44:21 +0000
+From: Conor Dooley <conor@kernel.org>
+To: William Qiu <william.qiu@starfivetech.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh+dt@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH v7 1/4] dt-bindings: pwm: Add OpenCores PWM module
+Message-ID: <20231124-bankbook-scorecard-708d355643c4@spud>
+References: <20231110062039.103339-1-william.qiu@starfivetech.com>
+ <20231110062039.103339-2-william.qiu@starfivetech.com>
+ <afce202d-6234-4c5f-9018-facd9a56b5eb@linaro.org>
+ <f4551a7a-61e6-4d97-94c2-da2e4e9e8cb3@starfivetech.com>
+ <824cee7b-e4d3-461a-8bfb-4ad095c240fd@linaro.org>
+ <20231113-sprung-tantrum-94659009b9d4@squawk>
+ <1ba3e8d1-ed89-4aab-ae27-d8d31ee2f150@starfivetech.com>
+ <20231122-jokester-reapply-eb000d976d56@spud>
+ <701877bd-313f-4604-a398-76a143f009d6@starfivetech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231031052753.3430169-4-shravan.chippa@microchip.com>
+In-Reply-To: <701877bd-313f-4604-a398-76a143f009d6@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231124_041141_544942_51FDC5DC 
-X-CRM114-Status: GOOD (  21.54  )
+X-CRM114-CacheID: sfid-20231124_044429_670291_F42C10A5 
+X-CRM114-Status: GOOD (  33.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,131 +86,128 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6957896574799094027=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 31-10-23, 10:57, shravan chippa wrote:
-> From: Shravan Chippa <shravan.chippa@microchip.com>
-> 
-> Sifive platform dma does not allow out-of-order transfers,
-> Add a PolarFire SoC specific compatible and code to support
-> for out-of-order dma transfers
 
-By default dma xtions are not supposed to be out of order, so why does
-it make sense specifying that here?
+--===============6957896574799094027==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="NUcpPRTAaFfrbmlx"
+Content-Disposition: inline
 
-> 
-> Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-> Signed-off-by: Shravan Chippa <shravan.chippa@microchip.com>
-> ---
->  drivers/dma/sf-pdma/sf-pdma.c | 27 ++++++++++++++++++++++++---
->  drivers/dma/sf-pdma/sf-pdma.h |  8 +++++++-
->  2 files changed, 31 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
-> index 4c456bdef882..82ab12c40743 100644
-> --- a/drivers/dma/sf-pdma/sf-pdma.c
-> +++ b/drivers/dma/sf-pdma/sf-pdma.c
-> @@ -25,6 +25,8 @@
->  
->  #include "sf-pdma.h"
->  
-> +#define PDMA_QUIRK_NO_STRICT_ORDERING   BIT(0)
-> +
->  #ifndef readq
->  static inline unsigned long long readq(void __iomem *addr)
->  {
-> @@ -66,7 +68,7 @@ static struct sf_pdma_desc *sf_pdma_alloc_desc(struct sf_pdma_chan *chan)
->  static void sf_pdma_fill_desc(struct sf_pdma_desc *desc,
->  			      u64 dst, u64 src, u64 size)
->  {
-> -	desc->xfer_type = PDMA_FULL_SPEED;
-> +	desc->xfer_type =  desc->chan->pdma->transfer_type;
->  	desc->xfer_size = size;
->  	desc->dst_addr = dst;
->  	desc->src_addr = src;
-> @@ -520,6 +522,7 @@ static struct dma_chan *sf_pdma_of_xlate(struct of_phandle_args *dma_spec,
->  
->  static int sf_pdma_probe(struct platform_device *pdev)
->  {
-> +	const struct sf_pdma_driver_platdata *ddata;
->  	struct sf_pdma *pdma;
->  	int ret, n_chans;
->  	const enum dma_slave_buswidth widths =
-> @@ -545,6 +548,14 @@ static int sf_pdma_probe(struct platform_device *pdev)
->  
->  	pdma->n_chans = n_chans;
->  
-> +	pdma->transfer_type = PDMA_FULL_SPEED | PDMA_STRICT_ORDERING;
-> +
-> +	ddata  = device_get_match_data(&pdev->dev);
-> +	if (ddata) {
-> +		if (ddata->quirks & PDMA_QUIRK_NO_STRICT_ORDERING)
-> +			pdma->transfer_type &= ~PDMA_STRICT_ORDERING;
-> +	}
-> +
->  	pdma->membase = devm_platform_ioremap_resource(pdev, 0);
->  	if (IS_ERR(pdma->membase))
->  		return PTR_ERR(pdma->membase);
-> @@ -632,9 +643,19 @@ static int sf_pdma_remove(struct platform_device *pdev)
->  	return 0;
->  }
->  
-> +static const struct sf_pdma_driver_platdata mpfs_pdma = {
-> +	.quirks = PDMA_QUIRK_NO_STRICT_ORDERING,
-> +};
-> +
->  static const struct of_device_id sf_pdma_dt_ids[] = {
-> -	{ .compatible = "sifive,fu540-c000-pdma" },
-> -	{ .compatible = "sifive,pdma0" },
-> +	{
-> +		.compatible = "sifive,fu540-c000-pdma",
-> +	}, {
-> +		.compatible = "sifive,pdma0",
-> +	}, {
-> +		.compatible = "microchip,mpfs-pdma",
-> +		.data	    = &mpfs_pdma,
-> +	},
->  	{},
->  };
->  MODULE_DEVICE_TABLE(of, sf_pdma_dt_ids);
-> diff --git a/drivers/dma/sf-pdma/sf-pdma.h b/drivers/dma/sf-pdma/sf-pdma.h
-> index 5c398a83b491..267e79a5e0a5 100644
-> --- a/drivers/dma/sf-pdma/sf-pdma.h
-> +++ b/drivers/dma/sf-pdma/sf-pdma.h
-> @@ -48,7 +48,8 @@
->  #define PDMA_ERR_STATUS_MASK				GENMASK(31, 31)
->  
->  /* Transfer Type */
-> -#define PDMA_FULL_SPEED					0xFF000008
-> +#define PDMA_FULL_SPEED					0xFF000000
-> +#define PDMA_STRICT_ORDERING				BIT(3)
->  
->  /* Error Recovery */
->  #define MAX_RETRY					1
-> @@ -112,8 +113,13 @@ struct sf_pdma {
->  	struct dma_device       dma_dev;
->  	void __iomem            *membase;
->  	void __iomem            *mappedbase;
-> +	u32			transfer_type;
->  	u32			n_chans;
->  	struct sf_pdma_chan	chans[];
->  };
->  
-> +struct sf_pdma_driver_platdata {
-> +	u32 quirks;
-> +};
-> +
->  #endif /* _SF_PDMA_H */
-> -- 
-> 2.34.1
 
--- 
-~Vinod
+--NUcpPRTAaFfrbmlx
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Nov 24, 2023 at 03:38:41PM +0800, William Qiu wrote:
+>=20
+>=20
+> On 2023/11/23 1:36, Conor Dooley wrote:
+> > On Wed, Nov 22, 2023 at 03:03:36PM +0800, William Qiu wrote:
+> >>=20
+> >>=20
+> >> On 2023/11/14 4:17, Conor Dooley wrote:
+> >> > On Mon, Nov 13, 2023 at 09:07:15PM +0100, Krzysztof Kozlowski wrote:
+> >> >> On 13/11/2023 10:42, William Qiu wrote:
+> >> >> > Will update.
+> >> >> >>> +
+> >> >> >>> +allOf:
+> >> >> >>> +  - $ref: pwm.yaml#
+> >> >> >>> +
+> >> >> >>> +properties:
+> >> >> >>> +  compatible:
+> >> >> >>> +    oneOf:
+> >> >> >>> +      - items:
+> >> >> >>> +          - enum:
+> >> >> >>> +              - starfive,jh7100-pwm
+> >> >> >>> +              - starfive,jh7110-pwm
+> >> >> >>> +          - const: opencores,pwm
+> >> >> >>
+> >> >> >> That's a very, very generic compatible. Are you sure, 100% sure,=
+ that
+> >> >> >> all designs from OpenCores from now till next 100 years will be =
+100%
+> >> >> >> compatible?
+> >> >> >>
+> >> >> > My description is not accurate enough, this is OpenCores PTC IP, =
+and PWM
+> >> >> > is one of those modes, so it might be better to replace compatibl=
+e with
+> >> >> > "opencores, ptc-pwm"
+> >> >> >=20
+> >> >> > What do you think?
+> >> >>=20
+> >> >> Sorry, maybe this answers maybe doesn't. What is "PTC"?
+> >> >=20
+> >> > "pwm timer counter". AFAIU, the IP can be configured to provide all =
+3.
+> >> > I think that William pointed out on an earlier revision that they ha=
+ve
+> >> > only implemented the pwm on their hardware.
+> >> > I don't think putting in "ptc" is a sufficient differentiator though=
+, as
+> >> > clearly there could be several different versions of "ptc-pwm" that =
+have
+> >> > the same concern about "all designs from OpenCores for now till the =
+next
+> >> > 100 years" being compatible.
+> >=20
+> > Perhaps noting what "ptc" stands for in the description field would be a
+> > good idea.
+> >=20
+> I will add.
+> >> After discussion and review of materials, we plan to use "opencores,pt=
+c-pwm-v1"
+> >> as this version of compatible, so that it can also be compatible in th=
+e future.
+> >>=20
+> >> What do you think?
+> >=20
+> > Do we know that it is actually "v1" of the IP? I would suggest using the
+> > version that actually matches the version of the IP that you are using
+> > in your SoC.
+> >=20
+> > Thanks,
+> > Conor.
+>=20
+> There is no version list on their official website, so it is not certain =
+whether
+> it is v1, but at least the driver is the first version.
+>=20
+> What do you think is the best way?
+
+I don't have an account, so I cannot open the "ptc_spec.pdf at this link:
+https://opencores.org/projects/ptc/downloads
+but I would take whatever documentation you have for the spec and see
+what it says as the revision on the front cover.
+
+--NUcpPRTAaFfrbmlx
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZWCapQAKCRB4tDGHoIJi
+0t1NAP9EALyfolLJbgjNd+FQ5ayCKSfM6FNoKDfvCNoJQ6STLAEA57A7SXLsPypf
+UjTGFuAn6UApcIFw5kzOzYqTjcaCzAM=
+=oIwa
+-----END PGP SIGNATURE-----
+
+--NUcpPRTAaFfrbmlx--
+
+
+--===============6957896574799094027==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6957896574799094027==--
+
