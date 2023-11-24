@@ -4,83 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25AAEC61DF4
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Nov 2023 11:49:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BDB8C61D97
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Nov 2023 11:49:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZYkFdgZPevyBxDFOaXy1ky9inKzmIkKbL2G8nWrpj/A=; b=B1X1sKzdONTwBf
-	OIkRY0+l9ZGktoEwZ2uGmNSWUa2zuxuatpggbxAQdzqrGN1REqSdvOtA6lYYPxvhBaJyRxWGeir+o
-	Rv68GhkTG3U05hj5qFO+D3OUYm70KWZ5ZPVOvqXrNhQt7lr8kzqfHHox5+oQiu0VVus2AXNElPZOP
-	oZQXBrJOjofYsmIhcbCHCbT/d7j1DmpUTwbzy4Jjngqrri4CUk1JVellgGcjx8llZbi8bwlMxL+do
-	a3HXU4axzt5joT/92l2V2J30TUS+KfYRvGsWZhlaoejBmGo1+ymUgH+XOwIK/H4HX0HLmi3MziwHo
-	2OW4s21HB7+7UEyzDmhw==;
+	List-Owner; bh=d3QyPPKcp90srIFvpzJGr+LUXdv+mUlXLIEVykL5KDw=; b=0wZnOH/KrWSNuY
+	tKs9FucA6RNKR3qegVVwSxwCxiTfLBNE4BShDxYpySTxRLNi8zyRpqKLR9h/pzzgZvX0mDV4MITb3
+	hhAajFzQw3HWQHM1VYs0iFSs8+yih0oYVifP0m9+GWjPHCvkEtRbRhUzq74ldJ7okr0B8NXwX1s9a
+	kNxsA6vcgcllHsLcTdsFGh1MZgH+70A7D4dV1pLYEcMxnPEzZ1gyfbMb80Mg7kEeJtsiaNgiPP7sT
+	olvkT0T9pAxpHFR4ofGHpPiuE//gpyI7VlkUpGx34pJD/aBPcvIoUNsiPV3WOkOcs3e/twV/yIGWh
+	QaqbNlYCUlC+xTk1AJfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6Ug5-0071V9-1p;
-	Fri, 24 Nov 2023 11:48:57 +0000
-Received: from mgamail.intel.com ([134.134.136.126])
+	id 1r6UgM-0071gv-12;
+	Fri, 24 Nov 2023 11:49:14 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6Ug2-0071TF-0g
-	for linux-riscv@lists.infradead.org;
-	Fri, 24 Nov 2023 11:48:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1700826534; x=1732362534;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=NWTZKPB6947/lzmM2oYhnJ+7TJUw4xxaIF4D9FZKFiY=;
-  b=S8YD1zXIl4sK749cD0bTpVrO9WlJP9UbmZN5ZVVegt4+I3m/GT/XaH8A
-   ClGl4sK52dT0OAga1fsGtEo8LClOFC5sNUHYtYxZ+rIqXgcReAsQUXriz
-   eMdN88WPPv9AIKpNE0xeO22otM1mFv5bc0YgvR2W1jrGPHCPfOxm1DhSf
-   2+6OVsoo9se1vKAw1ipAFNBb8VhINFoZpZ2J690C2X8RYtb0D2KNQoVET
-   h1KjPh8zMGOIXo4n1KmPXSC4VWKDoBqPCfnsFDIfZQdhxV2nOYB26bcdg
-   gEfAdhcNy/FZGzqKEBCN4RUz/z/6/VCzzgeT4VUkkmsYXK8Z+MXgWTmuT
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10902"; a="377449241"
-X-IronPort-AV: E=Sophos;i="6.04,223,1695711600"; 
-   d="scan'208";a="377449241"
-Received: from fmsmga006.fm.intel.com ([10.253.24.20])
-  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2023 03:48:51 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10902"; a="1014884517"
-X-IronPort-AV: E=Sophos;i="6.04,223,1695711600"; 
-   d="scan'208";a="1014884517"
-Received: from lkp-server01.sh.intel.com (HELO d584ee6ebdcc) ([10.239.97.150])
-  by fmsmga006.fm.intel.com with ESMTP; 24 Nov 2023 03:48:46 -0800
-Received: from kbuild by d584ee6ebdcc with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1r6Ufr-0002iG-2D;
-	Fri, 24 Nov 2023 11:48:43 +0000
-Date: Fri, 24 Nov 2023 19:47:52 +0800
-From: kernel test robot <lkp@intel.com>
-To: Paran Lee <p4ranlee@gmail.com>, Namhyung Kim <namhyung@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Sean Christopherson <seanjc@google.com>, Li Dong <lidong@vivo.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1r6UgL-0071fS-0K
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 24 Nov 2023 11:49:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=g2br9i5oVEFFKP6oznFGcsnlECZEB7rizFD+TXrD/V0=; b=OfZSxK7tHGjPx2aM/O09q+wpD6
+	tsNP23s7bcEHNuCY49Nz5kLSp7e6APQRQvtN/rs278deKVNMY5mAX1whe1GURSk9FUiQmKyloPBur
+	mhLN8R31mYfHJcygz9bPzPMVMp3fjbaQp9vi5BO8Os0xQEG82n42Q6HSd13YXgq/+uYIphZgk2Unf
+	SlMO4bTEF79QOtXKbUibinr1FvkRvJGhCtvUR1LZu7aNLVLjpq2XieCXjVQQzeqU1F0gODSk35sDl
+	zTfmz0K4ggZEGx9ujdHUgJydr6F6AsO4AmtEDwO1rXbzGCa9/NEEX+qVqDKOEpzzZF7MFrmnvQPX6
+	/lbblrow==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1r6UgF-008X2F-Nj; Fri, 24 Nov 2023 11:49:07 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 8D9453002BE; Fri, 24 Nov 2023 12:49:06 +0100 (CET)
+Date: Fri, 24 Nov 2023 12:49:06 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Christoph =?iso-8859-1?Q?M=FCllner?= <christoph.muellner@vrull.eu>
+Cc: linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: oe-kbuild-all@lists.linux.dev, linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	shjy180909@gmail.com, austindh.kim@gmail.com, honggyu.kp@gmail.com,
-	tegongkang@gmail.com, Paran Lee <p4ranlee@gmail.com>
-Subject: Re: [PATCH] perf callchain: Support riscv cross-platform
-Message-ID: <202311241453.S2nsKqhx-lkp@intel.com>
-References: <20231122155548.2449-1-p4ranlee@gmail.com>
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Philipp Tomsich <philipp.tomsich@vrull.eu>,
+	Andrew Jones <ajones@ventanamicro.com>, Guo Ren <guoren@kernel.org>,
+	Daniel Henrique Barboza <dbarboza@ventanamicro.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	Andrea Parri <parri.andrea@gmail.com>,
+	Will Deacon <will@kernel.org>, Daniel Lustig <dlustig@nvidia.com>
+Subject: Re: [RFC PATCH 0/5] RISC-V: Add dynamic TSO support
+Message-ID: <20231124114906.GR3818@noisy.programming.kicks-ass.net>
+References: <20231124072142.2786653-1-christoph.muellner@vrull.eu>
+ <20231124101519.GP3818@noisy.programming.kicks-ass.net>
+ <CAEg0e7j1AvzTyaQ45wUP9QnsMpCG=ZMzcLNFYhGPPSgAwsty6A@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231122155548.2449-1-p4ranlee@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231124_034854_295329_919B3CC7 
-X-CRM114-Status: GOOD (  16.29  )
+In-Reply-To: <CAEg0e7j1AvzTyaQ45wUP9QnsMpCG=ZMzcLNFYhGPPSgAwsty6A@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,113 +80,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Paran,
+On Fri, Nov 24, 2023 at 11:53:06AM +0100, Christoph M=FCllner wrote:
 
-kernel test robot noticed the following build errors:
+> > I think ARM64 approached this problem by adding the
+> > load-acquire/store-release instructions and for TSO based code,
+> > translate into those (eg. x86 -> arm64 transpilers).
+> >
+> > IIRC Risc-V actually has such instructions as well, so *why* are you
+> > doing this?!?!
+> =
 
-[auto build test ERROR on perf-tools-next/perf-tools-next]
-[also build test ERROR on tip/perf/core perf-tools/perf-tools linus/master acme/perf/core v6.7-rc2 next-20231124]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> Not needing a transpiler is already a benefit.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Paran-Lee/perf-callchain-Support-riscv-cross-platform/20231123-000232
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git perf-tools-next
-patch link:    https://lore.kernel.org/r/20231122155548.2449-1-p4ranlee%40gmail.com
-patch subject: [PATCH] perf callchain: Support riscv cross-platform
-compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20231124/202311241453.S2nsKqhx-lkp@intel.com/reproduce)
+This don't make sense, native risc-v stuff knows about the weak stuff,
+its your natve model. The only reason you would ever need this dynamic
+TSO stuff, is if you're going to run code that's written for some other
+platform (notably x86).
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202311241453.S2nsKqhx-lkp@intel.com/
+> And the DTSO approach also covers the cases where transpilers can't be us=
+ed
+> (e.g. binary-only executables or libraries).
 
-All errors (new ones prefixed by >>):
+Uhh.. have you looked at the x86-on-arm64 things? That's all binary to
+binary magic.
 
-   Makefile.config:1176: libpfm4 not found, disables libpfm4 support. Please install libpfm4-dev
-     PERF_VERSION = 6.6.rc1.g1f4d296e5f76
-   util/unwind-libunwind.c: In function 'unwind__prepare_access':
->> util/unwind-libunwind.c:43:17: error: label 'out_register' used but not defined
-      43 |                 goto out_register;
-         |                 ^~~~
->> util/unwind-libunwind.c:28:13: error: unused variable 'err' [-Werror=unused-variable]
-      28 |         int err;
-         |             ^~~
->> util/unwind-libunwind.c:25:38: error: variable 'ops' set but not used [-Werror=unused-but-set-variable]
-      25 |         struct unwind_libunwind_ops *ops = local_unwind_libunwind_ops;
-         |                                      ^~~
-   util/unwind-libunwind.c: At top level:
->> util/unwind-libunwind.c:58:11: error: expected identifier or '(' before 'else'
-      58 |         } else if (!strcmp(arch, "riscv64") || !strcmp(arch, "riscv")) {
-         |           ^~~~
->> util/unwind-libunwind.c:63:9: error: expected identifier or '(' before 'if'
-      63 |         if (!ops) {
-         |         ^~
->> util/unwind-libunwind.c:67:13: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
-      67 | out_register:
-         |             ^
->> util/unwind-libunwind.c:70:9: error: data definition has no type or storage class [-Werror]
-      70 |         err = maps__unwind_libunwind_ops(maps)->prepare_access(maps);
-         |         ^~~
->> util/unwind-libunwind.c:70:9: error: type defaults to 'int' in declaration of 'err' [-Werror=implicit-int]
->> util/unwind-libunwind.c:70:42: error: 'maps' undeclared here (not in a function)
-      70 |         err = maps__unwind_libunwind_ops(maps)->prepare_access(maps);
-         |                                          ^~~~
-   util/unwind-libunwind.c:71:9: error: expected identifier or '(' before 'if'
-      71 |         if (initialized)
-         |         ^~
->> util/unwind-libunwind.c:73:9: error: expected identifier or '(' before 'return'
-      73 |         return err;
-         |         ^~~~~~
->> util/unwind-libunwind.c:74:1: error: expected identifier or '(' before '}' token
-      74 | }
-         | ^
-   util/unwind-libunwind.c: In function 'unwind__flush_access':
->> util/unwind-libunwind.c:76:40: error: declaration of 'maps' shadows previous non-variable [-Werror=shadow]
-      76 | void unwind__flush_access(struct maps *maps)
-         |                           ~~~~~~~~~~~~~^~~~
-   util/unwind-libunwind.c: In function 'unwind__finish_access':
-   util/unwind-libunwind.c:84:41: error: declaration of 'maps' shadows previous non-variable [-Werror=shadow]
-      84 | void unwind__finish_access(struct maps *maps)
-         |                            ~~~~~~~~~~~~~^~~~
-   util/unwind-libunwind.c: In function 'unwind__prepare_access':
->> util/unwind-libunwind.c:58:9: error: control reaches end of non-void function [-Werror=return-type]
-      58 |         } else if (!strcmp(arch, "riscv64") || !strcmp(arch, "riscv")) {
-         |         ^
-   util/unwind-libunwind.c: At top level:
->> util/unwind-libunwind.c:16:13: error: 'unwind__register_ops' defined but not used [-Werror=unused-function]
-      16 | static void unwind__register_ops(struct maps *maps, struct unwind_libunwind_ops *ops)
-         |             ^~~~~~~~~~~~~~~~~~~~
-   cc1: all warnings being treated as errors
-   make[7]: *** [tools/build/Makefile.build:105: tools/perf/util/unwind-libunwind.o] Error 1
-   make[7]: *** Waiting for unfinished jobs....
-   make[6]: *** [tools/build/Makefile.build:158: util] Error 2
-   make[5]: *** [Makefile.perf:669: tools/perf/perf-in.o] Error 2
-   make[5]: *** Waiting for unfinished jobs....
-   make[4]: *** [Makefile.perf:242: sub-make] Error 2
-   make[3]: *** [Makefile:70: all] Error 2
---
->> diff: tools/arch/riscv/include/uapi/asm/kvm.h: No such file or directory
-     diff -u tools/include/uapi/linux/kvm.h include/uapi/linux/kvm.h
-     diff -u tools/include/uapi/linux/mount.h include/uapi/linux/mount.h
-     diff -u tools/include/uapi/linux/perf_event.h include/uapi/linux/perf_event.h
-     diff -u tools/arch/x86/include/asm/disabled-features.h arch/x86/include/asm/disabled-features.h
-     diff -u tools/arch/x86/include/asm/cpufeatures.h arch/x86/include/asm/cpufeatures.h
-     diff -u tools/arch/x86/include/uapi/asm/prctl.h arch/x86/include/uapi/asm/prctl.h
-     diff -u tools/arch/arm64/include/uapi/asm/perf_regs.h arch/arm64/include/uapi/asm/perf_regs.h
-     diff -u tools/arch/s390/include/uapi/asm/kvm.h arch/s390/include/uapi/asm/kvm.h
-     diff -u tools/arch/riscv/include/uapi/asm/kvm.h arch/riscv/include/uapi/asm/kvm.h
-     diff -u tools/arch/riscv/include/uapi/asm/unistd.h arch/riscv/include/uapi/asm/unistd.h
+> We are also working on extending ld.so such, that it switches to DTSO
+> (if available) in case the user wants to start an executable that was
+> compiled for Ztso or loads a library that was compiled for Ztso.
+> This would utilize the API that is introduced in this patchset.
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+I mean, sure, but *why* would you do this to your users? Who would want
+to build a native risc-v tso binary?
 
 _______________________________________________
 linux-riscv mailing list
