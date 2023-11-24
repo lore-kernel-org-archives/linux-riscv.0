@@ -4,86 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84DB8C61D97
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Nov 2023 07:10:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79449C61D97
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Nov 2023 07:17:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UBWlWUT4ZLtBpv4XlCVfAO40y9YsyO9YKEloRGOSPQ4=; b=IRx2O0IXOBqLya
-	UhqegLZublJ4Ee/dAFieUk4M9KMCrMvnLDzKUEZdptPwAbAoVfNNbQ3Mk/PgX4Yt8hstP95Sdtzf1
-	TuHtP2vu77untajgVG1ov1oVT2jM0A61CslgMc1NZvjNsfBoE/x5GFfyqr+hFpJUIAqdHoDboU0Fe
-	18A7NCrIwiPiMD+WW88nQejGrogn3mLck8V3zGiCspnQnr9EbS7951JaRjp7ofIjVqeRG6RF8pLsX
-	FgtTVgVx3wbIIod2n3OgKZ7IFg6wMEgI/O8QSDXryf+NuwCsZWYeV2SDSQa+Lxg25D8pnm7RiCCz1
-	1rZ9Iq34iw1h5Mwco9QQ==;
+	List-Owner; bh=H5qzVawhd1FuyRd9I21fplh+dt1kh/j28obR/HwnQAw=; b=TSJernpxYH299Q
+	ZD6jsRRdVYbITtgcy5+DlLJZ/sE/E4iz0BCfB/lVxHK1TyUK0IUqwgB1uG+eedxWGSXfEyhhUoUi4
+	bAI8a4zuk8p0U4xfM9MhKURHbBlSlAv0PFXjhoSfHpnSkbYeO14Wbwdue+przZtAsKIhYDcad8/wD
+	FZtRNH1v82R+vjT3I1aCYcMCddQrp+U3bk54ekrzfK442LhOPuJzFAYzM6oGlb3Llk27qUGFL9ApV
+	c0bMwQtY8qlMpwughYSMiY+s05sebFwtJSK1TFXKRALjUNKZRVg9bEBZoVOxuwKgDomYUDcddgB39
+	NfD7LuMm1pSNiIye0h9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6QKt-006Leq-3D;
-	Fri, 24 Nov 2023 07:10:48 +0000
-Received: from mail-ot1-x32c.google.com ([2607:f8b0:4864:20::32c])
+	id 1r6QQv-006MZ2-14;
+	Fri, 24 Nov 2023 07:17:01 +0000
+Received: from smtprelay0017.hostedemail.com ([216.40.44.17] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6QKr-006LdR-1c
-	for linux-riscv@lists.infradead.org;
-	Fri, 24 Nov 2023 07:10:46 +0000
-Received: by mail-ot1-x32c.google.com with SMTP id 46e09a7af769-6ce322b62aeso833760a34.3
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Nov 2023 23:10:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1700809845; x=1701414645; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9bsP20n9g/LbbgzyTFqfc2H9X3ZVkLkHm6HS5kmWZpw=;
-        b=mOQSAGvxXDFKvYug0fvDpBSSSajzHGFrI0QlWTb+PYmYVeJplGe4GeMH2TfIqffBlN
-         lyuwnXFtoYtdBb5Uo4oS1pWNuc95bxmycqx4B/u1RGgQl4VsveiySl6UlFaMdBQ/elpk
-         EAGnztPStx8KGNitkv2QjiADZkOCaTelNCnoE0uNNhz8cxiDvu2y/dKDCFVCju3gjIGI
-         Ys+MqMBo/EdIResHRFzIHFaCpfNjXeU0vM4TDd25rfm9L3O/8Gzb8oprLhgkkMwgJqXP
-         llx1Przo6zn6ePUuGsYw7cOivss7qt3xdVwtH0s8iTdCY723o8OHhey5RU7G1JI/veN+
-         MGOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700809845; x=1701414645;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=9bsP20n9g/LbbgzyTFqfc2H9X3ZVkLkHm6HS5kmWZpw=;
-        b=u+W7/lHFhl8mSUjgbRkJI9GFR6Fm5YW7P99pdlAWZpK2p2xpsw5ENS03H7oK1uWme1
-         Tl7/+u+XiHanja5YcBG1hmqbRAqEWt/uw5/Q9Hct28Bq6AFvA7lkS8AFAyOPsQNtgpyI
-         0sHaKbw0uLMS1X5wKTDxx1XAF3UZkJAWfrT5JnmbfOMJub15H3pxshN5Fq9fNYk59+lB
-         B+2332jX4clEBx+2DC8T9tvo5pgCu+9qjOcFequxPL90Xig+NrQmiJx7FiY9nTIdNqrf
-         WN0exW1ZVKVGSazM8LcFM0Zdxzuh0zeVo/4G/Q0xqzXIdmq2ZyC1hmlXH1Tqzqd5sO5Z
-         DzDw==
-X-Gm-Message-State: AOJu0YxzGdd9cHf+NAjzgTJF3ejbcrqajgd8gwIlPXCMfgK87yofi7uE
-	0VrnRbjkMw0hVge5EnjxEBBVGw==
-X-Google-Smtp-Source: AGHT+IGGDyExhQ3zRmOy5VYh2TdS7wOyXrHh9UCot+XT8qVfR5TFj+v/PJ24bsMRy6r+bIsB3Xrfng==
-X-Received: by 2002:a05:6830:18f1:b0:6ce:4035:b801 with SMTP id d17-20020a05683018f100b006ce4035b801mr2096169otf.13.1700809844751;
-        Thu, 23 Nov 2023 23:10:44 -0800 (PST)
-Received: from localhost.localdomain ([106.51.83.242])
-        by smtp.gmail.com with ESMTPSA id e5-20020a9d7305000000b006c61c098d38sm435532otk.21.2023.11.23.23.10.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Nov 2023 23:10:44 -0800 (PST)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>
-Cc: Conor Dooley <conor@kernel.org>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	linux-riscv@lists.infradead.org,
-	linux-serial@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH v5 5/5] RISC-V: Enable SBI based earlycon support
-Date: Fri, 24 Nov 2023 12:39:05 +0530
-Message-Id: <20231124070905.1043092-6-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20231124070905.1043092-1-apatel@ventanamicro.com>
-References: <20231124070905.1043092-1-apatel@ventanamicro.com>
+	id 1r6QQr-006MXO-1m;
+	Fri, 24 Nov 2023 07:16:58 +0000
+Received: from omf01.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay05.hostedemail.com (Postfix) with ESMTP id 6CC5C409CB;
+	Fri, 24 Nov 2023 07:16:50 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: joe@perches.com) by omf01.hostedemail.com (Postfix) with ESMTPA id 8CAE160009;
+	Fri, 24 Nov 2023 07:16:47 +0000 (UTC)
+Message-ID: <971ed2ceaeeba882d2b4c39015ee5ae5db3f5e82.camel@perches.com>
+Subject: Re: [PATCH v2 2/7] kexec_file: print out debugging message if
+ required
+From: Joe Perches <joe@perches.com>
+To: Baoquan He <bhe@redhat.com>, linux-kernel@vger.kernel.org
+Cc: kexec@lists.infradead.org, x86@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-parisc@vger.kernel.org, 
+	akpm@linux-foundation.org, nathan@kernel.org, yujie.liu@intel.com
+Date: Thu, 23 Nov 2023 23:16:46 -0800
+In-Reply-To: <20231124033642.520686-3-bhe@redhat.com>
+References: <20231124033642.520686-1-bhe@redhat.com>
+	 <20231124033642.520686-3-bhe@redhat.com>
+User-Agent: Evolution 3.48.4 (3.48.4-1.fc38) 
 MIME-Version: 1.0
+X-Rspamd-Queue-Id: 8CAE160009
+X-Stat-Signature: r4oqtahenar8h64oxpqpoeo1n6zbhmda
+X-Rspamd-Server: rspamout08
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Session-ID: U2FsdGVkX19c0OHTlDrKhb/Xt6M9rvhAh1ufC3tVTnk=
+X-HE-Tag: 1700810207-170549
+X-HE-Meta: U2FsdGVkX1+zlhNkZ9x3SOlShl6+X96epMaKjfHehHKyBsMtcvgR7F6Ii1tgURKZMXTJ4v77gzWxOCKJjrZ32dyx27aEd7KJtn+JaKan9d1JoOg5vx5spjNriOlsrJsAsKTNWoXgbsaaF0Aw9htJa6iNVZZnaP/omO8ddnk/a1hUgTJ/UY7dIv6hTgWYnyt0dTxqhxdXpQIY0i9zYhv989Np0jXyZefmSBvNLtvm6dtRPbiigZYQ2nQLsoXdSGX2/vxVXndB66Niab3Fp1e04lrREsrM7se2cR96ydP7F6f9OXdC0ttkSA5n1SXD5cD7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231123_231045_536608_4402DFC3 
-X-CRM114-Status: UNSURE (   7.43  )
+X-CRM114-CacheID: sfid-20231123_231657_665838_654E6F83 
+X-CRM114-Status: UNSURE (   9.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,29 +73,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Let us enable SBI based earlycon support in defconfig for both RV32
-and RV64 so that "earlycon=sbi" can be used again.
+On Fri, 2023-11-24 at 11:36 +0800, Baoquan He wrote:
+> Replace pr_debug() with the newly added kexec_dprintk() in kexec_file
+> loading related codes.
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
----
- arch/riscv/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+trivia for pr_debug -> kexec_dprintk conversions for
+the entire patch set:
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 905881282a7c..eaf34e871e30 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -149,6 +149,7 @@ CONFIG_SERIAL_8250_CONSOLE=y
- CONFIG_SERIAL_8250_DW=y
- CONFIG_SERIAL_OF_PLATFORM=y
- CONFIG_SERIAL_SH_SCI=y
-+CONFIG_SERIAL_EARLYCON_RISCV_SBI=y
- CONFIG_VIRTIO_CONSOLE=y
- CONFIG_HW_RANDOM=y
- CONFIG_HW_RANDOM_VIRTIO=y
--- 
-2.34.1
+> diff --git a/kernel/crash_core.c b/kernel/crash_core.c
+[]
+> @@ -551,9 +551,12 @@ int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_map,
+>  		phdr->p_filesz = phdr->p_memsz = mend - mstart + 1;
+>  		phdr->p_align = 0;
+>  		ehdr->e_phnum++;
+> -		pr_debug("Crash PT_LOAD ELF header. phdr=%p vaddr=0x%llx, paddr=0x%llx, sz=0x%llx e_phnum=%d p_offset=0x%llx\n",
+> +#ifdef CONFIG_KEXEC_FILE
+> +		kexec_dprintk("Crash PT_LOAD ELF header. phdr=%p vaddr=0x%llx, paddr=0x%llx, "
+> +			"sz=0x%llx e_phnum=%d p_offset=0x%llx\n",
+>  			phdr, phdr->p_vaddr, phdr->p_paddr, phdr->p_filesz,
+>  			ehdr->e_phnum, phdr->p_offset);
+
+It's good form to rewrap continuation lines to the open parenthesis
+
+> diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
+[]
+> @@ -389,11 +391,12 @@ SYSCALL_DEFINE5(kexec_file_load, int, kernel_fd, int, initrd_fd,
+>  	if (ret)
+>  		goto out;
+>  
+> +	kexec_dprintk("nr_segments = %lu\n", image->nr_segments);
+>  	for (i = 0; i < image->nr_segments; i++) {
+>  		struct kexec_segment *ksegment;
+>  
+>  		ksegment = &image->segment[i];
+> -		pr_debug("Loading segment %d: buf=0x%p bufsz=0x%zx mem=0x%lx memsz=0x%zx\n",
+> +		kexec_dprintk("segment[%d]: buf=0x%p bufsz=0x%zx mem=0x%lx memsz=0x%zx\n",
+>  			 i, ksegment->buf, ksegment->bufsz, ksegment->mem,
+>  			 ksegment->memsz);
+
+here too etc...
 
 
 _______________________________________________
