@@ -4,73 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B646BC61DF4
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Nov 2023 08:41:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4E3EC61DF4
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Nov 2023 09:40:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e3VqSk5DDpD7NAQN7leza+b/cS9lapYhllbW1CDqEXw=; b=EaisbXxuFXj5Md
-	qy0LtcfRaxB6Gf+naltE0zgvXRkxzL/VwAdQKkZgQeCsGo/UkSd9QaagsRzNkrjwMczOlmwo2PrHQ
-	/SU2ny+UO0jKCCJryWifWr0sEeNGoSx6lJqBDljvl0NprKCM/BEVYepYvLbuJluQbBud+a7keRMF7
-	OQ+1IeJc/3dbCSisiA1Qwpcf61fBpxsTzDRZUMuffBYW8LYB2+kAIO218PiaIq8XAsHUdsa+r5z2u
-	Oe6B7haNXyJRYYJUIxZYgspSNBNBTFyUwq4GFVASG9nAa86LI26mZSYIr59SoyFsLbRfGOQ71L+nH
-	lutiLTNRsiiX/vSWI+Sw==;
+	List-Owner; bh=9kriMDDqgnxNZKqCGJsHQK+3WDsIGUCMdiDrWwTIjTU=; b=EVp1UwG65liDXy
+	OnDerHPf8RMQAKr/Aq7gGhLnLG08brflxwDM5P3U6NSARrvq6M3b8+T+xtlSv1+a1lwP1EV21490A
+	CvfLawC0if9k64Jy7xidHaPl34rcBTjNlRnG7b1pH0qiXEqdia99SnFAX280VEHKKN9jxauRV+AMW
+	xMi+1I9TvArTs4drCOSAM0oMiWijK5GyHACLO27RSPuP16L4Tmdai+VAvbJfWCejHNMNx4c8coAQk
+	jjBImTAiXoHtucIiZuwGwU17NxXcvdgBPN7fVbsBHjXrASLAJFo6+g9yBeBqxdUmONHgS5oKAHRwf
+	tll3rcBccZeSmDbXOITg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6Rk2-006Xbm-1z;
-	Fri, 24 Nov 2023 08:40:50 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1r6Sg0-006hmf-1m;
+	Fri, 24 Nov 2023 09:40:44 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6Rjz-006XZG-0X
+	id 1r6Sfy-006hmK-1V
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Nov 2023 08:40:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1700815242;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TtiruDUnh8gIdyydjQh1DSHosPodlSxaPwJiylzKhys=;
-	b=F4thSS2tcNtsIBSxb9UmTsg3yRymx+/UJCKri+bf7PDNdTsrFVTGYat4Kn77z5JOxiam0s
-	a27ws93ho2CgCRVvB3YuQI2hOneCVtzak+GqCtBWaS4vhscs8D+/U4ryTCuol2+UGVg75B
-	X9AQVfI9XFDorHL7e3GwNOXY0uunD2M=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-103-QXyK2TnoOxKNhbHg3BDyOw-1; Fri, 24 Nov 2023 03:40:39 -0500
-X-MC-Unique: QXyK2TnoOxKNhbHg3BDyOw-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 98B7D828CEA;
-	Fri, 24 Nov 2023 08:40:38 +0000 (UTC)
-Received: from localhost (unknown [10.72.112.8])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id D59C0112130A;
-	Fri, 24 Nov 2023 08:40:36 +0000 (UTC)
-Date: Fri, 24 Nov 2023 16:40:33 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Joe Perches <joe@perches.com>
-Cc: linux-kernel@vger.kernel.org, kexec@lists.infradead.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	linux-parisc@vger.kernel.org, akpm@linux-foundation.org,
-	nathan@kernel.org, yujie.liu@intel.com
-Subject: Re: [PATCH v2 2/7] kexec_file: print out debugging message if
- required
-Message-ID: <ZWBhgfhFONEYcJZf@MiWiFi-R3L-srv>
-References: <20231124033642.520686-1-bhe@redhat.com>
- <20231124033642.520686-3-bhe@redhat.com>
- <971ed2ceaeeba882d2b4c39015ee5ae5db3f5e82.camel@perches.com>
+	Fri, 24 Nov 2023 09:40:43 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-40b358f216dso10936835e9.1
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Nov 2023 01:40:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1700818840; x=1701423640; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=liKWi3k1bQmGEMyLltDAEJD618fY1ygP7q9s9GKBNQY=;
+        b=gM6I6t5OvUPTyW6Z7pmY6XHzacP3iM3WdXeO/Vj4qnNllKg+yuQHndzU2zYJ2stcpk
+         ytxurouybS2HVAlANo9fwV8F27VK6K/g3JJZEA4wmmDJbpqL+74mDhEp226rlRMtpAli
+         4eIIJBMObsyZ70cXbr/jsn2jaJbJAfFAHCq1pBMQ0v8ZCkq5CvhleE02h6QElj4RbyZa
+         GTZipXPrW5toEmt/U8RwlPNTVqe5TI/HfIF7MWpF7rxzA+epHNWqk0IwUGvK5rbq2IQ8
+         zXAA5nJG2KkdyTzxQ9gOZHTrlUaleHUsRYX92LuweyZJSA5cSLHsv7fhREK741p4O7Qt
+         K5WA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1700818840; x=1701423640;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=liKWi3k1bQmGEMyLltDAEJD618fY1ygP7q9s9GKBNQY=;
+        b=A7V1PBrRlP8b/81M3ufrYHANujVWUJH9MVw23FEDE7C/eZvYQqTFWVuQ1GxehFD583
+         6VBOSfxeO5DhHM9Sk7zNkluZUGQBIfEvyAnSiCxwhqGA1YR/Xrcw1dmsZCX1nvtdrGfW
+         9osfT7f27fM1Pc1J3jZH5fPr0FK9mVptm6uLeo45rNmIF4827tozlPRirJRU6sVa9Ryw
+         6F2Cg6yqwNAeKy5d5EprPRvSVe7rfZD8J+090qmPV07UF8cFicd1VIPqTF8XDUy4ddUx
+         NROBMdpdDi0i/24AQXhur/kfo2grt3sg/Hadl9XvB2s2a0F5IHjjSjxeieSU7xcMEHGU
+         5nog==
+X-Gm-Message-State: AOJu0YyAyHRBNf8fff2HSIO3luztdJZCHcG+P4QQQk3Vf5EoL5AE1VPJ
+	rVXe2rmtgpquCWw2UUbbjT6B0g==
+X-Google-Smtp-Source: AGHT+IF9VLUBW6WyHhdlX2rn3vRUYeHRnBcJF0nS6mbPXvTDrFDn41SBn1hGDsyIKy9IjON6i7vOzg==
+X-Received: by 2002:a05:600c:a0b:b0:408:3cdf:32c with SMTP id z11-20020a05600c0a0b00b004083cdf032cmr2103866wmp.41.1700818840312;
+        Fri, 24 Nov 2023 01:40:40 -0800 (PST)
+Received: from localhost (cst-prg-91-180.cust.vodafone.cz. [46.135.91.180])
+        by smtp.gmail.com with ESMTPSA id q19-20020a05600c46d300b0040b35195e54sm4550012wmo.5.2023.11.24.01.40.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Nov 2023 01:40:39 -0800 (PST)
+Date: Fri, 24 Nov 2023 10:40:34 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Christoph Muellner <christoph.muellner@vrull.eu>
+Cc: linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>, 
+	Philipp Tomsich <philipp.tomsich@vrull.eu>, Evan Green <evan@rivosinc.com>, 
+	Xiao Wang <xiao.w.wang@intel.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
+	Andy Chiu <andy.chiu@sifive.com>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
+	Charlie Jenkins <charlie@rivosinc.com>
+Subject: Re: [PATCH 0/5] tools: selftests: riscv: Fix compiler warnings
+Message-ID: <20231124-3934c1b3c4b6dc3f076b0f9a@orel>
+References: <20231123185821.2272504-1-christoph.muellner@vrull.eu>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <971ed2ceaeeba882d2b4c39015ee5ae5db3f5e82.camel@perches.com>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.3
+In-Reply-To: <20231123185821.2272504-1-christoph.muellner@vrull.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231124_004047_289512_A4D8F017 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20231124_014042_523277_A6BC4D3A 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,56 +92,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/23/23 at 11:16pm, Joe Perches wrote:
-> On Fri, 2023-11-24 at 11:36 +0800, Baoquan He wrote:
-> > Replace pr_debug() with the newly added kexec_dprintk() in kexec_file
-> > loading related codes.
-> 
-> trivia for pr_debug -> kexec_dprintk conversions for
-> the entire patch set:
+On Thu, Nov 23, 2023 at 07:58:16PM +0100, Christoph Muellner wrote:
+> From: Christoph M=FCllner <christoph.muellner@vrull.eu>
+> =
 
-OK, will check all patchset and adjust the indendation, thanks.
+> When building the RISC-V selftests with a riscv32 compiler I ran into
+> a couple of compiler warnings. While riscv32 support for these tests is
+> questionable, the fixes are so trivial that it is probably best to simply
+> apply them.
+> =
 
-> 
-> > diff --git a/kernel/crash_core.c b/kernel/crash_core.c
-> []
-> > @@ -551,9 +551,12 @@ int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_map,
-> >  		phdr->p_filesz = phdr->p_memsz = mend - mstart + 1;
-> >  		phdr->p_align = 0;
-> >  		ehdr->e_phnum++;
-> > -		pr_debug("Crash PT_LOAD ELF header. phdr=%p vaddr=0x%llx, paddr=0x%llx, sz=0x%llx e_phnum=%d p_offset=0x%llx\n",
-> > +#ifdef CONFIG_KEXEC_FILE
-> > +		kexec_dprintk("Crash PT_LOAD ELF header. phdr=%p vaddr=0x%llx, paddr=0x%llx, "
-> > +			"sz=0x%llx e_phnum=%d p_offset=0x%llx\n",
-> >  			phdr, phdr->p_vaddr, phdr->p_paddr, phdr->p_filesz,
-> >  			ehdr->e_phnum, phdr->p_offset);
-> 
-> It's good form to rewrap continuation lines to the open parenthesis
-> 
-> > diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
-> []
-> > @@ -389,11 +391,12 @@ SYSCALL_DEFINE5(kexec_file_load, int, kernel_fd, int, initrd_fd,
-> >  	if (ret)
-> >  		goto out;
-> >  
-> > +	kexec_dprintk("nr_segments = %lu\n", image->nr_segments);
-> >  	for (i = 0; i < image->nr_segments; i++) {
-> >  		struct kexec_segment *ksegment;
-> >  
-> >  		ksegment = &image->segment[i];
-> > -		pr_debug("Loading segment %d: buf=0x%p bufsz=0x%zx mem=0x%lx memsz=0x%zx\n",
-> > +		kexec_dprintk("segment[%d]: buf=0x%p bufsz=0x%zx mem=0x%lx memsz=0x%zx\n",
-> >  			 i, ksegment->buf, ksegment->bufsz, ksegment->mem,
-> >  			 ksegment->memsz);
-> 
-> here too etc...
-> 
+> Note that the missing-include patch and some format string warnings
+> are also relevant for riscv64.
 
+I also posted [1] a couple days ago for the format warnings, but, as this
+series also includes rv32 fixes, then we can drop [1] in favor of this.
+
+[1] https://lore.kernel.org/all/20231122171821.130854-2-ajones@ventanamicro=
+.com/
+
+For the series,
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
