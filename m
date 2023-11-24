@@ -4,81 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63E1DC61D97
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Nov 2023 11:39:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25AAEC61DF4
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Nov 2023 11:49:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5lEaU1lrpy773Nojm+OmEcXH6eIaacpgo8KO/KHsZ2E=; b=rvX1yAXbfOVLEE
-	/r+Pe+yQKHiFiEIkrV7578QM3dLQAChOZN61oih7JfsNfACiu2u8gN2cJcouGtAFbM0o6tUCaVxHL
-	4TV5djkQ6/liDnTeyUzUsFciu64Tt+0b2bQypgjVehik0wGntC2bMSYG5p0FqyF56Ctl3WdtCJEyG
-	3Pk8V9T8gliW+YViPrOdCArdaE0/hC2jwC7GZ+B0qKWaU9vT1PjAkeBddVOHmhj1zHKEEilZvf4pr
-	Va0BELgHGP00UdoBYAz6cJnTuTYquNH/X4TO/EZc64dnniTtPTFSzawjV6K7oln09Kd16z0h5FDud
-	mkxgXPZkwA4NUysuxp0A==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZYkFdgZPevyBxDFOaXy1ky9inKzmIkKbL2G8nWrpj/A=; b=B1X1sKzdONTwBf
+	OIkRY0+l9ZGktoEwZ2uGmNSWUa2zuxuatpggbxAQdzqrGN1REqSdvOtA6lYYPxvhBaJyRxWGeir+o
+	Rv68GhkTG3U05hj5qFO+D3OUYm70KWZ5ZPVOvqXrNhQt7lr8kzqfHHox5+oQiu0VVus2AXNElPZOP
+	oZQXBrJOjofYsmIhcbCHCbT/d7j1DmpUTwbzy4Jjngqrri4CUk1JVellgGcjx8llZbi8bwlMxL+do
+	a3HXU4axzt5joT/92l2V2J30TUS+KfYRvGsWZhlaoejBmGo1+ymUgH+XOwIK/H4HX0HLmi3MziwHo
+	2OW4s21HB7+7UEyzDmhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6UWL-006zwg-32;
-	Fri, 24 Nov 2023 11:38:53 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1r6Ug5-0071V9-1p;
+	Fri, 24 Nov 2023 11:48:57 +0000
+Received: from mgamail.intel.com ([134.134.136.126])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6UWH-006zve-2p
+	id 1r6Ug2-0071TF-0g
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Nov 2023 11:38:51 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1cfa3f7fcd4so1325595ad.1
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Nov 2023 03:38:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1700825928; x=1701430728; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=xIniP635t4BDCH0OpyDCPI9DgPxQOg+yG0PZN+Nm/+4=;
-        b=C4E4iiKLZHrEkc+ZwuavFH1vOZee03GOKIaz3bI3X1lQpoK+qPrXQU8BxjZCzowSht
-         4yEv+4TAixsQA4Wwg360s+/eXvQi1aYrUI3IwB01Nq4vF+dzf1dYB7vHNDKqTRrOJ+eg
-         3fzk6R9JYqTqCNcgOwZ3Wm1dgw7kZNhlwrXY65oYX7Q96Xp7MCub+IIepWpxKTnQyWF+
-         s4rCMpRn1f43HU3RFHLsuVgDSRSRJtt5P39eAv2tmC7QrTTUT8dZBWnNNwBJZVFc9+zP
-         WLrBhemzgTDsRz5cHE0o0ValTkQgyb/wy3rID4N9AYRMsadFmKUPRfD71hmX3+OD/faQ
-         X5bQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700825928; x=1701430728;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xIniP635t4BDCH0OpyDCPI9DgPxQOg+yG0PZN+Nm/+4=;
-        b=oWj6sHnbw8aw9+sWlayYFZPT6MYY2INXNvTka6jkYCo0gTISElUfMXCWXJRVnoizac
-         pPQSzK6uUbRsQHPU9F3irrfSs3aUicRoU2C5izx4P6s8JqVizSx4zld7gmYw2jng7263
-         qeeX7f8US/RRySmfpCmE08A0XcGLHyqc2jb5GMMAWzxKspRD+uPhPJsabxcYQ1AF5uV2
-         Jro7A6ZpAiRhWJwRmuk7wiaR8HZHplPxz1ZOipdk8ITQFTYxAFfEVf/F1t1CiWjhKzKE
-         EBGXfViQ4l0Vz3nOC/0qfdTDSOyC+7tVoo3pPinfR2bJe2LVgtVIMBelupcQf1c6sEvI
-         JJVQ==
-X-Gm-Message-State: AOJu0YzPSGWMlw8F0vniV/L91sgbRTbB+OHRBLt9l11uKjrNOdDJNlGp
-	0ZHnYleV2z1wAbH5VhTUcEjc9w==
-X-Google-Smtp-Source: AGHT+IEHNA0kiGFMUTN9Hp8RK/+1pHNrUp5eg6LVcVSOLJTc8o1JeyeC0Hcy8YNXM6BkArrvicSJ4A==
-X-Received: by 2002:a17:902:ced0:b0:1cf:658f:d2d with SMTP id d16-20020a170902ced000b001cf658f0d2dmr2531156plg.5.1700825928102;
-        Fri, 24 Nov 2023 03:38:48 -0800 (PST)
-Received: from carbon-x1.. ([2a01:e0a:999:a3a0:3471:930b:671b:cf77])
-        by smtp.gmail.com with ESMTPSA id u4-20020a17090282c400b001bb1f0605b2sm2964966plz.214.2023.11.24.03.38.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Nov 2023 03:38:47 -0800 (PST)
-From: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Fri, 24 Nov 2023 11:48:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1700826534; x=1732362534;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=NWTZKPB6947/lzmM2oYhnJ+7TJUw4xxaIF4D9FZKFiY=;
+  b=S8YD1zXIl4sK749cD0bTpVrO9WlJP9UbmZN5ZVVegt4+I3m/GT/XaH8A
+   ClGl4sK52dT0OAga1fsGtEo8LClOFC5sNUHYtYxZ+rIqXgcReAsQUXriz
+   eMdN88WPPv9AIKpNE0xeO22otM1mFv5bc0YgvR2W1jrGPHCPfOxm1DhSf
+   2+6OVsoo9se1vKAw1ipAFNBb8VhINFoZpZ2J690C2X8RYtb0D2KNQoVET
+   h1KjPh8zMGOIXo4n1KmPXSC4VWKDoBqPCfnsFDIfZQdhxV2nOYB26bcdg
+   gEfAdhcNy/FZGzqKEBCN4RUz/z/6/VCzzgeT4VUkkmsYXK8Z+MXgWTmuT
+   Q==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10902"; a="377449241"
+X-IronPort-AV: E=Sophos;i="6.04,223,1695711600"; 
+   d="scan'208";a="377449241"
+Received: from fmsmga006.fm.intel.com ([10.253.24.20])
+  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2023 03:48:51 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10902"; a="1014884517"
+X-IronPort-AV: E=Sophos;i="6.04,223,1695711600"; 
+   d="scan'208";a="1014884517"
+Received: from lkp-server01.sh.intel.com (HELO d584ee6ebdcc) ([10.239.97.150])
+  by fmsmga006.fm.intel.com with ESMTP; 24 Nov 2023 03:48:46 -0800
+Received: from kbuild by d584ee6ebdcc with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1r6Ufr-0002iG-2D;
+	Fri, 24 Nov 2023 11:48:43 +0000
+Date: Fri, 24 Nov 2023 19:47:52 +0800
+From: kernel test robot <lkp@intel.com>
+To: Paran Lee <p4ranlee@gmail.com>, Namhyung Kim <namhyung@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Sean Christopherson <seanjc@google.com>, Li Dong <lidong@vivo.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	Ben Dooks <ben.dooks@codethink.co.uk>,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH v2] riscv: fix incorrect use of __user pointer
-Date: Fri, 24 Nov 2023 12:38:03 +0100
-Message-ID: <20231124113803.165431-1-cleger@rivosinc.com>
-X-Mailer: git-send-email 2.42.0
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: oe-kbuild-all@lists.linux.dev, linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	shjy180909@gmail.com, austindh.kim@gmail.com, honggyu.kp@gmail.com,
+	tegongkang@gmail.com, Paran Lee <p4ranlee@gmail.com>
+Subject: Re: [PATCH] perf callchain: Support riscv cross-platform
+Message-ID: <202311241453.S2nsKqhx-lkp@intel.com>
+References: <20231122155548.2449-1-p4ranlee@gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20231122155548.2449-1-p4ranlee@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231124_033849_913714_8D79D62D 
-X-CRM114-Status: GOOD (  16.11  )
+X-CRM114-CacheID: sfid-20231124_034854_295329_919B3CC7 
+X-CRM114-Status: GOOD (  16.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,113 +92,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlc2Ugd2FybmluZ3Mgd2VyZSByZXBvcnRlZCBieSBzcGFyc2UgYW5kIHdlcmUgZHVlIHRvIGxh
-Y2sgb2YgX191c2VyCmFubm90YXRpb24gYXMgd2VsbCBhcyBkZXJlZmVyZW5jaW5nIHN1Y2ggcG9p
-bnRlcjoKCmFyY2gvcmlzY3Yva2VybmVsL3RyYXBzX21pc2FsaWduZWQuYzozNjE6MjE6IHdhcm5p
-bmc6IGRlcmVmZXJlbmNlIG9mIG5vZGVyZWYgZXhwcmVzc2lvbgphcmNoL3Jpc2N2L2tlcm5lbC90
-cmFwc19taXNhbGlnbmVkLmM6MzczOjIxOiB3YXJuaW5nOiBkZXJlZmVyZW5jZSBvZiBub2RlcmVm
-IGV4cHJlc3Npb24KYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHNfbWlzYWxpZ25lZC5jOjM4MToyMTog
-d2FybmluZzogZGVyZWZlcmVuY2Ugb2Ygbm9kZXJlZiBleHByZXNzaW9uCmFyY2gvcmlzY3Yva2Vy
-bmVsL3RyYXBzX21pc2FsaWduZWQuYzozMjI6MjQ6IHdhcm5pbmc6IGluY29ycmVjdCB0eXBlIGlu
-IGluaXRpYWxpemVyIChkaWZmZXJlbnQgYWRkcmVzcyBzcGFjZXMpCmFyY2gvcmlzY3Yva2VybmVs
-L3RyYXBzX21pc2FsaWduZWQuYzozMjI6MjQ6ICAgIGV4cGVjdGVkIHVuc2lnbmVkIGNoYXIgY29u
-c3QgW25vZGVyZWZdIF9fdXNlciAqX19ndV9wdHIKYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHNfbWlz
-YWxpZ25lZC5jOjMyMjoyNDogICAgZ290IHVuc2lnbmVkIGNoYXIgY29uc3QgW3VzZXJ0eXBlXSAq
-YWRkcgphcmNoL3Jpc2N2L2tlcm5lbC90cmFwc19taXNhbGlnbmVkLmM6MzYxOjIxOiB3YXJuaW5n
-OiBkZXJlZmVyZW5jZSBvZiBub2RlcmVmIGV4cHJlc3Npb24KYXJjaC9yaXNjdi9rZXJuZWwvdHJh
-cHNfbWlzYWxpZ25lZC5jOjM3MzoyMTogd2FybmluZzogZGVyZWZlcmVuY2Ugb2Ygbm9kZXJlZiBl
-eHByZXNzaW9uCmFyY2gvcmlzY3Yva2VybmVsL3RyYXBzX21pc2FsaWduZWQuYzozODE6MjE6IHdh
-cm5pbmc6IGRlcmVmZXJlbmNlIG9mIG5vZGVyZWYgZXhwcmVzc2lvbgphcmNoL3Jpc2N2L2tlcm5l
-bC90cmFwc19taXNhbGlnbmVkLmM6MzMyOjI0OiB3YXJuaW5nOiBpbmNvcnJlY3QgdHlwZSBpbiBp
-bml0aWFsaXplciAoZGlmZmVyZW50IGFkZHJlc3Mgc3BhY2VzKQphcmNoL3Jpc2N2L2tlcm5lbC90
-cmFwc19taXNhbGlnbmVkLmM6MzMyOjI0OiAgICBleHBlY3RlZCB1bnNpZ25lZCBjaGFyIFtub2Rl
-cmVmXSBfX3VzZXIgKl9fZ3VfcHRyCmFyY2gvcmlzY3Yva2VybmVsL3RyYXBzX21pc2FsaWduZWQu
-YzozMzI6MjQ6ICAgIGdvdCB1bnNpZ25lZCBjaGFyIFt1c2VydHlwZV0gKmFkZHIKCkFzIHN1Z2dl
-c3RlZCBieSBDaHJpc3RvcGggSGVsbHdpZywgY2FzdGluZyBwb2ludGVycyBmcm9tIGFuIGFkZHJl
-c3MKc3BhY2UgdG8gYW5vdGhlciBpcyBub3QgYSBnb29kIGlkZWEgYW5kIHdlIHNob3VsZCByYXRo
-ZXIgY2FzdCB0aGUKdW50eXBlZCB1bnNpZ25lZCBsb25nIHRvIHRoZWlyIGZpbmFsIGFkZHJlc3Mg
-c3BhY2UuIEZpeCB0aGUgb25lcyBpbgpsb2FkX3U4KCkvc3RvcmVfdTgoKS9fX3JlYWRfaW5zbigp
-IGJ5IHBhc3NpbmcgYSB1bnNpZ25lZCBsb25nIGFuZCB0aGVuCmNhc3RpbmcgaXQgdG8gdGhlIGFw
-cHJvcHJpYXRlIHR5cGUgKF9fdXNlciBvZiBub3QpIGRlcGVuZGluZyBpZiB1c2VkIGluCmtlcm5l
-bC8gdXNlciBtb2RlLiBBbHNvIHJlbW92ZSB1bm5lZWRlZCBlbHNlIGNvbnN0cnVjdCBpbiBzdG9y
-ZV91OCgpLwpsb2FkX3U4KCkuCgpSZXBvcnRlZC1ieToga2VybmVsIHRlc3Qgcm9ib3QgPGxrcEBp
-bnRlbC5jb20+CkNsb3NlczogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvb2Uta2J1aWxkLWFsbC8y
-MDIzMTExNjA2MDYub2JHT093QjMtbGtwQGludGVsLmNvbS8KU2lnbmVkLW9mZi1ieTogQ2zDqW1l
-bnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPgotLS0KIGFyY2gvcmlzY3Yva2VybmVsL3Ry
-YXBzX21pc2FsaWduZWQuYyB8IDU1ICsrKysrKysrKysrKystLS0tLS0tLS0tLS0tLS0KIDEgZmls
-ZSBjaGFuZ2VkLCAyNSBpbnNlcnRpb25zKCspLCAzMCBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQg
-YS9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwc19taXNhbGlnbmVkLmMgYi9hcmNoL3Jpc2N2L2tlcm5l
-bC90cmFwc19taXNhbGlnbmVkLmMKaW5kZXggNWViYTM3MTQ3Y2FhLi5hOTJiODhhZjg1NWEgMTAw
-NjQ0Ci0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzX21pc2FsaWduZWQuYworKysgYi9hcmNo
-L3Jpc2N2L2tlcm5lbC90cmFwc19taXNhbGlnbmVkLmMKQEAgLTI2NSwxOSArMjY1LDE5IEBAIHN0
-YXRpYyB1bnNpZ25lZCBsb25nIGdldF9mMzJfcnModW5zaWduZWQgbG9uZyBpbnNuLCB1OCBmcF9y
-ZWdfb2Zmc2V0LAogI2RlZmluZSBHRVRfRjMyX1JTMlMoaW5zbiwgcmVncykgKGdldF9mMzJfcnMo
-UlZDX1JTMlMoaW5zbiksIDAsIHJlZ3MpKQogCiAjaWZkZWYgQ09ORklHX1JJU0NWX01fTU9ERQot
-c3RhdGljIGlubGluZSBpbnQgbG9hZF91OChzdHJ1Y3QgcHRfcmVncyAqcmVncywgY29uc3QgdTgg
-KmFkZHIsIHU4ICpyX3ZhbCkKK3N0YXRpYyBpbmxpbmUgaW50IGxvYWRfdTgoc3RydWN0IHB0X3Jl
-Z3MgKnJlZ3MsIGNvbnN0IHVuc2lnbmVkIGxvbmcgYWRkciwgdTggKnJfdmFsKQogewogCXU4IHZh
-bDsKIAotCWFzbSB2b2xhdGlsZSgibGJ1ICUwLCAlMSIgOiAiPSZyIiAodmFsKSA6ICJtIiAoKmFk
-ZHIpKTsKKwlhc20gdm9sYXRpbGUoImxidSAlMCwgJTEiIDogIj0mciIgKHZhbCkgOiAibSIgKCoo
-Y29uc3QgdTggKilhZGRyKSk7CiAJKnJfdmFsID0gdmFsOwogCiAJcmV0dXJuIDA7CiB9CiAKLXN0
-YXRpYyBpbmxpbmUgaW50IHN0b3JlX3U4KHN0cnVjdCBwdF9yZWdzICpyZWdzLCB1OCAqYWRkciwg
-dTggdmFsKQorc3RhdGljIGlubGluZSBpbnQgc3RvcmVfdTgoc3RydWN0IHB0X3JlZ3MgKnJlZ3Ms
-IHVuc2lnbmVkIGxvbmcgYWRkciwgdTggdmFsKQogewotCWFzbSB2b2xhdGlsZSAoInNiICUwLCAl
-MVxuIiA6IDogInIiICh2YWwpLCAibSIgKCphZGRyKSk7CisJYXNtIHZvbGF0aWxlICgic2IgJTAs
-ICUxXG4iIDogOiAiciIgKHZhbCksICJtIiAoKih1OCAqKWFkZHIpKTsKIAogCXJldHVybiAwOwog
-fQpAQCAtMzE2LDM0ICszMTYsMzIgQEAgc3RhdGljIGlubGluZSBpbnQgZ2V0X2luc24oc3RydWN0
-IHB0X3JlZ3MgKnJlZ3MsIHVsb25nIG1lcGMsIHVsb25nICpyX2luc24pCiAJcmV0dXJuIDA7CiB9
-CiAjZWxzZQotc3RhdGljIGlubGluZSBpbnQgbG9hZF91OChzdHJ1Y3QgcHRfcmVncyAqcmVncywg
-Y29uc3QgdTggKmFkZHIsIHU4ICpyX3ZhbCkKK3N0YXRpYyBpbmxpbmUgaW50IGxvYWRfdTgoc3Ry
-dWN0IHB0X3JlZ3MgKnJlZ3MsIGNvbnN0IHVuc2lnbmVkIGxvbmcgYWRkciwgdTggKnJfdmFsKQog
-ewotCWlmICh1c2VyX21vZGUocmVncykpIHsKLQkJcmV0dXJuIF9fZ2V0X3VzZXIoKnJfdmFsLCBh
-ZGRyKTsKLQl9IGVsc2UgewotCQkqcl92YWwgPSAqYWRkcjsKLQkJcmV0dXJuIDA7Ci0JfQorCWlm
-ICh1c2VyX21vZGUocmVncykpCisJCXJldHVybiBfX2dldF91c2VyKCpyX3ZhbCwgKHU4IF9fdXNl
-ciAqKWFkZHIpOworCisJKnJfdmFsID0gKihjb25zdCB1OCAqKWFkZHI7CisJcmV0dXJuIDA7CiB9
-CiAKLXN0YXRpYyBpbmxpbmUgaW50IHN0b3JlX3U4KHN0cnVjdCBwdF9yZWdzICpyZWdzLCB1OCAq
-YWRkciwgdTggdmFsKQorc3RhdGljIGlubGluZSBpbnQgc3RvcmVfdTgoc3RydWN0IHB0X3JlZ3Mg
-KnJlZ3MsIHVuc2lnbmVkIGxvbmcgYWRkciwgdTggdmFsKQogewotCWlmICh1c2VyX21vZGUocmVn
-cykpIHsKLQkJcmV0dXJuIF9fcHV0X3VzZXIodmFsLCBhZGRyKTsKLQl9IGVsc2UgewotCQkqYWRk
-ciA9IHZhbDsKLQkJcmV0dXJuIDA7Ci0JfQorCWlmICh1c2VyX21vZGUocmVncykpCisJCXJldHVy
-biBfX3B1dF91c2VyKHZhbCwgKHU4IF9fdXNlciAqKWFkZHIpOworCisJKih1OCAqKWFkZHIgPSB2
-YWw7CisJcmV0dXJuIDA7CiB9CiAKLSNkZWZpbmUgX19yZWFkX2luc24ocmVncywgaW5zbiwgaW5z
-bl9hZGRyKQkJXAorI2RlZmluZSBfX3JlYWRfaW5zbihyZWdzLCBpbnNuLCBpbnNuX2FkZHIsIHR5
-cGUpCVwKICh7CQkJCQkJCVwKIAlpbnQgX19yZXQ7CQkJCQlcCiAJCQkJCQkJXAogCWlmICh1c2Vy
-X21vZGUocmVncykpIHsJCQkJXAotCQlfX3JldCA9IF9fZ2V0X3VzZXIoaW5zbiwgaW5zbl9hZGRy
-KTsJXAorCQlfX3JldCA9IF9fZ2V0X3VzZXIoaW5zbiwgKHR5cGUgX191c2VyICopIGluc25fYWRk
-cik7IFwKIAl9IGVsc2UgewkJCQkJXAotCQlpbnNuID0gKmluc25fYWRkcjsJCQlcCisJCWluc24g
-PSAqKHR5cGUgKilpbnNuX2FkZHI7CQlcCiAJCV9fcmV0ID0gMDsJCQkJXAogCX0JCQkJCQlcCiAJ
-CQkJCQkJXApAQCAtMzU2LDkgKzM1NCw4IEBAIHN0YXRpYyBpbmxpbmUgaW50IGdldF9pbnNuKHN0
-cnVjdCBwdF9yZWdzICpyZWdzLCB1bG9uZyBlcGMsIHVsb25nICpyX2luc24pCiAKIAlpZiAoZXBj
-ICYgMHgyKSB7CiAJCXVsb25nIHRtcCA9IDA7Ci0JCXUxNiBfX3VzZXIgKmluc25fYWRkciA9ICh1
-MTYgX191c2VyICopZXBjOwogCi0JCWlmIChfX3JlYWRfaW5zbihyZWdzLCBpbnNuLCBpbnNuX2Fk
-ZHIpKQorCQlpZiAoX19yZWFkX2luc24ocmVncywgaW5zbiwgZXBjLCB1MTYpKQogCQkJcmV0dXJu
-IC1FRkFVTFQ7CiAJCS8qIF9fZ2V0X3VzZXIoKSB1c2VzIHJlZ3VsYXIgImx3IiB3aGljaCBzaWdu
-IGV4dGVuZCB0aGUgbG9hZGVkCiAJCSAqIHZhbHVlIG1ha2Ugc3VyZSB0byBjbGVhciBoaWdoZXIg
-b3JkZXIgYml0cyBpbiBjYXNlIHdlICJvciIgaXQKQEAgLTM2OSwxNiArMzY2LDE0IEBAIHN0YXRp
-YyBpbmxpbmUgaW50IGdldF9pbnNuKHN0cnVjdCBwdF9yZWdzICpyZWdzLCB1bG9uZyBlcGMsIHVs
-b25nICpyX2luc24pCiAJCQkqcl9pbnNuID0gaW5zbjsKIAkJCXJldHVybiAwOwogCQl9Ci0JCWlu
-c25fYWRkcisrOwotCQlpZiAoX19yZWFkX2luc24ocmVncywgdG1wLCBpbnNuX2FkZHIpKQorCQll
-cGMgKz0gc2l6ZW9mKHUxNik7CisJCWlmIChfX3JlYWRfaW5zbihyZWdzLCB0bXAsIGVwYywgdTE2
-KSkKIAkJCXJldHVybiAtRUZBVUxUOwogCQkqcl9pbnNuID0gKHRtcCA8PCAxNikgfCBpbnNuOwog
-CiAJCXJldHVybiAwOwogCX0gZWxzZSB7Ci0JCXUzMiBfX3VzZXIgKmluc25fYWRkciA9ICh1MzIg
-X191c2VyICopZXBjOwotCi0JCWlmIChfX3JlYWRfaW5zbihyZWdzLCBpbnNuLCBpbnNuX2FkZHIp
-KQorCQlpZiAoX19yZWFkX2luc24ocmVncywgaW5zbiwgZXBjLCB1MzIpKQogCQkJcmV0dXJuIC1F
-RkFVTFQ7CiAJCWlmICgoaW5zbiAmIF9fSU5TTl9MRU5HVEhfTUFTSykgPT0gX19JTlNOX0xFTkdU
-SF8zMikgewogCQkJKnJfaW5zbiA9IGluc247CkBAIC00OTEsNyArNDg2LDcgQEAgaW50IGhhbmRs
-ZV9taXNhbGlnbmVkX2xvYWQoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCiAKIAl2YWwuZGF0YV91NjQg
-PSAwOwogCWZvciAoaSA9IDA7IGkgPCBsZW47IGkrKykgewotCQlpZiAobG9hZF91OChyZWdzLCAo
-dm9pZCAqKShhZGRyICsgaSksICZ2YWwuZGF0YV9ieXRlc1tpXSkpCisJCWlmIChsb2FkX3U4KHJl
-Z3MsIGFkZHIgKyBpLCAmdmFsLmRhdGFfYnl0ZXNbaV0pKQogCQkJcmV0dXJuIC0xOwogCX0KIApA
-QCAtNTg5LDcgKzU4NCw3IEBAIGludCBoYW5kbGVfbWlzYWxpZ25lZF9zdG9yZShzdHJ1Y3QgcHRf
-cmVncyAqcmVncykKIAkJcmV0dXJuIC1FT1BOT1RTVVBQOwogCiAJZm9yIChpID0gMDsgaSA8IGxl
-bjsgaSsrKSB7Ci0JCWlmIChzdG9yZV91OChyZWdzLCAodm9pZCAqKShhZGRyICsgaSksIHZhbC5k
-YXRhX2J5dGVzW2ldKSkKKwkJaWYgKHN0b3JlX3U4KHJlZ3MsIGFkZHIgKyBpLCB2YWwuZGF0YV9i
-eXRlc1tpXSkpCiAJCQlyZXR1cm4gLTE7CiAJfQogCi0tIAoyLjQyLjAKCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Paran,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on perf-tools-next/perf-tools-next]
+[also build test ERROR on tip/perf/core perf-tools/perf-tools linus/master acme/perf/core v6.7-rc2 next-20231124]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Paran-Lee/perf-callchain-Support-riscv-cross-platform/20231123-000232
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git perf-tools-next
+patch link:    https://lore.kernel.org/r/20231122155548.2449-1-p4ranlee%40gmail.com
+patch subject: [PATCH] perf callchain: Support riscv cross-platform
+compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20231124/202311241453.S2nsKqhx-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202311241453.S2nsKqhx-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   Makefile.config:1176: libpfm4 not found, disables libpfm4 support. Please install libpfm4-dev
+     PERF_VERSION = 6.6.rc1.g1f4d296e5f76
+   util/unwind-libunwind.c: In function 'unwind__prepare_access':
+>> util/unwind-libunwind.c:43:17: error: label 'out_register' used but not defined
+      43 |                 goto out_register;
+         |                 ^~~~
+>> util/unwind-libunwind.c:28:13: error: unused variable 'err' [-Werror=unused-variable]
+      28 |         int err;
+         |             ^~~
+>> util/unwind-libunwind.c:25:38: error: variable 'ops' set but not used [-Werror=unused-but-set-variable]
+      25 |         struct unwind_libunwind_ops *ops = local_unwind_libunwind_ops;
+         |                                      ^~~
+   util/unwind-libunwind.c: At top level:
+>> util/unwind-libunwind.c:58:11: error: expected identifier or '(' before 'else'
+      58 |         } else if (!strcmp(arch, "riscv64") || !strcmp(arch, "riscv")) {
+         |           ^~~~
+>> util/unwind-libunwind.c:63:9: error: expected identifier or '(' before 'if'
+      63 |         if (!ops) {
+         |         ^~
+>> util/unwind-libunwind.c:67:13: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+      67 | out_register:
+         |             ^
+>> util/unwind-libunwind.c:70:9: error: data definition has no type or storage class [-Werror]
+      70 |         err = maps__unwind_libunwind_ops(maps)->prepare_access(maps);
+         |         ^~~
+>> util/unwind-libunwind.c:70:9: error: type defaults to 'int' in declaration of 'err' [-Werror=implicit-int]
+>> util/unwind-libunwind.c:70:42: error: 'maps' undeclared here (not in a function)
+      70 |         err = maps__unwind_libunwind_ops(maps)->prepare_access(maps);
+         |                                          ^~~~
+   util/unwind-libunwind.c:71:9: error: expected identifier or '(' before 'if'
+      71 |         if (initialized)
+         |         ^~
+>> util/unwind-libunwind.c:73:9: error: expected identifier or '(' before 'return'
+      73 |         return err;
+         |         ^~~~~~
+>> util/unwind-libunwind.c:74:1: error: expected identifier or '(' before '}' token
+      74 | }
+         | ^
+   util/unwind-libunwind.c: In function 'unwind__flush_access':
+>> util/unwind-libunwind.c:76:40: error: declaration of 'maps' shadows previous non-variable [-Werror=shadow]
+      76 | void unwind__flush_access(struct maps *maps)
+         |                           ~~~~~~~~~~~~~^~~~
+   util/unwind-libunwind.c: In function 'unwind__finish_access':
+   util/unwind-libunwind.c:84:41: error: declaration of 'maps' shadows previous non-variable [-Werror=shadow]
+      84 | void unwind__finish_access(struct maps *maps)
+         |                            ~~~~~~~~~~~~~^~~~
+   util/unwind-libunwind.c: In function 'unwind__prepare_access':
+>> util/unwind-libunwind.c:58:9: error: control reaches end of non-void function [-Werror=return-type]
+      58 |         } else if (!strcmp(arch, "riscv64") || !strcmp(arch, "riscv")) {
+         |         ^
+   util/unwind-libunwind.c: At top level:
+>> util/unwind-libunwind.c:16:13: error: 'unwind__register_ops' defined but not used [-Werror=unused-function]
+      16 | static void unwind__register_ops(struct maps *maps, struct unwind_libunwind_ops *ops)
+         |             ^~~~~~~~~~~~~~~~~~~~
+   cc1: all warnings being treated as errors
+   make[7]: *** [tools/build/Makefile.build:105: tools/perf/util/unwind-libunwind.o] Error 1
+   make[7]: *** Waiting for unfinished jobs....
+   make[6]: *** [tools/build/Makefile.build:158: util] Error 2
+   make[5]: *** [Makefile.perf:669: tools/perf/perf-in.o] Error 2
+   make[5]: *** Waiting for unfinished jobs....
+   make[4]: *** [Makefile.perf:242: sub-make] Error 2
+   make[3]: *** [Makefile:70: all] Error 2
+--
+>> diff: tools/arch/riscv/include/uapi/asm/kvm.h: No such file or directory
+     diff -u tools/include/uapi/linux/kvm.h include/uapi/linux/kvm.h
+     diff -u tools/include/uapi/linux/mount.h include/uapi/linux/mount.h
+     diff -u tools/include/uapi/linux/perf_event.h include/uapi/linux/perf_event.h
+     diff -u tools/arch/x86/include/asm/disabled-features.h arch/x86/include/asm/disabled-features.h
+     diff -u tools/arch/x86/include/asm/cpufeatures.h arch/x86/include/asm/cpufeatures.h
+     diff -u tools/arch/x86/include/uapi/asm/prctl.h arch/x86/include/uapi/asm/prctl.h
+     diff -u tools/arch/arm64/include/uapi/asm/perf_regs.h arch/arm64/include/uapi/asm/perf_regs.h
+     diff -u tools/arch/s390/include/uapi/asm/kvm.h arch/s390/include/uapi/asm/kvm.h
+     diff -u tools/arch/riscv/include/uapi/asm/kvm.h arch/riscv/include/uapi/asm/kvm.h
+     diff -u tools/arch/riscv/include/uapi/asm/unistd.h arch/riscv/include/uapi/asm/unistd.h
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
