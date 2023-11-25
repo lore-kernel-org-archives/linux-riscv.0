@@ -4,67 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0A61C4167B
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Nov 2023 15:37:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18097C4167B
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Nov 2023 21:27:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8izuF4HmzUlVYEQuqnIELNB/6TBD5jEm0WMQLM3bM6Y=; b=OlUmKuDDEU6icK
-	FscmzmGvywcZ/pDfO/lGU7R24kC7pkSLAlaIjI4qqj4arkUhThrsomPoNDFhXHGqS/2qF/FFjJsF6
-	4yNQ87l1dZXWB3dBsdLW7uZAoTEEAJxZgs9nRKTFcBPtgTzIXU88Rem1e429ZGPtJxpCOk07ZXvWa
-	lfbUhmx+ajgMWxwfokFowCCOOzRKIBk8rBWcLK2Wb5opchX5SQc3QG1IaJ8mKNzms2ZzM8Tix1jV7
-	dVTmRm4CHdMIWhK+rdFO4cpxzq+oeaETnGnjO3YV7nb0PMQ4v+L5Shd5RfGDmDTwXbdf6jMyfCuqN
-	2zF7tyOLGjQeFjOOSkqw==;
+	List-Owner; bh=H1ZSgjL2fjKWDFyxjaH8Voy59n30gFszF99qD0dYvB4=; b=4mRcuMDgmyj9jI
+	M5g7D5SV/A79PACMKkiFBY3Iw38gVkWo9VbdKlwmXYCK/WRr5LL/LKBQYxzGjp19NMNiuqUmtQJ2T
+	Wna6MCROeFgcXaBI7ePBw15N7GiPC38NNCotxWXvl4vOetm5FUVyV9Pz1GaumQd37yjETOo7iKf/J
+	jY+pVbQe6ZeP5P8besTEx7YPSTTuvSvL/oKBOIdBcIHZkXHxBgqW6w3bRzlWFZNoo6SM4sssh5Eyd
+	0rLNf3yrrdMhTI184bRAQAr142SR1ygPn7ZbaBXvkpVcdU9vYL68IsuOvv5dw152cIwvKRDOlIXX7
+	RzMXd8HgrFBWMadTzcUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6uir-009QKH-0S;
-	Sat, 25 Nov 2023 15:37:33 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
+	id 1r70Bi-009pXl-0i;
+	Sat, 25 Nov 2023 21:27:42 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6uio-009QIz-0j
-	for linux-riscv@lists.infradead.org;
-	Sat, 25 Nov 2023 15:37:31 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-323-ACZXAgEhNOSnwO7T2ON0-A-1; Sat, 25 Nov 2023 15:37:22 +0000
-X-MC-Unique: ACZXAgEhNOSnwO7T2ON0-A-1
-Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
- (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Sat, 25 Nov
- 2023 15:37:39 +0000
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Sat, 25 Nov 2023 15:37:39 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: =?utf-8?B?J0Nsw6ltZW50IEzDqWdlcic=?= <cleger@rivosinc.com>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-CC: Christoph Hellwig <hch@infradead.org>, Ben Dooks
-	<ben.dooks@codethink.co.uk>, kernel test robot <lkp@intel.com>
-Subject: RE: [PATCH v2] riscv: fix incorrect use of __user pointer
-Thread-Topic: [PATCH v2] riscv: fix incorrect use of __user pointer
-Thread-Index: AQHaHsrcAiRrTVkzkEi8HCpEAmrYerCLK9Cg
-Date: Sat, 25 Nov 2023 15:37:39 +0000
-Message-ID: <bf7dfadfc8a94e3f810a8ba238f77543@AcuMS.aculab.com>
-References: <20231124113803.165431-1-cleger@rivosinc.com>
-In-Reply-To: <20231124113803.165431-1-cleger@rivosinc.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+	id 1r70Be-009pXB-1y;
+	Sat, 25 Nov 2023 21:27:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1700947658; x=1732483658;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=2msMvypUB/fdSacdfq9Xd4cZCJy1Df5Vy8rcx7wAbvU=;
+  b=ZMk/S1qeHSKcX+mWViGYXioMOKJRIU99fJAvsrzRXhCDmkiHrGn3Husb
+   wr2oovuKtojdfIUHFaHz9cRLkR7vTtADlSkE5vrpqMxnI8BRHEF+denVu
+   iC2R1ugHwFN3btFkwoi3UzJO5A4UncMLGTHrwOBvklW+/q1rqctejJ221
+   9GLCee4BebUF93Rx7wLEOFKrhaxDJXb7xrTXNE8vah9cJCTSFjInJgqQX
+   lZ6N0rboOe08sXIuRcpm6+Sz+5+2j7uLug2MjNYIymtpFLqSemMtcj3cq
+   PGfwW9HaJlyQKtyC09i+uWuPbXbAxFVfVGAgfQCvDLvR7qZOUWHv6fZcj
+   g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10905"; a="5698986"
+X-IronPort-AV: E=Sophos;i="6.04,227,1695711600"; 
+   d="scan'208";a="5698986"
+Received: from orsmga007.jf.intel.com ([10.7.209.58])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2023 13:27:08 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10905"; a="761258825"
+X-IronPort-AV: E=Sophos;i="6.04,227,1695711600"; 
+   d="scan'208";a="761258825"
+Received: from lkp-server01.sh.intel.com (HELO d584ee6ebdcc) ([10.239.97.150])
+  by orsmga007.jf.intel.com with ESMTP; 25 Nov 2023 13:27:04 -0800
+Received: from kbuild by d584ee6ebdcc with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1r70B3-0004RK-3B;
+	Sat, 25 Nov 2023 21:27:01 +0000
+Date: Sun, 26 Nov 2023 05:26:14 +0800
+From: kernel test robot <lkp@intel.com>
+To: Baoquan He <bhe@redhat.com>, linux-kernel@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	kexec@lists.infradead.org, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-parisc@vger.kernel.org, akpm@linux-foundation.org,
+	joe@perches.com, nathan@kernel.org, yujie.liu@intel.com,
+	Baoquan He <bhe@redhat.com>
+Subject: Re: [PATCH v2 4/7] kexec_file, arm64: print out debugging message if
+ required
+Message-ID: <202311260548.1HaxcDnE-lkp@intel.com>
+References: <20231124033642.520686-5-bhe@redhat.com>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+Content-Disposition: inline
+In-Reply-To: <20231124033642.520686-5-bhe@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231125_073730_546459_0BA945C6 
-X-CRM114-Status: UNSURE (   8.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231125_132738_685623_EBCB33DD 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,30 +90,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-...
-> @@ -491,7 +486,7 @@ int handle_misaligned_load(struct pt_regs *regs)
-> 
->  	val.data_u64 = 0;
->  	for (i = 0; i < len; i++) {
-> -		if (load_u8(regs, (void *)(addr + i), &val.data_bytes[i]))
-> +		if (load_u8(regs, addr + i, &val.data_bytes[i]))
->  			return -1;
->  	}
+Hi Baoquan,
 
-I'd really have thought that you'd want to pull the kernel/user
-check way outside the loop?
-In any case, for a misaligned read why not just read (addr & ~7)[0]
-and (if needed) (addr & ~7)[1] and then ahift and or together?
+kernel test robot noticed the following build errors:
 
-clang will do it for misaligned structure members with known
-misalignment, but it is almost certainly also better for reads
-with unknown misalignment.
+[auto build test ERROR on arm64/for-next/core]
+[also build test ERROR on tip/x86/core powerpc/next powerpc/fixes linus/master v6.7-rc2 next-20231124]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-	David
+url:    https://github.com/intel-lab-lkp/linux/commits/Baoquan-He/kexec_file-add-kexec_file-flag-to-control-debug-printing/20231124-113942
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
+patch link:    https://lore.kernel.org/r/20231124033642.520686-5-bhe%40redhat.com
+patch subject: [PATCH v2 4/7] kexec_file, arm64: print out debugging message if required
+config: arm64-randconfig-001-20231126 (https://download.01.org/0day-ci/archive/20231126/202311260548.1HaxcDnE-lkp@intel.com/config)
+compiler: clang version 14.0.6 (https://github.com/llvm/llvm-project.git f28c006a5895fc0e329fe15fead81e37457cb1d1)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20231126/202311260548.1HaxcDnE-lkp@intel.com/reproduce)
 
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202311260548.1HaxcDnE-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> arch/arm64/kernel/machine_kexec.c:35:2: error: implicit declaration of function 'kexec_dprintk' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+           kexec_dprintk("%s:%d:\n", func, line);
+           ^
+   1 error generated.
+
+
+vim +/kexec_dprintk +35 arch/arm64/kernel/machine_kexec.c
+
+    27	
+    28	/**
+    29	 * kexec_image_info - For debugging output.
+    30	 */
+    31	#define kexec_image_info(_i) _kexec_image_info(__func__, __LINE__, _i)
+    32	static void _kexec_image_info(const char *func, int line,
+    33		const struct kimage *kimage)
+    34	{
+  > 35		kexec_dprintk("%s:%d:\n", func, line);
+    36		kexec_dprintk("  kexec kimage info:\n");
+    37		kexec_dprintk("    type:        %d\n", kimage->type);
+    38		kexec_dprintk("    head:        %lx\n", kimage->head);
+    39		kexec_dprintk("    kern_reloc: %pa\n", &kimage->arch.kern_reloc);
+    40		kexec_dprintk("    el2_vectors: %pa\n", &kimage->arch.el2_vectors);
+    41	}
+    42	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
