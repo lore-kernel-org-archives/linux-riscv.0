@@ -4,83 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D0AC61DF7
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Nov 2023 06:38:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C5A4C61DF7
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Nov 2023 06:42:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8hhOoCvCTAjFsmRzc3keWdbgEFrsSDLs8Horwpky//k=; b=ultPhkcIm/9c7u
-	Bzo4rKfvjmxRL0Ku+Jgpv8kOTz/xzwK4Iv52s4JS/u6yL7Mo6mk73nJdeYa9xJ/RYENyfTrBAPNbH
-	KEZo9mBERxxaMgkM3Ruk01CuT6F4ZeOTmprdbA0Siy5Jd7nGClE2lKEaLYycjxVNBYWuXjy69XDRB
-	wKLb/0A2B7qk639mGx8B2JqFv4CxpvpfrCxGx5ML7yi8DGlk7ylAi0R7BWwtnHiWzPU6oqNUrLhFD
-	9pGGtAfMXnveq/uk6wewos/8OxlkEzlD8nZPP8Qsl9X4J+aozur5ci55zRFSfdR+mJzhe7VjYqnX/
-	Gao6/jln0tdfxwyXgkmA==;
+	List-Owner; bh=C4KZnV1nRgUs8Eercrc/j7tvEpo5ZbDLK+IK1MBijMY=; b=zDPtD2135Lr7qg
+	PuPjxz0aFG1V6B6WKysqQYqc4iTn+wf7tZv3KfFebdqczdImW+E5PtEOpH+RTc3/NjE5vzE+CAX66
+	vwZwSQMLnUdSYjGTPiR3VwVtgEZWB6jgxiUzqiPVW/5cF0ABoPH4DOEJggcqElHDz3Byeu/xFr7gT
+	LQkerLlWAH0a5e0NWG0t1ewc71W5iKTGlkQiPqkzaBrT4IFzCMO+o0H9ISc0uX4qSvRvMxqXgI+T1
+	mwZjCjadR+OqzSe0bDdW7ogJ1279ohOwLp4DU6ZqPwQ9bavaok41HJ5nGs/Aiy/+RO0dzPDkTOKk3
+	RcZPwvuC3NaDkuLdcLwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6mJS-008hVL-0W;
-	Sat, 25 Nov 2023 06:38:46 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1r6mNJ-008hse-39;
+	Sat, 25 Nov 2023 06:42:45 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r6mJO-008hUi-15
+	id 1r6mNG-008hr6-2g
 	for linux-riscv@lists.infradead.org;
-	Sat, 25 Nov 2023 06:38:44 +0000
+	Sat, 25 Nov 2023 06:42:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1700894322; x=1732430322;
+  t=1700894563; x=1732430563;
   h=from:to:cc:subject:date:message-id:references:
    in-reply-to:content-transfer-encoding:mime-version;
-  bh=IXFBoxFXBtMc80h1d6/q+oeMzCcUDVVAQBDgoO/3dy0=;
-  b=Xnmj7IxaGYMkubI6esUysqVMkm27sRrU3iIKwfO+6lzVB55M6Y0M69XR
-   mdNxPTlVb4/3gmvPgYRZ5PJIn401Bn9D8DEqM3zQryd2FTYFvPO2VQQ+3
-   kyQfYLyBRaeMBdalw/KwpzYsGommcDoFhRFWe5zm255VZROpRpr+JdzmN
-   jeoYeEgV/9Vy7j4pFZ+uzA2gRwxDzPvxg9vC4V2ZMp3Od56MTA+lrKzd0
-   IfhU15/fY8o66UQFtsV701fiqblCcad7yncAja8PM1bS+SWEFMjNRN8uC
-   jlm+Tu0xDlRylXAj+G/C13H7S8beZE0MvWL2zaBVBjwvCyGUcmSLE5gtP
-   A==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10904"; a="5728754"
+  bh=zDgsg3FGusXIcd9qWrsvatJR5Tz0B0eitk4iutuj/10=;
+  b=gV2SsVqo1OUh60iJophxDpgE1uEDV6VjJkjdqaKW+vQVgpJmcVU3adg7
+   oE04C8oX73tg2jqx/JBp+gYs/W9XaP97obW/v+KHYeR6bY5jjZj11a7Gq
+   tNolFUId32XRXNSFBa3cHsFAEltf/0LcFFASw1Jl7bT4AXbpKqjoGapg1
+   hlxZsiCPyNx2py3t5JoCRUanPmwrrNM68F/ifDZ7414S/pfity8ftiAsn
+   dgtNXL/CcAmLf/UxRCA6sm0gg+2OCWGDbMP/Lsc6/KlMFB1IiLkQIOKeB
+   8iJ5xT4MFN6ip/8nLZCDdBripOnYKWohppy6NqMuEKJYVR/it0u0sLOYW
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10904"; a="14055639"
 X-IronPort-AV: E=Sophos;i="6.04,225,1695711600"; 
-   d="scan'208";a="5728754"
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2023 22:38:38 -0800
+   d="scan'208";a="14055639"
+Received: from orsmga002.jf.intel.com ([10.7.209.21])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2023 22:42:42 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10904"; a="911615192"
+X-IronPort-AV: E=McAfee;i="6600,9927,10904"; a="767660344"
 X-IronPort-AV: E=Sophos;i="6.04,225,1695711600"; 
-   d="scan'208";a="911615192"
-Received: from fmsmsx602.amr.corp.intel.com ([10.18.126.82])
-  by fmsmga001.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 24 Nov 2023 22:38:37 -0800
-Received: from fmsmsx612.amr.corp.intel.com (10.18.126.92) by
- fmsmsx602.amr.corp.intel.com (10.18.126.82) with Microsoft SMTP Server
+   d="scan'208";a="767660344"
+Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
+  by orsmga002.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 24 Nov 2023 22:42:42 -0800
+Received: from orsmsx611.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.34; Fri, 24 Nov 2023 22:38:37 -0800
-Received: from fmsedg601.ED.cps.intel.com (10.1.192.135) by
- fmsmsx612.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ 15.1.2507.34; Fri, 24 Nov 2023 22:42:41 -0800
+Received: from orsmsx612.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX611.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.34 via Frontend Transport; Fri, 24 Nov 2023 22:38:37 -0800
-Received: from NAM11-BN8-obe.outbound.protection.outlook.com (104.47.58.169)
- by edgegateway.intel.com (192.55.55.70) with Microsoft SMTP Server
+ 15.1.2507.34; Fri, 24 Nov 2023 22:42:41 -0800
+Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
+ orsmsx612.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.34 via Frontend Transport; Fri, 24 Nov 2023 22:42:41 -0800
+Received: from NAM11-BN8-obe.outbound.protection.outlook.com (104.47.58.168)
+ by edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.34; Fri, 24 Nov 2023 22:38:35 -0800
+ 15.1.2507.34; Fri, 24 Nov 2023 22:42:37 -0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=oOwiui/XXVKq5Oa73Ow/wYDrqI5Ga6F7mjC2JWWKgTo/6E0mlCJIT5j21RlonUyxPcQ3XJ1dK575zx48YputiHJxk5UFNSJZCO/KKfSLqfZPY/TmcZOSkxR/dJNXvVcUosX00ocQnhHogZVZoK/dn71HsIOFqKOWZD1R9eFSXQ7l1uR4jgd4DopglMnsnPHy941YslZit4ufqKjOkom5HGbJluGQ9yxArV1VmNtQvC2NrU5gnXxiXbeiK5mfX385Ug2wSVcFBlyDQJ+/KponKHR5hoi/qFqwn1gpTaaXsLDZqOa6ccIHbJWLt8RIBArCW6Hb9kkE4tKDoijPpRVTbA==
+ b=fck29rVWJW/Cn6vzMucR2I3zb13eCBUAa5EILmZki6UJRqBwYJOd3fiux4maH1X3WzKpxZYCsSETWAvWrFQgtWZD85dagXKwMFS6QhP6u8qmckOVEGM0cq54Kow9omcJFZggDdhcpWxlo6N1137D0l5EaQ/DK5ubAYdy5sJSJRid0K/cWWSwqOpbZciATtC/Au5zt1WdWGUD4tfmGG7eoYgobG6bLbjwzAAi2Hn54zwdKGazwDgDLVQnqL1u1YHxJ0zXwM/q5XQdgDZOToEHHlJUTxJafmG99eqX+D0sWJThjvX43cskRkI03ETgChwdsCv0Z5jK8q8pQpTt2R44Ng==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IXFBoxFXBtMc80h1d6/q+oeMzCcUDVVAQBDgoO/3dy0=;
- b=bv07C2+DjJE7gVZd8Y4ydwb52hsqmVesDRA3DGzG6sdWgGFmrn6mG5i6OSDeipyAOORkUCgo4SHjK9oY0Y0R87XSgOLUzNC3XlKQueCGwLcj5un4QLSJu6TZRnTZV852Djbt843DAOi3VsdMT8D8I8ygd/iq5N3OcdmCM75zbEgqdxAw8YrcHYPJR20IoQyMB/aDUK5dRZEkEHxl007/WKoEXbK+FdrrDUVtLYdzccwXiURpyhi0oNgAS8kNNxHC4BRu6qHxFj8PMKsp7jrnoNtn/sWkhVvwjH8N7fWUC8LHTEXWDNbXyx+r63tA35lk48nmeZbSCTEsGvQ1YtPXHQ==
+ bh=zDgsg3FGusXIcd9qWrsvatJR5Tz0B0eitk4iutuj/10=;
+ b=NlTvYzFDlHPEIXoF8/ArbwC3qRCLYC1JCFSpECTqZ2O0Tdviok67K8xmdOvRpklneniaUFZPhQJus0P5+ntbiyTEtC93lw12LYhf6DRdkqLfMmZsZsQL4owKz0xibN6Wx/4MbboGBl8l1tYCxrh2RSFn4YSHxTsDhi1ehdS+qGfHDgt7vu1QpVLK5H4dMABbLjaZnuPJaotxGDKMEPtYi3Bowk6SRW28YZ+JifajTnd3leuIx41AZyItWVxPY4UMp7NIBgAWEfgJ4nHw4c+N3V+Yy3AuDFMnDJsdHPRL7+MA6OJbPdqtDxT3kjD77ScqsqA4LiVT4g3AHkGsb+QSVA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
  dkim=pass header.d=intel.com; arc=none
 Received: from DM8PR11MB5751.namprd11.prod.outlook.com (2603:10b6:8:12::16) by
  DM4PR11MB6264.namprd11.prod.outlook.com (2603:10b6:8:a5::9) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.7025.24; Sat, 25 Nov 2023 06:38:33 +0000
+ 15.20.7025.24; Sat, 25 Nov 2023 06:42:35 +0000
 Received: from DM8PR11MB5751.namprd11.prod.outlook.com
  ([fe80::d070:1879:5b04:5f57]) by DM8PR11MB5751.namprd11.prod.outlook.com
  ([fe80::d070:1879:5b04:5f57%4]) with mapi id 15.20.7025.022; Sat, 25 Nov 2023
- 06:38:33 +0000
+ 06:42:35 +0000
 From: "Wang, Xiao W" <xiao.w.wang@intel.com>
 To: Charlie Jenkins <charlie@rivosinc.com>, Palmer Dabbelt
 	<palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, Samuel Holland
@@ -92,14 +96,14 @@ To: Charlie Jenkins <charlie@rivosinc.com>, Palmer Dabbelt
 CC: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
 	<aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, Conor Dooley
 	<conor.dooley@microchip.com>
-Subject: RE: [PATCH v11 3/5] riscv: Add checksum header
-Thread-Topic: [PATCH v11 3/5] riscv: Add checksum header
-Thread-Index: AQHaGZz9ffOuNJ7RfECBYl54jfwiyrCKoFjw
-Date: Sat, 25 Nov 2023 06:38:32 +0000
-Message-ID: <DM8PR11MB575199D2693923C5A538457EB8BFA@DM8PR11MB5751.namprd11.prod.outlook.com>
+Subject: RE: [PATCH v11 4/5] riscv: Add checksum library
+Thread-Topic: [PATCH v11 4/5] riscv: Add checksum library
+Thread-Index: AQHaGZ0Aj4BzX6PH5E2v19ATE2XBZbCKoZBw
+Date: Sat, 25 Nov 2023 06:42:35 +0000
+Message-ID: <DM8PR11MB5751DDA0B278E4E43B59197EB8BFA@DM8PR11MB5751.namprd11.prod.outlook.com>
 References: <20231117-optimize_checksum-v11-0-7d9d954fe361@rivosinc.com>
- <20231117-optimize_checksum-v11-3-7d9d954fe361@rivosinc.com>
-In-Reply-To: <20231117-optimize_checksum-v11-3-7d9d954fe361@rivosinc.com>
+ <20231117-optimize_checksum-v11-4-7d9d954fe361@rivosinc.com>
+In-Reply-To: <20231117-optimize_checksum-v11-4-7d9d954fe361@rivosinc.com>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
@@ -108,64 +112,64 @@ authentication-results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=intel.com;
 x-ms-publictraffictype: Email
 x-ms-traffictypediagnostic: DM8PR11MB5751:EE_|DM4PR11MB6264:EE_
-x-ms-office365-filtering-correlation-id: fa2f1691-e4c1-4654-40b9-08dbed8124de
+x-ms-office365-filtering-correlation-id: f128119e-6fbe-4968-4022-08dbed81b592
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: rG6Y9FGqptfnuAsU9aghHOrBsCLPIb7b1RaP3fL+H7GsDozx50Mtk5CwtmxTfeABM/QVUdWO7HQujN/JuusAjpdPupZZtA5civ5zW6/LCCL/bxZkCEzsek3kd1wJiaaNvRk0SKgc2KXd6W8mgOols5xa3ICDmswf2exMHDDN6sfqrWjwr2iIpoaFmpWzfYC1oMTzFKtMY71tt8Lq6I/iv4kFmVoXJ8Ejk9c36IDnM4teNtw9AJctHvsVn0UoSe42IBHSO0mPIiCFTuIDDkgz7XYairECyQAipsf3qyWSjqbokh6tGMWUYpsw6FaOlTe8yEDl6Y4y2YmtgJgR0gn7C4FP6e5P/Xwxl7UpyEK/CAsbYV8NF0BtotJbNOZU3X5z94F7EzI3HnqVM9DvIpQoY2xwCfrZJCQWqe4oKTfab1XkhIkKWc+mMCQQ6phDZtdrd6S0x6R3FHZIfE48YA5wtVoXTEdtNVOCVxofB0lIK3y2DEfibK5PJhi7PjETQY5K0TjxC32ezWIW7f5wE0wCy/pkJWk5AvJsfAke1Fk6gdl9aQVANbyDX2ySurxmouP5UKQQS3ygMhu1JztX57kyVIvbpyMaxRPYBJM9hqbJUHFfe/kEK5xnwV5SpVQ1eSwc
+x-microsoft-antispam-message-info: IX8fShq6WWH151VBwcTO/oLdU13HeWSpbXyKmpG2v6HcSoaZcX/Jr8G8ARE6TBqPTvzj3K6ePjn9AqBXt4PLn1l1xvBKDWS5bHPjbFiYlHMS1qLHeCtR7S4PgCUFo1+GujvaToXEve5lLcy+wtT6JTwr4aMJN32IyumBmxqEZt1yoQiEcCrVMbMVhhlpyiy0Nw6a3SGlYyJwwO5ypUH8oMlzTx0TsOY/XRGuHMZ7A0NuIF4d9wRDyabPl9eXScxB/Z82Cb/utQqEDYkZZtgoWWbyTIqTezjPJsF9AdyNx5gmTkLSlwsB5vpElfq+V2dKZdWO2m25QU8H2WDERSJnEwrB4kf4igAaC8jHkGC6kQ0ueNYm27kNJ2+wM1pTEb8bU0NaNHGajhp1l1BhutXjRyJNqt4FJ2dDlVBr9cUqKtzfqAAOXgbtwGtoozg+gPEQUIGCJ1kNI6jg5rTQUUvFrjao0tt9kvSIWZ+ikzvow/JId4D8llm9404w3n7oAxxAvjb1Z1fT4okSr/9ssSziyh5KJvw8pLoacUg2FsJfgK9OLcasP+/iF5gAQJr3Ck8NXtrycpHby9j4eQyihaphtKM/nJzvQ4mjlncILJgmQXU=
 x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM8PR11MB5751.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(396003)(346002)(366004)(376002)(39860400002)(136003)(230922051799003)(451199024)(186009)(64100799003)(1800799012)(76116006)(66476007)(66446008)(64756008)(54906003)(316002)(52536014)(66556008)(66946007)(8936002)(8676002)(4326008)(478600001)(110136005)(7416002)(86362001)(5660300002)(2906002)(41300700001)(71200400001)(33656002)(122000001)(38100700002)(7696005)(6506007)(53546011)(9686003)(83380400001)(26005)(82960400001)(38070700009)(55016003);DIR:OUT;SFP:1102;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?ZWNvZ2g4N3hPUFNUeHhIOC82Z2pNSHg0VW42dS9xRDdVd1BYbE9qdWliMlZI?=
- =?utf-8?B?RGdIem03S0g0ejZiZlhpcFZCRFEwcWc2U2hhMVdZQmlpTUxTMU1zYnBFc1NY?=
- =?utf-8?B?bDJ5VFRpTG1tVWo0RkM0VlYvZ2lhNXp0MVR2RUtnZTQzTGxaUzRCL25KUzRn?=
- =?utf-8?B?dU01ZkNSV0xVT2FadThocklFbTVQQmJpdGliOVhHU05tdE9henY0SlJZTUV2?=
- =?utf-8?B?bTlLQUVVWkY0Mm13aHNUZHp0V3NQMGxPYnJYQmI5ckpKNjhqOGF0U1Bla2Yz?=
- =?utf-8?B?RmIrYzlmZFpEaXdEM21oKzNvTWtHWlRFYk9NRDVCbXRLWXhheFdkYThQaXNE?=
- =?utf-8?B?b0xJWU9LK3NqOW1EandidktLUFYwaWd5SG8raVh4OW45LzdGeGZMZmdmdmFQ?=
- =?utf-8?B?REZic3kyZE8xcTdaTklMTVpsTmxGYk9PMGJodm5Od3cxSFcxT0k3UXRDeFhC?=
- =?utf-8?B?d3NwL04yVlNOUFNYOGZMR1dzS2cvREUzNWkramxEYnM1cFllMURwNUhrbW9N?=
- =?utf-8?B?VlNqcVo1bDM1QkJuQ2xXTVRIcGZXZ3JiaWxBM09OVC9waUZlanpEbnNWTjFD?=
- =?utf-8?B?cjFkMjN1b3RrVGUvWGRRNDB6bmhxbVJkdWJMR1VSWmVib2xmVmE5S3BGMWxx?=
- =?utf-8?B?MjhOZks1UlRvRUdJcmFrOG5Fdm5DdDdURWJlYzFHN0NCYmFDK2VzTmx0WXUy?=
- =?utf-8?B?dHY2R2hXK05OL3Z2UTVnTkVVZnFsajhDMjZqb1R2WTJzbUNFYlg5RUVNeit4?=
- =?utf-8?B?QldYTGpqajlDNExXbEJBQWJRL1JrcXAyajc1empYVGdlOUVheFJWNFo5Z21G?=
- =?utf-8?B?L3lFY0J3L2lmWVJOQk5lTGlwbTRZRmY5WURydGQ0Vk12VnNxZG5mUXlTSXVQ?=
- =?utf-8?B?TXJyNzB1eDNTVk83UEpOOUp6TnJKSGVWNTk1UEsyM0gwbGNvYldUR01nSXVp?=
- =?utf-8?B?d2xVSDhES3JLNmNrYnY4eEV5RVZ3OE1zdllQeUVTN1lWcEw3ODM1R1JjMmwv?=
- =?utf-8?B?NVpIWFJCVUNpL0NnUHlMcm1meXNYeEs3bHY4Q1pQeDVrU1FlL2l2b3c2MTR0?=
- =?utf-8?B?WnZ0TEdHbDFqWHloV1FwNVZEKzE2djJUWU9ZRlk0VHNkQW9wNG41Vk5SNnhP?=
- =?utf-8?B?cXQ1VGkzZFF1T1cxeU5HNmIxVXZnWnBrRndPZURVWEJFOXYxeS9LeStXdmFp?=
- =?utf-8?B?TDdwVWZrYTN2RldncTRzVStXdWM1YW10RDUvWThRYlVVRisyZXVCOWdHaVcy?=
- =?utf-8?B?K1RPbUlqOWhmSWdiRTNqeW5WY3BsTFZrQ2duNDRFaWVUYXpTTFhJclp6WVJX?=
- =?utf-8?B?WDA3bHd6dlBQNklHK3Vkd3RmbCtnUGx6d2JDOTNyUFFTQmlvU2l1eE5ONHRm?=
- =?utf-8?B?WXEyTlloWVFCTDRVdVRYQ05hUTNiTTVpeVRMb2hraVhuSkgzN0c2azZtdzNU?=
- =?utf-8?B?ekVQaVdXa3ZkeTllbTF6Y1c2T2VTUHlUSWJIRVoxZmNERjJyNHMyTlEwZmFI?=
- =?utf-8?B?d1d5UWcxaUVOd3NONTZKSmhvWlR3dm9nRWNEa0dDdWI2dGJ5K2s3WkZqSVFF?=
- =?utf-8?B?Nk5VQ243YXVvTjBKeGlFWk9oWDhZN09QVERNaVQ5NExpaWRXRTVmYXNDYmx1?=
- =?utf-8?B?QjJQZGRLV21QWi8rN3M3MUxhQjlKMnNjRnFNeGRNU1dFVlNKS05sZlRCQk9C?=
- =?utf-8?B?RkxidzI0VlFFcXE5bk53WVlvMWVzMkhZMWhEQ0pYL1E4eGQxN2ZIMXRuOFlI?=
- =?utf-8?B?Q3F5L0sxb2hXeDMreFJmdUxOYitwQlFEN3dqeUpiWGNWUVlUeWp6YlNERkxL?=
- =?utf-8?B?NjNXa2dqRkdFZzlZK3kzTFlRQUJOcEVxUU8zQjkwcko0dVdyNDRiSFhqRlZZ?=
- =?utf-8?B?WWE1V2VtMEJqNEdCZ2RybzZTRlNDTkRXL2ZTSzRtYWlEaVF2KzBkT1RxWGZC?=
- =?utf-8?B?YkFXZm5qUmh5Ty9OTzZrbHZoTGpORCt3K0I0NnNxeXd5WHhaL0l3K284U2Rm?=
- =?utf-8?B?cHM5SngwZitMaXNlUGc3QkIxRHpzRXdqMkZXZ2pGRW1VREdVMVQ3U1lxUkpL?=
- =?utf-8?B?RDVGa3JMSE9SajUyL1NVWDFaNWtZeFJKMEZ1cFdHSGxENnhCS2xRM3pkN0lX?=
- =?utf-8?Q?hQK9gVLH8ylbQvZDuY7rKvmNZ?=
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?V0dMcnpyQnJEbnRWZnQzcDdaVUdCeDh4Mm9tMnNkOVRpMkd1Qy9KN3p2RTRz?=
+ =?utf-8?B?OFlVOTMrTUF3VjV6WkZhNUF6dTRibXloVXdzVkRDUjViS2hHNXlXeGcrY0ZU?=
+ =?utf-8?B?aHhmYUJHVnY3MkxFbHJwbUJsS29oOGRkOUFRbFBpM3hBeTBNd2Frd3A0Nlhu?=
+ =?utf-8?B?TnNCeUd2SmpvTVVDSTRSN3B1Y1UyT1h5b0JOM3lCSmt3cHpScm5KWG9Mejhz?=
+ =?utf-8?B?SUxRWENGZTdRNGo2Qm9KWUE2eUNlYzEyQStvWHZGY3UwZDlaOUZ5TFhWUlJr?=
+ =?utf-8?B?U05HM1c3K1RtSE1FV1VBdGtFR1lscDZ3QWQrTXJZVEo4MXhWWU1vb2dvQ0Q2?=
+ =?utf-8?B?RUlIazNLZEZsRUtwcEQ4WWFUM3FBT1lBcmcvbFpXNlpzdUhuR2NIOXltTnJr?=
+ =?utf-8?B?YW5GQVI3REtkTUNkem05cmg1bG0rL0ZNWlozQTdISC9lQmV6VXZiSGxQeWs5?=
+ =?utf-8?B?blF5YzBreVdKS2ZwYmdNdnBRellQeG45enU2NGNSdFlDZXhhTmF6UkxNZ2Y0?=
+ =?utf-8?B?Ry9SVUQvRldLbmdmS3VzazNHc1YzUVhMZVVtV0xkcDZ1bHpNNWV3QzZpc3NN?=
+ =?utf-8?B?UUpoOFdCMi9YSTZudFBkNm9obHBsRFpYZmV6WDkrTTBrTFQydHRYN29TTFpN?=
+ =?utf-8?B?UVpSSkpxNFg4QU1kdFhrVWhESCtHKzRIbUE4clBQZ3d1WS9lWjNzSkJlNGRP?=
+ =?utf-8?B?amo3Z3hRNy9iL0tDSmNIMGw2TGh5YjIybTVtU3JGcmxsYTJOSW8weDNwVEZy?=
+ =?utf-8?B?NURuZzJRZVBVZVdoR25WaXA3aC9yZWNRMmZjSDJaMjRmM1NKc3F3NEFyU2py?=
+ =?utf-8?B?TXgrWG8rNWM3OEh4ZXo1U2NCTVBkVk9Sc0U2TzR3MDJQQ0JrTHdmOG1hRG5X?=
+ =?utf-8?B?eDVQenFpVFcxUkxVcUkzeG43SmdRcnV5NWhMWVErZndMM2dUdWx1aThTQmxV?=
+ =?utf-8?B?SFBTWXprYWxXak1VNDl1QjVJRC90RU9qRGtVR0xzVWozOG9JOXdHemhHZmFQ?=
+ =?utf-8?B?YmIzNWEvMzhUc284UGUxMFN6UDJrUVozWEg3N3p3eURMbml1ZzU3VzZtcC9W?=
+ =?utf-8?B?U1RjOFFIOGxhNnV5VmlNK1UzVndoZWRpUS9CNE54YU1nVUY5QjljRy9McDli?=
+ =?utf-8?B?WTRrTHV1cm5Pc2dFQ0tRMFVWc01KUXc4Y2VBQjFYSE8zTmxPNHhCb3dIQ0Jo?=
+ =?utf-8?B?RTBGcGdkVWZYb0Z4dXg2bnl1VGUyUjlPZDJzYXBFWnVrQU53ZUNvUm5VZ2R4?=
+ =?utf-8?B?WFliU2pWeVY2MncrNFNFUFhGVk8raVlVazRIMUZBSFhUeDNYRFdZQzE3SU11?=
+ =?utf-8?B?OHVVS0tWeW1DQzB0b3haQzlyVlEzeTJ4TWljWm1WMzhMVmFkTk5CU1BOSnRu?=
+ =?utf-8?B?NTkvWjRoZDFCQ2h5UWpFT2pQa2Q3dytsY2RJU3UyM1dkbFkvRnh2R3BISDNF?=
+ =?utf-8?B?aU5FN2o3aWFndXNQYTduZUVBK0lQc2J5ODB5R2pxZGsvbmlSejlBU3NQblla?=
+ =?utf-8?B?QWZ1UTA3S2hqcjhMdGpkTkxzbm0wMU50OXZYaFVCb05pMU1PbDdZd0gvNGdP?=
+ =?utf-8?B?cmpuTkUzMWtaRG8zNUREUkhKbTc2UlhXK0tqWnNPNURTWm44OHhUYUtOZUJt?=
+ =?utf-8?B?d3NaN3JPVWRWM1FCb1g4QUh2V2F3UXJBYStYU0pCTVppV0NCa1dUa1p4RjMv?=
+ =?utf-8?B?YURyNklGMlR1TXBSTHJqK0pKQkJKcHlvMXRvbFlMSldXRHc5OFN1V2YzQ3Z3?=
+ =?utf-8?B?QU5wNlhGZ0hFMmVMaE5nU3ZtcXI0SVlLRWwwMzh0amxFM0NPNDF0WjFLWlp2?=
+ =?utf-8?B?RldWZmtCTzJTTldRRmhIa1JCcWZiZFZYNXA0NjZJVUMzYmJhR3RrK054L2NR?=
+ =?utf-8?B?UXdMS1NVSUtSOGZPMnJvRWFrQkpYOWErZk1vVnhQWExMeHp4OG5Mb2d1ZFMz?=
+ =?utf-8?B?UDRTajdZVUU5RmRlUnpJRVdrMnE3S1h3c2hVVmVXSC9vZDZkOThOMnNlcFNV?=
+ =?utf-8?B?YnJBUnd4aHlyMWtxVkxtMlJzMmdFZ09DSExGTjNyZjkxRXJHcmFpYksreWo3?=
+ =?utf-8?B?YjFqVkpEWDUrOWwwSWVoeVp1S3Nyb0RGdThHVnF6U3R4ZzUwTlNYK1lORHU1?=
+ =?utf-8?Q?FT5KFeBK8jbdu7/kf4lJocaUE?=
 MIME-Version: 1.0
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: DM8PR11MB5751.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fa2f1691-e4c1-4654-40b9-08dbed8124de
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Nov 2023 06:38:32.7965
+X-MS-Exchange-CrossTenant-Network-Message-Id: f128119e-6fbe-4968-4022-08dbed81b592
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Nov 2023 06:42:35.5768
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: ks12yLkdYIJb2Z2UPhLWhte4aAcYTOYxzEOFH06xOU/YpJVbuZuixst5OLtMbhc52zmr7Bfqs4UdIZ/vXsbG7Q==
+X-MS-Exchange-CrossTenant-userprincipalname: 1JZ4v5eZZ14cU27LRGAhx+ANWeqWXIXNCwSepZ3GXhnAicEK1o6WBpMmKSvwqOfrHNi2UcSfb0E8uTqZRyBE4Q==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR11MB6264
 X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231124_223842_507804_E5CDCFBB 
-X-CRM114-Status: GOOD (  25.11  )
+X-CRM114-CacheID: sfid-20231124_224242_957289_A5D8BAF5 
+X-CRM114-Status: GOOD (  25.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,105 +200,92 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 > Cc: Paul Walmsley <paul.walmsley@sifive.com>; Albert Ou
 > <aou@eecs.berkeley.edu>; Arnd Bergmann <arnd@arndb.de>; Conor Dooley
 > <conor.dooley@microchip.com>
-> Subject: [PATCH v11 3/5] riscv: Add checksum header
+> Subject: [PATCH v11 4/5] riscv: Add checksum library
 > 
-> Provide checksum algorithms that have been designed to leverage riscv
-> instructions such as rotate. In 64-bit, can take advantage of the larger
-> register to avoid some overflow checking.
+> Provide a 32 and 64 bit version of do_csum. When compiled for 32-bit
+> will load from the buffer in groups of 32 bits, and when compiled for
+> 64-bit will load in groups of 64 bits.
+> 
+> Additionally provide riscv optimized implementation of csum_ipv6_magic.
 > 
 > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 > Acked-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  arch/riscv/include/asm/checksum.h | 82
-> +++++++++++++++++++++++++++++++++++++++
->  1 file changed, 82 insertions(+)
+>  arch/riscv/include/asm/checksum.h |  13 +-
+>  arch/riscv/lib/Makefile           |   1 +
+>  arch/riscv/lib/csum.c             | 326
+> ++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 339 insertions(+), 1 deletion(-)
 > 
 > diff --git a/arch/riscv/include/asm/checksum.h
 > b/arch/riscv/include/asm/checksum.h
-> new file mode 100644
-> index 000000000000..2fcf864186e7
-> --- /dev/null
+> index 2fcf864186e7..3fa04ff1eda8 100644
+> --- a/arch/riscv/include/asm/checksum.h
 > +++ b/arch/riscv/include/asm/checksum.h
-> @@ -0,0 +1,82 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Checksum routines
-> + *
-> + * Copyright (C) 2023 Rivos Inc.
+> @@ -12,6 +12,17 @@
+> 
+[...]
+
+> + * misaligned accesses, or when buff is known to be aligned.
 > + */
-> +#ifndef __ASM_RISCV_CHECKSUM_H
-> +#define __ASM_RISCV_CHECKSUM_H
-> +
-> +#include <linux/in6.h>
-> +#include <linux/uaccess.h>
-> +
-> +#define ip_fast_csum ip_fast_csum
-> +
-> +/* Define riscv versions of functions before importing asm-
-> generic/checksum.h */
-> +#include <asm-generic/checksum.h>
-> +
-> +/**
-> + * Quickly compute an IP checksum with the assumption that IPv4 headers
-> will
-> + * always be in multiples of 32-bits, and have an ihl of at least 5.
-> + *
-> + * @ihl: the number of 32 bit segments and must be greater than or equal to
-> 5.
-> + * @iph: assumed to be word aligned given that NET_IP_ALIGN is set to 2 on
-> + *  riscv, defining IP headers to be aligned.
-> + */
-> +static inline __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
+> +static inline __no_sanitize_address unsigned int
+> +do_csum_no_alignment(const unsigned char *buff, int len)
 > +{
-> +	unsigned long csum = 0;
-> +	int pos = 0;
+> +	unsigned long csum, data;
+> +	const unsigned long *ptr, *end;
 > +
-> +	do {
-> +		csum += ((const unsigned int *)iph)[pos];
-> +		if (IS_ENABLED(CONFIG_32BIT))
-> +			csum += csum < ((const unsigned int *)iph)[pos];
-> +	} while (++pos < ihl);
+> +	ptr = (const unsigned long *)(buff);
+> +	data = *(ptr++);
+> +
+> +	kasan_check_read(buff, len);
+> +
+> +	end = (const unsigned long *)(buff + len);
+> +	csum = do_csum_common(ptr, end, data);
 > +
 > +	/*
-> +	 * ZBB only saves three instructions on 32-bit and five on 64-bit so not
-> +	 * worth checking if supported without Alternatives.
+> +	 * Zbb support saves 6 instructions, so not worth checking without
+> +	 * alternatives if supported
 > +	 */
 > +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
 > +	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
 > +		unsigned long fold_temp;
 > +
+> +		/*
+> +		 * Zbb is likely available when the kernel is compiled with Zbb
+> +		 * support, so nop when Zbb is available and jump when Zbb
+> is
+> +		 * not available.
+> +		 */
 > +		asm_volatile_goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
 > +					      RISCV_ISA_EXT_ZBB, 1)
-> +		    :
-> +		    :
-> +		    :
-> +		    : no_zbb);
+> +				  :
+> +				  :
+> +				  :
+> +				  : no_zbb);
 > +
-> +		if (IS_ENABLED(CONFIG_32BIT)) {
-> +			asm(".option push				\n\
-> +			.option arch,+zbb				\n\
-> +				not	%[fold_temp], %[csum]
-> 	\n\
-> +				rori	%[csum], %[csum], 16		\n\
-> +				sub	%[csum], %[fold_temp], %[csum]
-> 	\n\
-> +			.option pop"
-> +			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp));
-> +		} else {
-> +			asm(".option push				\n\
-> +			.option arch,+zbb				\n\
-> +				rori	%[fold_temp], %[csum], 32	\n\
-> +				add	%[csum], %[fold_temp], %[csum]
-> 	\n\
-> +				srli	%[csum], %[csum], 32		\n\
-> +				not	%[fold_temp], %[csum]
-> 	\n\
-> +				roriw	%[csum], %[csum], 16		\n\
-> +				subw	%[csum], %[fold_temp], %[csum]
-> 	\n\
-> +			.option pop"
-> +			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp));
-> +		}
+> +#ifdef CONFIG_32BIT
+> +		asm (".option push				\n\
+> +		.option arch,+zbb				\n\
+> +			rori	%[fold_temp], %[csum], 16	\n\
+> +			add	%[csum], %[fold_temp], %[csum]	\n\
+> +		.option pop"
+> +			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp)
+> +			:
+> +			: );
+> +
+> +#else /* !CONFIG_32BIT */
+> +		asm (".option push				\n\
+> +		.option arch,+zbb				\n\
+> +			rori	%[fold_temp], %[csum], 32	\n\
+> +			add	%[csum], %[fold_temp], %[csum]	\n\
+> +			srli	%[csum], %[csum], 32		\n\
+> +			roriw	%[fold_temp], %[csum], 16	\n\
+> +			addw	%[csum], %[fold_temp], %[csum]	\n\
+> +		.option pop"
+> +			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp)
+> +			:
+> +			: );
+> +#endif /* !CONFIG_32BIT */
 > +		return csum >> 16;
 > +	}
 > +no_zbb:
@@ -302,16 +293,47 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 > +	csum += ror64(csum, 32);
 > +	csum >>= 32;
 > +#endif
-> +	return csum_fold((__force __wsum)csum);
+> +	csum = (u32)csum + ror32((u32)csum, 16);
+> +	return csum >> 16;
 > +}
 > +
-> +#endif /* __ASM_RISCV_CHECKSUM_H */
+> +/*
+> + * Perform a checksum on an arbitrary memory address.
+> + * Will do a light-weight address alignment if buff is misaligned, unless
+> + * cpu supports fast misaligned accesses.
+> + */
+> +unsigned int do_csum(const unsigned char *buff, int len)
+> +{
+> +	if (unlikely(len <= 0))
+> +		return 0;
+> +
+> +	/*
+> +	 * Significant performance gains can be seen by not doing alignment
+> +	 * on machines with fast misaligned accesses.
+> +	 *
+> +	 * There is some duplicate code between the "with_alignment" and
+> +	 * "no_alignment" implmentations, but the overlap is too awkward to
+> be
+> +	 * able to fit in one function without introducing multiple static
+> +	 * branches. The largest chunk of overlap was delegated into the
+> +	 * do_csum_common function.
+> +	 */
+> +	if (static_branch_likely(&fast_misaligned_access_speed_key))
+> +		return do_csum_no_alignment(buff, len);
+> +
+> +	if (((unsigned long)buff & OFFSET_MASK) == 0)
+> +		return do_csum_no_alignment(buff, len);
+> +
+> +	return do_csum_with_alignment(buff, len);
+> +}
 > 
 > --
 > 2.34.1
 
 Reviewed-by: Xiao Wang <xiao.w.wang@intel.com>
 
+BRs,
+Xiao
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
