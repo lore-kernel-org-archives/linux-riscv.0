@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6C09C4167B
-	for <linux-riscv@archiver.kernel.org>; Sun, 26 Nov 2023 11:47:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91FCEC4167B
+	for <linux-riscv@archiver.kernel.org>; Sun, 26 Nov 2023 11:56:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=oltE7hZGJZUVQBEqnDpPoMfbCmmBujkp8SEHtuSvRxE=; b=W9jInLXqvI01XU
-	ia1C4F4jUwcRFlh/0OFr4iC+Alkf26+yyScDAaenL1zKlsJaFvNWxiqGyLsir8qReTRGmayTRa9sF
-	S+EXAbar9XV4dNbnUzfnJV7D5+ChuzWY9fLhMsp7IDjtLDhnS44UNngTgq2byGT8Q27o/dXJd0je4
-	BAW19NbmRiWW07i+8hm85dGjY90dEYb9fNdI0jDnlqAvA2wrlrZjtsD3SRbVtb5k3MRyBA1O5ARBb
-	Gc9K++bohPfmX8nZNd+k6uxCkejqw+ZKgQ4vmbuXBq9wNJQqnOXfbx+nGODlP7NwvZ1t0uwh7XOFu
-	5mHGnfEkV6kkIIZZ1pBw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/k21CkqtxkJgW7Gw/BRJtsSr6kFgDHyrcIOiYT43W9k=; b=Dt+NRNCXbWLXvy
+	VqGwEWOcBfLkWUuKh+zbuTK81xvCCaaKo979/8Hpgifrbi5cVArdTP46dYaB5ripvypsME9Gj0pLD
+	dRq9HKl046Cpm/r5QQAmvWobLwVnK5Lv6GknV0JZvycgvuZdcRGYi+qb675BxTMvWpLcsjKorp+Jf
+	0XPcdedOdsH35Ef/90u7r5lRkRBAJKDwWZMrRCjHoC5FwafTuzO7zz7fZNu6wkWEkGEfs9T6jVERC
+	6O2VsxYlMFZIk84N8aD9sHjxfBYP5FDr1rIAkqd6lSxJZjY/bSZmXpZZWvKwxXs2B0h8B0ni4nEjq
+	eFCH6p74l4got6ErCxoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7DbJ-00AtaF-2X;
-	Sun, 26 Nov 2023 11:47:01 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1r7Djz-00AwCS-28;
+	Sun, 26 Nov 2023 11:55:59 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7DbE-00AtYK-31
+	id 1r7Djt-00Aw9F-13
 	for linux-riscv@lists.infradead.org;
-	Sun, 26 Nov 2023 11:47:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BC25360B63;
-	Sun, 26 Nov 2023 11:46:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 686A8C433C7;
-	Sun, 26 Nov 2023 11:46:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1700999215;
-	bh=h+cWxgD/VfvWOGVWC6TmQ+gufJQ44Y/1Y143cGVxv6s=;
-	h=From:To:Cc:Subject:Date:From;
-	b=pmX7scjAhVGpJcYan+Gkjbep64Sr7Q5NEhrjmR1CLGM65FHgkt4WsKb1bQN3rsh6y
-	 tXhN8hBQUh9xfaaJjeKFMVAE/Pf/ncZNvxiryCP/wZBiO2EO5SCQNBJgfur0rav0Nu
-	 zU8jTM5bskfzT183bruWJU6mFGVcCQEVSD8ZMYDzqA1pBY57sOEFqQLKHpnP6GS00L
-	 xEd8VD2QdwlEKBxZvVNajOfZWdNKifu+QvImH9v7ahxzY4mSkW9yobgtQF1oSti+af
-	 uPqP19MpgQ6QK3Av3CKc/Gwo9sDNs1apeQNv5zjo+qoEVAo5bV97UpwirgqdZ1jivz
-	 +/UtD0DRDdqHw==
-From: Conor Dooley <conor@kernel.org>
-To: linux-riscv@lists.infradead.org
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	devicetree@vger.kernel.org
-Subject: [PATCH v1] riscv: dts: microchip: move timebase-frequency to mpfs.dtsi
-Date: Sun, 26 Nov 2023 11:45:49 +0000
-Message-Id: <20231126-unlighted-favorably-4627f2361a59@spud>
-X-Mailer: git-send-email 2.39.2
+	Sun, 26 Nov 2023 11:55:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1700999750;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=10f/Bul9KbIaMsjeanbNOmm62BHIxQH0eftSF3zeoHA=;
+	b=IXiDeKM6E1pRz0aHXANjgB3J97HfSg2MI8kj1Qbv7ixMTk5kvOshWSH+1nfBzG9StVSS4L
+	rx26h/szJb9S2etl8A60o5/n/QXs0LxaRslobBpTAlxWyK/mw1rNSIvbUJchrJKmPWu9F9
+	CKfipjWZa3Nlz54iZdbEKhyDw31CuCw=
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-76-n79wBA5hOnSAQHO1OAsXyg-1; Sun,
+ 26 Nov 2023 06:55:45 -0500
+X-MC-Unique: n79wBA5hOnSAQHO1OAsXyg-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 90DF23C0C88A;
+	Sun, 26 Nov 2023 11:55:44 +0000 (UTC)
+Received: from localhost (unknown [10.72.112.36])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id C8B1340C6EB9;
+	Sun, 26 Nov 2023 11:55:43 +0000 (UTC)
+Date: Sun, 26 Nov 2023 19:55:40 +0800
+From: Baoquan He <bhe@redhat.com>
+To: kernel test robot <lkp@intel.com>
+Cc: linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
+	oe-kbuild-all@lists.linux.dev, kexec@lists.infradead.org,
+	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-parisc@vger.kernel.org, akpm@linux-foundation.org,
+	joe@perches.com, nathan@kernel.org, yujie.liu@intel.com
+Subject: Re: [PATCH v2 4/7] kexec_file, arm64: print out debugging message if
+ required
+Message-ID: <ZWMyPB6HjxAczLzZ@MiWiFi-R3L-srv>
+References: <20231124033642.520686-5-bhe@redhat.com>
+ <202311260548.1HaxcDnE-lkp@intel.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5443; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=JauXPYvqhxJx7+O0kui8jwXyUoCsQM0oZ8ueYplnmyU=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKnJ+q+9WA5Przkx3eEXk/nbiSt/8K2o/pq4Wr9Pco/7l n0MHbMYO0pZGMQ4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjCRWacZGfbuStzJ+Wvv5e0S +y7/OSN2deWv61ufCWS9zz62e2moO+sfRoYVjuXfVJaIxqzmfG5t5LZNY11yoFVk5MyQSta+g9n P9vACAA==
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+Content-Disposition: inline
+In-Reply-To: <202311260548.1HaxcDnE-lkp@intel.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231126_034657_224995_E76F1CAB 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20231126_035553_591597_22A7D784 
+X-CRM114-Status: GOOD (  19.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,174 +87,109 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On 11/26/23 at 05:26am, kernel test robot wrote:
+> Hi Baoquan,
+> 
+> kernel test robot noticed the following build errors:
+> 
+> [auto build test ERROR on arm64/for-next/core]
+> [also build test ERROR on tip/x86/core powerpc/next powerpc/fixes linus/master v6.7-rc2 next-20231124]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> 
+> url:    https://github.com/intel-lab-lkp/linux/commits/Baoquan-He/kexec_file-add-kexec_file-flag-to-control-debug-printing/20231124-113942
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
+> patch link:    https://lore.kernel.org/r/20231124033642.520686-5-bhe%40redhat.com
+> patch subject: [PATCH v2 4/7] kexec_file, arm64: print out debugging message if required
+> config: arm64-randconfig-001-20231126 (https://download.01.org/0day-ci/archive/20231126/202311260548.1HaxcDnE-lkp@intel.com/config)
+> compiler: clang version 14.0.6 (https://github.com/llvm/llvm-project.git f28c006a5895fc0e329fe15fead81e37457cb1d1)
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20231126/202311260548.1HaxcDnE-lkp@intel.com/reproduce)
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202311260548.1HaxcDnE-lkp@intel.com/
+> 
+> All errors (new ones prefixed by >>):
+> 
+> >> arch/arm64/kernel/machine_kexec.c:35:2: error: implicit declaration of function 'kexec_dprintk' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+>            kexec_dprintk("%s:%d:\n", func, line);
+>            ^
+>    1 error generated.
 
-The timebase-frequency on PolarFire SoC is not set by an oscillator on
-the board, but rather by an internal divider, so move the property to
-mpfs.dtsi.
+Thanks for reporting. It has below kexec related config items, whereas
+the kexec_drpintk() is only defined in CONFIG_KEXEC_FILE ifdeffery
+scope, moving it to CONFIG_KEXEC_CORE iddeffery scope in <linux/kexec.h>
+can fix it as below draft code. Will update patch 1 to include the code
+change.
 
-This looks to be copy-pasta from the SiFive Unleashed as the comments
-in both places were almost identical. In the Unleashed's case this looks
-to actually be valid, as the clock is provided by a crystal on the PCB.
+===
+CONFIG_CRASH_CORE=y
+CONFIG_KEXEC_CORE=y
+CONFIG_KEXEC=y
+# CONFIG_KEXEC_FILE is not set
+CONFIG_CRASH_DUMP=y
+===
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-CC: Conor Dooley <conor.dooley@microchip.com>
-CC: Daire McNamara <daire.mcnamara@microchip.com>
-CC: Rob Herring <robh+dt@kernel.org>
-CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-CC: Paul Walmsley <paul.walmsley@sifive.com>
-CC: Palmer Dabbelt <palmer@dabbelt.com>
-CC: linux-riscv@lists.infradead.org
-CC: devicetree@vger.kernel.org
----
- arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts | 7 -------
- arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts | 7 -------
- arch/riscv/boot/dts/microchip/mpfs-polarberry.dts | 7 -------
- arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts    | 7 -------
- arch/riscv/boot/dts/microchip/mpfs-tysom-m.dts    | 7 -------
- arch/riscv/boot/dts/microchip/mpfs.dtsi           | 1 +
- 6 files changed, 1 insertion(+), 35 deletions(-)
-
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-index 90b261114763..dce96f27cc89 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-+++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-@@ -8,9 +8,6 @@
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/leds/common.h>
+diff --git a/include/linux/kexec.h b/include/linux/kexec.h
+index 66997efe36f1..b457b0d70f3f 100644
+--- a/include/linux/kexec.h
++++ b/include/linux/kexec.h
+@@ -265,13 +265,6 @@ arch_kexec_apply_relocations(struct purgatory_info *pi, Elf_Shdr *section,
+ }
+ #endif
  
--/* Clock frequency (in Hz) of the rtcclk */
--#define RTCCLK_FREQ		1000000
+-extern bool kexec_file_dbg_print;
 -
- / {
- 	model = "Microchip PolarFire-SoC Icicle Kit";
- 	compatible = "microchip,mpfs-icicle-reference-rtlv2210", "microchip,mpfs-icicle-kit",
-@@ -29,10 +26,6 @@ chosen {
- 		stdout-path = "serial1:115200n8";
- 	};
- 
--	cpus {
--		timebase-frequency = <RTCCLK_FREQ>;
--	};
+-#define kexec_dprintk(fmt, ...)					\
+-	printk("%s" fmt,					\
+-	       kexec_file_dbg_print ? KERN_INFO : KERN_DEBUG,	\
+-	       ##__VA_ARGS__)
 -
- 	leds {
- 		compatible = "gpio-leds";
+ #endif /* CONFIG_KEXEC_FILE */
  
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts b/arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts
-index 184cb36a175e..a8d623ee9fa4 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts
-+++ b/arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts
-@@ -10,9 +10,6 @@
- #include "mpfs.dtsi"
- #include "mpfs-m100pfs-fabric.dtsi"
+ #ifdef CONFIG_KEXEC_ELF
+@@ -508,6 +501,13 @@ static inline int crash_hotplug_memory_support(void) { return 0; }
+ static inline unsigned int crash_get_elfcorehdr_size(void) { return 0; }
+ #endif
  
--/* Clock frequency (in Hz) of the rtcclk */
--#define MTIMER_FREQ	1000000
++extern bool kexec_file_dbg_print;
++
++#define kexec_dprintk(fmt, ...)					\
++	printk("%s" fmt,					\
++	       kexec_file_dbg_print ? KERN_INFO : KERN_DEBUG,	\
++	       ##__VA_ARGS__)
++
+ #else /* !CONFIG_KEXEC_CORE */
+ struct pt_regs;
+ struct task_struct;
+diff --git a/kernel/kexec_core.c b/kernel/kexec_core.c
+index be5642a4ec49..bddba29a1557 100644
+--- a/kernel/kexec_core.c
++++ b/kernel/kexec_core.c
+@@ -52,6 +52,8 @@ atomic_t __kexec_lock = ATOMIC_INIT(0);
+ /* Flag to indicate we are going to kexec a new kernel */
+ bool kexec_in_progress = false;
+ 
++bool kexec_file_dbg_print;
++
+ int kexec_should_crash(struct task_struct *p)
+ {
+ 	/*
+diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
+index 7ae1b0901aa4..8f87644b4eec 100644
+--- a/kernel/kexec_file.c
++++ b/kernel/kexec_file.c
+@@ -38,8 +38,6 @@ void set_kexec_sig_enforced(void)
+ }
+ #endif
+ 
+-bool kexec_file_dbg_print;
 -
- / {
- 	model = "Aries Embedded M100PFEVPS";
- 	compatible = "aries,m100pfsevp", "microchip,mpfs";
-@@ -33,10 +30,6 @@ chosen {
- 		stdout-path = "serial1:115200n8";
- 	};
+ static int kexec_calculate_store_digests(struct kimage *image);
  
--	cpus {
--		timebase-frequency = <MTIMER_FREQ>;
--	};
--
- 	ddrc_cache_lo: memory@80000000 {
- 		device_type = "memory";
- 		reg = <0x0 0x80000000 0x0 0x40000000>;
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts b/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
-index c87cc2d8fe29..ea0808ab1042 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
-+++ b/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
-@@ -6,9 +6,6 @@
- #include "mpfs.dtsi"
- #include "mpfs-polarberry-fabric.dtsi"
- 
--/* Clock frequency (in Hz) of the rtcclk */
--#define MTIMER_FREQ	1000000
--
- / {
- 	model = "Sundance PolarBerry";
- 	compatible = "sundance,polarberry", "microchip,mpfs";
-@@ -22,10 +19,6 @@ chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
- 
--	cpus {
--		timebase-frequency = <MTIMER_FREQ>;
--	};
--
- 	ddrc_cache_lo: memory@80000000 {
- 		device_type = "memory";
- 		reg = <0x0 0x80000000 0x0 0x2e000000>;
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts b/arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts
-index 013cb666c72d..f9a890579438 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts
-+++ b/arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts
-@@ -6,9 +6,6 @@
- #include "mpfs.dtsi"
- #include "mpfs-sev-kit-fabric.dtsi"
- 
--/* Clock frequency (in Hz) of the rtcclk */
--#define MTIMER_FREQ		1000000
--
- / {
- 	#address-cells = <2>;
- 	#size-cells = <2>;
-@@ -28,10 +25,6 @@ chosen {
- 		stdout-path = "serial1:115200n8";
- 	};
- 
--	cpus {
--		timebase-frequency = <MTIMER_FREQ>;
--	};
--
- 	reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-tysom-m.dts b/arch/riscv/boot/dts/microchip/mpfs-tysom-m.dts
-index e0797c7e1b35..d1120f5f2c01 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-tysom-m.dts
-+++ b/arch/riscv/boot/dts/microchip/mpfs-tysom-m.dts
-@@ -11,9 +11,6 @@
- #include "mpfs.dtsi"
- #include "mpfs-tysom-m-fabric.dtsi"
- 
--/* Clock frequency (in Hz) of the rtcclk */
--#define MTIMER_FREQ		1000000
--
- / {
- 	model = "Aldec TySOM-M-MPFS250T-REV2";
- 	compatible = "aldec,tysom-m-mpfs250t-rev2", "microchip,mpfs";
-@@ -34,10 +31,6 @@ chosen {
- 		stdout-path = "serial1:115200n8";
- 	};
- 
--	cpus {
--		timebase-frequency = <MTIMER_FREQ>;
--	};
--
- 	ddrc_cache_lo: memory@80000000 {
- 		device_type = "memory";
- 		reg = <0x0 0x80000000 0x0 0x30000000>;
-diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-index a6faf24f1dba..266489d43912 100644
---- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-@@ -13,6 +13,7 @@ / {
- 	cpus {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
-+		timebase-frequency = <1000000>;
- 
- 		cpu0: cpu@0 {
- 			compatible = "sifive,e51", "sifive,rocket0", "riscv";
--- 
-2.39.2
+ /* Maximum size in bytes for kernel/initrd files. */
 
 
 _______________________________________________
