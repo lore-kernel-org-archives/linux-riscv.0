@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56CCDC4167B
-	for <linux-riscv@archiver.kernel.org>; Sun, 26 Nov 2023 11:36:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6C09C4167B
+	for <linux-riscv@archiver.kernel.org>; Sun, 26 Nov 2023 11:47:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+do/bXNtDkWityLTsvyLh1GTrw07nANZzSYZnbbScuY=; b=F5fwKG5+m7iLQoML15YzToQo3/
-	pu9xJx94TaPr0rgl5ISwLTlc37T/BdlyZttuHS62Uci/n4fKcYOAiVREYISP0atT3r8VI9JlAkP2G
-	C/KZx9MQp08pyXDaY8gtqs+KhgKrvCPzgCdMxRK4+cIUQmOMKdXXbYHAkalKa/jVJKOsOKH+Ab2je
-	aDADP1X6KopcLvvCoCZdfTxLmPWTObKc7TOXeiMpq3diqvKpz2pazaaOGDs7hSREocvsZ3roPR5Vo
-	okQLy3mmAhP4brvA9m1DAza44dDQIgKl4aZO6VFue83QeL2hxqFlHBCkLGEvUIg4GEZcSEuu1SWNO
-	5lxcacFQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=oltE7hZGJZUVQBEqnDpPoMfbCmmBujkp8SEHtuSvRxE=; b=W9jInLXqvI01XU
+	ia1C4F4jUwcRFlh/0OFr4iC+Alkf26+yyScDAaenL1zKlsJaFvNWxiqGyLsir8qReTRGmayTRa9sF
+	S+EXAbar9XV4dNbnUzfnJV7D5+ChuzWY9fLhMsp7IDjtLDhnS44UNngTgq2byGT8Q27o/dXJd0je4
+	BAW19NbmRiWW07i+8hm85dGjY90dEYb9fNdI0jDnlqAvA2wrlrZjtsD3SRbVtb5k3MRyBA1O5ARBb
+	Gc9K++bohPfmX8nZNd+k6uxCkejqw+ZKgQ4vmbuXBq9wNJQqnOXfbx+nGODlP7NwvZ1t0uwh7XOFu
+	5mHGnfEkV6kkIIZZ1pBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7DRD-00Aq7C-20;
-	Sun, 26 Nov 2023 11:36:35 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1r7DbJ-00AtaF-2X;
+	Sun, 26 Nov 2023 11:47:01 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7DRA-00Aq5R-10
+	id 1r7DbE-00AtYK-31
 	for linux-riscv@lists.infradead.org;
-	Sun, 26 Nov 2023 11:36:34 +0000
+	Sun, 26 Nov 2023 11:47:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id CF705CE08CC;
-	Sun, 26 Nov 2023 11:36:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FF45C433C7;
-	Sun, 26 Nov 2023 11:36:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id BC25360B63;
+	Sun, 26 Nov 2023 11:46:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 686A8C433C7;
+	Sun, 26 Nov 2023 11:46:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1700998589;
-	bh=P2P43SYXv6u+aOpsTU/RQ6/+rVreClZ6o7li0KxB/6Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JjrmWqk1+DbOryXclrK/r7SZdXk3DcsNeTRgHuGdTKdF3l0JVVjN1uOZhuOVwYkcS
-	 +a+GVTrx+nGWEd5hLUoG39sYZ6vb6tegM1zNPhkuiNasLtvwbo6GqbUkiEjJJ2y0tl
-	 qWySar4H2sguCPv+IDwdPeNPEbqwtyhIe3Al4YF9vHTZ2bgmyYCsZ9a8hFgnuiIsDM
-	 zZ9QrD3BDbxiRXKDuzD/6J6eThmgezkopACfr29woOfkXX6jKwlyc8e0Y4rsdQVyBk
-	 idLuBpoDOEwkW2K5RnBYWAZvd3//Zi9WOsfThc3N0Um/XX6j3mcDqL6QRNkupsGa0F
-	 7XfwrU9fm3UJw==
-Date: Sun, 26 Nov 2023 11:36:24 +0000
+	s=k20201202; t=1700999215;
+	bh=h+cWxgD/VfvWOGVWC6TmQ+gufJQ44Y/1Y143cGVxv6s=;
+	h=From:To:Cc:Subject:Date:From;
+	b=pmX7scjAhVGpJcYan+Gkjbep64Sr7Q5NEhrjmR1CLGM65FHgkt4WsKb1bQN3rsh6y
+	 tXhN8hBQUh9xfaaJjeKFMVAE/Pf/ncZNvxiryCP/wZBiO2EO5SCQNBJgfur0rav0Nu
+	 zU8jTM5bskfzT183bruWJU6mFGVcCQEVSD8ZMYDzqA1pBY57sOEFqQLKHpnP6GS00L
+	 xEd8VD2QdwlEKBxZvVNajOfZWdNKifu+QvImH9v7ahxzY4mSkW9yobgtQF1oSti+af
+	 uPqP19MpgQ6QK3Av3CKc/Gwo9sDNs1apeQNv5zjo+qoEVAo5bV97UpwirgqdZ1jivz
+	 +/UtD0DRDdqHw==
 From: Conor Dooley <conor@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Jisheng Zhang <jszhang@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
+To: linux-riscv@lists.infradead.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
 	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: starfive: add Milkv Mars board device tree
-Message-ID: <20231126-attractor-swampland-b1b95bd1322b@spud>
-References: <20231126100055.1595-1-jszhang@kernel.org>
- <ef4eda2a-4be5-4992-a315-d02e1a36b656@linaro.org>
+	devicetree@vger.kernel.org
+Subject: [PATCH v1] riscv: dts: microchip: move timebase-frequency to mpfs.dtsi
+Date: Sun, 26 Nov 2023 11:45:49 +0000
+Message-Id: <20231126-unlighted-favorably-4627f2361a59@spud>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-In-Reply-To: <ef4eda2a-4be5-4992-a315-d02e1a36b656@linaro.org>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5443; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=JauXPYvqhxJx7+O0kui8jwXyUoCsQM0oZ8ueYplnmyU=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKnJ+q+9WA5Przkx3eEXk/nbiSt/8K2o/pq4Wr9Pco/7l n0MHbMYO0pZGMQ4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjCRWacZGfbuStzJ+Wvv5e0S +y7/OSN2deWv61ufCWS9zz62e2moO+sfRoYVjuXfVJaIxqzmfG5t5LZNY11yoFVk5MyQSta+g9n P9vACAA==
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231126_033632_588227_E66FDB45 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20231126_034657_224995_E76F1CAB 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,65 +73,182 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2650393036769838621=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Conor Dooley <conor.dooley@microchip.com>
 
---===============2650393036769838621==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="gYJgPLPFWEYyFUMA"
-Content-Disposition: inline
+The timebase-frequency on PolarFire SoC is not set by an oscillator on
+the board, but rather by an internal divider, so move the property to
+mpfs.dtsi.
 
+This looks to be copy-pasta from the SiFive Unleashed as the comments
+in both places were almost identical. In the Unleashed's case this looks
+to actually be valid, as the clock is provided by a crystal on the PCB.
 
---gYJgPLPFWEYyFUMA
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: Rob Herring <robh+dt@kernel.org>
+CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+CC: Paul Walmsley <paul.walmsley@sifive.com>
+CC: Palmer Dabbelt <palmer@dabbelt.com>
+CC: linux-riscv@lists.infradead.org
+CC: devicetree@vger.kernel.org
+---
+ arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts | 7 -------
+ arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts | 7 -------
+ arch/riscv/boot/dts/microchip/mpfs-polarberry.dts | 7 -------
+ arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts    | 7 -------
+ arch/riscv/boot/dts/microchip/mpfs-tysom-m.dts    | 7 -------
+ arch/riscv/boot/dts/microchip/mpfs.dtsi           | 1 +
+ 6 files changed, 1 insertion(+), 35 deletions(-)
 
-On Sun, Nov 26, 2023 at 11:27:20AM +0100, Krzysztof Kozlowski wrote:
-> On 26/11/2023 11:00, Jisheng Zhang wrote:
-> > +	cpus {
->=20
-> Board should not bring new CPU nodes. Override by label instead.
->=20
->=20
-> > +		timebase-frequency =3D <4000000>;
-> > +	};
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
+index 90b261114763..dce96f27cc89 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
++++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
+@@ -8,9 +8,6 @@
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/leds/common.h>
+ 
+-/* Clock frequency (in Hz) of the rtcclk */
+-#define RTCCLK_FREQ		1000000
+-
+ / {
+ 	model = "Microchip PolarFire-SoC Icicle Kit";
+ 	compatible = "microchip,mpfs-icicle-reference-rtlv2210", "microchip,mpfs-icicle-kit",
+@@ -29,10 +26,6 @@ chosen {
+ 		stdout-path = "serial1:115200n8";
+ 	};
+ 
+-	cpus {
+-		timebase-frequency = <RTCCLK_FREQ>;
+-	};
+-
+ 	leds {
+ 		compatible = "gpio-leds";
+ 
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts b/arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts
+index 184cb36a175e..a8d623ee9fa4 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts
++++ b/arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts
+@@ -10,9 +10,6 @@
+ #include "mpfs.dtsi"
+ #include "mpfs-m100pfs-fabric.dtsi"
+ 
+-/* Clock frequency (in Hz) of the rtcclk */
+-#define MTIMER_FREQ	1000000
+-
+ / {
+ 	model = "Aries Embedded M100PFEVPS";
+ 	compatible = "aries,m100pfsevp", "microchip,mpfs";
+@@ -33,10 +30,6 @@ chosen {
+ 		stdout-path = "serial1:115200n8";
+ 	};
+ 
+-	cpus {
+-		timebase-frequency = <MTIMER_FREQ>;
+-	};
+-
+ 	ddrc_cache_lo: memory@80000000 {
+ 		device_type = "memory";
+ 		reg = <0x0 0x80000000 0x0 0x40000000>;
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts b/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
+index c87cc2d8fe29..ea0808ab1042 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
++++ b/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
+@@ -6,9 +6,6 @@
+ #include "mpfs.dtsi"
+ #include "mpfs-polarberry-fabric.dtsi"
+ 
+-/* Clock frequency (in Hz) of the rtcclk */
+-#define MTIMER_FREQ	1000000
+-
+ / {
+ 	model = "Sundance PolarBerry";
+ 	compatible = "sundance,polarberry", "microchip,mpfs";
+@@ -22,10 +19,6 @@ chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
+ 
+-	cpus {
+-		timebase-frequency = <MTIMER_FREQ>;
+-	};
+-
+ 	ddrc_cache_lo: memory@80000000 {
+ 		device_type = "memory";
+ 		reg = <0x0 0x80000000 0x0 0x2e000000>;
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts b/arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts
+index 013cb666c72d..f9a890579438 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts
++++ b/arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts
+@@ -6,9 +6,6 @@
+ #include "mpfs.dtsi"
+ #include "mpfs-sev-kit-fabric.dtsi"
+ 
+-/* Clock frequency (in Hz) of the rtcclk */
+-#define MTIMER_FREQ		1000000
+-
+ / {
+ 	#address-cells = <2>;
+ 	#size-cells = <2>;
+@@ -28,10 +25,6 @@ chosen {
+ 		stdout-path = "serial1:115200n8";
+ 	};
+ 
+-	cpus {
+-		timebase-frequency = <MTIMER_FREQ>;
+-	};
+-
+ 	reserved-memory {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-tysom-m.dts b/arch/riscv/boot/dts/microchip/mpfs-tysom-m.dts
+index e0797c7e1b35..d1120f5f2c01 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-tysom-m.dts
++++ b/arch/riscv/boot/dts/microchip/mpfs-tysom-m.dts
+@@ -11,9 +11,6 @@
+ #include "mpfs.dtsi"
+ #include "mpfs-tysom-m-fabric.dtsi"
+ 
+-/* Clock frequency (in Hz) of the rtcclk */
+-#define MTIMER_FREQ		1000000
+-
+ / {
+ 	model = "Aldec TySOM-M-MPFS250T-REV2";
+ 	compatible = "aldec,tysom-m-mpfs250t-rev2", "microchip,mpfs";
+@@ -34,10 +31,6 @@ chosen {
+ 		stdout-path = "serial1:115200n8";
+ 	};
+ 
+-	cpus {
+-		timebase-frequency = <MTIMER_FREQ>;
+-	};
+-
+ 	ddrc_cache_lo: memory@80000000 {
+ 		device_type = "memory";
+ 		reg = <0x0 0x80000000 0x0 0x30000000>;
+diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
+index a6faf24f1dba..266489d43912 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
+@@ -13,6 +13,7 @@ / {
+ 	cpus {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
++		timebase-frequency = <1000000>;
+ 
+ 		cpu0: cpu@0 {
+ 			compatible = "sifive,e51", "sifive,rocket0", "riscv";
+-- 
+2.39.2
 
-This particular one is widespread, but I am not sure why it is being set
-on the board level in any of the individual cases. On the platforms
-where I do know where the frequency for this comes from it is set by the
-SoC, not the board and so should really be fixed by moving this into
-$soc.dtsi. I suspect the same is true for the jh7110 and
-timebase-frequency is not a board-level setting and probably needs the
-same treatment. Those with more insight into how the clocks on the
-jh7110 are routed can hopefully advise us here.
-
---gYJgPLPFWEYyFUMA
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZWMttwAKCRB4tDGHoIJi
-0pICAPoCeTCnmr5Ffb8M9OFyuV+MeSGUq3QE+0enkLN9i+3KygEAqJ0V62Uifzg9
-9r6wcYvE7wwFGV7sgZr3x+gCUKUyPgc=
-=a9J5
------END PGP SIGNATURE-----
-
---gYJgPLPFWEYyFUMA--
-
-
---===============2650393036769838621==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2650393036769838621==--
-
