@@ -4,63 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B8EC4167B
-	for <linux-riscv@archiver.kernel.org>; Sun, 26 Nov 2023 10:13:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56AEFC4167B
+	for <linux-riscv@archiver.kernel.org>; Sun, 26 Nov 2023 10:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZVfBMOopZuk8LxmN+KOP9cDt7SzKzKM5IdTBlQsN18E=; b=iqDkNopQNIUIw0
-	y+kcddXGHqpmtWoM/2E2SF0Xr4VwZUlHCZYcOEr4tBIbAWdCo92RCoqz4RXtWFpXeBo32RVN178KY
-	6c63QqVGoj3itQy15h6uiSfVe68et394H5qHU4EAFrA9VD/wzrvEK2Dwy79AWwlm64R9YEls9Pk4b
-	+Q83ctC2tAkCKJZR6nhQa4HnmDDaS//yIh2wJHoPvKZyR6nwYvXYgqqNQcHXNGHgggTpleKWn4dtz
-	r7IYmDvmmKUt59/yr5raZ9VQDERCE/A43yfTy5iUzmz5A5ZpJpUTIk2D1iJZcluTXTYgNjsRPwIN0
-	9CAxaVLXKO4Izs80uSwg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2qvZUvyiX1NviFMD5fPZJp7TI/hQ2Zf8SGUT/wvSmBI=; b=fWd5LUy11BQvth
+	Qspxr6hMoDEXayXy7+haAphfV1wMnk9rY9x5vRUDkZ9eLxD057TBMpa0as/S1TG1/Ixac3XtQImQF
+	Inj33EwwvbankiJdODXQN6p6NlwzDyYD/FMQjoWZ2e5wsf8HfMw4YlcASdO8j5bZxlAGBkURrCgYW
+	2oEN8llJgHEksJFNC+VPL0LykFp7Q50fDuiN+iiCPTBZmDh6xzCqwNPOehfXWGfH5+sqqSPRbC0iF
+	78224f2qv/A1dePxgAuX2NUCYnTUW12p6LbpN8s3jxWBxPHmlX2RTMCrS0kQrk9Yctt+Y3MU3DlOj
+	sKFP8w5Brra2l3SoPFag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7C8t-00Adxo-27;
-	Sun, 26 Nov 2023 10:13:35 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1r7CML-00AfFo-0G;
+	Sun, 26 Nov 2023 10:27:29 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7C8p-00Adx7-1a
+	id 1r7CMI-00AfEb-1H
 	for linux-riscv@lists.infradead.org;
-	Sun, 26 Nov 2023 10:13:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 224B6CE0946;
-	Sun, 26 Nov 2023 10:13:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F6C4C433C8;
-	Sun, 26 Nov 2023 10:13:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1700993605;
-	bh=1PDSVvZyY6ZZ0DKo13uzrPAF2/8aTnNkBauohBFoXNc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Of4jlDvnGwFyc7TgWGMcsAPmy+EbaAlpJvXkTLhEwnOXVdZBd5A0pinhERkDtSTnl
-	 q8t8OeGnw17PZ49ka71Ey7p48ckP0dxClBbKvbO97Ku0/vdHfr7+1bkr8rP0PkAP0G
-	 K5c9i9+pPky1jAFOnvMveSv9q4ZVygMh7OuY6Mbz9X7CRaPmtGK8mLjIxSX/lTaRUX
-	 Fgmoto760pEaETYyVrTJzA7dM+zjMr0GWqlEgb4cA4hYOto3MW+10/MwH5b6UtKaQS
-	 vI1NhaSFiPyPzIcpkTC2OUkj+F8YY7CcgZ4rAwBgoZLzbOz0TNZ4YDU0ylGkK/PLzX
-	 2csmqu1aVqELw==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Emil Renner Berthing <kernel@esmil.dk>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH] riscv: dts: starfive: add Milkv Mars board device tree
-Date: Sun, 26 Nov 2023 18:00:55 +0800
-Message-Id: <20231126100055.1595-1-jszhang@kernel.org>
-X-Mailer: git-send-email 2.40.0
+	Sun, 26 Nov 2023 10:27:28 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-54af61f2a40so2577756a12.3
+        for <linux-riscv@lists.infradead.org>; Sun, 26 Nov 2023 02:27:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1700994443; x=1701599243; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=pVGCdugKR2zaTd8xqnCBNZ6lxlpm/j0K5fW0qicxgT4=;
+        b=KSdXrYyrEr0JENBbPjjjQ+H4A73kolMGppAD84yq/sr3Cq4RBLZQ95NSEdQY42RFjU
+         UVaAM7q88aDEt7kJMcrwC9EhqpBD8GAKS+cpG2q0fJ1smmTIfpuxJCbyNzAlGTeaufS7
+         KAB72z5oZpbLx4yzh1MkKkLLgVv/s7sXuhzA8oHJyf7EzpXOtHfKMmg+9xNJeYYX73UI
+         tuZiLJci9o6HMvOL/ZKFXnDfcb5sDXML9nMyoxtEGMbDOqxt2gfa5ewxrc2UPDqYGOHi
+         0HNEaTF+XJT0CdHgJzh7QhEA8yxqQGmXIiWknblZBeyLMYxqODvw+eeCNbQgWPXOEhyo
+         N6bQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1700994443; x=1701599243;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pVGCdugKR2zaTd8xqnCBNZ6lxlpm/j0K5fW0qicxgT4=;
+        b=meW6Z/lU3Ywt9YdVCAEgxRXQUOCyHe569P6awELmIg2MXhQ8eRhuagWSbTURKhv9UH
+         XR2Qj/7rbi8xka6P+xVk5y+xTUZ4yzGdf91NIcK8/ladpTdJilSxhg5fVmYy61BnXLi/
+         9t4/keblcqHIf0KGTqk7vxTjL/IpuRmQsNJNfWhodIlj/yN4xDW7Dxb5M2zPA9kNrb1u
+         XEO6Ic/vFxaxnJOCP40xKZnLQRIc8e0hgPyCbvH6ScYAYqPAiWF0HlLPIPq6ehTZWbDR
+         s9/RBUDb/PwAscdwOfhcQ7XWPLXrAJze77tQXpjKjB9ifeYAXnzMB0RKKOqFYyhGP9Ui
+         ukoA==
+X-Gm-Message-State: AOJu0YwLeAf2Bfbt2YFbbBwGg5cf4SDWwew+jlPVrUconTD07CKn3tiP
+	amwJmXqI1XtvAb95k6bfPoHXcA==
+X-Google-Smtp-Source: AGHT+IFlyfACKSOXgfPCa0POOqv0Lf0fSeJPvWIaX7QOWDlGpFb982/4lklA15JVP2cNkGVCOuiTlQ==
+X-Received: by 2002:a17:906:290:b0:9e6:18fe:7447 with SMTP id 16-20020a170906029000b009e618fe7447mr5737574ejf.9.1700994443065;
+        Sun, 26 Nov 2023 02:27:23 -0800 (PST)
+Received: from [192.168.1.20] ([178.197.223.109])
+        by smtp.gmail.com with ESMTPSA id hz19-20020a1709072cf300b009a168ab6ee2sm4381068ejc.164.2023.11.26.02.27.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 26 Nov 2023 02:27:22 -0800 (PST)
+Message-ID: <ef4eda2a-4be5-4992-a315-d02e1a36b656@linaro.org>
+Date: Sun, 26 Nov 2023 11:27:20 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: dts: starfive: add Milkv Mars board device tree
+To: Jisheng Zhang <jszhang@kernel.org>, Emil Renner Berthing
+ <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20231126100055.1595-1-jszhang@kernel.org>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <20231126100055.1595-1-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231126_021331_929125_32B4B586 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20231126_022726_506416_671E9D58 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,686 +143,117 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Milkv Mars is a development board based on the Starfive JH7110 SoC.
-The board features:
+On 26/11/2023 11:00, Jisheng Zhang wrote:
+> The Milkv Mars is a development board based on the Starfive JH7110 SoC.
+> The board features:
+> 
+> - JH7110 SoC
+> - 1/2/4/8 GiB LPDDR4 DRAM
+> - AXP15060 PMIC
+> - 40 pin GPIO header
+> - 3x USB 3.0 host port
+> - 1x USB 2.0 host port
+> - 1x M.2 E-Key
+> - 1x eMMC slot
+> - 1x MicroSD slot
+> - 1x QSPI Flash
+> - 1x 1Gbps Ethernet port
+> - 1x HDMI port
+> - 1x 2-lane DSI and 1x 4-lane DSI
+> - 1x 2-lane CSI
+> 
+> Add the devicetree file describing the currently supported features,
+> namely PMIC, UART, SD card, QSPI Flash, eMMC and Ethernet.
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  arch/riscv/boot/dts/starfive/Makefile         |   2 +
+>  .../boot/dts/starfive/jh7110-milkv-mars.dts   | 634 ++++++++++++++++++
+>  2 files changed, 636 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
+> 
+> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
+> index 0141504c0f5c..fe0a62cc4759 100644
+> --- a/arch/riscv/boot/dts/starfive/Makefile
+> +++ b/arch/riscv/boot/dts/starfive/Makefile
+> @@ -10,3 +10,5 @@ dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
+>  
+>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.2a.dtb
+>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.3b.dtb
+> +
+> +dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-milkv-mars.dtb
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts b/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
+> new file mode 100644
+> index 000000000000..41cc67f53bbe
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
+> @@ -0,0 +1,634 @@
+> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> +/*
+> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+> + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
+> + * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +
+> +/dts-v1/;
+> +#include "jh7110.dtsi"
+> +#include "jh7110-pinfunc.h"
+> +#include <dt-bindings/gpio/gpio.h>
+> +
+> +/ {
+> +	aliases {
+> +		ethernet0 = &gmac0;
+> +		ethernet1 = &gmac1;
+> +		i2c0 = &i2c0;
+> +		i2c2 = &i2c2;
+> +		i2c5 = &i2c5;
+> +		i2c6 = &i2c6;
+> +		mmc0 = &mmc0;
+> +		mmc1 = &mmc1;
+> +		serial0 = &uart0;
+> +	};
+> +
 
-- JH7110 SoC
-- 1/2/4/8 GiB LPDDR4 DRAM
-- AXP15060 PMIC
-- 40 pin GPIO header
-- 3x USB 3.0 host port
-- 1x USB 2.0 host port
-- 1x M.2 E-Key
-- 1x eMMC slot
-- 1x MicroSD slot
-- 1x QSPI Flash
-- 1x 1Gbps Ethernet port
-- 1x HDMI port
-- 1x 2-lane DSI and 1x 4-lane DSI
-- 1x 2-lane CSI
+You miss board compatible and bindings.
 
-Add the devicetree file describing the currently supported features,
-namely PMIC, UART, SD card, QSPI Flash, eMMC and Ethernet.
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +
+> +	cpus {
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
- arch/riscv/boot/dts/starfive/Makefile         |   2 +
- .../boot/dts/starfive/jh7110-milkv-mars.dts   | 634 ++++++++++++++++++
- 2 files changed, 636 insertions(+)
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
+Board should not bring new CPU nodes. Override by label instead.
 
-diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
-index 0141504c0f5c..fe0a62cc4759 100644
---- a/arch/riscv/boot/dts/starfive/Makefile
-+++ b/arch/riscv/boot/dts/starfive/Makefile
-@@ -10,3 +10,5 @@ dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
- 
- dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.2a.dtb
- dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.3b.dtb
-+
-+dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-milkv-mars.dtb
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts b/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
-new file mode 100644
-index 000000000000..41cc67f53bbe
---- /dev/null
-+++ b/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
-@@ -0,0 +1,634 @@
-+// SPDX-License-Identifier: GPL-2.0 OR MIT
-+/*
-+ * Copyright (C) 2022 StarFive Technology Co., Ltd.
-+ * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
-+ * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-+ */
-+
-+/dts-v1/;
-+#include "jh7110.dtsi"
-+#include "jh7110-pinfunc.h"
-+#include <dt-bindings/gpio/gpio.h>
-+
-+/ {
-+	aliases {
-+		ethernet0 = &gmac0;
-+		ethernet1 = &gmac1;
-+		i2c0 = &i2c0;
-+		i2c2 = &i2c2;
-+		i2c5 = &i2c5;
-+		i2c6 = &i2c6;
-+		mmc0 = &mmc0;
-+		mmc1 = &mmc1;
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	cpus {
-+		timebase-frequency = <4000000>;
-+	};
-+
-+	memory@40000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x40000000 0x1 0x0>;
-+	};
-+
-+	gpio-restart {
-+		compatible = "gpio-restart";
-+		gpios = <&sysgpio 35 GPIO_ACTIVE_HIGH>;
-+		priority = <224>;
-+	};
-+
-+	pwmdac_codec: pwmdac-codec {
-+		compatible = "linux,spdif-dit";
-+		#sound-dai-cells = <0>;
-+	};
-+
-+	sound-pwmdac {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,name = "StarFive-PWMDAC-Sound-Card";
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		simple-audio-card,dai-link@0 {
-+			reg = <0>;
-+			format = "left_j";
-+			bitclock-master = <&sndcpu0>;
-+			frame-master = <&sndcpu0>;
-+
-+			sndcpu0: cpu {
-+				sound-dai = <&pwmdac>;
-+			};
-+
-+			codec {
-+				sound-dai = <&pwmdac_codec>;
-+			};
-+		};
-+	};
-+};
-+
-+&dvp_clk {
-+	clock-frequency = <74250000>;
-+};
-+
-+&gmac0_rgmii_rxin {
-+	clock-frequency = <125000000>;
-+};
-+
-+&gmac0_rmii_refin {
-+	clock-frequency = <50000000>;
-+};
-+
-+&gmac1_rgmii_rxin {
-+	clock-frequency = <125000000>;
-+};
-+
-+&gmac1_rmii_refin {
-+	clock-frequency = <50000000>;
-+};
-+
-+&hdmitx0_pixelclk {
-+	clock-frequency = <297000000>;
-+};
-+
-+&i2srx_bclk_ext {
-+	clock-frequency = <12288000>;
-+};
-+
-+&i2srx_lrck_ext {
-+	clock-frequency = <192000>;
-+};
-+
-+&i2stx_bclk_ext {
-+	clock-frequency = <12288000>;
-+};
-+
-+&i2stx_lrck_ext {
-+	clock-frequency = <192000>;
-+};
-+
-+&mclk_ext {
-+	clock-frequency = <12288000>;
-+};
-+
-+&osc {
-+	clock-frequency = <24000000>;
-+};
-+
-+&rtc_osc {
-+	clock-frequency = <32768>;
-+};
-+
-+&tdm_ext {
-+	clock-frequency = <49152000>;
-+};
-+
-+&gmac0 {
-+	phy-handle = <&phy0>;
-+	phy-mode = "rgmii-id";
-+	status = "okay";
-+	starfive,tx-use-rgmii-clk;
-+	assigned-clocks = <&aoncrg JH7110_AONCLK_GMAC0_TX>;
-+	assigned-clock-parents = <&aoncrg JH7110_AONCLK_GMAC0_RMII_RTX>;
-+
-+	mdio {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		compatible = "snps,dwmac-mdio";
-+
-+		phy0: ethernet-phy@0 {
-+			reg = <0>;
-+			motorcomm,tx-clk-adj-enabled;
-+			motorcomm,tx-clk-10-inverted;
-+			motorcomm,tx-clk-100-inverted;
-+			motorcomm,tx-clk-1000-inverted;
-+			motorcomm,rx-clk-drv-microamp = <3970>;
-+			motorcomm,rx-data-drv-microamp = <2910>;
-+			rx-internal-delay-ps = <1500>;
-+			tx-internal-delay-ps = <1500>;
-+		};
-+	};
-+};
-+
-+&i2c0 {
-+	clock-frequency = <100000>;
-+	i2c-sda-hold-time-ns = <300>;
-+	i2c-sda-falling-time-ns = <510>;
-+	i2c-scl-falling-time-ns = <510>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c0_pins>;
-+	status = "okay";
-+};
-+
-+&i2c2 {
-+	clock-frequency = <100000>;
-+	i2c-sda-hold-time-ns = <300>;
-+	i2c-sda-falling-time-ns = <510>;
-+	i2c-scl-falling-time-ns = <510>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c2_pins>;
-+	status = "okay";
-+};
-+
-+&i2c5 {
-+	clock-frequency = <100000>;
-+	i2c-sda-hold-time-ns = <300>;
-+	i2c-sda-falling-time-ns = <510>;
-+	i2c-scl-falling-time-ns = <510>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c5_pins>;
-+	status = "okay";
-+
-+	axp15060: pmic@36 {
-+		compatible = "x-powers,axp15060";
-+		reg = <0x36>;
-+		interrupts = <0>;
-+		interrupt-controller;
-+		#interrupt-cells = <1>;
-+
-+		regulators {
-+			vcc_3v3: dcdc1 {
-+				regulator-boot-on;
-+				regulator-always-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc_3v3";
-+			};
-+
-+			vdd_cpu: dcdc2 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1540000>;
-+				regulator-name = "vdd-cpu";
-+			};
-+
-+			emmc_vdd: aldo4 {
-+				regulator-boot-on;
-+				regulator-always-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "emmc_vdd";
-+			};
-+		};
-+	};
-+};
-+
-+&i2c6 {
-+	clock-frequency = <100000>;
-+	i2c-sda-hold-time-ns = <300>;
-+	i2c-sda-falling-time-ns = <510>;
-+	i2c-scl-falling-time-ns = <510>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c6_pins>;
-+	status = "okay";
-+};
-+
-+&i2srx {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2srx_pins>;
-+};
-+
-+&i2stx0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&mclk_ext_pins>;
-+};
-+
-+&i2stx1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2stx1_pins>;
-+};
-+
-+&mmc0 {
-+	max-frequency = <100000000>;
-+	assigned-clocks = <&syscrg JH7110_SYSCLK_SDIO0_SDCARD>;
-+	assigned-clock-rates = <50000000>;
-+	bus-width = <8>;
-+	cap-mmc-highspeed;
-+	mmc-ddr-1_8v;
-+	mmc-hs200-1_8v;
-+	cap-mmc-hw-reset;
-+	post-power-on-delay-ms = <200>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&mmc0_pins>;
-+	vmmc-supply = <&vcc_3v3>;
-+	vqmmc-supply = <&emmc_vdd>;
-+	status = "okay";
-+};
-+
-+&mmc1 {
-+	max-frequency = <100000000>;
-+	assigned-clocks = <&syscrg JH7110_SYSCLK_SDIO1_SDCARD>;
-+	assigned-clock-rates = <50000000>;
-+	bus-width = <4>;
-+	no-sdio;
-+	no-mmc;
-+	disable-wp;
-+	cd-gpios = <&sysgpio 41 GPIO_ACTIVE_LOW>;
-+	cap-sd-highspeed;
-+	post-power-on-delay-ms = <200>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&mmc1_pins>;
-+	status = "okay";
-+};
-+
-+&pwmdac {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwmdac_pins>;
-+};
-+
-+&qspi {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	nor_flash: flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+		cdns,read-delay = <5>;
-+		spi-max-frequency = <12000000>;
-+		cdns,tshsl-ns = <1>;
-+		cdns,tsd2d-ns = <1>;
-+		cdns,tchsh-ns = <1>;
-+		cdns,tslch-ns = <1>;
-+
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			spl@0 {
-+				reg = <0x0 0x80000>;
-+			};
-+			uboot-env@f0000 {
-+				reg = <0xf0000 0x10000>;
-+			};
-+			uboot@100000 {
-+				reg = <0x100000 0x400000>;
-+			};
-+			reserved-data@600000 {
-+				reg = <0x600000 0xa00000>;
-+			};
-+		};
-+	};
-+};
-+
-+&spi0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&spi0_pins>;
-+	status = "okay";
-+
-+	spi_dev0: spi@0 {
-+		compatible = "rohm,dh2228fv";
-+		reg = <0>;
-+		spi-max-frequency = <10000000>;
-+	};
-+};
-+
-+&sysgpio {
-+	i2c0_pins: i2c0-0 {
-+		i2c-pins {
-+			pinmux = <GPIOMUX(57, GPOUT_LOW,
-+					      GPOEN_SYS_I2C0_CLK,
-+					      GPI_SYS_I2C0_CLK)>,
-+				 <GPIOMUX(58, GPOUT_LOW,
-+					      GPOEN_SYS_I2C0_DATA,
-+					      GPI_SYS_I2C0_DATA)>;
-+			bias-disable; /* external pull-up */
-+			input-enable;
-+			input-schmitt-enable;
-+		};
-+	};
-+
-+	i2c2_pins: i2c2-0 {
-+		i2c-pins {
-+			pinmux = <GPIOMUX(3, GPOUT_LOW,
-+					     GPOEN_SYS_I2C2_CLK,
-+					     GPI_SYS_I2C2_CLK)>,
-+				 <GPIOMUX(2, GPOUT_LOW,
-+					     GPOEN_SYS_I2C2_DATA,
-+					     GPI_SYS_I2C2_DATA)>;
-+			bias-disable; /* external pull-up */
-+			input-enable;
-+			input-schmitt-enable;
-+		};
-+	};
-+
-+	i2c5_pins: i2c5-0 {
-+		i2c-pins {
-+			pinmux = <GPIOMUX(19, GPOUT_LOW,
-+					      GPOEN_SYS_I2C5_CLK,
-+					      GPI_SYS_I2C5_CLK)>,
-+				 <GPIOMUX(20, GPOUT_LOW,
-+					      GPOEN_SYS_I2C5_DATA,
-+					      GPI_SYS_I2C5_DATA)>;
-+			bias-disable; /* external pull-up */
-+			input-enable;
-+			input-schmitt-enable;
-+		};
-+	};
-+
-+	i2c6_pins: i2c6-0 {
-+		i2c-pins {
-+			pinmux = <GPIOMUX(16, GPOUT_LOW,
-+					      GPOEN_SYS_I2C6_CLK,
-+					      GPI_SYS_I2C6_CLK)>,
-+				 <GPIOMUX(17, GPOUT_LOW,
-+					      GPOEN_SYS_I2C6_DATA,
-+					      GPI_SYS_I2C6_DATA)>;
-+			bias-disable; /* external pull-up */
-+			input-enable;
-+			input-schmitt-enable;
-+		};
-+	};
-+
-+	i2srx_pins: i2srx-0 {
-+		clk-sd-pins {
-+			pinmux = <GPIOMUX(38, GPOUT_LOW,
-+					      GPOEN_DISABLE,
-+					      GPI_SYS_I2SRX_BCLK)>,
-+				 <GPIOMUX(63, GPOUT_LOW,
-+					      GPOEN_DISABLE,
-+					      GPI_SYS_I2SRX_LRCK)>,
-+				 <GPIOMUX(38, GPOUT_LOW,
-+					      GPOEN_DISABLE,
-+					      GPI_SYS_I2STX1_BCLK)>,
-+				 <GPIOMUX(63, GPOUT_LOW,
-+					      GPOEN_DISABLE,
-+					      GPI_SYS_I2STX1_LRCK)>,
-+				 <GPIOMUX(61, GPOUT_LOW,
-+					      GPOEN_DISABLE,
-+					      GPI_SYS_I2SRX_SDIN0)>;
-+			input-enable;
-+		};
-+	};
-+
-+	i2stx1_pins: i2stx1-0 {
-+		sd-pins {
-+			pinmux = <GPIOMUX(44, GPOUT_SYS_I2STX1_SDO0,
-+					      GPOEN_ENABLE,
-+					      GPI_NONE)>;
-+			bias-disable;
-+			input-disable;
-+		};
-+	};
-+
-+	mclk_ext_pins: mclk-ext-0 {
-+		mclk-ext-pins {
-+			pinmux = <GPIOMUX(4, GPOUT_LOW,
-+					     GPOEN_DISABLE,
-+					     GPI_SYS_MCLK_EXT)>;
-+			input-enable;
-+		};
-+	};
-+
-+	mmc0_pins: mmc0-0 {
-+		 rst-pins {
-+			pinmux = <GPIOMUX(62, GPOUT_SYS_SDIO0_RST,
-+					      GPOEN_ENABLE,
-+					      GPI_NONE)>;
-+			bias-pull-up;
-+			drive-strength = <12>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+
-+		mmc-pins {
-+			pinmux = <PINMUX(64, 0)>,
-+				 <PINMUX(65, 0)>,
-+				 <PINMUX(66, 0)>,
-+				 <PINMUX(67, 0)>,
-+				 <PINMUX(68, 0)>,
-+				 <PINMUX(69, 0)>,
-+				 <PINMUX(70, 0)>,
-+				 <PINMUX(71, 0)>,
-+				 <PINMUX(72, 0)>,
-+				 <PINMUX(73, 0)>;
-+			bias-pull-up;
-+			drive-strength = <12>;
-+			input-enable;
-+		};
-+	};
-+
-+	mmc1_pins: mmc1-0 {
-+		clk-pins {
-+			pinmux = <GPIOMUX(10, GPOUT_SYS_SDIO1_CLK,
-+					      GPOEN_ENABLE,
-+					      GPI_NONE)>;
-+			bias-pull-up;
-+			drive-strength = <12>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+
-+		mmc-pins {
-+			pinmux = <GPIOMUX(9, GPOUT_SYS_SDIO1_CMD,
-+					     GPOEN_SYS_SDIO1_CMD,
-+					     GPI_SYS_SDIO1_CMD)>,
-+				 <GPIOMUX(11, GPOUT_SYS_SDIO1_DATA0,
-+					      GPOEN_SYS_SDIO1_DATA0,
-+					      GPI_SYS_SDIO1_DATA0)>,
-+				 <GPIOMUX(12, GPOUT_SYS_SDIO1_DATA1,
-+					      GPOEN_SYS_SDIO1_DATA1,
-+					      GPI_SYS_SDIO1_DATA1)>,
-+				 <GPIOMUX(7, GPOUT_SYS_SDIO1_DATA2,
-+					     GPOEN_SYS_SDIO1_DATA2,
-+					     GPI_SYS_SDIO1_DATA2)>,
-+				 <GPIOMUX(8, GPOUT_SYS_SDIO1_DATA3,
-+					     GPOEN_SYS_SDIO1_DATA3,
-+					     GPI_SYS_SDIO1_DATA3)>;
-+			bias-pull-up;
-+			drive-strength = <12>;
-+			input-enable;
-+			input-schmitt-enable;
-+			slew-rate = <0>;
-+		};
-+	};
-+
-+	pwmdac_pins: pwmdac-0 {
-+		pwmdac-pins {
-+			pinmux = <GPIOMUX(33, GPOUT_SYS_PWMDAC_LEFT,
-+					      GPOEN_ENABLE,
-+					      GPI_NONE)>,
-+				 <GPIOMUX(34, GPOUT_SYS_PWMDAC_RIGHT,
-+					      GPOEN_ENABLE,
-+					      GPI_NONE)>;
-+			bias-disable;
-+			drive-strength = <2>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+	};
-+
-+	spi0_pins: spi0-0 {
-+		mosi-pins {
-+			pinmux = <GPIOMUX(52, GPOUT_SYS_SPI0_TXD,
-+					      GPOEN_ENABLE,
-+					      GPI_NONE)>;
-+			bias-disable;
-+			input-disable;
-+			input-schmitt-disable;
-+		};
-+
-+		miso-pins {
-+			pinmux = <GPIOMUX(53, GPOUT_LOW,
-+					      GPOEN_DISABLE,
-+					      GPI_SYS_SPI0_RXD)>;
-+			bias-pull-up;
-+			input-enable;
-+			input-schmitt-enable;
-+		};
-+
-+		sck-pins {
-+			pinmux = <GPIOMUX(48, GPOUT_SYS_SPI0_CLK,
-+					      GPOEN_ENABLE,
-+					      GPI_SYS_SPI0_CLK)>;
-+			bias-disable;
-+			input-disable;
-+			input-schmitt-disable;
-+		};
-+
-+		ss-pins {
-+			pinmux = <GPIOMUX(49, GPOUT_SYS_SPI0_FSS,
-+					      GPOEN_ENABLE,
-+					      GPI_SYS_SPI0_FSS)>;
-+			bias-disable;
-+			input-disable;
-+			input-schmitt-disable;
-+		};
-+	};
-+
-+	tdm_pins: tdm-0 {
-+		tx-pins {
-+			pinmux = <GPIOMUX(44, GPOUT_SYS_TDM_TXD,
-+					      GPOEN_ENABLE,
-+					      GPI_NONE)>;
-+			bias-pull-up;
-+			drive-strength = <2>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+
-+		rx-pins {
-+			pinmux = <GPIOMUX(61, GPOUT_HIGH,
-+					      GPOEN_DISABLE,
-+					      GPI_SYS_TDM_RXD)>;
-+			input-enable;
-+		};
-+
-+		sync-pins {
-+			pinmux = <GPIOMUX(63, GPOUT_HIGH,
-+					      GPOEN_DISABLE,
-+					      GPI_SYS_TDM_SYNC)>;
-+			input-enable;
-+		};
-+
-+		pcmclk-pins {
-+			pinmux = <GPIOMUX(38, GPOUT_HIGH,
-+					      GPOEN_DISABLE,
-+					      GPI_SYS_TDM_CLK)>;
-+			input-enable;
-+		};
-+	};
-+
-+	uart0_pins: uart0-0 {
-+		tx-pins {
-+			pinmux = <GPIOMUX(5, GPOUT_SYS_UART0_TX,
-+					     GPOEN_ENABLE,
-+					     GPI_NONE)>;
-+			bias-disable;
-+			drive-strength = <12>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+
-+		rx-pins {
-+			pinmux = <GPIOMUX(6, GPOUT_LOW,
-+					     GPOEN_DISABLE,
-+					     GPI_SYS_UART0_RX)>;
-+			bias-disable; /* external pull-up */
-+			drive-strength = <2>;
-+			input-enable;
-+			input-schmitt-enable;
-+			slew-rate = <0>;
-+		};
-+	};
-+};
-+
-+&tdm {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&tdm_pins>;
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_pins>;
-+	status = "okay";
-+};
-+
-+&usb0 {
-+	dr_mode = "peripheral";
-+};
-+
-+&U74_1 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&U74_2 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&U74_3 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&U74_4 {
-+	cpu-supply = <&vdd_cpu>;
-+};
--- 
-2.42.0
+
+> +		timebase-frequency = <4000000>;
+> +	};
+> +
+> +	memory@40000000 {
+> +		device_type = "memory";
+> +		reg = <0x0 0x40000000 0x1 0x0>;
+> +	};
+> +
+> +	gpio-restart {
+> +		compatible = "gpio-restart";
+> +		gpios = <&sysgpio 35 GPIO_ACTIVE_HIGH>;
+> +		priority = <224>;
+> +	};
+> +
+> +	pwmdac_codec: pwmdac-codec {
+
+audio-codec
+
+> +		compatible = "linux,spdif-dit";
+> +		#sound-dai-cells = <0>;
+> +	};
+> +
+> +	sound-pwmdac {
+
+sound
+
+
+Best regards,
+Krzysztof
 
 
 _______________________________________________
