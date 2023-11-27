@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65852C07D5A
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 08:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6636FC0755A
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 08:50:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wwJJAvgypu00JMgAIPT3WqkfIYYRT6ArZ0iunzSPcyM=; b=0TmdeDDAZYR/y8
-	JZ96YLQD74Ye+LEu5jHDTPx1qFFBphvpnlzXxasDp9xnZTnOYnyY7JrahC/+kaeAqvl9R7SPCdzft
-	B1XeSgpAkTzo9zL2Re+hCdCGJe4hOkHLhW78ljdFwq0utqIh5qF3bE7+cKgeX0xO3uXdY9SsrRnZv
-	ul9eiHTDedDg6rM96FWAjJDTXL+8Xf97wtscaEkFiraATIw3D0FgMXhgBBu8KM0bl/LHGgvCtdK6f
-	I85diGaNL3xLbkswaPnGFlP9R8ZRTRlxaZGJ7cfUz/bzinxXhFyj97PrXHeEa6UvjfvmerMBHJMFS
-	ctQtXnAQ2Li0baVKeEaw==;
+	List-Owner; bh=QYXMrOmz0tOcrPvvqde8wEJz/A1DGAjDs9zhJyiWxOY=; b=WdoXrgVZNFusUy
+	CNNnSiQpgqJFYcir5DUt9+0TvBd7kVzGC6S5PxQ9AkCXPzXNX9QeIQkKzGFF00LsEsf7Y+ivzclkd
+	R6EXxqz6efASiz/6b30ePFFBPa7esP89WeKfzKoKx1qUQ5zJriiUHzNxCqe4YnqNXQvCh/V+OanYB
+	TtsHF9HeA3e10iBSITPuvtSCmaB2JgzNZQeTH/eoWDmCJo3BZro8wYu0ten5AsFtlMwSB9hhT7fd+
+	W+qoUg6VdXkexWEa4Kn++sArdsrs+GOem3Ac3i70hNhxnRhlxLHNw4IH0hjV4JrMFjZcW2WKA7dEq
+	EdEaZ819Las9cUYAHcPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7XIq-001t3T-1n;
-	Mon, 27 Nov 2023 08:49:17 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1r7XKI-001tJN-0e;
+	Mon, 27 Nov 2023 08:50:46 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7XIm-001t2I-1E
+	id 1r7XKD-001tHk-2j
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Nov 2023 08:49:14 +0000
+	Mon, 27 Nov 2023 08:50:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 08168CE000E;
-	Mon, 27 Nov 2023 08:49:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19DFFC433C7;
-	Mon, 27 Nov 2023 08:49:05 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 65DEFB8346A;
+	Mon, 27 Nov 2023 08:50:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4E98C433C8;
+	Mon, 27 Nov 2023 08:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701074949;
-	bh=8sT9r1S011zSitMbQnunPozcq3JEaxTMINRgB6YSRVM=;
+	s=k20201202; t=1701075039;
+	bh=ilpVrx2lHKKTQNuvgJmypNWXQgnQKlvWSQsuY3U/UTg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cu4SV15CKWUMWCVx7CU5tf5xSJ5MW0DzC+dUMj+OIMs46IGEpAIuFgSDuzZvGsyWd
-	 bB/vIPRwa07gSyCmOXGXYFtOWH9OyGIB52oY6LNnlJ9xSLEZ8G8AwrfkURTsqKzaa3
-	 +bFjySxyzJsG/1vpkn5WDPubKeCIen4XwJmy4GX+3oAN2eDwLSx1h9a89tuZ/mhhcj
-	 fSFv0G0zqcfLb3Slw5DykOukwEltioDLvYcjq6eYeV2ZtyhIf9ltIMDBvAb/WuFVvF
-	 W5gN64+GJUXTeJsGBkYLBt2XUxyeyKjEg22FL9PukagYVCUDcLMhXDyDp+/3dSugn1
-	 0jBhb5e+XTC7A==
-Message-ID: <07fc5ebe-47b2-4843-ad49-36e6686e5a9a@kernel.org>
-Date: Mon, 27 Nov 2023 09:49:05 +0100
+	b=PE3lnzQpIVT05vo9v+kSzdp6jhE9E943kvhIAqMlWUN58mLjykwPMqHJ5hh7Qoqos
+	 c2TjZlmJDu+V+oHYlXxbkjbxFHAvsK7aCHoM47A2HcwwDUbRoZo6KorvWj4vdXf32k
+	 WHmxYadMogvb6ZN6ERKiTL0xhxAOjEAzW/GFKyCsgv7uaz482cza69Aqp5wtH4HJ8Y
+	 lpsq9PlQYs43izJEhluq2jQXS30Wf8TJ4K8gBMiRZAFtdNGwfrkzt90IrzLXNHkvfn
+	 QZH3SnFBZ5rvIpJyDJMA67247BPl4QiX5hbXu7s5ZEiYvvPE7OGzHfAtar2nbZEiV0
+	 alKlAFmJIMwxg==
+Message-ID: <20b13322-3cd1-47b1-bb39-2710ddc59a11@kernel.org>
+Date: Mon, 27 Nov 2023 09:50:35 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/7] serial: xilinx_uartps: Add new compatible string for
- StarFive
+Subject: Re: [PATCH 7/7] riscv: dts: starfive: Add initial StarFive JH8100
+ device tree
 Content-Language: en-US
 To: Sia Jee Heng <jeeheng.sia@starfivetech.com>, paul.walmsley@sifive.com,
  palmer@dabbelt.com, aou@eecs.berkeley.edu, conor@kernel.org,
@@ -55,7 +55,7 @@ To: Sia Jee Heng <jeeheng.sia@starfivetech.com>, paul.walmsley@sifive.com,
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  leyfoon.tan@starfivetech.com
 References: <20231127013602.253835-1-jeeheng.sia@starfivetech.com>
- <20231127013602.253835-7-jeeheng.sia@starfivetech.com>
+ <20231127013602.253835-8-jeeheng.sia@starfivetech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -100,10 +100,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20231127013602.253835-7-jeeheng.sia@starfivetech.com>
+In-Reply-To: <20231127013602.253835-8-jeeheng.sia@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231127_004912_794428_6B53D62F 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20231127_005042_151122_2E4D3FA6 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,35 +121,89 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 27/11/2023 02:36, Sia Jee Heng wrote:
-> This patch adds the new compatible string for StarFive JH8100 SoC
+> Add initial device tree for the StarFive JH8100 RISC-V SoC
 > 
 > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
 > ---
->  drivers/tty/serial/xilinx_uartps.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
+>  arch/riscv/boot/dts/starfive/Makefile       |   1 +
+>  arch/riscv/boot/dts/starfive/jh8100-evb.dts |  42 +++
+>  arch/riscv/boot/dts/starfive/jh8100.dtsi    | 365 ++++++++++++++++++++
+>  3 files changed, 408 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh8100-evb.dts
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh8100.dtsi
 > 
-> diff --git a/drivers/tty/serial/xilinx_uartps.c b/drivers/tty/serial/xilinx_uartps.c
-> index 66a45a634158..170901c143c2 100644
-> --- a/drivers/tty/serial/xilinx_uartps.c
-> +++ b/drivers/tty/serial/xilinx_uartps.c
-> @@ -1210,7 +1210,7 @@ OF_EARLYCON_DECLARE(cdns, "xlnx,xuartps", cdns_early_console_setup);
->  OF_EARLYCON_DECLARE(cdns, "cdns,uart-r1p8", cdns_early_console_setup);
->  OF_EARLYCON_DECLARE(cdns, "cdns,uart-r1p12", cdns_early_console_setup);
->  OF_EARLYCON_DECLARE(cdns, "xlnx,zynqmp-uart", cdns_early_console_setup);
-> -
-> +OF_EARLYCON_DECLARE(cdns, "starfive,jh8100-uart", cdns_early_console_setup);
+> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
+> index 0141504c0f5c..fbb0dc619102 100644
+> --- a/arch/riscv/boot/dts/starfive/Makefile
+> +++ b/arch/riscv/boot/dts/starfive/Makefile
+> @@ -10,3 +10,4 @@ dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
 >  
->  /* Static pointer to console port */
->  static struct uart_port *console_port;
-> @@ -1448,6 +1448,7 @@ static const struct of_device_id cdns_uart_of_match[] = {
->  	{ .compatible = "cdns,uart-r1p8", },
->  	{ .compatible = "cdns,uart-r1p12", .data = &zynqmp_uart_def },
->  	{ .compatible = "xlnx,zynqmp-uart", .data = &zynqmp_uart_def },
-> +	{ .compatible = "starfive,jh8100-uart", },
+>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.2a.dtb
+>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.3b.dtb
+> +dtb-$(CONFIG_ARCH_STARFIVE) += jh8100-evb.dtb
+> diff --git a/arch/riscv/boot/dts/starfive/jh8100-evb.dts b/arch/riscv/boot/dts/starfive/jh8100-evb.dts
+> new file mode 100644
+> index 000000000000..67c4964a8773
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/starfive/jh8100-evb.dts
+> @@ -0,0 +1,42 @@
+> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> +/*
+> + * Copyright (c) 2021-2023 StarFive Technology Co., Ltd.
+> + */
+> +
+> +#include "jh8100.dtsi"
+> +
+> +/ {
+> +	model = "StarFive JH8100 EVB";
+> +	compatible = "starfive,jh8100-evb", "starfive,jh8100";
+> +
+> +	aliases {
+> +		serial0 = &uart0;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +
+> +	cpus {
+> +		timebase-frequency = <4000000>;
 
-Why you do not express compatibility in your bindings? Skip this driver
-change.
+This was fixed recently on the mailing lists.
+
+
+> +
+> +	};
+> +
+> +	memory {
+> +		device_type = "memory";
+> +		reg = <0x0 0x40000000 0x2 0x00000000>; /* 8GB */
+> +	};
+> +
+> +	soc {
+> +		clk_uart: clk_uart {
+
+Undercores are not allowed in node names. Use hyphen.
+
+Also, boards must not add nodes to the soc. This is board, not SoC DTS.
+
+...
+
+> +
+> +		uart6: serial@127e0000  {
+> +			compatible = "starfive,jh8100-uart";
+> +			reg = <0x0 0x127e0000 0x0 0x10000>;
+> +			clock-names = "uart_clk", "pclk";
+> +			interrupts = <73>;
+> +			status = "disabled";
+> +		};
+> +
+
+Stray blank line. In other places as well.
+
+> +	};
+> +};
 
 Best regards,
 Krzysztof
