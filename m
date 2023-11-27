@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99806C4167B
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 02:14:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA2FDC4167B
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 02:49:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
 	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
 	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ArqVLybEcjAcx8ItAg98PDDR7s7Bjtr4nMd+qftaBcw=; b=grdD/+4//D+3y8
-	MdebylygvMkKSYDTLy9wN7rxZDuhAIZLxF57/Zy+Vw52Q4gZzaaMI18+p/ADZyaZ/6bLbylwUyT1v
-	wUL4kNGpc6nN8U6vJuQFiNNJKGJi0zSTRzNzLDlS6cqMWmrjoMSAwRQ4jHDqejCOBXHGmgeGtgikj
-	Q8+BQ49vaJznHcDOjYWI91quCTjj/pvJ/EcAdzsJQQ8OsoDIy4OyNJsyEbhCTd3QYGNXXke3Zkh4x
-	vRGuLktPYJA4veyGoLW/3pFY/Ct0nGDXBjrgqPLsoxBMS/d7BYxagsj2nVCsJz0/KbywOZakF8WH7
-	H/0IUfEUmeTQe1j1RfcQ==;
+	List-Owner; bh=MGxA+0ZW/R2nFEeTml2fNU7vmmPddd2RzddIZ792At0=; b=MOMOI4R2nF/DFB
+	kxiOXYa/YfJ4EEk0CsKEkR1uQAzboPwVgkcuheVi5VrwDk0v5Nge+vXKshI1nYAuEpDynLtJaR6+R
+	biAxR9Wx+pAVnjc6CKJdJchjJ1k/AXbXq+6VRE3CFB6ggOYkpEqBBU4Mxxbl8iwfvAfzgSgq4SXSL
+	g92VRCzyn7nw5fT7Q8Y+mEXAlI9PSbZP0T2nuodmRHaKI9C7RHww+NfX/oSVp//Hs4nrju5/969Rq
+	9ab4XVZ/EeZp79z0nuOkzm9Nbul15Eg049TyghziNJsBEya+0hvFUf2Jk4QLh57dMBREjXtMJ72yu
+	bz0bSRja/ySzKNqcyr2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7R8w-000dY3-1o;
-	Mon, 27 Nov 2023 02:14:38 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1r7RgS-000wLN-1m;
+	Mon, 27 Nov 2023 02:49:16 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7R8t-000dVM-0t
+	id 1r7RgO-000wID-1e
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Nov 2023 02:14:37 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-6c398717726so2920540b3a.2
-        for <linux-riscv@lists.infradead.org>; Sun, 26 Nov 2023 18:14:33 -0800 (PST)
+	Mon, 27 Nov 2023 02:49:14 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1cfafe3d46bso15153895ad.0
+        for <linux-riscv@lists.infradead.org>; Sun, 26 Nov 2023 18:49:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1701051273; x=1701656073; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1701053351; x=1701658151; darn=lists.infradead.org;
         h=to:references:message-id:content-transfer-encoding:cc:date
          :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=qQuCTKkjoab2EfyY20C3fybDK6Ql2G05fa9QjwE7uds=;
-        b=T4RY5brnytGZDi6TAYWsVQklcETVWzMm+8+tf8pBc252z8YABAEpODZGGS6cRHamNR
-         DNIFHlZT61h7BcgBNQGIWjQSafbRKI/iA3l53ZSO4poYeZxEe19SNSgedTpj7pgiCyvb
-         sHn3jN0ffkGaNHvO+xPulnFDJoz2+R/Fd5SfBruq/tkAZm0NFbpHNAlsuuA7jbp2kjsg
-         BzintUNsy+lOtN6p7wE0hTnvRxrO3HtlFAESYUmiveENu420NOlHoLeyWCA+5GKqymUj
-         37Ook4WTgOSR5tnelwJcQ+TR22b2UMAY6pvuFPwcviMxxALZCMGmIEuRY3KEU+8eYcYd
-         02wQ==
+        bh=DKAcGhLjW+Mvs5EpwSa0BHJFl4vGnQQP4AO9iXzVC3M=;
+        b=Ga4wfR9Nle3y3oiGw4LzG9XYXf1+iF9MdsOIP9fcqiDBWC3NhdoH9VST2QJyxKaweW
+         jyigyndZeJrxoo59e7xv6nXiEDWEP8DnIRTJeBki9sFqWtmjrmUsx63b3hSntJmNWZ9j
+         ji7AB5oBxnJfJfdqWEWygslHlQpNeaRXIcz2QbSGCA+M0wxtcl9FjMNxM2JekbpzzkLQ
+         8hvv0OGf7sFKSfDmRPdn/bt8QyUIvafyLq+zksBpEnNoNa9xd+29bZ4rgGePDkJfEFIj
+         hRWaKD4MMSGv0bevoestut39ADAo3LXxYVe33NASOINvUAdUpYkelNbQsitAXS87b3nW
+         ZsIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701051273; x=1701656073;
+        d=1e100.net; s=20230601; t=1701053351; x=1701658151;
         h=to:references:message-id:content-transfer-encoding:cc:date
          :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=qQuCTKkjoab2EfyY20C3fybDK6Ql2G05fa9QjwE7uds=;
-        b=RzVhSkwp0RC8rU8wXjh8w6xQFhuOZXHOndoOY/RCORCPRXr93m+RM5g5M48YzLCwDj
-         wkLUSYGIR7BlGG2q8ehg+hUb0EzL3nQx6DPzobX1gKo+qQ790V5+4AJVorNjZtJIbVHj
-         cHQr5wVZb9OpCFGjdNNBv3wSKwM0VW9sxfnkx/zqhqO0bkkZ9NoKtaDsrnkG5jEB1XlK
-         C4z7dzrS0kI8UuBXSpVllaMJrCpxff8CKg5G2DI9kdcsZPYS3doZn9wRm7GrUGpKwRfe
-         axCxFswczuRczb6yHd+/qUEnY3yOz/G6TqEPyiovAC3S+Rf9c/+evT2viI280E5njPlt
-         lkIg==
-X-Gm-Message-State: AOJu0Yx0gcF2lARzJNXnikXTCXtNba/H2YSZ12iOEzeEwDoVYIDKaQbO
-	zBg+Z6AXFThbtu48ks+zP1WkqQ==
-X-Google-Smtp-Source: AGHT+IGCytZMxu7H10W/RpstzoB24pSc/2pOM0mtxh/XBOupAfkyHHRrNPwHxAWsSzb0+rVLqYYqmg==
-X-Received: by 2002:a05:6a20:8403:b0:18b:a011:f955 with SMTP id c3-20020a056a20840300b0018ba011f955mr10693520pzd.60.1701051273409;
-        Sun, 26 Nov 2023 18:14:33 -0800 (PST)
+        bh=DKAcGhLjW+Mvs5EpwSa0BHJFl4vGnQQP4AO9iXzVC3M=;
+        b=XvGfijBXBy0pzesBQcheA4iuH79K9SooGNZ3w6PFckbgaKCdRmMznQ8YK+F+5FQO7b
+         hIwOeuKbYMfBuZRU30DOXQrEdPh8l/qX3Lg6b552LTYxN7nyloUykMYTybf4tvCzMb8p
+         xa+qV5+YCrRC3hvIEfi6IhXYbxNs7wfjXakDbfwtxBKPOKV4avSPhaWUmfGI/TVjvk8G
+         033M5peO8Xe4S8WtypilV8Fyj4uXsmplOV+nq0nnN/NRE2OE6icgFyotAX7QRSUn0yrr
+         UkmW8Z2pQscbFIq0P68oWWw/+exBmHZXnOnd1AYAQcdPEGl/IroTyTAhdZNnNhGyM67R
+         FlFQ==
+X-Gm-Message-State: AOJu0YxMrTpLEOHa0Hk60YL1IHS+BFhtFukNfwvyxFckmIg/EonWXr2t
+	RfiWsK2BhAs8VLFUmPbnGHYLVw==
+X-Google-Smtp-Source: AGHT+IEJDX1ywIRA2yybgn0V12rpBI4hcbgHrdWUbOpGdBuIKseg3QyOMxgm76BvwV0ixIdrwd6rOQ==
+X-Received: by 2002:a17:902:9f87:b0:1cc:4e46:3e45 with SMTP id g7-20020a1709029f8700b001cc4e463e45mr11188671plq.49.1701053351105;
+        Sun, 26 Nov 2023 18:49:11 -0800 (PST)
 Received: from ?IPv6:2402:7500:4ce:95c7:2856:b238:775:b338? ([2402:7500:4ce:95c7:2856:b238:775:b338])
-        by smtp.gmail.com with ESMTPSA id q16-20020a63cc50000000b0059b782e8541sm6831644pgi.28.2023.11.26.18.14.29
+        by smtp.gmail.com with ESMTPSA id o4-20020a1709026b0400b001b898595be7sm7028182plk.291.2023.11.26.18.49.07
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 26 Nov 2023 18:14:32 -0800 (PST)
+        Sun, 26 Nov 2023 18:49:10 -0800 (PST)
 Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.7\))
-Subject: Re: [PATCH 12/12] RISC-V: crypto: add Zvkb accelerated ChaCha20
+Subject: Re: [PATCH 07/12] RISC-V: crypto: add Zvkg accelerated GCM GHASH
  implementation
 From: Jerry Shih <jerry.shih@sifive.com>
-In-Reply-To: <20231122012933.GG2172@sol.localdomain>
-Date: Mon, 27 Nov 2023 10:14:27 +0800
+In-Reply-To: <20231122014216.GI2172@sol.localdomain>
+Date: Mon, 27 Nov 2023 10:49:05 +0800
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  palmer@dabbelt.com,
  Albert Ou <aou@eecs.berkeley.edu>,
@@ -85,15 +85,15 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org,
  linux-crypto@vger.kernel.org
-Message-Id: <69B2D415-3626-4D6C-B559-0724EC1CD853@sifive.com>
+Message-Id: <D1C10635-7799-4400-B85E-746D156D714A@sifive.com>
 References: <20231025183644.8735-1-jerry.shih@sifive.com>
- <20231025183644.8735-13-jerry.shih@sifive.com>
- <20231122012933.GG2172@sol.localdomain>
+ <20231025183644.8735-8-jerry.shih@sifive.com>
+ <20231122014216.GI2172@sol.localdomain>
 To: Eric Biggers <ebiggers@kernel.org>
 X-Mailer: Apple Mail (2.3445.9.7)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231126_181435_493481_208E96A5 
-X-CRM114-Status: GOOD (  18.96  )
+X-CRM114-CacheID: sfid-20231126_184912_584285_0BD87754 
+X-CRM114-Status: GOOD (  21.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,112 +110,152 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Nov 22, 2023, at 09:29, Eric Biggers <ebiggers@kernel.org> wrote:
-> On Thu, Oct 26, 2023 at 02:36:44AM +0800, Jerry Shih wrote:
->> diff --git a/arch/riscv/crypto/chacha-riscv64-glue.c b/arch/riscv/crypto/chacha-riscv64-glue.c
->> new file mode 100644
->> index 000000000000..72011949f705
->> --- /dev/null
->> +++ b/arch/riscv/crypto/chacha-riscv64-glue.c
->> @@ -0,0 +1,120 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * Port of the OpenSSL ChaCha20 implementation for RISC-V 64
->> + *
->> + * Copyright (C) 2023 SiFive, Inc.
->> + * Author: Jerry Shih <jerry.shih@sifive.com>
->> + */
+On Nov 22, 2023, at 09:42, Eric Biggers <ebiggers@kernel.org> wrote:
+> On Thu, Oct 26, 2023 at 02:36:39AM +0800, Jerry Shih wrote:
+>> +struct riscv64_ghash_context {
+>> +	be128 key;
+>> +};
 >> +
->> +#include <asm/simd.h>
->> +#include <asm/vector.h>
->> +#include <crypto/internal/chacha.h>
->> +#include <crypto/internal/simd.h>
->> +#include <crypto/internal/skcipher.h>
->> +#include <linux/crypto.h>
->> +#include <linux/module.h>
->> +#include <linux/types.h>
->> +
->> +#define CHACHA_BLOCK_VALID_SIZE_MASK (~(CHACHA_BLOCK_SIZE - 1))
->> +#define CHACHA_BLOCK_REMAINING_SIZE_MASK (CHACHA_BLOCK_SIZE - 1)
->> +#define CHACHA_KEY_OFFSET 4
->> +#define CHACHA_IV_OFFSET 12
->> +
->> +/* chacha20 using zvkb vector crypto extension */
->> +void ChaCha20_ctr32_zvkb(u8 *out, const u8 *input, size_t len, const u32 *key,
->> +			 const u32 *counter);
->> +
->> +static int chacha20_encrypt(struct skcipher_request *req)
->> +{
->> +	u32 state[CHACHA_STATE_WORDS];
+>> +struct riscv64_ghash_desc_ctx {
+>> +	be128 shash;
+>> +	u8 buffer[GHASH_BLOCK_SIZE];
+>> +	u32 bytes;
+>> +};
 > 
-> This function doesn't need to create the whole state matrix on the stack, since
-> the underlying assembly function takes as input the key and counter, not the
-> state matrix.  I recommend something like the following:
-> 
-> diff --git a/arch/riscv/crypto/chacha-riscv64-glue.c b/arch/riscv/crypto/chacha-riscv64-glue.c
-> index df185d0663fcc..216b4cd9d1e01 100644
-> --- a/arch/riscv/crypto/chacha-riscv64-glue.c
-> +++ b/arch/riscv/crypto/chacha-riscv64-glue.c
-> @@ -16,45 +16,42 @@
-> #include <linux/module.h>
-> #include <linux/types.h>
-> 
-> -#define CHACHA_KEY_OFFSET 4
-> -#define CHACHA_IV_OFFSET 12
-> -
-> /* chacha20 using zvkb vector crypto extension */
-> asmlinkage void ChaCha20_ctr32_zvkb(u8 *out, const u8 *input, size_t len,
-> 				    const u32 *key, const u32 *counter);
-> 
-> static int chacha20_encrypt(struct skcipher_request *req)
-> {
-> -	u32 state[CHACHA_STATE_WORDS];
-> 	u8 block_buffer[CHACHA_BLOCK_SIZE];
-> 	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
-> 	const struct chacha_ctx *ctx = crypto_skcipher_ctx(tfm);
-> 	struct skcipher_walk walk;
-> 	unsigned int nbytes;
-> 	unsigned int tail_bytes;
-> +	u32 iv[4];
-> 	int err;
-> 
-> -	chacha_init_generic(state, ctx->key, req->iv);
-> +	iv[0] = get_unaligned_le32(req->iv);
-> +	iv[1] = get_unaligned_le32(req->iv + 4);
-> +	iv[2] = get_unaligned_le32(req->iv + 8);
-> +	iv[3] = get_unaligned_le32(req->iv + 12);
-> 
-> 	err = skcipher_walk_virt(&walk, req, false);
-> 	while (walk.nbytes) {
-> -		nbytes = walk.nbytes & (~(CHACHA_BLOCK_SIZE - 1));
-> +		nbytes = walk.nbytes & ~(CHACHA_BLOCK_SIZE - 1);
-> 		tail_bytes = walk.nbytes & (CHACHA_BLOCK_SIZE - 1);
-> 		kernel_vector_begin();
-> 		if (nbytes) {
-> 			ChaCha20_ctr32_zvkb(walk.dst.virt.addr,
-> 					    walk.src.virt.addr, nbytes,
-> -					    state + CHACHA_KEY_OFFSET,
-> -					    state + CHACHA_IV_OFFSET);
-> -			state[CHACHA_IV_OFFSET] += nbytes / CHACHA_BLOCK_SIZE;
-> +					    ctx->key, iv);
-> +			iv[0] += nbytes / CHACHA_BLOCK_SIZE;
-> 		}
-> 		if (walk.nbytes == walk.total && tail_bytes > 0) {
-> 			memcpy(block_buffer, walk.src.virt.addr + nbytes,
-> 			       tail_bytes);
-> 			ChaCha20_ctr32_zvkb(block_buffer, block_buffer,
-> -					    CHACHA_BLOCK_SIZE,
-> -					    state + CHACHA_KEY_OFFSET,
-> -					    state + CHACHA_IV_OFFSET);
-> +					    CHACHA_BLOCK_SIZE, ctx->key, iv);
-> 			memcpy(walk.dst.virt.addr + nbytes, block_buffer,
-> 			       tail_bytes);
-> 			tail_bytes = 0;
+> I recommend calling the first struct 'riscv64_ghash_tfm_ctx', and making the
+> pointers to it be named 'tctx'.  That would more clearly distinguish it from the
+> desc_ctx / dctx.
 
 Fixed.
-We will only use the iv instead of the full chacha state matrix.
+
+>> +
+>> +typedef void (*ghash_func)(be128 *Xi, const be128 *H, const u8 *inp,
+>> +			   size_t len);
+>> +
+>> +static inline void ghash_blocks(const struct riscv64_ghash_context *ctx,
+>> +				struct riscv64_ghash_desc_ctx *dctx,
+>> +				const u8 *src, size_t srclen, ghash_func func)
+>> +	if (crypto_simd_usable()) {
+>> +		kernel_vector_begin();
+>> +		func(&dctx->shash, &ctx->key, src, srclen);
+>> +		kernel_vector_end();
+> 
+> The indirection to ghash_func is unnecessary, since the only value is
+> gcm_ghash_rv64i_zvkg.
+> 
+> This also means that ghash_update() should be folded into ghash_update_zvkg(),
+> and ghash_final() into ghash_final_zvkg().
+
+Fixed. The `gcm_ghash_rv64i_zvkg()` is folded into `ghash_update_zvkg()` and
+`ghash_final_zvkg()`.
+
+>> +	} else {
+>> +		while (srclen >= GHASH_BLOCK_SIZE) {
+>> +			crypto_xor((u8 *)&dctx->shash, src, GHASH_BLOCK_SIZE);
+>> +			gf128mul_lle(&dctx->shash, &ctx->key);
+>> +			srclen -= GHASH_BLOCK_SIZE;
+>> +			src += GHASH_BLOCK_SIZE;
+>> +		}
+>> +	}
+> 
+> The assembly code uses the equivalent of the following do-while loop instead:
+> 
+>        do {
+>                srclen -= GHASH_BLOCK_SIZE;
+>        } while (srclen);
+> 
+> I.e., it assumes the length here is nonzero and a multiple of 16, which it is.
+> 
+> To avoid confusion, I recommend making the C code use the same do-while loop.
+
+Fixed.
+
+>>       const struct riscv64_ghash_context *ctx =
+>>              crypto_tfm_ctx(crypto_shash_tfm(desc->tfm));
+> 
+> crypto_tfm_ctx(crypto_shash_tfm(tfm)) should be crypto_shash_ctx(tfm)
+
+Fixed.
+But the original code do the same thing.
+
+>> +static int ghash_final(struct shash_desc *desc, u8 *out, ghash_func func)
+>> +{
+>> +	const struct riscv64_ghash_context *ctx =
+>> +		crypto_tfm_ctx(crypto_shash_tfm(desc->tfm));
+>> +	struct riscv64_ghash_desc_ctx *dctx = shash_desc_ctx(desc);
+>> +	int i;
+>> +
+>> +	if (dctx->bytes) {
+>> +		for (i = dctx->bytes; i < GHASH_BLOCK_SIZE; i++)
+>> +			dctx->buffer[i] = 0;
+>> +
+>> +		ghash_blocks(ctx, dctx, dctx->buffer, GHASH_BLOCK_SIZE, func);
+>> +		dctx->bytes = 0;
+>> +	}
+>> +
+> 
+> Setting dctx->bytes above is unnecessary.
+
+Fixed.
+
+>> +static int ghash_init(struct shash_desc *desc)
+>> +{
+>> +	struct riscv64_ghash_desc_ctx *dctx = shash_desc_ctx(desc);
+>> +
+>> +	*dctx = (struct riscv64_ghash_desc_ctx){};
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int ghash_update_zvkg(struct shash_desc *desc, const u8 *src,
+>> +			     unsigned int srclen)
+>> +{
+>> +	return ghash_update(desc, src, srclen, gcm_ghash_rv64i_zvkg);
+>> +}
+>> +
+>> +static int ghash_final_zvkg(struct shash_desc *desc, u8 *out)
+>> +{
+>> +	return ghash_final(desc, out, gcm_ghash_rv64i_zvkg);
+>> +}
+>> +
+>> +static int ghash_setkey(struct crypto_shash *tfm, const u8 *key,
+>> +			unsigned int keylen)
+>> +{
+>> +	struct riscv64_ghash_context *ctx =
+>> +		crypto_tfm_ctx(crypto_shash_tfm(tfm));
+>> +
+>> +	if (keylen != GHASH_BLOCK_SIZE)
+>> +		return -EINVAL;
+>> +
+>> +	memcpy(&ctx->key, key, GHASH_BLOCK_SIZE);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static struct shash_alg riscv64_ghash_alg_zvkg = {
+>> +	.digestsize = GHASH_DIGEST_SIZE,
+>> +	.init = ghash_init,
+>> +	.update = ghash_update_zvkg,
+>> +	.final = ghash_final_zvkg,
+>> +	.setkey = ghash_setkey,
+> 
+> IMO it's helpful to order the shash functions as follows, both in their
+> definitions and their fields in struct shash_alg:
+> 
+>    setkey
+>    init
+>    update
+>    final
+> 
+> That matches the order in which they're called.
+
+I have different opinion. I reorder the initialization in the order declared.
+That will help us to check whether the function/member is missed.
+
+> - Eric
 
 
+-Jerry
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
