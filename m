@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C838C4167B
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 08:48:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74BB4C4167B
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 08:48:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yZBYjusNMnhflQNLPULLfyMDVErYJ6eHuwZ9njKiJEw=; b=QQ4bUayQga2pCq
-	9MsfGlUlwt2Ofr1E08oiPIX9ORnlsUU8OABnR+xfR93ziMBLmahdznecKOBNDP/HgP1nwrTfqJmtu
-	3E0qZIkjk71Ig4Yk47kThaYPHvdRXOJP+sCp4jz6F0LBfmPfZIC2S49XmJ/7IJBQdHAVslI8z2lHV
-	INm21Zrxj4CgewzsZCqyDiaQjY5ELXrgRa5GX0PTQRaFLezSjfmZ4yXKKlwUAblALkOJWTHIo+FqU
-	MD1bl6+Zj6dG7y77wwQPJtzOQ1PLv4DQK7kN7670BdSz2yp8+D2B6VSVwKbyaolQnW/Qb7zJpER+5
-	M/vKbVVVhYLb6CdaxcUw==;
+	List-Owner; bh=7eVeInr+qNvDD2KC4D4Uut+eGQxtGxNPJiPOWWZr5Hc=; b=g0dNijg1COxtkO
+	y1IiRuZWpg/VbPOUfb12GB3p5RgYPINgzkdP4oSTne8/+b7qNW0wHF6LDIAB4/UJ6Z+0ej6zfWawO
+	goVf6qoxVgWn+5XN7PkgNkVqpLZZ/OGDZSob1wyHT8XliFpLYzK7Pc3dbDBB+8agIvUJsFbv+0gb8
+	YncWd5a67us5KXntZ3w0PH+PrIFGNTpsoq8k4qjzrnM+bKzNlhM06XqRkb0DvPxXtxqWT5noWluGv
+	OIWtVHI+UKGRfc5JWjbNKQ1YXy6HuUCqVbUFRep41XTAHwEZlQDmqNh6sHLNMEswFpCB2oWLOW1g6
+	W0LbPa7KcMga6/45Jo4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7XHp-001sqY-07;
-	Mon, 27 Nov 2023 08:48:13 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1r7XIL-001sxw-2B;
+	Mon, 27 Nov 2023 08:48:45 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7XHm-001sq2-0f
+	id 1r7XIJ-001sxC-1t
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Nov 2023 08:48:11 +0000
+	Mon, 27 Nov 2023 08:48:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7E2EC61068;
-	Mon, 27 Nov 2023 08:48:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C21DC433C7;
-	Mon, 27 Nov 2023 08:48:06 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 47233B82C8F;
+	Mon, 27 Nov 2023 08:48:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D642C433C8;
+	Mon, 27 Nov 2023 08:48:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701074889;
-	bh=IDbhwTEPGpAkCBipZ5/TAz0ibRxg6yKUZ7ACowID9dA=;
+	s=k20201202; t=1701074921;
+	bh=XJxLFbtAZ9fE3Q2uHuatuh4Aadouvj1jWL8C26hHK+k=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XKytrvTOUtfSonEryqT7rhaInSDlwuopPEhsMP7JZ8ao8jVLhpCNhfri+bxUsTgoe
-	 FRiqZMnpTkbRFlqRHr3/GKYM+I5UMmsGWfnSuxLCTG33TnIOc+Hf47blrAOSDNXuwx
-	 jJeAWiVs1Z66kts15SdGAQZ4rkQ01H1ypWiKPCFC5dXWHsB2gQe5p5RjoO5NdFWQsK
-	 Syn5bbroHIJlx0pS1xmFHp+ohGYs20+gQ5RGk6BBj5DadwnmZYN2CZoxZQzlJ8DDPC
-	 8GvpylpdyVO9jozD5NQQDk9pl4rY4ubOCQViNloSrpdd+CIZGfruxpVduscXe05ebw
-	 FadwptiZFqgTQ==
-Message-ID: <83d5074a-183b-45dd-bc07-5596d565c3b9@kernel.org>
-Date: Mon, 27 Nov 2023 09:48:06 +0100
+	b=tGcBmBdxneSFzhr9Q6G2+rwMvGAYvXWTQZjxBX6OEDaMR3bSNv/DL/fK5Fta319YS
+	 Z+577W0BxjKo5b40bCFUeWKvYWMCJUB01ZOEvy8PZMOymAaRaOhQ4FKS/9fIuquOu6
+	 GD+Rih36K/FqZRy6Gl/stDd2hCP2cfU565XU2DISZR8zvqitRrpu3iCUvNNdLj33TQ
+	 QBUUSPy2iLWxRC0C0/xa40Dz5g96bbt3dqjWtN5wquDX3zXz4rVRb/JEt2/32Qgr19
+	 7yhpoogp6FsyblbMKEQDg23Q6lxD7D14esLv/v87bRPeYBI06QysdidYo0n9bmP3sw
+	 dZTk38Ohg3pUA==
+Message-ID: <22cb035d-10b8-41f7-b7c6-5c8ae6627c59@kernel.org>
+Date: Mon, 27 Nov 2023 09:48:37 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/7] dt-bindings: interrupt-controller: Add StarFive
- JH8100 plic
+Subject: Re: [PATCH 5/7] dt-bindings: xilinx: Add StarFive compatible string
 Content-Language: en-US
 To: Sia Jee Heng <jeeheng.sia@starfivetech.com>, paul.walmsley@sifive.com,
  palmer@dabbelt.com, aou@eecs.berkeley.edu, conor@kernel.org,
@@ -55,7 +54,7 @@ To: Sia Jee Heng <jeeheng.sia@starfivetech.com>, paul.walmsley@sifive.com,
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  leyfoon.tan@starfivetech.com
 References: <20231127013602.253835-1-jeeheng.sia@starfivetech.com>
- <20231127013602.253835-5-jeeheng.sia@starfivetech.com>
+ <20231127013602.253835-6-jeeheng.sia@starfivetech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -100,10 +99,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20231127013602.253835-5-jeeheng.sia@starfivetech.com>
+In-Reply-To: <20231127013602.253835-6-jeeheng.sia@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231127_004810_329398_F901F28B 
-X-CRM114-Status: UNSURE (   7.10  )
+X-CRM114-CacheID: sfid-20231127_004843_889473_6E0810DD 
+X-CRM114-Status: UNSURE (   7.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -121,8 +120,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 27/11/2023 02:35, Sia Jee Heng wrote:
-> Add compatible string for StarFive JH8100 plic
+On 27/11/2023 02:36, Sia Jee Heng wrote:
+> Add starfive,jh8100-uart compatible string
+
+Describe the hardware. Why is it in xilinx?
+
+Also, missing full stop in each commit msg.
+
 > 
 > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
