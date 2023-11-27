@@ -4,109 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10F53C4167B
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 09:29:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B001C4167B
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 09:54:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kCtlCICCw09Tey7vFvJCuGHOLj1y6E1tbD2jIYAblb0=; b=sHsqOzXNPqCDQE
-	tO0XFXQUA2xr8YN3dL16OEpQUeBXkPzhyam93n6B+Vd8ahhs5CViOGVYjJSmgq+/fycs52WpY6vrj
-	vIBMJRcnZj+VTZFGQ4N18h4jnWPh5J6ljU0JIFVgrgnOFBL289ZgTZ10mx27obD0el3SqFUoJqrnu
-	509Xs7b4Qst74qxlA4Ra+cr0EOIE0OoJ0BxD0GY59Mvn+7PDQ9rTLty/c3iU8viXE4m/t7UN5Rvcx
-	AfLIJNSHpbnCEMEYAGO93l4Ownm+5gJUH/JIiW1xRUzAA55Q+Xzj+WjaBVIO/hR7/eqjXPdYZz0Js
-	8byWp/UlyUBBgVsN1Qjg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tDnXeia5QiLx3nrSQzb20vfoPhUxbjIKMl9GNS6T8dQ=; b=HwqWHiea8sHuE2
+	pinRYfSPw0sTrsGONo8LI9utxtSdqEhWqfcTR5vBUTGCVLuU3uE7bJAyKGNdL9GOkjdt1RaqHCnhA
+	SSkKeXFWGgM1HbLuTeiAFWI5wjpQlMQJQ3r+g8887HUkoZmm63+kPAR969Nh6adhvUf77UBmOH8fH
+	qBoWlgayG7w0GiEFwv8caPOMzu7aDbXaF8esIjOizEFvCvXS2V834f2iBN681Fnij6dbZnlfNHjcG
+	qfBmyLdzSaQ3XOQK/eqr416f34jz5E0xo7AqHOGLBRIDyuV6QCurzJ1rAAc1S7YJVa82yOH4TpmcP
+	8GY4Jm2LrV++CuF9uL+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7XvZ-001ySA-1X;
-	Mon, 27 Nov 2023 09:29:17 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1r7YKF-0020hB-0L;
+	Mon, 27 Nov 2023 09:54:47 +0000
+Received: from mta-04.yadro.com ([89.207.88.248])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7XvU-001yRU-31
+	id 1r7YKA-0020em-2x
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Nov 2023 09:29:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id AEEC7CE0494;
-	Mon, 27 Nov 2023 09:29:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C096CC433C7;
-	Mon, 27 Nov 2023 09:29:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701077349;
-	bh=vrM5PO5L02NedrfTtlg7Lu4UoGwcKQj8F5Urwi0qnfk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hKIVieMp/jskjJ7KKqiL2H0gKcWPZnVG7ZzV+jJClgOwOLlAj5F9XEemWM2SMTlsr
-	 wUNNRf3FAnQv1I+MduQZppjLPKdRpm2GNyzYUTVb6+Ro+Tzx2lJFhuyd2eM/tEhsDL
-	 bYZkKzzt1jAC9PzdAkQVhzwqUmBa0ZsGYJa6WeXajAuY0krprgyBqDtC//6MjL1EJH
-	 stAzyd7YN3kwt1bjQpZX3/j+vpkerifwZtncCGl8NP4Z9W9Bus3qbJv1WtcxS5Vxi0
-	 TXMbfOpd2GtOJx4Bh1Ule7jWLFrRKePNloF1OGLFW/jHRmdlb3bUXVMmFm2IAxuT4C
-	 rMPYd5Knsk1mw==
-Message-ID: <d899a49e-8934-496b-b390-263aae70122c@kernel.org>
-Date: Mon, 27 Nov 2023 10:29:01 +0100
+	Mon, 27 Nov 2023 09:54:45 +0000
+DKIM-Filter: OpenDKIM Filter v2.11.0 mta-04.yadro.com 2DF2FC0005
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=syntacore.com;
+	s=mta-04; t=1701078866;
+	bh=Ae63xGVgAa9+JIzkWIlv6C6QPlVWMSpbmQ3FkALhZs8=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
+	b=VsxZFAd/he9gD5lQmeXPpLoJk1T8Rl1n5iH3PvTRPhJKcL0/LgKxxxlhNoUijs7mf
+	 YVomii5R0nigOmK1ncB2PPqJoGGFvnT5SqKGvJ/9SuJfS1LMTjUcEnhMzb2ucnG/f2
+	 Szi5lAbD55CeX68T07pRYJyxSrrF7zKKBU919T9uG4hboabjxG5t92n/PwQzt/W0HF
+	 Gm6Cd8gPlQWFa453m39khNoOljOeokmCg5SWV0C6BD0faGre5ugUCkn0PO2iFG5vdR
+	 ljz1mh0faZfU/4pdk6Om+Y77IDktIVjwTlvKsJz4V1UXGQFarcLgzAZmEsTOBsIi3M
+	 Mj2bDgb4/BEtg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=syntacore.com;
+	s=mta-03; t=1701078866;
+	bh=Ae63xGVgAa9+JIzkWIlv6C6QPlVWMSpbmQ3FkALhZs8=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
+	b=P31Uj+/YGTH0My6YJ6GFdj2lQmPH7RSynEcnoTcd0+APt+ieTJ1OcF3YDuDQ86FBA
+	 RxIej12JKDGpDSSHaqSYSEJJyZ9lYm8ybn7jl9PwqPdHe+QfopjszdhPqVVu8FIyBU
+	 RNjK9SuLNhuZN1zMmdH5Gf/IoHSBjIa0kKFp9PmaqbtdFNhBgnbPci/vz+TP/GObYT
+	 zVK1hnnvM5qq1m0E+xA7puysJNWchJWL0YlLJmxpx9GYpoH87pU+ys42HvUIBP6L7+
+	 Zn1Q7PCxfyCEkgkUKN2CKgysNUoIPM+5OwvCZ3TWtWK/JgQ6hHX+vXDVPfKJoC+IO8
+	 Ceer8cWnARJyA==
+From: Vadim Shakirov <vadim.shakirov@syntacore.com>
+To: Atish Patra <atishp@atishpatra.org>
+CC: Vadim Shakirov <vadim.shakirov@syntacore.com>, Anup Patel
+	<anup@brainfault.org>, Will Deacon <will@kernel.org>, Mark Rutland
+	<mark.rutland@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alexghiti@rivosinc.com>, Andrew Jones <ajones@ventanamicro.com>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH] drivers: perf: ctr_get_width function for legacy is not defined
+Date: Mon, 27 Nov 2023 12:54:03 +0300
+Message-ID: <20231127095403.272424-1-vadim.shakirov@syntacore.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/7] riscv: dts: starfive: Add initial StarFive JH8100
- device tree
-Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Sia Jee Heng <jeeheng.sia@starfivetech.com>, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, conor@kernel.org,
- kernel@esmil.dk, robh+dt@kernel.org, emil.renner.berthing@canonical.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- leyfoon.tan@starfivetech.com
-References: <20231127013602.253835-1-jeeheng.sia@starfivetech.com>
- <20231127013602.253835-8-jeeheng.sia@starfivetech.com>
- <20b13322-3cd1-47b1-bb39-2710ddc59a11@kernel.org>
- <20231127-undying-sauciness-a5c1a2e7c89b@wendy>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20231127-undying-sauciness-a5c1a2e7c89b@wendy>
+X-ClientProxiedBy: T-EXCH-10.corp.yadro.com (172.17.11.60) To
+ S-Exch-01.corp.yadro.com (10.78.5.241)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231127_012913_694381_72532B7E 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20231127_015443_318987_E3AA7F01 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,35 +82,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 27/11/2023 10:20, Conor Dooley wrote:
-> On Mon, Nov 27, 2023 at 09:50:35AM +0100, Krzysztof Kozlowski wrote:
->> On 27/11/2023 02:36, Sia Jee Heng wrote:
-> 
->>> +	chosen {
->>> +		stdout-path = "serial0:115200n8";
->>> +	};
->>> +
->>> +	cpus {
->>> +		timebase-frequency = <4000000>;
->>
->> This was fixed recently on the mailing lists.
-> 
-> Actually, I only fixed this for the microchip stuff, as I don't know
-> whether or not having this in $board.dts is valid for other cases.
-> 
-> As far as I understand it, this works just like regular clock nodes, so
-> if the clock is provided by an off-chip crystal it is okay to have it in
-> $board.dts, but otherwise it should go in $soc.dts.
-> 
-> The same applies to the jh7100/jh7110, so if you could clarify it for
-> that platform too, that'd be great. Doing it in response to
-> https://lore.kernel.org/all/20231126-attractor-swampland-b1b95bd1322b@spud/
-> would be great.
+With parameters CONFIG_RISCV_PMU_LEGACY=y and CONFIG_RISCV_PMU_SBI=n
+linux kernel crashes when you try perf record:
 
-OK, then it should be added via label syntax, not by full node path.
+$ perf record ls
+[   46.749286] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+[   46.750199] Oops [#1]
+[   46.750342] Modules linked in:
+[   46.750608] CPU: 0 PID: 107 Comm: perf-exec Not tainted 6.6.0 #2
+[   46.750906] Hardware name: riscv-virtio,qemu (DT)
+[   46.751184] epc : 0x0
+[   46.751430]  ra : arch_perf_update_userpage+0x54/0x13e
+[   46.751680] epc : 0000000000000000 ra : ffffffff8072ee52 sp : ff2000000022b8f0
+[   46.751958]  gp : ffffffff81505988 tp : ff6000000290d400 t0 : ff2000000022b9c0
+[   46.752229]  t1 : 0000000000000001 t2 : 0000000000000003 s0 : ff2000000022b930
+[   46.752451]  s1 : ff600000028fb000 a0 : 0000000000000000 a1 : ff600000028fb000
+[   46.752673]  a2 : 0000000ae2751268 a3 : 00000000004fb708 a4 : 0000000000000004
+[   46.752895]  a5 : 0000000000000000 a6 : 000000000017ffe3 a7 : 00000000000000d2
+[   46.753117]  s2 : ff600000028fb000 s3 : 0000000ae2751268 s4 : 0000000000000000
+[   46.753338]  s5 : ffffffff8153e290 s6 : ff600000863b9000 s7 : ff60000002961078
+[   46.753562]  s8 : ff60000002961048 s9 : ff60000002961058 s10: 0000000000000001
+[   46.753783]  s11: 0000000000000018 t3 : ffffffffffffffff t4 : ffffffffffffffff
+[   46.754005]  t5 : ff6000000292270c t6 : ff2000000022bb30
+[   46.754179] status: 0000000200000100 badaddr: 0000000000000000 cause: 000000000000000c
+[   46.754653] Code: Unable to access instruction at 0xffffffffffffffec.
+[   46.754939] ---[ end trace 0000000000000000 ]---
+[   46.755131] note: perf-exec[107] exited with irqs disabled
+[   46.755546] note: perf-exec[107] exited with preempt_count 4
 
-Best regards,
-Krzysztof
+This happens because in the legacy case the ctr_get_width function was not
+defined, but it is used in arch_perf_update_userpage.
+
+Fixes: cc4c07c89aad ("drivers: perf: Implement perf event mmap support in the SBI backend")
+Signed-off-by: Vadim Shakirov <vadim.shakirov@syntacore.com>
+---
+ drivers/perf/riscv_pmu_legacy.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
+index 79fdd667922e..a179ed6ac980 100644
+--- a/drivers/perf/riscv_pmu_legacy.c
++++ b/drivers/perf/riscv_pmu_legacy.c
+@@ -37,6 +37,12 @@ static int pmu_legacy_event_map(struct perf_event *event, u64 *config)
+ 	return pmu_legacy_ctr_get_idx(event);
+ }
+ 
++/* cycle & instret are always 64 bit, one bit less according to SBI spec */
++static int pmu_legacy_ctr_get_width(int idx)
++{
++	return 63;
++}
++
+ static u64 pmu_legacy_read_ctr(struct perf_event *event)
+ {
+ 	struct hw_perf_event *hwc = &event->hw;
+@@ -111,7 +117,7 @@ static void pmu_legacy_init(struct riscv_pmu *pmu)
+ 	pmu->ctr_stop = NULL;
+ 	pmu->event_map = pmu_legacy_event_map;
+ 	pmu->ctr_get_idx = pmu_legacy_ctr_get_idx;
+-	pmu->ctr_get_width = NULL;
++	pmu->ctr_get_width = pmu_legacy_ctr_get_width;
+ 	pmu->ctr_clear_idx = NULL;
+ 	pmu->ctr_read = pmu_legacy_read_ctr;
+ 	pmu->event_mapped = pmu_legacy_event_mapped;
+-- 
+2.34.1
 
 
 _______________________________________________
