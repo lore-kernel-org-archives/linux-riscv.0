@@ -4,130 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0B80C4167B
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 07:12:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5025FC4167B
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 08:07:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TYfNz2vIFhRKYXnXW3SWY+92KtdIl3+4ksUSiwsha20=; b=D5R/vax7TrgXZl
-	3lcmbekCVTwq1hEpKluP0hH3jBXDNGfkX9KUCbv4etR9uk8Ae9CKlckCFNK+OMxOlF5jqDOA+LTII
-	9Hl3xnAppGLtKSHm4+CHrm0uHQ1VitkfWePmP45Y1+ttMrLsoqMEgEbP3hgSCzpowyJj4g2BNcawa
-	cRDNvEE+f370bZyjqBIbUU+cwJ0sZ0/2+cCkhz9rD/dzx3arPGHbTyV/ktOxQmpfwwke8wondXtHD
-	o0ILTaykRIxqsWzJ6hHfFftszgcHBt6wWqUjIPMLruuO2tTHp+271bAPT1G7u9e7PYJEH57aCngZD
-	3tGbwrs109dhmsUocP3w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:To:Subject:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UF4Vyyl1X6FZlkUdprgiV4Wy/N/rKeYLNpFqtG9Jmxs=; b=m1LKlWhuuOYRlPq8TVgLD7KiWb
+	lnadbOHcQbD9Yjbm1PNZX+0UWtoInfl7h7heoWygtu3JK977M1ypB7giGUslECMbfDzZY3k1u2cdH
+	fZxvM0lleIbXaCYrBlznng0jg5v2MNOv+ht96elk9zfzgidfodcKVIhf50qGaJ4sKWIPNp3fpmuOf
+	6tJtJqge7ZMeNyuv272uehfGANVBYYAQnKccXSYNansOkcUtz1gWJruR+LTfemHIB68ab+o1heiDi
+	tQv5GnkOGeOY5H0JFR0mNKds3hGqxJU03E7LxZI3etCgNxzf+fA6KD6K7/ekNf5mn9nATko+PqCW8
+	6OoXcm4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7Vmp-001gyX-21;
-	Mon, 27 Nov 2023 07:12:07 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1r7WeR-001nAP-0v;
+	Mon, 27 Nov 2023 08:07:31 +0000
+Received: from mail-bmxind01olkn20801.outbound.protection.outlook.com ([2a01:111:f403:281c::801] helo=IND01-BMX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7Vmm-001gwh-2m
+	id 1r7WeO-001n9n-0Z
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Nov 2023 07:12:06 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-a03a9009572so520080366b.3
-        for <linux-riscv@lists.infradead.org>; Sun, 26 Nov 2023 23:12:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1701069123; x=1701673923; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=4ubOvgLu6AFBn84bjahvcko85SY43MVq22H0FsKOBcY=;
-        b=lXULUo0sknRmZtqFqJ86ZUdnAdT6ZvFgED1r5MYKBvW4j1JpJ0nl+UB41N+YZHs/uC
-         H+nptrjc9AfUXyAncODhqa+T2N+ccD9Ce9nB12YBdPUnxj/50FBsGw7+oGG3A++uqNRg
-         I4PLOkkHNpwYpFEwsaDwOjHNSnR9X9a3LTQgyDcJ78bR+TCYOVofQLzRq4oJtz08qAP4
-         rghXaQoMRHOS8DZUMVglzNkkrYdaKMBbfKtLoWUnENzHtuL2jlKkL7s11vV0BJrwzDuk
-         ZNLmu7EFMv3uoNnrLg5+Dy3wm9wHbbJAbU49mb9d3UMNebLBEqatAyhPSsNCaH+TCdz/
-         LRTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701069123; x=1701673923;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4ubOvgLu6AFBn84bjahvcko85SY43MVq22H0FsKOBcY=;
-        b=q2rYRcKPF/IJ4jzNGXG9fsf+IoZ6Z7aRk6VpBswaPI+nuvkBg9B17ptQOrrQ3Utfn4
-         u3rQVb+YGhOD6nFdMKpMlllxsajIuKEIZ6vtm6eCm708uaaIRG1lBqQInsMuAKtAH7b0
-         kbreQMs92YhWceGSdYZ8pHaOI3venSQbRyipoXKEMih13s3K3CVU217sAKLJMKDLHBWJ
-         byB8mDtgnGqwhmS1Ljxbu2cy8HWYNJyYYeXowholFZuUV/E00PaASXain+4F/5Hetv5x
-         ViN2SIaW9x18606vxCo++cbszjObqhI+MZ1zpXYdvjWbL7in0hK9M+x+C5R9yN/CJwwR
-         eYhA==
-X-Gm-Message-State: AOJu0Yxp+aW2NNxBFlXaGngjmgJm3+P5LOzRLsPjBvTPtD2faxuuFGbj
-	XE39S9I1ZiDRmv2xp1MOMUc4Jw==
-X-Google-Smtp-Source: AGHT+IHaLuybBfxWZ6mI3AsPpDA/cozfVthOHnGLNkRA6pJtNz+jIulWgmlCPi7YcqPi6jJ6NPYOmg==
-X-Received: by 2002:a17:906:2c4d:b0:9d4:84b6:8715 with SMTP id f13-20020a1709062c4d00b009d484b68715mr6815835ejh.52.1701069123322;
-        Sun, 26 Nov 2023 23:12:03 -0800 (PST)
-Received: from [192.168.1.20] ([178.197.223.109])
-        by smtp.gmail.com with ESMTPSA id mm21-20020a170906cc5500b009fd490c4cb6sm5366758ejb.39.2023.11.26.23.12.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 26 Nov 2023 23:12:02 -0800 (PST)
-Message-ID: <81d421c8-bfd6-42b5-9da1-f067792f8f48@linaro.org>
-Date: Mon, 27 Nov 2023 08:12:00 +0100
-MIME-Version: 1.0
+	Mon, 27 Nov 2023 08:07:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Ur85VhFn9PxMJmrvw21d7doozFssbzDJn0bu3L9Gxby4lNWPY27ByDiLuhsozsPjc7azq4uX8zBLWO+RdRTXBavZOchAF+mH2J8fRIaPcs2XyHz1/qulSovnZHHwLDnlSELseZywVWEkXenkKfGpisxPoFHnssD3gIg+QLmFQkzjVQHr8BoT8cdLnFnDZVvwlWgGAFWm/JOwYpsxV9y5nbURTlnYGd/Vtmn0z4fllC4pCWiP+WGTULlp2oqtiVjVtsqDzptt/fNKmAPAJTn55pKNGqhPCzFFWA1IVlCqVr23XQ7AA9aSUx5nbKrQU3j+J5VsKsGRApK/uMgTY3wv7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xR2yUk3o2sX4BBmQ7DHwlK2oQyPNgPORTOHQUgWUWuo=;
+ b=gL8O8rp4E4Y/surZPOEdx7eKLw/XJv6g7QOvyczNgq7Eb908nf5pYAdiR5bCyejhH1vqBStJIM9UV23iayjH1GkAYNefPKDvO1Oxba/kIIooNXyRO5zUw9heS9dYzL1f9NPfTrl/GhLh0sqq3GP9YfeMkURtJMGlv+fuX017jmdmksj2YZB6HanUI/Xe5saRH6o5iMro/t5a6lWnXd8iahhKnDMAwmJa6GFOL5KkVhKJvSdNJBftaw5WiL5mgGk3oov2aV+9sdoAMkiPK3opc9qOeUhXmNpRo7Q0rZ2cJvfQ02kY0sgW1+5qkqKM7SKlSnWfhQPRa6OY5U+/7m1U2w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xR2yUk3o2sX4BBmQ7DHwlK2oQyPNgPORTOHQUgWUWuo=;
+ b=XbLa0MqxsUpFV0iknJolQd/+9bh0IYk/jChRujggxIc1LR2uaRbdBteCr5kkBntITcawElqSC6tBLb7sWBS+Zao2v/FlYCVWJweMMHRw9NedZWmeQX6eTtQpjfs3wQbWAmtkpgRlnon1KNaNIu6pqcf4cberebywxguYXBlQYFZl4FO6g7GsKCtDAoBmWbGiXb9kU8oHOpqfhzucmBJFTXsmVysqfxYlrwbdKsa5hpnS6NAyBCSFf0rvu5Cg6n2nDFD9DEAz07E8M1a7WQkJiYuwosA++d92ba9rQEAn3van2ds+B6h+DCMakZD1DAmmNgOAvFGVF8I9Sx0LSFH6uQ==
+Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:ab::5) by
+ PN0P287MB1048.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:143::13) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7025.28; Mon, 27 Nov 2023 08:07:14 +0000
+Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ ([fe80::b1a7:eee7:e903:9ef3]) by MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ ([fe80::b1a7:eee7:e903:9ef3%7]) with mapi id 15.20.7025.022; Mon, 27 Nov 2023
+ 08:07:14 +0000
+Message-ID: <MA0P287MB03329CFBA3BB6A4E4F322F99FEBDA@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
+Date: Mon, 27 Nov 2023 16:07:12 +0800
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 3/4] clk: sophgo: Add SG2042 clock generator driver
-Content-Language: en-US
-To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
- chao.wei@sophgo.com, conor@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu, chao.wei@sophgo.com,
+ conor@kernel.org, krzysztof.kozlowski+dt@linaro.org,
  mturquette@baylibre.com, palmer@dabbelt.com, paul.walmsley@sifive.com,
  richardcochran@gmail.com, robh+dt@kernel.org, sboyd@kernel.org,
  devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com, guoren@kernel.org,
  jszhang@kernel.org, inochiama@outlook.com, samuel.holland@sifive.com
-Cc: Chen Wang <unicorn_wang@outlook.com>
 References: <cover.1701044106.git.unicorn_wang@outlook.com>
  <c06130afb4bdc1890b4e8d29388fa6feef1f1826.1701044106.git.unicorn_wang@outlook.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <c06130afb4bdc1890b4e8d29388fa6feef1f1826.1701044106.git.unicorn_wang@outlook.com>
+ <81d421c8-bfd6-42b5-9da1-f067792f8f48@linaro.org>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <81d421c8-bfd6-42b5-9da1-f067792f8f48@linaro.org>
+X-TMN: [fR3pS4hF/Iu54SRmBKeGOTf18NsVrMm+]
+X-ClientProxiedBy: SI1PR02CA0007.apcprd02.prod.outlook.com
+ (2603:1096:4:1f7::6) To MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:ab::5)
+X-Microsoft-Original-Message-ID: <8d100c7d-6439-4b41-abe6-5a690dda9cbc@outlook.com>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0P287MB0332:EE_|PN0P287MB1048:EE_
+X-MS-Office365-Filtering-Correlation-Id: b91567f4-dac3-4402-1cf5-08dbef1fdd54
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: B3M4aB/2t2ClB/Vk+G8rjqfGhWDgGt6BWcGKiH4qKvJoyLj9FzICpVmPUw1W+TtC6ZR9nUnsmyVPsrnlmztFHO9Y7mrpebkgWxnMy8LEAqUSgNWzwozzKRQZ4M5xX5bgx4T7MlnbjyiEKTMFgp8eEn/lovPm8Fc20LaTQKn5VEi/9pgJX748oJ1Bm4EiC6GEoAqxjT1VQt5ImEZL+7s2q/vPa/Etlx7aTaFvB075qwT6ZKhepmmIblk/RJeojqLVhlWzwPybZBAQH++G6rnIH8aijLJhiIduF+WFALCnT3BSULAePin6vqmODLtWz/1t9Mz6MX+9eehe9dq2XkRMI1llf3k+2bldaQQBfEybSxoly1MvkSKHaCSzHEKbZa8YBGqgkEhuonNVZCAEf8UzFXyR1qKJ6B/UflepPR4szvEMTCG6xXPhnuZILwpSGtn9SBFxXJkvbDVqun7m5K94MBYbH05n9kCTFF4FsVfXMm7dJ16Ei27piile6unpz2VWAs6eqjVA4ntbDVEltpVaQtey7x8oPrug6KnnH8kyRqlbYiSpJZkW6HaIdCIX9kk/
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QnRYREdFOW5sUEhJVzVjYjlvNUliNW0vQlVEcE52YTZqWlN2cXlQM0xrUFpF?=
+ =?utf-8?B?WXBiU0pCY0oxdnZsWGZKWXVhUVIrOGtESzRtbURXdldzNXRkK2VETUpTUldM?=
+ =?utf-8?B?M0pENlczQU5JOGxWY2VmRWwrQmFsdGJGWjhyblJIN0h0NzBELzZyWjJIQUUv?=
+ =?utf-8?B?UXhxQTlKTk5NYUg5RW5saitmRzJRQ1ZvS2FmTDVxdGE2R20wdVBreWsvUUxj?=
+ =?utf-8?B?YjdNbnEyREtmWGR2bXkydTRMY1ZvenYvc0c1MlEzUnNMMUh5bTlZRGo0Sys3?=
+ =?utf-8?B?N1liOWxYVnZPMEFqcHc2MHhXWEU5NnNDRS9JZWRnNVdSZHltRzY4dnVOcTdK?=
+ =?utf-8?B?NXVRVm55K1NtVEQyTW9sMEJnUVp4cnJwVll1SkhUQjBZSTdIc1d3WHc5RUZx?=
+ =?utf-8?B?VTI4bVNqMUVPNVh2WlRnYkw3T01ib3RRNVRxMXNXZmJiOURIc2UwS0RKT0c1?=
+ =?utf-8?B?d1ZJVUM5KzdZSit0RmpnNWNjLy9VbVJhNko3L2tsenp5dm0rRnVIbW1lTGZr?=
+ =?utf-8?B?MFhka3R3RkllZlhzNC81VWgwUHZxNHVLdGpob05jVXE5Q2gvNHNJSTFCL1FB?=
+ =?utf-8?B?MEp0d3FTYU1SbnRnUHplUmVQZVVNL25nQTdQTnlJSnd3N0RCNUFzaGpYdEx1?=
+ =?utf-8?B?cWtHNldWdXJGeldNMjdDeG1CM0xpeWtkNDBrRktxbCtVd1kvOTV2Vk5kbGM2?=
+ =?utf-8?B?RmlDVjd4SVJVVWZmL1ZpVnpaYkdpWDBWSHQxRlpBWjZoaDcrNFZRTENXWFZT?=
+ =?utf-8?B?REFBTWNGbFB5MXFSaHI1cDNveUlWSWtTaEx2RkR5L2Y4Tk5YQklsS01YZmRu?=
+ =?utf-8?B?WjZkaEZ4U05ZdWthQUU3UVlRaGtFNklxRWdMMGdqVm9xdEhNQTF5MjZzQ0V3?=
+ =?utf-8?B?dWZHdTVHVUREY2o4dmJ6cWk1ZGhSbVJrZVMyeUttd2pSZm45RlFkRVo0UitJ?=
+ =?utf-8?B?Sk5iVHY3RWRyQ2RsQXEzMytKZTFMSllQMlMwUFFsV0swTmlodUx4blZ2Y1hU?=
+ =?utf-8?B?NFRYbmxlM0pxRHBKa0I5d1VmQXhrakw3eG4xaWYveDE5NS81LzJjd3pPS25q?=
+ =?utf-8?B?c0RIYmptUHZvWnlkNWF1QmVVNS9WRjJLcU9tUzVnb2FHSnZVTk1kSU10ZEFy?=
+ =?utf-8?B?dzBjM2Jmdk5ZUGtrTlYvTkR6eWhOL0FNa09xUFJ0aExVeTFnK0NObThXb1FZ?=
+ =?utf-8?B?UjVtYW03UFhnR2RmNksvWTNyV3pzakFmd1VHQS85VjR2d29ERy9UM3U5L3dp?=
+ =?utf-8?B?bjVtNVNnbHlFc1k0RTg1Q2tTdzFjNVlkMHBMck5CMXRvcms2T00xQUNOdUJO?=
+ =?utf-8?B?eWF1U0poOHRXNHEvK2Nhb1NKaDNhckNIUHpjQnRwdHlLMGV2MXF6NllhR1NS?=
+ =?utf-8?B?Sk1SL0sxRTZrTUpneEtrWUV1WncvaDVSMExEalNpbXBVdkRoYStYQzFuS3lO?=
+ =?utf-8?B?WVdBNHZ5T29DWUMza0xwbVBaQU5DSDFwdGhVWlU2cjBNVkh4VkI3aGdtZzV5?=
+ =?utf-8?B?N0Z2VnhrU3pxWkhiMlFKaFNORVJ3RzJXdUVuYTdBVTB1ZGhZcExkR2xYeVpZ?=
+ =?utf-8?B?K1B3RG9RY0FWTU5UQUR0aVlWcEMyZHdpdDZoUVhnNGxSME1yZDBobGNQUXFn?=
+ =?utf-8?Q?AiA419N0tpUsbCTM1sUcc7YAv1eCwOfzA3e2iB8Gphmw=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b91567f4-dac3-4402-1cf5-08dbef1fdd54
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2023 08:07:14.4990
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0P287MB1048
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231126_231204_970462_4DA2C106 
-X-CRM114-Status: GOOD (  16.03  )
+X-CRM114-CacheID: sfid-20231127_000728_390924_16CBD737 
+X-CRM114-Status: GOOD (  15.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,107 +132,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 27/11/2023 02:15, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
-> 
-> Add a driver for the SOPHGO SG2042 clock generator.
-> 
-> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 
-...
+On 2023/11/27 15:12, Krzysztof Kozlowski wrote:
+> On 27/11/2023 02:15, Chen Wang wrote:
+>> From: Chen Wang <unicorn_wang@outlook.com>
+>>
+>> Add a driver for the SOPHGO SG2042 clock generator.
+>>
+>> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+> ...
+>
+>> +static void __init sg2042_clk_init(struct device_node *node)
+>> +{
+>> +	struct sg2042_clk_data *clk_data = NULL;
+>> +	int i, ret = 0;
+>> +	int num_clks = 0;
+>> +
+>> +	num_clks = ARRAY_SIZE(sg2042_pll_clks) +
+>> +		   ARRAY_SIZE(sg2042_div_clks) +
+>> +		   ARRAY_SIZE(sg2042_gate_clks) +
+>> +		   ARRAY_SIZE(sg2042_mux_clks);
+>> +	if (num_clks == 0) {
+>> +		ret = -EINVAL;
+>> +		goto error_out;
+>> +	}
+>> +
+>> +	ret = sg2042_clk_init_clk_data(node, num_clks, &clk_data);
+>> +	if (ret < 0)
+>> +		goto error_out;
+>> +
+>> +	ret = sg2042_clk_register_plls(clk_data, sg2042_pll_clks,
+>> +				ARRAY_SIZE(sg2042_pll_clks));
+>> +	if (ret)
+>> +		goto cleanup;
+>> +
+>> +	ret = sg2042_clk_register_divs(clk_data, sg2042_div_clks,
+>> +				ARRAY_SIZE(sg2042_div_clks));
+>> +	if (ret)
+>> +		goto cleanup;
+>> +
+>> +	ret = sg2042_clk_register_gates(clk_data, sg2042_gate_clks,
+>> +				ARRAY_SIZE(sg2042_gate_clks));
+>> +	if (ret)
+>> +		goto cleanup;
+>> +
+>> +	ret = sg2042_clk_register_muxs(clk_data, sg2042_mux_clks,
+>> +				ARRAY_SIZE(sg2042_mux_clks));
+>> +	if (ret)
+>> +		goto cleanup;
+>> +
+>> +	for (i = 0; i < num_clks; i++)
+>> +		dbg_info("provider [%d]: %s\n", i, clk_hw_get_name(clk_data->onecell_data.hws[i]));
+>> +	ret = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, &clk_data->onecell_data);
+>> +	if (ret)
+>> +		goto cleanup;
+>> +
+>> +	return;
+>> +
+>> +cleanup:
+>> +	for (i = 0; i < num_clks; i++) {
+>> +		if (clk_data->onecell_data.hws[i] != NULL)
+>> +			clk_hw_unregister(clk_data->onecell_data.hws[i]);
+>> +	}
+>> +	kfree(clk_data);
+>> +
+>> +error_out:
+>> +	pr_err("%s failed error number %d\n", __func__, ret);
+>> +}
+>> +
+>> +CLK_OF_DECLARE(sg2042_clk, "sophgo,sg2042-clkgen", sg2042_clk_init);
+> No, this should be platform device. It's a child of another device, so
+> you cannot use other way of init ordering.
 
-> +static void __init sg2042_clk_init(struct device_node *node)
-> +{
-> +	struct sg2042_clk_data *clk_data = NULL;
-> +	int i, ret = 0;
-> +	int num_clks = 0;
-> +
-> +	num_clks = ARRAY_SIZE(sg2042_pll_clks) +
-> +		   ARRAY_SIZE(sg2042_div_clks) +
-> +		   ARRAY_SIZE(sg2042_gate_clks) +
-> +		   ARRAY_SIZE(sg2042_mux_clks);
-> +	if (num_clks == 0) {
-> +		ret = -EINVAL;
-> +		goto error_out;
-> +	}
-> +
-> +	ret = sg2042_clk_init_clk_data(node, num_clks, &clk_data);
-> +	if (ret < 0)
-> +		goto error_out;
-> +
-> +	ret = sg2042_clk_register_plls(clk_data, sg2042_pll_clks,
-> +				ARRAY_SIZE(sg2042_pll_clks));
-> +	if (ret)
-> +		goto cleanup;
-> +
-> +	ret = sg2042_clk_register_divs(clk_data, sg2042_div_clks,
-> +				ARRAY_SIZE(sg2042_div_clks));
-> +	if (ret)
-> +		goto cleanup;
-> +
-> +	ret = sg2042_clk_register_gates(clk_data, sg2042_gate_clks,
-> +				ARRAY_SIZE(sg2042_gate_clks));
-> +	if (ret)
-> +		goto cleanup;
-> +
-> +	ret = sg2042_clk_register_muxs(clk_data, sg2042_mux_clks,
-> +				ARRAY_SIZE(sg2042_mux_clks));
-> +	if (ret)
-> +		goto cleanup;
-> +
-> +	for (i = 0; i < num_clks; i++)
-> +		dbg_info("provider [%d]: %s\n", i, clk_hw_get_name(clk_data->onecell_data.hws[i]));
-> +	ret = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, &clk_data->onecell_data);
-> +	if (ret)
-> +		goto cleanup;
-> +
-> +	return;
-> +
-> +cleanup:
-> +	for (i = 0; i < num_clks; i++) {
-> +		if (clk_data->onecell_data.hws[i] != NULL)
-> +			clk_hw_unregister(clk_data->onecell_data.hws[i]);
-> +	}
-> +	kfree(clk_data);
-> +
-> +error_out:
-> +	pr_err("%s failed error number %d\n", __func__, ret);
-> +}
-> +
-> +CLK_OF_DECLARE(sg2042_clk, "sophgo,sg2042-clkgen", sg2042_clk_init);
+hi, Krzysztof,
 
-No, this should be platform device. It's a child of another device, so
-you cannot use other way of init ordering.
+Thanks for your review.
 
-> diff --git a/drivers/clk/sophgo/clk-sophgo-sg2042.h b/drivers/clk/sophgo/clk-sophgo-sg2042.h
-> new file mode 100644
-> index 000000000000..ca1c8b9a937a
-> --- /dev/null
+I don't quite understand your opinion. Do you mean CLK_OF_DECLARE is 
+only used for platform device so it can not be use here? But I think 
+this driver is still for platform device though I move the clock 
+controller node as a child of the system contoller node. System 
+controller node is just a block of registers which are used to control 
+some other platform devices ,such as clock controller, reset controller 
+and pin controller for this SoC.
 
+And I also see other similar code in kernel, for example: 
+drivers/clk/clk-k210.c.
 
-...
+And I'm confused by your input "so you cannot use other way of init 
+ordering." Do you mean "so you CAN use other way of init ordering"? 
+What's the other way of init ordering do you mean?
 
-> +#define to_sg2042_mux_nb(_nb) container_of(_nb, struct sg2042_mux_clock, clk_nb)
-> +
-> +#ifdef DEBUG
-> +	#define dbg_info(format, arg...) \
-> +		pr_info("--> %s: "format"", __func__, ## arg)
-> +#else
-> +	#define dbg_info(format, arg...)
-> +#endif
+Thanks,
 
-Drop custom debug prints.
-
-> +
-> +#endif /* __CLK_SOPHGO_SG2042_H */
-
-Best regards,
-Krzysztof
+Chen
 
 
 _______________________________________________
