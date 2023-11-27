@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B0EFC07D5A
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 10:33:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9786DC4167B
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 10:33:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qOoWRxPrHND4X5eOt7o3Wrp+ituJ4xm+IHc67tWBBKE=; b=TgLNauH2zAcUrh
-	7g4+8YDYQAregcnTyPMaN9eY/3zAbL/69SOsT2PSCcO5MEFvMgR6sZNd8yOXPwsmDBuCp53yrHnFS
-	4IIST13ygywvzwXuPno8Yid2xvpEeQeJzaNoRnXSkM5OOml3BOlJsHPuLFYFWxw4xxbSogkTDIStt
-	AHVYz0g4sdMUSrFr+5hkf4scDwJqDPg60NTNhkN8qOls1PT3nlDZszyzp7CeBCThlM+AatZPkPk7q
-	BQ+sWOJrpOqvYKSrPqAytgG1KXa/Ni8QNIA0zmI4D/jbdqC6yFVBoE+6uq+cXlb1ebfCh5Dd3gMRs
-	iHZQXiZ9uy8Xk3xDJYqw==;
+	List-Owner; bh=w2GP8FOvSemq812lq2MrHCh2ZfeszswQg8Bxh/Wpv9s=; b=OgWG4BvRAFSCqZ
+	3HrE04ixRrDHYXfIphLQfQiQ0LgzmEjleamLDADW7ATHn71Pp66EbPihcFaspKw3/Z4+w8uaw/g4G
+	YvJqGFSw1Ia1fu3oENl2rtAY+8RivcsWihrBj7gfTfHFq8nlZKoAzXj3whfAdJ+uQr28qmdvK8GpT
+	L9NR1A/O4kMU8HuvTMON2NJw+jEdQzMTEuATmZHdBp32PINvz17Moi5F+95X5r6gjIM00aoQ5pmUW
+	K96aZB7AnWLRt4Cv/dgWFHUzuqS58cSvMlLrESFZwkJRyzr6dXUKegZ5ctIMKtmnmxvnLy0oXzr6c
+	3r7WPAx6mXDk1E23lxRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7YvA-00263z-0t;
-	Mon, 27 Nov 2023 10:32:59 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1r7Yv9-00263O-0J;
+	Mon, 27 Nov 2023 10:32:55 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7Yv5-00261H-37
+	id 1r7Yv4-00260i-1m
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Nov 2023 10:32:53 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-50baa7cdf6dso2208039e87.0
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Nov 2023 02:32:51 -0800 (PST)
+	Mon, 27 Nov 2023 10:32:52 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-54a95657df3so5752124a12.0
+        for <linux-riscv@lists.infradead.org>; Mon, 27 Nov 2023 02:32:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1701081170; x=1701685970; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1701081167; x=1701685967; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MlWvEkOns6bxM9iRll9a5EQf2qEz96P+1R1KRbDkkn8=;
-        b=KV9fvAEPwrXfpMzL9ycxUAyY+PpINTX6kcZXrfYaq+hEh3eledRYNvhv7bHikLra7l
-         M8jc3roAyL1ejEFlLWwhvr2c7CEjb3vA/Afcz8wdL04plWRGZ6lsC8luONEMPGYs64qU
-         uKUZgjqlgz9sQ0awPRU9LKLf19bUm/r2RGUKnb+yy1A8cEV4oD3/GU7dqBvM7w5ybE12
-         3QUmaFVRC+epNZ7CFEeC+kvDcvKHaCxfDDckTCx6/n9dvBBWNEq2dQc5aeoBC2Ya3Eb2
-         R2Lklk6NBdLnmlhGGngqd5ee4IYPdQH1Njpr5n93wUwhy4BET1McDTCBEre8NObkzCrQ
-         1F9A==
+        bh=dIxf4qA9d3iQNURLT0XW05wJYozIZ97sH6EQJwhq5Vo=;
+        b=WoEuM0sMM24sg4KApvXeFFyxGA4Xmyl1bnh74aFvF/Rk3QSPzZoz9t3dmFst3mPuix
+         SqGgv8uK9vYINdsDQocqzp4RGv+o8G5QM/vlVfpxSF31tFZcmmCI9/iQR8St7cJMQyZr
+         DGVV59kpdFKczkw8innaDCjFVMlTxohoNC7THX0XqTfBChYjsfB9nKVKU3qYBq6p9B88
+         f6Z2GWI4QMsH59li1Vt7ZVLYT8JoFjiaRYx8gPeT1lOdJvSmUUvDSUHJh8PVxRpGLP5t
+         iXkZHkeMJslQStde/0gvskmz3yH4tawfBEE1iQYJ/hgFMbxjEmdJFSWDJxjkztWyLV2X
+         pXwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701081170; x=1701685970;
+        d=1e100.net; s=20230601; t=1701081167; x=1701685967;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=MlWvEkOns6bxM9iRll9a5EQf2qEz96P+1R1KRbDkkn8=;
-        b=XCTZQf6DGQ09d7VKYs+PjItMMvfamHseF+v6lfl6ysuMB8eE0PaDqNRkJ5gRaIgVrA
-         tKlF13QcmycC7gH2U3q4BqBcbXDrCPMFQLZI4oNZxS9CrCMZ3YRWE89rxjHf0vkVnzJ5
-         iLlmQ3sZ8FSjssQhbYai4s4Lg00DE0RAOIxnFSWKCAdzY2+El0EaUseyVv61ouHdd+Kx
-         qkI+0hGvrPcGfS9b4lv5jFkyOxBy3M4Gx3PEyo7O3CE8x80QGcIQuks9msY149x9gpsC
-         2Mmq680WE316m34JtwsxYEJv/eHKKUasEgOUUlu404h43Q6uxcGCXhiq0S8oMVlPgggz
-         k68g==
-X-Gm-Message-State: AOJu0Yy5/SmMQyFflRlj2EjLqMIlc6fQvHK/T+UJnJbryO7S1H22s0bC
-	9Z1F9YtY29DnTtWQj9H+Qto=
-X-Google-Smtp-Source: AGHT+IEmtc6uvQGHjQLB9+xWuIWqr4VYfYT2cWLzoUOI6Ju7O3zk6InUUChkFS9o9nkpyFuwYTm+lw==
-X-Received: by 2002:a05:6512:3903:b0:500:9f7b:e6a4 with SMTP id a3-20020a056512390300b005009f7be6a4mr5841895lfu.32.1701081169590;
-        Mon, 27 Nov 2023 02:32:49 -0800 (PST)
+        bh=dIxf4qA9d3iQNURLT0XW05wJYozIZ97sH6EQJwhq5Vo=;
+        b=Tj0gmUpjqDLuceaSHfzyr4DvMuhgbT0QGFNiV5hrVSr2L1MPUg/L7PhK/TwrCJy+3m
+         IppA6DRt6PMNDpBbMqrwHcoeoKYJufEoUQzgB5Im5kF3S/9bPV926e9xJIkJwn8uxLUy
+         XGlWzI9LrIpGogCiM41npWVQyVGwuhpeRELj+y0EUeFPgThT7Qu3bnNCd+NHO+bHuZyE
+         iRNu82I+MkTs8PWbb9xlVkJi4ZBG24i560lLmBsag0M+ek3wR6uxQRsIeJmrv8rr5GQf
+         mkJlZwfnBXE1MvIhtna02J/GNVXU57F+CPzd21c/8R91nhjeVnMlqicTF6Kny+elGm0B
+         JfRA==
+X-Gm-Message-State: AOJu0Yz8CsB1G9bWmDEWXPg5Cd3bu4xDs+gdLY3ZEGehdWaV/olq7355
+	ZWWBuFg7NosgMLJCR6APiKs=
+X-Google-Smtp-Source: AGHT+IFmy1m9Y+H2p9q9elT0xydMtLsrFZsvRFhY2WqKMjU52KidZjpTJC0i2aZ2LuL0kaVMfQA+aQ==
+X-Received: by 2002:a05:6402:751:b0:54b:3edc:180 with SMTP id p17-20020a056402075100b0054b3edc0180mr3517112edy.11.1701081167489;
+        Mon, 27 Nov 2023 02:32:47 -0800 (PST)
 Received: from andrea.wind3.hub ([31.189.63.178])
-        by smtp.gmail.com with ESMTPSA id p5-20020a056402044500b00540ea3a25e6sm5142057edw.72.2023.11.27.02.32.48
+        by smtp.gmail.com with ESMTPSA id p5-20020a056402044500b00540ea3a25e6sm5142057edw.72.2023.11.27.02.32.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Nov 2023 02:32:49 -0800 (PST)
+        Mon, 27 Nov 2023 02:32:47 -0800 (PST)
 From: Andrea Parri <parri.andrea@gmail.com>
 To: mathieu.desnoyers@efficios.com,
 	paulmck@kernel.org,
@@ -76,16 +76,16 @@ Cc: mmaas@google.com,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Andrea Parri <parri.andrea@gmail.com>
-Subject: [PATCH 2/2] membarrier: riscv: Provide core serializing command
-Date: Mon, 27 Nov 2023 11:32:35 +0100
-Message-Id: <20231127103235.28442-3-parri.andrea@gmail.com>
+Subject: [PATCH 1/2] locking: Introduce prepare_sync_core_cmd()
+Date: Mon, 27 Nov 2023 11:32:34 +0100
+Message-Id: <20231127103235.28442-2-parri.andrea@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20231127103235.28442-1-parri.andrea@gmail.com>
 References: <20231127103235.28442-1-parri.andrea@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231127_023252_004988_01BDDD73 
-X-CRM114-Status: GOOD (  15.10  )
+X-CRM114-CacheID: sfid-20231127_023250_597634_BD557C4C 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,100 +102,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISC-V uses xRET instructions on return from interrupt and to go back
-to user-space; the xRET instruction is not core serializing.
+Introduce an architecture function that architectures can use to set
+up ("prepare") SYNC_CORE commands.
 
-Use FENCE.I for providing core serialization as follows:
+The function will be used by RISC-V to update its "deferred icache-
+flush" data structures (icache_stale_mask).
 
- - by calling sync_core_before_usermode() on return from interrupt (cf.
-   ipi_sync_core()),
-
- - via switch_mm() and sync_core_before_usermode() (respectively, for
-   uthread->uthread and kthread->uthread transitions) to go back to
-   user-space.
-
-On RISC-V, the serialization in switch_mm() is activated by resetting
-the icache_stale_mask of the mm at prepare_sync_core_cmd().
+Architectures defining prepare_sync_core_cmd() static inline need to
+select ARCH_HAS_PREPARE_SYNC_CORE_CMD.
 
 Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
-Suggested-by: Palmer Dabbelt <palmer@dabbelt.com>
+Suggested-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 ---
- .../membarrier-sync-core/arch-support.txt     |  2 +-
- arch/riscv/Kconfig                            |  3 ++
- arch/riscv/include/asm/sync_core.h            | 29 +++++++++++++++++++
- 3 files changed, 33 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/include/asm/sync_core.h
+ include/linux/sync_core.h | 16 +++++++++++++++-
+ init/Kconfig              |  3 +++
+ kernel/sched/membarrier.c |  1 +
+ 3 files changed, 19 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/features/sched/membarrier-sync-core/arch-support.txt b/Documentation/features/sched/membarrier-sync-core/arch-support.txt
-index d96b778b87ed8..f6f0bd871a578 100644
---- a/Documentation/features/sched/membarrier-sync-core/arch-support.txt
-+++ b/Documentation/features/sched/membarrier-sync-core/arch-support.txt
-@@ -43,7 +43,7 @@
-     |    openrisc: | TODO |
-     |      parisc: | TODO |
-     |     powerpc: |  ok  |
--    |       riscv: | TODO |
-+    |       riscv: |  ok  |
-     |        s390: |  ok  |
-     |          sh: | TODO |
-     |       sparc: | TODO |
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 95a2a06acc6a6..3e2734a3f2957 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -27,14 +27,17 @@ config RISCV
- 	select ARCH_HAS_GCOV_PROFILE_ALL
- 	select ARCH_HAS_GIGANTIC_PAGE
- 	select ARCH_HAS_KCOV
-+	select ARCH_HAS_MEMBARRIER_SYNC_CORE
- 	select ARCH_HAS_MMIOWB
- 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
- 	select ARCH_HAS_PMEM_API
-+	select ARCH_HAS_PREPARE_SYNC_CORE_CMD
- 	select ARCH_HAS_PTE_SPECIAL
- 	select ARCH_HAS_SET_DIRECT_MAP if MMU
- 	select ARCH_HAS_SET_MEMORY if MMU
- 	select ARCH_HAS_STRICT_KERNEL_RWX if MMU && !XIP_KERNEL
- 	select ARCH_HAS_STRICT_MODULE_RWX if MMU && !XIP_KERNEL
-+	select ARCH_HAS_SYNC_CORE_BEFORE_USERMODE
- 	select ARCH_HAS_SYSCALL_WRAPPER
- 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
- 	select ARCH_HAS_UBSAN_SANITIZE_ALL
-diff --git a/arch/riscv/include/asm/sync_core.h b/arch/riscv/include/asm/sync_core.h
-new file mode 100644
-index 0000000000000..9153016da8f14
---- /dev/null
-+++ b/arch/riscv/include/asm/sync_core.h
-@@ -0,0 +1,29 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_RISCV_SYNC_CORE_H
-+#define _ASM_RISCV_SYNC_CORE_H
-+
-+/*
-+ * RISC-V implements return to user-space through an xRET instruction,
-+ * which is not core serializing.
-+ */
-+static inline void sync_core_before_usermode(void)
-+{
-+	asm volatile ("fence.i" ::: "memory");
-+}
-+
-+#ifdef CONFIG_SMP
-+/*
-+ * Ensure the next switch_mm() on every CPU issues a core serializing
-+ * instruction for the given @mm.
-+ */
-+static inline void prepare_sync_core_cmd(struct mm_struct *mm)
-+{
-+	cpumask_setall(&mm->context.icache_stale_mask);
-+}
+diff --git a/include/linux/sync_core.h b/include/linux/sync_core.h
+index 013da4b8b3272..67bb9794b8758 100644
+--- a/include/linux/sync_core.h
++++ b/include/linux/sync_core.h
+@@ -17,5 +17,19 @@ static inline void sync_core_before_usermode(void)
+ }
+ #endif
+ 
+-#endif /* _LINUX_SYNC_CORE_H */
++#ifdef CONFIG_ARCH_HAS_PREPARE_SYNC_CORE_CMD
++#include <asm/sync_core.h>
 +#else
++/*
++ * This is a dummy prepare_sync_core_cmd() implementation that can be used on
++ * all architectures which provide unconditional core serializing instructions
++ * in switch_mm().
++ * If your architecture doesn't provide such core serializing instructions in
++ * switch_mm(), you may need to write your own functions.
++ */
 +static inline void prepare_sync_core_cmd(struct mm_struct *mm)
 +{
 +}
-+#endif /* CONFIG_SMP */
++#endif
+ 
++#endif /* _LINUX_SYNC_CORE_H */
+diff --git a/init/Kconfig b/init/Kconfig
+index 9ffb103fc927b..87daf50838f02 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -1972,6 +1972,9 @@ source "kernel/Kconfig.locks"
+ config ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
+ 	bool
+ 
++config ARCH_HAS_PREPARE_SYNC_CORE_CMD
++	bool
 +
-+#endif /* _ASM_RISCV_SYNC_CORE_H */
+ config ARCH_HAS_SYNC_CORE_BEFORE_USERMODE
+ 	bool
+ 
+diff --git a/kernel/sched/membarrier.c b/kernel/sched/membarrier.c
+index 2ad881d07752c..58f801e013988 100644
+--- a/kernel/sched/membarrier.c
++++ b/kernel/sched/membarrier.c
+@@ -320,6 +320,7 @@ static int membarrier_private_expedited(int flags, int cpu_id)
+ 		      MEMBARRIER_STATE_PRIVATE_EXPEDITED_SYNC_CORE_READY))
+ 			return -EPERM;
+ 		ipi_func = ipi_sync_core;
++		prepare_sync_core_cmd(mm);
+ 	} else if (flags == MEMBARRIER_FLAG_RSEQ) {
+ 		if (!IS_ENABLED(CONFIG_RSEQ))
+ 			return -EINVAL;
 -- 
 2.34.1
 
