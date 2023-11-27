@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 237C5C46CA3
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 08:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C838C4167B
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 08:48:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rf1mEAHg74qhe5S/2WtvivRn9YolZHMx05Lmx7t7KV4=; b=HKZEH+HYD+trSg
-	Fimj6P6m39nhoIWpzQa39ylPKvwsLAilHoR837v4U2ilA0I9mQyMGZuO782xmq2gTYACbBU1owh/a
-	SXSmvF6SBVup+WmseJyg5ym2gvd+5/zzFQV1hliKukRKtd9NKkrZFXd8m6UFNXwklNrQQ3veOaybm
-	mjZ/esBFv0XbO4VY+eBfWBhxr2PAnNevifYEpPEdziWOO4dgS9u4vSvITzJuRloFsUByyCkAiC1ZW
-	XlXZjhiVD/fRzQyRuA5vGmUzSRfsF5ZYfQ1OLE22cJuRMaDvNT4jc/RcZULstYOtYuJDlV0KXalUM
-	NVBywgdlGAGZ3Wlq6CpQ==;
+	List-Owner; bh=yZBYjusNMnhflQNLPULLfyMDVErYJ6eHuwZ9njKiJEw=; b=QQ4bUayQga2pCq
+	9MsfGlUlwt2Ofr1E08oiPIX9ORnlsUU8OABnR+xfR93ziMBLmahdznecKOBNDP/HgP1nwrTfqJmtu
+	3E0qZIkjk71Ig4Yk47kThaYPHvdRXOJP+sCp4jz6F0LBfmPfZIC2S49XmJ/7IJBQdHAVslI8z2lHV
+	INm21Zrxj4CgewzsZCqyDiaQjY5ELXrgRa5GX0PTQRaFLezSjfmZ4yXKKlwUAblALkOJWTHIo+FqU
+	MD1bl6+Zj6dG7y77wwQPJtzOQ1PLv4DQK7kN7670BdSz2yp8+D2B6VSVwKbyaolQnW/Qb7zJpER+5
+	M/vKbVVVhYLb6CdaxcUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7XHh-001sp8-1B;
-	Mon, 27 Nov 2023 08:48:05 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1r7XHp-001sqY-07;
+	Mon, 27 Nov 2023 08:48:13 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7XHb-001snE-1I
+	id 1r7XHm-001sq2-0f
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Nov 2023 08:48:01 +0000
+	Mon, 27 Nov 2023 08:48:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id E30CBB8346E;
-	Mon, 27 Nov 2023 08:47:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EC1CC433C7;
-	Mon, 27 Nov 2023 08:47:49 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7E2EC61068;
+	Mon, 27 Nov 2023 08:48:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C21DC433C7;
+	Mon, 27 Nov 2023 08:48:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701074872;
-	bh=9SPoNsqqop7JgphLq5L+r/FsiTID/lOWvVhQE+bZxJU=;
+	s=k20201202; t=1701074889;
+	bh=IDbhwTEPGpAkCBipZ5/TAz0ibRxg6yKUZ7ACowID9dA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AfH04c60MRUBKmUXUwl/aknpJUm8CS5qvTQv9CBkHkY9YMTbFobUeAovJsTkfrj3w
-	 2eudFp1A2m5ZlHd88uwhUe4APm3lC4Iw4jAMV/q8Olu2I0q5AmjpVdOmDOlYV39+64
-	 YKoA/REQyxeKLOVBm6KWD3TTEubMshkqXFG/z1iJFmh8AatM1cT1frFbwdwPL3ehiC
-	 nPux4MFTCZqc5fJlSEeYIL0TOmys2j3dleGkyWehOOZZgIzCFL8Pv/8aIEE9aDtNj8
-	 9DNk7LX924wmEWdSphkjJamEYcgoVag0kr3ZDcFLV+F9RK8RwSmsEwvTBmA2HZDpHv
-	 yQdswN3eakAXQ==
-Message-ID: <62af9220-8ca9-4f84-96aa-90257894a7bf@kernel.org>
-Date: Mon, 27 Nov 2023 09:47:46 +0100
+	b=XKytrvTOUtfSonEryqT7rhaInSDlwuopPEhsMP7JZ8ao8jVLhpCNhfri+bxUsTgoe
+	 FRiqZMnpTkbRFlqRHr3/GKYM+I5UMmsGWfnSuxLCTG33TnIOc+Hf47blrAOSDNXuwx
+	 jJeAWiVs1Z66kts15SdGAQZ4rkQ01H1ypWiKPCFC5dXWHsB2gQe5p5RjoO5NdFWQsK
+	 Syn5bbroHIJlx0pS1xmFHp+ohGYs20+gQ5RGk6BBj5DadwnmZYN2CZoxZQzlJ8DDPC
+	 8GvpylpdyVO9jozD5NQQDk9pl4rY4ubOCQViNloSrpdd+CIZGfruxpVduscXe05ebw
+	 FadwptiZFqgTQ==
+Message-ID: <83d5074a-183b-45dd-bc07-5596d565c3b9@kernel.org>
+Date: Mon, 27 Nov 2023 09:48:06 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/7] dt-bindings: riscv: Add StarFive Dubhe compatibles
+Subject: Re: [PATCH 4/7] dt-bindings: interrupt-controller: Add StarFive
+ JH8100 plic
 Content-Language: en-US
 To: Sia Jee Heng <jeeheng.sia@starfivetech.com>, paul.walmsley@sifive.com,
  palmer@dabbelt.com, aou@eecs.berkeley.edu, conor@kernel.org,
@@ -54,7 +55,7 @@ To: Sia Jee Heng <jeeheng.sia@starfivetech.com>, paul.walmsley@sifive.com,
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  leyfoon.tan@starfivetech.com
 References: <20231127013602.253835-1-jeeheng.sia@starfivetech.com>
- <20231127013602.253835-2-jeeheng.sia@starfivetech.com>
+ <20231127013602.253835-5-jeeheng.sia@starfivetech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -99,10 +100,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20231127013602.253835-2-jeeheng.sia@starfivetech.com>
+In-Reply-To: <20231127013602.253835-5-jeeheng.sia@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231127_004800_013105_47F0EC06 
-X-CRM114-Status: UNSURE (   6.80  )
+X-CRM114-CacheID: sfid-20231127_004810_329398_F901F28B 
+X-CRM114-Status: UNSURE (   7.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -121,10 +122,11 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 27/11/2023 02:35, Sia Jee Heng wrote:
-> Dubhe-80 and Dubhe-90 are RISC-V cpu core from StarFive Technology.
+> Add compatible string for StarFive JH8100 plic
 > 
 > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+> ---
 
 Please use scripts/get_maintainers.pl to get a list of necessary people
 and lists to CC. It might happen, that command when run on an older
