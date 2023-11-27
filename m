@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74BB4C4167B
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 08:48:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65852C07D5A
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 08:49:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7eVeInr+qNvDD2KC4D4Uut+eGQxtGxNPJiPOWWZr5Hc=; b=g0dNijg1COxtkO
-	y1IiRuZWpg/VbPOUfb12GB3p5RgYPINgzkdP4oSTne8/+b7qNW0wHF6LDIAB4/UJ6Z+0ej6zfWawO
-	goVf6qoxVgWn+5XN7PkgNkVqpLZZ/OGDZSob1wyHT8XliFpLYzK7Pc3dbDBB+8agIvUJsFbv+0gb8
-	YncWd5a67us5KXntZ3w0PH+PrIFGNTpsoq8k4qjzrnM+bKzNlhM06XqRkb0DvPxXtxqWT5noWluGv
-	OIWtVHI+UKGRfc5JWjbNKQ1YXy6HuUCqVbUFRep41XTAHwEZlQDmqNh6sHLNMEswFpCB2oWLOW1g6
-	W0LbPa7KcMga6/45Jo4w==;
+	List-Owner; bh=wwJJAvgypu00JMgAIPT3WqkfIYYRT6ArZ0iunzSPcyM=; b=0TmdeDDAZYR/y8
+	JZ96YLQD74Ye+LEu5jHDTPx1qFFBphvpnlzXxasDp9xnZTnOYnyY7JrahC/+kaeAqvl9R7SPCdzft
+	B1XeSgpAkTzo9zL2Re+hCdCGJe4hOkHLhW78ljdFwq0utqIh5qF3bE7+cKgeX0xO3uXdY9SsrRnZv
+	ul9eiHTDedDg6rM96FWAjJDTXL+8Xf97wtscaEkFiraATIw3D0FgMXhgBBu8KM0bl/LHGgvCtdK6f
+	I85diGaNL3xLbkswaPnGFlP9R8ZRTRlxaZGJ7cfUz/bzinxXhFyj97PrXHeEa6UvjfvmerMBHJMFS
+	ctQtXnAQ2Li0baVKeEaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7XIL-001sxw-2B;
-	Mon, 27 Nov 2023 08:48:45 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1r7XIq-001t3T-1n;
+	Mon, 27 Nov 2023 08:49:17 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7XIJ-001sxC-1t
+	id 1r7XIm-001t2I-1E
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Nov 2023 08:48:45 +0000
+	Mon, 27 Nov 2023 08:49:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 47233B82C8F;
-	Mon, 27 Nov 2023 08:48:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D642C433C8;
-	Mon, 27 Nov 2023 08:48:38 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 08168CE000E;
+	Mon, 27 Nov 2023 08:49:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19DFFC433C7;
+	Mon, 27 Nov 2023 08:49:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701074921;
-	bh=XJxLFbtAZ9fE3Q2uHuatuh4Aadouvj1jWL8C26hHK+k=;
+	s=k20201202; t=1701074949;
+	bh=8sT9r1S011zSitMbQnunPozcq3JEaxTMINRgB6YSRVM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tGcBmBdxneSFzhr9Q6G2+rwMvGAYvXWTQZjxBX6OEDaMR3bSNv/DL/fK5Fta319YS
-	 Z+577W0BxjKo5b40bCFUeWKvYWMCJUB01ZOEvy8PZMOymAaRaOhQ4FKS/9fIuquOu6
-	 GD+Rih36K/FqZRy6Gl/stDd2hCP2cfU565XU2DISZR8zvqitRrpu3iCUvNNdLj33TQ
-	 QBUUSPy2iLWxRC0C0/xa40Dz5g96bbt3dqjWtN5wquDX3zXz4rVRb/JEt2/32Qgr19
-	 7yhpoogp6FsyblbMKEQDg23Q6lxD7D14esLv/v87bRPeYBI06QysdidYo0n9bmP3sw
-	 dZTk38Ohg3pUA==
-Message-ID: <22cb035d-10b8-41f7-b7c6-5c8ae6627c59@kernel.org>
-Date: Mon, 27 Nov 2023 09:48:37 +0100
+	b=cu4SV15CKWUMWCVx7CU5tf5xSJ5MW0DzC+dUMj+OIMs46IGEpAIuFgSDuzZvGsyWd
+	 bB/vIPRwa07gSyCmOXGXYFtOWH9OyGIB52oY6LNnlJ9xSLEZ8G8AwrfkURTsqKzaa3
+	 +bFjySxyzJsG/1vpkn5WDPubKeCIen4XwJmy4GX+3oAN2eDwLSx1h9a89tuZ/mhhcj
+	 fSFv0G0zqcfLb3Slw5DykOukwEltioDLvYcjq6eYeV2ZtyhIf9ltIMDBvAb/WuFVvF
+	 W5gN64+GJUXTeJsGBkYLBt2XUxyeyKjEg22FL9PukagYVCUDcLMhXDyDp+/3dSugn1
+	 0jBhb5e+XTC7A==
+Message-ID: <07fc5ebe-47b2-4843-ad49-36e6686e5a9a@kernel.org>
+Date: Mon, 27 Nov 2023 09:49:05 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/7] dt-bindings: xilinx: Add StarFive compatible string
+Subject: Re: [PATCH 6/7] serial: xilinx_uartps: Add new compatible string for
+ StarFive
 Content-Language: en-US
 To: Sia Jee Heng <jeeheng.sia@starfivetech.com>, paul.walmsley@sifive.com,
  palmer@dabbelt.com, aou@eecs.berkeley.edu, conor@kernel.org,
@@ -54,7 +55,7 @@ To: Sia Jee Heng <jeeheng.sia@starfivetech.com>, paul.walmsley@sifive.com,
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  leyfoon.tan@starfivetech.com
 References: <20231127013602.253835-1-jeeheng.sia@starfivetech.com>
- <20231127013602.253835-6-jeeheng.sia@starfivetech.com>
+ <20231127013602.253835-7-jeeheng.sia@starfivetech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -99,11 +100,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20231127013602.253835-6-jeeheng.sia@starfivetech.com>
+In-Reply-To: <20231127013602.253835-7-jeeheng.sia@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231127_004843_889473_6E0810DD 
-X-CRM114-Status: UNSURE (   7.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231127_004912_794428_6B53D62F 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,28 +121,35 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 27/11/2023 02:36, Sia Jee Heng wrote:
-> Add starfive,jh8100-uart compatible string
-
-Describe the hardware. Why is it in xilinx?
-
-Also, missing full stop in each commit msg.
-
+> This patch adds the new compatible string for StarFive JH8100 SoC
 > 
 > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
 > ---
+>  drivers/tty/serial/xilinx_uartps.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/tty/serial/xilinx_uartps.c b/drivers/tty/serial/xilinx_uartps.c
+> index 66a45a634158..170901c143c2 100644
+> --- a/drivers/tty/serial/xilinx_uartps.c
+> +++ b/drivers/tty/serial/xilinx_uartps.c
+> @@ -1210,7 +1210,7 @@ OF_EARLYCON_DECLARE(cdns, "xlnx,xuartps", cdns_early_console_setup);
+>  OF_EARLYCON_DECLARE(cdns, "cdns,uart-r1p8", cdns_early_console_setup);
+>  OF_EARLYCON_DECLARE(cdns, "cdns,uart-r1p12", cdns_early_console_setup);
+>  OF_EARLYCON_DECLARE(cdns, "xlnx,zynqmp-uart", cdns_early_console_setup);
+> -
+> +OF_EARLYCON_DECLARE(cdns, "starfive,jh8100-uart", cdns_early_console_setup);
+>  
+>  /* Static pointer to console port */
+>  static struct uart_port *console_port;
+> @@ -1448,6 +1448,7 @@ static const struct of_device_id cdns_uart_of_match[] = {
+>  	{ .compatible = "cdns,uart-r1p8", },
+>  	{ .compatible = "cdns,uart-r1p12", .data = &zynqmp_uart_def },
+>  	{ .compatible = "xlnx,zynqmp-uart", .data = &zynqmp_uart_def },
+> +	{ .compatible = "starfive,jh8100-uart", },
 
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC. It might happen, that command when run on an older
-kernel, gives you outdated entries. Therefore please be sure you base
-your patches on recent Linux kernel.
-
-You missed at least devicetree list (maybe more), so this won't be
-tested by automated tooling. Performing review on untested code might be
-a waste of time, thus I will skip this patch entirely till you follow
-the process allowing the patch to be tested.
-
-Please kindly resend and include all necessary To/Cc entries.
+Why you do not express compatibility in your bindings? Skip this driver
+change.
 
 Best regards,
 Krzysztof
