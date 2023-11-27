@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B001C4167B
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 09:54:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B77DC07D5A
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 10:24:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tDnXeia5QiLx3nrSQzb20vfoPhUxbjIKMl9GNS6T8dQ=; b=HwqWHiea8sHuE2
-	pinRYfSPw0sTrsGONo8LI9utxtSdqEhWqfcTR5vBUTGCVLuU3uE7bJAyKGNdL9GOkjdt1RaqHCnhA
-	SSkKeXFWGgM1HbLuTeiAFWI5wjpQlMQJQ3r+g8887HUkoZmm63+kPAR969Nh6adhvUf77UBmOH8fH
-	qBoWlgayG7w0GiEFwv8caPOMzu7aDbXaF8esIjOizEFvCvXS2V834f2iBN681Fnij6dbZnlfNHjcG
-	qfBmyLdzSaQ3XOQK/eqr416f34jz5E0xo7AqHOGLBRIDyuV6QCurzJ1rAAc1S7YJVa82yOH4TpmcP
-	8GY4Jm2LrV++CuF9uL+Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2pETmwno/N7qhY8N5FXO1uPrT071EZC3myZeX2Kl8zc=; b=dR33uk4QDt1LGR
+	zg5TG8oTLhrUbLoQJVC3y88FxKbUcsSyIunbCKSSy7YJ1qbaB/VvnHWGbexnRPvw6ofjUKLRZVoWF
+	4mh3GerxI/XYMi50cIQVpuAq1ouVQQ0S57sTfLTheU2OdFDVvC6+5CFnhECZWDKp3Lq7d0pcoB1PE
+	ZIK05Lnn7cv+3yUqKMZNFooMP4f9qscrNBrUtwMcSPhFwalTvehgoVP/DhSt9sgYAkK0uWmpy0Vce
+	YE56JH+tcrTK/zQg7QBHIO4JXlFwe5I05YI9JrDm2NSO2A9rqvO6m0tqP5wgKixqcE/qZ0kRwgeFx
+	1x2GnGkhINqS7IiUSsxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7YKF-0020hB-0L;
-	Mon, 27 Nov 2023 09:54:47 +0000
-Received: from mta-04.yadro.com ([89.207.88.248])
+	id 1r7Yn7-0024FO-0e;
+	Mon, 27 Nov 2023 10:24:37 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7YKA-0020em-2x
+	id 1r7Yn4-0024Dq-2J
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Nov 2023 09:54:45 +0000
-DKIM-Filter: OpenDKIM Filter v2.11.0 mta-04.yadro.com 2DF2FC0005
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=syntacore.com;
-	s=mta-04; t=1701078866;
-	bh=Ae63xGVgAa9+JIzkWIlv6C6QPlVWMSpbmQ3FkALhZs8=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
-	b=VsxZFAd/he9gD5lQmeXPpLoJk1T8Rl1n5iH3PvTRPhJKcL0/LgKxxxlhNoUijs7mf
-	 YVomii5R0nigOmK1ncB2PPqJoGGFvnT5SqKGvJ/9SuJfS1LMTjUcEnhMzb2ucnG/f2
-	 Szi5lAbD55CeX68T07pRYJyxSrrF7zKKBU919T9uG4hboabjxG5t92n/PwQzt/W0HF
-	 Gm6Cd8gPlQWFa453m39khNoOljOeokmCg5SWV0C6BD0faGre5ugUCkn0PO2iFG5vdR
-	 ljz1mh0faZfU/4pdk6Om+Y77IDktIVjwTlvKsJz4V1UXGQFarcLgzAZmEsTOBsIi3M
-	 Mj2bDgb4/BEtg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=syntacore.com;
-	s=mta-03; t=1701078866;
-	bh=Ae63xGVgAa9+JIzkWIlv6C6QPlVWMSpbmQ3FkALhZs8=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
-	b=P31Uj+/YGTH0My6YJ6GFdj2lQmPH7RSynEcnoTcd0+APt+ieTJ1OcF3YDuDQ86FBA
-	 RxIej12JKDGpDSSHaqSYSEJJyZ9lYm8ybn7jl9PwqPdHe+QfopjszdhPqVVu8FIyBU
-	 RNjK9SuLNhuZN1zMmdH5Gf/IoHSBjIa0kKFp9PmaqbtdFNhBgnbPci/vz+TP/GObYT
-	 zVK1hnnvM5qq1m0E+xA7puysJNWchJWL0YlLJmxpx9GYpoH87pU+ys42HvUIBP6L7+
-	 Zn1Q7PCxfyCEkgkUKN2CKgysNUoIPM+5OwvCZ3TWtWK/JgQ6hHX+vXDVPfKJoC+IO8
-	 Ceer8cWnARJyA==
-From: Vadim Shakirov <vadim.shakirov@syntacore.com>
-To: Atish Patra <atishp@atishpatra.org>
-CC: Vadim Shakirov <vadim.shakirov@syntacore.com>, Anup Patel
-	<anup@brainfault.org>, Will Deacon <will@kernel.org>, Mark Rutland
-	<mark.rutland@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
- Ghiti" <alexghiti@rivosinc.com>, Andrew Jones <ajones@ventanamicro.com>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH] drivers: perf: ctr_get_width function for legacy is not defined
-Date: Mon, 27 Nov 2023 12:54:03 +0300
-Message-ID: <20231127095403.272424-1-vadim.shakirov@syntacore.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 27 Nov 2023 10:24:36 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-407acb21f27so3962825e9.0
+        for <linux-riscv@lists.infradead.org>; Mon, 27 Nov 2023 02:24:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1701080667; x=1701685467; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Wu1INlBttSoNTPvzJ8LrRj387HEl+wYp0ca6zoIWQt8=;
+        b=r16eYzv/56ZP5yXYPLbhaKnhMlaAlF7+WeGuByNB0WhFeyiTYb83TrCk4jkD7p0yJk
+         RkNRM+O8rHx2OShm/HoGyUOycQlm4D6iXkuhk53S9X0gHHOnyzH3BrHl+Ic/wefAP83R
+         lRa1ExJCNcBA3z2INqxqfhq5RfbVPl4Rx6NIQbtleWvjdYJ4ACmvvtbxTSuvl4ZARC1s
+         gMmt6+3qhvFZIWo7KT3h1kTB4XvV/X/iTxj2DNlboPlEKS98rwXQ6YdMKgr/KxRZJ7/w
+         sEd6VvreZiK64bcS1uc2lzATTTBl+YC/ECrB7BtNEIQWBRA7Gsu4zhYY8Lshgw00v3Uh
+         3EqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701080667; x=1701685467;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Wu1INlBttSoNTPvzJ8LrRj387HEl+wYp0ca6zoIWQt8=;
+        b=f2wqLcTSQVJucgD/26dWlvpy8E2peLb62fmQ9AIGfQiQ6LXICUw4T6JCF1NuGDcTK9
+         CWj5NcGFwXxLbPAYaqUeR/kM4Et/5IUV0K6XZAfdl3DCt9q9U7KmzD1EWsVR8g7oGP6C
+         pdBhZ8A2AUqNGVPIdXNVhIy32Kydd6ZEn/QKQoytYm5utTn6gnZm7c63yLXr6fXBUxBE
+         vBoHdFU3+5xt+5S5Mr3Yrk3aMslUne3yG+pY7MRxJJrlDP0MEBypAHV0yT6Nt3v7+xtO
+         KwgBK9Ty2HhsQGLuUK5qztmgX62CXAMSZx5c62mVV5wSEDzS/cCd/p2nLtuwQXzQWxti
+         8IAA==
+X-Gm-Message-State: AOJu0Yx9JRo/bQzExujcNMrFVL6EwQOzJM9OtljxWxfO1xNK3N1qn6D0
+	aieRfRetQKpsXmG6raZC8mgJfA==
+X-Google-Smtp-Source: AGHT+IFNFSIcXPktRz641S+TwSgPraxmwJhBPLk9O+g+xWRL5SHdqiCk/LWjTGiodXivE9z6GOcheQ==
+X-Received: by 2002:a05:600c:45c6:b0:405:39bb:38a8 with SMTP id s6-20020a05600c45c600b0040539bb38a8mr7720726wmo.2.1701080666882;
+        Mon, 27 Nov 2023 02:24:26 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:999:a3a0:1a67:8e18:5d34:ea1b? ([2a01:e0a:999:a3a0:1a67:8e18:5d34:ea1b])
+        by smtp.gmail.com with ESMTPSA id q17-20020a5d5751000000b00323287186aasm11598473wrw.32.2023.11.27.02.24.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 27 Nov 2023 02:24:26 -0800 (PST)
+Message-ID: <9cb1fadf-bb83-4e9f-9c29-bff53e30b0c6@rivosinc.com>
+Date: Mon, 27 Nov 2023 11:24:25 +0100
 MIME-Version: 1.0
-X-ClientProxiedBy: T-EXCH-10.corp.yadro.com (172.17.11.60) To
- S-Exch-01.corp.yadro.com (10.78.5.241)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] riscv: fix incorrect use of __user pointer
+To: David Laight <David.Laight@ACULAB.COM>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Cc: Christoph Hellwig <hch@infradead.org>,
+ Ben Dooks <ben.dooks@codethink.co.uk>, kernel test robot <lkp@intel.com>
+References: <20231124113803.165431-1-cleger@rivosinc.com>
+ <bf7dfadfc8a94e3f810a8ba238f77543@AcuMS.aculab.com>
+Content-Language: en-US
+From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+In-Reply-To: <bf7dfadfc8a94e3f810a8ba238f77543@AcuMS.aculab.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231127_015443_318987_E3AA7F01 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20231127_022434_761654_85FEB6A4 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,79 +93,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With parameters CONFIG_RISCV_PMU_LEGACY=y and CONFIG_RISCV_PMU_SBI=n
-linux kernel crashes when you try perf record:
-
-$ perf record ls
-[   46.749286] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
-[   46.750199] Oops [#1]
-[   46.750342] Modules linked in:
-[   46.750608] CPU: 0 PID: 107 Comm: perf-exec Not tainted 6.6.0 #2
-[   46.750906] Hardware name: riscv-virtio,qemu (DT)
-[   46.751184] epc : 0x0
-[   46.751430]  ra : arch_perf_update_userpage+0x54/0x13e
-[   46.751680] epc : 0000000000000000 ra : ffffffff8072ee52 sp : ff2000000022b8f0
-[   46.751958]  gp : ffffffff81505988 tp : ff6000000290d400 t0 : ff2000000022b9c0
-[   46.752229]  t1 : 0000000000000001 t2 : 0000000000000003 s0 : ff2000000022b930
-[   46.752451]  s1 : ff600000028fb000 a0 : 0000000000000000 a1 : ff600000028fb000
-[   46.752673]  a2 : 0000000ae2751268 a3 : 00000000004fb708 a4 : 0000000000000004
-[   46.752895]  a5 : 0000000000000000 a6 : 000000000017ffe3 a7 : 00000000000000d2
-[   46.753117]  s2 : ff600000028fb000 s3 : 0000000ae2751268 s4 : 0000000000000000
-[   46.753338]  s5 : ffffffff8153e290 s6 : ff600000863b9000 s7 : ff60000002961078
-[   46.753562]  s8 : ff60000002961048 s9 : ff60000002961058 s10: 0000000000000001
-[   46.753783]  s11: 0000000000000018 t3 : ffffffffffffffff t4 : ffffffffffffffff
-[   46.754005]  t5 : ff6000000292270c t6 : ff2000000022bb30
-[   46.754179] status: 0000000200000100 badaddr: 0000000000000000 cause: 000000000000000c
-[   46.754653] Code: Unable to access instruction at 0xffffffffffffffec.
-[   46.754939] ---[ end trace 0000000000000000 ]---
-[   46.755131] note: perf-exec[107] exited with irqs disabled
-[   46.755546] note: perf-exec[107] exited with preempt_count 4
-
-This happens because in the legacy case the ctr_get_width function was not
-defined, but it is used in arch_perf_update_userpage.
-
-Fixes: cc4c07c89aad ("drivers: perf: Implement perf event mmap support in the SBI backend")
-Signed-off-by: Vadim Shakirov <vadim.shakirov@syntacore.com>
----
- drivers/perf/riscv_pmu_legacy.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
-index 79fdd667922e..a179ed6ac980 100644
---- a/drivers/perf/riscv_pmu_legacy.c
-+++ b/drivers/perf/riscv_pmu_legacy.c
-@@ -37,6 +37,12 @@ static int pmu_legacy_event_map(struct perf_event *event, u64 *config)
- 	return pmu_legacy_ctr_get_idx(event);
- }
- 
-+/* cycle & instret are always 64 bit, one bit less according to SBI spec */
-+static int pmu_legacy_ctr_get_width(int idx)
-+{
-+	return 63;
-+}
-+
- static u64 pmu_legacy_read_ctr(struct perf_event *event)
- {
- 	struct hw_perf_event *hwc = &event->hw;
-@@ -111,7 +117,7 @@ static void pmu_legacy_init(struct riscv_pmu *pmu)
- 	pmu->ctr_stop = NULL;
- 	pmu->event_map = pmu_legacy_event_map;
- 	pmu->ctr_get_idx = pmu_legacy_ctr_get_idx;
--	pmu->ctr_get_width = NULL;
-+	pmu->ctr_get_width = pmu_legacy_ctr_get_width;
- 	pmu->ctr_clear_idx = NULL;
- 	pmu->ctr_read = pmu_legacy_read_ctr;
- 	pmu->event_mapped = pmu_legacy_event_mapped;
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyNS8xMS8yMDIzIDE2OjM3LCBEYXZpZCBMYWlnaHQgd3JvdGU6Cj4gLi4uCj4+IEBAIC00
+OTEsNyArNDg2LDcgQEAgaW50IGhhbmRsZV9taXNhbGlnbmVkX2xvYWQoc3RydWN0IHB0X3JlZ3Mg
+KnJlZ3MpCj4+Cj4+ICAJdmFsLmRhdGFfdTY0ID0gMDsKPj4gIAlmb3IgKGkgPSAwOyBpIDwgbGVu
+OyBpKyspIHsKPj4gLQkJaWYgKGxvYWRfdTgocmVncywgKHZvaWQgKikoYWRkciArIGkpLCAmdmFs
+LmRhdGFfYnl0ZXNbaV0pKQo+PiArCQlpZiAobG9hZF91OChyZWdzLCBhZGRyICsgaSwgJnZhbC5k
+YXRhX2J5dGVzW2ldKSkKPj4gIAkJCXJldHVybiAtMTsKPj4gIAl9Cj4gCj4gSSdkIHJlYWxseSBo
+YXZlIHRob3VnaHQgdGhhdCB5b3UnZCB3YW50IHRvIHB1bGwgdGhlIGtlcm5lbC91c2VyCj4gY2hl
+Y2sgd2F5IG91dHNpZGUgdGhlIGxvb3A/CgpIaSBEYXZpZCwKCkkgaG9wZSB0aGUgY29tcGlsZXIg
+aXMgYWJsZSB0byBleHRyYWN0IHRoYXQgJ2lmJyBvdXQgb2YgdGhlIGxvb3Agc2luY2UKcmVncyBp
+c24ndCBtb2RpZmllZCBpbiB0aGUgbG9vcC4gTmV2ZXJ0aGVsZXNzLCB0aGF0IGNvdWxkIGJlIG1v
+cmUKImNsZWFyIiBpZiBwdXQgb3V0c2lkZSBpbmRlZWQuCgo+IEluIGFueSBjYXNlLCBmb3IgYSBt
+aXNhbGlnbmVkIHJlYWQgd2h5IG5vdCBqdXN0IHJlYWQgKGFkZHIgJiB+NylbMF0KPiBhbmQgKGlm
+IG5lZWRlZCkgKGFkZHIgJiB+NylbMV0gYW5kIHRoZW4gYWhpZnQgYW5kIG9yIHRvZ2V0aGVyPwoK
+TWFrZXMgc2Vuc2UsIHRoZSBvcmlnaW5hbCBjb2RlIHdhcyBsaWtlIHRoYXQgYnV0IHByb2JhYmx5
+IGNvcHkvcGFzdGVkCmZyb20gb3BlblNCSSBJIGd1ZXNzLiAoPykKCkxldCdzIGtlZXAgdGhhdCBm
+b3IgdGhlIG1vbWVudCAodGhpcyBwYXRjaCBpcyBhYm91dCBmaXhpbmcgd3JvbmcgX191c2VyCmFk
+ZHJlc3Mgc3BhY2UpLiBJIHdpbGwgdHJ5IHRvIHN1Ym1pdCBhbm90aGVyIHNlcmllcyB1c2luZyB3
+aGF0IHlvdSBwcm9wb3NlZC4KClJlZ2FyZHMsCgpDbMOpbWVudAoKPiAKPiBjbGFuZyB3aWxsIGRv
+IGl0IGZvciBtaXNhbGlnbmVkIHN0cnVjdHVyZSBtZW1iZXJzIHdpdGgga25vd24KPiBtaXNhbGln
+bm1lbnQsIGJ1dCBpdCBpcyBhbG1vc3QgY2VydGFpbmx5IGFsc28gYmV0dGVyIGZvciByZWFkcwo+
+IHdpdGggdW5rbm93biBtaXNhbGlnbm1lbnQuCj4gCj4gCURhdmlkCj4gCj4gLQo+IFJlZ2lzdGVy
+ZWQgQWRkcmVzcyBMYWtlc2lkZSwgQnJhbWxleSBSb2FkLCBNb3VudCBGYXJtLCBNaWx0b24gS2V5
+bmVzLCBNSzEgMVBULCBVSwo+IFJlZ2lzdHJhdGlvbiBObzogMTM5NzM4NiAoV2FsZXMpCgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
+YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
+aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
