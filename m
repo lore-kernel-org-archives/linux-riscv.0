@@ -4,82 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6888C4167B
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 18:16:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72758C4167B
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 18:24:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KNPE+QTjo1Nnqy94sJWYUfKrmBD+MPi4RbHSiysRMdk=; b=DRgGP6rP4wyroY
-	A22SNgrzFBCTiEJbPVawJabDqTDXPYZHRuEzR1m1+dZ/r0x5kbhIoAEHE+/AoZFg7FprHvdELeBae
-	/WKqJrNNEP+D75qKTHbnphAg/5z+GTJcILo/mKix5K1CBm3U2JW3xiJYXUyBNky49KjqmI8fQNM8A
-	0lgyQydqUhxgN97xbM6OcawgSRiUbxGcw/QhAwloebCJBLMPrk+EEw5GUYgoh5ObcmgWK9jHJgyEh
-	8/YKTPWzajpg4zIDeFDSPLOxiGom/s5vL4/rS2ZhLNKno13eYkI07MJDWJfA7QfAbdMCaGGk1yEPK
-	09mYS9oKkxI++KSD8vhA==;
+	List-Owner; bh=3kYfVci6jVGpmFqL/joYssx17tT6wG/Y/XBhLK0RYSw=; b=aWKywVcP/OQV0P
+	faakTC/USM6AtQWA3kOHy/0I9LhZfPQKnqT/uI7IcrSXDEixOENAEIxbX2D5T4XXWNWnKOTkYmOQg
+	E4bCuLtHQYgZjp7k3CAk+i1bAJyjk4DTHGNQSyLEt8xT06nJY4sCRtFrV8ZA2E5TTRYpqYMwuiwNw
+	fXAXv1A5VSPzvdTFMT/5Ebnh9OPQjfi97lF7m8rXs8j0ZfgmH9JhDprt5FgmPNoRhikfeEJwMDYbN
+	HxXjJkBAr6IRCNVIDzfGDjLiPABz6KFXbp8hXs2//xRS8KpT1wSFqenljZAYlZdH7qOMn+dZv29Q7
+	fcivUK6yaOoSKxW18n2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7g9P-003Col-2g;
-	Mon, 27 Nov 2023 18:16:07 +0000
-Received: from mail-oo1-xc30.google.com ([2607:f8b0:4864:20::c30])
+	id 1r7gHG-003E0a-1I;
+	Mon, 27 Nov 2023 18:24:14 +0000
+Received: from mail-ot1-f48.google.com ([209.85.210.48])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7g9M-003CoC-1f
+	id 1r7gHD-003Dzb-11
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Nov 2023 18:16:06 +0000
-Received: by mail-oo1-xc30.google.com with SMTP id 006d021491bc7-58d08497aa1so2769698eaf.0
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Nov 2023 10:16:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1701108962; x=1701713762; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=FxoxtfZyYEABjHZ6RtVtSj3aKhK7A/US0jtAU3g5OGk=;
-        b=1tm6g9gncvY7W//eNaydZv8FPGp6DTqea8Pwauzk+s/gBdRijyVUWtoINKZwIn4Pp0
-         r4ELV86f8GT7V4r8xjsCEgEN+IsExkWcunjp5q8nZJHEp9TKGLtR74J/IjoP0OX39c8L
-         YEUC5sP24hadDZO/Q6tPQiC1byAPt/51nYUEyws7BfjPan9+TfHZUYQkYTTu/AmLh3wC
-         ikCaE6KKDioo0HCRo2MKwznOv5kbrZwCIBx2dGBQYbVUQpLaPutvAgXoOj8E1EIE5JYc
-         Yg3st6BVfOqHCGORSvUxomrbAYU5/+nFzsWiTFFRDi9Yv/8sVyrJYWXr4Dij1le8Z7JN
-         ijLw==
+	Mon, 27 Nov 2023 18:24:12 +0000
+Received: by mail-ot1-f48.google.com with SMTP id 46e09a7af769-6d81faeefc4so998823a34.2
+        for <linux-riscv@lists.infradead.org>; Mon, 27 Nov 2023 10:24:10 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701108962; x=1701713762;
+        d=1e100.net; s=20230601; t=1701109450; x=1701714250;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=FxoxtfZyYEABjHZ6RtVtSj3aKhK7A/US0jtAU3g5OGk=;
-        b=YP9FE3c0JsjS0WndvILXHJ5h8JzinJgJC9kotrUiZzcxaC8YELyOf/BxFZvZIhv7/i
-         tsT6rtaqwsMoO2lXmp/ARQpDOMTlEGW3X1M1tMoWAGb4X4v19TDNn5z4xvwJhv44yzt2
-         LmqQlMAcx9+cLqWed6x69mH1aqulOgjI30VAVIk/hzL0Qvmj0pEOm3nAlY4c2vtKcELc
-         0VBojTB0tfJBwBneI8LqegvygJ0BJBHYSeAFYD7b8xytRWmQRP6TAXhMDhl3OLtCDqbC
-         JIyaPh344suSqewqFONfAYqrUkepvosQjj+RWuPawXjIqmMJFT3TXbC4jhU+iJN2kweC
-         8eZQ==
-X-Gm-Message-State: AOJu0Yzc/4/YEDURixiLQ2EKhdgzS/PttDSngWyv8PEH5fjabKwG3xQ+
-	rpxqFt/8UFN/g2dXcZVnV8vZIg==
-X-Google-Smtp-Source: AGHT+IE+v6fFB7xdHxMtYP8G0Nfw9Tf/7BYotEm3H1gVkhmuH+mh9vYsMGoDKYeeMoWzyCVVgNRotw==
-X-Received: by 2002:a05:6820:809:b0:58d:a6ed:5601 with SMTP id bg9-20020a056820080900b0058da6ed5601mr1113420oob.1.1701108962609;
-        Mon, 27 Nov 2023 10:16:02 -0800 (PST)
-Received: from ghost ([2601:647:5700:6860:a896:28e0:13ca:92d8])
-        by smtp.gmail.com with ESMTPSA id b18-20020a4ac292000000b00581daa5c5fdsm1572457ooq.29.2023.11.27.10.16.00
+        bh=wF7BpdESHg7ukGeVphyj0w+Q03SJQZ4KYg2HXNSbNFU=;
+        b=AltRU8Z+NEmRdzglGSjkol068HD0rIV05YltP56TvAuCjZq0QNEEjjnvGl1GolTNLp
+         FzGDdGC3IQcRMm+AoLc75adB6MqoFMrwxGTsvarm2wQnScI7kt8okbh6wN4mnRY5+sjJ
+         0F1HMf++kf4I1DOKKRIHf8UDei2gQIsSu3exdW+W3SPXzBv2lbil9LotpuVhhXRRrJzZ
+         fnjRDJWF6cULzlP4rRgFEcyWU1QSbhS0tb29IGpShtgTAcAvQLeiIqZ5/wq49ghCQTkB
+         Em1qpUfIGbuOb+rjtYRofgQ+yz94nIS3yYNBhZrzR98kSkH+xZO/IXso7IQ51Z1gls13
+         Wc6A==
+X-Gm-Message-State: AOJu0YyGpS3SooWzx3pzmBr048LJFHpiMSZkffegNonz1DeAQT90YQrB
+	txjZh8s54w75iwHY3OnOng==
+X-Google-Smtp-Source: AGHT+IGZ1FUvDOFdx14sqdb4Qh4hz/OmI5KEpI0XR0i001qZqV3VfcIpq4j9OGYlfjltBcQdBbZFUA==
+X-Received: by 2002:a05:6830:1e39:b0:6d3:a8b:b34 with SMTP id t25-20020a0568301e3900b006d30a8b0b34mr14340070otr.5.1701109450110;
+        Mon, 27 Nov 2023 10:24:10 -0800 (PST)
+Received: from herring.priv (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id v10-20020a056830140a00b006d834fd3399sm128109otp.59.2023.11.27.10.24.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Nov 2023 10:16:01 -0800 (PST)
-Date: Mon, 27 Nov 2023 10:15:59 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH 1/2] riscv: Include riscv_set_icache_flush_ctx prctl
-Message-ID: <ZWTc3/FeBbXHs7aM@ghost>
-References: <20231122-fencei-v1-0-bec0811cb212@rivosinc.com>
- <20231122-fencei-v1-1-bec0811cb212@rivosinc.com>
- <20231127-epilogue-frying-4d5ba926617c@wendy>
+        Mon, 27 Nov 2023 10:24:09 -0800 (PST)
+Received: (nullmailer pid 2141620 invoked by uid 1000);
+	Mon, 27 Nov 2023 18:24:08 -0000
+Date: Mon, 27 Nov 2023 12:24:08 -0600
+From: Rob Herring <robh@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Chao Wei <chao.wei@sophgo.com>, Chen Wang <unicorn_wang@outlook.com>
+Subject: Re: [PATCH 1/2] dt-bindings: nvmem: Add sophgo,efuses
+Message-ID: <20231127182408.GA2131525-robh@kernel.org>
+References: <20231119131332.999-1-jszhang@kernel.org>
+ <20231119131332.999-2-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231127-epilogue-frying-4d5ba926617c@wendy>
+In-Reply-To: <20231119131332.999-2-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231127_101604_753309_0EC37B37 
-X-CRM114-Status: GOOD (  16.50  )
+X-CRM114-CacheID: sfid-20231127_102411_373510_67E3A58E 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,41 +82,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 27, 2023 at 10:44:54AM +0000, Conor Dooley wrote:
-> On Wed, Nov 22, 2023 at 05:03:20PM -0800, Charlie Jenkins wrote:
-> > +
-> > +/**
-> > + * Enable userspace to emit icache flushing instructions.
-> > + *
-> > + * When in per-process context, there may be multiple threads using the same mm.
-> > + * Therefore, the icache can never be assumed clean when. Multiple threads in
-> > + * the process may modify instructions in the mm concurrently.
-> > + *
-> > + * In per-thread context, it can be assumed that all modifications to
-> > + * instructions in memory will be performed by this thread. When the thread is
-> > + * migrated the icache will be flushed.
-> > + *
-> > + * @arg arg: Sets the type of context
-> > + *  - PR_RISCV_CTX_SW_FENCEI: Allow fence.i in userspace. Another fence.i will
-> > + *			      emitted on thread/process migration.
-> > + * @arg per_thread: When set to 0, will use the default behavior of setting the
-> > + *  icache flush context per process. When set to 1, will use a per thread
-> > + *  context.
-> > + */
+On Sun, Nov 19, 2023 at 09:13:31PM +0800, Jisheng Zhang wrote:
+> Sophgo SoCs such as CV1800B come with eFuses used to store
+> factory-programmed data such as calibration settings for the built-in
+> ethernet PHY.
 > 
-> FYI, this is not valid kerneldoc and breaks allmodconfig builds:
->  arch/riscv/mm/cacheflush.c:159: warning: This comment starts with '/**', but isn't a kernel-doc comment. Refer Documentation/doc-guide/kernel-doc.rst
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  .../bindings/nvmem/sophgo,efuse.yaml          | 54 +++++++++++++++++++
+>  1 file changed, 54 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/nvmem/sophgo,efuse.yaml
 > 
-> > +int riscv_set_icache_flush_ctx(unsigned long ctx, unsigned long per_thread)
-> 
-> 
-> Cheers,
-> Conor.
+> diff --git a/Documentation/devicetree/bindings/nvmem/sophgo,efuse.yaml b/Documentation/devicetree/bindings/nvmem/sophgo,efuse.yaml
+> new file mode 100644
+> index 000000000000..e4ae81a1742a
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/nvmem/sophgo,efuse.yaml
+> @@ -0,0 +1,54 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/nvmem/sophgo,efuse.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Sophgo SoC eFuse-based NVMEM
+> +
+> +description: |
+> +  Sophgo SoCs such as the CV1800B contain factory-programmed eFuses used to e.g. store
+> +  calibration data for the built-in ethernet PHY.
+> +maintainers:
+> +  - Jisheng Zhang <jszhang@kernel.org>
+> +
+> +allOf:
+> +  - $ref: nvmem.yaml#
+> +  - $ref: nvmem-deprecated-cells.yaml#
 
-Thank you, I will fix that in the next version.
+Why does a new binding need to use the deprecated form?
 
-- Charlie
-
+Rob
 
 _______________________________________________
 linux-riscv mailing list
