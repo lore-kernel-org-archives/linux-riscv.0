@@ -4,106 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6636FC0755A
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 08:50:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CF0CC4167B
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 09:06:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QYXMrOmz0tOcrPvvqde8wEJz/A1DGAjDs9zhJyiWxOY=; b=WdoXrgVZNFusUy
-	CNNnSiQpgqJFYcir5DUt9+0TvBd7kVzGC6S5PxQ9AkCXPzXNX9QeIQkKzGFF00LsEsf7Y+ivzclkd
-	R6EXxqz6efASiz/6b30ePFFBPa7esP89WeKfzKoKx1qUQ5zJriiUHzNxCqe4YnqNXQvCh/V+OanYB
-	TtsHF9HeA3e10iBSITPuvtSCmaB2JgzNZQeTH/eoWDmCJo3BZro8wYu0ten5AsFtlMwSB9hhT7fd+
-	W+qoUg6VdXkexWEa4Kn++sArdsrs+GOem3Ac3i70hNhxnRhlxLHNw4IH0hjV4JrMFjZcW2WKA7dEq
-	EdEaZ819Las9cUYAHcPA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QejNCgRQvttq+6q21B3Af2v1kbm2S9/Xn9DlpX6dY0Q=; b=b/hXePGaVhMWgs
+	NegCmpWg3HOyMiyAngFKkOM1Ze9gFtp/TJ8m9xASj7ddvbV318/Wl3A1W9S3N6SyQKmQ7CQvB6gMV
+	phleTL0+T27vxSzxm0QklMB9N35b9EEArQ0u7ncFyiLA8XPP4fbMuS1c8ZUdgL54Un5+q82TNcZII
+	sty565itvy9VUDtL7Je0ToqZY/Mf2meZt92GK3Iu/B11GDwJlqg/3FYCWzB9WeWY94/u/uo7gDPk6
+	vPOcu3SqjhTNDM8cUFa45BYl9lWy5NVhFhKlYwt3GLV7MsPqTkXXECZ0M556588rqK4SB/e4whh03
+	NZWpD1OjP3P1kIA0/JyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7XKI-001tJN-0e;
-	Mon, 27 Nov 2023 08:50:46 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1r7XZU-001v8W-0N;
+	Mon, 27 Nov 2023 09:06:28 +0000
+Received: from mail.thrivehub.pl ([164.132.48.43])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7XKD-001tHk-2j
+	id 1r7XZP-001v6h-2Y
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Nov 2023 08:50:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 65DEFB8346A;
-	Mon, 27 Nov 2023 08:50:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4E98C433C8;
-	Mon, 27 Nov 2023 08:50:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701075039;
-	bh=ilpVrx2lHKKTQNuvgJmypNWXQgnQKlvWSQsuY3U/UTg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PE3lnzQpIVT05vo9v+kSzdp6jhE9E943kvhIAqMlWUN58mLjykwPMqHJ5hh7Qoqos
-	 c2TjZlmJDu+V+oHYlXxbkjbxFHAvsK7aCHoM47A2HcwwDUbRoZo6KorvWj4vdXf32k
-	 WHmxYadMogvb6ZN6ERKiTL0xhxAOjEAzW/GFKyCsgv7uaz482cza69Aqp5wtH4HJ8Y
-	 lpsq9PlQYs43izJEhluq2jQXS30Wf8TJ4K8gBMiRZAFtdNGwfrkzt90IrzLXNHkvfn
-	 QZH3SnFBZ5rvIpJyDJMA67247BPl4QiX5hbXu7s5ZEiYvvPE7OGzHfAtar2nbZEiV0
-	 alKlAFmJIMwxg==
-Message-ID: <20b13322-3cd1-47b1-bb39-2710ddc59a11@kernel.org>
-Date: Mon, 27 Nov 2023 09:50:35 +0100
+	Mon, 27 Nov 2023 09:06:26 +0000
+Received: by mail.thrivehub.pl (Postfix, from userid 1002)
+	id 4AA8224F87; Mon, 27 Nov 2023 09:05:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=thrivehub.pl; s=mail;
+	t=1701075923; bh=m3ZUCTPRVLoDFM+cXi7VhHW+xNF3eUdGHrj1eDbLwQI=;
+	h=Date:From:To:Subject:From;
+	b=W7CkcYzp61I1hZcJ3qtdWdrz3TKDTSMeg4RbhM8EcOXK9a6nDMz/I9nCoJhVefYK7
+	 etu7sqTf1SvaWirqvCC6eWduL5EhE6TGhZ4eSzsDvrhpH69MXWO82rulkTMBM4jeCF
+	 MxDz5gkhFL+lu+fWghKgEVei/Wx26upHEWD+oUEY71YqKIPCgMLujy3uBSmoe45bHx
+	 NWUod3hHHQzp7tpe/BMaXgDP49Iiwt3u80OXuZRBp2VCIL+EdtNsQrE25JXOFLSBLn
+	 2pgDzw84wzYIrpbeLC97AJniYsj2+AIptW+iBLCGit35rf6dKddutzozmWrO/WO4U5
+	 l5+NQVWNIobkw==
+Received: by mail.thrivehub.pl for <linux-riscv@lists.infradead.org>; Mon, 27 Nov 2023 09:05:02 GMT
+Message-ID: <20231127074500-0.1.35.1bp1h.0.l12f4mh2c7@thrivehub.pl>
+Date: Mon, 27 Nov 2023 09:05:02 GMT
+From: "Szymon Jankowski" <szymon.jankowski@thrivehub.pl>
+To: <linux-riscv@lists.infradead.org>
+Subject: Zapytanie ofertowe 
+X-Mailer: mail.thrivehub.pl
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/7] riscv: dts: starfive: Add initial StarFive JH8100
- device tree
-Content-Language: en-US
-To: Sia Jee Heng <jeeheng.sia@starfivetech.com>, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, conor@kernel.org,
- kernel@esmil.dk, robh+dt@kernel.org, emil.renner.berthing@canonical.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- leyfoon.tan@starfivetech.com
-References: <20231127013602.253835-1-jeeheng.sia@starfivetech.com>
- <20231127013602.253835-8-jeeheng.sia@starfivetech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20231127013602.253835-8-jeeheng.sia@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231127_005042_151122_2E4D3FA6 
-X-CRM114-Status: GOOD (  15.45  )
+X-CRM114-CacheID: sfid-20231127_010624_589291_427700F4 
+X-CRM114-Status: UNSURE (   1.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,101 +61,17 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 27/11/2023 02:36, Sia Jee Heng wrote:
-> Add initial device tree for the StarFive JH8100 RISC-V SoC
-> 
-> Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-> ---
->  arch/riscv/boot/dts/starfive/Makefile       |   1 +
->  arch/riscv/boot/dts/starfive/jh8100-evb.dts |  42 +++
->  arch/riscv/boot/dts/starfive/jh8100.dtsi    | 365 ++++++++++++++++++++
->  3 files changed, 408 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/starfive/jh8100-evb.dts
->  create mode 100644 arch/riscv/boot/dts/starfive/jh8100.dtsi
-> 
-> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
-> index 0141504c0f5c..fbb0dc619102 100644
-> --- a/arch/riscv/boot/dts/starfive/Makefile
-> +++ b/arch/riscv/boot/dts/starfive/Makefile
-> @@ -10,3 +10,4 @@ dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
->  
->  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.2a.dtb
->  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.3b.dtb
-> +dtb-$(CONFIG_ARCH_STARFIVE) += jh8100-evb.dtb
-> diff --git a/arch/riscv/boot/dts/starfive/jh8100-evb.dts b/arch/riscv/boot/dts/starfive/jh8100-evb.dts
-> new file mode 100644
-> index 000000000000..67c4964a8773
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/starfive/jh8100-evb.dts
-> @@ -0,0 +1,42 @@
-> +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> +/*
-> + * Copyright (c) 2021-2023 StarFive Technology Co., Ltd.
-> + */
-> +
-> +#include "jh8100.dtsi"
-> +
-> +/ {
-> +	model = "StarFive JH8100 EVB";
-> +	compatible = "starfive,jh8100-evb", "starfive,jh8100";
-> +
-> +	aliases {
-> +		serial0 = &uart0;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial0:115200n8";
-> +	};
-> +
-> +	cpus {
-> +		timebase-frequency = <4000000>;
-
-This was fixed recently on the mailing lists.
-
-
-> +
-> +	};
-> +
-> +	memory {
-> +		device_type = "memory";
-> +		reg = <0x0 0x40000000 0x2 0x00000000>; /* 8GB */
-> +	};
-> +
-> +	soc {
-> +		clk_uart: clk_uart {
-
-Undercores are not allowed in node names. Use hyphen.
-
-Also, boards must not add nodes to the soc. This is board, not SoC DTS.
-
-...
-
-> +
-> +		uart6: serial@127e0000  {
-> +			compatible = "starfive,jh8100-uart";
-> +			reg = <0x0 0x127e0000 0x0 0x10000>;
-> +			clock-names = "uart_clk", "pclk";
-> +			interrupts = <73>;
-> +			status = "disabled";
-> +		};
-> +
-
-Stray blank line. In other places as well.
-
-> +	};
-> +};
-
-Best regards,
-Krzysztof
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RHppZcWEIGRvYnJ5LAoKUG96d29sacWCZW0gc29iaWUgbmEga29udGFrdCwgcG9uaWV3YcW8IGpl
+c3RlbSB6YWludGVyZXNvd2FueSB3ZXJ5ZmlrYWNqxIUgbW/FvGxpd2/Fm2NpIG5hd2nEhXphbmlh
+IHdzcMOzxYJwcmFjeS4KCldzcGllcmFteSBmaXJteSB3IHBvenlza2l3YW5pdSBub3d5Y2gga2xp
+ZW50w7N3IGJpem5lc293eWNoLgoKQ3p5IG1vxbxlbXkgcG9yb3ptYXdpYcSHIHcgY2VsdSBwcnpl
+ZHN0YXdpZW5pYSBzemN6ZWfDs8WCb3d5Y2ggaW5mb3JtYWNqaT8gCgoKUG96ZHJhd2lhbQpTenlt
+b24gSmFua293c2tpCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
+Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
+c2N2Cg==
