@@ -4,74 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B63FC4167B
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 10:40:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C467FC07D5A
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Nov 2023 10:42:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N2RMsBCHOOyqOrt1dNwdlYYtYG0f8xZ1Szs5HRGF0b8=; b=OPC+2+Ko8w9Qu1YMbyVPGUwK6G
-	OH6XYXnuiY8ldhbA5WcMA4aA3fw5SAlAc1Q+LUgwyMCD258EyHaPXBv8kIcZh80UBH//M/PSVljCn
-	RPjfjbtmdv625f+czXrPf6T3yID8jBoGgscnUMcFrLYpjpp0pMmnJ6lfrFEwb615i8brXUh48iAjw
-	yjFfIM/kNMR47/XlD3Av49Boxyam+NhV0jbOY1m31qIAxLa66XBI8oxPKA4VQh3jhGaKdxyNaVT3Y
-	vbKfzafX0Pr+SOe+2dVU0DZqh/v0mnhfR834lmn6IaHY0/UAMmUhyVwL5afudMTTbjwptv4pNJNdm
-	rqWQwT7g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4KmRyP72n6Q//iYdY5lfJEaMHyMPX+/WERiB5qWRexs=; b=mNpWh/sGA2ome1
+	oDCiAIuXEJAH+OlojzfayERxZ6Dpe2gX9zzRe36WRfN3dK+08WuNW0hTAMbYM30P4rqiEyRGMGKoQ
+	sbwhFOCTon3fO50HM2E+PGqw/H1CcfEHfZJU+VSj4M7Z7Rxz1bu9tAJvbdaSBqkrxPs/FR7jWJ5uY
+	7dFLPsWyf4ON+nuFtplK0sLgGkEGYIPKhU1xO2OyEoB41moowSbFcZM1J4vVZYnLbLo9B4zRuVqK1
+	sOxXcR9E7rFPZx6L50cNFix9KEuFaKLzQRqOfX3EqmeIyGquVFVEWl2cti+pvYm0hGTxa/NmPA/jH
+	M32Z1m19rOkelwM0uSbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7Z1y-0027Vu-04;
-	Mon, 27 Nov 2023 10:39:58 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1r7Z4M-0027qq-0p;
+	Mon, 27 Nov 2023 10:42:26 +0000
+Received: from mail-out.m-online.net ([212.18.0.9])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7Z1u-0027VB-2X
+	id 1r7Z4J-0027q4-0H
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Nov 2023 10:39:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1701081594; x=1732617594;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=CB+2fZP2xBpokIIQMBo8XFvxl4A+THV4m/A7MXEQi6k=;
-  b=nglIdMGqY0+eozZzckfEjDvOw7/Ydl70YYU4tskcELvVtk09CcNhO/M5
-   qjpj+LBVh5hcwT/YtVs7XDdbbwtraiav6mKDFubRTOwHQSOetgHwZrT/v
-   h86LgVE4MV4TBoYyIVIrDWNM18n+qci959xwQ/psKWXmJtdoU8uAzz9yI
-   ZO7veMr5+HPCymdp+ZYOa1HyV2peJEEFRYsYwZmeBLE94SgKg0Z6LMOqQ
-   pjpgrqGAZ8COjHU7cx4PJuGQ7zAfsv0uIT0n5UGI/Unkc0mmaLPWJoZDf
-   QfAuSs6uuWZVg8I+q1nN0HqmBD/X/TNEj5cuKHlEzRin73W/gtkeAA9Jq
-   A==;
-X-CSE-ConnectionGUID: ToBQd87lTZW/CiPHi8AqRA==
-X-CSE-MsgGUID: OQfIFRUhT/eBCUlo5fisew==
-X-ThreatScanner-Verdict: Negative
-X-IronPort-AV: E=Sophos;i="6.04,230,1695711600"; 
-   d="asc'?scan'208";a="12250684"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Nov 2023 03:39:49 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 27 Nov 2023 03:39:46 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 27 Nov 2023 03:39:44 -0700
-Date: Mon, 27 Nov 2023 10:39:16 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Jisheng Zhang <jszhang@kernel.org>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] riscv: Use asm-generic for {read,write}{bwlq} and their
- relaxed variant
-Message-ID: <20231127-swell-garnish-3f2104647aa0@wendy>
-References: <20231123142003.1759-1-jszhang@kernel.org>
+	Mon, 27 Nov 2023 10:42:24 +0000
+Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
+	by mail-out.m-online.net (Postfix) with ESMTP id 4Sf2GB1VjKz1qtrG;
+	Mon, 27 Nov 2023 11:42:10 +0100 (CET)
+Received: from localhost (dynscan1.mnet-online.de [192.168.6.68])
+	by mail.m-online.net (Postfix) with ESMTP id 4Sf2GB03Yzz1qqlc;
+	Mon, 27 Nov 2023 11:42:09 +0100 (CET)
+X-Virus-Scanned: amavis at mnet-online.de
+Received: from mail.mnet-online.de ([192.168.8.182])
+ by localhost (dynscan1.mail.m-online.net [192.168.6.68]) (amavis, port 10024)
+ with ESMTP id tm617zSg7y19; Mon, 27 Nov 2023 11:42:09 +0100 (CET)
+X-Auth-Info: +DnrhnZblEGlOzb3XeBn1Jt2rs2WUKWMccr42/2aPU5JxxGUkqgQeHc3hbITbzys
+Received: from igel.home (aftr-62-216-205-201.dynamic.mnet-online.de [62.216.205.201])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.mnet-online.de (Postfix) with ESMTPSA;
+	Mon, 27 Nov 2023 11:42:09 +0100 (CET)
+Received: by igel.home (Postfix, from userid 1000)
+	id CE2AA2C1CD6; Mon, 27 Nov 2023 11:42:08 +0100 (CET)
+From: Andreas Schwab <schwab@linux-m68k.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,  Palmer Dabbelt
+ <palmer@dabbelt.com>,  Albert Ou <aou@eecs.berkeley.edu>,  Ron Economos
+ <re@w6rz.net>,  Samuel Holland <samuel.holland@sifive.com>,
+  linux-riscv@lists.infradead.org,  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] riscv: Safely remove entries from relocation list
+In-Reply-To: <20231122-module_linking_freeing-v3-1-8e9e412a3305@rivosinc.com>
+	(Charlie Jenkins's message of "Wed, 22 Nov 2023 15:31:41 -0800")
+References: <20231122-module_linking_freeing-v3-0-8e9e412a3305@rivosinc.com>
+	<20231122-module_linking_freeing-v3-1-8e9e412a3305@rivosinc.com>
+X-Yow: Are we live or on tape?
+Date: Mon, 27 Nov 2023 11:42:08 +0100
+Message-ID: <87bkbfzddr.fsf@igel.home>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-In-Reply-To: <20231123142003.1759-1-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231127_023954_887981_1BE17D1F 
-X-CRM114-Status: UNSURE (   7.30  )
+X-CRM114-CacheID: sfid-20231127_024223_292407_CC3EF999 
+X-CRM114-Status: UNSURE (   8.87  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,61 +77,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6085858873939558090=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6085858873939558090==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="X4t7/KZjh6cGf8um"
-Content-Disposition: inline
+On Nov 22 2023, Charlie Jenkins wrote:
 
---X4t7/KZjh6cGf8um
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> @@ -683,17 +700,29 @@ int add_relocation_to_accumulate(struct module *me, int type, void *location,
+>  
+>  	if (!found) {
+>  		rel_head = kmalloc(sizeof(*rel_head), GFP_KERNEL);
+> +
+> +		if (!rel_head)
+> +			return -ENOMEM;
+> +
+>  		rel_head->rel_entry =
+>  			kmalloc(sizeof(struct list_head), GFP_KERNEL);
+> +
+> +		if (!rel_head->rel_entry)
+> +			return -ENOMEM;
 
-On Thu, Nov 23, 2023 at 10:20:03PM +0800, Jisheng Zhang wrote:
-> The asm-generic implementation is functionally identical to the riscv
-> version.
->=20
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+This leaks rel_head on error.
 
-This fails to build for nommu:
-  /tmp/tmp.ojumpiEgOt/arch/riscv/include/asm/timex.h:20:16: error: implicit=
- declaration of function 'readq_relaxed' [-Werror=3Dimplicit-function-decla=
-ration]
-  /tmp/tmp.ojumpiEgOt/include/asm-generic/io.h:342:23: error: conflicting t=
-ypes for 'readq_relaxed'; have 'u64(const volatile void *)' {aka 'long long=
- unsigned int(const volatile void *)'}
-
-  Cheers,
-  Conor.
-
---X4t7/KZjh6cGf8um
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZWRx1AAKCRB4tDGHoIJi
-0irzAP0RCdfnnaJu4CokpQ6Q2/Kpn4q5enQfhf/S5SrCa3QOLQD/U6teAtmdkAp4
-TaY6f2exqhWTKIYqlWEjC1tLf0KZMQo=
-=v04p
------END PGP SIGNATURE-----
-
---X4t7/KZjh6cGf8um--
-
-
---===============6085858873939558090==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Andreas Schwab, schwab@linux-m68k.org
+GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6085858873939558090==--
-
