@@ -4,43 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 780D7C4167B
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Nov 2023 05:25:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 542A7C4167B
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Nov 2023 05:25:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+B6GkaFsrIujDPCUWFJ+h0nsXFHauX1zaiLCplwRHqM=; b=MAoMlzL+7g0Scd
-	BzzvxWW5uz/+UG2sd5mIK4KG5kEX28yYOfOrSKTw84reZgAt9CoZJsKb1droAXR+PAYKBnuvt2qyr
-	HFMON/kFVlLiuoh4EkcCeYcgvGQP7UCziKkfykHTSiCg1IbXX5aXE0A+3SSUUKjqty8oYK4qZ9c8y
-	sui+Drf8gKzdmcgOEMA1j+BRI7O3dDSQGUCoZtEHsxGG4pUrkOhfQmwqiF99wy8BYdermCsl5hcRP
-	m80mGcCDW93ztqNwXJb4lzNqwqo6gPYEx2xHg21h7H7SU7MmJjhQtBo2k7avPjj5cmsHsRn8+R7hZ
-	po8xp/ztkF9nOVuTK8Nw==;
+	List-Owner; bh=EioOO43s1B7jRoa6BhlzsiPiB3xPGMn+j/rqyBKQqqc=; b=i9u4YR3UsC/eOB
+	Tz9fFA/WD3vML0SpCDP5C5sCjN6Dn+GdSHbQR6sjMx0fscMhCg3Hrmb9SksCXn+10p5zNsA24fvUE
+	REyv4cB7fX0Zj30lZx0f8qrxzCbmINnyNqEBlrbAVIXv548oilEKSVKImXd1edZhGX+Z2CLruEXt8
+	5M+pva2mabQHLVGTLVBgEdsHcjynDUOjWxZ04TirZXv9jq7zW7o2xrAreteQMrkHVu61G/aW4yQSf
+	LjOT8uZPFRPROjpSRYhRkXpgH8ABEs9XBvTTrsWzOZ54vEyQ9gfGq0zDBy9JZwNDa+zVRyI0zsUVA
+	lzMLQquXpwPo0xKCbAmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7qal-00485A-1D;
-	Tue, 28 Nov 2023 05:25:03 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1r7qb1-00489A-17;
+	Tue, 28 Nov 2023 05:25:19 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7qah-00481l-32
+	id 1r7qay-00484l-0U
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Nov 2023 05:25:02 +0000
+	Tue, 28 Nov 2023 05:25:18 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 1D1DD24E176;
-	Tue, 28 Nov 2023 13:24:30 +0800 (CST)
-Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 166A780A7;
+	Tue, 28 Nov 2023 13:24:37 +0800 (CST)
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Nov
- 2023 13:24:29 +0800
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX162.cuchost.com
- (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Nov
- 2023 13:24:29 +0800
+ 2023 13:24:36 +0800
 Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
  EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
- 15.00.1497.044; Tue, 28 Nov 2023 13:24:29 +0800
+ 15.00.1497.044; Tue, 28 Nov 2023 13:24:36 +0800
 From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
 To: Krzysztof Kozlowski <krzk@kernel.org>, "paul.walmsley@sifive.com"
 	<paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
@@ -51,15 +48,15 @@ To: Krzysztof Kozlowski <krzk@kernel.org>, "paul.walmsley@sifive.com"
 CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
 	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Leyfoon Tan
 	<leyfoon.tan@starfivetech.com>
-Subject: RE: [PATCH 3/7] dt-bindings: timer: Add StarFive JH8100 clint
-Thread-Topic: [PATCH 3/7] dt-bindings: timer: Add StarFive JH8100 clint
-Thread-Index: AQHaINIiROvFaqRrFUS69iv/KsB43rCNVRYAgAHfLRA=
-Date: Tue, 28 Nov 2023 05:24:29 +0000
-Message-ID: <d72d6fa58309438385e14c3713918654@EXMBX066.cuchost.com>
+Subject: RE: [PATCH 5/7] dt-bindings: xilinx: Add StarFive compatible string
+Thread-Topic: [PATCH 5/7] dt-bindings: xilinx: Add StarFive compatible string
+Thread-Index: AQHaINInJurIv0YLuk654hbHre31qrCNVUWAgAHcYLA=
+Date: Tue, 28 Nov 2023 05:24:36 +0000
+Message-ID: <1bfcd8067e3f4cea815ebb768fc58b5d@EXMBX066.cuchost.com>
 References: <20231127013602.253835-1-jeeheng.sia@starfivetech.com>
- <20231127013602.253835-4-jeeheng.sia@starfivetech.com>
- <93526583-ab8f-4ddb-9846-41e4d1834847@kernel.org>
-In-Reply-To: <93526583-ab8f-4ddb-9846-41e4d1834847@kernel.org>
+ <20231127013602.253835-6-jeeheng.sia@starfivetech.com>
+ <22cb035d-10b8-41f7-b7c6-5c8ae6627c59@kernel.org>
+In-Reply-To: <22cb035d-10b8-41f7-b7c6-5c8ae6627c59@kernel.org>
 Accept-Language: en-US, zh-CN
 Content-Language: en-US
 X-MS-Has-Attach: 
@@ -69,8 +66,8 @@ x-originating-ip: [202.188.176.82]
 x-yovoleruleagent: yovoleflag
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231127_212500_283099_FDF8360E 
-X-CRM114-Status: GOOD (  15.94  )
+X-CRM114-CacheID: sfid-20231127_212516_579794_46221114 
+X-CRM114-Status: GOOD (  16.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,14 +88,21 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 > -----Original Message-----
 > From: Krzysztof Kozlowski <krzk@kernel.org>
-> Sent: Monday, November 27, 2023 4:48 PM
+> Sent: Monday, November 27, 2023 4:49 PM
 > To: JeeHeng Sia <jeeheng.sia@starfivetech.com>; paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu;
 > conor@kernel.org; kernel@esmil.dk; robh+dt@kernel.org; emil.renner.berthing@canonical.com
 > Cc: linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>
-> Subject: Re: [PATCH 3/7] dt-bindings: timer: Add StarFive JH8100 clint
+> Subject: Re: [PATCH 5/7] dt-bindings: xilinx: Add StarFive compatible string
 > 
-> On 27/11/2023 02:35, Sia Jee Heng wrote:
-> > Add compatible string for the StarFive JH8100 clint
+> On 27/11/2023 02:36, Sia Jee Heng wrote:
+> > Add starfive,jh8100-uart compatible string
+> 
+> Describe the hardware. Why is it in xilinx?
+My bad. It should CDNS UART driver. Will fix it.
+> 
+> Also, missing full stop in each commit msg.
+Noted.
+> 
 > >
 > > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 > > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
