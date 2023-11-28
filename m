@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 810D8C4167B
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Nov 2023 17:41:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD646C46CA3
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Nov 2023 17:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:Date:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=iPY/CigHlRg2TcuuW+ZY4SyuvkYkL4gCMGHDJsuDbUQ=; b=Nsk
-	hmGcwN0KrPNHga7naTYjllULG9WUc64Z0C/F/gzblVNyGsiT6h9HwjQZvyiGr1eR7n+C1wH7Fh25B
-	M4sRy4J90FqNl5BE6AhbubnxKb/JfEdG7qzkOYTqoB92U8RbvEnqHcZ5/2TZjgPb1qvHKz/7OinVO
-	DFcQnYAElCvLXgQ4lLVn2hEmb5tPEzJsrFerEnkKCzgkpGfMnl0hLuTe2CE5/VKYu4AvfZWQHY9Qs
-	TRdzatcClJDyRFLXx/7zJXkdy0hQoHYSz9fw2v0eHpanVKKQF/na6i9fUReM8mmrW2U8hDwY/+3g/
-	niBB58BCbptZikI/gevVxOPxM3WEuBA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jG66tv7kR+G9Vrp0kuLiv8lgtkSplJPArwoXsgKKDBg=; b=KJr45gI8Jfs726NGTo3zcMOGLJ
+	J7sXPpwgb+8wVQtr1+XKnrA7XrfAiMzD9TxuTK1nF+fTV83bffjgxNkeB0a8GHg6BVQsBsuDHImZy
+	rvXymnfAjj4RSga4ub8J/2KZVqu0GVXX5NbhRYssFzCMkEeDTk1fY/p8xVLhli6h8lJpa5xYtDAoA
+	fVZOMGHLmJqc7NWHO7wROo2zLzA9kF0QTQj9hPm60lpkLNCUyE6517KaiuvDO0BSq1pJ8mTZZfqHy
+	Qk87K7xrCAcFwTfVePO6tkfnqYUt6afVndkgXdx+AHRx+kEekJ9tRQJxjImaUn/lQVuIUKFSa7Khy
+	tg44GTqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r825Y-005ysu-0d;
-	Tue, 28 Nov 2023 17:41:36 +0000
-Received: from mail-pj1-f70.google.com ([209.85.216.70])
+	id 1r82IX-0061T3-29;
+	Tue, 28 Nov 2023 17:55:01 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r825U-005yrc-2e
+	id 1r82IT-0061Pq-1Y
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Nov 2023 17:41:34 +0000
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-285d331c6f7so3685575a91.0
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Nov 2023 09:41:31 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701193291; x=1701798091;
-        h=to:from:subject:message-id:date:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=BkEYdg80n5QmZ9M3sVkj8twe3NdTRbkqBQOuaWs2Wyc=;
-        b=KDpZwKOe2WIkrmDrWqc7sJUPqV2Z25sOz2rb86vzMhCsw7aJ5e8bPsP/8v6f6vCa+7
-         qg7fGK+6gHl9jLdxcagojWZxwCTnP/JCPOieeDewG3ItEUTJkXwfD5/ja53b2LmRW2cm
-         EBT65UAAA5jkSPHOVlA+cDKGXEaJLCOKVVv6QnGOrAkM1G8p7AriPzFoDfgZJssXVxvo
-         yX8gPJ7SX7GyrdIgSPu2xPRJQhbsSch2CY6I9igm+QxLLjbhWUzBfSUMJlcNbIaSl5Ni
-         qEwLIRpWGQYbWKuwtR3tRfcF00Gq4NQaVEQdztays/Y6winxo41HwgNWD++E4Cp15kkm
-         UC/Q==
-X-Gm-Message-State: AOJu0YxWYjJhnqPu2Obol3AXxuTN/l9lfQwcRTMTfbtueFNh1HSpHmh1
-	uk9H46ecFglkcD14y9ANipfEtS47bB1NbsZvCykONCLejnpl
-X-Google-Smtp-Source: AGHT+IE/0vVhrm7fyHGwK+pmdURhkT7cCWDQCOR1WD4Yu7LK1zJK3cQJApu+liKsWPAqS82O0Z1Aim9PtKvcJt16L9wyGcIQIUvi
+	Tue, 28 Nov 2023 17:54:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 2D3D1CE1BFE;
+	Tue, 28 Nov 2023 17:54:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D643EC433C9;
+	Tue, 28 Nov 2023 17:54:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1701194094;
+	bh=N3vZMmlwPmMLxmgsU8NU5aW8UlcCxY+iRKRi4fSgJas=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Hsiw/925cVatmSVS2Mjf+lwGsahVcUe9gEJwVlcmNPn+zWbmwNZ2MPg9C24I1RYFq
+	 skwNvzE0segMkYvoLC58hDXsNzhnsX3tfykvPEfkeBlgAQXPLVjPalu2EOmmIgvATQ
+	 aoxfGaC2vUW1mpXBAFr/E2qRXkpGsa6WRLj3i45jI8GsHf/aJokHiMdpDsswRmp4Ah
+	 DfMLen3NJkBkTvG87EMmW3JR0n8L0v4+iXgXwtJcN0VoeGH7M1OgsO9pWPe5lQyExH
+	 iZTLYaSNqnPLlBpXSFPrzBksF+fRvVV8C9J7TpdYC6shFoTQk/+7WWgpHw8LPVNmEh
+	 zdq2ORS22eNSg==
+Date: Tue, 28 Nov 2023 17:54:49 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jerry Shih <jerry.shih@sifive.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	herbert@gondor.apana.org.au, davem@davemloft.net,
+	conor.dooley@microchip.com, ebiggers@kernel.org, ardb@kernel.org,
+	heiko@sntech.de, phoebe.chen@sifive.com, hongrong.hsu@sifive.com,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-crypto@vger.kernel.org
+Subject: Re: [PATCH v2 04/13] RISC-V: crypto: add Zvkned accelerated AES
+ implementation
+Message-ID: <20231128-await-tipper-2094715466f2@spud>
+References: <20231127070703.1697-1-jerry.shih@sifive.com>
+ <20231127070703.1697-5-jerry.shih@sifive.com>
 MIME-Version: 1.0
-X-Received: by 2002:a17:90b:23c2:b0:285:67e4:eb3f with SMTP id
- md2-20020a17090b23c200b0028567e4eb3fmr3276518pjb.2.1701193291022; Tue, 28 Nov
- 2023 09:41:31 -0800 (PST)
-Date: Tue, 28 Nov 2023 09:41:30 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <000000000000ce4a27060b39ed34@google.com>
-Subject: [syzbot] riscv/fixes boot error: failed to read from qemu: EOF
-From: syzbot <syzbot+2c2a76232878c44e0eae@syzkaller.appspotmail.com>
-To: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
-	syzkaller-bugs@googlegroups.com
+In-Reply-To: <20231127070703.1697-5-jerry.shih@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231128_094132_860914_21C1838A 
-X-CRM114-Status: UNSURE (   4.68  )
+X-CRM114-CacheID: sfid-20231128_095457_723662_909A7591 
+X-CRM114-Status: UNSURE (   8.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,55 +73,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3790818888657454855=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello,
 
-syzbot found the following issue on:
-
-HEAD commit:    3ca112b71f35 Merge tag 'probes-fixes-v6.7-rc1' of git://gi..
-git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
-console output: https://syzkaller.appspot.com/x/log.txt?x=172d3d0ce80000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=f4a49b764b9bf9b2
-dashboard link: https://syzkaller.appspot.com/bug?extid=2c2a76232878c44e0eae
-compiler:       riscv64-linux-gnu-gcc (Debian 12.2.0-13) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40
-userspace arch: riscv64
-
-Downloadable assets:
-disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/a741b348759c/non_bootable_disk-3ca112b7.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/8564c1899f29/vmlinux-3ca112b7.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/ee82a338dbc7/Image-3ca112b7.xz
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+2c2a76232878c44e0eae@syzkaller.appspotmail.com
+--===============3790818888657454855==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="c+Bx+5YDpVONEprp"
+Content-Disposition: inline
 
 
+--c+Bx+5YDpVONEprp
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
+> +static inline bool check_aes_ext(void)
+> +{
+> +	return riscv_isa_extension_available(NULL, ZVKNED) &&
+> +	       riscv_vector_vlen() >= 128;
+> +}
 
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+I'm not keen on this construct, where you are checking vlen greater than
+128 and the presence of Zvkned without checking for the presence of V
+itself. Can you use "has_vector()" in any places where you depend on the
+presence of vector please?
 
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
+Also, there are potentially a lot of places in this drivers where you
+can replace "riscv_isa_extension_available()" with
+"riscv_has_extension_likely()". The latter is optimised with
+alternatives, so in places that are going to be evaluated frequently it
+may be beneficial for you.
 
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
+Cheers,
+Conor.
 
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
+--c+Bx+5YDpVONEprp
+Content-Type: application/pgp-signature; name="signature.asc"
 
-If you want to undo deduplication, reply with:
-#syz undup
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZWYpaQAKCRB4tDGHoIJi
+0gizAQClyXLat6AoDqeEMU7fszIl0aqY562jWFVvkg9MjgR24gEAzNdLynP6jTGp
+PoJqYxyEhhUhpsxklOCYQbwZPyDf8ws=
+=ixTm
+-----END PGP SIGNATURE-----
+
+--c+Bx+5YDpVONEprp--
+
+
+--===============3790818888657454855==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3790818888657454855==--
+
