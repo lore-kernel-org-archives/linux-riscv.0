@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1883CC07CA9
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Nov 2023 19:22:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DBEBC07E97
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Nov 2023 20:12:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8RA1vkniTbwTVs1ynYed9+oei6ij+DXtO0ES7oeeLCQ=; b=K4wB9Ww6gmAI68
-	mDGGxmqO4jJYTAJf6tELgRMKmROqeO2V1a/llAj4aLWzxVofA+HlLi8gFDCHm0vs/kCHmXcMfPc/Z
-	cRyQaYaWgDn5/6po8PqlvZplSyRrXlO3s4vkx8lwJHa6zrKAaLq/yDTBP2JDO7qsT9txczwxTtfML
-	0k1+FaXP5hEnWC1gtm0M8Pp23x5qGc7V5rK5jj2REPRPDrTFSmuvTeUoAGnE3ylWXHd42Xiacd3Yv
-	mnJ0QtwiCVskxIoq9pZrAqTWNmGeI14Ox5OLeLjCmeJX61ziHmVpvXCO/NA1f/UmC34F5AxQ/zJe9
-	QWbNk4KFJafc2H+nDpew==;
+	List-Owner; bh=InAtOc2Ld2Z5noZXDFtBRmid3j08uk5DTI7q12Z6Eps=; b=tTyntnVT/gISIk
+	ZEYVrNEa1+1nWk2MxUduxl4DAJDxnsTvCaGyL+13mTCunH26EsP9NfdUNhQPrijutQ3q1QUfuqGYj
+	tqCvg5ub+nd/cEFWUu6kc+KCMpT0TvoA46wtDyj95fbf32Nsmj/RhUJ4db7tXwk2aGA3CRg6LJ+sH
+	n6PxSmWvoCg1UuH60OhVPmLc/e8pEkBABilOEIWM1wWIvmels+jo1D+BQXvrUVfOvinsYwjn5NQBr
+	PbckyjCjCOkQgGyKaNA0QTr007Z63JWqOG43rg6zl+TCT3Z4vFfDoTAoKBCoCmkSGZc8k9mwMi0N2
+	3kUVngjTWVMHryjLSraw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r83ek-0069Jb-0q;
-	Tue, 28 Nov 2023 19:22:02 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1r84Rt-006EYU-03;
+	Tue, 28 Nov 2023 20:12:49 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r83eg-0069Iy-3C
+	id 1r84Rc-006EQq-1h
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Nov 2023 19:22:00 +0000
+	Tue, 28 Nov 2023 20:12:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 7A6F7B83BC4;
-	Tue, 28 Nov 2023 19:21:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59392C433C7;
-	Tue, 28 Nov 2023 19:21:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1701199316;
-	bh=dqrIyDGjRE0cy2kui/mwwdo0TB8vMyo0PwbLt9DYQUQ=;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2999B618CD;
+	Tue, 28 Nov 2023 20:12:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 884BBC433C7;
+	Tue, 28 Nov 2023 20:12:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1701202351;
+	bh=MhX9PEGZOUPQ3Y/dHE9lpPPcT4wCLCEPYr8D6D5VCtI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=apcQMQvKcvpQiO9Kl8uqaLIJ7uGEMWIvqzADtzYUnwpUJviEGVL3zckQlPyJv2Djb
-	 Vy4P8ptpNyWbaacJtiMPQHAVFNY9DAK/k6jQ2I7y74yVTFEmS6wc9+LU3How9q0nJL
-	 HUZPaAAM250jBNH3CjTCGmTyWFpG7Qgz0d56xXOA=
-Date: Tue, 28 Nov 2023 19:21:54 +0000
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Jiri Slaby <jirislaby@kernel.org>, Conor Dooley <conor@kernel.org>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH v5 4/5] tty: Add SBI debug console support to HVC SBI
- driver
-Message-ID: <2023112849-reputable-outbreak-bb96@gregkh>
-References: <20231124070905.1043092-1-apatel@ventanamicro.com>
- <20231124070905.1043092-5-apatel@ventanamicro.com>
+	b=I2oSykRN0FvNVERNHm6/mDH1mmOkc0Q49tLDgd40gyaDip6gEW7TAl9Jl/MxHObYA
+	 mdl/hcepl0h4CXURQz3Tn8VcDCpPQ0NXOnPu68SuNYjvg/HQgzZ8g4KrNzM5TZPDbJ
+	 vDC1pzxUpGiHmYxfU45duhcvVDLjsmwei0St+4UE1NUI6IMhUgdA8mzeRXuH+mLU4q
+	 a9yc1zaSWu/cJYpBKDvcaynYd9nSzkV4ILJkE9pokYSgNviVD9rofuNx9vfvhXXoO0
+	 vs/iR/aqK59xYP/4AVrqBmBlKYcCuz41pVbRh1aFxjKBpXasnU4aR8ZDjcQrf4mS9b
+	 /NZ1g23uTLU3w==
+Date: Tue, 28 Nov 2023 12:12:28 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Jerry Shih <jerry.shih@sifive.com>, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	herbert@gondor.apana.org.au, davem@davemloft.net,
+	conor.dooley@microchip.com, ardb@kernel.org, heiko@sntech.de,
+	phoebe.chen@sifive.com, hongrong.hsu@sifive.com,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-crypto@vger.kernel.org
+Subject: Re: [PATCH v2 04/13] RISC-V: crypto: add Zvkned accelerated AES
+ implementation
+Message-ID: <20231128201228.GE1148@sol.localdomain>
+References: <20231127070703.1697-1-jerry.shih@sifive.com>
+ <20231127070703.1697-5-jerry.shih@sifive.com>
+ <20231128-await-tipper-2094715466f2@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231124070905.1043092-5-apatel@ventanamicro.com>
+In-Reply-To: <20231128-await-tipper-2094715466f2@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231128_112159_168495_C5E9B537 
-X-CRM114-Status: UNSURE (   9.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231128_121232_603262_E1932DAA 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,22 +80,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 24, 2023 at 12:39:04PM +0530, Anup Patel wrote:
-> From: Atish Patra <atishp@rivosinc.com>
+On Tue, Nov 28, 2023 at 05:54:49PM +0000, Conor Dooley wrote:
+> > +static inline bool check_aes_ext(void)
+> > +{
+> > +	return riscv_isa_extension_available(NULL, ZVKNED) &&
+> > +	       riscv_vector_vlen() >= 128;
+> > +}
 > 
-> RISC-V SBI specification supports advanced debug console
-> support via SBI DBCN extension.
-> 
-> Extend the HVC SBI driver to support it.
-> 
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  drivers/tty/hvc/Kconfig         |  2 +-
->  drivers/tty/hvc/hvc_riscv_sbi.c | 37 ++++++++++++++++++++++++++-------
->  2 files changed, 31 insertions(+), 8 deletions(-)
+> I'm not keen on this construct, where you are checking vlen greater than
+> 128 and the presence of Zvkned without checking for the presence of V
+> itself. Can you use "has_vector()" in any places where you depend on the
+> presence of vector please?
 
-Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Shouldn't both of those things imply vector support already?
+
+> Also, there are potentially a lot of places in this drivers where you
+> can replace "riscv_isa_extension_available()" with
+> "riscv_has_extension_likely()". The latter is optimised with
+> alternatives, so in places that are going to be evaluated frequently it
+> may be beneficial for you.
+
+These extension checks are only executed in module_init functions, so they're
+not performance critical.
+
+- Eric
 
 _______________________________________________
 linux-riscv mailing list
