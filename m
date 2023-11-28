@@ -4,75 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7676C4167B
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Nov 2023 11:00:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F63BC4167B
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Nov 2023 11:29:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AVp8KWieX/trPgxsqmIDoNeWsjZ6nHie1uGg63MMjPc=; b=uZKvieqFBvU9IxU8krwe5CJkDo
-	dniTWzyyiOA3JgvwfFa1lDuH5e2Z3/rm9WhIiNhhCdDGEnvJNk4oYIUMLptpJiOnvoeuMh7zET0jo
-	/TrkCBzRjxLS3FGcQj+I/AxMGVgIMbB+sGCJw9nQV2TpeCnHNEO0O6qL2BX9etnvE+LhwVGvW2+bw
-	2eBnZixHP/FeDeeAF0r7lcGrj1pPQjBbeUax3L/WuWGvTFoNOVfCLaQYFgbDnhLiw+kTkhzLaRh2L
-	puMu/tZvY59CNV1LeylJ7F935bRV4vhsGTXRIYbfN9eMBQLARgvldQ8yQAFJkzhmi/58+yK1GYjrT
-	U3iKB7Zg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=FZn9+Bfb/pdT3eZfZAtGNoiDG/wezV86hq7Do04K9R8=; b=Yyzj8AjNt+Yycw
+	oaKA1l0JrRCkjoyib5hJ6tPBCoNOxrPuiLQJoELb0cL6n7S6GsLSSYIF08/FdQ+uAcONo8WkbnOU4
+	sjgSuv0g+rh1WZ/nn5XRyvJ8Oza6DS/jomwPYXyIQkHo2cwa5TCet5ugWVs22F/5BQPp2Q+R+L2A8
+	iSIQ/jxplhNkyGA8i0yDR0CXt2IA2lZ3+Q6fcGgoIbc6vp+XesP2p+gdNRqMDbbPbmjkYNVTuDQDX
+	3jFhILbRFslrEXX5suxsfcUJSOhqEkQzo5Q7Li3sykyr8souQL/jMo1kFR3+GhPnT/viKBXuhmgfW
+	R2VvBO1RxbYPIYsth3Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7vpL-004zci-2J;
-	Tue, 28 Nov 2023 11:00:27 +0000
+	id 1r7wHe-0053aY-1d;
+	Tue, 28 Nov 2023 11:29:42 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7vpI-004zbV-06
+	id 1r7wHa-0053Wg-1H
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Nov 2023 11:00:25 +0000
+	Tue, 28 Nov 2023 11:29:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1701169224; x=1732705224;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ju4q9Np0g+GExAiNW7U8BnmxssgNRro0n3fZCX/XO0E=;
-  b=PN9o8cBkWxtXDMFDVHp2mNAMLW+P7qGfgSNuqZvSBAI67zT3N8qxevWH
-   mvq3jBmqpqTEnE31aENg/MueJoF42oEy/HkRl6a7oYqk4dIe904RnIxz9
-   DC4CwiNB8ZORZzd1dYOJ/BlumMFeFOabcg9s7TMsOvksyIWsK+fRb+Jch
-   o0dGMhHvtx12VGlQ5aUcko0s6KXKhZDhlD54xH2xdSc067BCI1McT1iEW
-   q6Y+umC0RHMdlDhYHVqQBQECeosV7PP8AC63XmJHXdXsZQkePUptsHeGn
-   mWuttc3/FIH8lkiinMg6CYs/RFtLNaI6ICav9i4u0aMOCgPMdaRSG2wxW
-   Q==;
-X-CSE-ConnectionGUID: FuQ6AW+5TlCMn49POgamoQ==
-X-CSE-MsgGUID: 4qyKv6pGQZm7ZXNIOjqjwQ==
+  t=1701170978; x=1732706978;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=JxYcsvcr1ILzJwMkDRbf/mn7s1U+mPLMXFdP1+XMCd8=;
+  b=VyMNe6J4cw8Txg/sWaEWOd2xnRwUn5Hm8+vmChjBDbvAeXr/BDRWnBCK
+   sKYxKQTbUaXDtTKYtG+0/OoTiZsM2ZbZnq8WIOJMtcFdTdNsg41jFfJGe
+   kbc7vjP1uSTcGAwN7HO3rb8V89rveRzgJ5Eh0Iw5Xm8ECu3Lh+cojP2qa
+   P/Mq5BZQurHVSvE+uiT0/vhXmcn3CDmwf4+tjUIUGN2pteorDbWyeDjeO
+   nI6pj61KqQb7IvYfs2LVJIxSjy32pFfDCHrPh3dPEwPUZLj/MLR8S57uH
+   VhuTzOfDFJUW6ShO/rrqRq1bO6BFL+25NopfyxCiTGmvUZDRw9HrZgSQs
+   A==;
+X-CSE-ConnectionGUID: /CdIFC7uRNmtXXO6CQIf3A==
+X-CSE-MsgGUID: gx+mIcNVSyu/cf3cym1HaA==
 X-ThreatScanner-Verdict: Negative
 X-IronPort-AV: E=Sophos;i="6.04,233,1695711600"; 
-   d="asc'?scan'208";a="243074126"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
+   d="scan'208";a="13173219"
+X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Nov 2023 04:00:19 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Nov 2023 04:29:33 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Tue, 28 Nov 2023 04:00:14 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Tue, 28 Nov 2023 04:00:12 -0700
-Date: Tue, 28 Nov 2023 10:59:44 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Nam Cao <namcao@linutronix.de>
-CC: Jia Jie Ho <jiajie.ho@starfivetech.com>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] riscv: Kconfig: Add select ARM_AMBA to SOC_STARFIVE
-Message-ID: <20231128-grandma-guru-4fc6e6950a75@wendy>
-References: <20230525061836.79223-1-jiajie.ho@starfivetech.com>
- <20231128102722.fQizGKfo@linutronix.de>
+ 15.1.2507.21; Tue, 28 Nov 2023 04:29:14 -0700
+Received: from NAM04-DM6-obe.outbound.protection.outlook.com (10.10.215.250)
+ by email.microchip.com (10.10.87.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21 via Frontend Transport; Tue, 28 Nov 2023 04:29:14 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=lczJu4p/Uzg4UHRWwESedvqj6hP4yCyTdUfhOdSpNTBBENNNPplgyWzhSvO1kSAVwzflYKnDv36ea3sMJ8wnLJr2IYYuntYmuXB7LNDdnCl+ZH33kBr7KCQXpAjVJ/vrVhQu/CGX3PJKGo0LolpeGv+C19EiFGOcHOWa7KeIGfCJAPf+Cn/5Bjr0YeyfyNH0FmrZc2x4eaisMTNLxp7CHLbG5r8ffKAU8wUucp5YuQUmohpUr1rE6mv8jy8A2+bFVUeyLapIwu5R0BexuPBzTCU8MSSc5KuPioFSRc1mPdf2wc4EHX+PMQRH2Cri+H2QwFLY0YUi/GRTCc4xhK17pA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8ZmJyHhYpktdVJ44+bI13v7J/s/GboZBMl9zLmMLOzQ=;
+ b=CDT5Bp19QJI6It/0UKm0+VeaGpYnHr9EBazAMIMe/oZcm01CLRhgsMLv1DYB+RBVR/AYPavwiTrRZW1ex6R5Ly42HxNpQXLH9hObl/6tw3LiHR1hhxoXAD+1G8eoGmrOX2/zgwNtb6ZPqQcXjvO4mETrQkl0Bry+rHBOw+Yl91DbjpLJF/ufdB09z7mfyaSxdgNNywq0kn3vOmJmRdwl8DI+DTBRwjRvqayn6YPnPvnWCx1sQ6ZT+W/dOwj3zgoL2y0oGEk92Ju9A1/E0WVN2PibSRvDRd+FOX+jVz8RIBsXhXxbkSJhUOt0b7Tkn09oNjoLTSfSyzgFDadMiWGAeQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=microchip.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8ZmJyHhYpktdVJ44+bI13v7J/s/GboZBMl9zLmMLOzQ=;
+ b=NZ+TH5RPOccKEcMJ1f13/Ih07XXpaKD6HUX42LWp0RvkQOHg0yvsP873kS4bzq35F27UjvJy3znW3JGE8XfKBZPXuDvFufhCDvWXAdw4IlqBYXbJnIachcXgg6mEcNkLy4Om/A3+o6afobaSh7rGkOfgAFknwixBArGWbGOEoYtqppqcWR2ngNi9UZ7P3u2pGjk5x8EGFwIKgJBaBH+YcyghPHtzhUXcy1mWrg8LaYMWXzELXI2gdS0yaYdKYcQJihHIsCFjJt4R176RNSTNykLccxg8Ep+DjoVrRZBazTYwsWS7Vu+CkScwhUI3qiF7N8AWiF3eFT7ayIEyhX9uMQ==
+Received: from PH0PR11MB5611.namprd11.prod.outlook.com (2603:10b6:510:ed::9)
+ by SJ0PR11MB4815.namprd11.prod.outlook.com (2603:10b6:a03:2dd::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7025.28; Tue, 28 Nov
+ 2023 11:29:12 +0000
+Received: from PH0PR11MB5611.namprd11.prod.outlook.com
+ ([fe80::447:632:a9ce:152f]) by PH0PR11MB5611.namprd11.prod.outlook.com
+ ([fe80::447:632:a9ce:152f%4]) with mapi id 15.20.7025.022; Tue, 28 Nov 2023
+ 11:29:12 +0000
+From: <Shravan.Chippa@microchip.com>
+To: <vkoul@kernel.org>
+CC: <green.wan@sifive.com>, <robh+dt@kernel.org>,
+	<krzysztof.kozlowski+dt@linaro.org>, <palmer@dabbelt.com>,
+	<paul.walmsley@sifive.com>, <conor+dt@kernel.org>,
+	<dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<Nagasuresh.Relli@microchip.com>, <Praveen.Kumar@microchip.com>,
+	<emil.renner.berthing@canonical.com>
+Subject: RE: [PATCH v4 3/4] dmaengine: sf-pdma: add mpfs-pdma compatible name
+Thread-Topic: [PATCH v4 3/4] dmaengine: sf-pdma: add mpfs-pdma compatible name
+Thread-Index: AQHaC7rsFK61Gcrk5UGSzfsdrL5RtLCJh0cAgAY9ATA=
+Date: Tue, 28 Nov 2023 11:29:12 +0000
+Message-ID: <PH0PR11MB5611079D8DA8B6F389BE187E81BCA@PH0PR11MB5611.namprd11.prod.outlook.com>
+References: <20231031052753.3430169-1-shravan.chippa@microchip.com>
+ <20231031052753.3430169-4-shravan.chippa@microchip.com>
+ <ZWCS+ECGTgwVPR1u@matsya>
+In-Reply-To: <ZWCS+ECGTgwVPR1u@matsya>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PH0PR11MB5611:EE_|SJ0PR11MB4815:EE_
+x-ms-office365-filtering-correlation-id: 3fb850ad-972d-402b-2a84-08dbf0053ef6
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: /hbRkjT5UjMYzXsb65AmLdSN4jTLZ6iLGkyDPHIxU25koI8gjYpUXF7apiWLHURiost9PUONaOFQH/Ryw20zy856tWfclvKRZVRZlSPehBGIlnPmJUN1T3CfAwJxZFyGpyWAJIDlk4trgn3pq/Z5HBdM0NEJ17SD2YFd1SShEei736zdfn7TUPqYTfJ4sUqWbYPWOy4fhvpj1BaVjobo9kwTX6Fx/pAEOZ0M68Q/rQliT30keOb+WIAqpvUVtHr+PegFv5VFhXDdWG2GAW4Br3VdgfeDzZFZ5OysW6dM2z2l7OZHFhNrbnGuDz/z2soDsKsRp6wNU6Zlund4gTed3WAZM5sk6lzWcgp3NrOr12Hcm0kGpCW/4F0hCYHEhsJ2oV5iI2or23km8lFWNymdCIgXFDp8SGmqo2hxxq2Kym7EZ3csHMc+fhc+pvBh5kWSTqCZ3/+Nld3/4mk0SQOnpDaAnV0pyUhr4Br6OTe5UevAM86RKPtbF44GDAgQE7aOdotGoW2RhLIczCzdMtNRqH2qREQOnE8QmsuVejpQ4wG7vmzY6SNkjIq2mZ4UXiV8iM9zofr+dMaQJqo8bQ8noyK6MYNIqoM8uEVVHKi9UtHX7JxblpbYLqNnntTFl3Vvyzr2XdN83Lhb8Dj4WFrckxyFHJi4/E23I5rLVtQQ3us=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR11MB5611.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(346002)(376002)(396003)(136003)(39860400002)(366004)(230273577357003)(230922051799003)(230173577357003)(451199024)(186009)(1800799012)(64100799003)(41300700001)(55016003)(26005)(966005)(53546011)(9686003)(7696005)(478600001)(6506007)(71200400001)(38100700002)(86362001)(38070700009)(33656002)(122000001)(7416002)(2906002)(76116006)(66946007)(5660300002)(83380400001)(6916009)(64756008)(66476007)(66556008)(66446008)(8936002)(54906003)(52536014)(316002)(8676002)(4326008);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?rg4klz71oCrE/MjMDbrzjkOsdquSdIZrfVnhz8P01WXt7j1yyES5XPcqXFkU?=
+ =?us-ascii?Q?Gao+4vPfA/Cfsqmey0n2fJn2FaZStCpeSki+kS/1Ln9JOnCZmNbxiNf9Z3KY?=
+ =?us-ascii?Q?Hogw5ItWjcix0K/jzHSes59h0LRCjkXroY0eFSgsPe3EXXGwbWFywmNJKIqQ?=
+ =?us-ascii?Q?WskiOQGm2HWOINpdI9+7jPbzc7gWbJVNEcy5r1rGgOcijqayN5VXie2Lq0TY?=
+ =?us-ascii?Q?TgRN07RtmZjv7aVwb+kgYuwI9djLE+uHCT5AYoYcJyIoV8mIVEZj9c4Bmeb/?=
+ =?us-ascii?Q?S/gucKe5CuLTLaiL1jmh5TyEqepxUy2yNznudrhjuY+dC25riEFwmv8X65FM?=
+ =?us-ascii?Q?HobjXrFsWWgcJuas2UfWr8yQLdLVNqTXt9/UXW8nSJNAG1Hjn7k6C/SUrOJd?=
+ =?us-ascii?Q?7fKahuPv0vqTMQ+0inobdi50toyIT721DUuXQcOT+NJ05Nmy/9kLhdljN+Y4?=
+ =?us-ascii?Q?RHygC4glJIW4WgBpW/j/y8L8kkZoAZX1zRHuqXbL870lI0r8iVnCbWd3Ue3B?=
+ =?us-ascii?Q?WcyLFcyVMXdgmImupFZ/vy0dYDENDf9ziswUq5ChGSxeNRZla4f+n8KmDTI3?=
+ =?us-ascii?Q?6eFyJy/vU1axAbnEckgFnNbTqsUQjs/4HBkwMd0c3GwX4H9DQWI7k2H0I/bG?=
+ =?us-ascii?Q?AxTnrwLyeYyYUGFNATbvc7sWJAgL0ZQQ5im4aJObIuZ0Vg7UkVNbWSRaznEC?=
+ =?us-ascii?Q?+NkmfzN5tL6IAQOXSzNi4r2GnqeZnJzDLBGtkbeEDonO7l5Q19jqcbww60KK?=
+ =?us-ascii?Q?DQ4d3GYNNDDCnodyThz8tzA3hJ16iCERrrl2TB2ZW/M3yRfXxDEDjz0Dh7SO?=
+ =?us-ascii?Q?ZH7OoGPO1CQS3yCscFh0iRbSrIIpt9Cf+WMQNGlqXWZyghH/NEihZjinLVfz?=
+ =?us-ascii?Q?+fmVV6u6rth1nOp1thAkEhIO5ZiyMDA8OMh1ZrNU8y0VnbH+L0NKsxmQaOWC?=
+ =?us-ascii?Q?8tvgSKDD7NQ4cCxl5gzk/vmobQ7YA5ykcmMaVEwrjJ+P8Hd198TP6Sam2pED?=
+ =?us-ascii?Q?naWTvxstPX89KyPDiF+pMM+Y2dC5cj1NndIS2F5tB63fDq+eKY5my7ceruit?=
+ =?us-ascii?Q?Nhw3fJ0moMyh/wNzq39VmsVH/iNN6KNa3o8QwGSK6X3mYUITxX4uBEar9eMu?=
+ =?us-ascii?Q?A+c2c6JgO5bPbXm0tHKPfiXhDtRW8BqEhjf7e1+jbCpTD1Vt8FWFJv3fT9iw?=
+ =?us-ascii?Q?PDdhysirZUXwZZ9SPnr5LoaZFR0e9/LCeUTO2wwR9kg1z6GW+0kzsrxfW/XU?=
+ =?us-ascii?Q?+enrhEQLv3pZheMVB8h0YmqeDUGFZo0zgUkgUl2PHJ/FfVdrKdzuTENFD5xy?=
+ =?us-ascii?Q?LM8maQlCZ4rAwTUzvvf+mWVWw21KvY8KkPuewb1M+U60FUVGTo+WI8w2EzHc?=
+ =?us-ascii?Q?W4jcPa+QcgadAbKsAZLkimKFGuncA6775Jl/xeB0Gr+c042DGrG8ESA1UfXN?=
+ =?us-ascii?Q?mNyoGrrNMEjc8MGYV95qoZCV9o5/TAdlRm88CeR3mFp2ZtO01Q8gB8IgBZaS?=
+ =?us-ascii?Q?04D4QNQAdbHPpwBnfudRm2a1yiwWCaQws3/6VNrFcPqkve8ZcNu21UwBfH5c?=
+ =?us-ascii?Q?jPmnV4P0XXG5j6tR8sRH7W7LAncNSl9bZWkW2cfZeIAJfQU4YYuSLhCAo810?=
+ =?us-ascii?Q?EA=3D=3D?=
 MIME-Version: 1.0
-In-Reply-To: <20231128102722.fQizGKfo@linutronix.de>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR11MB5611.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3fb850ad-972d-402b-2a84-08dbf0053ef6
+X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Nov 2023 11:29:12.4698
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: NZ/YKEUPu9SvvyYHMyySujPWAAez7dXQ8HD6yGxIkhUx285xiDdNNRdaFIES4RXq/EcMTmOQxNT4XmAC/NeTHg9poRz7VBasBZ1MTph9vzk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR11MB4815
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231128_030024_094327_443457A7 
-X-CRM114-Status: GOOD (  20.06  )
+X-CRM114-CacheID: sfid-20231128_032938_707634_31680A8E 
+X-CRM114-Status: GOOD (  26.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,78 +166,172 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1506905336503619329=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1506905336503619329==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="omVPbJ2Lyr3mnpXp"
-Content-Disposition: inline
+Hi Vinod,
 
---omVPbJ2Lyr3mnpXp
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> -----Original Message-----
+> From: Vinod Koul <vkoul@kernel.org>
+> Sent: Friday, November 24, 2023 5:42 PM
+> To: shravan Chippa - I35088 <Shravan.Chippa@microchip.com>
+> Cc: green.wan@sifive.com; robh+dt@kernel.org;
+> krzysztof.kozlowski+dt@linaro.org; palmer@dabbelt.com;
+> paul.walmsley@sifive.com; conor+dt@kernel.org;
+> dmaengine@vger.kernel.org; devicetree@vger.kernel.org; linux-
+> riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Nagasuresh Relli -
+> I67208 <Nagasuresh.Relli@microchip.com>; Praveen Kumar - I30718
+> <Praveen.Kumar@microchip.com>; Emil Renner Berthing
+> <emil.renner.berthing@canonical.com>
+> Subject: Re: [PATCH v4 3/4] dmaengine: sf-pdma: add mpfs-pdma compatible
+> name
+> 
+> [Some people who received this message don't often get email from
+> vkoul@kernel.org. Learn why this is important at
+> https://aka.ms/LearnAboutSenderIdentification ]
+> 
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the
+> content is safe
+> 
+> On 31-10-23, 10:57, shravan chippa wrote:
+> > From: Shravan Chippa <shravan.chippa@microchip.com>
+> >
+> > Sifive platform dma does not allow out-of-order transfers, Add a
+> > PolarFire SoC specific compatible and code to support for out-of-order
+> > dma transfers
+> 
+> By default dma xtions are not supposed to be out of order, so why does it
+> make sense specifying that here?
 
-On Tue, Nov 28, 2023 at 11:27:22AM +0100, Nam Cao wrote:
-> On Thu, May 25, 2023 at 02:18:36PM +0800, Jia Jie Ho wrote:
-> > Selects ARM_AMBA platform support for StarFive SoCs required by spi and
-> > crypto dma engine.
-> >=20
-> > Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
+All the DMA transfers are mostly in-order; however, sf-pdma IP has programable configuration:
+we can select the transfer type either in-order or out-of-order.
+ 
+Sf-pdam IP will only support mem-to-mem transfers. 
+ 
+We got better throughput in the PolarFire SoC platform if we use out-of-order DMA transfers type, instead of in-order configuration in the sf-pdma IP.
+ 
+test results for in-order:
+- moved 16 MB from 0x89000000 using pdmacpy to 0x88000000 (chan: 0) in 0.068962 secs (232.012 MB per sec)
+ 
+test results for out-of-order:
+- moved 16 MB from 0x89000000 using pdmacpy to 0x88000000 (chan: 0) in 0.037020 secs (432.199 MB per sec)
+
+Thanks,
+Shravan
+
+> 
+> >
+> > Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> > Signed-off-by: Shravan Chippa <shravan.chippa@microchip.com>
 > > ---
-> >  arch/riscv/Kconfig.socs | 1 +
-> >  1 file changed, 1 insertion(+)
-> >=20
-> > diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> > index 1cf69f958f10..381cd46e6373 100644
-> > --- a/arch/riscv/Kconfig.socs
-> > +++ b/arch/riscv/Kconfig.socs
-> > @@ -29,6 +29,7 @@ config SOC_STARFIVE
-> >  	bool "StarFive SoCs"
-> >  	select PINCTRL
-> >  	select RESET_CONTROLLER
-> > +	select ARM_AMBA
-> >  	help
-> >  	  This enables support for StarFive SoC platform hardware.
->=20
-> I'm considering sending this to stable trees. Without this, it is not
-> possible to configure the kernel with SPI driver for the starfive board.
->=20
-> I just want to check with you first, in case I miss something obvious.
-> Any objection to backporting this patch?
-
-Personally I would be okay with that, otherwise the driver is dead code
-in those stable versions. Just be sure that the rename of some pl011
-variables (I think that's what it was) that was a pre-req for this being
-merged is in said versions of stable. An allmodconfig should flag
-whether that has happened pretty quickly.
-
---omVPbJ2Lyr3mnpXp
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZWXIHwAKCRB4tDGHoIJi
-0tIeAP0Qk6kC+Ph4/2dh6HoswPR2MR7gF+g4jYowYymzMnpjGgD/Ta9CcqG6AtL4
-G2djjaaTDhNFaiNDoiAAcZ7Y62SUCA8=
-=Ertc
------END PGP SIGNATURE-----
-
---omVPbJ2Lyr3mnpXp--
-
-
---===============1506905336503619329==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> >  drivers/dma/sf-pdma/sf-pdma.c | 27 ++++++++++++++++++++++++---
+> > drivers/dma/sf-pdma/sf-pdma.h |  8 +++++++-
+> >  2 files changed, 31 insertions(+), 4 deletions(-)
+> >
+> > diff --git a/drivers/dma/sf-pdma/sf-pdma.c
+> > b/drivers/dma/sf-pdma/sf-pdma.c index 4c456bdef882..82ab12c40743
+> > 100644
+> > --- a/drivers/dma/sf-pdma/sf-pdma.c
+> > +++ b/drivers/dma/sf-pdma/sf-pdma.c
+> > @@ -25,6 +25,8 @@
+> >
+> >  #include "sf-pdma.h"
+> >
+> > +#define PDMA_QUIRK_NO_STRICT_ORDERING   BIT(0)
+> > +
+> >  #ifndef readq
+> >  static inline unsigned long long readq(void __iomem *addr)  { @@
+> > -66,7 +68,7 @@ static struct sf_pdma_desc *sf_pdma_alloc_desc(struct
+> > sf_pdma_chan *chan)  static void sf_pdma_fill_desc(struct sf_pdma_desc
+> *desc,
+> >                             u64 dst, u64 src, u64 size)  {
+> > -     desc->xfer_type = PDMA_FULL_SPEED;
+> > +     desc->xfer_type =  desc->chan->pdma->transfer_type;
+> >       desc->xfer_size = size;
+> >       desc->dst_addr = dst;
+> >       desc->src_addr = src;
+> > @@ -520,6 +522,7 @@ static struct dma_chan *sf_pdma_of_xlate(struct
+> > of_phandle_args *dma_spec,
+> >
+> >  static int sf_pdma_probe(struct platform_device *pdev)  {
+> > +     const struct sf_pdma_driver_platdata *ddata;
+> >       struct sf_pdma *pdma;
+> >       int ret, n_chans;
+> >       const enum dma_slave_buswidth widths = @@ -545,6 +548,14 @@
+> > static int sf_pdma_probe(struct platform_device *pdev)
+> >
+> >       pdma->n_chans = n_chans;
+> >
+> > +     pdma->transfer_type = PDMA_FULL_SPEED | PDMA_STRICT_ORDERING;
+> > +
+> > +     ddata  = device_get_match_data(&pdev->dev);
+> > +     if (ddata) {
+> > +             if (ddata->quirks & PDMA_QUIRK_NO_STRICT_ORDERING)
+> > +                     pdma->transfer_type &= ~PDMA_STRICT_ORDERING;
+> > +     }
+> > +
+> >       pdma->membase = devm_platform_ioremap_resource(pdev, 0);
+> >       if (IS_ERR(pdma->membase))
+> >               return PTR_ERR(pdma->membase); @@ -632,9 +643,19 @@
+> > static int sf_pdma_remove(struct platform_device *pdev)
+> >       return 0;
+> >  }
+> >
+> > +static const struct sf_pdma_driver_platdata mpfs_pdma = {
+> > +     .quirks = PDMA_QUIRK_NO_STRICT_ORDERING, };
+> > +
+> >  static const struct of_device_id sf_pdma_dt_ids[] = {
+> > -     { .compatible = "sifive,fu540-c000-pdma" },
+> > -     { .compatible = "sifive,pdma0" },
+> > +     {
+> > +             .compatible = "sifive,fu540-c000-pdma",
+> > +     }, {
+> > +             .compatible = "sifive,pdma0",
+> > +     }, {
+> > +             .compatible = "microchip,mpfs-pdma",
+> > +             .data       = &mpfs_pdma,
+> > +     },
+> >       {},
+> >  };
+> >  MODULE_DEVICE_TABLE(of, sf_pdma_dt_ids); diff --git
+> > a/drivers/dma/sf-pdma/sf-pdma.h b/drivers/dma/sf-pdma/sf-pdma.h
+> index
+> > 5c398a83b491..267e79a5e0a5 100644
+> > --- a/drivers/dma/sf-pdma/sf-pdma.h
+> > +++ b/drivers/dma/sf-pdma/sf-pdma.h
+> > @@ -48,7 +48,8 @@
+> >  #define PDMA_ERR_STATUS_MASK                         GENMASK(31, 31)
+> >
+> >  /* Transfer Type */
+> > -#define PDMA_FULL_SPEED                                      0xFF000008
+> > +#define PDMA_FULL_SPEED                                      0xFF000000
+> > +#define PDMA_STRICT_ORDERING                         BIT(3)
+> >
+> >  /* Error Recovery */
+> >  #define MAX_RETRY                                    1
+> > @@ -112,8 +113,13 @@ struct sf_pdma {
+> >       struct dma_device       dma_dev;
+> >       void __iomem            *membase;
+> >       void __iomem            *mappedbase;
+> > +     u32                     transfer_type;
+> >       u32                     n_chans;
+> >       struct sf_pdma_chan     chans[];
+> >  };
+> >
+> > +struct sf_pdma_driver_platdata {
+> > +     u32 quirks;
+> > +};
+> > +
+> >  #endif /* _SF_PDMA_H */
+> > --
+> > 2.34.1
+> 
+> --
+> ~Vinod
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1506905336503619329==--
-
