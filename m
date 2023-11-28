@@ -4,80 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D1FC4167B
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Nov 2023 15:48:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F760C46CA0
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Nov 2023 15:53:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BnEIjuqhvu63v67D3fnk6ynDgdKFx/ddkmWRNOvroyI=; b=zFEyKdk065DX1v
-	1zbC72XfO8DV9HJ8zge86K3uzs+Kb1S95tfJk0u+V4Yxkd3xwEB0fCT9/lUxT799K1TrrreClzWV/
-	WjFYjSk1UJNQ/wpPN0NNLvNWY81KKYqmYm+yho6Y8VVJaveEaJPNZgGWu7h4t8KKIOVER+aWe5UkP
-	RJSykwq/3KElrZcA8wh6pZEDhXbdQ/YqQibZnqvPgdmSYVIgvTxo8a0NenpxZJleQzriwSfJjegDw
-	8fIHZlsnJc5E8JhbE+wHqBaaCURlbhqu6CAqwGnypTi88fwCVUET5vPiTs99iNGGFaGjwtAcA5A2w
-	d8N3/jFyw4jk4b6ug8gQ==;
+	List-Owner; bh=kz8VrpMn9zKzP+SSrgAEIHMMR6tnFIHEdcLe/UhVXTg=; b=BwrZrct/5wQVd+
+	ACghOsXWZOsttqPIeReOf5Hv203Odo5IW7PO9m2/4DYkVu1emP2OacAFURdCzQkYYcN1WUE1gOs0f
+	Raa/KlZ0ZfBBCe08J/fBxTZS7020aU8wDTSVKM0+4TDHhHz2iD+0Ds8Xxdw5T5A2Ho6c7Cuw34qFk
+	exw35RM6IhGTGmwm4GN4pZdsHY/I5HUG3rVuHDXzaImaqbwjTxVMc9CJS2Tt+3a8E4V9UOmZHRa39
+	dGbIxRGqukmew/o0NS+g8A2lZSpvVqG4SsVo9Y3erlWBMkze3qFqzdL1JYJ7hQaTGtpg7wAM+lBSu
+	mds/lJHEdPcBTBwalK/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r80Jh-005jAo-2Z;
-	Tue, 28 Nov 2023 15:48:05 +0000
-Received: from madras.collabora.co.uk ([46.235.227.172])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r80Jd-005j9p-2t;
-	Tue, 28 Nov 2023 15:48:03 +0000
-Received: from [100.116.17.117] (cola.collaboradmins.com [195.201.22.229])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by madras.collabora.co.uk (Postfix) with ESMTPSA id 044FB66072A4;
-	Tue, 28 Nov 2023 15:47:56 +0000 (GMT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1701186478;
-	bh=Vl9zpAwbMrEUnNNnWPnj5b4a/P1lPAcyNOVXcUWIhSQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WZ1m+bv3Q0Jy/chYrN3+dL6SjUX316Z3dvRGEOz4Z2BNnoEIB8lbkgymUNP1nB+DY
-	 yBt948VB2I8zNuO1IADb9n7TxWTa9EHrVxKKDplAGyoFlNciITQ0Q8yW3VnhzeUzD7
-	 sWQLNGT0RAW2oFegXZAlnU0fP7FLNYj+o0/lMm41osUFrCQUv35dADby9b1MMFmVos
-	 UrkWS3AyWavs3NLKUwXuoDzW5zqFSo5DDsQiEwdX8D0mBA8c4DxP4Qu8gM22+jZeLW
-	 Uq3/uRu+1s1+JMOdQK44JYhcUxIj4pzfBcyAOSGSgHedjE/N0rnKFVk0u7NsGkLyz9
-	 fO+ArihKVLK3A==
-Message-ID: <054bbf2a-e7ba-40bf-8f8b-f0e0e9b396c6@collabora.com>
-Date: Tue, 28 Nov 2023 17:47:54 +0200
+	id 1r80OQ-005k2h-15;
+	Tue, 28 Nov 2023 15:52:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1r80OM-005k0t-05;
+	Tue, 28 Nov 2023 15:52:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7ADAEC15;
+	Tue, 28 Nov 2023 07:53:39 -0800 (PST)
+Received: from localhost (ionvoi01-desktop.cambridge.arm.com [10.2.78.69])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A50C33F6C4;
+	Tue, 28 Nov 2023 07:52:51 -0800 (PST)
+Date: Tue, 28 Nov 2023 15:52:50 +0000
+From: Ionela Voinescu <ionela.voinescu@arm.com>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org,
+	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com,
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
+	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com,
+	viresh.kumar@linaro.org, lenb@kernel.org, robert.moore@intel.com,
+	lukasz.luba@arm.com, pierre.gondois@arm.com,
+	beata.michalska@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org,
+	conor.dooley@microchip.com, suagrfillet@gmail.com,
+	ajones@ventanamicro.com, lftan@kernel.org
+Subject: Re: [PATCH v6 1/7] topology: Add a new arch_scale_freq_reference
+Message-ID: <ZWYM0hn28RHjAalh@arm.com>
+References: <20231109101438.1139696-1-vincent.guittot@linaro.org>
+ <20231109101438.1139696-2-vincent.guittot@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 12/12] [UNTESTED] riscv: dts: starfive:
- beaglev-starlight: Enable gmac
-Content-Language: en-US
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
- Samin Guo <samin.guo@starfivetech.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com
-References: <20231029042712.520010-1-cristian.ciocaltea@collabora.com>
- <20231029042712.520010-13-cristian.ciocaltea@collabora.com>
- <CAJM55Z9e=vjGKNnmURN15mvXo2bVd3igBA-3puF9q7eh5hiP+A@mail.gmail.com>
- <2f06ce36-0dc1-495e-b6a6-318951a53e8d@collabora.com>
- <CAJM55Z8vkMbqXY5sS2o4cLi8ow-JQTcXU9=uYMBSykwd4ppExw@mail.gmail.com>
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <CAJM55Z8vkMbqXY5sS2o4cLi8ow-JQTcXU9=uYMBSykwd4ppExw@mail.gmail.com>
+Content-Disposition: inline
+In-Reply-To: <20231109101438.1139696-2-vincent.guittot@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231128_074802_198067_352AFE68 
-X-CRM114-Status: GOOD (  25.49  )
+X-CRM114-CacheID: sfid-20231128_075254_157643_616B2A20 
+X-CRM114-Status: GOOD (  37.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,100 +74,236 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/28/23 14:08, Emil Renner Berthing wrote:
-> Cristian Ciocaltea wrote:
->> On 11/26/23 23:10, Emil Renner Berthing wrote:
->>> Cristian Ciocaltea wrote:
->>>> The BeagleV Starlight SBC uses a Microchip KSZ9031RNXCA PHY supporting
->>>> RGMII-ID.
->>>>
->>>> TODO: Verify if manual adjustment of the RX internal delay is needed. If
->>>> yes, add the mdio & phy sub-nodes.
->>>
->>> Sorry for being late here. I've tested that removing the mdio and phy nodes on
->>> the the Starlight board works fine, but the rx-internal-delay-ps = <900>
->>> property not needed on any of my VisionFive V1 boards either.
->>
->> No problem, thanks a lot for taking the time to help with the testing!
->>
->>> So I wonder why you need that on your board
->>
->> I noticed you have a patch 70ca054e82b5 ("net: phy: motorcomm: Disable
->> rgmii rx delay") in your tree, hence I you please confirm the tests were
->> done with that commit reverted?
->>
->>> Also in the driver patch you add support for phy-mode = "rgmii-txid", but here
->>> you still set it to "rgmii-id", so which is it?
->>
->> Please try with "rgmii-id" first. I added "rgmii-txid" to have a
->> fallback solution in case the former cannot be used.
+Hi Vincent,
+
+I have a small request on this patch, which is useful for [1].
+I'll detail what is needed lower in the code.
+
+[1] https://lore.kernel.org/lkml/ZWYDr6JJJzBvsqf0@arm.com/
+
+On Thursday 09 Nov 2023 at 11:14:32 (+0100), Vincent Guittot wrote:
+> Create a new method to get a unique and fixed max frequency. Currently
+> cpuinfo.max_freq or the highest (or last) state of performance domain are
+> used as the max frequency when computing the frequency for a level of
+> utilization but:
+> - cpuinfo_max_freq can change at runtime. boost is one example of
+>   such change.
+> - cpuinfo.max_freq and last item of the PD can be different leading to
+>   different results between cpufreq and energy model.
 > 
-> Ah, I see. Sorry I should have read up on the whole thread. Yes, the Starlight
-> board with the Microchip phy works with "rgmii-id" as is. And you're right,
-> with "rgmii-id" my VF1 needs the rx-internal-delay-ps = <900> property too.
-
-That's great, we have now a pretty clear indication that this uncommon behavior
-stems from the Motorcomm PHY, and *not* from GMAC.
- 
->>
->>> You've alse removed the phy reset gpio on the Starlight board:
->>>
->>>   snps,reset-gpios = <&gpio 63 GPIO_ACTIVE_LOW>
->>>
->>> Why?
->>
->> I missed this in v1 as the gmac handling was done exclusively in
->> jh7100-common. Thanks for noticing!
->>
->>>>
->>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->>>> ---
->>>>  arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts | 5 +++++
->>>>  1 file changed, 5 insertions(+)
->>>>
->>>> diff --git a/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts b/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
->>>> index 7cda3a89020a..d3f4c99d98da 100644
->>>> --- a/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
->>>> +++ b/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
->>>> @@ -11,3 +11,8 @@ / {
->>>>  	model = "BeagleV Starlight Beta";
->>>>  	compatible = "beagle,beaglev-starlight-jh7100-r0", "starfive,jh7100";
->>>>  };
->>>> +
->>>> +&gmac {
->>>> +	phy-mode = "rgmii-id";
->>>> +	status = "okay";
->>>> +};
->>>
->>> Lastly the phy-mode and status are the same for the VF1 and Starlight boards,
->>> so why can't these be set in the jh7100-common.dtsi?
->>
->> I wasn't sure "rgmii-id" can be used for both boards and I didn't want
->> to unconditionally enable gmac on Starlight before getting a
->> confirmation that this actually works.
->>
->> If there is no way to make it working with "rgmii-id" (w/ or w/o
->> adjusting rx-internal-delay-ps), than we should switch to "rgmii-txid".
+> We need to save the reference frequency that has been used when computing
+> the CPUs capacity and use this fixed and coherent value to convert between
+> frequency and CPU's capacity.
 > 
-> Yeah, I don't exactly know the difference, but both boards seem to work fine
-> with "rgmii-id", so if that is somehow better and/or more correct let's just go
-> with that.
+> In fact, we already save the frequency that has been used when computing
+> the capacity of each CPU. We extend the precision to save kHz instead of
+> MHz currently and we modify the type to be aligned with other variables
+> used when converting frequency to capacity and the other way.
+> 
+> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
+> Tested-by: Lukasz Luba <lukasz.luba@arm.com>
+> Acked-by: Sudeep Holla <sudeep.holla@arm.com>
+> ---
+>  arch/arm/include/asm/topology.h   |  1 +
+>  arch/arm64/include/asm/topology.h |  1 +
+>  arch/riscv/include/asm/topology.h |  1 +
+>  drivers/base/arch_topology.c      | 29 ++++++++++++++---------------
+>  include/linux/arch_topology.h     |  7 +++++++
+>  include/linux/sched/topology.h    |  8 ++++++++
+>  6 files changed, 32 insertions(+), 15 deletions(-)
+> 
+> diff --git a/arch/arm/include/asm/topology.h b/arch/arm/include/asm/topology.h
+> index c7d2510e5a78..853c4f81ba4a 100644
+> --- a/arch/arm/include/asm/topology.h
+> +++ b/arch/arm/include/asm/topology.h
+> @@ -13,6 +13,7 @@
+>  #define arch_set_freq_scale topology_set_freq_scale
+>  #define arch_scale_freq_capacity topology_get_freq_scale
+>  #define arch_scale_freq_invariant topology_scale_freq_invariant
+> +#define arch_scale_freq_ref topology_get_freq_ref
+>  #endif
+>  
+>  /* Replace task scheduler's default cpu-invariant accounting */
+> diff --git a/arch/arm64/include/asm/topology.h b/arch/arm64/include/asm/topology.h
+> index 9fab663dd2de..a323b109b9c4 100644
+> --- a/arch/arm64/include/asm/topology.h
+> +++ b/arch/arm64/include/asm/topology.h
+> @@ -23,6 +23,7 @@ void update_freq_counters_refs(void);
+>  #define arch_set_freq_scale topology_set_freq_scale
+>  #define arch_scale_freq_capacity topology_get_freq_scale
+>  #define arch_scale_freq_invariant topology_scale_freq_invariant
+> +#define arch_scale_freq_ref topology_get_freq_ref
+>  
+>  #ifdef CONFIG_ACPI_CPPC_LIB
+>  #define arch_init_invariance_cppc topology_init_cpu_capacity_cppc
+> diff --git a/arch/riscv/include/asm/topology.h b/arch/riscv/include/asm/topology.h
+> index e316ab3b77f3..61183688bdd5 100644
+> --- a/arch/riscv/include/asm/topology.h
+> +++ b/arch/riscv/include/asm/topology.h
+> @@ -9,6 +9,7 @@
+>  #define arch_set_freq_scale		topology_set_freq_scale
+>  #define arch_scale_freq_capacity	topology_get_freq_scale
+>  #define arch_scale_freq_invariant	topology_scale_freq_invariant
+> +#define arch_scale_freq_ref		topology_get_freq_ref
+>  
+>  /* Replace task scheduler's default cpu-invariant accounting */
+>  #define arch_scale_cpu_capacity	topology_get_cpu_scale
+> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+> index b741b5ba82bd..e8d1cdf1f761 100644
+> --- a/drivers/base/arch_topology.c
+> +++ b/drivers/base/arch_topology.c
+> @@ -19,6 +19,7 @@
+>  #include <linux/init.h>
+>  #include <linux/rcupdate.h>
+>  #include <linux/sched.h>
+> +#include <linux/units.h>
+>  
+>  #define CREATE_TRACE_POINTS
+>  #include <trace/events/thermal_pressure.h>
+> @@ -26,7 +27,8 @@
+>  static DEFINE_PER_CPU(struct scale_freq_data __rcu *, sft_data);
+>  static struct cpumask scale_freq_counters_mask;
+>  static bool scale_freq_invariant;
+> -static DEFINE_PER_CPU(u32, freq_factor) = 1;
+> +DEFINE_PER_CPU(unsigned long, capacity_freq_ref) = 1;
 
-As Andrew already pointed out, going with "rgmii-id" would be the recommended
-approach, as this passes the responsibility of adding both TX and RX delays to
-the PHY.  "rgmii-txid" requires the MAC to handle the RX delay, which might
-break the boards having a conformant (aka well-behaving) PHY.  For some reason
-the Microchip PHY seems to work fine in both cases, but that's most likely an
-exception, as other PHYs might expose a totally different and undesired
-behavior.
+It would be good for this to be initialized to 0 for other users that
+might want to detect when capacity_freq_ref was not yet set.
 
-I will prepare a v3 soon, and will drop the patches you have already submitted
-as part of [1].
+> +EXPORT_PER_CPU_SYMBOL_GPL(capacity_freq_ref);
+>  
+>  static bool supports_scale_freq_counters(const struct cpumask *cpus)
+>  {
+> @@ -170,9 +172,9 @@ DEFINE_PER_CPU(unsigned long, thermal_pressure);
+>   * operating on stale data when hot-plug is used for some CPUs. The
+>   * @capped_freq reflects the currently allowed max CPUs frequency due to
+>   * thermal capping. It might be also a boost frequency value, which is bigger
+> - * than the internal 'freq_factor' max frequency. In such case the pressure
+> - * value should simply be removed, since this is an indication that there is
+> - * no thermal throttling. The @capped_freq must be provided in kHz.
+> + * than the internal 'capacity_freq_ref' max frequency. In such case the
+> + * pressure value should simply be removed, since this is an indication that
+> + * there is no thermal throttling. The @capped_freq must be provided in kHz.
+>   */
+>  void topology_update_thermal_pressure(const struct cpumask *cpus,
+>  				      unsigned long capped_freq)
+> @@ -183,10 +185,7 @@ void topology_update_thermal_pressure(const struct cpumask *cpus,
+>  
+>  	cpu = cpumask_first(cpus);
+>  	max_capacity = arch_scale_cpu_capacity(cpu);
+> -	max_freq = per_cpu(freq_factor, cpu);
+> -
+> -	/* Convert to MHz scale which is used in 'freq_factor' */
+> -	capped_freq /= 1000;
+> +	max_freq = arch_scale_freq_ref(cpu);
+>  
+>  	/*
+>  	 * Handle properly the boost frequencies, which should simply clean
+> @@ -279,13 +278,13 @@ void topology_normalize_cpu_scale(void)
+>  
+>  	capacity_scale = 1;
+>  	for_each_possible_cpu(cpu) {
+> -		capacity = raw_capacity[cpu] * per_cpu(freq_factor, cpu);
+> +		capacity = raw_capacity[cpu] * per_cpu(capacity_freq_ref, cpu);
 
-Thanks again for your support, 
-Cristian
+The only affected code that I could find is here and below.
 
-[1]: https://lore.kernel.org/all/20231126232746.264302-1-emil.renner.berthing@canonical.com/
+The above line would have to change to:
+capacity = raw_capacity[cpu] * per_cpu(capacity_freq_ref, cpu) ?: 1;
+
+>  		capacity_scale = max(capacity, capacity_scale);
+>  	}
+>  
+>  	pr_debug("cpu_capacity: capacity_scale=%llu\n", capacity_scale);
+>  	for_each_possible_cpu(cpu) {
+> -		capacity = raw_capacity[cpu] * per_cpu(freq_factor, cpu);
+> +		capacity = raw_capacity[cpu] * per_cpu(capacity_freq_ref, cpu);
+
+and here:
+capacity = raw_capacity[cpu] * per_cpu(capacity_freq_ref, cpu) ?: 1;
+
+I think it's nicer to start with capacity_freq_ref as 0 and compensate here
+for uninitialized capacity_freq_ref.
+
+Let me know if this is alright of if you'd prefer us to make this change
+in a separate patch.
+
+Thanks,
+Ionela.
+
+>  		capacity = div64_u64(capacity << SCHED_CAPACITY_SHIFT,
+>  			capacity_scale);
+>  		topology_set_cpu_scale(cpu, capacity);
+> @@ -321,15 +320,15 @@ bool __init topology_parse_cpu_capacity(struct device_node *cpu_node, int cpu)
+>  			cpu_node, raw_capacity[cpu]);
+>  
+>  		/*
+> -		 * Update freq_factor for calculating early boot cpu capacities.
+> +		 * Update capacity_freq_ref for calculating early boot cpu capacities.
+>  		 * For non-clk CPU DVFS mechanism, there's no way to get the
+>  		 * frequency value now, assuming they are running at the same
+> -		 * frequency (by keeping the initial freq_factor value).
+> +		 * frequency (by keeping the initial capacity_freq_ref value).
+>  		 */
+>  		cpu_clk = of_clk_get(cpu_node, 0);
+>  		if (!PTR_ERR_OR_ZERO(cpu_clk)) {
+> -			per_cpu(freq_factor, cpu) =
+> -				clk_get_rate(cpu_clk) / 1000;
+> +			per_cpu(capacity_freq_ref, cpu) =
+> +				clk_get_rate(cpu_clk) / HZ_PER_KHZ;
+>  			clk_put(cpu_clk);
+>  		}
+>  	} else {
+> @@ -411,7 +410,7 @@ init_cpu_capacity_callback(struct notifier_block *nb,
+>  	cpumask_andnot(cpus_to_visit, cpus_to_visit, policy->related_cpus);
+>  
+>  	for_each_cpu(cpu, policy->related_cpus)
+> -		per_cpu(freq_factor, cpu) = policy->cpuinfo.max_freq / 1000;
+> +		per_cpu(capacity_freq_ref, cpu) = policy->cpuinfo.max_freq;
+>  
+>  	if (cpumask_empty(cpus_to_visit)) {
+>  		topology_normalize_cpu_scale();
+> diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
+> index a07b510e7dc5..32c24ff4f2a8 100644
+> --- a/include/linux/arch_topology.h
+> +++ b/include/linux/arch_topology.h
+> @@ -27,6 +27,13 @@ static inline unsigned long topology_get_cpu_scale(int cpu)
+>  
+>  void topology_set_cpu_scale(unsigned int cpu, unsigned long capacity);
+>  
+> +DECLARE_PER_CPU(unsigned long, capacity_freq_ref);
+> +
+> +static inline unsigned long topology_get_freq_ref(int cpu)
+> +{
+> +	return per_cpu(capacity_freq_ref, cpu);
+> +}
+> +
+>  DECLARE_PER_CPU(unsigned long, arch_freq_scale);
+>  
+>  static inline unsigned long topology_get_freq_scale(int cpu)
+> diff --git a/include/linux/sched/topology.h b/include/linux/sched/topology.h
+> index de545ba85218..a6e04b4a21d7 100644
+> --- a/include/linux/sched/topology.h
+> +++ b/include/linux/sched/topology.h
+> @@ -279,6 +279,14 @@ void arch_update_thermal_pressure(const struct cpumask *cpus,
+>  { }
+>  #endif
+>  
+> +#ifndef arch_scale_freq_ref
+> +static __always_inline
+> +unsigned int arch_scale_freq_ref(int cpu)
+> +{
+> +	return 0;
+> +}
+> +#endif
+> +
+>  static inline int task_node(const struct task_struct *p)
+>  {
+>  	return cpu_to_node(task_cpu(p));
+> -- 
+> 2.34.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
