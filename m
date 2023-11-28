@@ -4,77 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6596CC4167B
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Nov 2023 07:58:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AEAFC4167B
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Nov 2023 08:58:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=78iNRMK8aBQfUhx+9pLN9q2S1cg8nAdrPktEW95ecN4=; b=X0WwSYEiBZUMni
-	UKGEtGHmlwIMxfzU3ARmPYIUK5zEY/CQ+UA3s3wzEeVeApPT1SWyuRcj9z0tLYpKa2IrPrYZ7J9Pw
-	sBvRLuI9bQhtsfMsnIA0krBOb+w+M89m3vSDg3yl7Sbu1slsoYoYpUCD4zGs3VOk3kRjzFpJyXfNz
-	mpfWg73xM2amVO9/MOjEuBllOfaGt2CYgv4WOIPgvDVMUlVq54lTDue/gLG+VjGTaX0w1AIi1Fgsw
-	LyWJji7qafh5dhu7bHSmG1W9K1JiJmU+pkCru7on5b94g/H5kzcD//E5iz1rPdzpG1ziqygsY5KqK
-	frlGw1CmQuJBlBRsh0Tw==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7A4tXRwH8OEQH0hYJ5j+8WfFQSYXUrF0as2yJg69vJg=; b=Q45VL6JTdGAq7Z
+	qK3kBJpgu4Cmckyz+0WBZd5Fhdtew+7wsUAVk37IGByRIshqv04lixei8POWh6E6NjweePUknZiVr
+	aGW3UMHcpNvbkWu1ZN+q9d+bP5mxIi/aa3PafHcox2xzY3rCL3L9so1XvjDy02DurUKkHXJAXml4i
+	mbASXh5Lzk95bPE9JECMa/Ckpt0HhlZWVlIqsnxIyCDnnwsoxxZC8kLbbgnNGzJne8jpwtd0d8ImR
+	Rr1hq+azT2bfyEgpw7R/TbiGmZ7KC8DVR78sH+ZdjyUDGkab/3bkW7ot/HXvEf00sA+eSsnnTnx0J
+	pN/M6WRTL15dW0mhw83A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7syg-004TJD-1v;
-	Tue, 28 Nov 2023 07:57:54 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7syc-004TFs-2q
+	id 1r7tug-004c4O-0D;
+	Tue, 28 Nov 2023 08:57:50 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1r7tuc-004c3g-2f
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Nov 2023 07:57:52 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id B1D1024DC8B;
-	Tue, 28 Nov 2023 15:57:19 +0800 (CST)
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Nov
- 2023 15:57:19 +0800
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX066.cuchost.com
- (172.16.7.66) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Nov
- 2023 15:57:19 +0800
-Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
- EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
- 15.00.1497.044; Tue, 28 Nov 2023 15:57:19 +0800
-From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, "paul.walmsley@sifive.com"
-	<paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "conor@kernel.org"
-	<conor@kernel.org>, "kernel@esmil.dk" <kernel@esmil.dk>, "robh+dt@kernel.org"
-	<robh+dt@kernel.org>, "emil.renner.berthing@canonical.com"
-	<emil.renner.berthing@canonical.com>
-CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Leyfoon Tan
-	<leyfoon.tan@starfivetech.com>
-Subject: RE: [PATCH 6/7] serial: xilinx_uartps: Add new compatible string for
- StarFive
-Thread-Topic: [PATCH 6/7] serial: xilinx_uartps: Add new compatible string for
- StarFive
-Thread-Index: AQHaINIphsM8jXvQa0qbM8hLZxm2GLCNVWaAgAG91cD//7vrAIAAj/Xg
-Date: Tue, 28 Nov 2023 07:57:19 +0000
-Message-ID: <15b8ae81c5184ce3b42a6ab39a6852d6@EXMBX066.cuchost.com>
-References: <20231127013602.253835-1-jeeheng.sia@starfivetech.com>
- <20231127013602.253835-7-jeeheng.sia@starfivetech.com>
- <07fc5ebe-47b2-4843-ad49-36e6686e5a9a@kernel.org>
- <b423574c710b44aabb36cd434693b3e2@EXMBX066.cuchost.com>
- <d6dd14c2-f662-4b82-bc96-7e161cb721c9@kernel.org>
-In-Reply-To: <d6dd14c2-f662-4b82-bc96-7e161cb721c9@kernel.org>
-Accept-Language: en-US, zh-CN
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [202.188.176.82]
-x-yovoleruleagent: yovoleflag
-MIME-Version: 1.0
+	Tue, 28 Nov 2023 08:57:48 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-6cb749044a2so5222736b3a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 28 Nov 2023 00:57:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1701161863; x=1701766663; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BTYsamGNaQ8fRNjNMaxridTGMNfJmuFsAlfcl9yavQs=;
+        b=W+9qrTrdYMobooAXa0D1yJQ34oka+whU16LDwCEtvtg0G5I03I3zlXCYxljesypJlA
+         nOaCxmCRkgGAipIqZO+CMie1wEe9svYBhdUSEwC5eTR23yeOAVXJk2akYbGh8cvexvys
+         JweUbSPGWYnfupU9JQTCUeSeZqx2ZZZJ8tarcXbQdcWvBVw898G2ZnX5/iwjkarg8T52
+         LV09KdVU3XfNrpyJ+/96iXcmKeK3MNRf2LfHOSKCzvzzhJpjuhomsArT3OLse2C7B+NI
+         5l/EHbcHDgXCWxvTW46013NBw3B1JrCF4eSHILh+rp3QALnJJep5IPNUfCR6YXvu1Hyf
+         MqMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701161863; x=1701766663;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BTYsamGNaQ8fRNjNMaxridTGMNfJmuFsAlfcl9yavQs=;
+        b=FAMID6ln1uvmLxi2l+VrrktbIZ60/GEHbcHXUBQV0ic8bjQNh+aqKkvyYh2KgrSTGV
+         KCXb4Hei6+ItvXDNGvPffHJhvwFQ2HZ1ZZOtm/NGKdCoSC7IHdNdxT1YHjjF03FWFRML
+         j3I7C6/2gRCY2pWDbnQOqw56NOI+OJOOgd4t3opXAaZJaUIQTHSV1j+Z2W64WfNmn3LM
+         P6KQmMWS6BWu127NfI3bftueC9KPxNm9stDaECbnHVJbRqMzwULXVyR3HKUTpPePjKex
+         vpvlZqYFOzCZLVB10ioQscIRyK032ASQWoyKeFnIx9tcxGT/Xuz+wukIep+YZCVWi4xO
+         jsVQ==
+X-Gm-Message-State: AOJu0YwmHTLlqjgbQXZ2jnkG+mBFOo+JuwsZpx7BQa0v3LRzh7cVfAyF
+	nrUYTi3floDp9OwJUE0WDv5uOw==
+X-Google-Smtp-Source: AGHT+IE/fng9QOuiUZBluDfizhRPgWmYcOqQIfRFSizRR9MTI4Ihwkn53PdiTZ2Of0dfq0nFdnkdKA==
+X-Received: by 2002:a05:6a20:5650:b0:18b:9053:d865 with SMTP id is16-20020a056a20565000b0018b9053d865mr15666672pzc.42.1701161862894;
+        Tue, 28 Nov 2023 00:57:42 -0800 (PST)
+Received: from ?IPv6:2402:7500:4ce:8338:14c0:b892:2482:e230? ([2402:7500:4ce:8338:14c0:b892:2482:e230])
+        by smtp.gmail.com with ESMTPSA id g8-20020a056a00078800b00694fee1011asm8522232pfu.208.2023.11.28.00.57.39
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 28 Nov 2023 00:57:42 -0800 (PST)
+Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.7\))
+Subject: Re: [PATCH v2 13/13] RISC-V: crypto: add Zvkb accelerated ChaCha20
+ implementation
+From: Jerry Shih <jerry.shih@sifive.com>
+In-Reply-To: <20231128042503.GL1463@sol.localdomain>
+Date: Tue, 28 Nov 2023 16:57:38 +0800
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ palmer@dabbelt.com,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ herbert@gondor.apana.org.au,
+ davem@davemloft.net,
+ conor.dooley@microchip.com,
+ ardb@kernel.org,
+ heiko@sntech.de,
+ phoebe.chen@sifive.com,
+ hongrong.hsu@sifive.com,
+ linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ linux-crypto@vger.kernel.org
+Message-Id: <3B3784E0-0DE2-4A99-878E-657BB0E0765D@sifive.com>
+References: <20231127070703.1697-1-jerry.shih@sifive.com>
+ <20231127070703.1697-14-jerry.shih@sifive.com>
+ <20231128042503.GL1463@sol.localdomain>
+To: Eric Biggers <ebiggers@kernel.org>
+X-Mailer: Apple Mail (2.3445.9.7)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231127_235751_223436_3905FA0E 
-X-CRM114-Status: GOOD (  23.05  )
+X-CRM114-CacheID: sfid-20231128_005746_878240_E72A3B0C 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,71 +106,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Nov 28, 2023, at 12:25, Eric Biggers <ebiggers@kernel.org> wrote:
+> On Mon, Nov 27, 2023 at 03:07:03PM +0800, Jerry Shih wrote:
+>> +config CRYPTO_CHACHA20_RISCV64
+> 
+> Can you call this kconfig option just CRYPTO_CHACHA_RISCV64?  I.e. drop the
+> "20".  The ChaCha family of ciphers includes more than just ChaCha20.
+> 
+> The other architectures do use "CHACHA20" in their equivalent option, even when
+> they implement XChaCha12 too.  But that's for historical reasons -- we didn't
+> want to break anything by renaming the kconfig options.  For a new option we
+> should use the more general name from the beginning, even if initially only
+> ChaCha20 is implemented (which is fine).
 
+I will use `CRYPTO_CHACHA_RISCV64` instead.
 
-> -----Original Message-----
-> From: Krzysztof Kozlowski <krzk@kernel.org>
-> Sent: Tuesday, November 28, 2023 3:21 PM
-> To: JeeHeng Sia <jeeheng.sia@starfivetech.com>; paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu;
-> conor@kernel.org; kernel@esmil.dk; robh+dt@kernel.org; emil.renner.berthing@canonical.com
-> Cc: linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>
-> Subject: Re: [PATCH 6/7] serial: xilinx_uartps: Add new compatible string for StarFive
+>> +static int chacha20_encrypt(struct skcipher_request *req)
 > 
-> On 28/11/2023 06:25, JeeHeng Sia wrote:
-> >
-> >
-> >> -----Original Message-----
-> >> From: Krzysztof Kozlowski <krzk@kernel.org>
-> >> Sent: Monday, November 27, 2023 4:49 PM
-> >> To: JeeHeng Sia <jeeheng.sia@starfivetech.com>; paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu;
-> >> conor@kernel.org; kernel@esmil.dk; robh+dt@kernel.org; emil.renner.berthing@canonical.com
-> >> Cc: linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>
-> >> Subject: Re: [PATCH 6/7] serial: xilinx_uartps: Add new compatible string for StarFive
-> >>
-> >> On 27/11/2023 02:36, Sia Jee Heng wrote:
-> >>> This patch adds the new compatible string for StarFive JH8100 SoC
-> >>>
-> >>> Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-> >>> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-> >>> ---
-> >>>  drivers/tty/serial/xilinx_uartps.c | 3 ++-
-> >>>  1 file changed, 2 insertions(+), 1 deletion(-)
-> >>>
-> >>> diff --git a/drivers/tty/serial/xilinx_uartps.c b/drivers/tty/serial/xilinx_uartps.c
-> >>> index 66a45a634158..170901c143c2 100644
-> >>> --- a/drivers/tty/serial/xilinx_uartps.c
-> >>> +++ b/drivers/tty/serial/xilinx_uartps.c
-> >>> @@ -1210,7 +1210,7 @@ OF_EARLYCON_DECLARE(cdns, "xlnx,xuartps", cdns_early_console_setup);
-> >>>  OF_EARLYCON_DECLARE(cdns, "cdns,uart-r1p8", cdns_early_console_setup);
-> >>>  OF_EARLYCON_DECLARE(cdns, "cdns,uart-r1p12", cdns_early_console_setup);
-> >>>  OF_EARLYCON_DECLARE(cdns, "xlnx,zynqmp-uart", cdns_early_console_setup);
-> >>> -
-> >>> +OF_EARLYCON_DECLARE(cdns, "starfive,jh8100-uart", cdns_early_console_setup);
-> >>>
-> >>>  /* Static pointer to console port */
-> >>>  static struct uart_port *console_port;
-> >>> @@ -1448,6 +1448,7 @@ static const struct of_device_id cdns_uart_of_match[] = {
-> >>>  	{ .compatible = "cdns,uart-r1p8", },
-> >>>  	{ .compatible = "cdns,uart-r1p12", .data = &zynqmp_uart_def },
-> >>>  	{ .compatible = "xlnx,zynqmp-uart", .data = &zynqmp_uart_def },
-> >>> +	{ .compatible = "starfive,jh8100-uart", },
-> >>
-> >> Why you do not express compatibility in your bindings? Skip this driver
-> >> change.
-> > The compatibility string was added to the binding in the 5th patch. We need to add this compatibility string to the driver, as the
-> other compatibilities were used for other SoCs.
+> riscv64_chacha_crypt(), please.  chacha20_encrypt() is dangerously close to
+> being the same name as chacha20_crypt() which already exists in crypto/chacha.h.
+
+The function will will have additional prefix/suffix.
+
+>> +static inline bool check_chacha20_ext(void)
+>> +{
+>> +	return riscv_isa_extension_available(NULL, ZVKB) &&
+>> +	       riscv_vector_vlen() >= 128;
+>> +}
 > 
-> You did not add "compatibility string" but compatible. I am asking why
-> you are not expressing in your bindings the compatibility between this
-> and other devices.
-> 
-> And no, you do not need driver change for compatible devices, so again:
-> skip this driver change.
-Alright, I will skip this driver change. Thanks.
-> 
-> 
-> Best regards,
-> Krzysztof
+> Just to double check: your intent is to simply require VLEN >= 128 for all the
+> RISC-V vector crypto code, even when some might work with a shorter VLEN?  I
+> don't see anything in chacha-riscv64-zvkb.pl that assumes VLEN >= 128, for
+> example.  I think it would even work with VLEN == 32.
+
+Yes, the chacha algorithm here only needs the VLEN>=32. But I think we will not get
+benefits with that kind of hw.
+
+> I think requiring VLEN >= 128 anyway makes sense so that we don't have to worry
+> about validating the code with shorter VLEN.  And "application processors" are
+> supposed to have VLEN >= 128.  But I just wanted to make sure this is what you
+> intended too.
+
+The standard "V" extension assumes VLEN>=128. I just follow that assumption.
+https://github.com/riscv/riscv-v-spec/blob/master/v-spec.adoc#183-v-vector-extension-for-application-processors
+
+-Jerry
+
 
 _______________________________________________
 linux-riscv mailing list
