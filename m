@@ -4,90 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B621C4167B
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Nov 2023 14:55:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E705CC07CA9
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Nov 2023 15:00:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8dJuorkFn+i1KNoy+W/xVWeW313lvgiwTeONwr1We2U=; b=ann+TGNTGjQ8fB
-	e3dmLL4u0dWMkW4UB3DuSTl+9ghhC1/b/eldWE6QXkHcCmQegwKCH6EWvLrZ/l/qzcQmYhvNqxoqe
-	/2Kb+oeTsU7W0GkQMrFkQ28ZrnB24RsdT1GnQNDjliSqv9qoM4rREVYWaUr2JgFkKW+aLA5olmtpk
-	xt4Jlll/gxyM+zWcEAlvPVJKRRQ6AEXNwlmhms6hWIFGiKqfKcsLnczySZkOyDqVy4HWfgqEXioeh
-	dIzMnSnPcjym4cuJfhLdAbqL8OZXo3r0uEuXFx6CY9gYF13kAqPkNgYCg2ZwX7UW6X9yMyNLlQLsf
-	bEdHHpJ+vyI4kUpcZ0ww==;
+	List-Owner; bh=+nmZMOJjaL5axGqN6j+5JuCiCAlI1BR1qHTVqdc9ZBk=; b=SnBVlSmMUXeY/h
+	nh8AR0KfpaH09DNpi+D1l+rNlHcPrNo8qhuBlEnGt+hpxUpA9TZg/f/UMSG6eGllxbXVZ5cxdsqwv
+	O8HqvVfEIgxL8Vyj1niyPDOmJK8yY3OX/JRRuB0doxUayE4EMV6H8aLjXVcVtRmNHv2R434BdtxlK
+	A/9mopQETdyueBNlV+G4U7tNXtaitWt1qr+rx3C1xhz44Zs1KoOG+/pL5vmVRJFPSCSFICUhhwCJt
+	Muzq5k6+P2rTWspucFfl3oN2tWHqbBQtn6aY2mhimTAiDNmvVjdR0GojUEKYAGrgeJ529hV1qG3SI
+	+IcUZvHAQqmEoumX847w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7zUp-005aLk-1x;
-	Tue, 28 Nov 2023 14:55:31 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1r7zZf-005bwB-15;
+	Tue, 28 Nov 2023 15:00:31 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7zUm-005aIV-0h
-	for linux-riscv@lists.infradead.org;
-	Tue, 28 Nov 2023 14:55:30 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-5b9a456798eso3282011a12.3
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Nov 2023 06:55:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1701183327; x=1701788127; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+VVLFlRU9wYvo88+4OGIocSm8Yau0IVgd5ynlDYwNo0=;
-        b=bSVdzN78952+8E3m2+jhcWwyUSs0Dv3EwjqNIVpoRcj5o4xq9ih79XMbT4Ajw+LddZ
-         93+5N+Jhe+wOG8lEK+OYaqQl5DCB+acPZVwSJ1nhJ3dLtmMfUq+VSUOzkqnlPQ8weYNt
-         ZZX8RSpSiaz3LL2oMvfizSEQPkPnukLPCG6gSSZABjhuyyzgdubk8lTLeNhcd3a5Z+q+
-         CPNPJNb/92TtjxAhA0jaWLyPIrRiOlzNoPaKl0qxYCt55S8bf/WzHuI3sAgE9C3V6+uM
-         AArrKicr1s+Z0Pl5rU0yEFx9cfwkn12ciY7P6LbU8O5bgmcGSfqPm7PIfYfMQknBRrZV
-         ottQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701183327; x=1701788127;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+VVLFlRU9wYvo88+4OGIocSm8Yau0IVgd5ynlDYwNo0=;
-        b=Fqnfpo1HlZaPUsGjXnRHuJprYiBg+wnvkIi2inD3hJDi1fa8CHHgaOjO1f3aXyMCk0
-         qyD2wS43NNG+DTmgjbRgPkUQdGGo1d7WSRokMU8PDVRlxatsNaI8gPKfT/xR5gPpD9HG
-         //c5S+BcWnLXSLhLiMtEZZ60/aMs9qHBrscXKuoxDNsLBz7ixbNeSJmBE3WugaAehwy+
-         xcgDskbNSG2j5Una5SiebBFhfMtzsLtiZzGm+3J++CQCWjm9vJAF/VL5CDyfLVfSwySm
-         4QAEzu7CGxGYX78+OTtAYvMwh7pR/tZrMgtzhPoBJsnOh3SmrZc23c1DtEHaP8Smo8dL
-         nenw==
-X-Gm-Message-State: AOJu0YwI5pJLR2Eq7r1HMnSdxgh32B+ZIXfeV4wQoBStMTswnIuFSBYk
-	AggeVejoP1Ibbs++SaIZNOKZkw==
-X-Google-Smtp-Source: AGHT+IHZ95VAy9/7S8RkRKOXL8kFHrGKjfJWJoXp0yuxzlNt0eSXamoYyifB6bHsdqesqmrNE+3K7g==
-X-Received: by 2002:a17:90a:1a5d:b0:280:24c7:509 with SMTP id 29-20020a17090a1a5d00b0028024c70509mr13617016pjl.46.1701183327478;
-        Tue, 28 Nov 2023 06:55:27 -0800 (PST)
-Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id u11-20020a170902e80b00b001bf11cf2e21sm10281552plg.210.2023.11.28.06.55.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Nov 2023 06:55:27 -0800 (PST)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Paolo Bonzini <pbonzini@redhat.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Shuah Khan <shuah@kernel.org>
-Cc: Anup Patel <anup@brainfault.org>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	devicetree@vger.kernel.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 15/15] KVM: riscv: selftests: Add Zfa extension to get-reg-list test
-Date: Tue, 28 Nov 2023 20:23:57 +0530
-Message-Id: <20231128145357.413321-16-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20231128145357.413321-1-apatel@ventanamicro.com>
-References: <20231128145357.413321-1-apatel@ventanamicro.com>
+	id 1r7zZa-005buL-3B;
+	Tue, 28 Nov 2023 15:00:29 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4SflrL4KYTz67TNp;
+	Tue, 28 Nov 2023 22:55:46 +0800 (CST)
+Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
+	by mail.maildlp.com (Postfix) with ESMTPS id 340931408FF;
+	Tue, 28 Nov 2023 23:00:19 +0800 (CST)
+Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
+ (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35; Tue, 28 Nov
+ 2023 15:00:18 +0000
+Date: Tue, 28 Nov 2023 15:00:17 +0000
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+CC: Gavin Shan <gshan@redhat.com>, <linux-pm@vger.kernel.org>,
+	<loongarch@lists.linux.dev>, <linux-acpi@vger.kernel.org>,
+	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>, <x86@kernel.org>, <linux-csky@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <linux-ia64@vger.kernel.org>,
+	<linux-parisc@vger.kernel.org>, Salil Mehta <salil.mehta@huawei.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>, <jianyong.wu@arm.com>,
+	<justin.he@arm.com>, James Morse <james.morse@arm.com>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>
+Subject: Re: [PATCH RFC 10/22] drivers: base: Move cpu_dev_init() after
+ node_dev_init()
+Message-ID: <20231128150017.000069eb@Huawei.com>
+In-Reply-To: <20231128135536.00002ab9@Huawei.com>
+References: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
+	<E1r0JLV-00CTxS-QB@rmk-PC.armlinux.org.uk>
+	<095c2d24-735b-4ce2-ba2e-9ec2164f2237@redhat.com>
+	<ZVHXk9JG7gUjtERt@shell.armlinux.org.uk>
+	<ZVywLPwhILp083Jk@shell.armlinux.org.uk>
+	<20231128135536.00002ab9@Huawei.com>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
+X-Originating-IP: [10.202.227.76]
+X-ClientProxiedBy: lhrpeml500006.china.huawei.com (7.191.161.198) To
+ lhrpeml500005.china.huawei.com (7.191.163.240)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231128_065528_271361_E327DD29 
-X-CRM114-Status: UNSURE (   8.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231128_070027_308228_1B5516EF 
+X-CRM114-Status: GOOD (  25.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,52 +84,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The KVM RISC-V allows Zfa extension for Guest/VM so let us
-add this extension to get-reg-list test.
+On Tue, 28 Nov 2023 13:55:36 +0000
+Jonathan Cameron <Jonathan.Cameron@Huawei.com> wrote:
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- tools/testing/selftests/kvm/riscv/get-reg-list.c | 4 ++++
- 1 file changed, 4 insertions(+)
+> On Tue, 21 Nov 2023 13:27:08 +0000
+> "Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
+> 
+> > On Mon, Nov 13, 2023 at 08:00:19AM +0000, Russell King (Oracle) wrote:  
+> > > On Mon, Nov 13, 2023 at 10:58:46AM +1000, Gavin Shan wrote:    
+> > > > 
+> > > > 
+> > > > On 11/7/23 20:30, Russell King (Oracle) wrote:    
+> > > > > From: James Morse <james.morse@arm.com>
+> > > > > 
+> > > > > NUMA systems require the node descriptions to be ready before CPUs are
+> > > > > registered. This is so that the node symlinks can be created in sysfs.
+> > > > > 
+> > > > > Currently no NUMA platform uses GENERIC_CPU_DEVICES, meaning that CPUs
+> > > > > are registered by arch code, instead of cpu_dev_init().
+> > > > > 
+> > > > > Move cpu_dev_init() after node_dev_init() so that NUMA architectures
+> > > > > can use GENERIC_CPU_DEVICES.
+> > > > > 
+> > > > > Signed-off-by: James Morse <james.morse@arm.com>
+> > > > > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > > > > ---
+> > > > > Note: Jonathan's comment still needs addressing - see
+> > > > >    https://lore.kernel.org/r/20230914121612.00006ac7@Huawei.com
+> > > > > ---
+> > > > >   drivers/base/init.c | 2 +-
+> > > > >   1 file changed, 1 insertion(+), 1 deletion(-)
+> > > > >     
+> > > > 
+> > > > With Jonathan's comments addressed:    
+> > > 
+> > > That needs James' input, which is why I made the note on the patch.    
+> > 
+> > I'm going to be posting the series without RFC soon, and it will be
+> > with Jonathan's comment unaddressed - because as I've said several
+> > times it needs James' input and we have sadly not yet received that.
+> > 
+> > Short of waiting until James can respond, I don't think there are
+> > any other alternatives.  
+> 
+> In the interests of expediency I'm fine with that.  (To be honest I'd
+> forgotten I even made that comment ;)
+>
+ 
+Given what I was looking for was a 'nice to have' extra bit of info in the
+patch description and I'm fine with the actual change even without that:
 
-diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-index df03bc511fbf..3ae919469c38 100644
---- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
-+++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-@@ -49,6 +49,7 @@ bool filter_reg(__u64 reg)
- 	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZBKC:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZBKX:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZBS:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZFA:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZFH:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZFHMIN:
- 	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZICBOM:
-@@ -392,6 +393,7 @@ static const char *isa_ext_id_to_str(const char *prefix, __u64 id)
- 		KVM_ISA_EXT_ARR(ZBKC),
- 		KVM_ISA_EXT_ARR(ZBKX),
- 		KVM_ISA_EXT_ARR(ZBS),
-+		KVM_ISA_EXT_ARR(ZFA),
- 		KVM_ISA_EXT_ARR(ZFH),
- 		KVM_ISA_EXT_ARR(ZFHMIN),
- 		KVM_ISA_EXT_ARR(ZICBOM),
-@@ -796,6 +798,7 @@ KVM_ISA_EXT_SIMPLE_CONFIG(zbkb, ZBKB);
- KVM_ISA_EXT_SIMPLE_CONFIG(zbkc, ZBKC);
- KVM_ISA_EXT_SIMPLE_CONFIG(zbkx, ZBKX);
- KVM_ISA_EXT_SIMPLE_CONFIG(zbs, ZBS);
-+KVM_ISA_EXT_SIMPLE_CONFIG(zfa, ZFA);
- KVM_ISA_EXT_SIMPLE_CONFIG(zfh, ZFH);
- KVM_ISA_EXT_SIMPLE_CONFIG(zfhmin, ZFHMIN);
- KVM_ISA_EXT_SUBLIST_CONFIG(zicbom, ZICBOM);
-@@ -844,6 +847,7 @@ struct vcpu_reg_list *vcpu_configs[] = {
- 	&config_zbkc,
- 	&config_zbkx,
- 	&config_zbs,
-+	&config_zfa,
- 	&config_zfh,
- 	&config_zfhmin,
- 	&config_zicbom,
--- 
-2.34.1
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+
+> Jonathan
+> 
+> > 
+> > I do hope we can get this queued up for v6.8 though.
+*fingers crossed* !
+> >   
+> 
+> 
+> _______________________________________________
+> linux-arm-kernel mailing list
+> linux-arm-kernel@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
 
 
 _______________________________________________
