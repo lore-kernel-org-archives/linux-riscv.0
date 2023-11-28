@@ -4,77 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E48DC07E97
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Nov 2023 15:42:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D1FC4167B
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Nov 2023 15:48:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9G7UKE/fmnQ5wEw3+Mattoz+/zsMXXncB26z8RRgsL0=; b=1OAMLijHWNQ/aF
-	RbPqcY1+kFvodRtCA+w+r+tarBHbBL45JwC10CNiO4IB7ok8O8GuKloszbrGUeQti9uCk500bl6hG
-	gWbGHeoG12J1smm2pkMmQ60Q5xgom5hTUlzq0AVSOsPuf5P+ras2hfU3u6sRHXMiwGIIoYyiwzzeO
-	k17IKaveHUNDyWyAA/+vAclXbgfI4uq7moRIupvkFB8wtZre3e0o8K95lGd47Wh3jwafh4soudUN1
-	4/ispJowodHfyBu4g8/VzQ28a4es32Ath/fkVoPMqTpo+TIALImUWJzprDSw4tZquOeJ6Nh/oMD4/
-	J0b/BzW9W74L3NrOcdMw==;
+	List-Owner; bh=BnEIjuqhvu63v67D3fnk6ynDgdKFx/ddkmWRNOvroyI=; b=zFEyKdk065DX1v
+	1zbC72XfO8DV9HJ8zge86K3uzs+Kb1S95tfJk0u+V4Yxkd3xwEB0fCT9/lUxT799K1TrrreClzWV/
+	WjFYjSk1UJNQ/wpPN0NNLvNWY81KKYqmYm+yho6Y8VVJaveEaJPNZgGWu7h4t8KKIOVER+aWe5UkP
+	RJSykwq/3KElrZcA8wh6pZEDhXbdQ/YqQibZnqvPgdmSYVIgvTxo8a0NenpxZJleQzriwSfJjegDw
+	8fIHZlsnJc5E8JhbE+wHqBaaCURlbhqu6CAqwGnypTi88fwCVUET5vPiTs99iNGGFaGjwtAcA5A2w
+	d8N3/jFyw4jk4b6ug8gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r80EL-005iQ9-10;
-	Tue, 28 Nov 2023 15:42:33 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1r80Jh-005jAo-2Z;
+	Tue, 28 Nov 2023 15:48:05 +0000
+Received: from madras.collabora.co.uk ([46.235.227.172])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r80EI-005iP8-0B;
-	Tue, 28 Nov 2023 15:42:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=IMKJEnNn+G4rdqFGH3iRHztZa/N2RADNEAueBo8O0cY=; b=z16DHxP08aFFFJ47LD9uxtJpsn
-	+t0RB0TyQ2KyCYVbEMXvvjymQCwHExD6/vKRXzXzkjojJ7IP2XE8qmxVC8cAHrtCd0+IIrVCm7qdN
-	ZdkxE7l6xOULssxdV73BHOuaELu62t9SvZuDP9ZN1aCfYYnQMrGlQxH4qVoIMelPnGvcPnaF38Pkr
-	h5A/PWeMHMTxSr3BM1Zuta51o2q+gTVoiMVbBs0Dc0KEwgofXauGinHENQ/qNDFrdL2D7Y0vYeL4i
-	sMNspndTH56fozoySkkm+Xwt+BdU09U7Sw0FK8bN/SgdK1YxaDQXRaJcCIRC8UP2EoMRf9O+b1H83
-	t070MZQg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54994)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1r80E9-0007Xq-1d;
-	Tue, 28 Nov 2023 15:42:21 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1r80EA-00034k-5Y; Tue, 28 Nov 2023 15:42:22 +0000
-Date: Tue, 28 Nov 2023 15:42:22 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev,
-	x86@kernel.org, linux-csky@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-ia64@vger.kernel.org,
-	linux-parisc@vger.kernel.org, Salil Mehta <salil.mehta@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	jianyong.wu@arm.com, justin.he@arm.com,
-	James Morse <james.morse@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>
-Subject: Re: [PATCH RFC 02/22] x86: intel_epb: Don't rely on link order
-Message-ID: <ZWYKXvbAck9kQ+iy@shell.armlinux.org.uk>
-References: <ZUoRY33AAHMc5ThW@shell.armlinux.org.uk>
- <E1r0JKq-00CTwZ-Mh@rmk-PC.armlinux.org.uk>
- <20231128144059.000042c8@Huawei.com>
+	id 1r80Jd-005j9p-2t;
+	Tue, 28 Nov 2023 15:48:03 +0000
+Received: from [100.116.17.117] (cola.collaboradmins.com [195.201.22.229])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id 044FB66072A4;
+	Tue, 28 Nov 2023 15:47:56 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1701186478;
+	bh=Vl9zpAwbMrEUnNNnWPnj5b4a/P1lPAcyNOVXcUWIhSQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=WZ1m+bv3Q0Jy/chYrN3+dL6SjUX316Z3dvRGEOz4Z2BNnoEIB8lbkgymUNP1nB+DY
+	 yBt948VB2I8zNuO1IADb9n7TxWTa9EHrVxKKDplAGyoFlNciITQ0Q8yW3VnhzeUzD7
+	 sWQLNGT0RAW2oFegXZAlnU0fP7FLNYj+o0/lMm41osUFrCQUv35dADby9b1MMFmVos
+	 UrkWS3AyWavs3NLKUwXuoDzW5zqFSo5DDsQiEwdX8D0mBA8c4DxP4Qu8gM22+jZeLW
+	 Uq3/uRu+1s1+JMOdQK44JYhcUxIj4pzfBcyAOSGSgHedjE/N0rnKFVk0u7NsGkLyz9
+	 fO+ArihKVLK3A==
+Message-ID: <054bbf2a-e7ba-40bf-8f8b-f0e0e9b396c6@collabora.com>
+Date: Tue, 28 Nov 2023 17:47:54 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231128144059.000042c8@Huawei.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 12/12] [UNTESTED] riscv: dts: starfive:
+ beaglev-starlight: Enable gmac
+Content-Language: en-US
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Samin Guo <samin.guo@starfivetech.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+References: <20231029042712.520010-1-cristian.ciocaltea@collabora.com>
+ <20231029042712.520010-13-cristian.ciocaltea@collabora.com>
+ <CAJM55Z9e=vjGKNnmURN15mvXo2bVd3igBA-3puF9q7eh5hiP+A@mail.gmail.com>
+ <2f06ce36-0dc1-495e-b6a6-318951a53e8d@collabora.com>
+ <CAJM55Z8vkMbqXY5sS2o4cLi8ow-JQTcXU9=uYMBSykwd4ppExw@mail.gmail.com>
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <CAJM55Z8vkMbqXY5sS2o4cLi8ow-JQTcXU9=uYMBSykwd4ppExw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231128_074230_092217_F0A45ED1 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20231128_074802_198067_352AFE68 
+X-CRM114-Status: GOOD (  25.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,35 +94,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 28, 2023 at 02:40:59PM +0000, Jonathan Cameron wrote:
-> On Tue, 07 Nov 2023 10:29:28 +0000
-> Russell King <rmk+kernel@armlinux.org.uk> wrote:
+On 11/28/23 14:08, Emil Renner Berthing wrote:
+> Cristian Ciocaltea wrote:
+>> On 11/26/23 23:10, Emil Renner Berthing wrote:
+>>> Cristian Ciocaltea wrote:
+>>>> The BeagleV Starlight SBC uses a Microchip KSZ9031RNXCA PHY supporting
+>>>> RGMII-ID.
+>>>>
+>>>> TODO: Verify if manual adjustment of the RX internal delay is needed. If
+>>>> yes, add the mdio & phy sub-nodes.
+>>>
+>>> Sorry for being late here. I've tested that removing the mdio and phy nodes on
+>>> the the Starlight board works fine, but the rx-internal-delay-ps = <900>
+>>> property not needed on any of my VisionFive V1 boards either.
+>>
+>> No problem, thanks a lot for taking the time to help with the testing!
+>>
+>>> So I wonder why you need that on your board
+>>
+>> I noticed you have a patch 70ca054e82b5 ("net: phy: motorcomm: Disable
+>> rgmii rx delay") in your tree, hence I you please confirm the tests were
+>> done with that commit reverted?
+>>
+>>> Also in the driver patch you add support for phy-mode = "rgmii-txid", but here
+>>> you still set it to "rgmii-id", so which is it?
+>>
+>> Please try with "rgmii-id" first. I added "rgmii-txid" to have a
+>> fallback solution in case the former cannot be used.
 > 
-> > From: James Morse <james.morse@arm.com>
-> > 
-> > intel_epb_init() is called as a subsys_initcall() to register cpuhp
-> > callbacks. The callbacks make use of get_cpu_device() which will return
-> > NULL unless register_cpu() has been called. register_cpu() is called
-> > from topology_init(), which is also a subsys_initcall().
-> > 
-> > This is fragile. Moving the register_cpu() to a different
-> > subsys_initcall()  leads to a NULL dereference during boot.
-> > 
-> > Make intel_epb_init() a late_initcall(), user-space can't provide a
-> > policy before this point anyway.
-> > 
-> > Signed-off-by: James Morse <james.morse@arm.com>
-> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> Ah, I see. Sorry I should have read up on the whole thread. Yes, the Starlight
+> board with the Microchip phy works with "rgmii-id" as is. And you're right,
+> with "rgmii-id" my VF1 needs the rx-internal-delay-ps = <900> property too.
+
+That's great, we have now a pretty clear indication that this uncommon behavior
+stems from the Motorcomm PHY, and *not* from GMAC.
+ 
+>>
+>>> You've alse removed the phy reset gpio on the Starlight board:
+>>>
+>>>   snps,reset-gpios = <&gpio 63 GPIO_ACTIVE_LOW>
+>>>
+>>> Why?
+>>
+>> I missed this in v1 as the gmac handling was done exclusively in
+>> jh7100-common. Thanks for noticing!
+>>
+>>>>
+>>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>>>> ---
+>>>>  arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts | 5 +++++
+>>>>  1 file changed, 5 insertions(+)
+>>>>
+>>>> diff --git a/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts b/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
+>>>> index 7cda3a89020a..d3f4c99d98da 100644
+>>>> --- a/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
+>>>> +++ b/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
+>>>> @@ -11,3 +11,8 @@ / {
+>>>>  	model = "BeagleV Starlight Beta";
+>>>>  	compatible = "beagle,beaglev-starlight-jh7100-r0", "starfive,jh7100";
+>>>>  };
+>>>> +
+>>>> +&gmac {
+>>>> +	phy-mode = "rgmii-id";
+>>>> +	status = "okay";
+>>>> +};
+>>>
+>>> Lastly the phy-mode and status are the same for the VF1 and Starlight boards,
+>>> so why can't these be set in the jh7100-common.dtsi?
+>>
+>> I wasn't sure "rgmii-id" can be used for both boards and I didn't want
+>> to unconditionally enable gmac on Starlight before getting a
+>> confirmation that this actually works.
+>>
+>> If there is no way to make it working with "rgmii-id" (w/ or w/o
+>> adjusting rx-internal-delay-ps), than we should switch to "rgmii-txid".
 > 
-> Seems reasonable. FWIW
-> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+> Yeah, I don't exactly know the difference, but both boards seem to work fine
+> with "rgmii-id", so if that is somehow better and/or more correct let's just go
+> with that.
 
-Thanks, however this has already been merged into the tip tree since
-Rafael suggested sending it separately.
+As Andrew already pointed out, going with "rgmii-id" would be the recommended
+approach, as this passes the responsibility of adding both TX and RX delays to
+the PHY.  "rgmii-txid" requires the MAC to handle the RX delay, which might
+break the boards having a conformant (aka well-behaving) PHY.  For some reason
+the Microchip PHY seems to work fine in both cases, but that's most likely an
+exception, as other PHYs might expose a totally different and undesired
+behavior.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+I will prepare a v3 soon, and will drop the patches you have already submitted
+as part of [1].
+
+Thanks again for your support, 
+Cristian
+
+[1]: https://lore.kernel.org/all/20231126232746.264302-1-emil.renner.berthing@canonical.com/
 
 _______________________________________________
 linux-riscv mailing list
