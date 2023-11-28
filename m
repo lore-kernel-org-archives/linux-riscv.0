@@ -4,92 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96553C4167B
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Nov 2023 07:17:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94EC7C4167B
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Nov 2023 07:20:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9bGLvFVHRanPckV9gOjz3nlv/SByzDEiAQScwfr4dRM=; b=ZnicPyXJSxjoHF
-	9A0ijWkwUhz5SRW10dFt6OJXF8W+PLAHEQ67kV0aO9Wn6BvjsF1Ama7TtD4hRaY51P2LSxWQm1WEI
-	8yksNmnLIHqddfN2bkER7csKG/28oS82W6fqWTJELGAieTsuzKA2cxoX6NYlh+hFntsDUsx7VgC8h
-	qiG0LE1dlJ31wmTmR1mL2CE8YiLsLXN+9OBSk4OOZ/6LtMeOaASBKd4q/ADKUak/38/SY9LxTysPE
-	iL5p4ECquON6z5OziW7wzNp66Pi/LBDVdNbPvSUcEUoK2nOtIFIQxA3ikZ35L1b868/bhOZnmBc/K
-	a0nQrrNUzH2xMBYkf56w==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zJliSfIuBJ0jOM60YtKLOqdFIjeXcft/GxCQycXeOWY=; b=VN8WRTuLtBYGfG
+	/Bxl8CUA1EK1iCkHEow+padPQxMJHUySal0iuukYdXSZbXBBEKgxh/QMR9pu2u2AJY0HbQZK2W/Eu
+	3bi4vr5KLVeZxk1D6anGG83kv07pv8IJcwJJWqE+1fPlsTZdxC/zBPPTHHEEWLToRQ7v9p7Aj3Qha
+	r1PlDyn8d10W/0xgK3TE1IXS8m5dxhUs/tLNWWeWeHd3n0JO8GhvPJFmluLxBUEwGafdjVdYJdeZz
+	4SaHBWKBy9UORHUsHW+yzni2/njEYHWn1SpdSZLWZdyUgeA4rVxLU8atYBdYugr9pkpy8h3mwTS/p
+	TjJDEXohPxTSukm8/TtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7sL9-004Lnk-2G;
-	Tue, 28 Nov 2023 07:17:03 +0000
-Received: from mail-oo1-xc29.google.com ([2607:f8b0:4864:20::c29])
+	id 1r7sO6-004M60-0c;
+	Tue, 28 Nov 2023 07:20:06 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7sL5-004LmS-2O
+	id 1r7sO3-004M5P-1F
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Nov 2023 07:17:01 +0000
-Received: by mail-oo1-xc29.google.com with SMTP id 006d021491bc7-58d12b53293so2925875eaf.0
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Nov 2023 23:16:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1701155818; x=1701760618; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1hGy46pUf93WoDJ7rnnE2nED/iyelB1yhgDX8ASNQ7E=;
-        b=lxiAwfgXceKErAizc5gTtR/K63OBC0BSgpTNWvQevEGY7Wdo5Re6WRzgdOId1ovFwN
-         rxFIMC7S8xoWX7BJyFuz9ICXZPCHlxqFt4K/hgncIScPwl8sJWSP0RicvwSSByUmflui
-         C55bXcVjX+0pNIQjZldm2ktKIgvgXkHTbCASplN9BP9RXE3/mj5r7IgxrzXWLGj1NXbI
-         KGzfcBGU+jtPTWRcUuKmGymEshhKbzUAguQxtWj2EGCGOHZxhyjvTGpHa1VTQM2Su2vU
-         ZjCQII0DHHxb+KX74zWX13EpbWmwyCPD0PH3RLkRZkOS2IRVS204OEphjuI1ZZ2Slrzx
-         3EtA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701155818; x=1701760618;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1hGy46pUf93WoDJ7rnnE2nED/iyelB1yhgDX8ASNQ7E=;
-        b=kf5AmKE0weZg+KentnKJSsEhp7q07dpAiNbF1uVjtUETGgoNoFXUzdg9OP/qQGiFO0
-         Gdc/Z0O+0pC35uB8zSIKbhXqVspXU+7ZUaH7LecEGFeCsQl4iEoYMVmRTtnMYmCJeZDb
-         7NX9aRavEAB7M67gp/y47yJAgnOgsoPxJ5Rv0cGJnyRK5KhcnE29mUOxKUYdiYVyb0Nl
-         0n+ChhfQ4kM5SWgV1dQ4h746yrb0YifGWxi6e8fzjVC7DaigBhNeMqDmNdxkDboKIxfG
-         HNI4pQ8dNQ1u99oPoG/FrbjsjL/zEe3jYxbqkxROdDRyAxhluHP5stP8dOcAVr3ISn+u
-         iQTg==
-X-Gm-Message-State: AOJu0YwDaFV+vd0plY7gbdFwfj3hf50gkCQNSQGHJQNLh9cV5NmyObWu
-	UcNVfp3pQL+ncnuiYKznwF+d8w==
-X-Google-Smtp-Source: AGHT+IFgwFw7npmV6jjE0YipeNTQs2cwOSwYlG2/9Hv4A2Hr9ObLQntqtxAzF+6fw3EgWDGHIqkZ2Q==
-X-Received: by 2002:a05:6358:52c6:b0:16b:c479:d6c1 with SMTP id z6-20020a05635852c600b0016bc479d6c1mr17221034rwz.9.1701155817816;
-        Mon, 27 Nov 2023 23:16:57 -0800 (PST)
-Received: from ?IPv6:2402:7500:4ce:8338:14c0:b892:2482:e230? ([2402:7500:4ce:8338:14c0:b892:2482:e230])
-        by smtp.gmail.com with ESMTPSA id n7-20020a634007000000b005c2185be2basm8957980pga.54.2023.11.27.23.16.54
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 27 Nov 2023 23:16:57 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.7\))
-Subject: Re: [PATCH v2 09/13] RISC-V: crypto: add Zvknha/b accelerated
- SHA224/256 implementations
-From: Jerry Shih <jerry.shih@sifive.com>
-In-Reply-To: <20231128041235.GJ1463@sol.localdomain>
-Date: Tue, 28 Nov 2023 15:16:53 +0800
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- palmer@dabbelt.com,
- Albert Ou <aou@eecs.berkeley.edu>,
- herbert@gondor.apana.org.au,
- davem@davemloft.net,
- conor.dooley@microchip.com,
- ardb@kernel.org,
- heiko@sntech.de,
- phoebe.chen@sifive.com,
- hongrong.hsu@sifive.com,
- linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- linux-crypto@vger.kernel.org
-Message-Id: <51190E7A-25BD-4D9A-AADF-02FE2A280508@sifive.com>
-References: <20231127070703.1697-1-jerry.shih@sifive.com>
- <20231127070703.1697-10-jerry.shih@sifive.com>
- <20231128041235.GJ1463@sol.localdomain>
-To: Eric Biggers <ebiggers@kernel.org>
-X-Mailer: Apple Mail (2.3445.9.7)
+	Tue, 28 Nov 2023 07:20:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id E5DA7B836D3;
+	Tue, 28 Nov 2023 07:20:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDFE8C433C8;
+	Tue, 28 Nov 2023 07:19:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1701156001;
+	bh=1vLHWvsk352nK70Ozlgc+kzwZuGs8qN2ZJtFDtyaFms=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=LfQliYZYQAdz/IO2rlMbVOt/pyqoyUth6GB/BIEc9R6bBR34lLdjZUiVEyYjaXk+W
+	 Dnn0NEssXSepWnhA6f58qrmWXd6U8cWE1uHBuOg3DQUf0I8Iqi53p3NaAGZxsErW+C
+	 2UVRP1FfrqM/JIuHDv0Djy4bmjH8yIJ0rPrCIDq/YFqqD4juSqXfHGtV0ig+VQCWME
+	 RE1HXt7tIpM6E+tDMXjEeP4QRKbdD7f/dwfBJI6ab3JLuwk1XI3lGNKfn3i9w8vp7C
+	 vc9EulFFaVMZnaoCd7MJNu2voJDC2VX22mnTjVedG3KLvCwXD6Dt+ITNPSI58L2cD7
+	 uRUAUKe8G011A==
+Message-ID: <5820442a-7819-488f-b389-8385531b510f@kernel.org>
+Date: Tue, 28 Nov 2023 08:19:51 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/7] dt-bindings: timer: Add StarFive JH8100 clint
+To: JeeHeng Sia <jeeheng.sia@starfivetech.com>,
+ "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+ "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ "conor@kernel.org" <conor@kernel.org>, "kernel@esmil.dk" <kernel@esmil.dk>,
+ "robh+dt@kernel.org" <robh+dt@kernel.org>,
+ "emil.renner.berthing@canonical.com" <emil.renner.berthing@canonical.com>
+Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Leyfoon Tan <leyfoon.tan@starfivetech.com>
+References: <20231127013602.253835-1-jeeheng.sia@starfivetech.com>
+ <20231127013602.253835-4-jeeheng.sia@starfivetech.com>
+ <93526583-ab8f-4ddb-9846-41e4d1834847@kernel.org>
+ <d72d6fa58309438385e14c3713918654@EXMBX066.cuchost.com>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <d72d6fa58309438385e14c3713918654@EXMBX066.cuchost.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231127_231659_836424_C9E39028 
-X-CRM114-Status: GOOD (  23.70  )
+X-CRM114-CacheID: sfid-20231127_232003_705169_9F04AC3D 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,55 +127,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Nov 28, 2023, at 12:12, Eric Biggers <ebiggers@kernel.org> wrote:
-> On Mon, Nov 27, 2023 at 03:06:59PM +0800, Jerry Shih wrote:
->> +/*
->> + * sha256 using zvkb and zvknha/b vector crypto extension
->> + *
->> + * This asm function will just take the first 256-bit as the sha256 state from
->> + * the pointer to `struct sha256_state`.
->> + */
->> +asmlinkage void
->> +sha256_block_data_order_zvkb_zvknha_or_zvknhb(struct sha256_state *digest,
->> +					      const u8 *data, int num_blks);
+On 28/11/2023 06:24, JeeHeng Sia wrote:
 > 
-> The SHA-2 and SM3 assembly functions are potentially being called using indirect
-> calls, depending on whether the compiler optimizes out the indirect call that
-> exists in the code or not.  These assembly functions also are not defined using
-> SYM_TYPED_FUNC_START.  This is not compatible with Control Flow Integrity
-> (CONFIG_CFI_CLANG); these indirect calls might generate CFI failures.
 > 
-> I recommend using wrapper functions to avoid this issue, like what is done in
-> arch/arm64/crypto/sha2-ce-glue.c.
-> 
-> - Eric
+>> -----Original Message-----
+>> From: Krzysztof Kozlowski <krzk@kernel.org>
+>> Sent: Monday, November 27, 2023 4:48 PM
+>> To: JeeHeng Sia <jeeheng.sia@starfivetech.com>; paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu;
+>> conor@kernel.org; kernel@esmil.dk; robh+dt@kernel.org; emil.renner.berthing@canonical.com
+>> Cc: linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>
+>> Subject: Re: [PATCH 3/7] dt-bindings: timer: Add StarFive JH8100 clint
+>>
+>> On 27/11/2023 02:35, Sia Jee Heng wrote:
+>>> Add compatible string for the StarFive JH8100 clint
+>>>
+>>> Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+>>> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+>>> ---
+>>
+>> Please use scripts/get_maintainers.pl to get a list of necessary people
+>> and lists to CC. It might happen, that command when run on an older
+>> kernel, gives you outdated entries. Therefore please be sure you base
+>> your patches on recent Linux kernel.
+>>
+>> You missed at least devicetree list (maybe more), so this won't be
+>> tested by automated tooling. Performing review on untested code might be
+>> a waste of time, thus I will skip this patch entirely till you follow
+>> the process allowing the patch to be tested.
+>>
+>> Please kindly resend and include all necessary To/Cc entries.
+> Noted. Should I resend the patches with the V1 tag and with addressed comments?
 
-Here is the previous review comment for the assembly function wrapper:
-> > +asmlinkage void sha256_block_data_order_zvbb_zvknha(u32 *digest, const void *data,
-> > +					unsigned int num_blks);
-> > +
-> > +static void __sha256_block_data_order(struct sha256_state *sst, u8 const *src,
-> > +				      int blocks)
-> > +{
-> > +	sha256_block_data_order_zvbb_zvknha(sst->state, src, blocks);
-> > +}
-> Having a double-underscored function wrap around a non-underscored one like this
-> isn't conventional for Linux kernel code.  IIRC some of the other crypto code
-> happens to do this, but it really is supposed to be the other way around.
-> 
-> I think you should just declare the assembly function to take a 'struct
-> sha256_state', with a comment mentioning that only the 'u32 state[8]' at the
-> beginning is actually used.  That's what arch/x86/crypto/sha256_ssse3_glue.c
-> does, for example.  Then, __sha256_block_data_order() would be unneeded.
+This was v1. Next one is v2.
 
-Do you mean that we need the wrapper functions back for both SHA-* and SM3?
-If yes, we also don't need to check the state offset like:
-	BUILD_BUG_ON(offsetof(struct sha256_state, state) != 0);
+Best regards,
+Krzysztof
 
-Could we just use the `SYM_TYPED_FUNC_START` in asm directly without the
-wrappers?
 
--Jerry
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
