@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AE90C4167B
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Nov 2023 04:39:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 780D7C4167B
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Nov 2023 05:25:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ylhN9OneH0b7vZb5p1AFv/y3hzkLEEkKNb+aOV/9Rpw=; b=IDQOlJw8fVbutk
-	TlH3us1wTFULu+8BxXtKtRVCA9JcJ7J20MwdqIsoPtNIPTy5VAQvgHOui4htUgyV4yQaas5hJcEWq
-	SgnaV9GerzRvU8dBIi0tvGQoVoWySOt5wHDNMN5c1773enFieBx2A7yvVGnCpTduVi9USMl3B7pTY
-	TRrUN911JThklIYkO9JQSJzFwvtQAPabiTfU8F/g50IqiMYqih/K4FC9JaFXb91qxvkQKaS7nfzEI
-	gBo3LFd3rbQ75NGQ8aFEUOgZs2QI+XHizduuuKyqJ4YoMP+dwbWAQfN4Q1TwdTT3ZsP1N1y7Mt9bv
-	X6IYzRL0UU+xqI//W4sg==;
+	List-Owner; bh=+B6GkaFsrIujDPCUWFJ+h0nsXFHauX1zaiLCplwRHqM=; b=MAoMlzL+7g0Scd
+	BzzvxWW5uz/+UG2sd5mIK4KG5kEX28yYOfOrSKTw84reZgAt9CoZJsKb1droAXR+PAYKBnuvt2qyr
+	HFMON/kFVlLiuoh4EkcCeYcgvGQP7UCziKkfykHTSiCg1IbXX5aXE0A+3SSUUKjqty8oYK4qZ9c8y
+	sui+Drf8gKzdmcgOEMA1j+BRI7O3dDSQGUCoZtEHsxGG4pUrkOhfQmwqiF99wy8BYdermCsl5hcRP
+	m80mGcCDW93ztqNwXJb4lzNqwqo6gPYEx2xHg21h7H7SU7MmJjhQtBo2k7avPjj5cmsHsRn8+R7hZ
+	po8xp/ztkF9nOVuTK8Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7psJ-0043fk-0x;
-	Tue, 28 Nov 2023 04:39:07 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r7psG-0043ez-0C
+	id 1r7qal-00485A-1D;
+	Tue, 28 Nov 2023 05:25:03 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1r7qah-00481l-32
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Nov 2023 04:39:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 7F9FBB80F98;
-	Tue, 28 Nov 2023 04:38:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71197C433C8;
-	Tue, 28 Nov 2023 04:38:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701146334;
-	bh=okh53jySklBGnFmmAyg5idpxQ+nkjU2LJa1Z0hyQQf0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tzG0kuansrDTnI3UvvMdfptVZHEeEwuCbsWaxDfrPRwZ11xb1ca+7ejaqRhULTHoK
-	 cwToWDPqZxpUeFTvmmSazzNqfrXVH0IzJpx4AXktcsGCQR4lNn1YT/dZ9poHZRfpd3
-	 zXGwVED/m0Shy95MyiwRa/TR1S2FF6gy/npEH1EmlSfS4QbC7NQNmna2A1z4NZ3Fd2
-	 gpkpTus8EZYBLiwU35kegPaRToTYoVk+V9VEv9y2pe3LZcsG2ajXTnz+t0yMlDF59d
-	 YMfKMGIDZndDOI6jMA9AGCcwGxxVXSiNHQ4iur3btFEYrhvdjBK35aQOCUpUAWtOt5
-	 /sw1eXcJ7UhhQ==
-Date: Mon, 27 Nov 2023 20:38:52 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Jerry Shih <jerry.shih@sifive.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, palmer@dabbelt.com,
-	Albert Ou <aou@eecs.berkeley.edu>, herbert@gondor.apana.org.au,
-	davem@davemloft.net, conor.dooley@microchip.com, ardb@kernel.org,
-	heiko@sntech.de, phoebe.chen@sifive.com, hongrong.hsu@sifive.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-crypto@vger.kernel.org
-Subject: Re: [PATCH v2 04/13] RISC-V: crypto: add Zvkned accelerated AES
- implementation
-Message-ID: <20231128043852.GM1463@sol.localdomain>
-References: <20231127070703.1697-1-jerry.shih@sifive.com>
- <20231127070703.1697-5-jerry.shih@sifive.com>
- <20231128035630.GG1463@sol.localdomain>
- <8BE5BD19-7401-455D-838B-56264F78471B@sifive.com>
+	Tue, 28 Nov 2023 05:25:02 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 1D1DD24E176;
+	Tue, 28 Nov 2023 13:24:30 +0800 (CST)
+Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Nov
+ 2023 13:24:29 +0800
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX162.cuchost.com
+ (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 28 Nov
+ 2023 13:24:29 +0800
+Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
+ EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
+ 15.00.1497.044; Tue, 28 Nov 2023 13:24:29 +0800
+From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, "paul.walmsley@sifive.com"
+	<paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "conor@kernel.org"
+	<conor@kernel.org>, "kernel@esmil.dk" <kernel@esmil.dk>, "robh+dt@kernel.org"
+	<robh+dt@kernel.org>, "emil.renner.berthing@canonical.com"
+	<emil.renner.berthing@canonical.com>
+CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Leyfoon Tan
+	<leyfoon.tan@starfivetech.com>
+Subject: RE: [PATCH 3/7] dt-bindings: timer: Add StarFive JH8100 clint
+Thread-Topic: [PATCH 3/7] dt-bindings: timer: Add StarFive JH8100 clint
+Thread-Index: AQHaINIiROvFaqRrFUS69iv/KsB43rCNVRYAgAHfLRA=
+Date: Tue, 28 Nov 2023 05:24:29 +0000
+Message-ID: <d72d6fa58309438385e14c3713918654@EXMBX066.cuchost.com>
+References: <20231127013602.253835-1-jeeheng.sia@starfivetech.com>
+ <20231127013602.253835-4-jeeheng.sia@starfivetech.com>
+ <93526583-ab8f-4ddb-9846-41e4d1834847@kernel.org>
+In-Reply-To: <93526583-ab8f-4ddb-9846-41e4d1834847@kernel.org>
+Accept-Language: en-US, zh-CN
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [202.188.176.82]
+x-yovoleruleagent: yovoleflag
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <8BE5BD19-7401-455D-838B-56264F78471B@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231127_203904_363765_24FF6072 
-X-CRM114-Status: GOOD (  30.61  )
+X-CRM114-CacheID: sfid-20231127_212500_283099_FDF8360E 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,105 +87,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 28, 2023 at 12:22:26PM +0800, Jerry Shih wrote:
-> On Nov 28, 2023, at 11:56, Eric Biggers <ebiggers@kernel.org> wrote:
-> > On Mon, Nov 27, 2023 at 03:06:54PM +0800, Jerry Shih wrote:
-> >> +int riscv64_aes_setkey(struct crypto_aes_ctx *ctx, const u8 *key,
-> >> +		       unsigned int keylen)
-> >> +{
-> >> +	int ret;
-> >> +
-> >> +	ret = aes_check_keylen(keylen);
-> >> +	if (ret < 0)
-> >> +		return -EINVAL;
-> >> +
-> >> +	/*
-> >> +	 * The RISC-V AES vector crypto key expanding doesn't support AES-192.
-> >> +	 * Use the generic software key expanding for that case.
-> >> +	 */
-> >> +	if ((keylen == 16 || keylen == 32) && crypto_simd_usable()) {
-> >> +		/*
-> >> +		 * All zvkned-based functions use encryption expanding keys for both
-> >> +		 * encryption and decryption.
-> >> +		 */
-> >> +		kernel_vector_begin();
-> >> +		rv64i_zvkned_set_encrypt_key(key, keylen, ctx);
-> >> +		kernel_vector_end();
-> >> +	} else {
-> >> +		ret = aes_expandkey(ctx, key, keylen);
-> >> +	}
-> > 
-> > rv64i_zvkned_set_encrypt_key() does not initialize crypto_aes_ctx::key_dec.
-> > So, decryption results will be incorrect if !crypto_simd_usable() later.
+
+
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk@kernel.org>
+> Sent: Monday, November 27, 2023 4:48 PM
+> To: JeeHeng Sia <jeeheng.sia@starfivetech.com>; paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu;
+> conor@kernel.org; kernel@esmil.dk; robh+dt@kernel.org; emil.renner.berthing@canonical.com
+> Cc: linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>
+> Subject: Re: [PATCH 3/7] dt-bindings: timer: Add StarFive JH8100 clint
 > 
-> Will we have the situation that `crypto_simd_usable()` condition is not consistent
-> during the aes_setkey(), aes_enc/dec()? If yes, all accelerated(or HW specific)
-> crypto algorithms should do the same implementations as the sw fallback path
-> since the `crypto_simd_usable()` will change back and forth.
-
-Yes, the calls to one "crypto_cipher" can happen in different contexts.  For
-example, crypto_simd_usable() can be true during setkey and false during
-decrypt, or vice versa.
-
-If the RISC-V decryption code wants to use the regular key schedule (key_enc)
-instead of the "Equivalent Inverse Cipher key schedule" (key_dec), that's
-perfectly fine, but setkey still needs to initialize key_dec in case the
-fallback to aes_decrypt() gets taken.
-
-> >> diff --git a/arch/riscv/crypto/aes-riscv64-zvkned.pl b/arch/riscv/crypto/aes-riscv64-zvkned.pl
-> >> new file mode 100644
-> >> index 000000000000..303e82d9f6f0
-> >> --- /dev/null
-> >> +++ b/arch/riscv/crypto/aes-riscv64-zvkned.pl
-> > [...]
-> >> +L_enc_128:
-> > [...]
-> >> +L_enc_192:
-> > [...]
-> >> +L_enc_256:
-> > 
-> > There's some severe source code duplication going on in the AES assembly, with
-> > the three AES variants having separate source code.  You can just leave this
-> > as-is since this is what was merged into OpenSSL and we are borrowing that for
-> > now, but I do expect that we'll want to clean this up later.
+> On 27/11/2023 02:35, Sia Jee Heng wrote:
+> > Add compatible string for the StarFive JH8100 clint
+> >
+> > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+> > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+> > ---
 > 
-> Do we prefer the code with the branches instead of the specified implementation?
-> We could make AES-128/192/256 together like:
+> Please use scripts/get_maintainers.pl to get a list of necessary people
+> and lists to CC. It might happen, that command when run on an older
+> kernel, gives you outdated entries. Therefore please be sure you base
+> your patches on recent Linux kernel.
 > 
->     @{[vaesz_vs $V24, $V1]}
->     @{[vaesem_vs $V24, $V2]}
->     @{[vaesem_vs $V24, $V3]}
->     @{[vaesem_vs $V24, $V4]}
->     @{[vaesem_vs $V24, $V5]}
->     @{[vaesem_vs $V24, $V6]}
->     @{[vaesem_vs $V24, $V7]}
->     @{[vaesem_vs $V24, $V8]}
->     @{[vaesem_vs $V24, $V9]}
->     @{[vaesem_vs $V24, $V10]}
->     beq $ROUND, $ROUND_11, 1f
->     @{[vaesem_vs $V24, $V11]}
->     @{[vaesem_vs $V24, $V12]}
->     beq $ROUND, $ROUND_13, 1f
->     @{[vaesem_vs $V24, $V13]}
->     @{[vaesem_vs $V24, $V14]}
-> 1:
->     @{[vaesef_vs $V24, $V15]}
+> You missed at least devicetree list (maybe more), so this won't be
+> tested by automated tooling. Performing review on untested code might be
+> a waste of time, thus I will skip this patch entirely till you follow
+> the process allowing the patch to be tested.
 > 
-> But we will have the additional costs for the branches.
+> Please kindly resend and include all necessary To/Cc entries.
+Noted. Should I resend the patches with the V1 tag and with addressed comments?
 > 
-
-That needs to be decided on a case by case basis depending on the performance
-impact and how much binary code is saved.  On some architectures, separate
-binary code for AES-{128,192,256} has been found to be worthwhile.  However,
-that does *not* mean that they need to have separate source code.  Take a look
-at how arch/x86/crypto/aes_ctrby8_avx-x86_64.S generates code for all the AES
-variants using macros, for example.
-
-Anyway, I don't think you should bother making too many changes to the "perlasm"
-files.  If we decide to make major cleanups I think we should just replace them
-with .S files (which already support macros).
-
-- Eric
+> Best regards,
+> Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
