@@ -4,80 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DDF1C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 17:58:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8D58C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 18:30:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oQCVfHXWI/LWemPSUUQrODEM+sYKj77QthSrtgQKc1k=; b=fDsuqD7czpyg1d
-	u2tDBIYoTbR+VZNNT/mPR7adajH+gOYZjlZngpjfV8FOLygKj8vgRYJW1P3eb3o0c7YFrGbA1P6cx
-	8WyMph00AjCu7JJ5PRfhk5NIZfu03TytE8b/V50OuOqxpPPnkeCMTtg141Pr2h0cxuVxVy9wUZT/y
-	xPjRTH5S+XKmZ+FGwSmvhj6TNEPKFo/M5WkPE703fj8k+lgmVoUbROv40eBhgpLYL5YgEiAMr8L5J
-	wjIMAw4W9APDFhOrPmzrNGXAnxhJoK3suoJm+0uSMmxJvqnNgpEt07GJGvAOOKoDrlX6Ospwk7+fi
-	RV7RWFUzpZxBZFUeAl4Q==;
+	List-Owner; bh=C3qddXGlT4rQOrc062GLOrZPbODz8fnCHj2timei6Yk=; b=CLCbDa+5/M09px
+	5JFPDab8cPdteFIkEjsajV5XUAt+R0zWepvBKshBEEsprIyFmUOsovpu/vqt4n1qA+ZTj2kOlScWE
+	MuHab2giUj0n1bdN6jjMtprznzIn/15N/606x0re4Wh2b5K6SPbDZF4LrH61JMZ7yKaQmvDShIlo/
+	r+MVwZwPnSDy2czYyylmNfatnNIeFLc64Do7wHi5kaUZsFiywU2gYJkx2b3qJ6fC1ccBxAB+jTwUL
+	FxsYlXdH6Pzh0S3detxq+hI7dkqgGqMkpIWTGvAruLyWLL5ELBE1auNMfhuZ6f2atWzfFBJMIri8E
+	vBStNsLPzch9cxw/kW7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8OpL-0093c7-1E;
-	Wed, 29 Nov 2023 17:58:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8OpH-0093bB-0b;
-	Wed, 29 Nov 2023 17:58:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 176F1143D;
-	Wed, 29 Nov 2023 09:59:05 -0800 (PST)
-Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1ABB43F5A1;
-	Wed, 29 Nov 2023 09:58:10 -0800 (PST)
-Message-ID: <788519ac-9ad7-459c-a57d-bfe1ec96db3e@arm.com>
-Date: Wed, 29 Nov 2023 17:58:08 +0000
+	id 1r8PJy-009640-2w;
+	Wed, 29 Nov 2023 18:30:02 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1r8PJv-00962v-1Q
+	for linux-riscv@lists.infradead.org;
+	Wed, 29 Nov 2023 18:30:01 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-40b27b498c3so600245e9.0
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Nov 2023 10:29:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1701282590; x=1701887390; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=1PZV2QPewxHMt+nvpSEk026io2gN1RNWhVSG3HcbufI=;
+        b=O6SfjUrvfFLsAbH7AdmaquxZ2U+o4Q6QDUeyb3obagkgtsRz8VU3VxvTQjB8Yh4agl
+         0Yf3D9cr+P9nMhXnsXihYIeXjA8bD0OQB9sPCUsK/GjCrIWSh6cMo0nm5VxZw35zCEAy
+         RyrMqKe3HOGPiNNFD8kL4qSJLhuv1yW6CrU+Xqh6JwFxfQ1TkMKU0bS5s9vlCqXBg+4f
+         Q+VXhj5RzjRFSqOkNyiXm2kSdtyAmdkXwa49mjMAKZfxUCUJUiYaBvRiZCwINwC7pgn5
+         e5rSux+GVC+VM3YvLsymQi0GT0DOL2ykhAirsrErSP2nvU3xL0RTtqKGePeuNV0g+cAe
+         2GzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701282590; x=1701887390;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1PZV2QPewxHMt+nvpSEk026io2gN1RNWhVSG3HcbufI=;
+        b=hht7QMgPfoxsEZxVvUdc+2wHVM6BMv659q+F+r0Ok2IOd14WrtPibQdOlBOa1t9+DP
+         MX0AJ50QA1X1UEU1xH5P4KacAg26vS/xEAfNx+nZuRdJxILeiRQCqLARB0QYMahNy/aS
+         4W7JmcsogMVejPmC0cxLD02wfKio11zx/mZmHCmgpI/tWJvzURZiKXuE0ImewXIDlD7d
+         jPjlYVzyfJdADjue5DUgq2dAqcx8HTHItGGHqnP8SyCi5Vg0serxpjlH6Oh9HQGry3KY
+         xs2mYtugG7EfSoRzmAoUxoeurEglBxGcc46xVTdHja6KCP62TC+KORIs8C37gnmIgT3y
+         CCEA==
+X-Gm-Message-State: AOJu0Yxilzz6dnkhfHP/dD6O931CEFBzyR8dKQIotJbrh/9GctxqhXeh
+	8AwEiC3iSf2ThbYlUWeClX8=
+X-Google-Smtp-Source: AGHT+IHI7Jg7NWdN2dQmGOw5cIlj3MXJKetXHVlNzAuZAziMMd6csd8fyL5P3GvEV7dK0hIoGVOh4g==
+X-Received: by 2002:a5d:48c9:0:b0:333:1c69:dd5 with SMTP id p9-20020a5d48c9000000b003331c690dd5mr971955wrs.6.1701282590188;
+        Wed, 29 Nov 2023 10:29:50 -0800 (PST)
+Received: from andrea ([31.189.63.178])
+        by smtp.gmail.com with ESMTPSA id 2-20020a5d47a2000000b00332ff137c29sm10453314wrb.79.2023.11.29.10.29.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Nov 2023 10:29:49 -0800 (PST)
+Date: Wed, 29 Nov 2023 19:29:43 +0100
+From: Andrea Parri <parri.andrea@gmail.com>
+To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Cc: paulmck@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
+	aou@eecs.berkeley.edu, mmaas@google.com, hboehm@google.com,
+	striker@us.ibm.com, charlie@rivosinc.com, rehn@rivosinc.com,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] membarrier: riscv: Provide core serializing command
+Message-ID: <ZWeDF0eHyOc/b9UJ@andrea>
+References: <20231127103235.28442-1-parri.andrea@gmail.com>
+ <20231127103235.28442-3-parri.andrea@gmail.com>
+ <91ab0210-07f9-42c4-af7f-a98799250cf7@efficios.com>
+ <ZWYDtB/otYvTMZWd@andrea>
+ <0a84c0e0-2571-4c7f-82ae-a429f467a16b@efficios.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/10] iommu: Replace iommu_device_lock with
- iommu_probe_device_lock
-Content-Language: en-GB
-To: Jason Gunthorpe <jgg@nvidia.com>, David Airlie <airlied@gmail.com>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
- asahi@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
- Danilo Krummrich <dakr@redhat.com>, Daniel Vetter <daniel@ffwll.ch>,
- Dexuan Cui <decui@microsoft.com>, devicetree@vger.kernel.org,
- dmaengine@vger.kernel.org, dri-devel@lists.freedesktop.org,
- David Woodhouse <dwmw2@infradead.org>, Frank Rowand
- <frowand.list@gmail.com>, Hanjun Guo <guohanjun@huawei.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, iommu@lists.linux.dev,
- Jon Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
- Karol Herbst <kherbst@redhat.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- "K. Y. Srinivasan" <kys@microsoft.com>,
- Laxman Dewangan <ldewangan@nvidia.com>, Len Brown <lenb@kernel.org>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-snps-arc@lists.infradead.org,
- linux-tegra@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Lyude Paul <lyude@redhat.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>, nouveau@lists.freedesktop.org,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Rob Herring <robh+dt@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
- Sven Peter <sven@svenpeter.dev>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Vineet Gupta <vgupta@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Wei Liu <wei.liu@kernel.org>, Will Deacon <will@kernel.org>
-Cc: Lu Baolu <baolu.lu@linux.intel.com>, Christoph Hellwig <hch@lst.de>,
- Jerry Snitselaar <jsnitsel@redhat.com>, Hector Martin <marcan@marcan.st>,
- Moritz Fischer <mdf@kernel.org>, patches@lists.linux.dev,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- Rob Herring <robh@kernel.org>, Thierry Reding <thierry.reding@gmail.com>
-References: <6-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
-From: Robin Murphy <robin.murphy@arm.com>
-In-Reply-To: <6-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
+Content-Disposition: inline
+In-Reply-To: <0a84c0e0-2571-4c7f-82ae-a429f467a16b@efficios.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231129_095819_344164_6751B83B 
-X-CRM114-Status: GOOD (  22.79  )
+X-CRM114-CacheID: sfid-20231129_102959_483363_0D27F93B 
+X-CRM114-Status: GOOD (  18.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,116 +92,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 29/11/2023 12:48 am, Jason Gunthorpe wrote:
-> The iommu_device_lock protects the iommu_device_list which is only read by
-> iommu_ops_from_fwnode().
+> > diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+> > index 217fd4de61342..f63222513076d 100644
+> > --- a/arch/riscv/mm/context.c
+> > +++ b/arch/riscv/mm/context.c
+> > @@ -323,6 +323,23 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
+> >   	if (unlikely(prev == next))
+> >   		return;
+> > +#if defined(CONFIG_MEMBARRIER) && defined(CONFIG_SMP)
+> > +	/*
+> > +	 * The membarrier system call requires a full memory barrier
+> > +	 * after storing to rq->curr, before going back to user-space.
+> > +	 *
+> > +	 * Only need the full barrier when switching between processes:
+> > +	 * barrier when switching from kernel to userspace is not
+> > +	 * required here, given that it is implied by mmdrop(); barrier
+> > +	 * when switching from userspace to kernel is not needed after
+> > +	 * store to rq->curr.
+> > +	 */
+> > +	if (unlikely(atomic_read(&next->membarrier_state) &
+> > +		     (MEMBARRIER_STATE_PRIVATE_EXPEDITED |
+> > +		      MEMBARRIER_STATE_GLOBAL_EXPEDITED)) && prev)
+> > +		smp_mb();
+> > +#endif
 > 
-> This is now always called under the iommu_probe_device_lock, so we don't
-> need to double lock the linked list. Use the iommu_probe_device_lock on
-> the write side too.
+> The approach looks good. Please implement it within a separate
+> membarrier_arch_switch_mm() as done on powerpc.
 
-Please no, iommu_probe_device_lock() is a hack and we need to remove the 
-*reason* it exists at all. And IMO just because iommu_present() is 
-deprecated doesn't justify making it look utterly nonsensical - in no 
-way does that have any relationship with probe_device, much less need to 
-serialise against it!
+Will do.  Thanks.
 
-Thanks,
-Robin.
+As regards the Fixes: tag, I guess it boils down to what we want or we
+need to take for commit "riscv: Support membarrier private cmd".  :-)
+FWIW, a quick git-log search confirmed that MEMBARRIER has been around
+for quite some time in the RISC-V world (though I'm not familiar with
+any of its mainstream uses): commit 1464d00b27b2 says (at least) since
+93917ad50972 ("RISC-V: Add support for restartable sequence").  I am
+currently inclined to pick the latter commit (and check it w/ Palmer),
+but other suggestions are welcome.
 
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
->   drivers/iommu/iommu.c | 30 +++++++++++++-----------------
->   1 file changed, 13 insertions(+), 17 deletions(-)
-> 
-> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-> index 08f29a1dfcd5f8..9557c2ec08d915 100644
-> --- a/drivers/iommu/iommu.c
-> +++ b/drivers/iommu/iommu.c
-> @@ -146,7 +146,6 @@ struct iommu_group_attribute iommu_group_attr_##_name =		\
->   	container_of(_kobj, struct iommu_group, kobj)
->   
->   static LIST_HEAD(iommu_device_list);
-> -static DEFINE_SPINLOCK(iommu_device_lock);
->   
->   static const struct bus_type * const iommu_buses[] = {
->   	&platform_bus_type,
-> @@ -262,9 +261,9 @@ int iommu_device_register(struct iommu_device *iommu,
->   	if (hwdev)
->   		iommu->fwnode = dev_fwnode(hwdev);
->   
-> -	spin_lock(&iommu_device_lock);
-> +	mutex_lock(&iommu_probe_device_lock);
->   	list_add_tail(&iommu->list, &iommu_device_list);
-> -	spin_unlock(&iommu_device_lock);
-> +	mutex_unlock(&iommu_probe_device_lock);
->   
->   	for (int i = 0; i < ARRAY_SIZE(iommu_buses) && !err; i++)
->   		err = bus_iommu_probe(iommu_buses[i]);
-> @@ -279,9 +278,9 @@ void iommu_device_unregister(struct iommu_device *iommu)
->   	for (int i = 0; i < ARRAY_SIZE(iommu_buses); i++)
->   		bus_for_each_dev(iommu_buses[i], NULL, iommu, remove_iommu_group);
->   
-> -	spin_lock(&iommu_device_lock);
-> +	mutex_lock(&iommu_probe_device_lock);
->   	list_del(&iommu->list);
-> -	spin_unlock(&iommu_device_lock);
-> +	mutex_unlock(&iommu_probe_device_lock);
->   
->   	/* Pairs with the alloc in generic_single_device_group() */
->   	iommu_group_put(iommu->singleton_group);
-> @@ -316,9 +315,9 @@ int iommu_device_register_bus(struct iommu_device *iommu,
->   	if (err)
->   		return err;
->   
-> -	spin_lock(&iommu_device_lock);
-> +	mutex_lock(&iommu_probe_device_lock);
->   	list_add_tail(&iommu->list, &iommu_device_list);
-> -	spin_unlock(&iommu_device_lock);
-> +	mutex_unlock(&iommu_probe_device_lock);
->   
->   	err = bus_iommu_probe(bus);
->   	if (err) {
-> @@ -2033,9 +2032,9 @@ bool iommu_present(const struct bus_type *bus)
->   
->   	for (int i = 0; i < ARRAY_SIZE(iommu_buses); i++) {
->   		if (iommu_buses[i] == bus) {
-> -			spin_lock(&iommu_device_lock);
-> +			mutex_lock(&iommu_probe_device_lock);
->   			ret = !list_empty(&iommu_device_list);
-> -			spin_unlock(&iommu_device_lock);
-> +			mutex_unlock(&iommu_probe_device_lock);
->   		}
->   	}
->   	return ret;
-> @@ -2980,17 +2979,14 @@ EXPORT_SYMBOL_GPL(iommu_default_passthrough);
->   
->   const struct iommu_ops *iommu_ops_from_fwnode(struct fwnode_handle *fwnode)
->   {
-> -	const struct iommu_ops *ops = NULL;
->   	struct iommu_device *iommu;
->   
-> -	spin_lock(&iommu_device_lock);
-> +	lockdep_assert_held(&iommu_probe_device_lock);
-> +
->   	list_for_each_entry(iommu, &iommu_device_list, list)
-> -		if (iommu->fwnode == fwnode) {
-> -			ops = iommu->ops;
-> -			break;
-> -		}
-> -	spin_unlock(&iommu_device_lock);
-> -	return ops;
-> +		if (iommu->fwnode == fwnode)
-> +			return iommu->ops;
-> +	return NULL;
->   }
->   
->   int iommu_fwspec_init(struct device *dev, struct fwnode_handle *iommu_fwnode,
+  Andrea
 
 _______________________________________________
 linux-riscv mailing list
