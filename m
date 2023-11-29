@@ -4,83 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89481C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 16:23:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46267C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 16:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sdLRkBHSuCNsMkN1LW76Rsk16XOINOccsxZMOplgmJ0=; b=1e1CQ1WGvqGiGM
-	BF/Vq5jN5qWnI6bstUGsPvItmrM7AAk9YRDq1TwMn+7Ig8Vu9pr/cmvbBFtIy14swWEjtA1Bg1VsV
-	zxguRoNjlGrYJ1FBnca+/rIVaCpwOMkvO1uHCCrOsxpxinYhTeoffLpzZx7wPmuSkFL4Z8m6fUaty
-	IaO2VHDSRzJeeDHxtq757lnlVd6HCuNltnZuPSVJK6+iJKbtLORgBERTP2jxuxN9avDd7n6xsRlGW
-	sYWYBG2VXX2XHeq+sUVA3JdmidNcf8FUKu2DChdNFb3y1Hf0MmOWwSRG7NFbUUZMO30Mo/MC5WwQE
-	wKohW1wH+udCJjJgnEBA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b3fyHIpPsk/mmv7Qpc64ztRbmwvAYLMwB6tsGV7BxaU=; b=u2oWaOOJTiLk7IBiipwjf2tdwi
+	i04Hgp3zenN5KzQhr3BABraCBpSaHHXEW9lwwpPlhBFjbChcSPSe9KrIdBzTYP4TjUqTeCAF3CgpM
+	2VZtxyYJAKkNrVMCeYH1S/8XX9OUFeQb4t+vHlFy8YXMljjWV99KFhzi8ENbtWtitX5+TVeva0HsP
+	aCchTVFEpGRi3WFC3gCPiPiPBO00KafN+yd1pOcHfUBqgbo9QAzYWsfDHVsUpD5Fw8vr1UzF6y4dZ
+	DvqTZ1PHQ02eCjGSBeKBLlALjpJ/iPZq53qtAhBWiSDkzmXI86GNsiY7E3zeKGzrceAC+GDWmQg1t
+	dbLlsYLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8NKz-008sIV-3A;
-	Wed, 29 Nov 2023 16:22:57 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1r8NLQ-008sLM-0g;
+	Wed, 29 Nov 2023 16:23:24 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8NKw-008sI8-37
-	for linux-riscv@lists.infradead.org;
-	Wed, 29 Nov 2023 16:22:56 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-40b5149a4efso1373185e9.0
-        for <linux-riscv@lists.infradead.org>; Wed, 29 Nov 2023 08:22:54 -0800 (PST)
+	id 1r8NLM-008sKD-1u;
+	Wed, 29 Nov 2023 16:23:22 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-2c8879a1570so88771721fa.1;
+        Wed, 29 Nov 2023 08:23:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1701274973; x=1701879773; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=roHW8B0kGVQi7v3u5rXDrRfq0dqjl02SvhNdMtM5u1Y=;
-        b=QhnQF76mc4Cz1nigbGFE7T7oCDIbjT5ZEsi/Xtny45LiJvfDtW0NtKkSl5hrlrn8Hs
-         HqQVun28m8xIT2K7FetUJXKmDyZ5QPizeFn+/WjHEEQpetDh9rPdse5MZmgpaEO6wRVG
-         FyoEC7j62YlMRcblIktUdhkCU6ps2sLTmEWAu0t4tT+jr0ao1cl9b9OnVMz9i6gXbIFM
-         oa8y9cLdfu5L87PZeNHc14v9wrakBWCcXO/nW7R8HvYyT4b0P1wFDq1j4hWrBuP+MwxN
-         QacW7+357+oESh7WDLeEbkKKU2UVWyiljO/yxcdALkUdg7ErvBEXeI6zDlQdkt2kGMy0
-         G01g==
+        d=gmail.com; s=20230601; t=1701274997; x=1701879797; darn=lists.infradead.org;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BE4DN2NIJid+M8TUF/vMVc9hXeYzBXdHSi7xojD4wk4=;
+        b=eEDbGDj5PLAWKrzI0Hna+DO0q1MfzPB2D9gKqE5gP6R2efz5EY7CQYfunPgZQ13pQ0
+         jhfUU+oOBaz5Uaq1Nvd+OBTlFDo2DY1WHXgWM+tkBSPE1A7Dv61p0WkrsPdrV34BrOa2
+         j2sgqaLMdPV2ovklVlYTNmuhWTuIETpeYadgrSkqOLrnw7wuD7q9Udz9+zmyyL7gWSMO
+         GFIXIxWn8lGr0ejmXb6FgPcxJSx9uu+rqEAj2l8BPwguQkMZHeJhLVs4NABTWJBZ7HQU
+         YW1hPc4JlsKb+NMNpTZ8rxNuCaIYaW6f8MnwFj5HabzOBZr1Sdc/W4U1iAnXIDgZJzcT
+         r/cA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701274973; x=1701879773;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=roHW8B0kGVQi7v3u5rXDrRfq0dqjl02SvhNdMtM5u1Y=;
-        b=WFs/jeh2oouyBdn+Oehx+Cfa0iBnoY0NrI39oXmZuxF4nWE4lRdRzJE0BnKrIv/e58
-         dg+Mgg0eExt7rGCUwJDaFXSZFgJ/B0xZu7n/EiS2GHkPifrh9XGEqudwRyDus/l8Ui2L
-         bnWQAh9rOkNWkSpHjzdt7Em37vpWF+01IbiZHEKIPjTlCq69hS6YQZRWv3lc3bG1/Da1
-         NX6WTbNf2O0XWyjUuain3aPOZqQXt/QR+n1y/64SVcsbmEEjyfp96ypyTgTKn20SpvDv
-         taiWP1mw8/q4efxqfFcu4//B55S6SIOql2Q+iEut+AEQwSgONJrEdmnku7hqurTRHa8O
-         hXSA==
-X-Gm-Message-State: AOJu0YySgMZO6t5YCpI1BXv8EzGhJJTRNXHjonxRAKUp0bRF1Z1XFV1R
-	aGdYybUR+09p/QvQleED8znztg==
-X-Google-Smtp-Source: AGHT+IHTXDyYM7XpEJ2XOUVTrvwcppAZpJsj+SvZ6k6SHb/GzwKbtcTUwskr31NgpgLj4swFKUUmDA==
-X-Received: by 2002:a05:600c:2219:b0:40b:4889:667e with SMTP id z25-20020a05600c221900b0040b4889667emr5939341wml.4.1701274972623;
-        Wed, 29 Nov 2023 08:22:52 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:999:a3a0:11a9:3d89:528b:b336? ([2a01:e0a:999:a3a0:11a9:3d89:528b:b336])
-        by smtp.gmail.com with ESMTPSA id n10-20020a05600c4f8a00b004053e9276easm2717649wmq.32.2023.11.29.08.22.52
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 29 Nov 2023 08:22:52 -0800 (PST)
-Message-ID: <9a54fbb3-c4cc-4f94-8df5-38b40f3f91f2@rivosinc.com>
-Date: Wed, 29 Nov 2023 17:22:51 +0100
+        d=1e100.net; s=20230601; t=1701274997; x=1701879797;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BE4DN2NIJid+M8TUF/vMVc9hXeYzBXdHSi7xojD4wk4=;
+        b=RiJdOp4ku4dQO9fYtwQEcJKOlxjpdWP4CdcDkpi3EFxEo20bCqx8MkXey0tnnb2IX+
+         QglPKEDdDQAlO5r7NwHFeNzGD0euEbGJlKa2dvWbU6/zth86Sz+kxYJcQN5X+U4GXmVV
+         fXi7LAuFmMkgQUkSU4jHRY4HLrTIT76In/EEozO++FGDeaWE2zHFQ4lKod8CnvdaG22t
+         zSAIIsSmN4qfdhDs9jnaBXk2L8krbR/c7uH8NP1qLFW8l2k4swHtHn59RR/Dh76rBWQh
+         wLFupfrfS+xF8oLglB9K8nP12PppUPCECe/EoE3fKF4y+nDfwTTSOuOTBghKq9SXsx15
+         3E/A==
+X-Gm-Message-State: AOJu0YxmIBWEBmdTbaFt1raF/Q5OMT+v0PchDPrO5MUEDoWRAF2e3pnF
+	DEyaQeSDg1XpBiGsUjnu6L8=
+X-Google-Smtp-Source: AGHT+IFpkXFRA9JtjkMulyQU+vE6lllIuj8DaTvHOgPc7kkDjVJCH1EZdgBzk/x+Nxw/nDpm1ZgC3Q==
+X-Received: by 2002:a2e:9557:0:b0:2c9:b623:ddf1 with SMTP id t23-20020a2e9557000000b002c9b623ddf1mr3708530ljh.51.1701274997225;
+        Wed, 29 Nov 2023 08:23:17 -0800 (PST)
+Received: from orome.fritz.box (p200300e41f0fa600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f0f:a600:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id n16-20020a05600c501000b00407b93d8085sm2743768wmr.27.2023.11.29.08.23.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Nov 2023 08:23:16 -0800 (PST)
+Date: Wed, 29 Nov 2023 17:23:13 +0100
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: David Airlie <airlied@gmail.com>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Danilo Krummrich <dakr@redhat.com>, Daniel Vetter <daniel@ffwll.ch>,
+	Dexuan Cui <decui@microsoft.com>, devicetree@vger.kernel.org,
+	dmaengine@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	David Woodhouse <dwmw2@infradead.org>,
+	Frank Rowand <frowand.list@gmail.com>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>, iommu@lists.linux.dev,
+	Jon Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
+	Karol Herbst <kherbst@redhat.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	Laxman Dewangan <ldewangan@nvidia.com>, Len Brown <lenb@kernel.org>,
+	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-snps-arc@lists.infradead.org,
+	linux-tegra@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Lyude Paul <lyude@redhat.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	nouveau@lists.freedesktop.org, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Vineet Gupta <vgupta@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Wei Liu <wei.liu@kernel.org>, Will Deacon <will@kernel.org>,
+	Lu Baolu <baolu.lu@linux.intel.com>, Christoph Hellwig <hch@lst.de>,
+	Jerry Snitselaar <jsnitsel@redhat.com>,
+	Hector Martin <marcan@marcan.st>, Moritz Fischer <mdf@kernel.org>,
+	patches@lists.linux.dev,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH 08/10] iommu/tegra: Use tegra_dev_iommu_get_stream_id()
+ in the remaining places
+Message-ID: <ZWdlcboM4Xzs38NI@orome.fritz.box>
+References: <0-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
+ <8-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] RISC-V: Implement archrandom when Zkr is available
-Content-Language: en-US
-To: Ben Dooks <ben.dooks@codethink.co.uk>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Samuel Ortiz <sameo@rivosinc.com>,
- Conor Dooley <conor.dooley@microchip.com>
-References: <20231129160325.1119803-1-cleger@rivosinc.com>
- <2feb3ff4-3d26-41f7-83f5-6440393d6e43@codethink.co.uk>
-From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-In-Reply-To: <2feb3ff4-3d26-41f7-83f5-6440393d6e43@codethink.co.uk>
+In-Reply-To: <8-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
+User-Agent: Mutt/2.2.12 (2023-09-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231129_082255_009130_A23F77CD 
-X-CRM114-Status: GOOD (  19.56  )
+X-CRM114-CacheID: sfid-20231129_082320_632493_7A6BECB9 
+X-CRM114-Status: GOOD (  27.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,91 +126,161 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============5996736905199300365=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyOS8xMS8yMDIzIDE3OjE1LCBCZW4gRG9va3Mgd3JvdGU6Cj4gT24gMjkvMTEvMjAyMyAx
-NjowMywgQ2zDqW1lbnQgTMOpZ2VyIHdyb3RlOgo+PiBGcm9tOiBTYW11ZWwgT3J0aXogPHNhbWVv
-QHJpdm9zaW5jLmNvbT4KPj4KPj4gRnJvbTogU2FtdWVsIE9ydGl6IDxzYW1lb0ByaXZvc2luYy5j
-b20+Cj4+Cj4+IFRoZSBaa3IgZXh0ZW5zaW9uIGlzIHJhdGlmaWVkIGFuZCBwcm92aWRlcyAxNiBi
-aXRzIG9mIGVudHJvcHkgc2VlZCB3aGVuCj4+IHJlYWRpbmcgdGhlIFNFRUQgQ1NSLgo+Pgo+PiBX
-ZSBjYW4gaW1wbGVtZW50IGFyY2hfZ2V0X3JhbmRvbV9zZWVkX2xvbmdzKCkgYnkgZG9pbmcgbXVs
-dGlwbGUgY3NycncgdG8KPj4gdGhhdCBDU1IgYW5kIGZpbGxpbmcgYW4gdW5zaWduZWQgbG9uZyB3
-aXRoIHZhbGlkIGVudHJvcHkgYml0cy4KPj4KPj4gQWNrZWQtYnk6IENvbm9yIERvb2xleSA8Y29u
-b3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+Cj4+IFNpZ25lZC1vZmYtYnk6IFNhbXVlbCBPcnRpeiA8
-c2FtZW9Acml2b3NpbmMuY29tPgo+PiBTaWduZWQtb2ZmLWJ5OiBDbMOpbWVudCBMw6lnZXIgPGNs
-ZWdlckByaXZvc2luYy5jb20+Cj4+Cj4+IC0tLQo+Pgo+PiBUaGlzIHNlcmllcyBkZXBlbmRzIG9u
-ICJyaXNjdjogcmVwb3J0IG1vcmUgSVNBIGV4dGVuc2lvbnMgdGhyb3VnaAo+PiBod3Byb2JlIiBz
-ZXJpZXMgWzFdLgo+Pgo+PiBMaW5rOgo+PiBodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sLzIw
-MjMxMTE0MTQxMjU2LjEyNjc0OS0xLWNsZWdlckByaXZvc2luYy5jb20vIFsxXQo+PiAtLS0KPj4g
-wqAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9hcmNocmFuZG9tLmggfCA2OSArKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKwo+PiDCoCBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5owqDCoMKg
-wqDCoMKgwqAgfMKgIDkgKysrKwo+PiDCoCAyIGZpbGVzIGNoYW5nZWQsIDc4IGluc2VydGlvbnMo
-KykKPj4gwqAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vYXJjaHJh
-bmRvbS5oCj4+Cj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2FyY2hyYW5k
-b20uaAo+PiBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vYXJjaHJhbmRvbS5oCj4+IG5ldyBmaWxl
-IG1vZGUgMTAwNjQ0Cj4+IGluZGV4IDAwMDAwMDAwMDAwMC4uNzk1ODM3Y2NiNTgzCj4+IC0tLSAv
-ZGV2L251bGwKPj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9hcmNocmFuZG9tLmgKPj4g
-QEAgLTAsMCArMSw2OSBAQAo+PiArLyogU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAg
-Ki8KPj4gKy8qCj4+ICsgKiBLZXJuZWwgaW50ZXJmYWNlIGZvciB0aGUgUklTQ1YgYXJjaF9yYW5k
-b21fKiBmdW5jdGlvbnMKPj4gKyAqCj4+ICsgKiBDb3B5cmlnaHQgKGMpIDIwMjMgYnkgUml2b3Mg
-SW5jLgo+PiArICoKPj4gKyAqLwo+PiArCj4+ICsjaWZuZGVmIEFTTV9SSVNDVl9BUkNIUkFORE9N
-X0gKPj4gKyNkZWZpbmUgQVNNX1JJU0NWX0FSQ0hSQU5ET01fSAo+PiArCj4+ICsjaW5jbHVkZSA8
-YXNtL2Nzci5oPgo+PiArCj4+ICsjZGVmaW5lIFNFRURfUkVUUllfTE9PUFMgMTAwCj4+ICsKPj4g
-K3N0YXRpYyBpbmxpbmUgYm9vbCBfX211c3RfY2hlY2sgY3NyX3NlZWRfbG9uZyh1bnNpZ25lZCBs
-b25nICp2KQo+PiArewo+PiArwqDCoMKgIHVuc2lnbmVkIGludCByZXRyeSA9IFNFRURfUkVUUllf
-TE9PUFMsIHZhbGlkX3NlZWRzID0gMDsKPj4gK8KgwqDCoCBjb25zdCBpbnQgbmVlZGVkX3NlZWRz
-ID0gc2l6ZW9mKGxvbmcpIC8gc2l6ZW9mKHUxNik7Cj4+ICvCoMKgwqAgdTE2ICplbnRyb3B5ID0g
-KHUxNiAqKXY7Cj4+ICsKPj4gK8KgwqDCoCBkbyB7Cj4+ICvCoMKgwqDCoMKgwqDCoCAvKgo+PiAr
-wqDCoMKgwqDCoMKgwqDCoCAqIFRoZSBTRUVEIENTUiBtdXN0IGJlIGFjY2Vzc2VkIHdpdGggYSBy
-ZWFkLXdyaXRlIGluc3RydWN0aW9uLgo+PiArwqDCoMKgwqDCoMKgwqDCoCAqLwo+PiArwqDCoMKg
-wqDCoMKgwqAgdW5zaWduZWQgbG9uZyBjc3Jfc2VlZCA9IGNzcl9zd2FwKENTUl9TRUVELCAwKTsK
-Pj4gKwo+PiArwqDCoMKgwqDCoMKgwqAgc3dpdGNoIChjc3Jfc2VlZCAmIFNFRURfT1BTVF9NQVNL
-KSB7Cj4+ICvCoMKgwqDCoMKgwqDCoCBjYXNlIFNFRURfT1BTVF9FUzE2Ogo+PiArwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoCBlbnRyb3B5W3ZhbGlkX3NlZWRzKytdID0gY3NyX3NlZWQgJiBTRUVEX0VO
-VFJPUFlfTUFTSzsKPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgaWYgKHZhbGlkX3NlZWRzID09
-IG5lZWRlZF9zZWVkcykKPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCByZXR1cm4g
-dHJ1ZTsKPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgYnJlYWs7Cj4+ICsKPj4gK8KgwqDCoMKg
-wqDCoMKgIGNhc2UgU0VFRF9PUFNUX0RFQUQ6Cj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHBy
-X2Vycl9vbmNlKCJhcmNocmFuZG9tOiBVbnJlY292ZXJhYmxlIGVycm9yXG4iKTsKPj4gK8KgwqDC
-oMKgwqDCoMKgwqDCoMKgwqAgcmV0dXJuIGZhbHNlOwo+PiArCj4+ICvCoMKgwqDCoMKgwqDCoCBj
-YXNlIFNFRURfT1BTVF9CSVNUOgo+PiArwqDCoMKgwqDCoMKgwqAgY2FzZSBTRUVEX09QU1RfV0FJ
-VDoKPj4gK8KgwqDCoMKgwqDCoMKgIGRlZmF1bHQ6Cj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-IGNvbnRpbnVlOwo+IAo+IGlzIGl0IHdvcnRoIGFkZGluZyBhIGNwdV9yZWxheCgpIGhlcmU/CgpZ
-ZWFoLCB0aGF0IGNsZWFybHkgbWFrZXMgc2Vuc2UgIQoKPiAKPj4gK8KgwqDCoMKgwqDCoMKgIH0K
-Pj4gK8KgwqDCoCB9IHdoaWxlICgtLXJldHJ5KTsKPj4gKwo+PiArwqDCoMKgIHJldHVybiBmYWxz
-ZTsKPj4gK30KPj4gKwo+PiArc3RhdGljIGlubGluZSBzaXplX3QgX19tdXN0X2NoZWNrIGFyY2hf
-Z2V0X3JhbmRvbV9sb25ncyh1bnNpZ25lZCBsb25nCj4+ICp2LCBzaXplX3QgbWF4X2xvbmdzKQo+
-PiArewo+PiArwqDCoMKgIHJldHVybiAwOwo+PiArfQo+PiArCj4+ICtzdGF0aWMgaW5saW5lIHNp
-emVfdCBfX211c3RfY2hlY2sgYXJjaF9nZXRfcmFuZG9tX3NlZWRfbG9uZ3ModW5zaWduZWQKPj4g
-bG9uZyAqdiwgc2l6ZV90IG1heF9sb25ncykKPj4gK3sKPj4gK8KgwqDCoCBpZiAoIW1heF9sb25n
-cykKPj4gK8KgwqDCoMKgwqDCoMKgIHJldHVybiAwOwo+PiArCj4+ICvCoMKgwqAgLyoKPj4gK8Kg
-wqDCoMKgICogSWYgWmtyIGlzIHN1cHBvcnRlZCBhbmQgY3NyX3NlZWRfbG9uZyBzdWNjZWVkcywg
-d2UgcmV0dXJuIG9uZQo+PiBsb25nCj4+ICvCoMKgwqDCoCAqIHdvcnRoIG9mIGVudHJvcHkuCj4+
-ICvCoMKgwqDCoCAqLwo+PiArwqDCoMKgIGlmIChyaXNjdl9oYXNfZXh0ZW5zaW9uX2xpa2VseShS
-SVNDVl9JU0FfRVhUX1pLUikgJiYKPj4gY3NyX3NlZWRfbG9uZyh2KSkKPj4gK8KgwqDCoMKgwqDC
-oMKgIHJldHVybiAxOwo+IAo+IEknbSBhc3N1bWluZyB0aGUgY29kZSB3aWxsIHJldHJ5IGlmIG1h
-eF9sb25ncyA+IDEgPwoKWWVzIHRoZSBjYWxsZXIgd2lsbCBjYWxsIGl0IHVudGlsIGdhdGhlcmlu
-ZyBlbm91Z2ggZGF0YSAoc2VlCmRyaXZlcnMvY2hhci9yYW5kb20uYykuCgpUaGFua3MsCgpDbMOp
-bWVudAoKPiAKPiAKPiAKPj4gK8KgwqDCoCByZXR1cm4gMDsKPj4gK30KPj4gKwo+PiArI2VuZGlm
-IC8qIEFTTV9SSVNDVl9BUkNIUkFORE9NX0ggKi8KPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vY3NyLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5oCj4+IGluZGV4
-IDMwNmExOWE1NTA5Yy4uNTEwMDE0MDUxZjVkIDEwMDY0NAo+PiAtLS0gYS9hcmNoL3Jpc2N2L2lu
-Y2x1ZGUvYXNtL2Nzci5oCj4+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmgKPj4g
-QEAgLTQxMSw2ICs0MTEsMTUgQEAKPj4gwqAgI2RlZmluZSBDU1JfVlRZUEXCoMKgwqDCoMKgwqDC
-oCAweGMyMQo+PiDCoCAjZGVmaW5lIENTUl9WTEVOQsKgwqDCoMKgwqDCoMKgIDB4YzIyCj4+IMKg
-ICsvKiBTY2FsYXIgQ3J5cHRvIEV4dGVuc2lvbiAtIEVudHJvcHkgKi8KPj4gKyNkZWZpbmUgQ1NS
-X1NFRUTCoMKgwqDCoMKgwqDCoCAweDAxNQo+PiArI2RlZmluZSBTRUVEX09QU1RfTUFTS8KgwqDC
-oMKgwqDCoMKgIF9BQygweEMwMDAwMDAwLCBVTCkKPj4gKyNkZWZpbmUgU0VFRF9PUFNUX0JJU1TC
-oMKgwqDCoMKgwqDCoCBfQUMoMHgwMDAwMDAwMCwgVUwpCj4+ICsjZGVmaW5lIFNFRURfT1BTVF9X
-QUlUwqDCoMKgwqDCoMKgwqAgX0FDKDB4NDAwMDAwMDAsIFVMKQo+PiArI2RlZmluZSBTRUVEX09Q
-U1RfRVMxNsKgwqDCoMKgwqDCoMKgIF9BQygweDgwMDAwMDAwLCBVTCkKPj4gKyNkZWZpbmUgU0VF
-RF9PUFNUX0RFQUTCoMKgwqDCoMKgwqDCoCBfQUMoMHhDMDAwMDAwMCwgVUwpCj4+ICsjZGVmaW5l
-IFNFRURfRU5UUk9QWV9NQVNLwqDCoMKgIF9BQygweEZGRkYsIFVMKQo+PiArCj4+IMKgICNpZmRl
-ZiBDT05GSUdfUklTQ1ZfTV9NT0RFCj4+IMKgICMgZGVmaW5lIENTUl9TVEFUVVPCoMKgwqAgQ1NS
-X01TVEFUVVMKPj4gwqAgIyBkZWZpbmUgQ1NSX0lFwqDCoMKgwqDCoMKgwqAgQ1NSX01JRQo+IAoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+--===============5996736905199300365==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="OR6CuieIvqboqm08"
+Content-Disposition: inline
+
+
+--OR6CuieIvqboqm08
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Nov 28, 2023 at 08:48:04PM -0400, Jason Gunthorpe wrote:
+> This API was defined to formalize the access to internal iommu details on
+> some Tegra SOCs, but a few callers got missed. Add them.
+>=20
+> The helper already masks by 0xFFFF so remove this code from the callers.
+>=20
+> Suggested-by: Thierry Reding <thierry.reding@gmail.com>
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> ---
+>  drivers/dma/tegra186-gpc-dma.c                  |  8 +++-----
+>  drivers/gpu/drm/nouveau/nvkm/subdev/ltc/gp10b.c |  7 ++-----
+>  drivers/memory/tegra/tegra186.c                 | 12 ++++++------
+>  3 files changed, 11 insertions(+), 16 deletions(-)
+>=20
+> diff --git a/drivers/dma/tegra186-gpc-dma.c b/drivers/dma/tegra186-gpc-dm=
+a.c
+> index fa4d4142a68a21..88547a23825b18 100644
+> --- a/drivers/dma/tegra186-gpc-dma.c
+> +++ b/drivers/dma/tegra186-gpc-dma.c
+> @@ -1348,8 +1348,8 @@ static int tegra_dma_program_sid(struct tegra_dma_c=
+hannel *tdc, int stream_id)
+>  static int tegra_dma_probe(struct platform_device *pdev)
+>  {
+>  	const struct tegra_dma_chip_data *cdata =3D NULL;
+> -	struct iommu_fwspec *iommu_spec;
+> -	unsigned int stream_id, i;
+> +	unsigned int i;
+> +	u32 stream_id;
+>  	struct tegra_dma *tdma;
+>  	int ret;
+> =20
+> @@ -1378,12 +1378,10 @@ static int tegra_dma_probe(struct platform_device=
+ *pdev)
+> =20
+>  	tdma->dma_dev.dev =3D &pdev->dev;
+> =20
+> -	iommu_spec =3D dev_iommu_fwspec_get(&pdev->dev);
+> -	if (!iommu_spec) {
+> +	if (!tegra_dev_iommu_get_stream_id(&pdev->dev, &stream_id)) {
+>  		dev_err(&pdev->dev, "Missing iommu stream-id\n");
+>  		return -EINVAL;
+>  	}
+> -	stream_id =3D iommu_spec->ids[0] & 0xffff;
+> =20
+>  	ret =3D device_property_read_u32(&pdev->dev, "dma-channel-mask",
+>  				       &tdma->chan_mask);
+> diff --git a/drivers/gpu/drm/nouveau/nvkm/subdev/ltc/gp10b.c b/drivers/gp=
+u/drm/nouveau/nvkm/subdev/ltc/gp10b.c
+> index e7e8fdf3adab7a..b40fd1dbb21617 100644
+> --- a/drivers/gpu/drm/nouveau/nvkm/subdev/ltc/gp10b.c
+> +++ b/drivers/gpu/drm/nouveau/nvkm/subdev/ltc/gp10b.c
+> @@ -28,16 +28,13 @@ static void
+>  gp10b_ltc_init(struct nvkm_ltc *ltc)
+>  {
+>  	struct nvkm_device *device =3D ltc->subdev.device;
+> -	struct iommu_fwspec *spec;
+> +	u32 sid;
+> =20
+>  	nvkm_wr32(device, 0x17e27c, ltc->ltc_nr);
+>  	nvkm_wr32(device, 0x17e000, ltc->ltc_nr);
+>  	nvkm_wr32(device, 0x100800, ltc->ltc_nr);
+> =20
+> -	spec =3D dev_iommu_fwspec_get(device->dev);
+> -	if (spec) {
+> -		u32 sid =3D spec->ids[0] & 0xffff;
+> -
+> +	if (tegra_dev_iommu_get_stream_id(device->dev, &sid)) {
+>  		/* stream ID */
+>  		nvkm_wr32(device, 0x160000, sid << 2);
+
+We could probably also remove the comment now since the function and
+variable names make it obvious what's being written here.
+
+>  	}
+> diff --git a/drivers/memory/tegra/tegra186.c b/drivers/memory/tegra/tegra=
+186.c
+> index 533f85a4b2bdb7..3e4fbe94dd666e 100644
+> --- a/drivers/memory/tegra/tegra186.c
+> +++ b/drivers/memory/tegra/tegra186.c
+> @@ -111,21 +111,21 @@ static void tegra186_mc_client_sid_override(struct =
+tegra_mc *mc,
+>  static int tegra186_mc_probe_device(struct tegra_mc *mc, struct device *=
+dev)
+>  {
+>  #if IS_ENABLED(CONFIG_IOMMU_API)
+> -	struct iommu_fwspec *fwspec =3D dev_iommu_fwspec_get(dev);
+>  	struct of_phandle_args args;
+>  	unsigned int i, index =3D 0;
+> +	u32 sid;
+> =20
+> +	WARN_ON(!tegra_dev_iommu_get_stream_id(dev, &sid));
+
+I know the code previously didn't check for any errors, but we may want
+to do so now. If tegra_dev_iommu_get_stream_id() ever fails we may end
+up writing some undefined value into the override register.
+
+I'm also unsure if WARN_ON() is appropriate here. I vaguely recall that
+->probe_device() was called for all devices on the bus and not all of
+them may have been associated with the IOMMU. Not all of them may in
+fact access memory in the first place.
+
+Perhaps I'm misremembering and the IOMMU core now takes care of only
+calling this when fwspec is indeed valid?
+
+Thierry
+
+--OR6CuieIvqboqm08
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmVnZW8ACgkQ3SOs138+
+s6H3xA/+PnJPzNAATgGeEaxpY8VPfo7h0kY98vc1QYnUCiV46yzQPUq+/nVkkq24
+ybBtQ8hr0vl4ZxtflekHYxb0WsXO560ODmmckXEYPWRfVyxckFz+CRyvDx+zxyxJ
+d/TtD8p0l6DGFlZGume2h/cDafF5+3td2JEJ2vEfu0tMmRLIFC7L+Pj2IB4/Fz21
+2M6M6T0Al7obecinfW9jzg00G20RybQSrdPq+H9z3BNhOXGKy+1fjIzCsnr4H0gD
+kE4WooU9uLbMdpEYYZ8idqC1OieIr6p2IF802/4/TAvWHreHlH7uPcDRry8rxkwQ
+j0CAwBlcvLLtLj2pw7kYgxMpXwahgXSuhxX42CXDWsUUW4mxiZkvG0o8Cv2EGtSD
+emTIMrC3w1R2MSemI8+RQdOHhOnTNC0sADGo9EyurPrYC9TzwqTOPI35kNqJ8ZAw
+zCmhDKieZM9dxlOdFrpC+eLz8eVEjo5oV+OchMT6k8nw7TkD6dGHBOJlDhQeJNWZ
+tZBnlBamoEmlD5Kz/Oe90S47MnYtx8EX7o9bpEV6/ZO13P+F07rasP3l6hCJuybO
+c2YAeCxY8cuwHLnIJZTm3hR7UU9PQwPn4utolLuSqaXkL5wSdVr+1eZyTye25W0J
+CSzMCL3SkMgfKaZ7L6ptSRFtOWxiH6943ahvYpDBXlgEp/R9aVg=
+=ORi/
+-----END PGP SIGNATURE-----
+
+--OR6CuieIvqboqm08--
+
+
+--===============5996736905199300365==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5996736905199300365==--
+
