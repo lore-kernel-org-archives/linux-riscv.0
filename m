@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 519EAC07E98
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 06:05:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC62C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 06:06:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:References:
 	Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iHBqtUxqCE17m9akD+V9Tu6LeHr85ceyzNeNGZfjbJw=; b=fNa7yDzWXFzfRC
-	+ijib0ItU/T1e7CrraEI2B1nPRgU3++3mYRDch6i39Vsd+YcuwZm7xAaRPbzkrEMc86b3+jOGr3dO
-	nz6DF5l74VGXunAxaWwcwpz4tgc6Jq0UbJrBr2/HgMF6p232/hp4lU0u6yjtGswvfVVM0QJJcOfkK
-	lvlobdl42lAnICNqFpvfi8tkFhbue38VQKUw/Xgy3v9268mQNR3iGuhEJ2qgj1wfi8NNAe/Q7TeP0
-	ndarLF/o6nHqd2hAgOo/8MBzN7vSYWCccerkZL/ee/EhEixmoeqRXP3X7NqkQkcpUhXrqziVZWtAx
-	96hBsOoqGap7XXe/p7kw==;
+	List-Owner; bh=UEXr3hRC8Km+3BIrPI4zROAoGaO4FbnF+8C4QLy3650=; b=12WxzRSRnNdlyv
+	Ap80nrTkAHfGVRlf/yzaJAKFzW9dSabUn83TGQ621YYD+6npNdMDUprC8GL5BHtAMS+GQl701Zd5V
+	UQsscyNMdTk9sl2TX6w6bB7pqLma+uo/tIZINkW3XXuZkSlOrQEimqreTYKqsvJzkaNo8zXMpUrvk
+	QOpXg87dnCdE/aBrKv1FsqXTPLK6Wvp/j2FWAD+otM4VZ2MGAD+1Sn88E6zyg/HOQ3p8e1pCK6310
+	r+oqGt1WK5mn0gQmMzRMvb0seYpqS6xaRsPoCRV+NtYdDbmqHgNGaJYp2+wolSvOtz8AKEYlhLTR3
+	Tl/twrKTwIi01Ct0WFFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8DhB-007Azj-39;
-	Wed, 29 Nov 2023 06:05:13 +0000
+	id 1r8Di7-007BDz-35;
+	Wed, 29 Nov 2023 06:06:11 +0000
 Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8Dh2-007AvI-1E
+	id 1r8Di5-007BBX-18
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Nov 2023 06:05:13 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-5ccf44b0423so85008087b3.0
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Nov 2023 22:05:03 -0800 (PST)
+	Wed, 29 Nov 2023 06:06:10 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-5cd6a86a898so78490557b3.3
+        for <linux-riscv@lists.infradead.org>; Tue, 28 Nov 2023 22:06:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1701237903; x=1701842703; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1701237965; x=1701842765; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=WO7CXB1mNGxZSEafQP2SArLxdW3co4lj0A5pbLIXeXc=;
-        b=zuEm1iJ6DDOjQwGKcqfHnvJ4C5DkogXqzPVYPu43JnzwCRu3u2vBwnJC6aWd9xa+jf
-         zd3d8PFXN+MQnKuDj+YezZOKbJvCIU3j4WRUyJ25lAmvSU8TlaPb5P14pJdX3rGRfg4W
-         Z0oPaynoRcQGOCVT4gW5N5wH7QYkdUCZg4b+vHB99BgT2lpeNAW7+kaK/GZMnQiVOKLP
-         oWB4sW7GiyKuqDsRXoVElm6cA8wfNwhLPT1HK4hLuBxBXmS5oBPGgI7bGYpid25YjFmw
-         /7Px0tdrv1zjP6Ml6oOEM6g5ApMHAh5TXTP31F8r8sm5qpPA8T0IxMw87iMn0oKVI5+Q
-         3HSg==
+        bh=BFBgGZHgdrEFpnu/cpKOcJzser1reIBdXzg/6fniV64=;
+        b=TbwqyZtgeDzUrxgq8BQX+grkf8Js4e0FKeeFrvAZJqHVReB4NJi0PV7/0HrCYKWcEV
+         ChsfaOJcYJz9eo8rx37T7Nzi6FpJVD+NSU3BDLRpwSaOdXzdxWNO07J+zuGrmsAo7JxP
+         hn2zQ4Oy4Z0J+DZ8JcRs3HTz5e1cyYmqukW1EFRqJ7YES9WhLT5LUW1+4vp+5io3JNO6
+         vLzMSUzAuH+nNMbmJMOA3wB9qFN6D8fGeRz5yr1/aPkYVMFREg0KLwkDeA5wzzeis2vd
+         4WaQ2EKMfOSSq91847+rAHzQ6Tt5D4Scmc0Lo5ctclqaDPT+rAMy2XW1Nztt2fetA6Nz
+         qhJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701237903; x=1701842703;
+        d=1e100.net; s=20230601; t=1701237965; x=1701842765;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WO7CXB1mNGxZSEafQP2SArLxdW3co4lj0A5pbLIXeXc=;
-        b=s9ABgOBX4ZaGr8g28rbpXtp9q6y+wty+wi/Usn2QPriT6PsazVk3yNCHo/Q8UNvhna
-         wVrJUxI/fskpldAH2RzJKeSaPWAwSOkHpJn7PUuSNJMaqKjNEFCpXyKjUcFp4KEjFYyP
-         dnHQUjVbn7hoIMh0f7rMA75tW3l6mst9wPZGvUflWvDc+2TFbSEOF4NaR4yyzLJ/K2UN
-         FBvGdViDHMeAVB86j78Tq/lW5dysuwQ4AR/Ns3R+OmrFjs/MFt/YlZrdAXs43Q0YPS73
-         beGlHZTrvwsgZ+X0ZPUBq48BkvfvTNkWk5k6bXyddfExbsnU3CYIjyi/7XcfI9GQ60Oo
-         kpnw==
-X-Gm-Message-State: AOJu0YyB1+rd0Sy+BvUF3udGJrZrfHIRnACTkRwK/uZP3yPgGrdNJ7re
-	3i9/4DONtyhYH75b1ksToeeRwmewN9pB
-X-Google-Smtp-Source: AGHT+IHL7hgboFJ1jDI8fHK0ttAzMEfTsQjA7vmjwBnF03SxrfXdHuhYyFsTgeIfr3cTonrW5FaGXfJVhISd
+        bh=BFBgGZHgdrEFpnu/cpKOcJzser1reIBdXzg/6fniV64=;
+        b=Z7xGvRQ5ug2eYnnX3xtkt5a/sbdgzk0s9m/ia4yyNzfaEAxrNo/iwgld09TCaQiOJq
+         aWzVb4kEe2WdYNFdRQ3qaJP6HZAjMh3nDkW5pSGKJUEkhNobbuDTbEFsiEUykLBZ+khb
+         qUribSbQQ28ZY6ky96q7zrZwGceOXk8LbXgeVePw6IxqUO4Zze0FEFYOzao/kiWddI6I
+         3ICXz7dE9AM9I+l5Vq+u0q9EbveDMslJ5kGDBVIuDKcooVcmcyehPMKeVEGJyl+ErNNk
+         0O6+JxaEHZ4AaqHB09neCK4pjgXzvDj8y9Nee0m24eDgUZo5g2+1eV2JHoBG8l+LrDhj
+         UzlQ==
+X-Gm-Message-State: AOJu0Yx/itv0AKiJOjWWHyQtYd6KtiSVhN4HUo8DCFpLtigaoKKL5CkH
+	0tiiehvGfwSCFclGVJxCi48SSynJeGHm
+X-Google-Smtp-Source: AGHT+IG4ZcbE3hB8V6+vKX0zxYUr0OpHfbf/WNlvcGBdlOoo8eTYBCxtpp+7m/8KdVPZTHDTWhORx94znMfW
 X-Received: from morats.c.googlers.com ([fda3:e722:ac3:cc00:14:4d90:c0a8:d9e])
- (user=moritzf job=sendgmr) by 2002:a05:690c:903:b0:59b:eb63:4beb with SMTP id
- cb3-20020a05690c090300b0059beb634bebmr584543ywb.7.1701237903050; Tue, 28 Nov
- 2023 22:05:03 -0800 (PST)
-Date: Wed, 29 Nov 2023 06:04:59 +0000
-In-Reply-To: <3-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
+ (user=moritzf job=sendgmr) by 2002:a25:c044:0:b0:db5:1f69:704e with SMTP id
+ c65-20020a25c044000000b00db51f69704emr38263ybf.1.1701237964651; Tue, 28 Nov
+ 2023 22:06:04 -0800 (PST)
+Date: Wed, 29 Nov 2023 06:06:03 +0000
+In-Reply-To: <4-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
 Mime-Version: 1.0
-References: <0-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com> <3-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
-Message-ID: <20231129060459.gcunam3msksainng@google.com>
-Subject: Re: [PATCH 03/10] iommu/of: Use -ENODEV consistently in of_iommu_configure()
+References: <0-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com> <4-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
+Message-ID: <20231129060603.hxtmbsefxurxnwkh@google.com>
+Subject: Re: [PATCH 04/10] iommu: Mark dev_iommu_get() with lockdep
 From: Moritz Fischer <moritzf@google.com>
 To: Jason Gunthorpe <jgg@nvidia.com>
 Cc: David Airlie <airlied@gmail.com>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
@@ -93,8 +93,8 @@ Cc: David Airlie <airlied@gmail.com>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
 	patches@lists.linux.dev, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
 	Rob Herring <robh@kernel.org>, Thierry Reding <thierry.reding@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231128_220504_429547_61915C53 
-X-CRM114-Status: GOOD (  28.99  )
+X-CRM114-CacheID: sfid-20231128_220609_784507_D26D219B 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,131 +111,40 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"; DelSp="yes"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 28, 2023 at 08:47:59PM -0400, Jason Gunthorpe wrote:
-> Instead of returning 1 and trying to handle positive error codes just
-> stick to the convention of returning -ENODEV. Remove references to ops
-> from of_iommu_configure(), a NULL ops will already generate an error code.
-
-> There is no reason to check dev->bus, if err=0 at this point then the
-> called configure functions thought there was an iommu and we should try to
-> probe it. Remove it.
+On Tue, Nov 28, 2023 at 08:48:00PM -0400, Jason Gunthorpe wrote:
+> Allocation of dev->iommu must be done under the
+> iommu_probe_device_lock. Mark this with lockdep to discourage future
+> mistakes.
 
 > Reviewed-by: Jerry Snitselaar <jsnitsel@redhat.com>
 > Tested-by: Hector Martin <marcan@marcan.st>
 > Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 > ---
->   drivers/iommu/of_iommu.c | 49 ++++++++++++----------------------------
->   1 file changed, 15 insertions(+), 34 deletions(-)
+>   drivers/iommu/iommu.c | 2 ++
+>   1 file changed, 2 insertions(+)
 
-> diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
-> index c6510d7e7b241b..164317bfb8a81f 100644
-> --- a/drivers/iommu/of_iommu.c
-> +++ b/drivers/iommu/of_iommu.c
-> @@ -17,8 +17,6 @@
->   #include <linux/slab.h>
->   #include <linux/fsl/mc.h>
-
-> -#define NO_IOMMU	1
-> -
->   static int of_iommu_xlate(struct device *dev,
->   			  struct of_phandle_args *iommu_spec)
+> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+> index 0d25468d53a68a..4323b6276e977f 100644
+> --- a/drivers/iommu/iommu.c
+> +++ b/drivers/iommu/iommu.c
+> @@ -334,6 +334,8 @@ static struct dev_iommu *dev_iommu_get(struct device  
+> *dev)
 >   {
-> @@ -29,7 +27,7 @@ static int of_iommu_xlate(struct device *dev,
->   	ops = iommu_ops_from_fwnode(fwnode);
->   	if ((ops && !ops->of_xlate) ||
->   	    !of_device_is_available(iommu_spec->np))
-> -		return NO_IOMMU;
-> +		return -ENODEV;
+>   	struct dev_iommu *param = dev->iommu;
 
->   	ret = iommu_fwspec_init(dev, &iommu_spec->np->fwnode, ops);
->   	if (ret)
-> @@ -61,7 +59,7 @@ static int of_iommu_configure_dev_id(struct device_node  
-> *master_np,
->   			 "iommu-map-mask", &iommu_spec.np,
->   			 iommu_spec.args);
->   	if (err)
-> -		return err == -ENODEV ? NO_IOMMU : err;
-> +		return err;
-
->   	err = of_iommu_xlate(dev, &iommu_spec);
->   	of_node_put(iommu_spec.np);
-> @@ -72,7 +70,7 @@ static int of_iommu_configure_dev(struct device_node  
-> *master_np,
->   				  struct device *dev)
->   {
->   	struct of_phandle_args iommu_spec;
-> -	int err = NO_IOMMU, idx = 0;
-> +	int err = -ENODEV, idx = 0;
-
->   	while (!of_parse_phandle_with_args(master_np, "iommus",
->   					   "#iommu-cells",
-> @@ -117,9 +115,8 @@ static int of_iommu_configure_device(struct  
-> device_node *master_np,
->   int of_iommu_configure(struct device *dev, struct device_node *master_np,
->   		       const u32 *id)
->   {
-> -	const struct iommu_ops *ops = NULL;
->   	struct iommu_fwspec *fwspec;
-> -	int err = NO_IOMMU;
-> +	int err;
-
->   	if (!master_np)
->   		return -ENODEV;
-> @@ -153,37 +150,21 @@ int of_iommu_configure(struct device *dev, struct  
-> device_node *master_np,
->   	} else {
->   		err = of_iommu_configure_device(master_np, dev, id);
->   	}
-> -
-> -	/*
-> -	 * Two success conditions can be represented by non-negative err here:
-> -	 * >0 : there is no IOMMU, or one was unavailable for non-fatal reasons
-> -	 *  0 : we found an IOMMU, and dev->fwspec is initialised appropriately
-> -	 * <0 : any actual error
-> -	 */
-> -	if (!err) {
-> -		/* The fwspec pointer changed, read it again */
-> -		fwspec = dev_iommu_fwspec_get(dev);
-> -		ops    = fwspec->ops;
-> -	}
->   	mutex_unlock(&iommu_probe_device_lock);
-
-> -	/*
-> -	 * If we have reason to believe the IOMMU driver missed the initial
-> -	 * probe for dev, replay it to get things in order.
-> -	 */
-> -	if (!err && dev->bus)
-> -		err = iommu_probe_device(dev);
-> -
-> -	/* Ignore all other errors apart from EPROBE_DEFER */
-> -	if (err < 0) {
-> -		if (err == -EPROBE_DEFER)
-> -			return err;
-> -		dev_dbg(dev, "Adding to IOMMU failed: %pe\n", ERR_PTR(err));
-> +	if (err == -ENODEV || err == -EPROBE_DEFER)
->   		return err;
-> -	}
-> -	if (!ops)
-> -		return -ENODEV;
-> +	if (err)
-> +		goto err_log;
+> +	lockdep_assert_held(&iommu_probe_device_lock);
 > +
-> +	err = iommu_probe_device(dev);
-> +	if (err)
-> +		goto err_log;
->   	return 0;
-> +
-> +err_log:
-> +	dev_dbg(dev, "Adding to IOMMU failed: %pe\n", ERR_PTR(err));
-> +	return err;
->   }
+>   	if (param)
+>   		return param;
 
->   static enum iommu_resv_type __maybe_unused
 > --
 > 2.42.0
 
 
 Reviewed-by: Moritz Fischer <moritzf@google.com>
+
+Cheers,
+Moritz
 
 _______________________________________________
 linux-riscv mailing list
