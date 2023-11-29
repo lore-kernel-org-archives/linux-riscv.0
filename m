@@ -4,53 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25D0BC4167B
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 08:49:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48363C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 09:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wDuls1rwfE76OZLoJZycsXS8jkT0CsZiZccAz6Uy61s=; b=iKb+qd1FXD9hEs
-	f7xoVHrx4ifqbdrHbmjyTI+JEh4M40AT78lxFWnGlQIhlKJNOwzm6nB6VcTafgxFk3eXoJScwT8Qb
-	8Zs1HxisYPrUPSbGihkj5rHOj30nTsHyiZeKSdvwtt0RNAdardQdLjNX8stFVqNZrZkF6FSM9tFso
-	xbScxheYQ6MNVSO0eiGb2RBItcgI59tbxWYv/lteiN7J/CwwJ9gonFd8gSs2u1pvSSVOvIO8eZluE
-	ZQKWvYsqynQrb/zyttO0MeB/8UxqVKlgwvtv/Xa/SzhIv7ZdpIs54wgcYFvQKdOCIx1U00nqbg72s
-	zR3Q7Iavxj/bq9kZGP/Q==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+GbFpALqvojIppgEQ1BPpRd8UwtHyURgmuPfSsdNYe0=; b=a957WQC7VB1XeT
+	UKhdpfTsLQCGUTsT8qM1g7usT4PhCU/ms8jSuzkIQC0bFT2LDDmfBodAF4lT7DCKSKHbfmA+soAyU
+	XkFr6yxe6Ph24TLc1oT3d+8L0GTk1PfO2AZkiaMrJ6HjvaFBnmlXimFJsGU8rw4acI+5bkb48jeEC
+	JSW7UKtM5JOvuShwwdRQHspcPhcZW1ST76/5Mn5WecgYhvG8PdFhJeBQ1ijTwqZC1748iOLhJuVIL
+	+otxKfPK6NPr7sKQfNMonkW033zaQDCtWCvVc8nYySO7CluDLvWooIpKu+wqzF059BJgVlVjkD3Kc
+	8NtBpiuY87ERkadThDFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8GGY-007X6v-24;
-	Wed, 29 Nov 2023 08:49:54 +0000
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8GGV-007X52-18;
-	Wed, 29 Nov 2023 08:49:53 +0000
-Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 3AT8mw3e055241;
-	Wed, 29 Nov 2023 16:48:58 +0800 (+08)
-	(envelope-from peterlin@andestech.com)
-Received: from APC323 (10.0.12.98) by ATCPCS16.andestech.com (10.0.1.222) with
- Microsoft SMTP Server id 14.3.498.0; Wed, 29 Nov 2023 16:48:56 +0800
-Date: Wed, 29 Nov 2023 16:48:56 +0800
-From: Yu-Chien Peter Lin <peterlin@andestech.com>
-To: Guo Ren <guoren@kernel.org>
-Subject: Re: [PATCH v4 09/13] dt-bindings: riscv: Add T-Head PMU extension
- description
-Message-ID: <ZWb6-LEkyh5RRpcP@APC323>
-References: <20231122121235.827122-1-peterlin@andestech.com>
- <20231122121235.827122-10-peterlin@andestech.com>
- <CAJF2gTSMe-yfzKfX92eWhBnJ_WwoYQu7_7fsOQuNqXdafHA1dg@mail.gmail.com>
+	id 1r8Grl-007diO-07;
+	Wed, 29 Nov 2023 09:28:21 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1r8Grh-007dVT-2p
+	for linux-riscv@lists.infradead.org;
+	Wed, 29 Nov 2023 09:28:19 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 18E1B24E2D4;
+	Wed, 29 Nov 2023 17:27:34 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 29 Nov
+ 2023 17:27:34 +0800
+Received: from williamqiu-virtual-machine.starfivetech.com (171.223.208.138)
+ by EXMBX168.cuchost.com (172.16.6.78) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.42; Wed, 29 Nov 2023 17:27:32 +0800
+From: William Qiu <william.qiu@starfivetech.com>
+To: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-pwm@vger.kernel.org>
+CC: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, "Hal
+ Feng" <hal.feng@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	William Qiu <william.qiu@starfivetech.com>
+Subject: [PATCH v8 0/4] StarFive's Pulse Width Modulation driver support
+Date: Wed, 29 Nov 2023 17:27:28 +0800
+Message-ID: <20231129092732.43387-1-william.qiu@starfivetech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJF2gTSMe-yfzKfX92eWhBnJ_WwoYQu7_7fsOQuNqXdafHA1dg@mail.gmail.com>
-User-Agent: Mutt/2.2.10 (2023-03-25)
-X-Originating-IP: [10.0.12.98]
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 3AT8mw3e055241
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231129_004951_833908_7EFC19EE 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20231129_012818_211980_D9B1C26A 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,40 +72,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, irogers@google.com, heiko@sntech.de, geert+renesas@glider.be, alexander.shishkin@linux.intel.com, paul.walmsley@sifive.com, linux-kernel@vger.kernel.org, conor.dooley@microchip.com, krzysztof.kozlowski+dt@linaro.org, linux-riscv@lists.infradead.org, will@kernel.org, linux-renesas-soc@vger.kernel.org, tim609@andestech.com, samuel@sholland.org, anup@brainfault.org, dminus@andestech.com, magnus.damm@gmail.com, jernej.skrabec@gmail.com, peterz@infradead.org, wens@csie.org, mingo@redhat.com, jszhang@kernel.org, inochiama@outlook.com, linux-sunxi@lists.linux.dev, ajones@ventanamicro.com, devicetree@vger.kernel.org, conor+dt@kernel.org, aou@eecs.berkeley.edu, andre.przywara@arm.com, locus84@andestech.com, acme@kernel.org, prabhakar.mahadev-lad.rj@bp.renesas.com, robh+dt@kernel.org, atishp@atishpatra.org, namhyung@kernel.org, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, ycliang@andestech.com, n.shubin@yadro.com, rdunlap@infradead.org, adrian.hunter@intel.com, conor@kernel.org, linux-perf-users@vger.kernel.org, evan@rivosinc.com, palmer@dabbelt.com, jolsa@kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgR3VvIFJlbiwKCk9uIFRodSwgTm92IDIzLCAyMDIzIGF0IDA1OjE0OjMwQU0gKzA4MDAsIEd1
-byBSZW4gd3JvdGU6Cj4gT24gV2VkLCBOb3YgMjIsIDIwMjMgYXQgODoxN+KAr1BNIFl1IENoaWVu
-IFBldGVyIExpbgo+IDxwZXRlcmxpbkBhbmRlc3RlY2guY29tPiB3cm90ZToKPiA+Cj4gPiBEb2N1
-bWVudCB0aGUgSVNBIHN0cmluZyBmb3IgVC1IZWFkIHBlcmZvcm1hbmNlIG1vbml0b3IgZXh0ZW5z
-aW9uCj4gPiB3aGljaCBwcm92aWRlcyBjb3VudGVyIG92ZXJmbG93IGludGVycnVwdCBtZWNoYW5p
-c20uCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogWXUgQ2hpZW4gUGV0ZXIgTGluIDxwZXRlcmxpbkBh
-bmRlc3RlY2guY29tPgo+ID4gLS0tCj4gPiBDaGFuZ2VzIHYyIC0+IHYzOgo+ID4gICAtIE5ldyBw
-YXRjaAo+ID4gQ2hhbmdlcyB2MyAtPiB2NDoKPiA+ICAgLSBObyBjaGFuZ2UKPiA+IC0tLQo+ID4g
-IERvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9leHRlbnNpb25zLnlhbWwg
-fCA2ICsrKysrKwo+ID4gIDEgZmlsZSBjaGFuZ2VkLCA2IGluc2VydGlvbnMoKykKPiA+Cj4gPiBk
-aWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L2V4dGVu
-c2lvbnMueWFtbCBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9leHRl
-bnNpb25zLnlhbWwKPiA+IGluZGV4IGM5MWFiMGU0NjY0OC4uNjk0ZWZhZWE4ZmNlIDEwMDY0NAo+
-ID4gLS0tIGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L2V4dGVuc2lv
-bnMueWFtbAo+ID4gKysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2
-L2V4dGVuc2lvbnMueWFtbAo+ID4gQEAgLTI1OCw1ICsyNTgsMTEgQEAgcHJvcGVydGllczoKPiA+
-ICAgICAgICAgICAgICBpbiBjb21taXQgMmU1MjM2ICgiWnRzbyBpcyBub3cgcmF0aWZpZWQuIikg
-b2YgdGhlCj4gPiAgICAgICAgICAgICAgcmlzY3YtaXNhLW1hbnVhbC4KPiA+Cj4gPiArICAgICAg
-ICAtIGNvbnN0OiB4dGhlYWRwbXUKPiA+ICsgICAgICAgICAgZGVzY3JpcHRpb246Cj4gPiArICAg
-ICAgICAgICAgVGhlIFQtSGVhZCBwZXJmb3JtYW5jZSBtb25pdG9yIGV4dGVuc2lvbiBmb3IgY291
-bnRlciBvdmVyZmxvdy4gRm9yIG1vcmUKPiA+ICsgICAgICAgICAgICBkZXRhaWxzLCBzZWUgdGhl
-IGNoYXB0ZXIgMTIgaW4gdGhlIFh1YW50aWUgQzkwNiB1c2VyIG1hbnVhbC4KPiA+ICsgICAgICAg
-ICAgICBodHRwczovL2dpdGh1Yi5jb20vVC1oZWFkLVNlbWkvb3BlbmM5MDYvdHJlZS9tYWluL2Rv
-Ywo+ID4gKwo+ID4gIGFkZGl0aW9uYWxQcm9wZXJ0aWVzOiB0cnVlCj4gPiAgLi4uCj4gPiAtLQo+
-ID4gMi4zNC4xCj4gPgo+IFJldmlld2VkLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4K
-ClRoYW5rcyBmb3IgdGhlIHJldmlldy4KV291bGQgeW91IHNoYXJlIGRvY3VtZW50IGFib3V0IFQt
-SGVhZCBQTVU/CgpCZXN0IHJlZ2FyZHMsClBldGVyIExpbgoKPiAtLSAKPiBCZXN0IFJlZ2FyZHMK
-PiAgR3VvIFJlbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+Hi,
+
+This patchset adds initial rudimentary support for the StarFive
+Pulse Width Modulation controller driver. And this driver will
+be used in StarFive's VisionFive 2 board.The first patch add
+Documentations for the device and Patch 2 adds device probe for
+the module.
+
+Changes v7->v8:
+- Rebased to v6.7rc3.
+- Changed compatible to "opencores,pwm-v1"
+- Adjusted the clock unprepare order.
+- Followed dt-bindings Coding style.
+
+Changes v6->v7:
+- Rebased to v6.6.
+- Added dependency architecture.
+- Adopted new rounding algorithm.
+- Added limitation descripton.
+- Used function interfaces instead of macro definitions.
+- Followed the linux coding style.
+
+Changes v5->v6:
+- Rebased to v6.6rc5.
+- Changed driver into a generic OpenCores driver.
+- Modified dt-bindings description into OpenCores.
+- Uesd the StarFive compatible string to parameterize.
+
+Changes v4->v5:
+- Rebased to v6.6rc2.
+- Updated macro definition indent.
+- Replaced the clock initializes the interface.
+- Fixed patch description.
+
+Changes v3->v4:
+- Rebased to v6.5rc7.
+- Sorted the header files in alphabetic order.
+- Changed iowrite32() to writel().
+- Added a way to turn off.
+- Modified polarity inversion implementation.
+- Added 7100 support.
+- Added dts patches.
+- Used the various helpers in linux/math.h.
+- Corrected formatting problems.
+- Renamed dtbinding  to 'starfive,jh7100-pwm.yaml'.
+- Dropped the redundant code.
+
+Changes v2->v3:
+- Fixed some formatting issues.
+
+Changes v1->v2:
+- Renamed the dt-binding 'pwm-starfive.yaml' to 'starfive,jh7110-pwm.yaml'.
+- Dropped the compatible's Items.
+- Dropped the unuse defines.
+- Modified the code to follow the Linux coding style.
+- Changed return value to dev_err_probe.
+- Dropped the unnecessary local variable.
+
+The patch series is based on v6.7rc3.
+
+William Qiu (4):
+  dt-bindings: pwm: Add bindings for OpenCores PWM Controller
+  pwm: opencores: Add PWM driver support
+  riscv: dts: starfive: jh7100: Add PWM node and pins configuration
+  riscv: dts: starfive: jh7110: Add PWM node and pins configuration
+
+ .../bindings/pwm/opencores,pwm.yaml           |  56 +++++
+ MAINTAINERS                                   |   7 +
+ .../boot/dts/starfive/jh7100-common.dtsi      |  24 ++
+ arch/riscv/boot/dts/starfive/jh7100.dtsi      |   9 +
+ .../jh7110-starfive-visionfive-2.dtsi         |  22 ++
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      |   9 +
+ drivers/pwm/Kconfig                           |  12 +
+ drivers/pwm/Makefile                          |   1 +
+ drivers/pwm/pwm-ocores.c                      | 232 ++++++++++++++++++
+ 9 files changed, 372 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+ create mode 100644 drivers/pwm/pwm-ocores.c
+
+--
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
