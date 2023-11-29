@@ -4,92 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93F23C07CB1
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 07:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CD4FC4167B
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 08:14:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Zvq/n9HmyIZnvbVhtDmS3puJye2LQVpSckMSST3CaMA=; b=RvPG3ChSg8p68L
-	KhPRveMRLDnznvoLDuhIvKwF8YkwZSwWMoCERPP0x/EjD2LLsnO4L6v76kG+7kvQfgxZLSBc8hXjB
-	/ASm4AnL0JPqt1DCS6tnQka6LGWCvp+hc9uVo1wUc86Lz7mAN77A4JSo9YM7qbkZr3kvziR6FL74U
-	grWP+wvD3W2wiJdQQxy2rzcU/Vnf7EJyRA9s55LZxlmyyCtBgDMvCUE1wfLpv39UMGcbCoZf8JcYh
-	IyQRD+BQCULwQF4WZENJSe8JwEJmj7bbyWSdxs1/9pkBrjMvERPwYHk34zpN8kG8g7hCQouyXYbBb
-	V/W4ERqg5uG3jFCYMD4Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=J7HsedOwcHg3n7e7Sf5yrSA72TuiB6uRGmd8UZzQDBY=; b=wVzMg+u+wNMPp2
+	GFnXBfoCaoPhUTFDcCUOrjcuLz7XREf1EIouLzeZz+bNGnKMRQbJs82lcE7/8YjvwOZrUByRIaY65
+	9bQ2f4I0iXSfSGujmwZZa7XwQfWWFtOHykp9/tH3gyiZ912CJK6OMCGSa1oTvvuQpJ7NGZRbtewsG
+	vL6ZfyQ0kt8Obfl+I5uKaxHn/RaAKyaSv6EDKglrTF6SNYYxSDsCZyX9ZNOEyScBAcTUc2bPUlJM4
+	NXtgL9vfOUjXXx6pXWJYyihT9/Q2kEkTh0Rj4ljy1Ia5ZBtj3esRTlXTT9df4qLhPBgJ+mOlntDyK
+	Y/vt1vLTR0lrazE1jh5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8FRy-007POF-2g;
-	Wed, 29 Nov 2023 07:57:38 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1r8Fic-007Qzb-0V;
+	Wed, 29 Nov 2023 08:14:50 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8FRu-007PMu-2u
+	id 1r8FiZ-007QzB-2L
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Nov 2023 07:57:36 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-6cdd584591eso185010b3a.2
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Nov 2023 23:57:31 -0800 (PST)
+	Wed, 29 Nov 2023 08:14:49 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-a02d12a2444so921208866b.3
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Nov 2023 00:14:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1701244651; x=1701849451; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iFsbRvr1vOPA+ZRf+5P8m2yK/OJ4On0HVxmuOdxj8N8=;
-        b=Ejh4vazgqOPb1HL8M0+NV2TAIdOBsihiLFCoAtFZ0c7mRmEBJMnFLfu8BM3N0rbMqz
-         Stxcym5Dtfvh2VTkKegyyFbDOZ5a0Ygatakc9rlJadlEwBISqit2HSAylzt18tAukX2O
-         kEVe+wLPTZVT9/SqiuoaEzMmCXwHHKqOtQGq4+3X3JB2cE14mR5p4aFZhsrtxAohZUmE
-         K2JQb/B5oLZi40KxTFNiv36MaiDrGbpjW7HXsZWCs18T0sLsWgwM9umBztzd1JQMgEYA
-         CHgW4pKHoJL5ej0LSOHzGQKAccp1k2Itqdd7WcGGLtE0y6ys/7Znrw1SCN6pkwtJJP5m
-         zOGg==
+        d=linaro.org; s=google; t=1701245684; x=1701850484; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
+         :to:content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=15rBzMWMbcNTsXkPW+OzoO0aYPOme+aI+6A4C5XO+to=;
+        b=yoHoPmBudNKoMk8j/HuFhcdJuQCJKPwOWuTSBhI7eYzhIePID7itDItfJ17ilyj29g
+         O32IBxik0NP5Op482Y6mQOKr3cr3J/OFdve1lZJzrHi2tfOh9d3NTIFY1Y/nhXtIVIzu
+         AjIJ8S/nz5n2ZIlguKguuOavGQixH9IIqecEfsvwFI2EMthTrDr8Zp1m8h4JAXyVSlk5
+         B6kRAVECl5wJ7UDY1Q7sl9NBkVcUL/jFEFbcN6AJFA0d4lNqRr7yTeBTD3MkVYgLf7hM
+         XeKoZdXrd1FSdrEMkrEqGorS1i1bzh2L9RPjv+n8ALa5lax9DFhtMZLc/L3zmP8CRlhR
+         ao9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701244651; x=1701849451;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=iFsbRvr1vOPA+ZRf+5P8m2yK/OJ4On0HVxmuOdxj8N8=;
-        b=YTsEvTEzhYE64vFpanIfVdwdnEedjW8bKaCw8dkhOx/6w45DS49IU0sWpKa1IBuKKH
-         hWmYyycyqT2WQEROQuf3rb+UIH8U2VbYPT0VeBVz/FfZ7yX+xUsmQuZOkFCw3Yz+Vti1
-         cY1jcT84nRA9rYeDbDims5hOOZSJxOrWTD1sdhJ9MpX0RpC5v4P8/xvT7iQ7ZKE+gK3q
-         WXqrW9ch4/ulxNs5WOfLHN/4VlUCdEFSt5lV/DjqJPwVudWUz5iCP7GnverfxLl1fRWP
-         PhiCtaM7zOa0qlttn863vHDukZDKLb1+ofqcKmq/zl7OPcUY3fLIZs1jEXERwJIMivpN
-         JyJQ==
-X-Gm-Message-State: AOJu0Yxtg+XEwtzSUREyqSNDAaEqyQI20LnQZk46s3bxsiGn5T5BkAUH
-	aTizTy92FGE9nAedbQA3iI/U4ugJSekNbkvMefM=
-X-Google-Smtp-Source: AGHT+IFK4o7xUXoWtsBPJh1GLeZc4kKnL2/MBs6AJBx/ToMjyQ9ACg9+9TEtywTSU4pBWYPIrKdNTA==
-X-Received: by 2002:a05:6a00:1914:b0:68f:f38d:f76c with SMTP id y20-20020a056a00191400b0068ff38df76cmr19199016pfi.6.1701244650952;
-        Tue, 28 Nov 2023 23:57:30 -0800 (PST)
-Received: from ?IPv6:2402:7500:4ce:5a34:455:7149:7e47:1d5b? ([2402:7500:4ce:5a34:455:7149:7e47:1d5b])
-        by smtp.gmail.com with ESMTPSA id f44-20020a056a000b2c00b006c4d1bb81d6sm10096862pfu.67.2023.11.28.23.57.27
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 28 Nov 2023 23:57:30 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.7\))
-Subject: Re: [PATCH v2 07/13] RISC-V: crypto: add accelerated
- AES-CBC/CTR/ECB/XTS implementations
-From: Jerry Shih <jerry.shih@sifive.com>
-In-Reply-To: <20231128040716.GI1463@sol.localdomain>
-Date: Wed, 29 Nov 2023 15:57:25 +0800
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- palmer@dabbelt.com,
- Albert Ou <aou@eecs.berkeley.edu>,
- herbert@gondor.apana.org.au,
- davem@davemloft.net,
- conor.dooley@microchip.com,
- ardb@kernel.org,
- heiko@sntech.de,
- phoebe.chen@sifive.com,
- hongrong.hsu@sifive.com,
- linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- linux-crypto@vger.kernel.org
-Message-Id: <7DFBB20D-B8D4-409B-8562-4C60E67FD279@sifive.com>
-References: <20231127070703.1697-1-jerry.shih@sifive.com>
- <20231127070703.1697-8-jerry.shih@sifive.com>
- <20231128040716.GI1463@sol.localdomain>
-To: Eric Biggers <ebiggers@kernel.org>
-X-Mailer: Apple Mail (2.3445.9.7)
+        d=1e100.net; s=20230601; t=1701245684; x=1701850484;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
+         :to:content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=15rBzMWMbcNTsXkPW+OzoO0aYPOme+aI+6A4C5XO+to=;
+        b=qH0E5Hguf85Tn2D1JBOBV3pih+4PBTc+IrTQSTYJD4BIeN5P1DPuWET0RFBt+H5Lbs
+         8jIqnmT6ZJ6BVGRy+YhSWrPDjCFc0MfqgvVP91YPqn+ns4IQpZDtN8TVqHnnT7GaGkXt
+         lPtAFTaYFW5kBKh9NfZfE+reKykWZPI8fPdpm7wQtFfNPzA6S30dk7MuT15lDI8OxJnp
+         Pbbac3130KPHb2XxvffgAkcA1IbWBbuiqzL8ulp3FgCx+6wFUg4HFAMmfCIV1ujTydCF
+         /WSLPVCfpHBAs5oSbKahjvp/yAgLm4WDjNwEn3lrB1B+apsjYglLiT6z419orWPGcFxa
+         TUkg==
+X-Gm-Message-State: AOJu0YzA2wPPcss4XSJkgqbl4z2S5MbKBcWfDcCXz5PRs6uWA8j8E7lb
+	3N99wrPmYEt6CBuDdCJqVNcPGA==
+X-Google-Smtp-Source: AGHT+IHTVIeLCkDbRpmFWEF8VvCsbmcByfExaLNid6uMk5lNlfrT9gg5TMULBgjkmROlhQ2Mzw2usA==
+X-Received: by 2002:a17:906:9c12:b0:9df:e39d:e0ed with SMTP id ff18-20020a1709069c1200b009dfe39de0edmr11142520ejc.24.1701245684618;
+        Wed, 29 Nov 2023 00:14:44 -0800 (PST)
+Received: from [192.168.1.20] ([178.197.223.109])
+        by smtp.gmail.com with ESMTPSA id x22-20020a1709060a5600b009c3827134e5sm7547416ejf.117.2023.11.29.00.14.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 29 Nov 2023 00:14:44 -0800 (PST)
+Message-ID: <555a6820-3e28-4eae-93d8-5cd023326acb@linaro.org>
+Date: Wed, 29 Nov 2023 09:14:41 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/6] dt-bindings: display: Add yamls for JH7110 display
+ system
+Content-Language: en-US
+To: Keith Zhao <keith.zhao@starfivetech.com>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+ "linaro-mm-sig@lists.linaro.org" <linaro-mm-sig@lists.linaro.org>
+Cc: David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Sumit Semwal <sumit.semwal@linaro.org>,
+ "christian.koenig@amd.com" <christian.koenig@amd.com>,
+ Bjorn Andersson <andersson@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Shawn Guo <shawnguo@kernel.org>, Jagan Teki <jagan@edgeble.ai>,
+ Chris Morgan <macromorgan@hotmail.com>, Jack Zhu
+ <jack.zhu@starfivetech.com>, Shengyang Chen
+ <shengyang.chen@starfivetech.com>,
+ Changhuang Liang <changhuang.liang@starfivetech.com>
+References: <20231025103957.3776-1-keith.zhao@starfivetech.com>
+ <20231025103957.3776-2-keith.zhao@starfivetech.com>
+ <cb7395a9-71e8-415e-90d5-866a2aeadf28@linaro.org>
+ <20502c84-c3af-4a60-9f5f-d8cc05743866@starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <20502c84-c3af-4a60-9f5f-d8cc05743866@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231128_235734_942205_9FD2E5C6 
-X-CRM114-Status: GOOD (  27.82  )
+X-CRM114-CacheID: sfid-20231129_001447_774504_B3E7CAB7 
+X-CRM114-Status: GOOD (  22.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,198 +162,114 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Nov 28, 2023, at 12:07, Eric Biggers <ebiggers@kernel.org> wrote:
-> On Mon, Nov 27, 2023 at 03:06:57PM +0800, Jerry Shih wrote:
->> +typedef void (*aes_xts_func)(const u8 *in, u8 *out, size_t length,
->> +			     const struct crypto_aes_ctx *key, u8 *iv,
->> +			     int update_iv);
+On 29/11/2023 04:13, Keith Zhao wrote:
 > 
-> There's no need for this indirection, because the function pointer can only have
-> one value.
 > 
-> Note also that when Control Flow Integrity is enabled, assembly functions can
-> only be called indirectly when they use SYM_TYPED_FUNC_START.  That's another
-> reason to avoid indirect calls that aren't actually necessary.
-
-We have two function pointers for encryption and decryption.
-	static int xts_encrypt(struct skcipher_request *req)
-	{
-		return xts_crypt(req, rv64i_zvbb_zvkg_zvkned_aes_xts_encrypt);
-	}
-
-	static int xts_decrypt(struct skcipher_request *req)
-	{
-		return xts_crypt(req, rv64i_zvbb_zvkg_zvkned_aes_xts_decrypt);
-	}
-The enc and dec path could be folded together into `xts_crypt()`, but we will have
-additional branches for enc/decryption path if we don't want to have the indirect calls.
-Use `SYM_TYPED_FUNC_START` in asm might be better.
-
->> +			nbytes &= (~(AES_BLOCK_SIZE - 1));
+> On 2023/10/25 20:50, Krzysztof Kozlowski wrote:
+>> On 25/10/2023 12:39, Keith Zhao wrote:
+>>> StarFive SoCs JH7110 display system:
+>>
+>> A nit, subject: drop second/last, redundant "yamls for". The
+>> "dt-bindings" prefix is already stating that these are bindings, so
+>> format is fixed.
+>>
+>>> lcd-controller bases verisilicon dc8200 IP,
+>>> and hdmi bases Innosilicon IP. Add bindings for them.
+>>
+>> Please make it a proper sentences, with proper wrapping.
+>>
+>>>
+>>> also update MAINTAINERS for dt-bindings
+>>
+>> Not a sentence, but also not really needed.ok I see.
+>>
+>>>
+>>> about this patch, I tested the dtbs_check and dt_binding_check
+>>> with the result pass.
+>>> Based on the feedback of the previous version, the corresponding arrangement is made
+>>
+>> Not relevant, so not really suitable for commit msg.
+>>
+>>>
+>>> Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
+>>> ---
+>>>  .../starfive/starfive,display-subsystem.yaml  |  41 +++++++
+>>>  .../starfive/starfive,jh7110-dc8200.yaml      | 109 ++++++++++++++++++
+>>>  .../starfive/starfive,jh7110-inno-hdmi.yaml   |  85 ++++++++++++++
+>>>  MAINTAINERS                                   |   7 ++
+>>>  4 files changed, 242 insertions(+)
+>>>  create mode 100644 Documentation/devicetree/bindings/display/starfive/starfive,display-subsystem.yaml
+>>>  create mode 100644 Documentation/devicetree/bindings/display/starfive/starfive,jh7110-dc8200.yaml
+>>>  create mode 100644 Documentation/devicetree/bindings/display/starfive/starfive,jh7110-inno-hdmi.yaml
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/display/starfive/starfive,display-subsystem.yaml b/Documentation/devicetree/bindings/display/starfive/starfive,display-subsystem.yaml
+>>> new file mode 100644
+>>> index 000000000..f45b97b08
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/display/starfive/starfive,display-subsystem.yaml
+>>> @@ -0,0 +1,41 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/display/starfive/starfive,display-subsystem.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: Starfive DRM master device
+>>
+>> What is DRM in hardware? I know Digital Rights Management, but then
+>> subsystem seems wrong. If you mean Linux DRM, then Linux is not a
+>> hardware, so drop all Linuxisms and describe hardware.
+> ok , will only keep hardware describe in my next version
+>>
+>>
+>>> +
+>>> +maintainers:
+>>> +  - Keith Zhao <keith.zhao@starfivetech.com>
+>>> +  - ShengYang Chen <shengyang.chen@starfivetech.com>
+>>> +
+>>> +description:
+>>> +  The Starfive DRM master device is a virtual device needed to list all
+>>
+>> Virtual device? Then not suitable for bindings, sorry.
+>>
+>>> +  display controller or other display interface nodes that comprise the
+>>> +  graphics subsystem.
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    const: starfive,display-subsystem
+>>> +
+>>> +  ports:
+>>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+>>
+>> No, ports is not phandle-array. ports is object, always.
+>>
+>>> +    description:
+>>> +      Should contain a list of phandles pointing to display interface ports
+>>> +      of display controller devices. Display controller definitions as defined
+>>> +      in Documentation/devicetree/bindings/display/starfive/
+>>> +      starfive,jh7110-dc8200.yaml
+>>
+>> Use standard graph ports, not some own, custom property.
+>>
+>> Anyway, entire binding should be dropped. You do not need it even.
+> Hi Krzysztof:
+> Virtual device is not suitable for bindings, matbe I need associate it with the real hardware.
+> such as the top clocks & reset , irq , etc.
+> Currently I configure them in another yaml file. Logically speaking, this is more suitable.
 > 
-> Expressions like ~(n - 1) should not have another set of parentheses around them
+> Can adding the corresponding hardware description change its fate of being deleted?
 
-Fixed.
+I am not sure if I follow. Bindings and DTS describe the hardware, so if
+you configure device A clocks in a device B node, then it is not
+correct. If you add binding for something not being a real device, it is
+not correct.
 
->> +static int xts_crypt(struct skcipher_request *req, aes_xts_func func)
->> +{
->> +	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
->> +	const struct riscv64_aes_xts_ctx *ctx = crypto_skcipher_ctx(tfm);
->> +	struct skcipher_request sub_req;
->> +	struct scatterlist sg_src[2], sg_dst[2];
->> +	struct scatterlist *src, *dst;
->> +	struct skcipher_walk walk;
->> +	unsigned int walk_size = crypto_skcipher_walksize(tfm);
->> +	unsigned int tail_bytes;
->> +	unsigned int head_bytes;
->> +	unsigned int nbytes;
->> +	unsigned int update_iv = 1;
->> +	int err;
->> +
->> +	/* xts input size should be bigger than AES_BLOCK_SIZE */
->> +	if (req->cryptlen < AES_BLOCK_SIZE)
->> +		return -EINVAL;
->> +
->> +	/*
->> +	 * We split xts-aes cryption into `head` and `tail` parts.
->> +	 * The head block contains the input from the beginning which doesn't need
->> +	 * `ciphertext stealing` method.
->> +	 * The tail block contains at least two AES blocks including ciphertext
->> +	 * stealing data from the end.
->> +	 */
->> +	if (req->cryptlen <= walk_size) {
->> +		/*
->> +		 * All data is in one `walk`. We could handle it within one AES-XTS call in
->> +		 * the end.
->> +		 */
->> +		tail_bytes = req->cryptlen;
->> +		head_bytes = 0;
->> +	} else {
->> +		if (req->cryptlen & (AES_BLOCK_SIZE - 1)) {
->> +			/*
->> +			 * with ciphertext stealing
->> +			 *
->> +			 * Find the largest tail size which is small than `walk` size while the
->> +			 * head part still fits AES block boundary.
->> +			 */
->> +			tail_bytes = req->cryptlen & (AES_BLOCK_SIZE - 1);
->> +			tail_bytes = walk_size + tail_bytes - AES_BLOCK_SIZE;
->> +			head_bytes = req->cryptlen - tail_bytes;
->> +		} else {
->> +			/* no ciphertext stealing */
->> +			tail_bytes = 0;
->> +			head_bytes = req->cryptlen;
->> +		}
->> +	}
->> +
->> +	riscv64_aes_encrypt_zvkned(&ctx->ctx2, req->iv, req->iv);
->> +
->> +	if (head_bytes && tail_bytes) {
->> +		/* If we have to parts, setup new request for head part only. */
->> +		skcipher_request_set_tfm(&sub_req, tfm);
->> +		skcipher_request_set_callback(
->> +			&sub_req, skcipher_request_flags(req), NULL, NULL);
->> +		skcipher_request_set_crypt(&sub_req, req->src, req->dst,
->> +					   head_bytes, req->iv);
->> +		req = &sub_req;
->> +	}
->> +
->> +	if (head_bytes) {
->> +		err = skcipher_walk_virt(&walk, req, false);
->> +		while ((nbytes = walk.nbytes)) {
->> +			if (nbytes == walk.total)
->> +				update_iv = (tail_bytes > 0);
->> +
->> +			nbytes &= (~(AES_BLOCK_SIZE - 1));
->> +			kernel_vector_begin();
->> +			func(walk.src.virt.addr, walk.dst.virt.addr, nbytes,
->> +			     &ctx->ctx1, req->iv, update_iv);
->> +			kernel_vector_end();
->> +
->> +			err = skcipher_walk_done(&walk, walk.nbytes - nbytes);
->> +		}
->> +		if (err || !tail_bytes)
->> +			return err;
->> +
->> +		/*
->> +		 * Setup new request for tail part.
->> +		 * We use `scatterwalk_next()` to find the next scatterlist from last
->> +		 * walk instead of iterating from the beginning.
->> +		 */
->> +		dst = src = scatterwalk_next(sg_src, &walk.in);
->> +		if (req->dst != req->src)
->> +			dst = scatterwalk_next(sg_dst, &walk.out);
->> +		skcipher_request_set_crypt(req, src, dst, tail_bytes, req->iv);
->> +	}
->> +
->> +	/* tail */
->> +	err = skcipher_walk_virt(&walk, req, false);
->> +	if (err)
->> +		return err;
->> +	if (walk.nbytes != tail_bytes)
->> +		return -EINVAL;
->> +	kernel_vector_begin();
->> +	func(walk.src.virt.addr, walk.dst.virt.addr, walk.nbytes, &ctx->ctx1,
->> +	     req->iv, 0);
->> +	kernel_vector_end();
->> +
->> +	return skcipher_walk_done(&walk, 0);
->> +}
-> 
-> Did you consider writing xts_crypt() the way that arm64 and x86 do it?  The
-> above seems to reinvent sort of the same thing from first principles.  I'm
-> wondering if you should just copy the existing approach for now.  Then there
-> would be no need to add the scatterwalk_next() function, and also the handling
-> of inputs that don't need ciphertext stealing would be a bit more streamlined.
+Feel free to bring proper hardware description, not Linux. This entire
+binding was written to describe Linux driver, which is not correct.
 
-I will check the arm and x86's implementations.
-But the `scatterwalk_next()` proposed in this series does the same thing as the
-call `scatterwalk_ffwd()` in arm and x86's implementations.
-The scatterwalk_ffwd() iterates from the beginning of scatterlist(O(n)), but the 
-scatterwalk_next() is just iterates from the end point of the last used
-scatterlist(O(1)).
-
->> +static int __init riscv64_aes_block_mod_init(void)
->> +{
->> +	int ret = -ENODEV;
->> +
->> +	if (riscv_isa_extension_available(NULL, ZVKNED) &&
->> +	    riscv_vector_vlen() >= 128 && riscv_vector_vlen() <= 2048) {
->> +		ret = simd_register_skciphers_compat(
->> +			riscv64_aes_algs_zvkned,
->> +			ARRAY_SIZE(riscv64_aes_algs_zvkned),
->> +			riscv64_aes_simd_algs_zvkned);
->> +		if (ret)
->> +			return ret;
->> +
->> +		if (riscv_isa_extension_available(NULL, ZVBB)) {
->> +			ret = simd_register_skciphers_compat(
->> +				riscv64_aes_alg_zvkned_zvkb,
->> +				ARRAY_SIZE(riscv64_aes_alg_zvkned_zvkb),
->> +				riscv64_aes_simd_alg_zvkned_zvkb);
->> +			if (ret)
->> +				goto unregister_zvkned;
-> 
-> This makes the registration of the zvkned-zvkb algorithm conditional on zvbb,
-> not zvkb.  Shouldn't the extension checks actually look like:
-> 
->    ZVKNED
->        ZVKB
->            ZVBB && ZVKG
-
-Fixed.
-But we will have the conditions like:
-	if(ZVKNED) {
-		reg_cipher_1();
-		if(ZVKB) {
-			reg_cipher_2();
-		}
-		if (ZVBB && ZVKG) {
-			reg_cipher_3();
-		}
-	}
-
-> - Eric
+Best regards,
+Krzysztof
 
 
 _______________________________________________
