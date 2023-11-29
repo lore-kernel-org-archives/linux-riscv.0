@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC62C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 06:06:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47C35C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 06:09:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:References:
 	Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UEXr3hRC8Km+3BIrPI4zROAoGaO4FbnF+8C4QLy3650=; b=12WxzRSRnNdlyv
-	Ap80nrTkAHfGVRlf/yzaJAKFzW9dSabUn83TGQ621YYD+6npNdMDUprC8GL5BHtAMS+GQl701Zd5V
-	UQsscyNMdTk9sl2TX6w6bB7pqLma+uo/tIZINkW3XXuZkSlOrQEimqreTYKqsvJzkaNo8zXMpUrvk
-	QOpXg87dnCdE/aBrKv1FsqXTPLK6Wvp/j2FWAD+otM4VZ2MGAD+1Sn88E6zyg/HOQ3p8e1pCK6310
-	r+oqGt1WK5mn0gQmMzRMvb0seYpqS6xaRsPoCRV+NtYdDbmqHgNGaJYp2+wolSvOtz8AKEYlhLTR3
-	Tl/twrKTwIi01Ct0WFFQ==;
+	List-Owner; bh=NF7Gk40tRaPEeBlNvTSNadSnps/oB68nQkIb+ROFLlQ=; b=HgQxzQtPjBKuRv
+	1X0zF3hV9tZOSjS+rZMrufdAfeUdajR41wHmyIWy2iRNAlK5IsV30o7J/QRxRlfvRk8E9tWIFEUN+
+	VaNXIdzo/eM4KH0BwLPA1PNeZALOvYBgF0xLZJQO6iZ5mOd7PjoiV2fR9zvCeHa4UA5MPT9KBaKoB
+	0exDY4TUq10P67h+dOUjmIID7WRdEN0XcX21C8XK04HlrTo+kGnG1A6mtlo1kX9ZQ150uqJCOPBgC
+	zXAgZ9ns3DW7usw9fEfPeiaGNUeghCy2hcHIlawGTHWQsRJDdgoOzCuS3uqa2Sl5jXok/fjmmXcfY
+	HkEaZODRH5QDa22M8d7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8Di7-007BDz-35;
-	Wed, 29 Nov 2023 06:06:11 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1r8Dl3-007BdV-17;
+	Wed, 29 Nov 2023 06:09:13 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8Di5-007BBX-18
+	id 1r8Dkz-007BcG-06
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Nov 2023 06:06:10 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-5cd6a86a898so78490557b3.3
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Nov 2023 22:06:05 -0800 (PST)
+	Wed, 29 Nov 2023 06:09:10 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-5d032ab478fso47749127b3.0
+        for <linux-riscv@lists.infradead.org>; Tue, 28 Nov 2023 22:09:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1701237965; x=1701842765; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1701238147; x=1701842947; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=BFBgGZHgdrEFpnu/cpKOcJzser1reIBdXzg/6fniV64=;
-        b=TbwqyZtgeDzUrxgq8BQX+grkf8Js4e0FKeeFrvAZJqHVReB4NJi0PV7/0HrCYKWcEV
-         ChsfaOJcYJz9eo8rx37T7Nzi6FpJVD+NSU3BDLRpwSaOdXzdxWNO07J+zuGrmsAo7JxP
-         hn2zQ4Oy4Z0J+DZ8JcRs3HTz5e1cyYmqukW1EFRqJ7YES9WhLT5LUW1+4vp+5io3JNO6
-         vLzMSUzAuH+nNMbmJMOA3wB9qFN6D8fGeRz5yr1/aPkYVMFREg0KLwkDeA5wzzeis2vd
-         4WaQ2EKMfOSSq91847+rAHzQ6Tt5D4Scmc0Lo5ctclqaDPT+rAMy2XW1Nztt2fetA6Nz
-         qhJA==
+        bh=KtrAPaslMvSrZFznq3cpY4nyS514mOCdxUhLK1bsTtI=;
+        b=DJ2VEso2sYPPmOyuvX4coVlifbiEMRRb8P0dciioZGPqB9HXB4H0mzLPGpH0vmcCp1
+         ZvjJ0x+wTSxngsvmktPJ6uz4oit1bzAKxPuAbxWx1Io5c7cJ3WfP8DZUAyD9UeDUc0WO
+         UbLfzLKYgtSf4KxRWtNX7RdIahoIsF/wH4DZjGj8cX+XhTDwBhdkmvnOejG+Se/gJbpt
+         NyGv8zMjC3zvsK8D1HIvzTZhAFcF9p9aJR1/2oG/4J2qRf59ueSmyProlcrXvCWws6u/
+         mx1rtF5YNdiRC9vdsdmzR5i3XEx8GuYamq+atrokZRvIGMb8jz5DzPWPymFScw7CBXrk
+         sHiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701237965; x=1701842765;
+        d=1e100.net; s=20230601; t=1701238147; x=1701842947;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=BFBgGZHgdrEFpnu/cpKOcJzser1reIBdXzg/6fniV64=;
-        b=Z7xGvRQ5ug2eYnnX3xtkt5a/sbdgzk0s9m/ia4yyNzfaEAxrNo/iwgld09TCaQiOJq
-         aWzVb4kEe2WdYNFdRQ3qaJP6HZAjMh3nDkW5pSGKJUEkhNobbuDTbEFsiEUykLBZ+khb
-         qUribSbQQ28ZY6ky96q7zrZwGceOXk8LbXgeVePw6IxqUO4Zze0FEFYOzao/kiWddI6I
-         3ICXz7dE9AM9I+l5Vq+u0q9EbveDMslJ5kGDBVIuDKcooVcmcyehPMKeVEGJyl+ErNNk
-         0O6+JxaEHZ4AaqHB09neCK4pjgXzvDj8y9Nee0m24eDgUZo5g2+1eV2JHoBG8l+LrDhj
-         UzlQ==
-X-Gm-Message-State: AOJu0Yx/itv0AKiJOjWWHyQtYd6KtiSVhN4HUo8DCFpLtigaoKKL5CkH
-	0tiiehvGfwSCFclGVJxCi48SSynJeGHm
-X-Google-Smtp-Source: AGHT+IG4ZcbE3hB8V6+vKX0zxYUr0OpHfbf/WNlvcGBdlOoo8eTYBCxtpp+7m/8KdVPZTHDTWhORx94znMfW
+        bh=KtrAPaslMvSrZFznq3cpY4nyS514mOCdxUhLK1bsTtI=;
+        b=vF/g6Lfsu4MlFZjD4BVCT26/FDVpYHpFgB2jLjWuJpgFfZ5yld3Yxzd86PWDGOmcg6
+         7bd5ROW2fzElHbbpAjh+/ssMqt4kJYXTloG4ZzCzsBx3lwQ4Sf2xhwgthTZom+C4Wnvh
+         mlarvXOuUkQBG//ed+Uz1FoSO4djDv/UKr3vk7T3FjLNBGS6g5pjNxLBS6KJyylrXIP0
+         v26wySrSCCxdc3g2ChIDYpI3JoT0csoTwL5zXukVF9Gtz4+3iebKxHGQsf9/YkLm96Vi
+         a02TAy77Hn2h05puHSm/EU9RuB0mBb8oMuM+/CnY1CJ4teVApypldOyaBb2BntQ7LQWN
+         x7eA==
+X-Gm-Message-State: AOJu0Yy4s64Lv8bx7BdpNMumjj63kvGLlgIDQMM9zy+/S0CTZtyEw4Ka
+	c4ivz4A9VspKm+m3Z5nEGBOAB3L71+x8
+X-Google-Smtp-Source: AGHT+IErKpR33sSuZDb458AGzbTTTl+rmkeUZNxvoUYyius6/ySrcsirHg/Fcs0NR9CFHutX0EyL3PHfE3h2
 X-Received: from morats.c.googlers.com ([fda3:e722:ac3:cc00:14:4d90:c0a8:d9e])
- (user=moritzf job=sendgmr) by 2002:a25:c044:0:b0:db5:1f69:704e with SMTP id
- c65-20020a25c044000000b00db51f69704emr38263ybf.1.1701237964651; Tue, 28 Nov
- 2023 22:06:04 -0800 (PST)
-Date: Wed, 29 Nov 2023 06:06:03 +0000
-In-Reply-To: <4-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
+ (user=moritzf job=sendgmr) by 2002:a25:3741:0:b0:db5:2a4:aef1 with SMTP id
+ e62-20020a253741000000b00db502a4aef1mr107973yba.13.1701238147290; Tue, 28 Nov
+ 2023 22:09:07 -0800 (PST)
+Date: Wed, 29 Nov 2023 06:09:06 +0000
+In-Reply-To: <7-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
 Mime-Version: 1.0
-References: <0-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com> <4-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
-Message-ID: <20231129060603.hxtmbsefxurxnwkh@google.com>
-Subject: Re: [PATCH 04/10] iommu: Mark dev_iommu_get() with lockdep
+References: <0-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com> <7-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
+Message-ID: <20231129060906.qti7uztsk2u7ehlp@google.com>
+Subject: Re: [PATCH 07/10] acpi: Do not return struct iommu_ops from acpi_iommu_configure_id()
 From: Moritz Fischer <moritzf@google.com>
 To: Jason Gunthorpe <jgg@nvidia.com>
 Cc: David Airlie <airlied@gmail.com>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
@@ -93,8 +93,8 @@ Cc: David Airlie <airlied@gmail.com>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
 	patches@lists.linux.dev, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
 	Rob Herring <robh@kernel.org>, Thierry Reding <thierry.reding@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231128_220609_784507_D26D219B 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20231128_220909_068584_4A44C11F 
+X-CRM114-Status: GOOD (  22.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,32 +111,107 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"; DelSp="yes"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 28, 2023 at 08:48:00PM -0400, Jason Gunthorpe wrote:
-> Allocation of dev->iommu must be done under the
-> iommu_probe_device_lock. Mark this with lockdep to discourage future
-> mistakes.
+On Tue, Nov 28, 2023 at 08:48:03PM -0400, Jason Gunthorpe wrote:
+> Nothing needs this pointer. Return a normal error code with the usual
+> IOMMU semantic that ENODEV means 'there is no IOMMU driver'.
 
+> Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 > Reviewed-by: Jerry Snitselaar <jsnitsel@redhat.com>
 > Tested-by: Hector Martin <marcan@marcan.st>
 > Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 > ---
->   drivers/iommu/iommu.c | 2 ++
->   1 file changed, 2 insertions(+)
+>   drivers/acpi/scan.c | 29 +++++++++++++++++------------
+>   1 file changed, 17 insertions(+), 12 deletions(-)
 
-> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-> index 0d25468d53a68a..4323b6276e977f 100644
-> --- a/drivers/iommu/iommu.c
-> +++ b/drivers/iommu/iommu.c
-> @@ -334,6 +334,8 @@ static struct dev_iommu *dev_iommu_get(struct device  
-> *dev)
+> diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+> index 444a0b3c72f2d8..340ba720c72129 100644
+> --- a/drivers/acpi/scan.c
+> +++ b/drivers/acpi/scan.c
+> @@ -1562,8 +1562,7 @@ static inline const struct iommu_ops  
+> *acpi_iommu_fwspec_ops(struct device *dev)
+>   	return fwspec ? fwspec->ops : NULL;
+>   }
+
+> -static const struct iommu_ops *acpi_iommu_configure_id(struct device  
+> *dev,
+> -						       const u32 *id_in)
+> +static int acpi_iommu_configure_id(struct device *dev, const u32 *id_in)
 >   {
->   	struct dev_iommu *param = dev->iommu;
+>   	int err;
+>   	const struct iommu_ops *ops;
+> @@ -1577,7 +1576,7 @@ static const struct iommu_ops  
+> *acpi_iommu_configure_id(struct device *dev,
+>   	ops = acpi_iommu_fwspec_ops(dev);
+>   	if (ops) {
+>   		mutex_unlock(&iommu_probe_device_lock);
+> -		return ops;
+> +		return 0;
+>   	}
 
-> +	lockdep_assert_held(&iommu_probe_device_lock);
+>   	err = iort_iommu_configure_id(dev, id_in);
+> @@ -1594,12 +1593,14 @@ static const struct iommu_ops  
+> *acpi_iommu_configure_id(struct device *dev,
+
+>   	/* Ignore all other errors apart from EPROBE_DEFER */
+>   	if (err == -EPROBE_DEFER) {
+> -		return ERR_PTR(err);
+> +		return err;
+>   	} else if (err) {
+>   		dev_dbg(dev, "Adding to IOMMU failed: %d\n", err);
+> -		return NULL;
+> +		return -ENODEV;
+>   	}
+> -	return acpi_iommu_fwspec_ops(dev);
+> +	if (!acpi_iommu_fwspec_ops(dev))
+> +		return -ENODEV;
+> +	return 0;
+>   }
+
+>   #else /* !CONFIG_IOMMU_API */
+> @@ -1611,10 +1612,9 @@ int acpi_iommu_fwspec_init(struct device *dev, u32  
+> id,
+>   	return -ENODEV;
+>   }
+
+> -static const struct iommu_ops *acpi_iommu_configure_id(struct device  
+> *dev,
+> -						       const u32 *id_in)
+> +static int acpi_iommu_configure_id(struct device *dev, const u32 *id_in)
+>   {
+> -	return NULL;
+> +	return -ENODEV;
+>   }
+
+>   #endif /* !CONFIG_IOMMU_API */
+> @@ -1628,7 +1628,7 @@ static const struct iommu_ops  
+> *acpi_iommu_configure_id(struct device *dev,
+>   int acpi_dma_configure_id(struct device *dev, enum dev_dma_attr attr,
+>   			  const u32 *input_id)
+>   {
+> -	const struct iommu_ops *iommu;
+> +	int ret;
+
+>   	if (attr == DEV_DMA_NOT_SUPPORTED) {
+>   		set_dma_ops(dev, &dma_dummy_ops);
+> @@ -1637,10 +1637,15 @@ int acpi_dma_configure_id(struct device *dev,  
+> enum dev_dma_attr attr,
+
+>   	acpi_arch_dma_setup(dev);
+
+> -	iommu = acpi_iommu_configure_id(dev, input_id);
+> -	if (PTR_ERR(iommu) == -EPROBE_DEFER)
+> +	ret = acpi_iommu_configure_id(dev, input_id);
+> +	if (ret == -EPROBE_DEFER)
+>   		return -EPROBE_DEFER;
+
+> +	/*
+> +	 * Historically this routine doesn't fail driver probing due to errors
+> +	 * in acpi_iommu_configure_id()
+> +	 */
 > +
->   	if (param)
->   		return param;
+>   	arch_setup_dma_ops(dev, 0, U64_MAX, attr == DEV_DMA_COHERENT);
 
+>   	return 0;
 > --
 > 2.42.0
 
