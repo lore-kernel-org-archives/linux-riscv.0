@@ -4,85 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9184CC4167B
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 13:17:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD3B4C10DAA
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 14:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HCeEJUYJtZWKPpQdT11GKxvlGBnHgf4/vfO1GlY+wGU=; b=2CqaZTJg62V0X0
-	tuM4gL1B9234oEOKMuLREYvmu0s+1T2X/F6Y4c1ttB5JgR2kTmtaapsGS8zlBmtwnMkKxVIZcS3xp
-	9QFvrqXicLw6SmtqLtYi2RXwUEKxhW38zAcf24rDErAJVeytJuRLZAWfLEMBGciOLqUAmWdrW5f+s
-	6xAs3p6WEE8MKFhwJJMMkbLkkRz11p7lBL6EDqkdlk7AQfKIjXnQgCzikQbBQC7zjVJNfMdGrGBVt
-	y0q2Oh0FMaV8TmPI9pyk6JzJhqCUJJdR15GYCjonlWrtKTC5E1M2J6eXkPg6R7VohEMYcbywkTKt5
-	tp127K939vz3OpgrkdGg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=uNSxZeeRP4SJqPqcDmuc3b4cKWU12mbjHrHiv3Fst8M=; b=BJAyFlp1LQ27DGu2Z1mWlNSbYW
+	k3BDblgrhp0uAHYGx24sbPnzTq0CrFlXCXclEZE/4iEUOJF9uUqKkHl7LyE5Ua49GfckTy133PWo+
+	D2XORARrsMqbfzwVtTTpmzxzrIw6GZXcHbgA6OvOfH206WIjTnd/qIqhT9IHoPfHaOluYu2JrAuaN
+	XXjJEPKgx9rtwjQNRHu+GH6Nh/9caAGFIaRcFD2f4x19k80t/2PWIqgdo8p0Fa4AMakjv1e1vhLaK
+	uhiVHla3ttsMYW8w4ok1AzNSMWCXmr9RkdNCRyKwXvxTqmnNiwHi160md17GI8ou3DWWLqSESjE8o
+	cdQccB/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8KRA-008RGA-1V;
-	Wed, 29 Nov 2023 13:17:08 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8KR6-008RF8-1M
+	id 1r8LYk-008ccD-1V;
+	Wed, 29 Nov 2023 14:29:02 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1r8LYg-008cau-0y
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Nov 2023 13:17:07 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id B8FCB24E03E;
-	Wed, 29 Nov 2023 21:15:52 +0800 (CST)
-Received: from EXMBX162.cuchost.com (172.16.6.72) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 29 Nov
- 2023 21:15:52 +0800
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX162.cuchost.com
- (172.16.6.72) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 29 Nov
- 2023 21:15:52 +0800
-Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
- EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
- 15.00.1497.044; Wed, 29 Nov 2023 21:15:52 +0800
-From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, "kernel@esmil.dk"
-	<kernel@esmil.dk>, "robh+dt@kernel.org" <robh+dt@kernel.org>,
-	"krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>,
-	"krzk@kernel.org" <krzk@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
-	<aou@eecs.berkeley.edu>, "daniel.lezcano@linaro.org"
-	<daniel.lezcano@linaro.org>, "tglx@linutronix.de" <tglx@linutronix.de>,
-	"conor@kernel.org" <conor@kernel.org>, "anup@brainfault.org"
-	<anup@brainfault.org>, "gregkh@linuxfoundation.org"
-	<gregkh@linuxfoundation.org>, "jirislaby@kernel.org" <jirislaby@kernel.org>,
-	"michal.simek@amd.com" <michal.simek@amd.com>, Michael Zhu
-	<michael.zhu@starfivetech.com>, "drew@beagleboard.org" <drew@beagleboard.org>
-CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Leyfoon Tan
-	<leyfoon.tan@starfivetech.com>
-Subject: RE: [PATCH v2 5/6] dt-bindings: serial: cdns: Add new compatible
- string for StarFive JH8100 UART
-Thread-Topic: [PATCH v2 5/6] dt-bindings: serial: cdns: Add new compatible
- string for StarFive JH8100 UART
-Thread-Index: AQHaIomVReB7ZsOIbUqhwwRlprdVx7CQcD2AgACjd5D//4WkAIAArSFA
-Date: Wed, 29 Nov 2023 13:15:52 +0000
-Message-ID: <a0181b9c536a4692bab5eb827af1636c@EXMBX066.cuchost.com>
-References: <20231129060043.368874-1-jeeheng.sia@starfivetech.com>
- <20231129060043.368874-6-jeeheng.sia@starfivetech.com>
- <8f2f241d-580a-4906-949a-b99b5a600868@linaro.org>
- <d5a3a8798333431fbb2aee573383a8e4@EXMBX066.cuchost.com>
- <068ca34d-a930-4542-bde3-4fbb4c228807@linaro.org>
-In-Reply-To: <068ca34d-a930-4542-bde3-4fbb4c228807@linaro.org>
-Accept-Language: en-US, zh-CN
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [60.54.3.230]
-x-yovoleruleagent: yovoleflag
-MIME-Version: 1.0
+	Wed, 29 Nov 2023 14:29:01 +0000
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 4489340332
+	for <linux-riscv@lists.infradead.org>; Wed, 29 Nov 2023 14:28:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1701268132;
+	bh=vWP9CYe3KKvgAhmJq37cx8p7ADw60XqsLAUIuzsXUeA=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=TlqTWwxxMeA/16DIFbDDRcOZOtl9iWru7hpsDBcRfQ0874GhOpczVkgVEBzp8cHYo
+	 4IyNuPwAUYXocwrdq/ljILbmep5pnXySA62LyRf/ewuCbRaDSLiyiFT+UXmlsXhTlF
+	 IiF9z0UY52koueqHni6zBE8nMvwg5pTeV5/wg3lul7by65hmhRdnqaxVUWwcYiwZjR
+	 JG+TXgCi2f4kS28hHb42XGq/8rwD3NoWRN7GBcR0MEUxBhpuXgWVpctT/nC/PjWDL2
+	 qtBmMMKXfaGANpS1lXjC7oJrdIY5BbF6y7n/EwNV++JmqHbv25J1lLkNY7XAz6sgDS
+	 Y1YbbOMfj66zA==
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-679ff96b259so85040806d6.0
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Nov 2023 06:28:52 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701268131; x=1701872931;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=vWP9CYe3KKvgAhmJq37cx8p7ADw60XqsLAUIuzsXUeA=;
+        b=Qku5qBLdifk2KsFBq1xB6+GBBbyOuOh5go3RgPDm9MGMlv1i/mFWReIV+9UWu/kXoy
+         cP2yVNo7mwiGY0LURzDLRZ4l9SU4NBBfDvR2Qy55QfBBx3FnaGbuZJ76+Hb2gELdVRUR
+         Ksb2QkPUiABYUTnwgDeXlMhoXoui7pHoZH9fYe7CJEPcGZMZLG34DLEjCG9e8PE4FzJa
+         3T9nde5XWUim3uETdQV/9fn5hAv9MDLkVeUSSpp2vEvpEQOG2Mud5PRC5R7dzXpuEQ4+
+         bLaklXqN0Vhgd84s8RjC2+BR7d9STYCno0dGtyUwRbqyk92HG1uiGgSUbPl6IVXIlz3x
+         hfEw==
+X-Gm-Message-State: AOJu0Yy8xvW1lqm6U3y0N8bOZbiSk/zKm0Bjag/W92l1d9jxJb8ri5eU
+	qkxoFp1ICdY/vzfZR5QqrtzpokpFlk8tIuKl8r71s5yjvvEFGn8IXQBBcQaijO32J11ubykDLm1
+	sTFNUVVeQhOxj4LwRWqH4lvLrCbimUgdcnRMGCk9pRqsRJGn82BJenOme2XEdIg==
+X-Received: by 2002:ad4:5042:0:b0:67a:674:ed88 with SMTP id m2-20020ad45042000000b0067a0674ed88mr19792154qvq.28.1701268131044;
+        Wed, 29 Nov 2023 06:28:51 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEONtigUGKk4Y3Xk0mTpJLPt7Y7eqdmWiLh7OaZgii+ClWP4Bwqi3efc7dvejFZ/cmdUo7bZdxEtkDa6yrOEjc=
+X-Received: by 2002:ad4:5042:0:b0:67a:674:ed88 with SMTP id
+ m2-20020ad45042000000b0067a0674ed88mr19792134qvq.28.1701268130726; Wed, 29
+ Nov 2023 06:28:50 -0800 (PST)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 29 Nov 2023 15:28:50 +0100
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <5395f3ce-f9ec-474b-b145-5f62a3b7c4fc@collabora.com>
+References: <20231029042712.520010-1-cristian.ciocaltea@collabora.com>
+ <20231029042712.520010-13-cristian.ciocaltea@collabora.com>
+ <CAJM55Z9e=vjGKNnmURN15mvXo2bVd3igBA-3puF9q7eh5hiP+A@mail.gmail.com>
+ <2f06ce36-0dc1-495e-b6a6-318951a53e8d@collabora.com> <CAJM55Z8vkMbqXY5sS2o4cLi8ow-JQTcXU9=uYMBSykwd4ppExw@mail.gmail.com>
+ <054bbf2a-e7ba-40bf-8f8b-f0e0e9b396c6@collabora.com> <CAJM55Z9+j6CmfjNkPLCk1DR3EBuEMspsRtNvygDbPWJDCytQpw@mail.gmail.com>
+ <5395f3ce-f9ec-474b-b145-5f62a3b7c4fc@collabora.com>
+Mime-Version: 1.0
+Date: Wed, 29 Nov 2023 15:28:50 +0100
+Message-ID: <CAJM55Z-ff8btSQwJcWViUKLTJ8F2C_b70AaKJMwxgxZurUyGBA@mail.gmail.com>
+Subject: Re: [PATCH v2 12/12] [UNTESTED] riscv: dts: starfive:
+ beaglev-starlight: Enable gmac
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Emil Renner Berthing <kernel@esmil.dk>, Samin Guo <samin.guo@starfivetech.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Jose Abreu <joabreu@synopsys.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231129_051705_167453_01E8ED15 
-X-CRM114-Status: GOOD (  31.60  )
+X-CRM114-CacheID: sfid-20231129_062858_704500_EB1D46A0 
+X-CRM114-Status: GOOD (  45.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,101 +115,152 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-> -----Original Message-----
-> From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Sent: Wednesday, November 29, 2023 6:53 PM
-> To: JeeHeng Sia <jeeheng.sia@starfivetech.com>; kernel@esmil.dk; robh+dt@kernel.org; krzysztof.kozlowski+dt@linaro.org;
-> krzk@kernel.org; conor+dt@kernel.org; paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu;
-> daniel.lezcano@linaro.org; tglx@linutronix.de; conor@kernel.org; anup@brainfault.org; gregkh@linuxfoundation.org;
-> jirislaby@kernel.org; michal.simek@amd.com; Michael Zhu <michael.zhu@starfivetech.com>; drew@beagleboard.org
-> Cc: devicetree@vger.kernel.org; linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Leyfoon Tan
-> <leyfoon.tan@starfivetech.com>
-> Subject: Re: [PATCH v2 5/6] dt-bindings: serial: cdns: Add new compatible string for StarFive JH8100 UART
-> 
-> On 29/11/2023 11:33, JeeHeng Sia wrote:
-> >
-> >
-> >> -----Original Message-----
-> >> From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> >> Sent: Wednesday, November 29, 2023 4:26 PM
-> >> To: JeeHeng Sia <jeeheng.sia@starfivetech.com>; kernel@esmil.dk; robh+dt@kernel.org; krzysztof.kozlowski+dt@linaro.org;
-> >> krzk@kernel.org; conor+dt@kernel.org; paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu;
-> >> daniel.lezcano@linaro.org; tglx@linutronix.de; conor@kernel.org; anup@brainfault.org; gregkh@linuxfoundation.org;
-> >> jirislaby@kernel.org; michal.simek@amd.com; Michael Zhu <michael.zhu@starfivetech.com>; drew@beagleboard.org
-> >> Cc: devicetree@vger.kernel.org; linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Leyfoon Tan
-> >> <leyfoon.tan@starfivetech.com>
-> >> Subject: Re: [PATCH v2 5/6] dt-bindings: serial: cdns: Add new compatible string for StarFive JH8100 UART
-> >>
-> >> On 29/11/2023 07:00, Sia Jee Heng wrote:
-> >>> Add new compatible string for UART in the StarFive JH8100 SoC.
+Cristian Ciocaltea wrote:
+> On 11/28/23 18:09, Emil Renner Berthing wrote:
+> > Cristian Ciocaltea wrote:
+> >> On 11/28/23 14:08, Emil Renner Berthing wrote:
+> >>> Cristian Ciocaltea wrote:
+> >>>> On 11/26/23 23:10, Emil Renner Berthing wrote:
+> >>>>> Cristian Ciocaltea wrote:
+> >>>>>> The BeagleV Starlight SBC uses a Microchip KSZ9031RNXCA PHY supporting
+> >>>>>> RGMII-ID.
+> >>>>>>
+> >>>>>> TODO: Verify if manual adjustment of the RX internal delay is needed. If
+> >>>>>> yes, add the mdio & phy sub-nodes.
+> >>>>>
+> >>>>> Sorry for being late here. I've tested that removing the mdio and phy nodes on
+> >>>>> the the Starlight board works fine, but the rx-internal-delay-ps = <900>
+> >>>>> property not needed on any of my VisionFive V1 boards either.
+> >>>>
+> >>>> No problem, thanks a lot for taking the time to help with the testing!
+> >>>>
+> >>>>> So I wonder why you need that on your board
+> >>>>
+> >>>> I noticed you have a patch 70ca054e82b5 ("net: phy: motorcomm: Disable
+> >>>> rgmii rx delay") in your tree, hence I you please confirm the tests were
+> >>>> done with that commit reverted?
+> >>>>
+> >>>>> Also in the driver patch you add support for phy-mode = "rgmii-txid", but here
+> >>>>> you still set it to "rgmii-id", so which is it?
+> >>>>
+> >>>> Please try with "rgmii-id" first. I added "rgmii-txid" to have a
+> >>>> fallback solution in case the former cannot be used.
 > >>>
-> >>> Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-> >>> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+> >>> Ah, I see. Sorry I should have read up on the whole thread. Yes, the Starlight
+> >>> board with the Microchip phy works with "rgmii-id" as is. And you're right,
+> >>> with "rgmii-id" my VF1 needs the rx-internal-delay-ps = <900> property too.
 > >>
-> >> The patch is quite different than v1. Are you sure the review is
-> >> applicable? If it was given for v2, where is it?
-> > This patch is impacted by the comment suggesting the exclusion of patch 5 in V1. In V2, this patch adds compatible for cdns-uart-
-> r1p8, allowing us to continue using the cdns uart.
-> 
-> Please wrap your replies.
-I am sorry, but may I know the preferred length of characters?
-> 
-> How does this answer my concern about review tag?
-My bad. I should have obtained your consensus before proceeding with the changes
-to this patch, especially after dropping patch 5 as requested in version 1.
-> 
-> Do you understand that my comments are inline under the exact line which
-> is questioned?
-Yes, lesson learned.
-> 
+> >> That's great, we have now a pretty clear indication that this uncommon behavior
+> >> stems from the Motorcomm PHY, and *not* from GMAC.
 > >>
-> >>> ---
-> >>>  Documentation/devicetree/bindings/serial/cdns,uart.yaml | 4 ++++
-> >>>  1 file changed, 4 insertions(+)
+> >>>>
+> >>>>> You've alse removed the phy reset gpio on the Starlight board:
+> >>>>>
+> >>>>>   snps,reset-gpios = <&gpio 63 GPIO_ACTIVE_LOW>
+> >>>>>
+> >>>>> Why?
+> >>>>
+> >>>> I missed this in v1 as the gmac handling was done exclusively in
+> >>>> jh7100-common. Thanks for noticing!
+> >>>>
+> >>>>>>
+> >>>>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> >>>>>> ---
+> >>>>>>  arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts | 5 +++++
+> >>>>>>  1 file changed, 5 insertions(+)
+> >>>>>>
+> >>>>>> diff --git a/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts b/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
+> >>>>>> index 7cda3a89020a..d3f4c99d98da 100644
+> >>>>>> --- a/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
+> >>>>>> +++ b/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
+> >>>>>> @@ -11,3 +11,8 @@ / {
+> >>>>>>  	model = "BeagleV Starlight Beta";
+> >>>>>>  	compatible = "beagle,beaglev-starlight-jh7100-r0", "starfive,jh7100";
+> >>>>>>  };
+> >>>>>> +
+> >>>>>> +&gmac {
+> >>>>>> +	phy-mode = "rgmii-id";
+> >>>>>> +	status = "okay";
+> >>>>>> +};
+> >>>>>
+> >>>>> Lastly the phy-mode and status are the same for the VF1 and Starlight boards,
+> >>>>> so why can't these be set in the jh7100-common.dtsi?
+> >>>>
+> >>>> I wasn't sure "rgmii-id" can be used for both boards and I didn't want
+> >>>> to unconditionally enable gmac on Starlight before getting a
+> >>>> confirmation that this actually works.
+> >>>>
+> >>>> If there is no way to make it working with "rgmii-id" (w/ or w/o
+> >>>> adjusting rx-internal-delay-ps), than we should switch to "rgmii-txid".
 > >>>
-> >>> diff --git a/Documentation/devicetree/bindings/serial/cdns,uart.yaml
-> b/Documentation/devicetree/bindings/serial/cdns,uart.yaml
-> >>> index e35ad1109efc..0d05305778f2 100644
-> >>> --- a/Documentation/devicetree/bindings/serial/cdns,uart.yaml
-> >>> +++ b/Documentation/devicetree/bindings/serial/cdns,uart.yaml
-> >>> @@ -20,6 +20,10 @@ properties:
-> >>>          items:
-> >>>            - const: xlnx,zynqmp-uart
-> >>>            - const: cdns,uart-r1p12
-> >>> +      - description: UART controller for StarFive JH8100 SoC
+> >>> Yeah, I don't exactly know the difference, but both boards seem to work fine
+> >>> with "rgmii-id", so if that is somehow better and/or more correct let's just go
+> >>> with that.
 > >>
-> >> This is duplicating compatible, drop.
-> > Do you mean drop compatible for starfive,jh8100-uart ?
-> 
-> No, drop description and use directly " - items"
-Ok.
-> 
+> >> As Andrew already pointed out, going with "rgmii-id" would be the recommended
+> >> approach, as this passes the responsibility of adding both TX and RX delays to
+> >> the PHY.  "rgmii-txid" requires the MAC to handle the RX delay, which might
+> >> break the boards having a conformant (aka well-behaving) PHY.  For some reason
+> >> the Microchip PHY seems to work fine in both cases, but that's most likely an
+> >> exception, as other PHYs might expose a totally different and undesired
+> >> behavior.
 > >>
-> >>> +        items:
-> >>> +          - const: starfive,jh8100-uart
-> >>> +          - const: cdns,uart-r1p8
+> >> I will prepare a v3 soon, and will drop the patches you have already submitted
+> >> as part of [1].
+> >
+> > Sounds good. Then what's missing for ethernet to work is just the clock patches:
+> > https://github.com/esmil/linux/commit/b5abe1cb3815765739aff7949deed6f65b952c4a
+> > https://github.com/esmil/linux/commit/3a7a423b15a9f796586cbbdc37010d2b83ff2367
+> >
+> > You can either include those as part of your patch series enabling ethernet, or
+> > they can be submitted separately with the audio clocks. Either way is
+> > fine by me.
+>
+> I can cherry-pick them, but so far I couldn't identify any networking
+> related issues if those patches are not applied. Could it be something
+> specific to Starlight board only?
+
+No, it's the same for both boards. The dwmac-starfive driver adjusts
+the tx clock:
+
+1000Mbit -> 125MHz
+ 100Mbit ->  25MHz
+  10Mbit -> 2.5MHz
+
+The tx clock is given in the device tree as the gmac_tx_inv clock which derives
+from either the gmac_root_div or gmac_rmii_ref external clock like this:
+
+gmac_rmii_ref (external) -> gmac_rmii_txclk     \
+gmac_root_div  (500MHz)  -> gmac_gtxclk (div N) -> gmac_tx (mux) -> gmac_tx_inv
+
+..where N defaults to 4 and the gmac_tx mux defaults to the gmac_gtxclk, so
+the gmac_tx_inv clock defaults to 125MHz suitable for 1000Mbit connections.
+See /sys/kernel/debug/clk/clk_summary for another overview.
+
+When the dwmac_starfive driver request to change gmac_tx_inv to 25MHz the clock
+framework will that it has the CLK_SET_RATE_PARENT flag set, so it will try
+the gmac_tx clock next. This is a mux that can choose either the
+125MHz gmac_gtxclk
+or the external gmac_rmii_txclk which defaults to 0MHz in the current
+device trees,
+so the request cannot be met.
+
+That's why we need to set the CLK_SET_RATE_PARENT (and CLK_SET_RATE_NO_REPARENT)
+flags on the gmac_tx clock so the clock framework again goes to try setting the
+gmac_gtxclk to 25MHz, which it can because it's a divider and setting N=20
+does the trick.
+
+On your board you can manually force a 100Mbit connection with
+ethtool -s eth0 speed 100
+
+That fails on my boards without those two patches.
+/Emil
+
 > >>
-> >> Don't add things to the end of the list, but keep order. I would suggest
-> >> to put it at the beginning, so before Xilinx.
-> > I'm trying to get what you're asking, but it's a bit confusing for me. So, I thought it might be easier if I just share the code below.
-> Please let me know if this addresses your comment?
-> > properties:
-> >   compatible:
-> >     oneOf:
-> >       - description: UART controller for StarFive JH8100 SoC
-> >         items:
-> >           - const: cdns,uart-r1p8
-> 
-> Order is fixed, thanks. But drop description and bring back specific
-> compatible. You must have specific compatibles, always.
-Noted.
-> 
-> 
-> 
-> Best regards,
-> Krzysztof
+> >> Thanks again for your support,
+> >> Cristian
+> >>
+> >> [1]: https://lore.kernel.org/all/20231126232746.264302-1-emil.renner.berthing@canonical.com/
 
 _______________________________________________
 linux-riscv mailing list
