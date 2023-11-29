@@ -4,160 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7286C07E97
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 19:26:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE438C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 20:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iIRVUlljbR861DONPpfrSRy/CPO6jYJkQRVu2lrWhxs=; b=MUvDNjcz2zoZ3q
-	mOtsP52ZWTU6VnQeAhDME7S8CnPfL3GV2NU3mkxGkUOk5Ad6v+IMEIUsBzrUQ1CDVlaho+drgWf3i
-	+C3ie8VcEoU+DKWoXJAGBnTHyNnRXXwtwb10p/aHLB1+u0Wzh7dWbKGlyIj0PCzmo4JjaCV6sL+e0
-	D4yVgpsZGId8Hf27TRrDDeqeyfYeOBw/L2FQVWk2tddKWe1GD6y8hidNNtscB4CUqD0Rws5vIxlZ9
-	NBEywog+FndDGtV4Y4euilZrfMwpoQfygiy+dt1kAFK04WdWpOfaG89h1O7MSEY1H4v6TXKvVxYsd
-	cz4xECG0k3CS96VOBMhg==;
+	List-Owner; bh=VLolXrHUrDTj3gF+KBuPeMv2EJYdMCpwQpAzbrzGu88=; b=fF1I36+NjARbYM
+	w2spkjAR7VGQ/zkRg7O+gCqHFNIc1w2xGL/3O6zRe+llbokNzEY6hK7MXdpaDP3aBdT3cTlcR83Gt
+	THu5kkogq3A23u/3WT6qPlWO/Vc9ka4X7hbPHA1QXCCOxGNapm6zGmrZHqhSjyT23Nh7kjocUU56t
+	Vo9ILz5TMQX1mO/ZvJQjs40yn/QTVPQ76iurO7F7ZDE7qLD8W4A+HqmBINc9CYGZAXzvxe1rBhXq2
+	XQWYqC4Zu2HLtzCQFoZU+dmAfJSbIpUgn36QbzVMFpZAcj25PutRKNlVnCNYxlN3loCHIJGpqksSi
+	aXW/Pg7RJcayXrcJj4nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8QCP-0099oI-0H;
-	Wed, 29 Nov 2023 19:26:17 +0000
-Received: from mail-dm6nam12on20628.outbound.protection.outlook.com ([2a01:111:f400:fe59::628] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1r8QkA-009D7M-1v;
+	Wed, 29 Nov 2023 20:01:10 +0000
+Received: from smtpout.efficios.com ([167.114.26.122])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8QCL-0099ma-2A;
-	Wed, 29 Nov 2023 19:26:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=IPngBYLIfJOMmj1JEZ9anFgmA8XfohgsJFsG9dJqkZGvFTfuQG8EJmBl1SBGNWaZf7ou96bDgjBO0VAxv/yti8tAKhTYttg0MAs0qiABC3h+945H7mPIppb3kc/nFO+TiIiWV7vOQhovTfwY4/xmGlmRV9H3c/kz5aTyEEsQE8S89R1LqR/MoO6R3abWkeZF4/re3a1QW4Wr8D44onbG6wNKcQwf+Lg+wmj/74LDm3Z2f2c+VD770+oXCcMurQilJ3qINEoinTRSR63070ipKQvW30KcjjMZQ1w1ARjm2Yd9zISQzNlgXKvQ3xY70ZrZLYTiWezKY2SXhV0cgfdS+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DCEOJM6r+XvWrMfoFRBxwenF80/v0lWdRUy5zPbPphs=;
- b=kctR6ppXdGWj3Fz3qAUPnouXa5iU0I7D4K1D+OmjLxw9EYps2JG/8lLQNrPcrpaPmoz2et8+9R9tk0fo834AuiFDBmb9aPLuLICn48vaJQ6CpwK1syZ0VzwTchp94Aq3otK6AMeEIbYcR/0UtDkD6vk6I3FXwJwFINgZem8sigGhH9FT22lctRNsp/NtekowI/Y8Dd/0TrKw+igdcXZPX/GPexUA84RkNVnLLPKZu/IqHqjIn2L8X+xdwc7LX6Y4R8Qwkfsrt2Y6mFF3n664g/h185A/EOFsmlcM1OdAj2O9LfrUkta3EwL5PJSMNwnR12+iI5cWpkeAbN7YG0NfTw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DCEOJM6r+XvWrMfoFRBxwenF80/v0lWdRUy5zPbPphs=;
- b=mW10LyMfl3p9lAsXkCq2SYhk2rVDJehSMnpez8LXC9bedFRN62t/DL4CwmbtzOtgd5Z1JeVMxCklzaAK0hG3xuq97IffNmbNBwrI7uqeov9+tANzing9981WsSElUW2JhE9MByKzMwYXQVcdL6YbFDPHb/+tGq29Eeg74MmrujZrt+kO+eyMpLP7rXJNwaV2L2Q+WYPSiEFsLQk2lOWDkqNock1zVbbVrC6qaubnv/zXnxhpMTV6fVOrqvPvRJ7s1kJ02J+OBiLKRiYuM51UXhVnar758yZKKsWaMqwRj0QF6Xd8hjaP+sE1jn98H9wspCVdvQR9X3lDU11bvumB/w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV2PR12MB5869.namprd12.prod.outlook.com (2603:10b6:408:176::16)
- by PH7PR12MB9104.namprd12.prod.outlook.com (2603:10b6:510:2f3::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7025.29; Wed, 29 Nov
- 2023 19:26:05 +0000
-Received: from LV2PR12MB5869.namprd12.prod.outlook.com
- ([fe80::60d4:c1e3:e1aa:8f93]) by LV2PR12MB5869.namprd12.prod.outlook.com
- ([fe80::60d4:c1e3:e1aa:8f93%4]) with mapi id 15.20.7046.015; Wed, 29 Nov 2023
- 19:26:04 +0000
-Date: Wed, 29 Nov 2023 15:26:03 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: David Airlie <airlied@gmail.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Danilo Krummrich <dakr@redhat.com>, Daniel Vetter <daniel@ffwll.ch>,
-	Dexuan Cui <decui@microsoft.com>, devicetree@vger.kernel.org,
-	dmaengine@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	David Woodhouse <dwmw2@infradead.org>,
-	Frank Rowand <frowand.list@gmail.com>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>, iommu@lists.linux.dev,
-	Jon Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
-	Karol Herbst <kherbst@redhat.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	"K. Y. Srinivasan" <kys@microsoft.com>,
-	Laxman Dewangan <ldewangan@nvidia.com>, Len Brown <lenb@kernel.org>,
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-snps-arc@lists.infradead.org,
-	linux-tegra@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Lyude Paul <lyude@redhat.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	nouveau@lists.freedesktop.org, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Vineet Gupta <vgupta@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Wei Liu <wei.liu@kernel.org>, Will Deacon <will@kernel.org>,
-	Lu Baolu <baolu.lu@linux.intel.com>, Christoph Hellwig <hch@lst.de>,
-	Jerry Snitselaar <jsnitsel@redhat.com>,
-	Hector Martin <marcan@marcan.st>, Moritz Fischer <mdf@kernel.org>,
-	patches@lists.linux.dev,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH 08/10] iommu/tegra: Use tegra_dev_iommu_get_stream_id()
- in the remaining places
-Message-ID: <20231129192603.GA1387263@nvidia.com>
-References: <0-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
- <8-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
- <ZWdlcboM4Xzs38NI@orome.fritz.box>
-Content-Disposition: inline
-In-Reply-To: <ZWdlcboM4Xzs38NI@orome.fritz.box>
-X-ClientProxiedBy: SN4PR0501CA0109.namprd05.prod.outlook.com
- (2603:10b6:803:42::26) To LV2PR12MB5869.namprd12.prod.outlook.com
- (2603:10b6:408:176::16)
+	id 1r8Qk7-009D4v-0T
+	for linux-riscv@lists.infradead.org;
+	Wed, 29 Nov 2023 20:01:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=efficios.com;
+	s=smtpout1; t=1701288054;
+	bh=gURHk+F8I/B5qgEFhrTj6bvW+61mibfmAZ8NGFKftRk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OH9niDeIBd0DjmAc5qNoWQTFhzi/2fIRejCFBUs8qs3LNdUZvNSey2gc7Sl9R4qpW
+	 poQgVCF5eSYDo3VrPFCgEiFsiKYfm4h10fVbkLQSGIwu7v1skE+2jxa70ppPsWEEqA
+	 yTzUNMqWSNaZXmDJLm8jxj2Ygk3bBioP462nfJ5jttf1BPIZR7fQWUDB6cLQhmk41a
+	 KG7i9EvcdtxzO2/gWw24AwgQHR4S1Ey3Qu/iGvckJch5ZkPZk9TiFxZY8gXXGXFTOL
+	 2Cs9E+ogCtQViwmqZmX35fLCOewOSbUboKaav10J35CoEc0fd8yBZc1cqadGgh4sjk
+	 bvuQ2FH6CbF0Q==
+Received: from [172.16.0.134] (192-222-143-198.qc.cable.ebox.net [192.222.143.198])
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4SgVYy1HMKz1dw0;
+	Wed, 29 Nov 2023 15:00:54 -0500 (EST)
+Message-ID: <53aac2ac-46ae-46b8-9fdf-34527b79a63b@efficios.com>
+Date: Wed, 29 Nov 2023 15:00:53 -0500
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV2PR12MB5869:EE_|PH7PR12MB9104:EE_
-X-MS-Office365-Filtering-Correlation-Id: 450f25c9-f8bb-4b4a-a3ba-08dbf1110760
-X-LD-Processed: 43083d15-7273-40c1-b7db-39efd9ccc17a,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: kml3tOxUKByyMYMKjHOmjxnAf+/gOuuwq5Z346QBScvllEoCYi2SYycwqjD2bmo0JfkPMJQp0KwS1mXxODEEeE+4wfeN31GaS5snt1awWRwKkDr+Ojfe4bCO57Letm7VS/tjgsdVf/o/IyUXjyRbIZseQ4HhJI8kGUztKHRHM1pgMpS5IgGQHPgDrLtIUWbrIS9UkH2e5FqT5PlxYusnWemOq1/+xVkChTPXv42Ys73Z0FhxhrFeavoi8REqOdUy7RUjDV1I2upml+CVUvQY4u8NvPgLGLnCQz3BxkjZ5Kg5dgAqybJnj/3Gzt9XQGDyasioHbVrRO1d6Bldw9kt03HGn67V9X8vnlmV6ro1Ne1/RIg2YkLPFgwtFYI+Ef0+Oq/USRugNIGBdMnV7oFivMPxWj3SFP3jpVgiT7h2tadcvtFZcvhXjqH36SBVaq9CXQL+BdG6HLMVK6iiUMozAwbDSBamzxOrWUjHlw4rvb3MGOSMUGiu1uSU3dZu10ipIfdlHjPn7pZHNjvRRlJuBOefF/kES29pkJacH0rvdB5Z4o782H4a2M4gtShHReeZmN97EY332t+jHKi7X5Cne951OOk8Z0O/LtrB39OX2Jm9Etb5aRI69wwy+8MKXIB7
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR12MB5869.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(366004)(346002)(376002)(39860400002)(136003)(396003)(230922051799003)(1800799012)(186009)(64100799003)(451199024)(5660300002)(2906002)(8936002)(8676002)(4326008)(7366002)(7406005)(7416002)(41300700001)(202311291699002)(316002)(6916009)(66556008)(54906003)(66946007)(66476007)(86362001)(1076003)(2616005)(478600001)(36756003)(6512007)(83380400001)(6506007)(26005)(33656002)(38100700002)(6486002);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oCUIZHsjahC5JloA1Q9ynCPrhqjiYrctnOM4OsExXwdty32uQd4TAh9d8F1V?=
- =?us-ascii?Q?CnZ3MHk8Ka68Ab2ppqe6OpYn3QM8JrGeCHNVUwFG0DFWUKBt6SsB+pmAmnIJ?=
- =?us-ascii?Q?VXCfetQ+8htCUkORGSv8JS/3KA0ucMxEvGWZcIKkRxU7ClDvWROsJyD9G5ea?=
- =?us-ascii?Q?o/DYUWDOy5kBXbhaYus1SUnddEGbBRIuCIZ/qmdk26Eik/Zch4IgnGBT8r5R?=
- =?us-ascii?Q?/MGIrKJIxqwOHfZUqAGBqQy0+hIDO5vFxnrJkKihLp1JwpvtO3Hu4Xg8Kwu2?=
- =?us-ascii?Q?6VmujoM+b2yYBFWj0hhtg8RwvgjB3QQyBCU61KBP21vqjkra7dPjuMwptHHW?=
- =?us-ascii?Q?HJgFXSkIcxnYhp+6Yu24pVF6RGDga3ml33FUsJfS4mIYMeMcer0tQelMZzaL?=
- =?us-ascii?Q?AUhJ8JV6qGwmnar5fcO9rI0u4uWX9ZVprj0bkL8iBCsL/xiS9uJnafqYB2zz?=
- =?us-ascii?Q?PyHLy1wFBm78YJX17a8hW/eeK/uZNYHzd1XD83Vk9sTXpF/oOaoljSIng2Ry?=
- =?us-ascii?Q?+IIi7ecbf8BnbaDGvXZQ6WfwmFaTPTt5aD8R3IOFyGc7LRzjCt5GLfKh6wNm?=
- =?us-ascii?Q?cMy9E5uZGQyWQBS7554aXo/dj1tEzE6qKxPzFXXRTQe3ceblMtUg3hX7AjYZ?=
- =?us-ascii?Q?32a2jwFn5KXXT4bmGLH5bX3/6NQOHiTldFj9b9c6ZQMwEL2Sc7EU3LPDb7U2?=
- =?us-ascii?Q?3DdxrJURGBH6+1EAUIf4aqWoLuKtd1kiEwOMRJ5DUN8W1aXN1Gmis9+vMaPy?=
- =?us-ascii?Q?nABttKX2HvwGge6Ta8w50UnIrzliwgu+S0pqB5lSOhyqf/TBKIbNmnqHSu1g?=
- =?us-ascii?Q?rRwfDDiWWD47RCicAS+sCPpEYHnleFYSiKxLx4Enbdz/NBhYJAdis13y9ew+?=
- =?us-ascii?Q?k/ro9RD8Ysv7mPlPHOCycryxvTI1kiUT3p0HAx/6K62HRTMGo1lthkKBQPhm?=
- =?us-ascii?Q?6LqgQpe9rAfUcl/lrBbpy7ZVUsDB+hZLdIv8zggxqC2V4bpe5QGrCVYnx28d?=
- =?us-ascii?Q?Ws3Kyno1FyDFMj8Zwgxm7wLzFo+Yri6rAWZMaFNd9MijrVukteC+wccjcy01?=
- =?us-ascii?Q?b0TmfMQggIrdxy55TSKk/QTSxVnLyDYrVfbx2Uda4Owimt1jumQTtDVXG2VU?=
- =?us-ascii?Q?0/5IrTqWBwamHeivEhsnWP3fj3QSr7FgXPYI+noogSkJywAjMFERxVysfGGS?=
- =?us-ascii?Q?qkXNVjKusL4SWVupTBJ93yliRZI4udDlOKaUxjo6J9OLiikK4ZN+zmwr+AKg?=
- =?us-ascii?Q?KwZgtlYksl2t3vFANZOoteXa73tRWg8dLllYynTM+gbTk2AQ/CU9FfQO0fdu?=
- =?us-ascii?Q?5nzhR/AOMWTQDZ5nCb2AW3nOdYEfsQqxT7UpWYficRNFuBlSPph+D1uKofQz?=
- =?us-ascii?Q?fV/ri0yaF5JW6zRW8f3lwhxIUMPETXqdIzkQrLerc6Kx+VIWhgvTPvfE9y8S?=
- =?us-ascii?Q?9ijlsQbNA8yIIb83i8oaAIqw3eRcXgrEg+5sqdO60oQlEZuswbRvp+I19HnL?=
- =?us-ascii?Q?pX3jWV3cdka5CY3hDanO6OKkdSfXA34xTK3Qoikz8iZexWAfmLE0y10A9ZxH?=
- =?us-ascii?Q?XG7UrQloRR3pYXiswA4XTq0QHnCGkPKgR9BW2wQq?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 450f25c9-f8bb-4b4a-a3ba-08dbf1110760
-X-MS-Exchange-CrossTenant-AuthSource: LV2PR12MB5869.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Nov 2023 19:26:04.4798
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: j40MoGI9vgBO6YGWnhciTVERoQiP4Byhom55WAYSOj9yHuosD3BYYu5jJ/YbEew9
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB9104
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] membarrier: riscv: Provide core serializing command
+Content-Language: en-US
+To: Andrea Parri <parri.andrea@gmail.com>
+Cc: paulmck@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
+ aou@eecs.berkeley.edu, mmaas@google.com, hboehm@google.com,
+ striker@us.ibm.com, charlie@rivosinc.com, rehn@rivosinc.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20231127103235.28442-1-parri.andrea@gmail.com>
+ <20231127103235.28442-3-parri.andrea@gmail.com>
+ <91ab0210-07f9-42c4-af7f-a98799250cf7@efficios.com> <ZWYDtB/otYvTMZWd@andrea>
+ <0a84c0e0-2571-4c7f-82ae-a429f467a16b@efficios.com> <ZWeDF0eHyOc/b9UJ@andrea>
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+In-Reply-To: <ZWeDF0eHyOc/b9UJ@andrea>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231129_112613_710529_620597C7 
-X-CRM114-Status: GOOD (  20.76  )
+X-CRM114-CacheID: sfid-20231129_120107_269163_29436F79 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,50 +71,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 29, 2023 at 05:23:13PM +0100, Thierry Reding wrote:
-> > diff --git a/drivers/memory/tegra/tegra186.c b/drivers/memory/tegra/tegra186.c
-> > index 533f85a4b2bdb7..3e4fbe94dd666e 100644
-> > --- a/drivers/memory/tegra/tegra186.c
-> > +++ b/drivers/memory/tegra/tegra186.c
-> > @@ -111,21 +111,21 @@ static void tegra186_mc_client_sid_override(struct tegra_mc *mc,
-> >  static int tegra186_mc_probe_device(struct tegra_mc *mc, struct device *dev)
-> >  {
-> >  #if IS_ENABLED(CONFIG_IOMMU_API)
-> > -	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
-> >  	struct of_phandle_args args;
-> >  	unsigned int i, index = 0;
-> > +	u32 sid;
-> >  
-> > +	WARN_ON(!tegra_dev_iommu_get_stream_id(dev, &sid));
+On 2023-11-29 13:29, Andrea Parri wrote:
+>>> diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+>>> index 217fd4de61342..f63222513076d 100644
+>>> --- a/arch/riscv/mm/context.c
+>>> +++ b/arch/riscv/mm/context.c
+>>> @@ -323,6 +323,23 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
+>>>    	if (unlikely(prev == next))
+>>>    		return;
+>>> +#if defined(CONFIG_MEMBARRIER) && defined(CONFIG_SMP)
+>>> +	/*
+>>> +	 * The membarrier system call requires a full memory barrier
+>>> +	 * after storing to rq->curr, before going back to user-space.
+>>> +	 *
+>>> +	 * Only need the full barrier when switching between processes:
+>>> +	 * barrier when switching from kernel to userspace is not
+>>> +	 * required here, given that it is implied by mmdrop(); barrier
+>>> +	 * when switching from userspace to kernel is not needed after
+>>> +	 * store to rq->curr.
+>>> +	 */
+>>> +	if (unlikely(atomic_read(&next->membarrier_state) &
+>>> +		     (MEMBARRIER_STATE_PRIVATE_EXPEDITED |
+>>> +		      MEMBARRIER_STATE_GLOBAL_EXPEDITED)) && prev)
+>>> +		smp_mb();
+>>> +#endif
+>>
+>> The approach looks good. Please implement it within a separate
+>> membarrier_arch_switch_mm() as done on powerpc.
 > 
-> I know the code previously didn't check for any errors, but we may want
-> to do so now. If tegra_dev_iommu_get_stream_id() ever fails we may end
-> up writing some undefined value into the override register.
+> Will do.  Thanks.
+> 
+> As regards the Fixes: tag, I guess it boils down to what we want or we
+> need to take for commit "riscv: Support membarrier private cmd".  :-)
 
-My assumption was it never fails otherwise this probably already
-doesn't work?
+I'm not seeing this commit in the Linux master branch, am I missing
+something ?
 
-> I'm also unsure if WARN_ON() is appropriate here. I vaguely recall that
-> ->probe_device() was called for all devices on the bus and not all of
-> them may have been associated with the IOMMU. Not all of them may in
-> fact access memory in the first place.
+> FWIW, a quick git-log search confirmed that MEMBARRIER has been around
+> for quite some time in the RISC-V world (though I'm not familiar with
+> any of its mainstream uses): commit 1464d00b27b2 says (at least) since
+> 93917ad50972 ("RISC-V: Add support for restartable sequence").  I am
+> currently inclined to pick the latter commit (and check it w/ Palmer),
+> but other suggestions are welcome.
 
-So you are thinkin that of_parse_phandle_with_args() is a NOP
-sometimes so it will tolerate the failure?
+Supporting membarrier private expedited is not optional since Linux 4.14:
 
-Seems like the best thing to do is just continue to ignore it then?
+see kernel/sched/core.c:
 
-> Perhaps I'm misremembering and the IOMMU core now takes care of only
-> calling this when fwspec is indeed valid?
+                 membarrier_switch_mm(rq, prev->active_mm, next->mm);
+                 /*
+                  * sys_membarrier() requires an smp_mb() between setting
+                  * rq->curr / membarrier_switch_mm() and returning to userspace.
+                  *
+                  * The below provides this either through switch_mm(), or in
+                  * case 'prev->active_mm == next->mm' through
+                  * finish_task_switch()'s mmdrop().
+                  */
+                 switch_mm_irqs_off(prev->active_mm, next->mm, next);
 
-Can't advise, I have no idea what tegra_mc_ops is for :)
+Failure to provide the required barrier is a bug in the architecture's
+switch_mm implementation when CONFIG_MEMBARRIER=y.
 
-Jason
+We should probably introduce a new
+Documentation/features/sched/membarrier/arch-support.txt
+to clarify this requirement.
+
+Userspace code such as liburcu [1] heavily relies on membarrier private
+expedited (when available) to speed up RCU read-side critical sections.
+Various DNS servers, including BIND 9, use liburcu.
+
+Thanks,
+
+Mathieu
+
+[1] https:/liburcu.org
+
+
+-- 
+Mathieu Desnoyers
+EfficiOS Inc.
+https://www.efficios.com
 
 
 _______________________________________________
