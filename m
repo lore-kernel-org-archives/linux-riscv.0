@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEFD0C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 09:28:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AB36C07E97
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 09:28:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fKDdLJSHflRnDH9WtFgc4JoSUzD+yBDf0hXYG7MfITk=; b=v0gihIG5TJuXrm
-	5MX/Ldfx58IC934B4kqx+DKZReb+KhWsWuKvu30twWFesRULS/x8nt7LU+PQoT/XdFG9RjAHPP7yB
-	3G6FkJlI8/n6qBZG0o3aKhPqY5DCOoqEyBEKkOPupOcrvI0FMHO0qUPtio/Htb9wVLhpQgCBjp4Bt
-	ybUQrOjOuQXbtYJEMbm9yBmMz32ihnPy0Cr7I5HNxau5v0miiUDUGJtNTTTXpUnQb7dkTDmyc2kcE
-	7sC5pwHQ1fJ1MKZK9HWlO5PFboKGLr0sMoR/+GdQszsxC0nM1aLJ79hvCuPHun+ZxoRzrS5hFmNEN
-	+b+djys1g/zM8wCUk9kw==;
+	List-Owner; bh=3qR789vVehdLS24dkQ4V9K21q7T7M4xchsRXNS95rl4=; b=Pi3wprCA05DjmS
+	4R/XuVK6+cX3wgR7WQWS+LAHMN8uhe7WNpqYzt0RzRiYrqW2Ic75aha0UJfbZq62Kv2LSdBvOMmPT
+	uab8DHgBodA/3WnoFUFJyFY86M9ODrkxk5pPoNFTeYkhFWGJr3WyH90/Fk6s/ylRFFC73rAdVK52p
+	YNqbj7prsdubj4uGB7Uj2rfN1i8ZwGXk+GhIsJoCBo+DrdY1w7Fe77HYEwmskzwkM9VHSrIqjfTY7
+	l2XTKCT8KzxgWsqWjuxpmV31R7cTpdpNy9PKQomDAgoY+quUjh5f2Ikl45hZXhskny+5O8XoJxmoa
+	0nO3jR0/IAJ6tGBQLJ4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8Grv-007drJ-1z;
-	Wed, 29 Nov 2023 09:28:31 +0000
+	id 1r8Grw-007dsk-1w;
+	Wed, 29 Nov 2023 09:28:32 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8Grn-007dWF-1a
+	id 1r8Grn-007dWH-1c
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Nov 2023 09:28:25 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Wed, 29 Nov 2023 09:28:26 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 25EC324DC0A;
-	Wed, 29 Nov 2023 17:27:37 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 29 Nov
- 2023 17:27:36 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 43C717FDC;
+	Wed, 29 Nov 2023 17:27:36 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 29 Nov
+ 2023 17:27:35 +0800
 Received: from williamqiu-virtual-machine.starfivetech.com (171.223.208.138)
  by EXMBX168.cuchost.com (172.16.6.78) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Wed, 29 Nov 2023 17:27:35 +0800
+ 15.0.1497.42; Wed, 29 Nov 2023 17:27:34 +0800
 From: William Qiu <william.qiu@starfivetech.com>
 To: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>, <linux-pwm@vger.kernel.org>
@@ -49,9 +49,9 @@ CC: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
  Feng" <hal.feng@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
 	William Qiu <william.qiu@starfivetech.com>
-Subject: [PATCH v8 3/4] riscv: dts: starfive: jh7100: Add PWM node and pins configuration
-Date: Wed, 29 Nov 2023 17:27:31 +0800
-Message-ID: <20231129092732.43387-4-william.qiu@starfivetech.com>
+Subject: [PATCH v8 2/4] pwm: opencores: Add PWM driver support
+Date: Wed, 29 Nov 2023 17:27:30 +0800
+Message-ID: <20231129092732.43387-3-william.qiu@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20231129092732.43387-1-william.qiu@starfivetech.com>
 References: <20231129092732.43387-1-william.qiu@starfivetech.com>
@@ -61,9 +61,8 @@ X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX168.cuchost.com
  (172.16.6.78)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231129_012823_839889_999C47A9 
-X-CRM114-Status: UNSURE (   8.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231129_012823_846442_6D73BAC7 
+X-CRM114-Status: GOOD (  23.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,77 +79,311 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add OpenCores PWM controller node and add PWM pins configuration
-on VisionFive 1 board.
+Add driver for OpenCores PWM Controller. And add compatibility code
+which based on StarFive SoC.
 
+Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
+Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 Signed-off-by: William Qiu <william.qiu@starfivetech.com>
 ---
- .../boot/dts/starfive/jh7100-common.dtsi      | 24 +++++++++++++++++++
- arch/riscv/boot/dts/starfive/jh7100.dtsi      |  9 +++++++
- 2 files changed, 33 insertions(+)
+ MAINTAINERS              |   7 ++
+ drivers/pwm/Kconfig      |  12 ++
+ drivers/pwm/Makefile     |   1 +
+ drivers/pwm/pwm-ocores.c | 232 +++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 252 insertions(+)
+ create mode 100644 drivers/pwm/pwm-ocores.c
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
-index b93ce351a90f..11876906cc05 100644
---- a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
-@@ -84,6 +84,24 @@ GPO_I2C2_PAD_SDA_OEN,
- 		};
- 	};
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 012df8ccf34e..ae6a7be47bc9 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -16206,6 +16206,13 @@ F:	Documentation/i2c/busses/i2c-ocores.rst
+ F:	drivers/i2c/busses/i2c-ocores.c
+ F:	include/linux/platform_data/i2c-ocores.h
  
-+	pwm_pins: pwm-0 {
-+		pwm-pins {
-+			pinmux = <GPIOMUX(7,
-+				  GPO_PWM_PAD_OUT_BIT0,
-+				  GPO_PWM_PAD_OE_N_BIT0,
-+				  GPI_NONE)>,
-+				 <GPIOMUX(5,
-+				  GPO_PWM_PAD_OUT_BIT1,
-+				  GPO_PWM_PAD_OE_N_BIT1,
-+				  GPI_NONE)>;
-+			bias-disable;
-+			drive-strength = <35>;
-+			input-disable;
-+			input-schmitt-disable;
-+			slew-rate = <0>;
-+		};
-+	};
++OPENCORES PWM DRIVER
++M:	William Qiu <william.qiu@starfivetech.com>
++M:	Hal Feng <hal.feng@starfivetech.com>
++S:	Supported
++F:	Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
++F:	drivers/pwm/pwm-ocores.c
 +
- 	uart3_pins: uart3-0 {
- 		rx-pins {
- 			pinmux = <GPIOMUX(13, GPO_LOW, GPO_DISABLE,
-@@ -154,6 +172,12 @@ &osc_aud {
- 	clock-frequency = <27000000>;
- };
+ OPENRISC ARCHITECTURE
+ M:	Jonas Bonn <jonas@southpole.se>
+ M:	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>
+diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+index 4b956d661755..d87e1bb350ba 100644
+--- a/drivers/pwm/Kconfig
++++ b/drivers/pwm/Kconfig
+@@ -444,6 +444,18 @@ config PWM_NTXEC
+ 	  controller found in certain e-book readers designed by the original
+ 	  design manufacturer Netronix.
  
-+&pwm {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm_pins>;
-+	status = "okay";
++config PWM_OCORES
++	tristate "OpenCores PWM support"
++	depends on HAS_IOMEM && OF
++	depends on COMMON_CLK && RESET_CONTROLLER
++	depends on ARCH_STARFIVE || COMPILE_TEST
++	help
++	  If you say yes to this option, support will be included for the
++	  OpenCores PWM. For details see https://opencores.org/projects/ptc.
++
++	  To compile this driver as a module, choose M here: the module
++	  will be called pwm-ocores.
++
+ config PWM_OMAP_DMTIMER
+ 	tristate "OMAP Dual-Mode Timer PWM support"
+ 	depends on OF
+diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
+index c5ec9e168ee7..517c4f643058 100644
+--- a/drivers/pwm/Makefile
++++ b/drivers/pwm/Makefile
+@@ -40,6 +40,7 @@ obj-$(CONFIG_PWM_MICROCHIP_CORE)	+= pwm-microchip-core.o
+ obj-$(CONFIG_PWM_MTK_DISP)	+= pwm-mtk-disp.o
+ obj-$(CONFIG_PWM_MXS)		+= pwm-mxs.o
+ obj-$(CONFIG_PWM_NTXEC)		+= pwm-ntxec.o
++obj-$(CONFIG_PWM_OCORES)	+= pwm-ocores.o
+ obj-$(CONFIG_PWM_OMAP_DMTIMER)	+= pwm-omap-dmtimer.o
+ obj-$(CONFIG_PWM_PCA9685)	+= pwm-pca9685.o
+ obj-$(CONFIG_PWM_PXA)		+= pwm-pxa.o
+diff --git a/drivers/pwm/pwm-ocores.c b/drivers/pwm/pwm-ocores.c
+new file mode 100644
+index 000000000000..d96318b18570
+--- /dev/null
++++ b/drivers/pwm/pwm-ocores.c
+@@ -0,0 +1,232 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * OpenCores PWM Driver
++ *
++ * https://opencores.org/projects/ptc
++ *
++ * Copyright (C) 2018-2023 StarFive Technology Co., Ltd.
++ *
++ * Limitations:
++ * - The hardware only do inverted polarity.
++ * - The hardware minimum period / duty_cycle is (1 / pwm_apb clock frequency) ns.
++ * - The hardware maximum period / duty_cycle is (U32_MAX / pwm_apb clock frequency) ns.
++ */
++
++#include <linux/clk.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_device.h>
++#include <linux/platform_device.h>
++#include <linux/pwm.h>
++#include <linux/reset.h>
++#include <linux/slab.h>
++
++/* OCPWM_CTRL register bits*/
++#define REG_OCPWM_EN      BIT(0)
++#define REG_OCPWM_ECLK    BIT(1)
++#define REG_OCPWM_NEC     BIT(2)
++#define REG_OCPWM_OE      BIT(3)
++#define REG_OCPWM_SIGNLE  BIT(4)
++#define REG_OCPWM_INTE    BIT(5)
++#define REG_OCPWM_INT     BIT(6)
++#define REG_OCPWM_CNTRRST BIT(7)
++#define REG_OCPWM_CAPTE   BIT(8)
++
++struct ocores_pwm_device {
++	struct pwm_chip chip;
++	struct clk *clk;
++	struct reset_control *rst;
++	const struct ocores_pwm_data *data;
++	void __iomem *regs;
++	u32 clk_rate; /* PWM APB clock frequency */
 +};
 +
- &uart3 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart3_pins>;
-diff --git a/arch/riscv/boot/dts/starfive/jh7100.dtsi b/arch/riscv/boot/dts/starfive/jh7100.dtsi
-index e68cafe7545f..4f5eb2f60856 100644
---- a/arch/riscv/boot/dts/starfive/jh7100.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7100.dtsi
-@@ -280,6 +280,15 @@ watchdog@12480000 {
- 				 <&rstgen JH7100_RSTN_WDT>;
- 		};
- 
-+		pwm: pwm@12490000 {
-+			compatible = "starfive,jh7100-pwm", "opencores,pwm-v1";
-+			reg = <0x0 0x12490000 0x0 0x10000>;
-+			clocks = <&clkgen JH7100_CLK_PWM_APB>;
-+			resets = <&rstgen JH7100_RSTN_PWM_APB>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
++struct ocores_pwm_data {
++	void __iomem *(*get_ch_base)(void __iomem *base, unsigned int channel);
++};
 +
- 		sfctemp: temperature-sensor@124a0000 {
- 			compatible = "starfive,jh7100-temp";
- 			reg = <0x0 0x124a0000 0x0 0x10000>;
++static inline u32 ocores_readl(struct ocores_pwm_device *ddata,
++			       unsigned int channel,
++			       unsigned int offset)
++{
++	void __iomem *base = ddata->data->get_ch_base ?
++			     ddata->data->get_ch_base(ddata->regs, channel) : ddata->regs;
++
++	return readl(base + offset);
++}
++
++static inline void ocores_writel(struct ocores_pwm_device *ddata,
++				 unsigned int channel,
++				 unsigned int offset, u32 val)
++{
++	void __iomem *base = ddata->data->get_ch_base ?
++			     ddata->data->get_ch_base(ddata->regs, channel) : ddata->regs;
++
++	writel(val, base + offset);
++}
++
++static inline struct ocores_pwm_device *chip_to_ocores(struct pwm_chip *chip)
++{
++	return container_of(chip, struct ocores_pwm_device, chip);
++}
++
++static void __iomem *starfive_jh71x0_get_ch_base(void __iomem *base,
++						 unsigned int channel)
++{
++	unsigned int offset = (channel > 3 ? 1 << 15 : 0) + (channel & 3) * 0x10;
++
++	return base + offset;
++}
++
++static int ocores_pwm_get_state(struct pwm_chip *chip,
++				struct pwm_device *pwm,
++				struct pwm_state *state)
++{
++	struct ocores_pwm_device *ddata = chip_to_ocores(chip);
++	u32 period_data, duty_data, ctrl_data;
++
++	period_data = ocores_readl(ddata, pwm->hwpwm, 0x8);
++	duty_data = ocores_readl(ddata, pwm->hwpwm, 0x4);
++	ctrl_data = ocores_readl(ddata, pwm->hwpwm, 0xC);
++
++	state->period = DIV_ROUND_UP_ULL((u64)period_data * NSEC_PER_SEC, ddata->clk_rate);
++	state->duty_cycle = DIV_ROUND_UP_ULL((u64)duty_data * NSEC_PER_SEC, ddata->clk_rate);
++	state->polarity = PWM_POLARITY_INVERSED;
++	state->enabled = (ctrl_data & REG_OCPWM_EN) ? true : false;
++
++	return 0;
++}
++
++static int ocores_pwm_apply(struct pwm_chip *chip,
++			    struct pwm_device *pwm,
++			    const struct pwm_state *state)
++{
++	struct ocores_pwm_device *ddata = chip_to_ocores(chip);
++	u32 ctrl_data = 0;
++	u64 period_data, duty_data;
++
++	if (state->polarity != PWM_POLARITY_INVERSED)
++		return -EINVAL;
++
++	ctrl_data = ocores_readl(ddata, pwm->hwpwm, 0xC);
++	ocores_writel(ddata, pwm->hwpwm, 0xC, 0);
++
++	period_data = DIV_ROUND_DOWN_ULL(state->period * ddata->clk_rate, NSEC_PER_SEC);
++	if (period_data <= U32_MAX)
++		ocores_writel(ddata, pwm->hwpwm, 0x8, (u32)period_data);
++	else
++		return -EINVAL;
++
++	duty_data = DIV_ROUND_DOWN_ULL(state->duty_cycle * ddata->clk_rate, NSEC_PER_SEC);
++	if (duty_data <= U32_MAX)
++		ocores_writel(ddata, pwm->hwpwm, 0x4, (u32)duty_data);
++	else
++		return -EINVAL;
++
++	ocores_writel(ddata, pwm->hwpwm, 0xC, 0);
++
++	if (state->enabled) {
++		ctrl_data = ocores_readl(ddata, pwm->hwpwm, 0xC);
++		ocores_writel(ddata, pwm->hwpwm, 0xC, ctrl_data | REG_OCPWM_EN | REG_OCPWM_OE);
++	}
++
++	return 0;
++}
++
++static const struct pwm_ops ocores_pwm_ops = {
++	.get_state	= ocores_pwm_get_state,
++	.apply		= ocores_pwm_apply,
++};
++
++static const struct ocores_pwm_data jh7100_pwm_data = {
++	.get_ch_base = starfive_jh71x0_get_ch_base,
++};
++
++static const struct ocores_pwm_data jh7110_pwm_data = {
++	.get_ch_base = starfive_jh71x0_get_ch_base,
++};
++
++static const struct of_device_id ocores_pwm_of_match[] = {
++	{ .compatible = "opencores,pwm-v1" },
++	{ .compatible = "starfive,jh7100-pwm", .data = &jh7100_pwm_data},
++	{ .compatible = "starfive,jh7110-pwm", .data = &jh7110_pwm_data},
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, ocores_pwm_of_match);
++
++static int ocores_pwm_probe(struct platform_device *pdev)
++{
++	const struct of_device_id *id;
++	struct device *dev = &pdev->dev;
++	struct ocores_pwm_device *ddata;
++	struct pwm_chip *chip;
++	int ret;
++
++	id = of_match_device(ocores_pwm_of_match, dev);
++	if (!id)
++		return -EINVAL;
++
++	ddata = devm_kzalloc(dev, sizeof(*ddata), GFP_KERNEL);
++	if (!ddata)
++		return -ENOMEM;
++
++	ddata->data = id->data;
++	chip = &ddata->chip;
++	chip->dev = dev;
++	chip->ops = &ocores_pwm_ops;
++	chip->npwm = 8;
++	chip->of_pwm_n_cells = 3;
++
++	ddata->regs = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(ddata->regs))
++		return dev_err_probe(dev, PTR_ERR(ddata->regs),
++				     "Unable to map IO resources\n");
++
++	ddata->clk = devm_clk_get_enabled(dev, NULL);
++	if (IS_ERR(ddata->clk))
++		return dev_err_probe(dev, PTR_ERR(ddata->clk),
++				     "Unable to get pwm's clock\n");
++
++	ddata->rst = devm_reset_control_get_optional_exclusive(dev, NULL);
++	reset_control_deassert(ddata->rst);
++
++	ddata->clk_rate = clk_get_rate(ddata->clk);
++	if (ddata->clk_rate <= 0)
++		return dev_err_probe(dev, ddata->clk_rate,
++				     "Unable to get clock's rate\n");
++
++	ret = devm_pwmchip_add(dev, chip);
++	if (ret < 0) {
++		reset_control_assert(ddata->rst);
++		clk_disable_unprepare(ddata->clk);
++		return dev_err_probe(dev, ret, "Could not register PWM chip\n");
++	}
++
++	platform_set_drvdata(pdev, ddata);
++
++	return ret;
++}
++
++static void ocores_pwm_remove(struct platform_device *dev)
++{
++	struct ocores_pwm_device *ddata = platform_get_drvdata(dev);
++
++	reset_control_assert(ddata->rst);
++	clk_disable_unprepare(ddata->clk);
++}
++
++static struct platform_driver ocores_pwm_driver = {
++	.probe = ocores_pwm_probe,
++	.remove_new = ocores_pwm_remove,
++	.driver = {
++		.name = "ocores-pwm",
++		.of_match_table = ocores_pwm_of_match,
++	},
++};
++module_platform_driver(ocores_pwm_driver);
++
++MODULE_AUTHOR("Jieqin Chen");
++MODULE_AUTHOR("Hal Feng <hal.feng@starfivetech.com>");
++MODULE_DESCRIPTION("OpenCores PWM PTC driver");
++MODULE_LICENSE("GPL");
 -- 
 2.34.1
 
