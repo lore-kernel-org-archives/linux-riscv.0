@@ -4,70 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 695E8C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 14:33:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE36C10DAA
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 14:44:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2xWuqeXzlzc6ZELKzyFf8MV//cmV9RGaQx85sgoTvRo=; b=nj7/PKabHYLuIXTE7IkA8xbu2H
-	y0lAl+7u2hHWH2vntEfn3gDfjBORWwMEoCjthWZ1It5WcVth2MKN4SX44e5RUmUzNTdhwCHDuyj6a
-	ZUKuMhBW93UKfMZBuNlP6zFo9o2rUE4+iCdf2U76DEtPL1luUfOLuCgO1n8yuYNPvDqO+zNnDCT1o
-	zuDRkYDy+trB4CrO70DSpmj/u0jpVXHwF2mqZKvdzLAV7bu4oGA0nApu8Q8g+MMONVc3WHkOizn1Y
-	neOTKYsVWo4YPv8nIMH7JgvkjzHknER3Q4rjRz0aS/I4LPLMMQWGyIppfQMM+usyCslDo9Qnbc5zD
-	i7gf/JjA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=lSrFfgj1KQHWUcx8b2z6/AQuZQWYiUcpMBAcjZlLN44=; b=uvIITzHImEDvZF
+	vJESKzs8G4gBfS95EUVjIxiPtoup6sRWUbpHxwzZ7tY2G4AbyKaDmPTUmveBSrwfbQGrcpFzJgOzH
+	Eg1Hm++j/JCIQzi4+yxJEHcV2cH6LjNgpBKLotissZT4mny7bupFtZPoYsJh/vWVGVeq8iT1ooEZQ
+	ej89/RzWJh/H2kHTvBlLVr6S3u5X8lYhQhuYuG2gdcWgAPvP53tQcrggINHrCAtbk6yy1uJ1E9ZtK
+	MCduK9py09biP7VeVjrdwysawsjge1AzrpNIX29k0dFVaXnxLGq1GYJWmKOo4x841xBVu3dPDe48K
+	ZiumJVfcDbqHV4XgnKYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8Lcn-008dGH-0u;
-	Wed, 29 Nov 2023 14:33:13 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1r8Lnn-008ezX-1O;
+	Wed, 29 Nov 2023 14:44:35 +0000
+Received: from mail-ua1-x92b.google.com ([2607:f8b0:4864:20::92b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8Lck-008dFR-2M
+	id 1r8Lna-008epw-32
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Nov 2023 14:33:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 496D4B83D3B;
-	Wed, 29 Nov 2023 14:33:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8878EC433C8;
-	Wed, 29 Nov 2023 14:33:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701268388;
-	bh=nCUBip91VJPgVyaRslm47tg3WMaKjh0DptQ7V1+aaG8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gKvcWnywP2uOCwGWoh/fP1tY3br+768+t7iK5/AZ4GIT9leS8LhJRzql7QKALNfgu
-	 RpMq1oALiCXCTkejzxvkSrRJQOXq0zFSK4VPIaje+KdTwntmUubIdIAUb/nRPVyo0p
-	 8QPYGbx3Q5TSc5ADZ2ylf2mOuQ3hP5EeFXfdpAhA+U/fQlrZ4RYWTt1J+DUrdXGBjT
-	 w5OwbXD+MRpy5MgC4KnKWrnbkW1p8+XXefb+Jc+qpKSB5yO5dFUAyDWV7tw2Jj/Gym
-	 +uQOWJuzDC9xhl8mCQEMU4yyTZSKba4BLEC86SIpz2m2yjOv1UtByqawi80aBojCUa
-	 tOM1QGWgSP2Cw==
-Date: Wed, 29 Nov 2023 14:33:03 +0000
-From: Conor Dooley <conor@kernel.org>
-To: William Qiu <william.qiu@starfivetech.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Rob Herring <robh+dt@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH v8 1/4] dt-bindings: pwm: Add bindings for OpenCores PWM
- Controller
-Message-ID: <20231129-chaplain-unseeing-e433ec830946@spud>
-References: <20231129092732.43387-1-william.qiu@starfivetech.com>
- <20231129092732.43387-2-william.qiu@starfivetech.com>
+	Wed, 29 Nov 2023 14:44:24 +0000
+Received: by mail-ua1-x92b.google.com with SMTP id a1e0cc1a2514c-7c45bee5fdaso1721903241.1
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Nov 2023 06:44:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1701269061; x=1701873861; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BTV80m9sniZZhV3ayqmHUOTEjpARmiBjH4lGv1FbT5I=;
+        b=R+4hEwxrArxNvziJDhQwvribyi/W9+F4kWLXDl13BDwTlEU80GNR+maudR3pgibXEl
+         Ytawuhn2r66w3MCCn6CKQ7a0l5JYiExZxLf40X0DMgyF/g/B98VsXiKXtJ3J3atSrSZw
+         Ell0BXoCEM4vMbYNoEPfaWllgPhr9sVLBhgq4rtLxWXNC/kEG0MZtNpf4/QJhvLDV3jK
+         2aExC1dNVTcF+lUVGIxQTz4qg1dsg6R/8z6s68ReIb8kjbfOJUGBuapn+H30hUGk23Pb
+         QdZ8YnlpPibjot7jXeff4Il2TpkJkQfUFR26OXW5zMCwgoVWJ8zC5dGuHgtBVZqULtIP
+         EFTA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701269061; x=1701873861;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BTV80m9sniZZhV3ayqmHUOTEjpARmiBjH4lGv1FbT5I=;
+        b=U/U7baYGDhw28zf3JjGtxSE7tulmJ9KzwcWWCxCiZFtS8mZ1WxNS39tLXuAlE5notz
+         qASotAt2EoI3vJpbf17KdbQyoTrF2Te78f+7RvcJK7GblQAaZds3m9TYIB33T01zPjKP
+         V243XgoJFBIKkUcH6lOobkDgnu50EY08gueIWB3frmF6cYtxpUkmrF9mE84X41ibaSdK
+         J0k7p7uHTXqDHm5iFMEnFeQXvl1kZ8bOLLUIVijPlD3QuWLff6TdwtddAIs+NYsuAPf0
+         6d2tVANc765noDQABUmttD+9d11PFjrDXflP+HoZgfHKYbmJj1yWV/1C1ccYFafYtYXp
+         SODg==
+X-Gm-Message-State: AOJu0Yyj5yPYh6PHrZnK+zFfqWzuR0O+BH78JKMgYiq4bQ89+qeDRLub
+	FAnkqLnFnkPVfbpqFgXBd8VtjLEX6pILQNrpFMc=
+X-Google-Smtp-Source: AGHT+IGCDZngG6ZtwGuhcqjwolhGC3Bvfp2wdcOUa92UIOUe7pr+Bgg29exfKB/1In2II5AeSFKMuEaLbCW3MxZjhBs=
+X-Received: by 2002:a05:6122:da5:b0:4ac:5a8:f45b with SMTP id
+ bc37-20020a0561220da500b004ac05a8f45bmr21359729vkb.5.1701269061166; Wed, 29
+ Nov 2023 06:44:21 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20231129092732.43387-2-william.qiu@starfivetech.com>
+References: <20231017104638.201260-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20231017104638.201260-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Wed, 29 Nov 2023 14:43:32 +0000
+Message-ID: <CA+V-a8t3sGn83vpgjECf5dw=bbz2yPXpnn+v2Dx2q3yJRPsKgA@mail.gmail.com>
+Subject: Re: [PATCH v2 0/3] Add missing port pins for RZ/Five SoC
+To: Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Linus Walleij <linus.walleij@linaro.org>
+Cc: Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231129_063311_059459_D7BB8730 
-X-CRM114-Status: GOOD (  17.24  )
+X-CRM114-CacheID: sfid-20231129_064422_989486_DFF2273F 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,143 +89,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1635859005840703999=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============1635859005840703999==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="sVewkJ1jWgEyqNJ1"
-Content-Disposition: inline
-
-
---sVewkJ1jWgEyqNJ1
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Nov 29, 2023 at 05:27:29PM +0800, William Qiu wrote:
-> Add bindings for OpenCores PWM Controller.
->=20
-> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
-> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
-> ---
->  .../bindings/pwm/opencores,pwm.yaml           | 56 +++++++++++++++++++
->  1 file changed, 56 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pwm/opencores,pwm.y=
-aml
->=20
-> diff --git a/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml b/D=
-ocumentation/devicetree/bindings/pwm/opencores,pwm.yaml
-> new file mode 100644
-> index 000000000000..133f2cd417f0
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
-> @@ -0,0 +1,56 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pwm/opencores,pwm.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: OpenCores PWM controller
-> +
-> +maintainers:
-> +  - William Qiu <william.qiu@starfivetech.com>
-> +
-> +description:
-> +  OpenCores PTC ip core contains a PWM controller. When operating in PWM=
- mode,
-
-nit: "The OpenCores PTC IP core"
-
-> +  the PTC core generates binary signal with user-programmable low and hi=
-gh
-> +  periods. All PTC counters and registers are 32-bit.
-> +
-> +allOf:
-> +  - $ref: pwm.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - starfive,jh7100-pwm
-> +              - starfive,jh7110-pwm
-> +          - const: opencores,pwm-v1
-
-properties:
-  compatible:
-    items:
-      - enum:
-          - starfive,jh7100-pwm
-          - starfive,jh7110-pwm
-      - const: opencores,pwm-v1
-
-Please use this form here instead.
-
-Otherwise, this looks good to me now.
-
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  "#pwm-cells":
-> +    const: 3
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    pwm@12490000 {
-> +        compatible =3D "starfive,jh7110-pwm", "opencores,pwm-v1";
-> +        reg =3D <0x12490000 0x10000>;
-> +        clocks =3D <&clkgen 181>;
-> +        resets =3D <&rstgen 109>;
-> +        #pwm-cells =3D <3>;
-> +    };
-> --=20
-> 2.34.1
->=20
->=20
-
---sVewkJ1jWgEyqNJ1
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZWdLnwAKCRB4tDGHoIJi
-0vPNAP4lxb47TExjCroRAbRfe1Mqkn9kvWfUqdQghEp5AktsygD/V4IHEgg4y71a
-Q6fQO+IQS9o36EIZJ2aOmiys/FLW0gw=
-=TUhN
------END PGP SIGNATURE-----
-
---sVewkJ1jWgEyqNJ1--
-
-
---===============1635859005840703999==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1635859005840703999==--
-
+SGkgR2VlcnQsCgpPbiBUdWUsIE9jdCAxNywgMjAyMyBhdCAxMTo0N+KAr0FNIFByYWJoYWthciA8
+cHJhYmhha2FyLmNzZW5nZ0BnbWFpbC5jb20+IHdyb3RlOgo+Cj4gRnJvbTogTGFkIFByYWJoYWth
+ciA8cHJhYmhha2FyLm1haGFkZXYtbGFkLnJqQGJwLnJlbmVzYXMuY29tPgo+Cj4gSGkgR2VlcnQs
+Cj4KPiBUaGlzIHBhdGNoIHNlcmllcyBpbnRlbmRzIHRvIGluY29ycG9yYXRlIHRoZSBhYnNlbnQg
+cG9ydCBwaW5zIFAxOSB0byBQMjgsCj4gd2hpY2ggYXJlIGV4Y2x1c2l2ZWx5IGF2YWlsYWJsZSBv
+biB0aGUgUlovRml2ZSBTb0MuCj4KPiBDaGVlcnMsCj4gUHJhYmhha2FyCj4KPiBSRkMgLT4gdjI6
+Cj4gKiBGaXhlZCByZXZpZXcgY29tbWVudHMgcG9pbnRlZCBieSBHZWVydCAmIEJpanUKPgo+IFJG
+QzogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC8yMDIzMDYzMDEyMDQzMy40OTUyOS0zLXBy
+YWJoYWthci5tYWhhZGV2LWxhZC5yakBicC5yZW5lc2FzLmNvbS9ULwo+Cj4gTGFkIFByYWJoYWth
+ciAoMyk6Cj4gICBwaW5jdHJsOiByZW5lc2FzOiByemcybDogSW5jbHVkZSBwaW5tYXAgaW4gUlpH
+MkxfR1BJT19QT1JUX1BBQ0soKQo+ICAgICBtYWNybwo+ICAgcGluY3RybDogcmVuZXNhczogcGlu
+Y3RybC1yemcybDogQWRkIHRoZSBtaXNzaW5nIHBvcnQgcGlucyBQMTkgdG8gUDI4Cj4gICByaXNj
+djogZHRzOiByZW5lc2FzOiByOWEwN2cwNDNmOiBVcGRhdGUgZ3Bpby1yYW5nZXMgcHJvcGVydHkK
+Pgo+ICBhcmNoL3Jpc2N2L2Jvb3QvZHRzL3JlbmVzYXMvcjlhMDdnMDQzZi5kdHNpIHwgICA0ICsK
+PiAgZHJpdmVycy9waW5jdHJsL3JlbmVzYXMvcGluY3RybC1yemcybC5jICAgICB8IDI2MyArKysr
+KysrKysrKysrKysrKystLQo+ICAyIGZpbGVzIGNoYW5nZWQsIDI0MiBpbnNlcnRpb25zKCspLCAy
+NSBkZWxldGlvbnMoLSkKPgpHZW50bGUgcGluZy4KCkNoZWVycywKUHJhYmhha2FyCgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
