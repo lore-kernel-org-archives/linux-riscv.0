@@ -4,66 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C5FFC10DAA
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 14:51:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C590EC4167B
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 14:57:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fnf1Pc/tPaPner9uqgG5UBK/dW+BkCg3M+jyq0KXye8=; b=NhGPJmTqo648Ae4wYItapCdLKK
-	rtDffKXDvYgwhZ9LaRkeJfvC5ClIeMzLbpEyHkIjGQlgs1o5Xw4TQAeNbpyL4X0gx4Rlh5nsyIyCm
-	7tq/ufa2molWWInC7uuhAA6YVXeooH5KKpXFZc4Ng25oqxLXRROjffyBqXf6Q3PGql/+79Ot6IqHt
-	p6QJmas3eITVl7gdoAub7ZYZibuzxHobALVPbGZN/7zkOvWp0OeWb/uctPe5jkmRdbLZHh00ItVaW
-	kBLBVa2j8EyjD8DZYhnuuiyPnOJiL3Uc2i7gQdp5eVypnsymAEczxJu9DJpPHCyi9rxQ0TlXfB/Ud
-	bvTDlbcw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CcFAkc1Hp4+5uT8NuBKagBlzj6qv8rfVHqPMu+Xl350=; b=3ygK3a+ieksg5w
+	qgDM+AE8ZYdIWPP0e2DcnlagKxHNwpIZKTkq0/4dzBBYqDfchah2218cm+xw6e5PxFOPl6ijZIc0R
+	Lo1Gi7eWPY56f4qix9sdiH4c38YbbYjZ1VedzRf1Yaymu5BOvWZnI4nsF+8V8FReAwMJD0ju/hdYr
+	KonPzl8yt/NTkRVJJQBVQ/WqxA/rWUkyG9D9gaLBsq16gOSD29lYTqPpqrYRq2S2jluUw8xTZcAQ0
+	aBeqijlUNpISCK7ovv+cbM2AsmOExnUEDnmDe6DK+dW9DylFFuQTJnwBmmcdcxE6yqdkCwYLM+P7K
+	w09PMhaZFb3Fa5DUFkJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8Lu2-008goU-1T;
-	Wed, 29 Nov 2023 14:51:02 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1r8M0D-008hRd-0Q;
+	Wed, 29 Nov 2023 14:57:25 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8Ltz-008gmw-0X
+	id 1r8M09-008hQQ-1q
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Nov 2023 14:51:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 23072615B4;
-	Wed, 29 Nov 2023 14:50:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7BF1C433C8;
-	Wed, 29 Nov 2023 14:50:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701269457;
-	bh=0VHSKBP1ReMABzZQC3fHKYxtIh+5pDAB20b4lDIyvBc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Fsrd95RHo63I/KiYnCu1p22EqZ5zkOBJx61wvudfvnKHia6k5apCzxVgjiCBJPMu0
-	 kuFuH5a10xSmoBkHyjI6xkj+z1ayMfn/RWKD0WtZtf2ldM+K22jqDgB9ZcVRARkDiI
-	 MskWm0JkzUmiR3P/gYdlsJIdi5WOkrUAOB5EWOu/6j3mXPlemOnBIP881yNBJ1x8Mw
-	 IDGr4M0wjgi4DOOhpde2T9if5Jr9CP7hjjJXxB6PLuHL6SbIdeu0aJO4vlYUGnMPLW
-	 CzT0jp6FR/6zQP9zDjTqjOJQiyACSt+Af2oObc6GmRmnjam86soE4y5uAXZeKZkeG0
-	 MKnGO2f8ZZVbg==
-Date: Wed, 29 Nov 2023 14:50:51 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-Cc: kernel@esmil.dk, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-	krzk@kernel.org, conor+dt@kernel.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	daniel.lezcano@linaro.org, tglx@linutronix.de, anup@brainfault.org,
-	gregkh@linuxfoundation.org, jirislaby@kernel.org,
-	michal.simek@amd.com, michael.zhu@starfivetech.com,
-	drew@beagleboard.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	leyfoon.tan@starfivetech.com
-Subject: Re: [PATCH v2 3/6] dt-bindings: timer: Add StarFive JH8100 clint
-Message-ID: <20231129-junkyard-implosive-5b1d28976e63@spud>
-References: <20231129060043.368874-1-jeeheng.sia@starfivetech.com>
- <20231129060043.368874-4-jeeheng.sia@starfivetech.com>
+	Wed, 29 Nov 2023 14:57:23 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-2839b922c18so5390767a91.1
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Nov 2023 06:57:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1701269840; x=1701874640; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=lBDvY8xfUiRwWpZzeQ9H8DFnchFRqEtZ7Anhmfk/MaE=;
+        b=dAf6onBLS4pXsoyDrirbo8ofORe6BS1ehVqIrtg7fuepo6xgqnH09yLDUk/ssEYf7d
+         5cDKNeoQ3zaMy6Ki+fmH/jabtCD2i7XVYRY6vpDuD5omLj2EMsT/OTPZwZ7aSCsDw4aB
+         HjTLj0b9jqHQQrrxlI6C5bnKgucqpOEtNrOBPHUkvev7erMmJynzhC91UZUltK5+6HYA
+         xCbchn9YVV2tHjw0P/zlDFXubAAy+wTQ5uZwdtbdvSgergsMRHzikVybUvgMD/gKArST
+         LQGNaeIy5+LaGrpPXiCCw24Kk4lAkS0uM1PnvSzcQTzkEo9qt+j2gtICvwWhT5Hqi8zL
+         yAfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701269840; x=1701874640;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lBDvY8xfUiRwWpZzeQ9H8DFnchFRqEtZ7Anhmfk/MaE=;
+        b=QJolpgUTRIWCBq+io3WlQRGn4fiescHotwfopjYcwPdcH5htGyCYqg9atlwQpcdDqY
+         HT/DfTTWPBvKsYFtqH08jw5CnU7+50rTEAtTNq92uS53HHrYCI+iu+vFzOKRgTjWovfD
+         33q3KWdu3wBk1IdppqxF0dv0FA1/X5su0pEBJrtwyuI2nxX2q55a48nZQtwFd1I5qXpb
+         2WsWHqAcgBMbtWt+aLezqiXMmq5ewE3QKpk0mPbqvgysrXU3OK7MKwCVR/mtRidkcCts
+         aKcAImuhvHNZamrBi4Qf+FyUrh7KF7QfKL3wU+6NT30F1MCqQHDsb1BU66SK1JuG6uKx
+         cNpA==
+X-Gm-Message-State: AOJu0YyvY0hpDnM5jO3IyvBw7BvrmQHz6LBz5j/OxEmnpMopzmnzqcGh
+	A8rQlcNtvimdOJZPOtRuX5GNYFMjXhwNlV1wdFftaA==
+X-Google-Smtp-Source: AGHT+IEHJzKIugJyAirnHA8jm9ZsrM79uoKWJCmfioIMr8438yJMfCRcgL5l4g9Ssds+KQR6JrFMN1Np/NBF2zPVw/0=
+X-Received: by 2002:a17:90b:17c7:b0:285:9b51:64f with SMTP id
+ me7-20020a17090b17c700b002859b51064fmr16079874pjb.36.1701269839853; Wed, 29
+ Nov 2023 06:57:19 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20231129060043.368874-4-jeeheng.sia@starfivetech.com>
+References: <20231109101438.1139696-1-vincent.guittot@linaro.org>
+ <20231109101438.1139696-2-vincent.guittot@linaro.org> <ZWYM0hn28RHjAalh@arm.com>
+ <ZWYOg1gIIgI1qXn7@arm.com>
+In-Reply-To: <ZWYOg1gIIgI1qXn7@arm.com>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Wed, 29 Nov 2023 15:57:08 +0100
+Message-ID: <CAKfTPtA2g-rDPBJkoXpcHrz4vcYAivequkLvWUXgwQpqFcZkOQ@mail.gmail.com>
+Subject: Re: [PATCH v6 1/7] topology: Add a new arch_scale_freq_reference
+To: Ionela Voinescu <ionela.voinescu@arm.com>
+Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org, 
+	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com, 
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com, 
+	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com, 
+	viresh.kumar@linaro.org, lenb@kernel.org, robert.moore@intel.com, 
+	lukasz.luba@arm.com, pierre.gondois@arm.com, beata.michalska@arm.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, conor.dooley@microchip.com, suagrfillet@gmail.com, 
+	ajones@ventanamicro.com, lftan@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231129_065059_251940_923B79E5 
-X-CRM114-Status: UNSURE (   7.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231129_065721_617996_324E1C74 
+X-CRM114-Status: GOOD (  22.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,57 +94,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7274200026152817375=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Ionela,
 
---===============7274200026152817375==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="qKdfr+4VHS8JTnF5"
-Content-Disposition: inline
+On Tue, 28 Nov 2023 at 17:00, Ionela Voinescu <ionela.voinescu@arm.com> wrote:
+>
+> On Tuesday 28 Nov 2023 at 15:52:52 (+0000), Ionela Voinescu wrote:
+> > Hi Vincent,
+> >
+> > I have a small request on this patch, which is useful for [1].
+> > I'll detail what is needed lower in the code.
+> >
+> > [1] https://lore.kernel.org/lkml/ZWYDr6JJJzBvsqf0@arm.com/
+> >
+> > On Thursday 09 Nov 2023 at 11:14:32 (+0100), Vincent Guittot wrote:
+> > > @@ -279,13 +278,13 @@ void topology_normalize_cpu_scale(void)
+> > >
+> > >     capacity_scale = 1;
+> > >     for_each_possible_cpu(cpu) {
+> > > -           capacity = raw_capacity[cpu] * per_cpu(freq_factor, cpu);
+> > > +           capacity = raw_capacity[cpu] * per_cpu(capacity_freq_ref, cpu);
+> >
+> > The only affected code that I could find is here and below.
+> >
+> > The above line would have to change to:
+> > capacity = raw_capacity[cpu] * per_cpu(capacity_freq_ref, cpu) ?: 1;
+> >
+> > >             capacity_scale = max(capacity, capacity_scale);
+> > >     }
+> > >
+> > >     pr_debug("cpu_capacity: capacity_scale=%llu\n", capacity_scale);
+> > >     for_each_possible_cpu(cpu) {
+> > > -           capacity = raw_capacity[cpu] * per_cpu(freq_factor, cpu);
+> > > +           capacity = raw_capacity[cpu] * per_cpu(capacity_freq_ref, cpu);
+> >
+> > and here:
+> > capacity = raw_capacity[cpu] * per_cpu(capacity_freq_ref, cpu) ?: 1;
+> >
+> > I think it's nicer to start with capacity_freq_ref as 0 and compensate here
+> > for uninitialized capacity_freq_ref.
+> >
+> > Let me know if this is alright of if you'd prefer us to make this change
+> > in a separate patch.
+> >
+> > Thanks,
+> > Ionela.
+> >
+>
+> Correction - both will need to be:
+> capacity = raw_capacity[cpu] * (per_cpu(capacity_freq_ref, cpu) ?: 1);
 
+Yes, this one is better to keep the same behavior when cpufreq driver
+is never loaded
 
---qKdfr+4VHS8JTnF5
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I think this change should come as an additional patch either on top
+of this series or directly as part of [1] which is the main user of
+the change. I assume that's because you want arch_freq_get_on_cpu()
+returns 0 until everything has been initialized
 
-On Wed, Nov 29, 2023 at 02:00:40PM +0800, Sia Jee Heng wrote:
-> Add compatible string for the StarFive JH8100 clint.
->=20
-> Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+Vincent
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
-Cheers,
-Conor.
-
---qKdfr+4VHS8JTnF5
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZWdPywAKCRB4tDGHoIJi
-0hu3AQDko2ie3vpTPXfjxfnvgF6fp8Rl7pzo9cnDc63+d0kVjgD9FRImCWNbkv94
-acKyBV66aqco9mGG9l/CojneYNWFswM=
-=MwTW
------END PGP SIGNATURE-----
-
---qKdfr+4VHS8JTnF5--
-
-
---===============7274200026152817375==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>
+> Thanks,
+> Ionela.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7274200026152817375==--
-
