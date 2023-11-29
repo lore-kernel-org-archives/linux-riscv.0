@@ -4,87 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA144C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 22:43:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23F96C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 23:30:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4sACulzmM8Q+QdUiXP+5t1gf4/Rz/oa4+I51FmkW4Fk=; b=VpVST7QkkIF6ts
-	Se795FFdjLe/IDFWTOxXOySlRTKefAH8SxkIRqRJddtuS8qBs02JtDUtyxPAMGem+rxGPeaqMpD+L
-	hJp9QezYSVKSnM2VlsBBBfGRzp/AFH6v9/r7CeyMN5LMMLYBJWgDqc1/cNURzjNyx1KXRSe1/JynX
-	r3lsxqpOURxNfh7JUpbPvP19vdbY0/3ecvMMkaSKna08MT8FR+QqBspicxFgeTGSnskFa6S6sTowT
-	STwbiUA04DLHFPXGctZiyy+1TTis5+1y4khggr8meG+21W6HpvTDXFGGajOkC92fNnol5L8PuYtRA
-	ez2C0RfnGA3WSCcMiejQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WHoglqHcT54IHYp3JZyIGFKXnSsnEMG/+SReKODRZ/o=; b=KL8wdznjOvpjFI
+	s11h2/VTsaeuYR9xIxg6j7QuPBAy1QXDip6hlPa6cmSFTYGZvWEMjgdMm9LiTBWn4QDgAEXPLDPZI
+	6IbYgjQhkqtFRzEf7qs36JSqyA5ROo6sQPNpL/H5jU8Xcovr+/gPCI5Kfkhw0dh4shVbrhzyhrURL
+	smCbh+vE6X2HGQq8z0a0BLPaUdDQUkghW31zIZVI/fwUINi2Zt7kZ+RCrI+jvuR3H+U04x9H10x2v
+	kwFGWUVUNiqanMuKzntnq60HeWTqlIrQEFOivvwKqx0tWzrDzDAG4sF8IDp9Tbs2YCjn2IMFoeHnC
+	S0dV+w/vrvlSgWrVjoBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8THT-009SfX-37;
-	Wed, 29 Nov 2023 22:43:43 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1r8U0P-009VZD-2k;
+	Wed, 29 Nov 2023 23:30:09 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8THR-009Sf8-0W
+	id 1r8U0L-009VYF-2u
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Nov 2023 22:43:42 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-332f4ad27d4so203053f8f.2
-        for <linux-riscv@lists.infradead.org>; Wed, 29 Nov 2023 14:43:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1701297819; x=1701902619; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=DPlSYieAKeZ1ZlgSPfXPoqg/eW8uKpsVlCNZ8IU+hBA=;
-        b=nH783QkZNgm/dsc7jI6ZZZlT44aEqHjqim4ioLyWnb/bifj8tEbnXxNl7XFYFE/bKZ
-         UPPEFnxesQ7/pVRHa7PpqrrzPvucOPdAUZrjo8VwHVa6CuqBXpNX/2Xj6gJhiJCdTMsC
-         7q//lUqcMnpR1nCaVaFFB+XuR/VDyFI3fwn/EfU0VXdOQKbL1UHl2YkpPOSTDfQ0UvU6
-         UkgJeUTIaebHd7B2iQRVGp6wALawM2M94Jc/BgAE5ec0zhzEsNZPFTfYflJRZpa+LQJm
-         hfMIpMD6ww99bsoEu7PYyuFZNTFzqq1pP2xGgmRjm0ntpjjxct/GdYpqNVVh1TpWQKTe
-         M7PQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701297819; x=1701902619;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DPlSYieAKeZ1ZlgSPfXPoqg/eW8uKpsVlCNZ8IU+hBA=;
-        b=FQDmSEOq+jyASTAC0w2njVxdUKKMK4F408WAve0dQwE+7qjZlCrFD8WPQL8LJHP9qK
-         ZDL58CtFmVl1+amLlWM37GE3hdBBom6MBgo9UhIWVvPoPF0bn/5A7OgRq3DWZbZnhAKM
-         mJoG++ab70exyhxz0ckZt0lyD/NVZcGmpuArKXUr4wiNbuqACcLe8H3G41vkX3uR6olO
-         lFUoqjcpzwFol6qBJL7TZEZzPztT6eBc1tZtZvDoUxAQBi+IH0khd6irMA5cSGtrhIkV
-         vpo0AsNPJtkgv99LosNykBlmegDqQMsavg5yDNkDxbqWKvGAh4Toxq0bE8YiknpUd0p3
-         6R7Q==
-X-Gm-Message-State: AOJu0YxHCvFOKAVcQuCIr4/4dw3tIH0m3AQks9myP2GibQyt/h27oDwh
-	0O/oU0ySr525/3njIazCFj0=
-X-Google-Smtp-Source: AGHT+IEUxdkYKt7NZdrpshbCMEE1jShiqAxqEFI/E6ZthNf7BgkK1wK8sSTJSHAgD288i8OAdBQ1Kg==
-X-Received: by 2002:a5d:4d01:0:b0:333:f03:4640 with SMTP id z1-20020a5d4d01000000b003330f034640mr4906914wrt.1.1701297819067;
-        Wed, 29 Nov 2023 14:43:39 -0800 (PST)
-Received: from andrea ([31.189.63.178])
-        by smtp.gmail.com with ESMTPSA id l9-20020adffe89000000b003330a1d35a8sm6287307wrr.43.2023.11.29.14.43.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Nov 2023 14:43:38 -0800 (PST)
-Date: Wed, 29 Nov 2023 23:43:34 +0100
-From: Andrea Parri <parri.andrea@gmail.com>
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: paulmck@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
-	aou@eecs.berkeley.edu, mmaas@google.com, hboehm@google.com,
-	striker@us.ibm.com, charlie@rivosinc.com, rehn@rivosinc.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] membarrier: riscv: Provide core serializing command
-Message-ID: <ZWe+ljzCUQQVu7oD@andrea>
-References: <20231127103235.28442-1-parri.andrea@gmail.com>
- <20231127103235.28442-3-parri.andrea@gmail.com>
- <91ab0210-07f9-42c4-af7f-a98799250cf7@efficios.com>
- <ZWYDtB/otYvTMZWd@andrea>
- <0a84c0e0-2571-4c7f-82ae-a429f467a16b@efficios.com>
- <ZWeDF0eHyOc/b9UJ@andrea>
- <53aac2ac-46ae-46b8-9fdf-34527b79a63b@efficios.com>
- <ZWesWCRAPV3rZlx9@andrea>
- <041c83e6-1ca5-4953-bcec-03571135165d@efficios.com>
+	Wed, 29 Nov 2023 23:30:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id 8C7FEB83860;
+	Wed, 29 Nov 2023 23:30:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59D53C433C7;
+	Wed, 29 Nov 2023 23:30:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1701300603;
+	bh=SkLsMu3Rty3isSC0Z5GyFZX6XuqhUs1znj+pThA/4jw=;
+	h=From:Subject:Date:To:Cc:From;
+	b=OMheO98fL0KVjOHUecQQmELTMVNw+EZNbXgDquWeoCUgyK9h2zXfXFoDC+l5hLgjw
+	 H40ExQ2yBouWEwBOhT9F0BuLOxGEm66S8AMrxe6x79MOKTw8VWIkdX9WuKTVsNIB+7
+	 kHOWkwpuAnhPyKQ8ulBq4zaEoMYiK5F5G7QwCOCp2AhDrLhrV4J9Z8N1qD/2bxyI8P
+	 7xnzDCGDua7HkWlWOo9seEcALqEBjuW6R5Alirr1nlvqZIZVvN2EflBHVRNW6IXXSb
+	 f9Mw3vayyXtDbq17FGmX+TKrVF8nV8SXkjvQAqeP26bd2+91mtP8r8C9WfKFICsjo6
+	 2oLXwwU5U3Ouw==
+From: Nathan Chancellor <nathan@kernel.org>
+Subject: [PATCH 0/2] RISC-V: Disable DWARF5 with known broken LLVM versions
+Date: Wed, 29 Nov 2023 16:29:46 -0700
+Message-Id: <20231129-riscv-restrict-dwarf5-llvm-v1-0-ec0d368fb538@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <041c83e6-1ca5-4953-bcec-03571135165d@efficios.com>
+X-B4-Tracking: v=1; b=H4sIAGvJZ2UC/x3MwQqDMAwA0F+RnA3YTtH6K7JDW6MGnJOkdAPx3
+ 1d2fJd3gZIwKYzVBUKZld9HgakriJs/VkKei8E29mGMdSisMaOQJuGYcP54WTrc9/xC7wbbhuD
+ 6NgYowSm08PefT8/7/gERRGEWbAAAAA==
+To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+ conor@kernel.org
+Cc: maskray@google.com, ndesaulniers@google.com, 
+ linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
+ patches@lists.linux.dev, Nathan Chancellor <nathan@kernel.org>
+X-Mailer: b4 0.13-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=961; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=SkLsMu3Rty3isSC0Z5GyFZX6XuqhUs1znj+pThA/4jw=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDKnpJ6v09+0p3xu/XT/22JnnEYEzDYrOT152wehtquXU6
+ ONVc/l6O0pZGMS4GGTFFFmqH6seNzScc5bxxqlJMHNYmUCGMHBxCsBEzAwYGZb+4jwmsVHPMfxQ
+ 40btU45xqj12k5btMVXa2L8r5/Z0ByOGf9p73m976b5wUabbBWbl9zsP6AtEaj2dpakSuUzwu92
+ fSk4A
+X-Developer-Key: i=nathan@kernel.org; a=openpgp;
+ fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231129_144341_200206_E5EAA8ED 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20231129_153006_074673_7AC76ED6 
+X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,40 +84,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> > So I should probably stick to 93917ad50972, which apparently selected
-> > CONFIG_MEMBARRIER on RISC-V, for the Fixes: tag in question.
-> 
-> I think it goes further than that, because you can explicitly
-> CONFIG_MEMBARRIER=y, see init/Kconfig:
-> 
-> config MEMBARRIER
->         bool "Enable membarrier() system call" if EXPERT
->         default y
->         help
->           Enable the membarrier() system call that allows issuing memory
->           barriers across all running threads, which can be used to distribute
->           the cost of user-space memory barriers asymmetrically by transforming
->           pairs of memory barriers into pairs consisting of membarrier() and a
->           compiler barrier.
-> 
->           If unsure, say Y.
-> 
-> Before 1464d00b27b2, riscv just happened to set it to =n in the defconfig.
-> 
-> I suspect the initial port of riscv merged after v4.14 was already broken.
+Hi all,
 
-I see.  Oh well, guess I'll have to leave this up to the maintainers then
-(I believe I've never managed to build riscv that far), Palmer?
+This series disables DWARF5 for LLVM versions where it is known to be
+broken due to linker relaxation:
 
+https://github.com/llvm/llvm-project/commit/bbc0f99f3bc96f1db16f649fc21dd18e5b0918f6
 
-> > I'll look into adding the membarrier feature you mention (as a final/
-> > follow-up patch), unless you or someone else want to take care of it.
-> 
-> I'll be happy to review it :)
+If I understand correctly, it sounds like GNU binutils has a similar
+issue but I am not sure of the status of the fixes and such, so I did
+not bother with checking for it but it should be easy to add if so
+desired.
 
-Sweet!  :-)
+Cheers,
+Nathan
 
-  Andrea
+---
+Nathan Chancellor (2):
+      riscv: Hoist linker relaxation disabling logic into Kconfig
+      riscv: Restrict DWARF5 when building with LLVM to known working versions
+
+ arch/riscv/Kconfig  | 14 ++++++++++++++
+ arch/riscv/Makefile |  4 +---
+ lib/Kconfig.debug   |  1 +
+ 3 files changed, 16 insertions(+), 3 deletions(-)
+---
+base-commit: 2cc14f52aeb78ce3f29677c2de1f06c0e91471ab
+change-id: 20231129-riscv-restrict-dwarf5-llvm-a9824bb974cb
+
+Best regards,
+-- 
+Nathan Chancellor <nathan@kernel.org>
+
 
 _______________________________________________
 linux-riscv mailing list
