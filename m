@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48363C4167B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C6ADC07E97
 	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 09:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+GbFpALqvojIppgEQ1BPpRd8UwtHyURgmuPfSsdNYe0=; b=a957WQC7VB1XeT
-	UKhdpfTsLQCGUTsT8qM1g7usT4PhCU/ms8jSuzkIQC0bFT2LDDmfBodAF4lT7DCKSKHbfmA+soAyU
-	XkFr6yxe6Ph24TLc1oT3d+8L0GTk1PfO2AZkiaMrJ6HjvaFBnmlXimFJsGU8rw4acI+5bkb48jeEC
-	JSW7UKtM5JOvuShwwdRQHspcPhcZW1ST76/5Mn5WecgYhvG8PdFhJeBQ1ijTwqZC1748iOLhJuVIL
-	+otxKfPK6NPr7sKQfNMonkW033zaQDCtWCvVc8nYySO7CluDLvWooIpKu+wqzF059BJgVlVjkD3Kc
-	8NtBpiuY87ERkadThDFQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Uf94i10JdL7dfPUYB1uMpFFEgH9q/F1rh+ACJ9YJss0=; b=X1/S2adxNen1vb
+	OzZQkV1og3JziPY2tycKZvzSsc/1+OU0KW7uO7oim0FHYZSYFWzleRkG/5iyTZ3tTz5DkrXd1C2qS
+	CvZCZQGXjxd+g1HtJHzSkHyfOd8kfVNd9Dz78A5OAtvmLGYH3tRlhjP3Dv/i9+DTAvn7dsuXLGvCK
+	8wdIi3sFYrA7MdXhnL64uFr943CnhC8jySrP6kUhtVGQJsukGt5kXkSIoJa7cAKJLE3C8djMRGucc
+	PPSfIiXQFdpO1qYXhR41MyqmtJtK2FC36WdBYj8IvCcnrAk0xBSIapZJzb+sGN7ltaFQCPl8SHtcG
+	eOrVM5qUlOMDSN3qeF3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8Grl-007diO-07;
+	id 1r8Grl-007dj5-2L;
 	Wed, 29 Nov 2023 09:28:21 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8Grh-007dVT-2p
+	id 1r8Gri-007dVU-04
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Nov 2023 09:28:19 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	Wed, 29 Nov 2023 09:28:20 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 18E1B24E2D4;
-	Wed, 29 Nov 2023 17:27:34 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 29 Nov
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 19EBF24E2D8;
+	Wed, 29 Nov 2023 17:27:35 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 29 Nov
  2023 17:27:34 +0800
 Received: from williamqiu-virtual-machine.starfivetech.com (171.223.208.138)
  by EXMBX168.cuchost.com (172.16.6.78) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Wed, 29 Nov 2023 17:27:32 +0800
+ 15.0.1497.42; Wed, 29 Nov 2023 17:27:33 +0800
 From: William Qiu <william.qiu@starfivetech.com>
 To: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>, <linux-pwm@vger.kernel.org>
@@ -49,18 +49,20 @@ CC: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
  Feng" <hal.feng@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
 	William Qiu <william.qiu@starfivetech.com>
-Subject: [PATCH v8 0/4] StarFive's Pulse Width Modulation driver support
-Date: Wed, 29 Nov 2023 17:27:28 +0800
-Message-ID: <20231129092732.43387-1-william.qiu@starfivetech.com>
+Subject: [PATCH v8 1/4] dt-bindings: pwm: Add bindings for OpenCores PWM Controller
+Date: Wed, 29 Nov 2023 17:27:29 +0800
+Message-ID: <20231129092732.43387-2-william.qiu@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20231129092732.43387-1-william.qiu@starfivetech.com>
+References: <20231129092732.43387-1-william.qiu@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [171.223.208.138]
 X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX168.cuchost.com
  (172.16.6.78)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231129_012818_211980_D9B1C26A 
-X-CRM114-Status: GOOD (  16.70  )
+X-CRM114-CacheID: sfid-20231129_012818_212256_118B5CB1 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,86 +79,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Add bindings for OpenCores PWM Controller.
 
-This patchset adds initial rudimentary support for the StarFive
-Pulse Width Modulation controller driver. And this driver will
-be used in StarFive's VisionFive 2 board.The first patch add
-Documentations for the device and Patch 2 adds device probe for
-the module.
-
-Changes v7->v8:
-- Rebased to v6.7rc3.
-- Changed compatible to "opencores,pwm-v1"
-- Adjusted the clock unprepare order.
-- Followed dt-bindings Coding style.
-
-Changes v6->v7:
-- Rebased to v6.6.
-- Added dependency architecture.
-- Adopted new rounding algorithm.
-- Added limitation descripton.
-- Used function interfaces instead of macro definitions.
-- Followed the linux coding style.
-
-Changes v5->v6:
-- Rebased to v6.6rc5.
-- Changed driver into a generic OpenCores driver.
-- Modified dt-bindings description into OpenCores.
-- Uesd the StarFive compatible string to parameterize.
-
-Changes v4->v5:
-- Rebased to v6.6rc2.
-- Updated macro definition indent.
-- Replaced the clock initializes the interface.
-- Fixed patch description.
-
-Changes v3->v4:
-- Rebased to v6.5rc7.
-- Sorted the header files in alphabetic order.
-- Changed iowrite32() to writel().
-- Added a way to turn off.
-- Modified polarity inversion implementation.
-- Added 7100 support.
-- Added dts patches.
-- Used the various helpers in linux/math.h.
-- Corrected formatting problems.
-- Renamed dtbinding  to 'starfive,jh7100-pwm.yaml'.
-- Dropped the redundant code.
-
-Changes v2->v3:
-- Fixed some formatting issues.
-
-Changes v1->v2:
-- Renamed the dt-binding 'pwm-starfive.yaml' to 'starfive,jh7110-pwm.yaml'.
-- Dropped the compatible's Items.
-- Dropped the unuse defines.
-- Modified the code to follow the Linux coding style.
-- Changed return value to dev_err_probe.
-- Dropped the unnecessary local variable.
-
-The patch series is based on v6.7rc3.
-
-William Qiu (4):
-  dt-bindings: pwm: Add bindings for OpenCores PWM Controller
-  pwm: opencores: Add PWM driver support
-  riscv: dts: starfive: jh7100: Add PWM node and pins configuration
-  riscv: dts: starfive: jh7110: Add PWM node and pins configuration
-
- .../bindings/pwm/opencores,pwm.yaml           |  56 +++++
- MAINTAINERS                                   |   7 +
- .../boot/dts/starfive/jh7100-common.dtsi      |  24 ++
- arch/riscv/boot/dts/starfive/jh7100.dtsi      |   9 +
- .../jh7110-starfive-visionfive-2.dtsi         |  22 ++
- arch/riscv/boot/dts/starfive/jh7110.dtsi      |   9 +
- drivers/pwm/Kconfig                           |  12 +
- drivers/pwm/Makefile                          |   1 +
- drivers/pwm/pwm-ocores.c                      | 232 ++++++++++++++++++
- 9 files changed, 372 insertions(+)
+Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+---
+ .../bindings/pwm/opencores,pwm.yaml           | 56 +++++++++++++++++++
+ 1 file changed, 56 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
- create mode 100644 drivers/pwm/pwm-ocores.c
 
---
+diff --git a/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml b/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+new file mode 100644
+index 000000000000..133f2cd417f0
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+@@ -0,0 +1,56 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pwm/opencores,pwm.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: OpenCores PWM controller
++
++maintainers:
++  - William Qiu <william.qiu@starfivetech.com>
++
++description:
++  OpenCores PTC ip core contains a PWM controller. When operating in PWM mode,
++  the PTC core generates binary signal with user-programmable low and high
++  periods. All PTC counters and registers are 32-bit.
++
++allOf:
++  - $ref: pwm.yaml#
++
++properties:
++  compatible:
++    oneOf:
++      - items:
++          - enum:
++              - starfive,jh7100-pwm
++              - starfive,jh7110-pwm
++          - const: opencores,pwm-v1
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++  "#pwm-cells":
++    const: 3
++
++required:
++  - compatible
++  - reg
++  - clocks
++
++additionalProperties: false
++
++examples:
++  - |
++    pwm@12490000 {
++        compatible = "starfive,jh7110-pwm", "opencores,pwm-v1";
++        reg = <0x12490000 0x10000>;
++        clocks = <&clkgen 181>;
++        resets = <&rstgen 109>;
++        #pwm-cells = <3>;
++    };
+-- 
 2.34.1
 
 
