@@ -4,117 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46267C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 16:23:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1AE1C07CB1
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 16:42:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b3fyHIpPsk/mmv7Qpc64ztRbmwvAYLMwB6tsGV7BxaU=; b=u2oWaOOJTiLk7IBiipwjf2tdwi
-	i04Hgp3zenN5KzQhr3BABraCBpSaHHXEW9lwwpPlhBFjbChcSPSe9KrIdBzTYP4TjUqTeCAF3CgpM
-	2VZtxyYJAKkNrVMCeYH1S/8XX9OUFeQb4t+vHlFy8YXMljjWV99KFhzi8ENbtWtitX5+TVeva0HsP
-	aCchTVFEpGRi3WFC3gCPiPiPBO00KafN+yd1pOcHfUBqgbo9QAzYWsfDHVsUpD5Fw8vr1UzF6y4dZ
-	DvqTZ1PHQ02eCjGSBeKBLlALjpJ/iPZq53qtAhBWiSDkzmXI86GNsiY7E3zeKGzrceAC+GDWmQg1t
-	dbLlsYLg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5wA0xuA0X9F/dErpMw+/uMZNWrYoP77qbiIMLmpVqBQ=; b=1wru9fFjYs5ZXK
+	m2RhN1c3qPqgcyW583etuWLxCCwAYgRqdxmYpDxEd+Y/oa42ovk7xvk+Ng4JIEfCvnxdMWWCLQDWF
+	53svOt21sw8IOJ4oKCpbHlUd/qgDEL4N5hZ1m5XeQ9xKQsYsnTROKaz0BrjCdKVEHjBpEMS7eUAGD
+	U8v1KbaMmgl04WvK8tWAu30QlUjrKm4J4QBREYT//X9J40JjDvNweWkBGRNQcUUKZshzlrtP5wBpT
+	YRe58eb4lzdssViAr1paVnda1Axq7msFDQIuOb1QKO3He/m4xBi2V7SBs4nb8rtuF48QZNSfLfwm0
+	VtvkDSfZkG12YC07jRTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8NLQ-008sLM-0g;
-	Wed, 29 Nov 2023 16:23:24 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
+	id 1r8Ndz-008vWa-36;
+	Wed, 29 Nov 2023 16:42:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8NLM-008sKD-1u;
-	Wed, 29 Nov 2023 16:23:22 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-2c8879a1570so88771721fa.1;
-        Wed, 29 Nov 2023 08:23:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1701274997; x=1701879797; darn=lists.infradead.org;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BE4DN2NIJid+M8TUF/vMVc9hXeYzBXdHSi7xojD4wk4=;
-        b=eEDbGDj5PLAWKrzI0Hna+DO0q1MfzPB2D9gKqE5gP6R2efz5EY7CQYfunPgZQ13pQ0
-         jhfUU+oOBaz5Uaq1Nvd+OBTlFDo2DY1WHXgWM+tkBSPE1A7Dv61p0WkrsPdrV34BrOa2
-         j2sgqaLMdPV2ovklVlYTNmuhWTuIETpeYadgrSkqOLrnw7wuD7q9Udz9+zmyyL7gWSMO
-         GFIXIxWn8lGr0ejmXb6FgPcxJSx9uu+rqEAj2l8BPwguQkMZHeJhLVs4NABTWJBZ7HQU
-         YW1hPc4JlsKb+NMNpTZ8rxNuCaIYaW6f8MnwFj5HabzOBZr1Sdc/W4U1iAnXIDgZJzcT
-         r/cA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701274997; x=1701879797;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BE4DN2NIJid+M8TUF/vMVc9hXeYzBXdHSi7xojD4wk4=;
-        b=RiJdOp4ku4dQO9fYtwQEcJKOlxjpdWP4CdcDkpi3EFxEo20bCqx8MkXey0tnnb2IX+
-         QglPKEDdDQAlO5r7NwHFeNzGD0euEbGJlKa2dvWbU6/zth86Sz+kxYJcQN5X+U4GXmVV
-         fXi7LAuFmMkgQUkSU4jHRY4HLrTIT76In/EEozO++FGDeaWE2zHFQ4lKod8CnvdaG22t
-         zSAIIsSmN4qfdhDs9jnaBXk2L8krbR/c7uH8NP1qLFW8l2k4swHtHn59RR/Dh76rBWQh
-         wLFupfrfS+xF8oLglB9K8nP12PppUPCECe/EoE3fKF4y+nDfwTTSOuOTBghKq9SXsx15
-         3E/A==
-X-Gm-Message-State: AOJu0YxmIBWEBmdTbaFt1raF/Q5OMT+v0PchDPrO5MUEDoWRAF2e3pnF
-	DEyaQeSDg1XpBiGsUjnu6L8=
-X-Google-Smtp-Source: AGHT+IFpkXFRA9JtjkMulyQU+vE6lllIuj8DaTvHOgPc7kkDjVJCH1EZdgBzk/x+Nxw/nDpm1ZgC3Q==
-X-Received: by 2002:a2e:9557:0:b0:2c9:b623:ddf1 with SMTP id t23-20020a2e9557000000b002c9b623ddf1mr3708530ljh.51.1701274997225;
-        Wed, 29 Nov 2023 08:23:17 -0800 (PST)
-Received: from orome.fritz.box (p200300e41f0fa600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f0f:a600:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id n16-20020a05600c501000b00407b93d8085sm2743768wmr.27.2023.11.29.08.23.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Nov 2023 08:23:16 -0800 (PST)
-Date: Wed, 29 Nov 2023 17:23:13 +0100
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: David Airlie <airlied@gmail.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Danilo Krummrich <dakr@redhat.com>, Daniel Vetter <daniel@ffwll.ch>,
-	Dexuan Cui <decui@microsoft.com>, devicetree@vger.kernel.org,
-	dmaengine@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	David Woodhouse <dwmw2@infradead.org>,
-	Frank Rowand <frowand.list@gmail.com>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>, iommu@lists.linux.dev,
-	Jon Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
-	Karol Herbst <kherbst@redhat.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	"K. Y. Srinivasan" <kys@microsoft.com>,
-	Laxman Dewangan <ldewangan@nvidia.com>, Len Brown <lenb@kernel.org>,
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-snps-arc@lists.infradead.org,
-	linux-tegra@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Lyude Paul <lyude@redhat.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	nouveau@lists.freedesktop.org, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Vineet Gupta <vgupta@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Wei Liu <wei.liu@kernel.org>, Will Deacon <will@kernel.org>,
-	Lu Baolu <baolu.lu@linux.intel.com>, Christoph Hellwig <hch@lst.de>,
-	Jerry Snitselaar <jsnitsel@redhat.com>,
-	Hector Martin <marcan@marcan.st>, Moritz Fischer <mdf@kernel.org>,
-	patches@lists.linux.dev,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH 08/10] iommu/tegra: Use tegra_dev_iommu_get_stream_id()
- in the remaining places
-Message-ID: <ZWdlcboM4Xzs38NI@orome.fritz.box>
-References: <0-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
- <8-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
+	id 1r8Ndy-008vWG-0s
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 29 Nov 2023 16:42:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=6LwqeNsD2oceyytAy3I4imVZszpmeJBapevX8WZgCjA=; b=K6UA1w4TdtWDsoJYQF1vJh2yEh
+	L7g8BN72mQ95wwbgdtnMzbjbjs0zZx6Pkp8QJlFq7f/GUpN4yu2rt9CSCV4f+rly3SptIAEiHIues
+	7mk9mi+ZiEoFg6gLIWnHnOV/1Uiy/Jx/NwbZ8H1PySG4wc5mck7EGnt2k3tDPkNTRxSVRAaRnrqzq
+	5IEesCJORfOHf1w6RGBG9fn/s6smLjuhbdIRTQ9fvPi3iwusnk0THLH80+MOfiysiC5m7Z6R9UujB
+	MwGRAclFhhD/sz69o2I+s8xmSRU4t9+1FDFtI8+SCIqOKz3y4X/9lguQX5v+rUqrTOKo3jqif6DJn
+	6C5QbrYA==;
+Received: from xry111.site ([89.208.246.23])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1r8Ndr-000QLE-0n
+	for linux-riscv@lists.infradead.org;
+	Wed, 29 Nov 2023 16:42:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xry111.site;
+	s=default; t=1701276134;
+	bh=VzR4EoUUwocqvWHOsW2iuWo50a/tDaBPTdKdJ2I6t2g=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=nizf3tKADXY9gw8RTUwRGlwn3bF+kVHzcfAVVoQy23ftGQWm2aMZcuj6CBws7tvwq
+	 WMFFy81wFg7j3jQUfMh7fvPY1jOvXITNjXdb5dkmIXHJgd90hJjS7roCLSq93WMdzb
+	 tYBpVV0GAKvvq8IUWSqB2agdkt/YRZcNtRZaba+A=
+Received: from [127.0.0.1] (unknown [IPv6:2001:470:683e::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-384) server-digest SHA384)
+	(Client did not present a certificate)
+	(Authenticated sender: xry111@xry111.site)
+	by xry111.site (Postfix) with ESMTPSA id 7382166AB8;
+	Wed, 29 Nov 2023 11:42:11 -0500 (EST)
+Message-ID: <5f437109d2be2b8843f549a661054a2e3ec0d66e.camel@xry111.site>
+Subject: Re: [PATCH v3 1/3] dt-bindings: reset: Document th1520 reset control
+From: Xi Ruoyao <xry111@xry111.site>
+To: Conor Dooley <conor@kernel.org>, Kwanghoon Son <k.son@samsung.com>
+Cc: p.zabel@pengutronix.de, robh+dt@kernel.org, 
+ krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, jszhang@kernel.org,
+  guoren@kernel.org, wefu@redhat.com, paul.walmsley@sifive.com,
+ palmer@dabbelt.com,  aou@eecs.berkeley.edu, inki.dae@samsung.com,
+ devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Date: Thu, 30 Nov 2023 00:42:09 +0800
+In-Reply-To: <20230919-42333064be342f6ab125dd75@fedora>
+References: <20230918045125.4000083-1-k.son@samsung.com>
+	 <CGME20230918045134epcas1p1b80b338b66512a976c3783cd0e51da50@epcas1p1.samsung.com>
+	 <20230918045125.4000083-2-k.son@samsung.com>
+	 <20230918-4ef7f52da269f3a7e4023bb3@fedora>
+	 <005301d9eab7$5688c920$039a5b60$@samsung.com>
+	 <20230919-42333064be342f6ab125dd75@fedora>
+Autocrypt: addr=xry111@xry111.site; prefer-encrypt=mutual;
+ keydata=mDMEYnkdPhYJKwYBBAHaRw8BAQdAsY+HvJs3EVKpwIu2gN89cQT/pnrbQtlvd6Yfq7egugi0HlhpIFJ1b3lhbyA8eHJ5MTExQHhyeTExMS5zaXRlPoiTBBMWCgA7FiEEkdD1djAfkk197dzorKrSDhnnEOMFAmJ5HT4CGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQrKrSDhnnEOPHFgD8D9vUToTd1MF5bng9uPJq5y3DfpcxDp+LD3joA3U2TmwA/jZtN9xLH7CGDHeClKZK/ZYELotWfJsqRcthOIGjsdAPuDgEYnkdPhIKKwYBBAGXVQEFAQEHQG+HnNiPZseiBkzYBHwq/nN638o0NPwgYwH70wlKMZhRAwEIB4h4BBgWCgAgFiEEkdD1djAfkk197dzorKrSDhnnEOMFAmJ5HT4CGwwACgkQrKrSDhnnEOPjXgD/euD64cxwqDIqckUaisT3VCst11RcnO5iRHm6meNIwj0BALLmWplyi7beKrOlqKfuZtCLbiAPywGfCNg8LOTt4iMD
+User-Agent: Evolution 3.50.1 
 MIME-Version: 1.0
-In-Reply-To: <8-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
-User-Agent: Mutt/2.2.12 (2023-09-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231129_082320_632493_7A6BECB9 
-X-CRM114-Status: GOOD (  27.03  )
+X-CRM114-CacheID: sfid-20231129_164229_256350_6D323C1C 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,161 +92,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5996736905199300365=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============5996736905199300365==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="OR6CuieIvqboqm08"
-Content-Disposition: inline
-
-
---OR6CuieIvqboqm08
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Nov 28, 2023 at 08:48:04PM -0400, Jason Gunthorpe wrote:
-> This API was defined to formalize the access to internal iommu details on
-> some Tegra SOCs, but a few callers got missed. Add them.
->=20
-> The helper already masks by 0xFFFF so remove this code from the callers.
->=20
-> Suggested-by: Thierry Reding <thierry.reding@gmail.com>
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
->  drivers/dma/tegra186-gpc-dma.c                  |  8 +++-----
->  drivers/gpu/drm/nouveau/nvkm/subdev/ltc/gp10b.c |  7 ++-----
->  drivers/memory/tegra/tegra186.c                 | 12 ++++++------
->  3 files changed, 11 insertions(+), 16 deletions(-)
->=20
-> diff --git a/drivers/dma/tegra186-gpc-dma.c b/drivers/dma/tegra186-gpc-dm=
-a.c
-> index fa4d4142a68a21..88547a23825b18 100644
-> --- a/drivers/dma/tegra186-gpc-dma.c
-> +++ b/drivers/dma/tegra186-gpc-dma.c
-> @@ -1348,8 +1348,8 @@ static int tegra_dma_program_sid(struct tegra_dma_c=
-hannel *tdc, int stream_id)
->  static int tegra_dma_probe(struct platform_device *pdev)
->  {
->  	const struct tegra_dma_chip_data *cdata =3D NULL;
-> -	struct iommu_fwspec *iommu_spec;
-> -	unsigned int stream_id, i;
-> +	unsigned int i;
-> +	u32 stream_id;
->  	struct tegra_dma *tdma;
->  	int ret;
-> =20
-> @@ -1378,12 +1378,10 @@ static int tegra_dma_probe(struct platform_device=
- *pdev)
-> =20
->  	tdma->dma_dev.dev =3D &pdev->dev;
-> =20
-> -	iommu_spec =3D dev_iommu_fwspec_get(&pdev->dev);
-> -	if (!iommu_spec) {
-> +	if (!tegra_dev_iommu_get_stream_id(&pdev->dev, &stream_id)) {
->  		dev_err(&pdev->dev, "Missing iommu stream-id\n");
->  		return -EINVAL;
->  	}
-> -	stream_id =3D iommu_spec->ids[0] & 0xffff;
-> =20
->  	ret =3D device_property_read_u32(&pdev->dev, "dma-channel-mask",
->  				       &tdma->chan_mask);
-> diff --git a/drivers/gpu/drm/nouveau/nvkm/subdev/ltc/gp10b.c b/drivers/gp=
-u/drm/nouveau/nvkm/subdev/ltc/gp10b.c
-> index e7e8fdf3adab7a..b40fd1dbb21617 100644
-> --- a/drivers/gpu/drm/nouveau/nvkm/subdev/ltc/gp10b.c
-> +++ b/drivers/gpu/drm/nouveau/nvkm/subdev/ltc/gp10b.c
-> @@ -28,16 +28,13 @@ static void
->  gp10b_ltc_init(struct nvkm_ltc *ltc)
->  {
->  	struct nvkm_device *device =3D ltc->subdev.device;
-> -	struct iommu_fwspec *spec;
-> +	u32 sid;
-> =20
->  	nvkm_wr32(device, 0x17e27c, ltc->ltc_nr);
->  	nvkm_wr32(device, 0x17e000, ltc->ltc_nr);
->  	nvkm_wr32(device, 0x100800, ltc->ltc_nr);
-> =20
-> -	spec =3D dev_iommu_fwspec_get(device->dev);
-> -	if (spec) {
-> -		u32 sid =3D spec->ids[0] & 0xffff;
-> -
-> +	if (tegra_dev_iommu_get_stream_id(device->dev, &sid)) {
->  		/* stream ID */
->  		nvkm_wr32(device, 0x160000, sid << 2);
-
-We could probably also remove the comment now since the function and
-variable names make it obvious what's being written here.
-
->  	}
-> diff --git a/drivers/memory/tegra/tegra186.c b/drivers/memory/tegra/tegra=
-186.c
-> index 533f85a4b2bdb7..3e4fbe94dd666e 100644
-> --- a/drivers/memory/tegra/tegra186.c
-> +++ b/drivers/memory/tegra/tegra186.c
-> @@ -111,21 +111,21 @@ static void tegra186_mc_client_sid_override(struct =
-tegra_mc *mc,
->  static int tegra186_mc_probe_device(struct tegra_mc *mc, struct device *=
-dev)
->  {
->  #if IS_ENABLED(CONFIG_IOMMU_API)
-> -	struct iommu_fwspec *fwspec =3D dev_iommu_fwspec_get(dev);
->  	struct of_phandle_args args;
->  	unsigned int i, index =3D 0;
-> +	u32 sid;
-> =20
-> +	WARN_ON(!tegra_dev_iommu_get_stream_id(dev, &sid));
-
-I know the code previously didn't check for any errors, but we may want
-to do so now. If tegra_dev_iommu_get_stream_id() ever fails we may end
-up writing some undefined value into the override register.
-
-I'm also unsure if WARN_ON() is appropriate here. I vaguely recall that
-->probe_device() was called for all devices on the bus and not all of
-them may have been associated with the IOMMU. Not all of them may in
-fact access memory in the first place.
-
-Perhaps I'm misremembering and the IOMMU core now takes care of only
-calling this when fwspec is indeed valid?
-
-Thierry
-
---OR6CuieIvqboqm08
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmVnZW8ACgkQ3SOs138+
-s6H3xA/+PnJPzNAATgGeEaxpY8VPfo7h0kY98vc1QYnUCiV46yzQPUq+/nVkkq24
-ybBtQ8hr0vl4ZxtflekHYxb0WsXO560ODmmckXEYPWRfVyxckFz+CRyvDx+zxyxJ
-d/TtD8p0l6DGFlZGume2h/cDafF5+3td2JEJ2vEfu0tMmRLIFC7L+Pj2IB4/Fz21
-2M6M6T0Al7obecinfW9jzg00G20RybQSrdPq+H9z3BNhOXGKy+1fjIzCsnr4H0gD
-kE4WooU9uLbMdpEYYZ8idqC1OieIr6p2IF802/4/TAvWHreHlH7uPcDRry8rxkwQ
-j0CAwBlcvLLtLj2pw7kYgxMpXwahgXSuhxX42CXDWsUUW4mxiZkvG0o8Cv2EGtSD
-emTIMrC3w1R2MSemI8+RQdOHhOnTNC0sADGo9EyurPrYC9TzwqTOPI35kNqJ8ZAw
-zCmhDKieZM9dxlOdFrpC+eLz8eVEjo5oV+OchMT6k8nw7TkD6dGHBOJlDhQeJNWZ
-tZBnlBamoEmlD5Kz/Oe90S47MnYtx8EX7o9bpEV6/ZO13P+F07rasP3l6hCJuybO
-c2YAeCxY8cuwHLnIJZTm3hR7UU9PQwPn4utolLuSqaXkL5wSdVr+1eZyTye25W0J
-CSzMCL3SkMgfKaZ7L6ptSRFtOWxiH6943ahvYpDBXlgEp/R9aVg=
-=ORi/
------END PGP SIGNATURE-----
-
---OR6CuieIvqboqm08--
-
-
---===============5996736905199300365==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5996736905199300365==--
-
+T24gVHVlLCAyMDIzLTA5LTE5IGF0IDA5OjQ3ICswMTAwLCBDb25vciBEb29sZXkgd3JvdGU6Cj4g
+R3VvLAo+IAo+IE9uIFR1ZSwgU2VwIDE5LCAyMDIzIGF0IDAyOjA4OjMyUE0gKzA5MDAsIEt3YW5n
+aG9vbiBTb24gd3JvdGU6Cj4gPiA+ID4gPiArwqDCoMKgwqDCoCAtIGNvbnN0OiB0aGVhZCx0aDE1
+MjAtcmVzZXQKPiA+ID4gPiA+ICvCoMKgwqDCoMKgIC0gY29uc3Q6IHN5c2Nvbgo+ID4gPiA+IAo+
+ID4gPiA+IGlEdW1iIHF1ZXN0aW9uIHBlcmhhcHMsIGJ1dCB3aHkgaXMgdGhpcyBhIHN5c2Nvbj8K
+PiA+ID4gCj4gPiA+IFRoaXMgaXMgZ29vZCBwb2ludC4KPiA+ID4gSW4gZmFjdCwgSSB0b29rIGl0
+IGZyb20gdGhlIHZlbmRvciBrZXJuZWwsIGFuZCBJIHRyaWVkIHRvIGtlZXAgaXQgYXMgc2FtZSBh
+cyBJIGNvdWxkLgo+ID4gPiBWZW5kb3IgYWxzbyBmb2xsb3dlZCBkcml2ZXJzL3Jlc2V0L3Jlc2V0
+LWlteDcuYwo+ID4gPiBBcyBSb2Igc2FpZCwgaWYgZG9uJ3QgbmVlZCBpdCwgSSdsbCBjaGFuZ2Ug
+aXQuCj4gCj4gPiBJIGhhdmUgaW52ZXN0aWdhdGVkIHZlbmRvciBrZXJuZWxzLCBidXQgaXQgaXMg
+c3RpbGwgbm90IHN1cmUgcmVzZXQgaW5mb3JtYXRpb24uCj4gPiBJIHRob3VnaHQgdGhpcyBpcyBh
+Ym91dCBzeXNfcmVnLCBidXQgd2l0aG91dCBkYXRhc2hlZXQsIGNhbid0IHRlbGwuCj4gPiBUaGVy
+ZWZvcmUsIHNob3VsZCBiZSBzdG9wcGVkIHBhdGNoIGZvciBhIHdoaWxlIHVudGlsIGtub3dzIGJl
+dHRlciBjb21lcyBvdXQuCj4gCj4gSXMgdGhlcmUgZG9jdW1lbnRhdGlvbiBpbiBFbmdsaXNoIHlv
+dSBjYW4gcHJvdmlkZSB0byB0aGVzZSBwZW9wbGUgdGhhdAo+IGFyZSB0cnlpbmcgdG8gYWRkIHN1
+cHBvcnQgZm9yIHlvdXIgcHJvZHVjdD8KCkl0IGNhbiBiZSBkb3dubG9hZGVkIGZyb20KaHR0cHM6
+Ly9kbC5zaXBlZWQuY29tL3NoYXJlVVJML0xJQ0hFRS9saWNoZWVwaTRhLzA5X0RvYyBub3cuICBD
+bGljayBvbgoiVEgxNTIwIFVzZXIgTWFudWFsLnppcCIgYW5kIGVudGVyIGEgY2FwdGNoYS4gIFRo
+ZSBkb2MgYWJvdXQgcmVzZXR0aW5nCmlzIGluIGNoYXB0ZXIgNSBvZiAiVEgxNTIwIFN5c3RlbSBV
+c2VyIE1hbnVhbC5wZGYiLgoKCi0tIApYaSBSdW95YW8gPHhyeTExMUB4cnkxMTEuc2l0ZT4KU2No
+b29sIG9mIEFlcm9zcGFjZSBTY2llbmNlIGFuZCBUZWNobm9sb2d5LCBYaWRpYW4gVW5pdmVyc2l0
+eQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
