@@ -4,65 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D5AAC07E98
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 06:03:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 519EAC07E98
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 06:05:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:References:
+	Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n/m85YuWMHaWl4oLOBfOV0c/1QA8jQGOnjpxb7+iTN8=; b=EQ+vOlZ4cyfQl1
-	+TKgRnZwLuesW5hkoBlYLKHhY1iofYBzpEd7FmO2dZtHVfwgMVPfcXBR4XA7Pf9Y2xI7U7Kjr5Hxg
-	BJXIU/gEA1w0x9/1bJzLiwoXx0ad2NF/HHHorFHcw2sEAFYLzMoUblhshaCXx9jPrOprcX4+H2w+K
-	jHzJpOaODLKASgg6+NX0bb+j1mXoqyYyWPXfYW30mgFkIM/QBwQpEX/3wljcQ8zUZoNQDUoW/Dzic
-	dHtG35mn7N/RvNWTLprnWBn+1oVyhHj7hrydcaUnNGAGROoPrrtSTWVpL8khCg7ci//49WyU98sX3
-	CnMNHNj0yviigQ0rG8tQ==;
+	List-Owner; bh=iHBqtUxqCE17m9akD+V9Tu6LeHr85ceyzNeNGZfjbJw=; b=fNa7yDzWXFzfRC
+	+ijib0ItU/T1e7CrraEI2B1nPRgU3++3mYRDch6i39Vsd+YcuwZm7xAaRPbzkrEMc86b3+jOGr3dO
+	nz6DF5l74VGXunAxaWwcwpz4tgc6Jq0UbJrBr2/HgMF6p232/hp4lU0u6yjtGswvfVVM0QJJcOfkK
+	lvlobdl42lAnICNqFpvfi8tkFhbue38VQKUw/Xgy3v9268mQNR3iGuhEJ2qgj1wfi8NNAe/Q7TeP0
+	ndarLF/o6nHqd2hAgOo/8MBzN7vSYWCccerkZL/ee/EhEixmoeqRXP3X7NqkQkcpUhXrqziVZWtAx
+	96hBsOoqGap7XXe/p7kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8Df6-0079do-1L;
-	Wed, 29 Nov 2023 06:03:04 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8Def-0079Ez-1X
+	id 1r8DhB-007Azj-39;
+	Wed, 29 Nov 2023 06:05:13 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1r8Dh2-007AvI-1E
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Nov 2023 06:02:40 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id ACE6124DD82;
-	Wed, 29 Nov 2023 14:02:20 +0800 (CST)
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 29 Nov
- 2023 14:02:20 +0800
-Received: from jsia-virtual-machine.localdomain (60.54.3.230) by
- EXMBX066.cuchost.com (172.16.6.66) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Wed, 29 Nov 2023 14:02:09 +0800
-From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-To: <kernel@esmil.dk>, <robh+dt@kernel.org>,
-	<krzysztof.kozlowski+dt@linaro.org>, <krzk@kernel.org>,
-	<conor+dt@kernel.org>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <daniel.lezcano@linaro.org>, <tglx@linutronix.de>,
-	<conor@kernel.org>, <anup@brainfault.org>, <gregkh@linuxfoundation.org>,
-	<jirislaby@kernel.org>, <michal.simek@amd.com>,
-	<michael.zhu@starfivetech.com>, <drew@beagleboard.org>
-CC: <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <jeeheng.sia@starfivetech.com>,
-	<leyfoon.tan@starfivetech.com>
-Subject: [PATCH v2 6/6] riscv: dts: starfive: Add initial StarFive JH8100 device tree
-Date: Wed, 29 Nov 2023 14:00:43 +0800
-Message-ID: <20231129060043.368874-7-jeeheng.sia@starfivetech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20231129060043.368874-1-jeeheng.sia@starfivetech.com>
-References: <20231129060043.368874-1-jeeheng.sia@starfivetech.com>
-MIME-Version: 1.0
-X-Originating-IP: [60.54.3.230]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX066.cuchost.com
- (172.16.6.66)
-X-YovoleRuleAgent: yovoleflag
+	Wed, 29 Nov 2023 06:05:13 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-5ccf44b0423so85008087b3.0
+        for <linux-riscv@lists.infradead.org>; Tue, 28 Nov 2023 22:05:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1701237903; x=1701842703; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=WO7CXB1mNGxZSEafQP2SArLxdW3co4lj0A5pbLIXeXc=;
+        b=zuEm1iJ6DDOjQwGKcqfHnvJ4C5DkogXqzPVYPu43JnzwCRu3u2vBwnJC6aWd9xa+jf
+         zd3d8PFXN+MQnKuDj+YezZOKbJvCIU3j4WRUyJ25lAmvSU8TlaPb5P14pJdX3rGRfg4W
+         Z0oPaynoRcQGOCVT4gW5N5wH7QYkdUCZg4b+vHB99BgT2lpeNAW7+kaK/GZMnQiVOKLP
+         oWB4sW7GiyKuqDsRXoVElm6cA8wfNwhLPT1HK4hLuBxBXmS5oBPGgI7bGYpid25YjFmw
+         /7Px0tdrv1zjP6Ml6oOEM6g5ApMHAh5TXTP31F8r8sm5qpPA8T0IxMw87iMn0oKVI5+Q
+         3HSg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701237903; x=1701842703;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=WO7CXB1mNGxZSEafQP2SArLxdW3co4lj0A5pbLIXeXc=;
+        b=s9ABgOBX4ZaGr8g28rbpXtp9q6y+wty+wi/Usn2QPriT6PsazVk3yNCHo/Q8UNvhna
+         wVrJUxI/fskpldAH2RzJKeSaPWAwSOkHpJn7PUuSNJMaqKjNEFCpXyKjUcFp4KEjFYyP
+         dnHQUjVbn7hoIMh0f7rMA75tW3l6mst9wPZGvUflWvDc+2TFbSEOF4NaR4yyzLJ/K2UN
+         FBvGdViDHMeAVB86j78Tq/lW5dysuwQ4AR/Ns3R+OmrFjs/MFt/YlZrdAXs43Q0YPS73
+         beGlHZTrvwsgZ+X0ZPUBq48BkvfvTNkWk5k6bXyddfExbsnU3CYIjyi/7XcfI9GQ60Oo
+         kpnw==
+X-Gm-Message-State: AOJu0YyB1+rd0Sy+BvUF3udGJrZrfHIRnACTkRwK/uZP3yPgGrdNJ7re
+	3i9/4DONtyhYH75b1ksToeeRwmewN9pB
+X-Google-Smtp-Source: AGHT+IHL7hgboFJ1jDI8fHK0ttAzMEfTsQjA7vmjwBnF03SxrfXdHuhYyFsTgeIfr3cTonrW5FaGXfJVhISd
+X-Received: from morats.c.googlers.com ([fda3:e722:ac3:cc00:14:4d90:c0a8:d9e])
+ (user=moritzf job=sendgmr) by 2002:a05:690c:903:b0:59b:eb63:4beb with SMTP id
+ cb3-20020a05690c090300b0059beb634bebmr584543ywb.7.1701237903050; Tue, 28 Nov
+ 2023 22:05:03 -0800 (PST)
+Date: Wed, 29 Nov 2023 06:04:59 +0000
+In-Reply-To: <3-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
+Mime-Version: 1.0
+References: <0-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com> <3-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
+Message-ID: <20231129060459.gcunam3msksainng@google.com>
+Subject: Re: [PATCH 03/10] iommu/of: Use -ENODEV consistently in of_iommu_configure()
+From: Moritz Fischer <moritzf@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: David Airlie <airlied@gmail.com>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev, 
+	Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich <dakr@redhat.com>, 
+	Daniel Vetter <daniel@ffwll.ch>, Dexuan Cui <decui@microsoft.com>, devicetree@vger.kernel.org, 
+	dmaengine@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	David Woodhouse <dwmw2@infradead.org>, Frank Rowand <frowand.list@gmail.com>, 
+	Hanjun Guo <guohanjun@huawei.com>, Haiyang Zhang <haiyangz@microsoft.com>, iommu@lists.linux.dev, 
+	Jon Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>, 
+	Karol Herbst <kherbst@redhat.com>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	"K. Y. Srinivasan" <kys@microsoft.com>, Laxman Dewangan <ldewangan@nvidia.com>, Len Brown <lenb@kernel.org>, 
+	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-snps-arc@lists.infradead.org, 
+	linux-tegra@vger.kernel.org, Russell King <linux@armlinux.org.uk>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Lyude Paul <lyude@redhat.com>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, nouveau@lists.freedesktop.org, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>, Sven Peter <sven@svenpeter.dev>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Vineet Gupta <vgupta@kernel.org>, 
+	Vinod Koul <vkoul@kernel.org>, Wei Liu <wei.liu@kernel.org>, Will Deacon <will@kernel.org>, 
+	Lu Baolu <baolu.lu@linux.intel.com>, Christoph Hellwig <hch@lst.de>, 
+	Jerry Snitselaar <jsnitsel@redhat.com>, Hector Martin <marcan@marcan.st>, Moritz Fischer <mdf@kernel.org>, 
+	patches@lists.linux.dev, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
+	Rob Herring <robh@kernel.org>, Thierry Reding <thierry.reding@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231128_220237_984342_65222E8D 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20231128_220504_429547_61915C53 
+X-CRM114-Status: GOOD (  28.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,453 +106,136 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"; DelSp="yes"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add initial device tree for the StarFive JH8100 RISC-V SoC.
+On Tue, Nov 28, 2023 at 08:47:59PM -0400, Jason Gunthorpe wrote:
+> Instead of returning 1 and trying to handle positive error codes just
+> stick to the convention of returning -ENODEV. Remove references to ops
+> from of_iommu_configure(), a NULL ops will already generate an error code.
 
-Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
----
- arch/riscv/boot/dts/starfive/Makefile       |   1 +
- arch/riscv/boot/dts/starfive/jh8100-evb.dts |  28 ++
- arch/riscv/boot/dts/starfive/jh8100.dtsi    | 378 ++++++++++++++++++++
- 3 files changed, 407 insertions(+)
- create mode 100644 arch/riscv/boot/dts/starfive/jh8100-evb.dts
- create mode 100644 arch/riscv/boot/dts/starfive/jh8100.dtsi
+> There is no reason to check dev->bus, if err=0 at this point then the
+> called configure functions thought there was an iommu and we should try to
+> probe it. Remove it.
 
-diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
-index 0141504c0f5c..fbb0dc619102 100644
---- a/arch/riscv/boot/dts/starfive/Makefile
-+++ b/arch/riscv/boot/dts/starfive/Makefile
-@@ -10,3 +10,4 @@ dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
- 
- dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.2a.dtb
- dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.3b.dtb
-+dtb-$(CONFIG_ARCH_STARFIVE) += jh8100-evb.dtb
-diff --git a/arch/riscv/boot/dts/starfive/jh8100-evb.dts b/arch/riscv/boot/dts/starfive/jh8100-evb.dts
-new file mode 100644
-index 000000000000..39a11226731c
---- /dev/null
-+++ b/arch/riscv/boot/dts/starfive/jh8100-evb.dts
-@@ -0,0 +1,28 @@
-+// SPDX-License-Identifier: GPL-2.0 OR MIT
-+/*
-+ * Copyright (c) 2021-2023 StarFive Technology Co., Ltd.
-+ */
-+
-+#include "jh8100.dtsi"
-+
-+/ {
-+	model = "StarFive JH8100 EVB";
-+	compatible = "starfive,jh8100-evb", "starfive,jh8100";
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	memory {
-+		device_type = "memory";
-+		reg = <0x0 0x40000000 0x2 0x00000000>;
-+	};
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
-diff --git a/arch/riscv/boot/dts/starfive/jh8100.dtsi b/arch/riscv/boot/dts/starfive/jh8100.dtsi
-new file mode 100644
-index 000000000000..f26aff5c1ddf
---- /dev/null
-+++ b/arch/riscv/boot/dts/starfive/jh8100.dtsi
-@@ -0,0 +1,378 @@
-+// SPDX-License-Identifier: GPL-2.0 OR MIT
-+/*
-+ * Copyright (c) 2021-2023 StarFive Technology Co., Ltd.
-+ */
-+
-+/dts-v1/;
-+
-+/ {
-+	compatible = "starfive,jh8100";
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		timebase-frequency = <4000000>;
-+
-+		cpu0: cpu@0 {
-+			compatible = "starfive,dubhe-80", "riscv";
-+			capacity-dmips-mhz = <768>;
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <512>;
-+			d-cache-size = <32768>;
-+			d-tlb-sets = <1>;
-+			d-tlb-size = <48>;
-+			device_type = "cpu";
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <512>;
-+			i-cache-size = <32768>;
-+			i-tlb-sets = <1>;
-+			i-tlb-size = <48>;
-+			mmu-type = "riscv,sv48";
-+			next-level-cache = <&l2c0>;
-+			reg = <0x0>;
-+			riscv,isa = "rv64imafdch";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "h", "zicntr",
-+					       "zicsr", "zifencei", "zihintpause", "zihpm",
-+					       "zba", "zbb", "zbs", "sscofpmf";
-+			tlb-split;
-+
-+			cpu0_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		cpu1: cpu@1 {
-+			compatible = "starfive,dubhe-80", "riscv";
-+			capacity-dmips-mhz = <768>;
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <512>;
-+			d-cache-size = <32768>;
-+			d-tlb-sets = <1>;
-+			d-tlb-size = <48>;
-+			device_type = "cpu";
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <512>;
-+			i-cache-size = <32768>;
-+			i-tlb-sets = <1>;
-+			i-tlb-size = <48>;
-+			mmu-type = "riscv,sv48";
-+			next-level-cache = <&l2c1>;
-+			reg = <0x1>;
-+			riscv,isa = "rv64imafdch";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "h", "zicntr",
-+					       "zicsr", "zifencei", "zihintpause", "zihpm",
-+					       "zba", "zbb", "zbs", "sscofpmf";
-+			tlb-split;
-+
-+			cpu1_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		cpu2: cpu@2 {
-+			compatible = "starfive,dubhe-90", "riscv";
-+			capacity-dmips-mhz = <1024>;
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <1024>;
-+			d-cache-size = <65536>;
-+			d-tlb-sets = <1>;
-+			d-tlb-size = <48>;
-+			device_type = "cpu";
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <1024>;
-+			i-cache-size = <65536>;
-+			i-tlb-sets = <1>;
-+			i-tlb-size = <48>;
-+			mmu-type = "riscv,sv48";
-+			next-level-cache = <&l2c2>;
-+			reg = <0x2>;
-+			riscv,isa = "rv64imafdch";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "h", "zicntr",
-+					       "zicsr", "zifencei", "zihintpause", "zihpm",
-+					       "zba", "zbb", "zbs", "sscofpmf";
-+			tlb-split;
-+
-+			cpu2_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		cpu3: cpu@3 {
-+			compatible = "starfive,dubhe-90", "riscv";
-+			capacity-dmips-mhz = <1024>;
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <1024>;
-+			d-cache-size = <65536>;
-+			d-tlb-sets = <1>;
-+			d-tlb-size = <48>;
-+			device_type = "cpu";
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <1024>;
-+			i-cache-size = <65536>;
-+			i-tlb-sets = <1>;
-+			i-tlb-size = <48>;
-+			mmu-type = "riscv,sv48";
-+			next-level-cache = <&l2c2>;
-+			reg = <0x3>;
-+			riscv,isa = "rv64imafdch";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "h", "zicntr",
-+					       "zicsr", "zifencei", "zihintpause", "zihpm",
-+					       "zba", "zbb", "zbs", "sscofpmf";
-+			tlb-split;
-+
-+			cpu3_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		cpu4: cpu@4 {
-+			compatible = "starfive,dubhe-90", "riscv";
-+			capacity-dmips-mhz = <1024>;
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <1024>;
-+			d-cache-size = <65536>;
-+			d-tlb-sets = <1>;
-+			d-tlb-size = <48>;
-+			device_type = "cpu";
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <1024>;
-+			i-cache-size = <65536>;
-+			i-tlb-sets = <1>;
-+			i-tlb-size = <48>;
-+			mmu-type = "riscv,sv48";
-+			next-level-cache = <&l2c2>;
-+			reg = <0x4>;
-+			riscv,isa = "rv64imafdch";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "h", "zicntr",
-+					       "zicsr", "zifencei", "zihintpause", "zihpm",
-+					       "zba", "zbb", "zbs", "sscofpmf";
-+			tlb-split;
-+
-+			cpu4_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		cpu5: cpu@5 {
-+			compatible = "starfive,dubhe-90", "riscv";
-+			capacity-dmips-mhz = <1024>;
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <1024>;
-+			d-cache-size = <65536>;
-+			d-tlb-sets = <1>;
-+			d-tlb-size = <48>;
-+			device_type = "cpu";
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <1024>;
-+			i-cache-size = <65536>;
-+			i-tlb-sets = <1>;
-+			i-tlb-size = <48>;
-+			mmu-type = "riscv,sv48";
-+			next-level-cache = <&l2c2>;
-+			reg = <0x5>;
-+			riscv,isa = "rv64imafdch";
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "h", "zicntr",
-+					       "zicsr", "zifencei", "zihintpause", "zihpm",
-+					       "zba", "zbb", "zbs", "sscofpmf";
-+			tlb-split;
-+
-+			cpu5_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		cpu-map {
-+			cluster0 {
-+				core0 {
-+					cpu = <&cpu0>;
-+				};
-+			};
-+
-+			cluster1 {
-+				core0 {
-+					cpu = <&cpu1>;
-+				};
-+			};
-+
-+			cluster2 {
-+				core0 {
-+					cpu = <&cpu2>;
-+				};
-+
-+				core1 {
-+					cpu = <&cpu3>;
-+				};
-+
-+				core2 {
-+					cpu = <&cpu4>;
-+				};
-+
-+				core3 {
-+					cpu = <&cpu5>;
-+				};
-+			};
-+		};
-+
-+		l2c0: cache-controller-0 {
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-sets = <512>;
-+			cache-size = <0x40000>;
-+			cache-unified;
-+			next-level-cache = <&l3_cache>;
-+		};
-+
-+		l2c1: cache-controller-1 {
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-sets = <512>;
-+			cache-size = <0x40000>;
-+			cache-unified;
-+			next-level-cache = <&l3_cache>;
-+		};
-+
-+		l2c2: cache-controller-2{
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-sets = <4096>;
-+			cache-size = <0x200000>;
-+			cache-unified;
-+			next-level-cache = <&l3_cache>;
-+		};
-+
-+		l3_cache: cache-controller-3 {
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <3>;
-+			cache-sets = <8192>;
-+			cache-size = <0x400000>;
-+			cache-unified;
-+		};
-+	};
-+
-+	clk_uart: clk-uart {
-+		compatible = "fixed-clock"; /* Initial clock handler for UART */
-+		#clock-cells = <0>;
-+		clock-frequency = <24000000>;
-+	};
-+
-+	soc {
-+		compatible = "simple-bus";
-+		interrupt-parent = <&plic>;
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		clint: clint@2000000 {
-+			compatible = "starfive,jh8100-clint", "sifive,clint0";
-+			reg = <0x0 0x2000000 0x0 0x10000>;
-+			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>,
-+					      <&cpu1_intc 3>, <&cpu1_intc 7>,
-+					      <&cpu2_intc 3>, <&cpu2_intc 7>,
-+					      <&cpu3_intc 3>, <&cpu3_intc 7>,
-+					      <&cpu4_intc 3>, <&cpu4_intc 7>,
-+					      <&cpu5_intc 3>, <&cpu5_intc 7>;
-+		};
-+
-+		plic: interrupt-controller@c000000 {
-+			#interrupt-cells = <1>;
-+			#address-cells = <0>;
-+			compatible = "starfive,jh8100-plic", "sifive,plic-1.0.0";
-+			reg = <0x0 0x0c000000 0x0 0x4000000>;
-+			riscv,ndev = <200>;
-+			interrupt-controller;
-+			interrupts-extended = <&cpu0_intc 11>, <&cpu1_intc 11>,
-+					      <&cpu0_intc 9>, <&cpu1_intc 9>,
-+					      <&cpu2_intc 11>, <&cpu3_intc 11>,
-+					      <&cpu4_intc 11>, <&cpu5_intc 11>,
-+					      <&cpu2_intc 9>, <&cpu3_intc 9>,
-+					      <&cpu4_intc 9>, <&cpu5_intc 9>;
-+		};
-+
-+		uart0: serial@12160000 {
-+			compatible = "starfive,jh8100-uart", "cdns,uart-r1p8";
-+			reg = <0x0 0x12160000 0x0 0x10000>;
-+			clock-names = "uart_clk", "pclk";
-+			clocks = <&clk_uart>, <&clk_uart>;
-+			interrupts = <67>;
-+			status = "disabled";
-+		};
-+
-+		uart1: serial@12170000  {
-+			compatible = "starfive,jh8100-uart", "cdns,uart-r1p8";
-+			reg = <0x0 0x12170000 0x0 0x10000>;
-+			clock-names = "uart_clk", "pclk";
-+			clocks = <&clk_uart>, <&clk_uart>;
-+			interrupts = <68>;
-+			status = "disabled";
-+		};
-+
-+		uart2: serial@12180000  {
-+			compatible = "starfive,jh8100-uart", "cdns,uart-r1p8";
-+			reg = <0x0 0x12180000 0x0 0x10000>;
-+			clock-names = "uart_clk", "pclk";
-+			clocks = <&clk_uart>, <&clk_uart>;
-+			interrupts = <69>;
-+			status = "disabled";
-+		};
-+
-+		uart3: serial@12190000  {
-+			compatible = "starfive,jh8100-uart", "cdns,uart-r1p8";
-+			reg = <0x0 0x12190000 0x0 0x10000>;
-+			clock-names = "uart_clk", "pclk";
-+			clocks = <&clk_uart>, <&clk_uart>;
-+			interrupts = <70>;
-+			status = "disabled";
-+		};
-+
-+		uart4: serial@121a0000  {
-+			compatible = "starfive,jh8100-uart", "cdns,uart-r1p8";
-+			reg = <0x0 0x121a0000 0x0 0x10000>;
-+			clock-names = "uart_clk", "pclk";
-+			clocks = <&clk_uart>, <&clk_uart>;
-+			interrupts = <71>;
-+			status = "disabled";
-+		};
-+
-+		uart5: serial@127d0000  {
-+			compatible = "starfive,jh8100-uart", "cdns,uart-r1p8";
-+			reg = <0x0 0x127d0000 0x0 0x10000>;
-+			clock-names = "uart_clk", "pclk";
-+			clocks = <&clk_uart>, <&clk_uart>;
-+			interrupts = <72>;
-+			status = "disabled";
-+		};
-+
-+		uart6: serial@127e0000  {
-+			compatible = "starfive,jh8100-uart", "cdns,uart-r1p8";
-+			reg = <0x0 0x127e0000 0x0 0x10000>;
-+			clock-names = "uart_clk", "pclk";
-+			clocks = <&clk_uart>, <&clk_uart>;
-+			interrupts = <73>;
-+			status = "disabled";
-+		};
-+	};
-+};
--- 
-2.34.1
+> Reviewed-by: Jerry Snitselaar <jsnitsel@redhat.com>
+> Tested-by: Hector Martin <marcan@marcan.st>
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> ---
+>   drivers/iommu/of_iommu.c | 49 ++++++++++++----------------------------
+>   1 file changed, 15 insertions(+), 34 deletions(-)
 
+> diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
+> index c6510d7e7b241b..164317bfb8a81f 100644
+> --- a/drivers/iommu/of_iommu.c
+> +++ b/drivers/iommu/of_iommu.c
+> @@ -17,8 +17,6 @@
+>   #include <linux/slab.h>
+>   #include <linux/fsl/mc.h>
+
+> -#define NO_IOMMU	1
+> -
+>   static int of_iommu_xlate(struct device *dev,
+>   			  struct of_phandle_args *iommu_spec)
+>   {
+> @@ -29,7 +27,7 @@ static int of_iommu_xlate(struct device *dev,
+>   	ops = iommu_ops_from_fwnode(fwnode);
+>   	if ((ops && !ops->of_xlate) ||
+>   	    !of_device_is_available(iommu_spec->np))
+> -		return NO_IOMMU;
+> +		return -ENODEV;
+
+>   	ret = iommu_fwspec_init(dev, &iommu_spec->np->fwnode, ops);
+>   	if (ret)
+> @@ -61,7 +59,7 @@ static int of_iommu_configure_dev_id(struct device_node  
+> *master_np,
+>   			 "iommu-map-mask", &iommu_spec.np,
+>   			 iommu_spec.args);
+>   	if (err)
+> -		return err == -ENODEV ? NO_IOMMU : err;
+> +		return err;
+
+>   	err = of_iommu_xlate(dev, &iommu_spec);
+>   	of_node_put(iommu_spec.np);
+> @@ -72,7 +70,7 @@ static int of_iommu_configure_dev(struct device_node  
+> *master_np,
+>   				  struct device *dev)
+>   {
+>   	struct of_phandle_args iommu_spec;
+> -	int err = NO_IOMMU, idx = 0;
+> +	int err = -ENODEV, idx = 0;
+
+>   	while (!of_parse_phandle_with_args(master_np, "iommus",
+>   					   "#iommu-cells",
+> @@ -117,9 +115,8 @@ static int of_iommu_configure_device(struct  
+> device_node *master_np,
+>   int of_iommu_configure(struct device *dev, struct device_node *master_np,
+>   		       const u32 *id)
+>   {
+> -	const struct iommu_ops *ops = NULL;
+>   	struct iommu_fwspec *fwspec;
+> -	int err = NO_IOMMU;
+> +	int err;
+
+>   	if (!master_np)
+>   		return -ENODEV;
+> @@ -153,37 +150,21 @@ int of_iommu_configure(struct device *dev, struct  
+> device_node *master_np,
+>   	} else {
+>   		err = of_iommu_configure_device(master_np, dev, id);
+>   	}
+> -
+> -	/*
+> -	 * Two success conditions can be represented by non-negative err here:
+> -	 * >0 : there is no IOMMU, or one was unavailable for non-fatal reasons
+> -	 *  0 : we found an IOMMU, and dev->fwspec is initialised appropriately
+> -	 * <0 : any actual error
+> -	 */
+> -	if (!err) {
+> -		/* The fwspec pointer changed, read it again */
+> -		fwspec = dev_iommu_fwspec_get(dev);
+> -		ops    = fwspec->ops;
+> -	}
+>   	mutex_unlock(&iommu_probe_device_lock);
+
+> -	/*
+> -	 * If we have reason to believe the IOMMU driver missed the initial
+> -	 * probe for dev, replay it to get things in order.
+> -	 */
+> -	if (!err && dev->bus)
+> -		err = iommu_probe_device(dev);
+> -
+> -	/* Ignore all other errors apart from EPROBE_DEFER */
+> -	if (err < 0) {
+> -		if (err == -EPROBE_DEFER)
+> -			return err;
+> -		dev_dbg(dev, "Adding to IOMMU failed: %pe\n", ERR_PTR(err));
+> +	if (err == -ENODEV || err == -EPROBE_DEFER)
+>   		return err;
+> -	}
+> -	if (!ops)
+> -		return -ENODEV;
+> +	if (err)
+> +		goto err_log;
+> +
+> +	err = iommu_probe_device(dev);
+> +	if (err)
+> +		goto err_log;
+>   	return 0;
+> +
+> +err_log:
+> +	dev_dbg(dev, "Adding to IOMMU failed: %pe\n", ERR_PTR(err));
+> +	return err;
+>   }
+
+>   static enum iommu_resv_type __maybe_unused
+> --
+> 2.42.0
+
+
+Reviewed-by: Moritz Fischer <moritzf@google.com>
 
 _______________________________________________
 linux-riscv mailing list
