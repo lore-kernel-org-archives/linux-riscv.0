@@ -4,85 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C590EC4167B
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 14:57:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65175C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Nov 2023 15:00:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CcFAkc1Hp4+5uT8NuBKagBlzj6qv8rfVHqPMu+Xl350=; b=3ygK3a+ieksg5w
-	qgDM+AE8ZYdIWPP0e2DcnlagKxHNwpIZKTkq0/4dzBBYqDfchah2218cm+xw6e5PxFOPl6ijZIc0R
-	Lo1Gi7eWPY56f4qix9sdiH4c38YbbYjZ1VedzRf1Yaymu5BOvWZnI4nsF+8V8FReAwMJD0ju/hdYr
-	KonPzl8yt/NTkRVJJQBVQ/WqxA/rWUkyG9D9gaLBsq16gOSD29lYTqPpqrYRq2S2jluUw8xTZcAQ0
-	aBeqijlUNpISCK7ovv+cbM2AsmOExnUEDnmDe6DK+dW9DylFFuQTJnwBmmcdcxE6yqdkCwYLM+P7K
-	w09PMhaZFb3Fa5DUFkJQ==;
+	List-Owner; bh=fw0OlIE2oEYG8puVnfCBMT1uqwHKZm9NJZSwbZnHa6Q=; b=K4246BBSJ1P6Hq
+	7hLTcTRf3bsw7lRklMhIWm+Dx4QZZQpA1sRL6OTQKZA7h01m6Yexlvg9PK3rK537myCPatvXBG4dX
+	kzuXFTONe09RMlBDwAZ170G012LuCMTl6OQwUvPssz78v/qbfmiwVnkvJB4DDVd13mQabTtyLqVk0
+	0w8RJnsDIS48HGd8dXRv7xituwpvvZLjVsUu+H30pff/4OutvNOIJNfdkkNX78Ku7uzGwwH5DV0au
+	FFZ1Lfnl3OevYMSrPMJEGTdkBfFuph38tWcneFRMUzKCcx8l6gGRYIBJhy5eBcz3mZ6QBbjjajXWP
+	H5aaKV2KBO/9P0dx6ixA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8M0D-008hRd-0Q;
-	Wed, 29 Nov 2023 14:57:25 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1r8M2g-008hhS-2d;
+	Wed, 29 Nov 2023 14:59:58 +0000
+Received: from madras.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e5ab])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8M09-008hQQ-1q
-	for linux-riscv@lists.infradead.org;
-	Wed, 29 Nov 2023 14:57:23 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-2839b922c18so5390767a91.1
-        for <linux-riscv@lists.infradead.org>; Wed, 29 Nov 2023 06:57:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1701269840; x=1701874640; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=lBDvY8xfUiRwWpZzeQ9H8DFnchFRqEtZ7Anhmfk/MaE=;
-        b=dAf6onBLS4pXsoyDrirbo8ofORe6BS1ehVqIrtg7fuepo6xgqnH09yLDUk/ssEYf7d
-         5cDKNeoQ3zaMy6Ki+fmH/jabtCD2i7XVYRY6vpDuD5omLj2EMsT/OTPZwZ7aSCsDw4aB
-         HjTLj0b9jqHQQrrxlI6C5bnKgucqpOEtNrOBPHUkvev7erMmJynzhC91UZUltK5+6HYA
-         xCbchn9YVV2tHjw0P/zlDFXubAAy+wTQ5uZwdtbdvSgergsMRHzikVybUvgMD/gKArST
-         LQGNaeIy5+LaGrpPXiCCw24Kk4lAkS0uM1PnvSzcQTzkEo9qt+j2gtICvwWhT5Hqi8zL
-         yAfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701269840; x=1701874640;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lBDvY8xfUiRwWpZzeQ9H8DFnchFRqEtZ7Anhmfk/MaE=;
-        b=QJolpgUTRIWCBq+io3WlQRGn4fiescHotwfopjYcwPdcH5htGyCYqg9atlwQpcdDqY
-         HT/DfTTWPBvKsYFtqH08jw5CnU7+50rTEAtTNq92uS53HHrYCI+iu+vFzOKRgTjWovfD
-         33q3KWdu3wBk1IdppqxF0dv0FA1/X5su0pEBJrtwyuI2nxX2q55a48nZQtwFd1I5qXpb
-         2WsWHqAcgBMbtWt+aLezqiXMmq5ewE3QKpk0mPbqvgysrXU3OK7MKwCVR/mtRidkcCts
-         aKcAImuhvHNZamrBi4Qf+FyUrh7KF7QfKL3wU+6NT30F1MCqQHDsb1BU66SK1JuG6uKx
-         cNpA==
-X-Gm-Message-State: AOJu0YyvY0hpDnM5jO3IyvBw7BvrmQHz6LBz5j/OxEmnpMopzmnzqcGh
-	A8rQlcNtvimdOJZPOtRuX5GNYFMjXhwNlV1wdFftaA==
-X-Google-Smtp-Source: AGHT+IEHJzKIugJyAirnHA8jm9ZsrM79uoKWJCmfioIMr8438yJMfCRcgL5l4g9Ssds+KQR6JrFMN1Np/NBF2zPVw/0=
-X-Received: by 2002:a17:90b:17c7:b0:285:9b51:64f with SMTP id
- me7-20020a17090b17c700b002859b51064fmr16079874pjb.36.1701269839853; Wed, 29
- Nov 2023 06:57:19 -0800 (PST)
+	id 1r8M2d-008hgP-1i;
+	Wed, 29 Nov 2023 14:59:57 +0000
+Received: from [100.116.17.117] (cola.collaboradmins.com [195.201.22.229])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id EA15366022D0;
+	Wed, 29 Nov 2023 14:59:50 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1701269992;
+	bh=6x7B3dSj+YnwWLnuQcvnmhm/T6O7NBwYRGfJTFvwlZQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GLivWpS4p2yMUcVGwYVDTweCueIhIn7lydOJhLs+sjtNNlOHnqZreuAkt3ve4IOq8
+	 yEO249dGpHflSCaYCz2791a56S5tkI0soi8G5dhpnhjA63T5TYQnLNMb1DBWc25tJl
+	 YKxCeC4pl3DaDXJt5JbM+aaJMdw6ncGR6hf/gQiu3Tn1VXd1k4HexlwR/icp9YjrXC
+	 L+1lO3wnZQxQFeeTdnoT+jJiYIXnRanr+MBw7F4MljYXv8iS7yV22Q7ruyiFFdxayQ
+	 hlo37VEkmlqaGZL9eszkPUOWZP96SlHfbvmefa9xYaFXSIIf6FMSSPpxL06N9ElqeO
+	 PLgzG30knpzHg==
+Message-ID: <ea6f1313-95fd-4cb4-864d-84b92f0e5672@collabora.com>
+Date: Wed, 29 Nov 2023 16:59:48 +0200
 MIME-Version: 1.0
-References: <20231109101438.1139696-1-vincent.guittot@linaro.org>
- <20231109101438.1139696-2-vincent.guittot@linaro.org> <ZWYM0hn28RHjAalh@arm.com>
- <ZWYOg1gIIgI1qXn7@arm.com>
-In-Reply-To: <ZWYOg1gIIgI1qXn7@arm.com>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Wed, 29 Nov 2023 15:57:08 +0100
-Message-ID: <CAKfTPtA2g-rDPBJkoXpcHrz4vcYAivequkLvWUXgwQpqFcZkOQ@mail.gmail.com>
-Subject: Re: [PATCH v6 1/7] topology: Add a new arch_scale_freq_reference
-To: Ionela Voinescu <ionela.voinescu@arm.com>
-Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	sudeep.holla@arm.com, gregkh@linuxfoundation.org, rafael@kernel.org, 
-	mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com, 
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com, 
-	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com, 
-	viresh.kumar@linaro.org, lenb@kernel.org, robert.moore@intel.com, 
-	lukasz.luba@arm.com, pierre.gondois@arm.com, beata.michalska@arm.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, conor.dooley@microchip.com, suagrfillet@gmail.com, 
-	ajones@ventanamicro.com, lftan@kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 12/12] [UNTESTED] riscv: dts: starfive:
+ beaglev-starlight: Enable gmac
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Samin Guo <samin.guo@starfivetech.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+References: <20231029042712.520010-1-cristian.ciocaltea@collabora.com>
+ <20231029042712.520010-13-cristian.ciocaltea@collabora.com>
+ <CAJM55Z9e=vjGKNnmURN15mvXo2bVd3igBA-3puF9q7eh5hiP+A@mail.gmail.com>
+ <2f06ce36-0dc1-495e-b6a6-318951a53e8d@collabora.com>
+ <CAJM55Z8vkMbqXY5sS2o4cLi8ow-JQTcXU9=uYMBSykwd4ppExw@mail.gmail.com>
+ <054bbf2a-e7ba-40bf-8f8b-f0e0e9b396c6@collabora.com>
+ <CAJM55Z9+j6CmfjNkPLCk1DR3EBuEMspsRtNvygDbPWJDCytQpw@mail.gmail.com>
+ <5395f3ce-f9ec-474b-b145-5f62a3b7c4fc@collabora.com>
+ <CAJM55Z-ff8btSQwJcWViUKLTJ8F2C_b70AaKJMwxgxZurUyGBA@mail.gmail.com>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <CAJM55Z-ff8btSQwJcWViUKLTJ8F2C_b70AaKJMwxgxZurUyGBA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231129_065721_617996_324E1C74 
-X-CRM114-Status: GOOD (  22.37  )
+X-CRM114-CacheID: sfid-20231129_065955_837738_7323F5BF 
+X-CRM114-Status: GOOD (  36.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,68 +98,154 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Ionela,
+On 11/29/23 16:28, Emil Renner Berthing wrote:
+> Cristian Ciocaltea wrote:
+>> On 11/28/23 18:09, Emil Renner Berthing wrote:
+>>> Cristian Ciocaltea wrote:
+>>>> On 11/28/23 14:08, Emil Renner Berthing wrote:
+>>>>> Cristian Ciocaltea wrote:
+>>>>>> On 11/26/23 23:10, Emil Renner Berthing wrote:
+>>>>>>> Cristian Ciocaltea wrote:
+>>>>>>>> The BeagleV Starlight SBC uses a Microchip KSZ9031RNXCA PHY supporting
+>>>>>>>> RGMII-ID.
+>>>>>>>>
+>>>>>>>> TODO: Verify if manual adjustment of the RX internal delay is needed. If
+>>>>>>>> yes, add the mdio & phy sub-nodes.
+>>>>>>>
+>>>>>>> Sorry for being late here. I've tested that removing the mdio and phy nodes on
+>>>>>>> the the Starlight board works fine, but the rx-internal-delay-ps = <900>
+>>>>>>> property not needed on any of my VisionFive V1 boards either.
+>>>>>>
+>>>>>> No problem, thanks a lot for taking the time to help with the testing!
+>>>>>>
+>>>>>>> So I wonder why you need that on your board
+>>>>>>
+>>>>>> I noticed you have a patch 70ca054e82b5 ("net: phy: motorcomm: Disable
+>>>>>> rgmii rx delay") in your tree, hence I you please confirm the tests were
+>>>>>> done with that commit reverted?
+>>>>>>
+>>>>>>> Also in the driver patch you add support for phy-mode = "rgmii-txid", but here
+>>>>>>> you still set it to "rgmii-id", so which is it?
+>>>>>>
+>>>>>> Please try with "rgmii-id" first. I added "rgmii-txid" to have a
+>>>>>> fallback solution in case the former cannot be used.
+>>>>>
+>>>>> Ah, I see. Sorry I should have read up on the whole thread. Yes, the Starlight
+>>>>> board with the Microchip phy works with "rgmii-id" as is. And you're right,
+>>>>> with "rgmii-id" my VF1 needs the rx-internal-delay-ps = <900> property too.
+>>>>
+>>>> That's great, we have now a pretty clear indication that this uncommon behavior
+>>>> stems from the Motorcomm PHY, and *not* from GMAC.
+>>>>
+>>>>>>
+>>>>>>> You've alse removed the phy reset gpio on the Starlight board:
+>>>>>>>
+>>>>>>>   snps,reset-gpios = <&gpio 63 GPIO_ACTIVE_LOW>
+>>>>>>>
+>>>>>>> Why?
+>>>>>>
+>>>>>> I missed this in v1 as the gmac handling was done exclusively in
+>>>>>> jh7100-common. Thanks for noticing!
+>>>>>>
+>>>>>>>>
+>>>>>>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>>>>>>>> ---
+>>>>>>>>  arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts | 5 +++++
+>>>>>>>>  1 file changed, 5 insertions(+)
+>>>>>>>>
+>>>>>>>> diff --git a/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts b/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
+>>>>>>>> index 7cda3a89020a..d3f4c99d98da 100644
+>>>>>>>> --- a/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
+>>>>>>>> +++ b/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
+>>>>>>>> @@ -11,3 +11,8 @@ / {
+>>>>>>>>  	model = "BeagleV Starlight Beta";
+>>>>>>>>  	compatible = "beagle,beaglev-starlight-jh7100-r0", "starfive,jh7100";
+>>>>>>>>  };
+>>>>>>>> +
+>>>>>>>> +&gmac {
+>>>>>>>> +	phy-mode = "rgmii-id";
+>>>>>>>> +	status = "okay";
+>>>>>>>> +};
+>>>>>>>
+>>>>>>> Lastly the phy-mode and status are the same for the VF1 and Starlight boards,
+>>>>>>> so why can't these be set in the jh7100-common.dtsi?
+>>>>>>
+>>>>>> I wasn't sure "rgmii-id" can be used for both boards and I didn't want
+>>>>>> to unconditionally enable gmac on Starlight before getting a
+>>>>>> confirmation that this actually works.
+>>>>>>
+>>>>>> If there is no way to make it working with "rgmii-id" (w/ or w/o
+>>>>>> adjusting rx-internal-delay-ps), than we should switch to "rgmii-txid".
+>>>>>
+>>>>> Yeah, I don't exactly know the difference, but both boards seem to work fine
+>>>>> with "rgmii-id", so if that is somehow better and/or more correct let's just go
+>>>>> with that.
+>>>>
+>>>> As Andrew already pointed out, going with "rgmii-id" would be the recommended
+>>>> approach, as this passes the responsibility of adding both TX and RX delays to
+>>>> the PHY.  "rgmii-txid" requires the MAC to handle the RX delay, which might
+>>>> break the boards having a conformant (aka well-behaving) PHY.  For some reason
+>>>> the Microchip PHY seems to work fine in both cases, but that's most likely an
+>>>> exception, as other PHYs might expose a totally different and undesired
+>>>> behavior.
+>>>>
+>>>> I will prepare a v3 soon, and will drop the patches you have already submitted
+>>>> as part of [1].
+>>>
+>>> Sounds good. Then what's missing for ethernet to work is just the clock patches:
+>>> https://github.com/esmil/linux/commit/b5abe1cb3815765739aff7949deed6f65b952c4a
+>>> https://github.com/esmil/linux/commit/3a7a423b15a9f796586cbbdc37010d2b83ff2367
+>>>
+>>> You can either include those as part of your patch series enabling ethernet, or
+>>> they can be submitted separately with the audio clocks. Either way is
+>>> fine by me.
+>>
+>> I can cherry-pick them, but so far I couldn't identify any networking
+>> related issues if those patches are not applied. Could it be something
+>> specific to Starlight board only?
+> 
+> No, it's the same for both boards. The dwmac-starfive driver adjusts
+> the tx clock:
+> 
+> 1000Mbit -> 125MHz
+>  100Mbit ->  25MHz
+>   10Mbit -> 2.5MHz
+> 
+> The tx clock is given in the device tree as the gmac_tx_inv clock which derives
+> from either the gmac_root_div or gmac_rmii_ref external clock like this:
+> 
+> gmac_rmii_ref (external) -> gmac_rmii_txclk     \
+> gmac_root_div  (500MHz)  -> gmac_gtxclk (div N) -> gmac_tx (mux) -> gmac_tx_inv
+> 
+> ..where N defaults to 4 and the gmac_tx mux defaults to the gmac_gtxclk, so
+> the gmac_tx_inv clock defaults to 125MHz suitable for 1000Mbit connections.
+> See /sys/kernel/debug/clk/clk_summary for another overview.
+> 
+> When the dwmac_starfive driver request to change gmac_tx_inv to 25MHz the clock
+> framework will that it has the CLK_SET_RATE_PARENT flag set, so it will try
+> the gmac_tx clock next. This is a mux that can choose either the
+> 125MHz gmac_gtxclk
+> or the external gmac_rmii_txclk which defaults to 0MHz in the current
+> device trees,
+> so the request cannot be met.
+> 
+> That's why we need to set the CLK_SET_RATE_PARENT (and CLK_SET_RATE_NO_REPARENT)
+> flags on the gmac_tx clock so the clock framework again goes to try setting the
+> gmac_gtxclk to 25MHz, which it can because it's a divider and setting N=20
+> does the trick.
+> 
+> On your board you can manually force a 100Mbit connection with
+> ethtool -s eth0 speed 100
+> 
+> That fails on my boards without those two patches.
+> /Emil
 
-On Tue, 28 Nov 2023 at 17:00, Ionela Voinescu <ionela.voinescu@arm.com> wrote:
->
-> On Tuesday 28 Nov 2023 at 15:52:52 (+0000), Ionela Voinescu wrote:
-> > Hi Vincent,
-> >
-> > I have a small request on this patch, which is useful for [1].
-> > I'll detail what is needed lower in the code.
-> >
-> > [1] https://lore.kernel.org/lkml/ZWYDr6JJJzBvsqf0@arm.com/
-> >
-> > On Thursday 09 Nov 2023 at 11:14:32 (+0100), Vincent Guittot wrote:
-> > > @@ -279,13 +278,13 @@ void topology_normalize_cpu_scale(void)
-> > >
-> > >     capacity_scale = 1;
-> > >     for_each_possible_cpu(cpu) {
-> > > -           capacity = raw_capacity[cpu] * per_cpu(freq_factor, cpu);
-> > > +           capacity = raw_capacity[cpu] * per_cpu(capacity_freq_ref, cpu);
-> >
-> > The only affected code that I could find is here and below.
-> >
-> > The above line would have to change to:
-> > capacity = raw_capacity[cpu] * per_cpu(capacity_freq_ref, cpu) ?: 1;
-> >
-> > >             capacity_scale = max(capacity, capacity_scale);
-> > >     }
-> > >
-> > >     pr_debug("cpu_capacity: capacity_scale=%llu\n", capacity_scale);
-> > >     for_each_possible_cpu(cpu) {
-> > > -           capacity = raw_capacity[cpu] * per_cpu(freq_factor, cpu);
-> > > +           capacity = raw_capacity[cpu] * per_cpu(capacity_freq_ref, cpu);
-> >
-> > and here:
-> > capacity = raw_capacity[cpu] * per_cpu(capacity_freq_ref, cpu) ?: 1;
-> >
-> > I think it's nicer to start with capacity_freq_ref as 0 and compensate here
-> > for uninitialized capacity_freq_ref.
-> >
-> > Let me know if this is alright of if you'd prefer us to make this change
-> > in a separate patch.
-> >
-> > Thanks,
-> > Ionela.
-> >
->
-> Correction - both will need to be:
-> capacity = raw_capacity[cpu] * (per_cpu(capacity_freq_ref, cpu) ?: 1);
+Thanks for the detailed explanation! I've been only verified with
+gigabit connectivity, that would explain why I didn't notice the issue.
+I will make sure to properly test this before sending v3.
 
-Yes, this one is better to keep the same behavior when cpufreq driver
-is never loaded
-
-I think this change should come as an additional patch either on top
-of this series or directly as part of [1] which is the main user of
-the change. I assume that's because you want arch_freq_get_on_cpu()
-returns 0 until everything has been initialized
-
-Vincent
-
->
-> Thanks,
-> Ionela.
+Regards,
+Cristian
 
 _______________________________________________
 linux-riscv mailing list
