@@ -4,94 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A4ABC10DC1
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Nov 2023 01:49:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A4D9C4167B
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Nov 2023 02:40:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eAdI90jl3u3Uuk1QyGjf5+CQexLO2UONwYw4wCCgv5Y=; b=NGhWHHtxgPxLQj
-	DwU8yw8HC20iciRLjZZd6EaEhuHxnDOCYpP5wzdMy35eqSwSU44APLyvktvgwFFLnAcZM96/VX2s3
-	hD4MLB8gG+5/dEJv9SOIPthMHrE9vITOImM6TIarDLJVIG+kxr/gjMRBrAKPbRcvnMfZAnAwYK0LW
-	RwRY/HJp0TcnXe1gjCGCumzCZbpUJusM7RA+2CuohAwSAGe6woaMSrw6mYsZJu1DCQ66Q9FAveM9e
-	YjOse3D3RmpRrkugCXR0gTEg3UVlUgyS5LPBIgl1t8F/Fozq1wSTeZe/EhR0XX2OJj+gkrDQHeX2l
-	j+CC6hptvlzVGnGzs/Qw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=4NaEgU4fsMsDLFyetdStOoFZ68lRTokjpiD7gVOqdPo=; b=Wxt7Jm8+pl/coj
+	JcgcaHhdD/To5HNfDM+T8RAwlan6VILGDMC+4HvOIhTRRYGFMfwKO6SL1hlfkwML/iSdY2BlXDIIq
+	UOORqkaof3GGm9MrTydP5l92EOn5OEd3ZTyORzWgxZl1338cfvGOz+LUAdsm6ycAtGDYdX2/izH8V
+	qSOhQWABO1MzrqeFrHyTWe3TXZnLkqbt8BkPz1Nz804Ydks3OmdxCokS978YekGx8cjF85x56hAmI
+	xKrCX1jxzSjkPkqlAf9E/Tulp7dj/pdNUKv5UF75vVy439+kW7Kph918Tv7KkL+UgeGJIjsuEqLzD
+	RPGNRNZSJvTntUEG8tBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8WBC-009i53-04;
-	Thu, 30 Nov 2023 01:49:26 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1r8WyJ-009lwA-0B;
+	Thu, 30 Nov 2023 02:40:11 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8WB4-009i18-2l
+	id 1r8WyF-009lvF-2u
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Nov 2023 01:49:20 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-1cfbce92362so12859765ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 29 Nov 2023 17:49:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1701308957; x=1701913757; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=k59bvv7KTPcWcR0nU2285Ag1/kbZ0ckoH5XbjyM+11I=;
-        b=H5dgWMTz8AkDFO1V7P4N6Q8Odg4SX5M8IJTXou7WjgL35kH3yXozDYgCSe4Ay3Ld1k
-         P4J1swD2dXCt3WyAEwwPFjfVPeri6mwAEPdfSwzN/umnKrComzASGLYaeRow+ZWmoXtc
-         Jf4na0d9/OwH2rt9NIIib3/iAyNakocuu5XA+3DYFyQNDrkFngQLtAO529a2AR6KoBUt
-         J6hesMQHWd4FaT/8qsBJ565HpcE/Uv/spGSDMq5t07Iop632MTC4A4LVQxdj0hsPnije
-         srVE+yGsDXl2c0w2pIecXxWdpLh0O1+ctTDqCU2VRyUjfrvcrOFNGa5ysWn1pZm9P7zE
-         aFWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701308957; x=1701913757;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=k59bvv7KTPcWcR0nU2285Ag1/kbZ0ckoH5XbjyM+11I=;
-        b=Za0e26axFDjfwclJd/a59aoAzMOXpzlg9bGA0pWJuxRZjqW4JaNgZNmIYzwt6Bo6YA
-         9mcb4Mk5L3tNrW8IsKTbRgB+EiHWhHty64rWakclxdTCPd/aqJ6mvkO+7OGOoYNCDmmZ
-         RIbg/IRbF7Yyyj7cA+XrLsmU16IXSOTcBJ61jGk+s4p0jD3txROkZDbw0+2we0wMHlY5
-         nkfYH2Azwg7PpjgymNhKfDPeu3CI8KiQ5NN9N553gyenGnnLi1ep/wBc+4yzwlMK1ieQ
-         KkLDgNJEkI+v9qE0JAOj7GV1xnpXDUI0JnqFOqQkMgdpyRTRRAnDIQNcUHy/7pQvg4bB
-         tvOQ==
-X-Gm-Message-State: AOJu0YyzxyRyDfl4feX2Qlh8wE4xpJuzUOf7TsYXsvwVqpdDw4hZApLF
-	QgDNcr0MVsnXlNEBWWNygAJDlA==
-X-Google-Smtp-Source: AGHT+IFWN+veB1Lo+5WzY9Hv9vg6vdys4LdvUiI0HD+zQd1G2l7aZznMEfaQzC7XjS8ZH8qOxGjBdA==
-X-Received: by 2002:a17:902:c18b:b0:1cf:b2a9:fc00 with SMTP id d11-20020a170902c18b00b001cfb2a9fc00mr21521734pld.9.1701308957476;
-        Wed, 29 Nov 2023 17:49:17 -0800 (PST)
-Received: from [127.0.1.1] ([2601:1c2:1800:f680:9707:1e8c:3166:6a23])
-        by smtp.gmail.com with ESMTPSA id bc3-20020a170902930300b001d00b0bd306sm24455plb.251.2023.11.29.17.49.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Nov 2023 17:49:17 -0800 (PST)
-From: Drew Fustini <dfustini@baylibre.com>
-Date: Wed, 29 Nov 2023 17:48:50 -0800
-Subject: [PATCH v7 4/4] riscv: dts: thead: Enable LicheePi 4A eMMC and
- microSD
+	Thu, 30 Nov 2023 02:40:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1701312006;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=43cVse7FyBfta6ylIl8/Jaxzg+CDWjfxBFsiH7/CgfU=;
+	b=YUcETqB0XYXS2Xa4lVOpzWSbDlruDRpJWer6ymdUjdoCSvk09boIXjeLnlWXNXnqCuKs24
+	APAbS+WL7BVlqwX1rRcQlBAZwj0P3n5cRCUoL6+q7uEdZ8nvGlzm0oi3ckSz8gNYjcCucp
+	9MdHlkMAZHGYz5gAaDbyrw2xAKgCI4c=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-93-ZYiLOUwaOiC_hh7Jr__MlA-1; Wed, 29 Nov 2023 21:40:02 -0500
+X-MC-Unique: ZYiLOUwaOiC_hh7Jr__MlA-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id F0AB9101A54C;
+	Thu, 30 Nov 2023 02:40:01 +0000 (UTC)
+Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.113.121])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id DBFF32026D4C;
+	Thu, 30 Nov 2023 02:39:57 +0000 (UTC)
+From: Baoquan He <bhe@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: kexec@lists.infradead.org,
+	x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-parisc@vger.kernel.org,
+	akpm@linux-foundation.org,
+	joe@perches.com,
+	nathan@kernel.org,
+	Baoquan He <bhe@redhat.com>
+Subject: [PATCH v3 0/7] kexec_file: print out debugging message if required
+Date: Thu, 30 Nov 2023 10:39:48 +0800
+Message-ID: <20231130023955.5257-1-bhe@redhat.com>
 MIME-Version: 1.0
-Message-Id: <20231129-th1520_mmc_dts-v7-4-c77fc19caa6f@baylibre.com>
-References: <20231129-th1520_mmc_dts-v7-0-c77fc19caa6f@baylibre.com>
-In-Reply-To: <20231129-th1520_mmc_dts-v7-0-c77fc19caa6f@baylibre.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, 
- Fu Wei <wefu@redhat.com>, Conor Dooley <conor@kernel.org>, 
- Rob Herring <robh+dt@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Cc: Jason Kridner <jkridner@beagleboard.org>, 
- Robert Nelson <robertcnelson@beagleboard.org>, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, Drew Fustini <dfustini@baylibre.com>
-X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1701308949; l=1102;
- i=dfustini@baylibre.com; s=20230430; h=from:subject:message-id;
- bh=FNhPhUUvWwP+QKoj7n3Ul287CfcC/2teVzVQAZNIlgs=;
- b=dAFvB72xQtzNxvN94yqiVLj81s4pJ66+wqg02OfxeOO3TUhR9uDJUuRgzoq7/QDFIVK5ppXps
- jq6MzKvmTLKB6BxP95jRZ/iuxxpATqAnJ5doFXEx2wvG5WjZ8euLRfO
-X-Developer-Key: i=dfustini@baylibre.com; a=ed25519;
- pk=p3GKE9XFmjhwAayAHG4U108yag7V8xQVd4zJLdW0g7g=
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231129_174918_916087_02CA06A0 
-X-CRM114-Status: UNSURE (   9.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231129_184008_033589_C7B51759 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,52 +86,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add mmc0 properties for the eMMC device and add mmc1 properties for
-the microSD slot. Set the frequency for the sdhci clock.
+Currently, specifying '-d' on kexec command will print a lot of debugging
+informationabout kexec/kdump loading with kexec_load interface.
 
-Signed-off-by: Drew Fustini <dfustini@baylibre.com>
----
- .../boot/dts/thead/th1520-lichee-module-4a.dtsi      | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+However, kexec_file_load prints nothing even though '-d' is specified.
+It's very inconvenient to debug or analyze the kexec/kdump loading when
+something wrong happened with kexec/kdump itself or develper want to
+check the kexec/kdump loading.
 
-diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
-index a802ab110429..0818bd3c1f84 100644
---- a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
-+++ b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
-@@ -29,6 +29,10 @@ &apb_clk {
- 	clock-frequency = <62500000>;
- };
- 
-+&sdhci_clk {
-+	clock-frequency = <198000000>;
-+};
-+
- &uart_sclk {
- 	clock-frequency = <100000000>;
- };
-@@ -36,3 +40,19 @@ &uart_sclk {
- &dmac0 {
- 	status = "okay";
- };
-+
-+&mmc0 {
-+	bus-width = <8>;
-+	max-frequency = <198000000>;
-+	mmc-hs400-1_8v;
-+	non-removable;
-+	no-sdio;
-+	no-sd;
-+	status = "okay";
-+};
-+
-+&mmc1 {
-+	bus-width = <4>;
-+	max-frequency = <198000000>;
-+	status = "okay";
-+};
+In this patchset, a kexec_file flag is KEXEC_FILE_DEBUG added and checked
+in code. If it's passed in, debugging message of kexec_file code will be
+printed out and can be seen from console and dmesg. Otherwise, the
+debugging message is printed like beofre when pr_debug() is taken.
+
+Note:
+****
+=====
+1) The code in kexec-tools utility also need be changed to support
+passing KEXEC_FILE_DEBUG to kernel when 'kexec -s -d' is specified.
+The patch link is here:
+=========
+[PATCH] kexec_file: add kexec_file flag to support debug printing
+http://lists.infradead.org/pipermail/kexec/2023-November/028505.html
+
+2) s390 also has kexec_file code, while I am not sure what debugging
+information is necessary. So leave it to s390 developer.
+
+Test:
+****
+====
+Testing was done in v1 on x86_64 and arm64. For v3, tested on x86_64
+again. And on x86_64, the printed messages look like below:
+--------------------------------------------------------------
+kexec measurement buffer for the loaded kernel at 0x207fffe000.
+Loaded purgatory at 0x207fff9000
+Loaded boot_param, command line and misc at 0x207fff3000 bufsz=0x1180 memsz=0x1180
+Loaded 64bit kernel at 0x207c000000 bufsz=0xc88200 memsz=0x3c4a000
+Loaded initrd at 0x2079e79000 bufsz=0x2186280 memsz=0x2186280
+Final command line is: root=/dev/mapper/fedora_intel--knightslanding--lb--02-root ro
+rd.lvm.lv=fedora_intel-knightslanding-lb-02/root console=ttyS0,115200N81 crashkernel=256M
+E820 memmap:
+0000000000000000-000000000009a3ff (1)
+000000000009a400-000000000009ffff (2)
+00000000000e0000-00000000000fffff (2)
+0000000000100000-000000006ff83fff (1)
+000000006ff84000-000000007ac50fff (2)
+......
+000000207fff6150-000000207fff615f (128)
+000000207fff6160-000000207fff714f (1)
+000000207fff7150-000000207fff715f (128)
+000000207fff7160-000000207fff814f (1)
+000000207fff8150-000000207fff815f (128)
+000000207fff8160-000000207fffffff (1)
+nr_segments = 5
+segment[0]: buf=0x000000004e5ece74 bufsz=0x211 mem=0x207fffe000 memsz=0x1000
+segment[1]: buf=0x000000009e871498 bufsz=0x4000 mem=0x207fff9000 memsz=0x5000
+segment[2]: buf=0x00000000d879f1fe bufsz=0x1180 mem=0x207fff3000 memsz=0x2000
+segment[3]: buf=0x000000001101cd86 bufsz=0xc88200 mem=0x207c000000 memsz=0x3c4a000
+segment[4]: buf=0x00000000c6e38ac7 bufsz=0x2186280 mem=0x2079e79000 memsz=0x2187000
+kexec_file_load: type:0, start:0x207fff91a0 head:0x109e004002 flags:0x8
+---------------------------------------------------------------------------
+
+History:
+********
+=========
+v2->v3:
+- Adjust all the indentation of continuation line to the open parenthesis
+  for all kexec_dprintk() call sites. Thank Joe to point this out.
+- Fix the LKP report that macro kexec_dprintk() is invalid when
+  CONFIG_KEXEC=Y, CONFIG_KEXEC_FILE=n, CONFIG_CRASH_DUMP=y.
+
+v1->v2:
+- Take the new format of kexec_dprintk() suggested by Joe which can
+  reduce kernel text size.
+- Fix building error of patch 2 in kernel/crash_core.c reported by LKP.
+- Fix building warning on arm64 in patch 4 reported by LKP.
+
+Baoquan He (7):
+  kexec_file: add kexec_file flag to control debug printing
+  kexec_file: print out debugging message if required
+  kexec_file, x86: print out debugging message if required
+  kexec_file, arm64: print out debugging message if required
+  kexec_file, ricv: print out debugging message if required
+  kexec_file, power: print out debugging message if required
+  kexec_file, parisc: print out debugging message if required
+
+ arch/arm64/kernel/kexec_image.c        |  6 +++---
+ arch/arm64/kernel/machine_kexec.c      | 26 ++++++--------------------
+ arch/arm64/kernel/machine_kexec_file.c | 12 ++++++------
+ arch/parisc/kernel/kexec_file.c        |  8 ++++----
+ arch/powerpc/kexec/elf_64.c            |  8 ++++----
+ arch/powerpc/kexec/file_load_64.c      | 18 +++++++++---------
+ arch/riscv/kernel/elf_kexec.c          | 11 ++++++-----
+ arch/riscv/kernel/machine_kexec.c      | 26 --------------------------
+ arch/x86/kernel/crash.c                |  4 ++--
+ arch/x86/kernel/kexec-bzimage64.c      | 23 ++++++++++++++---------
+ include/linux/kexec.h                  |  9 ++++++++-
+ include/uapi/linux/kexec.h             |  1 +
+ kernel/crash_core.c                    |  9 ++++++---
+ kernel/kexec_core.c                    |  2 ++
+ kernel/kexec_file.c                    | 14 +++++++++++---
+ security/integrity/ima/ima_kexec.c     |  4 ++--
+ 16 files changed, 84 insertions(+), 97 deletions(-)
 
 -- 
-2.34.1
+2.41.0
 
 
 _______________________________________________
