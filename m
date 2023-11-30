@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FBB6C4167B
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Nov 2023 08:12:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1875C4167B
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Nov 2023 08:27:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GKzTPrVCbmeRGyn3ZAVTxTa30FJYdDjuhwQnFovuUNs=; b=WhhM95jhVf6r3lMW+36Omvjuzg
-	C2Vbds+dWeU3IbYLkAEDERG1Zeuk9rc+fMEV3Al1FkPe/3NGkdDCHewpLNtwHQbKmbmqh40PVwb/p
-	khPaKkzSOxV7KZKIolQYd6aPQbysVYg4fttD6C59OJdd9fdsXhk3OfZjgI34c6GVclmhO65gdhhA7
-	ZRJ3TfHJSnlnpnYNO9w10WlVnOKOQ7YVUVofq/C23wYAfYkj4PJmH43OKi3qvCHMRgtd9uXouZ5jw
-	dfn+mgWzdNv39GpmmQyW6FXA5DNQeGKJhWiLD91DHpkkwRenbxtxnZ/9k20Z7MKa0c1S7dL1IC7bO
-	fG83Bd8Q==;
+	bh=gk38/rQ7agQXVamU5/meN63JaY2YLhj/zHJvHxw2LHU=; b=zzLSKhm/HtfLwDZ9QoWu6Zql5A
+	jQm7WvVQbFNfeMYafTx80y80F5F66P7kYFK3uCCw6wMcr7nSjxzWSB8ott+nYPoP4kcc28AhlIP9k
+	TuYY87J/cTS/Gr+Aazs2FvWVJPPHpjU8OytsNPHd3mynwunboRc8xTk+3ISYT7QvnnHF1Ms3ebeIo
+	WniAS8hGBzaqKW+5wMienxXPRjxiK/EaRft08yq6ls0EEfw1+yKybumsZGLf8MtwqS6vPzsJ75pFY
+	RBJDM10qTXtXbzvhomjt8LebaCznCi0BAqVNfj8JzwZNTOoujac2HQzO3gaE4JNo9oB+/fUSnTv5S
+	iQ5A5/iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8cAA-00ABTh-0b;
-	Thu, 30 Nov 2023 08:12:46 +0000
+	id 1r8cO8-00AD1t-1S;
+	Thu, 30 Nov 2023 08:27:12 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8cA7-00ABT3-13
+	id 1r8cO5-00AD1Y-2V
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Nov 2023 08:12:45 +0000
+	Thu, 30 Nov 2023 08:27:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 94709B841F3;
-	Thu, 30 Nov 2023 08:12:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5BBEC433C7;
-	Thu, 30 Nov 2023 08:12:36 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 57E1EB841F6;
+	Thu, 30 Nov 2023 08:27:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 496A1C433C7;
+	Thu, 30 Nov 2023 08:27:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701331961;
-	bh=4TV1m4EuLOh648gIpJtq8IGZ08wvqJekfJH88iGr6Ng=;
+	s=k20201202; t=1701332827;
+	bh=AVPr5QEXIbplSm1/AOQkNsZ7+EYuGbAVBfNp5Jit/NU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=u3RxQ9UQczk91u/zi7K1KU9msV/n8hdbHHsRonDyGX71dymI6SBvMBf5TQUP0Yp6w
-	 CjrghI0NJ86OoUv74pQV/ER3FPXhlDURbjUK0y0kW6xzI+kJ9IdhagQ/zGlanb7vk/
-	 HHeFpj3mfbx2245AqDkOFYRqgZ5YGeHrftl8+ye24EHnTGhyxe7EhXHpiAfb3+8whI
-	 YjEA4CEr6cRuoHzktMtVlzFb8vPLua46NdgY5z0NrYtTzZpjJeiKrsFRcVyPPTwmSI
-	 h0Me+8qveOYTB/4JgRsbnxHrv/PtbyW7jx4jm0AkywFvGDiNtmVAD+CnyNVZJrNuJ4
-	 4JqKWnbvZqRYQ==
-Date: Thu, 30 Nov 2023 08:12:34 +0000
+	b=aqeemkyzYxzUb4DFNt2IWN1M7NTo6NHpsb6fmEMKF5RNEs0zSQcWF0XuIsKeh8rBN
+	 uX2c9fmeIj8te8eqWuWR87eu1mui3sw39O8gOFlPJjRNSfEbJE3ySBHYB9CoYRgwtj
+	 dDe8W3JSB/jjeceJ3IrgsKqG3zEwdcgM+7T1bGSr+5Jz5BZh9AvqS7p5P8PmK2dYIF
+	 kOK8KVyqmFHSfHN8AmqlLEWbTCZQHBKNgVT/FMwbRut6xPw2cvS3M3chktTgBgGII+
+	 nBte7sYXta9WJo/pI8UpDWysdPpiMiTXDN5wuVdbp/YAzJFH55HzFwYAq0bYThrUDW
+	 GS9CbVx35kW+w==
+Date: Thu, 30 Nov 2023 08:27:01 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Chen Wang <unicorn_wang@outlook.com>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
-	chao.wei@sophgo.com, krzysztof.kozlowski+dt@linaro.org,
-	mturquette@baylibre.com, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, richardcochran@gmail.com,
-	robh+dt@kernel.org, sboyd@kernel.org, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, haijiao.liu@sophgo.com,
-	xiaoguang.xing@sophgo.com, guoren@kernel.org, jszhang@kernel.org,
-	inochiama@outlook.com, samuel.holland@sifive.com
-Subject: Re: [PATCH v2 3/4] clk: sophgo: Add SG2042 clock generator driver
-Message-ID: <20231130-enlarging-decode-31dc66f4490b@spud>
-References: <cover.1701044106.git.unicorn_wang@outlook.com>
- <c06130afb4bdc1890b4e8d29388fa6feef1f1826.1701044106.git.unicorn_wang@outlook.com>
- <81d421c8-bfd6-42b5-9da1-f067792f8f48@linaro.org>
- <MA0P287MB03329CFBA3BB6A4E4F322F99FEBDA@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
- <2a268c8c-ce55-4321-b390-092b8df61407@linaro.org>
- <MA0P287MB03320824AB953465E00394FEFE82A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Leo Li <sunpeng.li@amd.com>,
+	Rodrigo Siqueira <Rodrigo.Siqueira@amd.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, David Airlie <airlied@gmail.com>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	Pan Xinhui <Xinhui.Pan@amd.com>, Daniel Vetter <daniel@ffwll.ch>,
+	amd-gfx@lists.freedesktop.org, llvm@lists.linux.dev, arnd@arndb.de
+Subject: Re: [PATCH 3/3] drm/amd/display: Support DRM_AMD_DC_FP on RISC-V
+Message-ID: <20231130-pellet-parted-4c3854bda573@spud>
+References: <20231122030621.3759313-1-samuel.holland@sifive.com>
+ <20231122030621.3759313-4-samuel.holland@sifive.com>
+ <20231123-headdress-mold-0dd7a74477f7@wendy>
+ <20231130004224.GE2513828@dev-arch.thelio-3990X>
 MIME-Version: 1.0
-In-Reply-To: <MA0P287MB03320824AB953465E00394FEFE82A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
+In-Reply-To: <20231130004224.GE2513828@dev-arch.thelio-3990X>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231130_001243_678316_91C5AED1 
-X-CRM114-Status: GOOD (  48.44  )
+X-CRM114-CacheID: sfid-20231130_002709_966277_AA7A7AA7 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,179 +79,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4670188391932990693=="
+Content-Type: multipart/mixed; boundary="===============1965947298756475655=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4670188391932990693==
+--===============1965947298756475655==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="5QzKJcKXThA97D7v"
+	protocol="application/pgp-signature"; boundary="skPAiwM3XKXsb30B"
 Content-Disposition: inline
 
 
---5QzKJcKXThA97D7v
+--skPAiwM3XKXsb30B
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Nov 30, 2023 at 02:37:53PM +0800, Chen Wang wrote:
->=20
-> On 2023/11/27 17:16, Krzysztof Kozlowski wrote:
-> > On 27/11/2023 09:07, Chen Wang wrote:
-> > > On 2023/11/27 15:12, Krzysztof Kozlowski wrote:
-> > > > On 27/11/2023 02:15, Chen Wang wrote:
-> > > > > From: Chen Wang <unicorn_wang@outlook.com>
-> > > > >=20
-> > > > > Add a driver for the SOPHGO SG2042 clock generator.
-> > > > >=20
-> > > > > Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
-> > > > ...
-> > > >=20
-> > > > +}
-> > > > +
-> > > > +CLK_OF_DECLARE(sg2042_clk, "sophgo,sg2042-clkgen", sg2042_clk_init=
-);
-> > > > No, this should be platform device. It's a child of another device,=
- so
-> > > > you cannot use other way of init ordering.
-> > > hi, Krzysztof,
-> > >=20
-> > > Thanks for your review.
-> > >=20
-> > > I don't quite understand your opinion. Do you mean CLK_OF_DECLARE is
-> > > only used for platform device so it can not be use here? But I think
-> > No, I meant you mix init ordering: you depend now on syscon earlier
-> > initcall than CLK_OF_DECLARE. Do you remember which one is first? If
-> > anything changes here, your driver is broken. There is no dependency, no
-> > probe deferral.
->=20
-> hi, Krzysztof,
->=20
-> I found that the initcall method cannot be used for the clock controller =
-of
-> sg2042. We need to initialize the clock earlier because there are two
-> dw-apb-timers in sg2042 (Sorry, I have not added them in the current DTS =
-of
-> sg2042, will be submitted later). The initialization of these timers
-> (timer_probe()) depends on the initialization of the clock controller. If=
- we
-> use the initcall mechanism, it will be too late for the timer. So it seems
-> better to use CLK_OF_DECLARE provided by CCF.
->=20
-> I have a question here that I would like to discuss. The design of sg2042=
- is
-> like this, according to the design of memorymap in its TRM:
->=20
-> 070:3001:0000 ~ 070:3001:0FFF SYS_CTRL 4K
-> 070:3001:1000 ~ 070:3001:1FFF PINMUX 4K
-> 070:3001:2000 ~ 070:3001:2FFF CLOCK 4K
-> 070:3001:3000 ~ 070:3001:3FFF RESET 4K
->=20
-> But also as per hw design (I don't know why and I don't like it also :( ),
-> some of the PLL/GATE CLOCK control registers are defined in the scope of
-> SYS_CTRL, and others are defined in the scope of CLOCK. That's why in the
-> current code, I define the syscon node corresponding to SYS_CTRL. The
-> purpose is just to get the regmap of syscon for the clock controller thro=
-ugh
-> the device tree (through device_node_to_regmap()), so that the syscon
-> defined in SYS_CTRL can be accessed through the regmap from clock. The cl=
-ock
-> controller driver itself does not rely on other operations of syscon.
->=20
-> So based on the above analysis, is it still necessary for us to define the
-> clock controller as a child node of syscon? In the version v1 of this pat=
-ch,
-> I actually did not define the clock controller as a child node of syscon,
-> but only accessed syscon through the phandle method. [1]
-
-In that version of the code, clkgen, your DTS, looked like:
-+	clkgen: clock-controller {
-+		compatible =3D "sophgo,sg2042-clkgen";
-+		#clock-cells =3D <1>;
-+		system-ctrl =3D <&sys_ctrl>;
-+		clocks =3D <&cgi>;
-+		assigned-clocks =3D \
-
-+		assigned-clock-rates =3D \
-
-+	};
-
-It had no register regions of its own, just what it got from the sys
-ctrl block, which is why I said that. The syscon block looked like:
-
-+		sys_ctrl: syscon@7030010000 {
-+			compatible =3D "sophgo,sg2042-syscon", "syscon";
-+			reg =3D <0x70 0x30010000 0x0 0x8000>;
-+		};
-
-which given the register map does not seem like an accurate reflection
-of the size of this region. The "0x8000" should be "0x1000".
->=20
-> After more read of the TRM, I believe this situation only exists for cloc=
-k.
-> That is to say, there will be only one child node of clook under syscon.
-> From a hardware design perspective, CLOCK and SYS_CTRL are two different
-> blocks. So I think it is better to restore the original method, that is,
-> restore clock and syscon to nodes of the same level, and let clock use
-> phandle to access syscon.
-
-This sounds two me like there are two different devices. One the "CLOCK"
-region at 070:3001:2000 that should be documented as being
-"sophgo,sg2042-clkgen" or similar and the second being the "SYS_CTRL" at
-070:3001:0000 that is called something like "sophgo,sg2042-sysctrl".
-Having more than one clock controller is not a problem and sounds like a
-more accurate description of the hardware.
-
->=20
-> What do you think or do you have any good suggestions?
->=20
-> Link: https://lore.kernel.org/linux-riscv/20231114-timid-habitat-a06e52e5=
-9c9c@squawk/#t
-> [1]
->=20
-> Thanks
->=20
-> Chen
->=20
+On Wed, Nov 29, 2023 at 05:42:24PM -0700, Nathan Chancellor wrote:
+> On Thu, Nov 23, 2023 at 02:23:01PM +0000, Conor Dooley wrote:
+> > On Tue, Nov 21, 2023 at 07:05:15PM -0800, Samuel Holland wrote:
+> > > RISC-V uses kernel_fpu_begin()/kernel_fpu_end() like several other
+> > > architectures. Enabling hardware FP requires overriding the ISA string
+> > > for the relevant compilation units.
 > >=20
-> > > this driver is still for platform device though I move the clock
-> > > controller node as a child of the system contoller node. System
-> > > controller node is just a block of registers which are used to control
-> > > some other platform devices ,such as clock controller, reset controll=
-er
-> > > and pin controller for this SoC.
-> > >=20
-> > > And I also see other similar code in kernel, for example:
-> > > drivers/clk/clk-k210.c.
-> > >=20
-> > > And I'm confused by your input "so you cannot use other way of init
-> > > ordering." Do you mean "so you CAN use other way of init ordering"?
-> > No, I meant you cannot. If you want to use syscon, then your driver
-> > should be a proper driver. Therefore add a driver.
-> >=20
-> > > What's the other way of init ordering do you mean?
-> > The one coming not from initcalls but driver model.
-> >=20
-> > Best regards,
-> > Krzysztof
-> >=20
+> > Ah yes, bringing the joy of frame-larger-than warnings to RISC-V:
+> > ../drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn32/display_mode_vba_=
+32.c:58:13: warning: stack frame size (2416) exceeds limit (2048) in 'DISPC=
+LKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculatio=
+n' [-Wframe-larger-than]
+>=20
+> :(
+>=20
+> > Nathan, have you given up on these being sorted out?
+>=20
+> Does your configuration have KASAN (I don't think RISC-V supports
+> KCSAN)? It is possible that dml/dcn32 needs something similar to commit
+> 6740ec97bcdb ("drm/amd/display: Increase frame warning limit with KASAN
+> or KCSAN in dml2")?
 
---5QzKJcKXThA97D7v
+It's from allmodconfig, so yes, I think so.
+
+
+--skPAiwM3XKXsb30B
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZWhD8gAKCRB4tDGHoIJi
-0qD3APwKST0oQkyhMEP3YAoVteewNlDifbk9w0pWbLzVPSiZfwD/YwK56a15vfNL
-ZWr3VDx87CBcnDI47LgIMV4g2g/uSQs=
-=otoo
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZWhHVQAKCRB4tDGHoIJi
+0ktTAP4zJtbMBMKEDeq0u/9g0c5SQ8z5cOnNzWWYN7sZHhwFyAEA8RLHzYprTbaE
+YZSEx6U8yszQOIViwBKWPBZ/OyRTWAo=
+=98lz
 -----END PGP SIGNATURE-----
 
---5QzKJcKXThA97D7v--
+--skPAiwM3XKXsb30B--
 
 
---===============4670188391932990693==
+--===============1965947298756475655==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -262,5 +145,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4670188391932990693==--
+--===============1965947298756475655==--
 
