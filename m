@@ -4,134 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FDDEC4167B
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Nov 2023 08:02:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80AF5C4167B
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Nov 2023 08:04:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f5y2MeSp9VetT076v1VqM8MGVKR77tUTM6UrgbBifPE=; b=T2M1jAiY5f4c89
-	Zn88maBWCeipd+yw1C56z4xhAG0csRsRHQRSJX82QfNCh1S14aEI1CO1aWebwImtpV21l+zwLpdUW
-	vdkO5YLyzS1m34NY4M95xMnXAyOC9C8GjZsLgQ0LIJj6O8NE7JLk3WyFBaxc0GyN/0d5XUpehNsho
-	VIIsI1bsOPOpQHng4nKBZ/N8CfX8WR0j1JCd02iWy62VyHOcDYVA13+pp5wW1lns86K/obXpmunhz
-	6jNaSnc05ENqA8rzK7F2kiK8UlU/CVIgKQz3ls0wf46ExL8LGHPZIX+m/X+dScB526psvZAj2xMkM
-	o+Tu+M3p+KUhXMuT6UPQ==;
+	List-Owner; bh=SbJeH7BEYd4hUsgpl0qi4A9yGFn+pfxV3y8cXXIoac4=; b=mKJqW9F7qjV2Jr
+	0WRCvxcbgosRFiwl8wd6wK+GK4TuG67cQowF9Kbx1IKMkfafXJTJSIUPJR3AKKif8Jjr26QMWJZVW
+	TjP8fvU/MeeA76krS13/Lz/20uNHzV674kQ1fRdAy/qEzfNLKUhF+biSB+aKm2ZwkrBcO3AhXtrEG
+	sTGQDJtA4vDwsJHwMliOzC0qPVV8oQ//UngRFafdaNbAGy1MC/oZUwpuofBadLlqJ9Yr53/fkDqqd
+	9hIHw7TqaTYT8bFF7wMi+4OwFXmgGE0V2t/kZp6IEzVWd8PKvqTJj0xCKmR9n8RE2hepVbGzGWMzm
+	Sy0jojQnft7PrjshwFZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8bzZ-00A9Yj-1m;
-	Thu, 30 Nov 2023 08:01:49 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1r8c1f-00AA2e-2r;
+	Thu, 30 Nov 2023 08:03:59 +0000
+Received: from mail-dm6nam12acsn20805.outbound.protection.outlook.com ([2a01:111:f400:fe59::805] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8bzV-00A9XQ-2A
+	id 1r8c1c-00AA0I-2h
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Nov 2023 08:01:47 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-54c0bca218dso277686a12.3
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Nov 2023 00:01:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1701331301; x=1701936101; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=gk2JbtMlo6WQoDmF8ccbRSSYTd1fSytcQhz6DQC0L9M=;
-        b=wLKh0wU42gNWn1N+zVKmjJQSnwBtY7yEG1FSxfRMr8RFbC4wfiH/90cvSmQXDYBvAr
-         ynLHtPNh0mAgend/j4/ecyDjYvjDFNyClR21AWsplfSTlA8pVvaDeAPEH62RLqu6+DBJ
-         rFMh+ACotv3hIDlHzIetau2mUjNap3F61oKiy3cDt7gm5D49BzxADamVfR0UCJyTGn66
-         wXWDQCjFwtYgNrnxWvzf/5q32knc/c/a9JrHn3ZWIwM7ArehuSvCr1WnMdxa/s3bmPsP
-         8vbBMUke4RteqK+unIy1Ek8LTjWeFkxSuIwty7ekQcB0rlRCuvP8jv63aCU8vsMlkhKH
-         kJ4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701331301; x=1701936101;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=gk2JbtMlo6WQoDmF8ccbRSSYTd1fSytcQhz6DQC0L9M=;
-        b=XArJ4hadKdR4fV+gI+amgPYW1Qvp66Dj9E/nfC7F4Z1rRBa9xgLpOQYrahm3M9EDMO
-         MOU3LEjteEShFU5HY+obR4+V2z/XADpZyy3eVbbY4A7jzQy6d9YN9D7kQRGZr35xKwgp
-         68wyjc/Z2bcUwAejlgF3Jhw6cUFeRELvxeCLtX+fgYzzFm17A+FG9DsVdYaInV5NW9Pq
-         bhHX9iYpBLItpbKCXhCKhQfkkrx5HAoFxH5+msA0g7o+6Y+QD3x0zWjOBkhSD8RLiAeu
-         pOrWZ/l53ulsNdZ9beCQowmGBYVrVvf3hELk7BsfmQVaiQAEhymP4r0xgsra8de36Oc9
-         wmaA==
-X-Gm-Message-State: AOJu0Yypy6uWBd/gyKI2GguVIs+v9CibsgBS3arQ1C0E/Fkd41rXor3+
-	0o9yruANsWqCCHWDjEMszSxICw==
-X-Google-Smtp-Source: AGHT+IHNM7VsJ8U2JIjdtjCguhq6a0MblOnIQOqCBIDRxqJp1d4EDgJ10iue6LDC42RswFndilTUKQ==
-X-Received: by 2002:aa7:db8d:0:b0:54b:dc3c:7c9e with SMTP id u13-20020aa7db8d000000b0054bdc3c7c9emr2540356edt.31.1701331301566;
-        Thu, 30 Nov 2023 00:01:41 -0800 (PST)
-Received: from [192.168.1.20] ([178.197.223.109])
-        by smtp.gmail.com with ESMTPSA id b22-20020aa7df96000000b0054b3a6243b1sm291363edy.71.2023.11.30.00.01.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 Nov 2023 00:01:41 -0800 (PST)
-Message-ID: <15a46a91-d539-4580-b676-1177fc0530a5@linaro.org>
-Date: Thu, 30 Nov 2023 09:01:38 +0100
+	Thu, 30 Nov 2023 08:03:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=a4jad+Zs6i7YqbvRc77g4pIPYkBZKwLDdwBd/MyVjB8yaObbGDMxn6eRVDsXzG5GjiIIIqF4Cxfe2plMU04hXqVjS9DeaaHUgWAVNdQz2iCdd0JMmh7ePppqKmVPtSM+8rYZn9EqV/Sg6cD2r2qOrovpOwlTwIgtocSAtezIAaMVYCH5ZISgzwVvgpTmPYS6QIXKm7vmtbsDAtqjol1WGEevRuYYoPY4QxuWuiaAnTRJHGtI7m2vf5hydZLxDhvtr+cbQl1eicG6FAPpxq2+s0eKIZtVO2xChgqQm0WvvSXS7OF4f/dlDt2dI1DelPpCz5DbYbNTH5mMLh5oWpcQ+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9dHVeCB19/RNZ0NNu2FkGDYgfbGYa4q9zSdAIjDNLUI=;
+ b=Yym+lEnk1W4wazG7UO6Ci/G/KKl27okxsLUVSMkghoNU5wIjmOac81IKYgW2G0qlk9sfC/AuYL61NMFEeLJWUIZ1zCALaesIMc2KdZ2bf5+p2dgNVSU0xq+ueGBeR1+2DBVNhkRJqEFXLKeFgvHCVnGu19yyYfiNnDfvCz36Vi+/3cwX8efs83204OYAJzBtgSHmE1IMD5FLDwPmvYYwnziLMwrAIp1s+scRSeC+TxVuWR/nEs0elEPzgBkeTO40JIbdfQIuhIsh3VfKSXWphViie9roh70V0JBt2XJlDQS20hLIvYNS1Ez1VTgzAMemPJjhmy1W5xzWhF7W5c9Rug==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9dHVeCB19/RNZ0NNu2FkGDYgfbGYa4q9zSdAIjDNLUI=;
+ b=I/9Q5iVwSqOFHoPezg6L/2m4vIorvkZuWe0oiYlFgkR5AOumlDoMwkj/vpLeT6yKMNWnKHo1SgtC/lGceGVm9vkZMMCEiTDZVW/OMMe7YtRsI6036x1nXRrOD8DFsK+QljFD96pOodq+HG7NW5nyaTOwVKCQYONS8c9P8SmrqartnlbCcAIvams9fg+/wdEBv9XeQ6/PmSgJuW+R3Ue+33w23AAcHYlupFQ12M5lihXivEsFiLgwDOzO2rEfFarsnx9gkXZTCLNJLMCf5WfA6+V1i2p73n823rLffIlyi6CC/0JAIFoDzXDrZVjSBialTnxaO2DkiiuPQ4SSFv0etg==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by PH0PR20MB6351.namprd20.prod.outlook.com (2603:10b6:510:2a3::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7025.27; Thu, 30 Nov
+ 2023 08:03:48 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::55b:c350:980:ad8]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::55b:c350:980:ad8%6]) with mapi id 15.20.7046.024; Thu, 30 Nov 2023
+ 08:03:48 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>
+Cc: Inochi Amaoto <inochiama@outlook.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Conor Dooley <conor@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Anup Patel <anup@brainfault.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 1/2] dt-bindings: timer: thead,c900-aclint-mtimer: separate mtime and mtimecmp regs
+Date: Thu, 30 Nov 2023 16:03:46 +0800
+Message-ID: <IA1PR20MB495347868C7646C29022017FBB82A@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <IA1PR20MB4953840B83BA1F3675BF9A5BBBBAA@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: <IA1PR20MB4953840B83BA1F3675BF9A5BBBBAA@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-TMN: [oHBc6CW9/w8T9Y2rKU+fCrC+fIHAzYO/I1dHgpqpXFQ=]
+X-ClientProxiedBy: TY2PR06CA0008.apcprd06.prod.outlook.com
+ (2603:1096:404:42::20) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20231130080347.320174-1-inochiama@outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] clk: sophgo: Add SG2042 clock generator driver
-Content-Language: en-US
-To: Chen Wang <unicorn_wang@outlook.com>, Chen Wang <unicornxw@gmail.com>,
- aou@eecs.berkeley.edu, chao.wei@sophgo.com, conor@kernel.org,
- krzysztof.kozlowski+dt@linaro.org, mturquette@baylibre.com,
- palmer@dabbelt.com, paul.walmsley@sifive.com, richardcochran@gmail.com,
- robh+dt@kernel.org, sboyd@kernel.org, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, haijiao.liu@sophgo.com,
- xiaoguang.xing@sophgo.com, guoren@kernel.org, jszhang@kernel.org,
- inochiama@outlook.com, samuel.holland@sifive.com
-References: <cover.1701044106.git.unicorn_wang@outlook.com>
- <c06130afb4bdc1890b4e8d29388fa6feef1f1826.1701044106.git.unicorn_wang@outlook.com>
- <81d421c8-bfd6-42b5-9da1-f067792f8f48@linaro.org>
- <MA0P287MB03329CFBA3BB6A4E4F322F99FEBDA@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
- <2a268c8c-ce55-4321-b390-092b8df61407@linaro.org>
- <MA0P287MB03320824AB953465E00394FEFE82A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzTRLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnp5c3p0b2Yua296bG93c2tpQGxpbmFyby5vcmc+wsGUBBMBCgA+FiEE
- m9B+DgxR+NWWd7dUG5NDfTtBYpsFAmI+BxMCGwMFCRRfreEFCwkIBwIGFQoJCAsCBBYCAwEC
- HgECF4AACgkQG5NDfTtBYptgbhAAjAGunRoOTduBeC7V6GGOQMYIT5n3OuDSzG1oZyM4kyvO
- XeodvvYv49/ng473E8ZFhXfrre+c1olbr1A8pnz9vKVQs9JGVa6wwr/6ddH7/yvcaCQnHRPK
- mnXyP2BViBlyDWQ71UC3N12YCoHE2cVmfrn4JeyK/gHCvcW3hUW4i5rMd5M5WZAeiJj3rvYh
- v8WMKDJOtZFXxwaYGbvFJNDdvdTHc2x2fGaWwmXMJn2xs1ZyFAeHQvrp49mS6PBQZzcx0XL5
- cU9ZjhzOZDn6Apv45/C/lUJvPc3lo/pr5cmlOvPq1AsP6/xRXsEFX/SdvdxJ8w9KtGaxdJuf
- rpzLQ8Ht+H0lY2On1duYhmro8WglOypHy+TusYrDEry2qDNlc/bApQKtd9uqyDZ+rx8bGxyY
- qBP6bvsQx5YACI4p8R0J43tSqWwJTP/R5oPRQW2O1Ye1DEcdeyzZfifrQz58aoZrVQq+innR
- aDwu8qDB5UgmMQ7cjDSeAQABdghq7pqrA4P8lkA7qTG+aw8Z21OoAyZdUNm8NWJoQy8m4nUP
- gmeeQPRc0vjp5JkYPgTqwf08cluqO6vQuYL2YmwVBIbO7cE7LNGkPDA3RYMu+zPY9UUi/ln5
- dcKuEStFZ5eqVyqVoZ9eu3RTCGIXAHe1NcfcMT9HT0DPp3+ieTxFx6RjY3kYTGLOwU0EVUNc
- NAEQAM2StBhJERQvgPcbCzjokShn0cRA4q2SvCOvOXD+0KapXMRFE+/PZeDyfv4dEKuCqeh0
- hihSHlaxTzg3TcqUu54w2xYskG8Fq5tg3gm4kh1Gvh1LijIXX99ABA8eHxOGmLPRIBkXHqJY
- oHtCvPc6sYKNM9xbp6I4yF56xVLmHGJ61KaWKf5KKWYgA9kfHufbja7qR0c6H79LIsiYqf92
- H1HNq1WlQpu/fh4/XAAaV1axHFt/dY/2kU05tLMj8GjeQDz1fHas7augL4argt4e+jum3Nwt
- yupodQBxncKAUbzwKcDrPqUFmfRbJ7ARw8491xQHZDsP82JRj4cOJX32sBg8nO2N5OsFJOcd
- 5IE9v6qfllkZDAh1Rb1h6DFYq9dcdPAHl4zOj9EHq99/CpyccOh7SrtWDNFFknCmLpowhct9
- 5ZnlavBrDbOV0W47gO33WkXMFI4il4y1+Bv89979rVYn8aBohEgET41SpyQz7fMkcaZU+ok/
- +HYjC/qfDxT7tjKXqBQEscVODaFicsUkjheOD4BfWEcVUqa+XdUEciwG/SgNyxBZepj41oVq
- FPSVE+Ni2tNrW/e16b8mgXNngHSnbsr6pAIXZH3qFW+4TKPMGZ2rZ6zITrMip+12jgw4mGjy
- 5y06JZvA02rZT2k9aa7i9dUUFggaanI09jNGbRA/ABEBAAHCwXwEGAEKACYCGwwWIQSb0H4O
- DFH41ZZ3t1Qbk0N9O0FimwUCYDzvagUJFF+UtgAKCRAbk0N9O0Fim9JzD/0auoGtUu4mgnna
- oEEpQEOjgT7l9TVuO3Qa/SeH+E0m55y5Fjpp6ZToc481za3xAcxK/BtIX5Wn1mQ6+szfrJQ6
- 59y2io437BeuWIRjQniSxHz1kgtFECiV30yHRgOoQlzUea7FgsnuWdstgfWi6LxstswEzxLZ
- Sj1EqpXYZE4uLjh6dW292sO+j4LEqPYr53hyV4I2LPmptPE9Rb9yCTAbSUlzgjiyyjuXhcwM
- qf3lzsm02y7Ooq+ERVKiJzlvLd9tSe4jRx6Z6LMXhB21fa5DGs/tHAcUF35hSJrvMJzPT/+u
- /oVmYDFZkbLlqs2XpWaVCo2jv8+iHxZZ9FL7F6AHFzqEFdqGnJQqmEApiRqH6b4jRBOgJ+cY
- qc+rJggwMQcJL9F+oDm3wX47nr6jIsEB5ZftdybIzpMZ5V9v45lUwmdnMrSzZVgC4jRGXzsU
- EViBQt2CopXtHtYfPAO5nAkIvKSNp3jmGxZw4aTc5xoAZBLo0OV+Ezo71pg3AYvq0a3/oGRG
- KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
- fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <MA0P287MB03320824AB953465E00394FEFE82A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|PH0PR20MB6351:EE_
+X-MS-Office365-Filtering-Correlation-Id: f343a4fe-6727-43d1-1db4-08dbf17ae198
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: X2VJW8DfMOg+IRbPwErAd7x6Z/eeB6F2UrFKxogYa+3A8PRVu3QCkkijR+oY0zQ/c6PnF71z2dvTwDA5uH3RIBvNPrC8o3DZdsKhuZuY6SoSQ2nI4R5u+uFWa2jyhBrisvftB6eY5sErsoq8mCC2w4iOUcGdQ8CD3fhrMrdJokZZ6SlNsVsBL1VWRMS/FLwVCC7hahbTKs0ZwMSxUNFeOnKY9zuxAIghp17ccxP9TAIs/9FpIvBIIQuI1jRLm2nblrUxLGVUkI+m+v76bhNP56bACsE7UNvNlkhgebenekq4eujLNxHmBdJzSIX/zfaOczIrH4BWZl/MlNL/9kd9/GqNDVm62lhd1AkuAhOR6fBwFKCx1AJGwLvtUJX/BH8DW/lijEhiOVGib7m/5Ii13jQB8FA+JfDAvdjWtD8Plbz63eUi85q7bAQI9LIfvvfl8Ym19aLA6YzGOAhpDT63eZPoXGhEY1vawXfFj8duKPot/oVB4PbK3I0dBo1VLe6x+ovmf/BowE6mjk/I0gGJ/wH+2Gyjk3xJTSstylgy0rxhijr/Y7BSukCsmugUQm285L97WaHIITIIIVntyB3vs1zOQ02Ft6RJ0K596xCN02Dq6fx+S540PJS0WJ0P+vPXgd6yK628h86m/tTZPkvK/l8jP2IalPGv54flp8hojdo=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9FqxwepRyGrm1Wx1/oTJUH0JtDpYzLvOFy9WbLn+/8PiOvE0v6rL2Ff+NuKS?=
+ =?us-ascii?Q?VIdHEm1ElRp/ht2ocb28UQjlq9H+vohqpE49f4EYlbLMzNxSb2B7TQTbh7Wa?=
+ =?us-ascii?Q?aiaftmnC1nI4TdOaV3orCrOP36VVIFOT5BmB/PnfiK2sppZG6MEHJwSi6ws/?=
+ =?us-ascii?Q?tn0rP5magd5E4tKn/VUEZ0+lNmJLzocK7a15aUP8WkKScqrk4ATA+9AyxVpy?=
+ =?us-ascii?Q?tL8Qt79PtVIn4goMp1bIf05uai+RKHAuemoh/41FSzFYvNn3nvByDzfRaQ6D?=
+ =?us-ascii?Q?TanDfgGjKkU7s8IPFMazCEU5n4GRZRI/4MLjyqYAkZIR/PYsxOrMm1BZTQjq?=
+ =?us-ascii?Q?BXEOG+H15IlZ6w04yOdJExQHeWGUUphEZ+OXNZxoo+Ajz3rIs1L5UfZXqe29?=
+ =?us-ascii?Q?muHjuj29xun7v3Ym24ax71kn6i0XdADXL8Pl0sLb0g/Yb5wsZJJIR1F8HkAO?=
+ =?us-ascii?Q?rqjCBny9ob6m3WUBLwHwJvDWhuBDx9f746Q0YoguABwmJ5k3PsTuTUnORS+0?=
+ =?us-ascii?Q?HFYVYGB6N9xZ0KKi0A+T5KL/QjshdWDcxv7zCjASl4jmT+2E2wk3nHTzS8Ry?=
+ =?us-ascii?Q?+EA1+8cfb3oJG6P8RFe9wnfPkr2vvKnDOmCa8S9Y9qEbRHaBxmMewFLWEbDk?=
+ =?us-ascii?Q?gb9+pnVxFl+v6nnrgYL3OxQN91if1w+T5aeWbPQOL1bo2YtE2TZ94phBuOOd?=
+ =?us-ascii?Q?4unvtPLaf5Rw9WtAdFL0za3xVExAP2NN6WBQx45Zh9euXAYD+SIP8edfgPZv?=
+ =?us-ascii?Q?KzoO0IRhcLeu7DieaDEr+uiLCMzzL8hPjN6tqYcwOn9imX8Sk74VYLDbkUbn?=
+ =?us-ascii?Q?38UgSKoF5f6oQd0/FcNcJvc33LBOBr42Df+cYXAKzMzttl7aD07hDw3Knber?=
+ =?us-ascii?Q?lkGzxTQS4WNcp2I4jMHh4thTwtbMI2pOKzq1ZdImalTqXq4aTnK7O2tdvaoK?=
+ =?us-ascii?Q?wyRO40SpN1TNjw3/DkZ5NHw5LDonQi/g4R3nl3lnGH4DRWPLBXKrUFjFNmAS?=
+ =?us-ascii?Q?Ql7fJ9VYKgjZWriGskyIcD6GeJM+3MA/8eqpC6cj4elscsS92PAlY5cNskBM?=
+ =?us-ascii?Q?iXqSMH4lJ37zuxO8FoPvYqlQ7Z1aqTefGF882u3IM44DOpYNemixI17A2euh?=
+ =?us-ascii?Q?BvN6ger/DdmGGmB8dW55nVrgCZEevFq/H2cbT9pBju+JFec4sel0DbTZ7Rd1?=
+ =?us-ascii?Q?aH5NuqEzlvBNh8oTNrDQprcvilwtcDHhkYbb4689XCKgPPvDTRk5Uyzbkq8?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f343a4fe-6727-43d1-1db4-08dbf17ae198
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Nov 2023 08:03:47.9643
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR20MB6351
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231130_000145_709573_5F75011F 
-X-CRM114-Status: GOOD (  31.84  )
+X-CRM114-CacheID: sfid-20231130_000356_957479_530BFB0A 
+X-CRM114-Status: GOOD (  29.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,89 +140,158 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 30/11/2023 07:37, Chen Wang wrote:
-> 
-> On 2023/11/27 17:16, Krzysztof Kozlowski wrote:
->> On 27/11/2023 09:07, Chen Wang wrote:
->>> On 2023/11/27 15:12, Krzysztof Kozlowski wrote:
->>>> On 27/11/2023 02:15, Chen Wang wrote:
->>>>> From: Chen Wang <unicorn_wang@outlook.com>
->>>>>
->>>>> Add a driver for the SOPHGO SG2042 clock generator.
->>>>>
->>>>> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
->>>> ...
+>
+>> On Tue, Nov 21, 2023 at 09:12:12AM +0800, Inochi Amaoto wrote:
+>>>> Yo,
 >>>>
->>>> +}
->>>> +
->>>> +CLK_OF_DECLARE(sg2042_clk, "sophgo,sg2042-clkgen", sg2042_clk_init);
->>>> No, this should be platform device. It's a child of another device, so
->>>> you cannot use other way of init ordering.
->>> hi, Krzysztof,
+>>>> On Sat, Nov 18, 2023 at 03:10:26PM +0800, Inochi Amaoto wrote:
+>>>>> The timer registers of aclint don't follow the clint layout and can
+>>>>> be mapped on any different offset. As sg2042 uses separated timer
+>>>>> and mswi for its clint, it should follow the aclint spec and have
+>>>>> separated registers.
+>>>>>
+>>>>> The previous patch introduced a new type of T-HEAD aclint timer which
+>>>>> has clint timer layout. Although it has the clint timer layout, it
+>>>>> should follow the aclint spec and uses the separated mtime and mtimecmp
+>>>>> regs. So a ABI change is needed to make the timer fit the aclint spec.
+>>>>>
+>>>>> To make T-HEAD aclint timer more closer to the aclint spec, use
+>>>>> regs-names to represent the mtimecmp register, which can avoid hack
+>>>>> for unsupport mtime register of T-HEAD aclint timer.
+>>>>>
+>>>>> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+>>>>> Fixes: 4734449f7311 ("dt-bindings: timer: Add Sophgo sg2042 CLINT timer")
+>>>>> Link: https://lists.infradead.org/pipermail/opensbi/2023-October/005693.html
+>>>>> Link: https://github.com/riscv/riscv-aclint/blob/main/riscv-aclint.adoc
+>>>>> ---
+>>>>>  .../timer/thead,c900-aclint-mtimer.yaml       | 42 ++++++++++++++++++-
+>>>>>  1 file changed, 41 insertions(+), 1 deletion(-)
+>>>>>
+>>>>> diff --git a/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml b/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
+>>>>> index fbd235650e52..053488fb1286 100644
+>>>>> --- a/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
+>>>>> +++ b/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
+>>>>> @@ -17,7 +17,20 @@ properties:
+>>>>>        - const: thead,c900-aclint-mtimer
+>>>>>
+>>>>>    reg:
+>>>>> -    maxItems: 1
+>>>>> +    oneOf:
+>>>>> +      - items:
+>>>>> +          - description: MTIME Registers
+>>>>> +          - description: MTIMECMP Registers
+>>>>> +      - items:
+>>>>> +          - description: MTIMECMP Registers
+>>>>> +
+>>>>> +  reg-names:
+>>>>> +    oneOf:
+>>>>> +      - items:
+>>>>> +          - const: mtime
+>>>>> +          - const: mtimecmp
+>>>>> +      - items:
+>>>>> +          - const: mtimecmp
+>>>>>
+>>>>>    interrupts-extended:
+>>>>>      minItems: 1
+>>>>> @@ -28,8 +41,34 @@ additionalProperties: false
+>>>>>  required:
+>>>>>    - compatible
+>>>>>    - reg
+>>>>> +  - reg-names
+>>>>>    - interrupts-extended
+>>>>>
+>>>>> +allOf:
+>>>>> +  - if:
+>>>>> +      properties:
+>>>>> +        compatible:
+>>>>> +          contains:
+>>>>> +            const: thead,c900-aclint-mtimer
+>>>>
+>>>> Is this being the c900 compatible correct? You mention in your commit
+>>>> message that this split is done on the sg2042, but the rule is applied
+>>>> here for any c900 series "aclint". Do we know if this is a sophgo
+>>>> specific thing (or even sg2042 specific), or if it applies generally?
+>>>>
 >>>
->>> Thanks for your review.
+>>> This can be confirmed. The thead c900 series have no mtime support and
+>>> there is no evidence that they will implement it. So I think it is OK
+>>> to applied this restriction for the whole c900 series.
+>>
+>> Okay, great.
+>>
+>>>>> +    then:
+>>>>> +      properties:
+>>>>> +        reg:
+>>>>> +          items:
+>>>>> +            - description: MTIMECMP Registers
+>>>>> +        reg-names:
+>>>>> +          items:
+>>>>> +            - const: mtimecmp
+>>>>
+>>>>> +    else:
+>>>>> +      properties:
+>>>>> +        reg:
+>>>>> +          items:
+>>>>> +            - description: MTIME Registers
+>>>>> +            - description: MTIMECMP Registers
+>>>>> +        reg-names:
+>>>>> +          items:
+>>>>> +            - const: mtime
+>>>>> +            - const: mtimecmp
+>>>>
+>>>> If it applies generally, I would probably just delete this, but unless
+>>>> someone can confirm this to be general, I'd probably leave the else
+>>>> clause and swap for the specific sg2042 compatible above.
+>>>>
 >>>
->>> I don't quite understand your opinion. Do you mean CLK_OF_DECLARE is
->>> only used for platform device so it can not be use here? But I think
->> No, I meant you mix init ordering: you depend now on syscon earlier
->> initcall than CLK_OF_DECLARE. Do you remember which one is first? If
->> anything changes here, your driver is broken. There is no dependency, no
->> probe deferral.
-> 
-> hi, Krzysztof,
-> 
-> I found that the initcall method cannot be used for the clock controller 
-> of sg2042. We need to initialize the clock earlier because there are two 
-> dw-apb-timers in sg2042 (Sorry, I have not added them in the current DTS 
-> of sg2042, will be submitted later). The initialization of these timers 
-> (timer_probe()) depends on the initialization of the clock controller. 
-> If we use the initcall mechanism, it will be too late for the timer. So 
-> it seems better to use CLK_OF_DECLARE provided by CCF.
+>>> I suggest keeping this. By taking your advice, this binding has actually
+>>> become the binding for aclint draft.
+>>
+>> Right. It seemed to me from the reports (and the commit message) that this
+>> was a configuration choice made by sophgo for the IP.
+>>
+>
+>Yes, that's true.
+>
+>>> So I think it is better to preserve
+>>> this path, otherwise adding the mtime register seems meaningless.
+>>
+>> Yeah, I mistakenly thought that there were cases where we actually had
+>> systems with mtime and mtimecmp registers. I don't know if that was an
+>> assumption I made due to previous commit messages or from reading the
+>> opensbi threads, but clearly that is not the case.
+>>
+>>> But if
+>>> you think it is OK to add this when adding new compatible or converting it
+>>> to a generic binding.
+>>
+>> I'm a bit conflicted. Since this is c900 specific one part of me says
+>> leave it with only one "reg" entry as that is what the only hardware
+>> actually has & add "reg-names" to make lives easier when someone else
+>> implements the unratified spec (or it gets ratified for some reason).
+>>
+>
+>Adding "reg-names" is necessary and does make live easier. It gives a
+>clear way to avoid hack on skipping mtime register in the ACLINT timer
+>definition.
+>
+>Now I think the only problem is whether the "mtime" register should
+>exist in this binding. IMHO, adding "mtime" seems to be too much to
+>keep this binding vendor specific. It is better to remove it to achieve
+>minimum change.
+>
+>>> Feel free to remove it.
+>>
+>> I might've applied the other binding as it was in a series adding
+>> initial support for the SoC, but usually these things go via the
+>> subsystem maintainers with a DT maintainer ack/review.
+>>
+>
+>Thanks, I will also wait for feedback from the subsystem maintainers.
+>
 
-Sure, that's fine, but don't use syscon in such case.
-
-> 
-> I have a question here that I would like to discuss. The design of 
-> sg2042 is like this, according to the design of memorymap in its TRM:
-> 
-> 070:3001:0000 ~ 070:3001:0FFF SYS_CTRL 4K
-> 070:3001:1000 ~ 070:3001:1FFF PINMUX 4K
-> 070:3001:2000 ~ 070:3001:2FFF CLOCK 4K
-> 070:3001:3000 ~ 070:3001:3FFF RESET 4K
-> 
-> But also as per hw design (I don't know why and I don't like it also :( 
-> ), some of the PLL/GATE CLOCK control registers are defined in the scope 
-> of SYS_CTRL, and others are defined in the scope of CLOCK. That's why in 
-> the current code, I define the syscon node corresponding to SYS_CTRL. 
-> The purpose is just to get the regmap of syscon for the clock controller 
-> through the device tree (through device_node_to_regmap()), so that the 
-> syscon defined in SYS_CTRL can be accessed through the regmap from 
-> clock. The clock controller driver itself does not rely on other 
-> operations of syscon.
-> 
-> So based on the above analysis, is it still necessary for us to define 
-> the clock controller as a child node of syscon? In the version v1 of 
-> this patch, I actually did not define the clock controller as a child 
-> node of syscon, but only accessed syscon through the phandle method. [1]
-
-I have impression you ask me if your solution is ok, but I already
-pointed the problem. Address the problem - how do you enforce ordering
-of syscon and CLK_OF_DECLARE? What initcalls are both?
-
-> 
-> After more read of the TRM, I believe this situation only exists for 
-> clock. That is to say, there will be only one child node of clook under 
-> syscon. From a hardware design perspective, CLOCK and SYS_CTRL are two 
-> different blocks. So I think it is better to restore the original 
-> method, that is, restore clock and syscon to nodes of the same level, 
-> and let clock use phandle to access syscon.
-> 
-> What do you think or do you have any good suggestions?
-
-
-Best regards,
-Krzysztof
-
+Hi, Daniel and Thomas,
+Could you share your suggestion about this ABI change?
 
 _______________________________________________
 linux-riscv mailing list
