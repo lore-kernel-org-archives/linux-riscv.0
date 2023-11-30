@@ -4,46 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68531C4167B
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Nov 2023 17:04:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B68BBC4167B
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Nov 2023 17:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XutqQGU0Fmb9S/qNyyzSWg5ALLEfwBlxU6l7w3MYGXw=; b=zy+5YV+oY5xB1i
-	t+wWhp5rGBqXXaZVzGl735oRgP7B2PZHon+uaOPmeW22HM6r/VUYM7KirwU8jfMkL+6kXepBJ4OO+
-	HxgMh/ckIpJ0XiOUQp+Ur08K4+mMcKMKlrzdW/hnYhIpa4oyE++ushHFA9dsnm6TPHp8wDDiqxQBI
-	avoBc9Cn+2fpi78NRvnZS5OLWtsQ5DvLkeouwFMTRasLs7xGub7E9Lg1WAJdsZRfJfKfQ6WahqE5f
-	ehMgyrSJUS6dYaHVX9DEVywPOU50yfTeA7mybAlOjZNQw8yVV5OoRhAp8vrs68vutGO/TNdwUyj7b
-	HL+i7UNirSv0WRxpCkfA==;
+	List-Owner; bh=9A9WokK9hCgvGPVgg0YAAL/Bf9qkUM8Aa4PUMLwgyK4=; b=AH5jGMlwugXACD
+	MexncdcMOMY81cUlt2pyaFq2Sk2a9wjpqNzgTD7uwvkoQHnlGt3is2yX5T4qoujBPNGjHYIYTuBRS
+	TvWzVROd7ru7LgQpiFjjrgDwMsvIcKdHZSl/hNaS/R/qKPPOhLgG28hCB8knaOVb2YW8xbN6cJaYE
+	g8L3QTCvIVncV1XuABKYgDuyZ5DYs9I2Lyh0y50T19iRGn7R7YMdKE2frRF5s2KRY1n2vWIFilHOS
+	Qy39/RJSXZCTERVZlGH0spgl+eoAsKyCilbMWBp371OLtVov3H78POBbG0wx9YCWOJf3ySaSaChI6
+	UXrnAKCzEQkUNn0V5s5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8kSm-00BSYk-2h;
-	Thu, 30 Nov 2023 17:04:32 +0000
-Received: from [50.53.46.231] (helo=[192.168.254.15])
-	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8kSl-00BSYN-0d;
-	Thu, 30 Nov 2023 17:04:31 +0000
-Message-ID: <7372f74b-ad5a-4545-9d48-b5eed9005557@infradead.org>
-Date: Thu, 30 Nov 2023 09:04:29 -0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: linux-next: Tree for Nov 22 (riscv: DMA_GLOBAL_POOL)
+	id 1r8lJp-00BZPV-2I;
+	Thu, 30 Nov 2023 17:59:21 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1r8lJm-00BZLm-10
+	for linux-riscv@lists.infradead.org;
+	Thu, 30 Nov 2023 17:59:20 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 59AD38008;
+	Fri,  1 Dec 2023 01:58:26 +0800 (CST)
+Received: from EXMBX063.cuchost.com (172.16.7.63) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 1 Dec
+ 2023 01:58:26 +0800
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX063.cuchost.com
+ (172.16.6.63) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 1 Dec
+ 2023 01:58:25 +0800
+Received: from EXMBX061.cuchost.com ([fe80::413f:35c8:bf4f:599a]) by
+ EXMBX061.cuchost.com ([fe80::413f:35c8:bf4f:599a%14]) with mapi id
+ 15.00.1497.044; Fri, 1 Dec 2023 01:58:25 +0800
+From: Leyfoon Tan <leyfoon.tan@starfivetech.com>
+To: JeeHeng Sia <jeeheng.sia@starfivetech.com>, "kernel@esmil.dk"
+	<kernel@esmil.dk>, "robh+dt@kernel.org" <robh+dt@kernel.org>,
+	"krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>,
+	"krzk@kernel.org" <krzk@kernel.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
+	<aou@eecs.berkeley.edu>, "daniel.lezcano@linaro.org"
+	<daniel.lezcano@linaro.org>, "tglx@linutronix.de" <tglx@linutronix.de>,
+	"conor@kernel.org" <conor@kernel.org>, "anup@brainfault.org"
+	<anup@brainfault.org>, "gregkh@linuxfoundation.org"
+	<gregkh@linuxfoundation.org>, "jirislaby@kernel.org" <jirislaby@kernel.org>,
+	"michal.simek@amd.com" <michal.simek@amd.com>, Michael Zhu
+	<michael.zhu@starfivetech.com>, "drew@beagleboard.org" <drew@beagleboard.org>
+CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v2 6/6] riscv: dts: starfive: Add initial StarFive JH8100
+ device tree
+Thread-Topic: [PATCH v2 6/6] riscv: dts: starfive: Add initial StarFive JH8100
+ device tree
+Thread-Index: AQHaIomdVH7y9/ivgUi9tWc7QoZ0WLCTJ8TA
+Date: Thu, 30 Nov 2023 17:58:25 +0000
+Message-ID: <21e2d194efee4bb6b870735e6fe2d65c@EXMBX061.cuchost.com>
+References: <20231129060043.368874-1-jeeheng.sia@starfivetech.com>
+ <20231129060043.368874-7-jeeheng.sia@starfivetech.com>
+In-Reply-To: <20231129060043.368874-7-jeeheng.sia@starfivetech.com>
+Accept-Language: en-US, zh-CN
 Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>
-Cc: Stephen Rothwell <sfr@canb.auug.org.au>,
- Linux Next Mailing List <linux-next@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-References: <20231122145257.6f668afa@canb.auug.org.au>
- <24942b4d-d16a-463f-b39a-f9dfcb89d742@infradead.org>
- <20231130-mothproof-tripod-fe35364591ee@spud>
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20231130-mothproof-tripod-fe35364591ee@spud>
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [172.16.6.8]
+x-yovoleruleagent: yovoleflag
+MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20231130_095918_706166_A62E051B 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,54 +98,40 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 11/30/23 08:35, Conor Dooley wrote:
-> On Wed, Nov 22, 2023 at 02:37:43PM -0800, Randy Dunlap wrote:
->>
->>
->> On 11/21/23 19:52, Stephen Rothwell wrote:
->>> Hi all,
->>>
->>> Changes since 20231121:
->>>
->>
->> on riscv 32-bit:
->>
->> WARNING: unmet direct dependencies detected for DMA_GLOBAL_POOL
->>   Depends on [n]: !ARCH_HAS_DMA_SET_UNCACHED [=n] && !DMA_DIRECT_REMAP [=y]
->>   Selected by [y]:
->>   - ARCH_R9A07G043 [=y] && SOC_RENESAS [=y] && RISCV [=y] && NONPORTABLE [=y] && RISCV_ALTERNATIVE [=y] && !RISCV_ISA_ZICBOM [=n] && RISCV_SBI [=y]
->>
->> WARNING: unmet direct dependencies detected for DMA_GLOBAL_POOL
->>   Depends on [n]: !ARCH_HAS_DMA_SET_UNCACHED [=n] && !DMA_DIRECT_REMAP [=y]
->>   Selected by [y]:
->>   - ARCH_R9A07G043 [=y] && SOC_RENESAS [=y] && RISCV [=y] && NONPORTABLE [=y] && RISCV_ALTERNATIVE [=y] && !RISCV_ISA_ZICBOM [=n] && RISCV_SBI [=y]
-> 
-> DMA_DIRECT_REMAP is selected by the T-HEAD CMO erratum.
-> DMA_GLOBAL_POOL by the Andes CMO erratum.
-> 
-> We could do
-> 
-> diff --git a/drivers/soc/renesas/Kconfig b/drivers/soc/renesas/Kconfig
-> index 0071864c2111..d8723fdf1e55 100644
-> --- a/drivers/soc/renesas/Kconfig
-> +++ b/drivers/soc/renesas/Kconfig
-> @@ -339,6 +339,7 @@ if RISCV
->  
->  config ARCH_R9A07G043
->  	bool "RISC-V Platform support for RZ/Five"
-> +	depends on !DMA_DIRECT_REMAP
->  	depends on NONPORTABLE
->  	depends on RISCV_ALTERNATIVE
->  	depends on !RISCV_ISA_ZICBOM
+-----Original Message-----
+From: JeeHeng Sia <jeeheng.sia@starfivetech.com> 
+Sent: Wednesday, November 29, 2023 2:01 PM
+To: kernel@esmil.dk; robh+dt@kernel.org; krzysztof.kozlowski+dt@linaro.org; krzk@kernel.org; conor+dt@kernel.org; paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu; daniel.lezcano@linaro.org; tglx@linutronix.de; conor@kernel.org; anup@brainfault.org; gregkh@linuxfoundation.org; jirislaby@kernel.org; michal.simek@amd.com; Michael Zhu <michael.zhu@starfivetech.com>; drew@beagleboard.org
+Cc: devicetree@vger.kernel.org; linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org; JeeHeng Sia <jeeheng.sia@starfivetech.com>; Leyfoon Tan <leyfoon.tan@starfivetech.com>
+Subject: [PATCH v2 6/6] riscv: dts: starfive: Add initial StarFive JH8100 device tree
 
-OK, that works for me.
+Add initial device tree for the StarFive JH8100 RISC-V SoC.
 
-Tested-by: Randy Dunlap <rdunlap@infradead.org> # build-tested
+Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+---
+ arch/riscv/boot/dts/starfive/Makefile       |   1 +
+ arch/riscv/boot/dts/starfive/jh8100-evb.dts |  28 ++
+ arch/riscv/boot/dts/starfive/jh8100.dtsi    | 378 ++++++++++++++++++++
+ 3 files changed, 407 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/starfive/jh8100-evb.dts
+ create mode 100644 arch/riscv/boot/dts/starfive/jh8100.dtsi
 
-Thanks.
+diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
+index 0141504c0f5c..fbb0dc619102 100644
+--- a/arch/riscv/boot/dts/starfive/Makefile
++++ b/arch/riscv/boot/dts/starfive/Makefile
+@@ -10,3 +10,4 @@ dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
+ 
+ dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.2a.dtb
+ dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.3b.dtb
++dtb-$(CONFIG_ARCH_STARFIVE) += jh8100-evb.dtb
+Add empty line before this.
 
--- 
-~Randy
+[....]
+
+Regards
+Ley Foon
 
 _______________________________________________
 linux-riscv mailing list
