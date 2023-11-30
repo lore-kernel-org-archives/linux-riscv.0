@@ -4,66 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09F42C4167B
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Nov 2023 16:56:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB670C07CA9
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Nov 2023 16:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+EsaV5ZXryz6ORlIDxQBy0acVXzKHXs0iQbu2gMVvgU=; b=IZbPUeW+VIZQIz
-	JIRzutJv9X8+5yuFqj5pwETzsLIjbCcKp+dNP1qoCdBmt+EqNvX7KxI163G7o7sVkx56A7lyjbasq
-	Bh4jRsQulgCD2lr0fxpmmzbbi2wMCT5PuvWTudeJJ3+bHGXxH3eJjefupGS9pzBIHbwEsXBSwL+Ik
-	olcc7VaBr0ARm3sd7yMxTRYnnkjCrFoZQKpHJpEJ5LxZnbn3XkRhVARYmIRFZX/5+i9f+UFyPm68Q
-	LcOUDZlWx4Z3ruBazVygij03wcsxZU8NmK5WGy44FQZ4gsK6qIf3FaDpGw9npSOb2B+CtSB3LTyz6
-	Y/q8wZfRaRgF4YIkr9Mg==;
+	List-Owner; bh=rl0ZtWR372nHWWAWWpU3JfAqk+CXL29J3+NwMl24ZGQ=; b=gQ3y8GoPB0WQT8
+	6iFU3FTj5NOIoWAe56GnX2wAKswX1ubNtEOJDabHmVWS0msQmJ4VzlhMqAM88pP9JPWDe1W2RcIIK
+	o1TuqCYEAgeJVk0/g/iIUR+a5m3VthrmlLYeuzytgMu46m3u1fcnwDhjYEpossWHtH/uTULRDc734
+	hW1w215bB1VIS4zN79O/tgTAIxvFL5F94EHkv5G1eve80RyCSYK+kDQrKtlHYOOu2dDCsZPt/a35/
+	e3Cr2P39fN9WS6K8AJVjBTVHbPaXehY3ZEQ1ovCJDjuCIH40SvNUMKzMLKmrFc4D3DVycYZmfoRYH
+	gC6stRw5KJGQ5enSsLQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8kLN-00BQvv-00;
-	Thu, 30 Nov 2023 16:56:53 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1r8kLW-00BR0O-23;
+	Thu, 30 Nov 2023 16:57:02 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8kLI-00BQtN-2q;
-	Thu, 30 Nov 2023 16:56:50 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Sh2KZ6Fb9z6H6nr;
-	Fri,  1 Dec 2023 00:52:02 +0800 (CST)
-Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
-	by mail.maildlp.com (Postfix) with ESMTPS id A15811402CD;
-	Fri,  1 Dec 2023 00:56:41 +0800 (CST)
-Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35; Thu, 30 Nov
- 2023 16:56:41 +0000
-Date: Thu, 30 Nov 2023 16:56:40 +0000
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: Russell King <rmk+kernel@armlinux.org.uk>
-CC: <linux-pm@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<x86@kernel.org>, <linux-csky@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-ia64@vger.kernel.org>, <linux-parisc@vger.kernel.org>, Salil Mehta
-	<salil.mehta@huawei.com>, Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	<jianyong.wu@arm.com>, <justin.he@arm.com>, James Morse
-	<james.morse@arm.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar
-	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>
-Subject: Re: [PATCH 14/21] x86/topology: Switch over to GENERIC_CPU_DEVICES
-Message-ID: <20231130165640.00006f6c@Huawei.com>
-In-Reply-To: <E1r5R3l-00Cszm-UA@rmk-PC.armlinux.org.uk>
-References: <ZVyz/Ve5pPu8AWoA@shell.armlinux.org.uk>
-	<E1r5R3l-00Cszm-UA@rmk-PC.armlinux.org.uk>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
-MIME-Version: 1.0
-X-Originating-IP: [10.202.227.76]
-X-ClientProxiedBy: lhrpeml100005.china.huawei.com (7.191.160.25) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
+	id 1r8kLT-00BQys-21;
+	Thu, 30 Nov 2023 16:57:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0FA6C61E45;
+	Thu, 30 Nov 2023 16:56:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59C48C433C9;
+	Thu, 30 Nov 2023 16:56:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1701363418;
+	bh=jNTamNThZ0rAs2o+KORaTzGsMmcQ2kdIW/zV+pisW9M=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Ep5mfn6/d/046KNhMrPxYSVs2b/H1SbZQJJM57P3hzC8hmlHC+aL7jEbzQHe/bzLV
+	 ZDl9UEr14ekcpfCJk6RDza5apPq9i/1g5VSUREK4wQ/5Ib8LBFZY5NsHmgDKwcsJd5
+	 raSV/4nqny+fZeQRHQXL35saZ9wB+AO2cAuRD2YA=
+Date: Thu, 30 Nov 2023 08:56:57 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Baoquan He <bhe@redhat.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Vivek Goyal <vgoyal@redhat.com>,
+ linux-kernel@vger.kernel.org, kexec@lists.infradead.org, x86@kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
+ eric_devolder@yahoo.com
+Subject: Re: [PATCH 1/2] kexec: fix KEXEC_FILE dependencies
+Message-Id: <20231130085657.6f7f500cc17b663747e4ee76@linux-foundation.org>
+In-Reply-To: <ZUNXxp9AIkjQkP9s@MiWiFi-R3L-srv>
+References: <20231023110308.1202042-1-arnd@kernel.org>
+	<ZTe8NOgAjvKDA6z0@MiWiFi-R3L-srv>
+	<b71034f4-5cdc-44e0-b72f-1a8ffae0593e@app.fastmail.com>
+	<ZUNXxp9AIkjQkP9s@MiWiFi-R3L-srv>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231130_085649_059047_236B107F 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20231130_085659_706543_2FB0BD10 
+X-CRM114-Status: GOOD (  18.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,28 +74,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Nov 2023 13:45:01 +0000
-Russell King <rmk+kernel@armlinux.org.uk> wrote:
+On Thu, 2 Nov 2023 16:03:18 +0800 Baoquan He <bhe@redhat.com> wrote:
 
-> From: James Morse <james.morse@arm.com>
+> > > CONFIG_KEXEC_FILE, but still get purgatory code built in which is
+> > > totally useless.
+> > >
+> > > Not sure if I think too much over this.
+> > 
+> > I see your point here, and I would suggest changing the
+> > CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY symbol to just indicate
+> > the availability of the purgatory code for the arch, rather
+> > than actually controlling the code itself. I already mentioned
+> > this for s390, but riscv would need the same thing on top.
+> > 
+> > I think the change below should address your concern.
 > 
-> Now that GENERIC_CPU_DEVICES calls arch_register_cpu(), which can be
-> overridden by the arch code, switch over to this to allow common code
-> to choose when the register_cpu() call is made.
-> 
-> x86's struct cpus come from struct x86_cpu, which has no other members
-> or users. Remove this and use the version defined by common code.
-> 
-> This is an intermediate step to the logic being moved to drivers/acpi,
-> where GENERIC_CPU_DEVICES will do the work when booting with acpi=off.
-> 
-> This patch also has the effect of moving the registration of CPUs from
-> subsys to driver core initialisation, prior to any initcalls running.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+> Since no new comment, do you mind spinning v2 to wrap all these up?
+
+This patchset remains in mm-hotfixes-unstable from the previous -rc
+cycle.  Eric, do you have any comments?  Arnd, do you plan on a v2?  If
+not, should I merge v1?  If so, should I now add cc:stable?
 
 _______________________________________________
 linux-riscv mailing list
