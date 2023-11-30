@@ -4,58 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED5EDC10DAA
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Nov 2023 14:06:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BDBFC4167B
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Nov 2023 14:11:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=388U2RSNf7fe/zDfXun4lBtJgbLF9ir4rb7hV6Zts0s=; b=iicyVRA9tPTfjP1os/AB1zpPUW
-	JMGuAyn7YB4xJuzY7IBVGSo1O8/GF1w3P2fKPyIuaFpC+h947hXS76hFuwVCO7Na907TDDpWJCAPa
-	lZkotyffE0WMN+QT4k0Vcp/NkFFHqG64pAFsjCaYbbPnJyaMvWWQ/rqBp573WAoJmrG2lD6Edyk7v
-	YXvAht/8OglzAseFLF+l+ekTFA1+9rONXKlDzTRaqLempMdwML/3UD4CIkhlx0FdwJCFkqxkwGNbN
-	Hk6fvncBtet2+yRsbiuL9TRZNFxtbBLybjnM2FBlpklXuHgsxFYXanesakkvOo4DW57wMOsXHSpfS
-	iarhxWeg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sOSYVrDQvmjBMhE8Gd5B6hpk5fibyVFcZYYFka3dr9k=; b=LvuttGz64zxX1u
+	/57TracSecyhKISE4xbS29rmLo3JU8UydQ7lL0wxLS9mt4VSr2iUD6KAIcLfgDKR15f4q0HCetM5K
+	8TUCqH9/n4YFzZsRqvlfU8Zk6YuuJTeaQQ0iQt17h4So1aBF/kryPixsyVLd/gANm2InXl91uRms/
+	uLHSfpNcTFe8jKQNtMhtK1AGW4LlajJxpjHdoQrBEczUuuJDRzf4jHSDhA+Re+hkK0kjfPpNAFtze
+	hhG0HW9j3lQ3yqwReNGgxmhmN/T3Ql3OnjbScRmtVudunJxpcBEwIHNgpZYEIB1ANia+Hw0Son5h+
+	JOs8WpLZvmv6nZp3sVvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8hfw-00B3No-2z;
-	Thu, 30 Nov 2023 14:05:56 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8hft-00B3Mi-2g
-	for linux-riscv@lists.infradead.org;
-	Thu, 30 Nov 2023 14:05:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 87060B83A1F;
-	Thu, 30 Nov 2023 14:05:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A523BC433C7;
-	Thu, 30 Nov 2023 14:05:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701353148;
-	bh=0bBErjRDq1tShxa+ZQUxMiiFY8Sr+lLm/nr9F9U95/k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IQmWMW3nBQO9dm1t/E18YFK0AnC/mglah74K64IGkrwM+j4yLwR6VQVurr1fw3ijq
-	 k4D9jrismUB8XR0M1yk1ExdoDewlZr3JnimtmuoqgdkxLAHJKb9kuVZ3PmQ6e3BXGr
-	 sNK9Xhhbt83YR8B+qjw3DEbwsJ6Ft4wodKo0abZ4K4CpJ4qz0d3PtuYB67jf0MY/ND
-	 ca1X5w4rtUvOmJ5QudqujjGyT6e2I/0rnqsqoaj94ylZWqPUFsfbr4wFmUeUoNjfcx
-	 N7QA8QdrliZQqaNsZD/m2Aya2rHJtwhYPDFFofPs9G0rQwPgMjFrB6+fK6LpfxIT5x
-	 8szHutp8RX+rA==
-Date: Thu, 30 Nov 2023 14:05:44 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Subject: Re: [PATCH v1 2/8] riscv: dts: starfive: Group tuples in interrupt
- properties
-Message-ID: <20231130-droop-reggae-3f1ec3809a77@spud>
-References: <20231126232746.264302-1-emil.renner.berthing@canonical.com>
- <20231126232746.264302-3-emil.renner.berthing@canonical.com>
+	id 1r8hku-00B482-0a;
+	Thu, 30 Nov 2023 14:11:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1r8hkq-00B44r-0T;
+	Thu, 30 Nov 2023 14:11:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 168201042;
+	Thu, 30 Nov 2023 06:11:43 -0800 (PST)
+Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 107D53F5A1;
+	Thu, 30 Nov 2023 06:10:49 -0800 (PST)
+Message-ID: <2e0f0aac-6287-45d1-ae96-6549c15a8418@arm.com>
+Date: Thu, 30 Nov 2023 14:10:48 +0000
 MIME-Version: 1.0
-In-Reply-To: <20231126232746.264302-3-emil.renner.berthing@canonical.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 10/10] ACPI: IORT: Allow COMPILE_TEST of IORT
+Content-Language: en-GB
+To: Jason Gunthorpe <jgg@nvidia.com>, David Airlie <airlied@gmail.com>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
+ asahi@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
+ Danilo Krummrich <dakr@redhat.com>, Daniel Vetter <daniel@ffwll.ch>,
+ Dexuan Cui <decui@microsoft.com>, devicetree@vger.kernel.org,
+ dmaengine@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ David Woodhouse <dwmw2@infradead.org>, Frank Rowand
+ <frowand.list@gmail.com>, Hanjun Guo <guohanjun@huawei.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, iommu@lists.linux.dev,
+ Jon Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
+ Karol Herbst <kherbst@redhat.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ "K. Y. Srinivasan" <kys@microsoft.com>,
+ Laxman Dewangan <ldewangan@nvidia.com>, Len Brown <lenb@kernel.org>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-snps-arc@lists.infradead.org,
+ linux-tegra@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Lyude Paul <lyude@redhat.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, nouveau@lists.freedesktop.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Sven Peter <sven@svenpeter.dev>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Vineet Gupta <vgupta@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Wei Liu <wei.liu@kernel.org>, Will Deacon <will@kernel.org>
+Cc: Lu Baolu <baolu.lu@linux.intel.com>, Christoph Hellwig <hch@lst.de>,
+ Jerry Snitselaar <jsnitsel@redhat.com>, Hector Martin <marcan@marcan.st>,
+ Moritz Fischer <mdf@kernel.org>, patches@lists.linux.dev,
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+ Rob Herring <robh@kernel.org>, Thierry Reding <thierry.reding@gmail.com>
+References: <10-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
+From: Robin Murphy <robin.murphy@arm.com>
+In-Reply-To: <10-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231130_060554_013507_BF13B17C 
-X-CRM114-Status: UNSURE (   9.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231130_061100_277828_C4AA3F66 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,62 +88,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Emil Renner Berthing <kernel@esmil.dk>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Geert Uytterhoeven <geert@linux-m68k.org>, linux-riscv@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============2975973757709514537=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 29/11/2023 12:48 am, Jason Gunthorpe wrote:
+> The arm-smmu driver can COMPILE_TEST on x86, so expand this to also
+> enable the IORT code so it can be COMPILE_TEST'd too.
+> 
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> ---
+>   drivers/acpi/Kconfig        | 2 --
+>   drivers/acpi/Makefile       | 2 +-
+>   drivers/acpi/arm64/Kconfig  | 1 +
+>   drivers/acpi/arm64/Makefile | 2 +-
+>   drivers/iommu/Kconfig       | 1 +
+>   5 files changed, 4 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/acpi/Kconfig b/drivers/acpi/Kconfig
+> index f819e760ff195a..3b7f77b227d13a 100644
+> --- a/drivers/acpi/Kconfig
+> +++ b/drivers/acpi/Kconfig
+> @@ -541,9 +541,7 @@ config ACPI_PFRUT
+>   	  To compile the drivers as modules, choose M here:
+>   	  the modules will be called pfr_update and pfr_telemetry.
+>   
+> -if ARM64
+>   source "drivers/acpi/arm64/Kconfig"
+> -endif
+>   
+>   config ACPI_PPTT
+>   	bool
+> diff --git a/drivers/acpi/Makefile b/drivers/acpi/Makefile
+> index eaa09bf52f1760..4e77ae37b80726 100644
+> --- a/drivers/acpi/Makefile
+> +++ b/drivers/acpi/Makefile
+> @@ -127,7 +127,7 @@ obj-y				+= pmic/
+>   video-objs			+= acpi_video.o video_detect.o
+>   obj-y				+= dptf/
+>   
+> -obj-$(CONFIG_ARM64)		+= arm64/
+> +obj-y				+= arm64/
+>   
+>   obj-$(CONFIG_ACPI_VIOT)		+= viot.o
+>   
+> diff --git a/drivers/acpi/arm64/Kconfig b/drivers/acpi/arm64/Kconfig
+> index b3ed6212244c1e..537d49d8ace69e 100644
+> --- a/drivers/acpi/arm64/Kconfig
+> +++ b/drivers/acpi/arm64/Kconfig
+> @@ -11,6 +11,7 @@ config ACPI_GTDT
+>   
+>   config ACPI_AGDI
+>   	bool "Arm Generic Diagnostic Dump and Reset Device Interface"
+> +	depends on ARM64
+>   	depends on ARM_SDE_INTERFACE
+>   	help
+>   	  Arm Generic Diagnostic Dump and Reset Device Interface (AGDI) is
+> diff --git a/drivers/acpi/arm64/Makefile b/drivers/acpi/arm64/Makefile
+> index 143debc1ba4a9d..71d0e635599390 100644
+> --- a/drivers/acpi/arm64/Makefile
+> +++ b/drivers/acpi/arm64/Makefile
+> @@ -4,4 +4,4 @@ obj-$(CONFIG_ACPI_IORT) 	+= iort.o
+>   obj-$(CONFIG_ACPI_GTDT) 	+= gtdt.o
+>   obj-$(CONFIG_ACPI_APMT) 	+= apmt.o
+>   obj-$(CONFIG_ARM_AMBA)		+= amba.o
+> -obj-y				+= dma.o init.o
+> +obj-$(CONFIG_ARM64)		+= dma.o init.o
+> diff --git a/drivers/iommu/Kconfig b/drivers/iommu/Kconfig
+> index 7673bb82945b6c..309378e76a9bc9 100644
+> --- a/drivers/iommu/Kconfig
+> +++ b/drivers/iommu/Kconfig
+> @@ -318,6 +318,7 @@ config ARM_SMMU
+>   	select IOMMU_API
+>   	select IOMMU_IO_PGTABLE_LPAE
+>   	select ARM_DMA_USE_IOMMU if ARM
+> +	select ACPI_IORT if ACPI
 
---===============2975973757709514537==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="GDqc2Ost9zQQcBe6"
-Content-Disposition: inline
+This is incomplete. If you want the driver to be responsible for 
+enabling its own probing mechanisms then you need to select OF and ACPI 
+too. And all the other drivers which probe from IORT should surely also 
+select ACPI_IORT, and thus ACPI as well. And maybe the PCI core should 
+as well because there are general properties of PCI host bridges and 
+devices described in there?
 
+But of course that's clearly backwards nonsense, because drivers do not 
+and should not do that, so this change is not appropriate either. The 
+IORT code may not be *functionally* arm64-specific, but logically it 
+very much is - it serves a specification which is tied to the Arm 
+architecture and describes Arm-architecture-specific concepts, within 
+the wider context of ACPI on Arm itself only supporting AArch64, and not 
+AArch32. It's also not like it's driver code that someone might use as 
+an example and copy to a similar driver which could then run on 
+different architectures where a latent theoretical bug becomes real. 
+There's really no practical value to be had from compile-testing IORT.
 
---GDqc2Ost9zQQcBe6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Nov 27, 2023 at 12:27:40AM +0100, Emil Renner Berthing wrote:
-> From: Geert Uytterhoeven <geert@linux-m68k.org>
->=20
-> To improve human readability and enable automatic validation, the tuples
-> in the various properties containing interrupt specifiers should be
-> grouped.
->=20
-> Fix this by grouping the tuples of "interrupts-extended" properties
-> using angle brackets.
->=20
-> Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
-
-This one is missing your signoff Emil.
-
-
---GDqc2Ost9zQQcBe6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZWiWuAAKCRB4tDGHoIJi
-0kjFAP98CAuQRyqCQFxRXAWKKidu4wFen/Zt8TMkwHgIbaZloQEA5D/IV6QDjol+
-X0TG+1sqJS12THdiw2HGwLlcbBYKngk=
-=mWd2
------END PGP SIGNATURE-----
-
---GDqc2Ost9zQQcBe6--
-
-
---===============2975973757709514537==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+Robin.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2975973757709514537==--
-
