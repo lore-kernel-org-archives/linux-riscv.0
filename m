@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 996F2C07CA9
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Nov 2023 13:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8510DC10DAA
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Nov 2023 13:43:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
-	From:Date:Message-Id:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=GqLY43/sJbVPI1hckVU9vuVQnBYxfIwD5LDpVzASaYM=; b=00pxJNlrzVytoo
-	BZGkrhqOgm0jCLq7R9GIvWybDkzd2atRN1zEfNKh88g9r/9Gch9f5VTf4guBd1Qq5X8mi3ri4q1W0
-	+dJvf8Yihq/eUzbhOfPzLtRbA8s/15A7V/0hTGnyWRlMpTvzN8uDgHfgZDidagJQIrWVhU6hLMTsa
-	NS9P03VmvK+V7Lv9m1LIW98iXho0B537PjqwFIp/uhgLhoGjorWRzbnFnGCDua8Zc4UuR+RfIg0tP
-	FLUfefjBLqVG7Uf86XTGopT+caZxSJ7WFfYYEHVyQ1Kth9xzJLHAvRr71vM0dYj7BT+Ob1XldOHJK
-	6Xoitjy2PuwD/U5zg8Hw==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:
+	Message-Id:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NuxGBAGeTNg4ZdMSKpoNPDNzntK8a2HrjsxR5t3EjPc=; b=N8VDDygXbg1hKU
+	ZCQpuAyDOM9GautnUheZfniqQGL7QCnO70W2Cu45/jwc6pUSV8JtXAYRoPe75Q6XI8Yr4arnPpiLf
+	CDr7BbjQwMMKYSXlZxRh8LgKvR9kvHMKHLScQv284F2pV9DxW/9A7O7+99IdWmwhJ56Qsh5DkUw67
+	rEQar+z7mkdZOJ02hq4K+HLCD5SLY2JfsfkQ8jopLvWbt+aDD+IcZSinGSj8Azmo0eFh6Y65MH0TU
+	WY6saL8wsU6D4ARbarOTwvY9YFtZs74Mo+a6973gwXVb6j8DzBjJuGSHqxRtiWuenG6u4hHW4cQ01
+	M8GFe0EloVfktNCWU6Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8hK2-00AzeS-0M;
-	Thu, 30 Nov 2023 13:43:18 +0000
+	id 1r8hK3-00Azfg-22;
+	Thu, 30 Nov 2023 13:43:19 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8hJz-00AzbZ-2l
+	id 1r8hJz-00AzbY-2l
 	for linux-riscv@bombadil.infradead.org;
 	Thu, 30 Nov 2023 13:43:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
-	Subject:Cc:To:From:Date:Message-Id:Sender:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:In-Reply-To;
-	bh=YZ0GfTPU5Y9/KIDudfiquHny4LAq8atLh8MsbRLgf+Y=; b=UyepradYwE1I39llEfbubbm/q+
-	w0zCrEkYd5IS8pW3dI+UeR5IBw/z3fy9J5WdUeqUp5Mmkjn+a0AaksqAiv8O/4CBpUXh3+/skEVIN
-	+5sDwVZq4vsGXroUSi3gOLpbf2Es/qCoC+9AsHEmtaYOfYXkn8eOmyF2oSO1kQZCKTM4s9E+DcHyB
-	tPpQo93S5Z+BcpudJi+lYex/A6Fhrwi2vx5spgZHjyyDbwpK2UehezXKHiCBR86CX6fsa4F0n9boK
-	OCjx6zjDz3kniu4YhoY5/V40m2tZw1HdgxWKxjU8YgNruo3ZUR97w1jx+6gkOynAI9KjmQNGD9Wgm
-	FPCR79jQ==;
+	d=infradead.org; s=desiato.20200630; h=Subject:Cc:To:From:Date:Message-Id:
+	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=nTDEByR8M40duXbJYISBwBBcacxMogIgHwTMF/IlaPs=; b=ab88EBl58upGSeTBpe4Vrkh75o
+	nYzYKpq9wEt3x47E/cOvkiJur81GoqDqoYi6s74VQaga3MieJo7RSEDJJn9EHrsZ46o/Vt0PPba1O
+	7N5MIGE2WkZ/1Npup0E2UMyjY99eQrOiAjDzCz+uiwRFWY8STstyrd8wuNrmhS3G+8ZpNFPKPpiMt
+	Lz9iDzeQng+KlkneqRr7su3ELXk2i6rPC9rSP57zMgxdI/AfqeNJ4DjMvpgNXy85ZYBUNySuUb/WE
+	pmLEr6Rc8OdsHi1fUzABmTXTUCWk9SqdOdJwom8QGOR8Hb55UVkXG+n8YE+knnmgF+D9jpOO841TP
+	jGKbXRSg==;
 Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
 	by desiato.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8hJs-0013s8-0p;
+	id 1r8hJs-0013s7-0o;
 	Thu, 30 Nov 2023 13:43:08 +0000
 Received: by noisy.programming.kicks-ass.net (Postfix, from userid 0)
-	id 563A7300A7E; Thu, 30 Nov 2023 14:43:07 +0100 (CET)
-Message-Id: <20231130134204.026354676@infradead.org>
+	id 50E0B300427; Thu, 30 Nov 2023 14:43:07 +0100 (CET)
+Message-Id: <20231130133630.192490507@infradead.org>
 User-Agent: quilt/0.65
-Date: Thu, 30 Nov 2023 14:36:31 +0100
+Date: Thu, 30 Nov 2023 14:36:30 +0100
 From: Peter Zijlstra <peterz@infradead.org>
 To: peterz@infradead.org
 Cc: paul.walmsley@sifive.com,
@@ -84,9 +84,7 @@ Cc: paul.walmsley@sifive.com,
  jpoimboe@kernel.org,
  joao@overdrivepizza.com,
  mark.rutland@arm.com
-Subject: [PATCH v2 1/2] cfi: Flip headers
-References: <20231130133630.192490507@infradead.org>
-MIME-Version: 1.0
+Subject: [PATCH v2 0/2] x86/bpf: Fix FineIBT vs eBPF
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,106 +96,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Normal include order is that linux/foo.h should include asm/foo.h, CFI has it
-the wrong way around.
+Hi!
 
-Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
----
- arch/riscv/include/asm/cfi.h |    3 ++-
- arch/riscv/kernel/cfi.c      |    2 +-
- arch/x86/include/asm/cfi.h   |    3 ++-
- arch/x86/kernel/cfi.c        |    4 ++--
- include/asm-generic/Kbuild   |    1 +
- include/asm-generic/cfi.h    |    5 +++++
- include/linux/cfi.h          |    1 +
- 7 files changed, 14 insertions(+), 5 deletions(-)
+There's a problem with FineIBT and eBPF using __nocfi when
+CONFIG_BPF_JIT_ALWAYS_ON=n, in which case the __nocfi indirect call can target
+a normal function like __bpf_prog_run32().
 
---- a/arch/riscv/include/asm/cfi.h
-+++ b/arch/riscv/include/asm/cfi.h
-@@ -7,8 +7,9 @@
-  *
-  * Copyright (C) 2023 Google LLC
-  */
-+#include <linux/bug.h>
- 
--#include <linux/cfi.h>
-+struct pt_regs;
- 
- #ifdef CONFIG_CFI_CLANG
- enum bug_trap_type handle_cfi_failure(struct pt_regs *regs);
---- a/arch/riscv/kernel/cfi.c
-+++ b/arch/riscv/kernel/cfi.c
-@@ -4,7 +4,7 @@
-  *
-  * Copyright (C) 2023 Google LLC
-  */
--#include <asm/cfi.h>
-+#include <linux/cfi.h>
- #include <asm/insn.h>
- 
- /*
---- a/arch/x86/include/asm/cfi.h
-+++ b/arch/x86/include/asm/cfi.h
-@@ -7,8 +7,9 @@
-  *
-  * Copyright (C) 2022 Google LLC
-  */
-+#include <linux/bug.h>
- 
--#include <linux/cfi.h>
-+struct pt_regs;
- 
- #ifdef CONFIG_CFI_CLANG
- enum bug_trap_type handle_cfi_failure(struct pt_regs *regs);
---- a/arch/x86/kernel/cfi.c
-+++ b/arch/x86/kernel/cfi.c
-@@ -4,10 +4,10 @@
-  *
-  * Copyright (C) 2022 Google LLC
-  */
--#include <asm/cfi.h>
-+#include <linux/string.h>
-+#include <linux/cfi.h>
- #include <asm/insn.h>
- #include <asm/insn-eval.h>
--#include <linux/string.h>
- 
- /*
-  * Returns the target address and the expected type when regs->ip points
---- a/include/asm-generic/Kbuild
-+++ b/include/asm-generic/Kbuild
-@@ -11,6 +11,7 @@ mandatory-y += bitops.h
- mandatory-y += bug.h
- mandatory-y += bugs.h
- mandatory-y += cacheflush.h
-+mandatory-y += cfi.h
- mandatory-y += checksum.h
- mandatory-y += compat.h
- mandatory-y += current.h
---- /dev/null
-+++ b/include/asm-generic/cfi.h
-@@ -0,0 +1,5 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_GENERIC_CFI_H
-+#define __ASM_GENERIC_CFI_H
-+
-+#endif /* __ASM_GENERIC_CFI_H */
---- a/include/linux/cfi.h
-+++ b/include/linux/cfi.h
-@@ -9,6 +9,7 @@
- 
- #include <linux/bug.h>
- #include <linux/module.h>
-+#include <asm/cfi.h>
- 
- #ifdef CONFIG_CFI_CLANG
- enum bug_trap_type report_cfi_failure(struct pt_regs *regs, unsigned long addr,
+Specifically the various preambles look like:
 
+   FineIBT				JIT
+
+   __cfi_foo:
+      endbr64
+      subl	$hash, %r10d
+      jz	1f
+      ud2
+   1: nop
+   foo:					foo:
+      osp nop3				   endbr64
+      ...				   ...
+
+So while bpf_dispatcher_*_func() does a __nocfi call to foo()+0 and this
+matches what the JIT generates, it does not work for regular FineIBT functions,
+since their +0 endbr got poisoned and things go *boom*.
+
+Cure this by teaching the BPF JIT about all the various CFI forms. Notably this
+removes the last __nocfi call on x86.
+
+If the BPF folks agree (and the robots don't find fail) I'd like to take this
+through the x86 tree, because I have a few more patches that turn the non-fatal
+'osp nop3' poison into a 4 byte ud1 instruction which is rather fatal. As a
+result this problem will also surface on !IBT hardware.
+
+Changes since v1:
+ - added wee comment to asm/cfi.h (ast)
+ - added asm comments to bytecode (ast)
+ - renamed bpf_func_proto() to __bpf_prog_runX() (ast)
+ - added bpf_prog_aux::ksym_prefix (ast)
 
 
 _______________________________________________
