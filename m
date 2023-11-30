@@ -4,86 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A98BFC4167B
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Nov 2023 15:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74D55C4167B
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Nov 2023 15:36:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vRjWBR8n5yOM2GhbY4VIhRRx80p3489tBlOtI7hKJE4=; b=xwIQryl9DTMKDr
-	pFexcxyX0yv8VlyClGq7IGi9LBqWxOvj3RwWS0Iki1c7Et5nJl2/BRLZXCqVlxhnLQ6B9H52aC8hA
-	hEAgvqOV7B90Qa51ceAKzsZDweq8u/kXbaN7+ofVb/C0nXnQmPUeioAjqmMIBDde1em35OhR4cmNJ
-	ZldUe0oKtP8hWqPQIba1FikF2vxEVc4RQBAcCiZS2VTZpBktBECZ9SjO98BIWgfpyzRxD+/gF23BD
-	cBaL57IzvAD/f9mrfWt+xdvrgY4LAUI5jSiEBgO9n2xCoaSoJBMdq+xLVlAdy6JtOjydcWpdP90yJ
-	uA7A3WAxr1z0ehd8oiNg==;
+	List-Owner; bh=BvrCU4XAfC6z/SBjRCAg0kMDv+iRvOhEVLvjQqUe58Q=; b=eG6pSbZoEl8cq8
+	h4SQ0/OtNUfUr4dFw3N5E9bK9P3Wd2cTzaXjVivfvsEf7sgoSJsXARilayeTYVQfn++lcO2cMbMOm
+	Ed4oCXMVIvJyz8Yo/9kpmdtymDBkv9C+EYmFjCChyiwEuqEReGp0hoS2JwkdBGNZITnrI/GjMlyTD
+	TYQHTl+udc8jnfWSIGkMhALgQBIlSPjH/njW11I1NnHhnqLY4MfC3mH0mkni1dInRhgmEx8hAPuWF
+	5TQcoulf47Da7+wuJcGS4acAle4viLB0+K/r4TFyxX5zZ+0zVGGeJG+51U1cPt/+J1ODW1jyhSIHs
+	VmISHMf0ZLPnnNCY12aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8iqP-00BBwh-2h;
-	Thu, 30 Nov 2023 15:20:49 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1r8j5N-00BDtQ-1c;
+	Thu, 30 Nov 2023 15:36:17 +0000
+Received: from mail-mw2nam12on20616.outbound.protection.outlook.com ([2a01:111:f400:fe5a::616] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8iqN-00BBuV-1D
-	for linux-riscv@lists.infradead.org;
-	Thu, 30 Nov 2023 15:20:48 +0000
-Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 6587042242
-	for <linux-riscv@lists.infradead.org>; Thu, 30 Nov 2023 15:20:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1701357645;
-	bh=Hegf0srFkbsTjzBuIfrKZwGyBpbOFAxXtDxYBC/BJOY=;
-	h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
-	 MIME-Version;
-	b=qHbpfnN1bJ1u6YBFbZYoyu86tp+DuZIk0AiK+12vZBW2tCNHHbLDQ+nB65+rpCZfq
-	 zXTedK7iDlanZEdDBInrBAK4tuoVonXjtSGgNqSc5eU0ofCBOyqcXFoMFPVGy4gRhy
-	 TRL/V5fqUrLZIxBFMlMDD7QPXQW0n2H8aYRndVI/Xrc9Wn5h226fjBbwVEhI4MOIxc
-	 DX0Z1pNAV2ODzxWdjphxNKtu1eZ40yeFcLCQMGfb/2HnsbDFQ1fDbKn5TgCy9X0t/5
-	 DQdfXafMgyDZaGYqDlPId/P74+fqzKkGtyyrHaRbSRPd6d878euW3rJFB6eUNU2P7Z
-	 0OP+cITmE12Fw==
-Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-3b8339b27e4so1254886b6e.3
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Nov 2023 07:20:45 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701357643; x=1701962443;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Hegf0srFkbsTjzBuIfrKZwGyBpbOFAxXtDxYBC/BJOY=;
-        b=jdJjniz4Dw55hFCJS3zo937OGS2nLbfarh93EfdV3aaOIy2fEFaCa/AzuwVz9lSdoR
-         8kSa/A8H6LeN0UkXjm8w67Cqvf/mWtoykHOw8+9fT5J9yu0PnAdYC0VUeBc61H0J8+lD
-         9nA+0rWvDBTzLHA6fsOHYp08vl+Jg3tDZqteyQbJ53b/EDdOmgafZ8rWzcLIxORurqjY
-         +w9uNFLfSMSRFPqU6box5GgB1APuGRyrSqIr/XqsTReNu/TIueKUGfxeNnInmNxSUxsn
-         WJtIcF9BxfLWXDYA/zKp5Ypqk00fno/Oh1qMBTqKrnFaMgcVrIi0FMTQpRQ9iPSRqiP0
-         BugA==
-X-Gm-Message-State: AOJu0YzjswoPj5smAlnHfa8OpMxwHIlFy8hasYBKZvl1HqvqhbTy82cT
-	IZY2/fFtrVpQeFZbSLg3YXDGgDEIl6Lr7cJNOnDi5gXdiAUL7mtheBKsE1iIHytj7wWRhMuP3zY
-	XdmuRKCiRUPQ1Ih5ry/B56WIddnAg3sIr51Fmu2lfVEUSEsxyEWtGtA==
-X-Received: by 2002:a05:6808:20a0:b0:3b2:ee79:c0fd with SMTP id s32-20020a05680820a000b003b2ee79c0fdmr31848209oiw.1.1701357643559;
-        Thu, 30 Nov 2023 07:20:43 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEDv33VjZX5rToz283+PZ9me+zUyLCvtTvnVucpd5Vw8rGLY3r7NPHXqlLul8V0jCsywTS1sQ==
-X-Received: by 2002:a05:6808:20a0:b0:3b2:ee79:c0fd with SMTP id s32-20020a05680820a000b003b2ee79c0fdmr31848188oiw.1.1701357643362;
-        Thu, 30 Nov 2023 07:20:43 -0800 (PST)
-Received: from stitch.. ([80.71.140.73])
-        by smtp.gmail.com with ESMTPSA id y125-20020a636483000000b005bd3d6e270dsm1356002pgb.68.2023.11.30.07.20.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Nov 2023 07:20:43 -0800 (PST)
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-To: linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 8/8] riscv: dts: starfive: Enable SDIO wifi on JH7100 boards
-Date: Thu, 30 Nov 2023 16:19:32 +0100
-Message-Id: <20231130151932.729708-9-emil.renner.berthing@canonical.com>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20231130151932.729708-1-emil.renner.berthing@canonical.com>
-References: <20231130151932.729708-1-emil.renner.berthing@canonical.com>
+	id 1r8j5J-00BDs4-1U;
+	Thu, 30 Nov 2023 15:36:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=QrP3cCKO8O71SL7p/MXN0qrKCJPKw4rIGWpdjK+k1jAMj26xzPVnoJMqtlUVNy0eY2kGpvo31+/e9ANxarwpYv3U9XfyRm5Zy0BMsjHvdxcSYGC1hDY6VcXWVAs1btwWg7ekytuAZIpFYveaK0byj8BJ7+/1R9ndcg6v3+vRv2xHn7kMXMnIktEi/HpxnwAOO9vXZ1++hzDGi4dwqOM6xyp5VrH7UxZTWpwcj5/qzE8siD9z2m6gjeGfpbr8xazPqETPWpshJsdxNpCVc40iddol6NFEjBk2F+7LEP6qbHwgytfybr4EPgny4uWJ4zbMjHTtfWphHwzig0W1/2WdoA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Yg+iGpeFsD329cG0CVnQudByMeC7keQFt7dotbkdYDc=;
+ b=iL858/IN1JSH/hl7GNcNhLLAC/8NeaVUGnbX+bWwy3VZCX9IGYZKgYg9Byd+BQSLIuxjLwtzLHZvIK+52JomGquV5+pIMG7ROdSxRnFHi13kDaPosIKwwCoWmzT4fAvirKfAQNvV2pPx6+saMpCzhF5aWETSwrilL7ueaAagAY9W1hudNpNw8djK8t8eJGBXMDZWJLjbE5GiHy93Xy78KIFtn8P3+mHtWWLMtqLd/BpmvjTZKgDybSlZ3M8kC/1Y6QW9gKA0hOlv/qXSW8PleUPbdVz7Oq07ygnq5uc1s1CM+z6lpfq71/ft/KxPcuK/81184pCXc0Bj12kaylA7OA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Yg+iGpeFsD329cG0CVnQudByMeC7keQFt7dotbkdYDc=;
+ b=YdUFck0v/wQP/dQh2YzHV+D9N71jIQTMMuO0OWmwdTX2brvjeclF2u+Trd1zteOQZl5t8WRD92nbsANdYCSIWRvOfxy+LuKl5ZPnXtgv5cqFGiGb/nhBJg7HaXUmcVlAWn2q194KeDQmQ2XSXzIoUu/IHAS2Zk0KaRsVxHJqCqgFl6QtaOxnXcvpRxuhVMRx1/DgHxVU8A56lmtwCbFb6fakdnvOGJBunQhcO2ibAx/8UrgDbtIECEDZOFC3BxpFUO9ZRqiz7QE+PPv5XOKIrT74Nq3iACUswq11eqx0yXmaxMsWmcbiZsMpDigPbBIY+Htmi6iGoJYjg/7JYDNXXQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV2PR12MB5869.namprd12.prod.outlook.com (2603:10b6:408:176::16)
+ by BY5PR12MB4999.namprd12.prod.outlook.com (2603:10b6:a03:1da::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7046.24; Thu, 30 Nov
+ 2023 15:36:02 +0000
+Received: from LV2PR12MB5869.namprd12.prod.outlook.com
+ ([fe80::60d4:c1e3:e1aa:8f93]) by LV2PR12MB5869.namprd12.prod.outlook.com
+ ([fe80::60d4:c1e3:e1aa:8f93%4]) with mapi id 15.20.7046.015; Thu, 30 Nov 2023
+ 15:36:02 +0000
+Date: Thu, 30 Nov 2023 11:36:00 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: David Airlie <airlied@gmail.com>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Danilo Krummrich <dakr@redhat.com>, Daniel Vetter <daniel@ffwll.ch>,
+	Dexuan Cui <decui@microsoft.com>, devicetree@vger.kernel.org,
+	dmaengine@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	David Woodhouse <dwmw2@infradead.org>,
+	Frank Rowand <frowand.list@gmail.com>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>, iommu@lists.linux.dev,
+	Jon Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
+	Karol Herbst <kherbst@redhat.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	Laxman Dewangan <ldewangan@nvidia.com>, Len Brown <lenb@kernel.org>,
+	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-hyperv@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-snps-arc@lists.infradead.org,
+	linux-tegra@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Lyude Paul <lyude@redhat.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	nouveau@lists.freedesktop.org, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Vineet Gupta <vgupta@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Wei Liu <wei.liu@kernel.org>, Will Deacon <will@kernel.org>,
+	Lu Baolu <baolu.lu@linux.intel.com>, Christoph Hellwig <hch@lst.de>,
+	Jerry Snitselaar <jsnitsel@redhat.com>,
+	Hector Martin <marcan@marcan.st>, Moritz Fischer <mdf@kernel.org>,
+	patches@lists.linux.dev,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Rob Herring <robh@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>
+Subject: Re: [PATCH 10/10] ACPI: IORT: Allow COMPILE_TEST of IORT
+Message-ID: <20231130153600.GI1389974@nvidia.com>
+References: <10-v1-720585788a7d+811b-iommu_fwspec_p1_jgg@nvidia.com>
+ <2e0f0aac-6287-45d1-ae96-6549c15a8418@arm.com>
+Content-Disposition: inline
+In-Reply-To: <2e0f0aac-6287-45d1-ae96-6549c15a8418@arm.com>
+X-ClientProxiedBy: SA1P222CA0150.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:3c2::20) To LV2PR12MB5869.namprd12.prod.outlook.com
+ (2603:10b6:408:176::16)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV2PR12MB5869:EE_|BY5PR12MB4999:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6b55249c-1995-414b-dc14-08dbf1ba0f1b
+X-LD-Processed: 43083d15-7273-40c1-b7db-39efd9ccc17a,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: qxL5KGbETW+8VNAFa+yAFxiHNsxzKTkhEa1mtpquu4qbY4dj/oWdidOguAA+zraXx8AiH9qDvzSPTYib4QTECykhbAWOPnmLlANTEuXR7+e49oYaBEyhsMXw3JK0qJCTKdiKcIOhkbOZa4jK01K7eqqB1lzJ3jnxxCf/ZGEZMn5ka8CR/WTblJwU5q5SDQnoGEaN0pt5N+Izb8Y5KnWAX/bsCTqnRLVf6V/v2j6stqqJzNzt4J9YO3rXZ8O8NG2wCRbIaWAd63rHuJQhfwg8axjebcQZlEj/4AjDPE9paYsAOvWe4EKQIUxhwSFaT7VFgcMQQJAuZPdymtbSFm43MOsVsx86nj1+fN3MWgBOepfnCWaFMa1KeT45AwpHYZHpD27c0ZTfbYoyLa7ujPnVa5856MARpyT91E4C5S/ouYY3BUUSvY3cNIRt1AtPGw2m2YHTyL7ogXwKzFFOolWafF0C0AEtkOeADjjhLgvRfiqiMIcbpfSMTvQDl12tC3RYZqDpmyzMCA0O1rd8vHlgWJBEWFEgruJio/nFZxnYdYzX7eO0dJjSVbd3USXY40i0
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR12MB5869.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(346002)(136003)(366004)(396003)(376002)(39860400002)(230922051799003)(64100799003)(186009)(451199024)(1800799012)(86362001)(66946007)(54906003)(66476007)(6916009)(33656002)(38100700002)(36756003)(1076003)(26005)(6506007)(2616005)(6512007)(2906002)(316002)(66556008)(6486002)(8676002)(5660300002)(7406005)(478600001)(41300700001)(4326008)(7366002)(7416002)(8936002);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?caei0Cy5UF+TDyu1d/BtLe0eaGTnF0CTgxbf1uVSWylnu4MeOPu0sDqE5OVp?=
+ =?us-ascii?Q?b5bHBmW3h3fCQq66Ma6qYMWJ53Zvyc8w64EvByrXIa1UgYU7wvD9XWaDWdSK?=
+ =?us-ascii?Q?DlsyxkAyfwBgxysPu942dNosJ9vkV1c9S8uPo8gEV7ETDuyOlLMHoDzVO3mm?=
+ =?us-ascii?Q?M3zl1WMxshhtJt5OKBths+QAM/kKDd0tO0Qv0kmwEMUL3Lo/HhQeb78DSwuV?=
+ =?us-ascii?Q?OZcZWWa0wXA6Ajvt37Q9HLH9IeHwqx+qzFmbxFN0V9+CWHARSsHv/cjmLVlK?=
+ =?us-ascii?Q?fpWruoAwztyPxdN1x5B9YMfofd8jZYszKpUfJThKdEPItXSnpzpm6bKLT4hI?=
+ =?us-ascii?Q?//QDTT25yFdoYmVRySDotuiIKxMSJyqrIZeks5GSeE8C17DvyvmLhE4hz10U?=
+ =?us-ascii?Q?7IoEYcW5xAAETSiMGEk9uOkiuC8/QIqeglYq61ymiA65I1Vt4EwZDtqT97Qb?=
+ =?us-ascii?Q?/6IAVyqcmL0PXtiihKS6ntyF9zDWq4+lh+HVHbFNE99IkZodDYIyEoP15hSK?=
+ =?us-ascii?Q?57H1UYklF0el1o6YvMhosjfZkMbaBIW3Fb4oirt9cvlzNQJ/tj+ipaCyjnjv?=
+ =?us-ascii?Q?IKNTFHvRU0vhM6wAlXYezy2rRmhYCjHWrLC4ycT5JfZaG/4WlayVulJ6NycM?=
+ =?us-ascii?Q?aJbsPz80zYxjvRhIFUEJ8Fzk8Rs4+2VGloDDnZcyOuRzqETB7G2S+nIJmdI3?=
+ =?us-ascii?Q?OeOncIOdeNRc2wSdMGi7TYQxcQMwmItWW9bZuC4QX/PWeej/alDurMixs1uH?=
+ =?us-ascii?Q?bcLGm4DRe8Yia1GgW2PnidAQS518vkG0GdSVsM1ZKJOslfofaPubfysNMjkR?=
+ =?us-ascii?Q?9LXlEyC2R86ngKC08R6oFLEVAY8SByH8wUt0V0IpXXiJUFcftJA3XxvTidsy?=
+ =?us-ascii?Q?ATm/8IAzU4FfhUjf0DoJA1JpT3DrIJ2smRKcbb5ELYGq0DgR9hdbCU/RryVK?=
+ =?us-ascii?Q?ihxKd4qOfeVOHcBcUUMjEWT3xdB3E2XADvaVxZxq7iOp8aNfP+jat/4wQ87t?=
+ =?us-ascii?Q?ITtve5Xy3G9lrAZ4kRJK1c3bSx+2Ci9SpyBbZ8egJ9pq64HN+z6AQ5LEVhBi?=
+ =?us-ascii?Q?+/koQlHHuTL8dnKwPD5R5z9r2XoxzJizhTTA+mJpkMlzKKa4RsZvnoPgwvfi?=
+ =?us-ascii?Q?nUxcY6uhNjPSKzV1F6TtAYopBQcvNoOBJal4tbjagTR+QTtDC84j0ckJomIQ?=
+ =?us-ascii?Q?EK0W7soDBkooK0Ky1/4kGuG7HVHxv/xuS51begtclSYfg86B5TZdPUzL1UEJ?=
+ =?us-ascii?Q?LfrJyK0z9nPKcqT37K8/ZxM1IVhGZA3R6QpAFJXgF417qjrBGJyiMPysrJ2+?=
+ =?us-ascii?Q?MI+vDqMHQ875DkbhjlrIAZXUjehJ8SvF6Ok3O1o5Sz5HmlppNcoIEwMuW1mN?=
+ =?us-ascii?Q?hGleadb8PtQfaVuRbFBNVlP9TKjcMaxwxIdBc4YXjSlaokshC5KxdPwHCCsT?=
+ =?us-ascii?Q?JlY6HcT1zSOmt2XRDLUNSGW1jl34faPcm16PpVESd94xaoGbj1+ag6BaJE14?=
+ =?us-ascii?Q?6jt0fUtQ0fnMaX4qhpeN/+I+1yh9bMhxQichFiiYwF3SZE2V6SC8juSKjYoW?=
+ =?us-ascii?Q?1gPexDaeTVW1GX1I996PWwFN1n6GVufExkN4COyW?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6b55249c-1995-414b-dc14-08dbf1ba0f1b
+X-MS-Exchange-CrossTenant-AuthSource: LV2PR12MB5869.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Nov 2023 15:36:02.5907
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5LTnlNz9icLXiTZJDWxS9wuH1D8XRDWGsPtXpCwOpV1tmhns5DhDddp3Q4CbplUF
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4999
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231130_072047_548580_CFB38A7E 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20231130_073613_618941_A661B7BE 
+X-CRM114-Status: GOOD (  23.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,115 +167,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Geert Uytterhoeven <geert@linux-m68k.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add pinctrl and MMC controller nodes for the Broadcom wifi controller
-on the BeagleV Starlight and StarFive VisionFive V1 boards.
+On Thu, Nov 30, 2023 at 02:10:48PM +0000, Robin Murphy wrote:
+> > diff --git a/drivers/iommu/Kconfig b/drivers/iommu/Kconfig
+> > index 7673bb82945b6c..309378e76a9bc9 100644
+> > --- a/drivers/iommu/Kconfig
+> > +++ b/drivers/iommu/Kconfig
+> > @@ -318,6 +318,7 @@ config ARM_SMMU
+> >   	select IOMMU_API
+> >   	select IOMMU_IO_PGTABLE_LPAE
+> >   	select ARM_DMA_USE_IOMMU if ARM
+> > +	select ACPI_IORT if ACPI
+> 
+> This is incomplete. If you want the driver to be responsible for enabling
+> its own probing mechanisms then you need to select OF and ACPI too. 
 
-Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
----
- .../boot/dts/starfive/jh7100-common.dtsi      | 60 +++++++++++++++++++
- 1 file changed, 60 insertions(+)
+Well, yes, we do have that minor issue today that drivers can be
+compiled without any way to parse any FW and are thus completely
+useless.
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
-index adcdbbc4f57f..42fb61c36068 100644
---- a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
-@@ -13,6 +13,7 @@
- / {
- 	aliases {
- 		mmc0 = &sdio0;
-+		mmc1 = &sdio1;
- 		serial0 = &uart3;
- 	};
- 
-@@ -64,6 +65,11 @@ soc {
- 			     <0x00 0xfa000000 0x10 0x7a000000 0x00 0x01000000>,
- 			     <0x00 0xfb000000 0x00 0xfb000000 0x07 0x85000000>;
- 	};
-+
-+	wifi_pwrseq: wifi-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&gpio 37 GPIO_ACTIVE_LOW>;
-+	};
- };
- 
- &gpio {
-@@ -146,6 +152,41 @@ GPO_SDIO0_PAD_CDATA_OEN_BIT3,
- 		};
- 	};
- 
-+	sdio1_pins: sdio1-0 {
-+		clk-pins {
-+			pinmux = <GPIOMUX(33, GPO_SDIO1_PAD_CCLK_OUT,
-+				  GPO_ENABLE, GPI_NONE)>;
-+			bias-disable;
-+			input-disable;
-+			input-schmitt-disable;
-+		};
-+		sdio-pins {
-+			pinmux = <GPIOMUX(29,
-+				  GPO_SDIO1_PAD_CCMD_OUT,
-+				  GPO_SDIO1_PAD_CCMD_OEN,
-+				  GPI_SDIO1_PAD_CCMD_IN)>,
-+				 <GPIOMUX(36,
-+				  GPO_SDIO1_PAD_CDATA_OUT_BIT0,
-+				  GPO_SDIO1_PAD_CDATA_OEN_BIT0,
-+				  GPI_SDIO1_PAD_CDATA_IN_BIT0)>,
-+				 <GPIOMUX(30,
-+				  GPO_SDIO1_PAD_CDATA_OUT_BIT1,
-+				  GPO_SDIO1_PAD_CDATA_OEN_BIT1,
-+				  GPI_SDIO1_PAD_CDATA_IN_BIT1)>,
-+				 <GPIOMUX(34,
-+				  GPO_SDIO1_PAD_CDATA_OUT_BIT2,
-+				  GPO_SDIO1_PAD_CDATA_OEN_BIT2,
-+				  GPI_SDIO1_PAD_CDATA_IN_BIT2)>,
-+				 <GPIOMUX(31,
-+				  GPO_SDIO1_PAD_CDATA_OUT_BIT3,
-+				  GPO_SDIO1_PAD_CDATA_OEN_BIT3,
-+				  GPI_SDIO1_PAD_CDATA_IN_BIT3)>;
-+			bias-pull-up;
-+			input-enable;
-+			input-schmitt-enable;
-+		};
-+	};
-+
- 	uart3_pins: uart3-0 {
- 		rx-pins {
- 			pinmux = <GPIOMUX(13, GPO_LOW, GPO_DISABLE,
-@@ -225,6 +266,25 @@ &sdio0 {
- 	status = "okay";
- };
- 
-+&sdio1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	cap-sdio-irq;
-+	cap-power-off-card;
-+	mmc-pwrseq = <&wifi_pwrseq>;
-+	non-removable;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sdio1_pins>;
-+	status = "okay";
-+
-+	wifi@1 {
-+		compatible = "brcm,bcm4329-fmac";
-+		reg = <1>;
-+	};
-+};
-+
- &uart3 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart3_pins>;
--- 
-2.40.1
+Certainly one could make the case this should be
+   depends on OF || ACPI
+   select ACPI_IORT if ACPI
 
+And similar in other drivers so they have the minimum dependencies to
+actually be able to work. This would be the correct way to use
+kconfig.
+
+But who cares? I'm not trying to fix everything here, I'm trying to
+allow COMPILE_TEST for more sub components of this one driver.
+
+> And all the other drivers which probe from IORT should surely also
+> select ACPI_IORT, and thus ACPI as well. And maybe the PCI core
+> should as well because there are general properties of PCI host
+> bridges and devices described in there?
+
+Now you are just arguring to an absurdity.
+
+> But of course that's clearly backwards nonsense, because drivers do not and
+> should not do that, so this change is not appropriate either.
+
+This patch is about COMPILE_TEST.
+
+> theoretical bug becomes real. There's really no practical value to be had
+> from compile-testing IORT.
+
+COMPILE_TEST is to make it easier to maintain the kernel code by
+reducing the neccessary combinations required to get complete compile
+coverage. 100% compile test is a laudible goal on its own.
+
+I have no idea what you are talking about with "no practical value"
+just because you don't use COMPILE_TEST doesn't mean it has "no
+practical value". It exists, people like me use, we can make it
+better. Why is this even a point of debate? :(
+
+Jason
 
 _______________________________________________
 linux-riscv mailing list
