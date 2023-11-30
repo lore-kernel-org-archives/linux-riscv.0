@@ -4,68 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94A7AC4167B
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Nov 2023 16:58:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68531C4167B
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Nov 2023 17:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h7EIW0JXkSKYAP2dabzC4T0Zunuimm+1mmDzIN9JOSc=; b=MXUoljt0bDKVNF
-	1znfNPQ7w2vN3KlA8TSmZyubEMcNtDZIv/Zts+KlZxljLQuHSvHsNLocytxF0T4bbOE8jq8IA4c9F
-	U+Z4IvQYCUc/wCZ3QNeJcMgtfE+O80y7d7X01csad7ZQ1/BtwKYbIdjnz0Ryj+hyAw8rjjDNFZOzr
-	WMRgcgeWI2Q8GfaCvE2RORqhRtKOmxjOa/ATw54Y64C3u3dQx9y4+iGzQhvVYQ7aSF0AcFn94CREV
-	PRSpQjGRVvqVnJn9R4Kl8eM+bE3IMhEX0Zmw6CmB89PreaOyqbEAZpWPmEqq7rV/hEHVo1YYcFi6p
-	nvRDCI7CbWBvv2OgYVLw==;
+	List-Owner; bh=XutqQGU0Fmb9S/qNyyzSWg5ALLEfwBlxU6l7w3MYGXw=; b=zy+5YV+oY5xB1i
+	t+wWhp5rGBqXXaZVzGl735oRgP7B2PZHon+uaOPmeW22HM6r/VUYM7KirwU8jfMkL+6kXepBJ4OO+
+	HxgMh/ckIpJ0XiOUQp+Ur08K4+mMcKMKlrzdW/hnYhIpa4oyE++ushHFA9dsnm6TPHp8wDDiqxQBI
+	avoBc9Cn+2fpi78NRvnZS5OLWtsQ5DvLkeouwFMTRasLs7xGub7E9Lg1WAJdsZRfJfKfQ6WahqE5f
+	ehMgyrSJUS6dYaHVX9DEVywPOU50yfTeA7mybAlOjZNQw8yVV5OoRhAp8vrs68vutGO/TNdwUyj7b
+	HL+i7UNirSv0WRxpCkfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8kMV-00BRW2-0x;
-	Thu, 30 Nov 2023 16:58:03 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8kMS-00BRUa-0R;
-	Thu, 30 Nov 2023 16:58:01 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Sh2M33QNwz6K5xl;
-	Fri,  1 Dec 2023 00:53:19 +0800 (CST)
-Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4B4211402CD;
-	Fri,  1 Dec 2023 00:57:58 +0800 (CST)
-Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35; Thu, 30 Nov
- 2023 16:57:57 +0000
-Date: Thu, 30 Nov 2023 16:57:56 +0000
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-CC: <linux-pm@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<x86@kernel.org>, <linux-csky@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-ia64@vger.kernel.org>, <linux-parisc@vger.kernel.org>, Salil Mehta
-	<salil.mehta@huawei.com>, Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	<jianyong.wu@arm.com>, <justin.he@arm.com>, James Morse
-	<james.morse@arm.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar
-	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>
-Subject: Re: [PATCH 15/21] x86/topology: use weak version of
- arch_unregister_cpu()
-Message-ID: <20231130165756.000039ec@Huawei.com>
-In-Reply-To: <E1r5R3r-00Cszs-2R@rmk-PC.armlinux.org.uk>
-References: <ZVyz/Ve5pPu8AWoA@shell.armlinux.org.uk>
-	<E1r5R3r-00Cszs-2R@rmk-PC.armlinux.org.uk>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
+	id 1r8kSm-00BSYk-2h;
+	Thu, 30 Nov 2023 17:04:32 +0000
+Received: from [50.53.46.231] (helo=[192.168.254.15])
+	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
+	id 1r8kSl-00BSYN-0d;
+	Thu, 30 Nov 2023 17:04:31 +0000
+Message-ID: <7372f74b-ad5a-4545-9d48-b5eed9005557@infradead.org>
+Date: Thu, 30 Nov 2023 09:04:29 -0800
 MIME-Version: 1.0
-X-Originating-IP: [10.202.227.76]
-X-ClientProxiedBy: lhrpeml100005.china.huawei.com (7.191.160.25) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231130_085800_324335_87FD3045 
-X-CRM114-Status: UNSURE (   6.07  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: linux-next: Tree for Nov 22 (riscv: DMA_GLOBAL_POOL)
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>
+Cc: Stephen Rothwell <sfr@canb.auug.org.au>,
+ Linux Next Mailing List <linux-next@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+References: <20231122145257.6f668afa@canb.auug.org.au>
+ <24942b4d-d16a-463f-b39a-f9dfcb89d742@infradead.org>
+ <20231130-mothproof-tripod-fe35364591ee@spud>
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20231130-mothproof-tripod-fe35364591ee@spud>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,15 +60,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Nov 2023 13:45:07 +0000
-"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk> wrote:
 
-> Since the x86 version of arch_unregister_cpu() is the same as the weak
-> version, drop the x86 specific version.
+
+On 11/30/23 08:35, Conor Dooley wrote:
+> On Wed, Nov 22, 2023 at 02:37:43PM -0800, Randy Dunlap wrote:
+>>
+>>
+>> On 11/21/23 19:52, Stephen Rothwell wrote:
+>>> Hi all,
+>>>
+>>> Changes since 20231121:
+>>>
+>>
+>> on riscv 32-bit:
+>>
+>> WARNING: unmet direct dependencies detected for DMA_GLOBAL_POOL
+>>   Depends on [n]: !ARCH_HAS_DMA_SET_UNCACHED [=n] && !DMA_DIRECT_REMAP [=y]
+>>   Selected by [y]:
+>>   - ARCH_R9A07G043 [=y] && SOC_RENESAS [=y] && RISCV [=y] && NONPORTABLE [=y] && RISCV_ALTERNATIVE [=y] && !RISCV_ISA_ZICBOM [=n] && RISCV_SBI [=y]
+>>
+>> WARNING: unmet direct dependencies detected for DMA_GLOBAL_POOL
+>>   Depends on [n]: !ARCH_HAS_DMA_SET_UNCACHED [=n] && !DMA_DIRECT_REMAP [=y]
+>>   Selected by [y]:
+>>   - ARCH_R9A07G043 [=y] && SOC_RENESAS [=y] && RISCV [=y] && NONPORTABLE [=y] && RISCV_ALTERNATIVE [=y] && !RISCV_ISA_ZICBOM [=n] && RISCV_SBI [=y]
 > 
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+> DMA_DIRECT_REMAP is selected by the T-HEAD CMO erratum.
+> DMA_GLOBAL_POOL by the Andes CMO erratum.
+> 
+> We could do
+> 
+> diff --git a/drivers/soc/renesas/Kconfig b/drivers/soc/renesas/Kconfig
+> index 0071864c2111..d8723fdf1e55 100644
+> --- a/drivers/soc/renesas/Kconfig
+> +++ b/drivers/soc/renesas/Kconfig
+> @@ -339,6 +339,7 @@ if RISCV
+>  
+>  config ARCH_R9A07G043
+>  	bool "RISC-V Platform support for RZ/Five"
+> +	depends on !DMA_DIRECT_REMAP
+>  	depends on NONPORTABLE
+>  	depends on RISCV_ALTERNATIVE
+>  	depends on !RISCV_ISA_ZICBOM
+
+OK, that works for me.
+
+Tested-by: Randy Dunlap <rdunlap@infradead.org> # build-tested
+
+Thanks.
+
+-- 
+~Randy
 
 _______________________________________________
 linux-riscv mailing list
