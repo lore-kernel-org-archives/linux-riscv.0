@@ -4,94 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EC93C4167B
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Dec 2023 02:10:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E75ACC4167B
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Dec 2023 03:48:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MU4cPc72Gpl8Su88qFA7lskO87an6XKbyXimB91mBRI=; b=1ommecq8nS0l0+
-	AsHKE4U2bwEiBSkiLaxDvINmWNkqGcUb4WkA0qh4CVGWoPQpqD8yBiCe2NsrPwVyryS3cWZ4jylvp
-	XSHRuvKsLAC62UnzfVdVFvvHiShkarddNBGKm7u2tD1YCDaMBV4yt2Z+IfjcPzCR8Hdee8PVNtVna
-	IerXt85XhZPNSZ4qNrGU+DPIG6pIIqwLEh93/NRnrWM5Nvq4iCAkuK6mlxcO+xcrs63vTjYX7xQ0m
-	iGcIBXhOm82gvhs5P7286631QLr2LZtyvH4MmQrr4ZjcpAZSUljnUJyAsRARb6SDClGKlk9uracHu
-	wHiQw5dgFc9NNJ5PyeUg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TX3ZUeByDQ1M8AfT3Y6m9JG/XRo41ZtJH5FfTVtpxoM=; b=rq0bq92rIlzPET
+	lCuqVgzgV0i/Axb28pjpw5omuWcZhGvWZC37RlmLwvLFNTounLJ593Bv1pXVraHHyGXsXs0FerFFX
+	3Y5GpuHEqCx5XFftnj5gAiMFLiRO3f3tAGq+2DZNdzoJXGU9e0YYkkuM5/L88N1pE8QCI22mf4tXE
+	ncb9TEnWkmTjwCJtcbQrFymvDxkTQd4hilJzJ8fLTrwWbd9dL6RuFSMBpRypJChbDgTKC+v+lLNrg
+	fAH/T27N+5isrRuSjaxEafkKd0DHuk25M7N1zsTVKWOx1g3syZ6INddKWEOgvNjOUX5fusQeRNT2U
+	LkC2IfzehNg3KOTaRxzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8syX-00CPGW-0B;
-	Fri, 01 Dec 2023 02:09:53 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1r8uVC-00CXk2-24;
+	Fri, 01 Dec 2023 03:47:42 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8syT-00CPFC-1d
+	id 1r8uUy-00CXf4-2m
 	for linux-riscv@lists.infradead.org;
-	Fri, 01 Dec 2023 02:09:51 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-6cdd405ca77so1648289b3a.0
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Nov 2023 18:09:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1701396588; x=1702001388; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZARUzLOCPbgkdrEMse1VgYWmJt+Qe6ydA0SeWnrZFk4=;
-        b=Av1+KyinGm5v+rqPvXK05E659pYKhDELeePi5263DVJd/todRWhOoIgsahNuC2iX4O
-         UsptJHUDGWC4XDjhfksxVxd8h/US8tu2r7XRPiT72rck4OqF99rJpHrhZZ00fmRlOam8
-         fVR5wNmkOa9XjuZAYc8vWGRzFXAea0szjP+tytFTgXLlx6n3DMkCFV2tq4qBHtcPNYQz
-         cbx5CI1F7jTvBrsy7Z8wS/NWSCF+SC621EKAGIFEzjWP63FgEDVltR7yyKiPvG11aad6
-         vU85evS0yEHV/JQYNBJ32CUyk1bp2KHbEoAqkoeEOU98R7ZMgBjv6deTy3B0DGWksCqk
-         iA8g==
+	Fri, 01 Dec 2023 03:47:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1701402447;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+Q5xYcnLhhl5wab+9SUNf2YG1+1AQAaLiKPAT2IR83M=;
+	b=UP3MBh3shXUPVy6C6AbKCR+eTR8NqSI4CwZCF+6Kw5J2DSDVaEv0fSwLN90wQW7LbbqOT/
+	DXCBbHmymPz3H7SpUQQgPgaiB7TSfibtjs6JqW8FckbZXKB6MU2T6wdYjs1M8SIPnfsi9B
+	r/YP7vrSNLsC49JlP+QJ6zKgcozF6MA=
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
+ [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-58-7QBbSLc2MtWgu3qx1sHV-w-1; Thu, 30 Nov 2023 22:47:23 -0500
+X-MC-Unique: 7QBbSLc2MtWgu3qx1sHV-w-1
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-1cfd77ffcb2so1466045ad.0
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Nov 2023 19:47:23 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701396588; x=1702001388;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZARUzLOCPbgkdrEMse1VgYWmJt+Qe6ydA0SeWnrZFk4=;
-        b=FNSKZP66HC4tKLh4G6D+8mhJr9yPkK8/SyYRw8euK8ivp+vLUK/l65utIfnlc7QtDX
-         wG4t646dncAsLo+uD0A4++eFTbRnpyvpWghb6XKcfYwFVF0fh+eDKJXdKQ+BToWgd1XT
-         qu8loxW7GzqJaUBp60LTRlOZnHd79yiuPB/jEWPpb+ZHHInuENily/xH7tB+4TRj3jUV
-         JbKmPDENCqydDIr69QiVxH+XfSjzOCZpgd4hY82dXDdzslBomogmc6IVqCXGU04EZUQ0
-         EgOOLvV/MjcI0DHaztxCmIhDsyp0OTNW+NSWLn5b9t8IvoMnRUvTL7gf+z3yvTcvOP4Y
-         keSw==
-X-Gm-Message-State: AOJu0YzLPAHs5Te7e5SP/xZPp/Yqths6+2dSmVIHGSCYD2YYYMLBTbx2
-	FyAIn7m2JeQtkN5PgWWMyyFZxQ==
-X-Google-Smtp-Source: AGHT+IFrFltqEh9QH9Yno5D9numI3ZTsffVOt7/NhqriRU6xzwbOediCIeDoxAviM9Lpx+G4Hg5LGg==
-X-Received: by 2002:a05:6a20:8409:b0:18b:8dfa:88e8 with SMTP id c9-20020a056a20840900b0018b8dfa88e8mr25889206pzd.43.1701396587726;
-        Thu, 30 Nov 2023 18:09:47 -0800 (PST)
-Received: from ?IPv6:2402:7500:4ce:83aa:9da8:481:b9cc:c515? ([2402:7500:4ce:83aa:9da8:481:b9cc:c515])
-        by smtp.gmail.com with ESMTPSA id e12-20020a17090301cc00b001cc436e9806sm2092007plh.81.2023.11.30.18.09.44
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 30 Nov 2023 18:09:47 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.7\))
-Subject: Re: [PATCH v2 05/13] crypto: simd - Update `walksize` in simd
- skcipher
-From: Jerry Shih <jerry.shih@sifive.com>
-In-Reply-To: <20231128172204.GB1148@sol.localdomain>
-Date: Fri, 1 Dec 2023 10:09:43 +0800
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- palmer@dabbelt.com,
- Albert Ou <aou@eecs.berkeley.edu>,
- herbert@gondor.apana.org.au,
- davem@davemloft.net,
- conor.dooley@microchip.com,
- ardb@kernel.org,
- heiko@sntech.de,
- phoebe.chen@sifive.com,
- hongrong.hsu@sifive.com,
- linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- linux-crypto@vger.kernel.org
-Message-Id: <9F698DA6-51EB-4819-AE5C-1E6B145B4EF2@sifive.com>
-References: <20231127070703.1697-1-jerry.shih@sifive.com>
- <20231127070703.1697-6-jerry.shih@sifive.com>
- <20231128035814.GH1463@sol.localdomain>
- <56F07E23-CA7D-466B-84C7-643F2839E199@sifive.com>
- <20231128172204.GB1148@sol.localdomain>
-To: Eric Biggers <ebiggers@kernel.org>
-X-Mailer: Apple Mail (2.3445.9.7)
+        d=1e100.net; s=20230601; t=1701402442; x=1702007242;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+Q5xYcnLhhl5wab+9SUNf2YG1+1AQAaLiKPAT2IR83M=;
+        b=PBsV/21pZv4pugz7ahqv/GIIxfqrh3LtqPMcbh/Mo0TMHHrjN2jXTQ9E8mTxsQw2cE
+         UDOx6sZ9RsI+xV7N5cl7Jk+PpH6GfeZ51fAFF8/SE6dVZ8ajoNaJogpB0HSTMY6WvVXK
+         JR7goQznU0ZCgcb5uK+E4ad27u+5QaX2gn5dJWrNmVJeSsxlEWPAwzb1SEUFK8pu80AY
+         UjQO9lhryEdJdcl/HHE+LaRXmNx/E5wvU3AAhBDn9I+OrBzm/rSd9yq/7s6zk/Gna3dC
+         LJUya0IDiGOWWxUFgKP9gNE+TISupmkZU+KhQ6mn4JW+rQH1F15/QuWaXkk3bBjvJLPh
+         fN5g==
+X-Gm-Message-State: AOJu0YwCFpayqXn18p0NE4JO+l0fEkgpGU6DjKzYTZ0BnpUxXZcODHgl
+	dacz9cwCD9p/mnraB+RWfIgPXTmGo7DdMdQl2t+0obqw+mNv97bwEm8eMOhc2rh24yS0xL5TKth
+	SC2WdeBscf/V+0PPX9dLiATKIP5vF
+X-Received: by 2002:a17:902:d2cb:b0:1cf:de3e:e4c9 with SMTP id n11-20020a170902d2cb00b001cfde3ee4c9mr23769887plc.29.1701402442607;
+        Thu, 30 Nov 2023 19:47:22 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFFc/FRI9UHJwfBJxYeFRAhPaME7NIPXUpzMmMZaQsrSUZaHXjj5IgT1PfH3h0ARxutVZDmxg==
+X-Received: by 2002:a17:902:d2cb:b0:1cf:de3e:e4c9 with SMTP id n11-20020a170902d2cb00b001cfde3ee4c9mr23769867plc.29.1701402442296;
+        Thu, 30 Nov 2023 19:47:22 -0800 (PST)
+Received: from [192.168.68.51] ([43.252.115.3])
+        by smtp.gmail.com with ESMTPSA id p5-20020a170902e74500b001cfc1a593f7sm2185691plf.217.2023.11.30.19.47.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 30 Nov 2023 19:47:21 -0800 (PST)
+Message-ID: <8c3ca6c7-fa5f-4f45-b36d-1c7d9d94c918@redhat.com>
+Date: Fri, 1 Dec 2023 14:47:11 +1100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 08/21] drivers: base: Implement weak arch_unregister_cpu()
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev, x86@kernel.org,
+ linux-csky@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-ia64@vger.kernel.org, linux-parisc@vger.kernel.org
+Cc: Salil Mehta <salil.mehta@huawei.com>,
+ Jean-Philippe Brucker <jean-philippe@linaro.org>, jianyong.wu@arm.com,
+ justin.he@arm.com, James Morse <james.morse@arm.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+References: <ZVyz/Ve5pPu8AWoA@shell.armlinux.org.uk>
+ <E1r5R3H-00CszC-2n@rmk-PC.armlinux.org.uk>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <E1r5R3H-00CszC-2n@rmk-PC.armlinux.org.uk>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231130_180949_584521_D33E949D 
-X-CRM114-Status: GOOD (  22.24  )
+X-CRM114-CacheID: sfid-20231130_194728_971257_AE3E62DB 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,145 +108,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Nov 29, 2023, at 01:22, Eric Biggers <ebiggers@kernel.org> wrote:
-> On Tue, Nov 28, 2023 at 01:38:29PM +0800, Jerry Shih wrote:
->> On Nov 28, 2023, at 11:58, Eric Biggers <ebiggers@kernel.org> wrote:
->>> On Mon, Nov 27, 2023 at 03:06:55PM +0800, Jerry Shih wrote:
->>>> The `walksize` assignment is missed in simd skcipher.
->>>> 
->>>> Signed-off-by: Jerry Shih <jerry.shih@sifive.com>
->>>> ---
->>>> crypto/cryptd.c | 1 +
->>>> crypto/simd.c   | 1 +
->>>> 2 files changed, 2 insertions(+)
->>>> 
->>>> diff --git a/crypto/cryptd.c b/crypto/cryptd.c
->>>> index bbcc368b6a55..253d13504ccb 100644
->>>> --- a/crypto/cryptd.c
->>>> +++ b/crypto/cryptd.c
->>>> @@ -405,6 +405,7 @@ static int cryptd_create_skcipher(struct crypto_template *tmpl,
->>>> 		(alg->base.cra_flags & CRYPTO_ALG_INTERNAL);
->>>> 	inst->alg.ivsize = crypto_skcipher_alg_ivsize(alg);
->>>> 	inst->alg.chunksize = crypto_skcipher_alg_chunksize(alg);
->>>> +	inst->alg.walksize = crypto_skcipher_alg_walksize(alg);
->>>> 	inst->alg.min_keysize = crypto_skcipher_alg_min_keysize(alg);
->>>> 	inst->alg.max_keysize = crypto_skcipher_alg_max_keysize(alg);
->>>> 
->>>> diff --git a/crypto/simd.c b/crypto/simd.c
->>>> index edaa479a1ec5..ea0caabf90f1 100644
->>>> --- a/crypto/simd.c
->>>> +++ b/crypto/simd.c
->>>> @@ -181,6 +181,7 @@ struct simd_skcipher_alg *simd_skcipher_create_compat(const char *algname,
->>>> 
->>>> 	alg->ivsize = ialg->ivsize;
->>>> 	alg->chunksize = ialg->chunksize;
->>>> +	alg->walksize = ialg->walksize;
->>>> 	alg->min_keysize = ialg->min_keysize;
->>>> 	alg->max_keysize = ialg->max_keysize;
->>> 
->>> What are the consequences of this bug?  I wonder if it actually matters?  The
->>> "inner" algorithm is the one that actually gets used for the "walk", right?
->>> 
->>> - Eric
->> 
->> Without this, we might still use chunksize or cra_blocksize as the walksize
->> even though we setup with the larger walksize.
->> 
->> Here is the code for the walksize default value:
->> 	static int skcipher_prepare_alg(struct skcipher_alg *alg)
->> 	{
->> 		...
->> 		if (!alg->chunksize)
->> 			alg->chunksize = base->cra_blocksize;
->> 		if (!alg->walksize)
->> 			alg->walksize = alg->chunksize;
->> 
->> And we already have the bigger walksize for x86 aes-xts.
->> 		.base = {
->> 			.cra_name		= "__xts(aes)",
->> 			...
->> 		},
->> 		.walksize	= 2 * AES_BLOCK_SIZE,
->> 
->> The x86 aes-xts only uses one `walk` to handle the tail elements. It assumes
->> that the walksize contains 2 aes blocks. If walksize is not set correctly, maybe
->> some tail elements is not processed in simd-cipher mode for x86 aes-xts.
+On 11/22/23 00:44, Russell King (Oracle) wrote:
+> From: James Morse <james.morse@arm.com>
 > 
-> With the SIMD helper there are three "algorithms": the underlying algorithm, the
-> cryptd algorithm, and the simd algorithm.  This patch makes the "walksize"
-> property be propagated from the underlying algorithm to the cryptd and simd
-> algorithms.  I don't see how that actually makes a difference, since the only
-> place the skcipher_walk happens is on the underlying algorithm.  So it uses the
-> "walksize" from the underlying algorithm, right?
+> Add arch_unregister_cpu() to allow the ACPI machinery to call
+> unregister_cpu(). This is enough for arm64, riscv and loongarch, but
+> needs to be overridden by x86 and ia64 who need to do more work.
 > 
-> - Eric
+> CC: Jean-Philippe Brucker <jean-philippe@linaro.org>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+> An open question remains from the RFC v2 posting: should we provide a
+> __weak stub for !HOTPLUG_CPU as well, since in later patches ACPI may
+> reference this if the compiler doesn't optimise as we expect?
+> 
+> Changes since v1:
+>   * Added CONFIG_HOTPLUG_CPU ifdeffery around unregister_cpu
+> Changes since RFC v2:
+>   * Move earlier in the series
+> ---
+>   drivers/base/cpu.c | 9 ++++++++-
+>   1 file changed, 8 insertions(+), 1 deletion(-)
+> 
 
-Yes, you are right.
-I re-check the cryptd and simd cipher flow. They use the underlying algorithms.
-So, the actual `walksize` in the underlying algorithm is set by the user in
-skcipher_alg def.
-The x86 aes-xts works correctly for both cryptd and simd-cipher case.
-
-This patch becomes fixing the `walksize` display error in `/proc/crypto`.
-
-The aes-xts skcipher_alg def:
-	...
-	.ivsize = AES_BLOCK_SIZE,
-	.chunksize = AES_BLOCK_SIZE,
-	.walksize = AES_BLOCK_SIZE * 8,
-	.base = {
-		.cra_flags = CRYPTO_ALG_INTERNAL,
-		.cra_name = "__xts(aes)",
-		.cra_driver_name = "__xts-aes-riscv64-zvkned-zvbb-zvkg",
-		...
-	},
-
-
-Without patch:	
-The original skcipher:
-	name         : __xts(aes)
-	driver       : __xts-aes-riscv64-zvkned-zvbb-zvkg
-	internal     : yes
-	async        : no
-	...
-	walksize     : 128
-
-The async skcipher registered by simd_register_skciphers_compat:
-	name         : xts(aes)
-	driver       : xts-aes-riscv64-zvkned-zvbb-zvkg
-	internal     : no
-	async        : yes
-	...
-	walksize     : 16
-
-	...
-	name         : __xts(aes)
-	driver       : cryptd(__xts-aes-riscv64-zvkned-zvbb-zvkg)
-	internal     : yes
-	async        : yes
-	...
-	walksize     : 16
-
-With patch:
-	name         : xts(aes)
-	driver       : xts-aes-riscv64-zvkned-zvbb-zvkg
-	internal     : no
-	async        : yes
-	...
-	walksize     : 128
-
-	...
-	name         : __xts(aes)
-	driver       : cryptd(__xts-aes-riscv64-zvkned-zvbb-zvkg)
-	internal     : yes
-	async        : yes
-	...
-	walksize     : 128
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
 
 _______________________________________________
