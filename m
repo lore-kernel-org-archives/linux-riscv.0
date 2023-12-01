@@ -4,77 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 178F3C4167B
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Dec 2023 11:26:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B28B2C10DCE
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Dec 2023 12:15:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pNYcnIG+gMtRWlBmPykyFSdNgBpxI9PMCpbZQ9Cnc2Y=; b=x7eibRzbmfXx5M
-	wVDSLuaTKNU4zMo2C8O7Co6zKPt3tSDmwTAt5dIhvKIimmvIecjpMZNvHGSo8NKvtBBbpmTvQ8QYW
-	bMIfZa8+B3FJ5xYU0SNCAq4pTETq4qGfnx3TAmJawhBXJQBOtLm1Y1aakDk/i2+zJp+RzqERfPctw
-	jIWgQkv6SR7RIbTqpLzyXFjopSh3Npgc4S3FVVO9tG50sIE3n4DGJkSAHkiDbPNx3668sA9UQBNeI
-	jAaXnVcYv2VoHs1x3LsBGe0UqbpZJyvC0DpkQ7mteXbHXYjrfKKMNHj8nyoq5xqbpnveyqWS+aCPo
-	pb5W+oLt/iQvucwXweNg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0rrsAPMqqDiCN77WMsmunVc/0yXekCxnWztyxs4zw5c=; b=J1dwcEV8LN0lEl
+	mHAyYn66+zCJUvMVw/y+K6AQboSm6U6+FhSjLs8E5YSxMPWa3fNhP/VpFb3y58ZaVR2opd/vmtnk9
+	IL4oaOfaTXol/bnvrL5LXgTTlzhEfsQSr7fYFXLU8S7PcrfYS/KM8LFsFPaA4onI8M+CsQxqXeY6U
+	7kmZEZWLI2uwOPuZGhQlx9r6HS9YbJR/mTvV9q+RsYhvZB4naVINRnZZB0FbVUCb5SPXr6EKYXue2
+	nIH0l8CRtNVbjTd7Z3BYDC2ex83KDDvyqBXKZA9rg/CcuazqJlGAfI4LETAtV0o8RaWMDfVoOl/yr
+	4HfSVkAWTy6britWjewA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r91ek-00DK0q-0E;
-	Fri, 01 Dec 2023 11:26:02 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r91eg-00DJzQ-1Q;
-	Fri, 01 Dec 2023 11:25:59 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1701429955;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=kTlhtH9a0LDiJlYkT6vgajK3kHtKUEVv+qg/KTKk4HU=;
-	b=0+ilR1tNhs5VaMIv76WOvkPT0qv5Fi2xLMjWOd8iwpKFF2e1rQLr8de2mbc/bHnkaNjaQe
-	LbiC5q4mkGd+Sj/kPhd1ERxWAS9+FoWokpwkA65PKVnzoPGIz6d5oLfQpSLkrkRNE3pzdQ
-	//bcpn1X9PhQ9O1fXMhZdr1auoP18Z7eHjeOjyN9GFUebTn83i1KnnfcKG5x+dss03Xtki
-	ttU09OzufBNos8ljNL69jCpLD5yOQ+wCs/EozGUtX5kcJ5FgGKvheIIRatcpoYJRoVyDnr
-	D0DygGmWcdNwEcac6KOaBeh495U3limq2zXQEY3QChB6Uu522eK6w17xZwQlAQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1701429955;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=kTlhtH9a0LDiJlYkT6vgajK3kHtKUEVv+qg/KTKk4HU=;
-	b=EXq/pPMbI6sA6TcIEmqxncJn2e32OeM2qAllVTE4SFvTjeMaTIOAzfm4oL3PcYAI5mDcr2
-	IYeKQ7k9Tpe0HrBQ==
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>,
- linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
- linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev, x86@kernel.org,
- linux-csky@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-parisc@vger.kernel.org
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Borislav Petkov <bp@alien8.de>,
- Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen
- <dave.hansen@linux.intel.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Guo Ren <guoren@kernel.org>, "H. Peter
- Anvin" <hpa@zytor.com>, Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar
- <mingo@redhat.com>, James Morse <james.morse@arm.com>, Jean-Philippe
- Brucker <jean-philippe@linaro.org>, jianyong.wu@arm.com,
- justin.he@arm.com, Len Brown <lenb@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Peter
- Zijlstra <peterz@infradead.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Salil Mehta <salil.mehta@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- WANG Xuerui <kernel@xen0n.name>, Will Deacon <will@kernel.org>
-Subject: Re: [PATCH 00/21] Initial cleanups for vCPU hotplug
-In-Reply-To: <ZVyz/Ve5pPu8AWoA@shell.armlinux.org.uk>
-References: <ZVyz/Ve5pPu8AWoA@shell.armlinux.org.uk>
-Date: Fri, 01 Dec 2023 12:25:54 +0100
-Message-ID: <87plzqxiyl.ffs@tglx>
+	id 1r92QD-00DX0V-24;
+	Fri, 01 Dec 2023 12:15:05 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1r92Q9-00DWyZ-2m
+	for linux-riscv@lists.infradead.org;
+	Fri, 01 Dec 2023 12:15:04 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id D014C24DC6F;
+	Fri,  1 Dec 2023 20:14:27 +0800 (CST)
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 1 Dec
+ 2023 20:14:27 +0800
+Received: from jsia-virtual-machine.localdomain (60.54.3.230) by
+ EXMBX066.cuchost.com (172.16.6.66) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.42; Fri, 1 Dec 2023 20:14:15 +0800
+From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+To: <kernel@esmil.dk>, <robh+dt@kernel.org>,
+	<krzysztof.kozlowski+dt@linaro.org>, <krzk@kernel.org>,
+	<conor+dt@kernel.org>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <daniel.lezcano@linaro.org>, <tglx@linutronix.de>,
+	<conor@kernel.org>, <anup@brainfault.org>, <gregkh@linuxfoundation.org>,
+	<jirislaby@kernel.org>, <michal.simek@amd.com>,
+	<michael.zhu@starfivetech.com>, <drew@beagleboard.org>
+CC: <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <jeeheng.sia@starfivetech.com>,
+	<leyfoon.tan@starfivetech.com>
+Subject: [PATCH v3 0/6] Initial device tree support for StarFive JH8100 SoC
+Date: Fri, 1 Dec 2023 20:14:04 +0800
+Message-ID: <20231201121410.95298-1-jeeheng.sia@starfivetech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+X-Originating-IP: [60.54.3.230]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX066.cuchost.com
+ (172.16.6.66)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231201_032558_628223_4CC4A072 
-X-CRM114-Status: UNSURE (   9.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231201_041502_241616_4369FCF9 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,30 +77,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Russell!
+StarFive JH8100 SoC consists of 4 RISC-V performance Cores (Dubhe-90) and
+2 RISC-V energy efficient cores (Dubhe-80). It also features various
+interfaces such as DDR4, Gbit-Ether, CAN, USB 3.2, SD/MMC, etc., making it
+ideal for high-performance computing scenarios.
 
-On Tue, Nov 21 2023 at 13:43, Russell King wrote:
-> This series aims to switch most architectures over to using generic CPU
-> devices rather than arch specific implementations, which I think is
-> worthwhile doing even if the vCPU hotplug series needs further work.
+This patch series introduces initial SoC DTSI support for the StarFive
+JH8100 SoC. The relevant dt-binding documentation has been updated
+accordingly. Below is the list of IP blocks added in the initial SoC DTSI,
+which can be used for booting via initramfs on FPGA:
 
-I went through the whole series and I can't find anything
-objectionable.
+- StarFive Dubhe-80 CPU
+- StarFive Dubhe-90 CPU
+- PLIC
+- CLINT
+- UART
 
-Vs. merging: It does not make sense to split this up and route
-individual patches.
+The primary goal is to include foundational patches so that additional
+drivers can be built on top of this framework.
 
-So I can pick the whole pile up and route it through tip smp/core unless
-Rafael or Greg prefer to take it through one of their trees. For the
-latter case:
+Changes since v2:
+- Resolved CI build error (dtb_warn_rv64.sh) in patch 6.
+- Introduced a new line in patch 6 to distinguish between platforms.
+- Reordered the CPU sequence in patch 1.
+- Corrected a line deletion in patch 2.
+- Removed the description and rearranged the sequence of items in patch 5.
+- Added 'Acked-by' from Conor for patches 1, 2, 3 and 4.
 
-       Reviewed-by: Thomas Gleixner <tglx@linutronix.de>
+Changes since v1:
+- Dropped patch 5.
+- Moved timebase-frequency from .dts to .dtsi.
+- Moved soc node from .dts to .dtsi.
+- Revised the title for the dt-binding document by removing Xilinx
+  wording.
+- Added a full stop to the end of the commit messages.
+- Removed extra blank lines.
+- Used hyphen for a node name.
+- Added more recipients to the mailing list.
 
-Greg, Rafael?
+Sia Jee Heng (6):
+  dt-bindings: riscv: Add StarFive Dubhe compatibles
+  dt-bindings: riscv: Add StarFive JH8100 SoC
+  dt-bindings: timer: Add StarFive JH8100 clint
+  dt-bindings: interrupt-controller: Add StarFive JH8100 plic
+  dt-bindings: serial: cdns: Add new compatible string for StarFive
+    JH8100 UART
+  riscv: dts: starfive: Add initial StarFive JH8100 device tree
 
-Thanks,
+ .../sifive,plic-1.0.0.yaml                    |   1 +
+ .../devicetree/bindings/riscv/cpus.yaml       |   2 +
+ .../devicetree/bindings/riscv/starfive.yaml   |   4 +
+ .../devicetree/bindings/serial/cdns,uart.yaml |   3 +
+ .../bindings/timer/sifive,clint.yaml          |   1 +
+ arch/riscv/boot/dts/starfive/Makefile         |   2 +
+ arch/riscv/boot/dts/starfive/jh8100-evb.dts   |  28 ++
+ arch/riscv/boot/dts/starfive/jh8100.dtsi      | 378 ++++++++++++++++++
+ 8 files changed, 419 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/starfive/jh8100-evb.dts
+ create mode 100644 arch/riscv/boot/dts/starfive/jh8100.dtsi
 
-        tglx
+
+base-commit: 994d5c58e50e91bb02c7be4a91d5186292a895c8
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
