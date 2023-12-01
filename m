@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BD2EC4167B
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Dec 2023 03:48:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89A9DC4167B
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Dec 2023 03:49:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tZFpkHszHQ3ci6wjaB5sUbWRZcLjJCjFmbh7dOYR2ag=; b=ia2WpzFb5mi/j4
-	zqOPkJ6H7tcfmecNJLLcFI70Dk/E22XEP7WN93IiIEEg9i5LgpKonBdfUHGOpKlW/zHx6JrLfgFPc
-	smkg+NKRR2t49hfy9HsFdD+tNvBsOV7/zhc6euU1mR2itUo/Vfk5dYC4Zu0C8isInNorS7RLuoXvT
-	IaAIl5KCI4k3WdFLue9yiIgLLGskH7bzKTidX0vah2G5KhhGz21H5xNlWENMlHvEQLVjjJa+TFgkp
-	Ch0tN2YWLd8xJPhEkJNFBl3h47sjgAkxsjxQV8LWL5yDlupLXO/pFOCk9j+nPHNf67zBuKoJPQ4d3
-	pmKleYkO2W6FMnJ4QtgQ==;
+	List-Owner; bh=wMoch5ZtJVLwIUEoTNCFRGV3CAbTLuEjq568FWKKnq4=; b=NUmzdrftCjBOHV
+	4TKFa8D6HLXvYPPokchFhFseEXQY6j7gKZ3LNxWT5LqAmX+r9MFwhMe2ExOYZZWtRwu3Z2SRcDaFQ
+	mOMYZ6pv70qtjnbrcxWVM55bt6WqQx9N3BgH9q+l7vRKWREi4r/bhUmccM286jV4NSo/m5dxdfSGK
+	aGSJrj8TucC++0+78h4y/4wjRac7iCbb76ZKJHjtV9Dtn3raoSLcoL0YBzCnzG3hNFiLr/kcdAXyo
+	8BKlswWqHBR3zd6uR/Y8S4b/DJnc7xhVoPSsG+Wcq+4Je+UWZ5R42ecqd9PYITExz1xSVabBwG1Af
+	H+EOq0aCHHEf8FJdL8/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8uWF-00CY3F-0H;
-	Fri, 01 Dec 2023 03:48:47 +0000
+	id 1r8uWk-00CYFe-21;
+	Fri, 01 Dec 2023 03:49:18 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8uWC-00CY23-1O
+	id 1r8uWh-00CYE2-32
 	for linux-riscv@lists.infradead.org;
-	Fri, 01 Dec 2023 03:48:45 +0000
+	Fri, 01 Dec 2023 03:49:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1701402523;
+	s=mimecast20190719; t=1701402555;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=/3AzxV0WgKZTUkZI9KNfIOtjrPxu2v3xdf2PUplwrRY=;
-	b=fAmVaU1qLwGmSYFnif6OOQLTppkStrvz9HlB+dDY0FVN1DzUGN+rfk46fdUGhOZdsm6aua
-	9gfLBi9A2KYYXO1BbDLJqa5HDkp3kveq3OY5y0t9TU2FgeFuTSJLEy7G6ApGvCp0bCsnVR
-	OpifonJc6p5VOu46qy/dSkGbMDIIas4=
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
- [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=IO8CL2qjeIUr0LsYwreVkjK8516DQtyOeewHK7H786o=;
+	b=WGu4YqHA2ly7lIBRb5cmtWLi5WqsiTeGBSOgibj+nx4++AXyK7ZsEtv2GYNHC2kyyWjipB
+	yfENv9zdCkglh41tmGkeQTVkU716gjXy1Imt0DaVvIn14xh4uR/2vgPO83XBmn2z/DmeoP
+	bx0ooj+aQf6f1CAztnw2y3tD3Gym1HY=
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com
+ [209.85.216.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-471-bHIBLhxeOHeiEF2gGuhDmg-1; Thu, 30 Nov 2023 22:48:41 -0500
-X-MC-Unique: bHIBLhxeOHeiEF2gGuhDmg-1
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-1cfccc9d6bcso1560865ad.2
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Nov 2023 19:48:41 -0800 (PST)
+ us-mta-695-2WP2UtZMOQ2dAtFeFekMxA-1; Thu, 30 Nov 2023 22:49:13 -0500
+X-MC-Unique: 2WP2UtZMOQ2dAtFeFekMxA-1
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-2855e4715e4so2197924a91.0
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Nov 2023 19:49:13 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701402521; x=1702007321;
+        d=1e100.net; s=20230601; t=1701402552; x=1702007352;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/3AzxV0WgKZTUkZI9KNfIOtjrPxu2v3xdf2PUplwrRY=;
-        b=jl/GZCpEBcLRzy3tJj7ZY8Cv01rEN1CN/D7gQ/G27DboC55v4z1KbG4BkVgj6sUqT8
-         ew+ghzkra2c2NDX1gqjDTvq12wkPhW5RLLjlDjHV+Bvh08KmHAc+EDYT6iakXoqedagj
-         P0uCtu8sUe5OZxaCzbiLcZmh48L1lMdNTUCKbfpBc4pWxEehNeGDjc5w4n1+ywG/ef0r
-         I5i2P8XTm2AfpK6AAIIvL+F619Q8B7azFOIvbv5AM6DtvqytY6n6RTIzZwTxgJogdzIQ
-         ZhfKFMbcwP7xka05GogbhPwDiLAdMvHSfpJkwdWCbH3PyqpFgTfYJVzqdKh0YcOw5U48
-         oABQ==
-X-Gm-Message-State: AOJu0YyMMcslWOuJSIkUd6gkj6jmrYJCcjXkwexeoIo2ijBiP0Z2OiB1
-	b0i8rGkh9NdOuI9DlEXHkcCepRn5yq525Nh1ij486QCqsMsqs4v4Nz+uaIFS18/26GlUgnctQ51
-	p40nIFrx9g+lpzTWBPyTrNLq910i4
-X-Received: by 2002:a17:903:22cc:b0:1d0:1c45:fca6 with SMTP id y12-20020a17090322cc00b001d01c45fca6mr8848389plg.55.1701402521010;
-        Thu, 30 Nov 2023 19:48:41 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFPJHgKJ9VKrBg6ysMgalrHEAISDmXhJQ0ZqsSvXKSLoKD01csDbzaLvkOj/ql3EV9F3wt2Rw==
-X-Received: by 2002:a17:903:22cc:b0:1d0:1c45:fca6 with SMTP id y12-20020a17090322cc00b001d01c45fca6mr8848375plg.55.1701402520729;
-        Thu, 30 Nov 2023 19:48:40 -0800 (PST)
+        bh=IO8CL2qjeIUr0LsYwreVkjK8516DQtyOeewHK7H786o=;
+        b=WukMywEVIBDnSFHfBID33txeAODREN8XJxLN70B/LVO8UPHT9pqpf5qoI8LkYUuSG3
+         mZRczbrK3meeNvqcbHxIl0CqDhXZtpF8IGW9/L8xcLvPhN/VWJO7xk6dg9t2pOb+Rfc2
+         /cMrgXwVodx75flGGbbpuTjyckJy5tzRyQdBX4NjqAVBgAYGp5B40qvy+fWHIvpwFJrg
+         74CmO+D9hBj8as0AzR6ulmjGSnFprLreAuGe53JSKMdY/n75M2Aiqa1RfM2iVeWAFSec
+         6fR8fZpf8ghzdB7MhRA43vD5CtgjXzr23Zs/CuPEpnauhmRAPariypbE8njDHK/i/Fi1
+         iq5g==
+X-Gm-Message-State: AOJu0Yz1MVBGj9lpmNsm0+IttlQ05+Q2spnuECsDIqTbEqEsFESt/VSG
+	qgqrETI97b2DTEuL/I7bZAwtXjT0DDaEX7wIGrnc6XfA3IPKKqpTvMsSAJ7bepnaZpQzoJI+Zlw
+	WuiXQAkXA5UUnunl5dID/1SXTig3P
+X-Received: by 2002:a17:902:e80e:b0:1cf:daca:2b5e with SMTP id u14-20020a170902e80e00b001cfdaca2b5emr17322851plg.38.1701402552344;
+        Thu, 30 Nov 2023 19:49:12 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHVVbr2zUe8qqYTBkmHgB1fO8oP/OS0GFEHLzxacC4remFDnJNuIkfv1IWdcQ4cpeu8xrZWrg==
+X-Received: by 2002:a17:902:e80e:b0:1cf:daca:2b5e with SMTP id u14-20020a170902e80e00b001cfdaca2b5emr17322834plg.38.1701402551963;
+        Thu, 30 Nov 2023 19:49:11 -0800 (PST)
 Received: from [192.168.68.51] ([43.252.115.3])
-        by smtp.gmail.com with ESMTPSA id p5-20020a170902e74500b001cfc1a593f7sm2185691plf.217.2023.11.30.19.48.33
+        by smtp.gmail.com with ESMTPSA id p5-20020a170902e74500b001cfc1a593f7sm2185691plf.217.2023.11.30.19.49.03
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 Nov 2023 19:48:40 -0800 (PST)
-Message-ID: <86e58855-c5c9-42d0-b983-bf36a8b9b2b0@redhat.com>
-Date: Fri, 1 Dec 2023 14:48:33 +1100
+        Thu, 30 Nov 2023 19:49:11 -0800 (PST)
+Message-ID: <e0b38120-8b09-4695-974c-f3c3ef226f22@redhat.com>
+Date: Fri, 1 Dec 2023 14:49:03 +1100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 10/21] drivers: base: Move cpu_dev_init() after
- node_dev_init()
+Subject: Re: [PATCH 11/21] drivers: base: Print a warning instead of panic()
+ when register_cpu() fails
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
  linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
  linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
@@ -85,17 +85,19 @@ Cc: Salil Mehta <salil.mehta@huawei.com>,
  Jean-Philippe Brucker <jean-philippe@linaro.org>, jianyong.wu@arm.com,
  justin.he@arm.com, James Morse <james.morse@arm.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
 References: <ZVyz/Ve5pPu8AWoA@shell.armlinux.org.uk>
- <E1r5R3R-00CszO-C0@rmk-PC.armlinux.org.uk>
+ <E1r5R3W-00CszU-GM@rmk-PC.armlinux.org.uk>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <E1r5R3R-00CszO-C0@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1r5R3W-00CszU-GM@rmk-PC.armlinux.org.uk>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231130_194844_663319_99B4FC41 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20231130_194916_043846_4D10114D 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,26 +114,29 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+
 On 11/22/23 00:44, Russell King (Oracle) wrote:
 > From: James Morse <james.morse@arm.com>
 > 
-> NUMA systems require the node descriptions to be ready before CPUs are
-> registered. This is so that the node symlinks can be created in sysfs.
+> loongarch, mips, parisc, riscv and sh all print a warning if
+> register_cpu() returns an error. Architectures that use
+> GENERIC_CPU_DEVICES call panic() instead.
 > 
-> Currently no NUMA platform uses GENERIC_CPU_DEVICES, meaning that CPUs
-> are registered by arch code, instead of cpu_dev_init().
+> Errors in this path indicate something is wrong with the firmware
+> description of the platform, but the kernel is able to keep running.
 > 
-> Move cpu_dev_init() after node_dev_init() so that NUMA architectures
-> can use GENERIC_CPU_DEVICES.
+> Downgrade this to a warning to make it easier to debug this issue.
+> 
+> This will allow architectures that switching over to GENERIC_CPU_DEVICES
+> to drop their warning, but keep the existing behaviour.
 > 
 > Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 > ---
-> Note: Jonathan's comment still needs addressing - see
->    https://lore.kernel.org/r/20230914121612.00006ac7@Huawei.com
-> ---
->   drivers/base/init.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+>   drivers/base/cpu.c | 7 ++++---
+>   1 file changed, 4 insertions(+), 3 deletions(-)
 > 
 
 Reviewed-by: Gavin Shan <gshan@redhat.com>
