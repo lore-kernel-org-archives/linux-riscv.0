@@ -4,126 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9B10C4167B
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Nov 2023 23:21:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5327C4167B
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Dec 2023 00:40:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=llghBGX40OlqX/JsYkI0T3tQV9Bn3kaH84HcNY0+O3k=; b=0c+OXKYsy+hQ/E
-	6ihEgsUBm+4CcQ55TD7EP0ibuojFOZ+LxDKQTgVc03w+kAfLc6xD4PdKucB32PGML9ZjL89IrfECi
-	qjlKyrH4KbISyBKACDbDIWbGtmMdMsRhNs7Bnue4DoYgjRMQvcZcpFwZb9Dzsx6zEFBC+o/d+ERzS
-	vJNjgRdTT5NupWHCe70BxVoA/xEbxrHAe7hm2r7HpGxk889kZGsxA5FLCg4P8odidCOE24AvA1YUN
-	IheRUUDesGJY8svdPkPdtyq00mWfb2M2WnT+AMBddJFnHI7wyn4r9xs90vtuR1hrewVJdWb5x1Nym
-	+/1Yj6z6dtKYGSU5RY+Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/UpLQlGwbjrkAysg8QenUytphixuNLl7+lwb6G/tEN4=; b=CIznjEBBzwJBJRVKiwdk/WmEzX
+	WNdBM3UVxRmgs7xW+wRfpIao4TbvfU5pc/3bjAXPHNgaDVRjYlmS13CE+NkmdkxLyPp6Xqc8Uxq4T
+	11z9/gdQRDXJ8IJWV/FkujHoL0ISIkqdUKI1+QwMog22l3rV6D+NRsl6qQU1GEmfMoh75bOe5IQ+u
+	EZnTWfCkoKOUrlhwVYEfZE6DRYYqoicF8NYT4eEEScYBz12SiELUMQftmgRmz3ysa8vT3ZOU7BChX
+	lPkoGcd/7Jxkas95pueOyimk2MvxCC70hPb4Jq59LuVV8f/Qcoa7LTjr4UjJLZy4Set5XhURqkW5X
+	FjsEWE9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8qLt-00C9QH-2J;
-	Thu, 30 Nov 2023 23:21:49 +0000
-Received: from mail-dm6nam12olkn2081c.outbound.protection.outlook.com ([2a01:111:f400:fe59::81c] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1r8rZs-00CHEq-20;
+	Fri, 01 Dec 2023 00:40:20 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r8qLq-00C9P4-1F
-	for linux-riscv@lists.infradead.org;
-	Thu, 30 Nov 2023 23:21:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=e+7n4Qp31q3YMTTvUU9hEwyxUWXT9ifH/Ak+NGfCDTnDQID7FoQSxB0Y+gkfqTWFH3HjgViGfbtEGA6LtNAO3C1C+qlEs+FceHU7zcCE5q+cZ4DWMf+G+BZNUpDuE3JAec3i9dkEEm731xRwL8sN/WHI+QUXfOWs3njJzr5+uLZHXi/60Ojb0Ee+aohP2FWNJTwRtdLTFvjRWB1uhtDur51fH6H070mvLFRp0gEbqjrWrUrd0HmAGvej2cEeAA7f7FZ4iGHv3tvONQdMW4RKLwVgianwL5teUYY60HLG+q4qsu0oYfRSuQO5oYI8VdjrxUEe5pZRo/MGAvEOPafgqw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DRzmDpJOHIT8kdYM/+sWnTGi9qOmc3ZWtV1UNM/9Ohc=;
- b=TU4N7IFlZIXsnbPSpvPCrpDUNPzTcQBCKLyFyS43bWuQeLS+VGd4zrit8dJDHmvkOiZtaoXk9gg2Nh/FXifM3TDimgBdQOtsN2ca9FZR7KZQ36U/E7UTyJdnRYN9kCOoODHoMc78u136zgmtfq1o5aJ5jWxPWDZddjjyKCEg6rSFcIFXuOyGHHrgmiL/JeQ3y5fvgoS3jH6Q9A0TEVTRggk41Dvr31XFmfH4SljbxAcqA2E78D5Zqzrz/txxAap4XDTgxbw8TfSuKedr+fUFrWdI+lZNox5EwdMc7H0amiaTABfvv0xeEgjfGfAcMIg4qw+BG9qLIHESC/U2oIvgQg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DRzmDpJOHIT8kdYM/+sWnTGi9qOmc3ZWtV1UNM/9Ohc=;
- b=Urgjd/ZTI7697QksD7dACaYF/9aceHJfa8yhkHRwtqQUmnDD628hDMgXA19KDuoYgbepKwZBLnx1Qwk0ANzeWdkMbaGIKplXy5xuwEjulo3B0I9hmEqjOOU7eX5EqzdpMxgqAUCeDhgFfnmXu3NHMiCCRXB9FukEkTF0owmHgP/VhuVthTznDzRF+VzxoY4/Jubndn1KBWntdOS6andYT87AHua0vr6iocuNihQZt4bhhG1ocOdXonsqI4dy6hg0+lSrhMfUH7KGs1PzL5mbM4k996Jy7Oq3ce4PtHrQXKAP32Ry7lQWPPsCOdeASBekME91/uQ3P+nnHnZyD5LjkQ==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by SJ2PR20MB6657.namprd20.prod.outlook.com (2603:10b6:a03:536::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7046.22; Thu, 30 Nov
- 2023 23:21:34 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::55b:c350:980:ad8]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::55b:c350:980:ad8%6]) with mapi id 15.20.7046.024; Thu, 30 Nov 2023
- 23:21:33 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Conor Dooley <conor@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Anup Patel <anup@brainfault.org>,
-	Inochi Amaoto <inochiama@outlook.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 0/7] Add Huashan Pi board support
-Date: Fri,  1 Dec 2023 07:21:29 +0800
-Message-ID: <IA1PR20MB4953275B5B7BB241916A937BBB82A@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20231130-radiator-cut-167bcaaa2cd6@spud>
-References: <20231130-radiator-cut-167bcaaa2cd6@spud>
-X-TMN: [MJhOTG+ZMCtiFRnmAdt+48gyPAUjOd5Msyi38GmXUZo=]
-X-ClientProxiedBy: BY5PR16CA0028.namprd16.prod.outlook.com
- (2603:10b6:a03:1a0::41) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20231130232129.10413-1-inochiama@outlook.com>
+	id 1r8rZp-00CHDT-0d;
+	Fri, 01 Dec 2023 00:40:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id 13EBAB845CD;
+	Fri,  1 Dec 2023 00:40:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE544C433C7;
+	Fri,  1 Dec 2023 00:40:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1701391214;
+	bh=Bwi6rHBnTF4XvJJlKCsW+lAw3yuN1E/2bSWXjFUXBlo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZJWxdQjHwFwzN3MDNBVDR9RVIKZHH+ZYWbc+bsJ3IEuZxNsvfUAdPFaMh8SqqcEpe
+	 pGBa87uCh0j+Lv/eilOH/rMkvTe69hfhziRTHvL47PeiWR+/WFBiNvdN35yA7RHo6a
+	 eSto+KrCfTk37oNICO5zL0io4r/qCny2XTAgIqgrcXiovqvj7O25sK0Hg/xMFxuIFx
+	 94ZnLTXkFr3gYPVwFqJcYHNqqmcy4HtjQmHdCDtBpj48WK/YpokXA2x9ctnUeVqYTl
+	 ULUC/rQPetIL8xAghf3/VmAmfbSnztqMRVIpwaLCgwVYEc4F5LLhfYONb6qoTk/nHX
+	 7MagA3g4gefBg==
+Date: Fri, 1 Dec 2023 00:40:03 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Inochi Amaoto <inochiama@outlook.com>
+Subject: Re: [PATCH v4 09/13] dt-bindings: riscv: Add T-Head PMU extension
+ description
+Message-ID: <20231201-hatchback-lustily-a516298c3556@spud>
+References: <20231130-isotope-runaround-9afb98579734@spud>
+ <IA1PR20MB495378652B09B37E92D8BB04BB82A@IA1PR20MB4953.namprd20.prod.outlook.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SJ2PR20MB6657:EE_
-X-MS-Office365-Filtering-Correlation-Id: 082ee638-9a53-44a7-a705-08dbf1fb1771
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: uQ5rXsA3Pt7TbC+ezYZAwznZQzvOr0aijsafjbpIv3F/cXVdqifwLPpSU6AMBnu/iBN9hYQJQwPNyNH+u9NeDUVI/CUiSZqFVAtS04ApXyGjVC0XR8Rq24w3Ap2ziXok0ywzGQAZIwja50HIEhC+wJthjVyGTsLFM5CDY/iiThCRAnsowxMoinBUcIdwyPSyqbiGtBcaTAWyxbRXFUM5ORrqBD/bwhdPt/hIutEU56nYdpdcSNIKlf7yOdLrUuCBS15mNIvr++b0jkWoeBaEBBStRlifa32FeejVFL4mKye5StEmI4ez78xPdc1q4hGGsSRP8GOKP2vz/D78NF/cDmCsVOkHpuM9+NN5hohJ2l3oKuSi9Vls/piM2kUZcrlQ1okDCVC20MwfvTpn0slUVWdbtctdoJGV2g3tqnfSSYx3f3NxEz94bi9itlI1KJ+zcpLGsPvzF4dQxPYv5kZNtYVcy3UPiW6xDZDrO3W5+9Mzgwnh1RU0vCrP3cc0B8XmKG/cQgp6+eoiwiNmCXWiFgrE0/zzIuYkhkkJvOGybSM8uIeaKxMCv1O6g5gBvrF0dbIdEQ8v3eV2hN0DtHiVdWugnuy9wBiUo9/+m5Pn6GqLV1FJ7ZziWGY9+9cH+Cv7
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Sb9jMGcRmG+QcjFy3fWanA4PUqHG8ehRH7i/qqyNVY+JCM4g8ecIaetlt3mg?=
- =?us-ascii?Q?vP7/tS6H4lzHg+pzWTpp8UgJMTlH8xs0hFpcH3TpZl95CdlCKyFt/vGAep8Q?=
- =?us-ascii?Q?Gq4FDZG+y2/+GriLcMW2e+ubhXC71MLsVMlgmfN9lEurBuqABlaOszm7Ha1r?=
- =?us-ascii?Q?yRHUQNnzlvr/atV+aw1ml8JU5KJFod3yWouBbLuBJdAiqLCVzsDwKh+Tn/em?=
- =?us-ascii?Q?03re3+Z3c9nrZapxRdrME/rUr3wJb30dfSEGp4SxOn3H5TH0gYp2gCvtuICk?=
- =?us-ascii?Q?b2f4X9zpAmZRM4TPS09ES1LEKtTkpOvuBmy7UI8pk1i4Vw74mgUQGlAlMXoF?=
- =?us-ascii?Q?QO12l6hVWOI82S4/Rhrl4MWQvV4fr1+TW4kgtkfV81dwz85aCVz1YhDQz6K8?=
- =?us-ascii?Q?vyS+6ABKmNebYeGCg/mUv0r0MW5OBFXZCbEQz1lcORGfEpJNr9IPkCJpMk1O?=
- =?us-ascii?Q?nJ08888Wnj2KuSMsas5k+v75Pu6lOMzolJNW/A3Z9esk3tsxTlW+fx6s4oar?=
- =?us-ascii?Q?B0Gzfmx4PI3QR2nXOw97AwvwiiYJOYkAvu5YLiP1RcZ+z6FQhPY3Qvp6P8E4?=
- =?us-ascii?Q?DGYTvbzS2HdsbkBWZWc4jVwU0hsET++LOErusHtliNA7s4mLcFraHNbkiRWN?=
- =?us-ascii?Q?wKAqQUa709/qiLZS48L+Fcl1e4kq82j8Q9a8Alx+cHRW9X4gqvkVihcF/Q6S?=
- =?us-ascii?Q?jLcJ0GHQ19ZbFPnXlSHa7GkJ7KXxwxUGiaaxg3ibpM19cqt9IYJXbe+DzFIf?=
- =?us-ascii?Q?ZOWL1dbsdXMAkrmIuWwvFk9Sw7uBI4WJ9ovSMrdbqWT65QpvYlEMsI+HfWb8?=
- =?us-ascii?Q?8shQa2FWd7Ib7l3oJta7TqYwbHTiclXT06DLsuLSDTv0OHGHffHjVbW6Hj06?=
- =?us-ascii?Q?VlvgaXGei80xoRsXoHhgE/5uNyeNzffWf4l8OKC2KVudGhmV7qSuxs4uKist?=
- =?us-ascii?Q?uhgx8HSS4EAa4xon3LVozyFn/0syjLg4gO3VgU2mqFv3BMvUQYkX/hTXd0IY?=
- =?us-ascii?Q?IVN3qITK72H6FLeI4ORvkF2rz55aBubKiXs2r+BIuTYMoRa/Jb3DoLWgpqCO?=
- =?us-ascii?Q?PiqitdsiTQ8h8Z6VA0VuI1NKb1zu2slqNVFn+NLiCUcVQrrGAodhHl9J1Lj1?=
- =?us-ascii?Q?5biSmL5ndnR+5Is00uXLY3iwm5y5lTwIZp/a0DU2DyiKGEIJI3R2mBBtxOHW?=
- =?us-ascii?Q?ZEd7XwO4hYLnupMXuFzeTXmiXcBN/vUxc3QMmSujCSnOqdLdV/6gp5belQ8?=
- =?us-ascii?Q?=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 082ee638-9a53-44a7-a705-08dbf1fb1771
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Nov 2023 23:21:33.8231
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR20MB6657
+In-Reply-To: <IA1PR20MB495378652B09B37E92D8BB04BB82A@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231130_152146_448150_843AD1C0 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20231130_164017_536117_3B379852 
+X-CRM114-Status: GOOD (  27.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,58 +65,156 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: mark.rutland@arm.com, irogers@google.com, heiko@sntech.de, geert+renesas@glider.be, alexander.shishkin@linux.intel.com, paul.walmsley@sifive.com, linux-kernel@vger.kernel.org, conor.dooley@microchip.com, Guo Ren <guoren@kernel.org>, krzysztof.kozlowski+dt@linaro.org, linux-riscv@lists.infradead.org, will@kernel.org, linux-renesas-soc@vger.kernel.org, tim609@andestech.com, Yu-Chien Peter Lin <peterlin@andestech.com>, samuel@sholland.org, anup@brainfault.org, dminus@andestech.com, magnus.damm@gmail.com, jernej.skrabec@gmail.com, peterz@infradead.org, wens@csie.org, mingo@redhat.com, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, ajones@ventanamicro.com, devicetree@vger.kernel.org, conor+dt@kernel.org, aou@eecs.berkeley.edu, andre.przywara@arm.com, locus84@andestech.com, acme@kernel.org, prabhakar.mahadev-lad.rj@bp.renesas.com, robh+dt@kernel.org, atishp@atishpatra.org, namhyung@kernel.org, tglx@linutronix.de, jszhang@kernel.org, ycliang@andestech.com, n.shubin@yadro.com, rdunlap@infradead.org, adrian.hunter@intel.com, linux-perf-users@vger.kernel.org, evan@rivosinc.com, palmer@dabbelt.com, jolsa@kernel.org
+Content-Type: multipart/mixed; boundary="===============4633421695834804718=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->
->On Thu, 19 Oct 2023 07:18:00 +0800, Inochi Amaoto wrote:
->> Huashan Pi board is an embedded development platform based on the
->> CV1812H chip. Add minimal device tree files for this board.
->> Currently, it can boot to a basic shell.
->>
->> NOTE: this series is based on the Jisheng's Milk-V Duo patch.
->>
->> Link: https://en.sophgo.com/product/introduce/huashan.html
->> Link: https://en.sophgo.com/product/introduce/cv181xH.html
->> Link: https://lore.kernel.org/linux-riscv/20231006121449.721-1-jszhang@kernel.org/
->>
->> [...]
->
->Applied to riscv-dt-for-next, thanks! LMK if something looks not as
->expected.
->
->[1/7] dt-bindings: interrupt-controller: Add SOPHGO CV1812H plic
->      https://git.kernel.org/conor/c/21a34e63afcc
->[2/7] dt-bindings: timer: Add SOPHGO CV1812H clint
->      https://git.kernel.org/conor/c/06ea2a1968a9
->[3/7] dt-bindings: riscv: Add SOPHGO Huashan Pi board compatibles
->      https://git.kernel.org/conor/c/d7b92027834e
->[4/7] riscv: dts: sophgo: Separate compatible specific for CV1800B soc
->      https://git.kernel.org/conor/c/5b5dce3951b2
->[5/7] riscv: dts: sophgo: cv18xx: Add gpio devices
->      https://git.kernel.org/conor/c/dd791b45c866
->[6/7] riscv: dts: sophgo: add initial CV1812H SoC device tree
->      https://git.kernel.org/conor/c/681ec684a741
->[7/7] riscv: dts: sophgo: add Huashan Pi board device tree
->      https://git.kernel.org/conor/c/2c36b0cfb408
->
->Thanks,
->Conor.
->
 
-Hi Conor,
+--===============4633421695834804718==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="aS5JTpy0ABLKb+d2"
+Content-Disposition: inline
 
-Thanks for the confirmation. But I suggest to revert these patches.
-Several days ago, Sophgo informed me that CV1810 series will be
-renamed. And the Huashan Pi will switch to the chip with new name.
-To avoid unnecessary conflict, please drop these patch and I will
-prepare a new patch once the renamed chip is launched.
 
-Sorry for this inconvenience.
+--aS5JTpy0ABLKb+d2
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Dec 01, 2023 at 07:11:31AM +0800, Inochi Amaoto wrote:
+> >
+> >On Thu, Nov 30, 2023 at 08:16:38PM +0800, Inochi Amaoto wrote:
+> >>>
+> >>> Hi Inochi,
+> >>>
+> >>> On Thu, Nov 30, 2023 at 04:29:22PM +0800, Inochi Amaoto wrote:
+> >>>>>
+> >>>>> Hi Guo Ren,
+> >>>>>
+> >>>>> On Thu, Nov 23, 2023 at 05:14:30AM +0800, Guo Ren wrote:
+> >>>>>> On Wed, Nov 22, 2023 at 8:17=E2=80=AFPM Yu Chien Peter Lin
+> >>>>>> <peterlin@andestech.com> wrote:
+> >>>>>>>
+> >>>>>>> Document the ISA string for T-Head performance monitor extension
+> >>>>>>> which provides counter overflow interrupt mechanism.
+> >>>>>>>
+> >>>>>>> Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
+> >>>>>>> ---
+> >>>>>>> Changes v2 -> v3:
+> >>>>>>>   - New patch
+> >>>>>>> Changes v3 -> v4:
+> >>>>>>>   - No change
+> >>>>>>> ---
+> >>>>>>>  Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++=
+++
+> >>>>>>>  1 file changed, 6 insertions(+)
+> >>>>>>>
+> >>>>>>> diff --git a/Documentation/devicetree/bindings/riscv/extensions.y=
+aml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> >>>>>>> index c91ab0e46648..694efaea8fce 100644
+> >>>>>>> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> >>>>>>> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> >>>>>>> @@ -258,5 +258,11 @@ properties:
+> >>>>>>>              in commit 2e5236 ("Ztso is now ratified.") of the
+> >>>>>>>              riscv-isa-manual.
+> >>>>>>>
+> >>>>>>> +        - const: xtheadpmu
+> >>>>>>> +          description:
+> >>>>>>> +            The T-Head performance monitor extension for counter=
+ overflow. For more
+> >>>>>>> +            details, see the chapter 12 in the Xuantie C906 user=
+ manual.
+> >>>>>>> +            https://github.com/T-head-Semi/openc906/tree/main/doc
+> >>>>>>> +
+> >>>>>>>  additionalProperties: true
+> >>>>>>>  ...
+> >>>>>>> --
+> >>>>>>> 2.34.1
+> >>>>>>>
+> >>>>>> Reviewed-by: Guo Ren <guoren@kernel.org>
+> >>>>>
+> >>>>> Thanks for the review.
+> >>>>> Would you share document about T-Head PMU?
+> >>>>>
+> >>>>
+> >>>> Hi, Peter Lin:
+> >>>>
+> >>>> You can use the following two document to get all events:
+> >>>> https://github.com/T-head-Semi/openc906/tree/main/doc
+> >>>> https://github.com/T-head-Semi/openc910/tree/main/doc
+> >>>>
+> >>>> There are also some RTL code can describe these events:
+> >>>> https://github.com/T-head-Semi/openc910/blob/e0c4ad8ec7f8c70f649d826=
+ebd6c949086453272/C910_RTL_FACTORY/gen_rtl/pmu/rtl/ct_hpcp_top.v#L1123
+> >>>> https://github.com/T-head-Semi/openc906/blob/af5614d72de7e5a4b8609c4=
+27d2e20af1deb21c4/C906_RTL_FACTORY/gen_rtl/pmu/rtl/aq_hpcp_top.v#L543
+> >>>>
+> >>>> The perf events json can also be used as document, this is already
+> >>>> applied (with more detailed explanation):
+> >>>> https://lore.kernel.org/all/IA1PR20MB495325FCF603BAA841E29281BBBAA@I=
+A1PR20MB4953.namprd20.prod.outlook.com/
+> >>>
+> >>> Thanks for reaching out!
+> >>> The updated description will be:
+> >>>
+> >>> - const: xtheadpmu
+> >>>  description:
+> >>>    The T-Head performance monitor extension for counter overflow, as =
+ratified
+> >>>    in commit bd9206 ("Initial commit") of Xuantie C906 user manual.
+> >>>    https://github.com/T-head-Semi/openc906/tree/main/doc
+> >>>
+> >>> Is it OK with you?
+> >>>
+> >>
+> >> I suggest using perf event json as event description. The jsons provide
+> >> more detailed explanation for these events than the user manual.
+> >
+> >Does the "perf event json" describe the registers and interrupt behaviou=
+r?
+> >
+>=20
+> It does not. IIRC, the linux just uses SBI as perf driver backend. So
+> the registers and interrupt behaviour is primarily for SBI developer.
+
+Interrupts and registers are the reason that this patch (and the rest of
+the patchset) exists :)
+
+> For registers and interrup detail, just reference the openc910 doc url
+> (https://github.com/T-head-Semi/openc910/tree/main/doc) and the T-HEAD
+> PMU driver in OpenSBI.
+
+The former, sure. But I will not accept driver implementations as the
+reference in this context.
+
+Thanks,
+Conor.
+
+--aS5JTpy0ABLKb+d2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZWkrYwAKCRB4tDGHoIJi
+0pwIAPwK17iPJiDp9ipZS/utYpBvkvx0ll5v01jA4ntru7UxxQEA4aGN5NO3jlaA
+IGvR1UvnavydACZeMLUy8t+jGSuPzAA=
+=bY70
+-----END PGP SIGNATURE-----
+
+--aS5JTpy0ABLKb+d2--
+
+
+--===============4633421695834804718==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4633421695834804718==--
+
