@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 343D3C07E97
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Dec 2023 15:46:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6A85C4167B
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Dec 2023 16:09:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QSCB0NCJ3xT9NObPI8n1J2xjHfFznDep7u6XB1orJ94=; b=cKWmA5yZmLsNzO9K462z5+9FvH
-	F5UKwxSb5FnTyiUyb8sJgNSIPf9Y3MtJnI2xJlBq4wr1RjrWpq7wqi9rGbGEDieetaRqFF1cG+vI2
-	1nSePjmxHbqoo2L4FtZxEiFEiBZSabwyL7vkCurmEpqZr7/tmUYLT3ngrwU4FWTvRPJp7cKki7qgc
-	8bBF1x+c98Hl0//5NgSyu08IOW1YDl1V0lHx4A8pcXaOXWMLWbmaZP7bVc0OagS9CtRxw66xEi9D8
-	wTZSwgm+f5fQcVarzK234SWziXk68Bj3eZtoBOH3Nch7MJNxKJM1funVHOrsgysGFtFm0+qZUlcNq
-	/y5DHKSw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jdmhplaL8G387bQvw0zHJGSxq8jT5AxHOFVHoPMGC2M=; b=KkOa1KWFz6A+t0
+	ECsgI/apkfErwE1cn3V+pQOIZLcPpMvvvw+6JeJa7mrUDAfGcTQv2CUBXRxq4FBU5m9amJpCuAslI
+	t2WrPaPsrHUvLlIA7VUPzp7yGSLmMMpxDkufeKoyHBwgH2c9/9tT0VtgI9E7jdtEivMhwHh0+Upz2
+	Rb+HheFdFNCkME8mavE3EAng5+evLvLKkJRX15R1h9v+7nbW91dXhqtaj0TDlZIFEJx/KOtEBDsY0
+	cojyC1q+XTzizsWZQgZ3qn8Dlhf6gg97RCnNvNw4RDWQ15IeIS/XPFFeycJf2wtlzm6mvxj8Dz8fH
+	9Qbp7T7sEaS4xQkGW2/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r95ir-00E4xw-1Y;
-	Fri, 01 Dec 2023 15:46:33 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1r964s-00E7Ty-0D;
+	Fri, 01 Dec 2023 16:09:18 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r95io-00E4x3-1T
-	for linux-riscv@lists.infradead.org;
-	Fri, 01 Dec 2023 15:46:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 478B8CE22FD;
-	Fri,  1 Dec 2023 15:46:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 212B9C433C9;
-	Fri,  1 Dec 2023 15:46:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701445584;
-	bh=0a5xvA+EE/HD2de4oTACqSgMGZmPpL1HYg7E91OIbjo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kpkGqEahS7E0OW2nucL/ztL6qJKWQx0MxMxLmZAdDDfZ89ofp2IjPwIA5I6aGAPjV
-	 CjesnHpkG/h8E6KJ9BsmnDCk2q+sxtS6cbKYUor+MIJ59zFh7Clb/cotQ+EjuNsZ2s
-	 PocD6TcHSUChgpIJa4Cu9/P1bvYm44vaRaRGMKkTvBTAABQ7NxL4RtxitFOhs5Shta
-	 6+eSxDgts1UMKBkdy1Rxrgxo0yeqUqt353LJPLcvck4fzM6UjHiYqm2LZlZcmXztxB
-	 mWLmQ6vfKy4eRBPu60CDjcIZn33jvcfmHFToypG8qpcBqEQjqxY1rH04mudpa/UWDE
-	 L6ITLblOSO8ZA==
-Date: Fri, 1 Dec 2023 15:46:17 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-Cc: kernel@esmil.dk, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-	krzk@kernel.org, conor+dt@kernel.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	daniel.lezcano@linaro.org, tglx@linutronix.de, anup@brainfault.org,
-	gregkh@linuxfoundation.org, jirislaby@kernel.org,
-	michal.simek@amd.com, michael.zhu@starfivetech.com,
-	drew@beagleboard.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	leyfoon.tan@starfivetech.com
-Subject: Re: [PATCH v3 5/6] dt-bindings: serial: cdns: Add new compatible
- string for StarFive JH8100 UART
-Message-ID: <20231201-retrace-unruffled-b755da60912e@spud>
-References: <20231201121410.95298-1-jeeheng.sia@starfivetech.com>
- <20231201121410.95298-6-jeeheng.sia@starfivetech.com>
+	id 1r964p-00E7Si-1L;
+	Fri, 01 Dec 2023 16:09:16 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1701446951;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uKxRp/dNJ+BlEYqlGWZid2nfWI8vIHVdIFhT+RiI/qw=;
+	b=PulDj90aXiRlz0KIPhVWwqgHjbNY+GfW1XmvAqmiTU2UUTadptMLOgWxpw0sglnecWPxm2
+	h3pQxvz/efyUkT0DzR6Zifyj/teIVv7LRNanyfOBCaopUgzyOdYP3BramvDqzLCaPgyMXH
+	G2oUSl2ZtKWMTHxX9On5rvWRR93FCNkui+7QBPmn1fSY/iCGndY24luM31PjHukQxZY+ND
+	QsyOE8crYC1sCWSj2foqen7+kQNVXcV4Jw3XBAzPRS3pU5nlDBmFRtVCbC4XYuwCPsNN5g
+	EAnr8d8MCcDefPToBuDYeCdDAC+tenJqC5OG0gxx1dEo831rwsbpRsdF8dDGDw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1701446951;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uKxRp/dNJ+BlEYqlGWZid2nfWI8vIHVdIFhT+RiI/qw=;
+	b=MM+my8yufzTM5emNEOVfJBfSeaclWykJ/U1d2msgD5/TqhIRuKqH2clFiM3a1nH+LeR7kF
+	F5zFA8wjF+8cUiDg==
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+ linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, kvmarm@lists.linux.dev, x86@kernel.org,
+ linux-csky@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-ia64@vger.kernel.org, linux-parisc@vger.kernel.org, Albert Ou
+ <aou@eecs.berkeley.edu>, Borislav Petkov <bp@alien8.de>, Catalin Marinas
+ <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, Guo
+ Ren <guoren@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Huacai Chen
+ <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>, James Morse
+ <james.morse@arm.com>, Jean-Philippe Brucker <jean-philippe@linaro.org>,
+ jianyong.wu@arm.com, justin.he@arm.com, Len Brown <lenb@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Peter Zijlstra <peterz@infradead.org>, "Rafael
+ J. Wysocki" <rafael@kernel.org>, Salil Mehta <salil.mehta@huawei.com>,
+ Sudeep Holla <sudeep.holla@arm.com>, WANG Xuerui <kernel@xen0n.name>, Will
+ Deacon <will@kernel.org>
+Subject: Re: [PATCH 00/21] Initial cleanups for vCPU hotplug
+In-Reply-To: <2023120131-leotard-deprecate-4e27@gregkh>
+References: <ZVyz/Ve5pPu8AWoA@shell.armlinux.org.uk> <87plzqxiyl.ffs@tglx>
+ <2023120131-leotard-deprecate-4e27@gregkh>
+Date: Fri, 01 Dec 2023 17:09:10 +0100
+Message-ID: <87jzpxykex.ffs@tglx>
 MIME-Version: 1.0
-In-Reply-To: <20231201121410.95298-6-jeeheng.sia@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231201_074630_724288_A41E47F4 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20231201_080915_623570_8C1E9FC2 
+X-CRM114-Status: UNSURE (   6.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,80 +87,19 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8825385503116846404=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Dec 01 2023 at 12:28, Greg Kroah-Hartman wrote:
+> I can take them, will do so this weekend when I catch up on patches on a
+> 14+ hour flight...
 
---===============8825385503116846404==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="b6G910+EpcX16ELw"
-Content-Disposition: inline
+Thanks a lot!
 
-
---b6G910+EpcX16ELw
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Dec 01, 2023 at 08:14:09PM +0800, Sia Jee Heng wrote:
-> Add new compatible string for UART in the StarFive JH8100 SoC.
->=20
-> Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
-Cheers,
-Conor.
-
-> ---
->  Documentation/devicetree/bindings/serial/cdns,uart.yaml | 3 +++
->  1 file changed, 3 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/serial/cdns,uart.yaml b/Do=
-cumentation/devicetree/bindings/serial/cdns,uart.yaml
-> index e35ad1109efc..07732ae60007 100644
-> --- a/Documentation/devicetree/bindings/serial/cdns,uart.yaml
-> +++ b/Documentation/devicetree/bindings/serial/cdns,uart.yaml
-> @@ -12,6 +12,9 @@ maintainers:
->  properties:
->    compatible:
->      oneOf:
-> +      - items:
-> +          - const: starfive,jh8100-uart
-> +          - const: cdns,uart-r1p8
->        - description: UART controller for Zynq-7xxx SoC
->          items:
->            - const: xlnx,xuartps
-> --=20
-> 2.34.1
->=20
-
---b6G910+EpcX16ELw
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZWn/yQAKCRB4tDGHoIJi
-0k/0AQDtPnPwSdRJ029ZXgtTtqL+qNU1ejsQjcuMF0cVd85EHAEAxwLKjgVy43m6
-Uy3JksLeRxTyyf4uxKhbKdlCsPTjTQw=
-=8FHo
------END PGP SIGNATURE-----
-
---b6G910+EpcX16ELw--
-
-
---===============8825385503116846404==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8825385503116846404==--
-
