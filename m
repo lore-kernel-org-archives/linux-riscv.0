@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09FBFC10F04
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 Dec 2023 14:16:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2820EC4167B
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 Dec 2023 14:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ATkqwRnK0dhsw/L5ssx37WCHpZ8qxCckT5V4v8o+At8=; b=o+G54tS2puCmlM
-	YVoIFaS3itY8o6qALpXiT1pYOD+6Zpvop9GTRgSgaEcXpIA9l3BDZgMpZQ3Yc1WhWpRLqHd9Pjjwn
-	WsPIsG+bkTN4arccoeAyZPU/B1oXkbbU+DeadXTknepNVn/Mhgbu3GbtsL97PK9qpIEN7b7QOohY2
-	EafPBeGdQzgL1w5B6T257iGO07lLGC+u0ACRHwzvXhC3BL88RA2qkQQGHxm/NCdCF47A+Yw6rTUMt
-	qKFv7sGmQtSd4zh8H9gm2quoUdO6x2j85RwDkjrnLZKok1GZt+i7ppjlnh1iygcROBJk8EQAsjT+k
-	AytYEQa8Y7JTgG0EL+Ww==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=FudkQOEq+g0fjHRkv6l1RaREvHvwoGTtHrvomNbjnbM=; b=oTLShHqWFmSuzH
+	LaWFiBNrHFoYLoeOa7DzcEBkK32i9KBl4Wzf5t4p/gtUccpq7kNnlsxtJ8gUi/jw11G6kqIeV3K8I
+	uBZ50B7mF1lO8PO8/Rx39i32nO8edq4uIwSbCm9ewJbIfDxtg39/txNCM9iD3ol6dGpw/WQKhzj/Q
+	D4Sjd+FaUoquRNi+OJkQsFdnynqj7E9xD0Z/6H7jIPdxpRFz4F6zvzBgUUetp0cc1Iym/i4tvkiEh
+	MZQjl1WbbQ0BfpnR8nrAGtGw+UAXUJ+fg1y0Qik0IkjKbUehjSYy3G2w/QnuU18bFS9S7gD7Yrmpx
+	LROj5M+t6vzI9plUn0Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9Qml-00Fmpn-19;
-	Sat, 02 Dec 2023 14:15:59 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1r9Qmi-00Fmnv-00;
+	Sat, 02 Dec 2023 14:15:56 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9Qmg-00Fmmu-1X
+	id 1r9Qme-00Fmm5-2l
 	for linux-riscv@lists.infradead.org;
-	Sat, 02 Dec 2023 14:15:55 +0000
+	Sat, 02 Dec 2023 14:15:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2485660B73;
-	Sat,  2 Dec 2023 14:15:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3574C433B6;
-	Sat,  2 Dec 2023 14:15:51 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 4B338CE1A9B;
+	Sat,  2 Dec 2023 14:15:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 388EDC433C9;
+	Sat,  2 Dec 2023 14:15:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701526552;
-	bh=f5wYmmEc/6YNMD4xeSRCsSaZscE5Ri2p04isx1ogm+s=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Ial5msYMisNvSBLgaIv84BoLRvHY5kBgWPY2YeInOEJ03ZnAa+AU8INHjN48bxfof
-	 KJx5rAacZfFcgF1QYUUOkQyJSThnvmHmzlOlgdLg0I+occ47+4DyG91NJKP86M4RDs
-	 LPq3zhIgi1Gv/xvP4arCU2uAa8uhs2hTnlcWPYX0n4bSqHrVaf0RvoNZtQUL4xRKlF
-	 D1tCHvXQdP9MsjEsAAGX5Zq8SoFhlWsJdRz2FFTYbuS7DP8DJ3wgSFseWk4SMOzgF4
-	 z0dqLn3uX6cT306Y3tErtpAcxAmmQ39Yhnb8KVYCdM27TkerisIXDEeXZ71zPmg/nT
-	 KSHPimVFypkpg==
+	s=k20201202; t=1701526549;
+	bh=S2+zqveKrbdhHD/E0gLVDfqMZhNfNga2QuZZLKEkKts=;
+	h=From:To:Cc:Subject:Date:From;
+	b=E9/n4SDNzT+7E/XzeFkmkbteR4trXt4gqLfwdTDooFabkERe72aNvNceCOKnJiIYV
+	 w1q2lRB4TxZZ/zydPWbcLvVuaZ0pWcsjOrDyYZeTLao7Tu8hDxlCWHSx6OUOyt2xVF
+	 mBovBn2E6dFggfIw8zzWNmgQu+ICALfWlrB8FvBpzDKy5iqXeMuFtKYNaR6sFQXjFU
+	 cA8y7YjlJNL+pfYyjKZK6PITtwrbk1V4SJbB7BqdQHa0NyW8mPV4W4g5BgocoxYl8p
+	 KuUDlCV+V4KOreLLQyhwwAkc7cFqoOGNxe4bo6aq77YkRcSJ/cSM48jhOAFzOweMwp
+	 hGxKuRGbbxaMQ==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] riscv: cmpxchg: implement arch_cmpxchg64_{relaxed|acquire|release}
-Date: Sat,  2 Dec 2023 22:03:23 +0800
-Message-Id: <20231202140323.315-3-jszhang@kernel.org>
+Subject: [PATCH v2 0/2] riscv: enable lockless lockref implementation
+Date: Sat,  2 Dec 2023 22:03:21 +0800
+Message-Id: <20231202140323.315-1-jszhang@kernel.org>
 X-Mailer: git-send-email 2.40.0
-In-Reply-To: <20231202140323.315-1-jszhang@kernel.org>
-References: <20231202140323.315-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231202_061554_557151_74530717 
-X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-CacheID: sfid-20231202_061553_120939_F7739F5B 
+X-CRM114-Status: UNSURE (   6.78  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,13 +73,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-After selecting ARCH_USE_CMPXCHG_LOCKREF, one straight futher
-optimization is implementing the arch_cmpxchg64_relaxed() because the
-lockref code does not need the cmpxchg to have barrier semantics. At
-the same time, implement arch_cmpxchg64_acquire and
-arch_cmpxchg64_release as well.
+This series selects ARCH_USE_CMPXCHG_LOCKREF to enable the
+cmpxchg-based lockless lockref implementation for riscv. Then,
+implement arch_cmpxchg64_{relaxed|acquire|release}.
 
-However, on both TH1520 and JH7110 platforms, I didn't see obvious
+After patch1:
+Using Linus' test case[1] on TH1520 platform, I see a 11.2% improvement.
+On JH7110 platform, I see 12.0% improvement.
+
+After patch2:
+on both TH1520 and JH7110 platforms, I didn't see obvious
 performance improvement with Linus' test case [1]. IMHO, this may
 be related with the fence and lr.d/sc.d hw implementations. In theory,
 lr/sc without fence could give performance improvement over lr/sc plus
@@ -89,38 +90,18 @@ fence, so add the code here to leave performance improvement room on
 newer HW platforms.
 
 Link: http://marc.info/?l=linux-fsdevel&m=137782380714721&w=4 [1]
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
- arch/riscv/include/asm/cmpxchg.h | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
 
-diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
-index 2f4726d3cfcc..6318187f426f 100644
---- a/arch/riscv/include/asm/cmpxchg.h
-+++ b/arch/riscv/include/asm/cmpxchg.h
-@@ -360,4 +360,22 @@
- 	arch_cmpxchg_relaxed((ptr), (o), (n));				\
- })
- 
-+#define arch_cmpxchg64_relaxed(ptr, o, n)				\
-+({									\
-+	BUILD_BUG_ON(sizeof(*(ptr)) != 8);				\
-+	arch_cmpxchg_relaxed((ptr), (o), (n));				\
-+})
-+
-+#define arch_cmpxchg64_acquire(ptr, o, n)				\
-+({									\
-+	BUILD_BUG_ON(sizeof(*(ptr)) != 8);				\
-+	arch_cmpxchg_acquire((ptr), (o), (n));				\
-+})
-+
-+#define arch_cmpxchg64_release(ptr, o, n)				\
-+({									\
-+	BUILD_BUG_ON(sizeof(*(ptr)) != 8);				\
-+	arch_cmpxchg_release((ptr), (o), (n));				\
-+})
-+
- #endif /* _ASM_RISCV_CMPXCHG_H */
+Since v1:
+  - only select ARCH_USE_CMPXCHG_LOCKREF if 64BIT
+
+Jisheng Zhang (2):
+  riscv: select ARCH_USE_CMPXCHG_LOCKREF
+  riscv: cmpxchg: implement arch_cmpxchg64_{relaxed|acquire|release}
+
+ arch/riscv/Kconfig               |  1 +
+ arch/riscv/include/asm/cmpxchg.h | 18 ++++++++++++++++++
+ 2 files changed, 19 insertions(+)
+
 -- 
 2.42.0
 
