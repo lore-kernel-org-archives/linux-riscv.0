@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 064ABC10F04
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 Dec 2023 11:31:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 914D0C4167B
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 Dec 2023 11:31:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ILuHpvqM2A4LL717iHLhBgiZ6DFfQKo6Qh0VlcKfOZg=; b=Kzf+VaQozejOdu
-	6sB2McEUdMiI9GQEa2JTjFDhTO0aWDBhSvnJl2WsA9cH9wWuT+4wmNchxd8Zto30W614LQOJebGKK
-	OPNJ/1fwciJKKL/F3GofrgeRdtYfCdQCwGG36FgFgAszJbI0MS33crUTOdShIenL8TmosVnJReLK1
-	+adSGJW0FtRjVh8VHFX9L5z9ki/5ow5ByMAXDwcH+Bl4CqizPNMhLIqv9Xv/H37EbPKxOXdsV6BV7
-	8+qtSiVVlJmPzV96ECtnaQM+VyF29R3r6CbA1ett8XM68y3GxX+IcLg9qT1dZvQ6+0buklSbrKmOc
-	hvatv+SM0vbdNoh/NW8Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VIDjSyZNKYJLNUPZGHoNAhJ1NA7W4AoCnk1Z4pDtF1U=; b=4oCxYVbNt/Ug0c
+	Bxr29wKPCC4X4ZIO+dt/ResotgHOY4nvJTyvqymD7Y0VPrkiaDvYQqvtfZlqLnXQnDfgzCLiMZ2Qn
+	6fYO3+hb8VVffTDzspNXPdWuXhIfQxSpD/fMgB0aYZX+aOoK3joaavR008+ebGCIf/YT59yZnpW7h
+	3nsJ7AATsiJbp/jU3wYIsFlucDBkgp3eVpLO6YKX0dMU2Gmm5qZ1yGICcZQm0TlU+SqLxIUGXo5SK
+	3L2IwtJkwNUf8aMT0b0Gy9gqG0C8zcEfnByXso2Y8G1mL9Xhub81vc6EeEtSSH8shLtH/pyz5qaN3
+	Pu+xC94SYiLqZ60D+pIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9OD0-00FbK3-1Q;
-	Sat, 02 Dec 2023 11:30:54 +0000
+	id 1r9OCz-00FbJQ-2V;
+	Sat, 02 Dec 2023 11:30:53 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9OCx-00FbHN-26
+	id 1r9OCw-00FbGU-2K
 	for linux-riscv@lists.infradead.org;
-	Sat, 02 Dec 2023 11:30:53 +0000
+	Sat, 02 Dec 2023 11:30:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 56B38B8406C;
-	Sat,  2 Dec 2023 11:30:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 854DEC433C9;
+	by ams.source.kernel.org (Postfix) with ESMTP id BD5B4B80B62;
 	Sat,  2 Dec 2023 11:30:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E982DC433C7;
+	Sat,  2 Dec 2023 11:30:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701516649;
-	bh=oaq++MapooJ2EycnyO1+1SBXzHdLUChecLPa1P5lthc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZeZCW75wrX6ms+WZ1Q1JgUt/WzAHbFZf1HVXg2hrKN0kBjzw08Dy8KNefoQkj8QC9
-	 CIbXEeuGws/75/j8IxDFJPY7WGCDnK4OnHFcKM+Jy+ijxoxxT0eRNeOCgzbKzZgh+d
-	 8+ISGPYJgWL7hHCdil9LwMReV/TUPNhlFWZ4gkZKwKtmSNzfEDBSYPB0+ng5k+iV9g
-	 yckiS4b1k3jHwNDXGXit+F8HnicCnTOjKY3Nava6OZCxlh+d3jJ4iTookCYTDn7r1O
-	 ap+b3UJE72tLvB5dAFCaf1nxn0htHgn+LPssyVIvrUVOub1zx7vN2eRPm3GyWkb6gY
-	 K3uvO57syMwjw==
+	s=k20201202; t=1701516648;
+	bh=kc94KxJklyWoPHmt6+H5e2NnVhPjnhF/egXD3sMeH9s=;
+	h=From:To:Cc:Subject:Date:From;
+	b=PDZS5xOu5TYmg25XuIj8ahMbd8+EX/4hhB19ehvPVfSP5RtWf5YHBTaNtbbbkkbOB
+	 C5AAhIvLt98znugz2CXFtv203fZXZUV4vl7x1TRLuJtMhP7Z292d/Ge5h/Aa5WDkBr
+	 9mLVUhgakh6j5Bb3vHHKzaCiRRo8OUz6+Aezen51F1owVbshgfVTEkMkvHhTCie+aR
+	 eei+3mUsX7IvSzOKj982p8RUmPXPT2TYhfF4R4dEu0mVox/0v/DtAK0cVk76ACiOVp
+	 DZvFLBkuCYU4pHRglerDUHyvDpLCQO5CfWhe+HxgZ4S9vnddkkWHHAzZDFFn93VzDY
+	 t6egOxopVAgug==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] riscv: introduce RISCV_EFFICIENT_UNALIGNED_ACCESS
-Date: Sat,  2 Dec 2023 19:18:21 +0800
-Message-Id: <20231202111822.3569-2-jszhang@kernel.org>
+Subject: [PATCH 0/2] riscv: enable EFFICIENT_UNALIGNED_ACCESS and DCACHE_WORD_ACCESS
+Date: Sat,  2 Dec 2023 19:18:20 +0800
+Message-Id: <20231202111822.3569-1-jszhang@kernel.org>
 X-Mailer: git-send-email 2.40.0
-In-Reply-To: <20231202111822.3569-1-jszhang@kernel.org>
-References: <20231202111822.3569-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231202_033051_837628_BAB5CEEE 
-X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-CacheID: sfid-20231202_033050_936498_1F04053B 
+X-CRM114-Status: UNSURE (   8.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,39 +84,54 @@ speed is a good solution. But that's not easy, it involves lots of
 work to modify vairous subsystems such as net, mm, lib and so on.
 This can be done step by step.
 
-Now let's introduce RISCV_EFFICIENT_UNALIGNED_ACCESS which depends on
+patch1 introduces RISCV_EFFICIENT_UNALIGNED_ACCESS which depends on
 NONPORTABLE, if users know during config time that the kernel will be
 only run on those efficient unaligned access hw platforms, they can
 enable it. Obviously, generic unified kernel Image should enable it.
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
- arch/riscv/Kconfig | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+patch2 adds support DCACHE_WORD_ACCESS when MMU and
+RISCV_EFFICIENT_UNALIGNED_ACCESS.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 7f8aa25457ba..0a76209e9b02 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -654,6 +654,18 @@ config RISCV_MISALIGNED
- 	  load/store for both kernel and userspace. When disable, misaligned
- 	  accesses will generate SIGBUS in userspace and panic in kernel.
- 
-+config RISCV_EFFICIENT_UNALIGNED_ACCESS
-+	bool "Use unaligned access for some functions"
-+	depends on NONPORTABLE
-+	select HAVE_EFFICIENT_UNALIGNED_ACCESS
-+	default n
-+	help
-+	  Say Y here if you want the kernel only run on hardware platforms which
-+	  support efficient unaligned access, then unaligned access will be used
-+	  in some functions for optimized performance.
-+
-+	  If unsure what to do here, say N.
-+
- endmenu # "Platform type"
- 
- menu "Kernel features"
+Below test program and step shows how much performance can be improved:
+
+ $ cat tt.c
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ #include <unistd.h>
+
+ #define ITERATIONS 1000000
+
+ #define PATH "123456781234567812345678123456781"
+
+ int main(void)
+ {
+         unsigned long i;
+         struct stat buf;
+
+         for (i = 0; i < ITERATIONS; i++)
+                 stat(PATH, &buf);
+
+         return 0;
+ }
+
+ $ gcc -O2 tt.c
+ $ touch 123456781234567812345678123456781
+ $ time ./a.out
+
+Per my test on T-HEAD C910 platforms, the above test performance is
+improved by about 7.5%.
+
+
+Jisheng Zhang (2):
+  riscv: introduce RISCV_EFFICIENT_UNALIGNED_ACCESS
+  riscv: select DCACHE_WORD_ACCESS for efficient unaligned access HW
+
+ arch/riscv/Kconfig                      | 13 +++++++++++
+ arch/riscv/include/asm/asm-extable.h    | 15 ++++++++++++
+ arch/riscv/include/asm/word-at-a-time.h | 23 ++++++++++++++++++
+ arch/riscv/mm/extable.c                 | 31 +++++++++++++++++++++++++
+ 4 files changed, 82 insertions(+)
+
 -- 
 2.42.0
 
