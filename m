@@ -4,86 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25A39C4167B
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Dec 2023 23:55:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9568C4167B
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 Dec 2023 00:22:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ekmYOc8QtFHVzaN90hHl8AY/mP/xztrjReaLVBMdV4s=; b=jeCY6e5YMDScEf
-	0jBHC4OEQkMzcAQ7+kskpXNQrXhj411WIx0xblX2j5p/sURHuVL9beSNEo5G8a6HOFMa7f2XzA23T
-	iy3IRUfAOxgZkF6rirot641qcIAOYQc7vmP37/uknPVMCEHrSHf26Qekn8EN78oCxywG9I9HaxNWx
-	dGZ9oOBwgMEAm801Va7RVynfOLkEQbJ9u4q5IGJWrMwVd2nuyl39FHPTqvociq48/ipjpFlwOEtti
-	truNKgIuKxws73WwNz0kgum+ridn61YK9uRuEjNilqATnhg//iD7H2ENiep2PGSQxQo7kueS0WfEe
-	ncnPl4BMpL7cpa2F+wMg==;
+	List-Owner; bh=rCc02TzfNJl3II99t/BLMgM91toGUrt9/RYybTnINEM=; b=OK32/rEaXP9K8/
+	Lj0i3JDZNIE+kf51HJrz2kRvLUB9/ZU0GIqRlItWhRg/YFmxUtZ7boBlz7PUZQjFdHv05hDk7WTIX
+	euDLQUuCCXMUpPNVZOmX1rJmMj0n3Tqyr2S9uXj8VfxiymG9RK9G310kDBFnZfn0VlaSfKzAfvG1O
+	LhEbSYDhsYxmNlv99oRKIQWrqL9xWNA+oWEBKJhAfFCSbg3TTJr/lTiiHO8k0wSOxGjcuh1fs+LwO
+	l7Q3GPWut/T6vhBKHSUGborUJzflYDqlIB5NlPdCdirRkZhvYnBdTe5JTiwLYQ7Ucx4D0teRfv3JP
+	8jJPPu/WKfkS6tFYbiFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9DLU-00Erxm-1S;
-	Fri, 01 Dec 2023 23:54:56 +0000
-Received: from mail-vk1-xa36.google.com ([2607:f8b0:4864:20::a36])
+	id 1r9Dlz-00Euyj-1u;
+	Sat, 02 Dec 2023 00:22:19 +0000
+Received: from mail-bn1nam02olkn2081d.outbound.protection.outlook.com ([2a01:111:f400:7eb2::81d] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9DLS-00ErwH-13
+	id 1r9Dlv-00EuxS-1d
 	for linux-riscv@lists.infradead.org;
-	Fri, 01 Dec 2023 23:54:55 +0000
-Received: by mail-vk1-xa36.google.com with SMTP id 71dfb90a1353d-4b28a042838so913809e0c.1
-        for <linux-riscv@lists.infradead.org>; Fri, 01 Dec 2023 15:54:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1701474891; x=1702079691; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Pol7hI1Hy96E33miCesPUidUjW/JKgnpIaa4LePlFSs=;
-        b=hk9WJ+bTSYZoZyZH/FgbTGoEjVgfOCcIuOJMBenjALme3T0r18yRWbBiVmcPLj5leB
-         daALFvl4nF1yckpzqjZ8arNNj2tcuxQDYxkm8PJeheE0yMhiJVyXkOrMJiJGq7G/HGC3
-         1+z9o+R5SJSOlfxxpqHj8Lp2ZpKVwAct654eYajtSVU+BotoNa4uTRLhKs56OuhfpiJB
-         1aytUMlfu4Syblok6HrVtEbT/v8R2WrsWSbGcv1vDX/lZeRwbwLvSFrvogswmnyci1WB
-         AQLnzdYfATnRebKoExuywIw00mAqBjoCE0DgVN5Z6RiIk5JB3rUlGJqRyc52bpUVFcC/
-         tk9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701474891; x=1702079691;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Pol7hI1Hy96E33miCesPUidUjW/JKgnpIaa4LePlFSs=;
-        b=s4pqaBc+qn6q6GHe6oRiLWddq9ck0g85nCgTjVWpcPNCMURdHIwIYOrVTvHUAMC0/5
-         mK0plvnutZb38DGa7wAmWHSAn+87hbetB6ALN/PcHMhRXf131SXittul892HBQgZdisn
-         AmEwarfYlTONnYKbg5P0D3Fg70y8pBliYmsoySzU2MCHLTVLoMgVwN01QLa868FqSm73
-         fBovtiWQlZDh69SsjVngTv2Umj42E0NZISLHDbvv586sGYuyHmfPURjCNOjktDBLCqlT
-         rEKbm4OjLgt6mnyR0vCBRo5LCq0phbaZAA7WINIWJEfpWHO+365EV1gIW78JGvbHNCw0
-         gmJQ==
-X-Gm-Message-State: AOJu0Yyqf/+9TR68V81DX3IL7rtaCPGWTAs38BLXvYSzQI8BqUpdmp2l
-	BJ2U+J/6b4PR5vNZa33HfUdHLlWzvYmxkT7Eyq39xA==
-X-Google-Smtp-Source: AGHT+IFhYdGfLbE8mSyQJ9sVITWjwja5raT5mVt0aQs6YqvlVg9Hcm3bf9FfCdJYLNUrv209BolhENIl06CXXpMM8rM=
-X-Received: by 2002:a05:6122:319f:b0:4b2:c555:383 with SMTP id
- ch31-20020a056122319f00b004b2c5550383mr302268vkb.25.1701474891180; Fri, 01
- Dec 2023 15:54:51 -0800 (PST)
+	Sat, 02 Dec 2023 00:22:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=eIwrGDVNdFkKVLGhJgNSpWvv6TYBcg/KwnWGtgmQxLSX1CG2b4E/8FuQVF/HU6CnsHZGeua6Jl3ht5YiSZlHgK20G+sKcm9s6h1MTk97p/wId9vx7c6/TpwXEbxLLjvJZyWlo9N/Vz7HXpfuQ7v79quf+sVWA3F/0Ivh2USuQNQ3lQdeYDLRaxsX5x6/zdkeV5RrNlCwHz+bMWcG7lr8d971J1jC7AkylDYBrsBF10xmpiPNs1GsMOLcvhg0XVu4Mp7gtJcmceGpE02LpXBPy11+uZ8Z42YiVnuEPe2f2NoaJOvdo33LH8bdRzxDsAcnJZo+KgyqaMcynxCY1Fpb3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lu4Jv1AZZOddcM6G8gAOnhsOeoDgm1QiVkgyrwRKl80=;
+ b=DgwT6qcaKtm4cgeSUbP/4k3/OnYD/IsvpRDeMXGYMzAE0Xq+erPdYpsp/GSTudjl16lUSXCUvfAQbvxQotVdIAp5LY6vDl+zdktHSoSHiOKm+xJNYeJ7+2D3GHSyrTZvNPULWyiYsZmrz6HIc579LOOmz9LVHruwKagBApfBbxyMa+INSh5N8eyPqKWI8djAkduTWt1Cuz7ThZys9hZMPXg2ayfkWQU9q5GIysF9LdciwA8F6zaoXJOqiANMKi81ZuZ0tEi4uLRsLc2H3Mwx74BU5fMLqXKXbpxrcEpH0cMbP/wCqWn+iH6bzeJ0nXMGIcNIyLlI5J9K1jPtS0MWBw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lu4Jv1AZZOddcM6G8gAOnhsOeoDgm1QiVkgyrwRKl80=;
+ b=kxiN3nZ9xZpzJXDleQ7b5Wy4ll11bQ8TjPl4KSCK9bZ8V85bOZK0/B0hhZt8JFlIz0Hb4K3XtFrCqvGrDWOCi9KdnHMBVQgKwpFDDyY+3ExSkvIBJXPiaLAJ8MJzM1HH7XZNlAj7ftjCUAMKGxFlfyR9E2qd//UCHEA95dbGAYWzC24Cqdikr2EUjr0T5sXviCn5UejjbVWHXRlrjuznrseC8QMpMsevWD8poqijMQ6Kw7gwNOnEjjmkTAvhErZQ7lcbkASfeOPg0qvxxpuF3k4C3iWD5obs8Ea+sXzS3neN7NnInoe9JJP/CDMUMmYcJOaskrCRO8d4cTPG1U30ew==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by IA1PR20MB6719.namprd20.prod.outlook.com (2603:10b6:208:456::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7046.27; Sat, 2 Dec
+ 2023 00:22:09 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::55b:c350:980:ad8]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::55b:c350:980:ad8%6]) with mapi id 15.20.7046.024; Sat, 2 Dec 2023
+ 00:22:08 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Inochi Amaoto <inochiama@outlook.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Chao Wei <chao.wei@sophgo.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Anup Patel <anup@brainfault.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 0/7] Add Huashan Pi board support
+Date: Sat,  2 Dec 2023 08:22:10 +0800
+Message-ID: <IA1PR20MB49539388196F08BBA969B522BB80A@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20231201-nutshell-uptake-48161193c6e7@spud>
+References: <20231201-nutshell-uptake-48161193c6e7@spud>
+X-TMN: [J9agLOqYWGkli9c3J9N6m5+awxRiV36nnBr53jPbDqg=]
+X-ClientProxiedBy: SJ0PR13CA0168.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c7::23) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20231202002211.104625-1-inochiama@outlook.com>
 MIME-Version: 1.0
-References: <20231120144642.591358648@infradead.org> <20231120154948.708762225@infradead.org>
- <20231122021817.ggym3biyfeksiplo@macbook-pro-49.dhcp.thefacebook.com> <20231122111517.GR8262@noisy.programming.kicks-ass.net>
-In-Reply-To: <20231122111517.GR8262@noisy.programming.kicks-ass.net>
-From: Sami Tolvanen <samitolvanen@google.com>
-Date: Fri, 1 Dec 2023 15:54:13 -0800
-Message-ID: <CABCJKufBiJjUdmnuy=HkV+dDnZ=xne-OBwPSfJ21RX9c0AzCZw@mail.gmail.com>
-Subject: Re: [PATCH 2/2] x86/cfi,bpf: Fix BPF JIT call
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Alexei Starovoitov <alexei.starovoitov@gmail.com>, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, tglx@linutronix.de, 
-	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, 
-	hpa@zytor.com, davem@davemloft.net, dsahern@kernel.org, ast@kernel.org, 
-	daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev, 
-	song@kernel.org, yonghong.song@linux.dev, john.fastabend@gmail.com, 
-	kpsingh@kernel.org, sdf@google.com, haoluo@google.com, jolsa@kernel.org, 
-	Arnd Bergmann <arnd@arndb.de>, keescook@chromium.org, nathan@kernel.org, 
-	ndesaulniers@google.com, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, bpf@vger.kernel.org, 
-	linux-arch@vger.kernel.org, llvm@lists.linux.dev, jpoimboe@kernel.org, 
-	joao@overdrivepizza.com, mark.rutland@arm.com
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|IA1PR20MB6719:EE_
+X-MS-Office365-Filtering-Correlation-Id: d5a04d93-5d9b-4134-05f9-08dbf2ccb83f
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: blGWXRImeEdO8T0HrSEiaf68Y+cjiQCeJnXTWI88x5/u+JSl7AuwhM15O5XcoO0JZTJaOa9VSuMqPomhEoToEkjkfOMIzq+y0B53sNjoTLSEsnp720kR0OpOugpJ48O66K7/3yWPRiulVbw4v8UlarLDgVCw+O64PIKRLUOGiSZ6GYeF0NM1nmJ5r8FRlMAqiVCWxFWfYoKl9hjchTXhMDEGDgN7xR8Bbn3EwzrRGAJsGJPriy+qnwMZSng2dwGWHa+zwzCI4VwMtANuIWK6nspumMcEkzGdMT4XDmzbdnl4/2ekFTkGaccocg3JLi8I7GtvN6KEfz8+w5U4QwH8ege2NWG4Jzv2a5arDLE0ABKyYyW3aLPh7gtZbIWcSlGmEz1T+WsiwauDRQodNVaR7ezlBb4oAleLT5F9v1jw3Kebz7kCrVUkuWW/5MBXilk6yhyYKQ+5Z1Yl3cjH7CbYaDm8eGg14ZtGiiRBTuuJoz2De8bbvEcLx/HTE4kpxuzB1ZCtAFcVIlC/PQdj69MEFFkerOyA/ZXX6dRZOsyw1vNPOd0jBRXhdhHTZjQ57NGuXNU2iO2cXgAsbbUw0WSW9/SgDBg9CdVWDyuvddtPbpJgVjoGHnqONcaNRGP77siG
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?X9RCQOMwJvkIFxgQxZ9cUN/zm24FTDecDHmTtMFqB4fwzdMFHACdX/pn8imY?=
+ =?us-ascii?Q?LpSxzFywTzvzLInpvupn/V+D/pXTcCqWhhlfNhpge8VHgHAo88o62IvnhXFp?=
+ =?us-ascii?Q?o8FI5pIV7ENDS+Bbp3j/PY02kGdDiCaUL772KxjrTif6k5F4r8StNohVVD2v?=
+ =?us-ascii?Q?UvbF1qbiNwbqVcpTu6hEkWpzmxodszTlYqPIJ93qrfZqImaJweVqOfpS6OdV?=
+ =?us-ascii?Q?cfKZW+zPiDXDjAsFird3vIhD8MUlMBQXtaGsX0sgMba6eYvwlGTX/CVlN91t?=
+ =?us-ascii?Q?zD3V6Tj2YJcqrjHNtatBiR9bTAgkidSwPGf2iBhk5V5sz3IEVyow8hiO/vVY?=
+ =?us-ascii?Q?FqAP/fXCfh2YYsuRPAagpGB1WHJ0l+1eXyxbXeWrd5JO8B14twrG3SFzqoEi?=
+ =?us-ascii?Q?pH2np0TOW4RlsmMNwXV8JCj42XisRUHaQBnAn96aQALy+mRaE3OEZKdxYYLz?=
+ =?us-ascii?Q?dsRFaByCUxwvQq7u83bWkjwMR8V/2P7DDMADuPxglFzcfqR7yVDQBZgxzVUv?=
+ =?us-ascii?Q?Qynk9V2wTy1yHuB1GTjM1nebax2xTFYtiNlFYy9YV1viPgI67Ue+VeG+rsFw?=
+ =?us-ascii?Q?52X3ploxVvSqAQjdqCGG+YED/RGB/Qkff1b6DlKQpQgt/g+XX5xCGKMabXFt?=
+ =?us-ascii?Q?u3IA0LjMumX4wh7cMZRcNkJkm4Z2S6gFSFtxTVMoygfNN8UzQqcprN10qdOn?=
+ =?us-ascii?Q?26M1OoMgjEgAIbPe7EpYawJPhoGCVmZraPLFDZY2HWGneI/qU/nxkLB6ldkx?=
+ =?us-ascii?Q?4fyVddEo8u07alazZTE/4VEE6IDTyfUw3sBGXM2Gr56RBCRep/1Y92YW5ZPE?=
+ =?us-ascii?Q?kOXiOD+EUenB761dsijJHcOYGsgBoi8ZQomEvrfZ161iX5LDascV4HgjDn8f?=
+ =?us-ascii?Q?VHQ32juEV0U0BGuch22VhBM421odkQHtu1LWCYC/tCwXmI7Rm5lwdMHGSyat?=
+ =?us-ascii?Q?KIhjDrHM0TAgTTEIxbitVH7iJVuKlYK4yjfFItnVqIelBsL31NaSHz5GRz4+?=
+ =?us-ascii?Q?imP7zZ2Pw2lZ/YPt8umedHN6GMcnLi6JbMqXR1WjM4ZENQ3N1qHfWD1wEJ40?=
+ =?us-ascii?Q?goKkZpy0Fu+6B3YtKRs7MJauepB29ITPjONvHtjg6uq3fJSvgwExIp3hR+r+?=
+ =?us-ascii?Q?xiMk6Tns8rmCxUjR1X82hIcJVAYjVmc4QIUg0eVdM4Tb7qt0ZHPoQPKTfK5l?=
+ =?us-ascii?Q?dFL75kFS3cArE3Kt6+yrDATIqs5/4FffzYdwETJZIoUfo5cKNWYjohWn7ok?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d5a04d93-5d9b-4134-05f9-08dbf2ccb83f
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Dec 2023 00:22:08.8583
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR20MB6719
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231201_155454_392378_2B30D1FF 
-X-CRM114-Status: UNSURE (   8.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231201_162215_706763_9F11A060 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,20 +135,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBOb3YgMjIsIDIwMjMgYXQgMzoxNeKAr0FNIFBldGVyIFppamxzdHJhIDxwZXRlcnpA
-aW5mcmFkZWFkLm9yZz4gd3JvdGU6Cj4KPiBTbyB0aGUga0NGSSB0aGluZyBpcyAnbmV3JyBidXQg
-cmVhZGlseSBpbnNwZWN0ZWQgYnkgb2JqZHVtcCBvciBnb2Rib2x0Ogo+Cj4gICBodHRwczovL2dv
-ZGJvbHQub3JnL3ovc0dlMTh6M2NhCj4KPiAoQFNhbWksIHRoYXQgLkx0bXAxNSB0aGluZywgSSBk
-b24ndCBzZWUgdGhhdCBpbiB0aGUga2VybmVsLCB3aGF0Cj4gY29tcGlsZXIgZmxhZyBtYWtlcyB0
-aGF0IGdvIGF3YXk/KQoKSG1tLCB0aGF0IGxvb2tzIGxpa2UgdGhhdCdzIHdoYXQgd2UgZW1pdCB0
-byAua2NmaV90cmFwcy4gSSBzdXBwb3NlCkdvZGJvbHQganVzdCBkb2Vzbid0IHNob3cgdGhlIHNl
-Y3Rpb24gZGlyZWN0aXZlcz8KCmh0dHBzOi8vZ2l0aHViLmNvbS9sbHZtL2xsdm0tcHJvamVjdC9i
-bG9iL21haW4vbGx2bS90ZXN0L0NvZGVHZW4vWDg2L2tjZmkubGwjTDMwCgpTYW1pCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+>
+>On Fri, Dec 01, 2023 at 04:31:38PM +0800, Inochi Amaoto wrote:
+>>>
+>>> On Fri, Dec 01, 2023 at 09:02:59AM +0800, Inochi Amaoto wrote:
+>>>>>
+>>>>> On Fri, Dec 01, 2023 at 07:21:29AM +0800, Inochi Amaoto wrote:
+>>>>>>>
+>>>>>>> On Thu, 19 Oct 2023 07:18:00 +0800, Inochi Amaoto wrote:
+>>>>>>>> Huashan Pi board is an embedded development platform based on the
+>>>>>>>> CV1812H chip. Add minimal device tree files for this board.
+>>>>>>>> Currently, it can boot to a basic shell.
+>>>>>>>>
+>>>>>>>> NOTE: this series is based on the Jisheng's Milk-V Duo patch.
+>>>>>>>>
+>>>>>>>> Link: https://en.sophgo.com/product/introduce/huashan.html
+>>>>>>>> Link: https://en.sophgo.com/product/introduce/cv181xH.html
+>>>>>>>> Link: https://lore.kernel.org/linux-riscv/20231006121449.721-1-jszhang@kernel.org/
+>>>>>>>>
+>>>>>>>> [...]
+>>>>>>>
+>>>>>>> Applied to riscv-dt-for-next, thanks! LMK if something looks not as
+>>>>>>> expected.
+>>>>>>>
+>>>>>>> [1/7] dt-bindings: interrupt-controller: Add SOPHGO CV1812H plic
+>>>>>>>      https://git.kernel.org/conor/c/21a34e63afcc
+>>>>>>> [2/7] dt-bindings: timer: Add SOPHGO CV1812H clint
+>>>>>>>      https://git.kernel.org/conor/c/06ea2a1968a9
+>>>>>>> [3/7] dt-bindings: riscv: Add SOPHGO Huashan Pi board compatibles
+>>>>>>>      https://git.kernel.org/conor/c/d7b92027834e
+>>>>>>> [4/7] riscv: dts: sophgo: Separate compatible specific for CV1800B soc
+>>>>>>>      https://git.kernel.org/conor/c/5b5dce3951b2
+>>>>>>> [5/7] riscv: dts: sophgo: cv18xx: Add gpio devices
+>>>>>>>      https://git.kernel.org/conor/c/dd791b45c866
+>>>>>>> [6/7] riscv: dts: sophgo: add initial CV1812H SoC device tree
+>>>>>>>      https://git.kernel.org/conor/c/681ec684a741
+>>>>>>> [7/7] riscv: dts: sophgo: add Huashan Pi board device tree
+>>>>>>>      https://git.kernel.org/conor/c/2c36b0cfb408
+>>>
+>>>>>> Thanks for the confirmation. But I suggest to revert these patches.
+>>>>>> Several days ago, Sophgo informed me that CV1810 series will be
+>>>>>> renamed. And the Huashan Pi will switch to the chip with new name.
+>>>>>> To avoid unnecessary conflict, please drop these patch and I will
+>>>>>> prepare a new patch once the renamed chip is launched.
+>>>>>
+>>>>> This is a board that exists, that you (and possibly others) have, right?
+>>>>>
+>>>>
+>>>> Yes, of course.
+>>>
+>>> I dunno then. It sounds from your message that this is purely a rebrand
+>>> of the SoCs,
+>>
+>> IIRC, it is.
+>> FYI, Chen and Chao. Maybe you know something more.
+>>
+>>> so since people already have these boards, I'd rather not.
+>>> We should be able to support both since it's just a naming change,
+>>> right?
+>>
+>> I agree with this. If the above is true, we can just reuse the exists code
+>> with a different compatible name, right?
+>
+>I think so? I'm not sure what the precedent really is for pure
+>rebrandings of an SoC.
+>I say for now, assume we can do that, and we can discuss it with Rob and
+>Krzysztof when the time comes if there is no difference between the SoCs
+>and boards.
+>
+
+OK, now let's reserve these code and discuss when the board with
+those SoCs come. Thanks for your explanation.
+
+>Cheers,
+>Conor.
+>
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
