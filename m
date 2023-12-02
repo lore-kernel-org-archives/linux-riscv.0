@@ -4,126 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9568C4167B
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 Dec 2023 00:22:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B5EC4167B
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 Dec 2023 00:52:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rCc02TzfNJl3II99t/BLMgM91toGUrt9/RYybTnINEM=; b=OK32/rEaXP9K8/
-	Lj0i3JDZNIE+kf51HJrz2kRvLUB9/ZU0GIqRlItWhRg/YFmxUtZ7boBlz7PUZQjFdHv05hDk7WTIX
-	euDLQUuCCXMUpPNVZOmX1rJmMj0n3Tqyr2S9uXj8VfxiymG9RK9G310kDBFnZfn0VlaSfKzAfvG1O
-	LhEbSYDhsYxmNlv99oRKIQWrqL9xWNA+oWEBKJhAfFCSbg3TTJr/lTiiHO8k0wSOxGjcuh1fs+LwO
-	l7Q3GPWut/T6vhBKHSUGborUJzflYDqlIB5NlPdCdirRkZhvYnBdTe5JTiwLYQ7Ucx4D0teRfv3JP
-	8jJPPu/WKfkS6tFYbiFQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=AmVhzq+Nbafh1AsxCAr7SFmSndvH11sBVcidKLrXMAo=; b=izzSTQNxynObZIOOtfRFQiuq3M
+	eClFXsuVwMJfSiz56VBRZKtuw5NyvZpwpefcGYsNOEhbIokt/AKxR0gYaIKIuUAbGy7B/yfjmf1WF
+	JJ6ICl2UmcpsxIyDtIhsNo+mx0NPfre2u44tZa1csnteg49IOcHqvtwY3Ik4gEGngMxWQx8ywGQaC
+	tG9uNIP1tM/Yghq+RCJBsWVhGwRPqzxTIi3nDVYmPBFVe4GfFABq8COf0I7eodQUsex6DaOA06EHD
+	zSfSL1T6TnEpAht3fGn5hxrvVPCPJVeLzHpwDhS1jaMYEdyjNDkFtYkS+X0uBjhrorm9jIVAjKnkd
+	QGmd1Xuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9Dlz-00Euyj-1u;
-	Sat, 02 Dec 2023 00:22:19 +0000
-Received: from mail-bn1nam02olkn2081d.outbound.protection.outlook.com ([2a01:111:f400:7eb2::81d] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
+	id 1r9EEr-00Ewed-1j;
+	Sat, 02 Dec 2023 00:52:09 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9Dlv-00EuxS-1d
+	id 1r9EEo-00EwcK-1A
 	for linux-riscv@lists.infradead.org;
-	Sat, 02 Dec 2023 00:22:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=eIwrGDVNdFkKVLGhJgNSpWvv6TYBcg/KwnWGtgmQxLSX1CG2b4E/8FuQVF/HU6CnsHZGeua6Jl3ht5YiSZlHgK20G+sKcm9s6h1MTk97p/wId9vx7c6/TpwXEbxLLjvJZyWlo9N/Vz7HXpfuQ7v79quf+sVWA3F/0Ivh2USuQNQ3lQdeYDLRaxsX5x6/zdkeV5RrNlCwHz+bMWcG7lr8d971J1jC7AkylDYBrsBF10xmpiPNs1GsMOLcvhg0XVu4Mp7gtJcmceGpE02LpXBPy11+uZ8Z42YiVnuEPe2f2NoaJOvdo33LH8bdRzxDsAcnJZo+KgyqaMcynxCY1Fpb3Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lu4Jv1AZZOddcM6G8gAOnhsOeoDgm1QiVkgyrwRKl80=;
- b=DgwT6qcaKtm4cgeSUbP/4k3/OnYD/IsvpRDeMXGYMzAE0Xq+erPdYpsp/GSTudjl16lUSXCUvfAQbvxQotVdIAp5LY6vDl+zdktHSoSHiOKm+xJNYeJ7+2D3GHSyrTZvNPULWyiYsZmrz6HIc579LOOmz9LVHruwKagBApfBbxyMa+INSh5N8eyPqKWI8djAkduTWt1Cuz7ThZys9hZMPXg2ayfkWQU9q5GIysF9LdciwA8F6zaoXJOqiANMKi81ZuZ0tEi4uLRsLc2H3Mwx74BU5fMLqXKXbpxrcEpH0cMbP/wCqWn+iH6bzeJ0nXMGIcNIyLlI5J9K1jPtS0MWBw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lu4Jv1AZZOddcM6G8gAOnhsOeoDgm1QiVkgyrwRKl80=;
- b=kxiN3nZ9xZpzJXDleQ7b5Wy4ll11bQ8TjPl4KSCK9bZ8V85bOZK0/B0hhZt8JFlIz0Hb4K3XtFrCqvGrDWOCi9KdnHMBVQgKwpFDDyY+3ExSkvIBJXPiaLAJ8MJzM1HH7XZNlAj7ftjCUAMKGxFlfyR9E2qd//UCHEA95dbGAYWzC24Cqdikr2EUjr0T5sXviCn5UejjbVWHXRlrjuznrseC8QMpMsevWD8poqijMQ6Kw7gwNOnEjjmkTAvhErZQ7lcbkASfeOPg0qvxxpuF3k4C3iWD5obs8Ea+sXzS3neN7NnInoe9JJP/CDMUMmYcJOaskrCRO8d4cTPG1U30ew==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by IA1PR20MB6719.namprd20.prod.outlook.com (2603:10b6:208:456::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7046.27; Sat, 2 Dec
- 2023 00:22:09 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::55b:c350:980:ad8]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::55b:c350:980:ad8%6]) with mapi id 15.20.7046.024; Sat, 2 Dec 2023
- 00:22:08 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Inochi Amaoto <inochiama@outlook.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Anup Patel <anup@brainfault.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 0/7] Add Huashan Pi board support
-Date: Sat,  2 Dec 2023 08:22:10 +0800
-Message-ID: <IA1PR20MB49539388196F08BBA969B522BB80A@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20231201-nutshell-uptake-48161193c6e7@spud>
-References: <20231201-nutshell-uptake-48161193c6e7@spud>
-X-TMN: [J9agLOqYWGkli9c3J9N6m5+awxRiV36nnBr53jPbDqg=]
-X-ClientProxiedBy: SJ0PR13CA0168.namprd13.prod.outlook.com
- (2603:10b6:a03:2c7::23) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20231202002211.104625-1-inochiama@outlook.com>
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|IA1PR20MB6719:EE_
-X-MS-Office365-Filtering-Correlation-Id: d5a04d93-5d9b-4134-05f9-08dbf2ccb83f
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: blGWXRImeEdO8T0HrSEiaf68Y+cjiQCeJnXTWI88x5/u+JSl7AuwhM15O5XcoO0JZTJaOa9VSuMqPomhEoToEkjkfOMIzq+y0B53sNjoTLSEsnp720kR0OpOugpJ48O66K7/3yWPRiulVbw4v8UlarLDgVCw+O64PIKRLUOGiSZ6GYeF0NM1nmJ5r8FRlMAqiVCWxFWfYoKl9hjchTXhMDEGDgN7xR8Bbn3EwzrRGAJsGJPriy+qnwMZSng2dwGWHa+zwzCI4VwMtANuIWK6nspumMcEkzGdMT4XDmzbdnl4/2ekFTkGaccocg3JLi8I7GtvN6KEfz8+w5U4QwH8ege2NWG4Jzv2a5arDLE0ABKyYyW3aLPh7gtZbIWcSlGmEz1T+WsiwauDRQodNVaR7ezlBb4oAleLT5F9v1jw3Kebz7kCrVUkuWW/5MBXilk6yhyYKQ+5Z1Yl3cjH7CbYaDm8eGg14ZtGiiRBTuuJoz2De8bbvEcLx/HTE4kpxuzB1ZCtAFcVIlC/PQdj69MEFFkerOyA/ZXX6dRZOsyw1vNPOd0jBRXhdhHTZjQ57NGuXNU2iO2cXgAsbbUw0WSW9/SgDBg9CdVWDyuvddtPbpJgVjoGHnqONcaNRGP77siG
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?X9RCQOMwJvkIFxgQxZ9cUN/zm24FTDecDHmTtMFqB4fwzdMFHACdX/pn8imY?=
- =?us-ascii?Q?LpSxzFywTzvzLInpvupn/V+D/pXTcCqWhhlfNhpge8VHgHAo88o62IvnhXFp?=
- =?us-ascii?Q?o8FI5pIV7ENDS+Bbp3j/PY02kGdDiCaUL772KxjrTif6k5F4r8StNohVVD2v?=
- =?us-ascii?Q?UvbF1qbiNwbqVcpTu6hEkWpzmxodszTlYqPIJ93qrfZqImaJweVqOfpS6OdV?=
- =?us-ascii?Q?cfKZW+zPiDXDjAsFird3vIhD8MUlMBQXtaGsX0sgMba6eYvwlGTX/CVlN91t?=
- =?us-ascii?Q?zD3V6Tj2YJcqrjHNtatBiR9bTAgkidSwPGf2iBhk5V5sz3IEVyow8hiO/vVY?=
- =?us-ascii?Q?FqAP/fXCfh2YYsuRPAagpGB1WHJ0l+1eXyxbXeWrd5JO8B14twrG3SFzqoEi?=
- =?us-ascii?Q?pH2np0TOW4RlsmMNwXV8JCj42XisRUHaQBnAn96aQALy+mRaE3OEZKdxYYLz?=
- =?us-ascii?Q?dsRFaByCUxwvQq7u83bWkjwMR8V/2P7DDMADuPxglFzcfqR7yVDQBZgxzVUv?=
- =?us-ascii?Q?Qynk9V2wTy1yHuB1GTjM1nebax2xTFYtiNlFYy9YV1viPgI67Ue+VeG+rsFw?=
- =?us-ascii?Q?52X3ploxVvSqAQjdqCGG+YED/RGB/Qkff1b6DlKQpQgt/g+XX5xCGKMabXFt?=
- =?us-ascii?Q?u3IA0LjMumX4wh7cMZRcNkJkm4Z2S6gFSFtxTVMoygfNN8UzQqcprN10qdOn?=
- =?us-ascii?Q?26M1OoMgjEgAIbPe7EpYawJPhoGCVmZraPLFDZY2HWGneI/qU/nxkLB6ldkx?=
- =?us-ascii?Q?4fyVddEo8u07alazZTE/4VEE6IDTyfUw3sBGXM2Gr56RBCRep/1Y92YW5ZPE?=
- =?us-ascii?Q?kOXiOD+EUenB761dsijJHcOYGsgBoi8ZQomEvrfZ161iX5LDascV4HgjDn8f?=
- =?us-ascii?Q?VHQ32juEV0U0BGuch22VhBM421odkQHtu1LWCYC/tCwXmI7Rm5lwdMHGSyat?=
- =?us-ascii?Q?KIhjDrHM0TAgTTEIxbitVH7iJVuKlYK4yjfFItnVqIelBsL31NaSHz5GRz4+?=
- =?us-ascii?Q?imP7zZ2Pw2lZ/YPt8umedHN6GMcnLi6JbMqXR1WjM4ZENQ3N1qHfWD1wEJ40?=
- =?us-ascii?Q?goKkZpy0Fu+6B3YtKRs7MJauepB29ITPjONvHtjg6uq3fJSvgwExIp3hR+r+?=
- =?us-ascii?Q?xiMk6Tns8rmCxUjR1X82hIcJVAYjVmc4QIUg0eVdM4Tb7qt0ZHPoQPKTfK5l?=
- =?us-ascii?Q?dFL75kFS3cArE3Kt6+yrDATIqs5/4FffzYdwETJZIoUfo5cKNWYjohWn7ok?=
- =?us-ascii?Q?=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d5a04d93-5d9b-4134-05f9-08dbf2ccb83f
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Dec 2023 00:22:08.8583
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR20MB6719
+	Sat, 02 Dec 2023 00:52:08 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-6cdedef4b62so3080956b3a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 01 Dec 2023 16:51:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1701478317; x=1702083117; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Qf5LyHZHuBq8ET8yZ518WK6d/Ohu8OSBvuXvyN934wU=;
+        b=ssmpraemfge8cj9yx0bQe0olitdcprZSjL66pJDSdmW0aPZIfyKM0ZJp9V1tq2m8jj
+         J1Ua1wVh0BVpFthTM9gr9XJBNyjlSD9Ay0NcihLc7oazbRDj84VHrGecjs/ZuYvbyAnM
+         Irwag3DSPVoTeWXxyK+mpZdjdQUXh6FtVOCjwaRgdE8+X6ITCVI3DOrACYY4mY9DvgHd
+         YzTzmsNR8OIBrxP2rimNl3luKd5BOiGlJCgH+urgFV4uBABJzgaRJHiXbCpaiuG6xbQ7
+         BywurV+G1BbrK6d3YrA1uUATEdddTUsB4QDF7q6w8TBFaPUbMiOh9cC0cliWt+7ajyYC
+         kUQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701478317; x=1702083117;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Qf5LyHZHuBq8ET8yZ518WK6d/Ohu8OSBvuXvyN934wU=;
+        b=eNocGrtQvkaiRaIc8ijbY30rIPluYBekG/rN0nVSgj56NdaOHgIc7ZmebG+i45rsgF
+         zpwY7IAktXXZBFou5rCKZcgGiSaWIG8c1G7Q/XNihyZv6pHkkGD/dsmtQ/84G122bMjw
+         r5UoJdLy3GvxDANOviTHy//dPLRFjob1uayJpLx6RwCQWqZE9pBVUNr2xYxJLMpw0z1+
+         YrUebx70o8rW+gve99S74txNMjz8nkV7gc/l3CCTkjMPmiNeO8dpaAQIylLIRhrLOwHG
+         KPlfsLiZF1CyVedNhsKPy2+6ZMCsvObA4WeyJMGMKLHROJq4o4YPYksJoODy8pGVMGv1
+         K/SA==
+X-Gm-Message-State: AOJu0Yz5kTMQ9JYOTU4FfotnWgYPuZfv1mLDcL1stIJU2NFl3G+Sf/l9
+	roPaH7TJl9e8elN1m1ialv0dbkkWr0g=
+X-Google-Smtp-Source: AGHT+IEloABSTDcKm+41L5WpzazJRfhcCVpuae9X+15kKFthyi+8YQcZOmegDR+VoF+o36yu4wG4kUpnsoo=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a63:5848:0:b0:5b8:fe99:152d with SMTP id
+ i8-20020a635848000000b005b8fe99152dmr4028549pgm.7.1701478317322; Fri, 01 Dec
+ 2023 16:51:57 -0800 (PST)
+Date: Fri, 1 Dec 2023 16:51:55 -0800
+In-Reply-To: <20230918160258.GL13795@ziepe.ca>
+Mime-Version: 1.0
+References: <20230916003118.2540661-1-seanjc@google.com> <20230916003118.2540661-6-seanjc@google.com>
+ <20230918152110.GI13795@ziepe.ca> <ZQhxpesyXeG+qbS6@google.com> <20230918160258.GL13795@ziepe.ca>
+Message-ID: <ZWp_q1w01NCZi8KX@google.com>
+Subject: Re: [PATCH 05/26] vfio: KVM: Pass get/put helpers from KVM to VFIO,
+ don't do circular lookup
+From: Sean Christopherson <seanjc@google.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	Peter Zijlstra <peterz@infradead.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Tony Krowiak <akrowiak@linux.ibm.com>, 
+	Halil Pasic <pasic@linux.ibm.com>, Jason Herne <jjherne@linux.ibm.com>, 
+	Harald Freudenberger <freude@linux.ibm.com>, Alex Williamson <alex.williamson@redhat.com>, 
+	Andy Lutomirski <luto@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+	Anish Ghulati <aghulati@google.com>, Venkatesh Srinivas <venkateshs@chromium.org>, 
+	Andrew Thornton <andrewth@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231201_162215_706763_9F11A060 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20231201_165206_397128_68121A62 
+X-CRM114-Status: GOOD (  34.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,82 +109,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->
->On Fri, Dec 01, 2023 at 04:31:38PM +0800, Inochi Amaoto wrote:
->>>
->>> On Fri, Dec 01, 2023 at 09:02:59AM +0800, Inochi Amaoto wrote:
->>>>>
->>>>> On Fri, Dec 01, 2023 at 07:21:29AM +0800, Inochi Amaoto wrote:
->>>>>>>
->>>>>>> On Thu, 19 Oct 2023 07:18:00 +0800, Inochi Amaoto wrote:
->>>>>>>> Huashan Pi board is an embedded development platform based on the
->>>>>>>> CV1812H chip. Add minimal device tree files for this board.
->>>>>>>> Currently, it can boot to a basic shell.
->>>>>>>>
->>>>>>>> NOTE: this series is based on the Jisheng's Milk-V Duo patch.
->>>>>>>>
->>>>>>>> Link: https://en.sophgo.com/product/introduce/huashan.html
->>>>>>>> Link: https://en.sophgo.com/product/introduce/cv181xH.html
->>>>>>>> Link: https://lore.kernel.org/linux-riscv/20231006121449.721-1-jszhang@kernel.org/
->>>>>>>>
->>>>>>>> [...]
->>>>>>>
->>>>>>> Applied to riscv-dt-for-next, thanks! LMK if something looks not as
->>>>>>> expected.
->>>>>>>
->>>>>>> [1/7] dt-bindings: interrupt-controller: Add SOPHGO CV1812H plic
->>>>>>>      https://git.kernel.org/conor/c/21a34e63afcc
->>>>>>> [2/7] dt-bindings: timer: Add SOPHGO CV1812H clint
->>>>>>>      https://git.kernel.org/conor/c/06ea2a1968a9
->>>>>>> [3/7] dt-bindings: riscv: Add SOPHGO Huashan Pi board compatibles
->>>>>>>      https://git.kernel.org/conor/c/d7b92027834e
->>>>>>> [4/7] riscv: dts: sophgo: Separate compatible specific for CV1800B soc
->>>>>>>      https://git.kernel.org/conor/c/5b5dce3951b2
->>>>>>> [5/7] riscv: dts: sophgo: cv18xx: Add gpio devices
->>>>>>>      https://git.kernel.org/conor/c/dd791b45c866
->>>>>>> [6/7] riscv: dts: sophgo: add initial CV1812H SoC device tree
->>>>>>>      https://git.kernel.org/conor/c/681ec684a741
->>>>>>> [7/7] riscv: dts: sophgo: add Huashan Pi board device tree
->>>>>>>      https://git.kernel.org/conor/c/2c36b0cfb408
->>>
->>>>>> Thanks for the confirmation. But I suggest to revert these patches.
->>>>>> Several days ago, Sophgo informed me that CV1810 series will be
->>>>>> renamed. And the Huashan Pi will switch to the chip with new name.
->>>>>> To avoid unnecessary conflict, please drop these patch and I will
->>>>>> prepare a new patch once the renamed chip is launched.
->>>>>
->>>>> This is a board that exists, that you (and possibly others) have, right?
->>>>>
->>>>
->>>> Yes, of course.
->>>
->>> I dunno then. It sounds from your message that this is purely a rebrand
->>> of the SoCs,
->>
->> IIRC, it is.
->> FYI, Chen and Chao. Maybe you know something more.
->>
->>> so since people already have these boards, I'd rather not.
->>> We should be able to support both since it's just a naming change,
->>> right?
->>
->> I agree with this. If the above is true, we can just reuse the exists code
->> with a different compatible name, right?
->
->I think so? I'm not sure what the precedent really is for pure
->rebrandings of an SoC.
->I say for now, assume we can do that, and we can discuss it with Rob and
->Krzysztof when the time comes if there is no difference between the SoCs
->and boards.
->
+On Mon, Sep 18, 2023, Jason Gunthorpe wrote:
+> On Mon, Sep 18, 2023 at 08:49:57AM -0700, Sean Christopherson wrote:
+> > On Mon, Sep 18, 2023, Jason Gunthorpe wrote:
+> > > On Fri, Sep 15, 2023 at 05:30:57PM -0700, Sean Christopherson wrote:
+> > > > Explicitly pass KVM's get/put helpers to VFIO when attaching a VM to
+> > > > VFIO instead of having VFIO do a symbol lookup back into KVM.  Having both
+> > > > KVM and VFIO do symbol lookups increases the overall complexity and places
+> > > > an unnecessary dependency on KVM (from VFIO) without adding any value.
+> > > > 
+> > > > Signed-off-by: Sean Christopherson <seanjc@google.com>
+> > > > ---
+> > > >  drivers/vfio/vfio.h      |  2 ++
+> > > >  drivers/vfio/vfio_main.c | 74 +++++++++++++++++++---------------------
+> > > >  include/linux/vfio.h     |  4 ++-
+> > > >  virt/kvm/vfio.c          |  9 +++--
+> > > >  4 files changed, 47 insertions(+), 42 deletions(-)
+> > > 
+> > > I don't mind this, but Christoph had disliked my prior attempt to do
+> > > this with function pointers..
+> > > 
+> > > The get can be inlined, IIRC, what about putting a pointer to the put
+> > > inside the kvm struct?
+> > 
+> > That wouldn't allow us to achieve our goal, which is to hide the details of
+> > "struct kvm" from VFIO (and the rest of the kernel).
+> 
+> > What's the objection to handing VFIO a function pointer?
+> 
+> Hmm, looks like it was this thread:
+> 
+>  https://lore.kernel.org/r/0-v1-33906a626da1+16b0-vfio_kvm_no_group_jgg@nvidia.com
+> 
+> Your rational looks a little better to me.
+> 
+> > > The the normal kvm get/put don't have to exported symbols at all?
+> > 
+> > The export of kvm_get_kvm_safe() can go away (I forgot to do that in this series),
+> > but kvm_get_kvm() will hang around as it's needed by KVM sub-modules (PPC and x86),
+> > KVMGT (x86), and drivers/s390/crypto/vfio_ap_ops.c (no idea what to call that beast).
+> 
+> My thought would be to keep it as an inline, there should be some way
+> to do that without breaking your desire to hide the bulk of the kvm
+> struct content. Like put the refcount as the first element in the
+> struct and just don't ifdef it away?.
 
-OK, now let's reserve these code and discuss when the board with
-those SoCs come. Thanks for your explanation.
+That doesn't work because of the need to invoke kvm_destroy_vm() when the last
+reference is put, i.e. all of kvm_destroy_vm() would need to be inlined (LOL) or
+VFIO would need to do a symbol lookup on kvm_destroy_vm(), which puts back us at
+square one.
 
->Cheers,
->Conor.
->
->
+There's one more wrinkle: this patch is buggy in that it doesn't ensure the liveliness
+of KVM-the-module, i.e. nothing prevents userspace from unloading kvm.ko while VFIO
+still holds a reference to a kvm structure, and so invoking ->put_kvm() could jump
+into freed code.  To fix that, KVM would also need to pass along a module pointer :-(
+
+One thought would be to have vac.ko (tentative name), which is the "base" module
+that will hold the KVM/virtualization bits that need to be singletons, i.e. can't
+be per-KVM, provide the symbols needed for VFIO to manage references.  But that
+just ends up moving the module reference trickiness into VAC+KVM, e.g. vac.ko would
+still need to be handed a function pointer in order to call back into the correct
+kvm.ko code.
+
+Hrm, but I suspect the vac.ko <=> kvm.ko interactions will need to deal with
+module shenanigans anyways, and the shenanigans would only affect crazy people
+like us that actually want multiple KVM modules.
+
+I'll plan on going that route.  The very worst case scenario is that it just punts
+this conversation down to a possibile future.  Dropping this patch and the previous
+prep patch won't meaningful affect the goals of this series, as only kvm_get_kvm_safe()
+and kvm_get_kvm() would need to be exposed outside of #ifdef __KVM__.  Then we can
+figure out what to do with them if/when the whole multi-KVM thing comes along.
 
 _______________________________________________
 linux-riscv mailing list
