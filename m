@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0345EC4167B
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 Dec 2023 13:51:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BF56C4167B
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 Dec 2023 13:55:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=4e5N3VZlHjR0JTJklZfbo4Ydw6OHC3fZyzx+QbMMEns=; b=r1FsbgyMJS4Gj5
-	M2tDwruqdxspLO07BwhtYP8lDy78awQQj0ul8Z6WxDrGUNl3K3RrpogCKOjs8t/siRQfBVpIljItQ
-	Le1KlGLRpvioYDtd2b/n3RlHP0gwFebAnuTq8LwfYJ6JhqbRbdxWm+Hz0o79JlYZeXVo4KlkSMZro
-	thlze76C1lSn8UCgqjAsmLRNsd/9emWnUbuzFAwAY/DDQ8zDNddpbrm7in6QaNlNt1dYbgADZTycE
-	kbvLzxDDNQEETzxZhU6uMZP78icE8bqlcWvWMkmEwpngHkJ3uQ0DnuZSqC6kSwI1DYNYEBnto/mBt
-	UYepuH9/xU5l7NtLPVtw==;
+	List-Owner; bh=U+rpNmxbrlCA5xuqsINj2tOPyjumJrlKsJm+Ke+Zdv4=; b=Hmn8GoJTloEdDY
+	xyixCa5WOl+DpqBgoev3vQK37MragqchL6rKTI53SLLwkX1qL2tia8GEWeUAh6zegN8m9OgDstaYn
+	0zgQSBCLCN1zAsYSJ4tLMzEVUvxGlkINMCNwwkyXga0OAbgdkTE6fmKH9D6t4PWlLogRphRmKidMx
+	uPmA2Rijf1D5fg4g2rHnDtQS2nyP1t2jGRsg9ZCSLiDTboZTKnmmkGhzVkz2H97CJAnbKIK1pHt9X
+	rD6F6polJDSd1Tk66cIctBWGU1thp4tFXqqMhRgrXuBW29nWC1vP8HJ0S2LZw1bQIlz7PgMubDyTS
+	C5LAHsyvCZ1DHrmPs6SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9QOS-00Flhy-1v;
-	Sat, 02 Dec 2023 13:50:52 +0000
+	id 1r9QSR-00Flvm-1h;
+	Sat, 02 Dec 2023 13:54:59 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9QOO-00Flha-2z
+	id 1r9QSO-00Flug-35
 	for linux-riscv@lists.infradead.org;
-	Sat, 02 Dec 2023 13:50:50 +0000
+	Sat, 02 Dec 2023 13:54:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 69C2EB81C18;
-	Sat,  2 Dec 2023 13:50:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD6D0C433C7;
-	Sat,  2 Dec 2023 13:50:44 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 46A91B81C18;
+	Sat,  2 Dec 2023 13:54:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 848CCC433C7;
+	Sat,  2 Dec 2023 13:54:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701525046;
-	bh=EkFw389G/HhwarJ7tijLtzRjnzCQCmA31ruY3wZ3Eh0=;
+	s=k20201202; t=1701525290;
+	bh=bomojrOAMU2gHGxmYDLygOQUoO4KABGe2Me37Cc0YE0=;
 	h=From:To:Cc:Subject:Date:From;
-	b=LFVwJc/exjGqrxugMF9foxWoZSKoIFt8WzINNplsxOeKiICwJpuuYQmWDvGPnxn3u
-	 r4bTL9oW0O5lztiua4MeysgqSAE3KzO8IJR/aqQE7xTaSNf2Vaycs6kPnqcZ+iQL9i
-	 hBOUYFotCRax/hdg+tU2I1LfMYysTXRmQpcLbCwCl7YQvW25Lzj+MWus+TG8JGhoil
-	 4riGCc+d+XiMsOvrGbxUYrw9RfPuBWl1bPNEz7EcJ5Imps3AukjeH5r0R4ut3clwno
-	 cZ8peb+3aSgyDeI/1IXJGHziWaZXSYNbuyNTveLqDOMpgno7Q6BWGep1AF6hi9H+3H
-	 C+WZ16FY6rWag==
+	b=TLDhW872Qeq6T2lOiL/tmbelYRkMW2rIQaE4jkN2Q7OnQKvnK0+B81Hngx2UZIR6/
+	 ETWx7tcNYE1TVKJ/8r0TWFldBBt2c6NYUdKvD/W53sET147ei1ih0uJTMZ62Xg1vv+
+	 D/4V4wCKLUKiU811CGfxekWJC4K6Fggm+IeihHucqryvW612yFnA8LGBAEtNM8svgs
+	 vMuRCcbUFUwuUPLb6beNdkzHMJzbgsMvem8OkFLCefLaFbR1d0cEhJFlyN0VhjWcFn
+	 yRoteBGcCKVHJ9iOC9iJtNNYym5kkvhP81ByRe4F8vGM9m0Du3s0rI+Ok4JtfJDPIx
+	 Vyg8Ib3CbhMAQ==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] riscv: Use asm-generic for {read,write}{bwlq} and their relaxed variant
-Date: Sat,  2 Dec 2023 21:38:13 +0800
-Message-Id: <20231202133813.4003-1-jszhang@kernel.org>
+Subject: [PATCH v2] riscv: mm: still create swiotlb buffer for kmalloc() bouncing if required
+Date: Sat,  2 Dec 2023 21:42:24 +0800
+Message-Id: <20231202134224.4029-1-jszhang@kernel.org>
 X-Mailer: git-send-email 2.40.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231202_055049_229509_DA7415F1 
-X-CRM114-Status: GOOD (  14.59  )
+X-CRM114-CacheID: sfid-20231202_055457_135037_16527584 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,124 +72,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The asm-generic implementation is functionally identical to the riscv
-version. At the same time, the readl{q}_relaxed is replaced with the
-raw version for nommu building.
+After commit f51f7a0fc2f4 ("riscv: enable DMA_BOUNCE_UNALIGNED_KMALLOC
+for !dma_coherent"), for non-coherent platforms with less than 4GB
+memory, we rely on users to pass "swiotlb=mmnn,force" kernel parameters
+to enable DMA bouncing for unaligned kmalloc() buffers. Now let's go
+further: If no bouncing needed for ZONE_DMA, let kernel automatically
+allocate 1MB swiotlb buffer per 1GB of RAM for kmalloc() bouncing on
+non-coherent platforms, so that no need to pass "swiotlb=mmnn,force"
+any more.
+
+The math of "1MB swiotlb buffer per 1GB of RAM for kmalloc() bouncing"
+is taken from arm64. Users can still force smaller swiotlb buffer by
+passing "swiotlb=mmnn".
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
 
-Since v1:
- - fix nommu build
+since v2:
+ - fix build error if CONFIG_RISCV_DMA_NONCOHERENT=n
 
- arch/riscv/include/asm/mmio.h  | 62 +---------------------------------
- arch/riscv/include/asm/timex.h |  6 ++--
- 2 files changed, 4 insertions(+), 64 deletions(-)
+ arch/riscv/include/asm/cache.h |  2 +-
+ arch/riscv/mm/init.c           | 16 +++++++++++++++-
+ 2 files changed, 16 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/mmio.h b/arch/riscv/include/asm/mmio.h
-index 4c58ee7f95ec..a491590593ca 100644
---- a/arch/riscv/include/asm/mmio.h
-+++ b/arch/riscv/include/asm/mmio.h
-@@ -80,54 +80,7 @@ static inline u64 __raw_readq(const volatile void __iomem *addr)
- #endif
+diff --git a/arch/riscv/include/asm/cache.h b/arch/riscv/include/asm/cache.h
+index 2174fe7bac9a..570e9d8acad1 100644
+--- a/arch/riscv/include/asm/cache.h
++++ b/arch/riscv/include/asm/cache.h
+@@ -26,8 +26,8 @@
  
- /*
-- * Unordered I/O memory access primitives.  These are even more relaxed than
-- * the relaxed versions, as they don't even order accesses between successive
-- * operations to the I/O regions.
-- */
--#define readb_cpu(c)		({ u8  __r = __raw_readb(c); __r; })
--#define readw_cpu(c)		({ u16 __r = le16_to_cpu((__force __le16)__raw_readw(c)); __r; })
--#define readl_cpu(c)		({ u32 __r = le32_to_cpu((__force __le32)__raw_readl(c)); __r; })
--
--#define writeb_cpu(v, c)	((void)__raw_writeb((v), (c)))
--#define writew_cpu(v, c)	((void)__raw_writew((__force u16)cpu_to_le16(v), (c)))
--#define writel_cpu(v, c)	((void)__raw_writel((__force u32)cpu_to_le32(v), (c)))
--
--#ifdef CONFIG_64BIT
--#define readq_cpu(c)		({ u64 __r = le64_to_cpu((__force __le64)__raw_readq(c)); __r; })
--#define writeq_cpu(v, c)	((void)__raw_writeq((__force u64)cpu_to_le64(v), (c)))
--#endif
--
--/*
-- * Relaxed I/O memory access primitives. These follow the Device memory
-- * ordering rules but do not guarantee any ordering relative to Normal memory
-- * accesses.  These are defined to order the indicated access (either a read or
-- * write) with all other I/O memory accesses to the same peripheral. Since the
-- * platform specification defines that all I/O regions are strongly ordered on
-- * channel 0, no explicit fences are required to enforce this ordering.
-- */
--/* FIXME: These are now the same as asm-generic */
--#define __io_rbr()		do {} while (0)
--#define __io_rar()		do {} while (0)
--#define __io_rbw()		do {} while (0)
--#define __io_raw()		do {} while (0)
--
--#define readb_relaxed(c)	({ u8  __v; __io_rbr(); __v = readb_cpu(c); __io_rar(); __v; })
--#define readw_relaxed(c)	({ u16 __v; __io_rbr(); __v = readw_cpu(c); __io_rar(); __v; })
--#define readl_relaxed(c)	({ u32 __v; __io_rbr(); __v = readl_cpu(c); __io_rar(); __v; })
--
--#define writeb_relaxed(v, c)	({ __io_rbw(); writeb_cpu((v), (c)); __io_raw(); })
--#define writew_relaxed(v, c)	({ __io_rbw(); writew_cpu((v), (c)); __io_raw(); })
--#define writel_relaxed(v, c)	({ __io_rbw(); writel_cpu((v), (c)); __io_raw(); })
--
--#ifdef CONFIG_64BIT
--#define readq_relaxed(c)	({ u64 __v; __io_rbr(); __v = readq_cpu(c); __io_rar(); __v; })
--#define writeq_relaxed(v, c)	({ __io_rbw(); writeq_cpu((v), (c)); __io_raw(); })
--#endif
--
--/*
-- * I/O memory access primitives.  Reads are ordered relative to any following
-- * Normal memory read and delay() loop.  Writes are ordered relative to any
-- * prior Normal memory write.  The memory barriers here are necessary as RISC-V
-+ * I/O barriers. The memory barriers here are necessary as RISC-V
-  * doesn't define any ordering between the memory space and the I/O space.
-  */
- #define __io_br()	do {} while (0)
-@@ -135,17 +88,4 @@ static inline u64 __raw_readq(const volatile void __iomem *addr)
- #define __io_bw()	({ __asm__ __volatile__ ("fence w,o" : : : "memory"); })
- #define __io_aw()	mmiowb_set_pending()
+ #ifndef __ASSEMBLY__
  
--#define readb(c)	({ u8  __v; __io_br(); __v = readb_cpu(c); __io_ar(__v); __v; })
--#define readw(c)	({ u16 __v; __io_br(); __v = readw_cpu(c); __io_ar(__v); __v; })
--#define readl(c)	({ u32 __v; __io_br(); __v = readl_cpu(c); __io_ar(__v); __v; })
--
--#define writeb(v, c)	({ __io_bw(); writeb_cpu((v), (c)); __io_aw(); })
--#define writew(v, c)	({ __io_bw(); writew_cpu((v), (c)); __io_aw(); })
--#define writel(v, c)	({ __io_bw(); writel_cpu((v), (c)); __io_aw(); })
--
--#ifdef CONFIG_64BIT
--#define readq(c)	({ u64 __v; __io_br(); __v = readq_cpu(c); __io_ar(__v); __v; })
--#define writeq(v, c)	({ __io_bw(); writeq_cpu((v), (c)); __io_aw(); })
--#endif
--
- #endif /* _ASM_RISCV_MMIO_H */
-diff --git a/arch/riscv/include/asm/timex.h b/arch/riscv/include/asm/timex.h
-index a06697846e69..9ff9f398f61a 100644
---- a/arch/riscv/include/asm/timex.h
-+++ b/arch/riscv/include/asm/timex.h
-@@ -17,18 +17,18 @@ typedef unsigned long cycles_t;
- #ifdef CONFIG_64BIT
- static inline cycles_t get_cycles(void)
+-#ifdef CONFIG_RISCV_DMA_NONCOHERENT
+ extern int dma_cache_alignment;
++#ifdef CONFIG_RISCV_DMA_NONCOHERENT
+ #define dma_get_cache_alignment dma_get_cache_alignment
+ static inline int dma_get_cache_alignment(void)
  {
--	return readq_relaxed(clint_time_val);
-+	return __raw_readq(clint_time_val);
- }
- #else /* !CONFIG_64BIT */
- static inline u32 get_cycles(void)
- {
--	return readl_relaxed(((u32 *)clint_time_val));
-+	return __raw_readl(((u32 *)clint_time_val));
- }
- #define get_cycles get_cycles
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 2e011cbddf3a..cbcb9918f721 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -162,11 +162,25 @@ static void print_vm_layout(void) { }
  
- static inline u32 get_cycles_hi(void)
+ void __init mem_init(void)
  {
--	return readl_relaxed(((u32 *)clint_time_val) + 1);
-+	return __raw_readl(((u32 *)clint_time_val) + 1);
- }
- #define get_cycles_hi get_cycles_hi
- #endif /* CONFIG_64BIT */
++	bool swiotlb = max_pfn > PFN_DOWN(dma32_phys_limit);
+ #ifdef CONFIG_FLATMEM
+ 	BUG_ON(!mem_map);
+ #endif /* CONFIG_FLATMEM */
+ 
+-	swiotlb_init(max_pfn > PFN_DOWN(dma32_phys_limit), SWIOTLB_VERBOSE);
++	if (IS_ENABLED(CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC) && !swiotlb &&
++	    dma_cache_alignment != 1) {
++		/*
++		 * If no bouncing needed for ZONE_DMA, allocate 1MB swiotlb
++		 * buffer per 1GB of RAM for kmalloc() bouncing on
++		 * non-coherent platforms.
++		 */
++		unsigned long size =
++			DIV_ROUND_UP(memblock_phys_mem_size(), 1024);
++		swiotlb_adjust_size(min(swiotlb_size_or_default(), size));
++		swiotlb = true;
++	}
++
++	swiotlb_init(swiotlb, SWIOTLB_VERBOSE);
+ 	memblock_free_all();
+ 
+ 	print_vm_layout();
 -- 
 2.42.0
 
