@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 408B1C4167B
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 Dec 2023 11:40:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 066D4C4167B
+	for <linux-riscv@archiver.kernel.org>; Sat,  2 Dec 2023 11:46:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RRzthtxVoDn3iBxc5oczHVg3oo4J/bYEzsd9LKnnsCU=; b=GFA1Np4Ej9x6+t
-	ip76kwMtJya3eaT8btHk77RuEve2ZD/eNSgl5Yh+fSRKzeuomcQHra7i0wo0i1uoSgVsoSZH+CC5Y
-	9I8QcCSzGczGAHkCCAKL9CHTa5oHv4Q7P9JwCejKoc5t3DAlGmEitV/AIuZOA/zwBICdjPHEh9wpt
-	NJN92Cq+geo0oB7b2yeRZhyXYKzxjiXP/d6hZg3di5TX5mEWfXF5yaN2UgVI1eUglXtobHBt+iHhf
-	HGgNgqcCLUWZly+qtNQXWOLK/fUi5K8MarpunS3C8h17dPY8Vbj/2zRtlknEgrE9edmMr5vQun+mA
-	PoxNIXv30HA0VITNPR4w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g5MADEj40XBT2Z/GiKKoMIRzREgLxH1jsghUwOhYRNM=; b=3ENwajp9efM71u3bZ1PhoF0qjp
+	gszhOtOUnugU3icWB2f9z1vexzjWyBdWCXp3P2fZb5HkN1NiYYbMUNKZ0ePqoNTks0sLr0/JDNqXB
+	PXKJfsR0w3NYJWvVgfit2dbTmXZU80eao0VTjXhYa3mBC096a/iFOVrFeZcjK4CdBhkDf5rL44Vua
+	fO5ZPaVbX1xJzIH/RHzFlmvoR3QGqec8nrgKPavD6eHFH2dVbG/92QzizAxN9MsxI9tWpBXewLX3v
+	jI3iCUPawAOHmAPo9X52v0jisZZrKl1FaXQSIW74s2P5vcokJK7k6/Sy7uqBny/5BmBe80BltGXKm
+	PvNsbPfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9OMa-00FdXo-01;
-	Sat, 02 Dec 2023 11:40:48 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1r9ORX-00FdmA-1x;
+	Sat, 02 Dec 2023 11:45:55 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9OMW-00FdXQ-0y
+	id 1r9ORU-00Fdlh-1x
 	for linux-riscv@lists.infradead.org;
-	Sat, 02 Dec 2023 11:40:45 +0000
+	Sat, 02 Dec 2023 11:45:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 8DD7DCE0B2C;
-	Sat,  2 Dec 2023 11:40:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2E4CC433C9;
-	Sat,  2 Dec 2023 11:40:40 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 12676B80B62;
+	Sat,  2 Dec 2023 11:45:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E878C433C9;
+	Sat,  2 Dec 2023 11:45:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701517241;
-	bh=DaUNBnJudQtx/0ecN0kp9sHu1Y4tp3r/amh8XiErTXw=;
+	s=k20201202; t=1701517548;
+	bh=uSCwJobsv7eeFCBU3RQEyIImjUxRbMNqeubbtgPE2UY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XxP7NmO7pW5CZG2wIqTdiWAbz/p7Cb69Elg+6qaP8cxRpDnbg7ygo36gqVDhTE1K/
-	 9ky2d7U5rmERCih5gsM/OV7/Euy7yG9zru8jDb1Wo8AaCAmx16YQ8OWUrgYiZbRZU2
-	 j3+lowrobiVTpvQ2b6+uTV66aCyeHH+QBwj9f/5P350NydZGYMw+Zqj8RrAblu9VK9
-	 5QbS1cVL3ev75+j1EMolBAA/CKFvjCSTTpRLmXILv7TSu/sdW4GQJdCU2fgWr+hTQd
-	 frwOzSl7jv2TwAURI820vGSlC+0FQ9hxApvrrEHa/s+BsP9WMC1YSfh+TShW4XOF4M
-	 ZdQ7qFC8qFLAw==
-Date: Sat, 2 Dec 2023 19:28:10 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+	b=A2aZ+tpYZc1B+VffwLZP5uR8wuY2wfDyB0dgPW19VJ08pMMcJVaJ778Yw9lntR0mG
+	 YIIdnB09hIBjnOp6oJGZ5fLAdKO/+ePBmoNjkjsUVxx0nbemTqNisiNhxwfjH05pNZ
+	 UUndxqxuMNmJbewMA/talTn+nliBmu6EykAaV8nLdGrUmLni/Z6cvnbz//953qDdYo
+	 Z6T1aluqOJ8HWIdIvQR86Cpx1LYoH9gd29h06f7ToxDmGG4P1sVJ5WNYxHfsY6SWHL
+	 gtGHw1dliNhYygnX8O4J9ZjX2TwwMztBTfwNeNNds2hFeiN4eC/Ua9V0Vn4NAG+HSy
+	 OiEIEp6wU/rTQ==
+Date: Sat, 2 Dec 2023 11:45:44 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] riscv: enable EFFICIENT_UNALIGNED_ACCESS and
- DCACHE_WORD_ACCESS
-Message-ID: <ZWsUyjEx1fmXQEfW@xhacker>
-References: <20231202111822.3569-1-jszhang@kernel.org>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"open list:SIFIVE DRIVERS" <linux-riscv@lists.infradead.org>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Subject: Re: Question about BUILTIN_DTB support in RISCV
+Message-ID: <20231202-paparazzi-thievish-744c40e351be@spud>
+References: <CAK7LNATt_56mO2Le4v4EnPnAfd3gC8S_Sm5-GCsfa=qXy=8Lrg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231202111822.3569-1-jszhang@kernel.org>
+In-Reply-To: <CAK7LNATt_56mO2Le4v4EnPnAfd3gC8S_Sm5-GCsfa=qXy=8Lrg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231202_034044_524729_199B434F 
-X-CRM114-Status: GOOD (  20.79  )
+X-CRM114-CacheID: sfid-20231202_034552_916774_92A4CB15 
+X-CRM114-Status: GOOD (  19.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,89 +70,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0805424743220516421=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 02, 2023 at 07:18:20PM +0800, Jisheng Zhang wrote:
-> Some riscv implementations such as T-HEAD's C906, C908, C910 and C920
-> supports efficient unaligned access, for performance reason we want
-> to enable HAVE_EFFICIENT_UNALIGNED_ACCESS on these platforms. To
-> avoid performance regressions on other non efficient unaligned access
-> platforms, HAVE_EFFICIENT_UNALIGNED_ACCESS can't be globaly selected.
-> 
-> To solve this problem, runtime code patching based on the detected
-> speed is a good solution. But that's not easy, it involves lots of
-> work to modify vairous subsystems such as net, mm, lib and so on.
-> This can be done step by step.
 
-Adding something as below here can make the series more clear:
-So let's take an easier solution: add support to efficient unaligned
-access and hide the support under NONPORTABLE.
+--===============0805424743220516421==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Gwwjm7FWxQD2puPb"
+Content-Disposition: inline
 
-> 
-> patch1 introduces RISCV_EFFICIENT_UNALIGNED_ACCESS which depends on
-> NONPORTABLE, if users know during config time that the kernel will be
-> only run on those efficient unaligned access hw platforms, they can
-> enable it. Obviously, generic unified kernel Image should enable it.
 
-typo: s/should/shouldn't
+--Gwwjm7FWxQD2puPb
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> 
-> patch2 adds support DCACHE_WORD_ACCESS when MMU and
-> RISCV_EFFICIENT_UNALIGNED_ACCESS.
-> 
-> Below test program and step shows how much performance can be improved:
-> 
->  $ cat tt.c
->  #include <sys/types.h>
->  #include <sys/stat.h>
->  #include <unistd.h>
-> 
->  #define ITERATIONS 1000000
-> 
->  #define PATH "123456781234567812345678123456781"
-> 
->  int main(void)
->  {
->          unsigned long i;
->          struct stat buf;
-> 
->          for (i = 0; i < ITERATIONS; i++)
->                  stat(PATH, &buf);
-> 
->          return 0;
->  }
-> 
->  $ gcc -O2 tt.c
->  $ touch 123456781234567812345678123456781
->  $ time ./a.out
-> 
-> Per my test on T-HEAD C910 platforms, the above test performance is
-> improved by about 7.5%.
-> 
-> 
-> Jisheng Zhang (2):
->   riscv: introduce RISCV_EFFICIENT_UNALIGNED_ACCESS
->   riscv: select DCACHE_WORD_ACCESS for efficient unaligned access HW
-> 
->  arch/riscv/Kconfig                      | 13 +++++++++++
->  arch/riscv/include/asm/asm-extable.h    | 15 ++++++++++++
->  arch/riscv/include/asm/word-at-a-time.h | 23 ++++++++++++++++++
->  arch/riscv/mm/extable.c                 | 31 +++++++++++++++++++++++++
->  4 files changed, 82 insertions(+)
-> 
-> -- 
-> 2.42.0
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+On Sat, Dec 02, 2023 at 03:45:00AM +0900, Masahiro Yamada wrote:
+> Hi.
+>=20
+> I have a question about CONFIG_BUILTIN_DTB for riscv.
+>=20
+> Please see this commit history.
+>=20
+>=20
+> [1]
+> 2d2682512f0faf4d09a696184bf3c0bb6838baca
+> added built-in DTB support, attempting
+> to include multiple DTB into vmlinux
+> by using SOC_BUILTIN_DTB_DECLARE() macro.
+>=20
+>=20
+> [2]
+> d5805af9fe9ffe4a9d975e9bc39496f57a161076
+> pointed out that choosing the correct DTB
+> is impossible. It fell back to the single
+> built-in DTB support, like other architectures.
+>=20
+> [3]
+> 0ddd7eaffa644baa78e247bbd220ab7195b1eed6
+> added BUILTIN_DTB support for sifive and microchip,
+> while apparently multiple DTBs are embedded into vmlinux.
+
+The thread for this one is interesting:
+https://lore.kernel.org/all/20210604120639.1447869-1-alex@ghiti.fr/
+
+None of the other !canaan platforms actually support this, so it is only
+for PolarFire and the SiFive boards that this is enabled. It sounds,
+=66rom your comments below, that this does not even work. If it doesn't, I
+would be inclined to just delete it.
+
+If XIP is the user, we want to deprecate XIP anyway, so pointing out
+that this has not worked properly in a long time for PolarFire and
+?ever? for the SiFive unmatched is another nail in the coffin for that.
+
+My vote would be for reverting [3] and removing support for XIP :)
+
+> So, how does it work?
+>=20
+>=20
+> With
+> CONFIG_ARCH_MICROCHIP_POLARFIRE=3Dy
+> CONFIG_ARCH_SIFIVE=3Dy
+> CONFIG_BUILTIN_DTB=3Dy
+>=20
+> 7 DTB files are embedded in vmlinux.
+>=20
+>=20
+> masahiro@zoe:~/ref/linux(master)$ riscv64-linux-gnu-nm -n vmlinux |
+> grep -A15 dtb_start
+> ffffffff82112620 D __dtb_start
+> ffffffff82115a2c D __dtb_mpfs_icicle_kit_end
+> ffffffff82115a40 D __dtb_mpfs_m100pfsevp_begin
+> ffffffff82118b3b D __dtb_mpfs_m100pfsevp_end
+> ffffffff82118b40 D __dtb_mpfs_polarberry_begin
+> ffffffff8211b9c2 D __dtb_mpfs_polarberry_end
+> ffffffff8211b9e0 D __dtb_mpfs_sev_kit_begin
+> ffffffff8211e7bb D __dtb_mpfs_sev_kit_end
+> ffffffff8211e7c0 D __dtb_mpfs_tysom_m_begin
+> ffffffff8212162e D __dtb_mpfs_tysom_m_end
+> ffffffff82121640 D __dtb_hifive_unleashed_a00_begin
+> ffffffff821236af D __dtb_hifive_unleashed_a00_end
+> ffffffff821236c0 D __dtb_hifive_unmatched_a00_begin
+> ffffffff8212621b D __dtb_hifive_unmatched_a00_end
+> ffffffff82126220 D __dtb_end
+>=20
+>=20
+> In my understanding, the first one
+> (mpfs-icicle-kit.dtb) is always used.
+>=20
+> You cannot use the other 6 DTBs.
+> Am I missing something?
+
+Alex? I gave a cursory test and it does in fact behave like this.
+
+
+--Gwwjm7FWxQD2puPb
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZWsY6AAKCRB4tDGHoIJi
+0qL1AP42NadeFiz5c/wdHAp3pzYsORuTAsof8ogQqSkVyoDWogEAqwXZrryKGWID
+GqGD5DMLBVzIH6oEvhsmFPSmg1sgvAs=
+=HWh1
+-----END PGP SIGNATURE-----
+
+--Gwwjm7FWxQD2puPb--
+
+
+--===============0805424743220516421==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0805424743220516421==--
+
