@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52D07C10DC3
-	for <linux-riscv@archiver.kernel.org>; Sun,  3 Dec 2023 14:10:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6474C4167B
+	for <linux-riscv@archiver.kernel.org>; Sun,  3 Dec 2023 14:10:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yXeFwtYQACfmERZWlbyQ5DWC6iEglam5wnqrRV2hz9E=; b=DZQ4sPMhLW4lYB
-	FgeIdfKFKlCdFdB2QeZrGfsY85Wa1qloTfeL6+G9q1WdwRtd3pBHQattja9TX8aFBornucYtpvmr6
-	DGsU4fHDHK6sfjty6cdw7VJ6MYHSZ0AASKKir5uvCS60O2v1uG4P9RvTyHtgK/uv54uIsrei+vEoF
-	Ijg/AtJ763aykB7GvcYN0ZCCGbVUV0i62+L5Zw50Cia2H+Bh5my2mozMjzbAOpJphzB6fBStz/s2e
-	aS1kIMpUYo77KthkkJO+thPo2gJdxGsdSgjGLwOgb8greaGCUFV+PdoLc/fdoAUeuaudD3DheENNO
-	r/7HB82ZjDhpK/W0G/9w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6YJ9D/oFiW6k8xVi0nNqVCwZVOHfBmAWWm3RJHtkNqc=; b=DFta4FrTUtGopN
+	9f0yPynF6k02THeWwqVQFt0Jg1Yn0npgKGKpqKuKWzPq5KeiDCCQw2+XsUal4CcHy3R5DCK8oJdQl
+	2UsfMby1xpCd9JgI8IHOjOAAgtwRlHcdo179iZoZfFFjKG/euywGB5qn87KaJiSp9vJo6+p7MQmv0
+	RRVc2wU+xxJYngGAwLWXweEQqKVNM6xWqu0wOkYPTr304BWbD1XW70tVFjizD8/x/EHcHbpTkw97V
+	RWXBKSs7hlEWYzGkt8KTPyn2XyqQDTqEti3BvPglLnrVppgBJJ7/T/EqWDkdhi6bAdSFzptnkXQXT
+	yM76bY99li3D90RCQCUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9nB7-0006eO-1K;
-	Sun, 03 Dec 2023 14:10:37 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1r9nBB-0006hs-0v;
+	Sun, 03 Dec 2023 14:10:41 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9nB3-0006Yz-2E
+	id 1r9nB8-0006dT-1d
 	for linux-riscv@lists.infradead.org;
-	Sun, 03 Dec 2023 14:10:35 +0000
+	Sun, 03 Dec 2023 14:10:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id F1314B80B90;
-	Sun,  3 Dec 2023 14:10:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F48BC433C9;
-	Sun,  3 Dec 2023 14:10:26 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id BB594CE0C6D;
+	Sun,  3 Dec 2023 14:10:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2096AC433C9;
+	Sun,  3 Dec 2023 14:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701612627;
-	bh=QZ+9c3MhqDU0C1Ei9+Fc5gRRLMVSExYSRe6oAlwtRlM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=sglyprX5e81KPNAgEajlkRuYjgMk4GCbCkUVSK6gfxEzfdj9KE/RvF/zYZqgLpRe/
-	 GB3E565v+J9TjzAIgE66mkD9YNMIi7wvJylmWf8SzsYqMpPetVyxDErovpepry7G9f
-	 jZvuDMzTz1oIZdrLGIkJa6L3n5a+O47WqNTg5dRbeN5WJSLq8TjFn9Y8uWSCDyfgvh
-	 geZSbBmGWVPpYZpjxQ11SXyRwQLIvK7zTDAXfi876Mk+EA6LIOVT8ZKkSXGJspJvU7
-	 MDg02EBgqozaU0OZd8mOe24EDDUxykxUrsrYUU0v8A6L/+VIzEjvolKaTRIBo46YKq
-	 7P4MW0OkXmXZg==
+	s=k20201202; t=1701612631;
+	bh=FIys6TCm1pADctwI4mi5J+BtlhT9W4Hdv3pY6Un5yYI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=nGwTSy2pCLtRcKpTZxCwB3aLoABKL6b56hg2RwnDqBAvYMyTdS7LaUxR1mFyQZB9V
+	 1xoi88H2KHqPb/krLcBST/La9QqXizw3Sg17ZIeI+RUp/VhgTNHTxnjaCLTx2Fi2iF
+	 MUqgi10WNUchfGhJelTEQ9AOhcRUgzvSxpURpLrgHW68TUGRqQXJ5auXBTayAqWYsl
+	 lqH6iXPOvbiZyPG8Ej4eva4fZp5jMNXTWXC9XnHCfiwOyxJfv4lGET5Yz04/KnH0rM
+	 hRYK0ADW8B8jgXoYeLL0rL811RPV60iTKPJQoiSr2+V5Lvt0/lPNXaGoN+a3CCa1nC
+	 4f4btJBGIF8HA==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -49,15 +49,16 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 Cc: Conor Dooley <conor.dooley@microchip.com>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/2] riscv: enable EFFICIENT_UNALIGNED_ACCESS and DCACHE_WORD_ACCESS
-Date: Sun,  3 Dec 2023 21:57:51 +0800
-Message-Id: <20231203135753.1575-1-jszhang@kernel.org>
+Subject: [PATCH v2 2/2] riscv: select DCACHE_WORD_ACCESS for efficient unaligned access HW
+Date: Sun,  3 Dec 2023 21:57:53 +0800
+Message-Id: <20231203135753.1575-3-jszhang@kernel.org>
 X-Mailer: git-send-email 2.40.0
+In-Reply-To: <20231203135753.1575-1-jszhang@kernel.org>
+References: <20231203135753.1575-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231203_061034_024674_63634356 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231203_061039_051223_7DE7CAC3 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,29 +75,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some riscv implementations such as T-HEAD's C906, C908, C910 and C920
-support efficient unaligned access, for performance reason we want
-to enable HAVE_EFFICIENT_UNALIGNED_ACCESS on these platforms. To
-avoid performance regressions on non efficient unaligned access
-platforms, HAVE_EFFICIENT_UNALIGNED_ACCESS can't be globally selected.
+DCACHE_WORD_ACCESS uses the word-at-a-time API for optimised string
+comparisons in the vfs layer.
 
-To solve this problem, runtime code patching based on the detected
-speed is a good solution. But that's not easy, it involves lots of
-work to modify vairous subsystems such as net, mm, lib and so on.
-This can be done step by step.
+This patch implements support for load_unaligned_zeropad in much the
+same way as has been done for arm64.
 
-So let's take an easier solution: add support to efficient unaligned
-access and hide the support under NONPORTABLE.
-
-patch1 introduces RISCV_EFFICIENT_UNALIGNED_ACCESS which depends on
-NONPORTABLE, if users know during config time that the kernel will be
-only run on those efficient unaligned access hw platforms, they can
-enable it. Obviously, generic unified kernel Image shouldn't enable it.
-
-patch2 adds support DCACHE_WORD_ACCESS when MMU and
-RISCV_EFFICIENT_UNALIGNED_ACCESS.
-
-Below test program and step shows how much performance can be improved:
+Here is the test program and step:
 
  $ cat tt.c
  #include <sys/types.h>
@@ -125,20 +110,165 @@ Below test program and step shows how much performance can be improved:
 Per my test on T-HEAD C910 platforms, the above test performance is
 improved by about 7.5%.
 
-Since v1:
-  - fix typo in commit msg
-  - fix build error if NOMMU
-
-Jisheng Zhang (2):
-  riscv: introduce RISCV_EFFICIENT_UNALIGNED_ACCESS
-  riscv: select DCACHE_WORD_ACCESS for efficient unaligned access HW
-
- arch/riscv/Kconfig                      | 13 +++++++++++
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ arch/riscv/Kconfig                      |  1 +
  arch/riscv/include/asm/asm-extable.h    | 15 ++++++++++++
  arch/riscv/include/asm/word-at-a-time.h | 27 +++++++++++++++++++++
  arch/riscv/mm/extable.c                 | 31 +++++++++++++++++++++++++
- 4 files changed, 86 insertions(+)
+ 4 files changed, 74 insertions(+)
 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 0a76209e9b02..bb366eb1870e 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -657,6 +657,7 @@ config RISCV_MISALIGNED
+ config RISCV_EFFICIENT_UNALIGNED_ACCESS
+ 	bool "Use unaligned access for some functions"
+ 	depends on NONPORTABLE
++	select DCACHE_WORD_ACCESS if MMU
+ 	select HAVE_EFFICIENT_UNALIGNED_ACCESS
+ 	default n
+ 	help
+diff --git a/arch/riscv/include/asm/asm-extable.h b/arch/riscv/include/asm/asm-extable.h
+index 00a96e7a9664..0c8bfd54fc4e 100644
+--- a/arch/riscv/include/asm/asm-extable.h
++++ b/arch/riscv/include/asm/asm-extable.h
+@@ -6,6 +6,7 @@
+ #define EX_TYPE_FIXUP			1
+ #define EX_TYPE_BPF			2
+ #define EX_TYPE_UACCESS_ERR_ZERO	3
++#define EX_TYPE_LOAD_UNALIGNED_ZEROPAD	4
+ 
+ #ifdef CONFIG_MMU
+ 
+@@ -47,6 +48,11 @@
+ #define EX_DATA_REG_ZERO_SHIFT	5
+ #define EX_DATA_REG_ZERO	GENMASK(9, 5)
+ 
++#define EX_DATA_REG_DATA_SHIFT	0
++#define EX_DATA_REG_DATA	GENMASK(4, 0)
++#define EX_DATA_REG_ADDR_SHIFT	5
++#define EX_DATA_REG_ADDR	GENMASK(9, 5)
++
+ #define EX_DATA_REG(reg, gpr)						\
+ 	"((.L__gpr_num_" #gpr ") << " __stringify(EX_DATA_REG_##reg##_SHIFT) ")"
+ 
+@@ -62,6 +68,15 @@
+ #define _ASM_EXTABLE_UACCESS_ERR(insn, fixup, err)			\
+ 	_ASM_EXTABLE_UACCESS_ERR_ZERO(insn, fixup, err, zero)
+ 
++#define _ASM_EXTABLE_LOAD_UNALIGNED_ZEROPAD(insn, fixup, data, addr)		\
++	__DEFINE_ASM_GPR_NUMS							\
++	__ASM_EXTABLE_RAW(#insn, #fixup,					\
++			  __stringify(EX_TYPE_LOAD_UNALIGNED_ZEROPAD),		\
++			  "("							\
++			    EX_DATA_REG(DATA, data) " | "			\
++			    EX_DATA_REG(ADDR, addr)				\
++			  ")")
++
+ #endif /* __ASSEMBLY__ */
+ 
+ #else /* CONFIG_MMU */
+diff --git a/arch/riscv/include/asm/word-at-a-time.h b/arch/riscv/include/asm/word-at-a-time.h
+index 7c086ac6ecd4..f3f031e34191 100644
+--- a/arch/riscv/include/asm/word-at-a-time.h
++++ b/arch/riscv/include/asm/word-at-a-time.h
+@@ -9,6 +9,7 @@
+ #define _ASM_RISCV_WORD_AT_A_TIME_H
+ 
+ 
++#include <asm/asm-extable.h>
+ #include <linux/kernel.h>
+ 
+ struct word_at_a_time {
+@@ -45,4 +46,30 @@ static inline unsigned long find_zero(unsigned long mask)
+ /* The mask we created is directly usable as a bytemask */
+ #define zero_bytemask(mask) (mask)
+ 
++#ifdef CONFIG_DCACHE_WORD_ACCESS
++
++/*
++ * Load an unaligned word from kernel space.
++ *
++ * In the (very unlikely) case of the word being a page-crosser
++ * and the next page not being mapped, take the exception and
++ * return zeroes in the non-existing part.
++ */
++static inline unsigned long load_unaligned_zeropad(const void *addr)
++{
++	unsigned long ret;
++
++	/* Load word from unaligned pointer addr */
++	asm(
++	"1:	" REG_L " %0, %2\n"
++	"2:\n"
++	_ASM_EXTABLE_LOAD_UNALIGNED_ZEROPAD(1b, 2b, %0, %1)
++	: "=&r" (ret)
++	: "r" (addr), "m" (*(unsigned long *)addr));
++
++	return ret;
++}
++
++#endif	/* CONFIG_DCACHE_WORD_ACCESS */
++
+ #endif /* _ASM_RISCV_WORD_AT_A_TIME_H */
+diff --git a/arch/riscv/mm/extable.c b/arch/riscv/mm/extable.c
+index 35484d830fd6..dd1530af3ef1 100644
+--- a/arch/riscv/mm/extable.c
++++ b/arch/riscv/mm/extable.c
+@@ -27,6 +27,14 @@ static bool ex_handler_fixup(const struct exception_table_entry *ex,
+ 	return true;
+ }
+ 
++static inline unsigned long regs_get_gpr(struct pt_regs *regs, unsigned int offset)
++{
++	if (unlikely(!offset || offset > MAX_REG_OFFSET))
++		return 0;
++
++	return *(unsigned long *)((unsigned long)regs + offset);
++}
++
+ static inline void regs_set_gpr(struct pt_regs *regs, unsigned int offset,
+ 				unsigned long val)
+ {
+@@ -50,6 +58,27 @@ static bool ex_handler_uaccess_err_zero(const struct exception_table_entry *ex,
+ 	return true;
+ }
+ 
++static bool
++ex_handler_load_unaligned_zeropad(const struct exception_table_entry *ex,
++				  struct pt_regs *regs)
++{
++	int reg_data = FIELD_GET(EX_DATA_REG_DATA, ex->data);
++	int reg_addr = FIELD_GET(EX_DATA_REG_ADDR, ex->data);
++	unsigned long data, addr, offset;
++
++	addr = regs_get_gpr(regs, reg_addr * sizeof(unsigned long));
++
++	offset = addr & 0x7UL;
++	addr &= ~0x7UL;
++
++	data = *(unsigned long *)addr >> (offset * 8);
++
++	regs_set_gpr(regs, reg_data * sizeof(unsigned long), data);
++
++	regs->epc = get_ex_fixup(ex);
++	return true;
++}
++
+ bool fixup_exception(struct pt_regs *regs)
+ {
+ 	const struct exception_table_entry *ex;
+@@ -65,6 +94,8 @@ bool fixup_exception(struct pt_regs *regs)
+ 		return ex_handler_bpf(ex, regs);
+ 	case EX_TYPE_UACCESS_ERR_ZERO:
+ 		return ex_handler_uaccess_err_zero(ex, regs);
++	case EX_TYPE_LOAD_UNALIGNED_ZEROPAD:
++		return ex_handler_load_unaligned_zeropad(ex, regs);
+ 	}
+ 
+ 	BUG();
 -- 
 2.42.0
 
