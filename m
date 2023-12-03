@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D0BCC4167B
-	for <linux-riscv@archiver.kernel.org>; Sat,  2 Dec 2023 23:48:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 910F4C4167B
+	for <linux-riscv@archiver.kernel.org>; Sun,  3 Dec 2023 11:04:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=DnDOpK/PpzSYIO0tghlFmdTUcq0bMic2HFmMo7sSuHE=; b=Se/RImwwAyodKn
-	xk4XNMvtPDfkkMnpnM0TyTED6HqIK/lYle2qYnUaDlVUrEyXYEoDfL1gnd6bvsJko2r84wP7tDiNv
-	4g3WDT36pmmFPX7O5/WnGTaQlJ0nJcQHYpfVO/GMHiVnzWa9PVwts8jS7KnUz19NdkPQRU97KwUeV
-	wemlqpY4BQ/m9Fjj/LcMgLX4mrJPAQfweafn4OqO0eKkkkAeSFiXF3AwcgQ/Yp+o2a2QPymsHkiKK
-	46LC7lK4NSzuHLAoPVdILr+MHFR+Sa4NVMaL2+Qz8on8C3CGAu54ATRCSM92As+2Hm8FtFWNJlNEI
-	iBt4qtOUcdQHjEIek8JA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DtkMZMHmZYwNOVjA7LCRb4j1XeQJUlPBSLLxb3N5E00=; b=ppO0KuCKTl7MO4+F4+vwmmijhI
+	o2qmlsSo/BRdrq5pve8xjTZGHrVzhIE63Ach4J8XU7ANEE8D8SRR8rAEPMhfE62NFQanG83kEPnnw
+	TgE/gru3Pjq6mHV8Mpi9IOYjORPTGz1IrtKXi+72LYJ3t+x0kSh85rrrhDhkr+9p4U5GBLHAaDq9Y
+	yJXRK6HgsKtNpjFK6LsVVrBu++GA9oMr8XDThErGiPXNyAT3qvddyl0uVaV45FAyD0kcOsosttkZY
+	ILWIZTki3f7ttk216I6VM9nA05Dz5ku2KlJbdLlvNdiozwL5n+NBMI6eejkJFTUl/xlLcn/1ZlCxE
+	LzGctYug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9Zj4-00GEI9-03;
-	Sat, 02 Dec 2023 23:48:46 +0000
-Received: from ip-89-177-23-149.bb.vodafone.cz ([89.177.23.149] helo=ixit.cz)
+	id 1r9kGe-00Gfqs-1a;
+	Sun, 03 Dec 2023 11:04:08 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9Ziz-00GEHj-2r
+	id 1r9kGb-00GfqC-0x
 	for linux-riscv@lists.infradead.org;
-	Sat, 02 Dec 2023 23:48:45 +0000
-Received: from newone.lan (unknown [10.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ixit.cz (Postfix) with ESMTPSA id C058B160B88;
-	Sun,  3 Dec 2023 00:48:37 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
-	t=1701560917;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=yYAAnwjCtRQ2OW4JMv75Ia+LQsmjhgU723C/WzifIwA=;
-	b=1cIHJLXWe5i7TC70bl0eezTByuNq/TMduEL0fbkVbSR6IiG0zDHeKVoFiD/NKudSvdQkz6
-	MYmTE4YdUMj12dpS9rNDto7vdjRTCYgceqy3lgXmSklSxMv2s+R4E0PWC5DFKAGZh40318
-	rNDrTwE2eH6n241dx/HzY9UNN8httkg=
-From: David Heidelberg <david@ixit.cz>
-To: Rob Herring <robh+dt@kernel.org>,
+	Sun, 03 Dec 2023 11:04:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 379D5CE0B23;
+	Sun,  3 Dec 2023 11:03:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4313C433C7;
+	Sun,  3 Dec 2023 11:03:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1701601437;
+	bh=RL9hj4/npBVWsIIkeQ9nIijIaQvVjE1SR3pmSj6oEg8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kRgOQtlY1EdSeAzCqTTGDvINRhqHIMsl8+LQeFZaNzcd/5G3CZAlbg+SOtS9kuIMv
+	 68YQgJfICsQHDs9pFWFtFwyUmm3Nae8OnqyIx+HkdZXP8KxoEmQdLJj4BK+wSvgzm5
+	 uSLa3Dyo+XY6EPvYNR7WSB0ZOWGtBK0d6ZodlAVj9fd1WLXUHVo3BgJs0Qq5Lyq+hY
+	 csPMxzR7YNBQiYIUf7jDrYeh2m1eGixPIPQDZCI67+UI49nEbxz7CHGj3x8K7dW9Q7
+	 id7NTjtXqaCvnU005DSuJPlRgnM4plT34q3XmH2A/94r74ekRCYG+X3/C5OZPhA59J
+	 Do5H20Z90k9ng==
+Date: Sun, 3 Dec 2023 11:03:52 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	David Heidelberg <david@ixit.cz>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Anup Patel <anup@brainfault.org>
-Cc: Luca Weiss <luca@z3ntu.xyz>,
-	Rob Herring <robh@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	devicetree@vger.kernel.org,
+	Palmer Dabbelt <palmer@dabbelt.com>, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v4 1/3] dt-bindings: arm: merge qcom,idle-state with idle-state
-Date: Sun,  3 Dec 2023 00:47:17 +0100
-Message-ID: <20231202234832.155306-1-david@ixit.cz>
-X-Mailer: git-send-email 2.42.0
+	Walker Chen <walker.chen@starfivetech.com>,
+	JeeHeng Sia <jeeheng.sia@starfivetech.com>,
+	Leyfoon Tan <leyfoon.tan@starfivetech.com>
+Subject: Re: [PATCH v1] riscv: dts: starfive: move timebase-frequency to .dtsi
+Message-ID: <20231203-mountable-snowsuit-24e4252c9eb5@spud>
+References: <20231130-bobbing-valid-b97f26fe8edc@spud>
+ <CAJM55Z9=smqcZ=su1oNdk1YZL_XdYAKrwtrZS7ScS=cAVmxZOA@mail.gmail.com>
 MIME-Version: 1.0
+In-Reply-To: <CAJM55Z9=smqcZ=su1oNdk1YZL_XdYAKrwtrZS7ScS=cAVmxZOA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231202_154842_243523_D27FE75D 
-X-CRM114-Status: GOOD (  28.51  )
+X-CRM114-CacheID: sfid-20231203_030405_580481_EBA3B25B 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,228 +76,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4672920082547973456=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Merge Qualcomm-specific idle-state binding with generic one.
 
-Signed-off-by: David Heidelberg <david@ixit.cz>
+--===============4672920082547973456==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="gsgU8ZMzlqhOxgDu"
+Content-Disposition: inline
 
----
-v4:
- - drop Linux-specific details
- - integrate compatible into existing block
- - added surrounding patches fixing node names
-v3:
- - integrate into idle-state.yml
- - original patch name was:
-   "[v2] dt-bindings: arm/msm/qcom,idle-state convert to YAML"
 
- .../bindings/arm/msm/qcom,idle-state.txt      | 84 -------------------
- .../devicetree/bindings/cpu/idle-states.yaml  | 80 +++++++++++++++++-
- 2 files changed, 76 insertions(+), 88 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/arm/msm/qcom,idle-state.txt
+--gsgU8ZMzlqhOxgDu
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/Documentation/devicetree/bindings/arm/msm/qcom,idle-state.txt b/Documentation/devicetree/bindings/arm/msm/qcom,idle-state.txt
-deleted file mode 100644
-index 606b4b1b709d..000000000000
---- a/Documentation/devicetree/bindings/arm/msm/qcom,idle-state.txt
-+++ /dev/null
-@@ -1,84 +0,0 @@
--QCOM Idle States for cpuidle driver
--
--ARM provides idle-state node to define the cpuidle states, as defined in [1].
--cpuidle-qcom is the cpuidle driver for Qualcomm SoCs and uses these idle
--states. Idle states have different enter/exit latency and residency values.
--The idle states supported by the QCOM SoC are defined as -
--
--    * Standby
--    * Retention
--    * Standalone Power Collapse (Standalone PC or SPC)
--    * Power Collapse (PC)
--
--Standby: Standby does a little more in addition to architectural clock gating.
--When the WFI instruction is executed the ARM core would gate its internal
--clocks. In addition to gating the clocks, QCOM cpus use this instruction as a
--trigger to execute the SPM state machine. The SPM state machine waits for the
--interrupt to trigger the core back in to active. This triggers the cache
--hierarchy to enter standby states, when all cpus are idle. An interrupt brings
--the SPM state machine out of its wait, the next step is to ensure that the
--cache hierarchy is also out of standby, and then the cpu is allowed to resume
--execution. This state is defined as a generic ARM WFI state by the ARM cpuidle
--driver and is not defined in the DT. The SPM state machine should be
--configured to execute this state by default and after executing every other
--state below.
--
--Retention: Retention is a low power state where the core is clock gated and
--the memory and the registers associated with the core are retained. The
--voltage may be reduced to the minimum value needed to keep the processor
--registers active. The SPM should be configured to execute the retention
--sequence and would wait for interrupt, before restoring the cpu to execution
--state. Retention may have a slightly higher latency than Standby.
--
--Standalone PC: A cpu can power down and warmboot if there is a sufficient time
--between the time it enters idle and the next known wake up. SPC mode is used
--to indicate a core entering a power down state without consulting any other
--cpu or the system resources. This helps save power only on that core.  The SPM
--sequence for this idle state is programmed to power down the supply to the
--core, wait for the interrupt, restore power to the core, and ensure the
--system state including cache hierarchy is ready before allowing core to
--resume. Applying power and resetting the core causes the core to warmboot
--back into Elevation Level (EL) which trampolines the control back to the
--kernel. Entering a power down state for the cpu, needs to be done by trapping
--into a EL. Failing to do so, would result in a crash enforced by the warm boot
--code in the EL for the SoC. On SoCs with write-back L1 cache, the cache has to
--be flushed in s/w, before powering down the core.
--
--Power Collapse: This state is similar to the SPC mode, but distinguishes
--itself in that the cpu acknowledges and permits the SoC to enter deeper sleep
--modes. In a hierarchical power domain SoC, this means L2 and other caches can
--be flushed, system bus, clocks - lowered, and SoC main XO clock gated and
--voltages reduced, provided all cpus enter this state.  Since the span of low
--power modes possible at this state is vast, the exit latency and the residency
--of this low power mode would be considered high even though at a cpu level,
--this essentially is cpu power down. The SPM in this state also may handshake
--with the Resource power manager (RPM) processor in the SoC to indicate a
--complete application processor subsystem shut down.
--
--The idle-state for QCOM SoCs are distinguished by the compatible property of
--the idle-states device node.
--
--The devicetree representation of the idle state should be -
--
--Required properties:
--
--- compatible: Must be one of -
--			"qcom,idle-state-ret",
--			"qcom,idle-state-spc",
--			"qcom,idle-state-pc",
--		and "arm,idle-state".
--
--Other required and optional properties are specified in [1].
--
--Example:
--
--	idle-states {
--		CPU_SPC: spc {
--			compatible = "qcom,idle-state-spc", "arm,idle-state";
--			entry-latency-us = <150>;
--			exit-latency-us = <200>;
--			min-residency-us = <2000>;
--		};
--	};
--
--[1]. Documentation/devicetree/bindings/cpu/idle-states.yaml
-diff --git a/Documentation/devicetree/bindings/cpu/idle-states.yaml b/Documentation/devicetree/bindings/cpu/idle-states.yaml
-index b3a5356f9916..15abc786a978 100644
---- a/Documentation/devicetree/bindings/cpu/idle-states.yaml
-+++ b/Documentation/devicetree/bindings/cpu/idle-states.yaml
-@@ -243,7 +243,64 @@ description: |+
-   just supports idle_standby, an idle-states node is not required.
- 
-   ===========================================
--  6 - References
-+  6 - Qualcomm specific STATES
-+  ===========================================
-+
-+  Idle states have different enter/exit latency and residency values.
-+  The idle states supported by the QCOM SoC are defined as -
-+
-+    * Standby
-+    * Retention
-+    * Standalone Power Collapse (Standalone PC or SPC)
-+    * Power Collapse (PC)
-+
-+  Standby: Standby does a little more in addition to architectural clock gating.
-+  When the WFI instruction is executed the ARM core would gate its internal
-+  clocks. In addition to gating the clocks, QCOM cpus use this instruction as a
-+  trigger to execute the SPM state machine. The SPM state machine waits for the
-+  interrupt to trigger the core back in to active. This triggers the cache
-+  hierarchy to enter standby states, when all cpus are idle. An interrupt brings
-+  the SPM state machine out of its wait, the next step is to ensure that the
-+  cache hierarchy is also out of standby, and then the cpu is allowed to resume
-+  execution. This state is defined as a generic ARM WFI state by the ARM cpuidle
-+  driver and is not defined in the DT. The SPM state machine should be
-+  configured to execute this state by default and after executing every other
-+  state below.
-+
-+  Retention: Retention is a low power state where the core is clock gated and
-+  the memory and the registers associated with the core are retained. The
-+  voltage may be reduced to the minimum value needed to keep the processor
-+  registers active. The SPM should be configured to execute the retention
-+  sequence and would wait for interrupt, before restoring the cpu to execution
-+  state. Retention may have a slightly higher latency than Standby.
-+
-+  Standalone PC: A cpu can power down and warmboot if there is a sufficient time
-+  between the time it enters idle and the next known wake up. SPC mode is used
-+  to indicate a core entering a power down state without consulting any other
-+  cpu or the system resources. This helps save power only on that core.  The SPM
-+  sequence for this idle state is programmed to power down the supply to the
-+  core, wait for the interrupt, restore power to the core, and ensure the
-+  system state including cache hierarchy is ready before allowing core to
-+  resume. Applying power and resetting the core causes the core to warmboot
-+  back into Elevation Level (EL) which trampolines the control back to the
-+  kernel. Entering a power down state for the cpu, needs to be done by trapping
-+  into a EL. Failing to do so, would result in a crash enforced by the warm boot
-+  code in the EL for the SoC. On SoCs with write-back L1 cache, the cache has to
-+  be flushed in s/w, before powering down the core.
-+
-+  Power Collapse: This state is similar to the SPC mode, but distinguishes
-+  itself in that the cpu acknowledges and permits the SoC to enter deeper sleep
-+  modes. In a hierarchical power domain SoC, this means L2 and other caches can
-+  be flushed, system bus, clocks - lowered, and SoC main XO clock gated and
-+  voltages reduced, provided all cpus enter this state.  Since the span of low
-+  power modes possible at this state is vast, the exit latency and the residency
-+  of this low power mode would be considered high even though at a cpu level,
-+  this essentially is cpu power down. The SPM in this state also may handshake
-+  with the Resource power manager (RPM) processor in the SoC to indicate a
-+  complete application processor subsystem shut down.
-+
-+  ===========================================
-+  7 - References
-   ===========================================
- 
-   [1] ARM Linux Kernel documentation - CPUs bindings
-@@ -301,9 +358,15 @@ patternProperties:
- 
-     properties:
-       compatible:
--        enum:
--          - arm,idle-state
--          - riscv,idle-state
-+        oneOf:
-+          - const: arm,idle-state
-+          - items:
-+              - enum:
-+                  - qcom,idle-state-ret
-+                  - qcom,idle-state-spc
-+                  - qcom,idle-state-pc
-+              - const: arm,idle-state
-+          - const: riscv,idle-state
- 
-       arm,psci-suspend-param:
-         $ref: /schemas/types.yaml#/definitions/uint32
-@@ -852,4 +915,13 @@ examples:
-         };
-     };
- 
-+    // Example 4 - Qualcomm SPC
-+    idle-states {
-+      cpu_spc: cpu-spc {
-+        compatible = "qcom,idle-state-spc", "arm,idle-state";
-+        entry-latency-us = <150>;
-+        exit-latency-us = <200>;
-+        min-residency-us = <2000>;
-+      };
-+    };
- ...
--- 
-2.42.0
+On Fri, Dec 01, 2023 at 02:44:58PM +0100, Emil Renner Berthing wrote:
+> Conor Dooley wrote:
+> > From: Conor Dooley <conor.dooley@microchip.com>
+> >
+> > Properties fixed by the SoC should be defined in the $soc.dtsi, and the
+> > timebase-frequency is not sourced directly from an off-chip oscillator.
+>=20
+> Yes, according to the JH7100 docs[1] the mtime register is sourced from t=
+he
+> osc_sys external oscillator through u74rtc_toggle. However I haven't yet =
+found
+> a place in the docs that describe where that clock is divided by 4 to get
+> 6.25MHz from the 25MHz.
+>=20
+> I expect the JH7110 mtime is set up in a similar way, but haven't yet dug=
+ into
+> the available documentation.
 
+Your other reply suggests that this is a fixed division for the jh7110,
+in which case it makes sense to leave it as-is. mpfs is different in
+that it is fixed to 1 MHz regardless of which of the permitted external
+oscillator frequencies you use.
+
+--gsgU8ZMzlqhOxgDu
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZWxgmAAKCRB4tDGHoIJi
+0sJtAP4pMEN4NONQarXTexQ+6rwQOXlXvIdECO8PYelODQxL6gD9EEx+82qjL5N0
+b/REnWOnOFlHnGcBijTAen08Qqc6uAA=
+=tfLH
+-----END PGP SIGNATURE-----
+
+--gsgU8ZMzlqhOxgDu--
+
+
+--===============4672920082547973456==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4672920082547973456==--
+
