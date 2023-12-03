@@ -4,58 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD70C4167B
-	for <linux-riscv@archiver.kernel.org>; Sun,  3 Dec 2023 15:32:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49189C4167B
+	for <linux-riscv@archiver.kernel.org>; Sun,  3 Dec 2023 16:09:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OMKLDrTl/iDplX80uY9oTp0euTWmEPz1QEdoACLtUxA=; b=yI2EY7+wEPbFAR
-	+erM8vwauk1w06sI1DgngRbpMY+2SzpPycE5zvyKyQ8hm+QFzKeVvnuv6dBrWpB/ti8v/O58D4Ixb
-	JtWd+XERCl3QMXxBqLEUDrPET3IxW7vaesPjb9IwnY0h95dwH0CD68tZZlTCAY02AJwO67/ddS32z
-	uAa6N12Eti9EGWjpfzzPrw0kFpCKmPe+tLIQkmPdl5ZgPAJk219bWclhDo1ice1dxugBntJSV1lOA
-	M8trbJyCJXUw3juKtVph703jR7nnSmFsm9YBZ6xoWDBYAqMbsZ3ZRzck2FY4QUTMFzy6vz7F1cKDp
-	YR1Ky0Zlxvksa8y3Nl3A==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=QRGa8O/QI8BcPhDCi6W9Vk+zQ24NCQF4NCq6vYYd2Ik=; b=CCJ1J2FUFBxjq9HrQ5YWI8POc9
+	NLNQksRy7mhC6Cnqd/UIit4Qj5zw8oLA5pBRTXPlQNWiaH46X7mjI06XgPEOX9D21WfDeN6hlTB18
+	KNjmWQBB7TqJRf8/kWuvGOL0FRGfMzhrd01YD3hpAwRfzYCBWa/O0q8g7wg+e43CodXKODv9tOanW
+	LSvDNUrFzp+Q6ImHDrT/kZIbalW0bLE1skEiMkPwR0CUTWDpBpzIEdL0npqlwP5n3FdwiUugpyIgc
+	00tUnGdZMFsteByXWiXI6E1ynbmdW5KABm6EWF/BSQyUxP3JggKbBjThWu8gYmEGjneZLSHcUHNeM
+	fBkyqx0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9oS7-000nL5-1X;
-	Sun, 03 Dec 2023 15:32:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1r9p1s-0016yt-0B;
+	Sun, 03 Dec 2023 16:09:12 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9oS2-000nE6-2b
+	id 1r9p1n-0016tn-2m
 	for linux-riscv@lists.infradead.org;
-	Sun, 03 Dec 2023 15:32:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6854560B36
-	for <linux-riscv@lists.infradead.org>; Sun,  3 Dec 2023 15:32:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EDCAC433C8;
-	Sun,  3 Dec 2023 15:31:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701617522;
-	bh=ikY3kGS6/5LCob7U3NuJB2jFoVIR3+BCSeMMAubf6W0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hZXL+RsL0zIEBX3h2u11eHg4C8kXPlv6+XZXPzRlqA1NmrPs8agvs7FDEKZDNVWP7
-	 puGxRdufpNbvyGFsOrhWxSe0lgnLrn3/k29aPQlR5OBqGL7UATx18ZZNS7VZgRKsZ6
-	 Os7UPdGI6dteuNMbndNLhuV8br9kX9U2ZsWVQNVEhJNRS0Xgs6VVO/yFob8puYHlhQ
-	 q9mYFuhko9g10rC3fBy8k0GarIeC8Mb5dKFk3gJOapEKSwrUFaP07V3h91eQI+XtuP
-	 0n2jICJ3hu+ePh3MM0wuuLlRpAHQdjI+/W8pji21R8bPIOGvF/ZlsHfVtZS/8NZ5di
-	 6OkjRHiKt6szQ==
-Date: Sun, 3 Dec 2023 10:31:51 -0500
-From: Guo Ren <guoren@kernel.org>
-To: guoren@kernel.org
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [RFC PATCH V2 00/38] rv64ilp32: Running ILP32 on RV64 ISA
-Message-ID: <ZWyfZy0V5shq+nsb@gmail.com>
-References: <20231112061514.2306187-1-guoren@kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231112061514.2306187-1-guoren@kernel.org>
+	Sun, 03 Dec 2023 16:09:10 +0000
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id AC90340331
+	for <linux-riscv@lists.infradead.org>; Sun,  3 Dec 2023 16:09:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1701619742;
+	bh=Jr2viQE+KNXdoLwjt3YG8fOnB+WKPmtD8qV0RS5wcNE=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=SIihe6oh8Pdg/qzj6ZLeulNjUKAEY45iD1C8Y/jpN0FxCuX2ETt716dOAsORS97Ps
+	 a1uf5lM6VcCn9E3oVhMu3fhyhiJoboAgpsYExq/KQ1nen2N2S2YBLFhB83zxkIU1CK
+	 NOuOLsUnPeBl38U95GCTX6PFtCoemsqw5vqvrTuu/jA/KhEPlJzN1gajiNmlTjv0U8
+	 u3Trk+aLtJqeB06EsxkASd43Gvn4I9M7EJA/5cGmVqR3nzEvAcOsU1sNOOeeoWcG3A
+	 EBWgsHEffQaZKUgWyZiEAxUMPB2dTWVyHbhEyzpInhAZ9FupqVZ0GvAeriyVzjlF1T
+	 Udb7SW279X9bQ==
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-423e0957b35so53063981cf.2
+        for <linux-riscv@lists.infradead.org>; Sun, 03 Dec 2023 08:09:02 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701619741; x=1702224541;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Jr2viQE+KNXdoLwjt3YG8fOnB+WKPmtD8qV0RS5wcNE=;
+        b=AUgmlWh6SKZpZ9Ul5uunlJ23ttqfHVbdrqIp02sjZAdChA/0ANdrr0M+yPgtUsom5S
+         hej8xmOIXYxBq54Sp0hA9KO5ULz41dmnyr7qoyLyH7LDSYRK4IiiYp2REj57dNjX+KSh
+         BWtvkGKfhB0yPZZwyKtYDToEjqQXz4n7zz/fvj0vxaiQ8b7C4vuzSN1bJ3Chevkd2Wkx
+         vbRuHrL3NAdFe84QdRV08L7BhdaihwRZOo1VSXsu9foF1+QkirrLCdD+neRP18HQIAee
+         g8saiolOD1XWu8+2wEEgaIg3tr/rn0UwialBIx3BMqnLjhsHriIvK8PuK48QwynsJTU2
+         BVZg==
+X-Gm-Message-State: AOJu0YykIghqr93IPWwmBGojShAFd4M1o4Deo8TQzLjCvnw7Tjdatym2
+	rh08ZcIcDjvXqFPsYoV5ZYFkNWQQ8iiLLlcSAXuuIzrP9bGvlsrFXIEj9rnJrZs7mwfaM6TX6lY
+	AxRbtum/aZn1jxVsxfYjw3gvF+780yM13xnn3u9gowepShi1Ou7HOhDXDX/2CFg==
+X-Received: by 2002:a05:622a:1010:b0:425:4043:1db6 with SMTP id d16-20020a05622a101000b0042540431db6mr4559530qte.137.1701619741640;
+        Sun, 03 Dec 2023 08:09:01 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IElcjoXi0CImvP0OyCrnumGiuHmDr6BY0KTDzIC+pp9TQpbbFvQn54i+0pGeMyf5ZofZVoSlxlxQt+VbXqNHm4=
+X-Received: by 2002:a05:622a:1010:b0:425:4043:1db6 with SMTP id
+ d16-20020a05622a101000b0042540431db6mr4559513qte.137.1701619741411; Sun, 03
+ Dec 2023 08:09:01 -0800 (PST)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Sun, 3 Dec 2023 08:09:01 -0800
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20231203-mountable-snowsuit-24e4252c9eb5@spud>
+References: <20231130-bobbing-valid-b97f26fe8edc@spud> <CAJM55Z9=smqcZ=su1oNdk1YZL_XdYAKrwtrZS7ScS=cAVmxZOA@mail.gmail.com>
+ <20231203-mountable-snowsuit-24e4252c9eb5@spud>
+Mime-Version: 1.0
+Date: Sun, 3 Dec 2023 08:09:00 -0800
+Message-ID: <CAJM55Z-cb=0X2xToKnEwmqMkBSZkQ-kjAZyoGo1AY=edTLvxew@mail.gmail.com>
+Subject: Re: [PATCH v1] riscv: dts: starfive: move timebase-frequency to .dtsi
+To: Conor Dooley <conor@kernel.org>, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>, 
+	Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Walker Chen <walker.chen@starfivetech.com>, JeeHeng Sia <jeeheng.sia@starfivetech.com>, 
+	Leyfoon Tan <leyfoon.tan@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231203_073210_957228_9153CF28 
-X-CRM114-Status: GOOD (  42.03  )
+X-CRM114-CacheID: sfid-20231203_080908_213663_9F02E2F4 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,557 +105,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 12, 2023 at 01:14:36AM -0500, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
-> 
-> This patch series adds s64ilp32 & u64ilp32 support to riscv. The term
-> s64ilp32 means smode-xlen=64 and -mabi=ilp32 (ints, longs, and pointers
-> are all 32-bit) and u64ilp32 means umode-xlen=64 and -mabi=ilp32, i.e.,
-> running 32-bit Linux kernel on 64-bit supervisor mode or running 32-bit
-> Linux applications on 32-bit user mode. There have been many 64ilp32
-> abis existing, such as mips-n32 [1], arm-aarch64ilp32 [2], and x86-x32
-> [3], but they are all about userspace. Thus, this should be the first
-> time running a 32-bit Linux kernel with the 64ilp32 ABI at supervisor
-> mode (If not, correct me).
-> 
->  +--------------------------------+------------+
->  | +-------------------+--------+ | +--------+ |
->  | |           (compat)|(compat)| | |        | |
->  | |u64lp64    u64ilp32|u32ilp32| | |u32ilp32| | ABI
->  | |           ^^^^^^^^|        | | |        | |
->  | +-------------------+--------+ | +--------+ |
->  | +-------------------+--------+ | +--------+ |
->  | |       UXL=64      | UXL=32 | | | UXL=32 | | ISA
->  | +-------------------+--------+ | +--------+ |
->  +--------------------------------+------------+-------
->  | +----------------------------+ | +--------+ |
->  | |            64BIT           | | |   32BIT| | Kernel
->  | |     s64lp64 & s64ilp32     | | |s32ilp32| | ABI
->  | |               ^^^^^^^^     | | |        | |
->  | +----------------------------+ | +--------+ |
->  | +----------------------------+ | +--------+ |
->  | |            SXL=64          | | | SXL=32 | | ISA
->  | +----------------------------+ | +--------+ |
->  +--------------------------------+------------+
-> 
-> Motivation:
-> ===========
-> The current RISC-V has the 64-bit ISA profiles of RVA20, RVA22, and RVA23
-> (ongoing) [4], but no 32-bit RVA profile exists or any ongoing plan. That
-> means when a vendor wants to produce a 32-bit ISA RISC-V Application
-> Processor, they have no shape to follow. Therefore, many cheap riscv
-> chips have come out but follow the 64-bit RVA profiles, such as Allwinner
-> D1/D1s/F133 [5], SOPHGO CV1800B [6], Canaan Kendryte k230 [7], and
-> Bouffalo Lab BL808[3] which are typically cortex-a7 (arm 32-bit) product
-> scenarios. So running ILP32 on rv64 ISA is the only choice for these
-> chips.
-> 
-> The ilp32 and lp64 have different scenarios, but if the address space
-> and data range are under 2GB. The ilp32, compared to the lp64, has three
-> advantages:
->  - Better memory footprint cost.
->  - Better benchmark performance (SPEC CPU 2006/2017).
->  - Compatible with ilp32 code.
-> 
-> Memory Footprint
-> ================
-> rv64lp64 has 25% more memory footprint than rv64ilp32!
-> 
-> Calculation Process:
->  rv64lp64  = (4096 - 3407) = 689
->  rv64ilp32 = (4096 - 3231) = 865
->  (865 - 689)/689 = 25.54426%
-> 
-> Here are the ILP32 v.s. LP64 Linux kernel data type comparison:
-> 			32-bit		64-bit
-> sizeof(page):		32bytes		64bytes
-> sizeof(list_head):	8bytes		16bytes
-> sizeof(hlist_head):	8bytes		16bytes
-> sizeof(vm_area):	68bytes		136bytes
-> ...
-> 
-> The size of ilp32's long & pointer is just half of lp64's (rv64 default
-> abi - longs and pointers are all 64-bit). This significant difference
-> in data type causes different memory & cache footprint costs. Here is
-> the comparison log between rv64ilp32 and rv64lp64 in the same 20MB(16MB
-> for Linux) qemu system environment:
-> 
-> rv64ilp32:
->  Memory: 14008K/16384K available (1253K kernel code, 474K rwdata, 114K
->  rodata, 134K init, 192K bss, 2376K reserved, 0K cma-reserved)
->  Mem-Info:
->  active_anon:0 inactive_anon:0 isolated_anon:0
->   active_file:0 inactive_file:0 isolated_file:0
->   unevictable:0 dirty:0 writeback:0
->   slab_reclaimable:0 slab_unreclaimable:47
->   mapped:0 shmem:0 pagetables:0
->   sec_pagetables:0 bounce:0
->   kernel_misc_reclaimable:0
->   free:3407 free_pcp:45 free_cma:0
->   ^^^^^^^^^
->  Node 0 active_anon:0kB inactive_anon:0kB active_file:0kB
->  inactive_file:0kB unevictable:0kB isolated(anon):0kB isolated(file):0kB
->  mapped:0kB dirty:0kB writeback:0kB shmem:0kB writeback_tmp:0kB
->  kernel_stack:104kB pagetables:0kB sec_pagetabl
->  es:0kB all_unreclaimable? no
->  Normal free:13628kB boost:0kB min:472kB low:588kB high:704kB
->  reserved_highatomic:0KB active_anon:0kB inactive_anon:0kB
->  active_file:0kB inactive_file:0kB unevictable:0kB writepending:0kB
->  present:16384kB managed:14140kB mlocked:0kB bounce:0
->  kB free_pcp:180kB local_pcp:180kB free_cma:0kB
->  lowmem_reserve[]: 0 0
->  Normal: 3*4kB (UM) 2*8kB (M) 2*16kB (M) 2*32kB (M) 3*64kB (M) 2*128kB
->  (UM) 3*256kB (M) 4*512kB (UM) 2*1024kB (UM) 2*2048kB (UM) 1*4096kB (M) =
->  13628kB
->  0 total pagecache pages
->  4096 pages RAM
->  0 pages HighMem/MovableOnly
->  561 pages reserved
-> 
-> rv64lp64:
->  Memory: 13776K/16384K available (1234K kernel code, 539K rwdata, 129K
->  rodata, 161K init, 207K bss, 2608K reserved, 0K cma-reserved)
->  Mem-Info:
->  active_anon:0 inactive_anon:0 isolated_anon:0
->   active_file:0 inactive_file:0 isolated_file:0
->   unevictable:0 dirty:0 writeback:0
->   slab_reclaimable:0 slab_unreclaimable:69
->   mapped:0 shmem:0 pagetables:1
->   sec_pagetables:0 bounce:0
->   kernel_misc_reclaimable:0
->   free:3231 free_pcp:55 free_cma:0
->   ^^^^^^^^^
->  Node 0 active_anon:0kB inactive_anon:0kB active_file:0kB
->  inactive_file:0kB unevictable:0kB isolated(anon):0kB isolated(file):0kB
->  mapped:0kB dirty:0kB writeback:0kB shmem:0kB writeback_tmp:0kB
->  kernel_stack:208kB pagetables:4kB sec_pagetabl
->  es:0kB all_unreclaimable? no
->  Normal free:12924kB boost:0kB min:468kB low:584kB high:700kB
->  reserved_highatomic:0KB active_anon:0kB inactive_anon:0kB
->  active_file:0kB inactive_file:0kB unevictable:0kB writepending:0kB
->  present:16384kB managed:13936kB mlocked:0kB bounce:0
->  kB free_pcp:220kB local_pcp:220kB free_cma:0kB
->  lowmem_reserve[]: 0 0
->  Normal: 3*4kB (UM) 4*8kB (UM) 3*16kB (M) 3*32kB (UM) 1*64kB (M) 3*128kB
->  (UM) 2*256kB (M) 3*512kB (M) 2*1024kB (UM) 2*2048kB (UM) 1*4096kB (M) =
->  12924kB
->  0 total pagecache pages
->  4096 pages RAM
->  0 pages HighMem/MovableOnly
->  612 pages reserved
-> 
-> Why rv64 isa?
-> ==============
-> Generally speaking, we should build a 32-bit hardware s-mode to run
-> 32-bit Linux on a 64/32-bit processor (such as cortex-a35/a53).
-> But, it can't reuse performance-related features and instructions of
-> the 64-bit hardware, such as 64-bit ALU, AMO, and LD/SD, which would
-> cause significant performance gaps on many Linux kernel features:
-> 
->  - memcpy/memset/strcmp (s64ilp32 has half of the instructions count
->    and double the bandwidth of load/store instructions than s32ilp32.)
-> 
->  - ebpf JIT is a 64-bit Language virtual machine ISA, which is not
->    suitable for mapping to s32ilp32.
-> 
->  - Atomic64 (s64ilp32 has the exact native instructions mapping as
->    s64lp64, but s32ilp32 only uses generic_atomic64, a tradeoff &
->    limited software solution.)
-> 
->  - Support cmxchg_double for slub (The 2nd 32-bit Linux
->    supports the feature, the 1st is i386.)
-> 
->  - ...
-> 
-> Compared with the user space ecosystem, the 32-bit Linux kernel is more
-> eager to need 64ilp32 to improve performance because the Linux kernel
-> can't utilize float-point/vector features of the ISA.
-> 
-> Simplifies CPU Design
-> =====================
-> Yes, there are a lot of runing 32-bit Linux on 64-bit hardware examples
-> in history, such as arm cortex a35/a53/a55, which implements the 32-bit
-> EL1/EL2/EL3 hardware mode to support 32-bit Linux. We could follow Arm's
-> style, but riscv could choose another better way. Compared to UXL=32,
-> the MXL=SXL=32 has many CSR-related hardware functionalities, which
-> causes a lot of effort to mix them into 64-bit hardware. The s64ilp32
-> works on MXL=SXL=64 mode, so the CPU vendors needn't implement 32-bit
-> machine and supervisor modes.
-> 
-> How does rv64ilp32 work?
-> ========================
-> The s64ilp32 is the same as the s64lp64 compat mode from a hardware
-> view, i.e., MXL=SXL=64 + UXL=32. Because the s64ilp32 uses CONFIG_32BIT
-> of Linux, it only supports u32ilp32 abi user space, the current standard
-> rv32 software ecosystem, and it can't work with u64lp64 abi (I don't
-> want that complex and useless stuff). But it may work with u64ilp32 in the
-> future; now, the s64ilp32 depends on the UXL=32 feature of the hardware.
-> 
-> The 64ilp32 gcc still uses sign-extend lw & auipc to generate address
-> variables because inserting zero-extend instructions to mask the highest
-> 32-bit would cause significant code size and performance problems. Thus,
-> we invented an OS approach to solve the problem:
->  - When satp=bare and start physical address < 2GB, there is no sign-extend
->    address problem.
->  - When satp=bare and start physical address > 2GB, we need zjpm liked
->    hardware extensions to mask high 32bit.
->    (Fortunately, all existed SoCs' (D1/D1s/F133, CV1800B, k230, BL808)
->     start physical address < 2GB.)
->  - When satp=sv39, we invent double mapping to make the sign-extended
->    virtual address the same as the zero-extended virtual address.
-Update diagram:
- 
-    +--------+      +---------+      +--------+      +--------+
-    |        |   +--| PMDP511 |      |        |      |        |
-    |        |   |  +---------+      |        |      |        |
-    |        |   |  | PMDP510 |--+   |        |      |        |
-    |        |   |  +---------+  |   |        |      |        |
-    |        |   |  |         |  |   |        |      |        |
-    |        |   |  |         |  |   |        |      |        |
-    |        |   |  |         |  |   |        |      |        |
-    |        |   |  | INVALID |  |   |        |      |        |
-    |        |   |  |         |  |   |        |      |        |
-    |  ....  |   |  |         |  |   |  ....  |      |  ....  |
-    |        |   |  |         |  |   |        |      |        |
-    |        |   |  +---------+  |   |        |      |        |
-    |        |   +--|  PMDP3  |  |   |        |      |        |
-    |        |   |  +---------+  |   |        |      |        |
-    |        |   |  |  PMDP2  |--+   |        |      |        |
-    |        |   |  +---------+  |   |        |      |        |
-    |        |   |  |  PMDP1  |  |   |        |      |        |
-    |        |   |  +---------+  |   +--------+      +--------+
-    |        |   |  |  PMDP0  |  |   |  PTP0  |--+   |  PTE0  |-->4KB
-    +--------+<--+  +---------+  +-->+--------+  +-->+--------+
-       PMD3         ^   PGD             PMD2            PT0 
-       1GB          |   4GB             1GB             2MB
-                    +---------+      
-                    |   PGDP  |
-                    +---------+      
-                      SATP (Sv39)
- 
-> The size of xlen was always equal to the pointer/long size before
-> s64ilp32 emerged. So we need to introduce a new type of data - xlen_t,
-> which could deal with CSR-related and callee-save/restore operations.
-> 
-> Some kernel features use 32BIT/64BIT to determine the exact ISA, such as
-> ebpf JIT would map to rv32 ISA when CONFIG_32BIT=y. But s64ilp32 needs
-> the ebpf JIT map to rv64 ISA when CONFIG_32BIT=y and we need to use
-> another config to distinguish the difference.
-> 
-> More detials, please review the path series.
-> 
-> How to run s64ilp32?
-> ====================
-> 
-> GNU toolchain
-> -------------
-> git clone https://github.com/Liaoshihua/riscv-gnu-toolchain.git
-> cd riscv-gnu-toolchain
-> ./configure --prefix="$PWD/opt-rv64-ilp32/" --with-arch=rv64imac --with-abi=ilp32
-> make linux
-> export PATH=$PATH:$PWD/opt-rv64-ilp32/bin/
-> 
-> Opensbi
-> -------
-> git clone https://github.com/riscv-software-src/opensbi.git
-> CROSS_COMPILE=riscv64-unknown-linux-gnu- make PLATFORM=generic
-> 
-> Linux kernel
-> ------------
-> v6.5-rc1 + patches
-> cd linux
-> make ARCH=riscv CROSS_COMPILE=riscv64-unknown-linux-gnu- rv64ilp32_defconfig
-> make ARCH=riscv CROSS_COMPILE=riscv64-unknown-linux-gnu- all
-> 
-> Qemu
-> ----
-> git clone https://github.com/plctlab/plct-qemu.git -b plct-s64ilp32-dev
-> cd plct-qemu
-> mkdir build
-> cd build
-> ../qemu/configure --target-list="riscv64-softmmu riscv32-softmmu"
-> make
-> 
-> Patch organization
-> ==================
-> PATCH [ 1-11] u64ilp32: User space support
-> PATCH [12-36] adds time-related vDSO common flow for vdso32
-> PATCH [37] Add tiny defconfig for ilp32 v.s. lp64
-> PATCH [38] Unify ilp32 & lp64 configs and memory 
-> 
-> Open issues
-> ===========
-> 
-> Callee saved the register width
-> -------------------------------
-> For 64-bit ISA (including 64lp64, 64ilp32), callee can't determine the
-> correct width used in the register, so they saved the maximum width of
-> the ISA register, i.e., xlen size. We also found this rule in x86-x32,
-> mips-n32, and aarch64ilp32, which comes from 64lp64. See PATCH [20]
-> 
-> Here are two downsides of this:
->  - It would cause a difference with 32ilp32's stack frame, and s64ilp32
->    reuses 32ilp32 software stack. Thus, many additional compatible
->    problems would happen during the porting of 64ilp32 software.
->  - It also increases the budget of the stack usage.
->    <setup_vm>:
->      auipc   a3,0xff3fb
->      add     a3,a3,1234 # c0000000
->      li      a5,-1
->      lui     a4,0xc0000
->      addw    sp,sp,-96
->      srl     a5,a5,0x20
->      subw    a4,a4,a3
->      auipc   a2,0x111a
->      add     a2,a2,1212 # c1d1f000
->      sd      s0,80(sp)----+
->      sd      s1,72(sp)    |
->      sd      s2,64(sp)    |
->      sd      s7,24(sp)    |
->      sd      s8,16(sp)    |
->      sd      s9,8(sp)     |-> All <= 32b widths, but occupy 64b
->      sd      ra,88(sp)    |   stack space.
->      sd      s3,56(sp)    |   Affect memory footprint & cache
->      sd      s4,48(sp)    |   performance.
->      sd      s5,40(sp)    |
->      sd      s6,32(sp)    |
->      sd      s10,0(sp)----+
->      sll     a1,a4,0x20
->      subw    a2,a2,a3
->      and     a4,a4,a5
-> 
-> So here is a proposal to riscv 64ilp32 ABI:
->  - Let the compiler prevent callee saving ">32b variables" in
->    callee-registers. (Q: We need to measure, how the influence of
->    64b variables cross function call?)
-> 
-> EF_RISCV_X32
-> ------------
-> We add an e_flag (EF_RISCV_X32) to distinguish the 32-bit ELF, which
-> occupies BIT[6] of the e_flags layout.
-> 
-> ELF Header:
->   Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00
->   Class:                             ELF32
->   Data:                              2's complement, little endian
->   Version:                           1 (current)
->   OS/ABI:                            UNIX - System V
->   ABI Version:                       0
->   Type:                              REL (Relocatable file)
->   Machine:                           RISC-V
->   Version:                           0x1
->   Entry point address:               0x0
->   Start of program headers:          0 (bytes into file)
->   Start of section headers:          24620 (bytes into file)
->   Flags:                             0x21, RVC, X32, soft-float ABI
->                                                 ^^^
-> 64-bit Optimization problem
-> ---------------------------
-> There is an existing problem in 64ilp32 gcc that combines two pointers
-> in one register. Liao is solving that problem. Before he finishes the
-> job, we could prevent it with a simple noinline attribute, fortunately.
->     struct path {
->             struct vfsmount *mnt;
->             struct dentry *dentry;
->     } __randomize_layout;
-> 
->     struct nameidata {
->             struct path     path;
->             ...
->             struct path     root;
->     ...
->     } __randomize_layout;
-> 
->             struct nameidata *nd
->             ...
->             nd->path = nd->root;
->     6c88                    ld      a0,24(s1)
->                                     ^^ // a0 contains two pointers
->     e088                    sd      a0,0(s1)
->             mntget(path->mnt);
->             // Need "lw a0,0(s1)" or "a0 << 32; a0 >> 32"
->     2a6150ef                jal     c01ce946 <mntget> // bug!
-> 
-> Acknowledge
-> ===========
->  - GNU:			LiaoShihua <shihua@iscas.ac.cn>
-> 			Jiawe Chen<jiawei@iscas.ac.cn>
->  - Qemu:		Weiwei Li <liweiwei@iscas.ac.cn>
->  - Benchmark:		Junqiang Wang <wangjunqiang@iscas.ac.cn> 
-> 			XiaoOu Chen <chenxiaoou@iscas.ac.cn>
->  - Fedora:		Wei Fu <wefu@redhat.com>
-> 			Songsong Zhang <U2FsdGVkX1@gmail.com>
-> 
-> References
-> ==========
-> [1] https://techpubs.jurassic.nl/manuals/0630/developer/Mpro_...
-> [2] https://wiki.debian.org/Arm64ilp32Port
-> [3] https://lwn.net/Articles/456731/
-> [4] https://github.com/riscv/riscv-profiles/releases
-> [5] https://www.cnx-software.com/2021/10/25/allwinner-d1s-f13...
-> [6] https://milkv.io/duo/
-> [7] https://twitter.com/tphuang/status/1631308330256801793
-> [8] https://www.cnx-software.com/2022/12/02/pine64-ox64-sbc-b...
-> 
-> Changelog:
-> V2:
->  - Add u64ilp32 support
->  - Rebase v6.5-rc1
->  - Enable 64ilp32 vgettimeofday for benchmarking
-> 
-> V1:
-> https://lore.kernel.org/linux-riscv/20230518131013.3366406-1-guoren@kernel.org/
-> 
-> Guo Ren (38):
->   riscv: u64ilp32: Unify vdso32 & compat_vdso into vdso/Makefile
->   riscv: u64ilp32: Remove compat_vdso/
->   riscv: u64ilp32: Add time-related vDSO common flow for vdso32
->   riscv: u64ilp32: Introduce ILP32 vdso for UXL=64
->   riscv: u64ilp32: Adjust vDSO kernel flow for 64ilp32 abi
->   riscv: u64ilp32: Add signal support for compat
->   riscv: u64ilp32: Add ptrace interface support
->   riscv: u64ilp32: Adjust vDSO alternative for 64ilp32 abi
->   riscv: u64ilp32: Add xlen_t in user_regs_struct
->   riscv: u64ilp32: Remove the restriction of UXL=32
->   riscv: u64ilp32: Enable user space runtime switch
->   riscv: s64ilp32: Unify ULL & UL into UXL in csr
->   riscv: s64ilp32: Introduce xlen_t for 64ILP32 kernel
->   riscv: s64ilp32: Add sbi support
->   riscv: s64ilp32: Add asid support
->   riscv: s64ilp32: Introduce PTR_L and PTR_S
->   riscv: s64ilp32: Adjust TASK_SIZE for s64ilp32 kernel
->   riscv: s64ilp32: Add ebpf jit support
->   riscv: s64ilp32: Add ELF32 support
->   riscv: s64ilp32: Add ARCH_RV64ILP32 Kconfig option
->   riscv: s64ilp32: Add MMU_SV32 mode support
->   riscv: s64ilp32: Add MMU_SV39 mode support
->   riscv: s64ilp32: Enable native atomic64
->   riscv: s64ilp32: Add TImode (128 int) support
->   riscv: s64ilp32: Implement cmpxchg_double
->   riscv: s64ilp32: Disable KVM
->   riscv: s64ilp32: Correct the rv64ilp32 stackframe layout
->   riscv: s64ilp32: Temporary workaround solution to gcc problem
->   riscv: s64ilp32: Introduce ARCH_HAS_64ILP32_KERNEL for syscall
->   riscv: s64ilp32: Add u32ilp32 ptrace support
->   riscv: s64ilp32: Add u32ilp32 signal support
->   riscv: s64ilp32: Validate harts by architecture name
->   riscv: s64ilp32: Add rv64ilp32_defconfig
->   riscv: Cleanup rv32_defconfig
->   clocksource: riscv: s64ilp32: Use __riscv_xlen instead of CONFIG_32BIT
->   irqchip: riscv: s64ilp32: Use __riscv_xlen instead of CONFIG_32BIT
->   add tinylab defconfig
->   64ilp32 v.s. 64lp64
-> 
->  arch/Kconfig                                  |  10 +
->  arch/riscv/Kconfig                            |  49 +++-
->  arch/riscv/Kconfig.errata                     |   2 +-
->  arch/riscv/Makefile                           |  28 ++-
->  arch/riscv/configs/32-bit.config              |   2 -
->  arch/riscv/configs/64ilp32.config             |   2 +
->  arch/riscv/configs/tinylab32ilp32_defconfig   |  88 +++++++
->  arch/riscv/configs/tinylab64ilp32_defconfig   |  89 +++++++
->  arch/riscv/configs/tinylab_defconfig          |  89 +++++++
->  arch/riscv/include/asm/asm.h                  |   5 +
->  arch/riscv/include/asm/atomic.h               |   6 +
->  arch/riscv/include/asm/cmpxchg.h              |  53 ++++
->  arch/riscv/include/asm/cpu_ops_sbi.h          |   4 +-
->  arch/riscv/include/asm/csr.h                  | 189 +++++++-------
->  arch/riscv/include/asm/elf.h                  |   7 +-
->  arch/riscv/include/asm/extable.h              |   2 +-
->  arch/riscv/include/asm/module.h               |  30 +++
->  arch/riscv/include/asm/page.h                 |  26 +-
->  arch/riscv/include/asm/pgtable-64.h           |  50 ++--
->  arch/riscv/include/asm/pgtable.h              |  26 +-
->  arch/riscv/include/asm/processor.h            |   8 +-
->  arch/riscv/include/asm/ptrace.h               |  96 ++++----
->  arch/riscv/include/asm/sbi.h                  |  24 +-
->  arch/riscv/include/asm/signal32.h             |  11 +-
->  arch/riscv/include/asm/stacktrace.h           |   6 +
->  arch/riscv/include/asm/syscall.h              |   2 +-
->  arch/riscv/include/asm/thread_info.h          |   1 +
->  arch/riscv/include/asm/timex.h                |  10 +-
->  arch/riscv/include/asm/tlbflush.h             |   2 +-
->  arch/riscv/include/asm/vdso.h                 |  34 ++-
->  arch/riscv/include/asm/vdso/gettimeofday.h    |  95 +++++++
->  arch/riscv/include/uapi/asm/elf.h             |   2 +-
->  arch/riscv/include/uapi/asm/ptrace.h          |  72 +++---
->  arch/riscv/include/uapi/asm/unistd.h          |   1 +
->  arch/riscv/kernel/Makefile                    |   5 +-
->  arch/riscv/kernel/alternative.c               |  50 +++-
->  arch/riscv/kernel/compat_signal.c             |  23 +-
->  arch/riscv/kernel/compat_vdso/.gitignore      |   2 -
->  arch/riscv/kernel/compat_vdso/compat_vdso.S   |   8 -
->  .../kernel/compat_vdso/compat_vdso.lds.S      |   3 -
->  arch/riscv/kernel/compat_vdso/flush_icache.S  |   3 -
->  arch/riscv/kernel/compat_vdso/getcpu.S        |   3 -
->  arch/riscv/kernel/compat_vdso/note.S          |   3 -
->  arch/riscv/kernel/compat_vdso/rt_sigreturn.S  |   3 -
->  arch/riscv/kernel/cpu.c                       |   9 +-
->  arch/riscv/kernel/cpu_ops_sbi.c               |   4 +-
->  arch/riscv/kernel/entry.S                     |  24 +-
->  arch/riscv/kernel/head.S                      |   8 +-
->  arch/riscv/kernel/process.c                   |  10 +-
->  arch/riscv/kernel/ptrace.c                    |   9 +-
->  arch/riscv/kernel/sbi.c                       |  24 +-
->  arch/riscv/kernel/signal.c                    |  79 ++++--
->  arch/riscv/kernel/traps.c                     |   4 +-
->  arch/riscv/kernel/vdso.c                      | 102 ++++++--
->  arch/riscv/kernel/vdso/Makefile               | 232 ++++++++++++++----
->  ..._vdso_offsets.sh => gen_vdso32_offsets.sh} |   2 +-
->  .../gen_vdso64_offsets.sh}                    |   2 +-
->  .../kernel/vdso/gen_vdso64ilp32_offsets.sh    |   5 +
->  arch/riscv/kernel/vdso/vdso.lds.S             |   2 -
->  arch/riscv/kernel/vdso/vgettimeofday.c        |  39 ++-
->  arch/riscv/kernel/vdso32.S                    |   8 +
->  arch/riscv/kernel/{vdso/vdso.S => vdso64.S}   |   8 +-
->  arch/riscv/kernel/vdso64ilp32.S               |   8 +
->  arch/riscv/kernel/vector.c                    |   2 +-
->  arch/riscv/kvm/Kconfig                        |   1 +
->  arch/riscv/lib/Makefile                       |   1 +
->  arch/riscv/lib/memset.S                       |   4 +-
->  arch/riscv/mm/context.c                       |  16 +-
->  arch/riscv/mm/fault.c                         |  13 +-
->  arch/riscv/mm/init.c                          |  24 +-
->  arch/riscv/net/Makefile                       |   6 +-
->  arch/riscv/net/bpf_jit_comp64.c               |   6 +-
->  drivers/clocksource/timer-riscv.c             |   2 +-
->  drivers/irqchip/irq-riscv-intc.c              |   9 +-
->  fs/namei.c                                    |   2 +-
->  fs/open.c                                     |  22 ++
->  fs/read_write.c                               |  17 ++
->  fs/sync.c                                     |  22 ++
->  include/linux/syscalls.h                      |  35 ++-
->  init/main.c                                   |   2 +
->  kernel/signal.c                               |  24 +-
->  mm/fadvise.c                                  |  24 ++
->  82 files changed, 1526 insertions(+), 509 deletions(-)
->  create mode 100644 arch/riscv/configs/64ilp32.config
->  create mode 100644 arch/riscv/configs/tinylab32ilp32_defconfig
->  create mode 100644 arch/riscv/configs/tinylab64ilp32_defconfig
->  create mode 100644 arch/riscv/configs/tinylab_defconfig
->  delete mode 100644 arch/riscv/kernel/compat_vdso/.gitignore
->  delete mode 100644 arch/riscv/kernel/compat_vdso/compat_vdso.S
->  delete mode 100644 arch/riscv/kernel/compat_vdso/compat_vdso.lds.S
->  delete mode 100644 arch/riscv/kernel/compat_vdso/flush_icache.S
->  delete mode 100644 arch/riscv/kernel/compat_vdso/getcpu.S
->  delete mode 100644 arch/riscv/kernel/compat_vdso/note.S
->  delete mode 100644 arch/riscv/kernel/compat_vdso/rt_sigreturn.S
->  rename arch/riscv/kernel/vdso/{gen_vdso_offsets.sh => gen_vdso32_offsets.sh} (78%)
->  rename arch/riscv/kernel/{compat_vdso/gen_compat_vdso_offsets.sh => vdso/gen_vdso64_offsets.sh} (77%)
->  create mode 100755 arch/riscv/kernel/vdso/gen_vdso64ilp32_offsets.sh
->  create mode 100644 arch/riscv/kernel/vdso32.S
->  rename arch/riscv/kernel/{vdso/vdso.S => vdso64.S} (73%)
->  create mode 100644 arch/riscv/kernel/vdso64ilp32.S
-> 
-> -- 
-> 2.36.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
+Conor Dooley wrote:
+> On Fri, Dec 01, 2023 at 02:44:58PM +0100, Emil Renner Berthing wrote:
+> > Conor Dooley wrote:
+> > > From: Conor Dooley <conor.dooley@microchip.com>
+> > >
+> > > Properties fixed by the SoC should be defined in the $soc.dtsi, and the
+> > > timebase-frequency is not sourced directly from an off-chip oscillator.
+> >
+> > Yes, according to the JH7100 docs[1] the mtime register is sourced from the
+> > osc_sys external oscillator through u74rtc_toggle. However I haven't yet found
+> > a place in the docs that describe where that clock is divided by 4 to get
+> > 6.25MHz from the 25MHz.
+> >
+> > I expect the JH7110 mtime is set up in a similar way, but haven't yet dug into
+> > the available documentation.
+>
+> Your other reply suggests that this is a fixed division for the jh7110,
+> in which case it makes sense to leave it as-is. mpfs is different in
+> that it is fixed to 1 MHz regardless of which of the permitted external
+> oscillator frequencies you use.
+
+This is what I've found for the JH7100:
+
+osc_sys (25MHz) -> u74rtc_toggle (gate) -> ? (div 4) -> mtime
+
+The divide by 4 is not in the regular clock tree, so if it is configurable it
+must be some bits hidden in the syscon area or something. The only restriction
+I've found in the docs is that it must be strictly less than half the rate of
+the core clock.
+
+For the JH7110 it goes:
+
+osc (24MHz) -> rtc_toggle (div N) -> mtime
+
+..where N defaults to 6 and this is also the maximum N.
+
+/Emil
 
 _______________________________________________
 linux-riscv mailing list
