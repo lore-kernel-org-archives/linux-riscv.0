@@ -4,91 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49189C4167B
-	for <linux-riscv@archiver.kernel.org>; Sun,  3 Dec 2023 16:09:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D6BC4167B
+	for <linux-riscv@archiver.kernel.org>; Sun,  3 Dec 2023 16:37:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=QRGa8O/QI8BcPhDCi6W9Vk+zQ24NCQF4NCq6vYYd2Ik=; b=CCJ1J2FUFBxjq9HrQ5YWI8POc9
-	NLNQksRy7mhC6Cnqd/UIit4Qj5zw8oLA5pBRTXPlQNWiaH46X7mjI06XgPEOX9D21WfDeN6hlTB18
-	KNjmWQBB7TqJRf8/kWuvGOL0FRGfMzhrd01YD3hpAwRfzYCBWa/O0q8g7wg+e43CodXKODv9tOanW
-	LSvDNUrFzp+Q6ImHDrT/kZIbalW0bLE1skEiMkPwR0CUTWDpBpzIEdL0npqlwP5n3FdwiUugpyIgc
-	00tUnGdZMFsteByXWiXI6E1ynbmdW5KABm6EWF/BSQyUxP3JggKbBjThWu8gYmEGjneZLSHcUHNeM
-	fBkyqx0g==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=d8EHpMwisazG1tit/4FqmvWR2q+lxitr9Ty+sDkFVF8=; b=Wmz1SPJpp/WEBE
+	8fn9i8ToITQFKYuHCJL0Nyp0jf3yV4UfWFG2VRQoN2OGI/7hzOLe5UYGIbGFksk+WxK/H1+wbMNtL
+	6D+mwltB5jY2ovHmzNYktPVQLi75tPrApfqqqn4mLMgRHzKUxbMr+ldgfsZqJHDbSlna9dxe2+RbF
+	swOePM7YRCXUwc2qrhPJ7BZ+86qYk1aqj8P/sY0iBHr6aqHJwKtdy7G5YCzHJuuLFIdL6zcg7GQBt
+	x7J1hxjDOXUBZSWYXQ/pDBTCcwAsMmBXvOJEIzhEj2QsS0szJlzDuWZj+oBg4tcSZzVmnkzatIqjS
+	LUzUnXqejqOM1TIcKiqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9p1s-0016yt-0B;
-	Sun, 03 Dec 2023 16:09:12 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1r9pSl-001M6R-2Z;
+	Sun, 03 Dec 2023 16:36:59 +0000
+Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9p1n-0016tn-2m
+	id 1r9pSe-001M0P-2P
 	for linux-riscv@lists.infradead.org;
-	Sun, 03 Dec 2023 16:09:10 +0000
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id AC90340331
-	for <linux-riscv@lists.infradead.org>; Sun,  3 Dec 2023 16:09:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1701619742;
-	bh=Jr2viQE+KNXdoLwjt3YG8fOnB+WKPmtD8qV0RS5wcNE=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=SIihe6oh8Pdg/qzj6ZLeulNjUKAEY45iD1C8Y/jpN0FxCuX2ETt716dOAsORS97Ps
-	 a1uf5lM6VcCn9E3oVhMu3fhyhiJoboAgpsYExq/KQ1nen2N2S2YBLFhB83zxkIU1CK
-	 NOuOLsUnPeBl38U95GCTX6PFtCoemsqw5vqvrTuu/jA/KhEPlJzN1gajiNmlTjv0U8
-	 u3Trk+aLtJqeB06EsxkASd43Gvn4I9M7EJA/5cGmVqR3nzEvAcOsU1sNOOeeoWcG3A
-	 EBWgsHEffQaZKUgWyZiEAxUMPB2dTWVyHbhEyzpInhAZ9FupqVZ0GvAeriyVzjlF1T
-	 Udb7SW279X9bQ==
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-423e0957b35so53063981cf.2
-        for <linux-riscv@lists.infradead.org>; Sun, 03 Dec 2023 08:09:02 -0800 (PST)
+	Sun, 03 Dec 2023 16:36:56 +0000
+Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-2c9ea37ac87so18954521fa.3
+        for <linux-riscv@lists.infradead.org>; Sun, 03 Dec 2023 08:36:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1701621409; x=1702226209; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
+         :to:content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jpl6jo/axkXaMBEUtW9IVZIjZ8AqWBn3Q0mmjv9jaDw=;
+        b=W5VYTBqxgzig7se4zP5mQKmUFJEwJV+yT2dz3etDPBDCmtdPRaKAUtrg/RHhhlXD/j
+         lnXXFa/QZekB+1EOVpLCsyS2VZjZFKraxl4vb7uBxewlLwN+amp/+YfChxRm1d8OoBI+
+         C/TkQRC6wKuhckr5OmeO3ESkXJQyaAa6+xGLEQP80oXZKpsc/g8vKm7GpW+4yQIpHWSo
+         Q+j5YeEGuNvhvoRz+4j3zR4iMl7Cos4sVxkicDus7dF3V3r/CO/A6J4mRt29QBq4wfdZ
+         fSnDVpptoGLWe4LVNimmoiGsiO2bFXlFkPmjns31zQoHvjzDIHB2ffNIC5b0MSv1okaG
+         6Z7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701619741; x=1702224541;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Jr2viQE+KNXdoLwjt3YG8fOnB+WKPmtD8qV0RS5wcNE=;
-        b=AUgmlWh6SKZpZ9Ul5uunlJ23ttqfHVbdrqIp02sjZAdChA/0ANdrr0M+yPgtUsom5S
-         hej8xmOIXYxBq54Sp0hA9KO5ULz41dmnyr7qoyLyH7LDSYRK4IiiYp2REj57dNjX+KSh
-         BWtvkGKfhB0yPZZwyKtYDToEjqQXz4n7zz/fvj0vxaiQ8b7C4vuzSN1bJ3Chevkd2Wkx
-         vbRuHrL3NAdFe84QdRV08L7BhdaihwRZOo1VSXsu9foF1+QkirrLCdD+neRP18HQIAee
-         g8saiolOD1XWu8+2wEEgaIg3tr/rn0UwialBIx3BMqnLjhsHriIvK8PuK48QwynsJTU2
-         BVZg==
-X-Gm-Message-State: AOJu0YykIghqr93IPWwmBGojShAFd4M1o4Deo8TQzLjCvnw7Tjdatym2
-	rh08ZcIcDjvXqFPsYoV5ZYFkNWQQ8iiLLlcSAXuuIzrP9bGvlsrFXIEj9rnJrZs7mwfaM6TX6lY
-	AxRbtum/aZn1jxVsxfYjw3gvF+780yM13xnn3u9gowepShi1Ou7HOhDXDX/2CFg==
-X-Received: by 2002:a05:622a:1010:b0:425:4043:1db6 with SMTP id d16-20020a05622a101000b0042540431db6mr4559530qte.137.1701619741640;
-        Sun, 03 Dec 2023 08:09:01 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IElcjoXi0CImvP0OyCrnumGiuHmDr6BY0KTDzIC+pp9TQpbbFvQn54i+0pGeMyf5ZofZVoSlxlxQt+VbXqNHm4=
-X-Received: by 2002:a05:622a:1010:b0:425:4043:1db6 with SMTP id
- d16-20020a05622a101000b0042540431db6mr4559513qte.137.1701619741411; Sun, 03
- Dec 2023 08:09:01 -0800 (PST)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Sun, 3 Dec 2023 08:09:01 -0800
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20231203-mountable-snowsuit-24e4252c9eb5@spud>
-References: <20231130-bobbing-valid-b97f26fe8edc@spud> <CAJM55Z9=smqcZ=su1oNdk1YZL_XdYAKrwtrZS7ScS=cAVmxZOA@mail.gmail.com>
- <20231203-mountable-snowsuit-24e4252c9eb5@spud>
-Mime-Version: 1.0
-Date: Sun, 3 Dec 2023 08:09:00 -0800
-Message-ID: <CAJM55Z-cb=0X2xToKnEwmqMkBSZkQ-kjAZyoGo1AY=edTLvxew@mail.gmail.com>
-Subject: Re: [PATCH v1] riscv: dts: starfive: move timebase-frequency to .dtsi
-To: Conor Dooley <conor@kernel.org>, 
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Walker Chen <walker.chen@starfivetech.com>, JeeHeng Sia <jeeheng.sia@starfivetech.com>, 
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>
+        d=1e100.net; s=20230601; t=1701621409; x=1702226209;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
+         :to:content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jpl6jo/axkXaMBEUtW9IVZIjZ8AqWBn3Q0mmjv9jaDw=;
+        b=fU/NyNbziNZWrCcbiFrjmD3W36gp6KVfTir6ODNbm7ToqI4+RVMr7MdREd70KqknRY
+         yLT4q9LdzQlcb0TUvSaHmGKtqrhzUNf1nmMd6vlzYcyJ11kjSSs8OmzQN3YiAPIhpoef
+         rBevcWI63PJUfp9/1tRLS0l0n3hXtJmiysj4LCBZo8dyCdlPvPrxQn51hjYnzGE1H/PE
+         J4vsoYtcUHxX1OKWAk0dWdcWygyY56MjO/zDSr42He7iWmubOrM2Rw3lipnOJP1PMJxy
+         BocbIptdbyTsUnn2Z9Ui2Ga5tZBREp6DynYI5IB0mqubuAL80CydQzjI9ssKYBLnDfd+
+         qRlA==
+X-Gm-Message-State: AOJu0YwQzmxYuDDL/AaBr76NvhG4GcCO0KfE5Wrv+bKuYyvVO11WZKNp
+	tc+zzjagwA/BSp++tx8H49ItzQ==
+X-Google-Smtp-Source: AGHT+IH6KHHD+dmYYS8B/gqJhZureFmIfadLSDuitVYzjKtrrrRXfPfDKitTZbLgwQB4B+F07bMerg==
+X-Received: by 2002:a05:6512:2c95:b0:50b:d764:8013 with SMTP id dw21-20020a0565122c9500b0050bd7648013mr2218530lfb.70.1701621408680;
+        Sun, 03 Dec 2023 08:36:48 -0800 (PST)
+Received: from [192.168.1.20] ([178.197.223.109])
+        by smtp.gmail.com with ESMTPSA id h11-20020a17090634cb00b00a0f770ae91bsm4243825ejb.89.2023.12.03.08.36.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 03 Dec 2023 08:36:48 -0800 (PST)
+Message-ID: <6238731a-fdb0-4ded-b5ff-60bfc521ecbd@linaro.org>
+Date: Sun, 3 Dec 2023 17:36:45 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] dt-bindings: riscv: starfive: add Milkv Mars board
+Content-Language: en-US
+To: Jisheng Zhang <jszhang@kernel.org>, Conor Dooley <conor@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20231202153353.635-1-jszhang@kernel.org>
+ <20231202153353.635-3-jszhang@kernel.org>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <20231202153353.635-3-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231203_080908_213663_9F02E2F4 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20231203_083654_268111_91E43E4B 
+X-CRM114-Status: UNSURE (   5.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,43 +144,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Conor Dooley wrote:
-> On Fri, Dec 01, 2023 at 02:44:58PM +0100, Emil Renner Berthing wrote:
-> > Conor Dooley wrote:
-> > > From: Conor Dooley <conor.dooley@microchip.com>
-> > >
-> > > Properties fixed by the SoC should be defined in the $soc.dtsi, and the
-> > > timebase-frequency is not sourced directly from an off-chip oscillator.
-> >
-> > Yes, according to the JH7100 docs[1] the mtime register is sourced from the
-> > osc_sys external oscillator through u74rtc_toggle. However I haven't yet found
-> > a place in the docs that describe where that clock is divided by 4 to get
-> > 6.25MHz from the 25MHz.
-> >
-> > I expect the JH7110 mtime is set up in a similar way, but haven't yet dug into
-> > the available documentation.
->
-> Your other reply suggests that this is a fixed division for the jh7110,
-> in which case it makes sense to leave it as-is. mpfs is different in
-> that it is fixed to 1 MHz regardless of which of the permitted external
-> oscillator frequencies you use.
+On 02/12/2023 16:33, Jisheng Zhang wrote:
+> Add device tree bindings for the Milkv Mars board which is
+> equipped with StarFive JH7110 SoC.
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
 
-This is what I've found for the JH7100:
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-osc_sys (25MHz) -> u74rtc_toggle (gate) -> ? (div 4) -> mtime
+Best regards,
+Krzysztof
 
-The divide by 4 is not in the regular clock tree, so if it is configurable it
-must be some bits hidden in the syscon area or something. The only restriction
-I've found in the docs is that it must be strictly less than half the rate of
-the core clock.
-
-For the JH7110 it goes:
-
-osc (24MHz) -> rtc_toggle (div N) -> mtime
-
-..where N defaults to 6 and this is also the maximum N.
-
-/Emil
 
 _______________________________________________
 linux-riscv mailing list
