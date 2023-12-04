@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A03DC4167B
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 15:38:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1F4BC46CA0
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 16:04:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6VLSJe8lsz2SvMCyclCG5NYSU53yyDtaQn9wA6lRDJQ=; b=MQnZ+ZRvom8Nef
-	n6BDmHoi/2Vdk+e/ozRUjUszF+kd4Mp6hp4ucIbPpJt5YUkKxf2gpwon2lBFHsL+K9h7qsucF+Ul/
-	LrKxKwjuVobekZt9ZKhEXXYx6qR4Mqefw5Gyf0pnjGT+yM+PqpGMQ2xpbem0lUeohvciBPDvjknGS
-	RLUAVpDTk+/1oahCGcuwTTSIY8VMvtf16OB4BAToa2rFiMhTP0d4ux5k8sgLgsVpHLaD0OT/GsE8A
-	hzAkblQWlaPbHB+zCtoePSQeBx5ZSyCWPJyxiSBchTTmPXGxLzGY1QcuxtkJPnEqKm1HUWvASmuoY
-	QGDLvQQ9ICKvSg1+jEjA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=K6VToEF6kFOAaNYxyKYKkgH+ZM7CPSX4aS2Af55383A=; b=LmjvMRr9UoDDPi
+	6Zf/qv0fZP8KjddQnJM+QLTKNntYnU84T0QjQGEPTzio5bTlqajTt1ZxL/4ALvSpnCJHD1LAvOX5R
+	ai+s6HARdJrEQJmUyA3HCFGtUKwRj4ZjSxIIs+7fwaox8TIG+WcP8QRP4wwF/lZbDJhN1xOAVbKhd
+	uvqQS+G8MzE1SqiTneDaf02y+S7ZjKSrVHhRXpSqS/1rKOGPUFr51VOAQsSQ4KxgV1nxLHKuq/lM/
+	zrarae5no21EV1gkfB/EWzYLJJ4YpRwSwloqmR8SMoQ7hOux2J9lrw/lKn8YkgZWwZ14bRSg2idB/
+	k8CQ0mN9zbHAyTCmMJoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAB1a-004yyz-15;
-	Mon, 04 Dec 2023 15:38:22 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1rABQx-0052nR-29;
+	Mon, 04 Dec 2023 16:04:35 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAB1X-004yxY-1r
+	id 1r9yPY-002oto-1A
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Dec 2023 15:38:21 +0000
+	Mon, 04 Dec 2023 02:10:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1701704298;
+	s=mimecast20190719; t=1701655815;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=seX/SDI/jMTwPP8d5rMNciSYOZJKlVgmv/OT9coCj5g=;
-	b=iOfcWLuVUWpETZt+QsKNb1OXF8rpb0ra57T4cdNng6tMtGtPjTZzpo7sN5stQUIjhOmsdI
-	tNgQosCmCBB38udrrg+bxEdMeziAsNgA/Q2Ioz0SIkiQE72oRwGkAmbkGS4g82EAuWm8Ww
-	uERqbo4ap9lZFoUPKZ0s952Nhg8P7No=
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
+	bh=7DpzMW9l8USWbr/TXZ2mqrkhEXzMDf/T6QpMPtMWGcY=;
+	b=RZS74GmMx0V7ZOdtemn7MUFj08Upr7afGT8rGCzGsmEGLP/Sn6mZvaKjxDoGcIJhefT5Pu
+	ElXM/TEJEJbFUhYwFsBF83Oo5sSmjUrPGHoG8fJhr6hguWKU37x44tv4KfRWhvOOMKUIsG
+	j6oWbDbriRXqqp1gcKR+r9GquwTOliY=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-9-BwYS5IDnOmyxJYurhDYIqw-1; Mon, 04 Dec 2023 10:38:10 -0500
-X-MC-Unique: BwYS5IDnOmyxJYurhDYIqw-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
+ us-mta-500-Xng4ZFAwNOuBMcJ3cikbmA-1; Sun, 03 Dec 2023 21:10:09 -0500
+X-MC-Unique: Xng4ZFAwNOuBMcJ3cikbmA-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7C350811E88;
-	Mon,  4 Dec 2023 15:38:09 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 801BF811E86;
+	Mon,  4 Dec 2023 02:10:08 +0000 (UTC)
 Received: from localhost (unknown [10.72.113.121])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id B081E1C060AE;
-	Mon,  4 Dec 2023 15:38:08 +0000 (UTC)
-Date: Mon, 4 Dec 2023 23:38:05 +0800
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id C25C5C1596F;
+	Mon,  4 Dec 2023 02:10:07 +0000 (UTC)
+Date: Mon, 4 Dec 2023 10:10:04 +0800
 From: Baoquan He <bhe@redhat.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: linux-kernel@vger.kernel.org, kexec@lists.infradead.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	linux-parisc@vger.kernel.org, akpm@linux-foundation.org,
-	joe@perches.com, nathan@kernel.org
-Subject: Re: [PATCH v3 5/7] kexec_file, ricv: print out debugging message if
- required
-Message-ID: <ZW3yXWJ7rTrtZzyg@MiWiFi-R3L-srv>
-References: <20231130023955.5257-1-bhe@redhat.com>
- <20231130023955.5257-6-bhe@redhat.com>
- <20231201-blog-blasphemy-985d2665903c@wendy>
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: Stephen Rothwell <sfr@canb.auug.org.au>, akpm@linux-foundation.org,
+	ignat@cloudflare.com, linux-next@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	kexec@lists.infradead.org, eric_devolder@yahoo.com
+Subject: Re: Re: linux-next: Tree for Dec 1 (riscv, crash_core)
+Message-ID: <ZW00/Cfk47Cc3kGo@MiWiFi-R3L-srv>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231201-blog-blasphemy-985d2665903c@wendy>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.7
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.8
+X-Bad-Reply: 'Re:' in Subject but no References or In-Reply-To headers
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231204_073819_778773_D77E1C37 
-X-CRM114-Status: GOOD (  27.92  )
+X-CRM114-CacheID: sfid-20231203_181016_492886_442F9E1B 
+X-CRM114-Status: GOOD (  22.47  )
+X-Mailman-Approved-At: Mon, 04 Dec 2023 08:04:32 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,106 +82,136 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/01/23 at 10:38am, Conor Dooley wrote:
-> On Thu, Nov 30, 2023 at 10:39:53AM +0800, Baoquan He wrote:
-> 
-> $subject has a typo in the arch bit :)
+eric_devolder@yahoo.com, ignat@cloudflare.com,
+	Linux Next Mailing List <linux-next@vger.kernel.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	kexec <kexec@lists.infradead.org>
+Bcc: bhe@redhat.com
+Subject: Re: linux-next: Tree for Dec 1 (riscv, crash_core)
+Reply-To: 
+In-Reply-To: <bbd1bbfb-c482-433d-bce9-2b591b8e855e@infradead.org>
 
-Indeed, will fix if need report. Thanks for careful checking.
-
+On 12/01/23 at 11:53am, Randy Dunlap wrote:
 > 
-> > Replace pr_debug() with the newly added kexec_dprintk() in kexec_file
-> > loading related codes.
 > 
-> Commit messages should be understandable in isolation, but this only
-> explains (part of) what is obvious in the diff. Why is this change
-> being made?
-
-The purpose has been detailedly described in cover letter and patch 1
-log. Andrew has picked these patches into his tree and grabbed the cover
-letter log into the relevant commit for people's later checking. All
-these seven patches will be present in mainline together. This is common
-way when posting patch series? Please let me know if I misunderstand
-anything.
-> 
+> On 11/30/23 18:37, Stephen Rothwell wrote:
+> > Hi all,
 > > 
-> > And also remove kexec_image_info() because the content has been printed
-> > out in generic code.
+> > Changes since 20231130:
 > > 
-> > Signed-off-by: Baoquan He <bhe@redhat.com>
-> > ---
-> >  arch/riscv/kernel/elf_kexec.c     | 11 ++++++-----
-> >  arch/riscv/kernel/machine_kexec.c | 26 --------------------------
-> >  2 files changed, 6 insertions(+), 31 deletions(-)
-> > 
-> > diff --git a/arch/riscv/kernel/elf_kexec.c b/arch/riscv/kernel/elf_kexec.c
-> > index e60fbd8660c4..5bd1ec3341fe 100644
-> > --- a/arch/riscv/kernel/elf_kexec.c
-> > +++ b/arch/riscv/kernel/elf_kexec.c
-> > @@ -216,7 +216,6 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
-> >  	if (ret)
-> >  		goto out;
-> >  	kernel_start = image->start;
-> > -	pr_notice("The entry point of kernel at 0x%lx\n", image->start);
-> >  
-> >  	/* Add the kernel binary to the image */
-> >  	ret = riscv_kexec_elf_load(image, &ehdr, &elf_info,
-> > @@ -252,8 +251,8 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
-> >  		image->elf_load_addr = kbuf.mem;
-> >  		image->elf_headers_sz = headers_sz;
-> >  
-> > -		pr_debug("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
-> > -			 image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
-> > +		kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
-> > +			      image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
-> >  
-> >  		/* Setup cmdline for kdump kernel case */
-> >  		modified_cmdline = setup_kdump_cmdline(image, cmdline,
-> > @@ -275,6 +274,8 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
-> >  		pr_err("Error loading purgatory ret=%d\n", ret);
-> >  		goto out;
-> >  	}
-> > +	kexec_dprintk("Loaded purgatory at 0x%lx\n", kbuf.mem);
-> > +
-> >  	ret = kexec_purgatory_get_set_symbol(image, "riscv_kernel_entry",
-> >  					     &kernel_start,
-> >  					     sizeof(kernel_start), 0);
-> > @@ -293,7 +294,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
-> >  		if (ret)
-> >  			goto out;
-> >  		initrd_pbase = kbuf.mem;
 > 
-> > -		pr_notice("Loaded initrd at 0x%lx\n", initrd_pbase);
-> > +		kexec_dprintk("Loaded initrd at 0x%lx\n", initrd_pbase);
-> 
-> This is not a pr_debug().
-> 
-> >  	}
-> >  
-> >  	/* Add the DTB to the image */
-> > @@ -318,7 +319,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
-> >  	}
-> >  	/* Cache the fdt buffer address for memory cleanup */
-> >  	image->arch.fdt = fdt;
-> 
-> > -	pr_notice("Loaded device tree at 0x%lx\n", kbuf.mem);
-> > +	kexec_dprintk("Loaded device tree at 0x%lx\n", kbuf.mem);
-> 
-> Neither is this. Why are they being moved from pr_notice()?
+> on riscv 32-bit or 64-bit, with
+> # CONFIG_MMU is not set
 
-You are right. 
+Thanks for providing the kernel config to ease reproduction. In the config,
+there are:
 
-While always printing out the loaded location of purgatory and
-device tree doesn't make sense. It will be confusing when users
-see these even when they do normal kexec/kdump loading. It should be
-changed to pr_debug().
+CONFIG_CRASH_CORE=y
+CONFIG_KEXEC_CORE=y
+CONFIG_CRASH_DUMP=y
+......
+# CONFIG_MMU is not set
 
-Which way do you suggest?
-1) change it back to pr_debug(), fix it in another patch;
-2) keep it as is in the patch;
+After investigation, I found this happened after Ignat's patch:
+commit 1c7a3fa49ef7 ("kexec: drop dependency on ARCH_SUPPORTS_KEXEC from CRASH_DUMP")
 
-Thanks
-Baoquan
+Copy above commit change here for reference, and also risc-v's
+ARCH_SUPPORTS_KEXEC depends on MMU:
+--------------------------------------------------------
+diff --git a/kernel/Kconfig.kexec b/kernel/Kconfig.kexec
+index fc38f1ae3a30..946dffa048b7 100644
+--- a/kernel/Kconfig.kexec
++++ b/kernel/Kconfig.kexec
+@@ -96,7 +96,6 @@ config KEXEC_JUMP
+ config CRASH_DUMP
+        bool "kernel crash dumps"
+        depends on ARCH_SUPPORTS_CRASH_DUMP
+-       depends on ARCH_SUPPORTS_KEXEC
+        select CRASH_CORE
+        select KEXEC_CORE
+        help
+
+arch/riscv/Kconfig
+---------------------
+config ARCH_SUPPORTS_KEXEC
+        def_bool MMU
+
+Before Ignat's patch, once CONFIG_MMU is unset, CONFIG_CRASH_DUMP,
+CONFIG_KEXEC_CORE, CONFIG_CRASH_CORE are all unset automatically. The
+crash_core codes are not compiled. That's why no compiling error is
+seen.
+
+After Ignat's patch applied, we can enable CONFIG_CRASH_DUMP,
+CONFIG_KEXEC_CORE, CONFIG_CRASH_CORE independently. However, there are
+several macro definitions, such as VA_BITS, VMEMMAP_START, VMEMMAP_END,
+MODULES_VADDR, MODULES_END are only available when CONFIG_MMU=y.
+
+I made two patches to decouple the kexec/crash code with CONFIG_MMU. Not
+sure if risc-v wants that.
+
+Or we can simply add dependency on MMU for ARCH_SUPPORTS_CRASH_DUMP.
+Then when CONFIG_MMU=n, CONFIG_CRASH_DUMP, CONFIG_KEXEC_CORE,
+CONFIG_CRASH_CORE will be unset too. Please help check which one need be
+taken.
+
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 24c1799e2ec4..03d290da7262 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -708,6 +708,7 @@ config ARCH_SUPPORTS_KEXEC_PURGATORY
+ 
+ config ARCH_SUPPORTS_CRASH_DUMP
+ 	def_bool y
++	depends on MMU=y
+ 
+ config ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
+ 	def_bool CRASH_CORE
+
+> 
+> In file included from ../arch/riscv/kernel/crash_core.c:3:
+> ../arch/riscv/kernel/crash_core.c: In function 'arch_crash_save_vmcoreinfo':
+> ../arch/riscv/kernel/crash_core.c:8:27: error: 'VA_BITS' undeclared (first use in this function)
+>     8 |         VMCOREINFO_NUMBER(VA_BITS);
+>       |                           ^~~~~~~
+> ../include/linux/crash_core.h:78:64: note: in definition of macro 'VMCOREINFO_NUMBER'
+>    78 |         vmcoreinfo_append_str("NUMBER(%s)=%ld\n", #name, (long)name)
+>       |                                                                ^~~~
+> ../arch/riscv/kernel/crash_core.c:8:27: note: each undeclared identifier is reported only once for each function it appears in
+>     8 |         VMCOREINFO_NUMBER(VA_BITS);
+>       |                           ^~~~~~~
+> ../include/linux/crash_core.h:78:64: note: in definition of macro 'VMCOREINFO_NUMBER'
+>    78 |         vmcoreinfo_append_str("NUMBER(%s)=%ld\n", #name, (long)name)
+>       |                                                                ^~~~
+> ../arch/riscv/kernel/crash_core.c:12:58: warning: format '%lx' expects argument of type 'long unsigned int', but argument 2 has type 'int' [-Wformat=]
+>    12 |         vmcoreinfo_append_str("NUMBER(VMALLOC_START)=0x%lx\n", VMALLOC_START);
+>       |                                                        ~~^
+>       |                                                          |
+>       |                                                          long unsigned int
+>       |                                                        %x
+> ../arch/riscv/kernel/crash_core.c:14:64: error: 'VMEMMAP_START' undeclared (first use in this function)
+>    14 |         vmcoreinfo_append_str("NUMBER(VMEMMAP_START)=0x%lx\n", VMEMMAP_START);
+>       |                                                                ^~~~~~~~~~~~~
+> ../arch/riscv/kernel/crash_core.c:15:62: error: 'VMEMMAP_END' undeclared (first use in this function); did you mean 'MEMREMAP_ENC'?
+>    15 |         vmcoreinfo_append_str("NUMBER(VMEMMAP_END)=0x%lx\n", VMEMMAP_END);
+>       |                                                              ^~~~~~~~~~~
+>       |                                                              MEMREMAP_ENC
+> 
+> 64-bit only: 
+> 
+> ../arch/riscv/kernel/crash_core.c:17:64: error: 'MODULES_VADDR' undeclared (first use in this function)
+>    17 |         vmcoreinfo_append_str("NUMBER(MODULES_VADDR)=0x%lx\n", MODULES_VADDR);
+>       |                                                                ^~~~~~~~~~~~~
+> ../arch/riscv/kernel/crash_core.c:18:62: error: 'MODULES_END' undeclared (first use in this function)
+>    18 |         vmcoreinfo_append_str("NUMBER(MODULES_END)=0x%lx\n", MODULES_END);
+>       |                                                              ^~~~~~~~~~~
+> 
+> 
+> 
+> -- 
+> ~Randy
+> 
 
 
 _______________________________________________
