@@ -4,125 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6122FC4167B
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 23:15:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7CF5C4167B
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 23:40:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WqybKiSkldZlIUUnKj6HRDLSG/Smb9npOpvnN+5iEmU=; b=TP3GqOkJl455ID
-	G9QryUo5QqJuH/uYIxFVkrdWxpOQ92LXPsAHnRdTH+dQGX3ZeNy9KPVZgRoh19PykNcLGGcZFSD8g
-	CnyD9aegQ1/UEI8kQD66vmRhJk7pVu0l2A0CPwtg9Ly3WVD714tmvZLE6P/TeNtc7VLH2yrYSNdgC
-	MSqVJRxsAVH83ZIKDgh1/urWVbgVUxs583xRTJQIhRkDvtzpXEIYO8IgeXNO7cresEcq5C3hvcq4y
-	2FP/Yr5hFEm5BvxsgsDhpUbZHSQTuXiF7QIyxLfDpSiB6yI/EYUpc6IxVC9vCClg2vTA1i5kGc5D0
-	BN9+u10ztn7YabvUvu7g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aEWqRo9FCEvx/FA9ZPeDj9DpbDO1CjYlAFW/gnqe+Cw=; b=XHgi59MiNl9BXltIubjANKi/9R
+	Y8ioEQ3YWUnMsWrAi5NRsAQGllnK1Vn/oOqokrak3zc4n0UkfJTIpB9S0AGGIxFVYvLfkCYEt2+3E
+	YT1FouSyU4a7eio9xMQ9dMlAjkCAD5hn0QsuWSJwH8Iz0Or6naFypBJHTWntDdrqL03H3LUMxwNm6
+	y9IL+bZqibwfT16nbgE3pGgN4Dc4G9x2+bV7EWFD8xRvd6VJ+T1E02HnUvszzNbSv2e2c/yyHYPAl
+	3S7plsAGBHQcL5R9aL2KPjzzAjPdIytEKWph6NBAdPYRX3KtfdefJ+NLDP0Cz9Cem7uQUGcjh94EH
+	lrT8EVCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAI9a-005m4K-0A;
-	Mon, 04 Dec 2023 23:15:06 +0000
-Received: from mail-dm6nam10olkn2082e.outbound.protection.outlook.com ([2a01:111:f400:7e88::82e] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1rAIXx-005o1o-22;
+	Mon, 04 Dec 2023 23:40:17 +0000
+Received: from mail-maxind01olkn20801.outbound.protection.outlook.com ([2a01:111:f403:281b::801] helo=IND01-MAX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAI9X-005m3K-06
+	id 1rAIXu-005o0N-1g
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Dec 2023 23:15:04 +0000
+	Mon, 04 Dec 2023 23:40:16 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=kP8EmOI7YDDj6jKJsF+1kNrQr7R+2hnUJU2lYAlLv9X90hedjG6mvcEO/SYxkGTd9SmYEgDsZWX4b4J48sFLVMz96EQwbcoDnEl7MqX40GgW/iLyvBYzZwBcjSTcTJiSp4miVGrjazPS5iLFspsNG18ZWk0ia0bm/BmqCHFzwXL3hOBZm7MeXg9A1UJ8PhFamKj07IcGy8WHasuw6HJo1XKk5rPwNLFgyafxL7y9Jj7vYxYLUaUdBnu/wRzo6dc4qWks+Bl9NJr7/dM7g9ClNPT/gdTVJ0ykMXfIttVdG2cZmRyoSz3USOzVxmiKNZwAU+AVpYG04s4pTfEQQNIYTA==
+ b=nL8RTXmLQTTz7Ke3gMn+NPwWOzakHM8JkWcfZfGUmdlhuR0pRHgcJUJibPld3Y3zoCT3mTogqwitQzHQOmW3LKvDqYPvH/fyIdeR5fj7KDgC6a/fTMralFAW03moZnglsCBP0nc4zsppDIzRcx33ARCDXx2RP6n4s1NaEJezHq+XOU0dnRUdGJJhLWC96JPJtRclCLCvbbAX/ylCpmF+QpwpPe3YU5cZLbTcCQ1XJc3X/+bP1T4muKLPFC8YUXEjB6ZP9TqT4GU/yToR1EJ5nzkIySEQ0xlAFsi+8lOudlLSIgqllKaWjBaATXCRrjPQQviUCyl++WTZyYfI2NzjkQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=otEtPWKaLLn8O711OEWI8Yf8aFxHuf6I1jhxfZzXOGk=;
- b=VhcM6U1uo6CfMTeaywrBsdDRQag1vFWPddvYalqDwOPaAudzpFBXQnaWCEE6tu8mhzOFOIcGP8bnYGv7NvDwCSuKqHPO47sGCvybpXFrX59j+ichK3+0Ww17m7YSM8GAOLVb3yG3SaHNZg68iXOAtjtwWe7CZWEOwD9KHzNmhASOPZl7mOX7HEPWsDFeh0Jmqx+rc+2ZVzOG0+jfd3w470/XYr47+NKWZ//JE/QvaXWF9GwMJEk4WvPZHdpMLf++vprFUYnvGgVMmWXKV0hHzSSXxYYqELIYQsNVJ1CnNJzt4acSGNjmZ3EM5ITXn6Odw/CRy/eL5UWsVlHfGXMzkg==
+ bh=rMpgG9HJtLpab698JXscNMZ8z9hwZ2PgePNMTwldwTE=;
+ b=P7/aoBZ0KEc4MjSFObUwlSk733Bng8wwjI2aB25SBdtCs0yaTzQ87xturmhgTqlo4kUefYzs+GlxtBMiJ/rJOCgZf+FTPA4wmfkkjEAJb9Iq6+xKao+3RMwTI9IDd93MnxfMnrCfeTDFv4/4KxB8iKSIYx6zKjL2k/lDnhpOlukbv4teEAG2euxcvaYbzw+S5jQtiOPRXFv4DVei8vS9nu7CwaxPM2zDAeIPS++SHXPFDhCrSY0QLIgKOrSySrvsXw3my4FrFl2J4S3MdxVbPHrzWxrf7BMBuwxVi01LhnxpF9/nt+8YF+SKZAvk5FSwQjWBh2ygsR+zRqMgfM0BEA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=otEtPWKaLLn8O711OEWI8Yf8aFxHuf6I1jhxfZzXOGk=;
- b=nwUHoIh6Ya8HcrWfWKAVQQ5VnbPWuRRpqGEkI44ub9eJyYmfLDfm2RZicQ9UzxaQWiUTcYsgTTJQXscEpFybuOTS/0hIOw+l4zAU8rp7WNJlwklMklbfjoGrcMaHT7P7+i8NOoXFCyX7cSLDQfBsEWuOYpfvfAPdyjPIMx9fWgHrquIH0JUUUan4cZxTaOR8n+1QdD00O9w3gRwl3WExB9MNyISRkVLQwlzDxAwFP6NI6NU5LBNGUG91oE7wYVKx0assBGidpv4IgWKYof0mkr5CgdoR406f++OYc06kbPMUdBb1RaSgOYcotRFCMfFEs2ayq+2/m8ch4XELpX0E5Q==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by SJ0PR20MB6170.namprd20.prod.outlook.com (2603:10b6:a03:4e6::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7046.33; Mon, 4 Dec
- 2023 23:14:52 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::55b:c350:980:ad8]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::55b:c350:980:ad8%6]) with mapi id 15.20.7046.024; Mon, 4 Dec 2023
- 23:14:52 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Conor Dooley <conor@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: Inochi Amaoto <inochiama@outlook.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Anup Patel <anup@brainfault.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Guo Ren <guoren@kernel.org>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v5 1/2] dt-bindings: timer: thead,c900-aclint-mtimer: separate mtime and mtimecmp regs
-Date: Tue,  5 Dec 2023 07:14:51 +0800
-Message-ID: <IA1PR20MB4953E67DA1BD6921DC6A8789BB86A@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20231204-monorail-boxer-82c77526e764@spud>
-References: <20231204-germproof-venue-6874ad902323@spud>, <20231204-monorail-boxer-82c77526e764@spud>
-X-TMN: [Rmu9e0qwIGHaV+oP7ShTTQZhbeeTBm2RHIr42d5FqF8=]
-X-ClientProxiedBy: TYCP286CA0077.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:2b3::9) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20231204231451.56687-1-inochiama@outlook.com>
+ bh=rMpgG9HJtLpab698JXscNMZ8z9hwZ2PgePNMTwldwTE=;
+ b=ddDs7jL6Ba23SvZp8ac4z+gCaM/jenN3gFUK5Ss5TMovsQ9+eJ6UarKdYBnbzLbg9yNkoyoLT/+QzqaFwYNgmzI+BTUuwR37l7qhExWVQRy1PVKZr4/WQ0j2Do56qvAEIrLjRPh2/tox3vI6fZ/lwi1Rb3YKoRepmqwlE8LURP7kBBBGpEhoPE3HDu96Pg9JATKv1dXweX0rG3s5ZNCmwah7y23KevIHO0ZvpMj7vLVhZ1KVWmFvkwAyaGZwGDJ7+DBTRNhGsAqT6DM/vnSljswZCy3IeIoiLteOTqFQozS5xwwzQq8TJdF+rrwHXQGkSeu9dcn+7tpCiIaACflLNQ==
+Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:ab::5) by
+ MA0P287MB0156.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:b3::5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7046.34; Mon, 4 Dec 2023 23:39:59 +0000
+Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ ([fe80::b1a7:eee7:e903:9ef3]) by MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ ([fe80::b1a7:eee7:e903:9ef3%7]) with mapi id 15.20.7046.034; Mon, 4 Dec 2023
+ 23:39:59 +0000
+Message-ID: <MA0P287MB033232CAFAC0C3D638C3AC57FE86A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
+Date: Tue, 5 Dec 2023 07:39:49 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/4] dt-bindings: soc: sophgo: Add Sophgo system
+ control module
+To: Rob Herring <robh@kernel.org>, Chen Wang <unicornxw@gmail.com>
+Cc: guoren@kernel.org, robh+dt@kernel.org, samuel.holland@sifive.com,
+ jszhang@kernel.org, linux-kernel@vger.kernel.org, mturquette@baylibre.com,
+ richardcochran@gmail.com, paul.walmsley@sifive.com, conor@kernel.org,
+ inochiama@outlook.com, linux-clk@vger.kernel.org, palmer@dabbelt.com,
+ sboyd@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+ xiaoguang.xing@sophgo.com, devicetree@vger.kernel.org, chao.wei@sophgo.com,
+ aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
+ haijiao.liu@sophgo.com
+References: <cover.1701691923.git.unicorn_wang@outlook.com>
+ <14616bce163d689a4e640ab7b372421ca8306a92.1701691923.git.unicorn_wang@outlook.com>
+ <170169991797.1225669.8378193409195638634.robh@kernel.org>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <170169991797.1225669.8378193409195638634.robh@kernel.org>
+X-TMN: [rJUTWUrSpnc2ZrHtb+sIe9qY9tiK82Jp]
+X-ClientProxiedBy: TYCP286CA0289.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:3c8::14) To MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:ab::5)
+X-Microsoft-Original-Message-ID: <aeef653d-28b4-4bfa-b826-318872dbc058@outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SJ0PR20MB6170:EE_
-X-MS-Office365-Filtering-Correlation-Id: c48a6948-8230-4d42-00bc-08dbf51ed1b8
+X-MS-TrafficTypeDiagnostic: MA0P287MB0332:EE_|MA0P287MB0156:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4fb2996e-2efc-403a-b7db-08dbf52252fa
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: B3LYAPsnWFRuzJeXfcp4IZj9WBoyo4nUdDi8facOfb8n59Y7kNCOIEdhIZ5SEw5zutvxGviJcSdOkBESRXIK5fMeKVQPMdN22b+Kvlk7Q5R9a8N20n3f3PyygdcdLI17yjLLmBT3edmi8+KMHh3PZ3YJkk7nrdIT0L3Wiwp4OYm8wJmZajVeKAbOOITXO93M0lGS/jZRFmL9IqwYqZIWHIJgPAMP8KX4pfAV6/D5Xw9MaShDMgLJZhIDe7PkkhiBnxMAstRfCOBukZ80yEy+DBrbNhfn485eYONRsnI6LxbKJ9uYEsxajN8MgxZrSma67M+zmAraxgxmcv1xbwTKFBvCS3F0ewT0d9LsvqX8MpWr5xdjGEamFBY0YnfZUQTIY29lR3eSDOwu/nGG8EONTMvLSs2f29WVK+TBMWdy7OZYObbiW671KBfAnlc/Km/q5MJ6vJ3PmkKHeUFY29RFX724THboc3HF50y1dzIbjugwGfZ/d1OvGjmND5oLZXxSqCjb3axc6Y+shhxS/DiC9GlePN8pYmQKK8y1B9rwkQgTtjfCEYblO/BqBXdfAIUavk4UXOrYm1X/D6o4xq3sbvJcxgV4zJN4xfaOJpXIQzDwYFnWlCaSxFQZvb9pfGrnENgtZyMzkkhWrJhM2JiSnatZkrVlA2poaE5bJ+CI73E=
+X-Microsoft-Antispam-Message-Info: bbENwF2LriIX8E9Gzhw7arC6I2Wd+5Swf5awQcX49/QmOCSVebweadU/IMYgeq31UPEh0qJkq7ZWljgRaycEzm5sbZJS+KoylCGrAK0GZYwaYSKLwYrWRd6hqYfp9zA67H8kz1YaRRqjDPtO3tCeIN0CqOyAQ5DMRMNe+uhiAbpDR4OvBPpL2Ta8surASExZiYzOb0mRVawHYeaN6+Z9LkanDbKJZ7f72lrqAbfkBOHdyRbAr7W2fwBStW9oRyXNfSIAzAb5DE9IEnkxlpJ+LTV+Yxmb1eAK/WWTw31kfvDIo8HDk1/8QWHvJr0t5nMvqGM9AREvfvsvn/qnsGqM4zJcseZwGYcvi/6/K6nZE4S5Sh4vas3vSFUarPSxCnvqZ+USBzItpDe1EIJReM3epaLFeWx7nv9YzQWYiO1VMzAOhzBhwZkvj3YMXqjoI0ENCFeqbhh6eLhAoa9hQnmR6d3EONzge4e3o2ibOWu1NJuBQOj5hYxsCY9yBU0gsCBoshoQHSF/CtIT1s7/K25c7FPJ3NedcJNhQD4aFOleQ62Lj8CBiIzWZqinBL2zxv/2iypa4jscuvDC32DsjSONnga68TqQokFz5YRmiv2o6qQ=
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NsFZbX5YR/SdRxL7LHy7BC+lNOdwCqB7WiogP5B3Q5cykO14A2tL1/wQP/ui?=
- =?us-ascii?Q?/z7kC8J2zCdtlgKnc+odQ945SmJOhtGjTr8PKzE9eWNeLYtQFPfsb8Xv8JYU?=
- =?us-ascii?Q?Sc0U7ypx38jnMTBlCYo3Uq5jaFXtjam5epGr5m8zu1Ir7x6889rrx/G4hF7y?=
- =?us-ascii?Q?i6zTdcKqgvSxK2O8/Y4kt/EbvhrrsgRcQ7RbSbLQUmKU3e/9MUVa79dH398A?=
- =?us-ascii?Q?5mxyLMUR1wnHYEIaMOh31Nu771OauySBVYW2CInUkfpeSnfKKs9CAQftk/yP?=
- =?us-ascii?Q?BCYIQyT9HPWVbYxF2iISUA7jMwi/Uf5iCtnCbiph3qTw7x79XbYGVRJDiudG?=
- =?us-ascii?Q?Z+rZZIYzOPm3jCS4JD1Pz9uq+RSzTz84jQ1/gzLO8W9WijDgW/J2pVVNxTFv?=
- =?us-ascii?Q?MGvn2XUfkgy2tfb+dPJ0EHN+aiDNsUEzj4R/WmkFE/HNyif5dNtIP8hWPwEr?=
- =?us-ascii?Q?ug4/fpR/dlLrxuI9y8MaWtt7fy//ZSi+59jYZJTFDTqgneJSbkZ+/QkHN+xG?=
- =?us-ascii?Q?iMJt4EVdCcFWUBMiX587xAcHE6/dpRaE6Xk7AnFflu/zLlLmC2u8L50vlDGQ?=
- =?us-ascii?Q?xna6owUHE8+QVANuMbnrN7Gt/BUZKi2WwojYom9bgxh0Z00gWJ7k0KFU4cVf?=
- =?us-ascii?Q?5+DHgPqxpGFJ0CxVG5VjC0rUXoKhDyRp6P2t8LF7TP7Nh5t1+eCM1e/Epx8d?=
- =?us-ascii?Q?N2hQHm1XHkDCv8v9P4QzurkvqwDk2jjgf3zqp3rivvX0ljYWUk9TBOMA9eF9?=
- =?us-ascii?Q?jmBJ6PogodIBnbIz3XvM8gmOZtAdxM3rezlsCpxRQKlA0lr6Vqn0gjvn0q2r?=
- =?us-ascii?Q?gnq8HFUfYOLaO1Yl4oimKJ8XlmwFHoRRPw/uAfGhcgR6mQD5EyIT5vhBmq3v?=
- =?us-ascii?Q?vG7kDxm8xaLlIXR1H0M5Q3F/1PuVo+kMu3buDqWe+SnJt3sdQDZC9zxDATbC?=
- =?us-ascii?Q?RyemwH9KQtLvlw77wzdq1O/wbsT//BcQNy88F7sFPvLOFvLVYTFXzVl9PbUi?=
- =?us-ascii?Q?pYdyKVCWuohK8ED8+su5BmC+Ac+Uc9GERIO9yRLIfc8c5UEXxIJMEm5fatoL?=
- =?us-ascii?Q?LkaCRgVT6maVgUUY1LcUrpfEHcoZyROebI1DbRkxAVel0qKdUXms7fJFZw3m?=
- =?us-ascii?Q?fDTDJ0/Qb3nEX1Wm/M0fDmVHuvdoYZkeDbYPJT07CRRuJ712jbhYQURLma6G?=
- =?us-ascii?Q?YP6xQzTPZKJR8PDircJOlyOAlAltPn6OZODcbtSghRgwIYqksInL0+SHcOw?=
- =?us-ascii?Q?=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aldRMkcrRkRmckpGa0ZHTk01ZDgwRnpMM1ZvbHhDalNnUEp1SVBOUWdVenA5?=
+ =?utf-8?B?RTRPMGRtZEdZNU9Ua20ycDNSQmQ1ZFBUTDRCZFJvQVRoelo1Sjd0VmJNVFNk?=
+ =?utf-8?B?MTNmZHhHRkI3ZHZXV0M3MXlwV2tEU1Y2M0lSL1IrNkpoQjdQMVlzMDV5Ujhp?=
+ =?utf-8?B?K1QrWktvYlFYdk9wYmY3NlY2VjU1SDRpNklzbnQyRFUxenhZdkFpNU5GMS91?=
+ =?utf-8?B?SjNodi9KZi9SZ0dUamNidk53Z1JlVTRmY05ZWVdhRVF3MzlLZmxjdmRObVcv?=
+ =?utf-8?B?dksvaGUwR2FSRFJvU2I3ZTVXNkJnTCtuN0ZLazJJOVQwZUMwaW9CZ1FGMGxQ?=
+ =?utf-8?B?YUlsUWZvZWlMdm50YWh2MGo0S24wTGUzajlUL3N3Zzl5cmIvYXE1VE81cXRF?=
+ =?utf-8?B?ek9GYTRUeHU2am8vOVRodnFHTEpxSmFxMERFSEdaS09ITW5iSlp1WDZ6VHFI?=
+ =?utf-8?B?UjJhUjhCTG1oeE5ySFUwMTN5TDdFaEUrNTZaSlRwTHpjbzRtSXlnNkN4RHA5?=
+ =?utf-8?B?YzlGZUh1clZHMUdId2NlRFNqOHBZZWMzcFhaUlc3M1Y5VGo1K3Z5UVRhemNB?=
+ =?utf-8?B?VFlEN1FSaDlwd1BGR2RDYzJqdEpKVzdaajdMZW1VNGpoWmk2WHhtL1NhbDlx?=
+ =?utf-8?B?MUd1K3J5OFE5eG9jbG5HekwxbG54OU1kSHAxNWxxbVh2enNpWGpYQUpqWlB1?=
+ =?utf-8?B?UmlRdFFjK3NlVWxlSFlEMTlTcUZETXhzQytqUTlyRGxhSG9aM0ppRk1RY2ZS?=
+ =?utf-8?B?d2hSRkNZUUJQdmlwcytETGZmSWsvb1BTY0ltbzl4dmxncUNGMjRnQWErenZK?=
+ =?utf-8?B?TDFxeDF2d2N4by8wK1p0elU3QjZCNG9qYWhuQWVTZjJLOUhEakJqN0cxUVIw?=
+ =?utf-8?B?blA2L1JPV2kvZC84RTNqa0h4MTNJMnlueXJxM2hQVDdHQVhEK1JrcnFpY1lQ?=
+ =?utf-8?B?T0dCeG1pbHlYWk9tY082QUpqSmNwUElSZGFoM3BYZHpFZkZ2OUJHTmluQ25W?=
+ =?utf-8?B?RkpLM2JobGZaWS9ZN29UN0Q1YzVoYmpBcDF2NStiUHNpQy8rbmNmOG1uRW8r?=
+ =?utf-8?B?RGxoZ1lDNExKMHhUSUdwZ1Q1QWtjY3lUaGRxNHE5RFJsZmFKeW9rZXBXQ3pt?=
+ =?utf-8?B?QVU1czVXVmY1ZDkrRjZFUmpaYXRMeHRUVE9saU40SFRIckg1R1NTdGxTUU8z?=
+ =?utf-8?B?L1A0R1YvL2NQbmJQeE0wWVNEZU9WTjU0N2s4NU5mUTQ0cjhONTBjMDUxQ1JB?=
+ =?utf-8?B?U0tjd3FPWTFEZFk3RkRSc2VRb0ZsM01pU0lDQ2ExSGxNdDJKWVNadXN4SSs1?=
+ =?utf-8?B?dmJVdDhLYnl4M1VzYWErK3NFcCtYZ3pzdFNYZ3pyemVXblFwb0JoU1ZoN2JU?=
+ =?utf-8?B?ay9KY0VXMi9Dbi9Idk5kbGlWTlQyaTV5NndxbVVDWVBTL1VzN1hCS0piWUJi?=
+ =?utf-8?B?SVBTWlBwQ1l3OElyTWJ0aVVmTFR0UmZDZm1Ka25DTnNQQi91MHdYdFpybjNj?=
+ =?utf-8?B?S1FESEp1ZW8va2NtQmNPUzAxamNYTGExRjBoc29jNFVxa1VkZjFxYmdXUFFp?=
+ =?utf-8?B?T28vZUdFSDF3SHpoM2tQMzJ5QXpOWDZjSDFpR1A1RGRQUkhsRHMwZ3NZVWl5?=
+ =?utf-8?Q?l750mBvFMBn9SyjWtjTYEHfS/orZ5PF4t6IyrKc8XtEY=3D?=
 X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c48a6948-8230-4d42-00bc-08dbf51ed1b8
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4fb2996e-2efc-403a-b7db-08dbf52252fa
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Dec 2023 23:14:52.3080
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Dec 2023 23:39:58.9183
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR20MB6170
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0P287MB0156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231204_151503_078142_F6CADF82 
-X-CRM114-Status: GOOD (  13.34  )
+X-CRM114-CacheID: sfid-20231204_154014_562471_D2DE5D64 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,49 +133,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->On Mon, Dec 04, 2023 at 05:39:09PM +0100, Daniel Lezcano wrote:
->> On 04/12/2023 17:18, Conor Dooley wrote:
->>> On Mon, Dec 04, 2023 at 05:51:08PM +0800, Inochi Amaoto wrote:
->>>> The timer registers of aclint don't follow the clint layout and can
->>>> be mapped on any different offset. As sg2042 uses separated timer
->>>> and mswi for its clint, it should follow the aclint spec and have
->>>> separated registers.
->>>>
->>>> The previous patch introduced a new type of T-HEAD aclint timer which
->>>> has clint timer layout. Although it has the clint timer layout, it
->>>> should follow the aclint spec and uses the separated mtime and mtimecmp
->>>> regs. So a ABI change is needed to make the timer fit the aclint spec.
->>>>
->>>> To make T-HEAD aclint timer more closer to the aclint spec, use
->>>> regs-names to represent the mtimecmp register, which can avoid hack
->>>> for unsupport mtime register of T-HEAD aclint timer.
->>>>
->>>> Also, as T-HEAD aclint only supports mtimecmp, it is unnecessary to
->>>> implement the whole aclint spec. To make this binding T-HEAD specific,
->>>> only add reg-name for existed register. For details, see the discussion
->>>> in the last link.
->>>>
->>>> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
->>>> Fixes: 4734449f7311 ("dt-bindings: timer: Add Sophgo sg2042 CLINT timer")
->>>> Link: https://lists.infradead.org/pipermail/opensbi/2023-October/005693.html
->>>> Link: https://github.com/riscv/riscv-aclint/blob/main/riscv-aclint.adoc
->>>> Link: https://lore.kernel.org/all/IA1PR20MB4953F9D77FFC76A9D236922DBBB6A@IA1PR20MB4953.namprd20.prod.outlook.com/
->>>
->>> Acked-by: Conor Dooley <conor.dooley@microchip.com>
->>>
->>> Although, I figure it is going to be me that ends up taking it.
->>
->> No, I should take it
->
->Sweet, I'd rather you took it than it went via a DT tree :)
->
 
-Thanks you both for taking this. This is good news for me.
+On 2023/12/4 22:25, Rob Herring wrote:
+> On Mon, 04 Dec 2023 20:54:53 +0800, Chen Wang wrote:
+>> From: Chen Wang <unicorn_wang@outlook.com>
+>>
+>> Add documentation to describe Sophgo System Controller for SG2042.
+>>
+>> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+>> ---
+>>   .../soc/sophgo/sophgo,sg2042-sysctrl.yaml     | 35 +++++++++++++++++++
+>>   1 file changed, 35 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
+>>
+> My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+> on your patch (DT_CHECKER_FLAGS is new in v5.13):
+>
+> yamllint warnings/errors:
+>
+> dtschema/dtc warnings/errors:
+> Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.example.dtb: /example-0/system-controller@30010000: failed to match any schema with compatible: ['sophgo,sg2042-sysctl']
+>
+> doc reference errors (make refcheckdocs):
+>
+> See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/14616bce163d689a4e640ab7b372421ca8306a92.1701691923.git.unicorn_wang@outlook.com
+>
+> The base for the series is generally the latest rc1. A different dependency
+> should be noted in *this* patch.
+>
+> If you already ran 'make dt_binding_check' and didn't see the above
+> error(s), then make sure 'yamllint' is installed and dt-schema is up to
+> date:
+>
+> pip3 install dtschema --upgrade
+>
+> Please check and re-submit after running the above command yourself. Note
+> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+> your schema. However, it must be unset to test all examples with your schema.
+
+Thanks, Rob.
+
+My fault and I wrote the compatible string in example incorrectly.
+
+"DT_CHECKER_FLAGS=-m" is very good and do help efficiently catching this 
+misspell issue not easy to find. Learned and thanks again. I will 
+correct this.
+
 
 _______________________________________________
 linux-riscv mailing list
