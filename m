@@ -4,126 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9749EC4167B
-	for <linux-riscv@archiver.kernel.org>; Sun,  3 Dec 2023 23:32:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5212FC4167B
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 02:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jKgoe/eD3FfRoTkpFS0pmLRFXNd1t3Gs4WA6gqd/6Tw=; b=XFsexNdgXX6y98
-	t1Jfw2LUSNVgJUM87M+dwynnsnJON68IOQ7dZL62+z1bInMOLsNHoVeCmodv9ub7eUsZjkF8K3krZ
-	OP9CqcwSztIewvrJSC4pGKaXsUbeI7EBiXZl6tJFaT6jT70/z8Ntu4QfRJnc5r/7kUcelr38eKoh4
-	7zEOvuTsSrPiE0UCc0hf3Jd2fZVqf+RSW6cpLOjBZuxUBZHvgajTMsSZnol9CJd8TQKJ+MZ2o9YNK
-	EmGTqjjAGCycdYZZqKOQtp0ac4W5k4YHX52U65hT+S70twJGIRuEAmCmqA5CUgDzrvO3ovaxvomE9
-	3n+r8+ZdqS/KPLAZUfmg==;
+	List-Owner; bh=1yFNaESX3NpoQTCTSnni3CGMjaCHXVN11smefeQjZ60=; b=4d0bqsazjvzDFP
+	BlZkkFwaAzX5qYAzoC77V54fd1kDelRpwNpymJ/0YpFYN3OqsVhEj+lX0v1/1z37SVycW20tQfoo4
+	gG3lyMdbq/zo6U4tNlyV28orS2vT3i1D1h7l9WtRb6lS2l/4YMdTfhIjY31ztpTfSGk0V6T/LVEyY
+	qdKRulmO9A5YtNegllvBZmtNGDvYE0htqZk58o2a2vSbyKuZftXOYuvFeeST3S1naT6McQN/2hHzv
+	Xdv+pTxDTYfMNa561SkgWYw7Bq5wz405zPe6oZqLWZEEda5vEUtvbFZpF6WR+CJDUNqx/5QuNXgGM
+	BDIb/D3B8+1yjL5wp2tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9vwh-002hsV-0I;
-	Sun, 03 Dec 2023 23:32:19 +0000
-Received: from mail-dm6nam10acsn20806.outbound.protection.outlook.com ([2a01:111:f400:7e88::806] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1r9yYr-002pMZ-1t;
+	Mon, 04 Dec 2023 02:19:53 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9vwd-002hrg-0A
+	id 1r9yYk-002pKo-2u
 	for linux-riscv@lists.infradead.org;
-	Sun, 03 Dec 2023 23:32:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=cF7HCbCNkhVQPpqsuoSZgkF2HbF2U5JbUOdYimAnAIR4LmiHndLn25pGZ8x1zuYLj1rkO/9t2tc3gxuLCqoTrYS/ME31owPKnqDk3i6EfvX9zpjGgciIKTesAca6jKUuVWiaM4j5eNIPuV6wBQOSOKyaI7bD5s2hvSQ7+91PXY1kPs4rE5hRVckK9g+O5OEnGI4AiSEhd6PdSuhl9+8VEJHmM0Fzs9jacgzaq+MtJu6H9UsYLVLj3Cq6pjg57amTzaTL3zmQEBFHOQz9nUShE70ey9xFn0HZlvZ0jEHIH+7X/yws25JDvqhG4pIy7laZpCOab0yzy4IhVAzZ+g3iIQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Oa7r0VUZGJTJpTEY9TLXk6hMzsXwZ1aWt1Ht6N5MHfw=;
- b=VVvwZlJi/sP/osJfxfXmwsOIq3FyJbxWufNFevU1uU5wXxzyEsHoXoDDbdbBeAHRG8Xb9wrt3M2EdYYYHW9faMBKUEAZ9yHplVD8YxiYJXo8xJLJwHDwKV0q1yo2PUDlta55teo7AkxfB5hKGXtUEQmElWEMUzU6BdRe2tS2V9pj6lxMVa16kDxSF/U0+2bqozM9BJk63OmEjvThbQ7QtILZCdwl2rHcttJAPtCIy47g4ULn0M8DVW7xOTGyXA4OpdzD0iDjx2d6gjBWNsgNxZqYI4/t8RkIcxx+MEJdJ5rT4QeJAdOdYLJ3y9auml4rwfKDOvMkNdC+4VIE1iwXYg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Oa7r0VUZGJTJpTEY9TLXk6hMzsXwZ1aWt1Ht6N5MHfw=;
- b=UubtGahkXMyv6OlqFjqFq4e2+K4UXI4d/AQIgVIBQ58ewf32NHNsAw2mUMcU1GEtoouf4yvlBfccJscvEqQRhXF2cOnWfI+bz4sVY7wNPG27TE/O6dRP9t5IAPj2Nbm1SKwSzoCoG3VTAe0sQcWW2vuAyGnGGcQJEPkiXfqw64Kom2WZcqgD3QccoHPk27+zFTnQwGbE0NZ8jmHROBpapeUnh2Sse5exizhuZPBYGsQB5WGDS13vnVSkjzLV4rQxkuZu0hWaIw5gWVzJ+7z86gDMPoVGJm7qTEH2CyK7MIZ/G1Ufo3nZLi9+JGw0TqUUFGfuudnFxEVH35hfaGSafQ==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by MW3PR20MB3388.namprd20.prod.outlook.com (2603:10b6:303:54::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7046.33; Sun, 3 Dec
- 2023 23:32:07 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::55b:c350:980:ad8]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::55b:c350:980:ad8%6]) with mapi id 15.20.7046.024; Sun, 3 Dec 2023
- 23:32:07 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Chen Wang <unicorn_wang@outlook.com>,
-	Conor Dooley <conor@kernel.org>
-Cc: Inochi Amaoto <inochiama@outlook.com>,
-	Chao Wei <chao.wei@sophgo.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Anup Patel <anup@brainfault.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 0/7] Add Huashan Pi board support
-Date: Mon,  4 Dec 2023 07:32:02 +0800
-Message-ID: <IA1PR20MB49537B177B6F3614D8D1E3E6BB87A@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <MA0P287MB033290A6C8B15202E31E43CCFE80A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
-References: <MA0P287MB033290A6C8B15202E31E43CCFE80A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
-X-TMN: [v20BKasDHHab6HSJdizV/LFdacPqoKQD/o2qTC7NaQc=]
-X-ClientProxiedBy: BYAPR06CA0041.namprd06.prod.outlook.com
- (2603:10b6:a03:14b::18) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20231203233203.116267-1-inochiama@outlook.com>
+	Mon, 04 Dec 2023 02:19:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1701656386;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kEYLn+UWJXzVvOdXDQoSl0HV2uxdkFhIxrNZEqvidvw=;
+	b=RuVbHeMocCB6xcp7rclaFRtcg96dQ6oioj3hGaewDtDvjj5/4wbNYqiC/ChWJB0NHg0Lm9
+	/L7f5wOe9N4Z3xiZfd5LRg4vt+Lw167BVhU7F1pbfJDLjtze5QKGIU0U4EPwKdFcSO8X07
+	VWG4s3SspHlfVsFVqOKTFxjmc7L1KEg=
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-527-IJdQXgyNMci1xrid06S4Qw-1; Sun,
+ 03 Dec 2023 21:19:41 -0500
+X-MC-Unique: IJdQXgyNMci1xrid06S4Qw-1
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id F151E1C041BF;
+	Mon,  4 Dec 2023 02:19:40 +0000 (UTC)
+Received: from localhost (unknown [10.72.113.121])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4F2A9492BFC;
+	Mon,  4 Dec 2023 02:19:39 +0000 (UTC)
+Date: Mon, 4 Dec 2023 10:19:36 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: Stephen Rothwell <sfr@canb.auug.org.au>, akpm@linux-foundation.org,
+	ignat@cloudflare.com, linux-next@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	kexec@lists.infradead.org, eric_devolder@yahoo.com
+Subject: [PATCH 1/2] riscv, crash: don't export some symbols when CONFIG_MMU=n
+Message-ID: <ZW03ODUKGGhP1ZGU@MiWiFi-R3L-srv>
+References: <ZW00/Cfk47Cc3kGo@MiWiFi-R3L-srv>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|MW3PR20MB3388:EE_
-X-MS-Office365-Filtering-Correlation-Id: 630610d6-a61b-4006-c074-08dbf4581017
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: q01thJSpzCoZL3WpEc8FGLfoXpv/ts3v+S9uw3bdK3j9Cd425rlATqFCkEzt+Igdjh93COi9w6Qdt01pDeda2XKu5eek7D6Pk7+cynTvBxHfLwq8bnCHCkviAhD10ZMLhywB7Fr1gm+EaKm+0q9qN124Xanha5TE5Va3Do6trEjBy78hpGix6XS+XBWG+AlzumHhuQxeY+XUuHhgClpI54OkrDESqWQeJWJzFoe61TWAMhDRxwB3C3KoF+kHhYj+Q/f5g4CWWAGQaZRNoHtytIEzzmE+jSaYsZkdDJINFq3Nrsg58/mWnhLVUdNx9Vw4aqDm/5yrDdFeSJ8XU4Ti8fdUWI8v8L6vcytolh1mSXvMrTMIZI6X7/xQ4YWp9R9JJIXU4hD3MQX1qw33T0vp32lskKMn2KBEsVqWJ6H7bKQOiqA6xvasPXgoAGuhNoUiEUEJLye3bSjNxeVvGV/CgZ5IdLe+Ad3jaFiTOvQ5BL1vIOjsPvnbRd4hb49dW96qacmkCsY18u9dAV+Itnu3vJxlRiLluS5LIosruUChdSKwstgYhp8Qu+F/PY5sWQGdd4ukoxg5JlPx6jtagjBybKSDAUV1dVejrChIYtSX6VcZ+HSFmZLroptdEP6zF3ZoDscnJF1/t4n+Vebcw40TwpO28VZx5lciMs35YOg8JsM=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fb4i/UnWjvyDxEXxkr/0erm9mNjaRFo+5oiQmEv0FtbZGsqO+iEHnZEW0kf2?=
- =?us-ascii?Q?2GKVpAnSvKDRTK/Sy4rmpIakaF02TJGoo6dZF9BVj423KN2+r9v6SLQy7Vbx?=
- =?us-ascii?Q?yt3DhpcUB07766PNh+jO/lxjtY8DytdHb2vI6MhcNubhzHncy8K0wcGHta1+?=
- =?us-ascii?Q?XY08CPNYWkusePydcdJMp3Sz8Wz3aXLGQy1IMm+ouVVPTjyrOMtK/rdn6/Aa?=
- =?us-ascii?Q?qu81QY2x0KuP+2dmCK2vlxRcBx0nJjJE4CmGwdSazR1VJbDqpKNMmsiPMdzE?=
- =?us-ascii?Q?FTV610wO7rOKZapznhhnzvp/ScxvHHzzfmgZXc7TOPPX0H2Qi7wsFStrXvw9?=
- =?us-ascii?Q?8cMxLrC8NSJEIR/RtvVrp+9eSIInWwXm+fR/eEQWg+qt05uNfqPTiKG2ec7k?=
- =?us-ascii?Q?ykOMVZibb/nv6W0JV4XIyqpr9vaXYK7Rdg25wJcf8S2AzPJB17Y8K3nLQ4IX?=
- =?us-ascii?Q?ZUc4KrH7xEAnNytIrltoR+Yr/mZWz0rFgmErfNHtbTXsvr3NH3KbxbeYxAXc?=
- =?us-ascii?Q?GhPAnl3kQTwJaB92r/0fvaiQ8bzqlut0tmiNH23I8si8NxPRx5zJ4rOcEEy2?=
- =?us-ascii?Q?o+FnqiW32oFodCckoLidIqJzcj78HGPb2vwypvCUQHjLIZR7D97eowmc4e7B?=
- =?us-ascii?Q?96d1P737ksC5fJ2UOuvX4ZmQy6njquW8EQTeQVAVTzd5AIepxsbC/3kVYtIM?=
- =?us-ascii?Q?/7T16sSdQA0mdLQHhUNa4gXZPwCEV44yo83i6VArkArH6ZiCkUQekQ3Rp4Ys?=
- =?us-ascii?Q?zB8DSJneBqNp/kEBNKOiGTEkUywXZHixRikjpAuEwzyt/jEwtcuFxCuCsakU?=
- =?us-ascii?Q?/iNH5T7d0luEFQDg1C08RmtYV0txzKjciHZz0/qaXRoDT1IVC31UJtAn+wBf?=
- =?us-ascii?Q?L/Kx08CPEtG9w2/BNevT9Xtnj4v5KTAE6bSUfKRTWfARG9Zw9Hn0wsFG4Nc0?=
- =?us-ascii?Q?nf6TPinsVzYCupuIc6oxIdM4gWwzvc7nNFJvc/hOI4REZ/y1o6EqRnSfvewB?=
- =?us-ascii?Q?jsCubYwIOL24NBWrlWzL54llxBKZZbPfK/J6EZcbiP2IJnfPkPmf3ZfRh9U7?=
- =?us-ascii?Q?4DMyP2wqvBWs2ueIkQv4Jq2tuIORhzpS/+3J3B2vYn4xp9ibLIJTFytqnqvg?=
- =?us-ascii?Q?+5gVklFj11EnHQQEZD1kqriWetzq6EbFhtbJ2Zn/PrlQUEaR9znz+S1jewfz?=
- =?us-ascii?Q?5CNXraAXjgWsUfjZz9qAz7t/gA/Bd2jptSSLLHFXj/fiB5Qv+xNdtvifOpQ?=
- =?us-ascii?Q?=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 630610d6-a61b-4006-c074-08dbf4581017
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Dec 2023 23:32:07.2184
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR20MB3388
+Content-Disposition: inline
+In-Reply-To: <ZW00/Cfk47Cc3kGo@MiWiFi-R3L-srv>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231203_153215_173472_CA3D0FAD 
-X-CRM114-Status: GOOD (  22.42  )
+X-CRM114-CacheID: sfid-20231203_181948_021084_55E35DFA 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,91 +83,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->On 2023/12/2 0:21, Conor Dooley wrote:
->> On Fri, Dec 01, 2023 at 04:31:38PM +0800, Inochi Amaoto wrote:
->>>> On Fri, Dec 01, 2023 at 09:02:59AM +0800, Inochi Amaoto wrote:
->>>>>> On Fri, Dec 01, 2023 at 07:21:29AM +0800, Inochi Amaoto wrote:
->>>>>>>> On Thu, 19 Oct 2023 07:18:00 +0800, Inochi Amaoto wrote:
->>>>>>>>> Huashan Pi board is an embedded development platform based on the
->>>>>>>>> CV1812H chip. Add minimal device tree files for this board.
->>>>>>>>> Currently, it can boot to a basic shell.
->>>>>>>>>
->>>>>>>>> NOTE: this series is based on the Jisheng's Milk-V Duo patch.
->>>>>>>>>
->>>>>>>>> Link: https://en.sophgo.com/product/introduce/huashan.html
->>>>>>>>> Link: https://en.sophgo.com/product/introduce/cv181xH.html
->>>>>>>>> Link: https://lore.kernel.org/linux-riscv/20231006121449.721-1-jszhang@kernel.org/
->>>>>>>>>
->>>>>>>>> [...]
->>>>>>>> Applied to riscv-dt-for-next, thanks! LMK if something looks not as
->>>>>>>> expected.
->>>>>>>>
->>>>>>>> [1/7] dt-bindings: interrupt-controller: Add SOPHGO CV1812H plic
->>>>>>>>       https://git.kernel.org/conor/c/21a34e63afcc
->>>>>>>> [2/7] dt-bindings: timer: Add SOPHGO CV1812H clint
->>>>>>>>       https://git.kernel.org/conor/c/06ea2a1968a9
->>>>>>>> [3/7] dt-bindings: riscv: Add SOPHGO Huashan Pi board compatibles
->>>>>>>>       https://git.kernel.org/conor/c/d7b92027834e
->>>>>>>> [4/7] riscv: dts: sophgo: Separate compatible specific for CV1800B soc
->>>>>>>>       https://git.kernel.org/conor/c/5b5dce3951b2
->>>>>>>> [5/7] riscv: dts: sophgo: cv18xx: Add gpio devices
->>>>>>>>       https://git.kernel.org/conor/c/dd791b45c866
->>>>>>>> [6/7] riscv: dts: sophgo: add initial CV1812H SoC device tree
->>>>>>>>       https://git.kernel.org/conor/c/681ec684a741
->>>>>>>> [7/7] riscv: dts: sophgo: add Huashan Pi board device tree
->>>>>>>>       https://git.kernel.org/conor/c/2c36b0cfb408
->>>>>>> Thanks for the confirmation. But I suggest to revert these patches.
->>>>>>> Several days ago, Sophgo informed me that CV1810 series will be
->>>>>>> renamed. And the Huashan Pi will switch to the chip with new name.
->>>>>>> To avoid unnecessary conflict, please drop these patch and I will
->>>>>>> prepare a new patch once the renamed chip is launched.
->>>>>> This is a board that exists, that you (and possibly others) have, right?
->>>>>>
->>>>> Yes, of course.
->>>> I dunno then. It sounds from your message that this is purely a rebrand
->>>> of the SoCs,
->>> IIRC, it is.
->>> FYI, Chen and Chao. Maybe you know something more.
->>>
->>>> so since people already have these boards, I'd rather not.
->>>> We should be able to support both since it's just a naming change,
->>>> right?
->>> I agree with this. If the above is true, we can just reuse the exists code
->>> with a different compatible name, right?
->> I think so? I'm not sure what the precedent really is for pure
->> rebrandings of an SoC.
->> I say for now, assume we can do that, and we can discuss it with Rob and
->> Krzysztof when the time comes if there is no difference between the SoCs
->> and boards.
->>
->> Cheers,
->> Conor.
->
->As far as I know, sophgo's SoC product names all start with "sg", while products starting with "cv" come from CVITEK (another chip company). CVITEK was acquired by sophgo a year ago, so now many SOC product names that originally started with "cv" are being repackaged and changed to start with "sg".
->
->For the cv1800b adopted by Duo, Sophgo has made it clear that it will not change its codename.
->
->But I heard that for other products, such as the cv1812h used by Huashanpi, sophgo may change their names in the future, but sophgo has not officially confirmed it yet. Looks like sophgo themselves are still in the process of digesting cv's products, ;)
->
->Since we have just started to support cv1812h and have not done much work yet, I suggest not to merge this patch into the mainline, and wait until there is clear news before doing this to avoid introducing unnecessary modifications later.
->
+When dropping select of KEXEC and dependency on ARCH_SUPPORTS_KEXEC
+from CRASH_DUMP, compiling error is reported when below config items are
+set:
+-----------------------
+CONFIG_CRASH_CORE=y
+CONFIG_KEXEC_CORE=y
+CONFIG_CRASH_DUMP=y
+......
+-----------------------
 
-Hi Chen,
+-------------------------------------------------------------------------------------------------
+arch/riscv/kernel/crash_core.c:8:27: error: 'VA_BITS' undeclared (first use in this function)
+ 8 |         VMCOREINFO_NUMBER(VA_BITS);
+   |                           ^~~~~~~
+include/linux/crash_core.h:78:64: note: in definition of macro 'VMCOREINFO_NUMBER'
+78 |         vmcoreinfo_append_str("NUMBER(%s)=%ld\n", #name, (long)name)
+   |                                                                ^~~~
 
-There is a update for you. The cv1812h does not have the A53 core as the
-sg200x does. Maybe we should treat cv1812h as a trim of sg200x, not just
-a reband.
+arch/riscv/kernel/crash_core.c:14:64: error: 'VMEMMAP_START' undeclared (first use in this function)
+14 |         vmcoreinfo_append_str("NUMBER(VMEMMAP_START)=0x%lx\n", VMEMMAP_START);
+   |                                                                ^~~~~~~~~~~~~
+arch/riscv/kernel/crash_core.c:15:62: error: 'VMEMMAP_END' undeclared (first use in this function); did you mean 'MEMREMAP_ENC'?
+15 |         vmcoreinfo_append_str("NUMBER(VMEMMAP_END)=0x%lx\n", VMEMMAP_END);
+   |                                                              ^~~~~~~~~~~
+   |                                                              MEMREMAP_ENC
+arch/riscv/kernel/crash_core.c:17:64: error: 'MODULES_VADDR' undeclared (first use in this function)
+17 |         vmcoreinfo_append_str("NUMBER(MODULES_VADDR)=0x%lx\n", MODULES_VADDR);
+   |                                                                ^~~~~~~~~~~~~
+arch/riscv/kernel/crash_core.c:18:62: error: 'MODULES_END' undeclared (first use in this function)
+18 |         vmcoreinfo_append_str("NUMBER(MODULES_END)=0x%lx\n", MODULES_END);
+-------------------------------------------------------------------------------------------------
 
-According to this information, I suggest to preserve these code for
-cv1812h, it can make upstream the new soc eaiser. Also, adding a new
-compatible is not too hard, and it is necessary if we have new soc.
-Otherwise, the one with Huashan Pi now may be confused because it have
-a old version.
+Currently, riscv's ARCH_SUPPORTS_KEXEC has dependency on MMU. Before
+dropping ARCH_SUPPORTS_KEXEC, disabling CONFIG_MMU will unset
+CONFIG_CRASH_DUMP, CONFIG_KEXEC_CORE, CONFIG_CRASH_CORE. Hence
+crash_core related codes won't be compiled.
 
->Thanks,
->
->Chen
->
+---------------------
+arch/riscv/Kconfig:
+config ARCH_SUPPORTS_KEXEC
+        def_bool MMU
+---------------------
+
+After dropping ARCH_SUPPORTS_KEXEC, CONFIG_CRASH_DUMP, CONFIG_KEXEC_CORE,
+CONFIG_CRASH_CORE can be set independently of CONFIG_MMU. However, there
+are several macro definitions, such as VA_BITS, VMEMMAP_START, VMEMMAP_END,
+MODULES_VADDR, MODULES_END are only available when CONFIG_MMU=y. Then
+compiling errors are triggered.
+
+Here, add CONFIG_MMU ifdeffery in arch_crash_save_vmcoreinfo() to export
+those symbols when CONFIG_MMU is enabled.
+
+Signed-off-by: Baoquan He <bhe@redhat.com>
+---
+ arch/riscv/kernel/crash_core.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/kernel/crash_core.c b/arch/riscv/kernel/crash_core.c
+index 55f1d7856b54..8706736fd4e2 100644
+--- a/arch/riscv/kernel/crash_core.c
++++ b/arch/riscv/kernel/crash_core.c
+@@ -5,17 +5,19 @@
+ 
+ void arch_crash_save_vmcoreinfo(void)
+ {
+-	VMCOREINFO_NUMBER(VA_BITS);
+ 	VMCOREINFO_NUMBER(phys_ram_base);
+ 
+ 	vmcoreinfo_append_str("NUMBER(PAGE_OFFSET)=0x%lx\n", PAGE_OFFSET);
+ 	vmcoreinfo_append_str("NUMBER(VMALLOC_START)=0x%lx\n", VMALLOC_START);
+ 	vmcoreinfo_append_str("NUMBER(VMALLOC_END)=0x%lx\n", VMALLOC_END);
++#ifdef CONFIG_MMU
++	VMCOREINFO_NUMBER(VA_BITS);
+ 	vmcoreinfo_append_str("NUMBER(VMEMMAP_START)=0x%lx\n", VMEMMAP_START);
+ 	vmcoreinfo_append_str("NUMBER(VMEMMAP_END)=0x%lx\n", VMEMMAP_END);
+ #ifdef CONFIG_64BIT
+ 	vmcoreinfo_append_str("NUMBER(MODULES_VADDR)=0x%lx\n", MODULES_VADDR);
+ 	vmcoreinfo_append_str("NUMBER(MODULES_END)=0x%lx\n", MODULES_END);
++#endif
+ #endif
+ 	vmcoreinfo_append_str("NUMBER(KERNEL_LINK_ADDR)=0x%lx\n", KERNEL_LINK_ADDR);
+ 	vmcoreinfo_append_str("NUMBER(va_kernel_pa_offset)=0x%lx\n",
+-- 
+2.41.0
+
 
 _______________________________________________
 linux-riscv mailing list
