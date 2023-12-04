@@ -4,94 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E363C4167B
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 11:32:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7875C4167B
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 11:38:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/STvUNMPDqtTvHOYLRgaUfrhhOsbghVdg9Co9bjA5k0=; b=eJqBGRsIbo5Nlw
-	SZESesyMiIimAt8fAhO20b4jY6L7gDfFeYYO9I3DhBC1pXfYyMEemuTGHMnb3KlBtJsIFZUH2ciDp
-	THqsgT7Z25I4oL6VG8tSoWcDn19NH7JFhOy+PKHaw/ble/nNniB/vFpuFjNr9wKgJ4Q0NR+AJLK9v
-	jMN+efMbBODRwSymoEtOQqU8Gepzm72oFH0IxJec6+NctqVIfNBlmL5h6DgBVZbexsUfBZvkKyPYn
-	0vTGCuKD5stKQjJ7NPcxllEjSOywCY5it8Jw8k8m5McvOi/b4q0/TB6XFVQR7ttWlsTrRkAP68uI7
-	7bxuvdq5Lm9KmFoyhhCA==;
+	List-Owner; bh=2RKfeP1vLob7sZS9+s4dL9pcwFvpuM8UTbvOp7TxTFo=; b=aGtGDqC7Xxe5z+
+	KpWIQeSel7ku2RcyvdboOnFIJlv9ZXe9l5ls+0vU/HHvDVcXyL+aFik4Uw/p/3tj7xnlNYgUMgMaL
+	WTEd8N8zF5A8uYOr162berdFx9ZbqPsKiHPdlS5HrEMIjEQX6ouSbJbZpb7G8z57NVSAf6xMPOvyJ
+	oSUlQ5M9p2pSEknSYwQfPYSYpli7f0thhVxWCWNvFmEKkd77AOYEFaN5dVtdIPM/QShW+9oo6C7g9
+	P/Re9lvEHfhuHO8CkSB5Dq9P4kyYcq07kYfVYD5XDp4U9eG4VOikbDMSCZ7h4YbfTp6WbTNwnAPZu
+	I2SOF4gPvjo0xCTkwiQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rA7Bi-003eVP-03;
-	Mon, 04 Dec 2023 11:32:34 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rA7Bc-003eUF-2F
+	id 1rA7Hm-003f3j-0t;
+	Mon, 04 Dec 2023 11:38:50 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1rA7HP-003esG-1V
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Dec 2023 11:32:31 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-40bd5eaa66eso23410185e9.3
-        for <linux-riscv@lists.infradead.org>; Mon, 04 Dec 2023 03:32:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1701689545; x=1702294345; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=k24kTPlVkd21kNiwlx5AXtWzxUb1iLhkKqVaC17WY/Y=;
-        b=R8JumpUG1L/C2X03lGTne96Objwp+OgpNzcvojWCWWRmyV6Ie+PNDqLnTp4JUwZWoU
-         b1rywLX2umU5OAl+mYI/njmAVZg8Dw7c0VNoBTbcyw2FXzIdjK+HmHrK/n/0uJ4En4/l
-         EIXd/OIwXv5jzduLdA2DuJAWifh3f3Kj5zH/IxzyxJJbB6loipvANdUONTXKuRP+uM3f
-         YZyg89Fa1XUyTkdlYR+YkD07WvbCSCvgV2TqdRopqTwtMTLfjbcYdDKYyrv9jjhr54qw
-         UPwktFKtI4MUyCoLwUsnIRa8SsuH28Hb3eE/l6OO0GxTlVfu62eMKjdXxd8RzIt9ubvP
-         V0tg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701689545; x=1702294345;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=k24kTPlVkd21kNiwlx5AXtWzxUb1iLhkKqVaC17WY/Y=;
-        b=Mhqk9BVe/MRq2daSaCg3zikqHmJkSYTIsTvWuUKgymtxaFYmS0CwTpj43okjFkxyoL
-         ClV0aKSPMonUN+UO/PwWG3GX7ZnNl9jI3YbTu4rZ2mTCoGgJiW6LHm16TR2ti4Nb4f8R
-         Hd2CmkkBjFcI8nLTWLApu8mzn5wY9KvlTWtG+Jr3qVYPL/BwvNreNRnEJSPKtKJ56bN4
-         joW+7QuzrWATdFOwibnyV7sEcxz+aIkVH6A7ACTZJtdqBQzvoSW/7puEC94CuuaGLYjJ
-         a0bcPOJAwfaU2WdXew27LNej0i+F5WzBH0I858bUre6f6FRX1L7/AdhKKBTd5cn3Kne/
-         n0OA==
-X-Gm-Message-State: AOJu0YxaHS5LlbYLuDp5rTKCELcxRx6s4kDREqmfx72AvkBXSup+KmaQ
-	w1DckglwVH/zEY/gaOotnuAcN6vAY3EbMK5EyVc=
-X-Google-Smtp-Source: AGHT+IErNZnZcr/TyviXxvsAwPQtN/v+Nlqzyb1HJSfOFwnV8njyLvYHhsJtg7HkXjuZQ5dLEL6OcQ==
-X-Received: by 2002:a05:600c:5d5:b0:40b:5e21:ec33 with SMTP id p21-20020a05600c05d500b0040b5e21ec33mr2310718wmd.101.1701689545469;
-        Mon, 04 Dec 2023 03:32:25 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id u2-20020a05600c138200b00405d9a950a2sm18390025wmf.28.2023.12.04.03.32.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Dec 2023 03:32:24 -0800 (PST)
-Date: Mon, 4 Dec 2023 12:32:24 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Haibo Xu <xiaobo55x@gmail.com>
-Cc: Haibo Xu <haibo1.xu@intel.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Shuah Khan <shuah@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
-	Sean Christopherson <seanjc@google.com>, Ricardo Koller <ricarkol@google.com>, 
-	Vishal Annapurve <vannapurve@google.com>, Vitaly Kuznetsov <vkuznets@redhat.com>, 
-	Vipin Sharma <vipinsh@google.com>, David Matlack <dmatlack@google.com>, 
-	Colton Lewis <coltonlewis@google.com>, Aaron Lewis <aaronlewis@google.com>, 
-	Thomas Huth <thuth@redhat.com>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 9/9] KVM: riscv: selftests: Add sstc timer test
-Message-ID: <20231204-980c95cca344f718ac6a48b6@orel>
-References: <cover.1694421911.git.haibo1.xu@intel.com>
- <64e0637cd6f22dd7557ed44bd2242001e7830d1c.1694421911.git.haibo1.xu@intel.com>
- <20230914-d2e594e7d84503ad14036e2d@orel>
- <CAJve8onhY534T=Hyncjfi4GfdZ+0D2xM+jRSaYCAWCdaKxPUcQ@mail.gmail.com>
- <CAJve8omitHDpijJaLV_wHk+5LXpsBUWF8_eTD4MeWKM-807Siw@mail.gmail.com>
+	Mon, 04 Dec 2023 11:38:48 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 7798517F57;
+	Mon,  4 Dec 2023 19:37:07 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 4 Dec
+ 2023 19:37:07 +0800
+Received: from [192.168.125.131] (183.27.97.199) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 4 Dec
+ 2023 19:37:06 +0800
+Message-ID: <f807bd04-02b9-4fda-97b9-7b47ce0cd87a@starfivetech.com>
+Date: Mon, 4 Dec 2023 19:29:35 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJve8omitHDpijJaLV_wHk+5LXpsBUWF8_eTD4MeWKM-807Siw@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] riscv: dts: starfive: move timebase-frequency to .dtsi
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	<linux-riscv@lists.infradead.org>
+CC: Conor Dooley <conor.dooley@microchip.com>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Walker Chen
+	<walker.chen@starfivetech.com>, JeeHeng Sia <jeeheng.sia@starfivetech.com>,
+	Leyfoon Tan <leyfoon.tan@starfivetech.com>
+References: <20231130-bobbing-valid-b97f26fe8edc@spud>
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+In-Reply-To: <20231130-bobbing-valid-b97f26fe8edc@spud>
+X-Originating-IP: [183.27.97.199]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231204_033228_942953_45EDA8F0 
-X-CRM114-Status: GOOD (  27.45  )
+X-CRM114-CacheID: sfid-20231204_033827_837972_D41F03A0 
+X-CRM114-Status: GOOD (  21.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,53 +74,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBEZWMgMDQsIDIwMjMgYXQgMTA6NDI6MjRBTSArMDgwMCwgSGFpYm8gWHUgd3JvdGU6
-Cj4gT24gRnJpLCBTZXAgMTUsIDIwMjMgYXQgMjoyMeKAr1BNIEhhaWJvIFh1IDx4aWFvYm81NXhA
-Z21haWwuY29tPiB3cm90ZToKPiA+Cj4gPiBPbiBUaHUsIFNlcCAxNCwgMjAyMyBhdCA1OjUy4oCv
-UE0gQW5kcmV3IEpvbmVzIDxham9uZXNAdmVudGFuYW1pY3JvLmNvbT4gd3JvdGU6Cj4gPiA+Cj4g
-PiA+IE9uIFRodSwgU2VwIDE0LCAyMDIzIGF0IDA5OjM3OjAzQU0gKzA4MDAsIEhhaWJvIFh1IHdy
-b3RlOgo+ID4gPiA+IEFkZCBhIEtWTSBzZWxmdGVzdHMgdG8gdmFsaWRhdGUgdGhlIFNzdGMgdGlt
-ZXIgZnVuY3Rpb25hbGl0eS4KPiA+ID4gPiBUaGUgdGVzdCB3YXMgcG9ydGVkIGZyb20gYXJtNjQg
-YXJjaCB0aW1lciB0ZXN0Lgo+ID4gPgo+ID4gPiBJIGp1c3QgdHJpZWQgdGhpcyB0ZXN0IG91dC4g
-UnVubmluZyBpdCBvdmVyIGFuZCBvdmVyIGFnYWluIG9uIFFFTVUgSSBzZWUKPiA+ID4gaXQgd29y
-a3Mgc29tZXRpbWVzLCBidXQgaXQgZnJlcXVlbnRseSBmYWlscyB3aXRoIHRoZQo+ID4gPiBHVUVT
-VF9BU1NFUlRfRVEoY29uZmlnX2l0ZXIgKyAxLCBpcnFfaXRlcikgYXNzZXJ0IGFuZCBhdCBsZWFz
-dCBvbmNlIEkKPiA+ID4gYWxzbyBzYXcgdGhlIF9fR1VFU1RfQVNTRVJUKHhjbnQgPj0gY21wKSBh
-c3NlcnQuCj4gPiA+Cj4gPgo+ID4gR29vZCBjYXRjaCEKPiA+Cj4gPiBJIGNhbiBhbHNvIHJlcHJv
-ZHVjZSB0aGlzIGlzc3VlIGFuZCBpdCBpcyBhIGNvbW1vbiBwcm9ibGVtIGZvciBib3RoCj4gPiBh
-cm02NCBhbmQgcmlzY3YgYmVjYXVzZSBpdCBhbHNvIGhhcHBlbnMgaW4gYSBhcm02NCBRZW11IFZN
-Lgo+ID4KPiA+IEl0IHNlZW1zIGxpa2UgYSBzeW5jaHJvbml6YXRpb24gaXNzdWUgYmV0d2VlbiBo
-b3N0IGFuZCBndWVzdCBzaGFyZWQKPiA+IHZhcmlhYmxlcy4gV2lsbCBkb3VibGUgY2hlY2sgdGhl
-IHRlc3QgY29kZS4KPiA+Cj4gPiA+IFRoYW5rcywKPiA+ID4gZHJldwo+IAo+IEhpIEFuZHJldywK
-PiAKPiBBZnRlciBzZXZlcmFsIHJvdW5kcyBvZiByZWdyZXNzaW9uIHRlc3RpbmcsIHNvbWUgZmlu
-ZGluZ3M6Cj4gMS4gVGhlIGludGVybWl0dGVudCBmYWlsdXJlIGFsc28gaGFwcGVuZWQgb24gQVJN
-NjQgUWVtdSBWTSwgYW5kIGV2ZW4KPiBpbiB0aGUgaW5pdGlhbCBhcmNoX3RpbWVyIGNvbW1pdCg0
-OTU5ZDg2NTBlOWY0KS4KPiAyLiBpdCBkaWRuJ3QgaGFwcGVuIG9uIGEgQVJNNjQgSFcoYnV0IGEg
-ZGlmZmVyZW50IGZhaWx1cmUgb2NjdXJlZAo+IGR1cmluZyBzdHJlc3MgdGVzdCkKPiAzLiBUaGUg
-ZmFpbHVyZSBoYXZlIGEgY2xvc2UgcmVsYXRpb25zaGlwIHdpdGgKPiBUSU1FUl9URVNUX0VSUl9N
-QVJHSU5fVVMoZGVmYXVsdCAxMDApLCBhbmQgYWZ0ZXIgaW5jcmVhc2luZwo+ICAgICAgdGhlIG1h
-Y3JvIHRvIDMwMCwgdGhlIGZhaWx1cmUgY291bGRuJ3QgcmVwcm9kdWNlZCBpbiAxMDAwIGxvb3Bz
-Cj4gc3RyZXNzIHRlc3QgaW4gUklTQy1WIFFlbXUgVk0KPiAKPiBTbyBteSBzdWdnZXN0aW9uIGlz
-IHdlIGNhbiBleHBvc2UgdGhlIFRJTUVSX1RFU1RfRVJSX01BUkdJTl9VUwo+IHBhcmFtZXRlciBh
-cyBhbiBhcmNoX3RpbWVyIHRlc3QgYXJnIHBhcmFtZXRlcgo+IGFuZCB0dW5lIGl0IGJhc2VkIG9u
-IGEgc3BlY2lmaWMgdGVzdCBlbnZpcm9ubWVudC4KPiAKPiBXaGF0J3MgeW91ciBvcGluaW9uPwoK
-VGhlIGNvbmNlcHQgb2YgInRpbWVvdXQgZm9yIGFuIGludGVycnVwdCB0byBhcnJpdmUiIGlzIGFs
-d2F5cyBnb2luZyB0bwpsZWF2ZSB1cyBleHBvc2VkIHRvIHJhbmRvbSBmYWlsdXJlcy4gWW91ciBz
-dWdnZXN0aW9uIG9mIG1ha2luZyB0aGUKdGltZW91dCB1c2VyIGNvbmZpZ3VyYWJsZSBpcyBwcm9i
-YWJseSB0aGUgYmVzdCB3ZSBjYW4gZG8uIEkgd291bGQKc3VnZ2VzdCBhbHNvIGFkZGluZyBtb3Jl
-IGRlc2NyaXB0aXZlIGZhaWx1cmUgdGV4dCBhbmQgYSBoaW50IGFib3V0CnRyeWluZyB0byBhZGp1
-c3QgdGhlIHRpbWVvdXQuCgpPciwgb25lIHRoaW5nIHdlIGRvIGluIGt2bS11bml0LXRlc3RzLCBp
-cyB0byByZWR1Y2UgdHlwaWNhbCBkZWxheXMgd2hpbGUKYWxsb3dpbmcgZXhwZWN0ZWQgZGVsYXlz
-IHRvIGJlIGxvbmdlciBieSBsb29waW5nIG92ZXIgYSBzaG9ydGVyIGRlbGF5IGFuZAphIG5vbi1m
-YXRhbCBjaGVjaywgaS5lLgoKIHBhc3MgPSBmYWxzZTsKIGZvciAoaSA9IDA7IGkgPCAxMDsgaSsr
-KSB7CiAgIHVkZWxheSgxMDApOwogICBpZiAoY2hlY2soLi4uKSkgewogICAgICBwYXNzID0gdHJ1
-ZTsKICAgICAgYnJlYWs7CiAgIH0KIH0KIGFzc2VydChwYXNzKTsKCldlIGNvdWxkIHRyeSB0aGF0
-IGFwcHJvYWNoIGhlcmUgdG9vLgoKVGhhbmtzLApkcmV3CgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 2023/12/1 0:11, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> Properties fixed by the SoC should be defined in the $soc.dtsi, and the
+> timebase-frequency is not sourced directly from an off-chip oscillator.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> I actually have no idea whether this is true or not, I asked on the
+> jh8100 series but only got an answer for that SoC and not the existing
+> ones. I'm hoping that a patch envokes more of a reaction!
+> 
+> CC: Emil Renner Berthing <kernel@esmil.dk>
+> CC: Conor Dooley <conor@kernel.org>
+> CC: Rob Herring <robh+dt@kernel.org>
+> CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+> CC: Paul Walmsley <paul.walmsley@sifive.com>
+> CC: Palmer Dabbelt <palmer@dabbelt.com>
+> CC: linux-riscv@lists.infradead.org
+> CC: devicetree@vger.kernel.org
+> CC: linux-kernel@vger.kernel.org
+> CC: Walker Chen <walker.chen@starfivetech.com>
+> CC: JeeHeng Sia <jeeheng.sia@starfivetech.com>
+> CC: Leyfoon Tan <leyfoon.tan@starfivetech.com>
+> ---
+>  arch/riscv/boot/dts/starfive/jh7100-common.dtsi               | 4 ----
+>  arch/riscv/boot/dts/starfive/jh7100.dtsi                      | 1 +
+>  .../riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi | 4 ----
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi                      | 1 +
+>  4 files changed, 2 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
+> index b93ce351a90f..214f27083d7b 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
+> @@ -19,10 +19,6 @@ chosen {
+>  		stdout-path = "serial0:115200n8";
+>  	};
+>  
+> -	cpus {
+> -		timebase-frequency = <6250000>;
+> -	};
+> -
+>  	memory@80000000 {
+>  		device_type = "memory";
+>  		reg = <0x0 0x80000000 0x2 0x0>;
+> diff --git a/arch/riscv/boot/dts/starfive/jh7100.dtsi b/arch/riscv/boot/dts/starfive/jh7100.dtsi
+> index e68cafe7545f..c50b32424721 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7100.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7100.dtsi
+> @@ -16,6 +16,7 @@ / {
+>  	cpus {
+>  		#address-cells = <1>;
+>  		#size-cells = <0>;
+> +		timebase-frequency = <6250000>;
+>  
+>  		U74_0: cpu@0 {
+>  			compatible = "sifive,u74-mc", "riscv";
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> index b89e9791efa7..7873c7ffde4d 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> @@ -26,10 +26,6 @@ chosen {
+>  		stdout-path = "serial0:115200n8";
+>  	};
+>  
+> -	cpus {
+> -		timebase-frequency = <4000000>;
+> -	};
+> -
+>  	memory@40000000 {
+>  		device_type = "memory";
+>  		reg = <0x0 0x40000000 0x1 0x0>;
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> index 45213cdf50dc..ee7d4bb1f537 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> @@ -18,6 +18,7 @@ / {
+>  	cpus {
+>  		#address-cells = <1>;
+>  		#size-cells = <0>;
+> +		timebase-frequency = <4000000>;
+>  
+>  		S7_0: cpu@0 {
+>  			compatible = "sifive,s7", "riscv";
+
+
+Hi Conor and Emil,
+
+I found some information that I hope will be useful to you.
+What Emil said is right:
+osc (24MHz) -> rtc_toggle (div N) -> mtime
+
+I found the N is depend on this clock register in drivers/clk/starfive/clk-starfive-jh7110-sys.c:
+
+ 83         JH71X0__DIV(JH7110_SYSCLK_RTC_TOGGLE, "rtc_toggle", 6, JH7110_SYSCLK_OSC),
+
+and the description of the register is that the divider defaults to and is fixed to 6. So the timebase-frequency is 4MHz on the JH7110.
+
+Best regards,
+Xingyu Wu
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
