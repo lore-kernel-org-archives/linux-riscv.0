@@ -4,67 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAF1BC4167B
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 23:12:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6122FC4167B
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 23:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LPEbZST6TzfA4L8R0zPZTfA2Hnd91vdMYO4k9PzUtzo=; b=ANrwDuIL9Y+1Z0
-	xRCV5HToaCus4oKlDzsZ38KXFlR1lYmgbHDoMvqyh2bhJpVY5qcPyKmqmaaOaDZGaBIteT1wNVoxQ
-	j2nbT7qO1z4dgeJWXTDfy3UN4tT6J4doj5QkLVibONfC8R0n/sKYznoohD0DNJSTUzGSaqVHTTeiN
-	6lVyxL9gvmoxS10zaK/vXOw88VT/+IoGzyhHXCflX54VPlDxNPOrhMPeN1W0tAV04dKA18ByAqvee
-	uhmb27ngg94sJknBMWBr7EvQXPp5o1z/M8vjWQ+A2l2969va8Q6es75s9YSE9P5ODCqcWhBJpWkQy
-	324Zg+0MeM9syGFODjiQ==;
+	List-Owner; bh=WqybKiSkldZlIUUnKj6HRDLSG/Smb9npOpvnN+5iEmU=; b=TP3GqOkJl455ID
+	G9QryUo5QqJuH/uYIxFVkrdWxpOQ92LXPsAHnRdTH+dQGX3ZeNy9KPVZgRoh19PykNcLGGcZFSD8g
+	CnyD9aegQ1/UEI8kQD66vmRhJk7pVu0l2A0CPwtg9Ly3WVD714tmvZLE6P/TeNtc7VLH2yrYSNdgC
+	MSqVJRxsAVH83ZIKDgh1/urWVbgVUxs583xRTJQIhRkDvtzpXEIYO8IgeXNO7cresEcq5C3hvcq4y
+	2FP/Yr5hFEm5BvxsgsDhpUbZHSQTuXiF7QIyxLfDpSiB6yI/EYUpc6IxVC9vCClg2vTA1i5kGc5D0
+	BN9+u10ztn7YabvUvu7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAI6c-005ls6-07;
-	Mon, 04 Dec 2023 23:12:02 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rAI9a-005m4K-0A;
+	Mon, 04 Dec 2023 23:15:06 +0000
+Received: from mail-dm6nam10olkn2082e.outbound.protection.outlook.com ([2a01:111:f400:7e88::82e] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAI6Y-005lrj-2V
+	id 1rAI9X-005m3K-06
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Dec 2023 23:12:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 07AE661338;
-	Mon,  4 Dec 2023 23:11:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7B00C433C7;
-	Mon,  4 Dec 2023 23:11:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701731517;
-	bh=DVXCZ9jpOAnNg7LJEUeeMDB9ZjLGevPMDsIyu7d5WpQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bNvG9d527lXukIxR9+gLXuTRtcZ3LR1hX2B3aNpA7rsRtLbhjqerlUJqsy/CtL3nI
-	 DV9uuBfDQGd3TsZ5jgfL9uVmWQ/LEuoIl5Bvi3YFPD6uBoSg2njjtQPrzENhVc0/aL
-	 1PYLH1+nRyRY98F5llMANneXs5tqpN/pSD2oWFma3NQYi+LKKL+xqBmzKOeID/JiSh
-	 G/Eexl0vTWn7OZdUAlf+F4x58PjrDMnwV60SmD2zzTdiM32tNACPy5C2XJssIetlqM
-	 M+u4biG2quLP3Z/9NIBBcJ2VThXSLB8KWbpQoYGT51jEVSQ1qYgDJctD7YlVNd3TiD
-	 U3Bz9P6gsHB+g==
-Date: Mon, 4 Dec 2023 16:11:55 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Fangrui Song <maskray@google.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	conor@kernel.org, ndesaulniers@google.com,
-	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
-	patches@lists.linux.dev
-Subject: Re: [PATCH 2/2] riscv: Restrict DWARF5 when building with LLVM to
- known working versions
-Message-ID: <20231204231155.GA3560411@dev-arch.thelio-3990X>
-References: <20231129-riscv-restrict-dwarf5-llvm-v1-0-ec0d368fb538@kernel.org>
- <20231129-riscv-restrict-dwarf5-llvm-v1-2-ec0d368fb538@kernel.org>
- <CAFP8O3JscgacLPX-_pc2J0uhqk=ehtxSNStzo7PwewPSuXkxiw@mail.gmail.com>
- <20231201194858.GA290910@dev-arch.thelio-3990X>
- <CAFP8O3+uta+GQO7dpeNLe0OMFnX-tdEyvHREEu1ThjA3nFtTkQ@mail.gmail.com>
- <20231201215021.GA2579712@dev-arch.thelio-3990X>
- <CAFP8O3LJPqPVxcRzi_Qxvu_w8w76BXmfWv8YnsK+bMvqXb701Q@mail.gmail.com>
+	Mon, 04 Dec 2023 23:15:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=kP8EmOI7YDDj6jKJsF+1kNrQr7R+2hnUJU2lYAlLv9X90hedjG6mvcEO/SYxkGTd9SmYEgDsZWX4b4J48sFLVMz96EQwbcoDnEl7MqX40GgW/iLyvBYzZwBcjSTcTJiSp4miVGrjazPS5iLFspsNG18ZWk0ia0bm/BmqCHFzwXL3hOBZm7MeXg9A1UJ8PhFamKj07IcGy8WHasuw6HJo1XKk5rPwNLFgyafxL7y9Jj7vYxYLUaUdBnu/wRzo6dc4qWks+Bl9NJr7/dM7g9ClNPT/gdTVJ0ykMXfIttVdG2cZmRyoSz3USOzVxmiKNZwAU+AVpYG04s4pTfEQQNIYTA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=otEtPWKaLLn8O711OEWI8Yf8aFxHuf6I1jhxfZzXOGk=;
+ b=VhcM6U1uo6CfMTeaywrBsdDRQag1vFWPddvYalqDwOPaAudzpFBXQnaWCEE6tu8mhzOFOIcGP8bnYGv7NvDwCSuKqHPO47sGCvybpXFrX59j+ichK3+0Ww17m7YSM8GAOLVb3yG3SaHNZg68iXOAtjtwWe7CZWEOwD9KHzNmhASOPZl7mOX7HEPWsDFeh0Jmqx+rc+2ZVzOG0+jfd3w470/XYr47+NKWZ//JE/QvaXWF9GwMJEk4WvPZHdpMLf++vprFUYnvGgVMmWXKV0hHzSSXxYYqELIYQsNVJ1CnNJzt4acSGNjmZ3EM5ITXn6Odw/CRy/eL5UWsVlHfGXMzkg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=otEtPWKaLLn8O711OEWI8Yf8aFxHuf6I1jhxfZzXOGk=;
+ b=nwUHoIh6Ya8HcrWfWKAVQQ5VnbPWuRRpqGEkI44ub9eJyYmfLDfm2RZicQ9UzxaQWiUTcYsgTTJQXscEpFybuOTS/0hIOw+l4zAU8rp7WNJlwklMklbfjoGrcMaHT7P7+i8NOoXFCyX7cSLDQfBsEWuOYpfvfAPdyjPIMx9fWgHrquIH0JUUUan4cZxTaOR8n+1QdD00O9w3gRwl3WExB9MNyISRkVLQwlzDxAwFP6NI6NU5LBNGUG91oE7wYVKx0assBGidpv4IgWKYof0mkr5CgdoR406f++OYc06kbPMUdBb1RaSgOYcotRFCMfFEs2ayq+2/m8ch4XELpX0E5Q==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by SJ0PR20MB6170.namprd20.prod.outlook.com (2603:10b6:a03:4e6::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7046.33; Mon, 4 Dec
+ 2023 23:14:52 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::55b:c350:980:ad8]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::55b:c350:980:ad8%6]) with mapi id 15.20.7046.024; Mon, 4 Dec 2023
+ 23:14:52 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Conor Dooley <conor@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: Inochi Amaoto <inochiama@outlook.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Anup Patel <anup@brainfault.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Guo Ren <guoren@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v5 1/2] dt-bindings: timer: thead,c900-aclint-mtimer: separate mtime and mtimecmp regs
+Date: Tue,  5 Dec 2023 07:14:51 +0800
+Message-ID: <IA1PR20MB4953E67DA1BD6921DC6A8789BB86A@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20231204-monorail-boxer-82c77526e764@spud>
+References: <20231204-germproof-venue-6874ad902323@spud>, <20231204-monorail-boxer-82c77526e764@spud>
+X-TMN: [Rmu9e0qwIGHaV+oP7ShTTQZhbeeTBm2RHIr42d5FqF8=]
+X-ClientProxiedBy: TYCP286CA0077.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:2b3::9) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20231204231451.56687-1-inochiama@outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAFP8O3LJPqPVxcRzi_Qxvu_w8w76BXmfWv8YnsK+bMvqXb701Q@mail.gmail.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SJ0PR20MB6170:EE_
+X-MS-Office365-Filtering-Correlation-Id: c48a6948-8230-4d42-00bc-08dbf51ed1b8
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: B3LYAPsnWFRuzJeXfcp4IZj9WBoyo4nUdDi8facOfb8n59Y7kNCOIEdhIZ5SEw5zutvxGviJcSdOkBESRXIK5fMeKVQPMdN22b+Kvlk7Q5R9a8N20n3f3PyygdcdLI17yjLLmBT3edmi8+KMHh3PZ3YJkk7nrdIT0L3Wiwp4OYm8wJmZajVeKAbOOITXO93M0lGS/jZRFmL9IqwYqZIWHIJgPAMP8KX4pfAV6/D5Xw9MaShDMgLJZhIDe7PkkhiBnxMAstRfCOBukZ80yEy+DBrbNhfn485eYONRsnI6LxbKJ9uYEsxajN8MgxZrSma67M+zmAraxgxmcv1xbwTKFBvCS3F0ewT0d9LsvqX8MpWr5xdjGEamFBY0YnfZUQTIY29lR3eSDOwu/nGG8EONTMvLSs2f29WVK+TBMWdy7OZYObbiW671KBfAnlc/Km/q5MJ6vJ3PmkKHeUFY29RFX724THboc3HF50y1dzIbjugwGfZ/d1OvGjmND5oLZXxSqCjb3axc6Y+shhxS/DiC9GlePN8pYmQKK8y1B9rwkQgTtjfCEYblO/BqBXdfAIUavk4UXOrYm1X/D6o4xq3sbvJcxgV4zJN4xfaOJpXIQzDwYFnWlCaSxFQZvb9pfGrnENgtZyMzkkhWrJhM2JiSnatZkrVlA2poaE5bJ+CI73E=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NsFZbX5YR/SdRxL7LHy7BC+lNOdwCqB7WiogP5B3Q5cykO14A2tL1/wQP/ui?=
+ =?us-ascii?Q?/z7kC8J2zCdtlgKnc+odQ945SmJOhtGjTr8PKzE9eWNeLYtQFPfsb8Xv8JYU?=
+ =?us-ascii?Q?Sc0U7ypx38jnMTBlCYo3Uq5jaFXtjam5epGr5m8zu1Ir7x6889rrx/G4hF7y?=
+ =?us-ascii?Q?i6zTdcKqgvSxK2O8/Y4kt/EbvhrrsgRcQ7RbSbLQUmKU3e/9MUVa79dH398A?=
+ =?us-ascii?Q?5mxyLMUR1wnHYEIaMOh31Nu771OauySBVYW2CInUkfpeSnfKKs9CAQftk/yP?=
+ =?us-ascii?Q?BCYIQyT9HPWVbYxF2iISUA7jMwi/Uf5iCtnCbiph3qTw7x79XbYGVRJDiudG?=
+ =?us-ascii?Q?Z+rZZIYzOPm3jCS4JD1Pz9uq+RSzTz84jQ1/gzLO8W9WijDgW/J2pVVNxTFv?=
+ =?us-ascii?Q?MGvn2XUfkgy2tfb+dPJ0EHN+aiDNsUEzj4R/WmkFE/HNyif5dNtIP8hWPwEr?=
+ =?us-ascii?Q?ug4/fpR/dlLrxuI9y8MaWtt7fy//ZSi+59jYZJTFDTqgneJSbkZ+/QkHN+xG?=
+ =?us-ascii?Q?iMJt4EVdCcFWUBMiX587xAcHE6/dpRaE6Xk7AnFflu/zLlLmC2u8L50vlDGQ?=
+ =?us-ascii?Q?xna6owUHE8+QVANuMbnrN7Gt/BUZKi2WwojYom9bgxh0Z00gWJ7k0KFU4cVf?=
+ =?us-ascii?Q?5+DHgPqxpGFJ0CxVG5VjC0rUXoKhDyRp6P2t8LF7TP7Nh5t1+eCM1e/Epx8d?=
+ =?us-ascii?Q?N2hQHm1XHkDCv8v9P4QzurkvqwDk2jjgf3zqp3rivvX0ljYWUk9TBOMA9eF9?=
+ =?us-ascii?Q?jmBJ6PogodIBnbIz3XvM8gmOZtAdxM3rezlsCpxRQKlA0lr6Vqn0gjvn0q2r?=
+ =?us-ascii?Q?gnq8HFUfYOLaO1Yl4oimKJ8XlmwFHoRRPw/uAfGhcgR6mQD5EyIT5vhBmq3v?=
+ =?us-ascii?Q?vG7kDxm8xaLlIXR1H0M5Q3F/1PuVo+kMu3buDqWe+SnJt3sdQDZC9zxDATbC?=
+ =?us-ascii?Q?RyemwH9KQtLvlw77wzdq1O/wbsT//BcQNy88F7sFPvLOFvLVYTFXzVl9PbUi?=
+ =?us-ascii?Q?pYdyKVCWuohK8ED8+su5BmC+Ac+Uc9GERIO9yRLIfc8c5UEXxIJMEm5fatoL?=
+ =?us-ascii?Q?LkaCRgVT6maVgUUY1LcUrpfEHcoZyROebI1DbRkxAVel0qKdUXms7fJFZw3m?=
+ =?us-ascii?Q?fDTDJ0/Qb3nEX1Wm/M0fDmVHuvdoYZkeDbYPJT07CRRuJ712jbhYQURLma6G?=
+ =?us-ascii?Q?YP6xQzTPZKJR8PDircJOlyOAlAltPn6OZODcbtSghRgwIYqksInL0+SHcOw?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c48a6948-8230-4d42-00bc-08dbf51ed1b8
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Dec 2023 23:14:52.3080
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR20MB6170
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231204_151158_925515_9FDC07E8 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20231204_151503_078142_F6CADF82 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,63 +139,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 01, 2023 at 08:31:12PM -0800, Fangrui Song wrote:
-> Perhaps: Clang generates .uleb128 with label differences for DWARF v5,
-> a feature that older binutils ports, utilizing RISC-V style linker
-> relaxation, do not support.
-> 
-> (Signed LEB128 is used by DWARF as well, but it is encoded directly
-> into DW_OP_fbreg/DW_LNS_advance_line/etc, and explicit .sleb128
-> directives are not emitted)
-> (In assemblers, "label difference" is a more common term.)
-> (People working on DWARF tend to prefer DWARF v5 to DWARF5, when the
-> full "DWARF version 5" feels too verbose.)
+>On Mon, Dec 04, 2023 at 05:39:09PM +0100, Daniel Lezcano wrote:
+>> On 04/12/2023 17:18, Conor Dooley wrote:
+>>> On Mon, Dec 04, 2023 at 05:51:08PM +0800, Inochi Amaoto wrote:
+>>>> The timer registers of aclint don't follow the clint layout and can
+>>>> be mapped on any different offset. As sg2042 uses separated timer
+>>>> and mswi for its clint, it should follow the aclint spec and have
+>>>> separated registers.
+>>>>
+>>>> The previous patch introduced a new type of T-HEAD aclint timer which
+>>>> has clint timer layout. Although it has the clint timer layout, it
+>>>> should follow the aclint spec and uses the separated mtime and mtimecmp
+>>>> regs. So a ABI change is needed to make the timer fit the aclint spec.
+>>>>
+>>>> To make T-HEAD aclint timer more closer to the aclint spec, use
+>>>> regs-names to represent the mtimecmp register, which can avoid hack
+>>>> for unsupport mtime register of T-HEAD aclint timer.
+>>>>
+>>>> Also, as T-HEAD aclint only supports mtimecmp, it is unnecessary to
+>>>> implement the whole aclint spec. To make this binding T-HEAD specific,
+>>>> only add reg-name for existed register. For details, see the discussion
+>>>> in the last link.
+>>>>
+>>>> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+>>>> Fixes: 4734449f7311 ("dt-bindings: timer: Add Sophgo sg2042 CLINT timer")
+>>>> Link: https://lists.infradead.org/pipermail/opensbi/2023-October/005693.html
+>>>> Link: https://github.com/riscv/riscv-aclint/blob/main/riscv-aclint.adoc
+>>>> Link: https://lore.kernel.org/all/IA1PR20MB4953F9D77FFC76A9D236922DBBB6A@IA1PR20MB4953.namprd20.prod.outlook.com/
+>>>
+>>> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+>>>
+>>> Although, I figure it is going to be me that ends up taking it.
+>>
+>> No, I should take it
+>
+>Sweet, I'd rather you took it than it went via a DT tree :)
+>
 
-Thanks, does this diff seem reasonable to you? I'd like to keep the
-issue link as a paper trail and I figured that we might as well make the
-configuration name slightly more accurate with that additional
-information. I will send it as a separate patch in v2 tomorrow if so in
-order to give people a chance to further chime in on the series.
-
-Cheers,
-Nathan
-
-diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-index a0ebce05a368..76c2cc697573 100644
---- a/lib/Kconfig.debug
-+++ b/lib/Kconfig.debug
-@@ -231,9 +231,10 @@ config DEBUG_INFO
- 	  in the "Debug information" choice below, indicating that debug
- 	  information will be generated for build targets.
- 
--# Clang is known to generate .{s,u}leb128 with symbol deltas with DWARF5, which
--# some targets may not support: https://sourceware.org/bugzilla/show_bug.cgi?id=27215
--config AS_HAS_NON_CONST_LEB128
-+# Clang generates .uleb128 with label differences for DWARF v5, a feature that
-+# older binutils ports do not support when utilizing RISC-V style linker
-+# relaxation: https://sourceware.org/bugzilla/show_bug.cgi?id=27215
-+config AS_HAS_NON_CONST_ULEB128
- 	def_bool $(as-instr,.uleb128 .Lexpr_end4 - .Lexpr_start3\n.Lexpr_start3:\n.Lexpr_end4:)
- 
- choice
-@@ -258,7 +259,7 @@ config DEBUG_INFO_NONE
- config DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT
- 	bool "Rely on the toolchain's implicit default DWARF version"
- 	select DEBUG_INFO
--	depends on !CC_IS_CLANG || AS_IS_LLVM || CLANG_VERSION < 140000 || (AS_IS_GNU && AS_VERSION >= 23502 && AS_HAS_NON_CONST_LEB128)
-+	depends on !CC_IS_CLANG || AS_IS_LLVM || CLANG_VERSION < 140000 || (AS_IS_GNU && AS_VERSION >= 23502 && AS_HAS_NON_CONST_ULEB128)
- 	help
- 	  The implicit default version of DWARF debug info produced by a
- 	  toolchain changes over time.
-@@ -283,7 +284,7 @@ config DEBUG_INFO_DWARF5
- 	bool "Generate DWARF Version 5 debuginfo"
- 	select DEBUG_INFO
- 	depends on !ARCH_HAS_BROKEN_DWARF5
--	depends on !CC_IS_CLANG || AS_IS_LLVM || (AS_IS_GNU && AS_VERSION >= 23502 && AS_HAS_NON_CONST_LEB128)
-+	depends on !CC_IS_CLANG || AS_IS_LLVM || (AS_IS_GNU && AS_VERSION >= 23502 && AS_HAS_NON_CONST_ULEB128)
- 	help
- 	  Generate DWARF v5 debug info. Requires binutils 2.35.2, gcc 5.0+ (gcc
- 	  5.0+ accepts the -gdwarf-5 flag but only had partial support for some
+Thanks you both for taking this. This is good news for me.
 
 _______________________________________________
 linux-riscv mailing list
