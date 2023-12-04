@@ -4,65 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7875C4167B
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 11:38:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46C39C10DC1
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 12:25:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2RKfeP1vLob7sZS9+s4dL9pcwFvpuM8UTbvOp7TxTFo=; b=aGtGDqC7Xxe5z+
-	KpWIQeSel7ku2RcyvdboOnFIJlv9ZXe9l5ls+0vU/HHvDVcXyL+aFik4Uw/p/3tj7xnlNYgUMgMaL
-	WTEd8N8zF5A8uYOr162berdFx9ZbqPsKiHPdlS5HrEMIjEQX6ouSbJbZpb7G8z57NVSAf6xMPOvyJ
-	oSUlQ5M9p2pSEknSYwQfPYSYpli7f0thhVxWCWNvFmEKkd77AOYEFaN5dVtdIPM/QShW+9oo6C7g9
-	P/Re9lvEHfhuHO8CkSB5Dq9P4kyYcq07kYfVYD5XDp4U9eG4VOikbDMSCZ7h4YbfTp6WbTNwnAPZu
-	I2SOF4gPvjo0xCTkwiQg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M7EWlygc00wPO6bf5CPDiexRRE3a+HJ3EwKClvZmeYQ=; b=qQ4Cr440XxV+8lt34Jt9c0nfHm
+	krq++jE0p4P48QdtQZ5EjgB/T8hIdTNqvg2P3qahffot41HOM03GVUkuGtbsM4UsKL9wx6R+igDyi
+	UTbIaP3n9lu4X37n7OnF2wVbYfYZGbb8+5mLag8T1b2MfixA1KwIXnjuQ5LfwoHmw9SOhUsD8Own2
+	AgXSinq2nY2igvIbCIEzwZWyFZQM3yG8rnD3RGQplhQCeIwfeVvAhA93+BnFrDwxdfmPoWTeO3sDp
+	5Cz9r+VwgdQ5zpNGxxnRg+cj0RCwEwYQjKb99oH+AAQ8rH7m0+jNp5M2R5MhjysHo5vqHa0jMg18p
+	V5nKxjLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rA7Hm-003f3j-0t;
-	Mon, 04 Dec 2023 11:38:50 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rA7HP-003esG-1V
+	id 1rA814-003ykC-11;
+	Mon, 04 Dec 2023 12:25:38 +0000
+Received: from mail-bmxind01olkn20800.outbound.protection.outlook.com ([2a01:111:f403:281c::800] helo=IND01-BMX-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1rA811-003yfj-1r
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Dec 2023 11:38:48 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 7798517F57;
-	Mon,  4 Dec 2023 19:37:07 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 4 Dec
- 2023 19:37:07 +0800
-Received: from [192.168.125.131] (183.27.97.199) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 4 Dec
- 2023 19:37:06 +0800
-Message-ID: <f807bd04-02b9-4fda-97b9-7b47ce0cd87a@starfivetech.com>
-Date: Mon, 4 Dec 2023 19:29:35 +0800
-MIME-Version: 1.0
+	Mon, 04 Dec 2023 12:25:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=lkpxHpDHyqaPPOtZC1Jnb5b23VtEaxsjEihAITQ+NW7Hbl1iREopjZ8kgNQ1V+NxgvxiW8DPlLb9TDXs41P47wzl0/EMhNk3ZDa2/ZePNhFDWRvyRLOHlTikgpU0UaJMX9ENSwaPUkja33iO+AKfCpzX3bsPoUeHxtDDdKNmG86srBNmCyWE3KieMoX9u7wkBOXa3RwR+kTJw0kSYBaPq1MJbrYv44+EXqyTDRCMvZqbePGWR9cjJNxkW9jsBQAEKaFe3tQreLnhOoDFL2keTZ5hY30BtW22zDBT9+EJSh44fe5QDrJOWt8QxJpQM45JpcLA98kKmaLHM4BFwDeFMg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=B43zteGYEB+Svgl8FbBTODYFMHVkgWDwDnQxnZU/N5g=;
+ b=UfN+ci5fcvotjL0jap0Q0jfqQcL7xZbF/3TI+Ch00f+xjdheT4pH6iGWNLizBZ5h4+3ms8XE5V5UydZsh8EL+1B+6hBv+i3vGvFnOY0yeehaX2Q9PAPK14+olkbc9e27G2IhiVm+Ca7Wbag5543DB1wdI+WSMZij4fkDzUS7TjCnjv+nkZGcHf+aulk+h9ILsh+RNBBUT+03mZTidskdBULnvTMnMZzo3LKqspsg1zZ4CiBjcRB5bKwxUQPZAaESb1OXoqL5nfpwgXbwHwWN0UJhMUDWUJ2eNN7rOg04ZjNinSyBH74A/LCfiKonOOJrromeI/A5Z2ggyVaZNCcZMw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=B43zteGYEB+Svgl8FbBTODYFMHVkgWDwDnQxnZU/N5g=;
+ b=Xy+uhazpOLK9rWSLVYDM4Xvbn43ynIILzEEVSOUb4/DYtXdQ6y69tYkZdx6u/RDpPFW97tsdZxLXBdQdM4BnQSl102AKzGPTaCHHYdEDzvIFClq7Yy77bDoGXoIhWXYctrP7/myV4c1zi41ag7zqVG0lj2Us7t9b1NwI7F0YK3iX1e1LNTee0jOHPz7WLfaQ5LNT5tU3FyuWLwTEQ0mlssrLFTytXKz4uPNKWWtKb+X6+fwhy5qJBuxq3SU0w0V5KJlmuQSKbLaBfhCiWRT2q0djP7JYPehZKTYsYPGflQUAlRzcKYqGpGgtZF46wMh/mRDQ7IqGq9RTSfiEO/6fXA==
+Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:ab::5) by
+ PN0P287MB0601.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:163::14) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7046.33; Mon, 4 Dec 2023 12:25:19 +0000
+Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ ([fe80::b1a7:eee7:e903:9ef3]) by MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ ([fe80::b1a7:eee7:e903:9ef3%7]) with mapi id 15.20.7046.033; Mon, 4 Dec 2023
+ 12:25:19 +0000
+Message-ID: <MA0P287MB0332862DC235652C83B4EC2EFE86A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
+Date: Mon, 4 Dec 2023 20:25:13 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] riscv: dts: starfive: move timebase-frequency to .dtsi
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	<linux-riscv@lists.infradead.org>
-CC: Conor Dooley <conor.dooley@microchip.com>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Walker Chen
-	<walker.chen@starfivetech.com>, JeeHeng Sia <jeeheng.sia@starfivetech.com>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>
-References: <20231130-bobbing-valid-b97f26fe8edc@spud>
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-In-Reply-To: <20231130-bobbing-valid-b97f26fe8edc@spud>
-X-Originating-IP: [183.27.97.199]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
+Subject: Re: [PATCH v4 0/7] Add Huashan Pi board support
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Inochi Amaoto <inochiama@outlook.com>, Conor Dooley <conor@kernel.org>,
+ Chao Wei <chao.wei@sophgo.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Anup Patel
+ <anup@brainfault.org>, Jisheng Zhang <jszhang@kernel.org>,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <MA0P287MB033290A6C8B15202E31E43CCFE80A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
+ <IA1PR20MB49537B177B6F3614D8D1E3E6BB87A@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <MA0P287MB0332AE2378D633B8A2DCFB77FE86A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
+ <20231204-crane-wolf-95f32865db62@wendy>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <20231204-crane-wolf-95f32865db62@wendy>
+X-TMN: [AoBE0TxFN4rZphkfgfxLIZjer/394qBm]
+X-ClientProxiedBy: SGXP274CA0015.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::27)
+ To MA0P287MB0332.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:ab::5)
+X-Microsoft-Original-Message-ID: <5eb4c63d-6af0-4f4d-b918-d6af42a9ea62@outlook.com>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0P287MB0332:EE_|PN0P287MB0601:EE_
+X-MS-Office365-Filtering-Correlation-Id: d49b98dd-ba98-4738-f89c-08dbf4c4139c
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: CyMeu96QqvkX3cgt7Fni6F6YsKh8BImv6c1MXTc9nV8eXkexzmb3wonUUBW0JSLX3roXwe6yCk/MV66oTdm98jedf9PVb9moiJNAL/yAZyVvcOGFLL92ewQFFeNiT+STrpZGbPIXpeRpzlX+kU6WLg3TuB5HitSAmhfMTcpNNWqfnMo/y6mOrMVWZKXRXcakPujvC3LU6cjEK/75HGpH1gcwXgV5TunuYl4vQWwx170rcOJmFJBk6vjm9FFit73+oIdq819vZySxRl9SOiFL7OyLJLszCAdid672k/WonopI3HYIyUTWlYcxryvN9nTWBcRVPvuUjJvqDVKP7hmAF0+leXFf/+6R0YQC+smrtnpPQvRsIRpSKysEAoUwy/4RyKmLDidICl+cCcjZm0Sf16iK9M7n5QEn0z13AZ4bL8NF6GhWOCVpHDsMqwikv+vfes0AjiRb8z17eKN/saG5Aou6eRdghVFlbctSUCYqXCdOg4ODRaFVNLtQNgNVZNbeJg98ChGdC6yrRhLj1PgvFgzoSiQV/+lw93Pdl5pIXT2os927czoYnC2vqohOuDN1
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MTd4eEd2TmhqZUV3OVRWQlVyN3pBYTZwSVpEK082dFNzbm56S3JXOXB4UGxs?=
+ =?utf-8?B?SCtldlBCeFMzNzROZ3ZGeW5tL0Mrdi9oVWtSNHJYK2QwcjA5ZGJDdUF0MTl5?=
+ =?utf-8?B?a0JvbktRWDAyTHFZU1BEdDJzRGlaL2J2ZGRoMFBzUUdwQ0dGWGI1ZlBhWVJH?=
+ =?utf-8?B?L3RydjROZ01jUkJXK2ttdk9HN2ZlNk1iTVB5RVRCa3d5OGNMbmlneFk1WkUw?=
+ =?utf-8?B?Y096YW1SWmhQL1Z4aHhRK0pTVEJDV2t2WmxydWc5MDlkbkZQZTFYNklkODNJ?=
+ =?utf-8?B?eEtTVXpHWVAyaEpObzl4TEZjZjFsckRBeDNwSE85ZlFnVjNEeEVlbExCYTZC?=
+ =?utf-8?B?UGdOcWxlMjY0clhmSEY4d3RwUFVzNXFsS1ZSTUtIdW1tbjRLQklKa05QMkpv?=
+ =?utf-8?B?ZU1tRXpMQThjTjBRUkV5WHYzODNQOGI0Z0hHbHhIeUlIM3dNNHA2dDI3M0th?=
+ =?utf-8?B?SnJLdFNwbjlQZEM1ODMxZTdndFFWdlhFRWRyeUN2L0hoS3NEcFEzQ0h3NW9N?=
+ =?utf-8?B?dVAyMUJvR1BVeGw3LzdzYjRKbGhtTWNndjBGLzJtWEZBZy9selQzK0FjU0xU?=
+ =?utf-8?B?ZTFzUGVONi9wUCtaU2hBVFFMTVJQZ01EVUNJZGsvZnQ5ditMcllTaktLaVVs?=
+ =?utf-8?B?STFzRlpzbWlSejE3MHlBb21OM3FHcEVrYnhoQ1RkVnRwaDJyRHRCdTRiMGpp?=
+ =?utf-8?B?eGo4dHEyVXhKdnZCN250RUxSdGltUTBpZjNzMnAra01xMm04SHRqWWZYYWpj?=
+ =?utf-8?B?MmJlRXkrNzk3eVVDR0ZwQ0lESzc2bVpvd29OSEtBVm1yREN6WW50WGtUU3dq?=
+ =?utf-8?B?VU0rbDdic1o4dy9qR3loLzVxbUVCS1J4NUpYL3lFb1dadU0wY2FxZUd0VXI5?=
+ =?utf-8?B?YVhLOXk0aTFoT0l1MHIwQ3JEUlg0cFBsKzdxZEJyNENsWDZtNWp5V0FiUlY5?=
+ =?utf-8?B?RkJxZCtITjY3RlNrWHByMXRMSDJEdllmcjZ0Zi9JOWxBdFJObTJxbm1hL0p5?=
+ =?utf-8?B?eXJJWW5wVDR0RDBRZ1QyUzQzSnBHR00vMi9leWhSU3hTNHZBcDBEWEk2Qnhu?=
+ =?utf-8?B?WlZReWs4OEFTZHlGbm9tazV1cDBpcU0xakhwWDRpa1hzZW42UnlKb0g3NXNt?=
+ =?utf-8?B?OXlEeE85QXdBRkhySVV4d1BEdzB5eVIwSWx5T0JJSE15WTVjZFFQV1R5VTM1?=
+ =?utf-8?B?Z3JmdnRJcXFwaXlUTStiai8yNlRDZDFXYThPdTk1cDVhSnBZU1kwakRpN0hR?=
+ =?utf-8?B?ZTB6QytNaDllZ21ueVZmQTAyUXEvVDNQeUVlRk14T0twZE1QaERETHVXRkRW?=
+ =?utf-8?B?OFRHbFdNTjFPbTd1Q01ybG1LaGhlNGp5d1ZPVDZKWW5odHdIK0JhQUxLaklP?=
+ =?utf-8?B?ak5maG1LK0pMTXM3Sk96NG9YdjlrMWd3WFBoWlZPbCtYMTlKUWdPU1BoYmV4?=
+ =?utf-8?B?aU1TVDA5NmJuMU9kUFg3bW1uTHNoZ2k4dVM3NlpDY3pjNkV4enFRUlJQVXNm?=
+ =?utf-8?B?aVU5bkZQMkFTS1Y3ajNDZUVadXFPeTM5V0JyUlZmNkwvSWp3czdPcVovNEF3?=
+ =?utf-8?B?eitOTUxWQVJKWHp3aWp3WHR0bzhOSzBFVjdxUjAwUmlnUzJOTzcweDVwSmdz?=
+ =?utf-8?Q?e6zCZ6sasrMLR5yp9w3XRMQMLrSAJeON3NK4odQuOK7w=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d49b98dd-ba98-4738-f89c-08dbf4c4139c
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Dec 2023 12:25:18.9745
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0P287MB0601
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231204_033827_837972_D41F03A0 
-X-CRM114-Status: GOOD (  21.56  )
+X-CRM114-CacheID: sfid-20231204_042535_621050_FB807316 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,112 +134,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/12/1 0:11, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Properties fixed by the SoC should be defined in the $soc.dtsi, and the
-> timebase-frequency is not sourced directly from an off-chip oscillator.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> I actually have no idea whether this is true or not, I asked on the
-> jh8100 series but only got an answer for that SoC and not the existing
-> ones. I'm hoping that a patch envokes more of a reaction!
-> 
-> CC: Emil Renner Berthing <kernel@esmil.dk>
-> CC: Conor Dooley <conor@kernel.org>
-> CC: Rob Herring <robh+dt@kernel.org>
-> CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-> CC: Paul Walmsley <paul.walmsley@sifive.com>
-> CC: Palmer Dabbelt <palmer@dabbelt.com>
-> CC: linux-riscv@lists.infradead.org
-> CC: devicetree@vger.kernel.org
-> CC: linux-kernel@vger.kernel.org
-> CC: Walker Chen <walker.chen@starfivetech.com>
-> CC: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-> CC: Leyfoon Tan <leyfoon.tan@starfivetech.com>
-> ---
->  arch/riscv/boot/dts/starfive/jh7100-common.dtsi               | 4 ----
->  arch/riscv/boot/dts/starfive/jh7100.dtsi                      | 1 +
->  .../riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi | 4 ----
->  arch/riscv/boot/dts/starfive/jh7110.dtsi                      | 1 +
->  4 files changed, 2 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
-> index b93ce351a90f..214f27083d7b 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
-> @@ -19,10 +19,6 @@ chosen {
->  		stdout-path = "serial0:115200n8";
->  	};
->  
-> -	cpus {
-> -		timebase-frequency = <6250000>;
-> -	};
-> -
->  	memory@80000000 {
->  		device_type = "memory";
->  		reg = <0x0 0x80000000 0x2 0x0>;
-> diff --git a/arch/riscv/boot/dts/starfive/jh7100.dtsi b/arch/riscv/boot/dts/starfive/jh7100.dtsi
-> index e68cafe7545f..c50b32424721 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7100.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7100.dtsi
-> @@ -16,6 +16,7 @@ / {
->  	cpus {
->  		#address-cells = <1>;
->  		#size-cells = <0>;
-> +		timebase-frequency = <6250000>;
->  
->  		U74_0: cpu@0 {
->  			compatible = "sifive,u74-mc", "riscv";
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> index b89e9791efa7..7873c7ffde4d 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> @@ -26,10 +26,6 @@ chosen {
->  		stdout-path = "serial0:115200n8";
->  	};
->  
-> -	cpus {
-> -		timebase-frequency = <4000000>;
-> -	};
-> -
->  	memory@40000000 {
->  		device_type = "memory";
->  		reg = <0x0 0x40000000 0x1 0x0>;
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> index 45213cdf50dc..ee7d4bb1f537 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -18,6 +18,7 @@ / {
->  	cpus {
->  		#address-cells = <1>;
->  		#size-cells = <0>;
-> +		timebase-frequency = <4000000>;
->  
->  		S7_0: cpu@0 {
->  			compatible = "sifive,s7", "riscv";
 
+On 2023/12/4 17:32, Conor Dooley wrote:
+> On Mon, Dec 04, 2023 at 05:15:36PM +0800, Chen Wang wrote:
+>> On 2023/12/4 7:32, Inochi Amaoto wrote:
+>>>> On 2023/12/2 0:21, Conor Dooley wrote:
+>>>> As far as I know, sophgo's SoC product names all start with "sg", while products starting with "cv" come from CVITEK (another chip company). CVITEK was acquired by sophgo a year ago, so now many SOC product names that originally started with "cv" are being repackaged and changed to start with "sg".
+>>>>
+>>>> For the cv1800b adopted by Duo, Sophgo has made it clear that it will not change its codename.
+>>>>
+>>>> But I heard that for other products, such as the cv1812h used by Huashanpi, sophgo may change their names in the future, but sophgo has not officially confirmed it yet. Looks like sophgo themselves are still in the process of digesting cv's products, ;)
+>>>>
+>>>> Since we have just started to support cv1812h and have not done much work yet, I suggest not to merge this patch into the mainline, and wait until there is clear news before doing this to avoid introducing unnecessary modifications later.
+>>>>
+>>> Hi Chen,
+>>>
+>>> There is a update for you. The cv1812h does not have the A53 core as the
+>>> sg200x does. Maybe we should treat cv1812h as a trim of sg200x, not just
+>>> a reband.
+>>>
+>>> According to this information, I suggest to preserve these code for
+>>> cv1812h, it can make upstream the new soc eaiser. Also, adding a new
+>>> compatible is not too hard, and it is necessary if we have new soc.
+>>> Otherwise, the one with Huashan Pi now may be confused because it have
+>>> a old version.
+>> Thanks Inochi for your info, let's just preserve these code for huashan pi
+>> now and keep watching on what's going on then.
+> Could you explain on what you mean by "preserve"? I'm a little unsure.
 
-Hi Conor and Emil,
+hi, Conor,
 
-I found some information that I hope will be useful to you.
-What Emil said is right:
-osc (24MHz) -> rtc_toggle (div N) -> mtime
+I meant keeping your changes on riscv-dt-for-next and continue 
+submitting this patch ([PATCH v4 0/7] Add Huashan Pi board support) to 
+upstream.
 
-I found the N is depend on this clock register in drivers/clk/starfive/clk-starfive-jh7110-sys.c:
+Sorry for my poor english, hope I have explained it well. :$
 
- 83         JH71X0__DIV(JH7110_SYSCLK_RTC_TOGGLE, "rtc_toggle", 6, JH7110_SYSCLK_OSC),
+Thanks,
 
-and the description of the register is that the divider defaults to and is fixed to 6. So the timebase-frequency is 4MHz on the JH7110.
+Chen
 
-Best regards,
-Xingyu Wu
 
 _______________________________________________
 linux-riscv mailing list
