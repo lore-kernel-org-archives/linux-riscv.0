@@ -4,65 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71D8CC4167B
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 12:34:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B17EAC4167B
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 12:52:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6QLTCnugVLOB8AZdkFaOX0XaGuhg/yZk0KdoZjU++sw=; b=jcpwq6e3ZrfRgy
-	590YPKDqs4e5oAH1GU8ixsojgoiAQxjn9ZfVQhTkTMfdhSJ8HFjKuDAwN4p/z4szj8mNg8lfL1zTE
-	9dNWc1s5P1+OVrgXrqEVsmtnCDu28dY6YQTbozoqQ0TtuGQY5yA5RAS+QYMllIGFWQniPQFd9nuof
-	OG48vt6GXzqLiDPGfnxUPSXhE8b4K6WdcKidLeWROeact0zLf5h7dOhkZKWijir5kpMX3MeEHjNhI
-	Lk8LVj/R5OBZO547P5QoYr+W5nr1TTlylXhBSQp5NO3y2/JAaXo7mm/gfR2u7yTVJAkeFR26BDJ1F
-	Pbo0OITR6MnVbYh7M2nw==;
+	List-Owner; bh=ImW8SUX4ADwLwujyxnyc4namwu6P96gAmvwsNHKx6SM=; b=lwqhDqWjmYuK5k
+	R+p8uNR/NODX92q0EkelS3BmCWrSqGkYikXI/Q2UEsh9ubhCzCm3AvNlOZ+Fb14WZf6SUwb2Iw0OP
+	Hw5yvXXcivP3ackhI8bH/Od1WGfj/EKTQYiaGHwLkC8AiF1VyQ/RQHNGfyiRhDGkJBGOQhLs2u0u0
+	o0rtARtA1Jx0RqXpEmpd9tgs6xNyIycTD9VcOjL2hCbzToqW+3F1ArnZ9OjY/uBXfsOg8nzlkhpo7
+	2Glt0L2y79Ycsisjh75u25dmHzVLqc1K3vKeHH4JEAPQ4b884cA7Aoie3/UBZxdJr862G3UN/E9h9
+	Ejcm2MpcNbRg/iLCIefw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rA89U-0044H1-15;
-	Mon, 04 Dec 2023 12:34:20 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rA89Q-0043dA-0M
-	for linux-riscv@lists.infradead.org;
-	Mon, 04 Dec 2023 12:34:18 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 061067FEF;
-	Mon,  4 Dec 2023 20:33:19 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 4 Dec
- 2023 20:33:18 +0800
-Received: from xiaofei.localdomain (180.164.60.184) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 4 Dec
- 2023 20:33:18 +0800
-From: Keith Zhao <keith.zhao@starfivetech.com>
-To: Keith Zhao <keith.zhao@starfivetech.com>, <devicetree@vger.kernel.org>,
-	<dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-CC: <mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>,
-	<krzysztof.kozlowski+dt@linaro.org>, <william.qiu@starfivetech.com>,
-	<xingyu.wu@starfivetech.com>, <paul.walmsley@sifive.com>,
-	<aou@eecs.berkeley.edu>, <palmer@dabbelt.com>, <p.zabel@pengutronix.de>,
-	<shengyang.chen@starfivetech.com>, <jack.zhu@starfivetech.com>,
-	<changhuang.liang@starfivetech.com>, <maarten.lankhorst@linux.intel.com>,
-	<suijingfeng@loongson.cn>
-Subject: [v3 6/6] drm/vs: simple encoder
-Date: Mon, 4 Dec 2023 20:33:15 +0800
-Message-ID: <20231204123315.28456-7-keith.zhao@starfivetech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20231204123315.28456-1-keith.zhao@starfivetech.com>
-References: <20231204123315.28456-1-keith.zhao@starfivetech.com>
+	id 1rA8RN-004FTC-0l;
+	Mon, 04 Dec 2023 12:52:49 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1rA8RJ-004FRn-33
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 04 Dec 2023 12:52:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=vNi4oarUMe/eI8dB061LbFrYbcwH4xzlO/UEVWvv3R8=; b=d69pQhr9LJbL/XW8eP8KAhPxm+
+	hqvraksWyptXL7ALZD+jvHNZ/30GsSeIaBl+DmcuM1PLSrXgx+IXGiI5iyxJ6yV/+rpoaUxsd4xbB
+	N+EOR2c3hgfm00+DPl8vWJviJCpVPMKRjo4iROkZWR/AU00dPd5WpXzVSwYgaPVIZ0s1p1UE7fi0x
+	fLBbTa79LgpBION1ZpAWLKG9b5h34Q2p3l6Hx72EKN9vF/wz+ufS3LeTb9NHAbGjGSTMkDGwvE/Qa
+	VkDMejEaj/8wUNXQhA0fLXKeizJxFYVT5JvepAsMFIRl9uQKZ5EPDl4oGPOEpZigR4KEhvcnxGAaN
+	RFFkSA1Q==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1rA8RE-000h5B-Ai; Mon, 04 Dec 2023 12:52:40 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 4CE783003F0; Mon,  4 Dec 2023 13:52:39 +0100 (CET)
+Date: Mon, 4 Dec 2023 13:52:39 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: Song Liu <song@kernel.org>, Song Liu <songliubraving@meta.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	David Ahern <dsahern@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Kees Cook <keescook@chromium.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Network Development <netdev@vger.kernel.org>,
+	bpf <bpf@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>,
+	clang-built-linux <llvm@lists.linux.dev>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Joao Moreira <joao@overdrivepizza.com>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH v2 2/2] x86/cfi,bpf: Fix BPF JIT call
+Message-ID: <20231204125239.GA1319@noisy.programming.kicks-ass.net>
+References: <20231130133630.192490507@infradead.org>
+ <20231130134204.136058029@infradead.org>
+ <CAADnVQJqE=aE7mHVS54pnwwnDS0b67iJbr+t4j5F4HRyJSTOHw@mail.gmail.com>
+ <20231204091334.GM3818@noisy.programming.kicks-ass.net>
+ <20231204111128.GV8262@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
-X-Originating-IP: [180.164.60.184]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231204_043416_761224_91D88F73 
-X-CRM114-Status: GOOD (  22.47  )
+Content-Disposition: inline
+In-Reply-To: <20231204111128.GV8262@noisy.programming.kicks-ass.net>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,285 +102,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-add simple encoder for dsi bridge
+On Mon, Dec 04, 2023 at 12:11:28PM +0100, Peter Zijlstra wrote:
+> On Mon, Dec 04, 2023 at 10:13:34AM +0100, Peter Zijlstra wrote:
+> 
+> > > Just running test_progs it splats right away:
+> > > 
+> > > [   74.047757] kmemleak: Found object by alias at 0xffffffffa0001d80
+> > > [   74.048272] CPU: 14 PID: 104 Comm: kworker/14:0 Tainted: G        W
+> > >  O       6.7.0-rc3-00702-g41c30fec304d-dirty #5241
+> > > [   74.049118] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996),
+> > > BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+> > > [   74.050042] Workqueue: events bpf_prog_free_deferred
+> > > [   74.050448] Call Trace:
+> > > [   74.050663]  <TASK>
+> > > [   74.050841]  dump_stack_lvl+0x55/0x80
+> > > [   74.051141]  __find_and_remove_object+0xdb/0x110
+> > > [   74.051521]  kmemleak_free+0x41/0x70
+> > > [   74.051828]  vfree+0x36/0x130
+> > 
+> > Durr, I'll see if I can get that stuff running locally, and otherwise
+> > play with the robot as you suggested. Thanks!
+> 
+> I think it is bpf_jit_binary_pack_hdr(), which is using prog->bpf_func
+> as a start address for the image, instead of jit_data->image.
+> 
+> This used to be true, but now it's offset.
+> 
+> Let me see what to do about that...
 
-Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
+Not the prettiest of things, but the below seems to make the thing
+happy...
+
 ---
- drivers/gpu/drm/verisilicon/Makefile        |   4 +-
- drivers/gpu/drm/verisilicon/vs_drv.c        |   2 +
- drivers/gpu/drm/verisilicon/vs_simple_enc.c | 195 ++++++++++++++++++++
- drivers/gpu/drm/verisilicon/vs_simple_enc.h |  23 +++
- 4 files changed, 223 insertions(+), 1 deletion(-)
- create mode 100644 drivers/gpu/drm/verisilicon/vs_simple_enc.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_simple_enc.h
-
-diff --git a/drivers/gpu/drm/verisilicon/Makefile b/drivers/gpu/drm/verisilicon/Makefile
-index 71fadafcee13..cd5d0a90bcfe 100644
---- a/drivers/gpu/drm/verisilicon/Makefile
-+++ b/drivers/gpu/drm/verisilicon/Makefile
-@@ -5,6 +5,8 @@ vs_drm-objs := vs_dc_hw.o \
- 		vs_crtc.o \
- 		vs_drv.o \
- 		vs_modeset.o \
--		vs_plane.o
-+		vs_plane.o \
-+		vs_simple_enc.o
-+
- vs_drm-$(CONFIG_DRM_VERISILICON_STARFIVE_HDMI) += starfive_hdmi.o
- obj-$(CONFIG_DRM_VERISILICON) += vs_drm.o
-diff --git a/drivers/gpu/drm/verisilicon/vs_drv.c b/drivers/gpu/drm/verisilicon/vs_drv.c
-index d7e5199fe293..946f137ab124 100644
---- a/drivers/gpu/drm/verisilicon/vs_drv.c
-+++ b/drivers/gpu/drm/verisilicon/vs_drv.c
-@@ -23,6 +23,7 @@
- #include "vs_drv.h"
- #include "vs_modeset.h"
- #include "vs_dc.h"
-+#include "vs_simple_enc.h"
- 
- #define DRV_NAME	"verisilicon"
- #define DRV_DESC	"Verisilicon DRM driver"
-@@ -217,6 +218,7 @@ static struct platform_driver *drm_sub_drivers[] = {
- #ifdef CONFIG_DRM_VERISILICON_STARFIVE_HDMI
- 	&starfive_hdmi_driver,
- #endif
-+	&simple_encoder_driver,
+diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
+index 196cc1481dec..f4357c3211bc 100644
+--- a/arch/x86/net/bpf_jit_comp.c
++++ b/arch/x86/net/bpf_jit_comp.c
+@@ -3024,6 +3024,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+ 		prog->bpf_func = (void *)image + ctx.prog_offset;
+ 		prog->jited = 1;
+ 		prog->jited_len = proglen - ctx.prog_offset;
++		prog->aux->cfi_offset = ctx.prog_offset;
+ 	} else {
+ 		prog = orig_prog;
+ 	}
+@@ -3078,6 +3079,7 @@ void bpf_jit_free(struct bpf_prog *prog)
+ 			kvfree(jit_data->addrs);
+ 			kfree(jit_data);
+ 		}
++		prog->bpf_func = (void *)prog->bpf_func - prog->aux->cfi_offset;
+ 		hdr = bpf_jit_binary_pack_hdr(prog);
+ 		bpf_jit_binary_pack_free(hdr, NULL);
+ 		WARN_ON_ONCE(!bpf_prog_kallsyms_verify_off(prog));
+diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+index 8b725776e70a..e5fa0852a20f 100644
+--- a/include/linux/bpf.h
++++ b/include/linux/bpf.h
+@@ -1483,6 +1483,7 @@ struct bpf_prog_aux {
+ 		struct work_struct work;
+ 		struct rcu_head	rcu;
+ 	};
++	u32 cfi_offset;
  };
  
- static struct component_match *vs_drm_match_add(struct device *dev)
-diff --git a/drivers/gpu/drm/verisilicon/vs_simple_enc.c b/drivers/gpu/drm/verisilicon/vs_simple_enc.c
-new file mode 100644
-index 000000000000..c5a8d82bc469
---- /dev/null
-+++ b/drivers/gpu/drm/verisilicon/vs_simple_enc.c
-@@ -0,0 +1,195 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2020 VeriSilicon Holdings Co., Ltd.
-+ */
-+#include <linux/component.h>
-+#include <linux/of_device.h>
-+#include <linux/module.h>
-+
-+#include <drm/drm_atomic_helper.h>
-+#include <drm/drm_bridge.h>
-+#include <drm/drm_crtc_helper.h>
-+#include <drm/drm_of.h>
-+#include <linux/regmap.h>
-+#include <linux/media-bus-format.h>
-+#include <linux/mfd/syscon.h>
-+
-+#include "vs_crtc.h"
-+#include "vs_simple_enc.h"
-+
-+static const struct simple_encoder_priv dsi_priv = {
-+	.encoder_type = DRM_MODE_ENCODER_DSI
-+};
-+
-+static inline struct simple_encoder *to_simple_encoder(struct drm_encoder *enc)
-+{
-+	return container_of(enc, struct simple_encoder, encoder);
-+}
-+
-+static int encoder_parse_dt(struct device *dev)
-+{
-+	struct simple_encoder *simple = dev_get_drvdata(dev);
-+	unsigned int args[2];
-+
-+	simple->dss_regmap = syscon_regmap_lookup_by_phandle_args(dev->of_node,
-+								  "starfive,syscon",
-+								  2, args);
-+
-+	if (IS_ERR(simple->dss_regmap)) {
-+		return dev_err_probe(dev, PTR_ERR(simple->dss_regmap),
-+				     "getting the regmap failed\n");
-+	}
-+
-+	simple->offset = args[0];
-+	simple->mask = args[1];
-+
-+	return 0;
-+}
-+
-+void encoder_atomic_enable(struct drm_encoder *encoder,
-+			   struct drm_atomic_state *state)
-+{
-+	struct simple_encoder *simple = to_simple_encoder(encoder);
-+
-+	regmap_update_bits(simple->dss_regmap, simple->offset, simple->mask,
-+			   simple->mask);
-+}
-+
-+int encoder_atomic_check(struct drm_encoder *encoder,
-+			 struct drm_crtc_state *crtc_state,
-+			 struct drm_connector_state *conn_state)
-+{
-+	struct vs_crtc_state *vs_crtc_state = to_vs_crtc_state(crtc_state);
-+	struct drm_connector *connector = conn_state->connector;
-+	int ret = 0;
-+
-+	struct drm_bridge *first_bridge = drm_bridge_chain_get_first_bridge(encoder);
-+	struct drm_bridge_state *bridge_state = ERR_PTR(-EINVAL);
-+
-+	vs_crtc_state->encoder_type = encoder->encoder_type;
-+
-+	if (first_bridge && first_bridge->funcs->atomic_duplicate_state)
-+		bridge_state = drm_atomic_get_bridge_state(crtc_state->state, first_bridge);
-+
-+	if (IS_ERR(bridge_state)) {
-+		if (connector->display_info.num_bus_formats)
-+			vs_crtc_state->output_fmt = connector->display_info.bus_formats[0];
-+		else
-+			vs_crtc_state->output_fmt = MEDIA_BUS_FMT_FIXED;
-+	} else {
-+		vs_crtc_state->output_fmt = bridge_state->input_bus_cfg.format;
-+	}
-+
-+	switch (vs_crtc_state->output_fmt) {
-+	case MEDIA_BUS_FMT_FIXED:
-+	case MEDIA_BUS_FMT_RGB565_1X16:
-+	case MEDIA_BUS_FMT_RGB666_1X18:
-+	case MEDIA_BUS_FMT_RGB888_1X24:
-+	case MEDIA_BUS_FMT_RGB666_1X24_CPADHI:
-+	case MEDIA_BUS_FMT_RGB101010_1X30:
-+	case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
-+	case MEDIA_BUS_FMT_UYVY8_1X16:
-+	case MEDIA_BUS_FMT_YUV8_1X24:
-+	case MEDIA_BUS_FMT_UYYVYY10_0_5X30:
-+	case MEDIA_BUS_FMT_UYVY10_1X20:
-+	case MEDIA_BUS_FMT_YUV10_1X30:
-+		ret = 0;
-+		break;
-+	default:
-+		ret = -EINVAL;
-+		break;
-+	}
-+
-+	/* If MEDIA_BUS_FMT_FIXED, set it to default value */
-+	if (vs_crtc_state->output_fmt == MEDIA_BUS_FMT_FIXED)
-+		vs_crtc_state->output_fmt = MEDIA_BUS_FMT_RGB888_1X24;
-+
-+	return ret;
-+}
-+
-+static const struct drm_encoder_helper_funcs encoder_helper_funcs = {
-+	.atomic_check = encoder_atomic_check,
-+	.atomic_enable = encoder_atomic_enable,
-+};
-+
-+static int encoder_bind(struct device *dev, struct device *master, void *data)
-+{
-+	struct drm_device *drm_dev = data;
-+	struct simple_encoder *simple = dev_get_drvdata(dev);
-+	struct drm_encoder *encoder;
-+	struct drm_bridge *bridge;
-+	int ret;
-+
-+	encoder = &simple->encoder;
-+
-+	ret = drmm_encoder_init(drm_dev, encoder, NULL, simple->priv->encoder_type, NULL);
-+	if (ret)
-+		return ret;
-+
-+	drm_encoder_helper_add(encoder, &encoder_helper_funcs);
-+
-+	encoder->possible_crtcs =
-+			drm_of_find_possible_crtcs(drm_dev, dev->of_node);
-+
-+	/* output port is port1*/
-+	bridge = devm_drm_of_get_bridge(dev, dev->of_node, 1, 0);
-+	if (IS_ERR(bridge))
-+		return 0;
-+
-+	return drm_bridge_attach(encoder, bridge, NULL, 0);
-+}
-+
-+static const struct component_ops encoder_component_ops = {
-+	.bind = encoder_bind,
-+};
-+
-+static const struct of_device_id simple_encoder_dt_match[] = {
-+	{ .compatible = "starfive,dsi-encoder", .data = &dsi_priv},
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, simple_encoder_dt_match);
-+
-+static int encoder_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct simple_encoder *simple;
-+	int ret;
-+
-+	simple = devm_kzalloc(dev, sizeof(*simple), GFP_KERNEL);
-+	if (!simple)
-+		return -ENOMEM;
-+
-+	simple->priv = of_device_get_match_data(dev);
-+
-+	simple->dev = dev;
-+
-+	dev_set_drvdata(dev, simple);
-+
-+	ret = encoder_parse_dt(dev);
-+	if (ret)
-+		return ret;
-+
-+	return component_add(dev, &encoder_component_ops);
-+}
-+
-+static int encoder_remove(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+
-+	component_del(dev, &encoder_component_ops);
-+	dev_set_drvdata(dev, NULL);
-+
-+	return 0;
-+}
-+
-+struct platform_driver simple_encoder_driver = {
-+	.probe = encoder_probe,
-+	.remove = encoder_remove,
-+	.driver = {
-+		.name = "vs-simple-encoder",
-+		.of_match_table = of_match_ptr(simple_encoder_dt_match),
-+	},
-+};
-+
-+MODULE_DESCRIPTION("Simple Encoder Driver");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/gpu/drm/verisilicon/vs_simple_enc.h b/drivers/gpu/drm/verisilicon/vs_simple_enc.h
-new file mode 100644
-index 000000000000..fb33ca9e18d6
---- /dev/null
-+++ b/drivers/gpu/drm/verisilicon/vs_simple_enc.h
-@@ -0,0 +1,23 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2022 VeriSilicon Holdings Co., Ltd.
-+ */
-+
-+#ifndef __VS_SIMPLE_ENC_H_
-+#define __VS_SIMPLE_ENC_H_
-+
-+struct simple_encoder_priv {
-+	unsigned char encoder_type;
-+};
-+
-+struct simple_encoder {
-+	struct drm_encoder encoder;
-+	struct device *dev;
-+	const struct simple_encoder_priv *priv;
-+	struct regmap *dss_regmap;
-+	unsigned int offset;
-+	unsigned int mask;
-+};
-+
-+extern struct platform_driver simple_encoder_driver;
-+#endif /* __VS_SIMPLE_ENC_H_ */
--- 
-2.34.1
-
+ struct bpf_prog {
+diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
+index 5c84a935ba63..763742f4740f 100644
+--- a/kernel/bpf/core.c
++++ b/kernel/bpf/core.c
+@@ -121,6 +121,9 @@ struct bpf_prog *bpf_prog_alloc_no_stats(unsigned int size, gfp_t gfp_extra_flag
+ #endif
+ 
+ 	INIT_LIST_HEAD_RCU(&fp->aux->ksym.lnode);
++#ifdef CONFIG_FINEIBT
++	INIT_LIST_HEAD_RCU(&fp->aux->ksym_prefix.lnode);
++#endif
+ 	mutex_init(&fp->aux->used_maps_mutex);
+ 	mutex_init(&fp->aux->dst_mutex);
+ 
+@@ -709,6 +712,8 @@ void bpf_prog_kallsyms_del(struct bpf_prog *fp)
+ 
+ 	bpf_ksym_del(&fp->aux->ksym);
+ #ifdef CONFIG_FINEIBT
++	if (cfi_mode != CFI_FINEIBT)
++		return;
+ 	bpf_ksym_del(&fp->aux->ksym_prefix);
+ #endif
+ }
 
 _______________________________________________
 linux-riscv mailing list
