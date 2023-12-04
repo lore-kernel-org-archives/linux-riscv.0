@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB2DCC10DC1
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 12:31:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5984C4167B
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 12:34:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+jBBV03IsFkaP5KjJzABXbbvqaMh4gLSWKH96Nq7SzI=; b=UgeH4lDWh//eyI
-	nH0+AaqxxpqxgXCFBYdRHTfl4X/VilWG1pkQdrtzgitboK5wqoULHGPa1MwQDY8ApYVxIzE3fSd1Q
-	Ygs3X12Skh85xHnu8xQE4+QSt42CHG9IdkYzB2vk1PKGSS8d8pDHXKRQmsNPV5QhzDu9SpqsFISOA
-	WgDSDAcUqbDfTl5ta2en404puDJ3L58Sx7UOJuxg0xalHr+pdbExUgkwzWGISA27U92Duuvoc0L7B
-	EX5sPtQ/c9DDd/JcMQRK14nqQisKS0Vc73kbQx9CZ8uDBm/dORwJxQrIMZZXizXjdbDhDgEHFOisq
-	9mxvXWT3KDnIcmgrsYNA==;
+	List-Owner; bh=LRuPooNC5Kg78PoYW+mb7TSNyalPMc/WIilcMd2M9AA=; b=QHwi91VIJfKEbO
+	0f5J8Y5td8NCKdWrZDRLCOlV+6Ab45MGrhb7UKDVOkmc+H6mJpp3LRq4qBBluF+wGtgSkcJlC9uTj
+	ilOadN3dEiFbC7zF2EmcALUPgxiS+ATR98iBVQaKa31IRR/Uk2ua7g5gLbX+TWaM92AIJ3APbDDyF
+	RmW1b6v+vPj6rT6tF6ZCAu3Pg3k/DEyn9lgBY8RWZokekhrrYxn/Mlm21/D+DPfHLRyatSpt0S9ND
+	PvY1pcau7syR70kOb99Hdi1QF7l0k/v3P/dqkQ0nukI2NCG2H7+BFIHALjE5lccTrbtaT1un1IO5c
+	XdyEB/uO3jDL33NBmMEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rA871-0042U9-0e;
-	Mon, 04 Dec 2023 12:31:47 +0000
-Received: from mail-vk1-xa35.google.com ([2607:f8b0:4864:20::a35])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rA86x-0042Qw-1g
+	id 1rA893-0043sk-1X;
+	Mon, 04 Dec 2023 12:33:53 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1rA890-0043cc-0E
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Dec 2023 12:31:45 +0000
-Received: by mail-vk1-xa35.google.com with SMTP id 71dfb90a1353d-4b2cf7ce00bso384649e0c.2
-        for <linux-riscv@lists.infradead.org>; Mon, 04 Dec 2023 04:31:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1701693101; x=1702297901; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mWBTQK/PiKmPg+awGgORewRwbpjr6L9MUGlcoWj0TMU=;
-        b=OW/KuviKHa/v8NQctyDsXK/aX54fHLpmdivMiIRWAp/LZpXBCi25Ergew4oItTqN+n
-         h/zUc4RLYsP587K25IN4tUJtKt5VXj1aQHQ+zwmXhHrl+NHId4sWGycO6RDchDGkQ+7l
-         +A9BH9JxD8/beGU2kQwWtSWXoVaspbzp420DGe+AKwkHMC0TBlgr5hhZgdu5ghe0PSRc
-         XZFx35O/h4U54PDSkptrRvSOZsgqji7r9dK6xjN7I1S6Bo0Yv2BSTvweJQ5wjgckF2lw
-         HiABprhmglelH/ziPxhzVi711cyAMDVsAvYyvERgIZOX5hYTO3wsRTr4+UxPoxD9Jebr
-         Yk4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701693101; x=1702297901;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mWBTQK/PiKmPg+awGgORewRwbpjr6L9MUGlcoWj0TMU=;
-        b=RcsKNhmhD6RR9v143H9yo+hamFx7vNVdRYBQCjIivLAdlcCIaAxKQCP4kcyG4QCb0G
-         bBHuBuKk1321UmJeS6nT0fe01IEZOr542EA4wd6AvJami4k0XXC8sKugloNoYeNZ9b4W
-         dAeFnTMiM+gxMYl3M1OTIVZ1PT94ie8XXRc4vzsSEir3W39njlwFg6MIUFLoctlZPFYO
-         Uxe1WwYSWVzeQG6FUH/Ft8FS7nn22+nBauado6m+B8YSSHCVOE3R0M4qBgLZM2eR8Yoy
-         saJyhY7okSRrp+p+47d+a1+iEzY2nYWkUCabtgvEReWSasP8slkt8+ffbh1SzbtdFh1f
-         URzg==
-X-Gm-Message-State: AOJu0YzUrqzoXh+yDb51NbCcDJ+isHdME3SaM58UnKzdiVecxCWngHJx
-	SGFbK/D7gx680c2Eyuf5TFpKv3SsxcH+l4d0Sls=
-X-Google-Smtp-Source: AGHT+IFcOfpj6UygF+HRjMWMx434qAlKn1npGgNsb/ygMWqd/ubPf0ht+wO7F3t4ptGZTVeE+swnD3SN71Pgpry0F8U=
-X-Received: by 2002:a05:6122:1790:b0:4b2:a8f8:23d7 with SMTP id
- o16-20020a056122179000b004b2a8f823d7mr2523146vkf.4.1701693101596; Mon, 04 Dec
- 2023 04:31:41 -0800 (PST)
+	Mon, 04 Dec 2023 12:33:52 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id AB67124E24C;
+	Mon,  4 Dec 2023 20:33:17 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 4 Dec
+ 2023 20:33:17 +0800
+Received: from xiaofei.localdomain (180.164.60.184) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 4 Dec
+ 2023 20:33:17 +0800
+From: Keith Zhao <keith.zhao@starfivetech.com>
+To: Keith Zhao <keith.zhao@starfivetech.com>, <devicetree@vger.kernel.org>,
+	<dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>
+CC: <mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>,
+	<krzysztof.kozlowski+dt@linaro.org>, <william.qiu@starfivetech.com>,
+	<xingyu.wu@starfivetech.com>, <paul.walmsley@sifive.com>,
+	<aou@eecs.berkeley.edu>, <palmer@dabbelt.com>, <p.zabel@pengutronix.de>,
+	<shengyang.chen@starfivetech.com>, <jack.zhu@starfivetech.com>,
+	<changhuang.liang@starfivetech.com>, <maarten.lankhorst@linux.intel.com>,
+	<suijingfeng@loongson.cn>
+Subject: [v3 2/6] riscv: dts: starfive: jh7110: display subsystem
+Date: Mon, 4 Dec 2023 20:33:11 +0800
+Message-ID: <20231204123315.28456-3-keith.zhao@starfivetech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20231204123315.28456-1-keith.zhao@starfivetech.com>
+References: <20231204123315.28456-1-keith.zhao@starfivetech.com>
 MIME-Version: 1.0
-References: <444de86a-7e7c-4de7-5d1d-c1c40eefa4ba@w6rz.net>
-In-Reply-To: <444de86a-7e7c-4de7-5d1d-c1c40eefa4ba@w6rz.net>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Mon, 4 Dec 2023 12:31:15 +0000
-Message-ID: <CA+V-a8uOvdXyWeKPwjCck4kBVsjc6mChwEZe6nvteN4A7Xd_eg@mail.gmail.com>
-Subject: Re: RISC-V regression on Linux 6.7-rc1
-To: Ron Economos <re@w6rz.net>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>, charlie@rivosinc.com, 
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>, Palmer Dabbelt <palmer@rivosinc.com>
+X-Originating-IP: [180.164.60.184]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231204_043143_577244_56807E6D 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20231204_043350_438572_F3DFD854 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,135 +75,261 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksCgpPbiBNb24sIE5vdiAyMCwgMjAyMyBhdCAzOjU04oCvUE0gUm9uIEVjb25vbW9zIDxyZUB3
-NnJ6Lm5ldD4gd3JvdGU6Cj4KPiBMaW51eCA2LjctcmMxIGZhaWxzIHRvIGJvb3Qgb24gdGhlIEhp
-Rml2ZSBVbm1hdGNoZWQgcnVubmluZyBVYnVudHUKPiAyMi4wNC4gRHVyaW5nIGJvb3QsIHRoZXJl
-IGFyZSBtYW55IHJhbmRvbSBvb3BzIGFuZCBrZXJuZWwgcGFuaWNzLgo+IFJldmVydGluZyB0aGUg
-cGF0Y2ggc2VyaWVzICJyaXNjdjogQWRkIHJlbWFpbmluZyBtb2R1bGUgcmVsb2NhdGlvbnMgYW5k
-Cj4gdGVzdHMiIChjb21taXQgYjUxZmM4OGNiMzVlNDkpIHJlc29sdmVzIHRoZSBpc3N1ZS4KPgo+
-IEhlcmUncyBhbiBleGFtcGxlLCBidXQgaXQgZG9lcyBzb21ldGhpbmcgZGlmZmVyZW50IG9uIGVh
-Y2ggYm9vdC4KPgo+IE5vdiAxNyAyMTozMzozOCByaXNjdjY0IGtlcm5lbDogVW5hYmxlIHRvIGhh
-bmRsZSBrZXJuZWwgcGFnaW5nIHJlcXVlc3QKPiBhdCB2aXJ0dWFsIGFkZHJlc3MgZmZmZmZmOTdl
-NmNiNDVmYQo+IE5vdiAxNyAyMTozMzozOCByaXNjdjY0IGtlcm5lbDogVW5hYmxlIHRvIGhhbmRs
-ZSBrZXJuZWwgcGFnaW5nIHJlcXVlc3QKPiBhdCB2aXJ0dWFsIGFkZHJlc3MgMDAwMDAwNWI3ZDk0
-NGUwZQo+IE5vdiAxNyAyMTozMzozOCByaXNjdjY0IGtlcm5lbDogT29wcyBbIzFdCj4gTm92IDE3
-IDIxOjMzOjM4IHJpc2N2NjQga2VybmVsOiBNb2R1bGVzIGxpbmtlZCBpbjogc2NoX2ZxX2NvZGVs
-Cj4gYXV0aF9ycGNnc3MgbmZzX2FjbCBkcm0oKykgbG9ja2QgZ3JhY2UgYmFja2xpZ2h0IHN1bnJw
-YyBlZmlfcHN0b3JlCj4gaXBfdGFibGVzIHhfdGFibGVzIGF1dG9mczQgYnRyZnMgYmxha2UyYl9n
-ZW5lcmljIHJhaWQxMCByYWlkNDU2ID4KPiBOb3YgMTcgMjE6MzM6MzggcmlzY3Y2NCBrZXJuZWw6
-IENQVTogMSBQSUQ6IDM5MSBDb21tOiBjbG91ZC1pbml0IE5vdAo+IHRhaW50ZWQgNi43LjAtcmMx
-ICMyCj4gTm92IDE3IDIxOjMzOjM4IHJpc2N2NjQga2VybmVsOiBIYXJkd2FyZSBuYW1lOiBTaUZp
-dmUgSGlGaXZlIFVubWF0Y2hlZAo+IEEwMCAoRFQpCj4gTm92IDE3IDIxOjMzOjM4IHJpc2N2NjQg
-a2VybmVsOiBlcGMgOiByZWZpbGxfb2JqX3N0b2NrKzB4NGUvMHgxNjAKPiBOb3YgMTcgMjE6MzM6
-MzggcmlzY3Y2NCBrZXJuZWw6ICByYSA6IHJlZmlsbF9vYmpfc3RvY2srMHg0ZS8weDE2MAo+IE5v
-diAxNyAyMTozMzozOCByaXNjdjY0IGtlcm5lbDogZXBjIDogZmZmZmZmZmY4MDJkOTI2NCByYSA6
-Cj4gZmZmZmZmZmY4MDJkOTI2NCBzcCA6IGZmZmZmZmQ4OThlMmZkMTAKPiBOb3YgMTcgMjE6MzM6
-MzggcmlzY3Y2NCBrZXJuZWw6ICBncCA6IGZmZmZmZmZmODFjNGJkZDggdHAgOgo+IGZmZmZmZmQ4
-ODRmOWVjMDAgdDAgOiAwMDAwMDAwMDAwMDAwMDAwCj4gTm92IDE3IDIxOjMzOjM4IHJpc2N2NjQg
-a2VybmVsOiAgdDEgOiAwMDAwMDAwMDAwMDAwMDAwIHQyIDoKPiAwMDAwMDAwMDAwMDAwMDAwIHMw
-IDogZmZmZmZmZDg5OGUyZmQ2MAo+IE5vdiAxNyAyMTozMzozOCByaXNjdjY0IGtlcm5lbDogIHMx
-IDogZmZmZmZmZGJmZWQwMmY3MCBhMCA6Cj4gZmZmZmZmZDg5YTJiMWVjMCBhMSA6IDAwMDAwMDAw
-MDAwMDAwMDAKPiBOb3YgMTcgMjE6MzM6MzggcmlzY3Y2NCBrZXJuZWw6ICBhMiA6IDAwMDAwMDAw
-MDAwMDAwMDAgYTMgOgo+IDAwMDAwMDAwMDAwMDAwMDAgYTQgOiAwMDAwMDAwMDAwMDAwMDAwCj4g
-Tm92IDE3IDIxOjMzOjM4IHJpc2N2NjQga2VybmVsOiAgYTUgOiAwMDAwMDAwMDAwMDAwMDAwIGE2
-IDoKPiAwMDAwMDAwMDAwMDAwMDAwIGE3IDogMDAwMDAwMDAwMDAwMDAwMAo+IE5vdiAxNyAyMToz
-MzozOCByaXNjdjY0IGtlcm5lbDogIHMyIDogMzE0MTM3OTdlNmNiNDVmYSBzMyA6Cj4gMDAwMDAw
-MDAwMDAwMDEwOCBzNCA6IDAwMDAwMDAyMDAwMDAwMjIKPiBOb3YgMTcgMjE6MzM6MzggcmlzY3Y2
-NCBrZXJuZWw6ICBzNSA6IGZmZmZmZmZmODFjYmIxZTggczYgOgo+IGZmZmZmZmQ4ODRmOWVjMDAg
-czcgOiAwMDAwMDAzZmMwMzI1MDI4Cj4gTm92IDE3IDIxOjMzOjM4IHJpc2N2NjQga2VybmVsOiAg
-czggOiAwMDAwMDAwMDAwMDAwMDAwIHM5IDoKPiAwMDAwMDAyYjEwZmRjMTcwIHMxMDogMDAwMDAw
-MmIxMGZlMjI5MAo+IE5vdiAxNyAyMTozMzozOCByaXNjdjY0IGtlcm5lbDogIHMxMTogMDAwMDAw
-MDAwMDAwMDAwMCB0MyA6Cj4gMDAwMDAwMDAwMDAwMDAwMCB0NCA6IDAwMDAwMDAwMDAwMDAwMDAK
-PiBOb3YgMTcgMjE6MzM6MzggcmlzY3Y2NCBrZXJuZWw6ICB0NSA6IDAwMDAwMDAwMDAwMDAwMDAg
-dDYgOiAwMDAwMDAwMDAwMDAwMDAwCj4gTm92IDE3IDIxOjMzOjM4IHJpc2N2NjQga2VybmVsOiBz
-dGF0dXM6IDAwMDAwMDAyMDAwMDAxMDAgYmFkYWRkcjoKPiBmZmZmZmY5N2U2Y2I0NWZhIGNhdXNl
-OiAwMDAwMDAwMDAwMDAwMDBkCj4gTm92IDE3IDIxOjMzOjM4IHJpc2N2NjQga2VybmVsOiBbPGZm
-ZmZmZmZmODAyZDkyNjQ+XQo+IHJlZmlsbF9vYmpfc3RvY2srMHg0ZS8weDE2MAo+IE5vdiAxNyAy
-MTozMzozOCByaXNjdjY0IGtlcm5lbDogWzxmZmZmZmZmZjgwMmRjZTI2Pl0KPiBvYmpfY2dyb3Vw
-X3VuY2hhcmdlKzB4MWMvMHgyYQo+IE5vdiAxNyAyMTozMzozOCByaXNjdjY0IGtlcm5lbDogWzxm
-ZmZmZmZmZjgwMmI5N2E2Pl0KPiBrbWVtX2NhY2hlX2ZyZWUrMHgxYjIvMHg1NDgKPiBOb3YgMTcg
-MjE6MzM6MzggcmlzY3Y2NCBrZXJuZWw6IFs8ZmZmZmZmZmY4MDJmMzU4Yz5dIF9fZnB1dCsweDEz
-Mi8weDI1Mgo+IE5vdiAxNyAyMTozMzozOCByaXNjdjY0IGtlcm5lbDogWzxmZmZmZmZmZjgwMmYz
-NzAyPl0gX19fX2ZwdXQrMHgxOC8weDIyCj4gTm92IDE3IDIxOjMzOjM4IHJpc2N2NjQga2VybmVs
-OiBbPGZmZmZmZmZmODAwNDNlOTY+XSB0YXNrX3dvcmtfcnVuKzB4YTgvMHhlZQo+IE5vdiAxNyAy
-MTozMzozOCByaXNjdjY0IGtlcm5lbDogWzxmZmZmZmZmZjgwMGJmYzY2Pl0KPiBleGl0X3RvX3Vz
-ZXJfbW9kZV9sb29wLmlzcmEuMCsweGYyLzB4MTBlCj4gTm92IDE3IDIxOjMzOjM4IHJpc2N2NjQg
-a2VybmVsOiBbPGZmZmZmZmZmODBjNGYyYWM+XQo+IHN5c2NhbGxfZXhpdF90b191c2VyX21vZGUr
-MHg1NC8weDY0Cj4gTm92IDE3IDIxOjMzOjM4IHJpc2N2NjQga2VybmVsOiBbPGZmZmZmZmZmODBj
-NGVlZTA+XQo+IGRvX3RyYXBfZWNhbGxfdSsweDVhLzB4MTNhCj4gTm92IDE3IDIxOjMzOjM4IHJp
-c2N2NjQga2VybmVsOiBbPGZmZmZmZmZmODBjNWE3MTY+XQo+IHJldF9mcm9tX2V4Y2VwdGlvbisw
-eDAvMHg2Ngo+IE5vdiAxNyAyMTozMzozOCByaXNjdjY0IGtlcm5lbDogQ29kZTogNjM5YyA5NGJl
-IDY4OWMgODk2MyAwYWE3IDg1MjYgZjA5Nwo+IGZmZmYgODBlNyAyNmEwICgzNzgzKSAwMDA5Cj4g
-Tm92IDE3IDIxOjMzOjM4IHJpc2N2NjQga2VybmVsOiAtLS1bIGVuZCB0cmFjZSAwMDAwMDAwMDAw
-MDAwMDAwIF0tLS0KPiBOb3YgMTcgMjE6MzM6MzggcmlzY3Y2NCBrZXJuZWw6IE9vcHMgWyMyXQo+
-IE5vdiAxNyAyMTozMzozOCByaXNjdjY0IGtlcm5lbDogbm90ZTogY2xvdWQtaW5pdFszOTFdIGV4
-aXRlZCB3aXRoIGlycXMKPiBkaXNhYmxlZAo+IE5vdiAxNyAyMTozMzozOCByaXNjdjY0IGtlcm5l
-bDogTW9kdWxlcyBsaW5rZWQgaW46IHNjaF9mcV9jb2RlbAo+IGF1dGhfcnBjZ3NzIG5mc19hY2wg
-ZHJtKCspIGxvY2tkIGdyYWNlIGJhY2tsaWdodCBzdW5ycGMgZWZpX3BzdG9yZQo+IGlwX3RhYmxl
-cyB4X3RhYmxlcyBhdXRvZnM0IGJ0cmZzIGJsYWtlMmJfZ2VuZXJpYyByYWlkMTAgcmFpZDQ1NiA+
-Cj4gTm92IDE3IDIxOjMzOjM4IHJpc2N2NjQga2VybmVsOiBDUFU6IDIgUElEOiAzNzYgQ29tbTog
-bW9kcHJvYmUgVGFpbnRlZDoKPiBHICAgICAgRCAgICAgICAgICAgIDYuNy4wLXJjMSAjMgo+IE5v
-diAxNyAyMTozMzozOCByaXNjdjY0IGtlcm5lbDogSGFyZHdhcmUgbmFtZTogU2lGaXZlIEhpRml2
-ZSBVbm1hdGNoZWQKPiBBMDAgKERUKQo+IE5vdiAxNyAyMTozMzozOCByaXNjdjY0IGtlcm5lbDog
-ZXBjIDogX19rbWVtX2NhY2hlX2FsbG9jX25vZGUrMHgyODYvMHgyZmEKPiBOb3YgMTcgMjE6MzM6
-MzggcmlzY3Y2NCBrZXJuZWw6ICByYSA6IF9fa21lbV9jYWNoZV9hbGxvY19ub2RlKzB4NWEvMHgy
-ZmEKPiBOb3YgMTcgMjE6MzM6MzggcmlzY3Y2NCBrZXJuZWw6IGVwYyA6IGZmZmZmZmZmODAyYmFj
-YjggcmEgOgo+IGZmZmZmZmZmODAyYmFhOGMgc3AgOiBmZmZmZmZkODg5ZjA3OTQwCj4gTm92IDE3
-IDIxOjMzOjM4IHJpc2N2NjQga2VybmVsOiAgZ3AgOiBmZmZmZmZmZjgxYzRiZGQ4IHRwIDoKPiBm
-ZmZmZmZkODk4ZDg0MzgwIHQwIDogZmZmZmZmZDg4ZTFjM2FlMAo+IE5vdiAxNyAyMTozMzozOCBy
-aXNjdjY0IGtlcm5lbDogIHQxIDogMDAwMDk0MDAwMDAwMDAwMCB0MiA6Cj4gMDAwMDAwMDAwMDAw
-MDAwMCBzMCA6IGZmZmZmZmQ4ODlmMDc5YTAKPiBOb3YgMTcgMjE6MzM6MzggcmlzY3Y2NCBrZXJu
-ZWw6ICBzMSA6IGZmZmZmZmQ4ODAwMDE3MDAgYTAgOgo+IDI2ODU2YmRiN2Q5NDRkY2UgYTEgOiAw
-MDAwMDAwMDAwMDAwNzE3Cj4gTm92IDE3IDIxOjMzOjM4IHJpc2N2NjQga2VybmVsOiAgYTIgOiAw
-MDAwMDAwMDAwMDA4NTAwIGEzIDoKPiBmZmZmZmZmZjgxY2JiMWU4IGE0IDogMjY4NTZiZGI3ZDk0
-NGUwZQo+IE5vdiAxNyAyMTozMzozOCByaXNjdjY0IGtlcm5lbDogIGE1IDogMGU0ZTk0N2RkYjZi
-MDAyNiBhNiA6Cj4gMDAwMDAwMDAwMDAwZmYwMCBhNyA6IDAwMDAwMDAwMDAwMDA3MTgKPiBOb3Yg
-MTcgMjE6MzM6MzggcmlzY3Y2NCBrZXJuZWw6ICBzMiA6IDAwMDAwMDAwMDAwMDAwMDAgczMgOgo+
-IDAwMDAwMDAwMDAwMDBkYzAgczQgOiAwMDAwMDAwMDAwMDAwMDgwCj4gTm92IDE3IDIxOjMzOjM4
-IHJpc2N2NjQga2VybmVsOiAgczUgOiBmZmZmZmZmZmZmZmZmZmZmIHM2IDoKPiBmZmZmZmZmZjgw
-NDY2ZTdhIHM3IDogZmZmZmZmZmY4MWM0YzQ1NAo+IE5vdiAxNyAyMTozMzozOCByaXNjdjY0IGtl
-cm5lbDogIHM4IDogMDAwMDAwMDAwMDAwMGRjMCBzOSA6Cj4gZmZmZmZmZmYwMjQ1MjhjOCBzMTA6
-IGZmZmZmZmZmODFiMWI3ZDAKPiBOb3YgMTcgMjE6MzM6MzggcmlzY3Y2NCBrZXJuZWw6ICBzMTE6
-IGZmZmZmZmZmODFiMWI4ODAgdDMgOgo+IDAwMDAwMDAwMDAwMDAwMDAgdDQgOiAwMDAwMDAwMDAw
-MDAwMDAwCj4gTm92IDE3IDIxOjMzOjM4IHJpc2N2NjQga2VybmVsOiAgdDUgOiAwMDAwMDAwMDAw
-MDAwMDAwIHQ2IDogZmZmZmZmZDg4MGQ1NzU1NAo+IE5vdiAxNyAyMTozMzozOCByaXNjdjY0IGtl
-cm5lbDogc3RhdHVzOiAwMDAwMDAwMjAwMDAwMTIwIGJhZGFkZHI6Cj4gMDAwMDAwNWI3ZDk0NGUw
-ZSBjYXVzZTogMDAwMDAwMDAwMDAwMDAwZAo+IE5vdiAxNyAyMTozMzozOCByaXNjdjY0IGtlcm5l
-bDogWzxmZmZmZmZmZjgwMmJhY2I4Pl0KPiBfX2ttZW1fY2FjaGVfYWxsb2Nfbm9kZSsweDI4Ni8w
-eDJmYQo+IE5vdiAxNyAyMTozMzozOCByaXNjdjY0IGtlcm5lbDogWzxmZmZmZmZmZjgwMjQ3Y2Fj
-Pl0ga21hbGxvY190cmFjZSsweDMwLzB4YWMKPiBOb3YgMTcgMjE6MzM6MzggcmlzY3Y2NCBrZXJu
-ZWw6IFs8ZmZmZmZmZmY4MDQ2NmU3YT5dCj4gZXZlbnRmc19jcmVhdGVfZGlyKzB4NDYvMHgxNTgK
-PiBOb3YgMTcgMjE6MzM6MzggcmlzY3Y2NCBrZXJuZWw6IFs8ZmZmZmZmZmY4MDE1Yzk2OD5dCj4g
-ZXZlbnRfY3JlYXRlX2RpcisweGFjLzB4MmUwCj4gTm92IDE3IDIxOjMzOjM4IHJpc2N2NjQga2Vy
-bmVsOiBbPGZmZmZmZmZmODAxNWRjZGM+XQo+IHRyYWNlX21vZHVsZV9ub3RpZnkrMHgxZDgvMHgy
-NjQKPiBOb3YgMTcgMjE6MzM6MzggcmlzY3Y2NCBrZXJuZWw6IFs8ZmZmZmZmZmY4MDA0OWUyOD5d
-Cj4gbm90aWZpZXJfY2FsbF9jaGFpbisweDZjLzB4ZTgKPiBOb3YgMTcgMjE6MzM6MzggcmlzY3Y2
-NCBrZXJuZWw6IFs8ZmZmZmZmZmY4MDA0OWYyYz5dCj4gYmxvY2tpbmdfbm90aWZpZXJfY2FsbF9j
-aGFpbl9yb2J1c3QrMHg1YS8weGMyCj4gTm92IDE3IDIxOjMzOjM4IHJpc2N2NjQga2VybmVsOiBb
-PGZmZmZmZmZmODAwYzQzOTA+XQo+IGxvYWRfbW9kdWxlKzB4MTZkYy8weDFkMWEKPiBOb3YgMTcg
-MjE6MzM6MzggcmlzY3Y2NCBrZXJuZWw6IFs8ZmZmZmZmZmY4MDBjNGJmYz5dCj4gaW5pdF9tb2R1
-bGVfZnJvbV9maWxlKzB4ODIvMHhjNAo+IE5vdiAxNyAyMTozMzozOCByaXNjdjY0IGtlcm5lbDog
-WzxmZmZmZmZmZjgwMGM0ZGRhPl0KPiBfX3Jpc2N2X3N5c19maW5pdF9tb2R1bGUrMHgxOWMvMHgz
-M2EKPiBOb3YgMTcgMjE6MzM6MzggcmlzY3Y2NCBrZXJuZWw6IFs8ZmZmZmZmZmY4MGM0ZWVkND5d
-Cj4gZG9fdHJhcF9lY2FsbF91KzB4NGUvMHgxM2EKPiBOb3YgMTcgMjE6MzM6MzggcmlzY3Y2NCBr
-ZXJuZWw6IFs8ZmZmZmZmZmY4MGM1YTcxNj5dCj4gcmV0X2Zyb21fZXhjZXB0aW9uKzB4MC8weDY2
-Cj4gTm92IDE3IDIxOjMzOjM4IHJpc2N2NjQga2VybmVsOiBDb2RlOiAwODEzIGYwMDggNTYxMyAw
-Mjg3IGU3YjMgMDExNyA3NjMzCj4gMDEwNiA4ODkzIDAwMTUgKDYzMTgpIDhmZDEKPiBOb3YgMTcg
-MjE6MzM6MzggcmlzY3Y2NCBrZXJuZWw6IC0tLVsgZW5kIHRyYWNlIDAwMDAwMDAwMDAwMDAwMDAg
-XS0tLQo+IE5vdiAxNyAyMTozMzozOCByaXNjdjY0IHN5c3RlbWRbMV06IEZpbmlzaGVkIENvbGRw
-bHVnIEFsbCB1ZGV2IERldmljZXMuCj4gTm92IDE3IDIxOjMzOjM4IHJpc2N2NjQga2VybmVsOiBV
-bmFibGUgdG8gaGFuZGxlIGtlcm5lbCBwYWdpbmcgcmVxdWVzdAo+IGF0IHZpcnR1YWwgYWRkcmVz
-cyAwMDAwMDA1YjdkOTQ0ZTBlCj4gTm92IDE3IDIxOjMzOjM4IHJpc2N2NjQga2VybmVsOiBVbmFi
-bGUgdG8gaGFuZGxlIGtlcm5lbCBwYWdpbmcgcmVxdWVzdAo+IGF0IHZpcnR1YWwgYWRkcmVzcyBm
-ZmZmZmY4MWU1MGIwZWI2Cj4gTm92IDE3IDIxOjMzOjM4IHJpc2N2NjQga2VybmVsOiBPb3BzIFsj
-M10KPgpIYXZlIHRoZXJlIGFueSBwYXRjaGVzIHBvc3RlZCB0byBmaXggdGhlc2UgaXNzdWVzPyBJ
-J20gc3RpbGwgc2VlaW5nCmZhaWx1cmVzIG9uIFJaL0ZpdmUgKGh0dHBzOi8vcGFzdGUuZGViaWFu
-Lm5ldC8xMzAwMTMyLykuCgpDaGVlcnMsClByYWJoYWthcgoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Add the dc controller and hdmi node for the Starfive JH7110 SoC.
+
+Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
+---
+ .../jh7110-starfive-visionfive-2.dtsi         | 134 ++++++++++++++++++
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      |  49 +++++++
+ 2 files changed, 183 insertions(+)
+
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+index b89e9791efa7..6e387e0138c0 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+@@ -35,6 +35,25 @@ memory@40000000 {
+ 		reg = <0x0 0x40000000 0x1 0x0>;
+ 	};
+ 
++	reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		/* vout applies for space from this CMA
++		 * Without this CMA reservation,
++		 * vout may not work properly.
++		 */
++		linux,cma {
++			compatible = "shared-dma-pool";
++			reusable;
++			size = <0x0 0x20000000>;
++			alignment = <0x0 0x1000>;
++			alloc-ranges = <0x0 0x70000000 0x0 0x20000000>;
++			linux,cma-default;
++		};
++	};
++
+ 	gpio-restart {
+ 		compatible = "gpio-restart";
+ 		gpios = <&sysgpio 35 GPIO_ACTIVE_HIGH>;
+@@ -69,6 +88,68 @@ codec {
+ 	};
+ };
+ 
++&dc8200 {
++	status = "okay";
++
++	crtc_out: ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		dc_out0: port@0 {
++			reg = <0>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			dc_out_dpi0: endpoint@0 {
++				reg = <0>;
++				remote-endpoint = <&hdmi_enc>;
++			};
++
++		};
++
++		dc_out1: port@1 {
++			reg = <1>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			dc_out_dpi1: endpoint@1 {
++				reg = <1>;
++				remote-endpoint = <&dsi_enc>;
++			};
++
++		};
++	};
++};
++
++&display {
++	status = "okay";
++	ports = <&crtc_out>;
++};
++
++&dsi_encoder {
++	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		/* input */
++		enc_in: port@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0>;
++			dsi_enc:endpoint@0 {
++				reg = <0>;
++				remote-endpoint = <&dc_out_dpi1>;
++			};
++		};
++		/* output */
++		enc_out: port@1 {
++			reg = <1>;
++			/*need add a remote-endpoint to dsi bridge*/
++		};
++	};
++};
++
+ &dvp_clk {
+ 	clock-frequency = <74250000>;
+ };
+@@ -89,6 +170,21 @@ &gmac1_rmii_refin {
+ 	clock-frequency = <50000000>;
+ };
+ 
++&hdmi {
++	status = "okay";
++	pinctrl-names = "default";
++	pinctrl-0 = <&hdmi_pins>;
++
++	hdmi_in: port {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		hdmi_enc: endpoint@0 {
++			reg = <0>;
++			remote-endpoint = <&dc_out_dpi0>;
++		};
++	};
++};
++
+ &hdmitx0_pixelclk {
+ 	clock-frequency = <297000000>;
+ };
+@@ -336,6 +432,40 @@ spi_dev0: spi@0 {
+ };
+ 
+ &sysgpio {
++	hdmi_pins: hdmi-0 {
++		hdmi-cec-pins {
++			pinmux = <GPIOMUX(14, GPOUT_SYS_HDMI_CEC_SDA,
++					     GPOEN_SYS_HDMI_CEC_SDA,
++					     GPI_SYS_HDMI_CEC_SDA)>;
++			input-enable;
++			bias-pull-up;
++		};
++
++		hdmi-hpd-pins {
++			pinmux = <GPIOMUX(15, GPOUT_HIGH,
++					     GPOEN_ENABLE,
++					     GPI_SYS_HDMI_HPD)>;
++			input-enable;
++			bias-disable; /* external pull-up */
++		};
++
++		hdmi-scl-pins {
++			pinmux = <GPIOMUX(0, GPOUT_SYS_HDMI_DDC_SCL,
++					     GPOEN_SYS_HDMI_DDC_SCL,
++					     GPI_SYS_HDMI_DDC_SCL)>;
++			input-enable;
++			bias-pull-up;
++		};
++
++		hdmi-sda-pins {
++			pinmux = <GPIOMUX(1, GPOUT_SYS_HDMI_DDC_SDA,
++					     GPOEN_SYS_HDMI_DDC_SDA,
++					     GPI_SYS_HDMI_DDC_SDA)>;
++			input-enable;
++			bias-pull-up;
++		};
++	};
++
+ 	i2c0_pins: i2c0-0 {
+ 		i2c-pins {
+ 			pinmux = <GPIOMUX(57, GPOUT_LOW,
+@@ -642,3 +772,7 @@ &U74_3 {
+ &U74_4 {
+ 	cpu-supply = <&vdd_cpu>;
+ };
++
++&voutcrg {
++	status = "okay";
++};
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index 45213cdf50dc..df51b9407328 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -344,6 +344,24 @@ tdm_ext: tdm-ext-clock {
+ 		#clock-cells = <0>;
+ 	};
+ 
++	display: display-subsystem {
++		compatible = "starfive,display-subsystem";
++
++		clocks = <&syscrg JH7110_SYSCLK_NOC_BUS_DISP_AXI>,
++			<&voutcrg JH7110_VOUTCLK_DC8200_CORE>,
++			<&voutcrg JH7110_VOUTCLK_DC8200_AXI>,
++			<&voutcrg JH7110_VOUTCLK_DC8200_AHB>;
++		clock-names = "noc_bus", "dc_core", "axi_core", "ahb";
++		resets = <&voutcrg JH7110_VOUTRST_DC8200_AXI>,
++			 <&voutcrg JH7110_VOUTRST_DC8200_AHB>,
++			 <&voutcrg JH7110_VOUTRST_DC8200_CORE>;
++		reset-names = "axi","ahb", "core";
++	};
++
++	dsi_encoder: dsi_encoder {
++		compatible = "starfive,dsi-encoder";
++		starfive,syscon = <&vout_syscon 0x8 0x08>;
++	};
+ 	soc {
+ 		compatible = "simple-bus";
+ 		interrupt-parent = <&plic>;
+@@ -1121,6 +1139,37 @@ ispcrg: clock-controller@19810000 {
+ 			power-domains = <&pwrc JH7110_PD_ISP>;
+ 		};
+ 
++		dc8200: lcd-controller@29400000 {
++			compatible = "starfive,jh7110-dc8200";
++			reg = <0x0 0x29400000 0x0 0x100>,
++			      <0x0 0x29400800 0x0 0x2000>;
++			interrupts = <95>;
++			clocks = <&voutcrg JH7110_VOUTCLK_DC8200_PIX0>,
++				<&voutcrg JH7110_VOUTCLK_DC8200_PIX1>,
++				<&hdmitx0_pixelclk>,
++				<&voutcrg JH7110_VOUTCLK_DC8200_PIX>;
++			clock-names = "channel0", "channel1",
++				      "hdmi_tx", "dc_parent";
++		};
++
++		hdmi: hdmi@29590000 {
++			compatible = "starfive,jh7110-inno-hdmi";
++			reg = <0x0 0x29590000 0x0 0x4000>;
++			interrupts = <99>;
++
++			clocks = <&voutcrg JH7110_VOUTCLK_HDMI_TX_SYS>,
++				 <&voutcrg JH7110_VOUTCLK_HDMI_TX_MCLK>,
++				 <&voutcrg JH7110_VOUTCLK_HDMI_TX_BCLK>;
++			clock-names = "sysclk", "mclk", "bclk";
++			resets = <&voutcrg JH7110_VOUTRST_HDMI_TX_HDMI>;
++			#sound-dai-cells = <0>;
++		};
++
++		vout_syscon: syscon@295b0000 {
++			compatible = "starfive,jh7110-vout-syscon", "syscon";
++			reg = <0 0x295b0000 0 0x90>;
++		};
++
+ 		voutcrg: clock-controller@295c0000 {
+ 			compatible = "starfive,jh7110-voutcrg";
+ 			reg = <0x0 0x295c0000 0x0 0x10000>;
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
