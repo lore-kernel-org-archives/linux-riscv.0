@@ -4,86 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0442AC4167B
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 02:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC08C4167B
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 03:02:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=anNSAJeu8Z1xhclJWbeoPmA6pYYYWrhOUtV+XqMsG5o=; b=udo69jfpXsDCxW
-	oN64Zs8FL9Xj+OLPDdF3toJLBeVbi5OFb2PD1g1wgiDAzmPXTA7ni4Gj5zGslxs4muLXXKfH+YLzi
-	4kWqYGMu+XhxQaKBGY3F/eQj+1N50IYp2pkndvLIjjKpBtHNaOI34trzE5jUEtG4fbIK0i1BNg3uk
-	Zv0YGky1BpVfoKtEFF8enCb/oF0YJXkv3nZEYrvrZnAZ33ESIUeUPELd0H82jg4lqxtI6jANehO7x
-	LOZVuArvMR64gfxWGB6lT8oVOtSA9ldsDidvyZCQZT3PpS3TO2a606B8OIoniKqHGBdgAmP338+wB
-	/m+uQEfde+Euh8t1FW5A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:
+	In-reply-to:Subject:Cc:To:From:References:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=Kv/P7urs0oosn2060ywGoz0NPNY9d+vVgJdXbjd8wck=; b=nhy3b9fOn7CwrNn6Ar76tGcSxZ
+	AzsBKYn5SADn8g0wMgy3GWuLzSme6V05tNxS8Wt+MIPv+wS7TOcFVhL0iz9L8nkUu5aB1rNh0fmev
+	c3X+AKE8gadMFWM+C66pCnHJfPaJ76t0NwUbjB9VqNhweD3U76Pt4cFk4We6ErbYMjTfiCBMxxqaF
+	hEiadzu8PUcDaPsf78FF96L3C/WSlhOwZBDVFbHbpfQQ4sTWOb79FhWBNr8Pod5pGci8VdoUsQcu8
+	PYZUg18iuncsKf1zf++GnsZWBLwa3EI65q83/e2iZq/JDgi+Tdocb0exU/mwVgwPJqyjzhbelx2Bg
+	d5FTmrUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9yuy-002rJK-1j;
-	Mon, 04 Dec 2023 02:42:44 +0000
-Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
+	id 1r9zDY-002sYb-2u;
+	Mon, 04 Dec 2023 03:01:56 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1r9yuu-002rI4-1i;
-	Mon, 04 Dec 2023 02:42:42 +0000
-Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-2c9f7fe6623so11061701fa.3;
-        Sun, 03 Dec 2023 18:42:38 -0800 (PST)
+	id 1r9zDV-002sXu-27
+	for linux-riscv@lists.infradead.org;
+	Mon, 04 Dec 2023 03:01:55 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-6ce2ff70619so302384b3a.2
+        for <linux-riscv@lists.infradead.org>; Sun, 03 Dec 2023 19:01:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1701657756; x=1702262556; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SEUh6K5iutasnoMeRQbvniZJyhB8EqO9DGWeSRBdHG8=;
-        b=g1J/QtTUf+qAwlLJDY7yd0a2FML2O4/sLp27fUw68DqaolOIaa6kxUZBssQWUJgUwS
-         NnIM2IzLMTsIsAlBWa//YpAx3A4LwU9rWAEriEHiiz5GeyfBQpYksExuKEDLfNm96blg
-         3Vr6IGLCgBZuXSTrhupGVCbGyzKhpUhR4qEWVr1bqijthFqGDiGj97WQRAJXwcfeAKTv
-         Hf13xZ5rmzXbTpo95rb42xR2lzCU18D3vttm9J0mWE64b5bbEuLzMLmcox8uzm9gkQs2
-         f6lSfS5NLAZXjz/S3+Vj518LRqbM06yvqPUVlNO6QxE0GQoF6bza4UyTeKQi6ft+50lP
-         Ob6w==
+        d=linaro.org; s=google; t=1701658912; x=1702263712; darn=lists.infradead.org;
+        h=mime-version:message-id:date:in-reply-to:subject:cc:to:from
+         :user-agent:references:from:to:cc:subject:date:message-id:reply-to;
+        bh=CQYiiiRLontcDI44whmeD/LoEJVxuqfkBiryqv/zBTg=;
+        b=e3Q1W4Lq7iuaXXA1W75ZYoph517gaIVr/P19lnuJvKPGykJAlkHmWncBMgBzQ2cAT8
+         cAScqSyc/bJ93hIA4OIOSueWro4Fxi7femaLgFlu2NhIz/cnvTjhF9vowLbD9U5PZA9K
+         fufxKeJ66zb2TobIfpbXFLvbcf+d6PlvlBa9AvhWT67pwlz2c4El2VXebsfJ0ZdFEclY
+         r2GgsIlb7RsH8kn6xfd28ZT5uwTUDVcb8OGygWCfuS2c6qDTvMpPbfNtlRIAsmY119QW
+         6YJDz9qhLMECTJof1O64eGYF1r3mH9mXS/0JqxKqCAACuSZQIP0f6MVlZxizf9SiJWNG
+         0Jag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701657756; x=1702262556;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SEUh6K5iutasnoMeRQbvniZJyhB8EqO9DGWeSRBdHG8=;
-        b=siCqRmQeeTewqDo+4lI9snbJici9jr89l/369wShcRwuLyNzmnmkSY6xnazErK7/4o
-         L+Gq75MJpccWXVjAOqsy1Hdxc7a41LUIJwZgGrZ0OmQmpidwH0G1QEw5Gi6rg0kxIlqI
-         1M59fYRmH+TQcwhf7kWbBLk0Tl0BceqLuscXlkLj2dGz/YjIHEd1rEaGIA0Gs20iB7CT
-         DbYEKDci5KGbQ2CR+SpyqN0P1HEGqTGUnVujj8uzsYZ5DIKDVcmZXvsV/QjX4AmROLas
-         w190kNESks0FI6XC/d78NnqB9nswU6y0mkPqiEJeoigZqx5oBhEFesRKD2//2ahvmO8t
-         paPQ==
-X-Gm-Message-State: AOJu0YwVkfQ6d+VSMmrfSoX18kAGiwtHyuHtzhNdurdboYxqzWc5S3Im
-	HWSTr/1icYlojC7nN+sDxHD4Be9SMpNgxpM4jq8=
-X-Google-Smtp-Source: AGHT+IFwUdfTpFRUP7l0fmhtGiz7fd+NP19pyuThwxbiypx7Ivz7rX5Zrc/KjwBbAY7wO0CJI2SrHgFWM/kImEvN9oM=
-X-Received: by 2002:a05:6512:ea1:b0:50b:f03c:1eaa with SMTP id
- bi33-20020a0565120ea100b0050bf03c1eaamr553100lfb.95.1701657756237; Sun, 03
- Dec 2023 18:42:36 -0800 (PST)
+        d=1e100.net; s=20230601; t=1701658912; x=1702263712;
+        h=mime-version:message-id:date:in-reply-to:subject:cc:to:from
+         :user-agent:references:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CQYiiiRLontcDI44whmeD/LoEJVxuqfkBiryqv/zBTg=;
+        b=ac1NoqyFmD7NTgvzS4KMvlqaffzDh5wX3eu+VgKZ+th/unNBCj7Q3TYBEtDNKUCP9L
+         roGdGQJO3c6eLPo2KbXLtmympAuh39Xta7eTqkZo0CBNBDGzEb1HiHIM/5HYwQwc0yhx
+         JO/VX23aHdzdJPGNlXDEZm+hl7R0vDVyAziGocXHRuOwgN2jG8O30bhqJeSmhjgQ5cmj
+         6PsjHaVks4catWPTfU+gGzYTIKgADwEwom+Wtrqvw2XCkCw2tgpGxJKMdHPB+qWMqkI4
+         Gc3BQz+EKj0mpj86Gi0Fm5qjKxh/teCjxwy+27DoJdcrRrbefLxXc6ZFeV9yaBp5Vc1M
+         /ChA==
+X-Gm-Message-State: AOJu0Yx6orh0/d89Aj3b8AHdYmeZuSkLeQ4uPK4h5d2IP8eU2Nkgge33
+	Ig0YygnLmUOkO5WR/5L8yTtCXQ==
+X-Google-Smtp-Source: AGHT+IHFLJUBmtnWAvysao8TWHQlyk2Cfpox9jD8bkyNgUP4wKyxIxGZHkfjhvm//XUEUavLfPd53A==
+X-Received: by 2002:a05:6a20:748f:b0:18c:8fef:22cc with SMTP id p15-20020a056a20748f00b0018c8fef22ccmr1035248pzd.24.1701658911982;
+        Sun, 03 Dec 2023 19:01:51 -0800 (PST)
+Received: from localhost ([2804:14d:7e39:8470:979a:226c:de55:73de])
+        by smtp.gmail.com with ESMTPSA id c24-20020aa78818000000b006cd88728572sm6562301pfo.211.2023.12.03.19.01.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 03 Dec 2023 19:01:51 -0800 (PST)
+References: <20231122-arm64-gcs-v7-0-201c483bd775@kernel.org>
+ <20231122-arm64-gcs-v7-13-201c483bd775@kernel.org>
+User-agent: mu4e 1.10.8; emacs 29.1
+From: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Andrew Morton
+ <akpm@linux-foundation.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton
+ <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, Suzuki K
+ Poulose <suzuki.poulose@arm.com>, Arnd Bergmann <arnd@arndb.de>, Oleg
+ Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, Kees
+ Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>, "Rick P.
+ Edgecombe" <rick.p.edgecombe@intel.com>, Deepak Gupta
+ <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>, Szabolcs Nagy
+ <Szabolcs.Nagy@arm.com>, "H.J. Lu" <hjl.tools@gmail.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Florian Weimer <fweimer@redhat.com>, Christian
+ Brauner <brauner@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-mm@kvack.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v7 13/39] arm64/mm: Map pages for guarded control stack
+In-reply-to: <20231122-arm64-gcs-v7-13-201c483bd775@kernel.org>
+Date: Mon, 04 Dec 2023 00:01:49 -0300
+Message-ID: <87a5qqisbm.fsf@linaro.org>
 MIME-Version: 1.0
-References: <cover.1694421911.git.haibo1.xu@intel.com> <64e0637cd6f22dd7557ed44bd2242001e7830d1c.1694421911.git.haibo1.xu@intel.com>
- <20230914-d2e594e7d84503ad14036e2d@orel> <CAJve8onhY534T=Hyncjfi4GfdZ+0D2xM+jRSaYCAWCdaKxPUcQ@mail.gmail.com>
-In-Reply-To: <CAJve8onhY534T=Hyncjfi4GfdZ+0D2xM+jRSaYCAWCdaKxPUcQ@mail.gmail.com>
-From: Haibo Xu <xiaobo55x@gmail.com>
-Date: Mon, 4 Dec 2023 10:42:24 +0800
-Message-ID: <CAJve8omitHDpijJaLV_wHk+5LXpsBUWF8_eTD4MeWKM-807Siw@mail.gmail.com>
-Subject: Re: [PATCH v3 9/9] KVM: riscv: selftests: Add sstc timer test
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Haibo Xu <haibo1.xu@intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
-	Sean Christopherson <seanjc@google.com>, Ricardo Koller <ricarkol@google.com>, 
-	Vishal Annapurve <vannapurve@google.com>, Vitaly Kuznetsov <vkuznets@redhat.com>, 
-	Vipin Sharma <vipinsh@google.com>, David Matlack <dmatlack@google.com>, 
-	Colton Lewis <coltonlewis@google.com>, Aaron Lewis <aaronlewis@google.com>, 
-	Thomas Huth <thuth@redhat.com>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231203_184240_596623_2066C182 
-X-CRM114-Status: GOOD (  16.75  )
+X-CRM114-CacheID: sfid-20231203_190153_751854_C5807072 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,39 +103,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBTZXAgMTUsIDIwMjMgYXQgMjoyMeKAr1BNIEhhaWJvIFh1IDx4aWFvYm81NXhAZ21h
-aWwuY29tPiB3cm90ZToKPgo+IE9uIFRodSwgU2VwIDE0LCAyMDIzIGF0IDU6NTLigK9QTSBBbmRy
-ZXcgSm9uZXMgPGFqb25lc0B2ZW50YW5hbWljcm8uY29tPiB3cm90ZToKPiA+Cj4gPiBPbiBUaHUs
-IFNlcCAxNCwgMjAyMyBhdCAwOTozNzowM0FNICswODAwLCBIYWlibyBYdSB3cm90ZToKPiA+ID4g
-QWRkIGEgS1ZNIHNlbGZ0ZXN0cyB0byB2YWxpZGF0ZSB0aGUgU3N0YyB0aW1lciBmdW5jdGlvbmFs
-aXR5Lgo+ID4gPiBUaGUgdGVzdCB3YXMgcG9ydGVkIGZyb20gYXJtNjQgYXJjaCB0aW1lciB0ZXN0
-Lgo+ID4KPiA+IEkganVzdCB0cmllZCB0aGlzIHRlc3Qgb3V0LiBSdW5uaW5nIGl0IG92ZXIgYW5k
-IG92ZXIgYWdhaW4gb24gUUVNVSBJIHNlZQo+ID4gaXQgd29ya3Mgc29tZXRpbWVzLCBidXQgaXQg
-ZnJlcXVlbnRseSBmYWlscyB3aXRoIHRoZQo+ID4gR1VFU1RfQVNTRVJUX0VRKGNvbmZpZ19pdGVy
-ICsgMSwgaXJxX2l0ZXIpIGFzc2VydCBhbmQgYXQgbGVhc3Qgb25jZSBJCj4gPiBhbHNvIHNhdyB0
-aGUgX19HVUVTVF9BU1NFUlQoeGNudCA+PSBjbXApIGFzc2VydC4KPiA+Cj4KPiBHb29kIGNhdGNo
-IQo+Cj4gSSBjYW4gYWxzbyByZXByb2R1Y2UgdGhpcyBpc3N1ZSBhbmQgaXQgaXMgYSBjb21tb24g
-cHJvYmxlbSBmb3IgYm90aAo+IGFybTY0IGFuZCByaXNjdiBiZWNhdXNlIGl0IGFsc28gaGFwcGVu
-cyBpbiBhIGFybTY0IFFlbXUgVk0uCj4KPiBJdCBzZWVtcyBsaWtlIGEgc3luY2hyb25pemF0aW9u
-IGlzc3VlIGJldHdlZW4gaG9zdCBhbmQgZ3Vlc3Qgc2hhcmVkCj4gdmFyaWFibGVzLiBXaWxsIGRv
-dWJsZSBjaGVjayB0aGUgdGVzdCBjb2RlLgo+Cj4gPiBUaGFua3MsCj4gPiBkcmV3CgpIaSBBbmRy
-ZXcsCgpBZnRlciBzZXZlcmFsIHJvdW5kcyBvZiByZWdyZXNzaW9uIHRlc3RpbmcsIHNvbWUgZmlu
-ZGluZ3M6CjEuIFRoZSBpbnRlcm1pdHRlbnQgZmFpbHVyZSBhbHNvIGhhcHBlbmVkIG9uIEFSTTY0
-IFFlbXUgVk0sIGFuZCBldmVuCmluIHRoZSBpbml0aWFsIGFyY2hfdGltZXIgY29tbWl0KDQ5NTlk
-ODY1MGU5ZjQpLgoyLiBpdCBkaWRuJ3QgaGFwcGVuIG9uIGEgQVJNNjQgSFcoYnV0IGEgZGlmZmVy
-ZW50IGZhaWx1cmUgb2NjdXJlZApkdXJpbmcgc3RyZXNzIHRlc3QpCjMuIFRoZSBmYWlsdXJlIGhh
-dmUgYSBjbG9zZSByZWxhdGlvbnNoaXAgd2l0aApUSU1FUl9URVNUX0VSUl9NQVJHSU5fVVMoZGVm
-YXVsdCAxMDApLCBhbmQgYWZ0ZXIgaW5jcmVhc2luZwogICAgIHRoZSBtYWNybyB0byAzMDAsIHRo
-ZSBmYWlsdXJlIGNvdWxkbid0IHJlcHJvZHVjZWQgaW4gMTAwMCBsb29wcwpzdHJlc3MgdGVzdCBp
-biBSSVNDLVYgUWVtdSBWTQoKU28gbXkgc3VnZ2VzdGlvbiBpcyB3ZSBjYW4gZXhwb3NlIHRoZSBU
-SU1FUl9URVNUX0VSUl9NQVJHSU5fVVMKcGFyYW1ldGVyIGFzIGFuIGFyY2hfdGltZXIgdGVzdCBh
-cmcgcGFyYW1ldGVyCmFuZCB0dW5lIGl0IGJhc2VkIG9uIGEgc3BlY2lmaWMgdGVzdCBlbnZpcm9u
-bWVudC4KCldoYXQncyB5b3VyIG9waW5pb24/CgpSZWdhcmRzLApIYWlibwoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+Hello,
+
+Mark Brown <broonie@kernel.org> writes:
+
+> diff --git a/arch/arm64/mm/mmap.c b/arch/arm64/mm/mmap.c
+> index 645fe60d000f..605d4e6edc1d 100644
+> --- a/arch/arm64/mm/mmap.c
+> +++ b/arch/arm64/mm/mmap.c
+> @@ -79,9 +79,20 @@ arch_initcall(adjust_protection_map);
+>  
+>  pgprot_t vm_get_page_prot(unsigned long vm_flags)
+>  {
+> -	pteval_t prot = pgprot_val(protection_map[vm_flags &
+> +	pteval_t prot;
+> +
+> +	/* If this is a GCS then only interpret VM_WRITE. */
+> +	if (system_supports_gcs() && (vm_flags & VM_SHADOW_STACK)) {
+> +		if (vm_flags & VM_WRITE)
+> +			prot = _PAGE_GCS;
+> +		else
+> +			prot = _PAGE_GCS_RO;
+> +	} else {
+> +		prot = pgprot_val(protection_map[vm_flags &
+>  				   (VM_READ|VM_WRITE|VM_EXEC|VM_SHARED)]);
+> +	}
+>  
+> +	/* VM_ARM64_BTI on a GCS is rejected in arch_valdiate_flags() */
+
+s/valdiate/validate/
+
+>  	if (vm_flags & VM_ARM64_BTI)
+>  		prot |= PTE_GP;
+
+
+-- 
+Thiago
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
