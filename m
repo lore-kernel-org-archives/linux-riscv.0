@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D55C4167B
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 13:31:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 265E5C10DCE
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 14:25:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Date:Subject:Message-Id:References:
+	In-Reply-To:Cc:To:From:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yXc4uSsQd5D+OBB1ZdWlMpNXmIMnAxsIwQ/66qTF/rY=; b=vF8Ihlekylzp8q
-	TTXLuMTJuJS982+25Q8rhrecKaJd2w+HSTQzorYOCP4rB+6eD33gTA0crssrFs4ckHW1qUf9OfhLj
-	CUxKJ7VQgQsPLtkJXikN+n/OZatabP0l/oYR0lqd+foE8ZP2Qv4flBr14LeJ8wv/uayog44QDib4R
-	owTAO7zzHb/sPJlk52dGATzQVsHKbcUZgdy5EALA04GgymsaK3JVt73sCMEPNOfYb4qURrAa9rmcj
-	G7JdIYPcKTKZCWNXL5n74WU+tkiIILbA2UuA/k6H1g4+6MwDcPcEWqt7/6DgXAzwT5KDhY2Hv3hXt
-	9FB6AVpF6JlDMAGM1xKQ==;
+	List-Owner; bh=ZkddZfx2Hq9C4UBHLDr/39hZuM8JMr0q0cX3Cvzi5Hw=; b=ddXviIaDAzNkMC
+	o2BX4hg/ZeUZrdqq8ESyzKAU8pinDFeyJAeeYcoYNWDsD7dWSR2l2V5OSTapVdZP24V/kBmo59dLK
+	mOCn/222RFJag/oGTNIqDbEL8nRUW42t1o0ctcLY+SxGX2P7ung/rmQSQnQNMeOEDQS8GFMWR6bGJ
+	xMiLXWeym1jG5JI+Xa/jek6CXZmgNf2JExORkqyUXMbbpjTgXyqVhLove4Ikl1Bow1ildptYl49le
+	4ZPLhg66E4y7CIkJWjbOFzdBltWZogUbE0wWGpqXVRO7tm19Pob18MR+5t2tTU4BylCyy1Om6wmkj
+	EVhayGeFOJ2UFJ14AoJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rA92N-004e6p-1F;
-	Mon, 04 Dec 2023 13:31:03 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1rA9t0-004lCa-1S;
+	Mon, 04 Dec 2023 14:25:26 +0000
+Received: from mail-oo1-f50.google.com ([209.85.161.50])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rA92K-004e2d-0d
+	id 1rA9sx-004lC7-0f
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Dec 2023 13:31:01 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1rA92A-00058F-SP; Mon, 04 Dec 2023 14:30:50 +0100
-Received: from [2a0a:edc0:0:900:1d::4e] (helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1rA925-00DWy9-50; Mon, 04 Dec 2023 14:30:45 +0100
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1rA925-000Gqm-0E;
-	Mon, 04 Dec 2023 14:30:45 +0100
-Message-ID: <12c6097a723b9208f6da89207867b32102237fbc.camel@pengutronix.de>
-Subject: Re: [v3 3/6] drm/vs: Register DRM device
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Keith Zhao <keith.zhao@starfivetech.com>, devicetree@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-Cc: mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, 
- krzysztof.kozlowski+dt@linaro.org, william.qiu@starfivetech.com, 
- xingyu.wu@starfivetech.com, paul.walmsley@sifive.com,
- aou@eecs.berkeley.edu,  palmer@dabbelt.com,
- shengyang.chen@starfivetech.com, jack.zhu@starfivetech.com, 
- changhuang.liang@starfivetech.com, maarten.lankhorst@linux.intel.com, 
- suijingfeng@loongson.cn
-Date: Mon, 04 Dec 2023 14:30:44 +0100
-In-Reply-To: <20231204123315.28456-4-keith.zhao@starfivetech.com>
-References: <20231204123315.28456-1-keith.zhao@starfivetech.com>
-	 <20231204123315.28456-4-keith.zhao@starfivetech.com>
-User-Agent: Evolution 3.46.4-2 
+	Mon, 04 Dec 2023 14:25:24 +0000
+Received: by mail-oo1-f50.google.com with SMTP id 006d021491bc7-58d08497aa1so3309520eaf.0
+        for <linux-riscv@lists.infradead.org>; Mon, 04 Dec 2023 06:25:20 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701699920; x=1702304720;
+        h=date:subject:message-id:references:in-reply-to:cc:to:from
+         :mime-version:content-transfer-encoding:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Lhhmi8w8FhrDZiDw2dpqrrV8WQgs4nmlcgmnrIZW9vM=;
+        b=YY0uLRT1wCPq9Zz8wa3S9ZLYuFTUXHn6byyVrGT/eRup9HBC04DgSt/woVvgGT50Yc
+         zI+odHbOpZQ28GYhayzmlV8aHIlqyy816ckFBsh9ecsOiGg2aiUeqJurRdeGFtDdaiKT
+         +VpzN2E56QYl/5ImF3l0lvxkULrJjjgm/z6Wei7OfGAZC+01NJcD9bjE6u9sf0CbAjAf
+         pYfNqOHvL3XRONzH5iUlfO88NN1hjZlWxy46MGpJTEocUEdOYuKeEIFhwKoxJmd3TuuB
+         bbOMzjkXUFJISz120ZLQrbwcdXDMB7wNTj++bofZiiKT7OdVVJgosa6vvFLGEu3UhPD1
+         +wzA==
+X-Gm-Message-State: AOJu0YzY4Y6THu5Pw1rybZDS+VO9Z/JcH2dQvBtLmnLejMUH37myCVcs
+	4ZzcoRzpjW9iDPhQTlFCZvjUTI+A+w==
+X-Google-Smtp-Source: AGHT+IHUIM+kCotvnxNhLlPOfisb9roK9l9+KaY7l/Gbx+B9GlChh+E50rzm8GoEQ40QIBw//sepKg==
+X-Received: by 2002:a05:6820:a82:b0:58e:1c48:4953 with SMTP id de2-20020a0568200a8200b0058e1c484953mr2535013oob.13.1701699919830;
+        Mon, 04 Dec 2023 06:25:19 -0800 (PST)
+Received: from herring.priv (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id x16-20020a4a6210000000b00587aaf6add7sm1976179ooc.9.2023.12.04.06.25.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 04 Dec 2023 06:25:19 -0800 (PST)
+Received: (nullmailer pid 1225685 invoked by uid 1000);
+	Mon, 04 Dec 2023 14:25:17 -0000
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+From: Rob Herring <robh@kernel.org>
+To: Chen Wang <unicornxw@gmail.com>
+Cc: guoren@kernel.org, robh+dt@kernel.org, samuel.holland@sifive.com, jszhang@kernel.org, linux-kernel@vger.kernel.org, mturquette@baylibre.com, richardcochran@gmail.com, paul.walmsley@sifive.com, conor@kernel.org, inochiama@outlook.com, linux-clk@vger.kernel.org, Chen Wang <unicorn_wang@outlook.com>, palmer@dabbelt.com, sboyd@kernel.org, krzysztof.kozlowski+dt@linaro.org, xiaoguang.xing@sophgo.com, devicetree@vger.kernel.org, chao.wei@sophgo.com, aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org, haijiao.liu@sophgo.com
+In-Reply-To: <14616bce163d689a4e640ab7b372421ca8306a92.1701691923.git.unicorn_wang@outlook.com>
+References: <cover.1701691923.git.unicorn_wang@outlook.com>
+ <14616bce163d689a4e640ab7b372421ca8306a92.1701691923.git.unicorn_wang@outlook.com>
+Message-Id: <170169991797.1225669.8378193409195638634.robh@kernel.org>
+Subject: Re: [PATCH v3 1/4] dt-bindings: soc: sophgo: Add Sophgo system
+ control module
+Date: Mon, 04 Dec 2023 08:25:17 -0600
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231204_053100_239600_4A3E391C 
-X-CRM114-Status: GOOD (  20.63  )
+X-CRM114-CacheID: sfid-20231204_062523_267788_BF93A14E 
+X-CRM114-Status: GOOD (  11.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,205 +82,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Keith,
 
-On Mo, 2023-12-04 at 20:33 +0800, Keith Zhao wrote:
-> Implement drm device registration interface
+On Mon, 04 Dec 2023 20:54:53 +0800, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
 > 
-> Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
+> Add documentation to describe Sophgo System Controller for SG2042.
+> 
+> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 > ---
-[...]
-> diff --git a/drivers/gpu/drm/verisilicon/Kconfig b/drivers/gpu/drm/verisilicon/Kconfig
-> new file mode 100644
-> index 000000000000..e10fa97635aa
-> --- /dev/null
-> +++ b/drivers/gpu/drm/verisilicon/Kconfig
-> @@ -0,0 +1,13 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +config DRM_VERISILICON
-> +	tristate "DRM Support for VeriSilicon"
-> +	depends on DRM
-> +	select DRM_KMS_HELPER
-> +	select DRM_GEM_DMA_HELPER
-> +	select CMA
-> +	select DMA_CMA
-> +	help
-> +	  Choose this option if you have a VeriSilicon soc chipset.
+>  .../soc/sophgo/sophgo,sg2042-sysctrl.yaml     | 35 +++++++++++++++++++
+>  1 file changed, 35 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
+> 
 
-This seems a bit generic. Doesn't the VeriSilicon display controller IP
-used on JH7110 have a product name?
+My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+on your patch (DT_CHECKER_FLAGS is new in v5.13):
 
-[...]
-> diff --git a/drivers/gpu/drm/verisilicon/vs_drv.c b/drivers/gpu/drm/verisilicon/vs_drv.c
-> new file mode 100644
-> index 000000000000..4fb1f29ef84b
-> --- /dev/null
-> +++ b/drivers/gpu/drm/verisilicon/vs_drv.c
-> @@ -0,0 +1,316 @@
-> +// SPDX-License-Identifier: GPL-2.0
-[...]
-> +static void vs_drm_device_release_clocks(void *res)
-> +{
-> +	struct vs_drm_device *priv = res;
-> +	unsigned int i;
-> +
-> +	reset_control_bulk_assert(priv->nrsts, priv->rst_vout);
-> +
-> +	for (i = 0; i < priv->clk_count; ++i) {
-> +		if (priv->clks[i]) {
-> +			clk_disable_unprepare(priv->clks[i]);
-> +			clk_put(priv->clks[i]);
-> +		}
-> +	}
+yamllint warnings/errors:
 
-Why not use the bulk API for clk as well?
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.example.dtb: /example-0/system-controller@30010000: failed to match any schema with compatible: ['sophgo,sg2042-sysctl']
 
-[...]
-> +static int vs_drm_device_init_clocks(struct vs_drm_device *priv)
-> +{
-> +	struct drm_device *dev = &priv->base;
-> +	struct platform_device *pdev = to_platform_device(dev->dev);
-> +	struct device_node *of_node = pdev->dev.of_node;
-> +	struct clk *clock;
-> +	unsigned int i;
-> +	int ret;
-> +
-> +	if (dev_get_platdata(&pdev->dev) || !of_node)
-> +		return 0;
-> +
-> +	priv->nrsts = ARRAY_SIZE(priv->rst_vout);
-> +	for (int i = 0; i < priv->nrsts; ++i)
-> +		priv->rst_vout[i].id = vout_resets[i];
-> +	ret = devm_reset_control_bulk_get_shared(dev->dev, priv->nrsts,
-> +						 priv->rst_vout);
+doc reference errors (make refcheckdocs):
 
-I would request resets and clocks in _probe().
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/14616bce163d689a4e640ab7b372421ca8306a92.1701691923.git.unicorn_wang@outlook.com
 
-If component_bind_all() returns -EPROBE_DEFER because of a still
-missing DSI panel backlight or similar, this doesn't have to be done
-multiple times.
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-> +	if (ret) {
-> +		drm_err(dev, "Failed to get reset controls\n");
-> +		return ret;
-> +	}
-> +
-> +	priv->clk_count = of_clk_get_parent_count(of_node);
-> +	if (!priv->clk_count)
-> +		return 0;
-> +
-> +	priv->clks = drmm_kzalloc(dev, priv->clk_count * sizeof(priv->clks[0]),
-> +				  GFP_KERNEL);
-> +	if (!priv->clks)
-> +		return -ENOMEM;
-> +
-> +	for (i = 0; i < priv->clk_count; ++i) {
-> +		clock = of_clk_get(of_node, i);
-> +		if (IS_ERR(clock)) {
-> +			ret = PTR_ERR(clock);
-> +			if (ret == -EPROBE_DEFER)
-> +				goto err;
-> +			drm_err(dev, "clock %u not found: %d\n", i, ret);
-> +			continue;
-> +		}
-> +		ret = clk_prepare_enable(clock);
-> +		if (ret) {
-> +			drm_err(dev, "failed to enable clock %u: %d\n",
-> +				i, ret);
-> +			clk_put(clock);
-> +			continue;
-> +		}
-> +		priv->clks[i] = clock;
-> +	}
-> +
-> +	ret = reset_control_bulk_deassert(priv->nrsts, priv->rst_vout);
-> +	if (ret)
-> +		return ret;
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-This should goto err, otherwise clocks are left enabled.
+pip3 install dtschema --upgrade
 
-> +
-> +	return devm_add_action_or_reset(&pdev->dev,
-> +					vs_drm_device_release_clocks,
-> +					priv);
-> +
-> +err:
-> +	while (i) {
-> +		--i;
-> +		if (priv->clks[i]) {
-> +			clk_disable_unprepare(priv->clks[i]);
-> +			clk_put(priv->clks[i]);
-> +		}
-> +	}
-> +	return ret;
-> +}
-> +
-> +static int vs_drm_bind(struct device *dev)
-> +{
-> +	struct platform_device *pdev = to_platform_device(dev);
-> +	struct vs_drm_device *priv;
-> +	int ret;
-> +	struct drm_device *drm_dev;
-> +
-> +	/* Remove existing drivers that may own the framebuffer memory. */
-> +	ret = drm_aperture_remove_framebuffers(&vs_drm_driver);
-> +	if (ret)
-> +		return ret;
-> +
-> +	priv = devm_drm_dev_alloc(dev, &vs_drm_driver, struct vs_drm_device, base);
-> +	if (IS_ERR(priv))
-> +		return PTR_ERR(priv);
-> +
-> +	priv->pitch_alignment = 64;
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
-Why is this a variable instead of a constant?
-
-> +	ret = dma_set_coherent_mask(priv->base.dev, DMA_BIT_MASK(40));
-> +	if (ret)
-> +		return ret;
-> +
-> +	drm_dev = &priv->base;
-> +	platform_set_drvdata(pdev, drm_dev);
-> +
-> +	ret = vs_drm_device_init_clocks(priv);
-> +	if (ret)
-> +		return ret;
-> +
-> +	vs_mode_config_init(drm_dev);
-> +
-> +	/* Now try and bind all our sub-components */
-> +	ret = component_bind_all(dev, drm_dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = drm_vblank_init(drm_dev, drm_dev->mode_config.num_crtc);
-> +	if (ret)
-> +		return ret;
-
-Missing component_unbind_all(), see below.
-
-> +
-> +	drm_mode_config_reset(drm_dev);
-> +
-> +	drm_kms_helper_poll_init(drm_dev);
-> +
-> +	ret = drm_dev_register(drm_dev, 0);
-> +	if (ret)
-> +		return ret;
-
-Missing drm_kms_helper_poll_fini(), see below.
-
-> +
-> +	drm_fbdev_generic_setup(drm_dev, 32);
-> +
-> +	return 0;
-
-Here I'd expect an error path calling drm_kms_helper_poll_fini() and
-component_unbind_all() as appropriate.
-
-
-regards
-Philipp
 
 _______________________________________________
 linux-riscv mailing list
