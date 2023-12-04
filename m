@@ -4,88 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B17EAC4167B
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 12:52:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89117C4167B
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 12:54:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ImW8SUX4ADwLwujyxnyc4namwu6P96gAmvwsNHKx6SM=; b=lwqhDqWjmYuK5k
-	R+p8uNR/NODX92q0EkelS3BmCWrSqGkYikXI/Q2UEsh9ubhCzCm3AvNlOZ+Fb14WZf6SUwb2Iw0OP
-	Hw5yvXXcivP3ackhI8bH/Od1WGfj/EKTQYiaGHwLkC8AiF1VyQ/RQHNGfyiRhDGkJBGOQhLs2u0u0
-	o0rtARtA1Jx0RqXpEmpd9tgs6xNyIycTD9VcOjL2hCbzToqW+3F1ArnZ9OjY/uBXfsOg8nzlkhpo7
-	2Glt0L2y79Ycsisjh75u25dmHzVLqc1K3vKeHH4JEAPQ4b884cA7Aoie3/UBZxdJr862G3UN/E9h9
-	Ejcm2MpcNbRg/iLCIefw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+vhAPGMuGbJ1gKKMQ2iVRZG5OsUhSJcoY1psk72D3b8=; b=kfx5qu9GldM+Mv
+	44JbyJyOLNdH+03+ytIfo15oKUPacUmWodArJYO4mAnY8JZ3pD7WjN+4IPEkXsff4vV8eKddLUvx6
+	K+qA/jimMM9xSRrRkZ0pwqlRtJ6CSHaqMlj2UY+vH+l83JA4vg2SKEWN+pXOUu/aKrv+iulmbC56+
+	pT097KDlK8U7lqVtzgtSC4MhBu5MlaS/gCnzF3LwUphix6+cA2is95sdiB730wRzKnVGXMyKa5eFl
+	McLHVrrWwRAuj/59zX4TypeDjvn8JUSkPaGS6o3z64y6aFzp6antH3JpZ05RAk7IXnTBqIEheJXLh
+	yOb5q6B32zEeBi9RufnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rA8RN-004FTC-0l;
-	Mon, 04 Dec 2023 12:52:49 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1rA8TA-004GXn-02;
+	Mon, 04 Dec 2023 12:54:40 +0000
+Received: from mail-oo1-xc2c.google.com ([2607:f8b0:4864:20::c2c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rA8RJ-004FRn-33
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 04 Dec 2023 12:52:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=vNi4oarUMe/eI8dB061LbFrYbcwH4xzlO/UEVWvv3R8=; b=d69pQhr9LJbL/XW8eP8KAhPxm+
-	hqvraksWyptXL7ALZD+jvHNZ/30GsSeIaBl+DmcuM1PLSrXgx+IXGiI5iyxJ6yV/+rpoaUxsd4xbB
-	N+EOR2c3hgfm00+DPl8vWJviJCpVPMKRjo4iROkZWR/AU00dPd5WpXzVSwYgaPVIZ0s1p1UE7fi0x
-	fLBbTa79LgpBION1ZpAWLKG9b5h34Q2p3l6Hx72EKN9vF/wz+ufS3LeTb9NHAbGjGSTMkDGwvE/Qa
-	VkDMejEaj/8wUNXQhA0fLXKeizJxFYVT5JvepAsMFIRl9uQKZ5EPDl4oGPOEpZigR4KEhvcnxGAaN
-	RFFkSA1Q==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1rA8RE-000h5B-Ai; Mon, 04 Dec 2023 12:52:40 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 4CE783003F0; Mon,  4 Dec 2023 13:52:39 +0100 (CET)
-Date: Mon, 4 Dec 2023 13:52:39 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: Song Liu <song@kernel.org>, Song Liu <songliubraving@meta.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	David Ahern <dsahern@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Kees Cook <keescook@chromium.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	Network Development <netdev@vger.kernel.org>,
-	bpf <bpf@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>,
-	clang-built-linux <llvm@lists.linux.dev>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Joao Moreira <joao@overdrivepizza.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH v2 2/2] x86/cfi,bpf: Fix BPF JIT call
-Message-ID: <20231204125239.GA1319@noisy.programming.kicks-ass.net>
-References: <20231130133630.192490507@infradead.org>
- <20231130134204.136058029@infradead.org>
- <CAADnVQJqE=aE7mHVS54pnwwnDS0b67iJbr+t4j5F4HRyJSTOHw@mail.gmail.com>
- <20231204091334.GM3818@noisy.programming.kicks-ass.net>
- <20231204111128.GV8262@noisy.programming.kicks-ass.net>
+	id 1rA8T7-004GVE-1w
+	for linux-riscv@lists.infradead.org;
+	Mon, 04 Dec 2023 12:54:39 +0000
+Received: by mail-oo1-xc2c.google.com with SMTP id 006d021491bc7-589d4033e84so2681452eaf.1
+        for <linux-riscv@lists.infradead.org>; Mon, 04 Dec 2023 04:54:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1701694475; x=1702299275; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=x/xu9nwzbmHnEYotXUPce3P+9ytlR88YxCwCFXrncBQ=;
+        b=j56MNUwC3WUzPrKg2WnczytNj9JL+AThoM5AoMkJDz+pHnpRLvKyO+NtEGGUfaWpOa
+         L5C/RmdCrjL/K5NWVJxAMdMG9w+0289wLu4QhVsKmPfTQpPks4q0nHouxaHd7YyVkSz8
+         cmlsipKS76DY+nB3Jhil5ymwQytn2q5/2QQA2jfeG2p7hvQivU5kNxfDtVSgwahWm5HH
+         Q8zQBRm/19/I4s/YeJm2wuzOVwgDPsNFhsk9N4O3FVAK5RN8JvUd7s7QNI+2Si1XcGMT
+         JnFESH/5X56w0U8+dXH5uJzH/9EnDKAWfSg8Zeri1PDEB2FkYqmhf8lPs24gVbDX0SuM
+         wH3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701694475; x=1702299275;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=x/xu9nwzbmHnEYotXUPce3P+9ytlR88YxCwCFXrncBQ=;
+        b=G1UNkU9NrcOkf6Y6txpp+cIOq0ViybB2otvWWVDYtNDzYNp3Ig4liYAxcNkAqzi5dG
+         I9wIgfnD3JD6SVC+KYxmFUhDEbHeElh2GTZf3PCekkq58v1NAPf/bgTrXOKd9xY32njD
+         6gc7mCXVKTL/zbVN3zIfitiH9vd1T/ckwezAZHpgyw/fmnYmfBlMawm0nlkzvIPk/+SZ
+         VErcjGaEzwD7Hvz6wpIJ98crxv9XNeyBXvCfQEFNB+jSHj/BnoFGoggIi36+Ofe7u+Gb
+         SU97jETbZ0hW1dshH2OmRntJMiGzS8qMjdFCPmgKKV9/9E4YK0gSHzgMxfxfTA4nJLO/
+         EKIA==
+X-Gm-Message-State: AOJu0YzfsdzuREFlajgHwFiHVeBjUZSbJuDB756IFtDtCQUSdK2u4ekk
+	NmH3dZftyxaLOSOCAFvKLRM=
+X-Google-Smtp-Source: AGHT+IFZHG4AC4TOrdwhcJaZ3XL0RRIPK/tNTU1fuESVfRAIIm33CjmYgFNjdPKxK8OINpa69r4WEQ==
+X-Received: by 2002:a05:6871:58f:b0:1fa:f52a:ad2b with SMTP id u15-20020a056871058f00b001faf52aad2bmr6168296oan.8.1701694474816;
+        Mon, 04 Dec 2023 04:54:34 -0800 (PST)
+Received: from localhost.localdomain ([122.8.183.87])
+        by smtp.gmail.com with ESMTPSA id pa18-20020a0568701d1200b001faff1908d3sm2068107oab.53.2023.12.04.04.54.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 04 Dec 2023 04:54:34 -0800 (PST)
+From: Chen Wang <unicornxw@gmail.com>
+To: aou@eecs.berkeley.edu,
+	chao.wei@sophgo.com,
+	conor@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	mturquette@baylibre.com,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	richardcochran@gmail.com,
+	robh+dt@kernel.org,
+	sboyd@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	haijiao.liu@sophgo.com,
+	xiaoguang.xing@sophgo.com,
+	guoren@kernel.org,
+	jszhang@kernel.org,
+	inochiama@outlook.com,
+	samuel.holland@sifive.com
+Cc: Chen Wang <unicorn_wang@outlook.com>
+Subject: [PATCH v3 0/4] riscv: sophgo: add clock support for sg2042
+Date: Mon,  4 Dec 2023 20:54:24 +0800
+Message-Id: <cover.1701691923.git.unicorn_wang@outlook.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231204111128.GV8262@noisy.programming.kicks-ass.net>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20231204_045437_665132_5D6DF48C 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,93 +107,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 04, 2023 at 12:11:28PM +0100, Peter Zijlstra wrote:
-> On Mon, Dec 04, 2023 at 10:13:34AM +0100, Peter Zijlstra wrote:
-> 
-> > > Just running test_progs it splats right away:
-> > > 
-> > > [   74.047757] kmemleak: Found object by alias at 0xffffffffa0001d80
-> > > [   74.048272] CPU: 14 PID: 104 Comm: kworker/14:0 Tainted: G        W
-> > >  O       6.7.0-rc3-00702-g41c30fec304d-dirty #5241
-> > > [   74.049118] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996),
-> > > BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
-> > > [   74.050042] Workqueue: events bpf_prog_free_deferred
-> > > [   74.050448] Call Trace:
-> > > [   74.050663]  <TASK>
-> > > [   74.050841]  dump_stack_lvl+0x55/0x80
-> > > [   74.051141]  __find_and_remove_object+0xdb/0x110
-> > > [   74.051521]  kmemleak_free+0x41/0x70
-> > > [   74.051828]  vfree+0x36/0x130
-> > 
-> > Durr, I'll see if I can get that stuff running locally, and otherwise
-> > play with the robot as you suggested. Thanks!
-> 
-> I think it is bpf_jit_binary_pack_hdr(), which is using prog->bpf_func
-> as a start address for the image, instead of jit_data->image.
-> 
-> This used to be true, but now it's offset.
-> 
-> Let me see what to do about that...
+From: Chen Wang <unicorn_wang@outlook.com>
 
-Not the prettiest of things, but the below seems to make the thing
-happy...
+This series adds clock controller support for sophgo sg2042.
+
+Thanks,
+Chen
 
 ---
-diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
-index 196cc1481dec..f4357c3211bc 100644
---- a/arch/x86/net/bpf_jit_comp.c
-+++ b/arch/x86/net/bpf_jit_comp.c
-@@ -3024,6 +3024,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		prog->bpf_func = (void *)image + ctx.prog_offset;
- 		prog->jited = 1;
- 		prog->jited_len = proglen - ctx.prog_offset;
-+		prog->aux->cfi_offset = ctx.prog_offset;
- 	} else {
- 		prog = orig_prog;
- 	}
-@@ -3078,6 +3079,7 @@ void bpf_jit_free(struct bpf_prog *prog)
- 			kvfree(jit_data->addrs);
- 			kfree(jit_data);
- 		}
-+		prog->bpf_func = (void *)prog->bpf_func - prog->aux->cfi_offset;
- 		hdr = bpf_jit_binary_pack_hdr(prog);
- 		bpf_jit_binary_pack_free(hdr, NULL);
- 		WARN_ON_ONCE(!bpf_prog_kallsyms_verify_off(prog));
-diff --git a/include/linux/bpf.h b/include/linux/bpf.h
-index 8b725776e70a..e5fa0852a20f 100644
---- a/include/linux/bpf.h
-+++ b/include/linux/bpf.h
-@@ -1483,6 +1483,7 @@ struct bpf_prog_aux {
- 		struct work_struct work;
- 		struct rcu_head	rcu;
- 	};
-+	u32 cfi_offset;
- };
- 
- struct bpf_prog {
-diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-index 5c84a935ba63..763742f4740f 100644
---- a/kernel/bpf/core.c
-+++ b/kernel/bpf/core.c
-@@ -121,6 +121,9 @@ struct bpf_prog *bpf_prog_alloc_no_stats(unsigned int size, gfp_t gfp_extra_flag
- #endif
- 
- 	INIT_LIST_HEAD_RCU(&fp->aux->ksym.lnode);
-+#ifdef CONFIG_FINEIBT
-+	INIT_LIST_HEAD_RCU(&fp->aux->ksym_prefix.lnode);
-+#endif
- 	mutex_init(&fp->aux->used_maps_mutex);
- 	mutex_init(&fp->aux->dst_mutex);
- 
-@@ -709,6 +712,8 @@ void bpf_prog_kallsyms_del(struct bpf_prog *fp)
- 
- 	bpf_ksym_del(&fp->aux->ksym);
- #ifdef CONFIG_FINEIBT
-+	if (cfi_mode != CFI_FINEIBT)
-+		return;
- 	bpf_ksym_del(&fp->aux->ksym_prefix);
- #endif
- }
+
+Changes in v3:
+  The patch series is based on v6.7-rc1. You can simply review or test the
+  patches at the link [3].
+  - DTS: don't use syscon but define sg2042 specific system control node. More
+    background info can read [4].
+  - Updating minor issues in dt-bindings as per input from reviews.
+
+Changes in v2:
+  The patch series is based on v6.7-rc1. You can simply review or test the
+  patches at the link [2].
+  - Squashed the patch adding clock definitions with the patch adding the
+    binding for the clock controller.
+  - Updating dt-binding for syscon, remove oneOf for property compatible;
+    define clock controller as child of syscon.
+  - DTS changes: merge sg2042-clock.dtsi into sg2042.dtsi; move clock-frequency
+    property of osc to board devicethree due to the oscillator is outside the
+    SoC.
+  - Fixed some bugs in driver code during testing, including removing warnings
+    for rv32_defconfig.
+  - Updated MAINTAINERS info.
+
+Changes in v1:
+  The patch series is based on v6.7-rc1. You can simply review or test the
+  patches at the link [1].
+
+Link: https://github.com/unicornx/linux-riscv/commits/upstream-sg2042-clock-v1 [1]
+Link: https://github.com/unicornx/linux-riscv/commits/upstream-sg2042-clock-v2 [2]
+Link: https://github.com/unicornx/linux-riscv/commits/upstream-sg2042-clock-v3 [3]
+Link: https://lore.kernel.org/linux-riscv/MA0P287MB03329AE180378E1A2E034374FE82A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM/ [4]
+
+---
+
+Chen Wang (4):
+  dt-bindings: soc: sophgo: Add Sophgo system control module
+  dt-bindings: clock: sophgo: Add SG2042 bindings
+  clk: sophgo: Add SG2042 clock generator driver
+  riscv: dts: add clock generator for Sophgo SG2042 SoC
+
+ .../clock/sophgo/sophgo,sg2042-clkgen.yaml    |   50 +
+ .../soc/sophgo/sophgo,sg2042-sysctrl.yaml     |   35 +
+ MAINTAINERS                                   |    7 +
+ .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |    4 +
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi        |   79 +
+ drivers/clk/Kconfig                           |    1 +
+ drivers/clk/Makefile                          |    1 +
+ drivers/clk/sophgo/Kconfig                    |    8 +
+ drivers/clk/sophgo/Makefile                   |    2 +
+ drivers/clk/sophgo/clk-sophgo-sg2042.c        | 1371 +++++++++++++++++
+ drivers/clk/sophgo/clk-sophgo-sg2042.h        |  226 +++
+ .../dt-bindings/clock/sophgo,sg2042-clkgen.h  |  169 ++
+ 12 files changed, 1953 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/sophgo/sophgo,sg2042-clkgen.yaml
+ create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
+ create mode 100644 drivers/clk/sophgo/Kconfig
+ create mode 100644 drivers/clk/sophgo/Makefile
+ create mode 100644 drivers/clk/sophgo/clk-sophgo-sg2042.c
+ create mode 100644 drivers/clk/sophgo/clk-sophgo-sg2042.h
+ create mode 100644 include/dt-bindings/clock/sophgo,sg2042-clkgen.h
+
+
+base-commit: b85ea95d086471afb4ad062012a4d73cd328fa86
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
