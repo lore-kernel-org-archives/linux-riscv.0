@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC44AC4167B
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 14:53:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A03DC4167B
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 15:38:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FT6zC8rBKUN9G2qEMgsVEoOARK7OLUgylb/bPMeCSgY=; b=PZh60oBYgVnAjH
-	qk5VhFCWhDgpx99kChySy082D882ts9WpSHU5ZBrQ8UXTj48KOPFXjzYS6NC23DOCRXfHgTmotIkK
-	vLUY2aqy5eCT3XSwr104c4ojR7av65a7y7n6m8TmcBIe392sHdpbBrtHTiMJplG5gb+a7Yf8UEEJE
-	yhhxRJS32NBw/l6/o154EpbQOe9QU1tLfWc3jAeWGHLKxFj1UTy9pLtYhgz6vrJGX2ArgOZLjEbZ8
-	lhGhKXYrINjAPir8y/84xcyO0QlROQ3R9MdZ2gemnHvbF+o0dJeqsZxpDAH8pXiUqNFwgo48+43vT
-	ah5OEW1xoET40kG8OPkw==;
+	List-Owner; bh=6VLSJe8lsz2SvMCyclCG5NYSU53yyDtaQn9wA6lRDJQ=; b=MQnZ+ZRvom8Nef
+	n6BDmHoi/2Vdk+e/ozRUjUszF+kd4Mp6hp4ucIbPpJt5YUkKxf2gpwon2lBFHsL+K9h7qsucF+Ul/
+	LrKxKwjuVobekZt9ZKhEXXYx6qR4Mqefw5Gyf0pnjGT+yM+PqpGMQ2xpbem0lUeohvciBPDvjknGS
+	RLUAVpDTk+/1oahCGcuwTTSIY8VMvtf16OB4BAToa2rFiMhTP0d4ux5k8sgLgsVpHLaD0OT/GsE8A
+	hzAkblQWlaPbHB+zCtoePSQeBx5ZSyCWPJyxiSBchTTmPXGxLzGY1QcuxtkJPnEqKm1HUWvASmuoY
+	QGDLvQQ9ICKvSg1+jEjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAAJn-004rLR-0L;
-	Mon, 04 Dec 2023 14:53:07 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1rAB1a-004yyz-15;
+	Mon, 04 Dec 2023 15:38:22 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAAJj-004rKJ-2e
+	id 1rAB1X-004yxY-1r
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Dec 2023 14:53:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 5BA06B8101C
-	for <linux-riscv@lists.infradead.org>; Mon,  4 Dec 2023 14:53:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 088EBC433C7
-	for <linux-riscv@lists.infradead.org>; Mon,  4 Dec 2023 14:53:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701701582;
-	bh=NuRXrq7N3kGS8uwkFtg1Srlgms/l7Ivsv0arLwupqHw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=IAFHXXqfghi9TPmq3hZ9HtoyYfptiVays5G/rHL0Oh/qzMfnG/09yVgyew/Pjh5Yx
-	 iQtNBjLovBwZvXAdxLY04z/TLrhKfjE/jbvuDDdL1lc9AuYilZNBdRsPGVARnnRFjH
-	 oFgoLhsPJu6kRVMaUY2YxWNU7qDL4A9hHxojVRgJrQ5KRWmS+H0tIJSEVD5p1rj0Ya
-	 XIlUvIU4A55BbHhPmceVxjTfpK98QPtzOhMuBFOKw+bSOs3I620udckcQiYAOssx9f
-	 9kzzWOM71Gc7PaEySoWVsT0ZZZhQHzWfck+jlATBFKSB2h5Ng67jrlPA1j7z+E7wCp
-	 nKz44afyVm5vA==
-Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-2c9fc0b84d0so17083951fa.0
-        for <linux-riscv@lists.infradead.org>; Mon, 04 Dec 2023 06:53:01 -0800 (PST)
-X-Gm-Message-State: AOJu0YxxLYrQ82oWhXkv8VuGpyLxXZUw/2TznwrLdE4xAVeEwr442FZX
-	91E1XVdokUuccL1RmsIRazTyPE84Pc5eBSkcq2g=
-X-Google-Smtp-Source: AGHT+IHkCIk7W6xkoYH24E/xUgUUfHwLDL7y3oi7LnhmU/itgHIKTq9PTHKelorqOMuakQ0gScRN0vRvJbK8HIusknc=
-X-Received: by 2002:a2e:8015:0:b0:2c9:f181:7347 with SMTP id
- j21-20020a2e8015000000b002c9f1817347mr1874219ljg.4.1701701580168; Mon, 04 Dec
- 2023 06:53:00 -0800 (PST)
+	Mon, 04 Dec 2023 15:38:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1701704298;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=seX/SDI/jMTwPP8d5rMNciSYOZJKlVgmv/OT9coCj5g=;
+	b=iOfcWLuVUWpETZt+QsKNb1OXF8rpb0ra57T4cdNng6tMtGtPjTZzpo7sN5stQUIjhOmsdI
+	tNgQosCmCBB38udrrg+bxEdMeziAsNgA/Q2Ioz0SIkiQE72oRwGkAmbkGS4g82EAuWm8Ww
+	uERqbo4ap9lZFoUPKZ0s952Nhg8P7No=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-9-BwYS5IDnOmyxJYurhDYIqw-1; Mon, 04 Dec 2023 10:38:10 -0500
+X-MC-Unique: BwYS5IDnOmyxJYurhDYIqw-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7C350811E88;
+	Mon,  4 Dec 2023 15:38:09 +0000 (UTC)
+Received: from localhost (unknown [10.72.113.121])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id B081E1C060AE;
+	Mon,  4 Dec 2023 15:38:08 +0000 (UTC)
+Date: Mon, 4 Dec 2023 23:38:05 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: linux-kernel@vger.kernel.org, kexec@lists.infradead.org, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-parisc@vger.kernel.org, akpm@linux-foundation.org,
+	joe@perches.com, nathan@kernel.org
+Subject: Re: [PATCH v3 5/7] kexec_file, ricv: print out debugging message if
+ required
+Message-ID: <ZW3yXWJ7rTrtZzyg@MiWiFi-R3L-srv>
+References: <20231130023955.5257-1-bhe@redhat.com>
+ <20231130023955.5257-6-bhe@redhat.com>
+ <20231201-blog-blasphemy-985d2665903c@wendy>
 MIME-Version: 1.0
-References: <IA1PR20MB4953C912FC58C0D248976564BB86A@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB49531ED1BCC00D6B265C2D10BB86A@IA1PR20MB4953.namprd20.prod.outlook.com>
-In-Reply-To: <IA1PR20MB49531ED1BCC00D6B265C2D10BB86A@IA1PR20MB4953.namprd20.prod.outlook.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 4 Dec 2023 22:52:48 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSf5dCuYecY39nksczFzuXUvEJ_hLef5tyW0OgLmCDLPQ@mail.gmail.com>
-Message-ID: <CAJF2gTSf5dCuYecY39nksczFzuXUvEJ_hLef5tyW0OgLmCDLPQ@mail.gmail.com>
-Subject: Re: [PATCH v5 1/2] dt-bindings: timer: thead,c900-aclint-mtimer:
- separate mtime and mtimecmp regs
-To: Inochi Amaoto <inochiama@outlook.com>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Chen Wang <unicorn_wang@outlook.com>, 
-	Anup Patel <anup@brainfault.org>, Samuel Holland <samuel.holland@sifive.com>, 
-	Jisheng Zhang <jszhang@kernel.org>, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <20231201-blog-blasphemy-985d2665903c@wendy>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231204_065304_198932_A5B8724A 
-X-CRM114-Status: GOOD (  21.81  )
+X-CRM114-CacheID: sfid-20231204_073819_778773_D77E1C37 
+X-CRM114-Status: GOOD (  27.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,58 +82,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBEZWMgNCwgMjAyMyBhdCA1OjUx4oCvUE0gSW5vY2hpIEFtYW90byA8aW5vY2hpYW1h
-QG91dGxvb2suY29tPiB3cm90ZToKPgo+IFRoZSB0aW1lciByZWdpc3RlcnMgb2YgYWNsaW50IGRv
-bid0IGZvbGxvdyB0aGUgY2xpbnQgbGF5b3V0IGFuZCBjYW4KPiBiZSBtYXBwZWQgb24gYW55IGRp
-ZmZlcmVudCBvZmZzZXQuIEFzIHNnMjA0MiB1c2VzIHNlcGFyYXRlZCB0aW1lcgo+IGFuZCBtc3dp
-IGZvciBpdHMgY2xpbnQsIGl0IHNob3VsZCBmb2xsb3cgdGhlIGFjbGludCBzcGVjIGFuZCBoYXZl
-Cj4gc2VwYXJhdGVkIHJlZ2lzdGVycy4KPgo+IFRoZSBwcmV2aW91cyBwYXRjaCBpbnRyb2R1Y2Vk
-IGEgbmV3IHR5cGUgb2YgVC1IRUFEIGFjbGludCB0aW1lciB3aGljaAo+IGhhcyBjbGludCB0aW1l
-ciBsYXlvdXQuIEFsdGhvdWdoIGl0IGhhcyB0aGUgY2xpbnQgdGltZXIgbGF5b3V0LCBpdAo+IHNo
-b3VsZCBmb2xsb3cgdGhlIGFjbGludCBzcGVjIGFuZCB1c2VzIHRoZSBzZXBhcmF0ZWQgbXRpbWUg
-YW5kIG10aW1lY21wCj4gcmVncy4gU28gYSBBQkkgY2hhbmdlIGlzIG5lZWRlZCB0byBtYWtlIHRo
-ZSB0aW1lciBmaXQgdGhlIGFjbGludCBzcGVjLgo+Cj4gVG8gbWFrZSBULUhFQUQgYWNsaW50IHRp
-bWVyIG1vcmUgY2xvc2VyIHRvIHRoZSBhY2xpbnQgc3BlYywgdXNlCj4gcmVncy1uYW1lcyB0byBy
-ZXByZXNlbnQgdGhlIG10aW1lY21wIHJlZ2lzdGVyLCB3aGljaCBjYW4gYXZvaWQgaGFjawo+IGZv
-ciB1bnN1cHBvcnQgbXRpbWUgcmVnaXN0ZXIgb2YgVC1IRUFEIGFjbGludCB0aW1lci4KPgo+IEFs
-c28sIGFzIFQtSEVBRCBhY2xpbnQgb25seSBzdXBwb3J0cyBtdGltZWNtcCwgaXQgaXMgdW5uZWNl
-c3NhcnkgdG8KPiBpbXBsZW1lbnQgdGhlIHdob2xlIGFjbGludCBzcGVjLiBUbyBtYWtlIHRoaXMg
-YmluZGluZyBULUhFQUQgc3BlY2lmaWMsCj4gb25seSBhZGQgcmVnLW5hbWUgZm9yIGV4aXN0ZWQg
-cmVnaXN0ZXIuIEZvciBkZXRhaWxzLCBzZWUgdGhlIGRpc2N1c3Npb24KPiBpbiB0aGUgbGFzdCBs
-aW5rLgo+Cj4gU2lnbmVkLW9mZi1ieTogSW5vY2hpIEFtYW90byA8aW5vY2hpYW1hQG91dGxvb2su
-Y29tPgo+IEZpeGVzOiA0NzM0NDQ5ZjczMTEgKCJkdC1iaW5kaW5nczogdGltZXI6IEFkZCBTb3Bo
-Z28gc2cyMDQyIENMSU5UIHRpbWVyIikKPiBMaW5rOiBodHRwczovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvcGlwZXJtYWlsL29wZW5zYmkvMjAyMy1PY3RvYmVyLzAwNTY5My5odG1sCj4gTGluazogaHR0
-cHM6Ly9naXRodWIuY29tL3Jpc2N2L3Jpc2N2LWFjbGludC9ibG9iL21haW4vcmlzY3YtYWNsaW50
-LmFkb2MKPiBMaW5rOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvSUExUFIyME1CNDk1M0Y5
-RDc3RkZDNzZBOUQyMzY5MjJEQkJCNkFASUExUFIyME1CNDk1My5uYW1wcmQyMC5wcm9kLm91dGxv
-b2suY29tLwo+IC0tLQo+ICAuLi4vYmluZGluZ3MvdGltZXIvdGhlYWQsYzkwMC1hY2xpbnQtbXRp
-bWVyLnlhbWwgICAgICAgICB8IDkgKysrKysrKystCj4gIDEgZmlsZSBjaGFuZ2VkLCA4IGluc2Vy
-dGlvbnMoKyksIDEgZGVsZXRpb24oLSkKPgo+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL2Rl
-dmljZXRyZWUvYmluZGluZ3MvdGltZXIvdGhlYWQsYzkwMC1hY2xpbnQtbXRpbWVyLnlhbWwgYi9E
-b2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvdGltZXIvdGhlYWQsYzkwMC1hY2xpbnQt
-bXRpbWVyLnlhbWwKPiBpbmRleCBmYmQyMzU2NTBlNTIuLjJlOTJiY2RlYjQyMyAxMDA2NDQKPiAt
-LS0gYS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvdGltZXIvdGhlYWQsYzkwMC1h
-Y2xpbnQtbXRpbWVyLnlhbWwKPiArKysgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGlu
-Z3MvdGltZXIvdGhlYWQsYzkwMC1hY2xpbnQtbXRpbWVyLnlhbWwKPiBAQCAtMTcsNyArMTcsMTIg
-QEAgcHJvcGVydGllczoKPiAgICAgICAgLSBjb25zdDogdGhlYWQsYzkwMC1hY2xpbnQtbXRpbWVy
-Cj4KPiAgICByZWc6Cj4gLSAgICBtYXhJdGVtczogMQo+ICsgICAgaXRlbXM6Cj4gKyAgICAgIC0g
-ZGVzY3JpcHRpb246IE1USU1FQ01QIFJlZ2lzdGVycwo+ICsKPiArICByZWctbmFtZXM6Cj4gKyAg
-ICBpdGVtczoKPiArICAgICAgLSBjb25zdDogbXRpbWVjbXAKPgo+ICAgIGludGVycnVwdHMtZXh0
-ZW5kZWQ6Cj4gICAgICBtaW5JdGVtczogMQo+IEBAIC0yOCw2ICszMyw3IEBAIGFkZGl0aW9uYWxQ
-cm9wZXJ0aWVzOiBmYWxzZQo+ICByZXF1aXJlZDoKPiAgICAtIGNvbXBhdGlibGUKPiAgICAtIHJl
-Zwo+ICsgIC0gcmVnLW5hbWVzCj4gICAgLSBpbnRlcnJ1cHRzLWV4dGVuZGVkCj4KPiAgZXhhbXBs
-ZXM6Cj4gQEAgLTM5LDUgKzQ1LDYgQEAgZXhhbXBsZXM6Cj4gICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICA8JmNwdTNpbnRjIDc+LAo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPCZj
-cHU0aW50YyA3PjsKPiAgICAgICAgcmVnID0gPDB4YWMwMDAwMDAgMHgwMDAxMDAwMD47Cj4gKyAg
-ICAgIHJlZy1uYW1lcyA9ICJtdGltZWNtcCI7Cj4gICAgICB9Owo+ICAuLi4KPiAtLQo+IDIuNDMu
-MAo+CkFja2VkLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KCi0tIApCZXN0IFJlZ2Fy
-ZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+On 12/01/23 at 10:38am, Conor Dooley wrote:
+> On Thu, Nov 30, 2023 at 10:39:53AM +0800, Baoquan He wrote:
+> 
+> $subject has a typo in the arch bit :)
+
+Indeed, will fix if need report. Thanks for careful checking.
+
+> 
+> > Replace pr_debug() with the newly added kexec_dprintk() in kexec_file
+> > loading related codes.
+> 
+> Commit messages should be understandable in isolation, but this only
+> explains (part of) what is obvious in the diff. Why is this change
+> being made?
+
+The purpose has been detailedly described in cover letter and patch 1
+log. Andrew has picked these patches into his tree and grabbed the cover
+letter log into the relevant commit for people's later checking. All
+these seven patches will be present in mainline together. This is common
+way when posting patch series? Please let me know if I misunderstand
+anything.
+> 
+> > 
+> > And also remove kexec_image_info() because the content has been printed
+> > out in generic code.
+> > 
+> > Signed-off-by: Baoquan He <bhe@redhat.com>
+> > ---
+> >  arch/riscv/kernel/elf_kexec.c     | 11 ++++++-----
+> >  arch/riscv/kernel/machine_kexec.c | 26 --------------------------
+> >  2 files changed, 6 insertions(+), 31 deletions(-)
+> > 
+> > diff --git a/arch/riscv/kernel/elf_kexec.c b/arch/riscv/kernel/elf_kexec.c
+> > index e60fbd8660c4..5bd1ec3341fe 100644
+> > --- a/arch/riscv/kernel/elf_kexec.c
+> > +++ b/arch/riscv/kernel/elf_kexec.c
+> > @@ -216,7 +216,6 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+> >  	if (ret)
+> >  		goto out;
+> >  	kernel_start = image->start;
+> > -	pr_notice("The entry point of kernel at 0x%lx\n", image->start);
+> >  
+> >  	/* Add the kernel binary to the image */
+> >  	ret = riscv_kexec_elf_load(image, &ehdr, &elf_info,
+> > @@ -252,8 +251,8 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+> >  		image->elf_load_addr = kbuf.mem;
+> >  		image->elf_headers_sz = headers_sz;
+> >  
+> > -		pr_debug("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
+> > -			 image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
+> > +		kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
+> > +			      image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
+> >  
+> >  		/* Setup cmdline for kdump kernel case */
+> >  		modified_cmdline = setup_kdump_cmdline(image, cmdline,
+> > @@ -275,6 +274,8 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+> >  		pr_err("Error loading purgatory ret=%d\n", ret);
+> >  		goto out;
+> >  	}
+> > +	kexec_dprintk("Loaded purgatory at 0x%lx\n", kbuf.mem);
+> > +
+> >  	ret = kexec_purgatory_get_set_symbol(image, "riscv_kernel_entry",
+> >  					     &kernel_start,
+> >  					     sizeof(kernel_start), 0);
+> > @@ -293,7 +294,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+> >  		if (ret)
+> >  			goto out;
+> >  		initrd_pbase = kbuf.mem;
+> 
+> > -		pr_notice("Loaded initrd at 0x%lx\n", initrd_pbase);
+> > +		kexec_dprintk("Loaded initrd at 0x%lx\n", initrd_pbase);
+> 
+> This is not a pr_debug().
+> 
+> >  	}
+> >  
+> >  	/* Add the DTB to the image */
+> > @@ -318,7 +319,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+> >  	}
+> >  	/* Cache the fdt buffer address for memory cleanup */
+> >  	image->arch.fdt = fdt;
+> 
+> > -	pr_notice("Loaded device tree at 0x%lx\n", kbuf.mem);
+> > +	kexec_dprintk("Loaded device tree at 0x%lx\n", kbuf.mem);
+> 
+> Neither is this. Why are they being moved from pr_notice()?
+
+You are right. 
+
+While always printing out the loaded location of purgatory and
+device tree doesn't make sense. It will be confusing when users
+see these even when they do normal kexec/kdump loading. It should be
+changed to pr_debug().
+
+Which way do you suggest?
+1) change it back to pr_debug(), fix it in another patch;
+2) keep it as is in the patch;
+
+Thanks
+Baoquan
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
