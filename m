@@ -4,84 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1AF6C4167B
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 18:29:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FF59C4167B
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 18:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8VPHvlRH2OrWpDWxMvljQTa4qeo/TEX8nQIPF+7Ag4Y=; b=xYrEx9H8z1DqIb
-	zKOUrbriOaiOSf0C46VqaVIal1R8a6ym7uz5h/lhUv4xNoMD0Hs6eIBQEaZeMlb9DxMI1o6h5kYPb
-	uL8zE7WQW0RRe2Hwymr5JFnXFTWVsakJbVvIy/z2/JivPlZmiShWIJom8+EP90RVAFPOmsd/cClFp
-	KFLTAKxJpctAo1+A0/6yFqK1OzCH6jSVcsnylnlGQdxlAw/WlU348saXAZtiyLoxQDfakAuhIZ1Tr
-	ljJkLqqzb7hPR6LFD/aGUm2I6eNUSRkWIuNBXxa3IFLNriNWMlgeIb1YZD+nPw3WS5M54TLn9W8nO
-	NTJUzumub0jY7UCpqI/A==;
+	List-Owner; bh=Smhk7u7XKmlsh+oePEFYVE0Lg6RcSuX8NVeZeJtz8QM=; b=Y9VR/4XuLXP9Iu
+	CN9GRaGF1ZtzlE3TGw4Xn7isaLdUh2fpPi5gLxV54O3IPGg9DC0iuYW6KtfxdQ3BALehCEQzAM0GD
+	RFENibiGK5CyYwrFTPy/VatY2Reo8QNQbOILFcKOjROJ+VsGtNq8RY4yIdBNcpCcN73fqz85yGm3m
+	aiFHgm5Zll0KKkjy6d6Aw2+9fjGapHlX/lyGfuVK5Che0SrGHEjFcBRGC4cL9r5ajxFWvb0NAgkhc
+	fDppY95OAu0CUyIBGjLoEWaOZevCEtyiUYFaRNb4pUJvLYhb35b4LALbExe7a5RzgA+X6wOH07qs+
+	whdVdZK7cHxD1zLnQZHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rADh0-005JMz-0e;
-	Mon, 04 Dec 2023 18:29:18 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1rADlc-005KO2-0r;
+	Mon, 04 Dec 2023 18:34:04 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rADgw-005JLV-1u
-	for linux-riscv@lists.infradead.org;
-	Mon, 04 Dec 2023 18:29:16 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-5be30d543c4so1580320a12.2
-        for <linux-riscv@lists.infradead.org>; Mon, 04 Dec 2023 10:29:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1701714553; x=1702319353; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Kw9lx7rfek+Fyxn9H19uerjKbw2z7hmkxzJlnytvErY=;
-        b=J5z1/nK+IZsn50nQV4NUWp93rXJtUh/NxQyek3nk5YfizDScu+nesAgStA99nMhV6b
-         9HqH3nEFDFcnvzOjtVv+zTv2rYyb5Ob6W5Yhf6JJYpQEbzdKYnFp3LO574uLyDfYpuZ/
-         xgEQhXLFjBNC6rJ7IDeLQWn5tODWMftcP6gxk6aIJcPUOwaR2WJffBGZxmvfYnacIW/G
-         NmWj0RTtSv+4CJZn6OxEnUReT4CCZCdoH/5FciWH7bJPpHc5hACuRmUyexXfn/RbREZx
-         jpnT9u1WpLSwr7AFqG9rfpWUbz+SzXA0RAu9ZqdslL0NL1lZWH3se2O7tdtRV9Vi5P5o
-         zDsQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701714553; x=1702319353;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Kw9lx7rfek+Fyxn9H19uerjKbw2z7hmkxzJlnytvErY=;
-        b=hmoZkRPeuc+zbF0EIwVX+z7SvrGVUYx37PLuw6AAeheQYYm84zTo1vSvoWthtb2tVV
-         N9NlcWuBd+kyF346Q1Jns2JFSkcPCdym3QKP5G2QNoCVmwkKRWKR+NIwgPmkwLHNpFYO
-         BL1AJ5ifLkcoPuw+PzN5RfuMojGPyy6UGe5RsGkfa64D5REErKcGS7GWDUtBa4bO3J6Z
-         O1yL0Q9ax113+Gk4rYhaBusinaOBhsXbRyVDCWNv8QJDsPieacOfEY31lfJ7iHnST/cb
-         3ZCo0yRWYjhTwGJrmkeZGW128stD7rXl61zNNEBJOYtc9StjlnVHHZXqjpkw1Uf7L9/N
-         w8Cg==
-X-Gm-Message-State: AOJu0YwRcy8ZNnFu5D+t4VJKWcsla03yXiipYTSP+BdWj3R6U+O0uVDF
-	cPAOOXKkwlPXxWDIKoKbfkkayQ==
-X-Google-Smtp-Source: AGHT+IE7Ek+QAO98xYFQUhE2+KsLzefRKGzxvQR6MjetLHTqt5mcn71POBm0SK15aUZ0cAx/t3xcWg==
-X-Received: by 2002:a05:6a20:e123:b0:18b:fde7:71ac with SMTP id kr35-20020a056a20e12300b0018bfde771acmr3150854pzb.60.1701714553529;
-        Mon, 04 Dec 2023 10:29:13 -0800 (PST)
-Received: from grind.. (200-206-229-234.dsl.telesp.net.br. [200.206.229.234])
-        by smtp.gmail.com with ESMTPSA id it19-20020a056a00459300b006cdce7c69d9sm1806224pfb.91.2023.12.04.10.29.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Dec 2023 10:29:13 -0800 (PST)
-From: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
-To: kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: anup@brainfault.org,
-	atishp@atishpatra.org,
-	palmer@dabbelt.com,
-	ajones@ventanamicro.com,
-	Daniel Henrique Barboza <dbarboza@ventanamicro.com>
-Subject: [PATCH 1/3] RISC-V: KVM: set 'vlenb' in kvm_riscv_vcpu_alloc_vector_context()
-Date: Mon,  4 Dec 2023 15:29:02 -0300
-Message-ID: <20231204182905.2163676-2-dbarboza@ventanamicro.com>
-X-Mailer: git-send-email 2.41.0
-In-Reply-To: <20231204182905.2163676-1-dbarboza@ventanamicro.com>
-References: <20231204182905.2163676-1-dbarboza@ventanamicro.com>
+	id 1rADla-005KNo-24
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 04 Dec 2023 18:34:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=yRxkmI4dXPVCTApSsXOOM346LAa1g76vwgSBu1bA/08=; b=u2cVkyxLqoUOqz1TA/dDurEImX
+	yd+RKQfGNzDw1nNzm7F9pDtqQt51c1WaOKmTKmAbAROOiek+hm8k6eZisRZ/QWEyDAbQFc+SykZth
+	yo1Jqw2hGSDZx0/kwV/QhUbR1CaOvc39CcdS6VXzjuqXt4HYSSGFkZCVv/chpwHXClxU600842aLI
+	poUrNAgUfXs1GTMxHRcsbo3DI/Uyx2B0XaXImtz+wS5a8oBto19jcxToog2JblpiSQQodC47SWxtq
+	uoUKbAOA8OTlQYtBciApJtmEJWfW4deFx0DxiGRyt/1iUxUN98T1XdrCmGbwL4cixtGF6odl8Z3oi
+	wU5Z7Stg==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1rADlT-000x6k-F8; Mon, 04 Dec 2023 18:33:56 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 5462830057C; Mon,  4 Dec 2023 19:33:54 +0100 (CET)
+Date: Mon, 4 Dec 2023 19:33:54 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Jiri Olsa <olsajiri@gmail.com>
+Cc: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
+	Song Liu <song@kernel.org>, Song Liu <songliubraving@meta.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	David Ahern <dsahern@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>, Arnd Bergmann <arnd@arndb.de>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Kees Cook <keescook@chromium.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Network Development <netdev@vger.kernel.org>,
+	bpf <bpf@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>,
+	clang-built-linux <llvm@lists.linux.dev>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Joao Moreira <joao@overdrivepizza.com>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH v2 2/2] x86/cfi,bpf: Fix BPF JIT call
+Message-ID: <20231204183354.GC7299@noisy.programming.kicks-ass.net>
+References: <20231130133630.192490507@infradead.org>
+ <20231130134204.136058029@infradead.org>
+ <CAADnVQJqE=aE7mHVS54pnwwnDS0b67iJbr+t4j5F4HRyJSTOHw@mail.gmail.com>
+ <20231204091334.GM3818@noisy.programming.kicks-ass.net>
+ <20231204111128.GV8262@noisy.programming.kicks-ass.net>
+ <20231204125239.GA1319@noisy.programming.kicks-ass.net>
+ <ZW4LjmUKj1q6RWdL@krava>
+ <20231204181614.GA7299@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231204_102914_628006_596DB8F1 
-X-CRM114-Status: UNSURE (   7.38  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <20231204181614.GA7299@noisy.programming.kicks-ass.net>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,33 +105,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-'vlenb', added to riscv_v_ext_state by commit c35f3aa34509 ("RISC-V:
-vector: export VLENB csr in __sc_riscv_v_state"), isn't being
-initialized in guest_context. If we export 'vlenb' as a KVM CSR,
-something we want to do in the next patch, it'll always return 0.
+On Mon, Dec 04, 2023 at 07:16:14PM +0100, Peter Zijlstra wrote:
+> On Mon, Dec 04, 2023 at 06:25:34PM +0100, Jiri Olsa wrote:
+> 
+> > that boots properly for me but gives crash below when running bpf tests
+> 
+> OK, more funnies..
+> 
+> > [  482.145182][  T699] RIP: 0010:bpf_for_each_array_elem+0xbb/0x120
+> > [  482.145672][  T699] Code: 4c 01 f5 89 5c 24 04 4c 89 e7 48 8d 74 24 04 48 89 ea 4c 89 fd 4c 89 f9 45 31 c0 4d 89 eb 41 ba ef 86 cd 67 45 03 53 f1 74 02 <0f> 0b 41 ff d3 0f 1f 00 48 85 c0 75 0e 48 8d 43 01 41 8b 4c 24 24
+> > [  482.147221][  T699] RSP: 0018:ffffc900017e3e88 EFLAGS: 00010217
+> > [  482.147702][  T699] RAX: 0000000000000000 RBX: 0000000000000000 RCX: ffffc900017e3ed8
+> > [  482.152162][  T699] RDX: ffff888152eb0210 RSI: ffffc900017e3e8c RDI: ffff888152eb0000
+> > [  482.152770][  T699] RBP: ffffc900017e3ed8 R08: 0000000000000000 R09: 0000000000000000
+> > [  482.153350][  T699] R10: 000000004704ef28 R11: ffffffffa0012774 R12: ffff888152eb0000
+> > [  482.153951][  T699] R13: ffffffffa0012774 R14: ffff888152eb0210 R15: ffffc900017e3ed8
+> > [  482.154554][  T699] FS:  00007fa60d4fdd00(0000) GS:ffff88846d200000(0000) knlGS:0000000000000000
+> > [  482.155138][  T699] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+> > [  482.155564][  T699] CR2: 00007fa60d7d8000 CR3: 00000001502a2005 CR4: 0000000000770ef0
+> > [  482.156095][  T699] PKRU: 55555554
+> > [  482.156349][  T699] Call Trace:
+> > [  482.156596][  T699]  <TASK>
+> > [  482.156816][  T699]  ? __die_body+0x68/0xb0
+> > [  482.157138][  T699]  ? die+0xba/0xe0
+> > [  482.157456][  T699]  ? do_trap+0xa5/0x180
+> > [  482.157826][  T699]  ? bpf_for_each_array_elem+0xbb/0x120
+> > [  482.158277][  T699]  ? bpf_for_each_array_elem+0xbb/0x120
+> > [  482.158711][  T699]  ? do_error_trap+0xc4/0x140
+> > [  482.159052][  T699]  ? bpf_for_each_array_elem+0xbb/0x120
+> > [  482.159506][  T699]  ? handle_invalid_op+0x2c/0x40
+> > [  482.159906][  T699]  ? bpf_for_each_array_elem+0xbb/0x120
+> > [  482.160990][  T699]  ? exc_invalid_op+0x38/0x60
+> > [  482.161375][  T699]  ? asm_exc_invalid_op+0x1a/0x20
+> > [  482.161788][  T699]  ? 0xffffffffa0012774
+> > [  482.162149][  T699]  ? 0xffffffffa0012774
+> > [  482.162513][  T699]  ? bpf_for_each_array_elem+0xbb/0x120
+> > [  482.162905][  T699]  bpf_prog_ca45ea7f9cb8ac1a_inner_map+0x94/0x98
+> > [  482.163471][  T699]  bpf_trampoline_6442549234+0x47/0x1000
+> 
+> Looks like this trips an #UD, I'll go try and figure out what this
+> bpf_for_each_array_elem() does to cause this. Looks like it has an
+> indirect call, could be the callback_fn thing has a CFI mis-match.
 
-Set 'vlenb' to riscv_v_size/32.
+So afaict this is used through bpf_for_each_map_elem(), where the
+argument still is properly callback_fn. However, in the desriptor
+bpf_for_each_map_elem_proto the argument gets described as:
+ARG_PTR_TO_FUNC, which in turn has a comment like:
 
-Signed-off-by: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
----
- arch/riscv/kvm/vcpu_vector.c | 1 +
- 1 file changed, 1 insertion(+)
+  ARG_PTR_TO_FUNC,        /* pointer to a bpf program function */
 
-diff --git a/arch/riscv/kvm/vcpu_vector.c b/arch/riscv/kvm/vcpu_vector.c
-index b339a2682f25..530e49c588d6 100644
---- a/arch/riscv/kvm/vcpu_vector.c
-+++ b/arch/riscv/kvm/vcpu_vector.c
-@@ -76,6 +76,7 @@ int kvm_riscv_vcpu_alloc_vector_context(struct kvm_vcpu *vcpu,
- 	cntx->vector.datap = kmalloc(riscv_v_vsize, GFP_KERNEL);
- 	if (!cntx->vector.datap)
- 		return -ENOMEM;
-+	cntx->vector.vlenb = riscv_v_vsize / 32;
- 
- 	vcpu->arch.host_context.vector.datap = kzalloc(riscv_v_vsize, GFP_KERNEL);
- 	if (!vcpu->arch.host_context.vector.datap)
--- 
-2.41.0
+Which to me sounds like there is definite type punning involved. The
+call in bpf_for_each_array_elem() is a regular C indirect call, which
+gets adorned with the kCFI magic.
 
+But I doubt the BPF function that gets used gets the correct matching
+bits on.
+
+TL;DR, I think this is a pre-existing problem with kCFI + eBPF and not
+caused by my patches.
+
+Could any of you bpf knowledgeable folks please explain me exactly what
+gets used as the function pointer in this case? -- I'm not sure I can
+follow along well enough to begin looking for a solution at this point
+:/
 
 _______________________________________________
 linux-riscv mailing list
