@@ -4,73 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A42C10DC3
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 16:56:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E28CCC4167B
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 17:25:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NH8DyZ5dRrmrRXemTNpzDSFwWh4jxjHwcoAecEq2mnk=; b=iu7jZBTDLMWPXWrh6XzrP1KypI
-	FTV+rlU9mKLLambHMwYkosYi29z7btuieQU1KfOAw7YV0Gq7NsVy/XiLG+n594HD05MFrYjAdvuqW
-	6QkTHYwe90HvJ0BpXsppcBQ0vuWJ+cztP0Ko1CXDeTXM74alA5bdo9XgYJ8pUueOmYmErIwIdm6tS
-	x0ccqSDq7yFAcnHqROPaCglHAsokM56yBlQORVm3/hmEOYi4RjXZgoqQl4wZkBFwiolchUJfsTzAa
-	M/wblOfup+r4GKbQ5AGcUBA3FK+A3tXUk3UXjxMq/XsJ7KZhuqEC5aI3z8LNl1MDGmeuhfv+pwqX4
-	ARl0Qpfg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xWxLeY9Nk3YEr4/IfYzc0t89uWpKEg8b62RaV/QAlAg=; b=bUsi2KU/1N1lUI
+	M1APwVnBgz9Ohug0gUdNsVra/UZIKrbcg6+MkJ5DgAmpqwjQmY2tA0EtvNu9T28JOUtSq+Pxm1Beg
+	IW74Vh2gT3mmVM0wqRJwG3gtHNLIAzladhhQhJshB+jt/IdhI86JBmoNzSxH5kbKhZ/A9MxYW3Tpm
+	OzBZTxK9dc2VUan7pYeSZx3klM1tDIq466hwJB/VGuHx2f/5Bl/2Af1Lw5JtdnpLc43xd0YYwVPcD
+	s+i3+gVOOKUlT7cf5J44FQleFvDqUfRrPrvvS8fixLaJ8ozv1g3tSuNutDiHK0UBlWicSS+Y8E/DH
+	uvH7Npt/NHB0XZ8u2XFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rACFJ-0059Bj-2D;
-	Mon, 04 Dec 2023 16:56:37 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1rAChT-005Bm4-1T;
+	Mon, 04 Dec 2023 17:25:43 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rACFH-0059B0-1P
+	id 1rAChQ-005BlC-0x
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Dec 2023 16:56:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 23C3EB80D66;
-	Mon,  4 Dec 2023 16:56:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38E04C433C7;
-	Mon,  4 Dec 2023 16:56:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701708993;
-	bh=D5PcLs9BN316KSze1BhRO6RD7xIMB0szQg4ZffMMN8w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iAOXWjDO6XOv0cg1GadByd7v+NDYHuW5TRXZX9bG+FS2mtGR0bfvhF4bpr+isNMHO
-	 AWbGJvBijrq08a/5BtEDOxSoE1es2l5QRS7FB3Jyx5P/xaj7Wh2fXRrJOc/T2BSXE0
-	 yfgoBlXh01A8nyij7r9xER797sp2xA6zvV2q+J6QNMLFqvPXCTXqkYnn9jLziZJHbM
-	 yo1f6Gp3eKbMr+f9pGE4/zPZgUrJuV8gjHznhGqHicv3qo9upzn25bfOJvzwwIGFf1
-	 4XA0o4mw1I7SGZ0eWtWofZPCkzyPBkd/estNYlvG4PROtSv4XGw2M3LJ8D8a0pYdQh
-	 iOOTNgSeVuPsA==
-Date: Mon, 4 Dec 2023 16:56:27 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: Inochi Amaoto <inochiama@outlook.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+	Mon, 04 Dec 2023 17:25:42 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-40c08af319cso18909385e9.2
+        for <linux-riscv@lists.infradead.org>; Mon, 04 Dec 2023 09:25:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1701710738; x=1702315538; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=F/67VX4B4sjgrRJxe42EkDnSLKfXlU5YkrCZ/4KluE8=;
+        b=UmpDntNpxXJisF/YdpkkAsboOI4mI4ZhwAnAX806Mv2J2hYQbI+yfIM1xNKeXTT5ee
+         DKKImDYP/I8e7PbD1vyHEfixAl/tqi3+kcVWJMy3OUuDvzxT/K84UvcOj2v9GYt3ByEa
+         453j0iQ0oT3MgGvP1PaL9WfekIVl6kfvJCeE75ZuOeVwtqKMVGRdlho+9KZdBlvzKKzh
+         MFFoSrl3/LpgN6lv0U3cmhyfOmy+C2T5CPl06q8+74PQQ8VLbRs9OhtuC//aBJ5LJXNF
+         ow2dBcs9sRp4C35PAr/8DMxgUPMxGE+zFOygqAxF4idtYEUGVQtLvUigBKpXAm2RW8KB
+         SsYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701710738; x=1702315538;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=F/67VX4B4sjgrRJxe42EkDnSLKfXlU5YkrCZ/4KluE8=;
+        b=TucffFje6Krqv0cDrnlkFngeSelZjtkcl22kSKDk3w+ZqeVB++ckISukwMkZJRWjg8
+         G/rHquuyXw8Cuo7J85IMylAOzoCGjU1L3C64ONGN68fHRAIhRf4uIH7t8ZTyO8Yjah3Y
+         B9PnQ1I1PM3immOYJZOs/dEYc/PTvx5HrwQWXC0gRU7fyzfC9cCDHpaS8ESOb5rS79qR
+         oS7pClvQGHOEs1p/4Qr++dJ4ebyQRsDwTkhGNa29G/A7Hwv1gmP1N/eeymBzPKP+QsRg
+         NPR1YpTJwKLxQFIq/3XPDlQ1qzvUUD4hpUcA2JYbdFhwStyf7DBdEsdbh1JLZuZaynZR
+         hNiA==
+X-Gm-Message-State: AOJu0YxVBXxGuH5jI9zmaXr9D+lO8WDICwPxRtZzbMmqjAKgZBGsq/fM
+	0iuCL+MPTugLtBqCQtHEYEg=
+X-Google-Smtp-Source: AGHT+IH+4eUTn1wB6eNuU4GMd08OsofYLBoZfpeY7NFDBH3guemfxBUQp4MObpRWTuNwklKuM9aYnQ==
+X-Received: by 2002:a05:600c:1d94:b0:40b:5e21:ec28 with SMTP id p20-20020a05600c1d9400b0040b5e21ec28mr2583746wms.90.1701710737464;
+        Mon, 04 Dec 2023 09:25:37 -0800 (PST)
+Received: from krava ([83.240.63.158])
+        by smtp.gmail.com with ESMTPSA id p23-20020a05600c1d9700b0040b3645a7c2sm19657919wms.40.2023.12.04.09.25.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 04 Dec 2023 09:25:37 -0800 (PST)
+From: Jiri Olsa <olsajiri@gmail.com>
+X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
+Date: Mon, 4 Dec 2023 18:25:34 +0100
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
+	Song Liu <song@kernel.org>, Song Liu <songliubraving@meta.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Anup Patel <anup@brainfault.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v5 1/2] dt-bindings: timer: thead,c900-aclint-mtimer:
- separate mtime and mtimecmp regs
-Message-ID: <20231204-monorail-boxer-82c77526e764@spud>
-References: <IA1PR20MB4953C912FC58C0D248976564BB86A@IA1PR20MB4953.namprd20.prod.outlook.com>
- <IA1PR20MB49531ED1BCC00D6B265C2D10BB86A@IA1PR20MB4953.namprd20.prod.outlook.com>
- <20231204-germproof-venue-6874ad902323@spud>
- <a1374b10-c012-4a3f-b56a-29ef4ca7e5f0@linaro.org>
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	David Ahern <dsahern@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>, Arnd Bergmann <arnd@arndb.de>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Kees Cook <keescook@chromium.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Network Development <netdev@vger.kernel.org>,
+	bpf <bpf@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>,
+	clang-built-linux <llvm@lists.linux.dev>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Joao Moreira <joao@overdrivepizza.com>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH v2 2/2] x86/cfi,bpf: Fix BPF JIT call
+Message-ID: <ZW4LjmUKj1q6RWdL@krava>
+References: <20231130133630.192490507@infradead.org>
+ <20231130134204.136058029@infradead.org>
+ <CAADnVQJqE=aE7mHVS54pnwwnDS0b67iJbr+t4j5F4HRyJSTOHw@mail.gmail.com>
+ <20231204091334.GM3818@noisy.programming.kicks-ass.net>
+ <20231204111128.GV8262@noisy.programming.kicks-ass.net>
+ <20231204125239.GA1319@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
-In-Reply-To: <a1374b10-c012-4a3f-b56a-29ef4ca7e5f0@linaro.org>
+Content-Disposition: inline
+In-Reply-To: <20231204125239.GA1319@noisy.programming.kicks-ass.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231204_085635_750675_189E0FD2 
-X-CRM114-Status: GOOD (  23.60  )
+X-CRM114-CacheID: sfid-20231204_092540_339262_3628AB56 
+X-CRM114-Status: GOOD (  22.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,88 +121,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0329293465991227157=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Dec 04, 2023 at 01:52:39PM +0100, Peter Zijlstra wrote:
+> On Mon, Dec 04, 2023 at 12:11:28PM +0100, Peter Zijlstra wrote:
+> > On Mon, Dec 04, 2023 at 10:13:34AM +0100, Peter Zijlstra wrote:
+> > 
+> > > > Just running test_progs it splats right away:
+> > > > 
+> > > > [   74.047757] kmemleak: Found object by alias at 0xffffffffa0001d80
+> > > > [   74.048272] CPU: 14 PID: 104 Comm: kworker/14:0 Tainted: G        W
+> > > >  O       6.7.0-rc3-00702-g41c30fec304d-dirty #5241
+> > > > [   74.049118] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996),
+> > > > BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+> > > > [   74.050042] Workqueue: events bpf_prog_free_deferred
+> > > > [   74.050448] Call Trace:
+> > > > [   74.050663]  <TASK>
+> > > > [   74.050841]  dump_stack_lvl+0x55/0x80
+> > > > [   74.051141]  __find_and_remove_object+0xdb/0x110
+> > > > [   74.051521]  kmemleak_free+0x41/0x70
+> > > > [   74.051828]  vfree+0x36/0x130
+> > > 
+> > > Durr, I'll see if I can get that stuff running locally, and otherwise
+> > > play with the robot as you suggested. Thanks!
+> > 
+> > I think it is bpf_jit_binary_pack_hdr(), which is using prog->bpf_func
+> > as a start address for the image, instead of jit_data->image.
+> > 
+> > This used to be true, but now it's offset.
+> > 
+> > Let me see what to do about that...
+> 
+> Not the prettiest of things, but the below seems to make the thing
+> happy...
+> 
 
---===============0329293465991227157==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="6hqP5zi5So06djGG"
-Content-Disposition: inline
+hyea,
+that boots properly for me but gives crash below when running bpf tests
 
-
---6hqP5zi5So06djGG
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Dec 04, 2023 at 05:39:09PM +0100, Daniel Lezcano wrote:
-> On 04/12/2023 17:18, Conor Dooley wrote:
-> > On Mon, Dec 04, 2023 at 05:51:08PM +0800, Inochi Amaoto wrote:
-> > > The timer registers of aclint don't follow the clint layout and can
-> > > be mapped on any different offset. As sg2042 uses separated timer
-> > > and mswi for its clint, it should follow the aclint spec and have
-> > > separated registers.
-> > >=20
-> > > The previous patch introduced a new type of T-HEAD aclint timer which
-> > > has clint timer layout. Although it has the clint timer layout, it
-> > > should follow the aclint spec and uses the separated mtime and mtimec=
-mp
-> > > regs. So a ABI change is needed to make the timer fit the aclint spec.
-> > >=20
-> > > To make T-HEAD aclint timer more closer to the aclint spec, use
-> > > regs-names to represent the mtimecmp register, which can avoid hack
-> > > for unsupport mtime register of T-HEAD aclint timer.
-> > >=20
-> > > Also, as T-HEAD aclint only supports mtimecmp, it is unnecessary to
-> > > implement the whole aclint spec. To make this binding T-HEAD specific,
-> > > only add reg-name for existed register. For details, see the discussi=
-on
-> > > in the last link.
-> > >=20
-> > > Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-> > > Fixes: 4734449f7311 ("dt-bindings: timer: Add Sophgo sg2042 CLINT tim=
-er")
-> > > Link: https://lists.infradead.org/pipermail/opensbi/2023-October/0056=
-93.html
-> > > Link: https://github.com/riscv/riscv-aclint/blob/main/riscv-aclint.ad=
-oc
-> > > Link: https://lore.kernel.org/all/IA1PR20MB4953F9D77FFC76A9D236922DBB=
-B6A@IA1PR20MB4953.namprd20.prod.outlook.com/
-> >=20
-> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> >=20
-> > Although, I figure it is going to be me that ends up taking it.
->=20
-> No, I should take it
-
-Sweet, I'd rather you took it than it went via a DT tree :)
-
---6hqP5zi5So06djGG
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZW4EuwAKCRB4tDGHoIJi
-0hTjAP4tM5n9gfLQU1lJ0Hv69R4VUOG8+rLjdvR8xgY0rBXXzwD+IaYecvw2r2Rh
-NH4geoV13/PTi2UQFDyJWbkslN9nsgM=
-=ZI/Y
------END PGP SIGNATURE-----
-
---6hqP5zi5So06djGG--
+jirka
 
 
---===============0329293465991227157==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+---
+[  482.145182][  T699] RIP: 0010:bpf_for_each_array_elem+0xbb/0x120
+[  482.145672][  T699] Code: 4c 01 f5 89 5c 24 04 4c 89 e7 48 8d 74 24 04 48 89 ea 4c 89 fd 4c 89 f9 45 31 c0 4d 89 eb 41 ba ef 86 cd 67 45 03 53 f1 74 02 <0f> 0b 41 ff d3 0f 1f 00 48 85 c0 75 0e 48 8d 43 01 41 8b 4c 24 24
+[  482.147221][  T699] RSP: 0018:ffffc900017e3e88 EFLAGS: 00010217
+[  482.147702][  T699] RAX: 0000000000000000 RBX: 0000000000000000 RCX: ffffc900017e3ed8
+[  482.152162][  T699] RDX: ffff888152eb0210 RSI: ffffc900017e3e8c RDI: ffff888152eb0000
+[  482.152770][  T699] RBP: ffffc900017e3ed8 R08: 0000000000000000 R09: 0000000000000000
+[  482.153350][  T699] R10: 000000004704ef28 R11: ffffffffa0012774 R12: ffff888152eb0000
+[  482.153951][  T699] R13: ffffffffa0012774 R14: ffff888152eb0210 R15: ffffc900017e3ed8
+[  482.154554][  T699] FS:  00007fa60d4fdd00(0000) GS:ffff88846d200000(0000) knlGS:0000000000000000
+[  482.155138][  T699] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  482.155564][  T699] CR2: 00007fa60d7d8000 CR3: 00000001502a2005 CR4: 0000000000770ef0
+[  482.156095][  T699] PKRU: 55555554
+[  482.156349][  T699] Call Trace:
+[  482.156596][  T699]  <TASK>
+[  482.156816][  T699]  ? __die_body+0x68/0xb0
+[  482.157138][  T699]  ? die+0xba/0xe0
+[  482.157456][  T699]  ? do_trap+0xa5/0x180
+[  482.157826][  T699]  ? bpf_for_each_array_elem+0xbb/0x120
+[  482.158277][  T699]  ? bpf_for_each_array_elem+0xbb/0x120
+[  482.158711][  T699]  ? do_error_trap+0xc4/0x140
+[  482.159052][  T699]  ? bpf_for_each_array_elem+0xbb/0x120
+[  482.159506][  T699]  ? handle_invalid_op+0x2c/0x40
+[  482.159906][  T699]  ? bpf_for_each_array_elem+0xbb/0x120
+[  482.160990][  T699]  ? exc_invalid_op+0x38/0x60
+[  482.161375][  T699]  ? asm_exc_invalid_op+0x1a/0x20
+[  482.161788][  T699]  ? 0xffffffffa0012774
+[  482.162149][  T699]  ? 0xffffffffa0012774
+[  482.162513][  T699]  ? bpf_for_each_array_elem+0xbb/0x120
+[  482.162905][  T699]  bpf_prog_ca45ea7f9cb8ac1a_inner_map+0x94/0x98
+[  482.163471][  T699]  bpf_trampoline_6442549234+0x47/0x1000
+[  482.163981][  T699]  __x64_sys_getpgid+0x9/0x20
+[  482.164770][  T699]  do_syscall_64+0x53/0x110
+[  482.165184][  T699]  entry_SYSCALL_64_after_hwframe+0x6e/0x76
+[  482.165646][  T699] RIP: 0033:0x7fa60d6c5b4d
+[  482.166005][  T699] Code: c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8b 92 0c 00 f7 d8 64 89 01 48
+[  482.169662][  T699] RSP: 002b:00007ffddfcf99e8 EFLAGS: 00000202 ORIG_RAX: 0000000000000079
+[  482.170582][  T699] RAX: ffffffffffffffda RBX: 00007ffddfcf9d98 RCX: 00007fa60d6c5b4d
+[  482.171376][  T699] RDX: 0000000000000002 RSI: 0000000000000000 RDI: 0000557baa5ab850
+[  482.172010][  T699] RBP: 00007ffddfcf9b30 R08: 0000000000000000 R09: 0000000000000000
+[  482.172665][  T699] R10: 0000000000000064 R11: 0000000000000202 R12: 0000000000000001
+[  482.173359][  T699] R13: 0000000000000000 R14: 00007fa60d80d000 R15: 0000557ba6ab9790
+[  482.174014][  T699]  </TASK>
+[  482.174289][  T699] Modules linked in: bpf_testmod(OE) intel_rapl_msr intel_rapl_common crct10dif_pclmul crc32_pclmul crc32c_intel ghash_clmulni_intel kvm_intel rapl iTCO_wdt iTCO_vendor_support i2c_i801 i2c_smbus lpc_ich drm loop drm_panel_orientation_quirks zram
+[  482.176040][  T699] ---[ end trace 0000000000000000 ]---
+[  482.176534][  T699] RIP: 0010:bpf_for_each_array_elem+0xbb/0x120
+[  482.177215][  T699] Code: 4c 01 f5 89 5c 24 04 4c 89 e7 48 8d 74 24 04 48 89 ea 4c 89 fd 4c 89 f9 45 31 c0 4d 89 eb 41 ba ef 86 cd 67 45 03 53 f1 74 02 <0f> 0b 41 ff d3 0f 1f 00 48 85 c0 75 0e 48 8d 43 01 41 8b 4c 24 24
+[  482.179405][  T699] RSP: 0018:ffffc900017e3e88 EFLAGS: 00010217
+[  482.179971][  T699] RAX: 0000000000000000 RBX: 0000000000000000 RCX: ffffc900017e3ed8
+[  482.180615][  T699] RDX: ffff888152eb0210 RSI: ffffc900017e3e8c RDI: ffff888152eb0000
+[  482.181195][  T699] RBP: ffffc900017e3ed8 R08: 0000000000000000 R09: 0000000000000000
+[  482.181805][  T699] R10: 000000004704ef28 R11: ffffffffa0012774 R12: ffff888152eb0000
+[  482.182411][  T699] R13: ffffffffa0012774 R14: ffff888152eb0210 R15: ffffc900017e3ed8
+[  482.183043][  T699] FS:  00007fa60d4fdd00(0000) GS:ffff88846d200000(0000) knlGS:0000000000000000
+[  482.183753][  T699] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  482.184361][  T699] CR2: 00007fa60d7d8000 CR3: 00000001502a2005 CR4: 0000000000770ef0
+[  482.185649][  T699] PKRU: 55555554
+[  482.185985][  T699] BUG: sleeping function called from invalid context at include/linux/percpu-rwsem.h:49
+[  482.186846][  T699] in_atomic(): 0, irqs_disabled(): 0, non_block: 0, pid: 699, name: test_progs
+[  482.187590][  T699] preempt_count: 0, expected: 0
+[  482.188055][  T699] RCU nest depth: 1, expected: 0
+[  482.188460][  T699] INFO: lockdep is turned off.
+[  482.188861][  T699] CPU: 1 PID: 699 Comm: test_progs Tainted: G      D    OE      6.7.0-rc3+ #118 bfe8e46ac948d811e03ae3149ad95ea179efe638
+[  482.189821][  T699] Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.2-1.fc38 04/01/2014
+[  482.191140][  T699] Call Trace:
+[  482.191469][  T699]  <TASK>
+[  482.191766][  T699]  dump_stack_lvl+0xbd/0x120
+[  482.192222][  T699]  __might_resched+0x24a/0x280
+[  482.192694][  T699]  exit_signals+0x31/0x280
+[  482.193123][  T699]  do_exit+0x1a6/0xbb0
+[  482.193511][  T699]  ? bpf_trampoline_6442549234+0x47/0x1000
+[  482.194025][  T699]  make_task_dead+0x94/0x180
+[  482.194469][  T699]  rewind_stack_and_make_dead+0x17/0x20
+[  482.194968][  T699] RIP: 0033:0x7fa60d6c5b4d
+[  482.195399][  T699] Code: c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8b 92 0c 00 f7 d8 64 89 01 48
+[  482.197082][  T699] RSP: 002b:00007ffddfcf99e8 EFLAGS: 00000202 ORIG_RAX: 0000000000000079
+[  482.197887][  T699] RAX: ffffffffffffffda RBX: 00007ffddfcf9d98 RCX: 00007fa60d6c5b4d
+[  482.198604][  T699] RDX: 0000000000000002 RSI: 0000000000000000 RDI: 0000557baa5ab850
+[  482.199327][  T699] RBP: 00007ffddfcf9b30 R08: 0000000000000000 R09: 0000000000000000
+[  482.200035][  T699] R10: 0000000000000064 R11: 0000000000000202 R12: 0000000000000001
+[  482.200765][  T699] R13: 0000000000000000 R14: 00007fa60d80d000 R15: 0000557ba6ab9790
+[  482.201499][  T699]  </TASK>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0329293465991227157==--
-
