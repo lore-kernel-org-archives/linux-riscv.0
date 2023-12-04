@@ -4,91 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FF59C4167B
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 18:34:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9339C4167B
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 18:42:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Smhk7u7XKmlsh+oePEFYVE0Lg6RcSuX8NVeZeJtz8QM=; b=Y9VR/4XuLXP9Iu
-	CN9GRaGF1ZtzlE3TGw4Xn7isaLdUh2fpPi5gLxV54O3IPGg9DC0iuYW6KtfxdQ3BALehCEQzAM0GD
-	RFENibiGK5CyYwrFTPy/VatY2Reo8QNQbOILFcKOjROJ+VsGtNq8RY4yIdBNcpCcN73fqz85yGm3m
-	aiFHgm5Zll0KKkjy6d6Aw2+9fjGapHlX/lyGfuVK5Che0SrGHEjFcBRGC4cL9r5ajxFWvb0NAgkhc
-	fDppY95OAu0CUyIBGjLoEWaOZevCEtyiUYFaRNb4pUJvLYhb35b4LALbExe7a5RzgA+X6wOH07qs+
-	whdVdZK7cHxD1zLnQZHg==;
+	List-Owner; bh=8lbItLYI/XpktmP932ztcMBmK9yO72jI0tLvLS/yoA0=; b=xBVV7W3FlX6g4m
+	QWHDo+IH0aE3qqofGyec1wKs+HKkSFg+/SD6nvOtWqIjlS/23qBF7uPT6ANekyTZ+y7KmRHQ+ksOE
+	WbGFngSbCrVI27d9wiOUT+p77myzyMgpgiL+8gSkHDlu1qqQOuxt+RkV9n76VtIkkJgXcABTP49iq
+	MF2q/ixYShp0trunIAFjlrZYJy1Xd/GoIKWI6GV0eo/Sm2UYm6l/NXZAIk/IK8w7m8Fecq6IwS5Hn
+	lAVZwhjb0RRbypeYOgHEI7+UPic6WkAmLLbiNWAcmfpqh4flvMiKvfRPMlcnmmf0SEN9e/NO191dj
+	kyAb+mv+fDXfrv6Kzchw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rADlc-005KO2-0r;
-	Mon, 04 Dec 2023 18:34:04 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1rADtP-005LST-2E;
+	Mon, 04 Dec 2023 18:42:07 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rADla-005KNo-24
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 04 Dec 2023 18:34:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=yRxkmI4dXPVCTApSsXOOM346LAa1g76vwgSBu1bA/08=; b=u2cVkyxLqoUOqz1TA/dDurEImX
-	yd+RKQfGNzDw1nNzm7F9pDtqQt51c1WaOKmTKmAbAROOiek+hm8k6eZisRZ/QWEyDAbQFc+SykZth
-	yo1Jqw2hGSDZx0/kwV/QhUbR1CaOvc39CcdS6VXzjuqXt4HYSSGFkZCVv/chpwHXClxU600842aLI
-	poUrNAgUfXs1GTMxHRcsbo3DI/Uyx2B0XaXImtz+wS5a8oBto19jcxToog2JblpiSQQodC47SWxtq
-	uoUKbAOA8OTlQYtBciApJtmEJWfW4deFx0DxiGRyt/1iUxUN98T1XdrCmGbwL4cixtGF6odl8Z3oi
-	wU5Z7Stg==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1rADlT-000x6k-F8; Mon, 04 Dec 2023 18:33:56 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 5462830057C; Mon,  4 Dec 2023 19:33:54 +0100 (CET)
-Date: Mon, 4 Dec 2023 19:33:54 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Jiri Olsa <olsajiri@gmail.com>
-Cc: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
-	Song Liu <song@kernel.org>, Song Liu <songliubraving@meta.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1rADtM-005LQL-17
+	for linux-riscv@lists.infradead.org;
+	Mon, 04 Dec 2023 18:42:06 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-6ce46470647so854830b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 04 Dec 2023 10:42:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1701715323; x=1702320123; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=JwMqSnGo4QDjm2pjAxkXN4dZgMZZOVKqtY+jomMdbrk=;
+        b=R8NjNvBfN0ByY8NYuvnjvDNFxxlXonk1RlfHJatqdxOPeHA0d68p22IwWwAKnszW3J
+         uyjuwAjlPGktDdqnM66ixg0i9YEXpQDeSe43zV8IqnmQ4QEoDib4qGKd+BBhJx+cIOV3
+         B/hpUn77xM934ylgFj0wtwqFhh+jOP3mcLcbz64yXk7j9d1wH6Z2kiF3Bq+5uJK98BIL
+         eH9Xc9XPIovmaY7xIO3o2GuEygNsfPeoLxoJEllFwTLX2MpLN0CcwsFy99VVKRtZEO52
+         jTBJAKzZ3kkbH1p4VeV1r4kongBhZr/ABo7yhzu+Q5GxxvvD9M1KYSZmCFas2uIV4+7B
+         RcIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701715323; x=1702320123;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JwMqSnGo4QDjm2pjAxkXN4dZgMZZOVKqtY+jomMdbrk=;
+        b=rBNiGVQz7UpN6RnAeBZHA7lcRlq55QyC8IZDSCuKHAfBiUXuDnYs6mxYtx2DyiE7fR
+         UPc+JplJGLh0grz6U9kxAnIwwZh4dRvCtbHwdJjnGNsbaZsfYIFyiroZg55hm46WNVOi
+         0SQWefdAkVA8rJ3FHxCRWpdcPFcsSTFVh2Q+bKN5JzvQb8tUP8h6641yIw8Tvu4EISng
+         yMkdqbpHezDRS/X7aLf8QR/sAUDT3/HdqiaHnRXHIWUSazfvetOYFl+cH3B9e3/nU1O1
+         R2X0G3c1gWSEAA5p8KzzLbBS0e3Bqq51vhV6Bz+XhpcVO1pSE8vRi9BPyyNdXs1Ixe5V
+         MNFA==
+X-Gm-Message-State: AOJu0YzrIKCUdviWE2GTMvDnaI1px5DTNW0swuyiMi9YOGOKsimMC8HF
+	Len60sGrXCU1BMTJt97YCRzUZOaKPEoETjdvC8v3rQ==
+X-Google-Smtp-Source: AGHT+IHKEES0EPsD+IyXZ6wxSaPge1KMCqc5mn24C5+zo1vqFwVwrwwwLQ+SFGxsjolXMOrQ4oEdmg==
+X-Received: by 2002:a05:6a00:340f:b0:6ce:58d3:34ee with SMTP id cn15-20020a056a00340f00b006ce58d334eemr2724pfb.30.1701715322912;
+        Mon, 04 Dec 2023 10:42:02 -0800 (PST)
+Received: from ghost ([12.44.203.122])
+        by smtp.gmail.com with ESMTPSA id j8-20020aa783c8000000b006c320b9897fsm7954921pfn.126.2023.12.04.10.42.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 04 Dec 2023 10:42:02 -0800 (PST)
+Date: Mon, 4 Dec 2023 10:42:00 -0800
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Andreas Schwab <schwab@linux-m68k.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	David Ahern <dsahern@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>, Arnd Bergmann <arnd@arndb.de>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Kees Cook <keescook@chromium.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	Network Development <netdev@vger.kernel.org>,
-	bpf <bpf@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>,
-	clang-built-linux <llvm@lists.linux.dev>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Joao Moreira <joao@overdrivepizza.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH v2 2/2] x86/cfi,bpf: Fix BPF JIT call
-Message-ID: <20231204183354.GC7299@noisy.programming.kicks-ass.net>
-References: <20231130133630.192490507@infradead.org>
- <20231130134204.136058029@infradead.org>
- <CAADnVQJqE=aE7mHVS54pnwwnDS0b67iJbr+t4j5F4HRyJSTOHw@mail.gmail.com>
- <20231204091334.GM3818@noisy.programming.kicks-ass.net>
- <20231204111128.GV8262@noisy.programming.kicks-ass.net>
- <20231204125239.GA1319@noisy.programming.kicks-ass.net>
- <ZW4LjmUKj1q6RWdL@krava>
- <20231204181614.GA7299@noisy.programming.kicks-ass.net>
+	Albert Ou <aou@eecs.berkeley.edu>, Ron Economos <re@w6rz.net>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] riscv: Safely remove entries from relocation list
+Message-ID: <ZW4dePVEM8sslNAJ@ghost>
+References: <20231122-module_linking_freeing-v3-0-8e9e412a3305@rivosinc.com>
+ <20231122-module_linking_freeing-v3-1-8e9e412a3305@rivosinc.com>
+ <87bkbfzddr.fsf@igel.home>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231204181614.GA7299@noisy.programming.kicks-ass.net>
+In-Reply-To: <87bkbfzddr.fsf@igel.home>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20231204_104204_627774_E4864B08 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,69 +96,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 04, 2023 at 07:16:14PM +0100, Peter Zijlstra wrote:
-> On Mon, Dec 04, 2023 at 06:25:34PM +0100, Jiri Olsa wrote:
+On Mon, Nov 27, 2023 at 11:42:08AM +0100, Andreas Schwab wrote:
+> On Nov 22 2023, Charlie Jenkins wrote:
 > 
-> > that boots properly for me but gives crash below when running bpf tests
+> > @@ -683,17 +700,29 @@ int add_relocation_to_accumulate(struct module *me, int type, void *location,
+> >  
+> >  	if (!found) {
+> >  		rel_head = kmalloc(sizeof(*rel_head), GFP_KERNEL);
+> > +
+> > +		if (!rel_head)
+> > +			return -ENOMEM;
+> > +
+> >  		rel_head->rel_entry =
+> >  			kmalloc(sizeof(struct list_head), GFP_KERNEL);
+> > +
+> > +		if (!rel_head->rel_entry)
+> > +			return -ENOMEM;
 > 
-> OK, more funnies..
+> This leaks rel_head on error.
 > 
-> > [  482.145182][  T699] RIP: 0010:bpf_for_each_array_elem+0xbb/0x120
-> > [  482.145672][  T699] Code: 4c 01 f5 89 5c 24 04 4c 89 e7 48 8d 74 24 04 48 89 ea 4c 89 fd 4c 89 f9 45 31 c0 4d 89 eb 41 ba ef 86 cd 67 45 03 53 f1 74 02 <0f> 0b 41 ff d3 0f 1f 00 48 85 c0 75 0e 48 8d 43 01 41 8b 4c 24 24
-> > [  482.147221][  T699] RSP: 0018:ffffc900017e3e88 EFLAGS: 00010217
-> > [  482.147702][  T699] RAX: 0000000000000000 RBX: 0000000000000000 RCX: ffffc900017e3ed8
-> > [  482.152162][  T699] RDX: ffff888152eb0210 RSI: ffffc900017e3e8c RDI: ffff888152eb0000
-> > [  482.152770][  T699] RBP: ffffc900017e3ed8 R08: 0000000000000000 R09: 0000000000000000
-> > [  482.153350][  T699] R10: 000000004704ef28 R11: ffffffffa0012774 R12: ffff888152eb0000
-> > [  482.153951][  T699] R13: ffffffffa0012774 R14: ffff888152eb0210 R15: ffffc900017e3ed8
-> > [  482.154554][  T699] FS:  00007fa60d4fdd00(0000) GS:ffff88846d200000(0000) knlGS:0000000000000000
-> > [  482.155138][  T699] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-> > [  482.155564][  T699] CR2: 00007fa60d7d8000 CR3: 00000001502a2005 CR4: 0000000000770ef0
-> > [  482.156095][  T699] PKRU: 55555554
-> > [  482.156349][  T699] Call Trace:
-> > [  482.156596][  T699]  <TASK>
-> > [  482.156816][  T699]  ? __die_body+0x68/0xb0
-> > [  482.157138][  T699]  ? die+0xba/0xe0
-> > [  482.157456][  T699]  ? do_trap+0xa5/0x180
-> > [  482.157826][  T699]  ? bpf_for_each_array_elem+0xbb/0x120
-> > [  482.158277][  T699]  ? bpf_for_each_array_elem+0xbb/0x120
-> > [  482.158711][  T699]  ? do_error_trap+0xc4/0x140
-> > [  482.159052][  T699]  ? bpf_for_each_array_elem+0xbb/0x120
-> > [  482.159506][  T699]  ? handle_invalid_op+0x2c/0x40
-> > [  482.159906][  T699]  ? bpf_for_each_array_elem+0xbb/0x120
-> > [  482.160990][  T699]  ? exc_invalid_op+0x38/0x60
-> > [  482.161375][  T699]  ? asm_exc_invalid_op+0x1a/0x20
-> > [  482.161788][  T699]  ? 0xffffffffa0012774
-> > [  482.162149][  T699]  ? 0xffffffffa0012774
-> > [  482.162513][  T699]  ? bpf_for_each_array_elem+0xbb/0x120
-> > [  482.162905][  T699]  bpf_prog_ca45ea7f9cb8ac1a_inner_map+0x94/0x98
-> > [  482.163471][  T699]  bpf_trampoline_6442549234+0x47/0x1000
-> 
-> Looks like this trips an #UD, I'll go try and figure out what this
-> bpf_for_each_array_elem() does to cause this. Looks like it has an
-> indirect call, could be the callback_fn thing has a CFI mis-match.
+> -- 
+> Andreas Schwab, schwab@linux-m68k.org
+> GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
+> "And now for something completely different."
 
-So afaict this is used through bpf_for_each_map_elem(), where the
-argument still is properly callback_fn. However, in the desriptor
-bpf_for_each_map_elem_proto the argument gets described as:
-ARG_PTR_TO_FUNC, which in turn has a comment like:
+Thank you for pointing this out, I fixed this issue in the next version
+but forgot to respond to this thread.
 
-  ARG_PTR_TO_FUNC,        /* pointer to a bpf program function */
+https://lore.kernel.org/linux-riscv/20231127-module_linking_freeing-v4-1-a2ca1d7027d0@rivosinc.com/
 
-Which to me sounds like there is definite type punning involved. The
-call in bpf_for_each_array_elem() is a regular C indirect call, which
-gets adorned with the kCFI magic.
+- Charlie
 
-But I doubt the BPF function that gets used gets the correct matching
-bits on.
-
-TL;DR, I think this is a pre-existing problem with kCFI + eBPF and not
-caused by my patches.
-
-Could any of you bpf knowledgeable folks please explain me exactly what
-gets used as the function pointer in this case? -- I'm not sure I can
-follow along well enough to begin looking for a solution at this point
-:/
 
 _______________________________________________
 linux-riscv mailing list
