@@ -4,112 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E28CCC4167B
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 17:25:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D137C10DC1
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 17:33:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xWxLeY9Nk3YEr4/IfYzc0t89uWpKEg8b62RaV/QAlAg=; b=bUsi2KU/1N1lUI
-	M1APwVnBgz9Ohug0gUdNsVra/UZIKrbcg6+MkJ5DgAmpqwjQmY2tA0EtvNu9T28JOUtSq+Pxm1Beg
-	IW74Vh2gT3mmVM0wqRJwG3gtHNLIAzladhhQhJshB+jt/IdhI86JBmoNzSxH5kbKhZ/A9MxYW3Tpm
-	OzBZTxK9dc2VUan7pYeSZx3klM1tDIq466hwJB/VGuHx2f/5Bl/2Af1Lw5JtdnpLc43xd0YYwVPcD
-	s+i3+gVOOKUlT7cf5J44FQleFvDqUfRrPrvvS8fixLaJ8ozv1g3tSuNutDiHK0UBlWicSS+Y8E/DH
-	uvH7Npt/NHB0XZ8u2XFg==;
+	List-Owner; bh=AEUkZSIav6EnR66S5cryT7fDnuA78pnnNdh5/R1Po7k=; b=b94HHeDHlBTlox
+	SpVcrFggU1JJItAqG4WkD+qjS9mx1QsLGOXpK3bNfEyMkU2j1ZUtGHPYc4Ybm7U5fUWNFpJ6NNmK8
+	sP5VT8XORrsYSPHs1qFTDm/g6BPClZU1hZpQ/VaCNk9VAu3GIB7+G2ZV9fo6YPefQagz5jt7lOnwH
+	pkzmCnyNhIWjhtl8AoarACQb4JObGigBli7BMBxFK66mqfQGbJb9mJ1n0kNFVqgbyJjwwJDMQM55u
+	4SLmWT6mxidGyM4FNYaFuqKPk96w61QHOXzVqqlHhMTl5zFWSWAoCaSBodfYYApVmMMoMzeCb7pax
+	EtTcxRVhdxXOhusKtjSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAChT-005Bm4-1T;
-	Mon, 04 Dec 2023 17:25:43 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1rACp8-005CcU-1K;
+	Mon, 04 Dec 2023 17:33:38 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAChQ-005BlC-0x
+	id 1rACp5-005Cb8-1g
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Dec 2023 17:25:42 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-40c08af319cso18909385e9.2
-        for <linux-riscv@lists.infradead.org>; Mon, 04 Dec 2023 09:25:39 -0800 (PST)
+	Mon, 04 Dec 2023 17:33:37 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-40c0a11a914so14023035e9.2
+        for <linux-riscv@lists.infradead.org>; Mon, 04 Dec 2023 09:33:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1701710738; x=1702315538; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=F/67VX4B4sjgrRJxe42EkDnSLKfXlU5YkrCZ/4KluE8=;
-        b=UmpDntNpxXJisF/YdpkkAsboOI4mI4ZhwAnAX806Mv2J2hYQbI+yfIM1xNKeXTT5ee
-         DKKImDYP/I8e7PbD1vyHEfixAl/tqi3+kcVWJMy3OUuDvzxT/K84UvcOj2v9GYt3ByEa
-         453j0iQ0oT3MgGvP1PaL9WfekIVl6kfvJCeE75ZuOeVwtqKMVGRdlho+9KZdBlvzKKzh
-         MFFoSrl3/LpgN6lv0U3cmhyfOmy+C2T5CPl06q8+74PQQ8VLbRs9OhtuC//aBJ5LJXNF
-         ow2dBcs9sRp4C35PAr/8DMxgUPMxGE+zFOygqAxF4idtYEUGVQtLvUigBKpXAm2RW8KB
-         SsYQ==
+        d=linaro.org; s=google; t=1701711213; x=1702316013; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Sug326j4RkqoO9Ptow3nZ3kvcZ7Swug2lDF9621hV9A=;
+        b=LLhIwBnF4Deo1gGxYJm5HnVfyubdKxQldDtPy4KHQMak5bvaioZvd4PrMB2uMXUUDu
+         WttIQ7h9IOT4phh2+NdFHkPT24T0iCyR56fcySjOdVNwsivYXcfOVpMXk9S/yaHtiw9J
+         8uItoKihZmqmXkm6Cbrk2oQfsYxVxmkk7dl8jzsI9KePvVBh3vUpkCG82JhSdsNr0qHy
+         u2DKUzq/oBsTl9VFaDATPWbqsPae8l+sgJZsCeGlZ6tzoaefPAVav7kppQqzhHcYYxRT
+         9E9ST4aKYMCFzP3/GE192j4VMIZ5TE2I4KZ2OqT62zmE3HU79Kl6hiox5oDzos9DkBJI
+         3HoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701710738; x=1702315538;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=F/67VX4B4sjgrRJxe42EkDnSLKfXlU5YkrCZ/4KluE8=;
-        b=TucffFje6Krqv0cDrnlkFngeSelZjtkcl22kSKDk3w+ZqeVB++ckISukwMkZJRWjg8
-         G/rHquuyXw8Cuo7J85IMylAOzoCGjU1L3C64ONGN68fHRAIhRf4uIH7t8ZTyO8Yjah3Y
-         B9PnQ1I1PM3immOYJZOs/dEYc/PTvx5HrwQWXC0gRU7fyzfC9cCDHpaS8ESOb5rS79qR
-         oS7pClvQGHOEs1p/4Qr++dJ4ebyQRsDwTkhGNa29G/A7Hwv1gmP1N/eeymBzPKP+QsRg
-         NPR1YpTJwKLxQFIq/3XPDlQ1qzvUUD4hpUcA2JYbdFhwStyf7DBdEsdbh1JLZuZaynZR
-         hNiA==
-X-Gm-Message-State: AOJu0YxVBXxGuH5jI9zmaXr9D+lO8WDICwPxRtZzbMmqjAKgZBGsq/fM
-	0iuCL+MPTugLtBqCQtHEYEg=
-X-Google-Smtp-Source: AGHT+IH+4eUTn1wB6eNuU4GMd08OsofYLBoZfpeY7NFDBH3guemfxBUQp4MObpRWTuNwklKuM9aYnQ==
-X-Received: by 2002:a05:600c:1d94:b0:40b:5e21:ec28 with SMTP id p20-20020a05600c1d9400b0040b5e21ec28mr2583746wms.90.1701710737464;
-        Mon, 04 Dec 2023 09:25:37 -0800 (PST)
-Received: from krava ([83.240.63.158])
-        by smtp.gmail.com with ESMTPSA id p23-20020a05600c1d9700b0040b3645a7c2sm19657919wms.40.2023.12.04.09.25.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Dec 2023 09:25:37 -0800 (PST)
-From: Jiri Olsa <olsajiri@gmail.com>
-X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
-Date: Mon, 4 Dec 2023 18:25:34 +0100
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
-	Song Liu <song@kernel.org>, Song Liu <songliubraving@meta.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	David Ahern <dsahern@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>, Arnd Bergmann <arnd@arndb.de>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Kees Cook <keescook@chromium.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	Network Development <netdev@vger.kernel.org>,
-	bpf <bpf@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>,
-	clang-built-linux <llvm@lists.linux.dev>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Joao Moreira <joao@overdrivepizza.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH v2 2/2] x86/cfi,bpf: Fix BPF JIT call
-Message-ID: <ZW4LjmUKj1q6RWdL@krava>
-References: <20231130133630.192490507@infradead.org>
- <20231130134204.136058029@infradead.org>
- <CAADnVQJqE=aE7mHVS54pnwwnDS0b67iJbr+t4j5F4HRyJSTOHw@mail.gmail.com>
- <20231204091334.GM3818@noisy.programming.kicks-ass.net>
- <20231204111128.GV8262@noisy.programming.kicks-ass.net>
- <20231204125239.GA1319@noisy.programming.kicks-ass.net>
+        d=1e100.net; s=20230601; t=1701711213; x=1702316013;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Sug326j4RkqoO9Ptow3nZ3kvcZ7Swug2lDF9621hV9A=;
+        b=lDv+p248P3dmmgZ9f63HavjCQUJzpFuahWEQErHb2/d8Q1kFClFI2Qit/F9K1Umvto
+         VFkzh9soaw62CoKaa0TuNwc5JrpISbg+G3yCsgUJIB6IFfXGtmtlYRRWQYgeVjgJZs2O
+         WUhjx+voeTTdyJ45GUSGXNs73kuWjlD4wYYZWdwGIj56difBBCm7wEfL/3mEmV4+XVFF
+         We6C3jgj9k0wviVb3SPbRVYBrIxEMCzwc4xqYEIBYW4POpF+6GyCQGdhLiGSxfoEgzAo
+         v7v4LVWDVrSV5IvO9Qge2V//5gV4xA/LvbJj8/8zWljudh0Kh/XVDhzE57l7Z/lkMfHL
+         bM6g==
+X-Gm-Message-State: AOJu0YwMRrQOJup1qVkBpixEo38vDs56MKdxvsneLhuZcUxk4dAU0CvM
+	2nrnFJkKs8owPGhbyQRXQBcX3A==
+X-Google-Smtp-Source: AGHT+IEfufrDY6qwjOLalRVS7Y554Xwet3E/NEIZZ+pHinD5dFboEosniYAItYzJ7nNnf+ykmvOhMQ==
+X-Received: by 2002:a05:600c:296:b0:40b:5e59:b7b0 with SMTP id 22-20020a05600c029600b0040b5e59b7b0mr2669578wmk.141.1701711212988;
+        Mon, 04 Dec 2023 09:33:32 -0800 (PST)
+Received: from ?IPV6:2a05:6e02:1041:c10:c831:1e47:2:5b96? ([2a05:6e02:1041:c10:c831:1e47:2:5b96])
+        by smtp.googlemail.com with ESMTPSA id h9-20020a05600c314900b0040b3d8907fesm15826309wmo.29.2023.12.04.09.33.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 04 Dec 2023 09:33:32 -0800 (PST)
+Message-ID: <09b2fc2f-dde9-4f43-9704-d8053bfc85cf@linaro.org>
+Date: Mon, 4 Dec 2023 18:33:31 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231204125239.GA1319@noisy.programming.kicks-ass.net>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/2] dt-bindings: timer: thead,c900-aclint-mtimer:
+ separate mtime and mtimecmp regs
+Content-Language: en-US
+To: Inochi Amaoto <inochiama@outlook.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Chen Wang <unicorn_wang@outlook.com>
+Cc: Anup Patel <anup@brainfault.org>,
+ Samuel Holland <samuel.holland@sifive.com>, Guo Ren <guoren@kernel.org>,
+ Jisheng Zhang <jszhang@kernel.org>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <IA1PR20MB4953C912FC58C0D248976564BB86A@IA1PR20MB4953.namprd20.prod.outlook.com>
+ <IA1PR20MB49531ED1BCC00D6B265C2D10BB86A@IA1PR20MB4953.namprd20.prod.outlook.com>
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <IA1PR20MB49531ED1BCC00D6B265C2D10BB86A@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231204_092540_339262_3628AB56 
-X-CRM114-Status: GOOD (  22.48  )
+X-CRM114-CacheID: sfid-20231204_093335_570176_A0CE51F7 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,134 +97,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 04, 2023 at 01:52:39PM +0100, Peter Zijlstra wrote:
-> On Mon, Dec 04, 2023 at 12:11:28PM +0100, Peter Zijlstra wrote:
-> > On Mon, Dec 04, 2023 at 10:13:34AM +0100, Peter Zijlstra wrote:
-> > 
-> > > > Just running test_progs it splats right away:
-> > > > 
-> > > > [   74.047757] kmemleak: Found object by alias at 0xffffffffa0001d80
-> > > > [   74.048272] CPU: 14 PID: 104 Comm: kworker/14:0 Tainted: G        W
-> > > >  O       6.7.0-rc3-00702-g41c30fec304d-dirty #5241
-> > > > [   74.049118] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996),
-> > > > BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
-> > > > [   74.050042] Workqueue: events bpf_prog_free_deferred
-> > > > [   74.050448] Call Trace:
-> > > > [   74.050663]  <TASK>
-> > > > [   74.050841]  dump_stack_lvl+0x55/0x80
-> > > > [   74.051141]  __find_and_remove_object+0xdb/0x110
-> > > > [   74.051521]  kmemleak_free+0x41/0x70
-> > > > [   74.051828]  vfree+0x36/0x130
-> > > 
-> > > Durr, I'll see if I can get that stuff running locally, and otherwise
-> > > play with the robot as you suggested. Thanks!
-> > 
-> > I think it is bpf_jit_binary_pack_hdr(), which is using prog->bpf_func
-> > as a start address for the image, instead of jit_data->image.
-> > 
-> > This used to be true, but now it's offset.
-> > 
-> > Let me see what to do about that...
-> 
-> Not the prettiest of things, but the below seems to make the thing
-> happy...
-> 
-
-hyea,
-that boots properly for me but gives crash below when running bpf tests
-
-jirka
-
-
----
-[  482.145182][  T699] RIP: 0010:bpf_for_each_array_elem+0xbb/0x120
-[  482.145672][  T699] Code: 4c 01 f5 89 5c 24 04 4c 89 e7 48 8d 74 24 04 48 89 ea 4c 89 fd 4c 89 f9 45 31 c0 4d 89 eb 41 ba ef 86 cd 67 45 03 53 f1 74 02 <0f> 0b 41 ff d3 0f 1f 00 48 85 c0 75 0e 48 8d 43 01 41 8b 4c 24 24
-[  482.147221][  T699] RSP: 0018:ffffc900017e3e88 EFLAGS: 00010217
-[  482.147702][  T699] RAX: 0000000000000000 RBX: 0000000000000000 RCX: ffffc900017e3ed8
-[  482.152162][  T699] RDX: ffff888152eb0210 RSI: ffffc900017e3e8c RDI: ffff888152eb0000
-[  482.152770][  T699] RBP: ffffc900017e3ed8 R08: 0000000000000000 R09: 0000000000000000
-[  482.153350][  T699] R10: 000000004704ef28 R11: ffffffffa0012774 R12: ffff888152eb0000
-[  482.153951][  T699] R13: ffffffffa0012774 R14: ffff888152eb0210 R15: ffffc900017e3ed8
-[  482.154554][  T699] FS:  00007fa60d4fdd00(0000) GS:ffff88846d200000(0000) knlGS:0000000000000000
-[  482.155138][  T699] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-[  482.155564][  T699] CR2: 00007fa60d7d8000 CR3: 00000001502a2005 CR4: 0000000000770ef0
-[  482.156095][  T699] PKRU: 55555554
-[  482.156349][  T699] Call Trace:
-[  482.156596][  T699]  <TASK>
-[  482.156816][  T699]  ? __die_body+0x68/0xb0
-[  482.157138][  T699]  ? die+0xba/0xe0
-[  482.157456][  T699]  ? do_trap+0xa5/0x180
-[  482.157826][  T699]  ? bpf_for_each_array_elem+0xbb/0x120
-[  482.158277][  T699]  ? bpf_for_each_array_elem+0xbb/0x120
-[  482.158711][  T699]  ? do_error_trap+0xc4/0x140
-[  482.159052][  T699]  ? bpf_for_each_array_elem+0xbb/0x120
-[  482.159506][  T699]  ? handle_invalid_op+0x2c/0x40
-[  482.159906][  T699]  ? bpf_for_each_array_elem+0xbb/0x120
-[  482.160990][  T699]  ? exc_invalid_op+0x38/0x60
-[  482.161375][  T699]  ? asm_exc_invalid_op+0x1a/0x20
-[  482.161788][  T699]  ? 0xffffffffa0012774
-[  482.162149][  T699]  ? 0xffffffffa0012774
-[  482.162513][  T699]  ? bpf_for_each_array_elem+0xbb/0x120
-[  482.162905][  T699]  bpf_prog_ca45ea7f9cb8ac1a_inner_map+0x94/0x98
-[  482.163471][  T699]  bpf_trampoline_6442549234+0x47/0x1000
-[  482.163981][  T699]  __x64_sys_getpgid+0x9/0x20
-[  482.164770][  T699]  do_syscall_64+0x53/0x110
-[  482.165184][  T699]  entry_SYSCALL_64_after_hwframe+0x6e/0x76
-[  482.165646][  T699] RIP: 0033:0x7fa60d6c5b4d
-[  482.166005][  T699] Code: c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8b 92 0c 00 f7 d8 64 89 01 48
-[  482.169662][  T699] RSP: 002b:00007ffddfcf99e8 EFLAGS: 00000202 ORIG_RAX: 0000000000000079
-[  482.170582][  T699] RAX: ffffffffffffffda RBX: 00007ffddfcf9d98 RCX: 00007fa60d6c5b4d
-[  482.171376][  T699] RDX: 0000000000000002 RSI: 0000000000000000 RDI: 0000557baa5ab850
-[  482.172010][  T699] RBP: 00007ffddfcf9b30 R08: 0000000000000000 R09: 0000000000000000
-[  482.172665][  T699] R10: 0000000000000064 R11: 0000000000000202 R12: 0000000000000001
-[  482.173359][  T699] R13: 0000000000000000 R14: 00007fa60d80d000 R15: 0000557ba6ab9790
-[  482.174014][  T699]  </TASK>
-[  482.174289][  T699] Modules linked in: bpf_testmod(OE) intel_rapl_msr intel_rapl_common crct10dif_pclmul crc32_pclmul crc32c_intel ghash_clmulni_intel kvm_intel rapl iTCO_wdt iTCO_vendor_support i2c_i801 i2c_smbus lpc_ich drm loop drm_panel_orientation_quirks zram
-[  482.176040][  T699] ---[ end trace 0000000000000000 ]---
-[  482.176534][  T699] RIP: 0010:bpf_for_each_array_elem+0xbb/0x120
-[  482.177215][  T699] Code: 4c 01 f5 89 5c 24 04 4c 89 e7 48 8d 74 24 04 48 89 ea 4c 89 fd 4c 89 f9 45 31 c0 4d 89 eb 41 ba ef 86 cd 67 45 03 53 f1 74 02 <0f> 0b 41 ff d3 0f 1f 00 48 85 c0 75 0e 48 8d 43 01 41 8b 4c 24 24
-[  482.179405][  T699] RSP: 0018:ffffc900017e3e88 EFLAGS: 00010217
-[  482.179971][  T699] RAX: 0000000000000000 RBX: 0000000000000000 RCX: ffffc900017e3ed8
-[  482.180615][  T699] RDX: ffff888152eb0210 RSI: ffffc900017e3e8c RDI: ffff888152eb0000
-[  482.181195][  T699] RBP: ffffc900017e3ed8 R08: 0000000000000000 R09: 0000000000000000
-[  482.181805][  T699] R10: 000000004704ef28 R11: ffffffffa0012774 R12: ffff888152eb0000
-[  482.182411][  T699] R13: ffffffffa0012774 R14: ffff888152eb0210 R15: ffffc900017e3ed8
-[  482.183043][  T699] FS:  00007fa60d4fdd00(0000) GS:ffff88846d200000(0000) knlGS:0000000000000000
-[  482.183753][  T699] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-[  482.184361][  T699] CR2: 00007fa60d7d8000 CR3: 00000001502a2005 CR4: 0000000000770ef0
-[  482.185649][  T699] PKRU: 55555554
-[  482.185985][  T699] BUG: sleeping function called from invalid context at include/linux/percpu-rwsem.h:49
-[  482.186846][  T699] in_atomic(): 0, irqs_disabled(): 0, non_block: 0, pid: 699, name: test_progs
-[  482.187590][  T699] preempt_count: 0, expected: 0
-[  482.188055][  T699] RCU nest depth: 1, expected: 0
-[  482.188460][  T699] INFO: lockdep is turned off.
-[  482.188861][  T699] CPU: 1 PID: 699 Comm: test_progs Tainted: G      D    OE      6.7.0-rc3+ #118 bfe8e46ac948d811e03ae3149ad95ea179efe638
-[  482.189821][  T699] Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.2-1.fc38 04/01/2014
-[  482.191140][  T699] Call Trace:
-[  482.191469][  T699]  <TASK>
-[  482.191766][  T699]  dump_stack_lvl+0xbd/0x120
-[  482.192222][  T699]  __might_resched+0x24a/0x280
-[  482.192694][  T699]  exit_signals+0x31/0x280
-[  482.193123][  T699]  do_exit+0x1a6/0xbb0
-[  482.193511][  T699]  ? bpf_trampoline_6442549234+0x47/0x1000
-[  482.194025][  T699]  make_task_dead+0x94/0x180
-[  482.194469][  T699]  rewind_stack_and_make_dead+0x17/0x20
-[  482.194968][  T699] RIP: 0033:0x7fa60d6c5b4d
-[  482.195399][  T699] Code: c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8b 92 0c 00 f7 d8 64 89 01 48
-[  482.197082][  T699] RSP: 002b:00007ffddfcf99e8 EFLAGS: 00000202 ORIG_RAX: 0000000000000079
-[  482.197887][  T699] RAX: ffffffffffffffda RBX: 00007ffddfcf9d98 RCX: 00007fa60d6c5b4d
-[  482.198604][  T699] RDX: 0000000000000002 RSI: 0000000000000000 RDI: 0000557baa5ab850
-[  482.199327][  T699] RBP: 00007ffddfcf9b30 R08: 0000000000000000 R09: 0000000000000000
-[  482.200035][  T699] R10: 0000000000000064 R11: 0000000000000202 R12: 0000000000000001
-[  482.200765][  T699] R13: 0000000000000000 R14: 00007fa60d80d000 R15: 0000557ba6ab9790
-[  482.201499][  T699]  </TASK>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMDQvMTIvMjAyMyAxMDo1MSwgSW5vY2hpIEFtYW90byB3cm90ZToKPiBUaGUgdGltZXIgcmVn
+aXN0ZXJzIG9mIGFjbGludCBkb24ndCBmb2xsb3cgdGhlIGNsaW50IGxheW91dCBhbmQgY2FuCj4g
+YmUgbWFwcGVkIG9uIGFueSBkaWZmZXJlbnQgb2Zmc2V0LiBBcyBzZzIwNDIgdXNlcyBzZXBhcmF0
+ZWQgdGltZXIKPiBhbmQgbXN3aSBmb3IgaXRzIGNsaW50LCBpdCBzaG91bGQgZm9sbG93IHRoZSBh
+Y2xpbnQgc3BlYyBhbmQgaGF2ZQo+IHNlcGFyYXRlZCByZWdpc3RlcnMuCj4gCj4gVGhlIHByZXZp
+b3VzIHBhdGNoIGludHJvZHVjZWQgYSBuZXcgdHlwZSBvZiBULUhFQUQgYWNsaW50IHRpbWVyIHdo
+aWNoCj4gaGFzIGNsaW50IHRpbWVyIGxheW91dC4gQWx0aG91Z2ggaXQgaGFzIHRoZSBjbGludCB0
+aW1lciBsYXlvdXQsIGl0Cj4gc2hvdWxkIGZvbGxvdyB0aGUgYWNsaW50IHNwZWMgYW5kIHVzZXMg
+dGhlIHNlcGFyYXRlZCBtdGltZSBhbmQgbXRpbWVjbXAKPiByZWdzLiBTbyBhIEFCSSBjaGFuZ2Ug
+aXMgbmVlZGVkIHRvIG1ha2UgdGhlIHRpbWVyIGZpdCB0aGUgYWNsaW50IHNwZWMuCj4gCj4gVG8g
+bWFrZSBULUhFQUQgYWNsaW50IHRpbWVyIG1vcmUgY2xvc2VyIHRvIHRoZSBhY2xpbnQgc3BlYywg
+dXNlCj4gcmVncy1uYW1lcyB0byByZXByZXNlbnQgdGhlIG10aW1lY21wIHJlZ2lzdGVyLCB3aGlj
+aCBjYW4gYXZvaWQgaGFjawo+IGZvciB1bnN1cHBvcnQgbXRpbWUgcmVnaXN0ZXIgb2YgVC1IRUFE
+IGFjbGludCB0aW1lci4KPiAKPiBBbHNvLCBhcyBULUhFQUQgYWNsaW50IG9ubHkgc3VwcG9ydHMg
+bXRpbWVjbXAsIGl0IGlzIHVubmVjZXNzYXJ5IHRvCj4gaW1wbGVtZW50IHRoZSB3aG9sZSBhY2xp
+bnQgc3BlYy4gVG8gbWFrZSB0aGlzIGJpbmRpbmcgVC1IRUFEIHNwZWNpZmljLAo+IG9ubHkgYWRk
+IHJlZy1uYW1lIGZvciBleGlzdGVkIHJlZ2lzdGVyLiBGb3IgZGV0YWlscywgc2VlIHRoZSBkaXNj
+dXNzaW9uCj4gaW4gdGhlIGxhc3QgbGluay4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBJbm9jaGkgQW1h
+b3RvIDxpbm9jaGlhbWFAb3V0bG9vay5jb20+Cj4gRml4ZXM6IDQ3MzQ0NDlmNzMxMSAoImR0LWJp
+bmRpbmdzOiB0aW1lcjogQWRkIFNvcGhnbyBzZzIwNDIgQ0xJTlQgdGltZXIiKQo+IExpbms6IGh0
+dHBzOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9waXBlcm1haWwvb3BlbnNiaS8yMDIzLU9jdG9iZXIv
+MDA1NjkzLmh0bWwKPiBMaW5rOiBodHRwczovL2dpdGh1Yi5jb20vcmlzY3YvcmlzY3YtYWNsaW50
+L2Jsb2IvbWFpbi9yaXNjdi1hY2xpbnQuYWRvYwo+IExpbms6IGh0dHBzOi8vbG9yZS5rZXJuZWwu
+b3JnL2FsbC9JQTFQUjIwTUI0OTUzRjlENzdGRkM3NkE5RDIzNjkyMkRCQkI2QUBJQTFQUjIwTUI0
+OTUzLm5hbXByZDIwLnByb2Qub3V0bG9vay5jb20vCj4gLS0tCgpBcHBsaWVkIDEvMiwgdGhhbmtz
+CgoKLS0gCjxodHRwOi8vd3d3LmxpbmFyby5vcmcvPiBMaW5hcm8ub3JnIOKUgiBPcGVuIHNvdXJj
+ZSBzb2Z0d2FyZSBmb3IgQVJNIFNvQ3MKCkZvbGxvdyBMaW5hcm86ICA8aHR0cDovL3d3dy5mYWNl
+Ym9vay5jb20vcGFnZXMvTGluYXJvPiBGYWNlYm9vayB8CjxodHRwOi8vdHdpdHRlci5jb20vIyEv
+bGluYXJvb3JnPiBUd2l0dGVyIHwKPGh0dHA6Ly93d3cubGluYXJvLm9yZy9saW5hcm8tYmxvZy8+
+IEJsb2cKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
