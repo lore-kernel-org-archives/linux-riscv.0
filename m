@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B53FC10F04
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 12:34:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 652C6C4167B
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Dec 2023 12:34:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=38WiEks/hWi56Uj1LH8qqOd0CaauwZ04u2luDMquRSY=; b=udhnPIPcKx+rGf
-	4LFtlcioYXmm0P4AeyaVTMKLCkIdAsa44+CWKvxnPwFDIR/LzUJxWb+i5cle4ubOMzgGVjuQIXmeH
-	Vru7qg0GoRnPuSl6uMKMU8DSAJ8IIRodYKYVywcPNSHaYDP4r7++xZiTeAX7zpwyOh6BdApynsMr2
-	Okw7dUyOdsiL/rpHKuoJcq1GHXqhvdBAoJ8SQ2EwrKvheFI9VaiD/PutxSdhBboXZaBwDDlRj4cfg
-	/38oLLGL+Hlo0AdGiNlv8DM9SvDU4R317wxn9es6HrNROrFhq9ICWolSPAHqBApkWwUKHzgwlHE04
-	OJBYVvjk9VKLBYCgVltA==;
+	List-Owner; bh=22b4/NqNFO75je2TTIWiuVBnP5uO98fEXSM16QsFSJo=; b=one5JDezu/6Zmp
+	WNO54u2CPEd5GLdv6eB+UUh+JLsIMPChM2RDowFUoVs7LF0ozG/UvovL0z95uvtM8rj41e2pg5vej
+	C02ufGi0S0a/LpKzzf55F8KY+hBjd3w2aqwAFZcP8pegJZ6bC184JgiCKg98F9qrJnINi9ZVMuqBi
+	/AGUaq1ff7P2AQVJDHHWZ+UY/YR0xOhRoodwkH3Uvu8LAtKFnUd60DgbTI6Yb8CBCCRSfqHjSG9Rw
+	zOJBeL7yhE+HtWnfvG7Rr/G7pFcshkxytPm88lGB+b74e/QsVZLRNaTVXuvCPXcEs3lf8JdfrjHgw
+	qY6vdtSQrA1U1vLJ5zdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rA894-0043tO-0x;
-	Mon, 04 Dec 2023 12:33:54 +0000
+	id 1rA897-0043vx-11;
+	Mon, 04 Dec 2023 12:33:57 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rA890-0043cd-0E
+	id 1rA890-0043cf-0E
 	for linux-riscv@lists.infradead.org;
-	Mon, 04 Dec 2023 12:33:52 +0000
+	Mon, 04 Dec 2023 12:33:56 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 112F624E255;
-	Mon,  4 Dec 2023 20:33:18 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id 44EDC24E240;
+	Mon,  4 Dec 2023 20:33:17 +0800 (CST)
 Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 4 Dec
  2023 20:33:17 +0800
 Received: from xiaofei.localdomain (180.164.60.184) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 4 Dec
- 2023 20:33:17 +0800
+ 2023 20:33:16 +0800
 From: Keith Zhao <keith.zhao@starfivetech.com>
 To: Keith Zhao <keith.zhao@starfivetech.com>, <devicetree@vger.kernel.org>,
 	<dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
@@ -49,9 +49,9 @@ CC: <mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>,
 	<shengyang.chen@starfivetech.com>, <jack.zhu@starfivetech.com>,
 	<changhuang.liang@starfivetech.com>, <maarten.lankhorst@linux.intel.com>,
 	<suijingfeng@loongson.cn>
-Subject: [v3 3/6] drm/vs: Register DRM device
-Date: Mon, 4 Dec 2023 20:33:12 +0800
-Message-ID: <20231204123315.28456-4-keith.zhao@starfivetech.com>
+Subject: [v3 1/6] dt-bindings: display: Add yamls for JH7110 display system
+Date: Mon, 4 Dec 2023 20:33:10 +0800
+Message-ID: <20231204123315.28456-2-keith.zhao@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20231204123315.28456-1-keith.zhao@starfivetech.com>
 References: <20231204123315.28456-1-keith.zhao@starfivetech.com>
@@ -61,8 +61,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231204_043350_545095_05DEE8CF 
-X-CRM114-Status: GOOD (  25.39  )
+X-CRM114-CacheID: sfid-20231204_043350_562220_8A935710 
+X-CRM114-Status: GOOD (  19.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,523 +79,471 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Implement drm device registration interface
+StarFive SoCs JH7110 display system:
+dc controller, hdmi controller,
+encoder, vout syscon.
+
+add the path of yaml file in MAINTAINERS
 
 Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
 ---
- MAINTAINERS                              |   1 +
- drivers/gpu/drm/Kconfig                  |   2 +
- drivers/gpu/drm/Makefile                 |   1 +
- drivers/gpu/drm/verisilicon/Kconfig      |  13 +
- drivers/gpu/drm/verisilicon/Makefile     |   6 +
- drivers/gpu/drm/verisilicon/vs_drv.c     | 316 +++++++++++++++++++++++
- drivers/gpu/drm/verisilicon/vs_drv.h     |  42 +++
- drivers/gpu/drm/verisilicon/vs_modeset.c |  39 +++
- drivers/gpu/drm/verisilicon/vs_modeset.h |  10 +
- 9 files changed, 430 insertions(+)
- create mode 100644 drivers/gpu/drm/verisilicon/Kconfig
- create mode 100644 drivers/gpu/drm/verisilicon/Makefile
- create mode 100644 drivers/gpu/drm/verisilicon/vs_drv.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_drv.h
- create mode 100644 drivers/gpu/drm/verisilicon/vs_modeset.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_modeset.h
+ .../starfive/starfive,display-subsystem.yaml  | 104 ++++++++++++++++
+ .../starfive/starfive,dsi-encoder.yaml        |  92 ++++++++++++++
+ .../starfive/starfive,jh7110-dc8200.yaml      | 113 ++++++++++++++++++
+ .../starfive/starfive,jh7110-inno-hdmi.yaml   |  82 +++++++++++++
+ .../soc/starfive/starfive,jh7110-syscon.yaml  |   1 +
+ MAINTAINERS                                   |   7 ++
+ 6 files changed, 399 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/starfive/starfive,display-subsystem.yaml
+ create mode 100644 Documentation/devicetree/bindings/display/starfive/starfive,dsi-encoder.yaml
+ create mode 100644 Documentation/devicetree/bindings/display/starfive/starfive,jh7110-dc8200.yaml
+ create mode 100644 Documentation/devicetree/bindings/display/starfive/starfive,jh7110-inno-hdmi.yaml
 
+diff --git a/Documentation/devicetree/bindings/display/starfive/starfive,display-subsystem.yaml b/Documentation/devicetree/bindings/display/starfive/starfive,display-subsystem.yaml
+new file mode 100644
+index 000000000000..d5ebdba3fb36
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/starfive/starfive,display-subsystem.yaml
+@@ -0,0 +1,104 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/starfive/starfive,display-subsystem.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Starfive JH7110 Soc Display SubSystem
++
++maintainers:
++  - Keith Zhao <keith.zhao@starfivetech.com>
++  - ShengYang Chen <shengyang.chen@starfivetech.com>
++
++description:
++  This is the bindings documentation for the JH7110 Soc Display Subsystem that
++  includes front-end video data capture, display controller and display
++  interface. such as HDMI and MIPI.
++
++  JH7110 display pipeline have several components as below description,
++  multi display controllers and corresponding physical interfaces.
++  For different display scenarios, pipe0 and pipe1 maybe binding to different
++  encoder. for example,
++
++  pipe0 binding to HDMI for primary display,
++  pipe1 binding to DSI for external display.
++
++          +------------------------------+
++          |                              |
++          |                              |
++  +----+  |   +-------------------+      |   +-------+   +------+   +------+
++  |    +----->+  dc controller 0  +--->----->+HDMICtl| ->+ PHY  +-->+PANEL0+
++  |AXI |  |   +-------------------+      |   +-------+   +------+   +------+
++  |    |  |                              |
++  |    |  |                              |
++  |    |  |                              |
++  |    |  |                              |
++  |APB |  |   +-------------------+         +---------+    +------+  +-------+
++  |    +----->+  dc controller 1  +--->---->+ dsiTx   +--->+DPHY  +->+ PANEL1+
++  |    |  |   +-------------------+         +---------+    +------+  +-------+
++  +----+  |                              |
++          +------------------------------+
++
++
++properties:
++  compatible:
++    const: starfive,display-subsystem
++
++  clocks:
++    items:
++      - description: Clock for display system noc bus.
++      - description: Core clock for display controller.
++      - description: Clock for axi bus to access ddr.
++      - description: Clock for ahb bus to R/W the phy regs.
++
++  clock-names:
++    items:
++      - const: noc_bus
++      - const: dc_core
++      - const: axi_core
++      - const: ahb
++
++  resets:
++    items:
++      - description: Reset for axi bus.
++      - description: Reset for ahb bus.
++      - description: Core reset of display controller.
++
++  reset-names:
++    items:
++      - const: axi
++      - const: ahb
++      - const: core
++
++  ports:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    items:
++      maxItems: 1
++    description:
++      Should contain a list of phandles pointing to display interface port
++      of dc-controller devices.
++
++required:
++  - compatible
++  - clocks
++  - clock-names
++  - resets
++  - reset-names
++  - ports
++
++additionalProperties: false
++
++examples:
++  - |
++    display-subsystem {
++        compatible = "starfive,display-subsystem";
++        ports = <&dc_out>;
++
++        clocks = <&syscrg 60>,
++               <&voutcrg 4>,
++               <&voutcrg 5>,
++               <&voutcrg 6>;
++        clock-names = "noc_bus", "dc_core", "axi_core", "ahb";
++        resets = <&voutcrg 0>, <&voutcrg 1>, <&voutcrg 2>;
++        reset-names = "axi", "ahb", "core";
++    };
+diff --git a/Documentation/devicetree/bindings/display/starfive/starfive,dsi-encoder.yaml b/Documentation/devicetree/bindings/display/starfive/starfive,dsi-encoder.yaml
+new file mode 100644
+index 000000000000..2cc0ad8e65ba
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/starfive/starfive,dsi-encoder.yaml
+@@ -0,0 +1,92 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/starfive/starfive,dsi-encoder.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: starfive jh7110 soc Encoder
++
++maintainers:
++  - Keith Zhao <keith.zhao@starfivetech.com>
++
++description:
++  Device-Tree bindings for simple encoder.
++  Simple encoder driver only has basic functionality.
++  the hardware of dc8200 has 2 output interface, use
++  syscon to select which one to be used.
++
++properties:
++  compatible:
++    const: starfive,dsi-encoder
++
++  starfive,syscon:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    items:
++      - items:
++          - description: phandle to syscon that select crtc output.
++          - description: Offset of crtc selection
++          - description: Shift of crtc selection
++    description:
++      A phandle to syscon with two arguments that configure select output.
++      The argument one is the offset of crtc selection, the
++      argument two is the shift of crtc selection.
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/properties/port
++        description:
++          The first port should be the input coming from the associated dc channel.
++
++      port@1:
++        $ref: /schemas/graph.yaml#/properties/port
++        description:
++          The second port should be the output coming from the associated bridge.
++
++    required:
++      - port@0
++      - port@1
++
++required:
++  - compatible
++  - ports
++
++additionalProperties: false
++
++examples:
++  - |
++        dssctrl: dssctrl@295b0000 {
++            compatible = "starfive,jh7110-vout-syscon", "syscon";
++            reg = <0x295b0000 0x90>;
++        };
++
++        dsi_encoder: dsi_encoder {
++            compatible = "starfive,dsi-encoder";
++            starfive,syscon = <&dssctrl 0x8 0x12>;
++
++            ports {
++                #address-cells = <1>;
++                #size-cells = <0>;
++                /* input */
++                port@0 {
++                    #address-cells = <1>;
++                    #size-cells = <0>;
++                    reg = <0>;
++                    dsi_input0:endpoint@0 {
++                        reg = <0>;
++                        remote-endpoint = <&dc_out_dpi1>;
++                    };
++                };
++                /* output */
++                port@1 {
++                    reg = <1>;
++                    #address-cells = <1>;
++                    #size-cells = <0>;
++                    dsi_out:endpoint {
++                        remote-endpoint = <&mipi_in>;
++                    };
++                };
++            };
++        };
+diff --git a/Documentation/devicetree/bindings/display/starfive/starfive,jh7110-dc8200.yaml b/Documentation/devicetree/bindings/display/starfive/starfive,jh7110-dc8200.yaml
+new file mode 100644
+index 000000000000..0b083effec02
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/starfive/starfive,jh7110-dc8200.yaml
+@@ -0,0 +1,113 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/starfive/starfive,jh7110-dc8200.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive display controller
++
++description:
++  The StarFive SoC uses the display controller based on Verisilicon IP
++  to transfer the image data from a video memory buffer to an external
++  LCD interface.
++
++maintainers:
++  - Keith Zhao <keith.zhao@starfivetech.com>
++
++properties:
++  compatible:
++    const: starfive,jh7110-dc8200
++
++  reg:
++    minItems: 1
++    items:
++      - description:
++          host interface
++      - description:
++          display physical base address and length.
++
++  interrupts:
++    items:
++      - description: The interrupt will be generated when DC finish one frame
++
++  clocks:
++    items:
++      - description: Pixel clock for display channel 0.
++      - description: Pixel clock for display channel 1.
++      - description: Pixel clock from hdmi.
++      - description: Pixel clock for soc .
++  clock-names:
++    items:
++      - const: channel0
++      - const: channel1
++      - const: hdmi_tx
++      - const: dc_parent
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/properties/port
++        description:
++          channel 0 output
++
++      port@1:
++        $ref: /schemas/graph.yaml#/properties/port
++        description:
++          channel 1 output
++
++    required:
++      - port@0
++      - port@1
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - ports
++
++additionalProperties: false
++
++examples:
++  - |
++    dc8200: lcd-controller@29400000 {
++        compatible = "starfive,jh7110-dc8200";
++        reg = <0x29400000 0x100>, <0x29400800 0x2000>;
++        interrupts = <95>;
++        clocks = <&voutcrg 7>,
++               <&voutcrg 8>,
++               <&voutcrg 9>,
++               <&voutcrg 10>;
++        clock-names = "channel0", "channel1","hdmi_tx", "dc_parent";
++
++        crtc_out: ports {
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            dc_out0: port@0 {
++                reg = <0>;
++                #address-cells = <1>;
++                #size-cells = <0>;
++
++                dc_out_dpi0: endpoint@0 {
++                    reg = <0>;
++                    remote-endpoint = <&hdmi_in_dc>;
++                };
++
++            };
++
++            dc_out1: port@1 {
++                reg = <1>;
++                #address-cells = <1>;
++                #size-cells = <0>;
++
++                dc_out_dpi1: endpoint@1 {
++                    reg = <1>;
++                    remote-endpoint = <&dsi_input0>;
++                };
++
++            };
++          };
++    };
+diff --git a/Documentation/devicetree/bindings/display/starfive/starfive,jh7110-inno-hdmi.yaml b/Documentation/devicetree/bindings/display/starfive/starfive,jh7110-inno-hdmi.yaml
+new file mode 100644
+index 000000000000..3640d97ab789
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/starfive/starfive,jh7110-inno-hdmi.yaml
+@@ -0,0 +1,82 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/starfive/starfive,jh7110-inno-hdmi.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Starfive JH7110 HDMI controller
++
++description:
++  The StarFive JH7110 SoC uses the HDMI signal transmiter based on innosilicon IP
++  to generate HDMI signal from its input and transmit the signal to the screen.
++
++maintainers:
++  - Keith Zhao <keith.zhao@starfivetech.com>
++
++properties:
++  compatible:
++    const: "starfive,jh7110-inno-hdmi"
++
++  reg:
++    minItems: 1
++
++  interrupts:
++    items:
++      - description: The HDMI hot plug detection interrupt.
++
++  clocks:
++    items:
++      - description: System clock of HDMI module.
++      - description: Mclk clock of HDMI audio.
++      - description: Bclk clock of HDMI audio.
++
++  clock-names:
++    items:
++      - const: sysclk
++      - const: mclk
++      - const: bclk
++
++  resets:
++    maxItems: 1
++
++  '#sound-dai-cells':
++    const: 0
++
++  port:
++    $ref: /schemas/graph.yaml#/properties/port
++    description:
++      Should contain a remote endpoint phandle of display controller device.
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - resets
++  - '#sound-dai-cells'
++  - port
++
++additionalProperties: false
++
++examples:
++  - |
++    hdmi: hdmi@29590000 {
++        compatible = "starfive,jh7110-inno-hdmi";
++        reg = <0x29590000 0x4000>;
++        interrupts = <99>;
++        clocks = <&voutcrg 17>,
++               <&voutcrg 15>,
++               <&voutcrg 16>;
++        clock-names = "sysclk", "mclk","bclk";
++        resets = <&voutcrg 9>;
++        #sound-dai-cells = <0>;
++        hdmi_in: port {
++            #address-cells = <1>;
++            #size-cells = <0>;
++            hdmi_in_dc: endpoint@0 {
++                reg = <0>;
++                remote-endpoint = <&dc_out_hdmi>;
++            };
++        };
++    };
+diff --git a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+index 0039319e91fe..cf9b657d0e8a 100644
+--- a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
++++ b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+@@ -24,6 +24,7 @@ properties:
+           - enum:
+               - starfive,jh7110-aon-syscon
+               - starfive,jh7110-stg-syscon
++              - starfive,jh7110-vout-syscon
+           - const: syscon
+ 
+   reg:
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 7caaadb83f3f..8dc9ebfe4605 100644
+index 7b151710e8c5..7caaadb83f3f 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -6887,6 +6887,7 @@ L:	dri-devel@lists.freedesktop.org
- S:	Maintained
- T:	git git://anongit.freedesktop.org/drm/drm-misc
- F:	Documentation/devicetree/bindings/display/starfive/
-+F:	drivers/gpu/drm/verisilicon/
+@@ -6881,6 +6881,13 @@ T:	git git://anongit.freedesktop.org/drm/drm-misc
+ F:	Documentation/devicetree/bindings/display/ste,mcde.yaml
+ F:	drivers/gpu/drm/mcde/
  
++DRM DRIVERS FOR STARFIVE
++M:	Keith Zhao <keith.zhao@starfivetech.com>
++L:	dri-devel@lists.freedesktop.org
++S:	Maintained
++T:	git git://anongit.freedesktop.org/drm/drm-misc
++F:	Documentation/devicetree/bindings/display/starfive/
++
  DRM DRIVER FOR TI DLPC3433 MIPI DSI TO DMD BRIDGE
  M:	Jagan Teki <jagan@amarulasolutions.com>
-diff --git a/drivers/gpu/drm/Kconfig b/drivers/gpu/drm/Kconfig
-index 3eee8636f847..e8d53c2e7c86 100644
---- a/drivers/gpu/drm/Kconfig
-+++ b/drivers/gpu/drm/Kconfig
-@@ -394,6 +394,8 @@ source "drivers/gpu/drm/solomon/Kconfig"
- 
- source "drivers/gpu/drm/sprd/Kconfig"
- 
-+source "drivers/gpu/drm/verisilicon/Kconfig"
-+
- config DRM_HYPERV
- 	tristate "DRM Support for Hyper-V synthetic video device"
- 	depends on DRM && PCI && MMU && HYPERV
-diff --git a/drivers/gpu/drm/Makefile b/drivers/gpu/drm/Makefile
-index 8e1bde059170..29e04acded06 100644
---- a/drivers/gpu/drm/Makefile
-+++ b/drivers/gpu/drm/Makefile
-@@ -198,3 +198,4 @@ obj-$(CONFIG_DRM_HYPERV) += hyperv/
- obj-y			+= solomon/
- obj-$(CONFIG_DRM_SPRD) += sprd/
- obj-$(CONFIG_DRM_LOONGSON) += loongson/
-+obj-$(CONFIG_DRM_VERISILICON) += verisilicon/
-diff --git a/drivers/gpu/drm/verisilicon/Kconfig b/drivers/gpu/drm/verisilicon/Kconfig
-new file mode 100644
-index 000000000000..e10fa97635aa
---- /dev/null
-+++ b/drivers/gpu/drm/verisilicon/Kconfig
-@@ -0,0 +1,13 @@
-+# SPDX-License-Identifier: GPL-2.0
-+config DRM_VERISILICON
-+	tristate "DRM Support for VeriSilicon"
-+	depends on DRM
-+	select DRM_KMS_HELPER
-+	select DRM_GEM_DMA_HELPER
-+	select CMA
-+	select DMA_CMA
-+	help
-+	  Choose this option if you have a VeriSilicon soc chipset.
-+	  This driver provides VeriSilicon kernel mode
-+	  setting and buffer management. It does not
-+	  provide 2D or 3D acceleration.
-diff --git a/drivers/gpu/drm/verisilicon/Makefile b/drivers/gpu/drm/verisilicon/Makefile
-new file mode 100644
-index 000000000000..d785a1dfaa7f
---- /dev/null
-+++ b/drivers/gpu/drm/verisilicon/Makefile
-@@ -0,0 +1,6 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+vs_drm-objs := vs_drv.o \
-+	       vs_modeset.o
-+
-+obj-$(CONFIG_DRM_VERISILICON) += vs_drm.o
-diff --git a/drivers/gpu/drm/verisilicon/vs_drv.c b/drivers/gpu/drm/verisilicon/vs_drv.c
-new file mode 100644
-index 000000000000..4fb1f29ef84b
---- /dev/null
-+++ b/drivers/gpu/drm/verisilicon/vs_drv.c
-@@ -0,0 +1,316 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2023 VeriSilicon Holdings Co., Ltd.
-+ */
-+#include <linux/clk.h>
-+#include <linux/component.h>
-+#include <linux/of_clk.h>
-+#include <linux/pm_runtime.h>
-+
-+#include <drm/drm_aperture.h>
-+#include <drm/drm_atomic_helper.h>
-+#include <drm/drm_crtc.h>
-+#include <drm/drm_crtc_helper.h>
-+#include <drm/drm_fb_helper.h>
-+#include <drm/drm_fbdev_generic.h>
-+#include <drm/drm_file.h>
-+#include <drm/drm_gem_dma_helper.h>
-+#include <drm/drm_module.h>
-+#include <drm/drm_of.h>
-+#include <drm/drm_probe_helper.h>
-+#include <drm/drm_vblank.h>
-+
-+#include "vs_drv.h"
-+#include "vs_modeset.h"
-+
-+#define DRV_NAME	"verisilicon"
-+#define DRV_DESC	"Verisilicon DRM driver"
-+#define DRV_DATE	"20230516"
-+#define DRV_MAJOR	1
-+#define DRV_MINOR	0
-+
-+static int vs_gem_dumb_create(struct drm_file *file, struct drm_device *dev,
-+			      struct drm_mode_create_dumb *args)
-+{
-+	struct vs_drm_device *priv = to_vs_drm_private(dev);
-+	unsigned int pitch = DIV_ROUND_UP(args->width * args->bpp, 8);
-+
-+	args->pitch = ALIGN(pitch, priv->pitch_alignment);
-+	return drm_gem_dma_dumb_create_internal(file, dev, args);
-+}
-+
-+DEFINE_DRM_GEM_FOPS(vs_drm_fops);
-+
-+static struct drm_driver vs_drm_driver = {
-+	.driver_features	= DRIVER_MODESET | DRIVER_ATOMIC | DRIVER_GEM,
-+
-+	DRM_GEM_DMA_DRIVER_OPS_WITH_DUMB_CREATE(vs_gem_dumb_create),
-+
-+	.fops			= &vs_drm_fops,
-+	.name			= DRV_NAME,
-+	.desc			= DRV_DESC,
-+	.date			= DRV_DATE,
-+	.major			= DRV_MAJOR,
-+	.minor			= DRV_MINOR,
-+};
-+
-+static void vs_drm_device_release_clocks(void *res)
-+{
-+	struct vs_drm_device *priv = res;
-+	unsigned int i;
-+
-+	reset_control_bulk_assert(priv->nrsts, priv->rst_vout);
-+
-+	for (i = 0; i < priv->clk_count; ++i) {
-+		if (priv->clks[i]) {
-+			clk_disable_unprepare(priv->clks[i]);
-+			clk_put(priv->clks[i]);
-+		}
-+	}
-+}
-+
-+static const char * const vout_resets[] = {
-+	"axi",
-+	"ahb",
-+	"core",
-+};
-+
-+static int vs_drm_device_init_clocks(struct vs_drm_device *priv)
-+{
-+	struct drm_device *dev = &priv->base;
-+	struct platform_device *pdev = to_platform_device(dev->dev);
-+	struct device_node *of_node = pdev->dev.of_node;
-+	struct clk *clock;
-+	unsigned int i;
-+	int ret;
-+
-+	if (dev_get_platdata(&pdev->dev) || !of_node)
-+		return 0;
-+
-+	priv->nrsts = ARRAY_SIZE(priv->rst_vout);
-+	for (int i = 0; i < priv->nrsts; ++i)
-+		priv->rst_vout[i].id = vout_resets[i];
-+	ret = devm_reset_control_bulk_get_shared(dev->dev, priv->nrsts,
-+						 priv->rst_vout);
-+	if (ret) {
-+		drm_err(dev, "Failed to get reset controls\n");
-+		return ret;
-+	}
-+
-+	priv->clk_count = of_clk_get_parent_count(of_node);
-+	if (!priv->clk_count)
-+		return 0;
-+
-+	priv->clks = drmm_kzalloc(dev, priv->clk_count * sizeof(priv->clks[0]),
-+				  GFP_KERNEL);
-+	if (!priv->clks)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < priv->clk_count; ++i) {
-+		clock = of_clk_get(of_node, i);
-+		if (IS_ERR(clock)) {
-+			ret = PTR_ERR(clock);
-+			if (ret == -EPROBE_DEFER)
-+				goto err;
-+			drm_err(dev, "clock %u not found: %d\n", i, ret);
-+			continue;
-+		}
-+		ret = clk_prepare_enable(clock);
-+		if (ret) {
-+			drm_err(dev, "failed to enable clock %u: %d\n",
-+				i, ret);
-+			clk_put(clock);
-+			continue;
-+		}
-+		priv->clks[i] = clock;
-+	}
-+
-+	ret = reset_control_bulk_deassert(priv->nrsts, priv->rst_vout);
-+	if (ret)
-+		return ret;
-+
-+	return devm_add_action_or_reset(&pdev->dev,
-+					vs_drm_device_release_clocks,
-+					priv);
-+
-+err:
-+	while (i) {
-+		--i;
-+		if (priv->clks[i]) {
-+			clk_disable_unprepare(priv->clks[i]);
-+			clk_put(priv->clks[i]);
-+		}
-+	}
-+	return ret;
-+}
-+
-+static int vs_drm_bind(struct device *dev)
-+{
-+	struct platform_device *pdev = to_platform_device(dev);
-+	struct vs_drm_device *priv;
-+	int ret;
-+	struct drm_device *drm_dev;
-+
-+	/* Remove existing drivers that may own the framebuffer memory. */
-+	ret = drm_aperture_remove_framebuffers(&vs_drm_driver);
-+	if (ret)
-+		return ret;
-+
-+	priv = devm_drm_dev_alloc(dev, &vs_drm_driver, struct vs_drm_device, base);
-+	if (IS_ERR(priv))
-+		return PTR_ERR(priv);
-+
-+	priv->pitch_alignment = 64;
-+
-+	ret = dma_set_coherent_mask(priv->base.dev, DMA_BIT_MASK(40));
-+	if (ret)
-+		return ret;
-+
-+	drm_dev = &priv->base;
-+	platform_set_drvdata(pdev, drm_dev);
-+
-+	ret = vs_drm_device_init_clocks(priv);
-+	if (ret)
-+		return ret;
-+
-+	vs_mode_config_init(drm_dev);
-+
-+	/* Now try and bind all our sub-components */
-+	ret = component_bind_all(dev, drm_dev);
-+	if (ret)
-+		return ret;
-+
-+	ret = drm_vblank_init(drm_dev, drm_dev->mode_config.num_crtc);
-+	if (ret)
-+		return ret;
-+
-+	drm_mode_config_reset(drm_dev);
-+
-+	drm_kms_helper_poll_init(drm_dev);
-+
-+	ret = drm_dev_register(drm_dev, 0);
-+	if (ret)
-+		return ret;
-+
-+	drm_fbdev_generic_setup(drm_dev, 32);
-+
-+	return 0;
-+}
-+
-+static void vs_drm_unbind(struct device *dev)
-+{
-+	struct drm_device *drm_dev = dev_get_drvdata(dev);
-+
-+	drm_dev_unregister(drm_dev);
-+	drm_kms_helper_poll_fini(drm_dev);
-+	component_unbind_all(drm_dev->dev, drm_dev);
-+}
-+
-+static const struct component_master_ops vs_drm_ops = {
-+	.bind = vs_drm_bind,
-+	.unbind = vs_drm_unbind,
-+};
-+
-+static struct platform_driver *drm_sub_drivers[] = {
-+};
-+
-+static struct component_match *vs_drm_match_add(struct device *dev)
-+{
-+	struct component_match *match = NULL;
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(drm_sub_drivers); ++i) {
-+		struct platform_driver *drv = drm_sub_drivers[i];
-+		struct device *p = NULL, *d;
-+
-+		while ((d = platform_find_device_by_driver(p, &drv->driver))) {
-+			put_device(p);
-+
-+			drm_of_component_match_add(dev, &match, component_compare_of,
-+						   d->of_node);
-+			p = d;
-+		}
-+		put_device(p);
-+	}
-+
-+	return match ? match : ERR_PTR(-ENODEV);
-+}
-+
-+static int vs_drm_platform_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct component_match *match;
-+
-+	match = vs_drm_match_add(dev);
-+	if (IS_ERR(match))
-+		return PTR_ERR(match);
-+
-+	return component_master_add_with_match(dev, &vs_drm_ops, match);
-+}
-+
-+static int vs_drm_platform_remove(struct platform_device *pdev)
-+{
-+	component_master_del(&pdev->dev, &vs_drm_ops);
-+	return 0;
-+}
-+
-+#ifdef CONFIG_PM_SLEEP
-+static int vs_drm_suspend(struct device *dev)
-+{
-+	return drm_mode_config_helper_suspend(dev_get_drvdata(dev));
-+}
-+
-+static int vs_drm_resume(struct device *dev)
-+{
-+	drm_mode_config_helper_resume(dev_get_drvdata(dev));
-+
-+	return 0;
-+}
-+#endif
-+
-+static SIMPLE_DEV_PM_OPS(vs_drm_pm_ops, vs_drm_suspend, vs_drm_resume);
-+
-+static const struct of_device_id vs_drm_dt_ids[] = {
-+	{ .compatible = "starfive,display-subsystem", },
-+	{ },
-+};
-+
-+MODULE_DEVICE_TABLE(of, vs_drm_dt_ids);
-+
-+static struct platform_driver vs_drm_platform_driver = {
-+	.probe = vs_drm_platform_probe,
-+	.remove = vs_drm_platform_remove,
-+
-+	.driver = {
-+		.name = DRV_NAME,
-+		.of_match_table = vs_drm_dt_ids,
-+		.pm = &vs_drm_pm_ops,
-+	},
-+};
-+
-+static int __init vs_drm_init(void)
-+{
-+	int ret;
-+
-+	ret = platform_register_drivers(drm_sub_drivers, ARRAY_SIZE(drm_sub_drivers));
-+	if (ret)
-+		return ret;
-+
-+	ret = drm_platform_driver_register(&vs_drm_platform_driver);
-+	if (ret)
-+		platform_unregister_drivers(drm_sub_drivers, ARRAY_SIZE(drm_sub_drivers));
-+
-+	return ret;
-+}
-+
-+static void __exit vs_drm_fini(void)
-+{
-+	platform_driver_unregister(&vs_drm_platform_driver);
-+	platform_unregister_drivers(drm_sub_drivers, ARRAY_SIZE(drm_sub_drivers));
-+}
-+
-+late_initcall_sync(vs_drm_init);
-+module_exit(vs_drm_fini);
-+
-+MODULE_DESCRIPTION("VeriSilicon DRM Driver");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/gpu/drm/verisilicon/vs_drv.h b/drivers/gpu/drm/verisilicon/vs_drv.h
-new file mode 100644
-index 000000000000..ea2189772980
---- /dev/null
-+++ b/drivers/gpu/drm/verisilicon/vs_drv.h
-@@ -0,0 +1,42 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 VeriSilicon Holdings Co., Ltd.
-+ */
-+
-+#ifndef __VS_DRV_H__
-+#define __VS_DRV_H__
-+
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <drm/drm_drv.h>
-+#include <drm/drm_gem.h>
-+#include <drm/drm_managed.h>
-+#include <linux/clk.h>
-+#include <linux/reset.h>
-+
-+enum rst_vout {
-+	RST_VOUT_AXI = 0,
-+	RST_VOUT_AHB,
-+	RST_VOUT_CORE,
-+	RST_VOUT_NUM
-+};
-+
-+/*@pitch_alignment: buffer pitch alignment required by sub-devices.*/
-+struct vs_drm_device {
-+	struct drm_device base;
-+	unsigned int pitch_alignment;
-+	/* clocks */
-+	unsigned int clk_count;
-+	struct clk **clks;
-+
-+	struct reset_control_bulk_data rst_vout[RST_VOUT_NUM];
-+	int	nrsts;
-+};
-+
-+static inline struct vs_drm_device *
-+to_vs_drm_private(const struct drm_device *dev)
-+{
-+	return container_of(dev, struct vs_drm_device, base);
-+}
-+
-+#endif /* __VS_DRV_H__ */
-diff --git a/drivers/gpu/drm/verisilicon/vs_modeset.c b/drivers/gpu/drm/verisilicon/vs_modeset.c
-new file mode 100644
-index 000000000000..eaf406c1b7c7
---- /dev/null
-+++ b/drivers/gpu/drm/verisilicon/vs_modeset.c
-@@ -0,0 +1,39 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2023 VeriSilicon Holdings Co., Ltd.
-+ */
-+
-+#include <linux/module.h>
-+
-+#include <drm/drm_damage_helper.h>
-+#include <drm/drm_fb_helper.h>
-+#include <drm/drm_gem_framebuffer_helper.h>
-+
-+#include "vs_modeset.h"
-+
-+static const struct drm_mode_config_funcs vs_mode_config_funcs = {
-+	.fb_create			 = drm_gem_fb_create,
-+	.atomic_check		 = drm_atomic_helper_check,
-+	.atomic_commit		 = drm_atomic_helper_commit,
-+};
-+
-+static struct drm_mode_config_helper_funcs vs_mode_config_helpers = {
-+	.atomic_commit_tail = drm_atomic_helper_commit_tail_rpm,
-+};
-+
-+void vs_mode_config_init(struct drm_device *dev)
-+{
-+	int ret;
-+
-+	ret = drmm_mode_config_init(dev);
-+	if (ret)
-+		return;
-+
-+	dev->mode_config.min_width  = 0;
-+	dev->mode_config.min_height = 0;
-+	dev->mode_config.max_width  = 4096;
-+	dev->mode_config.max_height = 4096;
-+
-+	dev->mode_config.funcs = &vs_mode_config_funcs;
-+	dev->mode_config.helper_private = &vs_mode_config_helpers;
-+}
-diff --git a/drivers/gpu/drm/verisilicon/vs_modeset.h b/drivers/gpu/drm/verisilicon/vs_modeset.h
-new file mode 100644
-index 000000000000..bd04f81d2ad2
---- /dev/null
-+++ b/drivers/gpu/drm/verisilicon/vs_modeset.h
-@@ -0,0 +1,10 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2020 VeriSilicon Holdings Co., Ltd.
-+ */
-+
-+#ifndef __VS_MODESET_H__
-+#define __VS_MODESET_H__
-+
-+void vs_mode_config_init(struct drm_device *dev);
-+#endif /* __VS_FB_H__ */
+ S:	Maintained
 -- 
 2.34.1
 
