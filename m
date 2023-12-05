@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C30BC10F05
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37A9AC46CA0
 	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 16:31:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NmwJMebksF80m7O3/SKN0wgEmWsMD0Wm0ATzDThplCc=; b=J5NbrDmlQWh76S
-	I/MwCHOO1wtNIRWY+L41x/oQj46dNCIPUB3BPFBpRZ/fAqkSptbWJWO3Unis7ivzwAeL1K68+1Tz6
-	bkYCgvdSMoaa2YLrQBz9NEmthwFJ2ZCADbQ2Bxd0E6LjA9uc+RdPAgsHaXkzFq7JSEOtffWjJe+fD
-	NeWAiVf66u+ZAjXihMX0hkFwENzgLCyasQCFhRO3HayjRBWM7XfT1FNHS9Si7j4zYhm+GaBIu1Wf7
-	eUEfNqh9675VNpZiqVSO2PsBqqvbHHYnFELB/cIdOXtYDswdE6XewEjxBrUagyVJDtxVI5eURFs+S
-	ep+s/dy4Qn/7JsScDRWA==;
+	List-Owner; bh=dFua283PadT2V/lrIbberL4rqa+V8Ddm3rgI1PsOY6Y=; b=xBNKbpBhbg3rqG
+	xi5oqsXfYefVayUG5m+hNzBKFq62FRHxcc9C8PcblcvDXuxn3wXWpgs8/u3GznPzMZn/kkbO9XLad
+	dLnqwPd1npCTkvIWoR7zuXeN8nGWB1ds+iWTFCPiyR686v3UNbkoboTZPcyJE0SqL6wsVdaP7bNj2
+	guGwWV4szFQHqpcSf7m8XDRndLD5I//aTyKplhr2JKL95HGFpgDPlG4dpBnXvdBBREHVb5CuMf6Qh
+	vyT4xM1YQzLGL8J+TsxyjZaAGALXInCYdo/0CUWq/AECdtmFpZ4MEDEsiB7VavC92mQbhSrgC+Z4b
+	wxVS64WZ1Oe2KBGZTRvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAuo0-00AlGC-1w;
-	Wed, 06 Dec 2023 16:31:24 +0000
-Received: from mail-bn8nam12olkn2082a.outbound.protection.outlook.com ([2a01:111:f400:fe5b::82a] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1rAuo1-00AlGV-0l;
+	Wed, 06 Dec 2023 16:31:25 +0000
+Received: from mail-mw2nam04olkn2080d.outbound.protection.outlook.com ([2a01:111:f400:7e8c::80d] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rARyK-006rdG-30
+	id 1rAU23-007KGz-34
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Dec 2023 09:44:13 +0000
+	Tue, 05 Dec 2023 11:56:12 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=gtIof/UdwQX+HQSp+NA5N5+Uh8ugnaqQ36w7s/rh2/1gWmSiR/rCdpxitFGd9NL+5IGp7B6v9LZaWdtORIsa2qETX/C1IkPPuuNXj5F7E8KEzInaQKKyXRcelktsKLhPnbGGvbryJwVkeh836YIM+vwF2hc0cAJfZEn46sqhsADVPXByWbGWrDCLJTl4qMI2pAq42cN/MlGt+DuIgPwrvw8bcDLunED+7RJskFVZ4rIhkMLwxHr8U+G6Qzru8ZzhouZAgYAEoic6jkpcFjX60ooc+vpYznTg1L0+HKUmVaer7GJ1fSramU9hfWoQwxVFgFU7RMJMzCAS1YhNEx3S3w==
+ b=YGQB097qIrEjJ4oumzAHmGSFwuY6N1TvOPyapBtR58fbItXSSjpOX+sSyYaaQksBGb2u5Jj6CFmQbU5uHTGld8RPHVyEkw3lV99Gs0bW3rl2pAou3vIiGJkpbXLI/04UjOKowNcJXxZgqbv0aXekhCs9NikDj8fDOvqkRYe2GYfVERvT5lcc3Ax6vIOQHSLoxBdY4oyOhP/M9kU3skJ8Ig29vRtuGqsscIp2mM4LZZgv1vczPbqi3MUaTkwj5PqP5pxp0WzToTHFL6D+BWJxhp+X03uq22Mjee937NWIyCxADRgwTWzmvGda3j+57R3UdBV1KmNECT5ZdBmvr6eAow==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XZFgGmse1OlZpJZN53w9CzubFC83pjg50PfQL9nBrjw=;
- b=Cl8ag/93ALrZkz/xPtcmmJWZHUyarx8uquJ/Ab2BMVkDfydyzKnCRXgMlb09PIuQkcrEiomAmD52rx1UdKJivmpcYAMLKqhFMAvmu80cwM/SkIbDXodWVvd0uwBiReQ99z+xCnbsotRAuWgpc5+0BB9TSsC1ZnFImQ8PHgQ16d9ONPgxGwiRnBBs2cjFXt13Hb6YcKtcok7/IHMaeFi0hk8Zfop3fHObuhHBf/EMmvARQMgJgiCLd2PXMHPko5dRH3L9z2tSH3u9btDi/yZzdrwaug3S1tljRb18xDxRQlepa6RPU2E7r5Ms3FUsgL9dvPJuOO6e49FrDlWoZyONEw==
+ bh=dLZJN7njrBqqqvSlJGn/TF/uQig8KgBz6oJGpkHavrc=;
+ b=mym/QzhfdBiT+OaESNNqU+O4eR/KkVyNM9SnD6SZ74RgYuOl19xuhsUuinjdKUD9nIKawGg7qEo123fZV87+Om+NXAnAHK1hQiH9UKQzgbjtw8itSFStB+x6dhWMBqwPXlI2wdYcLI5qdb2J39jyoQ0oClZ7qTd6ekfQSh9+VpVkdlA9GqpYgbwhF97E9iZd3hxTvGd1hEcQ+5tf1vJ1eVerKg/EYS+9MCLYX1CLvvgFEorRnls75KJwzDSG5CCSpCVuziHfEBvaTYG3IR2oQN8dJQKpvBpqtW76O+4ixdK2/BrqVtMrC9f7N3qniD2Vf1TfbU6GTOD4p1FgT7yiPQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XZFgGmse1OlZpJZN53w9CzubFC83pjg50PfQL9nBrjw=;
- b=iavNpFBpnNGkLVIZTm6jLV82RldOCLTE5nTVSBJpSLPqBJFrENeg52oUD1+Wv52VfqkiHyUH4IQqO1JRM4git8mGhm3YXggJYhYdSLHDkrk74ABsQPcEYCLFD3AyQIiBDp7KF613ys34qv2YLRooy3vkzMlEQVi32c24/aNJOX6qTANNCp9vA6TQaFtdFzMMaaS4EjBgtAF0Fwu7Thjzn7RqVHqTBJQqD85z6yVMjeWMebFYDfSNiA5gbZMZLdJkaQV0SYkY49kQwQMTg8iAAXCnzJHW3jsMmFG49Zl0Ox9co34LGpk4IR6wswWAbBtKFEkJ2TA90lNQoKd1bE6Dlg==
+ bh=dLZJN7njrBqqqvSlJGn/TF/uQig8KgBz6oJGpkHavrc=;
+ b=rwXw7S/kRZiIr0jkEdUtjdr5xGDK9JGaunYzZhawZA43HGZMhQZAZgHsaMX5kRJDqfloUkYHReLEJ9zdGS82A84m7gNO6NvQKDPAwjSYbIfUk8acJ8Xma9zsfbo+hjVESGSiYkJ9KhGVVF/NNOPm3NvkqpCgkRPlQS/ocVXaBeNTKyIJz6ayrlLLyjyZWLSlrhIFfk1UkY0SE2ynHek5htDM0mOgPOG12go6HLo1Z8OuTZUKxo0/2Z1jDZaPzBVGq9a+4M/OsUt7zho6x6S+Fr9ipLt8WQaXRKhJirI0sbuISgIFqcxDSH8Y5buKvkQD9OVc3Y8iVGVBqt8LUzQ6HA==
 Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by SA1PR20MB5247.namprd20.prod.outlook.com (2603:10b6:806:25e::9) with
+ by LV8PR20MB7005.namprd20.prod.outlook.com (2603:10b6:408:1e4::13) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7046.34; Tue, 5 Dec
- 2023 09:43:58 +0000
+ 2023 11:55:58 +0000
 Received: from IA1PR20MB4953.namprd20.prod.outlook.com
  ([fe80::55b:c350:980:ad8]) by IA1PR20MB4953.namprd20.prod.outlook.com
  ([fe80::55b:c350:980:ad8%6]) with mapi id 15.20.7046.024; Tue, 5 Dec 2023
- 09:43:58 +0000
+ 11:55:58 +0000
 From: Inochi Amaoto <inochiama@outlook.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -68,57 +68,57 @@ Cc: Jisheng Zhang <jszhang@kernel.org>,
 	linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 2/4] clk: sophgo: Add CV1800 series clock controller driver
-Date: Tue,  5 Dec 2023 17:43:38 +0800
-Message-ID: <IA1PR20MB4953946E2F8D8795DC261DBFBB85A@IA1PR20MB4953.namprd20.prod.outlook.com>
+Subject: [PATCH v2 2/4] clk: sophgo: Add CV1800 series clock controller driver
+Date: Tue,  5 Dec 2023 19:55:51 +0800
+Message-ID: <IA1PR20MB4953A1B906FE79B1FAEAD1D6BB85A@IA1PR20MB4953.namprd20.prod.outlook.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <IA1PR20MB495382B725AFF6FC2C336BA6BB85A@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <IA1PR20MB495382B725AFF6FC2C336BA6BB85A@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-TMN: [nRUYp2eIo71VOkqemypnW9qMXv+BKwRkRDQalPbPPzU=]
-X-ClientProxiedBy: BYAPR06CA0017.namprd06.prod.outlook.com
- (2603:10b6:a03:d4::30) To IA1PR20MB4953.namprd20.prod.outlook.com
+In-Reply-To: <IA1PR20MB49532E1A3D8BA71FDBB444BCBB85A@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: <IA1PR20MB49532E1A3D8BA71FDBB444BCBB85A@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-TMN: [FSqxjQyBdl+XpsRTqMyv9xwxsXu4WTmIzHoLr89cXsE=]
+X-ClientProxiedBy: SJ0PR03CA0203.namprd03.prod.outlook.com
+ (2603:10b6:a03:2ef::28) To IA1PR20MB4953.namprd20.prod.outlook.com
  (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20231205094341.943713-2-inochiama@outlook.com>
+X-Microsoft-Original-Message-ID: <20231205115555.1042712-2-inochiama@outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SA1PR20MB5247:EE_
-X-MS-Office365-Filtering-Correlation-Id: f6855996-2a47-4672-fc58-08dbf576b3ba
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|LV8PR20MB7005:EE_
+X-MS-Office365-Filtering-Correlation-Id: 31755771-f308-4d9d-e1b0-08dbf5892477
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: kInWLzudTYWeK35BTqlEhfVuaha/dbmRLTZs2rBJ6AtC+0ejGH1hK5BUV4YQSu+Yej017V3KJEY2hidSH+zd2fQ6T4GBswXtmRjWq33SuOahv8kfh+EaQZ4QchbVHfC+jQzNEkiCpBC6nKw0kd+z6mE+tkwUp/k0evDa+phbor2wPWdBbSLj59FdKeWKf03VB5Scey47sZYxDcviQmhYnmese8fXsjNVJvdkh7BuDBPRL9boukm2UnVq7M0wjdSZeB1K3gPF9gVlEVjutpB2s4mkaenCQ/nXO0xVFb6Wb/RiVfukGsWkTNOerNB6APePa9X4CN1Cnnb9WNtzcWBcI8jsEMheinWiDr2QlOnpam3701Hb8lv9wDBfv+9ObeDVLfNO0YGQ/5wkIY8oPfoRHiWJVoELtKG+2LoNDsAuxvUiZLjx2JqD0uL1IkaxaICcNCa3EXYsRHYw7+T0dofzuRA9Pxg4NoG+eoKtu9+Hbm9xm4Xbr7gbVNjZ/02LyQ+mstG4uHTsByy8pm8Jg4CtmchjkeOlCcO8jqzszyVj6UkqX6RezII77245f4ICDHQvJauUzopBnLIlzUVRh8tMtfb8S0/WMXMxy91Aq8xy7uSGRwfWe7psljJoQp/sm/jJHOpLpXpuoPoETcndwSoT0pAemirWs9N5tLg2ZtwS5vI=
+X-Microsoft-Antispam-Message-Info: 8f/60/GzrTJVuwyyZAblvBEMbVKDX9sPLqx2anpxd8SgkzqfDTJl12UY13cMytVORDD6H48cotwBvdBpW3Ke6wbcpu5alp0MY3xQaOva2Q3d90cG+yewkBUE8e4Yzb+PtLw/Dw9MbIYehn6Crg9crbiqEAjzqCcyItxtUGVOcEb+vRG/CQf/vJ+jcALCREs70UDX5fSm7VAgFlOJTcSA/ptcNuwwL5KSIHVyBtAFA2OleBxM/0b7lMlGQXu4OQfxOy9//FBijUDhyRceswitoEXYF9qFrbSKp8F2GCjYDgpDkyeDqGqHQV/RUF5KzreJKu4O72lT5jTS7+aoJTFwXCCWNIuQlwvPBXBv50TWVHZkv63b/8mKh4LCWBsy+blta7WJgSbKYJRapT+Ja5o9NGhLjafUoK2fmOycKC78rwLTwA3dZAjyzzBJZZ+ZRB+ECmiE/oS8wfjKJPvttsX12hyB1akuc1y72bcX0VGVEdWWaN1F9Il+o07aDkLjQrvMuwTKL7H+srNn2VbV1RpDr/y5l8clYg0rnDeFQAwLg0uNaAdPwq+A/oEexhYLMpa5gRNXN3BmkjX8e2lILmei+s7MJ5gl0IZytschscICPSj79T3m7uNWB0z5xw43q47EKEiUVp8vGVIZtXAMSLEBDCbSpJBcHZLlzSwTntg3psI=
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IPPHYOTK79RTD16Vlm6zm2sLAywuTr16pf2HoqDY3HD8SyiFexqqUi30fDFe?=
- =?us-ascii?Q?HcyTpqHF1kQjxpLoBGUrOjISWYrxlm7cIOaAgTPDdu5oF+Tj62Oi8/lLYD0x?=
- =?us-ascii?Q?IscsHR0JXjhFnPuZ/EZqLRVcNBZlSg6l60ILMk0J0Ew6fH7LnZAD8HQsCava?=
- =?us-ascii?Q?07leOoeH2oLwGEkrbfwKoATEpNJ+5t46+xVt9DQDO+ldqGjUgYGf3BEZEf9+?=
- =?us-ascii?Q?VovNLrFi5Lpp4HTOClfoQ5KpVQhU6y9xeZoW0hQkGNXPHjN3PdB/A9E174ok?=
- =?us-ascii?Q?IMme5f2zAFJxHAD2v1eFz7OLeTHPzda/QGVnwhkNcrT65f8aR+yEMuUiuyXp?=
- =?us-ascii?Q?FDtJxUPkmZm3WZ2VCC9drgBemzUojhPyH+b9wr+z9P1NioV0F+B1dQeoPQVC?=
- =?us-ascii?Q?Y+aXgABucRSo/aM3NJXhDpi/AdgdKP4MVvolztlbUR+86Wyt6Ff67pM9mSuL?=
- =?us-ascii?Q?biR86PxRIRon3V5Vvem0n0kFOglAuE7PR6bcP33ZZoyCtHrkaqr8uA1BdIS4?=
- =?us-ascii?Q?h3HcCHEY3YR/hs5Q2EBuXajveuyvWxi/Cz77/2la1/vNmwJ/hwymbsrMZHVK?=
- =?us-ascii?Q?QSuNTZ9rZfCA4AggY0sf6y3fH9ALGtQrpKmLALvuXKV0Ef8THg1cMWL/t7/0?=
- =?us-ascii?Q?hLdv5yKY+PBWHiQgQjoBt7mZwJE0j4TASBOvblI0DckjpyObexgnxBYSkEDc?=
- =?us-ascii?Q?1ngmVanBXuD1sbKfiLYQuSRr6oLjen+l+CVBQ8/DPY3CXmEHmrz5MrcgNEX3?=
- =?us-ascii?Q?9pv+7mk4kxWx/kCXAxwppVLevKIK/vI23SnfRuCUNHqUVCwPfedhzr5y3KuW?=
- =?us-ascii?Q?rkjHDq/M1H/EcgUrBt2wW3OnsrUgGAiQ9nZcN+lp7yLmwuaZutHKTR28P/Xw?=
- =?us-ascii?Q?9HxUESNoEqpZ/sG1vM4FGcfIjzVweuEnmC3jp5Zi56PfNlMAZuKje1rmqup1?=
- =?us-ascii?Q?U0RYrZlb7UOCwMStd/1XvFWI1kbtDN/h1sWViEhXjanPBq9qb54D0D0kI79D?=
- =?us-ascii?Q?q6u2XnYbXXSkhhfQlgyhe/Mze4DfPWxfoLQKyyzFODexp9U+v90mcv40oWvC?=
- =?us-ascii?Q?PoGwYwyOSaK4U2ujTvqDv/RffeTynoJ1P4q8jOBrtkoOvB18RmUMijRivxSD?=
- =?us-ascii?Q?2J6XK6wifK0jOnZaXj9XyeGvrp7VMKQpisWVAn40pPOESzTh3Vfi8UNv+7Pa?=
- =?us-ascii?Q?e0z1oO+L/bFFRQA9R1AuQtuzyhYzJRvR7wUxOpwhUkf5KoEzsyW3l1vhTVo?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?M8F4lo+TRZGAZdPx+DhfjEoXR1cMjz+dyeWI/ls+u+gQ+rbiv5tUpKg8Uv4c?=
+ =?us-ascii?Q?18Zq04xasJhjeNF2uzyZSTTmePNQumjERYYifw6Lc3b469FGDvZZwCnl2y8Y?=
+ =?us-ascii?Q?wgtrcIF2CwyI8o65A9P402Ohw/gxvufuRL5Tjrjo3NGQXHFuiPcE4w6WKc85?=
+ =?us-ascii?Q?5tcbvPi7vc3Sm4oQzmoyDAeaGBrz6MHvwkeXcEemt5bd5DZY4Xq7fMPoL3cz?=
+ =?us-ascii?Q?liIu9AWiCxK+47ZARI6QoRAdiktLQ0POzrXRMtSeS+6kdfdOMpPI5kZPhKm0?=
+ =?us-ascii?Q?sSPEzsczdIxw5ZglzGQpkamowW7ie9kRS4d6M7DKB23C0xFzPaEviPIyqIQV?=
+ =?us-ascii?Q?MT6TA4J0r2SazWuxuD88Xnr8CySOxA0LvIq7UaqBheDAoCLkTTjOZG3QZPRa?=
+ =?us-ascii?Q?f63ANvcg/Li+iO7ih+dkvhAoQ8JxaFlbaMzG1Glb5QTwHzDC6r41piPXwb9b?=
+ =?us-ascii?Q?7imzXOoMt6muLJDKtQ3pkkaLKyUSyXCl7QwXii2V3gApDGR6+AP8Ve9saHwQ?=
+ =?us-ascii?Q?O8DrWQ91baNp+e5a8XEie75VAKNzSen5+Ie16tdLlGi8tYn+90nAhv9NlchE?=
+ =?us-ascii?Q?OWDAFXQw5mo/qy0Cen18XAaLjiJ2+YmhYUYVMw8sk2O2FaBZ7y7Qcj8y1A4N?=
+ =?us-ascii?Q?iR7Vz7yqCL2w878PyH4p7Jbp+3Uh+plb6TC/Sb37TePeIDbJkD42A6iYth6E?=
+ =?us-ascii?Q?NICkADu8MNXYI6N0gdxJS4Kr7vqhbpvUzR2PVr5h8QQiAquBOZKxwCUvx1V/?=
+ =?us-ascii?Q?DJj7ZakWBqSPeuQ+nVPIc/aRRkkX1zDPNEwPjAraj4Khgrq6/ybmM/wX4RLO?=
+ =?us-ascii?Q?ScB11alo8SzxD1jP3pDIEMNT+xKgngjGban5DmwxiWW2f98eCKbLkv6CD+Tj?=
+ =?us-ascii?Q?2gm7dvMKU5jYayOlj37UekJwG8mjMo7SFs9vHrJKRH00dDkHtT3VNQM9ClJx?=
+ =?us-ascii?Q?LIKBpjsAiG7wNcvTjsNDZ3/CeaPqGWAwAQyQ4BXT4S4hQTA2RE+6JdJBkukp?=
+ =?us-ascii?Q?zzLr20aNjUrlSqHiF7r1JKqEpx1ZFxguLRzBbja8sj4QHZVxPu53kOjKN49N?=
+ =?us-ascii?Q?VKLRXE55AjIvqgZ4IecHIBUb/CpXBcR4QYIqD2F4H4XOcyFIGX78p2yShDC9?=
+ =?us-ascii?Q?yJpcBlcUNi40ax0MhEMMWw2u7NSQ9fq3kWAVEygiE0BuAhjmYG6N/yKVWJHP?=
+ =?us-ascii?Q?wx9494U6GRk+usqOMuexGkhBi//kapkDIHqDFxx1KoQ/9UGhqQqIAERcn+8?=
  =?us-ascii?Q?=3D?=
 X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f6855996-2a47-4672-fc58-08dbf576b3ba
+X-MS-Exchange-CrossTenant-Network-Message-Id: 31755771-f308-4d9d-e1b0-08dbf5892477
 X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Dec 2023 09:43:58.2471
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Dec 2023 11:55:58.1363
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR20MB5247
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR20MB7005
 X-Mailman-Approved-At: Wed, 06 Dec 2023 08:31:23 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -192,11 +192,11 @@ index ed71f2e0ee36..eeae7ae93f89 100644
  obj-$(CONFIG_ARCH_STI)			+= st/
 diff --git a/drivers/clk/sophgo/Kconfig b/drivers/clk/sophgo/Kconfig
 new file mode 100644
-index 000000000000..db886e2e563b
+index 000000000000..243d58a30117
 --- /dev/null
 +++ b/drivers/clk/sophgo/Kconfig
 @@ -0,0 +1,7 @@
-+# SPDX-License-Identifier: GPL-2.0-or-later
++# SPDX-License-Identifier: GPL-2.0
 +# common clock support for SOPHGO SoC family.
 +
 +config CLK_SOPHGO_CV1800
@@ -205,11 +205,11 @@ index 000000000000..db886e2e563b
 +	depends on ARCH_SOPHGO || COMPILE_TEST
 diff --git a/drivers/clk/sophgo/Makefile b/drivers/clk/sophgo/Makefile
 new file mode 100644
-index 000000000000..d6a8d3c94ade
+index 000000000000..a50320764200
 --- /dev/null
 +++ b/drivers/clk/sophgo/Makefile
 @@ -0,0 +1,7 @@
-+# SPDX-License-Identifier: GPL-2.0-or-later
++# SPDX-License-Identifier: GPL-2.0
 +obj-$(CONFIG_CLK_SOPHGO_CV1800)	+= clk-sophgo-cv1800.o
 +
 +clk-sophgo-cv1800-y		+= clk-cv1800.o
@@ -1772,11 +1772,11 @@ index 000000000000..c4735ff4eb2f
 +MODULE_LICENSE("GPL");
 diff --git a/drivers/clk/sophgo/clk-cv1800.h b/drivers/clk/sophgo/clk-cv1800.h
 new file mode 100644
-index 000000000000..3bd2eb262853
+index 000000000000..55c3026e824e
 --- /dev/null
 +++ b/drivers/clk/sophgo/clk-cv1800.h
 @@ -0,0 +1,123 @@
-+// SPDX-License-Identifier: GPL-2.0
++/* SPDX-License-Identifier: GPL-2.0 */
 +/*
 + * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
 + */
@@ -1983,11 +1983,11 @@ index 000000000000..f89cc3c93e8f
 +
 diff --git a/drivers/clk/sophgo/clk-cv18xx-common.h b/drivers/clk/sophgo/clk-cv18xx-common.h
 new file mode 100644
-index 000000000000..76c9e24ad549
+index 000000000000..c4b813674425
 --- /dev/null
 +++ b/drivers/clk/sophgo/clk-cv18xx-common.h
 @@ -0,0 +1,85 @@
-+// SPDX-License-Identifier: GPL-2.0
++/* SPDX-License-Identifier: GPL-2.0 */
 +/*
 + * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
 + */
@@ -2978,11 +2978,11 @@ index 000000000000..ec948096cd0c
 +};
 diff --git a/drivers/clk/sophgo/clk-cv18xx-ip.h b/drivers/clk/sophgo/clk-cv18xx-ip.h
 new file mode 100644
-index 000000000000..f3c33792a9f4
+index 000000000000..c0c8ef2a2e30
 --- /dev/null
 +++ b/drivers/clk/sophgo/clk-cv18xx-ip.h
 @@ -0,0 +1,266 @@
-+// SPDX-License-Identifier: GPL-2.0
++/* SPDX-License-Identifier: GPL-2.0 */
 +/*
 + * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
 + */
@@ -3721,11 +3721,11 @@ index 000000000000..d52130f1e494
 +};
 diff --git a/drivers/clk/sophgo/clk-cv18xx-pll.h b/drivers/clk/sophgo/clk-cv18xx-pll.h
 new file mode 100644
-index 000000000000..f8b989c25c6e
+index 000000000000..aafee6459c46
 --- /dev/null
 +++ b/drivers/clk/sophgo/clk-cv18xx-pll.h
 @@ -0,0 +1,79 @@
-+// SPDX-License-Identifier: GPL-2.0
++/* SPDX-License-Identifier: GPL-2.0 */
 +/*
 + * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
 + */
