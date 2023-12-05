@@ -4,46 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEF95C4167B
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Dec 2023 17:08:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A9DBC4167B
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Dec 2023 17:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YqJYLYvW2KybYFw6j5//qydaZHtT4u5g6t0K0c99a1s=; b=XsLTSs887xOnAz
-	5Kpv/JCCXrpCZjr6F7LP0k4fDVlcyhZnsZIuvEaFIPXbxwZ4uDHZWTffoMSfc11EalPrCMqe5eGu6
-	tEvvoc+0reofjMB69JuiIya2M18o4ybJzsWCudrmJMkpDap2AC+aLQTh3qI1it5QP8+HtHBwAt9+c
-	iN574FBcSXc8Vto3NdBdWu8LQNZqeoN0gdonB7lEIcDqpbfP0gnWJ1XctCUdtlHGmH/nGs0IujcYv
-	usgOcYa+HtIWhb9niAZ/iwlPU0ddIuunq4UJ5m2fw6f+XzPzhf3tWy0v72hWD4emm7TBDNJESlFI3
-	WPXUHjMysRmGQZmBIR3Q==;
+	List-Owner; bh=8VPHvlRH2OrWpDWxMvljQTa4qeo/TEX8nQIPF+7Ag4Y=; b=cutkEPUTMooGbS
+	swNf1ArsdYDazNkyIhXFwvYJWgs8G2GtuOjNW6dOKuKa+hqyTJO+rltflet8xGrQwGWi/9O9hf5QY
+	g3cUnuWjAuY2UY83kULQudYo8vFdGcduV4ldgW5IGhvLmyz8q8G7JmongLwixlXsKSgbY3UD485te
+	MMbTEw7oVm9iEJTxJaDPKuAtCk2HNzizXAGcP2dwQ9IQMVD978Dsn2ncOUFhWNOuCfd6Vc6PFzcKO
+	ZGbkJPLrqaMX2hp0c7PVOTG+KeYVsfMIAqnF6AMR5clTrtSXWYArTCt78dfohVirnKYJ3PXxkjPBh
+	8ZmxPNGfv2MevF4HTkRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAYuY-007zpP-1v;
-	Tue, 05 Dec 2023 17:08:42 +0000
-Received: from [50.53.46.231] (helo=[192.168.254.15])
-	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAYuW-007zp0-1J;
-	Tue, 05 Dec 2023 17:08:40 +0000
-Message-ID: <5f9f018a-dc4f-42f0-ba90-2f44d2f61a7c@infradead.org>
-Date: Tue, 5 Dec 2023 09:08:37 -0800
+	id 1rAZUA-0083qO-0J;
+	Tue, 05 Dec 2023 17:45:30 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1rAZU8-0083pI-0z
+	for linux-riscv@lists.infradead.org;
+	Tue, 05 Dec 2023 17:45:29 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1d048c171d6so41231545ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 05 Dec 2023 09:45:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1701798326; x=1702403126; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Kw9lx7rfek+Fyxn9H19uerjKbw2z7hmkxzJlnytvErY=;
+        b=gvnJd6ZNWz5J3AtgKLVBQ5LOL528Z6ovGGer8rgbyfvwCoXQDr6mPO2QWzacadibCB
+         29C49N+IUN1nnVjq9eL97i4UIMlhAz0dqXxcXJ6aRIjlFaFKuLmleH+SOBC1uaAg6CN4
+         CgQpU+n4T+QVrq6Bgof5RpDCpGNFrjJoj6Na/pj9PNNz+8z1oRvK9itY2HiSC3kkHM50
+         MW6bwzot1J9AQ2YlmJot4VAw3H4k1c+PVQTlBEFRJJkVqHnuCPJbGQd45PIcI+9zuqfR
+         NDoSmsD2OUbHaPW+rlYQRtYExSBXJ/AfdqxlbDmkNjoijV9GNgZQnyYvCyA12FH1ThxG
+         6cUQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701798326; x=1702403126;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Kw9lx7rfek+Fyxn9H19uerjKbw2z7hmkxzJlnytvErY=;
+        b=oWaYFLJFWKpIU6aLNKe6v6HGGSelOpBOIc5FHlMORVOuOmHsQuwCJ2aU97QHjzXf7+
+         aGPx7xCj9XYvQQ0MNz+QCm20Buexzb/dbemVbKjutH8JV3G8hb88JHE77SFaZQnNebcj
+         +nnXm3Y0KCv7XWxxwFo709RXBbv+dhpfLH0MrPMsk6h3/9Vj02u1d68CVdisbt3HCB7L
+         SXBpAJXUh0brtcHw2dRSIYCjiRvPidG8W1CMOc7OhYARMfTsBj45hVj/zFDP9REY6nIp
+         tDgC2DHgp/mqWiKiYGU+a37rd06AO/3PsZB6C/62104Jx5MM9XQPRSFUi1ZiasIoP5Tx
+         uQNg==
+X-Gm-Message-State: AOJu0YyLr9bOpnh2FD8vmcJuxFbV/ohmv/eH/8kAqz/sYSSE6pSFgZG+
+	hukvM3EjGy+WonFfGF4FKzEwzA==
+X-Google-Smtp-Source: AGHT+IF7Y/RolGBXnpDHkOsMt/rkm/fe03CCbMCd5KOY+xnFrO9TY+7df1EdMH6EfJJh7i6FHHqd2Q==
+X-Received: by 2002:a17:902:e804:b0:1d0:98db:6fd4 with SMTP id u4-20020a170902e80400b001d098db6fd4mr4578699plg.56.1701798326243;
+        Tue, 05 Dec 2023 09:45:26 -0800 (PST)
+Received: from grind.. ([152.234.124.8])
+        by smtp.gmail.com with ESMTPSA id j20-20020a170902759400b001c74df14e6fsm10465705pll.284.2023.12.05.09.45.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 05 Dec 2023 09:45:25 -0800 (PST)
+From: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
+To: kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: anup@brainfault.org,
+	atishp@atishpatra.org,
+	palmer@dabbelt.com,
+	ajones@ventanamicro.com,
+	Daniel Henrique Barboza <dbarboza@ventanamicro.com>
+Subject: [PATCH v3 1/3] RISC-V: KVM: set 'vlenb' in kvm_riscv_vcpu_alloc_vector_context()
+Date: Tue,  5 Dec 2023 14:45:07 -0300
+Message-ID: <20231205174509.2238870-2-dbarboza@ventanamicro.com>
+X-Mailer: git-send-email 2.41.0
+In-Reply-To: <20231205174509.2238870-1-dbarboza@ventanamicro.com>
+References: <20231205174509.2238870-1-dbarboza@ventanamicro.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] riscv, crash: don't export some symbols when
- CONFIG_MMU=n
-Content-Language: en-US
-To: Baoquan He <bhe@redhat.com>
-Cc: Stephen Rothwell <sfr@canb.auug.org.au>, akpm@linux-foundation.org,
- ignat@cloudflare.com, linux-next@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- kexec@lists.infradead.org, eric_devolder@yahoo.com
-References: <ZW00/Cfk47Cc3kGo@MiWiFi-R3L-srv>
- <ZW03ODUKGGhP1ZGU@MiWiFi-R3L-srv>
- <694baf13-65d0-4877-b6c7-56e3006f83be@infradead.org>
- <ZW7OsX4zQRA3mO4+@MiWiFi-R3L-srv>
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <ZW7OsX4zQRA3mO4+@MiWiFi-R3L-srv>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20231205_094528_342836_1FD906DE 
+X-CRM114-Status: UNSURE (   7.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,93 +98,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+'vlenb', added to riscv_v_ext_state by commit c35f3aa34509 ("RISC-V:
+vector: export VLENB csr in __sc_riscv_v_state"), isn't being
+initialized in guest_context. If we export 'vlenb' as a KVM CSR,
+something we want to do in the next patch, it'll always return 0.
 
+Set 'vlenb' to riscv_v_size/32.
 
-On 12/4/23 23:18, Baoquan He wrote:
-> On 12/04/23 at 11:14am, Randy Dunlap wrote:
+Signed-off-by: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
+---
+ arch/riscv/kvm/vcpu_vector.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-[]
-
->>
->> Both riscv 32-bit and 64-bit complain:
->>
->> ../arch/riscv/kernel/crash_core.c: In function 'arch_crash_save_vmcoreinfo':
->> ../arch/riscv/kernel/crash_core.c:11:58: warning: format '%lx' expects argument of type 'long unsigned int', but argument 2 has type 'int' [-Wformat=]
->>    11 |         vmcoreinfo_append_str("NUMBER(VMALLOC_START)=0x%lx\n", VMALLOC_START);
->>       |                                                        ~~^
->>       |                                                          |
->>       |                                                          long unsigned int
->>       |                                                        %x
-> 
-> Thanks for all these testing.
-> 
-> This warning is irrelevant to the kexec patch, it's becasue 
-> VMALLOC_START is defined as 0 which is int when CONFIG_MMU=n.
-> 
-> Below patch can fix the warning.
-> 
-> From 46984a0287e5f1b41ae3e9adfcfa0d26b71db8f4 Mon Sep 17 00:00:00 2001
-> From: Baoquan He <bhe@redhat.com>
-> Date: Tue, 5 Dec 2023 11:02:55 +0800
-> Subject: [PATCH] riscv: fix VMALLC_START definition
-> Content-type: text/plain
-> 
-> When below config items are set, compiler complained:
-> 
-> --------------------
-> CONFIG_CRASH_CORE=y
-> CONFIG_KEXEC_CORE=y
-> CONFIG_CRASH_DUMP=y
-> ......
-> -----------------------
-> 
-> -------------------------------------------------------------------
-> arch/riscv/kernel/crash_core.c: In function 'arch_crash_save_vmcoreinfo':
-> arch/riscv/kernel/crash_core.c:11:58: warning: format '%lx' expects argument of type 'long unsigned int', but argument 2 has type 'int' [-Wformat=]
-> 11 |         vmcoreinfo_append_str("NUMBER(VMALLOC_START)=0x%lx\n", VMALLOC_START);
->    |                                                        ~~^
->    |                                                          |
->    |                                                          long unsigned int
->    |                                                        %x
-> ----------------------------------------------------------------------
-> 
-> This is because on riscv macro VMALLOC_START has different type when
-> CONFIG_MMU is set or unset.
-> 
-> arch/riscv/include/asm/pgtable.h:
-> --------------------------------------------------
-> 
-> Changing it to _AC(0, UL) in case CONFIG_MMU=n can fix the warning.
-> 
-> Signed-off-by: Baoquan He <bhe@redhat.com>
-
-Reported-by: Randy Dunlap <rdunlap@infradead.org>
-Acked-by: Randy Dunlap <rdunlap@infradead.org>
-Tested-by: Randy Dunlap <rdunlap@infradead.org> # build-tested
-
-
-Thanks.
-
-> ---
->  arch/riscv/include/asm/pgtable.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 294044429e8e..ab00235b018f 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -899,7 +899,7 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
->  #define PAGE_KERNEL		__pgprot(0)
->  #define swapper_pg_dir		NULL
->  #define TASK_SIZE		0xffffffffUL
-> -#define VMALLOC_START		0
-> +#define VMALLOC_START		_AC(0, UL)
->  #define VMALLOC_END		TASK_SIZE
->  
->  #endif /* !CONFIG_MMU */
-
+diff --git a/arch/riscv/kvm/vcpu_vector.c b/arch/riscv/kvm/vcpu_vector.c
+index b339a2682f25..530e49c588d6 100644
+--- a/arch/riscv/kvm/vcpu_vector.c
++++ b/arch/riscv/kvm/vcpu_vector.c
+@@ -76,6 +76,7 @@ int kvm_riscv_vcpu_alloc_vector_context(struct kvm_vcpu *vcpu,
+ 	cntx->vector.datap = kmalloc(riscv_v_vsize, GFP_KERNEL);
+ 	if (!cntx->vector.datap)
+ 		return -ENOMEM;
++	cntx->vector.vlenb = riscv_v_vsize / 32;
+ 
+ 	vcpu->arch.host_context.vector.datap = kzalloc(riscv_v_vsize, GFP_KERNEL);
+ 	if (!vcpu->arch.host_context.vector.datap)
 -- 
-~Randy
+2.41.0
+
 
 _______________________________________________
 linux-riscv mailing list
