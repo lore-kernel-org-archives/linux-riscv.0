@@ -4,83 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47F45C4167B
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Dec 2023 08:40:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46D56C10DC3
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Dec 2023 09:00:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VJDjF8RSX2nUpnpV1pM25iNRtDSHTkY5qEhIayGxvVI=; b=NKQDYWU1TmSbjo
-	Zr78mTpN6G/qSbo9RQkAD6abgXGSv+3DQ2F5BA7xmHmG6JcbXhOBps5yklBObPVvMbrlP07GyHYE4
-	p5taJPa5DPqpM29QZYyFj4HwR5ETjJNRMAb/lx9bLH7OVruewpZnRZqrF0xvK4N+ZPS7oNy1HMtsl
-	esBmnU5vlSjv4AGk7Lm+NrmDxNOd4ZaVeSZ0zvGZLqDejJOiZaHBlxVmsGQM0IHLXspMDDA6rHnet
-	MPH9fM+56TL+kdzg43hMMLGaFxq7ms6qUCKbkMUV5Ympch22h/gJf3jNjARXTNyLoqQxT3e+7GF07
-	H2KNsawjGvZXHaEJ8r9g==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WIJCiuEADXEn+J3z19cGi6EqVGy2Sv5QDluFfYmqIgo=; b=dwNkpLdnor+3yt
+	OeB6yrvQvuQimgkWFbqarjcQ+0OAie5Z3oxunFxRyuEAT+yrwQLIBqt76Kj8dX0cIGfwvrvwVgmLr
+	opxG4C1bI4eZvc5gmPxrwbl4KMRaLqs2HsTgQqf5rueOaRgNcIvFDYhjmfaj352ewrA8lbin/4HEj
+	450WM9t5iV/3kU6zq6AKzSZ80fzVu5rjYEuJCmhR0/yrv/nxWVZemu+Z4FyrIJhZ42ZfPafHWs2Xr
+	GunIpz4q1PNShF8D6XmDRCpqpR1n9S3kaiBI6DWi8F56+8NsICM+8DCAWM21G3oEM3gMREwgsCRA3
+	F2Wd+LIrDeeiH+wC/uaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAQyj-006gPx-0W;
-	Tue, 05 Dec 2023 08:40:29 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1rARHl-006ioL-1G;
+	Tue, 05 Dec 2023 09:00:09 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAQye-006gPM-38
+	id 1rARHi-006imk-18
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Dec 2023 08:40:26 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1d03fb57b69so23395535ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 05 Dec 2023 00:40:20 -0800 (PST)
+	Tue, 05 Dec 2023 09:00:07 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1d075392ff6so21037155ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 05 Dec 2023 01:00:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1701765620; x=1702370420; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=sifive.com; s=google; t=1701766804; x=1702371604; darn=lists.infradead.org;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=NcOt9kZ7JwOzYfmxC1M3J+r83lE9sNFYqBWrLheYTEI=;
-        b=JAlXCgW7aaMeXDRR7rSC+VmqZDkQnaP3XFuVTrCPKBuqUgB7ivncyBXwSJ8fWmb3KC
-         syQk/4+Lq45PRcPUNmN4XDgzHoT77r4/tW1WZcM9PK9urCNvfs2ZtwfIf3MAvD7kyZyI
-         Pjftf2VTfJOLU1TT8Ehtu2mcev6df/wwE/aBWzLwq1eSlLdXMfRE3Tdv3yHUqCcoaTLI
-         FtQvGNMwshJ9mnmnow/hac/a/V/uAC0Jy5ctESRskj/OsxsD9mfx5dLi+pSG8pMPw5mi
-         V+xQwK4hQRElQsE5zDxad1nevPo8naizL/Kjb4nDKdJDRduM42tc1+0BHzw1UiZXhGJI
-         R3cw==
+        bh=Wi6K2Brpiu9Fka3m9z0bXgXfpslNvz1u3mb0b6dJW6o=;
+        b=F57jO+kYtGmtNrdZCZ3+/jJ0CsTzzsUw9WlbV2KHPpfmJdxown7eLfW13IZkipYfiu
+         /4oEzsDSGIVugedfzo08lkcrrl/qFb+ri9CNXF9Q4VSIKiZ1InJhYB+qxB4y/R5dCt1O
+         H5tDtf5Ajnq6XyrcH6KghUXeEFqE228oFl+d1CylV+SolUGx8rteKMhhP7qO3MLXBSG/
+         msX1KvssP88fpXmiyFQBJCz7PdRGVCItaYTnaE2aPGbFYQELzqs674fPxYXERdWUHY+W
+         xJaW5/yBCYT9IekdTaRwlK8FpaTj4DeV//n/EXXEulxBR3dyQkXEz2oKSBJ32jkNazQt
+         SDEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701765620; x=1702370420;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1701766804; x=1702371604;
+        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=NcOt9kZ7JwOzYfmxC1M3J+r83lE9sNFYqBWrLheYTEI=;
-        b=gIRweaIveUoPbjpnIkRfuKIYZ21FUrvTUKPKBd6zr4wLmiuPuTfrp6PpTUoR3UMg1b
-         g2FrA45OjihppbgL1CDlkfbFKaFl+Zt3MKLjAp5RIevUJwAq1iANsbFIMMApj6k/aQo8
-         uq3FWkqfhfmrcrWS9zvMzeYt51uPbZNA3shZBrfHhkqCmazieBlBQulZZ8X3yOGnYqGt
-         H+HxkZMKPCK9PIak6y4kFbCTfxBXcn1hc2ORsmMG/xB+wdTiCKXMnAhyQJ3XSM2/Wa9z
-         aMVtmEGeSRjZi9PQwrbptfD49hPYqSsqMHhHaLlLomrmx/Q6bgJlYZeScpuuHFoYSBP6
-         ec5Q==
-X-Gm-Message-State: AOJu0YzYIvH87m90ktAlanlmv/zcDkdym+VCYSrW8OubvuC8x1Z5xUxN
-	HtMJt8DEHfHeofe9Rl42jLBCbSjBbOmbibpkcZc=
-X-Google-Smtp-Source: AGHT+IHmnuPSA5vDhvTN2q7m76YrUL9IBN13qxkP8NbJPkMPDB5t7fk1kexsJFn//w1XFxKTXX4Idw==
-X-Received: by 2002:a17:902:ec8f:b0:1d0:6ffd:6e55 with SMTP id x15-20020a170902ec8f00b001d06ffd6e55mr2466177plg.77.1701765620061;
-        Tue, 05 Dec 2023 00:40:20 -0800 (PST)
-Received: from DESKTOP-4R0U3NR.siflower.com ([2a09:bac5:6249:183c::26a:82])
-        by smtp.gmail.com with ESMTPSA id h14-20020a170902f54e00b001cfd2cb1907sm2998238plf.206.2023.12.05.00.40.17
+        bh=Wi6K2Brpiu9Fka3m9z0bXgXfpslNvz1u3mb0b6dJW6o=;
+        b=Ohqo5WHXrV2M7pKCs0aYQvGfjtqu1kc2KbURLxyzrr80kdqYnWGTeV3+IuRCZEiVzN
+         T96m6ZXkMKEXXHkuMqrRq/Bqr16A1wYsHMmyDfeGj0mTqNzyIXVIydzs+EjtBvy1DKj4
+         xhAe2k1Yf0IB5zoSsVms+ADFIOr03xLVcBdelaS3py9THkwykVdowlS7HHltHF6fTn5w
+         sii/PgXQOM7UqhdTa7+sststmenySLieYIa87j4l4XT1f6Vnf0nvfcT68DekSIS0e+ss
+         nZTYh7daJvSv3/qWpL8fxK/zZZuvZxK7xjCzafClsWg58nQb275hLWw08AqQ1v3lyLvR
+         /2eg==
+X-Gm-Message-State: AOJu0YwaDzOsZ5rNZm8y80pAofnb9+dXzYkREFSxLyhKscJa2KalcruB
+	qBCxo1oons02mPusv7zbD6WzcA==
+X-Google-Smtp-Source: AGHT+IGyFPsKcbZnXk366DYq/es2JWb3tJA7eqKSX6IfX54Hcco/J4PuKhtkOuzGVLlbAyicuyZl5Q==
+X-Received: by 2002:a17:902:ecca:b0:1cf:f868:5b8c with SMTP id a10-20020a170902ecca00b001cff8685b8cmr1228712plh.8.1701766804259;
+        Tue, 05 Dec 2023 01:00:04 -0800 (PST)
+Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id q1-20020a17090311c100b001cfc9c926b7sm6134629plh.75.2023.12.05.01.00.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Dec 2023 00:40:19 -0800 (PST)
-From: Qingfang DENG <dqfext@gmail.com>
-To: 
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
+        Tue, 05 Dec 2023 01:00:04 -0800 (PST)
+From: Zong Li <zong.li@sifive.com>
+To: palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	aou@eecs.berkeley.edu,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] riscv: introduce RISCV_EFFICIENT_UNALIGNED_ACCESS
-Date: Tue,  5 Dec 2023 16:39:24 +0800
-Message-Id: <20231205083924.48933-1-dqfext@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20231203135753.1575-2-jszhang@kernel.org>
-References: <20231203135753.1575-2-jszhang@kernel.org> <20231203135753.1575-1-jszhang@kernel.org>
-MIME-Version: 1.0
+Cc: Zong Li <zong.li@sifive.com>
+Subject: [PATCH] riscv: add CALLER_ADDRx support
+Date: Tue,  5 Dec 2023 08:59:59 +0000
+Message-Id: <20231205085959.32177-1-zong.li@sifive.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231205_004025_033643_6058E748 
-X-CRM114-Status: UNSURE (   4.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231205_010006_451966_2ADD60CD 
+X-CRM114-Status: GOOD (  14.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,31 +85,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+CALLER_ADDRx returns caller's address at specified level, they are used
+for several tracers. These macros eventually use
+__builtin_return_address(n) to get the caller's address if arch doesn't
+define their own implementation.
 
-You may as well remove the -mstrict-align CFLAGS in the Makefile, if
-this option is enabled:
+In RISC-V, __builtin_return_address(n) only works when n == 0, we need
+to walk the stack frame to get the caller's address at specified level.
 
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -108,7 +108,9 @@ KBUILD_AFLAGS_MODULE += $(call as-option,-Wa$(comma)-mno-relax)
- # unaligned accesses.  While unaligned accesses are explicitly allowed in the
- # RISC-V ISA, they're emulated by machine mode traps on all extant
- # architectures.  It's faster to have GCC emit only aligned accesses.
-+ifneq ($(CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS),y)
- KBUILD_CFLAGS += $(call cc-option,-mstrict-align)
-+endif
+data.level started from 'level + 3' due to the call flow of getting
+caller's address in RISC-V implementation. If we don't have additional
+three iteration, the level is corresponding to follows:
+
+callsite -> return_address -> arch_stack_walk -> walk_stackframe
+|           |                 |                  |
+level 3     level 2           level 1            level 0
+
+Signed-off-by: Zong Li <zong.li@sifive.com>
+---
+ arch/riscv/include/asm/ftrace.h    |  5 ++++
+ arch/riscv/kernel/Makefile         |  2 ++
+ arch/riscv/kernel/return_address.c | 48 ++++++++++++++++++++++++++++++
+ 3 files changed, 55 insertions(+)
+ create mode 100644 arch/riscv/kernel/return_address.c
+
+diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
+index 2b2f5df7ef2c..42777f91a9c5 100644
+--- a/arch/riscv/include/asm/ftrace.h
++++ b/arch/riscv/include/asm/ftrace.h
+@@ -25,6 +25,11 @@
  
- ifeq ($(CONFIG_STACKPROTECTOR_PER_TASK),y)
- prepare: stack_protector_prepare
+ #define ARCH_SUPPORTS_FTRACE_OPS 1
+ #ifndef __ASSEMBLY__
++
++extern void *return_address(unsigned int level);
++
++#define ftrace_return_address(n) return_address(n)
++
+ void MCOUNT_NAME(void);
+ static inline unsigned long ftrace_call_adjust(unsigned long addr)
+ {
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index fee22a3d1b53..40d054939ae2 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -7,6 +7,7 @@ ifdef CONFIG_FTRACE
+ CFLAGS_REMOVE_ftrace.o	= $(CC_FLAGS_FTRACE)
+ CFLAGS_REMOVE_patch.o	= $(CC_FLAGS_FTRACE)
+ CFLAGS_REMOVE_sbi.o	= $(CC_FLAGS_FTRACE)
++CFLAGS_REMOVE_return_address.o	= $(CC_FLAGS_FTRACE)
+ endif
+ CFLAGS_syscall_table.o	+= $(call cc-option,-Wno-override-init,)
+ CFLAGS_compat_syscall_table.o += $(call cc-option,-Wno-override-init,)
+@@ -46,6 +47,7 @@ obj-y	+= irq.o
+ obj-y	+= process.o
+ obj-y	+= ptrace.o
+ obj-y	+= reset.o
++obj-y	+= return_address.o
+ obj-y	+= setup.o
+ obj-y	+= signal.o
+ obj-y	+= syscall_table.o
+diff --git a/arch/riscv/kernel/return_address.c b/arch/riscv/kernel/return_address.c
+new file mode 100644
+index 000000000000..c2008d4aa6e5
+--- /dev/null
++++ b/arch/riscv/kernel/return_address.c
+@@ -0,0 +1,48 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * This code come from arch/arm64/kernel/return_address.c
++ *
++ * Copyright (C) 2023 SiFive.
++ */
++
++#include <linux/export.h>
++#include <linux/kprobes.h>
++#include <linux/stacktrace.h>
++
++struct return_address_data {
++	unsigned int level;
++	void *addr;
++};
++
++static bool save_return_addr(void *d, unsigned long pc)
++{
++	struct return_address_data *data = d;
++
++	if (!data->level) {
++		data->addr = (void *)pc;
++		return false;
++	}
++
++	--data->level;
++
++	return true;
++}
++NOKPROBE_SYMBOL(save_return_addr);
++
++void *return_address(unsigned int level)
++{
++	struct return_address_data data;
++
++	data.level = level + 3;
++	data.addr = NULL;
++
++	arch_stack_walk(save_return_addr, &data, current, NULL);
++
++	if (!data.level)
++		return data.addr;
++	else
++		return NULL;
++
++}
++EXPORT_SYMBOL_GPL(return_address);
++NOKPROBE_SYMBOL(return_address);
 -- 
+2.17.1
 
-- Qingfang
 
 _______________________________________________
 linux-riscv mailing list
