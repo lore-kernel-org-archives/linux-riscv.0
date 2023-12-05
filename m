@@ -4,73 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 716E8C4167B
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Dec 2023 13:23:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67A60C46CA0
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Dec 2023 13:51:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Rdh0LqWLrxh+Xe52AVA/kK//Bwh0G0Ke4XxNNIVu5RY=; b=dUWdw/l5WWVbJI
-	GULyush4B77d5m/wVtA2C3kl1zYA9VfbC+/yuVdE/UBVSBoZ+C/svpWPdRR9x1RbR7yTwPzerURxD
-	mPIql9lZ+mRHAvLhax6tA/XliVL7GPqygdVcHKs+W5xIM8e+q6rhF6YK3prfHVYVDB1b7gohwQysd
-	2ZjtAizPW6S8HlM8ksdMsEIgFNBwwe3LVHnlHHCHVw9msbFQO/nKZzmmusM287AftAK7pKV6fQo5a
-	s+qDzbT+df9op3P7UP58xeb0QhkaS1K1zlPBm7DCoZ7qosV00zR5Yx0DH7PKXAMvS5m9sEwyfzlnr
-	rrcqzYV2llBULplQZBqA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lrIU7ViIKwCFq03Tu/t2o7hfh0aeFOfRsY9Bu768xq8=; b=k9xxWgTA4d5BPl
+	kh3ZwW6zwQrwQN8kk3En65fN/NHCSNKvQ1H3nIXQ1XYABJQzJ6PknzCXgVXJyLdcArD78cbwl6t7V
+	qmN1EHk1C9+Q+3Lmp/NLKU5PrdrPxB8bB22fdcNqxU15LddIlrw+A0TCcLbpHkuNcLlsIIGDlRfbD
+	anbqo43M9567Ap5bdOYDraVC5Pqe/GmNdcssZmp5FklorDLap5L+ybsVgLYldnMMT0nVg/mm7LTL8
+	+RAeLkOwxbNZzTAvUZiMGzV2AionNEQEVwBC029SHyzCJkg0Q+bviXFtIQ93g1Ie9oj+GrD0v2R5P
+	UW3/UkTnWAxJi2m6kNwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAVO3-007Urc-1s;
-	Tue, 05 Dec 2023 13:22:55 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1rAVp6-007XGt-0f;
+	Tue, 05 Dec 2023 13:50:52 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAVO0-007UpM-1a;
-	Tue, 05 Dec 2023 13:22:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1701782572; x=1733318572;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=AHTG5//HsS+ik+KHalxVDEMMIBv5EzNnWR91SRis9eY=;
-  b=LqKH81imZ6vWO9PSBmFI35H/TGVK49dviBLIZMReM015InNAM+yURbpC
-   dn0a1zul7fouLsbM8QIZBmQ23rWBEW6E7+MJ/PDHDAoP7xSaW+k/Vdyc4
-   FaGTtSmXKCqL2TKv2cJpqgBRCtp+2v+PRaGxcEKe1Y8XvU/hMfV/m2n1P
-   rimt4CkixWlD6DTyxGqVplqM0/9nW6YfsuVUgkI4/9/jmvncFnCveNgfR
-   WTzGvEocfTnAxZ6p2WOVDYpiSmuEX39g4JIyR9cpjdCe2P5ISOzBDs2Qi
-   F/Ga/CBTiCwBrewakmFlOtdzKbytsKswKh+pk28wRQ8qlT5p5OTA13hZG
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10914"; a="975424"
-X-IronPort-AV: E=Sophos;i="6.04,252,1695711600"; 
-   d="scan'208";a="975424"
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Dec 2023 05:22:46 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10914"; a="799972189"
-X-IronPort-AV: E=Sophos;i="6.04,252,1695711600"; 
-   d="scan'208";a="799972189"
-Received: from lkp-server02.sh.intel.com (HELO b07ab15da5fe) ([10.239.97.151])
-  by orsmga008.jf.intel.com with ESMTP; 05 Dec 2023 05:22:43 -0800
-Received: from kbuild by b07ab15da5fe with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1rAVNn-00092Q-1M;
-	Tue, 05 Dec 2023 13:22:39 +0000
-Date: Tue, 5 Dec 2023 21:22:10 +0800
-From: kernel test robot <lkp@intel.com>
-To: Daniel Henrique Barboza <dbarboza@ventanamicro.com>,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	id 1rAVp3-007XFK-29
+	for linux-riscv@lists.infradead.org;
+	Tue, 05 Dec 2023 13:50:51 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-6ce6dd83945so584576b3a.3
+        for <linux-riscv@lists.infradead.org>; Tue, 05 Dec 2023 05:50:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1701784248; x=1702389048; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5tYmQsqbSCasY24iJ5yb8DOXoFWsecoLxSrfb0V9jc4=;
+        b=c20iU239SDOETmPDPQHtij+tm+KBsS+A2g9HjLqZXFvaOZSt0FyW6TrDdLaLclBEIo
+         Ks2Fgg20NhuSdaLjZz9LxxJ9W/IFPYH+pYYYMYq9fYLUGRn55ZJzjrMh3jzHLtae2xX9
+         tgjkGYvYAL3tFAIkF86ODFW5QgBSRhbOVG7esefHrIsVn0nfKVxLT+YDgkTTOBLCNIHg
+         NPEYFQt/3wBky95mE2wU3rBAEPuYdcP+aeHFTaJYzeAYm6uZQPdfEwpjTSU86weoCHOB
+         HJIbNrSpuXwEm0XTGbAyPLYL26OG2ApgGhCwTzp3dLhFJJqK0GnOhs4Ph/DCnCocLcYf
+         FRCA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701784248; x=1702389048;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5tYmQsqbSCasY24iJ5yb8DOXoFWsecoLxSrfb0V9jc4=;
+        b=IYo/ZljHEHYwJInep55UPWSSEbbc8OYWTu+LIKyt0s4b8Bz7yqSn7R01Dmy0+AjFFL
+         k/ElxPmF5V43IkrihrlhMvO//LRtApfjEdc10nX6Iu49NqHyXlzW3KmHGVK4CqjoFDqM
+         +ARBDRUlmE8kjgD07GEy43zoHLexFsE29pzZuWFyL6rjLTXkpLE/z++k6sq4IbHDcwNi
+         cnQtgckswiIuKHdmLIPaM19Ryly5/FYfCHiUDK1m1caTfb+oR9b9baSxhdtcbzPLB47d
+         aQR5dKnzj0fpL7u7heAmNjvWHaFKQ449iHOcfoQ+EY3gQHz/uHTGJUedVutjvs2ZxYBX
+         AnTg==
+X-Gm-Message-State: AOJu0Yxnj/iQ28U67Bg4izoI7b1Ktj7kgYNS95b+9yMUxyf2kBPc2hgt
+	8dr0+1CW1QlqSbOrFG4QrArOUg==
+X-Google-Smtp-Source: AGHT+IF58FDgCNhIFgf4+jcYpbFJRPEkybjdmIZdZej549U3kiTnM5En7t4y+alYXvh+9RPZN62oTQ==
+X-Received: by 2002:aa7:99d2:0:b0:6ce:725f:7da9 with SMTP id v18-20020aa799d2000000b006ce725f7da9mr521727pfi.59.1701784248583;
+        Tue, 05 Dec 2023 05:50:48 -0800 (PST)
+Received: from grind.. (200-206-229-234.dsl.telesp.net.br. [200.206.229.234])
+        by smtp.gmail.com with ESMTPSA id c22-20020aa78c16000000b006ce77ffcc75sm673641pfd.165.2023.12.05.05.50.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 05 Dec 2023 05:50:48 -0800 (PST)
+From: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
+To: kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
 	kvm@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, anup@brainfault.org,
-	atishp@atishpatra.org, palmer@dabbelt.com, ajones@ventanamicro.com,
+Cc: anup@brainfault.org,
+	atishp@atishpatra.org,
+	palmer@dabbelt.com,
+	ajones@ventanamicro.com,
 	Daniel Henrique Barboza <dbarboza@ventanamicro.com>
-Subject: Re: [PATCH 3/3] RISC-V: KVM: add vector CSRs in KVM_GET_REG_LIST
-Message-ID: <202312052128.oBSS3Uus-lkp@intel.com>
-References: <20231204182905.2163676-4-dbarboza@ventanamicro.com>
+Subject: [PATCH v2 0/3] RISC-V, KVM: add 'vlenb' and vector CSRs to get-reg-list
+Date: Tue,  5 Dec 2023 10:50:38 -0300
+Message-ID: <20231205135041.2208004-1-dbarboza@ventanamicro.com>
+X-Mailer: git-send-email 2.41.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231204182905.2163676-4-dbarboza@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231205_052252_546205_55E0CCCB 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20231205_055049_706340_A408E9CC 
+X-CRM114-Status: UNSURE (   4.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,56 +95,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+Hi,
 
-kernel test robot noticed the following build warnings:
+This v2 has a build warning fix in patch 3 found by kernel test robot
+<lkp@intel.com>.
 
-[auto build test WARNING on kvm/queue]
-[also build test WARNING on mst-vhost/linux-next linus/master v6.7-rc4 next-20231205]
-[cannot apply to kvm/linux-next]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Changes from v1:
+- patch 3:
+  - remove unused 'cntx' pointer
+- v1 link: https://lore.kernel.org/kvm/20231204182905.2163676-1-dbarboza@ventanamicro.com/
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Daniel-Henrique-Barboza/RISC-V-KVM-set-vlenb-in-kvm_riscv_vcpu_alloc_vector_context/20231205-023109
-base:   https://git.kernel.org/pub/scm/virt/kvm/kvm.git queue
-patch link:    https://lore.kernel.org/r/20231204182905.2163676-4-dbarboza%40ventanamicro.com
-patch subject: [PATCH 3/3] RISC-V: KVM: add vector CSRs in KVM_GET_REG_LIST
-config: riscv-defconfig (https://download.01.org/0day-ci/archive/20231205/202312052128.oBSS3Uus-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 13.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20231205/202312052128.oBSS3Uus-lkp@intel.com/reproduce)
+Daniel Henrique Barboza (3):
+  RISC-V: KVM: set 'vlenb' in kvm_riscv_vcpu_alloc_vector_context()
+  RISC-V: KVM: add 'vlenb' Vector CSR
+  RISC-V: KVM: add vector CSRs in KVM_GET_REG_LIST
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202312052128.oBSS3Uus-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   arch/riscv/kvm/vcpu_onereg.c: In function 'num_vector_regs':
->> arch/riscv/kvm/vcpu_onereg.c:991:39: warning: unused variable 'cntx' [-Wunused-variable]
-     991 |         const struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
-         |                                       ^~~~
-
-
-vim +/cntx +991 arch/riscv/kvm/vcpu_onereg.c
-
-   988	
-   989	static inline unsigned long num_vector_regs(const struct kvm_vcpu *vcpu)
-   990	{
- > 991		const struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
-   992	
-   993		if (!riscv_isa_extension_available(vcpu->arch.isa, v))
-   994			return 0;
-   995	
-   996		/* vstart, vl, vtype, vcsr, vlenb; */
-   997		return 5;
-   998	}
-   999	
+ arch/riscv/kvm/vcpu_onereg.c | 35 +++++++++++++++++++++++++++++++++++
+ arch/riscv/kvm/vcpu_vector.c | 16 ++++++++++++++++
+ 2 files changed, 51 insertions(+)
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.41.0
+
 
 _______________________________________________
 linux-riscv mailing list
