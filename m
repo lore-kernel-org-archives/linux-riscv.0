@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E24FC4167B
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Dec 2023 18:11:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F454C4167B
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Dec 2023 18:11:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U4v65wXRReehNesDH1VXZP75PlV6AzLOzefJD6nDHJU=; b=tGoM4XTFabmeUz
-	Oyu5eGVLvcHaiy7nVeFz+TPzVamVYSHGme/c0PgCUMNXArXHUdUjbKOT1O4mivATqYzApHrRvFlCe
-	r+hkmBoHxPFWvNJQ2xLcbNjfL8bs4bJT9pX8RrlRDC3MZx+suIHUOoPRcWfVU+HupW+sO/3YnCmrw
-	iNSx1rTyhtVxAlqiCZ5W/fCYLXkR2gZ2+F4t48rMWMpMvPSRvKG2+9qJDShrKmu8VcCKs/QE8JMID
-	RJ/N2fZX6RNgJ0De1BKybkkXPomjgwjzKjxMhgLfGGmNCZaE1w7gPC8OLPTxi9v7OFlHYFhjcnofN
-	lPiNg9iRp5j9RVl4d+kw==;
+	List-Owner; bh=7c7uB79YdUGJMtMK12DujHGm7sN5qSb2DyLmJUGSCkM=; b=rjLXRjE0K9wgs7
+	0j1+ajLdpvsDwmh9vOS/LOOG9fVF3cMTUTMwLJxr3qNZxAqHj/wHjiu1SgPXq7YvmIrAIq2RvzySf
+	jrV7Mx05qDnkjVvjKK53f8PRGESJTZDk6kquYdUNvoCLnAGFKoTleyrrI6HxUoXDG+RhOpdyNj5fs
+	dRJIQNrbigKPo01towXC89gHXCz8V8FWtAOzxg+pV7ThCv19tmtSwBaFRPZxpRpLT5XBfTIFE2fmB
+	ViYFNKQn2/vIZED3r4zLKVBWE1QQ1xpI5OocTaj5yl7J8WB0SzHmjB+oNKNnML10n0R7WAYjSisWu
+	skoLVh5n3aEyBmYR8q4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAZtf-00878x-0A;
-	Tue, 05 Dec 2023 18:11:51 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1rAZti-0087DX-0Y;
+	Tue, 05 Dec 2023 18:11:54 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAZtT-0086oI-0R
+	id 1rAZtU-0086rh-3D
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Dec 2023 18:11:41 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-54cfb03f1a8so1977137a12.2
-        for <linux-riscv@lists.infradead.org>; Tue, 05 Dec 2023 10:11:34 -0800 (PST)
+	Tue, 05 Dec 2023 18:11:45 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-9fa2714e828so786648666b.1
+        for <linux-riscv@lists.infradead.org>; Tue, 05 Dec 2023 10:11:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1701799893; x=1702404693; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1701799897; x=1702404697; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=UGYCF0lYfFZwlAJNLQySsaw2USjAgJVMDSNsMt1px+E=;
-        b=ZCIX81Z0+OTLDrfFgRb9DT/9LUhptsqpt6D76Q07wAsdO91Y6O781TssLdn4LzJOVC
-         TeriWhRL6n8zbooKyGby4GXcBqC+ltuSJYXjOLrKN/nue72hWD8mPGtooD6sflFlE9qJ
-         t4Hs+ZU+Jqavsz+cYJYOVa+v1Ci3iez9SmFM8sHYktYbXtM0pldJwQAblyWLEDuRkaEF
-         yS3vIFHWeqTpwIvb9mWXdB3VYaLuNmgYVfYc+kM9Z9q3U18gE/JZoUTfk6hDPstfHinZ
-         2/QueRmYdespaR6WlekBjBQz7ak1BT8hmTnjWNoTRv0I6zBlURQ970CnP2YwJ6EFNDHw
-         5ITA==
+        bh=qpfMMaVnqzUKTZ+jKcmqIbb/qIkXcAgoT0iTzjOxQ48=;
+        b=mYDJwT9eKySK+d2n8vEiyq7pzCDX+ElUKqA/34qDRSVUlpO1Jt2SwpbX593x2hTPZn
+         zn8kjAcBj9NllkghxlpE534SI9Y7YIAHbB+XEtAFKXmbss2tZHllMH83ZBRkFGaWxKOh
+         h0ge1VsmwALOAF35ZtX/rufaBUFBVggGQKOyJesRWeQZqcSXiPPrVaD3Aa52B+tD1/x7
+         HWDcJnhtt8nzSkq7+YoxzfZSJFoElxt0jfizVYJ/bl1fiAwE8/Ux3vqBhGkUrbb+5JCQ
+         ocjrKAgHl4sc6YbFaaRBzrG6NJiLLuknO4mFDRM4QulO6MRJgs9AUFTxe4Wg1bMI4tiW
+         +iPg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701799893; x=1702404693;
+        d=1e100.net; s=20230601; t=1701799897; x=1702404697;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=UGYCF0lYfFZwlAJNLQySsaw2USjAgJVMDSNsMt1px+E=;
-        b=VIVdg9+zVovZBUxStMEXvjOdBsNkgitp3tBfhE8mAciJSY0zMe5382lZ8MZeSKPA2Q
-         P2gG4mXonbAW6PLm7PGjyjJwkLZMTwum/gxDTipwGLL4+HAkqeTxpB0NQgC8MWJY+iYY
-         ncapgz9SNHUeU6Ose9K9VSidtZgLLhy9ZczZoDpv7iLHBkcmMutviyM7aLYp4QQjTmFf
-         9YOo+UMae+vyP147NWJxw9mBsBK+Pce3MPkn++N02LvwXnuODaO5UWqWPhSoasxuFLWo
-         6Ft9TL+Yy0Lv0BMJ6QaMVRTM6+ZAtOzEqvw6mt5nuCZGISF+XYyzfdJIAS8g3IKC3VUg
-         uI8Q==
-X-Gm-Message-State: AOJu0Yxz2n29O0yGwsduqQ69Lo3Pb0vHwchuX66UpGoYmZqOQowu71Gp
-	yWh8YuJZvIqNDoF9OZ+MENu6yA==
-X-Google-Smtp-Source: AGHT+IFXhQJgd4WuDK0vqiDOs2z5hzODiEbavQ83FAvF1/ZACRsn/G4hREGAaD8sLd+7Kvzj8A4axA==
-X-Received: by 2002:a17:906:29c7:b0:a19:2f9b:5058 with SMTP id y7-20020a17090629c700b00a192f9b5058mr739678eje.73.1701799893545;
-        Tue, 05 Dec 2023 10:11:33 -0800 (PST)
+        bh=qpfMMaVnqzUKTZ+jKcmqIbb/qIkXcAgoT0iTzjOxQ48=;
+        b=lkXEfSpv8IjBATURIVPolJ+qIhnw78udXcDmqbQMvxBzWWV68zG63vRsHK4ty/VPv/
+         h0cwGFiKUIks9qijJelzYe0+UCRY/aiR1QWPa5SHaoOVzc4ep4zGlpZWZE2bJWMPVnVp
+         yQS2ZBL+PjgKAApkCY+PITxMyIJU7y/V/vZtpSZCdQXGzpmMqGoCV1GAbX9yhfl+fqQT
+         xEkmNC4oGRsa3kdDvBAbU/oTBCxTXmei5vasYdaFo1r/XmbaBE1eeDpNf7Q+ziQ25a/3
+         gCtS/Z6Gg5vslc7NqdTxjUwDAu+9m2lHAZOFBxc+nV+X9zXOGoTLIyzvCiqLk5tWi/Fy
+         CarQ==
+X-Gm-Message-State: AOJu0YwgUs4agZtk+IW87ssA3IHKWoz/efTcDd9//SNm/SzLljGjP9as
+	Rnm4M6SmYqHmdWtDBgS0EiX93g==
+X-Google-Smtp-Source: AGHT+IG7j4tkgG9BdEAYgsWiHNE6RETMyX70kzIJ6SCnVEsMXr6DcaKxFt+JsiwBECSXjUhwyamLrg==
+X-Received: by 2002:a17:907:7ea4:b0:a19:a19b:55f0 with SMTP id qb36-20020a1709077ea400b00a19a19b55f0mr871121ejc.128.1701799897601;
+        Tue, 05 Dec 2023 10:11:37 -0800 (PST)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id i14-20020a170906090e00b009fd77d78f7fsm7039570ejd.116.2023.12.05.10.11.32
+        by smtp.gmail.com with ESMTPSA id ef3-20020a17090697c300b00a1b75e0e061sm2840625ejb.130.2023.12.05.10.11.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Dec 2023 10:11:33 -0800 (PST)
+        Tue, 05 Dec 2023 10:11:37 -0800 (PST)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
@@ -75,16 +75,17 @@ Cc: anup@brainfault.org,
 	jgross@suse.com,
 	srivatsa@csail.mit.edu,
 	guoren@kernel.org
-Subject: [PATCH v1 09/14] RISC-V: KVM: Add support for SBI STA registers
-Date: Tue,  5 Dec 2023 19:11:29 +0100
-Message-ID: <20231205181119.207204-25-ajones@ventanamicro.com>
+Subject: [PATCH v1 12/14] RISC-V: KVM: selftests: Add guest_sbi_probe_extension
+Date: Tue,  5 Dec 2023 19:11:32 +0100
+Message-ID: <20231205181119.207204-28-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20231205181119.207204-16-ajones@ventanamicro.com>
 References: <20231205181119.207204-16-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231205_101139_219492_779A7710 
-X-CRM114-Status: GOOD (  19.64  )
+X-CRM114-CacheID: sfid-20231205_101141_092091_62CCB4F1 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,205 +102,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-KVM userspace needs to be able to save and restore the steal-time
-shared memory address. Provide the address through the get/set-one-reg
-interface with two ulong-sized SBI STA extension registers (lo and hi).
-64-bit KVM userspace must not set the hi register to anything other
-than zero and is allowed to completely neglect saving/restoring it.
+Add guest_sbi_probe_extension(), allowing guest code to probe for
+SBI extensions. As guest_sbi_probe_extension() needs
+SBI_ERR_NOT_SUPPORTED, take the opportunity to bring in all SBI
+error codes. We don't bring in all current extension IDs or base
+extension function IDs though, even though we need one of each,
+because we'd prefer to bring those in as necessary.
 
 Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- arch/riscv/include/asm/kvm_vcpu_sbi.h |  5 +++
- arch/riscv/include/uapi/asm/kvm.h     |  9 +++++
- arch/riscv/kvm/vcpu_onereg.c          | 41 +++++++++++++-------
- arch/riscv/kvm/vcpu_sbi_sta.c         | 55 +++++++++++++++++++++++++++
- 4 files changed, 96 insertions(+), 14 deletions(-)
+ .../selftests/kvm/include/riscv/processor.h   | 21 +++++++++++++++++++
+ .../selftests/kvm/lib/riscv/processor.c       | 19 +++++++++++++++++
+ 2 files changed, 40 insertions(+)
 
-diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-index 99c23bb37a37..ef56b850d46f 100644
---- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
-+++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-@@ -66,6 +66,11 @@ bool riscv_vcpu_supports_sbi_ext(struct kvm_vcpu *vcpu, int idx);
- int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run);
- void kvm_riscv_vcpu_sbi_init(struct kvm_vcpu *vcpu);
+diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
+index e70ccda2011b..dc50ad62e150 100644
+--- a/tools/testing/selftests/kvm/include/riscv/processor.h
++++ b/tools/testing/selftests/kvm/include/riscv/processor.h
+@@ -108,6 +108,17 @@ static inline uint64_t __kvm_reg_id(uint64_t type, uint64_t subtype,
+ #define SATP_ASID_SHIFT				44
+ #define SATP_ASID_MASK				_AC(0xFFFF, UL)
  
-+int kvm_riscv_vcpu_get_reg_sbi_sta(struct kvm_vcpu *vcpu, unsigned long reg_num,
-+				   unsigned long *reg_val);
-+int kvm_riscv_vcpu_set_reg_sbi_sta(struct kvm_vcpu *vcpu, unsigned long reg_num,
-+				   unsigned long reg_val);
++/* SBI return error codes */
++#define SBI_SUCCESS				0
++#define SBI_ERR_FAILURE				-1
++#define SBI_ERR_NOT_SUPPORTED			-2
++#define SBI_ERR_INVALID_PARAM			-3
++#define SBI_ERR_DENIED				-4
++#define SBI_ERR_INVALID_ADDRESS			-5
++#define SBI_ERR_ALREADY_AVAILABLE		-6
++#define SBI_ERR_ALREADY_STARTED			-7
++#define SBI_ERR_ALREADY_STOPPED			-8
 +
- #ifdef CONFIG_RISCV_SBI_V01
- extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_v01;
- #endif
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index 86df125ef17f..8d4f15f1b189 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -188,6 +188,12 @@ enum KVM_RISCV_SBI_EXT_ID {
- 	KVM_RISCV_SBI_EXT_MAX,
- };
+ #define SBI_EXT_EXPERIMENTAL_START		0x08000000
+ #define SBI_EXT_EXPERIMENTAL_END		0x08FFFFFF
  
-+/* SBI STA extension registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
-+struct kvm_riscv_sbi_sta {
-+	unsigned long shmem_lo;
-+	unsigned long shmem_hi;
+@@ -115,6 +126,14 @@ static inline uint64_t __kvm_reg_id(uint64_t type, uint64_t subtype,
+ #define KVM_RISCV_SELFTESTS_SBI_UCALL		0
+ #define KVM_RISCV_SELFTESTS_SBI_UNEXP		1
+ 
++enum sbi_ext_id {
++	SBI_EXT_BASE = 0x10,
 +};
 +
- /* Possible states for kvm_riscv_timer */
- #define KVM_RISCV_TIMER_STATE_OFF	0
- #define KVM_RISCV_TIMER_STATE_ON	1
-@@ -271,6 +277,9 @@ enum KVM_RISCV_SBI_EXT_ID {
++enum sbi_ext_base_fid {
++	SBI_EXT_BASE_PROBE_EXT = 3,
++};
++
+ struct sbiret {
+ 	long error;
+ 	long value;
+@@ -125,4 +144,6 @@ struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
+ 			unsigned long arg3, unsigned long arg4,
+ 			unsigned long arg5);
  
- /* Registers for specific SBI extensions are mapped as type 10 */
- #define KVM_REG_RISCV_SBI		(0x0a << KVM_REG_RISCV_TYPE_SHIFT)
-+#define KVM_REG_RISCV_SBI_STA		(0x0 << KVM_REG_RISCV_SUBTYPE_SHIFT)
-+#define KVM_REG_RISCV_SBI_STA_REG(name)		\
-+		(offsetof(struct kvm_riscv_sbi_sta, name) / sizeof(unsigned long))
++bool guest_sbi_probe_extension(int extid, long *out_val);
++
+ #endif /* SELFTEST_KVM_PROCESSOR_H */
+diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
+index 6905a4348380..7ca736fb4194 100644
+--- a/tools/testing/selftests/kvm/lib/riscv/processor.c
++++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
+@@ -393,3 +393,22 @@ struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
  
- /* Device Control API: RISC-V AIA */
- #define KVM_DEV_RISCV_APLIC_ALIGN		0x1000
-diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
-index dbd8cedfd556..c2819c99988d 100644
---- a/arch/riscv/kvm/vcpu_onereg.c
-+++ b/arch/riscv/kvm/vcpu_onereg.c
-@@ -1033,6 +1033,9 @@ static int kvm_riscv_vcpu_get_reg_sbi(struct kvm_vcpu *vcpu,
- 	reg_num &= ~KVM_REG_RISCV_SUBTYPE_MASK;
- 
- 	switch (reg_subtype) {
-+	case KVM_REG_RISCV_SBI_STA:
-+		ret = kvm_riscv_vcpu_get_reg_sbi_sta(vcpu, reg_num, &reg_val);
-+		break;
- 	default:
- 		return -EINVAL;
- 	}
-@@ -1066,6 +1069,8 @@ static int kvm_riscv_vcpu_set_reg_sbi(struct kvm_vcpu *vcpu,
- 	reg_num &= ~KVM_REG_RISCV_SUBTYPE_MASK;
- 
- 	switch (reg_subtype) {
-+	case KVM_REG_RISCV_SBI_STA:
-+		return kvm_riscv_vcpu_set_reg_sbi_sta(vcpu, reg_num, reg_val);
- 	default:
- 		return -EINVAL;
- 	}
-@@ -1073,27 +1078,35 @@ static int kvm_riscv_vcpu_set_reg_sbi(struct kvm_vcpu *vcpu,
- 	return 0;
+ 	return ret;
  }
- 
--static inline unsigned long num_sbi_regs(struct kvm_vcpu *vcpu)
--{
--	return 0;
--}
--
- static int copy_sbi_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
- {
--	int n = num_sbi_regs(vcpu);
-+	struct kvm_vcpu_sbi_context *scontext = &vcpu->arch.sbi_context;
-+	int total = 0;
- 
--	for (int i = 0; i < n; i++) {
--		u64 reg = KVM_REG_RISCV | KVM_REG_SIZE_U64 |
--			  KVM_REG_RISCV_SBI | i;
-+	if (scontext->ext_status[KVM_RISCV_SBI_EXT_STA] == KVM_RISCV_SBI_EXT_STATUS_ENABLED) {
-+		u64 size = IS_ENABLED(CONFIG_32BIT) ? KVM_REG_SIZE_U32 : KVM_REG_SIZE_U64;
-+		int n = sizeof(struct kvm_riscv_sbi_sta) / sizeof(unsigned long);
- 
--		if (uindices) {
--			if (put_user(reg, uindices))
--				return -EFAULT;
--			uindices++;
-+		for (int i = 0; i < n; i++) {
-+			u64 reg = KVM_REG_RISCV | size |
-+				  KVM_REG_RISCV_SBI | KVM_REG_RISCV_SBI_STA | i;
 +
-+			if (uindices) {
-+				if (put_user(reg, uindices))
-+					return -EFAULT;
-+				uindices++;
-+			}
- 		}
-+
-+		total += n;
- 	}
- 
--	return n;
-+	return total;
-+}
-+
-+static inline unsigned long num_sbi_regs(struct kvm_vcpu *vcpu)
++bool guest_sbi_probe_extension(int extid, long *out_val)
 +{
-+	return copy_sbi_reg_indices(vcpu, NULL);
- }
- 
- /*
-diff --git a/arch/riscv/kvm/vcpu_sbi_sta.c b/arch/riscv/kvm/vcpu_sbi_sta.c
-index 157c199be0b4..073bc47013b7 100644
---- a/arch/riscv/kvm/vcpu_sbi_sta.c
-+++ b/arch/riscv/kvm/vcpu_sbi_sta.c
-@@ -3,6 +3,8 @@
-  * Copyright (c) 2023 Ventana Micro Systems Inc.
-  */
- 
-+#include <linux/kconfig.h>
-+#include <linux/kernel.h>
- #include <linux/kvm_host.h>
- 
- #include <asm/kvm_vcpu_sbi.h>
-@@ -53,3 +55,56 @@ const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_sta = {
- 	.handler = kvm_sbi_ext_sta_handler,
- 	.probe = kvm_sbi_ext_sta_probe,
- };
++	struct sbiret ret;
 +
-+int kvm_riscv_vcpu_get_reg_sbi_sta(struct kvm_vcpu *vcpu,
-+				   unsigned long reg_num,
-+				   unsigned long *reg_val)
-+{
-+	switch (reg_num) {
-+	case KVM_REG_RISCV_SBI_STA_REG(shmem_lo):
-+		*reg_val = (unsigned long)vcpu->arch.sta.shmem;
-+		break;
-+	case KVM_REG_RISCV_SBI_STA_REG(shmem_hi):
-+		if (IS_ENABLED(CONFIG_32BIT))
-+			*reg_val = upper_32_bits(vcpu->arch.sta.shmem);
-+		else
-+			*reg_val = 0;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
++	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_PROBE_EXT, extid,
++			0, 0, 0, 0, 0);
 +
-+	return 0;
-+}
++	__GUEST_ASSERT(!ret.error || ret.error == SBI_ERR_NOT_SUPPORTED,
++		       "ret.error=%ld, ret.value=%ld\n", ret.error, ret.value);
 +
-+int kvm_riscv_vcpu_set_reg_sbi_sta(struct kvm_vcpu *vcpu,
-+				   unsigned long reg_num,
-+				   unsigned long reg_val)
-+{
-+	switch (reg_num) {
-+	case KVM_REG_RISCV_SBI_STA_REG(shmem_lo):
-+		if (IS_ENABLED(CONFIG_32BIT)) {
-+			gpa_t hi = upper_32_bits(vcpu->arch.sta.shmem);
++	if (ret.error == SBI_ERR_NOT_SUPPORTED)
++		return false;
 +
-+			vcpu->arch.sta.shmem = reg_val;
-+			vcpu->arch.sta.shmem |= hi << 32;
-+		} else {
-+			vcpu->arch.sta.shmem = reg_val;
-+		}
-+		break;
-+	case KVM_REG_RISCV_SBI_STA_REG(shmem_hi):
-+		if (IS_ENABLED(CONFIG_32BIT)) {
-+			gpa_t lo = lower_32_bits(vcpu->arch.sta.shmem);
++	if (out_val)
++		*out_val = ret.value;
 +
-+			vcpu->arch.sta.shmem = ((gpa_t)reg_val << 32);
-+			vcpu->arch.sta.shmem |= lo;
-+		} else if (reg_val != 0) {
-+			return -EINVAL;
-+		}
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return 0;
++	return true;
 +}
 -- 
 2.43.0
