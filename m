@@ -4,129 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B7DCC4167B
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Dec 2023 06:35:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C543CC4167B
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Dec 2023 06:55:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Bqp5mBnyULepO6ld8SJafxm1xC98I7QyUijScExH+5s=; b=2RGYbQp/c0iXyo
-	KrSO7TDiFCXn+QUdKTbLh0J1y3IFRE2Ire126/VmnNfpBi4DjP9otGnFzLSsGySMhv0crDzW8GIyu
-	6wrJOb6jECGJAqVvN+tBs/BsgzRle9+/LahF/Mm1dFgMWRun0SDp8TP4TrpgMnQI/6FMdazG9hkyl
-	cmf8Nv70R/8r/TNc3GaiIvko6LibQiMhwdQ0D/7yiei65/VrcIMK9MtpiI7ODqb9Pbs/lRQ4kEgBm
-	BaAWqtqI8eB3PHY92oBdBHzlSBdPZCyMR/AWFqWPXhs3J6XinTaFhGxwbELsnDdvQA9fsyvGuDcZl
-	uZyZEqz5K5lYckJLyRLQ==;
+	List-Owner; bh=0imYlkVDUf9XIrRcQgtVV4nRdqvVk1Tb+nLG/hIIT/k=; b=k9kju0KJ7+VOgq
+	JNmchBoBCg82QZgUzrrF1AKVRQw9gUihACbL8AhUA5nHi44/uWTerThJ+IchIWL4ijHg065I84b3n
+	MGJgqCbnKg9/P4m5R1WmL5vtEtPdOwtQBWqPCgHZfOThISL005Jz6kwokJsobOcQuMHeeBIz341fj
+	a0UhEGDMgRoUbfgBRKElJ1UIg8QngFaTGBqov+Dlc8CxkWnLF3n7VOvK1FKhmFNGUruSiSXKNVrO0
+	bokERDNzODelfaJjXnqUXU7fHidCEGoFVcpjcF7gCa9tevDOnCk6KTL5TDCSlhQlgszhI9omQ2S2O
+	bdFXqzM7sJuMUCGW0fag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAP19-006PKl-1k;
-	Tue, 05 Dec 2023 06:34:51 +0000
-Received: from mail-bn1nam02olkn2082e.outbound.protection.outlook.com ([2a01:111:f400:7eb2::82e] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
+	id 1rAPLM-006RZ9-2q;
+	Tue, 05 Dec 2023 06:55:44 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAP16-006PK8-36
+	id 1rAPLK-006RYR-2v
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Dec 2023 06:34:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=KO0CLC7/fRAPFeMp4Offj7WFClzzxoKcihXVc26y8sz7DCVIRjqo2DOwhBNkcduAzSc2o8NEccWz2W1HnhcPTs2kM9Gq8IyBUP16xyvF1wTBrjhmSlFKzhKrJ8P7ZmI5kLfL0vjTX2UcyRKjB3AXdh3wHpJ6J4fNRDIdFEkPQV4rUY0cPR7aRvoZRlxHErEc30WTaIfqlGFyGULD9Zx4SQya8W1eC912mLDaF/h875AFJ7RA1coZai8T2V3WnLt6LbqvPu1ANv1Bwh0UuvtkyEaSIfRAkvLP5FdrBIMAx4XVIGXersWVpG7z0dUtYwhKL0SzHInfmWzBgwSKW8xZ2Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QsA36/WzLy5Bh1MeIsei6q76Rk/kMPrcoxhBlyVrIww=;
- b=dAStvUuwcZa0wpkJ0UjLiGMMTt/1+Y90rhHA4yPqR3cNVNG4NKr63DEppLM5T8ejPfcZWsMUA87WCMEJewYbm9hhUlo1cNOCJYQ6vnLKHofYjuzwAQ9UcmrH5ezVatgWNI/liyZSo4BjieNQof3JTKExmTl4RFYnyNMWIj5LhVeyGELZlw4mSgXJLKOecl5cRlCPgpv3xBvQjgUl90FAMZfk8u7gIjSsUTfZU2JyyfMRJHQVSZyirYFJP7zz8lurjLEYvw16aaP4V3C/EwkUJkyIr5rpQkPNY6Ow3gOJ+w5xnxsSW5sjgQnknT5CNoBWbMXUS8yZHImGvnlSBWCYLg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QsA36/WzLy5Bh1MeIsei6q76Rk/kMPrcoxhBlyVrIww=;
- b=gVXI29ZWJH4daZartyMiNXvuaYPSU6qNGHx5AFi7L/kAIxFyY7h+3zpxKHbvGPiCJ8HWt5+ZWedSTpgpAzbC0tSpg08S3Dx8DatvW+F1JxPxnGAOGqVY4JRlZ1cEnY8QbXqPbf1IJLKEqEXi8jRgy0XIm1UEU1XwC0Fq7nbaL/FM3sNnY2kSAmByypp9nl/lsgNv2YzVsq/c3soZyJLZrhU6Wwjwm/9ZAmpn40gT21Ij3bYUgg+H6FKncDdmw1HgYIGa4VqoCpRTm6MnXwrQjJ0XMHDnO38+MalPLGtQE8f4SLzDlWeEo0LGeMT/oPABOOl1H6/h9TLcWWQAQq5NVA==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by CH3PR20MB5698.namprd20.prod.outlook.com (2603:10b6:610:14a::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7046.34; Tue, 5 Dec
- 2023 06:34:40 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::55b:c350:980:ad8]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::55b:c350:980:ad8%6]) with mapi id 15.20.7046.024; Tue, 5 Dec 2023
- 06:34:40 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Chen Wang <unicorn_wang@outlook.com>
-Cc: Inochi Amaoto <inochiama@outlook.com>,
-	Chen Wang <unicornxw@gmail.com>,
-	aou@eecs.berkeley.edu,
-	chao.wei@sophgo.com,
-	conor@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	mturquette@baylibre.com,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	richardcochran@gmail.com,
-	robh+dt@kernel.org,
-	sboyd@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	haijiao.liu@sophgo.com,
-	xiaoguang.xing@sophgo.com,
-	guoren@kernel.org,
-	jszhang@kernel.org,
-	samuel.holland@sifive.com
-Subject: Re: [PATCH v4 3/4] clk: sophgo: Add SG2042 clock generator driver
-Date: Tue,  5 Dec 2023 14:34:30 +0800
-Message-ID: <IA1PR20MB4953B7BBA12262E0ECAC2B04BB85A@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <MA0P287MB033276574107F5031C153DDDFE85A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
-References: <MA0P287MB033276574107F5031C153DDDFE85A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
-X-TMN: [6NRc+sQnH3Gt+wuJo5vGZLJAB5G2YDi4Huk0BjiIYOY=]
-X-ClientProxiedBy: TYAPR01CA0184.jpnprd01.prod.outlook.com
- (2603:1096:404:ba::28) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20231205063431.815824-1-inochiama@outlook.com>
+	Tue, 05 Dec 2023 06:55:44 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-40c05ce04a8so31067715e9.0
+        for <linux-riscv@lists.infradead.org>; Mon, 04 Dec 2023 22:55:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1701759339; x=1702364139; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
+         :to:content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ZC+pqbiszrUBoshJFbD4jXG8ybaewehB/NwEnHJlydc=;
+        b=LiXY2x2M/P98xozGTxlXh/rqXR+iEfviClX6Hhtv7xAA7Tt/hdplC+XbFtw5KWqzXo
+         B3sHPQliHGLyRN2za0tbCRz/HMsJOVvdxlzoQDOZSnHN9mUJIeAzHN0P6wn7eiBYv78e
+         pzlaTxGX+PqwatVaJOsFSVyBH0xyu7twI+NuBTyb2VWQgvGxLv9MllIOoavncMC/Ye2U
+         /q4Eidpju+vdutbYg+rtGlgU9LtiQLku8iYXyhAcwhxb1Pxqv3t0FDrQPi9VIgNb/kG1
+         /smAMqGRDVgYelH8h1fCtwvs/18KmqBrrnblLLTz0ZJsq3x0j0VqA7KRXT6WHlup/Khr
+         /7ng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701759339; x=1702364139;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
+         :to:content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZC+pqbiszrUBoshJFbD4jXG8ybaewehB/NwEnHJlydc=;
+        b=FabLCWrEUBSfXk7/rZ3oAXFz/siBThJuDHrlWO8hJujf8WO+VOBLAruku9Pu8l/vpP
+         YubUz8vIUfFrnO/JholOjfPXQ6FIKJeMZmrTKNWfLEje+dGXo0OYCjNkiufy34mADOdJ
+         5kgoGVP6fkyHTCN5cQ5x/tEGTpQb6yC6EVqp6U+Yi/fWVxHv+/7drVRMAoefCL/tV/2k
+         u4pVW2HCz+P+iReRFxNyX0cBpUgU7Vd70Yiz/OViiwb1A5nbcsgh/tjY0WkOFdJzoAVq
+         sxLD6zwlk7pfY9yzaPvJ1EE8M7gXN2LiK97i5F8drRn6vi6oKB+aG46T6HsjvhYHA9ju
+         133g==
+X-Gm-Message-State: AOJu0Yz3KD9hRsEPYJRlQNwAGYx9WR+cJQxFIoQN1HcG9+6H3ovv1MuW
+	bePRYg5WSevAfWrbj8bJmbqRJQ==
+X-Google-Smtp-Source: AGHT+IFwNfght72GXJ2ftnC1RmH4rxhWLWvoFra7uBhEvmy2MXjAIz5hmBqv6DraN4Vg4yEcQ2uErg==
+X-Received: by 2002:a05:600c:468b:b0:40b:5e59:f727 with SMTP id p11-20020a05600c468b00b0040b5e59f727mr1538960wmo.153.1701759338958;
+        Mon, 04 Dec 2023 22:55:38 -0800 (PST)
+Received: from [192.168.1.20] ([178.197.218.27])
+        by smtp.gmail.com with ESMTPSA id b12-20020a05600010cc00b0033340aa3de2sm6751763wrx.14.2023.12.04.22.55.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 04 Dec 2023 22:55:38 -0800 (PST)
+Message-ID: <cf5e4cc0-f011-4915-b551-853cc9646ac7@linaro.org>
+Date: Tue, 5 Dec 2023 07:55:37 +0100
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|CH3PR20MB5698:EE_
-X-MS-Office365-Filtering-Correlation-Id: 245e8579-1866-4af2-8199-08dbf55c41ea
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: ez7JSzYL1QPUzDiwnz7Rp1nOV/aJilVCVOtuVdPM6GuFOms6yCl5+aNg5taCOfUFOF32OsCQWdm9JoFstJdwV6+2Z/duzg65Tkvdec1ZJiiIEr51QRhmPPxCcUCQ2nm2FJnmw34KjOzP7IG5kW9j69xCKk3RXhhMaTPq8Iq2vNehDSgx2lTDCRlz29rLEnhn7prGoiYiOfOGx2AxgzGdITtgZyilNmU3OrH705ImbmbXEy+seWAHoXgp4RkGx3p4MYN8zIwMGWM1n3Wd6sY1mGiLOXLwBPsj3y2uUmRtPqBVM+JWbs9QFgzrimLOyeNuGEbBN9hoWmzNmIETOQyr63DVNnyDA3eGOa00yLKpdtytwzhWtZEKTbD72zZkSYjfU0dL8dD5tFBuZSfE0xcpSKu39iYWYW32QkuEP1I1W/j2zQyVB1QZLnHg5DWgfheDxs6w4ORjXvgBI8vayLV5zmuUsoUHnu9lPCHgFX3O9yM+PjH0fHxygTT1ooeyq8X/FqeO0ZmTfG5JpBrPW025uECyhFJuRniL504zHSzA9MXbRh2KXWIJ2twNs+vUEhik5gHYacubgfJEHHbtc9kyMS0+LgibamHb7OGoiKuShK3gwd6umncroP+UunJTETB+
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?0aX8bHmtri44fLLCbCzR+pGrQ9EbgVXEvlbLfuv8ywm34ve4UbCOsbEuNipr?=
- =?us-ascii?Q?WndggJSkD8zL4DaPy9xbr1sY9zvuOxdUDsIJe3C6l5zsc6a9vsovYmL40mzh?=
- =?us-ascii?Q?BqvDtFGOxpBosi07pq+pNIQ5d9vuvo+kDfAuM7l5bo7jL0PNk8wK4k6QQddX?=
- =?us-ascii?Q?z9sGj3XKS7YzNK3+otS00sY74WEvErxCeV3EIqt0fxloT4HOQ0irBZUhVikW?=
- =?us-ascii?Q?CzxXNTltibGk3vLYqZKh9gps2vG3+tg2nB4lmsSXM3IEo4VoRsBhhwbNPTqu?=
- =?us-ascii?Q?6ssmnznnac/pg1DcZBH/HiAsTgEqHDVn9qxyPbIOlvMwP6KgnCdovi8ZDLMT?=
- =?us-ascii?Q?FePvKR0Ut6r/1ph3ShH4g6ptAKxETc06Squr9P5KKJLIwmoKzU8IOyNlyJbr?=
- =?us-ascii?Q?BiDZmXPx3W9E2ziE5QkfS6z2k0yUxek7aYmaaiGPxJxQvx80mvbdNOTIREVN?=
- =?us-ascii?Q?ObTYhlsrTn/RBQkdk+2ekdLTmYWWMuE8ARY7FIFUC/3e2HHuETBAIBgrEK0W?=
- =?us-ascii?Q?YJ5LMLC2SLHW6uiaErGdmm+NzF1k7DoHevOYgdAPhfl10epHZTCGSXY2Ysv2?=
- =?us-ascii?Q?yOFofoMvZ+bwWaJp1QHij9SG02utAksyNzSiZ4GwtPrF7g4yUvanuqzCadJE?=
- =?us-ascii?Q?TTQFpqVTvCZMEG4uTM8O6l2REnT1oZJTZRqbZ3KcNHAVEXLCGR88HYrD4ea+?=
- =?us-ascii?Q?BAL//dsSzyRysP294hN3xgLJXIMHR4TEbbXtB58GLn36fpj2iI1+o3PlfqJk?=
- =?us-ascii?Q?RsRY+OmMjzHVTLxIuTh/bFhhlGBXHtQsrHy3JhouA5wt3SyVQzYGvmgLcEBi?=
- =?us-ascii?Q?q6+Wxa/c/x43y8dsze8nEA4c/Md/E0eysSnoMPvKWElhPB5NZWew9SBgXrd+?=
- =?us-ascii?Q?bhJaUBU+nSlyYNwvfgqSzjLAJHMPMhjIXIb3b6VZiOXz780y8zgIwrSvpEhL?=
- =?us-ascii?Q?CgBVGAi29HmJqLUQXwymcVu+zQKLekA6Fa7lAwWQtXdP7ZEHhVlAv3rA970D?=
- =?us-ascii?Q?1rH3K1zw+ovaxRZdbkq36v5qHUbSKIZo0roAof4OfU3Z0iO4IP5FfFjyFg8S?=
- =?us-ascii?Q?n7aeTbFN/wgpZrdWe+RdCbgV+oWigZQ2XXItTcnHpRShiWxZM2I29J1mBdhI?=
- =?us-ascii?Q?AGxy8Z9ChO7WMpKpoBikUIMWmdapuoOVfDVRqOEmr9y4TEItutqlWuV/Bw5e?=
- =?us-ascii?Q?GN+TeRhPnb26c13EayAgnt3uvangbLrpXbelazuUGReIajLReA/ishFU3mg?=
- =?us-ascii?Q?=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 245e8579-1866-4af2-8199-08dbf55c41ea
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Dec 2023 06:34:39.9175
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR20MB5698
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v3 0/6] DRM driver for verisilicon
+Content-Language: en-US
+To: Keith Zhao <keith.zhao@starfivetech.com>, devicetree@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Cc: mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+ krzysztof.kozlowski+dt@linaro.org, william.qiu@starfivetech.com,
+ xingyu.wu@starfivetech.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+ palmer@dabbelt.com, p.zabel@pengutronix.de, shengyang.chen@starfivetech.com,
+ jack.zhu@starfivetech.com, changhuang.liang@starfivetech.com,
+ maarten.lankhorst@linux.intel.com, suijingfeng@loongson.cn
+References: <20231204123315.28456-1-keith.zhao@starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <20231204123315.28456-1-keith.zhao@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231204_223449_009141_E7FFA734 
-X-CRM114-Status: GOOD (  16.87  )
+X-CRM114-CacheID: sfid-20231204_225542_970189_2C03278E 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,121 +143,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->On 2023/12/5 9:13, Inochi Amaoto wrote:
->>> From: Chen Wang <unicorn_wang@outlook.com>
->>>
->>> Add a driver for the SOPHGO SG2042 clock generator.
->>>
->>> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
->>> ---
->>> MAINTAINERS                            |    7 +
->>> drivers/clk/Kconfig                    |    1 +
->>> drivers/clk/Makefile                   |    1 +
->>> drivers/clk/sophgo/Kconfig             |    8 +
->>> drivers/clk/sophgo/Makefile            |    2 +
->>> drivers/clk/sophgo/clk-sophgo-sg2042.c | 1371 ++++++++++++++++++++++++
->>> drivers/clk/sophgo/clk-sophgo-sg2042.h |  226 ++++
->>> 7 files changed, 1616 insertions(+)
->>> create mode 100644 drivers/clk/sophgo/Kconfig
->>> create mode 100644 drivers/clk/sophgo/Makefile
->>> create mode 100644 drivers/clk/sophgo/clk-sophgo-sg2042.c
->>> create mode 100644 drivers/clk/sophgo/clk-sophgo-sg2042.h
->>>
->>> diff --git a/MAINTAINERS b/MAINTAINERS
->>> index 97f51d5ec1cf..c9c75468f2cb 100644
->>> --- a/MAINTAINERS
->>> +++ b/MAINTAINERS
->>> @@ -20269,6 +20269,13 @@ S:    Maintained
->>> F:    arch/riscv/boot/dts/sophgo/
->>> F:    Documentation/devicetree/bindings/riscv/sophgo.yaml
->>>
->>> +SOPHGO CLOCK DRIVER
->>> +M:    Chen Wang <unicorn_wang@outlook.com>
->>> +S:    Maintained
->>> +F:    Documentation/devicetree/bindings/clock/sophgo/
->>> +F:    drivers/clk/sophgo/
->>> +F:    include/dt-bindings/clock/sophgo,sg2042-clkgen.h
->>> +
->>> SOUND
->>> M:    Jaroslav Kysela <perex@perex.cz>
->>> M:    Takashi Iwai <tiwai@suse.com>
->>> diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
->>> index c30d0d396f7a..514343934fda 100644
->>> --- a/drivers/clk/Kconfig
->>> +++ b/drivers/clk/Kconfig
->>> @@ -499,6 +499,7 @@ source "drivers/clk/rockchip/Kconfig"
->>> source "drivers/clk/samsung/Kconfig"
->>> source "drivers/clk/sifive/Kconfig"
->>> source "drivers/clk/socfpga/Kconfig"
->>> +source "drivers/clk/sophgo/Kconfig"
->>> source "drivers/clk/sprd/Kconfig"
->>> source "drivers/clk/starfive/Kconfig"
->>> source "drivers/clk/sunxi/Kconfig"
->>> diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
->>> index ed71f2e0ee36..aa5d2cf0b6a6 100644
->>> --- a/drivers/clk/Makefile
->>> +++ b/drivers/clk/Makefile
->>> @@ -119,6 +119,7 @@ obj-$(CONFIG_ARCH_ROCKCHIP)        += rockchip/
->>> obj-$(CONFIG_COMMON_CLK_SAMSUNG)    += samsung/
->>> obj-$(CONFIG_CLK_SIFIVE)        += sifive/
->>> obj-y                    += socfpga/
->>> +obj-$(CONFIG_ARCH_SOPHGO)        += sophgo/
->>> obj-$(CONFIG_PLAT_SPEAR)        += spear/
->>> obj-y                    += sprd/
->>> obj-$(CONFIG_ARCH_STI)            += st/
->>> diff --git a/drivers/clk/sophgo/Kconfig b/drivers/clk/sophgo/Kconfig
->>> new file mode 100644
->>> index 000000000000..b0fbe4499870
->>> --- /dev/null
->>> +++ b/drivers/clk/sophgo/Kconfig
->>> @@ -0,0 +1,8 @@
->>> +# SPDX-License-Identifier: GPL-2.0
->>> +
->>> +config CLK_SOPHGO_SG2042
->>> +    bool "Sophgo SG2042 clock support"
->>> +    depends on ARCH_SOPHGO || COMPILE_TEST
->>> +    default ARCH_SOPHGO
->>> +    help
->>> +      Say yes here to support the clock controller on the Sophgo SG2042 SoC.
->> Please add RISCV to its depends. Not all the sophgo SoCs are in the RISC-V
->> platform, Some are arm chips. It is not good to build this driver
->> in that arch.
->ARCH_SOPHGO is only defined in RISC-V arch, so I think RISCV should not be needed as depends.
+On 04/12/2023 13:33, Keith Zhao wrote:
+> This patch is a drm driver for Starfive Soc JH7110,
+> I am sending Drm driver part and HDMI driver part.
+> 
+> We used GEM framework for buffer management,
+> and for buffer allocation,we use DMA APIs.
+> 
+> the Starfive HDMI servers as interface between a LCD Controller 
+> and a HDMI bus. 
+> A HDMI TX consists of one HDMI transmitter controller 
+> and one HDMI transmitter PHY.
+> (Sound support is not include in this patch)
+> 
+> This patchset should be applied on next branch.
 
-It needs for the SG200X. which has a arm core. Maybe we should left it now
-and add this in the future.
+Please use standard email subjects, so with the PATCH keyword in the
+title. `git format-patch` helps here to create proper versioned patches.
+Another useful tool is b4. Skipping the PATCH keyword makes filtering of
+emails more difficult thus making the review process less convenient.
 
->>
->> Also, the condition ARCH_SOPHGO is duplicate in the Makefile. Please
->> remove one of them.
->
->Don't undestand your question "the condition ARCH_SOPHGO is duplicate in the Makefile ",  I think you are talking about Kconifg, what Makefile are you talking about?
->
+Best regards,
+Krzysztof
 
-I mean your change in drivers/clk/Makefile.
-
->>> diff --git a/drivers/clk/sophgo/Makefile b/drivers/clk/sophgo/Makefile
->>> new file mode 100644
->>> index 000000000000..13834cce260c
->>> --- /dev/null
->>> +++ b/drivers/clk/sophgo/Makefile
->>> @@ -0,0 +1,2 @@
->>> +# SPDX-License-Identifier: GPL-2.0
->>> +obj-$(CONFIG_CLK_SOPHGO_SG2042)    += clk-sophgo-sg2042.o
->>> diff --git a/drivers/clk/sophgo/clk-sophgo-sg2042.c b/drivers/clk/sophgo/clk-sophgo-sg2042.c
->>> new file mode 100644
->>> index 000000000000..421ebcc7192b
->>> ......
->>> +        }
->>> +
->>> +#if defined(DEBUG)
->>> +        pr_info("registered [%d : %s]\n", gate->id, gate->name);
->>> +#endif
->> Drop, no need for this.
->
->OK, this log should not be needed, I will remove it in next version.
->
->
 
 _______________________________________________
 linux-riscv mailing list
