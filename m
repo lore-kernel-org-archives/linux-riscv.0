@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07298C4167B
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Dec 2023 00:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C0A0C4167B
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Dec 2023 00:23:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=erdHzANN7eGysW1KOCY1yxd3W6kZV1vR/+H4BI16KIs=; b=QRqkwITPziRsYD
-	UZBM1PBNV16+KjBvytanFNE6TBmrwfsvwbElsYljJMEny9Y9M/FvWfiOB38S1M+By2OdtoBj5eJHp
-	HM11NlzgRXnXrWDd/4msecfbu0TOekyWuWq+wKXBFoRkZOFnS50uCKU5C8CxCeSPOLdNxtQXeJZfC
-	53EAlwjCZBVkxUBiVK3bHmSsrFdOYYYDUs+pvE453rgoSKp3/XTzHxuYEKX54KASXnhCiI2KquWR+
-	riXLaf9YnZmMjwJQGIbfy/+IYbCVOTqkdVS6hnGudbOqMZTbuaRgJfN1F/kDvfnhGdrSgbVPblO81
-	qNpcc2/7WDsxxCRGtOow==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=X+7rjSsofJUqO8SWh/8FVlvWeLrSrhfqyunPA7Xqbj4=; b=kyNOZPrhSed/ek
+	B+wg5rQOUVkU+jgT+yg6ud58WGNYTuwznC8J6FqS9aKwYGB56sSlqZittLi0oTmIIz7ljaW9fEcFT
+	5vY+aXpZJDN9Sl9NxrHSgcvG46SOD9DzdBBNyAIDWp8Hm0vRAJ0aEw/sWDS9a0UxByEJXpgaegcgd
+	RRVGBVk1lOhTkrj+CpCeqjQM+wYzBfIqRRueK5+2Xo4uegn+G3lj5qKhSu0XqAS1trPhy0r4SaCvo
+	Av4ZK7h9OITyypaYWW3NzYF+0D/DvyUujGtrDGqL9UUkFPhxjK2yH6+nrCDRtZbMIVQt/HRiDjYqg
+	hm9aaIzvO2/cVGkDknJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAJCj-005rcG-2e;
-	Tue, 05 Dec 2023 00:22:25 +0000
-Received: from mail-oa1-x32.google.com ([2001:4860:4864:20::32])
+	id 1rAJDG-005rei-15;
+	Tue, 05 Dec 2023 00:22:58 +0000
+Received: from mail-oo1-xc30.google.com ([2607:f8b0:4864:20::c30])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAJCg-005rbS-01
+	id 1rAJDC-005rdu-30
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Dec 2023 00:22:23 +0000
-Received: by mail-oa1-x32.google.com with SMTP id 586e51a60fabf-1fae23895c9so2840302fac.3
-        for <linux-riscv@lists.infradead.org>; Mon, 04 Dec 2023 16:22:19 -0800 (PST)
+	Tue, 05 Dec 2023 00:22:56 +0000
+Received: by mail-oo1-xc30.google.com with SMTP id 006d021491bc7-58e1ddc68b2so2135565eaf.2
+        for <linux-riscv@lists.infradead.org>; Mon, 04 Dec 2023 16:22:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1701735739; x=1702340539; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=AceSiloMzdXvIE2DaEevBBcic/LsMH6cBLoMMH2zSsQ=;
-        b=D4EkIYQ/2q9+OdaQ87cQclDGOCpDqq8z/+YR+7OQhtLu9Tnei1UJNMcdJkB6DbSh4L
-         5Gx7OErl2E7hzQ/IoR0M29eXpMkJMpul+j7wy0lMPWWjG6oQVoteB92WR4sko6UdQyEu
-         PXaBLVNkLYdXfmyDjPgOO8+0AroRx0h4Uk1o2QGzUcELXh5eWSPu11fEj1HfwEnhSEDW
-         Wi95KZfsAyWTaBC/rwRRgx+hirQ7weINfUhnRT2tYWFuuUbug5A5X+j/Y1kNbw3Myslf
-         RAHt9dE7mPI4YupZ9tdRLt3PYxJQ1rCPn4vR3msBR1RcKO1WIt8k6EI7x2LZkdfmvMFn
-         n1cw==
+        d=gmail.com; s=20230601; t=1701735773; x=1702340573; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QWzi5VFScWkMe1hfBc2EXsXYdiAbd/+bGr8M1EA3Tok=;
+        b=D4yo2U55m0BtF69GkWR5osVWXzt84Dv6i1q3JJ4h8E3Hu2Ia+jvMdwwOIOcqvdkkSm
+         y1eGHJgz2kX/ZFMep+T0ePG1LoYX7pt+jV3XiSL2yESK5ToJWPa/58GGG6ur3bgODPbo
+         Ah0XNxoBtiTOZ9OEdQIrS90c1L45kUrvZPIm071FM9TB+65QuqKS3IVrze5gIzxk6h1/
+         arTOBupyX7hYD/IEyWs2bwwNsF5OpqK7otV9y/3DBztaUZuzy28++7BTa4y2XBQua7pK
+         eB8NPgjuvPU0w8MBO6z7fMZnpSErWeyfKA1tO6i1K0c+qyD9L5tPeQKX3V4pqXq2iNbH
+         sshQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701735739; x=1702340539;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=AceSiloMzdXvIE2DaEevBBcic/LsMH6cBLoMMH2zSsQ=;
-        b=TNG4LOE7Z4R+w5r0fxgsqGCbEFDcAYTtMyK7svmAoyhTIB1D5goe6brIMYiHDjZ4Kd
-         KwCxe3QG7NoKjduE9ghs4lyDQRFKAfAMkSY9iWkQXQCXq7SZ5bbeVzYPQI0s9mLs613o
-         I/w75pqsqMYH8ulWOfcTB1dA+xa6ECnSAgiAXtDT//QLzIVDWPW8C2nnuEUmdp/NCVcd
-         kD7D1+k54CLwpU7lRAMEkaUSc9o3vwTtAcKJHuf7cd0o0C08xOE63EouZxlPktBEstv7
-         yyb0ioMfEOVfO7jV8jSmIVkSvO4vhVx9uPWgCjoAG6kAzs8jU1cfM18DIj31+yS/4LWU
-         OIoQ==
-X-Gm-Message-State: AOJu0Yzdv7eQGyow1/GIPrgSCXtLxAgJaGYuvIcREYMsyEYcI5CA5RZ/
-	UTKHeMb3Ujn21/V6PlNWMBE=
-X-Google-Smtp-Source: AGHT+IGGpyH/uvDWZtUKbPGliRelSXQEiyxnYM/KxdFEwKMgIWFm+BsnmtfipMmVy4gfgRrC6v6CIg==
-X-Received: by 2002:a05:6871:4004:b0:1fa:26e7:c428 with SMTP id kx4-20020a056871400400b001fa26e7c428mr6236892oab.19.1701735738877;
-        Mon, 04 Dec 2023 16:22:18 -0800 (PST)
+        d=1e100.net; s=20230601; t=1701735773; x=1702340573;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=QWzi5VFScWkMe1hfBc2EXsXYdiAbd/+bGr8M1EA3Tok=;
+        b=SAq+MpJy1Sz1+gFm3g68S3WP6m6WsylYltXOiZgmo6UzgEWTv1miv9XP0TbHAUoZYq
+         e6ft3v4ZW3gpCEn3fVo5IsXtVZPjbCNESDcJFNyZyLP+dCV00200LSYg6Llpc25m5d2H
+         xwaqvDfEdVs41dzcQdSfPAUAmQqekMtSCcbr++taQtgc2ktF/c2A+NzfKEELzrlgvxUz
+         JgNrBk+Jvsj1VP8BSurPvZBu/KdjFJm2xWTLNt3ZbFXrIIJ0X5fCpFHWJX4ftEJu8uTH
+         +CsS/kdmCGUUlUMqQLBQb7oaStcCqb72/jcBj1uaIE9ZEz3jf4MWp5hRZ7sqFGajUyWb
+         5nrQ==
+X-Gm-Message-State: AOJu0YwS8RbMt8avHWS9SwF4AwUKCtzh7TWFQ5jatm7XFPd8r0SJiKbH
+	CujnKT5Z3HStn4yaDz1WcdI=
+X-Google-Smtp-Source: AGHT+IFAs26Fa4uHzufA3+AF+TKHenR8RwzQfBCwtZcjjddNVt1By5baeF7SOpG0rzvv1tQjF8C8Gg==
+X-Received: by 2002:a4a:e883:0:b0:58e:1c48:4951 with SMTP id g3-20020a4ae883000000b0058e1c484951mr3761102ooe.11.1701735772698;
+        Mon, 04 Dec 2023 16:22:52 -0800 (PST)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id o11-20020a9d404b000000b006d87f95566bsm1142899oti.51.2023.12.04.16.22.17
+        by smtp.gmail.com with ESMTPSA id t67-20020a4a5446000000b0058df9ed9291sm1976915ooa.34.2023.12.04.16.22.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Dec 2023 16:22:18 -0800 (PST)
+        Mon, 04 Dec 2023 16:22:52 -0800 (PST)
 From: Chen Wang <unicornxw@gmail.com>
 To: aou@eecs.berkeley.edu,
 	chao.wei@sophgo.com,
@@ -83,14 +84,16 @@ To: aou@eecs.berkeley.edu,
 	inochiama@outlook.com,
 	samuel.holland@sifive.com
 Cc: Chen Wang <unicorn_wang@outlook.com>
-Subject: [PATCH v4 0/4] riscv: sophgo: add clock support for sg2042
-Date: Tue,  5 Dec 2023 08:22:06 +0800
-Message-Id: <cover.1701734442.git.unicorn_wang@outlook.com>
+Subject: [PATCH v4 1/4] dt-bindings: soc: sophgo: Add Sophgo system control module
+Date: Tue,  5 Dec 2023 08:22:44 +0800
+Message-Id: <d02730f0b2b531ce7f59e6569e83a57f551f72aa.1701734442.git.unicorn_wang@outlook.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1701734442.git.unicorn_wang@outlook.com>
+References: <cover.1701734442.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231204_162222_051620_ADF66D22 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20231204_162254_972241_3B9D3DFA 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,79 +112,55 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Chen Wang <unicorn_wang@outlook.com>
 
-This series adds clock controller support for sophgo sg2042.
+Add documentation to describe Sophgo System Controller for SG2042.
 
-Thanks,
-Chen
-
+Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 ---
-Changes in v4:
-  The patch series is based on v6.7-rc1. You can simply review or test the
-  patches at the link [5].
-  - dt-bindings: fixed a dt_binding_check error.
-
-Changes in v3:
-  The patch series is based on v6.7-rc1. You can simply review or test the
-  patches at the link [3].
-  - DTS: don't use syscon but define sg2042 specific system control node. More
-    background info can read [4].
-  - Updating minor issues in dt-bindings as per input from reviews.
-
-Changes in v2:
-  The patch series is based on v6.7-rc1. You can simply review or test the
-  patches at the link [2].
-  - Squashed the patch adding clock definitions with the patch adding the
-    binding for the clock controller.
-  - Updating dt-binding for syscon, remove oneOf for property compatible;
-    define clock controller as child of syscon.
-  - DTS changes: merge sg2042-clock.dtsi into sg2042.dtsi; move clock-frequency
-    property of osc to board devicethree due to the oscillator is outside the
-    SoC.
-  - Fixed some bugs in driver code during testing, including removing warnings
-    for rv32_defconfig.
-  - Updated MAINTAINERS info.
-
-Changes in v1:
-  The patch series is based on v6.7-rc1. You can simply review or test the
-  patches at the link [1].
-
-Link: https://github.com/unicornx/linux-riscv/commits/upstream-sg2042-clock-v1 [1]
-Link: https://github.com/unicornx/linux-riscv/commits/upstream-sg2042-clock-v2 [2]
-Link: https://github.com/unicornx/linux-riscv/commits/upstream-sg2042-clock-v3 [3]
-Link: https://lore.kernel.org/linux-riscv/MA0P287MB03329AE180378E1A2E034374FE82A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM/ [4]
-Link: https://github.com/unicornx/linux-riscv/commits/upstream-sg2042-clock-v4 [5]
-
----
-
-Chen Wang (4):
-  dt-bindings: soc: sophgo: Add Sophgo system control module
-  dt-bindings: clock: sophgo: Add SG2042 bindings
-  clk: sophgo: Add SG2042 clock generator driver
-  riscv: dts: add clock generator for Sophgo SG2042 SoC
-
- .../clock/sophgo/sophgo,sg2042-clkgen.yaml    |   50 +
- .../soc/sophgo/sophgo,sg2042-sysctrl.yaml     |   35 +
- MAINTAINERS                                   |    7 +
- .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |    4 +
- arch/riscv/boot/dts/sophgo/sg2042.dtsi        |   79 +
- drivers/clk/Kconfig                           |    1 +
- drivers/clk/Makefile                          |    1 +
- drivers/clk/sophgo/Kconfig                    |    8 +
- drivers/clk/sophgo/Makefile                   |    2 +
- drivers/clk/sophgo/clk-sophgo-sg2042.c        | 1371 +++++++++++++++++
- drivers/clk/sophgo/clk-sophgo-sg2042.h        |  226 +++
- .../dt-bindings/clock/sophgo,sg2042-clkgen.h  |  169 ++
- 12 files changed, 1953 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/sophgo/sophgo,sg2042-clkgen.yaml
+ .../soc/sophgo/sophgo,sg2042-sysctrl.yaml     | 35 +++++++++++++++++++
+ 1 file changed, 35 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
- create mode 100644 drivers/clk/sophgo/Kconfig
- create mode 100644 drivers/clk/sophgo/Makefile
- create mode 100644 drivers/clk/sophgo/clk-sophgo-sg2042.c
- create mode 100644 drivers/clk/sophgo/clk-sophgo-sg2042.h
- create mode 100644 include/dt-bindings/clock/sophgo,sg2042-clkgen.h
 
-
-base-commit: b85ea95d086471afb4ad062012a4d73cd328fa86
+diff --git a/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml b/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
+new file mode 100644
+index 000000000000..e50b25aaaa95
+--- /dev/null
++++ b/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
+@@ -0,0 +1,35 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/soc/sophgo/sophgo,sg2042-sysctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Sophgo SG2042 SoC system controller
++
++maintainers:
++  - Chen Wang <unicorn_wang@outlook.com>
++
++description:
++  The Sophgo SG2042 SoC system controller provides register information such
++  as offset, mask and shift that can be used by other modules, such as clocks.
++
++properties:
++  compatible:
++    items:
++      - const: sophgo,sg2042-sysctrl
++
++  reg:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    system-controller@30010000 {
++        compatible = "sophgo,sg2042-sysctrl";
++        reg = <0x30010000 0x1000>;
++    };
 -- 
 2.25.1
 
