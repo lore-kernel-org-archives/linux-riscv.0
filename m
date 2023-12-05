@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A9DBC4167B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC1CCC10F05
 	for <linux-riscv@archiver.kernel.org>; Tue,  5 Dec 2023 17:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8VPHvlRH2OrWpDWxMvljQTa4qeo/TEX8nQIPF+7Ag4Y=; b=cutkEPUTMooGbS
-	swNf1ArsdYDazNkyIhXFwvYJWgs8G2GtuOjNW6dOKuKa+hqyTJO+rltflet8xGrQwGWi/9O9hf5QY
-	g3cUnuWjAuY2UY83kULQudYo8vFdGcduV4ldgW5IGhvLmyz8q8G7JmongLwixlXsKSgbY3UD485te
-	MMbTEw7oVm9iEJTxJaDPKuAtCk2HNzizXAGcP2dwQ9IQMVD978Dsn2ncOUFhWNOuCfd6Vc6PFzcKO
-	ZGbkJPLrqaMX2hp0c7PVOTG+KeYVsfMIAqnF6AMR5clTrtSXWYArTCt78dfohVirnKYJ3PXxkjPBh
-	8ZmxPNGfv2MevF4HTkRg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=iOB6gn3aZlIXZWIRuMFuJX6Tm8r2u0JxbvEuOnVuLpU=; b=vDAr6KURwy5tXc
+	VxWQCkyzGvp3YSvkCjksKMzvG+UAq9wc8UirNmvEkYpuStS73bsuKqSKUg4+FEALBk5mQdk+OV39J
+	9pPQ4SKPo29UNdnK2pKMImWvrr8e/YWmwRunLH8eKry4jtcrQBDPofxajD6unTKADOUlH1pQhu1zG
+	XjxloW7N07TwXV5EHXfNg73KgK1bJLvNAP8Ct/SIAnGpRPy0LcWi2zFfqrXAsGs3KY9jQIs3y22QO
+	X1RoJsXrjdjo92nbbpcSCo3jHiD6rdSdXxPLkPMlgtB7EaI1hJW0vYlwaTOO6DLg2ypS46lJXd4sY
+	fzoGCWmOqDhIrokkB+kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAZUA-0083qO-0J;
-	Tue, 05 Dec 2023 17:45:30 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1rAZU8-0083pV-0M;
+	Tue, 05 Dec 2023 17:45:28 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAZU8-0083pI-0z
+	id 1rAZU5-0083op-2I
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Dec 2023 17:45:29 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1d048c171d6so41231545ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 05 Dec 2023 09:45:26 -0800 (PST)
+	Tue, 05 Dec 2023 17:45:27 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-5c664652339so1740545a12.1
+        for <linux-riscv@lists.infradead.org>; Tue, 05 Dec 2023 09:45:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1701798326; x=1702403126; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Kw9lx7rfek+Fyxn9H19uerjKbw2z7hmkxzJlnytvErY=;
-        b=gvnJd6ZNWz5J3AtgKLVBQ5LOL528Z6ovGGer8rgbyfvwCoXQDr6mPO2QWzacadibCB
-         29C49N+IUN1nnVjq9eL97i4UIMlhAz0dqXxcXJ6aRIjlFaFKuLmleH+SOBC1uaAg6CN4
-         CgQpU+n4T+QVrq6Bgof5RpDCpGNFrjJoj6Na/pj9PNNz+8z1oRvK9itY2HiSC3kkHM50
-         MW6bwzot1J9AQ2YlmJot4VAw3H4k1c+PVQTlBEFRJJkVqHnuCPJbGQd45PIcI+9zuqfR
-         NDoSmsD2OUbHaPW+rlYQRtYExSBXJ/AfdqxlbDmkNjoijV9GNgZQnyYvCyA12FH1ThxG
-         6cUQ==
+        d=ventanamicro.com; s=google; t=1701798323; x=1702403123; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=nk8NgzrKm+wkNVpQxcRmHDVuKy2huQw3GIldbaDgVGo=;
+        b=Gd5g8VVSiQZyIyrNkQCEqVLj04fig9qYUmUu1vnCOENhTSL7zEYJlMD0qIza7ozbmm
+         f/hvCs/QsrSztXXWHG28cLN6hcWEUtZ309v92N8U+etr/8oYhO5yvqE7r+ZCqvGNyA9i
+         3km9ATtZcUeI9MhrZQkY+z0rSyeBOuy2BglMtRRX8i5WNRaARJGulQ+g8lh/nh9372Aw
+         PR6LDI5yITNhp9N5UWv8Yyd5mWxGTQiaMDEb7NauhdPyxf/hkALK5OR8ySA21WJfPixD
+         7WAXRPSQPUrQhJXqbNKrajh38DEitOIHI0nHtrvQSQ8O0LD72DtezpNfX76C2yUVNGB/
+         aL5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701798326; x=1702403126;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Kw9lx7rfek+Fyxn9H19uerjKbw2z7hmkxzJlnytvErY=;
-        b=oWaYFLJFWKpIU6aLNKe6v6HGGSelOpBOIc5FHlMORVOuOmHsQuwCJ2aU97QHjzXf7+
-         aGPx7xCj9XYvQQ0MNz+QCm20Buexzb/dbemVbKjutH8JV3G8hb88JHE77SFaZQnNebcj
-         +nnXm3Y0KCv7XWxxwFo709RXBbv+dhpfLH0MrPMsk6h3/9Vj02u1d68CVdisbt3HCB7L
-         SXBpAJXUh0brtcHw2dRSIYCjiRvPidG8W1CMOc7OhYARMfTsBj45hVj/zFDP9REY6nIp
-         tDgC2DHgp/mqWiKiYGU+a37rd06AO/3PsZB6C/62104Jx5MM9XQPRSFUi1ZiasIoP5Tx
-         uQNg==
-X-Gm-Message-State: AOJu0YyLr9bOpnh2FD8vmcJuxFbV/ohmv/eH/8kAqz/sYSSE6pSFgZG+
-	hukvM3EjGy+WonFfGF4FKzEwzA==
-X-Google-Smtp-Source: AGHT+IF7Y/RolGBXnpDHkOsMt/rkm/fe03CCbMCd5KOY+xnFrO9TY+7df1EdMH6EfJJh7i6FHHqd2Q==
-X-Received: by 2002:a17:902:e804:b0:1d0:98db:6fd4 with SMTP id u4-20020a170902e80400b001d098db6fd4mr4578699plg.56.1701798326243;
-        Tue, 05 Dec 2023 09:45:26 -0800 (PST)
+        d=1e100.net; s=20230601; t=1701798323; x=1702403123;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nk8NgzrKm+wkNVpQxcRmHDVuKy2huQw3GIldbaDgVGo=;
+        b=MFkT42SxrG7UuGztm0JshCI1hLYC25/wIbXEmjNVDwD1n7PQJkraqDepd57l2jqyCR
+         RuNq2C50TogHwKu4I2u477GU17V3qW0cIESLCKTom4KVNUHdNs0UqhSYXcEqPGz6mUFY
+         mulmzcnu0z86onFJUe+N/GAX9RjJsCheISD5IQr2qngXGjYd/KxkcK4Kpb3eqqTD7aC8
+         8d/O6jDHEcVeJufAqv0ucUOmSUJYX0SxiXJt5yIrc2DTZcYz4jQkcSgab1akUiS2FZ0f
+         g4U766gc4AJkO7p8RGxlyJVLZEIJ1Mmc5e4S1ljCss81aJbLYMIoMOb++l6zZwX/7/u4
+         HIAA==
+X-Gm-Message-State: AOJu0YzB7ggsfDybfd2UxSob2yBvWrd23SI/2ct4FMtMYHbdvldsIv7W
+	qZ86Ncwb0CpNtSj0hmRmGWZA4g==
+X-Google-Smtp-Source: AGHT+IG0GExbyqlK/kAKXYSccGAsVEs/1H+k21xYDZ8oLJ3/T4boaiQc1BmYZnymkCLTHSKphQx7Fw==
+X-Received: by 2002:a17:902:a984:b0:1d0:6ffd:cec6 with SMTP id bh4-20020a170902a98400b001d06ffdcec6mr3406901plb.127.1701798322713;
+        Tue, 05 Dec 2023 09:45:22 -0800 (PST)
 Received: from grind.. ([152.234.124.8])
-        by smtp.gmail.com with ESMTPSA id j20-20020a170902759400b001c74df14e6fsm10465705pll.284.2023.12.05.09.45.23
+        by smtp.gmail.com with ESMTPSA id j20-20020a170902759400b001c74df14e6fsm10465705pll.284.2023.12.05.09.45.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Dec 2023 09:45:25 -0800 (PST)
+        Tue, 05 Dec 2023 09:45:22 -0800 (PST)
 From: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
 To: kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
@@ -71,16 +70,14 @@ Cc: anup@brainfault.org,
 	palmer@dabbelt.com,
 	ajones@ventanamicro.com,
 	Daniel Henrique Barboza <dbarboza@ventanamicro.com>
-Subject: [PATCH v3 1/3] RISC-V: KVM: set 'vlenb' in kvm_riscv_vcpu_alloc_vector_context()
-Date: Tue,  5 Dec 2023 14:45:07 -0300
-Message-ID: <20231205174509.2238870-2-dbarboza@ventanamicro.com>
+Subject: [PATCH v3 0/3] RISC-V, KVM: add 'vlenb' and vector CSRs to get-reg-list
+Date: Tue,  5 Dec 2023 14:45:06 -0300
+Message-ID: <20231205174509.2238870-1-dbarboza@ventanamicro.com>
 X-Mailer: git-send-email 2.41.0
-In-Reply-To: <20231205174509.2238870-1-dbarboza@ventanamicro.com>
-References: <20231205174509.2238870-1-dbarboza@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231205_094528_342836_1FD906DE 
-X-CRM114-Status: UNSURE (   7.21  )
+X-CRM114-CacheID: sfid-20231205_094525_778785_2BDCA460 
+X-CRM114-Status: UNSURE (   5.00  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,30 +95,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-'vlenb', added to riscv_v_ext_state by commit c35f3aa34509 ("RISC-V:
-vector: export VLENB csr in __sc_riscv_v_state"), isn't being
-initialized in guest_context. If we export 'vlenb' as a KVM CSR,
-something we want to do in the next patch, it'll always return 0.
+Hi,
 
-Set 'vlenb' to riscv_v_size/32.
+In this version we're exporting all vector regs, not just vector CSRs,
+in get-reg-list. All changes were done in patch 3.
 
-Signed-off-by: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
----
- arch/riscv/kvm/vcpu_vector.c | 1 +
- 1 file changed, 1 insertion(+)
+No other changes made.
 
-diff --git a/arch/riscv/kvm/vcpu_vector.c b/arch/riscv/kvm/vcpu_vector.c
-index b339a2682f25..530e49c588d6 100644
---- a/arch/riscv/kvm/vcpu_vector.c
-+++ b/arch/riscv/kvm/vcpu_vector.c
-@@ -76,6 +76,7 @@ int kvm_riscv_vcpu_alloc_vector_context(struct kvm_vcpu *vcpu,
- 	cntx->vector.datap = kmalloc(riscv_v_vsize, GFP_KERNEL);
- 	if (!cntx->vector.datap)
- 		return -ENOMEM;
-+	cntx->vector.vlenb = riscv_v_vsize / 32;
- 
- 	vcpu->arch.host_context.vector.datap = kzalloc(riscv_v_vsize, GFP_KERNEL);
- 	if (!vcpu->arch.host_context.vector.datap)
+Changes from v2:
+- patch 3:
+  - check num_vector_regs() != 0 before copying vector regs
+  - export all 32 vector regs in num_vector_regs() and copy_vector_reg_indices()
+  - initialize 'size' out of the loop in copy_vector_reg_indices()
+- v2 link: https://lore.kernel.org/kvm/20231205135041.2208004-1-dbarboza@ventanamicro.com/
+
+Daniel Henrique Barboza (3):
+  RISC-V: KVM: set 'vlenb' in kvm_riscv_vcpu_alloc_vector_context()
+  RISC-V: KVM: add 'vlenb' Vector CSR
+  RISC-V: KVM: add vector CSRs in KVM_GET_REG_LIST
+
+ arch/riscv/kvm/vcpu_onereg.c | 55 ++++++++++++++++++++++++++++++++++++
+ arch/riscv/kvm/vcpu_vector.c | 16 +++++++++++
+ 2 files changed, 71 insertions(+)
+
 -- 
 2.41.0
 
