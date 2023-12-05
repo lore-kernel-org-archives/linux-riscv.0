@@ -4,73 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 191F0C4167B
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Dec 2023 17:02:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEF95C4167B
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Dec 2023 17:08:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=lDfmjKcEe6mx9MsOFS1JuRvucrEJKMXumOgFho0X8hA=; b=moBZFsLyY4P47Z
-	SlA2H2S+5tqdazwKXiJpHIuYrvqaJ52C8cImXCzLs0GVhl6kmwuHVYEGcLDX03IvUF5kyDL0LRQaw
-	Q/2ZDJAH4z7Nf7B11jrpW0tpjOQ/YDAmWqeH59SPLhhBerNPZyBFy3p+lOOKKuJpGk4n/5/fkL1za
-	w6u6vjR7rk+dUYRoTRnW6IQB1PxJjYLNSEHAvCARzJLx0qaGt2Ggcq0mXqqsCHnGrihAlMGdOEq8E
-	osewW467XpHSi8arWAH8LxDG8LdQ+0dUmOFrRnu9yJ49AtKTtqxfPXVs/iElYV8erI7qEERUjlSC2
-	bRbIz3Mc3MZKAwwlTSSg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YqJYLYvW2KybYFw6j5//qydaZHtT4u5g6t0K0c99a1s=; b=XsLTSs887xOnAz
+	5Kpv/JCCXrpCZjr6F7LP0k4fDVlcyhZnsZIuvEaFIPXbxwZ4uDHZWTffoMSfc11EalPrCMqe5eGu6
+	tEvvoc+0reofjMB69JuiIya2M18o4ybJzsWCudrmJMkpDap2AC+aLQTh3qI1it5QP8+HtHBwAt9+c
+	iN574FBcSXc8Vto3NdBdWu8LQNZqeoN0gdonB7lEIcDqpbfP0gnWJ1XctCUdtlHGmH/nGs0IujcYv
+	usgOcYa+HtIWhb9niAZ/iwlPU0ddIuunq4UJ5m2fw6f+XzPzhf3tWy0v72hWD4emm7TBDNJESlFI3
+	WPXUHjMysRmGQZmBIR3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAYoT-007yo7-1H;
-	Tue, 05 Dec 2023 17:02:25 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAYoR-007ynC-0S
-	for linux-riscv@lists.infradead.org;
-	Tue, 05 Dec 2023 17:02:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id C8169CE199D;
-	Tue,  5 Dec 2023 17:02:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE16FC433C7;
-	Tue,  5 Dec 2023 17:02:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701795740;
-	bh=6eqzdlbd2wRbilXyM8br8k9jCk9NPFOASbrV1lTKof0=;
-	h=Date:From:To:Subject:In-Reply-To:From;
-	b=rrYEZ6mDeh47zil4efVVC3txYOSi3rtzc6BqQyBLELxK0D/OYbcop4/aMyi9qyW/f
-	 8jxcOmxzxRzfvPxNByuPLgS/aZI8iJ7htUrK96g5D6/KFghAQTzPvMuAZaC0/E8RK+
-	 I+bWsBKRNSQMZjLsUPpE4C8b+/FE38MZ6Jn9GaOBN5UvMt0qMIVarFGu/pQNUjIF+B
-	 S4vlHyGARZ1IssLp0lh2IAZVHWHG8VhcQwlSjBucgsUhWjWrre/J6zG6A+2RGPwCoK
-	 EHBa1CSNYQnFrXoZ/gtIChK7DVQBBFQiQKGJVn64K5xD7y78QFCWZjsl2OeozApwgS
-	 qVGFWeFfjIScg==
-Date: Tue, 5 Dec 2023 11:02:18 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Minda Chen <minda.chen@starfivetech.com>,
-	Conor Dooley <conor@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mason Huo <mason.huo@starfivetech.com>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>
-Subject: Re: [PATCH v11 0/20] Refactoring Microchip PCIe driver and add
- StarFive PCIe
-Message-ID: <20231205170218.GA679691@bhelgaas>
+	id 1rAYuY-007zpP-1v;
+	Tue, 05 Dec 2023 17:08:42 +0000
+Received: from [50.53.46.231] (helo=[192.168.254.15])
+	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
+	id 1rAYuW-007zp0-1J;
+	Tue, 05 Dec 2023 17:08:40 +0000
+Message-ID: <5f9f018a-dc4f-42f0-ba90-2f44d2f61a7c@infradead.org>
+Date: Tue, 5 Dec 2023 09:08:37 -0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZW7q1LEvEpVxoI4l@fedora>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231205_090223_414561_1412025B 
-X-CRM114-Status: GOOD (  11.87  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] riscv, crash: don't export some symbols when
+ CONFIG_MMU=n
+Content-Language: en-US
+To: Baoquan He <bhe@redhat.com>
+Cc: Stephen Rothwell <sfr@canb.auug.org.au>, akpm@linux-foundation.org,
+ ignat@cloudflare.com, linux-next@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ kexec@lists.infradead.org, eric_devolder@yahoo.com
+References: <ZW00/Cfk47Cc3kGo@MiWiFi-R3L-srv>
+ <ZW03ODUKGGhP1ZGU@MiWiFi-R3L-srv>
+ <694baf13-65d0-4877-b6c7-56e3006f83be@infradead.org>
+ <ZW7OsX4zQRA3mO4+@MiWiFi-R3L-srv>
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <ZW7OsX4zQRA3mO4+@MiWiFi-R3L-srv>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,27 +60,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 05, 2023 at 10:18:12AM +0100, Damian Tometzki wrote:
-> > On Sat, Dec 02, 2023 at 09:17:24PM +0800, Minda Chen wrote:
-> > > ...
-> > > Please check this configuation.
-> > > CONFIG_PHY_STARFIVE_JH7110_PCIE=y
-> > > CONFIG_PINCTRL_STARFIVE_JH7110=y
-> > > CONFIG_PINCTRL_STARFIVE_JH7110_SYS=y
-> > > CONFIG_PINCTRL_STARFIVE_JH7110_AON=y
-> ...
 
-> Hello together,
-> the main problemwas was  to find the rquired CONFIG_* options for StarFive
-> Board. It would be great to have an CONFIG_ Options with all required
-> Dependencies.
 
-I didn't follow all the discussion here so I don't know all the
-symptoms and what the resulting working config was, but it sounds like
-the Kconfig needs to be simplified somehow so other users don't have
-to repeat this struggle.
+On 12/4/23 23:18, Baoquan He wrote:
+> On 12/04/23 at 11:14am, Randy Dunlap wrote:
 
-Bjorn
+[]
+
+>>
+>> Both riscv 32-bit and 64-bit complain:
+>>
+>> ../arch/riscv/kernel/crash_core.c: In function 'arch_crash_save_vmcoreinfo':
+>> ../arch/riscv/kernel/crash_core.c:11:58: warning: format '%lx' expects argument of type 'long unsigned int', but argument 2 has type 'int' [-Wformat=]
+>>    11 |         vmcoreinfo_append_str("NUMBER(VMALLOC_START)=0x%lx\n", VMALLOC_START);
+>>       |                                                        ~~^
+>>       |                                                          |
+>>       |                                                          long unsigned int
+>>       |                                                        %x
+> 
+> Thanks for all these testing.
+> 
+> This warning is irrelevant to the kexec patch, it's becasue 
+> VMALLOC_START is defined as 0 which is int when CONFIG_MMU=n.
+> 
+> Below patch can fix the warning.
+> 
+> From 46984a0287e5f1b41ae3e9adfcfa0d26b71db8f4 Mon Sep 17 00:00:00 2001
+> From: Baoquan He <bhe@redhat.com>
+> Date: Tue, 5 Dec 2023 11:02:55 +0800
+> Subject: [PATCH] riscv: fix VMALLC_START definition
+> Content-type: text/plain
+> 
+> When below config items are set, compiler complained:
+> 
+> --------------------
+> CONFIG_CRASH_CORE=y
+> CONFIG_KEXEC_CORE=y
+> CONFIG_CRASH_DUMP=y
+> ......
+> -----------------------
+> 
+> -------------------------------------------------------------------
+> arch/riscv/kernel/crash_core.c: In function 'arch_crash_save_vmcoreinfo':
+> arch/riscv/kernel/crash_core.c:11:58: warning: format '%lx' expects argument of type 'long unsigned int', but argument 2 has type 'int' [-Wformat=]
+> 11 |         vmcoreinfo_append_str("NUMBER(VMALLOC_START)=0x%lx\n", VMALLOC_START);
+>    |                                                        ~~^
+>    |                                                          |
+>    |                                                          long unsigned int
+>    |                                                        %x
+> ----------------------------------------------------------------------
+> 
+> This is because on riscv macro VMALLOC_START has different type when
+> CONFIG_MMU is set or unset.
+> 
+> arch/riscv/include/asm/pgtable.h:
+> --------------------------------------------------
+> 
+> Changing it to _AC(0, UL) in case CONFIG_MMU=n can fix the warning.
+> 
+> Signed-off-by: Baoquan He <bhe@redhat.com>
+
+Reported-by: Randy Dunlap <rdunlap@infradead.org>
+Acked-by: Randy Dunlap <rdunlap@infradead.org>
+Tested-by: Randy Dunlap <rdunlap@infradead.org> # build-tested
+
+
+Thanks.
+
+> ---
+>  arch/riscv/include/asm/pgtable.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 294044429e8e..ab00235b018f 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -899,7 +899,7 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
+>  #define PAGE_KERNEL		__pgprot(0)
+>  #define swapper_pg_dir		NULL
+>  #define TASK_SIZE		0xffffffffUL
+> -#define VMALLOC_START		0
+> +#define VMALLOC_START		_AC(0, UL)
+>  #define VMALLOC_END		TASK_SIZE
+>  
+>  #endif /* !CONFIG_MMU */
+
+-- 
+~Randy
 
 _______________________________________________
 linux-riscv mailing list
