@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC818C4167B
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Dec 2023 08:06:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F81DC4167B
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Dec 2023 08:09:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1TP/Nnyw2BpPY3jl3zDjqX/j+sQg81FCkF604fu7Fkk=; b=aPWqZTlBDaVd/O
-	uqVmvvoeO8oU/w4kWu7Yj2Yi/gWBQA2N2qOKhHdsgWHbF/sYz2jyJPjbgeaegDg/znNPVrXcXLZBg
-	akDRnY2CFFD8f+k/x7tgUX84Y/u9vF06HW8CLahTgwh/U3OrDvku4CwnFgIPmLHrm2Uq6Z/e0IOi6
-	UxkTglRLXePJspngMCHXosaO7UumbsKhVa1dDjsDdd1LdI/zjHJiZpVgCkKkDAUiqaJ8M3RuRYoCc
-	O+wTK4tNFva4RdwQpkTn3LTRviWNXelpkJQLLlAu8uLozZQB/qzTWtQWoT1xvvOBNrVKvZ3lQBe9t
-	gdKsWq2S4u5OzmPr2gYA==;
+	List-Owner; bh=o9W2KB0P2fDeCCwBHsNRpJwenKzRAGuxn3x1133m8xE=; b=eSDy4TY4e/MNdP
+	A/Q72zPOZnWOJsFmGlJ1CoUfkKC4uA1/GS3Y0xTPTqSyi1Sm6EeN0NkNuka/137DJRXM7AxvFEMgW
+	VOkmpCLBRKPYtZ5pg7nsrLxDZt2JgiPhV3hhsDA9F/0bjFM63ZQ4dvZTECCiemNevVhhOxXeOMstY
+	GUTpyIy0SBTo5++394J5uXrDJxkKUXiqPj1ABw6k3NH4LOPPw/uBHb6r79VwGYmsKaM1oHOFPDegW
+	7lVjmcMkbgJ+XpBRC21eZgS9AozyaWbJcmZ4+00QAxBxMNcv0hiy0ZeuOxC2CWWEyryckaO/0agXc
+	xq1uO8E2ue4c5OqqGvBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAQRt-006aiM-0l;
-	Tue, 05 Dec 2023 08:06:35 +0000
-Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
+	id 1rAQUN-006axW-17;
+	Tue, 05 Dec 2023 08:09:07 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAQRq-006ah6-1o
+	id 1rAQUK-006ax4-0U
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Dec 2023 08:06:31 +0000
-Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-2c9ea37ac87so42977581fa.3
-        for <linux-riscv@lists.infradead.org>; Tue, 05 Dec 2023 00:06:28 -0800 (PST)
+	Tue, 05 Dec 2023 08:09:05 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-40c08af319cso26111695e9.2
+        for <linux-riscv@lists.infradead.org>; Tue, 05 Dec 2023 00:09:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1701763587; x=1702368387; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1701763742; x=1702368542; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=xXHrqrmyDXrxhHJgb2AkCy+sSOHhoIKiOezRfvsHkMw=;
-        b=GtbZSqhICF90HcCBD44HxG5wc2sJUaDX9CaLKMFM4HHakUEmCHZMT5HWCG+Qf9DqmF
-         ARYM1nw07CzxoNFguJe+QCaz4y7m9SxnOjXEntCu2EIhu/KpPhbOygM0Esu47JAvWMs3
-         ylmyfZNSwPogM9WW3QFcRylnG6labyRAAiGMnDSjciGZ3Tm8Y5gHCoHsSX1pAr4RdaqY
-         H0Re9umhQpX1cwH9xA6JHgSdv9uuas+tX5XZRVqaeMa5kYVMck1DfSf/VqGx6jlIKl1J
-         7h+o1mvgEqCdsvwJr/WLs1qE1v+pJHIUQ/Ham8yuEr2+p90/HmIKTAfsbKT8RVngrV8C
-         VrYQ==
+        bh=462UZ1yegAonH30IZwbGS1GDx37pFEUQzZ/HmWu5+3s=;
+        b=bltDjveTwDd4iss6v2i+IUd53btnCzHGX3oJmNWzQrEtRgbUW2p0YcFIMAc/QuddE9
+         y7TwxBCySSDi+CxcQOfBH3CToTeQAVfODWTzk/4PXG2FLWRVn+gAGH6AgIPu9c331nA0
+         kMQOvQEBimZr94FXB+l7JzA4a2m74N+0iy+fgk620VAEpJvoTsNlChR1jq/qgJYCDRnt
+         /Xulj+DhE+eWRAVPK1lywqTXL0z6TRInYWEu+Wrfi5/ihXId4BI/nvQMiBNkacew0D0Y
+         iIacvr/L3jYVEuQmNkiiyl5CRuoyXzA6g+WUPKnINk2ILxcGaxTV8Tc7bnNM4xgh1wy3
+         fZBg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701763587; x=1702368387;
+        d=1e100.net; s=20230601; t=1701763742; x=1702368542;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xXHrqrmyDXrxhHJgb2AkCy+sSOHhoIKiOezRfvsHkMw=;
-        b=bSYQpES9PH/zHaYdNN6lOOju2txyUH5bO6tQ8eDomE5U0AN2I3fZpMH63NSWnyNv37
-         5IBcjYdnXPEVPQF/ciYuuT7raPnLHuJFKG+/ujMyhdptjrCO+c1syHMH7PTxHNzN+IeA
-         3WZyHkTT9ZWmWd48kA11qYwOtiLBwV+8TR1v3jD7hoXx4SyOIsWsrvU2Hiu0uTBCWN5k
-         ANY+7rdJySmk3AKtxdEMOLgJ7LDlOsMVrMyD4f7aFdG62EJO0n8hkEdc7j+kBNiWrLnO
-         kuI9oq0IzgPQLv8SCJ9ZVs/occ7tJSDWf0LmqWzFMA671G7vSIQyjiYUjfCkBU6IoG9E
-         PcsQ==
-X-Gm-Message-State: AOJu0Yza+4CiWkGvrdw/yO9zzeNDXYltzgNxjBKhJleFOGmzftJN3kL4
-	O/Py57nB45rhM1focvdrDyCEVw==
-X-Google-Smtp-Source: AGHT+IGsBN5o5IcayjdKijYEvdxpqJpr+nss7YG2BNN0W1SE1L0lP/e3QGLq0qMYFirhkAlTpAsoaw==
-X-Received: by 2002:a05:651c:d1:b0:2c9:f140:6a52 with SMTP id 17-20020a05651c00d100b002c9f1406a52mr1967205ljr.25.1701763587383;
-        Tue, 05 Dec 2023 00:06:27 -0800 (PST)
+        bh=462UZ1yegAonH30IZwbGS1GDx37pFEUQzZ/HmWu5+3s=;
+        b=X19B0Grg7N+qm3j1TQtS6+zpWKBIZwaNrTvPuzOzE0QdALR6lMcHCD0JP3iT2Onvhj
+         nkMrHAfoiLTTKRJRS+vsmFLUn8tzD3RAtA3x7M3ajsT/W34aqiOOrbW9z29kbo5Pza/O
+         1O1lJ9sUyl2C5CVFkkAyo4BYIp2rlv2eswZzL0cMnEQ/C8GxeGMymEry+xDWH8XqtzCJ
+         BEMJTiZEDaELXl0nmRkeywtsT25kSF6zVsY7B86aIu5bDqLypeWNQ/Id2y5s4qxbYarA
+         Aun+T4ga6NAlZjFloCZux96HGKTYNCEMOOqUUD2M7sFJqyjOjCb+jxOWbJeyce2yXcTO
+         4X8Q==
+X-Gm-Message-State: AOJu0YyyWyiwhIqZz+3zPHnAyExKildnUHu68x+VmY5dhfC/I//qxDD/
+	CVTcei90ptNVobpmm9LD7tF2Vg==
+X-Google-Smtp-Source: AGHT+IEC4FiWUWM2BTYgY1iWusMxoNrt+uMPvUxEC0AbPaGV7dUl2iD2PV9kPQbnoMi8zX11N8sngg==
+X-Received: by 2002:a7b:cb04:0:b0:40b:387b:1135 with SMTP id u4-20020a7bcb04000000b0040b387b1135mr237699wmj.5.1701763741991;
+        Tue, 05 Dec 2023 00:09:01 -0800 (PST)
 Received: from [192.168.1.20] ([178.197.218.27])
-        by smtp.gmail.com with ESMTPSA id g2-20020a1709064e4200b00a1cb351dd4fsm174276ejw.9.2023.12.05.00.06.24
+        by smtp.gmail.com with ESMTPSA id iv7-20020a05600c548700b00405959469afsm17769031wmb.3.2023.12.05.00.08.59
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 05 Dec 2023 00:06:26 -0800 (PST)
-Message-ID: <8ad3cc5d-3138-47ef-92d6-020b65db7409@linaro.org>
-Date: Tue, 5 Dec 2023 09:06:24 +0100
+        Tue, 05 Dec 2023 00:09:01 -0800 (PST)
+Message-ID: <5412a9a2-38cd-4321-9ee6-b50dd060a08f@linaro.org>
+Date: Tue, 5 Dec 2023 09:08:58 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/4] dt-bindings: soc: sophgo: Add Sophgo system
- control module
+Subject: Re: [PATCH v4 2/4] dt-bindings: clock: sophgo: Add SG2042 bindings
 Content-Language: en-US
 To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
  chao.wei@sophgo.com, conor@kernel.org, krzysztof.kozlowski+dt@linaro.org,
@@ -79,7 +78,7 @@ To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
  jszhang@kernel.org, inochiama@outlook.com, samuel.holland@sifive.com
 Cc: Chen Wang <unicorn_wang@outlook.com>
 References: <cover.1701734442.git.unicorn_wang@outlook.com>
- <d02730f0b2b531ce7f59e6569e83a57f551f72aa.1701734442.git.unicorn_wang@outlook.com>
+ <188cd5e99394f358c0d103b8b95377f32c010161.1701734442.git.unicorn_wang@outlook.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -125,11 +124,10 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <d02730f0b2b531ce7f59e6569e83a57f551f72aa.1701734442.git.unicorn_wang@outlook.com>
+In-Reply-To: <188cd5e99394f358c0d103b8b95377f32c010161.1701734442.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231205_000630_607371_E7A61E82 
-X-CRM114-Status: UNSURE (   5.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231205_000904_197326_3A88FA3E 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,15 +144,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 05/12/2023 01:22, Chen Wang wrote:
+On 05/12/2023 01:23, Chen Wang wrote:
 > From: Chen Wang <unicorn_wang@outlook.com>
 > 
-> Add documentation to describe Sophgo System Controller for SG2042.
-> 
-> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
-> ---
+> Add bindings for the clock generator on the SG2042 RISC-V SoC.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+A nit, subject: drop second/last, redundant "bindings". The
+"dt-bindings" prefix is already stating that these are bindings.
+
+> +
+> +maintainers:
+> +  - Chen Wang <unicorn_wang@outlook.com>
+> +
+> +properties:
+> +  compatible:
+> +    items:
+
+Drop items, the same in previous patch. We keep simplified form for
+compatibles usually.
+
+> +      - const: sophgo,sg2042-clkgen
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  system-ctrl:
+
+Missing vendor prefix.
+
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description: a phandle to SG2042 System Controller node.
+
+Add explanation how it is used and what its purpose is.
+
+> +
+> +  clocks:
+> +    items:
+> +      - description: Clock Generation IC (25 MHz)
+> +
+> +  '#clock-cells':
+> +    const: 1
+> +    description:
+> +      See <dt-bindings/clock/sophgo,sg2042-clkgen.h> for valid indices.
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - system-ctrl
+> +  - clocks
+> +  - '#clock-cells'
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    clock-controller@30012000 {
+> +        compatible = "sophgo,sg2042-clkgen";
+> +        reg = <0x30012000 0x1000>;
+> +        system-ctrl = <&sys_ctrl>;
+> +        clocks = <&cgi>;
+> +        #clock-cells = <1>;
+> +    };
+> diff --git a/include/dt-bindings/clock/sophgo,sg2042-clkgen.h b/include/dt-bindings/clock/sophgo,sg2042-clkgen.h
+> new file mode 100644
+> index 000000000000..b12046046f1f
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/sophgo,sg2042-clkgen.h
+> @@ -0,0 +1,169 @@
+> +/* SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause */
+> +/*
+> + * Copyright (C) 2023 Sophgo Technology Inc. All rights reserved.
+> + */
+> +
+> +#ifndef __DT_BINDINGS_CLOCK_SOPHGO_SG2042_H__
+> +#define __DT_BINDINGS_CLOCK_SOPHGO_SG2042_H__
+> +
+> +/* Divider clocks */
+> +#define	DIV_CLK_MPLL_RP_CPU_NORMAL_0	0
+
+No indentation after #define. Open other header files and look how it is
+done there.
+
 
 Best regards,
 Krzysztof
