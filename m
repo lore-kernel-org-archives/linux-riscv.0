@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DD9FC10DC3
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Dec 2023 23:54:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72FADC4167B
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Dec 2023 23:54:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pMTEH+6TPHWp1TMlZPTg1qCaKjBsBU8NJc01I+OXZgE=; b=vyX4ZLyVHd91y4
-	JcqzrnxDEE7FOa+cb07z9GH69Gnw7+w/PidYmTpiUun4hEXrqgFlgePjbRR8eCU/ofwfNhTLHqECE
-	1LFFlQygz1s5WzCJ+DMV4NyCeIfbs6vK5MSfAISIsdfgS/OBH8recydWCBUCjyC+vkY+zPC2Tufan
-	T6W1dC1WPRqyI2LpLjhcYr0monuhg8CMvyiIFk4F0tabJwNOC1SEbfVmZWDXuc6Gk+5FYIDqpwFKP
-	ZjSPf2Dd2Qq7wBwEGFxf8T3EoV493kw0MKhgT3mdopjIbVQV6hbh8ycKChNMjSJxq0KwmUR0647cr
-	clg7GjfQZltid1E9nExQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=DRMR9x7b7d/Ehff3dfZRMaAFwSMGVUxdWY17kyBohz0=; b=0jWJM//qCGH0Lu
+	FfR92x7OvP3PWK0Wp1LuOAcWSeCnkZaIWK2kHph6TMq4QmbIA5uQEvXlONl8pgTMc9bZTqvLZScg8
+	dS5IQbAD4aFJo//mHEWMujQBz8bYbdVkbTjiOovXzcaW3bqo6dmuZeRsjch1l3NzI9CUcGUkwHk7D
+	lKi0aCUbF7dvpKxaQA2WiIn//S0agAwu0Lz+myiUutQT/OxBs1z/PmrI+t75d/e+hnip3wPTAcDGP
+	qCvKdUu/bd6hhOeVpgfzGmckcKQ9Oxggv6kIOo7L4ayrDlx7+PuPzlSDZ7udUSLFaWczVuJeW0g0h
+	kmyLCthwQTkUS4nMzTUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAfEt-008fSa-0a;
-	Tue, 05 Dec 2023 23:54:07 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1rAfEu-008fTB-2k;
+	Tue, 05 Dec 2023 23:54:08 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAfEq-008fQf-0i
+	id 1rAfEr-008fRA-2R
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Dec 2023 23:54:06 +0000
+	Tue, 05 Dec 2023 23:54:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 88032B81D68;
-	Tue,  5 Dec 2023 23:54:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D1C2C43391;
-	Tue,  5 Dec 2023 23:54:01 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 7EF6CCE0A10;
+	Tue,  5 Dec 2023 23:54:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AD91C433C7;
+	Tue,  5 Dec 2023 23:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701820441;
-	bh=ba9h7X86HRdFrwM84UeL/FEcVW5UbtpdyhVkFXYpoFE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ofJioA7ajxhroSG6pbg/v8t+WNd/24XLW0AF0EDyyzI4OweyCQPg1OC3rqxd/9aSs
-	 vdnCDjHBHy6iKqW25viUm1LzyKW7Wtzw6CKu2uWJ3rGmn8hYcTZyxkzfBewIbYn9Om
-	 v07FRFNDn/hX3VcWF8p/03ruM7F+KySYEFZFLYfm+f4uFkVGHo6YJ0S+IOG65U0L1g
-	 +RvSA5jp1INWT+ybaGEksBn4lLL8VJKrycF7vgNBFZqcuFakAoTH1isQDhKwJCx6/+
-	 39e+BrunYszmi9AmAHVfk8clcznqyz/J7huKOKJZbDwm/lwfNU17lMRYrUfZJ1MHJ8
-	 AKbgIq0y0w7+A==
+	s=k20201202; t=1701820439;
+	bh=y/jqertrO7frvcmMbzQv5qp/lLtbm42FIUi32gqKKTY=;
+	h=From:Subject:Date:To:Cc:From;
+	b=HnO/23+J7Z0MsuTFQi1T5wWU6invgYUs70iS/MAR4gtRjF5ObSqqHmVtULa5Ojcvk
+	 3erW/Oa/ZZncJ9/8DlrHRRUTMDI3oK8RlfkfD5mhEa0zB3v7CIXTVRH3FnPWPJcvXF
+	 J3bLveJlNDLck1gUDuiNW8rxPkXPpCwnr8A2fhssmxuhe9Z2V6SD73s4S4gGGtM04W
+	 DA7S3xg75s0ioAS3eivrpa1fI6cTtXwuBCtK2SQJwneXBuvu6zF8HXHnZ2oMwaz7FG
+	 qBYx04GN+6ejn5HE4AFBdDY7p8jh96eyYzdIorgO4hkO6ovKPnRSJ99588+2qh/N5I
+	 p0P6xPYDEivFA==
 From: Nathan Chancellor <nathan@kernel.org>
-Date: Tue, 05 Dec 2023 16:53:52 -0700
-Subject: [PATCH v2 3/3] lib/Kconfig.debug: Update AS_HAS_NON_CONST_LEB128
- comment and name
+Subject: [PATCH v2 0/3] RISC-V: Disable DWARF5 with known broken LLVM
+ versions
+Date: Tue, 05 Dec 2023 16:53:49 -0700
+Message-Id: <20231205-riscv-restrict-dwarf5-llvm-v2-0-aedf00a382ac@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20231205-riscv-restrict-dwarf5-llvm-v2-3-aedf00a382ac@kernel.org>
-References: <20231205-riscv-restrict-dwarf5-llvm-v2-0-aedf00a382ac@kernel.org>
-In-Reply-To: <20231205-riscv-restrict-dwarf5-llvm-v2-0-aedf00a382ac@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAA24b2UC/43NQQ6CMBCF4auQWTumLaDgynsYFrRMYSKCmZKqI
+ dzdyglcfm/xvxUCCVOAS7aCUOTA85RgDhm4oZ16Qu6SwSiTa21qFA4uolBYhN2C3asVX+I4xge
+ 2dWUKa+tz4SykwFPI83uP35rkgcMyy2f/ivq3/pWNGhWSU11+qrwt8+p6J5loPM7SQ7Nt2xdtc
+ XClxQAAAA==
 To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
  conor@kernel.org
 Cc: maskray@google.com, ndesaulniers@google.com, 
  linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
  patches@lists.linux.dev, Nathan Chancellor <nathan@kernel.org>
 X-Mailer: b4 0.12.4
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2652; i=nathan@kernel.org;
- h=from:subject:message-id; bh=ba9h7X86HRdFrwM84UeL/FEcVW5UbtpdyhVkFXYpoFE=;
- b=owGbwMvMwCUmm602sfCA1DTG02pJDKn5O8Qtlz4tNM1ofLfhkoW1Ra3BRw8Z+ZPiPIJGdWf+3
- v9beFaxo5SFQYyLQVZMkaX6sepxQ8M5ZxlvnJoEM4eVCWQIAxenAExkfx8jw0Orx23NbNlW184l
- 5S84tcruQCJzEdOSHROtlAVzt5qfO8TIMLdBiV1lV5pEhq1rolvs3x69kOiqkt8fzQ9dCpol8T6
- FBwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1298; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=y/jqertrO7frvcmMbzQv5qp/lLtbm42FIUi32gqKKTY=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDKn5O8Re5h0w0Dxz3u2i223Ro88ZF37uDCwSubE6dce2N
+ 6aLizdZdJSyMIhxMciKKbJUP1Y9bmg45yzjjVOTYOawMoEMYeDiFICJLDzHyPC1OO1An+EljfDY
+ dztfHFjfzsnEmLH13WGHWzGzv3BO8r7O8L+y98uGVXZiRbLs6d+UNERkT/7N3XY7Msj4xzbZDQw
+ 6XhwA
 X-Developer-Key: i=nathan@kernel.org; a=openpgp;
  fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231205_155404_566459_26C6BD10 
-X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-CacheID: sfid-20231205_155405_977409_C02D301A 
+X-CRM114-Status: UNSURE (   8.73  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,61 +86,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Fangrui noted that the comment around CONFIG_AS_HAS_NON_CONST_LEB128
-could be made more accurate because explicit .sleb128 directives are not
-emitted, only .uleb128 directives are. Rename the symbol to
-CONFIG_AS_HAS_NON_CONST_ULEB128 as a result.
+Hi all,
 
-Further clarifications include replacing "symbol deltas" with the more
-accurate "label differences", noting that this issue has been resolved
-in newer binutils (2.41+), and it only occurs when a port uses RISC-V
-style linker relaxation.
+This series disables DWARF5 for LLVM versions where it is known to be
+broken due to linker relaxation:
 
-Suggested-by: Fangrui Song <maskray@google.com>
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+https://github.com/llvm/llvm-project/commit/bbc0f99f3bc96f1db16f649fc21dd18e5b0918f6
+
+If I understand correctly, it sounds like GNU binutils has a similar
+issue but I am not sure of the status of the fixes and such, so I did
+not bother with checking for it but it should be easy to add if so
+desired.
+
 ---
- lib/Kconfig.debug | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+Changes in v2:
+- Added patch 3 with Fangrui's suggested improvements around
+  CONFIG_AS_HAS_NON_CONST_LEB128.
+- Pick up Fangrui's Reviewed-by on patch 1.
+- Link to v1: https://lore.kernel.org/r/20231129-riscv-restrict-dwarf5-llvm-v1-0-ec0d368fb538@kernel.org
 
-diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-index a0ebce05a368..76c2cc697573 100644
---- a/lib/Kconfig.debug
-+++ b/lib/Kconfig.debug
-@@ -231,9 +231,10 @@ config DEBUG_INFO
- 	  in the "Debug information" choice below, indicating that debug
- 	  information will be generated for build targets.
- 
--# Clang is known to generate .{s,u}leb128 with symbol deltas with DWARF5, which
--# some targets may not support: https://sourceware.org/bugzilla/show_bug.cgi?id=27215
--config AS_HAS_NON_CONST_LEB128
-+# Clang generates .uleb128 with label differences for DWARF v5, a feature that
-+# older binutils ports do not support when utilizing RISC-V style linker
-+# relaxation: https://sourceware.org/bugzilla/show_bug.cgi?id=27215
-+config AS_HAS_NON_CONST_ULEB128
- 	def_bool $(as-instr,.uleb128 .Lexpr_end4 - .Lexpr_start3\n.Lexpr_start3:\n.Lexpr_end4:)
- 
- choice
-@@ -258,7 +259,7 @@ config DEBUG_INFO_NONE
- config DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT
- 	bool "Rely on the toolchain's implicit default DWARF version"
- 	select DEBUG_INFO
--	depends on !CC_IS_CLANG || AS_IS_LLVM || CLANG_VERSION < 140000 || (AS_IS_GNU && AS_VERSION >= 23502 && AS_HAS_NON_CONST_LEB128)
-+	depends on !CC_IS_CLANG || AS_IS_LLVM || CLANG_VERSION < 140000 || (AS_IS_GNU && AS_VERSION >= 23502 && AS_HAS_NON_CONST_ULEB128)
- 	help
- 	  The implicit default version of DWARF debug info produced by a
- 	  toolchain changes over time.
-@@ -283,7 +284,7 @@ config DEBUG_INFO_DWARF5
- 	bool "Generate DWARF Version 5 debuginfo"
- 	select DEBUG_INFO
- 	depends on !ARCH_HAS_BROKEN_DWARF5
--	depends on !CC_IS_CLANG || AS_IS_LLVM || (AS_IS_GNU && AS_VERSION >= 23502 && AS_HAS_NON_CONST_LEB128)
-+	depends on !CC_IS_CLANG || AS_IS_LLVM || (AS_IS_GNU && AS_VERSION >= 23502 && AS_HAS_NON_CONST_ULEB128)
- 	help
- 	  Generate DWARF v5 debug info. Requires binutils 2.35.2, gcc 5.0+ (gcc
- 	  5.0+ accepts the -gdwarf-5 flag but only had partial support for some
+---
+Nathan Chancellor (3):
+      riscv: Hoist linker relaxation disabling logic into Kconfig
+      riscv: Restrict DWARF5 when building with LLVM to known working versions
+      lib/Kconfig.debug: Update AS_HAS_NON_CONST_LEB128 comment and name
 
+ arch/riscv/Kconfig  | 14 ++++++++++++++
+ arch/riscv/Makefile |  4 +---
+ lib/Kconfig.debug   | 12 +++++++-----
+ 3 files changed, 22 insertions(+), 8 deletions(-)
+---
+base-commit: 2cc14f52aeb78ce3f29677c2de1f06c0e91471ab
+change-id: 20231129-riscv-restrict-dwarf5-llvm-a9824bb974cb
+
+Best regards,
 -- 
-2.43.0
+Nathan Chancellor <nathan@kernel.org>
 
 
 _______________________________________________
