@@ -4,93 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0BABC4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 16:38:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04BE0C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 16:45:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h698vfguimOkEJFu88Vpbw9p655kygNRJyWUc5zNpEo=; b=LonGlze73dgFiK
-	UYwO3I9A1cEyHU5vsMNb497nQF7nUTR/qQ/hwe4HKOq4xF4Gb6yA/I7IcqiqT9NEITN5iuD86vlcS
-	6Uzzobr8e0pi9tXihTpbOOeQUlU3Z4rm39IWdXK6t6NGa1XDUqK/d/dayT5LaeDb6i9tA6E/5/3Kt
-	YSRtgc+FValdrptaqSBEUyQcHGSd2Cz5I1DI4mMKDr3ZFW1VuK++MuLdxRjDXXfpzrpDxC9vJbhiv
-	Et7nA1p+grpFBKz7cad/V1WzIv68tG1HETucb7FaR78g4bXOIc+4TwYGZaZz+lvujoYRX3M/No0CZ
-	EfOWOiVYCNClMTf5RleQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o+z1fuwB0bCUeFOy8ix8eLyM4qrwRAxtxpjKss6AzeQ=; b=WzG95ixWQadur+9XsSV/on5p4a
+	eo9bLc97GkT/2/bk+D7MRIhdl3xkHJfxMIU/C9AUB69AL9KzGLa2Q51j9PReryEoU6GRp9iYKT8kQ
+	SLqXeYrUeLyY9NNLM1maL+5jsiShhho8BxS7KHMd+jDsvJnpBv5Eita14dJZY9tCFf2Hn3zpShL7B
+	37gWom51AaD//XDx/LmLi0fLURkxUPCdkt4yMZnkOWZswLtbe4f5XF9LXgGBaEKcgpo0PW292EqPj
+	K4OBCE5tvH1Cy0K/zAymil4Fp2mhC/7/A527kBCKgG7cfMH+PUZQNGgtLIQMHU41CoeThyBWFZ1CU
+	7jDCPv1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAuuo-00AmZx-1S;
-	Wed, 06 Dec 2023 16:38:26 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1rAv1d-00AnUz-2U;
+	Wed, 06 Dec 2023 16:45:29 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAuun-00AmZl-0f
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 06 Dec 2023 16:38:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=evl1U5G+v7p9gMxFFsHi0NmzyC/QyjntfdGiRP4l5KI=; b=mFV0PJjQXYK/i1bHZs3i4ArIx2
-	d+67mDb1sq/1LHA4CRjlKQFBybEQ/pPdtvl3YCA6rjyaE1TstBZDO3xznhyQPDrCnlR9QGuHq3P+S
-	narwijdN41kTVPuDq/6+3vxrGUyBvNIMT9JwiAoZ+bKsub8Bznx2HjLBVgDnJa7Nw9VaQgcFYyPFS
-	crmsGQu6piC1a+orpEC7xdDPk1laSZFsjU9j97438gE7BXKWwta+0GMp+qulr7yAxnnu2WxNfAdpE
-	JfXYDiufGNKc/x4BwwXFLE93CGGLVcxqD4Rmg8yirLAoTf4UUc8Ax39kqbOCpn2HNkZKVZz0E48Xo
-	Wk6R1rlw==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1rAuue-0034Um-DJ; Wed, 06 Dec 2023 16:38:16 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 09FD5300451; Wed,  6 Dec 2023 17:38:15 +0100 (CET)
-Date: Wed, 6 Dec 2023 17:38:14 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: Jiri Olsa <olsajiri@gmail.com>, Song Liu <song@kernel.org>,
-	Song Liu <songliubraving@meta.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	David Ahern <dsahern@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>, Arnd Bergmann <arnd@arndb.de>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Kees Cook <keescook@chromium.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	Network Development <netdev@vger.kernel.org>,
-	bpf <bpf@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>,
-	clang-built-linux <llvm@lists.linux.dev>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Joao Moreira <joao@overdrivepizza.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH v2 2/2] x86/cfi,bpf: Fix BPF JIT call
-Message-ID: <20231206163814.GB36423@noisy.programming.kicks-ass.net>
-References: <20231130133630.192490507@infradead.org>
- <20231130134204.136058029@infradead.org>
- <CAADnVQJqE=aE7mHVS54pnwwnDS0b67iJbr+t4j5F4HRyJSTOHw@mail.gmail.com>
- <20231204091334.GM3818@noisy.programming.kicks-ass.net>
- <20231204111128.GV8262@noisy.programming.kicks-ass.net>
- <20231204125239.GA1319@noisy.programming.kicks-ass.net>
- <ZW4LjmUKj1q6RWdL@krava>
- <20231204181614.GA7299@noisy.programming.kicks-ass.net>
- <20231204183354.GC7299@noisy.programming.kicks-ass.net>
- <CAADnVQJwU5fCLcjBWM9zBY6jUcnME3+p=vvdgKK9FiLPWvXozg@mail.gmail.com>
+	id 1rAv1b-00AnU8-0A
+	for linux-riscv@lists.infradead.org;
+	Wed, 06 Dec 2023 16:45:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id 06A82B82303;
+	Wed,  6 Dec 2023 16:45:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6345FC433C7;
+	Wed,  6 Dec 2023 16:45:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1701881124;
+	bh=P064BleAcaaGYhhLYVjCCsTlgPSnJdkpYELnbMw15OQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HuR24vb/Pb1Pbt9Itc3plkdQp03Y6Tb4sEZVG1gMg+gQtRCd1T75ZKfVN5qvVAEAd
+	 wNEwEBl/EIKXg0auBxpidjXNEN7qHuzHfAFrvSh8lzbJnNOmLcrvmH39HHncVJ0HNJ
+	 X+vjTBpvYbe631vKNhFBsNtEcW3cRsijHQPB8EvSJ9W6s6r2Twnf7UA46q5ek+HNbK
+	 6Bd9o2P9svh3VLEtqbX7Rbos43lggpFKy7a2FCRWR1YOPwLUZ9Aa+2cSn8K4eQrPjH
+	 Jyo5sSj9fpCF19kvQzYLiFhicP7ImdLYCNGVB5M3a+vmcMvePrxDE930n17fyT4r80
+	 l4kaWOls3Jx+g==
+Date: Wed, 6 Dec 2023 16:45:18 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+Cc: kernel@esmil.dk, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+	krzk@kernel.org, conor+dt@kernel.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	daniel.lezcano@linaro.org, tglx@linutronix.de, anup@brainfault.org,
+	gregkh@linuxfoundation.org, jirislaby@kernel.org,
+	michal.simek@amd.com, michael.zhu@starfivetech.com,
+	drew@beagleboard.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	leyfoon.tan@starfivetech.com
+Subject: Re: [PATCH v3 0/6] Initial device tree support for StarFive JH8100
+ SoC
+Message-ID: <20231206-sizzling-whoopee-9e2a6755cd05@spud>
+References: <20231201121410.95298-1-jeeheng.sia@starfivetech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAADnVQJwU5fCLcjBWM9zBY6jUcnME3+p=vvdgKK9FiLPWvXozg@mail.gmail.com>
+In-Reply-To: <20231201121410.95298-1-jeeheng.sia@starfivetech.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20231206_084527_244358_B65629F6 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,91 +74,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2040373948130597939=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 04, 2023 at 05:18:31PM -0800, Alexei Starovoitov wrote:
 
-> [   13.978497]  ? asm_exc_invalid_op+0x1a/0x20
-> [   13.978798]  ? tcp_set_ca_state+0x51/0xd0
-> [   13.979087]  tcp_v6_syn_recv_sock+0x45c/0x6c0
-> [   13.979401]  tcp_check_req+0x497/0x590
-
-> The stack trace doesn't have any bpf, but it's a bpf issue too.
-> Here tcp_set_ca_state() calls
-> icsk->icsk_ca_ops->set_state(sk, ca_state);
-> which calls bpf prog via bpf trampoline.
+--===============2040373948130597939==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="mvCQXmL2zJOZIJ4J"
+Content-Disposition: inline
 
 
+--mvCQXmL2zJOZIJ4J
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Specifically, I think this is
-tools/testing/selftests/bpf/progs/bpf_cubic.c, which has:
+On Fri, Dec 01, 2023 at 08:14:04PM +0800, Sia Jee Heng wrote:
+> StarFive JH8100 SoC consists of 4 RISC-V performance Cores (Dubhe-90) and
+> 2 RISC-V energy efficient cores (Dubhe-80). It also features various
+> interfaces such as DDR4, Gbit-Ether, CAN, USB 3.2, SD/MMC, etc., making it
+> ideal for high-performance computing scenarios.
+>=20
+> This patch series introduces initial SoC DTSI support for the StarFive
+> JH8100 SoC. The relevant dt-binding documentation has been updated
+> accordingly. Below is the list of IP blocks added in the initial SoC DTSI,
+> which can be used for booting via initramfs on FPGA:
 
-        .set_state      = (void *)bpf_cubic_state,
+This all seems okay to me. I'll need an ack from Emil though before I
+can pick it up.
 
-which comes from:
-
-BPF_STRUCT_OPS(bpf_cubic_state, struct sock *sk, __u8 *new_state)
-
-which then wraps:
-
-BPF_PROG()
-
-which ends up generating:
-
-static __always_inline ___bpf_cubic_state(unsigned long long *ctx, struct sock *sk, __u8 *new_state)
-{
-	...
-}
-
-void bpf_cubic_state(unsigned long long *ctx)
-{
-	return ____bpf_cubic_state(ctx, ctx[0], ctx[1]);
-}
+Thanks,
+Conor.
 
 
-I think this then uses arch_prepare_bpf_trampoline(), but I'm entirely
-lost how this all comes together, because the way I understand it the
-whole bpf_trampoline is used to hook into an ftrace __fentry hook.
+--mvCQXmL2zJOZIJ4J
+Content-Type: application/pgp-signature; name="signature.asc"
 
-And a __fentry hook is very much not a function pointer. Help!?!?
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZXClHQAKCRB4tDGHoIJi
+0nNvAP4yMSbYutcx19sUnchUK4oprRmm58ZSWOHLFlwc38O6IgD6A+QJdSBMlToS
+DL2kVUQR6O7/8oliZG8v92JpZ4zIGAM=
+=Sstp
+-----END PGP SIGNATURE-----
 
-The other case:
-
-For tools/testing/selftests/bpf/progs/bloom_filter_bench.c we have:
-
-        bpf_for_each_map_elem(&array_map, bloom_callback, &data, 0);
-
-and here bloom callback appears like a normal function:
-
-static __u64
-bloom_callback(struct bpf_map *map, __u32 *key, void *val,
-               struct callback_ctx *data)
+--mvCQXmL2zJOZIJ4J--
 
 
-But what do functions looks like in the JIT? What's the actual address
-that's then passed into the helper function. Given this seems to work
-without kCFI, it should at least have an ENDBR, but there's only 3 of
-those afaict:
-
-  - emit_prologue() first insn
-  - emit_prologue() tail-call site
-  - arch_preprare_bpf_trampoline()
-
-If the function passed to the helper is from do_jit()/emit_prologue(),
-then how do I tell what 'function' is being JIT'ed ?
-
-If it is arch_prepare_bpf_trampoline(), then we're back at the previous
-question and I don't see how a __fentry site becomes a callable function
-pointer.
-
-
-Any clues would be much appreciated.
+--===============2040373948130597939==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2040373948130597939==--
+
