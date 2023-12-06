@@ -4,70 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5165FC4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 07:38:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD696C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 07:41:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7wefcEc2z5HCw2fvC97XY3m4lKVMV3eIhYuI1+Iv4VI=; b=G5pzDeBCKZzW0r
-	7Izroi9GatpXtC/Q03dMscp2oSPw25sN93rrVOzPD2Xd2NzCtkpJVM27UblGqF+7CYvz0Qn0oRJJ4
-	+YsUWCjXvbkCTOM0mFyoTOAhaFnZ07SSJLwv4K84bCmy8kIUXZf8pOXizI/Rsv9wUpM1ZqSZi2Oco
-	Nw6qCby517DRkhrn3i0uDI48urBK11niRW/akCNwSBEsb7YCaCyUDw/barPrYL2Rjcm/ICso5bnca
-	bB8jFUOALIHopDM2QcFJRIhwENwj5PqbDdYPmEcbttYNDGtP8iPj/124nWcAKboojo0gKMi13M7+Y
-	49ed85oF9Nytlyg+/DHQ==;
+	List-Owner; bh=Rn3yHsnD53rp8nHSRaBfmOW4T0cs/SfSE6V3hNKbbH8=; b=08yfDPWgUczdv1
+	5xqRKXHJPtnQFHyWGENGKK8mCnFTbg4VY+qER9YWFVNZOnQSWGKqV0/ataxtx+JrKATKV5KkMncFM
+	PvELGx6sSTuViLDV0v4dvyz9kinjwYpHqFK5s2bXvMB5z7Bek9LLlyE+Eyz+reS7CxFhG1cLxg0G/
+	zc+4djrhaPoC1fpxFk0nj3byxrQPRTROS94be2CF21QIGQEwnsOEldCLlEOs+Gd3pnCb/+c3X6XWz
+	ADl3S379Ct7VpvitNdzu+B9eOxJpSMvGk8D3x5zXG2VIIUdY+4jjil1WIBZLYUPJtEKWzxmNQ4xIQ
+	YgoA77WUTLVPuYzh5I2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAmTk-009JeQ-2W;
-	Wed, 06 Dec 2023 07:37:56 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rAmXV-009K3Y-3C;
+	Wed, 06 Dec 2023 07:41:49 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAmTf-009JdB-2X
+	id 1rAmXR-009K2S-16
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 07:37:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 5FC73CE1BBB;
-	Wed,  6 Dec 2023 07:37:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C6B6C433CA;
-	Wed,  6 Dec 2023 07:37:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701848266;
-	bh=NBVGfqVBHtAx9X1sh3B08SNoMFLKVcpgb4FXXBWHsyo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JPL4Vi6NNgX0+0tCKtbzdc6ew3vUTYwk1DSCwubQJi5d2S5vcnba2Vn6Tz7P5ZzK7
-	 xQ7komMKBfd3RmPvmAtyjXDGj8gKz82+cMmt3jhZYGJgSY4f/zi9KPc5vvUKBYCHDo
-	 sAO1MmZEPALJaj4aAovbZRF2EaBVGaqKCmL/W/XlsxpX0n4KDfHSJyOvFHM+9hFb4o
-	 OAVd/9ve1j2R6k7zmhYFicvHyJstnGx+T7O76bXRQB5H7ccxepsaLoJMzmbNPqXu8w
-	 J3tt2eB/ggpQtrrJhwBucFXuE5qJzb12C8/KPKaA/b3L1pRRNSX2XNxZsOdwAJNgj3
-	 MBG7Yg+O65tBQ==
-From: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
-To: gregkh@linuxfoundation.org
-Cc: linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	"Jiri Slaby (SUSE)" <jirislaby@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Amit Shah <amit@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linuxppc-dev@lists.ozlabs.org,
-	virtualization@lists.linux.dev,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 12/27] tty: hvc: convert to u8 and size_t
-Date: Wed,  6 Dec 2023 08:36:57 +0100
-Message-ID: <20231206073712.17776-13-jirislaby@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20231206073712.17776-1-jirislaby@kernel.org>
-References: <20231206073712.17776-1-jirislaby@kernel.org>
+	Wed, 06 Dec 2023 07:41:48 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-50c0f6b1015so1214631e87.3
+        for <linux-riscv@lists.infradead.org>; Tue, 05 Dec 2023 23:41:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1701848503; x=1702453303; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rtN1uyl8b2v4ofgZEiUI+89WGtZCbM176XwHrBJP/e8=;
+        b=KxU34PJK4CykUukCS+LgkcSPTu49NWQsX2o3PoTuG/k0bT1i82Zz+Tt8CRQ0w476sh
+         wZMk9sxP6WTcu10aV/YBcpy6nqfy5VnyIfZ55KkHPBPvlumeFG5qOWkVi9lQ25bpFe+j
+         /B8ECV1ZZWDhlEMOgol6EffHFWCSAkf40MLnG4Q7KuaGRobPX2YgZJ4Nsdr2UboEOnYk
+         FdAoFUBARAGJRphZ+0ANpVVDvV+bNb1HLsBBLHfuG413wOSVX2Xot6ihc3NvHOT44Ic+
+         K8IIoozpguMUz2Sq3CXMxbcoyz5WcMXAC5T9Tw2fuH8HItbDj0TCTqZ1PNbFalSASMqb
+         LASg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701848503; x=1702453303;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rtN1uyl8b2v4ofgZEiUI+89WGtZCbM176XwHrBJP/e8=;
+        b=VGGQhYErZcB3qQ0UdIZfI7f+p7EbqiMC+kJRs0rPYam43Lp0MJX9JWWeu8eUf8mlox
+         z5TqkHf/KYDTkFwg98tIcOCI0JHr1J2Lez2uEu26NKWh18gm0XPot5eUuh/Gkc6acwwV
+         eIW/GGJ51T8/P+gEd+pW1nRUhpkWlFfi8zM7E42oFAyUNxFW6pcdOuakoBx4QehFi1sU
+         16pNTN5mRV1W0LEtWX6zHB2ze5/9mIw6v7rDvtFRFeUNqmsJHnLzqFk7qHOBjKij8K51
+         j5HJYMcCVTj3N/CX15nXACeIaUKGdFxSQ5DBdUumtrrg/qh8Qd0tNphLUqDBaSIJS9Sn
+         QEzw==
+X-Gm-Message-State: AOJu0Yw60PU01wff1Fe+R+ny5oyuyX7bBu1uRs5yj6XY/LKIbATf7WS8
+	HmKRm9YL8h87mPXuYwk6z/PlzKfHDMXeyra/lX6CRg==
+X-Google-Smtp-Source: AGHT+IF7o3mCG4z2QxH04Zq0hX1YHdLyO6PYoEATB/HBbkOz2PdqZxBXDLT9fAqBECnDdvQBYsxB2bJjA0QoODazhPk=
+X-Received: by 2002:a05:6512:4014:b0:50b:f816:f403 with SMTP id
+ br20-20020a056512401400b0050bf816f403mr364962lfb.53.1701848502136; Tue, 05
+ Dec 2023 23:41:42 -0800 (PST)
 MIME-Version: 1.0
+References: <20231205024310.1593100-1-atishp@rivosinc.com> <20231205024310.1593100-9-atishp@rivosinc.com>
+ <a790c2f7-2952-4268-92c5-f293f6fbaa38@syntacore.com>
+In-Reply-To: <a790c2f7-2952-4268-92c5-f293f6fbaa38@syntacore.com>
+From: Atish Kumar Patra <atishp@rivosinc.com>
+Date: Tue, 5 Dec 2023 23:41:31 -0800
+Message-ID: <CAHBxVyE-eeDYhc3jmiXPhcM0crrrSmxm3=pcRyw=c0p5vjD6xw@mail.gmail.com>
+Subject: Re: [RFC 8/9] RISC-V: KVM: Add perf sampling support for guests
+To: Vladimir Isaev <vladimir.isaev@syntacore.com>
+Cc: linux-kernel@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>, 
+	Alexandre Ghiti <alexghiti@rivosinc.com>, kvm@vger.kernel.org, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, 
+	kvm-riscv@lists.infradead.org, Atish Patra <atishp@atishpatra.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
+	Will Deacon <will@kernel.org>, Andrew Jones <ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231205_233752_186425_C71F8AB1 
-X-CRM114-Status: GOOD (  23.54  )
+X-CRM114-CacheID: sfid-20231205_234145_560604_462121D3 
+X-CRM114-Status: GOOD (  46.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,723 +89,227 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Switch character types to u8 and sizes to size_t. To conform to
-characters/sizes in the rest of the tty layer.
-
-Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
-Cc: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Nicholas Piggin <npiggin@gmail.com>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: Amit Shah <amit@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: linuxppc-dev@lists.ozlabs.org
-Cc: virtualization@lists.linux.dev
-Cc: linux-riscv@lists.infradead.org
----
- arch/powerpc/include/asm/hvconsole.h       |  4 ++--
- arch/powerpc/include/asm/hvsi.h            | 18 ++++++++--------
- arch/powerpc/include/asm/opal.h            |  8 +++++---
- arch/powerpc/platforms/powernv/opal.c      | 14 +++++++------
- arch/powerpc/platforms/pseries/hvconsole.c |  4 ++--
- drivers/char/virtio_console.c              | 10 ++++-----
- drivers/tty/hvc/hvc_console.h              |  4 ++--
- drivers/tty/hvc/hvc_dcc.c                  | 24 +++++++++++-----------
- drivers/tty/hvc/hvc_iucv.c                 | 18 ++++++++--------
- drivers/tty/hvc/hvc_opal.c                 |  5 +++--
- drivers/tty/hvc/hvc_riscv_sbi.c            |  9 ++++----
- drivers/tty/hvc/hvc_rtas.c                 | 11 +++++-----
- drivers/tty/hvc/hvc_udbg.c                 |  9 ++++----
- drivers/tty/hvc/hvc_vio.c                  | 18 ++++++++--------
- drivers/tty/hvc/hvc_xen.c                  | 23 +++++++++++----------
- drivers/tty/hvc/hvsi_lib.c                 | 20 ++++++++++--------
- 16 files changed, 107 insertions(+), 92 deletions(-)
-
-diff --git a/arch/powerpc/include/asm/hvconsole.h b/arch/powerpc/include/asm/hvconsole.h
-index ccb2034506f0..d841a97010a0 100644
---- a/arch/powerpc/include/asm/hvconsole.h
-+++ b/arch/powerpc/include/asm/hvconsole.h
-@@ -21,8 +21,8 @@
-  * Vio firmware always attempts to fetch MAX_VIO_GET_CHARS chars.  The 'count'
-  * parm is included to conform to put_chars() function pointer template
-  */
--extern int hvc_get_chars(uint32_t vtermno, char *buf, int count);
--extern int hvc_put_chars(uint32_t vtermno, const char *buf, int count);
-+extern ssize_t hvc_get_chars(uint32_t vtermno, u8 *buf, size_t count);
-+extern ssize_t hvc_put_chars(uint32_t vtermno, const u8 *buf, size_t count);
- 
- /* Provided by HVC VIO */
- void hvc_vio_init_early(void);
-diff --git a/arch/powerpc/include/asm/hvsi.h b/arch/powerpc/include/asm/hvsi.h
-index 464a7519ed64..9058edcb632b 100644
---- a/arch/powerpc/include/asm/hvsi.h
-+++ b/arch/powerpc/include/asm/hvsi.h
-@@ -64,7 +64,7 @@ struct hvsi_priv {
- 	unsigned int	inbuf_len;	/* data in input buffer */
- 	unsigned char	inbuf[HVSI_INBUF_SIZE];
- 	unsigned int	inbuf_cur;	/* Cursor in input buffer */
--	unsigned int	inbuf_pktlen;	/* packet length from cursor */
-+	size_t		inbuf_pktlen;	/* packet length from cursor */
- 	atomic_t	seqno;		/* packet sequence number */
- 	unsigned int	opened:1;	/* driver opened */
- 	unsigned int	established:1;	/* protocol established */
-@@ -72,24 +72,26 @@ struct hvsi_priv {
- 	unsigned int	mctrl_update:1;	/* modem control updated */
- 	unsigned short	mctrl;		/* modem control */
- 	struct tty_struct *tty;		/* tty structure */
--	int (*get_chars)(uint32_t termno, char *buf, int count);
--	int (*put_chars)(uint32_t termno, const char *buf, int count);
-+	ssize_t (*get_chars)(uint32_t termno, u8 *buf, size_t count);
-+	ssize_t (*put_chars)(uint32_t termno, const u8 *buf, size_t count);
- 	uint32_t	termno;
- };
- 
- /* hvsi lib functions */
- struct hvc_struct;
- extern void hvsilib_init(struct hvsi_priv *pv,
--			 int (*get_chars)(uint32_t termno, char *buf, int count),
--			 int (*put_chars)(uint32_t termno, const char *buf,
--					  int count),
-+			 ssize_t (*get_chars)(uint32_t termno, u8 *buf,
-+					      size_t count),
-+			 ssize_t (*put_chars)(uint32_t termno, const u8 *buf,
-+					      size_t count),
- 			 int termno, int is_console);
- extern int hvsilib_open(struct hvsi_priv *pv, struct hvc_struct *hp);
- extern void hvsilib_close(struct hvsi_priv *pv, struct hvc_struct *hp);
- extern int hvsilib_read_mctrl(struct hvsi_priv *pv);
- extern int hvsilib_write_mctrl(struct hvsi_priv *pv, int dtr);
- extern void hvsilib_establish(struct hvsi_priv *pv);
--extern int hvsilib_get_chars(struct hvsi_priv *pv, char *buf, int count);
--extern int hvsilib_put_chars(struct hvsi_priv *pv, const char *buf, int count);
-+extern ssize_t hvsilib_get_chars(struct hvsi_priv *pv, u8 *buf, size_t count);
-+extern ssize_t hvsilib_put_chars(struct hvsi_priv *pv, const u8 *buf,
-+				 size_t count);
- 
- #endif /* _HVSI_H */
-diff --git a/arch/powerpc/include/asm/opal.h b/arch/powerpc/include/asm/opal.h
-index b66b0c615f4f..af304e6cb486 100644
---- a/arch/powerpc/include/asm/opal.h
-+++ b/arch/powerpc/include/asm/opal.h
-@@ -313,9 +313,11 @@ extern int early_init_dt_scan_recoverable_ranges(unsigned long node,
- 				 const char *uname, int depth, void *data);
- void __init opal_configure_cores(void);
- 
--extern int opal_get_chars(uint32_t vtermno, char *buf, int count);
--extern int opal_put_chars(uint32_t vtermno, const char *buf, int total_len);
--extern int opal_put_chars_atomic(uint32_t vtermno, const char *buf, int total_len);
-+extern ssize_t opal_get_chars(uint32_t vtermno, u8 *buf, size_t count);
-+extern ssize_t opal_put_chars(uint32_t vtermno, const u8 *buf,
-+			      size_t total_len);
-+extern ssize_t opal_put_chars_atomic(uint32_t vtermno, const u8 *buf,
-+				     size_t total_len);
- extern int opal_flush_chars(uint32_t vtermno, bool wait);
- extern int opal_flush_console(uint32_t vtermno);
- 
-diff --git a/arch/powerpc/platforms/powernv/opal.c b/arch/powerpc/platforms/powernv/opal.c
-index cdf3838f08d3..45dd77e3ccf6 100644
---- a/arch/powerpc/platforms/powernv/opal.c
-+++ b/arch/powerpc/platforms/powernv/opal.c
-@@ -424,7 +424,7 @@ static int __init opal_message_init(struct device_node *opal_node)
- 	return 0;
- }
- 
--int opal_get_chars(uint32_t vtermno, char *buf, int count)
-+ssize_t opal_get_chars(uint32_t vtermno, u8 *buf, size_t count)
- {
- 	s64 rc;
- 	__be64 evt, len;
-@@ -441,10 +441,11 @@ int opal_get_chars(uint32_t vtermno, char *buf, int count)
- 	return 0;
- }
- 
--static int __opal_put_chars(uint32_t vtermno, const char *data, int total_len, bool atomic)
-+static ssize_t __opal_put_chars(uint32_t vtermno, const u8 *data,
-+				size_t total_len, bool atomic)
- {
- 	unsigned long flags = 0 /* shut up gcc */;
--	int written;
-+	ssize_t written;
- 	__be64 olen;
- 	s64 rc;
- 
-@@ -484,7 +485,7 @@ static int __opal_put_chars(uint32_t vtermno, const char *data, int total_len, b
- 		if (atomic) {
- 			/* Should not happen */
- 			pr_warn("atomic console write returned partial "
--				"len=%d written=%d\n", total_len, written);
-+				"len=%zu written=%zd\n", total_len, written);
- 		}
- 		if (!written)
- 			written = -EAGAIN;
-@@ -497,7 +498,7 @@ static int __opal_put_chars(uint32_t vtermno, const char *data, int total_len, b
- 	return written;
- }
- 
--int opal_put_chars(uint32_t vtermno, const char *data, int total_len)
-+ssize_t opal_put_chars(uint32_t vtermno, const u8 *data, size_t total_len)
- {
- 	return __opal_put_chars(vtermno, data, total_len, false);
- }
-@@ -508,7 +509,8 @@ int opal_put_chars(uint32_t vtermno, const char *data, int total_len)
-  * true at the moment because console space can race with OPAL's console
-  * writes.
-  */
--int opal_put_chars_atomic(uint32_t vtermno, const char *data, int total_len)
-+ssize_t opal_put_chars_atomic(uint32_t vtermno, const u8 *data,
-+			      size_t total_len)
- {
- 	return __opal_put_chars(vtermno, data, total_len, true);
- }
-diff --git a/arch/powerpc/platforms/pseries/hvconsole.c b/arch/powerpc/platforms/pseries/hvconsole.c
-index 1ac52963e08b..8803c947998e 100644
---- a/arch/powerpc/platforms/pseries/hvconsole.c
-+++ b/arch/powerpc/platforms/pseries/hvconsole.c
-@@ -25,7 +25,7 @@
-  *	firmware.
-  * @count: not used?
-  */
--int hvc_get_chars(uint32_t vtermno, char *buf, int count)
-+ssize_t hvc_get_chars(uint32_t vtermno, u8 *buf, size_t count)
- {
- 	long ret;
- 	unsigned long retbuf[PLPAR_HCALL_BUFSIZE];
-@@ -52,7 +52,7 @@ EXPORT_SYMBOL(hvc_get_chars);
-  *	firmware. Must be at least 16 bytes, even if count is less than 16.
-  * @count: Send this number of characters.
-  */
--int hvc_put_chars(uint32_t vtermno, const char *buf, int count)
-+ssize_t hvc_put_chars(uint32_t vtermno, const u8 *buf, size_t count)
- {
- 	unsigned long *lbuf = (unsigned long *) buf;
- 	long ret;
-diff --git a/drivers/char/virtio_console.c b/drivers/char/virtio_console.c
-index 8abe599c1c07..035f89f1a251 100644
---- a/drivers/char/virtio_console.c
-+++ b/drivers/char/virtio_console.c
-@@ -650,7 +650,7 @@ static ssize_t __send_to_port(struct port *port, struct scatterlist *sg,
-  * Give out the data that's requested from the buffer that we have
-  * queued up.
-  */
--static ssize_t fill_readbuf(struct port *port, char __user *out_buf,
-+static ssize_t fill_readbuf(struct port *port, u8 __user *out_buf,
- 			    size_t out_count, bool to_user)
- {
- 	struct port_buffer *buf;
-@@ -669,7 +669,7 @@ static ssize_t fill_readbuf(struct port *port, char __user *out_buf,
- 		if (ret)
- 			return -EFAULT;
- 	} else {
--		memcpy((__force char *)out_buf, buf->buf + buf->offset,
-+		memcpy((__force u8 *)out_buf, buf->buf + buf->offset,
- 		       out_count);
- 	}
- 
-@@ -1104,7 +1104,7 @@ static const struct file_operations port_fops = {
-  * it to finish: inefficient in theory, but in practice
-  * implementations will do it immediately.
-  */
--static int put_chars(u32 vtermno, const char *buf, int count)
-+static ssize_t put_chars(u32 vtermno, const u8 *buf, size_t count)
- {
- 	struct port *port;
- 	struct scatterlist sg[1];
-@@ -1132,7 +1132,7 @@ static int put_chars(u32 vtermno, const char *buf, int count)
-  * We call out to fill_readbuf that gets us the required data from the
-  * buffers that are queued up.
-  */
--static int get_chars(u32 vtermno, char *buf, int count)
-+static ssize_t get_chars(u32 vtermno, u8 *buf, size_t count)
- {
- 	struct port *port;
- 
-@@ -1143,7 +1143,7 @@ static int get_chars(u32 vtermno, char *buf, int count)
- 	/* If we don't have an input queue yet, we can't get input. */
- 	BUG_ON(!port->in_vq);
- 
--	return fill_readbuf(port, (__force char __user *)buf, count, false);
-+	return fill_readbuf(port, (__force u8 __user *)buf, count, false);
- }
- 
- static void resize_console(struct port *port)
-diff --git a/drivers/tty/hvc/hvc_console.h b/drivers/tty/hvc/hvc_console.h
-index 4062f8ad84df..cf4c1af08a7c 100644
---- a/drivers/tty/hvc/hvc_console.h
-+++ b/drivers/tty/hvc/hvc_console.h
-@@ -52,8 +52,8 @@ struct hvc_struct {
- 
- /* implemented by a low level driver */
- struct hv_ops {
--	int (*get_chars)(uint32_t vtermno, char *buf, int count);
--	int (*put_chars)(uint32_t vtermno, const char *buf, int count);
-+	ssize_t (*get_chars)(uint32_t vtermno, u8 *buf, size_t count);
-+	ssize_t (*put_chars)(uint32_t vtermno, const u8 *buf, size_t count);
- 	int (*flush)(uint32_t vtermno, bool wait);
- 
- 	/* Callbacks for notification. Called in open, close and hangup */
-diff --git a/drivers/tty/hvc/hvc_dcc.c b/drivers/tty/hvc/hvc_dcc.c
-index 1751108cf763..e34505385ff6 100644
---- a/drivers/tty/hvc/hvc_dcc.c
-+++ b/drivers/tty/hvc/hvc_dcc.c
-@@ -26,10 +26,10 @@
- /* Lock to serialize access to DCC fifo */
- static DEFINE_SPINLOCK(dcc_lock);
- 
--static DEFINE_KFIFO(inbuf, unsigned char, DCC_INBUF_SIZE);
--static DEFINE_KFIFO(outbuf, unsigned char, DCC_OUTBUF_SIZE);
-+static DEFINE_KFIFO(inbuf, u8, DCC_INBUF_SIZE);
-+static DEFINE_KFIFO(outbuf, u8, DCC_OUTBUF_SIZE);
- 
--static void dcc_uart_console_putchar(struct uart_port *port, unsigned char ch)
-+static void dcc_uart_console_putchar(struct uart_port *port, u8 ch)
- {
- 	while (__dcc_getstatus() & DCC_STATUS_TX)
- 		cpu_relax();
-@@ -54,9 +54,9 @@ static int __init dcc_early_console_setup(struct earlycon_device *device,
- 
- EARLYCON_DECLARE(dcc, dcc_early_console_setup);
- 
--static int hvc_dcc_put_chars(uint32_t vt, const char *buf, int count)
-+static ssize_t hvc_dcc_put_chars(uint32_t vt, const u8 *buf, size_t count)
- {
--	int i;
-+	size_t i;
- 
- 	for (i = 0; i < count; i++) {
- 		while (__dcc_getstatus() & DCC_STATUS_TX)
-@@ -68,9 +68,9 @@ static int hvc_dcc_put_chars(uint32_t vt, const char *buf, int count)
- 	return count;
- }
- 
--static int hvc_dcc_get_chars(uint32_t vt, char *buf, int count)
-+static ssize_t hvc_dcc_get_chars(uint32_t vt, u8 *buf, size_t count)
- {
--	int i;
-+	size_t i;
- 
- 	for (i = 0; i < count; ++i)
- 		if (__dcc_getstatus() & DCC_STATUS_RX)
-@@ -149,8 +149,8 @@ static DECLARE_WORK(dcc_pwork, dcc_put_work);
-  */
- static void dcc_get_work(struct work_struct *work)
- {
--	unsigned char ch;
- 	unsigned long irqflags;
-+	u8 ch;
- 
- 	/*
- 	 * Read characters from DCC and put them into the input FIFO, as
-@@ -172,10 +172,10 @@ static DECLARE_WORK(dcc_gwork, dcc_get_work);
-  * Write characters directly to the DCC if we're on core 0 and the FIFO
-  * is empty, or write them to the FIFO if we're not.
-  */
--static int hvc_dcc0_put_chars(u32 vt, const char *buf, int count)
-+static ssize_t hvc_dcc0_put_chars(u32 vt, const u8 *buf, size_t count)
- {
--	int len;
- 	unsigned long irqflags;
-+	ssize_t len;
- 
- 	if (!IS_ENABLED(CONFIG_HVC_DCC_SERIALIZE_SMP))
- 		return hvc_dcc_put_chars(vt, buf, count);
-@@ -211,10 +211,10 @@ static int hvc_dcc0_put_chars(u32 vt, const char *buf, int count)
-  * Read characters directly from the DCC if we're on core 0 and the FIFO
-  * is empty, or read them from the FIFO if we're not.
-  */
--static int hvc_dcc0_get_chars(u32 vt, char *buf, int count)
-+static ssize_t hvc_dcc0_get_chars(u32 vt, u8 *buf, size_t count)
- {
--	int len;
- 	unsigned long irqflags;
-+	ssize_t len;
- 
- 	if (!IS_ENABLED(CONFIG_HVC_DCC_SERIALIZE_SMP))
- 		return hvc_dcc_get_chars(vt, buf, count);
-diff --git a/drivers/tty/hvc/hvc_iucv.c b/drivers/tty/hvc/hvc_iucv.c
-index 543f35ddf523..fdecc0d63731 100644
---- a/drivers/tty/hvc/hvc_iucv.c
-+++ b/drivers/tty/hvc/hvc_iucv.c
-@@ -215,11 +215,11 @@ static void destroy_tty_buffer_list(struct list_head *list)
-  * If the IUCV path has been severed, then -EPIPE is returned to cause a
-  * hang up (that is issued by the HVC layer).
-  */
--static int hvc_iucv_write(struct hvc_iucv_private *priv,
--			  char *buf, int count, int *has_more_data)
-+static ssize_t hvc_iucv_write(struct hvc_iucv_private *priv,
-+			      u8 *buf, size_t count, int *has_more_data)
- {
- 	struct iucv_tty_buffer *rb;
--	int written;
-+	ssize_t written;
- 	int rc;
- 
- 	/* immediately return if there is no IUCV connection */
-@@ -312,10 +312,10 @@ static int hvc_iucv_write(struct hvc_iucv_private *priv,
-  *		the routine locks the struct hvc_iucv_private->lock to call
-  *		helper functions.
-  */
--static int hvc_iucv_get_chars(uint32_t vtermno, char *buf, int count)
-+static ssize_t hvc_iucv_get_chars(uint32_t vtermno, u8 *buf, size_t count)
- {
- 	struct hvc_iucv_private *priv = hvc_iucv_get_private(vtermno);
--	int written;
-+	ssize_t written;
- 	int has_more_data;
- 
- 	if (count <= 0)
-@@ -352,8 +352,8 @@ static int hvc_iucv_get_chars(uint32_t vtermno, char *buf, int count)
-  * If an existing IUCV communicaton path has been severed, -EPIPE is returned
-  * (that can be passed to HVC layer to cause a tty hangup).
-  */
--static int hvc_iucv_queue(struct hvc_iucv_private *priv, const char *buf,
--			  int count)
-+static ssize_t hvc_iucv_queue(struct hvc_iucv_private *priv, const u8 *buf,
-+			      size_t count)
- {
- 	size_t len;
- 
-@@ -455,12 +455,12 @@ static void hvc_iucv_sndbuf_work(struct work_struct *work)
-  * Locking:	The method gets called under an irqsave() spinlock; and
-  *		locks struct hvc_iucv_private->lock.
-  */
--static int hvc_iucv_put_chars(uint32_t vtermno, const char *buf, int count)
-+static ssize_t hvc_iucv_put_chars(uint32_t vtermno, const u8 *buf, size_t count)
- {
- 	struct hvc_iucv_private *priv = hvc_iucv_get_private(vtermno);
- 	int queued;
- 
--	if (count <= 0)
-+	if (!count)
- 		return 0;
- 
- 	if (!priv)
-diff --git a/drivers/tty/hvc/hvc_opal.c b/drivers/tty/hvc/hvc_opal.c
-index 2cdf66e395cc..095c33ad10f8 100644
---- a/drivers/tty/hvc/hvc_opal.c
-+++ b/drivers/tty/hvc/hvc_opal.c
-@@ -58,7 +58,7 @@ static const struct hv_ops hvc_opal_raw_ops = {
- 	.notifier_hangup = notifier_hangup_irq,
- };
- 
--static int hvc_opal_hvsi_get_chars(uint32_t vtermno, char *buf, int count)
-+static ssize_t hvc_opal_hvsi_get_chars(uint32_t vtermno, u8 *buf, size_t count)
- {
- 	struct hvc_opal_priv *pv = hvc_opal_privs[vtermno];
- 
-@@ -68,7 +68,8 @@ static int hvc_opal_hvsi_get_chars(uint32_t vtermno, char *buf, int count)
- 	return hvsilib_get_chars(&pv->hvsi, buf, count);
- }
- 
--static int hvc_opal_hvsi_put_chars(uint32_t vtermno, const char *buf, int count)
-+static ssize_t hvc_opal_hvsi_put_chars(uint32_t vtermno, const u8 *buf,
-+				       size_t count)
- {
- 	struct hvc_opal_priv *pv = hvc_opal_privs[vtermno];
- 
-diff --git a/drivers/tty/hvc/hvc_riscv_sbi.c b/drivers/tty/hvc/hvc_riscv_sbi.c
-index 31f53fa77e4a..a72591279f86 100644
---- a/drivers/tty/hvc/hvc_riscv_sbi.c
-+++ b/drivers/tty/hvc/hvc_riscv_sbi.c
-@@ -15,9 +15,9 @@
- 
- #include "hvc_console.h"
- 
--static int hvc_sbi_tty_put(uint32_t vtermno, const char *buf, int count)
-+static ssize_t hvc_sbi_tty_put(uint32_t vtermno, const u8 *buf, size_t count)
- {
--	int i;
-+	size_t i;
- 
- 	for (i = 0; i < count; i++)
- 		sbi_console_putchar(buf[i]);
-@@ -25,9 +25,10 @@ static int hvc_sbi_tty_put(uint32_t vtermno, const char *buf, int count)
- 	return i;
- }
- 
--static int hvc_sbi_tty_get(uint32_t vtermno, char *buf, int count)
-+static ssize_t hvc_sbi_tty_get(uint32_t vtermno, u8 *buf, size_t count)
- {
--	int i, c;
-+	size_t i;
-+	int c;
- 
- 	for (i = 0; i < count; i++) {
- 		c = sbi_console_getchar();
-diff --git a/drivers/tty/hvc/hvc_rtas.c b/drivers/tty/hvc/hvc_rtas.c
-index 184d325abeed..a0b90275b37f 100644
---- a/drivers/tty/hvc/hvc_rtas.c
-+++ b/drivers/tty/hvc/hvc_rtas.c
-@@ -31,10 +31,10 @@ static struct hvc_struct *hvc_rtas_dev;
- static int rtascons_put_char_token = RTAS_UNKNOWN_SERVICE;
- static int rtascons_get_char_token = RTAS_UNKNOWN_SERVICE;
- 
--static inline int hvc_rtas_write_console(uint32_t vtermno, const char *buf,
--		int count)
-+static ssize_t hvc_rtas_write_console(uint32_t vtermno, const u8 *buf,
-+				      size_t count)
- {
--	int i;
-+	size_t i;
- 
- 	for (i = 0; i < count; i++) {
- 		if (rtas_call(rtascons_put_char_token, 1, 1, NULL, buf[i]))
-@@ -44,9 +44,10 @@ static inline int hvc_rtas_write_console(uint32_t vtermno, const char *buf,
- 	return i;
- }
- 
--static int hvc_rtas_read_console(uint32_t vtermno, char *buf, int count)
-+static ssize_t hvc_rtas_read_console(uint32_t vtermno, u8 *buf, size_t count)
- {
--	int i, c;
-+	size_t i;
-+	int c;
- 
- 	for (i = 0; i < count; i++) {
- 		if (rtas_call(rtascons_get_char_token, 0, 2, &c))
-diff --git a/drivers/tty/hvc/hvc_udbg.c b/drivers/tty/hvc/hvc_udbg.c
-index ff0dcc56413c..fdc2699b78dc 100644
---- a/drivers/tty/hvc/hvc_udbg.c
-+++ b/drivers/tty/hvc/hvc_udbg.c
-@@ -19,9 +19,9 @@
- 
- static struct hvc_struct *hvc_udbg_dev;
- 
--static int hvc_udbg_put(uint32_t vtermno, const char *buf, int count)
-+static ssize_t hvc_udbg_put(uint32_t vtermno, const u8 *buf, size_t count)
- {
--	int i;
-+	size_t i;
- 
- 	for (i = 0; i < count && udbg_putc; i++)
- 		udbg_putc(buf[i]);
-@@ -29,9 +29,10 @@ static int hvc_udbg_put(uint32_t vtermno, const char *buf, int count)
- 	return i;
- }
- 
--static int hvc_udbg_get(uint32_t vtermno, char *buf, int count)
-+static ssize_t hvc_udbg_get(uint32_t vtermno, u8 *buf, size_t count)
- {
--	int i, c;
-+	size_t i;
-+	int c;
- 
- 	if (!udbg_getc_poll)
- 		return 0;
-diff --git a/drivers/tty/hvc/hvc_vio.c b/drivers/tty/hvc/hvc_vio.c
-index 736b230f5ec0..47930601a26a 100644
---- a/drivers/tty/hvc/hvc_vio.c
-+++ b/drivers/tty/hvc/hvc_vio.c
-@@ -58,20 +58,20 @@ struct hvterm_priv {
- 	hv_protocol_t		proto;	/* Raw data or HVSI packets */
- 	struct hvsi_priv	hvsi;	/* HVSI specific data */
- 	spinlock_t		buf_lock;
--	char			buf[SIZE_VIO_GET_CHARS];
--	int			left;
--	int			offset;
-+	u8			buf[SIZE_VIO_GET_CHARS];
-+	size_t			left;
-+	size_t			offset;
- };
- static struct hvterm_priv *hvterm_privs[MAX_NR_HVC_CONSOLES];
- /* For early boot console */
- static struct hvterm_priv hvterm_priv0;
- 
--static int hvterm_raw_get_chars(uint32_t vtermno, char *buf, int count)
-+static ssize_t hvterm_raw_get_chars(uint32_t vtermno, u8 *buf, size_t count)
- {
- 	struct hvterm_priv *pv = hvterm_privs[vtermno];
- 	unsigned long i;
- 	unsigned long flags;
--	int got;
-+	size_t got;
- 
- 	if (WARN_ON(!pv))
- 		return 0;
-@@ -115,7 +115,8 @@ static int hvterm_raw_get_chars(uint32_t vtermno, char *buf, int count)
-  *       you are sending fewer chars.
-  * @count: number of chars to send.
-  */
--static int hvterm_raw_put_chars(uint32_t vtermno, const char *buf, int count)
-+static ssize_t hvterm_raw_put_chars(uint32_t vtermno, const u8 *buf,
-+				    size_t count)
- {
- 	struct hvterm_priv *pv = hvterm_privs[vtermno];
- 
-@@ -133,7 +134,7 @@ static const struct hv_ops hvterm_raw_ops = {
- 	.notifier_hangup = notifier_hangup_irq,
- };
- 
--static int hvterm_hvsi_get_chars(uint32_t vtermno, char *buf, int count)
-+static ssize_t hvterm_hvsi_get_chars(uint32_t vtermno, u8 *buf, size_t count)
- {
- 	struct hvterm_priv *pv = hvterm_privs[vtermno];
- 
-@@ -143,7 +144,8 @@ static int hvterm_hvsi_get_chars(uint32_t vtermno, char *buf, int count)
- 	return hvsilib_get_chars(&pv->hvsi, buf, count);
- }
- 
--static int hvterm_hvsi_put_chars(uint32_t vtermno, const char *buf, int count)
-+static ssize_t hvterm_hvsi_put_chars(uint32_t vtermno, const u8 *buf,
-+				     size_t count)
- {
- 	struct hvterm_priv *pv = hvterm_privs[vtermno];
- 
-diff --git a/drivers/tty/hvc/hvc_xen.c b/drivers/tty/hvc/hvc_xen.c
-index 34c01874f45b..0e497501f8e3 100644
---- a/drivers/tty/hvc/hvc_xen.c
-+++ b/drivers/tty/hvc/hvc_xen.c
-@@ -84,13 +84,13 @@ static inline void notify_daemon(struct xencons_info *cons)
- 	notify_remote_via_evtchn(cons->evtchn);
- }
- 
--static int __write_console(struct xencons_info *xencons,
--		const char *data, int len)
-+static ssize_t __write_console(struct xencons_info *xencons,
-+			       const u8 *data, size_t len)
- {
- 	XENCONS_RING_IDX cons, prod;
- 	struct xencons_interface *intf = xencons->intf;
--	int sent = 0;
- 	unsigned long flags;
-+	size_t sent = 0;
- 
- 	spin_lock_irqsave(&xencons->ring_lock, flags);
- 	cons = intf->out_cons;
-@@ -115,10 +115,11 @@ static int __write_console(struct xencons_info *xencons,
- 	return sent;
- }
- 
--static int domU_write_console(uint32_t vtermno, const char *data, int len)
-+static ssize_t domU_write_console(uint32_t vtermno, const u8 *data, size_t len)
- {
--	int ret = len;
- 	struct xencons_info *cons = vtermno_to_xencons(vtermno);
-+	size_t ret = len;
-+
- 	if (cons == NULL)
- 		return -EINVAL;
- 
-@@ -129,7 +130,7 @@ static int domU_write_console(uint32_t vtermno, const char *data, int len)
- 	 * kernel is crippled.
- 	 */
- 	while (len) {
--		int sent = __write_console(cons, data, len);
-+		ssize_t sent = __write_console(cons, data, len);
- 
- 		if (sent < 0)
- 			return sent;
-@@ -144,14 +145,14 @@ static int domU_write_console(uint32_t vtermno, const char *data, int len)
- 	return ret;
- }
- 
--static int domU_read_console(uint32_t vtermno, char *buf, int len)
-+static ssize_t domU_read_console(uint32_t vtermno, u8 *buf, size_t len)
- {
- 	struct xencons_interface *intf;
- 	XENCONS_RING_IDX cons, prod;
--	int recv = 0;
- 	struct xencons_info *xencons = vtermno_to_xencons(vtermno);
- 	unsigned int eoiflag = 0;
- 	unsigned long flags;
-+	size_t recv = 0;
- 
- 	if (xencons == NULL)
- 		return -EINVAL;
-@@ -209,7 +210,7 @@ static const struct hv_ops domU_hvc_ops = {
- 	.notifier_hangup = notifier_hangup_irq,
- };
- 
--static int dom0_read_console(uint32_t vtermno, char *buf, int len)
-+static ssize_t dom0_read_console(uint32_t vtermno, u8 *buf, size_t len)
- {
- 	return HYPERVISOR_console_io(CONSOLEIO_read, len, buf);
- }
-@@ -218,9 +219,9 @@ static int dom0_read_console(uint32_t vtermno, char *buf, int len)
-  * Either for a dom0 to write to the system console, or a domU with a
-  * debug version of Xen
-  */
--static int dom0_write_console(uint32_t vtermno, const char *str, int len)
-+static ssize_t dom0_write_console(uint32_t vtermno, const u8 *str, size_t len)
- {
--	int rc = HYPERVISOR_console_io(CONSOLEIO_write, len, (char *)str);
-+	int rc = HYPERVISOR_console_io(CONSOLEIO_write, len, (u8 *)str);
- 	if (rc < 0)
- 		return rc;
- 
-diff --git a/drivers/tty/hvc/hvsi_lib.c b/drivers/tty/hvc/hvsi_lib.c
-index 09289c8154ae..22e1bc4d8a66 100644
---- a/drivers/tty/hvc/hvsi_lib.c
-+++ b/drivers/tty/hvc/hvsi_lib.c
-@@ -12,7 +12,7 @@ static int hvsi_send_packet(struct hvsi_priv *pv, struct hvsi_header *packet)
- 	packet->seqno = cpu_to_be16(atomic_inc_return(&pv->seqno));
- 
- 	/* Assumes that always succeeds, works in practice */
--	return pv->put_chars(pv->termno, (char *)packet, packet->len);
-+	return pv->put_chars(pv->termno, (u8 *)packet, packet->len);
- }
- 
- static void hvsi_start_handshake(struct hvsi_priv *pv)
-@@ -178,9 +178,10 @@ static int hvsi_get_packet(struct hvsi_priv *pv)
- 	return 0;
- }
- 
--int hvsilib_get_chars(struct hvsi_priv *pv, char *buf, int count)
-+ssize_t hvsilib_get_chars(struct hvsi_priv *pv, u8 *buf, size_t count)
- {
--	unsigned int tries, read = 0;
-+	unsigned int tries;
-+	size_t read = 0;
- 
- 	if (WARN_ON(!pv))
- 		return -ENXIO;
-@@ -199,7 +200,7 @@ int hvsilib_get_chars(struct hvsi_priv *pv, char *buf, int count)
- 	for (tries = 1; count && tries < 2; tries++) {
- 		/* Consume existing data packet */
- 		if (pv->inbuf_pktlen) {
--			unsigned int l = min(count, (int)pv->inbuf_pktlen);
-+			size_t l = min(count, pv->inbuf_pktlen);
- 			memcpy(&buf[read], &pv->inbuf[pv->inbuf_cur], l);
- 			pv->inbuf_cur += l;
- 			pv->inbuf_pktlen -= l;
-@@ -228,10 +229,11 @@ int hvsilib_get_chars(struct hvsi_priv *pv, char *buf, int count)
- 	return read;
- }
- 
--int hvsilib_put_chars(struct hvsi_priv *pv, const char *buf, int count)
-+ssize_t hvsilib_put_chars(struct hvsi_priv *pv, const u8 *buf, size_t count)
- {
- 	struct hvsi_data dp;
--	int rc, adjcount = min(count, HVSI_MAX_OUTGOING_DATA);
-+	size_t adjcount = min_t(size_t, count, HVSI_MAX_OUTGOING_DATA);
-+	int rc;
- 
- 	if (WARN_ON(!pv))
- 		return -ENODEV;
-@@ -411,9 +413,9 @@ void hvsilib_close(struct hvsi_priv *pv, struct hvc_struct *hp)
- }
- 
- void hvsilib_init(struct hvsi_priv *pv,
--		  int (*get_chars)(uint32_t termno, char *buf, int count),
--		  int (*put_chars)(uint32_t termno, const char *buf,
--				   int count),
-+		  ssize_t (*get_chars)(uint32_t termno, u8 *buf, size_t count),
-+		  ssize_t (*put_chars)(uint32_t termno, const u8 *buf,
-+				       size_t count),
- 		  int termno, int is_console)
- {
- 	memset(pv, 0, sizeof(*pv));
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBEZWMgNSwgMjAyMyBhdCAxMDo0M+KAr1BNIFZsYWRpbWlyIElzYWV2Cjx2bGFkaW1p
+ci5pc2FldkBzeW50YWNvcmUuY29tPiB3cm90ZToKPgo+IDA1LjEyLjIwMjMgMDU6NDMsIEF0aXNo
+IFBhdHJhIHdyb3RlOgo+ID4KPiA+IEtWTSBlbmFibGVzIHBlcmYgZm9yIGd1ZXN0IHZpYSBjb3Vu
+dGVyIHZpcnR1YWxpemF0aW9uLiBIb3dldmVyLCB0aGUKPiA+IHNhbXBsaW5nIGNhbiBub3QgYmUg
+c3VwcG9ydGVkIGFzIHRoZXJlIGlzIG5vIG1lY2hhbmlzbSB0byBlbmFibGVkCj4gPiB0cmFwL2Vt
+dWxhdGUgc2NvdW50b3ZmIGluIElTQSB5ZXQuIFJlbHkgb24gdGhlIFNCSSBQTVUgc25hcHNob3QK
+PiA+IHRvIHByb3ZpZGUgdGhlIGNvdW50ZXIgb3ZlcmZsb3cgZGF0YSB2aWEgdGhlIHNoYXJlZCBt
+ZW1vcnkuCj4gPgo+ID4gSW4gY2FzZSBvZiBzYW1wbGluZyBldmVudCwgdGhlIGhvc3QgZmlyc3Qg
+Z3Vlc3QgdGhlIExDT0ZJIGludGVycnVwdAo+ID4gYW5kIGluamVjdHMgdG8gdGhlIGd1ZXN0IHZp
+YSBpcnEgZmlsdGVyaW5nIG1lY2hhbmlzbSBkZWZpbmVkIGluIEFJQQo+ID4gc3BlY2lmaWNhdGlv
+bi4gVGh1cywgc3NhaWEgbXVzdCBiZSBlbmFibGVkIGluIHRoZSBob3N0IGluIG9yZGVyIHRvCj4g
+PiB1c2UgcGVyZiBzYW1wbGluZyBpbiB0aGUgZ3Vlc3QuIE5vIG90aGVyIEFJQSBkcGVlbmRhbmN5
+IHcuci50IGtlcm5lbAo+ID4gaXMgcmVxdWlyZWQuCj4KPiBJIGRvbid0IHVuZGVyc3RhbmQgd2h5
+IGRvIHdlIG5lZWQgSFZJRU4gYW5kIEFJQSwgd2h5IEhJREVMRUcgY2FuJ3QgYmUgdXNlZCBmb3Ig
+dGhpcyBwdXBycG9zZT8KPgoKSWYgaXQgaXMgZW5hYmxlZCBpbiBISURFTEVHLCB0aGUgZ3Vlc3Qg
+Z2V0cyB0aGUgaW50ZXJydXB0IGRpcmVjdGx5LiBBcwp0aGUgY291bnRlcnMgYXJlIHZpcnR1YWxp
+emVkLCB0aGUgaG9zdCBuZWVkcyB0byBnZXQKdGhlIGludGVycnVwdCBhbmQgaW5qZWN0IGl0IHRv
+IHRoZSBndWVzdCBieSBzZXR0aW5nIHRoZSBodmlwIGJpdC4KCj4gPgo+ID4gU2lnbmVkLW9mZi1i
+eTogQXRpc2ggUGF0cmEgPGF0aXNocEByaXZvc2luYy5jb20+Cj4gPiAtLS0KPiA+ICBhcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL2Nzci5oICAgICAgfCAgMyArLQo+ID4gIGFyY2gvcmlzY3YvaW5jbHVk
+ZS91YXBpL2FzbS9rdm0uaCB8ICAxICsKPiA+ICBhcmNoL3Jpc2N2L2t2bS9tYWluLmMgICAgICAg
+ICAgICAgfCAgMSArCj4gPiAgYXJjaC9yaXNjdi9rdm0vdmNwdS5jICAgICAgICAgICAgIHwgIDgg
+KystLQo+ID4gIGFyY2gvcmlzY3Yva3ZtL3ZjcHVfb25lcmVnLmMgICAgICB8ICAxICsKPiA+ICBh
+cmNoL3Jpc2N2L2t2bS92Y3B1X3BtdS5jICAgICAgICAgfCA2OSArKysrKysrKysrKysrKysrKysr
+KysrKysrKysrLS0tCj4gPiAgNiBmaWxlcyBjaGFuZ2VkLCA3MyBpbnNlcnRpb25zKCspLCAxMCBk
+ZWxldGlvbnMoLSkKPiA+Cj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9j
+c3IuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmgKPiA+IGluZGV4IDg4Y2RjOGEzZTY1
+NC4uYmVjMDliMzNlMmYwIDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9j
+c3IuaAo+ID4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaAo+ID4gQEAgLTE2OCw3
+ICsxNjgsOCBAQAo+ID4gICNkZWZpbmUgVlNJUF9UT19IVklQX1NISUZUICAgICAoSVJRX1ZTX1NP
+RlQgLSBJUlFfU19TT0ZUKQo+ID4gICNkZWZpbmUgVlNJUF9WQUxJRF9NQVNLICAgICAgICAgICAg
+ICAgICgoX0FDKDEsIFVMKSA8PCBJUlFfU19TT0ZUKSB8IFwKPiA+ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIChfQUMoMSwgVUwpIDw8IElSUV9TX1RJTUVSKSB8IFwKPiA+IC0gICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChfQUMoMSwgVUwpIDw8IElSUV9TX0VYVCkpCj4g
+PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoX0FDKDEsIFVMKSA8PCBJUlFfU19F
+WFQpIHwgXAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKF9BQygxLCBVTCkg
+PDwgSVJRX1BNVV9PVkYpKQo+ID4KPiA+ICAvKiBBSUEgQ1NSIGJpdHMgKi8KPiA+ICAjZGVmaW5l
+IFRPUElfSUlEX1NISUZUICAgICAgICAgMTYKPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2lu
+Y2x1ZGUvdWFwaS9hc20va3ZtLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20va3ZtLmgK
+PiA+IGluZGV4IDYwZDNiMjFkZWFkNy4uNzQxYzE2ZjQ1MThlIDEwMDY0NAo+ID4gLS0tIGEvYXJj
+aC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2t2bS5oCj4gPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1
+ZGUvdWFwaS9hc20va3ZtLmgKPiA+IEBAIC0xMzksNiArMTM5LDcgQEAgZW51bSBLVk1fUklTQ1Zf
+SVNBX0VYVF9JRCB7Cj4gPiAgICAgICAgIEtWTV9SSVNDVl9JU0FfRVhUX1pJSFBNLAo+ID4gICAg
+ICAgICBLVk1fUklTQ1ZfSVNBX0VYVF9TTVNUQVRFRU4sCj4gPiAgICAgICAgIEtWTV9SSVNDVl9J
+U0FfRVhUX1pJQ09ORCwKPiA+ICsgICAgICAgS1ZNX1JJU0NWX0lTQV9FWFRfU1NDT0ZQTUYsCj4g
+PiAgICAgICAgIEtWTV9SSVNDVl9JU0FfRVhUX01BWCwKPiA+ICB9Owo+ID4KPiA+IGRpZmYgLS1n
+aXQgYS9hcmNoL3Jpc2N2L2t2bS9tYWluLmMgYi9hcmNoL3Jpc2N2L2t2bS9tYWluLmMKPiA+IGlu
+ZGV4IDIyNWE0MzVkOWM5YS4uNWEzYTRjZWUwZTNkIDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNj
+di9rdm0vbWFpbi5jCj4gPiArKysgYi9hcmNoL3Jpc2N2L2t2bS9tYWluLmMKPiA+IEBAIC00Myw2
+ICs0Myw3IEBAIGludCBrdm1fYXJjaF9oYXJkd2FyZV9lbmFibGUodm9pZCkKPiA+ICAgICAgICAg
+Y3NyX3dyaXRlKENTUl9IQ09VTlRFUkVOLCAweDAyKTsKPiA+Cj4gPiAgICAgICAgIGNzcl93cml0
+ZShDU1JfSFZJUCwgMCk7Cj4gPiArICAgICAgIGNzcl93cml0ZShDU1JfSFZJRU4sIDFVTCA8PCBJ
+UlFfUE1VX09WRik7Cj4KPiBJcyBteSB1bmRlcnN0YW5kaW5nIGNvcnJlY3QgdGhhdCB0aGlzIHdp
+bGwgYnJlYWsgS1ZNIGZvciBub24tQUlBIENQVXM/Cj4KPiBBcyBJIGNhbiByZW1lbWJlciBIVklF
+TiBkZXBlbmRzIG9uIEFJQS4KPgoKWWVzLiBJdCB3YXMgc3VwcG9zZWQgdG8gYmUgaW5zaWRlIGt2
+bV9yaXNjdl9haWFfZW5hYmxlLiBNeSBiYWQuCkkgd2lsbCBmaXggaXQgYW5kIHNlbmQgaXQgdjIu
+CgpXZSBhbHNvIHNob3VsZCBhZHZlcnRpc2Ugc3Njb2ZwbWYgdG8gdGhlIGd1ZXN0IG9ubHkgaWYg
+c3NhaWEgaXMgYXZhaWxhYmxlCmluIHRoZSBob3N0LiBJIHdpbGwgd29yayBvbiB0aGF0IHRvby4K
+Cj4gPgo+ID4gICAgICAgICBrdm1fcmlzY3ZfYWlhX2VuYWJsZSgpOwo+ID4KPiA+IGRpZmYgLS1n
+aXQgYS9hcmNoL3Jpc2N2L2t2bS92Y3B1LmMgYi9hcmNoL3Jpc2N2L2t2bS92Y3B1LmMKPiA+IGlu
+ZGV4IGUwODdjODA5MDczYy4uMmQ5ZjI1MjM1NmMzIDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNj
+di9rdm0vdmNwdS5jCj4gPiArKysgYi9hcmNoL3Jpc2N2L2t2bS92Y3B1LmMKPiA+IEBAIC0zODAs
+NyArMzgwLDggQEAgaW50IGt2bV9yaXNjdl92Y3B1X3NldF9pbnRlcnJ1cHQoc3RydWN0IGt2bV92
+Y3B1ICp2Y3B1LCB1bnNpZ25lZCBpbnQgaXJxKQo+ID4gICAgICAgICBpZiAoaXJxIDwgSVJRX0xP
+Q0FMX01BWCAmJgo+ID4gICAgICAgICAgICAgaXJxICE9IElSUV9WU19TT0ZUICYmCj4gPiAgICAg
+ICAgICAgICBpcnEgIT0gSVJRX1ZTX1RJTUVSICYmCj4gPiAtICAgICAgICAgICBpcnEgIT0gSVJR
+X1ZTX0VYVCkKPiA+ICsgICAgICAgICAgIGlycSAhPSBJUlFfVlNfRVhUICYmCj4gPiArICAgICAg
+ICAgICBpcnEgIT0gSVJRX1BNVV9PVkYpCj4gPiAgICAgICAgICAgICAgICAgcmV0dXJuIC1FSU5W
+QUw7Cj4gPgo+ID4gICAgICAgICBzZXRfYml0KGlycSwgdmNwdS0+YXJjaC5pcnFzX3BlbmRpbmcp
+Owo+ID4gQEAgLTM5NSwxNCArMzk2LDE1IEBAIGludCBrdm1fcmlzY3ZfdmNwdV9zZXRfaW50ZXJy
+dXB0KHN0cnVjdCBrdm1fdmNwdSAqdmNwdSwgdW5zaWduZWQgaW50IGlycSkKPiA+ICBpbnQga3Zt
+X3Jpc2N2X3ZjcHVfdW5zZXRfaW50ZXJydXB0KHN0cnVjdCBrdm1fdmNwdSAqdmNwdSwgdW5zaWdu
+ZWQgaW50IGlycSkKPiA+ICB7Cj4gPiAgICAgICAgIC8qCj4gPiAtICAgICAgICAqIFdlIG9ubHkg
+YWxsb3cgVlMtbW9kZSBzb2Z0d2FyZSwgdGltZXIsIGFuZCBleHRlcm5hbAo+ID4gKyAgICAgICAg
+KiBXZSBvbmx5IGFsbG93IFZTLW1vZGUgc29mdHdhcmUsIHRpbWVyLCBjb3VudGVyIG92ZXJmbG93
+IGFuZCBleHRlcm5hbAo+ID4gICAgICAgICAgKiBpbnRlcnJ1cHRzIHdoZW4gaXJxIGlzIG9uZSBv
+ZiB0aGUgbG9jYWwgaW50ZXJydXB0cwo+ID4gICAgICAgICAgKiBkZWZpbmVkIGJ5IFJJU0MtViBw
+cml2aWxlZ2Ugc3BlY2lmaWNhdGlvbi4KPiA+ICAgICAgICAgICovCj4gPiAgICAgICAgIGlmIChp
+cnEgPCBJUlFfTE9DQUxfTUFYICYmCj4gPiAgICAgICAgICAgICBpcnEgIT0gSVJRX1ZTX1NPRlQg
+JiYKPiA+ICAgICAgICAgICAgIGlycSAhPSBJUlFfVlNfVElNRVIgJiYKPiA+IC0gICAgICAgICAg
+IGlycSAhPSBJUlFfVlNfRVhUKQo+ID4gKyAgICAgICAgICAgaXJxICE9IElSUV9WU19FWFQgJiYK
+PiA+ICsgICAgICAgICAgIGlycSAhPSBJUlFfUE1VX09WRikKPiA+ICAgICAgICAgICAgICAgICBy
+ZXR1cm4gLUVJTlZBTDsKPiA+Cj4gPiAgICAgICAgIGNsZWFyX2JpdChpcnEsIHZjcHUtPmFyY2gu
+aXJxc19wZW5kaW5nKTsKPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2t2bS92Y3B1X29uZXJl
+Zy5jIGIvYXJjaC9yaXNjdi9rdm0vdmNwdV9vbmVyZWcuYwo+ID4gaW5kZXggZjhjOWZhMGMwM2M1
+Li4xOWEwZTRlYWYwZGYgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2t2bS92Y3B1X29uZXJl
+Zy5jCj4gPiArKysgYi9hcmNoL3Jpc2N2L2t2bS92Y3B1X29uZXJlZy5jCj4gPiBAQCAtMzYsNiAr
+MzYsNyBAQCBzdGF0aWMgY29uc3QgdW5zaWduZWQgbG9uZyBrdm1faXNhX2V4dF9hcnJbXSA9IHsK
+PiA+ICAgICAgICAgLyogTXVsdGkgbGV0dGVyIGV4dGVuc2lvbnMgKGFscGhhYmV0aWNhbGx5IHNv
+cnRlZCkgKi8KPiA+ICAgICAgICAgS1ZNX0lTQV9FWFRfQVJSKFNNU1RBVEVFTiksCj4gPiAgICAg
+ICAgIEtWTV9JU0FfRVhUX0FSUihTU0FJQSksCj4gPiArICAgICAgIEtWTV9JU0FfRVhUX0FSUihT
+U0NPRlBNRiksCj4gPiAgICAgICAgIEtWTV9JU0FfRVhUX0FSUihTU1RDKSwKPiA+ICAgICAgICAg
+S1ZNX0lTQV9FWFRfQVJSKFNWSU5WQUwpLAo+ID4gICAgICAgICBLVk1fSVNBX0VYVF9BUlIoU1ZO
+QVBPVCksCj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rdm0vdmNwdV9wbXUuYyBiL2FyY2gv
+cmlzY3Yva3ZtL3ZjcHVfcG11LmMKPiA+IGluZGV4IDYyMmM0ZWU4OWU3Yi4uODZjOGU5MmY5MmQz
+IDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9rdm0vdmNwdV9wbXUuYwo+ID4gKysrIGIvYXJj
+aC9yaXNjdi9rdm0vdmNwdV9wbXUuYwo+ID4gQEAgLTIyOSw2ICsyMjksNDcgQEAgc3RhdGljIGlu
+dCBrdm1fcG11X3ZhbGlkYXRlX2NvdW50ZXJfbWFzayhzdHJ1Y3Qga3ZtX3BtdSAqa3ZwbXUsIHVu
+c2lnbmVkIGxvbmcgY3QKPiA+ICAgICAgICAgcmV0dXJuIDA7Cj4gPiAgfQo+ID4KPiA+ICtzdGF0
+aWMgdm9pZCBrdm1fcmlzY3ZfcG11X292ZXJmbG93KHN0cnVjdCBwZXJmX2V2ZW50ICpwZXJmX2V2
+ZW50LAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0cnVjdCBwZXJmX3Nh
+bXBsZV9kYXRhICpkYXRhLAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0
+cnVjdCBwdF9yZWdzICpyZWdzKQo+ID4gK3sKPiA+ICsgICAgICAgc3RydWN0IGt2bV9wbWMgKnBt
+YyA9IHBlcmZfZXZlbnQtPm92ZXJmbG93X2hhbmRsZXJfY29udGV4dDsKPiA+ICsgICAgICAgc3Ry
+dWN0IGt2bV92Y3B1ICp2Y3B1ID0gcG1jLT52Y3B1Owo+ID4gKyAgICAgICBzdHJ1Y3Qga3ZtX3Bt
+dSAqa3ZwbXUgPSB2Y3B1X3RvX3BtdSh2Y3B1KTsKPiA+ICsgICAgICAgc3RydWN0IHJpc2N2X3Bt
+dSAqcnBtdSA9IHRvX3Jpc2N2X3BtdShwZXJmX2V2ZW50LT5wbXUpOwo+ID4gKyAgICAgICB1NjQg
+cGVyaW9kOwo+ID4gKwo+ID4gKyAgICAgICAvKgo+ID4gKyAgICAgICAgKiBTdG9wIHRoZSBldmVu
+dCBjb3VudGluZyBieSBkaXJlY3RseSBhY2Nlc3NpbmcgdGhlIHBlcmZfZXZlbnQuCj4gPiArICAg
+ICAgICAqIE90aGVyd2lzZSwgdGhpcyBuZWVkcyB0byBkZWZlcnJlZCB2aWEgYSB3b3JrcXVldWUu
+Cj4gPiArICAgICAgICAqIFRoYXQgd2lsbCBpbnRyb2R1Y2Ugc2tldyBpbiB0aGUgY291bnRlciB2
+YWx1ZSBiZWNhdXNlIHRoZSBhY3R1YWwKPiA+ICsgICAgICAgICogcGh5c2ljYWwgY291bnRlciB3
+b3VsZCBzdGFydCBhZnRlciByZXR1cm5pbmcgZnJvbSB0aGlzIGZ1bmN0aW9uLgo+ID4gKyAgICAg
+ICAgKiBJdCB3aWxsIGJlIHN0b3BwZWQgYWdhaW4gb25jZSB0aGUgd29ya3F1ZXVlIGlzIHNjaGVk
+dWxlZAo+ID4gKyAgICAgICAgKi8KPiA+ICsgICAgICAgcnBtdS0+cG11LnN0b3AocGVyZl9ldmVu
+dCwgUEVSRl9FRl9VUERBVEUpOwo+ID4gKwo+ID4gKyAgICAgICAvKgo+ID4gKyAgICAgICAgKiBU
+aGUgaHcgY291bnRlciB3b3VsZCBzdGFydCBhdXRvbWF0aWNhbGx5IHdoZW4gdGhpcyBmdW5jdGlv
+biByZXR1cm5zLgo+ID4gKyAgICAgICAgKiBUaHVzLCB0aGUgaG9zdCBtYXkgY29udGludWUgdG8g
+aW50ZXJydXB0cyBhbmQgaW5qZWN0IGl0IHRvIHRoZSBndWVzdAo+ID4gKyAgICAgICAgKiBldmVu
+IHdpdGhvdXQgZ3Vlc3QgY29uZmlndXJpbmcgdGhlIG5leHQgZXZlbnQuIERlcGVuZGluZyBvbiB0
+aGUgaGFyZHdhcmUKPiA+ICsgICAgICAgICogdGhlIGhvc3QgbWF5IHNvbWUgc2x1Z2dpc2huZXNz
+IG9ubHkgaWYgcHJpdmlsZWdlIG1vZGUgZmlsdGVyaW5nIGlzIG5vdAo+ID4gKyAgICAgICAgKiBh
+dmFpbGFibGUuIEluIGFuIGlkZWFsIHdvcmxkLCB3aGVyZSBxZW11IGlzIG5vdCB0aGUgb25seSBj
+YXBhYmxlIGhhcmR3YXJlLAo+ID4gKyAgICAgICAgKiB0aGlzIGNhbiBiZSByZW1vdmVkLgo+ID4g
+KyAgICAgICAgKiBGWUk6IEFSTTY0IGRvZXMgdGhpcyB3YXkgd2hpbGUgeDg2IGRvZXNuJ3QgZG8g
+YW55dGhpbmcgYXMgc3VjaC4KPiA+ICsgICAgICAgICogVE9ETzogU2hvdWxkIHdlIGtlZXAgaXQg
+Zm9yIFJJU0MtViA/Cj4gPiArICAgICAgICAqLwo+ID4gKyAgICAgICBwZXJpb2QgPSAtKGxvY2Fs
+NjRfcmVhZCgmcGVyZl9ldmVudC0+Y291bnQpKTsKPiA+ICsKPiA+ICsgICAgICAgbG9jYWw2NF9z
+ZXQoJnBlcmZfZXZlbnQtPmh3LnBlcmlvZF9sZWZ0LCAwKTsKPiA+ICsgICAgICAgcGVyZl9ldmVu
+dC0+YXR0ci5zYW1wbGVfcGVyaW9kID0gcGVyaW9kOwo+ID4gKyAgICAgICBwZXJmX2V2ZW50LT5o
+dy5zYW1wbGVfcGVyaW9kID0gcGVyaW9kOwo+ID4gKwo+ID4gKyAgICAgICBzZXRfYml0KHBtYy0+
+aWR4LCBrdnBtdS0+cG1jX292ZXJmbG93bik7Cj4gPiArICAgICAgIGt2bV9yaXNjdl92Y3B1X3Nl
+dF9pbnRlcnJ1cHQodmNwdSwgSVJRX1BNVV9PVkYpOwo+ID4gKwo+ID4gKyAgICAgICBycG11LT5w
+bXUuc3RhcnQocGVyZl9ldmVudCwgUEVSRl9FRl9SRUxPQUQpOwo+ID4gK30KPiA+ICsKPiA+ICBz
+dGF0aWMgaW50IGt2bV9wbXVfY3JlYXRlX3BlcmZfZXZlbnQoc3RydWN0IGt2bV9wbWMgKnBtYywg
+c3RydWN0IHBlcmZfZXZlbnRfYXR0ciAqYXR0ciwKPiA+ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICB1bnNpZ25lZCBsb25nIGZsYWdzLCB1bnNpZ25lZCBsb25nIGVpZHgsIHVu
+c2lnbmVkIGxvbmcgZXZ0ZGF0YSkKPiA+ICB7Cj4gPiBAQCAtMjQ3LDcgKzI4OCw3IEBAIHN0YXRp
+YyBpbnQga3ZtX3BtdV9jcmVhdGVfcGVyZl9ldmVudChzdHJ1Y3Qga3ZtX3BtYyAqcG1jLCBzdHJ1
+Y3QgcGVyZl9ldmVudF9hdHRyCj4gPiAgICAgICAgICAqLwo+ID4gICAgICAgICBhdHRyLT5zYW1w
+bGVfcGVyaW9kID0ga3ZtX3BtdV9nZXRfc2FtcGxlX3BlcmlvZChwbWMpOwo+ID4KPiA+IC0gICAg
+ICAgZXZlbnQgPSBwZXJmX2V2ZW50X2NyZWF0ZV9rZXJuZWxfY291bnRlcihhdHRyLCAtMSwgY3Vy
+cmVudCwgTlVMTCwgcG1jKTsKPiA+ICsgICAgICAgZXZlbnQgPSBwZXJmX2V2ZW50X2NyZWF0ZV9r
+ZXJuZWxfY291bnRlcihhdHRyLCAtMSwgY3VycmVudCwga3ZtX3Jpc2N2X3BtdV9vdmVyZmxvdywg
+cG1jKTsKPiA+ICAgICAgICAgaWYgKElTX0VSUihldmVudCkpIHsKPiA+ICAgICAgICAgICAgICAg
+ICBwcl9lcnIoImt2bSBwbXUgZXZlbnQgY3JlYXRpb24gZmFpbGVkIGZvciBlaWR4ICVseDogJWxk
+XG4iLCBlaWR4LCBQVFJfRVJSKGV2ZW50KSk7Cj4gPiAgICAgICAgICAgICAgICAgcmV0dXJuIFBU
+Ul9FUlIoZXZlbnQpOwo+ID4gQEAgLTQ2Niw2ICs1MDcsMTIgQEAgaW50IGt2bV9yaXNjdl92Y3B1
+X3BtdV9jdHJfc3RhcnQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1LCB1bnNpZ25lZCBsb25nIGN0cl9i
+YXNlLAo+ID4gICAgICAgICAgICAgICAgIH0KPiA+ICAgICAgICAgfQo+ID4KPiA+ICsgICAgICAg
+LyogVGhlIGd1ZXN0IGhhdmUgc2VydmljZWQgdGhlIGludGVycnVwdCBhbmQgc3RhcnRpbmcgdGhl
+IGNvdW50ZXIgYWdhaW4gKi8KPiA+ICsgICAgICAgaWYgKHRlc3RfYml0KElSUV9QTVVfT1ZGLCB2
+Y3B1LT5hcmNoLmlycXNfcGVuZGluZykpIHsKPiA+ICsgICAgICAgICAgICAgICBjbGVhcl9iaXQo
+cG1jX2luZGV4LCBrdnBtdS0+cG1jX292ZXJmbG93bik7Cj4gPiArICAgICAgICAgICAgICAga3Zt
+X3Jpc2N2X3ZjcHVfdW5zZXRfaW50ZXJydXB0KHZjcHUsIElSUV9QTVVfT1ZGKTsKPiA+ICsgICAg
+ICAgfQo+ID4gKwo+ID4gIG91dDoKPiA+ICAgICAgICAgcmV0ZGF0YS0+ZXJyX3ZhbCA9IHNiaXJl
+dDsKPiA+Cj4gPiBAQCAtNTM3LDcgKzU4NCwxMiBAQCBpbnQga3ZtX3Jpc2N2X3ZjcHVfcG11X2N0
+cl9zdG9wKHN0cnVjdCBrdm1fdmNwdSAqdmNwdSwgdW5zaWduZWQgbG9uZyBjdHJfYmFzZSwKPiA+
+ICAgICAgICAgICAgICAgICB9Cj4gPgo+ID4gICAgICAgICAgICAgICAgIGlmIChiU25hcHNob3Qg
+JiYgIXNiaXJldCkgewo+ID4gLSAgICAgICAgICAgICAgICAgICAgICAgLy9UT0RPOiBBZGQgY291
+bnRlciBvdmVyZmxvdyBzdXBwb3J0IHdoZW4gc3Njb2ZwbWYgc3VwcG9ydCBpcyBhZGRlZAo+ID4g
+KyAgICAgICAgICAgICAgICAgICAgICAgLyogVGhlIGNvdW50ZXIgYW5kIG92ZXJmbG93IGluZGlj
+aWVzIGluIHRoZSBzbmFwc2hvdCByZWdpb24gYXJlIHcuci50bwo+ID4gKyAgICAgICAgICAgICAg
+ICAgICAgICAgICogY2Jhc2UuIE1vZGlmeSB0aGUgc2V0IGJpdCBpbiB0aGUgY291bnRlciBtYXNr
+IGluc3RlYWQgb2YgdGhlIHBtY19pbmRleAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICog
+d2hpY2ggaW5kaWNhdGVzIHRoZSBhYnNvbHV0ZSBjb3VudGVyIGluZGV4Lgo+ID4gKyAgICAgICAg
+ICAgICAgICAgICAgICAgICovCj4gPiArICAgICAgICAgICAgICAgICAgICAgICBpZiAodGVzdF9i
+aXQocG1jX2luZGV4LCBrdnBtdS0+cG1jX292ZXJmbG93bikpCj4gPiArICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIGt2cG11LT5zZGF0YS0+Y3RyX292ZXJmbG93X21hc2sgfD0gKDFVTCA8
+PCBpKTsKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIGt2cG11LT5zZGF0YS0+Y3RyX3ZhbHVl
+c1tpXSA9IHBtYy0+Y291bnRlcl92YWw7Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgICBrdm1f
+dmNwdV93cml0ZV9ndWVzdCh2Y3B1LCBrdnBtdS0+c25hcHNob3RfYWRkciwga3ZwbXUtPnNkYXRh
+LAo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2l6ZW9m
+KHN0cnVjdCByaXNjdl9wbXVfc25hcHNob3RfZGF0YSkpOwo+ID4gQEAgLTU0NiwxNSArNTk4LDE5
+IEBAIGludCBrdm1fcmlzY3ZfdmNwdV9wbXVfY3RyX3N0b3Aoc3RydWN0IGt2bV92Y3B1ICp2Y3B1
+LCB1bnNpZ25lZCBsb25nIGN0cl9iYXNlLAo+ID4gICAgICAgICAgICAgICAgIGlmIChmbGFncyAm
+IFNCSV9QTVVfU1RPUF9GTEFHX1JFU0VUKSB7Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgICBw
+bWMtPmV2ZW50X2lkeCA9IFNCSV9QTVVfRVZFTlRfSURYX0lOVkFMSUQ7Cj4gPiAgICAgICAgICAg
+ICAgICAgICAgICAgICBjbGVhcl9iaXQocG1jX2luZGV4LCBrdnBtdS0+cG1jX2luX3VzZSk7Cj4g
+PiArICAgICAgICAgICAgICAgICAgICAgICBjbGVhcl9iaXQocG1jX2luZGV4LCBrdnBtdS0+cG1j
+X292ZXJmbG93bik7Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgICBpZiAoYlNuYXBzaG90KSB7
+Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC8qIENsZWFyIHRoZSBzbmFwc2hv
+dCBhcmVhIGZvciB0aGUgdXBjb21pbmcgZGVsZXRpb24gZXZlbnQgKi8KPiA+ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAga3ZwbXUtPnNkYXRhLT5jdHJfdmFsdWVzW2ldID0gMDsKPiA+
+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLyogT25seSBjbGVhciB0aGUgZ2l2ZW4g
+Y291bnRlciBhcyB0aGUgY2FsbGVyIGlzIHJlc3BvbnNpYmxlIHRvCj4gPiArICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAqIHZhbGlkYXRlIGJvdGggdGhlIG92ZXJmbG93IG1hc2sgYW5k
+IGNvbmZpZ3VyZWQgY291bnRlcnMuCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAqLwo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBrdnBtdS0+c2RhdGEtPmN0
+cl9vdmVyZmxvd19tYXNrICY9IH4oMVVMIDw8IGkpOwo+ID4gICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICBrdm1fdmNwdV93cml0ZV9ndWVzdCh2Y3B1LCBrdnBtdS0+c25hcHNob3RfYWRk
+ciwga3ZwbXUtPnNkYXRhLAo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICBzaXplb2Yoc3RydWN0IHJpc2N2X3BtdV9zbmFwc2hvdF9kYXRhKSk7
+Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgICB9Cj4gPiAgICAgICAgICAgICAgICAgfQo+ID4g
+ICAgICAgICB9Cj4gPiAtCj4gPiAgb3V0Ogo+ID4gICAgICAgICByZXRkYXRhLT5lcnJfdmFsID0g
+c2JpcmV0Owo+ID4KPiA+IEBAIC03MjksMTUgKzc4NSwxNiBAQCB2b2lkIGt2bV9yaXNjdl92Y3B1
+X3BtdV9kZWluaXQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KQo+ID4gICAgICAgICBpZiAoIWt2cG11
+KQo+ID4gICAgICAgICAgICAgICAgIHJldHVybjsKPiA+Cj4gPiAtICAgICAgIGZvcl9lYWNoX3Nl
+dF9iaXQoaSwga3ZwbXUtPnBtY19pbl91c2UsIFJJU0NWX01BWF9DT1VOVEVSUykgewo+ID4gKyAg
+ICAgICBmb3JfZWFjaF9zZXRfYml0KGksIGt2cG11LT5wbWNfaW5fdXNlLCBSSVNDVl9LVk1fTUFY
+X0NPVU5URVJTKSB7Cj4gPiAgICAgICAgICAgICAgICAgcG1jID0gJmt2cG11LT5wbWNbaV07Cj4g
+PiAgICAgICAgICAgICAgICAgcG1jLT5jb3VudGVyX3ZhbCA9IDA7Cj4gPiAgICAgICAgICAgICAg
+ICAga3ZtX3BtdV9yZWxlYXNlX3BlcmZfZXZlbnQocG1jKTsKPiA+ICAgICAgICAgICAgICAgICBw
+bWMtPmV2ZW50X2lkeCA9IFNCSV9QTVVfRVZFTlRfSURYX0lOVkFMSUQ7Cj4gPiAgICAgICAgIH0K
+PiA+IC0gICAgICAgYml0bWFwX3plcm8oa3ZwbXUtPnBtY19pbl91c2UsIFJJU0NWX01BWF9DT1VO
+VEVSUyk7Cj4gPiArICAgICAgIGJpdG1hcF96ZXJvKGt2cG11LT5wbWNfaW5fdXNlLCBSSVNDVl9L
+Vk1fTUFYX0NPVU5URVJTKTsKPiA+ICsgICAgICAgYml0bWFwX3plcm8oa3ZwbXUtPnBtY19vdmVy
+Zmxvd24sIFJJU0NWX0tWTV9NQVhfQ09VTlRFUlMpOwo+ID4gICAgICAgICBtZW1zZXQoJmt2cG11
+LT5md19ldmVudCwgMCwgU0JJX1BNVV9GV19NQVggKiBzaXplb2Yoc3RydWN0IGt2bV9md19ldmVu
+dCkpOwo+ID4gLSAgICAgICBrdnBtdS0+c25hcHNob3RfYWRkciA9IElOVkFMSURfR1BBOwo+ID4g
+KyAgICAgICBrdm1fcG11X2NsZWFyX3NuYXBzaG90X2FyZWEodmNwdSk7Cj4gPiAgfQo+ID4KPiA+
+ICB2b2lkIGt2bV9yaXNjdl92Y3B1X3BtdV9yZXNldChzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpCj4g
+PiAtLQo+ID4gMi4zNC4xCj4gPgo+ID4KPiA+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCj4gPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiA+IGxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiA+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKPgo+IFRoYW5rIHlvdSwKPiBWbGFkaW1pciBJ
+c2FldgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
