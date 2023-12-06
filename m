@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C739FC4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 13:00:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7A70C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 13:06:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GGuMZ1wTykUhsyP0U2o/2rg7msYSF+oI+rmZhftvq/w=; b=NSIbfWEl6FhqSp
-	zYQbXeFyXbmu+vWGUF+1QiBxccECg6KErb3zSKnzdf0dFyYYNGhHuVvr2K2sD7HpfZ8ShCj/5jPAI
-	ZioCFwto8jSi6yHJcwjlBbbOct/uGamK7vPWxlGy9mpxWrUt6dcgfIiJm5/PquiwUaOmJSVst8/3s
-	rpllJChiyEDs7etn4WMlv/0nVaH4bFkZmewryS3OVrAHbrJqyvWtVUbQVBHyDdq9iD6XNW9BXH/QJ
-	C0nG2gcHwuk9Ep4azpF/zArskx0BVQoUUCK/lebQxSSqCBo1TFIo6GhQkH5ZTarwfrL24Fk+azr+w
-	iyYT5O28W/QmsLeHPMtg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=ZHRnZKtV3KSKlI8jjTlErlHrjMzC2Z7SLHi5WRzOQis=; b=UXSpNPw/4JTU3E0lQ5pHRIKyHe
+	OvZOukmivfdw8tyqbQxy8+dDbIALtlokw3OzAGJ8Ef6k7b7fSWLbEyOgNWzC3yMsI7JDyf3ESAIU1
+	+BDAgWlQLUGvGco45VjPNK6el2RBtF6eUX7A28X425aafpWjoKrsQ+3E603/TXwjYrl/YLbEUMDYe
+	L98ISiMWkIju3cm3F77PQZvpoeRP3owFkYvOmoS7Su4Up6fr3HE4HLF5gKP4GYHCcbJmaUfg5Fub0
+	fofW4Tj0eW2NChPvETx5++U0AgJf++vK+o5VOEDzUgGSFEYkCqTr+U+A8lBoyt+sd5loc0AAf02Ja
+	JeKxlkig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rArVy-00ALMX-1B;
-	Wed, 06 Dec 2023 13:00:34 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAqQT-00A812-2m
+	id 1rArbA-00AM03-0G;
+	Wed, 06 Dec 2023 13:05:56 +0000
+Received: from mail-oi1-x231.google.com ([2607:f8b0:4864:20::231])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1rArb6-00ALzE-3C
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 11:50:53 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id E505624E303;
-	Wed,  6 Dec 2023 19:50:20 +0800 (CST)
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 6 Dec
- 2023 19:50:20 +0800
-Received: from jsia-virtual-machine.localdomain (175.136.135.142) by
- EXMBX066.cuchost.com (172.16.6.66) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Wed, 6 Dec 2023 19:50:13 +0800
-From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
-	<krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <mturquette@baylibre.com>,
-	<sboyd@kernel.org>, <p.zabel@pengutronix.de>,
-	<emil.renner.berthing@canonical.com>, <hal.feng@starfivetech.com>,
-	<xingyu.wu@starfivetech.com>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-	<jeeheng.sia@starfivetech.com>, <leyfoon.tan@starfivetech.com>
-Subject: [PATCH v1 01/16] reset: starfive: Rename file name "jh71x0" to "common"
-Date: Wed, 6 Dec 2023 19:49:45 +0800
-Message-ID: <20231206115000.295825-2-jeeheng.sia@starfivetech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
-References: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
-MIME-Version: 1.0
-X-Originating-IP: [175.136.135.142]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX066.cuchost.com
- (172.16.6.66)
-X-YovoleRuleAgent: yovoleflag
+	Wed, 06 Dec 2023 13:05:54 +0000
+Received: by mail-oi1-x231.google.com with SMTP id 5614622812f47-3b837d974ecso4385639b6e.2
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Dec 2023 05:05:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1701867949; x=1702472749; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vzgbFdAZtuGUcSvqWCnnqwHA8w3xAQKY5QSWn1ivO1Q=;
+        b=DD6xLm/Mf6cNfBS+0Rn1KNabUZ9jg8JNXh+vPiq85ECeZjIJBVXDRKRVNIsWxB5WxI
+         xHrJ0Dxdz0WFxZtWDOIGXhsFevfwXpu9q1MPVr9w/tjqsFEabT46MIhnYJ69cugcCNbU
+         XQCzoiakYsjh92PFP97wSythEu4NVEft2kV4pKHn90XW9xq80916Dr1qU8TCzZ7LM20p
+         ECGdEBY6lrebu/1fbgM3fUIiKYuNVas2tgNgctknNloL8BlDdNCW5fH9JfGL9b/G9uHw
+         8/wdErRQyapqwwguCaWqA719xPfs66+Xw/KY3QF7Tm8GoY/WP3trgNpqvZEcR4njee3K
+         A2GA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701867949; x=1702472749;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vzgbFdAZtuGUcSvqWCnnqwHA8w3xAQKY5QSWn1ivO1Q=;
+        b=G7dB/2MkBXLBTXZ9TnlLscMPaml4IsbcNiiw4SDXv/uU9cMQ29It/nokHJ14MbxXTp
+         dE2dt6cJ3fuBbacIVYdhcbXY97jOrhzkRrErecFudatDaBHeVURwd3GJlA9CU9EB1/ND
+         zqvfx7MxuB0TgKPXLDURZhoJ0PnaV4ihUUm33zEr/iSVLZTPziCpTUq+4OExKAN6n+fF
+         mUcJPa4yfm/TxLc/n1wAZE7zIzYZLd8OImpT+NHd5Keyaww84awD8bSvS3xcHD24+12C
+         aGgV101NdMepmHEVHW1tfeh47F6038x44gvR1yQaj3g7zm/f4tnKyIl/guuUH0EjoQqj
+         pqKg==
+X-Gm-Message-State: AOJu0YxNUwhxRHH3EpxhC33lEYIFRhV9ZjHRmTaFlx/bzn4zO9CX0NTG
+	AL8xhemRbuQF6dWENbUqKKanAg==
+X-Google-Smtp-Source: AGHT+IEhjyYkjdko17Yv1eA2AphNCktXFKRI2cyiBKG8GmugvSo4jvEZ3+HFE5q1wXyxbk+tyJpYhw==
+X-Received: by 2002:a05:6870:9e82:b0:1fa:df52:beb4 with SMTP id pu2-20020a0568709e8200b001fadf52beb4mr1148224oab.32.1701867949085;
+        Wed, 06 Dec 2023 05:05:49 -0800 (PST)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id gy26-20020a056870289a00b001fb3240116bsm2094303oab.7.2023.12.06.05.05.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 Dec 2023 05:05:48 -0800 (PST)
+Date: Wed, 06 Dec 2023 05:05:48 -0800 (PST)
+X-Google-Original-Date: Wed, 06 Dec 2023 05:05:46 PST (-0800)
+Subject: Re: [PATCH 2/2] membarrier: riscv: Provide core serializing command
+In-Reply-To: <ZWe+ljzCUQQVu7oD@andrea>
+CC: mathieu.desnoyers@efficios.com, paulmck@kernel.org,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, mmaas@google.com, hboehm@google.com, striker@us.ibm.com,
+  charlie@rivosinc.com, rehn@rivosinc.com, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: parri.andrea@gmail.com
+Message-ID: <mhng-40f43849-e610-410b-92b5-7571838ce9f5@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_035050_371434_F188BFB7 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20231206_050553_033748_37CF931F 
+X-CRM114-Status: GOOD (  19.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,179 +88,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-StarFive JH8100 shares a similar clock and reset design with JH7110.
-To facilitate the reuse of the file and its functionalities, files
-containing the "jh71x0" naming convention are renamed to use the
-"common" wording.
+On Wed, 29 Nov 2023 14:43:34 PST (-0800), parri.andrea@gmail.com wrote:
+>> > So I should probably stick to 93917ad50972, which apparently selected
+>> > CONFIG_MEMBARRIER on RISC-V, for the Fixes: tag in question.
+>>
+>> I think it goes further than that, because you can explicitly
+>> CONFIG_MEMBARRIER=y, see init/Kconfig:
+>>
+>> config MEMBARRIER
+>>         bool "Enable membarrier() system call" if EXPERT
+>>         default y
+>>         help
+>>           Enable the membarrier() system call that allows issuing memory
+>>           barriers across all running threads, which can be used to distribute
+>>           the cost of user-space memory barriers asymmetrically by transforming
+>>           pairs of memory barriers into pairs consisting of membarrier() and a
+>>           compiler barrier.
+>>
+>>           If unsure, say Y.
+>>
+>> Before 1464d00b27b2, riscv just happened to set it to =n in the defconfig.
+>>
+>> I suspect the initial port of riscv merged after v4.14 was already broken.
+>
+> I see.  Oh well, guess I'll have to leave this up to the maintainers then
+> (I believe I've never managed to build riscv that far), Palmer?
 
-Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
----
- drivers/clk/starfive/clk-starfive-jh7110-sys.c              | 2 +-
- drivers/reset/starfive/Kconfig                              | 6 +++---
- drivers/reset/starfive/Makefile                             | 2 +-
- .../{reset-starfive-jh71x0.c => reset-starfive-common.c}    | 4 ++--
- .../{reset-starfive-jh71x0.h => reset-starfive-common.h}    | 6 +++---
- drivers/reset/starfive/reset-starfive-jh7100.c              | 2 +-
- drivers/reset/starfive/reset-starfive-jh7110.c              | 4 ++--
- .../{reset-starfive-jh71x0.h => reset-starfive-common.h}    | 4 ++--
- 8 files changed, 15 insertions(+), 15 deletions(-)
- rename drivers/reset/starfive/{reset-starfive-jh71x0.c => reset-starfive-common.c} (97%)
- rename drivers/reset/starfive/{reset-starfive-jh71x0.h => reset-starfive-common.h} (75%)
- rename include/soc/starfive/{reset-starfive-jh71x0.h => reset-starfive-common.h} (81%)
+I see
 
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-index 3884eff9fe93..6e45c580c9ba 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-@@ -14,7 +14,7 @@
- #include <linux/platform_device.h>
- #include <linux/slab.h>
- 
--#include <soc/starfive/reset-starfive-jh71x0.h>
-+#include <soc/starfive/reset-starfive-common.h>
- 
- #include <dt-bindings/clock/starfive,jh7110-crg.h>
- 
-diff --git a/drivers/reset/starfive/Kconfig b/drivers/reset/starfive/Kconfig
-index d832339f61bc..29fbcf1a7d83 100644
---- a/drivers/reset/starfive/Kconfig
-+++ b/drivers/reset/starfive/Kconfig
-@@ -1,12 +1,12 @@
- # SPDX-License-Identifier: GPL-2.0-only
- 
--config RESET_STARFIVE_JH71X0
-+config RESET_STARFIVE_COMMON
- 	bool
- 
- config RESET_STARFIVE_JH7100
- 	bool "StarFive JH7100 Reset Driver"
- 	depends on ARCH_STARFIVE || COMPILE_TEST
--	select RESET_STARFIVE_JH71X0
-+	select RESET_STARFIVE_COMMON
- 	default ARCH_STARFIVE
- 	help
- 	  This enables the reset controller driver for the StarFive JH7100 SoC.
-@@ -15,7 +15,7 @@ config RESET_STARFIVE_JH7110
- 	bool "StarFive JH7110 Reset Driver"
- 	depends on CLK_STARFIVE_JH7110_SYS
- 	select AUXILIARY_BUS
--	select RESET_STARFIVE_JH71X0
-+	select RESET_STARFIVE_COMMON
- 	default ARCH_STARFIVE
- 	help
- 	  This enables the reset controller driver for the StarFive JH7110 SoC.
-diff --git a/drivers/reset/starfive/Makefile b/drivers/reset/starfive/Makefile
-index 7a44b66fb9d5..582e4c160bd4 100644
---- a/drivers/reset/starfive/Makefile
-+++ b/drivers/reset/starfive/Makefile
-@@ -1,5 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
--obj-$(CONFIG_RESET_STARFIVE_JH71X0)		+= reset-starfive-jh71x0.o
-+obj-$(CONFIG_RESET_STARFIVE_COMMON)		+= reset-starfive-common.o
- 
- obj-$(CONFIG_RESET_STARFIVE_JH7100)		+= reset-starfive-jh7100.o
- obj-$(CONFIG_RESET_STARFIVE_JH7110)		+= reset-starfive-jh7110.o
-diff --git a/drivers/reset/starfive/reset-starfive-jh71x0.c b/drivers/reset/starfive/reset-starfive-common.c
-similarity index 97%
-rename from drivers/reset/starfive/reset-starfive-jh71x0.c
-rename to drivers/reset/starfive/reset-starfive-common.c
-index 55bbbd2de52c..dab454e46bbf 100644
---- a/drivers/reset/starfive/reset-starfive-jh71x0.c
-+++ b/drivers/reset/starfive/reset-starfive-common.c
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- /*
-- * Reset driver for the StarFive JH71X0 SoCs
-+ * Reset driver for the StarFive SoCs
-  *
-  * Copyright (C) 2021 Emil Renner Berthing <kernel@esmil.dk>
-  */
-@@ -12,7 +12,7 @@
- #include <linux/reset-controller.h>
- #include <linux/spinlock.h>
- 
--#include "reset-starfive-jh71x0.h"
-+#include "reset-starfive-common.h"
- 
- struct jh71x0_reset {
- 	struct reset_controller_dev rcdev;
-diff --git a/drivers/reset/starfive/reset-starfive-jh71x0.h b/drivers/reset/starfive/reset-starfive-common.h
-similarity index 75%
-rename from drivers/reset/starfive/reset-starfive-jh71x0.h
-rename to drivers/reset/starfive/reset-starfive-common.h
-index db7d39a87f87..266acc4b2caf 100644
---- a/drivers/reset/starfive/reset-starfive-jh71x0.h
-+++ b/drivers/reset/starfive/reset-starfive-common.h
-@@ -3,12 +3,12 @@
-  * Copyright (C) 2021 Emil Renner Berthing <kernel@esmil.dk>
-  */
- 
--#ifndef __RESET_STARFIVE_JH71X0_H
--#define __RESET_STARFIVE_JH71X0_H
-+#ifndef __RESET_STARFIVE_COMMON_H
-+#define __RESET_STARFIVE_COMMON_H
- 
- int reset_starfive_jh71x0_register(struct device *dev, struct device_node *of_node,
- 				   void __iomem *assert, void __iomem *status,
- 				   const u32 *asserted, unsigned int nr_resets,
- 				   struct module *owner);
- 
--#endif /* __RESET_STARFIVE_JH71X0_H */
-+#endif /* __RESET_STARFIVE_COMMON_H */
-diff --git a/drivers/reset/starfive/reset-starfive-jh7100.c b/drivers/reset/starfive/reset-starfive-jh7100.c
-index 2a56f7fd4ba7..546dea2e5811 100644
---- a/drivers/reset/starfive/reset-starfive-jh7100.c
-+++ b/drivers/reset/starfive/reset-starfive-jh7100.c
-@@ -8,7 +8,7 @@
- #include <linux/mod_devicetable.h>
- #include <linux/platform_device.h>
- 
--#include "reset-starfive-jh71x0.h"
-+#include "reset-starfive-common.h"
- 
- #include <dt-bindings/reset/starfive-jh7100.h>
- 
-diff --git a/drivers/reset/starfive/reset-starfive-jh7110.c b/drivers/reset/starfive/reset-starfive-jh7110.c
-index 29a43f0f2ad6..87dba01491ae 100644
---- a/drivers/reset/starfive/reset-starfive-jh7110.c
-+++ b/drivers/reset/starfive/reset-starfive-jh7110.c
-@@ -7,9 +7,9 @@
- 
- #include <linux/auxiliary_bus.h>
- 
--#include <soc/starfive/reset-starfive-jh71x0.h>
-+#include <soc/starfive/reset-starfive-common.h>
- 
--#include "reset-starfive-jh71x0.h"
-+#include "reset-starfive-common.h"
- 
- #include <dt-bindings/reset/starfive,jh7110-crg.h>
- 
-diff --git a/include/soc/starfive/reset-starfive-jh71x0.h b/include/soc/starfive/reset-starfive-common.h
-similarity index 81%
-rename from include/soc/starfive/reset-starfive-jh71x0.h
-rename to include/soc/starfive/reset-starfive-common.h
-index 47b486ececc5..56d8f413cf18 100644
---- a/include/soc/starfive/reset-starfive-jh71x0.h
-+++ b/include/soc/starfive/reset-starfive-common.h
-@@ -1,6 +1,6 @@
- /* SPDX-License-Identifier: GPL-2.0 */
--#ifndef __SOC_STARFIVE_RESET_JH71X0_H
--#define __SOC_STARFIVE_RESET_JH71X0_H
-+#ifndef __SOC_STARFIVE_RESET_COMMON_H
-+#define __SOC_STARFIVE_RESET_COMMON_H
- 
- #include <linux/auxiliary_bus.h>
- #include <linux/compiler_types.h>
--- 
-2.34.1
+$ git grep "config MEMBARRIER" fab957c11efe2f405e08b9f0d080524bc2631428
+fab957c11efe2f405e08b9f0d080524bc2631428:init/Kconfig:config MEMBARRIER
 
+so IMO this is just one of those forever bugs.  So I'd lean towards
+
+    Fixes: fab957c11efe ("RISC-V: Atomic and Locking Code")
+
+(or anything in that original patch set).  It's not that big of a 
+backport, so I think it's safe enough?
+
+>> > I'll look into adding the membarrier feature you mention (as a final/
+>> > follow-up patch), unless you or someone else want to take care of it.
+>>
+>> I'll be happy to review it :)
+>
+> Sweet!  :-)
+>
+>   Andrea
 
 _______________________________________________
 linux-riscv mailing list
