@@ -4,93 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 070B3C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 15:36:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB7D7C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 15:38:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mqRZ3yiEcp/vgW2M+aqHmApgh0aO5HPWRqT6hV3xV+U=; b=0bW+rqYdi1hW9g
-	DCSNrEW5U8D96w3QApdHCHdhicv2XnvuY1zELGwB6x2I/p18dPhW6lwZhReNT08j3T4L116t8QrnK
-	66xGXiviyfYI+ram/v+hoZ4UaOEQ64wqK5vzHID3PsnOsiWmJzZz9uEi5wEH4cIphKw46o5YhxxR5
-	K1hpYoTzBA7wK+XNAGHMBv3CHroxDr9phw4rH/ACC+PgCVCeAtPFFgSoHDUy3yT3TL5su7NljMX12
-	2C8g9g6mouMkh2TnHQQZOpwQdXERXECfPvWLjdxy+jvrRmP11V9zlZl88zhgGDq0zcNDQighJHzAF
-	OgFI3IO0T0g8mP64X7ow==;
+	List-Owner; bh=y0tYOHSnUyqyk06CVDITDURmPDReqNSgeh/e6fstCYI=; b=Rt3zFWpwidQLNz
+	Dkdcd3Ba1hiE9vt1T/lyBWvGOlFOAPU2m+YAXXQRA7CWGCWccJMAPr7nzpY86QK9vKALLPzpNchmt
+	PYwLtnSeqpmmLzFEYieq9d9JEoiO8BAF2VXpwCnLI82uc0ub7oyTQGS9c+lULoloS7+94FuSrRSXl
+	qVd9WvTbO+g6J2lyHFNJAZWNSB9MGu9atHFLAsVUpyxn+nyFtebQQ0gWgHfPT7yiVOFEZPth8Fb4Y
+	7JzRkR29ZsT1Eg+KOjL40YsKbswtHUvCD8RloaexPHz9JGUD9Wb7ifJeEgyJAZVn3rGQHLfUwD9yB
+	a8z6NIGYT+WNVDOWvn5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAtwE-00Adey-2n;
-	Wed, 06 Dec 2023 15:35:50 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1rAtyT-00Adug-2P;
+	Wed, 06 Dec 2023 15:38:09 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAtwD-00Adep-13
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 06 Dec 2023 15:35:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=34JGkeDw2fzo5aYJ5fytyFCmmA2EAJ4M9xy4pwn6wrM=; b=gTruqnlu8eDmXa3L0iyeSD2Nnn
-	ePXXo7+GcN32qytdrXaWYSLANmme4ALZxhg0JQlNFwM/MH4cviy77G8UNNHVpyThWd9OSqLjvfyjH
-	n+hvMI4zCb/iJgc+nB2YqllaE+P53evNS/9fuIg8TOPrU7vxPv0Z2HgxAq+kGffHXcdGVjW87Znxc
-	j4vkPvTk0bS8qgVSzZs8fcJ4jZGSyPTxTSPz0Q2sEpN7Cn7GkfA4d44EOHD4gLC5FjiKQEaNcynfB
-	DtD725Qv+e8+0LnA0+qRxiZ5Qcjpt7or8VjiV6p28m3HroSjoRF0w57Lro7i//DTiB2B6gCrZJ6mU
-	cXJtqFlQ==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1rAtw5-0031PW-8d; Wed, 06 Dec 2023 15:35:41 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 36B6E300451; Wed,  6 Dec 2023 16:35:40 +0100 (CET)
-Date: Wed, 6 Dec 2023 16:35:40 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: Jiri Olsa <olsajiri@gmail.com>, Song Liu <song@kernel.org>,
-	Song Liu <songliubraving@meta.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	David Ahern <dsahern@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>, Arnd Bergmann <arnd@arndb.de>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Kees Cook <keescook@chromium.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	Network Development <netdev@vger.kernel.org>,
-	bpf <bpf@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>,
-	clang-built-linux <llvm@lists.linux.dev>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Joao Moreira <joao@overdrivepizza.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH v2 2/2] x86/cfi,bpf: Fix BPF JIT call
-Message-ID: <20231206153540.GA36423@noisy.programming.kicks-ass.net>
-References: <20231130133630.192490507@infradead.org>
- <20231130134204.136058029@infradead.org>
- <CAADnVQJqE=aE7mHVS54pnwwnDS0b67iJbr+t4j5F4HRyJSTOHw@mail.gmail.com>
- <20231204091334.GM3818@noisy.programming.kicks-ass.net>
- <20231204111128.GV8262@noisy.programming.kicks-ass.net>
- <20231204125239.GA1319@noisy.programming.kicks-ass.net>
- <ZW4LjmUKj1q6RWdL@krava>
- <20231204181614.GA7299@noisy.programming.kicks-ass.net>
- <20231204183354.GC7299@noisy.programming.kicks-ass.net>
- <CAADnVQJwU5fCLcjBWM9zBY6jUcnME3+p=vvdgKK9FiLPWvXozg@mail.gmail.com>
+	id 1rAtyQ-00AdsN-0N
+	for linux-riscv@lists.infradead.org;
+	Wed, 06 Dec 2023 15:38:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1701877084;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7m8xOH4+zttkQQNEKRFuMltiPwniLE68hwW+zcTlG4s=;
+	b=OtPS7oun7mh3wqZXRy1JyybKbH44BKmcEL9ikvdTDeF2pVSG53XdpFrDXZ2xAH3ulac2zY
+	DuIa9rIraGjrYUT1nRJ2HXT7kGHfbBU5AaPjrGqCgt1J5ffyB7VvCF48hMJqHQTeMPel9o
+	14s84MOWKY/kH2GJhLeWi5GDlwoGcNo=
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-428-vpZ8jbrXNUaooO-lmVkN9w-1; Wed,
+ 06 Dec 2023 10:37:57 -0500
+X-MC-Unique: vpZ8jbrXNUaooO-lmVkN9w-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 414881C32941;
+	Wed,  6 Dec 2023 15:37:56 +0000 (UTC)
+Received: from localhost (unknown [10.72.113.121])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8A16D8C0C;
+	Wed,  6 Dec 2023 15:37:55 +0000 (UTC)
+Date: Wed, 6 Dec 2023 23:37:52 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>, linux-kernel@vger.kernel.org,
+	kexec@lists.infradead.org, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-parisc@vger.kernel.org, akpm@linux-foundation.org,
+	joe@perches.com, nathan@kernel.org
+Subject: Re: [PATCH v3 5/7] kexec_file, ricv: print out debugging message if
+ required
+Message-ID: <ZXCVUD9cCYEShrrj@MiWiFi-R3L-srv>
+References: <20231130023955.5257-1-bhe@redhat.com>
+ <20231130023955.5257-6-bhe@redhat.com>
+ <20231201-blog-blasphemy-985d2665903c@wendy>
+ <ZW3yXWJ7rTrtZzyg@MiWiFi-R3L-srv>
+ <20231204-liftoff-enclosure-d3e3daf0ab6e@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAADnVQJwU5fCLcjBWM9zBY6jUcnME3+p=vvdgKK9FiLPWvXozg@mail.gmail.com>
+In-Reply-To: <20231204-liftoff-enclosure-d3e3daf0ab6e@spud>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.5
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20231206_073806_244468_76FEA76C 
+X-CRM114-Status: GOOD (  42.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,66 +90,144 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 04, 2023 at 05:18:31PM -0800, Alexei Starovoitov wrote:
-
-> How about
-
-> +int get_cfi_offset(void)
-> +{
-> +       switch (cfi_mode) {
-> +       case CFI_FINEIBT:
-> +               return 16;
-> +       case CFI_KCFI:
-> +#ifdef CONFIG_CALL_PADDING
-> +               return 16;
-> +#else
-> +               return 5;
-> +#endif
-> +       default:
-> +               return 0;
-> +       }
-> +}
-
-Yeah, that works. I'll go make it happen.
-
-> Separately we need to deal with bpf_for_each_array_elem()
-> which doesn't look easy.
-> And fix tcp_set_ca_state() as well (which is even harder).
+On 12/04/23 at 04:14pm, Conor Dooley wrote:
+> On Mon, Dec 04, 2023 at 11:38:05PM +0800, Baoquan He wrote:
+> > On 12/01/23 at 10:38am, Conor Dooley wrote:
+> > > On Thu, Nov 30, 2023 at 10:39:53AM +0800, Baoquan He wrote:
+> > > 
+> > > $subject has a typo in the arch bit :)
+> > 
+> > Indeed, will fix if need report. Thanks for careful checking.
+> > 
+> > > 
+> > > > Replace pr_debug() with the newly added kexec_dprintk() in kexec_file
+> > > > loading related codes.
+> > > 
+> > > Commit messages should be understandable in isolation, but this only
+> > > explains (part of) what is obvious in the diff. Why is this change
+> > > being made?
+> > 
+> > The purpose has been detailedly described in cover letter and patch 1
+> > log. Andrew has picked these patches into his tree and grabbed the cover
+> > letter log into the relevant commit for people's later checking. All
+> > these seven patches will be present in mainline together. This is common
+> > way when posting patch series? Please let me know if I misunderstand
+> > anything.
 > 
-> Just to see where places like these are I did:
-> +__nocfi
->  BPF_CALL_4(bpf_loop, u32, nr_loops, void *, callback_fn, void *, callback_ctx,
-> +__nocfi
->  static long bpf_for_each_hash_elem(struct bpf_map *map,
-> bpf_callback_t callback_fn,
-> +__nocfi
->  static enum hrtimer_restart bpf_timer_cb(struct hrtimer *hrtimer)
-> +__nocfi
->  static int __bpf_rbtree_add(struct bpf_rb_root *root,
-> +__nocfi
->  BPF_CALL_4(bpf_user_ringbuf_drain, struct bpf_map *, map,
-> +__nocfi
->  void tcp_set_ca_state(struct sock *sk, const u8 ca_state)
-> +__nocfi
->  void tcp_init_congestion_control(struct sock *sk)
-> +__nocfi
->  void tcp_enter_loss(struct sock *sk)
-> +__nocfi
->  static void tcp_cong_avoid(struct sock *sk, u32 ack, u32 acked)
-> +__nocfi
->  static inline void tcp_in_ack_event(struct sock *sk, u32 flags)
+> Each patch having a commit message that explains why a change is being
+> made is the expectation. It is especially useful to explain the why
+> here, since it is not just a mechanical conversion of pr_debug()s as the
+> commit message suggests.
+
+Sounds reasonable. I rephrase the patch 3 log as below, do you think
+it's OK to you?
+
+I will also adjust patch logs on other ARCH once this one is done.
+Thanks.
+
+=============================
+Subject: [PATCH v3 5/7] kexec_file, ricv: print out debugging message if required
+
+Then when specifying '-d' for kexec_file_load interface, loaded
+locations of kernel/initrd/cmdline etc can be printed out to help debug.
+
+Here replace pr_debug() with the newly added kexec_dprintk() in kexec_file
+loading related codes.
+
+And also replace pr_notice() with kexec_dprintk() in elf_kexec_load()
+because it's make sense to always print out loaded location of purgatory
+and device tree even though users don't expect the message.
+
+And also remove kexec_image_info() because the content has been printed
+out in generic code.
+
+============================
+
 > 
-> and more... Which is clearly not a direction to go.
+> > > 
+> > > > 
+> > > > And also remove kexec_image_info() because the content has been printed
+> > > > out in generic code.
+> > > > 
+> > > > Signed-off-by: Baoquan He <bhe@redhat.com>
+> > > > ---
+> > > >  arch/riscv/kernel/elf_kexec.c     | 11 ++++++-----
+> > > >  arch/riscv/kernel/machine_kexec.c | 26 --------------------------
+> > > >  2 files changed, 6 insertions(+), 31 deletions(-)
+> > > > 
+> > > > diff --git a/arch/riscv/kernel/elf_kexec.c b/arch/riscv/kernel/elf_kexec.c
+> > > > index e60fbd8660c4..5bd1ec3341fe 100644
+> > > > --- a/arch/riscv/kernel/elf_kexec.c
+> > > > +++ b/arch/riscv/kernel/elf_kexec.c
+> > > > @@ -216,7 +216,6 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+> > > >  	if (ret)
+> > > >  		goto out;
+> > > >  	kernel_start = image->start;
+> > > > -	pr_notice("The entry point of kernel at 0x%lx\n", image->start);
+> > > >  
+> > > >  	/* Add the kernel binary to the image */
+> > > >  	ret = riscv_kexec_elf_load(image, &ehdr, &elf_info,
+> > > > @@ -252,8 +251,8 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+> > > >  		image->elf_load_addr = kbuf.mem;
+> > > >  		image->elf_headers_sz = headers_sz;
+> > > >  
+> > > > -		pr_debug("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
+> > > > -			 image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
+> > > > +		kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
+> > > > +			      image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
+> > > >  
+> > > >  		/* Setup cmdline for kdump kernel case */
+> > > >  		modified_cmdline = setup_kdump_cmdline(image, cmdline,
+> > > > @@ -275,6 +274,8 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+> > > >  		pr_err("Error loading purgatory ret=%d\n", ret);
+> > > >  		goto out;
+> > > >  	}
+> > > > +	kexec_dprintk("Loaded purgatory at 0x%lx\n", kbuf.mem);
+> > > > +
+> > > >  	ret = kexec_purgatory_get_set_symbol(image, "riscv_kernel_entry",
+> > > >  					     &kernel_start,
+> > > >  					     sizeof(kernel_start), 0);
+> > > > @@ -293,7 +294,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+> > > >  		if (ret)
+> > > >  			goto out;
+> > > >  		initrd_pbase = kbuf.mem;
+> > > 
+> > > > -		pr_notice("Loaded initrd at 0x%lx\n", initrd_pbase);
+> > > > +		kexec_dprintk("Loaded initrd at 0x%lx\n", initrd_pbase);
+> > > 
+> > > This is not a pr_debug().
+> > > 
+> > > >  	}
+> > > >  
+> > > >  	/* Add the DTB to the image */
+> > > > @@ -318,7 +319,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+> > > >  	}
+> > > >  	/* Cache the fdt buffer address for memory cleanup */
+> > > >  	image->arch.fdt = fdt;
+> > > 
+> > > > -	pr_notice("Loaded device tree at 0x%lx\n", kbuf.mem);
+> > > > +	kexec_dprintk("Loaded device tree at 0x%lx\n", kbuf.mem);
+> > > 
+> > > Neither is this. Why are they being moved from pr_notice()?
+> > 
+> > You are right. 
+> > 
+> > While always printing out the loaded location of purgatory and
+> > device tree doesn't make sense. It will be confusing when users
+> > see these even when they do normal kexec/kdump loading. It should be
+> > changed to pr_debug().
+> > 
+> > Which way do you suggest?
+> > 1) change it back to pr_debug(), fix it in another patch;
+> > 2) keep it as is in the patch;
 > 
-> Instead of annotating callers is there a way to say that
-> all bpf_callback_t calls are nocfi?
+> Personally I think it is fine to change them all in one patch, but the
+> rationale for converting pr_notice() to your new debug infrastructure
+> needs to be in the commit message.
 
-Well, ideally they would all actually use CFI, I'll go figure out how
-all this works and think about it. Thanks!
+Sure, sounds good to me. I have changed the patch log to reflect this as
+you suggested, please help check. Thanks again.
 
-> I feel the patches scratched the iceberg.
-
-Yeah, clearly :/ I'll go stare at it all.
 
 _______________________________________________
 linux-riscv mailing list
