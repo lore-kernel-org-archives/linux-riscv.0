@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A2E7C10DCE
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 11:52:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31FE0C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 11:52:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WqYGqddn4Ii/6rSyHRim/X7WOEIfD7NBwAH2/VR/GD0=; b=T0oqafyJ7xxpqC
-	cb4RKoNgVlI6jQXYgPzTZuMDIvFSPWsdWHc49tm7qhkuvpaTZKbqgaEIrkco53cbTXY7q7wygCZV/
-	KSOdY6v51tXS2EPkFb6tjTHfq0PR9coT0UdQTqUhp0HCf69N3nfZm55C8+KHbAsgS5nzw7KoeNDKE
-	JPcTvUJXz4cZZZHBTZ4hvdlveQ5c93GbTVmlzoXWK9l0ja3XEMYzHpWJ+d3/QR5Qs4h9DXjvxv81a
-	g37sbZmY70O2JB1iq8a8vN/FFFgGqTwjkvEFs/gNWatLsttcOMauST3mFMWGlEamcf72Imo/qlWXV
-	sUWgKloGVEGMiyHTegrQ==;
+	List-Owner; bh=3d+L+BcZICirDsQkE4pWuwvtS8gP7tyLeyjr0dxyqec=; b=ILyd9DC0VKpRVE
+	I3PLgG8SxYC/66b0uX5a0Aadw6KBoN5EfJpUPg5T2l8faCxfOMTZ0sBpKNwp3gN5nyKBAYBSilPQR
+	98d/cXUph8V1HzTeAxshgdPLRyUlO7DZP4NOEBIqEHX2jm09MUQcICDc2yoBBOZFKG+0bxmCcm1ZW
+	tkdsZmQKd5H2W0B5lXMLF0DpKE+R0EmHY3oHkgwnS0oUdmroPR1z4Osg3vcCOJmEAesMEHW9U1z7l
+	9PX3/Slz1jsOx2yeCxnpcZi5/MsNKTzCRisy4OFtJGvMm7jQ6YTF936x4T11gcj7/Xmj2+XrK8v1N
+	E7fKfJzNSwPJlMb1c7EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAqSA-00AABJ-21;
-	Wed, 06 Dec 2023 11:52:34 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1rAqSD-00AADq-1B;
+	Wed, 06 Dec 2023 11:52:37 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAqS4-00A9yo-1c
+	id 1rAqS8-00AA9O-2W
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 11:52:31 +0000
+	Wed, 06 Dec 2023 11:52:35 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id D6F9380E1;
-	Wed,  6 Dec 2023 19:52:05 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id 3F79C24E311;
+	Wed,  6 Dec 2023 19:52:21 +0800 (CST)
 Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 6 Dec
- 2023 19:52:05 +0800
+ 2023 19:52:21 +0800
 Received: from jsia-virtual-machine.localdomain (175.136.135.142) by
  EXMBX066.cuchost.com (172.16.6.66) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Wed, 6 Dec 2023 19:51:58 +0800
+ 15.0.1497.42; Wed, 6 Dec 2023 19:52:14 +0800
 From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
 	<krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
@@ -48,9 +48,9 @@ To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
 CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
 	<jeeheng.sia@starfivetech.com>, <leyfoon.tan@starfivetech.com>
-Subject: [PATCH v1 14/16] clk: starfive: Add JH8100 Always-On clock generator driver
-Date: Wed, 6 Dec 2023 19:49:58 +0800
-Message-ID: <20231206115000.295825-15-jeeheng.sia@starfivetech.com>
+Subject: [PATCH v1 16/16] riscv: dts: starfive: jh8100: Add clocks and resets nodes
+Date: Wed, 6 Dec 2023 19:50:00 +0800
+Message-ID: <20231206115000.295825-17-jeeheng.sia@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
 References: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
@@ -60,8 +60,8 @@ X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX066.cuchost.com
  (172.16.6.66)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_035229_023643_64943468 
-X-CRM114-Status: GOOD (  18.38  )
+X-CRM114-CacheID: sfid-20231206_035233_255163_5231961B 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,323 +78,342 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for JH8100 Always-On clock generator.
+Add SYSCRG/SYSCRG-NE/SYSCRG-NW/SYSCRG-SW/AONCRG clock and reset
+nodes for JH8100 RISC-V SoC.
 
 Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
 ---
- drivers/clk/starfive/Kconfig          |   8 +
- drivers/clk/starfive/jh8100/Makefile  |   1 +
- drivers/clk/starfive/jh8100/clk-aon.c | 275 ++++++++++++++++++++++++++
- 3 files changed, 284 insertions(+)
- create mode 100644 drivers/clk/starfive/jh8100/clk-aon.c
+ arch/riscv/boot/dts/starfive/jh8100-clk.dtsi | 180 +++++++++++++++++++
+ arch/riscv/boot/dts/starfive/jh8100.dtsi     | 115 ++++++++++++
+ 2 files changed, 295 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/starfive/jh8100-clk.dtsi
 
-diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
-index 2d8a1e0fae8a..7a8bb958f915 100644
---- a/drivers/clk/starfive/Kconfig
-+++ b/drivers/clk/starfive/Kconfig
-@@ -105,3 +105,11 @@ config CLK_STARFIVE_JH8100_SYS_SW
- 	help
- 	  Say yes here to support the System-South-West clock controller on the StarFive JH8100
- 	  SoC.
-+
-+config CLK_STARFIVE_JH8100_AON
-+	bool "StarFive JH8100 Always-On clock support"
-+	depends on CLK_STARFIVE_JH8100_SYS
-+	default ARCH_STARFIVE
-+	help
-+	  Say yes here to support the Always-On clock controller on the StarFive JH8100
-+	  SoC.
-diff --git a/drivers/clk/starfive/jh8100/Makefile b/drivers/clk/starfive/jh8100/Makefile
-index 5c14bff5c541..1decc43de0d3 100644
---- a/drivers/clk/starfive/jh8100/Makefile
-+++ b/drivers/clk/starfive/jh8100/Makefile
-@@ -4,3 +4,4 @@ obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS)		+= clk-sys.o
- obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS_NW)	+= clk-sys-nw.o
- obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS_NE)	+= clk-sys-ne.o
- obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS_SW)        += clk-sys-sw.o
-+obj-$(CONFIG_CLK_STARFIVE_JH8100_AON)		+= clk-aon.o
-diff --git a/drivers/clk/starfive/jh8100/clk-aon.c b/drivers/clk/starfive/jh8100/clk-aon.c
+diff --git a/arch/riscv/boot/dts/starfive/jh8100-clk.dtsi b/arch/riscv/boot/dts/starfive/jh8100-clk.dtsi
 new file mode 100644
-index 000000000000..95c10d5a9552
+index 000000000000..27ba249f523e
 --- /dev/null
-+++ b/drivers/clk/starfive/jh8100/clk-aon.c
-@@ -0,0 +1,275 @@
-+// SPDX-License-Identifier: GPL-2.0
++++ b/arch/riscv/boot/dts/starfive/jh8100-clk.dtsi
+@@ -0,0 +1,180 @@
++// SPDX-License-Identifier: GPL-2.0 OR MIT
 +/*
-+ * StarFive JH8100 System Clock Driver
-+ *
 + * Copyright (C) 2023 StarFive Technology Co., Ltd.
-+ *
-+ * Author: Jee Heng Sia <jeeheng.sia@starfivetech.com>
-+ *
 + */
 +
-+#include <linux/clk-provider.h>
-+#include <linux/init.h>
-+#include <linux/io.h>
-+#include <linux/platform_device.h>
-+#include <linux/slab.h>
++/ {
++	clk_osc: clk_osc {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <24000000>;
++	};
 +
++	clk_i2srx_bclk_ext: clk_i2srx_bclk_ext {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <12288000>;
++	};
++
++	clk_i2srx_lrck_ext: clk_i2srx_lrck_ext {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <192000>;
++	};
++
++	clk_mclk_ext: clk_mclk_ext {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <49152000>;
++	};
++	/* sys-ne */
++	clk_usb3_tap_tck_ext: clk_usb3_tap_tck_ext {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <100000000>;
++	};
++
++	clk_glb_ext_clk: clk_glb_ext_clk {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <30000000>;
++	};
++
++	clk_usb1_tap_tck_ext: clk_usb1_tap_tck_ext {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <100000000>;
++	};
++
++	clk_usb2_tap_tck_ext: clk_usb2_tap_tck_ext {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <100000000>;
++	};
++
++	clk_i2s_tscko: clk_i2s_tscko {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <12800000>;
++	};
++
++	clk_typec_tap_tck_ext: clk_typec_tap_tck_ext {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <100000000>;
++	};
++
++	clk_spi_in0_ext: clk_spi_in0_ext {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <100000000>;
++	};
++
++	clk_spi_in1_ext: clk_spi_in1_ext {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <100000000>;
++	};
++
++	clk_spi_in2_ext: clk_spi_in2_ext {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <100000000>;
++	};
++
++	clk_i2stx_bclk_ext: clk_i2stx_bclk_ext {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <12288000>;
++	};
++
++	clk_i2stx_lrck_ext: clk_i2stx_lrck_ext {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <192000>;
++	};
++	/* sys-nw */
++	clk_dvp_ext: clk_dvp_ext {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <150000000>;
++	};
++
++	clk_isp_dphy_tap_tck_ext: clk_isp_dphy_tap_tck_ext {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <100000000>;
++	};
++
++	clk_vout_mipi_dphy_tap_tck_ext: clk_vout_mipi_dphy_tap_tck_ext {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <100000000>;
++	};
++
++	clk_vout_edp_tap_tck_ext: clk_vout_edp_tap_tck_ext {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <100000000>;
++	};
++
++	clk_rtc: clk_rtc {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <32768>;
++	};
++	/* aon */
++	clk_gmac0_rmii_func: clk_gmac0_rmii_func {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <50000000>;
++	};
++
++	clk_gmac0_rgmii_func: clk_gmac0_rgmii_func {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <125000000>;
++	};
++
++	clk_aon50: clk_aon50 {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <50000000>;
++	};
++
++	clk_aon125: clk_aon125 {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <125000000>;
++	};
++
++	clk_aon2000: clk_aon2000 {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <2000000000>;
++	};
++
++	clk_aon200: clk_aon200 {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <200000000>;
++	};
++
++	clk_aon667: clk_isp_aon667 {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <667000000>;
++	};
++
++	clk_i3c_ext: clk_i3c_ext {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <12500000>;
++	};
++
++	clk_espi_ext: clk_espi_ext {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <60000000>;
++	};
++};
+diff --git a/arch/riscv/boot/dts/starfive/jh8100.dtsi b/arch/riscv/boot/dts/starfive/jh8100.dtsi
+index f26aff5c1ddf..9863c61324a0 100644
+--- a/arch/riscv/boot/dts/starfive/jh8100.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh8100.dtsi
+@@ -4,6 +4,9 @@
+  */
+ 
+ /dts-v1/;
 +#include <dt-bindings/clock/starfive,jh8100-crg.h>
-+
-+#include "clk-starfive-jh8100.h"
-+
-+/* external clocks */
-+#define AONCRG_CLK_OSC			(AONCRG_CLK_END + 0)
-+#define AONCRG_CLK_GMAC0_RMII_FUNC	(AONCRG_CLK_END + 1)
-+#define AONCRG_CLK_AON_50		(AONCRG_CLK_END + 2)
-+#define AONCRG_CLK_GMAC0_RGMII_FUNC	(AONCRG_CLK_END + 3)
-+#define AONCRG_CLK_AON_125		(AONCRG_CLK_END + 4)
-+#define AONCRG_CLK_AON_2000		(AONCRG_CLK_END + 5)
-+#define AONCRG_CLK_AON_200		(AONCRG_CLK_END + 6)
-+#define AONCRG_CLK_AON_667		(AONCRG_CLK_END + 7)
-+#define AONCRG_CLK_RTC			(AONCRG_CLK_END + 8)
-+
-+static const struct starfive_clk_data jh8100_aoncrg_clk_data[] = {
-+	/* source */
-+	STARFIVE__MUX(AONCRG_CLK_GMAC0_RMII_REFIN, "aon_clk_gmac0_rmii_refin", 2,
-+		      AONCRG_CLK_GMAC0_RMII_FUNC, AONCRG_CLK_AON_50),
-+	STARFIVE__MUX(AONCRG_CLK_GMAC0_RGMII_RXIN, "aon_clk_gmac0_rgmii_rxin", 2,
-+		      AONCRG_CLK_GMAC0_RGMII_FUNC, AONCRG_CLK_AON_125),
-+	STARFIVE__DIV(AONCRG_CLK_GMAC0_GTXCLK, "aon_clk_gmac0_gtxclk", 50,
-+		      AONCRG_CLK_AON_125),
-+	STARFIVE__DIV(AONCRG_CLK_AON_1000, "aon_clk_aon_1000", 2,
-+		      AONCRG_CLK_AON_2000),
-+	STARFIVE__DIV(AONCRG_CLK_AON_400, "aon_clk_aon_400", 5,
-+		      AONCRG_CLK_AON_2000),
-+	STARFIVE__MUX(AONCRG_CLK_AON_400_POSTOSC, "aon_clk_aon_400_postosc", 2,
-+		      AONCRG_CLK_OSC, AONCRG_CLK_AON_400),
-+	STARFIVE__DIV(AONCRG_CLK_AON_500, "aon_clk_aon_500", 4,
-+		      AONCRG_CLK_AON_2000),
-+	STARFIVE__MUX(AONCRG_CLK_AON_500_POSTOSC, "aon_clk_aon_500_postosc", 2,
-+		      AONCRG_CLK_OSC, AONCRG_CLK_AON_500),
-+	STARFIVE__DIV(AONCRG_CLK_XSPI_PHY, "aon_clk_xspi_phy", 4,
-+		      AONCRG_CLK_AON_200),
-+	STARFIVE__DIV(AONCRG_CLK_AON_100, "aon_clk_aon_100", 2,
-+		      AONCRG_CLK_AON_200),
-+	STARFIVE__MUX(AONCRG_CLK_AON_100_POSTOSC, "aon_clk_aon_100_postosc", 2,
-+		      AONCRG_CLK_OSC, AONCRG_CLK_AON_100),
-+	STARFIVE__MUX(AONCRG_CLK_AON_50_POSTOSC, "aon_clk_aon_50_postosc", 2,
-+		      AONCRG_CLK_OSC, AONCRG_CLK_AON_50),
-+	STARFIVE_GATE(AONCRG_CLK_DDR50_POSTOCC_ICG, "aon_clk_ddr50_postocc", CLK_IS_CRITICAL,
-+		      AONCRG_CLK_AON_50_POSTOSC),
-+	STARFIVE_GATE(AONCRG_CLK_DDR100_POSTOCC_ICG, "aon_clk_ddr100_postocc", CLK_IS_CRITICAL,
-+		      AONCRG_CLK_AON_100),
-+	/* pufrt */
-+	STARFIVE_GATE(AONCRG_CLK_PUFRT_APB, "aon_clk_pufrt_apb", CLK_IS_CRITICAL,
-+		      AONCRG_CLK_OSC),
-+	/* rtc hms */
-+	STARFIVE_GATE(AONCRG_CLK_RTC_HMS_APB, "aon_clk_rtc_hms_apb", 0,
-+		      AONCRG_CLK_OSC),
-+	STARFIVE__DIV(AONCRG_CLK_RTC_INTERNAL, "aon_clk_rtc_internal", 1020,
-+		      AONCRG_CLK_OSC),
-+	STARFIVE__MUX(AONCRG_CLK_RTC_HMS_OSC32K, "aon_clk_rtc_hms_osc32k", 2,
-+		      AONCRG_CLK_RTC, AONCRG_CLK_RTC_INTERNAL),
-+	STARFIVE_GATE(AONCRG_CLK_RTC_HMS_CAL, "aon_clk_rtc_hms_cal", 0,
-+		      AONCRG_CLK_OSC),
-+	/* gmac5_axi128 */
-+	STARFIVE_GATE(AONCRG_CLK_GMAC0_AXI128_AHB, "aon_clk_gmac0_axi128_ahb",
-+		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_200),
-+	STARFIVE_GATE(AONCRG_CLK_GMAC0_AXI128_MSTRCLK, "aon_clk_gmac0_axi128_mstrclk",
-+		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_667),
-+	STARFIVE_GATE(AONCRG_CLK_GMAC0_AXI128_AXI, "aon_clk_gmac0_axi128_axi",
-+		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_400_POSTOSC),
-+	STARFIVE__DIV(AONCRG_CLK_GMAC0_RMII_RTX, "aon_clk_gmac0_rmii_rtx", 30,
-+		      AONCRG_CLK_GMAC0_RMII_REFIN),
-+	STARFIVE_GMUX(AONCRG_CLK_GMAC0_AXI128_TX, "aon_clk_gmac0_axi128_tx",
-+		      CLK_IGNORE_UNUSED, 2, AONCRG_CLK_GMAC0_GTXCLK,
-+		      AONCRG_CLK_GMAC0_RMII_RTX),
-+	STARFIVE_GINV(AONCRG_CLK_GMAC0_AXI128_TX_INV, "aon_clk_gmac0_axi128_tx_inv",
-+		      CLK_IGNORE_UNUSED, AONCRG_CLK_GMAC0_AXI128_TX),
-+	STARFIVE__MUX(AONCRG_CLK_GMAC0_AXI128_RX, "aon_clk_gmac0_axi128_rx", 2,
-+		      AONCRG_CLK_GMAC0_RGMII_RXIN, AONCRG_CLK_GMAC0_RMII_RTX),
-+	STARFIVE__INV(AONCRG_CLK_GMAC0_AXI128_RX_INV, "aon_clk_gmac0_axi128_rx_inv",
-+		      AONCRG_CLK_GMAC0_AXI128_RX),
-+	STARFIVE_GATE(AONCRG_CLK_GMAC0_GTXC, "aon_clk_gmac0_gtxc", CLK_IGNORE_UNUSED,
-+		      AONCRG_CLK_GMAC0_GTXCLK),
-+	/* xspi */
-+	STARFIVE_GATE(AONCRG_CLK_XSPI_AXI, "aon_clk_xspi_axi", CLK_IGNORE_UNUSED,
-+		      AONCRG_CLK_AON_200),
-+	STARFIVE_GATE(AONCRG_CLK_XSPI_APB, "aon_clk_xspi_apb", CLK_IGNORE_UNUSED,
-+		      AONCRG_CLK_OSC),
-+	STARFIVE_GMUX(AONCRG_CLK_XSPI_XSPI_PHY, "aon_clk_xspi_xspi_phy", CLK_IGNORE_UNUSED, 2,
-+		      AONCRG_CLK_OSC, AONCRG_CLK_XSPI_PHY),
-+	/* tvsensor */
-+	STARFIVE_GATE(AONCRG_CLK_TVSENSOR_PCLK, "aon_clk_tvsensor_pclk", CLK_IGNORE_UNUSED,
-+		      AONCRG_CLK_OSC),
-+	STARFIVE_GATE(AONCRG_CLK_TVSENSOR_TSADC, "aon_clk_tvsensor_tsadc", CLK_IGNORE_UNUSED,
-+		      AONCRG_CLK_OSC),
-+	STARFIVE_GDIV(AONCRG_CLK_TVSENSOR_BG, "aon_clk_tvsensor_bg",
-+		      CLK_IGNORE_UNUSED, 3, AONCRG_CLK_OSC),
-+	/* meu */
-+	STARFIVE_GATE(AONCRG_CLK_MEU_PCLK_AP, "aon_clk_meu_pclk_ap", CLK_IGNORE_UNUSED,
-+		      AONCRG_CLK_OSC),
-+	STARFIVE_GATE(AONCRG_CLK_MEU_PCLK_SCP, "aon_clk_meu_pclk_scp", CLK_IGNORE_UNUSED,
-+		      AONCRG_CLK_OSC),
-+	STARFIVE_GATE(AONCRG_CLK_MEU_MEM_AXI, "aon_clk_meu_mem_axi", CLK_IGNORE_UNUSED,
-+		      AONCRG_CLK_AON_200),
-+	/* aximem_128b */
-+	STARFIVE_GATE(AONCRG_CLK_AXIMEM_128B_ACLK, "aon_clk_aximem_128b_aclk", CLK_IS_CRITICAL,
-+		      AONCRG_CLK_AON_200),
-+	/* apb2bisr */
-+	STARFIVE_GATE(AONCRG_CLK_APB2BISR_APB, "aon_clk_apb2bisr_apb", CLK_IGNORE_UNUSED,
-+		      AONCRG_CLK_OSC),
-+	STARFIVE_GATE(AONCRG_CLK_APB2BISR_BISR, "aon_clk_apb2bisr_bisr", CLK_IGNORE_UNUSED,
-+		      AONCRG_CLK_OSC),
-+	/* emmc */
-+	STARFIVE_GATE(AONCRG_CLK_EMMC_S_PCLK, "aon_clk_emmc_s_pclk",
-+		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_50_POSTOSC),
-+	STARFIVE_GATE(AONCRG_CLK_EMMC_MSTRCLK, "aon_clk_emmc_mstrclk",
-+		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_667),
-+	STARFIVE_GATE(AONCRG_CLK_EMMC, "aon_clk_emmc",
-+		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_200),
-+	STARFIVE_GATE(AONCRG_CLK_EMMC_SDMCLK, "aon_clk_emmc_sdmclk",
-+		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_200),
-+	STARFIVE_GATE(AONCRG_CLK_EMMC_SDPHY_PCLK, "aon_clk_emmc_sdphy_pclk",
-+		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_50_POSTOSC),
-+	/* sdio */
-+	STARFIVE_GATE(AONCRG_CLK_SDIO0_PCLK, "aon_clk_sdio0_pclk",
-+		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_50_POSTOSC),
-+	STARFIVE_GATE(AONCRG_CLK_SDIO0_MSTRCLK, "aon_clk_sdio0_mstrclk",
-+		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_667),
-+	STARFIVE_GATE(AONCRG_CLK_SDIO0, "aon_clk_sdio0",
-+		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_200),
-+	STARFIVE_GATE(AONCRG_CLK_SDIO0_SDMCLK, "aon_clk_sdio0_sdmclk",
-+		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_200),
-+	STARFIVE_GATE(AONCRG_CLK_SDIO0_SDPHY_PCLK, "aon_clk_sdio0_sdphy_pclk",
-+		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_50_POSTOSC),
-+	/* top */
-+	STARFIVE_GATE(AONCRG_CLK_HCLK, "aon_clk_hclk", CLK_IS_CRITICAL,
-+		      AONCRG_CLK_AON_200),
-+	STARFIVE_GATE(AONCRG_CLK_ACLK, "aon_clk_aclk", CLK_IS_CRITICAL,
-+		      AONCRG_CLK_AON_500_POSTOSC),
-+	STARFIVE_GATE(AONCRG_CLK_PERF_MSTRCLK, "aon_clk_perf_mstrclk", CLK_IS_CRITICAL,
-+		      AONCRG_CLK_AON_667),
-+	STARFIVE_GATE(AONCRG_CLK_PERF_SLVCLK, "aon_clk_perf_slvclk", CLK_IS_CRITICAL,
-+		      AONCRG_CLK_AON_500_POSTOSC),
-+	STARFIVE_GDIV(AONCRG_CLK_GCLK0, "aon_clk_gclk0",
-+		      CLK_IS_CRITICAL, 100, AONCRG_CLK_AON_1000),
-+	STARFIVE_GATE(AONCRG_CLK_GCLK_OSC, "aon_clk_gclk_osc", CLK_IS_CRITICAL,
-+		      AONCRG_CLK_OSC),
-+	/* icg_en */
-+	STARFIVE_GATE(AONCRG_CLK_RTC_ICG_EN, "aon_clk_rtc_en", CLK_IGNORE_UNUSED,
-+		      AONCRG_CLK_OSC),
-+	STARFIVE_GATE(AONCRG_CLK_GMAC0_ICG_EN, "aon_clk_gmac0_en", 0,
-+		      AONCRG_CLK_GMAC0_GTXCLK),
-+	STARFIVE_GATE(AONCRG_CLK_XSPI_ICG_EN, "aon_clk_xspi_en", 0,
-+		      AONCRG_CLK_OSC),
-+	STARFIVE_GATE(AONCRG_CLK_TVSENSOR0_ICG_EN, "aon_clk_tvsensor0_en", 0,
-+		      AONCRG_CLK_OSC),
-+	STARFIVE_GATE(AONCRG_CLK_MEU_ICG_EN, "aon_clk_meu_en", CLK_IGNORE_UNUSED,
-+		      AONCRG_CLK_OSC),
-+	STARFIVE_GATE(AONCRG_CLK_APB2BISR_ICG_EN, "aon_clk_apb2bisr_en", CLK_IGNORE_UNUSED,
-+		      AONCRG_CLK_OSC),
-+	STARFIVE_GATE(AONCRG_CLK_EMMC_ICG_EN, "aon_clk_emmc_en", 0,
-+		      AONCRG_CLK_AON_50_POSTOSC),
-+	STARFIVE_GATE(AONCRG_CLK_SDIO0_ICG_EN, "aon_clk_sdio0_en", 0,
-+		      AONCRG_CLK_AON_50_POSTOSC),
-+	STARFIVE_GATE(AONCRG_CLK_TOP_ICG_EN, "aon_clk_top_en", CLK_IGNORE_UNUSED,
-+		      AONCRG_CLK_AON_500_POSTOSC),
-+};
-+
-+static struct clk_hw *jh8100_aoncrg_clk_get(struct of_phandle_args *clkspec, void *data)
-+{
-+	struct starfive_clk_priv *priv = data;
-+	unsigned int idx = clkspec->args[0];
-+
-+	if (idx < AONCRG_CLK_END)
-+		return &priv->reg[idx].hw;
-+
-+	return ERR_PTR(-EINVAL);
-+}
-+
-+static int __init jh8100_aoncrg_probe(struct platform_device *pdev)
-+{
-+	struct starfive_clk_priv *priv;
-+	unsigned int idx;
-+	int ret;
-+
-+	priv = devm_kzalloc(&pdev->dev,
-+			    struct_size(priv, reg, AONCRG_CLK_END),
-+			    GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	spin_lock_init(&priv->rmw_lock);
-+	priv->dev = &pdev->dev;
-+	priv->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(priv->base))
-+		return PTR_ERR(priv->base);
-+
-+	for (idx = 0; idx < AONCRG_CLK_END; idx++) {
-+		u32 max = jh8100_aoncrg_clk_data[idx].max;
-+		struct clk_parent_data parents[4] = {};
-+		struct clk_init_data init = {
-+			.name = jh8100_aoncrg_clk_data[idx].name,
-+			.ops = starfive_clk_ops(max),
-+			.parent_data = parents,
-+			.num_parents =
-+				((max & STARFIVE_CLK_MUX_MASK) >> STARFIVE_CLK_MUX_SHIFT) + 1,
-+			.flags = jh8100_aoncrg_clk_data[idx].flags,
++#include <dt-bindings/reset/starfive,jh8100-crg.h>
++#include "jh8100-clk.dtsi"
+ 
+ / {
+ 	compatible = "starfive,jh8100";
+@@ -357,6 +360,104 @@ uart4: serial@121a0000  {
+ 			status = "disabled";
+ 		};
+ 
++		syscrg_ne: syscrg_ne@12320000 {
++			compatible = "starfive,jh8100-syscrg-ne";
++			reg = <0x0 0x12320000 0x0 0x10000>;
++			clocks = <&clk_osc>, <&syscrg SYSCRG_CLK_AXI_400>,
++				 <&syscrg SYSCRG_CLK_VOUT_ROOT0>,
++				 <&syscrg SYSCRG_CLK_VOUT_ROOT1>,
++				 <&syscrg SYSCRG_CLK_USB_WRAP_480>,
++				 <&syscrg SYSCRG_CLK_USB_WRAP_625>,
++				 <&syscrg SYSCRG_CLK_USB_WRAP_240>,
++				 <&syscrg SYSCRG_CLK_USB_WRAP_60>,
++				 <&syscrg SYSCRG_CLK_USB_WRAP_156P25>,
++				 <&syscrg SYSCRG_CLK_USB_WRAP_312P5>,
++				 <&syscrg SYSCRG_CLK_USB_125M>,
++				 <&syscrg_nw SYSCRG_NW_CLK_GPIO_100>,
++				 <&syscrg SYSCRG_CLK_PERH_ROOT>, <&syscrg SYSCRG_CLK_MCLK>,
++				 <&syscrg SYSCRG_CLK_PERH_ROOT_PREOSC>,
++				 <&syscrg SYSCRG_CLK_AHB0>,
++				 <&syscrg SYSCRG_CLK_APB_BUS_PER1>,
++				 <&syscrg SYSCRG_CLK_APB_BUS_PER2>,
++				 <&syscrg SYSCRG_CLK_APB_BUS_PER3>,
++				 <&syscrg SYSCRG_CLK_APB_BUS_PER5>,
++				 <&syscrg SYSCRG_CLK_VENC_ROOT>,
++				 <&syscrg SYSCRG_CLK_SPI_CORE_100>,
++				 <&clk_glb_ext_clk>, <&clk_usb3_tap_tck_ext>,
++				 <&clk_usb1_tap_tck_ext>, <&clk_usb2_tap_tck_ext>,
++				 <&clk_typec_tap_tck_ext>, <&clk_spi_in0_ext>,
++				 <&clk_spi_in1_ext>, <&clk_i2stx_bclk_ext>, <&clk_i2stx_lrck_ext>;
++			clock-names = "clk_osc", "sys_clk_axi_400",
++				      "sys_clk_vout_root0", "sys_clk_vout_root1",
++				      "sys_clk_usb_wrap_480", "sys_clk_usb_wrap_625",
++				      "sys_clk_usb_wrap_240", "sys_clk_usb_wrap_60",
++				      "sys_clk_usb_wrap_156p25", "sys_clk_usb_wrap_312p5",
++				      "sys_clk_usb_125m", "sys_nw_clk_gpio_100",
++				      "sys_clk_perh_root", "sys_clk_mclk",
++				      "sys_clk_perh_root_preosc", "sys_clk_ahb0",
++				      "sys_clk_apb_bus_per1", "sys_clk_apb_bus_per2",
++				      "sys_clk_apb_bus_per3", "sys_clk_apb_bus_per5",
++				      "sys_clk_venc_root", "sys_clk_spi_core_100",
++				      "clk_glb_ext_clk", "clk_usb3_tap_tck_ext",
++				      "clk_usb1_tap_tck_ext", "clk_usb2_tap_tck_ext",
++				      "clk_typec_tap_tck_ext", "clk_spi_in0_ext",
++				      "clk_spi_in1_ext", "clk_i2stx_bclk_ext",
++				      "clk_i2stx_lrck_ext";
++			#clock-cells = <1>;
++			#reset-cells = <1>;
 +		};
-+		struct starfive_clk *clk = &priv->reg[idx];
-+		unsigned int i;
 +
-+		for (i = 0; i < init.num_parents; i++) {
-+			unsigned int pidx = jh8100_aoncrg_clk_data[idx].parents[i];
++		syscrg_nw: syscrg_nw@123c0000 {
++			compatible = "starfive,jh8100-syscrg-nw";
++			reg = <0x0 0x123c0000 0x0 0x10000>;
++			clocks = <&clk_osc>, <&syscrg SYSCRG_CLK_APB_BUS>,
++				 <&syscrg SYSCRG_CLK_ISP_2X>, <&syscrg SYSCRG_CLK_ISP_AXI>,
++				 <&syscrg SYSCRG_CLK_VOUT_ROOT0>, <&syscrg SYSCRG_CLK_VOUT_ROOT1>,
++				 <&syscrg SYSCRG_CLK_VOUT_SCAN_ATS>,
++				 <&syscrg SYSCRG_CLK_VOUT_DC_CORE>, <&syscrg SYSCRG_CLK_VOUT_AXI>,
++				 <&syscrg SYSCRG_CLK_AXI_400>, <&syscrg SYSCRG_CLK_AXI_200>,
++				 <&syscrg SYSCRG_CLK_PERH_ROOT_PREOSC>,
++				 <&clk_dvp_ext>, <&clk_isp_dphy_tap_tck_ext>,
++				 <&clk_glb_ext_clk>, <&clk_i2s_tscko>,
++				 <&clk_vout_mipi_dphy_tap_tck_ext>, <&clk_vout_edp_tap_tck_ext>,
++				 <&clk_spi_in2_ext>;
++			clock-names = "clk_osc", "sys_clk_apb_bus",
++				      "sys_clk_isp_2x", "sys_clk_isp_axi",
++				      "sys_clk_vout_root0", "sys_clk_vout_root1",
++				      "sys_clk_vout_scan_ats", "sys_clk_vout_dc_core",
++				      "sys_clk_vout_axi", "sys_clk_axi_400",
++				      "sys_clk_axi_200", "sys_clk_perh_root_preosc", "clk_dvp_ext",
++				      "clk_isp_dphy_tap_tck_ext", "clk_glb_ext_clk",
++				      "clk_i2s_tscko", "clk_vout_mipi_dphy_tap_tck_ext",
++				      "clk_vout_edp_tap_tck_ext", "clk_spi_in2_ext";
++			#clock-cells = <1>;
++			#reset-cells = <1>;
++		};
 +
-+			if (pidx < AONCRG_CLK_END)
-+				parents[i].hw = &priv->reg[pidx].hw;
-+			else if (pidx == AONCRG_CLK_OSC)
-+				parents[i].fw_name = "clk_osc";
-+			else if (pidx == AONCRG_CLK_GMAC0_RMII_FUNC)
-+				parents[i].fw_name = "clk_gmac0_rmii_func";
-+			else if (pidx == AONCRG_CLK_AON_50)
-+				parents[i].fw_name = "clk_aon50";
-+			else if (pidx == AONCRG_CLK_GMAC0_RGMII_FUNC)
-+				parents[i].fw_name = "clk_gmac0_rgmii_func";
-+			else if (pidx == AONCRG_CLK_AON_125)
-+				parents[i].fw_name = "clk_aon125";
-+			else if (pidx == AONCRG_CLK_AON_2000)
-+				parents[i].fw_name = "clk_aon2000";
-+			else if (pidx == AONCRG_CLK_AON_200)
-+				parents[i].fw_name = "clk_aon200";
-+			else if (pidx == AONCRG_CLK_AON_667)
-+				parents[i].fw_name = "clk_aon667";
-+			else if (pidx == AONCRG_CLK_RTC)
-+				parents[i].fw_name = "clk_rtc";
-+		}
++		syscrg: syscrg@126d0000 {
++			compatible = "starfive,jh8100-syscrg";
++			reg = <0x0 0x126d0000 0x0 0x10000>;
++			clocks = <&clk_osc>, <&clk_i2srx_bclk_ext>,
++				 <&clk_i2srx_lrck_ext>, <&clk_mclk_ext>;
++			clock-names = "clk_osc", "clk_i2srx_bclk_ext",
++				      "clk_i2srx_lrck_ext", "clk_mclk_ext";
++			#clock-cells = <1>;
++			#reset-cells = <1>;
++		};
 +
-+		clk->hw.init = &init;
-+		clk->idx = idx;
-+		clk->max_div = max & STARFIVE_CLK_DIV_MASK;
++		syscrg_sw: syscrg_sw@12720000 {
++			compatible = "starfive,jh8100-syscrg-sw";
++			reg = <0x0 0x12720000 0x0 0x10000>;
++			clocks = <&syscrg SYSCRG_CLK_APB_BUS>,
++				 <&syscrg SYSCRG_CLK_VDEC_ROOT>,
++				 <&syscrg SYSCRG_CLK_FLEXNOC1>;
++			clock-names = "sys_clk_apb_bus",
++				      "sys_clk_vdec_root",
++				      "sys_clk_flexnoc1";
++			#clock-cells = <1>;
++			#reset-cells = <1>;
++		};
 +
-+		ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
-+		if (ret)
-+			return ret;
-+	}
+ 		uart5: serial@127d0000  {
+ 			compatible = "starfive,jh8100-uart", "cdns,uart-r1p8";
+ 			reg = <0x0 0x127d0000 0x0 0x10000>;
+@@ -374,5 +475,19 @@ uart6: serial@127e0000  {
+ 			interrupts = <73>;
+ 			status = "disabled";
+ 		};
 +
-+	ret = devm_of_clk_add_hw_provider(&pdev->dev, jh8100_aoncrg_clk_get, priv);
-+	if (ret)
-+		return ret;
-+
-+	return jh8100_reset_controller_register(priv, "rst-aon", 4);
-+}
-+
-+static const struct of_device_id jh8100_aoncrg_match[] = {
-+	{ .compatible = "starfive,jh8100-aoncrg" },
-+	{ /* sentinel */ }
-+};
-+
-+static struct platform_driver jh8100_aoncrg_driver = {
-+	.driver = {
-+		.name = "clk-starfive-jh8100-aon",
-+		.of_match_table = jh8100_aoncrg_match,
-+		.suppress_bind_attrs = true,
-+	},
-+};
-+builtin_platform_driver_probe(jh8100_aoncrg_driver, jh8100_aoncrg_probe);
++		aoncrg: aoncrg@1f310000 {
++			compatible = "starfive,jh8100-aoncrg";
++			reg = <0x0 0x1f310000 0x0 0x10000>;
++			clocks = <&clk_osc>, <&clk_gmac0_rmii_func>,
++				 <&clk_gmac0_rgmii_func>, <&clk_aon125>,
++				 <&clk_aon2000>, <&clk_aon200>,
++				 <&clk_aon667>, <&clk_rtc>;
++			clock-names = "clk_osc", "clk_gmac0_rmii_func", "clk_gmac0_rgmii_func",
++				      "clk_aon125", "clk_aon2000", "clk_aon200",
++				      "clk_aon667", "clk_rtc";
++			#clock-cells = <1>;
++			#reset-cells = <1>;
++		};
+ 	};
+ };
 -- 
 2.34.1
 
