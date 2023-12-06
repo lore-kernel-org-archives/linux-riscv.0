@@ -4,126 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22D04C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 11:08:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E3CEC10DCE
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 11:08:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+VCLlTnEXuMl+/KY3prxn6OfkNSqY8yhZ88v69QpkXA=; b=Vj3xzKdzme0Z3X
-	S+cOe5Nd7c1mTRxq5iH2WBviRz9NvnUQWMPFPtYLR6eKr69cK9kPx0AXGtR2nSQTNf0qzQ2hq7l2D
-	HQ65rjTgdXW16Ngql1lLqAnjQdbq+Ypu1Kjm5swme2Y3+cSSe47Vg7nTOuSG57HZ+sfYkchLh9uAh
-	M7mUdOVQMqTd10N6hPxq2npJM/WjCCVCHh4kkezAc3r76lIfP49Nc0cwBf9C8h5Ooyn2CG+eokgfH
-	rIAo3hW+bzMYxgZJ7+n+z+tMxk3UxLdwsHls2H+PykJJMTYi79IbESrrUkkzYYYJi2jX1004fYtlx
-	LBPVbGIEXuYYmGL+2ZvQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=AKaa1r6Gon6l+FjHshHdoqdDfpmf66pVaFyVeoepUNA=; b=DIlmhWuHxB612C
+	oLZ6W8dqm71UMligMUZclPSkZoPor1chj1k0DAvJ82tGRZqMS7Xq7xON2lIErdiurtMtSoept0pN3
+	i9DIzDi6P9OgfpG4UnMoW7SwP36lqtTxoGc8kKrQfLeqUYPI4zX0wAS0rFXJhEtFq0yJFsxs+3CLb
+	rBUWKuIN8erSNkJaIOO2mndTYHOwJ8g+obHcUESOadurgkhGIOy6pmvtHgwwXdlcm5NL81mZxi0hC
+	2pndMtYyKSiJ1tcEsuRT1K8+kOzjeOVYeDAA0tmnOGTkiKtPREISu6qfJYVC0jU1E+1XF2mUzq6ik
+	AM3aBxdC+zz12FgJw5WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAplB-009sD1-03;
-	Wed, 06 Dec 2023 11:08:09 +0000
-Received: from mail-bn7nam10olkn20831.outbound.protection.outlook.com ([2a01:111:f400:7e8a::831] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1rAplG-009sF1-2Y;
+	Wed, 06 Dec 2023 11:08:14 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rApl7-009sCS-2i
+	id 1rAplE-009sDH-0I
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 11:08:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=L0q9QhAiTpiWhZTd2duCRCCh0oUArI06pA6E/f8j70My5A5aHfIrjEKPOF94KKBue65Vew4rrkrhjV+s26tXsA4bS6v4KagWzOQNkun2fDc9mWPHJUFVu3mpKq797DSoA3ah+qwkHTw6BlKfjjyunyAIXaSZ0u0vMMHW/cQ1X3kAH0bQhFyiuVsOziOrbO75bUnGemdPCLagsSlIBYWv3iMQTvkRlsHmgk3FqkBcOnIdCdrk3pBvrvyClJ+5gYoU76rL0QtWEUqs83OZhhW6n1qYy0v6xJHEr3LTSkM2SHmEHsLRJUlF0H5DD8apwMyRgnoDuRejryU4nj6FI0EwKQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5icMAGXlHZ5PIwD6QwaHUCnOn/Y5mVkeir7r1ajCQCo=;
- b=B8Pt5jbXx1LlbAIhoNa2I7SrGZjHCqwZmY1c7acRsQyyxec/6DOyYnrf9iLS0FV3MG2wysdb6LGPtwhVGNZwi/ivzseC8o715XM7/5en03fHiGPUfMaTPX17D3YOL5T2SY5DFi023QYUlFPdu+cxhlnzEn8odfCbP21aGe/nFv43ss+bws4elGkILBkj0YaOJFeFXkj7qbtAuZ3kM6DQFylqS6cBnLZyZBvAfoDQXUyV6seXe4GgpyDkg/PYOskMbtCX6QV6cFHMfeNBnNpCuUew+iig0ICcTbejifHIduxdZbi/MbXKH1pO2fCbvILmAZrnySHM7qfxw2pYYgPRqA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5icMAGXlHZ5PIwD6QwaHUCnOn/Y5mVkeir7r1ajCQCo=;
- b=mEtc+gxf9Or7iTPzKaNZT6/3rA7lC1f7uNSV/QPmRJ/jicOIRZENOGZG2h+yfKMPi317Y4XGQ3QLc9wI4gUghW97xjlL1p/rve8BXnWnfp9UmatuNmB5mWg5XoGGZCsjb63VcbSO9QABrKxBXr9VsITZXs3WSM81cjRXXSNuJX8j69KUCNTdNllasTf+jVdztCvmW+NIVR1EKkQypJKBBJ3F22lVFjNF+C1B7zm+X/fT6zuftlB6gacx4fhLWEVFY6/jvf5zUbTlxq+glAYRt/jzmdd9fGbO10KeTMGvZFN0wn0l8iHZ9vdV10rk1GS1L9Pj4I2453TuV6Nyluo2Lw==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by CH0PR20MB3868.namprd20.prod.outlook.com (2603:10b6:610:c5::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7068.25; Wed, 6 Dec
- 2023 11:07:59 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::55b:c350:980:ad8]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::55b:c350:980:ad8%6]) with mapi id 15.20.7046.024; Wed, 6 Dec 2023
- 11:07:59 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Jisheng Zhang <jszhang@kernel.org>,
-	qiujingbao.dlmu@gmail.com,
-	dlan@gentoo.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 0/4] riscv: sophgo: add clock support for Sophgo CV1800 SoCs
-Date: Wed,  6 Dec 2023 19:07:55 +0800
-Message-ID: <IA1PR20MB4953EAE3F3B7F8B3CB659716BB84A@IA1PR20MB4953.namprd20.prod.outlook.com>
+	Wed, 06 Dec 2023 11:08:13 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-54d712c254aso963747a12.0
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Dec 2023 03:08:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1701860889; x=1702465689; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Zdfk8U3+Lqv6fCWbMT89olgDw1zPbS7JH3yC11O4mzM=;
+        b=dm6/NikMXazprTHtqagN++oM+93TXHJHIZObh3UqPpnxAOV3VcjtdisLockpN2O7tJ
+         lPGkQC0OF8e/aKPnrSFN0JGtSw+BaaLEPUpQficADvjArCG6M2GPb3clh9STf+gTjcd0
+         XKaVD01PptT8amjJkUHxmtDyH3BLG//tTjxTTExc223cE2pkcUasGISayUWNyLh0FBtn
+         A2ucM31Jsx3f6hsh4kctXYOe1VnaYWFAYqDmbSoVmUBDaIqlzF+hwMP8dT5fzf1BLSTw
+         c7xjfvYK6VC5CQD3u7iyo92JzHDMXheOlFlIfQlvYLcIU5y93fEr4ESUW9agK2z9YJyo
+         fyYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701860889; x=1702465689;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Zdfk8U3+Lqv6fCWbMT89olgDw1zPbS7JH3yC11O4mzM=;
+        b=ONdX6iSeFatrM5NzOfMvhDIWh5pGpnHUvb7grVmjeEwN3ke+l8WszhyszGlmdOiCz4
+         Oi7s5Sn0veuEvdfLRa5fhIisvSFLIdgM7ihiau40qaxNStCOcjHnBUZIlKRtlwk4YLxd
+         JtNWu8BnXK9vXugKwVmAZcEKCHV8p50sJD06njnQjH0G4T+RT1A2Dhdzuc9r9DMWFTde
+         AAjaAPA78qaumpHRuPy/CMh3vHibckBE1XxBNA3iasp8JOlYsGr3jk5eTURZbDkWg6p8
+         rL1+dE9rPQ6li54w66lYxEs/0qx40tTqJNnRrBCCFF+UFtYQxxQQ3BUXTDk5QPszvWTx
+         OeGA==
+X-Gm-Message-State: AOJu0YziibKBEWP3jVPNurN48FhwDkLD71O+XTY+IH3GBgmNv15+jNKE
+	ShzjtGPsRxLBP6poYyG2aBmCBjMVWlsh7SOMqKM=
+X-Google-Smtp-Source: AGHT+IFhRY8ooFCarzv03EvsshtmZx5Ts0CVmb4hLFmSluYCyuZEmph2b72lHRG4I06YUj7GsQvHqg==
+X-Received: by 2002:a17:906:3f04:b0:a18:e2b8:ff1b with SMTP id c4-20020a1709063f0400b00a18e2b8ff1bmr493642ejj.1.1701860889164;
+        Wed, 06 Dec 2023 03:08:09 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id q14-20020a1709064c8e00b009fc42f37970sm8184394eju.171.2023.12.06.03.08.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 Dec 2023 03:08:08 -0800 (PST)
+From: Andrew Jones <ajones@ventanamicro.com>
+To: linux-riscv@lists.infradead.org
+Cc: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	leyfoon.tan@starfivetech.com,
+	jeeheng.sia@starfivetech.com,
+	conor.dooley@microchip.com,
+	apatel@ventanamicro.com,
+	samuel.holland@sifive.com,
+	songshuaishuai@tinylab.org
+Subject: [PATCH v3 0/1] riscv: Introduce system suspend support
+Date: Wed,  6 Dec 2023 12:08:08 +0100
+Message-ID: <20231206110807.35882-3-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <CAJM55Z-hCzuw+eQ-ABXoBYX7oSScXTKHwUzEe_2k6eSyy5HqKQ@mail.gmail.com>
-References: <CAJM55Z-hCzuw+eQ-ABXoBYX7oSScXTKHwUzEe_2k6eSyy5HqKQ@mail.gmail.com>
-X-TMN: [efj7rrDA26Avtp4DQcpmS5Z658Gc/7txVEtGDoKMs6M=]
-X-ClientProxiedBy: BY3PR04CA0011.namprd04.prod.outlook.com
- (2603:10b6:a03:217::16) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20231206110755.790348-1-inochiama@outlook.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|CH0PR20MB3868:EE_
-X-MS-Office365-Filtering-Correlation-Id: 294d2484-58f6-4deb-5b9e-08dbf64b9b3c
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: ujnu5nbv3oyjCornR/y5abOmjFdaJ1hPYm9IHG6Pc+T4RiapE4uW50vaNhM16VpGg6X2gv9ffBpSdvN2qEwPDrapJNeKJk3YmCo7R/jrpMyydXTlQhwcSsLtQnmx6ULsShMHpIP3aVoAI1tH6icse3GM5PXj70LOEgs4ewwQqaoneG8zecnu1Ya0P93r5DTFKkLr6IAyb0RMlKHEqYx6XPjqufaxUXOumxgJiXu9zfe+9qPD7Th9QQbkPRJuWDyw7Vojtm4UmEVUqXARt7Pqtm97KV/88h6ng0zX5yrYqN+IoecKL7IWKxyNnQTOhKJSmzK7CeVDdWB+HsO7Y4wg1qEpB4kue57F2Dt8RAUEIDztcWVkpxejufyzgvmw15GsuxuHlmdAb+G3TzRQ2TjqUArjcPomPjHBvb/qEyVXEjakYGBqaySuXkjmUH1KrwCi+/ihW+nJdadcuMiObh5GWetf/GGjhMwbGVfk997z7AhvqQ4yogIx8JhVuiG6uwQ6awLCmMnUQciQyEKOM5WDIS6kSMABW2dBEjYRKsPj18Bvhj0fyIemXSj6Ew2ShyiXpw/8BCNBnRT1et5ENquCB/gj9TUQ2C7DD1pOuRcr0qAHyzY4WI2GTGH3K4KNvVLE
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+5NvDBL4Jl4UUl7cwMGbQWFS9SdTeihqWRL58TUedCU9rN7hj4MfU4oTdPqS?=
- =?us-ascii?Q?+acKSO/45J7BFwRsXlQXFBZgpomdOzV5UyRMc7497ILfLQKRPbtYsPzIF9T5?=
- =?us-ascii?Q?v/ZVl1XrbTLV29pJO/fcqJLZK7ckzRRkLNg7uub1BmQde96GdX9F2N2emmaM?=
- =?us-ascii?Q?TLuxU95abvcriYu2QTyJJMKXETGMvQEGVFrdr+aEXr1ketCURCIW8YntbXCH?=
- =?us-ascii?Q?zrEpP2mAc8ZScTxNWp85X5YQ9gytFsh5JyQcBIEplvRPYduemt69oKdwtLgE?=
- =?us-ascii?Q?bOhPJSL7Vi+DkHJrJH4yct/02WzOB14yh8vrna0YtS7d0MC6S9S9W7laukgz?=
- =?us-ascii?Q?R1bMFdW6xJgX9iZsSR20pzfzwlVuqHviSkHefIyiWd/s9iMWi5VPbWg/dQJi?=
- =?us-ascii?Q?e18x+J3gEhBjZaY6A4qVgrbCgKHWOJnFQBGaa0oGdgdnINF/yM5TYtLf6kmq?=
- =?us-ascii?Q?Mk0RzjNh+EhXV7Ujw6CI4PIgM+vJ/x1CE7kA4HfN1LaZ/QfA0vvW34G20LSz?=
- =?us-ascii?Q?VLAO4a315ass1tlPaMJfosrgu/gSWMFMfK0KoFoDMZ0hyuYtr9QxUy1S5Szc?=
- =?us-ascii?Q?nZyHZyEnbbkxkI/A59xbjKxwSdPpZR4E352jqYcYgtb8S8ToIWi1IoOL2aIO?=
- =?us-ascii?Q?eWAPD3YTe5y+bVDaAzrvGyFQUKToyqGqBj+ZtH0myPUT+/I7VS/Tcr9Rp8+2?=
- =?us-ascii?Q?3Y4jqIiwp2bJ80xtr2hDy9OMSywNuCNW/hUGjMCmDTagVo+W2nTSnSJOhMjM?=
- =?us-ascii?Q?60xLv1jBNr8wfZyZQSUIUpqrSi7z/opscc9xTm4wBrqHTkov8Wh15OLbtJeR?=
- =?us-ascii?Q?3rTfOTy1pIt+ocl2EVQ3mx4YbHqARqY7d3WKdHKyWw3EyzvS8gF6ELlzaIgj?=
- =?us-ascii?Q?T3s+EMaSN0XCZWaG3PljYKEL3qG7sJZqGwIBooAGqf3MjSEFZ/SnelymNxuI?=
- =?us-ascii?Q?6vo+kctzIybANOx0HXvp93J8hbN5GJOpxzmDuLj9zXPxUMlwFIqoEGHFhZX8?=
- =?us-ascii?Q?5oliCQMqgsy+hIS9dZImRZ0JwLnksFXxV5Px64lgFhBNq4QFJP1KvnSiG2zx?=
- =?us-ascii?Q?ma4rO6MWr/tje15mh8mg0dlZU0GLYx6Z2r5pC9KHYwm1wc1aos1olKKUH2Xx?=
- =?us-ascii?Q?xO9S599rwSO9yKmQ91GOJEdqJ86A/rGe6I6mbz4XEFCnOpAt6z3kK6TKUUC9?=
- =?us-ascii?Q?BnpkLhlB3vVom6w7MgoEoIqD5N7yJ2YUnovKMRcdQhEiSCkQyTVLlgBeTLA?=
- =?us-ascii?Q?=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 294d2484-58f6-4deb-5b9e-08dbf64b9b3c
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Dec 2023 11:07:59.4733
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR20MB3868
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_030805_879169_402EDC24 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20231206_030812_134392_076ECBCC 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,54 +96,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->Inochi Amaoto wrote:
->>> Inochi Amaoto wrote:
->>>> Add clock controller support for the Sophgo CV1800B and CV1812H.
->>>>
->>>> This patch follow this patch series:
->>>> https://lore.kernel.org/all/IA1PR20MB495399CAF2EEECC206ADA7ABBBD5A@IA1PR20MB4953.namprd20.prod.outlook.com/
->>>>
->>>> Changed from v1:
->>>> 1. fix license issues.
->>>>
->>>> Inochi Amaoto (4):
->>>>   dt-bindings: clock: sophgo: Add clock controller of CV1800 series SoC
->>>>   clk: sophgo: Add CV1800 series clock controller driver
->>>>   riscv: dts: sophgo: add clock generator for Sophgo CV1800 series SoC
->>>>   riscv: dts: sophgo: add uart clock for Sophgo CV1800 series SoC
->>>
->>> Hi Inochi,
->>>
->>> This series seems to be missing patch 1 and 2. If you did send them, but just
->>> omitted linux-riscv from those patches, please don't do that. Having the whole
->>> series makes it a lot easier to review without having to hunt down all the
->>> missing parts on lore.kernel.org.
->>>
->>> scripts/get_maintainer.pl does support muliple patches as input
->>>
->>> /Emil
->>>
->>
->> Hi Emil,
->>
->> The get_maintainer.pl does not give me linux-riscv mail list for the first
->> and second patch. I have added this to the second one, but the patch is
->> held by the mail list since is too big. Anyway, I will add this mail list
->> manually if you need. Sorry for this inconvenience.
->
->No worries. Yeah, that's what I meant by get_maintainer.pl supporting multiple
->patches.  You can do something like
->
->  git format-patch <starting point>..
->  ./scripts/get_maintainer.pl *.patch
->
->..to get a list of recipients for the whole series.
->
->/Emil
->
+OpenSBI v1.3 and later supports the SUSP SBI extension which has recently
+been frozen with the freezing of SBI 2.0. This one patch series adds
+system suspend support to Linux, which implements "suspend-to-RAM". To
+use it, build the kernel with CONFIG_SUSPEND, boot on a platform which
+supports system suspend, and then issue 'echo mem > /sys/power/state'.
+It's also possible to test this Linux support on a platform without
+system suspend by using OpenSBI's system suspend test support. To enable
+test support add
 
-I have known this. But I only do this for cover.
-Anyway, I will send this patch in the way your mentioned.
+      opensbi-domains {
+          compatible = "opensbi,domain,config";
+          system-suspend-test;
+      };
+
+to the chosen node of the device tree. With the test node present,
+OpenSBI will wait 5 seconds on a suspend and then kick a resume.
+
+Changes for v3:
+  - Drop the redundant ARCH_SUSPEND_POSSIBLE addition [Samuel]
+    (v1 changed the def_bool to RISCV_SBI, but now it's 'y'
+     again. This should be fine since an S-mode Linux will always
+     have RISCV_SBI and an M-mode might actually be able to use
+     s2idle.)
+
+Changes for v2:
+  - Rebase on v6.7-rc1
+  - Added check for SBI spec version 2.0, which is the first ratified
+    spec version with SUSP [Conor, Anup]
+  - Picked up t-b from Samuel
+
+Changes for v1:
+  - Rebase on v6.6-rc1 -- only minor Kconfig change needed
+
+Changes for RFC-v2:
+  - RISCV_SBI dependency [Conor]
+  - Rename SBI_EXT_SUSP_SUSPEND to SBI_EXT_SUSP_SYSTEM_SUSPEND and
+    SBI_SUSP_SLEEP_TYPE_SUSPEND to SBI_SUSP_SLEEP_TYPE_SUSPEND_TO_RAM [Ley Foon]
+
+
+Andrew Jones (1):
+  riscv: sbi: Introduce system suspend support
+
+ arch/riscv/Kconfig           |  2 +-
+ arch/riscv/include/asm/sbi.h |  9 ++++++++
+ arch/riscv/kernel/suspend.c  | 44 ++++++++++++++++++++++++++++++++++++
+ 3 files changed, 54 insertions(+), 1 deletion(-)
+
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
