@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC808C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 11:52:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC736C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 11:52:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jj2avHGSfmROA1lypj8xNYUMnD1L6K81A4oRQrvrsH4=; b=oSs5qOhUFN9xZc
-	g/+BtiKEAgJkBEq+NoVuyEiSgQ+nYbGRyk/eMV+p7Weq8z/JD577rJXVUmvBBmbJ1VQlEIysGQESa
-	TqGTRTqTOEV4BoRB73DOiCgnzrNw3ucFMuLwbiXbn3fiTdA7zAaq+UJPEQ/SVzQpWZpBQV7eo5ZAW
-	AXl5s+rT1s8uGebhPKhkQY/7a/o4cI1SRINpcMSqbuy0OrTHu1Xiuf0gF6tgxBSW+SoiCUzGREdUn
-	dVHN92ZKyi5un2u+KFD9F55UL6dg5wwT7ZHQZocrkzCDeVCidD6lPXjwceSTnwpcP8YQS52nIciBa
-	5fLIf+PvWFdNLOepVG7w==;
+	List-Owner; bh=iJmeHUUUHXZi+r2TSJm1DtSbW1HzLmOlopsUbRh1x5M=; b=dfUDZ4E5edSwL2
+	DILFdJfVFodEwv95qtqDLx29N2r/icyNf72SIx7drK7wrq8x46zoolyoCefMJN7XTrjST8VmqcHDR
+	rcBtrrEn9SiObHYFDO7vDCA5GCZh4OAaAnyMz+diXpD4j8315650lCczDf5WuQG4i8C6bGRxh2dsJ
+	maXw3/S46LCCWeo+VgFH1AityT8AD/dtOJzxqG2fbxhG8PK0maZDg4frJPzoewFzAbW8Nu8OGKtKG
+	35/9E6z0eFfayvSWy0PjOOeR6B1byC2rx1XUDgsh7dzFwhqR/iDbYwmIwkIesD8Jz2UJY+qX+Q8b3
+	QFngBwP29XoN2LK1aqAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAqRp-00A9vO-30;
-	Wed, 06 Dec 2023 11:52:13 +0000
+	id 1rAqRs-00A9y5-2x;
+	Wed, 06 Dec 2023 11:52:16 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAqRm-00A9sT-0K
+	id 1rAqRp-00A9sT-2J
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 11:52:12 +0000
+	Wed, 06 Dec 2023 11:52:15 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 2D48B24E2D2;
-	Wed,  6 Dec 2023 19:51:58 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id 6CC2B24E308;
+	Wed,  6 Dec 2023 19:52:13 +0800 (CST)
 Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 6 Dec
- 2023 19:51:58 +0800
+ 2023 19:52:13 +0800
 Received: from jsia-virtual-machine.localdomain (175.136.135.142) by
  EXMBX066.cuchost.com (172.16.6.66) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Wed, 6 Dec 2023 19:51:50 +0800
+ 15.0.1497.42; Wed, 6 Dec 2023 19:52:06 +0800
 From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
 	<krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
@@ -47,10 +47,11 @@ To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
 	<xingyu.wu@starfivetech.com>
 CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-	<jeeheng.sia@starfivetech.com>, <leyfoon.tan@starfivetech.com>
-Subject: [PATCH v1 13/16] dt-bindings: clock: Add StarFive JH8100 Always-On clock and reset generator
-Date: Wed, 6 Dec 2023 19:49:57 +0800
-Message-ID: <20231206115000.295825-14-jeeheng.sia@starfivetech.com>
+	<jeeheng.sia@starfivetech.com>, <leyfoon.tan@starfivetech.com>, Joshua Yeong
+	<joshua.yeong@starfivetech.com>
+Subject: [PATCH v1 15/16] reset: starfive: Add StarFive JH8100 reset driver
+Date: Wed, 6 Dec 2023 19:49:59 +0800
+Message-ID: <20231206115000.295825-16-jeeheng.sia@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
 References: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
@@ -60,8 +61,8 @@ X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX066.cuchost.com
  (172.16.6.66)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_035210_443629_34E3D825 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20231206_035214_072942_8514BA8C 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,206 +79,172 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add bindings for the Always-On clock and reset generator
-(AONCRG) on JH8100 SoC.
+Add auxiliary reset driver to support StarFive JH8100 SoC.
 
+Co-developed-by: Joshua Yeong <joshua.yeong@starfivetech.com>
+Signed-off-by: Joshua Yeong <joshua.yeong@starfivetech.com>
 Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
 ---
- .../clock/starfive,jh8100-aoncrg.yaml         | 77 +++++++++++++++++++
- .../dt-bindings/clock/starfive,jh8100-crg.h   | 69 +++++++++++++++++
- .../dt-bindings/reset/starfive,jh8100-crg.h   | 18 +++++
- 3 files changed, 164 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-aoncrg.yaml
+ MAINTAINERS                                   |   7 ++
+ drivers/reset/starfive/Kconfig                |   8 ++
+ drivers/reset/starfive/Makefile               |   2 +
+ .../reset/starfive/reset-starfive-jh8100.c    | 102 ++++++++++++++++++
+ 4 files changed, 119 insertions(+)
+ create mode 100644 drivers/reset/starfive/reset-starfive-jh8100.c
 
-diff --git a/Documentation/devicetree/bindings/clock/starfive,jh8100-aoncrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh8100-aoncrg.yaml
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 87bcb25becc1..ed728f013d32 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20771,6 +20771,13 @@ F:	Documentation/devicetree/bindings/clock/starfive,jh81*.yaml
+ F:	drivers/clk/starfive/jh8100
+ F:	include/dt-bindings/clock/starfive?jh81*.h
+ 
++STARFIVE JH8100 RESET CONTROLLER DRIVERS
++M:	Sia Jee Heng <jeeheng.sia@starfivetech.com>
++M:	Ley Foon Tan <leyfoon.tan@starfivetech.com>
++S:	Maintained
++F:	drivers/reset/starfive/reset-starfive-jh81*
++F:	include/dt-bindings/reset/starfive?jh81*.h
++
+ STATIC BRANCH/CALL
+ M:	Peter Zijlstra <peterz@infradead.org>
+ M:	Josh Poimboeuf <jpoimboe@kernel.org>
+diff --git a/drivers/reset/starfive/Kconfig b/drivers/reset/starfive/Kconfig
+index 29fbcf1a7d83..88d050044d52 100644
+--- a/drivers/reset/starfive/Kconfig
++++ b/drivers/reset/starfive/Kconfig
+@@ -19,3 +19,11 @@ config RESET_STARFIVE_JH7110
+ 	default ARCH_STARFIVE
+ 	help
+ 	  This enables the reset controller driver for the StarFive JH7110 SoC.
++
++config RESET_STARFIVE_JH8100
++	bool "StarFive JH8100 Reset Driver"
++	depends on AUXILIARY_BUS && CLK_STARFIVE_JH8100_SYS
++	select RESET_STARFIVE_COMMON
++	default ARCH_STARFIVE
++	help
++	  This enables the reset controller driver for the StarFive JH8100 SoC.
+diff --git a/drivers/reset/starfive/Makefile b/drivers/reset/starfive/Makefile
+index 582e4c160bd4..ede1fc1c9601 100644
+--- a/drivers/reset/starfive/Makefile
++++ b/drivers/reset/starfive/Makefile
+@@ -3,3 +3,5 @@ obj-$(CONFIG_RESET_STARFIVE_COMMON)		+= reset-starfive-common.o
+ 
+ obj-$(CONFIG_RESET_STARFIVE_JH7100)		+= reset-starfive-jh7100.o
+ obj-$(CONFIG_RESET_STARFIVE_JH7110)		+= reset-starfive-jh7110.o
++
++obj-$(CONFIG_RESET_STARFIVE_JH8100)		+= reset-starfive-jh8100.o
+diff --git a/drivers/reset/starfive/reset-starfive-jh8100.c b/drivers/reset/starfive/reset-starfive-jh8100.c
 new file mode 100644
-index 000000000000..fd55bf212259
+index 000000000000..84f3781a22a5
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/starfive,jh8100-aoncrg.yaml
-@@ -0,0 +1,77 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/starfive,jh8100-aoncrg.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: StarFive JH8100 Always-On Clock and Reset Generator
-+
-+maintainers:
-+  - Sia Jee Heng <jeeheng.sia@starfivetech.com>
-+
-+properties:
-+  compatible:
-+    const: starfive,jh8100-aoncrg
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: Main Oscillator (24 MHz)
-+      - description: GMAC0 RMII func
-+      - description: GMAC0 RGMII func
-+      - description: AON 125MHz clock
-+      - description: AON 2000MHz clock
-+      - description: AON 200MHz clock
-+      - description: AON 667MHz clock
-+      - description: RTC clock
-+
-+  clock-names:
-+    items:
-+      - const: clk_osc
-+      - const: clk_gmac0_rmii_func
-+      - const: clk_gmac0_rgmii_func
-+      - const: clk_aon125
-+      - const: clk_aon2000
-+      - const: clk_aon200
-+      - const: clk_aon667
-+      - const: clk_rtc
-+
-+  '#clock-cells':
-+    const: 1
-+    description:
-+      See <dt-bindings/clock/starfive,jh8100-crg.h> for valid indices.
-+
-+  '#reset-cells':
-+    const: 1
-+    description:
-+      See <dt-bindings/reset/starfive-jh8100-crg.h> for valid indices.
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - '#clock-cells'
-+  - '#reset-cells'
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/starfive,jh8100-crg.h>
-+
-+    clock-controller@1f310000 {
-+            compatible = "starfive,jh8100-aoncrg";
-+            reg = <0x1f310000 0x10000>;
-+            clocks = <&clk_osc>, <&clk_gmac0_rmii_func>,
-+                     <&clk_gmac0_rgmii_func>, <&clk_aon125>,
-+                     <&clk_aon2000>, <&clk_aon200>,
-+                     <&clk_aon667>, <&clk_rtc>;
-+            clock-names = "clk_osc", "clk_gmac0_rmii_func", "clk_gmac0_rgmii_func",
-+                          "clk_aon125", "clk_aon2000", "clk_aon200",
-+                          "clk_aon667", "clk_rtc";
-+            #clock-cells = <1>;
-+            #reset-cells = <1>;
-+    };
-diff --git a/include/dt-bindings/clock/starfive,jh8100-crg.h b/include/dt-bindings/clock/starfive,jh8100-crg.h
-index 3ce0b9ec66be..65e719bd51a5 100644
---- a/include/dt-bindings/clock/starfive,jh8100-crg.h
-+++ b/include/dt-bindings/clock/starfive,jh8100-crg.h
-@@ -358,4 +358,73 @@
- #define SYSCRG_SW_CLK_VDEC_ICG_EN					9
- 
- #define SYSCRG_SW_CLK_END						10
-+
-+/* AONCRG_CLK */
-+#define AONCRG_CLK_GMAC0_RMII_REFIN					0
-+#define AONCRG_CLK_GMAC0_RGMII_RXIN					1
-+#define AONCRG_CLK_GMAC0_GTXCLK						2
-+#define AONCRG_CLK_AON_1000						3
-+#define AONCRG_CLK_AON_400						4
-+#define AONCRG_CLK_AON_400_POSTOSC					5
-+#define AONCRG_CLK_AON_500						6
-+#define AONCRG_CLK_AON_500_POSTOSC					7
-+#define AONCRG_CLK_XSPI_PHY						8
-+#define AONCRG_CLK_AON_100						9
-+#define AONCRG_CLK_AON_100_POSTOSC					10
-+#define AONCRG_CLK_AON_50_POSTOSC					11
-+#define AONCRG_CLK_DDR50_POSTOCC_ICG					12
-+#define AONCRG_CLK_DDR100_POSTOCC_ICG					13
-+#define AONCRG_CLK_PUFRT_APB						14
-+#define AONCRG_CLK_RTC_HMS_APB						15
-+#define AONCRG_CLK_RTC_INTERNAL						16
-+#define AONCRG_CLK_RTC_HMS_OSC32K					17
-+#define AONCRG_CLK_RTC_HMS_CAL						18
-+#define AONCRG_CLK_GMAC0_AXI128_AHB					19
-+#define AONCRG_CLK_GMAC0_AXI128_MSTRCLK					20
-+#define AONCRG_CLK_GMAC0_AXI128_AXI					21
-+#define AONCRG_CLK_GMAC0_RMII_RTX					22
-+#define AONCRG_CLK_GMAC0_AXI128_TX					23
-+#define AONCRG_CLK_GMAC0_AXI128_TX_INV					24
-+#define AONCRG_CLK_GMAC0_AXI128_RX					25
-+#define AONCRG_CLK_GMAC0_AXI128_RX_INV					26
-+#define AONCRG_CLK_GMAC0_GTXC						27
-+#define AONCRG_CLK_XSPI_AXI						28
-+#define AONCRG_CLK_XSPI_APB						29
-+#define AONCRG_CLK_XSPI_XSPI_PHY					30
-+#define AONCRG_CLK_TVSENSOR_PCLK					31
-+#define AONCRG_CLK_TVSENSOR_TSADC					32
-+#define AONCRG_CLK_TVSENSOR_BG						33
-+#define AONCRG_CLK_MEU_PCLK_AP						34
-+#define AONCRG_CLK_MEU_PCLK_SCP						35
-+#define AONCRG_CLK_MEU_MEM_AXI						36
-+#define AONCRG_CLK_AXIMEM_128B_ACLK					37
-+#define AONCRG_CLK_APB2BISR_APB						38
-+#define AONCRG_CLK_APB2BISR_BISR					39
-+#define AONCRG_CLK_EMMC_S_PCLK						40
-+#define AONCRG_CLK_EMMC_MSTRCLK						41
-+#define AONCRG_CLK_EMMC							42
-+#define AONCRG_CLK_EMMC_SDMCLK						43
-+#define AONCRG_CLK_EMMC_SDPHY_PCLK					44
-+#define AONCRG_CLK_SDIO0_PCLK						45
-+#define AONCRG_CLK_SDIO0_MSTRCLK					46
-+#define AONCRG_CLK_SDIO0						47
-+#define AONCRG_CLK_SDIO0_SDMCLK						48
-+#define AONCRG_CLK_SDIO0_SDPHY_PCLK					49
-+#define AONCRG_CLK_HCLK							50
-+#define AONCRG_CLK_ACLK							51
-+#define AONCRG_CLK_PERF_MSTRCLK						52
-+#define AONCRG_CLK_PERF_SLVCLK						53
-+#define AONCRG_CLK_GCLK0						54
-+#define AONCRG_CLK_GCLK_OSC						55
-+#define AONCRG_CLK_RTC_ICG_EN						56
-+#define AONCRG_CLK_GMAC0_ICG_EN						57
-+#define AONCRG_CLK_XSPI_ICG_EN						58
-+#define AONCRG_CLK_TVSENSOR0_ICG_EN					59
-+#define AONCRG_CLK_MEU_ICG_EN						60
-+#define AONCRG_CLK_APB2BISR_ICG_EN					61
-+#define AONCRG_CLK_EMMC_ICG_EN						62
-+#define AONCRG_CLK_SDIO0_ICG_EN						63
-+#define AONCRG_CLK_TOP_ICG_EN					64
-+
-+#define AONCRG_CLK_END							65
- #endif /* __DT_BINDINGS_CLOCK_STARFIVE_JH8100_H__ */
-diff --git a/include/dt-bindings/reset/starfive,jh8100-crg.h b/include/dt-bindings/reset/starfive,jh8100-crg.h
-index 55209382e00e..a89ba78b9bf8 100644
---- a/include/dt-bindings/reset/starfive,jh8100-crg.h
-+++ b/include/dt-bindings/reset/starfive,jh8100-crg.h
-@@ -106,4 +106,22 @@
- #define SYSCRG_SW_RSTN_DDR_TVSENSOR				3
- 
- #define SYSCRG_SW_RESET_NR_RESETS				4
-+
++++ b/drivers/reset/starfive/reset-starfive-jh8100.c
+@@ -0,0 +1,102 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
-+ * aoncrg
++ * Reset driver for the StarFive JH8100 SoC
++ *
++ * Copyright (C) 2023 StarFive Technology Co., Ltd.
 + */
-+#define AONCRG_RSTN_AON_IOMUX_PRESETN				0
-+#define AONCRG_RSTN_RTC						1
-+#define AONCRG_RSTN_GMAC0					2
-+#define AONCRG_RSTN_XSPI					3
-+#define AONCRG_RSTN_TVSENSOR					4
-+#define AONCRG_RSTN_MEU						5
-+#define AONCRG_RSTN_AXIMEM_128B_ARESET				6
-+#define AONCRG_RSTN_APB2BISR_APB				7
-+#define AONCRG_RSTN_SDIO0					8
-+#define AONCRG_RSTN_EMMC					9
-+#define AONCRG_RSTN_TOP						10
-+#define AONCRG_RSTN_IRQ_CTRL					11
 +
-+#define AONCRG_RESET_NR_RESETS					12
- #endif /* __DT_BINDINGS_RESET_STARFIVE_JH8100_H__ */
++#include <dt-bindings/reset/starfive,jh8100-crg.h>
++#include <linux/auxiliary_bus.h>
++#include <soc/starfive/reset-starfive-common.h>
++
++#include "reset-starfive-common.h"
++
++struct jh8100_reset_info {
++	unsigned int nr_resets;
++	unsigned int assert_offset;
++	unsigned int status_offset;
++};
++
++static const struct jh8100_reset_info jh8100_sys_info = {
++	.nr_resets = SYSCRG_RESET_NR_RESETS,
++	.assert_offset = 0x1B4,
++	.status_offset = 0x1B8,
++};
++
++static const struct jh8100_reset_info jh8100_sys_nw_info = {
++	.nr_resets = SYSCRG_NW_RESET_NR_RESETS,
++	.assert_offset = 0xA4,
++	.status_offset = 0xA8,
++};
++
++static const struct jh8100_reset_info jh8100_sys_ne_info = {
++	.nr_resets = SYSCRG_NE_RESET_NR_RESETS,
++	.assert_offset = 0x2BC,
++	.status_offset = 0x2C4,
++};
++
++static const struct jh8100_reset_info jh8100_sys_sw_info = {
++	.nr_resets = SYSCRG_SW_RESET_NR_RESETS,
++	.assert_offset = 0x28,
++	.status_offset = 0x2C,
++};
++
++static const struct jh8100_reset_info jh8100_aon_info = {
++	.nr_resets = AONCRG_RESET_NR_RESETS,
++	.assert_offset = 0x104,
++	.status_offset = 0x108,
++};
++
++static int jh8100_reset_probe(struct auxiliary_device *adev,
++			      const struct auxiliary_device_id *id)
++{
++	struct jh8100_reset_info *info = (struct jh8100_reset_info *)
++					 (id->driver_data);
++	struct starfive_reset_adev *rdev = to_starfive_reset_adev(adev);
++	void __iomem *base = rdev->base;
++
++	if (!info || !base)
++		return -ENODEV;
++
++	return reset_starfive_register(&adev->dev,
++					      adev->dev.parent->of_node,
++					      base + info->assert_offset,
++					      base + info->status_offset, NULL,
++					      info->nr_resets, NULL);
++}
++
++static const struct auxiliary_device_id jh8100_reset_ids[] = {
++	{
++		.name = "clk_sys.rst-sys",
++		.driver_data = (kernel_ulong_t)&jh8100_sys_info,
++	},
++	{
++		.name = "clk_sys.rst-sys-nw",
++		.driver_data = (kernel_ulong_t)&jh8100_sys_nw_info,
++	},
++	{
++		.name = "clk_sys.rst-sys-ne",
++		.driver_data = (kernel_ulong_t)&jh8100_sys_ne_info,
++	},
++	{
++		.name = "clk_sys.rst-sys-sw",
++		.driver_data = (kernel_ulong_t)&jh8100_sys_sw_info,
++	},
++	{
++		.name = "clk_sys.rst-aon",
++		.driver_data = (kernel_ulong_t)&jh8100_aon_info,
++	},
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(auxiliary, jh8100_reset_ids);
++
++static struct auxiliary_driver jh8100_reset_driver = {
++	.probe		= jh8100_reset_probe,
++	.id_table	= jh8100_reset_ids,
++};
++module_auxiliary_driver(jh8100_reset_driver);
++
++MODULE_AUTHOR("Joshua Yeong <joshua.yeong@starfivetech.com>");
++MODULE_AUTHOR("Sia Jee Heng <jeeheng.sia@starfivetech.com>");
++MODULE_DESCRIPTION("StarFive JH8100 reset driver");
++MODULE_LICENSE("GPL");
 -- 
 2.34.1
 
