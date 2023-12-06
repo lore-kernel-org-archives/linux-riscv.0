@@ -4,82 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89B95C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 14:11:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F678C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 14:12:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J7EjXCrYAixgiZ5frxk9CMSR2nt5bguGM2FMJNisJOw=; b=ePtuI2gALLcpog
-	uh3NJQ65MdP0lNuwzsUkhkQIpw7wDSiOmDdLyD+HZkeg7rF3gcRXDgcYfxW4yXaUAUGuZnpS7SYPT
-	O1IrJcKYP/a5cFa2T3+cef2v0Znx3uJK6BynCw57SiyT5m4CftRXuP1Bjcs85fMSSvjNaXvvRmHLb
-	xW95V7IJt0kznWbixvxDO72QHFB6PItCt+YEXblAH28qHYnMScTem0rSP+odRrDXcYGDK8o+5qP4l
-	WpPHswseCO8R4WtiNd1M0NJOxlz3Q5psOd5lhBaamsd2xzGUMlhMiRznjTE7gaQqSgkOwSX/Ft1Qb
-	Jyll9ddV+CxxcvuswsFQ==;
+	List-Owner; bh=FW/JxTjM45rzVDeZ3XbNNL1i2elmUnVnitW7nxpthKA=; b=GVOIaR0vy/J7Zn
+	qF9Ta4pgOAZQbiBKFapUx8GyhcVQlaNZlCxiAFz5UZO1Mdlxu3uKgnh7wmo6d5gQI8xDGBRSLzB2w
+	iG/mcCuLzaaAtJxiV2ENzuYbxQQEYCJ5PwbPXIIkmlMti96hPrtxbONLCoknO5+6UtrkiX+2aRHEE
+	ouRgBsi6BUEInCn2fp0YD9RSuzkuXDxyTQQgdgTyQP6W2SU9Z3vH/yp4WXueGx9SFaCKwkvmQszZC
+	8Em3wukZ/IgpdMIVj8NW1xelUoG15fMuYhAcYEHFsnxnqcB+dUMdb5B61eoC+S/cTfXhlMqFE4y9Z
+	+QQJWWrGJGwHGEGs17qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAscR-00AScM-13;
-	Wed, 06 Dec 2023 14:11:19 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAscP-00ASbw-26
+	id 1rAsdD-00ASkj-0O;
+	Wed, 06 Dec 2023 14:12:07 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1rAsd7-00ASfe-2w
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 14:11:18 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-50c0478f970so2313568e87.3
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Dec 2023 06:11:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1701871873; x=1702476673; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XNzSYcIp8QiaOcjyvcNVi0Ch8I0a7jbAWmfX7Yhtpd0=;
-        b=bQMpJR+ONdaQptlTtxpQXwm6R+K2H0Tt1Xomjqkvt/mCEwMEkK5WThspI6F7ryoasQ
-         CE3P6/gjQRLLUBILzfeNZBCXsCDbW6GjBNhnm6JbJIw5b/bVr+D8aGE3PqCmPHejym1L
-         M6mijeavWGMOa5fTrpFT4yda11oVeUVig9E5v7Eyl5odWY7nE6pyFJzVU08Be0gT1zsv
-         3BKFsL4JYLI7PcaqKm+IVuTUolWbSnF4DNI+zPSgvBC1podxjSw6UH7tQZxb+elIiMzF
-         5kEbyMlj4rNTUV7r4BvYYd8Y5eRAlwCvOhOIwksgmkTJhpPafH+o3fe4va4wVo4mULwA
-         tMOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701871873; x=1702476673;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XNzSYcIp8QiaOcjyvcNVi0Ch8I0a7jbAWmfX7Yhtpd0=;
-        b=Z3KU+hup/fAXqn+ae8dNuyL+wvPO8WLWYWFb5aqVhU4JfOarC+eukj57QFu8f+arD4
-         TvsjvAv4SSn2FXM4e7lZZAPm0qFU81rvTEcUCC8C5eotNtkKeVpMSMKwYlnUrFbu8p2g
-         Qr7Lv2q5LF8FElJC+3eWXv9gFoW11rUaWTsvR/Kp50YtaKUjNsF4NNdFiRYae2k1i4iK
-         z8Fo7/ekhADd7Pq3BB1SpcTIt+UWtGSNUFcc/NDQkMuHt8O8sxZeUWtnRJDWfizpjXni
-         VOrfurp3rF1oq/7hbOcrXNhfLZcpBwfI+TZIImocUMqxOwZ+FrgMmD7/2ai+AY/bC0JB
-         fNDA==
-X-Gm-Message-State: AOJu0YyE0v/1sSCxauSbX9N+jQQyRUE13AjRMD10QxkeM7ad2A2i7cIq
-	Mx0NHMFwrEARJw0l3EjxG8Q=
-X-Google-Smtp-Source: AGHT+IFr8mTzAYUk/xKHbWpYQfDpnWc+Vbj0Hs9YDHLul5k8eoZUKHHTYZrUliaLKJTpZbBsj2McDg==
-X-Received: by 2002:ac2:4839:0:b0:50b:f82e:6d5a with SMTP id 25-20020ac24839000000b0050bf82e6d5amr580036lft.73.1701871872294;
-        Wed, 06 Dec 2023 06:11:12 -0800 (PST)
-Received: from andrea ([31.189.124.152])
-        by smtp.gmail.com with ESMTPSA id j10-20020aa7c0ca000000b0054cea9f91e9sm16557edp.20.2023.12.06.06.11.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Dec 2023 06:11:11 -0800 (PST)
-Date: Wed, 6 Dec 2023 15:11:07 +0100
-From: Andrea Parri <parri.andrea@gmail.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: mathieu.desnoyers@efficios.com, paulmck@kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-	mmaas@google.com, hboehm@google.com, striker@us.ibm.com,
-	charlie@rivosinc.com, rehn@rivosinc.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] membarrier: riscv: Provide core serializing command
-Message-ID: <ZXCA+4WyI6D+Somy@andrea>
-References: <ZWe+ljzCUQQVu7oD@andrea>
- <mhng-40f43849-e610-410b-92b5-7571838ce9f5@palmer-ri-x1c9>
+	Wed, 06 Dec 2023 14:12:05 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 2B5FD8118;
+	Wed,  6 Dec 2023 22:11:34 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 6 Dec
+ 2023 22:11:34 +0800
+Received: from [192.168.1.115] (180.164.60.184) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 6 Dec
+ 2023 22:11:33 +0800
+Message-ID: <40cdd3c7-174e-4611-9ea6-22cb56d1f62b@starfivetech.com>
+Date: Wed, 6 Dec 2023 22:11:33 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mhng-40f43849-e610-410b-92b5-7571838ce9f5@palmer-ri-x1c9>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v3 5/6] drm/vs: Add hdmi driver
+Content-Language: en-US
+To: Maxime Ripard <mripard@kernel.org>
+CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"tzimmermann@suse.de" <tzimmermann@suse.de>, "airlied@gmail.com"
+	<airlied@gmail.com>, "krzysztof.kozlowski+dt@linaro.org"
+	<krzysztof.kozlowski+dt@linaro.org>, William Qiu
+	<william.qiu@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>,
+	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "palmer@dabbelt.com"
+	<palmer@dabbelt.com>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	Shengyang Chen <shengyang.chen@starfivetech.com>, Jack Zhu
+	<jack.zhu@starfivetech.com>, Changhuang Liang
+	<changhuang.liang@starfivetech.com>, "maarten.lankhorst@linux.intel.com"
+	<maarten.lankhorst@linux.intel.com>, "suijingfeng@loongson.cn"
+	<suijingfeng@loongson.cn>
+References: <20231204123315.28456-1-keith.zhao@starfivetech.com>
+ <20231204123315.28456-6-keith.zhao@starfivetech.com>
+ <esetsiqgqpk35zue4c6aq7l6zn4kezhxkqqa7ompaz2vhdy3lr@4d5awfqgs2ss>
+ <94a1f9fc-82fb-4a04-a44b-f9b20c2bdfdd@starfivetech.com>
+ <abdl6kmighvpwojvafq443q7grn6w3abwpvw7zwbna4jvtsvjf@fa42rv46n2wh>
+From: Keith Zhao <keith.zhao@starfivetech.com>
+In-Reply-To: <abdl6kmighvpwojvafq443q7grn6w3abwpvw7zwbna4jvtsvjf@fa42rv46n2wh>
+X-Originating-IP: [180.164.60.184]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_061117_729191_D46626E1 
-X-CRM114-Status: UNSURE (   8.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231206_061202_282427_B1E10795 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,29 +91,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> I see
+
+
+On 2023/12/6 20:56, Maxime Ripard wrote:
+> On Wed, Dec 06, 2023 at 08:02:55PM +0800, Keith Zhao wrote:
+>> >> +static const struct of_device_id starfive_hdmi_dt_ids[] = {
+>> >> +	{ .compatible = "starfive,jh7110-inno-hdmi",},
+>> > 
+>> > So it's inno hdmi, just like Rockchip then?
+>> > 
+>> > This should be a common driver.
+>>
+>> Rockchip has a inno hdmi IP. and Starfive has a inno hdmi IP.
+>> but the harewawre difference of them is big , it is not easy to use the common driver
+>> maybe i need the inno hdmi version here to make a distinction
 > 
-> $ git grep "config MEMBARRIER" fab957c11efe2f405e08b9f0d080524bc2631428
-> fab957c11efe2f405e08b9f0d080524bc2631428:init/Kconfig:config MEMBARRIER
+> I just had a look at the rockchip header file: all the registers but the
+> STARFIVE_* ones are identical.
 > 
-> so IMO this is just one of those forever bugs.  So I'd lean towards
+> There's no need to have two identical drivers then, please use the
+> rockchip driver instead.
 > 
->    Fixes: fab957c11efe ("RISC-V: Atomic and Locking Code")
+> Maxime
 
-Works for me, will apply in v2.
+ok, have a simple test , edid can get . i will continue 
 
-
-> (or anything in that original patch set).  It's not that big of a backport,
-> so I think it's safe enough?
-
-Indeed, I think so.
-
-The final version of this fix will likely depend on some machinery/code
-introduced by 3ccfebedd8cf54 ("powerpc, membarrier: Skip memory barrier
-in switch_mm()"); but, yes, nothing we can't safely adjust I think.
-
-Thanks,
-  Andrea
 
 _______________________________________________
 linux-riscv mailing list
