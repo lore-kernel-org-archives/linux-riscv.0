@@ -4,55 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DDE9C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 11:52:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A2E7C10DCE
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 11:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QUau2BB6AnKofBOuFwUCIHgrbJarGX//+VTXBAJ2z6c=; b=ORPOj8grFiQXuD
-	awYFGn1zlVo5nMIxgiVzhBHCB3Zex0IpVLpfqZ8wpJU1qIMong4+NLvK2V86bWRtek5DtAyrRpCir
-	xunvLlj6GZskU6bnXY3tZOC7u3Z8jGIKeJZhYDXRVnieBD9DQAENyZA7QUnw3A8QLr+z0cY0/CK5p
-	P1Mt/gJWV+Akgp1BJrCMu09gF4ZDxydTL9RqA39PeWJDmBE4Dre5JaFoZi32CwFJGrPuobuMYOOPU
-	Qg05HvAl24aDYeJIyDeQLhq2vNs5a9LTaijwkzj2fatMiuddghp0ZOXZq23q0qjvPevAGYeuZXBoD
-	m/yKKyRu4GWPrf/Nt7Wg==;
+	List-Owner; bh=WqYGqddn4Ii/6rSyHRim/X7WOEIfD7NBwAH2/VR/GD0=; b=T0oqafyJ7xxpqC
+	cb4RKoNgVlI6jQXYgPzTZuMDIvFSPWsdWHc49tm7qhkuvpaTZKbqgaEIrkco53cbTXY7q7wygCZV/
+	KSOdY6v51tXS2EPkFb6tjTHfq0PR9coT0UdQTqUhp0HCf69N3nfZm55C8+KHbAsgS5nzw7KoeNDKE
+	JPcTvUJXz4cZZZHBTZ4hvdlveQ5c93GbTVmlzoXWK9l0ja3XEMYzHpWJ+d3/QR5Qs4h9DXjvxv81a
+	g37sbZmY70O2JB1iq8a8vN/FFFgGqTwjkvEFs/gNWatLsttcOMauST3mFMWGlEamcf72Imo/qlWXV
+	sUWgKloGVEGMiyHTegrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAqS7-00AA8x-2z;
-	Wed, 06 Dec 2023 11:52:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAqS6-00AA7y-2r
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 06 Dec 2023 11:52:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=+JYCmoM1nX9bLk4DdNLU6j0BgHw1MuF9itOSKBvsjUU=; b=cuDhDJYmwIGrO2hsovlZcwDVXN
-	MIl8caNRWuro22gepNxaXOpjSyG12JH2FyJnY+h90hBQDdY4aE1JH2k0auwd2cUjC7TCRTjYy9eFD
-	uLAFu/wJQ6FZSZ1LfNycJe5ky+Oa7JLgKs+pG0tx18pUyGY3VfUyApm059emHcm2cyLY14s/OcQST
-	pnkFzAqkm/pCGdjgZF4LKawzTmBV+/WCiTPtr7h+eaFMKlDKzFGGHNuQZME/vs9GugFK4CdxeNJZZ
-	3b/oE5KFYgyVfCjYv9lRWX4R9Cd7QwbvJH7+0dgT3GCfIb3U4PVV4rArApzDwuwC0e/egADHqmqR8
-	tiB2IIOw==;
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by desiato.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAqS1-0059eV-2z
+	id 1rAqSA-00AABJ-21;
+	Wed, 06 Dec 2023 11:52:34 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1rAqS4-00A9yo-1c
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 11:52:29 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	Wed, 06 Dec 2023 11:52:31 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 9324524E2DC;
-	Wed,  6 Dec 2023 19:51:26 +0800 (CST)
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 6 Dec
- 2023 19:51:26 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id D6F9380E1;
+	Wed,  6 Dec 2023 19:52:05 +0800 (CST)
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 6 Dec
+ 2023 19:52:05 +0800
 Received: from jsia-virtual-machine.localdomain (175.136.135.142) by
  EXMBX066.cuchost.com (172.16.6.66) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Wed, 6 Dec 2023 19:51:19 +0800
+ 15.0.1497.42; Wed, 6 Dec 2023 19:51:58 +0800
 From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
 	<krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
@@ -63,9 +48,9 @@ To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
 CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
 	<jeeheng.sia@starfivetech.com>, <leyfoon.tan@starfivetech.com>
-Subject: [PATCH v1 09/16] dt-bindings: clock: Add StarFive JH8100 System-North-East clock and reset generator
-Date: Wed, 6 Dec 2023 19:49:53 +0800
-Message-ID: <20231206115000.295825-10-jeeheng.sia@starfivetech.com>
+Subject: [PATCH v1 14/16] clk: starfive: Add JH8100 Always-On clock generator driver
+Date: Wed, 6 Dec 2023 19:49:58 +0800
+Message-ID: <20231206115000.295825-15-jeeheng.sia@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
 References: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
@@ -75,8 +60,8 @@ X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX066.cuchost.com
  (172.16.6.66)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_115227_125572_ACCA7D2C 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20231206_035229_023643_64943468 
+X-CRM114-Status: GOOD (  18.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,440 +78,323 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add bindings for the System-North-East clock and reset generator
-(SYSCRG-NE) on JH8100 SoC.
+Add support for JH8100 Always-On clock generator.
 
 Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
 ---
- .../clock/starfive,jh8100-syscrg-ne.yaml      | 158 ++++++++++++++++
- .../dt-bindings/clock/starfive,jh8100-crg.h   | 179 ++++++++++++++++++
- .../dt-bindings/reset/starfive,jh8100-crg.h   |  61 ++++++
- 3 files changed, 398 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-ne.yaml
+ drivers/clk/starfive/Kconfig          |   8 +
+ drivers/clk/starfive/jh8100/Makefile  |   1 +
+ drivers/clk/starfive/jh8100/clk-aon.c | 275 ++++++++++++++++++++++++++
+ 3 files changed, 284 insertions(+)
+ create mode 100644 drivers/clk/starfive/jh8100/clk-aon.c
 
-diff --git a/Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-ne.yaml b/Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-ne.yaml
+diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
+index 2d8a1e0fae8a..7a8bb958f915 100644
+--- a/drivers/clk/starfive/Kconfig
++++ b/drivers/clk/starfive/Kconfig
+@@ -105,3 +105,11 @@ config CLK_STARFIVE_JH8100_SYS_SW
+ 	help
+ 	  Say yes here to support the System-South-West clock controller on the StarFive JH8100
+ 	  SoC.
++
++config CLK_STARFIVE_JH8100_AON
++	bool "StarFive JH8100 Always-On clock support"
++	depends on CLK_STARFIVE_JH8100_SYS
++	default ARCH_STARFIVE
++	help
++	  Say yes here to support the Always-On clock controller on the StarFive JH8100
++	  SoC.
+diff --git a/drivers/clk/starfive/jh8100/Makefile b/drivers/clk/starfive/jh8100/Makefile
+index 5c14bff5c541..1decc43de0d3 100644
+--- a/drivers/clk/starfive/jh8100/Makefile
++++ b/drivers/clk/starfive/jh8100/Makefile
+@@ -4,3 +4,4 @@ obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS)		+= clk-sys.o
+ obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS_NW)	+= clk-sys-nw.o
+ obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS_NE)	+= clk-sys-ne.o
+ obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS_SW)        += clk-sys-sw.o
++obj-$(CONFIG_CLK_STARFIVE_JH8100_AON)		+= clk-aon.o
+diff --git a/drivers/clk/starfive/jh8100/clk-aon.c b/drivers/clk/starfive/jh8100/clk-aon.c
 new file mode 100644
-index 000000000000..e9c1156489b2
+index 000000000000..95c10d5a9552
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-ne.yaml
-@@ -0,0 +1,158 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/starfive,jh8100-syscrg-ne.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: StarFive JH8100 System-North-East Clock and Reset Generator
-+
-+maintainers:
-+  - Sia Jee Heng <jeeheng.sia@starfivetech.com>
-+
-+properties:
-+  compatible:
-+    const: starfive,jh8100-syscrg-ne
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: Main Oscillator (24 MHz)
-+      - description: AXI_400 clock from SYSCRG
-+      - description: VOUT_ROOT0 clock from SYSCRG
-+      - description: VOUT_ROOT1 clock from SYSCRG
-+      - description: USB_WRAP_480 clock from SYSCRG
-+      - description: USB_WRAP_625 clock from SYSCRG
-+      - description: USB_WRAP_240 clock from SYSCRG
-+      - description: USB_WRAP_60 clock from SYSCRG
-+      - description: USB_WRAP_156P25 clock from SYSCRG
-+      - description: USB_WRAP_312P5 clock from SYSCRG
-+      - description: USB_125M clock from SYSCRG
-+      - description: GPIO_100 clock from SYSCRG_NW
-+      - description: PERH_ROOT clock from SYSCRG
-+      - description: Master clock from SYSCRG
-+      - description: PERH_ROOT_PREOSC clock from SYSCRG
-+      - description: AHB0 clock from SYSCRG
-+      - description: APB_BUS_PER1 clock from SYSCRG
-+      - description: APB_BUS PER2 clock from SYSCRG
-+      - description: APB_BUS_PER3 clock from SYSCRG
-+      - description: APB_BUS_PER5 clock from SYSCRG
-+      - description: VENC_ROOT clock from SYSCRG
-+      - description: SPI_CORE_100 clock from SYSCRG
-+      - description: External global clock
-+      - description: External USB3_TAP_TCK clock
-+      - description: External USB1_TAP_TCK clock
-+      - description: External USB2_TAP_TCK clock
-+      - description: External TYPEC_TAP_TCK clock
-+      - description: External SPI_IN0 clock
-+      - description: External SPI_IN1 clock
-+      - description: External I2STX_BCLK clock
-+      - description: External I2STX_LRCK clock
-+
-+  clock-names:
-+    items:
-+      - const: clk_osc
-+      - const: sys_clk_axi_400
-+      - const: sys_clk_vout_root0
-+      - const: sys_clk_vout_root1
-+      - const: sys_clk_usb_wrap_480
-+      - const: sys_clk_usb_wrap_625
-+      - const: sys_clk_usb_wrap_240
-+      - const: sys_clk_usb_wrap_60
-+      - const: sys_clk_usb_wrap_156p25
-+      - const: sys_clk_usb_wrap_312p5
-+      - const: sys_clk_usb_125m
-+      - const: sys_nw_clk_gpio_100
-+      - const: sys_clk_perh_root
-+      - const: sys_clk_mclk
-+      - const: sys_clk_perh_root_preosc
-+      - const: sys_clk_ahb0
-+      - const: sys_clk_apb_bus_per1
-+      - const: sys_clk_apb_bus_per2
-+      - const: sys_clk_apb_bus_per3
-+      - const: sys_clk_apb_bus_per5
-+      - const: sys_clk_venc_root
-+      - const: sys_clk_spi_core_100
-+      - const: clk_glb_ext_clk
-+      - const: clk_usb3_tap_tck_ext
-+      - const: clk_usb1_tap_tck_ext
-+      - const: clk_usb2_tap_tck_ext
-+      - const: clk_typec_tap_tck_ext
-+      - const: clk_spi_in0_ext
-+      - const: clk_spi_in1_ext
-+      - const: clk_i2stx_bclk_ext
-+      - const: clk_i2stx_lrck_ext
-+
-+  '#clock-cells':
-+    const: 1
-+    description:
-+      See <dt-bindings/clock/starfive,jh8100-crg.h> for valid indices.
-+
-+  '#reset-cells':
-+    const: 1
-+    description:
-+      See <dt-bindings/reset/starfive-jh8100-crg.h> for valid indices.
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - '#clock-cells'
-+  - '#reset-cells'
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/starfive,jh8100-crg.h>
-+
-+    clock-controller@12320000 {
-+            compatible = "starfive,jh8100-syscrg-ne";
-+            reg = <0x12320000 0x10000>;
-+            clocks = <&clk_osc>, <&syscrg SYSCRG_CLK_AXI_400>,
-+                     <&syscrg SYSCRG_CLK_VOUT_ROOT0>,
-+                     <&syscrg SYSCRG_CLK_VOUT_ROOT1>,
-+                     <&syscrg SYSCRG_CLK_USB_WRAP_480>,
-+                     <&syscrg SYSCRG_CLK_USB_WRAP_625>,
-+                     <&syscrg SYSCRG_CLK_USB_WRAP_240>,
-+                     <&syscrg SYSCRG_CLK_USB_WRAP_60>,
-+                     <&syscrg SYSCRG_CLK_USB_WRAP_156P25>,
-+                     <&syscrg SYSCRG_CLK_USB_WRAP_312P5>,
-+                     <&syscrg SYSCRG_CLK_USB_125M>,
-+                     <&syscrg_nw SYSCRG_NW_CLK_GPIO_100>,
-+                     <&syscrg SYSCRG_CLK_PERH_ROOT>,
-+                     <&syscrg SYSCRG_CLK_MCLK>,
-+                     <&syscrg SYSCRG_CLK_PERH_ROOT_PREOSC>,
-+                     <&syscrg SYSCRG_CLK_AHB0>,
-+                     <&syscrg SYSCRG_CLK_APB_BUS_PER1>,
-+                     <&syscrg SYSCRG_CLK_APB_BUS_PER2>,
-+                     <&syscrg SYSCRG_CLK_APB_BUS_PER3>,
-+                     <&syscrg SYSCRG_CLK_APB_BUS_PER5>,
-+                     <&syscrg SYSCRG_CLK_VENC_ROOT>,
-+                     <&syscrg SYSCRG_CLK_SPI_CORE_100>,
-+                     <&clk_glb_ext_clk>, <&clk_usb3_tap_tck_ext>,
-+                     <&clk_usb1_tap_tck_ext>, <&clk_usb2_tap_tck_ext>,
-+                     <&clk_typec_tap_tck_ext>, <&clk_spi_in0_ext>,
-+                     <&clk_spi_in1_ext>, <&clk_i2stx_bclk_ext>,
-+                     <&clk_i2stx_lrck_ext>;
-+            clock-names = "clk_osc", "sys_clk_axi_400",
-+                          "sys_clk_vout_root0", "sys_clk_vout_root1",
-+                          "sys_clk_usb_wrap_480", "sys_clk_usb_wrap_625",
-+                          "sys_clk_usb_wrap_240", "sys_clk_usb_wrap_60",
-+                          "sys_clk_usb_wrap_156p25", "sys_clk_usb_wrap_312p5",
-+                          "sys_clk_usb_125m", "sys_nw_clk_gpio_100",
-+                          "sys_clk_perh_root", "sys_clk_mclk",
-+                          "sys_clk_perh_root_preosc",
-+                          "sys_clk_ahb0", "sys_clk_apb_bus_per1",
-+                          "sys_clk_apb_bus_per2", "sys_clk_apb_bus_per3",
-+                          "sys_clk_apb_bus_per5", "sys_clk_venc_root",
-+                          "sys_clk_spi_core_100", "clk_glb_ext_clk",
-+                          "clk_usb3_tap_tck_ext", "clk_usb1_tap_tck_ext",
-+                          "clk_usb2_tap_tck_ext", "clk_typec_tap_tck_ext",
-+                          "clk_spi_in0_ext", "clk_spi_in1_ext",
-+                          "clk_i2stx_bclk_ext", "clk_i2stx_lrck_ext";
-+            #clock-cells = <1>;
-+            #reset-cells = <1>;
-+    };
-diff --git a/include/dt-bindings/clock/starfive,jh8100-crg.h b/include/dt-bindings/clock/starfive,jh8100-crg.h
-index 8417455c2409..b30ccd16a802 100644
---- a/include/dt-bindings/clock/starfive,jh8100-crg.h
-+++ b/include/dt-bindings/clock/starfive,jh8100-crg.h
-@@ -165,4 +165,183 @@
- #define SYSCRG_NW_CLK_UART6_ICG_EN					40
- 
- #define SYSCRG_NW_CLK_END						41
-+
-+/* SYSCRG_NE_CLK */
-+#define SYSCRG_NE_CLK_FLEXNOC_DMASLV					0
-+#define SYSCRG_NE_CLK_MAILBOX_APB					1
-+#define SYSCRG_NE_CLK_SR5_TIMER0_APB					2
-+#define SYSCRG_NE_CLK_SR5_TIMER0_CH0					3
-+#define SYSCRG_NE_CLK_SR5_TIMER0_CH1					4
-+#define SYSCRG_NE_CLK_SR5_TIMER0_CH2					5
-+#define SYSCRG_NE_CLK_SR5_TIMER0_CH3					6
-+#define SYSCRG_NE_CLK_SR5_TIMER1_APB					7
-+#define SYSCRG_NE_CLK_SR5_TIMER1_CH0					8
-+#define SYSCRG_NE_CLK_SR5_TIMER1_CH1					9
-+#define SYSCRG_NE_CLK_SR5_TIMER1_CH2					10
-+#define SYSCRG_NE_CLK_SR5_TIMER1_CH3					11
-+#define SYSCRG_NE_CLK_USB3_CMN_SCAN_PLL					12
-+#define SYSCRG_NE_CLK_USB3_CMN_SCAN_SER					13
-+#define SYSCRG_NE_CLK_USB3_PIPE_IN_SCAN					14
-+#define SYSCRG_NE_CLK_USB3_SCAN_PIPE					15
-+#define SYSCRG_NE_CLK_USB3_SCAN_PSM					16
-+#define SYSCRG_NE_CLK_USB3_SCAN_REF					17
-+#define SYSCRG_NE_CLK_USB3_USB2_SCAN					18
-+#define SYSCRG_NE_CLK_USB3_HSCLK					19
-+#define SYSCRG_NE_CLK_USB3_HSSICLK					20
-+#define SYSCRG_NE_CLK_USB3_SIECLK					21
-+#define SYSCRG_NE_CLK_USB3_XCVR_SCAN_PLL				22
-+#define SYSCRG_NE_CLK_USB3_XCVR_SCAN_SER				23
-+#define SYSCRG_NE_CLK_USB3_TAP_TCK					24
-+#define SYSCRG_NE_CLK_USB1_CMN_SCAN_PLL					25
-+#define SYSCRG_NE_CLK_USB1_CMN_SCAN_SER					26
-+#define SYSCRG_NE_CLK_USB1_PIPE_IN_SCAN					27
-+#define SYSCRG_NE_CLK_USB1_SCAN_PIPE					28
-+#define SYSCRG_NE_CLK_USB1_SCAN_PSM					29
-+#define SYSCRG_NE_CLK_USB1_SCAN_REF					30
-+#define SYSCRG_NE_CLK_USB1_USB2_SCAN					31
-+#define SYSCRG_NE_CLK_USB1_HSCLK					32
-+#define SYSCRG_NE_CLK_USB1_HSSICLK					33
-+#define SYSCRG_NE_CLK_USB1_SIECLK					34
-+#define SYSCRG_NE_CLK_USB1_XCVR_SCAN_PLL				35
-+#define SYSCRG_NE_CLK_USB1_XCVR_SCAN_SER				36
-+#define SYSCRG_NE_CLK_USB1_TAP_TCK					37
-+#define SYSCRG_NE_CLK_USB2_CMN_SCAN_PLL					38
-+#define SYSCRG_NE_CLK_USB2_CMN_SCAN_SER					39
-+#define SYSCRG_NE_CLK_USB2_PIPE_IN_SCAN					40
-+#define SYSCRG_NE_CLK_USB2_SCAN_PIPE					41
-+#define SYSCRG_NE_CLK_USB2_SCAN_PSM					42
-+#define SYSCRG_NE_CLK_USB2_SCAN_REF					43
-+#define SYSCRG_NE_CLK_USB2_USB2_SCAN					44
-+#define SYSCRG_NE_CLK_USB2_HSCLK					45
-+#define SYSCRG_NE_CLK_USB2_HSSICLK					46
-+#define SYSCRG_NE_CLK_USB2_SIECLK					47
-+#define SYSCRG_NE_CLK_USB2_XCVR_SCAN_PLL				48
-+#define SYSCRG_NE_CLK_USB2_XCVR_SCAN_SER				49
-+#define SYSCRG_NE_CLK_USB2_TAP_TCK					50
-+#define SYSCRG_NE_CLK_TYPEC_PIPE_DIV_SCAN				51
-+#define SYSCRG_NE_CLK_TYPEC_CMN_SCAN_PLL				52
-+#define SYSCRG_NE_CLK_TYPEC_CMN_SCAN_SER				53
-+#define SYSCRG_NE_CLK_TYPEC_SCAN_PIPE					54
-+#define SYSCRG_NE_CLK_TYPEC_SCAN_PSM					55
-+#define SYSCRG_NE_CLK_TYPEC_SCAN_REF					56
-+#define SYSCRG_NE_CLK_TYPEC_USB2_SCAN					57
-+#define SYSCRG_NE_CLK_TYPEC_HSCLK					58
-+#define SYSCRG_NE_CLK_TYPEC_HSSICLK					59
-+#define SYSCRG_NE_CLK_TYPEC_SIECLK					60
-+#define SYSCRG_NE_CLK_TYPEC_VID0					61
-+#define SYSCRG_NE_CLK_TYPEC_VID1					62
-+#define SYSCRG_NE_CLK_TYPEC_XCVR_SCAN_PLL0				63
-+#define SYSCRG_NE_CLK_TYPEC_XCVR_SCAN_PLL1				64
-+#define SYSCRG_NE_CLK_TYPEC_XCVR_SCAN_PLL2				65
-+#define SYSCRG_NE_CLK_TYPEC_XCVR_SCAN_PLL3				66
-+#define SYSCRG_NE_CLK_TYPEC_XCVR_SCAN_SER0				67
-+#define SYSCRG_NE_CLK_TYPEC_XCVR_SCAN_SER1				68
-+#define SYSCRG_NE_CLK_TYPEC_XCVR_SCAN_SER2				69
-+#define SYSCRG_NE_CLK_TYPEC_XCVR_SCAN_SER3				70
-+#define SYSCRG_NE_CLK_TYPEC_TAP_TCK					71
-+#define SYSCRG_NE_CLK_VENC_AXI						72
-+#define SYSCRG_NE_CLK_VC9000LE_AXI					73
-+#define SYSCRG_NE_CLK_VC9000LE_APB					74
-+#define SYSCRG_NE_CLK_VC9000LE_CORECLK					75
-+#define SYSCRG_NE_CLK_INT_CTRL_APB					76
-+#define SYSCRG_NE_CLK_PWM_8CH_APB					77
-+#define SYSCRG_NE_CLK_WDT_APB						78
-+#define SYSCRG_NE_CLK_WDT						79
-+#define SYSCRG_NE_CLK_SPI0_APB						80
-+#define SYSCRG_NE_CLK_SPI0_CORE						81
-+#define SYSCRG_NE_CLK_SPI0_SCLK_IN					82
-+#define SYSCRG_NE_CLK_SPI1_APB						83
-+#define SYSCRG_NE_CLK_SPI1_CORE						84
-+#define SYSCRG_NE_CLK_SPI1_SCLK_IN					85
-+#define SYSCRG_NE_CLK_I2C0_APB						86
-+#define SYSCRG_NE_CLK_I2C1_APB						87
-+#define SYSCRG_NE_CLK_I2C2_APB						88
-+#define SYSCRG_NE_CLK_I2C3_APB						89
-+#define SYSCRG_NE_CLK_I2C4_APB						90
-+#define SYSCRG_NE_CLK_I2C5_APB						91
-+#define SYSCRG_NE_CLK_UART0_APB						92
-+#define SYSCRG_NE_CLK_UART0_CORE					93
-+#define SYSCRG_NE_CLK_UART1_CORE_PREOSC					94
-+#define SYSCRG_NE_CLK_UART1_APB						95
-+#define SYSCRG_NE_CLK_UART1_CORE					96
-+#define SYSCRG_NE_CLK_UART2_CORE_PREOSC					97
-+#define SYSCRG_NE_CLK_UART2_APB						98
-+#define SYSCRG_NE_CLK_UART2_CORE					99
-+#define SYSCRG_NE_CLK_UART3_CORE_PREOSC					100
-+#define SYSCRG_NE_CLK_UART3_APB						101
-+#define SYSCRG_NE_CLK_UART3_CORE					102
-+#define SYSCRG_NE_CLK_UART4_CORE_PREOSC					103
-+#define SYSCRG_NE_CLK_UART4_APB						104
-+#define SYSCRG_NE_CLK_UART4_CORE					105
-+#define SYSCRG_NE_CLK_I2S0_BCLK						106
-+#define SYSCRG_NE_CLK_I2S0_LRCK						107
-+#define SYSCRG_NE_CLK_I2S0_APB						108
-+#define SYSCRG_NE_CLK_I2S0						109
-+#define SYSCRG_NE_CLK_I2S0_N						110
-+#define SYSCRG_NE_CLK_I2S0_BCLK_TX					111
-+#define SYSCRG_NE_CLK_I2S0_LRCK_TX					112
-+#define SYSCRG_NE_CLK_I2S0_BCLK_RX					113
-+#define SYSCRG_NE_CLK_I2S0_LRCK_RX					114
-+#define SYSCRG_NE_CLK_I2S1_BCLK						115
-+#define SYSCRG_NE_CLK_I2S1_LRCK						116
-+#define SYSCRG_NE_CLK_I2S1_APB						117
-+#define SYSCRG_NE_CLK_I2S1						118
-+#define SYSCRG_NE_CLK_I2S1_N						119
-+#define SYSCRG_NE_CLK_I2S1_BCLK_TX					120
-+#define SYSCRG_NE_CLK_I2S1_LRCK_TX					121
-+#define SYSCRG_NE_CLK_I2S1_BCLK_RX					122
-+#define SYSCRG_NE_CLK_I2S1_LRCK_RX					123
-+#define SYSCRG_NE_CLK_I2S2_BCLK						124
-+#define SYSCRG_NE_CLK_I2S2_LRCK						125
-+#define SYSCRG_NE_CLK_I2S2_APB						126
-+#define SYSCRG_NE_CLK_I2S2						127
-+#define SYSCRG_NE_CLK_I2S2_N						128
-+#define SYSCRG_NE_CLK_I2S2_BCLK_TX					129
-+#define SYSCRG_NE_CLK_I2S2_LRCK_TX					130
-+#define SYSCRG_NE_CLK_I2S2_BCLK_RX					131
-+#define SYSCRG_NE_CLK_I2S2_LRCK_RX					132
-+#define SYSCRG_NE_CLK_I2S3_BCLK						133
-+#define SYSCRG_NE_CLK_I2S3_LRCK						134
-+#define SYSCRG_NE_CLK_I2S0_STEREO_APB					135
-+#define SYSCRG_NE_CLK_I2S0_STEREO					136
-+#define SYSCRG_NE_CLK_I2S0_STEREO_N					137
-+#define SYSCRG_NE_CLK_I2S0_STEREO_BCLK_TX				138
-+#define SYSCRG_NE_CLK_I2S0_STEREO_LRCK_TX				139
-+#define SYSCRG_NE_CLK_I2S0_STEREO_BCLK_RX_ICG				140
-+#define SYSCRG_NE_CLK_I2S0_STEREO_LRCK_RX				141
-+#define SYSCRG_NE_CLK_PDM_4MIC_DMIC					142
-+#define SYSCRG_NE_CLK_PDM_4MIC_APB					143
-+#define SYSCRG_NE_CLK_PDM_4MIC_SCAN					144
-+#define SYSCRG_NE_CLK_CAN0_CTRL_PCLK					145
-+#define SYSCRG_NE_CLK_CAN0_CTRL						146
-+#define SYSCRG_NE_CLK_CAN0_CTRL_TIMER					147
-+#define SYSCRG_NE_CLK_CAN1_CTRL_PCLK					148
-+#define SYSCRG_NE_CLK_CAN1_CTRL						149
-+#define SYSCRG_NE_CLK_CAN1_CTRL_TIMER					150
-+#define SYSCRG_NE_CLK_SMBUS0_APB					151
-+#define SYSCRG_NE_CLK_SMBUS0_CORE					152
-+#define SYSCRG_NE_CLK_IOMUX_EAST_PCLK					153
-+#define SYSCRG_NE_CLK_USB3_ICG_EN					154
-+#define SYSCRG_NE_CLK_USB1_ICG_EN					155
-+#define SYSCRG_NE_CLK_USB2_ICG_EN					156
-+#define SYSCRG_NE_CLK_USBC_ICG_EN					157
-+#define SYSCRG_NE_CLK_VENC_ICG_EN					158
-+#define SYSCRG_NE_CLK_WDT0_ICG_EN					159
-+#define SYSCRG_NE_CLK_SPI0_ICG_EN					160
-+#define SYSCRG_NE_CLK_SPI1_ICG_EN					161
-+#define SYSCRG_NE_CLK_UART0_ICG_EN					162
-+#define SYSCRG_NE_CLK_UART1_ICG_EN					163
-+#define SYSCRG_NE_CLK_UART2_ICG_EN					164
-+#define SYSCRG_NE_CLK_UART3_ICG_EN					165
-+#define SYSCRG_NE_CLK_UART4_ICG_EN					166
-+#define SYSCRG_NE_CLK_I2S0_ICG_EN					167
-+#define SYSCRG_NE_CLK_I2S1_ICG_EN					168
-+#define SYSCRG_NE_CLK_I2S2_ICG_EN					169
-+#define SYSCRG_NE_CLK_I2S_STEREO_ICG_EN					170
-+#define SYSCRG_NE_CLK_PDM_4MIC_ICG_EN					171
-+#define SYSCRG_NE_CLK_CAN0_ICG_EN					172
-+#define SYSCRG_NE_CLK_CAN1_ICG_EN					173
-+#define SYSCRG_NE_CLK_SMBUS0_ICG_EN					174
-+
-+#define SYSCRG_NE_CLK_END						175
- #endif /* __DT_BINDINGS_CLOCK_STARFIVE_JH8100_H__ */
-diff --git a/include/dt-bindings/reset/starfive,jh8100-crg.h b/include/dt-bindings/reset/starfive,jh8100-crg.h
-index 8c3a858bdf6a..7626da648686 100644
---- a/include/dt-bindings/reset/starfive,jh8100-crg.h
-+++ b/include/dt-bindings/reset/starfive,jh8100-crg.h
-@@ -35,4 +35,65 @@
- #define SYSCRG_NW_RSTN_MERAK1_TVSENSOR				9
- 
- #define SYSCRG_NW_RESET_NR_RESETS				10
-+
++++ b/drivers/clk/starfive/jh8100/clk-aon.c
+@@ -0,0 +1,275 @@
++// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * syscrg_ne: assert0
-+ */
-+#define SYSCRG_NE_RSTN_PRESETN					0
-+#define SYSCRG_NE_RSTN_USB3_APB					1
-+#define SYSCRG_NE_RSTN_USB3_TORR_PHY				2
-+#define SYSCRG_NE_RSTN_USB3_CONFIG				3
-+#define SYSCRG_NE_RSTN_USB1_APB					4
-+#define SYSCRG_NE_RSTN_USB1_TORRENT_PHY				5
-+#define SYSCRG_NE_RSTN_USB1_CONFIG				6
-+#define SYSCRG_NE_RSTN_USB2_APB					7
-+#define SYSCRG_NE_RSTN_USB2_TORRENT_PHY				8
-+#define SYSCRG_NE_RSTN_USB2_CONFIG				9
-+#define SYSCRG_NE_RSTN_USBC_APB					10
-+#define SYSCRG_NE_RSTN_USBC_CONFIG				11
-+#define SYSCRG_NE_RSTN_VC9000LE					12
-+#define SYSCRG_NE_RSTN_INT_CTRL_APB				13
-+#define SYSCRG_NE_RSTN_PWM_8CH_APB				14
-+#define SYSCRG_NE_RSTN_WDT0					15
-+#define SYSCRG_NE_RSTN_SPI0					16
-+#define SYSCRG_NE_RSTN_SPI1					17
-+#define SYSCRG_NE_RSTN_I2C0					18
-+#define SYSCRG_NE_RSTN_I2C1					19
-+#define SYSCRG_NE_RSTN_I2C2					20
-+#define SYSCRG_NE_RSTN_I2C3					21
-+#define SYSCRG_NE_RSTN_I2C4					22
-+#define SYSCRG_NE_RSTN_I2C5					23
-+#define SYSCRG_NE_RSTN_UART0					24
-+#define SYSCRG_NE_RSTN_UART1					25
-+#define SYSCRG_NE_RSTN_UART2					26
-+#define SYSCRG_NE_RSTN_UART3					27
-+#define SYSCRG_NE_RSTN_UART4					28
-+#define SYSCRG_NE_RSTN_MAILBOX_PRESETN				29
-+#define SYSCRG_NE_RSTN_TIMER0_APB				30
-+#define SYSCRG_NE_RSTN_TIMER0_CH0				31
-+
-+/*
-+ * syscrg_ne: assert1
++ * StarFive JH8100 System Clock Driver
++ *
++ * Copyright (C) 2023 StarFive Technology Co., Ltd.
++ *
++ * Author: Jee Heng Sia <jeeheng.sia@starfivetech.com>
++ *
 + */
 +
-+#define SYSCRG_NE_RSTN_TIMER0_CH1				32
-+#define SYSCRG_NE_RSTN_TIMER0_CH2				33
-+#define SYSCRG_NE_RSTN_TIMER0_CH3				34
-+#define SYSCRG_NE_RSTN_TIMER1_APB				35
-+#define SYSCRG_NE_RSTN_TIMER1_CH0				36
-+#define SYSCRG_NE_RSTN_TIMER1_CH1				37
-+#define SYSCRG_NE_RSTN_TIMER1_CH2				38
-+#define SYSCRG_NE_RSTN_TIMER1_CH3				39
-+#define SYSCRG_NE_RSTN_I2S0_RSTN_APB				40
-+#define SYSCRG_NE_RSTN_I2S1_RSTN_APB				41
-+#define SYSCRG_NE_RSTN_I2S2_RSTN_APB				42
-+#define SYSCRG_NE_RSTN_I2S0_STEREO_APB				43
-+#define SYSCRG_NE_RSTN_PDM					44
-+#define SYSCRG_NE_RSTN_CAN0					45
-+#define SYSCRG_NE_RSTN_CAN1					46
-+#define SYSCRG_NE_RSTN_SMBUS0					47
-+#define SYSCRG_NE_RSTN_SYS_IOMUX_E				48
-+#define SYSCRG_NE_RSTN_DUBHE_TVSENSOR				49
++#include <linux/clk-provider.h>
++#include <linux/init.h>
++#include <linux/io.h>
++#include <linux/platform_device.h>
++#include <linux/slab.h>
 +
-+#define SYSCRG_NE_RESET_NR_RESETS				50
- #endif /* __DT_BINDINGS_RESET_STARFIVE_JH8100_H__ */
++#include <dt-bindings/clock/starfive,jh8100-crg.h>
++
++#include "clk-starfive-jh8100.h"
++
++/* external clocks */
++#define AONCRG_CLK_OSC			(AONCRG_CLK_END + 0)
++#define AONCRG_CLK_GMAC0_RMII_FUNC	(AONCRG_CLK_END + 1)
++#define AONCRG_CLK_AON_50		(AONCRG_CLK_END + 2)
++#define AONCRG_CLK_GMAC0_RGMII_FUNC	(AONCRG_CLK_END + 3)
++#define AONCRG_CLK_AON_125		(AONCRG_CLK_END + 4)
++#define AONCRG_CLK_AON_2000		(AONCRG_CLK_END + 5)
++#define AONCRG_CLK_AON_200		(AONCRG_CLK_END + 6)
++#define AONCRG_CLK_AON_667		(AONCRG_CLK_END + 7)
++#define AONCRG_CLK_RTC			(AONCRG_CLK_END + 8)
++
++static const struct starfive_clk_data jh8100_aoncrg_clk_data[] = {
++	/* source */
++	STARFIVE__MUX(AONCRG_CLK_GMAC0_RMII_REFIN, "aon_clk_gmac0_rmii_refin", 2,
++		      AONCRG_CLK_GMAC0_RMII_FUNC, AONCRG_CLK_AON_50),
++	STARFIVE__MUX(AONCRG_CLK_GMAC0_RGMII_RXIN, "aon_clk_gmac0_rgmii_rxin", 2,
++		      AONCRG_CLK_GMAC0_RGMII_FUNC, AONCRG_CLK_AON_125),
++	STARFIVE__DIV(AONCRG_CLK_GMAC0_GTXCLK, "aon_clk_gmac0_gtxclk", 50,
++		      AONCRG_CLK_AON_125),
++	STARFIVE__DIV(AONCRG_CLK_AON_1000, "aon_clk_aon_1000", 2,
++		      AONCRG_CLK_AON_2000),
++	STARFIVE__DIV(AONCRG_CLK_AON_400, "aon_clk_aon_400", 5,
++		      AONCRG_CLK_AON_2000),
++	STARFIVE__MUX(AONCRG_CLK_AON_400_POSTOSC, "aon_clk_aon_400_postosc", 2,
++		      AONCRG_CLK_OSC, AONCRG_CLK_AON_400),
++	STARFIVE__DIV(AONCRG_CLK_AON_500, "aon_clk_aon_500", 4,
++		      AONCRG_CLK_AON_2000),
++	STARFIVE__MUX(AONCRG_CLK_AON_500_POSTOSC, "aon_clk_aon_500_postosc", 2,
++		      AONCRG_CLK_OSC, AONCRG_CLK_AON_500),
++	STARFIVE__DIV(AONCRG_CLK_XSPI_PHY, "aon_clk_xspi_phy", 4,
++		      AONCRG_CLK_AON_200),
++	STARFIVE__DIV(AONCRG_CLK_AON_100, "aon_clk_aon_100", 2,
++		      AONCRG_CLK_AON_200),
++	STARFIVE__MUX(AONCRG_CLK_AON_100_POSTOSC, "aon_clk_aon_100_postosc", 2,
++		      AONCRG_CLK_OSC, AONCRG_CLK_AON_100),
++	STARFIVE__MUX(AONCRG_CLK_AON_50_POSTOSC, "aon_clk_aon_50_postosc", 2,
++		      AONCRG_CLK_OSC, AONCRG_CLK_AON_50),
++	STARFIVE_GATE(AONCRG_CLK_DDR50_POSTOCC_ICG, "aon_clk_ddr50_postocc", CLK_IS_CRITICAL,
++		      AONCRG_CLK_AON_50_POSTOSC),
++	STARFIVE_GATE(AONCRG_CLK_DDR100_POSTOCC_ICG, "aon_clk_ddr100_postocc", CLK_IS_CRITICAL,
++		      AONCRG_CLK_AON_100),
++	/* pufrt */
++	STARFIVE_GATE(AONCRG_CLK_PUFRT_APB, "aon_clk_pufrt_apb", CLK_IS_CRITICAL,
++		      AONCRG_CLK_OSC),
++	/* rtc hms */
++	STARFIVE_GATE(AONCRG_CLK_RTC_HMS_APB, "aon_clk_rtc_hms_apb", 0,
++		      AONCRG_CLK_OSC),
++	STARFIVE__DIV(AONCRG_CLK_RTC_INTERNAL, "aon_clk_rtc_internal", 1020,
++		      AONCRG_CLK_OSC),
++	STARFIVE__MUX(AONCRG_CLK_RTC_HMS_OSC32K, "aon_clk_rtc_hms_osc32k", 2,
++		      AONCRG_CLK_RTC, AONCRG_CLK_RTC_INTERNAL),
++	STARFIVE_GATE(AONCRG_CLK_RTC_HMS_CAL, "aon_clk_rtc_hms_cal", 0,
++		      AONCRG_CLK_OSC),
++	/* gmac5_axi128 */
++	STARFIVE_GATE(AONCRG_CLK_GMAC0_AXI128_AHB, "aon_clk_gmac0_axi128_ahb",
++		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_200),
++	STARFIVE_GATE(AONCRG_CLK_GMAC0_AXI128_MSTRCLK, "aon_clk_gmac0_axi128_mstrclk",
++		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_667),
++	STARFIVE_GATE(AONCRG_CLK_GMAC0_AXI128_AXI, "aon_clk_gmac0_axi128_axi",
++		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_400_POSTOSC),
++	STARFIVE__DIV(AONCRG_CLK_GMAC0_RMII_RTX, "aon_clk_gmac0_rmii_rtx", 30,
++		      AONCRG_CLK_GMAC0_RMII_REFIN),
++	STARFIVE_GMUX(AONCRG_CLK_GMAC0_AXI128_TX, "aon_clk_gmac0_axi128_tx",
++		      CLK_IGNORE_UNUSED, 2, AONCRG_CLK_GMAC0_GTXCLK,
++		      AONCRG_CLK_GMAC0_RMII_RTX),
++	STARFIVE_GINV(AONCRG_CLK_GMAC0_AXI128_TX_INV, "aon_clk_gmac0_axi128_tx_inv",
++		      CLK_IGNORE_UNUSED, AONCRG_CLK_GMAC0_AXI128_TX),
++	STARFIVE__MUX(AONCRG_CLK_GMAC0_AXI128_RX, "aon_clk_gmac0_axi128_rx", 2,
++		      AONCRG_CLK_GMAC0_RGMII_RXIN, AONCRG_CLK_GMAC0_RMII_RTX),
++	STARFIVE__INV(AONCRG_CLK_GMAC0_AXI128_RX_INV, "aon_clk_gmac0_axi128_rx_inv",
++		      AONCRG_CLK_GMAC0_AXI128_RX),
++	STARFIVE_GATE(AONCRG_CLK_GMAC0_GTXC, "aon_clk_gmac0_gtxc", CLK_IGNORE_UNUSED,
++		      AONCRG_CLK_GMAC0_GTXCLK),
++	/* xspi */
++	STARFIVE_GATE(AONCRG_CLK_XSPI_AXI, "aon_clk_xspi_axi", CLK_IGNORE_UNUSED,
++		      AONCRG_CLK_AON_200),
++	STARFIVE_GATE(AONCRG_CLK_XSPI_APB, "aon_clk_xspi_apb", CLK_IGNORE_UNUSED,
++		      AONCRG_CLK_OSC),
++	STARFIVE_GMUX(AONCRG_CLK_XSPI_XSPI_PHY, "aon_clk_xspi_xspi_phy", CLK_IGNORE_UNUSED, 2,
++		      AONCRG_CLK_OSC, AONCRG_CLK_XSPI_PHY),
++	/* tvsensor */
++	STARFIVE_GATE(AONCRG_CLK_TVSENSOR_PCLK, "aon_clk_tvsensor_pclk", CLK_IGNORE_UNUSED,
++		      AONCRG_CLK_OSC),
++	STARFIVE_GATE(AONCRG_CLK_TVSENSOR_TSADC, "aon_clk_tvsensor_tsadc", CLK_IGNORE_UNUSED,
++		      AONCRG_CLK_OSC),
++	STARFIVE_GDIV(AONCRG_CLK_TVSENSOR_BG, "aon_clk_tvsensor_bg",
++		      CLK_IGNORE_UNUSED, 3, AONCRG_CLK_OSC),
++	/* meu */
++	STARFIVE_GATE(AONCRG_CLK_MEU_PCLK_AP, "aon_clk_meu_pclk_ap", CLK_IGNORE_UNUSED,
++		      AONCRG_CLK_OSC),
++	STARFIVE_GATE(AONCRG_CLK_MEU_PCLK_SCP, "aon_clk_meu_pclk_scp", CLK_IGNORE_UNUSED,
++		      AONCRG_CLK_OSC),
++	STARFIVE_GATE(AONCRG_CLK_MEU_MEM_AXI, "aon_clk_meu_mem_axi", CLK_IGNORE_UNUSED,
++		      AONCRG_CLK_AON_200),
++	/* aximem_128b */
++	STARFIVE_GATE(AONCRG_CLK_AXIMEM_128B_ACLK, "aon_clk_aximem_128b_aclk", CLK_IS_CRITICAL,
++		      AONCRG_CLK_AON_200),
++	/* apb2bisr */
++	STARFIVE_GATE(AONCRG_CLK_APB2BISR_APB, "aon_clk_apb2bisr_apb", CLK_IGNORE_UNUSED,
++		      AONCRG_CLK_OSC),
++	STARFIVE_GATE(AONCRG_CLK_APB2BISR_BISR, "aon_clk_apb2bisr_bisr", CLK_IGNORE_UNUSED,
++		      AONCRG_CLK_OSC),
++	/* emmc */
++	STARFIVE_GATE(AONCRG_CLK_EMMC_S_PCLK, "aon_clk_emmc_s_pclk",
++		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_50_POSTOSC),
++	STARFIVE_GATE(AONCRG_CLK_EMMC_MSTRCLK, "aon_clk_emmc_mstrclk",
++		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_667),
++	STARFIVE_GATE(AONCRG_CLK_EMMC, "aon_clk_emmc",
++		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_200),
++	STARFIVE_GATE(AONCRG_CLK_EMMC_SDMCLK, "aon_clk_emmc_sdmclk",
++		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_200),
++	STARFIVE_GATE(AONCRG_CLK_EMMC_SDPHY_PCLK, "aon_clk_emmc_sdphy_pclk",
++		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_50_POSTOSC),
++	/* sdio */
++	STARFIVE_GATE(AONCRG_CLK_SDIO0_PCLK, "aon_clk_sdio0_pclk",
++		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_50_POSTOSC),
++	STARFIVE_GATE(AONCRG_CLK_SDIO0_MSTRCLK, "aon_clk_sdio0_mstrclk",
++		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_667),
++	STARFIVE_GATE(AONCRG_CLK_SDIO0, "aon_clk_sdio0",
++		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_200),
++	STARFIVE_GATE(AONCRG_CLK_SDIO0_SDMCLK, "aon_clk_sdio0_sdmclk",
++		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_200),
++	STARFIVE_GATE(AONCRG_CLK_SDIO0_SDPHY_PCLK, "aon_clk_sdio0_sdphy_pclk",
++		      CLK_IGNORE_UNUSED, AONCRG_CLK_AON_50_POSTOSC),
++	/* top */
++	STARFIVE_GATE(AONCRG_CLK_HCLK, "aon_clk_hclk", CLK_IS_CRITICAL,
++		      AONCRG_CLK_AON_200),
++	STARFIVE_GATE(AONCRG_CLK_ACLK, "aon_clk_aclk", CLK_IS_CRITICAL,
++		      AONCRG_CLK_AON_500_POSTOSC),
++	STARFIVE_GATE(AONCRG_CLK_PERF_MSTRCLK, "aon_clk_perf_mstrclk", CLK_IS_CRITICAL,
++		      AONCRG_CLK_AON_667),
++	STARFIVE_GATE(AONCRG_CLK_PERF_SLVCLK, "aon_clk_perf_slvclk", CLK_IS_CRITICAL,
++		      AONCRG_CLK_AON_500_POSTOSC),
++	STARFIVE_GDIV(AONCRG_CLK_GCLK0, "aon_clk_gclk0",
++		      CLK_IS_CRITICAL, 100, AONCRG_CLK_AON_1000),
++	STARFIVE_GATE(AONCRG_CLK_GCLK_OSC, "aon_clk_gclk_osc", CLK_IS_CRITICAL,
++		      AONCRG_CLK_OSC),
++	/* icg_en */
++	STARFIVE_GATE(AONCRG_CLK_RTC_ICG_EN, "aon_clk_rtc_en", CLK_IGNORE_UNUSED,
++		      AONCRG_CLK_OSC),
++	STARFIVE_GATE(AONCRG_CLK_GMAC0_ICG_EN, "aon_clk_gmac0_en", 0,
++		      AONCRG_CLK_GMAC0_GTXCLK),
++	STARFIVE_GATE(AONCRG_CLK_XSPI_ICG_EN, "aon_clk_xspi_en", 0,
++		      AONCRG_CLK_OSC),
++	STARFIVE_GATE(AONCRG_CLK_TVSENSOR0_ICG_EN, "aon_clk_tvsensor0_en", 0,
++		      AONCRG_CLK_OSC),
++	STARFIVE_GATE(AONCRG_CLK_MEU_ICG_EN, "aon_clk_meu_en", CLK_IGNORE_UNUSED,
++		      AONCRG_CLK_OSC),
++	STARFIVE_GATE(AONCRG_CLK_APB2BISR_ICG_EN, "aon_clk_apb2bisr_en", CLK_IGNORE_UNUSED,
++		      AONCRG_CLK_OSC),
++	STARFIVE_GATE(AONCRG_CLK_EMMC_ICG_EN, "aon_clk_emmc_en", 0,
++		      AONCRG_CLK_AON_50_POSTOSC),
++	STARFIVE_GATE(AONCRG_CLK_SDIO0_ICG_EN, "aon_clk_sdio0_en", 0,
++		      AONCRG_CLK_AON_50_POSTOSC),
++	STARFIVE_GATE(AONCRG_CLK_TOP_ICG_EN, "aon_clk_top_en", CLK_IGNORE_UNUSED,
++		      AONCRG_CLK_AON_500_POSTOSC),
++};
++
++static struct clk_hw *jh8100_aoncrg_clk_get(struct of_phandle_args *clkspec, void *data)
++{
++	struct starfive_clk_priv *priv = data;
++	unsigned int idx = clkspec->args[0];
++
++	if (idx < AONCRG_CLK_END)
++		return &priv->reg[idx].hw;
++
++	return ERR_PTR(-EINVAL);
++}
++
++static int __init jh8100_aoncrg_probe(struct platform_device *pdev)
++{
++	struct starfive_clk_priv *priv;
++	unsigned int idx;
++	int ret;
++
++	priv = devm_kzalloc(&pdev->dev,
++			    struct_size(priv, reg, AONCRG_CLK_END),
++			    GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++
++	spin_lock_init(&priv->rmw_lock);
++	priv->dev = &pdev->dev;
++	priv->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(priv->base))
++		return PTR_ERR(priv->base);
++
++	for (idx = 0; idx < AONCRG_CLK_END; idx++) {
++		u32 max = jh8100_aoncrg_clk_data[idx].max;
++		struct clk_parent_data parents[4] = {};
++		struct clk_init_data init = {
++			.name = jh8100_aoncrg_clk_data[idx].name,
++			.ops = starfive_clk_ops(max),
++			.parent_data = parents,
++			.num_parents =
++				((max & STARFIVE_CLK_MUX_MASK) >> STARFIVE_CLK_MUX_SHIFT) + 1,
++			.flags = jh8100_aoncrg_clk_data[idx].flags,
++		};
++		struct starfive_clk *clk = &priv->reg[idx];
++		unsigned int i;
++
++		for (i = 0; i < init.num_parents; i++) {
++			unsigned int pidx = jh8100_aoncrg_clk_data[idx].parents[i];
++
++			if (pidx < AONCRG_CLK_END)
++				parents[i].hw = &priv->reg[pidx].hw;
++			else if (pidx == AONCRG_CLK_OSC)
++				parents[i].fw_name = "clk_osc";
++			else if (pidx == AONCRG_CLK_GMAC0_RMII_FUNC)
++				parents[i].fw_name = "clk_gmac0_rmii_func";
++			else if (pidx == AONCRG_CLK_AON_50)
++				parents[i].fw_name = "clk_aon50";
++			else if (pidx == AONCRG_CLK_GMAC0_RGMII_FUNC)
++				parents[i].fw_name = "clk_gmac0_rgmii_func";
++			else if (pidx == AONCRG_CLK_AON_125)
++				parents[i].fw_name = "clk_aon125";
++			else if (pidx == AONCRG_CLK_AON_2000)
++				parents[i].fw_name = "clk_aon2000";
++			else if (pidx == AONCRG_CLK_AON_200)
++				parents[i].fw_name = "clk_aon200";
++			else if (pidx == AONCRG_CLK_AON_667)
++				parents[i].fw_name = "clk_aon667";
++			else if (pidx == AONCRG_CLK_RTC)
++				parents[i].fw_name = "clk_rtc";
++		}
++
++		clk->hw.init = &init;
++		clk->idx = idx;
++		clk->max_div = max & STARFIVE_CLK_DIV_MASK;
++
++		ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
++		if (ret)
++			return ret;
++	}
++
++	ret = devm_of_clk_add_hw_provider(&pdev->dev, jh8100_aoncrg_clk_get, priv);
++	if (ret)
++		return ret;
++
++	return jh8100_reset_controller_register(priv, "rst-aon", 4);
++}
++
++static const struct of_device_id jh8100_aoncrg_match[] = {
++	{ .compatible = "starfive,jh8100-aoncrg" },
++	{ /* sentinel */ }
++};
++
++static struct platform_driver jh8100_aoncrg_driver = {
++	.driver = {
++		.name = "clk-starfive-jh8100-aon",
++		.of_match_table = jh8100_aoncrg_match,
++		.suppress_bind_attrs = true,
++	},
++};
++builtin_platform_driver_probe(jh8100_aoncrg_driver, jh8100_aoncrg_probe);
 -- 
 2.34.1
 
