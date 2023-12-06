@@ -4,121 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 801D3C10F04
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 08:47:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1928C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 08:56:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=qYV/uB2OU4EjbiF0UmoxM/uLvfBFPfEbBWhEj0yzwxo=; b=vNh8VkPyRMFUhR
-	kNeUMFQ5mucEA9WJe0dF3KEO7M7CCnI0YGYzbwYmMfWoTr//uiwwEXEAk6omfrq1J0V4nYCb5UVUs
-	xrR/c69nTYeVCblB0Dyn2qtN2fgTaF+V6XhEfodlvsEyGV47NIFOTROx4byRYykG2kSwzY5eqB+hZ
-	nvMzYoxUb+w822jNXbmPIwEHEQdMyQZ1lnM+zzpSAXwtpgcSteCJa/hVJayAXhIoW0cs9NCD9zQ3f
-	QR45gvqkVguISbYFq54GiQP5iZZ2aXXowaezd84Jg7ZmIV/c/UeMFHc9vsOgczSLDxWS5XYXUnMQm
-	riS8ICDynVFn/iweQ/Yw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8PC0aQXakm1VoWPKkuiC1eNwPBVsui/sny3IRBTwGQ0=; b=lptCYm871WZVou5RPplhRMZZPG
+	DpXC3A+RETmopAplrQvHdJwb+ZeK/G2PXGoKoNyGhNn4xILXTc20hkncn4GkIMgJ8blP7nVbBUMY3
+	JBvhGn1XzJLxo4RYLGfvJ1sCPcxw58NeU2qxI9EEl1p+JwdQq7tcKnOseJf10VaST6PDVaJwi3X+c
+	92ZqGxVSuiku7L+Rzap5RY5bcKClwVRX8vxRQNQib4GH3HmW4xgKaVTAmRd2LfF6WpxbJY5RBVh7S
+	rRmgab7E4X6hPpER10rNkcY9Ir7q6z9xNH/3Qeh6atgDLrZYgXPXBNYHFiYHIRomDDYZYvW6asWNq
+	OBpTgiEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAnYh-009SiZ-0m;
-	Wed, 06 Dec 2023 08:47:07 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1rAnhO-009Tyi-14;
+	Wed, 06 Dec 2023 08:56:06 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAnYb-009Sbu-1L
+	id 1rAnhK-009Txc-2r
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 08:47:04 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20231206084653euoutp0106c729ba26bdef9be175635841fadef0~eMcDR0xf81436414364euoutp01F
-	for <linux-riscv@lists.infradead.org>; Wed,  6 Dec 2023 08:46:53 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20231206084653euoutp0106c729ba26bdef9be175635841fadef0~eMcDR0xf81436414364euoutp01F
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1701852413;
-	bh=q4PDyyNqpXrVYosR/HC3mCzskrZhduX/SJA9wFZBRGQ=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=norDNfMz9S/Nh3vaYyTm4VbDjjG8HNp0TKznQRQB9Lt7O1zQ2hDWbk2/MCjTXL2f4
-	 ymfrcRx3K64hR2Fj7QlsQW5GiVDelQ8RrYPa7KAFaUXeshEc/5d/fMMoODNCNz+ovf
-	 1vb0YyoHEtBKlnRjkiXK1qB6ZxLVoIGB/cPkLJvc=
-Received: from eusmges2new.samsung.com (unknown [203.254.199.244]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
-	20231206084653eucas1p134fc27cc2ae2ffa9e188dc16ec92124f~eMcDA9mPa1222412224eucas1p12;
-	Wed,  6 Dec 2023 08:46:53 +0000 (GMT)
-Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
-	eusmges2new.samsung.com (EUCPMTA) with SMTP id 13.8E.09814.DF430756; Wed,  6
-	Dec 2023 08:46:53 +0000 (GMT)
-Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20231206084652eucas1p1fd6025710032f3a4a64b05dab67a2a17~eMcCjv-FX1414014140eucas1p1n;
-	Wed,  6 Dec 2023 08:46:52 +0000 (GMT)
-Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
-	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20231206084652eusmtrp1d620095f901b15e13a8be0efb99d76c0~eMcCiyr-G3235332353eusmtrp1m;
-	Wed,  6 Dec 2023 08:46:52 +0000 (GMT)
-X-AuditID: cbfec7f4-711ff70000002656-24-657034fd7a96
-Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
-	eusmgms1.samsung.com (EUCPMTA) with SMTP id 0E.66.09146.CF430756; Wed,  6
-	Dec 2023 08:46:52 +0000 (GMT)
-Received: from AMDC4653.digital.local (unknown [106.120.51.32]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20231206084651eusmtip2f53b5a0cf2e7c5c077a9d3d4f416831d~eMcBy9Z122879728797eusmtip2P;
-	Wed,  6 Dec 2023 08:46:51 +0000 (GMT)
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-To: linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Atish Patra
-	<atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>, Will Deacon
-	<will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>, Luis Chamberlain
-	<mcgrof@kernel.org>, =?UTF-8?q?Thomas=20Wei=C3=9Fschuh?=
-	<linux@weissschuh.net>
-Subject: [PATCH] drivers: perf: constify the ctl_table argument of the riscv
- user access handler
-Date: Wed,  6 Dec 2023 09:46:42 +0100
-Message-Id: <20231206084642.802053-1-m.szyprowski@samsung.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 06 Dec 2023 08:56:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 21683CE109B;
+	Wed,  6 Dec 2023 08:56:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 099CBC433C7;
+	Wed,  6 Dec 2023 08:55:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1701852959;
+	bh=uqJ2ogRI4+ju5OsB6hLf+EL9NrtDGWD6YncJoNoFRNs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uCSwwhTO/Bb/bXAOmJzeO7ZciWS+KvoUrsOoVSKe6uHyCD9pDRlFxKazoBy7DQ8If
+	 uBQMGLf3jZSnpm0G3yc97m1ZCG7Yqu/eHgblLeWeMLQ+th5ByxzrLf+ouya+9XPdIC
+	 zqPRpSvWtZX+5NSSUzFtxGhCdEinxHetFvOe+nS2ptzEClNbFHbj/zSro+xapgGm/U
+	 mGH5pq6+86NIatAsGsl4rkZQtv+Hrs+Bdlq37AX7w5Tj+Xf/g2idlhXIPVweKUfC2e
+	 6TgEcOErUM3AZiLkkrxH8nMlpPu8X+/N43Exsw4Bn3Va6YN1NUsfCt3R8E3i0UlYx0
+	 /74Z/w0fi6XUg==
+Date: Wed, 6 Dec 2023 09:55:56 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Keith Zhao <keith.zhao@starfivetech.com>
+Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, tzimmermann@suse.de, 
+	airlied@gmail.com, krzysztof.kozlowski+dt@linaro.org, william.qiu@starfivetech.com, 
+	xingyu.wu@starfivetech.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, 
+	palmer@dabbelt.com, p.zabel@pengutronix.de, shengyang.chen@starfivetech.com, 
+	jack.zhu@starfivetech.com, changhuang.liang@starfivetech.com, 
+	maarten.lankhorst@linux.intel.com, suijingfeng@loongson.cn
+Subject: Re: [v3 4/6] drm/vs: Add KMS crtc&plane
+Message-ID: <o4ica2jg2rqfx6znir6j7mkoojoqzejjuqvlwcnehanw5mvop6@a3t6vi7c55tz>
+References: <20231204123315.28456-1-keith.zhao@starfivetech.com>
+ <20231204123315.28456-5-keith.zhao@starfivetech.com>
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrEKsWRmVeSWpSXmKPExsWy7djPc7p/TQpSDd4sZ7Zo+fCO1WLr71ns
-	Fh3n3CzOdOdabHp8jdXi8q45bBbbPrewWfz+8YzJYu2Ru+wWS69fZLK4MeEpo8XLyz3MFm2z
-	+C1a7pg68HmsmbeG0eNax0YWj6m/z7B4zG64yOLx5uVLFo/DHV/YPTat6mTz2Lyk3qNvyypG
-	j0vN19k9Pm+S8+jvPsYewBPFZZOSmpNZllqkb5fAlbGzVbJgCnvFqwkVDYyNbF2MnBwSAiYS
-	n5fNArK5OIQEVjBKfF76jhXC+cIocXlZIxOE85lR4sXSZawwLTv2/YCqWs4ocah/GjNIAqzl
-	/1JLEJtNwFCi620X2A4RgUyJA49mgDUwC+xllti2fDojSEJYIEli/u1HYM0sAqoSL2+tB9vA
-	K2An0Tb7DQvENnmJ/QfPMkPEBSVOznwCFmcGijdvnc0MMlRC4AeHRNu+FiaIBheJ0ztmQX0n
-	LPHq+BZ2CFtG4vTkHhaIhnZGiQW/7zNBOBMYJRqe32KEqLKWuHPuF1A3B9AKTYn1u/Qhwo4S
-	Ox4vYgEJSwjwSdx4KwhxBJ/EpG3TmSHCvBIdbUIQ1WoSs46vg1t78MIlZgjbQ2L3q1eMkMCK
-	lXiy9THrBEaFWUhem4XktVkINyxgZF7FKJ5aWpybnlpslJdarlecmFtcmpeul5yfu4kRmOxO
-	/zv+ZQfj8lcf9Q4xMnEwHmKU4GBWEuHNOZ+fKsSbklhZlVqUH19UmpNafIhRmoNFSZxXNUU+
-	VUggPbEkNTs1tSC1CCbLxMEp1cC06ek8e22P99aLPqky9Au82OEvL/uCbYlvZ+7buj8sQp/O
-	Ncyct2rnprnz1z1i0KiTLoh/sK7p/+HA7qTW6ish8eLVlXxM3HcLOM/Eqlf/+Hom9enk6brv
-	30Z5ru/cViZ65sjCbwZGnOqiLn79AhIq07azMYQdYo3ulY4+vHKrPeuswh9pbVVu4S6XHDuD
-	Q131o3WWP80X7Sq6teB//rktVW/urzPa7PBY+QxvS/auZZp2jSaNObM2TneQ3q+bv1pbR43j
-	nNR9c4MnWhybKpbW/o3P17olwyl22OHq9KKYdTOM1l/MO1Gqpp22u/bzvAov2dV6QTplxwuN
-	/Tkvbo/KTt24wFli3bE9DpJKXEosxRmJhlrMRcWJAGGMYfLlAwAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrBIsWRmVeSWpSXmKPExsVy+t/xe7p/TApSDbZsULJo+fCO1WLr71ns
-	Fh3n3CzOdOdabHp8jdXi8q45bBbbPrewWfz+8YzJYu2Ru+wWS69fZLK4MeEpo8XLyz3MFm2z
-	+C1a7pg68HmsmbeG0eNax0YWj6m/z7B4zG64yOLx5uVLFo/DHV/YPTat6mTz2Lyk3qNvyypG
-	j0vN19k9Pm+S8+jvPsYewBOlZ1OUX1qSqpCRX1xiqxRtaGGkZ2hpoWdkYqlnaGwea2VkqqRv
-	Z5OSmpNZllqkb5egl7GzVbJgCnvFqwkVDYyNbF2MnBwSAiYSO/b9YO1i5OIQEljKKLH04FMm
-	iISMxMlpDawQtrDEn2tdbBBFnxglmn7MYQRJsAkYSnS97QKbJCKQLbH98wR2kCJmgaPMEtNW
-	vgabJCyQIHHp5XIwm0VAVeLlrfVgU3kF7CTaZr9hgdggL7H/4FlmiLigxMmZT8DizEDx5q2z
-	mScw8s1CkpqFJLWAkWkVo0hqaXFuem6xoV5xYm5xaV66XnJ+7iZGYJRtO/Zz8w7Gea8+6h1i
-	ZOJgPMQowcGsJMKbcz4/VYg3JbGyKrUoP76oNCe1+BCjKdB9E5mlRJPzgXGeVxJvaGZgamhi
-	ZmlgamlmrCTO61nQkSgkkJ5YkpqdmlqQWgTTx8TBKdXAtPKcUm3ppeyeL72xRsYvNk/3En21
-	LHPn8TL26X098TJOe9cU61xuez7HyCu9UyflxiLbTSUt8prPHrJUH/L55fHuY4HttMd1//aX
-	ZG+RLfOK4os0fZ32TFPhpdERbsmzB6QdHplYewl/2cg7w1O/K+mxd8TyqvqpCxwXXDhS+MLk
-	1dHSlU2fQ9dkhKqv7gwrX/dK+kdHQVFIyro74f+WK7Xvr9vuqrfx+LoHE2Zkqn1bXOIadzt5
-	1tInLLmLdDeuz3YRVW+ftvbbt5etp6fMjeX8flhccZVESu2SrvRDG7keV9wuj5msF7j7yUz3
-	34vZBIWP3PR/NWmm78wFckk98y0WmD62F64PnSz1nyUgVomlOCPRUIu5qDgRAG1C6e07AwAA
-X-CMS-MailID: 20231206084652eucas1p1fd6025710032f3a4a64b05dab67a2a17
-X-Msg-Generator: CA
-X-RootMTR: 20231206084652eucas1p1fd6025710032f3a4a64b05dab67a2a17
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20231206084652eucas1p1fd6025710032f3a4a64b05dab67a2a17
-References: <CGME20231206084652eucas1p1fd6025710032f3a4a64b05dab67a2a17@eucas1p1.samsung.com>
+In-Reply-To: <20231204123315.28456-5-keith.zhao@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_004702_067574_DC6A14BA 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20231206_005603_393757_D73D9532 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,39 +72,444 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2998461079911625885=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-Fix riscv build break after commit c8be9e66ca1e ("sysctl: treewide:
-constify the ctl_table argument of handlers").
+--===============2998461079911625885==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="dtxa2tapzrbxyrb6"
+Content-Disposition: inline
 
-Fixes: c8be9e66ca1e ("sysctl: treewide: constify the ctl_table argument of handlers")
-Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
----
- drivers/perf/riscv_pmu_sbi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 16acd4dcdb96..97e345f7d25d 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -986,7 +986,7 @@ static void riscv_pmu_update_counter_access(void *info)
- 		csr_write(CSR_SCOUNTEREN, 0x2);
- }
- 
--static int riscv_pmu_proc_user_access_handler(struct ctl_table *table,
-+static int riscv_pmu_proc_user_access_handler(const struct ctl_table *table,
- 					      int write, void *buffer,
- 					      size_t *lenp, loff_t *ppos)
- {
--- 
-2.34.1
+--dtxa2tapzrbxyrb6
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
+On Mon, Dec 04, 2023 at 08:33:13PM +0800, Keith Zhao wrote:
+> +static const struct vs_plane_info dc_hw_planes_rev0[PLANE_NUM] = {
+> +	{
+> +		.name			= "Primary",
+> +		.id			= PRIMARY_PLANE_0,
+> +		.type			= DRM_PLANE_TYPE_PRIMARY,
+> +		.num_formats		= ARRAY_SIZE(primary_overlay_format0),
+> +		.formats		= primary_overlay_format0,
+> +		.num_modifiers		= ARRAY_SIZE(format_modifier0),
+> +		.modifiers		= format_modifier0,
+> +		.min_width		= 0,
+> +		.min_height		= 0,
+> +		.max_width		= 4096,
+> +		.max_height		= 4096,
+> +		.rotation		= DRM_MODE_ROTATE_0 |
+> +					  DRM_MODE_ROTATE_90 |
+> +					  DRM_MODE_ROTATE_180 |
+> +					  DRM_MODE_ROTATE_270 |
+> +					  DRM_MODE_REFLECT_X |
+> +					  DRM_MODE_REFLECT_Y,
+> +		.blend_mode		= BIT(DRM_MODE_BLEND_PIXEL_NONE) |
+> +					  BIT(DRM_MODE_BLEND_PREMULTI) |
+> +					  BIT(DRM_MODE_BLEND_COVERAGE),
+> +		.color_encoding		= BIT(DRM_COLOR_YCBCR_BT709) |
+> +					  BIT(DRM_COLOR_YCBCR_BT2020),
+> +		.degamma_size		= DEGAMMA_SIZE,
+> +		.min_scale		= FRAC_16_16(1, 3),
+> +		.max_scale		= FRAC_16_16(10, 1),
+> +		.zpos			= 0,
+> +		.watermark		= true,
+> +		.color_mgmt		= true,
+> +		.roi			= true,
+> +	},
+> +	{
+> +		.name			= "Overlay",
+> +		.id			= OVERLAY_PLANE_0,
+> +		.type			= DRM_PLANE_TYPE_OVERLAY,
+> +		.num_formats		= ARRAY_SIZE(primary_overlay_format0),
+> +		.formats		= primary_overlay_format0,
+> +		.num_modifiers		= ARRAY_SIZE(format_modifier0),
+> +		.modifiers		= format_modifier0,
+> +		.min_width		= 0,
+> +		.min_height		= 0,
+> +		.max_width		= 4096,
+> +		.max_height		= 4096,
+> +		.rotation		= DRM_MODE_ROTATE_0 |
+> +					  DRM_MODE_ROTATE_90 |
+> +					  DRM_MODE_ROTATE_180 |
+> +					  DRM_MODE_ROTATE_270 |
+> +					  DRM_MODE_REFLECT_X |
+> +					  DRM_MODE_REFLECT_Y,
+> +		.blend_mode		= BIT(DRM_MODE_BLEND_PIXEL_NONE) |
+> +					  BIT(DRM_MODE_BLEND_PREMULTI) |
+> +					  BIT(DRM_MODE_BLEND_COVERAGE),
+> +		.color_encoding		= BIT(DRM_COLOR_YCBCR_BT709) |
+> +					  BIT(DRM_COLOR_YCBCR_BT2020),
+> +		.degamma_size		= DEGAMMA_SIZE,
+> +		.min_scale		= FRAC_16_16(1, 3),
+> +		.max_scale		= FRAC_16_16(10, 1),
+> +		.zpos			= 1,
+> +		.watermark		= true,
+> +		.color_mgmt		= true,
+> +		.roi			= true,
+> +	},
+> +	{
+> +		.name			= "Overlay_1",
+> +		.id			= OVERLAY_PLANE_1,
+> +		.type			= DRM_PLANE_TYPE_OVERLAY,
+> +		.num_formats		= ARRAY_SIZE(primary_overlay_format0),
+> +		.formats		= primary_overlay_format0,
+> +		.num_modifiers		= ARRAY_SIZE(secondary_format_modifiers),
+> +		.modifiers		= secondary_format_modifiers,
+> +		.min_width		= 0,
+> +		.min_height		= 0,
+> +		.max_width		= 4096,
+> +		.max_height		= 4096,
+> +		.rotation		= 0,
+> +		.blend_mode		= BIT(DRM_MODE_BLEND_PIXEL_NONE) |
+> +					  BIT(DRM_MODE_BLEND_PREMULTI) |
+> +					  BIT(DRM_MODE_BLEND_COVERAGE),
+> +		.color_encoding		= BIT(DRM_COLOR_YCBCR_BT709) |
+> +					  BIT(DRM_COLOR_YCBCR_BT2020),
+> +		.degamma_size		= DEGAMMA_SIZE,
+> +		.min_scale		= DRM_PLANE_NO_SCALING,
+> +		.max_scale		= DRM_PLANE_NO_SCALING,
+> +		.zpos			= 2,
+> +		.watermark		= true,
+> +		.color_mgmt		= true,
+> +		.roi			= true,
+> +	},
+> +	{
+> +		.name			= "Primary_1",
+> +		.id			= PRIMARY_PLANE_1,
+> +		.type			= DRM_PLANE_TYPE_PRIMARY,
+> +		.num_formats		= ARRAY_SIZE(primary_overlay_format0),
+> +		.formats		= primary_overlay_format0,
+> +		.num_modifiers		= ARRAY_SIZE(format_modifier0),
+> +		.modifiers		= format_modifier0,
+> +		.min_width		= 0,
+> +		.min_height		= 0,
+> +		.max_width		= 4096,
+> +		.max_height		= 4096,
+> +		.rotation		= DRM_MODE_ROTATE_0 |
+> +					  DRM_MODE_ROTATE_90 |
+> +					  DRM_MODE_ROTATE_180 |
+> +					  DRM_MODE_ROTATE_270 |
+> +					  DRM_MODE_REFLECT_X |
+> +					  DRM_MODE_REFLECT_Y,
+> +		.blend_mode		= BIT(DRM_MODE_BLEND_PIXEL_NONE) |
+> +					  BIT(DRM_MODE_BLEND_PREMULTI) |
+> +					  BIT(DRM_MODE_BLEND_COVERAGE),
+> +		.color_encoding		= BIT(DRM_COLOR_YCBCR_BT709) |
+> +					  BIT(DRM_COLOR_YCBCR_BT2020),
+> +		.degamma_size		= DEGAMMA_SIZE,
+> +		.min_scale		= FRAC_16_16(1, 3),
+> +		.max_scale		= FRAC_16_16(10, 1),
+> +		.zpos			= 3,
+> +		.watermark		= true,
+> +		.color_mgmt		= true,
+> +		.roi			= true,
+> +	},
+> +	{
+> +		.name			= "Overlay_2",
+> +		.id			= OVERLAY_PLANE_2,
+> +		.type			= DRM_PLANE_TYPE_OVERLAY,
+> +		.num_formats		= ARRAY_SIZE(primary_overlay_format0),
+> +		.formats		= primary_overlay_format0,
+> +		.num_modifiers		= ARRAY_SIZE(format_modifier0),
+> +		.modifiers		= format_modifier0,
+> +		.min_width		= 0,
+> +		.min_height		= 0,
+> +		.max_width		= 4096,
+> +		.max_height		= 4096,
+> +		.rotation		= DRM_MODE_ROTATE_0 |
+> +					  DRM_MODE_ROTATE_90 |
+> +					  DRM_MODE_ROTATE_180 |
+> +					  DRM_MODE_ROTATE_270 |
+> +					  DRM_MODE_REFLECT_X |
+> +					  DRM_MODE_REFLECT_Y,
+> +		.blend_mode		= BIT(DRM_MODE_BLEND_PIXEL_NONE) |
+> +					  BIT(DRM_MODE_BLEND_PREMULTI) |
+> +					  BIT(DRM_MODE_BLEND_COVERAGE),
+> +		.color_encoding		= BIT(DRM_COLOR_YCBCR_BT709) |
+> +					  BIT(DRM_COLOR_YCBCR_BT2020),
+> +		.degamma_size		= DEGAMMA_SIZE,
+> +		.min_scale		= FRAC_16_16(1, 3),
+> +		.max_scale		= FRAC_16_16(10, 1),
+> +		.zpos			= 4,
+> +		.watermark		= true,
+> +		.color_mgmt		= true,
+> +		.roi			= true,
+> +	},
+> +	{
+> +		.name			= "Overlay_3",
+> +		.id			= OVERLAY_PLANE_3,
+> +		.type			= DRM_PLANE_TYPE_OVERLAY,
+> +		.num_formats		= ARRAY_SIZE(primary_overlay_format0),
+> +		.formats		= primary_overlay_format0,
+> +		.num_modifiers		= ARRAY_SIZE(secondary_format_modifiers),
+> +		.modifiers		= secondary_format_modifiers,
+> +		.min_width		= 0,
+> +		.min_height		= 0,
+> +		.max_width		= 4096,
+> +		.max_height		= 4096,
+> +		.rotation		= 0,
+> +		.blend_mode		= BIT(DRM_MODE_BLEND_PIXEL_NONE) |
+> +					  BIT(DRM_MODE_BLEND_PREMULTI) |
+> +					  BIT(DRM_MODE_BLEND_COVERAGE),
+> +		.color_encoding		= BIT(DRM_COLOR_YCBCR_BT709) |
+> +					  BIT(DRM_COLOR_YCBCR_BT2020),
+> +		.degamma_size		= DEGAMMA_SIZE,
+> +		.min_scale		= DRM_PLANE_NO_SCALING,
+> +		.max_scale		= DRM_PLANE_NO_SCALING,
+> +		.zpos			= 5,
+> +		.watermark		= true,
+> +		.color_mgmt		= true,
+> +		.roi			= true,
+> +	},
+> +	{
+> +		.name			= "Cursor",
+> +		.id			= CURSOR_PLANE_0,
+> +		.type			= DRM_PLANE_TYPE_CURSOR,
+> +		.num_formats		= ARRAY_SIZE(cursor_formats),
+> +		.formats		= cursor_formats,
+> +		.num_modifiers		= 0,
+> +		.modifiers		= NULL,
+> +		.min_width		= 32,
+> +		.min_height		= 32,
+> +		.max_width		= 64,
+> +		.max_height		= 64,
+> +		.rotation		= 0,
+> +		.degamma_size		= 0,
+> +		.min_scale		= DRM_PLANE_NO_SCALING,
+> +		.max_scale		= DRM_PLANE_NO_SCALING,
+> +		.zpos			= 255,
+> +		.watermark		= false,
+> +		.color_mgmt		= false,
+> +		.roi			= false,
+> +	},
+> +	{
+> +		.name			= "Cursor_1",
+> +		.id			= CURSOR_PLANE_1,
+> +		.type			= DRM_PLANE_TYPE_CURSOR,
+> +		.num_formats		= ARRAY_SIZE(cursor_formats),
+> +		.formats		= cursor_formats,
+> +		.num_modifiers		= 0,
+> +		.modifiers		= NULL,
+> +		.min_width		= 32,
+> +		.min_height		= 32,
+> +		.max_width		= 64,
+> +		.max_height		= 64,
+> +		.rotation		= 0,
+> +		.degamma_size		= 0,
+> +		.min_scale		= DRM_PLANE_NO_SCALING,
+> +		.max_scale		= DRM_PLANE_NO_SCALING,
+> +		.zpos			= 255,
+> +		.watermark		= false,
+> +		.color_mgmt		= false,
+> +		.roi			= false,
+> +	},
+> +};
+> +
+> +static const struct vs_dc_info dc8200_info = {
+> +	.name			= "DC8200",
+> +	.panel_num		= 2,
+> +	.plane_num		= 8,
+> +	.planes			= dc_hw_planes_rev0,
+> +	.layer_num		= 6,
+> +	.max_bpc		= 10,
+> +	.color_formats		= DRM_COLOR_FORMAT_RGB444 |
+> +				  DRM_COLOR_FORMAT_YCBCR444 |
+> +				  DRM_COLOR_FORMAT_YCBCR422 |
+> +				  DRM_COLOR_FORMAT_YCBCR420,
+> +	.gamma_size		= GAMMA_EX_SIZE,
+> +	.gamma_bits		= 12,
+> +	.pitch_alignment	= 128,
+> +	.pipe_sync		= false,
+> +	.background		= true,
+> +	.panel_sync		= true,
+> +	.cap_dec		= true,
+> +};
+
+I really think that entire thing is to workaround a suboptimal device
+tree binding. You should have two CRTCs in the device tree, you'll probe
+twice, and you won't get to do that whole dance.
+
+
+> +struct dc_hw_plane_reg {
+> +	u32 y_address;
+> +	u32 u_address;
+> +	u32 v_address;
+> +	u32 y_stride;
+> +	u32 u_stride;
+> +	u32 v_stride;
+> +	u32 size;
+> +	u32 top_left;
+> +	u32 bottom_right;
+> +	u32 scale_factor_x;
+> +	u32 scale_factor_y;
+> +	u32 h_filter_coef_index;
+> +	u32 h_filter_coef_data;
+> +	u32 v_filter_coef_index;
+> +	u32 v_filter_coef_data;
+> +	u32 init_offset;
+> +	u32 color_key;
+> +	u32 color_key_high;
+> +	u32 clear_value;
+> +	u32 color_table_index;
+> +	u32 color_table_data;
+> +	u32 scale_config;
+> +	u32 water_mark;
+> +	u32 degamma_index;
+> +	u32 degamma_data;
+> +	u32 degamma_ex_data;
+> +	u32 src_global_color;
+> +	u32 dst_global_color;
+> +	u32 blend_config;
+> +	u32 roi_origin;
+> +	u32 roi_size;
+> +	u32 yuv_to_rgb_coef0;
+> +	u32 yuv_to_rgb_coef1;
+> +	u32 yuv_to_rgb_coef2;
+> +	u32 yuv_to_rgb_coef3;
+> +	u32 yuv_to_rgb_coef4;
+> +	u32 yuv_to_rgb_coefd0;
+> +	u32 yuv_to_rgb_coefd1;
+> +	u32 yuv_to_rgb_coefd2;
+> +	u32 y_clamp_bound;
+> +	u32 uv_clamp_bound;
+> +	u32 rgb_to_rgb_coef0;
+> +	u32 rgb_to_rgb_coef1;
+> +	u32 rgb_to_rgb_coef2;
+> +	u32 rgb_to_rgb_coef3;
+> +	u32 rgb_to_rgb_coef4;
+> +};
+
+That's your plane state.
+
+> +struct dc_hw_fb {
+> +	u32 y_address;
+> +	u32 u_address;
+> +	u32 v_address;
+> +	u32 clear_value;
+> +	u32 water_mark;
+> +	u16 y_stride;
+> +	u16 u_stride;
+> +	u16 v_stride;
+> +	u16 width;
+> +	u16 height;
+> +	u8	format;
+> +	u8	tile_mode;
+> +	u8	rotation;
+> +	u8	yuv_color_space;
+> +	u8	swizzle;
+> +	u8	uv_swizzle;
+> +	u8	zpos;
+> +	u8	display_id;
+> +	bool	clear_enable;
+> +	bool	dec_enable;
+> +	bool	enable;
+> +	bool	dirty;
+> +};
+
+Your framebuffer
+
+> +struct dc_hw_scale {
+> +	u32 scale_factor_x;
+> +	u32 scale_factor_y;
+> +	bool	enable;
+> +	bool	dirty;
+> +};
+> +
+> +struct dc_hw_position {
+> +	u16 start_x;
+> +	u16 start_y;
+> +	u16 end_x;
+> +	u16 end_y;
+> +	bool	dirty;
+> +};
+> +
+> +struct dc_hw_blend {
+> +	u8	alpha;
+> +	u8	blend_mode;
+> +	bool	dirty;
+> +};
+> +
+> +struct dc_hw_colorkey {
+> +	u32 colorkey;
+> +	u32 colorkey_high;
+> +	u8	transparency;
+> +	bool dirty;
+> +};
+
+Your CRTC state.
+
+> +struct dc_hw_roi {
+> +	u16 x;
+> +	u16 y;
+> +	u16 width;
+> +	u16 height;
+> +	bool enable;
+> +	bool dirty;
+> +};
+> +
+> +struct dc_hw_cursor {
+> +	u32 address;
+> +	u16 x;
+> +	u16 y;
+> +	u16 hot_x;
+> +	u16 hot_y;
+> +	u8	size;
+> +	u8	display_id;
+> +	bool	enable;
+> +	bool	dirty;
+> +};
+> +
+> +struct dc_hw_display {
+> +	u32 bus_format;
+> +	u16 h_active;
+> +	u16 h_total;
+> +	u16 h_sync_start;
+> +	u16 h_sync_end;
+> +	u16 v_active;
+> +	u16 v_total;
+> +	u16 v_sync_start;
+> +	u16 v_sync_end;
+> +	u8	id;
+> +	bool	h_sync_polarity;
+> +	bool	v_sync_polarity;
+> +	bool	enable;
+> +};
+
+Your display mode.
+
+Really, you have the huge majority of those informations already
+available, there's no need to duplicate it. And chances are you'll
+create bugs in the process.
+Maxime
+
+--dtxa2tapzrbxyrb6
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRcEzekXsqa64kGDp7j7w1vZxhRxQUCZXA3HAAKCRDj7w1vZxhR
+xZezAP0UJLYoF63qozP9Ic7D0t86zUYiWskfVpc1HI4HmdOblwD+Lk+XuNL28bo+
+9o/v+zD7uwcCLnQAPMpTa+SpW0YGKAY=
+=AhPP
+-----END PGP SIGNATURE-----
+
+--dtxa2tapzrbxyrb6--
+
+
+--===============2998461079911625885==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2998461079911625885==--
+
