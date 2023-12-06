@@ -4,77 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F678C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 14:12:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45F5CC4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 14:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FW/JxTjM45rzVDeZ3XbNNL1i2elmUnVnitW7nxpthKA=; b=GVOIaR0vy/J7Zn
-	qF9Ta4pgOAZQbiBKFapUx8GyhcVQlaNZlCxiAFz5UZO1Mdlxu3uKgnh7wmo6d5gQI8xDGBRSLzB2w
-	iG/mcCuLzaaAtJxiV2ENzuYbxQQEYCJ5PwbPXIIkmlMti96hPrtxbONLCoknO5+6UtrkiX+2aRHEE
-	ouRgBsi6BUEInCn2fp0YD9RSuzkuXDxyTQQgdgTyQP6W2SU9Z3vH/yp4WXueGx9SFaCKwkvmQszZC
-	8Em3wukZ/IgpdMIVj8NW1xelUoG15fMuYhAcYEHFsnxnqcB+dUMdb5B61eoC+S/cTfXhlMqFE4y9Z
-	+QQJWWrGJGwHGEGs17qA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=/yFs7dY1Pnd2gOa/XAnre9J/inRTCJYzd7IaBLHTV3k=; b=nWVU71rRi1VMaaZHr/a0aDEwcu
+	0Xqu/pcaMYn3H1w7L6+SiwPe6mJeXa0V2okMg7YUtv0YExcsksSrk7cAFyTW47P8cwTH2marmw+My
+	NX+i62mgvoPdEkBnWYkjrOO1vMWFQYme6z5EsDvuy/G+Z1WypAZvdcBvgz+fJ8kNySvoLmiSorL94
+	CKqZnZrHf005jnKRkyZV+XOfUyrB/A7RyZP+46qBR3dgg8R7tk3qnLVVw7C+PqCIp+46o+1emYHyt
+	ik5sYnVLTbQBlmLmA5mab7OBzI34x0j+n5JL9a2kYHroNTUXTrPAP+qLCO7LGLFhYJiUOs26HXBTi
+	Q1rvKbTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAsdD-00ASkj-0O;
-	Wed, 06 Dec 2023 14:12:07 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAsd7-00ASfe-2w
+	id 1rAsgv-00ATAA-2n;
+	Wed, 06 Dec 2023 14:15:57 +0000
+Received: from mail-oo1-xc2c.google.com ([2607:f8b0:4864:20::c2c])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1rAsgs-00AT9o-38
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 14:12:05 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 2B5FD8118;
-	Wed,  6 Dec 2023 22:11:34 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 6 Dec
- 2023 22:11:34 +0800
-Received: from [192.168.1.115] (180.164.60.184) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 6 Dec
- 2023 22:11:33 +0800
-Message-ID: <40cdd3c7-174e-4611-9ea6-22cb56d1f62b@starfivetech.com>
-Date: Wed, 6 Dec 2023 22:11:33 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v3 5/6] drm/vs: Add hdmi driver
-Content-Language: en-US
-To: Maxime Ripard <mripard@kernel.org>
-CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"tzimmermann@suse.de" <tzimmermann@suse.de>, "airlied@gmail.com"
-	<airlied@gmail.com>, "krzysztof.kozlowski+dt@linaro.org"
-	<krzysztof.kozlowski+dt@linaro.org>, William Qiu
-	<william.qiu@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "palmer@dabbelt.com"
-	<palmer@dabbelt.com>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
-	Shengyang Chen <shengyang.chen@starfivetech.com>, Jack Zhu
-	<jack.zhu@starfivetech.com>, Changhuang Liang
-	<changhuang.liang@starfivetech.com>, "maarten.lankhorst@linux.intel.com"
-	<maarten.lankhorst@linux.intel.com>, "suijingfeng@loongson.cn"
-	<suijingfeng@loongson.cn>
-References: <20231204123315.28456-1-keith.zhao@starfivetech.com>
- <20231204123315.28456-6-keith.zhao@starfivetech.com>
- <esetsiqgqpk35zue4c6aq7l6zn4kezhxkqqa7ompaz2vhdy3lr@4d5awfqgs2ss>
- <94a1f9fc-82fb-4a04-a44b-f9b20c2bdfdd@starfivetech.com>
- <abdl6kmighvpwojvafq443q7grn6w3abwpvw7zwbna4jvtsvjf@fa42rv46n2wh>
-From: Keith Zhao <keith.zhao@starfivetech.com>
-In-Reply-To: <abdl6kmighvpwojvafq443q7grn6w3abwpvw7zwbna4jvtsvjf@fa42rv46n2wh>
-X-Originating-IP: [180.164.60.184]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
+	Wed, 06 Dec 2023 14:15:56 +0000
+Received: by mail-oo1-xc2c.google.com with SMTP id 006d021491bc7-58d54612d9cso4478766eaf.1
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Dec 2023 06:15:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1701872153; x=1702476953; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zgKI2xyGODCiFPlxyU5+BAAYcrGDTRi9HM+3OhX+AwA=;
+        b=xuBTLcNRLhcu2LZF7qqEBWgIWfelSOHuLxJk7W0WZvLYwNSPHTPGq7FqQcKP9Jjiie
+         nDRAV7Ic/BgpMpglJTjXn9bDrH3SoVyKyDMQGCP7GYFLbXoRZl9ogjUuT4ViZj2k3yvW
+         FUK/rHQik4GtNjc+xzV1dXaojyqUI9/ec58nSpn+VX20noxN+8HLwOnXRtA51jiscZYt
+         TNEEGmQWCUyOrT+4OoE7Fb4C4IHBKHVQye3X0ZHN/mzyRLgdf45dTTGfqJ8iXsMUI9gj
+         WvDE/orgVNH9xFE8d7Eom2YMTfJutT7+nBAodHNnwNcItZZGlRlZESCxuhW1wISDTtje
+         lxnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701872153; x=1702476953;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zgKI2xyGODCiFPlxyU5+BAAYcrGDTRi9HM+3OhX+AwA=;
+        b=Wb5yQ9L752ciJUXr+jdnh0mMgtacxnBLIutpCdqTwtq+k+Ftrx8cD8bjmm2fRAqiyP
+         VOQGgTHYK6hvSsVYATXhyCACm7ZMaefOIhFgs+0JdYAElH4KFd1pFfpWzhBQmfWKKCue
+         Zi4RmgVkvEXpSj7bgLupjRa0+ANhRYxWf3mQ0KKCDdjmG5kmJHwCfDswIZNTiAuOqZD5
+         xYW+eqpNIN9eL7m4f2zwPm/ofwtbr8y15SDI/Wv2uuLwyxNBAvdPyHkMZghdV7D5me+f
+         uFxcqLYVi0PlYHNEQEKBaCIBINY3M6Svq/mUk7DYcWdFgT7bawDCSxH4Pxn/dutz+GnE
+         HbvA==
+X-Gm-Message-State: AOJu0YyUAtCv+DA2Lm/dbltZJ300mqVmGXzinQVsQ/RdGJKXtXHRXQUT
+	PIawPqGNozFcvoxO/wHu3b7JvQ==
+X-Google-Smtp-Source: AGHT+IFPf3FTqsWC/1qvU045Pf4RvgR8HF5dZsG26N9kr5zXhPC91ObgfpOIjJOaW1hEQNzaFZX8pA==
+X-Received: by 2002:a05:6820:80a:b0:581:e089:9e5c with SMTP id bg10-20020a056820080a00b00581e0899e5cmr1092075oob.6.1701872153415;
+        Wed, 06 Dec 2023 06:15:53 -0800 (PST)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id cn1-20020a056820230100b00581debbeeb4sm3836oob.1.2023.12.06.06.15.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 Dec 2023 06:15:52 -0800 (PST)
+Date: Wed, 06 Dec 2023 06:15:52 -0800 (PST)
+X-Google-Original-Date: Wed, 06 Dec 2023 06:15:51 PST (-0800)
+Subject: Re: [PATCH 2/2] membarrier: riscv: Provide core serializing command
+In-Reply-To: <ZXCA+4WyI6D+Somy@andrea>
+CC: mathieu.desnoyers@efficios.com, paulmck@kernel.org,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, mmaas@google.com, hboehm@google.com, striker@us.ibm.com,
+  charlie@rivosinc.com, rehn@rivosinc.com, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: parri.andrea@gmail.com
+Message-ID: <mhng-26a1b3dd-ca9e-4b82-86e9-1faf1e3571e5@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_061202_282427_B1E10795 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20231206_061555_217142_7899FE62 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,36 +88,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2023/12/6 20:56, Maxime Ripard wrote:
-> On Wed, Dec 06, 2023 at 08:02:55PM +0800, Keith Zhao wrote:
->> >> +static const struct of_device_id starfive_hdmi_dt_ids[] = {
->> >> +	{ .compatible = "starfive,jh7110-inno-hdmi",},
->> > 
->> > So it's inno hdmi, just like Rockchip then?
->> > 
->> > This should be a common driver.
+On Wed, 06 Dec 2023 06:11:07 PST (-0800), parri.andrea@gmail.com wrote:
+>> I see
 >>
->> Rockchip has a inno hdmi IP. and Starfive has a inno hdmi IP.
->> but the harewawre difference of them is big , it is not easy to use the common driver
->> maybe i need the inno hdmi version here to make a distinction
-> 
-> I just had a look at the rockchip header file: all the registers but the
-> STARFIVE_* ones are identical.
-> 
-> There's no need to have two identical drivers then, please use the
-> rockchip driver instead.
-> 
-> Maxime
+>> $ git grep "config MEMBARRIER" fab957c11efe2f405e08b9f0d080524bc2631428
+>> fab957c11efe2f405e08b9f0d080524bc2631428:init/Kconfig:config MEMBARRIER
+>>
+>> so IMO this is just one of those forever bugs.  So I'd lean towards
+>>
+>>    Fixes: fab957c11efe ("RISC-V: Atomic and Locking Code")
+>
+> Works for me, will apply in v2.
+>
+>
+>> (or anything in that original patch set).  It's not that big of a backport,
+>> so I think it's safe enough?
+>
+> Indeed, I think so.
+>
+> The final version of this fix will likely depend on some machinery/code
+> introduced by 3ccfebedd8cf54 ("powerpc, membarrier: Skip memory barrier
+> in switch_mm()"); but, yes, nothing we can't safely adjust I think.
 
-ok, have a simple test , edid can get . i will continue 
+Ya, I guess we'll have to look to know for sure but hopefully it's 
+manageable.
 
+> Thanks,
+>   Andrea
 
 _______________________________________________
 linux-riscv mailing list
