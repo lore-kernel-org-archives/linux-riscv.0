@@ -4,81 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE043C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 02:35:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E918C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 03:16:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b6zLa0l0IcIu2e3DT9NnsyJVrjA4uCYK1i79x/RPVVs=; b=IIJWDYS/wmTEkh
-	uuHDfN+ZepnsyKRweXiUvE67DbxOvO5fMlB4XKpZXKNtCKdcOeoRsb88mbdjkfVXXvgquxCI2JLw0
-	UTVVzD2+Y1i8XCFdufPXs0BpirXptKipaDVV8PNVMtM1WxO/AafzA2omFdjuocJ2URbWakcsr3oOw
-	n7hr0E2uZBHGBOUvSJcdw8PYF3OqfjFY0PgHN/2N9UjRtA5eS2OnOb+YB5CXVbqAZvO2qCt/AsKa9
-	lF5IJYkPv/9+Y7l3h2P9AfDhmyhl2GguPVIUKEUWSEYtIvXHOIofVsomPZLljqIAxpCReOq8M91BK
-	A2KZr8CN051xCnXsrHXQ==;
+	List-Owner; bh=yVF4x/z6gT3NjieviISlWP/4X1CZo17imJnR/Lymxko=; b=ZohhQ211rV15lw
+	dgOc41MA+otCCC6Uuoy2Lh84GJIHKZhja3oXuqs0U4Rpbm2qy44zGwr5NDlHZWWRwIqkBMJELpKJm
+	wdznHpJXnNgbK4/3btGTwqU0dAvlVdp7Cz5lQjcj3aPI5sS2e1rwpobyp1xIyAzBLPy8CdU8jYNXR
+	IntkVpfp8ZiSwMoEJsX+RkL0Pm1J0BO4Edf02UJbEKONYQAiCT4idsjNqa2cMEu5TmPQC7w1AWUUY
+	/2hzVSX66AEZKp6FA3c5Q68Ttq8yI1TjgNBGwwFZdlty+xvy5OxzEktcq1iz/RT/TSzMdLe7r0+Fj
+	AI7gYKFkHXmlin3kJBaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAhlF-008tee-1V;
-	Wed, 06 Dec 2023 02:35:41 +0000
-Received: from mail-yb1-xb29.google.com ([2607:f8b0:4864:20::b29])
+	id 1rAiOn-008wfX-2T;
+	Wed, 06 Dec 2023 03:16:33 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAhlD-008tdy-1b
-	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 02:35:40 +0000
-Received: by mail-yb1-xb29.google.com with SMTP id 3f1490d57ef6-d9caf5cc948so4779735276.0
-        for <linux-riscv@lists.infradead.org>; Tue, 05 Dec 2023 18:35:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1701830136; x=1702434936; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xlDuu53vbrn6lPFwY45IWnvR+3YA7mUVyinONkEtmto=;
-        b=fpts921WmqxXgJG47Mzivue321606veuhmFiBL3+F0XsIxm6QfzjotZyz3oK401/0u
-         V939KDZboduk5lGIsE9xbqxQ8VcRjJkbS/8Z01bA/+ZIOkgeWl7TILCEp3k6P5d/bg5c
-         Hh3KMvulw4iQ/LoWhHgsdIv6/X1Qr8oInCP6zeQ1Xh7FcW1kj2MIXFjiekU6thq5zjY+
-         pMCJTDAfLQ5gsWNyctCPcGr9e2SUvRh+QRgPluc9PeGfCWlNc1Xh21l+kjB/WbMIiOGA
-         l3rKKVDfC6g1Z9Iki3gqcmGllQgEjnFlT7cAmnTkXbVSfgbh7IF4uaIB1LyBC1oE7EPT
-         yjog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701830136; x=1702434936;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xlDuu53vbrn6lPFwY45IWnvR+3YA7mUVyinONkEtmto=;
-        b=qmrypzeB06qpXU8APRb2TrUu7GJ6pwI/GlLRJdxiM7CEqh7vV/hyipz6bEfQz84bM/
-         aNihCZyqoVIwOoeVfgvDJGEh/xG7GiKs8tf6pz82PRathLTafjnPH0i8uzC4pNUPeR9q
-         8eygFd8BSPINMpb1LuYDNMSQ1qIjxv79zPpfIzV5d3Pyy9F/pN4RyAmc7cPcFc22iJrv
-         93jJtQuYVVFbI+LldOzMsFZpWg4hEHMiFRkLXlIKy9p6BVN82cv7GYf7tqvz0PDfXrvO
-         2dXvO1VtAz1Q6vREJTgTRPDj67C7dOo8MyWXok03qfw/tFNSeu+rs8WGYCX0ltMtbMjQ
-         Y+lQ==
-X-Gm-Message-State: AOJu0YxLuuSGZpwkOrQc1TF+jnOkgwifSvY30yu4ItKS/9AXb2j0ahZZ
-	le18iXLkbBLRjIeGTIF1HReyADQfpmZm3ZCY0dyHLQ==
-X-Google-Smtp-Source: AGHT+IEAAK7nw9Tt/NLs1EhilQZoE6ZJOZfYmBJo7cb7QrMdkaOgVc2RlX9xN6TjZVgIA+w28XmZQLETw6at2bm172k=
-X-Received: by 2002:a05:6902:522:b0:db7:dacf:3faf with SMTP id
- y2-20020a056902052200b00db7dacf3fafmr126141ybs.92.1701830135801; Tue, 05 Dec
- 2023 18:35:35 -0800 (PST)
+	id 1rAiOj-008wbh-13;
+	Wed, 06 Dec 2023 03:16:31 +0000
+Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
+	by Atcsqr.andestech.com with ESMTP id 3B63EGaR027290;
+	Wed, 6 Dec 2023 11:14:16 +0800 (+08)
+	(envelope-from peterlin@andestech.com)
+Received: from APC323 (10.0.12.98) by ATCPCS16.andestech.com (10.0.1.222) with
+ Microsoft SMTP Server id 14.3.498.0; Wed, 6 Dec 2023 11:14:12 +0800
+Date: Wed, 6 Dec 2023 11:14:08 +0800
+From: Yu-Chien Peter Lin <peterlin@andestech.com>
+To: Inochi Amaoto <inochiama@outlook.com>
+Subject: Re: [PATCH v4 09/13] dt-bindings: riscv: Add T-Head PMU extension
+ description
+Message-ID: <ZW_nAMRDWoMo6t8r@APC323>
+References: <ZWhT_VSpl2aksVK7@APC323>
+ <IA1PR20MB4953460FE5BF431DD32CD860BB81A@IA1PR20MB4953.namprd20.prod.outlook.com>
 MIME-Version: 1.0
-References: <20231024101902.6689-1-nylon.chen@sifive.com> <20231024101902.6689-3-nylon.chen@sifive.com>
- <CAHh=Yk_i-tH-n_5wuwp6H8QRu3cZovkukDzMbeUZrgiih46V8g@mail.gmail.com> <21985579-e017-4a56-b5e3-697fd9d0c9d7@linaro.org>
-In-Reply-To: <21985579-e017-4a56-b5e3-697fd9d0c9d7@linaro.org>
-From: Nylon Chen <nylon.chen@sifive.com>
-Date: Wed, 6 Dec 2023 10:35:24 +0800
-Message-ID: <CAHh=Yk_=JJnBXVY4nrcmam6aQVN6Db=sPp59je=_BXj140QP3Q@mail.gmail.com>
-Subject: Re: [v5 2/2] pwm: sifive: change the PWM controlled LED algorithm
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	thierry.reding@gmail.com, u.kleine-koenig@pengutronix.de, 
-	emil.renner.berthing@canonical.com, vincent.chen@sifive.com, 
-	greentime.hu@sifive.com, zong.li@sifive.com, nylon7717@gmail.com
+Content-Disposition: inline
+In-Reply-To: <IA1PR20MB4953460FE5BF431DD32CD860BB81A@IA1PR20MB4953.namprd20.prod.outlook.com>
+User-Agent: Mutt/2.2.10 (2023-03-25)
+X-Originating-IP: [10.0.12.98]
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 3B63EGaR027290
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231205_183539_569070_489FC448 
-X-CRM114-Status: UNSURE (   9.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231205_191629_819208_C7D35D7C 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,19 +61,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: mark.rutland@arm.com, irogers@google.com, heiko@sntech.de, geert+renesas@glider.be, alexander.shishkin@linux.intel.com, paul.walmsley@sifive.com, linux-kernel@vger.kernel.org, conor.dooley@microchip.com, Guo Ren <guoren@kernel.org>, krzysztof.kozlowski+dt@linaro.org, linux-riscv@lists.infradead.org, will@kernel.org, linux-renesas-soc@vger.kernel.org, tim609@andestech.com, samuel@sholland.org, anup@brainfault.org, dminus@andestech.com, magnus.damm@gmail.com, jernej.skrabec@gmail.com, peterz@infradead.org, wens@csie.org, mingo@redhat.com, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, ajones@ventanamicro.com, devicetree@vger.kernel.org, conor+dt@kernel.org, aou@eecs.berkeley.edu, andre.przywara@arm.com, locus84@andestech.com, acme@kernel.org, prabhakar.mahadev-lad.rj@bp.renesas.com, robh+dt@kernel.org, atishp@atishpatra.org, namhyung@kernel.org, tglx@linutronix.de, jszhang@kernel.org, ycliang@andestech.com, n.shubin@yadro.com, rdunlap@infradead.org, adrian.hunter@intel.com, conor@kernel.org, linux-perf-users@vger.kernel.org, evan@rivosinc.com, palmer@dabbelt.com, jolsa@kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUGluZyBvbiB0aGUgc2VyaWVzLgoKVGhlIG1lcmdlIHdpbmRvdyBzaG91bGQgaGF2ZSBlbmRl
-ZC4KCklzIHRoZXJlIGFueXRoaW5nIG1vcmUgSSBjYW4gZG8gdG8gcHVzaCB0aGUgcHJvY2VzcyBm
-b3J3YXJkPwoKS3J6eXN6dG9mIEtvemxvd3NraSA8a3J6eXN6dG9mLmtvemxvd3NraUBsaW5hcm8u
-b3JnPiDmlrwgMjAyM+W5tDEx5pyIOeaXpSDpgLHlm5sg5LiL5Y2INDoyMuWvq+mBk++8mgo+Cj4g
-T24gMDkvMTEvMjAyMyAwODowMiwgTnlsb24gQ2hlbiB3cm90ZToKPiA+IEhpLCBQaW5nIG9uIHRo
-ZSBzZXJpZXMuCj4gPgo+ID4gVXdlLCBpcyB0aGVyZSBhbnl0aGluZyBtb3JlIEkgY2FuIGRvIHRv
-IHB1c2ggdGhlIHByb2Nlc3MgZm9yd2FyZD8KPgo+IEl0J3MgbWVyZ2Ugd2luZG93LiBXaGF0IGRv
-IHlvdSBleGFjdGx5IGV4cGVjdCB0byBoYXBwZW4/Cj4KPiBCZXN0IHJlZ2FyZHMsCj4gS3J6eXN6
-dG9mCj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
-dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Fri, Dec 01, 2023 at 09:14:00AM +0800, Inochi Amaoto wrote:
+<...>
+> >>
+> >> Hi, Peter Lin:
+> >>
+> >> You can use the following two document to get all events:
+> >> https://github.com/T-head-Semi/openc906/tree/main/doc
+> >> https://github.com/T-head-Semi/openc910/tree/main/doc
+> >>
+> >> There are also some RTL code can describe these events:
+> >> https://github.com/T-head-Semi/openc910/blob/e0c4ad8ec7f8c70f649d826ebd6c949086453272/C910_RTL_FACTORY/gen_rtl/pmu/rtl/ct_hpcp_top.v#L1123
+> >> https://github.com/T-head-Semi/openc906/blob/af5614d72de7e5a4b8609c427d2e20af1deb21c4/C906_RTL_FACTORY/gen_rtl/pmu/rtl/aq_hpcp_top.v#L543
+> >>
+> >> The perf events json can also be used as document, this is already
+> >> applied (with more detailed explanation):
+> >> https://lore.kernel.org/all/IA1PR20MB495325FCF603BAA841E29281BBBAA@IA1PR20MB4953.namprd20.prod.outlook.com/
+> >
+> >Thanks for reaching out!
+> >The updated description will be:
+> >
+> >- const: xtheadpmu
+> >  description:
+> >    The T-Head performance monitor extension for counter overflow, as ratified
+> >    in commit bd9206 ("Initial commit") of Xuantie C906 user manual.
+> >    https://github.com/T-head-Semi/openc906/tree/main/doc
+> >
+> >Is it OK with you?
+> >
+> 
+> Please indicate chapter 12 and chapter 13.5 of the manual related to
+> the PMU. And changed openc906 manual to openc910 manual because it is
+> more updated.
+> 
+> If modified:
+> 
+> Reviewed-by: Inochi Amaoto <inochiama@outlook.com>
+
+Got it! Thanks for the information.
+
+Regards,
+Peter Lin
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
