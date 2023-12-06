@@ -4,73 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20B4DC4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 12:27:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C852C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 12:40:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vt9jDizEE5YdWteSwe73cw7LJFVl3RVgstG/mRookII=; b=ex9ExqcftbWlPr
-	M3ADZwaQRGXK+OZg5X6H446BH5/hFTKtGdgAKX33PKDejTA1XktVFK+pZ+ztcf5KFczD+eXVzoGx5
-	QCt+wRNAM+hPBuvTo7CGDY7xC3GNcI8oS4031Zw70wNfcOW2ln4M9dWoRc218WFm1YtBwGeUc+h4X
-	NyXo5kVTogYXZgD33bNM5HpxZZVJUi6aRW4psJE/oEhWwsT4y4VjciW5hfKDTsH1c2uyHETficwTj
-	oo7HA+CDGpAURAzQy2uJN2VkID+YSeqNxhqe4Nc2gGwjVshVnK4MRoAwfQJH/4jOXDtMLKN12uf8u
-	nUF6GJmO6rLDhU7izztQ==;
+	List-Owner; bh=8zMVl2aGTarcWYUEs6twMfZjHQFD7gOJf6fhy9rj8Nc=; b=wHz2eidJnDrpH8
+	D4qP0mYZ7yIEFzgQ2zXHzuEG8HzLODTaodcGBF4YG95D0r89869dN1gWC74QXM2OdyUmk2CFCGfVb
+	UQ7+Bf7Y5fXoxTu2wM6KSRlJMYowlGcI5T05C269A6a/lxLkccps2cSkbE1yIM3B/+bXkTYzFCNbg
+	07hKpOv1+mBrCofk+rU/DjBtZIltrWDVqdMN5YAbBLZl4pTyNGmKgwfD0m9mJDE0+aOeHo7lQaIbO
+	wsrdAPqFxxMyjffnDFTrnTlA5HeDD3KHAkqpFZD9ccOUFqMQVztsjHb30/YLKExQOnkAoD1/puPf4
+	05iCPnUqECrdK8Vn22Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAqzo-00AFe3-0q;
-	Wed, 06 Dec 2023 12:27:20 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1rArCq-00AIBe-2X;
+	Wed, 06 Dec 2023 12:40:48 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAqzl-00AFdB-0F
+	id 1rArCn-00AIAJ-25
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 12:27:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 8054CB8207D;
-	Wed,  6 Dec 2023 12:27:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC1BDC433C8;
-	Wed,  6 Dec 2023 12:27:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701865634;
-	bh=SFu4/bR/AMrjm4JlTuMfP6+O1LKZw8xcETHgeCdmOcw=;
-	h=From:List-Id:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UlRCcDlxBcdIYtZoPpzMTuhqHXiPWCYfA6idr0x7B3j3Y2UMcQ+waxv51fpaH13zM
-	 zxfEclP72Liv5bjZpSgP6sDpzhrxzmK3JYaucrIB1EAhBZjXvf4/sAPiDQBTtVJAhX
-	 AaGDCeqqHHBAhSRQF7QuWR3OnECuf/4QxAY40FEZf31Tla//HUoSY+Pgvm0AJ/fn3j
-	 7dfkSQgkmcJJtou2/vXNZMiW0yDZuj7jH49rmmPIlZSL0zZAMSfR+smj12+l1E3BNJ
-	 wnQ1zNYJ1Y624VCEyb3EArLu3uKZgp/f7+o+lHj+NmiWNUFj6Gu/R3Cj4GK20GbDSt
-	 z+2M1Lo5wc4UQ==
-From: Conor Dooley <conor@kernel.org>
-To: soc@kernel.org,
-	Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Moritz Fischer <mdf@kernel.org>,
-	Wu Hao <hao.wu@intel.com>,
-	Xu Yilun <yilun.xu@intel.com>,
-	Tom Rix <trix@redhat.com>,
-	Russ Weight <russell.h.weight@intel.com>,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-fpga@vger.kernel.org
-Subject: Re: [PATCH v3 0/6] PolarFire SoC Auto Update Support
-Date: Wed,  6 Dec 2023 12:25:58 +0000
-Message-Id: <20231206-catfight-trailing-47b7b547e79b@spud>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20231020-agreeably-filing-3d48708e6262@spud>
-References: <20231020-agreeably-filing-3d48708e6262@spud>
+	Wed, 06 Dec 2023 12:40:47 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-50c0f6b1015so1532264e87.3
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Dec 2023 04:40:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1701866442; x=1702471242; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/StKJa7BNnsQaiPoV6+5GiP/mT7fmh3GSrlkmoUWGY0=;
+        b=H4YHpasIvj1FfVJuQ0x0WyBFrGRxHEcxPyMQcUbTnXmWlDZe+FmC74Q4eTe81O9kaq
+         FLZtvL6IHwnotjUJp3AG7ij8HDKOshC3V+jOFnEuvH6aNA8j9u78xEiTpqCjZLTtLsIH
+         9tJDFkCDnfZXyiiqQOBKMmL4k1+QnFRck7o25FYPhPkGXhxZmYlBDU6Z3o/5r69C4nrR
+         exFNskdEA2OeQ783rTIxYFEvYD5jW1MuE35V107fp3cj7DtXyIlduzOQCjC39+HiQdON
+         YSC4cEm0paLT+SihPl29e3hICML6XhF4/hmPqh8DpMnVq/WqBMl6lSL/EQQ7FizujmjF
+         sEXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701866442; x=1702471242;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/StKJa7BNnsQaiPoV6+5GiP/mT7fmh3GSrlkmoUWGY0=;
+        b=m6iYwudYKAehNGpF1M8sxAPNtnCPrVOOPDjorid37+UmsXj3wpkAhXir1fCLSgYaak
+         PSUDcg4dc/m3n4cPz0JPhJrLrB9ljWHMkPLTORMRN5V3wh7FshrgJSA66/F0RB0p2NPw
+         OYcPcD8EkAZ9KpWNvWuOuLNLC/FSnJ1xqa3MfSNO8Jzk2UuVTibDPSY0oblmH/W0vSGP
+         fcC+ZqP6d4Jr/5khX81INj2sio+0tXKqlRuK3iNVDjgcDl2iKdA45Jgl7kWm2lVEkS7D
+         7ZmPgLq7bmAJaGqbENRF3Sc+8BKzaWRmZVpuB1EbbXHuG2sfOcDRUeD1ojKDCKEjbaFl
+         AOsg==
+X-Gm-Message-State: AOJu0YxNNARJzlBzG287RKT905QE2V6WiG1GJeI9LhvrijNBGZ01J4lv
+	3jfESNy0DPqO7oM7c7fRBgcrkAfWsmDHI895TUs=
+X-Google-Smtp-Source: AGHT+IEmKgTMHnOronw9egocQ4qWc3i5Sy3MnH0E0aywt3KsFvLafy6f7SMYJCZ4W2uDTMHuoTCWiw==
+X-Received: by 2002:a05:6512:3241:b0:50b:f113:2cf8 with SMTP id c1-20020a056512324100b0050bf1132cf8mr533517lfr.118.1701866441653;
+        Wed, 06 Dec 2023 04:40:41 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id f15-20020a1709062c4f00b00a1cc1be1146sm2107518ejh.217.2023.12.06.04.40.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 Dec 2023 04:40:41 -0800 (PST)
+Date: Wed, 6 Dec 2023 13:40:40 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, leyfoon.tan@starfivetech.com, 
+	jeeheng.sia@starfivetech.com, conor.dooley@microchip.com, apatel@ventanamicro.com, 
+	samuel.holland@sifive.com, songshuaishuai@tinylab.org
+Subject: Re: [PATCH v3 1/1] riscv: sbi: Introduce system suspend support
+Message-ID: <20231206-8496ba5da6be560acdf19c11@orel>
+References: <20231206110807.35882-3-ajones@ventanamicro.com>
+ <20231206110807.35882-4-ajones@ventanamicro.com>
+ <20231206-prone-detention-8d06fe96f34c@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1335; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=zTxZ7tRHD+kYdL3Atrz/x5KAMx98vgPG50Y04wXmGgk=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKkFGcHW+uFcuo67KtRWbXzAJcHVK2PBLG9zq8H3gOyPZ 98fK7zrKGVhEONgkBVTZEm83dcitf6Pyw7nnrcwc1iZQIYwcHEKwETq/jD8szAQym13+xgbeTva UWzKI+W50QJ8bS6WPW6nejyqOk5/YGRofxHUuPRLGNept/eWWBrNfvnPZIqGxIOCdzyLy81bgt/ zAwA=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+Content-Disposition: inline
+In-Reply-To: <20231206-prone-detention-8d06fe96f34c@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_042717_263967_A89147ED 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20231206_044045_692088_4F8BC0A4 
+X-CRM114-Status: GOOD (  22.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,37 +95,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
-
-On Fri, 20 Oct 2023 14:18:38 +0100, Conor Dooley wrote:
-> Hey all,
+On Wed, Dec 06, 2023 at 12:23:16PM +0000, Conor Dooley wrote:
+> On Wed, Dec 06, 2023 at 12:08:09PM +0100, Andrew Jones wrote:
+> > When the SUSP SBI extension is present it implies that the standard
+> > "suspend to RAM" type is available. Wire it up to the generic
+> > platform suspend support, also applying the already present support
+> > for non-retentive CPU suspend. When the kernel is built with
+> > CONFIG_SUSPEND, one can do 'echo mem > /sys/power/state' to suspend.
+> > Resumption will occur when a platform-specific wake-up event arrives.
+> > 
+> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> > Tested-by: Samuel Holland <samuel.holland@sifive.com>
 > 
-> This patchset adds support for the "Auto Update" feature on PolarFire
-> SoC that allows for writing an FPGA bistream to the SPI flash connected
-> to the system controller.
-> On powercycle (or reboot depending on how the firmware implements the
-> openSBI SRST extension) "Auto Update" will take place, and program the
-> FPGA with the contents of the SPI flash - provided that that image is
-> valid and an actual upgrade from that already programmed.
+> > +#ifdef CONFIG_RISCV_SBI
+> > +static int sbi_system_suspend(unsigned long sleep_type,
+> > +			      unsigned long resume_addr,
+> > +			      unsigned long opaque)
+> > +{
+> > +	struct sbiret ret;
+> > +
+> > +	ret = sbi_ecall(SBI_EXT_SUSP, SBI_EXT_SUSP_SYSTEM_SUSPEND,
+> > +			sleep_type, resume_addr, opaque, 0, 0, 0);
+> > +	if (ret.error)
+> > +		return sbi_err_map_linux_errno(ret.error);
+> > +
+> > +	return ret.value;
+> > +}
+> > +
+> > +static int sbi_system_suspend_enter(suspend_state_t state)
+> > +{
+> > +	return cpu_suspend(SBI_SUSP_SLEEP_TYPE_SUSPEND_TO_RAM, sbi_system_suspend);
+> > +}
+> > +
+> > +static const struct platform_suspend_ops sbi_system_suspend_ops = {
+> > +	.valid = suspend_valid_only_mem,
+> > +	.enter = sbi_system_suspend_enter,
+> > +};
+> > +
+> > +static int __init sbi_system_suspend_init(void)
+> > +{
+> > +	if (sbi_spec_version >= sbi_mk_version(2, 0) &&
+> > +	    sbi_probe_extension(SBI_EXT_SUSP) > 0) {
+> > +		pr_info("SBI SUSP extension detected\n");
 > 
-> [...]
+> Is there any value in probing and printing this stuff out if
+> the kernel is not actually built with support for suspend?
 
-Arnd, I've gone and applied this stuff since things have been dead
-since I sent it & will send it to you for the upcoming mw in a few weeks.
+My thinking is that the info message is like those in sbi_init(), which
+just state what it sees, whether the kernel wants to use it or not (and
+maybe somebody will read the message and choose to recompile with SUSPEND
+to enable it...)
 
-[1/6] dt-bindings: soc: microchip: add a property for system controller flash
-      https://git.kernel.org/conor/c/98d62e97c39f
-[2/6] soc: microchip: mpfs: enable access to the system controller's flash
-      https://git.kernel.org/conor/c/742aa6c563d2
-[3/6] soc: microchip: mpfs: print service status in warning message
-      https://git.kernel.org/conor/c/a8f00589be7b
-[4/6] soc: microchip: mpfs: add auto-update subdev to system controller
-      https://git.kernel.org/conor/c/fad13b5b73e0
-[5/6] firmware: microchip: add PolarFire SoC Auto Update support
-      https://git.kernel.org/conor/c/ec5b0f1193ad
+> I can see either that or moving the IS_ENABLED() check so that
+> it controls whether we even probe for SUSP being valid so
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
 Thanks,
-Conor.
+drew
 
 _______________________________________________
 linux-riscv mailing list
