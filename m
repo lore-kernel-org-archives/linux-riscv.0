@@ -4,85 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54D47C46CA0
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 11:08:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AD2FC10DCE
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 11:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H4BeIp61roK8Zq3kW445yDyoH5ppJEG11YZ9E0/1EEQ=; b=OpA/UGDsVRQ/69
-	6cHMNaHEvf04DUsT2rBAWPJsnzw/nz0IRmDyppnHYUMbZQ48G3S16TsnCdP8nKyGvepV7ZPhNiEgB
-	abdPVGZi60Mqz12qpTKSvD7/3N13QwvHoLEUUYY5u5BbozpWDUe+a8+wFFXuolVEjxc1wL+4yQ6eU
-	KyTaDzlUDmgmAaT+aAMuv/5tvP9jRID+xpVEH9vg3DFDiLvJrkwhrv4KujwTBCvXt6Vm8vlaQcgzU
-	niz44ad5oULxPamL35lNTvxmiskE9H2nh6ciz551k0ddf/YSbKYAPfsZAP7OZzOGGho447AU+YkUh
-	qNLooAAuuxe3VEb4qSAQ==;
+	List-Owner; bh=kSFBp4n6a25YF0tNX8VCkbpBLEbdGybfArmACSHddHE=; b=P+DK3AUSOJeG8m
+	USEK2lC/P78doFCjpb1xsAuu+VL1a1esNNVBk22XHygwwRlyA6Y0ATP50+pYuZ1pEp/evqdnQFdM3
+	dG5wXEHnhcdHDOj1rLWAemAmZTjaL4JxOjLi5DjllXX4IXPLIP6euO+dg1/A3azj0FK+vwHEsOU1y
+	hH3Eu8EHUrtyp+15cIIRPVRLuDUb0IGdPaN2LPyTJ8AkvPPBg8R2EqmzOV+iv3JzvS9DKxOrXBSYW
+	rWptVyM2u6JNGdLlMa6vpMua/TLt3m8brRYedmFsiZgSNlwTCFu0fE5eACzwohNI6BV+DNdtSwF7O
+	L5+tTQpitzF+z0pQjH0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAplI-009sFY-1J;
-	Wed, 06 Dec 2023 11:08:16 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1rAqOP-00A6JM-0D;
+	Wed, 06 Dec 2023 11:48:41 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAplE-009sDO-1g
+	id 1rAqOC-00A635-0k
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 11:08:14 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-2c9f4bb2e5eso56710881fa.1
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Dec 2023 03:08:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1701860891; x=1702465691; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=A3Oe95GGaJTg2FJ+aNwaddmnjsHh2mrWP7PCrbrUoRg=;
-        b=NRRCgrJXo3iI90PHUVhCqW58LXlNuFn790wctS8jqQn4IXA6hSSUFIwc01Sr/zEIMg
-         NaXUqzadkEow0eMTWoxRDwQ3KsF1PJxjmM3qx8wUnmTSAXYWALooUAexNBZ247yRRxvn
-         DAjj76bKkKiEJ4AKJ6dXKM1QsW5tUews36SyXq5g02Duw/Li6TOTf7HTJEq91RQmRCE8
-         T75br6S3gGksjhyHY7zm2lzA5tIlnD77hUVOKQnu6SsKaWWLffCMviDqe34xmXVwh3bR
-         tgongXwiOqJxH5oc1Bw6szCYnxS2HqG/2VK3ngpri3ZzQtv4WWruz2u89pDXy0b0Bqba
-         UutQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701860891; x=1702465691;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=A3Oe95GGaJTg2FJ+aNwaddmnjsHh2mrWP7PCrbrUoRg=;
-        b=mO7mQWrRJSqEP6r/pOfNMF8NwZuAUPYgjbP3CaWSsGOPR29XXTVWCQRzOeQaxfT9Ld
-         4hTt3yRFOo5reVDZrbGdHiivhlXr6ttXtvWu0QD3+4aHPw36D2TAGy6f2f17zTUbGijc
-         0Z5yExaO+zn8qKx1yFOp9R/3stgXlLlrMVPBZjLEeHvSkyVkC/TeXlZrO5YARLC1CZPG
-         BX/RTAA/q2uS4xGjMwl4fRpw/DQhc4J2r/6RDiH+SDu4B02/q+NEfJPOaDgkcQMty17O
-         XnsYJ9rQucFt/BJW7R4DBI4Vrbll87pTAnmuz7DrgCGSdiEvMu88Jkfvq+fboSOyzBwb
-         GMgw==
-X-Gm-Message-State: AOJu0YwTAID94p88Rn6ut2FVGsE/sGXhb5pHWn3RTWjw/K9PyjPO0x7D
-	XAuCq6ttofML2fbDK7QfceEwZYsLLddBpzjX7DY=
-X-Google-Smtp-Source: AGHT+IHMSZKzVFV+Vnru0ITNwoVnBjfYnykcgB6vW0Wwlwl4Lzz78lD+QQQUOdSj4w1h0zkK83h24w==
-X-Received: by 2002:a2e:9d94:0:b0:2c9:fa32:4263 with SMTP id c20-20020a2e9d94000000b002c9fa324263mr429242ljj.15.1701860890544;
-        Wed, 06 Dec 2023 03:08:10 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id o1-20020a1709061b0100b00a1dc4307ec5sm522010ejg.199.2023.12.06.03.08.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Dec 2023 03:08:10 -0800 (PST)
-From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-riscv@lists.infradead.org
-Cc: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	leyfoon.tan@starfivetech.com,
-	jeeheng.sia@starfivetech.com,
-	conor.dooley@microchip.com,
-	apatel@ventanamicro.com,
-	samuel.holland@sifive.com,
-	songshuaishuai@tinylab.org
-Subject: [PATCH v3 1/1] riscv: sbi: Introduce system suspend support
-Date: Wed,  6 Dec 2023 12:08:09 +0100
-Message-ID: <20231206110807.35882-4-ajones@ventanamicro.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20231206110807.35882-3-ajones@ventanamicro.com>
-References: <20231206110807.35882-3-ajones@ventanamicro.com>
+	Wed, 06 Dec 2023 11:48:31 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1rAqOA-0006LZ-7J; Wed, 06 Dec 2023 12:48:26 +0100
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1rAqO9-00DwtI-Pj; Wed, 06 Dec 2023 12:48:25 +0100
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1rAqO9-00FQyR-Gj; Wed, 06 Dec 2023 12:48:25 +0100
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: kernel@pengutronix.de,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-pwm@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v4 031/115] pwm: sifive: Make use of pwmchip_parent() macro
+Date: Wed,  6 Dec 2023 12:43:45 +0100
+Message-ID: <97729fa5438d05626c8b83c13892c63da7bd7e50.1701860672.git.u.kleine-koenig@pengutronix.de>
+X-Mailer: git-send-email 2.42.0
+In-Reply-To: <cover.1701860672.git.u.kleine-koenig@pengutronix.de>
+References: <cover.1701860672.git.u.kleine-koenig@pengutronix.de>
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1222; i=u.kleine-koenig@pengutronix.de; h=from:subject:message-id; bh=ItlQpYUXEstYhNFNdEVbRgED9w4SaS6zldtNLGor7lI=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBlcF6FJQLDT/6RotOS62rWjUkJHmBKasIU3XRRu MtA7PSz+peJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZXBehQAKCRCPgPtYfRL+ TpS7B/9m+lrgfd9N31AhuVTEOY1WjeK1XWnl4oXV17GcP+WUquky5UjPBuuz4FvAivRzv6fdqOW AdbR/PDFpHb3j1Ny06ZQdhYxT4uhFhsYSrkVWSiybDXuYluHk/XPFIzfSMeyFjTHJPywxIvY/yf 4nnhfKslKXjHun/RYH9J12j7EP66jlHSEEXcN7TGu33KziTBf6YMWtLiGG0kaHbPnIZ4wE4//m5 OupzhCXPNrE/p9Nhe2+/M6vIf9WkHz6Je2yftMOba0mQCH/DARRgAyX7tAHzGG5A1EdqUGhJhhW 5EvCTxc6pYwzliDvTLk6l8Ee5jomZSSaAvZIayeTRKFnYmwK
+X-Developer-Key: i=u.kleine-koenig@pengutronix.de; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_030812_557181_650F8B73 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20231206_034828_266029_21BA4626 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,132 +74,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When the SUSP SBI extension is present it implies that the standard
-"suspend to RAM" type is available. Wire it up to the generic
-platform suspend support, also applying the already present support
-for non-retentive CPU suspend. When the kernel is built with
-CONFIG_SUSPEND, one can do 'echo mem > /sys/power/state' to suspend.
-Resumption will occur when a platform-specific wake-up event arrives.
-
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-Tested-by: Samuel Holland <samuel.holland@sifive.com>
----
- arch/riscv/Kconfig           |  2 +-
- arch/riscv/include/asm/sbi.h |  9 ++++++++
- arch/riscv/kernel/suspend.c  | 44 ++++++++++++++++++++++++++++++++++++
- 3 files changed, 54 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 95a2a06acc6a..384a25d5d734 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -65,7 +65,7 @@ config RISCV
- 	select CLINT_TIMER if !MMU
- 	select CLONE_BACKWARDS
- 	select COMMON_CLK
--	select CPU_PM if CPU_IDLE || HIBERNATION
-+	select CPU_PM if CPU_IDLE || HIBERNATION || SUSPEND
- 	select EDAC_SUPPORT
- 	select FRAME_POINTER if PERF_EVENTS || (FUNCTION_TRACER && !DYNAMIC_FTRACE)
- 	select GENERIC_ARCH_TOPOLOGY
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 0892f4421bc4..f09356e187df 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -29,6 +29,7 @@ enum sbi_ext_id {
- 	SBI_EXT_RFENCE = 0x52464E43,
- 	SBI_EXT_HSM = 0x48534D,
- 	SBI_EXT_SRST = 0x53525354,
-+	SBI_EXT_SUSP = 0x53555350,
- 	SBI_EXT_PMU = 0x504D55,
- 	SBI_EXT_DBCN = 0x4442434E,
- 
-@@ -114,6 +115,14 @@ enum sbi_srst_reset_reason {
- 	SBI_SRST_RESET_REASON_SYS_FAILURE,
- };
- 
-+enum sbi_ext_susp_fid {
-+	SBI_EXT_SUSP_SYSTEM_SUSPEND = 0,
-+};
-+
-+enum sbi_ext_susp_sleep_type {
-+	SBI_SUSP_SLEEP_TYPE_SUSPEND_TO_RAM = 0,
-+};
-+
- enum sbi_ext_pmu_fid {
- 	SBI_EXT_PMU_NUM_COUNTERS = 0,
- 	SBI_EXT_PMU_COUNTER_GET_INFO,
-diff --git a/arch/riscv/kernel/suspend.c b/arch/riscv/kernel/suspend.c
-index 3c89b8ec69c4..239509367e42 100644
---- a/arch/riscv/kernel/suspend.c
-+++ b/arch/riscv/kernel/suspend.c
-@@ -4,8 +4,12 @@
-  * Copyright (c) 2022 Ventana Micro Systems Inc.
-  */
- 
-+#define pr_fmt(fmt) "suspend: " fmt
-+
- #include <linux/ftrace.h>
-+#include <linux/suspend.h>
- #include <asm/csr.h>
-+#include <asm/sbi.h>
- #include <asm/suspend.h>
- 
- void suspend_save_csrs(struct suspend_context *context)
-@@ -85,3 +89,43 @@ int cpu_suspend(unsigned long arg,
- 
- 	return rc;
- }
-+
-+#ifdef CONFIG_RISCV_SBI
-+static int sbi_system_suspend(unsigned long sleep_type,
-+			      unsigned long resume_addr,
-+			      unsigned long opaque)
-+{
-+	struct sbiret ret;
-+
-+	ret = sbi_ecall(SBI_EXT_SUSP, SBI_EXT_SUSP_SYSTEM_SUSPEND,
-+			sleep_type, resume_addr, opaque, 0, 0, 0);
-+	if (ret.error)
-+		return sbi_err_map_linux_errno(ret.error);
-+
-+	return ret.value;
-+}
-+
-+static int sbi_system_suspend_enter(suspend_state_t state)
-+{
-+	return cpu_suspend(SBI_SUSP_SLEEP_TYPE_SUSPEND_TO_RAM, sbi_system_suspend);
-+}
-+
-+static const struct platform_suspend_ops sbi_system_suspend_ops = {
-+	.valid = suspend_valid_only_mem,
-+	.enter = sbi_system_suspend_enter,
-+};
-+
-+static int __init sbi_system_suspend_init(void)
-+{
-+	if (sbi_spec_version >= sbi_mk_version(2, 0) &&
-+	    sbi_probe_extension(SBI_EXT_SUSP) > 0) {
-+		pr_info("SBI SUSP extension detected\n");
-+		if (IS_ENABLED(CONFIG_SUSPEND))
-+			suspend_set_ops(&sbi_system_suspend_ops);
-+	}
-+
-+	return 0;
-+}
-+
-+arch_initcall(sbi_system_suspend_init);
-+#endif /* CONFIG_RISCV_SBI */
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+c3RydWN0IHB3bV9jaGlwOjpkZXYgaXMgYWJvdXQgdG8gY2hhbmdlLiBUbyBub3QgaGF2ZSB0byB0
+b3VjaCB0aGlzCmRyaXZlciBpbiB0aGUgc2FtZSBjb21taXQgYXMgc3RydWN0IHB3bV9jaGlwOjpk
+ZXYsIHVzZSB0aGUgbWFjcm8KcHJvdmlkZWQgZm9yIGV4YWN0bHkgdGhpcyBwdXJwb3NlLgoKU2ln
+bmVkLW9mZi1ieTogVXdlIEtsZWluZS1Lw7ZuaWcgPHUua2xlaW5lLWtvZW5pZ0BwZW5ndXRyb25p
+eC5kZT4KLS0tCiBkcml2ZXJzL3B3bS9wd20tc2lmaXZlLmMgfCA0ICsrLS0KIDEgZmlsZSBjaGFu
+Z2VkLCAyIGluc2VydGlvbnMoKyksIDIgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvZHJpdmVy
+cy9wd20vcHdtLXNpZml2ZS5jIGIvZHJpdmVycy9wd20vcHdtLXNpZml2ZS5jCmluZGV4IDA4OWU1
+MGJkYmJmMC4uYzFiNDEyOTA1ZDllIDEwMDY0NAotLS0gYS9kcml2ZXJzL3B3bS9wd20tc2lmaXZl
+LmMKKysrIGIvZHJpdmVycy9wd20vcHdtLXNpZml2ZS5jCkBAIC0xMDIsNyArMTAyLDcgQEAgc3Rh
+dGljIHZvaWQgcHdtX3NpZml2ZV91cGRhdGVfY2xvY2soc3RydWN0IHB3bV9zaWZpdmVfZGRhdGEg
+KmRkYXRhLAogCS8qIEFzIHNjYWxlIDw9IDE1IHRoZSBzaGlmdCBvcGVyYXRpb24gY2Fubm90IG92
+ZXJmbG93LiAqLwogCW51bSA9ICh1bnNpZ25lZCBsb25nIGxvbmcpTlNFQ19QRVJfU0VDIDw8IChQ
+V01fU0lGSVZFX0NNUFdJRFRIICsgc2NhbGUpOwogCWRkYXRhLT5yZWFsX3BlcmlvZCA9IGRpdjY0
+X3VsKG51bSwgcmF0ZSk7Ci0JZGV2X2RiZyhkZGF0YS0+Y2hpcC5kZXYsCisJZGV2X2RiZyhwd21j
+aGlwX3BhcmVudCgmZGRhdGEtPmNoaXApLAogCQkiTmV3IHJlYWxfcGVyaW9kID0gJXUgbnNcbiIs
+IGRkYXRhLT5yZWFsX3BlcmlvZCk7CiB9CiAKQEAgLTE4NSw3ICsxODUsNyBAQCBzdGF0aWMgaW50
+IHB3bV9zaWZpdmVfYXBwbHkoc3RydWN0IHB3bV9jaGlwICpjaGlwLCBzdHJ1Y3QgcHdtX2Rldmlj
+ZSAqcHdtLAogCWlmICghZW5hYmxlZCkgewogCQlyZXQgPSBjbGtfZW5hYmxlKGRkYXRhLT5jbGsp
+OwogCQlpZiAocmV0KSB7Ci0JCQlkZXZfZXJyKGRkYXRhLT5jaGlwLmRldiwgIkVuYWJsZSBjbGsg
+ZmFpbGVkXG4iKTsKKwkJCWRldl9lcnIocHdtY2hpcF9wYXJlbnQoY2hpcCksICJFbmFibGUgY2xr
+IGZhaWxlZFxuIik7CiAJCQlyZXR1cm4gcmV0OwogCQl9CiAJfQotLSAKMi40Mi4wCgoKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
+bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
+ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
