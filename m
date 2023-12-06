@@ -4,91 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2104AC10DCE
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 00:57:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8689EC4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 01:36:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cAXsixWfQkPAW79jsRbnppzBBzxk8BNZ2XxiCJS+IPs=; b=ZXK7cakkDQjp5T
-	pOhq2+LXgN8nzYYDzfI5CXeE57Mm7fNZ2+X+tBPmabSv+pFS8PTEJCVWftcKnE23An/YKpTRAF7Vi
-	/fYnHevexwKEe2bNC0c0MOGvLpoEzkha/uE3Ljz4NeLiEbhJQTnXNcT7ESJ3MU18Ne5Msy5+q6kzh
-	xRBNWKgaTEX3LDJz30tFt3ZyOu4HV96Lbv1DKqBYUl3NwRemuyEprEdLZPtWASr+cOvQOyWTTTfxZ
-	kQ+Z6vwhDY8KQcuUFH5JtokL6SdXq8eUXT2gcCqVOPyLjbXHQlgRr0BIAHKsWbc4a96ZWB7Yfkokt
-	wFJ55tyL9Ybl0/eKHJdQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1hMggr6KYpVAuR38I7Ga7fXHjDHKi1qNNF2X+079Nm4=; b=3bA1EVg1zMkiIfXvmF2ILNTUIv
+	yeZlT8+C2PeB7T2PqG3zS1flfUdNuBVroau9MD6tQ3+F6GIVNqVEPZRv+9d1Eo1F9YutV/R3IOZtB
+	x/UPjoANFbOtheAGdd7iC+zlZeMUDvTzXEJYceF+MlAuJYdZwseLVKiaSCCr49XieeT/5rokwGPyq
+	WfOP79ZsYlVCf9iOrQP1ar2G+7dOAGou7SgwQ7fosg6zXqaQhz6wwFXXj1YCa7TNU+K7kv4mzo7Ck
+	RNbUSksEWFL0Rr/glcE7F4odT2tP0w0WplIdKocvAelgMdhCZW+vFTUZ6FXe3e1AiyETk7cusXp3r
+	0xgt+5Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAgDu-008kJt-2A;
-	Wed, 06 Dec 2023 00:57:10 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1rAgpT-008oKh-2s;
+	Wed, 06 Dec 2023 01:35:59 +0000
+Received: from mail-bmxind01olkn20800.outbound.protection.outlook.com ([2a01:111:f403:281c::800] helo=IND01-BMX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAgDr-008kIt-1D
+	id 1rAgpR-008oJc-1j
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 00:57:09 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-6ce6caedce6so1119360b3a.3
-        for <linux-riscv@lists.infradead.org>; Tue, 05 Dec 2023 16:57:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1701824224; x=1702429024; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-disposition:mime-version
-         :references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=ZWAAiSe8+A1VbsHX4/sTLd9FUASXF/9Ffo3lwz2GCx8=;
-        b=JEnP7PcFotjr0DA2lnEL4+ZVl1tE92ogxvzD21zHkiF6JGoySYOQkIvCzhvMDfXM43
-         SYzN7vH1FFz53MiuYJ9H58hW5iC48Wa9aPpWee8UtOsGhbo9PRb+4KBZ5bYfQRyyu2nn
-         p2FzYW+iV80/pC/BBeKA0ojTqrsnY5Lb8miRUHYke2kdaDZriNzAe/gC6TKzJ+NscpEd
-         vFx2bjad2ZSYUqbiiuccm9KsexrUb9dCaUMRS9z+BfmrpYWBoLK8vup/vM1qkKMez/C2
-         BxW763FcTh7idWDlyaf5PRj3Ykhrp5a40CWasMLsiJ4VeZWvEcr67Z89ga8iBHRaGmrC
-         uAJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701824224; x=1702429024;
-        h=content-transfer-encoding:content-disposition:mime-version
-         :references:in-reply-to:message-id:date:subject:cc:to:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZWAAiSe8+A1VbsHX4/sTLd9FUASXF/9Ffo3lwz2GCx8=;
-        b=URo+5gFXltIu3YE+BbEiwo64sLHSoUfzUHQj2rwWFK8P8AntdY/vSBwe575QtoyaK3
-         J1dDlAfX0zTrHAHqQcElvkSrAEbds0PNbFnjPvG8hm5Ql9XtNpHTAD+SjhG6zRcQguWj
-         2TkO/BIDry352E1MtfH2idgpBcIVCj7xAehT8vpLBdDg8EQhqBH4rnUCRaN8qV6TRlx0
-         kGa0eI4nH8Lmkqq++VzxzyQcoUjZ8ctoDcKZY5LDKXVkzu1XNV8STXv4WzMD7F5XqDHH
-         QmNdg2jEM8Rhcw50QNbc7bOAgUQKbZiODHPxtWtI9e+ZuJ+xWJ9cR48+6WdqYBzKHq2V
-         bmgw==
-X-Gm-Message-State: AOJu0Yz/vM7e44REN1XfgxH8Ym0FA3qv5RAenMl/NkL2LHZuB4ulVVDq
-	HxAS53hfLgExSkaN9c44/kk=
-X-Google-Smtp-Source: AGHT+IGZHifqxyac6FpyylqwcZVy2fMmFBFiU9TY4T5h0BVUiNqz8GDECwupcB5WjfentWWxxLxorw==
-X-Received: by 2002:a05:6a20:442a:b0:18b:37b4:cb6b with SMTP id ce42-20020a056a20442a00b0018b37b4cb6bmr43187pzb.27.1701824223851;
-        Tue, 05 Dec 2023 16:57:03 -0800 (PST)
-Received: from localhost.localdomain ([2804:1b3:a801:efb7:8c5b:a158:7e49:e10])
-        by smtp.gmail.com with ESMTPSA id e3-20020a170902b78300b001d06b63bb98sm7291478pls.71.2023.12.05.16.57.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Dec 2023 16:57:03 -0800 (PST)
-From: leobras.c@gmail.com
-X-Google-Original-From: leobras@redhat.com
-To: Leonardo =?iso-8859-1?Q?Br=E1s?= <leobras@redhat.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Will Deacon <will@kernel.org>,
-	peterz@infradead.org,
-	boqun.feng@gmail.com,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	aou@eecs.berkeley.edu,
-	parri.andrea@gmail.com,
-	andrzej.hajda@intel.com,
-	guoren@kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [RFC PATCH v5 5/5] riscv/cmpxchg: Implement xchg for variables of size 1 and 2
-Date: Tue,  5 Dec 2023 21:56:44 -0300
-Message-ID: <ZW_GzKUoqO4fD4Je@LeoBras>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <2a4f1f47e945772b9fbb53a51e148636e0ae6e48.camel@redhat.com>
-References: <mhng-92f37526-d36c-48c0-8fbd-7676df1b6086@palmer-ri-x1c9> <2a4f1f47e945772b9fbb53a51e148636e0ae6e48.camel@redhat.com>
+	Wed, 06 Dec 2023 01:35:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=imWT/V0YPCkmL9GlN6ZzR7N+cpqOl0Is/O2ykFQgoGIg9BomPBRNRdcNQ9OqCopEG99hyvBmbz4PmGKM79KvslvyVD+wqaWiTDg5jiSZHdsluKOPdusKoxev+OFkTZ05RpzP8CWFM6RoCXcNPy5xb5G3c9F+Qw3jY5G/Iz4u+A1U2cHO42IyL/NNn/+l/6jHVcLQjuKlIy3YAO5bplX2fYigbztkisn/Gp5BNgZEbD37q4hUVkQhAnT0xtVrphi4QLCz3o0uyu+uAnyzbPQisgJ7olmjLo/8yTtij6A5yhd/mAgtwxoiFe+IHWgHCm97EJl6wZDY/cm7JL3yQuLk+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=r3/y8o1Df7Q2G7oi+hWq8Fo29CZDT/BeEauVQLIObNw=;
+ b=Vleuq35Anfz2D42KJvm/q5DKNPYjgIi25mmivM7Wa6zv0jLLdZqb9JJKMg/CAFPY9TmnAOpWHMKGVTIK9LTz6b+3CcIdG2RBDnBpbI1H8EvzvxrR6B0AmBBoWuK4DVQSnXiF73lqVi0X1mGSJ5u+68JWYoEBBp0LN6JOGPuDF7/isu7wMTABpfTEkIZc9NRICG+iZQioJIf3HbmCYGQdEPY2rJginMIhrbNBjIz5GRmDPi9SIWVfLpfqYlhUt6hjz32C6lNZHv2o2daiMkIfXJTVCrCLU/19BpMCWUj8jNNUDUcMbTA/lk9HyJp71ovRw6HTmlKYUU5MNiuQ7gKQug==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=r3/y8o1Df7Q2G7oi+hWq8Fo29CZDT/BeEauVQLIObNw=;
+ b=EFbe7tfJA9TfB0SDfW4sx//Kt5qQ58BHu/abvWJSkyv6BbbbamvGpJr/S4j6jfWflBsM/Ngr+Vq+1BxrSOpEhqx+hvYGPIKz9MYYqYdKFUHWsbo+Vz1US4Qi2fxA+sXkeTsUOR09b+ukKIyviVQsojmA2oxMiPs0Pj2rp1DTYdyS4ktd7R++RKFDcJclHa1sTpXYdFP5fChLKCkEeLy0x64P/j9yVExEMjfi+m6AqObgKGmzbDnUcM1R2EbzUMuZ8Yac6lnGxdMqXLDKYqm54WUtOJCyMdcNYyxEQM0OnThqI1rljYpl/4HuwGyHRyh7KX07/Nx3fxjK/tKl/q3bmA==
+Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:ab::5) by
+ PN2P287MB1582.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:1b4::11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7068.25; Wed, 6 Dec 2023 01:35:34 +0000
+Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ ([fe80::b1a7:eee7:e903:9ef3]) by MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ ([fe80::b1a7:eee7:e903:9ef3%7]) with mapi id 15.20.7068.025; Wed, 6 Dec 2023
+ 01:35:34 +0000
+Message-ID: <MA0P287MB03320AD9F4B62A791C67FFEDFE84A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
+Date: Wed, 6 Dec 2023 09:35:29 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 3/4] clk: sophgo: Add SG2042 clock generator driver
+To: Inochi Amaoto <inochiama@outlook.com>
+Cc: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
+ chao.wei@sophgo.com, conor@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+ mturquette@baylibre.com, palmer@dabbelt.com, paul.walmsley@sifive.com,
+ richardcochran@gmail.com, robh+dt@kernel.org, sboyd@kernel.org,
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com, guoren@kernel.org,
+ jszhang@kernel.org, samuel.holland@sifive.com
+References: <MA0P287MB033276574107F5031C153DDDFE85A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
+ <IA1PR20MB4953B7BBA12262E0ECAC2B04BB85A@IA1PR20MB4953.namprd20.prod.outlook.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <IA1PR20MB4953B7BBA12262E0ECAC2B04BB85A@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-TMN: [Mba8P2W9UoEeJ/ApMAV/S32OFfA1spiy]
+X-ClientProxiedBy: SG2PR02CA0080.apcprd02.prod.outlook.com
+ (2603:1096:4:90::20) To MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:ab::5)
+X-Microsoft-Original-Message-ID: <27066a03-0c15-44eb-888b-ac5cf37508c3@outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0P287MB0332:EE_|PN2P287MB1582:EE_
+X-MS-Office365-Filtering-Correlation-Id: 39d75e31-e93e-4ef8-e3e3-08dbf5fba404
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: wwp8dpqifOsIoEfjbc7+B6FOPEaJ2/g0pJXrg02G2mGS81IiBOgeHt54peAHoZpinnxra/p0TWal4UIlg9tcA/9vkMials4gqbaxC7/l2d7LqA1JSlNxlB3WyRmmD6dQTeKkDf3Um0pFAtQyEJl07rVM1ScqXEGpZGcEziWtACnAw2YiEaZe80LphUt+nPgrfxNSfy+4H5cRHf4N9H4km23nI5o6q7UquejmkN9qGu+2FpbFQmvkPHeynxw88+8LKRuMfT32r3y89EPMHGNREKocPdcXKTBs9EvpnAk70YViUpWkYnM8qd5Fe38d3+JrJjuYFHadfMIFQBHUf+NhvTEN46+WJMrYjjpVmVAg2x27Er8hWkm0xtu0RwdI9jgrGI+F9TsujTfDJh1HRp3McbB6IWKSHSiMKfmdImdZRN+TVO8LVRvxJpeyMJFOxB1yLTm6P3jUPajKiQG04olOuue7QDrb0gC8KagVtdraj/UI07QnAfD8y3vfFB05VUGkSQDp0PSpF1H11mTgB+5curLjUiPya47dQRldK+VXSerHSyp3Zt3uEluSq7ORfsOV
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VkFKZm9uQ0d1NVh1YUtnNXU0aGJsV2RkSlBIbmxpYVRMZUlQNjhxSGVoUnhW?=
+ =?utf-8?B?aWFwUHRHYXYrTmtNd2h1eC9laVkwOVVabFZFZlBWR2VtMFhpNlVmSC9kRnZM?=
+ =?utf-8?B?WFpkeXkzWXpkVzVTLzRoejFqSFNpK1drUGE0eUNWVHBZWlJYQVdibUdaVERH?=
+ =?utf-8?B?TktpUURtUnAyZ1JVNTJCU2twN1lOZmxCdlBVVzg2UUxyZnBZSU5TQkxRMmdZ?=
+ =?utf-8?B?MWVKd0FDazBvK2JMSktkUlRKZUlWOExCY1pFZ2hZVVpWTXo4bk9nRUxYclhO?=
+ =?utf-8?B?TzYzUnZYZWFJLytLU1Yyd2I5aXdDcUdyUUNaMC9ZVGtQWnVhK1NHb2k5emY0?=
+ =?utf-8?B?UnMzS1E4aDQrcEdISnZJUXN0aHVJcW52cGJVSEVvTVFTeVdJdXZJT2s3Qnd6?=
+ =?utf-8?B?ajRqNVZ3aWFqZVY3bjNsb1lSQkVIWit0QnZhNDJJZm5Fei9rQXk3RXpaQisw?=
+ =?utf-8?B?WUY5c2tyMUdtL1ZFVFRVcWtneE1DM2RuU3NQRkx2bnEzMmliZlY2dGxsOElJ?=
+ =?utf-8?B?algrY0ZsSTh4dzRpMTF2eGFBMVo5dmVKdHNUK2ZwN0JRNnRCWTBhcDZrRlVl?=
+ =?utf-8?B?SDB5aU1LUmdLWk96aGZKdWpIdHlXUS9IQlVlUlE4d1dhT0lsOEpWMzliN1Mw?=
+ =?utf-8?B?a1M2dVFkeE1aRngwejdmb2R4R2Vyb1RGQ01kdXcybnpHQmt5UHM4L1pXV2sr?=
+ =?utf-8?B?THUrWWsvTWhOc1lYQW5makM3c2N2dkJ4MUd5b09pSWM3VzMwODZBMGx1Qm9h?=
+ =?utf-8?B?c0pYZFpMQ0FrYjVwZDc1N28rQUpkWGxqOUV3c20wZWhmd3BUSUlTQldKZC92?=
+ =?utf-8?B?ODNieGREU25yRUdWL1d5UVBuZFhoVkkvL0h0bXhqbjhOS0FjYkpIemkzeURN?=
+ =?utf-8?B?Z1FsazVUM3FuUnlUMTBoWDlIUWhJZ21FdktXNHNsb1lsczVza2M5REpTYTQ5?=
+ =?utf-8?B?ajNyam9lV01IWlZ0MnZ4Z0xLOHZ2VWRKNmNxaDlRSXV0Z0FVS2pKckVWTVVj?=
+ =?utf-8?B?NXNRbXlob2MrWUx2NHJkUThzR0hKd1B4dmJNcVpHNE53dy9GSE1WdzhNVEU5?=
+ =?utf-8?B?dld3ckdwb2Rwc2V2TVpJQ0MyU2s2dHZuOVFrOHMvRWFxaDhzaCt5c3FjZmYz?=
+ =?utf-8?B?UG93YlpFc2NEV0ZCNUY0eHc0RWtlU1FrbEpOSGZmSmRuLy9HNDdFejJkYjNk?=
+ =?utf-8?B?QVNOU2d2eG9waVVnaldmQzhZaS93bTlwT3VRY3VFNEFmVG1JYUV2Z3A0dEVH?=
+ =?utf-8?B?dDIvdC91WkFUdFlzS3RKdlBBU0poR2JpKzJiVXdZWkhhWEdGSThocnpMY1Zn?=
+ =?utf-8?B?b0JPS0x0VnIzMVMxRkd4YUlZajJ2S1B0dUNyVWsyODd4N2RoQmVGSW0yU0lP?=
+ =?utf-8?B?SVV6VlZPSDIxT052RGJkM0E2ZWhZcm1QMlMxSlZFUU5NSW8xY05TSjBvdkJu?=
+ =?utf-8?B?aDF5YmJaRm8xbTVYMDdBTlJHQXJHZHNmRVhlRFowc0Y3andSa2JsSXB5VkxK?=
+ =?utf-8?B?U1lCQlBsbDVyQ0lCemg2SU1UVit3b2ROWit0RjNTbnQ0eXFyaDlsNjc2SlZn?=
+ =?utf-8?B?RitwSklQcTVjZ0pxbmtFUEk3MGdPR0xWQ3kzZDlCR0lBdFZxYW9HVHM0Mzlq?=
+ =?utf-8?Q?vdkgGTZj/sa2FEaBDvARQNHJDFN9+XWe8BmyUPQRWL2M=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 39d75e31-e93e-4ef8-e3e3-08dbf5fba404
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Dec 2023 01:35:34.5641
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN2P287MB1582
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231205_165707_416998_B3B62ADA 
-X-CRM114-Status: GOOD (  44.07  )
+X-CRM114-CacheID: sfid-20231205_173557_577598_5318AC5B 
+X-CRM114-Status: GOOD (  17.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,154 +131,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Leonardo Bras <leobras@redhat.com>
 
-On Wed, Aug 30, 2023 at 06:59:46PM -0300, Leonardo Br=E1s wrote:
-> On Thu, 2023-08-10 at 09:23 -0700, Palmer Dabbelt wrote:
-> > On Thu, 10 Aug 2023 09:04:04 PDT (-0700), leobras@redhat.com wrote:
-> > > On Thu, 2023-08-10 at 08:51 +0200, Arnd Bergmann wrote:
-> > > > On Thu, Aug 10, 2023, at 06:03, Leonardo Bras wrote:
-> > > > > xchg for variables of size 1-byte and 2-bytes is not yet availabl=
-e for
-> > > > > riscv, even though its present in other architectures such as arm=
-64 and
-> > > > > x86. This could lead to not being able to implement some locking =
-mechanisms
-> > > > > or requiring some rework to make it work properly.
-> > > > > =
+On 2023/12/5 14:34, Inochi Amaoto wrote:
+>> On 2023/12/5 9:13, Inochi Amaoto wrote:
+>>>> From: Chen Wang <unicorn_wang@outlook.com>
+>>>>
+>>>> Add a driver for the SOPHGO SG2042 clock generator.
+>>>>
+>>>> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+>>>> ---
+>>>> MAINTAINERS                            |    7 +
+>>>> drivers/clk/Kconfig                    |    1 +
+>>>> drivers/clk/Makefile                   |    1 +
+>>>> drivers/clk/sophgo/Kconfig             |    8 +
+>>>> drivers/clk/sophgo/Makefile            |    2 +
+>>>> drivers/clk/sophgo/clk-sophgo-sg2042.c | 1371 ++++++++++++++++++++++++
+>>>> drivers/clk/sophgo/clk-sophgo-sg2042.h |  226 ++++
+>>>> 7 files changed, 1616 insertions(+)
+>>>> create mode 100644 drivers/clk/sophgo/Kconfig
+>>>> create mode 100644 drivers/clk/sophgo/Makefile
+>>>> create mode 100644 drivers/clk/sophgo/clk-sophgo-sg2042.c
+>>>> create mode 100644 drivers/clk/sophgo/clk-sophgo-sg2042.h
+>>>>
+>>>> diff --git a/MAINTAINERS b/MAINTAINERS
+>>>> index 97f51d5ec1cf..c9c75468f2cb 100644
+>>>> --- a/MAINTAINERS
+>>>> +++ b/MAINTAINERS
+>>>> @@ -20269,6 +20269,13 @@ S:    Maintained
+>>>> F:    arch/riscv/boot/dts/sophgo/
+>>>> F:    Documentation/devicetree/bindings/riscv/sophgo.yaml
+>>>>
+>>>> +SOPHGO CLOCK DRIVER
+>>>> +M:    Chen Wang <unicorn_wang@outlook.com>
+>>>> +S:    Maintained
+>>>> +F:    Documentation/devicetree/bindings/clock/sophgo/
+>>>> +F:    drivers/clk/sophgo/
+>>>> +F:    include/dt-bindings/clock/sophgo,sg2042-clkgen.h
+>>>> +
+>>>> SOUND
+>>>> M:    Jaroslav Kysela <perex@perex.cz>
+>>>> M:    Takashi Iwai <tiwai@suse.com>
+>>>> diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
+>>>> index c30d0d396f7a..514343934fda 100644
+>>>> --- a/drivers/clk/Kconfig
+>>>> +++ b/drivers/clk/Kconfig
+>>>> @@ -499,6 +499,7 @@ source "drivers/clk/rockchip/Kconfig"
+>>>> source "drivers/clk/samsung/Kconfig"
+>>>> source "drivers/clk/sifive/Kconfig"
+>>>> source "drivers/clk/socfpga/Kconfig"
+>>>> +source "drivers/clk/sophgo/Kconfig"
+>>>> source "drivers/clk/sprd/Kconfig"
+>>>> source "drivers/clk/starfive/Kconfig"
+>>>> source "drivers/clk/sunxi/Kconfig"
+>>>> diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
+>>>> index ed71f2e0ee36..aa5d2cf0b6a6 100644
+>>>> --- a/drivers/clk/Makefile
+>>>> +++ b/drivers/clk/Makefile
+>>>> @@ -119,6 +119,7 @@ obj-$(CONFIG_ARCH_ROCKCHIP)        += rockchip/
+>>>> obj-$(CONFIG_COMMON_CLK_SAMSUNG)    += samsung/
+>>>> obj-$(CONFIG_CLK_SIFIVE)        += sifive/
+>>>> obj-y                    += socfpga/
+>>>> +obj-$(CONFIG_ARCH_SOPHGO)        += sophgo/
+>>>> obj-$(CONFIG_PLAT_SPEAR)        += spear/
+>>>> obj-y                    += sprd/
+>>>> obj-$(CONFIG_ARCH_STI)            += st/
+>>>> diff --git a/drivers/clk/sophgo/Kconfig b/drivers/clk/sophgo/Kconfig
+>>>> new file mode 100644
+>>>> index 000000000000..b0fbe4499870
+>>>> --- /dev/null
+>>>> +++ b/drivers/clk/sophgo/Kconfig
+>>>> @@ -0,0 +1,8 @@
+>>>> +# SPDX-License-Identifier: GPL-2.0
+>>>> +
+>>>> +config CLK_SOPHGO_SG2042
+>>>> +    bool "Sophgo SG2042 clock support"
+>>>> +    depends on ARCH_SOPHGO || COMPILE_TEST
+>>>> +    default ARCH_SOPHGO
+>>>> +    help
+>>>> +      Say yes here to support the clock controller on the Sophgo SG2042 SoC.
+>>> Please add RISCV to its depends. Not all the sophgo SoCs are in the RISC-V
+>>> platform, Some are arm chips. It is not good to build this driver
+>>> in that arch.
+>> ARCH_SOPHGO is only defined in RISC-V arch, so I think RISCV should not be needed as depends.
+> It needs for the SG200X. which has a arm core. Maybe we should left it now
+> and add this in the future.
+It sounds like a new product, let's consider it when we get the real 
+hardware.
+>>> Also, the condition ARCH_SOPHGO is duplicate in the Makefile. Please
+>>> remove one of them.
+>> Don't undestand your question "the condition ARCH_SOPHGO is duplicate in the Makefile ",  I think you are talking about Kconifg, what Makefile are you talking about?
+>>
+> I mean your change in drivers/clk/Makefile.
 
-> > > > > Implement 1-byte and 2-bytes xchg in order to achieve parity with=
- other
-> > > > > architectures.
-> > > > > =
+Yes. I see it now. It's really a problem and redundant, I will fix it, 
+thanks for your carefully check.
 
-> > > > > Signed-off-by: Leonardo Bras <leobras@redhat.com>
-> > > > =
-
-> > > =
-
-> > > Hello Arnd Bergmann, thanks for reviewing!
-> > > =
-
-> > > > Parity with other architectures by itself is not a reason to do thi=
-s,
-> > > > in particular the other architectures you listed have the instructi=
-ons
-> > > > in hardware while riscv does not.
-> > > =
-
-> > > Sure, I understand RISC-V don't have native support for xchg on varia=
-bles of
-> > > size < 4B. My argument is that it's nice to have even an emulated ver=
-sion for
-> > > this in case any future mechanism wants to use it.
-> > > =
-
-> > > Not having it may mean we won't be able to enable given mechanism in =
-RISC-V. =
-
-> > =
-
-> > IIUC the ask is to have a user within the kernel for these functions.  =
-
-> > That's the general thing to do, and last time this came up there was no =
-
-> > in-kernel use of it -- the qspinlock stuff would, but we haven't enable=
-d =
-
-> > it yet because we're worried about the performance/fairness stuff that =
-
-> > other ports have seen and nobody's got concrete benchmarks yet (though =
-
-> > there's another patch set out that I haven't had time to look through, =
-
-> > so that may have changed).
-> > =
-
-> > So if something uses these I'm happy to go look closer.
-> =
-
-> IIUC patches 4 & 5 will be used by qspinlock, which may not be done yet, =
-so we
-> don't have an use for them for the time being.
-> =
-
-> Otherwise, any comments on patches 1, 2 & 3?
-
-ping
-
-> =
-
-> > =
-
-> > > > Emulating the small xchg() through cmpxchg() is particularly tricky
-> > > > since it's easy to run into a case where this does not guarantee
-> > > > forward progress.
-> > > > =
-
-> > > =
-
-> > > Didn't get this part:
-> > > By "emulating small xchg() through cmpxchg()", did you mean like emul=
-ating an
-> > > xchg (usually 1 instruction) with lr & sc (same used in cmpxchg) ?
-> > > =
-
-> > > If so, yeah, it's a fair point: in some extreme case we could have mu=
-ltiple
-> > > threads accessing given cacheline and have sc always failing. On the =
-other hand,
-> > > there are 2 arguments on that:
-> > > =
-
-> > > 1 - Other architectures, (such as powerpc, arm and arm64 without LSE =
-atomics)
-> > > also seem to rely in this mechanism for every xchg size. Another arch=
-s like csky
-> > > and loongarch use asm that look like mine to handle size < 4B xchg. =
-
-> > >     =
-
-> > > =
-
-> > > >  This is also something that almost no architecture
-> > > > specific code relies on (generic qspinlock being a notable exceptio=
-n).
-> > > > =
-
-> > > =
-
-> > > 2 - As you mentioned, there should be very little code that will actu=
-ally make
-> > > use of xchg for vars < 4B, so it should be safe to assume its fine to=
- not
-> > > guarantee forward progress for those rare usages (like some of above =
-mentioned
-> > > archs).
-> > > =
-
-> > > > I would recommend just dropping this patch from the series, at least
-> > > > until there is a need for it.
-> > > =
-
-> > > While I agree this is a valid point, I believe its more interesting t=
-o have it
-> > > implemented if any future mechanism wants to make use of this. =
-
-> > > =
-
-> > > =
-
-> > > Thanks!
-> > > Leo
-> > =
-
-> =
+......
 
 
 _______________________________________________
