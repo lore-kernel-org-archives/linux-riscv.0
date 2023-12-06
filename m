@@ -4,82 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8609C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 17:43:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 339F9C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 17:56:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zmAnHOc9YmZ/Jmeic80roN6cePAgv/MGdqJa1zOmyXE=; b=QcrgBZsfvpe9Ee
-	kjThD0P76B43DVf2GeuV+gPU/8Klce0dYwoJVf2cB1n1L/e2rC/MWH+XW9q5skcJqwLIpDm4TRLDY
-	SA+wVqvOMCCRiX4HUg5rCmI6XlC0gdh+PdNjyO64B1ZEV9JKvxdOUhr2RN9r7QYAHwL4T6Df7iyqS
-	QCzL26586MLWS4NRdSoPY/lMU10OREmpJ4w1uB740wxnEF/XW6rHau6aiWf8JASC+0q0YNLYJK9U1
-	CJbEEhesUhVmUH6k4Ht2z+YhmFPr1Y0s2kGIM/0N87giBCAeMN9DPZ+AE3tWr7v4kocX3dLo9MZ2H
-	R2II9cHHpGMSBpfo2yOA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=c3KgodDam7nMp98c1Y4JFfLPkMWJoJ2Q3Pbq7h1m2Jo=; b=xbNvJHkx0eR4QBEntKVP7RmOaR
+	iZkpOmhx9+opP8RYioepymabEoFiRzU19CnJySNkMiEJToRqGIW457uLjUeX6bTdYI/+xTCi5aMXp
+	Hsae+zUqWVgMwv6rRhuYHZa7ThPHBNCropJmaEWGTy4qKXC5eF65bKMkEoHAGFd7LPyrWbZL+WNJE
+	RsFKY+2dGX1trFxkLM0f1utaWVKCBasDk+By1Xf/TIkPQ6WOTKkgjA8v8cb/P3yo5acfaEaMmMjq1
+	rcgIE0EYy0kOsvJxVq+I6vxNQHiZWF8EOxAoyeMuWr4dzrQPQQQXXsQwuvWOwiZBfF1bDFCEFfKEs
+	cRi4HixQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAvvF-00Ax6o-2J;
-	Wed, 06 Dec 2023 17:42:57 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1rAw8D-00AypY-0a;
+	Wed, 06 Dec 2023 17:56:21 +0000
+Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAvvB-00Ax63-17
+	id 1rAw89-00AyoS-23
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 17:42:55 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-a1db6816177so399966b.0
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Dec 2023 09:42:52 -0800 (PST)
+	Wed, 06 Dec 2023 17:56:19 +0000
+Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-6d9a3c035b3so15779a34.2
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Dec 2023 09:56:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1701884571; x=1702489371; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5cQSdmy5VXvMhl1lDfSWOEIqrjKBlLF9FrQbjdBXHKU=;
-        b=eqNyUGMph/YjQo266RAxDTLDgJCDtLdJIYi2O9GkHsvP/Hk9mCv3Fukkgsxcu1nNN5
-         3fyVE2c3JCnwZrjgsvvnmkz9YyGwjIQmRZ4RQCEV5zmWJWQPzGoDriE4JKdz8n3cvgjf
-         Dze+AhVH3zYK/U1sbJaoUYCA5bN9MvHyin/pg7urvGz+lD5/SRuT7XzcAGRWLlOjWajo
-         0uiLLl18sV+LCOQJmNg0V31K6Qmn0eOtUkcGqie1wDCEzK9jFiHpO6H3Jz3t3UaWm7tc
-         N8cmLfKfR11BFQG4/oz5NrtEESscNRML21XxjvgH5zwZwM1kay6kYZLr1lqR9dRbBph+
-         CXcg==
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1701885376; x=1702490176; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YzmOds210uOLMoqUxUrCLSQtsPcHifLKozmBM1oKPoo=;
+        b=w+SSKOsBfWwrZR2uw3hLUOJf05jypTyrSmFKgBeIRte0eB8bo+PNCYOSP7BX0M/e1L
+         n3nZWG6zfqaJhHdIzF8cOqV1DK7J6wd87+EHcsu5QTCtvrC1X4Ehe0bERDPoAIIIWIeb
+         Idi5LyVqCTuJNVigbpPdwgTuIWs2knxWI53ceVwgJ1VCadWLYR/TRhDVnSY2pWJw8zTh
+         aCUKuD5juQFfgwpubzEPoxYG41C0LM9LDasdQln6hNz7gB1htiRevtoHiFMhA6WG3kk1
+         53GCzk7WhlTuCg78Bkpafoc0pmOK66ELCPC9T+3BlGL01/nvauvnpIsAC3I/YqwLQxh4
+         cr9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701884571; x=1702489371;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1701885376; x=1702490176;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=5cQSdmy5VXvMhl1lDfSWOEIqrjKBlLF9FrQbjdBXHKU=;
-        b=YH1c+hDJtelnjjBgMvQbU1qZUAeGrAdWmFxNA/sl1GEQ1qqHiV1umdV3VOci9PB3Cs
-         6s5ro0aCnHOpW5Ipn8ZmAhxE/32X41iO2XYrDaMIXYckX4pqao7sAJL1UpU3pV5dKI0R
-         7+TWLJ1B/+GMGocYWqB368bBtvPEPhiOeIB4LU6mZpS9rw1YjyInfOlNlUd17xgidSpP
-         +v0n1X3bergRnE7FegGN+SgcIFMEkikAcuCLBVSmixV4O5fpeEpxmM4TZ0UGVFzGV7yh
-         Z1GCnx8outee1+px0N6FqJKcGOsTnmBQmsyKyGG1k7T/UcXN23xFE1O3akiG7NWTZJNe
-         LvRQ==
-X-Gm-Message-State: AOJu0Yz7pb+c82sL/2BRj4OzrfDlTq2MinG2uWe2HiDA4QGbnld/7sOn
-	POvLoT+J/Elsq99K2TbFhlw=
-X-Google-Smtp-Source: AGHT+IEqNY3yzxYYXl8igoGLjOk/4cPykJ/7Y/Xr3Wh21g/tUrcHy0cIIuxSjqPNQCjvvDdSWt6cPg==
-X-Received: by 2002:a17:907:bb98:b0:a19:a19b:4265 with SMTP id xo24-20020a170907bb9800b00a19a19b4265mr646334ejc.208.1701884570832;
-        Wed, 06 Dec 2023 09:42:50 -0800 (PST)
-Received: from andrea ([31.189.124.152])
-        by smtp.gmail.com with ESMTPSA id g11-20020a1709061c8b00b00a1cd9151af6sm207563ejh.210.2023.12.06.09.42.48
+        bh=YzmOds210uOLMoqUxUrCLSQtsPcHifLKozmBM1oKPoo=;
+        b=RS/d/WFPxcI3raLVtoMJzypahM1OAtELNZAOVke/VtcqpAxhVHgGIXgm0GDenvIZgp
+         UsgYVRVmpSgnDArOxeBJtqTnZd3iMenpkLBSSsxpz69sW1k2BmHSfUcqCsrx2pc0Y6dZ
+         8Q8le43iYjtMfj7GxzcGpvFkCpNx0WIiyLfUwVirIWS1bDTk8bCYI+1ctGPdl11SznIj
+         N1hDA7gfKBpoEs+tI9EUtXRhRkkKx95NUUDcfyzPsw6utyHqOOPSC5veEAz7/q54l6Y5
+         xlxWqDnLpAjQxpkqosnDfalRVHQdPQI3iTyVMlydlMP7uAvW4Ze8nWhRqGfyC2NkEWrt
+         I15Q==
+X-Gm-Message-State: AOJu0Yx8j1bs4XrrFsvxazYgLXBxcVSRcmK7SlslQMLM+Lr69LXfAjt+
+	x29MfAGyda1DPTwmVZanSREgcwM8hVR5kzEWpmQ=
+X-Google-Smtp-Source: AGHT+IGuLe3uXFDTYJvCW1TreYHsP4rbqmaZqL0yKN+0sgi7VOo/WQy0nBuEdy5xTo8VjXoiNfBFSQ==
+X-Received: by 2002:a05:6830:1e69:b0:6d8:74e2:a3d3 with SMTP id m9-20020a0568301e6900b006d874e2a3d3mr1377709otr.47.1701885376195;
+        Wed, 06 Dec 2023 09:56:16 -0800 (PST)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id l11-20020a0568301d6b00b006d81e704023sm52207oti.2.2023.12.06.09.56.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Dec 2023 09:42:49 -0800 (PST)
-Date: Wed, 6 Dec 2023 18:42:44 +0100
-From: Andrea Parri <parri.andrea@gmail.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: mathieu.desnoyers@efficios.com, paulmck@kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-	mmaas@google.com, hboehm@google.com, striker@us.ibm.com,
-	charlie@rivosinc.com, rehn@rivosinc.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+        Wed, 06 Dec 2023 09:56:15 -0800 (PST)
+Date: Wed, 06 Dec 2023 09:56:15 -0800 (PST)
+X-Google-Original-Date: Wed, 06 Dec 2023 09:56:13 PST (-0800)
 Subject: Re: [PATCH 2/2] membarrier: riscv: Provide core serializing command
-Message-ID: <ZXCylOEXSbEMGB96@andrea>
-References: <ZXCA+4WyI6D+Somy@andrea>
- <mhng-26a1b3dd-ca9e-4b82-86e9-1faf1e3571e5@palmer-ri-x1c9>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mhng-26a1b3dd-ca9e-4b82-86e9-1faf1e3571e5@palmer-ri-x1c9>
+In-Reply-To: <ZXCylOEXSbEMGB96@andrea>
+CC: mathieu.desnoyers@efficios.com, paulmck@kernel.org,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, mmaas@google.com, hboehm@google.com, striker@us.ibm.com,
+  charlie@rivosinc.com, rehn@rivosinc.com, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: parri.andrea@gmail.com
+Message-ID: <mhng-5a4880f5-926c-4087-8bb9-b6c09fd4e288@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_094253_386513_954FFEB5 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231206_095617_877609_98EA8E08 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,28 +88,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> > The final version of this fix will likely depend on some machinery/code
-> > introduced by 3ccfebedd8cf54 ("powerpc, membarrier: Skip memory barrier
-> > in switch_mm()"); but, yes, nothing we can't safely adjust I think.
-> 
-> Ya, I guess we'll have to look to know for sure but hopefully it's
-> manageable.
+On Wed, 06 Dec 2023 09:42:44 PST (-0800), parri.andrea@gmail.com wrote:
+>> > The final version of this fix will likely depend on some machinery/code
+>> > introduced by 3ccfebedd8cf54 ("powerpc, membarrier: Skip memory barrier
+>> > in switch_mm()"); but, yes, nothing we can't safely adjust I think.
+>>
+>> Ya, I guess we'll have to look to know for sure but hopefully it's
+>> manageable.
+>
+> Absolutely.  One approach would be to follow what PowerPC did: AFAIU, before
+> 3ccfebedd8cf54 membarrier/powerpc used to hard code the required barrier in
+> in finish_task_switch(), "masking" it as an smp_mb__after_unlock_lock(); riscv
+> could use a similar approach (though with a different/new mask function).
 
-Absolutely.  One approach would be to follow what PowerPC did: AFAIU, before
-3ccfebedd8cf54 membarrier/powerpc used to hard code the required barrier in
-in finish_task_switch(), "masking" it as an smp_mb__after_unlock_lock(); riscv
-could use a similar approach (though with a different/new mask function).
-Alternatively, we could maybe keep the barrier in switch_mm().
+IIRC we patterned our MMIOWB/after-spinlock barriers after PPC, so 
+that's probably a good place to start here as well.
 
-But let me complete and send out v2 with the fix at stake...  this should give
-us a more concrete basis to discuss about these matters.
-
-  Andrea
+> Alternatively, we could maybe keep the barrier in switch_mm().
+>
+> But let me complete and send out v2 with the fix at stake...  this should give
+> us a more concrete basis to discuss about these matters.
+>
+>   Andrea
 
 _______________________________________________
 linux-riscv mailing list
