@@ -4,78 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F49BC4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 13:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A67AC4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 13:26:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=uBPtTr7ItbjbKVZ4IFOrBeK96LKDLctxNXNy72C0xO8=; b=ZCnPyauuGdiNDLk42gGmU25WcC
-	alocYPoBUruwUQ963CNdGA2A7NsO63kYBV6G1+uOWGZs1Gn5toAhz+3M6LWgOx4rRgASIOBw9rfFL
-	WkYqYFrCfwfL6kjP7iwKlgelRneuDMQpluLfctt2BZV5aRBWrjIihU7F2hp3oxF2D1O+KgBz4irsh
-	/ofamws89MqJ2PVryLFj0pSEcA+Gp+Zsh2KkejO+EtmcHGEpw2GeNYAwbSSLdwI+GQGvMWccqKe0f
-	1a/a70GU67Id+5cRBWAWgFBpPal8vewvbamR1eokgcQ4alM9gER0WXNsBZkUX2VrRgZ16qOUfQomp
-	8u88lecw==;
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uwnoK5ESm3MK29T4MyDIQCje8dLSTLkzq1dLXHRCnsM=; b=AH5jVHNaBXPCIBKgqmh3cratlv
+	k8rOII4T9fcJ9VRafRGSEa/Fix2PbvZbu24BHF+/OCChaLMu2RN9yvGIAY5n+7NkuPRlOHBXQxbeg
+	V+DP90wkv3Ogl5MSOu8dLrxMvsYXS+J8VZG5hyCiUUEMl06jH+/XO9y0/qQmSvrBzIi3cHuKYgwF9
+	DPCzz4QIYru4G4hRzETFvs33xT0rfFPvWHchVVxbQkTVj6kyvbLywxgt+t0J1yyuJl7qgW9YMqSpX
+	re0AtkBdPYyCj+szViWZd12ko8HBFD1wADvaGgn1iO4ewxEajMDLHnxpD2Klg4jd7swN21oynn9UW
+	gJdTHvjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rArjV-00AMqZ-1M;
-	Wed, 06 Dec 2023 13:14:33 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1rAruv-00ANgR-0N;
+	Wed, 06 Dec 2023 13:26:21 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rArjS-00AMpn-14
+	id 1rArur-00ANfI-25
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 13:14:31 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1d04c097e34so6913725ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Dec 2023 05:14:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1701868467; x=1702473267; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6m8NNJ96xoL22f3J2mj0pcMGx/C1e265J+kyF1R2z8o=;
-        b=dbSYdWxEePb1FIfEyyzfq+LTw9Q0JOVaS+ALS35+VC1vXOWGhd6V1SvDSxAMgMAmxV
-         WlhGvKkbksvqO1stz/fARb7qqBZSrQ73YRjDM/h7F2eRiDGOetVxWhRzMxLYZAtjqmRI
-         O3QiJRL4n1Xa1TlnUg5+AMlseH+KFe8KdCqZl2H6QYauu/dybRBlUhDAWFFCxi87wQyb
-         OeeFcSMsE+gfRrF8+l3ECcj2E1w/AaE/QZjUTqOjVgiMzNPi65XKKhOmgNk8RpxSX2eK
-         qq3H/udT8IxYK9d3ZDSZZ8JF5IRR7SNGJ/nq1a87EVHJq3TuatenWoWARJTi3mHXr2tR
-         bhHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701868467; x=1702473267;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6m8NNJ96xoL22f3J2mj0pcMGx/C1e265J+kyF1R2z8o=;
-        b=vxo4kIRVimL8oKkbg5osNuHgAS0qA3yrbPigJU+6lcQnhAJlLAQhwVZVEBZSbNAH/I
-         xd0TDy3eDSgeQaYsn5CBrNnvYzijEmQ2naD1TvYdle9/9C/mzrv9lDQIN7mzYhjFzem4
-         PvolkyCG2UPmRNzzBzIH3HEoihF1VCLyldlAMd2QzEXK/EG0Lg6SDNU0Urp/U5mEFpFl
-         IXKo48IrHYqGD0xlnFdAuz0hb8RkkFR1L5SKtbBHA1F0g2GH1KJyqJd9EjlQFsMUxkz6
-         PSzGToNXgza0OHVUBFrzkK7IeQNqaNv+kXykQPdomAhM31a/C/E+0Pg4lOl+hUn9WCJy
-         7IxQ==
-X-Gm-Message-State: AOJu0Yy6uT0R0mJ+tINQL+tJBExIxwqW58vR1yuPKjpnPEN2XlGA64Ps
-	ZFXoxnfSeRcnBMS32ptbts3HTQ==
-X-Google-Smtp-Source: AGHT+IGta2bhw+7qIoVXmqExA48kB41RdGIfu5QAI9yipmpTWRjYPKmvmMdYnIurBqPfmflvyEFyTQ==
-X-Received: by 2002:a17:902:dac4:b0:1cf:59df:23e with SMTP id q4-20020a170902dac400b001cf59df023emr1270027plx.12.1701868467222;
-        Wed, 06 Dec 2023 05:14:27 -0800 (PST)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id p24-20020a170902b09800b001b86dd825e7sm12082582plr.108.2023.12.06.05.14.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Dec 2023 05:14:26 -0800 (PST)
-Date: Wed, 06 Dec 2023 05:14:26 -0800 (PST)
-X-Google-Original-Date: Wed, 06 Dec 2023 05:14:24 PST (-0800)
-Subject: Re: [PATCH 0/2] riscv: Increase mmap_rnd_bits_max on Sv48/57
-In-Reply-To: <20230929211155.3910949-4-samitolvanen@google.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  akpm@linux-foundation.org, keescook@chromium.org, linux-mm@kvack.org, linux-riscv@lists.infradead.org,
-  llvm@lists.linux.dev, linux-kernel@vger.kernel.org, samitolvanen@google.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: samitolvanen@google.com
-Message-ID: <mhng-f0a257c6-a1f5-41db-b1c4-c178a77a79e9@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	Wed, 06 Dec 2023 13:26:19 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 961B9C000A;
+	Wed,  6 Dec 2023 13:26:08 +0000 (UTC)
+Message-ID: <112e2721-c95f-4d14-a8d5-32a0756eea10@ghiti.fr>
+Date: Wed, 6 Dec 2023 14:26:08 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [syzbot] riscv/fixes boot error: failed to read from qemu: EOF
+Content-Language: en-US
+To: syzbot <syzbot+2c2a76232878c44e0eae@syzkaller.appspotmail.com>,
+ aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, syzkaller-bugs@googlegroups.com
+References: <000000000000ce4a27060b39ed34@google.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <000000000000ce4a27060b39ed34@google.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_051430_388806_0C50288E 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20231206_052617_833850_6CD77A9D 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,45 +62,64 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 29 Sep 2023 14:11:56 PDT (-0700), samitolvanen@google.com wrote:
-> Hi all,
->
-> We noticed that 64-bit RISC-V kernels limit mmap_rnd_bits to 24
-> even if the hardware supports a larger virtual address space size
-> [1]. These two patches allow mmap_rnd_bits_max to be changed during
-> init, and bumps up the maximum randomness if we end up setting up
-> 4/5-level paging at boot.
+(messed up the reply all, so answer again here)
 
-Sorry for missing this, I'm just poking through old stuff in patchwork.  
-As far as I can tell this is still relevant, the discussions are just on 
-the mmap() bits (but we'd already screwed that one up and have since 
-fixed it).
+On 28/11/2023 18:41, syzbot wrote:
+> Hello,
+>
+> syzbot found the following issue on:
+>
+> HEAD commit:    3ca112b71f35 Merge tag 'probes-fixes-v6.7-rc1' of git://gi..
+> git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
+> console output: https://syzkaller.appspot.com/x/log.txt?x=172d3d0ce80000
+> kernel config:  https://syzkaller.appspot.com/x/.config?x=f4a49b764b9bf9b2
+> dashboard link: https://syzkaller.appspot.com/bug?extid=2c2a76232878c44e0eae
+> compiler:       riscv64-linux-gnu-gcc (Debian 12.2.0-13) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40
+> userspace arch: riscv64
+>
+> Downloadable assets:
+> disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/a741b348759c/non_bootable_disk-3ca112b7.raw.xz
+> vmlinux: https://storage.googleapis.com/syzbot-assets/8564c1899f29/vmlinux-3ca112b7.xz
+> kernel image: https://storage.googleapis.com/syzbot-assets/ee82a338dbc7/Image-3ca112b7.xz
+>
+> IMPORTANT: if you fix the issue, please add the following tag to the commit:
+> Reported-by: syzbot+2c2a76232878c44e0eae@syzkaller.appspotmail.com
+>
+>
+>
+> ---
+> This report is generated by a bot. It may contain errors.
+> See https://goo.gl/tpsmEJ for more information about syzbot.
+> syzbot engineers can be reached at syzkaller@googlegroups.com.
+>
+> syzbot will keep track of this issue. See:
+> https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+>
+> If the report is already addressed, let syzbot know by replying with:
+> #syz fix: exact-commit-title
+>
+> If you want to overwrite report's subsystems, reply with:
+> #syz set subsystems: new-subsystem
+> (See the list of subsystem names on the web dashboard)
+>
+> If the report is a duplicate of another one, reply with:
+> #syz dup: exact-subject-of-another-report
+>
+> If you want to undo deduplication, reply with:
+> #syz undup
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-So
+The kernel fails to boot, I'm looking into that, my CI is has been 
+lagging behind recently, I'm catching up!
 
-Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+Thanks for the report,
 
-in case someone else wants to take it, but I'm OK taking that MM patch 
-with Kees' review.
+Alex
 
->
-> Sami
->
->  [1] https://github.com/google/android-riscv64/issues/1
->
->
-> Sami Tolvanen (2):
->   mm: Change mmap_rnd_bits_max to __ro_after_init
->   riscv: mm: Update mmap_rnd_bits_max
->
->  arch/riscv/mm/init.c | 6 ++++++
->  include/linux/mm.h   | 2 +-
->  mm/mmap.c            | 2 +-
->  3 files changed, 8 insertions(+), 2 deletions(-)
->
->
-> base-commit: 6465e260f48790807eef06b583b38ca9789b6072
 
 _______________________________________________
 linux-riscv mailing list
