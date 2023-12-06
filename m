@@ -4,40 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC736C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 11:52:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A12EC4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 11:52:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iJmeHUUUHXZi+r2TSJm1DtSbW1HzLmOlopsUbRh1x5M=; b=dfUDZ4E5edSwL2
-	DILFdJfVFodEwv95qtqDLx29N2r/icyNf72SIx7drK7wrq8x46zoolyoCefMJN7XTrjST8VmqcHDR
-	rcBtrrEn9SiObHYFDO7vDCA5GCZh4OAaAnyMz+diXpD4j8315650lCczDf5WuQG4i8C6bGRxh2dsJ
-	maXw3/S46LCCWeo+VgFH1AityT8AD/dtOJzxqG2fbxhG8PK0maZDg4frJPzoewFzAbW8Nu8OGKtKG
-	35/9E6z0eFfayvSWy0PjOOeR6B1byC2rx1XUDgsh7dzFwhqR/iDbYwmIwkIesD8Jz2UJY+qX+Q8b3
-	QFngBwP29XoN2LK1aqAw==;
+	List-Owner; bh=PEcUhiiR9e0SIlk+yBHc4wonXhLuwaPDHca7r9m2cHk=; b=TxphDA6F+ll5Mz
+	/QsQlQUmMaX4REHbjengSDbkSC38xiM425Q6XEFKw+7M5a8A8yjS49OcQroiILG6WGEEMgLLiwKRe
+	dr6NVKq9ponTv3GtKcQzFQkNl4IP3IZUlPba2fClAmOta9bTPqwwn/8ibCd96fdnkF6oaY50d9Dai
+	blNdbTO412M0zUJ7xM36T1ScC2KDT5Ty12dyqerKa2baCD+JphE9GqDuLgiOx+c01UDJyhRIPR/lf
+	M4LL7weTd6Mb/j6W07L3Lcw/ZMnW4A/EdW6RUx90DiWvkx2NCuDvFN+qYd6ZFd0rbZGRqqMQjuOJP
+	aZhzFPgDAp9eQymKl93w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAqRs-00A9y5-2x;
-	Wed, 06 Dec 2023 11:52:16 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAqRp-00A9sT-2J
+	id 1rAqS2-00AA4Z-0C;
+	Wed, 06 Dec 2023 11:52:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1rAqS0-00AA2X-0X
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 06 Dec 2023 11:52:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=V94zAOUgkkzuiE0rvs4t1alwSfsEI5fLsIl7loJZpZI=; b=eGSEqY0o4grJ+kMGaWfBKSrnNY
+	f7tvQT5wOSWihW+hsVLJ+ZDAkUtCJLSUYdlgy57L8wdVC8jCD29idwTmSF6TCTan8WZLM9AMZHjlj
+	Y+BcgkUX10woZMs6/ansLofzi3k+mi1l2aowvDALoQQLRttSWzI93oBydUVyOcRl9zBGbd/y9MbjG
+	ZWwHaSC7zrdbKSLDjqmPysInAaodwf/aRkVNY184YMnkPpQDapPZmTOXisPmcnRN2xy9dx6k2Sq7v
+	DCq+JIQ7GY5pDmgB429Gmt8kouR5VE7qxaflH5Jg71T6BA92DGnsId+Ob+NLHudYMpQEHl/eblLVO
+	d5fKs0gw==;
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by desiato.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1rAqRv-0059eT-10
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 11:52:15 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	Wed, 06 Dec 2023 11:52:22 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 6CC2B24E308;
-	Wed,  6 Dec 2023 19:52:13 +0800 (CST)
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 6 Dec
- 2023 19:52:13 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id B8B0C7FFE;
+	Wed,  6 Dec 2023 19:51:18 +0800 (CST)
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 6 Dec
+ 2023 19:51:18 +0800
 Received: from jsia-virtual-machine.localdomain (175.136.135.142) by
  EXMBX066.cuchost.com (172.16.6.66) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Wed, 6 Dec 2023 19:52:06 +0800
+ 15.0.1497.42; Wed, 6 Dec 2023 19:51:11 +0800
 From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
 	<krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
@@ -47,11 +62,10 @@ To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
 	<xingyu.wu@starfivetech.com>
 CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-	<jeeheng.sia@starfivetech.com>, <leyfoon.tan@starfivetech.com>, Joshua Yeong
-	<joshua.yeong@starfivetech.com>
-Subject: [PATCH v1 15/16] reset: starfive: Add StarFive JH8100 reset driver
-Date: Wed, 6 Dec 2023 19:49:59 +0800
-Message-ID: <20231206115000.295825-16-jeeheng.sia@starfivetech.com>
+	<jeeheng.sia@starfivetech.com>, <leyfoon.tan@starfivetech.com>
+Subject: [PATCH v1 08/16] clk: starfive: Add JH8100 System-North-West clock generator driver
+Date: Wed, 6 Dec 2023 19:49:52 +0800
+Message-ID: <20231206115000.295825-9-jeeheng.sia@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
 References: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
@@ -61,8 +75,8 @@ X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX066.cuchost.com
  (172.16.6.66)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_035214_072942_8514BA8C 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20231206_115220_191729_69C2290D 
+X-CRM114-Status: GOOD (  19.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,172 +93,316 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add auxiliary reset driver to support StarFive JH8100 SoC.
+Add support for JH8100 System-North-West clock generator.
 
-Co-developed-by: Joshua Yeong <joshua.yeong@starfivetech.com>
-Signed-off-by: Joshua Yeong <joshua.yeong@starfivetech.com>
 Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
 ---
- MAINTAINERS                                   |   7 ++
- drivers/reset/starfive/Kconfig                |   8 ++
- drivers/reset/starfive/Makefile               |   2 +
- .../reset/starfive/reset-starfive-jh8100.c    | 102 ++++++++++++++++++
- 4 files changed, 119 insertions(+)
- create mode 100644 drivers/reset/starfive/reset-starfive-jh8100.c
+ drivers/clk/starfive/Kconfig             |   8 +
+ drivers/clk/starfive/jh8100/Makefile     |   1 +
+ drivers/clk/starfive/jh8100/clk-sys-nw.c | 268 +++++++++++++++++++++++
+ 3 files changed, 277 insertions(+)
+ create mode 100644 drivers/clk/starfive/jh8100/clk-sys-nw.c
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 87bcb25becc1..ed728f013d32 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20771,6 +20771,13 @@ F:	Documentation/devicetree/bindings/clock/starfive,jh81*.yaml
- F:	drivers/clk/starfive/jh8100
- F:	include/dt-bindings/clock/starfive?jh81*.h
- 
-+STARFIVE JH8100 RESET CONTROLLER DRIVERS
-+M:	Sia Jee Heng <jeeheng.sia@starfivetech.com>
-+M:	Ley Foon Tan <leyfoon.tan@starfivetech.com>
-+S:	Maintained
-+F:	drivers/reset/starfive/reset-starfive-jh81*
-+F:	include/dt-bindings/reset/starfive?jh81*.h
-+
- STATIC BRANCH/CALL
- M:	Peter Zijlstra <peterz@infradead.org>
- M:	Josh Poimboeuf <jpoimboe@kernel.org>
-diff --git a/drivers/reset/starfive/Kconfig b/drivers/reset/starfive/Kconfig
-index 29fbcf1a7d83..88d050044d52 100644
---- a/drivers/reset/starfive/Kconfig
-+++ b/drivers/reset/starfive/Kconfig
-@@ -19,3 +19,11 @@ config RESET_STARFIVE_JH7110
+diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
+index d8c7b9bb3895..e55f783d73ac 100644
+--- a/drivers/clk/starfive/Kconfig
++++ b/drivers/clk/starfive/Kconfig
+@@ -81,3 +81,11 @@ config CLK_STARFIVE_JH8100_SYS
  	default ARCH_STARFIVE
  	help
- 	  This enables the reset controller driver for the StarFive JH7110 SoC.
+ 	  Say yes here to support the System clock controller on the StarFive JH8100 SoC.
 +
-+config RESET_STARFIVE_JH8100
-+	bool "StarFive JH8100 Reset Driver"
-+	depends on AUXILIARY_BUS && CLK_STARFIVE_JH8100_SYS
-+	select RESET_STARFIVE_COMMON
++config CLK_STARFIVE_JH8100_SYS_NW
++	bool "StarFive JH8100 System-North-West clock support"
++	depends on CLK_STARFIVE_JH8100_SYS
 +	default ARCH_STARFIVE
 +	help
-+	  This enables the reset controller driver for the StarFive JH8100 SoC.
-diff --git a/drivers/reset/starfive/Makefile b/drivers/reset/starfive/Makefile
-index 582e4c160bd4..ede1fc1c9601 100644
---- a/drivers/reset/starfive/Makefile
-+++ b/drivers/reset/starfive/Makefile
-@@ -3,3 +3,5 @@ obj-$(CONFIG_RESET_STARFIVE_COMMON)		+= reset-starfive-common.o
- 
- obj-$(CONFIG_RESET_STARFIVE_JH7100)		+= reset-starfive-jh7100.o
- obj-$(CONFIG_RESET_STARFIVE_JH7110)		+= reset-starfive-jh7110.o
-+
-+obj-$(CONFIG_RESET_STARFIVE_JH8100)		+= reset-starfive-jh8100.o
-diff --git a/drivers/reset/starfive/reset-starfive-jh8100.c b/drivers/reset/starfive/reset-starfive-jh8100.c
++	  Say yes here to support the System-North-West clock controller on the StarFive JH8100
++	  SoC.
+diff --git a/drivers/clk/starfive/jh8100/Makefile b/drivers/clk/starfive/jh8100/Makefile
+index af6a09e220d3..eca7970a0e45 100644
+--- a/drivers/clk/starfive/jh8100/Makefile
++++ b/drivers/clk/starfive/jh8100/Makefile
+@@ -1,3 +1,4 @@
+ # SPDX-License-Identifier: GPL-2.0
+ # StarFive JH8100 Clock
+ obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS)		+= clk-sys.o
++obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS_NW)	+= clk-sys-nw.o
+diff --git a/drivers/clk/starfive/jh8100/clk-sys-nw.c b/drivers/clk/starfive/jh8100/clk-sys-nw.c
 new file mode 100644
-index 000000000000..84f3781a22a5
+index 000000000000..a200ea4d4020
 --- /dev/null
-+++ b/drivers/reset/starfive/reset-starfive-jh8100.c
-@@ -0,0 +1,102 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
++++ b/drivers/clk/starfive/jh8100/clk-sys-nw.c
+@@ -0,0 +1,268 @@
++// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * Reset driver for the StarFive JH8100 SoC
++ * StarFive JH8100 System Clock Driver
 + *
 + * Copyright (C) 2023 StarFive Technology Co., Ltd.
++ *
++ * Author: Jee Heng Sia <jeeheng.sia@starfivetech.com>
++ *
 + */
 +
-+#include <dt-bindings/reset/starfive,jh8100-crg.h>
-+#include <linux/auxiliary_bus.h>
-+#include <soc/starfive/reset-starfive-common.h>
++#include <linux/clk-provider.h>
++#include <linux/init.h>
++#include <linux/io.h>
++#include <linux/platform_device.h>
++#include <linux/slab.h>
 +
-+#include "reset-starfive-common.h"
++#include <dt-bindings/clock/starfive,jh8100-crg.h>
 +
-+struct jh8100_reset_info {
-+	unsigned int nr_resets;
-+	unsigned int assert_offset;
-+	unsigned int status_offset;
++#include "clk-starfive-jh8100.h"
++
++/* external clocks */
++#define SYSCRG_NW_CLK_OSC				(SYSCRG_NW_CLK_END + 0)
++#define SYSCRG_NW_CLK_APB_BUS				(SYSCRG_NW_CLK_END + 1)
++#define SYSCRG_NW_CLK_APB_BUS_PER4			(SYSCRG_NW_CLK_END + 2)
++#define SYSCRG_NW_CLK_SPI_CORE_100			(SYSCRG_NW_CLK_END + 3)
++#define SYSCRG_NW_CLK_ISP_2X				(SYSCRG_NW_CLK_END + 4)
++#define SYSCRG_NW_CLK_ISP__AXI				(SYSCRG_NW_CLK_END + 5)
++#define SYSCRG_NW_CLK_VOUT_ROOT0			(SYSCRG_NW_CLK_END + 6)
++#define SYSCRG_NW_CLK_VOUT_ROOT1			(SYSCRG_NW_CLK_END + 7)
++#define SYSCRG_NW_CLK_VOUT_SCAN__ATS			(SYSCRG_NW_CLK_END + 8)
++#define SYSCRG_NW_CLK_VOUT_DC__CORE			(SYSCRG_NW_CLK_END + 9)
++#define SYSCRG_NW_CLK_VOUT__AXI				(SYSCRG_NW_CLK_END + 10)
++#define SYSCRG_NW_CLK_AXI_400				(SYSCRG_NW_CLK_END + 11)
++#define SYSCRG_NW_CLK_DVP_EXT				(SYSCRG_NW_CLK_END + 12)
++#define SYSCRG_NW_CLK_ISP_DPHY_TAP_TCK_EXT		(SYSCRG_NW_CLK_END + 13)
++#define SYSCRG_NW_CLK_GLB_EXT				(SYSCRG_NW_CLK_END + 14)
++#define SYSCRG_NW_CLK_VOUT_MIPI_DPHY_TAP_TCK_EXT	(SYSCRG_NW_CLK_END + 15)
++#define SYSCRG_NW_CLK_VOUT_EDP_TAP_TCK_EXT		(SYSCRG_NW_CLK_END + 16)
++#define SYSCRG_NW_CLK_SPI_IN2_EXT			(SYSCRG_NW_CLK_END + 17)
++#define SYSCRG_NW_CLK_PERH_ROOT_PREOSC			(SYSCRG_NW_CLK_END + 18)
++#define SYSCRG_NW_CLK_AHB_VOUT				(SYSCRG_NW_CLK_END + 19)
++#define SYSCRG_NW_CLK_PLL5_OUT				(SYSCRG_NW_CLK_END + 20)
++
++static const struct starfive_clk_data jh8100_syscrg_nw_clk_data[] = {
++	/* root */
++	STARFIVE__DIV(SYSCRG_NW_CLK_PLL5_DIV2, "sys_nw_clk_pll5_div2", 2,
++		      SYSCRG_NW_CLK_PLL5_OUT),
++	STARFIVE_GDIV(SYSCRG_NW_CLK_GCLK5, "sys_nw_clk_gclk5", CLK_IS_CRITICAL, 120,
++		      SYSCRG_NW_CLK_PLL5_DIV2),
++	/* gpio */
++	STARFIVE_GATE(SYSCRG_NW_CLK_GPIO_100, "sys_nw_clk_gpio_100",
++		      CLK_IS_CRITICAL, SYSCRG_NW_CLK_PLL5_OUT),
++	STARFIVE_GATE(SYSCRG_NW_CLK_GPIO_50, "sys_nw_clk_gpio_50",
++		      CLK_IS_CRITICAL, SYSCRG_NW_CLK_PLL5_OUT),
++	STARFIVE_GATE(SYSCRG_NW_CLK_GPIO_150, "sys_nw_clk_gpio_150",
++		      CLK_IS_CRITICAL, SYSCRG_NW_CLK_PLL5_OUT),
++	STARFIVE_GDIV(SYSCRG_NW_CLK_GPIO_60, "sys_nw_clk_gpio_60", CLK_IS_CRITICAL, 30,
++		      SYSCRG_NW_CLK_PLL5_OUT),
++	/* iomux */
++	STARFIVE_GATE(SYSCRG_NW_CLK_IOMUX_WEST_PCLK, "sys_nw_clk_iomux_west_pclk", 0,
++		      SYSCRG_NW_CLK_APB_BUS_PER4),
++	/* i2c */
++	STARFIVE_GATE(SYSCRG_NW_CLK_I2C6_APB, "sys_nw_clk_i2c6_apb", 0,
++		      SYSCRG_NW_CLK_APB_BUS_PER4),
++	STARFIVE_GATE(SYSCRG_NW_CLK_I2C7_APB, "sys_nw_clk_i2c7_apb", 0,
++		      SYSCRG_NW_CLK_APB_BUS_PER4),
++	/* spi */
++	STARFIVE_GATE(SYSCRG_NW_CLK_SPI2_APB, "sys_nw_clk_spi2_apb", 0,
++		      SYSCRG_NW_CLK_APB_BUS_PER4),
++	STARFIVE_GATE(SYSCRG_NW_CLK_SPI2_CORE, "sys_nw_clk_spi2_core", 0,
++		      SYSCRG_NW_CLK_SPI_CORE_100),
++	STARFIVE__MUX(SYSCRG_NW_CLK_SPI2_SCLK_IN, "sys_nw_clk_spi2_sclk_in", 2,
++		      SYSCRG_NW_CLK_SPI_IN2_EXT, SYSCRG_NW_CLK_GPIO_100),
++	/* smbus */
++	STARFIVE_GATE(SYSCRG_NW_CLK_SMBUS1_APB, "sys_nw_clk_smbus1_apb", CLK_IGNORE_UNUSED,
++		      SYSCRG_NW_CLK_APB_BUS_PER4),
++	STARFIVE_GDIV(SYSCRG_NW_CLK_SMBUS1_CORE, "sys_nw_clk_smbus1_core", CLK_IGNORE_UNUSED, 120,
++		      SYSCRG_NW_CLK_PERH_ROOT_PREOSC),
++	/* isp */
++	STARFIVE__MUX(SYSCRG_NW_CLK_ISP_DVP, "sys_nw_clk_isp_dvp", 2,
++		      SYSCRG_NW_CLK_DVP_EXT, SYSCRG_NW_CLK_GPIO_150),
++	STARFIVE_GATE(SYSCRG_NW_CLK_ISP_CORE_2X, "sys_nw_clk_isp_core_2x", 0,
++		      SYSCRG_NW_CLK_ISP_2X),
++	STARFIVE_GATE(SYSCRG_NW_CLK_ISP_AXI, "sys_nw_clk_isp_axi", 0,
++		      SYSCRG_NW_CLK_ISP__AXI),
++	STARFIVE__MUX(SYSCRG_NW_CLK_ISP_DPHY_TAP_TCK, "sys_nw_clk_isp_dphy_tap_tck", 2,
++		      SYSCRG_NW_CLK_ISP_DPHY_TAP_TCK_EXT, SYSCRG_NW_CLK_GLB_EXT),
++	STARFIVE_GATE(SYSCRG_NW_CLK_FLEXNOC_ISPSLV, "sys_nw_clk_flexnoc_ispslv", 0,
++		      SYSCRG_NW_CLK_ISP__AXI),
++	/* vout */
++	STARFIVE_GATE(SYSCRG_NW_CLK_VOUT_PIX0, "sys_nw_clk_vout_pix0", CLK_IGNORE_UNUSED,
++		      SYSCRG_NW_CLK_VOUT_ROOT0),
++	STARFIVE_GATE(SYSCRG_NW_CLK_VOUT_PIX1, "sys_nw_clk_vout_pix1", CLK_IGNORE_UNUSED,
++		      SYSCRG_NW_CLK_VOUT_ROOT1),
++	STARFIVE_GATE(SYSCRG_NW_CLK_VOUT_SCAN_ATS, "sys_nw_clk_vout_scan_ats",
++		      CLK_IGNORE_UNUSED, SYSCRG_NW_CLK_VOUT_SCAN__ATS),
++	STARFIVE_GATE(SYSCRG_NW_CLK_VOUT_DC_CORE, "sys_nw_clk_vout_dc_core",
++		      CLK_IGNORE_UNUSED, SYSCRG_NW_CLK_VOUT_DC__CORE),
++	STARFIVE_GATE(SYSCRG_NW_CLK_VOUT_APB, "sys_nw_clk_vout_apb", CLK_IGNORE_UNUSED,
++		      SYSCRG_NW_CLK_APB_BUS),
++	STARFIVE_GATE(SYSCRG_NW_CLK_VOUT_DSI, "sys_nw_clk_vout_dsi", CLK_IGNORE_UNUSED,
++		      SYSCRG_NW_CLK_AXI_400),
++	STARFIVE_GATE(SYSCRG_NW_CLK_VOUT_AHB, "sys_nw_clk_vout_ahb", CLK_IGNORE_UNUSED,
++		      SYSCRG_NW_CLK_AHB_VOUT),
++	STARFIVE_GATE(SYSCRG_NW_CLK_VOUT_AXI, "sys_nw_clk_vout_axi", CLK_IGNORE_UNUSED,
++		      SYSCRG_NW_CLK_VOUT__AXI),
++	STARFIVE__MUX(SYSCRG_NW_CLK_VOUT_MIPI_DPHY_TAP_TCK,
++		      "sys_nw_clk_vout_mipi_dphy_tap_tck", 2,
++		      SYSCRG_NW_CLK_VOUT_MIPI_DPHY_TAP_TCK_EXT,
++		      SYSCRG_NW_CLK_GLB_EXT),
++	STARFIVE__MUX(SYSCRG_NW_CLK_VOUT_EDP_PHY_TAP_TCK,
++		      "sys_nw_clk_vout_edp_phy_tap_tck", 2,
++		      SYSCRG_NW_CLK_VOUT_EDP_TAP_TCK_EXT, SYSCRG_NW_CLK_GLB_EXT),
++	/* uart */
++	STARFIVE__DIV(SYSCRG_NW_CLK_UART5_CORE_PREOSC, "sys_nw_clk_uart5_core_preosc",
++		      131071, SYSCRG_NW_CLK_PERH_ROOT_PREOSC),
++	STARFIVE_GATE(SYSCRG_NW_CLK_UART5_APB, "sys_nw_clk_uart5_apb", 0,
++		      SYSCRG_NW_CLK_APB_BUS_PER4),
++	STARFIVE_GMUX(SYSCRG_NW_CLK_UART5_CORE, "sys_nw_clk_uart5_core", 0, 2,
++		      SYSCRG_NW_CLK_OSC, SYSCRG_NW_CLK_UART5_CORE_PREOSC),
++	STARFIVE__DIV(SYSCRG_NW_CLK_UART6_CORE_PREOSC, "sys_nw_clk_uart6_core_preosc",
++		      131071, SYSCRG_NW_CLK_PERH_ROOT_PREOSC),
++	STARFIVE_GATE(SYSCRG_NW_CLK_UART6_APB, "sys_nw_clk_uart6_apb", 0,
++		      SYSCRG_NW_CLK_APB_BUS_PER4),
++	STARFIVE_GMUX(SYSCRG_NW_CLK_UART6_CORE, "sys_nw_clk_uart6_core", 0, 2,
++		      SYSCRG_NW_CLK_OSC, SYSCRG_NW_CLK_UART6_CORE_PREOSC),
++	/* icg_en */
++	STARFIVE_GATE(SYSCRG_NW_CLK_SPI2_ICG_EN, "sys_nw_clk_spi2_en", 0,
++		      SYSCRG_NW_CLK_APB_BUS_PER4),
++	STARFIVE_GATE(SYSCRG_NW_CLK_SMBUS1_ICG_EN, "sys_nw_clk_smbus1_en", 0,
++		      SYSCRG_NW_CLK_APB_BUS_PER4),
++	STARFIVE_GATE(SYSCRG_NW_CLK_ISP_ICG_EN, "sys_nw_clk_isp_en", 0,
++		      SYSCRG_NW_CLK_ISP__AXI),
++	STARFIVE_GATE(SYSCRG_NW_CLK_VOUT_ICG_EN, "sys_nw_clk_vout_en", 0,
++		      SYSCRG_NW_CLK_VOUT_ROOT0),
++	STARFIVE_GATE(SYSCRG_NW_CLK_UART5_ICG_EN, "sys_nw_clk_uart5_en", 0,
++		      SYSCRG_NW_CLK_APB_BUS_PER4),
++	STARFIVE_GATE(SYSCRG_NW_CLK_UART6_ICG_EN, "sys_nw_clk_uart6_en", 0,
++		      SYSCRG_NW_CLK_APB_BUS_PER4),
 +};
 +
-+static const struct jh8100_reset_info jh8100_sys_info = {
-+	.nr_resets = SYSCRG_RESET_NR_RESETS,
-+	.assert_offset = 0x1B4,
-+	.status_offset = 0x1B8,
-+};
-+
-+static const struct jh8100_reset_info jh8100_sys_nw_info = {
-+	.nr_resets = SYSCRG_NW_RESET_NR_RESETS,
-+	.assert_offset = 0xA4,
-+	.status_offset = 0xA8,
-+};
-+
-+static const struct jh8100_reset_info jh8100_sys_ne_info = {
-+	.nr_resets = SYSCRG_NE_RESET_NR_RESETS,
-+	.assert_offset = 0x2BC,
-+	.status_offset = 0x2C4,
-+};
-+
-+static const struct jh8100_reset_info jh8100_sys_sw_info = {
-+	.nr_resets = SYSCRG_SW_RESET_NR_RESETS,
-+	.assert_offset = 0x28,
-+	.status_offset = 0x2C,
-+};
-+
-+static const struct jh8100_reset_info jh8100_aon_info = {
-+	.nr_resets = AONCRG_RESET_NR_RESETS,
-+	.assert_offset = 0x104,
-+	.status_offset = 0x108,
-+};
-+
-+static int jh8100_reset_probe(struct auxiliary_device *adev,
-+			      const struct auxiliary_device_id *id)
++struct clk_hw *jh8100_syscrg_nw_clk_get(struct of_phandle_args *clkspec, void *data)
 +{
-+	struct jh8100_reset_info *info = (struct jh8100_reset_info *)
-+					 (id->driver_data);
-+	struct starfive_reset_adev *rdev = to_starfive_reset_adev(adev);
-+	void __iomem *base = rdev->base;
++	struct starfive_clk_priv *priv = data;
++	unsigned int idx = clkspec->args[0];
 +
-+	if (!info || !base)
-+		return -ENODEV;
++	if (idx < SYSCRG_NW_CLK_END)
++		return &priv->reg[idx].hw;
 +
-+	return reset_starfive_register(&adev->dev,
-+					      adev->dev.parent->of_node,
-+					      base + info->assert_offset,
-+					      base + info->status_offset, NULL,
-+					      info->nr_resets, NULL);
++	return ERR_PTR(-EINVAL);
 +}
 +
-+static const struct auxiliary_device_id jh8100_reset_ids[] = {
-+	{
-+		.name = "clk_sys.rst-sys",
-+		.driver_data = (kernel_ulong_t)&jh8100_sys_info,
-+	},
-+	{
-+		.name = "clk_sys.rst-sys-nw",
-+		.driver_data = (kernel_ulong_t)&jh8100_sys_nw_info,
-+	},
-+	{
-+		.name = "clk_sys.rst-sys-ne",
-+		.driver_data = (kernel_ulong_t)&jh8100_sys_ne_info,
-+	},
-+	{
-+		.name = "clk_sys.rst-sys-sw",
-+		.driver_data = (kernel_ulong_t)&jh8100_sys_sw_info,
-+	},
-+	{
-+		.name = "clk_sys.rst-aon",
-+		.driver_data = (kernel_ulong_t)&jh8100_aon_info,
-+	},
++static int jh8100_syscrg_nw_probe(struct platform_device *pdev)
++{
++	struct starfive_clk_priv *priv;
++	unsigned int idx;
++	int ret;
++
++	priv = devm_kzalloc(&pdev->dev,
++			    struct_size(priv, reg, SYSCRG_NW_CLK_END),
++			    GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++
++	spin_lock_init(&priv->rmw_lock);
++	priv->dev = &pdev->dev;
++	priv->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(priv->base))
++		return PTR_ERR(priv->base);
++
++	/* 24MHz -> 1500.0MHz */
++	priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "clk_pll5_out",
++							 "clk_osc", 0, 125, 2);
++	if (IS_ERR(priv->pll[0]))
++		return PTR_ERR(priv->pll[0]);
++
++	for (idx = 0; idx < SYSCRG_NW_CLK_END; idx++) {
++		u32 max = jh8100_syscrg_nw_clk_data[idx].max;
++		struct clk_parent_data parents[4] = {};
++		struct clk_init_data init = {
++			.name = jh8100_syscrg_nw_clk_data[idx].name,
++			.ops = starfive_clk_ops(max),
++			.parent_data = parents,
++			.num_parents =
++				((max & STARFIVE_CLK_MUX_MASK) >> STARFIVE_CLK_MUX_SHIFT) + 1,
++			.flags = jh8100_syscrg_nw_clk_data[idx].flags,
++		};
++		struct starfive_clk *clk = &priv->reg[idx];
++		unsigned int i;
++
++		for (i = 0; i < init.num_parents; i++) {
++			unsigned int pidx = jh8100_syscrg_nw_clk_data[idx].parents[i];
++
++			if (pidx < SYSCRG_NW_CLK_END)
++				parents[i].hw = &priv->reg[pidx].hw;
++			else if (pidx == SYSCRG_NW_CLK_OSC)
++				parents[i].fw_name = "clk_osc";
++			else if (pidx == SYSCRG_NW_CLK_APB_BUS)
++				parents[i].fw_name = "sys_clk_apb_bus";
++			else if (pidx == SYSCRG_NW_CLK_APB_BUS_PER4)
++				parents[i].fw_name = "sys_clk_apb_bus_per4";
++			else if (pidx == SYSCRG_NW_CLK_SPI_CORE_100)
++				parents[i].fw_name = "sys_clk_spi_core_100";
++			else if (pidx == SYSCRG_NW_CLK_ISP_2X)
++				parents[i].fw_name = "sys_clk_isp_2x";
++			else if (pidx == SYSCRG_NW_CLK_ISP__AXI)
++				parents[i].fw_name = "sys_clk_isp_axi";
++			else if (pidx == SYSCRG_NW_CLK_VOUT_ROOT0)
++				parents[i].fw_name = "sys_clk_vout_root0";
++			else if (pidx == SYSCRG_NW_CLK_VOUT_ROOT1)
++				parents[i].fw_name = "sys_clk_vout_root1";
++			else if (pidx == SYSCRG_NW_CLK_VOUT_SCAN__ATS)
++				parents[i].fw_name = "sys_clk_vout_scan_ats";
++			else if (pidx == SYSCRG_NW_CLK_VOUT_DC__CORE)
++				parents[i].fw_name = "sys_clk_vout_dc_core";
++			else if (pidx == SYSCRG_NW_CLK_VOUT__AXI)
++				parents[i].fw_name = "sys_clk_vout_axi";
++			else if (pidx == SYSCRG_NW_CLK_AXI_400)
++				parents[i].fw_name = "sys_clk_axi_400";
++			else if (pidx == SYSCRG_NW_CLK_DVP_EXT)
++				parents[i].fw_name = "clk_dvp_ext";
++			else if (pidx == SYSCRG_NW_CLK_ISP_DPHY_TAP_TCK_EXT)
++				parents[i].fw_name = "clk_isp_dphy_tap_tck_ext";
++			else if (pidx == SYSCRG_NW_CLK_GLB_EXT)
++				parents[i].fw_name = "clk_glb_ext_clk";
++			else if (pidx == SYSCRG_NW_CLK_VOUT_MIPI_DPHY_TAP_TCK_EXT)
++				parents[i].fw_name = "clk_vout_mipi_dphy_tap_tck_ext";
++			else if (pidx == SYSCRG_NW_CLK_VOUT_EDP_TAP_TCK_EXT)
++				parents[i].fw_name = "clk_vout_edp_tap_tck_ext";
++			else if (pidx == SYSCRG_NW_CLK_SPI_IN2_EXT)
++				parents[i].fw_name = "clk_spi_in2_ext";
++			else if (pidx == SYSCRG_NW_CLK_PERH_ROOT_PREOSC)
++				parents[i].fw_name = "sys_clk_perh_root_preosc";
++			else if (pidx == SYSCRG_NW_CLK_AHB_VOUT)
++				parents[i].fw_name = "sys_clk_ahb_vout";
++			else
++				parents[i].hw = priv->pll[pidx - SYSCRG_NW_CLK_PLL5_OUT];
++		}
++
++		clk->hw.init = &init;
++		clk->idx = idx;
++		clk->max_div = max & STARFIVE_CLK_DIV_MASK;
++
++		ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
++		if (ret)
++			return ret;
++	}
++
++	ret = devm_of_clk_add_hw_provider(&pdev->dev, jh8100_syscrg_nw_clk_get, priv);
++	if (ret)
++		return ret;
++
++	return jh8100_reset_controller_register(priv, "rst-sys-nw", 1);
++}
++
++static const struct of_device_id jh8100_syscrg_nw_match[] = {
++	{ .compatible = "starfive,jh8100-syscrg-nw" },
 +	{ /* sentinel */ }
 +};
-+MODULE_DEVICE_TABLE(auxiliary, jh8100_reset_ids);
 +
-+static struct auxiliary_driver jh8100_reset_driver = {
-+	.probe		= jh8100_reset_probe,
-+	.id_table	= jh8100_reset_ids,
++static struct platform_driver jh8100_syscrg_nw_driver = {
++	.driver = {
++		.name = "clk-starfive-jh8100-sys-nw",
++		.of_match_table = jh8100_syscrg_nw_match,
++		.suppress_bind_attrs = true,
++	},
 +};
-+module_auxiliary_driver(jh8100_reset_driver);
-+
-+MODULE_AUTHOR("Joshua Yeong <joshua.yeong@starfivetech.com>");
-+MODULE_AUTHOR("Sia Jee Heng <jeeheng.sia@starfivetech.com>");
-+MODULE_DESCRIPTION("StarFive JH8100 reset driver");
-+MODULE_LICENSE("GPL");
++builtin_platform_driver_probe(jh8100_syscrg_nw_driver, jh8100_syscrg_nw_probe);
 -- 
 2.34.1
 
