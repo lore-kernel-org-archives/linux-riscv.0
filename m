@@ -4,122 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0351C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 00:41:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B448CC4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 00:47:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dZ/FCCa2jp0quadShLHxNyeBg885BeAJUEZFh9YzMcc=; b=YAY8KIaa1lbLM3
-	qlEeiqixMMf1571Q5aZJVUeZw3cG0ob0p3W7QPNzpd2RStfDLsgxh9Lv2zKLqoEkgfCaJL+HIQv0p
-	xt3RRHCri9F+r8sYDxY8+6iIjYHWl8r99JZ21cNsohszJCDpvIfR1zTuXLwiPisHeLy4ii4yvAAma
-	lzpuTHUcZfuW1qYO4Y5Z8PzlYd+Ty9TxyYMWEvAi3IQMk4xOVhobCa1pXZul0N9iSmcs6pXkwK8yq
-	YH45A3t4XfPEYGl417UaMk663VHd7JyEvFoQ3RbLEnOYv/2wVpwsnCgrfGCcOkovrh0vu6+Ax3LlC
-	m3PuuyM7jUZgA9epa9ow==;
+	List-Owner; bh=y4aYvSwSNPo0/ZNzKOTkgZdjcIMxfEoFaO/1eig0y1g=; b=ylXHFZJHFp9ECD
+	KgCZ4+xYABw8ghw5pT9KVNAqNFgbjEA/+kqZZ3OehQZyY363vNTsMbnU1yaoqNnyq7+N82W9/UfhT
+	oKdnNCc6P+ceLO0DRZx3onsnNlDVd622dGX6G32Uwm07KMNYQtOq9PtpugODUzcYxd9w8Nse3tw0S
+	V5TKTnLyXgviqbtzyqvHZxuIcFEq+a5DvNpUDZ5FJTpUAe5Dql0npsdR5rbIh1QCa8kg+Aqg9o6EL
+	nIuzQG9ZUMkZkfbIZt2SNZ1zytq2cEzLd89s0+tmBYs1dqnvefoRGC3OAk9R3m5JEFrOJFWiOxQL4
+	FpPTYUAD3XH3eS5W3N9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAfyf-008jAW-01;
-	Wed, 06 Dec 2023 00:41:25 +0000
-Received: from mail-mw2nam10olkn20831.outbound.protection.outlook.com ([2a01:111:f400:7e89::831] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1rAg46-008jVd-2D;
+	Wed, 06 Dec 2023 00:47:02 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAfyb-008j9U-2l
+	id 1rAg44-008jVF-0A
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 00:41:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Rr1aRcMaNoBJ5yGS6XXUyhVvrZuAfoNIwWqT0Gzi5e3k5UI48CmNKTO8aAAau0zAJ4h3siUobMP2+lrRDzs+tlBcfcbLhPxuP/ZtG12nCx9JPK4+X7deL58GBE9wlbQUFMWQWvSPWK8Kapt4G3tLzevh7kYgouwJwstdh0dwHeL4mBHsm0bCDbLoC2HkVD90KOgDW/HLsM99KSzFzE29o5f/+Aesvb9F2WGCeMjF+789LjYVqSRMDTkxsR+8AjfO5rRG+U180w47Y+orgYwq93uzmrU4CMkyWqf7hsFzhKrSNDP6lr0GCDGo8d/4bmwBUZNySbf8r1eSC+ak7S18Ew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=urrIgbngN3cnl01OABEDrokvtPbJBgQvVtYkzC5HOYc=;
- b=RGo2KNOjiDHaS6Qlkqt4U5K7sGtoBl34JAomcC+GM7dUke8KC38CwVUPZCK2HO9JltTccqDrtyuaVhdwlSWtFPBcQiVhafwWFAdCW6D2Vink2C6L7+mvP3XYimBJJtoU6AJ+VlgfGcrwPAQhowHxyeLQtmz5UKEpp1T0P6dXrUrYIoyXvUHvo9u7zznGquPDYwnK6KRIUaS50W7V8RytphYdNEgjWS7Cg5B9eqgbLkLrrk6sJBFByamiVfQPCd8GToxjKvxT6yIxFxqx2t7yxdSJ3C5Fd7rMk8+EUvgTXxhFlSeLtFDAMFYsfGFJmCOnZIyr7Pw5NzPpjUdxmWF9LQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=urrIgbngN3cnl01OABEDrokvtPbJBgQvVtYkzC5HOYc=;
- b=hTxGJUnCiJ/1VlStjjPI3BQPijnN95otEBslZ5p0A/oMjjF8mqeq1Fhh16kVWZH0KljlrwZHOpkt7/DE0Kmp4qOUqMH5Ko5WvAvUUp521JHEKPgUBxHrA8Bvv+LlDXnQrbEoUl7sgnqmAWGnMnQ4xAWavBQLmPojCyERTmK06h+eTav2bDtqLugH9y05NjbkOp+APidO1PWOlLWfXnIEsbwVyZWV/qqIoJkp9OoWEOJhO0dZxwHG2C1kEPLHZd3UCLdI234CAOXZ/qVLH6bq1uwGrjJPBzFA0ak554UHqgcHd70GC8IqlJYE7Et9ihAPybqvz2nk8JR4digYXFxW5w==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by IA1PR20MB4956.namprd20.prod.outlook.com (2603:10b6:208:3ac::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7046.23; Wed, 6 Dec
- 2023 00:41:02 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::55b:c350:980:ad8]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::55b:c350:980:ad8%6]) with mapi id 15.20.7046.024; Wed, 6 Dec 2023
- 00:41:02 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Inochi Amaoto <inochiama@outlook.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	qiujingbao.dlmu@gmail.com,
-	dlan@gentoo.org,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 4/4] riscv: dts: sophgo: add uart clock for Sophgo CV1800 series SoC
-Date: Wed,  6 Dec 2023 08:41:00 +0800
-Message-ID: <IA1PR20MB49531F7CAC79B0CEBB141222BB84A@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <CAJM55Z8DU_OPJOYqT28wtH9EGFj=y9VVPcawOnYjY=U75pt2vg@mail.gmail.com>
-References: <CAJM55Z8DU_OPJOYqT28wtH9EGFj=y9VVPcawOnYjY=U75pt2vg@mail.gmail.com>
-X-TMN: [PUMrGwLtShyOYHTc2H10YRe5iLCVSoEULdlgeRyU7wI=]
-X-ClientProxiedBy: SI2PR02CA0015.apcprd02.prod.outlook.com
- (2603:1096:4:194::16) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20231206004101.131677-1-inochiama@outlook.com>
+	Wed, 06 Dec 2023 00:47:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 549B8619DD;
+	Wed,  6 Dec 2023 00:46:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84A3FC433C8;
+	Wed,  6 Dec 2023 00:46:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1701823619;
+	bh=b5r5GxuYWHo36uh4ovYgu5m135G+N9ZSSwh0htqUnfM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=la+CqPPqfkLVqIiY+xzaHmGFS9CkyQKnrbETqIQqwbah3+lvOql3uSGTnKbd83GLn
+	 CzuOC3tBU4YX+V8KeKYAKaiAHdqLsvqhqCFg79UNf+B39DvfMCQ6TyyGfa1uXiTgQu
+	 VlXLmGB/edcKWRAWOUYlFMEIz0IXVwPjs+cKEXvZlGOhgd7iIzfj22r0+1vDGkIRxE
+	 3LT0+Z1LetBYgNADApH2HDkkJ/mM04ENyOwRyK9PytwjoKUnF7Dgr+OxQzx/IF3oeU
+	 CpYVPv9ANhxGcLcr/YNz+008+G6UFW1VV5Vd/GgNA57hTptrXjkS++E1NxT5ERcKXq
+	 5Q8PKY4BV++Wg==
+Date: Tue, 5 Dec 2023 16:46:56 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Jerry Shih <jerry.shih@sifive.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	herbert@gondor.apana.org.au, davem@davemloft.net,
+	conor.dooley@microchip.com, ardb@kernel.org, conor@kernel.org,
+	heiko@sntech.de, phoebe.chen@sifive.com, hongrong.hsu@sifive.com,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-crypto@vger.kernel.org
+Subject: Re: [PATCH v3 00/12] RISC-V: provide some accelerated cryptography
+ implementations using vector extensions
+Message-ID: <20231206004656.GC1118@sol.localdomain>
+References: <20231205092801.1335-1-jerry.shih@sifive.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|IA1PR20MB4956:EE_
-X-MS-Office365-Filtering-Correlation-Id: 22c6b2aa-e400-49f8-e963-08dbf5f40595
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: cjNStZ5D8UL6mGfZiPSJKBBDFZr8H9R1UyOdsO0Gwo7T+JSFP5s1xOoIC/03c/5LQxGEeIcE6As5KMXV6Z2VpC/Iw1dvAq8hzv+6Vo5PooXjAy8gtwN0lZbEAlE6uTNdnQ9P6zg9GJFQqMe9m5f7SuymlvGPAkPEXAQZ36XisLoXFTMRTlULcyl/pYZ2L4SU7DDUzvizb/OhB34AvqndtAxRUDjg49Gcqfu+v25vCbmKN/s9UnYFcfOs9boJHy0+GeM9bWgLOW9KeK0fUO/7Wpf8UTRODZDdtLQwrLG3I6G6Rgg35EFSkk/NSe/a8AoyzsOX63H/C/rRL571Wsc+n6bKXGR2tTIwNWpobJCgmWJXpq3DQhNMfGGeMKo4vBd7T8G6QjTB7Bv7HBzVCpwJETi+HEjGjQIxqLhOQGhEL5TyJ/NIqeXwwHRT1Gqg4PmnnWi17KzVcsH1Bk++YCtVmvFdU6KVO/Dswutk+Nk71q0Ej7U95T7CKe8PBw+pX2pcZUeIPZAikusTdfFMLr22D7y6pgWQhF7ueK/b8r76veAMHo7k5JoS+bBSIV9cHyOZ1RKekifTggEN3DuW+6FS3lJIUhVB147pFEMD7UxITsCCZ38Um+OOPWyPqOXyWzkd
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?irj19usirMd85FUZAJJFDvzqdgv3KOY5vxWn4abQpA6gTF9yvl04vbfbr2d5?=
- =?us-ascii?Q?5iqR+YFkixyXxzDQ+IUrrzIbD0dwp/tCGbKBnlnWTageSmrQqY6cct33YEK9?=
- =?us-ascii?Q?+jsMRpGb+fzI30BYExRZjut+f9eEfz5Za2vk37tk1aDM4IjF/fZJmeDtnVW6?=
- =?us-ascii?Q?Mur/xZjlsAgZ6tcM2BjRRmP5UyWom/wF4QvwMvZflz3L9AordEQ5NmfbGk7r?=
- =?us-ascii?Q?0GcWyVga6hFxCQIYig4L8zxqUV/Rn/yTcP1lMBuPSRYnlE2dDGsMGao2SNju?=
- =?us-ascii?Q?Np7usw++9b7XJxzgeFFBGFKImmq9kgRfQKMs5OrhM6/mag3WWaTVHFv53kvb?=
- =?us-ascii?Q?YS+xL+uAnXLl7/gqxvKsS2xjeXg40cAbiQSlRcQugjo0yvfKLI/bRWUpUg1f?=
- =?us-ascii?Q?cIteUhClvYVHDRtdBK8VyqhULXO87Ie/+hpRVCOcQUUvhzv/Z5XHQVp1usZK?=
- =?us-ascii?Q?m+nqUIFCLNEVQb6n9pSeppO44XbN4JTINDIcoE63r4mLfBxHO8EspFpfMHnw?=
- =?us-ascii?Q?LIsAVSZUANqAAJ8Y0xGL+tTpZThZBg5lFsLOJ4AhlMpH9ggxaANNtVht3Ccw?=
- =?us-ascii?Q?fB6WyOP4Jda2yeXq62G+Obatm74UtS5H7OAhpzG1Ntov2dKs/lKF87y4WbzJ?=
- =?us-ascii?Q?yUwoSqRm9tC4Dr3p+LV4MzK6dDpeXMlByAjSrncia25/XqGDYdBrmhuVDeN2?=
- =?us-ascii?Q?/X2QxcPs7fjiuNqz6Agd3CsY2qg8z+nN6RRgd/pgr9We5D0Y+GGf4qIdIHn/?=
- =?us-ascii?Q?mfNBjZPClQGzU2YXAWFkWepHmyKgupJtd57TRf++xdO9fereh+NBt5yM+fl3?=
- =?us-ascii?Q?G9eEPEzy+RJT3jjntRiPldR9bPXNminOOMUQJ/HEeVZi6dNgO7FYlPss1ae9?=
- =?us-ascii?Q?9ScbU6cpTL+Wysshx6+9GhfTWEpBXieARbG450l6wAKBdBNyE8D3v5cKs2ct?=
- =?us-ascii?Q?kE484nRCHGyoSwZpsARaH4//zpqmoHGFiKy7YWbbRU1bI15S/CIMlCQgLPFp?=
- =?us-ascii?Q?pxkhaPgLnJUvGXuavRsHK1IENRkuUUTQgkSE8V1x/Zk0xuoNPzloryJ6imZK?=
- =?us-ascii?Q?FxC4/eKXnzZJoUj9uG0yJ6bbnNPpBpftGq8QEK3bFbZih3HmjyZQ2xh4KvZF?=
- =?us-ascii?Q?8kGMcbzYiYc5zsYW4KUkn8FAXKyjGqf0vbXlH5fBnhsS22BjMZiHIY92/MQR?=
- =?us-ascii?Q?P5Kzbyljv70sC7C7jxckPY85m2MdRJFmEuDAWTHxyNXUjYSytSTPcjQCiS0?=
- =?us-ascii?Q?=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 22c6b2aa-e400-49f8-e963-08dbf5f40595
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Dec 2023 00:41:02.1146
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR20MB4956
+Content-Disposition: inline
+In-Reply-To: <20231205092801.1335-1-jerry.shih@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231205_164121_895442_619A65E9 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20231205_164700_154692_5277CE0D 
+X-CRM114-Status: UNSURE (   5.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,49 +78,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->
->Inochi Amaoto wrote:
->> Add missing clocks of uart node for CV1800B and CV1812H.
->>
->> Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
->> ---
->>  arch/riscv/boot/dts/sophgo/cv18xx.dtsi | 21 ++++++++++++++++-----
->>  1 file changed, 16 insertions(+), 5 deletions(-)
->>
->> diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
->> index c5642dd7cbbd..3f290a515011 100644
->> --- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
->> +++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
->> @@ -5,6 +5,7 @@
->>   */
->>
->>  #include <dt-bindings/interrupt-controller/irq.h>
->> +#include <dt-bindings/clock/sophgo,cv1800.h>
->>
->>  / {
->>  	#address-cells = <1>;
->> @@ -136,7 +137,9 @@ uart0: serial@4140000 {
->>  			compatible = "snps,dw-apb-uart";
->>  			reg = <0x04140000 0x100>;
->>  			interrupts = <44 IRQ_TYPE_LEVEL_HIGH>;
->> -			clocks = <&osc>;
->> +			clock-frequency = <25000000>;
->> +			clocks = <&clk CLK_UART0>, <&clk CLK_APB_UART0>;
->> +			clock-names = "baudclk", "apb_pclk";
->>  			reg-shift = <2>;
->>  			reg-io-width = <4>;
->>  			status = "disabled";
->
->Hi Inochi,
->
->When there is a proper "baudclk" defined the driver should get the rate
->(frequency) from that and the manually defined clock-frequency should not be
->needed.
->
->/Emil
->
+On Tue, Dec 05, 2023 at 05:27:49PM +0800, Jerry Shih wrote:
+> This series depend on:
+> 2. support kernel-mode vector
+> Link: https://lore.kernel.org/all/20230721112855.1006-1-andy.chiu@sifive.com/
+> 3. vector crypto extensions detection
+> Link: https://lore.kernel.org/lkml/20231017131456.2053396-1-cleger@rivosinc.com/
 
-OK, thanks, I will remove this.
+What's the status of getting these prerequisites merged?
+
+- Eric
 
 _______________________________________________
 linux-riscv mailing list
