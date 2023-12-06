@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 569ABC10DCE
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 11:51:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 405ACC4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 11:51:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T/j9hgWP49GT954MzMwoQEp1mhJx1xe9BbIDwP0fuNg=; b=mIHG742mBqlWtT
-	QnOJX5+c1Iy+Rj6dNcKac/ExBBzM7syMMRrH7pMzWqC9RyqR9h1sXPE9HYruqXFp5Dk1BsQp2CVnd
-	FluKzAJvmkgQcmx4s9VVhnQ5gop5MGFMbrFpPXvFUFRfMVCouVMwfkZ/ENjmXS71AyIZuniBYdLn0
-	wrIVqqLlbwDlca/kKYbEeMl2zzlVqJfKw2C5JqWQCiPK0hIP2mBh67VCY3THIY+wTdmL5eXhZIzPk
-	N/g75SK3GHlqtwUkGUaN/woCZMFe+ohrVi+xOq3ZXYFIO++WOO1NLuji3dtdwoy4C2a0NR8kg13UJ
-	op2W+uuyl53cHJGwirHw==;
+	List-Owner; bh=GWvcw4aTGIwJCndNCkWggTy9TCNp+fqIN4z2+A9Vnsg=; b=C5VDTdaykwAHWj
+	f3TtlPvVqRmkZIstpv+KMfgg+w12n+ViafIfw/HabrOT1XL8EQgsgpJCeuek3lHWTV7l2tyRbqaj1
+	G8txiWmjOKzr2YM8J6mmjOmxEhcrIoiIcz5BfJVaHMhYON84B8qlRBV2VwO+14r7KzFchV+JT7vna
+	C5r4N4nfs2fgXzCNpp4PgzCTCKEqjEkMBuOuTMP3RNcnv1W7v5my/1Hq1uIBWHRM9bFV4MxGnYxk1
+	Mm1aiySI5nWfuAQG9OBDxtZCApjSEhv0oZQdu6yHprpLyQLV6lbkolkkYkbeaqMNsRCG84Ktd2VHn
+	Ofjc2kNIMmnxjvt2N4vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAqRC-00A9Rm-13;
-	Wed, 06 Dec 2023 11:51:34 +0000
+	id 1rAqRT-00A9hj-0v;
+	Wed, 06 Dec 2023 11:51:51 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAqQs-00A95p-2I
+	id 1rAqRG-00A9VQ-1S
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 11:51:29 +0000
+	Wed, 06 Dec 2023 11:51:48 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id F02FA24E308;
-	Wed,  6 Dec 2023 19:51:02 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id B665424E2F7;
+	Wed,  6 Dec 2023 19:51:34 +0800 (CST)
 Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 6 Dec
- 2023 19:51:02 +0800
+ 2023 19:51:34 +0800
 Received: from jsia-virtual-machine.localdomain (175.136.135.142) by
  EXMBX066.cuchost.com (172.16.6.66) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Wed, 6 Dec 2023 19:50:55 +0800
+ 15.0.1497.42; Wed, 6 Dec 2023 19:51:27 +0800
 From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
 	<krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
@@ -48,9 +48,9 @@ To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
 CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
 	<jeeheng.sia@starfivetech.com>, <leyfoon.tan@starfivetech.com>
-Subject: [PATCH v1 06/16] clk: starfive: Add JH8100 System clock generator driver
-Date: Wed, 6 Dec 2023 19:49:50 +0800
-Message-ID: <20231206115000.295825-7-jeeheng.sia@starfivetech.com>
+Subject: [PATCH v1 10/16] clk: starfive: Add JH8100 System-North-East clock generator driver
+Date: Wed, 6 Dec 2023 19:49:54 +0800
+Message-ID: <20231206115000.295825-11-jeeheng.sia@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
 References: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
@@ -60,8 +60,8 @@ X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX066.cuchost.com
  (172.16.6.66)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_035115_229443_EAC85EBB 
-X-CRM114-Status: GOOD (  17.15  )
+X-CRM114-CacheID: sfid-20231206_035139_135158_95C8F87A 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,127 +78,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for JH8100 System clock generator.
+Add support for JH8100 System-North-East clock generator.
 
 Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
 ---
- MAINTAINERS                                   |   8 +
- drivers/clk/starfive/Kconfig                  |   9 +
- drivers/clk/starfive/Makefile                 |   1 +
- drivers/clk/starfive/clk-starfive-common.h    |   9 +-
- drivers/clk/starfive/jh8100/Makefile          |   3 +
- .../clk/starfive/jh8100/clk-starfive-jh8100.h |  11 +
- drivers/clk/starfive/jh8100/clk-sys.c         | 455 ++++++++++++++++++
- 7 files changed, 495 insertions(+), 1 deletion(-)
- create mode 100644 drivers/clk/starfive/jh8100/Makefile
- create mode 100644 drivers/clk/starfive/jh8100/clk-starfive-jh8100.h
- create mode 100644 drivers/clk/starfive/jh8100/clk-sys.c
+ drivers/clk/starfive/Kconfig             |   8 +
+ drivers/clk/starfive/jh8100/Makefile     |   1 +
+ drivers/clk/starfive/jh8100/clk-sys-ne.c | 566 +++++++++++++++++++++++
+ 3 files changed, 575 insertions(+)
+ create mode 100644 drivers/clk/starfive/jh8100/clk-sys-ne.c
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 788be9ab5b73..87bcb25becc1 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20763,6 +20763,14 @@ F:	Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
- F:	drivers/phy/starfive/phy-jh7110-pcie.c
- F:	drivers/phy/starfive/phy-jh7110-usb.c
- 
-+STARFIVE JH8100 CLOCK DRIVERS
-+M:	Sia Jee Heng <jeeheng.sia@starfivetech.com>
-+M:	Ley Foon Tan <leyfoon.tan@starfivetech.com>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/clock/starfive,jh81*.yaml
-+F:	drivers/clk/starfive/jh8100
-+F:	include/dt-bindings/clock/starfive?jh81*.h
-+
- STATIC BRANCH/CALL
- M:	Peter Zijlstra <peterz@infradead.org>
- M:	Josh Poimboeuf <jpoimboe@kernel.org>
 diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
-index ff8eace36e64..d8c7b9bb3895 100644
+index e55f783d73ac..acd530c3897b 100644
 --- a/drivers/clk/starfive/Kconfig
 +++ b/drivers/clk/starfive/Kconfig
-@@ -72,3 +72,12 @@ config CLK_STARFIVE_JH7110_VOUT
+@@ -89,3 +89,11 @@ config CLK_STARFIVE_JH8100_SYS_NW
  	help
- 	  Say yes here to support the Video-Output clock controller
- 	  on the StarFive JH7110 SoC.
+ 	  Say yes here to support the System-North-West clock controller on the StarFive JH8100
+ 	  SoC.
 +
-+config CLK_STARFIVE_JH8100_SYS
-+	bool "StarFive JH8100 System clock support"
-+	depends on SOC_STARFIVE || COMPILE_TEST
-+	select AUXILIARY_BUS
-+	select CLK_STARFIVE_COMMON
++config CLK_STARFIVE_JH8100_SYS_NE
++	bool "StarFive JH8100 System-North-East clock support"
++	depends on CLK_STARFIVE_JH8100_SYS
 +	default ARCH_STARFIVE
 +	help
-+	  Say yes here to support the System clock controller on the StarFive JH8100 SoC.
-diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
-index 012f7ee83f8e..6cb3ce823330 100644
---- a/drivers/clk/starfive/Makefile
-+++ b/drivers/clk/starfive/Makefile
-@@ -10,3 +10,4 @@ obj-$(CONFIG_CLK_STARFIVE_JH7110_AON)	+= clk-starfive-jh7110-aon.o
- obj-$(CONFIG_CLK_STARFIVE_JH7110_STG)	+= clk-starfive-jh7110-stg.o
- obj-$(CONFIG_CLK_STARFIVE_JH7110_ISP)	+= clk-starfive-jh7110-isp.o
- obj-$(CONFIG_CLK_STARFIVE_JH7110_VOUT)	+= clk-starfive-jh7110-vout.o
-+obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS)	+= jh8100/
-diff --git a/drivers/clk/starfive/clk-starfive-common.h b/drivers/clk/starfive/clk-starfive-common.h
-index fed45311360c..ec30af0658cf 100644
---- a/drivers/clk/starfive/clk-starfive-common.h
-+++ b/drivers/clk/starfive/clk-starfive-common.h
-@@ -103,6 +103,13 @@ struct starfive_clk_data {
- 	.parents = { [0] = _parent },						\
- }
- 
-+#define STARFIVE_GINV(_idx, _name, _flags, _parent)[_idx] = {			\
-+	.name = _name,								\
-+	.flags = _flags,							\
-+	.max = STARFIVE_CLK_ENABLE | STARFIVE_CLK_INVERT,			\
-+	.parents = { [0] = _parent },						\
-+}
-+
- struct starfive_clk {
- 	struct clk_hw hw;
- 	unsigned int idx;
-@@ -114,7 +121,7 @@ struct starfive_clk_priv {
- 	spinlock_t rmw_lock;
- 	struct device *dev;
- 	void __iomem *base;
--	struct clk_hw *pll[3];
-+	struct clk_hw *pll[8];
- 	struct starfive_clk reg[];
- };
- 
++	  Say yes here to support the System-North-East clock controller on the StarFive JH8100
++	  SoC.
 diff --git a/drivers/clk/starfive/jh8100/Makefile b/drivers/clk/starfive/jh8100/Makefile
-new file mode 100644
-index 000000000000..af6a09e220d3
---- /dev/null
+index eca7970a0e45..164c1d55b97c 100644
+--- a/drivers/clk/starfive/jh8100/Makefile
 +++ b/drivers/clk/starfive/jh8100/Makefile
-@@ -0,0 +1,3 @@
-+# SPDX-License-Identifier: GPL-2.0
-+# StarFive JH8100 Clock
-+obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS)		+= clk-sys.o
-diff --git a/drivers/clk/starfive/jh8100/clk-starfive-jh8100.h b/drivers/clk/starfive/jh8100/clk-starfive-jh8100.h
+@@ -2,3 +2,4 @@
+ # StarFive JH8100 Clock
+ obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS)		+= clk-sys.o
+ obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS_NW)	+= clk-sys-nw.o
++obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS_NE)	+= clk-sys-ne.o
+diff --git a/drivers/clk/starfive/jh8100/clk-sys-ne.c b/drivers/clk/starfive/jh8100/clk-sys-ne.c
 new file mode 100644
-index 000000000000..7c8249c11464
+index 000000000000..325571f52c29
 --- /dev/null
-+++ b/drivers/clk/starfive/jh8100/clk-starfive-jh8100.h
-@@ -0,0 +1,11 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __CLK_STARFIVE_JH8100_H
-+#define __CLK_STARFIVE_JH8100_H
-+
-+#include "../clk-starfive-common.h"
-+
-+int jh8100_reset_controller_register(struct starfive_clk_priv *priv,
-+				     const char *adev_name,
-+				     u32 adev_id);
-+
-+#endif
-diff --git a/drivers/clk/starfive/jh8100/clk-sys.c b/drivers/clk/starfive/jh8100/clk-sys.c
-new file mode 100644
-index 000000000000..e2c802523c7d
---- /dev/null
-+++ b/drivers/clk/starfive/jh8100/clk-sys.c
-@@ -0,0 +1,455 @@
++++ b/drivers/clk/starfive/jh8100/clk-sys-ne.c
+@@ -0,0 +1,566 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * StarFive JH8100 System Clock Driver
@@ -209,337 +130,440 @@ index 000000000000..e2c802523c7d
 + *
 + */
 +
-+#include <linux/clk.h>
-+#include <linux/auxiliary_bus.h>
 +#include <linux/clk-provider.h>
 +#include <linux/init.h>
 +#include <linux/io.h>
 +#include <linux/platform_device.h>
 +#include <linux/slab.h>
 +
-+#include <soc/starfive/reset-starfive-common.h>
-+
 +#include <dt-bindings/clock/starfive,jh8100-crg.h>
 +
 +#include "clk-starfive-jh8100.h"
 +
 +/* external clocks */
-+#define SYSCRG_CLK_OSC				(SYSCRG_CLK_END + 0)
-+#define SYSCRG_CLK_MCLK_EXT			(SYSCRG_CLK_END + 1)
-+#define SYSCRG_CLK_PLL0_OUT			(SYSCRG_CLK_END + 2)
-+#define SYSCRG_CLK_PLL1_OUT			(SYSCRG_CLK_END + 3)
-+#define SYSCRG_CLK_PLL2_OUT			(SYSCRG_CLK_END + 4)
-+#define SYSCRG_CLK_PLL3_OUT			(SYSCRG_CLK_END + 5)
-+#define SYSCRG_CLK_PLL4_OUT			(SYSCRG_CLK_END + 6)
-+#define SYSCRG_CLK_PLL6_OUT			(SYSCRG_CLK_END + 7)
-+#define SYSCRG_CLK_PLL7_OUT			(SYSCRG_CLK_END + 8)
++#define SYSCRG_NE_CLK_OSC		(SYSCRG_NE_CLK_END + 0)
++#define SYSCRG_NE_CLK_APB_BUS		(SYSCRG_NE_CLK_END + 1)
++#define SYSCRG_NE_CLK_AXI_400		(SYSCRG_NE_CLK_END + 3)
++#define SYSCRG_NE_CLK_VOUT_ROOT0	(SYSCRG_NE_CLK_END + 5)
++#define SYSCRG_NE_CLK_VOUT_ROOT1	(SYSCRG_NE_CLK_END + 6)
++#define SYSCRG_NE_CLK_USB_WRAP_480	(SYSCRG_NE_CLK_END + 7)
++#define SYSCRG_NE_CLK_USB_WRAP_625	(SYSCRG_NE_CLK_END + 8)
++#define SYSCRG_NE_CLK_USB_WRAP_240	(SYSCRG_NE_CLK_END + 9)
++#define SYSCRG_NE_CLK_USB_WRAP_60	(SYSCRG_NE_CLK_END + 10)
++#define SYSCRG_NE_CLK_USB_WRAP_156P25	(SYSCRG_NE_CLK_END + 11)
++#define SYSCRG_NE_CLK_USB_WRAP_312P5	(SYSCRG_NE_CLK_END + 12)
++#define SYSCRG_NE_CLK_USB_125M		(SYSCRG_NE_CLK_END + 13)
++#define SYSCRG_NE_CLK_GPIO_100		(SYSCRG_NE_CLK_END + 14)
++#define SYSCRG_NE_CLK_PERH_ROOT		(SYSCRG_NE_CLK_END + 15)
++#define SYSCRG_NE_CLK_MCLK		(SYSCRG_NE_CLK_END + 16)
++#define SYSCRG_NE_CLK_USB3_TAP_TCK_EXT	(SYSCRG_NE_CLK_END + 17)
++#define SYSCRG_NE_CLK_GLB_EXT		(SYSCRG_NE_CLK_END + 18)
++#define SYSCRG_NE_CLK_USB1_TAP_TCK_EXT	(SYSCRG_NE_CLK_END + 19)
++#define SYSCRG_NE_CLK_USB2_TAP_TCK_EXT	(SYSCRG_NE_CLK_END + 20)
++#define SYSCRG_NE_CLK_TYPEC_TAP_TCK_EXT	(SYSCRG_NE_CLK_END + 22)
++#define SYSCRG_NE_CLK_SPI_IN0_EXT	(SYSCRG_NE_CLK_END + 23)
++#define SYSCRG_NE_CLK_SPI_IN1_EXT	(SYSCRG_NE_CLK_END + 24)
++#define SYSCRG_NE_CLK_I2STX_BCLK_EXT	(SYSCRG_NE_CLK_END + 25)
++#define SYSCRG_NE_CLK_I2STX_LRCK_EXT	(SYSCRG_NE_CLK_END + 26)
++#define SYSCRG_NE_CLK_PERH_ROOT_PREOSC	(SYSCRG_NE_CLK_END + 27)
++#define SYSCRG_NE_CLK_AHB_DMA		(SYSCRG_NE_CLK_END + 28)
++#define SYSCRG_NE_CLK_APB_BUS_PER1	(SYSCRG_NE_CLK_END + 29)
++#define SYSCRG_NE_CLK_APB_BUS_PER2	(SYSCRG_NE_CLK_END + 30)
++#define SYSCRG_NE_CLK_APB_BUS_PER3	(SYSCRG_NE_CLK_END + 31)
++#define SYSCRG_NE_CLK_APB_BUS_PER5	(SYSCRG_NE_CLK_END + 32)
++#define SYSCRG_NE_CLK_VENC_ROOT		(SYSCRG_NE_CLK_END + 33)
++#define SYSCRG_NE_CLK_SPI_CORE_100	(SYSCRG_NE_CLK_END + 34)
 +
-+static const struct starfive_clk_data jh8100_syscrg_clk_data[] __initconst = {
-+	/* root */
-+	STARFIVE__DIV(SYSCRG_CLK_VDEC_ROOT_PREOSC, "sys_clk_vdec_root_preosc", 10,
-+		      SYSCRG_CLK_PLL7_OUT),
-+	STARFIVE__MUX(SYSCRG_CLK_VDEC_ROOT, "sys_clk_vdec_root", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_VDEC_ROOT_PREOSC),
-+	STARFIVE__DIV(SYSCRG_CLK_VENC_ROOT_PREOSC, "sys_clk_venc_root_preosc", 10,
-+		      SYSCRG_CLK_PLL7_OUT),
-+	STARFIVE__MUX(SYSCRG_CLK_VENC_ROOT, "sys_clk_venc_root", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_VENC_ROOT_PREOSC),
-+	STARFIVE__DIV(SYSCRG_CLK_GPU_ROOT, "sys_clk_gpu_root", 7,
-+		      SYSCRG_CLK_PLL0_OUT),
-+	STARFIVE__MUX(SYSCRG_CLK_GPU_CORE, "sys_clk_gpu_core", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_GPU_ROOT),
-+	STARFIVE__DIV(SYSCRG_CLK_VOUT_ROOT0_PREOSC, "sys_clk_vout_root0_preosc", 127,
-+		      SYSCRG_CLK_PLL1_OUT),
-+	STARFIVE__MUX(SYSCRG_CLK_VOUT_ROOT0, "sys_clk_vout_root0", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_VOUT_ROOT0_PREOSC),
-+	STARFIVE__DIV(SYSCRG_CLK_VOUT_ROOT1_PREOSC, "sys_clk_vout_root1_preosc", 127,
-+		      SYSCRG_CLK_PLL6_OUT),
-+	STARFIVE__MUX(SYSCRG_CLK_VOUT_ROOT1, "sys_clk_vout_root1", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_VOUT_ROOT1_PREOSC),
-+	STARFIVE__DIV(SYSCRG_CLK_VOUT_SCAN_ATS, "sys_clk_vout_scan_ats", 6,
-+		      SYSCRG_CLK_PLL3_OUT),
-+	STARFIVE__DIV(SYSCRG_CLK_PERH_ROOT_PREOSC, "sys_clk_perh_root_preosc", 4,
-+		      SYSCRG_CLK_PLL0_OUT),
-+	STARFIVE__MUX(SYSCRG_CLK_PERH_ROOT, "sys_clk_perh_root", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_PERH_ROOT_PREOSC),
-+	STARFIVE__DIV(SYSCRG_CLK_AXI_200_PREOSC, "sys_clk_axi_200_preosc", 4,
-+		      SYSCRG_CLK_PLL0_OUT),
-+	STARFIVE__MUX(SYSCRG_CLK_AXI_200, "sys_clk_axi_200", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_AXI_200_PREOSC),
-+	STARFIVE__MUX(SYSCRG_CLK_AXI_200_GMAC, "sys_clk_axi_200_gmac", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_AXI_200_PREOSC),
-+	STARFIVE__DIV(SYSCRG_CLK_AXI_500_PREOSC, "sys_clk_axi_500_preosc", 10,
-+		      SYSCRG_CLK_PLL0_OUT),
-+	STARFIVE__MUX(SYSCRG_CLK_AXI_500, "sys_clk_axi_500", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_AXI_500_PREOSC),
-+	STARFIVE__MUX(SYSCRG_CLK_AXI_500_PCIEX1A, "sys_clk_axi_500_pciex1a", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_AXI_500_PREOSC),
-+	STARFIVE__MUX(SYSCRG_CLK_AXI_500_PCIEX1B, "sys_clk_axi_500_pciex1b", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_AXI_500_PREOSC),
-+	STARFIVE__MUX(SYSCRG_CLK_AXI_500_PCIEX2, "sys_clk_axi_500_pciex2", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_AXI_500_PREOSC),
-+	STARFIVE__MUX(SYSCRG_CLK_AXI_500_PCIEX8, "sys_clk_axi_500_pciex8", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_AXI_500_PREOSC),
-+	STARFIVE__DIV(SYSCRG_CLK_AXI_400_PREOSC, "sys_clk_axi_400_preosc", 10,
-+		      SYSCRG_CLK_PLL0_OUT),
-+	STARFIVE__MUX(SYSCRG_CLK_AXI_400, "sys_clk_axi_400", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_AXI_400_PREOSC),
-+	STARFIVE__MUX(SYSCRG_CLK_AXI_400_APBOOTRAM, "sys_clk_axi_400_apbootram", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_AXI_400_PREOSC),
-+	STARFIVE__DIV(SYSCRG_CLK_AXI_125_PREOSC, "sys_clk_axi_125_preosc", 32,
-+		      SYSCRG_CLK_PLL0_OUT),
-+	STARFIVE__MUX(SYSCRG_CLK_AXI_125, "sys_clk_axi_125", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_AXI_125_PREOSC),
-+	STARFIVE__DIV(SYSCRG_CLK_AHB0_PREOSC, "sys_clk_ahb0_preosc", 15,
-+		      SYSCRG_CLK_PLL0_OUT),
-+	STARFIVE__MUX(SYSCRG_CLK_AHB0, "sys_clk_ahb0", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_AHB0_PREOSC),
-+	STARFIVE__DIV(SYSCRG_CLK_APB_BUS_FUNC, "sys_clk_apb_bus_func", 30,
-+		      SYSCRG_CLK_PLL0_OUT),
-+	STARFIVE__MUX(SYSCRG_CLK_APB_BUS, "sys_clk_apb_bus", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-+	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER0, "sys_clk_apb_bus_per0", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-+	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER1, "sys_clk_apb_bus_per1", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-+	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER2, "sys_clk_apb_bus_per2", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-+	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER3, "sys_clk_apb_bus_per3", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-+	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER4, "sys_clk_apb_bus_per4", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-+	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER5, "sys_clk_apb_bus_per5", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-+	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER6, "sys_clk_apb_bus_per6", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-+	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER7, "sys_clk_apb_bus_per7", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-+	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER8, "sys_clk_apb_bus_per8", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-+	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER9, "sys_clk_apb_bus_per9", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-+	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER10, "sys_clk_apb_bus_per10", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-+	STARFIVE__MUX(SYSCRG_CLK_SPI_CORE_100, "sys_clk_spi_core_100", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-+	STARFIVE__DIV(SYSCRG_CLK_PLL1_DIV2, "sys_clk_pll1_div2", 2,
-+		      SYSCRG_CLK_PLL1_OUT),
-+	STARFIVE__DIV(SYSCRG_CLK_PLL2_DIV2, "sys_clk_pll2_div2", 2,
-+		      SYSCRG_CLK_PLL2_OUT),
-+	STARFIVE__DIV(SYSCRG_CLK_PLL3_DIV2, "sys_clk_pll3_div2", 2,
-+		      SYSCRG_CLK_PLL3_OUT),
-+	STARFIVE__DIV(SYSCRG_CLK_PLL4_DIV2, "sys_clk_pll4_div2", 2,
-+		      SYSCRG_CLK_PLL4_OUT),
-+	STARFIVE__DIV(SYSCRG_CLK_PLL6_DIV2, "sys_clk_pll6_div2", 2,
-+		      SYSCRG_CLK_PLL6_OUT),
-+	STARFIVE__DIV(SYSCRG_CLK_PLL7_DIV2, "sys_clk_pll7_div2", 2,
-+		      SYSCRG_CLK_PLL7_OUT),
-+	STARFIVE__DIV(SYSCRG_CLK_AUDIO_ROOT, "sys_clk_audio_root", 8,
-+		      SYSCRG_CLK_PLL2_OUT),
-+	STARFIVE__DIV(SYSCRG_CLK_MCLK_INNER, "sys_clk_mclk_inner", 64,
-+		      SYSCRG_CLK_AUDIO_ROOT),
-+	STARFIVE__MUX(SYSCRG_CLK_MCLK, "sys_clk_mclk", 2,
-+		      SYSCRG_CLK_MCLK_INNER, SYSCRG_CLK_MCLK_EXT),
-+	STARFIVE_GATE(SYSCRG_CLK_MCLK_OUT, "sys_clk_mclk_out", 0,
-+		      SYSCRG_CLK_MCLK_INNER),
-+	STARFIVE_MDIV(SYSCRG_CLK_ISP_2X_PREOSC, "sys_clk_isp_2x_preosc", 8, 2,
-+		      SYSCRG_CLK_PLL7_OUT, SYSCRG_CLK_PLL0_OUT),
-+	STARFIVE__MUX(SYSCRG_CLK_ISP_2X, "sys_clk_isp_2x", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_ISP_2X_PREOSC),
-+	STARFIVE__DIV(SYSCRG_CLK_ISP_AXI, "sys_clk_isp_axi", 4,
-+		      SYSCRG_CLK_ISP_2X),
-+	STARFIVE_GDIV(SYSCRG_CLK_GCLK1, "sys_clk_gclk1", CLK_IS_CRITICAL, 120,
-+		      SYSCRG_CLK_PLL1_DIV2),
-+	STARFIVE_GDIV(SYSCRG_CLK_GCLK2, "sys_clk_gclk2", CLK_IS_CRITICAL, 120,
-+		      SYSCRG_CLK_PLL2_DIV2),
-+	STARFIVE_GDIV(SYSCRG_CLK_GCLK3, "sys_clk_gclk3", CLK_IS_CRITICAL, 120,
-+		      SYSCRG_CLK_PLL3_DIV2),
-+	STARFIVE_GDIV(SYSCRG_CLK_GCLK4, "sys_clk_gclk4", CLK_IS_CRITICAL, 120,
-+		      SYSCRG_CLK_PLL4_DIV2),
-+	STARFIVE_GDIV(SYSCRG_CLK_GCLK6, "sys_clk_gclk6", CLK_IS_CRITICAL, 120,
-+		      SYSCRG_CLK_PLL6_DIV2),
-+	STARFIVE_GDIV(SYSCRG_CLK_GCLK7, "sys_clk_gclk7", CLK_IS_CRITICAL, 120,
-+		      SYSCRG_CLK_PLL7_DIV2),
-+	/* flexnoc (se) */
-+	STARFIVE__DIV(SYSCRG_CLK_FLEXNOC0_PREOSC, "sys_clk_flexnoc0_preosc", 8,
-+		      SYSCRG_CLK_PLL0_OUT),
-+	STARFIVE__MUX(SYSCRG_CLK_FLEXNOC0, "sys_clk_flexnoc0", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_FLEXNOC0_PREOSC),
-+	STARFIVE__DIV(SYSCRG_CLK_FLEXNOC1_PREOSC, "sys_clk_flexnoc1_preosc", 8,
-+		      SYSCRG_CLK_PLL0_OUT),
-+	STARFIVE__MUX(SYSCRG_CLK_FLEXNOC1, "sys_clk_flexnoc1", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_FLEXNOC1_PREOSC),
-+	STARFIVE__DIV(SYSCRG_CLK_FLEXNOC2_PREOSC, "sys_clk_flexnoc2_preosc", 12,
-+		      SYSCRG_CLK_PLL0_OUT),
-+	STARFIVE__MUX(SYSCRG_CLK_FLEXNOC2, "sys_clk_flexnoc2", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_FLEXNOC2_PREOSC),
-+	STARFIVE__MUX(SYSCRG_CLK_VDEC_CORE, "sys_clk_vdec_core", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_FLEXNOC1_PREOSC),
-+	/* img_gpu (se) */
-+	STARFIVE_GATE(SYSCRG_CLK_GPU_CORE_ICG, "sys_clk_gpu_core_icg", 0,
-+		      SYSCRG_CLK_GPU_CORE),
-+	STARFIVE_GATE(SYSCRG_CLK_IMG_GPU_CLK_APB, "sys_clk_img_gpu_clk_apb", 0,
-+		      SYSCRG_CLK_APB_BUS_PER7),
-+	STARFIVE_GATE(SYSCRG_CLK_IMG_GPU_RTC_TOGGLE, "sys_clk_img_gpu_rtc_toggle", 0,
-+		      SYSCRG_CLK_OSC),
-+	STARFIVE_GATE(SYSCRG_CLK_IMG_GPU_TIMER_USC, "sys_clk_img_gpu_timer_usc", 0,
-+		      SYSCRG_CLK_OSC),
-+	/* hifi4 (se) */
-+	STARFIVE__DIV(SYSCRG_CLK_HIFI4_CORE_PREOSC, "sys_clk_hifi4_core_preosc", 15,
-+		      SYSCRG_CLK_PLL0_OUT),
-+	STARFIVE__MUX(SYSCRG_CLK_HIFI4_CORE, "sys_clk_hifi4_core", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_HIFI4_CORE_PREOSC),
-+	/* espi */
-+	STARFIVE__DIV(SYSCRG_CLK_ESPI_200_PREOSC, "sys_clk_espi_200_preosc", 2,
-+		      SYSCRG_CLK_PLL0_OUT),
-+	STARFIVE__MUX(SYSCRG_CLK_ESPI_200, "sys_clk_espi_200", 2,
-+		      SYSCRG_CLK_OSC, SYSCRG_CLK_ESPI_200_PREOSC),
-+	/* hd audio */
-+	STARFIVE__DIV(SYSCRG_CLK_HD_AUDIO_48M, "sys_clk_hd_audio_48m", 80,
-+		      SYSCRG_CLK_PLL7_OUT),
-+	/* dom vout */
-+	STARFIVE__DIV(SYSCRG_CLK_VOUT_DC_CORE, "sys_clk_vout_dc_core", 10,
-+		      SYSCRG_CLK_PLL7_OUT),
-+	STARFIVE__DIV(SYSCRG_CLK_VOUT_AXI, "sys_clk_vout_axi", 10,
-+		      SYSCRG_CLK_PLL7_OUT),
-+	/* stg2_usb_wrap (se) */
-+	STARFIVE__DIV(SYSCRG_CLK_USB_WRAP_625, "sys_clk_usb_wrap_625", 6,
-+		      SYSCRG_CLK_PLL0_OUT),
-+	STARFIVE__DIV(SYSCRG_CLK_USB_WRAP_480, "sys_clk_usb_wrap_480", 8,
-+		      SYSCRG_CLK_PLL0_OUT),
-+	STARFIVE__DIV(SYSCRG_CLK_USB_WRAP_240, "sys_clk_usb_wrap_240", 2,
-+		      SYSCRG_CLK_USB_WRAP_480),
-+	STARFIVE__DIV(SYSCRG_CLK_USB_WRAP_60, "sys_clk_usb_wrap_60", 10,
-+		      SYSCRG_CLK_USB_WRAP_480),
-+	STARFIVE__DIV(SYSCRG_CLK_USB_WRAP_156P25, "sys_clk_usb_wrap_156p25", 4,
-+		      SYSCRG_CLK_USB_WRAP_625),
-+	STARFIVE__DIV(SYSCRG_CLK_USB_WRAP_312P5, "sys_clk_usb_wrap_312p5", 2,
-+		      SYSCRG_CLK_USB_WRAP_625),
-+	/* stg */
-+	STARFIVE__DIV(SYSCRG_CLK_USB_125M, "sys_clk_usb_125m", 32,
-+		      SYSCRG_CLK_PLL0_OUT),
-+	/* Flexnoc (se) */
-+	STARFIVE_GATE(SYSCRG_CLK_FLEXNOC_APBOOTRAM, "sys_clk_flexnoc_apbootram",
-+		      CLK_IS_CRITICAL, SYSCRG_CLK_AXI_400_APBOOTRAM),
-+	STARFIVE_GATE(SYSCRG_CLK_FLEXNOC_PCIEX1AMST, "sys_clk_flexnoc_pciex1amst",
-+		      CLK_IS_CRITICAL, SYSCRG_CLK_AXI_500_PCIEX1A),
-+	STARFIVE_GATE(SYSCRG_CLK_FLEXNOC_PCIEX1ASLV, "sys_clk_flexnoc_pciex1aslv",
-+		      CLK_IS_CRITICAL, SYSCRG_CLK_AXI_500_PCIEX1A),
-+	STARFIVE_GATE(SYSCRG_CLK_FLEXNOC_PCIEX1BMST, "sys_clk_flexnoc_pciex1bmst",
-+		      CLK_IS_CRITICAL, SYSCRG_CLK_AXI_500_PCIEX1B),
-+	STARFIVE_GATE(SYSCRG_CLK_FLEXNOC_PCIEX1BSLV, "sys_clk_flexnoc_pciex1bslv",
-+		      CLK_IS_CRITICAL, SYSCRG_CLK_AXI_500_PCIEX1B),
-+	STARFIVE_GATE(SYSCRG_CLK_FLEXNOC_PCIEX2MST, "sys_clk_flexnoc_pciex2mst",
-+		      CLK_IS_CRITICAL, SYSCRG_CLK_AXI_500_PCIEX2),
-+	STARFIVE_GATE(SYSCRG_CLK_FLEXNOC_PCIEX2SLV, "sys_clk_flexnoc_pciex2slv",
-+		      CLK_IS_CRITICAL, SYSCRG_CLK_AXI_500_PCIEX2),
-+	STARFIVE_GATE(SYSCRG_CLK_FLEXNOC_PCIEX8MST, "sys_clk_flexnoc_pciex8mst",
-+		      CLK_IS_CRITICAL, SYSCRG_CLK_AXI_500_PCIEX8),
-+	STARFIVE_GATE(SYSCRG_CLK_FLEXNOC_PCIEX8SLV, "sys_clk_flexnoc_pciex8slv",
-+		      CLK_IS_CRITICAL, SYSCRG_CLK_AXI_500_PCIEX8),
-+	STARFIVE_GATE(SYSCRG_CLK_FLEXNOC_GMACSYSSLV, "sys_clk_flexnoc_gmacsysslv",
-+		      CLK_IS_CRITICAL, SYSCRG_CLK_AXI_200_GMAC),
-+	/* gmac1 (se) */
-+	STARFIVE__DIV(SYSCRG_CLK_GMAC_SRC, "sys_clk_gmac_src", 7,
-+		      SYSCRG_CLK_PLL0_OUT),
-+	STARFIVE__DIV(SYSCRG_CLK_GMAC1_GTXCLK_TOP, "sys_clk_gmac1_gtxclk_top", 400,
-+		      SYSCRG_CLK_PLL0_OUT),
-+	STARFIVE__DIV(SYSCRG_CLK_GMAC1_PTP, "sys_clk_gmac1_ptp", 31,
-+		      SYSCRG_CLK_GMAC_SRC),
-+	/* hd audio */
-+	STARFIVE_GATE(SYSCRG_CLK_HD_AUDIO_SYSTEM_CLOCK, "sys_clk_hd_audio_system_clock",
-+		      0, SYSCRG_CLK_APB_BUS_PER7),
-+	STARFIVE_GATE(SYSCRG_CLK_HD_AUDIO_CLOCK_48, "sys_clk_hd_audio_clock_48",
-+		      0, SYSCRG_CLK_HD_AUDIO_48M),
-+	STARFIVE_GATE(SYSCRG_CLK_HD_AUDIO_BCLK_POST_OCC_IN, "sys_clk_hd_audio_bclk_post_occ_in",
-+		      0, SYSCRG_CLK_HD_AUDIO_48M),
-+	/* nne_vip (se) */
-+	STARFIVE_GATE(SYSCRG_CLK_NNE_VIP_ACLK, "sys_clk_nne_vip_aclk",
-+		      0, SYSCRG_CLK_AXI_500),
-+	STARFIVE_GATE(SYSCRG_CLK_NNE_VIP_HCLK, "sys_clk_nne_vip_hclk",
-+		      0, SYSCRG_CLK_AXI_200),
-+	STARFIVE_GMUX(SYSCRG_CLK_NNE_VIP_CLKCORE, "sys_clk_nne_vip_clkcore", 0, 2,
-+		      SYSCRG_CLK_PLL2_OUT,
-+		      SYSCRG_CLK_PLL0_OUT),
++static const struct starfive_clk_data jh8100_syscrg_ne_clk_data[] = {
++	/* flexnoc */
++	STARFIVE_GATE(SYSCRG_NE_CLK_FLEXNOC_DMASLV, "sys_ne_clk_flexnoc_dmaslv",
++		      CLK_IS_CRITICAL, SYSCRG_NE_CLK_AHB_DMA),
++	/* mailbox */
++	STARFIVE_GATE(SYSCRG_NE_CLK_MAILBOX_APB, "sys_ne_clk_mailbox_apb",
++		      CLK_IS_CRITICAL, SYSCRG_NE_CLK_APB_BUS_PER1),
++	/* timer */
++	STARFIVE_GATE(SYSCRG_NE_CLK_SR5_TIMER0_APB, "sys_ne_clk_timer0_apb", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER1),
++	STARFIVE_GATE(SYSCRG_NE_CLK_SR5_TIMER0_CH0, "sys_ne_clk_timer0_ch0", 0,
++		      SYSCRG_NE_CLK_OSC),
++	STARFIVE_GATE(SYSCRG_NE_CLK_SR5_TIMER0_CH1, "sys_ne_clk_timer0_ch1", 0,
++		      SYSCRG_NE_CLK_OSC),
++	STARFIVE_GATE(SYSCRG_NE_CLK_SR5_TIMER0_CH2, "sys_ne_clk_timer0_ch2", 0,
++		      SYSCRG_NE_CLK_OSC),
++	STARFIVE_GATE(SYSCRG_NE_CLK_SR5_TIMER0_CH3, "sys_ne_clk_timer0_ch3", 0,
++		      SYSCRG_NE_CLK_OSC),
++	STARFIVE_GATE(SYSCRG_NE_CLK_SR5_TIMER1_APB, "sys_ne_clk_timer1_apb", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER1),
++	STARFIVE_GATE(SYSCRG_NE_CLK_SR5_TIMER1_CH0, "sys_ne_clk_timer1_ch0", 0,
++		      SYSCRG_NE_CLK_OSC),
++	STARFIVE_GATE(SYSCRG_NE_CLK_SR5_TIMER1_CH1, "sys_ne_clk_timer1_ch1", 0,
++		      SYSCRG_NE_CLK_OSC),
++	STARFIVE_GATE(SYSCRG_NE_CLK_SR5_TIMER1_CH2, "sys_ne_clk_timer1_ch2", 0,
++		      SYSCRG_NE_CLK_OSC),
++	STARFIVE_GATE(SYSCRG_NE_CLK_SR5_TIMER1_CH3, "sys_ne_clk_timer1_ch3", 0,
++		      SYSCRG_NE_CLK_OSC),
++	/* usb3 */
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB3_CMN_SCAN_PLL, "sys_ne_clk_usb3_scan_pll",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB3_CMN_SCAN_SER, "sys_ne_clk_usb3_scan_ser",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB3_PIPE_IN_SCAN, "sys_ne_clk_usb3_pipe_in_scan",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_125M),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB3_SCAN_PIPE, "sys_ne_clk_usb3_scan_pipe",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_125M),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB3_SCAN_PSM, "sys_ne_clk_usb3_scan_psm",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_125M),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB3_SCAN_REF, "sys_ne_clk_usb3_scan_ref",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_OSC),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB3_USB2_SCAN, "sys_ne_clk_usb3_usb2_scan",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_APB_BUS_PER3),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB3_HSCLK, "sys_ne_clk_usb3_hsclk",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_480),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB3_HSSICLK, "sys_ne_clk_usb3_hssiclk",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_240),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB3_SIECLK, "sys_ne_clk_usb3_sieclk",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_60),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB3_XCVR_SCAN_PLL, "sys_ne_clk_usb3_xcvr_scan_pll",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB3_XCVR_SCAN_SER, "sys_ne_clk_usb3_xcvr_scan_ser",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE__MUX(SYSCRG_NE_CLK_USB3_TAP_TCK, "sys_ne_clk_usb3_tap_tck", 2,
++		      SYSCRG_NE_CLK_USB3_TAP_TCK_EXT, SYSCRG_NE_CLK_GLB_EXT),
++	/* usb1 */
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB1_CMN_SCAN_PLL, "sys_ne_clk_usb1_scan_pll",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB1_CMN_SCAN_SER, "sys_ne_clk_usb1_scan_ser",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB1_PIPE_IN_SCAN, "sys_ne_clk_usb1_pipe_in_scan",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_125M),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB1_SCAN_PIPE, "sys_ne_clk_usb1_scan_pipe",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_125M),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB1_SCAN_PSM, "sys_ne_clk_usb1_scan_psm",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_125M),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB1_SCAN_REF, "sys_ne_clk_usb1_scan_ref",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_OSC),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB1_USB2_SCAN, "sys_ne_clk_usb1_usb2_scan",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_APB_BUS_PER3),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB1_HSCLK, "sys_ne_clk_usb1_hsclk",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_480),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB1_HSSICLK, "sys_ne_clk_usb1_hssiclk",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_240),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB1_SIECLK, "sys_ne_clk_usb1_sieclk",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_60),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB1_XCVR_SCAN_PLL, "sys_ne_clk_usb1_xcvr_scan_pll",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB1_XCVR_SCAN_SER, "sys_ne_clk_usb1_xcvr_scan_ser",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE__MUX(SYSCRG_NE_CLK_USB1_TAP_TCK, "sys_ne_clk_usb1_tap_tck", 2,
++		      SYSCRG_NE_CLK_USB1_TAP_TCK_EXT, SYSCRG_NE_CLK_GLB_EXT),
++	/* usb2 */
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB2_CMN_SCAN_PLL, "sys_ne_clk_usb2_scan_pll",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB2_CMN_SCAN_SER, "sys_ne_clk_usb2_scan_ser",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB2_PIPE_IN_SCAN, "sys_ne_clk_usb2_pipe_in_scan",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_125M),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB2_SCAN_PIPE, "sys_ne_clk_usb2_scan_pipe",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_125M),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB2_SCAN_PSM, "sys_ne_clk_usb2_scan_psm",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_125M),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB2_SCAN_REF, "sys_ne_clk_usb2_scan_ref",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_OSC),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB2_USB2_SCAN, "sys_ne_clk_usb2_usb2_scan",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_APB_BUS_PER3),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB2_HSCLK, "sys_ne_clk_usb2_hsclk",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_480),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB2_HSSICLK, "sys_ne_clk_usb2_hssiclk",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_240),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB2_SIECLK, "sys_ne_clk_usb2_sieclk",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_60),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB2_XCVR_SCAN_PLL, "sys_ne_clk_usb2_xcvr_scan_pll",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB2_XCVR_SCAN_SER, "sys_ne_clk_usb2_xcvr_scan_ser",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE__MUX(SYSCRG_NE_CLK_USB2_TAP_TCK, "sys_ne_clk_usb2_tap_tck", 2,
++		      SYSCRG_NE_CLK_USB2_TAP_TCK_EXT, SYSCRG_NE_CLK_GLB_EXT),
++	/* usb typec */
++	STARFIVE_GATE(SYSCRG_NE_CLK_TYPEC_PIPE_DIV_SCAN, "sys_ne_clk_typec_pipe_div_scan",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_156P25),
++	STARFIVE_GATE(SYSCRG_NE_CLK_TYPEC_CMN_SCAN_PLL, "sys_ne_clk_typec_scan_pll",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_TYPEC_CMN_SCAN_SER, "sys_ne_clk_typec_scan_ser",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_TYPEC_SCAN_PIPE, "sys_ne_clk_typec_scan_pipe",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_312P5),
++	STARFIVE_GATE(SYSCRG_NE_CLK_TYPEC_SCAN_PSM, "sys_ne_clk_typec_scan_psm",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_125M),
++	STARFIVE_GATE(SYSCRG_NE_CLK_TYPEC_SCAN_REF, "sys_ne_clk_typec_scan_ref",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_OSC),
++	STARFIVE_GATE(SYSCRG_NE_CLK_TYPEC_USB2_SCAN, "sys_ne_clk_typec_usb2_scan",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_APB_BUS_PER5),
++	STARFIVE_GATE(SYSCRG_NE_CLK_TYPEC_HSCLK, "sys_ne_clk_typec_hsclk", CLK_IGNORE_UNUSED,
++		      SYSCRG_NE_CLK_USB_WRAP_480),
++	STARFIVE_GATE(SYSCRG_NE_CLK_TYPEC_HSSICLK, "sys_ne_clk_typec_hssiclk",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_240),
++	STARFIVE_GATE(SYSCRG_NE_CLK_TYPEC_SIECLK, "sys_ne_clk_typec_sieclk",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_60),
++	STARFIVE_GMUX(SYSCRG_NE_CLK_TYPEC_VID0, "sys_ne_clk_typec_vid0", CLK_IGNORE_UNUSED,
++		      2, SYSCRG_NE_CLK_VOUT_ROOT0, SYSCRG_NE_CLK_VOUT_ROOT1),
++	STARFIVE_GMUX(SYSCRG_NE_CLK_TYPEC_VID1, "sys_ne_clk_typec_vid1", CLK_IGNORE_UNUSED,
++		      2, SYSCRG_NE_CLK_VOUT_ROOT0, SYSCRG_NE_CLK_VOUT_ROOT1),
++	STARFIVE_GATE(SYSCRG_NE_CLK_TYPEC_XCVR_SCAN_PLL0, "sys_ne_clk_typec_xcvr_scan_pll0",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_TYPEC_XCVR_SCAN_PLL1, "sys_ne_clk_typec_xcvr_scan_pll1",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_TYPEC_XCVR_SCAN_PLL2, "sys_ne_clk_typec_xcvr_scan_pll2",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_TYPEC_XCVR_SCAN_PLL3, "sys_ne_clk_typec_xcvr_scan_pll3",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_TYPEC_XCVR_SCAN_SER0, "sys_ne_clk_typec_xcvr_scan_ser0",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_TYPEC_XCVR_SCAN_SER1, "sys_ne_clk_typec_xcvr_scan_ser1",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_TYPEC_XCVR_SCAN_SER2, "sys_ne_clk_typec_xcvr_scan_ser2",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_TYPEC_XCVR_SCAN_SER3, "sys_ne_clk_typec_xcvr_scan_ser3",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE__MUX(SYSCRG_NE_CLK_TYPEC_TAP_TCK, "sys_ne_clk_typec_tap_tck", 2,
++		      SYSCRG_NE_CLK_TYPEC_TAP_TCK_EXT, SYSCRG_NE_CLK_GLB_EXT),
++	/* video enc */
++	STARFIVE__DIV(SYSCRG_NE_CLK_VENC_AXI, "sys_ne_clk_venc_axi",
++		      20, SYSCRG_NE_CLK_VENC_ROOT),
++	STARFIVE_GATE(SYSCRG_NE_CLK_VC9000LE_AXI, "sys_ne_clk_vc9000le_axi",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_VENC_AXI),
++	STARFIVE_GATE(SYSCRG_NE_CLK_VC9000LE_APB, "sys_ne_clk_vc9000le_apb",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_APB_BUS_PER5),
++	STARFIVE_GDIV(SYSCRG_NE_CLK_VC9000LE_CORECLK, "sys_ne_clk_vc9000le_coreclk",
++		      0, 40, SYSCRG_NE_CLK_VENC_ROOT),
++	/* intc */
++	STARFIVE_GATE(SYSCRG_NE_CLK_INT_CTRL_APB, "sys_ne_clk_int_ctrl_apb", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER2),
++	/* pwm */
++	STARFIVE_GATE(SYSCRG_NE_CLK_PWM_8CH_APB, "sys_ne_clk_pwm_8ch_apb", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER2),
++	/* wdt */
++	STARFIVE_GATE(SYSCRG_NE_CLK_WDT_APB, "sys_ne_clk_wdt_apb", CLK_IGNORE_UNUSED,
++		      SYSCRG_NE_CLK_APB_BUS_PER2),
++	STARFIVE_GATE(SYSCRG_NE_CLK_WDT, "sys_ne_clk_wdt", CLK_IGNORE_UNUSED,
++		      SYSCRG_NE_CLK_OSC),
++	/* SPI */
++	STARFIVE_GATE(SYSCRG_NE_CLK_SPI0_APB, "sys_ne_clk_spi0_apb", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER2),
++	STARFIVE_GATE(SYSCRG_NE_CLK_SPI0_CORE, "sys_ne_clk_spi0_core", 0,
++		      SYSCRG_NE_CLK_SPI_CORE_100),
++	STARFIVE__MUX(SYSCRG_NE_CLK_SPI0_SCLK_IN, "sys_ne_clk_spi0_sclk_in", 2,
++		      SYSCRG_NE_CLK_SPI_IN0_EXT, SYSCRG_NE_CLK_GPIO_100),
++	STARFIVE_GATE(SYSCRG_NE_CLK_SPI1_APB, "sys_ne_clk_spi1_apb", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER2),
++	STARFIVE_GATE(SYSCRG_NE_CLK_SPI1_CORE, "sys_ne_clk_spi1_core", 0,
++		      SYSCRG_NE_CLK_SPI_CORE_100),
++	STARFIVE__MUX(SYSCRG_NE_CLK_SPI1_SCLK_IN, "sys_ne_clk_spi1_sclk_in", 2,
++		      SYSCRG_NE_CLK_SPI_IN1_EXT, SYSCRG_NE_CLK_GPIO_100),
++	/* i2c */
++	STARFIVE_GATE(SYSCRG_NE_CLK_I2C0_APB, "sys_ne_clk_i2c0_apb", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER1),
++	STARFIVE_GATE(SYSCRG_NE_CLK_I2C1_APB, "sys_ne_clk_i2c1_apb", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER1),
++	STARFIVE_GATE(SYSCRG_NE_CLK_I2C2_APB, "sys_ne_clk_i2c2_apb", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER1),
++	STARFIVE_GATE(SYSCRG_NE_CLK_I2C3_APB, "sys_ne_clk_i2c3_apb", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER1),
++	STARFIVE_GATE(SYSCRG_NE_CLK_I2C4_APB, "sys_ne_clk_i2c4_apb", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER1),
++	STARFIVE_GATE(SYSCRG_NE_CLK_I2C5_APB, "sys_ne_clk_i2c5_apb", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER1),
++	/* uart */
++	STARFIVE_GATE(SYSCRG_NE_CLK_UART0_APB, "sys_ne_clk_uart0_apb", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER1),
++	STARFIVE_GATE(SYSCRG_NE_CLK_UART0_CORE, "sys_ne_clk_uart0_core", 0,
++		      SYSCRG_NE_CLK_OSC),
++	STARFIVE__DIV(SYSCRG_NE_CLK_UART1_CORE_PREOSC, "sys_ne_clk_uart1_core_preosc",
++		      131071, SYSCRG_NE_CLK_PERH_ROOT_PREOSC),
++	STARFIVE_GATE(SYSCRG_NE_CLK_UART1_APB, "sys_ne_clk_uart1_apb", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER1),
++	STARFIVE_GMUX(SYSCRG_NE_CLK_UART1_CORE, "sys_ne_clk_uart1_core", 0, 2,
++		      SYSCRG_NE_CLK_OSC, SYSCRG_NE_CLK_UART1_CORE_PREOSC),
++	STARFIVE__DIV(SYSCRG_NE_CLK_UART2_CORE_PREOSC, "sys_ne_clk_uart2_core_preosc",
++		      131071, SYSCRG_NE_CLK_PERH_ROOT_PREOSC),
++	STARFIVE_GATE(SYSCRG_NE_CLK_UART2_APB, "sys_ne_clk_uart2_apb", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER1),
++	STARFIVE_GMUX(SYSCRG_NE_CLK_UART2_CORE, "sys_ne_clk_uart2_core", 0, 2,
++		      SYSCRG_NE_CLK_OSC, SYSCRG_NE_CLK_UART2_CORE_PREOSC),
++	STARFIVE__DIV(SYSCRG_NE_CLK_UART3_CORE_PREOSC, "sys_ne_clk_uart3_core_preosc",
++		      131071, SYSCRG_NE_CLK_PERH_ROOT_PREOSC),
++	STARFIVE_GATE(SYSCRG_NE_CLK_UART3_APB, "sys_ne_clk_uart3_apb", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER1),
++	STARFIVE_GMUX(SYSCRG_NE_CLK_UART3_CORE, "sys_ne_clk_uart3_core", 0, 2,
++		      SYSCRG_NE_CLK_OSC, SYSCRG_NE_CLK_UART3_CORE_PREOSC),
++	STARFIVE__DIV(SYSCRG_NE_CLK_UART4_CORE_PREOSC, "sys_ne_clk_uart4_core_preosc",
++		      131071, SYSCRG_NE_CLK_PERH_ROOT_PREOSC),
++	STARFIVE_GATE(SYSCRG_NE_CLK_UART4_APB, "sys_ne_clk_uart4_apb", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER1),
++	STARFIVE_GMUX(SYSCRG_NE_CLK_UART4_CORE, "sys_ne_clk_uart4_core", 0, 2,
++		      SYSCRG_NE_CLK_OSC, SYSCRG_NE_CLK_UART4_CORE_PREOSC),
++	/* i2s */
++	STARFIVE__DIV(SYSCRG_NE_CLK_I2S0_BCLK, "sys_ne_clk_i2s0_bclk", 32,
++		      SYSCRG_NE_CLK_MCLK),
++	STARFIVE__DIV(SYSCRG_NE_CLK_I2S0_LRCK, "sys_ne_clk_i2s0_lrck", 128,
++		      SYSCRG_NE_CLK_I2S0_BCLK),
++	STARFIVE_GATE(SYSCRG_NE_CLK_I2S0_APB, "sys_ne_clk_i2s0_apb", CLK_IGNORE_UNUSED,
++		      SYSCRG_NE_CLK_APB_BUS_PER2),
++	STARFIVE_GATE(SYSCRG_NE_CLK_I2S0, "sys_ne_clk_i2s0", CLK_IGNORE_UNUSED,
++		      SYSCRG_NE_CLK_MCLK),
++	STARFIVE_GINV(SYSCRG_NE_CLK_I2S0_N, "sys_ne_clk_i2s0_n",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_MCLK),
++	STARFIVE__MUX(SYSCRG_NE_CLK_I2S0_BCLK_TX, "sys_ne_clk_i2s0_bclk_tx", 2,
++		      SYSCRG_NE_CLK_I2S0_BCLK, SYSCRG_NE_CLK_I2STX_BCLK_EXT),
++	STARFIVE__MUX(SYSCRG_NE_CLK_I2S0_LRCK_TX, "sys_ne_clk_i2s0_lrck_tx", 2,
++		      SYSCRG_NE_CLK_I2S0_LRCK, SYSCRG_NE_CLK_I2STX_LRCK_EXT),
++	STARFIVE__MUX(SYSCRG_NE_CLK_I2S0_BCLK_RX, "sys_ne_clk_i2s0_bclk_rx", 2,
++		      SYSCRG_NE_CLK_I2S0_BCLK, SYSCRG_NE_CLK_I2STX_BCLK_EXT),
++	STARFIVE__MUX(SYSCRG_NE_CLK_I2S0_LRCK_RX, "sys_ne_clk_i2s0_lrck_rx", 2,
++		      SYSCRG_NE_CLK_I2S0_LRCK, SYSCRG_NE_CLK_I2STX_LRCK_EXT),
++	STARFIVE__DIV(SYSCRG_NE_CLK_I2S1_BCLK, "sys_ne_clk_i2s1_bclk", 32,
++		      SYSCRG_NE_CLK_MCLK),
++	STARFIVE__DIV(SYSCRG_NE_CLK_I2S1_LRCK, "sys_ne_clk_i2s1_lrck", 128,
++		      SYSCRG_NE_CLK_I2S1_BCLK),
++	STARFIVE_GATE(SYSCRG_NE_CLK_I2S1_APB, "sys_ne_clk_i2s1_apb", CLK_IGNORE_UNUSED,
++		      SYSCRG_NE_CLK_APB_BUS_PER2),
++	STARFIVE_GATE(SYSCRG_NE_CLK_I2S1, "sys_ne_clk_i2s1", CLK_IGNORE_UNUSED,
++		      SYSCRG_NE_CLK_MCLK),
++	STARFIVE_GINV(SYSCRG_NE_CLK_I2S1_N, "sys_ne_clk_i2s1_n",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_MCLK),
++	STARFIVE__MUX(SYSCRG_NE_CLK_I2S1_BCLK_TX, "sys_ne_clk_i2s1_bclk_tx", 2,
++		      SYSCRG_NE_CLK_I2S1_BCLK, SYSCRG_NE_CLK_I2STX_BCLK_EXT),
++	STARFIVE__MUX(SYSCRG_NE_CLK_I2S1_LRCK_TX, "sys_ne_clk_i2s1_lrck_tx", 2,
++		      SYSCRG_NE_CLK_I2S1_LRCK, SYSCRG_NE_CLK_I2STX_LRCK_EXT),
++	STARFIVE__MUX(SYSCRG_NE_CLK_I2S1_BCLK_RX, "sys_ne_clk_i2s1_bclk_rx", 2,
++		      SYSCRG_NE_CLK_I2S1_BCLK, SYSCRG_NE_CLK_I2STX_BCLK_EXT),
++	STARFIVE__MUX(SYSCRG_NE_CLK_I2S1_LRCK_RX, "sys_ne_clk_i2s1_lrck_rx", 2,
++		      SYSCRG_NE_CLK_I2S1_LRCK, SYSCRG_NE_CLK_I2STX_LRCK_EXT),
++	STARFIVE__DIV(SYSCRG_NE_CLK_I2S2_BCLK, "sys_ne_clk_i2s2_bclk", 32,
++		      SYSCRG_NE_CLK_MCLK),
++	STARFIVE__DIV(SYSCRG_NE_CLK_I2S2_LRCK, "sys_ne_clk_i2s2_lrck", 128,
++		      SYSCRG_NE_CLK_I2S2_BCLK),
++	STARFIVE_GATE(SYSCRG_NE_CLK_I2S2_APB, "sys_ne_clk_i2s2_apb", CLK_IGNORE_UNUSED,
++		      SYSCRG_NE_CLK_APB_BUS_PER2),
++	STARFIVE_GATE(SYSCRG_NE_CLK_I2S2, "sys_ne_clk_i2s2", CLK_IGNORE_UNUSED,
++		      SYSCRG_NE_CLK_MCLK),
++	STARFIVE_GINV(SYSCRG_NE_CLK_I2S2_N, "sys_ne_clk_i2s2_n",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_MCLK),
++	STARFIVE__MUX(SYSCRG_NE_CLK_I2S2_BCLK_TX, "sys_ne_clk_i2s2_bclk_tx", 2,
++		      SYSCRG_NE_CLK_I2S2_BCLK, SYSCRG_NE_CLK_I2STX_BCLK_EXT),
++	STARFIVE__MUX(SYSCRG_NE_CLK_I2S2_LRCK_TX, "sys_ne_clk_i2s2_lrck_tx", 2,
++		      SYSCRG_NE_CLK_I2S2_LRCK, SYSCRG_NE_CLK_I2STX_LRCK_EXT),
++	STARFIVE__MUX(SYSCRG_NE_CLK_I2S2_BCLK_RX, "sys_ne_clk_i2s2_bclk_rx", 2,
++		      SYSCRG_NE_CLK_I2S2_BCLK, SYSCRG_NE_CLK_I2STX_BCLK_EXT),
++	STARFIVE__MUX(SYSCRG_NE_CLK_I2S2_LRCK_RX, "sys_ne_clk_i2s2_lrck_rx", 2,
++		      SYSCRG_NE_CLK_I2S2_LRCK, SYSCRG_NE_CLK_I2STX_LRCK_EXT),
++	STARFIVE__DIV(SYSCRG_NE_CLK_I2S3_BCLK, "sys_ne_clk_i2s3_bclk", 32,
++		      SYSCRG_NE_CLK_MCLK),
++	STARFIVE__DIV(SYSCRG_NE_CLK_I2S3_LRCK, "sys_ne_clk_i2s3_lrck", 128,
++		      SYSCRG_NE_CLK_I2S3_BCLK),
++	STARFIVE_GATE(SYSCRG_NE_CLK_I2S0_STEREO_APB, "sys_ne_clk_i2s0_stereo_apb",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_APB_BUS_PER2),
++	STARFIVE_GATE(SYSCRG_NE_CLK_I2S0_STEREO, "sys_ne_clk_i2s0_stereo", CLK_IGNORE_UNUSED,
++		      SYSCRG_NE_CLK_MCLK),
++	STARFIVE_GINV(SYSCRG_NE_CLK_I2S0_STEREO_N, "sys_ne_clk_i2s0_stereo_n",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_MCLK),
++	STARFIVE__MUX(SYSCRG_NE_CLK_I2S0_STEREO_BCLK_TX, "sys_ne_clk_i2s0_stereo_bclk_tx", 2,
++		      SYSCRG_NE_CLK_I2S3_BCLK, SYSCRG_NE_CLK_I2STX_BCLK_EXT),
++	STARFIVE__MUX(SYSCRG_NE_CLK_I2S0_STEREO_LRCK_TX, "sys_ne_clk_i2s0_stereo_lrck_tx", 2,
++		      SYSCRG_NE_CLK_I2S3_LRCK, SYSCRG_NE_CLK_I2STX_LRCK_EXT),
++	STARFIVE__MUX(SYSCRG_NE_CLK_I2S0_STEREO_BCLK_RX_ICG, "sys_ne_clk_i2s0_stereo_bclk_rx_icg",
++		      2, SYSCRG_NE_CLK_I2S3_BCLK, SYSCRG_NE_CLK_I2STX_BCLK_EXT),
++	STARFIVE__MUX(SYSCRG_NE_CLK_I2S0_STEREO_LRCK_RX, "sys_ne_clk_i2s0_stereo_lrck_rx", 2,
++		      SYSCRG_NE_CLK_I2S3_LRCK, SYSCRG_NE_CLK_I2STX_LRCK_EXT),
++	STARFIVE_GDIV(SYSCRG_NE_CLK_PDM_4MIC_DMIC, "sys_ne_clk_pdm_4mic_dmic",
++		      0, 64, SYSCRG_NE_CLK_MCLK),
++	STARFIVE_GATE(SYSCRG_NE_CLK_PDM_4MIC_APB, "sys_ne_clk_pdm_4mic_apb", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER2),
++	STARFIVE_GATE(SYSCRG_NE_CLK_PDM_4MIC_SCAN, "sys_ne_clk_pdm_4mic_scan", 0,
++		      SYSCRG_NE_CLK_I2S3_BCLK),
++	STARFIVE_GATE(SYSCRG_NE_CLK_CAN0_CTRL_PCLK, "sys_ne_clk_can0_ctrl_pclk",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_APB_BUS_PER2),
++	STARFIVE_GDIV(SYSCRG_NE_CLK_CAN0_CTRL, "sys_ne_clk_can0_ctrl", CLK_IGNORE_UNUSED, 50,
++		      SYSCRG_NE_CLK_AXI_400),
++	STARFIVE_GATE(SYSCRG_NE_CLK_CAN0_CTRL_TIMER, "sys_ne_clk_can0_ctrl_timer",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_OSC),
++	STARFIVE_GATE(SYSCRG_NE_CLK_CAN1_CTRL_PCLK, "sys_ne_clk_can1_ctrl_pclk",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_APB_BUS_PER2),
++	STARFIVE_GDIV(SYSCRG_NE_CLK_CAN1_CTRL, "sys_ne_clk_can1_ctrl", CLK_IGNORE_UNUSED, 50,
++		      SYSCRG_NE_CLK_AXI_400),
++	STARFIVE_GATE(SYSCRG_NE_CLK_CAN1_CTRL_TIMER, "sys_ne_clk_can1_ctrl_timer",
++		      CLK_IGNORE_UNUSED, SYSCRG_NE_CLK_OSC),
++	/* smbus */
++	STARFIVE_GATE(SYSCRG_NE_CLK_SMBUS0_APB, "sys_ne_clk_smbus0_apb", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER2),
++	STARFIVE_GDIV(SYSCRG_NE_CLK_SMBUS0_CORE, "sys_ne_clk_smbus0_core", 0, 120,
++		      SYSCRG_NE_CLK_PERH_ROOT_PREOSC),
++	/* iomux */
++	STARFIVE_GATE(SYSCRG_NE_CLK_IOMUX_EAST_PCLK, "sys_ne_clk_iomux_east_pclk", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER2),
 +	/* icg_en */
-+	STARFIVE_GATE(SYSCRG_CLK_GPU_ICG_EN, "sys_clk_gpu_en",
-+		      0, SYSCRG_CLK_GPU_CORE),
-+	STARFIVE_GATE(SYSCRG_CLK_HD_AUDIO_ICG_EN, "sys_clk_hd_audio_en",
-+		      0, SYSCRG_CLK_APB_BUS),
-+	STARFIVE_GATE(SYSCRG_CLK_NNE_ICG_EN, "sys_clk_nne_en",
-+		      CLK_IGNORE_UNUSED, SYSCRG_CLK_PLL2_OUT),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB3_ICG_EN, "sys_ne_clk_usb3_en", 0,
++		      SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB1_ICG_EN, "sys_ne_clk_usb1_en", 0,
++		      SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USB2_ICG_EN, "sys_ne_clk_usb2_en", 0,
++		      SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_USBC_ICG_EN, "sys_ne_clk_usbc_en", 0,
++		      SYSCRG_NE_CLK_USB_WRAP_625),
++	STARFIVE_GATE(SYSCRG_NE_CLK_VENC_ICG_EN, "sys_ne_clk_venc_en", 0,
++		      SYSCRG_NE_CLK_AXI_400),
++	STARFIVE_GATE(SYSCRG_NE_CLK_WDT0_ICG_EN, "sys_ne_clk_wdt0_en", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER2),
++	STARFIVE_GATE(SYSCRG_NE_CLK_SPI0_ICG_EN, "sys_ne_clk_spi0_en", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER2),
++	STARFIVE_GATE(SYSCRG_NE_CLK_SPI1_ICG_EN, "sys_ne_clk_spi1_en", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER2),
++	STARFIVE_GATE(SYSCRG_NE_CLK_UART0_ICG_EN, "sys_ne_clk_uart0_en", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER1),
++	STARFIVE_GATE(SYSCRG_NE_CLK_UART1_ICG_EN, "sys_ne_clk_uart1_en", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER1),
++	STARFIVE_GATE(SYSCRG_NE_CLK_UART2_ICG_EN, "sys_ne_clk_uart2_en", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER1),
++	STARFIVE_GATE(SYSCRG_NE_CLK_UART3_ICG_EN, "sys_ne_clk_uart3_en", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER1),
++	STARFIVE_GATE(SYSCRG_NE_CLK_UART4_ICG_EN, "sys_ne_clk_uart4_en", 0,
++		      SYSCRG_NE_CLK_APB_BUS_PER1),
++	STARFIVE_GATE(SYSCRG_NE_CLK_I2S0_ICG_EN, "sys_ne_clk_i2s0_en", 0,
++		      SYSCRG_NE_CLK_MCLK),
++	STARFIVE_GATE(SYSCRG_NE_CLK_I2S1_ICG_EN, "sys_ne_clk_i2s1_en", 0,
++		      SYSCRG_NE_CLK_MCLK),
++	STARFIVE_GATE(SYSCRG_NE_CLK_I2S2_ICG_EN, "sys_ne_clk_i2s2_en", 0,
++		      SYSCRG_NE_CLK_MCLK),
++	STARFIVE_GATE(SYSCRG_NE_CLK_I2S_STEREO_ICG_EN, "sys_ne_clk_i2s_stereo_en", 0,
++		      SYSCRG_NE_CLK_MCLK),
++	STARFIVE_GATE(SYSCRG_NE_CLK_PDM_4MIC_ICG_EN, "sys_ne_clk_pdm_4mic_en", 0,
++		      SYSCRG_NE_CLK_MCLK),
++	STARFIVE_GATE(SYSCRG_NE_CLK_CAN0_ICG_EN, "sys_ne_clk_can0_en", 0,
++		      SYSCRG_NE_CLK_AXI_400),
++	STARFIVE_GATE(SYSCRG_NE_CLK_CAN1_ICG_EN, "sys_ne_clk_can1_en", 0,
++		      SYSCRG_NE_CLK_AXI_400),
++	STARFIVE_GATE(SYSCRG_NE_CLK_SMBUS0_ICG_EN, "sys_ne_clk_smbus0_en", 0,
++		      SYSCRG_NE_CLK_PERH_ROOT_PREOSC),
 +};
 +
-+static struct clk_hw *jh8100_sysclk_get(struct of_phandle_args *clkspec, void *data)
++static struct clk_hw *jh8100_syscrg_ne_clk_get(struct of_phandle_args *clkspec, void *data)
 +{
 +	struct starfive_clk_priv *priv = data;
 +	unsigned int idx = clkspec->args[0];
 +
-+	if (idx < SYSCRG_CLK_END)
++	if (idx < SYSCRG_NE_CLK_END)
 +		return &priv->reg[idx].hw;
 +
 +	return ERR_PTR(-EINVAL);
 +}
 +
-+static void jh8100_reset_unregister_adev(void *_adev)
-+{
-+	struct auxiliary_device *adev = _adev;
-+
-+	auxiliary_device_delete(adev);
-+	auxiliary_device_uninit(adev);
-+}
-+
-+static void jh8100_reset_adev_release(struct device *dev)
-+{
-+	struct auxiliary_device *adev = to_auxiliary_dev(dev);
-+	struct starfive_reset_adev *rdev = to_starfive_reset_adev(adev);
-+
-+	kfree(rdev);
-+}
-+
-+int jh8100_reset_controller_register(struct starfive_clk_priv *priv,
-+				     const char *adev_name,
-+				     u32 adev_id)
-+{
-+	struct starfive_reset_adev *rdev;
-+	struct auxiliary_device *adev;
-+	int ret;
-+
-+	rdev = kzalloc(sizeof(*rdev), GFP_KERNEL);
-+	if (!rdev)
-+		return -ENOMEM;
-+
-+	rdev->base = priv->base;
-+
-+	adev = &rdev->adev;
-+	adev->name = adev_name;
-+	adev->dev.parent = priv->dev;
-+	adev->dev.release = jh8100_reset_adev_release;
-+	adev->id = adev_id;
-+
-+	ret = auxiliary_device_init(adev);
-+	if (ret)
-+		return ret;
-+
-+	ret = auxiliary_device_add(adev);
-+	if (ret) {
-+		auxiliary_device_uninit(adev);
-+		return ret;
-+	}
-+
-+	return devm_add_action_or_reset(priv->dev,
-+					jh8100_reset_unregister_adev, adev);
-+}
-+EXPORT_SYMBOL_GPL(jh8100_reset_controller_register);
-+
-+static int __init jh8100_syscrg_probe(struct platform_device *pdev)
++static int jh8100_syscrg_ne_probe(struct platform_device *pdev)
 +{
 +	struct starfive_clk_priv *priv;
 +	unsigned int idx;
 +	int ret;
 +
 +	priv = devm_kzalloc(&pdev->dev,
-+			    struct_size(priv, reg, SYSCRG_CLK_END),
++			    struct_size(priv, reg, SYSCRG_NE_CLK_END),
 +			    GFP_KERNEL);
 +	if (!priv)
 +		return -ENOMEM;
@@ -550,79 +574,87 @@ index 000000000000..e2c802523c7d
 +	if (IS_ERR(priv->base))
 +		return PTR_ERR(priv->base);
 +
-+	/* 24MHz -> 2000.0MHz */
-+	priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "clk_pll0_out",
-+							 "clk_osc", 0, 250, 3);
-+	if (IS_ERR(priv->pll[0]))
-+		return PTR_ERR(priv->pll[0]);
-+
-+	/* 24MHz -> 1782.0MHz */
-+	priv->pll[1] = devm_clk_hw_register_fixed_factor(priv->dev, "clk_pll1_out",
-+							 "clk_osc", 0, 445, 6);
-+	if (IS_ERR(priv->pll[1]))
-+		return PTR_ERR(priv->pll[1]);
-+
-+	/* 24MHz -> 1843.2MHz */
-+	priv->pll[2] = devm_clk_hw_register_fixed_factor(priv->dev, "clk_pll2_out",
-+							 "clk_osc", 0, 767, 10);
-+	if (IS_ERR(priv->pll[2]))
-+		return PTR_ERR(priv->pll[2]);
-+
-+	/* 24MHz -> 1866MHz */
-+	priv->pll[3] = devm_clk_hw_register_fixed_factor(priv->dev, "clk_pll3_out",
-+							 "clk_osc", 0, 4665, 60);
-+	if (IS_ERR(priv->pll[3]))
-+		return PTR_ERR(priv->pll[3]);
-+
-+	/* 24MHz -> 2000MHz */
-+	priv->pll[4] = devm_clk_hw_register_fixed_factor(priv->dev, "clk_pll4_out",
-+							 "clk_osc", 0, 250, 3);
-+	if (IS_ERR(priv->pll[4]))
-+		return PTR_ERR(priv->pll[4]);
-+
-+	/* 24MHz -> 1782MHz */
-+	priv->pll[5] = devm_clk_hw_register_fixed_factor(priv->dev, "clk_pll6_out",
-+							 "clk_osc", 0, 445, 6);
-+	if (IS_ERR(priv->pll[5]))
-+		return PTR_ERR(priv->pll[5]);
-+
-+	/* 24MHz -> 2400MHz */
-+	priv->pll[6] = devm_clk_hw_register_fixed_factor(priv->dev, "clk_pll7_out",
-+							 "clk_osc", 0, 100, 1);
-+	if (IS_ERR(priv->pll[6]))
-+		return PTR_ERR(priv->pll[6]);
-+
-+	for (idx = 0; idx < SYSCRG_CLK_END; idx++) {
-+		u32 max = jh8100_syscrg_clk_data[idx].max;
++	for (idx = 0; idx < SYSCRG_NE_CLK_END; idx++) {
++		u32 max = jh8100_syscrg_ne_clk_data[idx].max;
 +		struct clk_parent_data parents[4] = {};
 +		struct clk_init_data init = {
-+			.name = jh8100_syscrg_clk_data[idx].name,
++			.name = jh8100_syscrg_ne_clk_data[idx].name,
 +			.ops = starfive_clk_ops(max),
 +			.parent_data = parents,
 +			.num_parents =
 +				((max & STARFIVE_CLK_MUX_MASK) >> STARFIVE_CLK_MUX_SHIFT) + 1,
-+			.flags = jh8100_syscrg_clk_data[idx].flags,
++			.flags = jh8100_syscrg_ne_clk_data[idx].flags,
 +		};
 +		struct starfive_clk *clk = &priv->reg[idx];
 +		unsigned int i;
 +
 +		for (i = 0; i < init.num_parents; i++) {
-+			unsigned int pidx = jh8100_syscrg_clk_data[idx].parents[i];
++			unsigned int pidx = jh8100_syscrg_ne_clk_data[idx].parents[i];
 +
-+			if (pidx < SYSCRG_CLK_END)
++			if (pidx < SYSCRG_NE_CLK_END)
 +				parents[i].hw = &priv->reg[pidx].hw;
-+			else if (pidx == SYSCRG_CLK_OSC)
++			else if (pidx == SYSCRG_NE_CLK_OSC)
 +				parents[i].fw_name = "clk_osc";
-+			else if (pidx == SYSCRG_CLK_MCLK_EXT)
-+				parents[i].fw_name = "clk_mclk_ext";
-+			else if (pidx == SYSCRG_CLK_PLL1_OUT && !priv->pll[1])
-+				parents[i].fw_name = "clk_pll1_out";
-+			else if (pidx == SYSCRG_CLK_PLL2_OUT && !priv->pll[2])
-+				parents[i].fw_name = "clk_pll2_out";
-+			else if (pidx == SYSCRG_CLK_PLL6_OUT && !priv->pll[5])
-+				parents[i].fw_name = "clk_pll6_out";
-+			else
-+				parents[i].hw = priv->pll[pidx - SYSCRG_CLK_PLL0_OUT];
++			else if (pidx == SYSCRG_NE_CLK_AXI_400)
++				parents[i].fw_name = "sys_clk_axi_400";
++			else if (pidx == SYSCRG_NE_CLK_VOUT_ROOT0)
++				parents[i].fw_name = "sys_clk_vout_root0";
++			else if (pidx == SYSCRG_NE_CLK_VOUT_ROOT1)
++				parents[i].fw_name = "sys_clk_vout_root1";
++			else if (pidx == SYSCRG_NE_CLK_USB_WRAP_480)
++				parents[i].fw_name = "sys_clk_usb_wrap_480";
++			else if (pidx == SYSCRG_NE_CLK_USB_WRAP_625)
++				parents[i].fw_name = "sys_clk_usb_wrap_625";
++			else if (pidx == SYSCRG_NE_CLK_USB_WRAP_240)
++				parents[i].fw_name = "sys_clk_usb_wrap_240";
++			else if (pidx == SYSCRG_NE_CLK_USB_WRAP_60)
++				parents[i].fw_name = "sys_clk_usb_wrap_60";
++			else if (pidx == SYSCRG_NE_CLK_USB_WRAP_156P25)
++				parents[i].fw_name = "sys_clk_usb_wrap_156p25";
++			else if (pidx == SYSCRG_NE_CLK_USB_WRAP_312P5)
++				parents[i].fw_name = "sys_clk_usb_wrap_312p5";
++			else if (pidx == SYSCRG_NE_CLK_USB_125M)
++				parents[i].fw_name = "sys_clk_usb_125m";
++			else if (pidx == SYSCRG_NE_CLK_GPIO_100)
++				parents[i].fw_name = "sys_nw_clk_gpio_100";
++			else if (pidx == SYSCRG_NE_CLK_PERH_ROOT)
++				parents[i].fw_name = "sys_clk_perh_root";
++			else if (pidx == SYSCRG_NE_CLK_MCLK)
++				parents[i].fw_name = "sys_clk_mclk";
++			else if (pidx == SYSCRG_NE_CLK_USB3_TAP_TCK_EXT)
++				parents[i].fw_name = "clk_usb3_tap_tck_ext";
++			else if (pidx == SYSCRG_NE_CLK_GLB_EXT)
++				parents[i].fw_name = "clk_glb_ext_clk";
++			else if (pidx == SYSCRG_NE_CLK_USB1_TAP_TCK_EXT)
++				parents[i].fw_name = "clk_usb1_tap_tck_ext";
++			else if (pidx == SYSCRG_NE_CLK_USB2_TAP_TCK_EXT)
++				parents[i].fw_name = "clk_usb2_tap_tck_ext";
++			else if (pidx == SYSCRG_NE_CLK_TYPEC_TAP_TCK_EXT)
++				parents[i].fw_name = "clk_typec_tap_tck_ext";
++			else if (pidx == SYSCRG_NE_CLK_SPI_IN0_EXT)
++				parents[i].fw_name = "clk_spi_in0_ext";
++			else if (pidx == SYSCRG_NE_CLK_SPI_IN1_EXT)
++				parents[i].fw_name = "clk_spi_in1_ext";
++			else if (pidx == SYSCRG_NE_CLK_I2STX_BCLK_EXT)
++				parents[i].fw_name = "clk_i2stx_bclk_ext";
++			else if (pidx == SYSCRG_NE_CLK_I2STX_LRCK_EXT)
++				parents[i].fw_name = "clk_i2stx_lrck_ext";
++			else if (pidx == SYSCRG_NE_CLK_PERH_ROOT_PREOSC)
++				parents[i].fw_name = "sys_clk_perh_root_preosc";
++			else if (pidx == SYSCRG_NE_CLK_AHB_DMA)
++				parents[i].fw_name = "sys_clk_ahb0";
++			else if (pidx == SYSCRG_NE_CLK_APB_BUS_PER1)
++				parents[i].fw_name = "sys_clk_apb_bus_per1";
++			else if (pidx == SYSCRG_NE_CLK_APB_BUS_PER2)
++				parents[i].fw_name = "sys_clk_apb_bus_per2";
++			else if (pidx == SYSCRG_NE_CLK_APB_BUS_PER3)
++				parents[i].fw_name = "sys_clk_apb_bus_per3";
++			else if (pidx == SYSCRG_NE_CLK_APB_BUS_PER5)
++				parents[i].fw_name = "sys_clk_apb_bus_per5";
++			else if (pidx == SYSCRG_NE_CLK_VENC_ROOT)
++				parents[i].fw_name = "sys_clk_venc_root";
++			else if (pidx == SYSCRG_NE_CLK_SPI_CORE_100)
++				parents[i].fw_name = "sys_clk_spi_core_100";
 +		}
 +
 +		clk->hw.init = &init;
@@ -634,26 +666,26 @@ index 000000000000..e2c802523c7d
 +			return ret;
 +	}
 +
-+	ret = devm_of_clk_add_hw_provider(&pdev->dev, jh8100_sysclk_get, priv);
++	ret = devm_of_clk_add_hw_provider(&pdev->dev, jh8100_syscrg_ne_clk_get, priv);
 +	if (ret)
 +		return ret;
 +
-+	return jh8100_reset_controller_register(priv, "rst-sys", 0);
++	return jh8100_reset_controller_register(priv, "rst-sys-ne", 2);
 +}
 +
-+static const struct of_device_id jh8100_syscrg_match[] = {
-+	{ .compatible = "starfive,jh8100-syscrg" },
++static const struct of_device_id jh8100_syscrg_ne_match[] = {
++	{ .compatible = "starfive,jh8100-syscrg-ne" },
 +	{ /* sentinel */ }
 +};
 +
-+static struct platform_driver jh8100_syscrg_driver = {
++static struct platform_driver jh8100_syscrg_ne_driver = {
 +	.driver = {
-+		.name = "clk-starfive-jh8100-sys",
-+		.of_match_table = jh8100_syscrg_match,
++		.name = "clk-starfive-jh8100-sys-ne",
++		.of_match_table = jh8100_syscrg_ne_match,
 +		.suppress_bind_attrs = true,
 +	},
 +};
-+builtin_platform_driver_probe(jh8100_syscrg_driver, jh8100_syscrg_probe);
++builtin_platform_driver_probe(jh8100_syscrg_ne_driver, jh8100_syscrg_ne_probe);
 -- 
 2.34.1
 
