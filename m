@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7352AC4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 11:51:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E891C10DC1
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 11:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+fGuBm3DyMWiZIX+GG6SjNehWDGOW/haxxP1Qni0V/A=; b=bi2un1vU5ej2P5
-	7X5jhzvmXp7H+WbrpknlZKzAaWBQz1pWrP4rVPEL05EnASrjBmYMjPEjZ+a9AjfNPHqyL2niyAk8K
-	2cM1E27SEZJ6hoFHxmFWvaSE1WPIA2nomBpcoAFvPsHXo5ZbXhcVC44z2hhWbf9btIrynhJ3hePZu
-	ojBzuwRlI5CbgVbN8+t+UqQH09uvxvp7/1vlnCCf1NqPgQXxwcqK/cxx+N86xdkJgxdbpygHd1Cqz
-	974Eafg07DUt9W69k6WTCUiDeSNmvtAS/77TcGZAdwT77JZ2xx910e0d1IJ3a6MfXx6uOWckNfdPU
-	+P/aJ1roiPw9FiX/USzQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ML3uL8SXo6WcWEN7toAkRib+0XzgBnn2vcndaWle93U=; b=xFMrX8YYzLaN69
+	LhVAp/JerRQSVySZoxP9BlwAhs3TPr2+CdbWwHezl5SbOZsYwLMOt/bqZ+ardfRN1D5w2BCbeD8ta
+	IlfmXx4RicyF04PwKYmavdEoAP4jJqwNw3MZCOMA5V8I+tqQIpHhPvu5GZmlaLAn/oO5Atq1UoQVT
+	ScOCgC8F/yWVhm7rh3HJZ5XfdY1I1MSAtGVuq2gKa8nm3Sij6FSYVsZ+KIQG0CfvSSY0h6tDmC1qd
+	cXtP4cThON/f2hf4a4LVtWiLY713zwJA8X/H+cDnLb7ZowTwJBE/uHJrjOEOhLvBmoNEGCM7PYZEj
+	iLa63Y0Y/WTPgT4cIlug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAqQs-00A95e-2w;
-	Wed, 06 Dec 2023 11:51:14 +0000
+	id 1rAqR6-00A9LT-0m;
+	Wed, 06 Dec 2023 11:51:28 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAqQS-00A813-2y
+	id 1rAqQs-00A95o-2J
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 11:50:53 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Wed, 06 Dec 2023 11:51:26 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id AAD0924E2F7;
-	Wed,  6 Dec 2023 19:50:12 +0800 (CST)
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 6 Dec
- 2023 19:50:12 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id DDD0C24E311;
+	Wed,  6 Dec 2023 19:51:10 +0800 (CST)
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 6 Dec
+ 2023 19:51:10 +0800
 Received: from jsia-virtual-machine.localdomain (175.136.135.142) by
  EXMBX066.cuchost.com (172.16.6.66) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Wed, 6 Dec 2023 19:50:05 +0800
+ 15.0.1497.42; Wed, 6 Dec 2023 19:51:03 +0800
 From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
 	<krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
@@ -48,18 +48,20 @@ To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
 CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
 	<jeeheng.sia@starfivetech.com>, <leyfoon.tan@starfivetech.com>
-Subject: [PATCH v1 00/16] Basic clock and reset support for StarFive JH8100 RISC-V SoC
-Date: Wed, 6 Dec 2023 19:49:44 +0800
-Message-ID: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
+Subject: [PATCH v1 07/16] dt-bindings: clock: Add StarFive JH8100 System-North-West clock and reset generator
+Date: Wed, 6 Dec 2023 19:49:51 +0800
+Message-ID: <20231206115000.295825-8-jeeheng.sia@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
+References: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [175.136.135.142]
 X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX066.cuchost.com
  (172.16.6.66)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_035049_279977_4A3A449F 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20231206_035115_060692_4B3F12E5 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,134 +78,221 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series enabled basic clock & reset support for StarFive
-JH8100 SoC.
+Add bindings for the System-North-West clock and reset generator
+(SYSCRG-NW) on JH8100 SoC.
 
-This patch series depends on the Initial device tree support for
-StarFive JH8100 SoC patch series which can be found at below link:
-https://lore.kernel.org/lkml/20231201121410.95298-1-jeeheng.sia@starfivetech.com/
-
-StarFive JH8100 shares a similar clock and reset design with JH7110.
-To facilitate the reuse of the file and its functionalities, files
-containing the 'jh71x0' naming convention are renamed to use the
-'common' wording. Internal functions that contain the 'jh71x0'
-naming convention are renamed to use 'starfive.' This is accomplished
-through patches 1, 2, 3, and 4.
-
-
-Patch 5 adds documentation to describe System (SYSCRG) Clock & Reset
-binding.
-Patch 6 adds SYSCRG clock driver.
-
-patch 7 adds documentation to describe System-North-West (SYSCRG-NW)
-Clock & Reset binding.
-Patch 8 adds SYSCRG-NW clock driver.
-
-patch 9 adds documentation to describe System-North-East (SYSCRG-NE)
-Clock & Reset binding.
-Patch 10 adds SYSCRG-NE clock driver.
-
-patch 11 adds documentation to describe System-South-West (SYSCRG-SW)
-Clock & Reset binding.
-Patch 12 adds SYSCRG-SW clock driver.
-
-patch 13 adds documentation to describe Always-On (AON)
-Clock & Reset binding.
-Patch 14 adds AON clock driver.
-
-Patch 15 adds support for the auxiliary reset driver.
-
-Patch 16 adds clocks and reset nodes to the JH8100 device tree.
-
-Sia Jee Heng (16):
-  reset: starfive: Rename file name "jh71x0" to "common"
-  reset: starfive: Convert the word "jh71x0" to "starfive"
-  clk: starfive: Rename file name "jh71x0" to "common"
-  clk: starfive: Convert the word "jh71x0" to "starfive"
-  dt-bindings: clock: Add StarFive JH8100 System clock and reset
-    generator
-  clk: starfive: Add JH8100 System clock generator driver
-  dt-bindings: clock: Add StarFive JH8100 System-North-West clock and
-    reset generator
-  clk: starfive: Add JH8100 System-North-West clock generator driver
-  dt-bindings: clock: Add StarFive JH8100 System-North-East clock and
-    reset generator
-  clk: starfive: Add JH8100 System-North-East clock generator driver
-  dt-bindings: clock: Add StarFive JH8100 System-South-West clock and
-    reset generator
-  clk: starfive: Add JH8100 System-South-West clock generator driver
-  dt-bindings: clock: Add StarFive JH8100 Always-On clock and reset
-    generator
-  clk: starfive: Add JH8100 Always-On clock generator driver
-  reset: starfive: Add StarFive JH8100 reset driver
-  riscv: dts: starfive: jh8100: Add clocks and resets nodes
-
- .../clock/starfive,jh8100-aoncrg.yaml         |  77 +++
- .../clock/starfive,jh8100-syscrg-ne.yaml      | 158 +++++
- .../clock/starfive,jh8100-syscrg-nw.yaml      | 119 ++++
- .../clock/starfive,jh8100-syscrg-sw.yaml      |  66 ++
- .../clock/starfive,jh8100-syscrg.yaml         |  66 ++
- MAINTAINERS                                   |  15 +
- arch/riscv/boot/dts/starfive/jh8100-clk.dtsi  | 180 ++++++
- arch/riscv/boot/dts/starfive/jh8100.dtsi      | 115 ++++
- drivers/clk/starfive/Kconfig                  |  49 +-
- drivers/clk/starfive/Makefile                 |   3 +-
- drivers/clk/starfive/clk-starfive-common.c    | 327 ++++++++++
- drivers/clk/starfive/clk-starfive-common.h    | 130 ++++
- .../clk/starfive/clk-starfive-jh7100-audio.c  | 127 ++--
- drivers/clk/starfive/clk-starfive-jh7100.c    | 503 ++++++++--------
- .../clk/starfive/clk-starfive-jh7110-aon.c    |  62 +-
- .../clk/starfive/clk-starfive-jh7110-isp.c    |  72 +--
- .../clk/starfive/clk-starfive-jh7110-stg.c    |  94 +--
- .../clk/starfive/clk-starfive-jh7110-sys.c    | 523 ++++++++--------
- .../clk/starfive/clk-starfive-jh7110-vout.c   |  74 +--
- drivers/clk/starfive/clk-starfive-jh7110.h    |   4 +-
- drivers/clk/starfive/clk-starfive-jh71x0.c    | 327 ----------
- drivers/clk/starfive/clk-starfive-jh71x0.h    | 123 ----
- drivers/clk/starfive/jh8100/Makefile          |   7 +
- drivers/clk/starfive/jh8100/clk-aon.c         | 275 +++++++++
- .../clk/starfive/jh8100/clk-starfive-jh8100.h |  11 +
- drivers/clk/starfive/jh8100/clk-sys-ne.c      | 566 ++++++++++++++++++
- drivers/clk/starfive/jh8100/clk-sys-nw.c      | 268 +++++++++
- drivers/clk/starfive/jh8100/clk-sys-sw.c      | 136 +++++
- drivers/clk/starfive/jh8100/clk-sys.c         | 455 ++++++++++++++
- drivers/reset/starfive/Kconfig                |  14 +-
- drivers/reset/starfive/Makefile               |   4 +-
- ...rfive-jh71x0.c => reset-starfive-common.c} |  68 +--
- .../reset/starfive/reset-starfive-common.h    |  14 +
- .../reset/starfive/reset-starfive-jh7100.c    |   4 +-
- .../reset/starfive/reset-starfive-jh7110.c    |   8 +-
- .../reset/starfive/reset-starfive-jh71x0.h    |  14 -
- .../reset/starfive/reset-starfive-jh8100.c    | 102 ++++
- .../dt-bindings/clock/starfive,jh8100-crg.h   | 430 +++++++++++++
- .../dt-bindings/reset/starfive,jh8100-crg.h   | 127 ++++
- ...rfive-jh71x0.h => reset-starfive-common.h} |  10 +-
- 40 files changed, 4485 insertions(+), 1242 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-aoncrg.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-ne.yaml
+Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+---
+ .../clock/starfive,jh8100-syscrg-nw.yaml      | 119 ++++++++++++++++++
+ .../dt-bindings/clock/starfive,jh8100-crg.h   |  45 +++++++
+ .../dt-bindings/reset/starfive,jh8100-crg.h   |  15 +++
+ 3 files changed, 179 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-nw.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-sw.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg.yaml
- create mode 100644 arch/riscv/boot/dts/starfive/jh8100-clk.dtsi
- create mode 100644 drivers/clk/starfive/clk-starfive-common.c
- create mode 100644 drivers/clk/starfive/clk-starfive-common.h
- delete mode 100644 drivers/clk/starfive/clk-starfive-jh71x0.c
- delete mode 100644 drivers/clk/starfive/clk-starfive-jh71x0.h
- create mode 100644 drivers/clk/starfive/jh8100/Makefile
- create mode 100644 drivers/clk/starfive/jh8100/clk-aon.c
- create mode 100644 drivers/clk/starfive/jh8100/clk-starfive-jh8100.h
- create mode 100644 drivers/clk/starfive/jh8100/clk-sys-ne.c
- create mode 100644 drivers/clk/starfive/jh8100/clk-sys-nw.c
- create mode 100644 drivers/clk/starfive/jh8100/clk-sys-sw.c
- create mode 100644 drivers/clk/starfive/jh8100/clk-sys.c
- rename drivers/reset/starfive/{reset-starfive-jh71x0.c => reset-starfive-common.c} (55%)
- create mode 100644 drivers/reset/starfive/reset-starfive-common.h
- delete mode 100644 drivers/reset/starfive/reset-starfive-jh71x0.h
- create mode 100644 drivers/reset/starfive/reset-starfive-jh8100.c
- create mode 100644 include/dt-bindings/clock/starfive,jh8100-crg.h
- create mode 100644 include/dt-bindings/reset/starfive,jh8100-crg.h
- rename include/soc/starfive/{reset-starfive-jh71x0.h => reset-starfive-common.h} (50%)
 
+diff --git a/Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-nw.yaml b/Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-nw.yaml
+new file mode 100644
+index 000000000000..b16a874828dd
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-nw.yaml
+@@ -0,0 +1,119 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/starfive,jh8100-syscrg-nw.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH8100 System-North-West Clock and Reset Generator
++
++maintainers:
++  - Sia Jee Heng <jeeheng.sia@starfivetech.com>
++
++properties:
++  compatible:
++    const: starfive,jh8100-syscrg-nw
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: Main Oscillator (24 MHz)
++      - description: APB_BUS clock from SYSCRG
++      - description: ISP_2X clock from SYSCRG
++      - description: ISP_AXI clock from SYSCRG
++      - description: VOUT_ROOT0 clock from SYSCRG
++      - description: VOUT_ROOT1 clock from SYSCRG
++      - description: VOUT_SCAN_ATS clock from SYSCRG
++      - description: VOUT_DC_CORE clock from SYSCRG
++      - description: VOUT_AXI clock from SYSCRG
++      - description: AXI_400 clock from SYSCRG
++      - description: AXI_200 clock from SYSCRG
++      - description: Peripheral clock from SYSCRG
++      - description: External DVP clock
++      - description: External ISP DPHY TAP TCK clock
++      - description: External golbal clock
++      - description: External i2s_tscko clock
++      - description: External VOUT MIPI DPHY TAP TCK
++      - description: External VOUT eDP TAP TCK
++      - description: External SPI In2 clock
++
++  clock-names:
++    items:
++      - const: clk_osc
++      - const: sys_clk_apb_bus
++      - const: sys_clk_isp_2x
++      - const: sys_clk_isp_axi
++      - const: sys_clk_vout_root0
++      - const: sys_clk_vout_root1
++      - const: sys_clk_vout_scan_ats
++      - const: sys_clk_vout_dc_core
++      - const: sys_clk_vout_axi
++      - const: sys_clk_axi_400
++      - const: sys_clk_axi_200
++      - const: sys_clk_perh_root_preosc
++      - const: clk_dvp_ext
++      - const: clk_isp_dphy_tap_tck_ext
++      - const: clk_glb_ext_clk
++      - const: clk_i2s_tscko
++      - const: clk_vout_mipi_dphy_tap_tck_ext
++      - const: clk_vout_edp_tap_tck_ext
++      - const: clk_spi_in2_ext
++
++  '#clock-cells':
++    const: 1
++    description:
++      See <dt-bindings/clock/starfive,jh8100-crg.h> for valid indices.
++
++  '#reset-cells':
++    const: 1
++    description:
++      See <dt-bindings/reset/starfive,jh8100-crg.h> for valid indices.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - '#clock-cells'
++  - '#reset-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/starfive,jh8100-crg.h>
++
++    clock-controller@123c0000 {
++            compatible = "starfive,jh8100-syscrg-nw";
++            reg = <0x123c0000 0x10000>;
++            clocks = <&clk_osc>, <&syscrg SYSCRG_CLK_APB_BUS>,
++                     <&syscrg SYSCRG_CLK_ISP_2X>,
++                     <&syscrg SYSCRG_CLK_ISP_AXI>,
++                     <&syscrg SYSCRG_CLK_VOUT_ROOT0>,
++                     <&syscrg SYSCRG_CLK_VOUT_ROOT1>,
++                     <&syscrg SYSCRG_CLK_VOUT_SCAN_ATS>,
++                     <&syscrg SYSCRG_CLK_VOUT_DC_CORE>,
++                     <&syscrg SYSCRG_CLK_VOUT_AXI>,
++                     <&syscrg SYSCRG_CLK_AXI_400>,
++                     <&syscrg SYSCRG_CLK_AXI_200>,
++                     <&syscrg SYSCRG_CLK_PERH_ROOT_PREOSC>,
++                     <&clk_dvp_ext>,
++                     <&clk_isp_dphy_tap_tck_ext>,
++                     <&clk_glb_ext_clk>,
++                     <&clk_i2s_tscko>,
++                     <&clk_vout_mipi_dphy_tap_tck_ext>,
++                     <&clk_vout_edp_tap_tck_ext>,
++                     <&clk_spi_in2_ext>;
++            clock-names = "clk_osc", "sys_clk_apb_bus", "sys_clk_isp_2x",
++                          "sys_clk_isp_axi", "sys_clk_vout_root0",
++                          "sys_clk_vout_root1", "sys_clk_vout_scan_ats",
++                          "sys_clk_vout_dc_core", "sys_clk_vout_axi",
++                          "sys_clk_axi_400", "sys_clk_axi_200",
++                          "sys_clk_perh_root_preosc", "clk_dvp_ext",
++                          "clk_isp_dphy_tap_tck_ext", "clk_glb_ext_clk",
++                          "clk_i2s_tscko", "clk_vout_mipi_dphy_tap_tck_ext",
++                          "clk_vout_edp_tap_tck_ext", "clk_spi_in2_ext";
++            #clock-cells = <1>;
++            #reset-cells = <1>;
++    };
+diff --git a/include/dt-bindings/clock/starfive,jh8100-crg.h b/include/dt-bindings/clock/starfive,jh8100-crg.h
+index e5bb588ce798..8417455c2409 100644
+--- a/include/dt-bindings/clock/starfive,jh8100-crg.h
++++ b/include/dt-bindings/clock/starfive,jh8100-crg.h
+@@ -120,4 +120,49 @@
+ #define SYSCRG_CLK_NNE_ICG_EN						108
+ 
+ #define SYSCRG_CLK_END							109
++
++/* SYSCRG_NW_CLK */
++#define SYSCRG_NW_CLK_PLL5_DIV2						0
++#define SYSCRG_NW_CLK_GCLK5						1
++#define SYSCRG_NW_CLK_GPIO_100						2
++#define SYSCRG_NW_CLK_GPIO_50						3
++#define SYSCRG_NW_CLK_GPIO_150						4
++#define SYSCRG_NW_CLK_GPIO_60						5
++#define SYSCRG_NW_CLK_IOMUX_WEST_PCLK					6
++#define SYSCRG_NW_CLK_I2C6_APB						7
++#define SYSCRG_NW_CLK_I2C7_APB						8
++#define SYSCRG_NW_CLK_SPI2_APB						9
++#define SYSCRG_NW_CLK_SPI2_CORE						10
++#define SYSCRG_NW_CLK_SPI2_SCLK_IN					11
++#define SYSCRG_NW_CLK_SMBUS1_APB					12
++#define SYSCRG_NW_CLK_SMBUS1_CORE					13
++#define SYSCRG_NW_CLK_ISP_DVP						14
++#define SYSCRG_NW_CLK_ISP_CORE_2X					15
++#define SYSCRG_NW_CLK_ISP_AXI						16
++#define SYSCRG_NW_CLK_ISP_DPHY_TAP_TCK					17
++#define SYSCRG_NW_CLK_FLEXNOC_ISPSLV					18
++#define SYSCRG_NW_CLK_VOUT_PIX0						19
++#define SYSCRG_NW_CLK_VOUT_PIX1						20
++#define SYSCRG_NW_CLK_VOUT_SCAN_ATS					21
++#define SYSCRG_NW_CLK_VOUT_DC_CORE					22
++#define SYSCRG_NW_CLK_VOUT_APB						23
++#define SYSCRG_NW_CLK_VOUT_DSI						24
++#define SYSCRG_NW_CLK_VOUT_AHB						25
++#define SYSCRG_NW_CLK_VOUT_AXI						26
++#define SYSCRG_NW_CLK_VOUT_MIPI_DPHY_TAP_TCK				27
++#define SYSCRG_NW_CLK_VOUT_EDP_PHY_TAP_TCK				28
++#define SYSCRG_NW_CLK_UART5_CORE_PREOSC					29
++#define SYSCRG_NW_CLK_UART5_APB						30
++#define SYSCRG_NW_CLK_UART5_CORE					31
++#define SYSCRG_NW_CLK_UART6_CORE_PREOSC					32
++#define SYSCRG_NW_CLK_UART6_APB						33
++#define SYSCRG_NW_CLK_UART6_CORE					34
++#define SYSCRG_NW_CLK_SPI2_ICG_EN					35
++#define SYSCRG_NW_CLK_SMBUS1_ICG_EN					36
++#define SYSCRG_NW_CLK_ISP_ICG_EN					37
++#define SYSCRG_NW_CLK_VOUT_ICG_EN					38
++#define SYSCRG_NW_CLK_UART5_ICG_EN					39
++#define SYSCRG_NW_CLK_UART6_ICG_EN					40
++
++#define SYSCRG_NW_CLK_END						41
+ #endif /* __DT_BINDINGS_CLOCK_STARFIVE_JH8100_H__ */
+diff --git a/include/dt-bindings/reset/starfive,jh8100-crg.h b/include/dt-bindings/reset/starfive,jh8100-crg.h
+index 3b7b92488e76..8c3a858bdf6a 100644
+--- a/include/dt-bindings/reset/starfive,jh8100-crg.h
++++ b/include/dt-bindings/reset/starfive,jh8100-crg.h
+@@ -20,4 +20,19 @@
+ 
+ #define SYSCRG_RESET_NR_RESETS					8
+ 
++/*
++ * syscrg_nw: assert0
++ */
++#define SYSCRG_NW_RSTN_PRESETN					0
++#define SYSCRG_NW_RSTN_SYS_IOMUX_W				1
++#define SYSCRG_NW_RSTN_I2C6					2
++#define SYSCRG_NW_RSTN_I2C7					3
++#define SYSCRG_NW_RSTN_SPI2					4
++#define SYSCRG_NW_RSTN_SMBUS1					5
++#define SYSCRG_NW_RSTN_UART5					6
++#define SYSCRG_NW_RSTN_UART6					7
++#define SYSCRG_NW_RSTN_MERAK0_TVSENSOR				8
++#define SYSCRG_NW_RSTN_MERAK1_TVSENSOR				9
++
++#define SYSCRG_NW_RESET_NR_RESETS				10
+ #endif /* __DT_BINDINGS_RESET_STARFIVE_JH8100_H__ */
 -- 
 2.34.1
 
