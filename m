@@ -4,64 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B448CC4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 00:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEDB2C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 00:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y4aYvSwSNPo0/ZNzKOTkgZdjcIMxfEoFaO/1eig0y1g=; b=ylXHFZJHFp9ECD
-	KgCZ4+xYABw8ghw5pT9KVNAqNFgbjEA/+kqZZ3OehQZyY363vNTsMbnU1yaoqNnyq7+N82W9/UfhT
-	oKdnNCc6P+ceLO0DRZx3onsnNlDVd622dGX6G32Uwm07KMNYQtOq9PtpugODUzcYxd9w8Nse3tw0S
-	V5TKTnLyXgviqbtzyqvHZxuIcFEq+a5DvNpUDZ5FJTpUAe5Dql0npsdR5rbIh1QCa8kg+Aqg9o6EL
-	nIuzQG9ZUMkZkfbIZt2SNZ1zytq2cEzLd89s0+tmBYs1dqnvefoRGC3OAk9R3m5JEFrOJFWiOxQL4
-	FpPTYUAD3XH3eS5W3N9Q==;
+	List-Owner; bh=6a2Jol/XGFoJIISPXdIULdYrKxu1pUQqKJkDZ5Zsd04=; b=RX9uBFWFANPPDb
+	kbhztbooXqNNhPBcW5TKvXnAY4RnhDQlm09kTuZLvl9jLcXA6f1O91Xb86EtXxB7A0K8eWa+66ElZ
+	Pg8YkQIaEKe/qnxYU4qcB3t9E/4dE+IDxeV2DW0l6M8LqmBVBHf8HK4MGp4CNki+g1HAUfWBWp3aT
+	epsmeHxrFzzLdTSkL0GzeA9qsm7AD7dAdM/OWGNFpjsMt/FID0cM9DC0ajKwz0Syl0Xi4Si0LKd3K
+	whH0d30LWfeG2m28+otY14jhyKPwSArYYHCsmI9itoJbPDPohg/1XYLQqPyoo6ai2zoxEhjcOZn7n
+	GVk2oMIdv36lkmNKZVDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAg46-008jVd-2D;
-	Wed, 06 Dec 2023 00:47:02 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rAg5O-008jaq-0x;
+	Wed, 06 Dec 2023 00:48:22 +0000
+Received: from mail-dm6nam04olkn20810.outbound.protection.outlook.com ([2a01:111:f400:7e8b::810] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAg44-008jVF-0A
+	id 1rAg5L-008ja5-1N
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 00:47:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 549B8619DD;
-	Wed,  6 Dec 2023 00:46:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84A3FC433C8;
-	Wed,  6 Dec 2023 00:46:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701823619;
-	bh=b5r5GxuYWHo36uh4ovYgu5m135G+N9ZSSwh0htqUnfM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=la+CqPPqfkLVqIiY+xzaHmGFS9CkyQKnrbETqIQqwbah3+lvOql3uSGTnKbd83GLn
-	 CzuOC3tBU4YX+V8KeKYAKaiAHdqLsvqhqCFg79UNf+B39DvfMCQ6TyyGfa1uXiTgQu
-	 VlXLmGB/edcKWRAWOUYlFMEIz0IXVwPjs+cKEXvZlGOhgd7iIzfj22r0+1vDGkIRxE
-	 3LT0+Z1LetBYgNADApH2HDkkJ/mM04ENyOwRyK9PytwjoKUnF7Dgr+OxQzx/IF3oeU
-	 CpYVPv9ANhxGcLcr/YNz+008+G6UFW1VV5Vd/GgNA57hTptrXjkS++E1NxT5ERcKXq
-	 5Q8PKY4BV++Wg==
-Date: Tue, 5 Dec 2023 16:46:56 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Jerry Shih <jerry.shih@sifive.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	herbert@gondor.apana.org.au, davem@davemloft.net,
-	conor.dooley@microchip.com, ardb@kernel.org, conor@kernel.org,
-	heiko@sntech.de, phoebe.chen@sifive.com, hongrong.hsu@sifive.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-crypto@vger.kernel.org
-Subject: Re: [PATCH v3 00/12] RISC-V: provide some accelerated cryptography
- implementations using vector extensions
-Message-ID: <20231206004656.GC1118@sol.localdomain>
-References: <20231205092801.1335-1-jerry.shih@sifive.com>
+	Wed, 06 Dec 2023 00:48:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=KE0etheGx3H/ZrMfovlOfnXDj0oMbJxhEMEdCgrDQowOZEhoAC9Hi1Z3fyYwM8lynFIhh+i0dZIIEeuoaqEhk8IjlxBa5WzwZhW/J19KEW28S0gFtb36HjZpK+KoxWkRdGwSvZrEQZF45PPPWS5qOOZBxn0F36/j5Zghv6l+/uwp/3VHS+c9RzvKwohDAz/4rU3B4Yen4/GpfFldn+klhFxPdMbEX/8GKGrEdwle9D6uuKk7S3FIb844pRSPTXh+wEIjZsxBRa42Ymrde3/VFg4/sUH2HvCws86Ny7OitoVDHGY8jxn5HCQ73//uFiScJ9w+lliTQFvnQORP3MsT6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=r+76tpxcT0TXjQAeyvLeTPj4gxiHIHm2j3veVWdkR+Q=;
+ b=cjyfW8ltpgcW8we0ENwo4t5n12lpBPO8dZhUKgDra7VwTrdwSqtvxBI9PUZE3k5u4VQYFIDdevqpkZ1TgkYjDhVwnaLwVo6rMRERNbUA7V7rRx3O3kO7zeM2OOw6pAyYHBLMh+KY2Fb1G6P6CSP562ax/zbfaUhCgaXZZzTGEmJxZzonPJzHThGyhhaw73dGkJhRpwz29eIYLXsfOkpeKKWYg2FT/BX45awuqWiFF8aiYSX5l5/8vtJ6tpjeKqFQhutUmiFx7gThq7XmU7n1jXAUjec+b3D88xFUF2WX7XnWAX96kBOvm/C/zz44mmE0RB+ulEfQ2F2NcLIbaXfa1Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=r+76tpxcT0TXjQAeyvLeTPj4gxiHIHm2j3veVWdkR+Q=;
+ b=JjS/CCvY3ACU+jyIAQAKqSLPullyt3Ld1g+lUs0WCTL1xuRwT4TJ7CLtoAzSGpBawDFGXL0rpZ+sH6ty4vS9WAFQ2Vie2aV7TaEzEoKBBId19WmywOZxbAfwqTPaWqHd85kEOt8j9+e73farmk0RS+0FqnbOmFWD7TbpsNE9f5i6ScozFtmuV0l0XH3dwJCO8jB+6A5RXV5HBB8OLzB89fz2rhwaiWBvbRhd41w9eOrhOTNHRYkfueCpmbgMqeQXPYTSdbuF0EmAhMxOgTdvhYwqPXXv4a3WBlrMoLJlIO8Nl4PKS/1T1UjWpsmgBh+qVZgMtJBI3SalpZ5VTGpjzQ==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by MN0PR20MB4570.namprd20.prod.outlook.com (2603:10b6:208:371::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7068.25; Wed, 6 Dec
+ 2023 00:48:09 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::55b:c350:980:ad8]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::55b:c350:980:ad8%6]) with mapi id 15.20.7046.024; Wed, 6 Dec 2023
+ 00:48:09 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chao Wei <chao.wei@sophgo.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Jisheng Zhang <jszhang@kernel.org>,
+	qiujingbao.dlmu@gmail.com,
+	dlan@gentoo.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 0/4] riscv: sophgo: add clock support for Sophgo CV1800 SoCs
+Date: Wed,  6 Dec 2023 08:48:09 +0800
+Message-ID: <IA1PR20MB49531468A92E2A7670F1EE0BBB84A@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <CAJM55Z9WO+0Yb-at6CAR6=UP9j60iQz=s7MK-3qiT=w-8N6+Zw@mail.gmail.com>
+References: <CAJM55Z9WO+0Yb-at6CAR6=UP9j60iQz=s7MK-3qiT=w-8N6+Zw@mail.gmail.com>
+X-TMN: [Q1OmhEchBwnw2v9fwt/O2CHBg3XykFYDgkGW3lbyPg8=]
+X-ClientProxiedBy: SG2PR06CA0191.apcprd06.prod.outlook.com (2603:1096:4:1::23)
+ To IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20231206004810.138682-1-inochiama@outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231205092801.1335-1-jerry.shih@sifive.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|MN0PR20MB4570:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0533d6e9-4425-471e-00c3-08dbf5f50443
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 5uDvQWLPz0X2R5d9Z2IjCMpwNDXSfG52AWGmti85wju9dAm7QR/s8b3NPmxEbw6MeS6s42nhTnENRKIyfltn5D9ezJFOiU2ryCkerN1uymZCwxW1R86hzuQPrDdR4OKPMBT2cU5GWlW9uICns71UYRvUk/H9m1wKQnfZ/pN7aJ6goBzgq3p+MzrbWw9a9A1f8adc+28UeCznd1VAI7RLj+YOzvLabpIQ7mo4DR0D2yQM29sH9YrQ1m4ODqhEKu9x3ucW4tHx9c15TUm2y2QtqRsZZUBJ8twfIrGpD7xmqgjW9vI+hkDGTMW86o8Aw/mMylKy9CWpW5OemktoY38gGZtVXZ4em0MHWnCadEMnoj6P7CkER7Be/vpoFLcCuarGbO/3FnfsazoCKj0K+3D5qbgxKUSvu+etoIOeUgrCCe/3EdsaShTZxFlZLb3bt2KcE6uTrYx8tPoa1JCjbI7afPBz4A8Yru0G7Wscl6vduxyjdYFJtPEmLQgfsKMKRlSPV0eqqNgBO1R4/tkMdHbIe7GeYqru+Frm4Hyou7MXjRkh83GRNDyPYWhl2YEs5NIcnpNHfhhcEV+14YDe4n8jyADCTn1n/xxxmqQ0qjuaoLRzFncRhZ64JUw8ZlrBio3N
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Snqa2The+fJZ6LYswDNUwPWQ9cVlmfgetuW2Vp+dtL+mtiyki3jo5ybCXrat?=
+ =?us-ascii?Q?/2WQAPBqbF2nCAkIYn8yvY7wWSeq3BnTqjV5qC8TtZ/e2gWR3qdpUdxuzmFy?=
+ =?us-ascii?Q?MPSkzUMpamMBxFQ07XAl+2ZDpvaUCQ5RWboPqs0twlfsJ3n4pX/OmmZv6d28?=
+ =?us-ascii?Q?Vwi/2BPMAdh5VB73Mf3IvdKIawlxnMOQZXkz+gubbv+DEYCviyUoZt9B7dg9?=
+ =?us-ascii?Q?0eJTRV6pn2Ks6pA0BwssKddpAgHSK/5z8CzWHoig/rYCOpLuqWudLPM6UwMk?=
+ =?us-ascii?Q?H6RRiwewdFr8i4LmHjFYfloh42xHjKsDlTSkq+8Bn6IhIG73sShTE8KIr3w9?=
+ =?us-ascii?Q?iqEaAusV24qHK2t3JvQvy5ZuhhymlDchofY45zOdAaymPS36KqZoB/Bwwjaw?=
+ =?us-ascii?Q?Febz5XzNbfomSC7weeU/RoQnOMBVI6o1sQPoFXOOj1eYr5umbCcueemki0Q8?=
+ =?us-ascii?Q?n6TfS2I4XPaUqcotTngNq1GLfGYqn/PY2aqcAKvQ48siOKm5gdZKdSVo+3zD?=
+ =?us-ascii?Q?50Abeo5y1aYgPjacBxGFVN8DnrS4u+DJcPVADflK2zcDEAmRmoVTyKhbE0Qx?=
+ =?us-ascii?Q?p0mFXeEAS6phyKVQ3LSvbkqE2PIiO/sYVjM5isQqphNaDNZ2dKx4Rbu2cj1e?=
+ =?us-ascii?Q?Wb5QlC5XJTzXECRGeguUdJDZKsiEuRQMZq1xnU7jcMenNS2kpUBywbWNVt9h?=
+ =?us-ascii?Q?+lcZZvhhpyqAT2eALa0rcundvvBYzQ9q9QPu6yLhcd5xW1ZMo9+eBeqiwy1V?=
+ =?us-ascii?Q?y1Ye9ppGPybHLusOF1vTJgOH5bC+RrjPVN+UuAgTaAecRv45PD0OlpLe8fTa?=
+ =?us-ascii?Q?rufIEZKHSqduFTCSqwzgAQhPfeqfVTCviwbaubxYGOkZo9fhlJODnVBbsH5l?=
+ =?us-ascii?Q?RT6Yt4aBoeuX7HbEb4CYye6oIb8d3K/+FM1kMXNUHFqLSI8KItp02pWX4d8N?=
+ =?us-ascii?Q?XPz2KUnv2Bj1OWd/ZwOHhUWIxd6GBnZ/wE15pMQLaTseTUFLZt3BR7DnbolB?=
+ =?us-ascii?Q?/j+rBoJMRF0sb1JVvOWytHcsNd/zxrv0f7owY6jpEz0znrivn8LF0YHASntl?=
+ =?us-ascii?Q?ZiaVyWr/hc5x47bN0/Y5rTJwpmuftuc8tzrd9wN4xifye5o+EE2Bt2ki9f2c?=
+ =?us-ascii?Q?BpHxrM3sEV5pmI6BhvpHBub6mSILDxPE0rgdWTiFvlk8zp5pHvoIR6B4ok3H?=
+ =?us-ascii?Q?QXndGnwpwZUXw3zkCtQAgHMblzjhmXv+JPD4s07J6NKdVDA/YWtR5P/NY2o?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0533d6e9-4425-471e-00c3-08dbf5f50443
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Dec 2023 00:48:09.2970
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR20MB4570
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231205_164700_154692_5277CE0D 
-X-CRM114-Status: UNSURE (   5.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231205_164819_525147_95E6DCD9 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,16 +139,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 05, 2023 at 05:27:49PM +0800, Jerry Shih wrote:
-> This series depend on:
-> 2. support kernel-mode vector
-> Link: https://lore.kernel.org/all/20230721112855.1006-1-andy.chiu@sifive.com/
-> 3. vector crypto extensions detection
-> Link: https://lore.kernel.org/lkml/20231017131456.2053396-1-cleger@rivosinc.com/
+>Inochi Amaoto wrote:
+>> Add clock controller support for the Sophgo CV1800B and CV1812H.
+>>
+>> This patch follow this patch series:
+>> https://lore.kernel.org/all/IA1PR20MB495399CAF2EEECC206ADA7ABBBD5A@IA1PR20MB4953.namprd20.prod.outlook.com/
+>>
+>> Changed from v1:
+>> 1. fix license issues.
+>>
+>> Inochi Amaoto (4):
+>>   dt-bindings: clock: sophgo: Add clock controller of CV1800 series SoC
+>>   clk: sophgo: Add CV1800 series clock controller driver
+>>   riscv: dts: sophgo: add clock generator for Sophgo CV1800 series SoC
+>>   riscv: dts: sophgo: add uart clock for Sophgo CV1800 series SoC
+>
+>Hi Inochi,
+>
+>This series seems to be missing patch 1 and 2. If you did send them, but just
+>omitted linux-riscv from those patches, please don't do that. Having the whole
+>series makes it a lot easier to review without having to hunt down all the
+>missing parts on lore.kernel.org.
+>
+>scripts/get_maintainer.pl does support muliple patches as input
+>
+>/Emil
+>
 
-What's the status of getting these prerequisites merged?
+Hi Emil,
 
-- Eric
+The get_maintainer.pl does not give me linux-riscv mail list for the first
+and second patch. I have added this to the second one, but the patch is
+held by the mail list since is too big. Anyway, I will add this mail list
+manually if you need. Sorry for this inconvenience.
+
+Thanks,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
