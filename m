@@ -4,79 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 339F9C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 17:56:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 719FEC4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 18:37:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=c3KgodDam7nMp98c1Y4JFfLPkMWJoJ2Q3Pbq7h1m2Jo=; b=xbNvJHkx0eR4QBEntKVP7RmOaR
-	iZkpOmhx9+opP8RYioepymabEoFiRzU19CnJySNkMiEJToRqGIW457uLjUeX6bTdYI/+xTCi5aMXp
-	Hsae+zUqWVgMwv6rRhuYHZa7ThPHBNCropJmaEWGTy4qKXC5eF65bKMkEoHAGFd7LPyrWbZL+WNJE
-	RsFKY+2dGX1trFxkLM0f1utaWVKCBasDk+By1Xf/TIkPQ6WOTKkgjA8v8cb/P3yo5acfaEaMmMjq1
-	rcgIE0EYy0kOsvJxVq+I6vxNQHiZWF8EOxAoyeMuWr4dzrQPQQQXXsQwuvWOwiZBfF1bDFCEFfKEs
-	cRi4HixQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Be+Id4OooZsF3v0YDG1sIH21auCdqeF8rJcnOWGMSOE=; b=ykd4QAd4JjvBig
+	dI4MvjgANNy1V47Rrw3tIkFcAv6yxz00OPELFMUHHBSbKAcvxGwSiHr7EKdJBsRO1Q8vA+rFn4AlY
+	+pheWnZV6xMszS1WuU4fMzNAa2UijF9zqEsSJisMsUrHpXr5wBJiWVSHt179batf2ycU17fJiWi1v
+	jPdtz/O/lw5B3k0HqKxd/Vsu7U+NgvVsLbgZh8F7pPqtUhhpReCTmTp8RnMBiZMm6eXRvY2+OJNc6
+	6qFf41a1AwjUlu1SsQx6uAvr/7VgVZ+Z4BeUbK0dP4bXk7x5/CQdaNTcd1sObtReyOvzh25rhmTR4
+	B4k/rLA8prdTGjWQVQ4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAw8D-00AypY-0a;
-	Wed, 06 Dec 2023 17:56:21 +0000
-Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
+	id 1rAwlv-00B3HW-37;
+	Wed, 06 Dec 2023 18:37:23 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAw89-00AyoS-23
-	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 17:56:19 +0000
-Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-6d9a3c035b3so15779a34.2
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Dec 2023 09:56:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1701885376; x=1702490176; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YzmOds210uOLMoqUxUrCLSQtsPcHifLKozmBM1oKPoo=;
-        b=w+SSKOsBfWwrZR2uw3hLUOJf05jypTyrSmFKgBeIRte0eB8bo+PNCYOSP7BX0M/e1L
-         n3nZWG6zfqaJhHdIzF8cOqV1DK7J6wd87+EHcsu5QTCtvrC1X4Ehe0bERDPoAIIIWIeb
-         Idi5LyVqCTuJNVigbpPdwgTuIWs2knxWI53ceVwgJ1VCadWLYR/TRhDVnSY2pWJw8zTh
-         aCUKuD5juQFfgwpubzEPoxYG41C0LM9LDasdQln6hNz7gB1htiRevtoHiFMhA6WG3kk1
-         53GCzk7WhlTuCg78Bkpafoc0pmOK66ELCPC9T+3BlGL01/nvauvnpIsAC3I/YqwLQxh4
-         cr9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701885376; x=1702490176;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YzmOds210uOLMoqUxUrCLSQtsPcHifLKozmBM1oKPoo=;
-        b=RS/d/WFPxcI3raLVtoMJzypahM1OAtELNZAOVke/VtcqpAxhVHgGIXgm0GDenvIZgp
-         UsgYVRVmpSgnDArOxeBJtqTnZd3iMenpkLBSSsxpz69sW1k2BmHSfUcqCsrx2pc0Y6dZ
-         8Q8le43iYjtMfj7GxzcGpvFkCpNx0WIiyLfUwVirIWS1bDTk8bCYI+1ctGPdl11SznIj
-         N1hDA7gfKBpoEs+tI9EUtXRhRkkKx95NUUDcfyzPsw6utyHqOOPSC5veEAz7/q54l6Y5
-         xlxWqDnLpAjQxpkqosnDfalRVHQdPQI3iTyVMlydlMP7uAvW4Ze8nWhRqGfyC2NkEWrt
-         I15Q==
-X-Gm-Message-State: AOJu0Yx8j1bs4XrrFsvxazYgLXBxcVSRcmK7SlslQMLM+Lr69LXfAjt+
-	x29MfAGyda1DPTwmVZanSREgcwM8hVR5kzEWpmQ=
-X-Google-Smtp-Source: AGHT+IGuLe3uXFDTYJvCW1TreYHsP4rbqmaZqL0yKN+0sgi7VOo/WQy0nBuEdy5xTo8VjXoiNfBFSQ==
-X-Received: by 2002:a05:6830:1e69:b0:6d8:74e2:a3d3 with SMTP id m9-20020a0568301e6900b006d874e2a3d3mr1377709otr.47.1701885376195;
-        Wed, 06 Dec 2023 09:56:16 -0800 (PST)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id l11-20020a0568301d6b00b006d81e704023sm52207oti.2.2023.12.06.09.56.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Dec 2023 09:56:15 -0800 (PST)
-Date: Wed, 06 Dec 2023 09:56:15 -0800 (PST)
-X-Google-Original-Date: Wed, 06 Dec 2023 09:56:13 PST (-0800)
-Subject: Re: [PATCH 2/2] membarrier: riscv: Provide core serializing command
-In-Reply-To: <ZXCylOEXSbEMGB96@andrea>
-CC: mathieu.desnoyers@efficios.com, paulmck@kernel.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, mmaas@google.com, hboehm@google.com, striker@us.ibm.com,
-  charlie@rivosinc.com, rehn@rivosinc.com, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: parri.andrea@gmail.com
-Message-ID: <mhng-5a4880f5-926c-4087-8bb9-b6c09fd4e288@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_095617_877609_98EA8E08 
-X-CRM114-Status: GOOD (  14.78  )
+	id 1rAwlv-00B3HN-29
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 06 Dec 2023 18:37:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=XjoZdIcJ4x0UyyYTC1Lhh7F1PH0NzGpQF/40WH8h+PE=; b=BYNASHq+jpc/8U1rxz8DCtJj7+
+	Kj4N1eQTG2Yt2dhsGMUSAsRvsSvY1FhmPVaE0bDvw43eARsX1ZWtS2CBnuadPcFc6dtE6LRNOVGYC
+	aZ2nVg6qJ3DRN1Hp3FWYd3h9zWB52+NlCnToyCdRhHDIKgfbalWxEmF1K/m3eh4ebIrexUdcllOya
+	iu5XU6Bs3e8b974e0dREPyH7SvE4bOjVN1reX+MSUGOm2oV7UaqlGMgKIz6Oc8/zxxrHtpEzX/N0v
+	5ZcnLPsxBaGRexjqTtzyz3w5P1owRBXyAq+dLtjk8i17Z+dITkegtGZouRvQyKoYP2c/NWK6ZBrP6
+	SEUC5Jqg==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
+	id 1rAwln-005Edk-1B;
+	Wed, 06 Dec 2023 18:37:15 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 061D930057E; Wed,  6 Dec 2023 19:37:14 +0100 (CET)
+Date: Wed, 6 Dec 2023 19:37:13 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: Jiri Olsa <olsajiri@gmail.com>, Song Liu <song@kernel.org>,
+	Song Liu <songliubraving@meta.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	David Ahern <dsahern@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>, Arnd Bergmann <arnd@arndb.de>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Kees Cook <keescook@chromium.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Network Development <netdev@vger.kernel.org>,
+	bpf <bpf@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>,
+	clang-built-linux <llvm@lists.linux.dev>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Joao Moreira <joao@overdrivepizza.com>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH v2 2/2] x86/cfi,bpf: Fix BPF JIT call
+Message-ID: <20231206183713.GA35897@noisy.programming.kicks-ass.net>
+References: <20231130134204.136058029@infradead.org>
+ <CAADnVQJqE=aE7mHVS54pnwwnDS0b67iJbr+t4j5F4HRyJSTOHw@mail.gmail.com>
+ <20231204091334.GM3818@noisy.programming.kicks-ass.net>
+ <20231204111128.GV8262@noisy.programming.kicks-ass.net>
+ <20231204125239.GA1319@noisy.programming.kicks-ass.net>
+ <ZW4LjmUKj1q6RWdL@krava>
+ <20231204181614.GA7299@noisy.programming.kicks-ass.net>
+ <20231204183354.GC7299@noisy.programming.kicks-ass.net>
+ <CAADnVQJwU5fCLcjBWM9zBY6jUcnME3+p=vvdgKK9FiLPWvXozg@mail.gmail.com>
+ <20231206163814.GB36423@noisy.programming.kicks-ass.net>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20231206163814.GB36423@noisy.programming.kicks-ass.net>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,33 +103,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 06 Dec 2023 09:42:44 PST (-0800), parri.andrea@gmail.com wrote:
->> > The final version of this fix will likely depend on some machinery/code
->> > introduced by 3ccfebedd8cf54 ("powerpc, membarrier: Skip memory barrier
->> > in switch_mm()"); but, yes, nothing we can't safely adjust I think.
->>
->> Ya, I guess we'll have to look to know for sure but hopefully it's
->> manageable.
->
-> Absolutely.  One approach would be to follow what PowerPC did: AFAIU, before
-> 3ccfebedd8cf54 membarrier/powerpc used to hard code the required barrier in
-> in finish_task_switch(), "masking" it as an smp_mb__after_unlock_lock(); riscv
-> could use a similar approach (though with a different/new mask function).
+On Wed, Dec 06, 2023 at 05:38:14PM +0100, Peter Zijlstra wrote:
+> On Mon, Dec 04, 2023 at 05:18:31PM -0800, Alexei Starovoitov wrote:
+> 
+> > [   13.978497]  ? asm_exc_invalid_op+0x1a/0x20
+> > [   13.978798]  ? tcp_set_ca_state+0x51/0xd0
+> > [   13.979087]  tcp_v6_syn_recv_sock+0x45c/0x6c0
+> > [   13.979401]  tcp_check_req+0x497/0x590
+> 
+> > The stack trace doesn't have any bpf, but it's a bpf issue too.
+> > Here tcp_set_ca_state() calls
+> > icsk->icsk_ca_ops->set_state(sk, ca_state);
+> > which calls bpf prog via bpf trampoline.
+> 
+> 
+> 
+> Specifically, I think this is
+> tools/testing/selftests/bpf/progs/bpf_cubic.c, which has:
+> 
+>         .set_state      = (void *)bpf_cubic_state,
+> 
+> which comes from:
+> 
+> BPF_STRUCT_OPS(bpf_cubic_state, struct sock *sk, __u8 *new_state)
+> 
+> which then wraps:
+> 
+> BPF_PROG()
+> 
+> which ends up generating:
+> 
+> static __always_inline ___bpf_cubic_state(unsigned long long *ctx, struct sock *sk, __u8 *new_state)
+> {
+> 	...
+> }
+> 
+> void bpf_cubic_state(unsigned long long *ctx)
+> {
+> 	return ____bpf_cubic_state(ctx, ctx[0], ctx[1]);
+> }
+> 
+> 
+> I think this then uses arch_prepare_bpf_trampoline(), but I'm entirely
+> lost how this all comes together, because the way I understand it the
+> whole bpf_trampoline is used to hook into an ftrace __fentry hook.
+> 
+> And a __fentry hook is very much not a function pointer. Help!?!?
 
-IIRC we patterned our MMIOWB/after-spinlock barriers after PPC, so 
-that's probably a good place to start here as well.
+kernel/bpf/bpf_struct_ops.c:bpf_struct_ops_prepare_trampoline()
 
-> Alternatively, we could maybe keep the barrier in switch_mm().
->
-> But let me complete and send out v2 with the fix at stake...  this should give
-> us a more concrete basis to discuss about these matters.
->
->   Andrea
+And yeah, it seems to use the ftrace trampoline for indirect calls here,
+*sigh*.
+
+> The other case:
+> 
+> For tools/testing/selftests/bpf/progs/bloom_filter_bench.c we have:
+> 
+>         bpf_for_each_map_elem(&array_map, bloom_callback, &data, 0);
+> 
+> and here bloom callback appears like a normal function:
+> 
+> static __u64
+> bloom_callback(struct bpf_map *map, __u32 *key, void *val,
+>                struct callback_ctx *data)
+> 
+> 
+> But what do functions looks like in the JIT? What's the actual address
+> that's then passed into the helper function. Given this seems to work
+> without kCFI, it should at least have an ENDBR, but there's only 3 of
+> those afaict:
+> 
+>   - emit_prologue() first insn
+>   - emit_prologue() tail-call site
+>   - arch_preprare_bpf_trampoline()
+> 
+> If the function passed to the helper is from do_jit()/emit_prologue(),
+> then how do I tell what 'function' is being JIT'ed ?
+> 
+> If it is arch_prepare_bpf_trampoline(), then we're back at the previous
+> question and I don't see how a __fentry site becomes a callable function
+> pointer.
+> 
+> 
+> Any clues would be much appreciated.
+
+Still not figured out how this one works...
 
 _______________________________________________
 linux-riscv mailing list
