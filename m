@@ -4,65 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA0BC4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 14:23:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EE62C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 14:25:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pc6PSefHsHxRAKVSRhLmWkzYbS7+jP8CsRb+UMctSYw=; b=d9gZkEjHpZWPEXHT484aL1XBLH
-	y86yI5TYeCE/y8wnMxl4gNGIPceH38rtKezaeyEx7SnQ2e9ZRBOL8wENPnZvsPk1CoA9Z6LBj6zGo
-	oh/zhmBEDiKQR97fml5o1XAIwOzM8uGErRD4WRChcGqtiY56X5muEKUUKSowTUU3dRo7CrAydzg5A
-	9xe774JGDKVmNgQ8AUk2nDukYiqQVR03RRBqCP2xkVBv9wk8Ja+URBTBQFO5tJLk9cjb3JtIiJUHZ
-	Lw1LHmQXQdZDFTAeAv9UeCBAs294+6lZ71GbpnMuJh5cq1+0EF4wyo8/0NemvZoGvtC3ihjDhRSMk
-	uw+M+5nw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8NriXHRO3eGw2NLFcPwjJFCWZau5WHncgfT42laCjdc=; b=wZvfm2S368Zy82
+	kZUMvxelwY5sP3kDAUjtUaaUBtRNdMRxR0ICRpfihngVTcCvq5AvIzsiYHj4mGuBfFRGj4+gWEys0
+	LwcklkzSqw+V8bnJX8h5roCTC1/Y47NCHekBCYDhAz+VhhBh4Fji107j/L/WUkV3ZnfxaVsmFTfXt
+	B1wPqjIzqOEjEZWOzzdTxKj21QJh4mjdRA6cgcnFQUCwl2CrsLFMHjujMeKRpfsSNhQzsIkMxngGU
+	2nUOfTn9nvOC4DHrWteDqhUcaTJdsvw7qU6q01DGG/NONEQdvap4mp/rvEzqQVmKj9iGL3Sflt8Zm
+	/m7Q9gnHmUEHoUDFrmVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAsoU-00AU2Z-19;
-	Wed, 06 Dec 2023 14:23:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rAspz-00AUHp-04;
+	Wed, 06 Dec 2023 14:25:19 +0000
+Received: from mail-lf1-f41.google.com ([209.85.167.41])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAsoR-00AU18-0f
+	id 1rAspv-00AUGi-1l
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 14:23:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B701C61B6F;
-	Wed,  6 Dec 2023 14:23:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 878B1C433C7;
-	Wed,  6 Dec 2023 14:23:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701872622;
-	bh=mnkKlN9C7ewzSsx5dXKTbBsTD19GusfsKGChg7+owuU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rNKsDjx6fQZrAqHkCZJvkptzy8qEMexQSxpOCFf1IpHw1q6DFN/OxrrIXbCABHsE/
-	 B2ESNuZWH7aQHm1Mm/YAPmG8G2U8AkkdnS9VeYNvYbDtJ/e40xA1Z3yfCcL9Xh9yrk
-	 Jw3AaulYPBOSAS/MkMXdco47fwcRAamVHLPfOJN+5pBPmYrat8kmSdyUQqs1nmtCEM
-	 GWEazc8uTWfzLdQhQZ6D9s765jcDWTNK392PF13YxDYQ3X5SkouY8LNnHALI2BgjfK
-	 4APOD4cXMjF5eu04SKKSl8+TezUH1Qk1TaQyAunhz5dzslBWgdPFEqz1Iy6o2vIrgR
-	 aRh1iGa9yXCQw==
-Date: Wed, 6 Dec 2023 14:23:37 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>, geert+renesas@glider.be,
-	Atish Patra <atishp@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>, apatel@ventanamicro.com,
-	alexghiti@rivosinc.com, Bjorn Topel <bjorn@rivosinc.com>,
-	suagrfillet@gmail.com, jeeheng.sia@starfivetech.com,
-	petrtesarik@huaweicloud.com, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
-	prabhakar.mahadev-lad.rj@bp.renesas.com
-Subject: Re: [RFT 1/2] RISC-V: handle missing "no-map" properties for
- OpenSBI's PMP protected regions
-Message-ID: <20231206-precut-serotonin-2eecee4ab6af@spud>
-References: <20230810-crewless-pampers-6f51aafb8cff@wendy>
- <mhng-550dee8b-a2fb-485b-ad4d-2763e94191b4@palmer-ri-x1c9>
+	Wed, 06 Dec 2023 14:25:17 +0000
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-50bf8843a6fso1030295e87.0
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Dec 2023 06:25:12 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701872710; x=1702477510;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bDA9LsEzXKnJo1wcjgHnx7ZnSIK83XRKi/gmScgi8qk=;
+        b=lBs05/3uyl9gk2FNwDK5gUKi8z73SXsQvvpHHlTXaI9X2ZlK8gLrvg5Lr36mUoratt
+         wVgoMoA/AA4Rq7/5Wfl8njXdX3fQnq1WzeaX7M5phQxF7n9T7+PuXJUECWThvcCd3xgq
+         XPgrDOERMnjJQdGxLXYq1/qL86ytryjHIStM8BvnT/gPCNLS/UcXrUrl9QktgJ8AQ9kF
+         DkAhy2V0ntK7wmlI0+tdgWsVkK5SkmNasNLOop1eXQZEg3zmt2+PQK+ozhL0R1/gfPu1
+         A2eFd7gPodJCz0ACh8KVpDHZQc+UGG75ckc79PvzUfVxR257olRQ2OOHm6Q2wP3rsOUU
+         tRMQ==
+X-Gm-Message-State: AOJu0Yy+phPFfHRYAznLLDaYL42zoPaLCxgdjYqdtxbKQRFQWy+fYcuE
+	fm+uXUGt9W0U0r19JpmnpoJpymIwW210V66z
+X-Google-Smtp-Source: AGHT+IFcvB4brsyeuEABgkBrj06GCrjDUTqMkY3YODOXqkzMU+MLNBgXl3pC6hPfZR/pUjEUnbpJIw==
+X-Received: by 2002:a05:6512:3453:b0:50b:bddf:f939 with SMTP id j19-20020a056512345300b0050bbddff939mr645547lfr.9.1701872709800;
+        Wed, 06 Dec 2023 06:25:09 -0800 (PST)
+Received: from mail-lj1-f181.google.com (mail-lj1-f181.google.com. [209.85.208.181])
+        by smtp.gmail.com with ESMTPSA id br25-20020a056512401900b0050bc59642casm1863056lfb.286.2023.12.06.06.25.09
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 06 Dec 2023 06:25:09 -0800 (PST)
+Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-2c9fe0ef02aso10104161fa.0
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Dec 2023 06:25:09 -0800 (PST)
+X-Received: by 2002:a05:6512:12c2:b0:50b:ca4c:fedd with SMTP id
+ p2-20020a05651212c200b0050bca4cfeddmr798648lfg.31.1701872708833; Wed, 06 Dec
+ 2023 06:25:08 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <mhng-550dee8b-a2fb-485b-ad4d-2763e94191b4@palmer-ri-x1c9>
+References: <20231201131551.201503-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20231201131551.201503-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20231201131551.201503-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 6 Dec 2023 15:24:55 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdW+Ky7Z2LPT6qFH-fodQzXuHXf00hc8NSgnkMFOUMNT=w@mail.gmail.com>
+Message-ID: <CAMuHMdW+Ky7Z2LPT6qFH-fodQzXuHXf00hc8NSgnkMFOUMNT=w@mail.gmail.com>
+Subject: Re: [PATCH v3 2/3] pinctrl: renesas: pinctrl-rzg2l: Add the missing
+ port pins P19 to P28
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Linus Walleij <linus.walleij@linaro.org>, 
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_062343_331943_DE8B32E0 
-X-CRM114-Status: GOOD (  73.58  )
+X-CRM114-CacheID: sfid-20231206_062515_609196_FCFD2DF0 
+X-CRM114-Status: GOOD (  38.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,249 +88,171 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5019179180892271366=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============5019179180892271366==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="1QSBa0wqmM5rZU19"
-Content-Disposition: inline
-
-
---1QSBa0wqmM5rZU19
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Dec 06, 2023 at 04:52:11AM -0800, Palmer Dabbelt wrote:
-> On Thu, 10 Aug 2023 02:07:10 PDT (-0700), Conor Dooley wrote:
-> > On Wed, Aug 09, 2023 at 02:01:07AM -0700, Atish Kumar Patra wrote:
-> > > On Tue, Aug 8, 2023 at 6:39=E2=80=AFAM Conor Dooley <conor@kernel.org=
-> wrote:
-> > > >
-> > > > On Tue, Aug 08, 2023 at 12:54:11AM -0700, Atish Kumar Patra wrote:
-> > > > > On Wed, Aug 2, 2023 at 4:14=E2=80=AFAM Conor Dooley <conor.dooley=
-@microchip.com> wrote:
-> > > > > >
-> > > > > > Add an erratum for versions [v0.8 to v1.3) of OpenSBI which fai=
-l to add
-> > > > > > the "no-map" property to the reserved memory nodes for the regi=
-ons it
-> > > > > > has protected using PMPs.
-> > > > > >
-> > > > > > Our existing fix sweeping hibernation under the carpet by marki=
-ng it
-> > > > > > NONPORTABLE is insufficient as there are other ways to generate
-> > > > > > accesses to these reserved memory regions, as Petr discovered [=
-1]
-> > > > > > while testing crash kernels & kdump.
-> > > > > >
-> > > > > > Intercede during the boot process when the afflicted versions o=
-f OpenSBI
-> > > > > > are present & set the "no-map" property in all "mmode_resv" nod=
-es before
-> > > > > > the kernel does its reserved memory region initialisation.
-> > > > > >
-> > > > >
-> > > > > We have different mechanisms of DT being passed to the kernel.
-> > > > >
-> > > > > 1. A prior stage(e.g U-Boot SPL) to M-mode runtime firmware (e.g.
-> > > > > OpenSBI, rustSBI) passes the DT to M-mode runtime firmware and it
-> > > > > passes to the next stage.
-> > > > > In this case, M-mode runtime firmware gets a chance to update the
-> > > > > no-map property in DT that the kernel can parse.
-> > > > >
-> > > > > 2. User loads the DT from the boot loader (e.g EDK2, U-Boot prope=
-r).
-> > > > > Any DT patching done by the M-mode firmware is useless. If these =
-DTBs
-> > > > > don't have the no-map
-> > > > > property, hibernation or EFI booting will have issues as well.
-> > > > >
-> > > >
-> > > > > We are trying to solve only one part of problem #1 in this patch.
-> > > >
-> > > > Correct.
-> > > >
-> > > > If someone's second stage is also providing an incorrect devicetree
-> > > > then, yeah, this approach would fall apart - but it's the firmware
-> > > > provided devicetree being incorrect that I am trying to account for
-> > > > here. If a person incorrectly constructed one, I am not really sure=
- what
-> > > > we can do for them, they incorrect described their hardware /shrug
-> > > > My patch should of course help in some of the scenarios you mention=
- above
-> > > > if the name of the reserved memory region from OpenSBI is propagate=
-d by
-> > > > the second-stage bootloader, but that is just an extension of case =
-1,
-> > > > not case 2.
-> > > >
-> > > > > I
-> > > > > don't think any other M-mode runtime firmware patches DT with no-=
-map
-> > > > > property as well.
-> > > > > Please let me know if I am wrong about that. The problem is not
-> > > > > restricted to [v0.8 to v1.3) of OpenSBI.
-> > > >
-> > > > It comes down to Alex's question - do we want to fix this kind of
-> > > > firmware issue in the kernel? Ultimately this is a policy decision =
-that
-> > > > "somebody" has to make. Maybe the list of firmwares that need this
-> > >=20
-> > > IMO, we shouldn't as this is a slippery slope. Kernel can't fix every
-> > > firmware bug by having erratas.
-> > > I agree with your point below about firmware in shipping products. I
-> > > am not aware of any official products shipping anything other than
-> > > OpenSBI either.
-> >=20
-> > > However, I have seen users using other firmwares in their dev
-> > > environment.
-> >=20
-> > If someone's already changed their boards firmware, I have less sympathy
-> > for them, as they should be able to make further changes. Punters buying
-> > SBCs to install Fedora or Debian w/o having to consider their firmware
-> > are who I am more interested in helping.
-> >=20
-> > > IMHO, this approach sets a bad precedent for the future especially
-> > > when it only solves one part of the problem.
-> >=20
-> > Yeah, I'm certainly wary of setting an unwise precedent here.
-> > Inevitably we will need to have firmware-related errata and it'd be good
-> > to have a policy for what is (or more importantly what isn't
-> > acceptable). Certainly we have said that known-broken version of OpenSBI
-> > that T-Head puts in their SDK is not supported by the mainline kernel.
-> > On the latter part, I'm perfectly happy to expand the erratum to cover
-> > all affected firmwares, but I wasn't even sure if my fix worked
-> > properly, hence the request for testing from those who encountered the
-> > problem.
-> >=20
-> > > We shouldn't hide firmware bugs in the kernel when an upgraded
-> > > firmware is already available.
-> >=20
-> > Just to note, availability of an updated firmware upstream does not
-> > necessarily mean that corresponding update is possible for affected
-> > hardware.
->=20
-> Yep.  I think we're been in a very hobbist-centric world in RISC-V land, =
-but
-> in general trying to get people to update firmware is hard.  Part of the
-> whole "kernel updates don't break users" thing is what's underneath the
-> kernel, it's not just a uABI thing.
-
-Yeah, there's certainly an attitude that I think needs to go away, that
-updating firmware etc is something we can expect to be carried out on a
-universal basis. Or that fixing things in the upstream version of
-OpenSBI means it'll actually propagate down to system integrators.
-
->=20
-> > > This bug is well documented in various threads and fixed in the latest
-> > > version of OpenSBI.
-> > > I am assuming other firmwares will follow it as well.
-> > >=20
-> > > Anybody facing hibernation or efi related booting issues should just
-> > > upgrade to the latest version of firmware (e.g OpenSBI v1.3)
-> > > Latest version of Qemu will support(if not happened already) the
-> > > latest version of OpenSBI.
-> > >=20
-> > > This issue will only manifest in kernels 6.4 or higher. Any user
-> > > facing these with the latest kernel can also upgrade the firmware.
-> > > Do you see any issue with that ?
-> >=20
-> > I don't think it is fair to compare the ease of upgrading the kernel
-> > to that required to upgrade a boards firmware, with the latter being
-> > far, far more inconvenient on pretty much all of the boards that I have.
->=20
-> IMO we're in the same spot as every other port here, and generally they w=
-ork
-> around firmware bugs when they've rolled out into production somewhere th=
-at
-> firmware updates aren't likely to happen quickly.  I'm not sure if there's
-> any sort of exact rules written down anywhere, but IMO if the bug is going
-> to impact users then we should deal with it.
->=20
-> That applies for hardware bugs, but also firmware bugs (at a certain point
-> we won't be able to tell the difference).  We're sort of doing this with =
-the
-> misaligned access handling, for example.
->=20
-> > I'm perfectly happy to drop this series though, if people generally are
-> > of the opinion that this sort of firmware workaround is ill-advised.
-> > We are unaffected by it, so I certainly have no pressure to have
-> > something working here. It's my desire not to be user-hostile that
-> > motivated this patch.
->=20
-> IIUC you guys and Reneas are the only ones who have hardware that might be
-> in a spot where users aren't able to update the firmware (ie, it's out in
-> production somewhere).
-
-I dunno if we can really keep thinking like that though. In terms of
-people who have devicetrees in the kernel and stuff available in western
-catalog distribution, sure.
-I don't think we can assume that that covers all users though, certainly
-the syntacore folks pop up every now and then, and I sure hope that
-Andes etc have larger customer bases than the in-kernel users would
-suggest.
-
-> So I'm adding Geert, though he probably saw this
-> months ago...
-
-Prabhakar might be a good call on that front. I'm not sure if the
-Renesas stuff works on affected versions of OpenSBI though, guess it
-depends on the sequencing of the support for the non-coherent stuff and
-when this bug was fixed.
-
-> On that note: It's been ~4 months and it look like nobody's tested anythi=
-ng
-> (and the comments aren't really things that would preculde testing).
-
-Yeah, nobody seems to really have given a crap. I was hoping the
-StarFive guys that actually added the support for this would be
-interested in it, but alas they were not.
-I don't really care all that much - the platform I support is not
-affected by the problem and I just don't enable the option elsewhere.
-
-> So
-> maybe we just pick that second patch up into for-next and see what happen=
-s?
-> IIUC that will result in broken systems for users who haven't updated the=
-ir
-> firmware.
->=20
-> I agree that's a user-hostile way to do things, which is generally a bad =
-way
-> to go, but if it's really true that there's no users then we're safe.
-> Probably also worth calling it out on sw-dev just to be safe.
-
-And if there are users, the fix is actually relatively straight-forward,
-just apply patch #1.
-
---1QSBa0wqmM5rZU19
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZXCD5QAKCRB4tDGHoIJi
-0vNWAQDCGbof8O+9ILsMVdHtJTgYIJaul/lGJhqAs/8WQ3rbaAEAtM6Z99MFsAHW
-l6Llh3/c8PdSqbs+VHwYeWR3Vsu0nA0=
-=404e
------END PGP SIGNATURE-----
-
---1QSBa0wqmM5rZU19--
-
-
---===============5019179180892271366==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5019179180892271366==--
-
+SGkgUHJhYmhha2FyLAoKVGhhbmtzIGZvciB5b3VyIHBhdGNoIQoKT24gRnJpLCBEZWMgMSwgMjAy
+MyBhdCAyOjE24oCvUE0gUHJhYmhha2FyIDxwcmFiaGFrYXIuY3NlbmdnQGdtYWlsLmNvbT4gd3Jv
+dGU6Cj4gRnJvbTogTGFkIFByYWJoYWthciA8cHJhYmhha2FyLm1haGFkZXYtbGFkLnJqQGJwLnJl
+bmVzYXMuY29tPgo+Cj4gQWRkIHRoZSBtaXNzaW5nIHBvcnQgcGlucyBQMTkgdG8gUDI4IGZvciBS
+Wi9GaXZlIFNvQy4gVGhlc2UgYWRkaXRpb25hbAo+IHBpbnMgcHJvdmlkZSBleHBhbmRlZCBjYXBh
+YmlsaXRpZXMgYW5kIGFyZSBleGNsdXNpdmUgdG8gdGhlIFJaL0ZpdmUgU29DLgo+Cj4gQ291cGxl
+IG9mIHBvcnQgcGlucyBoYXZlIGRpZmZlcmVudCBjb25maWd1cmF0aW9uIGFuZCBpcyBub3QgaWRl
+bnRpY2FsIGZvcgoKcy9pcy9hcmUvCgo+IHRoZSBjb21wbGV0ZSBwb3J0IHNvIGludHJvZHVjZWQg
+c3RydWN0IHJ6ZzJsX3ZhcmlhYmxlX3Bpbl9jZmcgdG8gaGFuZGxlCgppbnRyb2R1Y2UKCj4gc3Vj
+aCBjYXNlcyBhbmQgaW50cm9kdWNlZCBQSU5fQ0ZHX1ZBUklBQkxFIG1hY3JvLiBUaGUgYWN0dWFs
+IHBpbiBjb25maWcgaXMKCmludHJvZHVjZSB0aGUKCj4gdGhlbiBhc3NpZ25lZCByemcybF9waW5j
+dHJsX2dldF92YXJpYWJsZV9waW5fY2ZnKCkuCgphc3NpZ25lZCBpbgoKPgo+IEFkZCBhbiBhZGRp
+dGlvbmFsIGNoZWNrIGluIHJ6ZzJsX2dwaW9fZ2V0X2dwaW9pbnQoKSB0byBvbmx5IGFsbG93IEdQ
+SU8gcGlucwo+IHdoaWNoIHN1cHBvcnQgaW50ZXJydXB0IGZhY2lsaXR5Lgo+Cj4gU2lnbmVkLW9m
+Zi1ieTogTGFkIFByYWJoYWthciA8cHJhYmhha2FyLm1haGFkZXYtbGFkLnJqQGJwLnJlbmVzYXMu
+Y29tPgo+IC0tLQo+ICBkcml2ZXJzL3BpbmN0cmwvcmVuZXNhcy9waW5jdHJsLXJ6ZzJsLmMgfCAy
+MTUgKysrKysrKysrKysrKysrKysrKysrKystCj4gIDEgZmlsZSBjaGFuZ2VkLCAyMTMgaW5zZXJ0
+aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3BpbmN0cmwv
+cmVuZXNhcy9waW5jdHJsLXJ6ZzJsLmMgYi9kcml2ZXJzL3BpbmN0cmwvcmVuZXNhcy9waW5jdHJs
+LXJ6ZzJsLmMKPiBpbmRleCA5NGQwNzJjOGE3NDMuLjA4M2NjNjNjMmM4MiAxMDA2NDQKPiAtLS0g
+YS9kcml2ZXJzL3BpbmN0cmwvcmVuZXNhcy9waW5jdHJsLXJ6ZzJsLmMKPiArKysgYi9kcml2ZXJz
+L3BpbmN0cmwvcmVuZXNhcy9waW5jdHJsLXJ6ZzJsLmMKPiBAQCAtNTcsNiArNTcsOCBAQAo+ICAj
+ZGVmaW5lIFBJTl9DRkdfRklMQ0xLU0VMICAgICAgICAgICAgICBCSVQoMTIpCj4gICNkZWZpbmUg
+UElOX0NGR19JT0xIX0MgICAgICAgICAgICAgICAgIEJJVCgxMykKPiAgI2RlZmluZSBQSU5fQ0ZH
+X1NPRlRfUFMgICAgICAgICAgICAgICAgICAgICAgICBCSVQoMTQpCj4gKyNkZWZpbmUgUElOX0NG
+R19WQVJJQUJMRSAgICAgICAgICAgICAgIEJJVCgxNSkKPiArI2RlZmluZSBQSU5fQ0ZHX05PR1BJ
+T19JTlQgICAgICAgICAgICAgQklUKDE2KQoKTm90ZSB0byBzZWxmOiB0aGlzIGNvbmZsaWN0cyB3
+aXRoICJbUEFUQ0ggMDgvMTRdIHBpbmN0cmw6IHJlbmVzYXM6CnJ6ZzJsOiBBZGQgb3V0cHV0IGVu
+YWJsZSBzdXBwb3J0Iiwgc28gdGhlIG51bWJlcnMgbmVlZCB0byBiZSBhZGFwdGVkLgoKaHR0cHM6
+Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjMxMTIwMDcwMDI0LjQwNzkzNDQtOS1jbGF1ZGl1LmJl
+em5lYS51akBicC5yZW5lc2FzLmNvbQoKPgo+ICAjZGVmaW5lIFJaRzJMX01QWEVEX0NPTU1PTl9Q
+SU5fRlVOQ1MoZ3JvdXApIFwKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgKFBJTl9DRkdfSU9MSF8jI2dyb3VwIHwgXAo+IEBAIC04Miw2ICs4NCwxMSBAQAo+ICAgKi8K
+PiAgI2RlZmluZSBSWkcyTF9HUElPX1BPUlRfUEFDSyhuLCBhLCBmKSAgKCgobikgPiAwID8gKCh1
+NjQpKEdFTk1BU0tfVUxMKCgobikgLSAxICsgMjgpLCAyOCkpKSA6IDApIHwgXAo+ICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKChhKSA8PCAyMCkgfCAoZikpCgpJJ2Qg
+cmF0aGVyIGRlZmluZSBSWkcyTF9HUElPX1BPUlRfUEFDSygpIHVzaW5nIFJaRzJMX0dQSU9fUE9S
+VF9TUEFSU0VfUEFDSygpOgoKICNkZWZpbmUgUlpHMkxfR1BJT19QT1JUX1BBQ0sobiwgYSwgZikg
+XAogICAgICAgIFJaRzJMX0dQSU9fUE9SVF9TUEFSU0VfUEFDSygoMVUgPDwgKG4pKSAtMSwgKGEp
+LCAoZikpCgoKPiArLyoKPiArICogbSBpbmRpY2F0ZXMgdGhlIGJpdG1hcCBvZiBzdXBwb3J0ZWQg
+cGlucywgYSBpcyB0aGUgcmVnaXN0ZXIgaW5kZXgKPiArICogYW5kIGYgaXMgcGluIGNvbmZpZ3Vy
+YXRpb24gY2FwYWJpbGl0aWVzIHN1cHBvcnRlZC4KPiArICovCj4gKyNkZWZpbmUgUlpHMkxfR1BJ
+T19QT1JUX1NQQVJTRV9QQUNLKG0sIGEsIGYpICAgKCgodTY0KShtKSA8PCAyOCkgfCAoKGEpIDw8
+IDIwKSB8IChmKSkKPiAgI2RlZmluZSBSWkcyTF9HUElPX1BPUlRfR0VUX1BJTk1BUCh4KSAgKCgo
+eCkgJiBHRU5NQVNLX1VMTCgzNSwgMjgpKSA+PiAyOCkKPiAgI2RlZmluZSBSWkcyTF9HUElPX1BP
+UlRfR0VUX1BJTkNOVCh4KSAgKGh3ZWlnaHQ4KFJaRzJMX0dQSU9fUE9SVF9HRVRfUElOTUFQKCh4
+KSkpKQo+Cj4gQEAgLTE4NSw2ICsxOTIsMTggQEAgc3RydWN0IHJ6ZzJsX2RlZGljYXRlZF9jb25m
+aWdzIHsKPiAgICAgICAgIHU2NCBjb25maWc7Cj4gIH07Cj4KPiArLyoqCj4gKyAqIHN0cnVjdCBy
+emcybF92YXJpYWJsZV9waW5fY2ZnIC0gcGluIGRhdGEgY2ZnCj4gKyAqIEBjZmc6IHBvcnQgcGlu
+IGNvbmZpZ3VyYXRpb24KPiArICogQHBvcnQ6IHBvcnQgbnVtYmVyCj4gKyAqIEBwaW46IHBvcnQg
+cGluCj4gKyAqLwo+ICtzdHJ1Y3QgcnpnMmxfdmFyaWFibGVfcGluX2NmZyB7Cj4gKyAgICAgICB1
+MzIgY2ZnOwo+ICsgICAgICAgdTggcG9ydDsKPiArICAgICAgIHU4IHBpbjsKCkFzIGNmZyBvbmx5
+IGNvbnRhaW5zIHRoZSBsb3dlciBiaXRzIChQSU5fQ0ZHXyopLCBJIHRoaW5rIHlvdSBjYW4gZml0
+CmV2ZXJ5dGhpbmcgaW4gYSB1MzI6CgogICAgdTMyIGNmZzogMjA7CiAgICB1MzIgcG9ydDogNTsK
+ICAgIHUzMiBwaW46IDM7Cgo+ICt9Owo+ICsKPiAgc3RydWN0IHJ6ZzJsX3BpbmN0cmxfZGF0YSB7
+Cj4gICAgICAgICBjb25zdCBjaGFyICogY29uc3QgKnBvcnRfcGluczsKPiAgICAgICAgIGNvbnN0
+IHU2NCAqcG9ydF9waW5fY29uZmlnczsKPiBAQCAtMTkzLDYgKzIxMiw4IEBAIHN0cnVjdCByemcy
+bF9waW5jdHJsX2RhdGEgewo+ICAgICAgICAgdW5zaWduZWQgaW50IG5fcG9ydF9waW5zOwo+ICAg
+ICAgICAgdW5zaWduZWQgaW50IG5fZGVkaWNhdGVkX3BpbnM7Cj4gICAgICAgICBjb25zdCBzdHJ1
+Y3QgcnpnMmxfaHdjZmcgKmh3Y2ZnOwo+ICsgICAgICAgY29uc3Qgc3RydWN0IHJ6ZzJsX3Zhcmlh
+YmxlX3Bpbl9jZmcgKnZhcmlhYmxlX3Bpbl9jZmc7Cj4gKyAgICAgICB1bnNpZ25lZCBpbnQgbl92
+YXJpYWJsZV9waW5fY2ZnOwo+ICB9Owo+Cj4gIC8qKgo+IEBAIC0yMjgsNiArMjQ5LDE1OCBAQCBz
+dHJ1Y3QgcnpnMmxfcGluY3RybCB7Cj4KPiAgc3RhdGljIGNvbnN0IHUxNiBhdmFpbGFibGVfcHNb
+XSA9IHsgMTgwMCwgMjUwMCwgMzMwMCB9Owo+Cj4gKyNpZmRlZiBDT05GSUdfUklTQ1YKPiArc3Rh
+dGljIHU2NCByemcybF9waW5jdHJsX2dldF92YXJpYWJsZV9waW5fY2ZnKHN0cnVjdCByemcybF9w
+aW5jdHJsICpwY3RybCwKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgdTY0IHBpbmNmZywKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgdW5zaWduZWQgaW50IHBvcnQsCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIHU4IHBpbikKPiArewo+ICsgICAgICAgdW5zaWduZWQgaW50IGk7
+Cj4gKyAgICAgICB1OCBwaW5jb3VudDsKPiArICAgICAgIHU4IHBpbm1hcDsKPiArICAgICAgIHUz
+MiBvZmY7Cj4gKwo+ICsgICAgICAgaWYgKCFwY3RybC0+ZGF0YS0+bl92YXJpYWJsZV9waW5fY2Zn
+KQo+ICsgICAgICAgICAgICAgICByZXR1cm4gcGluY2ZnOwoKVGhpcyBjYW5ub3QgaGFwcGVuIChi
+dXQgaW1wbGllcyBhIGRyaXZlciB0YWJsZSBidWcpLgoKPiArCj4gKyAgICAgICBmb3IgKGkgPSAw
+OyBpIDwgcGN0cmwtPmRhdGEtPm5fdmFyaWFibGVfcGluX2NmZzsgaSsrKSB7Cj4gKyAgICAgICAg
+ICAgICAgIGlmIChwY3RybC0+ZGF0YS0+dmFyaWFibGVfcGluX2NmZ1tpXS5wb3J0ID09IHBvcnQg
+JiYKPiArICAgICAgICAgICAgICAgICAgIHBjdHJsLT5kYXRhLT52YXJpYWJsZV9waW5fY2ZnW2ld
+LnBpbiA9PSBwaW4pCj4gKyAgICAgICAgICAgICAgICAgICAgICAgYnJlYWs7Cj4gKyAgICAgICB9
+Cj4gKyAgICAgICBpZiAoaSA9PSBwY3RybC0+ZGF0YS0+bl92YXJpYWJsZV9waW5fY2ZnKQo+ICsg
+ICAgICAgICAgICAgICByZXR1cm4gcGluY2ZnOwoKTXkgZmlyc3QgdGhvdWdodCB3YXMgdGhhdCB0
+aGlzIGNhbm5vdCBoYXBwZW4gZWl0aGVyLCBidXQgdGhpcyBmdW5jdGlvbgppcyBjYWxsZWQgZm9y
+IG5vbi1leGlzdGVudCBwaW5zIG9uIHNwYXJzZSBwb3J0cz8KCj4gKwo+ICsgICAgICAgcGlubWFw
+ID0gUlpHMkxfR1BJT19QT1JUX0dFVF9QSU5NQVAocGluY2ZnKTsKPiArICAgICAgIHBpbmNvdW50
+ID0gUlpHMkxfR1BJT19QT1JUX0dFVF9QSU5DTlQocGluY2ZnKTsKPiArICAgICAgIG9mZiA9IFJa
+RzJMX1BJTl9DRkdfVE9fUE9SVF9PRkZTRVQocGluY2ZnKTsKPiArCj4gKyAgICAgICBpZiAocGlu
+bWFwID09IHBpbmNvdW50KQoKSHVoPwoKPiArICAgICAgICAgICAgICAgcmV0dXJuIFJaRzJMX0dQ
+SU9fUE9SVF9QQUNLKHBpbmNvdW50LCBvZmYsIHBjdHJsLT5kYXRhLT52YXJpYWJsZV9waW5fY2Zn
+W2ldLmNmZyk7Cj4gKwo+ICsgICAgICAgcmV0dXJuIFJaRzJMX0dQSU9fUE9SVF9TUEFSU0VfUEFD
+SyhwaW5tYXAsIG9mZiwgcGN0cmwtPmRhdGEtPnZhcmlhYmxlX3Bpbl9jZmdbaV0uY2ZnKTsKCkNh
+bid0IHlvdSBqdXN0IHJlcGxhY2UgdGhlIGxvd2VyIGJpdHMgb2YgcGluY2ZnIGJ5CnBjdHJsLT5k
+YXRhLT52YXJpYWJsZV9waW5fY2ZnW2ldLmNmZz8KCiAgICByZXR1cm4gKHBpbmNmZyAmIH5QSU5f
+Q0ZHXy4uLikgfCBwY3RybC0+ZGF0YS0+dmFyaWFibGVfcGluX2NmZ1tpXS5jZmc7CgpBbmQganVz
+dCBtb3ZlIHRoaXMgc2luZ2xlIHN0YXRlbWVudCBpbnRvIGlmLWNvbmRpdGlvbiBpbiB0aGUgZm9y
+LWxvb3AKYWJvdmU/Cgo+ICt9Cj4gKwo+ICtzdGF0aWMgY29uc3Qgc3RydWN0IHJ6ZzJsX3Zhcmlh
+YmxlX3Bpbl9jZmcgcjlhMDdnMDQzZl92YXJpYWJsZV9waW5fY2ZnW10gPSB7Cj4gKyAgICAgICB7
+Cj4gKyAgICAgICAgICAgICAgIC5wb3J0ID0gMjAsCj4gKyAgICAgICAgICAgICAgIC5waW4gPSAw
+LAo+ICsgICAgICAgICAgICAgICAuY2ZnID0gUElOX0NGR19JT0xIX0IgfCBQSU5fQ0ZHX1NSIHwg
+UElOX0NGR19QVVBEIHwKPiArICAgICAgICAgICAgICAgICAgICAgIFBJTl9DRkdfRklMT05PRkYg
+fCBQSU5fQ0ZHX0ZJTE5VTSB8IFBJTl9DRkdfRklMQ0xLU0VMIHwKPiArICAgICAgICAgICAgICAg
+ICAgICAgIFBJTl9DRkdfSUVOIHwgUElOX0NGR19OT0dQSU9fSU5ULAoKV2h5IGRvIGFsbCBuZXcg
+cGlucyBoYXZlIFBJTl9DRkdfTk9HUElPX0lOVCBzZXQ/ClAxOV8xLCBQMjBfMC0yLCBQMjRfNSwg
+UDI1XzEsIFAyOF8wLTQgZG8gaGF2ZSBiaXRzIGRlZmluZWQgaW4gYW4KSW50ZXJydXB0IEVuYWJs
+ZSBDb250cm9sIFJlZ2lzdGVyIChJU0VMKT8KCj4gKyAgICAgICB9LAoKPiBAQCAtMTMyMCw2ICsx
+NDkzLDI3IEBAIHN0YXRpYyBjb25zdCB1NjQgcjlhMDdnMDQzX2dwaW9fY29uZmlnc1tdID0gewo+
+ICAgICAgICAgUlpHMkxfR1BJT19QT1JUX1BBQ0soMiwgMHgyMCwgUlpHMkxfTVBYRURfUElOX0ZV
+TkNTKSwKPiAgICAgICAgIFJaRzJMX0dQSU9fUE9SVF9QQUNLKDQsIDB4MjEsIFJaRzJMX01QWEVE
+X1BJTl9GVU5DUyksCj4gICAgICAgICBSWkcyTF9HUElPX1BPUlRfUEFDSyg2LCAweDIyLCBSWkcy
+TF9NUFhFRF9QSU5fRlVOQ1MpLAo+ICsjaWZkZWYgQ09ORklHX1JJU0NWCj4gKyAgICAgICAvKiBC
+ZWxvdyBhZGRpdGlvbmFsIHBvcnQgcGlucyAoUDE5IC0gUDI4KSBhcmUgZXhjbHVzaXZlbHkgYXZh
+aWxhYmxlIG9uIFJaL0ZpdmUgU29DIG9ubHkgKi8KPiArICAgICAgIFJaRzJMX0dQSU9fUE9SVF9T
+UEFSU0VfUEFDSygweDIsIDB4MDYsIFBJTl9DRkdfSU9MSF9CIHwgUElOX0NGR19TUiB8IFBJTl9D
+RkdfUFVQRCB8Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgUElOX0NGR19G
+SUxPTk9GRiB8IFBJTl9DRkdfRklMTlVNIHwgUElOX0NGR19GSUxDTEtTRUwgfAo+ICsgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIFBJTl9DRkdfSUVOIHwgUElOX0NGR19OT0dQSU9f
+SU5UKSwgIC8qIFAxOSAqLwo+ICsgICAgICAgUlpHMkxfR1BJT19QT1JUX1BBQ0soOCwgMHgwNywg
+UElOX0NGR19WQVJJQUJMRSksICAgICAgICAvKiBQMjAgKi8KPiArICAgICAgIFJaRzJMX0dQSU9f
+UE9SVF9TUEFSU0VfUEFDSygweDIsIDB4MDgsIFBJTl9DRkdfSU9MSF9CIHwgUElOX0NGR19TUiB8
+IFBJTl9DRkdfUFVQRCB8Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgUElO
+X0NGR19JRU4gfCBQSU5fQ0ZHX05PR1BJT19JTlQpLCAgLyogUDIxICovCj4gKyAgICAgICBSWkcy
+TF9HUElPX1BPUlRfUEFDSyg0LCAweDA5LCBQSU5fQ0ZHX0lPTEhfQiB8IFBJTl9DRkdfU1IgfCBQ
+SU5fQ0ZHX1BVUEQgfAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgUElOX0NGR19JRU4g
+fCBQSU5fQ0ZHX05PR1BJT19JTlQpLCAvKiBQMjIgKi8KPiArICAgICAgIFJaRzJMX0dQSU9fUE9S
+VF9TUEFSU0VfUEFDSygweDNlLCAweDBhLCBQSU5fQ0ZHX1ZBUklBQkxFKSwgICAgICAvKiBQMjMg
+Ki8KPiArICAgICAgIFJaRzJMX0dQSU9fUE9SVF9QQUNLKDYsIDB4MGIsIFBJTl9DRkdfVkFSSUFC
+TEUpLCAgICAgICAgLyogUDI0ICovCj4gKyAgICAgICBSWkcyTF9HUElPX1BPUlRfU1BBUlNFX1BB
+Q0soMHgyLCAweDBjLCBQSU5fQ0ZHX0lPTEhfQiB8IFBJTl9DRkdfU1IgfCBQSU5fQ0ZHX0ZJTE9O
+T0ZGIHwKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBQSU5fQ0ZHX0ZJTE5V
+TSB8IFBJTl9DRkdfRklMQ0xLU0VMIHwKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICBQSU5fQ0ZHX05PR1BJT19JTlQpLCAgICAgICAgLyogUDI1ICovCj4gKyAgICAgICAweDAs
+ICAgIC8qIER1bW15IHBvcnQgUDI2ICovCj4gKyAgICAgICAweDAsICAgIC8qIER1bW15IHBvcnQg
+UDI3ICovCj4gKyAgICAgICBSWkcyTF9HUElPX1BPUlRfUEFDSyg2LCAweDBmLCBQSU5fQ0ZHX0lP
+TEhfQSB8IFBJTl9DRkdfU1IgfCBQSU5fQ0ZHX1BVUEQgfAo+ICsgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgUElOX0NGR19GSUxPTk9GRiB8IFBJTl9DRkdfRklMTlVNIHwgUElOX0NGR19GSUxD
+TEtTRUwgfAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgUElOX0NGR19OT0dQSU9fSU5U
+KSwgICAgICAgLyogUDI4ICovCgpUaGUgUDI4IGNvbmZpZyBjYW4gYmUgc2ltcGxpZmllZCB0byAi
+UlpHMkxfTVBYRURfUElOX0ZVTkNTIHwKUElOX0NGR19OT0dQSU9fSU5UIi4KCj4gKyNlbmRpZgo+
+ICB9Owo+Cj4gIHN0YXRpYyBjb25zdCB1NjQgcjlhMDhnMDQ1X2dwaW9fY29uZmlnc1tdID0gewo+
+IEBAIC0xNDc4LDEyICsxNjcyLDE4IEBAIHN0YXRpYyBjb25zdCBzdHJ1Y3QgcnpnMmxfZGVkaWNh
+dGVkX2NvbmZpZ3MgcnpnM3NfZGVkaWNhdGVkX3BpbnNbXSA9IHsKPiAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgUElOX0NGR19JT19WTUNfU0Qx
+KSkgfSwKPiAgfTsKPgo+IC1zdGF0aWMgaW50IHJ6ZzJsX2dwaW9fZ2V0X2dwaW9pbnQodW5zaWdu
+ZWQgaW50IHZpcnEsIGNvbnN0IHN0cnVjdCByemcybF9waW5jdHJsX2RhdGEgKmRhdGEpCj4gK3N0
+YXRpYyBpbnQgcnpnMmxfZ3Bpb19nZXRfZ3Bpb2ludCh1bnNpZ25lZCBpbnQgdmlycSwgc3RydWN0
+IHJ6ZzJsX3BpbmN0cmwgKnBjdHJsKQo+ICB7Cj4gKyAgICAgICBjb25zdCBzdHJ1Y3QgcGluY3Ry
+bF9waW5fZGVzYyAqcGluX2Rlc2MgPSAmcGN0cmwtPmRlc2MucGluc1t2aXJxXTsKPiArICAgICAg
+IGNvbnN0IHN0cnVjdCByemcybF9waW5jdHJsX2RhdGEgKmRhdGEgPSBwY3RybC0+ZGF0YTsKPiAr
+ICAgICAgIHU2NCAqcGluX2RhdGEgPSBwaW5fZGVzYy0+ZHJ2X2RhdGE7Cj4gICAgICAgICB1bnNp
+Z25lZCBpbnQgZ3Bpb2ludDsKPiAgICAgICAgIHVuc2lnbmVkIGludCBpOwo+ICAgICAgICAgdTMy
+IHBvcnQsIGJpdDsKPgo+ICsgICAgICAgaWYgKCpwaW5fZGF0YSAmIFBJTl9DRkdfTk9HUElPX0lO
+VCkKPiArICAgICAgICAgICAgICAgcmV0dXJuIC1FSU5WQUw7Cj4gKwo+ICAgICAgICAgcG9ydCA9
+IHZpcnEgLyA4Owo+ICAgICAgICAgYml0ID0gdmlycSAlIDg7CgpPdXQtb2YtY29udGV4dCwgeW91
+IGhhdmU6CgogICAgICAgIGdwaW9pbnQgPSBiaXQ7CiAgICAgICAgZm9yIChpID0gMDsgaSA8IHBv
+cnQ7IGkrKykKICAgICAgICAgICAgICAgIGdwaW9pbnQgKz0KUlpHMkxfR1BJT19QT1JUX0dFVF9Q
+SU5DTlQoZGF0YS0+cG9ydF9waW5fY29uZmlnc1tpXSk7CgogICAgICAgIHJldHVybiBncGlvaW50
+OwoKU2hvdWxkbid0IHRoZSBmb3ItbG9vcCBza2lwIHBpbnMgd2l0aCBQSU5fQ0ZHX05PR1BJT19J
+TlQgc2V0PwoKR3J7b2V0amUsZWV0aW5nfXMsCgogICAgICAgICAgICAgICAgICAgICAgICBHZWVy
+dAoKLS0KR2VlcnQgVXl0dGVyaG9ldmVuIC0tIFRoZXJlJ3MgbG90cyBvZiBMaW51eCBiZXlvbmQg
+aWEzMiAtLSBnZWVydEBsaW51eC1tNjhrLm9yZwoKSW4gcGVyc29uYWwgY29udmVyc2F0aW9ucyB3
+aXRoIHRlY2huaWNhbCBwZW9wbGUsIEkgY2FsbCBteXNlbGYgYSBoYWNrZXIuIEJ1dAp3aGVuIEkn
+bSB0YWxraW5nIHRvIGpvdXJuYWxpc3RzIEkganVzdCBzYXkgInByb2dyYW1tZXIiIG9yIHNvbWV0
+aGluZyBsaWtlIHRoYXQuCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLS0gTGludXMg
+VG9ydmFsZHMKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
