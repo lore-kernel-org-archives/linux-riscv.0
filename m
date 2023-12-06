@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D2FEC10DCE
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 11:51:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA259C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 11:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1fHTSrK/00AxEeMtBnArTDJ3MlQJAN2BmHj8wtDDv/I=; b=LAVjz30OL+EguM
-	EHhhIvCzoi2UgjEYpLLWoI9CDUOhBg3KE/SJT7Oegd+jgJt6WL/qPnucsVZ8LJJgkjGJBYjmYn/WM
-	Oyo3U/DmTnJ8WJyVdFRBHZaULBLZZGwDXaM8Fm3S2LgwFb4UUnZc9tLq6+Z26mtMmNVYMiklvoXFj
-	4WBfgbycquHnUWuoX9Mi8+lOjNj28VB2APLubFeYH2iEoxXCMoHN1QpGnEE4Hc5iLGP3kaVz5PGGg
-	jFFcHcQHkcWmKE3JIEXfTSTwD5llCaktd34v7R/YO4Sl+HNf1pg8bfNEFj1+fLF6qrAV8NUOeQPBG
-	5qC3hZHkfwBnr5jcA2qg==;
+	List-Owner; bh=Eo7AZbMcfjjreOYw1grFPDUst7nrPenMWj7zlteOKSU=; b=v+zpSs5Io+/aWr
+	yYrerLqMPGs/WHqIPwoUDXjIlEC1imICZ6HfC+DQx75PI62m8dVxcTv7n05jxYdg+4+zQI+SJoZST
+	AANena6LvmFfHPudKv7mJ2zBCNngotKEFGdUl/8N/0DcSxcfJqux1qILVSbGOl+tyx0ygcfBJ0WyK
+	WBiPuz95vjA2bBHVlH+d59VrLr+ZB2PXFoYfcP4sR8fdSi4TAlGTun//acg3O37/OBdaaVv79vPM2
+	TqUDqLefDLBG0/OrTvBQx5c9iFqNgg6o0WYO2kk8btPSDNkC2VlympT9I6zxMwDwIdGC4Se3n+y2Q
+	jsIfaz7Sxwwm3Dvl55DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAqRW-00A9ju-0D;
-	Wed, 06 Dec 2023 11:51:54 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1rAqRl-00A9sH-0g;
+	Wed, 06 Dec 2023 11:52:09 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAqRS-00A9VQ-29
+	id 1rAqRh-00A9kF-22
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 11:51:52 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Wed, 06 Dec 2023 11:52:07 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 253EB24E317;
-	Wed,  6 Dec 2023 19:51:50 +0800 (CST)
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 6 Dec
- 2023 19:51:50 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 8B6D77FD6;
+	Wed,  6 Dec 2023 19:51:42 +0800 (CST)
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 6 Dec
+ 2023 19:51:42 +0800
 Received: from jsia-virtual-machine.localdomain (175.136.135.142) by
  EXMBX066.cuchost.com (172.16.6.66) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Wed, 6 Dec 2023 19:51:43 +0800
+ 15.0.1497.42; Wed, 6 Dec 2023 19:51:35 +0800
 From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
 	<krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
@@ -48,9 +48,9 @@ To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
 CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
 	<jeeheng.sia@starfivetech.com>, <leyfoon.tan@starfivetech.com>
-Subject: [PATCH v1 12/16] clk: starfive: Add JH8100 System-South-West clock generator driver
-Date: Wed, 6 Dec 2023 19:49:56 +0800
-Message-ID: <20231206115000.295825-13-jeeheng.sia@starfivetech.com>
+Subject: [PATCH v1 11/16] dt-bindings: clock: Add StarFive JH8100 System-South-West clock and reset generator
+Date: Wed, 6 Dec 2023 19:49:55 +0800
+Message-ID: <20231206115000.295825-12-jeeheng.sia@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
 References: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
@@ -60,8 +60,8 @@ X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX066.cuchost.com
  (172.16.6.66)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_035151_005231_59D725BD 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20231206_035205_985235_353CE4F1 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,184 +78,132 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for JH8100 System-South-West clock generator.
+Add bindings for the System-South-West clock and reset generator
+(SYSCRG-SW) on JH8100 SoC.
 
 Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
 ---
- drivers/clk/starfive/Kconfig             |   8 ++
- drivers/clk/starfive/jh8100/Makefile     |   1 +
- drivers/clk/starfive/jh8100/clk-sys-sw.c | 136 +++++++++++++++++++++++
- 3 files changed, 145 insertions(+)
- create mode 100644 drivers/clk/starfive/jh8100/clk-sys-sw.c
+ .../clock/starfive,jh8100-syscrg-sw.yaml      | 66 +++++++++++++++++++
+ .../dt-bindings/clock/starfive,jh8100-crg.h   | 14 ++++
+ .../dt-bindings/reset/starfive,jh8100-crg.h   | 10 +++
+ 3 files changed, 90 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-sw.yaml
 
-diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
-index acd530c3897b..2d8a1e0fae8a 100644
---- a/drivers/clk/starfive/Kconfig
-+++ b/drivers/clk/starfive/Kconfig
-@@ -97,3 +97,11 @@ config CLK_STARFIVE_JH8100_SYS_NE
- 	help
- 	  Say yes here to support the System-North-East clock controller on the StarFive JH8100
- 	  SoC.
-+
-+config CLK_STARFIVE_JH8100_SYS_SW
-+	bool "StarFive JH8100 System-South-West clock support"
-+	depends on CLK_STARFIVE_JH8100_SYS
-+	default ARCH_STARFIVE
-+	help
-+	  Say yes here to support the System-South-West clock controller on the StarFive JH8100
-+	  SoC.
-diff --git a/drivers/clk/starfive/jh8100/Makefile b/drivers/clk/starfive/jh8100/Makefile
-index 164c1d55b97c..5c14bff5c541 100644
---- a/drivers/clk/starfive/jh8100/Makefile
-+++ b/drivers/clk/starfive/jh8100/Makefile
-@@ -3,3 +3,4 @@
- obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS)		+= clk-sys.o
- obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS_NW)	+= clk-sys-nw.o
- obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS_NE)	+= clk-sys-ne.o
-+obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS_SW)        += clk-sys-sw.o
-diff --git a/drivers/clk/starfive/jh8100/clk-sys-sw.c b/drivers/clk/starfive/jh8100/clk-sys-sw.c
+diff --git a/Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-sw.yaml b/Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-sw.yaml
 new file mode 100644
-index 000000000000..d88dd8741b5d
+index 000000000000..8bd41af040b7
 --- /dev/null
-+++ b/drivers/clk/starfive/jh8100/clk-sys-sw.c
-@@ -0,0 +1,136 @@
-+// SPDX-License-Identifier: GPL-2.0
++++ b/Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-sw.yaml
+@@ -0,0 +1,66 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/starfive,jh8100-syscrg-sw.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH8100 System-South-West Clock And Reset Generator
++
++maintainers:
++  - Sia Jee Heng <jeeheng.sia@starfivetech.com>
++
++properties:
++  compatible:
++    const: starfive,jh8100-syscrg-sw
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: APB_BUS clock from SYSCRG
++      - description: VDEC_ROOT clock from SYSCRG
++      - description: FLEXNOC1 clock from SYSCRG
++
++  clock-names:
++    items:
++      - const: sys_clk_apb_bus
++      - const: sys_clk_vdec_root
++      - const: sys_clk_flexnoc1
++
++  '#clock-cells':
++    const: 1
++    description:
++      See <dt-bindings/clock/starfive,jh8100-crg.h> for valid indices.
++
++  '#reset-cells':
++    const: 1
++    description:
++      See <dt-bindings/reset/starfive-jh8100-crg.h> for valid indices.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - '#clock-cells'
++  - '#reset-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/starfive,jh8100-crg.h>
++
++    clock-controller@12720000 {
++            compatible = "starfive,jh8100-syscrg-sw";
++            reg = <0x12720000 0x10000>;
++            clocks = <&syscrg SYSCRG_CLK_APB_BUS>,
++                     <&syscrg SYSCRG_CLK_VDEC_ROOT>,
++                     <&syscrg SYSCRG_CLK_FLEXNOC1>;
++            clock-names = "sys_clk_apb_bus",
++                          "sys_clk_vdec_root",
++                          "sys_clk_flexnoc1";
++            #clock-cells = <1>;
++            #reset-cells = <1>;
++    };
+diff --git a/include/dt-bindings/clock/starfive,jh8100-crg.h b/include/dt-bindings/clock/starfive,jh8100-crg.h
+index b30ccd16a802..3ce0b9ec66be 100644
+--- a/include/dt-bindings/clock/starfive,jh8100-crg.h
++++ b/include/dt-bindings/clock/starfive,jh8100-crg.h
+@@ -344,4 +344,18 @@
+ #define SYSCRG_NE_CLK_SMBUS0_ICG_EN					174
+ 
+ #define SYSCRG_NE_CLK_END						175
++
++/* SYSCRG_SW_CLK */
++#define SYSCRG_SW_CLK_JPEG_AXI						0
++#define SYSCRG_SW_CLK_VC9000DJ_AXI					1
++#define SYSCRG_SW_CLK_VC9000DJ_VDEC					2
++#define SYSCRG_SW_CLK_VC9000DJ_APB					3
++#define SYSCRG_SW_CLK_VDEC_AXI						4
++#define SYSCRG_SW_CLK_VC9000D_AXI					5
++#define SYSCRG_SW_CLK_VC9000D_VDEC					6
++#define SYSCRG_SW_CLK_VC9000D_APB					7
++#define SYSCRG_SW_CLK_JPEG_ICG_EN					8
++#define SYSCRG_SW_CLK_VDEC_ICG_EN					9
++
++#define SYSCRG_SW_CLK_END						10
+ #endif /* __DT_BINDINGS_CLOCK_STARFIVE_JH8100_H__ */
+diff --git a/include/dt-bindings/reset/starfive,jh8100-crg.h b/include/dt-bindings/reset/starfive,jh8100-crg.h
+index 7626da648686..55209382e00e 100644
+--- a/include/dt-bindings/reset/starfive,jh8100-crg.h
++++ b/include/dt-bindings/reset/starfive,jh8100-crg.h
+@@ -96,4 +96,14 @@
+ #define SYSCRG_NE_RSTN_DUBHE_TVSENSOR				49
+ 
+ #define SYSCRG_NE_RESET_NR_RESETS				50
++
 +/*
-+ * StarFive JH8100 System Clock Driver
-+ *
-+ * Copyright (C) 2023 StarFive Technology Co., Ltd.
-+ *
-+ * Author: Jee Heng Sia <jeeheng.sia@starfivetech.com>
-+ *
++ * syscrg_sw: assert0
 + */
++#define SYSCRG_SW_RSTN_PRESETN					0
++#define SYSCRG_SW_RSTN_VC9000DJ					1
++#define SYSCRG_SW_RSTN_VC9000D					2
++#define SYSCRG_SW_RSTN_DDR_TVSENSOR				3
 +
-+#include <linux/clk-provider.h>
-+#include <linux/init.h>
-+#include <linux/io.h>
-+#include <linux/platform_device.h>
-+#include <linux/slab.h>
-+
-+#include <dt-bindings/clock/starfive,jh8100-crg.h>
-+
-+#include "clk-starfive-jh8100.h"
-+
-+/* external clocks */
-+#define SYSCRG_SW_CLK_APB_BUS		(SYSCRG_SW_CLK_END + 0)
-+#define SYSCRG_SW_CLK_VDEC_ROOT		(SYSCRG_SW_CLK_END + 1)
-+#define SYSCRG_SW_CLK_FLEXNOC1		(SYSCRG_SW_CLK_END + 2)
-+
-+static const struct starfive_clk_data jh8100_syscrg_sw_clk_data[] = {
-+	/* jpeg */
-+	STARFIVE__DIV(SYSCRG_SW_CLK_JPEG_AXI, "sys_sw_clk_jpeg_axi", 20,
-+		      SYSCRG_SW_CLK_VDEC_ROOT),
-+	STARFIVE_GATE(SYSCRG_SW_CLK_VC9000DJ_AXI, "sys_sw_clk_vc9000dj_axi",
-+		      CLK_IGNORE_UNUSED, SYSCRG_SW_CLK_JPEG_AXI),
-+	STARFIVE_GDIV(SYSCRG_SW_CLK_VC9000DJ_VDEC, "sys_sw_clk_vc9000dj_vdec",
-+		      CLK_IGNORE_UNUSED, 40, SYSCRG_SW_CLK_VDEC_ROOT),
-+	STARFIVE_GATE(SYSCRG_SW_CLK_VC9000DJ_APB, "sys_sw_clk_vc9000dj_apb",
-+		      CLK_IGNORE_UNUSED, SYSCRG_SW_CLK_APB_BUS),
-+	/* video dec */
-+	STARFIVE__DIV(SYSCRG_SW_CLK_VDEC_AXI, "sys_sw_clk_vdec_axi", 20,
-+		      SYSCRG_SW_CLK_VDEC_ROOT),
-+	STARFIVE_GATE(SYSCRG_SW_CLK_VC9000D_AXI, "sys_sw_clk_vc9000d_axi", CLK_IGNORE_UNUSED,
-+		      SYSCRG_SW_CLK_VDEC_AXI),
-+	STARFIVE_GDIV(SYSCRG_SW_CLK_VC9000D_VDEC, "sys_sw_clk_vc9000d_vdec",
-+		      CLK_IGNORE_UNUSED, 40, SYSCRG_SW_CLK_FLEXNOC1),
-+	STARFIVE_GATE(SYSCRG_SW_CLK_VC9000D_APB, "sys_sw_clk_vc9000d_apb", CLK_IGNORE_UNUSED,
-+		      SYSCRG_SW_CLK_APB_BUS),
-+	/* icg_en */
-+	STARFIVE_GATE(SYSCRG_SW_CLK_JPEG_ICG_EN, "sys_sw_clk_jpeg_en", 0,
-+		      SYSCRG_SW_CLK_VDEC_ROOT),
-+	STARFIVE_GATE(SYSCRG_SW_CLK_VDEC_ICG_EN, "sys_sw_clk_vdec_en", 0,
-+		      SYSCRG_SW_CLK_VDEC_AXI),
-+};
-+
-+static struct clk_hw *jh8100_syscrg_sw_clk_get(struct of_phandle_args *clkspec, void *data)
-+{
-+	struct starfive_clk_priv *priv = data;
-+	unsigned int idx = clkspec->args[0];
-+
-+	if (idx < SYSCRG_SW_CLK_END)
-+		return &priv->reg[idx].hw;
-+
-+	return ERR_PTR(-EINVAL);
-+}
-+
-+static int jh8100_syscrg_sw_probe(struct platform_device *pdev)
-+{
-+	struct starfive_clk_priv *priv;
-+	unsigned int idx;
-+	int ret;
-+
-+	priv = devm_kzalloc(&pdev->dev,
-+			    struct_size(priv, reg, SYSCRG_SW_CLK_END),
-+			    GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	spin_lock_init(&priv->rmw_lock);
-+	priv->dev = &pdev->dev;
-+	priv->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(priv->base))
-+		return PTR_ERR(priv->base);
-+
-+	for (idx = 0; idx < SYSCRG_SW_CLK_END; idx++) {
-+		u32 max = jh8100_syscrg_sw_clk_data[idx].max;
-+		struct clk_parent_data parents[4] = {};
-+		struct clk_init_data init = {
-+			.name = jh8100_syscrg_sw_clk_data[idx].name,
-+			.ops = starfive_clk_ops(max),
-+			.parent_data = parents,
-+			.num_parents =
-+				((max & STARFIVE_CLK_MUX_MASK) >> STARFIVE_CLK_MUX_SHIFT) + 1,
-+			.flags = jh8100_syscrg_sw_clk_data[idx].flags,
-+		};
-+		struct starfive_clk *clk = &priv->reg[idx];
-+		unsigned int i;
-+
-+		for (i = 0; i < init.num_parents; i++) {
-+			unsigned int pidx = jh8100_syscrg_sw_clk_data[idx].parents[i];
-+
-+			if (pidx < SYSCRG_SW_CLK_END)
-+				parents[i].hw = &priv->reg[pidx].hw;
-+			else if (pidx == SYSCRG_SW_CLK_APB_BUS)
-+				parents[i].fw_name = "sys_clk_apb_bus";
-+			else if (pidx == SYSCRG_SW_CLK_VDEC_ROOT)
-+				parents[i].fw_name = "sys_clk_vdec_root";
-+			else if (pidx == SYSCRG_SW_CLK_FLEXNOC1)
-+				parents[i].fw_name = "sys_clk_flexnoc1";
-+		}
-+
-+		clk->hw.init = &init;
-+		clk->idx = idx;
-+		clk->max_div = max & STARFIVE_CLK_DIV_MASK;
-+
-+		ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	ret = devm_of_clk_add_hw_provider(&pdev->dev, jh8100_syscrg_sw_clk_get, priv);
-+	if (ret)
-+		return ret;
-+
-+	return jh8100_reset_controller_register(priv, "rst-sys-sw", 3);
-+}
-+
-+static const struct of_device_id jh8100_syscrg_sw_match[] = {
-+	{ .compatible = "starfive,jh8100-syscrg-sw" },
-+	{ /* sentinel */ }
-+};
-+
-+static struct platform_driver jh8100_syscrg_sw_driver = {
-+	.driver = {
-+		.name = "clk-starfive-jh8100-sys-sw",
-+		.of_match_table = jh8100_syscrg_sw_match,
-+		.suppress_bind_attrs = true,
-+	},
-+};
-+builtin_platform_driver_probe(jh8100_syscrg_sw_driver, jh8100_syscrg_sw_probe);
++#define SYSCRG_SW_RESET_NR_RESETS				4
+ #endif /* __DT_BINDINGS_RESET_STARFIVE_JH8100_H__ */
 -- 
 2.34.1
 
