@@ -4,141 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21458C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 09:31:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A4A7C10F04
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 10:08:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NUvy1xxV1UP65m3/p98HO64sDZDu9hThARz5YCUyvko=; b=UP+QDsS9Nn4SUT
-	bzbQDmjQqk5aVpkKrUIG4nfdNqdhp3rCzRTqGKKRm2QOqBTVHbvl2JKb929x8/mA195xeQz6pHJZM
-	1QSzQwgzwxEFQ4stRMWorewTDkqzJzhKRRvX5VcpSgtbLlkGZtbpeThR5/koLJF977Ix1p9KoGeYy
-	vs/0HFPiHbDP2QAf788WHVmz/gSLfzfy2RfNX8pQu/vFKFiiZ5RP6RFDUQmd9fnBuWv7jhzCz358B
-	q6tZ5zP8m5K42SAQNvBzwwr9uRV6VgAPrCKueWEYMyi7H9W9GIPPbtmSGeHgP1EPNoo3/Qly0H8LS
-	rxGfTELMCHOjEL2mjv3g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T0a6bXRF/uHM7fGDN/ZFIREVFUp3hNq5X+qTPv1R5xE=; b=m4205bzMelVDcC2JKC0MPI99VY
+	HlJJKL8IO2xoYP7y83B27F+zj+GwCnBBiBbOJCHWmNls6rkeQEoK18d+4pGxg19mr3VssLZhCpF7K
+	ziF8IIh8japmlarrACG4wjebvkev+U8VeEg9nsGTMWBt+FXYHJKRPJ7WoXcSk7MrGRwIIi06kMmrB
+	1eZ0CJhJY5Jn1LPj7pNd4IYo65soPiYPiCSoQlBWtv274FdoJqkUhl1wZwY6M/uLJjf1cYOXSjl09
+	d0Es0wydGSPZAze3GdVc1EAtKGlNes3n3HRucTQhc3uWDbZhtOZeGcmUCTyjDZIh09DuNClEwRIpV
+	jHWgLAIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAoFB-009YoQ-2X;
-	Wed, 06 Dec 2023 09:31:01 +0000
-Received: from mail-pr2fra01on20630.outbound.protection.outlook.com ([2a01:111:f400:7e18::630] helo=FRA01-PR2-obe.outbound.protection.outlook.com)
+	id 1rAopX-009eLU-1f;
+	Wed, 06 Dec 2023 10:08:35 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAoF9-009Ym8-07
+	id 1rAopS-009eHl-2F
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 09:31:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=KA0Br93S2aYNWnTrImOKoWNpwMCtUJ0zj0Hsr292+z5agIge4srw7tJCIWPC2GYIWIIyyG07WBt7WlYaecxrKVSI1WceNnHNs5potX2DkMFVrJp53FgM0O0eNEckqDY6pRKk4oueyKjnIhb6xsZzbARcphSjhcWb0JjfWt8pt1GAAirhPqQKwfREDjvX9tExVgPyVhJg3VY2sDn5Q/VC4vbSmsggz39+GhczmTryMt4QF/IGobiNyUTlWn9BEgnkImXMNJPWKqo8WBWpaqrKHEDcE9DtWuFrtGnD/0G/gY4lLeicSERcR0TCYi26pxdwxXCY3dpOV/Ug47fMq+Qurg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7Okq+LWVFSdy1yk+MYHdjirVz0zac+Ro81PAs8JF72w=;
- b=WkUa7peH3BP0acyxUWO2ceDA8IJxGVL06DhEsyjzrJVkSqaTMpluwtSUsP724/qSjfrL41xcHzXIgpdZmsp5N90upUD6kHzsDZFJPlmIxT7Z20tRzqKSNJ71Bqnz3iy5INTKV16T7kFVRX/IUsJiydCnAVTlXSVRtLTEVKDG+8gO404AqYqapwRd/BcCQVgl2R7VAJGmPX5uv6x81xnSGwxfLAxNElCPICSHYYMagGwbJ7Oa/0EfxFWo/qwh9MrXxA99KB8f4IYFO3uKBI+xA2QQyGmHhbdjTSaxvXTQYJGGKDPzq1VBcBg7Fk8rxyGGils63IY9a//fD+MedVyyFg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=csgroup.eu; dmarc=pass action=none header.from=csgroup.eu;
- dkim=pass header.d=csgroup.eu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=csgroup.eu;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7Okq+LWVFSdy1yk+MYHdjirVz0zac+Ro81PAs8JF72w=;
- b=mtCVHO/yDiOw231fWh8CPaK94SleU4CmceN6794R90PYXa0tkgwx+ezCZ699w4+iQUNq32SqKLrj08ZQ2GFf5LNpLJGdnt9PW+H3JAtSERDaifap73z6IYAH9Ypn3LgZ16TAHXzw0CvjNPWxrYBGKxgl2wOjS5fBXlxa4RM2RaPBBlY3LC2Mdoe3Gq7JVcSaS+YL00sYn4xiq3TVJDAJLmPfYJvpdZAejFytA6wFRYSXxkdc1X5VIxyZ8KqkXYW4Xq0cJkbyFgehE8zRquL2685EWgdcRoL6dxI0LAbesnVyTTodYlbnIUx6EZNlkSXnJIAiJ6ohKSi3seyXM12TRw==
-Received: from MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM (2603:10a6:501:31::15)
- by MRZP264MB1701.FRAP264.PROD.OUTLOOK.COM (2603:10a6:501:f::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7068.25; Wed, 6 Dec
- 2023 09:30:46 +0000
-Received: from MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM
- ([fe80::5bfe:e2f2:6d89:8d97]) by MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM
- ([fe80::5bfe:e2f2:6d89:8d97%3]) with mapi id 15.20.7068.025; Wed, 6 Dec 2023
- 09:30:46 +0000
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-To: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>, "gregkh@linuxfoundation.org"
-	<gregkh@linuxfoundation.org>
-CC: "linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Michael
- Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Amit Shah
-	<amit@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, "linuxppc-dev@lists.ozlabs.org"
-	<linuxppc-dev@lists.ozlabs.org>, "virtualization@lists.linux.dev"
-	<virtualization@lists.linux.dev>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH 12/27] tty: hvc: convert to u8 and size_t
-Thread-Topic: [PATCH 12/27] tty: hvc: convert to u8 and size_t
-Thread-Index: AQHaKBceFfLXTsgZGkKSi8+G3WtYpLCb/ZiA
-Date: Wed, 6 Dec 2023 09:30:46 +0000
-Message-ID: <f0d05148-881b-4973-afc1-31709523560e@csgroup.eu>
-References: <20231206073712.17776-1-jirislaby@kernel.org>
- <20231206073712.17776-13-jirislaby@kernel.org>
-In-Reply-To: <20231206073712.17776-13-jirislaby@kernel.org>
-Accept-Language: fr-FR, en-US
-Content-Language: fr-FR
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla Thunderbird
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=csgroup.eu;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: MRZP264MB2988:EE_|MRZP264MB1701:EE_
-x-ms-office365-filtering-correlation-id: 932b1c25-1d2f-4e6d-9f43-08dbf63e06d3
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: XooLZ2XzalOounorjlV9WH+6wSGYESTJyjwumEViGJD2JBByih6jDtBpZE1WHROGyZHFvUdcUEe7ZsMSZl+eLP37Mgpuu+Fr2eiTzIIbNBegLK2ebchlj30+IvjUHJ7Qz92aMY272sXLMR11jyjZLbovb6NfFzQQIddCKo3pvaGrhdqIVa0pduyEjCZf0F0cc6y7FCffBOGTPdB1nGUD+JwWjkqpVPGvU8j3aWGvYA4abv8YPOHfEvkmQXSdzNacFK5JtpSrrbJYlcuKHoYHNS5EFYXY2FiVnK1c9Aoz5QOIQql16Fo9FeN3cwB2XgCRluTS9+bT4kxTYojJyHi99rfE7xWhTUkv+DtwfzIWK4H0AULEKwko24HYsb5y4UXV3K0t/zKAyyez9X+rX99uD8EtyXavpGZ74dMH06sdXp6SlUVmqHnVRufhSVdz/M1kWE4EceWtfiNgpxou6A8HyE2edG91gK1Jbtx6+unFSpTIDr9PCxOXNvot/oNseL50kra6xZJ7FPIJ7yneU1Dxo5qj9GRwLivwKhTOkyGrA5lAxHEdoc6k/cxDvg+7yzR2+m7+0VrFb4EOyF9tltemqSVYTVMZ3CLRj7iP/yauivQkrOeUvKDOJosutbjczb76yAsUq9ElSzqblitxkFEtGIFe4telnmaIZ5hzUECJF059/XAcoYqUuCQQ3lMIzicU
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230031)(376002)(366004)(396003)(346002)(39850400004)(136003)(230922051799003)(186009)(1800799012)(64100799003)(451199024)(7416002)(2906002)(5660300002)(44832011)(36756003)(41300700001)(122000001)(86362001)(31686004)(4326008)(8936002)(8676002)(316002)(110136005)(76116006)(54906003)(64756008)(66446008)(66476007)(66556008)(66946007)(91956017)(38070700009)(31696002)(38100700002)(6486002)(478600001)(83380400001)(71200400001)(6506007)(26005)(6512007)(2616005)(43740500002)(45980500001);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?bDBlV2lWRzFBd0lJRHdpT1NVcjNhalA0TDIvUXJqUGlzMTY5cHU4MkNiRzdT?=
- =?utf-8?B?KzlOMTIvcDN3NVo4UkdMQ1ZPRkIyNnR4MTVFTDg1dkZkZUFUT0NJVzZpdUtp?=
- =?utf-8?B?UFh0bGlrV2EzK056Z3RSa25HMlZWMWxmeDBYdlZyMG1TWFF5TUhMRjRMcktx?=
- =?utf-8?B?cTlrN1RKaXBGQU9rbDdzaFhtcFRUMFhrVEZYN0wxWnQwZlNLZTFyK2V4eUxY?=
- =?utf-8?B?WGZ3V2p2UVR0emgzUmJoamlLdEtRejg0TWQ4VEJyTEg4WW5tU2tBcHZPbTJU?=
- =?utf-8?B?eXYvUmpIenJjbmFwL2pDNDBCZDB3cGhKalhzQU50STZRSDRST0RpdVA4eFVT?=
- =?utf-8?B?YjA3ODV0TVBKcVFhVnRMdzE1WS9HYzQzb0tOMUk1bmlsS1k1MVBjenJjMlA0?=
- =?utf-8?B?Z1dWTTZhc2xta3JWQXNDbnRKMWRvSHF1bDg1bnBRUlZUeHZGSXV2LzA2QjJv?=
- =?utf-8?B?a3VEWmZMTldOMHhXZnZyT3l5RC9zMTVnUEE5MkliaEoxQkRiUW1FT0sxSTJs?=
- =?utf-8?B?YkEzVXRlVEF0RHZqRjFaWWJNMTE5REwwL0lIeHhUeWFOeVpOcnhSM1VkWFY5?=
- =?utf-8?B?azIrWGFRbERoL09mclNxWmFQV0JNOCt4N09IWklVSGtQeVI4ekJ3RTM2NDBB?=
- =?utf-8?B?YmR5aFFJWGdPWEZQL0VyQ2JHOEovbjlHVXcxQ1lmQkpKNjF0TkpQNzlRS0Vo?=
- =?utf-8?B?Tk80MGdueDFEZDFkRitib21JZGZsT0pMOFk2SXZpblJpRGcxd3U3b0szWXNB?=
- =?utf-8?B?KzZGaFZIS3VNU00yV0lVQXdmMGJhN0UwL2NocXVsZFVuMHBsQnhMclNSMkdn?=
- =?utf-8?B?bzlpeWYrN09yUjdsbXdmVGZpbnFlMFowMUdWdGpVZGViVCtiQ2I5V1RQUXVt?=
- =?utf-8?B?SWNVVU14OFBiTGJXVnZlSC9RNk0rV1F3b2xwWlpmTlhNUzdHc2w5VFFMVDFN?=
- =?utf-8?B?a3hNWGZ0UmRoRzAzWmtFeDlRcWJkS2J6L3o4WEo1TmNpbEQ0cDlsZ2ZUbVJV?=
- =?utf-8?B?b3o3aVBHYkdrbDUyNE12c2s4aTRBakVlcG1KbWlKc2dDZGJEVlBvb3lHS0VY?=
- =?utf-8?B?Mms4VnVyUDJNcWwyTEdzM1dYQmZMVDhla2JlK2FFWEV2UXMyWDA0cjE4R25T?=
- =?utf-8?B?eFdQSFhMUUpLOEpXOXF2eFZyZklyRTVtOFpUdnUzRHJlS1RyZnRrenM4YTFX?=
- =?utf-8?B?bHpWRWVsTFRMOTRMYmpBdCtnREM2V1BMOStNdVVPUFBycEpVa0p4Wnl0bGVP?=
- =?utf-8?B?RDIwSHhVOTNsdlBwSlAvbFYxTkpwK2JEcmJweXBDL3NFZnFzdE9VOStNVlk0?=
- =?utf-8?B?Vmd0aWRYRXg0TkVyVmM4UTJ0SjRXVkJvWjBTL1hLa1p5d1NKQmE0bUpIQ20y?=
- =?utf-8?B?MnVubnNkU3dZZWlDbkRFRWRMNUVoblJnL0N4VUc2T3VXYmNxQVRBODFPYkxx?=
- =?utf-8?B?WTBiWXV3akhZbGJXQ2U2RlE1a0FBeEovRWp0TjJmUDJhdkhac3N0cjRISlJZ?=
- =?utf-8?B?RENUNjMvazZMcDRhT2I2OEM3TGgzcUczUDVKSHFLb1N2cTRlQ2k0NmtSVlFN?=
- =?utf-8?B?WXVHbHVKQUlOV29uRW1HWGE5UjcvYjduSVJReFhubWhtbjU2dCtTOUZQWTJk?=
- =?utf-8?B?OGFkamdkZUN0MFBXQi91MzhCZ1JpZUE5ZTlHNlZUYUJpS0IyNitwbk9sREMv?=
- =?utf-8?B?MjJPZXNNQ1RKSnR1aDBqWXdzeVAxakpKT005TDBwV3FZWnE5bTlrRnQrK3hu?=
- =?utf-8?B?ZlRKbThxYWNnUDRIYnppc2JtZ3JsVXQrNHlhWUJzRkFTdUQ3c1JIRW8xZWNZ?=
- =?utf-8?B?aFNPVkdCcDc4eFFaYzlzTGVxQlZ5TTA5Y1p3WmpXamJuWVhtSGxjNHFQOUZa?=
- =?utf-8?B?TEFuaG5lVmk2dE1jWUNtdUhqZEVUR1craElqZUdBVnFZMmMyN1dkS2RWLzVP?=
- =?utf-8?B?YVBIUUxsVkRwNmFETmFwd1lsVU9BUExNdWhWMzR4MWhvT3FVVnkxQ2pSVzdD?=
- =?utf-8?B?OXNYaVI1ekxkRzgxNEdnb0NqT3NrVitIUnUvQkpDUXFLT2llQ011dUU3bytE?=
- =?utf-8?B?amJJU2pMVVl2UWd6VmZsdGJzdVl2TytZWGNQcEdNN1dBeEw0K01YQlgxK2hk?=
- =?utf-8?Q?Dd/heGRjyZ+1BFpsKXlPBoVRC?=
-Content-ID: <D78A85787EBC984BB501A2F643C37733@FRAP264.PROD.OUTLOOK.COM>
+	Wed, 06 Dec 2023 10:08:34 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 7AB216000A;
+	Wed,  6 Dec 2023 10:08:21 +0000 (UTC)
+Message-ID: <f259088f-a590-454e-b322-397e63071155@ghiti.fr>
+Date: Wed, 6 Dec 2023 11:08:20 +0100
 MIME-Version: 1.0
-X-OriginatorOrg: csgroup.eu
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: 932b1c25-1d2f-4e6d-9f43-08dbf63e06d3
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Dec 2023 09:30:46.5879
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 9914def7-b676-4fda-8815-5d49fb3b45c8
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: keYyLUHIy8yK/xDdhBVB/8wb0vuVfRk13+mCDlA2JvZOg9kN+l6Mo8RdyylwN47RsfoigDlIjfUfol+qFdu+mC/UdpS/XxUatEsSvLLHbps=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MRZP264MB1701
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] riscv: Enable percpu page first chunk allocator
+Content-Language: en-US
+To: Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, Arnd Bergmann
+ <arnd@arndb.de>, Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>,
+ Christoph Lameter <cl@linux.com>, Andrew Morton <akpm@linux-foundation.org>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com, linux-arch@vger.kernel.org, linux-mm@kvack.org
+References: <20231110140721.114235-1-alexghiti@rivosinc.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20231110140721.114235-1-alexghiti@rivosinc.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_013059_078808_D1A5E8F5 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20231206_020830_882221_8191FA3F 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,58 +64,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-DQoNCkxlIDA2LzEyLzIwMjMgw6AgMDg6MzYsIEppcmkgU2xhYnkgKFNVU0UpIGEgw6ljcml0wqA6
-DQo+IFN3aXRjaCBjaGFyYWN0ZXIgdHlwZXMgdG8gdTggYW5kIHNpemVzIHRvIHNpemVfdC4gVG8g
-Y29uZm9ybSB0bw0KPiBjaGFyYWN0ZXJzL3NpemVzIGluIHRoZSByZXN0IG9mIHRoZSB0dHkgbGF5
-ZXIuDQo+IA0KPiBTaWduZWQtb2ZmLWJ5OiBKaXJpIFNsYWJ5IChTVVNFKSA8amlyaXNsYWJ5QGtl
-cm5lbC5vcmc+DQo+IENjOiBNaWNoYWVsIEVsbGVybWFuIDxtcGVAZWxsZXJtYW4uaWQuYXU+DQo+
-IENjOiBOaWNob2xhcyBQaWdnaW4gPG5waWdnaW5AZ21haWwuY29tPg0KPiBDYzogQ2hyaXN0b3Bo
-ZSBMZXJveSA8Y2hyaXN0b3BoZS5sZXJveUBjc2dyb3VwLmV1Pg0KPiBDYzogQW1pdCBTaGFoIDxh
-bWl0QGtlcm5lbC5vcmc+DQo+IENjOiBBcm5kIEJlcmdtYW5uIDxhcm5kQGFybmRiLmRlPg0KPiBD
-YzogUGF1bCBXYWxtc2xleSA8cGF1bC53YWxtc2xleUBzaWZpdmUuY29tPg0KPiBDYzogUGFsbWVy
-IERhYmJlbHQgPHBhbG1lckBkYWJiZWx0LmNvbT4NCj4gQ2M6IEFsYmVydCBPdSA8YW91QGVlY3Mu
-YmVya2VsZXkuZWR1Pg0KPiBDYzogbGludXhwcGMtZGV2QGxpc3RzLm96bGFicy5vcmcNCj4gQ2M6
-IHZpcnR1YWxpemF0aW9uQGxpc3RzLmxpbnV4LmRldg0KPiBDYzogbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZw0KPiAtLS0NCj4gICBhcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20vaHZjb25z
-b2xlLmggICAgICAgfCAgNCArKy0tDQo+ICAgYXJjaC9wb3dlcnBjL2luY2x1ZGUvYXNtL2h2c2ku
-aCAgICAgICAgICAgIHwgMTggKysrKysrKystLS0tLS0tLQ0KPiAgIGFyY2gvcG93ZXJwYy9pbmNs
-dWRlL2FzbS9vcGFsLmggICAgICAgICAgICB8ICA4ICsrKysrLS0tDQo+ICAgYXJjaC9wb3dlcnBj
-L3BsYXRmb3Jtcy9wb3dlcm52L29wYWwuYyAgICAgIHwgMTQgKysrKysrKy0tLS0tLQ0KPiAgIGFy
-Y2gvcG93ZXJwYy9wbGF0Zm9ybXMvcHNlcmllcy9odmNvbnNvbGUuYyB8ICA0ICsrLS0NCj4gICBk
-cml2ZXJzL2NoYXIvdmlydGlvX2NvbnNvbGUuYyAgICAgICAgICAgICAgfCAxMCArKysrLS0tLS0N
-Cj4gICBkcml2ZXJzL3R0eS9odmMvaHZjX2NvbnNvbGUuaCAgICAgICAgICAgICAgfCAgNCArKy0t
-DQo+ICAgZHJpdmVycy90dHkvaHZjL2h2Y19kY2MuYyAgICAgICAgICAgICAgICAgIHwgMjQgKysr
-KysrKysrKystLS0tLS0tLS0tLQ0KPiAgIGRyaXZlcnMvdHR5L2h2Yy9odmNfaXVjdi5jICAgICAg
-ICAgICAgICAgICB8IDE4ICsrKysrKysrLS0tLS0tLS0NCj4gICBkcml2ZXJzL3R0eS9odmMvaHZj
-X29wYWwuYyAgICAgICAgICAgICAgICAgfCAgNSArKystLQ0KPiAgIGRyaXZlcnMvdHR5L2h2Yy9o
-dmNfcmlzY3Zfc2JpLmMgICAgICAgICAgICB8ICA5ICsrKystLS0tDQo+ICAgZHJpdmVycy90dHkv
-aHZjL2h2Y19ydGFzLmMgICAgICAgICAgICAgICAgIHwgMTEgKysrKystLS0tLQ0KPiAgIGRyaXZl
-cnMvdHR5L2h2Yy9odmNfdWRiZy5jICAgICAgICAgICAgICAgICB8ICA5ICsrKystLS0tDQo+ICAg
-ZHJpdmVycy90dHkvaHZjL2h2Y192aW8uYyAgICAgICAgICAgICAgICAgIHwgMTggKysrKysrKyst
-LS0tLS0tLQ0KPiAgIGRyaXZlcnMvdHR5L2h2Yy9odmNfeGVuLmMgICAgICAgICAgICAgICAgICB8
-IDIzICsrKysrKysrKysrLS0tLS0tLS0tLQ0KPiAgIGRyaXZlcnMvdHR5L2h2Yy9odnNpX2xpYi5j
-ICAgICAgICAgICAgICAgICB8IDIwICsrKysrKysrKystLS0tLS0tLQ0KPiAgIDE2IGZpbGVzIGNo
-YW5nZWQsIDEwNyBpbnNlcnRpb25zKCspLCA5MiBkZWxldGlvbnMoLSkNCj4gDQo+IGRpZmYgLS1n
-aXQgYS9hcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20vaHZjb25zb2xlLmggYi9hcmNoL3Bvd2VycGMv
-aW5jbHVkZS9hc20vaHZjb25zb2xlLmgNCj4gaW5kZXggY2NiMjAzNDUwNmYwLi5kODQxYTk3MDEw
-YTAgMTAwNjQ0DQo+IC0tLSBhL2FyY2gvcG93ZXJwYy9pbmNsdWRlL2FzbS9odmNvbnNvbGUuaA0K
-PiArKysgYi9hcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20vaHZjb25zb2xlLmgNCj4gQEAgLTIxLDgg
-KzIxLDggQEANCj4gICAgKiBWaW8gZmlybXdhcmUgYWx3YXlzIGF0dGVtcHRzIHRvIGZldGNoIE1B
-WF9WSU9fR0VUX0NIQVJTIGNoYXJzLiAgVGhlICdjb3VudCcNCj4gICAgKiBwYXJtIGlzIGluY2x1
-ZGVkIHRvIGNvbmZvcm0gdG8gcHV0X2NoYXJzKCkgZnVuY3Rpb24gcG9pbnRlciB0ZW1wbGF0ZQ0K
-PiAgICAqLw0KPiAtZXh0ZXJuIGludCBodmNfZ2V0X2NoYXJzKHVpbnQzMl90IHZ0ZXJtbm8sIGNo
-YXIgKmJ1ZiwgaW50IGNvdW50KTsNCj4gLWV4dGVybiBpbnQgaHZjX3B1dF9jaGFycyh1aW50MzJf
-dCB2dGVybW5vLCBjb25zdCBjaGFyICpidWYsIGludCBjb3VudCk7DQo+ICtleHRlcm4gc3NpemVf
-dCBodmNfZ2V0X2NoYXJzKHVpbnQzMl90IHZ0ZXJtbm8sIHU4ICpidWYsIHNpemVfdCBjb3VudCk7
-DQo+ICtleHRlcm4gc3NpemVfdCBodmNfcHV0X2NoYXJzKHVpbnQzMl90IHZ0ZXJtbm8sIGNvbnN0
-IHU4ICpidWYsIHNpemVfdCBjb3VudCk7DQoNCldvdWxkIGJlIGEgZ29vZCBvcHBvcnR1bml0eSB0
-byBkcm9wIHRoaXMgcG9pbnRsZXNzIGRlcHJlY2F0ZWQgJ2V4dGVybicgDQprZXl3b3JkIG9uIGFs
-bCBmdW5jdGlvbiBwcm90b3R5cGVzIHlvdSBhcmUgY2hhbmdpbmcuDQoNCkNocmlzdG9waGUNCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Tejun,
+
+On 10/11/2023 15:07, Alexandre Ghiti wrote:
+> While working with pcpu variables, I noticed that riscv did not support
+> first chunk allocation in the vmalloc area which may be needed as a fallback
+> in case of a sparse NUMA configuration.
+>
+> patch 1 starts by introducing a new function flush_cache_vmap_early() which
+> is needed since a new vmalloc mapping is established and directly accessed:
+> on riscv, this would likely fail in case of a reordered access or if the
+> uarch caches invalid entries in TLB.
+>
+> patch 2 simply enables the page percpu first chunk allocator in riscv.
+>
+> Alexandre Ghiti (2):
+>    mm: Introduce flush_cache_vmap_early() and its riscv implementation
+>    riscv: Enable pcpu page first chunk allocator
+>
+>   arch/riscv/Kconfig                  | 2 ++
+>   arch/riscv/include/asm/cacheflush.h | 3 ++-
+>   arch/riscv/include/asm/tlbflush.h   | 2 ++
+>   arch/riscv/mm/kasan_init.c          | 8 ++++++++
+>   arch/riscv/mm/tlbflush.c            | 5 +++++
+>   include/asm-generic/cacheflush.h    | 6 ++++++
+>   mm/percpu.c                         | 8 +-------
+>   7 files changed, 26 insertions(+), 8 deletions(-)
+>
+
+Any feedback regarding this?
+
+Thanks,
+
+Alex
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
