@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55EFEC10F07
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 12:51:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C68FC4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 12:52:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7o5cD7sdWafa85ziAxZtnKTkyOOLscGlezwxC4Km/Z0=; b=OZpzuljCj3uffT
-	/Ug3Wbf1lU0FU11NN95nlv4uhohTfjl4x5lWzAwD1y874AZpSvNFCBCx6EYxUxAtH6iAebhPluNrF
-	3oGk4JmHxARRNRnAN4a8oP+AGpm4oEH+nf4Cwc88JzGsqvvtrZpdrocZGuvnbbvf5SmwadxjK1/rC
-	LkohCphzQh0HVIiepvlRdU0IiS0CeX82NcYDqGY73JZ4UPxwc4l27zFhCl7DEfApipbH1aaWSDvsi
-	fj6ERR+rQyYnVIF6LXcYAVfDwQUK3wnBmVw2GbwoDaXASXt3AATvGXEc3jY5E3T712Z4J6zqpbYFE
-	YFWrYkyadgkxPtzsaI3w==;
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=pZUIhHHl7her0tg05PvCErkxVETnoAzfmPMktzzYXlU=; b=ksPtc//7tDCoFpAK8JTSqGoYj+
+	fHnHKsci+2hMqS1uVaztNjrewQPnXPLkV26JZ+qSl2DqZvHu+z3ufziTGXI9w88A089wqwvdBM05K
+	SD6QDDbyL/b/qrPKShyONV4sJkdVzLQfTGab8bVH09VctNZU/eA4Dx5ZCv4IBSpl9+/3/m9XBfLls
+	kBhBKVBNQGwmz5Fs7RfgDBtiyoHkCMTd4UpI8/9LcFU0rH+VR5fpp+u7kVPC5JKL6vyzNNbc8+W1z
+	X9NxHTb1FnVaNSIUU73mDWfiglcIrYubyyHRbH3Dv0BJv8DvZocavzQOH5PcqWZ6JY4Diy84kTcE2
+	OJN3B1vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rArMa-00AJrK-05;
-	Wed, 06 Dec 2023 12:50:52 +0000
-Received: from out-176.mta0.migadu.com ([91.218.175.176])
+	id 1rArNy-00AK5M-30;
+	Wed, 06 Dec 2023 12:52:18 +0000
+Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rArMV-00AJpA-0w
+	id 1rArNu-00AK4x-28
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 12:50:50 +0000
-Message-ID: <46ad8c2b-5be2-4cfd-b771-a8d95a5b5d8f@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1701867038;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XRS4/UnuIWnZockarEAvkGkUjCCyPjOVl0T9XNNaWNc=;
-	b=u7F4JYzLxlvxxRManbPQXPqB+5u+xuX0STtkUCBUN3CuyW9lX24PhJImRS2SRd8mDiQNV6
-	S7wWqMi6CZJXGraONux1bZiDr5wd8d09tGpNkYqDOxd94faY3dXzbo6Bl+AClkcREdEt4I
-	12B0tXZkUokVzZ8bRIX0pH81zjm5dtc=
-Date: Wed, 6 Dec 2023 20:50:29 +0800
-MIME-Version: 1.0
-Subject: Re: [v3 1/6] dt-bindings: display: Add yamls for JH7110 display
- system
-To: Keith Zhao <keith.zhao@starfivetech.com>, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Cc: aou@eecs.berkeley.edu, tzimmermann@suse.de, paul.walmsley@sifive.com,
- mripard@kernel.org, xingyu.wu@starfivetech.com, jack.zhu@starfivetech.com,
- palmer@dabbelt.com, krzysztof.kozlowski+dt@linaro.org,
- william.qiu@starfivetech.com, shengyang.chen@starfivetech.com,
- changhuang.liang@starfivetech.com
-References: <20231204123315.28456-1-keith.zhao@starfivetech.com>
- <20231204123315.28456-2-keith.zhao@starfivetech.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sui Jingfeng <sui.jingfeng@linux.dev>
-In-Reply-To: <20231204123315.28456-2-keith.zhao@starfivetech.com>
-X-Migadu-Flow: FLOW_OUT
+	Wed, 06 Dec 2023 12:52:17 +0000
+Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-6d855efb920so4042725a34.1
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Dec 2023 04:52:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1701867132; x=1702471932; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=u2u6Xixa1YAjeH/4C/qasYXYlNm9UNg6+7+FVH6S5Jo=;
+        b=zVlkztB9oaBV0dSQfIkrf7iwAUoh9yx4pvlYQSvVbBpHbrsPC1up6Cxk3SExl9pH91
+         JDQMiQkQzBaAkvELHjIHzI7gOwYrhYORAwqBWACzHPWeFfnn3inyHYnTfdjTiZp62g32
+         u6ldLmJG/X9oBSKvZCEFTrcCVK6L0mQN5kxo2TO0y1ncRAsY0VkGYZ5OUgq0+yavqpm8
+         GdOlx/8rEZckcIKaZrc25Zn+2ionjQEvdm4oRdlnYZe/jJHc34E21C7QueOZFOyZ1YWx
+         3+FsdzWwFK898vdbS49q8t1xrMX9sVFpMPrC0x2DKZJCs9kH4/gyBDWONavtPmnPrFwZ
+         SM3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701867132; x=1702471932;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=u2u6Xixa1YAjeH/4C/qasYXYlNm9UNg6+7+FVH6S5Jo=;
+        b=aUqJjC//6nnsQb09pA0Mg9MtqIHr6qZx62NkmYjLoMcxYEEQ25Sa3FaR5UtFfdUnBV
+         BgNHMZAPBsydHK7+/iDq/E9O7Fxo7I9HCi3gFPQzksXQH9Hb/w4bTrKdkLmudSUPVSSn
+         pBM2o+d3puz+heChPbW1BWYc6WmT+6rwDSJCeY/P9B4+luX+WThD7lmWMU4YwJNLbnia
+         PS9sHB8Asd61V36w281Dedg8L/m44QFn1USmx5kUcuW1LT6cD7N+cgElx0eU9UxDtfPj
+         JkUOZhJ3lAAqQKWTOpG7Tif3Iba1RRHXE59OG+WDjYyQ/C7+ONwiczcFStdlRWXAbzo+
+         qOqg==
+X-Gm-Message-State: AOJu0YxDclfTCsFEbQv/4RIrZepteQ9KPty20gCL4zkIJWe3VkSs1m8E
+	IH1WWPsJxY7bECsZleKkmkf4sw==
+X-Google-Smtp-Source: AGHT+IFo8cQfWhV8swbKEf3islhCo6malnup6YNIbLn5q10GsK1yfkvEG2E/lOLG+1vPBZPzBrA2sA==
+X-Received: by 2002:a9d:7358:0:b0:6d9:cec2:aa66 with SMTP id l24-20020a9d7358000000b006d9cec2aa66mr283337otk.30.1701867131750;
+        Wed, 06 Dec 2023 04:52:11 -0800 (PST)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id az15-20020a056830458f00b006d94fa88156sm1459097otb.14.2023.12.06.04.52.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 Dec 2023 04:52:11 -0800 (PST)
+Date: Wed, 06 Dec 2023 04:52:11 -0800 (PST)
+X-Google-Original-Date: Wed, 06 Dec 2023 04:52:08 PST (-0800)
+Subject: Re: [RFT 1/2] RISC-V: handle missing "no-map" properties for OpenSBI's PMP protected regions
+In-Reply-To: <20230810-crewless-pampers-6f51aafb8cff@wendy>
+CC: Atish Patra <atishp@rivosinc.com>, Conor Dooley <conor@kernel.org>,
+  Paul Walmsley <paul.walmsley@sifive.com>, apatel@ventanamicro.com, alexghiti@rivosinc.com,
+  Bjorn Topel <bjorn@rivosinc.com>, suagrfillet@gmail.com, jeeheng.sia@starfivetech.com,
+  petrtesarik@huaweicloud.com, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+  stable@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Conor Dooley <conor.dooley@microchip.com>, geert+renesas@glider.be
+Message-ID: <mhng-550dee8b-a2fb-485b-ad4d-2763e94191b4@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_045047_637378_0C2ABD1D 
-X-CRM114-Status: GOOD (  24.77  )
+X-CRM114-CacheID: sfid-20231206_045215_052199_DFDA5FB7 
+X-CRM114-Status: GOOD (  59.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,486 +89,138 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-
-On 2023/12/4 20:33, Keith Zhao wrote:
-> StarFive SoCs JH7110 display system:
-> dc controller, hdmi controller,
-> encoder, vout syscon.
->
-> add the path of yaml file in MAINTAINERS
->
-> Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
-> ---
->   .../starfive/starfive,display-subsystem.yaml  | 104 ++++++++++++++++
->   .../starfive/starfive,dsi-encoder.yaml        |  92 ++++++++++++++
->   .../starfive/starfive,jh7110-dc8200.yaml      | 113 ++++++++++++++++++
->   .../starfive/starfive,jh7110-inno-hdmi.yaml   |  82 +++++++++++++
->   .../soc/starfive/starfive,jh7110-syscon.yaml  |   1 +
->   MAINTAINERS                                   |   7 ++
->   6 files changed, 399 insertions(+)
->   create mode 100644 Documentation/devicetree/bindings/display/starfive/starfive,display-subsystem.yaml
->   create mode 100644 Documentation/devicetree/bindings/display/starfive/starfive,dsi-encoder.yaml
->   create mode 100644 Documentation/devicetree/bindings/display/starfive/starfive,jh7110-dc8200.yaml
->   create mode 100644 Documentation/devicetree/bindings/display/starfive/starfive,jh7110-inno-hdmi.yaml
->
-> diff --git a/Documentation/devicetree/bindings/display/starfive/starfive,display-subsystem.yaml b/Documentation/devicetree/bindings/display/starfive/starfive,display-subsystem.yaml
-> new file mode 100644
-> index 000000000000..d5ebdba3fb36
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/starfive/starfive,display-subsystem.yaml
-> @@ -0,0 +1,104 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/display/starfive/starfive,display-subsystem.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Starfive JH7110 Soc Display SubSystem
-> +
-> +maintainers:
-> +  - Keith Zhao <keith.zhao@starfivetech.com>
-> +  - ShengYang Chen <shengyang.chen@starfivetech.com>
-> +
-> +description:
-> +  This is the bindings documentation for the JH7110 Soc Display Subsystem that
-> +  includes front-end video data capture, display controller and display
-> +  interface. such as HDMI and MIPI.
-> +
-> +  JH7110 display pipeline have several components as below description,
-> +  multi display controllers and corresponding physical interfaces.
-> +  For different display scenarios, pipe0 and pipe1 maybe binding to different
-> +  encoder. for example,
-> +
-> +  pipe0 binding to HDMI for primary display,
-> +  pipe1 binding to DSI for external display.
-> +
-> +          +------------------------------+
-> +          |                              |
-> +          |                              |
-> +  +----+  |   +-------------------+      |   +-------+   +------+   +------+
-> +  |    +----->+  dc controller 0  +--->----->+HDMICtl| ->+ PHY  +-->+PANEL0+
-> +  |AXI |  |   +-------------------+      |   +-------+   +------+   +------+
-> +  |    |  |                              |
-> +  |    |  |                              |
-> +  |    |  |                              |
-> +  |    |  |                              |
-> +  |APB |  |   +-------------------+         +---------+    +------+  +-------+
-> +  |    +----->+  dc controller 1  +--->---->+ dsiTx   +--->+DPHY  +->+ PANEL1+
-> +  |    |  |   +-------------------+         +---------+    +------+  +-------+
-> +  +----+  |                              |
-> +          +------------------------------+
-> +
-> +
-> +properties:
-> +  compatible:
-> +    const: starfive,display-subsystem
-> +
-> +  clocks:
-> +    items:
-> +      - description: Clock for display system noc bus.
-> +      - description: Core clock for display controller.
-> +      - description: Clock for axi bus to access ddr.
-> +      - description: Clock for ahb bus to R/W the phy regs.
-> +
-> +  clock-names:
-> +    items:
-> +      - const: noc_bus
-> +      - const: dc_core
-> +      - const: axi_core
-> +      - const: ahb
-> +
-> +  resets:
-> +    items:
-> +      - description: Reset for axi bus.
-> +      - description: Reset for ahb bus.
-> +      - description: Core reset of display controller.
-> +
-> +  reset-names:
-> +    items:
-> +      - const: axi
-> +      - const: ahb
-> +      - const: core
-> +
-> +  ports:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    items:
-> +      maxItems: 1
-> +    description:
-> +      Should contain a list of phandles pointing to display interface port
-> +      of dc-controller devices.
-> +
-> +required:
-> +  - compatible
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - reset-names
-> +  - ports
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    display-subsystem {
-> +        compatible = "starfive,display-subsystem";
-> +        ports = <&dc_out>;
-> +
-> +        clocks = <&syscrg 60>,
-> +               <&voutcrg 4>,
-> +               <&voutcrg 5>,
-> +               <&voutcrg 6>;
-> +        clock-names = "noc_bus", "dc_core", "axi_core", "ahb";
-> +        resets = <&voutcrg 0>, <&voutcrg 1>, <&voutcrg 2>;
-> +        reset-names = "axi", "ahb", "core";
-> +    };
-> diff --git a/Documentation/devicetree/bindings/display/starfive/starfive,dsi-encoder.yaml b/Documentation/devicetree/bindings/display/starfive/starfive,dsi-encoder.yaml
-> new file mode 100644
-> index 000000000000..2cc0ad8e65ba
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/starfive/starfive,dsi-encoder.yaml
-> @@ -0,0 +1,92 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/display/starfive/starfive,dsi-encoder.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: starfive jh7110 soc Encoder
-> +
-> +maintainers:
-> +  - Keith Zhao <keith.zhao@starfivetech.com>
-> +
-> +description:
-> +  Device-Tree bindings for simple encoder.
-> +  Simple encoder driver only has basic functionality.
-> +  the hardware of dc8200 has 2 output interface, use
-> +  syscon to select which one to be used.
-> +
-> +properties:
-> +  compatible:
-> +    const: starfive,dsi-encoder
-> +
-> +  starfive,syscon:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    items:
-> +      - items:
-> +          - description: phandle to syscon that select crtc output.
-> +          - description: Offset of crtc selection
-> +          - description: Shift of crtc selection
-> +    description:
-> +      A phandle to syscon with two arguments that configure select output.
-> +      The argument one is the offset of crtc selection, the
-> +      argument two is the shift of crtc selection.
-> +
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +
-> +    properties:
-> +      port@0:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description:
-> +          The first port should be the input coming from the associated dc channel.
-> +
-> +      port@1:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description:
-> +          The second port should be the output coming from the associated bridge.
-> +
-> +    required:
-> +      - port@0
-> +      - port@1
-> +
-> +required:
-> +  - compatible
-> +  - ports
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +        dssctrl: dssctrl@295b0000 {
-> +            compatible = "starfive,jh7110-vout-syscon", "syscon";
-> +            reg = <0x295b0000 0x90>;
-> +        };
-> +
-> +        dsi_encoder: dsi_encoder {
-> +            compatible = "starfive,dsi-encoder";
-> +            starfive,syscon = <&dssctrl 0x8 0x12>;
-> +
-> +            ports {
-> +                #address-cells = <1>;
-> +                #size-cells = <0>;
-> +                /* input */
-> +                port@0 {
-> +                    #address-cells = <1>;
-> +                    #size-cells = <0>;
-> +                    reg = <0>;
-> +                    dsi_input0:endpoint@0 {
-> +                        reg = <0>;
-> +                        remote-endpoint = <&dc_out_dpi1>;
-> +                    };
-> +                };
-> +                /* output */
-> +                port@1 {
-> +                    reg = <1>;
-> +                    #address-cells = <1>;
-> +                    #size-cells = <0>;
-> +                    dsi_out:endpoint {
-> +                        remote-endpoint = <&mipi_in>;
-> +                    };
-> +                };
-> +            };
-> +        };
-> diff --git a/Documentation/devicetree/bindings/display/starfive/starfive,jh7110-dc8200.yaml b/Documentation/devicetree/bindings/display/starfive/starfive,jh7110-dc8200.yaml
-> new file mode 100644
-> index 000000000000..0b083effec02
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/starfive/starfive,jh7110-dc8200.yaml
-> @@ -0,0 +1,113 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/display/starfive/starfive,jh7110-dc8200.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: StarFive display controller
-> +
-> +description:
-> +  The StarFive SoC uses the display controller based on Verisilicon IP
-> +  to transfer the image data from a video memory buffer to an external
-> +  LCD interface.
-> +
-> +maintainers:
-> +  - Keith Zhao <keith.zhao@starfivetech.com>
-> +
-> +properties:
-> +  compatible:
-> +    const: starfive,jh7110-dc8200
-> +
-> +  reg:
-> +    minItems: 1
-> +    items:
-> +      - description:
-> +          host interface
-> +      - description:
-> +          display physical base address and length.
-> +
-> +  interrupts:
-> +    items:
-> +      - description: The interrupt will be generated when DC finish one frame
-> +
-> +  clocks:
-> +    items:
-> +      - description: Pixel clock for display channel 0.
-> +      - description: Pixel clock for display channel 1.
-> +      - description: Pixel clock from hdmi.
-> +      - description: Pixel clock for soc .
-> +  clock-names:
-> +    items:
-> +      - const: channel0
-> +      - const: channel1
-> +      - const: hdmi_tx
-> +      - const: dc_parent
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +
-> +    properties:
-> +      port@0:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description:
-> +          channel 0 output
-> +
-> +      port@1:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description:
-> +          channel 1 output
-> +
-> +    required:
-> +      - port@0
-> +      - port@1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - clocks
-> +  - clock-names
-> +  - ports
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    dc8200: lcd-controller@29400000 {
-> +        compatible = "starfive,jh7110-dc8200";
-> +        reg = <0x29400000 0x100>, <0x29400800 0x2000>;
-> +        interrupts = <95>;
-> +        clocks = <&voutcrg 7>,
-> +               <&voutcrg 8>,
-> +               <&voutcrg 9>,
-> +               <&voutcrg 10>;
-> +        clock-names = "channel0", "channel1","hdmi_tx", "dc_parent";
-> +
-> +        crtc_out: ports {
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
-> +
-> +            dc_out0: port@0 {
-> +                reg = <0>;
-> +                #address-cells = <1>;
-> +                #size-cells = <0>;
-> +
-> +                dc_out_dpi0: endpoint@0 {
-> +                    reg = <0>;
-> +                    remote-endpoint = <&hdmi_in_dc>;
-> +                };
-> +
-> +            };
-> +
-> +            dc_out1: port@1 {
-> +                reg = <1>;
-> +                #address-cells = <1>;
-> +                #size-cells = <0>;
-> +
-> +                dc_out_dpi1: endpoint@1 {
-> +                    reg = <1>;
-> +                    remote-endpoint = <&dsi_input0>;
-> +                };
-> +
-> +            };
-> +          };
-> +    };
-> diff --git a/Documentation/devicetree/bindings/display/starfive/starfive,jh7110-inno-hdmi.yaml b/Documentation/devicetree/bindings/display/starfive/starfive,jh7110-inno-hdmi.yaml
-> new file mode 100644
-> index 000000000000..3640d97ab789
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/starfive/starfive,jh7110-inno-hdmi.yaml
-> @@ -0,0 +1,82 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/display/starfive/starfive,jh7110-inno-hdmi.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Starfive JH7110 HDMI controller
-> +
-> +description:
-> +  The StarFive JH7110 SoC uses the HDMI signal transmiter based on innosilicon IP
-
-'transmiter' -> 'transmitter'
-
-
-> +  to generate HDMI signal from its input and transmit the signal to the screen.
-> +
-> +maintainers:
-> +  - Keith Zhao <keith.zhao@starfivetech.com>
-> +
-> +properties:
-> +  compatible:
-> +    const: "starfive,jh7110-inno-hdmi"
-> +
-> +  reg:
-> +    minItems: 1
-> +
-> +  interrupts:
-> +    items:
-> +      - description: The HDMI hot plug detection interrupt.
-> +
-> +  clocks:
-> +    items:
-> +      - description: System clock of HDMI module.
-> +      - description: Mclk clock of HDMI audio.
-> +      - description: Bclk clock of HDMI audio.
-> +
-> +  clock-names:
-> +    items:
-> +      - const: sysclk
-> +      - const: mclk
-> +      - const: bclk
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  '#sound-dai-cells':
-> +    const: 0
-> +
-> +  port:
-> +    $ref: /schemas/graph.yaml#/properties/port
-> +    description:
-> +      Should contain a remote endpoint phandle of display controller device.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - '#sound-dai-cells'
-> +  - port
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    hdmi: hdmi@29590000 {
-> +        compatible = "starfive,jh7110-inno-hdmi";
-> +        reg = <0x29590000 0x4000>;
-> +        interrupts = <99>;
-> +        clocks = <&voutcrg 17>,
-> +               <&voutcrg 15>,
-> +               <&voutcrg 16>;
-> +        clock-names = "sysclk", "mclk","bclk";
-> +        resets = <&voutcrg 9>;
-> +        #sound-dai-cells = <0>;
-> +        hdmi_in: port {
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
-> +            hdmi_in_dc: endpoint@0 {
-> +                reg = <0>;
-> +                remote-endpoint = <&dc_out_hdmi>;
-> +            };
-> +        };
-> +    };
-> diff --git a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
-> index 0039319e91fe..cf9b657d0e8a 100644
-> --- a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
-> +++ b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
-> @@ -24,6 +24,7 @@ properties:
->             - enum:
->                 - starfive,jh7110-aon-syscon
->                 - starfive,jh7110-stg-syscon
-> +              - starfive,jh7110-vout-syscon
->             - const: syscon
->   
->     reg:
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 7b151710e8c5..7caaadb83f3f 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -6881,6 +6881,13 @@ T:	git git://anongit.freedesktop.org/drm/drm-misc
->   F:	Documentation/devicetree/bindings/display/ste,mcde.yaml
->   F:	drivers/gpu/drm/mcde/
->   
-> +DRM DRIVERS FOR STARFIVE
-> +M:	Keith Zhao <keith.zhao@starfivetech.com>
-> +L:	dri-devel@lists.freedesktop.org
-> +S:	Maintained
-> +T:	git git://anongit.freedesktop.org/drm/drm-misc
-> +F:	Documentation/devicetree/bindings/display/starfive/
-> +
->   DRM DRIVER FOR TI DLPC3433 MIPI DSI TO DMD BRIDGE
->   M:	Jagan Teki <jagan@amarulasolutions.com>
->   S:	Maintained
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCAxMCBBdWcgMjAyMyAwMjowNzoxMCBQRFQgKC0wNzAwKSwgQ29ub3IgRG9vbGV5IHdy
+b3RlOgo+IE9uIFdlZCwgQXVnIDA5LCAyMDIzIGF0IDAyOjAxOjA3QU0gLTA3MDAsIEF0aXNoIEt1
+bWFyIFBhdHJhIHdyb3RlOgo+PiBPbiBUdWUsIEF1ZyA4LCAyMDIzIGF0IDY6MznigK9BTSBDb25v
+ciBEb29sZXkgPGNvbm9yQGtlcm5lbC5vcmc+IHdyb3RlOgo+PiA+Cj4+ID4gT24gVHVlLCBBdWcg
+MDgsIDIwMjMgYXQgMTI6NTQ6MTFBTSAtMDcwMCwgQXRpc2ggS3VtYXIgUGF0cmEgd3JvdGU6Cj4+
+ID4gPiBPbiBXZWQsIEF1ZyAyLCAyMDIzIGF0IDQ6MTTigK9BTSBDb25vciBEb29sZXkgPGNvbm9y
+LmRvb2xleUBtaWNyb2NoaXAuY29tPiB3cm90ZToKPj4gPiA+ID4KPj4gPiA+ID4gQWRkIGFuIGVy
+cmF0dW0gZm9yIHZlcnNpb25zIFt2MC44IHRvIHYxLjMpIG9mIE9wZW5TQkkgd2hpY2ggZmFpbCB0
+byBhZGQKPj4gPiA+ID4gdGhlICJuby1tYXAiIHByb3BlcnR5IHRvIHRoZSByZXNlcnZlZCBtZW1v
+cnkgbm9kZXMgZm9yIHRoZSByZWdpb25zIGl0Cj4+ID4gPiA+IGhhcyBwcm90ZWN0ZWQgdXNpbmcg
+UE1Qcy4KPj4gPiA+ID4KPj4gPiA+ID4gT3VyIGV4aXN0aW5nIGZpeCBzd2VlcGluZyBoaWJlcm5h
+dGlvbiB1bmRlciB0aGUgY2FycGV0IGJ5IG1hcmtpbmcgaXQKPj4gPiA+ID4gTk9OUE9SVEFCTEUg
+aXMgaW5zdWZmaWNpZW50IGFzIHRoZXJlIGFyZSBvdGhlciB3YXlzIHRvIGdlbmVyYXRlCj4+ID4g
+PiA+IGFjY2Vzc2VzIHRvIHRoZXNlIHJlc2VydmVkIG1lbW9yeSByZWdpb25zLCBhcyBQZXRyIGRp
+c2NvdmVyZWQgWzFdCj4+ID4gPiA+IHdoaWxlIHRlc3RpbmcgY3Jhc2gga2VybmVscyAmIGtkdW1w
+Lgo+PiA+ID4gPgo+PiA+ID4gPiBJbnRlcmNlZGUgZHVyaW5nIHRoZSBib290IHByb2Nlc3Mgd2hl
+biB0aGUgYWZmbGljdGVkIHZlcnNpb25zIG9mIE9wZW5TQkkKPj4gPiA+ID4gYXJlIHByZXNlbnQg
+JiBzZXQgdGhlICJuby1tYXAiIHByb3BlcnR5IGluIGFsbCAibW1vZGVfcmVzdiIgbm9kZXMgYmVm
+b3JlCj4+ID4gPiA+IHRoZSBrZXJuZWwgZG9lcyBpdHMgcmVzZXJ2ZWQgbWVtb3J5IHJlZ2lvbiBp
+bml0aWFsaXNhdGlvbi4KPj4gPiA+ID4KPj4gPiA+Cj4+ID4gPiBXZSBoYXZlIGRpZmZlcmVudCBt
+ZWNoYW5pc21zIG9mIERUIGJlaW5nIHBhc3NlZCB0byB0aGUga2VybmVsLgo+PiA+ID4KPj4gPiA+
+IDEuIEEgcHJpb3Igc3RhZ2UoZS5nIFUtQm9vdCBTUEwpIHRvIE0tbW9kZSBydW50aW1lIGZpcm13
+YXJlIChlLmcuCj4+ID4gPiBPcGVuU0JJLCBydXN0U0JJKSBwYXNzZXMgdGhlIERUIHRvIE0tbW9k
+ZSBydW50aW1lIGZpcm13YXJlIGFuZCBpdAo+PiA+ID4gcGFzc2VzIHRvIHRoZSBuZXh0IHN0YWdl
+Lgo+PiA+ID4gSW4gdGhpcyBjYXNlLCBNLW1vZGUgcnVudGltZSBmaXJtd2FyZSBnZXRzIGEgY2hh
+bmNlIHRvIHVwZGF0ZSB0aGUKPj4gPiA+IG5vLW1hcCBwcm9wZXJ0eSBpbiBEVCB0aGF0IHRoZSBr
+ZXJuZWwgY2FuIHBhcnNlLgo+PiA+ID4KPj4gPiA+IDIuIFVzZXIgbG9hZHMgdGhlIERUIGZyb20g
+dGhlIGJvb3QgbG9hZGVyIChlLmcgRURLMiwgVS1Cb290IHByb3BlcikuCj4+ID4gPiBBbnkgRFQg
+cGF0Y2hpbmcgZG9uZSBieSB0aGUgTS1tb2RlIGZpcm13YXJlIGlzIHVzZWxlc3MuIElmIHRoZXNl
+IERUQnMKPj4gPiA+IGRvbid0IGhhdmUgdGhlIG5vLW1hcAo+PiA+ID4gcHJvcGVydHksIGhpYmVy
+bmF0aW9uIG9yIEVGSSBib290aW5nIHdpbGwgaGF2ZSBpc3N1ZXMgYXMgd2VsbC4KPj4gPiA+Cj4+
+ID4KPj4gPiA+IFdlIGFyZSB0cnlpbmcgdG8gc29sdmUgb25seSBvbmUgcGFydCBvZiBwcm9ibGVt
+ICMxIGluIHRoaXMgcGF0Y2guCj4+ID4KPj4gPiBDb3JyZWN0Lgo+PiA+Cj4+ID4gSWYgc29tZW9u
+ZSdzIHNlY29uZCBzdGFnZSBpcyBhbHNvIHByb3ZpZGluZyBhbiBpbmNvcnJlY3QgZGV2aWNldHJl
+ZQo+PiA+IHRoZW4sIHllYWgsIHRoaXMgYXBwcm9hY2ggd291bGQgZmFsbCBhcGFydCAtIGJ1dCBp
+dCdzIHRoZSBmaXJtd2FyZQo+PiA+IHByb3ZpZGVkIGRldmljZXRyZWUgYmVpbmcgaW5jb3JyZWN0
+IHRoYXQgSSBhbSB0cnlpbmcgdG8gYWNjb3VudCBmb3IKPj4gPiBoZXJlLiBJZiBhIHBlcnNvbiBp
+bmNvcnJlY3RseSBjb25zdHJ1Y3RlZCBvbmUsIEkgYW0gbm90IHJlYWxseSBzdXJlIHdoYXQKPj4g
+PiB3ZSBjYW4gZG8gZm9yIHRoZW0sIHRoZXkgaW5jb3JyZWN0IGRlc2NyaWJlZCB0aGVpciBoYXJk
+d2FyZSAvc2hydWcKPj4gPiBNeSBwYXRjaCBzaG91bGQgb2YgY291cnNlIGhlbHAgaW4gc29tZSBv
+ZiB0aGUgc2NlbmFyaW9zIHlvdSBtZW50aW9uIGFib3ZlCj4+ID4gaWYgdGhlIG5hbWUgb2YgdGhl
+IHJlc2VydmVkIG1lbW9yeSByZWdpb24gZnJvbSBPcGVuU0JJIGlzIHByb3BhZ2F0ZWQgYnkKPj4g
+PiB0aGUgc2Vjb25kLXN0YWdlIGJvb3Rsb2FkZXIsIGJ1dCB0aGF0IGlzIGp1c3QgYW4gZXh0ZW5z
+aW9uIG9mIGNhc2UgMSwKPj4gPiBub3QgY2FzZSAyLgo+PiA+Cj4+ID4gPiBJCj4+ID4gPiBkb24n
+dCB0aGluayBhbnkgb3RoZXIgTS1tb2RlIHJ1bnRpbWUgZmlybXdhcmUgcGF0Y2hlcyBEVCB3aXRo
+IG5vLW1hcAo+PiA+ID4gcHJvcGVydHkgYXMgd2VsbC4KPj4gPiA+IFBsZWFzZSBsZXQgbWUga25v
+dyBpZiBJIGFtIHdyb25nIGFib3V0IHRoYXQuIFRoZSBwcm9ibGVtIGlzIG5vdAo+PiA+ID4gcmVz
+dHJpY3RlZCB0byBbdjAuOCB0byB2MS4zKSBvZiBPcGVuU0JJLgo+PiA+Cj4+ID4gSXQgY29tZXMg
+ZG93biB0byBBbGV4J3MgcXVlc3Rpb24gLSBkbyB3ZSB3YW50IHRvIGZpeCB0aGlzIGtpbmQgb2YK
+Pj4gPiBmaXJtd2FyZSBpc3N1ZSBpbiB0aGUga2VybmVsPyBVbHRpbWF0ZWx5IHRoaXMgaXMgYSBw
+b2xpY3kgZGVjaXNpb24gdGhhdAo+PiA+ICJzb21lYm9keSIgaGFzIHRvIG1ha2UuIE1heWJlIHRo
+ZSBsaXN0IG9mIGZpcm13YXJlcyB0aGF0IG5lZWQgdGhpcwo+PiAKPj4gSU1PLCB3ZSBzaG91bGRu
+J3QgYXMgdGhpcyBpcyBhIHNsaXBwZXJ5IHNsb3BlLiBLZXJuZWwgY2FuJ3QgZml4IGV2ZXJ5Cj4+
+IGZpcm13YXJlIGJ1ZyBieSBoYXZpbmcgZXJyYXRhcy4KPj4gSSBhZ3JlZSB3aXRoIHlvdXIgcG9p
+bnQgYmVsb3cgYWJvdXQgZmlybXdhcmUgaW4gc2hpcHBpbmcgcHJvZHVjdHMuIEkKPj4gYW0gbm90
+IGF3YXJlIG9mIGFueSBvZmZpY2lhbCBwcm9kdWN0cyBzaGlwcGluZyBhbnl0aGluZyBvdGhlciB0
+aGFuCj4+IE9wZW5TQkkgZWl0aGVyLgo+Cj4+IEhvd2V2ZXIsIEkgaGF2ZSBzZWVuIHVzZXJzIHVz
+aW5nIG90aGVyIGZpcm13YXJlcyBpbiB0aGVpciBkZXYKPj4gZW52aXJvbm1lbnQuCj4KPiBJZiBz
+b21lb25lJ3MgYWxyZWFkeSBjaGFuZ2VkIHRoZWlyIGJvYXJkcyBmaXJtd2FyZSwgSSBoYXZlIGxl
+c3Mgc3ltcGF0aHkKPiBmb3IgdGhlbSwgYXMgdGhleSBzaG91bGQgYmUgYWJsZSB0byBtYWtlIGZ1
+cnRoZXIgY2hhbmdlcy4gUHVudGVycyBidXlpbmcKPiBTQkNzIHRvIGluc3RhbGwgRmVkb3JhIG9y
+IERlYmlhbiB3L28gaGF2aW5nIHRvIGNvbnNpZGVyIHRoZWlyIGZpcm13YXJlCj4gYXJlIHdobyBJ
+IGFtIG1vcmUgaW50ZXJlc3RlZCBpbiBoZWxwaW5nLgo+Cj4+IElNSE8sIHRoaXMgYXBwcm9hY2gg
+c2V0cyBhIGJhZCBwcmVjZWRlbnQgZm9yIHRoZSBmdXR1cmUgZXNwZWNpYWxseQo+PiB3aGVuIGl0
+IG9ubHkgc29sdmVzIG9uZSBwYXJ0IG9mIHRoZSBwcm9ibGVtLgo+Cj4gWWVhaCwgSSdtIGNlcnRh
+aW5seSB3YXJ5IG9mIHNldHRpbmcgYW4gdW53aXNlIHByZWNlZGVudCBoZXJlLgo+IEluZXZpdGFi
+bHkgd2Ugd2lsbCBuZWVkIHRvIGhhdmUgZmlybXdhcmUtcmVsYXRlZCBlcnJhdGEgYW5kIGl0J2Qg
+YmUgZ29vZAo+IHRvIGhhdmUgYSBwb2xpY3kgZm9yIHdoYXQgaXMgKG9yIG1vcmUgaW1wb3J0YW50
+bHkgd2hhdCBpc24ndAo+IGFjY2VwdGFibGUpLiBDZXJ0YWlubHkgd2UgaGF2ZSBzYWlkIHRoYXQg
+a25vd24tYnJva2VuIHZlcnNpb24gb2YgT3BlblNCSQo+IHRoYXQgVC1IZWFkIHB1dHMgaW4gdGhl
+aXIgU0RLIGlzIG5vdCBzdXBwb3J0ZWQgYnkgdGhlIG1haW5saW5lIGtlcm5lbC4KPiBPbiB0aGUg
+bGF0dGVyIHBhcnQsIEknbSBwZXJmZWN0bHkgaGFwcHkgdG8gZXhwYW5kIHRoZSBlcnJhdHVtIHRv
+IGNvdmVyCj4gYWxsIGFmZmVjdGVkIGZpcm13YXJlcywgYnV0IEkgd2Fzbid0IGV2ZW4gc3VyZSBp
+ZiBteSBmaXggd29ya2VkCj4gcHJvcGVybHksIGhlbmNlIHRoZSByZXF1ZXN0IGZvciB0ZXN0aW5n
+IGZyb20gdGhvc2Ugd2hvIGVuY291bnRlcmVkIHRoZQo+IHByb2JsZW0uCj4KPj4gV2Ugc2hvdWxk
+bid0IGhpZGUgZmlybXdhcmUgYnVncyBpbiB0aGUga2VybmVsIHdoZW4gYW4gdXBncmFkZWQKPj4g
+ZmlybXdhcmUgaXMgYWxyZWFkeSBhdmFpbGFibGUuCj4KPiBKdXN0IHRvIG5vdGUsIGF2YWlsYWJp
+bGl0eSBvZiBhbiB1cGRhdGVkIGZpcm13YXJlIHVwc3RyZWFtIGRvZXMgbm90Cj4gbmVjZXNzYXJp
+bHkgbWVhbiB0aGF0IGNvcnJlc3BvbmRpbmcgdXBkYXRlIGlzIHBvc3NpYmxlIGZvciBhZmZlY3Rl
+ZAo+IGhhcmR3YXJlLgoKWWVwLiAgSSB0aGluayB3ZSdyZSBiZWVuIGluIGEgdmVyeSBob2JiaXN0
+LWNlbnRyaWMgd29ybGQgaW4gUklTQy1WIGxhbmQsIApidXQgaW4gZ2VuZXJhbCB0cnlpbmcgdG8g
+Z2V0IHBlb3BsZSB0byB1cGRhdGUgZmlybXdhcmUgaXMgaGFyZC4gIFBhcnQgb2YgCnRoZSB3aG9s
+ZSAia2VybmVsIHVwZGF0ZXMgZG9uJ3QgYnJlYWsgdXNlcnMiIHRoaW5nIGlzIHdoYXQncyB1bmRl
+cm5lYXRoIAp0aGUga2VybmVsLCBpdCdzIG5vdCBqdXN0IGEgdUFCSSB0aGluZy4KCj4+IFRoaXMg
+YnVnIGlzIHdlbGwgZG9jdW1lbnRlZCBpbiB2YXJpb3VzIHRocmVhZHMgYW5kIGZpeGVkIGluIHRo
+ZSBsYXRlc3QKPj4gdmVyc2lvbiBvZiBPcGVuU0JJLgo+PiBJIGFtIGFzc3VtaW5nIG90aGVyIGZp
+cm13YXJlcyB3aWxsIGZvbGxvdyBpdCBhcyB3ZWxsLgo+PiAKPj4gQW55Ym9keSBmYWNpbmcgaGli
+ZXJuYXRpb24gb3IgZWZpIHJlbGF0ZWQgYm9vdGluZyBpc3N1ZXMgc2hvdWxkIGp1c3QKPj4gdXBn
+cmFkZSB0byB0aGUgbGF0ZXN0IHZlcnNpb24gb2YgZmlybXdhcmUgKGUuZyBPcGVuU0JJIHYxLjMp
+Cj4+IExhdGVzdCB2ZXJzaW9uIG9mIFFlbXUgd2lsbCBzdXBwb3J0KGlmIG5vdCBoYXBwZW5lZCBh
+bHJlYWR5KSB0aGUKPj4gbGF0ZXN0IHZlcnNpb24gb2YgT3BlblNCSS4KPj4gCj4+IFRoaXMgaXNz
+dWUgd2lsbCBvbmx5IG1hbmlmZXN0IGluIGtlcm5lbHMgNi40IG9yIGhpZ2hlci4gQW55IHVzZXIK
+Pj4gZmFjaW5nIHRoZXNlIHdpdGggdGhlIGxhdGVzdCBrZXJuZWwgY2FuIGFsc28gdXBncmFkZSB0
+aGUgZmlybXdhcmUuCj4+IERvIHlvdSBzZWUgYW55IGlzc3VlIHdpdGggdGhhdCA/Cj4KPiBJIGRv
+bid0IHRoaW5rIGl0IGlzIGZhaXIgdG8gY29tcGFyZSB0aGUgZWFzZSBvZiB1cGdyYWRpbmcgdGhl
+IGtlcm5lbAo+IHRvIHRoYXQgcmVxdWlyZWQgdG8gdXBncmFkZSBhIGJvYXJkcyBmaXJtd2FyZSwg
+d2l0aCB0aGUgbGF0dGVyIGJlaW5nCj4gZmFyLCBmYXIgbW9yZSBpbmNvbnZlbmllbnQgb24gcHJl
+dHR5IG11Y2ggYWxsIG9mIHRoZSBib2FyZHMgdGhhdCBJIGhhdmUuCgpJTU8gd2UncmUgaW4gdGhl
+IHNhbWUgc3BvdCBhcyBldmVyeSBvdGhlciBwb3J0IGhlcmUsIGFuZCBnZW5lcmFsbHkgdGhleSAK
+d29yayBhcm91bmQgZmlybXdhcmUgYnVncyB3aGVuIHRoZXkndmUgcm9sbGVkIG91dCBpbnRvIHBy
+b2R1Y3Rpb24gCnNvbWV3aGVyZSB0aGF0IGZpcm13YXJlIHVwZGF0ZXMgYXJlbid0IGxpa2VseSB0
+byBoYXBwZW4gcXVpY2tseS4gIEknbSAKbm90IHN1cmUgaWYgdGhlcmUncyBhbnkgc29ydCBvZiBl
+eGFjdCBydWxlcyB3cml0dGVuIGRvd24gYW55d2hlcmUsIGJ1dCAKSU1PIGlmIHRoZSBidWcgaXMg
+Z29pbmcgdG8gaW1wYWN0IHVzZXJzIHRoZW4gd2Ugc2hvdWxkIGRlYWwgd2l0aCBpdC4KClRoYXQg
+YXBwbGllcyBmb3IgaGFyZHdhcmUgYnVncywgYnV0IGFsc28gZmlybXdhcmUgYnVncyAoYXQgYSBj
+ZXJ0YWluIApwb2ludCB3ZSB3b24ndCBiZSBhYmxlIHRvIHRlbGwgdGhlIGRpZmZlcmVuY2UpLiAg
+V2UncmUgc29ydCBvZiBkb2luZyAKdGhpcyB3aXRoIHRoZSBtaXNhbGlnbmVkIGFjY2VzcyBoYW5k
+bGluZywgZm9yIGV4YW1wbGUuCgo+IEknbSBwZXJmZWN0bHkgaGFwcHkgdG8gZHJvcCB0aGlzIHNl
+cmllcyB0aG91Z2gsIGlmIHBlb3BsZSBnZW5lcmFsbHkgYXJlCj4gb2YgdGhlIG9waW5pb24gdGhh
+dCB0aGlzIHNvcnQgb2YgZmlybXdhcmUgd29ya2Fyb3VuZCBpcyBpbGwtYWR2aXNlZC4KPiBXZSBh
+cmUgdW5hZmZlY3RlZCBieSBpdCwgc28gSSBjZXJ0YWlubHkgaGF2ZSBubyBwcmVzc3VyZSB0byBo
+YXZlCj4gc29tZXRoaW5nIHdvcmtpbmcgaGVyZS4gSXQncyBteSBkZXNpcmUgbm90IHRvIGJlIHVz
+ZXItaG9zdGlsZSB0aGF0Cj4gbW90aXZhdGVkIHRoaXMgcGF0Y2guCgpJSVVDIHlvdSBndXlzIGFu
+ZCBSZW5lYXMgYXJlIHRoZSBvbmx5IG9uZXMgd2hvIGhhdmUgaGFyZHdhcmUgdGhhdCBtaWdodCAK
+YmUgaW4gYSBzcG90IHdoZXJlIHVzZXJzIGFyZW4ndCBhYmxlIHRvIHVwZGF0ZSB0aGUgZmlybXdh
+cmUgKGllLCBpdCdzIApvdXQgaW4gcHJvZHVjdGlvbiBzb21ld2hlcmUpLiAgU28gSSdtIGFkZGlu
+ZyBHZWVydCwgdGhvdWdoIGhlIHByb2JhYmx5IApzYXcgdGhpcyBtb250aHMgYWdvLi4uCgpPbiB0
+aGF0IG5vdGU6IEl0J3MgYmVlbiB+NCBtb250aHMgYW5kIGl0IGxvb2sgbGlrZSBub2JvZHkncyB0
+ZXN0ZWQgCmFueXRoaW5nIChhbmQgdGhlIGNvbW1lbnRzIGFyZW4ndCByZWFsbHkgdGhpbmdzIHRo
+YXQgd291bGQgcHJlY3VsZGUgCnRlc3RpbmcpLiAgU28gbWF5YmUgd2UganVzdCBwaWNrIHRoYXQg
+c2Vjb25kIHBhdGNoIHVwIGludG8gZm9yLW5leHQgYW5kIApzZWUgd2hhdCBoYXBwZW5zPyAgSUlV
+QyB0aGF0IHdpbGwgcmVzdWx0IGluIGJyb2tlbiBzeXN0ZW1zIGZvciB1c2VycyB3aG8gCmhhdmVu
+J3QgdXBkYXRlZCB0aGVpciBmaXJtd2FyZS4KCkkgYWdyZWUgdGhhdCdzIGEgdXNlci1ob3N0aWxl
+IHdheSB0byBkbyB0aGluZ3MsIHdoaWNoIGlzIGdlbmVyYWxseSBhIGJhZCAKd2F5IHRvIGdvLCBi
+dXQgaWYgaXQncyByZWFsbHkgdHJ1ZSB0aGF0IHRoZXJlJ3Mgbm8gdXNlcnMgdGhlbiB3ZSdyZSAK
+c2FmZS4gIFByb2JhYmx5IGFsc28gd29ydGggY2FsbGluZyBpdCBvdXQgb24gc3ctZGV2IGp1c3Qg
+dG8gYmUgc2FmZS4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
