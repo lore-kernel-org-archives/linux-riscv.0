@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE674C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 11:51:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7352AC4167B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 11:51:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A6YGiNlY1PMX25LX+M0BC3zpZrerHB5NVZKI6tVaocI=; b=qRWaBgb7FYxoPE
-	deIuo6lyHtxLoXr7SKfX6uGlv388s1tzUtAAJ6jY4uKqU/W+F0Wwfrq3ffZhMp8fm6XSbaOTr5nWx
-	JmBHQKTmutT093SNV/r2n0UgEajsnfk4NDFKjFuOgkOcz5I8BgoHokLvIeXJt6G6yybEquCNwAgok
-	OuGJByGLbIp0d/v2sDUqFTWgU82oV96VH7jyUAqz/r0qBugqSo9Oq2kEsXeWIUsbjmuwgUdGbvUsW
-	FgNqyGw4dkTnGA6x0SYMp1+3WldI0j3bLIu+wgiJCbNyfu1bR4BFG7cLLRF79+gP9O12Vstl+zg/N
-	YyfgC+a3h3tFEfezxjFg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+fGuBm3DyMWiZIX+GG6SjNehWDGOW/haxxP1Qni0V/A=; b=bi2un1vU5ej2P5
+	7X5jhzvmXp7H+WbrpknlZKzAaWBQz1pWrP4rVPEL05EnASrjBmYMjPEjZ+a9AjfNPHqyL2niyAk8K
+	2cM1E27SEZJ6hoFHxmFWvaSE1WPIA2nomBpcoAFvPsHXo5ZbXhcVC44z2hhWbf9btIrynhJ3hePZu
+	ojBzuwRlI5CbgVbN8+t+UqQH09uvxvp7/1vlnCCf1NqPgQXxwcqK/cxx+N86xdkJgxdbpygHd1Cqz
+	974Eafg07DUt9W69k6WTCUiDeSNmvtAS/77TcGZAdwT77JZ2xx910e0d1IJ3a6MfXx6uOWckNfdPU
+	+P/aJ1roiPw9FiX/USzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAqQo-00A91P-0F;
-	Wed, 06 Dec 2023 11:51:10 +0000
+	id 1rAqQs-00A95e-2w;
+	Wed, 06 Dec 2023 11:51:14 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rAqQU-00A8eT-0r
+	id 1rAqQS-00A813-2y
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 11:50:54 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	Wed, 06 Dec 2023 11:50:53 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 1728D24E2DC;
-	Wed,  6 Dec 2023 19:50:38 +0800 (CST)
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 6 Dec
- 2023 19:50:38 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id AAD0924E2F7;
+	Wed,  6 Dec 2023 19:50:12 +0800 (CST)
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 6 Dec
+ 2023 19:50:12 +0800
 Received: from jsia-virtual-machine.localdomain (175.136.135.142) by
  EXMBX066.cuchost.com (172.16.6.66) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Wed, 6 Dec 2023 19:50:30 +0800
+ 15.0.1497.42; Wed, 6 Dec 2023 19:50:05 +0800
 From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
 	<krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
@@ -48,20 +48,18 @@ To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
 CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
 	<jeeheng.sia@starfivetech.com>, <leyfoon.tan@starfivetech.com>
-Subject: [PATCH v1 03/16] clk: starfive: Rename file name "jh71x0" to "common"
-Date: Wed, 6 Dec 2023 19:49:47 +0800
-Message-ID: <20231206115000.295825-4-jeeheng.sia@starfivetech.com>
+Subject: [PATCH v1 00/16] Basic clock and reset support for StarFive JH8100 RISC-V SoC
+Date: Wed, 6 Dec 2023 19:49:44 +0800
+Message-ID: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
-References: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [175.136.135.142]
 X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX066.cuchost.com
  (172.16.6.66)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_035050_700481_F1D93C8C 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20231206_035049_279977_4A3A449F 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,152 +76,134 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This patch series enabled basic clock & reset support for StarFive
+JH8100 SoC.
+
+This patch series depends on the Initial device tree support for
+StarFive JH8100 SoC patch series which can be found at below link:
+https://lore.kernel.org/lkml/20231201121410.95298-1-jeeheng.sia@starfivetech.com/
+
 StarFive JH8100 shares a similar clock and reset design with JH7110.
 To facilitate the reuse of the file and its functionalities, files
-containing the "jh71x0" naming convention are renamed to use the
-"common" wording.
+containing the 'jh71x0' naming convention are renamed to use the
+'common' wording. Internal functions that contain the 'jh71x0'
+naming convention are renamed to use 'starfive.' This is accomplished
+through patches 1, 2, 3, and 4.
 
-Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
----
- drivers/clk/starfive/Kconfig                              | 8 ++++----
- drivers/clk/starfive/Makefile                             | 2 +-
- .../{clk-starfive-jh71x0.c => clk-starfive-common.c}      | 4 ++--
- .../{clk-starfive-jh71x0.h => clk-starfive-common.h}      | 4 ++--
- drivers/clk/starfive/clk-starfive-jh7100-audio.c          | 2 +-
- drivers/clk/starfive/clk-starfive-jh7100.c                | 2 +-
- drivers/clk/starfive/clk-starfive-jh7110.h                | 2 +-
- 7 files changed, 12 insertions(+), 12 deletions(-)
- rename drivers/clk/starfive/{clk-starfive-jh71x0.c => clk-starfive-common.c} (99%)
- rename drivers/clk/starfive/{clk-starfive-jh71x0.h => clk-starfive-common.h} (97%)
 
-diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
-index bd29358ffeec..ff8eace36e64 100644
---- a/drivers/clk/starfive/Kconfig
-+++ b/drivers/clk/starfive/Kconfig
-@@ -1,12 +1,12 @@
- # SPDX-License-Identifier: GPL-2.0
- 
--config CLK_STARFIVE_JH71X0
-+config CLK_STARFIVE_COMMON
- 	bool
- 
- config CLK_STARFIVE_JH7100
- 	bool "StarFive JH7100 clock support"
- 	depends on ARCH_STARFIVE || COMPILE_TEST
--	select CLK_STARFIVE_JH71X0
-+	select CLK_STARFIVE_COMMON
- 	default ARCH_STARFIVE
- 	help
- 	  Say yes here to support the clock controller on the StarFive JH7100
-@@ -15,7 +15,7 @@ config CLK_STARFIVE_JH7100
- config CLK_STARFIVE_JH7100_AUDIO
- 	tristate "StarFive JH7100 audio clock support"
- 	depends on CLK_STARFIVE_JH7100
--	select CLK_STARFIVE_JH71X0
-+	select CLK_STARFIVE_COMMON
- 	default m if ARCH_STARFIVE
- 	help
- 	  Say Y or M here to support the audio clocks on the StarFive JH7100
-@@ -33,7 +33,7 @@ config CLK_STARFIVE_JH7110_SYS
- 	bool "StarFive JH7110 system clock support"
- 	depends on ARCH_STARFIVE || COMPILE_TEST
- 	select AUXILIARY_BUS
--	select CLK_STARFIVE_JH71X0
-+	select CLK_STARFIVE_COMMON
- 	select RESET_STARFIVE_JH7110 if RESET_CONTROLLER
- 	select CLK_STARFIVE_JH7110_PLL
- 	default ARCH_STARFIVE
-diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
-index 199ac0f37a2f..012f7ee83f8e 100644
---- a/drivers/clk/starfive/Makefile
-+++ b/drivers/clk/starfive/Makefile
-@@ -1,5 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
--obj-$(CONFIG_CLK_STARFIVE_JH71X0)	+= clk-starfive-jh71x0.o
-+obj-$(CONFIG_CLK_STARFIVE_COMMON)	+= clk-starfive-common.o
- 
- obj-$(CONFIG_CLK_STARFIVE_JH7100)	+= clk-starfive-jh7100.o
- obj-$(CONFIG_CLK_STARFIVE_JH7100_AUDIO)	+= clk-starfive-jh7100-audio.o
-diff --git a/drivers/clk/starfive/clk-starfive-jh71x0.c b/drivers/clk/starfive/clk-starfive-common.c
-similarity index 99%
-rename from drivers/clk/starfive/clk-starfive-jh71x0.c
-rename to drivers/clk/starfive/clk-starfive-common.c
-index aebc99264a0b..a12490c97957 100644
---- a/drivers/clk/starfive/clk-starfive-jh71x0.c
-+++ b/drivers/clk/starfive/clk-starfive-common.c
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0
- /*
-- * StarFive JH71X0 Clock Generator Driver
-+ * StarFive Clock Generator Driver
-  *
-  * Copyright (C) 2021-2022 Emil Renner Berthing <kernel@esmil.dk>
-  */
-@@ -10,7 +10,7 @@
- #include <linux/device.h>
- #include <linux/io.h>
- 
--#include "clk-starfive-jh71x0.h"
-+#include "clk-starfive-common.h"
- 
- static struct jh71x0_clk *jh71x0_clk_from(struct clk_hw *hw)
- {
-diff --git a/drivers/clk/starfive/clk-starfive-jh71x0.h b/drivers/clk/starfive/clk-starfive-common.h
-similarity index 97%
-rename from drivers/clk/starfive/clk-starfive-jh71x0.h
-rename to drivers/clk/starfive/clk-starfive-common.h
-index 34bb11c72eb7..1f32f7024e9f 100644
---- a/drivers/clk/starfive/clk-starfive-jh71x0.h
-+++ b/drivers/clk/starfive/clk-starfive-common.h
-@@ -1,6 +1,6 @@
- /* SPDX-License-Identifier: GPL-2.0 */
--#ifndef __CLK_STARFIVE_JH71X0_H
--#define __CLK_STARFIVE_JH71X0_H
-+#ifndef __CLK_STARFIVE_COMMON_H
-+#define __CLK_STARFIVE_COMMON_H
- 
- #include <linux/bits.h>
- #include <linux/clk-provider.h>
-diff --git a/drivers/clk/starfive/clk-starfive-jh7100-audio.c b/drivers/clk/starfive/clk-starfive-jh7100-audio.c
-index ee4bda14a40e..dc4c278606d7 100644
---- a/drivers/clk/starfive/clk-starfive-jh7100-audio.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7100-audio.c
-@@ -15,7 +15,7 @@
- 
- #include <dt-bindings/clock/starfive-jh7100-audio.h>
- 
--#include "clk-starfive-jh71x0.h"
-+#include "clk-starfive-common.h"
- 
- /* external clocks */
- #define JH7100_AUDCLK_AUDIO_SRC			(JH7100_AUDCLK_END + 0)
-diff --git a/drivers/clk/starfive/clk-starfive-jh7100.c b/drivers/clk/starfive/clk-starfive-jh7100.c
-index 69cc11ea7e33..6bb6a6af9f28 100644
---- a/drivers/clk/starfive/clk-starfive-jh7100.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7100.c
-@@ -15,7 +15,7 @@
- 
- #include <dt-bindings/clock/starfive-jh7100.h>
- 
--#include "clk-starfive-jh71x0.h"
-+#include "clk-starfive-common.h"
- 
- /* external clocks */
- #define JH7100_CLK_OSC_SYS		(JH7100_CLK_END + 0)
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110.h b/drivers/clk/starfive/clk-starfive-jh7110.h
-index 0659adae4d76..6b1bdf860f00 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110.h
-+++ b/drivers/clk/starfive/clk-starfive-jh7110.h
-@@ -2,7 +2,7 @@
- #ifndef __CLK_STARFIVE_JH7110_H
- #define __CLK_STARFIVE_JH7110_H
- 
--#include "clk-starfive-jh71x0.h"
-+#include "clk-starfive-common.h"
- 
- /* top clocks of ISP/VOUT domain from JH7110 SYSCRG */
- struct jh7110_top_sysclk {
+Patch 5 adds documentation to describe System (SYSCRG) Clock & Reset
+binding.
+Patch 6 adds SYSCRG clock driver.
+
+patch 7 adds documentation to describe System-North-West (SYSCRG-NW)
+Clock & Reset binding.
+Patch 8 adds SYSCRG-NW clock driver.
+
+patch 9 adds documentation to describe System-North-East (SYSCRG-NE)
+Clock & Reset binding.
+Patch 10 adds SYSCRG-NE clock driver.
+
+patch 11 adds documentation to describe System-South-West (SYSCRG-SW)
+Clock & Reset binding.
+Patch 12 adds SYSCRG-SW clock driver.
+
+patch 13 adds documentation to describe Always-On (AON)
+Clock & Reset binding.
+Patch 14 adds AON clock driver.
+
+Patch 15 adds support for the auxiliary reset driver.
+
+Patch 16 adds clocks and reset nodes to the JH8100 device tree.
+
+Sia Jee Heng (16):
+  reset: starfive: Rename file name "jh71x0" to "common"
+  reset: starfive: Convert the word "jh71x0" to "starfive"
+  clk: starfive: Rename file name "jh71x0" to "common"
+  clk: starfive: Convert the word "jh71x0" to "starfive"
+  dt-bindings: clock: Add StarFive JH8100 System clock and reset
+    generator
+  clk: starfive: Add JH8100 System clock generator driver
+  dt-bindings: clock: Add StarFive JH8100 System-North-West clock and
+    reset generator
+  clk: starfive: Add JH8100 System-North-West clock generator driver
+  dt-bindings: clock: Add StarFive JH8100 System-North-East clock and
+    reset generator
+  clk: starfive: Add JH8100 System-North-East clock generator driver
+  dt-bindings: clock: Add StarFive JH8100 System-South-West clock and
+    reset generator
+  clk: starfive: Add JH8100 System-South-West clock generator driver
+  dt-bindings: clock: Add StarFive JH8100 Always-On clock and reset
+    generator
+  clk: starfive: Add JH8100 Always-On clock generator driver
+  reset: starfive: Add StarFive JH8100 reset driver
+  riscv: dts: starfive: jh8100: Add clocks and resets nodes
+
+ .../clock/starfive,jh8100-aoncrg.yaml         |  77 +++
+ .../clock/starfive,jh8100-syscrg-ne.yaml      | 158 +++++
+ .../clock/starfive,jh8100-syscrg-nw.yaml      | 119 ++++
+ .../clock/starfive,jh8100-syscrg-sw.yaml      |  66 ++
+ .../clock/starfive,jh8100-syscrg.yaml         |  66 ++
+ MAINTAINERS                                   |  15 +
+ arch/riscv/boot/dts/starfive/jh8100-clk.dtsi  | 180 ++++++
+ arch/riscv/boot/dts/starfive/jh8100.dtsi      | 115 ++++
+ drivers/clk/starfive/Kconfig                  |  49 +-
+ drivers/clk/starfive/Makefile                 |   3 +-
+ drivers/clk/starfive/clk-starfive-common.c    | 327 ++++++++++
+ drivers/clk/starfive/clk-starfive-common.h    | 130 ++++
+ .../clk/starfive/clk-starfive-jh7100-audio.c  | 127 ++--
+ drivers/clk/starfive/clk-starfive-jh7100.c    | 503 ++++++++--------
+ .../clk/starfive/clk-starfive-jh7110-aon.c    |  62 +-
+ .../clk/starfive/clk-starfive-jh7110-isp.c    |  72 +--
+ .../clk/starfive/clk-starfive-jh7110-stg.c    |  94 +--
+ .../clk/starfive/clk-starfive-jh7110-sys.c    | 523 ++++++++--------
+ .../clk/starfive/clk-starfive-jh7110-vout.c   |  74 +--
+ drivers/clk/starfive/clk-starfive-jh7110.h    |   4 +-
+ drivers/clk/starfive/clk-starfive-jh71x0.c    | 327 ----------
+ drivers/clk/starfive/clk-starfive-jh71x0.h    | 123 ----
+ drivers/clk/starfive/jh8100/Makefile          |   7 +
+ drivers/clk/starfive/jh8100/clk-aon.c         | 275 +++++++++
+ .../clk/starfive/jh8100/clk-starfive-jh8100.h |  11 +
+ drivers/clk/starfive/jh8100/clk-sys-ne.c      | 566 ++++++++++++++++++
+ drivers/clk/starfive/jh8100/clk-sys-nw.c      | 268 +++++++++
+ drivers/clk/starfive/jh8100/clk-sys-sw.c      | 136 +++++
+ drivers/clk/starfive/jh8100/clk-sys.c         | 455 ++++++++++++++
+ drivers/reset/starfive/Kconfig                |  14 +-
+ drivers/reset/starfive/Makefile               |   4 +-
+ ...rfive-jh71x0.c => reset-starfive-common.c} |  68 +--
+ .../reset/starfive/reset-starfive-common.h    |  14 +
+ .../reset/starfive/reset-starfive-jh7100.c    |   4 +-
+ .../reset/starfive/reset-starfive-jh7110.c    |   8 +-
+ .../reset/starfive/reset-starfive-jh71x0.h    |  14 -
+ .../reset/starfive/reset-starfive-jh8100.c    | 102 ++++
+ .../dt-bindings/clock/starfive,jh8100-crg.h   | 430 +++++++++++++
+ .../dt-bindings/reset/starfive,jh8100-crg.h   | 127 ++++
+ ...rfive-jh71x0.h => reset-starfive-common.h} |  10 +-
+ 40 files changed, 4485 insertions(+), 1242 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-aoncrg.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-ne.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-nw.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-sw.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg.yaml
+ create mode 100644 arch/riscv/boot/dts/starfive/jh8100-clk.dtsi
+ create mode 100644 drivers/clk/starfive/clk-starfive-common.c
+ create mode 100644 drivers/clk/starfive/clk-starfive-common.h
+ delete mode 100644 drivers/clk/starfive/clk-starfive-jh71x0.c
+ delete mode 100644 drivers/clk/starfive/clk-starfive-jh71x0.h
+ create mode 100644 drivers/clk/starfive/jh8100/Makefile
+ create mode 100644 drivers/clk/starfive/jh8100/clk-aon.c
+ create mode 100644 drivers/clk/starfive/jh8100/clk-starfive-jh8100.h
+ create mode 100644 drivers/clk/starfive/jh8100/clk-sys-ne.c
+ create mode 100644 drivers/clk/starfive/jh8100/clk-sys-nw.c
+ create mode 100644 drivers/clk/starfive/jh8100/clk-sys-sw.c
+ create mode 100644 drivers/clk/starfive/jh8100/clk-sys.c
+ rename drivers/reset/starfive/{reset-starfive-jh71x0.c => reset-starfive-common.c} (55%)
+ create mode 100644 drivers/reset/starfive/reset-starfive-common.h
+ delete mode 100644 drivers/reset/starfive/reset-starfive-jh71x0.h
+ create mode 100644 drivers/reset/starfive/reset-starfive-jh8100.c
+ create mode 100644 include/dt-bindings/clock/starfive,jh8100-crg.h
+ create mode 100644 include/dt-bindings/reset/starfive,jh8100-crg.h
+ rename include/soc/starfive/{reset-starfive-jh71x0.h => reset-starfive-common.h} (50%)
+
 -- 
 2.34.1
 
