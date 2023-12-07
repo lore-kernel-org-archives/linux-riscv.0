@@ -4,73 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E78DC4167B
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Dec 2023 17:31:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16346C10F05
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Dec 2023 18:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kLF+Q/yCC+fB1YCe3LefpVThOnUi22OV8LQbJNYD7a8=; b=A9KynBM1Cj4rltS+DRiolTA1XG
-	0uQSnJ/SYTiiqlKAUWC0hGt70uo5jeuR5w3eJQ7JprNNNemBqj68cbZq9S1trKWAI2vGps8fkq1ID
-	RfOsKHSCX1Qp7YAXooaUPxzRgOoimhu9x8KJEPYenHE9uctcyJHQlc3cfsGpp+fEnuHkf+L13qF9e
-	7pgQ2TbT1J31xm/qCpH6WHP2clUS/R4YgP9W4xlOyvn8Z9uta4XQr04hrBxp+l3bE/2XZfMu1+2lw
-	P7tJg8QutGJfM5uRmmDjLJXaAcz4AEtqDytGRHqC3FU9s4ufg6nNiG9lQMOpqx2iinTbGRGxPA3Le
-	QW8W5XQA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=EGUapV6TFuwTJZmfZtI6nOKn4nNvRk4Qg0TBet6tOxs=; b=sl8lJE1wKViczG
+	hsbulR8EVtsOW5t7gmz3fBVv/hK8h4MkY4sRlyjny3lkVJJKKkuxZovWTHJx2FAEf8OQvGejHwv51
+	vHnqgpKKKcjxRfJKNFW01PryYbiy7Hm63DlK2skVwdGEPFV8EOP1pFwOVyUoFPq4uE6D9352sMc2u
+	/ivdG972NOMmA2mJVUGpHYF456EIxVUPN0nrWLvMVAFUrqWkIqRmcbBcBlTNj9magle65J7yiT6A1
+	u7E4sRzaIhxSw6zrC4eYeqEPdTlAjNDAnHN0+bBMUHoRyWKZLf4WzMMTXu7hpxbxvOEy72kKvT+t7
+	xOYJ8QefEbI3pbwZKbmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBIDw-00DXo8-1K;
-	Thu, 07 Dec 2023 17:31:44 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1rBIig-00Db2b-1F;
+	Thu, 07 Dec 2023 18:03:30 +0000
+Received: from mail-co1nam11on20600.outbound.protection.outlook.com ([2a01:111:f403:2416::600] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBIDt-00DXnR-2z
-	for linux-riscv@lists.infradead.org;
-	Thu, 07 Dec 2023 17:31:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 47F99B82518;
-	Thu,  7 Dec 2023 17:31:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CA79C433C8;
-	Thu,  7 Dec 2023 17:31:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1701970299;
-	bh=y5KQaG6xsO92nyU8jMBjwng72ljhMerO17hvLBT/01s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=h7ia9+f7X6k9/jV0mXmpBMYhlZE37AFCCRWGXDRntRLrVF+xVRoIuRw7reZjML+2w
-	 twc0HzmZg+PNMQTU8QG893Z0VAq/ltDXDMYDwkRcqBvSZhuS5g7ePrOMuijKvrBkIJ
-	 drbrnpbsWsIBYrt2VhHIo/Wpp3b/U4gprRE4EL0jzyW662+Rb4k+Gxdw26IogPqhSB
-	 OkJN0K4b1FQjFITQCU+5CsxCWT00mHkDGPgC+LWYJ16k2H0ZFHDmT6B6vwdhMDKHC2
-	 0E5E4wQxu3LzxP2MVLB4uWuUyGfmPRArMIB5TYoQFkujhqEO9Y4uC55W4A/xVpBRsy
-	 VprPzntPwnHMw==
-Date: Thu, 7 Dec 2023 17:31:33 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Inochi Amaoto <inochiama@outlook.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	id 1rBIic-00Daxn-2m;
+	Thu, 07 Dec 2023 18:03:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=k97PE6L7W31jbdIIW9/HHhdyiJqyPTZ9F20OpxK6qVs76XCQBPefh7PxqIrGUNqTPO1qpkJDVRJvmuLeFqO2qIh6A+apny5vU//MQvHGwZhNvv1fO+zLu/6KgcK9RHIk8EqQPBBK2q4RhL7rBBvlVMMdzrKatpghOn7ct5RFsBaN+qtGzCMPsgNAIMUX38WaLyNKqpKcbCQ3hsONJ/R0J/TRJg8CZSCIeT6cE5+yqxOZGN4ZlLTMY+P8+3MMZaQjBq7C09/4bErOd/fP1ePKqEAeSwqFCdBjdcyUzJNWYegnpvnAwtiF8PF1ZfO5PwauQPESMmAusMHZgXQYba8A9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VCySiyLqu+POjzCRPPQ62KNbjHdDqkqQMHZRHgOJQAc=;
+ b=kPrdo8qTZALH13gWcK+gEcoJBMjVULwNJSqfSEVW3W1Pt0tYeyxzWg6NgiHe1lEDx8R/3AQM8ei4pHHJPnp+J7LXnw1aJJeF4DnHUUoyflwt6hYYILtKaZ2QCdA6rBz7mrJmTBhlO/2Glc0DA0CwDsRrrtZyLlN1prCCltlffnrLFl3GUeFet+bH8hoJIe3/S+OiajTKtSOmzlhOzpCyNiuJyPBYfVxfdBOlTfZZQbSt+mumgbTrl+ewkWieMumkqjVUKz/WBWjRRflsl9kFPkJfhN//YUlqU4AORqBvH9Gd03KG9q+fJahujWSmYmKBbYWjjn1asaDhMRPWTUeSFg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VCySiyLqu+POjzCRPPQ62KNbjHdDqkqQMHZRHgOJQAc=;
+ b=XI1JJzf7CkyvI8tkNg+U2WAcFLswXnptmYBqMCOXc6Lsut0SBqKsbvRmpMx8jcCoTNF/dQRF3yJteGpJzy3IHhUICFM3s6bNpVqPs1fJH0/RhVHurbU3Jw9SobAcsxj3hPMQu4yYXO0RMYPNU8l0heyK1nsCn550xufjL+gIwFfP2QZ+1uG1+mEtsIov3RLDXz0uNRFF7518XJFTGWP8yn8y3Q1fjEakZ77mUzYA7kQTefNediXefyccQMIbtR4QNl4gs1r2i+MD1OwfFXF5UJnqX9NCMVo9zrfMRbLNiQ3fwh0x3fkye2f7qfWnavycnWSWpny4Wji4uMpTUE26aw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV2PR12MB5869.namprd12.prod.outlook.com (2603:10b6:408:176::16)
+ by CH3PR12MB7667.namprd12.prod.outlook.com (2603:10b6:610:14f::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7068.25; Thu, 7 Dec
+ 2023 18:03:15 +0000
+Received: from LV2PR12MB5869.namprd12.prod.outlook.com
+ ([fe80::60d4:c1e3:e1aa:8f93]) by LV2PR12MB5869.namprd12.prod.outlook.com
+ ([fe80::60d4:c1e3:e1aa:8f93%4]) with mapi id 15.20.7046.038; Thu, 7 Dec 2023
+ 18:03:15 +0000
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: David Airlie <airlied@gmail.com>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Liu Gui <kenneth.liu@sophgo.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	qiujingbao.dlmu@gmail.com, dlan@gentoo.org,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 3/4] riscv: dts: sophgo: add clock generator for
- Sophgo CV1800 series SoC
-Message-ID: <20231207-doze-spinster-0bfad3b1441a@spud>
-References: <f9db367c-a96b-4789-9884-f2062499765a@linaro.org>
- <IA1PR20MB49531D4EFD4626834B5C604ABB8BA@IA1PR20MB4953.namprd20.prod.outlook.com>
- <375bb6e4-18dc-4f54-9a06-6f9f2ba0a0ec@linaro.org>
+	asahi@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Danilo Krummrich <dakr@redhat.com>,
+	Daniel Vetter <daniel@ffwll.ch>,
+	Dexuan Cui <decui@microsoft.com>,
+	devicetree@vger.kernel.org,
+	dmaengine@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	David Woodhouse <dwmw2@infradead.org>,
+	Frank Rowand <frowand.list@gmail.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	iommu@lists.linux.dev,
+	Jon Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Karol Herbst <kherbst@redhat.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	Laxman Dewangan <ldewangan@nvidia.com>,
+	Len Brown <lenb@kernel.org>,
+	linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-hyperv@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-tegra@vger.kernel.org,
+	Russell King <linux@armlinux.org.uk>,
+	Lyude Paul <lyude@redhat.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	nouveau@lists.freedesktop.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Vineet Gupta <vgupta@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Wei Liu <wei.liu@kernel.org>,
+	Will Deacon <will@kernel.org>
+Cc: Lu Baolu <baolu.lu@linux.intel.com>,
+	Christoph Hellwig <hch@lst.de>,
+	Jerry Snitselaar <jsnitsel@redhat.com>,
+	Hector Martin <marcan@marcan.st>,
+	Moritz Fischer <mdf@kernel.org>,
+	Moritz Fischer <moritzf@google.com>,
+	patches@lists.linux.dev,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Rob Herring <robh@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Thierry Reding <treding@nvidia.com>
+Subject: [PATCH v2 4/7] iommu: Mark dev_iommu_get() with lockdep
+Date: Thu,  7 Dec 2023 14:03:11 -0400
+Message-ID: <4-v2-16e4def25ebb+820-iommu_fwspec_p1_jgg@nvidia.com>
+In-Reply-To: <0-v2-16e4def25ebb+820-iommu_fwspec_p1_jgg@nvidia.com>
+References: 
+X-ClientProxiedBy: BLAPR03CA0038.namprd03.prod.outlook.com
+ (2603:10b6:208:32d::13) To LV2PR12MB5869.namprd12.prod.outlook.com
+ (2603:10b6:408:176::16)
 MIME-Version: 1.0
-In-Reply-To: <375bb6e4-18dc-4f54-9a06-6f9f2ba0a0ec@linaro.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV2PR12MB5869:EE_|CH3PR12MB7667:EE_
+X-MS-Office365-Filtering-Correlation-Id: be10007d-4d75-49f9-acbf-08dbf74ec8b2
+X-LD-Processed: 43083d15-7273-40c1-b7db-39efd9ccc17a,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: zB31Xwo8xTT0IQlVyTOSpFALZWtirXQ08TLtuYRAyAfguODKpTMPMXmEJIUrQN+GUgDPjOW9+lNQxkA6Ot4RKRHDsJC6QUSL2MWP4dJ8cDeDd0OLbD3JRqAT+6M1l9sNo1CAGQfZpF4w72RUQOfTH/tv6S9Vn/oRoGEWSmrSprshW2Marad3SeWtnSYi+h8YOikSBhtRQvRzNlLikYFIx/OCejp5KpzR6grVpfCM5vTg9vzOozeinAe0RRBqLnFWFVyYh4Plw4rc5YpkJGfP46v3zyFuEfq2HIaZw7PYI7XmJu8jlSwCMjD+ifXx6kmrHA0C/z/0SYYVav1pPKuCnwTWfBpHwMumU8xytQBFu0jwbfJzBlq551Uo9rWtADBst1Bo7M65FcXNUgDMJqGhJII0acO/bC1N9Et3z06GLmFmQYoN42m8DptBRt9wPkWLpvWAGxnGD+Y+eFcs/WCJWNf0H3BMuq0Y0P8dO84tjeI0iZE4+WTy9fiv8hOhDx8+szm6O80fwzStUPbPLOHk4BrKmR3Y+sjowrROy3eJzTgHjQGAQBGxMwQduZex1PTnUdf0YlA/W9Ts9F1SgEDbuicPXxLI6o2GIdPEZmtA+0Ge+1YDdKNweg1RRWnzKkhF
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR12MB5869.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(39860400002)(366004)(376002)(346002)(136003)(396003)(230922051799003)(186009)(1800799012)(451199024)(64100799003)(7366002)(4744005)(7416002)(2906002)(7406005)(5660300002)(41300700001)(86362001)(8676002)(4326008)(8936002)(36756003)(316002)(66946007)(66556008)(66476007)(54906003)(110136005)(921008)(38100700002)(6486002)(478600001)(107886003)(83380400001)(6666004)(6506007)(26005)(6512007)(2616005)(4216001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JsweJX/iMV05pHS/7MjTfWzoD9ABMJm4jHOkQ35cG1twZE9zgPr4TMrF3kP8?=
+ =?us-ascii?Q?jFH+XLWot7UHyWuDFVdIUtCjNZwoSfn/RtoNMdi+AFuumEagqtutyqE0esSY?=
+ =?us-ascii?Q?zx5atAG1QyGon9waDDbURLWjRNTojBXlCTxGzKUVoqUsfumFEBjnJyNaifH1?=
+ =?us-ascii?Q?9g+r/oe5UY57YOeB4Zq/ydCLs/QCd6lVAcjPbBIN43E2w/2Wu8lAfw66mQx6?=
+ =?us-ascii?Q?OZ84DzUBwka6UV7h/90kP+w/6un4Jht8xDabTNn5927qmK2rpe/mOPHhaKm/?=
+ =?us-ascii?Q?t+6BGn5O//sIatKLD1VXNHTPxiHXQ1O2g97VTcVgWib0O2rfdKd94PL7e4vA?=
+ =?us-ascii?Q?IwH5Ww8eEHHY7/E0Cr0sGio1Omz9ldjfoJ6WSgx12ywIx9Ci8Ef7WXBtj+f4?=
+ =?us-ascii?Q?SGsWK3IzmmJlB8arAcF5YUOSvBCbn2MYm0OzyCn1c6CXz63ydxWqP+1AdgGi?=
+ =?us-ascii?Q?JTfrQZzJmuYXDDR94Kse7jA6Ab8fUKIVj7bZGL+cTSrGYjkRkdIF/WOwfG2Q?=
+ =?us-ascii?Q?p3SJ+Qzrc62R4bIEz+//OR59NGtl2zQAsW+YxNTxc94Nq652Fn6NoxvnZ8Ju?=
+ =?us-ascii?Q?OJlIHARK5DkLgYm2DHWd1Mzr9fnInTeuR+zmfu83J+rOq70so+ggLHpGs93k?=
+ =?us-ascii?Q?CDwab1CEFqWhyr6/wCLHdSAuT9KmlE8P+3DhmEdG2lTSonK/fQFO0PCTh/jO?=
+ =?us-ascii?Q?Uvqr8afupgiKOwPwOCjvULppha/hStSzo10Yl07K+hAV83nOLh6dYo/AOyuj?=
+ =?us-ascii?Q?/bfDP0SVJTi6Zxy+ZkIpsnEmHmcIczHBrIPqmhHvd0I5NyQDkhxR+C3V6iTk?=
+ =?us-ascii?Q?OpgyvXJuQVxSAgJAdOo2VMyK6IFgkKVVIRk2uPzEQY7f3yPanPm1JYxALIQ+?=
+ =?us-ascii?Q?Yat7qC9RssiYv9YxeuHhIQ5G9r6ILUWTzSsPpPVVL416dNobiXFgOys9tKt1?=
+ =?us-ascii?Q?05x9TTcJSdm7q0jV3gAaASp34L8epWYMaeh43nV59U0oLIh1PIzGMz7iZYdY?=
+ =?us-ascii?Q?3ty1QoNGAPWhFyKGzl/ARltEWETc71Domsh4g28VJwxZu5KzF8dctkxOSbEs?=
+ =?us-ascii?Q?6Q1XCSNSNIQDgihW6W6pcTqyjOEYlrS0Kp/SI3maDrsahCUIkBj1B4ageDB/?=
+ =?us-ascii?Q?TF6TG0Y6NfNLyX/Y5Uo4SJaQi7T67v3lg7lSciO1xBN1mwL3nOot2zFp5eHx?=
+ =?us-ascii?Q?IQHFfT0CxByYSoP51EdKaFlZ68amUzp5g0LmBV2ey2J8ctQep1JPNiJhE0bV?=
+ =?us-ascii?Q?ISw0YuuQ+0L1g2J3bGuBZ4Wu56W+VrZudch4A3Z9KaHVBO0vOHNppQlJHciQ?=
+ =?us-ascii?Q?O4igXDLIUvtLf3nOTlgC5gVZmui5pwDKKXeW435igiRZw3RUS4lVmb8LLkDE?=
+ =?us-ascii?Q?iKEMOylHEXQhI3UM25Ad+JF9pLyDPUvuJwvxBk0UKKGztAcCILRFUz9ZvTan?=
+ =?us-ascii?Q?o30Ub9SJxavO2AoM9krrGtubAr1KUQeQo58XzWnznjybI2iqSbk2ejmgWxbq?=
+ =?us-ascii?Q?aG49q+C1r75RgszV91kKbYtRrH7+L5ffAwUyrx+mKZNOqpn3tV1oe+nAFEXd?=
+ =?us-ascii?Q?hOwbRgQoyUG2YTZEZOevfUUnDjC0BmavzhR75pa7?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: be10007d-4d75-49f9-acbf-08dbf74ec8b2
+X-MS-Exchange-CrossTenant-AuthSource: LV2PR12MB5869.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Dec 2023 18:03:15.2068
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: lieThUuRh1+FpPXFTEYv1mJDv/P5EhQSZ7+KvAdBY/o4zzTiaZQDkRcEBvV9kvWn
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7667
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231207_093142_258770_552984B4 
-X-CRM114-Status: GOOD (  22.80  )
+X-CRM114-CacheID: sfid-20231207_100326_915432_AE4FDB80 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,97 +180,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0964349318913908320=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Allocation of dev->iommu must be done under the
+iommu_probe_device_lock. Mark this with lockdep to discourage future
+mistakes.
 
---===============0964349318913908320==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="lhuauHl59hGZdGju"
-Content-Disposition: inline
+Reviewed-by: Jerry Snitselaar <jsnitsel@redhat.com>
+Tested-by: Hector Martin <marcan@marcan.st>
+Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+Reviewed-by: Moritz Fischer <moritzf@google.com>
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+---
+ drivers/iommu/iommu.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
+diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+index 0d25468d53a68a..4323b6276e977f 100644
+--- a/drivers/iommu/iommu.c
++++ b/drivers/iommu/iommu.c
+@@ -334,6 +334,8 @@ static struct dev_iommu *dev_iommu_get(struct device *dev)
+ {
+ 	struct dev_iommu *param = dev->iommu;
+ 
++	lockdep_assert_held(&iommu_probe_device_lock);
++
+ 	if (param)
+ 		return param;
+ 
+-- 
+2.43.0
 
---lhuauHl59hGZdGju
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Dec 07, 2023 at 01:52:16PM +0100, Krzysztof Kozlowski wrote:
-> On 07/12/2023 10:42, Inochi Amaoto wrote:
-> >>> +&clk {
-> >>> +	compatible =3D "sophgo,cv1810-clk";
-> >>> +};
-> >>> diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot=
-/dts/sophgo/cv18xx.dtsi
-> >>> index 2d6f4a4b1e58..6ea1b2784db9 100644
-> >>> --- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
-> >>> +++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
-> >>> @@ -53,6 +53,12 @@ soc {
-> >>>  		dma-noncoherent;
-> >>>  		ranges;
-> >>>
-> >>> +		clk: clock-controller@3002000 {
-> >>> +			reg =3D <0x03002000 0x1000>;
-> >>> +			clocks =3D <&osc>;
-> >>> +			#clock-cells =3D <1>;
-> >>
-> >> I don't find such layout readable and maintainable. I did some parts
-> >> like this long, long time ago for one of my SoCs (Exynos54xx), but I
-> >> find it over time unmaintainable approach. I strongly suggest to have
-> >> compatible and other properties in one place, so cv1800 and cv1812, ev=
-en
-> >> if it duplicates the code.
-> >>
-> >=20
-> > Hi Krzysztof:
-> >=20
-> > Thanks for your advice, but I have a question about this: when I should
-> > use the DT override? The memory mapping of the CV1800 and CV1810 are
-> > almost the same (the CV1810 have more peripheral and the future SG200X
-> > have the same layout). IIRC, this is why conor suggested using DT overr=
-ide
-> > to make modification easier. But duplicating node seems to break thiS, =
-so
-> > I's pretty confused.
->=20
-> Go with whatever your subarchitecture and architecture maintainers
-> prefer, I just shared my opinion that I find such code difficult to read
-> and maintain.
->=20
-> Extending node with supplies, pinctrl or even clocks would be readable.
-> But the compatible: no. The same applies when you need to delete
-> property or subnode: not readable/maintainable IMHO.
-
-There are apparently 3 or 4 of these SoCs that are basically identical,
-which is why the approach was taken. I do agree that it looks somewhat
-messy because I was looking for device-specific compatibles for these
-SoCs.
-
---lhuauHl59hGZdGju
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZXIBdQAKCRB4tDGHoIJi
-0gvbAP0aZRnwZeW/uj2D5AKml7K6VntejuP/ZKF3cb023p/PeQD+K7QPGKIR7elG
-P9fe8O+9MjABjpbXTovEnCRCL6XdLwM=
-=5VP/
------END PGP SIGNATURE-----
-
---lhuauHl59hGZdGju--
-
-
---===============0964349318913908320==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0964349318913908320==--
-
