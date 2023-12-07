@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA1B9C10DC3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50A96C46CA0
 	for <linux-riscv@archiver.kernel.org>; Thu,  7 Dec 2023 15:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,56 +12,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qZNjJNRpzn6rgSRoXQWGxoM5DRyRpVtoPSlU8r3j9yg=; b=IabeFj4vUD/RK7
-	/nLELbuRmQtVrzH94QWdjDDLbX07wi/Zu3rAjuGiL2bP0h9MrYEVmyIgM7k7YZ7i2bjTKYT+cgNwu
-	moDjG0IG2iBRUknZ0PLybiNGvfI/tWZqmvSA6Jul2znpAzLiCB8g3IGyMJu7X4HOjWKky+K47zvlP
-	rJzj0+mQmpoA3/BxdGqja3x4iMiRg2r7gm6r1shhxOWwQrwegSjjfd3CCDFpqwnaUJLXjf++Dg9Vf
-	gXEa/Yp7QbxVkxatDy39gtzyl2pyAIsW/gYoLkdgonDw6FwLNd6m4l8mkC0ijAnWdAKEJ1dMiJDUK
-	E6si4OrKtZj7shh301mg==;
+	List-Owner; bh=2niirolrO+c2VAwMcZzhaT8/GaOlBHFnK/xxUec2QPA=; b=bleXiUPIErj0qm
+	ANCv4PJOqTMj/2PBBkUO1C2qC9Je8TTbvSKQzY2S71Oq7vHgGK49tUoROMWPWhu3Z+1ajfwlUxWg1
+	RJJLO/441bmZoPWSjJL7Fal4m1XJzfMtzZRWrvBE3GrHnBAEcCKFK/Sc76uhkXtgZZ5qknwtKxEyX
+	u6fWJnyY2NRcBex+oR9dJh0g/QjxCtLktcEsCi25uFWEnGBM4CGWTXeO1Zm2Xv4395e6mg12+68tk
+	bW/R+u63BSMWXZXMYQbTcT6Kr9YFLvk8vBmnW9raQdreTUJDkTe6v4/987IkPpPC5yIvPTYVSh541
+	QTsaJzQ5ZpJ2iIQ90cwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBGB4-00DALr-2u;
-	Thu, 07 Dec 2023 15:20:38 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rBGB3-00DALN-2D;
+	Thu, 07 Dec 2023 15:20:37 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBGAx-00DAFT-2g
+	id 1rBGAx-00DAFW-2e
 	for linux-riscv@lists.infradead.org;
 	Thu, 07 Dec 2023 15:20:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 891CBCE2474;
+	by ams.source.kernel.org (Postfix) with ESMTP id E7585B828B6;
 	Thu,  7 Dec 2023 15:20:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C6AE8C433C9;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id DA114C433CB;
 	Thu,  7 Dec 2023 15:20:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1701962425;
-	bh=bIRBhYwK1IRegs4X3EsVItjloLp8U3gwV50+Gg5hIzA=;
+	bh=rw/aIpkgwRdkXf+EVs58MqLQ5IOCNAngxP/UOBWeFZw=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=t3NtVgeHiTsppyAp0gHK0kJxrJUiHzc6HXgdcdZZD/jHdie74bWA2+hmwb+eL+aSk
-	 r0gNBOvnOxStuDB8cNxPd7G7KCC/RgZk22Abz9ZUuwA/yPENfrIMPGJYaG/WOTOrId
-	 5b0vLc1ogkXDjLXpHAc/nEHBz7NZx35CvzbObvNwqw8XIebkZ4ca0uJOQXGZBKpPAM
-	 FscKy7hTLtiyrvnGQKw7MEczwOXsG5lKPza/y/MhY/hZ/+ix4MVbtFFszXqxL+GleG
-	 oA6M1Sr84iA5T8sKxj9vj0zUdc0nor8fe50brQEwv7CYY1VZ6ZJw6eP2im6smpJGEQ
-	 42A2er0/flTJA==
+	b=PeFdZ4+PtWw2dA9USImV4k3ih0q9njnaGoqBzbhyCa8JCpXrN4hOrV5+hFZ8Pweyn
+	 Lxne6NtK1Xwa8WeeWxMwu7gbMYsZ20taYSmc/dqhSXOUZ5Cr4dC0B5jVfL11cw4rBE
+	 wxmUltJ+cAnm8yoSo+5zyKhss3CsRMvpz/J137+yA8dOrfHJxZZW8V8eyp3nK6ZqO3
+	 VCPWmfqygJPKQyzPIYocqVuak5XM42dkigOmeDF6J6uGjBykuAaB1jmWQq8gXBH+WH
+	 fU2Pbk0iUmoQfWr+MScJbkHQ0awtNLhU5aecfJdCuBVUo4g2RnMtqxo4Un0o3eUbf4
+	 j7xkgpER+ni5Q==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id AE9C2C40C5E;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id C17C5C595C3;
 	Thu,  7 Dec 2023 15:20:25 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: Fix SMP when shadow call stacks are enabled
+Subject: Re: [PATCH -next] RISC-V: hwprobe: Always use u64 for extension bits
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <170196242571.12999.13645791686392638982.git-patchwork-notify@kernel.org>
+Message-Id: <170196242578.12999.9102455009815315888.git-patchwork-notify@kernel.org>
 Date: Thu, 07 Dec 2023 15:20:25 +0000
-References: <20231121211958.3158576-1-samuel.holland@sifive.com>
-In-Reply-To: <20231121211958.3158576-1-samuel.holland@sifive.com>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, andy.chiu@sifive.com, cleger@rivosinc.com,
- conor.dooley@microchip.com, greentime.hu@sifive.com, guoren@kernel.org,
- heiko@sntech.de, masahiroy@kernel.org, namcaov@gmail.com,
- paul.walmsley@sifive.com, samitolvanen@google.com,
- linux-kernel@vger.kernel.org
+References: <20231101141908.192198-2-ajones@ventanamicro.com>
+In-Reply-To: <20231101141908.192198-2-ajones@ventanamicro.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, evan@rivosinc.com,
+ conor.dooley@microchip.com, apatel@ventanamicro.com, lkp@intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231207_072032_045459_132A2C33 
-X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-CacheID: sfid-20231207_072032_007884_8150ECC8 
+X-CRM114-Status: UNSURE (   8.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,21 +81,23 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Tue, 21 Nov 2023 13:19:29 -0800 you wrote:
-> This fixes two bugs in SCS initialization for secondary CPUs. First,
-> the SCS was not initialized at all in the spinwait boot path. Second,
-> the code for the SBI HSM path attempted to initialize the SCS before
-> enabling the MMU. However, that involves dereferencing the thread
-> pointer, which requires the MMU to be enabled.
+On Wed,  1 Nov 2023 15:19:09 +0100 you wrote:
+> Extensions are getting added quickly and their hwprobe bits will soon
+> exceed 31 (which pair values accommodate, since they're of type u64).
+> However, in one tree, where a bunch of extensions got merged prior to
+> zicboz, zicboz already got pushed to bit 32. Pushing it exposed a
+> 32-bit compilation bug, since unsigned long was used instead of u64.
 > 
-> Fix both issues by setting up the SCS in the common secondary entry
-> path, after enabling the MMU.
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202310311801.hxduISrr-lkp@intel.com/
+> Fixes: 9c7646d5ffd2 ("RISC-V: hwprobe: Expose Zicboz extension and its block size")
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 > 
 > [...]
 
 Here is the summary with links:
-  - riscv: Fix SMP when shadow call stacks are enabled
-    https://git.kernel.org/riscv/c/f40cab8e18ed
+  - [-next] RISC-V: hwprobe: Always use u64 for extension bits
+    https://git.kernel.org/riscv/c/777c0d761be7
 
 You are awesome, thank you!
 -- 
