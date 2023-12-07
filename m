@@ -4,78 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4580EC4167B
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Dec 2023 23:22:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6112FC4167B
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Dec 2023 01:03:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zrRdAtCniAN2xhJa3WFukMvJq2UnN6J7s0GqerN84Mc=; b=26K6n4hkAL8ozn
-	5GCN8EZdQGRISEo21KjRLaXPnQY3cVW6ye3LDjw68LJASgqUayDRtOUL1Gj2Let3EP9lD3qC3/zqf
-	UdAeobDbkYWXqw+8tvizPvldRF8dPLEA0C/jSQLgpTa3JARgIVQr/vemA7/5MMhI+cmrs4n10xMCf
-	Fv6w6/F0ZRoOJQhXGYH9sdLiEvldmxlLsrfgpV5ZsGB14L8348oXzob8r+nyS+EkfUBJaeKxoOHFV
-	Nm5Z8d8IGw4UPpo5ZzJxkWOUlP8ylUjQ5Boa8hTdvL39HVbk4TbN7gXMJ/5ntiCrxs3tM0W32UBgA
-	GQ75YD7uSIsiupgOkXTA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=zHsx/p7GQhin2LEhIjP7t/FBFqU9C2Wsv33tYWhrhqw=; b=LIclkFDxio/VeHU53KFL4ECDTq
+	z9nPOdh83CUl8jvLN4ceTJspNOPOg7qPDE1Lpd0cOpaWSXW3ggCnjTSg0BNuODx17D5ZiPYZLOhFr
+	bZrGlL9gz3/HqKB7/cj41U6Q2LlFPMmgGsGsMSBfbYRNmOrB4UpiCSbYaHVJuW4BSJE248KrOQo2w
+	tXyzAOcat7+Xc8nlNz9zu3lpUVr4MUDrk3768JvYjtfFDFX9gSuwirTugXH9WL/hiNdolHG95IxG2
+	hNWcWBk62/yloXc2GVFGu/DNU64YLreC0YKxiDAAwcdxIzkNGXubliFUHEY7RMITHw7hf63IJyDwI
+	E4LytHSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rB1Dd-00BTI0-1v;
-	Wed, 06 Dec 2023 23:22:17 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1rB2nV-00Bblw-0H;
+	Thu, 07 Dec 2023 01:03:25 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rB1Da-00BTGt-0M
+	id 1rB2nS-00Bbjm-0y
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Dec 2023 23:22:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1701904933;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zPCUsWG0BDGnbK296zNpXL4hsIM/iX88O2dTATbgstU=;
-	b=aO3jUPnRiltHAdgGJhlDFyddm6bTtluX9wAEnc+W2bEQdvNAyQA3SGhJ21QFklkOBHf8mQ
-	uhzhZrX3+O3XzPWSxpVPddexKkklDUlGJhkD0Li9CyaAPX4H9/Q7geeDs9HaiW/E15A0JK
-	8x0kyyhmag82q1NX7WIlvL90xg9d8VM=
-Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-65-Ftl_v0_MOyKwGMvgDCVSqQ-1; Wed,
- 06 Dec 2023 18:22:11 -0500
-X-MC-Unique: Ftl_v0_MOyKwGMvgDCVSqQ-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 776BE3806622;
-	Wed,  6 Dec 2023 23:22:10 +0000 (UTC)
-Received: from localhost (unknown [10.72.113.121])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A3842C15A0C;
-	Wed,  6 Dec 2023 23:22:09 +0000 (UTC)
-Date: Thu, 7 Dec 2023 07:22:06 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, linux-kernel@vger.kernel.org,
-	kexec@lists.infradead.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	linux-parisc@vger.kernel.org, akpm@linux-foundation.org,
-	joe@perches.com, nathan@kernel.org
-Subject: Re: [PATCH v3 5/7] kexec_file, ricv: print out debugging message if
- required
-Message-ID: <ZXECHg37DRZ9BQsP@MiWiFi-R3L-srv>
-References: <20231130023955.5257-1-bhe@redhat.com>
- <20231130023955.5257-6-bhe@redhat.com>
- <20231201-blog-blasphemy-985d2665903c@wendy>
- <ZW3yXWJ7rTrtZzyg@MiWiFi-R3L-srv>
- <20231204-liftoff-enclosure-d3e3daf0ab6e@spud>
- <ZXCVUD9cCYEShrrj@MiWiFi-R3L-srv>
- <20231206-pasta-embassy-c7250740b16c@spud>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231206-pasta-embassy-c7250740b16c@spud>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.8
+	Thu, 07 Dec 2023 01:03:23 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-5d8da78a5fbso1558907b3.3
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Dec 2023 17:03:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1701910996; x=1702515796; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=kNsTQFENpLV0yAX5x5gNndSdmWF67ocLDbukBVvw4Ho=;
+        b=MxXwA69Oa0sXGHBJGdqsjE6N4HATBo42ETdWwv7uvSXXUuzBY2hiPkWh/tkFjb0CaU
+         8U1hQdzxCN2+ffo/J7u5bl8hPMYO74V2CgxdxdM56Dy+7SBrMACiXUhKxWevOTnpi+W5
+         xGyONXEuYKrysr4kaeDJcbwaHax19rKSLocbq4nvRwRo/ZOt2EA71slp7JGJSYq+Mlpd
+         QbGixOyZp8GKEIbm7jTOJ9isJVf6hHRHm6nBFvydGs7t/IhvLKEE1m29SPaGzkznC5ON
+         Ove9sBieR+yJX/Txsp7gabXj8KrHHrlHnrr6mW0vLM3vZK4uQklvELOlsQfUKJfZdgyl
+         qJcA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701910996; x=1702515796;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kNsTQFENpLV0yAX5x5gNndSdmWF67ocLDbukBVvw4Ho=;
+        b=hMDQroTuGRPWMUc2mrvtk3X6+MCjj2bI1+HgYGvHYPyrpNJvDwaLNFKLfYnnyS2EBY
+         Ew7Q5k2QsZ8HDzf9S/LmIuREGMiZrYKRhPUx4aSdyzQ0RX4exJGNfNhV8DaDW3VUXn4i
+         sjy+L+6jeVyG9XQYheDoudxvp0AocApPbC5+SGAebFHs/JOQr1KPe5OAo+xJN9NAvThF
+         Q5HlISHWfEuyznsEVUVQQSTzbLBJ92TtlmX5SfOH+PZjSbqTZgBJLJsMbyCKyib+8ceH
+         4UZDAcnC5jKp0xFkQaT6co0wSNB+dOMn6qDENprIWIBhpDFPZlv0sOUwc0ZbH/aiTF7W
+         vrPg==
+X-Gm-Message-State: AOJu0YydNysCLOE8O4o4b7vtPk51Ksb/BprJVQ4scPkLam5KUkrrRDZJ
+	MxWh0RpfSmsiUjd7P2AxvM/kWXYB/u/TmQ==
+X-Google-Smtp-Source: AGHT+IEeNrOu3itFc+M9ynsd08u9d5b33h7Ph3dWYLMht1q/VwgbdO1TO2ezXuPbPGpyVmgh4Cp2D8u2f11e3g==
+X-Received: from loggerhead.c.googlers.com ([fda3:e722:ac3:cc00:24:72f4:c0a8:29a])
+ (user=jmattson job=sendgmr) by 2002:a25:2981:0:b0:dbc:3553:efe with SMTP id
+ p123-20020a252981000000b00dbc35530efemr3380ybp.4.1701910996183; Wed, 06 Dec
+ 2023 17:03:16 -0800 (PST)
+Date: Wed,  6 Dec 2023 17:03:02 -0800
+In-Reply-To: <20220921003201.1441511-11-seanjc@google.com>
+Mime-Version: 1.0
+References: <20220921003201.1441511-11-seanjc@google.com>
+X-Mailer: git-send-email 2.43.0.rc2.451.g8631bc7472-goog
+Message-ID: <20231207010302.2240506-1-jmattson@google.com>
+Subject: [PATCH v4 10/12] KVM: x86: never write to memory from kvm_vcpu_check_block()
+From: Jim Mattson <jmattson@google.com>
+To: seanjc@google.com
+Cc: aleksandar.qemu.devel@gmail.com, alexandru.elisei@arm.com, 
+	anup@brainfault.org, aou@eecs.berkeley.edu, atishp@atishpatra.org, 
+	borntraeger@linux.ibm.com, chenhuacai@kernel.org, david@redhat.com, 
+	frankja@linux.ibm.com, imbrenda@linux.ibm.com, james.morse@arm.com, 
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	kvmarm@lists.cs.columbia.edu, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
+	maz@kernel.org, mlevitsk@redhat.com, oliver.upton@linux.dev, 
+	palmer@dabbelt.com, paul.walmsley@sifive.com, pbonzini@redhat.com, 
+	suzuki.poulose@arm.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231206_152214_217047_5764E5ED 
-X-CRM114-Status: GOOD (  51.17  )
+X-CRM114-CacheID: sfid-20231206_170322_339133_8640ADC7 
+X-CRM114-Status: GOOD (  16.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,176 +98,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/06/23 at 04:54pm, Conor Dooley wrote:
-> On Wed, Dec 06, 2023 at 11:37:52PM +0800, Baoquan He wrote:
-> > On 12/04/23 at 04:14pm, Conor Dooley wrote:
-> > > On Mon, Dec 04, 2023 at 11:38:05PM +0800, Baoquan He wrote:
-> > > > On 12/01/23 at 10:38am, Conor Dooley wrote:
-> > > > > On Thu, Nov 30, 2023 at 10:39:53AM +0800, Baoquan He wrote:
-> > > > > 
-> > > > > $subject has a typo in the arch bit :)
-> > > > 
-> > > > Indeed, will fix if need report. Thanks for careful checking.
-> > > > 
-> > > > > 
-> > > > > > Replace pr_debug() with the newly added kexec_dprintk() in kexec_file
-> > > > > > loading related codes.
-> > > > > 
-> > > > > Commit messages should be understandable in isolation, but this only
-> > > > > explains (part of) what is obvious in the diff. Why is this change
-> > > > > being made?
-> > > > 
-> > > > The purpose has been detailedly described in cover letter and patch 1
-> > > > log. Andrew has picked these patches into his tree and grabbed the cover
-> > > > letter log into the relevant commit for people's later checking. All
-> > > > these seven patches will be present in mainline together. This is common
-> > > > way when posting patch series? Please let me know if I misunderstand
-> > > > anything.
-> > > 
-> > > Each patch having a commit message that explains why a change is being
-> > > made is the expectation. It is especially useful to explain the why
-> > > here, since it is not just a mechanical conversion of pr_debug()s as the
-> > > commit message suggests.
-> > 
-> > Sounds reasonable. I rephrase the patch 3 log as below, do you think
-> > it's OK to you?
-> 
-> Yes, but with one comment.
-> 
-> > 
-> > I will also adjust patch logs on other ARCH once this one is done.
-> > Thanks.
-> > 
-> > =============================
-> > Subject: [PATCH v3 5/7] kexec_file, ricv: print out debugging message if required
-> > 
-> > Then when specifying '-d' for kexec_file_load interface, loaded
-> > locations of kernel/initrd/cmdline etc can be printed out to help debug.
-> > 
-> > Here replace pr_debug() with the newly added kexec_dprintk() in kexec_file
-> > loading related codes.
-> > 
-> 
-> > And also replace pr_notice() with kexec_dprintk() in elf_kexec_load()
-> > because it's make sense to always print out loaded location of purgatory
-              ~
-> > and device tree even though users don't expect the message.
+kvm_vcpu_check_block() is called while not in TASK_RUNNING, and therefore
+it cannot sleep.  Writing to guest memory is therefore forbidden, but it
+can happen on AMD processors if kvm_check_nested_events() causes a vmexit.
 
-Fixed typo:
-==========
+Fortunately, all events that are caught by kvm_check_nested_events() are
+also recognized by kvm_vcpu_has_events() through vendor callbacks such as
+kvm_x86_interrupt_allowed() or kvm_x86_ops.nested_ops->has_events(), so
+remove the call and postpone the actual processing to vcpu_block().
 
-And also replace pr_notice() with kexec_dprintk() in elf_kexec_load()
-because it doesn't make sense to always print out loaded location of
-purgatory and device tree even though users don't expect the message.
+Opportunistically honor the return of kvm_check_nested_events().  KVM
+punted on the check in kvm_vcpu_running() because the only error path is
+if vmx_complete_nested_posted_interrupt() fails, in which case KVM exits
+to userspace with "internal error" i.e. the VM is likely dead anyways so
+it wasn't worth overloading the return of kvm_vcpu_running().
 
-> 
-> This seems to contradict what you said in your earlier mail, about
-> moving these from notice to debug. I think you missed a negation in your
-> new version of the commit message. What you said in response to me seems
-> like a more complete explanation anyway:
+Add the check mostly so that KVM is consistent with itself; the return of
+the call via kvm_apic_accept_events()=>kvm_check_nested_events() that
+immediately follows  _is_ checked.
 
-Ah, I made mistake when typing, these printing is only for debugging,
-so always printing out them is not suggested.
+Reported-by: Maxim Levitsky <mlevitsk@redhat.com>
+Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
+[sean: check and handle return of kvm_check_nested_events()]
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ arch/x86/kvm/x86.c | 14 +++++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
 
-> 	always printing out the loaded location of purgatory and
-> 	device tree doesn't make sense. It will be confusing when users
-> 	see these even when they do normal kexec/kdump loading.
-> 
-> Thanks,
-> Conor.
-> 
-> > And also remove kexec_image_info() because the content has been printed
-> > out in generic code.
-> > 
-> > ============================
-> > 
-> > > 
-> > > > > 
-> > > > > > 
-> > > > > > And also remove kexec_image_info() because the content has been printed
-> > > > > > out in generic code.
-> > > > > > 
-> > > > > > Signed-off-by: Baoquan He <bhe@redhat.com>
-> > > > > > ---
-> > > > > >  arch/riscv/kernel/elf_kexec.c     | 11 ++++++-----
-> > > > > >  arch/riscv/kernel/machine_kexec.c | 26 --------------------------
-> > > > > >  2 files changed, 6 insertions(+), 31 deletions(-)
-> > > > > > 
-> > > > > > diff --git a/arch/riscv/kernel/elf_kexec.c b/arch/riscv/kernel/elf_kexec.c
-> > > > > > index e60fbd8660c4..5bd1ec3341fe 100644
-> > > > > > --- a/arch/riscv/kernel/elf_kexec.c
-> > > > > > +++ b/arch/riscv/kernel/elf_kexec.c
-> > > > > > @@ -216,7 +216,6 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
-> > > > > >  	if (ret)
-> > > > > >  		goto out;
-> > > > > >  	kernel_start = image->start;
-> > > > > > -	pr_notice("The entry point of kernel at 0x%lx\n", image->start);
-> > > > > >  
-> > > > > >  	/* Add the kernel binary to the image */
-> > > > > >  	ret = riscv_kexec_elf_load(image, &ehdr, &elf_info,
-> > > > > > @@ -252,8 +251,8 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
-> > > > > >  		image->elf_load_addr = kbuf.mem;
-> > > > > >  		image->elf_headers_sz = headers_sz;
-> > > > > >  
-> > > > > > -		pr_debug("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
-> > > > > > -			 image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
-> > > > > > +		kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
-> > > > > > +			      image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
-> > > > > >  
-> > > > > >  		/* Setup cmdline for kdump kernel case */
-> > > > > >  		modified_cmdline = setup_kdump_cmdline(image, cmdline,
-> > > > > > @@ -275,6 +274,8 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
-> > > > > >  		pr_err("Error loading purgatory ret=%d\n", ret);
-> > > > > >  		goto out;
-> > > > > >  	}
-> > > > > > +	kexec_dprintk("Loaded purgatory at 0x%lx\n", kbuf.mem);
-> > > > > > +
-> > > > > >  	ret = kexec_purgatory_get_set_symbol(image, "riscv_kernel_entry",
-> > > > > >  					     &kernel_start,
-> > > > > >  					     sizeof(kernel_start), 0);
-> > > > > > @@ -293,7 +294,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
-> > > > > >  		if (ret)
-> > > > > >  			goto out;
-> > > > > >  		initrd_pbase = kbuf.mem;
-> > > > > 
-> > > > > > -		pr_notice("Loaded initrd at 0x%lx\n", initrd_pbase);
-> > > > > > +		kexec_dprintk("Loaded initrd at 0x%lx\n", initrd_pbase);
-> > > > > 
-> > > > > This is not a pr_debug().
-> > > > > 
-> > > > > >  	}
-> > > > > >  
-> > > > > >  	/* Add the DTB to the image */
-> > > > > > @@ -318,7 +319,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
-> > > > > >  	}
-> > > > > >  	/* Cache the fdt buffer address for memory cleanup */
-> > > > > >  	image->arch.fdt = fdt;
-> > > > > 
-> > > > > > -	pr_notice("Loaded device tree at 0x%lx\n", kbuf.mem);
-> > > > > > +	kexec_dprintk("Loaded device tree at 0x%lx\n", kbuf.mem);
-> > > > > 
-> > > > > Neither is this. Why are they being moved from pr_notice()?
-> > > > 
-> > > > You are right. 
-> > > > 
-> > > > While always printing out the loaded location of purgatory and
-> > > > device tree doesn't make sense. It will be confusing when users
-> > > > see these even when they do normal kexec/kdump loading. It should be
-> > > > changed to pr_debug().
-> > > > 
-> > > > Which way do you suggest?
-> > > > 1) change it back to pr_debug(), fix it in another patch;
-> > > > 2) keep it as is in the patch;
-> > > 
-> > > Personally I think it is fine to change them all in one patch, but the
-> > > rationale for converting pr_notice() to your new debug infrastructure
-> > > needs to be in the commit message.
-> > 
-> > Sure, sounds good to me. I have changed the patch log to reflect this as
-> > you suggested, please help check. Thanks again.
-> > 
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index dcc675d4e44b..8aeacbc2bff9 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -10815,6 +10815,17 @@ static inline int vcpu_block(struct kvm_vcpu *vcpu)
+ 			return 1;
+ 	}
+ 
++	/*
++	 * Evaluate nested events before exiting the halted state.  This allows
++	 * the halt state to be recorded properly in the VMCS12's activity
++	 * state field (AMD does not have a similar field and a VM-Exit always
++	 * causes a spurious wakeup from HLT).
++	 */
++	if (is_guest_mode(vcpu)) {
++		if (kvm_check_nested_events(vcpu) < 0)
++			return 0;
++	}
++
+ 	if (kvm_apic_accept_events(vcpu) < 0)
+ 		return 0;
+ 	switch(vcpu->arch.mp_state) {
+@@ -10837,9 +10848,6 @@ static inline int vcpu_block(struct kvm_vcpu *vcpu)
+ 
+ static inline bool kvm_vcpu_running(struct kvm_vcpu *vcpu)
+ {
+-	if (is_guest_mode(vcpu))
+-		kvm_check_nested_events(vcpu);
+-
+ 	return (vcpu->arch.mp_state == KVM_MP_STATE_RUNNABLE &&
+ 		!vcpu->arch.apf.halted);
+ }
 
+This commit breaks delivery of a (virtualized) posted interrupt from
+an L1 vCPU to a halted L2 vCPU.
 
+Looking back at commit e6c67d8cf117 ("KVM: nVMX: Wake blocked vCPU in
+guest-mode if pending interrupt in virtual APICv"), Liran wrote:
+
+    Note that this also handles the case of nested posted-interrupt by the
+    fact RVI is updated in vmx_complete_nested_posted_interrupt() which is
+    called from kvm_vcpu_check_block() -> kvm_arch_vcpu_runnable() ->
+    kvm_vcpu_running() -> vmx_check_nested_events() ->
+    vmx_complete_nested_posted_interrupt().
+
+Clearly, that is no longer the case.
 
 _______________________________________________
 linux-riscv mailing list
