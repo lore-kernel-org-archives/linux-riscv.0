@@ -4,76 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9710CC4167B
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Dec 2023 14:08:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD99C4167B
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Dec 2023 14:44:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qkH2woBxtC0g6w5Lu2mqkQ97C5paAUGVgaXu8GB2n8A=; b=I5mX5iGpntqRWq1PByls6Ha7ib
-	FkaFRGs6zAJy+wy4OyPiSUnk0+oeIFw3W91ZRpdkzj7FuOV8ecCgZa+K3fuUMvOjRuo1Sh7ll7m2e
-	mWvwIFUy6ArylnwZdsZ1pammze2XBwkdLUkseplYcOs/a4tbE++l2r198pvTARkQMFGCqv7SRRW3S
-	D1wfXO9ozGv0bdMES8KKoix21UB+1u1xG+QN5NGKO47Tl3mNvUph5gedkhu/hYa6Q0Zb6DEjSDAOo
-	WGE9KxtlIeTf6osFKrOb2dWNBEHcO/s9dCtngVVchgsjeqdmLmOlp9foDhdfWkUlFVqKDpv4GmfZB
-	gbzl+1gQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=gf5lBkjv8u1zpqIMHj1ln1Pd0oMp2XtYWrjYJdemmhk=; b=NyKg7WIfE5t29s
+	B8JcCaZfQjXqASKQoaGczUwN8ZaAM3WfX53fbUQYG75CHvenTucsFUvy/TkZV69tYjUb1F26epuUC
+	VOL3Wy5bYEfbwtBqa5pN2fhwrB+HkiH3zb38mFvsDpNVtPkDln0Hja4UonOErXt8TfApJpCC4OkV1
+	srhph9GQbj0TlQAVRj/MVfQx8zOJth7ujOSmy2l8P3doyzPWpPPNeuGpwvDjri8wQ62VZbCP3bh0M
+	02CvXku3eyEllypXS4vlIhDjU1QtsCKCgKL9j/jxzyQVETYDsSPy7KLYHdiMXn0O4FmVWZscU+h9W
+	I0EQ2sjiihfyK9nqhH7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBF3G-00Cylk-2b;
-	Thu, 07 Dec 2023 14:08:30 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1rBFcG-00D3Wq-1k;
+	Thu, 07 Dec 2023 14:44:40 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBF3D-00Cyky-2k;
-	Thu, 07 Dec 2023 14:08:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1701958108; x=1733494108;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=GKKiprSC301Q/AIeayiNtJoUwjj/0Z6QsX3HsdR0aTM=;
-  b=yswXfyitDKFKlY3VDjtDPf04N7FSKZJHvOHEipFy56QzcScEJtTe8jEc
-   hoWt/Roc7t3ck28IhcTBLEA91mUbQcwA5gqwWnVqVmB0kV1umbSaJNXiA
-   ED6exSps1QkvbCISApVWo1YIwEz1fXXpzd9teRv6kkhlI+gdE1fN99VE2
-   DPSFJYRumyfn8mETiAjYIkcfKuOXAU1LN4y0wX13J934rRsROzSLLh7Lj
-   8IydQcfsG4advLnLHudZSDONmJAL+ifsqvmYmH/2ruBTcn6KVhgpEsQ74
-   T1z/MbDTgWAE8+JitpflxaGF3z5ONs9Ue1X35im3++jnrvPg8M5woywt7
-   g==;
-X-CSE-ConnectionGUID: m2fZxj86SumexGQMB9uwOQ==
-X-CSE-MsgGUID: B0qPIv/8T4KE8pZ2VLe+tA==
-X-ThreatScanner-Verdict: Negative
-X-IronPort-AV: E=Sophos;i="6.04,256,1695711600"; 
-   d="asc'?scan'208";a="12934293"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 07 Dec 2023 07:08:25 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Thu, 7 Dec 2023 07:08:01 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
- Transport; Thu, 7 Dec 2023 07:07:58 -0700
-Date: Thu, 7 Dec 2023 14:07:28 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-CC: <kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<virtualization@lists.linux-foundation.org>, <anup@brainfault.org>,
-	<atishp@atishpatra.org>, <pbonzini@redhat.com>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <jgross@suse.com>,
-	<srivatsa@csail.mit.edu>, <guoren@kernel.org>
-Subject: Re: [PATCH v1 04/14] RISC-V: paravirt: Add kconfigs
-Message-ID: <20231207-unsealed-bunkhouse-bd79271b4896@wendy>
+	id 1rBFcE-00D3Vc-2f
+	for linux-riscv@lists.infradead.org;
+	Thu, 07 Dec 2023 14:44:40 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-40bda47c489so10546215e9.3
+        for <linux-riscv@lists.infradead.org>; Thu, 07 Dec 2023 06:44:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1701960275; x=1702565075; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Q2X1VjbagCGmP0A1RPcv7u0Lj03h4h1kkYCRRs2Iz0c=;
+        b=Tq9aAyKUpoLxO5DDjNRfCAzHcnlV+N4ax1rkgFRSRLsOcPyv1kmkWqMmm/q3/J+FZ6
+         4TwqpY0l9HbvFCMUZ5MsPDjKblga7bO7sGV4X8Gg7acEgikj5k+mO7npAkXKXWo13h/C
+         AQafgbvEiIzb/Ed8wSY+1Q9mB+0gF44BSHyVn65p0o3WjUoFJScs1XoEuvrS+IUsIjnE
+         DAqnXbninnzm8RiqGQ3+Zn+jgiLg/yyJY9K8zZeexoWHtrr7BwbJzmSuWnQZKcHcAzSG
+         fITq3CPrh9SMkqzb/gQgnfQeqif+RLYR7opMzjrvUUyAfF+ahgjC9ygnSfTQRNyUEx3W
+         FdYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1701960275; x=1702565075;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Q2X1VjbagCGmP0A1RPcv7u0Lj03h4h1kkYCRRs2Iz0c=;
+        b=uUsb+u1FS60UaqpGMPKn2tckem+rG9lqr1JxR6/CrQO6DVEl8LrEVLH5+fl7pB6kd7
+         kYQAlrkE/xAB/yVq8OAo8fATaIveYxP5Udw37PgGJjJrjZaepWvEnExrBSlaXemCtXKf
+         9EpI/WJnvLDeDFtYmdpx6Vsikb/3+J0c+7eDUf0aQrqyKN7N7vgNQ40BhWt+QeLYBRlY
+         qulU0g8SdpVCH/SUSNKNNetAGNGGITVErz/ix8V/FkYgUEgCHEkbEhrtRYbU8rxVBSw4
+         p2oVDg66vx0e3kmBBJ9kaWTfmue0vZm7Sn5IkUcMYzqwLdzWqkCv4P/VAJj8ufWXEcbF
+         o3BA==
+X-Gm-Message-State: AOJu0Yw+jFKZwoLVq2k93ElAlu8UMdUp/XlFeNJlo/i0BrqJBs3eXGkg
+	qsuo4qha7mE7O0kWtpe/wxqfaA==
+X-Google-Smtp-Source: AGHT+IGEefXECWySBl1DPw63VSb3ikjm82ZQvh2LqQu8KuTy/Eok7OvFLg1vm/cjL9Q+g3zwWxniqQ==
+X-Received: by 2002:a05:600c:3149:b0:40b:5e21:d362 with SMTP id h9-20020a05600c314900b0040b5e21d362mr1858824wmo.107.1701960275098;
+        Thu, 07 Dec 2023 06:44:35 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id q9-20020a05600c46c900b0040b347d90d0sm2180722wmo.12.2023.12.07.06.44.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 07 Dec 2023 06:44:34 -0800 (PST)
+Date: Thu, 7 Dec 2023 15:44:33 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	virtualization@lists.linux-foundation.org, anup@brainfault.org, atishp@atishpatra.org, pbonzini@redhat.com, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, jgross@suse.com, 
+	srivatsa@csail.mit.edu, guoren@kernel.org
+Subject: Re: [PATCH v1 03/14] RISC-V: paravirt: Implement steal-time support
+Message-ID: <20231207-42f318822ee01650e550c663@orel>
 References: <20231205181119.207204-16-ajones@ventanamicro.com>
- <20231205181119.207204-20-ajones@ventanamicro.com>
+ <20231205181119.207204-19-ajones@ventanamicro.com>
+ <20231207-kindling-upgrade-22d29116ccf3@wendy>
 MIME-Version: 1.0
-In-Reply-To: <20231205181119.207204-20-ajones@ventanamicro.com>
+Content-Disposition: inline
+In-Reply-To: <20231207-kindling-upgrade-22d29116ccf3@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231207_060827_891533_E0E21FCC 
-X-CRM114-Status: UNSURE (   8.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231207_064438_862680_DC9E788A 
+X-CRM114-Status: GOOD (  15.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,54 +90,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6445441921007192729=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6445441921007192729==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="f2Nei8/R6cqxLGD+"
-Content-Disposition: inline
+On Thu, Dec 07, 2023 at 02:06:37PM +0000, Conor Dooley wrote:
+> On Tue, Dec 05, 2023 at 07:11:23PM +0100, Andrew Jones wrote:
+> 
+> > +static int sbi_sta_steal_time_set_shmem(unsigned long lo, unsigned long hi,
+> > +					unsigned long flags)
+> >  {
+> > +	struct sbiret ret;
+> > +
+> > +	ret = sbi_ecall(SBI_EXT_STA, SBI_EXT_STA_STEAL_TIME_SET_SHMEM,
+> > +			lo, hi, flags, 0, 0, 0);
+> > +	if (ret.error) {
+> > +		if (lo == SBI_STA_SHMEM_DISABLE && hi == SBI_STA_SHMEM_DISABLE)
+> > +			pr_warn("Failed to disable steal-time shmem");
+> > +		else
+> > +			pr_warn("Failed to set steal-time shmem");
+> > +		return -ENOMEM;
+> 
+> btw, how come this is an ENOMEM and not a propagation of the error from
+> the ecall?
 
---f2Nei8/R6cqxLGD+
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hmm, I can't recall why I did that. I think I should have used
+sbi_err_map_linux_errno() to convert the possible SBI_ERR_INVALID_PARAM
+and SBI_ERR_INVALID_ADDRESS errors appropriately instead. I don't much
+like how SBI_ERR_FAILURE gets converted to ENOTSUPP, but I don't suppose
+it matters much in practice anyway, and at least, in this case, it has a
+1-to-1 mapping which is good for debug.
 
-On Tue, Dec 05, 2023 at 07:11:24PM +0100, Andrew Jones wrote:
-> Now that we can support steal-time accounting, add the kconfig
-> knobs allowing it to be enabled.
->=20
-> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+I'll change this for v2.
 
-In hindsight, should this be squashed with the code actually adding the
-support?
-
---f2Nei8/R6cqxLGD+
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZXHRoAAKCRB4tDGHoIJi
-0qUfAQCqwJvSwf/igC0LLRE8vbiSENZiLROkCzNiXFQVBy2CXAD+J8Bq9Z5EDEBC
-tchBjiYy3HOQKbc+BqTmd6Wq3zjSDwk=
-=Wn6E
------END PGP SIGNATURE-----
-
---f2Nei8/R6cqxLGD+--
-
-
---===============6445441921007192729==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6445441921007192729==--
-
