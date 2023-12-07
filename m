@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8F4FC10F05
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Dec 2023 15:07:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94E5EC4167B
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Dec 2023 15:08:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1a2mJWiL7xtCm/CPwm+HyERUIOBcWjJdoc2DyHj5md8=; b=EAM1JGEXkPgCBV
-	+O2ZIqEeNSoLHl2cbXJ7UuGYVOxZx+EzTo/a4XSwJ/Fz0rIQhzshIbhfgBkRs1iLBNXHXjm2Q6bbV
-	+hdpviBmL7082bf+zOfkvqzo1TP5U+pIqgjzyOI8DsZ/+XJ+XZtVT8U3DO9FmQphlWz8Jcdb+sxuB
-	APSY78jRu2B1P40zEpqjmmNI6ij76FTblca4mHJuwkt0D/BciS+Sc0Ux4MW4kr3eDorEAGNjppPmC
-	5d0Upjw3QTgJZ+SX6SeFYFJVwX4+0O3DoUFBmOg1dqBfSpz3QXUcmPVTPSb4lk+tPhjWHut3MU+fv
-	giy6+Ze7MkES/t7YmVcQ==;
+	List-Owner; bh=mC4KenjcXI2Ku2DQePUG4txXR5h9KOvmAaBGI1mds4E=; b=AcxxCFqAUN788H
+	g+SDgzN2pr103TlNuIv8dcoyC0UDmMZA2X9sJbyXSlHuOufAXGGylBEoy17qY2hE+rwrKlqQuvsH3
+	nhJEtUsg5NdiiDOX27rZLd9GFu2EvhqmpOLSPINDBYTI16rBwvgGvKbUNjNQ4u9wWDo+E0zp1Sm2w
+	Xc+Zj+Us3a5/swCXkuF3cWBsqCeBM4RKtqnYZwflwtLSL/ENhTb3xJBfD3Gy+h2pk1wDmvpeMTFLH
+	2/ZZNwiigu7z/3LymJKLx6svrwb0wWiQg59zBXmELw0pxWnn2zAy6gqNI0BtCm+lsoG8yx0B4AAKC
+	g9T7mI2jrTEdEqTWBbAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBFxu-00D80H-2o;
-	Thu, 07 Dec 2023 15:07:02 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1rBFyr-00D8KM-10;
+	Thu, 07 Dec 2023 15:08:01 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBFxr-00D7xI-02
+	id 1rBFyo-00D8Im-2s
 	for linux-riscv@lists.infradead.org;
-	Thu, 07 Dec 2023 15:07:00 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-33350fcb2c7so752271f8f.2
-        for <linux-riscv@lists.infradead.org>; Thu, 07 Dec 2023 07:06:55 -0800 (PST)
+	Thu, 07 Dec 2023 15:08:00 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-50bfd8d5c77so970999e87.1
+        for <linux-riscv@lists.infradead.org>; Thu, 07 Dec 2023 07:07:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1701961614; x=1702566414; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1701961675; x=1702566475; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=EWcoco88tut+CY63Y/9PXHuBFD03h05uf7rbyZFiPT4=;
-        b=AMp/Z6z4lVabjpQ3cS/MS49nudAEHau09/U4O7SjyPFXCZW/r8XL6Iwi0sPamDdclD
-         L9pvTzoc99LL+BUFN3pyyWYp0jUKtNIa9+Idg338B0yulN5ZW4RAtlh9hQXJLKvIUCzE
-         FFDg3denLe+v+0jrcJe+jB02+Th+H1A/EVUO9PTaO8S9eKRxFmmvAMrvVIx0CubWvIgQ
-         9gyHi2L2cTl16pjyTT9puvZM+QJtaza/X2vLnlFQKyGVgr51ffHrh8Xm/2rpj17ClLi1
-         p6hUFqr4mraFA03a/d3sUIghuDAo3NCeOoREDRr8lKKTzQZDo/vgo/PUKPj2UPgnMiUJ
-         Qp+A==
+        bh=Copp2ndGZ68t6KATBAuS2R34UMtC0q0chiu6mkWyRdw=;
+        b=y/XHAH+7DGuSaak2tT3ig0YNqhZJAWcrZ8p23YFfOnhitqB+gfOSJrOGyXVRXWbZxC
+         eTfyjtrJgjKrBq9aQEikxIsYBWhCP3F0RsIzcJm+w4V6V+2dQyTC3rg+WT6nvkJtFH8z
+         5tZiQFMIF1jjONCkgQStQ7jpkKC92Zzs8ZmzI0u7GteeG0x9HmxmkZxR+KdAXfHWgrp/
+         AGP7WPFZ+eadrIfR2/SSn3T0smpUeqGO7efwh58jLlbT3t19mdJSbkXx+rpjkv6EDIyT
+         GiroXX7586efwiVPPwvLkxLZHzAqBJ+qyw0xrTXOr/9yz8sT5mqCR1D8EV+e/CXshOk4
+         ZpVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701961614; x=1702566414;
+        d=1e100.net; s=20230601; t=1701961675; x=1702566475;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=EWcoco88tut+CY63Y/9PXHuBFD03h05uf7rbyZFiPT4=;
-        b=B5unJgftpnPOJ3MMPZ8gHDcKDPvvJqT3c3buef8ecXHs3ePExQb/7VEnrToN1IhjB4
-         1U4DlqDX1ypgoaYsCttmGnHDFcbK+KtgEZXi/22ClF39hKL7GpnKTJ6/G2i9zO5KiGnH
-         zHYQCS3GOxvwpX36DIQGz+Xr1JMsCEmqudHCMu03Qw+KWHw3mD+rNDK8zf+3vXp7SP95
-         oIK83h8+dqurAH57Ac+GA+q1nFYkKoolez4Oy5ADX+YAW+RkDjTg3T7+qbrXawY4nG1b
-         Zqc+A935M3y6flXyHSqw/+hHsrt1K00b8NJTI88oiFsAboCoNBrSx7ZdzCzfsTHqyHPx
-         rUwg==
-X-Gm-Message-State: AOJu0YxhdPUeOC5B/H7yOLuWfI7dS2oMGcLBPyFY5DCRE/VJKYp9wEcn
-	fjHvpOnPICXutAOg50d/oUZsKg==
-X-Google-Smtp-Source: AGHT+IHTy8+IvueJsQn+KurIJffNNmKiqFVQtVzbm19iX0i45eZHV4tLMcBmveaKizCMPPNo4tYVVQ==
-X-Received: by 2002:a5d:67c5:0:b0:333:3867:c5aa with SMTP id n5-20020a5d67c5000000b003333867c5aamr1932506wrw.20.1701961614467;
-        Thu, 07 Dec 2023 07:06:54 -0800 (PST)
+        bh=Copp2ndGZ68t6KATBAuS2R34UMtC0q0chiu6mkWyRdw=;
+        b=jiQT1CY/dRCF2GV7vp7tH5RPD9DOI8/Etp5Nwr0g75iCzKnxxrgEhuxoa3ndEkaTBk
+         QDsDwCgJS/62dghST47Pf78PZYhdc7IiBvs+9yh37N0NfmjBHWjECz0fp/VbQn18GFBy
+         ShAdTAjpX9ZCfsvHcIwIDRTwPau8YRDzmI46fCiLGx85yYBqY9iPQHvYjoSyo+TfpAcc
+         cCv2H8/0oISgmyw1FOPfq6RN+M8Ik0QeWKwkW+qXWRCAxlO3wXsSOonzth2Z10JgM8Gd
+         nh3BuTWPqK8rOqr93tRVDE5+M4dLMwaQ8g+TSwEzZdug6LAvnjndgw2Tn/dWty3IvIKk
+         3Uiw==
+X-Gm-Message-State: AOJu0YzB2VBZBGy277ZW4BmxrpUO6C7ZeYpWk7s2n5R0Yv9r2wFdPmk+
+	8ybp3pYVOJRbfzFdK5LyhUG7lA==
+X-Google-Smtp-Source: AGHT+IF3ts9ek/mYmRNdXx3GxmP46nrPUW7Zl/dOKYDi965OgtHxqAPAmVkPP3Q02kKv6wkmHjBDJg==
+X-Received: by 2002:ac2:5147:0:b0:50b:debe:d35d with SMTP id q7-20020ac25147000000b0050bdebed35dmr702137lfd.133.1701961675502;
+        Thu, 07 Dec 2023 07:07:55 -0800 (PST)
 Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id a8-20020adffb88000000b003335e67e574sm1649359wrr.78.2023.12.07.07.06.53
+        by smtp.gmail.com with ESMTPSA id i11-20020a5d438b000000b003332ef77db4sm1647628wrq.44.2023.12.07.07.07.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Dec 2023 07:06:54 -0800 (PST)
+        Thu, 07 Dec 2023 07:07:55 -0800 (PST)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -83,16 +83,16 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-riscv@lists.infradead.org,
 	linux-mm@kvack.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH RFC/RFT 3/4] riscv: Stop emitting preventive sfence.vma for new userspace mappings
-Date: Thu,  7 Dec 2023 16:03:47 +0100
-Message-Id: <20231207150348.82096-4-alexghiti@rivosinc.com>
+Subject: [PATCH RFC/RFT 4/4] TEMP: riscv: Add debugfs interface to retrieve #sfence.vma
+Date: Thu,  7 Dec 2023 16:03:48 +0100
+Message-Id: <20231207150348.82096-5-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20231207150348.82096-1-alexghiti@rivosinc.com>
 References: <20231207150348.82096-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231207_070659_058086_8F2F4EC4 
-X-CRM114-Status: GOOD (  19.83  )
+X-CRM114-CacheID: sfid-20231207_070758_933549_B74DFB36 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,208 +109,145 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The preventive sfence.vma were emitted because new mappings must be made
-visible to the page table walker, either the uarch caches invalid
-entries or not.
-
-Actually, there is no need to preventively sfence.vma on new mappings for
-userspace, this should be handled only in the page fault path.
-
-This allows to drastically reduce the number of sfence.vma emitted:
-
-* Ubuntu boot to login:
-Before: ~630k sfence.vma
-After:  ~200k sfence.vma
-
-* ltp - mmapstress01
-Before: ~45k
-After:  ~6.3k
-
-* lmbench - lat_pagefault
-Before: ~665k
-After:   832 (!)
-
-* lmbench - lat_mmap
-Before: ~546k
-After:   718 (!)
-
-The only issue with the removal of sfence.vma in update_mmu_cache() is
-that on uarchs that cache invalid entries, those won't be invalidated
-until the process takes a fault: so that's an additional fault in those
-cases.
+This is useful for testing/benchmarking.
 
 Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/arm64/include/asm/pgtable.h              |  2 +-
- arch/mips/include/asm/pgtable.h               |  6 +--
- arch/powerpc/include/asm/book3s/64/tlbflush.h |  8 ++--
- arch/riscv/include/asm/pgtable.h              | 43 +++++++++++--------
- include/linux/pgtable.h                       |  8 +++-
- mm/memory.c                                   | 12 +++++-
- 6 files changed, 48 insertions(+), 31 deletions(-)
+ arch/riscv/include/asm/pgtable.h  |  6 ++++--
+ arch/riscv/include/asm/tlbflush.h |  4 ++++
+ arch/riscv/kernel/sbi.c           | 12 ++++++++++++
+ arch/riscv/mm/tlbflush.c          | 17 +++++++++++++++++
+ 4 files changed, 37 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 7f7d9b1df4e5..728f25f529a5 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -57,7 +57,7 @@ static inline bool arch_thp_swp_supported(void)
-  * fault on one CPU which has been handled concurrently by another CPU
-  * does not need to perform additional invalidation.
-  */
--#define flush_tlb_fix_spurious_fault(vma, address, ptep) do { } while (0)
-+#define flush_tlb_fix_spurious_write_fault(vma, address, ptep) do { } while (0)
- 
- /*
-  * ZERO_PAGE is a global shared page that is always zero: used
-diff --git a/arch/mips/include/asm/pgtable.h b/arch/mips/include/asm/pgtable.h
-index 430b208c0130..84439fe6ed29 100644
---- a/arch/mips/include/asm/pgtable.h
-+++ b/arch/mips/include/asm/pgtable.h
-@@ -478,9 +478,9 @@ static inline pgprot_t pgprot_writecombine(pgprot_t _prot)
- 	return __pgprot(prot);
- }
- 
--static inline void flush_tlb_fix_spurious_fault(struct vm_area_struct *vma,
--						unsigned long address,
--						pte_t *ptep)
-+static inline void flush_tlb_fix_spurious_write_fault(struct vm_area_struct *vma,
-+						      unsigned long address,
-+						      pte_t *ptep)
- {
- }
- 
-diff --git a/arch/powerpc/include/asm/book3s/64/tlbflush.h b/arch/powerpc/include/asm/book3s/64/tlbflush.h
-index 1950c1b825b4..7166d56f90db 100644
---- a/arch/powerpc/include/asm/book3s/64/tlbflush.h
-+++ b/arch/powerpc/include/asm/book3s/64/tlbflush.h
-@@ -128,10 +128,10 @@ static inline void flush_tlb_page(struct vm_area_struct *vma,
- #define flush_tlb_page(vma, addr)	local_flush_tlb_page(vma, addr)
- #endif /* CONFIG_SMP */
- 
--#define flush_tlb_fix_spurious_fault flush_tlb_fix_spurious_fault
--static inline void flush_tlb_fix_spurious_fault(struct vm_area_struct *vma,
--						unsigned long address,
--						pte_t *ptep)
-+#define flush_tlb_fix_spurious_write_fault flush_tlb_fix_spurious_write_fault
-+static inline void flush_tlb_fix_spurious_write_fault(struct vm_area_struct *vma,
-+						      unsigned long address,
-+						      pte_t *ptep)
- {
- 	/*
- 	 * Book3S 64 does not require spurious fault flushes because the PTE
 diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index b2ba3f79cfe9..89aa5650f104 100644
+index 89aa5650f104..b0855a620cfd 100644
 --- a/arch/riscv/include/asm/pgtable.h
 +++ b/arch/riscv/include/asm/pgtable.h
-@@ -472,28 +472,20 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
- 		struct vm_area_struct *vma, unsigned long address,
- 		pte_t *ptep, unsigned int nr)
- {
--	/*
--	 * The kernel assumes that TLBs don't cache invalid entries, but
--	 * in RISC-V, SFENCE.VMA specifies an ordering constraint, not a
--	 * cache flush; it is necessary even after writing invalid entries.
--	 * Relying on flush_tlb_fix_spurious_fault would suffice, but
--	 * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
--	 */
--	while (nr--)
--		local_flush_tlb_page(address + nr * PAGE_SIZE);
- }
- #define update_mmu_cache(vma, addr, ptep) \
- 	update_mmu_cache_range(NULL, vma, addr, ptep, 1)
- 
- #define __HAVE_ARCH_UPDATE_MMU_TLB
--#define update_mmu_tlb update_mmu_cache
-+static inline void update_mmu_tlb(struct vm_area_struct *vma,
-+				  unsigned long address, pte_t *ptep)
-+{
-+	flush_tlb_range(vma, address, address + PAGE_SIZE);
-+}
- 
- static inline void update_mmu_cache_pmd(struct vm_area_struct *vma,
- 		unsigned long address, pmd_t *pmdp)
- {
--	pte_t *ptep = (pte_t *)pmdp;
--
--	update_mmu_cache(vma, address, ptep);
+@@ -550,7 +550,7 @@ static inline int ptep_set_access_flags(struct vm_area_struct *vma,
+ 	return false;
  }
  
- #define __HAVE_ARCH_PTE_SAME
-@@ -548,13 +540,26 @@ static inline int ptep_set_access_flags(struct vm_area_struct *vma,
- 					unsigned long address, pte_t *ptep,
- 					pte_t entry, int dirty)
+-extern u64 nr_sfence_vma_handle_exception;
++extern u64 nr_sfence_vma_spurious_read;
+ extern bool tlb_caching_invalid_entries;
+ 
+ #define flush_tlb_fix_spurious_read_fault flush_tlb_fix_spurious_read_fault
+@@ -558,8 +558,10 @@ static inline void flush_tlb_fix_spurious_read_fault(struct vm_area_struct *vma,
+ 						     unsigned long address,
+ 						     pte_t *ptep)
  {
--	if (!pte_same(*ptep, entry))
-+	if (!pte_same(*ptep, entry)) {
- 		__set_pte_at(ptep, entry);
--	/*
--	 * update_mmu_cache will unconditionally execute, handling both
--	 * the case that the PTE changed and the spurious fault case.
--	 */
--	return true;
-+		/* Here only not svadu is impacted */
-+		flush_tlb_page(vma, address);
-+		return true;
+-	if (tlb_caching_invalid_entries)
++	if (tlb_caching_invalid_entries) {
++		__sync_fetch_and_add(&nr_sfence_vma_spurious_read, 1UL);
+ 		flush_tlb_page(vma, address);
 +	}
-+
-+	return false;
-+}
-+
-+extern u64 nr_sfence_vma_handle_exception;
-+extern bool tlb_caching_invalid_entries;
-+
-+#define flush_tlb_fix_spurious_read_fault flush_tlb_fix_spurious_read_fault
-+static inline void flush_tlb_fix_spurious_read_fault(struct vm_area_struct *vma,
-+						     unsigned long address,
-+						     pte_t *ptep)
-+{
-+	if (tlb_caching_invalid_entries)
-+		flush_tlb_page(vma, address);
  }
  
  #define __HAVE_ARCH_PTEP_GET_AND_CLEAR
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index af7639c3b0a3..7abaf42ef612 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -931,8 +931,12 @@ static inline void arch_swap_restore(swp_entry_t entry, struct folio *folio)
- # define pte_accessible(mm, pte)	((void)(pte), 1)
- #endif
+diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+index a09196f8de68..f419ec9d2207 100644
+--- a/arch/riscv/include/asm/tlbflush.h
++++ b/arch/riscv/include/asm/tlbflush.h
+@@ -14,14 +14,18 @@
+ #ifdef CONFIG_MMU
+ extern unsigned long asid_mask;
  
--#ifndef flush_tlb_fix_spurious_fault
--#define flush_tlb_fix_spurious_fault(vma, address, ptep) flush_tlb_page(vma, address)
-+#ifndef flush_tlb_fix_spurious_write_fault
-+#define flush_tlb_fix_spurious_write_fault(vma, address, ptep) flush_tlb_page(vma, address)
-+#endif
++extern u64 nr_sfence_vma, nr_sfence_vma_all, nr_sfence_vma_all_asid;
 +
-+#ifndef flush_tlb_fix_spurious_read_fault
-+#define flush_tlb_fix_spurious_read_fault(vma, address, ptep)
- #endif
+ static inline void local_flush_tlb_all(void)
+ {
++	__sync_fetch_and_add(&nr_sfence_vma_all, 1UL);
+ 	__asm__ __volatile__ ("sfence.vma" : : : "memory");
+ }
  
- /*
-diff --git a/mm/memory.c b/mm/memory.c
-index 517221f01303..5cb0ccf0c03f 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -5014,8 +5014,16 @@ static vm_fault_t handle_pte_fault(struct vm_fault *vmf)
- 		 * with threads.
- 		 */
- 		if (vmf->flags & FAULT_FLAG_WRITE)
--			flush_tlb_fix_spurious_fault(vmf->vma, vmf->address,
--						     vmf->pte);
-+			flush_tlb_fix_spurious_write_fault(vmf->vma, vmf->address,
-+							   vmf->pte);
-+		else
-+			/*
-+			 * With the pte_same(ptep_get(vmf->pte), entry) check
-+			 * that calls update_mmu_tlb() above, multiple threads
-+			 * faulting at the same time won't get there.
-+			 */
-+			flush_tlb_fix_spurious_read_fault(vmf->vma, vmf->address,
-+							  vmf->pte);
- 	}
- unlock:
- 	pte_unmap_unlock(vmf->pte, vmf->ptl);
+ /* Flush one page from local TLB */
+ static inline void local_flush_tlb_page(unsigned long addr)
+ {
++	__sync_fetch_and_add(&nr_sfence_vma, 1UL);
+ 	ALT_FLUSH_TLB_PAGE(__asm__ __volatile__ ("sfence.vma %0" : : "r" (addr) : "memory"));
+ }
+ #else /* CONFIG_MMU */
+diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+index c672c8ba9a2a..ac1617759583 100644
+--- a/arch/riscv/kernel/sbi.c
++++ b/arch/riscv/kernel/sbi.c
+@@ -376,6 +376,8 @@ int sbi_remote_fence_i(const struct cpumask *cpu_mask)
+ }
+ EXPORT_SYMBOL(sbi_remote_fence_i);
+ 
++extern u64 nr_sfence_vma, nr_sfence_vma_all, nr_sfence_vma_all_asid;
++
+ /**
+  * sbi_remote_sfence_vma() - Execute SFENCE.VMA instructions on given remote
+  *			     harts for the specified virtual address range.
+@@ -389,6 +391,11 @@ int sbi_remote_sfence_vma(const struct cpumask *cpu_mask,
+ 			   unsigned long start,
+ 			   unsigned long size)
+ {
++	if (size == (unsigned long)-1)
++		__sync_fetch_and_add(&nr_sfence_vma_all, 1UL);
++	else
++		__sync_fetch_and_add(&nr_sfence_vma, ALIGN(size, PAGE_SIZE) / PAGE_SIZE);
++
+ 	return __sbi_rfence(SBI_EXT_RFENCE_REMOTE_SFENCE_VMA,
+ 			    cpu_mask, start, size, 0, 0);
+ }
+@@ -410,6 +417,11 @@ int sbi_remote_sfence_vma_asid(const struct cpumask *cpu_mask,
+ 				unsigned long size,
+ 				unsigned long asid)
+ {
++	if (size == (unsigned long)-1)
++		__sync_fetch_and_add(&nr_sfence_vma_all_asid, 1UL);
++	else
++		__sync_fetch_and_add(&nr_sfence_vma, ALIGN(size, PAGE_SIZE) / PAGE_SIZE);
++
+ 	return __sbi_rfence(SBI_EXT_RFENCE_REMOTE_SFENCE_VMA_ASID,
+ 			    cpu_mask, start, size, asid, 0);
+ }
+diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+index 77be59aadc73..75a3e2dff16a 100644
+--- a/arch/riscv/mm/tlbflush.c
++++ b/arch/riscv/mm/tlbflush.c
+@@ -3,11 +3,16 @@
+ #include <linux/mm.h>
+ #include <linux/smp.h>
+ #include <linux/sched.h>
++#include <linux/debugfs.h>
+ #include <asm/sbi.h>
+ #include <asm/mmu_context.h>
+ 
++u64 nr_sfence_vma, nr_sfence_vma_all, nr_sfence_vma_all_asid,
++	nr_sfence_vma_handle_exception, nr_sfence_vma_spurious_read;
++
+ static inline void local_flush_tlb_all_asid(unsigned long asid)
+ {
++	__sync_fetch_and_add(&nr_sfence_vma_all_asid, 1);
+ 	__asm__ __volatile__ ("sfence.vma x0, %0"
+ 			:
+ 			: "r" (asid)
+@@ -17,6 +22,7 @@ static inline void local_flush_tlb_all_asid(unsigned long asid)
+ static inline void local_flush_tlb_page_asid(unsigned long addr,
+ 		unsigned long asid)
+ {
++	__sync_fetch_and_add(&nr_sfence_vma, 1);
+ 	__asm__ __volatile__ ("sfence.vma %0, %1"
+ 			:
+ 			: "r" (addr), "r" (asid)
+@@ -149,3 +155,14 @@ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 	__flush_tlb_range(vma->vm_mm, start, end - start, PMD_SIZE);
+ }
+ #endif
++
++static int debugfs_nr_sfence_vma(void)
++{
++	debugfs_create_u64("nr_sfence_vma", 0444, NULL, &nr_sfence_vma);
++	debugfs_create_u64("nr_sfence_vma_all", 0444, NULL, &nr_sfence_vma_all);
++	debugfs_create_u64("nr_sfence_vma_all_asid", 0444, NULL, &nr_sfence_vma_all_asid);
++	debugfs_create_u64("nr_sfence_vma_handle_exception", 0444, NULL, &nr_sfence_vma_handle_exception);
++	debugfs_create_u64("nr_sfence_vma_spurious_read", 0444, NULL, &nr_sfence_vma_spurious_read);
++	return 0;
++}
++device_initcall(debugfs_nr_sfence_vma);
 -- 
 2.39.2
 
