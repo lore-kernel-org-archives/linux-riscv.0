@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38CE9C4167B
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Dec 2023 18:23:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3656FC4167B
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Dec 2023 19:08:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xqpczh6U3t9+sY6rASTjovA+TWpDSosE7H+yX7IqRG4=; b=cEMS9gdkT20jrD
-	R8x8MEunGrC02EXiUshks3haBTHlrJUCCR7VX8rKLqOFSrWKZDHEcGrrw1g9l+gXQLKhjKyRM1hDC
-	4hLLWon8IWKBS+VJChlmtP4O7L0ZSbbEQ1rr95aixjVCHR8tXMDckRUJpWmVs/pqqbhO0vgwNtITy
-	Ikb9hv9/BW++mTxCEFVjIMUIZcEfN6F1Wt6J9/2S1UA0uo4MwXPdkqQ1ZyjOXTxZUel8iWgFrbGpW
-	DAFfPf0c6YbFl/7LuyF6WqGCKSOg70cy6FCerEIaxp13jYHiEK038i77oxJ8cRDaephRfxKDfiyyz
-	cTnHiDYZ2vWXrLveOi9Q==;
+	List-Owner; bh=FSCVpIZ3D6096xx1k/sxOcEyUqYqJ1/EciKM0Um42xg=; b=cbYIBaLw+3M2uf
+	GoQEX+UiMbsqys1ZNhjd/CRd+Eg/Yc6+UQ4D1r71Un9ksd1yqrJuS8kiuiKQUv9D+ICWJjHw/LQIt
+	iqZvPx5D/i7tYwPe6i4JiLYqXONsMQKttHwhM+ysNHMk+xfUt0lCxuVRc4J+w3RmZIrRcr4DnO7T3
+	1jAVCu2Wd5Pu2/4Os0yRka8Tbjf29JNkFtYVTo+tSr9hkomAo3nBm66MfZRP/RX/VgOG0glqEMAEY
+	5xSWR3ReAxGwwDrNkqN2wogV1yM9NJk5HqGA78PToLwj6iRN1f6QjX2qDrtF/p3q54CfjYA2lnCVl
+	AmGRQC7bzdtzHzxfmnFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBJ1c-00DdaO-1T;
-	Thu, 07 Dec 2023 18:23:04 +0000
-Received: from mgamail.intel.com ([134.134.136.31])
+	id 1rBJj1-00DhjX-2j;
+	Thu, 07 Dec 2023 19:07:55 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBJ1Z-00DdZz-1Q
+	id 1rBJiz-00Dhit-09
 	for linux-riscv@lists.infradead.org;
-	Thu, 07 Dec 2023 18:23:03 +0000
+	Thu, 07 Dec 2023 19:07:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1701973381; x=1733509381;
+  t=1701976073; x=1733512073;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=iCLUUaatBfqlkyFZ3lf+30TefpNxCMzpAtCl5N7SoO4=;
-  b=RJsCybJnUD5lVEods7GdAfO3hk4yGztiQbc3TQ5oKOp0G7Gjd/ejEa1N
-   vNwt/Jd6IbE1QgvYmi7ckBvL4daO/vY/PamxJRaGELDarYSSPAtcCZ1CL
-   7rJ2qTxUbwByd8CDMRgwwnWkPndFaIJOdVNzqGlPFnz1QMfnKCYmNn8uq
-   /5mmSW7K/6Ipv9pKN9Ho2SvYsWvNcab3xVwcA1h7lGmZcBBBL9cTYqP/U
-   NQZ/0BYIiXwdPQafVIgGWp9NyfMpXb5ji6pq23gE1j2xmGC2xMQTm4WqU
-   6taxXAQQd8UyZNZGnY6Wzm3U0jABR4oSTwEP8pbMjDmEqUtutzLhZU51d
-   A==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10917"; a="458597363"
+  bh=ieJEkuMKhcAdLylW1AUSXkjLtQT7yen+rjsrcCv2Ujc=;
+  b=YCS//JjRkYhAGaVWG85gw6r/yBvc/junIhM0bZeFEA72Sm4rVMMoLwAW
+   tv0x+cutSJ3Xd+QnCwM2pPVfuucDmdb4JFqfvlVmXhGc8X/pkDZk/cxLj
+   SqbAbR7tFWgObL8FZtTTQlbPRUHh5mqYRq4brWIcaNCI/4gLEBBOLYyhg
+   zvtzDuaL1CQ1+aFkhjRaIuh6Fk/Cih6AVMhb8evrpiHJN5DXHANumEXr9
+   yw+68ZE5ZcsIeoz1gF5gCq3Js+PRQt084nJcpvWafzIKa8ebHFDVvM5EQ
+   8+gB7JH8ZoAukAC2+XVvS5ShdU2DZUCTtDqqcu+tZb3tNec6qCylkZae0
+   g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10917"; a="15843132"
 X-IronPort-AV: E=Sophos;i="6.04,258,1695711600"; 
-   d="scan'208";a="458597363"
-Received: from orsmga004.jf.intel.com ([10.7.209.38])
-  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Dec 2023 10:22:48 -0800
+   d="scan'208";a="15843132"
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Dec 2023 11:07:51 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10917"; a="895233228"
+X-IronPort-AV: E=McAfee;i="6600,9927,10917"; a="721582135"
 X-IronPort-AV: E=Sophos;i="6.04,258,1695711600"; 
-   d="scan'208";a="895233228"
+   d="scan'208";a="721582135"
 Received: from lkp-server02.sh.intel.com (HELO b07ab15da5fe) ([10.239.97.151])
-  by orsmga004.jf.intel.com with ESMTP; 07 Dec 2023 10:22:42 -0800
+  by orsmga003.jf.intel.com with ESMTP; 07 Dec 2023 11:07:45 -0800
 Received: from kbuild by b07ab15da5fe with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1rBJ1E-000CfP-0N;
-	Thu, 07 Dec 2023 18:22:40 +0000
-Date: Fri, 8 Dec 2023 02:22:00 +0800
+	id 1rBJio-000Cib-0A;
+	Thu, 07 Dec 2023 19:07:42 +0000
+Date: Fri, 8 Dec 2023 03:07:00 +0800
 From: kernel test robot <lkp@intel.com>
 To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
 	chao.wei@sophgo.com, conor@kernel.org,
@@ -67,17 +67,16 @@ To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
 	haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com,
 	guoren@kernel.org, jszhang@kernel.org, inochiama@outlook.com,
 	samuel.holland@sifive.com
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Chen Wang <unicorn_wang@outlook.com>
+Cc: oe-kbuild-all@lists.linux.dev, Chen Wang <unicorn_wang@outlook.com>
 Subject: Re: [PATCH v5 3/4] clk: sophgo: Add SG2042 clock generator driver
-Message-ID: <202312080254.Vka7cUVe-lkp@intel.com>
+Message-ID: <202312080230.uE0e0ycK-lkp@intel.com>
 References: <975f9995584dfa8af751e96a1f4d2c7991551a35.1701938395.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 Content-Disposition: inline
 In-Reply-To: <975f9995584dfa8af751e96a1f4d2c7991551a35.1701938395.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231207_102301_537268_0809AFC6 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20231207_110753_099763_9C3F6DC1 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,37 +103,33 @@ url:    https://github.com/intel-lab-lkp/linux/commits/Chen-Wang/dt-bindings-soc
 base:   b85ea95d086471afb4ad062012a4d73cd328fa86
 patch link:    https://lore.kernel.org/r/975f9995584dfa8af751e96a1f4d2c7991551a35.1701938395.git.unicorn_wang%40outlook.com
 patch subject: [PATCH v5 3/4] clk: sophgo: Add SG2042 clock generator driver
-config: i386-buildonly-randconfig-002-20231208 (https://download.01.org/0day-ci/archive/20231208/202312080254.Vka7cUVe-lkp@intel.com/config)
-compiler: clang version 16.0.4 (https://github.com/llvm/llvm-project.git ae42196bc493ffe877a7e3dff8be32035dea4d07)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20231208/202312080254.Vka7cUVe-lkp@intel.com/reproduce)
+config: arc-randconfig-002-20231208 (https://download.01.org/0day-ci/archive/20231208/202312080230.uE0e0ycK-lkp@intel.com/config)
+compiler: arc-elf-gcc (GCC) 13.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20231208/202312080230.uE0e0ycK-lkp@intel.com/reproduce)
 
 If you fix the issue in a separate patch/commit (i.e. not just a new version of
 the same patch/commit), kindly add following tags
 | Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202312080254.Vka7cUVe-lkp@intel.com/
+| Closes: https://lore.kernel.org/oe-kbuild-all/202312080230.uE0e0ycK-lkp@intel.com/
 
-All errors (new ones prefixed by >>):
+All error/warnings (new ones prefixed by >>):
 
->> drivers/clk/sophgo/clk-sophgo-sg2042.c:1273:13: error: call to undeclared function 'kzalloc'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-           clk_data = kzalloc(struct_size(clk_data, onecell_data.hws, num_clks), GFP_KERNEL);
-                      ^
-   drivers/clk/sophgo/clk-sophgo-sg2042.c:1273:13: note: did you mean 'vzalloc'?
-   include/linux/vmalloc.h:141:14: note: 'vzalloc' declared here
-   extern void *vzalloc(unsigned long size) __alloc_size(1);
-                ^
->> drivers/clk/sophgo/clk-sophgo-sg2042.c:1273:11: error: incompatible integer to pointer conversion assigning to 'struct sg2042_clk_data *' from 'int' [-Wint-conversion]
-           clk_data = kzalloc(struct_size(clk_data, onecell_data.hws, num_clks), GFP_KERNEL);
-                    ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> drivers/clk/sophgo/clk-sophgo-sg2042.c:1293:2: error: call to undeclared function 'kfree'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-           kfree(clk_data);
-           ^
-   drivers/clk/sophgo/clk-sophgo-sg2042.c:1349:2: error: call to undeclared function 'kfree'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-           kfree(clk_data);
-           ^
-   4 errors generated.
+   drivers/clk/sophgo/clk-sophgo-sg2042.c: In function 'sg2042_clk_init_clk_data':
+>> drivers/clk/sophgo/clk-sophgo-sg2042.c:1273:20: error: implicit declaration of function 'kzalloc'; did you mean 'vzalloc'? [-Werror=implicit-function-declaration]
+    1273 |         clk_data = kzalloc(struct_size(clk_data, onecell_data.hws, num_clks), GFP_KERNEL);
+         |                    ^~~~~~~
+         |                    vzalloc
+>> drivers/clk/sophgo/clk-sophgo-sg2042.c:1273:18: warning: assignment to 'struct sg2042_clk_data *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+    1273 |         clk_data = kzalloc(struct_size(clk_data, onecell_data.hws, num_clks), GFP_KERNEL);
+         |                  ^
+>> drivers/clk/sophgo/clk-sophgo-sg2042.c:1293:9: error: implicit declaration of function 'kfree'; did you mean 'vfree'? [-Werror=implicit-function-declaration]
+    1293 |         kfree(clk_data);
+         |         ^~~~~
+         |         vfree
+   cc1: some warnings being treated as errors
 
 
-vim +/kzalloc +1273 drivers/clk/sophgo/clk-sophgo-sg2042.c
+vim +1273 drivers/clk/sophgo/clk-sophgo-sg2042.c
 
   1256	
   1257	static int __init sg2042_clk_init_clk_data(
