@@ -4,81 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B52DEC4167B
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Dec 2023 13:02:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D013FC4167B
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Dec 2023 13:06:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6boLLPip2f9a/tAS17w8jgtgq65CeO+y12dYP2JjWv4=; b=pcNcX57wFKaZGh
-	Ai49Ybs21fjsouzpaNcICAOSS6jaHJSSfC1wPuZ/N9PDft4RRL908d0ybPduuAhCSnQxDB2Sm4Sem
-	79HbeIns8Ns6LCRNSO9Ov+miuc5znvvweXQlXJKu4TPA54OLK/39vkExsZEvwkbhaJNM/37yCuA0k
-	48PVWkIqC+uKtadEVbungVSKJ28lbjQ6WsiYA0p1zLMbNoxItMF3vuGi1HsTY7hVJS4ocG1nKam0W
-	oLv2t9+1M0CeNGdmRPJEmY0PqnOawVNm71wEgzx7kzESOG7rT2BmIrtvjdbNm09SaabW1k2M0qbdu
-	Pb1hJ/ybxk0GjpfeOV4A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u3l9ocyeQsV362Y+AwbgYUKHLQtO0G0kEhYCUpRNRP4=; b=iwwU/Z5s3a2dTiQdOUH9z/iNwW
+	e2sEIfSUPMAilU6zC/9HkK5OYLCb7TUQCTRdGqgG8rKxk4WNqX2urK1kWMPi1iEX5d7EM/M4mXPx9
+	aJ/tgo4lRiuOemPIoINGX1/YZ8vBLlYZyqi3+1+WD6u7p5bSBwq7h80UYItuerd2kDXQjrXsCeuo9
+	qtgzhRIG9Cen20HmLCZGlwAwZ0bfEeAQu+j/nASNiMgMb9srYgtZhKQyk3Yr+7uO4hV1dxMZR6CHB
+	Egfe4VhQTsPpvRaKDRzbZ+rlopS0anXXlE+zo1XPllW11nyqP6XkrhJLlA+zyYSrkeaFQmAINh3Nd
+	/iNg5dag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBE1R-00CrlT-2H;
-	Thu, 07 Dec 2023 13:02:33 +0000
-Received: from mail-vk1-xa31.google.com ([2607:f8b0:4864:20::a31])
+	id 1rBE5I-00Cs6C-2U;
+	Thu, 07 Dec 2023 13:06:32 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBE1O-00Crkd-0I
-	for linux-riscv@lists.infradead.org;
-	Thu, 07 Dec 2023 13:02:32 +0000
-Received: by mail-vk1-xa31.google.com with SMTP id 71dfb90a1353d-4b2d64a368aso378641e0c.1
-        for <linux-riscv@lists.infradead.org>; Thu, 07 Dec 2023 05:02:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1701954147; x=1702558947; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=I2GLl9ORxjgzbrAPA2o2RMIrdlgomnkHIAs9YLkJmLY=;
-        b=e9bCX7Ct31vKb3SfGTqcatLXbCZOTqMsQPQAjZvC/fgtmEOhJf3iXg5PuO1RCweDPl
-         WmnIrdym1TUHmmVxjpkNDAUMWgjPDrNYvc1Dlzt8sPIVn1jBQRIdqqxe0uCgI6+8jb1Y
-         XcylwE6lgplv30be5yoy8XmHlMbPWyEkkj7POiwLwxu5G6XQO5Lzbc+1AW/1PFn9IQvj
-         iqoJ6PoyRs53ObvG4oVbmb1oRuf1qDsWrnQTGrczHW5Nf6X2lJBGM3LiZvSz2gVRrF1O
-         kyzdeOqfkK+8jRPace+3d23NT/xEELtFh46KLN9F/8x/+uS2HT4dMU4A4TqKn77XxPLY
-         ce2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701954147; x=1702558947;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=I2GLl9ORxjgzbrAPA2o2RMIrdlgomnkHIAs9YLkJmLY=;
-        b=cU99Fo++Re4X7ao3qdpKYnefNAewz7Y4QMGtR3gj/Gc56X4PeULUt6kT5l4G1iEvzi
-         HX3STFahzY8UiL1aXMNne62HR5+hkJ75NR5gzmpgjwdMoKQ9S7LkRM0S2kui2wOW1/SW
-         r5m/UT+4jfqyxb93JJSKiIqy44iiM/4ytGxDb0B8l8yrbaxnAZ89lfVPAfw3vqflQZ1v
-         8jSKKTphxSKkYkMvx8QCYL8xyFiFWv+qQ5RfEMrbY7TD/h3DVF+XMyYdbIR286Zp1Inl
-         9w2mCxh/v7i47y/hNjIQC+6yv7NKmfJFqli8UaK3XkEDE1pj2dxcZEmc5ZJBx0zbld+W
-         sWZQ==
-X-Gm-Message-State: AOJu0YyEadndW6XZqGCJOiw7wxpQXF+d95Cck/2uVkYR+cz3zitkdqvP
-	JnS8x7jfDUoYw/zSZqYA8S1cIS6aedhkOGhXmCM=
-X-Google-Smtp-Source: AGHT+IGtRYMhWMwVELysDloo+mmiJ60uQH2EsvvN6YMJOfv0iL7mDl0yDXi4ORiDbM8cv8xM6vKN+5mMQqNLrSX9bTo=
-X-Received: by 2002:ac5:c9b5:0:b0:4ab:da7a:c573 with SMTP id
- f21-20020ac5c9b5000000b004abda7ac573mr2440577vkm.8.1701954146656; Thu, 07 Dec
- 2023 05:02:26 -0800 (PST)
+	id 1rBE5D-00Cs57-2Z;
+	Thu, 07 Dec 2023 13:06:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1701954388; x=1733490388;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=2WEjfcI2m+oq1ciSqCuc34s2aUTsgkGBvyLJkB6HBO0=;
+  b=aqImeZ1NfMfesPfNpL7EHhxFbDXPnLkaOYizT4iE/8957JSW7P68zZ+7
+   GCiYB4GQGW8bGwVRHWkESH1gKejGCZqgCjeqega6YfBF9sQDBG4PfHDNE
+   ClrQGetCSdJSMDLxOSSZMwTm0UdnIXG6r/Pkst1JbIYtpOFUludxreolj
+   jIB/3KvL7pvbSEFadV4zNLJxD6aGnd19NrpjlETBu8lFoSuZB1ePbiZ3p
+   E7dxbU0X0jkcz/ENrqOgnDkoTsWdGAjRbMJw+8xTb9x9TgAFhkjQjKWz1
+   12MtXNFH3VtOptBH+DfnrIHRIKpMuwGU/1SvQAx1T/Lzcpkk58J8lvoPM
+   w==;
+X-CSE-ConnectionGUID: P/ypik10Sp+WkZ/8sFmEdA==
+X-CSE-MsgGUID: qUAya2P+REiDwwvEHGBUhw==
+X-ThreatScanner-Verdict: Negative
+X-IronPort-AV: E=Sophos;i="6.04,256,1695711600"; 
+   d="asc'?scan'208";a="12931036"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 07 Dec 2023 06:06:25 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Thu, 7 Dec 2023 06:06:15 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex01.mchp-main.com (10.10.85.143)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Thu, 7 Dec 2023 06:06:12 -0700
+Date: Thu, 7 Dec 2023 13:05:42 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Atish Patra <atishp@rivosinc.com>
+Subject: Re: [RFC 6/9] drivers/perf: riscv: Implement SBI PMU snapshot
+ function
+Message-ID: <20231207-daycare-manager-2f4817171422@wendy>
+References: <20231205024310.1593100-1-atishp@rivosinc.com>
+ <20231205024310.1593100-7-atishp@rivosinc.com>
 MIME-Version: 1.0
-References: <20230810-crewless-pampers-6f51aafb8cff@wendy> <mhng-550dee8b-a2fb-485b-ad4d-2763e94191b4@palmer-ri-x1c9>
- <20231206-precut-serotonin-2eecee4ab6af@spud>
-In-Reply-To: <20231206-precut-serotonin-2eecee4ab6af@spud>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Thu, 7 Dec 2023 13:02:00 +0000
-Message-ID: <CA+V-a8s3MjvpD8gAE7-mOUc6PEytbPOR6x_PHuw0J0hOLkaz-w@mail.gmail.com>
-Subject: Re: [RFT 1/2] RISC-V: handle missing "no-map" properties for
- OpenSBI's PMP protected regions
-To: Conor Dooley <conor@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor.dooley@microchip.com>, 
-	geert+renesas@glider.be, Atish Patra <atishp@rivosinc.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, apatel@ventanamicro.com, alexghiti@rivosinc.com, 
-	Bjorn Topel <bjorn@rivosinc.com>, suagrfillet@gmail.com, jeeheng.sia@starfivetech.com, 
-	petrtesarik@huaweicloud.com, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
-	prabhakar.mahadev-lad.rj@bp.renesas.com
+In-Reply-To: <20231205024310.1593100-7-atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231207_050230_129231_F934420E 
-X-CRM114-Status: GOOD (  72.70  )
+X-CRM114-CacheID: sfid-20231207_050627_969710_DDB24838 
+X-CRM114-Status: GOOD (  44.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,181 +80,555 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Mark Rutland <mark.rutland@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, kvm@vger.kernel.org, Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, Guo Ren <guoren@kernel.org>, kvm-riscv@lists.infradead.org, Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: multipart/mixed; boundary="===============0991003134012996202=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBEZWMgNiwgMjAyMyBhdCAyOjI24oCvUE0gQ29ub3IgRG9vbGV5IDxjb25vckBrZXJu
-ZWwub3JnPiB3cm90ZToKPgo+IE9uIFdlZCwgRGVjIDA2LCAyMDIzIGF0IDA0OjUyOjExQU0gLTA4
-MDAsIFBhbG1lciBEYWJiZWx0IHdyb3RlOgo+ID4gT24gVGh1LCAxMCBBdWcgMjAyMyAwMjowNzox
-MCBQRFQgKC0wNzAwKSwgQ29ub3IgRG9vbGV5IHdyb3RlOgo+ID4gPiBPbiBXZWQsIEF1ZyAwOSwg
-MjAyMyBhdCAwMjowMTowN0FNIC0wNzAwLCBBdGlzaCBLdW1hciBQYXRyYSB3cm90ZToKPiA+ID4g
-PiBPbiBUdWUsIEF1ZyA4LCAyMDIzIGF0IDY6MznigK9BTSBDb25vciBEb29sZXkgPGNvbm9yQGtl
-cm5lbC5vcmc+IHdyb3RlOgo+ID4gPiA+ID4KPiA+ID4gPiA+IE9uIFR1ZSwgQXVnIDA4LCAyMDIz
-IGF0IDEyOjU0OjExQU0gLTA3MDAsIEF0aXNoIEt1bWFyIFBhdHJhIHdyb3RlOgo+ID4gPiA+ID4g
-PiBPbiBXZWQsIEF1ZyAyLCAyMDIzIGF0IDQ6MTTigK9BTSBDb25vciBEb29sZXkgPGNvbm9yLmRv
-b2xleUBtaWNyb2NoaXAuY29tPiB3cm90ZToKPiA+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiA+IEFk
-ZCBhbiBlcnJhdHVtIGZvciB2ZXJzaW9ucyBbdjAuOCB0byB2MS4zKSBvZiBPcGVuU0JJIHdoaWNo
-IGZhaWwgdG8gYWRkCj4gPiA+ID4gPiA+ID4gdGhlICJuby1tYXAiIHByb3BlcnR5IHRvIHRoZSBy
-ZXNlcnZlZCBtZW1vcnkgbm9kZXMgZm9yIHRoZSByZWdpb25zIGl0Cj4gPiA+ID4gPiA+ID4gaGFz
-IHByb3RlY3RlZCB1c2luZyBQTVBzLgo+ID4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+ID4gT3VyIGV4
-aXN0aW5nIGZpeCBzd2VlcGluZyBoaWJlcm5hdGlvbiB1bmRlciB0aGUgY2FycGV0IGJ5IG1hcmtp
-bmcgaXQKPiA+ID4gPiA+ID4gPiBOT05QT1JUQUJMRSBpcyBpbnN1ZmZpY2llbnQgYXMgdGhlcmUg
-YXJlIG90aGVyIHdheXMgdG8gZ2VuZXJhdGUKPiA+ID4gPiA+ID4gPiBhY2Nlc3NlcyB0byB0aGVz
-ZSByZXNlcnZlZCBtZW1vcnkgcmVnaW9ucywgYXMgUGV0ciBkaXNjb3ZlcmVkIFsxXQo+ID4gPiA+
-ID4gPiA+IHdoaWxlIHRlc3RpbmcgY3Jhc2gga2VybmVscyAmIGtkdW1wLgo+ID4gPiA+ID4gPiA+
-Cj4gPiA+ID4gPiA+ID4gSW50ZXJjZWRlIGR1cmluZyB0aGUgYm9vdCBwcm9jZXNzIHdoZW4gdGhl
-IGFmZmxpY3RlZCB2ZXJzaW9ucyBvZiBPcGVuU0JJCj4gPiA+ID4gPiA+ID4gYXJlIHByZXNlbnQg
-JiBzZXQgdGhlICJuby1tYXAiIHByb3BlcnR5IGluIGFsbCAibW1vZGVfcmVzdiIgbm9kZXMgYmVm
-b3JlCj4gPiA+ID4gPiA+ID4gdGhlIGtlcm5lbCBkb2VzIGl0cyByZXNlcnZlZCBtZW1vcnkgcmVn
-aW9uIGluaXRpYWxpc2F0aW9uLgo+ID4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+
-IFdlIGhhdmUgZGlmZmVyZW50IG1lY2hhbmlzbXMgb2YgRFQgYmVpbmcgcGFzc2VkIHRvIHRoZSBr
-ZXJuZWwuCj4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+IDEuIEEgcHJpb3Igc3RhZ2UoZS5nIFUtQm9v
-dCBTUEwpIHRvIE0tbW9kZSBydW50aW1lIGZpcm13YXJlIChlLmcuCj4gPiA+ID4gPiA+IE9wZW5T
-QkksIHJ1c3RTQkkpIHBhc3NlcyB0aGUgRFQgdG8gTS1tb2RlIHJ1bnRpbWUgZmlybXdhcmUgYW5k
-IGl0Cj4gPiA+ID4gPiA+IHBhc3NlcyB0byB0aGUgbmV4dCBzdGFnZS4KPiA+ID4gPiA+ID4gSW4g
-dGhpcyBjYXNlLCBNLW1vZGUgcnVudGltZSBmaXJtd2FyZSBnZXRzIGEgY2hhbmNlIHRvIHVwZGF0
-ZSB0aGUKPiA+ID4gPiA+ID4gbm8tbWFwIHByb3BlcnR5IGluIERUIHRoYXQgdGhlIGtlcm5lbCBj
-YW4gcGFyc2UuCj4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+IDIuIFVzZXIgbG9hZHMgdGhlIERUIGZy
-b20gdGhlIGJvb3QgbG9hZGVyIChlLmcgRURLMiwgVS1Cb290IHByb3BlcikuCj4gPiA+ID4gPiA+
-IEFueSBEVCBwYXRjaGluZyBkb25lIGJ5IHRoZSBNLW1vZGUgZmlybXdhcmUgaXMgdXNlbGVzcy4g
-SWYgdGhlc2UgRFRCcwo+ID4gPiA+ID4gPiBkb24ndCBoYXZlIHRoZSBuby1tYXAKPiA+ID4gPiA+
-ID4gcHJvcGVydHksIGhpYmVybmF0aW9uIG9yIEVGSSBib290aW5nIHdpbGwgaGF2ZSBpc3N1ZXMg
-YXMgd2VsbC4KPiA+ID4gPiA+ID4KPiA+ID4gPiA+Cj4gPiA+ID4gPiA+IFdlIGFyZSB0cnlpbmcg
-dG8gc29sdmUgb25seSBvbmUgcGFydCBvZiBwcm9ibGVtICMxIGluIHRoaXMgcGF0Y2guCj4gPiA+
-ID4gPgo+ID4gPiA+ID4gQ29ycmVjdC4KPiA+ID4gPiA+Cj4gPiA+ID4gPiBJZiBzb21lb25lJ3Mg
-c2Vjb25kIHN0YWdlIGlzIGFsc28gcHJvdmlkaW5nIGFuIGluY29ycmVjdCBkZXZpY2V0cmVlCj4g
-PiA+ID4gPiB0aGVuLCB5ZWFoLCB0aGlzIGFwcHJvYWNoIHdvdWxkIGZhbGwgYXBhcnQgLSBidXQg
-aXQncyB0aGUgZmlybXdhcmUKPiA+ID4gPiA+IHByb3ZpZGVkIGRldmljZXRyZWUgYmVpbmcgaW5j
-b3JyZWN0IHRoYXQgSSBhbSB0cnlpbmcgdG8gYWNjb3VudCBmb3IKPiA+ID4gPiA+IGhlcmUuIElm
-IGEgcGVyc29uIGluY29ycmVjdGx5IGNvbnN0cnVjdGVkIG9uZSwgSSBhbSBub3QgcmVhbGx5IHN1
-cmUgd2hhdAo+ID4gPiA+ID4gd2UgY2FuIGRvIGZvciB0aGVtLCB0aGV5IGluY29ycmVjdCBkZXNj
-cmliZWQgdGhlaXIgaGFyZHdhcmUgL3NocnVnCj4gPiA+ID4gPiBNeSBwYXRjaCBzaG91bGQgb2Yg
-Y291cnNlIGhlbHAgaW4gc29tZSBvZiB0aGUgc2NlbmFyaW9zIHlvdSBtZW50aW9uIGFib3ZlCj4g
-PiA+ID4gPiBpZiB0aGUgbmFtZSBvZiB0aGUgcmVzZXJ2ZWQgbWVtb3J5IHJlZ2lvbiBmcm9tIE9w
-ZW5TQkkgaXMgcHJvcGFnYXRlZCBieQo+ID4gPiA+ID4gdGhlIHNlY29uZC1zdGFnZSBib290bG9h
-ZGVyLCBidXQgdGhhdCBpcyBqdXN0IGFuIGV4dGVuc2lvbiBvZiBjYXNlIDEsCj4gPiA+ID4gPiBu
-b3QgY2FzZSAyLgo+ID4gPiA+ID4KPiA+ID4gPiA+ID4gSQo+ID4gPiA+ID4gPiBkb24ndCB0aGlu
-ayBhbnkgb3RoZXIgTS1tb2RlIHJ1bnRpbWUgZmlybXdhcmUgcGF0Y2hlcyBEVCB3aXRoIG5vLW1h
-cAo+ID4gPiA+ID4gPiBwcm9wZXJ0eSBhcyB3ZWxsLgo+ID4gPiA+ID4gPiBQbGVhc2UgbGV0IG1l
-IGtub3cgaWYgSSBhbSB3cm9uZyBhYm91dCB0aGF0LiBUaGUgcHJvYmxlbSBpcyBub3QKPiA+ID4g
-PiA+ID4gcmVzdHJpY3RlZCB0byBbdjAuOCB0byB2MS4zKSBvZiBPcGVuU0JJLgo+ID4gPiA+ID4K
-PiA+ID4gPiA+IEl0IGNvbWVzIGRvd24gdG8gQWxleCdzIHF1ZXN0aW9uIC0gZG8gd2Ugd2FudCB0
-byBmaXggdGhpcyBraW5kIG9mCj4gPiA+ID4gPiBmaXJtd2FyZSBpc3N1ZSBpbiB0aGUga2VybmVs
-PyBVbHRpbWF0ZWx5IHRoaXMgaXMgYSBwb2xpY3kgZGVjaXNpb24gdGhhdAo+ID4gPiA+ID4gInNv
-bWVib2R5IiBoYXMgdG8gbWFrZS4gTWF5YmUgdGhlIGxpc3Qgb2YgZmlybXdhcmVzIHRoYXQgbmVl
-ZCB0aGlzCj4gPiA+ID4KPiA+ID4gPiBJTU8sIHdlIHNob3VsZG4ndCBhcyB0aGlzIGlzIGEgc2xp
-cHBlcnkgc2xvcGUuIEtlcm5lbCBjYW4ndCBmaXggZXZlcnkKPiA+ID4gPiBmaXJtd2FyZSBidWcg
-YnkgaGF2aW5nIGVycmF0YXMuCj4gPiA+ID4gSSBhZ3JlZSB3aXRoIHlvdXIgcG9pbnQgYmVsb3cg
-YWJvdXQgZmlybXdhcmUgaW4gc2hpcHBpbmcgcHJvZHVjdHMuIEkKPiA+ID4gPiBhbSBub3QgYXdh
-cmUgb2YgYW55IG9mZmljaWFsIHByb2R1Y3RzIHNoaXBwaW5nIGFueXRoaW5nIG90aGVyIHRoYW4K
-PiA+ID4gPiBPcGVuU0JJIGVpdGhlci4KPiA+ID4KPiA+ID4gPiBIb3dldmVyLCBJIGhhdmUgc2Vl
-biB1c2VycyB1c2luZyBvdGhlciBmaXJtd2FyZXMgaW4gdGhlaXIgZGV2Cj4gPiA+ID4gZW52aXJv
-bm1lbnQuCj4gPiA+Cj4gPiA+IElmIHNvbWVvbmUncyBhbHJlYWR5IGNoYW5nZWQgdGhlaXIgYm9h
-cmRzIGZpcm13YXJlLCBJIGhhdmUgbGVzcyBzeW1wYXRoeQo+ID4gPiBmb3IgdGhlbSwgYXMgdGhl
-eSBzaG91bGQgYmUgYWJsZSB0byBtYWtlIGZ1cnRoZXIgY2hhbmdlcy4gUHVudGVycyBidXlpbmcK
-PiA+ID4gU0JDcyB0byBpbnN0YWxsIEZlZG9yYSBvciBEZWJpYW4gdy9vIGhhdmluZyB0byBjb25z
-aWRlciB0aGVpciBmaXJtd2FyZQo+ID4gPiBhcmUgd2hvIEkgYW0gbW9yZSBpbnRlcmVzdGVkIGlu
-IGhlbHBpbmcuCj4gPiA+Cj4gPiA+ID4gSU1ITywgdGhpcyBhcHByb2FjaCBzZXRzIGEgYmFkIHBy
-ZWNlZGVudCBmb3IgdGhlIGZ1dHVyZSBlc3BlY2lhbGx5Cj4gPiA+ID4gd2hlbiBpdCBvbmx5IHNv
-bHZlcyBvbmUgcGFydCBvZiB0aGUgcHJvYmxlbS4KPiA+ID4KPiA+ID4gWWVhaCwgSSdtIGNlcnRh
-aW5seSB3YXJ5IG9mIHNldHRpbmcgYW4gdW53aXNlIHByZWNlZGVudCBoZXJlLgo+ID4gPiBJbmV2
-aXRhYmx5IHdlIHdpbGwgbmVlZCB0byBoYXZlIGZpcm13YXJlLXJlbGF0ZWQgZXJyYXRhIGFuZCBp
-dCdkIGJlIGdvb2QKPiA+ID4gdG8gaGF2ZSBhIHBvbGljeSBmb3Igd2hhdCBpcyAob3IgbW9yZSBp
-bXBvcnRhbnRseSB3aGF0IGlzbid0Cj4gPiA+IGFjY2VwdGFibGUpLiBDZXJ0YWlubHkgd2UgaGF2
-ZSBzYWlkIHRoYXQga25vd24tYnJva2VuIHZlcnNpb24gb2YgT3BlblNCSQo+ID4gPiB0aGF0IFQt
-SGVhZCBwdXRzIGluIHRoZWlyIFNESyBpcyBub3Qgc3VwcG9ydGVkIGJ5IHRoZSBtYWlubGluZSBr
-ZXJuZWwuCj4gPiA+IE9uIHRoZSBsYXR0ZXIgcGFydCwgSSdtIHBlcmZlY3RseSBoYXBweSB0byBl
-eHBhbmQgdGhlIGVycmF0dW0gdG8gY292ZXIKPiA+ID4gYWxsIGFmZmVjdGVkIGZpcm13YXJlcywg
-YnV0IEkgd2Fzbid0IGV2ZW4gc3VyZSBpZiBteSBmaXggd29ya2VkCj4gPiA+IHByb3Blcmx5LCBo
-ZW5jZSB0aGUgcmVxdWVzdCBmb3IgdGVzdGluZyBmcm9tIHRob3NlIHdobyBlbmNvdW50ZXJlZCB0
-aGUKPiA+ID4gcHJvYmxlbS4KPiA+ID4KPiA+ID4gPiBXZSBzaG91bGRuJ3QgaGlkZSBmaXJtd2Fy
-ZSBidWdzIGluIHRoZSBrZXJuZWwgd2hlbiBhbiB1cGdyYWRlZAo+ID4gPiA+IGZpcm13YXJlIGlz
-IGFscmVhZHkgYXZhaWxhYmxlLgo+ID4gPgo+ID4gPiBKdXN0IHRvIG5vdGUsIGF2YWlsYWJpbGl0
-eSBvZiBhbiB1cGRhdGVkIGZpcm13YXJlIHVwc3RyZWFtIGRvZXMgbm90Cj4gPiA+IG5lY2Vzc2Fy
-aWx5IG1lYW4gdGhhdCBjb3JyZXNwb25kaW5nIHVwZGF0ZSBpcyBwb3NzaWJsZSBmb3IgYWZmZWN0
-ZWQKPiA+ID4gaGFyZHdhcmUuCj4gPgo+ID4gWWVwLiAgSSB0aGluayB3ZSdyZSBiZWVuIGluIGEg
-dmVyeSBob2JiaXN0LWNlbnRyaWMgd29ybGQgaW4gUklTQy1WIGxhbmQsIGJ1dAo+ID4gaW4gZ2Vu
-ZXJhbCB0cnlpbmcgdG8gZ2V0IHBlb3BsZSB0byB1cGRhdGUgZmlybXdhcmUgaXMgaGFyZC4gIFBh
-cnQgb2YgdGhlCj4gPiB3aG9sZSAia2VybmVsIHVwZGF0ZXMgZG9uJ3QgYnJlYWsgdXNlcnMiIHRo
-aW5nIGlzIHdoYXQncyB1bmRlcm5lYXRoIHRoZQo+ID4ga2VybmVsLCBpdCdzIG5vdCBqdXN0IGEg
-dUFCSSB0aGluZy4KPgo+IFllYWgsIHRoZXJlJ3MgY2VydGFpbmx5IGFuIGF0dGl0dWRlIHRoYXQg
-SSB0aGluayBuZWVkcyB0byBnbyBhd2F5LCB0aGF0Cj4gdXBkYXRpbmcgZmlybXdhcmUgZXRjIGlz
-IHNvbWV0aGluZyB3ZSBjYW4gZXhwZWN0IHRvIGJlIGNhcnJpZWQgb3V0IG9uIGEKPiB1bml2ZXJz
-YWwgYmFzaXMuIE9yIHRoYXQgZml4aW5nIHRoaW5ncyBpbiB0aGUgdXBzdHJlYW0gdmVyc2lvbiBv
-Zgo+IE9wZW5TQkkgbWVhbnMgaXQnbGwgYWN0dWFsbHkgcHJvcGFnYXRlIGRvd24gdG8gc3lzdGVt
-IGludGVncmF0b3JzLgo+Cj4gPgo+ID4gPiA+IFRoaXMgYnVnIGlzIHdlbGwgZG9jdW1lbnRlZCBp
-biB2YXJpb3VzIHRocmVhZHMgYW5kIGZpeGVkIGluIHRoZSBsYXRlc3QKPiA+ID4gPiB2ZXJzaW9u
-IG9mIE9wZW5TQkkuCj4gPiA+ID4gSSBhbSBhc3N1bWluZyBvdGhlciBmaXJtd2FyZXMgd2lsbCBm
-b2xsb3cgaXQgYXMgd2VsbC4KPiA+ID4gPgo+ID4gPiA+IEFueWJvZHkgZmFjaW5nIGhpYmVybmF0
-aW9uIG9yIGVmaSByZWxhdGVkIGJvb3RpbmcgaXNzdWVzIHNob3VsZCBqdXN0Cj4gPiA+ID4gdXBn
-cmFkZSB0byB0aGUgbGF0ZXN0IHZlcnNpb24gb2YgZmlybXdhcmUgKGUuZyBPcGVuU0JJIHYxLjMp
-Cj4gPiA+ID4gTGF0ZXN0IHZlcnNpb24gb2YgUWVtdSB3aWxsIHN1cHBvcnQoaWYgbm90IGhhcHBl
-bmVkIGFscmVhZHkpIHRoZQo+ID4gPiA+IGxhdGVzdCB2ZXJzaW9uIG9mIE9wZW5TQkkuCj4gPiA+
-ID4KPiA+ID4gPiBUaGlzIGlzc3VlIHdpbGwgb25seSBtYW5pZmVzdCBpbiBrZXJuZWxzIDYuNCBv
-ciBoaWdoZXIuIEFueSB1c2VyCj4gPiA+ID4gZmFjaW5nIHRoZXNlIHdpdGggdGhlIGxhdGVzdCBr
-ZXJuZWwgY2FuIGFsc28gdXBncmFkZSB0aGUgZmlybXdhcmUuCj4gPiA+ID4gRG8geW91IHNlZSBh
-bnkgaXNzdWUgd2l0aCB0aGF0ID8KPiA+ID4KPiA+ID4gSSBkb24ndCB0aGluayBpdCBpcyBmYWly
-IHRvIGNvbXBhcmUgdGhlIGVhc2Ugb2YgdXBncmFkaW5nIHRoZSBrZXJuZWwKPiA+ID4gdG8gdGhh
-dCByZXF1aXJlZCB0byB1cGdyYWRlIGEgYm9hcmRzIGZpcm13YXJlLCB3aXRoIHRoZSBsYXR0ZXIg
-YmVpbmcKPiA+ID4gZmFyLCBmYXIgbW9yZSBpbmNvbnZlbmllbnQgb24gcHJldHR5IG11Y2ggYWxs
-IG9mIHRoZSBib2FyZHMgdGhhdCBJIGhhdmUuCj4gPgo+ID4gSU1PIHdlJ3JlIGluIHRoZSBzYW1l
-IHNwb3QgYXMgZXZlcnkgb3RoZXIgcG9ydCBoZXJlLCBhbmQgZ2VuZXJhbGx5IHRoZXkgd29yawo+
-ID4gYXJvdW5kIGZpcm13YXJlIGJ1Z3Mgd2hlbiB0aGV5J3ZlIHJvbGxlZCBvdXQgaW50byBwcm9k
-dWN0aW9uIHNvbWV3aGVyZSB0aGF0Cj4gPiBmaXJtd2FyZSB1cGRhdGVzIGFyZW4ndCBsaWtlbHkg
-dG8gaGFwcGVuIHF1aWNrbHkuICBJJ20gbm90IHN1cmUgaWYgdGhlcmUncwo+ID4gYW55IHNvcnQg
-b2YgZXhhY3QgcnVsZXMgd3JpdHRlbiBkb3duIGFueXdoZXJlLCBidXQgSU1PIGlmIHRoZSBidWcg
-aXMgZ29pbmcKPiA+IHRvIGltcGFjdCB1c2VycyB0aGVuIHdlIHNob3VsZCBkZWFsIHdpdGggaXQu
-Cj4gPgo+ID4gVGhhdCBhcHBsaWVzIGZvciBoYXJkd2FyZSBidWdzLCBidXQgYWxzbyBmaXJtd2Fy
-ZSBidWdzIChhdCBhIGNlcnRhaW4gcG9pbnQKPiA+IHdlIHdvbid0IGJlIGFibGUgdG8gdGVsbCB0
-aGUgZGlmZmVyZW5jZSkuICBXZSdyZSBzb3J0IG9mIGRvaW5nIHRoaXMgd2l0aCB0aGUKPiA+IG1p
-c2FsaWduZWQgYWNjZXNzIGhhbmRsaW5nLCBmb3IgZXhhbXBsZS4KPiA+Cj4gPiA+IEknbSBwZXJm
-ZWN0bHkgaGFwcHkgdG8gZHJvcCB0aGlzIHNlcmllcyB0aG91Z2gsIGlmIHBlb3BsZSBnZW5lcmFs
-bHkgYXJlCj4gPiA+IG9mIHRoZSBvcGluaW9uIHRoYXQgdGhpcyBzb3J0IG9mIGZpcm13YXJlIHdv
-cmthcm91bmQgaXMgaWxsLWFkdmlzZWQuCj4gPiA+IFdlIGFyZSB1bmFmZmVjdGVkIGJ5IGl0LCBz
-byBJIGNlcnRhaW5seSBoYXZlIG5vIHByZXNzdXJlIHRvIGhhdmUKPiA+ID4gc29tZXRoaW5nIHdv
-cmtpbmcgaGVyZS4gSXQncyBteSBkZXNpcmUgbm90IHRvIGJlIHVzZXItaG9zdGlsZSB0aGF0Cj4g
-PiA+IG1vdGl2YXRlZCB0aGlzIHBhdGNoLgo+ID4KPiA+IElJVUMgeW91IGd1eXMgYW5kIFJlbmVh
-cyBhcmUgdGhlIG9ubHkgb25lcyB3aG8gaGF2ZSBoYXJkd2FyZSB0aGF0IG1pZ2h0IGJlCj4gPiBp
-biBhIHNwb3Qgd2hlcmUgdXNlcnMgYXJlbid0IGFibGUgdG8gdXBkYXRlIHRoZSBmaXJtd2FyZSAo
-aWUsIGl0J3Mgb3V0IGluCj4gPiBwcm9kdWN0aW9uIHNvbWV3aGVyZSkuCj4KPiBJIGR1bm5vIGlm
-IHdlIGNhbiByZWFsbHkga2VlcCB0aGlua2luZyBsaWtlIHRoYXQgdGhvdWdoLiBJbiB0ZXJtcyBv
-Zgo+IHBlb3BsZSB3aG8gaGF2ZSBkZXZpY2V0cmVlcyBpbiB0aGUga2VybmVsIGFuZCBzdHVmZiBh
-dmFpbGFibGUgaW4gd2VzdGVybgo+IGNhdGFsb2cgZGlzdHJpYnV0aW9uLCBzdXJlLgo+IEkgZG9u
-J3QgdGhpbmsgd2UgY2FuIGFzc3VtZSB0aGF0IHRoYXQgY292ZXJzIGFsbCB1c2VycyB0aG91Z2gs
-IGNlcnRhaW5seQo+IHRoZSBzeW50YWNvcmUgZm9sa3MgcG9wIHVwIGV2ZXJ5IG5vdyBhbmQgdGhl
-biwgYW5kIEkgc3VyZSBob3BlIHRoYXQKPiBBbmRlcyBldGMgaGF2ZSBsYXJnZXIgY3VzdG9tZXIg
-YmFzZXMgdGhhbiB0aGUgaW4ta2VybmVsIHVzZXJzIHdvdWxkCj4gc3VnZ2VzdC4KPgo+ID4gU28g
-SSdtIGFkZGluZyBHZWVydCwgdGhvdWdoIGhlIHByb2JhYmx5IHNhdyB0aGlzCj4gPiBtb250aHMg
-YWdvLi4uCj4KPiBQcmFiaGFrYXIgbWlnaHQgYmUgYSBnb29kIGNhbGwgb24gdGhhdCBmcm9udC4g
-SSdtIG5vdCBzdXJlIGlmIHRoZQo+IFJlbmVzYXMgc3R1ZmYgd29ya3Mgb24gYWZmZWN0ZWQgdmVy
-c2lvbnMgb2YgT3BlblNCSSB0aG91Z2gsIGd1ZXNzIGl0Cj4gZGVwZW5kcyBvbiB0aGUgc2VxdWVu
-Y2luZyBvZiB0aGUgc3VwcG9ydCBmb3IgdGhlIG5vbi1jb2hlcmVudCBzdHVmZiBhbmQKPiB3aGVu
-IHRoaXMgYnVnIHdhcyBmaXhlZC4KPgpBVE0sIEkgZG9udCB0aGluayB0aGVyZSBhcmUgYW55IHVz
-ZXJzIHdobyBhcmUgdXNpbmcgdGhlIHVwc3RyZWFtCmtlcm5lbCArIE9wZW5TQkkgKGFwYXJ0IGZy
-b20gbWUgYW5kIEdlZXJ0ISkuIEN1cnJlbnRseSB0aGUgY3VzdG9tZXJzCmFyZSB1c2luZyB0aGUg
-QlNQIHJlbGVhc2VzLgoKQ2hlZXJzLApQcmFiaGFrYXIKCj4gPiBPbiB0aGF0IG5vdGU6IEl0J3Mg
-YmVlbiB+NCBtb250aHMgYW5kIGl0IGxvb2sgbGlrZSBub2JvZHkncyB0ZXN0ZWQgYW55dGhpbmcK
-PiA+IChhbmQgdGhlIGNvbW1lbnRzIGFyZW4ndCByZWFsbHkgdGhpbmdzIHRoYXQgd291bGQgcHJl
-Y3VsZGUgdGVzdGluZykuCj4KPiBZZWFoLCBub2JvZHkgc2VlbXMgdG8gcmVhbGx5IGhhdmUgZ2l2
-ZW4gYSBjcmFwLiBJIHdhcyBob3BpbmcgdGhlCj4gU3RhckZpdmUgZ3V5cyB0aGF0IGFjdHVhbGx5
-IGFkZGVkIHRoZSBzdXBwb3J0IGZvciB0aGlzIHdvdWxkIGJlCj4gaW50ZXJlc3RlZCBpbiBpdCwg
-YnV0IGFsYXMgdGhleSB3ZXJlIG5vdC4KPiBJIGRvbid0IHJlYWxseSBjYXJlIGFsbCB0aGF0IG11
-Y2ggLSB0aGUgcGxhdGZvcm0gSSBzdXBwb3J0IGlzIG5vdAo+IGFmZmVjdGVkIGJ5IHRoZSBwcm9i
-bGVtIGFuZCBJIGp1c3QgZG9uJ3QgZW5hYmxlIHRoZSBvcHRpb24gZWxzZXdoZXJlLgo+Cj4gPiBT
-bwo+ID4gbWF5YmUgd2UganVzdCBwaWNrIHRoYXQgc2Vjb25kIHBhdGNoIHVwIGludG8gZm9yLW5l
-eHQgYW5kIHNlZSB3aGF0IGhhcHBlbnM/Cj4gPiBJSVVDIHRoYXQgd2lsbCByZXN1bHQgaW4gYnJv
-a2VuIHN5c3RlbXMgZm9yIHVzZXJzIHdobyBoYXZlbid0IHVwZGF0ZWQgdGhlaXIKPiA+IGZpcm13
-YXJlLgo+ID4KPiA+IEkgYWdyZWUgdGhhdCdzIGEgdXNlci1ob3N0aWxlIHdheSB0byBkbyB0aGlu
-Z3MsIHdoaWNoIGlzIGdlbmVyYWxseSBhIGJhZCB3YXkKPiA+IHRvIGdvLCBidXQgaWYgaXQncyBy
-ZWFsbHkgdHJ1ZSB0aGF0IHRoZXJlJ3Mgbm8gdXNlcnMgdGhlbiB3ZSdyZSBzYWZlLgo+ID4gUHJv
-YmFibHkgYWxzbyB3b3J0aCBjYWxsaW5nIGl0IG91dCBvbiBzdy1kZXYganVzdCB0byBiZSBzYWZl
-Lgo+Cj4gQW5kIGlmIHRoZXJlIGFyZSB1c2VycywgdGhlIGZpeCBpcyBhY3R1YWxseSByZWxhdGl2
-ZWx5IHN0cmFpZ2h0LWZvcndhcmQsCj4ganVzdCBhcHBseSBwYXRjaCAjMS4KPiBfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMu
-aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2CgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+--===============0991003134012996202==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="cJ3G311iH0naEK6r"
+Content-Disposition: inline
+
+--cJ3G311iH0naEK6r
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey Atish,
+
+On Mon, Dec 04, 2023 at 06:43:07PM -0800, Atish Patra wrote:
+> SBI v2.0 SBI introduced PMU snapshot feature which adds the following
+> features.
+>=20
+> 1. Read counter values directly from the shared memory instead of
+> csr read.
+> 2. Start multiple counters with initial values with one SBI call.
+>=20
+> These functionalities optimizes the number of traps to the higher
+> privilege mode. If the kernel is in VS mode while the hypervisor
+> deploy trap & emulate method, this would minimize all the hpmcounter
+> CSR read traps. If the kernel is running in S-mode, the benfits
+> reduced to CSR latency vs DRAM/cache latency as there is no trap
+> involved while accessing the hpmcounter CSRs.
+>=20
+> In both modes, it does saves the number of ecalls while starting
+> multiple counter together with an initial values. This is a likely
+> scenario if multiple counters overflow at the same time.
+>=20
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>  drivers/perf/riscv_pmu.c       |   1 +
+>  drivers/perf/riscv_pmu_sbi.c   | 203 ++++++++++++++++++++++++++++++---
+>  include/linux/perf/riscv_pmu.h |   6 +
+>  3 files changed, 197 insertions(+), 13 deletions(-)
+>=20
+> diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
+> index 0dda70e1ef90..5b57acb770d3 100644
+> --- a/drivers/perf/riscv_pmu.c
+> +++ b/drivers/perf/riscv_pmu.c
+> @@ -412,6 +412,7 @@ struct riscv_pmu *riscv_pmu_alloc(void)
+>  		cpuc->n_events =3D 0;
+>  		for (i =3D 0; i < RISCV_MAX_COUNTERS; i++)
+>  			cpuc->events[i] =3D NULL;
+> +		cpuc->snapshot_addr =3D NULL;
+>  	}
+>  	pmu->pmu =3D (struct pmu) {
+>  		.event_init	=3D riscv_pmu_event_init,
+> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+> index 1c9049e6b574..1b8b6de63b69 100644
+> --- a/drivers/perf/riscv_pmu_sbi.c
+> +++ b/drivers/perf/riscv_pmu_sbi.c
+> @@ -36,6 +36,9 @@ PMU_FORMAT_ATTR(event, "config:0-47");
+>  PMU_FORMAT_ATTR(firmware, "config:63");
+> =20
+>  static bool sbi_v2_available;
+> +static DEFINE_STATIC_KEY_FALSE(sbi_pmu_snapshot_available);
+> +#define sbi_pmu_snapshot_available() \
+> +	static_branch_unlikely(&sbi_pmu_snapshot_available)
+> =20
+>  static struct attribute *riscv_arch_formats_attr[] =3D {
+>  	&format_attr_event.attr,
+> @@ -485,14 +488,101 @@ static int pmu_sbi_event_map(struct perf_event *ev=
+ent, u64 *econfig)
+>  	return ret;
+>  }
+> =20
+> +static void pmu_sbi_snapshot_free(struct riscv_pmu *pmu)
+> +{
+> +	int cpu;
+
+> +	struct cpu_hw_events *cpu_hw_evt;
+
+This is only used inside the scope of the for loop.
+
+> +
+> +	for_each_possible_cpu(cpu) {
+> +		cpu_hw_evt =3D per_cpu_ptr(pmu->hw_events, cpu);
+> +		if (!cpu_hw_evt->snapshot_addr)
+> +			continue;
+
+Could you add a blank line here please?
+
+> +		free_page((unsigned long)cpu_hw_evt->snapshot_addr);
+> +		cpu_hw_evt->snapshot_addr =3D NULL;
+> +		cpu_hw_evt->snapshot_addr_phys =3D 0;
+
+Why do these need to be explicitly zeroed?
+
+> +	}
+> +}
+> +
+> +static int pmu_sbi_snapshot_alloc(struct riscv_pmu *pmu)
+> +{
+> +	int cpu;
+
+> +	struct page *snapshot_page;
+> +	struct cpu_hw_events *cpu_hw_evt;
+
+Same here re scope
+
+> +
+> +	for_each_possible_cpu(cpu) {
+> +		cpu_hw_evt =3D per_cpu_ptr(pmu->hw_events, cpu);
+> +		if (cpu_hw_evt->snapshot_addr)
+> +			continue;
+
+Same here re blank line
+
+> +		snapshot_page =3D alloc_page(GFP_ATOMIC | __GFP_ZERO);
+> +		if (!snapshot_page) {
+> +			pmu_sbi_snapshot_free(pmu);
+> +			return -ENOMEM;
+> +		}
+> +		cpu_hw_evt->snapshot_addr =3D page_to_virt(snapshot_page);
+> +		cpu_hw_evt->snapshot_addr_phys =3D page_to_phys(snapshot_page);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void pmu_sbi_snapshot_disable(void)
+> +{
+> +	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_SNAPSHOT_SET_SHMEM, -1,
+> +		  -1, 0, 0, 0, 0);
+> +}
+> +
+> +static int pmu_sbi_snapshot_setup(struct riscv_pmu *pmu, int cpu)
+> +{
+> +	struct cpu_hw_events *cpu_hw_evt;
+> +	struct sbiret ret =3D {0};
+> +	int rc;
+> +
+> +	cpu_hw_evt =3D per_cpu_ptr(pmu->hw_events, cpu);
+> +	if (!cpu_hw_evt->snapshot_addr_phys)
+> +		return -EINVAL;
+> +
+> +	if (cpu_hw_evt->snapshot_set_done)
+> +		return 0;
+> +
+> +#if defined(CONFIG_32BIT)
+
+Why does this need to be an `#if defined()`? Does the code not compile
+if you use IS_ENABLED()?
+
+> +	ret =3D sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_SNAPSHOT_SET_SHMEM, cpu_hw_e=
+vt->snapshot_addr_phys,
+> +		       (u64)(cpu_hw_evt->snapshot_addr_phys) >> 32, 0, 0, 0, 0);
+> +#else
+> +	ret =3D sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_SNAPSHOT_SET_SHMEM, cpu_hw_e=
+vt->snapshot_addr_phys,
+> +			0, 0, 0, 0, 0);
+> +#endif
+
+> +	/* Free up the snapshot area memory and fall back to default SBI */
+
+What does "fall back to the default SBI mean"? SBI is an interface so I
+don't understand what it means in this context. Secondly,=20
+> +	if (ret.error) {
+> +		if (ret.error !=3D SBI_ERR_NOT_SUPPORTED)
+> +			pr_warn("%s: pmu snapshot setup failed with error %ld\n", __func__,
+> +				ret.error);
+
+Why is the function relevant here? Is the error message in-and-of-itself
+not sufficient here? Where else would one be setting up the snapshots
+other than the setup function?
+
+> +		rc =3D sbi_err_map_linux_errno(ret.error);
+
+> +		if (rc)
+> +			return rc;
+
+Is it even possible for !rc at this point? You've already checked that
+ret.error is non zero, so this just becomes
+`return sbi_err_map_linux_errno(ret.error);`?
+
+> +	}
+> +
+> +	cpu_hw_evt->snapshot_set_done =3D true;
+> +
+> +	return 0;
+> +}
+> +
+>  static u64 pmu_sbi_ctr_read(struct perf_event *event)
+>  {
+>  	struct hw_perf_event *hwc =3D &event->hw;
+>  	int idx =3D hwc->idx;
+>  	struct sbiret ret;
+>  	u64 val =3D 0;
+> +	struct riscv_pmu *pmu =3D to_riscv_pmu(event->pmu);
+> +	struct cpu_hw_events *cpu_hw_evt =3D this_cpu_ptr(pmu->hw_events);
+> +	struct riscv_pmu_snapshot_data *sdata =3D cpu_hw_evt->snapshot_addr;
+>  	union sbi_pmu_ctr_info info =3D pmu_ctr_list[idx];
+> =20
+> +	/* Read the value from the shared memory directly */
+
+Statement of the obvious, no?
+
+> +	if (sbi_pmu_snapshot_available()) {
+> +		val =3D sdata->ctr_values[idx];
+> +		goto done;
+
+s/goto done/return val/
+There's no cleanup to be done here, what purpose does the goto serve?
+
+> +	}
+> +
+>  	if (pmu_sbi_is_fw_event(event)) {
+>  		ret =3D sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_FW_READ,
+>  				hwc->idx, 0, 0, 0, 0, 0);
+> @@ -512,6 +602,7 @@ static u64 pmu_sbi_ctr_read(struct perf_event *event)
+>  			val =3D ((u64)riscv_pmu_ctr_read_csr(info.csr + 0x80)) << 31 | val;
+>  	}
+> =20
+> +done:
+>  	return val;
+>  }
+> =20
+> @@ -539,6 +630,7 @@ static void pmu_sbi_ctr_start(struct perf_event *even=
+t, u64 ival)
+>  	struct hw_perf_event *hwc =3D &event->hw;
+>  	unsigned long flag =3D SBI_PMU_START_FLAG_SET_INIT_VALUE;
+> =20
+> +	/* There is no benefit setting SNAPSHOT FLAG for a single counter */
+>  #if defined(CONFIG_32BIT)
+>  	ret =3D sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, hwc->idx,
+>  			1, flag, ival, ival >> 32, 0);
+> @@ -559,16 +651,29 @@ static void pmu_sbi_ctr_stop(struct perf_event *eve=
+nt, unsigned long flag)
+>  {
+>  	struct sbiret ret;
+>  	struct hw_perf_event *hwc =3D &event->hw;
+> +	struct riscv_pmu *pmu =3D to_riscv_pmu(event->pmu);
+> +	struct cpu_hw_events *cpu_hw_evt =3D this_cpu_ptr(pmu->hw_events);
+> +	struct riscv_pmu_snapshot_data *sdata =3D cpu_hw_evt->snapshot_addr;
+> =20
+>  	if ((hwc->flags & PERF_EVENT_FLAG_USER_ACCESS) &&
+>  	    (hwc->flags & PERF_EVENT_FLAG_USER_READ_CNT))
+>  		pmu_sbi_reset_scounteren((void *)event);
+> =20
+> +	if (sbi_pmu_snapshot_available())
+> +		flag |=3D SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT;
+> +
+>  	ret =3D sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP, hwc->idx, 1, f=
+lag, 0, 0, 0);
+> -	if (ret.error && (ret.error !=3D SBI_ERR_ALREADY_STOPPED) &&
+> -		flag !=3D SBI_PMU_STOP_FLAG_RESET)
+> +	if (!ret.error && sbi_pmu_snapshot_available()) {
+
+> +		/* Snapshot is taken relative to the counter idx base. Apply a fixup. =
+*/
+> +		if (hwc->idx > 0) {
+> +			sdata->ctr_values[hwc->idx] =3D sdata->ctr_values[0];
+> +			sdata->ctr_values[0] =3D 0;
+
+Why is this being zeroed in this manner? Why is zeroing it not required
+if hwc->idx =3D=3D 0? You've got a comment there that could probably do with
+elaboration.
+
+> +		}
+> +	} else if (ret.error && (ret.error !=3D SBI_ERR_ALREADY_STOPPED) &&
+> +		flag !=3D SBI_PMU_STOP_FLAG_RESET) {
+>  		pr_err("Stopping counter idx %d failed with error %d\n",
+>  			hwc->idx, sbi_err_map_linux_errno(ret.error));
+> +	}
+>  }
+> =20
+>  static int pmu_sbi_find_num_ctrs(void)
+> @@ -626,10 +731,14 @@ static inline void pmu_sbi_stop_all(struct riscv_pm=
+u *pmu)
+>  static inline void pmu_sbi_stop_hw_ctrs(struct riscv_pmu *pmu)
+>  {
+>  	struct cpu_hw_events *cpu_hw_evt =3D this_cpu_ptr(pmu->hw_events);
+> +	unsigned long flag =3D 0;
+> +
+> +	if (sbi_pmu_snapshot_available())
+> +		flag =3D SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT;
+> =20
+>  	/* No need to check the error here as we can't do anything about the er=
+ror */
+>  	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP, 0,
+> -		  cpu_hw_evt->used_hw_ctrs[0], 0, 0, 0, 0);
+> +		  cpu_hw_evt->used_hw_ctrs[0], flag, 0, 0, 0);
+>  }
+> =20
+>  /*
+> @@ -638,11 +747,10 @@ static inline void pmu_sbi_stop_hw_ctrs(struct risc=
+v_pmu *pmu)
+>   * while the overflowed counters need to be started with updated initial=
+ization
+>   * value.
+>   */
+> -static inline void pmu_sbi_start_overflow_mask(struct riscv_pmu *pmu,
+> -					       unsigned long ctr_ovf_mask)
+> +static noinline void pmu_sbi_start_ovf_ctrs_sbi(struct cpu_hw_events *cp=
+u_hw_evt,
+> +						   unsigned long ctr_ovf_mask)
+>  {
+>  	int idx =3D 0;
+> -	struct cpu_hw_events *cpu_hw_evt =3D this_cpu_ptr(pmu->hw_events);
+>  	struct perf_event *event;
+>  	unsigned long flag =3D SBI_PMU_START_FLAG_SET_INIT_VALUE;
+>  	unsigned long ctr_start_mask =3D 0;
+> @@ -677,6 +785,49 @@ static inline void pmu_sbi_start_overflow_mask(struc=
+t riscv_pmu *pmu,
+>  	}
+>  }
+> =20
+> +static noinline void pmu_sbi_start_ovf_ctrs_snapshot(struct cpu_hw_event=
+s *cpu_hw_evt,
+> +						   unsigned long ctr_ovf_mask)
+> +{
+> +	int idx =3D 0;
+> +	struct perf_event *event;
+> +	unsigned long flag =3D SBI_PMU_START_FLAG_INIT_FROM_SNAPSHOT;
+> +	uint64_t max_period;
+> +	struct hw_perf_event *hwc;
+> +	u64 init_val =3D 0;
+> +	unsigned long ctr_start_mask =3D 0;
+> +	struct riscv_pmu_snapshot_data *sdata =3D cpu_hw_evt->snapshot_addr;
+> +
+> +	for_each_set_bit(idx, cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS) {
+> +		if (ctr_ovf_mask & (1 << idx)) {
+> +			event =3D cpu_hw_evt->events[idx];
+> +			hwc =3D &event->hw;
+> +			max_period =3D riscv_pmu_ctr_get_width_mask(event);
+> +			init_val =3D local64_read(&hwc->prev_count) & max_period;
+> +			sdata->ctr_values[idx] =3D init_val;
+> +		}
+> +		/* We donot need to update the non-overflow counters the previous
+
+		/*
+		 * We don't need to update the non-overflow counters as the previous
+
+
+> +		 * value should have been there already.
+> +		 */
+> +	}
+> +
+> +	ctr_start_mask =3D cpu_hw_evt->used_hw_ctrs[0];
+> +
+> +	/* Start all the counters in a single shot */
+> +	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, 0, ctr_start_mask,
+> +		  flag, 0, 0, 0);
+> +}
+> +
+> +static void pmu_sbi_start_overflow_mask(struct riscv_pmu *pmu,
+> +					unsigned long ctr_ovf_mask)
+> +{
+> +	struct cpu_hw_events *cpu_hw_evt =3D this_cpu_ptr(pmu->hw_events);
+> +
+> +	if (sbi_pmu_snapshot_available())
+> +		pmu_sbi_start_ovf_ctrs_snapshot(cpu_hw_evt, ctr_ovf_mask);
+> +	else
+> +		pmu_sbi_start_ovf_ctrs_sbi(cpu_hw_evt, ctr_ovf_mask);
+> +}
+> +
+>  static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+>  {
+>  	struct perf_sample_data data;
+> @@ -690,6 +841,7 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void =
+*dev)
+>  	unsigned long overflowed_ctrs =3D 0;
+>  	struct cpu_hw_events *cpu_hw_evt =3D dev;
+>  	u64 start_clock =3D sched_clock();
+> +	struct riscv_pmu_snapshot_data *sdata =3D cpu_hw_evt->snapshot_addr;
+> =20
+>  	if (WARN_ON_ONCE(!cpu_hw_evt))
+>  		return IRQ_NONE;
+> @@ -711,8 +863,10 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void=
+ *dev)
+>  	pmu_sbi_stop_hw_ctrs(pmu);
+> =20
+>  	/* Overflow status register should only be read after counter are stopp=
+ed */
+> -	ALT_SBI_PMU_OVERFLOW(overflow);
+> -
+> +	if (sbi_pmu_snapshot_available())
+> +		overflow =3D sdata->ctr_overflow_mask;
+> +	else
+> +		ALT_SBI_PMU_OVERFLOW(overflow);
+>  	/*
+>  	 * Overflow interrupt pending bit should only be cleared after stopping
+>  	 * all the counters to avoid any race condition.
+> @@ -774,6 +928,7 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, str=
+uct hlist_node *node)
+>  {
+>  	struct riscv_pmu *pmu =3D hlist_entry_safe(node, struct riscv_pmu, node=
+);
+>  	struct cpu_hw_events *cpu_hw_evt =3D this_cpu_ptr(pmu->hw_events);
+> +	int ret =3D 0;
+> =20
+>  	/*
+>  	 * We keep enabling userspace access to CYCLE, TIME and INSTRET via the
+> @@ -794,7 +949,10 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, st=
+ruct hlist_node *node)
+>  		enable_percpu_irq(riscv_pmu_irq, IRQ_TYPE_NONE);
+>  	}
+> =20
+> -	return 0;
+> +	if (sbi_pmu_snapshot_available())
+> +		ret =3D pmu_sbi_snapshot_setup(pmu, cpu);
+> +
+> +	return ret;
+
+I'd just write this as
+
+	if (sbi_pmu_snapshot_available())
+		return pmu_sbi_snapshot_setup(pmu, cpu);
+
+	return 0;
+
+and drop the newly added variable I think.
+
+>  }
+> =20
+>  static int pmu_sbi_dying_cpu(unsigned int cpu, struct hlist_node *node)
+> @@ -807,6 +965,9 @@ static int pmu_sbi_dying_cpu(unsigned int cpu, struct=
+ hlist_node *node)
+>  	/* Disable all counters access for user mode now */
+>  	csr_write(CSR_SCOUNTEREN, 0x0);
+> =20
+> +	if (sbi_pmu_snapshot_available())
+> +		pmu_sbi_snapshot_disable();
+> +
+>  	return 0;
+>  }
+> =20
+> @@ -1076,10 +1237,6 @@ static int pmu_sbi_device_probe(struct platform_de=
+vice *pdev)
+>  	pmu->event_unmapped =3D pmu_sbi_event_unmapped;
+>  	pmu->csr_index =3D pmu_sbi_csr_index;
+> =20
+> -	ret =3D cpuhp_state_add_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->no=
+de);
+> -	if (ret)
+> -		return ret;
+> -
+>  	ret =3D riscv_pm_pmu_register(pmu);
+>  	if (ret)
+>  		goto out_unregister;
+> @@ -1088,8 +1245,28 @@ static int pmu_sbi_device_probe(struct platform_de=
+vice *pdev)
+>  	if (ret)
+>  		goto out_unregister;
+> =20
+> +	/* SBI PMU Snasphot is only available in SBI v2.0 */
+
+s/Snasphot/Snapshot/
+
+> +	if (sbi_v2_available) {
+> +		ret =3D pmu_sbi_snapshot_alloc(pmu);
+> +		if (ret)
+> +			goto out_unregister;
+
+A blank line here aids readability by breaking up the reuse of ret.
+
+> +		ret =3D pmu_sbi_snapshot_setup(pmu, smp_processor_id());
+> +		if (!ret) {
+> +			pr_info("SBI PMU snapshot is available to optimize the PMU traps\n");
+
+Why the verbose message? Could we standardise on one wording for the SBI
+function probing stuff? Most users seem to be "SBI FOO extension detected".
+Only IPI has additional wording and PMU differs slightly.
+
+> +			/* We enable it once here for the boot cpu. If snapshot shmem fails d=
+uring
+
+Again, comment style here. What does "snapshot shmem" mean? I think
+there's a missing action here. Registration? Allocation?
+
+> +			 * cpu hotplug on, it should bail out.
+
+Should or will? What action does "bail out" correspond to?
+
+Thanks,
+Conor.
+
+> +			 */
+> +			static_branch_enable(&sbi_pmu_snapshot_available);
+> +		}
+> +		/* Snapshot is an optional feature. Continue if not available */
+> +	}
+> +
+>  	register_sysctl("kernel", sbi_pmu_sysctl_table);
+> =20
+> +	ret =3D cpuhp_state_add_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->no=
+de);
+> +	if (ret)
+> +		return ret;
+> +
+>  	return 0;
+> =20
+>  out_unregister:
+> diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pm=
+u.h
+> index 43282e22ebe1..c3fa90970042 100644
+> --- a/include/linux/perf/riscv_pmu.h
+> +++ b/include/linux/perf/riscv_pmu.h
+> @@ -39,6 +39,12 @@ struct cpu_hw_events {
+>  	DECLARE_BITMAP(used_hw_ctrs, RISCV_MAX_COUNTERS);
+>  	/* currently enabled firmware counters */
+>  	DECLARE_BITMAP(used_fw_ctrs, RISCV_MAX_COUNTERS);
+> +	/* The virtual address of the shared memory where counter snapshot will=
+ be taken */
+> +	void *snapshot_addr;
+> +	/* The physical address of the shared memory where counter snapshot wil=
+l be taken */
+> +	phys_addr_t snapshot_addr_phys;
+> +	/* Boolean flag to indicate setup is already done */
+> +	bool snapshot_set_done;
+>  };
+> =20
+>  struct riscv_pmu {
+> --=20
+> 2.34.1
+>=20
+
+--cJ3G311iH0naEK6r
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZXHDJgAKCRB4tDGHoIJi
+0rkgAP9s2tO7dLNrds98Vj2FNb9jim6cWml00RYcOuqpMOVnrwD+Mcr7P2fNoKQq
+jDNf4s2i4U+mBgmAKLMJ/23Lb2vk9ww=
+=hPnG
+-----END PGP SIGNATURE-----
+
+--cJ3G311iH0naEK6r--
+
+
+--===============0991003134012996202==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0991003134012996202==--
+
