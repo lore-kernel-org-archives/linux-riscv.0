@@ -4,97 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE181C4167B
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 01:13:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44F84C10DC3
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 01:13:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GnFKBqaoJQwdKtuFUBM02yk8wBo9oDjFVZVNebFt344=; b=bxfK9oLZ5RHoVE
-	R3BA6zrZ0EtyZfH38EDx5ZKuXXBK/mSp4z9TcXvGe1Cmh2DcQmks01Bv914X5Wquk8/i1Oklzq5cH
-	q2ReVHyjYM20avuBJE+gDWqUDDxF2RkkbVDkkOBw1IFKmCx0SuB/YgZh11BM3DvWGaNe7xaKKC7CR
-	B5aEFKZUd3qOE5DroxfGYrDJynu+Y61Jgrp7oZOyaJmYs8h/fxqo80pfH7pNvFLzemG7YZLzoKZ4b
-	rKLX3Uk2sm8zZKovy98DmgI8Y4AHinkBKmreO0T1oAXILnE+17VObEMyTBVGw7LoMMOJrk+lnxk/2
-	mP18AP72uADTxU4f+Ubw==;
+	List-Owner; bh=q8hwqzKiZaYEP/CYCwqTA+wvQGJlLxV+seSJpaZFqSM=; b=s1IijVR8p+lWys
+	zhfgeJYO5mAQXKy2/j9XZ8lNl3AyMRa10efeOZFHzdzlq6gVMU9E2EchdJvcxCR2ZwIHQ1e1kz4Fp
+	pxgGh2JXF/g7FvFF2T20oNKgBDSdncUgrpRC5TEWlnBAwU1tHY6idCOxhfJZXLkSHl4SViNV53PLN
+	Vgb1UUczcWZffrS5c5h60MUc8XsGDBUMyAvD35C5Prg1Kc591Q2xRvxlZjjcZWmd0c8PFyM9X0LBG
+	/+lhMxv0La4sgMmHDM3NTSn9KVCh5n8JqingwJyI4DRjYwf5ZiE2wDQ/II5YsGKL7x0b6r2Y4dn5W
+	avrLeamf0AfBLQWWhmrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBPR1-00EQvb-0q;
-	Fri, 08 Dec 2023 01:13:43 +0000
-Received: from mail-oa1-x31.google.com ([2001:4860:4864:20::31])
+	id 1rBPR9-00EQxo-05;
+	Fri, 08 Dec 2023 01:13:51 +0000
+Received: from mail-mw2nam12olkn20812.outbound.protection.outlook.com ([2a01:111:f400:fe5a::812] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBPQy-00EQuX-1c
+	id 1rBPR6-00EQwQ-0j
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Dec 2023 01:13:41 +0000
-Received: by mail-oa1-x31.google.com with SMTP id 586e51a60fabf-1fb06f38df0so1054501fac.1
-        for <linux-riscv@lists.infradead.org>; Thu, 07 Dec 2023 17:13:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1701998018; x=1702602818; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+Wg3vTVI+KNNtCZ40tO4THN1Rc/sssddRQwHLFYhkAc=;
-        b=g5b+MU54NsZif4d5mi7qjWVws2mMKD6P5pf6O2PyQbozIAYmtXEtMaE3oBGcyRzhlq
-         SNr5fVvEFORR8k0RTWOG1Psh8u0S+OrmffXTu8FMC1TCZlVKPbFDg8BvHoZBpdcYmGqU
-         B6nMlV9EWKo4pvw19ggn5km0GrvJIpJlxhpTUyjHPJG0GV53ufveFiptEkQd9LChEAc6
-         kx06EQY0sUQHyeyeVTkrvdfAtLxyc3iczR5TM0OIGBkllBAlIzihLTMhH1/stYO+Kpkj
-         C12n8SBpA1XmLqBpNg6o4H/gzg5zezjeijCm1Ir9vrh4LF4HPjkbMGBhkCZyd/2+L1aJ
-         UU+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701998018; x=1702602818;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+Wg3vTVI+KNNtCZ40tO4THN1Rc/sssddRQwHLFYhkAc=;
-        b=g98937R7ptDXJF2mQpzNBvOUI/J27wCl1vMDf4T4HhzaLlWVosHp4Excdhu4UDXJoT
-         vCn4b2VfxCg8pIwGZHnUsbb0wXhljb4D6iBc5iu8tkicGprMrs8oN9gMQbvvvgcPcF9x
-         3m42wR4eGMYNtt7JZjJ64X62ZUby5wW8ZwAtzEhdPhfoqyhB/VO60xFqnpxlAdaP+EQe
-         zyb/nvJrrUDbGheJZ3Hpe9DoBSsKzOMVydTgMGUWKY24nGE4MRFGonxN3RsoqGrmbvm9
-         0FUM6lwS1A2djr7D2vPCIJlKpk5TNjfG2o3OB8RFPnWJv5PFkb1itfsOskHSD2WYh9l6
-         mweg==
-X-Gm-Message-State: AOJu0YzGSJMWe/M4q+VSik3g85qeSY3DwiqbNUiNlSIia/7PUeruKScE
-	7zMCbpA2zWPg+FhrHW72zGY=
-X-Google-Smtp-Source: AGHT+IHq3XNbApiW/rK14kESG46BbbOrCxC7UErCs/p6jI1ZvS2KI8wrN/V2ZOh5nu1uGZkHDIM5VA==
-X-Received: by 2002:a05:6870:a798:b0:200:4d66:39ce with SMTP id x24-20020a056870a79800b002004d6639cemr19714oao.95.1701998018344;
-        Thu, 07 Dec 2023 17:13:38 -0800 (PST)
-Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id qb7-20020a056871e78700b001fac77ee907sm207493oac.33.2023.12.07.17.13.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Dec 2023 17:13:38 -0800 (PST)
-From: Chen Wang <unicornxw@gmail.com>
-To: aou@eecs.berkeley.edu,
-	chao.wei@sophgo.com,
-	conor@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	mturquette@baylibre.com,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	richardcochran@gmail.com,
-	robh+dt@kernel.org,
-	sboyd@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	haijiao.liu@sophgo.com,
-	xiaoguang.xing@sophgo.com,
-	guoren@kernel.org,
-	jszhang@kernel.org,
-	inochiama@outlook.com,
-	samuel.holland@sifive.com
-Cc: Chen Wang <unicorn_wang@outlook.com>,
+	Fri, 08 Dec 2023 01:13:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=fAlzTNrCwnIMzLXIf1BDKnFTMXlefbnNY7AKjIsB8teSWFiUbxb5tksEXdgDONKVNl8idX/NwCO4d3oWzi5RwT7Pcg1iH+u5fNj2uiwZTJinSvf0I8UEPAAajnWYkvkuOaRqIZFDeyHP+wrk5n7HGG7y4ItHuz69eqh8LyekEn5LESBrB8rjCRt3yo+yQ1BguwPo++FyP+PCW1lTdphE8lFh2C2K2oMiDyyAZpPPK7jza6X90KBxOmbBGECLb++ZTMGnKOzhMrGxBHXirKN2U2FlFKH5hs7R5CuECZNNXDcWjFCVVUdIltJuINkLE1B5sATd1pa4USVdeshViatmBw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YnbMr+vPdL0vWzY+y0MoKZgR77QA3GeqrMjLI5hgirM=;
+ b=azOZ25JDoGQdv3wuCZI4Lzk0k2By62U8bvGUaR2uho/C/Q1OKhFuMBvy8YFtvBJ6hBBaOJ+Ayno62ZJ0Mj9VPyeaWzOtofJIGKD0DuGVWDF5m5V7eMk6TdEMzh6B5YawCY5C8xvTUBg3R+NUYa8FfFY2QyQ8TxOxrEKqNdAE5FZnghBTbH1IqeTzGJuENVBaFJW+mKuKiOsGYolF84ZvohX3GQoX+RxjzBDwzbifL5p7PZhqmRoBhOGmhe/UnIH9X9mNQSwRrx6kqGeRUYosz7zOKs1Jb9L3EH7yoGy54iJkyx8UfTYBWety81VzZHJnrAvhUjlKC0HRLooNd+jdjg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YnbMr+vPdL0vWzY+y0MoKZgR77QA3GeqrMjLI5hgirM=;
+ b=a33erikNCF1u8mEpc14vfCGf+B28fjmdqdWQ8c9F1/ZX5Uzv+HegaiEnXOLBeyEtx2o1N8PNQ02XrQfO1F/PIKHk1AplnUSUMAiqJFl5Jb2WqZgl866LHbvvbJVOP1qj2mcQLV9wEm6AtEqZ9qgAROFLpqiRzEb4shdF4t9OQpdhY04Aaph4IqIz0xV0747kWrmV6v5ic+pmUudzBbcMEKCgnan7i57k4Sq2/4V0Yki174TTVC0NXbqHQ9SYF4fIiRWBWBYP/y2Km7LS85Gun2ddUjS3+XLOGwgSwzsWpW5X2i4t7GGkulWlEauT3RmP37k5jFseU3xJVPoAfK3ufA==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by SA1PR20MB5345.namprd20.prod.outlook.com (2603:10b6:806:24c::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7068.27; Fri, 8 Dec
+ 2023 01:13:35 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::55b:c350:980:ad8]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::55b:c350:980:ad8%6]) with mapi id 15.20.7068.027; Fri, 8 Dec 2023
+ 01:13:35 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Conor Dooley <conor@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v6 1/4] dt-bindings: soc: sophgo: Add Sophgo system control module
-Date: Fri,  8 Dec 2023 09:13:30 +0800
-Message-Id: <b7d52351a1b68e14bf4b7101c91fe5de929bdca6.1701997033.git.unicorn_wang@outlook.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1701997033.git.unicorn_wang@outlook.com>
-References: <cover.1701997033.git.unicorn_wang@outlook.com>
+Cc: Inochi Amaoto <inochiama@outlook.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chao Wei <chao.wei@sophgo.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Liu Gui <kenneth.liu@sophgo.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	qiujingbao.dlmu@gmail.com,
+	dlan@gentoo.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 3/4] riscv: dts: sophgo: add clock generator for Sophgo CV1800 series SoC
+Date: Fri,  8 Dec 2023 09:13:34 +0800
+Message-ID: <IA1PR20MB4953889EA91BCA3514965E2ABB8AA@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20231207-doze-spinster-0bfad3b1441a@spud>
+References: <20231207-doze-spinster-0bfad3b1441a@spud>
+X-TMN: [MqlJQGZRLLlZULUSHG2bvMMqy/ifxAsGKcElEDA0pcU=]
+X-ClientProxiedBy: TYAPR01CA0147.jpnprd01.prod.outlook.com
+ (2603:1096:404:7e::15) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20231208011334.69325-1-inochiama@outlook.com>
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SA1PR20MB5345:EE_
+X-MS-Office365-Filtering-Correlation-Id: eff68aa5-dd6e-48b5-69f5-08dbf78ae65f
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: yv+AqrwmRoqfvXvZxnzihOTZ9/aMo75+v+YvqXfZlH7kjYqfJDYJa84DkiHWREbctAHvUOtp3bEfCc6yC1WTjLJKWcQ+SaLxNWIZ6H978ioQUy4C+UcEXaMdjB8dLnrJqEyqmW2fC2ZVqQGC3k5XThBilnKltlK8rtBlTYUiuYwZbFo3Ub3/z+Xo2GkMOKC1NxAdSzLBWiTzwnqUecWCc9u8u0yPezUVdC8eSLDt4f1Le+IYY0WF2Agyy+tx9v6aBiBFB0mtw9YoEgZ2SSQgLB4mDhnChVjbjIkpjthZFSFpkzPxeyqH3giMvVHs4CQOCgWW0lup8I14PVdMQgNdUoG2g3kIvxJe72QbpKpjgKuH2o7hEFg/ssjEI9NHFO4+VSDMUH+YP7E3BJvIq8u22HMNhd9QUTzKVcADnL1APp/BB0u05I7MN3MxY8Wb4ZC6ZlRTJmvWofAf61ZzF9hhhsA4rIPmF+enad5y0zFVd5EATM9H2b1q6ycZPgVm63uAWDBpLmpfUrW6MaXPhutMk2RRlrEC4VNmIpTMngrRLjpfIh1G3aCUycUYNr1hwanZclU1cgLDVSM+8+IycBAwnRlOrSQti3O2Btwb24Cvq3lIQpyjMEZoWgE7zG4SCRHl
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?O3/45yKNuMC+fV04+0vGi75i0JQPRDiHzSPB91Ilm4sHUL1x0KWa0Rnm9ryA?=
+ =?us-ascii?Q?6Nc2w22NOvl/4DPDvP1rhTqw4Sowyzpl/1nW6O4DNhZWs03D/HMs1cidrdIf?=
+ =?us-ascii?Q?sf+QBEaBahecLHmy22SutsyRNg8u3DLZLcGe42NOc23nIO0yddPQuXS4eVM3?=
+ =?us-ascii?Q?VwI+WJ9dMyo74c6yXzOqID5PzUWsiFJXBZI+mPbW28BjTmu9KjgigDed5ObU?=
+ =?us-ascii?Q?xE2C+L+Xe5j8YEUsphC+7f/1raA/L3qgLuxTpN0WjRskc+ORzIraR2PMu7Fe?=
+ =?us-ascii?Q?swZ6NXcWiWscPkCaT00nMWrEN16wIxS0sTYRFw5xk/VKD0dcotd1gEO2Dw0I?=
+ =?us-ascii?Q?plfXL8KBoezoYOUqKq+fVjNdKZoo7yEWYzsipJuBBm+wZgrHujJ0dApncIku?=
+ =?us-ascii?Q?o0AoK5KaaustnHUQNe+jOkhj3GhZhIxz/FyYvntInZ3uAUGMWkkhfjXjSx9h?=
+ =?us-ascii?Q?EVlrM/hKic86W9bvHeDIB6+QRP8etmTDllem6+6OWCMvcs8T8EIWl98T8Thy?=
+ =?us-ascii?Q?U1dZZQ1xSJiqKhuqdjM+Y9pk7xnFRpKyTp24PbWEcxpa5Li39cVly1gJVsio?=
+ =?us-ascii?Q?PIChRcBJ9cX40ZwWKCAxH2FrJtWREvhRzBfOU9u6fZy9HdM7+nk2kAhafoBn?=
+ =?us-ascii?Q?JwEPlH222KTwGH6QGq/BMP8Fz2MYZ5IuYOFH2GMOKvhgKXnFF1i6DCVv4EjM?=
+ =?us-ascii?Q?3ORfUVaTMvMPuGPbmrdvx/ihzwD5Z3ok0OxIcJbtn3ZBbpcfkFmKDJKeZ6m1?=
+ =?us-ascii?Q?PHL7qZISgReXIT3doWrwEDajXfZFfoYcBAqT/IMZ4krZbtYLGiDWyNQFSvce?=
+ =?us-ascii?Q?TdLx3miJU5r6GWe52eSRJmn1+hqnfoYSPCBrADL8lOKUEe8a9bBu5U9nSsQ2?=
+ =?us-ascii?Q?5nwXs8sZcXVfrrt7gZ0crqL0xX+b8AIdlVXPM2DV9QmZ7p68JbL1ARlZJmEu?=
+ =?us-ascii?Q?VIVS4Vm2QGUc1X3BSFu2DKs7xUnZrzaZQ+47jmHXHhCZHy3870GIMEafXEFD?=
+ =?us-ascii?Q?NoERalGnRD9oQeIqKPzXy3QIE0Jl0mPa1pUkGjYONQg/eYR50ApouDAv4wbN?=
+ =?us-ascii?Q?8t/V65+N+jPa6JBVJO2eEVI06ITRs9gD7a8g270bN3F0EiOHLpCd5qDe4NH6?=
+ =?us-ascii?Q?mqN4JowPxctzDQiW+t7BzZo02Z65ZqONAFL2IMsTTu1P7FkYDvvrBauektbt?=
+ =?us-ascii?Q?puOhzOAxfGWhnK10VZ2O82SQmR80WhAlArNiE1otkCkxt4IUgk0vazgiU/Q?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: eff68aa5-dd6e-48b5-69f5-08dbf78ae65f
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Dec 2023 01:13:34.9173
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR20MB5345
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231207_171340_536414_67B7EC22 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20231207_171348_268323_BD229C47 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,60 +143,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chen Wang <unicorn_wang@outlook.com>
+>On Thu, Dec 07, 2023 at 01:52:16PM +0100, Krzysztof Kozlowski wrote:
+>> On 07/12/2023 10:42, Inochi Amaoto wrote:
+>>>>> +&clk {
+>>>>> +	compatible = "sophgo,cv1810-clk";
+>>>>> +};
+>>>>> diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+>>>>> index 2d6f4a4b1e58..6ea1b2784db9 100644
+>>>>> --- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+>>>>> +++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+>>>>> @@ -53,6 +53,12 @@ soc {
+>>>>>  		dma-noncoherent;
+>>>>>  		ranges;
+>>>>>
+>>>>> +		clk: clock-controller@3002000 {
+>>>>> +			reg = <0x03002000 0x1000>;
+>>>>> +			clocks = <&osc>;
+>>>>> +			#clock-cells = <1>;
+>>>>
+>>>> I don't find such layout readable and maintainable. I did some parts
+>>>> like this long, long time ago for one of my SoCs (Exynos54xx), but I
+>>>> find it over time unmaintainable approach. I strongly suggest to have
+>>>> compatible and other properties in one place, so cv1800 and cv1812, even
+>>>> if it duplicates the code.
+>>>>
+>>>
+>>> Hi Krzysztof:
+>>>
+>>> Thanks for your advice, but I have a question about this: when I should
+>>> use the DT override? The memory mapping of the CV1800 and CV1810 are
+>>> almost the same (the CV1810 have more peripheral and the future SG200X
+>>> have the same layout). IIRC, this is why conor suggested using DT override
+>>> to make modification easier. But duplicating node seems to break thiS, so
+>>> I's pretty confused.
+>>
+>> Go with whatever your subarchitecture and architecture maintainers
+>> prefer, I just shared my opinion that I find such code difficult to read
+>> and maintain.
+>>
+>> Extending node with supplies, pinctrl or even clocks would be readable.
+>> But the compatible: no. The same applies when you need to delete
+>> property or subnode: not readable/maintainable IMHO.
+>
+>There are apparently 3 or 4 of these SoCs that are basically identical,
+>which is why the approach was taken. I do agree that it looks somewhat
+>messy because I was looking for device-specific compatibles for these
+>SoCs.
+>
 
-Add documentation to describe Sophgo System Controller for SG2042.
+I agree that this may be messy. But it might still be acceptable if we
+limit the number of devices in this format.
 
-Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- .../soc/sophgo/sophgo,sg2042-sysctrl.yaml     | 34 +++++++++++++++++++
- 1 file changed, 34 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
+IIRC, only clint, plic, clk, maybe pinmux only needs different compatible.
+For more complex device, such as tpu and codec, I agree with duplicating
+nodes and make them SoC specific.
 
-diff --git a/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml b/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
-new file mode 100644
-index 000000000000..1ec1eaa55598
---- /dev/null
-+++ b/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
-@@ -0,0 +1,34 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/soc/sophgo/sophgo,sg2042-sysctrl.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Sophgo SG2042 SoC system controller
-+
-+maintainers:
-+  - Chen Wang <unicorn_wang@outlook.com>
-+
-+description:
-+  The Sophgo SG2042 SoC system controller provides register information such
-+  as offset, mask and shift that can be used by other modules, such as clocks.
-+
-+properties:
-+  compatible:
-+    const: sophgo,sg2042-sysctrl
-+
-+  reg:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    system-controller@30010000 {
-+        compatible = "sophgo,sg2042-sysctrl";
-+        reg = <0x30010000 0x1000>;
-+    };
--- 
-2.25.1
-
+As for this patch, I have already adjusted the order of clock to ensure
+the compatible among different SoCs. This will make the clock assignment
+easier.
 
 _______________________________________________
 linux-riscv mailing list
