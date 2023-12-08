@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92A1AC4167B
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 04:50:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95A02C4167B
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 05:05:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o6nxqz31p3n+lB2ki9FvuMIvLIqdddtHMP1y8dSiBac=; b=K4b5GihwKly3VN
-	LBQH1H96j8CqwAsZfunpnu0UJ3arIoKX2AXXc7Uzcbyvv/v3sUkg2LsjbcfPqOCYecXiAEI/9rUMl
-	8F/KQA32+8AuHXOctK6Uv022MCxvZFhkHO8mv+zl3oFagPC303sp4bSUgCT3ZFDeWeZffsZGEty9L
-	X9bHLBB6dFSbmMoogjZTf6wn2gdolj8vglkImezquwe9GKjzSHXuST0GFkH97NToZL4H3Sp7PFPJm
-	+NDSbMu5Y1oSzT03zdpeXREti7qpi/dQoosAnvhFxzDFa6r/Y0395wlkK76B/pBvjNvMCUiA0nATG
-	bDSKhqx5QW0TH45faqEg==;
+	List-Owner; bh=qqyaDU1lomcF8nV1tarRwNPMIjJtW/aS5puxupYv/kQ=; b=zpxeL/gZN42u0Q
+	hsiq1s7iyuUxE6rxua+C7mvXxsxvqd+Qlu+DL3WUqfaFSacP+Komo3SNTO60vyPfy0gd1mbOZnul7
+	O9X8pFE5N1X6FBqR2tEMYw3VsLrfDiRf6jwtJZEGqMgBgd8E+jYBpGYVBK/mnT9UDFvt6DAj/uYjR
+	Ktk0CG9tj7eeCAKgXIWPLfFVbkdYO+KcLqRfEFqBC6W29hZUKfVKzKZyJfwENWeKlH9ZYOu49tvmJ
+	sytlxxz8qgTZ1OZq0GxiIvaqSwrTcwHlekYgzr+wuvJCAIVokoxyxHceLntZzeoVNJfLXriCA3232
+	H1YTj+fh4aUcpEzTiv2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBSoJ-00EiFN-2z;
-	Fri, 08 Dec 2023 04:49:59 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1rBT2h-00Ej9Y-2L;
+	Fri, 08 Dec 2023 05:04:51 +0000
+Received: from mail-ua1-x92d.google.com ([2607:f8b0:4864:20::92d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBSoH-00EiD2-0k
+	id 1rBT2e-00Ej8e-0s
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Dec 2023 04:49:58 +0000
-Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-77f524597c3so4619085a.3
-        for <linux-riscv@lists.infradead.org>; Thu, 07 Dec 2023 20:49:55 -0800 (PST)
+	Fri, 08 Dec 2023 05:04:49 +0000
+Received: by mail-ua1-x92d.google.com with SMTP id a1e0cc1a2514c-7c45fa55391so402791241.2
+        for <linux-riscv@lists.infradead.org>; Thu, 07 Dec 2023 21:04:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1702010995; x=1702615795; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1702011884; x=1702616684; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=Siq5/aLB+N8os3ShA228wuqtqMbftMOZ84Ddlbg3k10=;
-        b=IfNW0IeAxZiM30hEjZhyBunkZ+JZCC90vA0ddwIAExWzfpM1AS+KYpSxJmH3kJpeyL
-         eOVOUzwrQUBWVwq35lfUvyNYbP552uLsZWDfYe1JtLpLjyRE0w1aWY+GlWLkuZb0m70Q
-         BNP/Zea7LFB/qfKHE2l+YezIu0rFAVfcg7oOOOKbqNY+gpqzh4U75YF1gp47PoTyybpf
-         HIbjqx+SH/QaFspR2Z4py2RAOJ3CjQnxdjEabfAl9wyrEhGTJUsrlHik8V/yprxDqOvY
-         sT+CPG/4KsjbnG1GI+HWLhxkUbnw6fMHgPDzb5HYY/0mShgnHl8C4TTtARW1UvA89ZZW
-         mQrg==
+        bh=YCezDiITLYZlXZkoiENFPkRYgXSgvqAlJqwCHapkHlo=;
+        b=itpp6h3ymOXlb602ltUkqqakb1sYcXf2FG+WKhOtx60hqd8gnkwJzeCT/NyR5S+7CU
+         4Qh5OpgGfO6TewnrrwCZIcPGqO28HTi3hZv+YLAPIj4PK4wn4DL7Uj++gnCq8ZyTtBbZ
+         uhr/JHSPPbWnAC8n1et2lwUH7epcQTR5GlTD3eQWHGcBpIARMWtrjFI16EhPROvbVFIM
+         H3Sg5OvGZFXx+mGfCJuAXxqjmzSNv/pa7pPgWZhhdb+vz8X63/t5eShKU5nSz4oju5ue
+         +tuXcNTbT+ZV6Jx0d5OGfpMJ8/5QaYxb6lHBMpP+JGCQncVqyVF8vzKkrTysrj7RfyQA
+         ZasQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702010995; x=1702615795;
+        d=1e100.net; s=20230601; t=1702011884; x=1702616684;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Siq5/aLB+N8os3ShA228wuqtqMbftMOZ84Ddlbg3k10=;
-        b=aD0SoJe5e1r121BJN1XeuxRT3CviRlJWqjsVl2csV7HpGtkYdt+LkhYsomf5Mh9FP0
-         s61if5wJdVtYH9/EIWitkfWRj1ffbdKHXvWjOO7ewGCVLmNtZ2TDIj1cE39ayNb8mINi
-         OGLWXZ+hYL0oUBT55NvCN5NJBWlq36aDV0aINrYDrX8dj1Vv5NEpG+SzCzhjBAiuyXT0
-         E+ijQCoMHFV8uENB1K1B4jtpikMPnjReQ+WMLNkErIFpdP/lqd5+j3c9Pm0DEyx5Tppy
-         xpEaLNfltWxp7skmuD7tc1BPoQo6PiMcP0AchDTlw1k7lty44riljBEBn8pYSQSEvmAS
-         138w==
-X-Gm-Message-State: AOJu0YxgcC14GLT1eL1Orm3VfWxvSVwV2BzgFE9/uH0KAowAbKVTN9ou
-	9ZHLI30PgJbSnSDKUnr5MJRBPw==
-X-Google-Smtp-Source: AGHT+IFZn6XnJPcvVcVddGixsOUuewR/YlITPthokCfZLM+Gy+wdFy5aCuBE/cobBs7DetgZyfJ9UA==
-X-Received: by 2002:a05:620a:1a8a:b0:77f:338c:a713 with SMTP id bl10-20020a05620a1a8a00b0077f338ca713mr2602110qkb.62.1702010994966;
-        Thu, 07 Dec 2023 20:49:54 -0800 (PST)
+        bh=YCezDiITLYZlXZkoiENFPkRYgXSgvqAlJqwCHapkHlo=;
+        b=NSzAKkoiGDQYBOa1yhYVyk5KF9GrJFzh6rzSwY6wLQtMgUiocY7TYnDXJuv/jhnNTe
+         Y5Gmon+UMpWDswDaxCre5F5UDj0kuotmItq8ou15YCk8P5KrsGaUW5ISlVPYAncWDpro
+         KQPHCLgl/9mWrBaiUiZKdSo8M5LsGaLIgAvqSg252fqNhD520DDGBtd9pw5iX2CZNPPi
+         P4iE+Qs9jupPReYFNsX5HaO6Rg1N3Y6fP6zwDio/TnEO8mJxRpof04bgtH43ys/RpMIL
+         Y7Yi5lUmRQzkkKlH3dARDDQza+ajUzWRO4nPjYthvAeXod5PA5r+otVAhyAHTShd/HsU
+         vU3Q==
+X-Gm-Message-State: AOJu0Yzu5T15iZIsLWaeeUEYuI8vCHRkWWCOHdA7AF7nYTuFnu658AZv
+	eASHJPIybWuU3u/ldp5sNjL/Rg==
+X-Google-Smtp-Source: AGHT+IHd3xhGQZwcUIcLtaS/NPIhQH51OI4srkcBz6UdtbLizYUKJjw8nicEQTdHb0F/v/M3ROTE/Q==
+X-Received: by 2002:a1f:c843:0:b0:4b2:c555:389 with SMTP id y64-20020a1fc843000000b004b2c5550389mr2948641vkf.31.1702011884531;
+        Thu, 07 Dec 2023 21:04:44 -0800 (PST)
 Received: from ?IPV6:2600:1700:2000:b002:41c5:bf1:860b:1e95? ([2600:1700:2000:b002:41c5:bf1:860b:1e95])
-        by smtp.gmail.com with ESMTPSA id ov11-20020a05620a628b00b0077f05db2663sm430776qkn.66.2023.12.07.20.49.53
+        by smtp.gmail.com with ESMTPSA id i14-20020a0cf38e000000b0067a33133420sm494592qvk.110.2023.12.07.21.04.43
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 07 Dec 2023 20:49:54 -0800 (PST)
-Message-ID: <6d4cecd5-9083-4d68-a7e2-266dae9e3952@sifive.com>
-Date: Thu, 7 Dec 2023 22:49:53 -0600
+        Thu, 07 Dec 2023 21:04:44 -0800 (PST)
+Message-ID: <4f277982-fffb-4fe1-bc02-007633400f31@sifive.com>
+Date: Thu, 7 Dec 2023 23:04:43 -0600
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 3/3] drm/amd/display: Support DRM_AMD_DC_FP on RISC-V
 Content-Language: en-US
-To: Christoph Hellwig <hch@infradead.org>
+To: Nathan Chancellor <nathan@kernel.org>,
+ Conor Dooley <conor.dooley@microchip.com>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>,
  Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
  Rodrigo Siqueira <Rodrigo.Siqueira@amd.com>,
@@ -77,21 +78,16 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
  =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
  Alex Deucher <alexander.deucher@amd.com>, Pan Xinhui <Xinhui.Pan@amd.com>,
  Daniel Vetter <daniel@ffwll.ch>, amd-gfx@lists.freedesktop.org,
- Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor
- <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>,
- Nicolas Schier <nicolas@fjasle.eu>, linux-kbuild@vger.kernel.org,
- Josh Poimboeuf <jpoimboe@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Michael Ellerman <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org
+ llvm@lists.linux.dev, arnd@arndb.de
 References: <20231122030621.3759313-1-samuel.holland@sifive.com>
  <20231122030621.3759313-4-samuel.holland@sifive.com>
- <ZV2+f/yu3C6xTVqn@infradead.org>
+ <20231123-headdress-mold-0dd7a74477f7@wendy>
+ <20231130004224.GE2513828@dev-arch.thelio-3990X>
 From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <ZV2+f/yu3C6xTVqn@infradead.org>
+In-Reply-To: <20231130004224.GE2513828@dev-arch.thelio-3990X>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231207_204957_265439_5C31319A 
-X-CRM114-Status: GOOD (  22.20  )
+X-CRM114-CacheID: sfid-20231207_210448_335171_848FB872 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,85 +104,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Christoph,
+Hi Nathan,
 
-On 2023-11-22 2:40 AM, Christoph Hellwig wrote:
->> -	select DRM_AMD_DC_FP if (X86 || LOONGARCH || (PPC64 && ALTIVEC) || (ARM64 && KERNEL_MODE_NEON && !CC_IS_CLANG))
->> +	select DRM_AMD_DC_FP if ARM64 && KERNEL_MODE_NEON && !CC_IS_CLANG
->> +	select DRM_AMD_DC_FP if PPC64 && ALTIVEC
->> +	select DRM_AMD_DC_FP if RISCV && FPU
->> +	select DRM_AMD_DC_FP if LOONGARCH || X86
+On 2023-11-29 6:42 PM, Nathan Chancellor wrote:
+> On Thu, Nov 23, 2023 at 02:23:01PM +0000, Conor Dooley wrote:
+>> On Tue, Nov 21, 2023 at 07:05:15PM -0800, Samuel Holland wrote:
+>>> RISC-V uses kernel_fpu_begin()/kernel_fpu_end() like several other
+>>> architectures. Enabling hardware FP requires overriding the ISA string
+>>> for the relevant compilation units.
+>>
+>> Ah yes, bringing the joy of frame-larger-than warnings to RISC-V:
+>> ../drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn32/display_mode_vba_32.c:58:13: warning: stack frame size (2416) exceeds limit (2048) in 'DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation' [-Wframe-larger-than]
 > 
-> This really is a mess.  Can you add a ARCH_HAS_KERNEL_FPU_SUPPORT
-> symbol that all architetures that have it select instead, and them
-> make DRM_AMD_DC_FP depend on it?
-
-Yes, I have done this for v2, which I will send shortly.
-
->> -#if defined(CONFIG_X86) || defined(CONFIG_LOONGARCH)
->> +#if defined(CONFIG_X86) || defined(CONFIG_LOONGARCH) || defined(CONFIG_RISCV)
->>  		kernel_fpu_begin();
->>  #elif defined(CONFIG_PPC64)
->>  		if (cpu_has_feature(CPU_FTR_VSX_COMP))
->> @@ -122,7 +124,7 @@ void dc_fpu_end(const char *function_name, const int line)
->>  
->>  	depth = __this_cpu_dec_return(fpu_recursion_depth);
->>  	if (depth == 0) {
->> -#if defined(CONFIG_X86) || defined(CONFIG_LOONGARCH)
->> +#if defined(CONFIG_X86) || defined(CONFIG_LOONGARCH) || defined(CONFIG_RISCV)
->>  		kernel_fpu_end();
->>  #elif defined(CONFIG_PPC64)
->>  		if (cpu_has_feature(CPU_FTR_VSX_COMP))
+> :(
 > 
-> And then this mess can go away.  We'll need to decide if we want to
-> cover all the in-kernel vector support as part of it, which would
-> seem reasonable to me, or have a separate generic kernel_vector_begin
-> with it's own option.
-
-I think we may want to keep vector separate for performance on architectures
-with separate FP and vector register files. For now, I have limited my changes
-to FPU support only, which means I have removed VSX/Altivec from here; the
-AMDGPU code doesn't need Altivec anyway.
-
->> diff --git a/drivers/gpu/drm/amd/display/dc/dml/Makefile b/drivers/gpu/drm/amd/display/dc/dml/Makefile
->> index ea7d60f9a9b4..5c8f840ef323 100644
->> --- a/drivers/gpu/drm/amd/display/dc/dml/Makefile
->> +++ b/drivers/gpu/drm/amd/display/dc/dml/Makefile
->> @@ -43,6 +43,12 @@ dml_ccflags := -mfpu=64
->>  dml_rcflags := -msoft-float
->>  endif
->>  
->> +ifdef CONFIG_RISCV
->> +include $(srctree)/arch/riscv/Makefile.isa
->> +# Remove V from the ISA string, like in arch/riscv/Makefile, but keep F and D.
->> +dml_ccflags := -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)([^v_]*)v?/\1\2/')
->> +endif
->> +
->>  ifdef CONFIG_CC_IS_GCC
->>  ifneq ($(call gcc-min-version, 70100),y)
->>  IS_OLD_GCC = 1
+>> Nathan, have you given up on these being sorted out?
 > 
-> And this is again not really something we should be doing.
-> Instead we need a generic way in Kconfig to enable FPU support
-> for an object file or set of, that the arch support can hook
-> into.
+> Does your configuration have KASAN (I don't think RISC-V supports
+> KCSAN)? It is possible that dml/dcn32 needs something similar to commit
+> 6740ec97bcdb ("drm/amd/display: Increase frame warning limit with KASAN
+> or KCSAN in dml2")?
+> 
+> I am not really interested in playing whack-a-mole with these warnings
+> like I have done in the past for the reasons I outlined here:
+> 
+> https://lore.kernel.org/20231019205117.GA839902@dev-arch.thelio-3990X/
 
-I've included this in v2 as well.
+I also see one of these with clang 17 even with KASAN disabled:
 
-> Btw, I'm also really worried about folks using the FPU instructions
-> outside the kernel_fpu_begin/end windows in general (not directly
-> related to the RISC-V support).  Can we have objecttool checks
-> for that similar to only allowing the unsafe uaccess in the
-> uaccess begin/end pairs?
+drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn32/display_mode_vba_32.c:37:6:
+warning: stack frame size (2208) exceeds limit (2048) in 'dml32_recalculate'
+[-Wframe-larger-than]
+void dml32_recalculate(struct display_mode_lib *mode_lib)
 
-ARM partially enforces this at compile time: it disallows calling
-kernel_neon_begin() inside a translation unit that has NEON enabled. That
-doesn't prevent the programmer from calling a FPU-enabled function from outside
-a begin/end section, but it does prevent the compiler from generating unexpected
-FPU usage behind your back. I implemented this same functionality for RISC-V.
+     ^
+1532/2208 (69.38%) spills, 676/2208 (30.62%) variables
 
-Actually tracking all possibly-FPU-tainted functions and their call sites is
-probably possible, but a much larger task.
+So I'm in favor of just raising the limit for these files for clang, like you
+suggested in the linked thread.
 
 Regards,
 Samuel
