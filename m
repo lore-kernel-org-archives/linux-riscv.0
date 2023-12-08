@@ -4,97 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 843C5C4167B
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 01:15:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08991C4167B
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 01:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xAMCzWb9k1FI6UyrkU6UrabBD1e2nLsE/Fy5f0QFGjk=; b=QIlEGTw/xO6icy
-	em2JvDSFN6MWTVM7ShUPl0O5h9dXl17wTwvrTiAuW0Ea2H+ZE2fsmo9+acP1ZBcRYnHWd5vHr2zm/
-	y9ZE0NfrMTt6m+TPGURNaTaH2XdpmDsl4toNqQUmvcsbGrVg5B9LDxRbUexMM3A7nO0HiCtmq1VUh
-	cvLqiEtFU8wm6jTJHPffmx5DRuqiKx4nb6IuQGeSin7caJixCrTOXhYkzkWwmX17lKs64dvT1LfYq
-	FJhSDq5SCZ9Xywao4hZKZOiSScWoIgWKVsI+1AkHs5Xctt327cqoFXwGDYqVE/srugjcTjT8g0WxE
-	RcTHXsKmrbvNg3FnWTfw==;
+	List-Owner; bh=nmi9WiSACdHJeAaOAEE5hEm3tpaKXSsllhlWaVWCEVo=; b=idvje5G44AsDqC
+	bjoZcKi5Yhb6iPaCbXwWmCcm4qJQ3dllcVDYy2CSASkgFlmifQZl64stAqcg6JyduA3p2WQryAZuV
+	r8aH3Wb8g2pQKKphVUJhU+mLaBlVedoN5zoTY5o0qkh/wX5sdxS6Dynwu/Bwad+JDqdJZPafYf2co
+	9RP6H+/Z7TnSoUhRjqrU9oNT972fYUADE/uQyDKKQN//+gmBZbfpZgBdAfRawHCvEJUsaEHecVsRL
+	EA/ZivqGm2utgKZNNlQ42gWfT2xp9IenoikUT5ZZIyYfIjUwOnQpFoWtOGCSCZBOzUBnDIvX+m43J
+	gk+bIchRHuBKRsFgYiUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBPSc-00ERJQ-0o;
-	Fri, 08 Dec 2023 01:15:22 +0000
-Received: from mail-oa1-x2f.google.com ([2001:4860:4864:20::2f])
+	id 1rBQ0R-00EUkG-3A;
+	Fri, 08 Dec 2023 01:50:19 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBPSZ-00ERIK-1s
+	id 1rBQ0P-00EUjN-0H
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Dec 2023 01:15:20 +0000
-Received: by mail-oa1-x2f.google.com with SMTP id 586e51a60fabf-1fa1c3755afso779898fac.1
-        for <linux-riscv@lists.infradead.org>; Thu, 07 Dec 2023 17:15:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1701998116; x=1702602916; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kMotijnh/qiarlNtyEfMGI6pNts/0ixAszGWpmQazv8=;
-        b=HsIExTsW3gqGMLPErLflhfQfwyQtfmjFXRIkgQQr6k3nhv6psQcSS/0+DnIMyueWyF
-         dOiOE1N5U9THSo6jcPvNpq1goMdCx/+rge8QW0OY8cDZylsE03TRyEIxApfBk0H3sIUf
-         NSmbfCpm/sy9WBDdG7QjVEftoF3BofjOTZxeuqqdIXoJGk9inr9yrY8tw1J4rpvrEJvY
-         emBlaZkSjSiaOOJ1t9XGE8MmlkiNcVRCVoBPgqb+o19x0vOoy82t/8h5B+GkXS5ogSv8
-         ppWAjmplqJEyNREAvKS1ypVL2ul8YeOR0RU9Fwsl/p3AwTLqMLd0v7qYU/wpnwyWzeka
-         YHeg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701998116; x=1702602916;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kMotijnh/qiarlNtyEfMGI6pNts/0ixAszGWpmQazv8=;
-        b=uzNjNhoRujWkHhTS0IEBLGfKkAn23gWeUNSDEGtFKViLyXZC5DV38zvPJSzdUn9EuZ
-         sHuaILevJUqMpcujc3LRhMaKlqgL4SXkoYWzEBlzZlghrUtcpEC0XhkUFcdNBLILvBxG
-         OX397QjdCTr5z32RngdZy9506lZC01z4ItvngGqu8e8t9FNvROnO4qYWjTRP4A9R3yjB
-         YhnW3QygfyS4IS2zq+vf8iMstmzvkPjxIH0lVVtOJpNWf+aJkYghKoI7GPTSTY0Zrr4V
-         /CswHlAZEEx9LfveluFgj31mtUifhf4xzqj5kT8C9XHUoD7mfiHKMBZqSlmUjnHuuBMu
-         Y50Q==
-X-Gm-Message-State: AOJu0YxTD2Z8P4LQG1juwrW/Hm7o3rSZSWm9dlH71n8SyUWe5KU1Wjg+
-	ZcUqkiyFalvfMLyGV7c+vPo=
-X-Google-Smtp-Source: AGHT+IGOOVBSFoaAoGYjPbsMs6QasYWQhIA4Z8UtwX3Se0kT2Qsz/Gd7BhSQaY8N6FQtPoCIb63Vnw==
-X-Received: by 2002:a05:6870:799:b0:1fb:788:e8ba with SMTP id en25-20020a056870079900b001fb0788e8bamr63989oab.53.1701998116381;
-        Thu, 07 Dec 2023 17:15:16 -0800 (PST)
-Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id ps5-20020a0568709e0500b001fb33181cfasm76280oab.55.2023.12.07.17.15.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Dec 2023 17:15:15 -0800 (PST)
-From: Chen Wang <unicornxw@gmail.com>
-To: aou@eecs.berkeley.edu,
-	chao.wei@sophgo.com,
-	conor@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	mturquette@baylibre.com,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	richardcochran@gmail.com,
-	robh+dt@kernel.org,
-	sboyd@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	haijiao.liu@sophgo.com,
-	xiaoguang.xing@sophgo.com,
-	guoren@kernel.org,
-	jszhang@kernel.org,
-	inochiama@outlook.com,
-	samuel.holland@sifive.com
-Cc: Chen Wang <unicorn_wang@outlook.com>
-Subject: [PATCH v6 4/4] riscv: dts: add clock generator for Sophgo SG2042 SoC
-Date: Fri,  8 Dec 2023 09:15:08 +0800
-Message-Id: <7017ba0ffc736103339af041ec014a8cf209bc11.1701997033.git.unicorn_wang@outlook.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1701997033.git.unicorn_wang@outlook.com>
-References: <cover.1701997033.git.unicorn_wang@outlook.com>
+	Fri, 08 Dec 2023 01:50:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 0A911CE236E;
+	Fri,  8 Dec 2023 01:50:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C87CFC433C7;
+	Fri,  8 Dec 2023 01:50:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1702000211;
+	bh=8AivNxnB656tRHSe2fXOSDD3zu3/bxUYioH4swsST14=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=f9qCwfZ0UskUmg58lyYLFKsRZ9IZ4oanS1CsN6cMTPCzg+zCKc/1FB28mjRRHKJlF
+	 112+HURh2Nek5ZybJ/TVFD4ISNyuLVOOu78sZoC60/iUenWdHFoqVihoSD+IxCbBo6
+	 HFRieHRA8Y8CQVEkZgVXwEdv1geDJalhGAQ2DifSWNhIYACcb2gFGzWPw1mOgEH1wm
+	 d86xd5XyLjh02lEYL+XQD/l1y7QfRLhNqTHIx4EKrcayFRpid563bS0QT4bBKY7U7w
+	 L5f6D65LGAQMG5O5f1cVANxhYNHkqSOftS5dtwT7DbD6NF7UYtM1mheqbTBIIz3IkE
+	 HqQuqOc5GjoGg==
+Date: Thu, 7 Dec 2023 20:50:05 -0500
+From: Guo Ren <guoren@kernel.org>
+To: Sami Tolvanen <samitolvanen@google.com>
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org, Albert Ou <aou@eecs.berkeley.edu>,
+	Andy Chiu <andy.chiu@sifive.com>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Greentime Hu <greentime.hu@sifive.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Masahiro Yamada <masahiroy@kernel.org>, Nam Cao <namcaov@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: Fix SMP when shadow call stacks are enabled
+Message-ID: <ZXJ2TaXU7dhjphl5@gmail.com>
+References: <20231121211958.3158576-1-samuel.holland@sifive.com>
+ <CABCJKufwox6C5BprNF=rDUxfV532OcawqZBsv5hFejJgrfZ+FA@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CABCJKufwox6C5BprNF=rDUxfV532OcawqZBsv5hFejJgrfZ+FA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231207_171519_622647_38560790 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231207_175017_320828_DE54D665 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,152 +77,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chen Wang <unicorn_wang@outlook.com>
-
-Add clock generator node to device tree for SG2042, and enable clock for
-uart.
-
-Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
----
- .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |  4 +
- arch/riscv/boot/dts/sophgo/sg2042.dtsi        | 79 +++++++++++++++++++
- 2 files changed, 83 insertions(+)
-
-diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-index 49b4b9c2c101..0b3b3b2b0c64 100644
---- a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-+++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-@@ -14,6 +14,10 @@ chosen {
- 	};
- };
- 
-+&cgi {
-+	clock-frequency = <25000000>;
-+};
-+
- &uart0 {
- 	status = "okay";
- };
-diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-index 93256540d078..f08c41dda216 100644
---- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-@@ -5,6 +5,7 @@
- 
- /dts-v1/;
- #include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/clock/sophgo,sg2042-clkgen.h>
- 
- #include "sg2042-cpus.dtsi"
- 
-@@ -18,6 +19,12 @@ aliases {
- 		serial0 = &uart0;
- 	};
- 
-+	cgi: oscillator {
-+		compatible = "fixed-clock";
-+		clock-output-names = "cgi";
-+		#clock-cells = <0>;
-+	};
-+
- 	soc: soc {
- 		compatible = "simple-bus";
- 		#address-cells = <2>;
-@@ -311,12 +318,84 @@ intc: interrupt-controller@7090000000 {
- 			riscv,ndev = <224>;
- 		};
- 
-+		sys_ctrl: system-controller@7030010000 {
-+			compatible = "sophgo,sg2042-sysctrl";
-+			reg = <0x70 0x30010000 0x0 0x1000>;
-+		};
-+
-+		clkgen: clock-controller@7030012000 {
-+			compatible = "sophgo,sg2042-clkgen";
-+			reg = <0x70 0x30012000 0x0 0x1000>;
-+			sophgo,system-ctrl = <&sys_ctrl>;
-+			#clock-cells = <1>;
-+			clocks = <&cgi>;
-+			assigned-clocks = \
-+				<&clkgen DIV_CLK_FPLL_RP_CPU_NORMAL_1>,
-+				<&clkgen DIV_CLK_FPLL_50M_A53>,
-+				<&clkgen DIV_CLK_FPLL_TOP_RP_CMN_DIV2>,
-+				<&clkgen DIV_CLK_FPLL_UART_500M>,
-+				<&clkgen DIV_CLK_FPLL_AHB_LPC>,
-+				<&clkgen DIV_CLK_FPLL_EFUSE>,
-+				<&clkgen DIV_CLK_FPLL_TX_ETH0>,
-+				<&clkgen DIV_CLK_FPLL_PTP_REF_I_ETH0>,
-+				<&clkgen DIV_CLK_FPLL_REF_ETH0>,
-+				<&clkgen DIV_CLK_FPLL_EMMC>,
-+				<&clkgen DIV_CLK_FPLL_SD>,
-+				<&clkgen DIV_CLK_FPLL_TOP_AXI0>,
-+				<&clkgen DIV_CLK_FPLL_TOP_AXI_HSPERI>,
-+				<&clkgen DIV_CLK_FPLL_AXI_DDR_1>,
-+				<&clkgen DIV_CLK_FPLL_DIV_TIMER1>,
-+				<&clkgen DIV_CLK_FPLL_DIV_TIMER2>,
-+				<&clkgen DIV_CLK_FPLL_DIV_TIMER3>,
-+				<&clkgen DIV_CLK_FPLL_DIV_TIMER4>,
-+				<&clkgen DIV_CLK_FPLL_DIV_TIMER5>,
-+				<&clkgen DIV_CLK_FPLL_DIV_TIMER6>,
-+				<&clkgen DIV_CLK_FPLL_DIV_TIMER7>,
-+				<&clkgen DIV_CLK_FPLL_DIV_TIMER8>,
-+				<&clkgen DIV_CLK_FPLL_100K_EMMC>,
-+				<&clkgen DIV_CLK_FPLL_100K_SD>,
-+				<&clkgen DIV_CLK_FPLL_GPIO_DB>,
-+				<&clkgen DIV_CLK_MPLL_RP_CPU_NORMAL_0>,
-+				<&clkgen DIV_CLK_MPLL_AXI_DDR_0>;
-+			assigned-clock-rates = \
-+				<2000000000>,
-+				<50000000>,
-+				<1000000000>,
-+				<500000000>,
-+				<200000000>,
-+				<25000000>,
-+				<125000000>,
-+				<50000000>,
-+				<25000000>,
-+				<100000000>,
-+				<100000000>,
-+				<100000000>,
-+				<250000000>,
-+				<1000000000>,
-+				<50000000>,
-+				<50000000>,
-+				<50000000>,
-+				<50000000>,
-+				<50000000>,
-+				<50000000>,
-+				<50000000>,
-+				<50000000>,
-+				<100000>,
-+				<100000>,
-+				<100000>,
-+				<2000000000>,
-+				<1000000000>;
-+		};
-+
- 		uart0: serial@7040000000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x00000070 0x40000000 0x00000000 0x00001000>;
- 			interrupt-parent = <&intc>;
- 			interrupts = <112 IRQ_TYPE_LEVEL_HIGH>;
- 			clock-frequency = <500000000>;
-+			clocks = <&clkgen GATE_CLK_UART_500M>,
-+				 <&clkgen GATE_CLK_APB_UART>;
-+			clock-names = "baudclk", "apb_pclk";
- 			reg-shift = <2>;
- 			reg-io-width = <4>;
- 			status = "disabled";
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBEZWMgMDEsIDIwMjMgYXQgMDk6NDA6NTVBTSAtMDgwMCwgU2FtaSBUb2x2YW5lbiB3
+cm90ZToKPiBIaSBTYW11ZWwsCj4gCj4gT24gVHVlLCBOb3YgMjEsIDIwMjMgYXQgMToyMOKAr1BN
+IFNhbXVlbCBIb2xsYW5kCj4gPHNhbXVlbC5ob2xsYW5kQHNpZml2ZS5jb20+IHdyb3RlOgo+ID4K
+PiA+IFRoaXMgZml4ZXMgdHdvIGJ1Z3MgaW4gU0NTIGluaXRpYWxpemF0aW9uIGZvciBzZWNvbmRh
+cnkgQ1BVcy4gRmlyc3QsCj4gPiB0aGUgU0NTIHdhcyBub3QgaW5pdGlhbGl6ZWQgYXQgYWxsIGlu
+IHRoZSBzcGlud2FpdCBib290IHBhdGguIFNlY29uZCwKPiA+IHRoZSBjb2RlIGZvciB0aGUgU0JJ
+IEhTTSBwYXRoIGF0dGVtcHRlZCB0byBpbml0aWFsaXplIHRoZSBTQ1MgYmVmb3JlCj4gPiBlbmFi
+bGluZyB0aGUgTU1VLiBIb3dldmVyLCB0aGF0IGludm9sdmVzIGRlcmVmZXJlbmNpbmcgdGhlIHRo
+cmVhZAo+ID4gcG9pbnRlciwgd2hpY2ggcmVxdWlyZXMgdGhlIE1NVSB0byBiZSBlbmFibGVkLgo+
+ID4KPiA+IEZpeCBib3RoIGlzc3VlcyBieSBzZXR0aW5nIHVwIHRoZSBTQ1MgaW4gdGhlIGNvbW1v
+biBzZWNvbmRhcnkgZW50cnkKPiA+IHBhdGgsIGFmdGVyIGVuYWJsaW5nIHRoZSBNTVUuCj4gCj4g
+VGhhbmtzIGZvciB0aGUgcGF0Y2ghIExvb2tzIGxpa2UgbXkgcWVtdSBzZXR1cCBkb2Vzbid0IGhp
+dCB0aGlzIGlzc3VlLAo+IGJ1dCBuZXZlcnRoZWxlc3MsIHRoZSBmaXggbG9va3MgZ29vZCB0byBt
+ZS4KQmVjYXVzZSB0aGVyZSBpcyBubyBmdW5jdGlvbiBjYWxsIGluIHJlbG9jYXRlX2VuYWJsZV9t
+bXUgOikKCj4gCj4gUmV2aWV3ZWQtYnk6IFNhbWkgVG9sdmFuZW4gPHNhbWl0b2x2YW5lbkBnb29n
+bGUuY29tPgo+IAo+IFNhbWkKPiAKPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
+c3RpbmZvL2xpbnV4LXJpc2N2CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
