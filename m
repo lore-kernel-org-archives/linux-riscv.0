@@ -4,93 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C6C0C4167B
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 17:22:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C75C4167B
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 17:36:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O6WvEsvaVMhbQfLHtR6UjlHgAGy2R4dKyzByz0l+3UE=; b=HbzDU16O9OHBiB
-	5GGYTx1gttea8DgA1grfdi/uArTg2hjmwpBKiYkSUZwkDQn2GWaSXmtEks7WQyFrDNWHAJyOjEA92
-	kLR0FogLRBkTvQ8YoFrQv61orQaTsFK46t9tXbtRy6/nF6HJBzO/WW0yMb6S7ZjjDjxLhWpfRrpVQ
-	Sq5XPQ8IVmMhxwt2BZXgKVXT4VgvTzAvBEHke6SSwPw6SR9iSFqu6DOr+vkd1tsHXSaOK8JsWwm2j
-	qxKG43eSUuMsNitMqm6OYgIuruuB/UP1uyYYQALGvHfhbT//z0ML8CSO3VvHvjnkmHpJLHRD7iM8d
-	f24wWdMv0v5NvizJtJCg==;
+	List-Owner; bh=yKZsbhMluNwv2bgAV1JYqzkLehBBHixsO4Fh+DhH568=; b=1vJ0sk/xQ2GF8J
+	RpFWbLT0vCoNQ8srr7JSxRCNyvuCR+PQblGsx3OBhHCgEH481939+GfUfCcb5sWzVx4XuajQnwqVV
+	5GcCqU8hAFkVpmJhHqZrJ21JBQKWM3h40W9gVL2KQEyFG5b5oM8SLaO+V9V0HyrMvGAh3qaBeoNNA
+	PfVXT5MLWXAe+kV3Ei0eVDQwdWVrjyQnqw0jjHPdNwVAsCIpfvQj0EpJPHw8xQX+3pzOJRv3GqQiT
+	iIBvGCd7UqpmKtjIXhHHdMuY6naMXvaUKpJdHFjGmAH32joroWODgHboW4jMmroqvCPJ8es3hHTV2
+	LaL7wiHayjFEo7JRFtdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBeY5-00GADk-1K;
-	Fri, 08 Dec 2023 17:22:01 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1rBemK-00GCdv-1H;
+	Fri, 08 Dec 2023 17:36:44 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBeY3-00GAD2-0t
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 08 Dec 2023 17:21:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=V28FqpOL+oZWPnnuXFJFyawoJ5nIS3QYSrjANXac/eI=; b=UbHNqkRus+VeXqxGP09vb359cH
-	2Q/ZEqAjQU4IsYvHCMQxbyYEYrxhTuo3gNlyMc13ZpTy7FurwxlfYnyeyVDkDjthklMDFdHv1pk2O
-	iWXktzpJ3MHht6J+8CJzFNs4XhJWPpe7r1gsueyYfHT+aGpqaquovUgnsujDTcrKtmsVXQZhAkhX3
-	MSmklMcr0V/IrT3Kb9WlygDyHLhiA9akWeqV9GmCO7S6JlbTqOHzZSk9q8AEFWqokE4RFo3ShjLBN
-	Wc6sCSMhme6ocjs7BtVEOFRgo4Ltt1gOhE8YN6Q1c3Mrfepb5uEV/MLWuqzaQ0TRqBEzEgKeY6qtL
-	tiKWKUbQ==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1rBeXw-0069mX-TN; Fri, 08 Dec 2023 17:21:53 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 89F2A3003F0; Fri,  8 Dec 2023 18:21:52 +0100 (CET)
-Date: Fri, 8 Dec 2023 18:21:52 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: Jiri Olsa <olsajiri@gmail.com>, Song Liu <song@kernel.org>,
-	Song Liu <songliubraving@meta.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	David Ahern <dsahern@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
-	Hao Luo <haoluo@google.com>, Arnd Bergmann <arnd@arndb.de>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Kees Cook <keescook@chromium.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	Network Development <netdev@vger.kernel.org>,
-	bpf <bpf@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>,
-	clang-built-linux <llvm@lists.linux.dev>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Joao Moreira <joao@overdrivepizza.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH v2 2/2] x86/cfi,bpf: Fix BPF JIT call
-Message-ID: <20231208172152.GD36716@noisy.programming.kicks-ass.net>
-References: <20231204181614.GA7299@noisy.programming.kicks-ass.net>
- <20231204183354.GC7299@noisy.programming.kicks-ass.net>
- <CAADnVQJwU5fCLcjBWM9zBY6jUcnME3+p=vvdgKK9FiLPWvXozg@mail.gmail.com>
- <20231206163814.GB36423@noisy.programming.kicks-ass.net>
- <20231206183713.GA35897@noisy.programming.kicks-ass.net>
- <zu5eb2robdqnp2ojwaxjhnglcummrnjaqbw6krdds6qac3bql2@5zx46c2s6ez4>
- <20231207093105.GA28727@noisy.programming.kicks-ass.net>
- <ivhrgimonsvy3tyj5iidoqmlcyqvtsh2ay3cm3ouemsdbvjzs4@6jlt6zv55tgh>
- <20231208102940.GB28727@noisy.programming.kicks-ass.net>
- <20231208134041.GD28727@noisy.programming.kicks-ass.net>
+	id 1rBemI-00GCdQ-1g
+	for linux-riscv@lists.infradead.org;
+	Fri, 08 Dec 2023 17:36:43 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3316c6e299eso2380110f8f.1
+        for <linux-riscv@lists.infradead.org>; Fri, 08 Dec 2023 09:36:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1702057000; x=1702661800; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
+         :to:content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=vUFlU9ALa3VjzJGjGvHunIsFPhQPbhxWTv5SYKWNBuM=;
+        b=n8eue764IRPglvgXMlzAqNIqEWYJsLGl4rRpFn2nolJvlF5xxvMA5+LgVQTPTuAAd+
+         /1RbxmDD46wpMqRAaddOSJpbt1NkOtS6bo7KDPi8ZU48RPZZG/gm1MQVHwoNFHKJHkyE
+         v5vOPx46qnZS0cWmfPchdR8CEP7RfiXGpLdwkXBm8t/x3H8EvQIyVRu9oQS1CdVDLakf
+         NnwNkDKIlGlJ5yF6peeMv9QTl2bFGhbmJrJaEOSgMjo2E08upEl7voisCr5VtgTJWC8s
+         y1U0NAzTr7NfOD6GyyDqrctHKJaa+3rvl01GRy47F69WE/y9j4IXh25KzU7teTv6HXFJ
+         /VGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1702057000; x=1702661800;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
+         :to:content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=vUFlU9ALa3VjzJGjGvHunIsFPhQPbhxWTv5SYKWNBuM=;
+        b=XEPXOEN0c10p9yNoyymg9MDru+8iEg7xx6xmZ+YmxKLRu1w+p0oYQsRLhbmXQ3Ak9Z
+         j+Y3AwT704A2ZFV5O8nSuIUwIUcCtlv/Q09NFwv3wcNM/b1iGbKjqc/lcABdHTyu+pA4
+         ymciBdi+2as/hxkAl4AU0FnELkE5DsOTHuPng9XodG1+VHtqdhLCtZIxMwwv7w4r5eVZ
+         2O7SYp2e12quD4cxMYnHvFL74iPT82xDSPI+HLzCNHnilOy5SlbOW0mdrzdu9Dm+9XfP
+         CYNzePq/Htcv2DAP1wjI0vXcsnBwVahrxLvLkswRdLc4A7oNGarLfIRfonhGTCz9qIpa
+         NVaA==
+X-Gm-Message-State: AOJu0YyQIaGy63a+A6tsp1N2dInw5aA7sRR+/9NVdwtcGDbB1uP2oTb2
+	FZwQMgAQuaWZOli9689MIU+7CQ==
+X-Google-Smtp-Source: AGHT+IELBucV79IO73VZZ+1seyYagyVICxbwZuiNsqVW/FJyPLR0UFSIQqw9A7EBO4Y1vr31TJ18rg==
+X-Received: by 2002:adf:f652:0:b0:333:2fd2:3bc9 with SMTP id x18-20020adff652000000b003332fd23bc9mr142934wrp.130.1702056999866;
+        Fri, 08 Dec 2023 09:36:39 -0800 (PST)
+Received: from [192.168.1.20] ([178.197.218.27])
+        by smtp.gmail.com with ESMTPSA id d9-20020adfa349000000b003334d9c3b1esm2494910wrb.16.2023.12.08.09.36.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 08 Dec 2023 09:36:39 -0800 (PST)
+Message-ID: <c98c123f-1c07-4cfd-aeaf-ced7fe08cf42@linaro.org>
+Date: Fri, 8 Dec 2023 18:36:36 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231208134041.GD28727@noisy.programming.kicks-ass.net>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 3/4] clk: sophgo: Add SG2042 clock generator driver
+Content-Language: en-US
+To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
+ chao.wei@sophgo.com, conor@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+ mturquette@baylibre.com, palmer@dabbelt.com, paul.walmsley@sifive.com,
+ richardcochran@gmail.com, robh+dt@kernel.org, sboyd@kernel.org,
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com, guoren@kernel.org,
+ jszhang@kernel.org, inochiama@outlook.com, samuel.holland@sifive.com
+Cc: Chen Wang <unicorn_wang@outlook.com>
+References: <cover.1701938395.git.unicorn_wang@outlook.com>
+ <975f9995584dfa8af751e96a1f4d2c7991551a35.1701938395.git.unicorn_wang@outlook.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <975f9995584dfa8af751e96a1f4d2c7991551a35.1701938395.git.unicorn_wang@outlook.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20231208_093642_599061_1F4D80C2 
+X-CRM114-Status: UNSURE (   5.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,33 +145,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 08, 2023 at 02:40:41PM +0100, Peter Zijlstra wrote:
-> On Fri, Dec 08, 2023 at 11:29:40AM +0100, Peter Zijlstra wrote:
-> > The only problem I now have is the one XXX, I'm not entirely sure what
-> > signature to use there.
+On 07/12/2023 09:58, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
 > 
-> > @@ -119,6 +119,7 @@ int bpf_struct_ops_test_run(struct bpf_p
-> >  	op_idx = prog->expected_attach_type;
-> >  	err = bpf_struct_ops_prepare_trampoline(tlinks, link,
-> >  						&st_ops->func_models[op_idx],
-> > +						/* XXX */ NULL,
-> >  						image, image + PAGE_SIZE);
-> >  	if (err < 0)
-> >  		goto out;
+> Add a driver for the SOPHGO SG2042 clock generator.
 > 
-> Duh, that should ofcourse be something of dummy_ops_test_ret_fn type.
-> Let me go fix that.
+> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 
-Next one.. bpf_obj_free_fields: field->kptr.dtor(xchg_field);
+Your driver still at v5 has so many build issues... please be sure there
+are no new warnings reported.
 
-The one that trips is bpf_cgroup_release().
+Best regards,
+Krzysztof
 
-objtool doesn't think the address of that function 'escapes' and
-'helpfully' seals that function, and then BPF thinks it does escape and
-manages the above indirect call and *boom*.
-
-How can I tell which functions escape according to BPF such that I might
-teach objtool this?
 
 _______________________________________________
 linux-riscv mailing list
