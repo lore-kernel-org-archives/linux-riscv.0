@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32772C10DC1
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 13:15:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1065EC4167B
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 13:16:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,69 +13,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=iKnkiI6EF0B4yehYQ19BjPTrUf8q3Yb0goq/U1uBbtM=; b=Y5xfvr56HBosqSvbzTdM48Wstj
-	Cnof99gUJZJmfn9tAzigVPMJ1UiiK2mFw8DxV74d8w4a3ndefDnrJ0+LWbuVsYj4Iq+1CqK+abl3u
-	MJBs/vCoAYBuEdhxEDOwchqKTo3T/FwI1zAr0/UQRJmS7V0Puu15DuqTauN2FWRD40ovtFaSvlW7r
-	4BFx7f3W4x4pdcax0e0DWOUjixyRhNv9suUtCnbFMj+Dzmss8EsFULWLskFNmSsQ3b9e/WXWcsNdP
-	YSj/Nm3R12xAixLT7y9Cv1a8tLDYOLmOIce/NcFJA7SCFJJkKm4SjEDC63rKDvWU/SVKGPZ3vIXXn
-	toFiWamw==;
+	bh=51w4gZr1y/K/lOFglPsuKNJZo260QbT2yRkkw3E0s9g=; b=gcpGaJNdyAJh4YJfyZzAPNQM5T
+	Q1+Kq1P2rsNetjxpsW7vrrJgpoHL4DAKW8IHmjEvQDJ79Quuad1SC33vjSQqyKm6czZg8aymAnAdM
+	66ObNqpNfomC+0micxCMbNS6v103UwwLgT3TWvT2YASLRtiQvIWKWAfuxt9+zXw1cUqZr1++Ja+fe
+	cobAaDricBvLEAq2xPU82Y6a48S57GzluSHdJ+OaAX5GPdCtJHtyjMntwMKUTxHLfchaH/Tp6VLvM
+	mzfCKVMjLPLWLuwAXjEf6IqoEI3YsaUjSoGxpWbyZTfCnd5aj8PjZbOzvqw/MWEYIa8TN48veOQzr
+	wMmjmUPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBahI-00Ffbw-36;
-	Fri, 08 Dec 2023 13:15:16 +0000
+	id 1rBaiX-00Ffny-1t;
+	Fri, 08 Dec 2023 13:16:33 +0000
 Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBahF-00FfbB-2M
+	id 1rBaiU-00FfnS-0n
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Dec 2023 13:15:15 +0000
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	Fri, 08 Dec 2023 13:16:31 +0000
+Received: from mail-lj1-f200.google.com (mail-lj1-f200.google.com [209.85.208.200])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id C903941515
-	for <linux-riscv@lists.infradead.org>; Fri,  8 Dec 2023 13:15:11 +0000 (UTC)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id E1C833F15F
+	for <linux-riscv@lists.infradead.org>; Fri,  8 Dec 2023 13:16:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1702041311;
-	bh=c5wUCZP5uxT+D5h6Lc7Bx9+IP9vdWehgZtwy5FF1vNU=;
+	s=20210705; t=1702041388;
+	bh=5OGFeeZf5m0bMG5GtisyOq/eek7cqESU/OhJA19L9VA=;
 	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
 	 To:Cc:Content-Type;
-	b=MEGRrHTGyX8+TQuTwCa64aZiyk6dhrmm8BAlI5I06kCptYqAQEnC04mPvSyQOXGbc
-	 zgXi33L6Tg31RDLqIjq5vmzG+0T2nKBGtFNtwdTlKHZ7E48UCV6NiorCR4N0Eg0TJe
-	 zuhpgwiLeRiv/fEYqDqRZCOOyu/WuDqcsGpUXSIMyskNy7J2cIbkVUuz+Kp8oIdtRJ
-	 jTY5p6S0ekLMbpyDyxY5sXbk1+tRi+hhCxpTeEWIfD5d5e+bdTURNpHgYLq51uAFmi
-	 bXanFS15Om6NqcKoYkyPG3nPqqzjfcDFvStO0C3NSyu5dNka6dUp5fSr+9OMPQxQ/+
-	 vQDbHPI3dQhtA==
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-423afeb1cbcso24764581cf.1
-        for <linux-riscv@lists.infradead.org>; Fri, 08 Dec 2023 05:15:11 -0800 (PST)
+	b=eUtZytU4O7R0hL8fK8O1fvvqlIPuYJJcbY8QmgCsOifUrxPwvsT/ifJv+E+ewCRO5
+	 YgDQyAucqdWi9fQUoNZAw6t62kG3vUyMRhd3qpWbWKJtJp51AI/5jpGssp0Wlpfbk+
+	 5xUXURHmRexAQNl9E8I7+R8OaTx45ulJPdhEgwkjZmXWfx/NueX0gbfhmssY0+ooRd
+	 pDpkl+wgEDR+jlZf2wrlcjYii7N5kJOWdVbT7VT1NI64vvQKz4ExoFu53iDzzMIfty
+	 2lpPHS9tSNhoa3I9gh5xRcDZtBx8rHBnZAVcsD/nKOJwnH0FN2LHCu4AD05JerCMxR
+	 TSiO7fKhgC+zg==
+Received: by mail-lj1-f200.google.com with SMTP id 38308e7fff4ca-2ca23b6f61eso10308181fa.1
+        for <linux-riscv@lists.infradead.org>; Fri, 08 Dec 2023 05:16:28 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702041310; x=1702646110;
+        d=1e100.net; s=20230601; t=1702041388; x=1702646188;
         h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
          :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=c5wUCZP5uxT+D5h6Lc7Bx9+IP9vdWehgZtwy5FF1vNU=;
-        b=YeD9CcLfc51wsMTky0Qtc0lETLwMzdCEYFgiGdhy4LW4ooL9C0LNowf4mEtC8+XQZK
-         x1tJ9D1EswEdx2NN5hGeOTTY6P8sz0HVEOOczSICOptWyHRLjdCOMKGGYlkI0ZUSgQR5
-         o/cCntu8OZKihaWXj4LHdIDXpKd+t3PlXfurXzMsgcO+EIs/8dYpku2plEQBUrlViD/S
-         usOPlpI+0EQzaX3bcb9L1VpRtShlXQ4XCXSeba7sJcjX1t1uNH7Hxp4IkhWG3qxESVTm
-         3BUyDx9s2FoVaCUn/4Gvrerrr8f/1DAbuw1gnPzmciDg9T6XJC9haXR4L4CY8Kpm3lhz
-         HouQ==
-X-Gm-Message-State: AOJu0Yyliv6d8xentzdOWZpfkCZBmLAVCzf77o2/QyKZ7/s/hGOSMEWu
-	nLakuy8rPa7blByyqGvA32UuLTd4rxIQ7rmf6oVDAgwbGp1RmXCOz50bx73Mp1BYbH0EAFdFcg2
-	vnNb5LElYGBXwpw5THezV7UWDoFsjaJ8lC41uVoCxXqIsd5U3g3U4wuS9PKBTnw==
-X-Received: by 2002:ac8:59cd:0:b0:425:a282:71ae with SMTP id f13-20020ac859cd000000b00425a28271aemr83650qtf.65.1702041310495;
-        Fri, 08 Dec 2023 05:15:10 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGznAXIIRyxMLb5pO2qeJrPUYYl2PAXtj36+PqtwjGvaAeZjPNal02cbh/Khten3+rQ2+aY7jlmCUrdPAAgJ9c=
-X-Received: by 2002:ac8:59cd:0:b0:425:a282:71ae with SMTP id
- f13-20020ac859cd000000b00425a28271aemr83624qtf.65.1702041310209; Fri, 08 Dec
- 2023 05:15:10 -0800 (PST)
+        bh=5OGFeeZf5m0bMG5GtisyOq/eek7cqESU/OhJA19L9VA=;
+        b=lz6/I0BrtxyG51mRIK2ZTxwpPsi34Ql5569DcCWl47efRinsSnhppln8XFaDyQijNC
+         y3dbObi3ZYy014nibxvKi8RZlsmIzYOT5m8V9NmG4V1cdEgwkLGlT70c3y8wIXVQcHay
+         jUuCeT35U2Cs3J663JiKcUslWh/3XtWxCfLpy02ZFZ8RpEH4aDOmtD+xgIzAY4NsaDjq
+         IHgG7HBIpWm3MuHy1sfubx9HazhbtdHSomq66ve6yWB1X3PkxCIeXKdnQIJ8+p/l/+wI
+         uzwO+ex2wXCi/PbUgbVUg+D90ep0veI6XCwnoWrAzPqAOLn12beB3jhAK8znaWFQty0I
+         DekA==
+X-Gm-Message-State: AOJu0Yw22TTJPEGz11AAMedbMOv4f5z6/jOn7GMwxto4a5jEMIt91Ey/
+	a6Q55Q/cEA4s3UhNJ0FcBEW71nio08JcnT+HBupjsktOG/Hcbn9f8mfYMWM0JF2ycPYIgEfehcu
+	zANjttV0080+xgF9WfpBuC0WMWdaF0IJJaZ2Og++JUw1uW527E6bjKBqloJycLQ==
+X-Received: by 2002:a19:9108:0:b0:50b:fd3c:5dab with SMTP id t8-20020a199108000000b0050bfd3c5dabmr66150lfd.27.1702041387907;
+        Fri, 08 Dec 2023 05:16:27 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGksnQ48tiMDGwLrQKVaPnOs0v9pxKkmcT1acbXZkH1CCKvDD7B4YKfWLimQP/LAPMt6WElHwTfhZsSr/Lh3Sk=
+X-Received: by 2002:a19:9108:0:b0:50b:fd3c:5dab with SMTP id
+ t8-20020a199108000000b0050bfd3c5dabmr66137lfd.27.1702041387548; Fri, 08 Dec
+ 2023 05:16:27 -0800 (PST)
 Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 8 Dec 2023 08:15:09 -0500
+ HTTPREST; Fri, 8 Dec 2023 07:16:26 -0600
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20231206115000.295825-3-jeeheng.sia@starfivetech.com>
-References: <20231206115000.295825-1-jeeheng.sia@starfivetech.com> <20231206115000.295825-3-jeeheng.sia@starfivetech.com>
+In-Reply-To: <20231206115000.295825-4-jeeheng.sia@starfivetech.com>
+References: <20231206115000.295825-1-jeeheng.sia@starfivetech.com> <20231206115000.295825-4-jeeheng.sia@starfivetech.com>
 Mime-Version: 1.0
-Date: Fri, 8 Dec 2023 08:15:09 -0500
-Message-ID: <CAJM55Z9yLeMDifcGprgav_cJgwLUwKPcsPJSyjSxr2-nVw-YrQ@mail.gmail.com>
-Subject: Re: [PATCH v1 02/16] reset: starfive: Convert the word "jh71x0" to "starfive"
+Date: Fri, 8 Dec 2023 07:16:26 -0600
+Message-ID: <CAJM55Z8_0ght6hH8j6JaEjA1eoiLxbaeX2-Juf=D0yk-wi5mqQ@mail.gmail.com>
+Subject: Re: [PATCH v1 03/16] clk: starfive: Rename file name "jh71x0" to "common"
 To: Sia Jee Heng <jeeheng.sia@starfivetech.com>, kernel@esmil.dk, conor@kernel.org, 
 	robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
 	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
@@ -86,8 +86,8 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
 	leyfoon.tan@starfivetech.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231208_051513_926028_E1266ED3 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20231208_051630_430623_B77A911D 
+X-CRM114-Status: GOOD (  15.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,8 +105,10 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 Sia Jee Heng wrote:
-> Function names that consist of the 'jh71x0' naming convention are
-> renamed to use the 'starfive' wording.
+> StarFive JH8100 shares a similar clock and reset design with JH7110.
+> To facilitate the reuse of the file and its functionalities, files
+> containing the "jh71x0" naming convention are renamed to use the
+> "common" wording.
 >
 > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
@@ -114,234 +116,144 @@ Sia Jee Heng wrote:
 Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
 > ---
->  .../clk/starfive/clk-starfive-jh7110-sys.c    |  4 +-
->  .../reset/starfive/reset-starfive-common.c    | 64 +++++++++----------
->  .../reset/starfive/reset-starfive-common.h    |  8 +--
->  .../reset/starfive/reset-starfive-jh7100.c    |  2 +-
->  .../reset/starfive/reset-starfive-jh7110.c    |  4 +-
->  include/soc/starfive/reset-starfive-common.h  |  6 +-
->  6 files changed, 44 insertions(+), 44 deletions(-)
+>  drivers/clk/starfive/Kconfig                              | 8 ++++----
+>  drivers/clk/starfive/Makefile                             | 2 +-
+>  .../{clk-starfive-jh71x0.c => clk-starfive-common.c}      | 4 ++--
+>  .../{clk-starfive-jh71x0.h => clk-starfive-common.h}      | 4 ++--
+>  drivers/clk/starfive/clk-starfive-jh7100-audio.c          | 2 +-
+>  drivers/clk/starfive/clk-starfive-jh7100.c                | 2 +-
+>  drivers/clk/starfive/clk-starfive-jh7110.h                | 2 +-
+>  7 files changed, 12 insertions(+), 12 deletions(-)
+>  rename drivers/clk/starfive/{clk-starfive-jh71x0.c => clk-starfive-common.c} (99%)
+>  rename drivers/clk/starfive/{clk-starfive-jh71x0.h => clk-starfive-common.h} (97%)
 >
-> diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-> index 6e45c580c9ba..e63353c70209 100644
-> --- a/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-> +++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-> @@ -345,7 +345,7 @@ static void jh7110_reset_unregister_adev(void *_adev)
->  static void jh7110_reset_adev_release(struct device *dev)
+> diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
+> index bd29358ffeec..ff8eace36e64 100644
+> --- a/drivers/clk/starfive/Kconfig
+> +++ b/drivers/clk/starfive/Kconfig
+> @@ -1,12 +1,12 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>
+> -config CLK_STARFIVE_JH71X0
+> +config CLK_STARFIVE_COMMON
+>  	bool
+>
+>  config CLK_STARFIVE_JH7100
+>  	bool "StarFive JH7100 clock support"
+>  	depends on ARCH_STARFIVE || COMPILE_TEST
+> -	select CLK_STARFIVE_JH71X0
+> +	select CLK_STARFIVE_COMMON
+>  	default ARCH_STARFIVE
+>  	help
+>  	  Say yes here to support the clock controller on the StarFive JH7100
+> @@ -15,7 +15,7 @@ config CLK_STARFIVE_JH7100
+>  config CLK_STARFIVE_JH7100_AUDIO
+>  	tristate "StarFive JH7100 audio clock support"
+>  	depends on CLK_STARFIVE_JH7100
+> -	select CLK_STARFIVE_JH71X0
+> +	select CLK_STARFIVE_COMMON
+>  	default m if ARCH_STARFIVE
+>  	help
+>  	  Say Y or M here to support the audio clocks on the StarFive JH7100
+> @@ -33,7 +33,7 @@ config CLK_STARFIVE_JH7110_SYS
+>  	bool "StarFive JH7110 system clock support"
+>  	depends on ARCH_STARFIVE || COMPILE_TEST
+>  	select AUXILIARY_BUS
+> -	select CLK_STARFIVE_JH71X0
+> +	select CLK_STARFIVE_COMMON
+>  	select RESET_STARFIVE_JH7110 if RESET_CONTROLLER
+>  	select CLK_STARFIVE_JH7110_PLL
+>  	default ARCH_STARFIVE
+> diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
+> index 199ac0f37a2f..012f7ee83f8e 100644
+> --- a/drivers/clk/starfive/Makefile
+> +++ b/drivers/clk/starfive/Makefile
+> @@ -1,5 +1,5 @@
+>  # SPDX-License-Identifier: GPL-2.0
+> -obj-$(CONFIG_CLK_STARFIVE_JH71X0)	+= clk-starfive-jh71x0.o
+> +obj-$(CONFIG_CLK_STARFIVE_COMMON)	+= clk-starfive-common.o
+>
+>  obj-$(CONFIG_CLK_STARFIVE_JH7100)	+= clk-starfive-jh7100.o
+>  obj-$(CONFIG_CLK_STARFIVE_JH7100_AUDIO)	+= clk-starfive-jh7100-audio.o
+> diff --git a/drivers/clk/starfive/clk-starfive-jh71x0.c b/drivers/clk/starfive/clk-starfive-common.c
+> similarity index 99%
+> rename from drivers/clk/starfive/clk-starfive-jh71x0.c
+> rename to drivers/clk/starfive/clk-starfive-common.c
+> index aebc99264a0b..a12490c97957 100644
+> --- a/drivers/clk/starfive/clk-starfive-jh71x0.c
+> +++ b/drivers/clk/starfive/clk-starfive-common.c
+> @@ -1,6 +1,6 @@
+>  // SPDX-License-Identifier: GPL-2.0
+>  /*
+> - * StarFive JH71X0 Clock Generator Driver
+> + * StarFive Clock Generator Driver
+>   *
+>   * Copyright (C) 2021-2022 Emil Renner Berthing <kernel@esmil.dk>
+>   */
+> @@ -10,7 +10,7 @@
+>  #include <linux/device.h>
+>  #include <linux/io.h>
+>
+> -#include "clk-starfive-jh71x0.h"
+> +#include "clk-starfive-common.h"
+>
+>  static struct jh71x0_clk *jh71x0_clk_from(struct clk_hw *hw)
 >  {
->  	struct auxiliary_device *adev = to_auxiliary_dev(dev);
-> -	struct jh71x0_reset_adev *rdev = to_jh71x0_reset_adev(adev);
-> +	struct starfive_reset_adev *rdev = to_starfive_reset_adev(adev);
+> diff --git a/drivers/clk/starfive/clk-starfive-jh71x0.h b/drivers/clk/starfive/clk-starfive-common.h
+> similarity index 97%
+> rename from drivers/clk/starfive/clk-starfive-jh71x0.h
+> rename to drivers/clk/starfive/clk-starfive-common.h
+> index 34bb11c72eb7..1f32f7024e9f 100644
+> --- a/drivers/clk/starfive/clk-starfive-jh71x0.h
+> +++ b/drivers/clk/starfive/clk-starfive-common.h
+> @@ -1,6 +1,6 @@
+>  /* SPDX-License-Identifier: GPL-2.0 */
+> -#ifndef __CLK_STARFIVE_JH71X0_H
+> -#define __CLK_STARFIVE_JH71X0_H
+> +#ifndef __CLK_STARFIVE_COMMON_H
+> +#define __CLK_STARFIVE_COMMON_H
 >
->  	kfree(rdev);
->  }
-> @@ -354,7 +354,7 @@ int jh7110_reset_controller_register(struct jh71x0_clk_priv *priv,
->  				     const char *adev_name,
->  				     u32 adev_id)
->  {
-> -	struct jh71x0_reset_adev *rdev;
-> +	struct starfive_reset_adev *rdev;
->  	struct auxiliary_device *adev;
->  	int ret;
+>  #include <linux/bits.h>
+>  #include <linux/clk-provider.h>
+> diff --git a/drivers/clk/starfive/clk-starfive-jh7100-audio.c b/drivers/clk/starfive/clk-starfive-jh7100-audio.c
+> index ee4bda14a40e..dc4c278606d7 100644
+> --- a/drivers/clk/starfive/clk-starfive-jh7100-audio.c
+> +++ b/drivers/clk/starfive/clk-starfive-jh7100-audio.c
+> @@ -15,7 +15,7 @@
 >
-> diff --git a/drivers/reset/starfive/reset-starfive-common.c b/drivers/reset/starfive/reset-starfive-common.c
-> index dab454e46bbf..8d8dec9e5d7a 100644
-> --- a/drivers/reset/starfive/reset-starfive-common.c
-> +++ b/drivers/reset/starfive/reset-starfive-common.c
-> @@ -14,7 +14,7 @@
+>  #include <dt-bindings/clock/starfive-jh7100-audio.h>
 >
->  #include "reset-starfive-common.h"
+> -#include "clk-starfive-jh71x0.h"
+> +#include "clk-starfive-common.h"
 >
-> -struct jh71x0_reset {
-> +struct starfive_reset {
->  	struct reset_controller_dev rcdev;
->  	/* protect registers against concurrent read-modify-write */
->  	spinlock_t lock;
-> @@ -23,16 +23,16 @@ struct jh71x0_reset {
->  	const u32 *asserted;
->  };
+>  /* external clocks */
+>  #define JH7100_AUDCLK_AUDIO_SRC			(JH7100_AUDCLK_END + 0)
+> diff --git a/drivers/clk/starfive/clk-starfive-jh7100.c b/drivers/clk/starfive/clk-starfive-jh7100.c
+> index 69cc11ea7e33..6bb6a6af9f28 100644
+> --- a/drivers/clk/starfive/clk-starfive-jh7100.c
+> +++ b/drivers/clk/starfive/clk-starfive-jh7100.c
+> @@ -15,7 +15,7 @@
 >
-> -static inline struct jh71x0_reset *
-> -jh71x0_reset_from(struct reset_controller_dev *rcdev)
-> +static inline struct starfive_reset *
-> +starfive_reset_from(struct reset_controller_dev *rcdev)
->  {
-> -	return container_of(rcdev, struct jh71x0_reset, rcdev);
-> +	return container_of(rcdev, struct starfive_reset, rcdev);
->  }
+>  #include <dt-bindings/clock/starfive-jh7100.h>
 >
-> -static int jh71x0_reset_update(struct reset_controller_dev *rcdev,
-> -			       unsigned long id, bool assert)
-> +static int starfive_reset_update(struct reset_controller_dev *rcdev,
-> +				 unsigned long id, bool assert)
->  {
-> -	struct jh71x0_reset *data = jh71x0_reset_from(rcdev);
-> +	struct starfive_reset *data = starfive_reset_from(rcdev);
->  	unsigned long offset = id / 32;
->  	u32 mask = BIT(id % 32);
->  	void __iomem *reg_assert = data->assert + offset * sizeof(u32);
-> @@ -61,34 +61,34 @@ static int jh71x0_reset_update(struct reset_controller_dev *rcdev,
->  	return ret;
->  }
+> -#include "clk-starfive-jh71x0.h"
+> +#include "clk-starfive-common.h"
 >
-> -static int jh71x0_reset_assert(struct reset_controller_dev *rcdev,
-> -			       unsigned long id)
-> +static int starfive_reset_assert(struct reset_controller_dev *rcdev,
-> +				 unsigned long id)
->  {
-> -	return jh71x0_reset_update(rcdev, id, true);
-> +	return starfive_reset_update(rcdev, id, true);
->  }
+>  /* external clocks */
+>  #define JH7100_CLK_OSC_SYS		(JH7100_CLK_END + 0)
+> diff --git a/drivers/clk/starfive/clk-starfive-jh7110.h b/drivers/clk/starfive/clk-starfive-jh7110.h
+> index 0659adae4d76..6b1bdf860f00 100644
+> --- a/drivers/clk/starfive/clk-starfive-jh7110.h
+> +++ b/drivers/clk/starfive/clk-starfive-jh7110.h
+> @@ -2,7 +2,7 @@
+>  #ifndef __CLK_STARFIVE_JH7110_H
+>  #define __CLK_STARFIVE_JH7110_H
 >
-> -static int jh71x0_reset_deassert(struct reset_controller_dev *rcdev,
-> -				 unsigned long id)
-> +static int starfive_reset_deassert(struct reset_controller_dev *rcdev,
-> +				   unsigned long id)
->  {
-> -	return jh71x0_reset_update(rcdev, id, false);
-> +	return starfive_reset_update(rcdev, id, false);
->  }
+> -#include "clk-starfive-jh71x0.h"
+> +#include "clk-starfive-common.h"
 >
-> -static int jh71x0_reset_reset(struct reset_controller_dev *rcdev,
-> -			      unsigned long id)
-> +static int starfive_reset_reset(struct reset_controller_dev *rcdev,
-> +				unsigned long id)
->  {
->  	int ret;
->
-> -	ret = jh71x0_reset_assert(rcdev, id);
-> +	ret = starfive_reset_assert(rcdev, id);
->  	if (ret)
->  		return ret;
->
-> -	return jh71x0_reset_deassert(rcdev, id);
-> +	return starfive_reset_deassert(rcdev, id);
->  }
->
-> -static int jh71x0_reset_status(struct reset_controller_dev *rcdev,
-> -			       unsigned long id)
-> +static int starfive_reset_status(struct reset_controller_dev *rcdev,
-> +				 unsigned long id)
->  {
-> -	struct jh71x0_reset *data = jh71x0_reset_from(rcdev);
-> +	struct starfive_reset *data = starfive_reset_from(rcdev);
->  	unsigned long offset = id / 32;
->  	u32 mask = BIT(id % 32);
->  	void __iomem *reg_status = data->status + offset * sizeof(u32);
-> @@ -97,25 +97,25 @@ static int jh71x0_reset_status(struct reset_controller_dev *rcdev,
->  	return !((value ^ data->asserted[offset]) & mask);
->  }
->
-> -static const struct reset_control_ops jh71x0_reset_ops = {
-> -	.assert		= jh71x0_reset_assert,
-> -	.deassert	= jh71x0_reset_deassert,
-> -	.reset		= jh71x0_reset_reset,
-> -	.status		= jh71x0_reset_status,
-> +static const struct reset_control_ops starfive_reset_ops = {
-> +	.assert		= starfive_reset_assert,
-> +	.deassert	= starfive_reset_deassert,
-> +	.reset		= starfive_reset_reset,
-> +	.status		= starfive_reset_status,
->  };
->
-> -int reset_starfive_jh71x0_register(struct device *dev, struct device_node *of_node,
-> -				   void __iomem *assert, void __iomem *status,
-> -				   const u32 *asserted, unsigned int nr_resets,
-> -				   struct module *owner)
-> +int reset_starfive_register(struct device *dev, struct device_node *of_node,
-> +			    void __iomem *assert, void __iomem *status,
-> +			    const u32 *asserted, unsigned int nr_resets,
-> +			    struct module *owner)
->  {
-> -	struct jh71x0_reset *data;
-> +	struct starfive_reset *data;
->
->  	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
->  	if (!data)
->  		return -ENOMEM;
->
-> -	data->rcdev.ops = &jh71x0_reset_ops;
-> +	data->rcdev.ops = &starfive_reset_ops;
->  	data->rcdev.owner = owner;
->  	data->rcdev.nr_resets = nr_resets;
->  	data->rcdev.dev = dev;
-> @@ -128,4 +128,4 @@ int reset_starfive_jh71x0_register(struct device *dev, struct device_node *of_no
->
->  	return devm_reset_controller_register(dev, &data->rcdev);
->  }
-> -EXPORT_SYMBOL_GPL(reset_starfive_jh71x0_register);
-> +EXPORT_SYMBOL_GPL(reset_starfive_register);
-> diff --git a/drivers/reset/starfive/reset-starfive-common.h b/drivers/reset/starfive/reset-starfive-common.h
-> index 266acc4b2caf..83461b22ee55 100644
-> --- a/drivers/reset/starfive/reset-starfive-common.h
-> +++ b/drivers/reset/starfive/reset-starfive-common.h
-> @@ -6,9 +6,9 @@
->  #ifndef __RESET_STARFIVE_COMMON_H
->  #define __RESET_STARFIVE_COMMON_H
->
-> -int reset_starfive_jh71x0_register(struct device *dev, struct device_node *of_node,
-> -				   void __iomem *assert, void __iomem *status,
-> -				   const u32 *asserted, unsigned int nr_resets,
-> -				   struct module *owner);
-> +int reset_starfive_register(struct device *dev, struct device_node *of_node,
-> +			    void __iomem *assert, void __iomem *status,
-> +			    const u32 *asserted, unsigned int nr_resets,
-> +			    struct module *owner);
->
->  #endif /* __RESET_STARFIVE_COMMON_H */
-> diff --git a/drivers/reset/starfive/reset-starfive-jh7100.c b/drivers/reset/starfive/reset-starfive-jh7100.c
-> index 546dea2e5811..122ac6c3893b 100644
-> --- a/drivers/reset/starfive/reset-starfive-jh7100.c
-> +++ b/drivers/reset/starfive/reset-starfive-jh7100.c
-> @@ -51,7 +51,7 @@ static int __init jh7100_reset_probe(struct platform_device *pdev)
->  	if (IS_ERR(base))
->  		return PTR_ERR(base);
->
-> -	return reset_starfive_jh71x0_register(&pdev->dev, pdev->dev.of_node,
-> +	return reset_starfive_register(&pdev->dev, pdev->dev.of_node,
->  					      base + JH7100_RESET_ASSERT0,
->  					      base + JH7100_RESET_STATUS0,
->  					      jh7100_reset_asserted,
-> diff --git a/drivers/reset/starfive/reset-starfive-jh7110.c b/drivers/reset/starfive/reset-starfive-jh7110.c
-> index 87dba01491ae..c4dd21761e53 100644
-> --- a/drivers/reset/starfive/reset-starfive-jh7110.c
-> +++ b/drivers/reset/starfive/reset-starfive-jh7110.c
-> @@ -53,13 +53,13 @@ static int jh7110_reset_probe(struct auxiliary_device *adev,
->  			      const struct auxiliary_device_id *id)
->  {
->  	struct jh7110_reset_info *info = (struct jh7110_reset_info *)(id->driver_data);
-> -	struct jh71x0_reset_adev *rdev = to_jh71x0_reset_adev(adev);
-> +	struct starfive_reset_adev *rdev = to_starfive_reset_adev(adev);
->  	void __iomem *base = rdev->base;
->
->  	if (!info || !base)
->  		return -ENODEV;
->
-> -	return reset_starfive_jh71x0_register(&adev->dev, adev->dev.parent->of_node,
-> +	return reset_starfive_register(&adev->dev, adev->dev.parent->of_node,
->  					      base + info->assert_offset,
->  					      base + info->status_offset,
->  					      NULL,
-> diff --git a/include/soc/starfive/reset-starfive-common.h b/include/soc/starfive/reset-starfive-common.h
-> index 56d8f413cf18..16df46a074bc 100644
-> --- a/include/soc/starfive/reset-starfive-common.h
-> +++ b/include/soc/starfive/reset-starfive-common.h
-> @@ -6,12 +6,12 @@
->  #include <linux/compiler_types.h>
->  #include <linux/container_of.h>
->
-> -struct jh71x0_reset_adev {
-> +struct starfive_reset_adev {
->  	void __iomem *base;
->  	struct auxiliary_device adev;
->  };
->
-> -#define to_jh71x0_reset_adev(_adev) \
-> -	container_of((_adev), struct jh71x0_reset_adev, adev)
-> +#define to_starfive_reset_adev(_adev) \
-> +	container_of((_adev), struct starfive_reset_adev, adev)
->
->  #endif
+>  /* top clocks of ISP/VOUT domain from JH7110 SYSCRG */
+>  struct jh7110_top_sysclk {
 > --
 > 2.34.1
 >
