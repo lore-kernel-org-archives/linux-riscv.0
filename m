@@ -4,91 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB12C4167B
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 16:52:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 684CAC10DC1
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 17:08:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=G6u5mfkeQyXwqCQm8TVSv9VAcuUpTc9xiMDaeBgiVRs=; b=lIjiNMQ6WnTKyB8cop0kIMjtPk
-	cNZSmIme2m8NOUl0PUo1Hhu15OwZa+hDhpDRLDfn6uz+zdJIorgoKFJr1Zkko3rObPPDK6gEOqzdR
-	6rMWA4sNMiLRtPrkiMGQWIyUsDTot4lhZ4tsk8DztpKMv0hWI63YJO4+jRYRAgp0WIcueQn8TvbGx
-	/DDB19/hRw7NFMPotntFGMZvOyfBB0jPwPVxGmkTQOMaf6P4rCD9qnnwB02Syj2qPeKiMP7PoldsL
-	LqJblTWErQ5lyUkWlvLv4AiQYR/Hb25ggVJ16xZ2cX5P4iNewFMgE9h+L41Wtn11JovswUIrbDMhV
-	bgh1L3iQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UZ1VEHTWvRwVnIICDU/Z5pFdads7/kwb3AqEjukv+vU=; b=m9CDxBzhpupX7A
+	hu9N2QmVGjBQulLCAK6XYQH4yJikNxrGmPK8TyuNUssIkUzKuQdDXuRUliaW0P7s/GK9S8Kososqy
+	Pe2sH6+WEpiiRJPsySO+wZTzxpY71YwFvO1yacTBGuRhkSW3jw7h72kJq4LLSJGCo0gTiN0xLB+ay
+	WCARwT1jGHIPVkEdWU5i4/J5H5Z3WLGcsqYJSR+SKGhkFPy4FzTNQrC9ncarpbxU4sqrXKvT6qHJl
+	x9idLPlq9JI6Qn5Lkht4wFo98r/GXaC2tFsi9Ref7wiqLRT25OLwro/YBCjOL2n/917lzNDs0kOcl
+	OzMN8i0FomFoS+acJw1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBe5n-00G61J-1n;
-	Fri, 08 Dec 2023 16:52:47 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1rBeKh-00G7bY-0Z;
+	Fri, 08 Dec 2023 17:08:11 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBe5k-00G60r-09
+	id 1rBeKe-00G7aj-1N
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Dec 2023 16:52:46 +0000
-Received: from mail-lf1-f70.google.com (mail-lf1-f70.google.com [209.85.167.70])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id D22FA3F4CC
-	for <linux-riscv@lists.infradead.org>; Fri,  8 Dec 2023 16:52:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1702054360;
-	bh=/Bd1WbAs6qqomxx2kkYhHR+Yd/EnW7VyJ0zhFUm1arc=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=ZO1JkcUwURDx3F4LyNI7uSYhU7PxBEzR5P2XVkYyNbLYTeEh4jZEae5cVzENfy+aO
-	 t5zDW0EpxXwbVA+mLXu69C55w6rW+bRffLQhur4VaTGgxdoBHfsSpt4m0L9zfn6ixd
-	 /uymLaoTK4jKRe0BCLPhLnZI1fby+reRtiF6Qqm43qpghPQ43wR13VCLIlP9Z3jiVi
-	 eQdfz46SYniD6PHmx1FS9eS3VyzMXkqHRBNiiLmaaWibZ5iptczeE6T+zkpGIgAAyd
-	 OnWMFF/j9l7zdttbMMjF9dFF/+okqRk7ZU+rHIPkQ/UUSV9XhzqkSj5GQeNY7Ln5VL
-	 46mdBfHuxpggQ==
-Received: by mail-lf1-f70.google.com with SMTP id 2adb3069b0e04-50be5bdae9fso1759213e87.1
-        for <linux-riscv@lists.infradead.org>; Fri, 08 Dec 2023 08:52:40 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702054360; x=1702659160;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/Bd1WbAs6qqomxx2kkYhHR+Yd/EnW7VyJ0zhFUm1arc=;
-        b=poQT8+2QC6vn8I1X8utarJVam0vBtkuJFwamxQC0WU0HV0cq70xqNGClbDZov9IE60
-         sdnmRu4/Nfok3U+nN15AjpN/dX2YTpEAZixi6AqDwKE1oKryWmGH6O8MmWbFf2c3mHIh
-         BKEHubhz+4mpdE6s4suv88aRSHCUYC1BPgsp7QQYYZ5QwujzCam8st205ZJYz0gsSAyS
-         lUFU8yF0dwS0tkqQ2fdJScPwUspLS3dsTeoLku7bvD5jQB54G8BvYMXXFt6UsRJiN59j
-         P+rcDd04pBBvt1F87woW258Os9yudJdXJmOsz1ckiP4TGKwNW/7MJSGEM3t/OwaONaOH
-         7fVw==
-X-Gm-Message-State: AOJu0Yy9UW+PVx2KN/EVL5hMVx1mPnz48ey+U35HPloTS9oiGdQPe4U7
-	5oF0pnkjxkQPOjEI21mlqJJ3hy49U3OhESKCLwkp3mmYabeImGfPTsC3+j4Sdxb2Fe6ImE3yZd1
-	Y+TU80As6wtk3Nw9If5HdP2pYKktAuERjnotKmD5/oaoAchiBAUMpwg06ww8r6g==
-X-Received: by 2002:ac2:4c3a:0:b0:50b:f2f0:2b0f with SMTP id u26-20020ac24c3a000000b0050bf2f02b0fmr84002lfq.133.1702054360232;
-        Fri, 08 Dec 2023 08:52:40 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IE0PijjlqLMVDLUKgcONltdJP4HQSQPKwjj3DWwcCvbfjgx6I0eC4m1N1xg0Tj+6jTQMSHxMH3QI1YkxoNxO2w=
-X-Received: by 2002:ac2:4c3a:0:b0:50b:f2f0:2b0f with SMTP id
- u26-20020ac24c3a000000b0050bf2f02b0fmr83988lfq.133.1702054359905; Fri, 08 Dec
- 2023 08:52:39 -0800 (PST)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 8 Dec 2023 08:52:38 -0800
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
-References: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
-Mime-Version: 1.0
-Date: Fri, 8 Dec 2023 08:52:38 -0800
-Message-ID: <CAJM55Z_nnrFcU6N8ZELUoGLe6Dp358aXH7VGf1i+USbZOsbpnQ@mail.gmail.com>
-Subject: Re: [PATCH v1 00/16] Basic clock and reset support for StarFive
- JH8100 RISC-V SoC
-To: Sia Jee Heng <jeeheng.sia@starfivetech.com>, kernel@esmil.dk, conor@kernel.org, 
-	robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de, 
-	emil.renner.berthing@canonical.com, hal.feng@starfivetech.com, 
-	xingyu.wu@starfivetech.com
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
-	leyfoon.tan@starfivetech.com
+	Fri, 08 Dec 2023 17:08:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id D97ECB82BBC;
+	Fri,  8 Dec 2023 17:08:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13DF3C433C8;
+	Fri,  8 Dec 2023 17:08:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1702055286;
+	bh=L5ejtIWY2RbVcSXfTpmFdQcek5I6KvvEbrzWnLb3alk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Hd2pQG/brFeY0MUHlYGM1FA/ACwdZ/PKIvT+WUz0y/GwxcHFCcBSdORH7AFMk4J4Y
+	 8gya+/+u5Xo3nvNnn40z6avHkPojQ6P0N2bwg5UqUqlyhykXWG7kw6fkgkWzsvMjtb
+	 HCXsf8smx6RKwc62OCVNPWS7S9SeXA2gxjc9GriczeGD3ApV+r1mROSUxhbJt7lDjE
+	 Kxg9m5qgMeNAJnynzyeJFbHatdQwwUdnLatPsUNQB9jpBbAHRcmxg0GcMInl8vmweo
+	 BOu70JcQxbs3gMJWAD2Y7iS2DHrMFdH4rvNuYdOtRGWrgQfEHBV3H6HwkEAvM5BJ1R
+	 2T+4NSBIxfQTA==
+From: Conor Dooley <conor@kernel.org>
+To: linux-riscv@lists.infradead.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Wolfgang Grandegger <wg@grandegger.com>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	linux-can@vger.kernel.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org
+Subject: [PATCH v1 0/7] MPFS clock fixes required for correct CAN clock modeling
+Date: Fri,  8 Dec 2023 17:07:39 +0000
+Message-Id: <20231208-sizably-repressed-16651a4b70e7@spud>
+X-Mailer: git-send-email 2.39.2
+MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2342; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=g/+RSOF+MCs/BzYXcY1ALY/xOCAYFuZb4uSD23xQNkE=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKnFvtHrtsdemV8uxdOg7zQ1vf/tqs9cd2MF91un6K8We Kz61nhLRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACaSas3IcLoxYObBk32GPQkX fRf1bqjc/mTNh5AFCWt4FrC9XK3TupiRocPw1fWLF80f/Vpa0K1X9CUxMMnvBcdM2aTLj+WDD2m u5AYA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231208_085244_363519_DFA1B57B 
-X-CRM114-Status: GOOD (  16.27  )
+X-CRM114-CacheID: sfid-20231208_090808_748390_B71F7E3D 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,145 +92,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sia Jee Heng wrote:
-> This patch series enabled basic clock & reset support for StarFive
-> JH8100 SoC.
->
-> This patch series depends on the Initial device tree support for
-> StarFive JH8100 SoC patch series which can be found at below link:
-> https://lore.kernel.org/lkml/20231201121410.95298-1-jeeheng.sia@starfivetech.com/
->
-> StarFive JH8100 shares a similar clock and reset design with JH7110.
-> To facilitate the reuse of the file and its functionalities, files
-> containing the 'jh71x0' naming convention are renamed to use the
-> 'common' wording. Internal functions that contain the 'jh71x0'
-> naming convention are renamed to use 'starfive.' This is accomplished
-> through patches 1, 2, 3, and 4.
+From: Conor Dooley <conor.dooley@microchip.com>
 
-I'm a little sceptical all this renaming is worth it, but if think it's likely
-that future starfive SoCs can use the same clock drivers I'm ok with it. Just
-know that you'll look a bit silly if your "JH9100" can't use these drivers and
-you'll already need different starfive and starfive-gen2 drivers.
+While reviewing a CAN clock driver internally for MPFS [1], I realised
+that the modeling of the MSSPLL such that one one of its outputs could
+be used was not correct. The CAN controllers on MPFS take 2 input
+clocks - one that is the bus clock, acquired from the main MSSPLL and
+a second clock for the AHB interface to the result of the SoC.
+Currently the binding for the CAN controllers and the represetnation
+of the MSSPLL only allows for one of these clocks.
+Modify the binding and devicetree to expect two clocks and rework the
+main clock controller driver for MPFS such that it is capable of
+providing multiple outputs from the MSSPLL.
 
-/Emil
->
->
-> Patch 5 adds documentation to describe System (SYSCRG) Clock & Reset
-> binding.
-> Patch 6 adds SYSCRG clock driver.
->
-> patch 7 adds documentation to describe System-North-West (SYSCRG-NW)
-> Clock & Reset binding.
-> Patch 8 adds SYSCRG-NW clock driver.
->
-> patch 9 adds documentation to describe System-North-East (SYSCRG-NE)
-> Clock & Reset binding.
-> Patch 10 adds SYSCRG-NE clock driver.
->
-> patch 11 adds documentation to describe System-South-West (SYSCRG-SW)
-> Clock & Reset binding.
-> Patch 12 adds SYSCRG-SW clock driver.
->
-> patch 13 adds documentation to describe Always-On (AON)
-> Clock & Reset binding.
-> Patch 14 adds AON clock driver.
->
-> Patch 15 adds support for the auxiliary reset driver.
->
-> Patch 16 adds clocks and reset nodes to the JH8100 device tree.
->
-> Sia Jee Heng (16):
->   reset: starfive: Rename file name "jh71x0" to "common"
->   reset: starfive: Convert the word "jh71x0" to "starfive"
->   clk: starfive: Rename file name "jh71x0" to "common"
->   clk: starfive: Convert the word "jh71x0" to "starfive"
->   dt-bindings: clock: Add StarFive JH8100 System clock and reset
->     generator
->   clk: starfive: Add JH8100 System clock generator driver
->   dt-bindings: clock: Add StarFive JH8100 System-North-West clock and
->     reset generator
->   clk: starfive: Add JH8100 System-North-West clock generator driver
->   dt-bindings: clock: Add StarFive JH8100 System-North-East clock and
->     reset generator
->   clk: starfive: Add JH8100 System-North-East clock generator driver
->   dt-bindings: clock: Add StarFive JH8100 System-South-West clock and
->     reset generator
->   clk: starfive: Add JH8100 System-South-West clock generator driver
->   dt-bindings: clock: Add StarFive JH8100 Always-On clock and reset
->     generator
->   clk: starfive: Add JH8100 Always-On clock generator driver
->   reset: starfive: Add StarFive JH8100 reset driver
->   riscv: dts: starfive: jh8100: Add clocks and resets nodes
->
->  .../clock/starfive,jh8100-aoncrg.yaml         |  77 +++
->  .../clock/starfive,jh8100-syscrg-ne.yaml      | 158 +++++
->  .../clock/starfive,jh8100-syscrg-nw.yaml      | 119 ++++
->  .../clock/starfive,jh8100-syscrg-sw.yaml      |  66 ++
->  .../clock/starfive,jh8100-syscrg.yaml         |  66 ++
->  MAINTAINERS                                   |  15 +
->  arch/riscv/boot/dts/starfive/jh8100-clk.dtsi  | 180 ++++++
->  arch/riscv/boot/dts/starfive/jh8100.dtsi      | 115 ++++
->  drivers/clk/starfive/Kconfig                  |  49 +-
->  drivers/clk/starfive/Makefile                 |   3 +-
->  drivers/clk/starfive/clk-starfive-common.c    | 327 ++++++++++
->  drivers/clk/starfive/clk-starfive-common.h    | 130 ++++
->  .../clk/starfive/clk-starfive-jh7100-audio.c  | 127 ++--
->  drivers/clk/starfive/clk-starfive-jh7100.c    | 503 ++++++++--------
->  .../clk/starfive/clk-starfive-jh7110-aon.c    |  62 +-
->  .../clk/starfive/clk-starfive-jh7110-isp.c    |  72 +--
->  .../clk/starfive/clk-starfive-jh7110-stg.c    |  94 +--
->  .../clk/starfive/clk-starfive-jh7110-sys.c    | 523 ++++++++--------
->  .../clk/starfive/clk-starfive-jh7110-vout.c   |  74 +--
->  drivers/clk/starfive/clk-starfive-jh7110.h    |   4 +-
->  drivers/clk/starfive/clk-starfive-jh71x0.c    | 327 ----------
->  drivers/clk/starfive/clk-starfive-jh71x0.h    | 123 ----
->  drivers/clk/starfive/jh8100/Makefile          |   7 +
->  drivers/clk/starfive/jh8100/clk-aon.c         | 275 +++++++++
->  .../clk/starfive/jh8100/clk-starfive-jh8100.h |  11 +
->  drivers/clk/starfive/jh8100/clk-sys-ne.c      | 566 ++++++++++++++++++
->  drivers/clk/starfive/jh8100/clk-sys-nw.c      | 268 +++++++++
->  drivers/clk/starfive/jh8100/clk-sys-sw.c      | 136 +++++
->  drivers/clk/starfive/jh8100/clk-sys.c         | 455 ++++++++++++++
->  drivers/reset/starfive/Kconfig                |  14 +-
->  drivers/reset/starfive/Makefile               |   4 +-
->  ...rfive-jh71x0.c => reset-starfive-common.c} |  68 +--
->  .../reset/starfive/reset-starfive-common.h    |  14 +
->  .../reset/starfive/reset-starfive-jh7100.c    |   4 +-
->  .../reset/starfive/reset-starfive-jh7110.c    |   8 +-
->  .../reset/starfive/reset-starfive-jh71x0.h    |  14 -
->  .../reset/starfive/reset-starfive-jh8100.c    | 102 ++++
->  .../dt-bindings/clock/starfive,jh8100-crg.h   | 430 +++++++++++++
->  .../dt-bindings/reset/starfive,jh8100-crg.h   | 127 ++++
->  ...rfive-jh71x0.h => reset-starfive-common.h} |  10 +-
->  40 files changed, 4485 insertions(+), 1242 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-aoncrg.yaml
->  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-ne.yaml
->  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-nw.yaml
->  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-sw.yaml
->  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg.yaml
->  create mode 100644 arch/riscv/boot/dts/starfive/jh8100-clk.dtsi
->  create mode 100644 drivers/clk/starfive/clk-starfive-common.c
->  create mode 100644 drivers/clk/starfive/clk-starfive-common.h
->  delete mode 100644 drivers/clk/starfive/clk-starfive-jh71x0.c
->  delete mode 100644 drivers/clk/starfive/clk-starfive-jh71x0.h
->  create mode 100644 drivers/clk/starfive/jh8100/Makefile
->  create mode 100644 drivers/clk/starfive/jh8100/clk-aon.c
->  create mode 100644 drivers/clk/starfive/jh8100/clk-starfive-jh8100.h
->  create mode 100644 drivers/clk/starfive/jh8100/clk-sys-ne.c
->  create mode 100644 drivers/clk/starfive/jh8100/clk-sys-nw.c
->  create mode 100644 drivers/clk/starfive/jh8100/clk-sys-sw.c
->  create mode 100644 drivers/clk/starfive/jh8100/clk-sys.c
->  rename drivers/reset/starfive/{reset-starfive-jh71x0.c => reset-starfive-common.c} (55%)
->  create mode 100644 drivers/reset/starfive/reset-starfive-common.h
->  delete mode 100644 drivers/reset/starfive/reset-starfive-jh71x0.h
->  create mode 100644 drivers/reset/starfive/reset-starfive-jh8100.c
->  create mode 100644 include/dt-bindings/clock/starfive,jh8100-crg.h
->  create mode 100644 include/dt-bindings/reset/starfive,jh8100-crg.h
->  rename include/soc/starfive/{reset-starfive-jh71x0.h => reset-starfive-common.h} (50%)
->
-> --
-> 2.34.1
->
+Cheers,
+Conor.
+
+1 - Hopefully that'll show up on the lists soon, once we are happy with
+  it ourselves.
+
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: Wolfgang Grandegger <wg@grandegger.com>
+CC: Marc Kleine-Budde <mkl@pengutronix.de>
+CC: "David S. Miller" <davem@davemloft.net>
+CC: Eric Dumazet <edumazet@google.com>
+CC: Jakub Kicinski <kuba@kernel.org>
+CC: Paolo Abeni <pabeni@redhat.com>
+CC: Rob Herring <robh+dt@kernel.org>
+CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+CC: Paul Walmsley <paul.walmsley@sifive.com>
+CC: Palmer Dabbelt <palmer@dabbelt.com>
+CC: Albert Ou <aou@eecs.berkeley.edu>
+CC: Michael Turquette <mturquette@baylibre.com>
+CC: Stephen Boyd <sboyd@kernel.org>
+CC: linux-riscv@lists.infradead.org
+CC: linux-can@vger.kernel.org
+CC: netdev@vger.kernel.org
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+CC: linux-clk@vger.kernel.org
+
+Conor Dooley (7):
+  dt-bindings: clock: mpfs: add more MSSPLL output definitions
+  dt-bindings: can: mpfs: add missing required clock
+  clk: microchip: mpfs: split MSSPLL in two
+  clk: microchip: mpfs: setup for using other mss pll outputs
+  clk: microchip: mpfs: add missing MSSPLL outputs
+  clk: microchip: mpfs: convert MSSPLL outputs to clk_divider
+  riscv: dts: microchip: add missing CAN bus clocks
+
+ .../bindings/net/can/microchip,mpfs-can.yaml  |   7 +-
+ arch/riscv/boot/dts/microchip/mpfs.dtsi       |   4 +-
+ drivers/clk/microchip/clk-mpfs.c              | 154 ++++++++++--------
+ .../dt-bindings/clock/microchip,mpfs-clock.h  |   5 +
+ 4 files changed, 99 insertions(+), 71 deletions(-)
+
+-- 
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
