@@ -4,65 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76FFCC4167B
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 10:31:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEFDEC46CC5
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 10:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Uu1qNZSv26XGU56LAfr1CKmidojImXwQUrZzfg4+I8=; b=4JPPxy7H1J0sngZqJ4L1r9KpYh
-	7GyBon/whcrKl2v0q+TPo8X/0gQrrURKHwukr575cf0CLTEuWBrJYvjq+1RXZZXsDscEMZBdfuB3x
-	FSXAwoHE+hqjItRYu8hrmQIA8wI91PjLM6HzquRYrnOBv1dOQNtIlYCCjg7TX4HvWCgA/EnJCOmxO
-	8LoQQq3VwRF28hlCql0fNBaP3aDeNz3/r+s+V+k7/XEhDuWNwObyU+0VkV9+2+BiRuMHgqe8P1XWe
-	MT1GdxounAW28OH/AgwVMm8cOGK+Yc6Bw6RrUcQEXig0vcHJfyHWCFQkLV7/Lli7oa+xlnSuE5DPW
-	ndA0Drlg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=g7ntJPHanIpFCwJXpyL1O8Sn7cntMWiaFMeJGvYdPxw=; b=Inrp3hwmjI3L9E
+	h5MUX1MnNmRsDoofMkrLT11rtqS1Yi3Mi+BIkT8Kk59pU5zBn4NSGi0l2MjVxChc2ihYKiabJCTCY
+	9s8ZG4peBXZOoeInkUKkjxzQi6g7DTovUeopYGAJa4+BsD60t+k3JcYFG72PWXKj7CkFMH58PsjJc
+	jXGKWWkWKHmyhk6CaV52vS0zEFAvkxylidC9/DPqwXLmDjMplRcDKNnY26oBpNTecWht8/8994l+n
+	nZaB/mkOpsQ15hE0j8GtmtPGzW9ehjYb7VKJFIx8o6uODaaScWF/YwVDgKVMuiZOOFDCi5UOaRRJu
+	5ta0nxNw9dEuj1iU+4tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBY8F-00FG9N-03;
-	Fri, 08 Dec 2023 10:30:55 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1rBYFB-00FH5B-0d;
+	Fri, 08 Dec 2023 10:38:05 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBY8B-00FG7u-2z
+	id 1rBYF8-00FH2V-2m
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Dec 2023 10:30:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 9127FB82413;
-	Fri,  8 Dec 2023 10:30:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E89A9C433C7;
-	Fri,  8 Dec 2023 10:30:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1702031449;
-	bh=FfltjaJi2+BieqE4CIh0XJv2dzvZ1vd9wCo4Z9ia5sw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=admXh1CGnFPD0M35Zxc9R5HKFPgrTM8vn6dy1dC0aNCX5V6pFYRU+8Y50Z9+FQFHZ
-	 90WnJHrL9wuyLIq5eaQMn6p/ASCRKvelZioSv/h57qeT/CfpfIK4Mi7vZg6czKM6dF
-	 zeVrf9NqRO+7L0ChgKVMmeZJ+ktc/izPmaGrLsWTBZVwi6Yotb3FEqtRvsVHC6PK8S
-	 7KnBkCuAPv27JJJa2dhSrqaZp27IfW92T5XmDHjK5uP6RFD/4ArfzPeXUu5ieAiglV
-	 oMF8jV9yLMclCKJg0uI/aLJ98+DGQzUWqyyYGOTPUgStTMYVwtzwOwSxri+3TTECva
-	 Gu8LusU2UFLgQ==
-Date: Fri, 8 Dec 2023 10:30:43 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Chen Wang <unicorn_wang@outlook.com>
-Cc: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
-	chao.wei@sophgo.com, krzysztof.kozlowski+dt@linaro.org,
-	mturquette@baylibre.com, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, richardcochran@gmail.com,
-	robh+dt@kernel.org, sboyd@kernel.org, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, haijiao.liu@sophgo.com,
-	xiaoguang.xing@sophgo.com, guoren@kernel.org, jszhang@kernel.org,
-	inochiama@outlook.com, samuel.holland@sifive.com
-Subject: Re: [PATCH v6 0/4] riscv: sophgo: add clock support for sg2042
-Message-ID: <20231208-item-rubbing-e32503c6cdcf@spud>
-References: <cover.1701997033.git.unicorn_wang@outlook.com>
- <MA0P287MB0332EEB2858B8B39F151CECAFE8AA@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
+	Fri, 08 Dec 2023 10:38:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1702031882; x=1733567882;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=7fpfZLQ/wUMnvIzkFtnwjbFo65V7UhlC6XBu/GZbLfo=;
+  b=Kx6DmMO5T8DaD23iP85N1shu9MtLdz760wS5wc2FjCaKYgiEEohe/JFp
+   l3qVdRv/zR/AMrejyluPWyaYrb9wVK9HVSJzu4M9feDo3bqBSSbnRAB2E
+   /0cjeVb0AoVvIsQoVVROJypaNskbD+ps4rN3RoRD1GRZrskigKZtoXS11
+   JO/XPJfWxONhJd1A3n57XQmbBWHiY+jEfCqXe7VBPyrFuNjKEJbcief4/
+   5B6yuQIzzvDLqfeuvsM59zwHDgjrNf7+xkNocdI8Y98kS8Uum21HuYeq9
+   XvF7Gc9ZaqVRNVxowxxBo5xOX5JkyXSSbZ7NwREIkUTB46PmCp0u2vpsy
+   Q==;
+X-CSE-ConnectionGUID: H3XQVRBZQ2qxsVmz7vJ8Sw==
+X-CSE-MsgGUID: Hl/X09+ES/+vFdJJftuD7g==
+X-ThreatScanner-Verdict: Negative
+X-IronPort-AV: E=Sophos;i="6.04,260,1695711600"; 
+   d="scan'208";a="13315277"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 08 Dec 2023 03:37:50 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Fri, 8 Dec 2023 03:37:50 -0700
+Received: from microchip1-OptiPlex-9020.microchip.com (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Fri, 8 Dec 2023 03:37:45 -0700
+From: shravan chippa <shravan.chippa@microchip.com>
+To: <green.wan@sifive.com>, <vkoul@kernel.org>, <robh+dt@kernel.org>,
+	<krzysztof.kozlowski+dt@linaro.org>, <palmer@dabbelt.com>,
+	<paul.walmsley@sifive.com>, <conor+dt@kernel.org>
+CC: <dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<nagasuresh.relli@microchip.com>, <praveen.kumar@microchip.com>,
+	<shravan.chippa@microchip.com>
+Subject: [PATCH v5 1/4] dmaengine: sf-pdma: Support of_dma_controller_register()
+Date: Fri, 8 Dec 2023 16:08:53 +0530
+Message-ID: <20231208103856.3732998-2-shravan.chippa@microchip.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20231208103856.3732998-1-shravan.chippa@microchip.com>
+References: <20231208103856.3732998-1-shravan.chippa@microchip.com>
 MIME-Version: 1.0
-In-Reply-To: <MA0P287MB0332EEB2858B8B39F151CECAFE8AA@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231208_023052_104922_430F821C 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20231208_023802_958954_BDF3C752 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,76 +84,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5901414402473038671=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Shravan Chippa <shravan.chippa@microchip.com>
 
---===============5901414402473038671==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="FOIXGebSdyFCZivi"
-Content-Disposition: inline
+Update sf-pdma driver to adopt generic DMA device tree bindings.
+It calls of_dma_controller_register() with of_dma_xlate_by_chan_id
+to get the generic DMA device tree helper support and the DMA
+clients can look up the sf-pdma controller using standard APIs.
 
+Signed-off-by: Shravan Chippa <shravan.chippa@microchip.com>
+---
+ drivers/dma/sf-pdma/sf-pdma.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
---FOIXGebSdyFCZivi
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
+index 3125a2f162b4..6109e1c5a09e 100644
+--- a/drivers/dma/sf-pdma/sf-pdma.c
++++ b/drivers/dma/sf-pdma/sf-pdma.c
+@@ -20,6 +20,7 @@
+ #include <linux/mod_devicetable.h>
+ #include <linux/dma-mapping.h>
+ #include <linux/of.h>
++#include <linux/of_dma.h>
+ #include <linux/slab.h>
+ 
+ #include "sf-pdma.h"
+@@ -563,7 +564,20 @@ static int sf_pdma_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
++	ret = of_dma_controller_register(pdev->dev.of_node,
++					 of_dma_xlate_by_chan_id, pdma);
++	if (ret < 0) {
++		dev_err(&pdev->dev,
++			"Can't register SiFive Platform OF_DMA. (%d)\n", ret);
++		goto err_unregister;
++	}
++
+ 	return 0;
++
++err_unregister:
++	dma_async_device_unregister(&pdma->dma_dev);
++
++	return ret;
+ }
+ 
+ static void sf_pdma_remove(struct platform_device *pdev)
+@@ -583,6 +597,9 @@ static void sf_pdma_remove(struct platform_device *pdev)
+ 		tasklet_kill(&ch->err_tasklet);
+ 	}
+ 
++	if (pdev->dev.of_node)
++		of_dma_controller_free(pdev->dev.of_node);
++
+ 	dma_async_device_unregister(&pdma->dma_dev);
+ }
+ 
+-- 
+2.34.1
 
-On Fri, Dec 08, 2023 at 06:11:10PM +0800, Chen Wang wrote:
-> On 2023/12/8 9:13, Chen Wang wrote:
-> > From: Chen Wang <unicorn_wang@outlook.com>
-> >=20
-> > This series adds clock controller support for sophgo sg2042.
-> >=20
-> > Thanks,
-> > Chen
-> >=20
-> > ---
->=20
-> Hi=EF=BC=8CConor=EF=BC=8C
->=20
-> Can you please have a review of this patch?
-
-Chief, you sent this patch only the other day, please give people some
-time. I, at least, have an MMO addiction to feed in my spare time
-alongside reviewing patches.
-
-> And I'm not sure if you are ok to pick up this patch so it can be merged
-> into the next v6.8?
-
-Stephen is the maintainer for clock drivers. I do pick things up and
-send them to him as PRs when it makes life easier, but usually that's
-after other people have reviewed the clock driver itself.
-
-Thanks,
-Conor.
-
-
---FOIXGebSdyFCZivi
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZXLwUwAKCRB4tDGHoIJi
-0u3nAP9Rokitj/wed1daTNpVLWtV36eyiRYsx6oI80J6OThGUQEA4exOUcph7uDB
-lcTp1MOSck2qJMA3zfVvmMSiBj9WRQM=
-=B3l3
------END PGP SIGNATURE-----
-
---FOIXGebSdyFCZivi--
-
-
---===============5901414402473038671==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5901414402473038671==--
-
