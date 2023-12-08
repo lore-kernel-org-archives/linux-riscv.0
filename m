@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED8CFC10F05
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 17:08:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF738C4167B
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 17:09:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HWBndvoVYHh1ddxFkO8eAqrGb/NFaYypTvLllHJeRRI=; b=QODm1+Dujxmh9e
-	usX2O8QdaeY5x5EObpPglyN2OfSkWWJsUZino0+9rIjskiEtEUUmsa/3dD8h3UIPZ/eWscXw5o0UX
-	5dg7ip7afKGVbDfkBAyg5ZWMnO0lFhchX4C/sbAXb8wlupRsKVUXhoj2j5ucjlCMuozlw79cHywR3
-	Zm0BZTLtVHpjQJR5YBNExNquE7rWoQJ2M13JHt86b6OL/0ZgbrFlBQn3PLft8M6+OXR6slJLn+kVt
-	2sv9aFHKnm/1w7EGBelxq1q9ZtfjfWwBZ8nqD1Jv9j42zvlkhavhd7eV8O5lzzbk9xsABY543sfMM
-	h+pq17+PLougAaCmwsnQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qmoNjle7vhc8TvfIBQEI0C9g5LP+q4kt3Bamyo/PiXA=; b=pxizdoIAo///a47q+xeWFkdmht
+	jpEYJuegsGQL/XgPXh23tsX9Rn8tEwh2QfWGKatGCinUsnMBaRcK41PmxuqL30xxETfFFrhhaoJYl
+	WcM7cbh7mM+pbhm1xXayme+88CBu1D//WX+QmvHcuPSx+jY24g8r6Su5ai+8JKblgdZbHSJ5G50zA
+	PSF1SgP6R9DKtbARjD6ecroiPuw/vYqtGyEUGFjxo5iZQf/lpLU4ws5GB/5HPRSaY8A/Q/ZCcrWX5
+	zxdI/fR+fMV5s2U198so1VOKg3Ykpn5k64Hs21jbrTAPfLxmtWtf0yAAX4OzT6RcYowsVcikAnXxD
+	jG/PolUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBeLD-00G7k3-2r;
-	Fri, 08 Dec 2023 17:08:43 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rBeLk-00G7vP-13;
+	Fri, 08 Dec 2023 17:09:16 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBeLB-00G7iR-1o
+	id 1rBeLh-00G7tQ-1M
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Dec 2023 17:08:43 +0000
+	Fri, 08 Dec 2023 17:09:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 00635CE28BD;
-	Fri,  8 Dec 2023 17:08:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 3E1FEC433C9;
-	Fri,  8 Dec 2023 17:08:38 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 4AA3FB82BC0;
+	Fri,  8 Dec 2023 17:09:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3329C433C8;
+	Fri,  8 Dec 2023 17:09:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1702055318;
-	bh=FlIdJCa/UXaESEyh+p8lw9JH9iwcDM/hgfUOTCeDY/0=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=HbS//9adsc1QtUqJGVnaCspRwIRj7Br3OFCKinNUbZayXnI53F4qdnNhgRymEfP9o
-	 sbuK3F2/M7kfkdY+drvqVWG6vRX3/i8490i8E0rbR3uX3Cqo5JB4AEAS3nIMODO1G+
-	 ztIbtgOZqr9wtKEhNdAn1iI6oK9JAn7KkFNEEB6bhKgh3JIDr/iQ+SH2kFtFerQVEu
-	 ig1VdaReK54+hXV0IMvxg+flxXGCj+8xLm2tpyxcgSOTvNV6Kkh4DcMRibadMw8TQz
-	 trr747cfS0RJKM70dAL0OXRTbc6410w9F92sMBCVhUikshf+FYSfNzNPEVSbvyzu3c
-	 QU4gxWIvp48iQ==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 2DB48C04DD9;
-	Fri,  8 Dec 2023 17:08:38 +0000 (UTC)
-Subject: Re: [GIT PULL] RISC-V Fixes for 6.7-rc5
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <mhng-1c062b80-96c4-4146-a689-9338ce7c524c@palmer-ri-x1c9>
-References: <mhng-1c062b80-96c4-4146-a689-9338ce7c524c@palmer-ri-x1c9>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <mhng-1c062b80-96c4-4146-a689-9338ce7c524c@palmer-ri-x1c9>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.7-rc5
-X-PR-Tracked-Commit-Id: ed5b7cfd7839f9280a63365c1133482b42d0981f
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 4df7c5fde316820286dfa6d203a1005d7fbe007d
-Message-Id: <170205531818.9242.16251848338049388170.pr-tracker-bot@kernel.org>
-Date: Fri, 08 Dec 2023 17:08:38 +0000
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+	s=k20201202; t=1702055350;
+	bh=/IphcbvtWoyG/fdkcm9lA/I86nGtTbDJid5q4OPmEp8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ptJPFirgLLzF4T9HWYpbubQGoTykPHi7WT2waoDAsLMD6zIR3crBpBCYOU97GrC5M
+	 0FTe8NhXD23I5iDp/Pbschttbk74s0fCaip0kwsrcfJJXJtJMdkVcITZJddmTj8K2E
+	 2zdXeK8JrovcaeUTLQrqGbypNw8vpDB+XOxpsggn6sorHggDihewFzdAJJKkFnMydF
+	 mBmtq9N89lMSWgH76ElNC+T35o3B+lDqEU+X7E+hscnZo9DL03TuOTduToMCkiLRBL
+	 rz7Anh7o7D0lZSUYHDOPKpcZ6JkreGHTFnTSvefUOXnxSalgPiyO3wZVDJCH+Ljbom
+	 ZAvDReaocRJjA==
+Date: Fri, 8 Dec 2023 17:09:04 +0000
+From: Conor Dooley <conor@kernel.org>
+To: linux-riscv@lists.infradead.org
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Wolfgang Grandegger <wg@grandegger.com>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, linux-can@vger.kernel.org,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v1 0/7] MPFS clock fixes required for correct CAN clock
+ modeling
+Message-ID: <20231208-majestic-train-ee55b30de95a@spud>
+References: <20231208-sizably-repressed-16651a4b70e7@spud>
+MIME-Version: 1.0
+In-Reply-To: <20231208-sizably-repressed-16651a4b70e7@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231208_090841_771210_15D79A92 
-X-CRM114-Status: UNSURE (   3.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231208_090913_593530_1BF5A664 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,26 +81,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2728895698725145964=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Fri, 08 Dec 2023 08:09:19 -0800 (PST):
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.7-rc5
+--===============2728895698725145964==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="FA6cKNTv83r5pITX"
+Content-Disposition: inline
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/4df7c5fde316820286dfa6d203a1005d7fbe007d
 
-Thank you!
+--FA6cKNTv83r5pITX
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+On Fri, Dec 08, 2023 at 05:07:39PM +0000, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+>=20
+> While reviewing a CAN clock driver internally for MPFS [1], I realised
+> that the modeling of the MSSPLL such that one one of its outputs could
+> be used was not correct. The CAN controllers on MPFS take 2 input
+> clocks - one that is the bus clock, acquired from the main MSSPLL and
+> a second clock for the AHB interface to the result of the SoC.
+> Currently the binding for the CAN controllers and the represetnation
+> of the MSSPLL only allows for one of these clocks.
+> Modify the binding and devicetree to expect two clocks and rework the
+> main clock controller driver for MPFS such that it is capable of
+> providing multiple outputs from the MSSPLL.
+>=20
+> Cheers,
+> Conor.
+
+Whoops, that was meant to get a dry run arg... Please ignore!
+
+--FA6cKNTv83r5pITX
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZXNNsAAKCRB4tDGHoIJi
+0js1AP9ZqKk/YBSEPrALxRtNPh7qmxhWn6pQU0kY4tNa5xZ++wD/b+Aro0mcj91z
+Tut9u4n6gLOaDGjwvPG1K/0/eD5mzAg=
+=yfBZ
+-----END PGP SIGNATURE-----
+
+--FA6cKNTv83r5pITX--
+
+
+--===============2728895698725145964==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2728895698725145964==--
+
