@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFE57C4167B
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 20:27:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAF22C4167B
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 20:35:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RYld7wZQxQLbv+Tpt9wOlKGLhC1WSI0JNcZCO3zMJ6s=; b=J5dkYL2VtQr9k4
-	RmbbA2curBr5bHhHhLAzW8/hMBhESFOT+x8FEZYQMTwyUzQeSKu2aUmenvecRzBf+CVEl59OUwIph
-	fsPs7tfMQiWgCGHJW6nD0quKZ5VpAM4EMiKkt+ckNIaLb55pfvnpMq59ETFR6/48ZKwDv+aaig86Y
-	PBS8Q6YpGXrqlIJaXBjMNP5DDGxp9ohY41SbR8CpEB05yPrPa37YZMIMt61SI65cBXBjjZwdNpeYZ
-	KTHgObATwtivdYs6tcJaNUGBEKBbLRPwUUlbS2dNksHmmWg7BYS/n9JpNGQid5JAd/o20GhDVirte
-	5TsIr6rs2tvssePSAVpw==;
+	List-Owner; bh=iCzjtrsumS0afHBjxo8d257qlyCPmNSZcX5TSBkcvh8=; b=SwsouYWOxqFAk+
+	YF1JZjHVljwwI3aBwDInOL5NkL7N/eWICz+AB20ggJ9UQShyHOu07P8ohCS979gkq0jSn0MoYuXU9
+	62nLWiH7M6oNQ5Owxg8oKePJ1ZliLCVT+PjCN20lt8ubR9JcyI2O+a0xCsU2HLBFLnhlPx1kyuChV
+	ofDsD8mR9gkiAkSfvy0IMP+iVekaVcJTVMc6ZnHQySgqssp4tVvW/iUUiVbzK8FvedVYeUQFdF2ow
+	wyvInNmWNAcdcworQ6KCgFFN9rxPQxCNrqbHLnRAbrMEXU0HN1PM17V5Uhwpx3aJECnXflbJBu504
+	uADyHLFh/btzO3jLIFcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBhRi-00GUSY-0H;
-	Fri, 08 Dec 2023 20:27:38 +0000
+	id 1rBhZW-00GVZE-0I;
+	Fri, 08 Dec 2023 20:35:42 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBhRh-00GUS2-0i
+	id 1rBhZU-00GVYO-1X
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 08 Dec 2023 20:27:37 +0000
+	Fri, 08 Dec 2023 20:35:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=JEaruMuB4Tlqt0BFZFCjzDOPeC0+ZhBXuiC6tNuESkE=; b=oz3bCKHbBr+1i7AwlkU2bW8Cqa
-	fholQKO6Zp3YpCPRXSWI5rxDyivDmwxbDxZBBDM2Ssv89zNbOFqaWoxUsLTzzOAnNUgyvJ4g4USwF
-	eG+movaebo/2MUs/btQCZ2t/mvdVUv6L7vmw4/fSiDopqEA+7Frtmtsnjlaa2orWePsxhlpt73OLE
-	elw/iRqBA0vjTIbd3gZIWPVL2BQTI8M3iA1KA7pJQIA2V17zdx3Y/BEG41NFkgHe6O622279bc1h6
-	8DrPXnGmpn+YHXoYZtSJoiHBNcAr+At1J1GbouwOpW7CY3gCF3VAvkm+ERrBWLaTXxrto7kX4kVqM
-	XnUF7hpQ==;
+	bh=Vwp6H7hbWYuJntJS7kS+l0fw/Z+oOc8mMbOkVe4byro=; b=VXkjzuM/7GoObftnaEWoZgdFYY
+	L5xDBcOtO5SXticci6clYrj1K1KscYr+MoTjFYUkZz0ZWWNRoMSMcKuxO0tsaM3zEfH6eF3zU5j8O
+	cUQI6yZ66caIvr7dscGTiK/hdDneafs8+XW2NtmcUWud886gJjMgBetRpivFI+2k3nYvnsQp65YfB
+	hU4YX9RUqEib/aVz06p8+wivpoxMEz+kH1paTVnnirP857fswwl5sTiNJ8EbLZQRfKs655qDWsKpA
+	jp0nWHX5uHWgqj/v4iexBNwei3DfCgzFy0X4rATHIUUHZG65pJYjJNbS3wxpBgX7DtbfBf97DzDCW
+	GFrHBhQQ==;
 Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
 	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1rBhRb-006Vhh-O8; Fri, 08 Dec 2023 20:27:31 +0000
+	id 1rBhZP-006WtK-Ib; Fri, 08 Dec 2023 20:35:35 +0000
 Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 5B7EB3003F0; Fri,  8 Dec 2023 21:27:31 +0100 (CET)
-Date: Fri, 8 Dec 2023 21:27:31 +0100
+	id 3799630050D; Fri,  8 Dec 2023 21:35:35 +0100 (CET)
+Date: Fri, 8 Dec 2023 21:35:35 +0100
 From: Peter Zijlstra <peterz@infradead.org>
 To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
 Cc: Jiri Olsa <olsajiri@gmail.com>, Song Liu <song@kernel.org>,
@@ -77,7 +77,7 @@ Cc: Jiri Olsa <olsajiri@gmail.com>, Song Liu <song@kernel.org>,
 	Joao Moreira <joao@overdrivepizza.com>,
 	Mark Rutland <mark.rutland@arm.com>
 Subject: Re: [PATCH v2 2/2] x86/cfi,bpf: Fix BPF JIT call
-Message-ID: <20231208202731.GF36716@noisy.programming.kicks-ass.net>
+Message-ID: <20231208203535.GG36716@noisy.programming.kicks-ass.net>
 References: <CAADnVQJwU5fCLcjBWM9zBY6jUcnME3+p=vvdgKK9FiLPWvXozg@mail.gmail.com>
  <20231206163814.GB36423@noisy.programming.kicks-ass.net>
  <20231206183713.GA35897@noisy.programming.kicks-ass.net>
@@ -109,29 +109,59 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Fri, Dec 08, 2023 at 11:40:27AM -0800, Alexei Starovoitov wrote:
 
-> What is "sealing" by objtool?
+> typedef void (*btf_dtor_kfunc_t)(void *);
+>         btf_dtor_kfunc_t dtor;
+> but the bpf_cgroup_release takes 'struct cgroup*'.
+> From kcfi pov void * == struct cgroup * ?
+> Do we need to change it to 'void *cgrp' ?
 
-Ah, LTO like pass that tries to determine if a function ever gets it's
-address taken.
+Yes, doing that naively like the below, gets me lovely things like:
 
-The basic problem is that the compiler (barring its own LTO pass) must
-emit CFI for every non-local symbol in a translation unit. This means
-that a ton of functions will have CFI on, even if they're never
-indirectly called.
+validate_case:FAIL:expect_msg unexpected error: -22
+VERIFIER LOG:
+=============
+=============
+EXPECTED MSG: 'Possibly NULL pointer passed to trusted arg0'
+#48/7    cgrp_kfunc/cgrp_kfunc_acquire_untrusted:FAIL
+run_subtest:PASS:obj_open_mem 0 nsec
+libbpf: extern (func ksym) 'bpf_cgroup_release': func_proto [148] incompatible with vmlinux [125610]
+libbpf: failed to load object 'cgrp_kfunc_failure'
 
-So objtool collects all functions that have CFI but do not get their
-address taken, and sticks their address in a .discard section, then at
-boot time we iterate this section and scribble the CFI state for all
-these functions, making them invalid to be called indirectly.
 
-For one this avoids malicious code from finding a function address in
-the symbol table and indirectly calling it anyway as a means to
-circumvent the EXPORT symbols.
+But let me try rebuilding everything..
 
-So objtool does not think bpf_cgroup_release() gets its address taken,
-specifically it does not find it's address in a section it knows about.
-And hence it goes on the list and we scribble it and the indirect call
-goes *boom*.
+
+---
+diff --git a/kernel/bpf/helpers.c b/kernel/bpf/helpers.c
+index b3be5742d6f1..078b207af7f0 100644
+--- a/kernel/bpf/helpers.c
++++ b/kernel/bpf/helpers.c
+@@ -2145,10 +2145,11 @@ __bpf_kfunc struct task_struct *bpf_task_acquire(struct task_struct *p)
+  * bpf_task_release - Release the reference acquired on a task.
+  * @p: The task on which a reference is being released.
+  */
+-__bpf_kfunc void bpf_task_release(struct task_struct *p)
++__bpf_kfunc void bpf_task_release(void *p)
+ {
+ 	put_task_struct_rcu_user(p);
+ }
++EXPORT_SYMBOL_GPL(bpf_task_release);
+ 
+ #ifdef CONFIG_CGROUPS
+ /**
+@@ -2169,10 +2170,11 @@ __bpf_kfunc struct cgroup *bpf_cgroup_acquire(struct cgroup *cgrp)
+  * drops to 0.
+  * @cgrp: The cgroup on which a reference is being released.
+  */
+-__bpf_kfunc void bpf_cgroup_release(struct cgroup *cgrp)
++__bpf_kfunc void bpf_cgroup_release(void *cgrp)
+ {
+ 	cgroup_put(cgrp);
+ }
++EXPORT_SYMBOL_GPL(bpf_cgroup_release);
+ 
+ /**
+  * bpf_cgroup_ancestor - Perform a lookup on an entry in a cgroup's ancestor
 
 _______________________________________________
 linux-riscv mailing list
