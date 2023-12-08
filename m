@@ -4,131 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C75C4167B
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 17:36:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 185C8C4167B
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 17:40:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yKZsbhMluNwv2bgAV1JYqzkLehBBHixsO4Fh+DhH568=; b=1vJ0sk/xQ2GF8J
-	RpFWbLT0vCoNQ8srr7JSxRCNyvuCR+PQblGsx3OBhHCgEH481939+GfUfCcb5sWzVx4XuajQnwqVV
-	5GcCqU8hAFkVpmJhHqZrJ21JBQKWM3h40W9gVL2KQEyFG5b5oM8SLaO+V9V0HyrMvGAh3qaBeoNNA
-	PfVXT5MLWXAe+kV3Ei0eVDQwdWVrjyQnqw0jjHPdNwVAsCIpfvQj0EpJPHw8xQX+3pzOJRv3GqQiT
-	iIBvGCd7UqpmKtjIXhHHdMuY6naMXvaUKpJdHFjGmAH32joroWODgHboW4jMmroqvCPJ8es3hHTV2
-	LaL7wiHayjFEo7JRFtdA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=uQRYOT4TbW8IRRtPgps3mp/1vX9f86SVghposUsjnaI=; b=qriz+hAmXn39Z/7n4HchP0iaRf
+	3e5nyrcmYzSfDipJIkKuExi7UzKZ9lBURcCfzZdLUsLKHX0JiX15KDyB4NBgn/pxOF7Nql02Nwmle
+	3Z+bVRCOD2S9uC6PpW5OLz0ucaZN49T2QjzqZI9AAcwdhUCPZGGYWcVx4BcRqZKLJ9t85m9GBEEWh
+	2WQZDZnxzN+TgimP7oJ0+4U3DhZdPZYAVyy1fE2KRA7fYOBdaVqcLqRHOORLGicb+Lhc9tjnn1BeZ
+	wzPGe5IOCaVgCFOgJyDGTLH+/sVOni8ZZznuSV8Oav/Gf+hDkAEP5J55im9TR1bxLePMgvU2Rngk6
+	RPfNVDSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBemK-00GCdv-1H;
-	Fri, 08 Dec 2023 17:36:44 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1rBeph-00GD3T-1J;
+	Fri, 08 Dec 2023 17:40:13 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBemI-00GCdQ-1g
+	id 1rBepd-00GD2B-0l
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Dec 2023 17:36:43 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3316c6e299eso2380110f8f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 08 Dec 2023 09:36:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1702057000; x=1702661800; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=vUFlU9ALa3VjzJGjGvHunIsFPhQPbhxWTv5SYKWNBuM=;
-        b=n8eue764IRPglvgXMlzAqNIqEWYJsLGl4rRpFn2nolJvlF5xxvMA5+LgVQTPTuAAd+
-         /1RbxmDD46wpMqRAaddOSJpbt1NkOtS6bo7KDPi8ZU48RPZZG/gm1MQVHwoNFHKJHkyE
-         v5vOPx46qnZS0cWmfPchdR8CEP7RfiXGpLdwkXBm8t/x3H8EvQIyVRu9oQS1CdVDLakf
-         NnwNkDKIlGlJ5yF6peeMv9QTl2bFGhbmJrJaEOSgMjo2E08upEl7voisCr5VtgTJWC8s
-         y1U0NAzTr7NfOD6GyyDqrctHKJaa+3rvl01GRy47F69WE/y9j4IXh25KzU7teTv6HXFJ
-         /VGA==
+	Fri, 08 Dec 2023 17:40:11 +0000
+Received: from mail-oa1-f71.google.com (mail-oa1-f71.google.com [209.85.160.71])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 35C7C3F79C
+	for <linux-riscv@lists.infradead.org>; Fri,  8 Dec 2023 17:40:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1702057203;
+	bh=0Wg7c2RtoSlacNEX+QsvU/G8vYuCUeUJAnALPbL3Qqk=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=oGsCiZm9In+2jXgImmVL8dzSuruyfGsL4cWAkffTvth1Fgi3Jh4711hMmuS3PoFqB
+	 mtpV+RGxpHG0jIsqPLp8u3siYu+1AD8QH76eW1/5Rcm1/SSdNnVvOMPlU/yQr76xIM
+	 L4PoMxeisdI5zwBQULSzRfl8/vvFrCvEWbdQ492IAmFBJFGMGCVtG6mf9VsWszzmJ+
+	 uwDHWlApmS/T/IT+JabMCkqW+WdBPEcWMH1hXmBvuO0v8r0q6s1uDVbwXuDxPw1I3g
+	 BTQJcwqC667CZQSYGYT0TdQxVv8th2V/4ymADhDTyzA1O4/kYwa2xo0tiI/PK4Wq2a
+	 ooi27HTcQLIWg==
+Received: by mail-oa1-f71.google.com with SMTP id 586e51a60fabf-1fb36840642so3679773fac.3
+        for <linux-riscv@lists.infradead.org>; Fri, 08 Dec 2023 09:40:03 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702057000; x=1702661800;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vUFlU9ALa3VjzJGjGvHunIsFPhQPbhxWTv5SYKWNBuM=;
-        b=XEPXOEN0c10p9yNoyymg9MDru+8iEg7xx6xmZ+YmxKLRu1w+p0oYQsRLhbmXQ3Ak9Z
-         j+Y3AwT704A2ZFV5O8nSuIUwIUcCtlv/Q09NFwv3wcNM/b1iGbKjqc/lcABdHTyu+pA4
-         ymciBdi+2as/hxkAl4AU0FnELkE5DsOTHuPng9XodG1+VHtqdhLCtZIxMwwv7w4r5eVZ
-         2O7SYp2e12quD4cxMYnHvFL74iPT82xDSPI+HLzCNHnilOy5SlbOW0mdrzdu9Dm+9XfP
-         CYNzePq/Htcv2DAP1wjI0vXcsnBwVahrxLvLkswRdLc4A7oNGarLfIRfonhGTCz9qIpa
-         NVaA==
-X-Gm-Message-State: AOJu0YyQIaGy63a+A6tsp1N2dInw5aA7sRR+/9NVdwtcGDbB1uP2oTb2
-	FZwQMgAQuaWZOli9689MIU+7CQ==
-X-Google-Smtp-Source: AGHT+IELBucV79IO73VZZ+1seyYagyVICxbwZuiNsqVW/FJyPLR0UFSIQqw9A7EBO4Y1vr31TJ18rg==
-X-Received: by 2002:adf:f652:0:b0:333:2fd2:3bc9 with SMTP id x18-20020adff652000000b003332fd23bc9mr142934wrp.130.1702056999866;
-        Fri, 08 Dec 2023 09:36:39 -0800 (PST)
-Received: from [192.168.1.20] ([178.197.218.27])
-        by smtp.gmail.com with ESMTPSA id d9-20020adfa349000000b003334d9c3b1esm2494910wrb.16.2023.12.08.09.36.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 08 Dec 2023 09:36:39 -0800 (PST)
-Message-ID: <c98c123f-1c07-4cfd-aeaf-ced7fe08cf42@linaro.org>
-Date: Fri, 8 Dec 2023 18:36:36 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/4] clk: sophgo: Add SG2042 clock generator driver
-Content-Language: en-US
-To: Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu,
- chao.wei@sophgo.com, conor@kernel.org, krzysztof.kozlowski+dt@linaro.org,
- mturquette@baylibre.com, palmer@dabbelt.com, paul.walmsley@sifive.com,
- richardcochran@gmail.com, robh+dt@kernel.org, sboyd@kernel.org,
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com, guoren@kernel.org,
- jszhang@kernel.org, inochiama@outlook.com, samuel.holland@sifive.com
-Cc: Chen Wang <unicorn_wang@outlook.com>
-References: <cover.1701938395.git.unicorn_wang@outlook.com>
- <975f9995584dfa8af751e96a1f4d2c7991551a35.1701938395.git.unicorn_wang@outlook.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <975f9995584dfa8af751e96a1f4d2c7991551a35.1701938395.git.unicorn_wang@outlook.com>
+        d=1e100.net; s=20230601; t=1702057201; x=1702662001;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=0Wg7c2RtoSlacNEX+QsvU/G8vYuCUeUJAnALPbL3Qqk=;
+        b=UiudSmrXSrJGSe1Yn+x+cy/2jfvbzG8L/WwfRRkGq2CmCKysABF7UmIQbMz2fcj5rB
+         yqJZXesKuOWWXikSuDjQvXcno27xEKz11vXjaRSbd5SDNphu8T7c3O20iTKpocmerz1m
+         TK5VT189TBQCTBU9e1jRpmvo/dvFT4dYkQv8lJbx35navnZ9X5gtnJ7zHH7+GF7j5OMI
+         CIADklf+nQVdPv5PBEutnyBFKukUx+NM8vbQcGo9oa9o91OClqcqa8pWB3iSM585Z+Zt
+         3QfOXcInLScbEj9p/JC6VRmpx0jRiFtYBJVCkVSvVZHK93o1HbAkDCuvOCxXiDlKISRa
+         n3Ew==
+X-Gm-Message-State: AOJu0Yzm0dotf/pHXDycVAGDpu3M+xYWqA0dUXjd0nXdC2spfYZ9M81T
+	LajEUIweP1EOcc5U++8vOJXOd5e2JBVbBv/dLEtaN4zEBk/87h4o4xgQq/EMjvO/YpTfQjcb07Z
+	9tEL2pdcMrix5LbE992oIHCsGFyi6uVvO7xfLCZv1KYzdosp5uDe+1B+S06NT6g==
+X-Received: by 2002:a05:6870:829f:b0:1fa:1ca4:b917 with SMTP id q31-20020a056870829f00b001fa1ca4b917mr505707oae.41.1702057201369;
+        Fri, 08 Dec 2023 09:40:01 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHvoxqbD9MmiUzi/kijiStuj/gY6AFJbn8AI5LFKGHA7PcQEWa4r0J5A0xv1noNymQSla3/fUfHzp1Y4889ZZA=
+X-Received: by 2002:a05:6870:829f:b0:1fa:1ca4:b917 with SMTP id
+ q31-20020a056870829f00b001fa1ca4b917mr505697oae.41.1702057201119; Fri, 08 Dec
+ 2023 09:40:01 -0800 (PST)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 8 Dec 2023 09:40:00 -0800
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20231208-unripe-maximum-fc77f4967561@spud>
+References: <20231208-reenter-ajar-b6223e5134b3@spud> <20231208-unripe-maximum-fc77f4967561@spud>
+Mime-Version: 1.0
+Date: Fri, 8 Dec 2023 09:40:00 -0800
+Message-ID: <CAJM55Z_ozf=MwOJCSM154L__TE1Gv7Ec=gM8LFJ31-_eX66OKA@mail.gmail.com>
+Subject: Re: [PATCH RESEND v1 1/7] dt-bindings: clock: mpfs: add more MSSPLL
+ output definitions
+To: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org
+Cc: Conor Dooley <conor.dooley@microchip.com>, 
+	Daire McNamara <daire.mcnamara@microchip.com>, Wolfgang Grandegger <wg@grandegger.com>, 
+	Marc Kleine-Budde <mkl@pengutronix.de>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, linux-can@vger.kernel.org, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-clk@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231208_093642_599061_1F4D80C2 
-X-CRM114-Status: UNSURE (   5.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231208_094009_409777_AFCC793D 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,19 +108,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 07/12/2023 09:58, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
-> 
-> Add a driver for the SOPHGO SG2042 clock generator.
-> 
-> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+>
+> There are 3 undocumented outputs of the MSSPLL that are used for the CAN
+> bus, "user crypto" module and eMMC. Add their clock IDs so that they can
+> be hooked up in DT.
+>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  include/dt-bindings/clock/microchip,mpfs-clock.h | 5 +++++
+>  1 file changed, 5 insertions(+)
+>
+> diff --git a/include/dt-bindings/clock/microchip,mpfs-clock.h b/include/dt-bindings/clock/microchip,mpfs-clock.h
+> index 79775a5134ca..b52f19a2b480 100644
+> --- a/include/dt-bindings/clock/microchip,mpfs-clock.h
+> +++ b/include/dt-bindings/clock/microchip,mpfs-clock.h
+> @@ -44,6 +44,11 @@
+>
+>  #define CLK_RTCREF	33
+>  #define CLK_MSSPLL	34
+> +#define CLK_MSSPLL0	34
 
-Your driver still at v5 has so many build issues... please be sure there
-are no new warnings reported.
+You add this new CLK_MSSPLL0 macro with the same value as CLK_MSSPLL, but
+never seem to use it in this series. Did you mean to rename the CLK_MSSPLL
+instances CLK_MSSPLL0?
 
-Best regards,
-Krzysztof
-
+> +#define CLK_MSSPLL1	35
+> +#define CLK_MSSPLL2	36
+> +#define CLK_MSSPLL3	37
+> +/* 38 is reserved for MSS PLL internals */
+>
+>  /* Clock Conditioning Circuitry Clock IDs */
+>
+> --
+> 2.39.2
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
