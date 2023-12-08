@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F748C4167B
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 17:13:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8892BC10DC1
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 17:13:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fvbMefZqpQPyiZjoNJPtCkrc/NBlKYQUyZq4vTnS17w=; b=GgdiOURdFootIc
-	b6WoVEhfJoMll/0WkwZzNfTDVmFDrxoZdu9//d545qGQuA8G77jcLa1/vfvDNj+ZzMq/5qgOQPOQF
-	fxQNQONO3nTBB/h/28A8y59We1JgxLgJSqE69z12URVn6X7XAUKkaVhBlPO4jHiINWAGXOSxVICln
-	PlAaEhaQQzXLt2hdLag8JXaB0h7kLjWWLeZXQmLREIDGUQ1WIUG89rVdFOFdiEreDoOzME81N9BJY
-	R05hqjr7jZY7d+DtzHU7K4MiHCvmR1ws1tHg19fKIKamXCMDQE3XwbIFkoMiqPlFkocgSpvaPg3dW
-	Wqvfp+2xF7i95D2ga0ig==;
+	List-Owner; bh=4EU38pHKdSz9k8VBbkZwnztXHiH0OKNqjUjhb1lSAa0=; b=0U8gpYvSKbNaZd
+	8Y/xaBzCPlkQiX/W51G7fSBrhCvFKSCTy5nLW7XKSVKHOzaKIjz6ZVI/EUIZ7ct/jyVJTT/KSMiyL
+	/I3NUmjLBKX2saYCHE74rn+R9d+jZSoggvwNJUvHwJuxH6X/4gRo5/Cose4S5vxHRjylPwaWUhRvY
+	qM770iqZAVn/8owzHUt3nuLtkq9ozltEjU4hkXodjBKA7+8eKXlAuKqcXqNXSGZ9Zt1qz+HyBBHmV
+	OyNTM4F+DwdldymNQlxT/jSR+9EWOLousJv9VqPgmbmP+xQWmKkSA3eSHUda+waKI0ExJm73W0RGl
+	S9DLn9WmmM1qtwO4VsWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBePe-00G8cf-1N;
-	Fri, 08 Dec 2023 17:13:18 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rBePj-00G8fR-0V;
+	Fri, 08 Dec 2023 17:13:23 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBePc-00G8bQ-0m
+	id 1rBePg-00G8da-1r
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Dec 2023 17:13:17 +0000
+	Fri, 08 Dec 2023 17:13:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B532F62526;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0747962520;
+	Fri,  8 Dec 2023 17:13:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8994CC433B7;
 	Fri,  8 Dec 2023 17:13:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0285CC433CC;
-	Fri,  8 Dec 2023 17:13:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1702055595;
-	bh=cvHj0CJs3ephVaZuvj3Ux2wXR9Tblc/RuJQlfKnG8ug=;
+	s=k20201202; t=1702055599;
+	bh=ZCkEJKSbYO46WRnXwuUSBhBTUa4iqWLls9v1ii/IqNc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Gve4KbqHqOssmkDZ0lw8ymDKMQGoo2hi5IvNvbBdYPjCb3N0MKm0HtT5z2J0Xec+V
-	 jsldg0umkd1P0PGCydELajMD+g11QVTmT+ZCKGU1DqS7lfq4bMiNkeYNJydojFQnrX
-	 fbLZ+llObV7Hnw1r+l/J9tKCfCiYjgC6Fp9tzo73Z/Bih3EUYKkxfCAEEWV16yC8XI
-	 cOFdDJuAje5S8gzRjZR4QUgOnjDk6ZuDGOX6liDYgXjKW/BoD3641OscVp+RdukCxe
-	 x3HB/TZMI8RmAs2tDvDKdCv15mYB8hpeSj3ZgtozHUx9XcaZn1f1ZuIwyaX3e65mZe
-	 g/gUPqUGqWKHw==
+	b=i6PY/hglhQ1w3JJZwNubtebDN+QbGV6LA1LoPfwI0WujxyOH4OrJFVK+dWlL9YHSA
+	 E5dVL/CuzfK+ds/e/JeBs2+J6uBCQZDK8ZIXrVHtNQ9ai/HF2sLpSJusrpI+tTz67Z
+	 wwzkxlyQzTPUwxnjwoRa3N3+A6RGI68qUhKC0IHFcXPBTZMp7MFI3lrXaZFBcdh2gk
+	 coaaIxeNY+HvADMolicYnMMkgg9qAW3FroiDzPIJMyNQphAiyO/mZTTWXK8hb0rTOj
+	 H5ElzpGGh2JvPpOiJ72C6gseih85L1fyi+Qda7KzJg6CrAHGk8pcFuzxYdamtbz1Xo
+	 nCHLtBbLJg8YA==
 From: Conor Dooley <conor@kernel.org>
 To: linux-riscv@lists.infradead.org
 Cc: conor@kernel.org,
@@ -65,19 +65,18 @@ Cc: conor@kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-clk@vger.kernel.org
-Subject: [PATCH RESEND v1 5/7] clk: microchip: mpfs: add missing MSSPLL outputs
-Date: Fri,  8 Dec 2023 17:12:27 +0000
-Message-Id: <20231208-amends-thus-6d7963f33357@spud>
+Subject: [PATCH RESEND v1 6/7] clk: microchip: mpfs: convert MSSPLL outputs to clk_divider
+Date: Fri,  8 Dec 2023 17:12:28 +0000
+Message-Id: <20231208-pretender-curtsy-3a04d8969c2b@spud>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20231208-reenter-ajar-b6223e5134b3@spud>
 References: <20231208-reenter-ajar-b6223e5134b3@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1721; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=3gU1OSn3YxaVElJ8X4nK41xe7sOdS/RS/naYsgWnvQ0=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKnFfhVMKVsmuZetDbTUDZL5e2sNq1ATU89FrqKJ5d1Sv 880r+TpKGVhEONgkBVTZEm83dcitf6Pyw7nnrcwc1iZQIYwcHEKwESunWdkmH8shfl5/ZHcvAzX 0P8n5nlE2v7NeDtL/dW0+waXXMreL2T4p9EuZOO/6pfdAu8zClO0ba7Ibjx9zeIBx5SIXRP392o W8AEA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5152; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=VdSF/MzrZnEXeRp1s66NVbnm6dEZIEnZVEN9BkdHG34=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKnFfhUlSa+aLuqfPc7mXNo1b5rKr5UlH1PtJvXaNS/+4 Jn/yra2o5SFQYyDQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABO56MTwV9zxmL7epMbta98U GzlfyD8nemHdqi7Jx5t2ci4VnDuHcT3Db9YWtV2b11UeLtBlXbZyRo+mU8ApoTTe78q5we+vTxN n5gYA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231208_091316_360111_4C689727 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231208_091320_698862_A6DAD499 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,43 +95,137 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-The MSSPLL has 4 outputs, of which only the cpu/axi/ahb clock parent is
-currently implemented.
-Add the CAN clock too, as that'll be needed by the driver for the CAN
-controller and uses output 3.
-While we are here, the other two missing clocks, used by the eMMC/SD
-controller and by the "user crypto".
+After splitting the MSSPLL in two, the PLL outputs have become
+open-coded versions of clk_divider. Drop the custom clk ops structs, and
+instead use the generic clk_divider_ops.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/clk/microchip/clk-mpfs.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ drivers/clk/microchip/clk-mpfs.c | 81 ++++++--------------------------
+ 1 file changed, 14 insertions(+), 67 deletions(-)
 
 diff --git a/drivers/clk/microchip/clk-mpfs.c b/drivers/clk/microchip/clk-mpfs.c
-index 9edd0333e693..f62269320b2a 100644
+index f62269320b2a..ef4511186a23 100644
 --- a/drivers/clk/microchip/clk-mpfs.c
 +++ b/drivers/clk/microchip/clk-mpfs.c
-@@ -28,6 +28,7 @@
- #define MSSPLL_REFDIV_SHIFT	0x08u
- #define MSSPLL_REFDIV_WIDTH	0x06u
- #define MSSPLL_POSTDIV02_SHIFT	0x08u
-+#define MSSPLL_POSTDIV13_SHIFT	0x18u
- #define MSSPLL_POSTDIV_WIDTH	0x07u
- #define MSSPLL_FIXED_DIV	4u
+@@ -61,13 +61,10 @@ struct mpfs_msspll_hw_clock {
  
-@@ -240,6 +241,12 @@ static const struct clk_ops mpfs_clk_msspll_out_ops = {
- static struct mpfs_msspll_out_hw_clock mpfs_msspll_out_clks[] = {
- 	CLK_PLL_OUT(CLK_MSSPLL, "clk_msspll", "clk_msspll_internal", 0,
- 		    MSSPLL_POSTDIV02_SHIFT, MSSPLL_POSTDIV_WIDTH, REG_MSSPLL_POSTDIV01_CR),
-+	CLK_PLL_OUT(CLK_MSSPLL1, "clk_msspll1", "clk_msspll_internal", 0,
-+		    MSSPLL_POSTDIV13_SHIFT, MSSPLL_POSTDIV_WIDTH, REG_MSSPLL_POSTDIV01_CR),
-+	CLK_PLL_OUT(CLK_MSSPLL2, "clk_msspll2", "clk_msspll_internal", 0,
-+		    MSSPLL_POSTDIV02_SHIFT, MSSPLL_POSTDIV_WIDTH, REG_MSSPLL_POSTDIV23_CR),
-+	CLK_PLL_OUT(CLK_MSSPLL3, "clk_msspll3", "clk_msspll_internal", 0,
-+		    MSSPLL_POSTDIV13_SHIFT, MSSPLL_POSTDIV_WIDTH, REG_MSSPLL_POSTDIV23_CR),
+ struct mpfs_msspll_out_hw_clock {
+ 	void __iomem *base;
+-	struct clk_hw hw;
++	struct clk_divider output;
+ 	struct clk_init_data init;
+ 	unsigned int id;
+ 	u32 reg_offset;
+-	u32 shift;
+-	u32 width;
+-	u32 flags;
  };
  
- static int mpfs_clk_register_msspll_outs(struct device *dev,
+ #define to_mpfs_msspll_out_clk(_hw) container_of(_hw, struct mpfs_msspll_out_hw_clock, hw)
+@@ -177,75 +174,25 @@ static int mpfs_clk_register_mssplls(struct device *dev, struct mpfs_msspll_hw_c
+  * MSS PLL output clocks
+  */
+ 
+-static unsigned long mpfs_clk_msspll_out_recalc_rate(struct clk_hw *hw, unsigned long prate)
+-{
+-	struct mpfs_msspll_out_hw_clock *msspll_out_hw = to_mpfs_msspll_out_clk(hw);
+-	void __iomem *postdiv_addr = msspll_out_hw->base + msspll_out_hw->reg_offset;
+-	u32 postdiv;
+-
+-	postdiv = readl_relaxed(postdiv_addr) >> msspll_out_hw->shift;
+-	postdiv &= clk_div_mask(msspll_out_hw->width);
+-
+-	return prate / postdiv;
+-}
+-
+-static long mpfs_clk_msspll_out_round_rate(struct clk_hw *hw, unsigned long rate,
+-					   unsigned long *prate)
+-{
+-	struct mpfs_msspll_out_hw_clock *msspll_out_hw = to_mpfs_msspll_out_clk(hw);
+-
+-	return divider_round_rate(hw, rate, prate, NULL, msspll_out_hw->width,
+-				  msspll_out_hw->flags);
+-}
+-
+-static int mpfs_clk_msspll_out_set_rate(struct clk_hw *hw, unsigned long rate, unsigned long prate)
+-{
+-	struct mpfs_msspll_out_hw_clock *msspll_out_hw = to_mpfs_msspll_out_clk(hw);
+-	void __iomem *postdiv_addr = msspll_out_hw->base + msspll_out_hw->reg_offset;
+-	u32 postdiv;
+-	int divider_setting;
+-	unsigned long flags;
+-
+-	divider_setting = divider_get_val(rate, prate, NULL, msspll_out_hw->width,
+-					  msspll_out_hw->flags);
+-
+-	if (divider_setting < 0)
+-		return divider_setting;
+-
+-	spin_lock_irqsave(&mpfs_clk_lock, flags);
+-
+-	postdiv = readl_relaxed(postdiv_addr);
+-	postdiv &= ~(clk_div_mask(msspll_out_hw->width) << msspll_out_hw->shift);
+-	writel_relaxed(postdiv, postdiv_addr);
+-
+-	spin_unlock_irqrestore(&mpfs_clk_lock, flags);
+-
+-	return 0;
+-}
+-
+-static const struct clk_ops mpfs_clk_msspll_out_ops = {
+-	.recalc_rate = mpfs_clk_msspll_out_recalc_rate,
+-	.round_rate = mpfs_clk_msspll_out_round_rate,
+-	.set_rate = mpfs_clk_msspll_out_set_rate,
+-};
+-
+ #define CLK_PLL_OUT(_id, _name, _parent, _flags, _shift, _width, _offset) {	\
+ 	.id = _id,								\
+-	.shift = _shift,							\
+-	.width = _width,							\
++	.output.shift = _shift,							\
++	.output.width = _width,							\
++	.output.table = NULL,							\
+ 	.reg_offset = _offset,							\
+-	.flags = _flags,							\
+-	.hw.init = CLK_HW_INIT(_name, _parent, &mpfs_clk_msspll_out_ops, 0),	\
++	.output.flags = _flags,							\
++	.output.hw.init = CLK_HW_INIT(_name, _parent, &clk_divider_ops, 0),	\
++	.output.lock = &mpfs_clk_lock,						\
+ }
+ 
+ static struct mpfs_msspll_out_hw_clock mpfs_msspll_out_clks[] = {
+-	CLK_PLL_OUT(CLK_MSSPLL, "clk_msspll", "clk_msspll_internal", 0,
++	CLK_PLL_OUT(CLK_MSSPLL, "clk_msspll", "clk_msspll_internal", CLK_DIVIDER_ONE_BASED,
+ 		    MSSPLL_POSTDIV02_SHIFT, MSSPLL_POSTDIV_WIDTH, REG_MSSPLL_POSTDIV01_CR),
+-	CLK_PLL_OUT(CLK_MSSPLL1, "clk_msspll1", "clk_msspll_internal", 0,
++	CLK_PLL_OUT(CLK_MSSPLL1, "clk_msspll1", "clk_msspll_internal", CLK_DIVIDER_ONE_BASED,
+ 		    MSSPLL_POSTDIV13_SHIFT, MSSPLL_POSTDIV_WIDTH, REG_MSSPLL_POSTDIV01_CR),
+-	CLK_PLL_OUT(CLK_MSSPLL2, "clk_msspll2", "clk_msspll_internal", 0,
++	CLK_PLL_OUT(CLK_MSSPLL2, "clk_msspll2", "clk_msspll_internal", CLK_DIVIDER_ONE_BASED,
+ 		    MSSPLL_POSTDIV02_SHIFT, MSSPLL_POSTDIV_WIDTH, REG_MSSPLL_POSTDIV23_CR),
+-	CLK_PLL_OUT(CLK_MSSPLL3, "clk_msspll3", "clk_msspll_internal", 0,
++	CLK_PLL_OUT(CLK_MSSPLL3, "clk_msspll3", "clk_msspll_internal", CLK_DIVIDER_ONE_BASED,
+ 		    MSSPLL_POSTDIV13_SHIFT, MSSPLL_POSTDIV_WIDTH, REG_MSSPLL_POSTDIV23_CR),
+ };
+ 
+@@ -259,13 +206,13 @@ static int mpfs_clk_register_msspll_outs(struct device *dev,
+ 	for (i = 0; i < num_clks; i++) {
+ 		struct mpfs_msspll_out_hw_clock *msspll_out_hw = &msspll_out_hws[i];
+ 
+-		msspll_out_hw->base = data->msspll_base;
+-		ret = devm_clk_hw_register(dev, &msspll_out_hw->hw);
++		msspll_out_hw->output.reg = data->msspll_base + msspll_out_hw->reg_offset;
++		ret = devm_clk_hw_register(dev, &msspll_out_hw->output.hw);
+ 		if (ret)
+ 			return dev_err_probe(dev, ret, "failed to register msspll out id: %d\n",
+ 					     msspll_out_hw->id);
+ 
+-		data->hw_data.hws[msspll_out_hw->id] = &msspll_out_hw->hw;
++		data->hw_data.hws[msspll_out_hw->id] = &msspll_out_hw->output.hw;
+ 	}
+ 
+ 	return 0;
 -- 
 2.39.2
 
