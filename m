@@ -4,90 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40DB1C4167B
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 16:05:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA16CC10DC1
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 16:07:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=96+eLVq+5MrZcuvOa6mqtpzIb5hAU2lxr8SNJa0Vfzk=; b=letdBwdweH5F4BQ1duX1TB5iW2
-	2Smo/sHE0COj48W1+4tREqi5e+XDB3zvX1UXZaQLgb/Y62HMS1s1UOq8Bv1HoWc++i3HBLDyIVDxz
-	4ol1xgjp9f9z9EYXRwivXqGoLuHZN7Wz6ymqRTvpwGIIGs1PMFSz0a6hStgQTQ31p4Y0VNofbYttt
-	AE8/u2bUQZEktqOdnnIRyiH5PJ16yHnqNEyr6OIS3zQjr5MV9hWzbKPbt+NnpE/9vy7gPHfvntPmW
-	DzkdqCg3Ryr9j6igW56I6Vz4yuoxcGUu8hVxWOz5GjfWjNS3TOmuXw72wcZ7jl5XuXiXId+W6yWts
-	xwziuRwA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wJZT0HgmTqYVXzEwNX4S6EPxlNqNBcwERH+T9v/W19k=; b=qIsZ+xqNVaZjrS
+	XDblFECLzNnw/oszmvRqeLEfn7WrS2FYPqNagRS23sX/BrsgaG5rFu3m37GHT5houzMXVcaMZGehH
+	l4FnveBH6hmyaS3ymHqbKCq1Ra0eJBTiLrXF4gLXqKD4e6gsOVzLcavOPnyXJUFv8EMUEOAWMqnis
+	nOcd4XIaqR0UBdknOp+Gi08y7ON/apOilWy96nD955EhAWA8/+M6vBj3TFH9P3kB6502lHgzHaxgC
+	QsXiAX24Dp2rhz9uwu7T+szSmzH96ogwFVF5aZtB7gnxUXDnauCDPrXSaKzE2XtpXPnSbznx0Vs6m
+	PXVq5PKNS/YBlHgA+iiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBdMC-00FyRc-33;
-	Fri, 08 Dec 2023 16:05:40 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1rBdNx-00Fyms-2N;
+	Fri, 08 Dec 2023 16:07:29 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBdM9-00FyQK-02
+	id 1rBdNu-00FyjC-32
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Dec 2023 16:05:38 +0000
-Received: from mail-lj1-f197.google.com (mail-lj1-f197.google.com [209.85.208.197])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id D6E0940AB2
-	for <linux-riscv@lists.infradead.org>; Fri,  8 Dec 2023 16:05:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1702051533;
-	bh=NPjAizr1MOai52nap908c7Q+sjbuL1SW7438n8FuRps=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=CLeHnkjTEXizPKVW9PXMldAiB4zVUIgg5jwBu/dtxTdAdz23KCAmbPbdgJcR9boBp
-	 aF1gxUWYL27Kbcx1Pg92+KDd8whjvb9MLaPhIsRdDmgAZEr4ozU0Zn0lXwMkA3hPBF
-	 uQiqnpwIfF5+myiXNbenbYCl+2K/tUs5oaOrFOR+D3/4FvnlJVuyW8S46LBQc5Y4Jy
-	 DSR3AzqDXeicI4kyA2NI5VnP+jNB0k4PZaKgpbpxY0yYitRJ/Cnp+2W3hLcYBnR//M
-	 e1gU/Tqo0vsduQI/eIf/qjto+EdPqUiqcnWKK6mi5f95O/3TrhsRAXIEZGurFo0Hc2
-	 Fu7phetzZ45OQ==
-Received: by mail-lj1-f197.google.com with SMTP id 38308e7fff4ca-2ca0fb01500so14279751fa.3
-        for <linux-riscv@lists.infradead.org>; Fri, 08 Dec 2023 08:05:33 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702051533; x=1702656333;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NPjAizr1MOai52nap908c7Q+sjbuL1SW7438n8FuRps=;
-        b=Ysx3ShGx66fh6Az1Q2k8iWREqPBQRDCoC8dbjnatbE8O6w3YIFjYYpOCyDZVc6v4Me
-         3oRpRokZ0diG2W0nGHpXuqtInR61Sv0BIMiYGtzPB6LZwvt24IeGhXnA+UwNZCLBCYCU
-         YiLn/8obwm+ixCY2Hi4xePA2gHX1qIoG+PmcvnhsEN8sderjIXEDT7AISfGj3CkAPXCK
-         w8mhBvKzyxElHgk8JZVEHodQt2TEXAj6xRXjB7u8zD4KQdbKW0rpEaTbE5Y96wbn1SMW
-         7V7v15ahtJk9ag+VU54iQNGqx9BUhKOHQnafQZ9OCu3rnNEPZyq7znobmfN4mQ/CtpJC
-         CtCw==
-X-Gm-Message-State: AOJu0Yzykt3TvbLnLxz6uceCZu/35mrO/ZtZPp0IsVRF89444lS0y7mD
-	6L+Kg+LndJzFIDYYL3G9ckdqV944gXBDGxXxV3nJx6zEmAVrJqCfeDulzy3xJ1O5anqh2GYeJVG
-	wFFwmUwgm9YdIcNWvvyhD13NHHeXSZ2uSZZUY0BOxWq0b6BugpStcNxaaFUT8lg==
-X-Received: by 2002:a05:6512:4894:b0:50b:ef17:5136 with SMTP id eq20-20020a056512489400b0050bef175136mr42290lfb.154.1702051533069;
-        Fri, 08 Dec 2023 08:05:33 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGgfEA4LBbLEwJ04GKNCXCYVhgqscCJbjoiVfiXJNCGNQMCBQy0BVcPeUSngDtE9hH0oJFzO52hRcf04wYtCO4=
-X-Received: by 2002:a05:6512:4894:b0:50b:ef17:5136 with SMTP id
- eq20-20020a056512489400b0050bef175136mr42276lfb.154.1702051532771; Fri, 08
- Dec 2023 08:05:32 -0800 (PST)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 8 Dec 2023 08:05:31 -0800
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20231201121410.95298-7-jeeheng.sia@starfivetech.com>
-References: <20231201121410.95298-1-jeeheng.sia@starfivetech.com> <20231201121410.95298-7-jeeheng.sia@starfivetech.com>
-Mime-Version: 1.0
-Date: Fri, 8 Dec 2023 08:05:31 -0800
-Message-ID: <CAJM55Z831ucY4QqPTR_0zJVB05UUT4W-3M0CGzvtyPo=AMD=Vw@mail.gmail.com>
-Subject: Re: [PATCH v3 6/6] riscv: dts: starfive: Add initial StarFive JH8100
- device tree
-To: Sia Jee Heng <jeeheng.sia@starfivetech.com>, kernel@esmil.dk, robh+dt@kernel.org, 
-	krzysztof.kozlowski+dt@linaro.org, krzk@kernel.org, conor+dt@kernel.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	daniel.lezcano@linaro.org, tglx@linutronix.de, conor@kernel.org, 
-	anup@brainfault.org, gregkh@linuxfoundation.org, jirislaby@kernel.org, 
-	michal.simek@amd.com, michael.zhu@starfivetech.com, drew@beagleboard.org
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, leyfoon.tan@starfivetech.com
+	Fri, 08 Dec 2023 16:07:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id 3A6DDB82CEA;
+	Fri,  8 Dec 2023 16:07:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E5EEC433C7;
+	Fri,  8 Dec 2023 16:07:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1702051633;
+	bh=l+iYlhzI1V2FhQLYDTCT5LQFhsRaalvLOJQNHs8UnaY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=KNCU4cb35WDwu93cB3SM8DcP2zbk9Rw4CA6C2Ax59i0IC27KNqmW9rRDdbtIn6edz
+	 12FevqUToKn/8IkjVdUFCYyRli247ZNlzsbriwkEktEsdWon0RjsurX9eCI6NauqhW
+	 gxnRgB6WAFhVN4C3iyCnloOxpAhKabVdRwTfftwRCKZh1Bqd8xvoBlJ3Ez4+PX3viV
+	 JHzNhvX7p5DK1gSM8JPjJS3K+JCan4x8TEMXQgdOOfQg8n/wB4LEI4AYDDcoZUasxl
+	 9oNWrVU5wvrh//wo4JfvqGxxCafVk3Ft9bc1TLkuThy7y1o3EvnCZMu5KqMMadcEUm
+	 mIDxqdoMs2tPg==
+From: Conor Dooley <conor@kernel.org>
+To: palmer@dabbelt.com
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1] dt-bindings: riscv: permit numbers in "riscv,isa"
+Date: Fri,  8 Dec 2023 16:06:51 +0000
+Message-Id: <20231208-uncolored-oxidant-5ab37dd3ab84@spud>
+X-Mailer: git-send-email 2.39.2
+MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1382; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=Yfy+NplT1sN2TXz/zbddM1bvj8bnuuv0sxpAm2Qtv0Q=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDKnF9pLhD9eWvDvKqHy4Rfbk8WOGT3O6V4fElvrM+TDFn /n+nfjsjlIWBjEOBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAExkTRwjw7wHzheyokXmz9Qy +/FfQfnC3NO7njmVns8r/vVfyqkx1ZOR4aWQjcLsJzPvn3tX/zHv4BmxXxG9NaJ2K5vshNOvLZy 7kw8A
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231208_080537_435365_F81852AE 
-X-CRM114-Status: UNSURE (   2.84  )
+X-CRM114-CacheID: sfid-20231208_080727_112512_9B10B480 
+X-CRM114-Status: UNSURE (   9.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,15 +80,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sia Jee Heng wrote:
-> Add initial device tree for the StarFive JH8100 RISC-V SoC.
->
-> Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Looks good to me, thanks.
+There are some extensions that contain numbers, such as Zve32f, which
+are enabled by the "max" cpu type in QEMU.
 
-Acked-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+CC: Conor Dooley <conor@kernel.org>
+CC: Rob Herring <robh+dt@kernel.org>
+CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+CC: Paul Walmsley <paul.walmsley@sifive.com>
+CC: Palmer Dabbelt <palmer@dabbelt.com>
+CC: Albert Ou <aou@eecs.berkeley.edu>
+CC: linux-riscv@lists.infradead.org
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+---
+ Documentation/devicetree/bindings/riscv/extensions.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index c91ab0e46648..92c31245d3fc 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -48,7 +48,7 @@ properties:
+       insensitive, letters in the riscv,isa string must be all
+       lowercase.
+     $ref: /schemas/types.yaml#/definitions/string
+-    pattern: ^rv(?:64|32)imaf?d?q?c?b?k?j?p?v?h?(?:[hsxz](?:[a-z])+)?(?:_[hsxz](?:[a-z])+)*$
++    pattern: ^rv(?:64|32)imaf?d?q?c?b?k?j?p?v?h?(?:[hsxz](?:[0-9a-z])+)?(?:_[hsxz](?:[0-9a-z])+)*$
+     deprecated: true
+ 
+   riscv,isa-base:
+-- 
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
