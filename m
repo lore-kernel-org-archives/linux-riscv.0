@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A9ECC4167B
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 20:18:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFE57C4167B
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 20:27:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1+xsPVIQ7MQbafTjv39rx3ZORAk5l7MXJnmHWW2ZgNA=; b=Nh8UBr0GQ49I3B
-	axvYZDdOj8hIg+/Jazv2ipX8m5+bGz8EFlvPlxg27+dHV3umUtxceS11ssW2XlzUwLRXVg+NthLO5
-	ZKL6QXgDNZ1wEts+/6ORor/FjDxhq56Ehj2utMHeUWpUwfEE8e5wXaWq9u+djoYpLUBxS3VhHiioL
-	JKBnJ6HXu7kYzL1lRm4SvN6uMWf3ekdhWss+m/i9MwuLgq58D/rXBh9GG060QvEaYN8vFyaPQAmcz
-	kj4AMf5HVQkbBJRs+oBt/D0wPC+66tSs/aEPSDGyRJ9e4AMEsvANgWIUb4BMiowBUNHpr/Em9oBQc
-	ak90/FeuHE3FYjxHpo+Q==;
+	List-Owner; bh=RYld7wZQxQLbv+Tpt9wOlKGLhC1WSI0JNcZCO3zMJ6s=; b=J5dkYL2VtQr9k4
+	RmbbA2curBr5bHhHhLAzW8/hMBhESFOT+x8FEZYQMTwyUzQeSKu2aUmenvecRzBf+CVEl59OUwIph
+	fsPs7tfMQiWgCGHJW6nD0quKZ5VpAM4EMiKkt+ckNIaLb55pfvnpMq59ETFR6/48ZKwDv+aaig86Y
+	PBS8Q6YpGXrqlIJaXBjMNP5DDGxp9ohY41SbR8CpEB05yPrPa37YZMIMt61SI65cBXBjjZwdNpeYZ
+	KTHgObATwtivdYs6tcJaNUGBEKBbLRPwUUlbS2dNksHmmWg7BYS/n9JpNGQid5JAd/o20GhDVirte
+	5TsIr6rs2tvssePSAVpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBhIq-00GT2d-1M;
-	Fri, 08 Dec 2023 20:18:28 +0000
+	id 1rBhRi-00GUSY-0H;
+	Fri, 08 Dec 2023 20:27:38 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBhIp-00GT2V-0T
+	id 1rBhRh-00GUS2-0i
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 08 Dec 2023 20:18:27 +0000
+	Fri, 08 Dec 2023 20:27:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=rRfUKKpVJaX2GBwm20UFJtXdCC5Gt18eCCN9NLFBXGg=; b=S1ntypyXXnH5/Zhmllff4W7CqE
-	zvKEGCwpJiV6CNOuMqcAx4RdNPWtDIz2wWfgO64jF9VTQsJPihe7ZgsJ5Aui0fouYWgOcD9MnMek/
-	Qw0qaDYlc8wkXBNuBNMpvKGH1proCkWQ7owqEVwrXCdttqYkXESI6larGqgZwhg9OBfBUOQtOI/29
-	x071uzp8HcuHIXHZAB0KuEs0TbzqucgbaSkUc/nB5qIR+l6CS7NooXMW1vzUQHxDz0ebc3/9JpYtW
-	cVJqlZa1MBgZfaxao7Q0joX1+LKJW8Lf1KS/RKmyC2puCXnf8JHhnhKq7CsotPXpzzlAbIkfFuetu
-	UOGg6Fiw==;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=JEaruMuB4Tlqt0BFZFCjzDOPeC0+ZhBXuiC6tNuESkE=; b=oz3bCKHbBr+1i7AwlkU2bW8Cqa
+	fholQKO6Zp3YpCPRXSWI5rxDyivDmwxbDxZBBDM2Ssv89zNbOFqaWoxUsLTzzOAnNUgyvJ4g4USwF
+	eG+movaebo/2MUs/btQCZ2t/mvdVUv6L7vmw4/fSiDopqEA+7Frtmtsnjlaa2orWePsxhlpt73OLE
+	elw/iRqBA0vjTIbd3gZIWPVL2BQTI8M3iA1KA7pJQIA2V17zdx3Y/BEG41NFkgHe6O622279bc1h6
+	8DrPXnGmpn+YHXoYZtSJoiHBNcAr+At1J1GbouwOpW7CY3gCF3VAvkm+ERrBWLaTXxrto7kX4kVqM
+	XnUF7hpQ==;
 Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
 	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1rBhIi-006Ud2-EY; Fri, 08 Dec 2023 20:18:20 +0000
+	id 1rBhRb-006Vhh-O8; Fri, 08 Dec 2023 20:27:31 +0000
 Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 5BE5B3003F0; Fri,  8 Dec 2023 21:18:19 +0100 (CET)
-Date: Fri, 8 Dec 2023 21:18:19 +0100
+	id 5B7EB3003F0; Fri,  8 Dec 2023 21:27:31 +0100 (CET)
+Date: Fri, 8 Dec 2023 21:27:31 +0100
 From: Peter Zijlstra <peterz@infradead.org>
 To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
 Cc: Jiri Olsa <olsajiri@gmail.com>, Song Liu <song@kernel.org>,
@@ -77,9 +77,8 @@ Cc: Jiri Olsa <olsajiri@gmail.com>, Song Liu <song@kernel.org>,
 	Joao Moreira <joao@overdrivepizza.com>,
 	Mark Rutland <mark.rutland@arm.com>
 Subject: Re: [PATCH v2 2/2] x86/cfi,bpf: Fix BPF JIT call
-Message-ID: <20231208201819.GE36716@noisy.programming.kicks-ass.net>
-References: <20231204183354.GC7299@noisy.programming.kicks-ass.net>
- <CAADnVQJwU5fCLcjBWM9zBY6jUcnME3+p=vvdgKK9FiLPWvXozg@mail.gmail.com>
+Message-ID: <20231208202731.GF36716@noisy.programming.kicks-ass.net>
+References: <CAADnVQJwU5fCLcjBWM9zBY6jUcnME3+p=vvdgKK9FiLPWvXozg@mail.gmail.com>
  <20231206163814.GB36423@noisy.programming.kicks-ass.net>
  <20231206183713.GA35897@noisy.programming.kicks-ass.net>
  <zu5eb2robdqnp2ojwaxjhnglcummrnjaqbw6krdds6qac3bql2@5zx46c2s6ez4>
@@ -87,10 +86,11 @@ References: <20231204183354.GC7299@noisy.programming.kicks-ass.net>
  <ivhrgimonsvy3tyj5iidoqmlcyqvtsh2ay3cm3ouemsdbvjzs4@6jlt6zv55tgh>
  <20231208102940.GB28727@noisy.programming.kicks-ass.net>
  <20231208134041.GD28727@noisy.programming.kicks-ass.net>
- <CAADnVQJFB_CPtFS3=VV=RwnP=EQRL3yEsR8wXVcicb07P8NODw@mail.gmail.com>
+ <20231208172152.GD36716@noisy.programming.kicks-ass.net>
+ <CAADnVQKsnZfFomQ4wTZz=jMZW5QCV2XiXVsi64bghHkAjJtcmA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAADnVQJFB_CPtFS3=VV=RwnP=EQRL3yEsR8wXVcicb07P8NODw@mail.gmail.com>
+In-Reply-To: <CAADnVQKsnZfFomQ4wTZz=jMZW5QCV2XiXVsi64bghHkAjJtcmA@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,39 +102,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBEZWMgMDgsIDIwMjMgYXQgMTE6MzI6MDdBTSAtMDgwMCwgQWxleGVpIFN0YXJvdm9p
-dG92IHdyb3RlOgo+IE9uIEZyaSwgRGVjIDgsIDIwMjMgYXQgNTo0MeKAr0FNIFBldGVyIFppamxz
-dHJhIDxwZXRlcnpAaW5mcmFkZWFkLm9yZz4gd3JvdGU6Cj4gPgo+ID4gT24gRnJpLCBEZWMgMDgs
-IDIwMjMgYXQgMTE6Mjk6NDBBTSArMDEwMCwgUGV0ZXIgWmlqbHN0cmEgd3JvdGU6Cj4gPiA+IFRo
-ZSBvbmx5IHByb2JsZW0gSSBub3cgaGF2ZSBpcyB0aGUgb25lIFhYWCwgSSdtIG5vdCBlbnRpcmVs
-eSBzdXJlIHdoYXQKPiA+ID4gc2lnbmF0dXJlIHRvIHVzZSB0aGVyZS4KPiA+Cj4gPiA+IEBAIC0x
-MTksNiArMTE5LDcgQEAgaW50IGJwZl9zdHJ1Y3Rfb3BzX3Rlc3RfcnVuKHN0cnVjdCBicGZfcAo+
-ID4gPiAgICAgICBvcF9pZHggPSBwcm9nLT5leHBlY3RlZF9hdHRhY2hfdHlwZTsKPiA+ID4gICAg
-ICAgZXJyID0gYnBmX3N0cnVjdF9vcHNfcHJlcGFyZV90cmFtcG9saW5lKHRsaW5rcywgbGluaywK
-PiA+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICZzdF9v
-cHMtPmZ1bmNfbW9kZWxzW29wX2lkeF0sCj4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAvKiBYWFggKi8gTlVMTCwKPiA+ID4gICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGltYWdlLCBpbWFnZSArIFBBR0VfU0laRSk7
-Cj4gPiA+ICAgICAgIGlmIChlcnIgPCAwKQo+ID4gPiAgICAgICAgICAgICAgIGdvdG8gb3V0Owo+
-ID4KPiA+IER1aCwgdGhhdCBzaG91bGQgb2Zjb3Vyc2UgYmUgc29tZXRoaW5nIG9mIGR1bW15X29w
-c190ZXN0X3JldF9mbiB0eXBlLgo+ID4gTGV0IG1lIGdvIGZpeCB0aGF0Lgo+IAo+IFJpZ2h0LiBU
-aGF0IHNob3VsZCB3b3JrLgo+IEEgYml0IHdhc3RlZnVsIHRvIGdlbmVyYXRlIHJlYWwgY29kZSBq
-dXN0IHRvIHJlYWQgaGFzaCBmcm9tIGl0Cj4gdmlhIGNmaV9nZXRfZnVuY19oYXNoKCksIGJ1dCBp
-dCdzIGEgbmVhdCBpZGVhLgoKUmlnaHQsIGJpdCB3YXN0ZWZ1bC4gQnV0IHRoZSBhZHZhbnRhZ2Ug
-aXMgdGhhdCBJIGdldCBhIHN0cnVjdHVyZSB3aXRoCnBvaW50ZXJzIHRoYXQgZXhhY3RseSBtaXJy
-b3JzIHRoZSBzdHJ1Y3R1cmUgd2UncmUgd3JpdGluZy4KCj4gSSBndWVzcyBpdCdzIGhhcmQgdG8g
-Z2V0IGtjZmkgZnJvbSBfX0FERFJFU1NBQkxFIGluIHBsYWluIEMKPiBhbmQgc3ByaW5rbGluZyBh
-c20oImNmaV94eHg6IC5sb25nICAgX19rY2ZpX3R5cGVpZC4uLiIpOyBpcyB3b3JzZT8KPiBFdmVu
-IGlmIGl0J3MgYSBtYWNybyA/CgpJIGNhbiB0cnkgdGhpcywgYnV0IEknbSBub3Qgc3VyZSBpdCds
-bCBiZSBwcmV0dHkuIEV2ZW4gaWYgSSB3cmFwIGl0IGluIGEKZGVjZW50IG1hY3JvLCBJIHN0aWxs
-IGdldCB0byBkZWZpbmUgYSB0b24gb2YgdmFyaWFibGVzIGFuZCB0aGVuIHdyYXAgdGhlCmxvdCBp
-bnRvIGEgc3RydWN0dXJlIC0tIG9uZSB0aGF0IGV4cGVjdHMgZnVuY3Rpb24gcG9pbnRlcnMuCgpJ
-J2xsIHNlZSBob3cgaG9ycmlibGUgaXQgd2lsbCBiZWNvbWUuCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Fri, Dec 08, 2023 at 11:40:27AM -0800, Alexei Starovoitov wrote:
+
+> What is "sealing" by objtool?
+
+Ah, LTO like pass that tries to determine if a function ever gets it's
+address taken.
+
+The basic problem is that the compiler (barring its own LTO pass) must
+emit CFI for every non-local symbol in a translation unit. This means
+that a ton of functions will have CFI on, even if they're never
+indirectly called.
+
+So objtool collects all functions that have CFI but do not get their
+address taken, and sticks their address in a .discard section, then at
+boot time we iterate this section and scribble the CFI state for all
+these functions, making them invalid to be called indirectly.
+
+For one this avoids malicious code from finding a function address in
+the symbol table and indirectly calling it anyway as a means to
+circumvent the EXPORT symbols.
+
+So objtool does not think bpf_cgroup_release() gets its address taken,
+specifically it does not find it's address in a section it knows about.
+And hence it goes on the list and we scribble it and the indirect call
+goes *boom*.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
