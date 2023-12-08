@@ -4,75 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2766BC4167B
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 19:26:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C7F6C4167B
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 19:32:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tx4esRlssf12fNrfpYg2SnSSHxIcssyxq5jg5vrchiU=; b=KT72UaebBWENbeqd7z2jA5OlTo
-	r9JNhsXmdRVxG4PqNh4oeBXP2U5YIPvVp35VqwWWNSbRwwln6FxNpAh9PR1tz78ON4Tq8YTIK38Ev
-	1+tHXc9iDp6tkKAo+qAKUmYmByyOu96cQ0YcJC/wEcRW58kZixe/WmgJWHM9YoCyEnHn9dWug/xiL
-	CUz3DIPRiiIZHaSgMa5GaUnRmEBOCy+0oJ9v1R1eQ+ZcR3b8ibjFLV1VcDQMikJ2lC/ieZP91R3X2
-	/2XWbnJpjzaR6I8zA7N+30RNhdvU0k5bx/AtGhlwTcw7i5I5TlA3nCdiTyrUYfdPh1LkEFPSqY6AY
-	sJhMHl7A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RDxFJ8YX/Lg2/LHbDb5HfdRJDrTps6A2jqTlPePc6eo=; b=P/QxQ45ob9SPhR
+	1GNcvoJFdHV/0d1lkP2oG5DhNRlM0Q3Cyj1WU3sNxBxKcT7Y9fRArHyUJmc/hATm8g7NQ4bftZkAR
+	8naVBYhSoaEMi4YKo5LH4xuMzSlhvZwfEfNRapq1uhWHS7cdE8w+SI/Uy1+NuntXkhAAeBoqHWrQ9
+	J7kMwTU6yWjWMsex1K9In6onnCPBSghh048kW+1BeAGIEH7c8Wz4X2v26Wu0eb702/lxPaWtcxZxF
+	I4pPzhlfJclTpj3ZJjYThEUMPrKOB2NAWrkVfUIsp/6gdlHPLpHGPbs2o8iwYinFluqkiniLvnj7O
+	E0u/7wMV6i0UxnQm+3vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBgUR-00GNqq-2x;
-	Fri, 08 Dec 2023 19:26:23 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rBgaJ-00GObq-1C;
+	Fri, 08 Dec 2023 19:32:27 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBgUO-00GNp8-2C
+	id 1rBgaF-00GOam-0F
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Dec 2023 19:26:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 5DDB8CE2973;
-	Fri,  8 Dec 2023 19:26:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 761F0C433C8;
-	Fri,  8 Dec 2023 19:26:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1702063576;
-	bh=HmU9LMehAw9DeUV8uCa+TBiQ2MWNpmsc6U26C4PITlc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=q0jHp+lrFGrxQQ5fEQ0yYQ4fe+W9y4ZBbiIbF5Fm6XNgANu/LLyFCi7GKBQlImOK1
-	 zQ5FX411R3rVVBA++4kibVU+Ry2zU52I2LBtZFygSsz/2u+K0JWWcT+JXE2mM3eQa5
-	 aMaNS4Jl0owLVOpVhyAh5+5NDmpWsy7qBKYlhrzdxgnBQPmrOGOcSpTvp+Y7TY454O
-	 WxcxrL2t/YvNsOiGxmkthRidpOyy3nyHyi8BYNeIuulbHZ7ApFNEULZz6fP97KusN/
-	 TGdMkp+mrZygRRBt5EpnO283TOKGmC2DO1viuGwbfey/SpXfK9+mVbEe3SEJjdhIMr
-	 WKX33bNQlujUg==
-Date: Fri, 8 Dec 2023 19:26:10 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: linux-riscv@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Wolfgang Grandegger <wg@grandegger.com>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, linux-can@vger.kernel.org,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH RESEND v1 1/7] dt-bindings: clock: mpfs: add more MSSPLL
- output definitions
-Message-ID: <20231208-cauterize-hacker-f63dddf39af0@spud>
-References: <20231208-reenter-ajar-b6223e5134b3@spud>
- <20231208-unripe-maximum-fc77f4967561@spud>
- <CAJM55Z_ozf=MwOJCSM154L__TE1Gv7Ec=gM8LFJ31-_eX66OKA@mail.gmail.com>
+	Fri, 08 Dec 2023 19:32:24 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-40c05ce04a8so27358135e9.0
+        for <linux-riscv@lists.infradead.org>; Fri, 08 Dec 2023 11:32:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1702063940; x=1702668740; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=O6ndbVL4uxU82m7aXPrJdtt1Twlz3kSpUXUFiW9WyCw=;
+        b=Ww6XPuhqVRQHv/jDEz6q1TSli5gCS+tJK4xHTCz6yP5CyBxt4HlEF61g4CeZuhvjUD
+         iL69nDk9yifH3vvmaJBISMUiCaLyySYM66Eb4CeFAwv9CZKsT04zlW0f0dH7x5GCso+l
+         Eav8ZkKII1xKKbJT4xVHSPKHCWbXpXRdw0Y27B92YLtUY5NqxUHWL0GfIAlhHxBwmHTz
+         tI3AkD0RazQupC3l+Y/HBqCh/UXww2kKp81b9LOwIje1ASkzNAG+RuFy7ETh867UDEAA
+         UTOHdbQhq1dDOJuFyFhpfZZ5uCZ9DJEl+PfpYobVAnqFz6usmnEuDBAS9qD4TUV73m4a
+         BACQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1702063940; x=1702668740;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=O6ndbVL4uxU82m7aXPrJdtt1Twlz3kSpUXUFiW9WyCw=;
+        b=Xe4hv5R8IKoGz6SvDVjDSw2Ri7ZyA98+iCkrwHFHJB/Q/GuH+I0Yf5lEoGGtup6SSk
+         5B2lerX2ZM1uLJJpM+95F3aIl3TTyKk00adIqqaR931e9QLCVKNx2Gp/Ii/9WTj+CKrZ
+         xPcP2u0nO9EQEAQ2iSlkvTJWlvzJvrSNKD96EKVC1Am/vXfoQJjOY9h2INHNY3Hkhsl3
+         SFu9ZOpFS3yP9W1t+uCyGNL4hqFAoPyGxgzLdPnnhJldsiQgYGUtXziaKLAVOrM35iGu
+         MdSL19gXW2IDx5fKzBlXxbm6fXD9fnuGDALQevm6FKUd75vP/vpgzcz+XumWPI2bBIYN
+         O0rg==
+X-Gm-Message-State: AOJu0YyX5pWw0tgCTdQ0kQZ6AWYuIJN/QGRMj4WO/BNEgLxROWm63RRP
+	hnfsy33JTTTXGs/XpMoZ1nIDpI84ywzZXJxuqr0=
+X-Google-Smtp-Source: AGHT+IHnV39yPn1QoB9tAG00NDGLMqs4S2voOP0fLNkjc4tsDhdkd7wBpq6Za2gZRDVXSqGwHJCKQCHJJH2FbwjEGAU=
+X-Received: by 2002:a05:600c:1d95:b0:40b:5f03:b3ca with SMTP id
+ p21-20020a05600c1d9500b0040b5f03b3camr131680wms.236.1702063939942; Fri, 08
+ Dec 2023 11:32:19 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <CAJM55Z_ozf=MwOJCSM154L__TE1Gv7Ec=gM8LFJ31-_eX66OKA@mail.gmail.com>
+References: <ZW4LjmUKj1q6RWdL@krava> <20231204181614.GA7299@noisy.programming.kicks-ass.net>
+ <20231204183354.GC7299@noisy.programming.kicks-ass.net> <CAADnVQJwU5fCLcjBWM9zBY6jUcnME3+p=vvdgKK9FiLPWvXozg@mail.gmail.com>
+ <20231206163814.GB36423@noisy.programming.kicks-ass.net> <20231206183713.GA35897@noisy.programming.kicks-ass.net>
+ <zu5eb2robdqnp2ojwaxjhnglcummrnjaqbw6krdds6qac3bql2@5zx46c2s6ez4>
+ <20231207093105.GA28727@noisy.programming.kicks-ass.net> <ivhrgimonsvy3tyj5iidoqmlcyqvtsh2ay3cm3ouemsdbvjzs4@6jlt6zv55tgh>
+ <20231208102940.GB28727@noisy.programming.kicks-ass.net> <20231208134041.GD28727@noisy.programming.kicks-ass.net>
+In-Reply-To: <20231208134041.GD28727@noisy.programming.kicks-ass.net>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Fri, 8 Dec 2023 11:32:07 -0800
+Message-ID: <CAADnVQJFB_CPtFS3=VV=RwnP=EQRL3yEsR8wXVcicb07P8NODw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] x86/cfi,bpf: Fix BPF JIT call
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Jiri Olsa <olsajiri@gmail.com>, Song Liu <song@kernel.org>, 
+	Song Liu <songliubraving@meta.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>, 
+	"H. Peter Anvin" <hpa@zytor.com>, "David S. Miller" <davem@davemloft.net>, David Ahern <dsahern@kernel.org>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Sami Tolvanen <samitolvanen@google.com>, 
+	Kees Cook <keescook@chromium.org>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	LKML <linux-kernel@vger.kernel.org>, Network Development <netdev@vger.kernel.org>, 
+	bpf <bpf@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>, 
+	clang-built-linux <llvm@lists.linux.dev>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	Joao Moreira <joao@overdrivepizza.com>, Mark Rutland <mark.rutland@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231208_112620_955480_EF0CB081 
-X-CRM114-Status: GOOD (  17.96  )
+X-CRM114-CacheID: sfid-20231208_113223_116017_A813E658 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,76 +103,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8134169958726412108=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============8134169958726412108==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="keUDLXTW9SCPY39T"
-Content-Disposition: inline
-
-
---keUDLXTW9SCPY39T
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Dec 08, 2023 at 09:40:00AM -0800, Emil Renner Berthing wrote:
-> Conor Dooley wrote:
-> > From: Conor Dooley <conor.dooley@microchip.com>
-> >
-> > There are 3 undocumented outputs of the MSSPLL that are used for the CAN
-> > bus, "user crypto" module and eMMC. Add their clock IDs so that they can
-> > be hooked up in DT.
-> >
-> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> > ---
-> >  include/dt-bindings/clock/microchip,mpfs-clock.h | 5 +++++
-> >  1 file changed, 5 insertions(+)
-> >
-> > diff --git a/include/dt-bindings/clock/microchip,mpfs-clock.h b/include=
-/dt-bindings/clock/microchip,mpfs-clock.h
-> > index 79775a5134ca..b52f19a2b480 100644
-> > --- a/include/dt-bindings/clock/microchip,mpfs-clock.h
-> > +++ b/include/dt-bindings/clock/microchip,mpfs-clock.h
-> > @@ -44,6 +44,11 @@
-> >
-> >  #define CLK_RTCREF	33
-> >  #define CLK_MSSPLL	34
-> > +#define CLK_MSSPLL0	34
->=20
-> You add this new CLK_MSSPLL0 macro with the same value as CLK_MSSPLL, but
-> never seem to use it in this series. Did you mean to rename the CLK_MSSPLL
-> instances CLK_MSSPLL0?
-
-Yes, that was my intention.
-
---keUDLXTW9SCPY39T
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZXNt0gAKCRB4tDGHoIJi
-0mr/AQDAPWA0oJFGAgd3kwzO+18/rBTPVxEGkrO5J9+fukpyOAEAyrgQk4472IpW
-41zAPoXiQ9UbdlNLIljJi2H7VMzCYAw=
-=YxhE
------END PGP SIGNATURE-----
-
---keUDLXTW9SCPY39T--
-
-
---===============8134169958726412108==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8134169958726412108==--
-
+T24gRnJpLCBEZWMgOCwgMjAyMyBhdCA1OjQx4oCvQU0gUGV0ZXIgWmlqbHN0cmEgPHBldGVyekBp
+bmZyYWRlYWQub3JnPiB3cm90ZToKPgo+IE9uIEZyaSwgRGVjIDA4LCAyMDIzIGF0IDExOjI5OjQw
+QU0gKzAxMDAsIFBldGVyIFppamxzdHJhIHdyb3RlOgo+ID4gVGhlIG9ubHkgcHJvYmxlbSBJIG5v
+dyBoYXZlIGlzIHRoZSBvbmUgWFhYLCBJJ20gbm90IGVudGlyZWx5IHN1cmUgd2hhdAo+ID4gc2ln
+bmF0dXJlIHRvIHVzZSB0aGVyZS4KPgo+ID4gQEAgLTExOSw2ICsxMTksNyBAQCBpbnQgYnBmX3N0
+cnVjdF9vcHNfdGVzdF9ydW4oc3RydWN0IGJwZl9wCj4gPiAgICAgICBvcF9pZHggPSBwcm9nLT5l
+eHBlY3RlZF9hdHRhY2hfdHlwZTsKPiA+ICAgICAgIGVyciA9IGJwZl9zdHJ1Y3Rfb3BzX3ByZXBh
+cmVfdHJhbXBvbGluZSh0bGlua3MsIGxpbmssCj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgJnN0X29wcy0+ZnVuY19tb2RlbHNbb3BfaWR4XSwKPiA+ICsg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAvKiBYWFggKi8gTlVM
+TCwKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpbWFn
+ZSwgaW1hZ2UgKyBQQUdFX1NJWkUpOwo+ID4gICAgICAgaWYgKGVyciA8IDApCj4gPiAgICAgICAg
+ICAgICAgIGdvdG8gb3V0Owo+Cj4gRHVoLCB0aGF0IHNob3VsZCBvZmNvdXJzZSBiZSBzb21ldGhp
+bmcgb2YgZHVtbXlfb3BzX3Rlc3RfcmV0X2ZuIHR5cGUuCj4gTGV0IG1lIGdvIGZpeCB0aGF0LgoK
+UmlnaHQuIFRoYXQgc2hvdWxkIHdvcmsuCkEgYml0IHdhc3RlZnVsIHRvIGdlbmVyYXRlIHJlYWwg
+Y29kZSBqdXN0IHRvIHJlYWQgaGFzaCBmcm9tIGl0CnZpYSBjZmlfZ2V0X2Z1bmNfaGFzaCgpLCBi
+dXQgaXQncyBhIG5lYXQgaWRlYS4KSSBndWVzcyBpdCdzIGhhcmQgdG8gZ2V0IGtjZmkgZnJvbSBf
+X0FERFJFU1NBQkxFIGluIHBsYWluIEMKYW5kIHNwcmlua2xpbmcgYXNtKCJjZmlfeHh4OiAubG9u
+ZyAgIF9fa2NmaV90eXBlaWQuLi4iKTsgaXMgd29yc2U/CkV2ZW4gaWYgaXQncyBhIG1hY3JvID8K
+VGhhdCBtYWNybyB3b3VsZCBiZSB1c2VkIHRvIGRlZmluZSBjZmlfYnBmX2hhc2ggYW5kIGFsbCBv
+dGhlciBzdHVicz8KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
