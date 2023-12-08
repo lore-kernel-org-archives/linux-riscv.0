@@ -4,75 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D2F4C4167B
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 09:14:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1D20C10DC1
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 09:31:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x/dGfnmkwWoia+p0ScBhvD1KwEGjU/p2hPXw6ZZIOTs=; b=jZVc161p/F/WhgAgwbPQS1kbIA
-	KDfDaG8jvx9oupxg4RMsTF82S6erwNoykjvMLphDSC7J6c3BTECktw8cbvG9+ASbFGSZh9INK8rDT
-	n2XhwTOSoPYwurCcclHNsiO/hgjJysdoXfT50zBJ2kg8B42856/POJPgp3txMuTlHRCvFO6N7kN1B
-	4WuIxTZvNHOhUp0eNME9/8jWv8CN52PxmcEpPMl7VVIrfOsj4p1+S8QhT3EiRRCEYce9vlsl6dPcv
-	9UnLhkpyMWJbccPM5h0glM4BlJXAMCdNRBXWdB11lsyl+qYnVxeFoiqmiPqckZv4zepV4wPjIi/sV
-	Mqi9niLw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=SwAEyhdz9ej/lqL3A/gKCpxxDrcT0vUf/Z0jRFNBLI0=; b=bVZScMUr1/KR/2WN2gD7ruRtLw
+	6oJnJ3ZwrmXJKi5H3L1sXuOJnNa8c1Kuw3PpmFDQfGgqeacJjyQk3bKzGKUGfHWzin0rmh1utMtRA
+	7h/vwqjmMlo9xVOza8VOgfz8Pv17vzH36ZrXUndYvREY1J8Zpx7n3rAC6WHUG81rwrLA8ElCJGYpF
+	kko/L+wn7/8tpwqQUA1EGdVjVQAXVDsHIFk0MznZzCjKjb6Sz0wgLmTkNQhFQpq2NFkPUuwmm+xyx
+	+6SkHG2j9ESX8gsY/eHVuF3WIA74347PYzTz6gd73n1ZVZGEtgT8So7ZPYx7MBY1r3XsIC90yj/MC
+	KG0z0s9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBWwG-00F6Z4-2H;
-	Fri, 08 Dec 2023 09:14:28 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rBXC9-00F8NI-0b;
+	Fri, 08 Dec 2023 09:30:53 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBWwC-00F6XK-2x
+	id 1rBXC4-00F8Jc-31
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Dec 2023 09:14:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 3127ACE213F;
-	Fri,  8 Dec 2023 09:14:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E997C433C7;
-	Fri,  8 Dec 2023 09:14:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1702026862;
-	bh=PpqkV81OadB/h6MWWmM9uepUUBI4O85xxP4qkQ1Svng=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=c6kPkn7C4GMyEI0IstxPAmJl+5gtuWg9EvwvwW+IgUrErh0VwVr6MkcTST66NuYny
-	 jYC6UwgLdz8QGoz2D8pU2gRmKjH8hh1FalxlQnWwM4WhdncRiQ/Ihttua20jlBJpcU
-	 KgIROty+rbO3i0wmTkI9aN0mxcFcd7OXIF9cVGtdI4sdfQwFiCJp47R6m9VPsXoN42
-	 Cv770NYTWFTDiltQsX+DFu0l4OEGsIK5HoXh8NwD8gMKiCvVyley9c00h5farkpYiu
-	 GXt1o9sHdq1eYrpph9nWc9FDlN2mXFUUdTS/Q2lst8jO7708rLH9y39SZDy+cpjmEM
-	 ab6dZPzpB71GA==
-Date: Fri, 8 Dec 2023 10:14:19 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Andy Yan <andyshrk@163.com>
-Cc: Keith Zhao <keith.zhao@starfivetech.com>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "tzimmermann@suse.de" <tzimmermann@suse.de>, 
-	"airlied@gmail.com" <airlied@gmail.com>, 
-	"krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>, William Qiu <william.qiu@starfivetech.com>, 
-	Xingyu Wu <xingyu.wu@starfivetech.com>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, 
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "palmer@dabbelt.com" <palmer@dabbelt.com>, 
-	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, Shengyang Chen <shengyang.chen@starfivetech.com>, 
-	Jack Zhu <jack.zhu@starfivetech.com>, Changhuang Liang <changhuang.liang@starfivetech.com>, 
-	"maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>, "suijingfeng@loongson.cn" <suijingfeng@loongson.cn>
-Subject: Re: [v3 5/6] drm/vs: Add hdmi driver
-Message-ID: <xevxqusbizjfs4qt5rufhntd3vd656o2smocvivvulzceh3aeu@uuihphhat5wi>
-References: <20231204123315.28456-6-keith.zhao@starfivetech.com>
- <esetsiqgqpk35zue4c6aq7l6zn4kezhxkqqa7ompaz2vhdy3lr@4d5awfqgs2ss>
- <94a1f9fc-82fb-4a04-a44b-f9b20c2bdfdd@starfivetech.com>
- <abdl6kmighvpwojvafq443q7grn6w3abwpvw7zwbna4jvtsvjf@fa42rv46n2wh>
- <40cdd3c7-174e-4611-9ea6-22cb56d1f62b@starfivetech.com>
- <e90142d.44b1.18c43833b63.Coremail.andyshrk@163.com>
- <e0b84511-dbb4-46fa-9465-713369232f6f@starfivetech.com>
- <43e42269.314.18c46dbb4c5.Coremail.andyshrk@163.com>
- <e1c362dc-8aac-4d13-9356-8b7ccae4727f@starfivetech.com>
- <5a79a4b9.1bd7.18c4773c1ea.Coremail.andyshrk@163.com>
-MIME-Version: 1.0
-In-Reply-To: <5a79a4b9.1bd7.18c4773c1ea.Coremail.andyshrk@163.com>
+	Fri, 08 Dec 2023 09:30:51 +0000
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 801943F62F
+	for <linux-riscv@lists.infradead.org>; Fri,  8 Dec 2023 09:30:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1702027843;
+	bh=uWzbSmFUcTYjr7UGey/qNk1zTeB36hCsnrM5hCDtBEM=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=nBV7RK1ccXfWTVXWvfwYfCaZxmbxl65E303YfFL+as21vVS/rOWZXDipvAYPgCU+F
+	 aaezZaNiLVO4jFErdX+LMSWy3gcCztzhZH3bYdIfcgmjtHpTuAykCu2zk2XqGgBCoK
+	 GE4sosyZDJklwLzETRX+eIG3D9CJyR8uG197sFcVBDemDJzJKXtMx5n6pJ+gHs6116
+	 mL53jT6Muevm5DR5D2PYBXV8sGsBdUyWLfRSjIg5SU3gwbiZXmA26eV4gg5zxvu+qx
+	 uSiMzdr9P1bqsRiztT16MaeoDawoCVMyyKT3b52S8BguvHmptlQGBXiJpGnvKi743u
+	 4JyKVuO4mVcTA==
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-42599db593fso15367991cf.0
+        for <linux-riscv@lists.infradead.org>; Fri, 08 Dec 2023 01:30:43 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1702027842; x=1702632642;
+        h=content-transfer-encoding:cc:to:subject:message-id:date
+         :mime-version:references:in-reply-to:from:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=uWzbSmFUcTYjr7UGey/qNk1zTeB36hCsnrM5hCDtBEM=;
+        b=r3gxFbV5U83GryPXeWtMO8NRS7Y1HVbAp7/gKf4jnjsfbfNNbJ6c1ZLCPDen+JinFE
+         To8C6x2Ml70Q2iKK4cAhC5JTb4IZrcQsHqZOLQbPe6NMkPC2vH+sNOyE20nwS7vEDV/N
+         yr9Tr+JhvnY7GSTL81gyzwOXxo2M/k6JhhEGyjNtp0828sgf65T9cUD7nsB9YzKG3Qma
+         JA1t3IDXugOH4iJrXDWU0IaAYqY6Ol29AFCOWgbfq49L6j4NhlP3xyaFUh43rFJeO1wL
+         rPj+IZGCR0IPy9+SIG+zRWI9mOFNSPFiS3Jpzf+lVlGS0ZoYaM178N5aSWhsR77EFFMo
+         NP5A==
+X-Gm-Message-State: AOJu0YxxyWuq0eCHNF4PCNAaXLZLyxv0zPB0wQ2wwrWISBEbTUHwE+pJ
+	Jpb6CrKJ/N9EJ137h1+LOHBNf7iRQ2w56jsQRciFyCqKzfHKFeNH3poMI9pnYZ6gUtMEJgsdri9
+	9uLGJDSruOYXIc6FZj1hc84J+io5fFhFkQRaoIgOjpG2qq3EEq3V9Xf+bzSXE5Q==
+X-Received: by 2002:a05:622a:1388:b0:423:843a:e311 with SMTP id o8-20020a05622a138800b00423843ae311mr796412qtk.23.1702027842545;
+        Fri, 08 Dec 2023 01:30:42 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGVz5DptoQUK6psikD/zbi59O4PuftvbVHfHg/GwVr0qVjhm+KBWqH8BPPsCW9KZBAp6elc0NFCr84CZmMit00=
+X-Received: by 2002:a05:622a:1388:b0:423:843a:e311 with SMTP id
+ o8-20020a05622a138800b00423843ae311mr796405qtk.23.1702027842336; Fri, 08 Dec
+ 2023 01:30:42 -0800 (PST)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 8 Dec 2023 04:30:41 -0500
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <500a4f39531bd5fc61eb8ac0092e34d4b1ae2cc0.1701860672.git.u.kleine-koenig@pengutronix.de>
+References: <cover.1701860672.git.u.kleine-koenig@pengutronix.de> <500a4f39531bd5fc61eb8ac0092e34d4b1ae2cc0.1701860672.git.u.kleine-koenig@pengutronix.de>
+Mime-Version: 1.0
+Date: Fri, 8 Dec 2023 04:30:41 -0500
+Message-ID: <CAJM55Z9sUTNKR5EGmPOio8Uh_1+wfs0-aiKcsngUKF24JcO-QA@mail.gmail.com>
+Subject: Re: [PATCH v4 089/115] pwm: sifive: Make use of devm_pwmchip_alloc() function
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, 
+	Thierry Reding <thierry.reding@gmail.com>
+Cc: kernel@pengutronix.de, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, linux-pwm@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231208_011425_308732_4A5D5C8C 
-X-CRM114-Status: GOOD (  27.10  )
+X-CRM114-CacheID: sfid-20231208_013049_404081_819DA63F 
+X-CRM114-Status: GOOD (  20.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,181 +96,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0848248333400233059=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============0848248333400233059==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mclzxbyf7a4jkefy"
-Content-Disposition: inline
-
-
---mclzxbyf7a4jkefy
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hi,
-
-On Fri, Dec 08, 2023 at 11:23:37AM +0800, Andy Yan wrote:
-> =E5=9C=A8 2023-12-08 11:00:31=EF=BC=8C"Keith Zhao" <keith.zhao@starfivete=
-ch.com> =E5=86=99=E9=81=93=EF=BC=9A
-> >
-> >
-> >On 2023/12/8 8:37, Andy Yan wrote:
-> >> Hi Keth=EF=BC=9A
-> >>=20
-> >>=20
-> >>=20
-> >>=20
-> >>=20
-> >>=20
-> >> =E5=9C=A8 2023-12-07 18:48:13=EF=BC=8C"Keith Zhao" <keith.zhao@starfiv=
-etech.com> =E5=86=99=E9=81=93=EF=BC=9A
-> >>>
-> >>>
-> >>>On 2023/12/7 17:02, Andy Yan wrote:
-> >>>>=20
-> >>>>=20
-> >>>>=20
-> >>>>=20
-> >>>> Hi Keith=EF=BC=9A
-> >>>>=20
-> >>>>=20
-> >>>>=20
-> >>>>=20
-> >>>>=20
-> >>>>=20
-> >>>>=20
-> >>>>=20
-> >>>>=20
-> >>>>=20
-> >>>>=20
-> >>>> At 2023-12-06 22:11:33, "Keith Zhao" <keith.zhao@starfivetech.com> w=
-rote:
-> >>>>>
-> >>>>>
-> >>>>>On 2023/12/6 20:56, Maxime Ripard wrote:
-> >>>>>> On Wed, Dec 06, 2023 at 08:02:55PM +0800, Keith Zhao wrote:
-> >>>>>>> >> +static const struct of_device_id starfive_hdmi_dt_ids[] =3D {
-> >>>>>>> >> +	{ .compatible =3D "starfive,jh7110-inno-hdmi",},
-> >>>>>>> >=20
-> >>>>>>> > So it's inno hdmi, just like Rockchip then?
-> >>>>>>> >=20
-> >>>>>>> > This should be a common driver.
-> >>>>>>>
-> >>>>>>> Rockchip has a inno hdmi IP. and Starfive has a inno hdmi IP.
-> >>>>>>> but the harewawre difference of them is big , it is not easy to u=
-se the common driver
-> >>>>>>> maybe i need the inno hdmi version here to make a distinction
-> >>>>>>=20
-> >>>>>> I just had a look at the rockchip header file: all the registers b=
-ut the
-> >>>>>> STARFIVE_* ones are identical.
-> >>>>>>=20
-> >>>>>> There's no need to have two identical drivers then, please use the
-> >>>>>> rockchip driver instead.
-> >>>>>>=20
-> >>>>>> Maxime
-> >>>>>
-> >>>>>ok, have a simple test , edid can get . i will continue=20
-> >>>>=20
-> >>>> Maybe you can take drivers/gpu/drm/bridge/synopsys/dw-hdmi as a refe=
-rence=EF=BC=8C this
-> >>>> is also a hdmi ip used by rockchip/meson/sunxi/jz/imx=E3=80=82
-> >>>> We finally make it share one driver=E3=80=82
-> >>>>>
-> >>>hi Andy:
-> >>>
-> >>>dw_hdmi seems a good choice , it can handle inno hdmi hardware by defi=
-ne its dw_hdmi_plat_data.
-> >>>does it means i can write own driver files such as(dw_hdmi-starfive.c)=
- based on dw_hdmi instead of add plat_data in inno_hdmi.c
-> >>>
-> >>=20
-> >> I think the process maybe like this=EF=BC=9A
-> >>=20
-> >> 1. split the inno_hdmi.c under rockchip to  inno_hdmi.c(the common par=
-t), inno_hdmi-rockchip.c(the soc specific part)
-> >> 2. move the common part inno_hdmi.c to drivers/gpu/drm/bridge/innosili=
-con/
-> >> 3. add startfive specific part, inno_hdmi-startfive.c
-> >>=20
-> >> bellow git log from kernel three show how we convert  dw_hdmi to a com=
-mon driver:=20
-> >>=20
-> >>=20
-> >>=20
-> >> 12b9f204e804 drm: bridge/dw_hdmi: add rockchip rk3288 support
-> >> 74af9e4d03b8 dt-bindings: Add documentation for rockchip dw hdmi
-> >> d346c14eeea9 drm: bridge/dw_hdmi: add function dw_hdmi_phy_enable_spare
-> >> a4d3b8b050d5 drm: bridge/dw_hdmi: clear i2cmphy_stat0 reg in hdmi_phy_=
-wait_i2c_done
-> >> 632d035bace2 drm: bridge/dw_hdmi: add mode_valid support
-> >> 0cd9d1428322 drm: bridge/dw_hdmi: add support for multi-byte register =
-width access
-> >> cd152393967e dt-bindings: add document for dw_hdmi
-> >> b21f4b658df8 drm: imx: imx-hdmi: move imx-hdmi to bridge/dw_hdmi
-> >> aaa757a092c2 drm: imx: imx-hdmi: split phy configuration to platform d=
-river
-> >> 3d1b35a3d9f3 drm: imx: imx-hdmi: convert imx-hdmi to drm_bridge mode
-> >> c2c3848851a7 drm: imx: imx-hdmi: return defer if can't get ddc i2c ada=
-pter
-> >> b587833933de drm: imx: imx-hdmi: make checkpatch happy
-> >>=20
-> >hi Andy:
-> >I got you means,=20
-> >as I don't have a rockchip board on hand , to split the inno_hdmi.c can =
-not be tested.
-> >
-> >how adout this idea:
-> >1=E3=80=81split the starfive_hdmi.c under verisilicion to  inno_hdmi.c(t=
-he common part), inno_hdmi-starfive.c(the soc specific part)
-> >2. move the common part inno_hdmi.c to drivers/gpu/drm/bridge/innosilico=
-n/
-> >3. In the future, inno hdmi.c under rockchip will reuse the public drive=
-r.
->=20
-> I am not sure if drm maintainers are happy with this=E3=80=82
-
-Not really, no.
-
-Because we would still have two drivers for the same controller, and a
-common one that haven't really been tested on anything but a single
-platform. So arguably a worse situation than what you were suggesting in
-the first place.
-
-The best solution would be to find someone with a Rockchip board to test
-your changes, or to get one if it's doable so you can test yourself.
-
-Maxime
-
---mclzxbyf7a4jkefy
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRcEzekXsqa64kGDp7j7w1vZxhRxQUCZXLeZgAKCRDj7w1vZxhR
-xX+VAQCDN8mU1ig+h/k3GOiSARtjlUBm/gfNxSrc+w8Z+uccaQEAiaFT6xKN1A/R
-YHgxfBULnV+2196VN7w4qNeVghA3BA0=
-=oX5D
------END PGP SIGNATURE-----
-
---mclzxbyf7a4jkefy--
-
-
---===============0848248333400233059==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0848248333400233059==--
-
+VXdlIEtsZWluZS1Lw7ZuaWcgd3JvdGU6Cj4gVGhpcyBwcmVwYXJlcyB0aGUgcHdtLXNpZml2ZSBk
+cml2ZXIgdG8gZnVydGhlciBjaGFuZ2VzIG9mIHRoZSBwd20gY29yZQo+IG91dGxpbmVkIGluIHRo
+ZSBjb21taXQgaW50cm9kdWNpbmcgZGV2bV9wd21jaGlwX2FsbG9jKCkuIFRoZXJlIGlzIG5vCj4g
+aW50ZW5kZWQgc2VtYW50aWNhbCBjaGFuZ2UgYW5kIHRoZSBkcml2ZXIgc2hvdWxkIGJlaGF2ZSBh
+cyBiZWZvcmUuCj4KPiBTaWduZWQtb2ZmLWJ5OiBVd2UgS2xlaW5lLUvDtm5pZyA8dS5rbGVpbmUt
+a29lbmlnQHBlbmd1dHJvbml4LmRlPgo+IC0tLQo+ICBkcml2ZXJzL3B3bS9wd20tc2lmaXZlLmMg
+fCAyOCArKysrKysrKysrKysrKy0tLS0tLS0tLS0tLS0tCj4gIDEgZmlsZSBjaGFuZ2VkLCAxNCBp
+bnNlcnRpb25zKCspLCAxNCBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3B3
+bS9wd20tc2lmaXZlLmMgYi9kcml2ZXJzL3B3bS9wd20tc2lmaXZlLmMKPiBpbmRleCBjMWI0MTI5
+MDVkOWUuLmNmM2ZjZmZlN2IzYSAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL3B3bS9wd20tc2lmaXZl
+LmMKPiArKysgYi9kcml2ZXJzL3B3bS9wd20tc2lmaXZlLmMKPiBAQCAtNDEsNyArNDEsNyBAQAo+
+ICAjZGVmaW5lIFBXTV9TSUZJVkVfREVGQVVMVF9QRVJJT0QJMTAwMDAwMDAKPgo+ICBzdHJ1Y3Qg
+cHdtX3NpZml2ZV9kZGF0YSB7Cj4gLQlzdHJ1Y3QgcHdtX2NoaXAJY2hpcDsKPiArCXN0cnVjdCBw
+d21fY2hpcCAqY2hpcDsKCkluIHBhdGNoIDQzIHlvdSBkbyBkZGF0YSA9ICh2b2lkICopY2hpcCAr
+IHNpemVvZigqY2hpcCkuIFNob3VsZG4ndCB3ZQpiZSBhYmxlIHRvIGdldAp0aGUgY2hpcCBwb2lu
+dGVyIGZyb20gZGRhdGEgdXNpbmcgY2hpcCA9ICh2b2lkICopZGRhdGEgLSBzaXplb2YoKmNoaXAp
+PwoKPiAgCXN0cnVjdCBtdXRleCBsb2NrOyAvKiBsb2NrIHRvIHByb3RlY3QgdXNlcl9jb3VudCBh
+bmQgYXBwcm94X3BlcmlvZCAqLwo+ICAJc3RydWN0IG5vdGlmaWVyX2Jsb2NrIG5vdGlmaWVyOwo+
+ICAJc3RydWN0IGNsayAqY2xrOwo+IEBAIC01NCw3ICs1NCw3IEBAIHN0cnVjdCBwd21fc2lmaXZl
+X2RkYXRhIHsKPiAgc3RhdGljIGlubGluZQo+ICBzdHJ1Y3QgcHdtX3NpZml2ZV9kZGF0YSAqcHdt
+X3NpZml2ZV9jaGlwX3RvX2RkYXRhKHN0cnVjdCBwd21fY2hpcCAqY2hpcCkKPiAgewo+IC0JcmV0
+dXJuIGNvbnRhaW5lcl9vZihjaGlwLCBzdHJ1Y3QgcHdtX3NpZml2ZV9kZGF0YSwgY2hpcCk7Cj4g
+KwlyZXR1cm4gcHdtY2hpcF9nZXRfZHJ2ZGF0YShjaGlwKTsKPiAgfQo+Cj4gIHN0YXRpYyBpbnQg
+cHdtX3NpZml2ZV9yZXF1ZXN0KHN0cnVjdCBwd21fY2hpcCAqY2hpcCwgc3RydWN0IHB3bV9kZXZp
+Y2UgKnB3bSkKPiBAQCAtMTAyLDcgKzEwMiw3IEBAIHN0YXRpYyB2b2lkIHB3bV9zaWZpdmVfdXBk
+YXRlX2Nsb2NrKHN0cnVjdCBwd21fc2lmaXZlX2RkYXRhICpkZGF0YSwKPiAgCS8qIEFzIHNjYWxl
+IDw9IDE1IHRoZSBzaGlmdCBvcGVyYXRpb24gY2Fubm90IG92ZXJmbG93LiAqLwo+ICAJbnVtID0g
+KHVuc2lnbmVkIGxvbmcgbG9uZylOU0VDX1BFUl9TRUMgPDwgKFBXTV9TSUZJVkVfQ01QV0lEVEgg
+KyBzY2FsZSk7Cj4gIAlkZGF0YS0+cmVhbF9wZXJpb2QgPSBkaXY2NF91bChudW0sIHJhdGUpOwo+
+IC0JZGV2X2RiZyhwd21jaGlwX3BhcmVudCgmZGRhdGEtPmNoaXApLAo+ICsJZGV2X2RiZyhwd21j
+aGlwX3BhcmVudChkZGF0YS0+Y2hpcCksCj4gIAkJIk5ldyByZWFsX3BlcmlvZCA9ICV1IG5zXG4i
+LCBkZGF0YS0+cmVhbF9wZXJpb2QpOwo+ICB9Cj4KPiBAQCAtMjMwLDE1ICsyMzAsMTQgQEAgc3Rh
+dGljIGludCBwd21fc2lmaXZlX3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpCj4g
+IAl1MzIgdmFsOwo+ICAJdW5zaWduZWQgaW50IGVuYWJsZWRfcHdtcyA9IDAsIGVuYWJsZWRfY2xr
+cyA9IDE7Cj4KPiAtCWRkYXRhID0gZGV2bV9remFsbG9jKGRldiwgc2l6ZW9mKCpkZGF0YSksIEdG
+UF9LRVJORUwpOwo+IC0JaWYgKCFkZGF0YSkKPiAtCQlyZXR1cm4gLUVOT01FTTsKPiArCWNoaXAg
+PSBkZXZtX3B3bWNoaXBfYWxsb2MoZGV2LCA0LCBzaXplb2YoKmRkYXRhKSk7Cj4gKwlpZiAoSVNf
+RVJSKGNoaXApKQo+ICsJCXJldHVybiBQVFJfRVJSKGNoaXApOwo+ICsJZGRhdGEgPSBwd21fc2lm
+aXZlX2NoaXBfdG9fZGRhdGEoY2hpcCk7Cj4gKwlkZGF0YS0+Y2hpcCA9IGNoaXA7Cj4KPiAgCW11
+dGV4X2luaXQoJmRkYXRhLT5sb2NrKTsKPiAtCWNoaXAgPSAmZGRhdGEtPmNoaXA7Cj4gLQljaGlw
+LT5kZXYgPSBkZXY7Cj4gIAljaGlwLT5vcHMgPSAmcHdtX3NpZml2ZV9vcHM7Cj4gLQljaGlwLT5u
+cHdtID0gNDsKPgo+ICAJZGRhdGEtPnJlZ3MgPSBkZXZtX3BsYXRmb3JtX2lvcmVtYXBfcmVzb3Vy
+Y2UocGRldiwgMCk7Cj4gIAlpZiAoSVNfRVJSKGRkYXRhLT5yZWdzKSkKPiBAQCAtMjk2LDcgKzI5
+NSw3IEBAIHN0YXRpYyBpbnQgcHdtX3NpZml2ZV9wcm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNl
+ICpwZGV2KQo+ICAJCWdvdG8gdW5yZWdpc3Rlcl9jbGs7Cj4gIAl9Cj4KPiAtCXBsYXRmb3JtX3Nl
+dF9kcnZkYXRhKHBkZXYsIGRkYXRhKTsKPiArCXBsYXRmb3JtX3NldF9kcnZkYXRhKHBkZXYsIGNo
+aXApOwo+ICAJZGV2X2RiZyhkZXYsICJTaUZpdmUgUFdNIGNoaXAgcmVnaXN0ZXJlZCAlZCBQV01z
+XG4iLCBjaGlwLT5ucHdtKTsKPgo+ICAJcmV0dXJuIDA7Cj4gQEAgLTMxNCwxNSArMzEzLDE2IEBA
+IHN0YXRpYyBpbnQgcHdtX3NpZml2ZV9wcm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2
+KQo+Cj4gIHN0YXRpYyB2b2lkIHB3bV9zaWZpdmVfcmVtb3ZlKHN0cnVjdCBwbGF0Zm9ybV9kZXZp
+Y2UgKmRldikKPiAgewo+IC0Jc3RydWN0IHB3bV9zaWZpdmVfZGRhdGEgKmRkYXRhID0gcGxhdGZv
+cm1fZ2V0X2RydmRhdGEoZGV2KTsKPiArCXN0cnVjdCBwd21fY2hpcCAqY2hpcCA9IHBsYXRmb3Jt
+X2dldF9kcnZkYXRhKGRldik7Cj4gKwlzdHJ1Y3QgcHdtX3NpZml2ZV9kZGF0YSAqZGRhdGEgPSBw
+d21fc2lmaXZlX2NoaXBfdG9fZGRhdGEoY2hpcCk7Cj4gIAlzdHJ1Y3QgcHdtX2RldmljZSAqcHdt
+Owo+ICAJaW50IGNoOwo+Cj4gLQlwd21jaGlwX3JlbW92ZSgmZGRhdGEtPmNoaXApOwo+ICsJcHdt
+Y2hpcF9yZW1vdmUoY2hpcCk7Cj4gIAljbGtfbm90aWZpZXJfdW5yZWdpc3RlcihkZGF0YS0+Y2xr
+LCAmZGRhdGEtPm5vdGlmaWVyKTsKPgo+IC0JZm9yIChjaCA9IDA7IGNoIDwgZGRhdGEtPmNoaXAu
+bnB3bTsgY2grKykgewo+IC0JCXB3bSA9ICZkZGF0YS0+Y2hpcC5wd21zW2NoXTsKPiArCWZvciAo
+Y2ggPSAwOyBjaCA8IGNoaXAtPm5wd207IGNoKyspIHsKPiArCQlwd20gPSAmY2hpcC0+cHdtc1tj
+aF07Cj4gIAkJaWYgKHB3bS0+c3RhdGUuZW5hYmxlZCkKPiAgCQkJY2xrX2Rpc2FibGUoZGRhdGEt
+PmNsayk7Cj4gIAl9Cj4gLS0KPiAyLjQyLjAKPgo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiBsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
+bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1yaXNjdgo=
