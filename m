@@ -4,76 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4072C4167B
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 10:38:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6D4EC4167B
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Dec 2023 11:11:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PjbRWyX36ZXUWctMGR5Jj11fPowKheKY/GPdG4BBOc0=; b=1wzqMgIWl18+wU
-	iC6Xk9IpWFukRUO2NTtjY9uVDMkiW9UyF4pdUIh6kdcccIARhEvE5RUopHrzVEjHpd3Y6KHtuwf5c
-	sQZihXtoetwp4RBKwENDrvBtmsf3/JyvnDIFCRltXNNy7aO4F1OyV7jRtQgpAISTqRzWHyuj7tmP9
-	Pg8lcQJUzHZKrvEEqAvTF/bh/Pdcnxw2uGlWSIHZiGeiUEotPi8Vro2VNiMObRUCsD5CmNujVEqjm
-	QWui3LyOWQ7IW/10Qli7qSmDbrM/wCux8VR82veHLdchgVVG2oM3TcZNTjsFDAQsKChd1gOVZ5/Q7
-	m4qA9VN6DPTfemlseqwQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fwK9v6u07AIZE1cG4yK7e0puPoCfjhhwxvY7eoYFGJM=; b=vHuF9hGWsduW9k
+	O52cMHICP6lo3oOOZLJ8jcDuQLjLLO8iwH3694h058iOHzoQMe81pLk2zLWPj7uqYg2clhs6ALypA
+	Zvjouz8L82tcoMcpOLnDx3OUbi2JvT2e31Pre8OKGk78xL2V6cGYExuMkVcE7PrgnFhg3SZ19Cxcm
+	aQX6dAP6yyCEALQIF3z1Q0CYuVqCx0m3MF0UHFzMrw5nXRmsI2B7vw3O6NBzC2UkmMqenN4h2rL8y
+	jC9AV6MrnJKebsEvVl3bwhq72CYCmYDBq4R1n+o2uJRMpgtAitQcU8A5O1yU+EFCfqpy6/qvZYmIK
+	GxdaGNm1bzFvn/dA9RiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBYFr-00FHHb-1i;
-	Fri, 08 Dec 2023 10:38:47 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1rBYl1-00FMLw-3C;
+	Fri, 08 Dec 2023 11:10:59 +0000
+Received: from bg4.exmail.qq.com ([43.155.67.158])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBYFo-00FHGB-1Z
+	id 1rBYky-00FMEX-0E
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Dec 2023 10:38:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1702031924; x=1733567924;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=2EQm1WbcHBB0qSzV6W9atlXp3QWQx/LQ8hNLQCOVPww=;
-  b=Chx0TXiralSysK2ufVnIkDnm3a8IcJHrDwNaWmvog1U2OArhn7N43Ajb
-   6nlOK329PcJ878Afht075Ci8vC004cMD6pUDZDsEs9oLETNej0pC6gSAb
-   Yuzc19ckUO8FqSThKpsMAtbUF1hJf7/YUTf9S9DWngTvyzqXhMfB2upzS
-   WmTsVJVNOHruW9ea2WveqLeMPGLMtXod23WOKZzUrrLAI8+pa71XCT1ls
-   ovuZNfkDEbPEGTjkJmuu1pNBUbSpkWe3fq2ZL5+N6MlfMUDcyL61Nofrl
-   +Gn+kOp/uCFvsBs9fGvrqJ2tWvZe/vTC/vatL1Zw7bghurPZMlLbqh8mt
-   g==;
-X-CSE-ConnectionGUID: Cvz3gSbpStiroKFn2Lwqew==
-X-CSE-MsgGUID: TlwQAlMGSYWg/x1j129+hg==
-X-ThreatScanner-Verdict: Negative
-X-IronPort-AV: E=Sophos;i="6.04,260,1695711600"; 
-   d="scan'208";a="13864089"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 08 Dec 2023 03:38:40 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 8 Dec 2023 03:38:04 -0700
-Received: from microchip1-OptiPlex-9020.microchip.com (10.10.85.11) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Fri, 8 Dec 2023 03:37:59 -0700
-From: shravan chippa <shravan.chippa@microchip.com>
-To: <green.wan@sifive.com>, <vkoul@kernel.org>, <robh+dt@kernel.org>,
-	<krzysztof.kozlowski+dt@linaro.org>, <palmer@dabbelt.com>,
-	<paul.walmsley@sifive.com>, <conor+dt@kernel.org>
-CC: <dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<nagasuresh.relli@microchip.com>, <praveen.kumar@microchip.com>,
-	<shravan.chippa@microchip.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>
-Subject: [PATCH v5 3/4] dmaengine: sf-pdma: add mpfs-pdma compatible name
-Date: Fri, 8 Dec 2023 16:08:55 +0530
-Message-ID: <20231208103856.3732998-4-shravan.chippa@microchip.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20231208103856.3732998-1-shravan.chippa@microchip.com>
-References: <20231208103856.3732998-1-shravan.chippa@microchip.com>
+	Fri, 08 Dec 2023 11:10:58 +0000
+X-QQ-mid: bizesmtp69t1702033819tx63b91w
+Received: from localhost.localdomain ( [58.240.82.166])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 08 Dec 2023 19:10:17 +0800 (CST)
+X-QQ-SSF: 01200000000000B0B000000A0000000
+X-QQ-FEAT: HIVLo4mOhq54yA4OLFoMe1EM5ffJGUYpbwtVwR0aVb2Wr/FKPBIXiLzDRcTWG
+	OIph7+eMji4nK3Bm9+9R2C56dYXezaz0dIipH1Gcf/bRcDAGtVQheFhchN7bubTU4OhuI5Z
+	F9DyUzj+gU2wtpheFi8tSfxkzKHyEyzQpyRktOVkIwzlftynytYwscEnrCaNM0IS7pCA4WQ
+	I4ct+DAQZOgxysVdVDF8TCrGF9UW6Z4brCHDydwtKfDdeNcqxbFBpRvZU9vwpo/NzqgPCV6
+	u029vpL1XAKL1FUKjLY5W28Oo/7BZ1QEUayacnzx48XU3bQfGIv87wBWFNZX2sd7n3/n7om
+	wLEiSEYqo9vobF70ORgvS+0j7mOUg==
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 3233006858392869652
+From: Song Shuai <songshuaishuai@tinylab.org>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	guoren@kernel.org,
+	xianting.tian@linux.alibaba.com,
+	takahiro.akashi@linaro.org
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Song Shuai <songshuaishuai@tinylab.org>
+Subject: [PATCH -fixes] riscv: kexec: Avoid deadlock in kexec crash path
+Date: Fri,  8 Dec 2023 19:10:15 +0800
+Message-Id: <20231208111015.173237-1-songshuaishuai@tinylab.org>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz4a-0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231208_023844_535886_F135071C 
-X-CRM114-Status: GOOD (  15.50  )
+X-CRM114-CacheID: sfid-20231208_031056_440912_6D57AE8F 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,120 +76,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Shravan Chippa <shravan.chippa@microchip.com>
+If the kexec crash code is called in the interrupt context, the
+machine_kexec_mask_interrupts() function will trigger a deadlock while
+trying to acquire the irqdesc spinlock and then deacitive irqchip.
 
-Sifive platform dma (sf-pdma) has both in-order and out-of-order
-configurations but sf-pdam driver configured to do in-order DMA
-transfers, with out-of-order configuration got better throughput
-in the PolarFire SoC platform.
+To avoid the deadlock, this patch directly EOI the irq regardless of
+the active status of irqchip.
 
-Add a PolarFire SoC specific compatible and code to support
-for out-of-order dma transfers
-
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Signed-off-by: Shravan Chippa <shravan.chippa@microchip.com>
+Fixes: b17d19a5314a ("riscv: kexec: Fixup irq controller broken in kexec crash path")
+Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
 ---
- drivers/dma/sf-pdma/sf-pdma.c | 27 ++++++++++++++++++++++++---
- drivers/dma/sf-pdma/sf-pdma.h |  8 +++++++-
- 2 files changed, 31 insertions(+), 4 deletions(-)
+Note that:
+   
+1. this deadlock can reproduced via echo EXCEPTION to lkdtm INT_HW_IRQ_EN point
+   
+2. RISC-V HLIC and PLIC irqchips don't have the irq_set_irqchip_state handler
+and I don't know is it ok to deactive irqchip without the spinlock in this
+code context, so I simply removed that snippet as arm and powerpc do.
 
-diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
-index 6109e1c5a09e..428473611115 100644
---- a/drivers/dma/sf-pdma/sf-pdma.c
-+++ b/drivers/dma/sf-pdma/sf-pdma.c
-@@ -25,6 +25,8 @@
+I would like to listen to your advice.
+---
+ arch/riscv/kernel/machine_kexec.c | 10 +---------
+ 1 file changed, 1 insertion(+), 9 deletions(-)
+
+diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
+index f6c7135b00d7..d7ddf4d2b243 100644
+--- a/arch/riscv/kernel/machine_kexec.c
++++ b/arch/riscv/kernel/machine_kexec.c
+@@ -149,20 +149,12 @@ static void machine_kexec_mask_interrupts(void)
  
- #include "sf-pdma.h"
+ 	for_each_irq_desc(i, desc) {
+ 		struct irq_chip *chip;
+-		int ret;
  
-+#define PDMA_QUIRK_NO_STRICT_ORDERING   BIT(0)
-+
- #ifndef readq
- static inline unsigned long long readq(void __iomem *addr)
- {
-@@ -66,7 +68,7 @@ static struct sf_pdma_desc *sf_pdma_alloc_desc(struct sf_pdma_chan *chan)
- static void sf_pdma_fill_desc(struct sf_pdma_desc *desc,
- 			      u64 dst, u64 src, u64 size)
- {
--	desc->xfer_type = PDMA_FULL_SPEED;
-+	desc->xfer_type =  desc->chan->pdma->transfer_type;
- 	desc->xfer_size = size;
- 	desc->dst_addr = dst;
- 	desc->src_addr = src;
-@@ -493,6 +495,7 @@ static void sf_pdma_setup_chans(struct sf_pdma *pdma)
+ 		chip = irq_desc_get_chip(desc);
+ 		if (!chip)
+ 			continue;
  
- static int sf_pdma_probe(struct platform_device *pdev)
- {
-+	const struct sf_pdma_driver_platdata *ddata;
- 	struct sf_pdma *pdma;
- 	int ret, n_chans;
- 	const enum dma_slave_buswidth widths =
-@@ -518,6 +521,14 @@ static int sf_pdma_probe(struct platform_device *pdev)
+-		/*
+-		 * First try to remove the active state. If this
+-		 * fails, try to EOI the interrupt.
+-		 */
+-		ret = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
+-
+-		if (ret && irqd_irq_inprogress(&desc->irq_data) &&
+-		    chip->irq_eoi)
++		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+ 			chip->irq_eoi(&desc->irq_data);
  
- 	pdma->n_chans = n_chans;
- 
-+	pdma->transfer_type = PDMA_FULL_SPEED | PDMA_STRICT_ORDERING;
-+
-+	ddata  = device_get_match_data(&pdev->dev);
-+	if (ddata) {
-+		if (ddata->quirks & PDMA_QUIRK_NO_STRICT_ORDERING)
-+			pdma->transfer_type &= ~PDMA_STRICT_ORDERING;
-+	}
-+
- 	pdma->membase = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(pdma->membase))
- 		return PTR_ERR(pdma->membase);
-@@ -603,9 +614,19 @@ static void sf_pdma_remove(struct platform_device *pdev)
- 	dma_async_device_unregister(&pdma->dma_dev);
- }
- 
-+static const struct sf_pdma_driver_platdata mpfs_pdma = {
-+	.quirks = PDMA_QUIRK_NO_STRICT_ORDERING,
-+};
-+
- static const struct of_device_id sf_pdma_dt_ids[] = {
--	{ .compatible = "sifive,fu540-c000-pdma" },
--	{ .compatible = "sifive,pdma0" },
-+	{
-+		.compatible = "sifive,fu540-c000-pdma",
-+	}, {
-+		.compatible = "sifive,pdma0",
-+	}, {
-+		.compatible = "microchip,mpfs-pdma",
-+		.data	    = &mpfs_pdma,
-+	},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, sf_pdma_dt_ids);
-diff --git a/drivers/dma/sf-pdma/sf-pdma.h b/drivers/dma/sf-pdma/sf-pdma.h
-index d05772b5d8d3..215e07183d7e 100644
---- a/drivers/dma/sf-pdma/sf-pdma.h
-+++ b/drivers/dma/sf-pdma/sf-pdma.h
-@@ -48,7 +48,8 @@
- #define PDMA_ERR_STATUS_MASK				GENMASK(31, 31)
- 
- /* Transfer Type */
--#define PDMA_FULL_SPEED					0xFF000008
-+#define PDMA_FULL_SPEED					0xFF000000
-+#define PDMA_STRICT_ORDERING				BIT(3)
- 
- /* Error Recovery */
- #define MAX_RETRY					1
-@@ -112,8 +113,13 @@ struct sf_pdma {
- 	struct dma_device       dma_dev;
- 	void __iomem            *membase;
- 	void __iomem            *mappedbase;
-+	u32			transfer_type;
- 	u32			n_chans;
- 	struct sf_pdma_chan	chans[] __counted_by(n_chans);
- };
- 
-+struct sf_pdma_driver_platdata {
-+	u32 quirks;
-+};
-+
- #endif /* _SF_PDMA_H */
+ 		if (chip->irq_mask)
 -- 
-2.34.1
+2.20.1
 
 
 _______________________________________________
