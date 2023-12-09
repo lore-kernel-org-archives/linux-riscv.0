@@ -4,124 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F125CC4167B
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Dec 2023 00:46:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFF76C4167B
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Dec 2023 02:40:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:To:Subject:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zkvGllEofrMF5xQg2ndPHeWxZOGNSlkH1IahzJIislo=; b=3vY5jrmfNOTl1El2u4wjWumE2b
-	GrzDDRnq8v9MYWrZqPA9XQ+js9UlJCHVjkYL2BAc/rTkxA67ZTRz3fLfTyiwAuoEg6ijjVBApevgf
-	vPP0IAWrAl/jAu6fG62MVDUnZAPfce4E7YX0Cw9PcIkJA8qTJFimI9omJ2W/SEocsw9EF9q/3kzbC
-	IUbx5fQADL8l7DpaEvFmiI6VkDmbp2myniYnhL/bFzPkdLjDuaoj/fT2HMMXUYbyiQibd7XnLsPDX
-	UlOeW6yglzamzP0WqNnP7O5G4jcXg7HNFfCK3+QfUOdqAjMFrivtxvSbYpZvCzi+qC9aq+N1neRYN
-	ebNoOfoA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=oYiQHPqLqIIyjSDCpxvASLjA8r2xYgmExZ84OVIi5Ik=; b=KQEfx/wZm1VsH+
+	tBb+rEwVIJUZkpjf/OBwhjE4KrJPAz9duIa9/mcWIg1IFSX+Y0kYBTpE79PKlQ66W+heciJEsExqM
+	BTBuFZ6jLff5Q/zlHyZC7KrzJoKL3SutJjHmVs7HpSi81YZj8AZkNhczGql2PtJXqigrjjnxUE/DT
+	0kNwxviQCVDUeqCPhw1qrbn2fJtynMbgzFZVs+gCFpkeS112fZg82oCa5vYmMYuroz9V5+J+ceSqk
+	bry+gdIW61RK4Ek5eq0R/8cwCcZnmbWuMm0/i8126yyV4hXiaIUl+dechHPDhC7ngKHs998cWbXnf
+	+mXddXM+ezqLMri3VQEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBlTw-00Gq7z-2B;
-	Sat, 09 Dec 2023 00:46:12 +0000
-Received: from mail-bmxind01olkn20800.outbound.protection.outlook.com ([2a01:111:f403:281c::800] helo=IND01-BMX-obe.outbound.protection.outlook.com)
+	id 1rBnGU-00Gyo8-0w;
+	Sat, 09 Dec 2023 02:40:26 +0000
+Received: from mail-dm6nam10olkn2080c.outbound.protection.outlook.com ([2a01:111:f400:7e88::80c] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBlTu-00Gq7J-20
+	id 1rBnGR-00GymT-0h
 	for linux-riscv@lists.infradead.org;
-	Sat, 09 Dec 2023 00:46:11 +0000
+	Sat, 09 Dec 2023 02:40:25 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=G4jd7L+OzbasBI2hJODhy2aiY/wta8e3l3o4h3szXXQ/TJmnHLJOVraFE7kLoE/qirRjUp6icbJBKoL6FuHhiQ49fo/fpE+HZHQRsEatJh0sLkJXjA7/Iuu9VFy1wbwsYt4Ny1xJ2UfqRJgbM7sW+nwkmN01t5nyl9StW0vig9tFE4iPW/LFQFx8eiNXutOTUuqbZSYxfLEdaL4Mmrq1SNjBn3b1CktAHJyZSmt9Agf8lxTstwK+TfJHizDXOa4KRAzDQNv9i3TdGjIuNYW8OPueG4Bxsr+qIt+veEDEdBY+4tsQGM8WtsJ8tGUOhuQEAMKcVAj7XN/bgcZBQyR4/w==
+ b=fPQ2kNN6KsrnygJZ1/P6FP62hNfrMUX6fZGCcj4mM6CabLkB4uA1/vVhq2kjJC24wKYKCGijBmaxnfO/2ovI2f2CCXogOHUgueepmIVRAHIj3kytOU2rgzEbKMRp2LeVVfOhtR7v5wSOBBbM3p2S5QBXfsShlHKRvTJzfvLNi2kdpOgOAiXWQ0tmRJ3XZetMLosZkn/MzhfiRgdX4nnDfkkxm172hGS/ez0pPfROMXbLrGGLZbf93e4ryC1CC+TncOm/MU1YLaBFtZ+Cfv0MJhgcJ8zEF3/wIiubp2zOytTa2YtZgd1TttHqsANROsx54RCEnGN6TVLA7PpO/sLs6Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RmgnLS4VCRGBuq3sXj+wQhh4bgITo5oy1SjAc5yNCGE=;
- b=SfS6NJnsqmMwAoHosHlqeZSIHtx+afepANq1ae72z7eVoxQdWxaY08LOSB6jZ0XB1d+3VSbYrtQrj5RPos25QhBafYs7SvOzWahuHWfuBweyi69IxyNp0AR3IM+z19lEPthAMYr+pgBO3G2Pds9mBWSGWDVWHvR3DlX8eCCAe3HqQg1j+CzluqbBrmZtLeNsSggjuev6wkmaKMchHsTxXLoXWju1TeI8leeW6lDqXoS5ZTVi0hXA+vvo11H77iotfEtfeXuik/Tnof+b9cw85W4MiZ6gq1LLIYUIK9t/QHAGKMP4SBuS3go8A4oTW79omBxBRicoL5xL+9SSuEcLZQ==
+ bh=dmfhCQl0t3MqMem9Iod9wuRlkbu29Ec9PLNzLBwwq0I=;
+ b=I2GFUlcsKBD16xrcgJ9PxE5zLknaTKezF8Eq5qmp9otu4uCtHGsm1/YFFmzgq+597xvYKZEPcrCTAYKZHpeKpIy0S12ZxFL13KiEFbGy5S4Sde5bFb1P6awEtnMMsC5kvdPTuN2UC561h0o+2ZnRh5SdGSeso/dEfhbeVQrlxDnijWD69TdyfkOoS+grJRxNyU1IPulq7IUDKYNVxRws2gd+5LcW+bonhkwftH8O9W+rwub/tU8ZSHCerX/a6nid+oBIx06jK2zN9VXXYTp5sjZFgIJ+JGcZ5JEelSLfc8/Rbfr3RADgVeNdAN/8kGwjV9Ml/KLbHr1WBBcAkOIYkA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RmgnLS4VCRGBuq3sXj+wQhh4bgITo5oy1SjAc5yNCGE=;
- b=ibc7knpsosgN74kW67LIBA/98SAZFQvJ3vTY7KAt/ehYvJXgxZY/IdzO/Snmtaxppxj/DwC4h8sAywmxrTYyt+D+6Qit9EA2KQHtwhOEPUolCUrdF4TKuKoa5+UV+PRtjnCXjjBzwAWjYi2vSAMwGowUa83sVZDSy4L9PVVqlz4UnDKFMmeUBevPdcJK/056KdDHvxBIynB8EGtJFLfrwgKT0gf3KKMwTZv7DYdfkE7xl49ftqC93dTZ5OkZtJw2em20P37dijCxiwQUfO7PChkSDS33qXELCUVzAQC2x3Q4dA2MBPI5DcmA+WQ5j8Q2l13HrwuO5J9BxAzfEgmuIQ==
-Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:ab::5) by
- PN2P287MB1962.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:1c9::5) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.7068.29; Sat, 9 Dec 2023 00:45:46 +0000
-Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
- ([fe80::b1a7:eee7:e903:9ef3]) by MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
- ([fe80::b1a7:eee7:e903:9ef3%7]) with mapi id 15.20.7068.029; Sat, 9 Dec 2023
- 00:45:46 +0000
-Message-ID: <MA0P287MB0332B80557FB1BEF45C08D8BFE89A@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
-Date: Sat, 9 Dec 2023 08:45:37 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/4] clk: sophgo: Add SG2042 clock generator driver
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Chen Wang <unicornxw@gmail.com>, aou@eecs.berkeley.edu, chao.wei@sophgo.com,
- conor@kernel.org, krzysztof.kozlowski+dt@linaro.org,
- mturquette@baylibre.com, palmer@dabbelt.com, paul.walmsley@sifive.com,
- richardcochran@gmail.com, robh+dt@kernel.org, sboyd@kernel.org,
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com, guoren@kernel.org,
- jszhang@kernel.org, inochiama@outlook.com, samuel.holland@sifive.com
-References: <cover.1701938395.git.unicorn_wang@outlook.com>
- <975f9995584dfa8af751e96a1f4d2c7991551a35.1701938395.git.unicorn_wang@outlook.com>
- <c98c123f-1c07-4cfd-aeaf-ced7fe08cf42@linaro.org>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <c98c123f-1c07-4cfd-aeaf-ced7fe08cf42@linaro.org>
-X-TMN: [D8PTCm3vgJrUBVCDrDqPw64CWxBTLpwT]
-X-ClientProxiedBy: SI2PR04CA0011.apcprd04.prod.outlook.com
- (2603:1096:4:197::10) To MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:ab::5)
-X-Microsoft-Original-Message-ID: <77199b86-012c-4265-8c5d-1666c9b5d26c@outlook.com>
+ bh=dmfhCQl0t3MqMem9Iod9wuRlkbu29Ec9PLNzLBwwq0I=;
+ b=nRBiFT/KWU1xZfWd2hZHUTf1buu6ya/+y2osvY9AJSKGg2dVJGk/RIxYdILvidsTFBYqifxUfwptXCdYEzqxgzr1W4xFaLLwDjbOsTD6CG1CvsyCEw8O1BTLT2LdxrBF6gJ5hFC1U7kaNS8fMApTg1XB09WeQHfoZfwOTtuA6e0fAvYQyfG4h7fkAyKXR35IWD1C5apms10FQcqmLPUP8X4SHG5AW9suIHeI1yJXFG2t+LqGrkgalmHTsLuwz3ZoGShXSQXal5hoQrKxxDEuxKJ2z5As0m28Npa2xfldU9jRzFBSO7Zk9j9NweQ5rKW5JIRZrI+9rAdnzWH3xbdb6A==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by SA1PR20MB4538.namprd20.prod.outlook.com (2603:10b6:806:23e::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7068.28; Sat, 9 Dec
+ 2023 02:40:10 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::55b:c350:980:ad8]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::55b:c350:980:ad8%6]) with mapi id 15.20.7068.027; Sat, 9 Dec 2023
+ 02:40:10 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Inochi Amaoto <inochiama@outlook.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chao Wei <chao.wei@sophgo.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Liu Gui <kenneth.liu@sophgo.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	qiujingbao.dlmu@gmail.com,
+	dlan@gentoo.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 3/4] riscv: dts: sophgo: add clock generator for Sophgo CV1800 series SoC
+Date: Sat,  9 Dec 2023 10:40:11 +0800
+Message-ID: <IA1PR20MB4953AFF3A49DCEB60A624488BB89A@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20231208-overdue-reapprove-4b507f5f4262@spud>
+References: <20231208-overdue-reapprove-4b507f5f4262@spud>
+X-TMN: [QDO7VcOQqjDAcrpNnn8W3lmul3Sz0taK2ziP/3WGd0Q=]
+X-ClientProxiedBy: TYCPR01CA0209.jpnprd01.prod.outlook.com
+ (2603:1096:405:7a::14) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20231209024012.289516-1-inochiama@outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB0332:EE_|PN2P287MB1962:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5ab5f43e-9da0-45f6-47e0-08dbf8502ba1
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|SA1PR20MB4538:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9caa7708-7aa4-4ff1-1409-08dbf8602986
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 2cxeT9iY6sv2hvNcmcwU+1OLw+9ofzVzZcJE14T8Hvymu8/jI6tm0Q6ieUI5b80TNz7HdT8a44EXtN/idRpRr4J8OlK0VDb15SSDkPBER/9iXsWdSl2XFSCpdBlAQb1Amuyh9CeRcTS5ybgUzcebJW2GUGd+rRmgLqajADiTkNvptUvI5/dxw8zdnZzW5L+eod9Miux8QL06De2UQYx9CYZB6KYbg1y9pJP2lNIKW57flo4A3ZpkkjLpDlhlCcHAjE42ysgTq3zm5QC8miZymJbSB0YYtlQikXQE/fbus7cFBZ33DHOvEE/I8k5cbHnLhTNldn9e0jF+N8ljjmtWMJIQh+1Xh5t6P/XX4MwPXN3Od+uN7nf5NZF36VUQIZ3SPjwvonKr9XyEJkXLf/QJA91xsmm04Mqa01OWIYFLl2FWRnlJvzGPJTGaV0alsdf0s52fIF6SJwHOGltC9z8NXkQYTDyfLOnsrDierv+5bRwcHBHnOL36IeHcuN2aikMWgEKBrUh/QZkGeQV7wyfe4oxEcmf7TQyHsh9AP4jHXuQLFR03JlDleXRNfKvWQJHm
+X-Microsoft-Antispam-Message-Info: l5mq3FNnvFjA7s/s9W9TGKnMfeDHd6S7p/wVMyCAobrvEm7wILc9sKakWocNn2ZgcurlJ79P7xlmG1HisCsvNwmXcSV5synlwhH0pWi8P3CX3r9KtK2Nj/DPxFoakAPVBecH9w08RxFbTU5mnCSU8B5YH9GoB6x+fuBnQmwkN68CTkcwrqOf9q6duVnkQ09kkqfj4bl4pV/lTDXt45wY0Mqf6ualSa63mLQdsZrxso5dBcNu73/jivQ8AViqSIyHKimLaST6nLdVxZVj+L46jUuzDy9J2uUY3J7Uq1DO0jmq1jHiskeTr0l87RaXDc9JeKn5w/oKC1u37+I1H0AukCCWtCbgrmUQXmQIsmJzTfZgHGp8f8RSgGo4ipS/dS3OJ02MwqCgBLsugEJGWQV+DaYS2XQJEx1X3sX1yttFeTXDt7M3PTQuURaElTROoiJ+1mUGqVSO3y3qPLY1Ry5JUDijt9WSXq1bBGEI38Xtf/0dqPEYSmlYHGKsOGwsijKODDariXqHjHuQDnh/ZQbWSU5dc8XVAulF9yMhCgfsQjMR+4x8sFS602g5NE/KV0pBzsgNf+xCyWkF6uplI3ajbmcVIHtMWP8LeCMU26BEUXdtwVTWVWGhvO6aGeksBXPF
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y01rak1UWkJNdS9Mb3Zyak9MbjJOcXJtZ09Pczl1VTlHT3Y3QUVKTm9RVnd4?=
- =?utf-8?B?K0NtdjRGUVhXbE8xMWxBNHVaSW5Pbmd3czNoV3BwZlAzdDNLVHczSUpCc2tP?=
- =?utf-8?B?UjJNc1dZVHhzaVZWdzZIRXUzd3N1WWlHS29ydXVMcE02T2lza2JBbnpvbldu?=
- =?utf-8?B?OW1GdktVcGQvRTVVUDZid1ZrZ21aMGhha1Btenk1QSswSVVRQ2E3ZHVFbGVO?=
- =?utf-8?B?aGxQMDhoaW45eGkvS1JzR01uMWZCZmE1cVY5ejNVUlU3ZG5GdGdhc2Uwb1Zo?=
- =?utf-8?B?ay9yZW9CR1dTWFZrWHVDVElxTmNWWERUTG5zR1ZmNG1rbTVSTmZ6QWhWeW03?=
- =?utf-8?B?VzJSelE5enJERG9LR0N6Ry92eGp6RldJWk1Rb1BWN0FwaFl2YkdVdkw4b2tW?=
- =?utf-8?B?NU1SL01teUx3WVh1Rjc1d21oS1FScGc0dk5xa2x6NFJkT1NKbU1nRHlrQWNP?=
- =?utf-8?B?VldmN1IzcWJ3d0JOdDZtSHdWdmFiU1V5ZXhGc3VJSjRNVkZaWFlqek5FNUFr?=
- =?utf-8?B?NmJqZmRIakRua2F1cWxGSkprTy9YdWlKZVNTTEJnYUxiRW8zaGRNVThOVTBI?=
- =?utf-8?B?Qm1jTkxxakRpS1lDS1MvTGZoOXl5akhDWFpWYTJxZXNhMElnRmJLbXE1YkFk?=
- =?utf-8?B?OXA3Wk5RM2NvVkkwemFQNXJ2enlTbnRaQlg4Mm14bnA5ZXhlZlJSa2tFRnBk?=
- =?utf-8?B?Q291eDFWdW9GeUtVcXBGVDhBZGYxaEU3ZEhsUlo1TVFoa3BLQjMrU3BrbFZW?=
- =?utf-8?B?akpFanF5clV6OVE2ZUdUYWo0aXJjc3lkWFc1eWlKKzJZWkw4WlVyK0lrSlVP?=
- =?utf-8?B?enRpYVNPNE1KcG9pWWRvTmFzb3ZRWHJSN2JWMzJQcHVTSlBiRmRIMG91aGpY?=
- =?utf-8?B?dGs0TnN3ejY5cVVTWkt5Y3JlTzZyTGJKOVBtcjJjMk9keDRnVyswY210MlVN?=
- =?utf-8?B?M2lObnh0R3ZGR3daaDFEbkpTeUE5c1dFb2pWdm0vTDRHQVdIODQ1cHl1ekpt?=
- =?utf-8?B?NkRrT21nd1QxTHIyblQzNHlTSlM1Z2xoT2ZHVzhndnVpaUlwaWFlQXd4RWVu?=
- =?utf-8?B?N3VlUHRxVVpzOGNCTXJmTEdmWDJ6RG9FZUsrbVdYRDh6c2x1ZHRhaGRzS1Qx?=
- =?utf-8?B?YnZkdXZBT2EzcmIxWmlpaU5GQkVBclAvOU1HTWUxZlJhMjdSQzBQYUpLKzBS?=
- =?utf-8?B?Q3hEUDZPTTNpZWhZNnUxL2l4RGFpZ1RXV3J3UnJ4NWE0YkV5TUdhczVMVFli?=
- =?utf-8?B?dGRwNzFSWDY3cDRBc051TVFzL2lkTzBleVc3MVV5R0U3RUVEejdVejQ3OXBr?=
- =?utf-8?B?eGZ6U1IvK3pEbjNXOEEzN1d0RE15L1VxTmhPd0I3dUMrM3hIME1zSGhzRVJh?=
- =?utf-8?B?Mk9ZdHZVL0Mza1lIeXoxY3Q0M2pPdzFQQVAzcUdoemNzeVpFZ0ZKSnBRNjdp?=
- =?utf-8?B?dlp4ZG5VaHFURUwxWGRoL1NjYVdPNk1HY0Npd002Wk84dnc1dVJYNFNjcVlp?=
- =?utf-8?B?VlF0NCtLYy9xZHJ6YVFhR3BSUEdtU3ZBVUJwMjRFZ1B3VUhkUnZZQVZxT1Ns?=
- =?utf-8?B?OUZWUkJoQzdFZ3pJbWFGSi95RHZ2LytvRHRXamRvdFpraWRZSUozeTM2aEV6?=
- =?utf-8?Q?N7X/1YPo5W2Pd0gok/2yG21avXmTexjvF3QUhgF/oCaY=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Dq0leT+lrdBubbRtYr0TqDChUC92ANdM10oOWMK+PdqX3Yc4HTfHkPe9vEk5?=
+ =?us-ascii?Q?CVNICeY8/nh83uE3wHB/Tl4fOq7trtcs09C4bier4mtdvlZOqmne0Om9dGzO?=
+ =?us-ascii?Q?8fvz/l1/PQLMDEqzCE7bwo1rS3j+X7y3utwbluOQc8jRoUVK02Kz1jqH1ECw?=
+ =?us-ascii?Q?pUetk8kmyO5lPMqqlMbTxXzNBDbri9Xyn0BDk6zc5Ri5K1f2l1pAXVulekyZ?=
+ =?us-ascii?Q?Tjm/ur3jpb8mrgRdIaw2EtbgBtAtyRkDjb6lnZc/gPYcvlO1kqIbozuqhvao?=
+ =?us-ascii?Q?FudGTKIkBnb5HPG8uCC1LfeZ6sDaSo8AnfupSr8W6SMKwsdbGmqOJpNkSPvH?=
+ =?us-ascii?Q?UJ5r/y5GNLGEUs7twuttLFJWGVJPAlVkJndJtMkzf6ZpJq/rtxSyS0MqD8AE?=
+ =?us-ascii?Q?ebENo2sJvg35jbP9b58dC4lE0GOuzEeSSVMyyj5MNJFAv6+7ifaaJDs/I9CF?=
+ =?us-ascii?Q?JDRM4ECGciyaQeNBGOiM9xviGx+D4RgdQn8TOSKpwBSSMg2IZaLmrU8NQYiB?=
+ =?us-ascii?Q?NJQuKn/2KzxkWpaK1JiQzcYKBpZxXoQz8gvbRRxrMkPMb/mwkvBH4Tg9DzRH?=
+ =?us-ascii?Q?/uiJKzvpbCW2Kk4wpzBLsJBfxrtc1h9R00lQZaCQRK6VdSkMvW7/hXYpLtt/?=
+ =?us-ascii?Q?I8yDAM+UoFCw8QgO5tgTCSzDTmWOegfaZG2t6g3EdfkhoY3A/bC+i0aNOHql?=
+ =?us-ascii?Q?Qg+pfa4uo3lG+/oeyDZiuE4uqWdzKZYN9BsjOSRvTCc8K8ORZt0qH9+8FoY+?=
+ =?us-ascii?Q?pkdxsfUeLNU/asDCqNWoiEW2tUUjNQB2X79cjEHHxHW4PqUwf6WMMFr5EBBV?=
+ =?us-ascii?Q?zJxetxpVnOhMbJ8Lbk67vbVshGGQzdOEdrci2w0G8FarNq3TyJzhdeq0s8or?=
+ =?us-ascii?Q?/eqPnbLZzM3Ea4jNv6HoL3pxUmVg6K/qrUic+uLQG9GLVK5cWGUA+vYv82Ks?=
+ =?us-ascii?Q?Oj4/DoBwvTlR7jrOuFiJZZKBH2vNDdtsHm2DvtS/GTn05G78/RJ1TKp6dgWs?=
+ =?us-ascii?Q?CtSjmnuWxCqt2wIgasD7aw8TBHcro9tShZ8nxZmbwSmWJ3Gkx3yogxtCZepV?=
+ =?us-ascii?Q?y6tTm8CC1a8YhiPgheLrRapo2BaJmmStrrinqlBdnc33j1vJWdOy84wSx4CR?=
+ =?us-ascii?Q?YHPBML76vm7BXpBbWaJxM51G7IFu2v074aE7FvGR63zZsvTPlE6kLje/TWLa?=
+ =?us-ascii?Q?Bwpt+4i55MuKSwxi7k796sMYY+wWFs5WAie/gIvZDd1oztt+EYgEh3ONbQA?=
+ =?us-ascii?Q?=3D?=
 X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5ab5f43e-9da0-45f6-47e0-08dbf8502ba1
-X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9caa7708-7aa4-4ff1-1409-08dbf8602986
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Dec 2023 00:45:45.0773
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Dec 2023 02:40:10.3501
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN2P287MB1962
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR20MB4538
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231208_164610_658491_DF1F2C58 
-X-CRM114-Status: UNSURE (   6.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231208_184023_388429_393F56C0 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,25 +138,143 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+>
+>On Fri, Dec 08, 2023 at 09:13:34AM +0800, Inochi Amaoto wrote:
+>>> On Thu, Dec 07, 2023 at 01:52:16PM +0100, Krzysztof Kozlowski wrote:
+>>>> On 07/12/2023 10:42, Inochi Amaoto wrote:
+>>>>>>> +&clk {
+>>>>>>> +	compatible = "sophgo,cv1810-clk";
+>>>>>>> +};
+>>>>>>> diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+>>>>>>> index 2d6f4a4b1e58..6ea1b2784db9 100644
+>>>>>>> --- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+>>>>>>> +++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+>>>>>>> @@ -53,6 +53,12 @@ soc {
+>>>>>>>  		dma-noncoherent;
+>>>>>>>  		ranges;
+>>>>>>>
+>>>>>>> +		clk: clock-controller@3002000 {
+>>>>>>> +			reg = <0x03002000 0x1000>;
+>>>>>>> +			clocks = <&osc>;
+>>>>>>> +			#clock-cells = <1>;
+>>>>>>
+>>>>>> I don't find such layout readable and maintainable. I did some parts
+>>>>>> like this long, long time ago for one of my SoCs (Exynos54xx), but I
+>>>>>> find it over time unmaintainable approach. I strongly suggest to have
+>>>>>> compatible and other properties in one place, so cv1800 and cv1812, even
+>>>>>> if it duplicates the code.
+>>>>>>
+>>>>>
+>>>>> Hi Krzysztof:
+>>>>>
+>>>>> Thanks for your advice, but I have a question about this: when I should
+>>>>> use the DT override? The memory mapping of the CV1800 and CV1810 are
+>>>>> almost the same (the CV1810 have more peripheral and the future SG200X
+>>>>> have the same layout). IIRC, this is why conor suggested using DT override
+>>>>> to make modification easier. But duplicating node seems to break thiS, so
+>>>>> I's pretty confused.
+>>>>
+>>>> Go with whatever your subarchitecture and architecture maintainers
+>>>> prefer, I just shared my opinion that I find such code difficult to read
+>>>> and maintain.
+>>>>
+>>>> Extending node with supplies, pinctrl or even clocks would be readable.
+>>>> But the compatible: no. The same applies when you need to delete
+>>>> property or subnode: not readable/maintainable IMHO.
+>>>
+>>> There are apparently 3 or 4 of these SoCs that are basically identical,
+>>> which is why the approach was taken. I do agree that it looks somewhat
+>>> messy because I was looking for device-specific compatibles for these
+>>> SoCs.
+>>>
+>>
+>> I agree that this may be messy. But it might still be acceptable if we
+>> limit the number of devices in this format.
+>>
+>> IIRC, only clint, plic, clk, maybe pinmux only needs different compatible.
+>> For more complex device, such as tpu and codec, I agree with duplicating
+>> nodes and make them SoC specific.
+>
+>Okay. We will see how it goes. We are not stuck doing it one way, we can
+>revisit the decision later if things start to be confusing.
+>
+>>
+>> As for this patch, I have already adjusted the order of clock to ensure
+>> the compatible among different SoCs. This will make the clock assignment
+>> easier.
+>
+>
+>On Fri, Dec 08, 2023 at 09:13:34AM +0800, Inochi Amaoto wrote:
+>>> On Thu, Dec 07, 2023 at 01:52:16PM +0100, Krzysztof Kozlowski wrote:
+>>>> On 07/12/2023 10:42, Inochi Amaoto wrote:
+>>>>>>> +&clk {
+>>>>>>> +	compatible = "sophgo,cv1810-clk";
+>>>>>>> +};
+>>>>>>> diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+>>>>>>> index 2d6f4a4b1e58..6ea1b2784db9 100644
+>>>>>>> --- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+>>>>>>> +++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+>>>>>>> @@ -53,6 +53,12 @@ soc {
+>>>>>>>  		dma-noncoherent;
+>>>>>>>  		ranges;
+>>>>>>>
+>>>>>>> +		clk: clock-controller@3002000 {
+>>>>>>> +			reg = <0x03002000 0x1000>;
+>>>>>>> +			clocks = <&osc>;
+>>>>>>> +			#clock-cells = <1>;
+>>>>>>
+>>>>>> I don't find such layout readable and maintainable. I did some parts
+>>>>>> like this long, long time ago for one of my SoCs (Exynos54xx), but I
+>>>>>> find it over time unmaintainable approach. I strongly suggest to have
+>>>>>> compatible and other properties in one place, so cv1800 and cv1812, even
+>>>>>> if it duplicates the code.
+>>>>>>
+>>>>>
+>>>>> Hi Krzysztof:
+>>>>>
+>>>>> Thanks for your advice, but I have a question about this: when I should
+>>>>> use the DT override? The memory mapping of the CV1800 and CV1810 are
+>>>>> almost the same (the CV1810 have more peripheral and the future SG200X
+>>>>> have the same layout). IIRC, this is why conor suggested using DT override
+>>>>> to make modification easier. But duplicating node seems to break thiS, so
+>>>>> I's pretty confused.
+>>>>
+>>>> Go with whatever your subarchitecture and architecture maintainers
+>>>> prefer, I just shared my opinion that I find such code difficult to read
+>>>> and maintain.
+>>>>
+>>>> Extending node with supplies, pinctrl or even clocks would be readable.
+>>>> But the compatible: no. The same applies when you need to delete
+>>>> property or subnode: not readable/maintainable IMHO.
+>>>
+>>> There are apparently 3 or 4 of these SoCs that are basically identical,
+>>> which is why the approach was taken. I do agree that it looks somewhat
+>>> messy because I was looking for device-specific compatibles for these
+>>> SoCs.
+>>>
+>>
+>> I agree that this may be messy. But it might still be acceptable if we
+>> limit the number of devices in this format.
+>>
+>> IIRC, only clint, plic, clk, maybe pinmux only needs different compatible.
+>> For more complex device, such as tpu and codec, I agree with duplicating
+>> nodes and make them SoC specific.
+>
+>Okay. We will see how it goes. We are not stuck doing it one way, we can
+>revisit the decision later if things start to be confusing.
+>
 
-On 2023/12/9 1:36, Krzysztof Kozlowski wrote:
-> On 07/12/2023 09:58, Chen Wang wrote:
->> From: Chen Wang <unicorn_wang@outlook.com>
+Yes, now let's see what will happen and then improve it.
+
 >>
->> Add a driver for the SOPHGO SG2042 clock generator.
->>
->> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
-> Your driver still at v5 has so many build issues... please be sure there
-> are no new warnings reported.
-Yes, I also noticed these build issues and had a quick fix with v6, 
-please review v6. Sorry for the confusion.
-> Best regards,
-> Krzysztof
+>> As for this patch, I have already adjusted the order of clock to ensure
+>> the compatible among different SoCs. This will make the clock assignment
+>> easier.
 >
 
 _______________________________________________
