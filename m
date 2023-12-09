@@ -4,95 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6622C4167B
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Dec 2023 03:15:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7EECC10DC3
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Dec 2023 04:51:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:
-	In-reply-to:Subject:Cc:To:From:References:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=WEPLLKcE7TCNsejQTARwafsvwoc8T3XwGwdZFhWY9jU=; b=GnrNxfKKWBLs26fz3jK/pKgb6x
-	05q7vp08fmYat20TOGjpJxVfRVFIfzBagUhjUgCBzl3ZZGXGst5LvsZa3gEpb74pMjSXUnS0Tayj2
-	B0E+1JVG3mWlYxJQS8qfEgZl2JwL1t0gC3Kn9SgRWNtUqlvB3xzAcp3p2l5/0uAv7JVnwzTdRy01l
-	/se8IDFFpIapak6qkcNjMwhgGD+GFqrBSVzroYxX4kmzCTbrxMjl9cEse27Ebm7TEKBVba+aYDYYY
-	KcgOgV6z7dD4ljOSf/i16DkUq+mdto4dllgjvT0pv0WvbVjD94SQE15uiCKnHefa0pHf2KFLO5qhg
-	Qv2JfEuw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1f82oFamTD7Z7N36+GRNW4GolPsMvv/D3ZwuYabZUXM=; b=FB3apXDe3WtD+0
+	A6WNvADGEkaQpAVPjH5J1sY6TYrezsLxobgJ4b14+71p5bxzUHXGhXN58LZ226LV/U0e9nN6WN4yZ
+	0fXsiyPI9TePLwq7wdpemuo6Xwl90rrR19kwc8OkT9c+M1NwF6q+oUdi/TTJ2Qy0v73bf7EFbWQTk
+	OUWSpvzhju/QPuGRYgoR+ZS/wELen6dan0mo4YCxzReVigfzXdNwZpCByjl6N/pQE7U6U4UKPrc5+
+	xZVv//iwZH5M+ryf4Gkt8MbWuerP8YUVDtOFn8xaDYNVmcR3Pm/mnJR1xabHVI3u4viFbNWtIO5KX
+	gnITr0YTjVZCNFzukjwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBnoR-00H0Wq-24;
-	Sat, 09 Dec 2023 03:15:31 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1rBpJY-00H6RT-2B;
+	Sat, 09 Dec 2023 04:51:44 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rBnoN-00H0Vu-1i
+	id 1rBpJW-00H6Qo-1N
 	for linux-riscv@lists.infradead.org;
-	Sat, 09 Dec 2023 03:15:29 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-5c210e34088so2238091a12.2
-        for <linux-riscv@lists.infradead.org>; Fri, 08 Dec 2023 19:15:26 -0800 (PST)
+	Sat, 09 Dec 2023 04:51:43 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3332efd75c9so2567119f8f.2
+        for <linux-riscv@lists.infradead.org>; Fri, 08 Dec 2023 20:51:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1702091726; x=1702696526; darn=lists.infradead.org;
-        h=mime-version:message-id:date:in-reply-to:subject:cc:to:from
-         :user-agent:references:from:to:cc:subject:date:message-id:reply-to;
-        bh=2b+6n+ULng3a579Szt1kcCIxHSrZ+D7LmH/Z+vqyyTE=;
-        b=GjKKUpl4RwYPZ6E+ckj2tPV4VRmbSJ2QpRCGtCvkcqC4/BAG07eja3UbobaEK8cUkh
-         SjpYBPHvZRywKeXKSn5rFvkf9jordFheQsuWFgmwMZQvR2VzG6G7uelmdHPEd/7ur5Ft
-         EEj5RONMSa+vETr6YalRD1foOD7K32Vu6x4AhirtxKXvgxdsolgWspApEJ3leOywJhjJ
-         aBCf2g6JxEe0WXzh+SP2HPNVWNw0bNhTLLfgfsb2d/Yomdo8mbSDxEavdcVfdMbzajti
-         SZ+3PraAsT1VYXMn/G1pk+W7ISfUU2/0uEj0G0NukW8vbtPgtexF5doPJHqI7LtjDZx9
-         dE3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702091726; x=1702696526;
-        h=mime-version:message-id:date:in-reply-to:subject:cc:to:from
-         :user-agent:references:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1702097499; x=1702702299; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=2b+6n+ULng3a579Szt1kcCIxHSrZ+D7LmH/Z+vqyyTE=;
-        b=kSaprp2KI5tQ9eUpgrFm76Qetww1+IxtErbdZnfulAF4kuKJImC8mRlasCTcu5e2XU
-         c8Z0BWg6I+6X2dwIl/jvAVDjvgbL02EhuVeQIUaquDhDNlclz4TAvrC62fZHdGKzRf95
-         MkQkElFi5DxJ5//UDGpLHcALnvXI7MC0T1hawQsJG6KWRIiQXXgPoIP/vn0oR4bpu3Ys
-         fWHxHK9Lw/OlTDlAW65FLMQBy0D3DcTlojw6408YFukArhxgFsJ6zT7ZZXz04BR3ekSy
-         nu8QIKEKZbF2Bc0xL+Ht8JptqkLOeOJYbo2GtJTM9t+w5/Lo6CopnpHAKwFx34GFL01b
-         OLpg==
-X-Gm-Message-State: AOJu0Yx27VHrz3vXOnU9L6zpSTFM47/8zH5Id7oDXcosK/L5PawgBVDP
-	AvRkmizugHa/UYSpLC3BzkKzeg==
-X-Google-Smtp-Source: AGHT+IEaUnkmb6VMOC1ZmV7RhknH3M28z+3B6TqVq+yqgnnJz1v02mq63uTBtrSHn4oV4teABtH6uA==
-X-Received: by 2002:a05:6a20:f390:b0:190:6920:e14b with SMTP id qr16-20020a056a20f39000b001906920e14bmr1018200pzb.122.1702091725612;
-        Fri, 08 Dec 2023 19:15:25 -0800 (PST)
-Received: from localhost ([2804:14d:7e39:8470:4c58:a216:27d2:2ff])
-        by smtp.gmail.com with ESMTPSA id x22-20020a056a00271600b006be5af77f06sm2330693pfv.2.2023.12.08.19.15.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 Dec 2023 19:15:25 -0800 (PST)
-References: <20231122-arm64-gcs-v7-0-201c483bd775@kernel.org>
- <20231122-arm64-gcs-v7-24-201c483bd775@kernel.org>
-User-agent: mu4e 1.10.8; emacs 29.1
-From: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Andrew Morton
- <akpm@linux-foundation.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton
- <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, Suzuki K
- Poulose <suzuki.poulose@arm.com>, Arnd Bergmann <arnd@arndb.de>, Oleg
- Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, Kees
- Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>, "Rick P.
- Edgecombe" <rick.p.edgecombe@intel.com>, Deepak Gupta
- <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>, Szabolcs Nagy
- <Szabolcs.Nagy@arm.com>, "H.J. Lu" <hjl.tools@gmail.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Florian Weimer <fweimer@redhat.com>, Christian
- Brauner <brauner@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, kvmarm@lists.linux.dev,
- linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-mm@kvack.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v7 24/39] arm64/signal: Set up and restore the GCS
- context for signal handlers
-In-reply-to: <20231122-arm64-gcs-v7-24-201c483bd775@kernel.org>
-Date: Sat, 09 Dec 2023 00:15:22 -0300
-Message-ID: <8734wcgj79.fsf@linaro.org>
+        bh=E9jLsGhfGkMZnWhDYfHQ0jvQvXqjfciOlusSLK9GhRY=;
+        b=adHFhNbgmBzp9lnF129weXLrNjxDsuw2uezdEvv107aZ4wq7ghpIIp6sJOCT2nIV+W
+         bMjyWZx+BrD6QCVhPI9rz+poe8tdBBJciQ5qm82VqC5iKRKvvhNE5kPW4S7HtTA6OU0+
+         tWYaJCoIBdU55WohXZ1AxyRPRMNgRtUeOnnGEBk0xoT6dm4icBZNK34bcyyQ0Mz5hgzt
+         XUJgMtmYs7lKCqO0OAOGmlEMzrwxxFZpUj2iq25FvfY2HKbokyToa6R5c+nJwkN6J9gr
+         j0lQsDak/X1U2DCCN7Jdaw4ZKFcfz7gdbBFRARuePKweg3tpZQs1nbgWP+hiz7DgdpOS
+         iLiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1702097499; x=1702702299;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=E9jLsGhfGkMZnWhDYfHQ0jvQvXqjfciOlusSLK9GhRY=;
+        b=BxXS77kv2DmViZeEa4Dyg85HIfOHjE5mWvxrpYzVTgAWx6jpcxvRGoFauBWQHGybDB
+         dUNWwuPshzEdneOhh3vn4paOc5865dC6mN9MqUloDGkSJua/h9/WH0OlfzZY81MYSAW4
+         6/GR3S0QtGWhKKnD4hhQS5XWZQSn6ookiUvNJ/JiV0NeuOICx/7AeYG2LCFwfj1CE35r
+         FFKDk4cw48VEqfhnAzJbRPTfT+pSxiV4sXSivH4lifP6NPYheaCi68ZQAF+jHRmmMPXU
+         3L1uXtiOhDdzzQGmtCOJ4DZnehY6zC2Ui/b4c/SxgtoS8lfo83078/VeXse0KmIPI7VM
+         NtoQ==
+X-Gm-Message-State: AOJu0Yyfxio/gEZYDh/r8f+kh9w3cVuAthRJNddUOwUGnzwB+bQNEX3I
+	BaF3sbjUfHgAu/psikqjxFmY8LvRU7Eb+wOoERE=
+X-Google-Smtp-Source: AGHT+IGWegoXbG6riU09aOxjScmI6QdU76ibtag8Pupqd8K6QoQZC3fgz8qhZUFCULCtLMsl2YQJg9oU3fR3idrWio4=
+X-Received: by 2002:adf:ce8d:0:b0:333:49a8:73e4 with SMTP id
+ r13-20020adfce8d000000b0033349a873e4mr197659wrn.201.1702097499187; Fri, 08
+ Dec 2023 20:51:39 -0800 (PST)
 MIME-Version: 1.0
+References: <20231207093105.GA28727@noisy.programming.kicks-ass.net>
+ <ivhrgimonsvy3tyj5iidoqmlcyqvtsh2ay3cm3ouemsdbvjzs4@6jlt6zv55tgh>
+ <20231208102940.GB28727@noisy.programming.kicks-ass.net> <20231208134041.GD28727@noisy.programming.kicks-ass.net>
+ <20231208172152.GD36716@noisy.programming.kicks-ass.net> <CAADnVQKsnZfFomQ4wTZz=jMZW5QCV2XiXVsi64bghHkAjJtcmA@mail.gmail.com>
+ <20231208203535.GG36716@noisy.programming.kicks-ass.net> <CAADnVQJzCw=qcG+jHBYG0q0SxLPkwghni0wpgV4A4PkpgVbGPw@mail.gmail.com>
+ <20231208205241.GK28727@noisy.programming.kicks-ass.net> <CAADnVQL3KsJONShsstDq5jrpbc_4FOU-VQPJgDCt50N9asoFzA@mail.gmail.com>
+ <20231208224557.GH36716@noisy.programming.kicks-ass.net>
+In-Reply-To: <20231208224557.GH36716@noisy.programming.kicks-ass.net>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Fri, 8 Dec 2023 20:51:27 -0800
+Message-ID: <CAADnVQ+Z7UcXXBBhMubhcMM=R-dExk-uHtfOLtoLxQ1XxEpqEA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] x86/cfi,bpf: Fix BPF JIT call
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Jiri Olsa <olsajiri@gmail.com>, Song Liu <song@kernel.org>, 
+	Song Liu <songliubraving@meta.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>, 
+	"H. Peter Anvin" <hpa@zytor.com>, "David S. Miller" <davem@davemloft.net>, David Ahern <dsahern@kernel.org>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Sami Tolvanen <samitolvanen@google.com>, 
+	Kees Cook <keescook@chromium.org>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	LKML <linux-kernel@vger.kernel.org>, Network Development <netdev@vger.kernel.org>, 
+	bpf <bpf@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>, 
+	clang-built-linux <llvm@lists.linux.dev>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	Joao Moreira <joao@overdrivepizza.com>, Mark Rutland <mark.rutland@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231208_191527_571416_BD63F777 
-X-CRM114-Status: GOOD (  31.27  )
+X-CRM114-CacheID: sfid-20231208_205142_465431_4801D282 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,227 +104,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-Mark Brown <broonie@kernel.org> writes:
-
-> +static bool gcs_signal_cap_valid(u64 addr, u64 val)
-> +{
-> +	/*
-> +	 * The top bit should be set, this is an invalid address for
-> +	 * EL0 and will only be set for caps created by signals.
-> +	 */
-> +	if (!(val & GCS_SIGNAL_CAP_FLAG))
-> +		return false;
-> +
-> +	/* The rest should be a standard architectural cap token. */
-> +	val &= ~GCS_SIGNAL_CAP_FLAG;
-> +
-> +	/* The cap must have the low bits set to a token value */
-> +	if (GCS_CAP_TOKEN(val) != 0)
-> +		return false;
-
-I found the comment above a little confusing, since the if condition
-actually checks that low bits aren't set at all. Perhaps reword to
-something like "The token value of a signal cap must be 0"?
-
-> +
-> +	/* The cap must store the VA the cap was stored at */
-> +	if (GCS_CAP_ADDR(addr) != GCS_CAP_ADDR(val))
-> +		return false;
-> +
-> +	return true;
-> +}
-> +#endif
-> +
->  /*
->   * Do a signal return; undo the signal stack. These are aligned to 128-bit.
->   */
-> @@ -815,6 +847,45 @@ static int restore_sigframe(struct pt_regs *regs,
->  	return err;
->  }
->  
-> +#ifdef CONFIG_ARM64_GCS
-> +static int gcs_restore_signal(void)
-> +{
-> +	u64 gcspr_el0, cap;
-> +	int ret;
-> +
-> +	if (!system_supports_gcs())
-> +		return 0;
-> +
-> +	if (!(current->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE))
-> +		return 0;
-> +
-> +	gcspr_el0 = read_sysreg_s(SYS_GCSPR_EL0);
-> +
-> +	/*
-> +	 * GCSPR_EL0 should be pointing at a capped GCS, read the cap...
-> +	 */
-> +	gcsb_dsync();
-> +	ret = copy_from_user(&cap, (__user void*)gcspr_el0, sizeof(cap));
-> +	if (ret)
-> +		return -EFAULT;
-> +
-> +	/*
-> +	 * ...then check that the cap is the actual GCS before
-> +	 * restoring it.
-> +	 */
-> +	if (!gcs_signal_cap_valid(gcspr_el0, cap))
-> +		return -EINVAL;
-> +
-> +	current->thread.gcspr_el0 = gcspr_el0 + sizeof(cap);
-> +	write_sysreg_s(current->thread.gcspr_el0, SYS_GCSPR_EL0);
-
-At this point, there's an inactive but valid cap just below the GCS.
-Over time, as different signals are received when the GCSPR is pointing
-at different locations of the stack, there could be a number of valid
-inactive caps available for misuse.
-
-I'm still not proficient enough in GCS to know how exactly this could be
-abused (e.g., somehow writing the desired return location right above
-one of these inactive caps and arranging for GCSPR to point to the cap
-before returning from a signal) but to be safe or paranoid, perhaps zero
-the location of the cap before returning?
-
-> +
-> +	return 0;
-> +}
-> +
-> +#else
-> +static int gcs_restore_signal(void) { return 0; }
-> +#endif
-> +
->  SYSCALL_DEFINE0(rt_sigreturn)
->  {
->  	struct pt_regs *regs = current_pt_regs();
-> @@ -841,6 +912,9 @@ SYSCALL_DEFINE0(rt_sigreturn)
->  	if (restore_altstack(&frame->uc.uc_stack))
->  		goto badframe;
->  
-> +	if (gcs_restore_signal())
-> +		goto badframe;
-> +
->  	return regs->regs[0];
->  
->  badframe:
-> @@ -1071,7 +1145,50 @@ static int get_sigframe(struct rt_sigframe_user_layout *user,
->  	return 0;
->  }
->  
-> -static void setup_return(struct pt_regs *regs, struct k_sigaction *ka,
-> +#ifdef CONFIG_ARM64_GCS
-> +
-> +static int gcs_signal_entry(__sigrestore_t sigtramp, struct ksignal *ksig)
-
-The ksig argument is unused, so it can be removed.
-
-> +{
-> +	unsigned long __user *gcspr_el0;
-> +	int ret = 0;
-> +
-> +	if (!system_supports_gcs())
-> +		return 0;
-> +
-> +	if (!task_gcs_el0_enabled(current))
-> +		return 0;
-> +
-> +	/*
-> +	 * We are entering a signal handler, current register state is
-> +	 * active.
-> +	 */
-> +	gcspr_el0 = (unsigned long __user *)read_sysreg_s(SYS_GCSPR_EL0);
-> +
-> +	/*
-> +	 * Push a cap and the GCS entry for the trampoline onto the GCS.
-> +	 */
-> +	put_user_gcs((unsigned long)sigtramp, gcspr_el0 - 2, &ret);
-> +	put_user_gcs(GCS_SIGNAL_CAP(gcspr_el0 - 1), gcspr_el0 - 1, &ret);
-> +	if (ret != 0)
-> +		return ret;
-> +
-> +	gcsb_dsync();
-> +
-> +	gcspr_el0 -= 2;
-> +	write_sysreg_s((unsigned long)gcspr_el0, SYS_GCSPR_EL0);
-> +
-> +	return 0;
-> +}
-> +#else
-> +
-> +static int gcs_signal_entry(__sigrestore_t sigtramp, struct ksignal *ksig)
-> +{
-> +	return 0;
-> +}
-> +
-> +#endif
-> +
-> +static int setup_return(struct pt_regs *regs, struct ksignal *ksig,
->  			 struct rt_sigframe_user_layout *user, int usig)
-
-Since the ksig argument isn't used by gcs_signal_entry(), setup_return()
-can keep the ka argument and the changes below from ka to ksic->ka are
-unnecessary.
-
->  {
->  	__sigrestore_t sigtramp;
-> @@ -1079,7 +1196,7 @@ static void setup_return(struct pt_regs *regs, struct k_sigaction *ka,
->  	regs->regs[0] = usig;
->  	regs->sp = (unsigned long)user->sigframe;
->  	regs->regs[29] = (unsigned long)&user->next_frame->fp;
-> -	regs->pc = (unsigned long)ka->sa.sa_handler;
-> +	regs->pc = (unsigned long)ksig->ka.sa.sa_handler;
->  
->  	/*
->  	 * Signal delivery is a (wacky) indirect function call in
-> @@ -1119,12 +1236,14 @@ static void setup_return(struct pt_regs *regs, struct k_sigaction *ka,
->  		sme_smstop();
->  	}
->  
-> -	if (ka->sa.sa_flags & SA_RESTORER)
-> -		sigtramp = ka->sa.sa_restorer;
-> +	if (ksig->ka.sa.sa_flags & SA_RESTORER)
-> +		sigtramp = ksig->ka.sa.sa_restorer;
->  	else
->  		sigtramp = VDSO_SYMBOL(current->mm->context.vdso, sigtramp);
->  
->  	regs->regs[30] = (unsigned long)sigtramp;
-> +
-> +	return gcs_signal_entry(sigtramp, ksig);
->  }
->  
->  static int setup_rt_frame(int usig, struct ksignal *ksig, sigset_t *set,
-> @@ -1147,7 +1266,7 @@ static int setup_rt_frame(int usig, struct ksignal *ksig, sigset_t *set,
->  	err |= __save_altstack(&frame->uc.uc_stack, regs->sp);
->  	err |= setup_sigframe(&user, regs, set);
->  	if (err == 0) {
-> -		setup_return(regs, &ksig->ka, &user, usig);
-> +		err = setup_return(regs, ksig, &user, usig);
->  		if (ksig->ka.sa.sa_flags & SA_SIGINFO) {
->  			err |= copy_siginfo_to_user(&frame->info, &ksig->info);
->  			regs->regs[1] = (unsigned long)&frame->info;
-> diff --git a/arch/arm64/mm/gcs.c b/arch/arm64/mm/gcs.c
-> index 02f8f6046c10..6f51429c5a46 100644
-> --- a/arch/arm64/mm/gcs.c
-> +++ b/arch/arm64/mm/gcs.c
-> @@ -6,6 +6,7 @@
->  #include <linux/types.h>
->  
->  #include <asm/cpufeature.h>
-> +#include <asm/gcs.h>
->  #include <asm/page.h>
-
-This is #include isn't needed by this patch. Probably better as part of
-another one.
-
--- 
-Thiago
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBEZWMgOCwgMjAyMyBhdCAyOjQ24oCvUE0gUGV0ZXIgWmlqbHN0cmEgPHBldGVyekBp
+bmZyYWRlYWQub3JnPiB3cm90ZToKPgo+Cj4gT2ssIGRpZCB0aGF0LiBDdXJyZW50IHBhdGNoZXMg
+KG9uIHRvcCBvZiBicGYtbmV4dCkgYXJlIGhlcmU6Cj4KPiAgIGdpdDovL2dpdC5rZXJuZWwub3Jn
+L3B1Yi9zY20vbGludXgva2VybmVsL2dpdC9wZXRlcnovcXVldWUuZ2l0IHg4Ni9jZmkKCkxvb2tz
+IHJlYWxseSBncmVhdC4gVGhlIGxhc3QgcGF0Y2ggaXMgY2xlYW5lciB0aGFuIEkgZXhwZWN0ZWQu
+IEdvb2QgaWRlYS4KCj4gKHJlYWxseSBzaG91bGQgdHJ5IGFuZCB3cml0ZSBiZXR0ZXIgY2hhbmdl
+bG9ncywgYnV0IGl0J3MgdG9vIGxhdGUpCgpjb21taXQgbG9ncyBsb29rIGZpbmUgZXhjZXB0IHRo
+ZSAicGlsZmVyIiB3b3JkIHRoYXQgSSBoYWQgdG8gbG9vayB1cAppbiB0aGUgZGljdGlvbmFyeSA6
+KQoKPiBbICAyNDcuNzIxMDYzXSAgPyBicGZfdGhyb3crMHg5Yi8weGYwCj4gWyAgMjQ3LjcyMTEy
+Nl0gID8gYnBmX3Rlc3RfcnVuKzB4MTA4LzB4MzUwCj4gWyAgMjQ3LjcyMTE5MV0gID8gYnBmX3By
+b2dfNTU1NTcxNGI2ODViZjBjZl9leGNlcHRpb25fdGhyb3dfYWx3YXlzXzErMHgyNi8weDI2Cj4g
+WyAgMjQ3LjcyMTMwMV0gID8gYnBmX3Rlc3RfcnVuKzB4MTA4LzB4MzUwCj4gWyAgMjQ3LjcyMTM2
+OF0gIGJwZl90ZXN0X3J1bisweDIxMi8weDM1MAo+IFsgIDI0Ny43MjE0MzNdICA/IHNsYWJfYnVp
+bGRfc2tiKzB4MjIvMHgxMTAKPiBbICAyNDcuNzIxNTAzXSAgYnBmX3Byb2dfdGVzdF9ydW5fc2ti
+KzB4MzQ3LzB4NGEwCj4KPiBCdXQgSSdtIHRvbyB0aXJlZCB0byB0aGluayBzdGFpZ2h0LiBJcyAg
+dGhpcyBhIGJwZl9jYWxsYmFja190IHZzCj4gYnBmX2V4Y2VwdGlvbl9jYiBkaWZmZXJlbmNlPwoK
+WWVwLgpJdCdzIGVhc3kgdG8gZml4OgpkaWZmIC0tZ2l0IGEvaW5jbHVkZS9saW51eC9icGYuaCBi
+L2luY2x1ZGUvbGludXgvYnBmLmgKaW5kZXggMGUxNjJlYWU4NjM5Li5lMzZiM2Y0MTc1MWUgMTAw
+NjQ0Ci0tLSBhL2luY2x1ZGUvbGludXgvYnBmLmgKKysrIGIvaW5jbHVkZS9saW51eC9icGYuaApA
+QCAtMTQ4NCw3ICsxNDg0LDcgQEAgc3RydWN0IGJwZl9wcm9nX2F1eCB7CiAgICAgICAgaW50IGNn
+cm91cF9hdHlwZTsgLyogZW51bSBjZ3JvdXBfYnBmX2F0dGFjaF90eXBlICovCiAgICAgICAgc3Ry
+dWN0IGJwZl9tYXAgKmNncm91cF9zdG9yYWdlW01BWF9CUEZfQ0dST1VQX1NUT1JBR0VfVFlQRV07
+CiAgICAgICAgY2hhciBuYW1lW0JQRl9PQkpfTkFNRV9MRU5dOwotICAgICAgIHVuc2lnbmVkIGlu
+dCAoKmJwZl9leGNlcHRpb25fY2IpKHU2NCBjb29raWUsIHU2NCBzcCwgdTY0IGJwKTsKKyAgICAg
+ICB1NjQgKCpicGZfZXhjZXB0aW9uX2NiKSh1NjQgY29va2llLCB1NjQgc3AsIHU2NCBicCwgdTY0
+LCB1NjQpOwogI2lmZGVmIENPTkZJR19TRUNVUklUWQogICAgICAgIHZvaWQgKnNlY3VyaXR5Owog
+I2VuZGlmCmRpZmYgLS1naXQgYS9rZXJuZWwvYnBmL2hlbHBlcnMuYyBiL2tlcm5lbC9icGYvaGVs
+cGVycy5jCmluZGV4IGZlMjI5YjI4ZTRhOS4uNjUwZWJlOGZmMTgzIDEwMDY0NAotLS0gYS9rZXJu
+ZWwvYnBmL2hlbHBlcnMuYworKysgYi9rZXJuZWwvYnBmL2hlbHBlcnMuYwpAQCAtMjUzNyw3ICsy
+NTM3LDcgQEAgX19icGZfa2Z1bmMgdm9pZCBicGZfdGhyb3codTY0IGNvb2tpZSkKICAgICAgICAg
+KiB3aGljaCBza2lwcyBjb21waWxlciBnZW5lcmF0ZWQgaW5zdHJ1bWVudGF0aW9uIHRvIGRvIHRo
+ZSBzYW1lLgogICAgICAgICAqLwogICAgICAgIGthc2FuX3VucG9pc29uX3Rhc2tfc3RhY2tfYmVs
+b3coKHZvaWQgKikobG9uZyljdHguc3ApOwotICAgICAgIGN0eC5hdXgtPmJwZl9leGNlcHRpb25f
+Y2IoY29va2llLCBjdHguc3AsIGN0eC5icCk7CisgICAgICAgY3R4LmF1eC0+YnBmX2V4Y2VwdGlv
+bl9jYihjb29raWUsIGN0eC5zcCwgY3R4LmJwLCAwLCAwKTsKICAgICAgICBXQVJOKDEsICJBIGNh
+bGwgdG8gQlBGIGV4Y2VwdGlvbiBjYWxsYmFjayBzaG91bGQgbmV2ZXIgcmV0dXJuXG4iKTsKIH0K
+CmFuZCB3aXRoIHRoYXQgYWxsIG9mIHRlc3RfcHJvZ3MgcnVucyBzdWNjZXNzZnVsbHkgd2l0aG91
+dCBDRkkgcGFuaWNzLgoqaGFwcHkgZGFuY2UqCgpPbmx5IHRlc3RfcHJvZ3MgLXQgYnRmL2xpbmVf
+aW5mbyBmYWlscyBzdXNwaWNpb3VzbHkuClRoZXJlIHdlIGNoZWNrIHRoYXQgbGluZSBpbmZvIGVt
+YmVkZGVkIGluIHRoZSBwcm9nIGxvb2tzIHNhbmUuCk5ldyBjZmkgcHJlYW1ibGUgaXMgcHJvYmFi
+bHkgdHJpcHBpbmcgc29tZXRoaW5nLgpJdCBjb3VsZCBiZSBhIHRlc3QgaXNzdWUuIEknbGwgaW52
+ZXN0aWdhdGUuIEl0J3Mgbm90IGEgYmxvY2tlci4KCkRvIHlvdSBtaW5kIHJlc2VuZGluZyB0aGUg
+d2hvbGUgc2V0IHNvIHRoYXQgQlBGIENJIGNhbiB0ZXN0IGl0Cm9uIGRpZmZlcmVudCBhcmNocyA/
+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
+aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
+bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
