@@ -4,105 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D7C1C4167B
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Dec 2023 21:44:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C9F0C4167B
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Dec 2023 22:28:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i1oNrelbuV3TbLA7kY37aouykfsifV8WSsNFbnpkiYc=; b=w58rsNh8Uc6IPj
-	w9QUaNp6EpU1iyQOqfE4JRsmwzeafGeGZoMcauRkmeB1sAJC9obum66Geer9gMe8nQ12Zc5Ycph+n
-	WrfznTsjtz+wSerpcJlJFjwliRvei9t0m68AHu9XOwFZ54JUMm3TstgH4FRQiIgw5qMZLSOsJSNId
-	QqwcGKcExbJy+dvvHu/aZjNClB9+avSfIT4mXWJdXSXmOln8NMgSBxWkWlzjQER340gkAJrAPvEYg
-	pkIpfGTuXg0MuVqzqTJ3q8P9W3q58VmY7fnolbi/WhzrjIgATpEAcVHgAx90wQWUwD/IHsD+1Dhfa
-	z3/Vn5GywMeVnWAUlU3A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:
+	In-reply-to:Subject:Cc:To:From:References:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=KDEOdd4iAgDEQzuMZuUFl7VMr1b8ZEQLG3VBHKZbeHg=; b=xYPODX2LOPkA7u0eXviW8om1C2
+	GAYNwrj2hiEexCnfwBOxbxz2MAVc6fWXOraWYBbLndQ5+1sCer6x5bGIqj0lzMaMBs3GD16FmcuBZ
+	OBgr3ZQVTZD9yumKf02QW/PT3Bv4azimrwk6jahRc0ChBsUl8tRW4p0XRsZFuWVWZA4gdRPeZm24c
+	0WOCQQ2BN4tMRwrVyo56X/frfURlXH6Uk6bu18rHY9JS2xN0dgnNnxJgrExMw24dM1sOwvnjgn6YW
+	IXTKupU+vGiBfNmEY5gcIpzI528HuRCeToF5LcKElLnebYI9YG8dWRINOdTodJxBhHjUUlnocC2m0
+	rib6ElzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rC57F-000ZSm-09;
-	Sat, 09 Dec 2023 21:44:05 +0000
-Received: from wout5-smtp.messagingengine.com ([64.147.123.21])
+	id 1rC5oE-000ckX-1u;
+	Sat, 09 Dec 2023 22:28:30 +0000
+Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rC57B-000ZSK-0V
+	id 1rC5oA-000chi-0q
 	for linux-riscv@lists.infradead.org;
-	Sat, 09 Dec 2023 21:44:03 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailout.west.internal (Postfix) with ESMTP id D4D73320046E;
-	Sat,  9 Dec 2023 16:43:53 -0500 (EST)
-Received: from imap51 ([10.202.2.101])
-  by compute5.internal (MEProxy); Sat, 09 Dec 2023 16:43:55 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm1; t=1702158233; x=1702244633; bh=We
-	6kY3gAvHmi9sxQSDSEwapFQp49viPEwJBBDd9ci5w=; b=cvHA9bOcnXtURsTD7h
-	hQIwOkrnSC/IEaopUb7jcU3SO71P2HglKc/Uf/tbOJgiQdVvBbYUi5wIeI/SuHdN
-	yihGgZozlJtPuOEBXBUtit4VmIrrw4iI9wyvOpZtesme/XJI4CB73j6HIO/29i2g
-	J9jzcjTXS3e2q7va1k83+YbmF98nTRA9aZv5rVUKh4ua+HV757M6xE1l6PExeBOH
-	4AkKpOCn6h7HzggQz1bKkZ1QqQEmo4X7lqBxD3JHribrEUCKyubmKlBs8AncEceS
-	WsxBv/4g9Tsa57PG4+KEQ8Z9hREEBU5ah1hjoC1XZRXhc0YlNTK5bJ/RHhiFPZSQ
-	R4MQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm1; t=1702158233; x=1702244633; bh=We6kY3gAvHmi9
-	sxQSDSEwapFQp49viPEwJBBDd9ci5w=; b=JLgUH7waXEbUzBEVje+yS8gqR3UZv
-	0CffHOWY0+Z+wwB+vW7KwAu70naHiDTc5u+OYzUVLCv0unDsrJpC93z3zETAGff7
-	e0/T0GRtbRg0+VnKpUtTWPl/Q4nlGcTAyPFjPNVovSCRC1cUnlcC3O2I04IH5cok
-	MESfiIG+6tt4R9ba3Gg9/9KnbqSVFlntTrRNLbzBRy93epWnYX5VTNrGGgOaENLy
-	XlEPzcvCm3VRq9ydeqbEFCF21r5ibe7XRlynlw5bEBTNt50vdbXTP7QJa37rnJfz
-	NT1ZcZ4nx6pbp3NiCJ8HgiHHtOAi3T7I/d1Ju8OBaYA2CHgazdrnZNtIw==
-X-ME-Sender: <xms:mN90Zcj1t9YVcktHsm-DKH45IHMXpA9-Hpk1MgTfZICEl6zlaEQO-Q>
-    <xme:mN90ZVBye_9O77lTM1mzlC0eY5rXGnN3rcl8YdJFkH31am33R7m_eb1Es3R2UGMnB
-    7ZiLaTlclBhknsZ7ls>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvkedrudekkedgudehgecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
-    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
-    enucfjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdet
-    rhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrg
-    htthgvrhhnpeevhfffledtgeehfeffhfdtgedvheejtdfgkeeuvefgudffteettdekkeeu
-    feehudenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivg
-    eptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvg
-X-ME-Proxy: <xmx:mN90ZUHkY2lVvRTuVB80nWKONPPFQfKxiUCPeYhQNqvjAx9BHimUqg>
-    <xmx:mN90ZdQBaq15D8xNbGkhH8mnW9rg4RLUFMqWhsHROKx2rdbi3lmzmw>
-    <xmx:mN90ZZwDe9e9jmJA9g9aU6t06uGsYV23Rtq8P4aLnmtVN_b5V5QsZg>
-    <xmx:md90ZeJ8gleODk1pUugxxYDlZwxKnUBYXS_E8L8KAxGPRh2PldOCLA>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id A87CDB60089; Sat,  9 Dec 2023 16:43:52 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-1178-geeaf0069a7-fm-20231114.001-geeaf0069
+	Sat, 09 Dec 2023 22:28:28 +0000
+Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-3b9ef61b6b8so1229939b6e.3
+        for <linux-riscv@lists.infradead.org>; Sat, 09 Dec 2023 14:28:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1702160904; x=1702765704; darn=lists.infradead.org;
+        h=mime-version:message-id:date:in-reply-to:subject:cc:to:from
+         :user-agent:references:from:to:cc:subject:date:message-id:reply-to;
+        bh=GIZ+mcVI5qd9xzhqd2Lq/djPmsscI/1vsqmZHAfk8NA=;
+        b=fcAyvtgr/P86KD7EgiiDUsSe6KWHQ4KjUcRbRRXa2zj8VDNy/fMl6EAm3RKHbi40Bp
+         YvtfOopHK9uF0uUpFfNh0L47hi0UlsrUnjTPyvxeWudU0Keb3GkX5pshZmuu3ELIWfHi
+         IhPPA9Z3CxDkocYErq6Yl2kwxItys//eielvG8TQMkWh57MnR8igcbQh1lyyiNeQyCBN
+         wUK34T9nS9Lxzw5oRNj7YorTeHYI/45EEi4NgpwK60aNaz7CF6LyTL/ABfoU1fT9AH/s
+         O77bBcuXg7Qrr8CN2yrSu+8ZXDgQ53X6dzM5At8jZqYlTiw2zfadtCzc1H4F9UADE5j1
+         jm3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1702160904; x=1702765704;
+        h=mime-version:message-id:date:in-reply-to:subject:cc:to:from
+         :user-agent:references:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GIZ+mcVI5qd9xzhqd2Lq/djPmsscI/1vsqmZHAfk8NA=;
+        b=SPdnrdz3LAjY6qG0+JRdztEFoAZieESu4VFFlv2CYDw5l/XVflhSd/+iOzYXANa+rf
+         iimb53IAeCMcG2bERL8j6qok9zfxe4lRq0+ewcMMljAvEO2hcrZQ/CEmK/z8agc6qxId
+         0zHbNYxoy6scGbXSZ8S/b/FdzWbmKog95lp1Zlt86enH9rJUPKaMNrwNZBvP+1b1golq
+         c1a6LqtGZok7IDv7vdKLlX31gjyz5bammBkIcu4VmJRsYxhuZ16rH1uHswF5Kq/J5RrI
+         9+dpT6LCC0Q4tojpMOobEMkOMLKdRIikIM2tTu9xDUr86IkJF2U8s0SNjWHE8DVWttye
+         AeSA==
+X-Gm-Message-State: AOJu0Yw9eOxiOOWRZSNBNRFBd/lLR8Bkhk1s8qczIs4sggUWTFxDq63O
+	IV28/II6FxLnPpwXTonun/dM0w==
+X-Google-Smtp-Source: AGHT+IHe/3Q7T7mqAS39AMZy9ESnpkNFM6q37u24Z3u046keYsm8BlHmxnJkG9/CppRHC9PxpHjPRw==
+X-Received: by 2002:a05:6808:21a6:b0:3b9:e87b:d963 with SMTP id be38-20020a05680821a600b003b9e87bd963mr2922446oib.85.1702160903962;
+        Sat, 09 Dec 2023 14:28:23 -0800 (PST)
+Received: from localhost ([2804:14d:7e39:8470:ded6:9593:9f4f:5c29])
+        by smtp.gmail.com with ESMTPSA id h17-20020aa786d1000000b006ce7ed5ba42sm3794269pfo.171.2023.12.09.14.28.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 09 Dec 2023 14:28:23 -0800 (PST)
+References: <20231122-arm64-gcs-v7-0-201c483bd775@kernel.org>
+ <20231122-arm64-gcs-v7-25-201c483bd775@kernel.org>
+User-agent: mu4e 1.10.8; emacs 29.1
+From: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Andrew Morton
+ <akpm@linux-foundation.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton
+ <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, Suzuki K
+ Poulose <suzuki.poulose@arm.com>, Arnd Bergmann <arnd@arndb.de>, Oleg
+ Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, Kees
+ Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>, "Rick P.
+ Edgecombe" <rick.p.edgecombe@intel.com>, Deepak Gupta
+ <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>, Szabolcs Nagy
+ <Szabolcs.Nagy@arm.com>, "H.J. Lu" <hjl.tools@gmail.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Florian Weimer <fweimer@redhat.com>, Christian
+ Brauner <brauner@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-mm@kvack.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v7 25/39] arm64/signal: Expose GCS state in signal frames
+In-reply-to: <20231122-arm64-gcs-v7-25-201c483bd775@kernel.org>
+Date: Sat, 09 Dec 2023 19:28:21 -0300
+Message-ID: <87sf4bf1tm.fsf@linaro.org>
 MIME-Version: 1.0
-Message-Id: <7996d21a-3e97-408b-82a3-3bad432095a2@app.fastmail.com>
-In-Reply-To: <07d27191-12b6-4c84-b80e-75c618df9de4@sifive.com>
-References: <20231122030621.3759313-1-samuel.holland@sifive.com>
- <20231122030621.3759313-4-samuel.holland@sifive.com>
- <20231123-headdress-mold-0dd7a74477f7@wendy>
- <20231130004224.GE2513828@dev-arch.thelio-3990X>
- <4f277982-fffb-4fe1-bc02-007633400f31@sifive.com>
- <5090a015-5b6f-44be-bb25-d2ca3fdf5d40@app.fastmail.com>
- <07d27191-12b6-4c84-b80e-75c618df9de4@sifive.com>
-Date: Sat, 09 Dec 2023 22:42:56 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Samuel Holland" <samuel.holland@sifive.com>,
- "Nathan Chancellor" <nathan@kernel.org>,
- "Conor.Dooley" <conor.dooley@microchip.com>
-Cc: "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Harry Wentland" <harry.wentland@amd.com>, "Leo Li" <sunpeng.li@amd.com>,
- "Rodrigo Siqueira" <Rodrigo.Siqueira@amd.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, "Dave Airlie" <airlied@gmail.com>,
- =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
- "Alex Deucher" <alexander.deucher@amd.com>,
- "Pan Xinhui" <Xinhui.Pan@amd.com>, "Daniel Vetter" <daniel@ffwll.ch>,
- amd-gfx@lists.freedesktop.org, llvm@lists.linux.dev
-Subject: Re: [PATCH 3/3] drm/amd/display: Support DRM_AMD_DC_FP on RISC-V
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231209_134402_110267_0DB39457 
-X-CRM114-Status: GOOD (  14.67  )
+X-CRM114-CacheID: sfid-20231209_142826_307273_D1F7D59B 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,44 +108,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 9, 2023, at 22:29, Samuel Holland wrote:
-> On 2023-12-09 2:38 PM, Arnd Bergmann wrote:
->> On Fri, Dec 8, 2023, at 06:04, Samuel Holland wrote:
->>> On 2023-11-29 6:42 PM, Nathan Chancellor wrote:
->>>>
->>>> https://lore.kernel.org/20231019205117.GA839902@dev-arch.thelio-3990X/
->>>
->>> I also see one of these with clang 17 even with KASAN disabled:
->>>
->>> drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn32/display_mode_vba_32.c:37:6:
->>> warning: stack frame size (2208) exceeds limit (2048) in 'dml32_recalculate'
->>> [-Wframe-larger-than]
->>> void dml32_recalculate(struct display_mode_lib *mode_lib)
->>>
->>>      ^
->>> 1532/2208 (69.38%) spills, 676/2208 (30.62%) variables
->>>
->>> So I'm in favor of just raising the limit for these files for clang, like you
->>> suggested in the linked thread.
->> 
->> How about just adding a BUG_ON(IS_ENABLED(CONFIG_RISCV))
->> in that function? That should also avoid the build failure
->> but give a better indication of where the problem is
->> if someone actually runs into that function and triggers
->> a runtime stack overflow.
->
-> Won't that break actual users of the driver, trading an unlikely but
-> theoretically possible stack overflow for a guaranteed crash? The intent of this
-> series is that I have one of these GPUs plugged in to a RISC-V board, and I want
-> to use it.
 
-Ah, I thought you just wanted to get it to compile cleanly
-so you could use some of the more common cards. If you
-are trying to run the dcn32 code specifically, then you
-should definitely fix the stack usage of that function
-instead.
+Mark Brown <broonie@kernel.org> writes:
 
-      Arnd
+> +static int preserve_gcs_context(struct gcs_context __user *ctx)
+> +{
+> +	int err = 0;
+> +	u64 gcspr;
+> +
+> +	/*
+> +	 * We will add a cap token to the frame, include it in the
+> +	 * GCSPR_EL0 we report to support stack switching via
+> +	 * sigreturn.
+> +	 */
+> +	gcs_preserve_current_state();
+> +	gcspr = current->thread.gcspr_el0;
+> +	if (task_gcs_el0_enabled(current))
+> +		gcspr -= 8;
+> +
+> +	__put_user_error(GCS_MAGIC, &ctx->head.magic, err);
+> +	__put_user_error(sizeof(*ctx), &ctx->head.size, err);
+> +	__put_user_error(gcspr, &ctx->gcspr, err);
+> +	__put_user_error(current->thread.gcs_el0_mode,
+> +			 &ctx->features_enabled, err);
+
+Other preserve_<foo>_context() functions zero the reserved fields in
+ctx. I suggest doing the same here. It helps with backward
+compatibility.
+
+> +
+> +	return err;
+> +}
+
+
+-- 
+Thiago
 
 _______________________________________________
 linux-riscv mailing list
