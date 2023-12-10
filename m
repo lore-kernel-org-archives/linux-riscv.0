@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F085C4167B
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Dec 2023 14:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B7AAC4167B
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Dec 2023 22:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KVP+ATsRxCb/OusSXTyQCm53h9911BYr92AbYqGcavY=; b=rp0QVSOJIxUykSkoU6J8IgiMDv
-	Mmu2bygi1rgUh+Rt/1BTCwENlRVsRDsRPpjMS6ATBmaFcOIsncW814KE21+GorEkOFWs7l12wKoba
-	48de9X9ZJMwcA2nFwpxuOOOimPMWr2LPg8A6qJjryJgpny0mXrhY9FLUZ7SRV3wFkHTzXKH+AkgnD
-	bsXOBZn00ScSVeyZCRr4Jx9Q2wpnJGDH0joTIpEmHWgTEDqhzhgjOSBQsyXYh+3M5PURpBLkBdA4f
-	Yw2v5I4qEjIPwdXW7DkR0wALAr7uBbVdaWWRPKhee4F/ni0blhMTvz0wBw/9SYZlMVL7MyOPENjfi
-	04n9mz1A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=o26PFmMtLKNYjUyiLFKFlf5rV3VCsW0mMK6azKG43Bo=; b=zFLgn6dCPhxz5W
+	OxBJPtqsRkQYCTv+9mzD/TcMD+b5cOX9mZ4+uooW7udXtPHnLhIawD0OX7yBaLrfErf/uy3hiLZ5n
+	HvdWT1nK0h6r4QbVeRHh3RbP/bxyi8PkLXfUj/ytsHe1zae5F2MWIPOz7Cf2bWdv2R66soO4XMX+F
+	VmNsZN191I+teuO+v6dalKsMQzubom3PNKGDKWDNBU2e4JaE7DL1oXiJ0do6e8sE0tqU+61Hg13ZW
+	YHGsQi8YOR/TGcfF3VUS4eU6C6dQcPmsquf5HHdF9/yWuATSeyU+Ec74qIucYDzFwlDSEuo990rzK
+	LZ4z05e8qjKBMuK1xv7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCKi3-002qIk-1V;
-	Sun, 10 Dec 2023 14:23:07 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1rCSfs-003Ztb-14;
+	Sun, 10 Dec 2023 22:53:24 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCKhz-002qCw-0b;
-	Sun, 10 Dec 2023 14:23:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 6EBBBB80AEA;
-	Sun, 10 Dec 2023 14:23:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9FFDC433C7;
-	Sun, 10 Dec 2023 14:22:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1702218179;
-	bh=8tne0aaAREf7h+qiY6KAldko6jyI6LRXnoNCM9fma6Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z46OPbu3lxs+nSXwJj7g5+uM236T8qcWVMENzV16W8PRn+wPA90J2c/MU1TR09r9G
-	 V7uktPMYA+kX07nhFqGBeWzVnfPGq1sWi8TmA2O/Ypbc+HHzOKCOCc6aUZpI1E2ux5
-	 i7a4xJ46nLuCB9P/YSDucazqkfc40Pwk2ruWwXth0yedV7jS/lBPvlu9h8D8FqQQ5E
-	 7NrgTVM832Ck4BiiNruf7natGB4ETT1vuYgIR5796kVSPSFEDz9SqMvV2j2pOXJx2O
-	 kYv2KFYNFZhj2cny4Ad3h63HQeFh23ezu4307DrPbna88E2yARpEbrhoRhlGsNFA2m
-	 xH4AUl7qyB+aQ==
-Date: Sun, 10 Dec 2023 14:22:56 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Florian Weimer <fweimer@redhat.com>,
-	Christian Brauner <brauner@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v7 26/39] arm64/ptrace: Expose GCS via ptrace and core
- files
-Message-ID: <ZXXJwNdKC/y6bRYn@finisterre.sirena.org.uk>
-References: <20231122-arm64-gcs-v7-0-201c483bd775@kernel.org>
- <20231122-arm64-gcs-v7-26-201c483bd775@kernel.org>
- <877clney35.fsf@linaro.org>
+	id 1rCSfp-003ZsG-0P
+	for linux-riscv@lists.infradead.org;
+	Sun, 10 Dec 2023 22:53:22 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-40c2db0ca48so43045e9.1
+        for <linux-riscv@lists.infradead.org>; Sun, 10 Dec 2023 14:53:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1702248794; x=1702853594; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OKS/AHcM2NBWqMD4zsEUfP2kt6MSIwHJfrO8WzI99T8=;
+        b=M+8rzghItPHhZU7H3NEf9iTLdd7/F3qGABUW2ATEKZWlqs+wDSdJ+bMjJIhrwvKLQP
+         NqpRU7Ly6m7XvyM33Oj1o1duTh9EBU1MIPKa74NzvZ6lB5JZ1RlQirF/IuQAT7LxZFC2
+         7X1JNnKZ/oY2yuG0ieyLIJSGgt8oNXRM0k9DL3lsQuABxMhuf3YYu1aC1oNUhoh3byU7
+         IRxzXRzvFR4m0VcJFhpdeuGz1ReWbv4w1JsriPs3D0m0s/m6PDAOSami5xzRXJX/1Ybh
+         iQoBuJsIQD+1J4hLrglqVlsZaN54Y5R/Uy6ESvoYHtw5mPQOxBj+FzavTQdUUARctpty
+         U6PA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1702248794; x=1702853594;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OKS/AHcM2NBWqMD4zsEUfP2kt6MSIwHJfrO8WzI99T8=;
+        b=kNdaQ/XGZaKqqiSR61YNUizP7qcpfdsLrgv2w0zVV1bBjWemTcm/nSq7u/vwL2OGuS
+         o/gotTnIm8cJtM3fXIEE4vRSl8+2hZgbULDobRcVxfkAofvpDv09EoHxWZ+KJJ4DmgPs
+         4/VSgAPmSygcHLxFfvD5SXJzQaMA37BnibO2foo4WzW4wT32S3Yf+gLmyskSX43VVdoX
+         S0L6Qv+Ha1jxamB6hy8DqYnpA+8MZ8WM08bSbtE0Sorb3cHniNrwJjlJLsCA/45k4Oj+
+         9gsXpow1frOsgSmP0Dr3BTDP4jblT4juELaz3V7+GiuYWgmyS52zZal1FguXR5y9PYvs
+         qHXQ==
+X-Gm-Message-State: AOJu0YzeL+EYdbnAx0qZRKwNq6joi80qJXl0nrtBMPhbzDrtOmzkp2gi
+	jo9c4znUA2RcJrwYjVLuysHH5FCGQbyD/TXtDbF0rw==
+X-Google-Smtp-Source: AGHT+IHfF/YK8dgWEfqDIfnTDLirkLeJB4fVu6OmnYB7yxbJvNgiVETL/lA8ongHRpHXQrS4L8RMiXwyvPov+eoWnK8=
+X-Received: by 2002:a05:600c:5113:b0:40c:329:d498 with SMTP id
+ o19-20020a05600c511300b0040c0329d498mr170595wms.1.1702248794289; Sun, 10 Dec
+ 2023 14:53:14 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <877clney35.fsf@linaro.org>
-X-Cookie: You might have mail.
+References: <20220921003201.1441511-11-seanjc@google.com> <20231207010302.2240506-1-jmattson@google.com>
+ <ZXHw7tykubfG04Um@google.com>
+In-Reply-To: <ZXHw7tykubfG04Um@google.com>
+From: Jim Mattson <jmattson@google.com>
+Date: Sun, 10 Dec 2023 14:52:59 -0800
+Message-ID: <CALMp9eTT97oDmQT7pxeOMLQbt-371aMtC2Kev+-kWXVRDVrjeg@mail.gmail.com>
+Subject: Re: [PATCH v4 10/12] KVM: x86: never write to memory from kvm_vcpu_check_block()
+To: Sean Christopherson <seanjc@google.com>
+Cc: alexandru.elisei@arm.com, anup@brainfault.org, aou@eecs.berkeley.edu, 
+	atishp@atishpatra.org, borntraeger@linux.ibm.com, chenhuacai@kernel.org, 
+	david@redhat.com, frankja@linux.ibm.com, imbrenda@linux.ibm.com, 
+	james.morse@arm.com, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, maz@kernel.org, mlevitsk@redhat.com, 
+	oliver.upton@linux.dev, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	pbonzini@redhat.com, suzuki.poulose@arm.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231210_062303_539313_D604570D 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20231210_145321_186757_1DC733B0 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,66 +91,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3827085290134675164=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============3827085290134675164==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+xOPyWhFp+ttqF+R"
-Content-Disposition: inline
-
-
---+xOPyWhFp+ttqF+R
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Sat, Dec 09, 2023 at 08:49:02PM -0300, Thiago Jung Bauermann wrote:
-> Mark Brown <broonie@kernel.org> writes:
-
-> > Provide a new register type NT_ARM_GCS reporting the current GCS mode
-> > and pointer for EL0.  Due to the interactions with allocation and
-> > deallocation of Guarded Control Stacks we do not permit any changes to
-> > the GCS mode via ptrace, only GCSPR_EL0 may be changed.
-
-> The code allows disabling GCS. Is that unintended?
-
-No, it's intentional - ptrace has a lot of control over the process,
-there's not a huge point trying to protect against it doing a disable.
-The reason we prevent enabling is the allocation of a GCS along with
-enable, the complexity of doing that on a remote process seemed
-unjustified.  If clone3() ends up allowing manual allocation and
-placement that'll likely be revised.
-
---+xOPyWhFp+ttqF+R
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmV1yb8ACgkQJNaLcl1U
-h9BWYwf/Tu6vlQCwGJ174Zum1yyKhNrP0gXrNj0hXhil/y9CwTApo4pvBUMmBwQz
-JO0qoPePZDOSlxns1bELpj5O5sFq0c8qB1e29Y1nFzNClHf+uyVDswS2nZDBU6Rk
-QyW/T7yJerJVj/Lw5Mh1iJMbf8+iOPyRCJ8iMOnYiCbPpOmz7FuarOxPowUXUTqe
-e/bnana1ic+ctkWCw67wxEB6SJsOSaN2uW7mCj2ftjf9Cq9GmxzYnn8WuOvPHLxQ
-1id5Q0hqIWUqpgKGWDeIng5VHThiIuZDUa4EWQga6fnVZnApv4pRNJY7ttyNS6SS
-VfquKJpzBaa9lItRtIz5Dxs2gX1jyg==
-=9ttk
------END PGP SIGNATURE-----
-
---+xOPyWhFp+ttqF+R--
-
-
---===============3827085290134675164==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3827085290134675164==--
-
+T24gVGh1LCBEZWMgNywgMjAyMyBhdCA4OjIx4oCvQU0gU2VhbiBDaHJpc3RvcGhlcnNvbiA8c2Vh
+bmpjQGdvb2dsZS5jb20+IHdyb3RlOgo+IERvaC4gIFdlIGdvdCB0aGUgbGVzcyBvYnZpb3VzIGNh
+c2VzIGFuZCBtaXNzZWQgdGhlIG9idmlvdXMgb25lLgo+Cj4gVWdoLCBhbmQgd2UgYWxzbyBtaXNz
+ZWQgYSByZWxhdGVkIG1lc3MgaW4ga3ZtX2d1ZXN0X2FwaWNfaGFzX2ludGVycnVwdCgpLiAgVGhh
+dAo+IHRoaW5nIHNob3VsZCByZWFsbHkgYmUgZm9sZGVkIGludG8gdm14X2hhc19uZXN0ZWRfZXZl
+bnRzKCkuCj4KPiBHb29kIGdyYXZ5LiAgQW5kIHZteF9pbnRlcnJ1cHRfYmxvY2tlZCgpIGRvZXMg
+dGhlIHdyb25nIHRoaW5nIGJlY2F1c2UgdGhhdAo+IHNwZWNpZmljYWxseSBjaGVja3MgaWYgTDEg
+aW50ZXJydXB0cyBhcmUgYmxvY2tlZC4KPgo+IENvbXBpbGUgdGVzdGVkIG9ubHksIGFuZCBkZWZp
+bml0ZWx5IG5lZWRzIHRvIGJlIGNodW5rZWQgaW50byBtdWx0aXBsZSBwYXRjaGVzLAo+IGJ1dCBJ
+IHRoaW5rIHNvbWV0aGluZyBsaWtlIHRoaXMgbWVzcz8KClRoZSBwcm9wb3NlZCBwYXRjaCBkb2Vz
+IG5vdCBmaXggdGhlIHByb2JsZW0uIEluIGZhY3QsIGl0IG1lc3NlcyB0aGluZ3MKdXAgc28gbXVj
+aCB0aGF0IEkgZG9uJ3QgZ2V0IGFueSB0ZXN0IHJlc3VsdHMgYmFjay4KCkdvb2dsZSBoYXMgYW4g
+aW50ZXJuYWwgSy1VLVQgdGVzdCB0aGF0IGRlbW9uc3RyYXRlcyB0aGUgcHJvYmxlbS4gSQp3aWxs
+IHBvc3QgaXQgc29vbi4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
