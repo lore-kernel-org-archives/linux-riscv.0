@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05CD2C10F05
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Dec 2023 13:22:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7315FC4167B
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Dec 2023 13:22:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xJYDsrwAc0lTkJ3Uu6X9uXn+t1TB1ZUad1fOx6rp0A4=; b=XWwQejKvb8R3CA
-	PuN38skw3UiOiizwF0qTyFg8dvu24ehf8VBAQl/CixHG7MX61Gc1tCw/fjG2wSrexlztWsB6WYBRz
-	EevqYazV2LNQSbJ6wg2Ot313l7PocgVnnBXqi9htV0CgcoSEoyU8PPrZg/8lSMUOE7IsO454z2SvB
-	EaAj0Ef9+K9TI3JXaNHc0U0LR9zfhUe2yUD4x6p7Pk4PBWfzLtniOcK+58FSjSZAtTOoByWdtHXGf
-	UiMcJ19l73z3ihSIRYqaWO1QegH5Jg67GLEeVribQjmh9r2hQVMb0FHInXN4MuWil+iS798X1BbIi
-	tNtqG/n5XCXYLAzQ/ENQ==;
+	List-Owner; bh=eiy4LdSvoNhgHkqdvSAKaO8tBuomp/SuRFA06gRDjfo=; b=fkB5ELg0RaxH2F
+	CkTRLiqbb93wa+BKv4f+i6pY4WQ5EAmKobJDrihmwGwT0UKvyDW34YGzYck1jtkwZUl4kARzVAXTR
+	//VnCeJZ9bDVFdkSHbvAO3wXgiaJeZ4VZyKn1cIZ7u4OaqvI+339enBcGoaGXVxkll1pqd4+Lu4f/
+	TUKN+owEAJFKFshiZcNubkvhpAK7JW1KaHztVV2JlVTc5Ezn7RbyoQsAZPzoWpdbmOLHe2+xu4JmC
+	tleMobHAb6u00jZUnkczZKazKbju4LSR9XL5hFkVO9A6w7L5K1QGm9VCkeqE22qfmDYyh/xPt0Ght
+	N79Gkrusei8VEpxRB2HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCgER-004wb0-2P;
-	Mon, 11 Dec 2023 13:21:59 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rCgFD-004wpe-3A;
+	Mon, 11 Dec 2023 13:22:49 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCgDX-004wNN-1O;
-	Mon, 11 Dec 2023 13:21:25 +0000
+	id 1rCgE5-004wUy-0W;
+	Mon, 11 Dec 2023 13:22:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E72AB6127C;
-	Mon, 11 Dec 2023 13:21:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96BCBC433C7;
-	Mon, 11 Dec 2023 13:20:58 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 1F892CE0AB4;
+	Mon, 11 Dec 2023 13:21:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4D26C433C7;
+	Mon, 11 Dec 2023 13:21:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1702300862;
-	bh=q1SgpAHgTb9yNjf1ijuF/WsU7ziWgOtp9e+gjYp9MJo=;
+	s=k20201202; t=1702300894;
+	bh=pdOjaPV9Jsg2+hufBUTJoin1FtJ4JLo5gH1YiEsQ8lI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OtVmf+id/i3jL+CkVLVQSKAM+su33w9usY4qz6ohe9ikJJaAELtzij3VYjgA9Ewp8
-	 IbjgnPDTmFzYLzisW9RoqzCM+BlinoHFZh9dn8c3DWcsxaE7n/xlIFYd5cNd5iiZYM
-	 xn+RGUNrzobVTZmgr2G/YPkzYJMxadR3JbLDRVmqIeguYU5M9B/epx6dLNTOKngCI1
-	 MfqbPSRfjDDI0mZH6L+x+WiFuG5bmPQYYmqls0mwsWZmq8aHN3nwqrQ5zwoWRasUBO
-	 t0AaPcL5MZAHJ+qrn0787/YMKkAZKw1LM4Ra/RYRDixl9gMGsxMV+U5fiYp+UkKYuN
-	 EBTvml+3hP+1Q==
-Date: Mon, 11 Dec 2023 13:20:55 +0000
+	b=eIX+Piq0oQQdGn8TD0Edg+vyONGxOr1LGqK2bq6Dsi6ovtOvnWpT/rIpQOFhBlA3b
+	 RD+M0Y9olHV8bbTdPocbTzZZmSuQtM3wSgOKRufOCXeKAdrG2YkwpRzI1hwx19gfpd
+	 R8J7br7NfDKSsDo3Ubfz/IzHwRPxRpH0UZXsDmakCZQtxs8yx3CHcht0dAUUySZ72W
+	 7ezqAlqh/1/ULVq4w52iqG1vo6pwpmtsxVWD0ybb3R5KpAvHOys51oI1D1oLC2d49W
+	 kbq2skXfspeTVUkdhvgV61N5n4rZQ8glL+SZEddbiQ/dbTg34ryLGY2yDr7oygKcuA
+	 WwZRQbf9JcgXw==
+Date: Mon, 11 Dec 2023 13:21:27 +0000
 From: Will Deacon <will@kernel.org>
-To: Russell King <rmk+kernel@armlinux.org.uk>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 Cc: linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
 	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
@@ -55,18 +55,17 @@ Cc: linux-pm@vger.kernel.org, loongarch@lists.linux.dev,
 	jianyong.wu@arm.com, justin.he@arm.com,
 	James Morse <james.morse@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>
-Subject: Re: [PATCH 12/21] arm64: setup: Switch over to GENERIC_CPU_DEVICES
- using arch_register_cpu()
-Message-ID: <20231211132054.GC25681@willie-the-truck>
+Subject: Re: [PATCH 13/21] arm64: convert to arch_cpu_is_hotpluggable()
+Message-ID: <20231211132127.GD25681@willie-the-truck>
 References: <ZVyz/Ve5pPu8AWoA@shell.armlinux.org.uk>
- <E1r5R3b-00Csza-Ku@rmk-PC.armlinux.org.uk>
+ <E1r5R3g-00Cszg-PP@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <E1r5R3b-00Csza-Ku@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1r5R3g-00Cszg-PP@rmk-PC.armlinux.org.uk>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231211_052103_534415_93206880 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20231211_052139_090027_63FC9549 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,43 +82,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 21, 2023 at 01:44:51PM +0000, Russell King wrote:
-> From: James Morse <james.morse@arm.com>
+On Tue, Nov 21, 2023 at 01:44:56PM +0000, Russell King (Oracle) wrote:
+> Convert arm64 to use the arch_cpu_is_hotpluggable() helper rather than
+> arch_register_cpu().
 > 
-> To allow ACPI's _STA value to hide CPUs that are present, but not
-> available to online right now due to VMM or firmware policy, the
-> register_cpu() call needs to be made by the ACPI machinery when ACPI
-> is in use. This allows it to hide CPUs that are unavailable from sysfs.
-> 
-> Switching to GENERIC_CPU_DEVICES is an intermediate step to allow all
-> five ACPI architectures to be modified at once.
-> 
-> Switch over to GENERIC_CPU_DEVICES, and provide an arch_register_cpu()
-> that populates the hotpluggable flag. arch_register_cpu() is also the
-> interface the ACPI machinery expects.
-> 
-> The struct cpu in struct cpuinfo_arm64 is never used directly, remove
-> it to use the one GENERIC_CPU_DEVICES provides.
-> 
-> This changes the CPUs visible in sysfs from possible to present, but
-> on arm64 smp_prepare_cpus() ensures these are the same.
-> 
-> This patch also has the effect of moving the registration of CPUs from
-> subsys to driver core initialisation, prior to any initcalls running.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 > Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
 > Reviewed-by: Gavin Shan <gshan@redhat.com>
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 > ---
-> Changes since RFC v2:
->  * Add note about initialisation order change.
-> ---
->  arch/arm64/Kconfig           |  1 +
->  arch/arm64/include/asm/cpu.h |  1 -
->  arch/arm64/kernel/setup.c    | 13 ++++---------
->  3 files changed, 5 insertions(+), 10 deletions(-)
+>  arch/arm64/kernel/setup.c | 8 ++------
+>  1 file changed, 2 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
+> index 165bd2c0dd5a..42c690bb2d60 100644
+> --- a/arch/arm64/kernel/setup.c
+> +++ b/arch/arm64/kernel/setup.c
+> @@ -402,13 +402,9 @@ static inline bool cpu_can_disable(unsigned int cpu)
+>  	return false;
+>  }
+>  
+> -int arch_register_cpu(int num)
+> +bool arch_cpu_is_hotpluggable(int num)
+>  {
+> -	struct cpu *cpu = &per_cpu(cpu_devices, num);
+> -
+> -	cpu->hotpluggable = cpu_can_disable(num);
+> -
+> -	return register_cpu(cpu, num);
+> +	return cpu_can_disable(num);
+>  }
+>  
+>  static void dump_kernel_offset(void)
 
 Acked-by: Will Deacon <will@kernel.org>
 
