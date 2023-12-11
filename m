@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B688EC4167B
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Dec 2023 09:44:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95411C10F09
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Dec 2023 09:44:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oGOq0lVCFakfWpqXQZ2Yo0IpkS23R+8vNW3b6hok+RI=; b=AKUrLLCciKx+zW
-	wzeamEPxHbaiMI5D5Ba2dgmvq+Baxvhwtg9WTHW5OIWifB8bPZdmB9PjyqC/77HhKox5RVY4TA9qz
-	8No+Xka3iOxcquKETwXFxp8YYC7mVTZW88uAT7WgEah1ZgO8DwR7Wu0fjbFy5HmBGtjwA5z6nEH0H
-	qy0+hoCZ3219xa3duteDifJv2vRkmmEule7A7F6BwtdwjUgTtn307t8JF+bwCX5Zix7FjNxF/VGBk
-	Y480tmrxClqRIQzWptiQURrddFTfPS5djF0OwN5kVqnd9++8JG7+/wMZ3RclFM2StEUBV07lPmE/I
-	1+RZ2KBe6lwZnMhd7/vQ==;
+	List-Owner; bh=pnLdnPYrpUifv3n4wUBlwyLqBtEa0WxRudv90PpOBsw=; b=j0x7qOIh6sbafL
+	W+pPZA4GVFeMi7YxSlsenYdnZc+LzfIjvimycDZGa2x+07D0/aw5PmNso3IuFK7mAVsLCC//H28Pp
+	zVr+m3DiVY8cyD7CHumqVPggR0tybgtXaerabnEhSuLqBWQQFA2FeXztuylOfcgk3JzVJ2YAMbm7n
+	0XMnkBwO1FB2iuNYr8Cf0cW1p2ldl358Zsa5yoWTPzh1/S/ZT2zND/UDlh5240MCAnXpK0nu7eCbK
+	p55hiDFBVDBEOuiz9eqWyDlFiERvfka6c0gg3M6MGSqWFmnAv1sJM3TDlmSznp8fT1XaUNUxUn9Js
+	ThxeWDrnzaqfsbnRScJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCcqD-004VL4-1I;
-	Mon, 11 Dec 2023 09:44:45 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1rCcqE-004VLX-1O;
+	Mon, 11 Dec 2023 09:44:46 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCcq6-004VHP-10
+	id 1rCcq8-004VIV-0C
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 Dec 2023 09:44:43 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-548f853fc9eso5950744a12.1
-        for <linux-riscv@lists.infradead.org>; Mon, 11 Dec 2023 01:44:35 -0800 (PST)
+	Mon, 11 Dec 2023 09:44:44 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-551437d5344so474087a12.1
+        for <linux-riscv@lists.infradead.org>; Mon, 11 Dec 2023 01:44:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1702287874; x=1702892674; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1702287879; x=1702892679; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=EGt5t/kAxS1mkU99JyGnFu1ODAbdCKJM932jBFyIPCw=;
-        b=moYxZ7ARxPBjpHJbsUhPyAs9I8ttIHyrKmIsbCMIA8q7sRBY84Lcr3roNFWgWFnV1i
-         wQRxLQCtN7bWc+rDyu5rUmP6r43uUv0AsV87uIr011z9maN4y43ASpArbvaBPswyn52w
-         yypetPp6e7PaOA4Qw3yvMXNBzaqyPzPjkITRt/X1+XmL7uSaafX9hXR/lkvz54nH2OgK
-         QIowEOOfI52fk0qxjIeFvOoCzHqY8Q3KGwfrAvCh2gKkCEs82RjFRsNMTd6OkZZQFZQV
-         Z4RKdBlm/cEtomQWkEvI12YZkXfXuzuxZR7OOmJUTW/0j6TeecyQANjPgY4dUlo6sjkl
-         vtDA==
+        bh=JrL6R0s9TI3vntjjPRtwaASPjZe5TnGAbwALAE/nUuU=;
+        b=iMNTk8f7ylMZM4j2QoXjHOL8RBbtavqHcqkynJ51jBOXiAB2LgyiuEOaxuJrALMiXw
+         Yo/0coueE6tQYzTPJ4NY3PnJFOqoT4Nt2y5FE5figO9CBWyIS3OP1P/bcr9G2n+oNdGA
+         7wBfokW2A5GK5V7jd5WobJXhb0YMDqX2lQ8nBoYkrpZsc1GOOuUTcXySsERiO1QKn4gs
+         8y2r76YMIJEJot+6qFhvm5LSC47irg1UhP4230moEK2+/NnKVtY3/y2dYH+sJqIG5x3L
+         qZ/XQvHWF8b15ntkJNjqkH7sI2FqNP8o6bj6p+zdsqot29RDYH+Sj6vnLeza+CwHlsVt
+         ZpZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702287874; x=1702892674;
+        d=1e100.net; s=20230601; t=1702287879; x=1702892679;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=EGt5t/kAxS1mkU99JyGnFu1ODAbdCKJM932jBFyIPCw=;
-        b=afON8qg+uhPtaso1UX5d+7c4J1wmETq75nuWjKGXvgSUsp8oOEoyoHIeftRu5wmbz7
-         0qtxVeolQFWFaaoMz7wUfV2Jqroh0YxXtSpMy7kbJVvTviBWpbx31WK8LsRdE6eQjy6S
-         wY7URQ/0cqtPU9zK/CyLAnD0Q9gyECQVp1lRRA+SuXdEzXBwkgUOwrFgwRECtOuiMrBy
-         7uSJu0+PByM8A4siSwebpnh92NL+cm/y0ZKvRccLueX6YvMcrLZQu2WR4BADVbgHVqvb
-         AGpcj0d5Z0RYY8lhEWffTPMmtRnlQaNRo4t/OP8qsPwpszOTViPGEbMnRd6g7m2er7Xn
-         Yf4g==
-X-Gm-Message-State: AOJu0Yz5A19AlCeJ5iYnYVfYU1/isLilNJixPxciFMTUzn6hgcIsu3dK
-	DYFdWt/0LIX1ErrTHU3dfnY=
-X-Google-Smtp-Source: AGHT+IE3pzBUwNsGbb2VsHTBxI6r5mm1ppw958Piqi5Nb7wAbUVFDdXvSB1QAU+x6JNSWe35csvnSw==
-X-Received: by 2002:a50:cd47:0:b0:54c:9cf0:fb67 with SMTP id d7-20020a50cd47000000b0054c9cf0fb67mr1257371edj.48.1702287874167;
-        Mon, 11 Dec 2023 01:44:34 -0800 (PST)
+        bh=JrL6R0s9TI3vntjjPRtwaASPjZe5TnGAbwALAE/nUuU=;
+        b=YLNn/2Stk05q1npWkfe/SUyqO3jstvuSsTGo8mSKFy84YqCrx63Lkn965LxmQr31ht
+         LHyGc7XbE/AVymhhrwAu8dUq0scDz/hBAKAfJzPb9kjAvrlxrln5Ck7yCqukT4hOKXf5
+         FPXXsbHR9LKfjVtWqb9CGAVnruFawie9rcW4ymxMCAOH7OL1g5mf/x/ArcnBNxZL2JFb
+         Gg7vCYjaPoDbEO96zHqDJ0/8nz3wFHVd5iCxuU2layHO5bMC0lfgYvbfwrySow/nqait
+         hbDqIYDIyyNybW/29BE0ygS+BJlwY7DTd1W2nwouD6f1OJhNG5VANC14bSiJWsZ/TJdE
+         +s9Q==
+X-Gm-Message-State: AOJu0YwCjeWkXPLXAfCuo0IJqlocX2YiOmh+ROxprXR7RM46uT6VXIk9
+	JI0DyGbbHGMDLkhOn8VpApE=
+X-Google-Smtp-Source: AGHT+IG5R0Nbgf4AZSChAr1lY64olZakZJEY1i/GFOLQjx+RMNL2fEXrQx8A8gceN8hc/P2o1l70Sg==
+X-Received: by 2002:a50:8dc7:0:b0:54c:4837:9a8d with SMTP id s7-20020a508dc7000000b0054c48379a8dmr2213085edh.52.1702287878685;
+        Mon, 11 Dec 2023 01:44:38 -0800 (PST)
 Received: from andrea.wind3.hub ([31.189.124.152])
-        by smtp.gmail.com with ESMTPSA id if3-20020a0564025d8300b0054afcab0af2sm3463505edb.59.2023.12.11.01.44.32
+        by smtp.gmail.com with ESMTPSA id if3-20020a0564025d8300b0054afcab0af2sm3463505edb.59.2023.12.11.01.44.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Dec 2023 01:44:33 -0800 (PST)
+        Mon, 11 Dec 2023 01:44:38 -0800 (PST)
 From: Andrea Parri <parri.andrea@gmail.com>
 To: mathieu.desnoyers@efficios.com,
 	paulmck@kernel.org,
@@ -76,16 +76,16 @@ Cc: mmaas@google.com,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Andrea Parri <parri.andrea@gmail.com>
-Subject: [PATCH v2 3/4] membarrier: riscv: Provide core serializing command
-Date: Mon, 11 Dec 2023 10:44:13 +0100
-Message-Id: <20231211094414.8078-4-parri.andrea@gmail.com>
+Subject: [RFC PATCH 4/4] membarrier: Introduce Kconfig ARCH_HAS_MEMBARRIER
+Date: Mon, 11 Dec 2023 10:44:14 +0100
+Message-Id: <20231211094414.8078-5-parri.andrea@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20231211094414.8078-1-parri.andrea@gmail.com>
 References: <20231211094414.8078-1-parri.andrea@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231211_014438_349316_B392DDF6 
-X-CRM114-Status: GOOD (  20.14  )
+X-CRM114-CacheID: sfid-20231211_014440_310907_D4781D79 
+X-CRM114-Status: GOOD (  20.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,167 +102,330 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISC-V uses xRET instructions on return from interrupt and to go back
-to user-space; the xRET instruction is not core serializing.
+Architectures supporting the "private expedited" membarrier command must
+select the Kconfig to use the command.  Document status and requirements
+for each architecture in a single file under Documentation/features.
 
-Use FENCE.I for providing core serialization as follows:
-
- - by calling sync_core_before_usermode() on return from interrupt (cf.
-   ipi_sync_core()),
-
- - via switch_mm() and sync_core_before_usermode() (respectively, for
-   uthread->uthread and kthread->uthread transitions) to go back to
-   user-space.
-
-On RISC-V, the serialization in switch_mm() is activated by resetting
-the icache_stale_mask of the mm at prepare_sync_core_cmd().
-
-Suggested-by: Palmer Dabbelt <palmer@dabbelt.com>
+Suggested-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
 ---
- .../membarrier-sync-core/arch-support.txt     | 18 +++++++++++-
- MAINTAINERS                                   |  1 +
- arch/riscv/Kconfig                            |  3 ++
- arch/riscv/include/asm/membarrier.h           | 19 ++++++++++++
- arch/riscv/include/asm/sync_core.h            | 29 +++++++++++++++++++
- 5 files changed, 69 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/include/asm/sync_core.h
+The TODOs in the arch-support table below should really be interpreted
+as "I'm not sure/haven't checked" (the respective arch maintainers will
+be able to verify and amend such information).
 
-diff --git a/Documentation/features/sched/membarrier-sync-core/arch-support.txt b/Documentation/features/sched/membarrier-sync-core/arch-support.txt
-index d96b778b87ed8..a163170fc0f48 100644
---- a/Documentation/features/sched/membarrier-sync-core/arch-support.txt
-+++ b/Documentation/features/sched/membarrier-sync-core/arch-support.txt
-@@ -10,6 +10,22 @@
- # Rely on implicit context synchronization as a result of exception return
- # when returning from IPI handler, and when returning to user-space.
- #
-+# * riscv
+Based on the following inline comment in __schedule():
+
+	/*
+	 * The membarrier system call requires each architecture
+	 * to have a full memory barrier after updating
+	 * rq->curr, before returning to user-space.
+	 *
+	 * Here are the schemes providing that barrier on the
+	 * various architectures:
+	 * - mm ? switch_mm() : mmdrop() for x86, s390, sparc, PowerPC,
+	 *   RISC-V.  switch_mm() relies on membarrier_arch_switch_mm()
+	 *   on PowerPC and on RISC-V.
+	 * - finish_lock_switch() for weakly-ordered
+	 *   architectures where spin_unlock is a full barrier,
+	 * - switch_to() for arm64 (weakly-ordered, spin_unlock
+	 *   is a RELEASE barrier),
+	 */
+
+ .../sched/membarrier/arch-support.txt         | 50 +++++++++++++++++++
+ MAINTAINERS                                   |  1 +
+ arch/alpha/Kconfig                            |  1 +
+ arch/arc/Kconfig                              |  1 +
+ arch/arm/Kconfig                              |  1 +
+ arch/arm64/Kconfig                            |  1 +
+ arch/hexagon/Kconfig                          |  1 +
+ arch/mips/Kconfig                             |  1 +
+ arch/powerpc/Kconfig                          |  1 +
+ arch/riscv/Kconfig                            |  1 +
+ arch/s390/Kconfig                             |  1 +
+ arch/sparc/Kconfig                            |  1 +
+ arch/x86/Kconfig                              |  1 +
+ init/Kconfig                                  |  3 ++
+ kernel/sched/core.c                           |  4 +-
+ kernel/sched/membarrier.c                     | 15 +++++-
+ 16 files changed, 80 insertions(+), 4 deletions(-)
+ create mode 100644 Documentation/features/sched/membarrier/arch-support.txt
+
+diff --git a/Documentation/features/sched/membarrier/arch-support.txt b/Documentation/features/sched/membarrier/arch-support.txt
+new file mode 100644
+index 0000000000000..95e65195e47c2
+--- /dev/null
++++ b/Documentation/features/sched/membarrier/arch-support.txt
+@@ -0,0 +1,50 @@
 +#
-+# riscv uses xRET as return from interrupt and to return to user-space.
++# Feature name:          membarrier
++#         Kconfig:       ARCH_HAS_MEMBARRIER
++#         description:   arch supports MEMBARRIER_CMD_PRIVATE_EXPEDITED
 +#
-+# Given that xRET is not core serializing, we rely on FENCE.I for providing
-+# core serialization:
++# Architecture requirements
 +#
-+#  - by calling sync_core_before_usermode() on return from interrupt (cf.
-+#    ipi_sync_core()),
++# The membarrier() system call requires each architecture to have a full memory
++# barrier after updating rq->curr, before returning to user-space.
 +#
-+#  - via switch_mm() and sync_core_before_usermode() (respectively, for
-+#    uthread->uthread and kthread->uthread transitions) to go back to
-+#    user-space.
++# Here are the schemes providing that barrier on the various architectures:
 +#
-+#  The serialization in switch_mm() is activated by prepare_sync_core_cmd().
++# * alpha/arc/arm/hexagon/mips
 +#
- # * x86
- #
- # x86-32 uses IRET as return from interrupt, which takes care of the IPI.
-@@ -43,7 +59,7 @@
-     |    openrisc: | TODO |
-     |      parisc: | TODO |
-     |     powerpc: |  ok  |
--    |       riscv: | TODO |
++# We rely on the full barrier implied by spin_unlock() in finish_lock_switch().
++#
++# * arm64
++#
++# We rely on the full barrier implied by switch_to().
++#
++# * powerpc/riscv/s390/sparc/x86
++#
++# We rely on the full barrier implied by switch_mm(), if mm isn't NULL; we rely
++# on the full barrier implied by mmdrop(), otherwise.
++#
++    -----------------------
++    |         arch |status|
++    -----------------------
++    |       alpha: |  ok  |
++    |         arc: |  ok  |
++    |         arm: |  ok  |
++    |       arm64: |  ok  |
++    |        csky: | TODO |
++    |     hexagon: |  ok  |
++    |   loongarch: | TODO |
++    |        m68k: | TODO |
++    |  microblaze: | TODO |
++    |        mips: |  ok  |
++    |       nios2: | TODO |
++    |    openrisc: | TODO |
++    |      parisc: | TODO |
++    |     powerpc: |  ok  |
 +    |       riscv: |  ok  |
-     |        s390: |  ok  |
-     |          sh: | TODO |
-     |       sparc: | TODO |
++    |        s390: |  ok  |
++    |          sh: | TODO |
++    |       sparc: |  ok  |
++    |          um: | TODO |
++    |         x86: |  ok  |
++    |      xtensa: | TODO |
++    -----------------------
 diff --git a/MAINTAINERS b/MAINTAINERS
-index a9166d82ffced..f6f1fdc76cf46 100644
+index f6f1fdc76cf46..c5a053605cbc4 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -13808,6 +13808,7 @@ M:	"Paul E. McKenney" <paulmck@kernel.org>
+@@ -13807,6 +13807,7 @@ M:	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+ M:	"Paul E. McKenney" <paulmck@kernel.org>
  L:	linux-kernel@vger.kernel.org
  S:	Supported
++F:	Documentation/features/sched/membarrier*/
  F:	arch/*/include/asm/membarrier.h
-+F:	arch/*/include/asm/sync_core.h
+ F:	arch/*/include/asm/sync_core.h
  F:	include/uapi/linux/membarrier.h
- F:	kernel/sched/membarrier.c
- 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index f7db95097caf1..db7b1acd943e4 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -28,14 +28,17 @@ config RISCV
+diff --git a/arch/alpha/Kconfig b/arch/alpha/Kconfig
+index d6968d090d49a..f98d6cba0bd9a 100644
+--- a/arch/alpha/Kconfig
++++ b/arch/alpha/Kconfig
+@@ -24,6 +24,7 @@ config ALPHA
+ 	select GENERIC_IRQ_SHOW
+ 	select ARCH_WANT_IPC_PARSE_VERSION
+ 	select ARCH_HAVE_NMI_SAFE_CMPXCHG
++	select ARCH_HAS_MEMBARRIER
+ 	select AUDIT_ARCH
+ 	select GENERIC_CPU_VULNERABILITIES
+ 	select GENERIC_SMP_IDLE_THREAD
+diff --git a/arch/arc/Kconfig b/arch/arc/Kconfig
+index 3162db540ee96..1d8a6ba98ae33 100644
+--- a/arch/arc/Kconfig
++++ b/arch/arc/Kconfig
+@@ -9,6 +9,7 @@ config ARC
+ 	select ARCH_HAS_CACHE_LINE_SIZE
+ 	select ARCH_HAS_DEBUG_VM_PGTABLE
+ 	select ARCH_HAS_DMA_PREP_COHERENT
++	select ARCH_HAS_MEMBARRIER
+ 	select ARCH_HAS_PTE_SPECIAL
+ 	select ARCH_HAS_SETUP_DMA_OPS
+ 	select ARCH_HAS_SYNC_DMA_FOR_CPU
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index f8567e95f98be..700d1d9ff2f8b 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -14,6 +14,7 @@ config ARM
+ 	select ARCH_HAS_FORTIFY_SOURCE
+ 	select ARCH_HAS_KEEPINITRD
+ 	select ARCH_HAS_KCOV
++	select ARCH_HAS_MEMBARRIER
+ 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
+ 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
+ 	select ARCH_HAS_PTE_SPECIAL if ARM_LPAE
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 7b071a00425d2..d21788e6920f6 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -31,6 +31,7 @@ config ARM64
  	select ARCH_HAS_GIGANTIC_PAGE
  	select ARCH_HAS_KCOV
- 	select ARCH_HAS_MEMBARRIER_CALLBACKS
-+	select ARCH_HAS_MEMBARRIER_SYNC_CORE
- 	select ARCH_HAS_MMIOWB
+ 	select ARCH_HAS_KEEPINITRD
++	select ARCH_HAS_MEMBARRIER
+ 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
+ 	select ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
  	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
- 	select ARCH_HAS_PMEM_API
-+	select ARCH_HAS_PREPARE_SYNC_CORE_CMD
- 	select ARCH_HAS_PTE_SPECIAL
- 	select ARCH_HAS_SET_DIRECT_MAP if MMU
- 	select ARCH_HAS_SET_MEMORY if MMU
- 	select ARCH_HAS_STRICT_KERNEL_RWX if MMU && !XIP_KERNEL
- 	select ARCH_HAS_STRICT_MODULE_RWX if MMU && !XIP_KERNEL
-+	select ARCH_HAS_SYNC_CORE_BEFORE_USERMODE
- 	select ARCH_HAS_SYSCALL_WRAPPER
+diff --git a/arch/hexagon/Kconfig b/arch/hexagon/Kconfig
+index a880ee067d2ec..c2b2713c01bbd 100644
+--- a/arch/hexagon/Kconfig
++++ b/arch/hexagon/Kconfig
+@@ -5,6 +5,7 @@ comment "Linux Kernel Configuration for Hexagon"
+ config HEXAGON
+ 	def_bool y
+ 	select ARCH_32BIT_OFF_T
++	select ARCH_HAS_MEMBARRIER
+ 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
+ 	select ARCH_NO_PREEMPT
+ 	select DMA_GLOBAL_POOL
+diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+index 797ae590ebdba..4b65e73e34c16 100644
+--- a/arch/mips/Kconfig
++++ b/arch/mips/Kconfig
+@@ -16,6 +16,7 @@ config MIPS
  	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
  	select ARCH_HAS_UBSAN_SANITIZE_ALL
-diff --git a/arch/riscv/include/asm/membarrier.h b/arch/riscv/include/asm/membarrier.h
-index 4be218fa03b14..a1071039c20ed 100644
---- a/arch/riscv/include/asm/membarrier.h
-+++ b/arch/riscv/include/asm/membarrier.h
-@@ -22,6 +22,25 @@ static inline void membarrier_arch_switch_mm(struct mm_struct *prev,
- 	/*
- 	 * The membarrier system call requires a full memory barrier
- 	 * after storing to rq->curr, before going back to user-space.
-+	 *
-+	 * The barrier is also needed for the SYNC_CORE command when
-+	 * switching between processes; in particular, on a transition
-+	 * from a thread belonging to another mm to a thread belonging
-+	 * to the mm for which a membarrier SYNC_CORE is done on CPU0:
-+	 *
-+	 *   - [CPU0] sets all bits in the mm icache_stale_mask.
-+	 *
-+	 *   - [CPU1] store to rq->curr (by the scheduler).
-+	 *
-+	 *   - [CPU0] loads rq->curr within membarrier and observes
-+	 *     cpu_rq(1)->curr->mm != mm, so the IPI is skipped on
-+	 *     CPU1; this means membarrier relies on switch_mm() to
-+	 *     issue the sync-core.
-+	 *
-+	 *   - [CPU1] switch_mm() loads icache_stale_mask; if the bit
-+	 *     is zero, switch_mm() may incorrectly skip the sync-core.
-+	 *
-+	 * Matches the full barrier in membarrier_private_expedited().
- 	 */
- 	smp_mb();
- }
-diff --git a/arch/riscv/include/asm/sync_core.h b/arch/riscv/include/asm/sync_core.h
-new file mode 100644
-index 0000000000000..9153016da8f14
---- /dev/null
-+++ b/arch/riscv/include/asm/sync_core.h
-@@ -0,0 +1,29 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_RISCV_SYNC_CORE_H
-+#define _ASM_RISCV_SYNC_CORE_H
+ 	select ARCH_HAS_GCOV_PROFILE_ALL
++	select ARCH_HAS_MEMBARRIER
+ 	select ARCH_KEEP_MEMBLOCK
+ 	select ARCH_USE_BUILTIN_BSWAP
+ 	select ARCH_USE_CMPXCHG_LOCKREF if 64BIT
+diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+index 6f105ee4f3cf5..c13980eac3585 100644
+--- a/arch/powerpc/Kconfig
++++ b/arch/powerpc/Kconfig
+@@ -137,6 +137,7 @@ config PPC
+ 	select ARCH_HAS_GCOV_PROFILE_ALL
+ 	select ARCH_HAS_HUGEPD			if HUGETLB_PAGE
+ 	select ARCH_HAS_KCOV
++	select ARCH_HAS_MEMBARRIER
+ 	select ARCH_HAS_MEMBARRIER_CALLBACKS
+ 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
+ 	select ARCH_HAS_MEMREMAP_COMPAT_ALIGN	if PPC_64S_HASH_MMU
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index db7b1acd943e4..fd4c6a74ebd61 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -27,6 +27,7 @@ config RISCV
+ 	select ARCH_HAS_GCOV_PROFILE_ALL
+ 	select ARCH_HAS_GIGANTIC_PAGE
+ 	select ARCH_HAS_KCOV
++	select ARCH_HAS_MEMBARRIER
+ 	select ARCH_HAS_MEMBARRIER_CALLBACKS
+ 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
+ 	select ARCH_HAS_MMIOWB
+diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
+index 3bec98d20283b..2e044d424fd4a 100644
+--- a/arch/s390/Kconfig
++++ b/arch/s390/Kconfig
+@@ -72,6 +72,7 @@ config S390
+ 	select ARCH_HAS_GCOV_PROFILE_ALL
+ 	select ARCH_HAS_GIGANTIC_PAGE
+ 	select ARCH_HAS_KCOV
++	select ARCH_HAS_MEMBARRIER
+ 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
+ 	select ARCH_HAS_MEM_ENCRYPT
+ 	select ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
+diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
+index 49849790e66dc..40eb179c2416a 100644
+--- a/arch/sparc/Kconfig
++++ b/arch/sparc/Kconfig
+@@ -30,6 +30,7 @@ config SPARC
+ 	select RTC_SYSTOHC
+ 	select HAVE_ARCH_JUMP_LABEL if SPARC64
+ 	select GENERIC_IRQ_SHOW
++	select ARCH_HAS_MEMBARRIER
+ 	select ARCH_WANT_IPC_PARSE_VERSION
+ 	select GENERIC_PCI_IOMAP
+ 	select HAS_IOPORT
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 3762f41bb0929..83f63e00312ee 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -82,6 +82,7 @@ config X86
+ 	select ARCH_HAS_GCOV_PROFILE_ALL
+ 	select ARCH_HAS_KCOV			if X86_64
+ 	select ARCH_HAS_MEM_ENCRYPT
++	select ARCH_HAS_MEMBARRIER
+ 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
+ 	select ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
+ 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
+diff --git a/init/Kconfig b/init/Kconfig
+index 87daf50838f02..8114404b52b91 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -1742,6 +1742,9 @@ config KALLSYMS_BASE_RELATIVE
+ 
+ # syscall, maps, verifier
+ 
++config ARCH_HAS_MEMBARRIER
++	bool
 +
-+/*
-+ * RISC-V implements return to user-space through an xRET instruction,
-+ * which is not core serializing.
-+ */
-+static inline void sync_core_before_usermode(void)
-+{
-+	asm volatile ("fence.i" ::: "memory");
-+}
-+
-+#ifdef CONFIG_SMP
-+/*
-+ * Ensure the next switch_mm() on every CPU issues a core serializing
-+ * instruction for the given @mm.
-+ */
-+static inline void prepare_sync_core_cmd(struct mm_struct *mm)
-+{
-+	cpumask_setall(&mm->context.icache_stale_mask);
-+}
+ config ARCH_HAS_MEMBARRIER_CALLBACKS
+ 	bool
+ 
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index 711dc753f7216..dff1c6df337f9 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -6673,8 +6673,8 @@ static void __sched notrace __schedule(unsigned int sched_mode)
+ 		 * - mm ? switch_mm() : mmdrop() for x86, s390, sparc, PowerPC,
+ 		 *   RISC-V.  switch_mm() relies on membarrier_arch_switch_mm()
+ 		 *   on PowerPC and on RISC-V.
+-		 * - finish_lock_switch() for weakly-ordered
+-		 *   architectures where spin_unlock is a full barrier,
++		 * - finish_lock_switch() for alpha, arc, arm, hexagon, mips
++		 *   where spin_unlock is a full barrier,
+ 		 * - switch_to() for arm64 (weakly-ordered, spin_unlock
+ 		 *   is a RELEASE barrier),
+ 		 */
+diff --git a/kernel/sched/membarrier.c b/kernel/sched/membarrier.c
+index 58f801e013988..248a38c9b261c 100644
+--- a/kernel/sched/membarrier.c
++++ b/kernel/sched/membarrier.c
+@@ -137,6 +137,14 @@
+  * Bitmask made from a "or" of all commands within enum membarrier_cmd,
+  * except MEMBARRIER_CMD_QUERY.
+  */
++#ifdef CONFIG_ARCH_HAS_MEMBARRIER
++#define MEMBARRIER_PRIVATE_EXPEDITED_BITMASK			\
++	(MEMBARRIER_CMD_PRIVATE_EXPEDITED			\
++	| MEMBARRIER_CMD_REGISTER_PRIVATE_EXPEDITED)
 +#else
-+static inline void prepare_sync_core_cmd(struct mm_struct *mm)
-+{
-+}
-+#endif /* CONFIG_SMP */
++#define MEMBARRIER_PRIVATE_EXPEDITED_BITMASK	0
++#endif
 +
-+#endif /* _ASM_RISCV_SYNC_CORE_H */
+ #ifdef CONFIG_ARCH_HAS_MEMBARRIER_SYNC_CORE
+ #define MEMBARRIER_PRIVATE_EXPEDITED_SYNC_CORE_BITMASK			\
+ 	(MEMBARRIER_CMD_PRIVATE_EXPEDITED_SYNC_CORE			\
+@@ -156,8 +164,7 @@
+ #define MEMBARRIER_CMD_BITMASK						\
+ 	(MEMBARRIER_CMD_GLOBAL | MEMBARRIER_CMD_GLOBAL_EXPEDITED	\
+ 	| MEMBARRIER_CMD_REGISTER_GLOBAL_EXPEDITED			\
+-	| MEMBARRIER_CMD_PRIVATE_EXPEDITED				\
+-	| MEMBARRIER_CMD_REGISTER_PRIVATE_EXPEDITED			\
++	| MEMBARRIER_PRIVATE_EXPEDITED_BITMASK				\
+ 	| MEMBARRIER_PRIVATE_EXPEDITED_SYNC_CORE_BITMASK		\
+ 	| MEMBARRIER_PRIVATE_EXPEDITED_RSEQ_BITMASK			\
+ 	| MEMBARRIER_CMD_GET_REGISTRATIONS)
+@@ -329,6 +336,8 @@ static int membarrier_private_expedited(int flags, int cpu_id)
+ 			return -EPERM;
+ 		ipi_func = ipi_rseq;
+ 	} else {
++		if (!IS_ENABLED(CONFIG_ARCH_HAS_MEMBARRIER))
++			return -EINVAL;
+ 		WARN_ON_ONCE(flags);
+ 		if (!(atomic_read(&mm->membarrier_state) &
+ 		      MEMBARRIER_STATE_PRIVATE_EXPEDITED_READY))
+@@ -519,6 +528,8 @@ static int membarrier_register_private_expedited(int flags)
+ 		ready_state =
+ 			MEMBARRIER_STATE_PRIVATE_EXPEDITED_RSEQ_READY;
+ 	} else {
++		if (!IS_ENABLED(CONFIG_ARCH_HAS_MEMBARRIER))
++			return -EINVAL;
+ 		WARN_ON_ONCE(flags);
+ 	}
+ 
 -- 
 2.34.1
 
