@@ -4,74 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 698F2C4167B
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Dec 2023 12:19:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F0FCC10F07
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Dec 2023 12:24:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wb6UXxJsuPZgahhaWVeg7wqdypAjYQzgeNKvXc6CeW4=; b=uOtIxr/NInt7Hy037+fJq1R+U6
-	ueTpOCBNSWJb5V8GRunaJwEPXRJG4YtDV3tTDknAtjxRE0rzmz8fVPCGR78CkDFhpTtnaX2tHpHM3
-	8nyc4p/6tIWP0UE9cPQ1YInVazvivirVHy8+9sSFUvsTy4EenAvTSDYFBbGafwc2RCz2hBjnBrtck
-	wVGaQRGsBTuFFOs8iKi0doos5J2VgIv2pm8mZgEbMpkR3CI/7IsFSrPuKTw6F9Ua6o9+sJfrX62O0
-	BuJkNtVH9dBOWiyi6mpE7WOWQbgJdTrfURrc1Um8N4qwb3/Cl6a8a/vQ3KbFRieSF8A9lv41lRafH
-	NyT+alQw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=oQsFCMW+Enmc83PH1EXFIgHk5yU4hnR0QFSJIULlBFs=; b=ItVeMrP3Xd2JQk
+	anwcxoJfYCa7X296I1KC3ypg+trGzpGObF33eWqBSA6wF4vO7RiBTIp5Ouw79TJKb4VXOA7ED9Mva
+	YSqdiiqpwSPEeeBV2qaatO9yo6ccNpSTgm9UJ7iGLxqz/oQc3SgX7trnYlWOPsTCfqT7Uk1fPDI6w
+	sWZ80huqmUDkCdK9vm7bblavsDKxBwfABOv06choZePM07IZoQibok1KTZMtRZK/UQHr32ZvYa4XO
+	A4EiwKu+dtZjaJNr+JQ/zuhf198L8CJUKjLnL3oIPxZcznffLXur8LmJsRNXpIxMfxTjNwepROO/J
+	mHt8gVhMGoDSJ4orqAqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCfFQ-004pG3-09;
-	Mon, 11 Dec 2023 12:18:56 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1rCfKR-004qVq-2e;
+	Mon, 11 Dec 2023 12:24:07 +0000
+Received: from mail.ozlabs.org ([2404:9400:2221:ea00::3] helo=gandalf.ozlabs.org)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCfEl-004p8c-1B
-	for linux-riscv@lists.infradead.org;
-	Mon, 11 Dec 2023 12:18:52 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1rCfEf-0001H0-4X; Mon, 11 Dec 2023 13:18:09 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1rCfEe-00F5z5-AI; Mon, 11 Dec 2023 13:18:08 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1rCfEe-000tY1-0P; Mon, 11 Dec 2023 13:18:08 +0100
-Date: Mon, 11 Dec 2023 13:18:07 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: linux-doc@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	platform-driver-x86@vger.kernel.org,
-	linux-hardening@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-leds@vger.kernel.org, chrome-platform@lists.linux.dev,
-	linux-samsung-soc@vger.kernel.org,
-	Bartosz Golaszewski <brgl@bgdev.pl>, linux-staging@lists.linux.dev,
-	linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-pwm@vger.kernel.org, greybus-dev@lists.linaro.org,
-	linux-mediatek@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	asahi@lists.linux.dev, kernel@pengutronix.de
-Subject: Re: [PATCH v4 000/115] pwm: Fix lifetime issues for pwm_chips
-Message-ID: <20231211121807.zzlgf3alcoo6lrw7@pengutronix.de>
-References: <cover.1701860672.git.u.kleine-koenig@pengutronix.de>
- <ZXM4CdJxg-XrYhkn@orome.fritz.box>
- <20231208185033.e6ty2cajcfle6dgk@pengutronix.de>
- <ZXbzcFTnDTKoZAta@orome.fritz.box>
+	id 1rCfKA-004qOi-1M;
+	Mon, 11 Dec 2023 12:24:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ellerman.id.au;
+	s=201909; t=1702297420;
+	bh=ODAUXRjain77XOmoPnKy1MNIInbnbbNcYLIa9FPn8ks=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=nIVA8V0yVj+ZMN8x89h2gJxxT4+cCTauZuj8Ht7cflzgnHnN4ITpBMOV1xWo7AIlq
+	 Qb+tJKhKhRta6FIYqIPB6IjCP4IRbYllJ3J3dFQkrZ5gBhylzYOFVQ0olRQRq0XFRq
+	 mToIUeHe7mjunplXY3/T3inRVriUXVwwqHAyMT8ZrNdDNjb78fGIZ7jZefsf1Xa8DY
+	 kagFMIi8wqGn8H2LFlRDsc9/abaI9Ajeo1k+5RyvhTShHF9xXBTFIlBig9ReYi7rDb
+	 14jHwg99Lq6Mb4L4gts5PmojrjCNJA0P9GJfiVGM/34KY923DExlNs08GewB4rxZRl
+	 xDIjF0NgfU/GA==
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4Spgrp6jZHz4xGM;
+	Mon, 11 Dec 2023 23:23:38 +1100 (AEDT)
+From: Michael Ellerman <mpe@ellerman.id.au>
+To: Samuel Holland <samuel.holland@sifive.com>,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, x86@kernel.org,
+ linux-riscv@lists.infradead.org, Christoph Hellwig <hch@infradead.org>,
+ Timothy Pearson <tpearson@raptorengineering.com>
+Cc: linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org,
+ linux-arch@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>
+Subject: Re: [RFC PATCH 10/12] drm/amd/display: Use ARCH_HAS_KERNEL_FPU_SUPPORT
+In-Reply-To: <20231208055501.2916202-11-samuel.holland@sifive.com>
+References: <20231208055501.2916202-1-samuel.holland@sifive.com>
+ <20231208055501.2916202-11-samuel.holland@sifive.com>
+Date: Mon, 11 Dec 2023 23:23:35 +1100
+Message-ID: <87h6kpdj20.fsf@mail.lhotse>
 MIME-Version: 1.0
-In-Reply-To: <ZXbzcFTnDTKoZAta@orome.fritz.box>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231211_041815_502699_BC9C30D3 
-X-CRM114-Status: GOOD (  25.14  )
+X-CRM114-CacheID: sfid-20231211_042350_855293_6D10ABE2 
+X-CRM114-Status: GOOD (  18.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,144 +71,146 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2221914228831594986=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Samuel,
 
---===============2221914228831594986==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="yyef2a7pj6vk5dry"
-Content-Disposition: inline
+Thanks for trying to clean all this up.
 
+One problem below.
 
---yyef2a7pj6vk5dry
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Samuel Holland <samuel.holland@sifive.com> writes:
+> Now that all previously-supported architectures select
+> ARCH_HAS_KERNEL_FPU_SUPPORT, this code can depend on that symbol instead
+> of the existing list of architectures. It can also take advantage of the
+> common kernel-mode FPU API and method of adjusting CFLAGS.
+>
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+...
+> diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c b/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
+> index 4ae4720535a5..b64f917174ca 100644
+> --- a/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
+> +++ b/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
+> @@ -87,20 +78,9 @@ void dc_fpu_begin(const char *function_name, const int line)
+>  	WARN_ON_ONCE(!in_task());
+>  	preempt_disable();
+>  	depth = __this_cpu_inc_return(fpu_recursion_depth);
+> -
+>  	if (depth == 1) {
+> -#if defined(CONFIG_X86) || defined(CONFIG_LOONGARCH)
+> +		BUG_ON(!kernel_fpu_available());
+>  		kernel_fpu_begin();
+> -#elif defined(CONFIG_PPC64)
+> -		if (cpu_has_feature(CPU_FTR_VSX_COMP))
+> -			enable_kernel_vsx();
+> -		else if (cpu_has_feature(CPU_FTR_ALTIVEC_COMP))
+> -			enable_kernel_altivec();
+ 
+Note altivec.
 
-Hello Thierry,
+> -		else if (!cpu_has_feature(CPU_FTR_FPU_UNAVAILABLE))
+> -			enable_kernel_fp();
+> -#elif defined(CONFIG_ARM64)
+> -		kernel_neon_begin();
+> -#endif
+>  	}
+>  
+>  	TRACE_DCN_FPU(true, function_name, line, depth);
+> diff --git a/drivers/gpu/drm/amd/display/dc/dml/Makefile b/drivers/gpu/drm/amd/display/dc/dml/Makefile
+> index ea7d60f9a9b4..5aad0f572ba3 100644
+> --- a/drivers/gpu/drm/amd/display/dc/dml/Makefile
+> +++ b/drivers/gpu/drm/amd/display/dc/dml/Makefile
+> @@ -25,40 +25,8 @@
+>  # It provides the general basic services required by other DAL
+>  # subcomponents.
+>  
+> -ifdef CONFIG_X86
+> -dml_ccflags-$(CONFIG_CC_IS_GCC) := -mhard-float
+> -dml_ccflags := $(dml_ccflags-y) -msse
+> -endif
+> -
+> -ifdef CONFIG_PPC64
+> -dml_ccflags := -mhard-float -maltivec
+> -endif
 
-On Mon, Dec 11, 2023 at 12:33:04PM +0100, Thierry Reding wrote:
-> On Fri, Dec 08, 2023 at 07:50:33PM +0100, Uwe Kleine-K=F6nig wrote:
-> > The TL;DR; is essentially what I already wrote in my last reply to Bart
-> > in the v3 thread[1]:
-> >=20
-> >  - My approach needs more changes to the individual drivers (which I
-> >    don't consider a relevant disadvantage given that the resulting code
-> >    is better);
-> >  - My approach works with less pointer dereferences which IMHO also
-> >    simplifies understanding the code as all relevant data is in a single
-> >    place.
-> >  - My approach has a weaker separation between the core and the lowlevel
-> >    drivers. That's ok in my book given that this doesn't complicate the
-> >    lowlevel drivers and that hiding details considerably better doesn't
-> >    work anyhow (see the drivers that need internal.h in your patch).
-> >=20
-> > For me the single allocation issue is only an added bonus. The relevant
-> > advantage of my approach is that the code is easier and (probably) more
-> > efficient.
->=20
-> I happen to disagree. I think adding pwmchip_alloc() makes things much
-> more complicated for low level drivers.
+And altivec is enabled in the flags there.
 
-Looking at e.g.
-https://lore.kernel.org/linux-pwm/2dda818b8bbbe8ba4b9df5ab54f960ff4a4f1ab5.=
-1701860672.git.u.kleine-koenig@pengutronix.de/
-I wonder where you see "much more complication". OK, there are two
-pointers now for chip and private data, but I'd call that at most a
-"mild" complication[1] which is more than balanced out by the
-simplifications in the remaining parts of that patch.
+That doesn't match your implementation for powerpc in patch 7, which
+only deals with float.
 
-Best regards
-Uwe
+I suspect the AMD driver actually doesn't need altivec enabled, but I
+don't know that for sure. It compiles without it, but I don't have a GPU
+to actually test. I've added Timothy on Cc who added the support for
+powerpc to the driver originally, hopefully he has a test system.
 
-[1] I'm not sure I'd refuse someone suggesting the following patch on
-    top of today's next:
+Anyway if that's true that it doesn't need altivec we should probably do
+a lead-up patch that drops altivec from the AMD driver explicitly, eg.
+as below.
 
-	diff --git a/drivers/pwm/pwm-microchip-core.c b/drivers/pwm/pwm-microchip-=
-core.c
-	index c0c53968f3e9..d32e65914599 100644
-	--- a/drivers/pwm/pwm-microchip-core.c
-	+++ b/drivers/pwm/pwm-microchip-core.c
-	@@ -448,12 +448,14 @@ MODULE_DEVICE_TABLE(of, mchp_core_of_match);
-	 static int mchp_core_pwm_probe(struct platform_device *pdev)
-	 {
-		struct mchp_core_pwm_chip *mchp_core_pwm;
-	+	struct pwm_chip *chip;
-		struct resource *regs;
-		int ret;
-	=20
-		mchp_core_pwm =3D devm_kzalloc(&pdev->dev, sizeof(*mchp_core_pwm), GFP_KE=
-RNEL);
-		if (!mchp_core_pwm)
-			return -ENOMEM;
-	+	chip =3D &mchp_core_pwm->chip;
-	=20
-		mchp_core_pwm->base =3D devm_platform_get_and_ioremap_resource(pdev, 0, &=
-regs);
-		if (IS_ERR(mchp_core_pwm->base))
-	@@ -470,9 +472,9 @@ static int mchp_core_pwm_probe(struct platform_device =
-*pdev)
-	=20
-		mutex_init(&mchp_core_pwm->lock);
-	=20
-	-	mchp_core_pwm->chip.dev =3D &pdev->dev;
-	-	mchp_core_pwm->chip.ops =3D &mchp_core_pwm_ops;
-	-	mchp_core_pwm->chip.npwm =3D 16;
-	+	chip->dev =3D &pdev->dev;
-	+	chip->ops =3D &mchp_core_pwm_ops;
-	+	chip->npwm =3D 16;
-	=20
-		mchp_core_pwm->channel_enabled =3D readb_relaxed(mchp_core_pwm->base + MC=
-HPCOREPWM_EN(0));
-		mchp_core_pwm->channel_enabled |=3D
-	@@ -485,7 +487,7 @@ static int mchp_core_pwm_probe(struct platform_device =
-*pdev)
-		writel_relaxed(1U, mchp_core_pwm->base + MCHPCOREPWM_SYNC_UPD);
-		mchp_core_pwm->update_timestamp =3D ktime_get();
-	=20
-	-	ret =3D devm_pwmchip_add(&pdev->dev, &mchp_core_pwm->chip);
-	+	ret =3D devm_pwmchip_add(&pdev->dev, chip);
-		if (ret)
-			return dev_err_probe(&pdev->dev, ret, "Failed to add pwmchip\n");
-=20
-    With that applied before the above mentioned patch there is no
-    complication at all in my eyes.
+cheers
 
 
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---yyef2a7pj6vk5dry
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmV2/f8ACgkQj4D7WH0S
-/k7QwQgApfQEvhd6se+a8+O5GDdTfjV+EObXMDS2kvZsRHCAmatVaTePkn/Zg6Fo
-ZwGiGr9Ttfcjwf0hpLEmy7G2QP38HPZySu1f9Xo4V6NtkIvo4iPm3o60vDqF3mZM
-i+2779oY7aNOanR7E1KyDs7WfAZowpslVZ9qaXlDs6Pa1Hrz4Z7Wn6sF4gVV0SnX
-Qq2kKClfhZCuWBwwSDHS72BKOj2GRkgP32YIDH1LcEP9iemoZqFJivwMh3VGvIXv
-DocnmNO9JXrr3vx5UTcRHZfakEXbIfGOTtibtXwJDI48rHzGcXYRbYGi5B5Sssx/
-SHrVw/Ghy9VDfrcrkb+gLBfpz7JxyA==
-=RAtQ
------END PGP SIGNATURE-----
-
---yyef2a7pj6vk5dry--
-
-
---===============2221914228831594986==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c b/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
+index 4ae4720535a5..0de16796466b 100644
+--- a/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
++++ b/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
+@@ -92,11 +92,7 @@ void dc_fpu_begin(const char *function_name, const int line)
+ #if defined(CONFIG_X86) || defined(CONFIG_LOONGARCH)
+ 		kernel_fpu_begin();
+ #elif defined(CONFIG_PPC64)
+-		if (cpu_has_feature(CPU_FTR_VSX_COMP))
+-			enable_kernel_vsx();
+-		else if (cpu_has_feature(CPU_FTR_ALTIVEC_COMP))
+-			enable_kernel_altivec();
+-		else if (!cpu_has_feature(CPU_FTR_FPU_UNAVAILABLE))
++		if (!cpu_has_feature(CPU_FTR_FPU_UNAVAILABLE))
+ 			enable_kernel_fp();
+ #elif defined(CONFIG_ARM64)
+ 		kernel_neon_begin();
+@@ -125,11 +121,7 @@ void dc_fpu_end(const char *function_name, const int line)
+ #if defined(CONFIG_X86) || defined(CONFIG_LOONGARCH)
+ 		kernel_fpu_end();
+ #elif defined(CONFIG_PPC64)
+-		if (cpu_has_feature(CPU_FTR_VSX_COMP))
+-			disable_kernel_vsx();
+-		else if (cpu_has_feature(CPU_FTR_ALTIVEC_COMP))
+-			disable_kernel_altivec();
+-		else if (!cpu_has_feature(CPU_FTR_FPU_UNAVAILABLE))
++		if (!cpu_has_feature(CPU_FTR_FPU_UNAVAILABLE))
+ 			disable_kernel_fp();
+ #elif defined(CONFIG_ARM64)
+ 		kernel_neon_end();
+diff --git a/drivers/gpu/drm/amd/display/dc/dml/Makefile b/drivers/gpu/drm/amd/display/dc/dml/Makefile
+index 6042a5a6a44f..554c39024a40 100644
+--- a/drivers/gpu/drm/amd/display/dc/dml/Makefile
++++ b/drivers/gpu/drm/amd/display/dc/dml/Makefile
+@@ -31,7 +31,7 @@ dml_ccflags := $(dml_ccflags-y) -msse
+ endif
+ 
+ ifdef CONFIG_PPC64
+-dml_ccflags := -mhard-float -maltivec
++dml_ccflags := -mhard-float
+ endif
+ 
+ ifdef CONFIG_ARM64
+diff --git a/drivers/gpu/drm/amd/display/dc/dml2/Makefile b/drivers/gpu/drm/amd/display/dc/dml2/Makefile
+index acff3449b8d7..7b51364084b5 100644
+--- a/drivers/gpu/drm/amd/display/dc/dml2/Makefile
++++ b/drivers/gpu/drm/amd/display/dc/dml2/Makefile
+@@ -30,7 +30,7 @@ dml2_ccflags := $(dml2_ccflags-y) -msse
+ endif
+ 
+ ifdef CONFIG_PPC64
+-dml2_ccflags := -mhard-float -maltivec
++dml2_ccflags := -mhard-float
+ endif
+ 
+ ifdef CONFIG_ARM64
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2221914228831594986==--
-
