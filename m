@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B97C0C4167B
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Dec 2023 16:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4215DC4167B
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Dec 2023 16:11:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9fGL9C0Tqt4xFoa4GzZeY/VD2Pyf4tW2dzsVB52lO0w=; b=YWky1p/8MgC6Dv
-	XHe4wcjTIBKpDLOtr9AWwdAPkr+yWj8tw2DJqc08ailz0TnFlI0MMxG5QzobwSAsLabXOb0BW23Ls
-	Mq0ZAVWKp2qUN47g10roW3T+XLGMx+OZ+TQzhHhjnnJBAyAm4kTFojOEeGCp1E2b6OdVtIEZzFpWg
-	WjkEA+tcqUWOPYr1U98siCUE3b3/gOf+aCZGv7nIRcB8xjo2Jy3gT4EB7nvXgpi5FeGTbknfff4m0
-	tkucG2l1Yd550NBXYPYxsQaUR/ASij/P5rgm/PxRVVA96Li5K/F0Qui5br+V5RAOWR7OrzLce6GKT
-	2GXhsvqw7pMBUqCkvyYQ==;
+	List-Owner; bh=5DhFNPqZrvRJduKG5a66yJWA5zx/i2iD1CMx9n33VrY=; b=g2t0tzyljnkXPP
+	cJaPFicxMczCJ5HWvaWl0ApKPwze+CY6AdgqdUOtRIuny63b7JTrLENmrksmJBFaWvqf/BwQsYuji
+	j74y3vbjdmIB4ltGBCEGvhtjRtf/52io7yYn8XH81o/pPJDz/Bu/geDnBw7tKbBEbpstWoPYtfGnv
+	u9pjD5yldyoK8EeKfHZK1fyWeUbwgTExzHcafx9mrWprxPVItwxzWx72Ghou1ky3TAb/E0fJoWDq1
+	iC47GNj/I+k5eawsEcMoA7qGZyCgeaBkshMJR2kCEtytar2t7l46muw0F4MVhL2CQqzLvcSAoU62M
+	vqzVkwRCGZunrsfq27dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCiq6-005fUc-1M;
-	Mon, 11 Dec 2023 16:09:02 +0000
+	id 1rCisR-005gTb-20;
+	Mon, 11 Dec 2023 16:11:27 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCiq3-005fSN-1D;
-	Mon, 11 Dec 2023 16:08:59 +0000
-Date: Mon, 11 Dec 2023 08:08:59 -0800
+	id 1rCisO-005gRx-1R;
+	Mon, 11 Dec 2023 16:11:24 +0000
+Date: Mon, 11 Dec 2023 08:11:24 -0800
 From: Christoph Hellwig <hch@infradead.org>
 To: Samuel Holland <samuel.holland@sifive.com>
 Cc: linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
@@ -33,13 +33,13 @@ Cc: linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
 	Christoph Hellwig <hch@infradead.org>, linux-kernel@vger.kernel.org,
 	amd-gfx@lists.freedesktop.org, linux-arch@vger.kernel.org
-Subject: Re: [RFC PATCH 08/12] x86: Implement ARCH_HAS_KERNEL_FPU_SUPPORT
-Message-ID: <ZXc0GwtgeO3PL1K9@infradead.org>
+Subject: Re: [RFC PATCH 09/12] riscv: Add support for kernel-mode FPU
+Message-ID: <ZXc0rAdi7Vo8nbS8@infradead.org>
 References: <20231208055501.2916202-1-samuel.holland@sifive.com>
- <20231208055501.2916202-9-samuel.holland@sifive.com>
+ <20231208055501.2916202-10-samuel.holland@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231208055501.2916202-9-samuel.holland@sifive.com>
+In-Reply-To: <20231208055501.2916202-10-samuel.holland@sifive.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -56,9 +56,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Looks good:
+> +#ifdef __riscv_f
+> +
+> +#define kernel_fpu_begin() \
+> +	static_assert(false, "floating-point code must use a separate translation unit")
+> +#define kernel_fpu_end() kernel_fpu_begin()
+> +
+> +#else
+> +
+> +void kernel_fpu_begin(void);
+> +void kernel_fpu_end(void);
+> +
+> +#endif
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+I'll assume this is related to trick that places code in a separate
+translation unit, but I fail to understand it.  Can you add a comment
+explaining it?
+
 
 _______________________________________________
 linux-riscv mailing list
