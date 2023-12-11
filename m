@@ -4,88 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95411C10F09
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Dec 2023 09:44:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F29BC46CA3
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Dec 2023 10:25:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pnLdnPYrpUifv3n4wUBlwyLqBtEa0WxRudv90PpOBsw=; b=j0x7qOIh6sbafL
-	W+pPZA4GVFeMi7YxSlsenYdnZc+LzfIjvimycDZGa2x+07D0/aw5PmNso3IuFK7mAVsLCC//H28Pp
-	zVr+m3DiVY8cyD7CHumqVPggR0tybgtXaerabnEhSuLqBWQQFA2FeXztuylOfcgk3JzVJ2YAMbm7n
-	0XMnkBwO1FB2iuNYr8Cf0cW1p2ldl358Zsa5yoWTPzh1/S/ZT2zND/UDlh5240MCAnXpK0nu7eCbK
-	p55hiDFBVDBEOuiz9eqWyDlFiERvfka6c0gg3M6MGSqWFmnAv1sJM3TDlmSznp8fT1XaUNUxUn9Js
-	ThxeWDrnzaqfsbnRScJA==;
+	List-Owner; bh=wJ7G6ppGk7vbSBcfm8S0J1xOWqe12L3/+kEwSnxs7QE=; b=FuP2GVw8B5E2mQ
+	ca5cipZvsgiKc7BG8A9e7rwdOfd7RXBqO4IQHjHxkFLAFZQVbljrxP6vz+fHaV/3HF/JoAlLlj1+4
+	HXGyKWQVie19UGfPD4jUHTVlolSFHcHc1xqTE1PSI7QTJj2Vj+IZhW8bBtSnbTW7FMHTVl6ZTN2SS
+	as3uwa+MJ0s2cGtLkhymYhwDSd7EuQwQM3sGDm7OIfzxu3qMf+oOlZN+wlh/TQ3vt0jE2P4hTw+dU
+	rE19q3aQkr5/Co6VmQ1U6FbsQpsngYgO/We2uLwKg0iXOENetEo6uuSPcVp8l1YlOktMdS/6IlPoe
+	E+KYz5lIa5hAiJSRqkqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCcqE-004VLX-1O;
-	Mon, 11 Dec 2023 09:44:46 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCcq8-004VIV-0C
+	id 1rCdTU-004bMB-1M;
+	Mon, 11 Dec 2023 10:25:20 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1rCdTL-004bIt-0e
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 Dec 2023 09:44:44 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-551437d5344so474087a12.1
-        for <linux-riscv@lists.infradead.org>; Mon, 11 Dec 2023 01:44:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1702287879; x=1702892679; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JrL6R0s9TI3vntjjPRtwaASPjZe5TnGAbwALAE/nUuU=;
-        b=iMNTk8f7ylMZM4j2QoXjHOL8RBbtavqHcqkynJ51jBOXiAB2LgyiuEOaxuJrALMiXw
-         Yo/0coueE6tQYzTPJ4NY3PnJFOqoT4Nt2y5FE5figO9CBWyIS3OP1P/bcr9G2n+oNdGA
-         7wBfokW2A5GK5V7jd5WobJXhb0YMDqX2lQ8nBoYkrpZsc1GOOuUTcXySsERiO1QKn4gs
-         8y2r76YMIJEJot+6qFhvm5LSC47irg1UhP4230moEK2+/NnKVtY3/y2dYH+sJqIG5x3L
-         qZ/XQvHWF8b15ntkJNjqkH7sI2FqNP8o6bj6p+zdsqot29RDYH+Sj6vnLeza+CwHlsVt
-         ZpZg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702287879; x=1702892679;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=JrL6R0s9TI3vntjjPRtwaASPjZe5TnGAbwALAE/nUuU=;
-        b=YLNn/2Stk05q1npWkfe/SUyqO3jstvuSsTGo8mSKFy84YqCrx63Lkn965LxmQr31ht
-         LHyGc7XbE/AVymhhrwAu8dUq0scDz/hBAKAfJzPb9kjAvrlxrln5Ck7yCqukT4hOKXf5
-         FPXXsbHR9LKfjVtWqb9CGAVnruFawie9rcW4ymxMCAOH7OL1g5mf/x/ArcnBNxZL2JFb
-         Gg7vCYjaPoDbEO96zHqDJ0/8nz3wFHVd5iCxuU2layHO5bMC0lfgYvbfwrySow/nqait
-         hbDqIYDIyyNybW/29BE0ygS+BJlwY7DTd1W2nwouD6f1OJhNG5VANC14bSiJWsZ/TJdE
-         +s9Q==
-X-Gm-Message-State: AOJu0YwCjeWkXPLXAfCuo0IJqlocX2YiOmh+ROxprXR7RM46uT6VXIk9
-	JI0DyGbbHGMDLkhOn8VpApE=
-X-Google-Smtp-Source: AGHT+IG5R0Nbgf4AZSChAr1lY64olZakZJEY1i/GFOLQjx+RMNL2fEXrQx8A8gceN8hc/P2o1l70Sg==
-X-Received: by 2002:a50:8dc7:0:b0:54c:4837:9a8d with SMTP id s7-20020a508dc7000000b0054c48379a8dmr2213085edh.52.1702287878685;
-        Mon, 11 Dec 2023 01:44:38 -0800 (PST)
-Received: from andrea.wind3.hub ([31.189.124.152])
-        by smtp.gmail.com with ESMTPSA id if3-20020a0564025d8300b0054afcab0af2sm3463505edb.59.2023.12.11.01.44.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Dec 2023 01:44:38 -0800 (PST)
-From: Andrea Parri <parri.andrea@gmail.com>
-To: mathieu.desnoyers@efficios.com,
-	paulmck@kernel.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	aou@eecs.berkeley.edu
-Cc: mmaas@google.com,
-	hboehm@google.com,
-	striker@us.ibm.com,
-	charlie@rivosinc.com,
-	rehn@rivosinc.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Andrea Parri <parri.andrea@gmail.com>
-Subject: [RFC PATCH 4/4] membarrier: Introduce Kconfig ARCH_HAS_MEMBARRIER
-Date: Mon, 11 Dec 2023 10:44:14 +0100
-Message-Id: <20231211094414.8078-5-parri.andrea@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20231211094414.8078-1-parri.andrea@gmail.com>
-References: <20231211094414.8078-1-parri.andrea@gmail.com>
+	Mon, 11 Dec 2023 10:25:18 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id AD49D24E2D5;
+	Mon, 11 Dec 2023 18:24:36 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 11 Dec
+ 2023 18:24:36 +0800
+Received: from [192.168.1.115] (180.164.60.184) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 11 Dec
+ 2023 18:24:36 +0800
+Message-ID: <2dc5ea49-9a5f-484a-98dc-1b35b79d0945@starfivetech.com>
+Date: Mon, 11 Dec 2023 18:24:35 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v3 5/6] drm/vs: Add hdmi driver
+Content-Language: en-US
+To: Maxime Ripard <mripard@kernel.org>, Andy Yan <andyshrk@163.com>
+CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"tzimmermann@suse.de" <tzimmermann@suse.de>, "airlied@gmail.com"
+	<airlied@gmail.com>, "krzysztof.kozlowski+dt@linaro.org"
+	<krzysztof.kozlowski+dt@linaro.org>, William Qiu
+	<william.qiu@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>,
+	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "palmer@dabbelt.com"
+	<palmer@dabbelt.com>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	Shengyang Chen <shengyang.chen@starfivetech.com>, Jack Zhu
+	<jack.zhu@starfivetech.com>, Changhuang Liang
+	<changhuang.liang@starfivetech.com>, "maarten.lankhorst@linux.intel.com"
+	<maarten.lankhorst@linux.intel.com>, "suijingfeng@loongson.cn"
+	<suijingfeng@loongson.cn>
+References: <20231204123315.28456-6-keith.zhao@starfivetech.com>
+ <esetsiqgqpk35zue4c6aq7l6zn4kezhxkqqa7ompaz2vhdy3lr@4d5awfqgs2ss>
+ <94a1f9fc-82fb-4a04-a44b-f9b20c2bdfdd@starfivetech.com>
+ <abdl6kmighvpwojvafq443q7grn6w3abwpvw7zwbna4jvtsvjf@fa42rv46n2wh>
+ <40cdd3c7-174e-4611-9ea6-22cb56d1f62b@starfivetech.com>
+ <e90142d.44b1.18c43833b63.Coremail.andyshrk@163.com>
+ <e0b84511-dbb4-46fa-9465-713369232f6f@starfivetech.com>
+ <43e42269.314.18c46dbb4c5.Coremail.andyshrk@163.com>
+ <e1c362dc-8aac-4d13-9356-8b7ccae4727f@starfivetech.com>
+ <5a79a4b9.1bd7.18c4773c1ea.Coremail.andyshrk@163.com>
+ <xevxqusbizjfs4qt5rufhntd3vd656o2smocvivvulzceh3aeu@uuihphhat5wi>
+From: Keith Zhao <keith.zhao@starfivetech.com>
+In-Reply-To: <xevxqusbizjfs4qt5rufhntd3vd656o2smocvivvulzceh3aeu@uuihphhat5wi>
+X-Originating-IP: [180.164.60.184]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231211_014440_310907_D4781D79 
-X-CRM114-Status: GOOD (  20.36  )
+X-CRM114-CacheID: sfid-20231211_022511_512916_3498F3ED 
+X-CRM114-Status: GOOD (  22.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,340 +92,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Architectures supporting the "private expedited" membarrier command must
-select the Kconfig to use the command.  Document status and requirements
-for each architecture in a single file under Documentation/features.
-
-Suggested-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
----
-The TODOs in the arch-support table below should really be interpreted
-as "I'm not sure/haven't checked" (the respective arch maintainers will
-be able to verify and amend such information).
-
-Based on the following inline comment in __schedule():
-
-	/*
-	 * The membarrier system call requires each architecture
-	 * to have a full memory barrier after updating
-	 * rq->curr, before returning to user-space.
-	 *
-	 * Here are the schemes providing that barrier on the
-	 * various architectures:
-	 * - mm ? switch_mm() : mmdrop() for x86, s390, sparc, PowerPC,
-	 *   RISC-V.  switch_mm() relies on membarrier_arch_switch_mm()
-	 *   on PowerPC and on RISC-V.
-	 * - finish_lock_switch() for weakly-ordered
-	 *   architectures where spin_unlock is a full barrier,
-	 * - switch_to() for arm64 (weakly-ordered, spin_unlock
-	 *   is a RELEASE barrier),
-	 */
-
- .../sched/membarrier/arch-support.txt         | 50 +++++++++++++++++++
- MAINTAINERS                                   |  1 +
- arch/alpha/Kconfig                            |  1 +
- arch/arc/Kconfig                              |  1 +
- arch/arm/Kconfig                              |  1 +
- arch/arm64/Kconfig                            |  1 +
- arch/hexagon/Kconfig                          |  1 +
- arch/mips/Kconfig                             |  1 +
- arch/powerpc/Kconfig                          |  1 +
- arch/riscv/Kconfig                            |  1 +
- arch/s390/Kconfig                             |  1 +
- arch/sparc/Kconfig                            |  1 +
- arch/x86/Kconfig                              |  1 +
- init/Kconfig                                  |  3 ++
- kernel/sched/core.c                           |  4 +-
- kernel/sched/membarrier.c                     | 15 +++++-
- 16 files changed, 80 insertions(+), 4 deletions(-)
- create mode 100644 Documentation/features/sched/membarrier/arch-support.txt
-
-diff --git a/Documentation/features/sched/membarrier/arch-support.txt b/Documentation/features/sched/membarrier/arch-support.txt
-new file mode 100644
-index 0000000000000..95e65195e47c2
---- /dev/null
-+++ b/Documentation/features/sched/membarrier/arch-support.txt
-@@ -0,0 +1,50 @@
-+#
-+# Feature name:          membarrier
-+#         Kconfig:       ARCH_HAS_MEMBARRIER
-+#         description:   arch supports MEMBARRIER_CMD_PRIVATE_EXPEDITED
-+#
-+# Architecture requirements
-+#
-+# The membarrier() system call requires each architecture to have a full memory
-+# barrier after updating rq->curr, before returning to user-space.
-+#
-+# Here are the schemes providing that barrier on the various architectures:
-+#
-+# * alpha/arc/arm/hexagon/mips
-+#
-+# We rely on the full barrier implied by spin_unlock() in finish_lock_switch().
-+#
-+# * arm64
-+#
-+# We rely on the full barrier implied by switch_to().
-+#
-+# * powerpc/riscv/s390/sparc/x86
-+#
-+# We rely on the full barrier implied by switch_mm(), if mm isn't NULL; we rely
-+# on the full barrier implied by mmdrop(), otherwise.
-+#
-+    -----------------------
-+    |         arch |status|
-+    -----------------------
-+    |       alpha: |  ok  |
-+    |         arc: |  ok  |
-+    |         arm: |  ok  |
-+    |       arm64: |  ok  |
-+    |        csky: | TODO |
-+    |     hexagon: |  ok  |
-+    |   loongarch: | TODO |
-+    |        m68k: | TODO |
-+    |  microblaze: | TODO |
-+    |        mips: |  ok  |
-+    |       nios2: | TODO |
-+    |    openrisc: | TODO |
-+    |      parisc: | TODO |
-+    |     powerpc: |  ok  |
-+    |       riscv: |  ok  |
-+    |        s390: |  ok  |
-+    |          sh: | TODO |
-+    |       sparc: |  ok  |
-+    |          um: | TODO |
-+    |         x86: |  ok  |
-+    |      xtensa: | TODO |
-+    -----------------------
-diff --git a/MAINTAINERS b/MAINTAINERS
-index f6f1fdc76cf46..c5a053605cbc4 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -13807,6 +13807,7 @@ M:	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
- M:	"Paul E. McKenney" <paulmck@kernel.org>
- L:	linux-kernel@vger.kernel.org
- S:	Supported
-+F:	Documentation/features/sched/membarrier*/
- F:	arch/*/include/asm/membarrier.h
- F:	arch/*/include/asm/sync_core.h
- F:	include/uapi/linux/membarrier.h
-diff --git a/arch/alpha/Kconfig b/arch/alpha/Kconfig
-index d6968d090d49a..f98d6cba0bd9a 100644
---- a/arch/alpha/Kconfig
-+++ b/arch/alpha/Kconfig
-@@ -24,6 +24,7 @@ config ALPHA
- 	select GENERIC_IRQ_SHOW
- 	select ARCH_WANT_IPC_PARSE_VERSION
- 	select ARCH_HAVE_NMI_SAFE_CMPXCHG
-+	select ARCH_HAS_MEMBARRIER
- 	select AUDIT_ARCH
- 	select GENERIC_CPU_VULNERABILITIES
- 	select GENERIC_SMP_IDLE_THREAD
-diff --git a/arch/arc/Kconfig b/arch/arc/Kconfig
-index 3162db540ee96..1d8a6ba98ae33 100644
---- a/arch/arc/Kconfig
-+++ b/arch/arc/Kconfig
-@@ -9,6 +9,7 @@ config ARC
- 	select ARCH_HAS_CACHE_LINE_SIZE
- 	select ARCH_HAS_DEBUG_VM_PGTABLE
- 	select ARCH_HAS_DMA_PREP_COHERENT
-+	select ARCH_HAS_MEMBARRIER
- 	select ARCH_HAS_PTE_SPECIAL
- 	select ARCH_HAS_SETUP_DMA_OPS
- 	select ARCH_HAS_SYNC_DMA_FOR_CPU
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index f8567e95f98be..700d1d9ff2f8b 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -14,6 +14,7 @@ config ARM
- 	select ARCH_HAS_FORTIFY_SOURCE
- 	select ARCH_HAS_KEEPINITRD
- 	select ARCH_HAS_KCOV
-+	select ARCH_HAS_MEMBARRIER
- 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
- 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
- 	select ARCH_HAS_PTE_SPECIAL if ARM_LPAE
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 7b071a00425d2..d21788e6920f6 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -31,6 +31,7 @@ config ARM64
- 	select ARCH_HAS_GIGANTIC_PAGE
- 	select ARCH_HAS_KCOV
- 	select ARCH_HAS_KEEPINITRD
-+	select ARCH_HAS_MEMBARRIER
- 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
- 	select ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
- 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
-diff --git a/arch/hexagon/Kconfig b/arch/hexagon/Kconfig
-index a880ee067d2ec..c2b2713c01bbd 100644
---- a/arch/hexagon/Kconfig
-+++ b/arch/hexagon/Kconfig
-@@ -5,6 +5,7 @@ comment "Linux Kernel Configuration for Hexagon"
- config HEXAGON
- 	def_bool y
- 	select ARCH_32BIT_OFF_T
-+	select ARCH_HAS_MEMBARRIER
- 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
- 	select ARCH_NO_PREEMPT
- 	select DMA_GLOBAL_POOL
-diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-index 797ae590ebdba..4b65e73e34c16 100644
---- a/arch/mips/Kconfig
-+++ b/arch/mips/Kconfig
-@@ -16,6 +16,7 @@ config MIPS
- 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
- 	select ARCH_HAS_UBSAN_SANITIZE_ALL
- 	select ARCH_HAS_GCOV_PROFILE_ALL
-+	select ARCH_HAS_MEMBARRIER
- 	select ARCH_KEEP_MEMBLOCK
- 	select ARCH_USE_BUILTIN_BSWAP
- 	select ARCH_USE_CMPXCHG_LOCKREF if 64BIT
-diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-index 6f105ee4f3cf5..c13980eac3585 100644
---- a/arch/powerpc/Kconfig
-+++ b/arch/powerpc/Kconfig
-@@ -137,6 +137,7 @@ config PPC
- 	select ARCH_HAS_GCOV_PROFILE_ALL
- 	select ARCH_HAS_HUGEPD			if HUGETLB_PAGE
- 	select ARCH_HAS_KCOV
-+	select ARCH_HAS_MEMBARRIER
- 	select ARCH_HAS_MEMBARRIER_CALLBACKS
- 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
- 	select ARCH_HAS_MEMREMAP_COMPAT_ALIGN	if PPC_64S_HASH_MMU
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index db7b1acd943e4..fd4c6a74ebd61 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -27,6 +27,7 @@ config RISCV
- 	select ARCH_HAS_GCOV_PROFILE_ALL
- 	select ARCH_HAS_GIGANTIC_PAGE
- 	select ARCH_HAS_KCOV
-+	select ARCH_HAS_MEMBARRIER
- 	select ARCH_HAS_MEMBARRIER_CALLBACKS
- 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
- 	select ARCH_HAS_MMIOWB
-diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
-index 3bec98d20283b..2e044d424fd4a 100644
---- a/arch/s390/Kconfig
-+++ b/arch/s390/Kconfig
-@@ -72,6 +72,7 @@ config S390
- 	select ARCH_HAS_GCOV_PROFILE_ALL
- 	select ARCH_HAS_GIGANTIC_PAGE
- 	select ARCH_HAS_KCOV
-+	select ARCH_HAS_MEMBARRIER
- 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
- 	select ARCH_HAS_MEM_ENCRYPT
- 	select ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
-diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
-index 49849790e66dc..40eb179c2416a 100644
---- a/arch/sparc/Kconfig
-+++ b/arch/sparc/Kconfig
-@@ -30,6 +30,7 @@ config SPARC
- 	select RTC_SYSTOHC
- 	select HAVE_ARCH_JUMP_LABEL if SPARC64
- 	select GENERIC_IRQ_SHOW
-+	select ARCH_HAS_MEMBARRIER
- 	select ARCH_WANT_IPC_PARSE_VERSION
- 	select GENERIC_PCI_IOMAP
- 	select HAS_IOPORT
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 3762f41bb0929..83f63e00312ee 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -82,6 +82,7 @@ config X86
- 	select ARCH_HAS_GCOV_PROFILE_ALL
- 	select ARCH_HAS_KCOV			if X86_64
- 	select ARCH_HAS_MEM_ENCRYPT
-+	select ARCH_HAS_MEMBARRIER
- 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
- 	select ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
- 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
-diff --git a/init/Kconfig b/init/Kconfig
-index 87daf50838f02..8114404b52b91 100644
---- a/init/Kconfig
-+++ b/init/Kconfig
-@@ -1742,6 +1742,9 @@ config KALLSYMS_BASE_RELATIVE
- 
- # syscall, maps, verifier
- 
-+config ARCH_HAS_MEMBARRIER
-+	bool
-+
- config ARCH_HAS_MEMBARRIER_CALLBACKS
- 	bool
- 
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 711dc753f7216..dff1c6df337f9 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -6673,8 +6673,8 @@ static void __sched notrace __schedule(unsigned int sched_mode)
- 		 * - mm ? switch_mm() : mmdrop() for x86, s390, sparc, PowerPC,
- 		 *   RISC-V.  switch_mm() relies on membarrier_arch_switch_mm()
- 		 *   on PowerPC and on RISC-V.
--		 * - finish_lock_switch() for weakly-ordered
--		 *   architectures where spin_unlock is a full barrier,
-+		 * - finish_lock_switch() for alpha, arc, arm, hexagon, mips
-+		 *   where spin_unlock is a full barrier,
- 		 * - switch_to() for arm64 (weakly-ordered, spin_unlock
- 		 *   is a RELEASE barrier),
- 		 */
-diff --git a/kernel/sched/membarrier.c b/kernel/sched/membarrier.c
-index 58f801e013988..248a38c9b261c 100644
---- a/kernel/sched/membarrier.c
-+++ b/kernel/sched/membarrier.c
-@@ -137,6 +137,14 @@
-  * Bitmask made from a "or" of all commands within enum membarrier_cmd,
-  * except MEMBARRIER_CMD_QUERY.
-  */
-+#ifdef CONFIG_ARCH_HAS_MEMBARRIER
-+#define MEMBARRIER_PRIVATE_EXPEDITED_BITMASK			\
-+	(MEMBARRIER_CMD_PRIVATE_EXPEDITED			\
-+	| MEMBARRIER_CMD_REGISTER_PRIVATE_EXPEDITED)
-+#else
-+#define MEMBARRIER_PRIVATE_EXPEDITED_BITMASK	0
-+#endif
-+
- #ifdef CONFIG_ARCH_HAS_MEMBARRIER_SYNC_CORE
- #define MEMBARRIER_PRIVATE_EXPEDITED_SYNC_CORE_BITMASK			\
- 	(MEMBARRIER_CMD_PRIVATE_EXPEDITED_SYNC_CORE			\
-@@ -156,8 +164,7 @@
- #define MEMBARRIER_CMD_BITMASK						\
- 	(MEMBARRIER_CMD_GLOBAL | MEMBARRIER_CMD_GLOBAL_EXPEDITED	\
- 	| MEMBARRIER_CMD_REGISTER_GLOBAL_EXPEDITED			\
--	| MEMBARRIER_CMD_PRIVATE_EXPEDITED				\
--	| MEMBARRIER_CMD_REGISTER_PRIVATE_EXPEDITED			\
-+	| MEMBARRIER_PRIVATE_EXPEDITED_BITMASK				\
- 	| MEMBARRIER_PRIVATE_EXPEDITED_SYNC_CORE_BITMASK		\
- 	| MEMBARRIER_PRIVATE_EXPEDITED_RSEQ_BITMASK			\
- 	| MEMBARRIER_CMD_GET_REGISTRATIONS)
-@@ -329,6 +336,8 @@ static int membarrier_private_expedited(int flags, int cpu_id)
- 			return -EPERM;
- 		ipi_func = ipi_rseq;
- 	} else {
-+		if (!IS_ENABLED(CONFIG_ARCH_HAS_MEMBARRIER))
-+			return -EINVAL;
- 		WARN_ON_ONCE(flags);
- 		if (!(atomic_read(&mm->membarrier_state) &
- 		      MEMBARRIER_STATE_PRIVATE_EXPEDITED_READY))
-@@ -519,6 +528,8 @@ static int membarrier_register_private_expedited(int flags)
- 		ready_state =
- 			MEMBARRIER_STATE_PRIVATE_EXPEDITED_RSEQ_READY;
- 	} else {
-+		if (!IS_ENABLED(CONFIG_ARCH_HAS_MEMBARRIER))
-+			return -EINVAL;
- 		WARN_ON_ONCE(flags);
- 	}
- 
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+aGkgTWF4aW1lOgpoaSBBbmR5OgoKT24gMjAyMy8xMi84IDE3OjE0LCBNYXhpbWUgUmlwYXJkIHdy
+b3RlOgo+IEhpLAo+IAo+IE9uIEZyaSwgRGVjIDA4LCAyMDIzIGF0IDExOjIzOjM3QU0gKzA4MDAs
+IEFuZHkgWWFuIHdyb3RlOgo+PiDlnKggMjAyMy0xMi0wOCAxMTowMDozMe+8jCJLZWl0aCBaaGFv
+IiA8a2VpdGguemhhb0BzdGFyZml2ZXRlY2guY29tPiDlhpnpgZPvvJoKPj4gPgo+PiA+Cj4+ID5P
+biAyMDIzLzEyLzggODozNywgQW5keSBZYW4gd3JvdGU6Cj4+ID4+IEhpIEtldGjvvJoKPj4gPj4g
+Cj4+ID4+IAo+PiA+PiAKPj4gPj4gCj4+ID4+IAo+PiA+PiAKPj4gPj4g5ZyoIDIwMjMtMTItMDcg
+MTg6NDg6MTPvvIwiS2VpdGggWmhhbyIgPGtlaXRoLnpoYW9Ac3RhcmZpdmV0ZWNoLmNvbT4g5YaZ
+6YGT77yaCj4+ID4+Pgo+PiA+Pj4KPj4gPj4+T24gMjAyMy8xMi83IDE3OjAyLCBBbmR5IFlhbiB3
+cm90ZToKPj4gPj4+PiAKPj4gPj4+PiAKPj4gPj4+PiAKPj4gPj4+PiAKPj4gPj4+PiBIaSBLZWl0
+aO+8mgo+PiA+Pj4+IAo+PiA+Pj4+IAo+PiA+Pj4+IAo+PiA+Pj4+IAo+PiA+Pj4+IAo+PiA+Pj4+
+IAo+PiA+Pj4+IAo+PiA+Pj4+IAo+PiA+Pj4+IAo+PiA+Pj4+IAo+PiA+Pj4+IAo+PiA+Pj4+IEF0
+IDIwMjMtMTItMDYgMjI6MTE6MzMsICJLZWl0aCBaaGFvIiA8a2VpdGguemhhb0BzdGFyZml2ZXRl
+Y2guY29tPiB3cm90ZToKPj4gPj4+Pj4KPj4gPj4+Pj4KPj4gPj4+Pj5PbiAyMDIzLzEyLzYgMjA6
+NTYsIE1heGltZSBSaXBhcmQgd3JvdGU6Cj4+ID4+Pj4+PiBPbiBXZWQsIERlYyAwNiwgMjAyMyBh
+dCAwODowMjo1NVBNICswODAwLCBLZWl0aCBaaGFvIHdyb3RlOgo+PiA+Pj4+Pj4+ID4+ICtzdGF0
+aWMgY29uc3Qgc3RydWN0IG9mX2RldmljZV9pZCBzdGFyZml2ZV9oZG1pX2R0X2lkc1tdID0gewo+
+PiA+Pj4+Pj4+ID4+ICsJeyAuY29tcGF0aWJsZSA9ICJzdGFyZml2ZSxqaDcxMTAtaW5uby1oZG1p
+Iix9LAo+PiA+Pj4+Pj4+ID4gCj4+ID4+Pj4+Pj4gPiBTbyBpdCdzIGlubm8gaGRtaSwganVzdCBs
+aWtlIFJvY2tjaGlwIHRoZW4/Cj4+ID4+Pj4+Pj4gPiAKPj4gPj4+Pj4+PiA+IFRoaXMgc2hvdWxk
+IGJlIGEgY29tbW9uIGRyaXZlci4KPj4gPj4+Pj4+Pgo+PiA+Pj4+Pj4+IFJvY2tjaGlwIGhhcyBh
+IGlubm8gaGRtaSBJUC4gYW5kIFN0YXJmaXZlIGhhcyBhIGlubm8gaGRtaSBJUC4KPj4gPj4+Pj4+
+PiBidXQgdGhlIGhhcmV3YXdyZSBkaWZmZXJlbmNlIG9mIHRoZW0gaXMgYmlnICwgaXQgaXMgbm90
+IGVhc3kgdG8gdXNlIHRoZSBjb21tb24gZHJpdmVyCj4+ID4+Pj4+Pj4gbWF5YmUgaSBuZWVkIHRo
+ZSBpbm5vIGhkbWkgdmVyc2lvbiBoZXJlIHRvIG1ha2UgYSBkaXN0aW5jdGlvbgo+PiA+Pj4+Pj4g
+Cj4+ID4+Pj4+PiBJIGp1c3QgaGFkIGEgbG9vayBhdCB0aGUgcm9ja2NoaXAgaGVhZGVyIGZpbGU6
+IGFsbCB0aGUgcmVnaXN0ZXJzIGJ1dCB0aGUKPj4gPj4+Pj4+IFNUQVJGSVZFXyogb25lcyBhcmUg
+aWRlbnRpY2FsLgo+PiA+Pj4+Pj4gCj4+ID4+Pj4+PiBUaGVyZSdzIG5vIG5lZWQgdG8gaGF2ZSB0
+d28gaWRlbnRpY2FsIGRyaXZlcnMgdGhlbiwgcGxlYXNlIHVzZSB0aGUKPj4gPj4+Pj4+IHJvY2tj
+aGlwIGRyaXZlciBpbnN0ZWFkLgo+PiA+Pj4+Pj4gCj4+ID4+Pj4+PiBNYXhpbWUKPj4gPj4+Pj4K
+Pj4gPj4+Pj5vaywgaGF2ZSBhIHNpbXBsZSB0ZXN0ICwgZWRpZCBjYW4gZ2V0IC4gaSB3aWxsIGNv
+bnRpbnVlIAo+PiA+Pj4+IAo+PiA+Pj4+IE1heWJlIHlvdSBjYW4gdGFrZSBkcml2ZXJzL2dwdS9k
+cm0vYnJpZGdlL3N5bm9wc3lzL2R3LWhkbWkgYXMgYSByZWZlcmVuY2XvvIwgdGhpcwo+PiA+Pj4+
+IGlzIGFsc28gYSBoZG1pIGlwIHVzZWQgYnkgcm9ja2NoaXAvbWVzb24vc3VueGkvanovaW1444CC
+Cj4+ID4+Pj4gV2UgZmluYWxseSBtYWtlIGl0IHNoYXJlIG9uZSBkcml2ZXLjgIIKPj4gPj4+Pj4K
+Pj4gPj4+aGkgQW5keToKPj4gPj4+Cj4+ID4+PmR3X2hkbWkgc2VlbXMgYSBnb29kIGNob2ljZSAs
+IGl0IGNhbiBoYW5kbGUgaW5ubyBoZG1pIGhhcmR3YXJlIGJ5IGRlZmluZSBpdHMgZHdfaGRtaV9w
+bGF0X2RhdGEuCj4+ID4+PmRvZXMgaXQgbWVhbnMgaSBjYW4gd3JpdGUgb3duIGRyaXZlciBmaWxl
+cyBzdWNoIGFzKGR3X2hkbWktc3RhcmZpdmUuYykgYmFzZWQgb24gZHdfaGRtaSBpbnN0ZWFkIG9m
+IGFkZCBwbGF0X2RhdGEgaW4gaW5ub19oZG1pLmMKPj4gPj4+Cj4+ID4+IAo+PiA+PiBJIHRoaW5r
+IHRoZSBwcm9jZXNzIG1heWJlIGxpa2UgdGhpc++8mgo+PiA+PiAKPj4gPj4gMS4gc3BsaXQgdGhl
+IGlubm9faGRtaS5jIHVuZGVyIHJvY2tjaGlwIHRvICBpbm5vX2hkbWkuYyh0aGUgY29tbW9uIHBh
+cnQpLCBpbm5vX2hkbWktcm9ja2NoaXAuYyh0aGUgc29jIHNwZWNpZmljIHBhcnQpCj4+ID4+IDIu
+IG1vdmUgdGhlIGNvbW1vbiBwYXJ0IGlubm9faGRtaS5jIHRvIGRyaXZlcnMvZ3B1L2RybS9icmlk
+Z2UvaW5ub3NpbGljb24vCj4+ID4+IDMuIGFkZCBzdGFydGZpdmUgc3BlY2lmaWMgcGFydCwgaW5u
+b19oZG1pLXN0YXJ0Zml2ZS5jCj4+ID4+IAo+PiA+PiBiZWxsb3cgZ2l0IGxvZyBmcm9tIGtlcm5l
+bCB0aHJlZSBzaG93IGhvdyB3ZSBjb252ZXJ0ICBkd19oZG1pIHRvIGEgY29tbW9uIGRyaXZlcjog
+Cj4+ID4+IAo+PiA+PiAKPj4gPj4gCj4+ID4+IDEyYjlmMjA0ZTgwNCBkcm06IGJyaWRnZS9kd19o
+ZG1pOiBhZGQgcm9ja2NoaXAgcmszMjg4IHN1cHBvcnQKPj4gPj4gNzRhZjllNGQwM2I4IGR0LWJp
+bmRpbmdzOiBBZGQgZG9jdW1lbnRhdGlvbiBmb3Igcm9ja2NoaXAgZHcgaGRtaQo+PiA+PiBkMzQ2
+YzE0ZWVlYTkgZHJtOiBicmlkZ2UvZHdfaGRtaTogYWRkIGZ1bmN0aW9uIGR3X2hkbWlfcGh5X2Vu
+YWJsZV9zcGFyZQo+PiA+PiBhNGQzYjhiMDUwZDUgZHJtOiBicmlkZ2UvZHdfaGRtaTogY2xlYXIg
+aTJjbXBoeV9zdGF0MCByZWcgaW4gaGRtaV9waHlfd2FpdF9pMmNfZG9uZQo+PiA+PiA2MzJkMDM1
+YmFjZTIgZHJtOiBicmlkZ2UvZHdfaGRtaTogYWRkIG1vZGVfdmFsaWQgc3VwcG9ydAo+PiA+PiAw
+Y2Q5ZDE0MjgzMjIgZHJtOiBicmlkZ2UvZHdfaGRtaTogYWRkIHN1cHBvcnQgZm9yIG11bHRpLWJ5
+dGUgcmVnaXN0ZXIgd2lkdGggYWNjZXNzCj4+ID4+IGNkMTUyMzkzOTY3ZSBkdC1iaW5kaW5nczog
+YWRkIGRvY3VtZW50IGZvciBkd19oZG1pCj4+ID4+IGIyMWY0YjY1OGRmOCBkcm06IGlteDogaW14
+LWhkbWk6IG1vdmUgaW14LWhkbWkgdG8gYnJpZGdlL2R3X2hkbWkKPj4gPj4gYWFhNzU3YTA5MmMy
+IGRybTogaW14OiBpbXgtaGRtaTogc3BsaXQgcGh5IGNvbmZpZ3VyYXRpb24gdG8gcGxhdGZvcm0g
+ZHJpdmVyCj4+ID4+IDNkMWIzNWEzZDlmMyBkcm06IGlteDogaW14LWhkbWk6IGNvbnZlcnQgaW14
+LWhkbWkgdG8gZHJtX2JyaWRnZSBtb2RlCj4+ID4+IGMyYzM4NDg4NTFhNyBkcm06IGlteDogaW14
+LWhkbWk6IHJldHVybiBkZWZlciBpZiBjYW4ndCBnZXQgZGRjIGkyYyBhZGFwdGVyCj4+ID4+IGI1
+ODc4MzM5MzNkZSBkcm06IGlteDogaW14LWhkbWk6IG1ha2UgY2hlY2twYXRjaCBoYXBweQo+PiA+
+PiAKPj4gPmhpIEFuZHk6Cj4+ID5JIGdvdCB5b3UgbWVhbnMsIAo+PiA+YXMgSSBkb24ndCBoYXZl
+IGEgcm9ja2NoaXAgYm9hcmQgb24gaGFuZCAsIHRvIHNwbGl0IHRoZSBpbm5vX2hkbWkuYyBjYW4g
+bm90IGJlIHRlc3RlZC4KPj4gPgo+PiA+aG93IGFkb3V0IHRoaXMgaWRlYToKPj4gPjHjgIFzcGxp
+dCB0aGUgc3RhcmZpdmVfaGRtaS5jIHVuZGVyIHZlcmlzaWxpY2lvbiB0byAgaW5ub19oZG1pLmMo
+dGhlIGNvbW1vbiBwYXJ0KSwgaW5ub19oZG1pLXN0YXJmaXZlLmModGhlIHNvYyBzcGVjaWZpYyBw
+YXJ0KQo+PiA+Mi4gbW92ZSB0aGUgY29tbW9uIHBhcnQgaW5ub19oZG1pLmMgdG8gZHJpdmVycy9n
+cHUvZHJtL2JyaWRnZS9pbm5vc2lsaWNvbi8KPj4gPjMuIEluIHRoZSBmdXR1cmUsIGlubm8gaGRt
+aS5jIHVuZGVyIHJvY2tjaGlwIHdpbGwgcmV1c2UgdGhlIHB1YmxpYyBkcml2ZXIuCj4+IAo+PiBJ
+IGFtIG5vdCBzdXJlIGlmIGRybSBtYWludGFpbmVycyBhcmUgaGFwcHkgd2l0aCB0aGlz44CCCj4g
+Cj4gTm90IHJlYWxseSwgbm8uCj4gCj4gQmVjYXVzZSB3ZSB3b3VsZCBzdGlsbCBoYXZlIHR3byBk
+cml2ZXJzIGZvciB0aGUgc2FtZSBjb250cm9sbGVyLCBhbmQgYQo+IGNvbW1vbiBvbmUgdGhhdCBo
+YXZlbid0IHJlYWxseSBiZWVuIHRlc3RlZCBvbiBhbnl0aGluZyBidXQgYSBzaW5nbGUKPiBwbGF0
+Zm9ybS4gU28gYXJndWFibHkgYSB3b3JzZSBzaXR1YXRpb24gdGhhbiB3aGF0IHlvdSB3ZXJlIHN1
+Z2dlc3RpbmcgaW4KPiB0aGUgZmlyc3QgcGxhY2UuCj4gCj4gVGhlIGJlc3Qgc29sdXRpb24gd291
+bGQgYmUgdG8gZmluZCBzb21lb25lIHdpdGggYSBSb2NrY2hpcCBib2FyZCB0byB0ZXN0Cj4geW91
+ciBjaGFuZ2VzLCBvciB0byBnZXQgb25lIGlmIGl0J3MgZG9hYmxlIHNvIHlvdSBjYW4gdGVzdCB5
+b3Vyc2VsZi4KCm9rIEkgd2lsbCBhbHNvIHRyeSB0byBidXkgYSBSb2NrY2hpcCAzMDM2IGJvYXJk
+IGZvciBzZWxmLXRlc3QuCkFjY29yZGluZyB0byB0aGUgY29tbWl0IGxvZyBpZGVhIHByb3ZpZGVk
+IGJ5IEFuZHkgYmVmb3JlLCBtYWtlIHRoZSBpbm5vX2hkbWkgZHJpdmVyIGNvbW1vbiBtb2R1bGUu
+Cgp3b3VsZCB0aGUgc3RlcHMgYmUgb2s/IChpZiBJIHRlc3RlZCByb2NrY2hpcCBhbmQgc3Rhcmlm
+dmUgcGFzcykKMS4gc3BsaXQgdGhlIGlubm9faGRtaS5jIHVuZGVyIHJvY2tjaGlwIHRvICBpbm5v
+X2hkbWkuYyh0aGUgY29tbW9uIHBhcnQpLCBpbm5vX2hkbWktcm9ja2NoaXAuYyh0aGUgc29jIHNw
+ZWNpZmljIHBhcnQpCjIuIG1vdmUgdGhlIGNvbW1vbiBwYXJ0IGlubm9faGRtaS5jIHRvIGRyaXZl
+cnMvZ3B1L2RybS9icmlkZ2UvaW5ub3NpbGljb24vCjMuIGFkZCBzdGFydGZpdmUgc3BlY2lmaWMg
+cGFydCwgaW5ub19oZG1pLXN0YXJ0Zml2ZS5jCgpUaGFua3MKPiAKPiBNYXhpbWUKCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
