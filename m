@@ -4,78 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01408C4167B
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Dec 2023 15:09:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37828C10F05
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Dec 2023 15:18:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xe/iwkWnKVXS1N+NCK87wuiwtV9IVWYsVBog7GKObdI=; b=hmdZSxZWzYmkcD
-	Ho4dRWokeff/fzyUnmmEoYve+qTOG4RK6Ga2ZxYZV96fKiot12JfwHiolezJIu3RNiothvVWXHFMp
-	1m8OiJ7se4Cem9iVlSrsA+TUkBmvCa9MO5DSDApcmVffQwiHQIJ9KUplYEw1nQEBjrycyh2u12/Hu
-	0zhpk9egTnUleVAxOqR150fyPjY6L5JCMY41e+OMyL0IYc2Qgpu47hZCN26DcneiAISOXA00dWWVM
-	1B9WfsyHn8qtQGDwrRpYjyqbnnHmeYV3q5NS9vGIZZacDf95xKzJwKyqfCHVoqFrOMDMVeYCM31C7
-	lfP4viocOs2Oo7N6WZXA==;
+	List-Owner; bh=L6ZS89bwPDy+zWoavb2+xdKjlX1DkPHsIbrSbInBzDA=; b=GeWXbGdIANjHxB
+	FOd3/V07HE4R2uTKpwateGBH76afq1z5hLkbeC9TNoDJVhOPCIJtHMGmcP6fxJebmqzpMFWixZi13
+	4ds2w6n7dftK5xVSldwXgwESsQcktBeq1gV66Ga1uLBqvx8CdOFYgCmQvzpbYXp5FPOJ/yIbmices
+	JSVkSIIdv4sjMbbxEP89h8smegHc8ySOmrMgE2itaJDnc34jTgFkfzR2BKWdxFibKmslCWkM+ay9V
+	FWZRr2NVNIumULbdkzO3wOUyq+wz5cB5VTUnmVsH5W62N3f5w8VFwHe/5rkUwQzuAUtECoCa0Y+Ls
+	85JnR58zutMZVyQSTjaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rChtx-005JIq-1a;
-	Mon, 11 Dec 2023 15:08:57 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1rCi32-005NNo-25;
+	Mon, 11 Dec 2023 15:18:20 +0000
+Received: from mail-oa1-x2b.google.com ([2001:4860:4864:20::2b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rChts-005JEz-2v
+	id 1rCi2t-005NKz-0J
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 Dec 2023 15:08:55 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-40c4846847eso9351585e9.1
-        for <linux-riscv@lists.infradead.org>; Mon, 11 Dec 2023 07:08:49 -0800 (PST)
+	Mon, 11 Dec 2023 15:18:18 +0000
+Received: by mail-oa1-x2b.google.com with SMTP id 586e51a60fabf-1f03d9ad89fso3150014fac.1
+        for <linux-riscv@lists.infradead.org>; Mon, 11 Dec 2023 07:18:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1702307328; x=1702912128; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RMLdKr2IyklWTffhubvJtSLHb8jY1C4KM3aqj372hqc=;
-        b=ITnC9po64uygzCz95OShPTQDISWlUOqvAz2CgJ7bzX9o2sdDcpn3scVflhE8k5dMvA
-         SqvjXlmK8gnf3O8RgCe1mz11Pwd17FqYnxxwMG9NlbaqvHPfg5o98opt/N8hrpxmlJFd
-         uPn6sZCbrQtwUzrJxM05OFuz0xUPKCYzREZP183x2KJMa8PYwIY1IKY+Nkf4vGiEdXo6
-         TDwejQssrSU0fUVKHxFvRER99MZgUOczsyBOOBW3sT/dBzTlXieKL/6wBEVsqx02tWj6
-         YuevTDKTtAoYoWnDnfLz8JfT005S3wfLupg787Lc9dmjIjF6L8EvmllG194ZHCSvd1rX
-         uG0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702307328; x=1702912128;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1702307889; x=1702912689; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=RMLdKr2IyklWTffhubvJtSLHb8jY1C4KM3aqj372hqc=;
-        b=XRXFj1NKYTM9zYa1MhLlMzKZ5jkH3UmYjbdrA4vrrSxXKLhHF8Hh30wCr3x7AzLAXh
-         oh180EsOYa8bIVGEkCtm7tQDeIVGaFS7zjkSOb/9kH3e4BrC44wMf5dYg/beqLE/+Cpn
-         SR8qrgWIA8Z/Pqkoj253lfQmh9StWB6U3xo/deAU9k42Y771TZgmiQt3h7G3Z4UWI85N
-         P8bPiXLUzUy6N4nt1rbb0SwqKBckW1A7BI6l/4jhPZzGVA6YF0mHg+eJEXjoB/ndcIx+
-         L/WgXaphWH2Axvs7HA0kVA5A2egzVxPOVblp1a67sw1U30uwdzFjw0A5OYV7gSQoP3qS
-         gPOQ==
-X-Gm-Message-State: AOJu0YyWbxAnRYuiti/+mbQig/RFocyAOMVFnQVYssfZiobIuyp3qwGj
-	B8YRfqkHpLeKJr0RyZtirxpMSw==
-X-Google-Smtp-Source: AGHT+IGM2mS8jmYI6sSdmF4bLNufEHxZ6Hg1pfRFbYPxL0jNBWTEv+mDSpgliyEIlwNIiBTNm9U2Yg==
-X-Received: by 2002:a05:600c:84c9:b0:40b:5e21:e28b with SMTP id er9-20020a05600c84c900b0040b5e21e28bmr2234807wmb.120.1702307328037;
-        Mon, 11 Dec 2023 07:08:48 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id w11-20020a05600c474b00b0040c251a1014sm4199442wmo.0.2023.12.11.07.08.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Dec 2023 07:08:47 -0800 (PST)
-Date: Mon, 11 Dec 2023 16:08:46 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Ivan Orlov <ivan.orlov@codethink.co.uk>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	conor.dooley@microchip.com, heiko@sntech.de, bjorn@rivosinc.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: lib: Implement optimized memchr function
-Message-ID: <20231211-b65c8d828ace61714b0eacf5@orel>
-References: <20231208141839.174284-1-ivan.orlov@codethink.co.uk>
+        bh=wvXAIFU3cHSe8gZFgZZL313yZ6BsbgxanKxV0o2G4D8=;
+        b=Vh2rd2zNN8H9fjWDRpn2boRBZxIsdnzVIaxV3MZZ20sihKAsZNPdnaVvI1ilPlozn7
+         6uv+uDY2qZ27BGwrz8nJGu++Nm4Lka5FpEeJ7zrbYrEo/IZJJeIGYpvstWRFZAYHJKpT
+         7ZZDFsiPn+fHSVU4tQYjawEcycJWSyKtnjC22Ika2gjUWHvILSoojpJZEfvgcrtbyhW0
+         IOc+9dd5MDkwT5b1KOEFJ6Bzv1G34LbnZOriuLZLr8HRt+MziOPiVL/jBlX4LzhRHQ3Y
+         BBCLX1CRDCQ73YhWFFPJMYabieP/0uYxN65iin9d1lUJqqVLiiHvtSvznImlRdqDfu1w
+         JeAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1702307889; x=1702912689;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=wvXAIFU3cHSe8gZFgZZL313yZ6BsbgxanKxV0o2G4D8=;
+        b=wB53pCNzqD6TnscHU8D2A1PHyjSJLGFVNKwqIfop+Mddc06sFb07TsyxxFI2hXGs5q
+         wPAgwWUJFuV6fL/MiumpJtLKd3wBPGQW52IL0et+yRIV7CX2rTZW1dZnbW5AxiHGaZ7/
+         e1nLIZDvcoBRPtYgurgAyFpenVd+l6FXZ9QVbf4MogtuwTvdQlKz9bkKM0t0lRJhseHm
+         KuRD32Y+G3G9LR/zvFvQLaDrTRDc6cBnlgtj4Khaifb/PumIVvugGTB7G6+ALHG4tV13
+         TJff2JCoSjASTG6cZBKUAwwAD4+Cxbdd9PksNTGzQatZWnevb+fABa/0tnOKPZqipEJB
+         ruyw==
+X-Gm-Message-State: AOJu0Yy3rypmXkAP1q9M7AllJYTqvI0MOrRBCHxXfRUgkUTb2024KK3X
+	7gRD6XfllXZdUKJVruUDV4Nkk/LvV7bVhW6Bsi4=
+X-Google-Smtp-Source: AGHT+IE6Pdq+QZOPZcT87hzEwOyfLxxsaDNBp8XrIaNN3aLL6Q2E3qAZa+aCTM/ghgMcR5Uq8on+1btr2EnnabaqbsI=
+X-Received: by 2002:a05:6870:b154:b0:1fb:78d7:91b8 with SMTP id
+ a20-20020a056870b15400b001fb78d791b8mr5975573oal.34.1702307889216; Mon, 11
+ Dec 2023 07:18:09 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231208141839.174284-1-ivan.orlov@codethink.co.uk>
+References: <20231122030621.3759313-1-samuel.holland@sifive.com>
+ <20231122030621.3759313-4-samuel.holland@sifive.com> <20231123-headdress-mold-0dd7a74477f7@wendy>
+ <20231130004224.GE2513828@dev-arch.thelio-3990X> <4f277982-fffb-4fe1-bc02-007633400f31@sifive.com>
+ <5090a015-5b6f-44be-bb25-d2ca3fdf5d40@app.fastmail.com> <07d27191-12b6-4c84-b80e-75c618df9de4@sifive.com>
+In-Reply-To: <07d27191-12b6-4c84-b80e-75c618df9de4@sifive.com>
+From: Alex Deucher <alexdeucher@gmail.com>
+Date: Mon, 11 Dec 2023 10:17:57 -0500
+Message-ID: <CADnq5_O+ozkwQAEn3K_=-pB2L0+pbc+tbPU0CEwOTa+QysogAg@mail.gmail.com>
+Subject: Re: [PATCH 3/3] drm/amd/display: Support DRM_AMD_DC_FP on RISC-V
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Nathan Chancellor <nathan@kernel.org>, 
+	"Conor.Dooley" <conor.dooley@microchip.com>, llvm@lists.linux.dev, 
+	Leo Li <sunpeng.li@amd.com>, Pan Xinhui <Xinhui.Pan@amd.com>, 
+	Rodrigo Siqueira <Rodrigo.Siqueira@amd.com>, linux-kernel@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, Palmer Dabbelt <palmer@dabbelt.com>, 
+	amd-gfx@lists.freedesktop.org, Alex Deucher <alexander.deucher@amd.com>, 
+	linux-riscv@lists.infradead.org, 
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231211_070853_027404_24D2950D 
-X-CRM114-Status: GOOD (  48.24  )
+X-CRM114-CacheID: sfid-20231211_071811_253315_C7EBFC26 
+X-CRM114-Status: GOOD (  23.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,304 +92,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 08, 2023 at 02:18:39PM +0000, Ivan Orlov wrote:
-> At the moment we don't have an architecture-specific memchr
-> implementation for riscv in the Kernel. The generic version of this
-> function iterates the memory area bytewise looking for the target value,
-> which is not the optimal approach.
-> 
-> Instead of iterating the memory byte by byte, we can iterate over words
-> of memory. Word still takes only one cycle to be loaded, and it could be
-> checked for containing the target byte in just 5 operations:
-> 
-> 1. Let's say we are looking for the byte BA. XOR the word with
-> 0xBABA..BA
-> 2. If we have zero byte in the result, the word contains byte BA. Let's
-> subtract 0x0101..01 from the xor result.
-> 3. Calculate the ~(xor result).
-> 4. And the results of steps 2 and 3. If in the xor result we had a zero
-> bit somewhere, and after subtracting the 0x0101..01 it turned to 1,
-> we will get 1 in the result
-> 5. And the result of step 4 with 0x8080..80. If we had a leading zero
-> bit in the xor result which turned to 1 after subtracting 0x0101..01,
-> it was the leading bit of a zero byte. So, if result of this step != 0,
-> the word contains the byte we are looking for.
-> 
-> The same approach is used in the arm64 implementation of this function.
-> 
-> So, this patch introduces the riscv-specific memchr function which
-> accepts 3 parameters (address, target byte and count) and works in the
-> following way:
-> 
-> 0. If count is smaller than 128, iterate the area byte by byte as we
-> would not get any performance gain here.
-> 1. If address is not aligned, iterate SZREG - (address % SZREG) bytes
-> to avoid unaligned memory access.
-> 2. If count is larger than 128, iterate words of memory until we find
-> the word which contains the target byte.
-> 3. If we have found the word, iterate through it byte by byte and return
-> the address of the first occurrence.
-> 4. If we have not found the word, iterate the remainder (in case if
-> the count was not divisible by 8).
-> 5. If we still have not found the target byte, return 0.
-> 
-> Here you can see the benchmark results for "Sifive Hifive Unmatched"
-> board, which compares the old and new memchr implementations.
-> 
-> | test_count | array_size | old_mean_ktime  | new_mean_ktime  |
-> ---------------------------------------------------------------
-> |      10000 |         10 |             415 |             409 |
-> |      10000 |        100 |             642 |             717 |
-> |      10000 |        128 |             714 |             775 |
-> |      10000 |        256 |            1031 |             611 |
-> |       5000 |        512 |            1686 |             769 |
-> |       5000 |        768 |            2320 |             925 |
-> |       5000 |       1024 |            2968 |            1095 |
-> |       5000 |       1500 |            4165 |            1383 |
-> |       5000 |       2048 |            5567 |            1731 |
-> |       3000 |       4096 |           10698 |            3028 |
-> |       3000 |      16384 |           41630 |           10766 |
-> |       1000 |     524288 |         1475454 |          498183 |
-> |       1000 |    1048576 |         2952080 |          997018 |
-> |        500 |   10485760 |        49491492 |        29335358 |
-> |        100 |  134217728 |       636033660 |       377157970 |
-> |         20 |  536870912 |      2546979300 |      1510817350 |
-> |         20 | 1073741824 |      5095776750 |      3019167250 |
-> 
-> The target symbol was always placed at the last index of the array, and
-> the mean time of function execution was measured using the ktime_get
-> function.
-> 
-> As you can see, the new function shows much better results even for
-> the small arrays of 256 elements, therefore I believe it could be a
-> useful addition to the existing riscv-specific string functions.
-
-Looks good, but do we want to maintain both this version and a zbb
-version? I'd expect a zbb version to be even better.
-
-A couple more comments below.
-
-> 
-> Signed-off-by: Ivan Orlov <ivan.orlov@codethink.co.uk>
-> ---
->  arch/riscv/include/asm/string.h |  2 +
->  arch/riscv/kernel/riscv_ksyms.c |  1 +
->  arch/riscv/lib/Makefile         |  1 +
->  arch/riscv/lib/memchr.S         | 98 +++++++++++++++++++++++++++++++++
->  4 files changed, 102 insertions(+)
->  create mode 100644 arch/riscv/lib/memchr.S
-> 
-> diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
-> index a96b1fea24fe..ec1a643cb625 100644
-> --- a/arch/riscv/include/asm/string.h
-> +++ b/arch/riscv/include/asm/string.h
-> @@ -18,6 +18,8 @@ extern asmlinkage void *__memcpy(void *, const void *, size_t);
->  #define __HAVE_ARCH_MEMMOVE
->  extern asmlinkage void *memmove(void *, const void *, size_t);
->  extern asmlinkage void *__memmove(void *, const void *, size_t);
-> +#define __HAVE_ARCH_MEMCHR
-> +extern asmlinkage void *memchr(const void *, int, size_t);
->  
->  #define __HAVE_ARCH_STRCMP
->  extern asmlinkage int strcmp(const char *cs, const char *ct);
-> diff --git a/arch/riscv/kernel/riscv_ksyms.c b/arch/riscv/kernel/riscv_ksyms.c
-> index a72879b4249a..08c0d846366b 100644
-> --- a/arch/riscv/kernel/riscv_ksyms.c
-> +++ b/arch/riscv/kernel/riscv_ksyms.c
-> @@ -9,6 +9,7 @@
->  /*
->   * Assembly functions that may be used (directly or indirectly) by modules
->   */
-> +EXPORT_SYMBOL(memchr);
->  EXPORT_SYMBOL(memset);
->  EXPORT_SYMBOL(memcpy);
->  EXPORT_SYMBOL(memmove);
-> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-> index 26cb2502ecf8..0a8b64f8ca88 100644
-> --- a/arch/riscv/lib/Makefile
-> +++ b/arch/riscv/lib/Makefile
-> @@ -1,4 +1,5 @@
->  # SPDX-License-Identifier: GPL-2.0-only
-> +lib-y			+= memchr.o
->  lib-y			+= delay.o
->  lib-y			+= memcpy.o
->  lib-y			+= memset.o
-> diff --git a/arch/riscv/lib/memchr.S b/arch/riscv/lib/memchr.S
-> new file mode 100644
-> index 000000000000..d48e0fa3cd84
-> --- /dev/null
-> +++ b/arch/riscv/lib/memchr.S
-> @@ -0,0 +1,98 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (c) 2023 Codethink Ltd.
-> + * Author: Ivan Orlov <ivan.orlov@codethink.co.uk>
-> + */
-> +
-> +#include <linux/linkage.h>
-> +#include <asm/asm.h>
-> +
-> +#define REP_01 __REG_SEL(0x0101010101010101, 0x01010101)
-> +#define REP_80 __REG_SEL(0x8080808080808080, 0x80808080)
-> +
-> +#define MIN_BORDER 128
-> +
-> +SYM_FUNC_START(memchr)
-> +	andi a1, a1, 0xFF
-> +
-> +	// use byte-wide iteration for small numbers
-> +	add t1, x0, a2
-
-move t1, a2
-
-and for the remainder of the function s/x0/zero/
-
-> +	sltiu t2, a2, MIN_BORDER
-> +	bnez t2, 6f
-> +
-> +	// get the number of bytes we should iterate before alignment
-
-I'm not sure, but I think even in assembly we prefer the /* */ comment
-format.
-
-> +	andi t0, a0, SZREG - 1
-> +	beqz t0, 4f
-> +
-> +	# get the SZREG - t0
-
-I'm 99% sure we don't want to use the # comment syntax.
-
-> +	xor t0, t0, SZREG - 1
-
-xori?
-
-> +	addi t0, t0, 1
-> +
-> +	sub a2, a2, t0
-
-nit: Looks a bit odd to put a blank line above the sub line above,
-instead of above the below comment.
-
-> +	// iterate before alignment
-> +1:
-> +	beq t0, x0, 4f
-> +	lbu t2, 0(a0)
-> +	beq t2, a1, 3f
-> +	addi t0, t0, -1
-
-This addi t0... isn't necessary if we do
-
-	add t0, a0, t0
-1:
-	beq a0, t0, 4f
-	...
-	...
-	addi a0, a0, 1
-	j 1b
-
-> +	addi a0, a0, 1
-> +	j 1b
-> +
-> +2:
-> +	// found a word. Iterate it until we find the target byte
-> +	li t1, SZREG
-> +	j 6f
-
-These instructions seem oddly placed among the rest.
-
-> +3:
-> +	ret
-
-And this is an odd place to put this ret (after unconditional jump and
-in the middle of the function). We can just put a label at the bottom ret.
-
-> +
-> +4:
-> +	// get the count remainder
-> +	andi t1, a2, SZREG - 1
-> +
-> +	// align the count
-> +	sub a2, a2, t1
-> +
-> +	// if we have no words to iterate, iterate the remainder
-> +	beqz a2, 6f
-> +
-> +	// from 0xBA we will get 0xBABABABABABABABA
-> +	li t3, REP_01
-> +	mul t3, t3, a1
-
-I don't think we want to implement an optimized assembly function with
-mul. We can just use a few shifts and ors.
-
-	slli	t3, a1, 8
-	or	t3, t3, a1
-	slli	t4, t3, 16
-	or	t3, t4, t3
-#if __riscv_xlen == 64
-	slli	t4, t3, 32
-	or	t3, t4, t3
-#endif
-
-> +
-> +	add a2, a2, a0
-> +
-> +	li t4, REP_01
-> +	li t5, REP_80
-> +
-> +5:
-> +	REG_L t2, 0(a0)
-> +
-> +	// after this xor we will get one zero byte in the word if it contains the target byte
-> +	xor t2, t2, t3
-> +
-> +	// word v contains the target byte if (v - 0x01010101) & (~v) & 0x80808080 is positive
-
-s/is positive/is not zero/
-
-> +	sub t0, t2, t4
-> +
-> +	not t2, t2
-> +
-> +	and t0, t0, t2
-> +	and t0, t0, t5
-> +
-> +	bnez t0, 2b
-> +	addi a0, a0, SZREG
-> +	bne a0, a2, 5b
-> +
-> +6:
-> +	// iterate the remainder
-> +	beq t1, x0, 7f
-> +	lbu t4, 0(a0)
-> +	beq t4, a1, 3b
-> +	addi a0, a0, 1
-> +	addi t1, t1, -1
-
-Same comment as above about being able to drop the addi t1...
-
-> +	j 6b
-> +
-> +7:
-> +	addi a0, x0, 0
-
-li a0, 0
-
-> +	ret
-> +SYM_FUNC_END(memchr)
-> +SYM_FUNC_ALIAS(__pi_memchr, memchr)
-> -- 
-> 2.34.1
->
-
-Thanks,
-drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU3VuLCBEZWMgMTAsIDIwMjMgYXQgNToxMOKAr0FNIFNhbXVlbCBIb2xsYW5kCjxzYW11ZWwu
+aG9sbGFuZEBzaWZpdmUuY29tPiB3cm90ZToKPgo+IEhpIEFybmQsCj4KPiBPbiAyMDIzLTEyLTA5
+IDI6MzggUE0sIEFybmQgQmVyZ21hbm4gd3JvdGU6Cj4gPiBPbiBGcmksIERlYyA4LCAyMDIzLCBh
+dCAwNjowNCwgU2FtdWVsIEhvbGxhbmQgd3JvdGU6Cj4gPj4gT24gMjAyMy0xMS0yOSA2OjQyIFBN
+LCBOYXRoYW4gQ2hhbmNlbGxvciB3cm90ZToKPiA+Pj4gT24gVGh1LCBOb3YgMjMsIDIwMjMgYXQg
+MDI6MjM6MDFQTSArMDAwMCwgQ29ub3IgRG9vbGV5IHdyb3RlOgo+ID4+Pj4gT24gVHVlLCBOb3Yg
+MjEsIDIwMjMgYXQgMDc6MDU6MTVQTSAtMDgwMCwgU2FtdWVsIEhvbGxhbmQgd3JvdGU6Cj4gPj4+
+Pj4gUklTQy1WIHVzZXMga2VybmVsX2ZwdV9iZWdpbigpL2tlcm5lbF9mcHVfZW5kKCkgbGlrZSBz
+ZXZlcmFsIG90aGVyCj4gPj4+Pj4gYXJjaGl0ZWN0dXJlcy4gRW5hYmxpbmcgaGFyZHdhcmUgRlAg
+cmVxdWlyZXMgb3ZlcnJpZGluZyB0aGUgSVNBIHN0cmluZwo+ID4+Pj4+IGZvciB0aGUgcmVsZXZh
+bnQgY29tcGlsYXRpb24gdW5pdHMuCj4gPj4+Pgo+ID4+Pj4gQWggeWVzLCBicmluZ2luZyB0aGUg
+am95IG9mIGZyYW1lLWxhcmdlci10aGFuIHdhcm5pbmdzIHRvIFJJU0MtVjoKPiA+Pj4+IC4uL2Ry
+aXZlcnMvZ3B1L2RybS9hbWQvYW1kZ3B1Ly4uL2Rpc3BsYXkvZGMvZG1sL2RjbjMyL2Rpc3BsYXlf
+bW9kZV92YmFfMzIuYzo1ODoxMzogd2FybmluZzogc3RhY2sgZnJhbWUgc2l6ZSAoMjQxNikgZXhj
+ZWVkcyBsaW1pdCAoMjA0OCkgaW4gJ0RJU1BDTEtEUFBDTEtEQ0ZDTEtEZWVwU2xlZXBQcmVmZXRj
+aFBhcmFtZXRlcnNXYXRlcm1hcmtzQW5kUGVyZm9ybWFuY2VDYWxjdWxhdGlvbicgWy1XZnJhbWUt
+bGFyZ2VyLXRoYW5dCj4gPj4+Cj4gPj4+IDooCj4gPj4+Cj4gPj4+PiBOYXRoYW4sIGhhdmUgeW91
+IGdpdmVuIHVwIG9uIHRoZXNlIGJlaW5nIHNvcnRlZCBvdXQ/Cj4gPj4+Cj4gPj4+IERvZXMgeW91
+ciBjb25maWd1cmF0aW9uIGhhdmUgS0FTQU4gKEkgZG9uJ3QgdGhpbmsgUklTQy1WIHN1cHBvcnRz
+Cj4gPj4+IEtDU0FOKT8gSXQgaXMgcG9zc2libGUgdGhhdCBkbWwvZGNuMzIgbmVlZHMgc29tZXRo
+aW5nIHNpbWlsYXIgdG8gY29tbWl0Cj4gPj4+IDY3NDBlYzk3YmNkYiAoImRybS9hbWQvZGlzcGxh
+eTogSW5jcmVhc2UgZnJhbWUgd2FybmluZyBsaW1pdCB3aXRoIEtBU0FOCj4gPj4+IG9yIEtDU0FO
+IGluIGRtbDIiKT8KPiA+Pj4KPiA+Pj4gSSBhbSBub3QgcmVhbGx5IGludGVyZXN0ZWQgaW4gcGxh
+eWluZyB3aGFjay1hLW1vbGUgd2l0aCB0aGVzZSB3YXJuaW5ncwo+ID4+PiBsaWtlIEkgaGF2ZSBk
+b25lIGluIHRoZSBwYXN0IGZvciB0aGUgcmVhc29ucyBJIG91dGxpbmVkIGhlcmU6Cj4gPj4+Cj4g
+Pj4+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnLzIwMjMxMDE5MjA1MTE3LkdBODM5OTAyQGRldi1h
+cmNoLnRoZWxpby0zOTkwWC8KPiA+Pgo+ID4+IEkgYWxzbyBzZWUgb25lIG9mIHRoZXNlIHdpdGgg
+Y2xhbmcgMTcgZXZlbiB3aXRoIEtBU0FOIGRpc2FibGVkOgo+ID4+Cj4gPj4gZHJpdmVycy9ncHUv
+ZHJtL2FtZC9hbWRncHUvLi4vZGlzcGxheS9kYy9kbWwvZGNuMzIvZGlzcGxheV9tb2RlX3ZiYV8z
+Mi5jOjM3OjY6Cj4gPj4gd2FybmluZzogc3RhY2sgZnJhbWUgc2l6ZSAoMjIwOCkgZXhjZWVkcyBs
+aW1pdCAoMjA0OCkgaW4gJ2RtbDMyX3JlY2FsY3VsYXRlJwo+ID4+IFstV2ZyYW1lLWxhcmdlci10
+aGFuXQo+ID4+IHZvaWQgZG1sMzJfcmVjYWxjdWxhdGUoc3RydWN0IGRpc3BsYXlfbW9kZV9saWIg
+Km1vZGVfbGliKQo+ID4+Cj4gPj4gICAgICBeCj4gPj4gMTUzMi8yMjA4ICg2OS4zOCUpIHNwaWxs
+cywgNjc2LzIyMDggKDMwLjYyJSkgdmFyaWFibGVzCj4gPj4KPiA+PiBTbyBJJ20gaW4gZmF2b3Ig
+b2YganVzdCByYWlzaW5nIHRoZSBsaW1pdCBmb3IgdGhlc2UgZmlsZXMgZm9yIGNsYW5nLCBsaWtl
+IHlvdQo+ID4+IHN1Z2dlc3RlZCBpbiB0aGUgbGlua2VkIHRocmVhZC4KPiA+Cj4gPiBIb3cgYWJv
+dXQganVzdCBhZGRpbmcgYSBCVUdfT04oSVNfRU5BQkxFRChDT05GSUdfUklTQ1YpKQo+ID4gaW4g
+dGhhdCBmdW5jdGlvbj8gVGhhdCBzaG91bGQgYWxzbyBhdm9pZCB0aGUgYnVpbGQgZmFpbHVyZQo+
+ID4gYnV0IGdpdmUgYSBiZXR0ZXIgaW5kaWNhdGlvbiBvZiB3aGVyZSB0aGUgcHJvYmxlbSBpcwo+
+ID4gaWYgc29tZW9uZSBhY3R1YWxseSBydW5zIGludG8gdGhhdCBmdW5jdGlvbiBhbmQgdHJpZ2dl
+cnMKPiA+IGEgcnVudGltZSBzdGFjayBvdmVyZmxvdy4KPgo+IFdvbid0IHRoYXQgYnJlYWsgYWN0
+dWFsIHVzZXJzIG9mIHRoZSBkcml2ZXIsIHRyYWRpbmcgYW4gdW5saWtlbHkgYnV0Cj4gdGhlb3Jl
+dGljYWxseSBwb3NzaWJsZSBzdGFjayBvdmVyZmxvdyBmb3IgYSBndWFyYW50ZWVkIGNyYXNoPyBU
+aGUgaW50ZW50IG9mIHRoaXMKPiBzZXJpZXMgaXMgdGhhdCBJIGhhdmUgb25lIG9mIHRoZXNlIEdQ
+VXMgcGx1Z2dlZCBpbiB0byBhIFJJU0MtViBib2FyZCwgYW5kIEkgd2FudAo+IHRvIHVzZSBpdC4K
+CkRvZXMgdGhpcyBwYXRjaCBhZGRyZXNzIHRoZSBpc3N1ZT8KaHR0cHM6Ly9naXRsYWIuZnJlZWRl
+c2t0b3Aub3JnL2FnZDVmL2xpbnV4Ly0vY29tbWl0LzcyYWRhODYwM2UzNjI5MWFkOTFlNGY0MGYx
+MGVmNzQyZWY3OWJjNGUKCkFsZXgKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
