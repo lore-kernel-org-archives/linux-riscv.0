@@ -4,83 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F29BC46CA3
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Dec 2023 10:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6BEEC4167B
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Dec 2023 10:49:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wJ7G6ppGk7vbSBcfm8S0J1xOWqe12L3/+kEwSnxs7QE=; b=FuP2GVw8B5E2mQ
-	ca5cipZvsgiKc7BG8A9e7rwdOfd7RXBqO4IQHjHxkFLAFZQVbljrxP6vz+fHaV/3HF/JoAlLlj1+4
-	HXGyKWQVie19UGfPD4jUHTVlolSFHcHc1xqTE1PSI7QTJj2Vj+IZhW8bBtSnbTW7FMHTVl6ZTN2SS
-	as3uwa+MJ0s2cGtLkhymYhwDSd7EuQwQM3sGDm7OIfzxu3qMf+oOlZN+wlh/TQ3vt0jE2P4hTw+dU
-	rE19q3aQkr5/Co6VmQ1U6FbsQpsngYgO/We2uLwKg0iXOENetEo6uuSPcVp8l1YlOktMdS/6IlPoe
-	E+KYz5lIa5hAiJSRqkqA==;
+	List-Owner; bh=pp1OiLU8Tt93Pgj7x1KexMV3LFHGB/452ICprqBu7Rg=; b=aaGbWFbhr/MKhU
+	3+amW2d6Jmc7qZ4y3Ef4KZXjjc45FvTCLHQiuRxwFyRUdUrXNgvwJOFyk+oqY8DqKW/QKO32HqpQk
+	JFwDiS1cHEPW5zCZyiDivjx6hmH9glvusYmbQy/NvWqprFEdQae20gyVZRzW7qnrWxZpJe1OoDhNj
+	a5zFcQbnGC8rtXrz43CDrpgzr+Lej2poZmr9zmuiw1rhLVrYouSsv9OCXozPl4QCmuWMTiI8A3wKb
+	9yF5qwoNEHPAqRaptxwSfxxX0GKc1gFfYBTlkz+W2F0/r6DWq5U7VzT5TiHpMUKs1UzO3yK9uuy4r
+	CgElGjg9qvSnCM32zSZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCdTU-004bMB-1M;
-	Mon, 11 Dec 2023 10:25:20 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCdTL-004bIt-0e
+	id 1rCdqk-004e69-2r;
+	Mon, 11 Dec 2023 10:49:22 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1rCdqf-004e3a-1u
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 11 Dec 2023 10:49:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=6V6LIzUAXzb5BL08HqwkJPBgxnsjRK4GddTVrypvmVk=; b=g9vo6cq9wP9yhd8jwv29y91G3f
+	L52L+gdefgLXYtqJTy3N4cxHMFivRyPo2pvfobbveLPb0qnydBjBMja8Jq2+gOTr5APQqqY4uWfBh
+	sUrIGTc9jvNAG9UAd211zzq1B+krzqYka6nihR1A+GUf+UhcI+6QKBqfFjNsk6tEOSEsTe/039ZQ+
+	VnbbmEjI/nIz8Fl4Noj4+L44p/SIMiYaNHktMwA9arqBH0YIY6nC2IRf4TTfXujc1yirwnZnxhTYo
+	dlJOC/7751HTI/Tqvrrs6GxhODVgzc0PRnExlJm3t5NmC6C8ljUxtTze6ICnoO9+wSaCgPwppznrg
+	nSgI/KVQ==;
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1rCdqa-0082cy-1b
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 Dec 2023 10:25:18 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id AD49D24E2D5;
-	Mon, 11 Dec 2023 18:24:36 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 11 Dec
- 2023 18:24:36 +0800
-Received: from [192.168.1.115] (180.164.60.184) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 11 Dec
- 2023 18:24:36 +0800
-Message-ID: <2dc5ea49-9a5f-484a-98dc-1b35b79d0945@starfivetech.com>
-Date: Mon, 11 Dec 2023 18:24:35 +0800
+	Mon, 11 Dec 2023 10:49:15 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-334b2ffaa3eso3904025f8f.0
+        for <linux-riscv@lists.infradead.org>; Mon, 11 Dec 2023 02:49:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1702291750; x=1702896550; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6V6LIzUAXzb5BL08HqwkJPBgxnsjRK4GddTVrypvmVk=;
+        b=zGWsih5Tac6X9a6X14/uR13BirPVeWBJXF4jrzm5dMDSRIGTrTbfUS/is41IboPgXo
+         +SvSgXwaLR7lt5SWYs7uVLcmXclGjjkXFQgzJ5CPSXZgxEhPPCa8GOnjMAZcnyGyxcrW
+         A6N+NZZvA2lx8Aj5vpF7BegWTkTINSiTT/1f6mMw6Nddu5Ec2v/x9Td/WZL8qK0o8z9o
+         8Ghy4JFPy5AakWZb45Coujv9VYSBPFN4ABsGHT0v4vIMAyGq2onwuuqZja3tc/1J8oyu
+         yaNJ+YZFBmvmo3eL1OPWtfWdAZ6ptsbJWGbaroerB9wCRmhUYfvFjp67JODWp69Zdthx
+         GSfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1702291750; x=1702896550;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6V6LIzUAXzb5BL08HqwkJPBgxnsjRK4GddTVrypvmVk=;
+        b=ZYGleX3lOYnoxIruaC2tas5TB6NldOngIqewchVEVyr9GmNsH6AFg+XHuGzsEuwx3L
+         aAICXW9/hOe2OjH5XuifgoRSnEauaXGenK0KZt16MOnnZ5ESS4hdTG7JqIFQXhcLyXP+
+         NCCk1p7ulJyPTrA6WrCIlwRc9aptqxttngKjBPOinJ0PtOWIQINGdNwCQQkMxAQOyD83
+         yEzpCBo7x5sl+dJDVuYM/tLBpJkIh8l+vKHOTz7FmTex6i6uou1UkbxxxYSl2nR5Rlv/
+         jcAGvcbjYXjYVexhDKInJVEHahxbQHOFY7WHfJQjGJrIUOx7mMmOUYazUq61rYA6thRW
+         rgjQ==
+X-Gm-Message-State: AOJu0YzzZazVtv1wqoCFbHffOeYkrtNGTXPH5g9mod+9YLyNsuPjIS63
+	ulhSrW2cZ005jeFiuXO0xz6fRg==
+X-Google-Smtp-Source: AGHT+IGYx85T9d3mj2NLigHnw/XFyPjUhFDWEuy7elLTTC11S17Dff81w9bkHFCujY6E4DeXXyzW/A==
+X-Received: by 2002:adf:e98f:0:b0:333:145b:dbea with SMTP id h15-20020adfe98f000000b00333145bdbeamr2508847wrm.51.1702291750254;
+        Mon, 11 Dec 2023 02:49:10 -0800 (PST)
+Received: from vingu-book.. ([2a01:e0a:f:6020:a8d:abc:f0ae:3066])
+        by smtp.gmail.com with ESMTPSA id e16-20020adffd10000000b003346db01263sm8232579wrr.104.2023.12.11.02.49.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 Dec 2023 02:49:09 -0800 (PST)
+From: Vincent Guittot <vincent.guittot@linaro.org>
+To: linux@armlinux.org.uk,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	sudeep.holla@arm.com,
+	gregkh@linuxfoundation.org,
+	rafael@kernel.org,
+	mingo@redhat.com,
+	peterz@infradead.org,
+	juri.lelli@redhat.com,
+	dietmar.eggemann@arm.com,
+	rostedt@goodmis.org,
+	bsegall@google.com,
+	mgorman@suse.de,
+	bristot@redhat.com,
+	vschneid@redhat.com,
+	viresh.kumar@linaro.org,
+	lenb@kernel.org,
+	robert.moore@intel.com,
+	lukasz.luba@arm.com,
+	ionela.voinescu@arm.com,
+	pierre.gondois@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	linux-acpi@vger.kernel.org
+Cc: conor.dooley@microchip.com,
+	suagrfillet@gmail.com,
+	ajones@ventanamicro.com,
+	lftan@kernel.org,
+	beata.michalska@arm.com,
+	Vincent Guittot <vincent.guittot@linaro.org>
+Subject: [PATCH v7 7/7] arm64/amu: Use capacity_ref_freq to set AMU ratio
+Date: Mon, 11 Dec 2023 11:48:55 +0100
+Message-Id: <20231211104855.558096-8-vincent.guittot@linaro.org>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20231211104855.558096-1-vincent.guittot@linaro.org>
+References: <20231211104855.558096-1-vincent.guittot@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v3 5/6] drm/vs: Add hdmi driver
-Content-Language: en-US
-To: Maxime Ripard <mripard@kernel.org>, Andy Yan <andyshrk@163.com>
-CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"tzimmermann@suse.de" <tzimmermann@suse.de>, "airlied@gmail.com"
-	<airlied@gmail.com>, "krzysztof.kozlowski+dt@linaro.org"
-	<krzysztof.kozlowski+dt@linaro.org>, William Qiu
-	<william.qiu@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "palmer@dabbelt.com"
-	<palmer@dabbelt.com>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
-	Shengyang Chen <shengyang.chen@starfivetech.com>, Jack Zhu
-	<jack.zhu@starfivetech.com>, Changhuang Liang
-	<changhuang.liang@starfivetech.com>, "maarten.lankhorst@linux.intel.com"
-	<maarten.lankhorst@linux.intel.com>, "suijingfeng@loongson.cn"
-	<suijingfeng@loongson.cn>
-References: <20231204123315.28456-6-keith.zhao@starfivetech.com>
- <esetsiqgqpk35zue4c6aq7l6zn4kezhxkqqa7ompaz2vhdy3lr@4d5awfqgs2ss>
- <94a1f9fc-82fb-4a04-a44b-f9b20c2bdfdd@starfivetech.com>
- <abdl6kmighvpwojvafq443q7grn6w3abwpvw7zwbna4jvtsvjf@fa42rv46n2wh>
- <40cdd3c7-174e-4611-9ea6-22cb56d1f62b@starfivetech.com>
- <e90142d.44b1.18c43833b63.Coremail.andyshrk@163.com>
- <e0b84511-dbb4-46fa-9465-713369232f6f@starfivetech.com>
- <43e42269.314.18c46dbb4c5.Coremail.andyshrk@163.com>
- <e1c362dc-8aac-4d13-9356-8b7ccae4727f@starfivetech.com>
- <5a79a4b9.1bd7.18c4773c1ea.Coremail.andyshrk@163.com>
- <xevxqusbizjfs4qt5rufhntd3vd656o2smocvivvulzceh3aeu@uuihphhat5wi>
-From: Keith Zhao <keith.zhao@starfivetech.com>
-In-Reply-To: <xevxqusbizjfs4qt5rufhntd3vd656o2smocvivvulzceh3aeu@uuihphhat5wi>
-X-Originating-IP: [180.164.60.184]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231211_022511_512916_3498F3ED 
-X-CRM114-Status: GOOD (  22.47  )
+X-CRM114-CacheID: sfid-20231211_104912_783690_B739C4DF 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,98 +134,148 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-aGkgTWF4aW1lOgpoaSBBbmR5OgoKT24gMjAyMy8xMi84IDE3OjE0LCBNYXhpbWUgUmlwYXJkIHdy
-b3RlOgo+IEhpLAo+IAo+IE9uIEZyaSwgRGVjIDA4LCAyMDIzIGF0IDExOjIzOjM3QU0gKzA4MDAs
-IEFuZHkgWWFuIHdyb3RlOgo+PiDlnKggMjAyMy0xMi0wOCAxMTowMDozMe+8jCJLZWl0aCBaaGFv
-IiA8a2VpdGguemhhb0BzdGFyZml2ZXRlY2guY29tPiDlhpnpgZPvvJoKPj4gPgo+PiA+Cj4+ID5P
-biAyMDIzLzEyLzggODozNywgQW5keSBZYW4gd3JvdGU6Cj4+ID4+IEhpIEtldGjvvJoKPj4gPj4g
-Cj4+ID4+IAo+PiA+PiAKPj4gPj4gCj4+ID4+IAo+PiA+PiAKPj4gPj4g5ZyoIDIwMjMtMTItMDcg
-MTg6NDg6MTPvvIwiS2VpdGggWmhhbyIgPGtlaXRoLnpoYW9Ac3RhcmZpdmV0ZWNoLmNvbT4g5YaZ
-6YGT77yaCj4+ID4+Pgo+PiA+Pj4KPj4gPj4+T24gMjAyMy8xMi83IDE3OjAyLCBBbmR5IFlhbiB3
-cm90ZToKPj4gPj4+PiAKPj4gPj4+PiAKPj4gPj4+PiAKPj4gPj4+PiAKPj4gPj4+PiBIaSBLZWl0
-aO+8mgo+PiA+Pj4+IAo+PiA+Pj4+IAo+PiA+Pj4+IAo+PiA+Pj4+IAo+PiA+Pj4+IAo+PiA+Pj4+
-IAo+PiA+Pj4+IAo+PiA+Pj4+IAo+PiA+Pj4+IAo+PiA+Pj4+IAo+PiA+Pj4+IAo+PiA+Pj4+IEF0
-IDIwMjMtMTItMDYgMjI6MTE6MzMsICJLZWl0aCBaaGFvIiA8a2VpdGguemhhb0BzdGFyZml2ZXRl
-Y2guY29tPiB3cm90ZToKPj4gPj4+Pj4KPj4gPj4+Pj4KPj4gPj4+Pj5PbiAyMDIzLzEyLzYgMjA6
-NTYsIE1heGltZSBSaXBhcmQgd3JvdGU6Cj4+ID4+Pj4+PiBPbiBXZWQsIERlYyAwNiwgMjAyMyBh
-dCAwODowMjo1NVBNICswODAwLCBLZWl0aCBaaGFvIHdyb3RlOgo+PiA+Pj4+Pj4+ID4+ICtzdGF0
-aWMgY29uc3Qgc3RydWN0IG9mX2RldmljZV9pZCBzdGFyZml2ZV9oZG1pX2R0X2lkc1tdID0gewo+
-PiA+Pj4+Pj4+ID4+ICsJeyAuY29tcGF0aWJsZSA9ICJzdGFyZml2ZSxqaDcxMTAtaW5uby1oZG1p
-Iix9LAo+PiA+Pj4+Pj4+ID4gCj4+ID4+Pj4+Pj4gPiBTbyBpdCdzIGlubm8gaGRtaSwganVzdCBs
-aWtlIFJvY2tjaGlwIHRoZW4/Cj4+ID4+Pj4+Pj4gPiAKPj4gPj4+Pj4+PiA+IFRoaXMgc2hvdWxk
-IGJlIGEgY29tbW9uIGRyaXZlci4KPj4gPj4+Pj4+Pgo+PiA+Pj4+Pj4+IFJvY2tjaGlwIGhhcyBh
-IGlubm8gaGRtaSBJUC4gYW5kIFN0YXJmaXZlIGhhcyBhIGlubm8gaGRtaSBJUC4KPj4gPj4+Pj4+
-PiBidXQgdGhlIGhhcmV3YXdyZSBkaWZmZXJlbmNlIG9mIHRoZW0gaXMgYmlnICwgaXQgaXMgbm90
-IGVhc3kgdG8gdXNlIHRoZSBjb21tb24gZHJpdmVyCj4+ID4+Pj4+Pj4gbWF5YmUgaSBuZWVkIHRo
-ZSBpbm5vIGhkbWkgdmVyc2lvbiBoZXJlIHRvIG1ha2UgYSBkaXN0aW5jdGlvbgo+PiA+Pj4+Pj4g
-Cj4+ID4+Pj4+PiBJIGp1c3QgaGFkIGEgbG9vayBhdCB0aGUgcm9ja2NoaXAgaGVhZGVyIGZpbGU6
-IGFsbCB0aGUgcmVnaXN0ZXJzIGJ1dCB0aGUKPj4gPj4+Pj4+IFNUQVJGSVZFXyogb25lcyBhcmUg
-aWRlbnRpY2FsLgo+PiA+Pj4+Pj4gCj4+ID4+Pj4+PiBUaGVyZSdzIG5vIG5lZWQgdG8gaGF2ZSB0
-d28gaWRlbnRpY2FsIGRyaXZlcnMgdGhlbiwgcGxlYXNlIHVzZSB0aGUKPj4gPj4+Pj4+IHJvY2tj
-aGlwIGRyaXZlciBpbnN0ZWFkLgo+PiA+Pj4+Pj4gCj4+ID4+Pj4+PiBNYXhpbWUKPj4gPj4+Pj4K
-Pj4gPj4+Pj5vaywgaGF2ZSBhIHNpbXBsZSB0ZXN0ICwgZWRpZCBjYW4gZ2V0IC4gaSB3aWxsIGNv
-bnRpbnVlIAo+PiA+Pj4+IAo+PiA+Pj4+IE1heWJlIHlvdSBjYW4gdGFrZSBkcml2ZXJzL2dwdS9k
-cm0vYnJpZGdlL3N5bm9wc3lzL2R3LWhkbWkgYXMgYSByZWZlcmVuY2XvvIwgdGhpcwo+PiA+Pj4+
-IGlzIGFsc28gYSBoZG1pIGlwIHVzZWQgYnkgcm9ja2NoaXAvbWVzb24vc3VueGkvanovaW1444CC
-Cj4+ID4+Pj4gV2UgZmluYWxseSBtYWtlIGl0IHNoYXJlIG9uZSBkcml2ZXLjgIIKPj4gPj4+Pj4K
-Pj4gPj4+aGkgQW5keToKPj4gPj4+Cj4+ID4+PmR3X2hkbWkgc2VlbXMgYSBnb29kIGNob2ljZSAs
-IGl0IGNhbiBoYW5kbGUgaW5ubyBoZG1pIGhhcmR3YXJlIGJ5IGRlZmluZSBpdHMgZHdfaGRtaV9w
-bGF0X2RhdGEuCj4+ID4+PmRvZXMgaXQgbWVhbnMgaSBjYW4gd3JpdGUgb3duIGRyaXZlciBmaWxl
-cyBzdWNoIGFzKGR3X2hkbWktc3RhcmZpdmUuYykgYmFzZWQgb24gZHdfaGRtaSBpbnN0ZWFkIG9m
-IGFkZCBwbGF0X2RhdGEgaW4gaW5ub19oZG1pLmMKPj4gPj4+Cj4+ID4+IAo+PiA+PiBJIHRoaW5r
-IHRoZSBwcm9jZXNzIG1heWJlIGxpa2UgdGhpc++8mgo+PiA+PiAKPj4gPj4gMS4gc3BsaXQgdGhl
-IGlubm9faGRtaS5jIHVuZGVyIHJvY2tjaGlwIHRvICBpbm5vX2hkbWkuYyh0aGUgY29tbW9uIHBh
-cnQpLCBpbm5vX2hkbWktcm9ja2NoaXAuYyh0aGUgc29jIHNwZWNpZmljIHBhcnQpCj4+ID4+IDIu
-IG1vdmUgdGhlIGNvbW1vbiBwYXJ0IGlubm9faGRtaS5jIHRvIGRyaXZlcnMvZ3B1L2RybS9icmlk
-Z2UvaW5ub3NpbGljb24vCj4+ID4+IDMuIGFkZCBzdGFydGZpdmUgc3BlY2lmaWMgcGFydCwgaW5u
-b19oZG1pLXN0YXJ0Zml2ZS5jCj4+ID4+IAo+PiA+PiBiZWxsb3cgZ2l0IGxvZyBmcm9tIGtlcm5l
-bCB0aHJlZSBzaG93IGhvdyB3ZSBjb252ZXJ0ICBkd19oZG1pIHRvIGEgY29tbW9uIGRyaXZlcjog
-Cj4+ID4+IAo+PiA+PiAKPj4gPj4gCj4+ID4+IDEyYjlmMjA0ZTgwNCBkcm06IGJyaWRnZS9kd19o
-ZG1pOiBhZGQgcm9ja2NoaXAgcmszMjg4IHN1cHBvcnQKPj4gPj4gNzRhZjllNGQwM2I4IGR0LWJp
-bmRpbmdzOiBBZGQgZG9jdW1lbnRhdGlvbiBmb3Igcm9ja2NoaXAgZHcgaGRtaQo+PiA+PiBkMzQ2
-YzE0ZWVlYTkgZHJtOiBicmlkZ2UvZHdfaGRtaTogYWRkIGZ1bmN0aW9uIGR3X2hkbWlfcGh5X2Vu
-YWJsZV9zcGFyZQo+PiA+PiBhNGQzYjhiMDUwZDUgZHJtOiBicmlkZ2UvZHdfaGRtaTogY2xlYXIg
-aTJjbXBoeV9zdGF0MCByZWcgaW4gaGRtaV9waHlfd2FpdF9pMmNfZG9uZQo+PiA+PiA2MzJkMDM1
-YmFjZTIgZHJtOiBicmlkZ2UvZHdfaGRtaTogYWRkIG1vZGVfdmFsaWQgc3VwcG9ydAo+PiA+PiAw
-Y2Q5ZDE0MjgzMjIgZHJtOiBicmlkZ2UvZHdfaGRtaTogYWRkIHN1cHBvcnQgZm9yIG11bHRpLWJ5
-dGUgcmVnaXN0ZXIgd2lkdGggYWNjZXNzCj4+ID4+IGNkMTUyMzkzOTY3ZSBkdC1iaW5kaW5nczog
-YWRkIGRvY3VtZW50IGZvciBkd19oZG1pCj4+ID4+IGIyMWY0YjY1OGRmOCBkcm06IGlteDogaW14
-LWhkbWk6IG1vdmUgaW14LWhkbWkgdG8gYnJpZGdlL2R3X2hkbWkKPj4gPj4gYWFhNzU3YTA5MmMy
-IGRybTogaW14OiBpbXgtaGRtaTogc3BsaXQgcGh5IGNvbmZpZ3VyYXRpb24gdG8gcGxhdGZvcm0g
-ZHJpdmVyCj4+ID4+IDNkMWIzNWEzZDlmMyBkcm06IGlteDogaW14LWhkbWk6IGNvbnZlcnQgaW14
-LWhkbWkgdG8gZHJtX2JyaWRnZSBtb2RlCj4+ID4+IGMyYzM4NDg4NTFhNyBkcm06IGlteDogaW14
-LWhkbWk6IHJldHVybiBkZWZlciBpZiBjYW4ndCBnZXQgZGRjIGkyYyBhZGFwdGVyCj4+ID4+IGI1
-ODc4MzM5MzNkZSBkcm06IGlteDogaW14LWhkbWk6IG1ha2UgY2hlY2twYXRjaCBoYXBweQo+PiA+
-PiAKPj4gPmhpIEFuZHk6Cj4+ID5JIGdvdCB5b3UgbWVhbnMsIAo+PiA+YXMgSSBkb24ndCBoYXZl
-IGEgcm9ja2NoaXAgYm9hcmQgb24gaGFuZCAsIHRvIHNwbGl0IHRoZSBpbm5vX2hkbWkuYyBjYW4g
-bm90IGJlIHRlc3RlZC4KPj4gPgo+PiA+aG93IGFkb3V0IHRoaXMgaWRlYToKPj4gPjHjgIFzcGxp
-dCB0aGUgc3RhcmZpdmVfaGRtaS5jIHVuZGVyIHZlcmlzaWxpY2lvbiB0byAgaW5ub19oZG1pLmMo
-dGhlIGNvbW1vbiBwYXJ0KSwgaW5ub19oZG1pLXN0YXJmaXZlLmModGhlIHNvYyBzcGVjaWZpYyBw
-YXJ0KQo+PiA+Mi4gbW92ZSB0aGUgY29tbW9uIHBhcnQgaW5ub19oZG1pLmMgdG8gZHJpdmVycy9n
-cHUvZHJtL2JyaWRnZS9pbm5vc2lsaWNvbi8KPj4gPjMuIEluIHRoZSBmdXR1cmUsIGlubm8gaGRt
-aS5jIHVuZGVyIHJvY2tjaGlwIHdpbGwgcmV1c2UgdGhlIHB1YmxpYyBkcml2ZXIuCj4+IAo+PiBJ
-IGFtIG5vdCBzdXJlIGlmIGRybSBtYWludGFpbmVycyBhcmUgaGFwcHkgd2l0aCB0aGlz44CCCj4g
-Cj4gTm90IHJlYWxseSwgbm8uCj4gCj4gQmVjYXVzZSB3ZSB3b3VsZCBzdGlsbCBoYXZlIHR3byBk
-cml2ZXJzIGZvciB0aGUgc2FtZSBjb250cm9sbGVyLCBhbmQgYQo+IGNvbW1vbiBvbmUgdGhhdCBo
-YXZlbid0IHJlYWxseSBiZWVuIHRlc3RlZCBvbiBhbnl0aGluZyBidXQgYSBzaW5nbGUKPiBwbGF0
-Zm9ybS4gU28gYXJndWFibHkgYSB3b3JzZSBzaXR1YXRpb24gdGhhbiB3aGF0IHlvdSB3ZXJlIHN1
-Z2dlc3RpbmcgaW4KPiB0aGUgZmlyc3QgcGxhY2UuCj4gCj4gVGhlIGJlc3Qgc29sdXRpb24gd291
-bGQgYmUgdG8gZmluZCBzb21lb25lIHdpdGggYSBSb2NrY2hpcCBib2FyZCB0byB0ZXN0Cj4geW91
-ciBjaGFuZ2VzLCBvciB0byBnZXQgb25lIGlmIGl0J3MgZG9hYmxlIHNvIHlvdSBjYW4gdGVzdCB5
-b3Vyc2VsZi4KCm9rIEkgd2lsbCBhbHNvIHRyeSB0byBidXkgYSBSb2NrY2hpcCAzMDM2IGJvYXJk
-IGZvciBzZWxmLXRlc3QuCkFjY29yZGluZyB0byB0aGUgY29tbWl0IGxvZyBpZGVhIHByb3ZpZGVk
-IGJ5IEFuZHkgYmVmb3JlLCBtYWtlIHRoZSBpbm5vX2hkbWkgZHJpdmVyIGNvbW1vbiBtb2R1bGUu
-Cgp3b3VsZCB0aGUgc3RlcHMgYmUgb2s/IChpZiBJIHRlc3RlZCByb2NrY2hpcCBhbmQgc3Rhcmlm
-dmUgcGFzcykKMS4gc3BsaXQgdGhlIGlubm9faGRtaS5jIHVuZGVyIHJvY2tjaGlwIHRvICBpbm5v
-X2hkbWkuYyh0aGUgY29tbW9uIHBhcnQpLCBpbm5vX2hkbWktcm9ja2NoaXAuYyh0aGUgc29jIHNw
-ZWNpZmljIHBhcnQpCjIuIG1vdmUgdGhlIGNvbW1vbiBwYXJ0IGlubm9faGRtaS5jIHRvIGRyaXZl
-cnMvZ3B1L2RybS9icmlkZ2UvaW5ub3NpbGljb24vCjMuIGFkZCBzdGFydGZpdmUgc3BlY2lmaWMg
-cGFydCwgaW5ub19oZG1pLXN0YXJ0Zml2ZS5jCgpUaGFua3MKPiAKPiBNYXhpbWUKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Use the new capacity_ref_freq to set the ratio that is used by AMU for
+computing the arch_scale_freq_capacity().
+This helps to keep everything aligned using the same reference for
+computing CPUs capacity.
+
+The default value of the ratio (stored in per_cpu(arch_max_freq_scale))
+ensures that arch_scale_freq_capacity() returns max capacity until it is
+set to its correct value with the cpu capacity and capacity_ref_freq.
+
+Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+Acked-by: Sudeep Holla <sudeep.holla@arm.com>
+Acked-by: Will Deacon <will@kernel.org>
+---
+ arch/arm64/kernel/topology.c  | 26 +++++++++++++-------------
+ drivers/base/arch_topology.c  | 12 +++++++++++-
+ include/linux/arch_topology.h |  1 +
+ 3 files changed, 25 insertions(+), 14 deletions(-)
+
+diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+index 817d788cd866..1a2c72f3e7f8 100644
+--- a/arch/arm64/kernel/topology.c
++++ b/arch/arm64/kernel/topology.c
+@@ -82,7 +82,12 @@ int __init parse_acpi_topology(void)
+ #undef pr_fmt
+ #define pr_fmt(fmt) "AMU: " fmt
+ 
+-static DEFINE_PER_CPU_READ_MOSTLY(unsigned long, arch_max_freq_scale);
++/*
++ * Ensure that amu_scale_freq_tick() will return SCHED_CAPACITY_SCALE until
++ * the CPU capacity and its associated frequency have been correctly
++ * initialized.
++ */
++static DEFINE_PER_CPU_READ_MOSTLY(unsigned long, arch_max_freq_scale) =  1UL << (2 * SCHED_CAPACITY_SHIFT);
+ static DEFINE_PER_CPU(u64, arch_const_cycles_prev);
+ static DEFINE_PER_CPU(u64, arch_core_cycles_prev);
+ static cpumask_var_t amu_fie_cpus;
+@@ -112,14 +117,14 @@ static inline bool freq_counters_valid(int cpu)
+ 	return true;
+ }
+ 
+-static int freq_inv_set_max_ratio(int cpu, u64 max_rate, u64 ref_rate)
++void freq_inv_set_max_ratio(int cpu, u64 max_rate)
+ {
+-	u64 ratio;
++	u64 ratio, ref_rate = arch_timer_get_rate();
+ 
+ 	if (unlikely(!max_rate || !ref_rate)) {
+-		pr_debug("CPU%d: invalid maximum or reference frequency.\n",
++		WARN_ONCE(1, "CPU%d: invalid maximum or reference frequency.\n",
+ 			 cpu);
+-		return -EINVAL;
++		return;
+ 	}
+ 
+ 	/*
+@@ -139,12 +144,10 @@ static int freq_inv_set_max_ratio(int cpu, u64 max_rate, u64 ref_rate)
+ 	ratio = div64_u64(ratio, max_rate);
+ 	if (!ratio) {
+ 		WARN_ONCE(1, "Reference frequency too low.\n");
+-		return -EINVAL;
++		return;
+ 	}
+ 
+-	per_cpu(arch_max_freq_scale, cpu) = (unsigned long)ratio;
+-
+-	return 0;
++	WRITE_ONCE(per_cpu(arch_max_freq_scale, cpu), (unsigned long)ratio);
+ }
+ 
+ static void amu_scale_freq_tick(void)
+@@ -195,10 +198,7 @@ static void amu_fie_setup(const struct cpumask *cpus)
+ 		return;
+ 
+ 	for_each_cpu(cpu, cpus) {
+-		if (!freq_counters_valid(cpu) ||
+-		    freq_inv_set_max_ratio(cpu,
+-					   cpufreq_get_hw_max_freq(cpu) * 1000ULL,
+-					   arch_timer_get_rate()))
++		if (!freq_counters_valid(cpu))
+ 			return;
+ 	}
+ 
+diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+index 0a2e43728286..0906114963ff 100644
+--- a/drivers/base/arch_topology.c
++++ b/drivers/base/arch_topology.c
+@@ -344,6 +344,10 @@ bool __init topology_parse_cpu_capacity(struct device_node *cpu_node, int cpu)
+ 	return !ret;
+ }
+ 
++void __weak freq_inv_set_max_ratio(int cpu, u64 max_rate)
++{
++}
++
+ #ifdef CONFIG_ACPI_CPPC_LIB
+ #include <acpi/cppc_acpi.h>
+ 
+@@ -381,6 +385,9 @@ void topology_init_cpu_capacity_cppc(void)
+ 	}
+ 
+ 	for_each_possible_cpu(cpu) {
++		freq_inv_set_max_ratio(cpu,
++				       per_cpu(capacity_freq_ref, cpu) * HZ_PER_KHZ);
++
+ 		capacity = raw_capacity[cpu];
+ 		capacity = div64_u64(capacity << SCHED_CAPACITY_SHIFT,
+ 				     capacity_scale);
+@@ -422,8 +429,11 @@ init_cpu_capacity_callback(struct notifier_block *nb,
+ 
+ 	cpumask_andnot(cpus_to_visit, cpus_to_visit, policy->related_cpus);
+ 
+-	for_each_cpu(cpu, policy->related_cpus)
++	for_each_cpu(cpu, policy->related_cpus) {
+ 		per_cpu(capacity_freq_ref, cpu) = policy->cpuinfo.max_freq;
++		freq_inv_set_max_ratio(cpu,
++				       per_cpu(capacity_freq_ref, cpu) * HZ_PER_KHZ);
++	}
+ 
+ 	if (cpumask_empty(cpus_to_visit)) {
+ 		topology_normalize_cpu_scale();
+diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
+index 32c24ff4f2a8..a63d61ca55af 100644
+--- a/include/linux/arch_topology.h
++++ b/include/linux/arch_topology.h
+@@ -99,6 +99,7 @@ void update_siblings_masks(unsigned int cpu);
+ void remove_cpu_topology(unsigned int cpuid);
+ void reset_cpu_topology(void);
+ int parse_acpi_topology(void);
++void freq_inv_set_max_ratio(int cpu, u64 max_rate);
+ #endif
+ 
+ #endif /* _LINUX_ARCH_TOPOLOGY_H_ */
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
