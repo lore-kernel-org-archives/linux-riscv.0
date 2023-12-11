@@ -4,82 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D380C4167B
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Dec 2023 16:46:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCED1C4167B
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Dec 2023 16:53:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cQawqb6BMJtTcq66NovBfO7zSz4nWKMdIiX4/CrQGSw=; b=eNif+Fy+v62lgU
-	I096RuhUpZgHfYcgm9462D3GPYXfmoRMAq9ZPPRAZ578mBHOHFjpktco3iTkjtAb9EwMEhzFAMI6G
-	UwzIfkHhPsKrC6jsP5IfMPrvS8ezv6vchAyn4Nd/mfdWJSqEWDmEZZEgKbgtm7EZ6UJj7qpQdZl1r
-	/CXVN98Cg/wvPzv+lQRSNAFIrJOWrJdq8gRIUah2VhcLH1znI3hrn2suI28jxDlH3CJXbYBFnlbF0
-	PQRJJx3kKY9vWZciX3ghtKLucufC34Jzi49uGzFS9npy6Iibbp78agFCpDnO9ieHdqgnfbh8Wu0qn
-	2xbvanak4hChdmoBD+HA==;
+	List-Owner; bh=5T+fw5nvnHlaP1Zdl4d9WBqQReqRQgw13HqMyZ8AdWM=; b=VLQs515JfJ91CI
+	fvfTFq9dLwUBNRwAjfrkraKAf3PiLALDfhoAIXrfczNkbfgQzlyL84t7K53dOh2V42+B3gPhy8fX1
+	NKYK2IdgY0PbVzv1C6CrTUJgFrYMXzavaVFg/GUfCQAnYwGk8lepTj69leDq8K+RyqAWlpPzsc67g
+	J5WwQFAsyxVzjCOUCQXCSnySfPyK/1anOazA4idLe/SlNoTjGXwvJprQ8q15WocEwtYGG4dIpHwmc
+	jys9g3lUDKkki9Pde//4YO+GjuCtA8Z9XRBrWO12ppVj46MSswXTbf3RME27qrF/ZYERHl9aGn5iE
+	YuHQvRXkMQmgC//uRhqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCjQM-005wfW-2E;
-	Mon, 11 Dec 2023 16:46:31 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1rCjXG-005zoN-3B;
+	Mon, 11 Dec 2023 16:53:38 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCjQI-005wdl-2n
+	id 1rCjX9-005zir-0X
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 Dec 2023 16:46:28 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-a1c7b20f895so546434366b.2
-        for <linux-riscv@lists.infradead.org>; Mon, 11 Dec 2023 08:46:26 -0800 (PST)
+	Mon, 11 Dec 2023 16:53:32 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-2c9f9db9567so53708061fa.3
+        for <linux-riscv@lists.infradead.org>; Mon, 11 Dec 2023 08:53:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1702313185; x=1702917985; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1702313606; x=1702918406; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=noVxPYQYTouWSdFR1RAszjBhMSmcJiRgz0SE80oZI+g=;
-        b=GjL2iZ1M2OxrnKMKRQcarXvXPSEsN28YkiwUNCnttXnN6pK9Q8Oog4yrWYt8zrHCcE
-         v4NILk4aCQQ3s7BmEcOjm/nSAeRAI7tPFDDAWUjhjQwBjFf9TREH0VMv4TEyvFTOP0AV
-         E2bZSXDF0NVVwdj4nQbDkB/jAtjeECX5ehFGASHWWlovo2x5aDdLcBMk+N2sNKvh+lE1
-         0FBICeG2R7eb9fS8XWY5lpEIUX5AZCiF2rCymWTBNCgJHHnG/y1M2DX/kUwpFlAVTfEc
-         dMdwWV8Ww9iDBoXNC9N/IH5fmT7MwptS4ni2vHhmHLf4TWQkuQ0gGhDcfbu5fwWAeE6y
-         tBzg==
+        bh=oGddqI5Zh7BKNJ5lQo7xaF0k9wunTr0qscdYg3vG1Yk=;
+        b=LGEJH8xGsEq1DwvASft0ucN0yef8M5s44xK36bbpSmg8kYBhlgjEJRnnVH3y4SzJPf
+         R5+RTdt7+BcwuDO1AOcOki22oMrsvevJW6ucgOFX08eAQ+MgX5zGAAM2/jMD0CnOleZF
+         qtZ2j1HjSbMb4/sMv7z6icJi5vN6PblXeFPcaPcVPA5sGD+jHZ7Eh+/LsSMwddzfYq2x
+         HNTs8jPrmE3trr9eqYql03VY28hXb/OhTfhLlp1ElmGDgiC+souOKEk8ak+YG2OJQ782
+         FAGeDwhGOxLSoi0YgVZgrXOBaJt/Ro2Ms3EtXeZCoXXpd9y4bBPUriEG80fCJxGRtAlo
+         xq6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702313185; x=1702917985;
+        d=1e100.net; s=20230601; t=1702313606; x=1702918406;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=noVxPYQYTouWSdFR1RAszjBhMSmcJiRgz0SE80oZI+g=;
-        b=u+Q3GXCuBtHTe92Mn2e5bqPTLfWBmUO9bOT4/xlStrxVRa4aiN5tLcn/gHVFP4L6x0
-         4lTX87i7yZpXvMqy71MBhXGoCHjvEt9tc0wH78KJSL3ewWgtalwyRokMwvnwnAbiJjbl
-         R2wDztSyMxB6utxmmXAcBq/YlcBWrgZNIH5HhuybVFpHtZrY1ji02KflJIq5Yknq/BBQ
-         wCDBFSu7nycKRd413IbE1nRO4xPzs3bNounvAt2/1Bn+b1l8hA/KwDB3VE+rexIiNr1y
-         Yg7wPAfSQIPvd4BBq+sSOVjiZuaXwmAbPI2OEym1cOj2Csvw5h+GC6wBsjlzoUZuXgYb
-         QnuA==
-X-Gm-Message-State: AOJu0YxXYLYA/Mebah6AJFbLTDxi8Vw3GkbgPTb0iwWm0hHUirbN6OgD
-	rvFB9Q3qIhsMCuX+x8K7B+yEpFaT/VcsFrmZ
-X-Google-Smtp-Source: AGHT+IHIneeEguymyNcX7Q5AOfOUbwInZrHPEts5XP3rQK5DpGrJG0kvyF/FPoQxuvGsAv7Nno8OtA==
-X-Received: by 2002:a17:907:e8f:b0:a18:b240:915f with SMTP id ho15-20020a1709070e8f00b00a18b240915fmr2571288ejc.69.1702313184563;
-        Mon, 11 Dec 2023 08:46:24 -0800 (PST)
+        bh=oGddqI5Zh7BKNJ5lQo7xaF0k9wunTr0qscdYg3vG1Yk=;
+        b=QXGx/LVLFDgqYhcyID/Ijn0Ooq/qeZM5XYF0oTX/ecnYXBj0b3+tlKCBFw60/3hR1i
+         VQvHEC9zy6C7quCnVYhEcH+Rug9Rl8JEkYtgpEFpmJ4Uptoy2EQvXmSrnT0P2NA3YLfO
+         dvf+wmB66drhaVrE3yLudEDXcjR1SAQ0veX5IbXP98Mlrdn8Y8w/Q1DYjYG1snxDJluB
+         PKcgS5gvS2JgOzpkhBMutOyLUDXGar65P+r4gjERjM+aV4L3dfonDKa00hisFxatlYcY
+         TykpHFOf4rczpOQ9Ske7HUZuwEGaYzxPkjo/mW2CLoRTk3R/a+Afh6BKg9rYMgrANH8R
+         BGiA==
+X-Gm-Message-State: AOJu0YyHAYaWdDdCikFvqB08/22wgX/m/srOTbSpcBcSyL4AOInA0VAw
+	eQWUsPuUhCwEPzyyn9F/PFI=
+X-Google-Smtp-Source: AGHT+IFw9eceTa6fAq9hZRAsUzYF2zlfoHj4if+mUWNeRnKU/BkEdLUV/C4WR9mP+X2DQyTjqME3Bw==
+X-Received: by 2002:a2e:930c:0:b0:2c9:f83c:5bab with SMTP id e12-20020a2e930c000000b002c9f83c5babmr1837720ljh.65.1702313605201;
+        Mon, 11 Dec 2023 08:53:25 -0800 (PST)
 Received: from andrea ([31.189.124.152])
-        by smtp.gmail.com with ESMTPSA id rd12-20020a170907a28c00b00a11b2677acbsm5008366ejc.163.2023.12.11.08.46.23
+        by smtp.gmail.com with ESMTPSA id l12-20020a056402230c00b0054c7aee67acsm3822084eda.97.2023.12.11.08.53.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Dec 2023 08:46:24 -0800 (PST)
-Date: Mon, 11 Dec 2023 17:46:19 +0100
+        Mon, 11 Dec 2023 08:53:24 -0800 (PST)
+Date: Mon, 11 Dec 2023 17:53:22 +0100
 From: Andrea Parri <parri.andrea@gmail.com>
 To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 Cc: paulmck@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
 	aou@eecs.berkeley.edu, mmaas@google.com, hboehm@google.com,
 	striker@us.ibm.com, charlie@rivosinc.com, rehn@rivosinc.com,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/4] membarrier: riscv: Provide core serializing
- command
-Message-ID: <ZXc82331D+qWufsL@andrea>
+Subject: Re: [RFC PATCH 4/4] membarrier: Introduce Kconfig ARCH_HAS_MEMBARRIER
+Message-ID: <ZXc+gpayQTUT22t+@andrea>
 References: <20231211094414.8078-1-parri.andrea@gmail.com>
- <20231211094414.8078-4-parri.andrea@gmail.com>
- <fc29a938-c34a-45ee-8c6e-3aa71964c873@efficios.com>
+ <20231211094414.8078-5-parri.andrea@gmail.com>
+ <8132d732-b9e8-4a52-be5d-74db7a159136@efficios.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <fc29a938-c34a-45ee-8c6e-3aa71964c873@efficios.com>
+In-Reply-To: <8132d732-b9e8-4a52-be5d-74db7a159136@efficios.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231211_084626_949147_60C6B000 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20231211_085331_210735_2BEB5F3C 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,34 +95,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> >   	/*
-> >   	 * The membarrier system call requires a full memory barrier
-> >   	 * after storing to rq->curr, before going back to user-space.
-> > +	 *
-> > +	 * The barrier is also needed for the SYNC_CORE command when
-> > +	 * switching between processes; in particular, on a transition
-> > +	 * from a thread belonging to another mm to a thread belonging
-> > +	 * to the mm for which a membarrier SYNC_CORE is done on CPU0:
-> > +	 *
-> > +	 *   - [CPU0] sets all bits in the mm icache_stale_mask.
-> > +	 *
-> > +	 *   - [CPU1] store to rq->curr (by the scheduler).
-> > +	 *
-> > +	 *   - [CPU0] loads rq->curr within membarrier and observes
-> > +	 *     cpu_rq(1)->curr->mm != mm, so the IPI is skipped on
-> > +	 *     CPU1; this means membarrier relies on switch_mm() to
-> > +	 *     issue the sync-core.
-> > +	 *
-> > +	 *   - [CPU1] switch_mm() loads icache_stale_mask; if the bit
-> > +	 *     is zero, switch_mm() may incorrectly skip the sync-core.
-> > +	 *
-> > +	 * Matches the full barrier in membarrier_private_expedited().
+On Mon, Dec 11, 2023 at 08:34:21AM -0500, Mathieu Desnoyers wrote:
+> On 2023-12-11 04:44, Andrea Parri wrote:
+> > Architectures supporting the "private expedited" membarrier command must
+> > select the Kconfig to use the command.  Document status and requirements
+> > for each architecture in a single file under Documentation/features.
 > 
-> There are two full barriers in membarrier_private_expedited(). We
-> should clearly state which one it matches, and update the associated
-> barrier to state that it matches this barrier as well.
+> Sorry for being vague in my suggestion: I did not intend to make it
+> optional (not ARCH_HAS_MEMBARRIER), but rather just to have a central
+> place where this would be documented.
 
-Agreed, will do.
+I see.
+
+
+> I'm not sure where in Documentation this should land though ?
+
+Not sure, perhaps a section in (a new) Documentation/scheduler/membarrier.rst?
 
   Andrea
 
