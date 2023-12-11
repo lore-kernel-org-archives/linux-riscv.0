@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8E20C4167B
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Dec 2023 16:07:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B64EAC4167B
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Dec 2023 16:07:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5jetaW4YUkR8UoOsyB55wrq3Kz+qUoBVl9apa5FaTEc=; b=4rZemi7CCvLQ63
-	WczzZVMps1FcRE6eRqrSzhpt+9GPY2yKYe1/iZ6X8+Cyc7Dr3m9djpj8ncJQWYGmzJSMcJxZdlZdJ
-	dA245xy8Rm5T7Ng1Yaop4OsvXTOY0r+k/NvFLJ2CumAfMzgBTha/FR/keWzKpzEML96+1D6GH+1gc
-	7oVQExX7l/7jvIIIFhIaYKlvGqmON1H5v6zuv0onjbXLq/A80r05eANp8DDyazN5obxyLNMZqikTC
-	PQQx9TP5gZmNln2/hYEzEpfG9Y15n8SKW/QnCWh1vs8MfMvLKApXBqikoQiqHlzA62Hso4W5J3BEH
-	l81UjkNNDwHlx8mCnaDA==;
+	List-Owner; bh=XlL90vv98upTjTSg7J4DNDZxqkILib7P+PEFGYdckNI=; b=UH2OAXIuOhxWm9
+	rGbIxwTmR7qYq0QD4/df9au7DJJiwpqYQIxCwUD37WaBJqcZz1XFEYcYN6pCNKexVXZqkTxOXyIwv
+	inTrhYPyQHWuH66INXqLEQTlRFmdZjN7Z2tyBERuIckh8qM9BDqRMubLU0non02G3I91QPJoQ+GYr
+	xfxxo0STOaqr/YYluwhUJZ5APA3eq28jceInUogEiKjbms3d27tc+Hi43t7lCa8gqfvIhsNGgtdCx
+	D9dbcnKf+bEV5vgbAI16kfzHS0kj7zWow+qqei3xjcYU/ynFkJD706xVnEDNrlrDuFDWgmKJQEeE4
+	pomETr/j9DavGvh75kxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCioT-005eem-1i;
-	Mon, 11 Dec 2023 16:07:21 +0000
+	id 1rCiou-005es9-0S;
+	Mon, 11 Dec 2023 16:07:48 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCioR-005edf-1j;
-	Mon, 11 Dec 2023 16:07:19 +0000
-Date: Mon, 11 Dec 2023 08:07:19 -0800
+	id 1rCioq-005epY-0W;
+	Mon, 11 Dec 2023 16:07:44 +0000
+Date: Mon, 11 Dec 2023 08:07:44 -0800
 From: Christoph Hellwig <hch@infradead.org>
 To: Samuel Holland <samuel.holland@sifive.com>
 Cc: linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
@@ -33,13 +33,14 @@ Cc: linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
 	Christoph Hellwig <hch@infradead.org>, linux-kernel@vger.kernel.org,
 	amd-gfx@lists.freedesktop.org, linux-arch@vger.kernel.org
-Subject: Re: [RFC PATCH 05/12] lib/raid6: Use CC_FLAGS_FPU for NEON CFLAGS
-Message-ID: <ZXczty+Y6dTDL4Xi@infradead.org>
+Subject: Re: [RFC PATCH 06/12] LoongArch: Implement
+ ARCH_HAS_KERNEL_FPU_SUPPORT
+Message-ID: <ZXcz0NVitD1pQJ5V@infradead.org>
 References: <20231208055501.2916202-1-samuel.holland@sifive.com>
- <20231208055501.2916202-6-samuel.holland@sifive.com>
+ <20231208055501.2916202-7-samuel.holland@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231208055501.2916202-6-samuel.holland@sifive.com>
+In-Reply-To: <20231208055501.2916202-7-samuel.holland@sifive.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -56,16 +57,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> +CFLAGS_REMOVE_neon1.o += $(CC_FLAGS_NO_FPU)
-> +CFLAGS_REMOVE_neon2.o += $(CC_FLAGS_NO_FPU)
-> +CFLAGS_REMOVE_neon4.o += $(CC_FLAGS_NO_FPU)
-> +CFLAGS_REMOVE_neon8.o += $(CC_FLAGS_NO_FPU)
+On Thu, Dec 07, 2023 at 09:54:36PM -0800, Samuel Holland wrote:
+> LoongArch already provides kernel_fpu_begin() and kernel_fpu_end() in
+> asm/fpu.h, so it only needs to add kernel_fpu_available() and export
+> the CFLAGS adjustments.
 
-Btw, do we even really need the extra variables for compiler flags
-to remove?  Don't gcc/clang options work so that if you add a
-no-prefixed version of the option later it transparently gets removed?
-
-Except for that:
+Looks good:
 
 Reviewed-by: Christoph Hellwig <hch@lst.de>
 
