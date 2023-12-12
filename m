@@ -4,75 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 932C6C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 16:56:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6A09C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 17:43:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nCL7zfrt4X+t3xJI7bQmCnKQRPH/NjjbwpuxB8mRvWw=; b=xHOY8rBQesY/E6
-	9sT24Np3qilIr5SLp1YVelKA9Rz5NPUSZuZa4wFvVgnNcPd0xF0VX4D17jmjuzktxbIU8SVDtTfIR
-	1SrI4tDZWyFqutoSVoTpaspjT86bdR9jobYb+DDqoQeSlorl5D1AcNRJZRsmRlIcVUlaTHalNih22
-	SOxAFpl1DxLUTjgNo4LshIbuoaWbZFe7BqPrrVdp7RZideZEAB1XAoR2Rlij4wlSwfKgQLJIfhb/D
-	5xT/HhK4U+IMCr5QZJrC55LgVVPVRAd/lTZ6mznO0zFZNEbWlzGjM/6NdJfGVqmyfQHo4j3SmfCqh
-	jymi9l5WeeYfG73Fel+w==;
+	List-Owner; bh=NNSmXJUZkLMENkBYOLHhVphx0s/5fUGbNNx6sr7CR/o=; b=A+tsFoU/poG1yZ
+	by+nK/3URC7Om7UfV90pcqJd6twpsdSes4ZpHLEe33HBMuCYbnWkoySf6ydbeEprzbhanWvhLqC6i
+	bBY8PwlKuKzjaaqSXwucgWP4pJ5w5uIPPBF5Wuu1w7POkDYT+xY93bOye2bSDUUTDTJfxnOwNJjKe
+	zhK5FhrM1hlK7DXNQF5dWNWH4pdhvxwm7OrIFXenpJnsd4+J2wWlGq3xWfOeSFOdHvcjbMvQvuuqr
+	4icGqjvgZOcjtluwq5slnqfPaQg7EvtX1Tn0v2BZuriYb1ZpZVvgSeuuYCvmhTAVyLFQyGVcFifYY
+	Wg+4CQx+3QIlFstm+rZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rD63Y-00CIsi-0l;
-	Tue, 12 Dec 2023 16:56:28 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1rD6mc-00CQ0G-04;
+	Tue, 12 Dec 2023 17:43:02 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rD63W-00CIrw-0a
-	for linux-riscv@lists.infradead.org;
-	Tue, 12 Dec 2023 16:56:27 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-40c55872d80so3669235e9.1
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Dec 2023 08:56:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1702400180; x=1703004980; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+OpS8QvLmhoSAmNbzXuy9RYCtH6wkVeGub04kf2dZCE=;
-        b=U0i/lovtxabwVXK2Sxr2OLU+SORr4epwwfS73OcqeUCN1w/Fh8KRc2VrNRHI/JxeoB
-         YAPJjCKyI6LM+y744TiG7VwOrR8uvHcJmr9Iz56t0Ddr9GyXdvqcPbX671MK03Yxp4NX
-         Da6n2Tn2LcsmDfKTZofKQyP1SOqX87AH+mcUAM0GmBabPTKNoG+N9CReNRAqkpWcoOsg
-         z8bWwI8fsdQbD/zWg9KvD+sh7Tl3xtmbWPRjnsLDidkU039B5dRviMNwnR1Pk8LXlJe/
-         9ozRcbGkePaQG6Qv5P97bO0XwiiZO2EYAHD9xN9NaJLPChloxhs5/UzsamJbQttoo2MW
-         v//Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702400180; x=1703004980;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+OpS8QvLmhoSAmNbzXuy9RYCtH6wkVeGub04kf2dZCE=;
-        b=Rec5y+wggrrWknqunb0BHp06Q080yeMYZ2fgjyOGOsnwE22jAjVXNU8PpEe49syhe+
-         wFmx6xHIi5+rbV5NYj9FMBUhOFwcFi83L4ZFIDdiANZUpS7twKzWLPodzYo23nRhp2Mw
-         6U7+iHnHhhilKf5DoMouYYaFyLHNcVeBUQMK0WIRBgBcmm8m+vtB9lbBOd02VIZGzgR7
-         O3GPAPt/uh7OEa9HUIumw317Is3nOA99WkZuDpLN+MjBLe0JpriL4eZS1QY2BbIp9+ry
-         +J58OuVSY+uJQaW+43lDupEVKVSScU4mrGKzIOJStaTnAeQv15IGeQmcba13nXIjLbz4
-         3jgA==
-X-Gm-Message-State: AOJu0YydAU0tDkcfHMgTQ3F53MC42QYZxaY5gBMYIuPm0Vw9GDVRSBIm
-	MsyHJlm1en3J2GgvBgjllAHUkvRhD/ga0nf8UFp/6A==
-X-Google-Smtp-Source: AGHT+IF57G5xzFkVfzhQ6L4Jp050TnfWYKoW0vXKBEg5qX6/XT790iWuyYeR8u21h8EBH9G8WN6kIULlKe+iGLmGesE=
-X-Received: by 2002:a05:600c:4e4f:b0:40c:23e0:7dad with SMTP id
- e15-20020a05600c4e4f00b0040c23e07dadmr3396524wmq.168.1702400180143; Tue, 12
- Dec 2023 08:56:20 -0800 (PST)
+	id 1rD6mY-00CPyS-3A;
+	Tue, 12 Dec 2023 17:43:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 412CECE1B01;
+	Tue, 12 Dec 2023 17:42:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 912EFC433C7;
+	Tue, 12 Dec 2023 17:42:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1702402975;
+	bh=+h9Hy/o6qPUoywDyWEUPYa0LHvbEAwTr1e24Paq/tos=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lDcLxHelMIzPI8uabqZaj/J1ptw8Bbp3/fmYDq0ra7rMT0PeFkQ90OOZCAPFaUb6A
+	 Pf1xrFjFQDntjBJ4litDwDD96rI7P1hbXkHlQbxzfymZPaWqFcP3fJIKPQdbiwgy5V
+	 BZJhfu7qQSK2nEpGdAWBr/1DJIdxCNhkDvpMPJNKnZReAND+JosLQhQEoKLVyhjNHY
+	 7QQIjUTZ9p13DxnOVCRkam5wdQ9+3tPoCM9vtVV5SAZCsuMYJISitUvT7/vXsbJMJc
+	 Qmgwwdb2RgC0munn2yFEdl9n2A/m1gqB5rjiOmGfk/xWixe+wxrvaEF4X8ZUEXoRmv
+	 Bu4BZ7fKxNpRQ==
+Date: Tue, 12 Dec 2023 09:42:52 -0800
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Christoph Hellwig <hch@infradead.org>
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Leo Li <sunpeng.li@amd.com>,
+	Rodrigo Siqueira <Rodrigo.Siqueira@amd.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, David Airlie <airlied@gmail.com>,
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	Pan Xinhui <Xinhui.Pan@amd.com>, Daniel Vetter <daniel@ffwll.ch>,
+	amd-gfx@lists.freedesktop.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Nicolas Schier <nicolas@fjasle.eu>, linux-kbuild@vger.kernel.org,
+	Peter Zijlstra <peterz@infradead.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	linuxppc-dev@lists.ozlabs.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 3/3] drm/amd/display: Support DRM_AMD_DC_FP on RISC-V
+Message-ID: <20231212174252.ycztjhgyhtcrffur@treble>
+References: <20231122030621.3759313-1-samuel.holland@sifive.com>
+ <20231122030621.3759313-4-samuel.holland@sifive.com>
+ <ZV2+f/yu3C6xTVqn@infradead.org>
+ <6d4cecd5-9083-4d68-a7e2-266dae9e3952@sifive.com>
+ <ZXgH6un2uLdjQ48X@infradead.org>
 MIME-Version: 1.0
-References: <20231212-removeasmgeneric-v2-1-a0e6d7df34a7@google.com>
-In-Reply-To: <20231212-removeasmgeneric-v2-1-a0e6d7df34a7@google.com>
-From: Nick Desaulniers <ndesaulniers@google.com>
-Date: Tue, 12 Dec 2023 08:56:05 -0800
-Message-ID: <CAKwvOdnTH+SgiLDkq4KmjVifF-bkxKfBNxE2o+XHjuRa6ZCSRA@mail.gmail.com>
-Subject: Re: [PATCH v2] riscv: remove unused header
-To: tanzirh@google.com
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Nick Desaulniers <nnn@google.com>
+Content-Disposition: inline
+In-Reply-To: <ZXgH6un2uLdjQ48X@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231212_085626_245059_87018438 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20231212_094259_206838_BED86C3D 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,39 +88,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBEZWMgMTEsIDIwMjMgYXQgNDoyMOKAr1BNIDx0YW56aXJoQGdvb2dsZS5jb20+IHdy
-b3RlOgo+Cj4gYXJjaC9yaXNjdi9rZXJuZWwvc3lzX3Jpc2N2LmMgYnVpbGRzIHdpdGhvdXQgdXNp
-bmcgYW55dGhpbmcKPiBmcm9tIGFzbS1nZW5lcmljL21tYW4tY29tbW9uLmguIFRoZXJlIHNlZW1z
-IHRvIGJlIG5vIHJlYXNvbgo+IHRvIGluY2x1ZGUgdGhpcyBmaWxlLgo+Cj4gU2lnbmVkLW9mZi1i
-eTogVGFuemlyIEhhc2FuIDx0YW56aXJoQGdvb2dsZS5jb20+CgpUaGFua3MgZm9yIHRoZSBwYXRj
-aCEKCkZpeGVzOiA5ZTJlNjA0MmE3ZWMgKCJyaXNjdjogQWxsb3cgUFJPVF9XUklURS1vbmx5IG1t
-YXAoKSIpClJldmlld2VkLWJ5OiBOaWNrIERlc2F1bG5pZXJzIDxuZGVzYXVsbmllcnNAZ29vZ2xl
-LmNvbT4KVGVzdGVkLWJ5OiBOaWNrIERlc2F1bG5pZXJzIDxuZGVzYXVsbmllcnNAZ29vZ2xlLmNv
-bT4KCj4gLS0tCj4KPiAtLS0KCllvdSdyZSBzdGlsbCBnZXR0aW5nIGZ1bmt5IGV4dHJhIGAtLS1g
-OyBsZXQncyB0YWtlIGEgbG9vayBsYXRlciBhdCBob3cKeW91J3JlIHVzaW5nIGBiNGAgdG9nZXRo
-ZXIgb2ZmbGluZS4gIEl0J3Mgbm90IGEgcHJvYmxlbSBmb3IgbWUgdG8KYXBwbHkgdGhlIHBhdGNo
-LCBidXQgc29tZXRoaW5nIHN0aWxsIGlzbid0IHF1aXRlIHJpZ2h0LiAoRG8gbm90IHNlbmQgYQp2
-MyBvdmVyIHRoaXMpCgo+IENoYW5nZXMgaW4gdjI6Cj4gLSBDaGFuZ2VkIG5hbWUgdG8gcmlzY3Y6
-IHJlbW92ZSB1bnVzZWQgaGVhZGVyCj4gLSBMaW5rIHRvIHYxOiBodHRwczovL2xvcmUua2VybmVs
-Lm9yZy9yLzIwMjMxMjExLXJlbW92ZWFzbWdlbmVyaWMtdjEtMS1hMDI3NGU4MDI3ODlAZ29vZ2xl
-LmNvbQo+IC0tLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9zeXNfcmlzY3YuYyB8IDEgLQo+ICAxIGZp
-bGUgY2hhbmdlZCwgMSBkZWxldGlvbigtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2Vy
-bmVsL3N5c19yaXNjdi5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvc3lzX3Jpc2N2LmMKPiBpbmRleCBh
-MmNhNWI3NzU2YTUuLmViY2FmMzg2ZWE2MiAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5l
-bC9zeXNfcmlzY3YuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3N5c19yaXNjdi5jCj4gQEAg
-LTE0LDcgKzE0LDYgQEAKPiAgI2luY2x1ZGUgPGFzbS9zd2l0Y2hfdG8uaD4KPiAgI2luY2x1ZGUg
-PGFzbS91YWNjZXNzLmg+Cj4gICNpbmNsdWRlIDxhc20vdW5pc3RkLmg+Cj4gLSNpbmNsdWRlIDxh
-c20tZ2VuZXJpYy9tbWFuLWNvbW1vbi5oPgo+ICAjaW5jbHVkZSA8dmRzby92c3lzY2FsbC5oPgo+
-Cj4gIHN0YXRpYyBsb25nIHJpc2N2X3N5c19tbWFwKHVuc2lnbmVkIGxvbmcgYWRkciwgdW5zaWdu
-ZWQgbG9uZyBsZW4sCj4KPiAtLS0KPiBiYXNlLWNvbW1pdDogYTM5YjZhYzM3ODFkNDZiYTE4MTkz
-YzlkYmIyMTEwZjMxZTliZmZlOQo+IGNoYW5nZS1pZDogMjAyMzEyMTEtcmVtb3ZlYXNtZ2VuZXJp
-Yy1mNmJlMTNhNDJiNmIKPgo+IEJlc3QgcmVnYXJkcywKPiAtLQo+IFRhbnppciBIYXNhbiA8dGFu
-emlyaEBnb29nbGUuY29tPgo+CgoKLS0gClRoYW5rcywKfk5pY2sgRGVzYXVsbmllcnMKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, Dec 11, 2023 at 11:12:42PM -0800, Christoph Hellwig wrote:
+> On Thu, Dec 07, 2023 at 10:49:53PM -0600, Samuel Holland wrote:
+> > Actually tracking all possibly-FPU-tainted functions and their call sites is
+> > probably possible, but a much larger task.
+> 
+> I think objtool should be able to do that reasonably easily, it already
+> does it for checking section where userspace address access is enabled
+> or not, which is very similar.
+
+Yeah, that might be doable.  I can look into it.
+
+-- 
+Josh
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
