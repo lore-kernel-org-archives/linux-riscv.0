@@ -4,79 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D02C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 01:10:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A50C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 01:51:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Bfld1bMjR3polBWSl2lUQR6LKbxbnW9H5KIcbwdQKEQ=; b=IEymGGHL6tCRGi
-	U/k/yj1s9W94g8x3hVX55/izqgU44PAIVKtKcr83T8SSskqn2fbafCYsR4b/72d0VrOL9Ff9lT2tB
-	H9AamPTd3M+XX7zPi5e5lSR+VAxU3quY0+J2cEdo2O/ynpd6Bd06yKpgbG5EYunOwz+4XAfgq7PVE
-	KBxR2ObFdE8kh48jNC2muQGQIq0uQD1SOfcx94ev2ASkRmv6b3tH421xYhELRLz/KF/4BwrA1JGq/
-	OjsVX4TCUNunc77TJmh4Aett/ZrAq+wXnApelkQQ8BUNWprgjrpV/qt3lsnX9f9jOsCB0ZScX4ty5
-	mtMxlq/gWAwM+EV0hLIA==;
+	List-Owner; bh=rys2xmSiRUxPGJk916Xo2iP+dZNqlMTb/cQ9V7Ot2x0=; b=TnSZA3ec8Lyt0Q
+	x3nIZ9G7aGyXL9ZzVZV6Rz43rgr/Uc8IYnU/HYKI5unpIX8XD6gyXhfukk71z4cX0aXTwK3w8dINr
+	irU8mOobG1B7n7G6/QDblTA3iVroAUXXw3xnkn53Z95vXk91LHvCThR3VRHuhTonnDZzgpLvq28BP
+	bNgvCT4sp2sapr+zP/xtyi5mKl2NrOyE7gJ2xa5OLF+N9PdDlGsQUmoAjexK/4kh+StrleyVAS2d6
+	WCSD2cBvB99oLdX+l8QCGlBArZd1zJWsJIxbnyWErSpiWcltozdG1CjrkBOJsH5liQGVf2f82og4T
+	WDOzE9j0A5hiBuGSi/gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCrHY-00AQmy-1r;
-	Tue, 12 Dec 2023 01:09:56 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCrHT-00AQlC-0H
+	id 1rCrvX-00ATPK-0p;
+	Tue, 12 Dec 2023 01:51:15 +0000
+Received: from mail-il1-x136.google.com ([2607:f8b0:4864:20::136])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1rCrvS-00ATOx-2U
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Dec 2023 01:09:54 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id A83FC24E25E;
-	Tue, 12 Dec 2023 09:09:39 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 12 Dec
- 2023 09:09:39 +0800
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX171.cuchost.com
- (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 12 Dec
- 2023 09:09:39 +0800
-Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
- EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
- 15.00.1497.044; Tue, 12 Dec 2023 09:09:39 +0800
-From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	"kernel@esmil.dk" <kernel@esmil.dk>, "conor@kernel.org" <conor@kernel.org>,
-	"robh+dt@kernel.org" <robh+dt@kernel.org>,
-	"krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, "palmer@dabbelt.com"
-	<palmer@dabbelt.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"mturquette@baylibre.com" <mturquette@baylibre.com>, "sboyd@kernel.org"
-	<sboyd@kernel.org>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, "Hal
- Feng" <hal.feng@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>
-CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>, Leyfoon Tan
-	<leyfoon.tan@starfivetech.com>
-Subject: RE: [PATCH v1 00/16] Basic clock and reset support for StarFive
- JH8100 RISC-V SoC
-Thread-Topic: [PATCH v1 00/16] Basic clock and reset support for StarFive
- JH8100 RISC-V SoC
-Thread-Index: AQHaKDpenJ7xM02baU+qIG80sqYy3rCfF1UAgAXHjcA=
-Date: Tue, 12 Dec 2023 01:09:38 +0000
-Message-ID: <f1e151e14e0b4bcca1c9119f5d7e7559@EXMBX066.cuchost.com>
-References: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
- <CAJM55Z_nnrFcU6N8ZELUoGLe6Dp358aXH7VGf1i+USbZOsbpnQ@mail.gmail.com>
-In-Reply-To: <CAJM55Z_nnrFcU6N8ZELUoGLe6Dp358aXH7VGf1i+USbZOsbpnQ@mail.gmail.com>
-Accept-Language: en-US, zh-CN
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [202.188.176.82]
-x-yovoleruleagent: yovoleflag
+	Tue, 12 Dec 2023 01:51:13 +0000
+Received: by mail-il1-x136.google.com with SMTP id e9e14a558f8ab-35d82fb7e86so14506555ab.2
+        for <linux-riscv@lists.infradead.org>; Mon, 11 Dec 2023 17:51:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1702345869; x=1702950669; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZX2WLxx5Rcq4VaM/IYqMbN57BjVsaN794DZZVcGhbe0=;
+        b=nqZ8BhiZZ3BJIoDUKtZQoxtUw9BSC6qnrEkxJ+VsUfGvsStHlX6fnOh/1uO17o7nem
+         nFtNR7wn+UCMjweOFLbIrRz06Yj9HxcwzcBp6heKyjA4ha1fHulVPliHtidUeHX85D97
+         5q2EGBDOQlCOxStXA2cQo2sAVU3EFOlI5Qcb9iKWY0UJnl4T71bKFaUPTdp6m4ap3mip
+         FNA5EGDCsHCOCewTVdAGKEfgY/SkgQoer9YxeB54EMwqWv/lkpL9GYXanj4AcD29UZuP
+         fJb2STtUE+jKPxnj2D+DQNZ5PDIbTOQC6pXbbUwOPwr3SRWtg+qIeyxqs3xaq/mUZWC3
+         ZWGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1702345869; x=1702950669;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZX2WLxx5Rcq4VaM/IYqMbN57BjVsaN794DZZVcGhbe0=;
+        b=VmY8Lqtjs1wHBvhYOF0XCmeZ5AXaCEVtSi2W9AjO5ZYHWKzS/8OyuM85JJG16C7UUi
+         dK7jF+KC7P6m/7LVNIV5xxpkEIuJxjSKZdn/MUU2w+5fEGnPgfD2TA2c7aKGT372z5g2
+         yEMTBN5Fmu0MK8KtzIgC/ZI54BqWyrGJCpcyKW8WEswR7Bc+944DQYON0wsl/JGM7IzS
+         +1hy050AgakYm7Ma2wBcEctooSqDhey07x/wrxUA7f84x0Q7qEQ6GoamGgl/HgHlc5Ti
+         H/75zVMSGD3qOoYRnDRfUU8yzdnv3vbgEsOkndHka+WAv2BpEqYou/KcuN1YMAf2lmxm
+         ZlLA==
+X-Gm-Message-State: AOJu0YwslRJNusxd0jzW9BKW+eVSzIVLXt0WRkH90lxx9I/wYUMSeZuo
+	im/UtYAsEhKrXKEsQsgEVRhY5g==
+X-Google-Smtp-Source: AGHT+IGnyMrJXzmjvP+GzSeN8xEYOBCyBBOu71OLX4nlpJx0A1/qebH4GVwEO5MPcOyQmk0ZvFgk2Q==
+X-Received: by 2002:a05:6e02:1aa5:b0:35d:a3ce:4e50 with SMTP id l5-20020a056e021aa500b0035da3ce4e50mr4700952ilv.37.1702345869214;
+        Mon, 11 Dec 2023 17:51:09 -0800 (PST)
+Received: from ghost ([12.44.203.122])
+        by smtp.gmail.com with ESMTPSA id jg7-20020a17090326c700b001d0d312bc2asm7296320plb.193.2023.12.11.17.51.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 Dec 2023 17:51:08 -0800 (PST)
+Date: Mon, 11 Dec 2023 17:51:06 -0800
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Maxim Kochetkov <fido_max@inbox.ru>
+Cc: linux-riscv@lists.infradead.org, bigunclemax@gmail.com,
+	Amma Lee <lixiaoyun@binary-semi.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Jisheng Zhang <jszhang@kernel.org>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/1] riscv: optimize ELF relocation function in riscv
+Message-ID: <ZXe8imHSg20nKagf@ghost>
+References: <20230913130501.287250-1-fido_max@inbox.ru>
+ <ZXJrGLwxtjf6cK42@ghost>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <ZXJrGLwxtjf6cK42@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231211_170951_666354_8506A4A5 
-X-CRM114-Status: GOOD (  24.06  )
+X-CRM114-CacheID: sfid-20231211_175111_040600_D20DB39E 
+X-CRM114-Status: GOOD (  43.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,159 +98,125 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Dec 07, 2023 at 05:02:16PM -0800, Charlie Jenkins wrote:
+> On Wed, Sep 13, 2023 at 04:05:00PM +0300, Maxim Kochetkov wrote:
+> > The patch can optimize the running times of insmod command by modify ELF
+> > relocation function.
+> > In the 5.10 and latest kernel, when install the riscv ELF drivers which
+> > contains multiple symbol table items to be relocated, kernel takes a lot
+> > of time to execute the relocation. For example, we install a 3+MB driver
+> > need 180+s.
+> > We focus on the riscv architecture handle R_RISCV_HI20 and R_RISCV_LO20
+> > type items relocation function in the arch\riscv\kernel\module.c and
+> > find that there are two-loops in the function. If we modify the begin
+> > number in the second for-loops iteration, we could save significant time
+> > for installation. We install the same 3+MB driver could just need 2s.
+> > 
+> > Signed-off-by: Amma Lee <lixiaoyun@binary-semi.com>
+> > Signed-off-by: Maxim Kochetkov <fido_max@inbox.ru>
+> > ---
+> > Changes in v4:
+> > - use 'while' loop instead of 'for' loop to avoid code duplicate
+> > ---
+> >  arch/riscv/kernel/module.c | 20 ++++++++++++++++----
+> >  1 file changed, 16 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+> > index 7c651d55fcbd..8c9b644ebfdb 100644
+> > --- a/arch/riscv/kernel/module.c
+> > +++ b/arch/riscv/kernel/module.c
+> > @@ -346,6 +346,7 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+> >  	Elf_Sym *sym;
+> >  	u32 *location;
+> >  	unsigned int i, type;
+> > +	unsigned int j_idx = 0;
+> >  	Elf_Addr v;
+> >  	int res;
+> >  
+> > @@ -384,9 +385,10 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+> >  		v = sym->st_value + rel[i].r_addend;
+> >  
+> >  		if (type == R_RISCV_PCREL_LO12_I || type == R_RISCV_PCREL_LO12_S) {
+> > -			unsigned int j;
+> > +			unsigned int j = j_idx;
+> > +			bool found = false;
+> >  
+> > -			for (j = 0; j < sechdrs[relsec].sh_size / sizeof(*rel); j++) {
+> > +			do {
+> >  				unsigned long hi20_loc =
+> >  					sechdrs[sechdrs[relsec].sh_info].sh_addr
+> >  					+ rel[j].r_offset;
+> > @@ -415,16 +417,26 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+> >  					hi20 = (offset + 0x800) & 0xfffff000;
+> >  					lo12 = offset - hi20;
+> >  					v = lo12;
+> > +					found = true;
+> >  
+> >  					break;
+> >  				}
+> > -			}
+> > -			if (j == sechdrs[relsec].sh_size / sizeof(*rel)) {
+> > +
+> > +				j++;
+> > +				if (j > sechdrs[relsec].sh_size / sizeof(*rel))
+> > +					j = 0;
+> Very interesting algorithm here. Assuming the hi relocation is after the
+> previous one seems to be a good heuristic. However I think we can do
+> better. In GNU ld, a hashmap of all of the hi relocations is stored and
+> a list of all of the lo relocations. After all of the other relocations
+> have been parsed, it iterates through all of the lo relocations and
+> looks up the associated hi relocation in the hashmap.
+> 
+> There is more memory overhead here but I suspect it will be faster. I
+> had started to mock up a hashmap implementation to see if it was faster
+> but decided I should mention it here first in case somebody had some
+> additional insight. 
 
+Turns out this is a fantastic heuristic. Using a hashmap is
+significantly faster than the default implementation but this algorithm
+above is significantly faster than the hashmap. Using the amdgpu driver
+(which is actually a collection of drivers) and is a size of about 469M
+I found that the hashmap implementation is about 30% faster than the
+current implementation, but this patch is 50% faster than the current
+implementation. It is probably possible to write an ELF header with the
+relocations sufficiently scrambled to make the hashmap faster, but I
+suspect that for all "normal" programs this algorithm is faster.
 
-> -----Original Message-----
-> From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-> Sent: Saturday, December 9, 2023 12:53 AM
-> To: JeeHeng Sia <jeeheng.sia@starfivetech.com>; kernel@esmil.dk; conor@kernel.org; robh+dt@kernel.org;
-> krzysztof.kozlowski+dt@linaro.org; paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu;
-> mturquette@baylibre.com; sboyd@kernel.org; p.zabel@pengutronix.de; emil.renner.berthing@canonical.com; Hal Feng
-> <hal.feng@starfivetech.com>; Xingyu Wu <xingyu.wu@starfivetech.com>
-> Cc: linux-riscv@lists.infradead.org; devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-clk@vger.kernel.org; Leyfoon Tan
-> <leyfoon.tan@starfivetech.com>
-> Subject: Re: [PATCH v1 00/16] Basic clock and reset support for StarFive JH8100 RISC-V SoC
+I also tried a couple other smaller modules and it was faster or around
+the same as the hashmap in all of them.
+
+A lot of code has changed in this file since this patch was submitted,
+can you rebase onto 6.7-rc1? Otherwise this patch is great.
+
+Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+
 > 
-> Sia Jee Heng wrote:
-> > This patch series enabled basic clock & reset support for StarFive
-> > JH8100 SoC.
-> >
-> > This patch series depends on the Initial device tree support for
-> > StarFive JH8100 SoC patch series which can be found at below link:
-> > https://lore.kernel.org/lkml/20231201121410.95298-1-jeeheng.sia@starfivetech.com/
-> >
-> > StarFive JH8100 shares a similar clock and reset design with JH7110.
-> > To facilitate the reuse of the file and its functionalities, files
-> > containing the 'jh71x0' naming convention are renamed to use the
-> > 'common' wording. Internal functions that contain the 'jh71x0'
-> > naming convention are renamed to use 'starfive.' This is accomplished
-> > through patches 1, 2, 3, and 4.
+> - Charlie
 > 
-> I'm a little sceptical all this renaming is worth it, but if think it's likely
-> that future starfive SoCs can use the same clock drivers I'm ok with it. Just
-> know that you'll look a bit silly if your "JH9100" can't use these drivers and
-> you'll already need different starfive and starfive-gen2 drivers.
-Thank you for your understanding.
-> 
-> /Emil
-> >
-> >
-> > Patch 5 adds documentation to describe System (SYSCRG) Clock & Reset
-> > binding.
-> > Patch 6 adds SYSCRG clock driver.
-> >
-> > patch 7 adds documentation to describe System-North-West (SYSCRG-NW)
-> > Clock & Reset binding.
-> > Patch 8 adds SYSCRG-NW clock driver.
-> >
-> > patch 9 adds documentation to describe System-North-East (SYSCRG-NE)
-> > Clock & Reset binding.
-> > Patch 10 adds SYSCRG-NE clock driver.
-> >
-> > patch 11 adds documentation to describe System-South-West (SYSCRG-SW)
-> > Clock & Reset binding.
-> > Patch 12 adds SYSCRG-SW clock driver.
-> >
-> > patch 13 adds documentation to describe Always-On (AON)
-> > Clock & Reset binding.
-> > Patch 14 adds AON clock driver.
-> >
-> > Patch 15 adds support for the auxiliary reset driver.
-> >
-> > Patch 16 adds clocks and reset nodes to the JH8100 device tree.
-> >
-> > Sia Jee Heng (16):
-> >   reset: starfive: Rename file name "jh71x0" to "common"
-> >   reset: starfive: Convert the word "jh71x0" to "starfive"
-> >   clk: starfive: Rename file name "jh71x0" to "common"
-> >   clk: starfive: Convert the word "jh71x0" to "starfive"
-> >   dt-bindings: clock: Add StarFive JH8100 System clock and reset
-> >     generator
-> >   clk: starfive: Add JH8100 System clock generator driver
-> >   dt-bindings: clock: Add StarFive JH8100 System-North-West clock and
-> >     reset generator
-> >   clk: starfive: Add JH8100 System-North-West clock generator driver
-> >   dt-bindings: clock: Add StarFive JH8100 System-North-East clock and
-> >     reset generator
-> >   clk: starfive: Add JH8100 System-North-East clock generator driver
-> >   dt-bindings: clock: Add StarFive JH8100 System-South-West clock and
-> >     reset generator
-> >   clk: starfive: Add JH8100 System-South-West clock generator driver
-> >   dt-bindings: clock: Add StarFive JH8100 Always-On clock and reset
-> >     generator
-> >   clk: starfive: Add JH8100 Always-On clock generator driver
-> >   reset: starfive: Add StarFive JH8100 reset driver
-> >   riscv: dts: starfive: jh8100: Add clocks and resets nodes
-> >
-> >  .../clock/starfive,jh8100-aoncrg.yaml         |  77 +++
-> >  .../clock/starfive,jh8100-syscrg-ne.yaml      | 158 +++++
-> >  .../clock/starfive,jh8100-syscrg-nw.yaml      | 119 ++++
-> >  .../clock/starfive,jh8100-syscrg-sw.yaml      |  66 ++
-> >  .../clock/starfive,jh8100-syscrg.yaml         |  66 ++
-> >  MAINTAINERS                                   |  15 +
-> >  arch/riscv/boot/dts/starfive/jh8100-clk.dtsi  | 180 ++++++
-> >  arch/riscv/boot/dts/starfive/jh8100.dtsi      | 115 ++++
-> >  drivers/clk/starfive/Kconfig                  |  49 +-
-> >  drivers/clk/starfive/Makefile                 |   3 +-
-> >  drivers/clk/starfive/clk-starfive-common.c    | 327 ++++++++++
-> >  drivers/clk/starfive/clk-starfive-common.h    | 130 ++++
-> >  .../clk/starfive/clk-starfive-jh7100-audio.c  | 127 ++--
-> >  drivers/clk/starfive/clk-starfive-jh7100.c    | 503 ++++++++--------
-> >  .../clk/starfive/clk-starfive-jh7110-aon.c    |  62 +-
-> >  .../clk/starfive/clk-starfive-jh7110-isp.c    |  72 +--
-> >  .../clk/starfive/clk-starfive-jh7110-stg.c    |  94 +--
-> >  .../clk/starfive/clk-starfive-jh7110-sys.c    | 523 ++++++++--------
-> >  .../clk/starfive/clk-starfive-jh7110-vout.c   |  74 +--
-> >  drivers/clk/starfive/clk-starfive-jh7110.h    |   4 +-
-> >  drivers/clk/starfive/clk-starfive-jh71x0.c    | 327 ----------
-> >  drivers/clk/starfive/clk-starfive-jh71x0.h    | 123 ----
-> >  drivers/clk/starfive/jh8100/Makefile          |   7 +
-> >  drivers/clk/starfive/jh8100/clk-aon.c         | 275 +++++++++
-> >  .../clk/starfive/jh8100/clk-starfive-jh8100.h |  11 +
-> >  drivers/clk/starfive/jh8100/clk-sys-ne.c      | 566 ++++++++++++++++++
-> >  drivers/clk/starfive/jh8100/clk-sys-nw.c      | 268 +++++++++
-> >  drivers/clk/starfive/jh8100/clk-sys-sw.c      | 136 +++++
-> >  drivers/clk/starfive/jh8100/clk-sys.c         | 455 ++++++++++++++
-> >  drivers/reset/starfive/Kconfig                |  14 +-
-> >  drivers/reset/starfive/Makefile               |   4 +-
-> >  ...rfive-jh71x0.c => reset-starfive-common.c} |  68 +--
-> >  .../reset/starfive/reset-starfive-common.h    |  14 +
-> >  .../reset/starfive/reset-starfive-jh7100.c    |   4 +-
-> >  .../reset/starfive/reset-starfive-jh7110.c    |   8 +-
-> >  .../reset/starfive/reset-starfive-jh71x0.h    |  14 -
-> >  .../reset/starfive/reset-starfive-jh8100.c    | 102 ++++
-> >  .../dt-bindings/clock/starfive,jh8100-crg.h   | 430 +++++++++++++
-> >  .../dt-bindings/reset/starfive,jh8100-crg.h   | 127 ++++
-> >  ...rfive-jh71x0.h => reset-starfive-common.h} |  10 +-
-> >  40 files changed, 4485 insertions(+), 1242 deletions(-)
-> >  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-aoncrg.yaml
-> >  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-ne.yaml
-> >  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-nw.yaml
-> >  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-sw.yaml
-> >  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg.yaml
-> >  create mode 100644 arch/riscv/boot/dts/starfive/jh8100-clk.dtsi
-> >  create mode 100644 drivers/clk/starfive/clk-starfive-common.c
-> >  create mode 100644 drivers/clk/starfive/clk-starfive-common.h
-> >  delete mode 100644 drivers/clk/starfive/clk-starfive-jh71x0.c
-> >  delete mode 100644 drivers/clk/starfive/clk-starfive-jh71x0.h
-> >  create mode 100644 drivers/clk/starfive/jh8100/Makefile
-> >  create mode 100644 drivers/clk/starfive/jh8100/clk-aon.c
-> >  create mode 100644 drivers/clk/starfive/jh8100/clk-starfive-jh8100.h
-> >  create mode 100644 drivers/clk/starfive/jh8100/clk-sys-ne.c
-> >  create mode 100644 drivers/clk/starfive/jh8100/clk-sys-nw.c
-> >  create mode 100644 drivers/clk/starfive/jh8100/clk-sys-sw.c
-> >  create mode 100644 drivers/clk/starfive/jh8100/clk-sys.c
-> >  rename drivers/reset/starfive/{reset-starfive-jh71x0.c => reset-starfive-common.c} (55%)
-> >  create mode 100644 drivers/reset/starfive/reset-starfive-common.h
-> >  delete mode 100644 drivers/reset/starfive/reset-starfive-jh71x0.h
-> >  create mode 100644 drivers/reset/starfive/reset-starfive-jh8100.c
-> >  create mode 100644 include/dt-bindings/clock/starfive,jh8100-crg.h
-> >  create mode 100644 include/dt-bindings/reset/starfive,jh8100-crg.h
-> >  rename include/soc/starfive/{reset-starfive-jh71x0.h => reset-starfive-common.h} (50%)
-> >
-> > --
-> > 2.34.1
-> >
+> > +
+> > +			} while (j_idx != j);
+> > +
+> > +			if (!found) {
+> >  				pr_err(
+> >  				  "%s: Can not find HI20 relocation information\n",
+> >  				  me->name);
+> >  				return -EINVAL;
+> >  			}
+> > +
+> > +			/* Record the previous j-loop end index */
+> > +			j_idx = j;
+> >  		}
+> >  
+> >  		res = handler(me, location, v);
+> > -- 
+> > 2.40.1
+> > 
+> > 
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
