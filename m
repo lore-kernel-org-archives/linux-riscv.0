@@ -4,79 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E4C9C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 21:04:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8AC7C4167D
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 21:05:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=mi59qqJPkH9PVCxNDDQGbw3SW+bTLZrB67/do56TG/I=; b=TAXzbdQAHP8OQ/k4rfrRmB0kwh
-	eJF2nsSiPQeW07jITxjT0ehT4IAxjwM0C+yn30gJQb+3+sUee8x+pmFFSAFPKZZPJJf95vB0iIp/l
-	uW/b1z4TdduCwF/pnaiuwFO/aHEuEYxXUl8AgCdM3aDV+8YnCRiJuDeWNOum2dcCds85SzjOqy3vF
-	Xa/aak8oa8hYt/GJ0PETSxPLAOrEz2DEaBPSKUabGRrUGhLbaODZQUw8NpnLLaMB/yKQ4JpPEfkn2
-	J3BaiN45ONAw9VdLdKyTsfts7TZlb5RXxQeU/2oqDfkh8j/Xh4we8zomBManAy770PZpZrq2/5vky
-	ZBlU/PAg==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0SwN/DhE/G29a7fOz03RqzXvg5tqGKe40TWWZj4l38U=; b=Yu3CWviqcj9geUPJMdvhdcFnd2
+	8Ai24ezNeQ3LyWTsGMmuqsNzBwPkubnLvqF6BPL6RkA8N5Ee7fd3A6vp1lkTuLCpqypFDLKfsAqfe
+	QVMwBCnpj7tzhAs2i9WyGP8ucomxxJqmE2oEbMjEtK0tvAf4N6JC5L3OPcag+rev7ZTpmeoc9BrjI
+	xDmmy5yKj5YU7XyThJy/saUhZbk9qjiRDL8AlZf5FfJaKKtGKesbKHDhyFgh+63txlM1jl6N0SycX
+	+GZo8KCr0YNNEnS3XE8LvxNakI7CBbMHCdnYTJ5UpTl16Qe5XR22KxI90sKM1jMtDvFvshnpWsMwS
+	Ezgn3TJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rD9vt-00CmDE-0J;
-	Tue, 12 Dec 2023 21:04:49 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1rD9wL-00CmJ4-0q;
+	Tue, 12 Dec 2023 21:05:17 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rD9vp-00CmCB-1h
+	id 1rD9wI-00CmHi-1Z
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Dec 2023 21:04:47 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-6ce6d926f76so4412701b3a.1
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Dec 2023 13:04:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1702415083; x=1703019883; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tXCOnbYbo1oDbYsUXOqGGj5UISArUKYnIPWgHEPvDjQ=;
-        b=qfK4xQGsEJ1MgvqjWYlCGkPaGPQ5q353EU98W5eLeY1NdGNEebkZQPMzizoIjyr7t9
-         VfXHw7pSf4e9zHsTnAu+7ZZa/xYfv6cfi7Z6EVhsT3pHdg12WzOh6UF+9RYa6vtz8gGq
-         8jWdlyTtCAVy0w2pezIMVYiZ36Dfpbl/OWx4/YJwzFOmbanXDXYxPgwrYAnpCjvzL5Ih
-         ygbYmbKFmr8VbemB5QKGrQQtLGZXa4AnPdU1ZAsvaOn9MwJ/zukTgjG85pDp3tsyYzZV
-         KktuCmOdfzqh/LVz1L41gwb3pvpg11Bi2iWZvcFl9lR6HYVAV6Y0xvqWcTtsMSN4oR1T
-         8qfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702415083; x=1703019883;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tXCOnbYbo1oDbYsUXOqGGj5UISArUKYnIPWgHEPvDjQ=;
-        b=aKn1PhxE+AI0ynFT4UiG9C+5XEkh1j428i8xlkLx4P085LLj/DXQp0qRgZ2FmIEw8x
-         pfkNiE7Hbz8o43iPL+pMFcgz9kOXvNwiFkigjezgkZUafo1ON33nGLMNgHwfBatFCB2E
-         YX8KyG6QK/P8/V8GOdpavGwgKcu+HHAUGqzg16RFX56w6UdfzmyBGf/Bq55rglS1XXFF
-         51OBJAkw5RXsXR6KvsUPOPPYHZySaEBQMgf9mp/DMkwx0pHUMtGM/rB6t0Ayp5DGUO6V
-         m/a0Xu52rp7uP5vj7RfBKtJH19FJY98aJyFNkl/wJtWvn6uqzUzXEViqIhARzLLXWRPB
-         +YrQ==
-X-Gm-Message-State: AOJu0Yy8mGTJDOHBL+0DhwtK2C8DAS/hSq4X0HdXhgffYFr1SsxEkuVz
-	d4+Y35cSKNMcAR1rzJjigOlBvw==
-X-Google-Smtp-Source: AGHT+IE61QRANzgSPbOgmtPUskN2VwVdPNkZ7fInEOmKuM7txtCu/lMVHSlCuGpBOJ/y7lhzZvTlPA==
-X-Received: by 2002:a05:6a20:3946:b0:190:e59:f154 with SMTP id r6-20020a056a20394600b001900e59f154mr9530635pzg.18.1702415083565;
-        Tue, 12 Dec 2023 13:04:43 -0800 (PST)
-Received: from localhost ([12.44.203.122])
-        by smtp.gmail.com with ESMTPSA id o28-20020a634e5c000000b005c6bd30ea57sm8531769pgl.47.2023.12.12.13.04.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Dec 2023 13:04:42 -0800 (PST)
-Date: Tue, 12 Dec 2023 13:04:42 -0800 (PST)
-X-Google-Original-Date: Tue, 12 Dec 2023 13:04:38 PST (-0800)
-Subject: Re: [PATCH] drivers: perf: constify the ctl_table argument of the riscv user access handler
-In-Reply-To: <20231206-flanking-frill-fffeca740221@spud>
-CC: m.szyprowski@samsung.com, linux-riscv@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, atishp@atishpatra.org, anup@brainfault.org,
-  Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>,
-  aou@eecs.berkeley.edu, keescook@chromium.org, linux@weissschuh.net
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Conor Dooley <conor@kernel.org>, mcgrof@kernel.org
-Message-ID: <mhng-8f7ddf72-8e2f-4dac-a67e-624eb5511a14@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	Tue, 12 Dec 2023 21:05:16 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1rD9wF-0001Oy-5K; Tue, 12 Dec 2023 22:05:11 +0100
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1rD9wE-00FQEY-2C; Tue, 12 Dec 2023 22:05:10 +0100
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1rD9wD-001snP-Ol; Tue, 12 Dec 2023 22:05:09 +0100
+Date: Tue, 12 Dec 2023 22:05:09 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: linux-doc@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	platform-driver-x86@vger.kernel.org,
+	linux-hardening@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-leds@vger.kernel.org, chrome-platform@lists.linux.dev,
+	linux-samsung-soc@vger.kernel.org,
+	Bartosz Golaszewski <brgl@bgdev.pl>, linux-staging@lists.linux.dev,
+	linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-pwm@vger.kernel.org, greybus-dev@lists.linaro.org,
+	linux-mediatek@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	asahi@lists.linux.dev, kernel@pengutronix.de
+Subject: Re: [PATCH v4 000/115] pwm: Fix lifetime issues for pwm_chips
+Message-ID: <20231212210509.focpb63fbmahqij3@pengutronix.de>
+References: <cover.1701860672.git.u.kleine-koenig@pengutronix.de>
+ <ZXM4CdJxg-XrYhkn@orome.fritz.box>
+ <20231208185033.e6ty2cajcfle6dgk@pengutronix.de>
+ <ZXbzcFTnDTKoZAta@orome.fritz.box>
+MIME-Version: 1.0
+In-Reply-To: <ZXbzcFTnDTKoZAta@orome.fritz.box>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231212_130445_692702_3875D165 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20231212_130514_586538_085A4124 
+X-CRM114-Status: GOOD (  23.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,41 +83,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============3386747376430542135=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 06 Dec 2023 02:55:48 PST (-0800), Conor Dooley wrote:
-> On Wed, Dec 06, 2023 at 09:46:42AM +0100, Marek Szyprowski wrote:
->> 
->> Fix riscv build break after commit c8be9e66ca1e ("sysctl: treewide:
->> constify the ctl_table argument of handlers").
->> 
->> Fixes: c8be9e66ca1e ("sysctl: treewide: constify the ctl_table argument of handlers")
->> Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
->
-> This breaks the build when applied to the RISC-V tree. I'm going to mark
-> it "handled elsewhere" in patchwork since it needs to go into whatever
-> tree has the broken commit.
 
-Ya, thanks.  There's a second copy of the fix over at 
-https://lore.kernel.org/all/20231212-garage-pellet-c6a2bd34854c@spud/ .
+--===============3386747376430542135==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="gyt34nc3mm25zmmf"
+Content-Disposition: inline
 
-Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-for this one too.  Just trying to merge that fixed hash into 6.7-rc1 is 
-giving me a conflict, so I don't really want to pull it in myself.  So I 
-think the best bet here is to have whomever took the patch take the fix, 
-but LMK if there's some shared tag thing I should grab to take this into 
-the RISC-V tree.
+--gyt34nc3mm25zmmf
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->
-> Thanks,
-> Conor.
+Hello Thierry,
+
+On Mon, Dec 11, 2023 at 12:33:04PM +0100, Thierry Reding wrote:
+> On Fri, Dec 08, 2023 at 07:50:33PM +0100, Uwe Kleine-K=F6nig wrote:
+> > You don't need to touch all drivers because you didn't change struct
+> > pwm_chip::dev yet. (If you really want, you don't need to change that,
+> > but then you have some duplication as chip->dev holds the same value as
+> > priv->dev.parent in the end.)
+>=20
+> I don't think that's a problem. These are for two logically separate
+> things, after all.
+
+How are they different? I'd say one is the initializer for the other and
+(ideally) unused after that. With that interpretation they are indeed
+different, but then it's ugly that the initializer keeps staying around.
+
+> Duplication can also sometimes be useful to simplify
+> things. There are plently of cases where we use local variables for the
+> same reason.
+
+local variables go away though after the respective function is left.
+chip->dev and its copy priv->dev.parent stay around for the full
+lifetime of the chip.
+
+> > > @@ -58,23 +60,24 @@ static struct pwm_chip *pwmchip_find_by_name(cons=
+t char *name)
+> > > =20
+> > >  static int pwm_device_request(struct pwm_device *pwm, const char *la=
+bel)
+> > >  {
+> > > +	struct pwm_chip *chip =3D pwm->priv->chip;
+> >=20
+> > With my approach getting the chip of a struct pwm_device is only one
+> > pointer dereference away. You need two.
+>=20
+> None of the functions here are called very often, so even if this isn't
+> optimized away it would hardly matter.
+
+I'd say pwm_apply_state() at least matters. Also I think that making a
+slow path quicker is a good thing.=20
+
+I wonder how we'll converge to an approach that can go into the
+mainline given that we both have our strong opinions.
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--gyt34nc3mm25zmmf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmV4ywQACgkQj4D7WH0S
+/k4AOQf/Rn+1it6Pa2jcb+shcSHEefw76NASZ1jTJwzdnczaZca+4/TdY0/HLE/V
+27TLO93Qd9e4o0E4uFjg/T9KbZy+cu9WxiCJ9LgBEhgPaLIWe9opiDarsy2BNLJi
+e6lERFOmyBoG3USP7t/iEQn5C+0+gC6/pcPVWk8TJO/mc2kr8ioQRsaHtaE0AsX0
+hpZS0GH+ypW5d1saF+TMkSDV4QUzmTaXxsSDqG9/vnXhjln6wlriyIo2gJI2qQ6R
+gBrGVWoz8SnG3OjfGZwo9KhL+KPTbjIba4erb1KbE9j9Ul7c3xF/nA6GcTwU/IcQ
+6WQMUp7Ez5oG8txpknnsR9R2Iimimw==
+=APXJ
+-----END PGP SIGNATURE-----
+
+--gyt34nc3mm25zmmf--
+
+
+--===============3386747376430542135==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3386747376430542135==--
+
