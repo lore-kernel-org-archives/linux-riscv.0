@@ -4,84 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A50C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 01:51:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 373B7C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 02:23:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rys2xmSiRUxPGJk916Xo2iP+dZNqlMTb/cQ9V7Ot2x0=; b=TnSZA3ec8Lyt0Q
-	x3nIZ9G7aGyXL9ZzVZV6Rz43rgr/Uc8IYnU/HYKI5unpIX8XD6gyXhfukk71z4cX0aXTwK3w8dINr
-	irU8mOobG1B7n7G6/QDblTA3iVroAUXXw3xnkn53Z95vXk91LHvCThR3VRHuhTonnDZzgpLvq28BP
-	bNgvCT4sp2sapr+zP/xtyi5mKl2NrOyE7gJ2xa5OLF+N9PdDlGsQUmoAjexK/4kh+StrleyVAS2d6
-	WCSD2cBvB99oLdX+l8QCGlBArZd1zJWsJIxbnyWErSpiWcltozdG1CjrkBOJsH5liQGVf2f82og4T
-	WDOzE9j0A5hiBuGSi/gA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ecd4Ln1zZfNS52eqvTiJeKYf0IveEhaj2VBxA6t+2dU=; b=txqtDRiPZX4NybTG46uQ8Wbrt2
+	kfi+qInQJkraeNrZD6svWRXmIhTVPxpXH2IIcDK9GUztASObzsOke3Csq+XDw3jcmCLLIAQsjvsad
+	+4JKyngc7pTBeLiLQpIP/yWyDOQmS/S8qk4lnSrzV814KfvMR6GEmz29eKq1bqmTUHHTa8sMr6DzT
+	9eeXA4+f6RbzK5Z4J4H+ZW47RQ8+cZUOvTlbaRu+lJvyU2+Y4RVwD9R+1fkbJH9lK5inB0do0w/ft
+	0TgRTtCJ5gZTi/ExUEFgPzD9XY7mnfZeRauZYh5GOOoKKSlVjGuuoJ8uochXy4VpXAvqOBvBjR9PT
+	N2tMFbaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCrvX-00ATPK-0p;
-	Tue, 12 Dec 2023 01:51:15 +0000
-Received: from mail-il1-x136.google.com ([2607:f8b0:4864:20::136])
+	id 1rCsQD-00AVuK-22;
+	Tue, 12 Dec 2023 02:22:57 +0000
+Received: from mail-maxind01olkn20800.outbound.protection.outlook.com ([2a01:111:f403:281b::800] helo=IND01-MAX-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCrvS-00ATOx-2U
+	id 1rCsQ9-00AVt7-1k
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Dec 2023 01:51:13 +0000
-Received: by mail-il1-x136.google.com with SMTP id e9e14a558f8ab-35d82fb7e86so14506555ab.2
-        for <linux-riscv@lists.infradead.org>; Mon, 11 Dec 2023 17:51:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1702345869; x=1702950669; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZX2WLxx5Rcq4VaM/IYqMbN57BjVsaN794DZZVcGhbe0=;
-        b=nqZ8BhiZZ3BJIoDUKtZQoxtUw9BSC6qnrEkxJ+VsUfGvsStHlX6fnOh/1uO17o7nem
-         nFtNR7wn+UCMjweOFLbIrRz06Yj9HxcwzcBp6heKyjA4ha1fHulVPliHtidUeHX85D97
-         5q2EGBDOQlCOxStXA2cQo2sAVU3EFOlI5Qcb9iKWY0UJnl4T71bKFaUPTdp6m4ap3mip
-         FNA5EGDCsHCOCewTVdAGKEfgY/SkgQoer9YxeB54EMwqWv/lkpL9GYXanj4AcD29UZuP
-         fJb2STtUE+jKPxnj2D+DQNZ5PDIbTOQC6pXbbUwOPwr3SRWtg+qIeyxqs3xaq/mUZWC3
-         ZWGA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702345869; x=1702950669;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZX2WLxx5Rcq4VaM/IYqMbN57BjVsaN794DZZVcGhbe0=;
-        b=VmY8Lqtjs1wHBvhYOF0XCmeZ5AXaCEVtSi2W9AjO5ZYHWKzS/8OyuM85JJG16C7UUi
-         dK7jF+KC7P6m/7LVNIV5xxpkEIuJxjSKZdn/MUU2w+5fEGnPgfD2TA2c7aKGT372z5g2
-         yEMTBN5Fmu0MK8KtzIgC/ZI54BqWyrGJCpcyKW8WEswR7Bc+944DQYON0wsl/JGM7IzS
-         +1hy050AgakYm7Ma2wBcEctooSqDhey07x/wrxUA7f84x0Q7qEQ6GoamGgl/HgHlc5Ti
-         H/75zVMSGD3qOoYRnDRfUU8yzdnv3vbgEsOkndHka+WAv2BpEqYou/KcuN1YMAf2lmxm
-         ZlLA==
-X-Gm-Message-State: AOJu0YwslRJNusxd0jzW9BKW+eVSzIVLXt0WRkH90lxx9I/wYUMSeZuo
-	im/UtYAsEhKrXKEsQsgEVRhY5g==
-X-Google-Smtp-Source: AGHT+IGnyMrJXzmjvP+GzSeN8xEYOBCyBBOu71OLX4nlpJx0A1/qebH4GVwEO5MPcOyQmk0ZvFgk2Q==
-X-Received: by 2002:a05:6e02:1aa5:b0:35d:a3ce:4e50 with SMTP id l5-20020a056e021aa500b0035da3ce4e50mr4700952ilv.37.1702345869214;
-        Mon, 11 Dec 2023 17:51:09 -0800 (PST)
-Received: from ghost ([12.44.203.122])
-        by smtp.gmail.com with ESMTPSA id jg7-20020a17090326c700b001d0d312bc2asm7296320plb.193.2023.12.11.17.51.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Dec 2023 17:51:08 -0800 (PST)
-Date: Mon, 11 Dec 2023 17:51:06 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Maxim Kochetkov <fido_max@inbox.ru>
-Cc: linux-riscv@lists.infradead.org, bigunclemax@gmail.com,
-	Amma Lee <lixiaoyun@binary-semi.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Jisheng Zhang <jszhang@kernel.org>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 1/1] riscv: optimize ELF relocation function in riscv
-Message-ID: <ZXe8imHSg20nKagf@ghost>
-References: <20230913130501.287250-1-fido_max@inbox.ru>
- <ZXJrGLwxtjf6cK42@ghost>
+	Tue, 12 Dec 2023 02:22:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=GuILh3tRQzNktIumG4eeRvz3yEo/cDWeheUD2+06lbfpG0UgK+8n7HEZR57lFTpwJE0lG9f8mIY+AiRofwZyrZ53ZUaK1J7RHiciau66mZie4OIcglDTuKd1Vej6bnBhyRbPaa//HAHdUNdnuQIla89VLVJmeV/Ac+MnH3Uj16JXFULqOkOchvJJD4DkmKzpN6gMVA2c2LngQgakvVqKBzn08aZoPTnPpAjnOs/VcCYPFer+AdhPolW0Ie3Qivao19I0NP8oDN3vHx4rY7hyoMeUMYi9TusqIE2RGytgCaaUVRk7uD9vShfRFTSRyl5Z2vnx/gRXfZZxsLGTxo0/Iw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cPKeCWKaj5tmjJt6v4upASNpNHZbRxdrlrygQWDO5mg=;
+ b=c1w22ilSQYZwNRBuW9c7x7pNyP0FA0vCnumBKDmJQaoAH4QF+nm4yFuABC6Xkwi1fMgGyiX4X1WWR9TnQ2J1E8bpI6dhhRDk7widzGKAFrK/ZaeJJsHTA+zO6u7KLfVVr/Vy4fV3RbNbxovkpjlzkA1HPohY7MZmv3P5KSqd0JelKEFbobpJcOvy05igxRF2VjBF2YQoNCutSaXzjn6zVRRBwjhUxWgsqB68Xt9kC7Dj9Xdgw7+quWuoOf+f0SJNmZsOIP+ek0b1LB3D9bWxJOroUZwitZ4rEQC8JV+ufefUGVR2+ThKygUrai7VW7fNkoCq5m29ihFK0Dv2PlibDg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cPKeCWKaj5tmjJt6v4upASNpNHZbRxdrlrygQWDO5mg=;
+ b=F13V4JiF3DzpaO4ZjqLTTvgOce7EcsQdJaiL20y5aukl2GEQQyacLUwht/sEixpKgeOayqNO7ubsEcwMK6EB9FPAtpZxAB/zz9wqoXQL/FMnZmefSsZEjOFdTmJjiEh2bO+65XT18ZfsVXVQXSM+ogKlcI2I4M0LCC3oEU3DPNlrmvGvkmHYqTTmwzbedZIavSPv42XY+kwhYz8ravt9oycY3ER2FkZBPkQcwwgzmJ/H559piAqzT2Gme5CdruvHDKXFzh+a2VYidOEP8pP1nl+uhaqL3SXWj5YZOWCGmi8u23CL1HzXfc+Z5nyJFVr1WjcpMGkGijN4GgR1jOqEYA==
+Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:ab::5) by
+ MA0P287MB0019.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:5c::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7068.33; Tue, 12 Dec 2023 02:22:33 +0000
+Received: from MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ ([fe80::b1a7:eee7:e903:9ef3]) by MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ ([fe80::b1a7:eee7:e903:9ef3%7]) with mapi id 15.20.7068.033; Tue, 12 Dec 2023
+ 02:22:33 +0000
+Message-ID: <MA0P287MB0332A937E4DF0044594B19CCFE8EA@MA0P287MB0332.INDP287.PROD.OUTLOOK.COM>
+Date: Tue, 12 Dec 2023 10:22:28 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 3/4] clk: sophgo: Add SG2042 clock generator driver
+To: Conor Dooley <conor@kernel.org>, Chen Wang <unicornxw@gmail.com>
+Cc: aou@eecs.berkeley.edu, chao.wei@sophgo.com,
+ krzysztof.kozlowski+dt@linaro.org, mturquette@baylibre.com,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, richardcochran@gmail.com,
+ robh+dt@kernel.org, sboyd@kernel.org, devicetree@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, haijiao.liu@sophgo.com,
+ xiaoguang.xing@sophgo.com, guoren@kernel.org, jszhang@kernel.org,
+ inochiama@outlook.com, samuel.holland@sifive.com
+References: <cover.1701997033.git.unicorn_wang@outlook.com>
+ <d1aa4f76f360ebd7b790a4786641f1b0188dbba8.1701997033.git.unicorn_wang@outlook.com>
+ <20231208-opposite-stand-fc92fbaaed9c@spud>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <20231208-opposite-stand-fc92fbaaed9c@spud>
+X-TMN: [aTkwQRM4CyC17V6ryJRnCZ5mOkLvd7kA]
+X-ClientProxiedBy: SG2PR01CA0180.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:28::36) To MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:ab::5)
+X-Microsoft-Original-Message-ID: <dab00686-bee1-49c3-a35a-75b23a824722@outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZXJrGLwxtjf6cK42@ghost>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0P287MB0332:EE_|MA0P287MB0019:EE_
+X-MS-Office365-Filtering-Correlation-Id: 763bf2b3-6590-4ed8-baec-08dbfab932a8
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: XhFr9rwa+cs/N9Zp/X1cvGVf7rVfKwNQBj7NZ2ObVci45jQun5qBoFW5LMc1L3GpK+XucUbwE2a8V+ljYv/mDxfgoHytLWJ69FxfxLnXSPuEuRJ0r2yxQkacQIZcIC3NI0eWr/xidlGzExk/2CBsHws677uUuuBA28MJgkeMH1x9O3qHaIVlEqkUd/DHs5032nGdbVxYE7t235hzBpN7E+32I1Kw+oBiF6IGwOJqsGTfssNIqBOZZ5eD0npcoVTaphIGDtvzu5evBfSLBncc/e3rhEs7nTMCeH/Y6wuTqu4jP8EUikVjN4/z0tCfKo3+dsos9QaJGRRUvNMWj1nBv2jDuwyNlJku4552h7evQBQPJTceBI1sGRjJDYR83cVEW3CFkI3R2f4DzVj5u26lBQN3AEgdpeAVeZur1ii49jSFR4Z3l4h/Z1mmDDOUcSIWE1YoYkrZM4ky2tCJK8cpnA3T53t1gEPXIIvAYB1CdfKrbv6+4fWRfHSxM2E26Yu8Mn7d35BLBS3+k4tZT6wMoEFQlxvlRz6SBOmQ6d49CNFxGgRBN3nucMX1Xp/qLyos8FsbXP1VpThcFmJf3Gj+emkKJd2jhfWOXQ+oU2ztEg4=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bVdPamV1bk5YRzNncnJlRWd6czA0alAyc3pFWWZtU0dIMm5NVzFwazI1ZHBK?=
+ =?utf-8?B?YWs1eC81WHhVbERSWnZSSEJyYmhRRm1rditoY3BIa1dpdDZwMkFQbGtiZWN6?=
+ =?utf-8?B?TkN3TU1IN0p6U20yMlNhbU1HMGFIazRuZ2Y3djhpeWY4di94cGlZQmtHaEJa?=
+ =?utf-8?B?bTdvdlhCb20vdkcxRDlpMjlmT1hSTFpuajJLT3pXaG51TlNvOGJhMlQ4OFZJ?=
+ =?utf-8?B?d2xFbUR5bGZXZ1dNNlMxMnVFZy9qbVg0ZkRBb0RLN2JHVURhNTk0L0htbm01?=
+ =?utf-8?B?TU9Qa1JwNVpwaHBGaEZaTGNXbzFpSmRoNEtJcTVib0NFQTN3QnRQMS8yazZa?=
+ =?utf-8?B?OWt6Umg2OHVqV0ordGZWYW9NaGM4eUx3bEN4a3BqV2dLclBIT3NML3J0Sm5J?=
+ =?utf-8?B?RUxicEJ3SG1ZOTRIZHRPRUUyd0lCSG04dnh1NjdYOWxRcFBnL0ViZC8wRzRM?=
+ =?utf-8?B?Y21sK0x4aS9MWlFtaEVMckN0YkNkd2lNOG1idGx4V2tnTnZPaStQdy9mNDF4?=
+ =?utf-8?B?Z0xsZ2NwL1hURzJGSmROUzZvbmxiVHZSK1NqT1NZSkVWS3c3ZXlSSkxRM1lX?=
+ =?utf-8?B?MFo0aGFrbDY3UnR1bG9ZWVN2dVRjbzVvVHVubjk5ejRQUm5hWEdVYXNreXgy?=
+ =?utf-8?B?RDR2Qk5jUnIweGx0d1ZyN01SbEVZVVZyTUJ0cHhuV2pqTnlUNWtDSU1jWEVV?=
+ =?utf-8?B?TVR2Ti9abCs4Uys3Q2FsNWIyTEhsS0VPUG5PL2sybmdPT1FJL0RtYVU2OWx5?=
+ =?utf-8?B?bWI4UjB4bmJ0dldRQnN6djFSbEFBZlBnQVM0MEJIQSt0TTJCVmJoZzR2dXFL?=
+ =?utf-8?B?WExjZFFZaVFReU56RjRVUjR6QlRudUxxaC9YSFNzWUdSNk9vWEFGdHdUVEtR?=
+ =?utf-8?B?MERZN1IwOWwyQ3JGQUQxelBjeHJtaXB4eXJKYzI2cjM3ODJESEdIWXozaURY?=
+ =?utf-8?B?cDlESHZqYzkyS0YxUG41T2hLV0pBWUE3L2FOKzBUZ3l0Zis3QlpJWnpuaDhE?=
+ =?utf-8?B?TEFHMDFETnVIeXlaQlAxQVcySmNYbWF6WDdtZC9lZWRWaHgxOHhsSXQwSVZ2?=
+ =?utf-8?B?R2QybkxZUEJnTk5vYlpSaUxSSzgrd0ptMFNlS0R2Vjk0Y29pQy9DdnA3K2dY?=
+ =?utf-8?B?YzFZeXcySThQT0tzbmI1KzdMYXU2SDRleEh0Z2phNXBNbklPVVVjVWZQYWFa?=
+ =?utf-8?B?aVM1RGh4eERPaHBJRjg3eVBDeTJLT1RFcSttZFJXMWoyazZkVFJaWGhWWXlG?=
+ =?utf-8?B?aGFQZmc5eFQwRTNhdEQzZXdPUk1uUVNPWWhzYjNUNjFWd2pROGxrZXJwYTF3?=
+ =?utf-8?B?KytTSlQxS0J0dDBVSjBrYU5EOURkZGdMR01tdThKdDkvaUgwQmh3K25XR3dh?=
+ =?utf-8?B?Zk1WTWdyTGNmUjRkVnFUUWN0YTQ4MTdPODlGOGNPZlF3Tkl3dHVyQzNuK3RR?=
+ =?utf-8?B?cU44N1JRbTBlN2tSbktWQjhrc1Y1d255S0RqbUF6aXR2WCt6ZUNtdXI0QWt2?=
+ =?utf-8?B?WWJBYllrVFJyaVpsWUdDYjYzeUNKZklnMWs5UFlrZWY1SithOGNQQTg2VS9F?=
+ =?utf-8?B?bDUwd3NEVC9wQzNmT2QxMEV4c1phRGI3SEIwQ0pXTW9xMlUrQkFhOVVrNFl4?=
+ =?utf-8?Q?t0Az9+w2i5h8ehkHE80vbuvG242aNFFWOeSvaPwRAB0E=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 763bf2b3-6590-4ed8-baec-08dbfab932a8
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB0332.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Dec 2023 02:22:33.3611
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0P287MB0019
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231211_175111_040600_D20DB39E 
-X-CRM114-Status: GOOD (  43.23  )
+X-CRM114-CacheID: sfid-20231211_182253_791237_40656569 
+X-CRM114-Status: GOOD (  32.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,129 +132,243 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 07, 2023 at 05:02:16PM -0800, Charlie Jenkins wrote:
-> On Wed, Sep 13, 2023 at 04:05:00PM +0300, Maxim Kochetkov wrote:
-> > The patch can optimize the running times of insmod command by modify ELF
-> > relocation function.
-> > In the 5.10 and latest kernel, when install the riscv ELF drivers which
-> > contains multiple symbol table items to be relocated, kernel takes a lot
-> > of time to execute the relocation. For example, we install a 3+MB driver
-> > need 180+s.
-> > We focus on the riscv architecture handle R_RISCV_HI20 and R_RISCV_LO20
-> > type items relocation function in the arch\riscv\kernel\module.c and
-> > find that there are two-loops in the function. If we modify the begin
-> > number in the second for-loops iteration, we could save significant time
-> > for installation. We install the same 3+MB driver could just need 2s.
-> > 
-> > Signed-off-by: Amma Lee <lixiaoyun@binary-semi.com>
-> > Signed-off-by: Maxim Kochetkov <fido_max@inbox.ru>
-> > ---
-> > Changes in v4:
-> > - use 'while' loop instead of 'for' loop to avoid code duplicate
-> > ---
-> >  arch/riscv/kernel/module.c | 20 ++++++++++++++++----
-> >  1 file changed, 16 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-> > index 7c651d55fcbd..8c9b644ebfdb 100644
-> > --- a/arch/riscv/kernel/module.c
-> > +++ b/arch/riscv/kernel/module.c
-> > @@ -346,6 +346,7 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
-> >  	Elf_Sym *sym;
-> >  	u32 *location;
-> >  	unsigned int i, type;
-> > +	unsigned int j_idx = 0;
-> >  	Elf_Addr v;
-> >  	int res;
-> >  
-> > @@ -384,9 +385,10 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
-> >  		v = sym->st_value + rel[i].r_addend;
-> >  
-> >  		if (type == R_RISCV_PCREL_LO12_I || type == R_RISCV_PCREL_LO12_S) {
-> > -			unsigned int j;
-> > +			unsigned int j = j_idx;
-> > +			bool found = false;
-> >  
-> > -			for (j = 0; j < sechdrs[relsec].sh_size / sizeof(*rel); j++) {
-> > +			do {
-> >  				unsigned long hi20_loc =
-> >  					sechdrs[sechdrs[relsec].sh_info].sh_addr
-> >  					+ rel[j].r_offset;
-> > @@ -415,16 +417,26 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
-> >  					hi20 = (offset + 0x800) & 0xfffff000;
-> >  					lo12 = offset - hi20;
-> >  					v = lo12;
-> > +					found = true;
-> >  
-> >  					break;
-> >  				}
-> > -			}
-> > -			if (j == sechdrs[relsec].sh_size / sizeof(*rel)) {
-> > +
-> > +				j++;
-> > +				if (j > sechdrs[relsec].sh_size / sizeof(*rel))
-> > +					j = 0;
-> Very interesting algorithm here. Assuming the hi relocation is after the
-> previous one seems to be a good heuristic. However I think we can do
-> better. In GNU ld, a hashmap of all of the hi relocations is stored and
-> a list of all of the lo relocations. After all of the other relocations
-> have been parsed, it iterates through all of the lo relocations and
-> looks up the associated hi relocation in the hashmap.
-> 
-> There is more memory overhead here but I suspect it will be faster. I
-> had started to mock up a hashmap implementation to see if it was faster
-> but decided I should mention it here first in case somebody had some
-> additional insight. 
+hi,
 
-Turns out this is a fantastic heuristic. Using a hashmap is
-significantly faster than the default implementation but this algorithm
-above is significantly faster than the hashmap. Using the amdgpu driver
-(which is actually a collection of drivers) and is a size of about 469M
-I found that the hashmap implementation is about 30% faster than the
-current implementation, but this patch is 50% faster than the current
-implementation. It is probably possible to write an ELF header with the
-relocations sufficiently scrambled to make the hashmap faster, but I
-suspect that for all "normal" programs this algorithm is faster.
+Thank you Conor for your carefully review, I need some time to digest 
+your comments. While I have some quick questions embeded.
 
-I also tried a couple other smaller modules and it was faster or around
-the same as the hashmap in all of them.
+On 2023/12/9 0:47, Conor Dooley wrote:
+> On Fri, Dec 08, 2023 at 09:14:32AM +0800, Chen Wang wrote:
+>
+>> +#define div_mask(width) ((1 << (width)) - 1)
+> Looks like this should be genmask.
+Yes, I will improve this.
+>
+>> +#define ENCODE_PLL_CTRL(fbdiv, p1, p2, refdiv) \
+>> +	(((fbdiv & 0xfff) << 16) | ((p2 & 0x7) << 12) | ((p1 & 0x7) << 8) | (refdiv & 0x3f))
+> IMO this should be a function not a macro.
+Would like to listen why it should be a function instead of a macro? Any 
+experiences you can share with me?
+>
+>> +
+>> +static inline int __sg2042_pll_enable(struct sg2042_pll_clock *pll, bool en)
+> Why the __ prefixing of function names btw?
 
-A lot of code has changed in this file since this patch was submitted,
-can you rebase onto 6.7-rc1? Otherwise this patch is great.
+:) I just want to differ/highlight these functions agaist those clk 
+operators. Anyway, this is indeed confusing, I will remove this ugly "__".
 
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+>> +{
+>> +	unsigned int value = 0;
+>> +	unsigned long enter;
+>> +	struct regmap *map = pll->map;
+>> +
+>> +	if (en) {
+>> +		/* wait pll lock */
+>> +		enter = jiffies;
+>> +		regmap_read(map, pll->offset_status, &value);
+>> +		while (!((value >> pll->shift_status_lock) & 0x1)) {
+>> +			regmap_read(map, pll->shift_status_lock, &value);
+>> +			if (time_after(jiffies, enter + HZ / 10))
+>> +				pr_warn("%s not locked\n", pll->name);
+>> +		}
+> Can't you just use read_poll_timeout()?
+> https://elixir.bootlin.com/linux/latest/source/include/linux/iopoll.h#L16
+It looks like this, will check more.
+>> +		/* wait pll updating */
+>> +		enter = jiffies;
+>> +		regmap_read(map, pll->shift_status_updating, &value);
+>> +		while (((value >> pll->shift_status_updating) & 0x1)) {
+>> +			regmap_read(map, pll->shift_status_updating, &value);
+>> +			if (time_after(jiffies, enter + HZ / 10))
+>> +				pr_warn("%s still updating\n", pll->name);
+>> +		}
+>> +		/* enable pll */
+>> +		regmap_read(map, pll->offset_enable, &value);
+>> +		regmap_write(map, pll->offset_enable, value | (1 << pll->shift_enable));
+>> +	} else {
+>> +		/* disable pll */
+>> +		regmap_read(map, pll->offset_enable, &value);
+>> +		regmap_write(map, pll->offset_enable, value & (~(1 << pll->shift_enable)));
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> + +static unsigned int __sg2042_get_table_div(
+>> +	const struct clk_div_table *table,
+>> +	unsigned int val)
+>> +{
+>> +	const struct clk_div_table *clkt;
+>> +
+>> +	for (clkt = table; clkt->div; clkt++)
+>> +		if (clkt->val == val)
+>> +			return clkt->div;
+>> +	return 0;
+>> +}
+>> +
+>> +static unsigned int __sg2042_get_div(
+>> +	const struct clk_div_table *table,
+>> +	unsigned int val,
+>> +	unsigned long flags, u8 width)
+>> +{
+>> +	if (flags & CLK_DIVIDER_ONE_BASED)
+>> +		return val;
+>> +	if (flags & CLK_DIVIDER_POWER_OF_TWO)
+>> +		return 1 << val;
+>> +	if (flags & CLK_DIVIDER_MAX_AT_ZERO)
+>> +		return val ? val : div_mask(width) + 1;
+>> +	if (table)
+>> +		return __sg2042_get_table_div(table, val);
+>> +	return val + 1;
+>> +}
+> Are these not effectively the same as clk_divider's ops?
+Will double check.
+>
+>> +
+>> +/*
+>> + * @reg_value: current register value
+>> + * @parent_rate: parent frequency
+>> + *
+>> + * This function is used to calculate below "rate" in equation
+>> + * rate = (parent_rate/REFDIV) x FBDIV/POSTDIV1/POSTDIV2
+>> + *      = (parent_rate x FBDIV) / (REFDIV x POSTDIV1 x POSTDIV2)
+>> + */
+>> +static unsigned long __sg2042_pll_recalc_rate(
+>> +	unsigned int reg_value,
+>> +	unsigned long parent_rate)
+>> +{
+>> +	unsigned int fbdiv, refdiv;
+>> +	unsigned int postdiv1, postdiv2;
+>> +	u64 rate, numerator, denominator;
+>> +
+>> +	fbdiv = (reg_value >> 16) & 0xfff;
+>> +	refdiv = reg_value & 0x3f;
+>> +	postdiv1 = (reg_value >> 8) & 0x7;
+>> +	postdiv2 = (reg_value >> 12) & 0x7;
+> IMO all of these are opportunities for GENMASK and defines.
+Looks like this, will double check.
+>> +
+>> +	numerator = parent_rate * fbdiv;
+>> +	denominator = refdiv * postdiv1 * postdiv2;
+>> +	do_div(numerator, denominator);
+>> +	rate = numerator;
+>> +
+>> +	return rate;
+>> +}
+>> +
+>> +/*
+>> + * Below array is the total combination lists of POSTDIV1 and POSTDIV2
+>> + * for example:
+>> + * postdiv1_2[0] = {2, 4, 8}
+>> + *           ==> div1 = 2, div2 = 4 , div1 * div2 = 8
+>> + * And POSTDIV_RESULT_INDEX point to 3rd element in the array
+>> + */
+>> +#define	POSTDIV_RESULT_INDEX	2
+>> +static int postdiv1_2[][3] = {
+>> +	{2, 4,  8}, {3, 3,  9}, {2, 5, 10}, {2, 6, 12},
+>> +	{2, 7, 14}, {3, 5, 15}, {4, 4, 16}, {3, 6, 18},
+>> +	{4, 5, 20}, {3, 7, 21}, {4, 6, 24}, {5, 5, 25},
+>> +	{4, 7, 28}, {5, 6, 30}, {5, 7, 35}, {6, 6, 36},
+>> +	{6, 7, 42}, {7, 7, 49}
+>> +};
+>> +
+>> +/*
+>> + * Based on input rate/prate/fbdiv/refdiv, look up the postdiv1_2 table
+>> + * to get the closest postdiiv combination.
+>> + * @rate: FOUTPOSTDIV
+>> + * @prate: parent rate, i.e. FREF
+>> + * @fbdiv: FBDIV
+>> + * @refdiv: REFDIV
+>> + * @postdiv1: POSTDIV1, output
+>> + * @postdiv2: POSTDIV2, output
+>> + * See TRM:
+>> + * FOUTPOSTDIV = FREF * FBDIV / REFDIV / (POSTDIV1 * POSTDIV2)
+>> + * So we get following formula to get POSTDIV1 and POSTDIV2:
+>> + * POSTDIV = (prate/REFDIV) x FBDIV/rate
+>> + * above POSTDIV = POSTDIV1*POSTDIV2
+>> + */
+>> +static int __sg2042_pll_get_postdiv_1_2(
+>> +	unsigned long rate,
+>> +	unsigned long prate,
+>> +	unsigned int fbdiv,
+>> +	unsigned int refdiv,
+>> +	unsigned int *postdiv1,
+>> +	unsigned int *postdiv2)
+> This is not the coding style btw.
+Agree, will fix this.
+>> +{
+>> +	int index = 0;
+>> +	int ret = 0;
+>> +	u64 tmp0;
+>> +
+>> +	/* prate/REFDIV and result save to tmp0 */
+>> +	tmp0 = prate;
+>> +	do_div(tmp0, refdiv);
+>> +
+>> +	/* ((prate/REFDIV) x FBDIV) and result save to tmp0 */
+>> +	tmp0 *= fbdiv;
+>> +
+>> +	/* ((prate/REFDIV) x FBDIV)/rate and result save to tmp0 */
+>> +	do_div(tmp0, rate);
+>> +
+>> +	/* tmp0 is POSTDIV1*POSTDIV2, now we calculate div1 and div2 value */
+>> +	if (tmp0 <= 7) {
+>> +		/* (div1 * div2) <= 7, no need to use array search */
+>> +		*postdiv1 = tmp0;
+>> +		*postdiv2 = 1;
+>> +	} else {
+>> +		/* (div1 * div2) > 7, use array search */
+>> +		for (index = 0; index < ARRAY_SIZE(postdiv1_2); index++) {
+>> +			if (tmp0 > postdiv1_2[index][POSTDIV_RESULT_INDEX]) {
+>> +				continue;
+>> +			} else {
+>> +				/* found it */
+>> +				break;
+>> +			}
+>> +		}
+>> +		if (index < ARRAY_SIZE(postdiv1_2)) {
+>> +			*postdiv1 = postdiv1_2[index][1];
+>> +			*postdiv2 = postdiv1_2[index][0];
+>> +		} else {
+>> +			pr_debug("%s can not find in postdiv array!\n", __func__);
+>> +			ret = -EINVAL;
+>> +		}
+>> +	}
+>> +
+>> +	return ret;
+>> +}
+> Reading this function it makes me wonder if (and I am far from the best
+> person to comment, someone like Stephen is vastly more qualified) you
+> should model this as several "stages", each implemented by the
+> "standard" clocks - like clk_divider etc. The code here is quite
+> complicated IMO as it seems to be trying to implement several stages of
+> division in one go.
 
-> 
-> - Charlie
-> 
-> > +
-> > +			} while (j_idx != j);
-> > +
-> > +			if (!found) {
-> >  				pr_err(
-> >  				  "%s: Can not find HI20 relocation information\n",
-> >  				  me->name);
-> >  				return -EINVAL;
-> >  			}
-> > +
-> > +			/* Record the previous j-loop end index */
-> > +			j_idx = j;
-> >  		}
-> >  
-> >  		res = handler(me, location, v);
-> > -- 
-> > 2.40.1
-> > 
-> > 
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+The objective of __sg2042_pll_get_postdiv_1_2() is straightforward: 
+based on the formula defined by the TRM, with input 
+rate/prate/fbdiv/refdiv, we can get the possiblle combination of 
+POSTDIV1 and POSTDIV2 by looking up the table of postdiv1_2. We will 
+later use it to setup the clock register.
+
+Though the codes looks a bit complicated, but accually it is calculate 
+with the formula : POSTDIV = (prate/REFDIV) x FBDIV/rate, I just 
+separate it into several steps to make it easy to understand, I have 
+listed the formula in the comment on top of the function.
+
+>
+> There's quite a lot in the driver and I will admit that I have not read
+> it all my any means (I skimmed from here onwards), but in general my
+> advice would be to try and reuse the generic code as much as possible.
+Agree, I will double check and try to optimize the code in next revision.
+>
+> Thanks,
+> Conor.
+>
+......
 
 _______________________________________________
 linux-riscv mailing list
