@@ -4,66 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81879C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 05:05:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 542BDC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 05:35:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VxVNq9Air3VIK5IZOvzdmcDWhP3DuhDG9kZLb4PuUl4=; b=F637tlRVffO/sq
-	ICzGHpzts4vOXIDSv2LaeGiA/lAY8yl8yvx7uq2YVESi54/NoMec3EgEWYCnAUlEGuNDUQS5x3UMt
-	vujnMJJgkuwxBk7OdKEY6uerGe2lDJwVvuDBZiivBWvDw06GCB6Kyhz2eVF4PWCzQyguL51jyggCP
-	eNg3yinHvmaiGU+UNsqj8QQmuO7BRoFVnYJKVpuv5DASX4STbY84yUWOp5QBJ7QnbPP8lx6zFPWTT
-	CcrgjloimYaQJ25pLUAGmrJ/THRaJq3cNSnZe+wgrd8hcysgHcmUqQDP3bTNgs/jwsZ9D2rZd89Do
-	wcFUsxxTXU6A8rbLad7g==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MTdp6WHSN6FA0Ybcm2+I6WyoAedCA1auE5Szr8Omz0s=; b=rMIsqf4oKVChIr
+	8AbvnEhUtmKIEy/ofG3tEKihK80ZjIH64bC4F9ir5KqeHRi+crJyf5nk15YVsFoHYkSBbgCK6JUb+
+	6rmn2asuM48zXOhX/PbyverBPfd/sg3V5cfbImTU4uKbMfAPxYNRilkgC6Aol4ybq8y/tppjRB765
+	HrrqsQMfzJihexEHbR+TNONi9lMzhktp+B4zO6n3M+2syIBvIvUrh+3VLWi/lCTeajiLrWWA7H1my
+	D09s3JoCD7lgvC9ojQ2E1EJENiImxTFj8/1tYTwZm9dWVp3z2A9r5osdElNr6Pn/Mhj4xxA+z3ASj
+	PpQXAbeSN0z8KYZxQMmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCuxi-00AlRZ-14;
-	Tue, 12 Dec 2023 05:05:42 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rCvQG-00Ane9-2T;
+	Tue, 12 Dec 2023 05:35:12 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCuxe-00AlQw-2V
+	id 1rCvQE-00And9-04
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Dec 2023 05:05:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4CD196166E;
-	Tue, 12 Dec 2023 05:05:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55CC0C433C8;
-	Tue, 12 Dec 2023 05:05:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1702357535;
-	bh=6JkIk+zKrh2X9NAaqlazkFZaKG6WIrBp/Ny5YCmwqKM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kd6xo4qcDip9YPf15fjNs2e+6tzBlYqsaUmvWs5bwFT3Rhjm2SQDmQorVY5Zt+0/3
-	 eu1+jAeW/FxTTq1EB4fN0zG1QvL1Lp//Jc2xUgjlCfd3115QlDKiptuK1cGlg5dJI9
-	 tx0qngz6kAtzS5Q6kAORUFCajAhVjY1vzm2HapXJQ7tMSXszgPo1yjMYHBJs6ah++M
-	 rAerlBUzuSv1yAStIofLk44K6/erJxKBgza8AG+3YkEGi1Am+CgsbnFA210gGieVNV
-	 YjX2BA6+yzfqKeSOGGNNIousJ3ZAMwYW9loiWamPPjJ4dp/XIyFcw3/NuV80RjWb2f
-	 BG9kSYBTwMSnQ==
-Date: Tue, 12 Dec 2023 12:53:03 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Drew Fustini <dfustini@baylibre.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Tue, 12 Dec 2023 05:35:11 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-1d0b2752dc6so46232825ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 11 Dec 2023 21:35:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1702359308; x=1702964108; darn=lists.infradead.org;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mcj60ICAmx2Wgj1m3BhaBwMoYIl3KbsB3eCSbSy5S74=;
+        b=jbjvpg1F8+kBfilGsj5D8opwGK/soyDyRXyPSQpxulqEjxUm7pWhGVrrjudcOAFU2H
+         eLEqaFHOXCgcoTBdncoAqs6YrVe1d0vguxec558gNTRsmeIBJ06xBt9V/hSBktnj/DcS
+         /NFi1rYWrGtxoPwvR/B+Gspzt7NkmDLlWcr8JbXmgcvdsahQOm5xhlmrZM3QAU/gvGU9
+         Z50V5mHnQP8YmHILuL5LM79u8j4twH/1noUIQKZKiFCIoZxqrQsT7VO9Am08jAFlpZk8
+         D/1I/8/YfF/IEi3LwMgrBhJZUySA2UfmGhGz4ITTcWO88JgiKrjVScWygmpwoiQr/viE
+         ZX+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1702359308; x=1702964108;
+        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mcj60ICAmx2Wgj1m3BhaBwMoYIl3KbsB3eCSbSy5S74=;
+        b=Ntxy76bgvnC292fak7ZYZ8QETj/p4PLa7TbM/WrNPLtQlgoKwqa+r/UAd7QKGhZBeo
+         wLqEIi7r3UyPelXTz9B/VXMsT7IxeHfYD5RAAE5HE8DIjg/aLcNr2T9E2gku3MQcECuX
+         EHiNCHUjQRL0x+vuAATXNcyFzloUaT0vBw95/qoCOrpypOWHS6nVUiCSyuvYvHWkAGvB
+         GlFOWQA+MtR/zMja5gNTE3tjzgycOhe2SqQjMltKddNjxcfqDGdgL4JZqKHCnP9orbgM
+         0nQVURPH7enPccIhgVeC8dtIv3QO4vvx/FbzXYBCNjAUw6ydpv1FqgSCpWw12oEY6xTL
+         COiw==
+X-Gm-Message-State: AOJu0YzgVojctZI885yqN2Cv4SDqEg/UBfCx+CpKyF+RD5TDUwkkci2I
+	AuxtXPWLGnUvENKQcJZ7lgyc9oL2v5e7P3lqwJE0MHOLiUYXm42QffxokRqVoQeZd1YHJh6hp+r
+	L4uhVO/e8SnHJcqRAlfNiD4nAi1EvPfeNVAcH5deFxhqXyNIUmRF7yknXqjrgrY0xNE96G09XyJ
+	oDKAv2LjzwMZ6zA83tfC8pVlg=
+X-Google-Smtp-Source: AGHT+IH+0SEHIrmD1lG9gKpeJV/gu+68+6vQQUc6qbNwDMzT/HchEiI83Pj9+Ajy1EiiaZ5i2c6GhQ==
+X-Received: by 2002:a17:902:eb88:b0:1d0:6ffd:9e37 with SMTP id q8-20020a170902eb8800b001d06ffd9e37mr6217232plg.137.1702359308075;
+        Mon, 11 Dec 2023 21:35:08 -0800 (PST)
+Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id l15-20020a170903244f00b001cf5654fc29sm7654118pls.72.2023.12.11.21.35.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 Dec 2023 21:35:07 -0800 (PST)
+From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+To: linux-riscv@lists.infradead.org,
+	kvm-riscv@lists.infradead.org
+Cc: greentime.hu@sifive.com,
+	vincent.chen@sifive.com,
+	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Jason Kridner <jkridner@beagleboard.org>,
-	Robert Nelson <robertcnelson@beagleboard.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v8 0/4] RISC-V: Add MMC support for TH1520 boards
-Message-ID: <ZXfnLx9qBUKtyqkq@xhacker>
-References: <20231206-th1520_mmc_dts-v8-0-69220e373e8f@baylibre.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231206-th1520_mmc_dts-v8-0-69220e373e8f@baylibre.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/1] RISCV: KVM: should not be interrupted when update the external interrupt pending
+Date: Tue, 12 Dec 2023 05:34:59 +0000
+Message-Id: <20231212053501.12054-1-yongxuan.wang@sifive.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231211_210538_922513_E654D48F 
-X-CRM114-Status: GOOD (  35.06  )
+X-CRM114-CacheID: sfid-20231211_213510_088094_9BB70CCA 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,154 +93,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 06, 2023 at 12:09:20AM -0800, Drew Fustini wrote:
-> This series enables the MMC controller in the T-Head TH1520 SoC and
-> enables the eMMC and microSD on both the BeagleV Ahead and the Sipeed
-> LicheePi 4A.
-> 
-> The drivers/mmc/host patches from v6 were applied by Ulf and are already
-> in the linux-next [1][2] as well as the bindings patch [3]. Thus v7 was
-> only a defconfig patch and three device tree patches. This v8 is a
-> followup to change the dwcmshc node names to match the documentation.
-> 
-> Jisheng - can you apply the dts patches to your for-next tree?
-> 
-> I tested with the riscv defconfig on the Ahead [4] and LPi4a [5]. I only
-> tested eMMC and microSD and plan to enable SDIO WiFi in the future.
+The emulated IMSIC update the external interrupt pending depending on the
+value of eidelivery and topei. It might lose an interrupt when it is
+interrupted before setting the new value to the pending status.
 
-Thank Drew, for this patch series:
+For example, when VCPU0 sends an IPI to VCPU1 via IMSIC:
 
-Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
+VCPU0                           VCPU1
 
-I asked Conor's help to take T-HEAD SoC dts patches.
-> 
-> References:
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=49f23745b064cdb6270402403ef58125d78ba183
-> [2] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=aff35fbc7830510ef7cbcf8e32a041a55de3dc51
-> [3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=af076680db846ed54b00b9a763473d1043446993
-> [4] https://gist.github.com/pdp7/881342620ec1509685f23a387e2fc8d7
-> [5] https://gist.github.com/pdp7/97017ad88d83fccac18eba69bff817b7
-> 
-> Changes in PATCH v8:
-> - change dwcmshc node labels to match TH1520 System Reference Manual:
->   emmc, sdio0, sdio1
-> 
-> Changes in PATCH v7:
-> //lore.kernel.org/r/20231129-th1520_mmc_dts-v7-0-c77fc19caa6f@baylibre.com
-> - fix sorting of DT properties in the mmc nodes
-> 
-> Changes in PATCH v6:
-> https://lore.kernel.org/linux-riscv/20231114-th1520-mmc-v6-0-3273c661a571@baylibre.com/
-> - set the mmc nodes to disabled in the th1520.dtsi
-> 
-> Changes in PATCH v5:
-> https://lore.kernel.org/r/20231109-th1520-mmc-v5-0-018bd039cf17@baylibre.com
-> - fix logic in th1520_sdhci_set_phy() to correctly check that both
->   MMC_CAP2_NO_SD and MMC_CAP2_NO_SDIO are set in host->mmc->caps2
-> - add Acked-by's from Adrian
-> 
-> Changes in PATCH v4:
-> https://lore.kernel.org/linux-riscv/20231101-th1520-mmc-v4-0-86e0216b5994@baylibre.com/
-> - set DWCMSHC_CARD_IS_EMMC when (MMC_CAP2_NO_SD | MMC_CAP2_NO_SDIO)
->   as checking MMC_CAP_NONREMOVABLE is not sufficient
-> - change prefix of phy functions from th1520 to dwcmshc as they are not
->   th1520 specific
-> - remove unneeded check of priv in dwcmshc_phy_1_8v_init()
-> - remove unneeded check of auto-tuning in th1520_execute_tuning()
-> - fix order of new nodes in th1520-beaglev-ahead.dts: move sdhci_clk
->   before uart_sclk, move mmc0 and mmc1 before uart0
-> - fix comment typos pointed out by Adrian
-> - add trailers that I missed from v2
-> 
-> Changes in PATCH v3:
-> https://lore.kernel.org/r/20231023-th1520-mmc-v3-0-abc5e7491166@baylibre.com
-> - always call th1520_sdhci_set_phy() in th1520_set_uhs_signaling()
->   and not only when timing is MMC_TIMING_MMC_HS400. This allows the
->   microSD slot to work as th1520_phy_3_3v_init() is called from
->   th1520_sdhci_set_phy().
-> - add mmc1 node for mmc controller connected to the microSD slot
-> - add enable mmc1 and add properties for microSD on the Ahead and LPi4A
-> 
-> Changes in PATCH v2:
-> https://lore.kernel.org/r/20231017-th1520-mmc-v2-0-4678c8cc4048@baylibre.com
-> - make use of BIT(), GENMASK(), FIELD_PREP(), FIELD_GET()
-> - add EXPORT_SYMBOL_GPL(__sdhci_execute_tuning)
-> - call th1520_phy_1_8v_init() when FLAG_IO_FIXED_1V8 is set
-> - set DWCMSHC_CARD_IS_EMMC when mmc caps contains MMC_CAP_NONREMOVABLE
-> - remove manipulation of AT_CTRL_AT_EN from th1520_set_uhs_signaling()
-> - remove unneccessary cycle of enabling and disabling AT_CTRL_AT_EN in
->   th1520_execute_tuning()
-> - remove th1520_phy_1_8v_init_no_pull()
-> - remove th1520_phy_3_3v_init_no_pull()
-> - remove FLAG_PULL_UP_EN from priv->flags
-> - remove thead,phy-pull-up device tree property
-> 
-> Changes in PACH v1:
-> https://lore.kernel.org/all/20230921-th1520-mmc-v1-0-49f76c274fb3@baylibre.com/
-> - ADMA mode now works correctly due to a patch from Jisheng on the list
->   ("riscv: dts: thead: set dma-noncoherent to soc bus") and this commit
->   from Icenowy that is now merged: 8eb8fe67e2c8 ("riscv: errata: fix
->   T-Head dcache.cva encoding").
-> - Expose __sdhci_execute_tuning from sdhci.c so that it can be called
->   from th1520_execute_tuning()
-> - Refactor the define macros for all the PHY related registers to make
->   it easier to understand the bit fields that the code is manipulating
-> - Replace magic numbers in the PHY register writes with proper defines
-> - Replace non_removable in dwcmshc_priv with check of mmc_host.caps
-> - Drop dt prop "thead,io-fixed-1v8" and instead check for existing
->   properties: "mmc-ddr-1_8v", "mmc-hs200-1_8v", or "mmc-hs400-1_8v"
-> - Rename dt prop from "thead,pull-up" to "thead,phy-pull-up" and
->   improve the description in the dt binding
-> - Replace pull_up_en in dwcmshc_priv with bit field in new flags field
-> - Create th1520_set_uhs_signaling() and call dwcmshc_set_uhs_signaling()
->   from it instead of adding th1520 code to dwcmshc_set_uhs_signaling()
-> - Return -EIO instead of -1 upon errors in th1520_execute_tuning()
-> 
-> Changes in RFC v2:
-> https://lore.kernel.org/linux-riscv/20230724-th1520-emmc-v2-0-132ed2e2171e@baylibre.com/
-> - Expand dwcmshc_priv based on driver in the T-Head 5.10 kernel:
->   delay_line, non_removable, pull_up_en, io_fixed_1v8
-> - New boolean property "thead,pull-up" indicates phy pull-up config
-> - New boolean property "thead,io-fixed-1v8" indicates that io voltage
->   should be set to 1.8V during reset
-> - Add th1520_phy_1_8v_init() as voltage_switch op
-> - Add th1520_execute_tuning() as the platform_execute_tuning op
-> - Added th1520_sdhci_reset() as the .reset op. This function will set
->   io voltage to 1.8V after calling the standard sdhci_reset() function.
-> - Modified dwcmshc_set_uhs_signaling() to enable SDHCI_CTRL_VDD_180 when
->   io_fixed_1v8 is true
-> - Add many defines for register offsets and settings based on the mmc
->   support in the T-Head downstream v5.10 kernel
-> 
-> RFC v1 series:
-> https://lore.kernel.org/r/20230724-th1520-emmc-v1-0-cca1b2533da2@baylibre.com
-> 
-> Signed-off-by: Drew Fustini <dfustini@baylibre.com>
-> ---
-> Drew Fustini (4):
->       riscv: defconfig: Enable mmc and dma drivers for T-Head TH1520
->       riscv: dts: thead: Add TH1520 mmc controllers and sdhci clock
->       riscv: dts: thead: Enable BeagleV Ahead eMMC and microSD
->       riscv: dts: thead: Enable LicheePi 4A eMMC and microSD
-> 
->  arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 20 +++++++++++++
->  .../boot/dts/thead/th1520-lichee-module-4a.dtsi    | 20 +++++++++++++
->  arch/riscv/boot/dts/thead/th1520.dtsi              | 34 ++++++++++++++++++++++
->  arch/riscv/configs/defconfig                       |  2 ++
->  4 files changed, 76 insertions(+)
-> ---
-> base-commit: 1f5c003694fab4b1ba6cbdcc417488b975c088d0
-> change-id: 20231129-th1520_mmc_dts-e472bcc70d0d
-> 
-> Best regards,
-> -- 
-> Drew Fustini <dfustini@baylibre.com>
-> 
+                                CSRSWAP topei = 0
+                                The VCPU1 has claimed all the external
+                                interrupt in its interrupt handler.
+
+                                topei of VCPU1's IMSIC = 0
+
+set pending in VCPU1's IMSIC
+
+topei of VCPU1' IMSIC = 1
+
+set the external interrupt
+pending of VCPU1
+
+                                clear the external interrupt pending
+                                of VCPU1
+
+When the VCPU1 switches back to VS mode, it exits the interrupt handler
+because the result of CSRSWAP topei is 0. If there are no other external
+interrupts injected into the VCPU1's IMSIC, VCPU1 will never know this
+pending interrupt unless it initiative read the topei.
+
+If the interruption occurs between updating interrupt pending in IMSIC
+and updating external interrupt pending of VCPU, it will not cause a
+problem. Suppose that the VCPU1 clears the IPI pending in IMSIC right
+after VCPU0 sets the pending, the external interrupt pending of VCPU1
+will not be set because the topei is 0. But when the VCPU1 goes back to
+VS mode, the pending IPI will be reported by the CSRSWAP topei, it will
+not lose this interrupt.
+
+So we only need to make the external interrupt updating procedure as a
+critical section to avoid the problem.
+
+Tested-by: Roy Lin <roy.lin@sifive.com>
+Tested-by: Wayling Chen <wayling.chen@sifive.com>
+Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+---
+ arch/riscv/kvm/aia_imsic.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
+index 6cf23b8adb71..0278aa0ca16a 100644
+--- a/arch/riscv/kvm/aia_imsic.c
++++ b/arch/riscv/kvm/aia_imsic.c
+@@ -37,6 +37,8 @@ struct imsic {
+ 	u32 nr_eix;
+ 	u32 nr_hw_eix;
+ 
++	spinlock_t extirq_update_lock;
++
+ 	/*
+ 	 * At any point in time, the register state is in
+ 	 * one of the following places:
+@@ -613,12 +615,17 @@ static void imsic_swfile_extirq_update(struct kvm_vcpu *vcpu)
+ {
+ 	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
+ 	struct imsic_mrif *mrif = imsic->swfile;
++	unsigned long flags;
++
++	spin_lock_irqsave(&imsic->extirq_update_lock, flags);
+ 
+ 	if (imsic_mrif_atomic_read(mrif, &mrif->eidelivery) &&
+ 	    imsic_mrif_topei(mrif, imsic->nr_eix, imsic->nr_msis))
+ 		kvm_riscv_vcpu_set_interrupt(vcpu, IRQ_VS_EXT);
+ 	else
+ 		kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_VS_EXT);
++
++	spin_unlock_irqrestore(&imsic->extirq_update_lock, flags);
+ }
+ 
+ static void imsic_swfile_read(struct kvm_vcpu *vcpu, bool clear,
+@@ -1029,6 +1036,7 @@ int kvm_riscv_vcpu_aia_imsic_init(struct kvm_vcpu *vcpu)
+ 	imsic->nr_eix = BITS_TO_U64(imsic->nr_msis);
+ 	imsic->nr_hw_eix = BITS_TO_U64(kvm_riscv_aia_max_ids);
+ 	imsic->vsfile_hgei = imsic->vsfile_cpu = -1;
++	spin_lock_init(&imsic->extirq_update_lock);
+ 
+ 	/* Setup IMSIC SW-file */
+ 	swfile_page = alloc_pages(GFP_KERNEL | __GFP_ZERO,
+-- 
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
