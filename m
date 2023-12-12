@@ -4,141 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6499AC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 08:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A14B1C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 08:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gzQ6/5svpSeWhBCZK4UR6mFEMiL8OxihQ8HZko2ZbX8=; b=HvtgNMqA8XN+C6
-	hNf1zZUW/h4g3jp6FT+m9Lbpvu0satLQ4HThefE1sO8QTGcGl0te71M9ZMgBmC+MTUbBx1wsUhhzw
-	OM2kLRu5BxM02foxzwXyGnLmtmhJzGcBioSahjbEx4XruXQB8mYOjNIbldQa6nkDxTgLEB8b7XFYt
-	pa42V/UOhhnGwdj5puJ5rvgLVTp9Iu6qwhbKXc0MwfsbEbTcQZcuovmmutcoPKzgNPfBaN2hAX8AB
-	e87s9hF8rc/dZmqGbHRAuOZ9jMQgQZZRYFbUmuNTCzmFTX+X918W6dCl2w+CYRqBrizRHTXkQzcin
-	EtajBuERsGZXi8m8fdvQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zT1ss5dkyABRv4zPYM+ovkvqVCtGmZP8RfTbfCnIiPU=; b=YBv9jKXMVJYbypXvSC7pS5GPqr
+	DyuUWRLirhL7VH5zVRrARx1TTTbYSgkuEoS68XPL2Hys8E7XthqrusRzLODyhhlMGGk3zrWwheaDg
+	HK3Thhtm+FmEQglEWKkpQZphORrcPry2n/swqEMexKCie57+A4Yv8qyPAa+VrxCoPrPIJIu/DpQ/q
+	wsN4v6nE61krg8h4JBN/47SlaY1p3IgnEmkDqY402gfw3LQmS8aq/yAX+VTbj1bb30REuzs6SgCoV
+	FAmftmNYhh99rjqumMLpDYatvr1z0BtPYZJ12seQP4mUK9QJXlQt0tguy9VCNgMn3+BM4aG5befon
+	8WcuRVRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCyMo-00B5Lp-1Z;
-	Tue, 12 Dec 2023 08:43:50 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1rCyMs-00B5Mz-1I;
+	Tue, 12 Dec 2023 08:43:54 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCyMj-00B5Jh-1p
+	id 1rCyMp-00B5Lw-0h
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Dec 2023 08:43:49 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-40c3f68b649so30524805e9.0
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Dec 2023 00:43:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1702370621; x=1702975421; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=zCwIaPG18IlZaPGE6LfSCnWOUQMM+WHpG8E21UYkoJA=;
-        b=Felaz8rc1pIa/U0Ndv7lT7QFDhgqzQplCVxvqiS6n6O0YQ293IMYAL3aS67zDmJbz6
-         +XK5F0UFVzfQnP3qb/s2hsbzRivclYbGyToMfrbIIDnskfXfR0ofaI7EedXCmU0y2eve
-         x4ue/CYqS+B60yzSme/VJN+0rRsrDqSHi641X4Z8joAuALUTj7Kqf1ZnqIVUX7ZZTe5b
-         Z+xl+G1oeLSSgP6TO+dapi+FEY6JHZNBDPDrZyxzmpsPsngeGHQ69qwnvq6bY0NqMAS+
-         itGPnrHlByX35+9p9+iNc0RhyHB0xdsIJb2nzsWPre7fyOCXro0zo26UBT0GMyifk5Uh
-         nGug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702370621; x=1702975421;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zCwIaPG18IlZaPGE6LfSCnWOUQMM+WHpG8E21UYkoJA=;
-        b=ePiIMGuqylvU65WxRuAUEo5mgMmdSnXZRF+G7US1Q/hFtME3cfbh0bo/uEAlFf8zFt
-         sz8ix49gE91la54zIbIdS7CHJ6WHDTwcWXqR7XQQhzxmk8jcC70ptxY3DHfFWZIq8Yw6
-         UOYuNRCvI25X3dPTLC7FGHpbRJnwSJWQ8mIOwCtRJsevR/Af8MOCWb+M8qA6sHQ+Js3i
-         Q6NuYFzFo8+agiDIRu1C8CIlWwVq4VmqjwXF9zpHRb2OFgkREo+O+WXzXtG+5GnG6V4C
-         TdDqqTsPHkch2SU+w4B/Lp35wvQ9C5nE/vAxdvyEjyGzlKemftugZ14og4IUKqOjNgQD
-         AHaA==
-X-Gm-Message-State: AOJu0YzVVa2DJVhCSVtjIVnecVC5Kv6Vn3W6coNGvnwFuEJjYtfaypVQ
-	J0iac4o0hB/9tq3fR//fcNu6bw==
-X-Google-Smtp-Source: AGHT+IEOh5cRXARBdKt6ygYMhgJIHQ0YSMV4AkJkVu8QHu7IL2UTMXCadXGm3UFAUSLrFATweQuB/A==
-X-Received: by 2002:a05:600c:4384:b0:40c:2417:3b51 with SMTP id e4-20020a05600c438400b0040c24173b51mr2117769wmn.74.1702370620788;
-        Tue, 12 Dec 2023 00:43:40 -0800 (PST)
-Received: from [192.168.1.20] ([178.197.218.27])
-        by smtp.gmail.com with ESMTPSA id m3-20020a5d56c3000000b003334520e49bsm10326308wrw.53.2023.12.12.00.43.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 12 Dec 2023 00:43:40 -0800 (PST)
-Message-ID: <e8c60424-21c7-4f64-9e47-8c4183510162@linaro.org>
-Date: Tue, 12 Dec 2023 09:43:38 +0100
+	Tue, 12 Dec 2023 08:43:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1702370630; x=1733906630;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=wgVHBzqoKPPGjfmpxOQWTXb8ZDh9UV5MdaG4pwJ/vWI=;
+  b=liz492Az1DRVFbFw3IGHl6NzWZXlCChQTrnnv9Jr/h3PINCwPIubsc5i
+   ptRyAz82hlTpCUQe7Mp+FSO5tHwW+NFDS8aYG9LoSebOSwXxxNCfEwv/m
+   4hTuqh9c23dLUh/rG15ahaLtaz9M+z5ftaDsouQnfhIGOP2112pPwCK4J
+   GJpLv/OMR3Y/WvnG4gA0iVGDc5JvRmDCWulH1tq3Ag//UHJVA5laiKX+s
+   iSMRRSTm9VbhaCp5/DgPAwqOKYQk5sh/vQDpUDMOgNaNx0dYmXnJqfutr
+   clVO35cmZzF6PUANJIqHDaoHfpccYawWuRQq4HCADo7sfYVsNnAjyodUQ
+   w==;
+X-CSE-ConnectionGUID: WiO6fCDNTCCj2lq+o3a3hw==
+X-CSE-MsgGUID: am4cvTE2TnicaDYOgADGLw==
+X-ThreatScanner-Verdict: Negative
+X-IronPort-AV: E=Sophos;i="6.04,269,1695711600"; 
+   d="asc'?scan'208";a="180345961"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 12 Dec 2023 01:43:45 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Tue, 12 Dec 2023 01:43:38 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex03.mchp-main.com (10.10.85.151)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Tue, 12 Dec 2023 01:43:36 -0700
+Date: Tue, 12 Dec 2023 08:43:06 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+CC: Conor Dooley <conor@kernel.org>, <linux-riscv@lists.infradead.org>, Randy
+ Dunlap <rdunlap@infradead.org>, Magnus Damm <magnus.damm@gmail.com>, Lad
+ Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	<linux-renesas-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Emil
+ Renner Berthing <kernel@esmil.dk>
+Subject: Re: [PATCH v1] soc: renesas: make ARCH_R9A07G043 depend on
+ !DMA_DIRECT_REMAP
+Message-ID: <20231212-ambition-karma-4834afd4eb16@wendy>
+References: <20231211-primate-arbitrate-fbcd307a0b00@spud>
+ <CAMuHMdX0bETuMoZCZM7pAodbwyf0ttZMpKuq0ibBZX7S-YV8xw@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 16/16] riscv: dts: starfive: jh8100: Add clocks and
- resets nodes
-Content-Language: en-US
-To: JeeHeng Sia <jeeheng.sia@starfivetech.com>,
- "kernel@esmil.dk" <kernel@esmil.dk>, "conor@kernel.org" <conor@kernel.org>,
- "robh+dt@kernel.org" <robh+dt@kernel.org>,
- "krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>,
- "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
- "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "mturquette@baylibre.com" <mturquette@baylibre.com>,
- "sboyd@kernel.org" <sboyd@kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "emil.renner.berthing@canonical.com" <emil.renner.berthing@canonical.com>,
- Hal Feng <hal.feng@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>
-Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
- Leyfoon Tan <leyfoon.tan@starfivetech.com>
-References: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
- <20231206115000.295825-17-jeeheng.sia@starfivetech.com>
- <4dd53599-5e80-4a00-a708-507c9c2e7b6b@linaro.org>
- <62705afb652e416695aa26e3bdb2500e@EXMBX066.cuchost.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <62705afb652e416695aa26e3bdb2500e@EXMBX066.cuchost.com>
+In-Reply-To: <CAMuHMdX0bETuMoZCZM7pAodbwyf0ttZMpKuq0ibBZX7S-YV8xw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231212_004345_620321_A16C5316 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20231212_004351_314441_3F8EFF74 
+X-CRM114-Status: GOOD (  21.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,100 +86,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5391494891457853015=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/12/2023 03:58, JeeHeng Sia wrote:
-> 
-> 
->> -----Original Message-----
->> From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->> Sent: Saturday, December 9, 2023 1:57 AM
->> To: JeeHeng Sia <jeeheng.sia@starfivetech.com>; kernel@esmil.dk; conor@kernel.org; robh+dt@kernel.org;
->> krzysztof.kozlowski+dt@linaro.org; paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu;
->> mturquette@baylibre.com; sboyd@kernel.org; p.zabel@pengutronix.de; emil.renner.berthing@canonical.com; Hal Feng
->> <hal.feng@starfivetech.com>; Xingyu Wu <xingyu.wu@starfivetech.com>
->> Cc: linux-riscv@lists.infradead.org; devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-clk@vger.kernel.org; Leyfoon Tan
->> <leyfoon.tan@starfivetech.com>
->> Subject: Re: [PATCH v1 16/16] riscv: dts: starfive: jh8100: Add clocks and resets nodes
->>
->> On 06/12/2023 12:50, Sia Jee Heng wrote:
->>> Add SYSCRG/SYSCRG-NE/SYSCRG-NW/SYSCRG-SW/AONCRG clock and reset
->>> nodes for JH8100 RISC-V SoC.
->>>
->>> Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
->>> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
->>
->> Really? Looks automated... Care to provide any links to effects of
->> internal review?
-> https://gitlab.starfivetech.com/jeeheng.sia/linux/-/commits/JH8100_Upstream/
->>
->>> ---
->>>  arch/riscv/boot/dts/starfive/jh8100-clk.dtsi | 180 +++++++++++++++++++
->>>  arch/riscv/boot/dts/starfive/jh8100.dtsi     | 115 ++++++++++++
->>>  2 files changed, 295 insertions(+)
->>>  create mode 100644 arch/riscv/boot/dts/starfive/jh8100-clk.dtsi
->>>
->>> diff --git a/arch/riscv/boot/dts/starfive/jh8100-clk.dtsi b/arch/riscv/boot/dts/starfive/jh8100-clk.dtsi
->>> new file mode 100644
->>> index 000000000000..27ba249f523e
->>> --- /dev/null
->>> +++ b/arch/riscv/boot/dts/starfive/jh8100-clk.dtsi
->>> @@ -0,0 +1,180 @@
->>> +// SPDX-License-Identifier: GPL-2.0 OR MIT
->>> +/*
->>> + * Copyright (C) 2023 StarFive Technology Co., Ltd.
->>> + */
->>> +
->>> +/ {
->>> +	clk_osc: clk_osc {
->>
->> No underscores in node names.
-> Noted.
->>
->>> +		compatible = "fixed-clock";
->>> +		#clock-cells = <0>;
->>> +		clock-frequency = <24000000>;
->>> +	};
->>> +
->>
->> ...
->>
->>> diff --git a/arch/riscv/boot/dts/starfive/jh8100.dtsi b/arch/riscv/boot/dts/starfive/jh8100.dtsi
->>> index f26aff5c1ddf..9863c61324a0 100644
->>> --- a/arch/riscv/boot/dts/starfive/jh8100.dtsi
->>> +++ b/arch/riscv/boot/dts/starfive/jh8100.dtsi
->>> @@ -4,6 +4,9 @@
->>>   */
->>>
->>>  /dts-v1/;
->>> +#include <dt-bindings/clock/starfive,jh8100-crg.h>
->>> +#include <dt-bindings/reset/starfive,jh8100-crg.h>
->>> +#include "jh8100-clk.dtsi"
->>>
->>>  / {
->>>  	compatible = "starfive,jh8100";
->>> @@ -357,6 +360,104 @@ uart4: serial@121a0000  {
->>>  			status = "disabled";
->>>  		};
->>>
->>> +		syscrg_ne: syscrg_ne@12320000 {
->>
->> clock-controller@
->>
->> Just open your bindings and take a look how it is done there...
->>
->> This applies everywhere
+--===============5391494891457853015==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="e2oQTY8OE7jKY5sj"
+Content-Disposition: inline
 
-I assume you did not ignore all the other comments you did not respond to.
+--e2oQTY8OE7jKY5sj
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Best regards,
-Krzysztof
+On Tue, Dec 12, 2023 at 09:19:32AM +0100, Geert Uytterhoeven wrote:
+> Hi Conor,
+>=20
+> On Mon, Dec 11, 2023 at 11:06=E2=80=AFPM Conor Dooley <conor@kernel.org> =
+wrote:
+> > From: Conor Dooley <conor.dooley@microchip.com>
+> >
+> > Randy reported yet another build issue with randconfigs on rv32:
+> > WARNING: unmet direct dependencies detected for DMA_GLOBAL_POOL
+> >   Depends on [n]: !ARCH_HAS_DMA_SET_UNCACHED [=3Dn] && !DMA_DIRECT_REMA=
+P [=3Dy]
+> >   Selected by [y]:
+> >   - ARCH_R9A07G043 [=3Dy] && SOC_RENESAS [=3Dy] && RISCV [=3Dy] && NONP=
+ORTABLE [=3Dy] && RISCV_ALTERNATIVE [=3Dy] && !RISCV_ISA_ZICBOM [=3Dn] && R=
+ISCV_SBI [=3Dy]
+> >
+> > This happens when DMA_DIRECT_REMAP is selected by the T-Head CMO erratum
+>=20
+> or by the Zicbom extension support?
 
+Probably, yeah. That was just the conditions for this particular
+randconfig IIRC.
+
+> > option and DMA_GLOBAL_POOL is selected by the Andes CMO erratum. Block
+> > selecting the RZ/Five config option, and by extension DMA_GLOBAL_POOL,
+> > if DMA_DIRECT_REMAP has already been enabled.
+> >
+> > Fixes: 484861e09f3e ("soc: renesas: Kconfig: Select the required config=
+s for RZ/Five SoC")
+> > Reported-by: Randy Dunlap <rdunlap@infradead.org>
+> > Tested-by: Randy Dunlap <rdunlap@infradead.org> # build-tested
+> > Closes: https://lore.kernel.org/all/24942b4d-d16a-463f-b39a-f9dfcb89d74=
+2@infradead.org/
+> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+>=20
+> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> i.e. will queue in renesas-devel for v6.8.
+>=20
+> Or should this be queued as a fix for v6.7 instead?
+
+Depends on your opinion on how critical such a fix is I suppose.
+
+> > ---
+> > I don't know what the exact fixes tag here is as I did not bisect with
+> > the randconfig, so I blamed the one that added DMA_GLOBAL_POOL.
+>=20
+> Bisection leads to commit da323d4640704001 ("dma-direct: add
+> dependencies to CONFIG_DMA_GLOBAL_POOL") in v6.7-rc1, but that is
+> merely making visible the symptoms, so I think your Fixes tag is fine.
+>=20
+> Esmil: I think you need a similar fix for ERRATA_STARFIVE_JH7100 in
+> your tree.
+
+I probably need a similar fix in my tree for that, since I applied
+Emil's patches...
+
+--e2oQTY8OE7jKY5sj
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZXgdGQAKCRB4tDGHoIJi
+0jbuAP91y7WApBZFEeiqbfME/Mo6p2pI+fFTDQeQretgcPSVNQEA0ZQFUcwsk10K
+K1XlumMMEm3Lyb4/BNoAfFhLqNBlIA8=
+=AJxt
+-----END PGP SIGNATURE-----
+
+--e2oQTY8OE7jKY5sj--
+
+
+--===============5391494891457853015==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5391494891457853015==--
+
