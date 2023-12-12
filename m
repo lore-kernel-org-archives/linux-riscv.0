@@ -4,94 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E74D1C4167B
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 21:37:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9898EC4167B
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 21:38:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6E4fGDcRoBjx26GXvSTCfEunnrzkCMffuTvbAJXTo/M=; b=ELhuGimAtN21K3
-	HvT3bPgjfYN5CpkecZbbYTUXx2LWWnN3sbibIhBvG9ZdczkoSr0dDF/QB3LN8mfYSgRq54EsNBC16
-	E+lMSBuloX+ai5rS+7/OlDmY93WL8kbKsVq7wYuNulkF4/RemQCPr3P/zUXIiYgyQxjcpJM2+ZVf9
-	Gskwhunb1thE2k+zsyHLllrKfArT1Alo2P4RkAeOIBhtE1O9oZHp5lkqvRDYPQz7QomJhBuXgTKmq
-	Gf8bKgggHiRL5VfI12I50fKGhwkuAix915Lt0u18YW1MRlh2/yEBCQr64wCmFkptm/+NrnrBtBNVz
-	u908GHAdU9+5lwtnUzJA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y2YTNN3YhfNvxAfbBLDA0t7PiUXZzwpI1TaLbpSXUZ4=; b=cxElOdlKSnrKMo/+Av8HIcpgfL
+	PEzZGB/2E7mH7iXRPtHKKrF2gcPkqFESmUNSLrLaurtpwk0mih+FXQptm/ev2WCCmwj9KxHZtzz0p
+	xEezxWYduQffcTxItgDnStUiCotBlc/Z0ziSTUV3tWJhMMKwJTGDDay1BQU0Lcq2D13l8bgsVGKiq
+	PbNa5T8AUxzaTtVXoA4KWJ0XP0R/AEntBelkV5tyOTjDO+GIFpYzUbD+EXaIQMtmGfFz+Fqk0trYn
+	i7VVFhoijzM+YY6QzimYJffdHU7LbD7NbLAd+67BJgEUBCUWCmuXyNzJIjxi1GJNGxvdLx9nUqaHd
+	BEiEjZSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDARA-00Cpqr-1P;
-	Tue, 12 Dec 2023 21:37:08 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1rDASB-00Cq2z-2v;
+	Tue, 12 Dec 2023 21:38:11 +0000
+Received: from mail.ozlabs.org ([2404:9400:2221:ea00::3] helo=gandalf.ozlabs.org)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDAR7-00CppG-1H
+	id 1rDAS7-00CpzV-2f
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Dec 2023 21:37:06 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-40c2bb872e2so58038955e9.3
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Dec 2023 13:37:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1702417022; x=1703021822; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qCOh69caXbVfDD+nz3SkSSNJ4LOnzQLxIG6SJxHDatw=;
-        b=hTX63U6TcJ/d99pRh+Kr/Nae8BUjbuO2jKROcY6hqOnqgTihpO04r9qoFYpBwTV14i
-         QagrECXCpvdPc+TKkriV8xFt8d6ePXw0ZhyBo/tTUOxtIgezjn0Vr3VWYw1iOwpoez0u
-         Cp1ujBBYRhKPuzrRi+vQ09Dmi2j9RwgxvpSHkPRxOKW26j/F2wPEEap5g5bydqdNLD9K
-         Q2G7eyZ+dnL+S+QLSSfYuV/alxz/2QkHbFaTSveA0L/ZV+kKQpNi7MA6wmntOeFOuOvr
-         3peGuPiFtHjpnn+DM1hT7DDH83HxrtDSjZzqsvCqMFXF/y3JfObVrMGzKwLNP+3223wG
-         bp+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702417022; x=1703021822;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qCOh69caXbVfDD+nz3SkSSNJ4LOnzQLxIG6SJxHDatw=;
-        b=Kma1dwC6HhxGWe0M75NqqWh3JLhDyCizr/2/6Yh+Xmjo94exAcV0onCvM+xD5BMPiK
-         Yu5HFbfEZpCEfacDIBwUaZk22Muv5anEm+9NxD11OqfaaLi+OuQsK2R+pqoPMRXD+YB2
-         hNTMZzmUowbLrOJBNkyJt46+7Px61j0uqm+48/cz65KnQ655YB3fhrllr5UM5Ff2UE5o
-         vdJnM+w2tfli2kAGErYPkWXRHcRpoYxCdDcc6slasjfnjrIAXjrI9iVDilB65e1BO12u
-         Nwh2kNX5crULMtj72tiu7WBRj5nYOaPLuxIZXup4RadssV1ZL2uEHOIR8dOUGZhRIGQj
-         Q3sQ==
-X-Gm-Message-State: AOJu0YxtyL8ddm/7IHwOJazaDUXZr7Hdcw0719JaxIVa3UDt84g8K9/h
-	NQT8BvoHXlhCAl08zsAtbXhC2A==
-X-Google-Smtp-Source: AGHT+IFqqgEgVUuuLcp/jxl4AbRQVAxPSPDTSvhp/ckLGpwai+H0FWmy2ZTFwQBh1m466TRnZ7G6vg==
-X-Received: by 2002:a05:600c:2814:b0:40b:5f03:b43f with SMTP id m20-20020a05600c281400b0040b5f03b43fmr1885174wmb.353.1702417021655;
-        Tue, 12 Dec 2023 13:37:01 -0800 (PST)
-Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id ay35-20020a05600c1e2300b0040b2b38a1fasm17954734wmb.4.2023.12.12.13.37.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Dec 2023 13:37:01 -0800 (PST)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Dennis Zhou <dennis@kernel.org>,
-	Tejun Heo <tj@kernel.org>,
-	Christoph Lameter <cl@linux.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kasan-dev@googlegroups.com,
-	linux-arch@vger.kernel.org,
-	linux-mm@kvack.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v2 2/2] riscv: Enable pcpu page first chunk allocator
-Date: Tue, 12 Dec 2023 22:34:57 +0100
-Message-Id: <20231212213457.132605-3-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20231212213457.132605-1-alexghiti@rivosinc.com>
-References: <20231212213457.132605-1-alexghiti@rivosinc.com>
+	Tue, 12 Dec 2023 21:38:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canb.auug.org.au;
+	s=201702; t=1702417080;
+	bh=fvRCGNHhInfrca07PkN6n9fo3WBgL+C2V/czG3LgI6o=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=KUkMEO8R0i7Wa1ufMi6lexwcEjqPNrQG5aNDi8Bzdo/avKU80eHkcTANG5sAtqa0T
+	 Qh8ghOl+9gNc+/IrxPagtmYac0hzEXyssM0LOTFShpvjXTR0OJDRafgb2dRjg+7woN
+	 xT5KAGeV5ZDUJoPt3NP6CxJgsfDwYwmcEzrv4jliJG3o27C3lUYQl6l3pq7C7ldcqu
+	 T9FKxi22dwTBJImanc0NgQ5h2zjE+6tM8EdZS9OVk/eb8LwFiOWX8oVTYZh7OdizeE
+	 UHj7kbE02tphhAKyiA2YYqrWBHv1tFgGXEs9oB8D4VNfsG1nY1mlSf/dBirX/DiIAG
+	 AHxEmmKq78xMg==
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4SqX6048vVz4wcX;
+	Wed, 13 Dec 2023 08:38:00 +1100 (AEDT)
+Date: Wed, 13 Dec 2023 08:37:59 +1100
+From: Stephen Rothwell <sfr@canb.auug.org.au>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Randy Dunlap <rdunlap@infradead.org>, Linux Next Mailing List
+ <linux-next@vger.kernel.org>, Linux Kernel Mailing List
+ <linux-kernel@vger.kernel.org>, linux-riscv
+ <linux-riscv@lists.infradead.org>
+Subject: Re: linux-next: Tree for Dec 11 (drivers/perf/riscv_pmu_sbi.c)
+Message-ID: <20231213083759.738f0798@canb.auug.org.au>
+In-Reply-To: <CAHVXubitXvkWmvHd7JXs5kTZC4L2VvOD2B_ue3D5hUhevOpwfA@mail.gmail.com>
+References: <20231211172504.058ad6b6@canb.auug.org.au>
+	<846f4d8a-16ad-4ce2-9bcc-34e03f057421@infradead.org>
+	<CAHVXubitXvkWmvHd7JXs5kTZC4L2VvOD2B_ue3D5hUhevOpwfA@mail.gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231212_133705_507215_F02B99B9 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20231212_133808_005916_9616C8A9 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,69 +71,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7700577222801666269=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As explained in commit 6ea529a2037c ("percpu: make embedding first chunk
-allocator check vmalloc space size"), the embedding first chunk allocator
-needs the vmalloc space to be larger than the maximum distance between
-units which are grouped into NUMA nodes.
+--===============7700577222801666269==
+Content-Type: multipart/signed; boundary="Sig_/qbFGRDteV3hlvbqKI=wJrAu";
+ protocol="application/pgp-signature"; micalg=pgp-sha256
 
-On a very sparse NUMA configurations and a small vmalloc area (for example,
-it is 64GB in sv39), the allocation of dynamic percpu data in the vmalloc
-area could fail.
+--Sig_/qbFGRDteV3hlvbqKI=wJrAu
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-So provide the pcpu page allocator as a fallback in case we fall into
-such a sparse configuration (which happened in arm64 as shown by
-commit 09cea6195073 ("arm64: support page mapping percpu first chunk
-allocator")).
+Hi all,
 
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/riscv/Kconfig         | 2 ++
- arch/riscv/mm/kasan_init.c | 8 ++++++++
- 2 files changed, 10 insertions(+)
+On Tue, 12 Dec 2023 08:24:54 +0100 Alexandre Ghiti <alexghiti@rivosinc.com>=
+ wrote:
+>
+> On Mon, Dec 11, 2023 at 10:22=E2=80=AFPM Randy Dunlap <rdunlap@infradead.=
+org> wrote:
+> >
+> > on riscv32:
+> >
+> > ../drivers/perf/riscv_pmu_sbi.c:1015:35: error: initialization of 'int =
+(*)(const struct ctl_table *, int,  void *, size_t *, loff_t *)' {aka 'int =
+(*)(const struct ctl_table *, int,  void *, unsigned int *, long long int *=
+)'} from incompatible pointer type 'int (*)(struct ctl_table *, int,  void =
+*, size_t *, loff_t *)' {aka 'int (*)(struct ctl_table *, int,  void *, uns=
+igned int *, long long int *)'} [-Werror=3Dincompatible-pointer-types]
+> >  1015 |                 .proc_handler   =3D riscv_pmu_proc_user_access_=
+handler,
+> >       |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
+~~~~~
+> > ../drivers/perf/riscv_pmu_sbi.c:1015:35: note: (near initialization for=
+ 'sbi_pmu_sysctl_table[0].proc_handler')
+>
+> I already sent a fix for that here:
+> https://lore.kernel.org/all/20231207083512.51792-1-alexghiti@rivosinc.com/
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 7603bd8ab333..8ba4a63e0ae5 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -415,7 +415,9 @@ config NUMA
- 	depends on SMP && MMU
- 	select ARCH_SUPPORTS_NUMA_BALANCING
- 	select GENERIC_ARCH_NUMA
-+	select HAVE_SETUP_PER_CPU_AREA
- 	select NEED_PER_CPU_EMBED_FIRST_CHUNK
-+	select NEED_PER_CPU_PAGE_FIRST_CHUNK
- 	select OF_NUMA
- 	select USE_PERCPU_NUMA_NODE_ID
- 	help
-diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-index 5e39dcf23fdb..4c9a2c527f08 100644
---- a/arch/riscv/mm/kasan_init.c
-+++ b/arch/riscv/mm/kasan_init.c
-@@ -438,6 +438,14 @@ static void __init kasan_shallow_populate(void *start, void *end)
- 	kasan_shallow_populate_pgd(vaddr, vend);
- }
- 
-+#ifdef CONFIG_KASAN_VMALLOC
-+void __init kasan_populate_early_vm_area_shadow(void *start, unsigned long size)
-+{
-+	kasan_populate(kasan_mem_to_shadow(start),
-+		       kasan_mem_to_shadow(start + size));
-+}
-+#endif
-+
- static void __init create_tmp_mapping(void)
- {
- 	void *ptr;
--- 
-2.39.2
+I have added that patch to linux-next today and will keep it until it
+turns up in the sysctl tree.
 
+--=20
+Cheers,
+Stephen Rothwell
+
+--Sig_/qbFGRDteV3hlvbqKI=wJrAu
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmV40rcACgkQAVBC80lX
+0GxV7Af/QwhYbcoWsMdJIIFO0tko1rCwK/E6gTa1AFUsTcmChBp8DqtUyZLBwFX9
+E3HXxUvLoEAra02Icv+m5r2ngYJTbRN+uzvqhE14XrifnRZxaziquztjC6s/U/h7
+OeLeOArcDrsT3yIZREl1Hee7M9g+V7j7VfYQjBrXU+K1Gr8H8WWSw579dVw++I4e
+w9rPGbUorYwtQiv47BXUUSbRXCcWs+6A3mvjFmXIkUSL5E+6F4C+KmxvAW1CZOg1
+2CD0L1sjj9+9vig5ssrAz8nuDviPQ0pHdzCm30tYPxNFVfl62mhVwD5Igx2M5Jrt
+scG4B/UIqJ8HKCxEeZfPtYXgZVKsxQ==
+=CDKO
+-----END PGP SIGNATURE-----
+
+--Sig_/qbFGRDteV3hlvbqKI=wJrAu--
+
+
+--===============7700577222801666269==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7700577222801666269==--
+
