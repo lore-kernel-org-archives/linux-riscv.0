@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C314DC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 01:08:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D02C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 01:10:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zTKSL/k3Zxwxo78HJQYkgCqp0ox8GLD37gSdu0djXGQ=; b=BJ63F2C2uco/Tl
-	rWMxkhLBare6Zuud5rqPZKix/hDwCHk1SO4uhQM4/ZQ2b/jgrtOLlFW0g0JlWap0alzbicmd/nAoZ
-	G1VdmUSEvfBCD9z21RA6MXYtzT1S6YA4TB5F1mP31Tsh5zMlytvE3C/cj0dTtWG5YbYPFyQ1sHO3t
-	lH+Xz5FS1xV5of/d5q6mMMITxuv06cBJEPz+ws0OZTtrZaWvI8kmCiXww38pMVGwCEzzBOr95I5mx
-	EFkFfUbsE2kkVPDnTD4dQBe40P9zPrzu9xf+rqPpeWuScCcAMmqJ9MbxWd0dUkXIyHG0K73mpDlMt
-	wp9rtoz3i68/q2VT0S5Q==;
+	List-Owner; bh=Bfld1bMjR3polBWSl2lUQR6LKbxbnW9H5KIcbwdQKEQ=; b=IEymGGHL6tCRGi
+	U/k/yj1s9W94g8x3hVX55/izqgU44PAIVKtKcr83T8SSskqn2fbafCYsR4b/72d0VrOL9Ff9lT2tB
+	H9AamPTd3M+XX7zPi5e5lSR+VAxU3quY0+J2cEdo2O/ynpd6Bd06yKpgbG5EYunOwz+4XAfgq7PVE
+	KBxR2ObFdE8kh48jNC2muQGQIq0uQD1SOfcx94ev2ASkRmv6b3tH421xYhELRLz/KF/4BwrA1JGq/
+	OjsVX4TCUNunc77TJmh4Aett/ZrAq+wXnApelkQQ8BUNWprgjrpV/qt3lsnX9f9jOsCB0ZScX4ty5
+	mtMxlq/gWAwM+EV0hLIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCrG2-00AQVk-1x;
-	Tue, 12 Dec 2023 01:08:22 +0000
+	id 1rCrHY-00AQmy-1r;
+	Tue, 12 Dec 2023 01:09:56 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCrFy-00AQV1-2D
+	id 1rCrHT-00AQlC-0H
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Dec 2023 01:08:21 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	Tue, 12 Dec 2023 01:09:54 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id EE98024E269;
-	Tue, 12 Dec 2023 09:07:59 +0800 (CST)
-Received: from EXMBX167.cuchost.com (172.16.6.77) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 12 Dec
- 2023 09:07:59 +0800
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX167.cuchost.com
- (172.16.6.77) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 12 Dec
- 2023 09:07:59 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id A83FC24E25E;
+	Tue, 12 Dec 2023 09:09:39 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 12 Dec
+ 2023 09:09:39 +0800
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 12 Dec
+ 2023 09:09:39 +0800
 Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
  EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
- 15.00.1497.044; Tue, 12 Dec 2023 09:07:59 +0800
+ 15.00.1497.044; Tue, 12 Dec 2023 09:09:39 +0800
 From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
 To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
 	"kernel@esmil.dk" <kernel@esmil.dk>, "conor@kernel.org" <conor@kernel.org>,
@@ -56,17 +56,16 @@ CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
 	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
 	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>, Leyfoon Tan
 	<leyfoon.tan@starfivetech.com>
-Subject: RE: [PATCH v1 16/16] riscv: dts: starfive: jh8100: Add clocks and
- resets nodes
-Thread-Topic: [PATCH v1 16/16] riscv: dts: starfive: jh8100: Add clocks and
- resets nodes
-Thread-Index: AQHaKDqra6wATad1nUKrJTE2u0DzTrCfE7aAgAXJTyA=
-Date: Tue, 12 Dec 2023 01:07:59 +0000
-Message-ID: <38f6f61b9928460abd5d426a84adbb06@EXMBX066.cuchost.com>
+Subject: RE: [PATCH v1 00/16] Basic clock and reset support for StarFive
+ JH8100 RISC-V SoC
+Thread-Topic: [PATCH v1 00/16] Basic clock and reset support for StarFive
+ JH8100 RISC-V SoC
+Thread-Index: AQHaKDpenJ7xM02baU+qIG80sqYy3rCfF1UAgAXHjcA=
+Date: Tue, 12 Dec 2023 01:09:38 +0000
+Message-ID: <f1e151e14e0b4bcca1c9119f5d7e7559@EXMBX066.cuchost.com>
 References: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
- <20231206115000.295825-17-jeeheng.sia@starfivetech.com>
- <CAJM55Z9bik1QttBeFUCfM3N98HWURge7mgV7ohFBq+AsuvtROg@mail.gmail.com>
-In-Reply-To: <CAJM55Z9bik1QttBeFUCfM3N98HWURge7mgV7ohFBq+AsuvtROg@mail.gmail.com>
+ <CAJM55Z_nnrFcU6N8ZELUoGLe6Dp358aXH7VGf1i+USbZOsbpnQ@mail.gmail.com>
+In-Reply-To: <CAJM55Z_nnrFcU6N8ZELUoGLe6Dp358aXH7VGf1i+USbZOsbpnQ@mail.gmail.com>
 Accept-Language: en-US, zh-CN
 Content-Language: en-US
 X-MS-Has-Attach: 
@@ -76,8 +75,8 @@ x-originating-ip: [202.188.176.82]
 x-yovoleruleagent: yovoleflag
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231211_170819_246639_9F7A31EB 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20231211_170951_666354_8506A4A5 
+X-CRM114-Status: GOOD (  24.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,357 +97,152 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 > -----Original Message-----
 > From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-> Sent: Saturday, December 9, 2023 12:40 AM
+> Sent: Saturday, December 9, 2023 12:53 AM
 > To: JeeHeng Sia <jeeheng.sia@starfivetech.com>; kernel@esmil.dk; conor@kernel.org; robh+dt@kernel.org;
 > krzysztof.kozlowski+dt@linaro.org; paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu;
 > mturquette@baylibre.com; sboyd@kernel.org; p.zabel@pengutronix.de; emil.renner.berthing@canonical.com; Hal Feng
 > <hal.feng@starfivetech.com>; Xingyu Wu <xingyu.wu@starfivetech.com>
 > Cc: linux-riscv@lists.infradead.org; devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-clk@vger.kernel.org; Leyfoon Tan
 > <leyfoon.tan@starfivetech.com>
-> Subject: Re: [PATCH v1 16/16] riscv: dts: starfive: jh8100: Add clocks and resets nodes
+> Subject: Re: [PATCH v1 00/16] Basic clock and reset support for StarFive JH8100 RISC-V SoC
 > 
 > Sia Jee Heng wrote:
-> > Add SYSCRG/SYSCRG-NE/SYSCRG-NW/SYSCRG-SW/AONCRG clock and reset
-> > nodes for JH8100 RISC-V SoC.
+> > This patch series enabled basic clock & reset support for StarFive
+> > JH8100 SoC.
 > >
-> > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-> > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-> > ---
-> >  arch/riscv/boot/dts/starfive/jh8100-clk.dtsi | 180 +++++++++++++++++++
-> >  arch/riscv/boot/dts/starfive/jh8100.dtsi     | 115 ++++++++++++
+> > This patch series depends on the Initial device tree support for
+> > StarFive JH8100 SoC patch series which can be found at below link:
+> > https://lore.kernel.org/lkml/20231201121410.95298-1-jeeheng.sia@starfivetech.com/
+> >
+> > StarFive JH8100 shares a similar clock and reset design with JH7110.
+> > To facilitate the reuse of the file and its functionalities, files
+> > containing the 'jh71x0' naming convention are renamed to use the
+> > 'common' wording. Internal functions that contain the 'jh71x0'
+> > naming convention are renamed to use 'starfive.' This is accomplished
+> > through patches 1, 2, 3, and 4.
 > 
-> Why the split here? I mean why can't the clocks just be in the jh8100.dtsi?
-The reason is that the number of fixed clocks increases when more and more
-domain clocks are added. So, that is why we split out the clock file.
+> I'm a little sceptical all this renaming is worth it, but if think it's likely
+> that future starfive SoCs can use the same clock drivers I'm ok with it. Just
+> know that you'll look a bit silly if your "JH9100" can't use these drivers and
+> you'll already need different starfive and starfive-gen2 drivers.
+Thank you for your understanding.
 > 
-> >  2 files changed, 295 insertions(+)
+> /Emil
+> >
+> >
+> > Patch 5 adds documentation to describe System (SYSCRG) Clock & Reset
+> > binding.
+> > Patch 6 adds SYSCRG clock driver.
+> >
+> > patch 7 adds documentation to describe System-North-West (SYSCRG-NW)
+> > Clock & Reset binding.
+> > Patch 8 adds SYSCRG-NW clock driver.
+> >
+> > patch 9 adds documentation to describe System-North-East (SYSCRG-NE)
+> > Clock & Reset binding.
+> > Patch 10 adds SYSCRG-NE clock driver.
+> >
+> > patch 11 adds documentation to describe System-South-West (SYSCRG-SW)
+> > Clock & Reset binding.
+> > Patch 12 adds SYSCRG-SW clock driver.
+> >
+> > patch 13 adds documentation to describe Always-On (AON)
+> > Clock & Reset binding.
+> > Patch 14 adds AON clock driver.
+> >
+> > Patch 15 adds support for the auxiliary reset driver.
+> >
+> > Patch 16 adds clocks and reset nodes to the JH8100 device tree.
+> >
+> > Sia Jee Heng (16):
+> >   reset: starfive: Rename file name "jh71x0" to "common"
+> >   reset: starfive: Convert the word "jh71x0" to "starfive"
+> >   clk: starfive: Rename file name "jh71x0" to "common"
+> >   clk: starfive: Convert the word "jh71x0" to "starfive"
+> >   dt-bindings: clock: Add StarFive JH8100 System clock and reset
+> >     generator
+> >   clk: starfive: Add JH8100 System clock generator driver
+> >   dt-bindings: clock: Add StarFive JH8100 System-North-West clock and
+> >     reset generator
+> >   clk: starfive: Add JH8100 System-North-West clock generator driver
+> >   dt-bindings: clock: Add StarFive JH8100 System-North-East clock and
+> >     reset generator
+> >   clk: starfive: Add JH8100 System-North-East clock generator driver
+> >   dt-bindings: clock: Add StarFive JH8100 System-South-West clock and
+> >     reset generator
+> >   clk: starfive: Add JH8100 System-South-West clock generator driver
+> >   dt-bindings: clock: Add StarFive JH8100 Always-On clock and reset
+> >     generator
+> >   clk: starfive: Add JH8100 Always-On clock generator driver
+> >   reset: starfive: Add StarFive JH8100 reset driver
+> >   riscv: dts: starfive: jh8100: Add clocks and resets nodes
+> >
+> >  .../clock/starfive,jh8100-aoncrg.yaml         |  77 +++
+> >  .../clock/starfive,jh8100-syscrg-ne.yaml      | 158 +++++
+> >  .../clock/starfive,jh8100-syscrg-nw.yaml      | 119 ++++
+> >  .../clock/starfive,jh8100-syscrg-sw.yaml      |  66 ++
+> >  .../clock/starfive,jh8100-syscrg.yaml         |  66 ++
+> >  MAINTAINERS                                   |  15 +
+> >  arch/riscv/boot/dts/starfive/jh8100-clk.dtsi  | 180 ++++++
+> >  arch/riscv/boot/dts/starfive/jh8100.dtsi      | 115 ++++
+> >  drivers/clk/starfive/Kconfig                  |  49 +-
+> >  drivers/clk/starfive/Makefile                 |   3 +-
+> >  drivers/clk/starfive/clk-starfive-common.c    | 327 ++++++++++
+> >  drivers/clk/starfive/clk-starfive-common.h    | 130 ++++
+> >  .../clk/starfive/clk-starfive-jh7100-audio.c  | 127 ++--
+> >  drivers/clk/starfive/clk-starfive-jh7100.c    | 503 ++++++++--------
+> >  .../clk/starfive/clk-starfive-jh7110-aon.c    |  62 +-
+> >  .../clk/starfive/clk-starfive-jh7110-isp.c    |  72 +--
+> >  .../clk/starfive/clk-starfive-jh7110-stg.c    |  94 +--
+> >  .../clk/starfive/clk-starfive-jh7110-sys.c    | 523 ++++++++--------
+> >  .../clk/starfive/clk-starfive-jh7110-vout.c   |  74 +--
+> >  drivers/clk/starfive/clk-starfive-jh7110.h    |   4 +-
+> >  drivers/clk/starfive/clk-starfive-jh71x0.c    | 327 ----------
+> >  drivers/clk/starfive/clk-starfive-jh71x0.h    | 123 ----
+> >  drivers/clk/starfive/jh8100/Makefile          |   7 +
+> >  drivers/clk/starfive/jh8100/clk-aon.c         | 275 +++++++++
+> >  .../clk/starfive/jh8100/clk-starfive-jh8100.h |  11 +
+> >  drivers/clk/starfive/jh8100/clk-sys-ne.c      | 566 ++++++++++++++++++
+> >  drivers/clk/starfive/jh8100/clk-sys-nw.c      | 268 +++++++++
+> >  drivers/clk/starfive/jh8100/clk-sys-sw.c      | 136 +++++
+> >  drivers/clk/starfive/jh8100/clk-sys.c         | 455 ++++++++++++++
+> >  drivers/reset/starfive/Kconfig                |  14 +-
+> >  drivers/reset/starfive/Makefile               |   4 +-
+> >  ...rfive-jh71x0.c => reset-starfive-common.c} |  68 +--
+> >  .../reset/starfive/reset-starfive-common.h    |  14 +
+> >  .../reset/starfive/reset-starfive-jh7100.c    |   4 +-
+> >  .../reset/starfive/reset-starfive-jh7110.c    |   8 +-
+> >  .../reset/starfive/reset-starfive-jh71x0.h    |  14 -
+> >  .../reset/starfive/reset-starfive-jh8100.c    | 102 ++++
+> >  .../dt-bindings/clock/starfive,jh8100-crg.h   | 430 +++++++++++++
+> >  .../dt-bindings/reset/starfive,jh8100-crg.h   | 127 ++++
+> >  ...rfive-jh71x0.h => reset-starfive-common.h} |  10 +-
+> >  40 files changed, 4485 insertions(+), 1242 deletions(-)
+> >  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-aoncrg.yaml
+> >  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-ne.yaml
+> >  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-nw.yaml
+> >  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg-sw.yaml
+> >  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-syscrg.yaml
 > >  create mode 100644 arch/riscv/boot/dts/starfive/jh8100-clk.dtsi
+> >  create mode 100644 drivers/clk/starfive/clk-starfive-common.c
+> >  create mode 100644 drivers/clk/starfive/clk-starfive-common.h
+> >  delete mode 100644 drivers/clk/starfive/clk-starfive-jh71x0.c
+> >  delete mode 100644 drivers/clk/starfive/clk-starfive-jh71x0.h
+> >  create mode 100644 drivers/clk/starfive/jh8100/Makefile
+> >  create mode 100644 drivers/clk/starfive/jh8100/clk-aon.c
+> >  create mode 100644 drivers/clk/starfive/jh8100/clk-starfive-jh8100.h
+> >  create mode 100644 drivers/clk/starfive/jh8100/clk-sys-ne.c
+> >  create mode 100644 drivers/clk/starfive/jh8100/clk-sys-nw.c
+> >  create mode 100644 drivers/clk/starfive/jh8100/clk-sys-sw.c
+> >  create mode 100644 drivers/clk/starfive/jh8100/clk-sys.c
+> >  rename drivers/reset/starfive/{reset-starfive-jh71x0.c => reset-starfive-common.c} (55%)
+> >  create mode 100644 drivers/reset/starfive/reset-starfive-common.h
+> >  delete mode 100644 drivers/reset/starfive/reset-starfive-jh71x0.h
+> >  create mode 100644 drivers/reset/starfive/reset-starfive-jh8100.c
+> >  create mode 100644 include/dt-bindings/clock/starfive,jh8100-crg.h
+> >  create mode 100644 include/dt-bindings/reset/starfive,jh8100-crg.h
+> >  rename include/soc/starfive/{reset-starfive-jh71x0.h => reset-starfive-common.h} (50%)
 > >
-> > diff --git a/arch/riscv/boot/dts/starfive/jh8100-clk.dtsi b/arch/riscv/boot/dts/starfive/jh8100-clk.dtsi
-> > new file mode 100644
-> > index 000000000000..27ba249f523e
-> > --- /dev/null
-> > +++ b/arch/riscv/boot/dts/starfive/jh8100-clk.dtsi
-> > @@ -0,0 +1,180 @@
-> > +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> > +/*
-> > + * Copyright (C) 2023 StarFive Technology Co., Ltd.
-> > + */
-> > +
-> > +/ {
-> > +	clk_osc: clk_osc {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <24000000>;
-> > +	};
-> > +
-> > +	clk_i2srx_bclk_ext: clk_i2srx_bclk_ext {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <12288000>;
-> > +	};
-> > +
-> > +	clk_i2srx_lrck_ext: clk_i2srx_lrck_ext {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <192000>;
-> > +	};
-> > +
-> > +	clk_mclk_ext: clk_mclk_ext {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <49152000>;
-> > +	};
-> > +	/* sys-ne */
-> > +	clk_usb3_tap_tck_ext: clk_usb3_tap_tck_ext {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <100000000>;
-> > +	};
-> > +
-> > +	clk_glb_ext_clk: clk_glb_ext_clk {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <30000000>;
-> > +	};
-> > +
-> > +	clk_usb1_tap_tck_ext: clk_usb1_tap_tck_ext {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <100000000>;
-> > +	};
-> > +
-> > +	clk_usb2_tap_tck_ext: clk_usb2_tap_tck_ext {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <100000000>;
-> > +	};
-> > +
-> > +	clk_i2s_tscko: clk_i2s_tscko {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <12800000>;
-> > +	};
-> > +
-> > +	clk_typec_tap_tck_ext: clk_typec_tap_tck_ext {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <100000000>;
-> > +	};
-> > +
-> > +	clk_spi_in0_ext: clk_spi_in0_ext {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <100000000>;
-> > +	};
-> > +
-> > +	clk_spi_in1_ext: clk_spi_in1_ext {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <100000000>;
-> > +	};
-> > +
-> > +	clk_spi_in2_ext: clk_spi_in2_ext {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <100000000>;
-> > +	};
-> > +
-> > +	clk_i2stx_bclk_ext: clk_i2stx_bclk_ext {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <12288000>;
-> > +	};
-> > +
-> > +	clk_i2stx_lrck_ext: clk_i2stx_lrck_ext {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <192000>;
-> > +	};
-> > +	/* sys-nw */
-> > +	clk_dvp_ext: clk_dvp_ext {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <150000000>;
-> > +	};
-> > +
-> > +	clk_isp_dphy_tap_tck_ext: clk_isp_dphy_tap_tck_ext {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <100000000>;
-> > +	};
-> > +
-> > +	clk_vout_mipi_dphy_tap_tck_ext: clk_vout_mipi_dphy_tap_tck_ext {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <100000000>;
-> > +	};
-> > +
-> > +	clk_vout_edp_tap_tck_ext: clk_vout_edp_tap_tck_ext {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <100000000>;
-> > +	};
-> > +
-> > +	clk_rtc: clk_rtc {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <32768>;
-> > +	};
-> > +	/* aon */
-> > +	clk_gmac0_rmii_func: clk_gmac0_rmii_func {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <50000000>;
-> > +	};
-> > +
-> > +	clk_gmac0_rgmii_func: clk_gmac0_rgmii_func {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <125000000>;
-> > +	};
-> > +
-> > +	clk_aon50: clk_aon50 {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <50000000>;
-> > +	};
-> > +
-> > +	clk_aon125: clk_aon125 {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <125000000>;
-> > +	};
-> > +
-> > +	clk_aon2000: clk_aon2000 {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <2000000000>;
-> > +	};
-> > +
-> > +	clk_aon200: clk_aon200 {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <200000000>;
-> > +	};
-> > +
-> > +	clk_aon667: clk_isp_aon667 {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <667000000>;
-> > +	};
-> > +
-> > +	clk_i3c_ext: clk_i3c_ext {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <12500000>;
-> > +	};
-> > +
-> > +	clk_espi_ext: clk_espi_ext {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <60000000>;
-> > +	};
-> > +};
-> > diff --git a/arch/riscv/boot/dts/starfive/jh8100.dtsi b/arch/riscv/boot/dts/starfive/jh8100.dtsi
-> > index f26aff5c1ddf..9863c61324a0 100644
-> > --- a/arch/riscv/boot/dts/starfive/jh8100.dtsi
-> > +++ b/arch/riscv/boot/dts/starfive/jh8100.dtsi
-> > @@ -4,6 +4,9 @@
-> >   */
-> >
-> >  /dts-v1/;
-> > +#include <dt-bindings/clock/starfive,jh8100-crg.h>
-> > +#include <dt-bindings/reset/starfive,jh8100-crg.h>
-> > +#include "jh8100-clk.dtsi"
-> >
-> >  / {
-> >  	compatible = "starfive,jh8100";
-> > @@ -357,6 +360,104 @@ uart4: serial@121a0000  {
-> >  			status = "disabled";
-> >  		};
-> >
-> > +		syscrg_ne: syscrg_ne@12320000 {
-> > +			compatible = "starfive,jh8100-syscrg-ne";
-> > +			reg = <0x0 0x12320000 0x0 0x10000>;
-> > +			clocks = <&clk_osc>, <&syscrg SYSCRG_CLK_AXI_400>,
-> > +				 <&syscrg SYSCRG_CLK_VOUT_ROOT0>,
-> > +				 <&syscrg SYSCRG_CLK_VOUT_ROOT1>,
-> > +				 <&syscrg SYSCRG_CLK_USB_WRAP_480>,
-> > +				 <&syscrg SYSCRG_CLK_USB_WRAP_625>,
-> > +				 <&syscrg SYSCRG_CLK_USB_WRAP_240>,
-> > +				 <&syscrg SYSCRG_CLK_USB_WRAP_60>,
-> > +				 <&syscrg SYSCRG_CLK_USB_WRAP_156P25>,
-> > +				 <&syscrg SYSCRG_CLK_USB_WRAP_312P5>,
-> > +				 <&syscrg SYSCRG_CLK_USB_125M>,
-> > +				 <&syscrg_nw SYSCRG_NW_CLK_GPIO_100>,
-> > +				 <&syscrg SYSCRG_CLK_PERH_ROOT>, <&syscrg SYSCRG_CLK_MCLK>,
-> > +				 <&syscrg SYSCRG_CLK_PERH_ROOT_PREOSC>,
-> > +				 <&syscrg SYSCRG_CLK_AHB0>,
-> > +				 <&syscrg SYSCRG_CLK_APB_BUS_PER1>,
-> > +				 <&syscrg SYSCRG_CLK_APB_BUS_PER2>,
-> > +				 <&syscrg SYSCRG_CLK_APB_BUS_PER3>,
-> > +				 <&syscrg SYSCRG_CLK_APB_BUS_PER5>,
-> > +				 <&syscrg SYSCRG_CLK_VENC_ROOT>,
-> > +				 <&syscrg SYSCRG_CLK_SPI_CORE_100>,
-> > +				 <&clk_glb_ext_clk>, <&clk_usb3_tap_tck_ext>,
-> > +				 <&clk_usb1_tap_tck_ext>, <&clk_usb2_tap_tck_ext>,
-> > +				 <&clk_typec_tap_tck_ext>, <&clk_spi_in0_ext>,
-> > +				 <&clk_spi_in1_ext>, <&clk_i2stx_bclk_ext>, <&clk_i2stx_lrck_ext>;
-> > +			clock-names = "clk_osc", "sys_clk_axi_400",
-> > +				      "sys_clk_vout_root0", "sys_clk_vout_root1",
-> > +				      "sys_clk_usb_wrap_480", "sys_clk_usb_wrap_625",
-> > +				      "sys_clk_usb_wrap_240", "sys_clk_usb_wrap_60",
-> > +				      "sys_clk_usb_wrap_156p25", "sys_clk_usb_wrap_312p5",
-> > +				      "sys_clk_usb_125m", "sys_nw_clk_gpio_100",
-> > +				      "sys_clk_perh_root", "sys_clk_mclk",
-> > +				      "sys_clk_perh_root_preosc", "sys_clk_ahb0",
-> > +				      "sys_clk_apb_bus_per1", "sys_clk_apb_bus_per2",
-> > +				      "sys_clk_apb_bus_per3", "sys_clk_apb_bus_per5",
-> > +				      "sys_clk_venc_root", "sys_clk_spi_core_100",
-> > +				      "clk_glb_ext_clk", "clk_usb3_tap_tck_ext",
-> > +				      "clk_usb1_tap_tck_ext", "clk_usb2_tap_tck_ext",
-> > +				      "clk_typec_tap_tck_ext", "clk_spi_in0_ext",
-> > +				      "clk_spi_in1_ext", "clk_i2stx_bclk_ext",
-> > +				      "clk_i2stx_lrck_ext";
-> > +			#clock-cells = <1>;
-> > +			#reset-cells = <1>;
-> > +		};
-> > +
-> > +		syscrg_nw: syscrg_nw@123c0000 {
-> > +			compatible = "starfive,jh8100-syscrg-nw";
-> > +			reg = <0x0 0x123c0000 0x0 0x10000>;
-> > +			clocks = <&clk_osc>, <&syscrg SYSCRG_CLK_APB_BUS>,
-> > +				 <&syscrg SYSCRG_CLK_ISP_2X>, <&syscrg SYSCRG_CLK_ISP_AXI>,
-> > +				 <&syscrg SYSCRG_CLK_VOUT_ROOT0>, <&syscrg SYSCRG_CLK_VOUT_ROOT1>,
-> > +				 <&syscrg SYSCRG_CLK_VOUT_SCAN_ATS>,
-> > +				 <&syscrg SYSCRG_CLK_VOUT_DC_CORE>, <&syscrg SYSCRG_CLK_VOUT_AXI>,
-> > +				 <&syscrg SYSCRG_CLK_AXI_400>, <&syscrg SYSCRG_CLK_AXI_200>,
-> > +				 <&syscrg SYSCRG_CLK_PERH_ROOT_PREOSC>,
-> > +				 <&clk_dvp_ext>, <&clk_isp_dphy_tap_tck_ext>,
-> > +				 <&clk_glb_ext_clk>, <&clk_i2s_tscko>,
-> > +				 <&clk_vout_mipi_dphy_tap_tck_ext>, <&clk_vout_edp_tap_tck_ext>,
-> > +				 <&clk_spi_in2_ext>;
-> > +			clock-names = "clk_osc", "sys_clk_apb_bus",
-> > +				      "sys_clk_isp_2x", "sys_clk_isp_axi",
-> > +				      "sys_clk_vout_root0", "sys_clk_vout_root1",
-> > +				      "sys_clk_vout_scan_ats", "sys_clk_vout_dc_core",
-> > +				      "sys_clk_vout_axi", "sys_clk_axi_400",
-> > +				      "sys_clk_axi_200", "sys_clk_perh_root_preosc", "clk_dvp_ext",
-> > +				      "clk_isp_dphy_tap_tck_ext", "clk_glb_ext_clk",
-> > +				      "clk_i2s_tscko", "clk_vout_mipi_dphy_tap_tck_ext",
-> > +				      "clk_vout_edp_tap_tck_ext", "clk_spi_in2_ext";
-> > +			#clock-cells = <1>;
-> > +			#reset-cells = <1>;
-> > +		};
-> > +
-> > +		syscrg: syscrg@126d0000 {
-> > +			compatible = "starfive,jh8100-syscrg";
-> > +			reg = <0x0 0x126d0000 0x0 0x10000>;
-> > +			clocks = <&clk_osc>, <&clk_i2srx_bclk_ext>,
-> > +				 <&clk_i2srx_lrck_ext>, <&clk_mclk_ext>;
-> > +			clock-names = "clk_osc", "clk_i2srx_bclk_ext",
-> > +				      "clk_i2srx_lrck_ext", "clk_mclk_ext";
-> > +			#clock-cells = <1>;
-> > +			#reset-cells = <1>;
-> > +		};
-> > +
-> > +		syscrg_sw: syscrg_sw@12720000 {
-> > +			compatible = "starfive,jh8100-syscrg-sw";
-> > +			reg = <0x0 0x12720000 0x0 0x10000>;
-> > +			clocks = <&syscrg SYSCRG_CLK_APB_BUS>,
-> > +				 <&syscrg SYSCRG_CLK_VDEC_ROOT>,
-> > +				 <&syscrg SYSCRG_CLK_FLEXNOC1>;
-> > +			clock-names = "sys_clk_apb_bus",
-> > +				      "sys_clk_vdec_root",
-> > +				      "sys_clk_flexnoc1";
-> > +			#clock-cells = <1>;
-> > +			#reset-cells = <1>;
-> > +		};
-> > +
-> >  		uart5: serial@127d0000  {
-> >  			compatible = "starfive,jh8100-uart", "cdns,uart-r1p8";
-> >  			reg = <0x0 0x127d0000 0x0 0x10000>;
-> > @@ -374,5 +475,19 @@ uart6: serial@127e0000  {
-> >  			interrupts = <73>;
-> >  			status = "disabled";
-> >  		};
-> > +
-> > +		aoncrg: aoncrg@1f310000 {
-> > +			compatible = "starfive,jh8100-aoncrg";
-> > +			reg = <0x0 0x1f310000 0x0 0x10000>;
-> > +			clocks = <&clk_osc>, <&clk_gmac0_rmii_func>,
-> > +				 <&clk_gmac0_rgmii_func>, <&clk_aon125>,
-> > +				 <&clk_aon2000>, <&clk_aon200>,
-> > +				 <&clk_aon667>, <&clk_rtc>;
-> > +			clock-names = "clk_osc", "clk_gmac0_rmii_func", "clk_gmac0_rgmii_func",
-> > +				      "clk_aon125", "clk_aon2000", "clk_aon200",
-> > +				      "clk_aon667", "clk_rtc";
-> > +			#clock-cells = <1>;
-> > +			#reset-cells = <1>;
-> > +		};
-> >  	};
-> >  };
 > > --
 > > 2.34.1
 > >
