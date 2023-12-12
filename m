@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E5B1C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 09:19:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 401A9C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 09:19:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6+M1nuXOsuddk1Z5aaWGw7X36W1sv81DICXH3ACtA3U=; b=u929irkNG0Q5w+
-	Z93F6e7WM+ihI+0gLHwGGd0wTIp0LVFRueiw57L5XJgYboCs7rp42hcpF2wBBlZt+k1Dpd3ZA4PLY
-	tKKTweT7Q0jaxG/EnrBzau4C+l1jx5gESKMVlieqYZSKWvUYKRx4RFTtZlKrVSkpgT8/M/7Dqy7IH
-	VOISldqe1iTx2KVxivUjPaBe9LzGHukIdEtNcJf2ZPKl68tWj4iyHQWE0jJbUq6wtIzAfXh7QBb69
-	8/RNsd+tKmbUqatXpYNL3oZP5iYpunN118DiTtSnrSN3P9HRS277StpKW+E8UKTZ2HEcCWxq+XFpi
-	m1DHOGpigyfEaEn/8RPw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GWMod1mz2D3xpSNfJ2D4Enfb2mMaKBt6rM9EBqzyS9Q=; b=b2/vqJi0LKmz1R
+	EJHcEL4QtVdfgDyMBKBSDOZ5WDSMjZR2R0wna3D2SjeH/GcsJGuUl4tUbmm0yhXxQbwiexGfBws7N
+	hZ9Hp8vz2Za2pnhFKkTzOPzeWSuqitSujYITZnd4EBCA/JZx7aqs3kzZg07fAnHNEAL1eSHoVgwX0
+	UeLdAa2W7sDyDw3CUOyYNcj8bURCg5JYMkOOkgq9s+QkC76JCV9Xw08kg9faq53o/APgOlHWzVR9Z
+	FItMioqdpw9fKZZtzRqaxLWenMbG2DIp3xNI41sXFxW1D3Y9a1kOZrYrWBPp0Ei6QMgmbI16444fA
+	W0Zfnm2Z1Z4dIzITRgmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCyv5-00B9Ew-22;
-	Tue, 12 Dec 2023 09:19:15 +0000
+	id 1rCyvI-00B9Jf-1E;
+	Tue, 12 Dec 2023 09:19:28 +0000
 Received: from mgamail.intel.com ([192.55.52.43])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCyv1-00B9DM-1v;
-	Tue, 12 Dec 2023 09:19:13 +0000
+	id 1rCyvE-00B9IE-1x;
+	Tue, 12 Dec 2023 09:19:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1702372751; x=1733908751;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=r1px4BsQs/X7Xgfx+BYJsYmJ0wM7HnTCh77HJxhuwZg=;
-  b=GCqiXSNObMIfEeYGqxSG47mnZdB2uZ0Z0YCglMjj4H7nzgAcBKeo7rDP
-   N+5wBhEPcdXNjCzOxsZNqheYrsMcsn3z6611YjZGqyUG0KY3WRge6zWeF
-   9OcdgnB62Or8UCrBodYW02Bg1StccETve0bA7mW6fv7DCo4jSZwZFzYEN
-   myjLc+ws41yN6tlgHxa9yINYpfY1jBm4RMfK2YesXD2HNJfZ50G5dO8eT
-   jJEqgL7X7dAH5TfQgqUhNI5sV47/jnOo7S4kUSDKWYTqCUOof0hc7eTgy
-   cTkeXohR1iAMCUsBowhGKqjDgLV8rwrSUWcOQHtjq8nJyWkYnEqpZw52A
-   g==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10921"; a="480974134"
+  t=1702372764; x=1733908764;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=QlPZW0GBZiFo9wZtaFy36OmisO9WZ283w6A3O/gJtXc=;
+  b=Zk7LtFjt7CYJYZk2W+XortbkzF5cYyl4qnmSYYZ2TzyZn96XWa7rsb8K
+   vKnrP3gNYSISgvJ58N55EziraKiYundikconMGVVTHqM3aSsqzsE5y02G
+   /rheTg41iUFXDMufTcABlI5gcu6692X4wNVyJKokKiheyJnK8esIlXZVr
+   NUtEjkcdwhqIB2LKVeSh1e+3OoBcedzlVZxrLXwyBTAiyITa4dOwKbOZD
+   lA5VPcOHgURCxvLKZy/eCGg9NdxEbfffBM+/J95lNbSjymMMKv9WQDuBU
+   m/qMFjDXy7vRDtPrGNmKVTCzNx751JUqH6Fhjx2pHOZ9puOeUkrmsQ7CQ
+   A==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10921"; a="480974179"
 X-IronPort-AV: E=Sophos;i="6.04,269,1695711600"; 
-   d="scan'208";a="480974134"
+   d="scan'208";a="480974179"
 Received: from fmsmga001.fm.intel.com ([10.253.24.23])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Dec 2023 01:19:08 -0800
+  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Dec 2023 01:19:23 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10921"; a="917212797"
+X-IronPort-AV: E=McAfee;i="6600,9927,10921"; a="917212848"
 X-IronPort-AV: E=Sophos;i="6.04,269,1695711600"; 
-   d="scan'208";a="917212797"
+   d="scan'208";a="917212848"
 Received: from haibo-optiplex-7090.sh.intel.com ([10.239.159.132])
-  by fmsmga001-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Dec 2023 01:19:00 -0800
+  by fmsmga001-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Dec 2023 01:19:15 -0800
 From: Haibo Xu <haibo1.xu@intel.com>
 To: 
 Cc: xiaobo55x@gmail.com,
 	haibo1.xu@intel.com,
 	ajones@ventanamicro.com,
+	Paolo Bonzini <pbonzini@redhat.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Paolo Bonzini <pbonzini@redhat.com>,
 	Shuah Khan <shuah@kernel.org>,
 	Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oliver.upton@linux.dev>,
@@ -68,20 +68,20 @@ Cc: xiaobo55x@gmail.com,
 	Anup Patel <anup@brainfault.org>,
 	Atish Patra <atishp@atishpatra.org>,
 	Guo Ren <guoren@kernel.org>,
-	Mayuresh Chitale <mchitale@ventanamicro.com>,
-	wchen <waylingii@gmail.com>,
-	Daniel Henrique Barboza <dbarboza@ventanamicro.com>,
 	Conor Dooley <conor.dooley@microchip.com>,
+	Mayuresh Chitale <mchitale@ventanamicro.com>,
+	Greentime Hu <greentime.hu@sifive.com>,
+	Daniel Henrique Barboza <dbarboza@ventanamicro.com>,
 	Samuel Holland <samuel@sholland.org>,
-	Minda Chen <minda.chen@starfivetech.com>,
 	Jisheng Zhang <jszhang@kernel.org>,
+	Minda Chen <minda.chen@starfivetech.com>,
 	Sean Christopherson <seanjc@google.com>,
-	Peter Xu <peterx@redhat.com>,
 	Like Xu <likexu@tencent.com>,
+	Peter Xu <peterx@redhat.com>,
 	Vipin Sharma <vipinsh@google.com>,
 	Aaron Lewis <aaronlewis@google.com>,
-	Thomas Huth <thuth@redhat.com>,
 	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
+	Thomas Huth <thuth@redhat.com>,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	kvm@vger.kernel.org,
@@ -89,14 +89,17 @@ Cc: xiaobo55x@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	kvm-riscv@lists.infradead.org
-Subject: [PATCH v4 00/11] RISCV: Add kvm Sstc timer selftests
-Date: Tue, 12 Dec 2023 17:31:09 +0800
-Message-Id: <cover.1702371136.git.haibo1.xu@intel.com>
+Subject: [PATCH v4 01/11] selftests/kvm: Fix issues with $(SPLIT_TESTS)
+Date: Tue, 12 Dec 2023 17:31:10 +0800
+Message-Id: <234ad46de32c345cb5b26212a27f0336ce0c9379.1702371136.git.haibo1.xu@intel.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1702371136.git.haibo1.xu@intel.com>
+References: <cover.1702371136.git.haibo1.xu@intel.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231212_011911_717781_31B60D61 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20231212_011924_654806_135A3098 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,64 +116,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The RISC-V arch_timer selftests is used to validate Sstc timer
-functionality in a guest, which sets up periodic timer interrupts
-and check the basic interrupt status upon its receipt.
+From: Paolo Bonzini <pbonzini@redhat.com>
 
-This KVM selftests was ported from aarch64 arch_timer and tested
-with Linux v6.7-rc4 on a Qemu riscv64 virt machine.
+From: Paolo Bonzini <pbonzini@redhat.com>
 
+The introduction of $(SPLIT_TESTS) also introduced a warning when
+building selftests on architectures that include get-reg-lists:
+
+    make: Entering directory '/root/kvm/tools/testing/selftests/kvm'
+    Makefile:272: warning: overriding recipe for target '/root/kvm/tools/testing/selftests/kvm/get-reg-list'
+    Makefile:267: warning: ignoring old recipe for target '/root/kvm/tools/testing/selftests/kvm/get-reg-list'
+    make: Leaving directory '/root/kvm/tools/testing/selftests/kvm'
+
+In addition, the rule for $(SPLIT_TESTS_TARGETS) includes _all_
+the $(SPLIT_TESTS_OBJS), which only works because there is just one.
+So fix both by adjusting the rules:
+
+- remove $(SPLIT_TESTS_TARGETS) from the $(TEST_GEN_PROGS) rules,
+  and rename it to $(SPLIT_TEST_GEN_PROGS)
+
+- fix $(SPLIT_TESTS_OBJS) so that it plays well with $(OUTPUT),
+  rename it to $(SPLIT_TEST_GEN_OBJ), and list the object file
+  explicitly in the $(SPLIT_TEST_GEN_PROGS) link rule
+
+Fixes: 17da79e009c3 ("KVM: arm64: selftests: Split get-reg-list test code", 2023-08-09)
+Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
+Tested-by: Andrew Jones <ajones@ventanamicro.com>
 ---
-Changed since v4:
-  * Rebased to Linux 6.7-rc4
-  * Included Paolo's patch(01/11) to fix issues with SPLIT_TESTS
-  * Droped the patch(KVM: selftests: Unify the makefile rule for split targets) 
-    since Paolo's patch had included the fix
-  * Added new patch(05/11) to include header file vdso/processor.h from linux
-    source tree to leverage the cpu_relax() definition - Conor/Andrew
-  * Added new patch(11/11) to enable user configuration of timer error margin
-    parameter which alleviate the intermitent failure in stress test - Andrew
-  * Other minor fixes per Andrew's comments
+ tools/testing/selftests/kvm/Makefile | 20 ++++++++++++--------
+ 1 file changed, 12 insertions(+), 8 deletions(-)
 
-Haibo Xu (10):
-  KVM: arm64: selftests: Split arch_timer test code
-  KVM: selftests: Add CONFIG_64BIT definition for the build
-  tools: riscv: Add header file csr.h
-  tools: riscv: Add header file vdso/processor.h
-  KVM: riscv: selftests: Switch to use macro from csr.h
-  KVM: riscv: selftests: Add exception handling support
-  KVM: riscv: selftests: Add guest helper to get vcpu id
-  KVM: riscv: selftests: Change vcpu_has_ext to a common function
-  KVM: riscv: selftests: Add sstc timer test
-  KVM: selftests: Enable tunning of err_margin_us in arch timer test
-
-Paolo Bonzini (1):
-  selftests/kvm: Fix issues with $(SPLIT_TESTS)
-
- tools/arch/riscv/include/asm/csr.h            | 521 ++++++++++++++++++
- tools/arch/riscv/include/asm/vdso/processor.h |  32 ++
- tools/testing/selftests/kvm/Makefile          |  27 +-
- .../selftests/kvm/aarch64/arch_timer.c        | 295 +---------
- tools/testing/selftests/kvm/arch_timer.c      | 259 +++++++++
- .../selftests/kvm/include/aarch64/processor.h |   4 -
- .../selftests/kvm/include/kvm_util_base.h     |   9 +
- .../selftests/kvm/include/riscv/arch_timer.h  |  71 +++
- .../selftests/kvm/include/riscv/processor.h   |  65 ++-
- .../testing/selftests/kvm/include/test_util.h |   2 +
- .../selftests/kvm/include/timer_test.h        |  45 ++
- .../selftests/kvm/lib/riscv/handlers.S        | 101 ++++
- .../selftests/kvm/lib/riscv/processor.c       |  87 +++
- .../testing/selftests/kvm/riscv/arch_timer.c  | 111 ++++
- .../selftests/kvm/riscv/get-reg-list.c        |  11 +-
- 15 files changed, 1333 insertions(+), 307 deletions(-)
- create mode 100644 tools/arch/riscv/include/asm/csr.h
- create mode 100644 tools/arch/riscv/include/asm/vdso/processor.h
- create mode 100644 tools/testing/selftests/kvm/arch_timer.c
- create mode 100644 tools/testing/selftests/kvm/include/riscv/arch_timer.h
- create mode 100644 tools/testing/selftests/kvm/include/timer_test.h
- create mode 100644 tools/testing/selftests/kvm/lib/riscv/handlers.S
- create mode 100644 tools/testing/selftests/kvm/riscv/arch_timer.c
-
+diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
+index 52c59bad7213..2200f06b740b 100644
+--- a/tools/testing/selftests/kvm/Makefile
++++ b/tools/testing/selftests/kvm/Makefile
+@@ -251,32 +251,36 @@ LIBKVM_C_OBJ := $(patsubst %.c, $(OUTPUT)/%.o, $(LIBKVM_C))
+ LIBKVM_S_OBJ := $(patsubst %.S, $(OUTPUT)/%.o, $(LIBKVM_S))
+ LIBKVM_STRING_OBJ := $(patsubst %.c, $(OUTPUT)/%.o, $(LIBKVM_STRING))
+ LIBKVM_OBJS = $(LIBKVM_C_OBJ) $(LIBKVM_S_OBJ) $(LIBKVM_STRING_OBJ)
+-SPLIT_TESTS_TARGETS := $(patsubst %, $(OUTPUT)/%, $(SPLIT_TESTS))
+-SPLIT_TESTS_OBJS := $(patsubst %, $(ARCH_DIR)/%.o, $(SPLIT_TESTS))
++SPLIT_TEST_GEN_PROGS := $(patsubst %, $(OUTPUT)/%, $(SPLIT_TESTS))
++SPLIT_TEST_GEN_OBJ := $(patsubst %, $(OUTPUT)/$(ARCH_DIR)/%.o, $(SPLIT_TESTS))
+ 
+ TEST_GEN_OBJ = $(patsubst %, %.o, $(TEST_GEN_PROGS))
+ TEST_GEN_OBJ += $(patsubst %, %.o, $(TEST_GEN_PROGS_EXTENDED))
+ TEST_DEP_FILES = $(patsubst %.o, %.d, $(TEST_GEN_OBJ))
+ TEST_DEP_FILES += $(patsubst %.o, %.d, $(LIBKVM_OBJS))
+-TEST_DEP_FILES += $(patsubst %.o, %.d, $(SPLIT_TESTS_OBJS))
++TEST_DEP_FILES += $(patsubst %.o, %.d, $(SPLIT_TEST_GEN_OBJ))
+ -include $(TEST_DEP_FILES)
+ 
+-$(TEST_GEN_PROGS) $(TEST_GEN_PROGS_EXTENDED): %: %.o
++x := $(shell mkdir -p $(sort $(OUTPUT)/$(ARCH_DIR) $(dir $(LIBKVM_C_OBJ) $(LIBKVM_S_OBJ))))
++
++$(filter-out $(SPLIT_TEST_GEN_PROGS), $(TEST_GEN_PROGS)) \
++$(TEST_GEN_PROGS_EXTENDED): %: %.o
+ 	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) $< $(LIBKVM_OBJS) $(LDLIBS) -o $@
+ $(TEST_GEN_OBJ): $(OUTPUT)/%.o: %.c
+ 	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c $< -o $@
+ 
+-$(SPLIT_TESTS_TARGETS): %: %.o $(SPLIT_TESTS_OBJS)
++$(SPLIT_TEST_GEN_PROGS): $(OUTPUT)/%: $(OUTPUT)/%.o $(OUTPUT)/$(ARCH_DIR)/%.o
+ 	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) $^ $(LDLIBS) -o $@
++$(SPLIT_TEST_GEN_OBJ): $(OUTPUT)/$(ARCH_DIR)/%.o: $(ARCH_DIR)/%.c
++	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c $< -o $@
+ 
+ EXTRA_CLEAN += $(GEN_HDRS) \
+ 	       $(LIBKVM_OBJS) \
+-	       $(SPLIT_TESTS_OBJS) \
++	       $(SPLIT_TEST_GEN_OBJ) \
+ 	       $(TEST_DEP_FILES) \
+ 	       $(TEST_GEN_OBJ) \
+ 	       cscope.*
+ 
+-x := $(shell mkdir -p $(sort $(dir $(LIBKVM_C_OBJ) $(LIBKVM_S_OBJ))))
+ $(LIBKVM_C_OBJ): $(OUTPUT)/%.o: %.c $(GEN_HDRS)
+ 	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c $< -o $@
+ 
+@@ -290,7 +294,7 @@ $(LIBKVM_STRING_OBJ): $(OUTPUT)/%.o: %.c
+ 	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c -ffreestanding $< -o $@
+ 
+ x := $(shell mkdir -p $(sort $(dir $(TEST_GEN_PROGS))))
+-$(SPLIT_TESTS_OBJS): $(GEN_HDRS)
++$(SPLIT_TEST_GEN_OBJ): $(GEN_HDRS)
+ $(TEST_GEN_PROGS): $(LIBKVM_OBJS)
+ $(TEST_GEN_PROGS_EXTENDED): $(LIBKVM_OBJS)
+ $(TEST_GEN_OBJ): $(GEN_HDRS)
 -- 
 2.34.1
 
