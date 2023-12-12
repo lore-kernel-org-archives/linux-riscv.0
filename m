@@ -4,62 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDED8C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 15:21:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B285C4167B
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 15:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gIIG0adCRpvjjx8LyKVWmP2aSr9NlFzOAmfLYR6Z3vk=; b=ARj/x1njvchMo4zFonore7UUX1
-	PYAhg/YuIB1u3JXyz6g3lqUV7U9QQtOj9nzVAwYXVWSB3ktg2+Uolt1zKY3TYJOu2AuSvYgGQhZfW
-	zUKiThOs8gB9xXS6rTXYCuUdC5p5QOPDZzmpXT2xBK638ihn4Q6r63099SxCL+5dxtet/8HJw5Xq3
-	3ENTyROU9Yo3LPziMk65xMgouIyLldPz4ln1WBLVkGMf/svYFIeSSqT8Edde30QsFv4f3RVMZGKuX
-	FVbkHWBcrjfE5fud26x3ln8J2HhRxHkdjZM8V87XkD+PteIunITip1i143tCx9BbEXFUJf6Fg1aJJ
-	aWDzA7wg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=hKL6HSunaCmdl292IAn5Owjk/kvRA/eRPgrBoXnw3IU=; b=Shpn0lUsD6LDNa5mStqUla2uww
+	VTugPuKx8Qrle7M5j+zMis5zhiddF1zm4OkbXwr6bPOY5zmUdtpxAj16lCken8V27dvjOf6nXldb6
+	2r0ay2wYOZGUwcqySeZ1nSoJMqD1TPt31AxfIOfrg3fnrbIdH1t07S6vZDhts+69RiKzb6izDsBWq
+	Z35Db2v6eh+fNPfOLlgs2joFcrMHWlftmTwD9sG9ODwoIEYaA+eLpneE6i9llBLlRkVvixN4BY0QN
+	k5Rfizy7veOHAvc8h4q6udmLOXclby0V1PvA22U76qld7om19iSA/qVv8lXWm326NoTHv1kXAMLTf
+	yy/VVtfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rD4ZN-00C1nf-01;
-	Tue, 12 Dec 2023 15:21:13 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1rD4gx-00C4T5-0M;
+	Tue, 12 Dec 2023 15:29:03 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rD4ZL-00C1mb-0F
+	id 1rD4gt-00C4Pp-28
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Dec 2023 15:21:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id BC4FFB81736;
-	Tue, 12 Dec 2023 15:21:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 413F7C433CD;
-	Tue, 12 Dec 2023 15:21:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1702394469;
-	bh=fPuUDXbvyQcdlGJVGtxadUQq7xMHYvrITxb/nuVFpzc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pEfIG+fp3V3eVe8VWoQtmtv+FXpOuNu3/MG6SEfZZ+KyCRN04C+P7+erYFvaQTgu9
-	 eFPz0FROSykUvwNHpaprw6hk/xBHZSUxxTMeNeeFuGVg9fqOVwA6eRSAzr5D0ez7lS
-	 3LKTuyn3OiGjvvCai7cPIr+AvhERotkqxzy2y8duCmo1F2SyuVevlyU/SdcrJBs+y+
-	 fB1SptobaXSXxZ9of5YqHPKZW5qEA8zl+nnvZ6Yo1pmfdRArJx7NpFLopx40DOXhrf
-	 24VPA4wdHtUwSiwBWsw5lljmlcASYmQSa71ZEL2gZ69mu+LMtwe0MPIT4VTGOETttN
-	 ZEnEiZkxpELPA==
-Date: Tue, 12 Dec 2023 15:21:04 +0000
-From: Conor Dooley <conor@kernel.org>
-To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>, lkp@intel.com,
-	linux-mm@kvack.org, linux@weissschuh.net, llvm@lists.linux.dev,
-	mcgrof@kernel.org, oe-kbuild-all@lists.linux.dev,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH -next] drivers: perf: Fix build error by adding const to
- ctl_table argument of handler
-Message-ID: <20231212-garage-pellet-c6a2bd34854c@spud>
-References: <202312062242.RFPPozG9-lkp@intel.com>
- <20231207083512.51792-1-alexghiti@rivosinc.com>
- <877cljsbes.fsf@all.your.base.are.belong.to.us>
-MIME-Version: 1.0
-In-Reply-To: <877cljsbes.fsf@all.your.base.are.belong.to.us>
+	Tue, 12 Dec 2023 15:29:01 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-dbc68661060so3373181276.2
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Dec 2023 07:28:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1702394936; x=1702999736; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ESTPXNxaOVzfRXXRx0Fvol8yzry2uxBEEuLKqef2q4U=;
+        b=Dt/H0yK8unMdVoq1+x9uqmfU8kzDSf2AgFWvcmD/ixGhew/qy0qUsEDobO69gfj6w0
+         fSzTciy6btyV/No+myo8ggiA8liabWxeoIiLBHMpe0C9PLboil3uVBBBGts+60laPK7S
+         TIlk7MExVsLTCZ5ONl6O9nnp+jmQf2o/UpnZK145WGTdm2ehsto1blSgwNml9qvAk2as
+         VtxjOij0pvFTeKMb+6hKGhpK5Vxc1+HfH1/N3zCSjXcmaCqpd1auWx2bPI2WeqRhQdH/
+         j7sUZj4WUJkJglDMr5FRyTggZdP891uIc2Vj6B4Tu8nTwZTg8CgxLFI0Y3JU6MeNaGFJ
+         M/Qw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1702394936; x=1702999736;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ESTPXNxaOVzfRXXRx0Fvol8yzry2uxBEEuLKqef2q4U=;
+        b=NGYf4lqvAdIhTa/HsI92fjdMQpTAbRlHNxjCkqogM1BquULjzdUIwwdfhUB/DnfSnW
+         h/lS8T/4kR9eQrF822LnrCkG+dfPKj9m++nYGtodoaUvn0XDS4qOfnC+xBWtMC+gQVN1
+         u8Rpu1sPkB2aeJWsxIO+omxgNdACmNBlUKpqNtFQttMuw7jsf3Dr/vV6M8L6iUc+nQ40
+         lj78GZA+KFPnfE+jwtzHN4sA09RG/AMLdniq4cE8f6WflT7GJ7rfsx2/diUuQGcrvDxm
+         qMnb5SEi2yEG21DZtrnqozhKNZLzET0CKrcC7MV+q4uyLwEjqyrwbBmfH+kSv30u1M+J
+         ERiw==
+X-Gm-Message-State: AOJu0YxHlhofMi9VU8/J+G6UuRYg5JwEk/28/nEwyScTJ3hFImg1n3lb
+	pdNOw4TLVaVdbGQIUcvw7o0oEsXzJiM=
+X-Google-Smtp-Source: AGHT+IHBX6jt6VDhWuABWGol0Nx+Ii84S8r8nT9g/gNamSIHnZwQhzhs+bFmpCR2BuKO/hKALNdpvESE74w=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a25:db94:0:b0:db4:7ac:fea6 with SMTP id
+ g142-20020a25db94000000b00db407acfea6mr41805ybf.7.1702394935890; Tue, 12 Dec
+ 2023 07:28:55 -0800 (PST)
+Date: Tue, 12 Dec 2023 07:28:54 -0800
+In-Reply-To: <CALMp9eTT97oDmQT7pxeOMLQbt-371aMtC2Kev+-kWXVRDVrjeg@mail.gmail.com>
+Mime-Version: 1.0
+References: <20220921003201.1441511-11-seanjc@google.com> <20231207010302.2240506-1-jmattson@google.com>
+ <ZXHw7tykubfG04Um@google.com> <CALMp9eTT97oDmQT7pxeOMLQbt-371aMtC2Kev+-kWXVRDVrjeg@mail.gmail.com>
+Message-ID: <ZXh8Nq_y_szj1WN0@google.com>
+Subject: Re: [PATCH v4 10/12] KVM: x86: never write to memory from kvm_vcpu_check_block()
+From: Sean Christopherson <seanjc@google.com>
+To: Jim Mattson <jmattson@google.com>
+Cc: alexandru.elisei@arm.com, anup@brainfault.org, aou@eecs.berkeley.edu, 
+	atishp@atishpatra.org, borntraeger@linux.ibm.com, chenhuacai@kernel.org, 
+	david@redhat.com, frankja@linux.ibm.com, imbrenda@linux.ibm.com, 
+	james.morse@arm.com, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, maz@kernel.org, mlevitsk@redhat.com, 
+	oliver.upton@linux.dev, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	pbonzini@redhat.com, suzuki.poulose@arm.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231212_072111_246974_FDC060E5 
-X-CRM114-Status: GOOD (  17.98  )
+X-CRM114-CacheID: sfid-20231212_072859_698619_BBEF9938 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,94 +93,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2232470990769674520=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============2232470990769674520==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="u+TMTYDuzJdAB5mY"
-Content-Disposition: inline
-
-
---u+TMTYDuzJdAB5mY
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Dec 12, 2023 at 04:11:55PM +0100, Bj=F6rn T=F6pel wrote:
-> Alexandre Ghiti <alexghiti@rivosinc.com> writes:
->=20
-> > The ctl_table argument of the proc_handler field was constified treewide
-> > but somehow missed the occurrence in the riscv pmu sbi driver, so add t=
-he
-> > const to fix the build error.
-> >
-> > Reported-by: kernel test robot <lkp@intel.com>
-> > Closes: https://lore.kernel.org/oe-kbuild-all/202312062242.RFPPozG9-lkp=
-@intel.com/
-> > Fixes: c8be9e66ca1e ("sysctl: treewide: constify the ctl_table argument=
- of handlers")
-> > Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> > ---
-> >  drivers/perf/riscv_pmu_sbi.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> > index 16acd4dcdb96..97e345f7d25d 100644
-> > --- a/drivers/perf/riscv_pmu_sbi.c
-> > +++ b/drivers/perf/riscv_pmu_sbi.c
-> > @@ -986,7 +986,7 @@ static void riscv_pmu_update_counter_access(void *i=
-nfo)
-> >  		csr_write(CSR_SCOUNTEREN, 0x2);
-> >  }
-> > =20
-> > -static int riscv_pmu_proc_user_access_handler(struct ctl_table *table,
-> > +static int riscv_pmu_proc_user_access_handler(const struct ctl_table *=
-table,
-> >  					      int write, void *buffer,
-> >  					      size_t *lenp, loff_t *ppos)
->=20
-> Adding linux-riscv.
->=20
-> Reviewed-by: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
-
-There's already a patch for this:
-https://lore.kernel.org/linux-riscv/20231206084642.802053-1-m.szyprowski@sa=
-msung.com/
-
-The maintainer of the tree with the broken patch (Luis) has not deigned to
-pick it up yet unfortunately. It can't go into Palmer's tree cos it will
-break the build if applied there.
-
-Cheers,
-Conor.
-
---u+TMTYDuzJdAB5mY
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZXh6YAAKCRB4tDGHoIJi
-0rA3AP45hqW77ceWdDa3OBX5lwstdHr3WTXrkkHheKfXIwqn3QEAnEtNdsZN1rp1
-dMhZ39fGppXobCP3M3OQjxQjrt3cjQs=
-=f5mp
------END PGP SIGNATURE-----
-
---u+TMTYDuzJdAB5mY--
-
-
---===============2232470990769674520==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2232470990769674520==--
-
+T24gU3VuLCBEZWMgMTAsIDIwMjMsIEppbSBNYXR0c29uIHdyb3RlOgo+IE9uIFRodSwgRGVjIDcs
+IDIwMjMgYXQgODoyMeKAr0FNIFNlYW4gQ2hyaXN0b3BoZXJzb24gPHNlYW5qY0Bnb29nbGUuY29t
+PiB3cm90ZToKPiA+IERvaC4gIFdlIGdvdCB0aGUgbGVzcyBvYnZpb3VzIGNhc2VzIGFuZCBtaXNz
+ZWQgdGhlIG9idmlvdXMgb25lLgo+ID4KPiA+IFVnaCwgYW5kIHdlIGFsc28gbWlzc2VkIGEgcmVs
+YXRlZCBtZXNzIGluIGt2bV9ndWVzdF9hcGljX2hhc19pbnRlcnJ1cHQoKS4gIFRoYXQKPiA+IHRo
+aW5nIHNob3VsZCByZWFsbHkgYmUgZm9sZGVkIGludG8gdm14X2hhc19uZXN0ZWRfZXZlbnRzKCku
+Cj4gPgo+ID4gR29vZCBncmF2eS4gIEFuZCB2bXhfaW50ZXJydXB0X2Jsb2NrZWQoKSBkb2VzIHRo
+ZSB3cm9uZyB0aGluZyBiZWNhdXNlIHRoYXQKPiA+IHNwZWNpZmljYWxseSBjaGVja3MgaWYgTDEg
+aW50ZXJydXB0cyBhcmUgYmxvY2tlZC4KPiA+Cj4gPiBDb21waWxlIHRlc3RlZCBvbmx5LCBhbmQg
+ZGVmaW5pdGVseSBuZWVkcyB0byBiZSBjaHVua2VkIGludG8gbXVsdGlwbGUgcGF0Y2hlcywKPiA+
+IGJ1dCBJIHRoaW5rIHNvbWV0aGluZyBsaWtlIHRoaXMgbWVzcz8KPiAKPiBUaGUgcHJvcG9zZWQg
+cGF0Y2ggZG9lcyBub3QgZml4IHRoZSBwcm9ibGVtLiBJbiBmYWN0LCBpdCBtZXNzZXMgdGhpbmdz
+Cj4gdXAgc28gbXVjaCB0aGF0IEkgZG9uJ3QgZ2V0IGFueSB0ZXN0IHJlc3VsdHMgYmFjay4KCkRy
+YXQuCgo+IEdvb2dsZSBoYXMgYW4gaW50ZXJuYWwgSy1VLVQgdGVzdCB0aGF0IGRlbW9uc3RyYXRl
+cyB0aGUgcHJvYmxlbS4gSQo+IHdpbGwgcG9zdCBpdCBzb29uLgoKUmVjZWl2ZWQsIEknbGwgZGln
+IGluIHNvb25pc2gsIHRob3VnaCAic29vbmlzaCIgbWlnaHQgdW5mb3J0dW5hdGVseSBtaWdodCBt
+ZWFuCjIwMjQuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
