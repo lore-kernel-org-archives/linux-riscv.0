@@ -4,80 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32CFBC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 00:47:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AC85C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 00:48:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i0lAwbU9m3jtgyDKakPSECoqojXGB+PwfaDZ5lX7eQo=; b=KwKYaamCyuzav1
-	9wnoyfBX2P0llqVSfBDxBSfotj5+1g1TCaLKO5RcUXCzORtAmzBavhmoKzNqu6V1xM2HfR2Edycge
-	A1TOjBCMgZbub7tl0wn6KkaDoIWsQ+QYsAZACmfJNUg1SOZEE43FPskK3IfkmAsQTKHKIJggKevR5
-	GCHpHnIsnVJelgEvayX245EWLuj/iM9RcWB5Utk7VqZpyICprilINxI8lyLzrViHUZtgP1nk7Rwkn
-	IQNYTMSe1jLYVX2ZQG1EwRi8bLfjI2QLUap+d6eJSkldI0uJ8G3B4kGJIKMcK+8cgBmvQNzJkwnCn
-	a6bFuPvFAuylVhe7eV+Q==;
+	List-Owner; bh=QwMyTsNchobYZK0GiwkZ2ePy8OZgfwBfEJ66VHScHqo=; b=DyWjvvmsoobF+Y
+	0CtoB/5lE7P6MQOXX1KsRn0EO7gJK21eFFTwrmyoSagiyJWGVPag2yrmLPfEyuyk+9+VGpJm2gkG6
+	TfwgyTXj/vYbSOVmxuMzu4HcylWO8XtAxFIJ4i0kFYOvvWtgGCxjaq1yyPrFPR/7kYAFXNFNpT2+d
+	GMiMyhAvxNiOG+y/+ogyqKGb68xAYqEEt0yLMfh7cfmSZf84x91WQRohl3dkPFYrDhDbfD67au2DI
+	YcvaMVNgIQH7h9dekTMLF3istXgv1omUx0oIF6lfFtrr399DQadE9fWCwIR6wK9anaz+ef4b2YlW1
+	n9XyjN7EBRVtAhU7pRew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCqvQ-00AOjN-32;
-	Tue, 12 Dec 2023 00:47:04 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCqvM-00AOho-0E
+	id 1rCqww-00AOoW-08;
+	Tue, 12 Dec 2023 00:48:38 +0000
+Received: from mgamail.intel.com ([134.134.136.126])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1rCqwp-00AOnu-0v
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Dec 2023 00:47:03 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 698E424E199;
-	Tue, 12 Dec 2023 08:46:23 +0800 (CST)
-Received: from EXMBX071.cuchost.com (172.16.6.81) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 12 Dec
- 2023 08:46:23 +0800
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX071.cuchost.com
- (172.16.6.81) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 12 Dec
- 2023 08:46:22 +0800
-Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
- EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
- 15.00.1497.044; Tue, 12 Dec 2023 08:46:22 +0800
-From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	"kernel@esmil.dk" <kernel@esmil.dk>, "conor@kernel.org" <conor@kernel.org>,
-	"robh+dt@kernel.org" <robh+dt@kernel.org>,
-	"krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, "palmer@dabbelt.com"
-	<palmer@dabbelt.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"mturquette@baylibre.com" <mturquette@baylibre.com>, "sboyd@kernel.org"
-	<sboyd@kernel.org>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, "Hal
- Feng" <hal.feng@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>
-CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>, Leyfoon Tan
-	<leyfoon.tan@starfivetech.com>
-Subject: RE: [PATCH v1 06/16] clk: starfive: Add JH8100 System clock generator
- driver
-Thread-Topic: [PATCH v1 06/16] clk: starfive: Add JH8100 System clock
- generator driver
-Thread-Index: AQHaKDp8qa+gHWDJHkGDh0MGWRuwVrCfD58AgAXCtdA=
-Date: Tue, 12 Dec 2023 00:46:22 +0000
-Message-ID: <9ae86c6786bc4ac7b93c971ba00084a6@EXMBX066.cuchost.com>
-References: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
- <20231206115000.295825-7-jeeheng.sia@starfivetech.com>
- <CAJM55Z_VgBGvCPuvwmQahMcMfuWKnOKpZ9bBbbhei_Teu5Apeg@mail.gmail.com>
-In-Reply-To: <CAJM55Z_VgBGvCPuvwmQahMcMfuWKnOKpZ9bBbbhei_Teu5Apeg@mail.gmail.com>
-Accept-Language: en-US, zh-CN
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [202.188.176.82]
-x-yovoleruleagent: yovoleflag
+	Tue, 12 Dec 2023 00:48:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1702342111; x=1733878111;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=jQOI600A4meekimHAfIuWHVBDyEa00WuwZPad0eKMYw=;
+  b=m+NjzUQf7xSZECzti+0y/XKF10b79k+hA8NyKZV5lFOqCQurvF34IAU0
+   cRZVR0s8sR/RqydA1ifRbUNzfVmiEF68gNJA6Zn8vtpp3GiJ9ZQbKMa4a
+   EVNS1peIhZRgd5ZIBfu6NeSFGUPmOSdUG9by9d7oJMdzWbFvDk6Yn7SzR
+   mSV2t8Zw2y06tY3rmgwM4IdQMhXqxu4c0LlfRqddR0r+oUWgAeaxMucqE
+   x+dweiKfcBzV7cYOU0wSIQMROMb9yB2g4oCqq/X+g09JTCr6ijy4PZpgH
+   s7iYQdNXlu3OQM50zA49K5yCUuqWaaahr49HZGhEMQV1Nahb0nmeU3J1f
+   g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10921"; a="379729784"
+X-IronPort-AV: E=Sophos;i="6.04,269,1695711600"; 
+   d="scan'208";a="379729784"
+Received: from fmsmga005.fm.intel.com ([10.253.24.32])
+  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Dec 2023 16:48:28 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10921"; a="1104690469"
+X-IronPort-AV: E=Sophos;i="6.04,269,1695711600"; 
+   d="scan'208";a="1104690469"
+Received: from lkp-server02.sh.intel.com (HELO b07ab15da5fe) ([10.239.97.151])
+  by fmsmga005.fm.intel.com with ESMTP; 11 Dec 2023 16:48:25 -0800
+Received: from kbuild by b07ab15da5fe with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1rCqwh-000IcZ-2L;
+	Tue, 12 Dec 2023 00:48:23 +0000
+Date: Tue, 12 Dec 2023 08:48:16 +0800
+From: kernel test robot <lkp@intel.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	syzbot+afb726d49f84c8d95ee1@syzkaller.appspotmail.com
+Subject: Re: [PATCH -fixes] riscv: Fix wrong usage of lm_alias() when
+ splitting a huge linear mapping
+Message-ID: <202312120825.UkTJCa1g-lkp@intel.com>
+References: <20231211141929.74027-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20231211141929.74027-1-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231211_164700_675081_3FFE7D0D 
-X-CRM114-Status: GOOD (  32.51  )
+X-CRM114-CacheID: sfid-20231211_164831_392554_DD5DB1D9 
+X-CRM114-Status: GOOD (  17.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,442 +90,170 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Alexandre,
+
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on linus/master]
+[also build test WARNING on v6.7-rc5 next-20231211]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Alexandre-Ghiti/riscv-Fix-wrong-usage-of-lm_alias-when-splitting-a-huge-linear-mapping/20231211-222156
+base:   linus/master
+patch link:    https://lore.kernel.org/r/20231211141929.74027-1-alexghiti%40rivosinc.com
+patch subject: [PATCH -fixes] riscv: Fix wrong usage of lm_alias() when splitting a huge linear mapping
+config: riscv-alldefconfig (https://download.01.org/0day-ci/archive/20231212/202312120825.UkTJCa1g-lkp@intel.com/config)
+compiler: clang version 17.0.0 (https://github.com/llvm/llvm-project.git 4a5ac14ee968ff0ad5d2cc1ffa0299048db4c88a)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20231212/202312120825.UkTJCa1g-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202312120825.UkTJCa1g-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> arch/riscv/mm/pageattr.c:311:14: warning: variable 'ret' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+     311 |                 } else if (is_linear_mapping(start)) {
+         |                            ^~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/page.h:130:2: note: expanded from macro 'is_linear_mapping'
+     130 |         ((x) >= PAGE_OFFSET && (!IS_ENABLED(CONFIG_64BIT) || (x) < PAGE_OFFSET + KERN_VIRT_SIZE))
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/mm/pageattr.c:348:9: note: uninitialized use occurs here
+     348 |         return ret;
+         |                ^~~
+   arch/riscv/mm/pageattr.c:311:10: note: remove the 'if' if its condition is always true
+     311 |                 } else if (is_linear_mapping(start)) {
+         |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     312 |                         lm_start = start;
+     313 |                         lm_end = end;
+     314 |                 } else {
+         |                  ~~~~~~~
+     315 |                         goto unlock;
+         | ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     316 |                 }
+         | ~~~~~~~~~~~~~~~~~
+>> arch/riscv/mm/pageattr.c:311:14: warning: variable 'ret' is used uninitialized whenever '&&' condition is false [-Wsometimes-uninitialized]
+     311 |                 } else if (is_linear_mapping(start)) {
+         |                            ^~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/page.h:130:3: note: expanded from macro 'is_linear_mapping'
+     130 |         ((x) >= PAGE_OFFSET && (!IS_ENABLED(CONFIG_64BIT) || (x) < PAGE_OFFSET + KERN_VIRT_SIZE))
+         |          ^~~~~~~~~~~~~~~~~~
+   arch/riscv/mm/pageattr.c:348:9: note: uninitialized use occurs here
+     348 |         return ret;
+         |                ^~~
+   arch/riscv/mm/pageattr.c:311:14: note: remove the '&&' if its condition is always true
+     311 |                 } else if (is_linear_mapping(start)) {
+         |                            ^
+   arch/riscv/include/asm/page.h:130:3: note: expanded from macro 'is_linear_mapping'
+     130 |         ((x) >= PAGE_OFFSET && (!IS_ENABLED(CONFIG_64BIT) || (x) < PAGE_OFFSET + KERN_VIRT_SIZE))
+         |          ^
+   arch/riscv/mm/pageattr.c:265:9: note: initialize the variable 'ret' to silence this warning
+     265 |         int ret;
+         |                ^
+         |                 = 0
+   2 warnings generated.
 
 
-> -----Original Message-----
-> From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-> Sent: Saturday, December 9, 2023 12:25 AM
-> To: JeeHeng Sia <jeeheng.sia@starfivetech.com>; kernel@esmil.dk; conor@kernel.org; robh+dt@kernel.org;
-> krzysztof.kozlowski+dt@linaro.org; paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu;
-> mturquette@baylibre.com; sboyd@kernel.org; p.zabel@pengutronix.de; emil.renner.berthing@canonical.com; Hal Feng
-> <hal.feng@starfivetech.com>; Xingyu Wu <xingyu.wu@starfivetech.com>
-> Cc: linux-riscv@lists.infradead.org; devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-clk@vger.kernel.org; Leyfoon Tan
-> <leyfoon.tan@starfivetech.com>
-> Subject: Re: [PATCH v1 06/16] clk: starfive: Add JH8100 System clock generator driver
-> 
-> Sia Jee Heng wrote:
-> > Add support for JH8100 System clock generator.
-> >
-> > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-> > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-> > ---
-> >  MAINTAINERS                                   |   8 +
-> >  drivers/clk/starfive/Kconfig                  |   9 +
-> >  drivers/clk/starfive/Makefile                 |   1 +
-> >  drivers/clk/starfive/clk-starfive-common.h    |   9 +-
-> >  drivers/clk/starfive/jh8100/Makefile          |   3 +
-> >  .../clk/starfive/jh8100/clk-starfive-jh8100.h |  11 +
-> >  drivers/clk/starfive/jh8100/clk-sys.c         | 455 ++++++++++++++++++
-> >  7 files changed, 495 insertions(+), 1 deletion(-)
-> >  create mode 100644 drivers/clk/starfive/jh8100/Makefile
-> >  create mode 100644 drivers/clk/starfive/jh8100/clk-starfive-jh8100.h
-> >  create mode 100644 drivers/clk/starfive/jh8100/clk-sys.c
-> >
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index 788be9ab5b73..87bcb25becc1 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -20763,6 +20763,14 @@ F:	Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
-> >  F:	drivers/phy/starfive/phy-jh7110-pcie.c
-> >  F:	drivers/phy/starfive/phy-jh7110-usb.c
-> >
-> > +STARFIVE JH8100 CLOCK DRIVERS
-> > +M:	Sia Jee Heng <jeeheng.sia@starfivetech.com>
-> > +M:	Ley Foon Tan <leyfoon.tan@starfivetech.com>
-> > +S:	Maintained
-> > +F:	Documentation/devicetree/bindings/clock/starfive,jh81*.yaml
-> > +F:	drivers/clk/starfive/jh8100
-> > +F:	include/dt-bindings/clock/starfive?jh81*.h
-> > +
-> >  STATIC BRANCH/CALL
-> >  M:	Peter Zijlstra <peterz@infradead.org>
-> >  M:	Josh Poimboeuf <jpoimboe@kernel.org>
-> > diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
-> > index ff8eace36e64..d8c7b9bb3895 100644
-> > --- a/drivers/clk/starfive/Kconfig
-> > +++ b/drivers/clk/starfive/Kconfig
-> > @@ -72,3 +72,12 @@ config CLK_STARFIVE_JH7110_VOUT
-> >  	help
-> >  	  Say yes here to support the Video-Output clock controller
-> >  	  on the StarFive JH7110 SoC.
-> > +
-> > +config CLK_STARFIVE_JH8100_SYS
-> > +	bool "StarFive JH8100 System clock support"
-> > +	depends on SOC_STARFIVE || COMPILE_TEST
-> > +	select AUXILIARY_BUS
-> > +	select CLK_STARFIVE_COMMON
-> > +	default ARCH_STARFIVE
-> > +	help
-> > +	  Say yes here to support the System clock controller on the StarFive JH8100 SoC.
-> > diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
-> > index 012f7ee83f8e..6cb3ce823330 100644
-> > --- a/drivers/clk/starfive/Makefile
-> > +++ b/drivers/clk/starfive/Makefile
-> > @@ -10,3 +10,4 @@ obj-$(CONFIG_CLK_STARFIVE_JH7110_AON)	+= clk-starfive-jh7110-aon.o
-> >  obj-$(CONFIG_CLK_STARFIVE_JH7110_STG)	+= clk-starfive-jh7110-stg.o
-> >  obj-$(CONFIG_CLK_STARFIVE_JH7110_ISP)	+= clk-starfive-jh7110-isp.o
-> >  obj-$(CONFIG_CLK_STARFIVE_JH7110_VOUT)	+= clk-starfive-jh7110-vout.o
-> > +obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS)	+= jh8100/
-> 
-> I don't really see why do you need a special subdirectory for the JH8100? The
-> JH7110 drivers do fine without it.
-Each subfolder can represent a different platform, making it easier to
-locate and maintain platform-specific code. Since the code is expected
-to grow in the future, let's start organizing it in a folder-based structure
-for easier maintenance at a later stage.
-> 
-> > diff --git a/drivers/clk/starfive/clk-starfive-common.h b/drivers/clk/starfive/clk-starfive-common.h
-> > index fed45311360c..ec30af0658cf 100644
-> > --- a/drivers/clk/starfive/clk-starfive-common.h
-> > +++ b/drivers/clk/starfive/clk-starfive-common.h
-> > @@ -103,6 +103,13 @@ struct starfive_clk_data {
-> >  	.parents = { [0] = _parent },						\
-> >  }
-> >
-> > +#define STARFIVE_GINV(_idx, _name, _flags, _parent)[_idx] = {			\
-> > +	.name = _name,								\
-> > +	.flags = _flags,							\
-> > +	.max = STARFIVE_CLK_ENABLE | STARFIVE_CLK_INVERT,			\
-> > +	.parents = { [0] = _parent },						\
-> > +}
-> > +
-> >  struct starfive_clk {
-> >  	struct clk_hw hw;
-> >  	unsigned int idx;
-> > @@ -114,7 +121,7 @@ struct starfive_clk_priv {
-> >  	spinlock_t rmw_lock;
-> >  	struct device *dev;
-> >  	void __iomem *base;
-> > -	struct clk_hw *pll[3];
-> > +	struct clk_hw *pll[8];
-> 
-> These extra slots are just used for fixed factor dummy PLLs right now, similar
-> to how the JH7110 first used them and later had to rework drivers and device
-> trees for the proper PLL driver.
-Yes, its intention is similar to JH8100. We will submit other clock
-domains and PLL at later stage but not so soon.
-> 
-> This time around I'd much rather you work on getting the PLL driver in first,
-> so we don't need all that churn.
-I am sorry but we started development on FPGA. Unfortunately, the PLL driver
-and other domains are planned to be finished at a later stage. I have tried
-to minimize the churn as much as possible.
-> 
-> >  	struct starfive_clk reg[];
-> >  };
-> >
-> > diff --git a/drivers/clk/starfive/jh8100/Makefile b/drivers/clk/starfive/jh8100/Makefile
-> > new file mode 100644
-> > index 000000000000..af6a09e220d3
-> > --- /dev/null
-> > +++ b/drivers/clk/starfive/jh8100/Makefile
-> > @@ -0,0 +1,3 @@
-> > +# SPDX-License-Identifier: GPL-2.0
-> > +# StarFive JH8100 Clock
-> > +obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS)		+= clk-sys.o
-> 
-> This will name the module clk-sys, which is way too generic. Please name this
-> clk-starfive-jh8100-sys similar to the JH7110 drivers.
-> 
-> > diff --git a/drivers/clk/starfive/jh8100/clk-starfive-jh8100.h b/drivers/clk/starfive/jh8100/clk-starfive-jh8100.h
-> > new file mode 100644
-> > index 000000000000..7c8249c11464
-> > --- /dev/null
-> > +++ b/drivers/clk/starfive/jh8100/clk-starfive-jh8100.h
-> > @@ -0,0 +1,11 @@
-> > +/* SPDX-License-Identifier: GPL-2.0 */
-> > +#ifndef __CLK_STARFIVE_JH8100_H
-> > +#define __CLK_STARFIVE_JH8100_H
-> > +
-> > +#include "../clk-starfive-common.h"
-> > +
-> > +int jh8100_reset_controller_register(struct starfive_clk_priv *priv,
-> > +				     const char *adev_name,
-> > +				     u32 adev_id);
-> > +
-> > +#endif
-> > diff --git a/drivers/clk/starfive/jh8100/clk-sys.c b/drivers/clk/starfive/jh8100/clk-sys.c
-> > new file mode 100644
-> > index 000000000000..e2c802523c7d
-> > --- /dev/null
-> > +++ b/drivers/clk/starfive/jh8100/clk-sys.c
-> > @@ -0,0 +1,455 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * StarFive JH8100 System Clock Driver
-> > + *
-> > + * Copyright (C) 2023 StarFive Technology Co., Ltd.
-> > + *
-> > + * Author: Jee Heng Sia <jeeheng.sia@starfivetech.com>
-> > + *
-> > + */
-> > +
-> > +#include <linux/clk.h>
-> > +#include <linux/auxiliary_bus.h>
-> > +#include <linux/clk-provider.h>
-> > +#include <linux/init.h>
-> > +#include <linux/io.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/slab.h>
-> > +
-> > +#include <soc/starfive/reset-starfive-common.h>
-> > +
-> > +#include <dt-bindings/clock/starfive,jh8100-crg.h>
-> > +
-> > +#include "clk-starfive-jh8100.h"
-> > +
-> > +/* external clocks */
-> > +#define SYSCRG_CLK_OSC				(SYSCRG_CLK_END + 0)
-> > +#define SYSCRG_CLK_MCLK_EXT			(SYSCRG_CLK_END + 1)
-> > +#define SYSCRG_CLK_PLL0_OUT			(SYSCRG_CLK_END + 2)
-> > +#define SYSCRG_CLK_PLL1_OUT			(SYSCRG_CLK_END + 3)
-> > +#define SYSCRG_CLK_PLL2_OUT			(SYSCRG_CLK_END + 4)
-> > +#define SYSCRG_CLK_PLL3_OUT			(SYSCRG_CLK_END + 5)
-> > +#define SYSCRG_CLK_PLL4_OUT			(SYSCRG_CLK_END + 6)
-> > +#define SYSCRG_CLK_PLL6_OUT			(SYSCRG_CLK_END + 7)
-> > +#define SYSCRG_CLK_PLL7_OUT			(SYSCRG_CLK_END + 8)
-> > +
-> > +static const struct starfive_clk_data jh8100_syscrg_clk_data[] __initconst = {
-> > +	/* root */
-> > +	STARFIVE__DIV(SYSCRG_CLK_VDEC_ROOT_PREOSC, "sys_clk_vdec_root_preosc", 10,
-> > +		      SYSCRG_CLK_PLL7_OUT),
-> > +	STARFIVE__MUX(SYSCRG_CLK_VDEC_ROOT, "sys_clk_vdec_root", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_VDEC_ROOT_PREOSC),
-> > +	STARFIVE__DIV(SYSCRG_CLK_VENC_ROOT_PREOSC, "sys_clk_venc_root_preosc", 10,
-> > +		      SYSCRG_CLK_PLL7_OUT),
-> > +	STARFIVE__MUX(SYSCRG_CLK_VENC_ROOT, "sys_clk_venc_root", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_VENC_ROOT_PREOSC),
-> > +	STARFIVE__DIV(SYSCRG_CLK_GPU_ROOT, "sys_clk_gpu_root", 7,
-> > +		      SYSCRG_CLK_PLL0_OUT),
-> > +	STARFIVE__MUX(SYSCRG_CLK_GPU_CORE, "sys_clk_gpu_core", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_GPU_ROOT),
-> > +	STARFIVE__DIV(SYSCRG_CLK_VOUT_ROOT0_PREOSC, "sys_clk_vout_root0_preosc", 127,
-> > +		      SYSCRG_CLK_PLL1_OUT),
-> > +	STARFIVE__MUX(SYSCRG_CLK_VOUT_ROOT0, "sys_clk_vout_root0", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_VOUT_ROOT0_PREOSC),
-> > +	STARFIVE__DIV(SYSCRG_CLK_VOUT_ROOT1_PREOSC, "sys_clk_vout_root1_preosc", 127,
-> > +		      SYSCRG_CLK_PLL6_OUT),
-> > +	STARFIVE__MUX(SYSCRG_CLK_VOUT_ROOT1, "sys_clk_vout_root1", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_VOUT_ROOT1_PREOSC),
-> > +	STARFIVE__DIV(SYSCRG_CLK_VOUT_SCAN_ATS, "sys_clk_vout_scan_ats", 6,
-> > +		      SYSCRG_CLK_PLL3_OUT),
-> > +	STARFIVE__DIV(SYSCRG_CLK_PERH_ROOT_PREOSC, "sys_clk_perh_root_preosc", 4,
-> > +		      SYSCRG_CLK_PLL0_OUT),
-> > +	STARFIVE__MUX(SYSCRG_CLK_PERH_ROOT, "sys_clk_perh_root", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_PERH_ROOT_PREOSC),
-> > +	STARFIVE__DIV(SYSCRG_CLK_AXI_200_PREOSC, "sys_clk_axi_200_preosc", 4,
-> > +		      SYSCRG_CLK_PLL0_OUT),
-> > +	STARFIVE__MUX(SYSCRG_CLK_AXI_200, "sys_clk_axi_200", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_AXI_200_PREOSC),
-> > +	STARFIVE__MUX(SYSCRG_CLK_AXI_200_GMAC, "sys_clk_axi_200_gmac", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_AXI_200_PREOSC),
-> > +	STARFIVE__DIV(SYSCRG_CLK_AXI_500_PREOSC, "sys_clk_axi_500_preosc", 10,
-> > +		      SYSCRG_CLK_PLL0_OUT),
-> > +	STARFIVE__MUX(SYSCRG_CLK_AXI_500, "sys_clk_axi_500", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_AXI_500_PREOSC),
-> > +	STARFIVE__MUX(SYSCRG_CLK_AXI_500_PCIEX1A, "sys_clk_axi_500_pciex1a", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_AXI_500_PREOSC),
-> > +	STARFIVE__MUX(SYSCRG_CLK_AXI_500_PCIEX1B, "sys_clk_axi_500_pciex1b", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_AXI_500_PREOSC),
-> > +	STARFIVE__MUX(SYSCRG_CLK_AXI_500_PCIEX2, "sys_clk_axi_500_pciex2", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_AXI_500_PREOSC),
-> > +	STARFIVE__MUX(SYSCRG_CLK_AXI_500_PCIEX8, "sys_clk_axi_500_pciex8", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_AXI_500_PREOSC),
-> > +	STARFIVE__DIV(SYSCRG_CLK_AXI_400_PREOSC, "sys_clk_axi_400_preosc", 10,
-> > +		      SYSCRG_CLK_PLL0_OUT),
-> > +	STARFIVE__MUX(SYSCRG_CLK_AXI_400, "sys_clk_axi_400", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_AXI_400_PREOSC),
-> > +	STARFIVE__MUX(SYSCRG_CLK_AXI_400_APBOOTRAM, "sys_clk_axi_400_apbootram", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_AXI_400_PREOSC),
-> > +	STARFIVE__DIV(SYSCRG_CLK_AXI_125_PREOSC, "sys_clk_axi_125_preosc", 32,
-> > +		      SYSCRG_CLK_PLL0_OUT),
-> > +	STARFIVE__MUX(SYSCRG_CLK_AXI_125, "sys_clk_axi_125", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_AXI_125_PREOSC),
-> > +	STARFIVE__DIV(SYSCRG_CLK_AHB0_PREOSC, "sys_clk_ahb0_preosc", 15,
-> > +		      SYSCRG_CLK_PLL0_OUT),
-> > +	STARFIVE__MUX(SYSCRG_CLK_AHB0, "sys_clk_ahb0", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_AHB0_PREOSC),
-> > +	STARFIVE__DIV(SYSCRG_CLK_APB_BUS_FUNC, "sys_clk_apb_bus_func", 30,
-> > +		      SYSCRG_CLK_PLL0_OUT),
-> > +	STARFIVE__MUX(SYSCRG_CLK_APB_BUS, "sys_clk_apb_bus", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-> > +	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER0, "sys_clk_apb_bus_per0", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-> > +	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER1, "sys_clk_apb_bus_per1", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-> > +	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER2, "sys_clk_apb_bus_per2", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-> > +	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER3, "sys_clk_apb_bus_per3", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-> > +	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER4, "sys_clk_apb_bus_per4", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-> > +	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER5, "sys_clk_apb_bus_per5", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-> > +	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER6, "sys_clk_apb_bus_per6", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-> > +	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER7, "sys_clk_apb_bus_per7", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-> > +	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER8, "sys_clk_apb_bus_per8", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-> > +	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER9, "sys_clk_apb_bus_per9", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-> > +	STARFIVE__MUX(SYSCRG_CLK_APB_BUS_PER10, "sys_clk_apb_bus_per10", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-> > +	STARFIVE__MUX(SYSCRG_CLK_SPI_CORE_100, "sys_clk_spi_core_100", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_APB_BUS_FUNC),
-> > +	STARFIVE__DIV(SYSCRG_CLK_PLL1_DIV2, "sys_clk_pll1_div2", 2,
-> > +		      SYSCRG_CLK_PLL1_OUT),
-> > +	STARFIVE__DIV(SYSCRG_CLK_PLL2_DIV2, "sys_clk_pll2_div2", 2,
-> > +		      SYSCRG_CLK_PLL2_OUT),
-> > +	STARFIVE__DIV(SYSCRG_CLK_PLL3_DIV2, "sys_clk_pll3_div2", 2,
-> > +		      SYSCRG_CLK_PLL3_OUT),
-> > +	STARFIVE__DIV(SYSCRG_CLK_PLL4_DIV2, "sys_clk_pll4_div2", 2,
-> > +		      SYSCRG_CLK_PLL4_OUT),
-> > +	STARFIVE__DIV(SYSCRG_CLK_PLL6_DIV2, "sys_clk_pll6_div2", 2,
-> > +		      SYSCRG_CLK_PLL6_OUT),
-> > +	STARFIVE__DIV(SYSCRG_CLK_PLL7_DIV2, "sys_clk_pll7_div2", 2,
-> > +		      SYSCRG_CLK_PLL7_OUT),
-> > +	STARFIVE__DIV(SYSCRG_CLK_AUDIO_ROOT, "sys_clk_audio_root", 8,
-> > +		      SYSCRG_CLK_PLL2_OUT),
-> > +	STARFIVE__DIV(SYSCRG_CLK_MCLK_INNER, "sys_clk_mclk_inner", 64,
-> > +		      SYSCRG_CLK_AUDIO_ROOT),
-> > +	STARFIVE__MUX(SYSCRG_CLK_MCLK, "sys_clk_mclk", 2,
-> > +		      SYSCRG_CLK_MCLK_INNER, SYSCRG_CLK_MCLK_EXT),
-> > +	STARFIVE_GATE(SYSCRG_CLK_MCLK_OUT, "sys_clk_mclk_out", 0,
-> > +		      SYSCRG_CLK_MCLK_INNER),
-> > +	STARFIVE_MDIV(SYSCRG_CLK_ISP_2X_PREOSC, "sys_clk_isp_2x_preosc", 8, 2,
-> > +		      SYSCRG_CLK_PLL7_OUT, SYSCRG_CLK_PLL0_OUT),
-> > +	STARFIVE__MUX(SYSCRG_CLK_ISP_2X, "sys_clk_isp_2x", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_ISP_2X_PREOSC),
-> > +	STARFIVE__DIV(SYSCRG_CLK_ISP_AXI, "sys_clk_isp_axi", 4,
-> > +		      SYSCRG_CLK_ISP_2X),
-> > +	STARFIVE_GDIV(SYSCRG_CLK_GCLK1, "sys_clk_gclk1", CLK_IS_CRITICAL, 120,
-> > +		      SYSCRG_CLK_PLL1_DIV2),
-> > +	STARFIVE_GDIV(SYSCRG_CLK_GCLK2, "sys_clk_gclk2", CLK_IS_CRITICAL, 120,
-> > +		      SYSCRG_CLK_PLL2_DIV2),
-> > +	STARFIVE_GDIV(SYSCRG_CLK_GCLK3, "sys_clk_gclk3", CLK_IS_CRITICAL, 120,
-> > +		      SYSCRG_CLK_PLL3_DIV2),
-> > +	STARFIVE_GDIV(SYSCRG_CLK_GCLK4, "sys_clk_gclk4", CLK_IS_CRITICAL, 120,
-> > +		      SYSCRG_CLK_PLL4_DIV2),
-> > +	STARFIVE_GDIV(SYSCRG_CLK_GCLK6, "sys_clk_gclk6", CLK_IS_CRITICAL, 120,
-> > +		      SYSCRG_CLK_PLL6_DIV2),
-> > +	STARFIVE_GDIV(SYSCRG_CLK_GCLK7, "sys_clk_gclk7", CLK_IS_CRITICAL, 120,
-> > +		      SYSCRG_CLK_PLL7_DIV2),
-> > +	/* flexnoc (se) */
-> > +	STARFIVE__DIV(SYSCRG_CLK_FLEXNOC0_PREOSC, "sys_clk_flexnoc0_preosc", 8,
-> > +		      SYSCRG_CLK_PLL0_OUT),
-> > +	STARFIVE__MUX(SYSCRG_CLK_FLEXNOC0, "sys_clk_flexnoc0", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_FLEXNOC0_PREOSC),
-> > +	STARFIVE__DIV(SYSCRG_CLK_FLEXNOC1_PREOSC, "sys_clk_flexnoc1_preosc", 8,
-> > +		      SYSCRG_CLK_PLL0_OUT),
-> > +	STARFIVE__MUX(SYSCRG_CLK_FLEXNOC1, "sys_clk_flexnoc1", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_FLEXNOC1_PREOSC),
-> > +	STARFIVE__DIV(SYSCRG_CLK_FLEXNOC2_PREOSC, "sys_clk_flexnoc2_preosc", 12,
-> > +		      SYSCRG_CLK_PLL0_OUT),
-> > +	STARFIVE__MUX(SYSCRG_CLK_FLEXNOC2, "sys_clk_flexnoc2", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_FLEXNOC2_PREOSC),
-> > +	STARFIVE__MUX(SYSCRG_CLK_VDEC_CORE, "sys_clk_vdec_core", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_FLEXNOC1_PREOSC),
-> > +	/* img_gpu (se) */
-> > +	STARFIVE_GATE(SYSCRG_CLK_GPU_CORE_ICG, "sys_clk_gpu_core_icg", 0,
-> > +		      SYSCRG_CLK_GPU_CORE),
-> > +	STARFIVE_GATE(SYSCRG_CLK_IMG_GPU_CLK_APB, "sys_clk_img_gpu_clk_apb", 0,
-> > +		      SYSCRG_CLK_APB_BUS_PER7),
-> > +	STARFIVE_GATE(SYSCRG_CLK_IMG_GPU_RTC_TOGGLE, "sys_clk_img_gpu_rtc_toggle", 0,
-> > +		      SYSCRG_CLK_OSC),
-> > +	STARFIVE_GATE(SYSCRG_CLK_IMG_GPU_TIMER_USC, "sys_clk_img_gpu_timer_usc", 0,
-> > +		      SYSCRG_CLK_OSC),
-> > +	/* hifi4 (se) */
-> > +	STARFIVE__DIV(SYSCRG_CLK_HIFI4_CORE_PREOSC, "sys_clk_hifi4_core_preosc", 15,
-> > +		      SYSCRG_CLK_PLL0_OUT),
-> > +	STARFIVE__MUX(SYSCRG_CLK_HIFI4_CORE, "sys_clk_hifi4_core", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_HIFI4_CORE_PREOSC),
-> > +	/* espi */
-> > +	STARFIVE__DIV(SYSCRG_CLK_ESPI_200_PREOSC, "sys_clk_espi_200_preosc", 2,
-> > +		      SYSCRG_CLK_PLL0_OUT),
-> > +	STARFIVE__MUX(SYSCRG_CLK_ESPI_200, "sys_clk_espi_200", 2,
-> > +		      SYSCRG_CLK_OSC, SYSCRG_CLK_ESPI_200_PREOSC),
-> > +	/* hd audio */
-> > +	STARFIVE__DIV(SYSCRG_CLK_HD_AUDIO_48M, "sys_clk_hd_audio_48m", 80,
-> > +		      SYSCRG_CLK_PLL7_OUT),
-> > +	/* dom vout */
-> > +	STARFIVE__DIV(SYSCRG_CLK_VOUT_DC_CORE, "sys_clk_vout_dc_core", 10,
-> > +		      SYSCRG_CLK_PLL7_OUT),
-> > +	STARFIVE__DIV(SYSCRG_CLK_VOUT_AXI, "sys_clk_vout_axi", 10,
-> > +		      SYSCRG_CLK_PLL7_OUT),
-> > +	/* stg2_usb_wrap (se) */
-> > +	STARFIVE__DIV(SYSCRG_CLK_USB_WRAP_625, "sys_clk_usb_wrap_625", 6,
-> > +		      SYSCRG_CLK_PLL0_OUT),
-> > +	STARFIVE__DIV(SYSCRG_CLK_USB_WRAP_480, "sys_clk_usb_wrap_480", 8,
-> > +		      SYSCRG_CLK_PLL0_OUT),
-> > +	STARFIVE__DIV(SYSCRG_CLK_USB_WRAP_240, "sys_clk_usb_wrap_240", 2,
-> > +		      SYSCRG_CLK_USB_WRAP_480),
-> > +	STARFIVE__DIV(SYSCRG_CLK_USB_WRAP_60, "sys_clk_usb_wrap_60", 10,
-> > +		      SYSCRG_CLK_USB_WRAP_480),
-> > +	STARFIVE__DIV(SYSCRG_CLK_USB_WRAP_156P25, "sys_clk_usb_wrap_156p25", 4,
-> > +		      SYSCRG_CLK_USB_WRAP_625),
-> > +	STARFIVE__DIV(SYSCRG_CLK_USB_WRAP_312P5, "sys_clk_usb_wrap_312p5", 2,
-> > +		      SYSCRG_CLK_USB_WRAP_625),
-> > +	/* stg */
-> > +	STARFIVE__DIV(SYSCRG_CLK_USB_125M, "sys_clk_usb_125m", 32,
-> > +		      SYSCRG_CLK_PLL0_OUT),
-> > +	/* Flexnoc (se) */
-> > +	STARFIVE_GATE(SYSCRG_CLK_FLEXNOC_APBOOTRAM, "sys_clk_flexnoc_apbootram",
-> > +		      CLK_IS_CRITICAL, SYSCRG_CLK_AXI_400_APBOOTRAM),
-> > +	STARFIVE_GATE(SYSCRG_CLK_FLEXNOC_PCIEX1AMST, "sys_clk_flexnoc_pciex1amst",
-> > +		      CLK_IS_CRITICAL, SYSCRG_CLK_AXI_500_PCIEX1A),
-> > +	STARFIVE_GATE(SYSCRG_CLK_FLEXNOC_PCIEX1ASLV, "sys_clk_flexnoc_pciex1aslv",
-> > +		      CLK_IS_CRITICAL, SYSCRG_CLK_AXI_500_PCIEX1A),
-> > +	STARFIVE_GATE(SYSCRG_CLK_FLEXNOC_PCIEX1BMST, "sys_clk_flexnoc_pciex1bmst",
-> > +		      CLK_IS_CRITICAL, SYSCRG_CLK_AXI_500_PCIEX1B),
-> > +	STARFIVE_GATE(SYSCRG_CLK_FLEXNOC_PCIEX1BSLV, "sys_clk_flexnoc_pciex1bslv",
-> > +		      CLK_IS_CRITICAL, SYSCRG_CLK_AXI_500_PCIEX1B),
-> > +	STARFIVE_GATE(SYSCRG_CLK_FLEXNOC_PCIEX2MST, "sys_clk_flexnoc_pciex2mst",
-> > +		      CLK_IS_CRITICAL, SYSCRG_CLK_AXI_500_PCIEX2),
-> > +	STARFIVE_GATE(SYSCRG_CLK_FLEXNOC_PCIEX2SLV, "sys_clk_flexnoc_pciex2slv",
-> > +		      CLK_IS_CRITICAL, SYSCRG_CLK_AXI_500_PCIEX2),
-> > +	STARFIVE_GATE(SYSCRG_CLK_FLEXNOC_PCIEX8MST, "sys_clk_flexnoc_pciex8mst",
-> > +		      CLK_IS_CRITICAL, SYSCRG_CLK_AXI_500_PCIEX8),
-> > +	STARFIVE_GATE(SYSCRG_CLK_FLEXNOC_PCIEX8SLV, "sys_clk_flexnoc_pciex8slv",
-> > +		      CLK_IS_CRITICAL, SYSCRG_CLK_AXI_500_PCIEX8),
-> > +	STARFIVE_GATE(SYSCRG_CLK_FLEXNOC_GMACSYSSLV, "sys_clk_flexnoc_gmacsysslv",
-> > +		      CLK_IS_CRITICAL, SYSCRG_CLK_AXI_200_GMAC),
-> > +	/* gmac1 (se) */
-> > +	STARFIVE__DIV(SYSCRG_CLK_GMAC_SRC, "sys_clk_gmac_src", 7,
-> > +		      SYSCRG_CLK_PLL0_OUT),
-> > +	STARFIVE__DIV(SYSCRG_CLK_GMAC1_GTXCLK_TOP, "sys_clk_gmac1_gtxclk_top", 400,
-> > +		      SYSCRG_CLK_PLL0_OUT),
-> > +	STARFIVE__DIV(SYSCRG_CLK_GMAC1_PTP, "sys_clk_gmac1_ptp", 31,
-> > +		      SYSCRG_CLK_GMAC_SRC),
-> > +	/* hd audio */
-> > +	STARFIVE_GATE(SYSCRG_CLK_HD_AUDIO_SYSTEM_CLOCK, "sys_clk_hd_audio_system_clock",
-> > +		      0, SYSCRG_CLK_APB_BUS_PER7),
-> > +	STARFIVE_GATE(SYSCRG_CLK_HD_AUDIO_CLOCK_48, "sys_clk_hd_audio_clock_48",
-> > +		      0, SYSCRG_CLK_HD_AUDIO_48M),
-> > +	STARFIVE_GATE(SYSCRG_CLK_HD_AUDIO_BCLK_POST_OCC_IN, "sys_clk_hd_audio_bclk_post_occ_in",
-> > +		      0, SYSCRG_CLK_HD_AUDIO_48M),
-> > +	/* nne_vip (se) */
-> > +	STARFIVE_GATE(SYSCRG_CLK_NNE_VIP_ACLK, "sys_clk_nne_vip_aclk",
-> > +		      0, SYSCRG_CLK_AXI_500),
-> > +	STARFIVE_GATE(SYSCRG_CLK_NNE_VIP_HCLK, "sys_clk_nne_vip_hclk",
-> > +		      0, SYSCRG_CLK_AXI_200),
-> > +	STARFIVE_GMUX(SYSCRG_CLK_NNE_VIP_CLKCORE, "sys_clk_nne_vip_clkcore", 0, 2,
-> > +		      SYSCRG_CLK_PLL2_OUT,
-> > +		      SYSCRG_CLK_PLL0_OUT),
-> > +	/* icg_en */
-> > +	STARFIVE_GATE(SYSCRG_CLK_GPU_ICG_EN, "sys_clk_gpu_en",
-> > +		      0, SYSCRG_CLK_GPU_CORE),
-> > +	STARFIVE_GATE(SYSCRG_CLK_HD_AUDIO_ICG_EN, "sys_clk_hd_audio_en",
-> > +		      0, SYSCRG_CLK_APB_BUS),
-> > +	STARFIVE_GATE(SYSCRG_CLK_NNE_ICG_EN, "sys_clk_nne_en",
-> > +		      CLK_IGNORE_UNUSED, SYSCRG_CLK_PLL2_OUT),
-> > +};
-> 
-> Please drop the redundant sys_clk_ prefix from all the clock names similar to
-> how it was done for the JH71X0s.
-Ok.
-> 
-> /Emil
+vim +311 arch/riscv/mm/pageattr.c
+
+   261	
+   262	static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
+   263				pgprot_t clear_mask)
+   264	{
+   265		int ret;
+   266		unsigned long start = addr;
+   267		unsigned long end = start + PAGE_SIZE * numpages;
+   268		unsigned long __maybe_unused lm_start;
+   269		unsigned long __maybe_unused lm_end;
+   270		struct pageattr_masks masks = {
+   271			.set_mask = set_mask,
+   272			.clear_mask = clear_mask
+   273		};
+   274	
+   275		if (!numpages)
+   276			return 0;
+   277	
+   278		mmap_write_lock(&init_mm);
+   279	
+   280	#ifdef CONFIG_64BIT
+   281		/*
+   282		 * We are about to change the permissions of a kernel mapping, we must
+   283		 * apply the same changes to its linear mapping alias, which may imply
+   284		 * splitting a huge mapping.
+   285		 */
+   286	
+   287		if (is_vmalloc_or_module_addr((void *)start)) {
+   288			struct vm_struct *area = NULL;
+   289			int i, page_start;
+   290	
+   291			area = find_vm_area((void *)start);
+   292			page_start = (start - (unsigned long)area->addr) >> PAGE_SHIFT;
+   293	
+   294			for (i = page_start; i < page_start + numpages; ++i) {
+   295				lm_start = (unsigned long)page_address(area->pages[i]);
+   296				lm_end = lm_start + PAGE_SIZE;
+   297	
+   298				ret = split_linear_mapping(lm_start, lm_end);
+   299				if (ret)
+   300					goto unlock;
+   301	
+   302				ret = walk_page_range_novma(&init_mm, lm_start, lm_end,
+   303							    &pageattr_ops, NULL, &masks);
+   304				if (ret)
+   305					goto unlock;
+   306			}
+   307		} else {
+   308			if (is_kernel_mapping(start)) {
+   309				lm_start = (unsigned long)lm_alias(start);
+   310				lm_end = (unsigned long)lm_alias(end);
+ > 311			} else if (is_linear_mapping(start)) {
+   312				lm_start = start;
+   313				lm_end = end;
+   314			} else {
+   315				goto unlock;
+   316			}
+   317	
+   318			ret = split_linear_mapping(lm_start, lm_end);
+   319			if (ret)
+   320				goto unlock;
+   321	
+   322			ret = walk_page_range_novma(&init_mm, lm_start, lm_end,
+   323						    &pageattr_ops, NULL, &masks);
+   324			if (ret)
+   325				goto unlock;
+   326		}
+   327	
+   328		ret =  walk_page_range_novma(&init_mm, start, end, &pageattr_ops, NULL,
+   329					     &masks);
+   330	
+   331	unlock:
+   332		mmap_write_unlock(&init_mm);
+   333	
+   334		/*
+   335		 * We can't use flush_tlb_kernel_range() here as we may have split a
+   336		 * hugepage that is larger than that, so let's flush everything.
+   337		 */
+   338		flush_tlb_all();
+   339	#else
+   340		ret =  walk_page_range_novma(&init_mm, start, end, &pageattr_ops, NULL,
+   341					     &masks);
+   342	
+   343		mmap_write_unlock(&init_mm);
+   344	
+   345		flush_tlb_kernel_range(start, end);
+   346	#endif
+   347	
+   348		return ret;
+   349	}
+   350	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
