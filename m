@@ -4,75 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A68CC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 03:08:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81879C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 05:05:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jGM0yeNha7djmtjj13k8ZJpFjIvRCC9HN0WdWRZHGEc=; b=AgJ6xFp1xDECOG
-	SsmOv+VQIX0UOgz8/2KYdxlWkxd4283oy0yHbCLQ/ATJQ0x0moMrCiZRtgKaAmmBgJtZvRlTTvVLi
-	qMURhwKnP15A4Wd2pAGG3g36+XZaR9OyR9KYythlsq9+ryfsjVEKtnZnXw2TIHp2IWD3T0QG2szns
-	qmUK0CSKYiCp3W3bRci6Yf5puFJITw6YUJTPgzHsaoLZcVuQc0hQGBCRxpiAonVLUFVChxKMTHOdh
-	Cv0lE2VjKxE8bI6kioI6rc+0DXT6rNmFebMc/ePS18XEfUNe+gjdbeQzcBU7AVLCyV0VAv8xj6Vfv
-	P6V1kwuo2QLE9fHAg/MA==;
+	List-Owner; bh=VxVNq9Air3VIK5IZOvzdmcDWhP3DuhDG9kZLb4PuUl4=; b=F637tlRVffO/sq
+	ICzGHpzts4vOXIDSv2LaeGiA/lAY8yl8yvx7uq2YVESi54/NoMec3EgEWYCnAUlEGuNDUQS5x3UMt
+	vujnMJJgkuwxBk7OdKEY6uerGe2lDJwVvuDBZiivBWvDw06GCB6Kyhz2eVF4PWCzQyguL51jyggCP
+	eNg3yinHvmaiGU+UNsqj8QQmuO7BRoFVnYJKVpuv5DASX4STbY84yUWOp5QBJ7QnbPP8lx6zFPWTT
+	CcrgjloimYaQJ25pLUAGmrJ/THRaJq3cNSnZe+wgrd8hcysgHcmUqQDP3bTNgs/jwsZ9D2rZd89Do
+	wcFUsxxTXU6A8rbLad7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCt8C-00AbJF-2z;
-	Tue, 12 Dec 2023 03:08:24 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1rCuxi-00AlRZ-14;
+	Tue, 12 Dec 2023 05:05:42 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCt89-00AbHw-0v
+	id 1rCuxe-00AlQw-2V
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Dec 2023 03:08:23 +0000
+	Tue, 12 Dec 2023 05:05:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 55293B80E7A
-	for <linux-riscv@lists.infradead.org>; Tue, 12 Dec 2023 03:08:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0E9FC433C9
-	for <linux-riscv@lists.infradead.org>; Tue, 12 Dec 2023 03:08:15 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4CD196166E;
+	Tue, 12 Dec 2023 05:05:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55CC0C433C8;
+	Tue, 12 Dec 2023 05:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1702350495;
-	bh=JYGLebhaxKY94YGV32z1rxes4CY+cai+W0U5f3FyFgk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=RFPSSzeeqlpe+2q4ASli1nCSUaxyClpv4WCoj0d1t39j8BeM+Dp/k6sPH5x9s8ayl
-	 B9RH5eI7sUP8HBAwQV1TF/BQB4rG+jsH1A956UVoM7zyEKINp64JIjJc2z774DRbUn
-	 FVdW7NM982wvgRl/0PoPiBtTY0of3Ggb9So8RmUhiXu1zMaox9wiX1/TiAym4utOF8
-	 ff/7/XzU0rkP4Zfic6IHCOz7dRvYo4wHBGsSP+NKnBuOshIBr9BeYGtdSIVGX+enLs
-	 qGJ1zjqb5rXtEVHBTS/+69xI2g+/kSCVG25E4BropD8bGDkKuqDSMKkqXzDudTGNRI
-	 Dkbc0Ww5orlhA==
-Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-a1caddd6d28so639391166b.1
-        for <linux-riscv@lists.infradead.org>; Mon, 11 Dec 2023 19:08:15 -0800 (PST)
-X-Gm-Message-State: AOJu0Yy2vL33asgkkH0TTNxc2RyFaTc9YFRQXVApv/pGlboO8Fb0eNhi
-	yGDq2PE+GBSxK6SzBbqTPxUgRgWOSKITr076ZI8=
-X-Google-Smtp-Source: AGHT+IGXr7ae2BWJft9h8JEOb/sSf8K5iF07E47tmBVS0fwPBOhl+VPU25Wmv1IiH8/z0FdVuT6ZcgjwLPT+rmGqD2w=
-X-Received: by 2002:a17:907:7e95:b0:a1e:86c2:dcce with SMTP id
- qb21-20020a1709077e9500b00a1e86c2dccemr2248167ejc.11.1702350494003; Mon, 11
- Dec 2023 19:08:14 -0800 (PST)
+	s=k20201202; t=1702357535;
+	bh=6JkIk+zKrh2X9NAaqlazkFZaKG6WIrBp/Ny5YCmwqKM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kd6xo4qcDip9YPf15fjNs2e+6tzBlYqsaUmvWs5bwFT3Rhjm2SQDmQorVY5Zt+0/3
+	 eu1+jAeW/FxTTq1EB4fN0zG1QvL1Lp//Jc2xUgjlCfd3115QlDKiptuK1cGlg5dJI9
+	 tx0qngz6kAtzS5Q6kAORUFCajAhVjY1vzm2HapXJQ7tMSXszgPo1yjMYHBJs6ah++M
+	 rAerlBUzuSv1yAStIofLk44K6/erJxKBgza8AG+3YkEGi1Am+CgsbnFA210gGieVNV
+	 YjX2BA6+yzfqKeSOGGNNIousJ3ZAMwYW9loiWamPPjJ4dp/XIyFcw3/NuV80RjWb2f
+	 BG9kSYBTwMSnQ==
+Date: Tue, 12 Dec 2023 12:53:03 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Drew Fustini <dfustini@baylibre.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Conor Dooley <conor@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Jason Kridner <jkridner@beagleboard.org>,
+	Robert Nelson <robertcnelson@beagleboard.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v8 0/4] RISC-V: Add MMC support for TH1520 boards
+Message-ID: <ZXfnLx9qBUKtyqkq@xhacker>
+References: <20231206-th1520_mmc_dts-v8-0-69220e373e8f@baylibre.com>
 MIME-Version: 1.0
-References: <20231208151036.2458921-1-guoren@kernel.org> <CAHVXubjfuKZ1PBYQ8By41OX65YpAma3_kmSL7urT8L0PmMxFnQ@mail.gmail.com>
- <CAJF2gTSB-4hDo8ncSLVKvbnOOEwLSrV716kQM9d9HrzXFs7D8A@mail.gmail.com>
- <CAHVXubiK0TXMuhZhYjLq7tyk_dhFP9W2uReacECWDC7HToYuXA@mail.gmail.com>
- <CAJF2gTSCZ4ytzkenibT+38TzqoYKjBebRRabzn7YQ79bY5yp3g@mail.gmail.com> <b9292e35-6870-4c6d-8831-c9b15a33f52f@sifive.com>
-In-Reply-To: <b9292e35-6870-4c6d-8831-c9b15a33f52f@sifive.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 12 Dec 2023 11:07:57 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRGjn+Tz-R3us057B4zm801XUZrue38V_dDyVAhy+1Zng@mail.gmail.com>
-Message-ID: <CAJF2gTRGjn+Tz-R3us057B4zm801XUZrue38V_dDyVAhy+1Zng@mail.gmail.com>
-Subject: Re: [PATCH] riscv: pgtable: Enhance set_pte to prevent OoO risk
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	akpm@linux-foundation.org, catalin.marinas@arm.com, willy@infradead.org, 
-	david@redhat.com, muchun.song@linux.dev, will@kernel.org, 
-	peterz@infradead.org, rppt@kernel.org, paulmck@kernel.org, 
-	atishp@atishpatra.org, anup@brainfault.org, alex@ghiti.fr, 
-	mike.kravetz@oracle.com, dfustini@baylibre.com, wefu@redhat.com, 
-	jszhang@kernel.org, falcon@tinylab.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
+Content-Disposition: inline
+In-Reply-To: <20231206-th1520_mmc_dts-v8-0-69220e373e8f@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231211_190821_612014_47817C11 
-X-CRM114-Status: GOOD (  42.99  )
+X-CRM114-CacheID: sfid-20231211_210538_922513_E654D48F 
+X-CRM114-Status: GOOD (  35.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,141 +75,156 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBEZWMgMTEsIDIwMjMgYXQgMTE6MjfigK9QTSBTYW11ZWwgSG9sbGFuZAo8c2FtdWVs
-LmhvbGxhbmRAc2lmaXZlLmNvbT4gd3JvdGU6Cj4KPiBPbiAyMDIzLTEyLTExIDU6MzYgQU0sIEd1
-byBSZW4gd3JvdGU6Cj4gPiBPbiBNb24sIERlYyAxMSwgMjAyMyBhdCA1OjA04oCvUE0gQWxleGFu
-ZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPiB3cm90ZToKPiA+Pgo+ID4+IE9uIE1v
-biwgRGVjIDExLCAyMDIzIGF0IDk6NDHigK9BTSBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4g
-d3JvdGU6Cj4gPj4+Cj4gPj4+IE9uIE1vbiwgRGVjIDExLCAyMDIzIGF0IDE6NTLigK9QTSBBbGV4
-YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+IHdyb3RlOgo+ID4+Pj4KPiA+Pj4+
-IEhpIEd1bywKPiA+Pj4+Cj4gPj4+PiBPbiBGcmksIERlYyA4LCAyMDIzIGF0IDQ6MTDigK9QTSA8
-Z3VvcmVuQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4+Pj4+Cj4gPj4+Pj4gRnJvbTogR3VvIFJlbiA8
-Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+ID4+Pj4+Cj4gPj4+Pj4gV2hlbiBjaGFuZ2luZyBm
-cm9tIGFuIGludmFsaWQgcHRlIHRvIGEgdmFsaWQgb25lIGZvciBhIGtlcm5lbCBwYWdlLAo+ID4+
-Pj4+IHRoZXJlIGlzIG5vIG5lZWQgZm9yIHRsYl9mbHVzaC4gSXQncyBva2F5IGZvciB0aGUgVFNP
-IG1lbW9yeSBtb2RlbCwgYnV0Cj4gPj4+Pj4gdGhlcmUgaXMgYW4gT29PIHJpc2sgZm9yIHRoZSBX
-ZWFrIG9uZS4gZWc6Cj4gPj4+Pj4KPiA+Pj4+PiBzZCB0MCwgKGEwKSAvLyBhMCA9IHB0ZSBhZGRy
-ZXNzLCBwdGV2YWwgaXMgY2hhbmdlZCBmcm9tIGludmFsaWQgdG8gdmFsaWQKPiA+Pj4+PiAuLi4K
-PiA+Pj4+PiBsZCB0MSwgKGExKSAvLyBhMSA9IHZhIG9mIGFib3ZlIHB0ZQo+ID4+Pj4+Cj4gPj4+
-Pj4gSWYgdGhlIGxkIGluc3RydWN0aW9uIGlzIGV4ZWN1dGVkIHNwZWN1bGF0aXZlbHkgYmVmb3Jl
-IHRoZSBzZAo+ID4+Pj4+IGluc3RydWN0aW9uLiBUaGVuIGl0IHdvdWxkIGJyaW5nIGFuIGludmFs
-aWQgZW50cnkgaW50byB0aGUgVExCLCBhbmQgd2hlbgo+ID4+Pj4+IHRoZSBsZCBpbnN0cnVjdGlv
-biByZXRpcmVkLCBhIHNwdXJpb3VzIHBhZ2UgZmF1bHQgb2NjdXJyZWQuIEJlY2F1c2UgdGhlCj4g
-Pj4+Pj4gdm1lbW1hcCBoYXMgYmVlbiBpZ25vcmVkIGJ5IHZtYWxsb2NfZmF1bHQsIHRoZSBzcHVy
-aW91cyBwYWdlIGZhdWx0IHdvdWxkCj4gPj4+Pj4gY2F1c2Uga2VybmVsIHBhbmljLgo+ID4+Pj4+
-Cj4gPj4+Pj4gVGhpcyBwYXRjaCB3YXMgaW5zcGlyZWQgYnkgdGhlIGNvbW1pdDogN2YwYjFiZjA0
-NTExICgiYXJtNjQ6IEZpeCBiYXJyaWVycwo+ID4+Pj4+IHVzZWQgZm9yIHBhZ2UgdGFibGUgbW9k
-aWZpY2F0aW9ucyIpLiBGb3IgUklTQy1WLCB0aGVyZSBpcyBubyByZXF1aXJlbWVudAo+ID4+Pj4+
-IGluIHRoZSBzcGVjIHRvIGd1YXJhbnRlZSBhbGwgdGxiIGVudHJpZXMgYXJlIHZhbGlkIGFuZCBu
-byByZXF1aXJlbWVudCB0bwo+ID4+Pj4+IFBUVyBmaWx0ZXIgb3V0IGludmFsaWQgZW50cmllcy4g
-T2YgY291cnNlLCBtaWNyby1hcmNoIGNvdWxkIGdpdmUgYSBtb3JlCj4gPj4+Pj4gcm9idXN0IGRl
-c2lnbiwgYnV0IGhlcmUsIHVzZSBhIHNvZnR3YXJlIGZlbmNlIHRvIGd1YXJhbnRlZS4KPiA+Pj4+
-Pgo+ID4+Pj4+IFNpZ25lZC1vZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBsaW51eC5hbGliYWJhLmNv
-bT4KPiA+Pj4+PiBTaWduZWQtb2ZmLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KPiA+
-Pj4+PiAtLS0KPiA+Pj4+PiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmggfCA3ICsr
-KysrKysKPiA+Pj4+PiAgMSBmaWxlIGNoYW5nZWQsIDcgaW5zZXJ0aW9ucygrKQo+ID4+Pj4+Cj4g
-Pj4+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS5oIGIvYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmgKPiA+Pj4+PiBpbmRleCAyOTQwNDQ0MjllOGUu
-LjJmYWU1YTU0MzhlMCAxMDA2NDQKPiA+Pj4+PiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
-L3BndGFibGUuaAo+ID4+Pj4+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS5o
-Cj4gPj4+Pj4gQEAgLTUxMSw2ICs1MTEsMTMgQEAgc3RhdGljIGlubGluZSBpbnQgcHRlX3NhbWUo
-cHRlX3QgcHRlX2EsIHB0ZV90IHB0ZV9iKQo+ID4+Pj4+ICBzdGF0aWMgaW5saW5lIHZvaWQgc2V0
-X3B0ZShwdGVfdCAqcHRlcCwgcHRlX3QgcHRldmFsKQo+ID4+Pj4+ICB7Cj4gPj4+Pj4gICAgICAg
-ICAqcHRlcCA9IHB0ZXZhbDsKPiA+Pj4+PiArCj4gPj4+Pj4gKyAgICAgICAvKgo+ID4+Pj4+ICsg
-ICAgICAgICogT25seSBpZiB0aGUgbmV3IHB0ZSBpcyBwcmVzZW50IGFuZCBrZXJuZWwsIG90aGVy
-d2lzZSBUTEIKPiA+Pj4+PiArICAgICAgICAqIG1haW50ZW5hbmNlIG9yIHVwZGF0ZV9tbXVfY2Fj
-aGUoKSBoYXZlIHRoZSBuZWNlc3NhcnkgYmFycmllcnMuCj4gPj4+Pj4gKyAgICAgICAgKi8KPiA+
-Pj4+PiArICAgICAgIGlmIChwdGVfdmFsKHB0ZXZhbCkgJiAoX1BBR0VfUFJFU0VOVCB8IF9QQUdF
-X0dMT0JBTCkpCj4gPj4+Pj4gKyAgICAgICAgICAgICAgIFJJU0NWX0ZFTkNFKHJ3LHJ3KTsKPiA+
-Pj4+Cj4gPj4+PiBPbmx5IGEgc2ZlbmNlLnZtYSBjYW4gZ3VhcmFudGVlIHRoYXQgdGhlIFBUVyBh
-Y3R1YWxseSBzZWVzIGEgbmV3Cj4gPj4+PiBtYXBwaW5nLCBhIGZlbmNlIGlzIG5vdCBlbm91Z2gu
-IFRoYXQgYmVpbmcgc2FpZCwgbmV3IGtlcm5lbCBtYXBwaW5ncwo+ID4+Pj4gKHZtYWxsb2Mgb25l
-cykgYXJlIGNvcnJlY3RseSBoYW5kbGVkIGluIHRoZSBrZXJuZWwgYnkgdXNpbmcKPiA+Pj4+IGZs
-dXNoX2NhY2hlX3ZtYXAoKS4gRGlkIHlvdSBvYnNlcnZlIHNvbWV0aGluZyB0aGF0IHRoaXMgcGF0
-Y2ggZml4ZXM/Cj4gPj4+IFRoeCBmb3IgdGhlIHJlcGx5IQo+ID4+Pgo+ID4+PiBUaGUgc2ZlbmNl
-LnZtYSBpcyB0b28gZXhwZW5zaXZlLCBzbyB0aGUgc2l0dWF0aW9uIGlzIHRyaWNreS4gU2VlIHRo
-ZQo+ID4+PiBhcm02NCBjb21taXQ6IDdmMGIxYmYwNDUxMSAoImFybTY0OiBGaXggYmFycmllcnMg
-dXNlZCBmb3IgcGFnZSB0YWJsZQo+ID4+PiBtb2RpZmljYXRpb25zIiksIHdoaWNoIGlzIHNpbWls
-YXIuIFRoYXQgaXMsIGxpbnV4IGFzc3VtZXMgaW52YWxpZCBwdGUKPiA+Pj4gd29uJ3QgZ2V0IGlu
-dG8gVExCLiBUaGluayBhYm91dCBtZW1vcnkgaG90cGx1ZzoKPiA+Pj4KPiA+Pj4gbW0vc3BhcnNl
-LmM6IHNwYXJzZV9hZGRfc2VjdGlvbigpIHsKPiA+Pj4gLi4uCj4gPj4+ICAgICAgICAgbWVtbWFw
-ID0gc2VjdGlvbl9hY3RpdmF0ZShuaWQsIHN0YXJ0X3BmbiwgbnJfcGFnZXMsIGFsdG1hcCwgcGdt
-YXApOwo+ID4+PiAgICAgICAgIGlmIChJU19FUlIobWVtbWFwKSkKPiA+Pj4gICAgICAgICAgICAg
-ICAgIHJldHVybiBQVFJfRVJSKG1lbW1hcCk7Cj4gPj4+Cj4gPj4+ICAgICAgICAgLyoKPiA+Pj4g
-ICAgICAgICAgKiBQb2lzb24gdW5pbml0aWFsaXplZCBzdHJ1Y3QgcGFnZXMgaW4gb3JkZXIgdG8g
-Y2F0Y2ggaW52YWxpZCBmbGFncwo+ID4+PiAgICAgICAgICAqIGNvbWJpbmF0aW9ucy4KPiA+Pj4g
-ICAgICAgICAgKi8KPiA+Pj4gICAgICAgICBwYWdlX2luaXRfcG9pc29uKG1lbW1hcCwgc2l6ZW9m
-KHN0cnVjdCBwYWdlKSAqIG5yX3BhZ2VzKTsKPiA+Pj4gLi4uCj4gPj4+IH0KPiA+Pj4gVGhlIHNl
-Y3Rpb25fYWN0aXZhdGUgd291bGQgdXNlIHNldF9wdGUgdG8gc2V0dXAgdm1lbW1hcCwgYW5kCj4g
-Pj4+IHBhZ2VfaW5pdF9wb2lzb24gd291bGQgYWNjZXNzIHRoZXNlIHBhZ2VzJyBzdHJ1Y3QuCj4g
-Pj4KPiA+PiBTbyBJIHRoaW5rIHRoZSBnZW5lcmljIGNvZGUgbXVzdCBiZSBmaXhlZCBieSBhZGRp
-bmcgYQo+ID4+IGZsdXNoX2NhY2hlX3ZtYXAoKSBpbiB2bWVtbWFwX3BvcHVsYXRlX3JhbmdlKCkg
-b3Igc2ltaWxhcjogc2V2ZXJhbAo+ID4+IGFyY2hpdGVjdHVyZXMgaW1wbGVtZW50IGZsdXNoX2Nh
-Y2hlX3ZtYXAoKSBiZWNhdXNlIHRoZXkgbmVlZCB0byBkbwo+ID4+ICJzb21ldGhpbmciIGFmdGVy
-IGEgbmV3IG1hcHBpbmcgaXMgZXN0YWJsaXNoZWQsIHNvIHZtZW1tYXAgc2hvdWxkIG5vdAo+ID4+
-IGJlIGFueSBkaWZmZXJlbnQuCj4gPiBQZXJoYXBzIGdlbmVyaWMgY29kZSBhc3N1bWVzIFRMQiB3
-b24ndCBjb250YWluIGludmFsaWQgZW50cmllcy4gV2hlbgo+ID4gaW52YWxpZCAtPiB2YWxpZCwg
-TGludXggd29uJ3QgZG8gYW55IHRsYl9mbHVzaCwgcmVmOgo+ID4KPiA+ICogVXNlIHNldF9wKl9z
-YWZlKCksIGFuZCBlbGlkZSBUTEIgZmx1c2hpbmcsIHdoZW4gY29uZmlkZW50IHRoYXQgKm5vKgo+
-ID4gICogVExCIGZsdXNoIHdpbGwgYmUgcmVxdWlyZWQgYXMgYSByZXN1bHQgb2YgdGhlICJzZXQi
-LiBGb3IgZXhhbXBsZSwgdXNlCj4gPiAgKiBpbiBzY2VuYXJpb3Mgd2hlcmUgaXQgaXMga25vd24g
-YWhlYWQgb2YgdGltZSB0aGF0IHRoZSByb3V0aW5lIGlzCj4gPiAgKiBzZXR0aW5nIG5vbi1wcmVz
-ZW50IGVudHJpZXMsIG9yIHJlLXNldHRpbmcgYW4gZXhpc3RpbmcgZW50cnkgdG8gdGhlCj4gPiAg
-KiBzYW1lIHZhbHVlLiBPdGhlcndpc2UsIHVzZSB0aGUgdHlwaWNhbCAic2V0IiBoZWxwZXJzIGFu
-ZCBmbHVzaCB0aGUKPiA+ICAqIFRMQi4KPiA+Cj4gPj4KPiA+Pj4KPiA+Pj4gVGhhdCBtZWFuczoK
-PiA+Pj4gc2QgdDAsIChhMCkgLy8gYTAgPSBzdHJ1Y3QgcGFnZSdzIHB0ZSBhZGRyZXNzLCBwdGV2
-YWwgaXMgY2hhbmdlZCBmcm9tCj4gPj4+IGludmFsaWQgdG8gdmFsaWQKPiA+Pj4gIC4uLgo+ID4+
-PiBsdy9zdyB0MSwgKGExKSAvLyBhMSA9IHZhIG9mIHN0cnVjdCBwYWdlCj4gPj4+Cj4gPj4+IElm
-IHRoZSBsdy9zdyBpbnN0cnVjdGlvbiBpcyBleGVjdXRlZCBzcGVjdWxhdGl2ZWx5IGJlZm9yZSB0
-aGUgc2V0X3B0ZSwKPiA+Pj4gd2UgbmVlZCBhIGZlbmNlIHRvIHByZXZlbnQgdGhpcy4KPiA+Pgo+
-ID4+IFllcyBJIGFncmVlLCBidXQgdG8gbWUgd2UgbmVlZCB0aGUgZmVuY2UgcHJvcGVydHkgb2Yg
-c2ZlbmNlLnZtYSB0bwo+ID4+IG1ha2Ugc3VyZSB0aGUgUFRXIHNlZXMgdGhlIG5ldyBwdGUsIHVu
-bGVzcyBJJ20gbWlzdGFrZW4gYW5kIHNvbWV0aGluZwo+ID4+IGluIHRoZSBwcml2aWxlZ2VkIHNw
-ZWNpZmljYXRpb24gc3RhdGVzIHRoYXQgYSBmZW5jZSBpcyBlbm91Z2g/Cj4gPiBBbGwgUFRXIGFy
-ZSB0cmlnZ2VyZWQgYnkgSUZVICYgbG9hZC9zdG9yZS4gRm9yIHRoZSAic2V0IiBzY2VuYXJpb3Ms
-IHdlCj4gPiBqdXN0IG5lZWQgdG8gcHJldmVudCB0aGUgYWNjZXNzIHZhIGJlZm9yZSB0aGUgc2V0
-X3B0ZS4gU286Cj4gPiAgLSBEb24ndCB3b3JyeSBhYm91dCBJRlUsIHdoaWNoIGZldGNoZXMgdGhl
-IGNvZGUgc2VxdWVudGlhbGx5Lgo+ID4gIC0gVXNlIGEgZmVuY2UgcHJldmVudCBsb2FkL3N0b3Jl
-IGJlZm9yZSBzZXRfcHRlLgo+ID4KPiA+IFNmZW5jZS52bWEgaXMgdXNlZCBmb3IgaW52YWxpZGF0
-ZSBUTEIsIG5vdCBmb3IgaW52YWxpZCAtPiB2YWxpZC4KPgo+IEkgdGhpbmsgdGhlIHByb2JsZW0g
-aXMgdGhhdCwgYXJjaGl0ZWN0dXJhbGx5LCB5b3UgY2FuJ3QgcHJldmVudCBhIFBUVyBieQo+IHBy
-ZXZlbnRpbmcgYWNjZXNzIHRvIHRoZSB2aXJ0dWFsIGFkZHJlc3MuIFRoZSBSSVNDLVYgcHJpdmls
-ZWdlZCBzcGVjIGFsbG93cwo+IGNhY2hpbmcgdGhlIHJlc3VsdHMgb2YgUFRXcyBmcm9tIHNwZWN1
-bGF0aXZlIGV4ZWN1dGlvbiwgYW5kIGl0IGFsbG93cyBjYWNoaW5nCj4gaW52YWxpZCBQVEVzLiBT
-byBlZmZlY3RpdmVseSwgYXMgc29vbiBhcyBzYXRwIGlzIHdyaXR0ZW4sIHNvZnR3YXJlIG11c3Qg
-YmUgYWJsZQo+IHRvIGhhbmRsZSBfYW55XyB2aXJ0dWFsIGFkZHJlc3MgYmVpbmcgaW4gdGhlIFRM
-Qi4KPgo+IFRvIGF2b2lkIHRoZSBzZmVuY2Uudm1hIGluIHRoZSBpbnZhbGlkLT52YWxpZCBjYXNl
-LCB5b3UgbmVlZCB0byBoYW5kbGUgdGhlCj4gcG9zc2libGUgcGFnZSBmYXVsdCwgbGlrZSBpbiBB
-bGV4J3Mgc2VyaWVzIGhlcmU6Cj4KPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNj
-di8yMDIzMTIwNzE1MDM0OC44MjA5Ni0xLWFsZXhnaGl0aUByaXZvc2luYy5jb20vCkp1c3QgYXMg
-dGhpcyBwYXRjaCBzZXJpZXMgc2FpZDoKCisgKiBUaGUgUklTQy1WIGtlcm5lbCBkb2VzIG5vdCBl
-YWdlcmx5IGVtaXQgYSBzZmVuY2Uudm1hIGFmdGVyIGVhY2gKKyAqIG5ldyB2bWFsbG9jIG1hcHBp
-bmcsIHdoaWNoIG1heSByZXN1bHQgaW4gZXhjZXB0aW9uczoKKyAqIC0gaWYgdGhlIHVhcmNoIGNh
-Y2hlcyBpbnZhbGlkIGVudHJpZXMsIHRoZSBuZXcgbWFwcGluZyB3b3VsZCBub3QgYmUKKyAqICAg
-b2JzZXJ2ZWQgYnkgdGhlIHBhZ2UgdGFibGUgd2Fsa2VyIGFuZCBhbiBpbnZhbGlkYXRpb24gaXMg
-bmVlZGVkLgorICogLSBpZiB0aGUgdWFyY2ggZG9lcyBub3QgY2FjaGUgaW52YWxpZCBlbnRyaWVz
-LCBhIHJlb3JkZXJlZCBhY2Nlc3MKKyAqICAgY291bGQgIm1pc3MiIHRoZSBuZXcgbWFwcGluZyBh
-bmQgdHJhcHM6IGluIHRoYXQgY2FzZSwgd2Ugb25seSBuZWVkCisgKiAgIHRvIHJldHJ5IHRoZSBh
-Y2Nlc3MsIG5vIHNmZW5jZS52bWEgaXMgcmVxdWlyZWQuCgpJJ20gdGFsa2luZyBhYm91dCAidWFy
-Y2ggZG9lcyBub3QgY2FjaGUgaW52YWxpZCBlbnRyaWVzLCBhIHJlb3JkZXJlZAphY2Nlc3MgY291
-bGQgIm1pc3MiIHRoZSBuZXcgbWFwcGluZyBhbmQgdHJhcHMiLgpVc2luZyBhIGZlbmNlIGluIHNl
-dF9wdGUgaXMgYW5vdGhlciBzb2x1dGlvbiwgYW5kIGJldHRlciB0aGFuCnJldHJ5aW5nLiBPZiBj
-b3Vyc2UgdGhlIHByZW1pc2UgaXMgdGhhdCB0aGUgZmVuY2UgaXMgbm90IGV4cGVuc2l2ZSBmb3IK
-bWljcm8tYXJjaC4KCiAtIEFybTY0IHVzZWQgdGhpcyB3YXk6IGNvbW1pdDogN2YwYjFiZjA0NTEx
-ICgiYXJtNjQ6IEZpeCBiYXJyaWVycwogLSBYODYgaXMgc2ltaWxhciwgYmVjYXVzZSBpdCdzIFRT
-Tywgc28gYW55IGxvYWQgKyBzdG9yZSBpbnN0cnVjdGlvbnMKYmV0d2VlbiBzZXRfcHRlICYgbmV4
-dCBhY2Nlc3Mgd291bGQgZ2l2ZSBhIGJhcnJpZXIsIGVnOgogICBzZXRfcHRlIHZhCiAgIGxvYWQg
-KGFjcXVpcmUpCiAgIHN0b3JlIChyZWxlYXNlKQogICBsb2FkL3N0b3JlIHZhCgoKQW5vdGhlciB0
-b3BpYyBpcyBhYm91dCAicmV0cnkgdGhlIGFjY2VzcyIsIHRoaXMgaXMgYWJvdXQga2VybmVsCnZp
-cnR1YWwgYWRkcmVzcyBzcGFjZSBzcHVyaW91cyBwYWdlIGZhdWx0IHJpZ2h0PyBBbmQgQWxleCBp
-cwpwcmV2ZW50aW5nIHRoYXQgaW4gdGhlIHJpc2N2IGxpbnV4IGtlcm5lbCBhbmQgaXQgd291bGQg
-Y2F1c2UgYSBsb3Qgb2YKc2lkZSBlZmZlY3RzLgoKPgo+IFJlZ2FyZHMsCj4gU2FtdWVsCj4KCgot
-LSAKQmVzdCBSZWdhcmRzCiBHdW8gUmVuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
-dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
-bmZvL2xpbnV4LXJpc2N2Cg==
+On Wed, Dec 06, 2023 at 12:09:20AM -0800, Drew Fustini wrote:
+> This series enables the MMC controller in the T-Head TH1520 SoC and
+> enables the eMMC and microSD on both the BeagleV Ahead and the Sipeed
+> LicheePi 4A.
+> 
+> The drivers/mmc/host patches from v6 were applied by Ulf and are already
+> in the linux-next [1][2] as well as the bindings patch [3]. Thus v7 was
+> only a defconfig patch and three device tree patches. This v8 is a
+> followup to change the dwcmshc node names to match the documentation.
+> 
+> Jisheng - can you apply the dts patches to your for-next tree?
+> 
+> I tested with the riscv defconfig on the Ahead [4] and LPi4a [5]. I only
+> tested eMMC and microSD and plan to enable SDIO WiFi in the future.
+
+Thank Drew, for this patch series:
+
+Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
+
+I asked Conor's help to take T-HEAD SoC dts patches.
+> 
+> References:
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=49f23745b064cdb6270402403ef58125d78ba183
+> [2] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=aff35fbc7830510ef7cbcf8e32a041a55de3dc51
+> [3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=af076680db846ed54b00b9a763473d1043446993
+> [4] https://gist.github.com/pdp7/881342620ec1509685f23a387e2fc8d7
+> [5] https://gist.github.com/pdp7/97017ad88d83fccac18eba69bff817b7
+> 
+> Changes in PATCH v8:
+> - change dwcmshc node labels to match TH1520 System Reference Manual:
+>   emmc, sdio0, sdio1
+> 
+> Changes in PATCH v7:
+> //lore.kernel.org/r/20231129-th1520_mmc_dts-v7-0-c77fc19caa6f@baylibre.com
+> - fix sorting of DT properties in the mmc nodes
+> 
+> Changes in PATCH v6:
+> https://lore.kernel.org/linux-riscv/20231114-th1520-mmc-v6-0-3273c661a571@baylibre.com/
+> - set the mmc nodes to disabled in the th1520.dtsi
+> 
+> Changes in PATCH v5:
+> https://lore.kernel.org/r/20231109-th1520-mmc-v5-0-018bd039cf17@baylibre.com
+> - fix logic in th1520_sdhci_set_phy() to correctly check that both
+>   MMC_CAP2_NO_SD and MMC_CAP2_NO_SDIO are set in host->mmc->caps2
+> - add Acked-by's from Adrian
+> 
+> Changes in PATCH v4:
+> https://lore.kernel.org/linux-riscv/20231101-th1520-mmc-v4-0-86e0216b5994@baylibre.com/
+> - set DWCMSHC_CARD_IS_EMMC when (MMC_CAP2_NO_SD | MMC_CAP2_NO_SDIO)
+>   as checking MMC_CAP_NONREMOVABLE is not sufficient
+> - change prefix of phy functions from th1520 to dwcmshc as they are not
+>   th1520 specific
+> - remove unneeded check of priv in dwcmshc_phy_1_8v_init()
+> - remove unneeded check of auto-tuning in th1520_execute_tuning()
+> - fix order of new nodes in th1520-beaglev-ahead.dts: move sdhci_clk
+>   before uart_sclk, move mmc0 and mmc1 before uart0
+> - fix comment typos pointed out by Adrian
+> - add trailers that I missed from v2
+> 
+> Changes in PATCH v3:
+> https://lore.kernel.org/r/20231023-th1520-mmc-v3-0-abc5e7491166@baylibre.com
+> - always call th1520_sdhci_set_phy() in th1520_set_uhs_signaling()
+>   and not only when timing is MMC_TIMING_MMC_HS400. This allows the
+>   microSD slot to work as th1520_phy_3_3v_init() is called from
+>   th1520_sdhci_set_phy().
+> - add mmc1 node for mmc controller connected to the microSD slot
+> - add enable mmc1 and add properties for microSD on the Ahead and LPi4A
+> 
+> Changes in PATCH v2:
+> https://lore.kernel.org/r/20231017-th1520-mmc-v2-0-4678c8cc4048@baylibre.com
+> - make use of BIT(), GENMASK(), FIELD_PREP(), FIELD_GET()
+> - add EXPORT_SYMBOL_GPL(__sdhci_execute_tuning)
+> - call th1520_phy_1_8v_init() when FLAG_IO_FIXED_1V8 is set
+> - set DWCMSHC_CARD_IS_EMMC when mmc caps contains MMC_CAP_NONREMOVABLE
+> - remove manipulation of AT_CTRL_AT_EN from th1520_set_uhs_signaling()
+> - remove unneccessary cycle of enabling and disabling AT_CTRL_AT_EN in
+>   th1520_execute_tuning()
+> - remove th1520_phy_1_8v_init_no_pull()
+> - remove th1520_phy_3_3v_init_no_pull()
+> - remove FLAG_PULL_UP_EN from priv->flags
+> - remove thead,phy-pull-up device tree property
+> 
+> Changes in PACH v1:
+> https://lore.kernel.org/all/20230921-th1520-mmc-v1-0-49f76c274fb3@baylibre.com/
+> - ADMA mode now works correctly due to a patch from Jisheng on the list
+>   ("riscv: dts: thead: set dma-noncoherent to soc bus") and this commit
+>   from Icenowy that is now merged: 8eb8fe67e2c8 ("riscv: errata: fix
+>   T-Head dcache.cva encoding").
+> - Expose __sdhci_execute_tuning from sdhci.c so that it can be called
+>   from th1520_execute_tuning()
+> - Refactor the define macros for all the PHY related registers to make
+>   it easier to understand the bit fields that the code is manipulating
+> - Replace magic numbers in the PHY register writes with proper defines
+> - Replace non_removable in dwcmshc_priv with check of mmc_host.caps
+> - Drop dt prop "thead,io-fixed-1v8" and instead check for existing
+>   properties: "mmc-ddr-1_8v", "mmc-hs200-1_8v", or "mmc-hs400-1_8v"
+> - Rename dt prop from "thead,pull-up" to "thead,phy-pull-up" and
+>   improve the description in the dt binding
+> - Replace pull_up_en in dwcmshc_priv with bit field in new flags field
+> - Create th1520_set_uhs_signaling() and call dwcmshc_set_uhs_signaling()
+>   from it instead of adding th1520 code to dwcmshc_set_uhs_signaling()
+> - Return -EIO instead of -1 upon errors in th1520_execute_tuning()
+> 
+> Changes in RFC v2:
+> https://lore.kernel.org/linux-riscv/20230724-th1520-emmc-v2-0-132ed2e2171e@baylibre.com/
+> - Expand dwcmshc_priv based on driver in the T-Head 5.10 kernel:
+>   delay_line, non_removable, pull_up_en, io_fixed_1v8
+> - New boolean property "thead,pull-up" indicates phy pull-up config
+> - New boolean property "thead,io-fixed-1v8" indicates that io voltage
+>   should be set to 1.8V during reset
+> - Add th1520_phy_1_8v_init() as voltage_switch op
+> - Add th1520_execute_tuning() as the platform_execute_tuning op
+> - Added th1520_sdhci_reset() as the .reset op. This function will set
+>   io voltage to 1.8V after calling the standard sdhci_reset() function.
+> - Modified dwcmshc_set_uhs_signaling() to enable SDHCI_CTRL_VDD_180 when
+>   io_fixed_1v8 is true
+> - Add many defines for register offsets and settings based on the mmc
+>   support in the T-Head downstream v5.10 kernel
+> 
+> RFC v1 series:
+> https://lore.kernel.org/r/20230724-th1520-emmc-v1-0-cca1b2533da2@baylibre.com
+> 
+> Signed-off-by: Drew Fustini <dfustini@baylibre.com>
+> ---
+> Drew Fustini (4):
+>       riscv: defconfig: Enable mmc and dma drivers for T-Head TH1520
+>       riscv: dts: thead: Add TH1520 mmc controllers and sdhci clock
+>       riscv: dts: thead: Enable BeagleV Ahead eMMC and microSD
+>       riscv: dts: thead: Enable LicheePi 4A eMMC and microSD
+> 
+>  arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 20 +++++++++++++
+>  .../boot/dts/thead/th1520-lichee-module-4a.dtsi    | 20 +++++++++++++
+>  arch/riscv/boot/dts/thead/th1520.dtsi              | 34 ++++++++++++++++++++++
+>  arch/riscv/configs/defconfig                       |  2 ++
+>  4 files changed, 76 insertions(+)
+> ---
+> base-commit: 1f5c003694fab4b1ba6cbdcc417488b975c088d0
+> change-id: 20231129-th1520_mmc_dts-e472bcc70d0d
+> 
+> Best regards,
+> -- 
+> Drew Fustini <dfustini@baylibre.com>
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
