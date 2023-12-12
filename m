@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88130C4167B
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 01:02:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C314DC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Dec 2023 01:08:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L1h8G25dK/8/l9aStH0sLdkGIYczPH200lwvY9vEoCQ=; b=W3op/um0q7/V2U
-	UDse8jK5pHV1Gv9MeilEtAcpEGPkYrht+dU5wSvbG1bVwjTIxL4m4cDiaxJp/tnESLBD6FzBx6ilF
-	LelVVCCgDW9ZYuNP9FxhCPQvp1NiVuZ0kt3GYxJfoj1aJM7m5dej4auMJSdLWDtJuvRM9rvImvq9V
-	PcfYkKq/z2j9ynl9068Tll9ZHQe5nuSiqp7SUtU+3rJ0qb4QU9O2m6akgS3ZurkHEjYg6W3W0LZ0Y
-	5xAZCk8KTsiyaw38vobS0dWbgef0/NnLLhs01dIZbFK+NISi86DZu4xAKaaMMZLAXNxNfBIDucvtG
-	85MtoOGXWLPqGZlvhnWg==;
+	List-Owner; bh=zTKSL/k3Zxwxo78HJQYkgCqp0ox8GLD37gSdu0djXGQ=; b=BJ63F2C2uco/Tl
+	rWMxkhLBare6Zuud5rqPZKix/hDwCHk1SO4uhQM4/ZQ2b/jgrtOLlFW0g0JlWap0alzbicmd/nAoZ
+	G1VdmUSEvfBCD9z21RA6MXYtzT1S6YA4TB5F1mP31Tsh5zMlytvE3C/cj0dTtWG5YbYPFyQ1sHO3t
+	lH+Xz5FS1xV5of/d5q6mMMITxuv06cBJEPz+ws0OZTtrZaWvI8kmCiXww38pMVGwCEzzBOr95I5mx
+	EFkFfUbsE2kkVPDnTD4dQBe40P9zPrzu9xf+rqPpeWuScCcAMmqJ9MbxWd0dUkXIyHG0K73mpDlMt
+	wp9rtoz3i68/q2VT0S5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCr9u-00AQ6L-2q;
-	Tue, 12 Dec 2023 01:02:02 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1rCrG2-00AQVk-1x;
+	Tue, 12 Dec 2023 01:08:22 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rCr9p-00AQ3Z-2M
+	id 1rCrFy-00AQV1-2D
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Dec 2023 01:02:01 +0000
+	Tue, 12 Dec 2023 01:08:21 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 301A97FFD;
-	Tue, 12 Dec 2023 09:01:24 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+	by ex01.ufhost.com (Postfix) with ESMTP id EE98024E269;
+	Tue, 12 Dec 2023 09:07:59 +0800 (CST)
+Received: from EXMBX167.cuchost.com (172.16.6.77) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 12 Dec
- 2023 09:01:24 +0800
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 12 Dec
- 2023 09:01:23 +0800
+ 2023 09:07:59 +0800
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX167.cuchost.com
+ (172.16.6.77) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 12 Dec
+ 2023 09:07:59 +0800
 Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
  EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
- 15.00.1497.044; Tue, 12 Dec 2023 09:01:23 +0800
+ 15.00.1497.044; Tue, 12 Dec 2023 09:07:59 +0800
 From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
 To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
 	"kernel@esmil.dk" <kernel@esmil.dk>, "conor@kernel.org" <conor@kernel.org>,
@@ -56,17 +56,17 @@ CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
 	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
 	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>, Leyfoon Tan
 	<leyfoon.tan@starfivetech.com>
-Subject: RE: [PATCH v1 07/16] dt-bindings: clock: Add StarFive JH8100
- System-North-West clock and reset generator
-Thread-Topic: [PATCH v1 07/16] dt-bindings: clock: Add StarFive JH8100
- System-North-West clock and reset generator
-Thread-Index: AQHaKDqBLsc6ZLEdqkC8Pa2wy7o0rrCfEw+AgAXF0LA=
-Date: Tue, 12 Dec 2023 01:01:23 +0000
-Message-ID: <56031a2fadf442e297b1e0ea03777e5f@EXMBX066.cuchost.com>
+Subject: RE: [PATCH v1 16/16] riscv: dts: starfive: jh8100: Add clocks and
+ resets nodes
+Thread-Topic: [PATCH v1 16/16] riscv: dts: starfive: jh8100: Add clocks and
+ resets nodes
+Thread-Index: AQHaKDqra6wATad1nUKrJTE2u0DzTrCfE7aAgAXJTyA=
+Date: Tue, 12 Dec 2023 01:07:59 +0000
+Message-ID: <38f6f61b9928460abd5d426a84adbb06@EXMBX066.cuchost.com>
 References: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
- <20231206115000.295825-8-jeeheng.sia@starfivetech.com>
- <CAJM55Z-FXV-Go4yj_AJyU4pRC0msHqTCT3q24HkNtBTWW9rAgA@mail.gmail.com>
-In-Reply-To: <CAJM55Z-FXV-Go4yj_AJyU4pRC0msHqTCT3q24HkNtBTWW9rAgA@mail.gmail.com>
+ <20231206115000.295825-17-jeeheng.sia@starfivetech.com>
+ <CAJM55Z9bik1QttBeFUCfM3N98HWURge7mgV7ohFBq+AsuvtROg@mail.gmail.com>
+In-Reply-To: <CAJM55Z9bik1QttBeFUCfM3N98HWURge7mgV7ohFBq+AsuvtROg@mail.gmail.com>
 Accept-Language: en-US, zh-CN
 Content-Language: en-US
 X-MS-Has-Attach: 
@@ -76,8 +76,8 @@ x-originating-ip: [202.188.176.82]
 x-yovoleruleagent: yovoleflag
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231211_170158_194578_2D2D785D 
-X-CRM114-Status: GOOD (  23.14  )
+X-CRM114-CacheID: sfid-20231211_170819_246639_9F7A31EB 
+X-CRM114-Status: GOOD (  18.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,202 +89,370 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-DQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogRW1pbCBSZW5uZXIgQmVy
-dGhpbmcgPGVtaWwucmVubmVyLmJlcnRoaW5nQGNhbm9uaWNhbC5jb20+DQo+IFNlbnQ6IFNhdHVy
-ZGF5LCBEZWNlbWJlciA5LCAyMDIzIDEyOjM3IEFNDQo+IFRvOiBKZWVIZW5nIFNpYSA8amVlaGVu
-Zy5zaWFAc3RhcmZpdmV0ZWNoLmNvbT47IGtlcm5lbEBlc21pbC5kazsgY29ub3JAa2VybmVsLm9y
-Zzsgcm9iaCtkdEBrZXJuZWwub3JnOw0KPiBrcnp5c3p0b2Yua296bG93c2tpK2R0QGxpbmFyby5v
-cmc7IHBhdWwud2FsbXNsZXlAc2lmaXZlLmNvbTsgcGFsbWVyQGRhYmJlbHQuY29tOyBhb3VAZWVj
-cy5iZXJrZWxleS5lZHU7DQo+IG10dXJxdWV0dGVAYmF5bGlicmUuY29tOyBzYm95ZEBrZXJuZWwu
-b3JnOyBwLnphYmVsQHBlbmd1dHJvbml4LmRlOyBlbWlsLnJlbm5lci5iZXJ0aGluZ0BjYW5vbmlj
-YWwuY29tOyBIYWwgRmVuZw0KPiA8aGFsLmZlbmdAc3RhcmZpdmV0ZWNoLmNvbT47IFhpbmd5dSBX
-dSA8eGluZ3l1Lnd1QHN0YXJmaXZldGVjaC5jb20+DQo+IENjOiBsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnOyBkZXZpY2V0cmVlQHZnZXIua2VybmVsLm9yZzsgbGludXgta2VybmVsQHZn
-ZXIua2VybmVsLm9yZzsgbGludXgtY2xrQHZnZXIua2VybmVsLm9yZzsgTGV5Zm9vbiBUYW4NCj4g
-PGxleWZvb24udGFuQHN0YXJmaXZldGVjaC5jb20+DQo+IFN1YmplY3Q6IFJlOiBbUEFUQ0ggdjEg
-MDcvMTZdIGR0LWJpbmRpbmdzOiBjbG9jazogQWRkIFN0YXJGaXZlIEpIODEwMCBTeXN0ZW0tTm9y
-dGgtV2VzdCBjbG9jayBhbmQgcmVzZXQgZ2VuZXJhdG9yDQo+IA0KPiBTaWEgSmVlIEhlbmcgd3Jv
-dGU6DQo+ID4gQWRkIGJpbmRpbmdzIGZvciB0aGUgU3lzdGVtLU5vcnRoLVdlc3QgY2xvY2sgYW5k
-IHJlc2V0IGdlbmVyYXRvcg0KPiA+IChTWVNDUkctTlcpIG9uIEpIODEwMCBTb0MuDQo+ID4NCj4g
-PiBTaWduZWQtb2ZmLWJ5OiBTaWEgSmVlIEhlbmcgPGplZWhlbmcuc2lhQHN0YXJmaXZldGVjaC5j
-b20+DQo+ID4gUmV2aWV3ZWQtYnk6IExleSBGb29uIFRhbiA8bGV5Zm9vbi50YW5Ac3RhcmZpdmV0
-ZWNoLmNvbT4NCj4gPiAtLS0NCj4gPiAgLi4uL2Nsb2NrL3N0YXJmaXZlLGpoODEwMC1zeXNjcmct
-bncueWFtbCAgICAgIHwgMTE5ICsrKysrKysrKysrKysrKysrKw0KPiANCj4gVGhlIEpINzExMCBj
-bG9ja3MsIHRoZSBKSDgxMDAgc3lzdGVtIGFuZCBhbHdheXMtb24gYWxsIGZvbGxvdyB0aGUgWGNy
-ZyBwYXR0ZXJuOg0KPiBzeXNjcmcNCj4gYW9uY3JnDQo+IHN0Z2NyZw0KPiBpc3BjcmcNCj4gdm91
-dGNyZw0KPiBldGMuDQo+IA0KPiBJcyB0aGVyZSBhIHJlYXNvbiB0aGUgbm9ydGgtd2VzdCwgbm9y
-dGgtZWFzdCBhbmQgc291dGgtd2VzdCBicmVha3MgdGhpcyBwYXR0ZXJuPw0KPiBJJ2QgaGF2ZSBl
-eHBlY3RlZCB0aGVtIHRvIGJlIGNhbGxlZCBzb21ldGhpbmcgbGlrZQ0KPiBud2NyZywgSkg4MTAw
-X05XQ0xLXyosIEpIODEwMF9OV1JTVF8qLA0KPiBuZWNyZywgSkg4MTAwX05FQ0xLXyosIEpIODEw
-MF9ORVJTVF8qIGFuZA0KPiBzd2NyZywgSkg4MTAwX1NXQ0xLXyosIEpIODEwMF9TV1JTVF8qDQo+
-IA0KPiBKdXN0IGxpa2UgYWxsIHRoZSBvdGhlciBTdGFyZml2ZSBkcml2ZXJzLg0KVW5kZXJzdG9v
-ZCB5b3VyIGNvbmNlcm4uIFdlIGRvbuKAmXQgaGF2ZSB0aGUgaW50ZW50aW9uIHRvIGJyZWFrIHRo
-ZSBwYXR0ZXJuLA0KYnV0IHRoZSByZWFzb24gd2Ugc2tpcCB0aGUgU29DXyBwcmVmaXggaXMgdGhh
-dCB0aGUgU29DIG5hbWVzIHdlcmUgYWxyZWFkeQ0KZGVmaW5lZCBpbiB0aGUgaGVhZGVyIGZpbGUg
-d2l0aCB0aGUgU29DIG5hbWUuDQpIb3dldmVyLCBJIGNhbiBwdXQgaXQgYmFjaywgb2YgY291cnNl
-Lg0KPiANCj4gPiAgLi4uL2R0LWJpbmRpbmdzL2Nsb2NrL3N0YXJmaXZlLGpoODEwMC1jcmcuaCAg
-IHwgIDQ1ICsrKysrKysNCj4gPiAgLi4uL2R0LWJpbmRpbmdzL3Jlc2V0L3N0YXJmaXZlLGpoODEw
-MC1jcmcuaCAgIHwgIDE1ICsrKw0KPiA+ICAzIGZpbGVzIGNoYW5nZWQsIDE3OSBpbnNlcnRpb25z
-KCspDQo+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmlu
-ZGluZ3MvY2xvY2svc3RhcmZpdmUsamg4MTAwLXN5c2NyZy1udy55YW1sDQo+ID4NCj4gPiBkaWZm
-IC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Nsb2NrL3N0YXJmaXZl
-LGpoODEwMC1zeXNjcmctbncueWFtbA0KPiBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5k
-aW5ncy9jbG9jay9zdGFyZml2ZSxqaDgxMDAtc3lzY3JnLW53LnlhbWwNCj4gPiBuZXcgZmlsZSBt
-b2RlIDEwMDY0NA0KPiA+IGluZGV4IDAwMDAwMDAwMDAwMC4uYjE2YTg3NDgyOGRkDQo+ID4gLS0t
-IC9kZXYvbnVsbA0KPiA+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9j
-bG9jay9zdGFyZml2ZSxqaDgxMDAtc3lzY3JnLW53LnlhbWwNCj4gPiBAQCAtMCwwICsxLDExOSBA
-QA0KPiA+ICsjIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wLW9ubHkgT1IgQlNELTIt
-Q2xhdXNlDQo+ID4gKyVZQU1MIDEuMg0KPiA+ICstLS0NCj4gPiArJGlkOiBodHRwOi8vZGV2aWNl
-dHJlZS5vcmcvc2NoZW1hcy9jbG9jay9zdGFyZml2ZSxqaDgxMDAtc3lzY3JnLW53LnlhbWwjDQo+
-ID4gKyRzY2hlbWE6IGh0dHA6Ly9kZXZpY2V0cmVlLm9yZy9tZXRhLXNjaGVtYXMvY29yZS55YW1s
-Iw0KPiA+ICsNCj4gPiArdGl0bGU6IFN0YXJGaXZlIEpIODEwMCBTeXN0ZW0tTm9ydGgtV2VzdCBD
-bG9jayBhbmQgUmVzZXQgR2VuZXJhdG9yDQo+ID4gKw0KPiA+ICttYWludGFpbmVyczoNCj4gPiAr
-ICAtIFNpYSBKZWUgSGVuZyA8amVlaGVuZy5zaWFAc3RhcmZpdmV0ZWNoLmNvbT4NCj4gPiArDQo+
-ID4gK3Byb3BlcnRpZXM6DQo+ID4gKyAgY29tcGF0aWJsZToNCj4gPiArICAgIGNvbnN0OiBzdGFy
-Zml2ZSxqaDgxMDAtc3lzY3JnLW53DQo+ID4gKw0KPiA+ICsgIHJlZzoNCj4gPiArICAgIG1heEl0
-ZW1zOiAxDQo+ID4gKw0KPiA+ICsgIGNsb2NrczoNCj4gPiArICAgIGl0ZW1zOg0KPiA+ICsgICAg
-ICAtIGRlc2NyaXB0aW9uOiBNYWluIE9zY2lsbGF0b3IgKDI0IE1IeikNCj4gPiArICAgICAgLSBk
-ZXNjcmlwdGlvbjogQVBCX0JVUyBjbG9jayBmcm9tIFNZU0NSRw0KPiA+ICsgICAgICAtIGRlc2Ny
-aXB0aW9uOiBJU1BfMlggY2xvY2sgZnJvbSBTWVNDUkcNCj4gPiArICAgICAgLSBkZXNjcmlwdGlv
-bjogSVNQX0FYSSBjbG9jayBmcm9tIFNZU0NSRw0KPiA+ICsgICAgICAtIGRlc2NyaXB0aW9uOiBW
-T1VUX1JPT1QwIGNsb2NrIGZyb20gU1lTQ1JHDQo+ID4gKyAgICAgIC0gZGVzY3JpcHRpb246IFZP
-VVRfUk9PVDEgY2xvY2sgZnJvbSBTWVNDUkcNCj4gPiArICAgICAgLSBkZXNjcmlwdGlvbjogVk9V
-VF9TQ0FOX0FUUyBjbG9jayBmcm9tIFNZU0NSRw0KPiA+ICsgICAgICAtIGRlc2NyaXB0aW9uOiBW
-T1VUX0RDX0NPUkUgY2xvY2sgZnJvbSBTWVNDUkcNCj4gPiArICAgICAgLSBkZXNjcmlwdGlvbjog
-Vk9VVF9BWEkgY2xvY2sgZnJvbSBTWVNDUkcNCj4gPiArICAgICAgLSBkZXNjcmlwdGlvbjogQVhJ
-XzQwMCBjbG9jayBmcm9tIFNZU0NSRw0KPiA+ICsgICAgICAtIGRlc2NyaXB0aW9uOiBBWElfMjAw
-IGNsb2NrIGZyb20gU1lTQ1JHDQo+ID4gKyAgICAgIC0gZGVzY3JpcHRpb246IFBlcmlwaGVyYWwg
-Y2xvY2sgZnJvbSBTWVNDUkcNCj4gPiArICAgICAgLSBkZXNjcmlwdGlvbjogRXh0ZXJuYWwgRFZQ
-IGNsb2NrDQo+ID4gKyAgICAgIC0gZGVzY3JpcHRpb246IEV4dGVybmFsIElTUCBEUEhZIFRBUCBU
-Q0sgY2xvY2sNCj4gPiArICAgICAgLSBkZXNjcmlwdGlvbjogRXh0ZXJuYWwgZ29sYmFsIGNsb2Nr
-DQo+ID4gKyAgICAgIC0gZGVzY3JpcHRpb246IEV4dGVybmFsIGkyc190c2NrbyBjbG9jaw0KPiA+
-ICsgICAgICAtIGRlc2NyaXB0aW9uOiBFeHRlcm5hbCBWT1VUIE1JUEkgRFBIWSBUQVAgVENLDQo+
-ID4gKyAgICAgIC0gZGVzY3JpcHRpb246IEV4dGVybmFsIFZPVVQgZURQIFRBUCBUQ0sNCj4gPiAr
-ICAgICAgLSBkZXNjcmlwdGlvbjogRXh0ZXJuYWwgU1BJIEluMiBjbG9jaw0KPiA+ICsNCj4gPiAr
-ICBjbG9jay1uYW1lczoNCj4gPiArICAgIGl0ZW1zOg0KPiA+ICsgICAgICAtIGNvbnN0OiBjbGtf
-b3NjDQo+ID4gKyAgICAgIC0gY29uc3Q6IHN5c19jbGtfYXBiX2J1cw0KPiA+ICsgICAgICAtIGNv
-bnN0OiBzeXNfY2xrX2lzcF8yeA0KPiA+ICsgICAgICAtIGNvbnN0OiBzeXNfY2xrX2lzcF9heGkN
-Cj4gPiArICAgICAgLSBjb25zdDogc3lzX2Nsa192b3V0X3Jvb3QwDQo+ID4gKyAgICAgIC0gY29u
-c3Q6IHN5c19jbGtfdm91dF9yb290MQ0KPiA+ICsgICAgICAtIGNvbnN0OiBzeXNfY2xrX3ZvdXRf
-c2Nhbl9hdHMNCj4gPiArICAgICAgLSBjb25zdDogc3lzX2Nsa192b3V0X2RjX2NvcmUNCj4gPiAr
-ICAgICAgLSBjb25zdDogc3lzX2Nsa192b3V0X2F4aQ0KPiA+ICsgICAgICAtIGNvbnN0OiBzeXNf
-Y2xrX2F4aV80MDANCj4gPiArICAgICAgLSBjb25zdDogc3lzX2Nsa19heGlfMjAwDQo+ID4gKyAg
-ICAgIC0gY29uc3Q6IHN5c19jbGtfcGVyaF9yb290X3ByZW9zYw0KPiA+ICsgICAgICAtIGNvbnN0
-OiBjbGtfZHZwX2V4dA0KPiA+ICsgICAgICAtIGNvbnN0OiBjbGtfaXNwX2RwaHlfdGFwX3Rja19l
-eHQNCj4gPiArICAgICAgLSBjb25zdDogY2xrX2dsYl9leHRfY2xrDQo+ID4gKyAgICAgIC0gY29u
-c3Q6IGNsa19pMnNfdHNja28NCj4gPiArICAgICAgLSBjb25zdDogY2xrX3ZvdXRfbWlwaV9kcGh5
-X3RhcF90Y2tfZXh0DQo+ID4gKyAgICAgIC0gY29uc3Q6IGNsa192b3V0X2VkcF90YXBfdGNrX2V4
-dA0KPiA+ICsgICAgICAtIGNvbnN0OiBjbGtfc3BpX2luMl9leHQNCj4gPiArDQo+ID4gKyAgJyNj
-bG9jay1jZWxscyc6DQo+ID4gKyAgICBjb25zdDogMQ0KPiA+ICsgICAgZGVzY3JpcHRpb246DQo+
-ID4gKyAgICAgIFNlZSA8ZHQtYmluZGluZ3MvY2xvY2svc3RhcmZpdmUsamg4MTAwLWNyZy5oPiBm
-b3IgdmFsaWQgaW5kaWNlcy4NCj4gPiArDQo+ID4gKyAgJyNyZXNldC1jZWxscyc6DQo+ID4gKyAg
-ICBjb25zdDogMQ0KPiA+ICsgICAgZGVzY3JpcHRpb246DQo+ID4gKyAgICAgIFNlZSA8ZHQtYmlu
-ZGluZ3MvcmVzZXQvc3RhcmZpdmUsamg4MTAwLWNyZy5oPiBmb3IgdmFsaWQgaW5kaWNlcy4NCj4g
-PiArDQo+ID4gK3JlcXVpcmVkOg0KPiA+ICsgIC0gY29tcGF0aWJsZQ0KPiA+ICsgIC0gcmVnDQo+
-ID4gKyAgLSBjbG9ja3MNCj4gPiArICAtIGNsb2NrLW5hbWVzDQo+ID4gKyAgLSAnI2Nsb2NrLWNl
-bGxzJw0KPiA+ICsgIC0gJyNyZXNldC1jZWxscycNCj4gPiArDQo+ID4gK2FkZGl0aW9uYWxQcm9w
-ZXJ0aWVzOiBmYWxzZQ0KPiA+ICsNCj4gPiArZXhhbXBsZXM6DQo+ID4gKyAgLSB8DQo+ID4gKyAg
-ICAjaW5jbHVkZSA8ZHQtYmluZGluZ3MvY2xvY2svc3RhcmZpdmUsamg4MTAwLWNyZy5oPg0KPiA+
-ICsNCj4gPiArICAgIGNsb2NrLWNvbnRyb2xsZXJAMTIzYzAwMDAgew0KPiA+ICsgICAgICAgICAg
-ICBjb21wYXRpYmxlID0gInN0YXJmaXZlLGpoODEwMC1zeXNjcmctbnciOw0KPiA+ICsgICAgICAg
-ICAgICByZWcgPSA8MHgxMjNjMDAwMCAweDEwMDAwPjsNCj4gPiArICAgICAgICAgICAgY2xvY2tz
-ID0gPCZjbGtfb3NjPiwgPCZzeXNjcmcgU1lTQ1JHX0NMS19BUEJfQlVTPiwNCj4gPiArICAgICAg
-ICAgICAgICAgICAgICAgPCZzeXNjcmcgU1lTQ1JHX0NMS19JU1BfMlg+LA0KPiA+ICsgICAgICAg
-ICAgICAgICAgICAgICA8JnN5c2NyZyBTWVNDUkdfQ0xLX0lTUF9BWEk+LA0KPiA+ICsgICAgICAg
-ICAgICAgICAgICAgICA8JnN5c2NyZyBTWVNDUkdfQ0xLX1ZPVVRfUk9PVDA+LA0KPiA+ICsgICAg
-ICAgICAgICAgICAgICAgICA8JnN5c2NyZyBTWVNDUkdfQ0xLX1ZPVVRfUk9PVDE+LA0KPiA+ICsg
-ICAgICAgICAgICAgICAgICAgICA8JnN5c2NyZyBTWVNDUkdfQ0xLX1ZPVVRfU0NBTl9BVFM+LA0K
-PiA+ICsgICAgICAgICAgICAgICAgICAgICA8JnN5c2NyZyBTWVNDUkdfQ0xLX1ZPVVRfRENfQ09S
-RT4sDQo+ID4gKyAgICAgICAgICAgICAgICAgICAgIDwmc3lzY3JnIFNZU0NSR19DTEtfVk9VVF9B
-WEk+LA0KPiA+ICsgICAgICAgICAgICAgICAgICAgICA8JnN5c2NyZyBTWVNDUkdfQ0xLX0FYSV80
-MDA+LA0KPiA+ICsgICAgICAgICAgICAgICAgICAgICA8JnN5c2NyZyBTWVNDUkdfQ0xLX0FYSV8y
-MDA+LA0KPiA+ICsgICAgICAgICAgICAgICAgICAgICA8JnN5c2NyZyBTWVNDUkdfQ0xLX1BFUkhf
-Uk9PVF9QUkVPU0M+LA0KPiA+ICsgICAgICAgICAgICAgICAgICAgICA8JmNsa19kdnBfZXh0PiwN
-Cj4gPiArICAgICAgICAgICAgICAgICAgICAgPCZjbGtfaXNwX2RwaHlfdGFwX3Rja19leHQ+LA0K
-PiA+ICsgICAgICAgICAgICAgICAgICAgICA8JmNsa19nbGJfZXh0X2Nsaz4sDQo+ID4gKyAgICAg
-ICAgICAgICAgICAgICAgIDwmY2xrX2kyc190c2Nrbz4sDQo+ID4gKyAgICAgICAgICAgICAgICAg
-ICAgIDwmY2xrX3ZvdXRfbWlwaV9kcGh5X3RhcF90Y2tfZXh0PiwNCj4gPiArICAgICAgICAgICAg
-ICAgICAgICAgPCZjbGtfdm91dF9lZHBfdGFwX3Rja19leHQ+LA0KPiA+ICsgICAgICAgICAgICAg
-ICAgICAgICA8JmNsa19zcGlfaW4yX2V4dD47DQo+ID4gKyAgICAgICAgICAgIGNsb2NrLW5hbWVz
-ID0gImNsa19vc2MiLCAic3lzX2Nsa19hcGJfYnVzIiwgInN5c19jbGtfaXNwXzJ4IiwNCj4gPiAr
-ICAgICAgICAgICAgICAgICAgICAgICAgICAic3lzX2Nsa19pc3BfYXhpIiwgInN5c19jbGtfdm91
-dF9yb290MCIsDQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgInN5c19jbGtfdm91dF9y
-b290MSIsICJzeXNfY2xrX3ZvdXRfc2Nhbl9hdHMiLA0KPiA+ICsgICAgICAgICAgICAgICAgICAg
-ICAgICAgICJzeXNfY2xrX3ZvdXRfZGNfY29yZSIsICJzeXNfY2xrX3ZvdXRfYXhpIiwNCj4gPiAr
-ICAgICAgICAgICAgICAgICAgICAgICAgICAic3lzX2Nsa19heGlfNDAwIiwgInN5c19jbGtfYXhp
-XzIwMCIsDQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgInN5c19jbGtfcGVyaF9yb290
-X3ByZW9zYyIsICJjbGtfZHZwX2V4dCIsDQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAg
-ImNsa19pc3BfZHBoeV90YXBfdGNrX2V4dCIsICJjbGtfZ2xiX2V4dF9jbGsiLA0KPiA+ICsgICAg
-ICAgICAgICAgICAgICAgICAgICAgICJjbGtfaTJzX3RzY2tvIiwgImNsa192b3V0X21pcGlfZHBo
-eV90YXBfdGNrX2V4dCIsDQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgImNsa192b3V0
-X2VkcF90YXBfdGNrX2V4dCIsICJjbGtfc3BpX2luMl9leHQiOw0KPiA+ICsgICAgICAgICAgICAj
-Y2xvY2stY2VsbHMgPSA8MT47DQo+ID4gKyAgICAgICAgICAgICNyZXNldC1jZWxscyA9IDwxPjsN
-Cj4gPiArICAgIH07DQo+ID4gZGlmZiAtLWdpdCBhL2luY2x1ZGUvZHQtYmluZGluZ3MvY2xvY2sv
-c3RhcmZpdmUsamg4MTAwLWNyZy5oIGIvaW5jbHVkZS9kdC1iaW5kaW5ncy9jbG9jay9zdGFyZml2
-ZSxqaDgxMDAtY3JnLmgNCj4gPiBpbmRleCBlNWJiNTg4Y2U3OTguLjg0MTc0NTVjMjQwOSAxMDA2
-NDQNCj4gPiAtLS0gYS9pbmNsdWRlL2R0LWJpbmRpbmdzL2Nsb2NrL3N0YXJmaXZlLGpoODEwMC1j
-cmcuaA0KPiA+ICsrKyBiL2luY2x1ZGUvZHQtYmluZGluZ3MvY2xvY2svc3RhcmZpdmUsamg4MTAw
-LWNyZy5oDQo+ID4gQEAgLTEyMCw0ICsxMjAsNDkgQEANCj4gPiAgI2RlZmluZSBTWVNDUkdfQ0xL
-X05ORV9JQ0dfRU4JCQkJCQkxMDgNCj4gPg0KPiA+ICAjZGVmaW5lIFNZU0NSR19DTEtfRU5ECQkJ
-CQkJCTEwOQ0KPiA+ICsNCj4gPiArLyogU1lTQ1JHX05XX0NMSyAqLw0KPiA+ICsjZGVmaW5lIFNZ
-U0NSR19OV19DTEtfUExMNV9ESVYyCQkJCQkJMA0KPiA+ICsjZGVmaW5lIFNZU0NSR19OV19DTEtf
-R0NMSzUJCQkJCQkxDQo+ID4gKyNkZWZpbmUgU1lTQ1JHX05XX0NMS19HUElPXzEwMAkJCQkJCTIN
-Cj4gPiArI2RlZmluZSBTWVNDUkdfTldfQ0xLX0dQSU9fNTAJCQkJCQkzDQo+ID4gKyNkZWZpbmUg
-U1lTQ1JHX05XX0NMS19HUElPXzE1MAkJCQkJCTQNCj4gPiArI2RlZmluZSBTWVNDUkdfTldfQ0xL
-X0dQSU9fNjAJCQkJCQk1DQo+ID4gKyNkZWZpbmUgU1lTQ1JHX05XX0NMS19JT01VWF9XRVNUX1BD
-TEsJCQkJCTYNCj4gPiArI2RlZmluZSBTWVNDUkdfTldfQ0xLX0kyQzZfQVBCCQkJCQkJNw0KPiA+
-ICsjZGVmaW5lIFNZU0NSR19OV19DTEtfSTJDN19BUEIJCQkJCQk4DQo+ID4gKyNkZWZpbmUgU1lT
-Q1JHX05XX0NMS19TUEkyX0FQQgkJCQkJCTkNCj4gPiArI2RlZmluZSBTWVNDUkdfTldfQ0xLX1NQ
-STJfQ09SRQkJCQkJCTEwDQo+ID4gKyNkZWZpbmUgU1lTQ1JHX05XX0NMS19TUEkyX1NDTEtfSU4J
-CQkJCTExDQo+ID4gKyNkZWZpbmUgU1lTQ1JHX05XX0NMS19TTUJVUzFfQVBCCQkJCQkxMg0KPiA+
-ICsjZGVmaW5lIFNZU0NSR19OV19DTEtfU01CVVMxX0NPUkUJCQkJCTEzDQo+ID4gKyNkZWZpbmUg
-U1lTQ1JHX05XX0NMS19JU1BfRFZQCQkJCQkJMTQNCj4gPiArI2RlZmluZSBTWVNDUkdfTldfQ0xL
-X0lTUF9DT1JFXzJYCQkJCQkxNQ0KPiA+ICsjZGVmaW5lIFNZU0NSR19OV19DTEtfSVNQX0FYSQkJ
-CQkJCTE2DQo+ID4gKyNkZWZpbmUgU1lTQ1JHX05XX0NMS19JU1BfRFBIWV9UQVBfVENLCQkJCQkx
-Nw0KPiA+ICsjZGVmaW5lIFNZU0NSR19OV19DTEtfRkxFWE5PQ19JU1BTTFYJCQkJCTE4DQo+ID4g
-KyNkZWZpbmUgU1lTQ1JHX05XX0NMS19WT1VUX1BJWDAJCQkJCQkxOQ0KPiA+ICsjZGVmaW5lIFNZ
-U0NSR19OV19DTEtfVk9VVF9QSVgxCQkJCQkJMjANCj4gPiArI2RlZmluZSBTWVNDUkdfTldfQ0xL
-X1ZPVVRfU0NBTl9BVFMJCQkJCTIxDQo+ID4gKyNkZWZpbmUgU1lTQ1JHX05XX0NMS19WT1VUX0RD
-X0NPUkUJCQkJCTIyDQo+ID4gKyNkZWZpbmUgU1lTQ1JHX05XX0NMS19WT1VUX0FQQgkJCQkJCTIz
-DQo+ID4gKyNkZWZpbmUgU1lTQ1JHX05XX0NMS19WT1VUX0RTSQkJCQkJCTI0DQo+ID4gKyNkZWZp
-bmUgU1lTQ1JHX05XX0NMS19WT1VUX0FIQgkJCQkJCTI1DQo+ID4gKyNkZWZpbmUgU1lTQ1JHX05X
-X0NMS19WT1VUX0FYSQkJCQkJCTI2DQo+ID4gKyNkZWZpbmUgU1lTQ1JHX05XX0NMS19WT1VUX01J
-UElfRFBIWV9UQVBfVENLCQkJCTI3DQo+ID4gKyNkZWZpbmUgU1lTQ1JHX05XX0NMS19WT1VUX0VE
-UF9QSFlfVEFQX1RDSwkJCQkyOA0KPiA+ICsjZGVmaW5lIFNZU0NSR19OV19DTEtfVUFSVDVfQ09S
-RV9QUkVPU0MJCQkJCTI5DQo+ID4gKyNkZWZpbmUgU1lTQ1JHX05XX0NMS19VQVJUNV9BUEIJCQkJ
-CQkzMA0KPiA+ICsjZGVmaW5lIFNZU0NSR19OV19DTEtfVUFSVDVfQ09SRQkJCQkJMzENCj4gPiAr
-I2RlZmluZSBTWVNDUkdfTldfQ0xLX1VBUlQ2X0NPUkVfUFJFT1NDCQkJCQkzMg0KPiA+ICsjZGVm
-aW5lIFNZU0NSR19OV19DTEtfVUFSVDZfQVBCCQkJCQkJMzMNCj4gPiArI2RlZmluZSBTWVNDUkdf
-TldfQ0xLX1VBUlQ2X0NPUkUJCQkJCTM0DQo+ID4gKyNkZWZpbmUgU1lTQ1JHX05XX0NMS19TUEky
-X0lDR19FTgkJCQkJMzUNCj4gPiArI2RlZmluZSBTWVNDUkdfTldfQ0xLX1NNQlVTMV9JQ0dfRU4J
-CQkJCTM2DQo+ID4gKyNkZWZpbmUgU1lTQ1JHX05XX0NMS19JU1BfSUNHX0VOCQkJCQkzNw0KPiA+
-ICsjZGVmaW5lIFNZU0NSR19OV19DTEtfVk9VVF9JQ0dfRU4JCQkJCTM4DQo+ID4gKyNkZWZpbmUg
-U1lTQ1JHX05XX0NMS19VQVJUNV9JQ0dfRU4JCQkJCTM5DQo+ID4gKyNkZWZpbmUgU1lTQ1JHX05X
-X0NMS19VQVJUNl9JQ0dfRU4JCQkJCTQwDQo+ID4gKw0KPiA+ICsjZGVmaW5lIFNZU0NSR19OV19D
-TEtfRU5ECQkJCQkJNDENCj4gPiAgI2VuZGlmIC8qIF9fRFRfQklORElOR1NfQ0xPQ0tfU1RBUkZJ
-VkVfSkg4MTAwX0hfXyAqLw0KPiA+IGRpZmYgLS1naXQgYS9pbmNsdWRlL2R0LWJpbmRpbmdzL3Jl
-c2V0L3N0YXJmaXZlLGpoODEwMC1jcmcuaCBiL2luY2x1ZGUvZHQtYmluZGluZ3MvcmVzZXQvc3Rh
-cmZpdmUsamg4MTAwLWNyZy5oDQo+ID4gaW5kZXggM2I3YjkyNDg4ZTc2Li44YzNhODU4YmRmNmEg
-MTAwNjQ0DQo+ID4gLS0tIGEvaW5jbHVkZS9kdC1iaW5kaW5ncy9yZXNldC9zdGFyZml2ZSxqaDgx
-MDAtY3JnLmgNCj4gPiArKysgYi9pbmNsdWRlL2R0LWJpbmRpbmdzL3Jlc2V0L3N0YXJmaXZlLGpo
-ODEwMC1jcmcuaA0KPiA+IEBAIC0yMCw0ICsyMCwxOSBAQA0KPiA+DQo+ID4gICNkZWZpbmUgU1lT
-Q1JHX1JFU0VUX05SX1JFU0VUUwkJCQkJOA0KPiA+DQo+ID4gKy8qDQo+ID4gKyAqIHN5c2NyZ19u
-dzogYXNzZXJ0MA0KPiA+ICsgKi8NCj4gPiArI2RlZmluZSBTWVNDUkdfTldfUlNUTl9QUkVTRVRO
-CQkJCQkwDQo+ID4gKyNkZWZpbmUgU1lTQ1JHX05XX1JTVE5fU1lTX0lPTVVYX1cJCQkJMQ0KPiA+
-ICsjZGVmaW5lIFNZU0NSR19OV19SU1ROX0kyQzYJCQkJCTINCj4gPiArI2RlZmluZSBTWVNDUkdf
-TldfUlNUTl9JMkM3CQkJCQkzDQo+ID4gKyNkZWZpbmUgU1lTQ1JHX05XX1JTVE5fU1BJMgkJCQkJ
-NA0KPiA+ICsjZGVmaW5lIFNZU0NSR19OV19SU1ROX1NNQlVTMQkJCQkJNQ0KPiA+ICsjZGVmaW5l
-IFNZU0NSR19OV19SU1ROX1VBUlQ1CQkJCQk2DQo+ID4gKyNkZWZpbmUgU1lTQ1JHX05XX1JTVE5f
-VUFSVDYJCQkJCTcNCj4gPiArI2RlZmluZSBTWVNDUkdfTldfUlNUTl9NRVJBSzBfVFZTRU5TT1IJ
-CQkJOA0KPiA+ICsjZGVmaW5lIFNZU0NSR19OV19SU1ROX01FUkFLMV9UVlNFTlNPUgkJCQk5DQo+
-ID4gKw0KPiA+ICsjZGVmaW5lIFNZU0NSR19OV19SRVNFVF9OUl9SRVNFVFMJCQkJMTANCj4gPiAg
-I2VuZGlmIC8qIF9fRFRfQklORElOR1NfUkVTRVRfU1RBUkZJVkVfSkg4MTAwX0hfXyAqLw0KPiA+
-IC0tDQo+ID4gMi4zNC4xDQo+ID4NCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+
+
+> -----Original Message-----
+> From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> Sent: Saturday, December 9, 2023 12:40 AM
+> To: JeeHeng Sia <jeeheng.sia@starfivetech.com>; kernel@esmil.dk; conor@kernel.org; robh+dt@kernel.org;
+> krzysztof.kozlowski+dt@linaro.org; paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu;
+> mturquette@baylibre.com; sboyd@kernel.org; p.zabel@pengutronix.de; emil.renner.berthing@canonical.com; Hal Feng
+> <hal.feng@starfivetech.com>; Xingyu Wu <xingyu.wu@starfivetech.com>
+> Cc: linux-riscv@lists.infradead.org; devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-clk@vger.kernel.org; Leyfoon Tan
+> <leyfoon.tan@starfivetech.com>
+> Subject: Re: [PATCH v1 16/16] riscv: dts: starfive: jh8100: Add clocks and resets nodes
+> 
+> Sia Jee Heng wrote:
+> > Add SYSCRG/SYSCRG-NE/SYSCRG-NW/SYSCRG-SW/AONCRG clock and reset
+> > nodes for JH8100 RISC-V SoC.
+> >
+> > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+> > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+> > ---
+> >  arch/riscv/boot/dts/starfive/jh8100-clk.dtsi | 180 +++++++++++++++++++
+> >  arch/riscv/boot/dts/starfive/jh8100.dtsi     | 115 ++++++++++++
+> 
+> Why the split here? I mean why can't the clocks just be in the jh8100.dtsi?
+The reason is that the number of fixed clocks increases when more and more
+domain clocks are added. So, that is why we split out the clock file.
+> 
+> >  2 files changed, 295 insertions(+)
+> >  create mode 100644 arch/riscv/boot/dts/starfive/jh8100-clk.dtsi
+> >
+> > diff --git a/arch/riscv/boot/dts/starfive/jh8100-clk.dtsi b/arch/riscv/boot/dts/starfive/jh8100-clk.dtsi
+> > new file mode 100644
+> > index 000000000000..27ba249f523e
+> > --- /dev/null
+> > +++ b/arch/riscv/boot/dts/starfive/jh8100-clk.dtsi
+> > @@ -0,0 +1,180 @@
+> > +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> > +/*
+> > + * Copyright (C) 2023 StarFive Technology Co., Ltd.
+> > + */
+> > +
+> > +/ {
+> > +	clk_osc: clk_osc {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <24000000>;
+> > +	};
+> > +
+> > +	clk_i2srx_bclk_ext: clk_i2srx_bclk_ext {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <12288000>;
+> > +	};
+> > +
+> > +	clk_i2srx_lrck_ext: clk_i2srx_lrck_ext {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <192000>;
+> > +	};
+> > +
+> > +	clk_mclk_ext: clk_mclk_ext {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <49152000>;
+> > +	};
+> > +	/* sys-ne */
+> > +	clk_usb3_tap_tck_ext: clk_usb3_tap_tck_ext {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <100000000>;
+> > +	};
+> > +
+> > +	clk_glb_ext_clk: clk_glb_ext_clk {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <30000000>;
+> > +	};
+> > +
+> > +	clk_usb1_tap_tck_ext: clk_usb1_tap_tck_ext {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <100000000>;
+> > +	};
+> > +
+> > +	clk_usb2_tap_tck_ext: clk_usb2_tap_tck_ext {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <100000000>;
+> > +	};
+> > +
+> > +	clk_i2s_tscko: clk_i2s_tscko {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <12800000>;
+> > +	};
+> > +
+> > +	clk_typec_tap_tck_ext: clk_typec_tap_tck_ext {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <100000000>;
+> > +	};
+> > +
+> > +	clk_spi_in0_ext: clk_spi_in0_ext {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <100000000>;
+> > +	};
+> > +
+> > +	clk_spi_in1_ext: clk_spi_in1_ext {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <100000000>;
+> > +	};
+> > +
+> > +	clk_spi_in2_ext: clk_spi_in2_ext {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <100000000>;
+> > +	};
+> > +
+> > +	clk_i2stx_bclk_ext: clk_i2stx_bclk_ext {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <12288000>;
+> > +	};
+> > +
+> > +	clk_i2stx_lrck_ext: clk_i2stx_lrck_ext {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <192000>;
+> > +	};
+> > +	/* sys-nw */
+> > +	clk_dvp_ext: clk_dvp_ext {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <150000000>;
+> > +	};
+> > +
+> > +	clk_isp_dphy_tap_tck_ext: clk_isp_dphy_tap_tck_ext {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <100000000>;
+> > +	};
+> > +
+> > +	clk_vout_mipi_dphy_tap_tck_ext: clk_vout_mipi_dphy_tap_tck_ext {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <100000000>;
+> > +	};
+> > +
+> > +	clk_vout_edp_tap_tck_ext: clk_vout_edp_tap_tck_ext {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <100000000>;
+> > +	};
+> > +
+> > +	clk_rtc: clk_rtc {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <32768>;
+> > +	};
+> > +	/* aon */
+> > +	clk_gmac0_rmii_func: clk_gmac0_rmii_func {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <50000000>;
+> > +	};
+> > +
+> > +	clk_gmac0_rgmii_func: clk_gmac0_rgmii_func {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <125000000>;
+> > +	};
+> > +
+> > +	clk_aon50: clk_aon50 {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <50000000>;
+> > +	};
+> > +
+> > +	clk_aon125: clk_aon125 {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <125000000>;
+> > +	};
+> > +
+> > +	clk_aon2000: clk_aon2000 {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <2000000000>;
+> > +	};
+> > +
+> > +	clk_aon200: clk_aon200 {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <200000000>;
+> > +	};
+> > +
+> > +	clk_aon667: clk_isp_aon667 {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <667000000>;
+> > +	};
+> > +
+> > +	clk_i3c_ext: clk_i3c_ext {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <12500000>;
+> > +	};
+> > +
+> > +	clk_espi_ext: clk_espi_ext {
+> > +		compatible = "fixed-clock";
+> > +		#clock-cells = <0>;
+> > +		clock-frequency = <60000000>;
+> > +	};
+> > +};
+> > diff --git a/arch/riscv/boot/dts/starfive/jh8100.dtsi b/arch/riscv/boot/dts/starfive/jh8100.dtsi
+> > index f26aff5c1ddf..9863c61324a0 100644
+> > --- a/arch/riscv/boot/dts/starfive/jh8100.dtsi
+> > +++ b/arch/riscv/boot/dts/starfive/jh8100.dtsi
+> > @@ -4,6 +4,9 @@
+> >   */
+> >
+> >  /dts-v1/;
+> > +#include <dt-bindings/clock/starfive,jh8100-crg.h>
+> > +#include <dt-bindings/reset/starfive,jh8100-crg.h>
+> > +#include "jh8100-clk.dtsi"
+> >
+> >  / {
+> >  	compatible = "starfive,jh8100";
+> > @@ -357,6 +360,104 @@ uart4: serial@121a0000  {
+> >  			status = "disabled";
+> >  		};
+> >
+> > +		syscrg_ne: syscrg_ne@12320000 {
+> > +			compatible = "starfive,jh8100-syscrg-ne";
+> > +			reg = <0x0 0x12320000 0x0 0x10000>;
+> > +			clocks = <&clk_osc>, <&syscrg SYSCRG_CLK_AXI_400>,
+> > +				 <&syscrg SYSCRG_CLK_VOUT_ROOT0>,
+> > +				 <&syscrg SYSCRG_CLK_VOUT_ROOT1>,
+> > +				 <&syscrg SYSCRG_CLK_USB_WRAP_480>,
+> > +				 <&syscrg SYSCRG_CLK_USB_WRAP_625>,
+> > +				 <&syscrg SYSCRG_CLK_USB_WRAP_240>,
+> > +				 <&syscrg SYSCRG_CLK_USB_WRAP_60>,
+> > +				 <&syscrg SYSCRG_CLK_USB_WRAP_156P25>,
+> > +				 <&syscrg SYSCRG_CLK_USB_WRAP_312P5>,
+> > +				 <&syscrg SYSCRG_CLK_USB_125M>,
+> > +				 <&syscrg_nw SYSCRG_NW_CLK_GPIO_100>,
+> > +				 <&syscrg SYSCRG_CLK_PERH_ROOT>, <&syscrg SYSCRG_CLK_MCLK>,
+> > +				 <&syscrg SYSCRG_CLK_PERH_ROOT_PREOSC>,
+> > +				 <&syscrg SYSCRG_CLK_AHB0>,
+> > +				 <&syscrg SYSCRG_CLK_APB_BUS_PER1>,
+> > +				 <&syscrg SYSCRG_CLK_APB_BUS_PER2>,
+> > +				 <&syscrg SYSCRG_CLK_APB_BUS_PER3>,
+> > +				 <&syscrg SYSCRG_CLK_APB_BUS_PER5>,
+> > +				 <&syscrg SYSCRG_CLK_VENC_ROOT>,
+> > +				 <&syscrg SYSCRG_CLK_SPI_CORE_100>,
+> > +				 <&clk_glb_ext_clk>, <&clk_usb3_tap_tck_ext>,
+> > +				 <&clk_usb1_tap_tck_ext>, <&clk_usb2_tap_tck_ext>,
+> > +				 <&clk_typec_tap_tck_ext>, <&clk_spi_in0_ext>,
+> > +				 <&clk_spi_in1_ext>, <&clk_i2stx_bclk_ext>, <&clk_i2stx_lrck_ext>;
+> > +			clock-names = "clk_osc", "sys_clk_axi_400",
+> > +				      "sys_clk_vout_root0", "sys_clk_vout_root1",
+> > +				      "sys_clk_usb_wrap_480", "sys_clk_usb_wrap_625",
+> > +				      "sys_clk_usb_wrap_240", "sys_clk_usb_wrap_60",
+> > +				      "sys_clk_usb_wrap_156p25", "sys_clk_usb_wrap_312p5",
+> > +				      "sys_clk_usb_125m", "sys_nw_clk_gpio_100",
+> > +				      "sys_clk_perh_root", "sys_clk_mclk",
+> > +				      "sys_clk_perh_root_preosc", "sys_clk_ahb0",
+> > +				      "sys_clk_apb_bus_per1", "sys_clk_apb_bus_per2",
+> > +				      "sys_clk_apb_bus_per3", "sys_clk_apb_bus_per5",
+> > +				      "sys_clk_venc_root", "sys_clk_spi_core_100",
+> > +				      "clk_glb_ext_clk", "clk_usb3_tap_tck_ext",
+> > +				      "clk_usb1_tap_tck_ext", "clk_usb2_tap_tck_ext",
+> > +				      "clk_typec_tap_tck_ext", "clk_spi_in0_ext",
+> > +				      "clk_spi_in1_ext", "clk_i2stx_bclk_ext",
+> > +				      "clk_i2stx_lrck_ext";
+> > +			#clock-cells = <1>;
+> > +			#reset-cells = <1>;
+> > +		};
+> > +
+> > +		syscrg_nw: syscrg_nw@123c0000 {
+> > +			compatible = "starfive,jh8100-syscrg-nw";
+> > +			reg = <0x0 0x123c0000 0x0 0x10000>;
+> > +			clocks = <&clk_osc>, <&syscrg SYSCRG_CLK_APB_BUS>,
+> > +				 <&syscrg SYSCRG_CLK_ISP_2X>, <&syscrg SYSCRG_CLK_ISP_AXI>,
+> > +				 <&syscrg SYSCRG_CLK_VOUT_ROOT0>, <&syscrg SYSCRG_CLK_VOUT_ROOT1>,
+> > +				 <&syscrg SYSCRG_CLK_VOUT_SCAN_ATS>,
+> > +				 <&syscrg SYSCRG_CLK_VOUT_DC_CORE>, <&syscrg SYSCRG_CLK_VOUT_AXI>,
+> > +				 <&syscrg SYSCRG_CLK_AXI_400>, <&syscrg SYSCRG_CLK_AXI_200>,
+> > +				 <&syscrg SYSCRG_CLK_PERH_ROOT_PREOSC>,
+> > +				 <&clk_dvp_ext>, <&clk_isp_dphy_tap_tck_ext>,
+> > +				 <&clk_glb_ext_clk>, <&clk_i2s_tscko>,
+> > +				 <&clk_vout_mipi_dphy_tap_tck_ext>, <&clk_vout_edp_tap_tck_ext>,
+> > +				 <&clk_spi_in2_ext>;
+> > +			clock-names = "clk_osc", "sys_clk_apb_bus",
+> > +				      "sys_clk_isp_2x", "sys_clk_isp_axi",
+> > +				      "sys_clk_vout_root0", "sys_clk_vout_root1",
+> > +				      "sys_clk_vout_scan_ats", "sys_clk_vout_dc_core",
+> > +				      "sys_clk_vout_axi", "sys_clk_axi_400",
+> > +				      "sys_clk_axi_200", "sys_clk_perh_root_preosc", "clk_dvp_ext",
+> > +				      "clk_isp_dphy_tap_tck_ext", "clk_glb_ext_clk",
+> > +				      "clk_i2s_tscko", "clk_vout_mipi_dphy_tap_tck_ext",
+> > +				      "clk_vout_edp_tap_tck_ext", "clk_spi_in2_ext";
+> > +			#clock-cells = <1>;
+> > +			#reset-cells = <1>;
+> > +		};
+> > +
+> > +		syscrg: syscrg@126d0000 {
+> > +			compatible = "starfive,jh8100-syscrg";
+> > +			reg = <0x0 0x126d0000 0x0 0x10000>;
+> > +			clocks = <&clk_osc>, <&clk_i2srx_bclk_ext>,
+> > +				 <&clk_i2srx_lrck_ext>, <&clk_mclk_ext>;
+> > +			clock-names = "clk_osc", "clk_i2srx_bclk_ext",
+> > +				      "clk_i2srx_lrck_ext", "clk_mclk_ext";
+> > +			#clock-cells = <1>;
+> > +			#reset-cells = <1>;
+> > +		};
+> > +
+> > +		syscrg_sw: syscrg_sw@12720000 {
+> > +			compatible = "starfive,jh8100-syscrg-sw";
+> > +			reg = <0x0 0x12720000 0x0 0x10000>;
+> > +			clocks = <&syscrg SYSCRG_CLK_APB_BUS>,
+> > +				 <&syscrg SYSCRG_CLK_VDEC_ROOT>,
+> > +				 <&syscrg SYSCRG_CLK_FLEXNOC1>;
+> > +			clock-names = "sys_clk_apb_bus",
+> > +				      "sys_clk_vdec_root",
+> > +				      "sys_clk_flexnoc1";
+> > +			#clock-cells = <1>;
+> > +			#reset-cells = <1>;
+> > +		};
+> > +
+> >  		uart5: serial@127d0000  {
+> >  			compatible = "starfive,jh8100-uart", "cdns,uart-r1p8";
+> >  			reg = <0x0 0x127d0000 0x0 0x10000>;
+> > @@ -374,5 +475,19 @@ uart6: serial@127e0000  {
+> >  			interrupts = <73>;
+> >  			status = "disabled";
+> >  		};
+> > +
+> > +		aoncrg: aoncrg@1f310000 {
+> > +			compatible = "starfive,jh8100-aoncrg";
+> > +			reg = <0x0 0x1f310000 0x0 0x10000>;
+> > +			clocks = <&clk_osc>, <&clk_gmac0_rmii_func>,
+> > +				 <&clk_gmac0_rgmii_func>, <&clk_aon125>,
+> > +				 <&clk_aon2000>, <&clk_aon200>,
+> > +				 <&clk_aon667>, <&clk_rtc>;
+> > +			clock-names = "clk_osc", "clk_gmac0_rmii_func", "clk_gmac0_rgmii_func",
+> > +				      "clk_aon125", "clk_aon2000", "clk_aon200",
+> > +				      "clk_aon667", "clk_rtc";
+> > +			#clock-cells = <1>;
+> > +			#reset-cells = <1>;
+> > +		};
+> >  	};
+> >  };
+> > --
+> > 2.34.1
+> >
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
