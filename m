@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C1C6C4167D
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 08:16:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B79DC4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 08:36:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UV1Pk2n+F4uVUM6DtsqCyMx52c28BlgkWNAJzm5ltNY=; b=q9HgDMOTRiuXOs
-	5ZU1FYkHNC/+gjZ5JiInrNuzPwZzZ/JWdJEZeNsWarM6SlvlmjSnuMNt2LTXM34q+cotPhTvzEj8+
-	tMEzTDG0aEJEOmF3yWOwVB12Erx55+tjnuVXfGO9UdXgulpo0Cxlr003vM8vQr9XtoAXZQdGMS9l2
-	lddr+RnJOuxthZLuSkVkB0b5iRE2C1eipbggUO/4527cwSIbHLHMPmSXXEIcHUhefRKtq+DxLq99e
-	TcWZj5hYnXOS4B8xMTDNi1sslpGelSXQsn1GoECGQGoqjIBuhXYW/hHW6UqOZJJipVg8Q3UviNGm+
-	ualAzQUK27f5+P0I3NJQ==;
+	List-Owner; bh=JrF90/aybznrFzgeSocVJPeZqBv39QYCEHEsTIeHO90=; b=HqoGkx+S0CCNwL
+	2qkJ9aeitxNw89rlWcDyOW9MwsnAlspvNn9tSWch9ugojFMpeX54rw0DT3pFnetfS6RsfL5WFPKoa
+	rBxSC7H7kSdp5rgpgfVI6edL4eSgWxncS8fpFkpIWh+KWFEjrmGtrunBWkZampVgxGaZ2ebR8zauT
+	Mx7jCZdf15OXjHPDZi/1XMXZNep8Rvf3L/dlnMY0mjECK/rBuGJr6CmBGpCGXI8iru16+bSn/lPhi
+	qRU2Zg2WGax1wWBYc6DmS+nqsTvbtJgwzD/y4AUIjgbK5APZwMVzfJmN8nHJTVSyNtnYpHaFuFUVF
+	YNyijuozhwvCF514+fcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDKPw-00E09g-2K;
-	Wed, 13 Dec 2023 08:16:33 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDKPo-00E061-0q
+	id 1rDKjI-00E2iQ-1p;
+	Wed, 13 Dec 2023 08:36:32 +0000
+Received: from mail-oa1-f50.google.com ([209.85.160.50])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1rDKjF-00E2h5-0n
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Dec 2023 08:16:26 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 5B74582A9;
-	Wed, 13 Dec 2023 16:15:41 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 13 Dec
- 2023 16:15:41 +0800
-Received: from [192.168.125.85] (183.27.97.57) by EXMBX171.cuchost.com
- (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 13 Dec
- 2023 16:15:40 +0800
-Message-ID: <9523aa6b-55a8-4e6a-a3ba-45d9b1dacc77@starfivetech.com>
-Date: Wed, 13 Dec 2023 16:15:39 +0800
+	Wed, 13 Dec 2023 08:36:30 +0000
+Received: by mail-oa1-f50.google.com with SMTP id 586e51a60fabf-20315d10afaso603507fac.0
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Dec 2023 00:36:28 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1702456587; x=1703061387;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6anvPPkB7zC5RyRZfp8ATi41Ad4dEiA0WoUIsmcFlew=;
+        b=lp9VXWn2CLD24kZngIiRFCXUn5UUXKxMM3Xtl3Iqyes4p979BNX+15SFFRputqsOab
+         XizACuHmC2UELbSum6HY76qS/WmTFKUvmNWgk12o1wabMz/wyIl25qdkdLilzAsX/8SW
+         3CNloxYN25wTAP+aYqDMxc/mmCT2lOGoO7eE1OSXXDTdSGJRXHxrToziZZtYRsb1Cx2E
+         PG2KaV3XXt7bWXUc3jOrrbFuVdaGb9XRUZNJWkABc6YPhbnYhDcHzdWZEOP41XzIKTeM
+         jX17NWL4VCECofyWE6IWk3yy+AijJNb846w2jFL5QyM+Bk2QuB6MMvDAzK99U1WirLeD
+         1YoQ==
+X-Gm-Message-State: AOJu0YyqIrntBRv48OurwmCJCB10bQk7Stcv8CvhzYhBvjRH1ATkpCID
+	xiV47eDMoI0j8Qhi9YSLbSjx4P2w5LUDNg==
+X-Google-Smtp-Source: AGHT+IHNopDLIp7weXMDsNfyOP6Vf2RYgQSR+NwDduP5/6PgZpkOo/gaNE1qYlL3GVnFHlgkimUp4A==
+X-Received: by 2002:a05:6871:414d:b0:203:2c18:8083 with SMTP id lb13-20020a056871414d00b002032c188083mr98750oab.27.1702456587433;
+        Wed, 13 Dec 2023 00:36:27 -0800 (PST)
+Received: from mail-yw1-f178.google.com (mail-yw1-f178.google.com. [209.85.128.178])
+        by smtp.gmail.com with ESMTPSA id u2-20020a816002000000b005d0fea7ad01sm4466646ywb.122.2023.12.13.00.36.27
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 13 Dec 2023 00:36:27 -0800 (PST)
+Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-5e2ce5c8f04so547527b3.2
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Dec 2023 00:36:27 -0800 (PST)
+X-Received: by 2002:a81:a1ce:0:b0:5e2:2917:273d with SMTP id
+ y197-20020a81a1ce000000b005e22917273dmr1045743ywg.43.1702456586772; Wed, 13
+ Dec 2023 00:36:26 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 15/21] PCI: microchip: Add event IRQ domain ops to
- struct plda_event
-Content-Language: en-US
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-CC: Conor Dooley <conor@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?=
-	<kw@linux.com>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
-	<bhelgaas@google.com>, Daire McNamara <daire.mcnamara@microchip.com>, "Emil
- Renner Berthing" <emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-pci@vger.kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	"Philipp Zabel" <p.zabel@pengutronix.de>, Mason Huo
-	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>
-References: <20231206105839.25805-1-minda.chen@starfivetech.com>
- <20231206105839.25805-16-minda.chen@starfivetech.com>
- <ZXhB1kKpElgKx8vm@lpieralisi>
-From: Minda Chen <minda.chen@starfivetech.com>
-In-Reply-To: <ZXhB1kKpElgKx8vm@lpieralisi>
-X-Originating-IP: [183.27.97.57]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX171.cuchost.com
- (172.16.6.91)
-X-YovoleRuleAgent: yovoleflag
+References: <20231212213457.132605-1-alexghiti@rivosinc.com> <20231212213457.132605-2-alexghiti@rivosinc.com>
+In-Reply-To: <20231212213457.132605-2-alexghiti@rivosinc.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 13 Dec 2023 09:36:15 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdWMuSBKHaPGKTf2pGdgsD5dMaxcrZw3Ox3G=ShjnOAKnQ@mail.gmail.com>
+Message-ID: <CAMuHMdWMuSBKHaPGKTf2pGdgsD5dMaxcrZw3Ox3G=ShjnOAKnQ@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] mm: Introduce flush_cache_vmap_early()
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+	Alexander Potapenko <glider@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
+	Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>, 
+	Christoph Lameter <cl@linux.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kasan-dev@googlegroups.com, linux-arch@vger.kernel.org, linux-mm@kvack.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231213_001624_578015_6C2728B5 
-X-CRM114-Status: GOOD (  19.07  )
+X-CRM114-CacheID: sfid-20231213_003629_290680_29C2E243 
+X-CRM114-Status: GOOD (  20.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,91 +87,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2023/12/12 19:19, Lorenzo Pieralisi wrote:
-> On Wed, Dec 06, 2023 at 06:58:33PM +0800, Minda Chen wrote:
->> For lack of an MSI controller, The new added PCIe interrupts have to be
->> added to global interrupt event field. PolarFire event domain ops can not
->> be re-used.
-> 
-> I don't understand what this means, please explain and I will
-> add it to the commit log.
-> 
-Sorry.
-Microchip Polarfire PCIe adds 11 PCIe interrupts to PCIe global event domain.(Total 28 PCIe interrupts)
-The microchip event domain and event irqchip will handle these interrupts.
-But PLDA host contain 13 fixed PCIe interrupts. PLDA codes just process these
-13 interrupts. Microchip the event irq codes are quite different and can't be used by PLDA codes.
-So add an event domain field support microchip and other vendor who just using the PLDA interrupts.
->> PLDA event domain ops instances will be implemented in later patch.
-> 
-> Future patches don't exist, each commit log is a logical change
-> that must make sense on its own, I will remove this sentence.
-> 
-> Lorenzo
-
-OK, Thanks.
-
->> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
->> Acked-by: Conor Dooley <conor.dooley@microchip.com>
->> ---
->>  drivers/pci/controller/plda/pcie-microchip-host.c | 6 ++++--
->>  drivers/pci/controller/plda/pcie-plda.h           | 1 +
->>  2 files changed, 5 insertions(+), 2 deletions(-)
->> 
->> diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
->> index f5e7da242aec..e6dcc572b65b 100644
->> --- a/drivers/pci/controller/plda/pcie-microchip-host.c
->> +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
->> @@ -821,13 +821,15 @@ static const struct plda_event_ops mc_event_ops = {
->>  };
->>  
->>  static const struct plda_event mc_event = {
->> +	.domain_ops        = &mc_event_domain_ops,
->>  	.event_ops         = &mc_event_ops,
->>  	.request_event_irq = mc_request_event_irq,
->>  	.intx_event        = EVENT_LOCAL_PM_MSI_INT_INTX,
->>  	.msi_event         = EVENT_LOCAL_PM_MSI_INT_MSI,
->>  };
->>  
->> -static int plda_pcie_init_irq_domains(struct plda_pcie_rp *port)
->> +static int plda_pcie_init_irq_domains(struct plda_pcie_rp *port,
->> +				      const struct irq_domain_ops *ops)
->>  {
->>  	struct device *dev = port->dev;
->>  	struct device_node *node = dev->of_node;
->> @@ -941,7 +943,7 @@ static int plda_init_interrupts(struct platform_device *pdev,
->>  		return -EINVAL;
->>  	}
->>  
->> -	ret = plda_pcie_init_irq_domains(port);
->> +	ret = plda_pcie_init_irq_domains(port, event->domain_ops);
->>  	if (ret) {
->>  		dev_err(dev, "failed creating IRQ domains\n");
->>  		return ret;
->> diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
->> index df1729095952..820ea16855b5 100644
->> --- a/drivers/pci/controller/plda/pcie-plda.h
->> +++ b/drivers/pci/controller/plda/pcie-plda.h
->> @@ -129,6 +129,7 @@ struct plda_pcie_rp {
->>  };
->>  
->>  struct plda_event {
->> +	const struct irq_domain_ops *domain_ops;
->>  	const struct plda_event_ops *event_ops;
->>  	int (*request_event_irq)(struct plda_pcie_rp *pcie,
->>  				 int event_irq, int event);
->> -- 
->> 2.17.1
->> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBEZWMgMTIsIDIwMjMgYXQgMTA6MzbigK9QTSBBbGV4YW5kcmUgR2hpdGkgPGFsZXhn
+aGl0aUByaXZvc2luYy5jb20+IHdyb3RlOgo+IFRoZSBwY3B1IHNldHVwIHdoZW4gdXNpbmcgdGhl
+IHBhZ2UgYWxsb2NhdG9yIHNldHMgdXAgYSBuZXcgdm1hbGxvYwo+IG1hcHBpbmcgdmVyeSBlYXJs
+eSBpbiB0aGUgYm9vdCBwcm9jZXNzLCBzbyBlYXJseSB0aGF0IGl0IGNhbm5vdCB1c2UgdGhlCj4g
+Zmx1c2hfY2FjaGVfdm1hcCgpIGZ1bmN0aW9uIHdoaWNoIG1heSBkZXBlbmQgb24gc3RydWN0dXJl
+cyBub3QgeWV0Cj4gaW5pdGlhbGl6ZWQgKGZvciBleGFtcGxlIGluIHJpc2N2LCB3ZSBjdXJyZW50
+bHkgc2VuZCBhbiBJUEkgdG8gZmx1c2gKPiBvdGhlciBjcHVzIFRMQikuCj4KPiBCdXQgb24gc29t
+ZSBhcmNoaXRlY3R1cmVzLCB3ZSBtdXN0IGNhbGwgZmx1c2hfY2FjaGVfdm1hcCgpOiBmb3IgZXhh
+bXBsZSwKPiBpbiByaXNjdiwgc29tZSB1YXJjaHMgY2FuIGNhY2hlIGludmFsaWQgVExCIGVudHJp
+ZXMgc28gd2UgbmVlZCB0byBmbHVzaAo+IHRoZSBuZXcgZXN0YWJsaXNoZWQgbWFwcGluZyB0byBh
+dm9pZCB0YWtpbmcgYW4gZXhjZXB0aW9uLgo+Cj4gU28gZml4IHRoaXMgYnkgaW50cm9kdWNpbmcg
+YSBuZXcgZnVuY3Rpb24gZmx1c2hfY2FjaGVfdm1hcF9lYXJseSgpIHdoaWNoCj4gaXMgY2FsbGVk
+IHJpZ2h0IGFmdGVyIHNldHRpbmcgdGhlIG5ldyBwYWdlIHRhYmxlIGVudHJ5IGFuZCBiZWZvcmUK
+PiBhY2Nlc3NpbmcgdGhpcyBuZXcgbWFwcGluZy4gVGhpcyBuZXcgZnVuY3Rpb24gaW1wbGVtZW50
+cyBhIGxvY2FsIGZsdXNoCj4gdGxiIG9uIHJpc2N2IGFuZCBpcyBuby1vcCBmb3Igb3RoZXIgYXJj
+aGl0ZWN0dXJlcyAoc2FtZSBhcyB0b2RheSkuCj4KPiBTaWduZWQtb2ZmLWJ5OiBBbGV4YW5kcmUg
+R2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+Cgo+ICBhcmNoL202OGsvaW5jbHVkZS9hc20v
+Y2FjaGVmbHVzaF9tbS5oICB8IDEgKwoKQWNrZWQtYnk6IEdlZXJ0IFV5dHRlcmhvZXZlbiA8Z2Vl
+cnRAbGludXgtbTY4ay5vcmc+CgpHcntvZXRqZSxlZXRpbmd9cywKCiAgICAgICAgICAgICAgICAg
+ICAgICAgIEdlZXJ0CgotLSAKR2VlcnQgVXl0dGVyaG9ldmVuIC0tIFRoZXJlJ3MgbG90cyBvZiBM
+aW51eCBiZXlvbmQgaWEzMiAtLSBnZWVydEBsaW51eC1tNjhrLm9yZwoKSW4gcGVyc29uYWwgY29u
+dmVyc2F0aW9ucyB3aXRoIHRlY2huaWNhbCBwZW9wbGUsIEkgY2FsbCBteXNlbGYgYSBoYWNrZXIu
+IEJ1dAp3aGVuIEknbSB0YWxraW5nIHRvIGpvdXJuYWxpc3RzIEkganVzdCBzYXkgInByb2dyYW1t
+ZXIiIG9yIHNvbWV0aGluZyBsaWtlIHRoYXQuCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgLS0gTGludXMgVG9ydmFsZHMKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
