@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 572D2C4167D
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 17:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 054C1C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 17:12:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jizob5clkrtyuJ90C7X6nAqjHYp+95706VF78Svh+3A=; b=EhkatttacWuyKj
-	hRRazwqreI2Vmlin/vcXL1mDgUsYU0CHB1LIt0j4rVpwIsB5OsuALXdHbA1sRA3Cz6CyouDqLT2rf
-	rwhVPvTT6gAwCI5gnFn4kn0EXJ3YI9f0/kl4D0ySp8sO/fBIfej2id4785RbZf6MR41HoVm+Zm3AR
-	kMuzUq9ItoCAGxNgnM3ihOs4WxJuQl7RoVZ/UeEPJjftryCwRIGnIRTsvSj5EIEFjtHrbt3lsQIk/
-	NkMlxwo6NgY+ybM3CEi6kCA9I4Ui31lGhxTZ2nnSaekwUeVCbsx9mReLHJLQsu3WnjAP91g+mX2OF
-	HHDy0nWwyGt9OvZ8KkOA==;
+	List-Owner; bh=jT0W5/bJRMzkUNIESTpjnm/B/1q3/upwXuuNSSddQqA=; b=NLVai/ax/n0m33
+	MIrxqA5WkS8HQmhWlvmpaGSRrHrY+gt+MBwQZNlTy+8BPvXK276UeAsYXoHwu+VjuT5mRXCfcjosh
+	jEqEhNBwZu/VCVrEZKy7VntY8tYbRH6AUQsEHMIo9w6igU0wklvAaR93T4vVqpFmsZqK9U/vOSiSY
+	84iy42fOl+xbeyeJsirkMfv+wkiBYI47GHGkQHp+YhxdWrwwV+MqPiHAnmyO301loA7OAuy2pOa6z
+	ra92KFVudFvlyMYRlYtC8js/YlDXxflraZgQbvYrJfMD+5oIm0z95yUCQfgVCrajfO/oF/trBvcM0
+	PH4lnhYAsMhc2ysceoMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDSkM-00FY6o-2f;
-	Wed, 13 Dec 2023 17:10:10 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1rDSmf-00FYb8-1C;
+	Wed, 13 Dec 2023 17:12:33 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDSkF-00FXyo-2c
+	id 1rDSmc-00FYaN-1S
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Dec 2023 17:10:06 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-40c580ba223so16110715e9.3
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Dec 2023 09:10:00 -0800 (PST)
+	Wed, 13 Dec 2023 17:12:32 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-40c55872d80so10806865e9.1
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Dec 2023 09:12:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1702487399; x=1703092199; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=x3wF4eqK4ImhmFBJfbCeNiXF9W/tavYgP8z6Chx48Zk=;
-        b=TiG+6karIDSpw6QcoQUlBcAltKtNqb9L5sv5l3vd658ObWLFx7w7/vxZOFXQUJslDj
-         QBl7fOmEVYJ+Be49IQwPNluwOA0oyv7Cby+RDjINtj0CI1DB8WBAxgyQG/aT6EOtH94K
-         nI4ISG81APrKo+4+IoCTRFXnKjlQ+LIsCWrBT1h3yaq2Z5gF8lAQwmm0LnDcZCAvsYHA
-         IK/GGC7gZCUPgwt5SRg9RzJpVeLjM3fgxyy3AsGW1vG1n8j9WeAflM+2KH/kTniKhUC7
-         k1qU5EV741fTB+j0AnBcEORD49DtSy9JS4eKFOZadeBqoWdTO2z3YIPrlZW5BE2BGzQs
-         igtg==
+        d=ventanamicro.com; s=google; t=1702487549; x=1703092349; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=c59vlX5YclU/QFrLJL0zA0ruhcMbY+hSeyN1btvp4fQ=;
+        b=LCwofZYrucPJcJozv7l0NTiq9QN7LadUY3AUXvVtWzO9AesjwyvMAnlaOhtHUA0vuD
+         zJutKcTWW868Inb0wUwI1ILnS3qRMeA8VQ8TJNxfsEsNTzTaq3uSXgqvAf9FV5NRhmvo
+         AaqX+skY1yWo5iyJouXjjhnUQ10k18uPTG6yA/aGpoVuQB5Ugeol0opOm/wX7eUylRsk
+         LcorPCBz84ODMi/40Jl6YeN4IJ9Zo3Pz7XSdQVMk+5j5lfcr7tfiGKFakGkSTk5zEx/2
+         zs0Cvg98GqIYlMB78XSbOK+MEeBAX09qzj+MLb5GiL+rZLIw2NkbCMbGc0s7mrlJNLHJ
+         ewrQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702487399; x=1703092199;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=x3wF4eqK4ImhmFBJfbCeNiXF9W/tavYgP8z6Chx48Zk=;
-        b=TWjW+5ZlMHV2OTdyxI6/nwFXsn2Iw4MH+j4xVVfEPyg4D+B7icquXs04DlOmAjzPRf
-         RQ0t2cONhN4D5OdAuUG9q2Mk9rZuETjgKNiUz+aeBi2JVNfyvaxK1zzKYc79EAORBVjY
-         9HtSLdPLZXPut+iBHhZDJbQ9Ylauk4CsNZhnLAINOuHZ9zwU0Wu4eVhyOiX7wBpiIOQB
-         zyKfpE+/4VTXegOlWDOXXnH8wF4hs5v1kzfoLPRqJMTqkEjv+FS//b5QPWJZspChBNs6
-         VZVGKx0vBK4aUxIj8CVQdD+keCkO+7nmwKAGQ/mqB974ynfkPJ1os87MngHwS1GZwtn9
-         V/kw==
-X-Gm-Message-State: AOJu0YxMfBGE+61EudDWuTBG0m6e/A6fCyTqaYA4TbugiU3QqDB38Ms1
-	PIJfdqgqzhKbXDvEEEZqwO9sKA==
-X-Google-Smtp-Source: AGHT+IFHKRNI1CgR2tD7PnLGhLwXTkygwuHFxDOyseYtCLWNSyTmi1aUaMDZFw+KYAbl4+vwnZ/SHw==
-X-Received: by 2002:a05:600c:22d4:b0:40c:3143:9881 with SMTP id 20-20020a05600c22d400b0040c31439881mr5203603wmg.20.1702487399310;
-        Wed, 13 Dec 2023 09:09:59 -0800 (PST)
+        d=1e100.net; s=20230601; t=1702487549; x=1703092349;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=c59vlX5YclU/QFrLJL0zA0ruhcMbY+hSeyN1btvp4fQ=;
+        b=VT1lzispQ5RTj0YlveovOs5brEDIHhJOqYCUViidXN8Hb8qti7I+1YNp0wvlRjbD7f
+         QEk3bNoSSmetBobhpDrp9TdBWTVJGScoZQqshTvUJ7P7eZfgjHJku/wEK/XvId8PY6aP
+         eQDTI67yPyCejSXle1eiwkMJlNV6S9T4+nAeqWr6bQIoAZpGAKc3GVP6WZiArPAv5D7u
+         lFmJKDCafqX6e5gpSEJSrGvC1RHl37ck9Fb3R2kpJVYFSfDEsNmWsJq4KXTfdATIswKG
+         T9PtlTtaBrXSBU18WAfYD8DY9cGza0JzxjgSfnIPxvW+MVH0eYWDU63x0wRwofH8PIAr
+         OOuA==
+X-Gm-Message-State: AOJu0YwjPPQG93S7HLjrK8GWEedDtMxuViGzACMhT9NxUTB2ieO9f4QT
+	GLlYywPqiam1ZDEmULD1qBl/jA==
+X-Google-Smtp-Source: AGHT+IG0YVMcA5InPhxMnjzq4w4I7o9lntXWnDdH7Lx4h/rZh75Nk5CJjro49sbs3dOlCnHPL4S2Zw==
+X-Received: by 2002:a05:600c:4897:b0:40c:2b49:460d with SMTP id j23-20020a05600c489700b0040c2b49460dmr4057855wmp.135.1702487548871;
+        Wed, 13 Dec 2023 09:12:28 -0800 (PST)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id r20-20020a05600c35d400b0040b538047b4sm23569417wmq.3.2023.12.13.09.09.58
+        by smtp.gmail.com with ESMTPSA id q14-20020a05600c46ce00b0040c4c9c52a3sm9537956wmo.12.2023.12.13.09.12.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Dec 2023 09:09:58 -0800 (PST)
+        Wed, 13 Dec 2023 09:12:28 -0800 (PST)
+Date: Wed, 13 Dec 2023 18:12:27 +0100
 From: Andrew Jones <ajones@ventanamicro.com>
-To: kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Cc: anup@brainfault.org,
-	atishp@atishpatra.org,
-	palmer@dabbelt.com,
-	haibo1.xu@intel.com
-Subject: [PATCH v2 5/6] KVM: riscv: selftests: Use register subtypes
-Date: Wed, 13 Dec 2023 18:09:57 +0100
-Message-ID: <20231213170951.93453-13-ajones@ventanamicro.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20231213170951.93453-8-ajones@ventanamicro.com>
-References: <20231213170951.93453-8-ajones@ventanamicro.com>
+To: Anup Patel <anup@brainfault.org>
+Cc: kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	atishp@atishpatra.org, palmer@dabbelt.com, haibo1.xu@intel.com
+Subject: Re: [PATCH 0/6] RISC-V: KVM: Make SBI uapi consistent with ISA uapi
+Message-ID: <20231213-2de73d20a178c32f9a716cf4@orel>
+References: <20231130183537.55203-8-ajones@ventanamicro.com>
+ <CAAhSdy0ic5ERKR8Q2VdSOzNSgV22omE_7qPN0fNcUTxawZRn4w@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAAhSdy0ic5ERKR8Q2VdSOzNSgV22omE_7qPN0fNcUTxawZRn4w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231213_091003_859348_0C0D7AB3 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20231213_091230_489712_4902E0DD 
+X-CRM114-Status: GOOD (  19.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,217 +88,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Always use register subtypes in the get-reg-list test when registers
-have them. The only registers neglecting to do so were ISA extension
-registers. While we don't really need to use KVM_REG_RISCV_ISA_SINGLE
-(since it's zero), the main purpose is to avoid confusion and to
-self-document the tests. Also add print support for the multi
-registers like SBI extensions have, even though they're only used for
-debugging.
-
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Haibo Xu <haibo1.xu@intel.com>
----
- .../selftests/kvm/riscv/get-reg-list.c        | 113 +++++++++++-------
- 1 file changed, 73 insertions(+), 40 deletions(-)
-
-diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-index 27d07a32a1ef..4bcc597d34b9 100644
---- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
-+++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-@@ -28,31 +28,31 @@ bool filter_reg(__u64 reg)
- 	 *
- 	 * Note: The below list is alphabetically sorted.
- 	 */
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_A:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_C:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_D:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_F:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_H:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_I:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_M:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_V:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SMSTATEEN:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SSAIA:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SSTC:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SVINVAL:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SVNAPOT:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SVPBMT:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZBA:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZBB:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZBS:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZICBOM:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZICBOZ:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZICNTR:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZICOND:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZICSR:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZIFENCEI:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZIHINTPAUSE:
--	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZIHPM:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_A:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_C:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_D:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_F:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_H:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_I:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_M:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_V:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SMSTATEEN:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SSAIA:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SSTC:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVINVAL:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVNAPOT:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVPBMT:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZBA:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZBB:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZBS:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICBOM:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICBOZ:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICNTR:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICOND:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICSR:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZIFENCEI:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZIHINTPAUSE:
-+	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZIHPM:
- 		return true;
- 	/* AIA registers are always available when Ssaia can't be disabled */
- 	case KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(siselect):
-@@ -335,15 +335,10 @@ static const char *fp_d_id_to_str(const char *prefix, __u64 id)
- }
- 
- #define KVM_ISA_EXT_ARR(ext)		\
--[KVM_RISCV_ISA_EXT_##ext] = "KVM_RISCV_ISA_EXT_" #ext
-+[KVM_RISCV_ISA_EXT_##ext] = "KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_" #ext
- 
--static const char *isa_ext_id_to_str(const char *prefix, __u64 id)
-+static const char *isa_ext_single_id_to_str(__u64 reg_off)
- {
--	/* reg_off is the offset into unsigned long kvm_isa_ext_arr[] */
--	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_ISA_EXT);
--
--	assert((id & KVM_REG_RISCV_TYPE_MASK) == KVM_REG_RISCV_ISA_EXT);
--
- 	static const char * const kvm_isa_ext_reg_name[] = {
- 		KVM_ISA_EXT_ARR(A),
- 		KVM_ISA_EXT_ARR(C),
-@@ -373,11 +368,48 @@ static const char *isa_ext_id_to_str(const char *prefix, __u64 id)
- 	};
- 
- 	if (reg_off >= ARRAY_SIZE(kvm_isa_ext_reg_name))
--		return strdup_printf("%lld /* UNKNOWN */", reg_off);
-+		return strdup_printf("KVM_REG_RISCV_ISA_SINGLE | %lld /* UNKNOWN */", reg_off);
- 
- 	return kvm_isa_ext_reg_name[reg_off];
- }
- 
-+static const char *isa_ext_multi_id_to_str(__u64 reg_subtype, __u64 reg_off)
-+{
-+	const char *unknown = "";
-+
-+	if (reg_off > KVM_REG_RISCV_ISA_MULTI_REG_LAST)
-+		unknown = " /* UNKNOWN */";
-+
-+	switch (reg_subtype) {
-+	case KVM_REG_RISCV_ISA_MULTI_EN:
-+		return strdup_printf("KVM_REG_RISCV_ISA_MULTI_EN | %lld%s", reg_off, unknown);
-+	case KVM_REG_RISCV_ISA_MULTI_DIS:
-+		return strdup_printf("KVM_REG_RISCV_ISA_MULTI_DIS | %lld%s", reg_off, unknown);
-+	}
-+
-+	return strdup_printf("%lld | %lld /* UNKNOWN */", reg_subtype, reg_off);
-+}
-+
-+static const char *isa_ext_id_to_str(const char *prefix, __u64 id)
-+{
-+	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_ISA_EXT);
-+	__u64 reg_subtype = reg_off & KVM_REG_RISCV_SUBTYPE_MASK;
-+
-+	assert((id & KVM_REG_RISCV_TYPE_MASK) == KVM_REG_RISCV_ISA_EXT);
-+
-+	reg_off &= ~KVM_REG_RISCV_SUBTYPE_MASK;
-+
-+	switch (reg_subtype) {
-+	case KVM_REG_RISCV_ISA_SINGLE:
-+		return isa_ext_single_id_to_str(reg_off);
-+	case KVM_REG_RISCV_ISA_MULTI_EN:
-+	case KVM_REG_RISCV_ISA_MULTI_DIS:
-+		return isa_ext_multi_id_to_str(reg_subtype, reg_off);
-+	}
-+
-+	return strdup_printf("%lld | %lld /* UNKNOWN */", reg_subtype, reg_off);
-+}
-+
- #define KVM_SBI_EXT_ARR(ext)		\
- [ext] = "KVM_REG_RISCV_SBI_SINGLE | " #ext
- 
-@@ -583,12 +615,12 @@ static __u64 base_skips_set[] = {
- 
- static __u64 zicbom_regs[] = {
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CONFIG | KVM_REG_RISCV_CONFIG_REG(zicbom_block_size),
--	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZICBOM,
-+	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICBOM,
- };
- 
- static __u64 zicboz_regs[] = {
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CONFIG | KVM_REG_RISCV_CONFIG_REG(zicboz_block_size),
--	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZICBOZ,
-+	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICBOZ,
- };
- 
- static __u64 aia_regs[] = {
-@@ -599,12 +631,12 @@ static __u64 aia_regs[] = {
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(siph),
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(iprio1h),
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(iprio2h),
--	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SSAIA,
-+	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SSAIA,
- };
- 
- static __u64 smstateen_regs[] = {
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_SMSTATEEN | KVM_REG_RISCV_CSR_SMSTATEEN_REG(sstateen0),
--	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SMSTATEEN,
-+	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SMSTATEEN,
- };
- 
- static __u64 fp_f_regs[] = {
-@@ -641,7 +673,7 @@ static __u64 fp_f_regs[] = {
- 	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[30]),
- 	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[31]),
- 	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(fcsr),
--	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_F,
-+	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_F,
- };
- 
- static __u64 fp_d_regs[] = {
-@@ -678,7 +710,7 @@ static __u64 fp_d_regs[] = {
- 	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[30]),
- 	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[31]),
- 	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(fcsr),
--	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_D,
-+	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_D,
- };
- 
- #define SUBLIST_BASE \
-@@ -702,7 +734,8 @@ static __u64 fp_d_regs[] = {
- #define KVM_ISA_EXT_SIMPLE_CONFIG(ext, extu)			\
- static __u64 regs_##ext[] = {					\
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG |			\
--	KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_##extu,	\
-+	KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE |	\
-+	KVM_RISCV_ISA_EXT_##extu,				\
- };								\
- static struct vcpu_reg_list config_##ext = {			\
- 	.sublists = {						\
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBEZWMgMTMsIDIwMjMgYXQgMDk6NTk6MjJQTSArMDUzMCwgQW51cCBQYXRlbCB3cm90
+ZToKPiBPbiBGcmksIERlYyAxLCAyMDIzIGF0IDEyOjE54oCvQU0gQW5kcmV3IEpvbmVzIDxham9u
+ZXNAdmVudGFuYW1pY3JvLmNvbT4gd3JvdGU6Cj4gPgo+ID4gU0JJIGV4dGVuc2lvbiBVQVBJIGlz
+IGN1cnJlbnRseSBhbG1vc3QgdGhlIHNhbWUgYXMgdGhlIElTQSBleHRlbnNpb24KPiA+IFVBUEku
+IFRoaXMgc2VyaWVzIGNsb3NlcyB0aGUgcmVtYWluaW5nIGdhcCBieSBlbnN1cmluZyB3aGVuIGFu
+IFNCSQo+ID4gZXh0ZW5zaW9uIGlzIG5vdCBhdmFpbGFibGUgdGhhdCBpdHMgcmVnaXN0ZXIgcmV0
+dXJucyBFTk9FTlQgd2hlbgo+ID4gYWNjZXNzZWQgYnkgdXNlcnNwYWNlLiBXZSBhbHNvIGRyb3Ag
+dGhlIFNCSSBtdWx0aSByZWdpc3RlcnMgZnJvbQo+ID4gZ2V0LXJlZy1saXN0IChJU0EgbXVsdGkg
+cmVnaXN0ZXJzIGFyZW4ndCB0aGVyZSBlaXRoZXIpIGFuZCBtYWtlCj4gPiBzZXZlcmFsIGltcHJv
+dmVtZW50cyB0byB0aGUgZ2V0LXJlZy1saXN0IGtzZWxmdGVzdC4KPiA+Cj4gPiBUaGlzIHNlcmll
+cyBpcyBiYXNlZCBvbiBBbnVwJ3MgcmlzY3Zfa3ZtX21vcmVfZXh0c192MSBicmFuY2guCj4gPiBC
+YXNlZC1vbjogMjAyMzExMjgxNDUzNTcuNDEzMzIxLTEtYXBhdGVsQHZlbnRhbmFtaWNyby5jb20K
+PiA+Cj4gPiBUaGFua3MsCj4gPiBkcmV3Cj4gPgo+ID4gQW5kcmV3IEpvbmVzICg2KToKPiA+ICAg
+UklTQy1WOiBLVk06IERvbid0IGFkZCBTQkkgbXVsdGkgcmVncyBpbiBnZXQtcmVnLWxpc3QKPiA+
+ICAgS1ZNOiByaXNjdjogc2VsZnRlc3RzOiBEcm9wIFNCSSBtdWx0aSByZWdpc3RlcnMKPiA+ICAg
+UklTQy1WOiBLVk06IE1ha2UgU0JJIHVhcGkgY29uc2lzdGVudCB3aXRoIElTQSB1YXBpCj4gCj4g
+SSBhbSBub3QgYWJsZSB0byBsb2NhdGUgdGhpcyBwYXRjaCBvbiB0aGUgbWFpbGluZyBsaXN0IGFz
+IHdlbGwgYXMgb24KPiBwYXRjaHdvcmsuCj4gCj4gQ2FuIHlvdSByZS1zZW5kIHRoaXMgc2VyaWVz
+ID8KClNlbnQgYSB2MiByZWJhc2VkIG9uIHRoZSBsYXRlc3Qga3ZtLXJpc2N2L3Jpc2N2X2t2bV9x
+dWV1ZSByYXRoZXIKdGhhbiB5b3VyIHJpc2N2X2t2bV9tb3JlX2V4dHNfdjEgYnJhbmNoLiBIb3Bl
+ZnVsbHkgdGhpcyBvbmUgbWFrZXMKaXQgdG8gdGhlIE0vTC4KClRoYW5rcywKZHJldwoKPiAKPiBS
+ZWdhcmRzLAo+IEFudXAKPiAKPiA+ICAgS1ZNOiByaXNjdjogc2VsZnRlc3RzOiBBZGQgUklTQ1Zf
+U0JJX0VYVF9SRUcKPiA+ICAgS1ZNOiByaXNjdjogc2VsZnRlc3RzOiBVc2UgcmVnaXN0ZXIgc3Vi
+dHlwZXMKPiA+ICAgUklTQy1WOiBLVk06IHNlbGZ0ZXN0czogVHJlYXQgU0JJIGV4dCByZWdzIGxp
+a2UgSVNBIGV4dCByZWdzCj4gPgo+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX3ZjcHVf
+c2JpLmggICAgICAgICB8ICAxMCArLQo+ID4gIGFyY2gvcmlzY3Yva3ZtL3ZjcHVfb25lcmVnLmMg
+ICAgICAgICAgICAgICAgICB8ICA1MyArLS0tCj4gPiAgYXJjaC9yaXNjdi9rdm0vdmNwdV9zYmku
+YyAgICAgICAgICAgICAgICAgICAgIHwgIDc1ICsrKy0tCj4gPiAgYXJjaC9yaXNjdi9rdm0vdmNw
+dV9zYmlfcmVwbGFjZS5jICAgICAgICAgICAgIHwgICAyICstCj4gPiAgLi4uL3NlbGZ0ZXN0cy9r
+dm0vaW5jbHVkZS9rdm1fdXRpbF9iYXNlLmggICAgIHwgICAxICsKPiA+ICAuLi4vc2VsZnRlc3Rz
+L2t2bS9pbmNsdWRlL3Jpc2N2L3Byb2Nlc3Nvci5oICAgfCAgNDAgKy0tCj4gPiAgLi4uL3NlbGZ0
+ZXN0cy9rdm0vbGliL3Jpc2N2L3Byb2Nlc3Nvci5jICAgICAgIHwgICA0ICstCj4gPiAgLi4uL3Nl
+bGZ0ZXN0cy9rdm0vcmlzY3YvZ2V0LXJlZy1saXN0LmMgICAgICAgIHwgMjc0ICsrKysrKysrKysr
+Ky0tLS0tLQo+ID4gIDggZmlsZXMgY2hhbmdlZCwgMjgxIGluc2VydGlvbnMoKyksIDE3OCBkZWxl
+dGlvbnMoLSkKPiA+Cj4gPiAtLQo+ID4gMi40My4wCj4gPgo+ID4KPiA+IC0tCj4gPiBrdm0tcmlz
+Y3YgbWFpbGluZyBsaXN0Cj4gPiBrdm0tcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+ID4gaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9rdm0tcmlzY3YKCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
+aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
+bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
