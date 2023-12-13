@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D958C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 20:31:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C977C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 20:32:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WUPP8ocN4Pjjnf19faTfU4fb9FX59BdFGSfeAhx2b4I=; b=y3vlz0voJAeKGT
-	SawfwAr9Bp34jo6RF9gesiXIBX1ZdCNETmERpd32t/HDjcsOIkY2t2aofrJC6Yeiq1SG7DuFsA/xs
-	qo8THvj6OgX8igJ3PR6HNldqXkEJpZMbt3pf9iu3cNbzpYn3Ka7Vofx0bKzJNmfLbsur87FJn/ZXZ
-	TjqlSWLIZ7vWKvIkhJ7btjzYVBFrI1klH5r4IhNNwQgDR9h2sTYzshBcwlHZzSJNK3wns+bxCi4KL
-	atheLQsPN0Rg4uYz76zFlaRyRANuTB9AALzbLuSau3W8BHrXDdaGk4YhwAZwG6jQFhimoFgtpHcsO
-	NSdLr/8IE8QN9zDF7Jbw==;
+	List-Owner; bh=SOPg/QK07rUFc7JO1J+cMx5EVKUo5Qo2+ieZ3sGo/HA=; b=1QFovWfj/sMo8S
+	oGr4XQkGHDT0sx0blZ7/EISu++n3y1bEBYpZGghIXOD44Bi9FUqE3AuJh2xjgTKijSa9Q1yJfFluV
+	9cHzECDzbkUEa8dfkI5KlfPnjI+v4Pr9tAAwim11qT6pPLtDrnyrAfa+2hdm1df016TQV3Q6TV2rx
+	/EqTncqwTRdJUK01SN+KETxfBC2DBxMzfmFXBuKcI/mMi2l3l8PkAakqfk+CgzbF2PgP2ZTFQrxrI
+	dQ7Yo26i7C0CKRXT4N2pdhj5sR3FQlf79ZT2c6oHZMnoagvJ2YTcgOeppBUVSEqYqLMs8eqHPt7Xv
+	U/GOTlIfSG+7fJaCSACA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDVt4-00Fyim-3D;
-	Wed, 13 Dec 2023 20:31:23 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1rDVu5-00FywU-1c;
+	Wed, 13 Dec 2023 20:32:25 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDVt1-00FygY-2g
+	id 1rDVu1-00Fyuo-2q
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Dec 2023 20:31:22 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3333b46f26aso6625374f8f.1
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Dec 2023 12:31:19 -0800 (PST)
+	Wed, 13 Dec 2023 20:32:23 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-334af3b3ddfso6614668f8f.3
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Dec 2023 12:32:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1702499478; x=1703104278; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1702499540; x=1703104340; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=E15RwjGwh0jg6//BOgBWUm8VeEPhhxkhRr12JTaACPU=;
-        b=RIW6po9QNb4LQAeu2XBVqPPNX1Iygmx61ikPN0vXDBOSe4ROJ8Y4/p5SyHzCsGJ4JG
-         dcxvi1humlSiV/p+9DNs2pHEinNzb5gbi+s3EiMVNc4de2V183Vyr1eWZDCI96CAtHVS
-         LmAaKRXnZ2rENVnNV7ikWu7ImWSBPMRVdady7+ZcInx2dC04FSTLh5Ia6uw1KMmiYvfg
-         ALe4eFm9S4wgmf1N40VG7KAEpjmm7XuzJ0sxXfykrf/DRUU5IjbTA+fUMXUUOdUkLQRV
-         XCEv5TbbLvkl8i0CaEEKziDHJq39z4JXJEjJTEBACQGsT+axgTZtJuojtP1tXoKXzOxH
-         +iCQ==
+        bh=lUqvcHnbHjun3bdBJPfvf0B8JWy5i7uak5v/0Wh9cSk=;
+        b=gKRfjofhePxG0HxLbp/2Ae/yjSnM9h2Mq9KFY/CUJgz4ZuDb9xpRfD+4VzfTV4jVfH
+         zB7ew5R6KKfGfc875G/sl5XcDRk3o0R+Th9e9itbMFcvqo07HVJALZbeah5PG1exM7TY
+         TQW09SdK6H6t33QW/D3VX+/Zz0hzSsbMk8o9yn1iVuT4OaeYi22pQRmc01lkcuSlgKiC
+         m2ZMBDbE6Rwz8PlbXLZgP5/y4wgO8YRLBW5IvQE+lM1rD9/QOEhZOqgGUJXET9toSYwi
+         Witq74tlKsxn2zA9eOEjIDDUyThd8T3wqfbIhiDeh7wMz1IjHphCmhLrUHoxpV9qHCN4
+         Bvaw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702499478; x=1703104278;
+        d=1e100.net; s=20230601; t=1702499540; x=1703104340;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=E15RwjGwh0jg6//BOgBWUm8VeEPhhxkhRr12JTaACPU=;
-        b=sT9kgXNb1St28Vg6PPyPKmkHvjpbiIM+hW94QLoW6OFTuMtlJOpCUjIeCbPKODOAa8
-         seIDihyXruNcbG10imwW+iMAXKo6T3SpQDRKJWp9tfU4CzboZSRg/uA+LyR6SCKK3Mec
-         O5bH1m+lLkhw3eMzbuefdsXpgNCtUEJynV9kbI4socxA2Hxb/YJSui26OtboBFMvZVVS
-         47tYcQK8k9UAawF0bd+PpXs/CBaIdVEQjEg1R7lqN1lCBRTQhMN1vUwhxRKbnihVRp4D
-         unym7uIzFgbyDJOlzt+gG9p7ITu2DNnCH3JppakC6O4ZyCUSD/OcRl75e5cqIWNR/xQb
-         8ZMQ==
-X-Gm-Message-State: AOJu0YwpmF97L6CAtCr7/ARz2HZ1wo/MqAOoIYkX1Ysjegs8dBVAgUXa
-	fL26+IHt9RpEWSPa/AlMEiFGew==
-X-Google-Smtp-Source: AGHT+IHJ9RU792w4DCZZx9hZPdAspSn4SI/uXWC5g1BlHgB2r11Rp2Nl7fP233w9pzamiUzq2saHcQ==
-X-Received: by 2002:a5d:5742:0:b0:336:370d:4c4f with SMTP id q2-20020a5d5742000000b00336370d4c4fmr973590wrw.60.1702499478475;
-        Wed, 13 Dec 2023 12:31:18 -0800 (PST)
+        bh=lUqvcHnbHjun3bdBJPfvf0B8JWy5i7uak5v/0Wh9cSk=;
+        b=iUl6L/WaoQK4yqpMJAoSGs4f1kGmvV6QZKfKeJqcB0hHJQplH7Q3x9iZ/d7Q2UeCeX
+         NxAL8Fb/fZQLkgDj2EuzHqjP1yItwRUlE/7g7sC/w38ajC76mHlKE2PesAgW98kU3tAe
+         +NE9kOH5Q8gVeZmM5caIT+FDIwomLnO7UJ5nE2NMQoy+fDZRCh9q1l6hG7+YOhDL925w
+         QZyMPWnSPCIDnzZHDRLuWkg7MQWNfMCKzS+QqUm3Rs7wgPokIHGgS0BrTRjzRay59AhW
+         MRiCxImM2zmtuqXhOwHsuNk8GhfM5E7OBFNSVSQVAB+GzNPK1RvY2cQU4IWR7n26Xseq
+         xUcg==
+X-Gm-Message-State: AOJu0YxKZlcIcPAAovcyxXWJsm9HY2EiAKJ/DuAXwFTqypf74Wkxq+f0
+	PcajM7b2GbjI5jIdLo12l3oGVwlyD0yQNKvVgwM=
+X-Google-Smtp-Source: AGHT+IGeWwb4mZTjVlnfL3Tc7x0njpKhguH1T5u5o7xiWbZOuJ+qDIheC5NMdpL6eYcBnXpv6MaCcA==
+X-Received: by 2002:a5d:51cc:0:b0:336:353b:2193 with SMTP id n12-20020a5d51cc000000b00336353b2193mr1550679wrv.61.1702499540379;
+        Wed, 13 Dec 2023 12:32:20 -0800 (PST)
 Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id h3-20020a5d4303000000b0033629538fa2sm5560888wrq.18.2023.12.13.12.31.17
+        by smtp.gmail.com with ESMTPSA id n10-20020a5d4c4a000000b003333abf3edfsm14139649wrt.47.2023.12.13.12.32.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Dec 2023 12:31:18 -0800 (PST)
+        Wed, 13 Dec 2023 12:32:20 -0800 (PST)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Russell King <linux@armlinux.org.uk>,
 	Ryan Roberts <ryan.roberts@arm.com>,
@@ -85,16 +85,17 @@ To: Russell King <linux@armlinux.org.uk>,
 	linux-efi@vger.kernel.org,
 	linux-mm@kvack.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v2 1/4] riscv: Use WRITE_ONCE() when setting page table entries
-Date: Wed, 13 Dec 2023 21:29:58 +0100
-Message-Id: <20231213203001.179237-2-alexghiti@rivosinc.com>
+Subject: [PATCH v2 2/4] mm: Introduce pudp/p4dp/pgdp_get() functions
+Date: Wed, 13 Dec 2023 21:29:59 +0100
+Message-Id: <20231213203001.179237-3-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20231213203001.179237-1-alexghiti@rivosinc.com>
 References: <20231213203001.179237-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231213_123119_874137_E4D86258 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20231213_123221_918155_2F5D7581 
+X-CRM114-Status: UNSURE (   8.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,70 +112,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-To avoid any compiler "weirdness" when accessing page table entries which
-are concurrently modified by the HW, let's use WRITE_ONCE() macro
-(commit 20a004e7b017 ("arm64: mm: Use READ_ONCE/WRITE_ONCE when accessing
-page tables") gives a great explanation with more details).
+Instead of directly dereferencing page tables entries, which can cause
+issues (see commit 20a004e7b017 ("arm64: mm: Use READ_ONCE/WRITE_ONCE when
+accessing page tables"), let's introduce new functions to get the
+pud/p4d/pgd entries (the pte and pmd versions already exist).
+
+Note that arm pgd_t is actually an array so pgdp_get() is defined as a
+macro to avoid a build error.
+
+Those new functions will be used in subsequent commits by the riscv
+architecture.
 
 Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/riscv/include/asm/pgtable-64.h | 6 +++---
- arch/riscv/include/asm/pgtable.h    | 4 ++--
- 2 files changed, 5 insertions(+), 5 deletions(-)
+ arch/arm/include/asm/pgtable.h |  2 ++
+ include/linux/pgtable.h        | 21 +++++++++++++++++++++
+ 2 files changed, 23 insertions(+)
 
-diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-index 9a2c780a11e9..5d8431a390dd 100644
---- a/arch/riscv/include/asm/pgtable-64.h
-+++ b/arch/riscv/include/asm/pgtable-64.h
-@@ -202,7 +202,7 @@ static inline int pud_user(pud_t pud)
+diff --git a/arch/arm/include/asm/pgtable.h b/arch/arm/include/asm/pgtable.h
+index 16b02f44c7d3..d657b84b6bf7 100644
+--- a/arch/arm/include/asm/pgtable.h
++++ b/arch/arm/include/asm/pgtable.h
+@@ -151,6 +151,8 @@ extern pgprot_t phys_mem_access_prot(struct file *file, unsigned long pfn,
  
- static inline void set_pud(pud_t *pudp, pud_t pud)
- {
--	*pudp = pud;
-+	WRITE_ONCE(*pudp, pud);
- }
+ extern pgd_t swapper_pg_dir[PTRS_PER_PGD];
  
- static inline void pud_clear(pud_t *pudp)
-@@ -278,7 +278,7 @@ static inline unsigned long _pmd_pfn(pmd_t pmd)
- static inline void set_p4d(p4d_t *p4dp, p4d_t p4d)
- {
- 	if (pgtable_l4_enabled)
--		*p4dp = p4d;
-+		WRITE_ONCE(*p4dp, p4d);
- 	else
- 		set_pud((pud_t *)p4dp, (pud_t){ p4d_val(p4d) });
- }
-@@ -351,7 +351,7 @@ static inline pud_t *pud_offset(p4d_t *p4d, unsigned long address)
- static inline void set_pgd(pgd_t *pgdp, pgd_t pgd)
- {
- 	if (pgtable_l5_enabled)
--		*pgdp = pgd;
-+		WRITE_ONCE(*pgdp, pgd);
- 	else
- 		set_p4d((p4d_t *)pgdp, (p4d_t){ pgd_val(pgd) });
- }
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 294044429e8e..c9f4b250b4ee 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -248,7 +248,7 @@ static inline int pmd_leaf(pmd_t pmd)
++#define pgdp_get(pgpd)		READ_ONCE(*pgdp)
++
+ #define pud_page(pud)		pmd_page(__pmd(pud_val(pud)))
+ #define pud_write(pud)		pmd_write(__pmd(pud_val(pud)))
  
- static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
- {
--	*pmdp = pmd;
-+	WRITE_ONCE(*pmdp, pmd);
+diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+index af7639c3b0a3..8b7daccd11be 100644
+--- a/include/linux/pgtable.h
++++ b/include/linux/pgtable.h
+@@ -292,6 +292,27 @@ static inline pmd_t pmdp_get(pmd_t *pmdp)
  }
+ #endif
  
- static inline void pmd_clear(pmd_t *pmdp)
-@@ -510,7 +510,7 @@ static inline int pte_same(pte_t pte_a, pte_t pte_b)
-  */
- static inline void set_pte(pte_t *ptep, pte_t pteval)
- {
--	*ptep = pteval;
-+	WRITE_ONCE(*ptep, pteval);
- }
- 
- void flush_icache_pte(pte_t pte);
++#ifndef pudp_get
++static inline pud_t pudp_get(pud_t *pudp)
++{
++	return READ_ONCE(*pudp);
++}
++#endif
++
++#ifndef p4dp_get
++static inline p4d_t p4dp_get(p4d_t *p4dp)
++{
++	return READ_ONCE(*p4dp);
++}
++#endif
++
++#ifndef pgdp_get
++static inline pgd_t pgdp_get(pgd_t *pgdp)
++{
++	return READ_ONCE(*pgdp);
++}
++#endif
++
+ #ifndef __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG
+ static inline int ptep_test_and_clear_young(struct vm_area_struct *vma,
+ 					    unsigned long address,
 -- 
 2.39.2
 
