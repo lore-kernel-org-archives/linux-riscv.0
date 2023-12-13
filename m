@@ -4,96 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B038EC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 02:22:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B13E7C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 02:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:
+	In-reply-to:Subject:Cc:To:From:References:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=DHtVzIAkgPzctaH1Zyhz7X2IIDCOsPSQUcL02/389pM=; b=bZXd5EnJ8cRzMG7sGhn7noYH+i
-	t7wPX5UPoU7BsqVCNZUZtwlfP8fvyQm6qwLxpaOO2FVxF2OFu5hTexqGMpDUANPO61Z979uQaajY5
-	f5k40vppw1iz6pI4+PuuRlCrmQc5l4O910t1ig9pNA6U+yhMTEAwsgGMYPbU7HFr8jNwyoa6tN4PO
-	F2Ve5fyI/zJVgwDfXAgnfBLoBORVPPDsEK7fstIwaV7om1OrVqvOxSHtCaLHgqz7a6optQtFH5+c1
-	ha1Q/+qBCcJEqcNkte1jyZB2sxT+eg8lnKQ8YN1t/WKg/y2cB0NciDhhWKiobfbXfAZV91LzlracM
-	YFq6Fkxw==;
+	bh=dXuaYPsrgq4rvuAFUOfqprMktfpt/bSfGNMHJTQql18=; b=NmLChVWhbMSBJK0ODIOzK3jUy/
+	6GpX3L4L/HShuwuyqKKs67hE7OGDI3sISljF+1XFktuobEVa9rj2qWdlCFAnildnjBoaknfUTHWrQ
+	TgM+490Q/M6B+ayluyvxh4w6eat5yHZRvqIILB2GxqrYVfF9j1l4GmCP8f9IBLRs8xyvi0mI4VQS0
+	V9Te8FRACjE3DP8CW3z4RqVRTt8SQhlRC9umsVtoIzv/OdlHwFfNa1dme/mOByCReNczg5Vm81Iiu
+	tYIq1VxZLj7rIPtYD1o8YNJsLR3Oa6ow8aoexhykoESwXssAzici8TM1VKc/jnB4a0G2oyvPh2ElI
+	TuvgRbeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDEsx-00DOXU-24;
-	Wed, 13 Dec 2023 02:22:07 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1rDFFQ-00DR4t-00;
+	Wed, 13 Dec 2023 02:45:20 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDEsu-00DOVx-2r
+	id 1rDFFN-00DR2S-2W
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Dec 2023 02:22:06 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-28ae055169eso111585a91.2
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Dec 2023 18:22:02 -0800 (PST)
+	Wed, 13 Dec 2023 02:45:19 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-6ceba6c4b8dso5230559b3a.1
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Dec 2023 18:45:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1702434121; x=1703038921; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=H3dbLwG3pwrVNc+flPqWL0ROEahdeYkxOItBObS2igQ=;
-        b=h0wBYoiN9XMbOC3aEqFkTuow3aXaQErOo8Z4+7HoZwbNFXCVOCemSZ8EmHJ2LPwDyF
-         8zoQn2nmbbVsnqYyVZ9HkfAP3Fb+ucuvvwVObN2bAT+yJcy7mjDL1wm9PQ9Ik93xd5jq
-         IQbtfAeu90ECe1qYPcw/LhVrBIeFS9bMKBKMgIzVchKuI2XTG2AluEESaUGsQ9wtPe7V
-         jATz5Qdn22IsZ/jxhcnVDy2zJaHD8rTSq11ayvcbzFAhHnpLrpWnIRNaA9qHA3oLel1X
-         d2iBNSyLLjWatCq/Y2ILXjlIbRtJ125iQw8vUEOvykjeOsmCVO9ar7BjhUxwnnsCQeMT
-         1npQ==
+        d=linaro.org; s=google; t=1702435509; x=1703040309; darn=lists.infradead.org;
+        h=mime-version:message-id:date:in-reply-to:subject:cc:to:from
+         :user-agent:references:from:to:cc:subject:date:message-id:reply-to;
+        bh=CJ7qwCmvq20mGgi3dRymJGPN14h9pbhwL4VM2txPZCM=;
+        b=y03+5Mfk5RsKvNrHLfhQKkxBUcrShcIstR2N133bhtKRTqTZC6AeMyyXVhibNZs28H
+         cVeu4JDxun8mxG22t+YUIXm0ZKxQDKJk+eifSS3DhozfbXzlaayVL1Cn1SCZLJN7Hbpr
+         ZGiFUd6K9+hRIezgKtzFdJpFOpyt1NfxoLkUqf6+ixH837J7BhYx0ZXE4w3KJ3qECJkd
+         35C7A8doacNcPqQIlGGqCehC63yUnU9xCd/u7b2vyHYXfx1MKjbgiMF+tywG7NYQ21au
+         s7GEgSYRL/TQpMe+Xj6hFBuDUeiy+sFlleLevRgFVKJSvt0KgTtIK+dh82nq1cxM7J+3
+         /0+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702434121; x=1703038921;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=H3dbLwG3pwrVNc+flPqWL0ROEahdeYkxOItBObS2igQ=;
-        b=onn4pCjkHeQ67BQBxmZtQQaf54bl1a6BYe2XXDG1OSouLT4grQL7wNoFSyn45dikSF
-         z5nUFfJRX7uG4NR7bPVn1wbnAxRg1Y2TvahXwpXQ+3fRy1Iggl+l7+SYw1+8xV4QsCei
-         4OoBB5HtxRWEsUkhd+R3pU0WywH96poHFU27b9pNPmB28VXKLouMjWDbfLfKK8BXeFOw
-         JS0v7hH6Q/j1mhoKDdX2zbR0mop+hZ1ES7qsiDspxdRMpWoW347NwPJV04WHq49Rw1gq
-         BdnAsPt2SAbiHxGj65f2KhkV1mnLE6JNJJ1lDksftAxWQcm3yDpvDvEZOuQ+4+r02Txe
-         2ZVA==
-X-Gm-Message-State: AOJu0YzSH1KFsD4ycJ5uz2S0qqCGDAkfhqHmP496TZRWVtCr5EDVtgTS
-	9O0DMjAsHIEMHAkoG3WdHxRdiNEk8nU=
-X-Google-Smtp-Source: AGHT+IEMdNbXZWy9ISUMeWXjYiRzXRSqXuBEtLtB2quA6rPLGk41btEuk2vriof3H/B+MEphfzV6B3hdgbQ=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:903:41c9:b0:1d0:cd87:64dd with SMTP id
- u9-20020a17090341c900b001d0cd8764ddmr52067ple.3.1702434121579; Tue, 12 Dec
- 2023 18:22:01 -0800 (PST)
-Date: Tue, 12 Dec 2023 18:22:00 -0800
-In-Reply-To: <20231203140756.GI1489931@ziepe.ca>
-Mime-Version: 1.0
-References: <20230916003118.2540661-1-seanjc@google.com> <20230916003118.2540661-6-seanjc@google.com>
- <20230918152110.GI13795@ziepe.ca> <ZQhxpesyXeG+qbS6@google.com>
- <20230918160258.GL13795@ziepe.ca> <ZWp_q1w01NCZi8KX@google.com> <20231203140756.GI1489931@ziepe.ca>
-Message-ID: <ZXkVSKULLivrMkBl@google.com>
-Subject: Re: [PATCH 05/26] vfio: KVM: Pass get/put helpers from KVM to VFIO,
- don't do circular lookup
-From: Sean Christopherson <seanjc@google.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	Peter Zijlstra <peterz@infradead.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Tony Krowiak <akrowiak@linux.ibm.com>, 
-	Halil Pasic <pasic@linux.ibm.com>, Jason Herne <jjherne@linux.ibm.com>, 
-	Harald Freudenberger <freude@linux.ibm.com>, Alex Williamson <alex.williamson@redhat.com>, 
-	Andy Lutomirski <luto@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	Anish Ghulati <aghulati@google.com>, Venkatesh Srinivas <venkateshs@chromium.org>, 
-	Andrew Thornton <andrewth@google.com>
+        d=1e100.net; s=20230601; t=1702435509; x=1703040309;
+        h=mime-version:message-id:date:in-reply-to:subject:cc:to:from
+         :user-agent:references:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CJ7qwCmvq20mGgi3dRymJGPN14h9pbhwL4VM2txPZCM=;
+        b=AZdF7kH1dk+lbGcX8/1k1DaaBqUOcyb9vWjJthXyJRMEvFxB8iaUIL9gxHr1vku9WS
+         9oqesiNLkZVpOnGj97c3wcHYnnrLaBH57H/mGU/cd837GJ8gLYhvlV6AXdk5QJOJyRGs
+         cofm6lHynslqtBHYhmsbkzq2vPfCTPhKW858ShB9y9E6TVU90PvKbMPSc5JRiNnN5SRS
+         zaEsI+gMvYjj47uFuW6+ti0J1l18grf/g8vT28/QJF0s1GHTWzIBOpNilgPVC2spAjKt
+         zoXvZfVes+4Mrhc8m4qjpcAKUftydm1uqbV3rZmVR9ISUNOlQ9RvJr5cXsw+beF7GfDs
+         GN5w==
+X-Gm-Message-State: AOJu0YzXDoC3ZkuDGWThZjRcGWlMddj2MKY1kTz5/sFRE2KY4/v/6IG3
+	9bs3X+uGjpEmfs0gd12oyyNhBg==
+X-Google-Smtp-Source: AGHT+IGi//6HE3KINOZpirefGAX+e3jIHwZFWzUp/AR1xA1scaFysKSWvBw9/QjFkCNOqGCFGdEidA==
+X-Received: by 2002:a05:6a00:c81:b0:6cb:a2f4:8579 with SMTP id a1-20020a056a000c8100b006cba2f48579mr8585102pfv.15.1702435509333;
+        Tue, 12 Dec 2023 18:45:09 -0800 (PST)
+Received: from localhost ([2804:14d:7e39:8470:cddd:ffc9:f19e:a4dc])
+        by smtp.gmail.com with ESMTPSA id y72-20020a62ce4b000000b006cb7bdbc3besm9528817pfg.17.2023.12.12.18.45.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Dec 2023 18:45:08 -0800 (PST)
+References: <20231122-arm64-gcs-v7-0-201c483bd775@kernel.org>
+ <20231122-arm64-gcs-v7-37-201c483bd775@kernel.org>
+User-agent: mu4e 1.10.8; emacs 29.1
+From: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Andrew Morton
+ <akpm@linux-foundation.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton
+ <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, Suzuki K
+ Poulose <suzuki.poulose@arm.com>, Arnd Bergmann <arnd@arndb.de>, Oleg
+ Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, Kees
+ Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>, "Rick P.
+ Edgecombe" <rick.p.edgecombe@intel.com>, Deepak Gupta
+ <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>, Szabolcs Nagy
+ <Szabolcs.Nagy@arm.com>, "H.J. Lu" <hjl.tools@gmail.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Florian Weimer <fweimer@redhat.com>, Christian
+ Brauner <brauner@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-mm@kvack.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v7 37/39] kselftest/arm64: Add a GCS stress test
+In-reply-to: <20231122-arm64-gcs-v7-37-201c483bd775@kernel.org>
+Date: Tue, 12 Dec 2023 23:45:06 -0300
+Message-ID: <87zfyex1l9.fsf@linaro.org>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231212_182204_949800_6CB49F63 
-X-CRM114-Status: GOOD (  16.28  )
+X-CRM114-CacheID: sfid-20231212_184517_816130_42A44763 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,35 +109,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 03, 2023, Jason Gunthorpe wrote:
-> On Fri, Dec 01, 2023 at 04:51:55PM -0800, Sean Christopherson wrote:
-> 
-> > There's one more wrinkle: this patch is buggy in that it doesn't ensure the liveliness
-> > of KVM-the-module, i.e. nothing prevents userspace from unloading kvm.ko while VFIO
-> > still holds a reference to a kvm structure, and so invoking ->put_kvm() could jump
-> > into freed code.  To fix that, KVM would also need to pass along a module pointer :-(
-> 
-> Maybe we should be refcounting the struct file not the struct kvm?
-> 
-> Then we don't need special helpers and it keeps the module alive correctly.
 
-Huh.  It took my brain a while to catch up, but this seems comically obvious in
-hindsight.  I *love* this approach, both conceptually and from a code perspective.
+I'm going a bit out-of-order to report a build failure in a test:
 
-Handing VFIO (and any other external entities) a file makes it so that KVM effectively
-interacts with users via files, regardless of whether the user lives in userspace
-or the kernel.  That makes it easier to reason about the safety of operations,
-e.g. in addition to ensuring KVM-the-module is pinned, having a file pointer allows
-KVM to verify that the incoming pointer does indeed represent a VM.  Which isn't
-necessary by any means, but it's a nice sanity check.
+Mark Brown <broonie@kernel.org> writes:
 
-From a code perspective, it's far cleaner than manually grabbing module references,
-and having only a file pointers makes it a wee bit harder for non-KVM code to
-poke into KVM, e.g. keeps us honest.
+> +// Recurse x20 times
+> +.macro recurse id
 
-Assuming nothing blows up in testing, I'll go this route for v2.
+I get an assembler error here:
 
-Thanks!
+gcc -nostdlib gcs-stress-thread.S -o /home/thiago.bauermann/src/linux/tools/testing/selftests/arm64/gcs/gcs-stress-thread
+gcs-stress-thread.S: Assembler messages:
+gcs-stress-thread.S:236: Error: unexpected end of file in macro `recurse' definition
+make[2]: *** [Makefile:24: /home/thiago.bauermann/src/linux/tools/testing/selftests/arm64/gcs/gcs-stress-thread] Error 1
+
+This is with gas from Ubuntu 22.04, which ships binutils 2.38.
+
+> +function recurse\id
+> +	stp	x29, x30, [sp, #-16]!
+> +	mov	x29, sp
+> +
+> +	cmp	x20, 0
+> +	beq	1f
+> +	sub	x20, x20, 1
+> +	bl	recurse\id
+> +
+> +1:
+> +	ldp	x29, x30, [sp], #16
+> +
+> +	// Do a syscall immediately prior to returning to try to provoke
+> +	// scheduling and migration at a point where coherency issues
+> +	// might trigger.
+> +	mov	x8, #__NR_getpid
+> +	svc	#0
+> +
+> +	ret
+> +endfunction
+> +.endmacro
+> +
+> +// Generate and use two copies so we're changing the GCS contents
+> +recurse 1
+> +recurse 2
+
+-- 
+Thiago
 
 _______________________________________________
 linux-riscv mailing list
