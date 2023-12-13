@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5687C4167D
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 07:04:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3265C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 07:04:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XBz7vcv/xiUtYbbSnTxc+uKUilKtUQjyfS9fF/xK3TE=; b=Ua1CVYPsg68kQv
-	blFv0R0QhN7XL9olnA7/p9E1U7fKkgPaVdAenEyytrFDtDblWrjFPNF8t4xu43tpr8YEe11b8OePp
-	K+LoT19rSTnNeO6yXO0V0fFKy8rtJjX8kjErRs5CiOTU+AWBOX4rjLI9ODTW26Yt4ejwkw++40VRQ
-	b4mRGnqKblLj6MBfjWC6QpuQN/wdxL7z7aZ6MTCTaxionv+85wiNLZcjdSUvewnSzFj/Pwtcrpb47
-	BSUzGe+osxUXPu3EK48EnTGBBbQwtvhZPgkK3hS1JJDGWPYmtqDP9X5dai5iQ2Q1pol9yBoDd/30G
-	xQGt7todR/nSeh9UkF8g==;
+	List-Owner; bh=hVRoTRhgN4zqq4Jg12ZfDVwFnH4auOfYjZgaxojU/TY=; b=aRYeUeebPtQony
+	b2Qn+EsFbG8gBtDiJCUC0J/fg8n9Vc9/YBuoIP1mVRDoa4wZgkXMtjrXEFtP6XiRSYn6d+dv5AVOw
+	cVe7IT4nVPPLrLJpXe4nt5sJ0NkNjHBFczNfuHjLSPdxyMBDgT9PrhNqoLyH7nfcGPZcVE3ajA/Wb
+	wygbGhQ09mbBD2GmNucnFkGV2L/CIzdr6QUkcpNaEiQKZ2nD1F+pSlij+ZmLmA1BWcs3wNboHV18W
+	AXwnamdmVpJSO33m0jjVYjAB8VSfVx5CN8vEgILpUvLDu8BDjNxWOmgWT2uo3SWla8fmYbg/c3b2V
+	bX0ax5MBZBiemeGqT+Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDJIE-00DrNT-35;
-	Wed, 13 Dec 2023 07:04:30 +0000
+	id 1rDJIG-00DrOc-2P;
+	Wed, 13 Dec 2023 07:04:32 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDJI6-00DrHT-2r;
-	Wed, 13 Dec 2023 07:04:25 +0000
+	id 1rDJI6-00DrHU-2r;
+	Wed, 13 Dec 2023 07:04:26 +0000
 Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 3BD73RVh032220;
-	Wed, 13 Dec 2023 15:03:27 +0800 (+08)
+	by Atcsqr.andestech.com with ESMTP id 3BD73Wlc032242;
+	Wed, 13 Dec 2023 15:03:32 +0800 (+08)
 	(envelope-from peterlin@andestech.com)
 Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS16.andestech.com
  (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Wed, 13 Dec 2023
- 15:03:23 +0800
+ 15:03:28 +0800
 From: Yu Chien Peter Lin <peterlin@andestech.com>
 To: <acme@kernel.org>, <adrian.hunter@intel.com>, <ajones@ventanamicro.com>,
         <alexander.shishkin@linux.intel.com>, <andre.przywara@arm.com>,
@@ -56,19 +56,19 @@ To: <acme@kernel.org>, <adrian.hunter@intel.com>, <ajones@ventanamicro.com>,
         <sunilvl@ventanamicro.com>, <tglx@linutronix.de>,
         <tim609@andestech.com>, <uwu@icenowy.me>, <wens@csie.org>,
         <will@kernel.org>, <ycliang@andestech.com>, <inochiama@outlook.com>
-Subject: [PATCH v5 04/16] dt-bindings: riscv: Add Andes interrupt controller compatible string
-Date: Wed, 13 Dec 2023 15:02:49 +0800
-Message-ID: <20231213070301.1684751-5-peterlin@andestech.com>
+Subject: [PATCH v5 05/16] riscv: dts: renesas: r9a07g043f: Update compatible string to use Andes INTC
+Date: Wed, 13 Dec 2023 15:02:50 +0800
+Message-ID: <20231213070301.1684751-6-peterlin@andestech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20231213070301.1684751-1-peterlin@andestech.com>
 References: <20231213070301.1684751-1-peterlin@andestech.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.0.15.183]
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 3BD73RVh032220
+X-MAIL: Atcsqr.andestech.com 3BD73Wlc032242
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231212_230423_383873_F4882DF5 
-X-CRM114-Status: UNSURE (   7.49  )
+X-CRM114-CacheID: sfid-20231212_230423_388216_3B9357B8 
+X-CRM114-Status: UNSURE (   7.73  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,53 +86,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add "andestech,cpu-intc" compatible string to indicate that
-Andes specific local interrupt is supported on the core,
-e.g. AX45MP cores have 3 types of non-standard local interrupt
-can be handled in supervisor mode:
-
-- Slave port ECC error interrupt
-- Bus write transaction error interrupt
-- Performance monitor overflow interrupt
-
-These interrupts are enabled/disabled via a custom register
-SLIE instead of the standard interrupt enable register SIE.
+The Andes hart-level interrupt controller (Andes INTC) allows AX45MP
+cores to handle custom local interrupts, such as the performance
+counter overflow interrupt.
 
 Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Tested-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
 Changes v1 -> v2:
   - New patch
 Changes v2 -> v3:
-  - Updated commit message
   - Fixed possible compatibles for Andes INTC
 Changes v3 -> v4:
-  - Add const entry instead of enum (Suggested by Conor)
+  - No change
 Changes v4 -> v5:
-  - Include Conor's Acked-by
-  - Include Prabhakar's Reviewed-by
+  - Include Geert's Reviewed-by
+  - Include Prabhakar's Reviewed/Tested-by
 ---
- Documentation/devicetree/bindings/riscv/cpus.yaml | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ arch/riscv/boot/dts/renesas/r9a07g043f.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-index f392e367d673..50307554478f 100644
---- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-+++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-@@ -100,7 +100,11 @@ properties:
-         const: 1
+diff --git a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
+index eb301d8eb2b0..78072e80793d 100644
+--- a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
++++ b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
+@@ -38,7 +38,7 @@ cpu0: cpu@0 {
  
-       compatible:
--        const: riscv,cpu-intc
-+        oneOf:
-+          - items:
-+              - const: andestech,cpu-intc
-+              - const: riscv,cpu-intc
-+          - const: riscv,cpu-intc
- 
-       interrupt-controller: true
- 
+ 			cpu0_intc: interrupt-controller {
+ 				#interrupt-cells = <1>;
+-				compatible = "riscv,cpu-intc";
++				compatible = "andestech,cpu-intc", "riscv,cpu-intc";
+ 				interrupt-controller;
+ 			};
+ 		};
 -- 
 2.34.1
 
