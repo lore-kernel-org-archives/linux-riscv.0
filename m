@@ -4,94 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4812C4167D
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 14:01:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC4DEC4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 14:03:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:MIME-Version:Subject:Cc
-	:To:From:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gVErvdfN/W3SVP0jAxsbkjIj0G0bLf17Z27b755xCXw=; b=i0b2InQyDrX4yS
-	Q0h7DOSVzBLgL4w0LpHQY/yTRa8q9gSCwCFKiwPraptzr7Tam1pgHA+G+EIlMowQhGb+S59bCxng0
-	nHzYyRK1YTCKclWo7RT32bzobLI54mmcwKMaqpSXX8opJchQve/sngjbFvWBzwvU0mQhCAQz/NxQX
-	FFmZ+pF2tsCLyd5UFn5Cs3uqIG1p2hk/1o5pxkSJ5e7OXOONHfqXwTo7xtSTsr9Hz3qofUKrIGPe7
-	YINoHdZLpCXBY7DVGBqPEgaw94twyxpqvwBZ7cig6YjG5ku7gD7ce8yjt7GxVK7Qs+gLhasr2/cE0
-	Zlr1hrG5fPecuEx3QTvw==;
+	List-Owner; bh=psvlUz2N4DprSW3bh40hOdcDtHR0/UaHjTZWkREJncg=; b=ixfnb0ElwSZhNB
+	oHLMqnRmDFj8yoj4MrGgXnHw6GFQRJAYtD5etpD+e+yXMgMlK89oVXPaWRMFJ6vLxkhK1wrOu8rI6
+	7vJUWk58fk4mALQqUd6Rf9MIag5y3Do6OuM4nux9aYpzawIllOcT7WMWstc0fp4ZyDpja15n0bz/6
+	C2LhBK6KfaGrX3e2P50W1FPE9vxFycXVAUw254at3DeGxGfmWVtCCud7QMFX3uIF7fO+Y67Ym8hzg
+	crvv9e2xD0lyoT5DymS60cwGjCnTnO1QkDThzCcce/dCp0xIz2/8ZY842sxOfqEeooZ0x1WYhdCjq
+	jgdoi5ElOqVnrVqJZdKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDPnm-00Ew0c-05;
-	Wed, 13 Dec 2023 14:01:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1rDPpD-00EwVr-1a;
+	Wed, 13 Dec 2023 14:02:59 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDOhL-00EewP-0e;
-	Wed, 13 Dec 2023 12:50:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description;
-	bh=zH347rXIT/Wy1fT2AxJrWucdhRljJuHMrMKFDlPOdGs=; b=EvuCRupmOoivEDiPJ/uQJlnIQP
-	ZofMLgLv92oIdye76uE+fo/DClHgnxgnuv0qM4jBAMXa67qjine0ILYg7LwPaVONRlh6SIfZ+ov5A
-	QAfwbQAWGuxpauTSKzuZlpw2pbghhXwYaPBU7KB/UFe+LKhAcNyp7IcNQptTdxulUQ5UlQNd/2Jly
-	W5J24rn4NDf3z+F/Kk8vLu4fGG6yyK2xYEbJAd1hFE0lvpCr76ZmKRwExvkB2p9cYZ12B/DayqlVT
-	wOuzW/MiRD6y1z5ozDn7iQdOc7VhGbKgtJGf/HYr/pNm6N8byG7ZHjXySiuo3pvipEEHTpqXZIZMG
-	WYzypjIQ==;
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDOhH-00967F-2x;
-	Wed, 13 Dec 2023 12:50:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=zH347rXIT/Wy1fT2AxJrWucdhRljJuHMrMKFDlPOdGs=; b=C8V6ZPDmidjU0rPM3MNO+Oz7/r
-	9Q4u3gedUI33lJ3NyGNwKUy257pNGfSyYof4TiYnY84kRmEo7Mjfg8LvEbcLtLDFgYbhhYPYk2DM6
-	qL91mkIsdsCL8QpgAEvD98lEcW9ZWUCCtXbaZRScR4ytVUzn0OSU3bWGhXZ0f+Zow2X/C+jtBjBCJ
-	8k7jFCMRILZ83BDKElnsNyxKh8EE1JHqMJBWe4q2OZIRUlrlhx2Gv/XPkllFPQS3+FndJm9Ov670Y
-	khCRzwlW2Se1hrI6UNoeQT7K33f2KTHrEpmLBpfwq30WM335VyRik2rw9Vls1PanX7hwhyv2vD+Cu
-	BIEJ2DIw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:51442 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1rDOhA-0008HE-1e;
-	Wed, 13 Dec 2023 12:50:36 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1rDOhC-00DvlI-Pp; Wed, 13 Dec 2023 12:50:38 +0000
-In-Reply-To: <ZXmn46ptis59F0CO@shell.armlinux.org.uk>
-References: <ZXmn46ptis59F0CO@shell.armlinux.org.uk>
-From: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-To: linux-pm@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-acpi@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	x86@kernel.org,
-	acpica-devel@lists.linuxfoundation.org,
-	linux-csky@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-ia64@vger.kernel.org,
-	linux-parisc@vger.kernel.org
-Cc: Salil Mehta <salil.mehta@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	jianyong.wu@arm.com,
-	justin.he@arm.com,
-	James Morse <james.morse@arm.com>
-Subject: [PATCH RFC v3 17/21] ACPI: add support to register CPUs based on the
- _STA enabled bit
+	id 1rDPpA-00EwTX-2T
+	for linux-riscv@lists.infradead.org;
+	Wed, 13 Dec 2023 14:02:58 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-40c41df5577so38148555e9.0
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Dec 2023 06:02:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1702476173; x=1703080973; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=W8CNgTMGbobolB1r9w8VNb165BlBAplPuvdaxYrWog0=;
+        b=L/dZ/mW11NP+0umYFUe5ruHtlCvURyLOiMR69aQeqRfrFwsRM8+xeBUw8RYocxE6SU
+         23+LhyA4HpDBOPtY3IvShVmeAg/KI5sgi9vm8yM5y+tpx/gOhSbVqnxi1XaX5D7CZb1x
+         KrukpNcpAsdwQfME/sqyA+CZST4+4t6RxppLhGFYHmCjGRGkeDpHxeMGDXBKCwoKTjEw
+         n4Qz+PDFvPi4QBlMuOTpwGdkMVG45EeUcSsK+osfdWBc2QaRZ8tc1YnwrbVxR2q4z3FJ
+         XZbPHVbvS75S/2woCBwG5hB2KFtiyiuK88splJEIHj0RNe5NZuAUbJklKddRdBcusDF9
+         WVtw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1702476173; x=1703080973;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=W8CNgTMGbobolB1r9w8VNb165BlBAplPuvdaxYrWog0=;
+        b=ueDzyAvyPu5Eb2p/rHiY+H03RcfyoT1O9Rhwfk3lbPa/q+KDF0cEB40RStf1qdfVvO
+         CSHRuQPDDc5a/cEKQ1RFX7B52wcbVORSFupqalGy9q9HToiatLH8cXj3up14YvDEjbNc
+         Gz75Kje+UbQjvqERx1CuOtj1yKrjqcd8j0LBWpq4LOn28VLbqtpvyRO/f9YN0VjkpUyk
+         ezgOxKLKi0rNklQsD63nc0JRy3YT7r47mUS4CXftkBRCbI6PMKhmF50287Vxt1a/CRMi
+         k/1ibXzQzabIjwR3DVz/d4ONZim24PXNWzLKqAXF4D4/stQzmz/5auMY7nqjfFSScgLF
+         mMGg==
+X-Gm-Message-State: AOJu0YwQ92rLjMDiqBriH++HEnEsJCTseWe0HM8Gew9Jj5pebDkzR++1
+	ZtS4o87xe1NFZaMKEKMQbKm0Ig==
+X-Google-Smtp-Source: AGHT+IHHe1VYvYeZf/3ceduRCoWvVbIdH20JSg3fNMXtxhw7fHkTGIiZ2b27mL7MboW3CuD0I846lA==
+X-Received: by 2002:a05:600c:2483:b0:40c:3314:5be0 with SMTP id 3-20020a05600c248300b0040c33145be0mr1879277wms.295.1702476172702;
+        Wed, 13 Dec 2023 06:02:52 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id fm14-20020a05600c0c0e00b00407b93d8085sm22968185wmb.27.2023.12.13.06.02.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 Dec 2023 06:02:52 -0800 (PST)
+Date: Wed, 13 Dec 2023 15:02:51 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Haibo Xu <haibo1.xu@intel.com>
+Cc: xiaobo55x@gmail.com, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, Guo Ren <guoren@kernel.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, Mayuresh Chitale <mchitale@ventanamicro.com>, 
+	Daniel Henrique Barboza <dbarboza@ventanamicro.com>, Jisheng Zhang <jszhang@kernel.org>, 
+	Samuel Holland <samuel@sholland.org>, Minda Chen <minda.chen@starfivetech.com>, 
+	Sean Christopherson <seanjc@google.com>, Peter Xu <peterx@redhat.com>, Like Xu <likexu@tencent.com>, 
+	Vipin Sharma <vipinsh@google.com>, Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>, 
+	Thomas Huth <thuth@redhat.com>, Aaron Lewis <aaronlewis@google.com>, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 05/11] tools: riscv: Add header file vdso/processor.h
+Message-ID: <20231213-9d5ad03bed3056007c6e714d@orel>
+References: <cover.1702371136.git.haibo1.xu@intel.com>
+ <7b633cc441f5133608597463301fef122f5174d3.1702371136.git.haibo1.xu@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-Message-Id: <E1rDOhC-00DvlI-Pp@rmk-PC.armlinux.org.uk>
-Date: Wed, 13 Dec 2023 12:50:38 +0000
+In-Reply-To: <7b633cc441f5133608597463301fef122f5174d3.1702371136.git.haibo1.xu@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231213_125044_188200_5C06C5E9 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20231213_060256_806157_C2BD0650 
+X-CRM114-Status: GOOD (  16.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,95 +105,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
+On Tue, Dec 12, 2023 at 05:31:14PM +0800, Haibo Xu wrote:
+> Borrow the cpu_relax() definitions from kernel's
+> arch/riscv/include/asm/vdso/processor.h to tools/ for riscv.
+> 
+> Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
+> ---
+>  tools/arch/riscv/include/asm/vdso/processor.h | 32 +++++++++++++++++++
+>  1 file changed, 32 insertions(+)
+>  create mode 100644 tools/arch/riscv/include/asm/vdso/processor.h
+> 
+> diff --git a/tools/arch/riscv/include/asm/vdso/processor.h b/tools/arch/riscv/include/asm/vdso/processor.h
+> new file mode 100644
+> index 000000000000..662aca039848
+> --- /dev/null
+> +++ b/tools/arch/riscv/include/asm/vdso/processor.h
+> @@ -0,0 +1,32 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +#ifndef __ASM_VDSO_PROCESSOR_H
+> +#define __ASM_VDSO_PROCESSOR_H
+> +
+> +#ifndef __ASSEMBLY__
+> +
+> +#include <asm-generic/barrier.h>
+> +
+> +static inline void cpu_relax(void)
+> +{
+> +#ifdef __riscv_muldiv
+> +	int dummy;
+> +	/* In lieu of a halt instruction, induce a long-latency stall. */
+> +	__asm__ __volatile__ ("div %0, %0, zero" : "=r" (dummy));
+> +#endif
+> +
+> +#ifdef CONFIG_TOOLCHAIN_HAS_ZIHINTPAUSE
+> +	/*
+> +	 * Reduce instruction retirement.
+> +	 * This assumes the PC changes.
+> +	 */
+> +	__asm__ __volatile__ ("pause");
+> +#else
+> +	/* Encoding of the pause instruction */
+> +	__asm__ __volatile__ (".4byte 0x100000F");
+> +#endif
+> +	barrier();
+> +}
+> +
+> +#endif /* __ASSEMBLY__ */
+> +
+> +#endif /* __ASM_VDSO_PROCESSOR_H */
+> -- 
+> 2.34.1
+>
 
-acpi_processor_get_info() registers all present CPUs. Registering a
-CPU is what creates the sysfs entries and triggers the udev
-notifications.
-
-arm64 virtual machines that support 'virtual cpu hotplug' use the
-enabled bit to indicate whether the CPU can be brought online, as
-the existing ACPI tables require all hardware to be described and
-present.
-
-If firmware describes a CPU as present, but disabled, skip the
-registration. Such CPUs are present, but can't be brought online for
-whatever reason. (e.g. firmware/hypervisor policy).
-
-Once firmware sets the enabled bit, the CPU can be registered and
-brought online by user-space. Online CPUs, or CPUs that are missing
-an _STA method must always be registered.
-
-Signed-off-by: James Morse <james.morse@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Tested-by: Miguel Luis <miguel.luis@oracle.com>
-Tested-by: Vishnu Pajjuri <vishnu@os.amperecomputing.com>
-Tested-by: Jianyong Wu <jianyong.wu@arm.com>
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/acpi/acpi_processor.c | 31 ++++++++++++++++++++++++++++++-
- 1 file changed, 30 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
-index b7a94c1348b0..5dabb426481f 100644
---- a/drivers/acpi/acpi_processor.c
-+++ b/drivers/acpi/acpi_processor.c
-@@ -228,6 +228,32 @@ static int acpi_processor_make_present(struct acpi_processor *pr)
- 	return ret;
- }
- 
-+static int acpi_processor_make_enabled(struct acpi_processor *pr)
-+{
-+	unsigned long long sta;
-+	acpi_status status;
-+	bool present, enabled;
-+
-+	if (!acpi_has_method(pr->handle, "_STA"))
-+		return arch_register_cpu(pr->id);
-+
-+	status = acpi_evaluate_integer(pr->handle, "_STA", NULL, &sta);
-+	if (ACPI_FAILURE(status))
-+		return -ENODEV;
-+
-+	present = sta & ACPI_STA_DEVICE_PRESENT;
-+	enabled = sta & ACPI_STA_DEVICE_ENABLED;
-+
-+	if (cpu_online(pr->id) && (!present || !enabled)) {
-+		pr_err_once(FW_BUG "CPU %u is online, but described as not present or disabled!\n", pr->id);
-+		add_taint(TAINT_FIRMWARE_WORKAROUND, LOCKDEP_STILL_OK);
-+	} else if (!present || !enabled) {
-+		return -ENODEV;
-+	}
-+
-+	return arch_register_cpu(pr->id);
-+}
-+
- static int acpi_processor_get_info(struct acpi_device *device)
- {
- 	union acpi_object object = { 0 };
-@@ -318,7 +344,7 @@ static int acpi_processor_get_info(struct acpi_device *device)
- 	 */
- 	if (!invalid_logical_cpuid(pr->id) && cpu_present(pr->id) &&
- 	    !get_cpu_device(pr->id)) {
--		int ret = arch_register_cpu(pr->id);
-+		int ret = acpi_processor_make_enabled(pr);
- 
- 		if (ret)
- 			return ret;
-@@ -526,6 +552,9 @@ static void acpi_processor_post_eject(struct acpi_device *device)
- 		acpi_processor_make_not_present(device);
- 		return;
- 	}
-+
-+	if (cpu_present(pr->id) && !(sta & ACPI_STA_DEVICE_ENABLED))
-+		arch_unregister_cpu(pr->id);
- }
- 
- #ifdef CONFIG_ARCH_MIGHT_HAVE_ACPI_PDC
--- 
-2.30.2
-
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
