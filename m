@@ -4,84 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C810C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 13:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6DBBC4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 13:49:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nIuA+rOx50VG4X/dd+fIUIf5tW5gKoGLBczN9U8YIp8=; b=lDIjsNz0O6gjQR
-	2Li4ako2Mu1WFRTtD9L07ClL90pyEsKhwina0uLiQ2PQRT2cOd3z592PuT1tiOlNj5cpihFT5cbkJ
-	9Cm9YZal+kXWM5N7uBuJ5wSXIUADgpdHGzWB6Y+QHrfpHLvU8vvWRkX1YZph2GVadYd1fRrbJnL4B
-	1svcjJGELhzDiBDvmklUDTanZ5f7SWTh91R5VhMvqhAATd7mDc3TxzyWHnk3ixV+VJN3PPxbpwPo+
-	5eVkwlHzyaQAqNZyLrVejZvxkXaPMT4gbdirFI10DsSp5tsKddy4f12y3HOSz1Jwie7Rw2hxOTze/
-	a9/xGdG6vbU+Q7fhovbQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VMNHNHfvddnGt0vkLPGmjhHauNNUZu2uNzEc/qC9UBk=; b=WIHvfSAVYj8x6v0hevAacgc8GX
+	TkAEuDxt8qLp5Qwjl6e1Iu93EgaeZX2KDZbd20t+jl45Dhu9MFzQDWNss9aJcAkUh0W4sb2JjvOFY
+	n3biujqvIzjXGhcNSSVpa4YmXgLIy7NGFN6lJy+p9l58anAbc2GQvvpvIcqrdH9z+5fk5D4Q7yn5c
+	CG2DU7qxY/5cHnxx2eGArfM3+J8lZrY4JUd+ieNsQG5ZQo6LNZ6S8u2mpcL4u/DIeUtbR1+YBDEgZ
+	ais6/XSuAI5m3+wptf53Ie8h/IOZ0pbVQrxxE20/DKp1lYtBUM2fcWHY+V2nAegtNvBcMpBD/VQ36
+	LvP5pprw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDPVh-00ErMG-02;
-	Wed, 13 Dec 2023 13:42:49 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1rDPcN-00EsYi-19;
+	Wed, 13 Dec 2023 13:49:43 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDPVe-00ErLV-03
-	for linux-riscv@lists.infradead.org;
-	Wed, 13 Dec 2023 13:42:47 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-40c39ef63d9so44274585e9.3
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Dec 2023 05:42:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1702474962; x=1703079762; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gB+51HnZ1EhLqxZjb5NMil26fuA19Nyv7p+UCHztgCI=;
-        b=03b4OzuxRNGIriGQqtV42PNR1fUsaYkrsKsNUNnQTG3DDM3n13ytaEq3Q7LVyMXPVv
-         A6rVCjb7XipZiLxV1O+n9S0hCA0++2HYI55R1+QU1CzRzIxLkXzH7zFItf3XNBWt5YCu
-         weF/fI42ntW0tmljLp9ImNX8zmj6a/Yxe1weXrkpKpAu3H14S6f4RF3lJjrV9G8PWX8W
-         drfM+pdrBz06JwUtl1sGvdWmxCgDGv45CwPGmvr9G4mVigWQ/hs4wZe19Kd26pr+MWCU
-         NszVuuq6Y4MrxV4hIyBI3ZJ8dgxgyQNRJHxZ/qB+bCBwvLujil8A5xlVkpqlap0F0q4O
-         ukXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702474962; x=1703079762;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gB+51HnZ1EhLqxZjb5NMil26fuA19Nyv7p+UCHztgCI=;
-        b=IKGQ7WfbBQeXfbI4mEXOJm8Vwzu7Hlc4l1guJACH+unJt+aaXoX4P90a3K+V+SrifB
-         TLOkB9GVPV1rDWLHoRvxguGvvAvEUD5vqQ8SKT+uqBDswWfSRVYle/2vKMoVbMO+6IYI
-         BPgMTzsgkNQdkPEea+9GQOX17TTlzORv9kB5yYH0nGLkmdyzGwMuniP/jN68YXHZemhb
-         2Xm4ozMrxvYl3vYCDvne3x114NWvM2g6QS7E0XR7pYjSsV0b7QTBhtHd4rbs+kYuEIr9
-         Zy1JYXrq8oWAtCEO8pXoQI/y3F8PQV+TjzVHJBesRMjkih2d2a1JeLQzc5vnkb1hjdho
-         QAIQ==
-X-Gm-Message-State: AOJu0Yx1n5m2uvE9EITpfAlm3wXWLqIE4Oi3d/4K82c3R3kczGsgSYSN
-	bZaJxXJ26vnxDuEutVEx52R6Yg==
-X-Google-Smtp-Source: AGHT+IETI3kyqEYJ/qlZfh0+NlonQyfI339qGsyMbMK4dWWwNoP12b0YuZDoOk4QRJyA0AaWi9ozAQ==
-X-Received: by 2002:a05:600c:35d6:b0:40b:5e21:cc40 with SMTP id r22-20020a05600c35d600b0040b5e21cc40mr4337934wmq.107.1702474962563;
-        Wed, 13 Dec 2023 05:42:42 -0800 (PST)
-Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id t15-20020a05600c198f00b0040c4620b9fasm11988105wmq.11.2023.12.13.05.42.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Dec 2023 05:42:42 -0800 (PST)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Zong Li <zong.li@sifive.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH -fixes 2/2] riscv: Fix set_direct_map_default_noflush() to reset _PAGE_EXEC
-Date: Wed, 13 Dec 2023 14:40:27 +0100
-Message-Id: <20231213134027.155327-3-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20231213134027.155327-1-alexghiti@rivosinc.com>
-References: <20231213134027.155327-1-alexghiti@rivosinc.com>
+	id 1rDPcK-00EsXi-0l;
+	Wed, 13 Dec 2023 13:49:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 76E5161D38;
+	Wed, 13 Dec 2023 13:49:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98E3DC433C7;
+	Wed, 13 Dec 2023 13:49:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1702475379;
+	bh=PNyFI2Mpc1WdMv+09T1SXKvFizOb61KSv71WhxqWz8E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nLSW8zDANEVNHFOtFyXlOB9m7Pc9xIeqUMFJpaJNXgyoNhBzVXEUk9opATfsy2oal
+	 wRbvuaumSqLUIa+NMSBfO/LMqX+4nSqtiio6HenhDMeGFWGnlOGELna0yPd2Irl9jO
+	 5+MI5ynunAofTV7goPnqKF6+f5L1czOZ3ExA4GV3magiQkQIzKd9jyffRnP+4b5kBK
+	 L2N4V+xJ0pzQoB6JF+Kvtcj0gx7onTfczeFs6gwWM5KCfQlYS1P8nC+RSzSIx8HneL
+	 n7gwwtiX2MyG0bZYK6tkUUbfvV2ZJ+bZjgfm0jVXpQDKqS+WyK+6MqdutTajzX6ecw
+	 /B7NAIrU16Nng==
+Date: Wed, 13 Dec 2023 13:49:29 +0000
+From: Mark Brown <broonie@kernel.org>
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+Cc: "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"Szabolcs.Nagy@arm.com" <Szabolcs.Nagy@arm.com>,
+	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"corbet@lwn.net" <corbet@lwn.net>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"debug@rivosinc.com" <debug@rivosinc.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"rppt@kernel.org" <rppt@kernel.org>,
+	"shuah@kernel.org" <shuah@kernel.org>,
+	"arnd@arndb.de" <arnd@arndb.de>, "maz@kernel.org" <maz@kernel.org>,
+	"oleg@redhat.com" <oleg@redhat.com>,
+	"fweimer@redhat.com" <fweimer@redhat.com>,
+	"keescook@chromium.org" <keescook@chromium.org>,
+	"james.morse@arm.com" <james.morse@arm.com>,
+	"ebiederm@xmission.com" <ebiederm@xmission.com>,
+	"brauner@kernel.org" <brauner@kernel.org>,
+	"will@kernel.org" <will@kernel.org>,
+	"thiago.bauermann@linaro.org" <thiago.bauermann@linaro.org>,
+	"hjl.tools@gmail.com" <hjl.tools@gmail.com>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"ardb@kernel.org" <ardb@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
+Subject: Re: [PATCH v7 02/39] prctl: arch-agnostic prctl for shadow stack
+Message-ID: <d723fdb4-9be9-4846-a49d-6bd00602afb3@sirena.org.uk>
+References: <20231122-arm64-gcs-v7-0-201c483bd775@kernel.org>
+ <20231122-arm64-gcs-v7-2-201c483bd775@kernel.org>
+ <e1362732ba86990b7707d3f5b785358b77c5f896.camel@intel.com>
+ <28c584ff-ef25-464f-852c-c5ddf66e5906@sirena.org.uk>
+ <4acb51ebb3764f6a48a741d7b7d33f9a68c996fb.camel@intel.com>
 MIME-Version: 1.0
+In-Reply-To: <4acb51ebb3764f6a48a741d7b7d33f9a68c996fb.camel@intel.com>
+X-Cookie: One size fits all.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231213_054246_052311_A07C85FD 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231213_054940_364833_E6974DDC 
+X-CRM114-Status: GOOD (  19.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,39 +100,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7947213191227600586=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When resetting the linear mapping permissions, we must make sure that we
-clear the X bit so that do not end up with WX mappings (since we set
-PAGE_KERNEL).
 
-Fixes: 395a21ff859c ("riscv: add ARCH_HAS_SET_DIRECT_MAP support")
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/riscv/mm/pageattr.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+--===============7947213191227600586==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="+/nsIWnogzOjsOHn"
+Content-Disposition: inline
 
-diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-index 96cbda683936..01398fee5cf8 100644
---- a/arch/riscv/mm/pageattr.c
-+++ b/arch/riscv/mm/pageattr.c
-@@ -383,7 +383,7 @@ int set_direct_map_invalid_noflush(struct page *page)
- int set_direct_map_default_noflush(struct page *page)
- {
- 	return __set_memory((unsigned long)page_address(page), 1,
--			    PAGE_KERNEL, __pgprot(0));
-+			    PAGE_KERNEL, __pgprot(_PAGE_EXEC));
- }
- 
- #ifdef CONFIG_DEBUG_PAGEALLOC
--- 
-2.39.2
 
+--+/nsIWnogzOjsOHn
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Tue, Dec 12, 2023 at 09:22:59PM +0000, Edgecombe, Rick P wrote:
+> On Tue, 2023-12-12 at 20:26 +0000, Mark Brown wrote:
+
+> > In general if things have a need to get at prctl()s via ptrace we
+> > should
+> > just fix that, at least for arm64 there's things like the vector
+> > lengths
+> > that are currently controlled via prctl(), but it shouldn't be a
+> > blocker
+> > for the locking specifically.
+
+> ptrace arch_prctl() is a bit odd. Not all values of 'option' are
+> supported because ptrace arch_prctl's have to operate cross task. Some
+> have extra code to support doing this, and some only know how to
+> operate on the current task, so return an error in the ptrace case.
+
+It feels like x86 is doing some things via arch_prctl() rather than
+implementing specific ptrace() interfaces for them, there's a lot of
+stuff where ptrace isn't a great fit for due to it's concept that it's
+going to work with an array of registers so that's understandable.
+
+> I guess a benefit would be that there could be some arch agnostic
+> ptrace userspace code. And I'd also guess (really a guess) that most
+> ptracing code has some arch awareness already, but the other way is
+> probably non-zero. Same for shadow stack enabling code. Then on the
+> kernel side we'd have to add and support a ptrace prctl() solution.
+
+> Is it worth the effort? I don't have a strong opinion.
+
+I don't have a strong enough opinion on it to start working on it
+immediately at any rate.
+
+--+/nsIWnogzOjsOHn
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmV5tmgACgkQJNaLcl1U
+h9CAhAf8CQEZOdWDIY7Wox4T7BzkaUfw/3Fa/4lTqu0TQ31mrybSqq9IHseTshgc
+Mn6pJLAuHfPGj1iDEGxc3ukqVD/LgxFzMPoA18ZkdIrRLEAxoeKcq1vvJLfl6zws
+GnWoqPcVdY1adnKNGo57jhoeE9pO71+2lfqK4yndK/BjR+iSo/PWM91Ub9SN2EbF
+/czeqjpXV+eRF11RAEHmYsx/Uwz3ibAIE9vc0Yn8X9x+EEJhRZ1op3afAqK/Jn5I
+X3sM+uRaDnWAb3KJ0C460J8jgjFuukww2GPdAFCp9HOQSXRYxKp4BfkxcAcAS9mL
+xBHVT6Pa6B/vaeTYas4nGzUoUcaukA==
+=4csw
+-----END PGP SIGNATURE-----
+
+--+/nsIWnogzOjsOHn--
+
+
+--===============7947213191227600586==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7947213191227600586==--
+
