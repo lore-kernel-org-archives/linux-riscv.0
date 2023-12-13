@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80C2EC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 12:50:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06A79C4167D
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 12:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:MIME-Version:Subject:Cc
 	:To:From:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZIItzgQaMfnZE1FHZFe3tVcze+t8MM7SdlDPuqmMrQI=; b=h2nJbmzxba0pP9
-	N3iQ5IlzRrQugFgdiJNiAiBBYs0jfE14RRmnO/HxJ0+4jAvSRH+wbz4GRg5cVoC2ncr80zjQYbu9l
-	JYpXuMAzwBwNJNSs+wvxoI+UumwJrYnumAan2XiIJoC6TyxKX2wHP9aAhoQxg3Y2qs1V7cxdQz8Z5
-	dtV9qoeHv7y1oKkLytsTbNfElY5WQCXqrWqPk9cquP505lanYtgbl+pkIanF8N8ntPZj7YxahFHIA
-	6y+kIPENR/upK77EdjEqILUkvgrPiWWl92Rovd6DvB/tEyEDhEWg6hO8xiDvxuLQKFKOGzu5RiVyb
-	SMGyj8VW/DNvzmUezdLg==;
+	List-Owner; bh=3KKNyyFnG2NzI2c0jqwYB31ed+yWX9eCgMVCHMBymCI=; b=VDyNnc6pt9O2Oo
+	ybUza1kHh9xT5rxOX/n43Ro76YliknpTe7Dlhp3NGDdmeG9ZutitU/OYISmd6yT0JHCam3brjpxlB
+	uB4MkSMbrxXV7+ziVFaKzlIa7ybac/2PYjCHPASrQT85kdLo577SkQp+LoVvpDV5KS1aTzoBUS9bT
+	oJ/bXR6LEHK3V6eQzztnQw0tdpn4efFG+jLzAPWto3e1pmgaeRwdrlEVsKLcUjSQnHCLqCBWMVSOO
+	oYQy29szkrHEw45oAntMoRN2RPQ7G6vsGZIIdOV/Z8k7KYxMiGwoiCzOEg4QJm/rZlYdYugGSmYy4
+	DByJFnxivjjTGBdfRN6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDOgv-00EeYu-1W;
-	Wed, 13 Dec 2023 12:50:21 +0000
+	id 1rDOh1-00Eeex-23;
+	Wed, 13 Dec 2023 12:50:27 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDOgZ-00EeBO-0v;
-	Wed, 13 Dec 2023 12:50:02 +0000
+	id 1rDOgl-00EeMt-01;
+	Wed, 13 Dec 2023 12:50:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=jXw7/CfCQVwnxBpa8i2NRb554kmnX61q77srRq2J1d4=; b=p1cs2dYFtYjWzhMUHafGMe3bf1
-	IBGszah/noeMODL/i7ZYeX2VOMc7FXiwBSG7pcxRGnZhOfoDCxI20cu4EHlTIn9RlDwgMDixZ3m/W
-	rwugQO7CMEQOecDyhn/CJ/MLXhg800KnpCVEEGx9zbp7n6zUXRoD6JGkWIMi9pMjNlamBA+U1Gzri
-	Gb11IzoqcZb92O1w4McqB0jgsqoWOnqFEU2kuXTihTAJc2BgJdlp7fs1GqcH2PMD9FCkg2tIrQ6+t
-	siJvKs6TtiZMyskwe5oUUlQchHlfQghNqUo6mUQ1QXTbOGkS085OMTQBpEk+MrajgHTszve/RkHDM
-	QnuC3dTQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:34594 helo=rmk-PC.armlinux.org.uk)
+	bh=+T8kn3k9b5NRBjWSUweuCxqkK4fxT1FVGeJHMIqvr6c=; b=rkyEttm/kwtrIQTS1tSEUUuy10
+	b9f4MBsDpOC7fICaT9EKK+Erd3u3912ckPVBYTTp9qSDOl75HckFt2qX6y4YCvnlnnFH14GeyAlCD
+	Li+m9IPqogcUFaNQ7kQHxE4OpBhAZYtFI73RMlMLVN/fOwXSoM636lHWmCwWwcFfIS24kketvfMg0
+	EU7oxLVMKZRpauGDtcKWJQe8L2+C4eMsQ9rGXcJRTKtsWv+vOvGMNbx0tW/5qZx4LHU0G5Ov/QN7B
+	+CzbJp4H7r/dgAdh7yyBwxBVH4y/8nMxcj74KZ3bUuRotM59px0g35yT9z1oC88KgqotI5CkI10kd
+	HXtcF17Q==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:50928 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1rDOgQ-0008EN-15;
-	Wed, 13 Dec 2023 12:49:50 +0000
+	id 1rDOga-0008F6-2I;
+	Wed, 13 Dec 2023 12:50:01 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1rDOgS-00DvkK-HR; Wed, 13 Dec 2023 12:49:52 +0000
+	id 1rDOgc-00DvkW-PZ; Wed, 13 Dec 2023 12:50:02 +0000
 In-Reply-To: <ZXmn46ptis59F0CO@shell.armlinux.org.uk>
 References: <ZXmn46ptis59F0CO@shell.armlinux.org.uk>
 From: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
@@ -69,15 +69,15 @@ Cc: Salil Mehta <salil.mehta@huawei.com>,
 	jianyong.wu@arm.com,
 	justin.he@arm.com,
 	James Morse <james.morse@arm.com>
-Subject: [PATCH RFC v3 08/21] ACPI: Add post_eject to struct acpi_scan_handler
- for cpu hotplug
+Subject: [PATCH RFC v3 10/21] ACPI: Check _STA present bit before making CPUs
+ not present
 MIME-Version: 1.0
 Content-Disposition: inline
-Message-Id: <E1rDOgS-00DvkK-HR@rmk-PC.armlinux.org.uk>
-Date: Wed, 13 Dec 2023 12:49:52 +0000
+Message-Id: <E1rDOgc-00DvkW-PZ@rmk-PC.armlinux.org.uk>
+Date: Wed, 13 Dec 2023 12:50:02 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231213_045000_406556_29BCA160 
-X-CRM114-Status: GOOD (  20.52  )
+X-CRM114-CacheID: sfid-20231213_045011_133861_F1817ED3 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,179 +96,92 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: James Morse <james.morse@arm.com>
 
-struct acpi_scan_handler has a detach callback that is used to remove
-a driver when a bus is changed. When interacting with an eject-request,
-the detach callback is called before _EJ0.
+When called acpi_processor_post_eject() unconditionally make a CPU
+not-present and unregisters it.
 
-This means the ACPI processor driver can't use _STA to determine if a
-CPU has been made not-present, or some of the other _STA bits have been
-changed. acpi_processor_remove() needs to know the value of _STA after
-_EJ0 has been called.
+To add support for AML events where the CPU has become disabled, but
+remains present, the _STA method should be checked before calling
+acpi_processor_remove().
 
-Add a post_eject callback to struct acpi_scan_handler. This is called
-after acpi_scan_hot_remove() has successfully called _EJ0. Because
-acpi_bus_trim_one() also clears the handler pointer, it needs to be
-told if the caller will go on to call acpi_bus_post_eject(), so
-that acpi_device_clear_enumerated() and clearing the handler pointer
-can be deferred. The existing not-used pointer is used for this.
+Rename acpi_processor_post_eject() acpi_processor_remove_possible(), and
+check the _STA before calling.
+
+Adding the function prototype for arch_unregister_cpu() allows the
+preprocessor guards to be removed.
+
+After this change CPUs will remain registered and visible to
+user-space as offline if buggy firmware triggers an eject-request,
+but doesn't clear the corresponding _STA bits after _EJ0 has been
+called.
 
 Signed-off-by: James Morse <james.morse@arm.com>
-Reviewed-by: Joanthan Cameron <Jonathan.Cameron@huawei.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Miguel Luis <miguel.luis@oracle.com>
 Tested-by: Vishnu Pajjuri <vishnu@os.amperecomputing.com>
 Tested-by: Jianyong Wu <jianyong.wu@arm.com>
 ---
+Changes since RFC v3:
+ * Move IS_ENABLED(CONFIG_ACPI_HOTPLUG_PRESENT_CPU) into separate patch.
 Outstanding comments:
- https://lore.kernel.org/r/20230914152809.00003152@Huawei.com
- https://lore.kernel.org/r/c3ef8123-1fcc-7289-c475-c753de44d564@redhat.com
+ https://lore.kernel.org/r/20230914153110.00003e38@Huawei.com
+ https://lore.kernel.org/r/518859b1-64a9-d723-963c-56c7f6fc2da1@redhat.com
+  This contains a repeat of the IS_ENABLED() issue which we don't think
+  is a problem - but there is another issue mentioned in that comment.
 ---
- drivers/acpi/acpi_processor.c |  4 +--
- drivers/acpi/scan.c           | 52 ++++++++++++++++++++++++++++++-----
- include/acpi/acpi_bus.h       |  1 +
- 3 files changed, 48 insertions(+), 9 deletions(-)
+ drivers/acpi/acpi_processor.c | 28 ++++++++++++++++++++++++----
+ 1 file changed, 24 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
-index 26e3efb74614..b6f5005985c3 100644
+index 01c460881662..19fceb3ec4e2 100644
 --- a/drivers/acpi/acpi_processor.c
 +++ b/drivers/acpi/acpi_processor.c
-@@ -459,7 +459,7 @@ static int acpi_processor_add(struct acpi_device *device,
+@@ -458,16 +458,13 @@ static int acpi_processor_add(struct acpi_device *device,
+ }
  
- #ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
  /* Removal */
--static void acpi_processor_remove(struct acpi_device *device)
-+static void acpi_processor_post_eject(struct acpi_device *device)
+-static void acpi_processor_post_eject(struct acpi_device *device)
++static void acpi_processor_make_not_present(struct acpi_device *device)
  {
  	struct acpi_processor *pr;
  
-@@ -627,7 +627,7 @@ static struct acpi_scan_handler processor_handler = {
- 	.ids = processor_device_ids,
- 	.attach = acpi_processor_add,
- #ifdef CONFIG_ACPI_HOTPLUG_PRESENT_CPU
--	.detach = acpi_processor_remove,
-+	.post_eject = acpi_processor_post_eject,
- #endif
- 	.hotplug = {
- 		.enabled = true,
-diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-index ec42fe9d0611..6ffd65e9e512 100644
---- a/drivers/acpi/scan.c
-+++ b/drivers/acpi/scan.c
-@@ -244,18 +244,28 @@ static int acpi_scan_try_to_offline(struct acpi_device *device)
- 	return 0;
- }
+ 	if (!IS_ENABLED(CONFIG_ACPI_HOTPLUG_PRESENT_CPU))
+ 		return;
  
--static int acpi_bus_trim_one(struct acpi_device *adev, void *not_used)
-+/**
-+ * acpi_bus_trim_one() - Detach scan handlers and drivers from ACPI device
-+ *                       objects.
-+ * @adev:       Root of the ACPI namespace scope to walk.
-+ * @eject:      Pointer to a bool that indicates if this was due to an
-+ *              eject-request.
-+ *
-+ * Must be called under acpi_scan_lock.
-+ * If @eject points to true, clearing the device enumeration is deferred until
-+ * acpi_bus_post_eject() is called.
-+ */
-+static int acpi_bus_trim_one(struct acpi_device *adev, void *eject)
- {
- 	struct acpi_scan_handler *handler = adev->handler;
-+	bool is_eject = *(bool *)eject;
- 
--	acpi_dev_for_each_child_reverse(adev, acpi_bus_trim_one, NULL);
-+	acpi_dev_for_each_child_reverse(adev, acpi_bus_trim_one, eject);
- 
- 	adev->flags.match_driver = false;
- 	if (handler) {
- 		if (handler->detach)
- 			handler->detach(adev);
+-	if (!device || !acpi_driver_data(device))
+-		return;
 -
--		adev->handler = NULL;
- 	} else {
- 		device_release_driver(&adev->dev);
- 	}
-@@ -265,7 +275,12 @@ static int acpi_bus_trim_one(struct acpi_device *adev, void *not_used)
- 	 */
- 	acpi_device_set_power(adev, ACPI_STATE_D3_COLD);
- 	adev->flags.initialized = false;
--	acpi_device_clear_enumerated(adev);
-+
-+	/* For eject this is deferred to acpi_bus_post_eject() */
-+	if (!is_eject) {
-+		adev->handler = NULL;
-+		acpi_device_clear_enumerated(adev);
-+	}
- 
- 	return 0;
+ 	pr = acpi_driver_data(device);
+ 	if (pr->id >= nr_cpu_ids)
+ 		goto out;
+@@ -504,6 +501,29 @@ static void acpi_processor_post_eject(struct acpi_device *device)
+ 	kfree(pr);
  }
-@@ -278,15 +293,36 @@ static int acpi_bus_trim_one(struct acpi_device *adev, void *not_used)
-  */
- void acpi_bus_trim(struct acpi_device *adev)
- {
--	acpi_bus_trim_one(adev, NULL);
-+	bool eject = false;
-+
-+	acpi_bus_trim_one(adev, &eject);
- }
- EXPORT_SYMBOL_GPL(acpi_bus_trim);
  
-+static int acpi_bus_post_eject(struct acpi_device *adev, void *not_used)
++static void acpi_processor_post_eject(struct acpi_device *device)
 +{
-+	struct acpi_scan_handler *handler = adev->handler;
++	struct acpi_processor *pr;
++	unsigned long long sta;
++	acpi_status status;
 +
-+	acpi_dev_for_each_child_reverse(adev, acpi_bus_post_eject, NULL);
++	if (!device)
++		return;
 +
-+	if (handler) {
-+		if (handler->post_eject)
-+			handler->post_eject(adev);
++	pr = acpi_driver_data(device);
++	if (!pr || pr->id >= nr_cpu_ids || invalid_phys_cpuid(pr->phys_id))
++		return;
 +
-+		adev->handler = NULL;
++	status = acpi_evaluate_integer(pr->handle, "_STA", NULL, &sta);
++	if (ACPI_FAILURE(status))
++		return;
++
++	if (cpu_present(pr->id) && !(sta & ACPI_STA_DEVICE_PRESENT)) {
++		acpi_processor_make_not_present(device);
++		return;
 +	}
-+
-+	acpi_device_clear_enumerated(adev);
-+
-+	return 0;
 +}
 +
- static int acpi_scan_hot_remove(struct acpi_device *device)
+ #ifdef CONFIG_ARCH_MIGHT_HAVE_ACPI_PDC
+ bool __init processor_physically_present(acpi_handle handle)
  {
- 	acpi_handle handle = device->handle;
- 	unsigned long long sta;
- 	acpi_status status;
-+	bool eject = true;
- 
- 	if (device->handler && device->handler->hotplug.demand_offline) {
- 		if (!acpi_scan_is_offline(device, true))
-@@ -299,7 +335,7 @@ static int acpi_scan_hot_remove(struct acpi_device *device)
- 
- 	acpi_handle_debug(handle, "Ejecting\n");
- 
--	acpi_bus_trim(device);
-+	acpi_bus_trim_one(device, &eject);
- 
- 	acpi_evaluate_lck(handle, 0);
- 	/*
-@@ -322,6 +358,8 @@ static int acpi_scan_hot_remove(struct acpi_device *device)
- 	} else if (sta & ACPI_STA_DEVICE_ENABLED) {
- 		acpi_handle_warn(handle,
- 			"Eject incomplete - status 0x%llx\n", sta);
-+	} else {
-+		acpi_bus_post_eject(device, NULL);
- 	}
- 
- 	return 0;
-diff --git a/include/acpi/acpi_bus.h b/include/acpi/acpi_bus.h
-index 1216d72c650f..c887c2dfc5b5 100644
---- a/include/acpi/acpi_bus.h
-+++ b/include/acpi/acpi_bus.h
-@@ -130,6 +130,7 @@ struct acpi_scan_handler {
- 	bool (*match)(const char *idstr, const struct acpi_device_id **matchid);
- 	int (*attach)(struct acpi_device *dev, const struct acpi_device_id *id);
- 	void (*detach)(struct acpi_device *dev);
-+	void (*post_eject)(struct acpi_device *dev);
- 	void (*bind)(struct device *phys_dev);
- 	void (*unbind)(struct device *phys_dev);
- 	struct acpi_hotplug_profile hotplug;
 -- 
 2.30.2
 
