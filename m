@@ -4,63 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0229C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 12:51:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 637C9C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 12:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:MIME-Version:Subject:Cc
 	:To:From:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F7H45dvozMt8hssoJ0SEK4XTyC4wchV6m96E8gSQ+dM=; b=JCD3gLpUuttxHv
-	BFza7jJ2isP0VDZJ+TD/QwxztlNn7C1Np5Z9ODM70gwSDyvGEtLUxik7soIRJSq1YaYZuCF2alWNF
-	i9W7XICsi6FXZY5b4YQ2uiMkmLo/BUjtRtL1wtkmPJXY7Df1oLn72j+v05NdkjtMvqPW1t8rby1h8
-	HnVtPwQBNfC4pBU7tG1eNGuLUbkCk5jBIFKjsVQWxbitjw7FYI83B+fAHFLAP4nOpnvGYOJSjJuFQ
-	LQARvN81Lx2mk8eSc5uXBWqpd9b3I91it94Ze2rFfFLb8ItzpNduw2vJPWZiD+7FOzYRZb4VOh37K
-	TEXO0+3e8bRjoY481OUQ==;
+	List-Owner; bh=yxT7mDEUxiVSgg7TyHPWcs8CJUsAmdERJ/qYBZ/UPEA=; b=dFyJbuXsLcnm2I
+	mvkgEmSfZjTAZQ3a4pfgS/EUhisCmQwS8gjy63ptDPZ7638x502AEruBfWZzvW4mQtHcYaH4Uw3O5
+	6VA0t9kftzeMk2HJ1TOD8GcIO+QISush5+ejBm3EuHReNdcwZRIFPa7nPevqelvcfXWplboRJD9is
+	7Cv3/Lx0EoXDZXsR3O0JkdTA2VRyA76D00zmKOqCkh/+kBUu2xYaxKgtWQwJ50yhLkoc2Z/AbNfWF
+	EyCBMraJtHxgEIPCr2tZEmrgPCGzcaKJupeCZ8uFqFeSVBtrSPrtHd8+eY5lNkobaaW/I69Albas+
+	cVMCkpJe4jllDWbV9AQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDOi4-00Efjx-1U;
-	Wed, 13 Dec 2023 12:51:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDOhg-00EfIm-2k;
-	Wed, 13 Dec 2023 12:51:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description;
-	bh=4ff4rMpb4e8+j2FVzHVtwCCPXNpYraqqrJVEXYQ7zus=; b=YwGt7GLrCt9VrplkntH378wAUB
-	tedtCrkrjR1MuUxD8jUjseuxNHaRPL5I5+AYuL9bZR/zus4IwXYOersdMQElw49OI71tB0Kg/7Kwr
-	XdVIkYciLKQtkgFath6/9+tgvvsz5YQ4aU5DROrmdaoKHZoDFTiW9NXHMGnnp91JbTyiVl85UlPea
-	ukWxI6rdkR07Yus4teNTDqgE5ZOBqezoMFg77eBM3UNVq8899ibyoSAIkeU1KGLLDo/oISXliMq6Z
-	QTbMq53kml+qDsCYB6yo4r4Eis9+BR6NFEExpsB32sjc5G9qWKrRT3Q6MUwXbMSFGDK56hvb17wtt
-	sn6ieRNg==;
+	id 1rDOiU-00EgFZ-32;
+	Wed, 13 Dec 2023 12:51:58 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDOhc-00968u-33;
-	Wed, 13 Dec 2023 12:51:07 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1rDOi6-00EdvI-1V;
+	Wed, 13 Dec 2023 12:51:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=4ff4rMpb4e8+j2FVzHVtwCCPXNpYraqqrJVEXYQ7zus=; b=FTxlsm7nMbZ2auwIoWztzjGrLr
-	eJ/+UAL4mRlb+xzpeos7afUrQbA793swTrEBkQs15e6/U2pZQzuZK+w+1AHJpkI3HfUJGZEjFm/Kp
-	W9jVCjZgcW9jZXNT7d7yYBD6uXj3FP+JGLZOMl2DiqfJobHMrn+f2Rn1YL+OviAx4TvVtCo8v3NhG
-	ha0rLs1UNyB4oOrGfMvPk8nj7AxLUehHcXG4csWrXQ+KZWl07iCkmqKO7r4ZhGqDaej9rOshtXdE9
-	mIEiNCaE7QZ92nAimpN8JuMZiod0x/DZEKdfe4Kl4qSvzrc78tI8xR7PubiPehT6ssECE39vdnOjp
-	zzmnovvQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:33330 helo=rmk-PC.armlinux.org.uk)
+	bh=+X6RbS8+FdE0yTZKPB4LhEuZYWtnagnPlrAoFbcwPjQ=; b=cohuG+LDvNgpd64HbLmHbpKUXp
+	wxNPAKD5TR46g/lZehPoGpq7YgfCZwNooh/ByyYfKpefpXR22aovnRqW+RA5WU39sX1qqLVh8BcUU
+	5Oyp825+gDNk6o9i4bApxpmqhlprYwzRvHWBe1G4qqjNvgDLrXmVxXNuL7tARCig7gykj6zvJRS3T
+	iY72a4kgPGGJk4roa71Dwqclee4H33OSkqc8KZf4fj1ho/agpVWByd5HmSjd90KLhZYN00hAE7TWu
+	qEDie8YSn6l6pEn0A/i2aDLiTck5BDTRfVj78USvT8+8H0wMV+gtHVoMS/AKx3eMft/2tK3i6xdSM
+	4U/yXaAg==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36780 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1rDOhV-0008IF-1A;
-	Wed, 13 Dec 2023 12:50:57 +0000
+	id 1rDOfv-0008Cu-1l;
+	Wed, 13 Dec 2023 12:49:19 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1rDOhX-00Dvlg-Ci; Wed, 13 Dec 2023 12:50:59 +0000
+	id 1rDOfx-00Dvje-MS; Wed, 13 Dec 2023 12:49:21 +0000
 In-Reply-To: <ZXmn46ptis59F0CO@shell.armlinux.org.uk>
 References: <ZXmn46ptis59F0CO@shell.armlinux.org.uk>
 From: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
@@ -83,15 +69,15 @@ Cc: Salil Mehta <salil.mehta@huawei.com>,
 	jianyong.wu@arm.com,
 	justin.he@arm.com,
 	James Morse <james.morse@arm.com>
-Subject: [PATCH RFC v3 21/21] cpumask: Add enabled cpumask for present CPUs
- that can be brought online
+Subject: [PATCH RFC v3 02/21] ACPI: processor: Add support for processors
+ described as container packages
 MIME-Version: 1.0
 Content-Disposition: inline
-Message-Id: <E1rDOhX-00Dvlg-Ci@rmk-PC.armlinux.org.uk>
-Date: Wed, 13 Dec 2023 12:50:59 +0000
+Message-Id: <E1rDOfx-00Dvje-MS@rmk-PC.armlinux.org.uk>
+Date: Wed, 13 Dec 2023 12:49:21 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231213_125105_264323_FB4FA6EB 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20231213_045134_527742_37FA7791 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,176 +96,87 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: James Morse <james.morse@arm.com>
 
-The 'offline' file in sysfs shows all offline CPUs, including those
-that aren't present. User-space is expected to remove not-present CPUs
-from this list to learn which CPUs could be brought online.
+ACPI has two ways of describing processors in the DSDT. From ACPI v6.5,
+5.2.12:
 
-CPUs can be present but not-enabled. These CPUs can't be brought online
-until the firmware policy changes, which comes with an ACPI notification
-that will register the CPUs.
+"Starting with ACPI Specification 6.3, the use of the Processor() object
+was deprecated. Only legacy systems should continue with this usage. On
+the Itanium architecture only, a _UID is provided for the Processor()
+that is a string object. This usage of _UID is also deprecated since it
+can preclude an OSPM from being able to match a processor to a
+non-enumerable device, such as those defined in the MADT. From ACPI
+Specification 6.3 onward, all processor objects for all architectures
+except Itanium must now use Device() objects with an _HID of ACPI0007,
+and use only integer _UID values."
 
-With only the offline and present files, user-space is unable to
-determine which CPUs it can try to bring online. Add a new CPU mask
-that shows this based on all the registered CPUs.
+Also see https://uefi.org/specs/ACPI/6.5/08_Processor_Configuration_and_Control.html#declaring-processors
+
+Duplicate descriptions are not allowed, the ACPI processor driver already
+parses the UID from both devices and containers. acpi_processor_get_info()
+returns an error if the UID exists twice in the DSDT.
+
+The missing probe for CPUs described as packages creates a problem for
+moving the cpu_register() calls into the acpi_processor driver, as CPUs
+described like this don't get registered, leading to errors from other
+subsystems when they try to add new sysfs entries to the CPU node.
+(e.g. topology_sysfs_init()'s use of topology_add_dev() via cpuhp)
+
+To fix this, parse the processor container and call acpi_processor_add()
+for each processor that is discovered like this. The processor container
+handler is added with acpi_scan_add_handler(), so no detach call will
+arrive.
+
+Qemu TCG describes CPUs using processor devices in a processor container.
+For more information, see build_cpus_aml() in Qemu hw/acpi/cpu.c and
+https://uefi.org/specs/ACPI/6.5/08_Processor_Configuration_and_Control.html#processor-container-device
 
 Signed-off-by: James Morse <james.morse@arm.com>
 Tested-by: Miguel Luis <miguel.luis@oracle.com>
 Tested-by: Vishnu Pajjuri <vishnu@os.amperecomputing.com>
 Tested-by: Jianyong Wu <jianyong.wu@arm.com>
 ---
-Outstanding comment:
- https://lore.kernel.org/r/20230914175443.000038f6@Huawei.com
+Outstanding comments:
+ https://lore.kernel.org/r/20230914145353.000072e2@Huawei.com
+ https://lore.kernel.org/r/50571c2f-aa3c-baeb-3add-cd59e0eddc02@redhat.com
 ---
- drivers/base/cpu.c      | 10 ++++++++++
- include/linux/cpumask.h | 25 +++++++++++++++++++++++++
- kernel/cpu.c            |  3 +++
- 3 files changed, 38 insertions(+)
+ drivers/acpi/acpi_processor.c | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
-diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
-index 13d052bf13f4..a6e96a0a92b7 100644
---- a/drivers/base/cpu.c
-+++ b/drivers/base/cpu.c
-@@ -95,6 +95,7 @@ void unregister_cpu(struct cpu *cpu)
- {
- 	int logical_cpu = cpu->dev.id;
+diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
+index 4fe2ef54088c..6a542e0ce396 100644
+--- a/drivers/acpi/acpi_processor.c
++++ b/drivers/acpi/acpi_processor.c
+@@ -626,9 +626,31 @@ static struct acpi_scan_handler processor_handler = {
+ 	},
+ };
  
-+	set_cpu_enabled(logical_cpu, false);
- 	unregister_cpu_under_node(logical_cpu, cpu_to_node(logical_cpu));
- 
- 	device_unregister(&cpu->dev);
-@@ -273,6 +274,13 @@ static ssize_t print_cpus_offline(struct device *dev,
- }
- static DEVICE_ATTR(offline, 0444, print_cpus_offline, NULL);
- 
-+static ssize_t print_cpus_enabled(struct device *dev,
-+				  struct device_attribute *attr, char *buf)
++static acpi_status acpi_processor_container_walk(acpi_handle handle,
++						 u32 lvl,
++						 void *context,
++						 void **rv)
 +{
-+	return sysfs_emit(buf, "%*pbl\n", cpumask_pr_args(cpu_enabled_mask));
-+}
-+static DEVICE_ATTR(enabled, 0444, print_cpus_enabled, NULL);
++	struct acpi_device *adev;
++	acpi_status status;
 +
- static ssize_t print_cpus_isolated(struct device *dev,
- 				  struct device_attribute *attr, char *buf)
- {
-@@ -413,6 +421,7 @@ int register_cpu(struct cpu *cpu, int num)
- 	register_cpu_under_node(num, cpu_to_node(num));
- 	dev_pm_qos_expose_latency_limit(&cpu->dev,
- 					PM_QOS_RESUME_LATENCY_NO_CONSTRAINT);
-+	set_cpu_enabled(num, true);
- 
- 	return 0;
- }
-@@ -494,6 +503,7 @@ static struct attribute *cpu_root_attrs[] = {
- 	&cpu_attrs[2].attr.attr,
- 	&dev_attr_kernel_max.attr,
- 	&dev_attr_offline.attr,
-+	&dev_attr_enabled.attr,
- 	&dev_attr_isolated.attr,
- #ifdef CONFIG_NO_HZ_FULL
- 	&dev_attr_nohz_full.attr,
-diff --git a/include/linux/cpumask.h b/include/linux/cpumask.h
-index cfb545841a2c..cc72a0887f04 100644
---- a/include/linux/cpumask.h
-+++ b/include/linux/cpumask.h
-@@ -92,6 +92,7 @@ static inline void set_nr_cpu_ids(unsigned int nr)
-  *
-  *     cpu_possible_mask- has bit 'cpu' set iff cpu is populatable
-  *     cpu_present_mask - has bit 'cpu' set iff cpu is populated
-+ *     cpu_enabled_mask  - has bit 'cpu' set iff cpu can be brought online
-  *     cpu_online_mask  - has bit 'cpu' set iff cpu available to scheduler
-  *     cpu_active_mask  - has bit 'cpu' set iff cpu available to migration
-  *
-@@ -124,11 +125,13 @@ static inline void set_nr_cpu_ids(unsigned int nr)
- 
- extern struct cpumask __cpu_possible_mask;
- extern struct cpumask __cpu_online_mask;
-+extern struct cpumask __cpu_enabled_mask;
- extern struct cpumask __cpu_present_mask;
- extern struct cpumask __cpu_active_mask;
- extern struct cpumask __cpu_dying_mask;
- #define cpu_possible_mask ((const struct cpumask *)&__cpu_possible_mask)
- #define cpu_online_mask   ((const struct cpumask *)&__cpu_online_mask)
-+#define cpu_enabled_mask   ((const struct cpumask *)&__cpu_enabled_mask)
- #define cpu_present_mask  ((const struct cpumask *)&__cpu_present_mask)
- #define cpu_active_mask   ((const struct cpumask *)&__cpu_active_mask)
- #define cpu_dying_mask    ((const struct cpumask *)&__cpu_dying_mask)
-@@ -993,6 +996,7 @@ extern const DECLARE_BITMAP(cpu_all_bits, NR_CPUS);
- #else
- #define for_each_possible_cpu(cpu) for_each_cpu((cpu), cpu_possible_mask)
- #define for_each_online_cpu(cpu)   for_each_cpu((cpu), cpu_online_mask)
-+#define for_each_enabled_cpu(cpu)   for_each_cpu((cpu), cpu_enabled_mask)
- #define for_each_present_cpu(cpu)  for_each_cpu((cpu), cpu_present_mask)
- #endif
- 
-@@ -1015,6 +1019,15 @@ set_cpu_possible(unsigned int cpu, bool possible)
- 		cpumask_clear_cpu(cpu, &__cpu_possible_mask);
- }
- 
-+static inline void
-+set_cpu_enabled(unsigned int cpu, bool can_be_onlined)
-+{
-+	if (can_be_onlined)
-+		cpumask_set_cpu(cpu, &__cpu_enabled_mask);
-+	else
-+		cpumask_clear_cpu(cpu, &__cpu_enabled_mask);
++	adev = acpi_get_acpi_dev(handle);
++	if (!adev)
++		return AE_ERROR;
++
++	status = acpi_processor_add(adev, &processor_device_ids[0]);
++	acpi_put_acpi_dev(adev);
++
++	return status;
 +}
 +
- static inline void
- set_cpu_present(unsigned int cpu, bool present)
+ static int acpi_processor_container_attach(struct acpi_device *dev,
+ 					   const struct acpi_device_id *id)
  {
-@@ -1096,6 +1109,7 @@ static __always_inline unsigned int num_online_cpus(void)
- 	return raw_atomic_read(&__num_online_cpus);
- }
- #define num_possible_cpus()	cpumask_weight(cpu_possible_mask)
-+#define num_enabled_cpus()	cpumask_weight(cpu_enabled_mask)
- #define num_present_cpus()	cpumask_weight(cpu_present_mask)
- #define num_active_cpus()	cpumask_weight(cpu_active_mask)
- 
-@@ -1104,6 +1118,11 @@ static inline bool cpu_online(unsigned int cpu)
- 	return cpumask_test_cpu(cpu, cpu_online_mask);
- }
- 
-+static inline bool cpu_enabled(unsigned int cpu)
-+{
-+	return cpumask_test_cpu(cpu, cpu_enabled_mask);
-+}
++	acpi_walk_namespace(ACPI_TYPE_PROCESSOR, dev->handle,
++			    ACPI_UINT32_MAX, acpi_processor_container_walk,
++			    NULL, NULL, NULL);
 +
- static inline bool cpu_possible(unsigned int cpu)
- {
- 	return cpumask_test_cpu(cpu, cpu_possible_mask);
-@@ -1128,6 +1147,7 @@ static inline bool cpu_dying(unsigned int cpu)
- 
- #define num_online_cpus()	1U
- #define num_possible_cpus()	1U
-+#define num_enabled_cpus()	1U
- #define num_present_cpus()	1U
- #define num_active_cpus()	1U
- 
-@@ -1141,6 +1161,11 @@ static inline bool cpu_possible(unsigned int cpu)
- 	return cpu == 0;
+ 	return 1;
  }
- 
-+static inline bool cpu_enabled(unsigned int cpu)
-+{
-+	return cpu == 0;
-+}
-+
- static inline bool cpu_present(unsigned int cpu)
- {
- 	return cpu == 0;
-diff --git a/kernel/cpu.c b/kernel/cpu.c
-index a86972a91991..fe0a5189f8ae 100644
---- a/kernel/cpu.c
-+++ b/kernel/cpu.c
-@@ -3122,6 +3122,9 @@ EXPORT_SYMBOL(__cpu_possible_mask);
- struct cpumask __cpu_online_mask __read_mostly;
- EXPORT_SYMBOL(__cpu_online_mask);
- 
-+struct cpumask __cpu_enabled_mask __read_mostly;
-+EXPORT_SYMBOL(__cpu_enabled_mask);
-+
- struct cpumask __cpu_present_mask __read_mostly;
- EXPORT_SYMBOL(__cpu_present_mask);
  
 -- 
 2.30.2
