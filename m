@@ -4,84 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4102C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 06:16:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5E3BC4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 06:16:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=RlNhsTlqXNV1r4PdpyEahdHfze9hgruourU3cSYAlTM=; b=orTvMp+nsMgrhs
-	XARrVDKWax3YVU5Fag7FyYQeZcYdrqsqRz1IXED36nJw/mLuLNlmTjz62WZi4ORY/+Xv040Dau/Tc
-	S7Eb6oaJntFkBq8+3CpkU9+2jFaEu/JwWqH/gGGCiHr8c+VL9XAWaTvxgaVcy57YbGUa8UZn9hhR6
-	WEliNOdZWgRWmhhkMVH7D+ME35aTmtfQDHgOUCobVU96BxfP5OtPHsyRjtw2HgsKp9rf1+XjTdFpo
-	YkmUeorDEx+Re+iuw8wD1v+lou6iD5NX8bgg4gNgdMxmA6JmpyFFHulutnXK/qPE/NMxF2XR9bC7S
-	kuQ/8EAW2PMaeMGS0KmQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wRkGeQJCwTiZCVEXRmBRc4wJfvb6w8uBdUh2LkOU7Ag=; b=ps06rBS2nmtts4
+	20ZStxCXlSJNhjofyPcMSbXnX9jwhDGLLX9bgtCi63hPOrAJg1osw1J7mfcjr1AkWuX6MfpSVBUq0
+	8FEMNHA65gQgp890wCx0K1Ig/fuMtFpzF6curiaohwX6dO+2gaBRsWJ8XkcyzzjsehHH57S4Jp56a
+	TDxba0fYl9gufVZ1Wbz+vfL4lAlnkwZNlKGPHTb3m7A06zVuRAvHxHynscLNU7vCv0z92IBXJQt49
+	dYkiqCFp2WDjWqWfFMv4NgRbvAJghn4IhCZZJCEIwTf74JOkUZoMArY+p6pmb6bBrcUVC+6wzSbcM
+	KQMnU8+m0UIblQZ+05Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDIXe-00DkdZ-1Y;
-	Wed, 13 Dec 2023 06:16:22 +0000
-Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
+	id 1rDIXv-00Dkjn-0L;
+	Wed, 13 Dec 2023 06:16:39 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDIXb-00Dkbb-1i
+	id 1rDIXr-00DkhY-2K
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Dec 2023 06:16:21 +0000
-Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-6d9e756cf32so4224193a34.2
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Dec 2023 22:16:16 -0800 (PST)
+	Wed, 13 Dec 2023 06:16:37 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-2c9f7fe6623so82631301fa.3
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Dec 2023 22:16:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1702448176; x=1703052976; darn=lists.infradead.org;
-        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=ventanamicro.com; s=google; t=1702448192; x=1703052992; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=uvNv5wfHF4xhsTtKWQpkLRjgdWBIUIRMHOfm0nTFkAs=;
-        b=Wk2Uq6VBY2A8B0nf3ArX/x2+Ff0VAe0wHsN+9kqb+6AnnTaRehPv2PZEcHXlFlQVSE
-         2ONgY+rFd9KupCiBARopZkb7EwwLOkcducjWzl0mYQOc/PQxPtY9YszM9zF0aeTBW74e
-         jHYqrHSrlyqiUV/HGnVODdClCjJOOB0I1GWEbsWoybZ/yJxoGB1A402RcMFDRwR7z+HQ
-         Y9x76LcNe6KJcKeoK7KNuIQ/kKlIO4ODM5Lj0pVGp0DL/YVRcJm7h76DVApxGPDPxmc7
-         vY6A9ejWlK+8LbqhykWZJVTHGwRNFaRe/IEPYlNUNd/oPjRNIhECKoi9Qq4nuQJd+wvX
-         VuQQ==
+        bh=aCLT5UxX3ic1D8SnaFGchw7AZpD/VDB8rMNC+FjYo/c=;
+        b=clpk0NhwYYq5oOKJ/02VrkFB9XpWMssWcim3wqXVE0vzLe4hAWUkYNON4/sfsGzoEG
+         OihrwhF4jpiZv0CrOA1VaeebN1cOH0wh/NBosknHufx4mohH4C/CRJyFTa9QbcXRJx/Y
+         FypDhVnF3Gd9Q9hqcEO5jBwFjzrKFG4TYHe/azSRjBknJ96EV/OGA/VeoXZnSwBbYfC+
+         4RKD1W0h/soehaL+nsN5N+afYbwn3tmJhbCq1TA6iTTU9w/Al/08B5msyTA4cACJszFJ
+         /fDVsPkEf2TZTb2+K/wlii3KeQzk5HEF+/K3B4fF0vxOXHSlEgGMQhh0V/RCQAWwJW0m
+         LSig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702448176; x=1703052976;
-        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1702448192; x=1703052992;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=uvNv5wfHF4xhsTtKWQpkLRjgdWBIUIRMHOfm0nTFkAs=;
-        b=oRT+ueGhDzswI4womeDVdh1H/waysvfB5raid4clC9iRB3koMJXXwjlOOZJo+8aW5e
-         KAfdDPrajxhlpYy/DsIgShHA9pBeWqFMcwmuwhM8XEM673yYa4VO/Tv8l0ngXsS5g3JN
-         m8tYuJeaVpCavc9sq3nAV8Qh9fYP05v0upZjowTi1oSJWE786Lew5Qu33NrXS+8k47gG
-         uJrQu6rD1qdWaEhSQ3rxG4Y2AwnqpnH047CKp+/nL+xNDJbIO9rc0CIwoj7l9PJ55Fw0
-         ES5eNjC04vYiE+MVebnVxFOX66U2+5somFBdqks0m2xIyAP/vPZKb3/TUXLaDY/K9oU2
-         VpNw==
-X-Gm-Message-State: AOJu0YzZXIgvbt6CHgBoHhQ6kGOUSZjSe264ukh0kd+9AIzgxVtevOYL
-	qzsHpGEIBYRUABfURKfX6M06vlUg8YQ/A/mamNvawgr1XdJ8oPDbdgKRRp5XiyTJ2l7V+sYlcIn
-	3CXqc9EY2A0TB13ml7HhD1GZF/7ZHHrL6exKdbiaXn4yyzmgkK5kWqdCDDcDSc2gkMNDu6Tiya4
-	pTo+JlU3CPJPZWAKzpok7n8FQ=
-X-Google-Smtp-Source: AGHT+IGagDM0nKL4ki3x1mUmX8Sb5HGZKw8UWtPHqF+o2WY74k963vboMKd1J30RZCv1Lb6uCLOblA==
-X-Received: by 2002:a05:6808:1385:b0:3b8:45cf:9b2 with SMTP id c5-20020a056808138500b003b845cf09b2mr9139581oiw.20.1702448175749;
-        Tue, 12 Dec 2023 22:16:15 -0800 (PST)
-Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id w2-20020a654102000000b005c65ed23b65sm7731076pgp.94.2023.12.12.22.16.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Dec 2023 22:16:14 -0800 (PST)
-From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-To: linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org
-Cc: greentime.hu@sifive.com,
-	vincent.chen@sifive.com,
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/1] RISCV: KVM: update external interrupt atomically for IMSIC swfile
-Date: Wed, 13 Dec 2023 06:16:09 +0000
-Message-Id: <20231213061610.11100-1-yongxuan.wang@sifive.com>
-X-Mailer: git-send-email 2.17.1
+        bh=aCLT5UxX3ic1D8SnaFGchw7AZpD/VDB8rMNC+FjYo/c=;
+        b=UqO3Exly1L0nYTSfqTD95FwkGsEciyX3eXieB9zkIS6ia9Q2SgtjwnPjdnrerOY73Z
+         TQj7ePShF7zCcvJj8wDBI8rAgjjhGRrX1w2NnbT7eX5AXKHmk4iFigw8en1R0lI/xQWi
+         eN6S8lveldFB30uEPQURf6Awvwv6yLEl46FhA/VkM3gXKjcyV+Hcv4kCvphjCjTUHj7+
+         5Ke135DBFhyw/1kY25Ss4ntjhU6j4mVD7y8aD3ErKQOBj1KwjqD8pDTfKbKp4/lVZDYs
+         iMkQF0kgayYs7Mv5NJnl9/EzO5DJgavybHPqfY4t90mVHXkdFd27K8EgYbRUEQBC2NTx
+         PeuA==
+X-Gm-Message-State: AOJu0YyvFoZ+32FpzSxSR0PQn6yROG8JzJ5o75F1l6/SmsHr/e31nFuH
+	W9uN5lc1MnO07VbVbDgP6KuYxAq0j1P+iPcB7/tWeQ==
+X-Google-Smtp-Source: AGHT+IGyghldClfn31V0MQMWGLZzCGALUHqlVVAMFgcmDYeLOD49X5FAOoL1dW4PLVS+GqzsYn0uP2igPy0TYL4nAIk=
+X-Received: by 2002:a19:f717:0:b0:50b:e576:ea2b with SMTP id
+ z23-20020a19f717000000b0050be576ea2bmr2067249lfe.126.1702448191950; Tue, 12
+ Dec 2023 22:16:31 -0800 (PST)
+MIME-Version: 1.0
+References: <20231024132655.730417-1-cleger@rivosinc.com> <20231024132655.730417-5-cleger@rivosinc.com>
+In-Reply-To: <20231024132655.730417-5-cleger@rivosinc.com>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Wed, 13 Dec 2023 11:46:19 +0530
+Message-ID: <CAK9=C2WJv4PX5FAAPUcttK4UDDNWdyNWmLG_zXwx60WrMgXO8Q@mail.gmail.com>
+Subject: Re: [PATCH v2 4/5] riscv: kvm: Use SYM_*() assembly macros instead of
+ deprecated ones
+To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, Andrew Jones <ajones@ventanamicro.com>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231212_221619_624642_1A8CBD72 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20231212_221635_761361_FEBAB43F 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,115 +87,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The emulated IMSIC update the external interrupt pending depending on the
-value of eidelivery and topei. It might lose an interrupt when it is
-interrupted before setting the new value to the pending status.
-
-For example, when VCPU0 sends an IPI to VCPU1 via IMSIC:
-
-VCPU0                           VCPU1
-
-                                CSRSWAP topei = 0
-                                The VCPU1 has claimed all the external
-                                interrupt in its interrupt handler.
-
-                                topei of VCPU1's IMSIC = 0
-
-set pending in VCPU1's IMSIC
-
-topei of VCPU1' IMSIC = 1
-
-set the external interrupt
-pending of VCPU1
-
-                                clear the external interrupt pending
-                                of VCPU1
-
-When the VCPU1 switches back to VS mode, it exits the interrupt handler
-because the result of CSRSWAP topei is 0. If there are no other external
-interrupts injected into the VCPU1's IMSIC, VCPU1 will never know this
-pending interrupt unless it initiative read the topei.
-
-If the interruption occurs between updating interrupt pending in IMSIC
-and updating external interrupt pending of VCPU, it will not cause a
-problem. Suppose that the VCPU1 clears the IPI pending in IMSIC right
-after VCPU0 sets the pending, the external interrupt pending of VCPU1
-will not be set because the topei is 0. But when the VCPU1 goes back to
-VS mode, the pending IPI will be reported by the CSRSWAP topei, it will
-not lose this interrupt.
-
-So we only need to make the external interrupt updating procedure as a
-critical section to avoid the problem.
-
-Fixes: db8b7e97d613 ("RISC-V: KVM: Add in-kernel virtualization of AIA IMSIC")
-Tested-by: Roy Lin <roy.lin@sifive.com>
-Tested-by: Wayling Chen <wayling.chen@sifive.com>
-Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
----
-Changelog
-v2:
-- rename the variable and add a short comment in the code
----
- arch/riscv/kvm/aia_imsic.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
-
-diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
-index 6cf23b8adb71..e808723a85f1 100644
---- a/arch/riscv/kvm/aia_imsic.c
-+++ b/arch/riscv/kvm/aia_imsic.c
-@@ -55,6 +55,7 @@ struct imsic {
- 	/* IMSIC SW-file */
- 	struct imsic_mrif *swfile;
- 	phys_addr_t swfile_pa;
-+	spinlock_t swfile_extirq_lock;
- };
- 
- #define imsic_vs_csr_read(__c)			\
-@@ -613,12 +614,23 @@ static void imsic_swfile_extirq_update(struct kvm_vcpu *vcpu)
- {
- 	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
- 	struct imsic_mrif *mrif = imsic->swfile;
-+	unsigned long flags;
-+
-+	/*
-+	 * The critical section is necessary during external interrupt
-+	 * updates to avoid the risk of losing interrupts due to potential
-+	 * interruptions between reading topei and updating pending status.
-+	 */
-+
-+	spin_lock_irqsave(&imsic->swfile_extirq_lock, flags);
- 
- 	if (imsic_mrif_atomic_read(mrif, &mrif->eidelivery) &&
- 	    imsic_mrif_topei(mrif, imsic->nr_eix, imsic->nr_msis))
- 		kvm_riscv_vcpu_set_interrupt(vcpu, IRQ_VS_EXT);
- 	else
- 		kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_VS_EXT);
-+
-+	spin_unlock_irqrestore(&imsic->swfile_extirq_lock, flags);
- }
- 
- static void imsic_swfile_read(struct kvm_vcpu *vcpu, bool clear,
-@@ -1039,6 +1051,7 @@ int kvm_riscv_vcpu_aia_imsic_init(struct kvm_vcpu *vcpu)
- 	}
- 	imsic->swfile = page_to_virt(swfile_page);
- 	imsic->swfile_pa = page_to_phys(swfile_page);
-+	spin_lock_init(&imsic->swfile_extirq_lock);
- 
- 	/* Setup IO device */
- 	kvm_iodevice_init(&imsic->iodev, &imsic_iodoev_ops);
--- 
-2.17.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBPY3QgMjQsIDIwMjMgYXQgNjo1OOKAr1BNIENsw6ltZW50IEzDqWdlciA8Y2xlZ2Vy
+QHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4KPiBFTlRSWSgpL0VORCgpL1dFQUsoKSBtYWNyb3MgYXJl
+IGRlcHJlY2F0ZWQgYW5kIHdlIHNob3VsZCBtYWtlIHVzZSBvZiB0aGUKPiBuZXcgU1lNXyooKSBt
+YWNyb3MgWzFdIGZvciBiZXR0ZXIgYW5ub3RhdGlvbiBvZiBzeW1ib2xzLiBSZXBsYWNlIHRoZQo+
+IGRlcHJlY2F0ZWQgb25lcyB3aXRoIHRoZSBuZXcgb25lcyBhbmQgZml4IHdyb25nIHVzYWdlIG9m
+IEVORCgpL0VORFBST0MoKQo+IHRvIGNvcnJlY3RseSBkZXNjcmliZSB0aGUgc3ltYm9scy4KPgo+
+IFsxXSBodHRwczovL2RvY3Mua2VybmVsLm9yZy9jb3JlLWFwaS9hc20tYW5ub3RhdGlvbnMuaHRt
+bAo+Cj4gU2lnbmVkLW9mZi1ieTogQ2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29t
+Pgo+IFJldmlld2VkLWJ5OiBBbmRyZXcgSm9uZXMgPGFqb25lc0B2ZW50YW5hbWljcm8uY29tPgoK
+UXVldWVkIHRoaXMgcGF0Y2ggZm9yIExpbnV4LTYuOAoKVGhhbmtzLApBbnVwCgoKPiAtLS0KPiAg
+YXJjaC9yaXNjdi9rdm0vdmNwdV9zd2l0Y2guUyB8IDI4ICsrKysrKysrKysrKy0tLS0tLS0tLS0t
+LS0tLS0KPiAgMSBmaWxlIGNoYW5nZWQsIDEyIGluc2VydGlvbnMoKyksIDE2IGRlbGV0aW9ucygt
+KQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfc3dpdGNoLlMgYi9hcmNoL3Jp
+c2N2L2t2bS92Y3B1X3N3aXRjaC5TCj4gaW5kZXggZDc0ZGY4ZWI0ZDcxLi44YjE4NDczNzgwYWMg
+MTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rdm0vdmNwdV9zd2l0Y2guUwo+ICsrKyBiL2FyY2gv
+cmlzY3Yva3ZtL3ZjcHVfc3dpdGNoLlMKPiBAQCAtMTUsNyArMTUsNyBAQAo+ICAgICAgICAgLmFs
+dG1hY3JvCj4gICAgICAgICAub3B0aW9uIG5vcmVsYXgKPgo+IC1FTlRSWShfX2t2bV9yaXNjdl9z
+d2l0Y2hfdG8pCj4gK1NZTV9GVU5DX1NUQVJUKF9fa3ZtX3Jpc2N2X3N3aXRjaF90bykKPiAgICAg
+ICAgIC8qIFNhdmUgSG9zdCBHUFJzIChleGNlcHQgQTAgYW5kIFQwLVQ2KSAqLwo+ICAgICAgICAg
+UkVHX1MgICByYSwgKEtWTV9BUkNIX0hPU1RfUkEpKGEwKQo+ICAgICAgICAgUkVHX1MgICBzcCwg
+KEtWTV9BUkNIX0hPU1RfU1ApKGEwKQo+IEBAIC0yMDgsOSArMjA4LDkgQEAgX19rdm1fc3dpdGNo
+X3JldHVybjoKPgo+ICAgICAgICAgLyogUmV0dXJuIHRvIEMgY29kZSAqLwo+ICAgICAgICAgcmV0
+Cj4gLUVORFBST0MoX19rdm1fcmlzY3Zfc3dpdGNoX3RvKQo+ICtTWU1fRlVOQ19FTkQoX19rdm1f
+cmlzY3Zfc3dpdGNoX3RvKQo+Cj4gLUVOVFJZKF9fa3ZtX3Jpc2N2X3VucHJpdl90cmFwKQo+ICtT
+WU1fQ09ERV9TVEFSVChfX2t2bV9yaXNjdl91bnByaXZfdHJhcCkKPiAgICAgICAgIC8qCj4gICAg
+ICAgICAgKiBXZSBhc3N1bWUgdGhhdCBmYXVsdGluZyB1bnByaXYgbG9hZC9zdG9yZSBpbnN0cnVj
+dGlvbiBpcwo+ICAgICAgICAgICogNC1ieXRlIGxvbmcgYW5kIGJsaW5kbHkgaW5jcmVtZW50IFNF
+UEMgYnkgNC4KPiBAQCAtMjMxLDEyICsyMzEsMTAgQEAgRU5UUlkoX19rdm1fcmlzY3ZfdW5wcml2
+X3RyYXApCj4gICAgICAgICBjc3JyICAgIGExLCBDU1JfSFRJTlNUCj4gICAgICAgICBSRUdfUyAg
+IGExLCAoS1ZNX0FSQ0hfVFJBUF9IVElOU1QpKGEwKQo+ICAgICAgICAgc3JldAo+IC1FTkRQUk9D
+KF9fa3ZtX3Jpc2N2X3VucHJpdl90cmFwKQo+ICtTWU1fQ09ERV9FTkQoX19rdm1fcmlzY3ZfdW5w
+cml2X3RyYXApCj4KPiAgI2lmZGVmIENPTkZJR19GUFUKPiAtICAgICAgIC5hbGlnbiAzCj4gLSAg
+ICAgICAuZ2xvYmFsIF9fa3ZtX3Jpc2N2X2ZwX2Zfc2F2ZQo+IC1fX2t2bV9yaXNjdl9mcF9mX3Nh
+dmU6Cj4gK1NZTV9GVU5DX1NUQVJUKF9fa3ZtX3Jpc2N2X2ZwX2Zfc2F2ZSkKPiAgICAgICAgIGNz
+cnIgdDIsIENTUl9TU1RBVFVTCj4gICAgICAgICBsaSB0MSwgU1JfRlMKPiAgICAgICAgIGNzcnMg
+Q1NSX1NTVEFUVVMsIHQxCj4gQEAgLTI3NiwxMCArMjc0LDkgQEAgX19rdm1fcmlzY3ZfZnBfZl9z
+YXZlOgo+ICAgICAgICAgc3cgdDAsIEtWTV9BUkNIX0ZQX0ZfRkNTUihhMCkKPiAgICAgICAgIGNz
+cncgQ1NSX1NTVEFUVVMsIHQyCj4gICAgICAgICByZXQKPiArU1lNX0ZVTkNfRU5EKF9fa3ZtX3Jp
+c2N2X2ZwX2Zfc2F2ZSkKPgo+IC0gICAgICAgLmFsaWduIDMKPiAtICAgICAgIC5nbG9iYWwgX19r
+dm1fcmlzY3ZfZnBfZF9zYXZlCj4gLV9fa3ZtX3Jpc2N2X2ZwX2Rfc2F2ZToKPiArU1lNX0ZVTkNf
+U1RBUlQoX19rdm1fcmlzY3ZfZnBfZF9zYXZlKQo+ICAgICAgICAgY3NyciB0MiwgQ1NSX1NTVEFU
+VVMKPiAgICAgICAgIGxpIHQxLCBTUl9GUwo+ICAgICAgICAgY3NycyBDU1JfU1NUQVRVUywgdDEK
+PiBAQCAtMzE5LDEwICszMTYsOSBAQCBfX2t2bV9yaXNjdl9mcF9kX3NhdmU6Cj4gICAgICAgICBz
+dyB0MCwgS1ZNX0FSQ0hfRlBfRF9GQ1NSKGEwKQo+ICAgICAgICAgY3NydyBDU1JfU1NUQVRVUywg
+dDIKPiAgICAgICAgIHJldAo+ICtTWU1fRlVOQ19FTkQoX19rdm1fcmlzY3ZfZnBfZF9zYXZlKQo+
+Cj4gLSAgICAgICAuYWxpZ24gMwo+IC0gICAgICAgLmdsb2JhbCBfX2t2bV9yaXNjdl9mcF9mX3Jl
+c3RvcmUKPiAtX19rdm1fcmlzY3ZfZnBfZl9yZXN0b3JlOgo+ICtTWU1fRlVOQ19TVEFSVChfX2t2
+bV9yaXNjdl9mcF9mX3Jlc3RvcmUpCj4gICAgICAgICBjc3JyIHQyLCBDU1JfU1NUQVRVUwo+ICAg
+ICAgICAgbGkgdDEsIFNSX0ZTCj4gICAgICAgICBsdyB0MCwgS1ZNX0FSQ0hfRlBfRl9GQ1NSKGEw
+KQo+IEBAIC0zNjIsMTAgKzM1OCw5IEBAIF9fa3ZtX3Jpc2N2X2ZwX2ZfcmVzdG9yZToKPiAgICAg
+ICAgIGZzY3NyIHQwCj4gICAgICAgICBjc3J3IENTUl9TU1RBVFVTLCB0Mgo+ICAgICAgICAgcmV0
+Cj4gK1NZTV9GVU5DX0VORChfX2t2bV9yaXNjdl9mcF9mX3Jlc3RvcmUpCj4KPiAtICAgICAgIC5h
+bGlnbiAzCj4gLSAgICAgICAuZ2xvYmFsIF9fa3ZtX3Jpc2N2X2ZwX2RfcmVzdG9yZQo+IC1fX2t2
+bV9yaXNjdl9mcF9kX3Jlc3RvcmU6Cj4gK1NZTV9GVU5DX1NUQVJUKF9fa3ZtX3Jpc2N2X2ZwX2Rf
+cmVzdG9yZSkKPiAgICAgICAgIGNzcnIgdDIsIENTUl9TU1RBVFVTCj4gICAgICAgICBsaSB0MSwg
+U1JfRlMKPiAgICAgICAgIGx3IHQwLCBLVk1fQVJDSF9GUF9EX0ZDU1IoYTApCj4gQEAgLTQwNSw0
+ICs0MDAsNSBAQCBfX2t2bV9yaXNjdl9mcF9kX3Jlc3RvcmU6Cj4gICAgICAgICBmc2NzciB0MAo+
+ICAgICAgICAgY3NydyBDU1JfU1NUQVRVUywgdDIKPiAgICAgICAgIHJldAo+ICtTWU1fRlVOQ19F
+TkQoX19rdm1fcmlzY3ZfZnBfZF9yZXN0b3JlKQo+ICAjZW5kaWYKPiAtLQo+IDIuNDIuMAo+Cj4K
+PiAtLQo+IGt2bS1yaXNjdiBtYWlsaW5nIGxpc3QKPiBrdm0tcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
+Lm9yZwo+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8va3ZtLXJp
+c2N2CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
