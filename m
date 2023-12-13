@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 483C2C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 12:57:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE3BC4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 13:03:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ssL8M+K+0ge/Li5DpTcpEbM+aVdl7jT78WvX7EwPXRk=; b=X2EgTjC9hSOPSq7lYYqbkch9Ra
-	eSFxeh2ouV7hZHaOxdRFJtA6sybLlWTMrNLyLIjsdtRQQ2doU1hwNP4hd+Dr2ryCGEO+WBQnP7qnq
-	EFReVCb69qel8kWgxmZ74G4XHL7pfgCKYKHp58ZwHfKD/p/eR83AXDSK4zohxcKDJnsgSryThVfmY
-	2D2moRnYYY6eJ3hhCKp6iEjQVSonQJUwlsraZkahgPC5VEqN5e5JhU1cruPNgH0sL3BOjzfJQG81u
-	ry3vYXZ6T0dGlyvWZNofmxtPhkPkgmJJSdCEubEEwuas2RL0K2gWZ9kTbMOKKkkgSo6E45K2I1TLS
-	V9LMW9iQ==;
+	bh=FKGxmSf8uZ0a5aD5dDJXFrbpPKtpOebiWex8RGYH0zc=; b=ZpHaI6JyYbgB9Ca0UXvCe+UUv+
+	KVyUojKtgy6GQWsT5CGDFsBjQiDNHduY/hlVQA16si9WVJlbYOQVT+IKTNH9aEBuEvk3+R4m2b/Ev
+	0BkP9BHaCdPIaSFbE+ktmTCmQ/8c6lv2uCWXzNQi3SDeXJlAEl8+fk4aIjjFNgqUv4eCDib1j1GpA
+	hc4XbBh4dZo9VizOWQECiRGVTnRpaVCu55dnxZLgpu86PMMB9qV0khRAdplpcQfhjBKT0OtKtb6c8
+	+5MbUUncICiaUhTr2q2ior4Y3UxpHyQh5kti1sxrzc4sAk/sYywKSvK4eIdV3Kibr7VQkn6b1Dkfl
+	OH5rB7NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDOnX-00Ei1j-05;
-	Wed, 13 Dec 2023 12:57:11 +0000
+	id 1rDOtA-00Ej8v-12;
+	Wed, 13 Dec 2023 13:03:00 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDOnT-00Ei0y-26
+	id 1rDOt7-00Ej80-2I
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Dec 2023 12:57:09 +0000
+	Wed, 13 Dec 2023 13:02:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 4D80CB81D6D;
-	Wed, 13 Dec 2023 12:57:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 243D0C433C7;
-	Wed, 13 Dec 2023 12:57:03 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 59B8EB81CCC;
+	Wed, 13 Dec 2023 13:02:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B73FFC433C8;
+	Wed, 13 Dec 2023 13:02:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1702472225;
-	bh=5neyQLlIsWkVQ2qC/3BqHS/hcTbEBUuFcUcD3NBeG0s=;
+	s=k20201202; t=1702472575;
+	bh=SYhlR91tO42bA8AfGZXjJpENUJXvfJwI9ZrVd2yDl7o=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HR5wn3Vc92O0f9VH/KvOhlRbDK6cnTIzdbBfU7+Im7txS9/EYwh+f3J/O0TzyoblJ
-	 7rElQ0qgoIssF7p525GEvCg5DL3fYjZEEuetWKZW4tPt7ISoXwa2G0w0VQI0Na6Vb7
-	 +HScxFJgAr4LmbJ5CKhpzzm9yBPajUCkf+/TQVYK8tp1bYMZ00OqIymfOFhKyV/BQI
-	 6NlzllRYkn2QD8WZ/KqfQ3lv8SWwrwEqg7ycvwerufxvI2e7/zZGxSS1JWDxQGDQyR
-	 8WlDxQkrqzv0Egy1zNc1AmcsMvU31n7SPqHSLFxHoM6s21UPxtytLk0H+n9c6GXfw3
-	 nyPKPtITtrC6Q==
-Date: Wed, 13 Dec 2023 12:57:01 +0000
+	b=pOAZ793fHzKh/HYPbFWxrP57xdIvDGz7zJAPafMIdiXo/gdClWfHHvXyABgyiaI3d
+	 IzjD7flCvOmUtRPQK/nwxFG4P+/wjewBRhds66wynKr/e/B9HcmsYwbGWOiDfrcGgF
+	 Mad+vti/3CHqhV9Mc8DmDCiHi5Llrhj8bBvRK8yG2/BfMYB5kldfx6AoNVi3LS5Yed
+	 voYZzMviyN03AtFIwzndO9A1hh6wyeIOadgNlhvE3YVLQFoRmcz/zTpvLmVk2qGecJ
+	 c2p65kbrZ/i6niLm0i+F8ERk9GXSfIiwFL6+xEZru50pieVHqYJCoculVkT2y+ID+D
+	 uMM7/fLCxbELQ==
+Date: Wed, 13 Dec 2023 13:02:49 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Randy Dunlap <rdunlap@infradead.org>,
-	Stephen Rothwell <sfr@canb.auug.org.au>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Subject: Re: linux-next: Tree for Dec 11 (riscv32: patch.c)
-Message-ID: <20231213-excretory-ashen-03a34f3a4c90@spud>
-References: <20231211172504.058ad6b6@canb.auug.org.au>
- <9f0763c0-8175-4160-b72e-8e9e3aee42f8@infradead.org>
- <CAHVXubjbVxEvL01uu_Cm-_R8oLddwc6fUaQYE_Bc+sBThTmvWA@mail.gmail.com>
+To: Marc Kleine-Budde <mkl@pengutronix.de>
+Cc: linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Wolfgang Grandegger <wg@grandegger.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, linux-can@vger.kernel.org,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH RESEND v1 2/7] dt-bindings: can: mpfs: add missing
+ required clock
+Message-ID: <20231213-waffle-grueling-3a5c3879395b@spud>
+References: <20231208-reenter-ajar-b6223e5134b3@spud>
+ <20231208-palpitate-passable-c79bacf2036c@spud>
+ <20231212-unreeling-depose-8b6b2e032555-mkl@pengutronix.de>
 MIME-Version: 1.0
-In-Reply-To: <CAHVXubjbVxEvL01uu_Cm-_R8oLddwc6fUaQYE_Bc+sBThTmvWA@mail.gmail.com>
+In-Reply-To: <20231212-unreeling-depose-8b6b2e032555-mkl@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231213_045707_972555_EE3F2E51 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20231213_050258_028601_D00FBEC4 
+X-CRM114-Status: GOOD (  20.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,103 +83,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9140819562198478387=="
+Content-Type: multipart/mixed; boundary="===============8987092822921972911=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============9140819562198478387==
+--===============8987092822921972911==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="obwyZd8LQsMhiGve"
+	protocol="application/pgp-signature"; boundary="AuzXFLC6CIKr68l9"
 Content-Disposition: inline
 
 
---obwyZd8LQsMhiGve
-Content-Type: text/plain; charset=utf-8
+--AuzXFLC6CIKr68l9
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Dec 12, 2023 at 09:01:17AM +0100, Alexandre Ghiti wrote:
-> Hi Randy,
+On Tue, Dec 12, 2023 at 09:49:41PM +0100, Marc Kleine-Budde wrote:
+> On 08.12.2023 17:12:24, Conor Dooley wrote:
+> > From: Conor Dooley <conor.dooley@microchip.com>
+> >=20
+> > The CAN controller on PolarFire SoC has an AHB peripheral clock _and_ a
+> > CAN bus clock. The bus clock was omitted when the binding was written,
+> > but is required for operation. Make up for lost time and add it.
+> >=20
+> > Cautionary tale in adding bindings without having implemented a real
+> > user for them perhaps.
+> >=20
+> > Fixes: c878d518d7b6 ("dt-bindings: can: mpfs: document the mpfs CAN con=
+troller")
+> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> > ---
+> >  .../devicetree/bindings/net/can/microchip,mpfs-can.yaml    | 7 +++++--
+> >  1 file changed, 5 insertions(+), 2 deletions(-)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/net/can/microchip,mpfs-c=
+an.yaml b/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml
+> > index 45aa3de7cf01..05f680f15b17 100644
+> > --- a/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml
+> > +++ b/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml
+> > @@ -24,7 +24,10 @@ properties:
+> >      maxItems: 1
+> > =20
+> >    clocks:
+> > -    maxItems: 1
+> > +    maxItems: 2
+> > +    items:
+> > +      - description: AHB peripheral clock
+> > +      - description: CAN bus clock
 >=20
-> On Mon, Dec 11, 2023 at 10:17=E2=80=AFPM Randy Dunlap <rdunlap@infradead.=
-org> wrote:
-> >
-> >
-> >
-> > On 12/10/23 22:25, Stephen Rothwell wrote:
-> > > Hi all,
-> > >
-> > > Changes since 20231208:
-> > >
-> >
-> > on riscv32:
-> >
-> > /opt/crosstool/gcc-13.2.0-nolibc/riscv32-linux/bin/riscv32-linux-ld: ar=
-ch/riscv/kernel/patch.o: in function `.L4':
-> > patch.c:(.text+0xbe): undefined reference to `__exittext_begin'
-> > /opt/crosstool/gcc-13.2.0-nolibc/riscv32-linux/bin/riscv32-linux-ld: pa=
-tch.c:(.text+0xc2): undefined reference to `__exittext_begin'
-> > /opt/crosstool/gcc-13.2.0-nolibc/riscv32-linux/bin/riscv32-linux-ld: ar=
-ch/riscv/kernel/patch.o: in function `.L12':
-> > patch.c:(.text+0xd2): undefined reference to `__exittext_end'
-> > /opt/crosstool/gcc-13.2.0-nolibc/riscv32-linux/bin/riscv32-linux-ld: pa=
-tch.c:(.text+0xd6): undefined reference to `__exittext_end'
-> > /opt/crosstool/gcc-13.2.0-nolibc/riscv32-linux/bin/riscv32-linux-ld: ar=
-ch/riscv/kernel/patch.o: in function `.L15':
-> > patch.c:(.text+0x1ea): undefined reference to `__exittext_begin'
-> > /opt/crosstool/gcc-13.2.0-nolibc/riscv32-linux/bin/riscv32-linux-ld: ar=
-ch/riscv/kernel/patch.o: in function `.L7':
-> > patch.c:(.text+0x1ee): undefined reference to `__exittext_begin'
-> > /opt/crosstool/gcc-13.2.0-nolibc/riscv32-linux/bin/riscv32-linux-ld: pa=
-tch.c:(.text+0x1fe): undefined reference to `__exittext_end'
-> > /opt/crosstool/gcc-13.2.0-nolibc/riscv32-linux/bin/riscv32-linux-ld: ar=
-ch/riscv/kernel/patch.o: in function `.L22':
-> > patch.c:(.text+0x202): undefined reference to `__exittext_end'
-> > /opt/crosstool/gcc-13.2.0-nolibc/riscv32-linux/bin/riscv32-linux-ld: ar=
-ch/riscv/kernel/patch.o: in function `__patch_insn_write':
-> > patch.c:(.text+0x410): undefined reference to `__exittext_begin'
-> > /opt/crosstool/gcc-13.2.0-nolibc/riscv32-linux/bin/riscv32-linux-ld: pa=
-tch.c:(.text+0x414): undefined reference to `__exittext_begin'
-> > /opt/crosstool/gcc-13.2.0-nolibc/riscv32-linux/bin/riscv32-linux-ld: pa=
-tch.c:(.text+0x424): undefined reference to `__exittext_end'
-> > /opt/crosstool/gcc-13.2.0-nolibc/riscv32-linux/bin/riscv32-linux-ld: pa=
-tch.c:(.text+0x428): undefined reference to `__exittext_end'
-> > /opt/crosstool/gcc-13.2.0-nolibc/riscv32-linux/bin/riscv32-linux-ld: ar=
-ch/riscv/kernel/patch.o: in function `.L46':
-> > patch.c:(.text+0x53c): undefined reference to `__exittext_begin'
-> > /opt/crosstool/gcc-13.2.0-nolibc/riscv32-linux/bin/riscv32-linux-ld: pa=
-tch.c:(.text+0x540): undefined reference to `__exittext_begin'
-> > /opt/crosstool/gcc-13.2.0-nolibc/riscv32-linux/bin/riscv32-linux-ld: ar=
-ch/riscv/kernel/patch.o: in function `.L48':
-> > patch.c:(.text+0x550): undefined reference to `__exittext_end'
-> > /opt/crosstool/gcc-13.2.0-nolibc/riscv32-linux/bin/riscv32-linux-ld: pa=
-tch.c:(.text+0x554): undefined reference to `__exittext_end'
-> >
-> >
-> > Full randconfig file is attached.
->=20
-> We can ignore this one as CONFIG_XIP is enabled and we agreed at LPC
-> that I'll remove this soon.
+> Do we we want to have a "clock-names" property, as we need the clock
+> rate of the CAN bus clock.
 
-I don't think we can (even if people hadn't sent patches yesterday for
-XIP) act as if XIP being removed is a foregone conclusion.
+We should not need the clock-names property to be able to get both of
+the clocks. clk_bulk_get_all() for example should be usable here.
 
---obwyZd8LQsMhiGve
+Cheers,
+Conor.
+
+--AuzXFLC6CIKr68l9
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZXmqHQAKCRB4tDGHoIJi
-0v3JAQDasJk60e0AOa9BFldLhHllm/ZCvbLhi798Ft48nzn06AEAx1NxZQ4H+SZo
-z8u48ofVkJagwI2H9MWYiHFrr32d0w0=
-=hgAl
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZXmreQAKCRB4tDGHoIJi
+0pybAQCaXK2xUCp5W6797bY/KOydLDfzz6/zpgo3/ym1K/7tCgEAs+ZQmqrTvSuQ
+t2sr42Cf8RWYaRCGrwl6zg97g0jV0As=
+=jW/W
 -----END PGP SIGNATURE-----
 
---obwyZd8LQsMhiGve--
+--AuzXFLC6CIKr68l9--
 
 
---===============9140819562198478387==
+--===============8987092822921972911==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -179,5 +166,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============9140819562198478387==--
+--===============8987092822921972911==--
 
