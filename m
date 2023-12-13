@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64172C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 11:57:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01E19C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 12:00:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,71 +13,73 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=FB3Pm4mVouiFu7X0DqnHh3rUA5q0yzwoe5zK9A+mcH8=; b=hq3j9E/IjAq0DxMjBVyjGeq6XE
-	0MOOYHZueE/P2HoIngw28v4fhQsY4dLFAjJmpT6sMc8vZT0d3NMv1UELpgHPOTQPzNYLOn6UVXmfu
-	qPoSAutDHHcensbsinzY6uGANAe/J4fmxvn91GT2UoHmeAmiSzoXcxYZH9EqhbXGYrOWfSuNhh5Tw
-	O3iCHC2t1J/tVVx5DA33sa7wk+uT+ShZN2Hoc3walq07PJr3zuDtGDIAXX3L+pbxSFrxQbVgL9t6g
-	jLtdXNt29hBOpdH3aQivaoxwfLtZF3Dmrnsny8TN2uYqqaTX7kvvN2QlSBDh9YfukpHy5zyeKpQlx
-	MVPReqCw==;
+	bh=tcv6Aem8ZZoI43jqM+ldSMO7o3sf7UgaFktgoIeP/kw=; b=ym+uWFs1R0PgUSWBE+eUnypue9
+	ekYE6lCtUWOgIT3lbq9iogSfmLrtnyGVasvrZ+YBi8UjCmjVWyVlrROGd3+y4zSq0jGBOqmlvBIvq
+	cpNc/6TW5ucoNB/qB2mF3FW77yIw0/zr7XjT6gaCedu0recJ7JzzSQz5kdWqKUesfO7u6tct1RMnZ
+	j9n4MYXVUPtBOe9RaDBcmuh0ynXBVuHQqVYE8H6TYh+omgwwfN1zHnIUGGcNEM7XBbmejgrUMbahY
+	RW0r9WU9e+tJ++DcZA/fXMtW/Z+U1OkfxfkkcxstCKz4EKRVO9XR3UTPo964ZBq0otD2NAsgCAYNA
+	A8Rdn9gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDNrJ-00EWuU-35;
-	Wed, 13 Dec 2023 11:57:01 +0000
+	id 1rDNul-00EXTo-0I;
+	Wed, 13 Dec 2023 12:00:35 +0000
 Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDNrG-00EWtL-2H
+	id 1rDNuh-00EXTB-2a
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Dec 2023 11:57:00 +0000
+	Wed, 13 Dec 2023 12:00:33 +0000
 Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id BE8523F286
-	for <linux-riscv@lists.infradead.org>; Wed, 13 Dec 2023 11:56:53 +0000 (UTC)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 907F73F185
+	for <linux-riscv@lists.infradead.org>; Wed, 13 Dec 2023 12:00:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1702468613;
-	bh=fEKA5YHCYnGRm2G7PXjnR2dxRPk0aRjVN0bpJvT3Tb0=;
+	s=20210705; t=1702468830;
+	bh=d2k9g+CDQlS0u/Axm3QhPzDXMJCmIzyDAkyUWJItYfY=;
 	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
 	 To:Cc:Content-Type;
-	b=KwXv+gHrEQ5KU7gee+gbabDgrebWmU4MzMuXXWJuyoq4YthDUjceSqRmQSUXOr4k1
-	 35ZIV3/6nfM8vzpDi9egx7MYSuCS63NfBXoVzXxg/X2rw0F20eLk6KGqEMG7RC8pqM
-	 aZPP+iExyJtiCdpF8+kbQHcO9oVLRE+9n8CEHPf8JCcQmGzESuLXxXcpaFv6RWyxwE
-	 ZsCbHs+rKp7Yt6/sdV9tZYM+v9b9xUj+2jrZLkTrA+jyJByUksAKC9RvT3N84BsO70
-	 0PG4ccQLnAmy3LCczxTR8OIX8v9Fj7oZbtvOa6O/6/SuBp3e1hXMgMowohkesz/9H7
-	 5zEpMLhIYW6uw==
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-77f360c8a64so837956585a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Dec 2023 03:56:53 -0800 (PST)
+	b=PEysiXbrq77iErl9Dy9xuktY9UE28lQ8J7sAyn8ziwf6BhVlpWHFHL0J2+bJMgjkT
+	 cvk+7dBm6jDSJLzQYrmkNVV2a75kbTn2ycDZECJmYqMSUzR0DI3rXNsOkZTEq9/EKW
+	 e477U8PijvoUOROR+evBYViExVZ/IZHGtbqAjAjWn3jKY/0504aIzwOPFuWLCjTr2+
+	 JjA3FuAFC6uWpkp+Dp9njtWDixEbQB7JUSlhLT0Fv27P90kZsRqw6VjQ6Xuh/T7Gsa
+	 /1TDcWlq/vE76sxQGtymrRelxlE/QPvpCi2Qcm+mATGi2E315cpf3zZbYX5Gpyr+jw
+	 in2SUmvXX+awg==
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-77dcbd6edb0so926904185a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Dec 2023 04:00:30 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702468612; x=1703073412;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=fEKA5YHCYnGRm2G7PXjnR2dxRPk0aRjVN0bpJvT3Tb0=;
-        b=u7wmrF7PKBOjjrVmy/1Kzv1K+OX9ktk01xJvr2lDhE+xfzlLlzdfxPPkDNhXjJCtqW
-         kEDz84e25z8NmVHrwK9fk/WM9cOZ505vLyfGYsccwpqTsqCdKPmurG19d6QTmIjZtioT
-         5fUgolNa+ZmcXCgXDu+Mfkpw1Vd1lxbiB+aDA0VMgcpFxij5wPZEqBTJk/KXBwfILVQc
-         uwd4N30Mx0qexmMvjolnXhoCJwAkuNxAz4ciM5oyDDPT11Tht1HVwxWzulTcj/K2Se/8
-         e6KY3E0LB1m4PDAMnp+loivM/3guUnFRuEgX5huL7aqIb0820C7lrHUceuDVmRoSvb+m
-         qOpg==
-X-Gm-Message-State: AOJu0Yxnehk87xWKXXY1Z01FRPhX74iqhkBc50eqWb+jDtflSdIxKOmB
-	YFsK2d0hUySw4kWDlge/6zOOYXs7VH5rbDAUnkxef2nqjThC8is3x6aIK+7Bf7lEgMgEmykFj+U
-	waz/jEl98A3jTKi36NXmK5ewjr/+mDLbY8L2AsxfksNCWWNFbHqfaaqFSKxYiFw==
-X-Received: by 2002:a05:622a:181a:b0:425:a0b5:5d43 with SMTP id t26-20020a05622a181a00b00425a0b55d43mr11488986qtc.63.1702468612614;
-        Wed, 13 Dec 2023 03:56:52 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFBkVFLBJC/0risE5Kv5CrCtwd+gtryIUOxD+I5QRMHIbkz3Zh7EYMwe0cp/xekG+Qh3sh2S9fxIZKLyq5ska0=
-X-Received: by 2002:a05:622a:181a:b0:425:a0b5:5d43 with SMTP id
- t26-20020a05622a181a00b00425a0b55d43mr11488962qtc.63.1702468612273; Wed, 13
- Dec 2023 03:56:52 -0800 (PST)
+        d=1e100.net; s=20230601; t=1702468829; x=1703073629;
+        h=content-transfer-encoding:cc:to:subject:message-id:date
+         :mime-version:references:in-reply-to:from:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=d2k9g+CDQlS0u/Axm3QhPzDXMJCmIzyDAkyUWJItYfY=;
+        b=J8RKqYW9g4XvuZh8w/+Xe22bP3E3a3G7Frp0ogjKk2vywMS2qNS5Ca7Yhmyeos82W5
+         +z/kdiVa7+XtcLPSQeksGksfcrDacrTHrGqHWF9Orz9/4BPebc5srtxaM5+YzR8C8wCn
+         TNS1lc/ZQsEiSh1aoEL6EglC4TGtlZznMZPHqwwoKL/O/wpchgxFwmpITP8+bb+Nwvq4
+         RiUqKW+uwGW0zefE0/jOPno4Gg4veMfLrFuTqKqqhkS7QsB84TJ9lpLoN/Quhh2qoWxA
+         LESx6cjEop+Tao7iQ7AOMEvatdwZmxhkdgk7cH8lyR6ijlWIHN+YdHJmw+T3CPd8ht7P
+         xEjg==
+X-Gm-Message-State: AOJu0YzxL9hnB8jVqzQCXl7Fkv8tyD+5m+gUyH/mUay7746sqeRIX7QO
+	GMUDVgbv2tnilDXJxQaIkDk2VOeSVBGWb/mQhSftgTQEVCrvf7d78mP4EUmql6xgWGDgmlUMHAS
+	kv7B6k+b3hBK1glUHoauejevSZvOgZpSfGzC5tWAgGiLBu5aKmtmtClsHIn4o7w==
+X-Received: by 2002:a05:620a:1d97:b0:77d:88cc:e759 with SMTP id pj23-20020a05620a1d9700b0077d88cce759mr9425943qkn.44.1702468829685;
+        Wed, 13 Dec 2023 04:00:29 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHQyE19HlHZoU/6ZbCTx8+T9R2+zaT+Qju6cnML0AE3RTJpk0HMKR1T19a5ApinlnNf+jiWW68wxrNoj0JLy3s=
+X-Received: by 2002:a05:620a:1d97:b0:77d:88cc:e759 with SMTP id
+ pj23-20020a05620a1d9700b0077d88cce759mr9425929qkn.44.1702468829479; Wed, 13
+ Dec 2023 04:00:29 -0800 (PST)
 Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 13 Dec 2023 03:56:51 -0800
+ HTTPREST; Wed, 13 Dec 2023 04:00:29 -0800
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <9ae86c6786bc4ac7b93c971ba00084a6@EXMBX066.cuchost.com>
+In-Reply-To: <56031a2fadf442e297b1e0ea03777e5f@EXMBX066.cuchost.com>
 References: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
- <20231206115000.295825-7-jeeheng.sia@starfivetech.com> <CAJM55Z_VgBGvCPuvwmQahMcMfuWKnOKpZ9bBbbhei_Teu5Apeg@mail.gmail.com>
- <9ae86c6786bc4ac7b93c971ba00084a6@EXMBX066.cuchost.com>
+ <20231206115000.295825-8-jeeheng.sia@starfivetech.com> <CAJM55Z-FXV-Go4yj_AJyU4pRC0msHqTCT3q24HkNtBTWW9rAgA@mail.gmail.com>
+ <56031a2fadf442e297b1e0ea03777e5f@EXMBX066.cuchost.com>
 Mime-Version: 1.0
-Date: Wed, 13 Dec 2023 03:56:51 -0800
-Message-ID: <CAJM55Z9GVFGuwqe=zLXQvBwDfVSz4eA2EXDd4sqWVCKJF2J+fg@mail.gmail.com>
-Subject: RE: [PATCH v1 06/16] clk: starfive: Add JH8100 System clock generator driver
+Date: Wed, 13 Dec 2023 04:00:29 -0800
+Message-ID: <CAJM55Z8ndFEg1gqk5=HydjN93iKY-f0k=FDpcL-hYH+_GA4Taw@mail.gmail.com>
+Subject: RE: [PATCH v1 07/16] dt-bindings: clock: Add StarFive JH8100
+ System-North-West clock and reset generator
 To: JeeHeng Sia <jeeheng.sia@starfivetech.com>, 
 	Emil Renner Berthing <emil.renner.berthing@canonical.com>, "kernel@esmil.dk" <kernel@esmil.dk>, 
 	"conor@kernel.org" <conor@kernel.org>, "robh+dt@kernel.org" <robh+dt@kernel.org>, 
@@ -91,8 +93,8 @@ Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
 	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
 	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231213_035659_164921_A37A48EB 
-X-CRM114-Status: GOOD (  30.54  )
+X-CRM114-CacheID: sfid-20231213_040031_982168_602693ED 
+X-CRM114-Status: GOOD (  15.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,109 +106,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-JeeHeng Sia wrote:
-> > -----Original Message-----
-> > From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-> > Sent: Saturday, December 9, 2023 12:25 AM
-> > To: JeeHeng Sia <jeeheng.sia@starfivetech.com>; kernel@esmil.dk; conor@kernel.org; robh+dt@kernel.org;
-> > krzysztof.kozlowski+dt@linaro.org; paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu;
-> > mturquette@baylibre.com; sboyd@kernel.org; p.zabel@pengutronix.de; emil.renner.berthing@canonical.com; Hal Feng
-> > <hal.feng@starfivetech.com>; Xingyu Wu <xingyu.wu@starfivetech.com>
-> > Cc: linux-riscv@lists.infradead.org; devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-clk@vger.kernel.org; Leyfoon Tan
-> > <leyfoon.tan@starfivetech.com>
-> > Subject: Re: [PATCH v1 06/16] clk: starfive: Add JH8100 System clock generator driver
-> >
-> > Sia Jee Heng wrote:
-> > > Add support for JH8100 System clock generator.
-> > >
-> > > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-> > > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-> > > ---
-> > >  MAINTAINERS                                   |   8 +
-> > >  drivers/clk/starfive/Kconfig                  |   9 +
-> > >  drivers/clk/starfive/Makefile                 |   1 +
-> > >  drivers/clk/starfive/clk-starfive-common.h    |   9 +-
-> > >  drivers/clk/starfive/jh8100/Makefile          |   3 +
-> > >  .../clk/starfive/jh8100/clk-starfive-jh8100.h |  11 +
-> > >  drivers/clk/starfive/jh8100/clk-sys.c         | 455 ++++++++++++++++++
-> > >  7 files changed, 495 insertions(+), 1 deletion(-)
-> > >  create mode 100644 drivers/clk/starfive/jh8100/Makefile
-> > >  create mode 100644 drivers/clk/starfive/jh8100/clk-starfive-jh8100.h
-> > >  create mode 100644 drivers/clk/starfive/jh8100/clk-sys.c
-...
-> > > diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
-> > > index 012f7ee83f8e..6cb3ce823330 100644
-> > > --- a/drivers/clk/starfive/Makefile
-> > > +++ b/drivers/clk/starfive/Makefile
-> > > @@ -10,3 +10,4 @@ obj-$(CONFIG_CLK_STARFIVE_JH7110_AON)	+= clk-starfive-jh7110-aon.o
-> > >  obj-$(CONFIG_CLK_STARFIVE_JH7110_STG)	+= clk-starfive-jh7110-stg.o
-> > >  obj-$(CONFIG_CLK_STARFIVE_JH7110_ISP)	+= clk-starfive-jh7110-isp.o
-> > >  obj-$(CONFIG_CLK_STARFIVE_JH7110_VOUT)	+= clk-starfive-jh7110-vout.o
-> > > +obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS)	+= jh8100/
-> >
-> > I don't really see why do you need a special subdirectory for the JH8100? The
-> > JH7110 drivers do fine without it.
-> Each subfolder can represent a different platform, making it easier to
-> locate and maintain platform-specific code. Since the code is expected
-> to grow in the future, let's start organizing it in a folder-based structure
-> for easier maintenance at a later stage.
-
-Yes, but that's not what you're doing here. You're making just one of the 3
-almost identical drivers be different for no good reason.
-
-> > > diff --git a/drivers/clk/starfive/clk-starfive-common.h b/drivers/clk/starfive/clk-starfive-common.h
-> > > index fed45311360c..ec30af0658cf 100644
-> > > --- a/drivers/clk/starfive/clk-starfive-common.h
-> > > +++ b/drivers/clk/starfive/clk-starfive-common.h
-> > > @@ -103,6 +103,13 @@ struct starfive_clk_data {
-> > >  	.parents = { [0] = _parent },						\
-> > >  }
-> > >
-> > > +#define STARFIVE_GINV(_idx, _name, _flags, _parent)[_idx] = {			\
-> > > +	.name = _name,								\
-> > > +	.flags = _flags,							\
-> > > +	.max = STARFIVE_CLK_ENABLE | STARFIVE_CLK_INVERT,			\
-> > > +	.parents = { [0] = _parent },						\
-> > > +}
-> > > +
-> > >  struct starfive_clk {
-> > >  	struct clk_hw hw;
-> > >  	unsigned int idx;
-> > > @@ -114,7 +121,7 @@ struct starfive_clk_priv {
-> > >  	spinlock_t rmw_lock;
-> > >  	struct device *dev;
-> > >  	void __iomem *base;
-> > > -	struct clk_hw *pll[3];
-> > > +	struct clk_hw *pll[8];
-> >
-> > These extra slots are just used for fixed factor dummy PLLs right now, similar
-> > to how the JH7110 first used them and later had to rework drivers and device
-> > trees for the proper PLL driver.
-> Yes, its intention is similar to JH8100. We will submit other clock
-> domains and PLL at later stage but not so soon.
-> >
-> > This time around I'd much rather you work on getting the PLL driver in first,
-> > so we don't need all that churn.
-> I am sorry but we started development on FPGA. Unfortunately, the PLL driver
-> and other domains are planned to be finished at a later stage. I have tried
-> to minimize the churn as much as possible.
-
-It's awesome that you're beginning upstreaming early, but if you don't have
-this in silicon yet, how do you even know that this driver works?
-
-If you're just using this for testing on FPGAs you can create dummy fixed
-clocks in the device tree for the PLLs that this driver can consume.  Then
-later when you have a PLL driver you can replace those fixed clocks with the
-output of that driver.
-
-/Emil
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SmVlSGVuZyBTaWEgd3JvdGU6Cj4gPiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQo+ID4gRnJv
+bTogRW1pbCBSZW5uZXIgQmVydGhpbmcgPGVtaWwucmVubmVyLmJlcnRoaW5nQGNhbm9uaWNhbC5j
+b20+Cj4gPiBTZW50OiBTYXR1cmRheSwgRGVjZW1iZXIgOSwgMjAyMyAxMjozNyBBTQo+ID4gVG86
+IEplZUhlbmcgU2lhIDxqZWVoZW5nLnNpYUBzdGFyZml2ZXRlY2guY29tPjsga2VybmVsQGVzbWls
+LmRrOyBjb25vckBrZXJuZWwub3JnOyByb2JoK2R0QGtlcm5lbC5vcmc7Cj4gPiBrcnp5c3p0b2Yu
+a296bG93c2tpK2R0QGxpbmFyby5vcmc7IHBhdWwud2FsbXNsZXlAc2lmaXZlLmNvbTsgcGFsbWVy
+QGRhYmJlbHQuY29tOyBhb3VAZWVjcy5iZXJrZWxleS5lZHU7Cj4gPiBtdHVycXVldHRlQGJheWxp
+YnJlLmNvbTsgc2JveWRAa2VybmVsLm9yZzsgcC56YWJlbEBwZW5ndXRyb25peC5kZTsgZW1pbC5y
+ZW5uZXIuYmVydGhpbmdAY2Fub25pY2FsLmNvbTsgSGFsIEZlbmcKPiA+IDxoYWwuZmVuZ0BzdGFy
+Zml2ZXRlY2guY29tPjsgWGluZ3l1IFd1IDx4aW5neXUud3VAc3RhcmZpdmV0ZWNoLmNvbT4KPiA+
+IENjOiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnOyBkZXZpY2V0cmVlQHZnZXIua2Vy
+bmVsLm9yZzsgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZzsgbGludXgtY2xrQHZnZXIua2Vy
+bmVsLm9yZzsgTGV5Zm9vbiBUYW4KPiA+IDxsZXlmb29uLnRhbkBzdGFyZml2ZXRlY2guY29tPgo+
+ID4gU3ViamVjdDogUmU6IFtQQVRDSCB2MSAwNy8xNl0gZHQtYmluZGluZ3M6IGNsb2NrOiBBZGQg
+U3RhckZpdmUgSkg4MTAwIFN5c3RlbS1Ob3J0aC1XZXN0IGNsb2NrIGFuZCByZXNldCBnZW5lcmF0
+b3IKPiA+Cj4gPiBTaWEgSmVlIEhlbmcgd3JvdGU6Cj4gPiA+IEFkZCBiaW5kaW5ncyBmb3IgdGhl
+IFN5c3RlbS1Ob3J0aC1XZXN0IGNsb2NrIGFuZCByZXNldCBnZW5lcmF0b3IKPiA+ID4gKFNZU0NS
+Ry1OVykgb24gSkg4MTAwIFNvQy4KPiA+ID4KPiA+ID4gU2lnbmVkLW9mZi1ieTogU2lhIEplZSBI
+ZW5nIDxqZWVoZW5nLnNpYUBzdGFyZml2ZXRlY2guY29tPgo+ID4gPiBSZXZpZXdlZC1ieTogTGV5
+IEZvb24gVGFuIDxsZXlmb29uLnRhbkBzdGFyZml2ZXRlY2guY29tPgo+ID4gPiAtLS0KPiA+ID4g
+IC4uLi9jbG9jay9zdGFyZml2ZSxqaDgxMDAtc3lzY3JnLW53LnlhbWwgICAgICB8IDExOSArKysr
+KysrKysrKysrKysrKysKPiA+Cj4gPiBUaGUgSkg3MTEwIGNsb2NrcywgdGhlIEpIODEwMCBzeXN0
+ZW0gYW5kIGFsd2F5cy1vbiBhbGwgZm9sbG93IHRoZSBYY3JnIHBhdHRlcm46Cj4gPiBzeXNjcmcK
+PiA+IGFvbmNyZwo+ID4gc3RnY3JnCj4gPiBpc3BjcmcKPiA+IHZvdXRjcmcKPiA+IGV0Yy4KPiA+
+Cj4gPiBJcyB0aGVyZSBhIHJlYXNvbiB0aGUgbm9ydGgtd2VzdCwgbm9ydGgtZWFzdCBhbmQgc291
+dGgtd2VzdCBicmVha3MgdGhpcyBwYXR0ZXJuPwo+ID4gSSdkIGhhdmUgZXhwZWN0ZWQgdGhlbSB0
+byBiZSBjYWxsZWQgc29tZXRoaW5nIGxpa2UKPiA+IG53Y3JnLCBKSDgxMDBfTldDTEtfKiwgSkg4
+MTAwX05XUlNUXyosCj4gPiBuZWNyZywgSkg4MTAwX05FQ0xLXyosIEpIODEwMF9ORVJTVF8qIGFu
+ZAo+ID4gc3djcmcsIEpIODEwMF9TV0NMS18qLCBKSDgxMDBfU1dSU1RfKgo+ID4KPiA+IEp1c3Qg
+bGlrZSBhbGwgdGhlIG90aGVyIFN0YXJmaXZlIGRyaXZlcnMuCj4gVW5kZXJzdG9vZCB5b3VyIGNv
+bmNlcm4uIFdlIGRvbuKAmXQgaGF2ZSB0aGUgaW50ZW50aW9uIHRvIGJyZWFrIHRoZSBwYXR0ZXJu
+LAo+IGJ1dCB0aGUgcmVhc29uIHdlIHNraXAgdGhlIFNvQ18gcHJlZml4IGlzIHRoYXQgdGhlIFNv
+QyBuYW1lcyB3ZXJlIGFscmVhZHkKPiBkZWZpbmVkIGluIHRoZSBoZWFkZXIgZmlsZSB3aXRoIHRo
+ZSBTb0MgbmFtZS4KPiBIb3dldmVyLCBJIGNhbiBwdXQgaXQgYmFjaywgb2YgY291cnNlLgoKWWVz
+LCBhbGwgdGhlc2UgMyBKSFhYMDAgZHJpdmVycyBhcmUgYWxtb3N0IGlkZW50aWNhbC4gVGhlcmUg
+c2hvdWxkIGJlIG5vIHJlYXNvbgp0byBuYW1lIGFueSBvbmUgb2YgdGhlbSBkaWZmZXJlbnRseS4g
+SGF2aW5nIHRoZW0gYWxsIGJlIGFzIHNpbWlsYXIgYXMgcG9zc2libGUKd2lsbCBtYWtlIGl0IGEg
+bG90IGVhc2llciB0byBtYWludGFpbiBpbiB0aGUgZnV0dXJlLiBJZiB5b3UgZG9uJ3QgbGlrZSBh
+CnBhdHRlcm4gdGhlbiBwbGVhc2UgY2hhbmdlIGl0IGZvciBhbGwgdGhlIHNpbWlsYXIgZHJpdmVy
+cyBhbmQgZG9uJ3QgbWFrZSBqdXN0Cm9uZSBvZiB0aGVtIGJlIGRpZmZlcmVudC4KCi9FbWlsCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
