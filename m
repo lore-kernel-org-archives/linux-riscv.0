@@ -4,97 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05806C4167D
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 07:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C1C6C4167D
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 08:16:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XawYqWgVUv2OBUA4+QnBzE6Z+O0zpbQADLhudxDRsOI=; b=repQg7hOGmFC7j
-	Hn/+UXnbfzOXdiQaR4biPPvYLkocIwY6HIUAHTAJqQWofQaLTXC9G1BPVp8PjFLYjK7QMoTdvXgLb
-	GgOENdlqv6DLk4fAvSH/wP+PfDMzoq/hs2I5FQdZxBQHyNLw3SmGGpCGMhL4Nob+LpltIZDucuZQ5
-	i1CPycnRcKhofBOiKTAOLRSJHP6zwgHkS4MiVoAp2Zv+Kwzuh8E/ffiqlzTMXr5pBQm9YfMPY6A0d
-	l5c8MV94tmLW+3j8BXC3AXKEsGrMzYmXicH0QFQjGd/ej+x/DIgFYoyHEKDSg6pEgHcuhK5JrX+dj
-	j1NkQJZ+ezisFg44In+Q==;
+	List-Owner; bh=UV1Pk2n+F4uVUM6DtsqCyMx52c28BlgkWNAJzm5ltNY=; b=q9HgDMOTRiuXOs
+	5ZU1FYkHNC/+gjZ5JiInrNuzPwZzZ/JWdJEZeNsWarM6SlvlmjSnuMNt2LTXM34q+cotPhTvzEj8+
+	tMEzTDG0aEJEOmF3yWOwVB12Erx55+tjnuVXfGO9UdXgulpo0Cxlr003vM8vQr9XtoAXZQdGMS9l2
+	lddr+RnJOuxthZLuSkVkB0b5iRE2C1eipbggUO/4527cwSIbHLHMPmSXXEIcHUhefRKtq+DxLq99e
+	TcWZj5hYnXOS4B8xMTDNi1sslpGelSXQsn1GoECGQGoqjIBuhXYW/hHW6UqOZJJipVg8Q3UviNGm+
+	ualAzQUK27f5+P0I3NJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDK2h-00DxP5-2U;
-	Wed, 13 Dec 2023 07:52:31 +0000
-Received: from wout2-smtp.messagingengine.com ([64.147.123.25])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDK2e-00DxNr-2j
+	id 1rDKPw-00E09g-2K;
+	Wed, 13 Dec 2023 08:16:33 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1rDKPo-00E061-0q
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Dec 2023 07:52:30 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailout.west.internal (Postfix) with ESMTP id 1DAFD3200A01;
-	Wed, 13 Dec 2023 02:52:23 -0500 (EST)
-Received: from imap51 ([10.202.2.101])
-  by compute5.internal (MEProxy); Wed, 13 Dec 2023 02:52:24 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm1; t=1702453942; x=1702540342; bh=IikDPD6jbT
-	PCIfjTpK6kFvZMdeXgof5FgKKPsLRI3mQ=; b=MJqz6FRPuL878xfJjDRkXLDQ6A
-	94LXNYwawjYG5kT3WifJJ8HgE5s3MDfAFL7Ezbmdu0bgQvY+GljnznmbQ7jbnP8l
-	aIHAIbjsmHXJhKQBuLQHeh3nEARv48QIsxBMCa8Ooa4G3cbPF8xsiRbIT5Yuyl1z
-	Y/RYdxdzJkIETVdRIlZappNAuK7eibT0zRSw12+2HRVnNsUuouL1Zs9R4trzGU2d
-	C8VJCq5lCOlyHOBCHLQOQKgPcRLyrpj49FUH1GVYv0h3sCqHg9rnoxBNkaJ8yI/V
-	yIvvZBF7MimA2R+OpK9/yaS7RK8utWQfo3UfDlyJy6Y91qlG0ZDXcXUPa40Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm1; t=1702453942; x=1702540342; bh=IikDPD6jbTPCIfjTpK6kFvZMdeXg
-	of5FgKKPsLRI3mQ=; b=a9/6ZjshxAADOKa4QrgHFLpFnxAQWtUw1m9QurJ5LIt2
-	qsJOSKO2cxRlIfhru7FqZs5Df/QsOtDehz6WPo1roLrvpaJaLbBwvDA/PAyBjMtd
-	X46UNuhlrA9TGY/as3pGU1uNyYj6FZEeJSOsKTUJJEH4sfz53EaLqKciODqIbf7r
-	K8GaxK+3sNFcq0uw2fKpuNXWaoWktPkqUC8lYHvMUh07B+ob0xbNx8cgivGLMxx/
-	qztUXbQN7X3bsCxCMikhQTa9rtP77PFAMvoc5OWuJKwhnheXb8tyCa7OSNbv/xD2
-	BYPaRuappODvHcZyck9ih1qMJ6zKnaLDy1MB7Z4lnQ==
-X-ME-Sender: <xms:tmJ5ZTOfOwbiiFh221nbcWpb6_BBIAebHNO_RslMllIEnqhqEsacyw>
-    <xme:tmJ5Zd-2ZH3YQZMywbO0FIE7Inl9qMaDeZ7wVMj-bG9s0LGDIb1uZ98ckDy00MaqM
-    zV_vNR1HAoEfP_AiK4>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvkedrudelhedgudduvdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
-    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
-    enucfjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdet
-    rhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrg
-    htthgvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedt
-    keetffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
-    grrhhnugesrghrnhgusgdruggv
-X-ME-Proxy: <xmx:tmJ5ZSSPIs8Bme-dwrW-FzJ8hi5fsSnS-NGWVL0TwxJ8biRH-23sYg>
-    <xmx:tmJ5ZXu2ZLBxm4DZ_UocAty9d51qGl1zQGkdOWTCvEhhU0Lo9BoIIg>
-    <xmx:tmJ5Zbf4e7ZwmmLERoGmOp08kMNv6cL0xQgHaVtqPvZhBA6NGQwZOQ>
-    <xmx:tmJ5Zf5r0H-Z3va3eM5UE7n8hm2hmEalmdlTPq2uIOfPYMRBcFx4Ig>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 18315B6008D; Wed, 13 Dec 2023 02:52:22 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-1283-g327e3ec917-fm-20231207.002-g327e3ec9
+	Wed, 13 Dec 2023 08:16:26 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 5B74582A9;
+	Wed, 13 Dec 2023 16:15:41 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 13 Dec
+ 2023 16:15:41 +0800
+Received: from [192.168.125.85] (183.27.97.57) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 13 Dec
+ 2023 16:15:40 +0800
+Message-ID: <9523aa6b-55a8-4e6a-a3ba-45d9b1dacc77@starfivetech.com>
+Date: Wed, 13 Dec 2023 16:15:39 +0800
 MIME-Version: 1.0
-Message-Id: <129fa764-dc7a-4979-95e8-39a15c487095@app.fastmail.com>
-In-Reply-To: <20231212-optimize_checksum-v12-1-419a4ba6d666@rivosinc.com>
-References: <20231212-optimize_checksum-v12-0-419a4ba6d666@rivosinc.com>
- <20231212-optimize_checksum-v12-1-419a4ba6d666@rivosinc.com>
-Date: Wed, 13 Dec 2023 08:52:01 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Charlie Jenkins" <charlie@rivosinc.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Conor Dooley" <conor@kernel.org>,
- "Samuel Holland" <samuel.holland@sifive.com>,
- "David Laight" <David.Laight@aculab.com>,
- "Xiao W Wang" <xiao.w.wang@intel.com>, "Evan Green" <evan@rivosinc.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Linux-Arch <linux-arch@vger.kernel.org>
-Cc: "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH v12 1/5] asm-generic: Improve csum_fold
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 15/21] PCI: microchip: Add event IRQ domain ops to
+ struct plda_event
+Content-Language: en-US
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+CC: Conor Dooley <conor@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?=
+	<kw@linux.com>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
+	<bhelgaas@google.com>, Daire McNamara <daire.mcnamara@microchip.com>, "Emil
+ Renner Berthing" <emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-pci@vger.kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	"Philipp Zabel" <p.zabel@pengutronix.de>, Mason Huo
+	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>
+References: <20231206105839.25805-1-minda.chen@starfivetech.com>
+ <20231206105839.25805-16-minda.chen@starfivetech.com>
+ <ZXhB1kKpElgKx8vm@lpieralisi>
+From: Minda Chen <minda.chen@starfivetech.com>
+In-Reply-To: <ZXhB1kKpElgKx8vm@lpieralisi>
+X-Originating-IP: [183.27.97.57]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX171.cuchost.com
+ (172.16.6.91)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231212_235229_241195_49BCF3FD 
-X-CRM114-Status: UNSURE (   8.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231213_001624_578015_6C2728B5 
+X-CRM114-Status: GOOD (  19.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,19 +85,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 13, 2023, at 02:18, Charlie Jenkins wrote:
-> This csum_fold implementation introduced into arch/arc by Vineet Gupta
-> is better than the default implementation on at least arc, x86, and
-> riscv. Using GCC trunk and compiling non-inlined version, this
-> implementation has 41.6667%, 25% fewer instructions on riscv64, x86-64
-> respectively with -O3 optimization. Most implmentations override this
-> default in asm, but this should be more performant than all of those
-> other implementations except for arm which has barrel shifting and
-> sparc32 which has a carry flag.
->
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 
-Acked-by: Arnd Bergmann <arnd@arndb.de>
+
+On 2023/12/12 19:19, Lorenzo Pieralisi wrote:
+> On Wed, Dec 06, 2023 at 06:58:33PM +0800, Minda Chen wrote:
+>> For lack of an MSI controller, The new added PCIe interrupts have to be
+>> added to global interrupt event field. PolarFire event domain ops can not
+>> be re-used.
+> 
+> I don't understand what this means, please explain and I will
+> add it to the commit log.
+> 
+Sorry.
+Microchip Polarfire PCIe adds 11 PCIe interrupts to PCIe global event domain.(Total 28 PCIe interrupts)
+The microchip event domain and event irqchip will handle these interrupts.
+But PLDA host contain 13 fixed PCIe interrupts. PLDA codes just process these
+13 interrupts. Microchip the event irq codes are quite different and can't be used by PLDA codes.
+So add an event domain field support microchip and other vendor who just using the PLDA interrupts.
+>> PLDA event domain ops instances will be implemented in later patch.
+> 
+> Future patches don't exist, each commit log is a logical change
+> that must make sense on its own, I will remove this sentence.
+> 
+> Lorenzo
+
+OK, Thanks.
+
+>> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+>> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+>> ---
+>>  drivers/pci/controller/plda/pcie-microchip-host.c | 6 ++++--
+>>  drivers/pci/controller/plda/pcie-plda.h           | 1 +
+>>  2 files changed, 5 insertions(+), 2 deletions(-)
+>> 
+>> diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+>> index f5e7da242aec..e6dcc572b65b 100644
+>> --- a/drivers/pci/controller/plda/pcie-microchip-host.c
+>> +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+>> @@ -821,13 +821,15 @@ static const struct plda_event_ops mc_event_ops = {
+>>  };
+>>  
+>>  static const struct plda_event mc_event = {
+>> +	.domain_ops        = &mc_event_domain_ops,
+>>  	.event_ops         = &mc_event_ops,
+>>  	.request_event_irq = mc_request_event_irq,
+>>  	.intx_event        = EVENT_LOCAL_PM_MSI_INT_INTX,
+>>  	.msi_event         = EVENT_LOCAL_PM_MSI_INT_MSI,
+>>  };
+>>  
+>> -static int plda_pcie_init_irq_domains(struct plda_pcie_rp *port)
+>> +static int plda_pcie_init_irq_domains(struct plda_pcie_rp *port,
+>> +				      const struct irq_domain_ops *ops)
+>>  {
+>>  	struct device *dev = port->dev;
+>>  	struct device_node *node = dev->of_node;
+>> @@ -941,7 +943,7 @@ static int plda_init_interrupts(struct platform_device *pdev,
+>>  		return -EINVAL;
+>>  	}
+>>  
+>> -	ret = plda_pcie_init_irq_domains(port);
+>> +	ret = plda_pcie_init_irq_domains(port, event->domain_ops);
+>>  	if (ret) {
+>>  		dev_err(dev, "failed creating IRQ domains\n");
+>>  		return ret;
+>> diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
+>> index df1729095952..820ea16855b5 100644
+>> --- a/drivers/pci/controller/plda/pcie-plda.h
+>> +++ b/drivers/pci/controller/plda/pcie-plda.h
+>> @@ -129,6 +129,7 @@ struct plda_pcie_rp {
+>>  };
+>>  
+>>  struct plda_event {
+>> +	const struct irq_domain_ops *domain_ops;
+>>  	const struct plda_event_ops *event_ops;
+>>  	int (*request_event_irq)(struct plda_pcie_rp *pcie,
+>>  				 int event_irq, int event);
+>> -- 
+>> 2.17.1
+>> 
 
 _______________________________________________
 linux-riscv mailing list
