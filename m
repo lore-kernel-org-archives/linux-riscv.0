@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 899C5C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 07:05:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EADB6C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 07:05:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Mazo9lg4FiIbA3NgFyS2guffZY0njf55x//MRNiVay4=; b=3sVyxDOVrIGGAI
-	MKkoLbAMua5LuRBlmi/Oaoe6zOPdLR2sXMz/zKvSnM6UpF4Sd1P6kluFoDVBcMbAQ+CdtjS9OP7Wz
-	7Rsy17kZJ/6Xl+T+tTKaXRz3ro08oXF3uwQ00VGMOFYD3cw7Bh/BMFn1qble/3nDyO6X6+xHaA2J2
-	yvYI2OI6J1d4QS4an0Ai3n0/6p9o5s/kWniLvjjz3gGe7QwW2/eK99SFylYbb0WfBzXPM3c+7m3mM
-	iuydqMATkjaxxwUikfGDBBgKbNSy3xpEpJsTHyaHyUxkJNwF4W9A0TR7/lD27q+iY8WDVs/crsQvC
-	UhkMWcSxPCW+0I994/rQ==;
+	List-Owner; bh=NO+mcnbd2gDTmcB9ileiOK4EWNGd3mkh6WPoGN7eE6s=; b=D0wcI3PCxwPC9w
+	BnBkgOxXH9Al6Cm4WUepNK/k2B1oUXdM8Etm0e/+RDHZDDV5M/eXxEZ/pKabtGND0I3133pFgoKOG
+	TZU6FojXpg/s0Hgu8IG0jMidqaykvfN51j9ZBF4lloKzP/b9IpUjR/FsA/hAWI8y7htUHY5mns1w7
+	OGLF1c3TFQpdsbcEQWmO8wgMh/g6ISHp1Kpzk1x6oxmzk75ATbezHr7bSUJgn9JmvpsAYg5hu5IB+
+	Q/KpfwiUGl5Flwelk3NWvlI4zaBVYTCUeSXGrX82P6VcIR5Aqs3M8nDhV99V2aOeDPcflJdKLe9fy
+	bouD0cSyiTapfampb/Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDJIo-00Drvx-0Z;
-	Wed, 13 Dec 2023 07:05:06 +0000
+	id 1rDJJ2-00DsAc-0J;
+	Wed, 13 Dec 2023 07:05:20 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDJIj-00Drq2-16;
-	Wed, 13 Dec 2023 07:05:03 +0000
+	id 1rDJIv-00Ds0w-2p;
+	Wed, 13 Dec 2023 07:05:16 +0000
 Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 3BD7488l032591;
-	Wed, 13 Dec 2023 15:04:08 +0800 (+08)
+	by Atcsqr.andestech.com with ESMTP id 3BD74IhD032637;
+	Wed, 13 Dec 2023 15:04:18 +0800 (+08)
 	(envelope-from peterlin@andestech.com)
 Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS16.andestech.com
  (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Wed, 13 Dec 2023
- 15:04:04 +0800
+ 15:04:14 +0800
 From: Yu Chien Peter Lin <peterlin@andestech.com>
 To: <acme@kernel.org>, <adrian.hunter@intel.com>, <ajones@ventanamicro.com>,
         <alexander.shishkin@linux.intel.com>, <andre.przywara@arm.com>,
@@ -56,19 +56,19 @@ To: <acme@kernel.org>, <adrian.hunter@intel.com>, <ajones@ventanamicro.com>,
         <sunilvl@ventanamicro.com>, <tglx@linutronix.de>,
         <tim609@andestech.com>, <uwu@icenowy.me>, <wens@csie.org>,
         <will@kernel.org>, <ycliang@andestech.com>, <inochiama@outlook.com>
-Subject: [PATCH v5 12/16] riscv: dts: sophgo: Add T-Head PMU extension for cv1800b
-Date: Wed, 13 Dec 2023 15:02:57 +0800
-Message-ID: <20231213070301.1684751-13-peterlin@andestech.com>
+Subject: [PATCH v5 14/16] riscv: dts: thead: Add T-Head PMU extension for th1520
+Date: Wed, 13 Dec 2023 15:02:59 +0800
+Message-ID: <20231213070301.1684751-15-peterlin@andestech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20231213070301.1684751-1-peterlin@andestech.com>
 References: <20231213070301.1684751-1-peterlin@andestech.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.0.15.183]
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 3BD7488l032591
+X-MAIL: Atcsqr.andestech.com 3BD74IhD032637
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231212_230501_927585_D03F5C0C 
-X-CRM114-Status: UNSURE (   8.09  )
+X-CRM114-CacheID: sfid-20231212_230514_370685_2F4C015D 
+X-CRM114-Status: UNSURE (   7.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,22 +95,49 @@ Signed-off-by: Yu Chien Peter Lin <peterlin@andestech.com>
 Changes v4 -> v5:
   - New patch
 ---
- arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/boot/dts/thead/th1520.dtsi | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-index aec6401a467b..8c0143f0a01b 100644
---- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-@@ -29,7 +29,7 @@ cpu0: cpu@0 {
+diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+index ba4d2c673ac8..2dad2b22824a 100644
+--- a/arch/riscv/boot/dts/thead/th1520.dtsi
++++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+@@ -22,7 +22,7 @@ c910_0: cpu@0 {
  			riscv,isa = "rv64imafdc";
  			riscv,isa-base = "rv64i";
  			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
 -					       "zifencei", "zihpm";
 +					       "zifencei", "zihpm", "xtheadpmu";
- 
- 			cpu0_intc: interrupt-controller {
- 				compatible = "riscv,cpu-intc";
+ 			reg = <0>;
+ 			i-cache-block-size = <64>;
+ 			i-cache-size = <65536>;
+@@ -46,7 +46,7 @@ c910_1: cpu@1 {
+ 			riscv,isa = "rv64imafdc";
+ 			riscv,isa-base = "rv64i";
+ 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
+-					       "zifencei", "zihpm";
++					       "zifencei", "zihpm", "xtheadpmu";
+ 			reg = <1>;
+ 			i-cache-block-size = <64>;
+ 			i-cache-size = <65536>;
+@@ -70,7 +70,7 @@ c910_2: cpu@2 {
+ 			riscv,isa = "rv64imafdc";
+ 			riscv,isa-base = "rv64i";
+ 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
+-					       "zifencei", "zihpm";
++					       "zifencei", "zihpm", "xtheadpmu";
+ 			reg = <2>;
+ 			i-cache-block-size = <64>;
+ 			i-cache-size = <65536>;
+@@ -94,7 +94,7 @@ c910_3: cpu@3 {
+ 			riscv,isa = "rv64imafdc";
+ 			riscv,isa-base = "rv64i";
+ 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
+-					       "zifencei", "zihpm";
++					       "zifencei", "zihpm", "xtheadpmu";
+ 			reg = <3>;
+ 			i-cache-block-size = <64>;
+ 			i-cache-size = <65536>;
 -- 
 2.34.1
 
