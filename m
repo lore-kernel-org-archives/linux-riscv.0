@@ -4,84 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C27EBC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 12:24:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1794C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 12:39:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fj3YmjRrCDtMClHmoJ67wCjQGbX+czIxiw7LHeaYW9Y=; b=kqb5GKdYSJRFvz
-	kyW/Q89pc1YXu97/MTaRpg71R3dhOecQhDokGTN5Xl61+vvtJgc2UbJkgNdHSGwm0FWwhp835k6L1
-	IYwXGyhSwg+c4F7DQgyu22KbxQ2FXAdMECULWOtVOrUCcYKiBvxtVpWzlNSfV2WYd8Ly7o3WG1XW4
-	p0aW3DwhnYomfr58Jyz36ZWv/MiRtxyXFm4tO5nU40VGsxuzHRDNHFdwXNU7SZz1yuTMKJw3M+WKB
-	Z4xISsIxpuv/ygXMNZgstltkOXb5ozEBGACbbTeiNQPNfmtFQYmGpO6SrJW1Ua7QfmLw2VtgYHzGe
-	UoONOLen4HAc5tvKAd7g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=vX9YsMrQHKy0PkfJjVmwpvajEJJRsrcbSBkc7qkSKRE=; b=1FXgyzvuQh0Mnv4IVmzTegf3xK
+	zOdzcjkyWpDASte8tlsXXESZRCV1rcs/WY6bM10ay0bVyhQ2/d8fCWBWl/VpftL+dQxtUIAI9yMvF
+	ncIRC8CTqdxkO/5IdY/LiG2EsQSI3Uo4lfqMO5pYYyzgMebX+kpffxSZerk4LhpUQGkC6NNeZVr9g
+	PB7InkJDjQkCLj8FrOiD33bsO0pUaVMvFhvWjwBK34Uq/kkqghF3eT0Yx5O0chbkqFDTN+LsaRIOv
+	37NEUYreSXy0+dg3ZtLHupbjlyD4WqRMBUzMcBR0Hlal0eBSBHQgZRQt0LMKhzIRLIoaX6PCKRuAv
+	2l+S4NdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDOHr-00EaBC-21;
-	Wed, 13 Dec 2023 12:24:27 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1rDOWG-00EcIb-1e;
+	Wed, 13 Dec 2023 12:39:20 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDOHo-00Ea9j-31
+	id 1rDOWB-00EcHD-2T
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Dec 2023 12:24:26 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-40c32df9174so59986365e9.3
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Dec 2023 04:24:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1702470260; x=1703075060; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/Do9us9KI9YVf91TMl8txltk4WC8U3fmMGLk20+eGOw=;
-        b=nJZcnWRHZh4KabCn9Nl/Vz/QX2yfOp/ukSa0R2bam+WqG22clGvzIQTbAahitezyeI
-         0k1JoJB8V+HGo/VVUsdSCQ/fIbCUB0iSSGS++J7EDLvZBsUxZCOptJK9ErDnf1FqfnE+
-         2xpkOsQratjEwULUku7QukTr+drn0u/breuP2rIZOHtuLS1Bi0q84pvgV0Uiao+CSVF5
-         pGxprW4/Tr9yyE9MsWwcIusfyfxafJr8BZ/6ks7AEvOHRUPqBQZu9rPpDdanfXb/WBcf
-         cSwSNX8vcj1kFqnr8+FLkIz3FDStBpE4/bbHs9Jk13qorbfGkUKe7NAoxXEwpjJOZ45V
-         xifg==
+	Wed, 13 Dec 2023 12:39:19 +0000
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id AD7A93F28B
+	for <linux-riscv@lists.infradead.org>; Wed, 13 Dec 2023 12:39:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1702471153;
+	bh=RVX7Hkci1GalSOV+ggHHM2J9QrW4mGKi5xvBhDtdXC4=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=f9szzBr3ADMAHhCsWCszBvUGzG1Hfw/V+cX8IlK8N3Jlj07oGhVS1/OWHUrvr/Rst
+	 uBca6wkaw635mfxDExVlne3g2O4KPvLqyFufAdnSWb3mneSVCSnTBvvU5MZRsIy5EM
+	 MVUiMFWCiUtdycsEFj18WtPVLnfe3hlMI4zUZebnU2nqjlw7BAYK9C12wSPzIKdi9Z
+	 G3imHwl+NYcxa1hCVOUV8TreIC6mM6RGwV8K0XwzvEZkaEFzWRv/yu7Ixho9RiZDmN
+	 cBGoeHF03hF7m0lgt6jdpFugAFzvdicfrNMS+uHjR2MQ1ZLlt1hddeMYpQCmgTK4RS
+	 /NIUKjD4zUIjg==
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-425d5915c69so37028181cf.0
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Dec 2023 04:39:13 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702470260; x=1703075060;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/Do9us9KI9YVf91TMl8txltk4WC8U3fmMGLk20+eGOw=;
-        b=UGnq7a15wyxBiP3ilis/Q3gWAvzl1GotGJ30LILabXVCLEVGGeemP1Y+Xwdiwmnr66
-         iYaaMXJFXDQbyfhANmHdulX6zp035HvrvrD13KlPd5knpRMsd8u0HxntqbXrRAt/F4C/
-         2cFqZuWx02QMG+JHurrYbRwq3sCu/3odr69XnB38SoPK1/vxub+/bbpvzu0JZ1vdSw5/
-         0sznGjlA9KZ4kNGqz+Jun33ecY3bPMyf/9uyl3Flmb1yxHMv3REA+WURR/Y3lVqBSuHi
-         qfO/oWSkh6zOm7kXQer+uQrtdJUAtbF7HboDzo4ZHapbfTkEmpwxNkI3bJFfrIU5oAr5
-         EZIw==
-X-Gm-Message-State: AOJu0YxdYQ2UJNLPWUHIcbVeMyFnHsvPeh3MLjflS17Y90EtlI4axmlS
-	qUzD76KfMFaOGDPOj3S4E0LwIQ==
-X-Google-Smtp-Source: AGHT+IFH3rJTleJTU4xsQNweH6i96bFDZCHpyMZmqgOvAispGx7uzx5Me7DqfOkSWHH7fB2FceGEow==
-X-Received: by 2002:a05:600c:1715:b0:40b:5e21:c5cd with SMTP id c21-20020a05600c171500b0040b5e21c5cdmr2457031wmn.155.1702470260169;
-        Wed, 13 Dec 2023 04:24:20 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id fl9-20020a05600c0b8900b0040b43da0bbasm20393302wmb.30.2023.12.13.04.24.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Dec 2023 04:24:19 -0800 (PST)
-Date: Wed, 13 Dec 2023 13:24:18 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, apatel@ventanamicro.com, 
-	guoren@kernel.org, mchitale@ventanamicro.com, waylingii@gmail.com, 
-	greentime.hu@sifive.com, samitolvanen@google.com, Bjorn Topel <bjorn@rivosinc.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, jeeheng.sia@starfivetech.com, Heiko Stuebner <heiko@sntech.de>, 
-	Evan Green <evan@rivosinc.com>, jszhang@kernel.org, cleger@rivosinc.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 2/2] riscv: envcfg save and restore on trap entry/exit
-Message-ID: <20231213-707b4e8b5a91ceedd557eb12@orel>
-References: <20231212235003.2036221-1-debug@rivosinc.com>
- <mhng-ae72b5fd-358d-48e2-87cf-f571b67afe9e@palmer-ri-x1c9a>
- <ZXkCs9ypok5X/Wx2@debug.ba.rivosinc.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZXkCs9ypok5X/Wx2@debug.ba.rivosinc.com>
+        d=1e100.net; s=20230601; t=1702471152; x=1703075952;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=RVX7Hkci1GalSOV+ggHHM2J9QrW4mGKi5xvBhDtdXC4=;
+        b=T/0i4KSsnDT1WXYSw4Hy5Oxdne7Jhk/1YVL4WB/htDx/I443FWtQnMZWAKSv3XMXoA
+         Q18mk/UGaCUpD7FLrcd8lIyX8ZkZmEMfWLmhpHIkodv0+UR7t8GcVvM86kJv7Gt9r852
+         DIg1rOGJRh9AkIzUZGty+0wDIDjYpPTQX1U1P8sjvhPhRnPaIHSZc802Ks7b5tIAYUyq
+         UoAlHNDjZiImDfxUD6O9cKvPqpmUarXUuOO7rjrcimU1jjm8yzbxIytai+EOysaz6MmQ
+         8G32fbom8GDaJobAqZUbfrHfJ2va0tFRJbEpcttgGxkrnhZ8h+8bL2mQWUzrzl2b7s+l
+         Hl2g==
+X-Gm-Message-State: AOJu0Yy69N8hGPTj021QgFjzYHmDANO1D/ZyNIqssMgErm4JcBSIOGCn
+	kh0O0Qw519k3Hr9I6mrJGx4Ku2LvyhAvivO1aS0rCfeDRKsSjNcAs9eEdAOENj53aaK5Q1feaBt
+	Si2fhFEC0095hJnWpaUualJ/oBeAuNDnvxBNVKc3Ot42y0BTP+qj0QGQvZ09+rw==
+X-Received: by 2002:a05:622a:28f:b0:425:4043:96c5 with SMTP id z15-20020a05622a028f00b00425404396c5mr12063926qtw.82.1702471152385;
+        Wed, 13 Dec 2023 04:39:12 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHIeVXeXX7w4KcjeNOZNUYxmPvYFuILxSBmeeP5KBI6qOM2DYJi1AyFB9Hnx/wH7nuTyyjZHzceB4Cl8ASZSCc=
+X-Received: by 2002:a05:622a:28f:b0:425:4043:96c5 with SMTP id
+ z15-20020a05622a028f00b00425404396c5mr12063906qtw.82.1702471152113; Wed, 13
+ Dec 2023 04:39:12 -0800 (PST)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 13 Dec 2023 04:39:11 -0800
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <CAJM55Z831ucY4QqPTR_0zJVB05UUT4W-3M0CGzvtyPo=AMD=Vw@mail.gmail.com>
+References: <20231201121410.95298-1-jeeheng.sia@starfivetech.com>
+ <20231201121410.95298-7-jeeheng.sia@starfivetech.com> <CAJM55Z831ucY4QqPTR_0zJVB05UUT4W-3M0CGzvtyPo=AMD=Vw@mail.gmail.com>
+Mime-Version: 1.0
+Date: Wed, 13 Dec 2023 04:39:11 -0800
+Message-ID: <CAJM55Z-BJMi=rbe8op5EQ-efwo-9AbmavVE1BVJ9_xuHQzMhLQ@mail.gmail.com>
+Subject: Re: [PATCH v3 6/6] riscv: dts: starfive: Add initial StarFive JH8100
+ device tree
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+	Sia Jee Heng <jeeheng.sia@starfivetech.com>, kernel@esmil.dk, robh+dt@kernel.org, 
+	krzysztof.kozlowski+dt@linaro.org, krzk@kernel.org, conor+dt@kernel.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	daniel.lezcano@linaro.org, tglx@linutronix.de, conor@kernel.org, 
+	anup@brainfault.org, gregkh@linuxfoundation.org, jirislaby@kernel.org, 
+	michal.simek@amd.com, michael.zhu@starfivetech.com, drew@beagleboard.org
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, leyfoon.tan@starfivetech.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231213_042424_980088_2490EE0B 
-X-CRM114-Status: GOOD (  24.24  )
+X-CRM114-CacheID: sfid-20231213_043916_194238_9BA24DA9 
+X-CRM114-Status: UNSURE (   6.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,47 +107,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 12, 2023 at 05:02:43PM -0800, Deepak Gupta wrote:
-> On Tue, Dec 12, 2023 at 04:53:48PM -0800, Palmer Dabbelt wrote:
-> > On Tue, 12 Dec 2023 15:49:25 PST (-0800), debug@rivosinc.com wrote:
-> > > envcfg CSR defines enabling bits for cache management instructions and soon
-> > > will control enabling for control flow integrity and pointer masking features.
-> > > 
-> > > Control flow integrity and pointer masking features need to be enabled on per
-> > > thread basis. Additionally, I believe cache management instructions need to be
-> > > enabled on per thread basis. As an example a seccomped task on riscv may be
-> > > restricted to not use cache management instructions
-> > 
-> > Do we have anything in the kernel that actually does that?  Generally we
-> > need some use, I couldn't find any user-mode writable envcfg bits in any
-> > extesions I looked at (admittidly just CFI and pointer masking), and
-> > unless I'm missing something there's no per-thread state in the kernel.
-> > 
-> 
-> Cache management operations?
-> As of now kernel blindly enables that for all the user mode. It will be good if
-> that is enabled on per-thread basis. Sure, all threads can have it enabled by
-> default. But if strict seccomp is enabled, I would argue that cache management
-> operations for that thread to be disabled as is done on other arches. As an
-> example x86 disable rdtsc on strict seccomp. RISCV allows this CMO extension
-> and I expect CMO to leverage this (currently it
-> doesn't).
-> 
-> I was being opportunistic here so that I can reduce number of patches on CFI
-> enabling patchset.
-> 
-> Will it be okay if I revise this patch to include with a usecase to restrict CMO
-> (say for case of strict seccomp on risc-v)?
+Emil Renner Berthing wrote:
+> Sia Jee Heng wrote:
+> > Add initial device tree for the StarFive JH8100 RISC-V SoC.
+> >
+> > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+> > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+>
+> Looks good to me, thanks.
+>
+> Acked-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
-I opted to only expose cache block zero since giving userspace the
-ability to invalidate cache blocks seems risky from a side-channel attack
-perspective.
+I just learned that this JH8100 is not actually a real SoC yet but just an FPGA
+implementation, and no indication that that's actually a product that will be
+mass produced. Hence a lot of details may change before it becomes a real
+SoC/product people can buy, so let's not add this device tree yet before
+everything is set in silicon.
 
-I'm no security expert, so feedback welcome, but I don't see a risk with
-userspace being granted cbo.zero, even for strict seccomp processes.
+Please consider my Acked-by abeve revoked.
 
-Thanks,
-drew
+Sia Jee Heng: With that said I still think it's super awesome that you're
+beginning upstreaming support for your new SoCs early. I wish more SoC vendors
+would follow your example.
+
+/Emil
 
 _______________________________________________
 linux-riscv mailing list
