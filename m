@@ -4,80 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4604C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 04:21:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF9FFC4167D
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 05:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=++b0Re5bNl8ge+3Pc48JgbpVSSR94j+iECIOM1pYvcg=; b=bhvNxZXW/QA+ik
-	SOiN0Eu86ZadfZxEvZ8dTLYK3rWNu2PPU2+zXRh8nYqAKjwAyRm8HJ6KXPdzOpp8R+odXr6sgrv9f
-	/kGy0dGahhQl/yquMzcv3Z5hbFSJ2b9IkjkwzFWOE68kNYsb/q3zQodbrCuk09yPagWcacd/hnTZ7
-	oEz6OoV24IIxOijH5ksirps16/2B2oAUP65IimYDH0JO5h7y+L5ODflrkXEoL7ET+qSLMW7QZZjhg
-	tCzuQHAYlKFo1RwSu5pUFViO/N3f8RwbCuEfxsi+b0+6cX5WozviL/Atg63KGArezH0slQn/NHidW
-	sILXWYm54S4g0iSET0vg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0xEXGI+Sm4FPS/W7FHx8qpV8wos0RYmX92hTLnSeAqs=; b=VLmwS4F0bZqsbu
+	c+3Om4Bm207yWJRgdEgDfB5GZmLPbCHQSj6CeomPF6FVU6Q6OaF1Vo9hCMS0neKxMqGQsJVvHhrgE
+	8ZSWdwun0YCk4a2oQ0UWGwT2KpqaI31ExNXGi5WrX2yAGX9Pu5iZhcybq6htKtZLWYwHcHNQ+WYIy
+	7Slsid13tFlfyXs7bc5SFYDr34SqRX0i6FMFeKzT6h9iiAtYuJEGDTdlvU6mVrT6LJhxtqo9HQ98M
+	tT2JJi7oj26xkqyXUEkVLGW9eIb0BwqTjhCk9J7wn8rDySudkj2ksHSk7YlWtkIBH6Yfy9lgwvDZe
+	c+j/zysRk/OnwBgv2Ofw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDGjy-00DZ0d-29;
-	Wed, 13 Dec 2023 04:20:58 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDGjv-00DYyA-0J
+	id 1rDIFv-00DgqK-1C;
+	Wed, 13 Dec 2023 05:58:03 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1rDIFs-00DgpS-0O
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Dec 2023 04:20:57 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 383478016;
-	Wed, 13 Dec 2023 12:20:02 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 13 Dec
- 2023 12:20:02 +0800
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 13 Dec
- 2023 12:20:01 +0800
-Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
- EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
- 15.00.1497.044; Wed, 13 Dec 2023 12:20:01 +0800
-From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	"kernel@esmil.dk" <kernel@esmil.dk>, "conor@kernel.org" <conor@kernel.org>,
-	"robh+dt@kernel.org" <robh+dt@kernel.org>,
-	"krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, "palmer@dabbelt.com"
-	<palmer@dabbelt.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"mturquette@baylibre.com" <mturquette@baylibre.com>, "sboyd@kernel.org"
-	<sboyd@kernel.org>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, "Hal
- Feng" <hal.feng@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>
-CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>, Leyfoon Tan
-	<leyfoon.tan@starfivetech.com>
-Subject: RE: [PATCH v1 06/16] clk: starfive: Add JH8100 System clock generator
- driver
-Thread-Topic: [PATCH v1 06/16] clk: starfive: Add JH8100 System clock
- generator driver
-Thread-Index: AQHaKDp8qa+gHWDJHkGDh0MGWRuwVrCfD58AgAd/fYA=
-Date: Wed, 13 Dec 2023 04:20:01 +0000
-Message-ID: <a554a163793e4513b25766c21ddc3f02@EXMBX066.cuchost.com>
-References: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
- <20231206115000.295825-7-jeeheng.sia@starfivetech.com>
- <CAJM55Z_VgBGvCPuvwmQahMcMfuWKnOKpZ9bBbbhei_Teu5Apeg@mail.gmail.com>
-In-Reply-To: <CAJM55Z_VgBGvCPuvwmQahMcMfuWKnOKpZ9bBbbhei_Teu5Apeg@mail.gmail.com>
-Accept-Language: en-US, zh-CN
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [202.188.176.82]
-x-yovoleruleagent: yovoleflag
+	Wed, 13 Dec 2023 05:58:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1702447079;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=RUoeFpzGOqKTN9flZH6s2xBw5Pk9zJr+cPefMlD1aKs=;
+	b=OQKhlFyIqPHOgJRkaHGacGE0Gkmtu/hruuh+j+ytmiwlKXfBgDTzrxiUIMRH7dPJk/xghh
+	YSQQEvMuns5ULbP1LrCBnI+3tSBNk2vzyctq1cpv3JRWhgWLnkdne89Z+1T3djT0N65Oj0
+	6LMdnakfdiw9dLHY4/+iuSwSwONxiC4=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-31-WAbzVqSrMWOIel7uGGUcPw-1; Wed, 13 Dec 2023 00:57:56 -0500
+X-MC-Unique: WAbzVqSrMWOIel7uGGUcPw-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 39171185A783;
+	Wed, 13 Dec 2023 05:57:56 +0000 (UTC)
+Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.116.83])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 24DE41C060AF;
+	Wed, 13 Dec 2023 05:57:50 +0000 (UTC)
+From: Baoquan He <bhe@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: kexec@lists.infradead.org,
+	x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-parisc@vger.kernel.org,
+	akpm@linux-foundation.org,
+	joe@perches.com,
+	nathan@kernel.org,
+	conor@kernel.org,
+	Baoquan He <bhe@redhat.com>
+Subject: [PATCH v4 0/7] kexec_file: print out debugging message if required
+Date: Wed, 13 Dec 2023 13:57:40 +0800
+Message-ID: <20231213055747.61826-1-bhe@redhat.com>
 MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231212_202055_421899_F40B79AD 
-X-CRM114-Status: GOOD (  19.69  )
+X-CRM114-CacheID: sfid-20231212_215800_228779_811F7963 
+X-CRM114-Status: GOOD (  16.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,75 +82,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-DQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogRW1pbCBSZW5uZXIgQmVy
-dGhpbmcgPGVtaWwucmVubmVyLmJlcnRoaW5nQGNhbm9uaWNhbC5jb20+DQo+IFNlbnQ6IFNhdHVy
-ZGF5LCBEZWNlbWJlciA5LCAyMDIzIDEyOjI1IEFNDQo+IFRvOiBKZWVIZW5nIFNpYSA8amVlaGVu
-Zy5zaWFAc3RhcmZpdmV0ZWNoLmNvbT47IGtlcm5lbEBlc21pbC5kazsgY29ub3JAa2VybmVsLm9y
-Zzsgcm9iaCtkdEBrZXJuZWwub3JnOw0KPiBrcnp5c3p0b2Yua296bG93c2tpK2R0QGxpbmFyby5v
-cmc7IHBhdWwud2FsbXNsZXlAc2lmaXZlLmNvbTsgcGFsbWVyQGRhYmJlbHQuY29tOyBhb3VAZWVj
-cy5iZXJrZWxleS5lZHU7DQo+IG10dXJxdWV0dGVAYmF5bGlicmUuY29tOyBzYm95ZEBrZXJuZWwu
-b3JnOyBwLnphYmVsQHBlbmd1dHJvbml4LmRlOyBlbWlsLnJlbm5lci5iZXJ0aGluZ0BjYW5vbmlj
-YWwuY29tOyBIYWwgRmVuZw0KPiA8aGFsLmZlbmdAc3RhcmZpdmV0ZWNoLmNvbT47IFhpbmd5dSBX
-dSA8eGluZ3l1Lnd1QHN0YXJmaXZldGVjaC5jb20+DQo+IENjOiBsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnOyBkZXZpY2V0cmVlQHZnZXIua2VybmVsLm9yZzsgbGludXgta2VybmVsQHZn
-ZXIua2VybmVsLm9yZzsgbGludXgtY2xrQHZnZXIua2VybmVsLm9yZzsgTGV5Zm9vbiBUYW4NCj4g
-PGxleWZvb24udGFuQHN0YXJmaXZldGVjaC5jb20+DQo+IFN1YmplY3Q6IFJlOiBbUEFUQ0ggdjEg
-MDYvMTZdIGNsazogc3RhcmZpdmU6IEFkZCBKSDgxMDAgU3lzdGVtIGNsb2NrIGdlbmVyYXRvciBk
-cml2ZXINCj4gDQo+IFNpYSBKZWUgSGVuZyB3cm90ZToNCj4gPiBBZGQgc3VwcG9ydCBmb3IgSkg4
-MTAwIFN5c3RlbSBjbG9jayBnZW5lcmF0b3IuDQo+ID4NCj4gPiBTaWduZWQtb2ZmLWJ5OiBTaWEg
-SmVlIEhlbmcgPGplZWhlbmcuc2lhQHN0YXJmaXZldGVjaC5jb20+DQo+ID4gUmV2aWV3ZWQtYnk6
-IExleSBGb29uIFRhbiA8bGV5Zm9vbi50YW5Ac3RhcmZpdmV0ZWNoLmNvbT4NCj4gPiAtLS0NCj4g
-PiAgTUFJTlRBSU5FUlMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICA4ICsN
-Cj4gPiAgZHJpdmVycy9jbGsvc3RhcmZpdmUvS2NvbmZpZyAgICAgICAgICAgICAgICAgIHwgICA5
-ICsNCj4gPiAgZHJpdmVycy9jbGsvc3RhcmZpdmUvTWFrZWZpbGUgICAgICAgICAgICAgICAgIHwg
-ICAxICsNCj4gPiAgZHJpdmVycy9jbGsvc3RhcmZpdmUvY2xrLXN0YXJmaXZlLWNvbW1vbi5oICAg
-IHwgICA5ICstDQo+ID4gIGRyaXZlcnMvY2xrL3N0YXJmaXZlL2poODEwMC9NYWtlZmlsZSAgICAg
-ICAgICB8ICAgMyArDQo+ID4gIC4uLi9jbGsvc3RhcmZpdmUvamg4MTAwL2Nsay1zdGFyZml2ZS1q
-aDgxMDAuaCB8ICAxMSArDQo+ID4gIGRyaXZlcnMvY2xrL3N0YXJmaXZlL2poODEwMC9jbGstc3lz
-LmMgICAgICAgICB8IDQ1NSArKysrKysrKysrKysrKysrKysNCj4gPiAgNyBmaWxlcyBjaGFuZ2Vk
-LCA0OTUgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQ0KPiA+ICBjcmVhdGUgbW9kZSAxMDA2
-NDQgZHJpdmVycy9jbGsvc3RhcmZpdmUvamg4MTAwL01ha2VmaWxlDQo+ID4gIGNyZWF0ZSBtb2Rl
-IDEwMDY0NCBkcml2ZXJzL2Nsay9zdGFyZml2ZS9qaDgxMDAvY2xrLXN0YXJmaXZlLWpoODEwMC5o
-DQo+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL2Nsay9zdGFyZml2ZS9qaDgxMDAvY2xr
-LXN5cy5jDQo+ID4NCj4gPiBkaWZmIC0tZ2l0IGEvTUFJTlRBSU5FUlMgYi9NQUlOVEFJTkVSUw0K
-PiA+IGluZGV4IDc4OGJlOWFiNWI3My4uODdiY2IyNWJlY2MxIDEwMDY0NA0KPiA+IC0tLSBhL01B
-SU5UQUlORVJTDQo+ID4gKysrIGIvTUFJTlRBSU5FUlMNCj4gPiBAQCAtMjA3NjMsNiArMjA3NjMs
-MTQgQEAgRjoJRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3BoeS9zdGFyZml2ZSxq
-aDcxMTAtdXNiLXBoeS55YW1sDQo+ID4gIEY6CWRyaXZlcnMvcGh5L3N0YXJmaXZlL3BoeS1qaDcx
-MTAtcGNpZS5jDQo+ID4gIEY6CWRyaXZlcnMvcGh5L3N0YXJmaXZlL3BoeS1qaDcxMTAtdXNiLmMN
-Cj4gPg0KPiA+ICtTVEFSRklWRSBKSDgxMDAgQ0xPQ0sgRFJJVkVSUw0KPiA+ICtNOglTaWEgSmVl
-IEhlbmcgPGplZWhlbmcuc2lhQHN0YXJmaXZldGVjaC5jb20+DQo+ID4gK006CUxleSBGb29uIFRh
-biA8bGV5Zm9vbi50YW5Ac3RhcmZpdmV0ZWNoLmNvbT4NCj4gPiArUzoJTWFpbnRhaW5lZA0KPiA+
-ICtGOglEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvY2xvY2svc3RhcmZpdmUsamg4
-MSoueWFtbA0KPiA+ICtGOglkcml2ZXJzL2Nsay9zdGFyZml2ZS9qaDgxMDANCj4gPiArRjoJaW5j
-bHVkZS9kdC1iaW5kaW5ncy9jbG9jay9zdGFyZml2ZT9qaDgxKi5oDQo+ID4gKw0KPiA+ICBTVEFU
-SUMgQlJBTkNIL0NBTEwNCj4gPiAgTToJUGV0ZXIgWmlqbHN0cmEgPHBldGVyekBpbmZyYWRlYWQu
-b3JnPg0KPiA+ICBNOglKb3NoIFBvaW1ib2V1ZiA8anBvaW1ib2VAa2VybmVsLm9yZz4NCj4gPiBk
-aWZmIC0tZ2l0IGEvZHJpdmVycy9jbGsvc3RhcmZpdmUvS2NvbmZpZyBiL2RyaXZlcnMvY2xrL3N0
-YXJmaXZlL0tjb25maWcNCj4gPiBpbmRleCBmZjhlYWNlMzZlNjQuLmQ4YzdiOWJiMzg5NSAxMDA2
-NDQNCj4gPiAtLS0gYS9kcml2ZXJzL2Nsay9zdGFyZml2ZS9LY29uZmlnDQo+ID4gKysrIGIvZHJp
-dmVycy9jbGsvc3RhcmZpdmUvS2NvbmZpZw0KPiA+IEBAIC03MiwzICs3MiwxMiBAQCBjb25maWcg
-Q0xLX1NUQVJGSVZFX0pINzExMF9WT1VUDQo+ID4gIAloZWxwDQo+ID4gIAkgIFNheSB5ZXMgaGVy
-ZSB0byBzdXBwb3J0IHRoZSBWaWRlby1PdXRwdXQgY2xvY2sgY29udHJvbGxlcg0KPiA+ICAJICBv
-biB0aGUgU3RhckZpdmUgSkg3MTEwIFNvQy4NClsuLi5dDQo+ID4gZGlmZiAtLWdpdCBhL2RyaXZl
-cnMvY2xrL3N0YXJmaXZlL2poODEwMC9NYWtlZmlsZSBiL2RyaXZlcnMvY2xrL3N0YXJmaXZlL2po
-ODEwMC9NYWtlZmlsZQ0KPiA+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0DQo+ID4gaW5kZXggMDAwMDAw
-MDAwMDAwLi5hZjZhMDllMjIwZDMNCj4gPiAtLS0gL2Rldi9udWxsDQo+ID4gKysrIGIvZHJpdmVy
-cy9jbGsvc3RhcmZpdmUvamg4MTAwL01ha2VmaWxlDQo+ID4gQEAgLTAsMCArMSwzIEBADQo+ID4g
-KyMgU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjANCj4gPiArIyBTdGFyRml2ZSBKSDgx
-MDAgQ2xvY2sNCj4gPiArb2JqLSQoQ09ORklHX0NMS19TVEFSRklWRV9KSDgxMDBfU1lTKQkJKz0g
-Y2xrLXN5cy5vDQo+IA0KPiBUaGlzIHdpbGwgbmFtZSB0aGUgbW9kdWxlIGNsay1zeXMsIHdoaWNo
-IGlzIHdheSB0b28gZ2VuZXJpYy4gUGxlYXNlIG5hbWUgdGhpcw0KPiBjbGstc3RhcmZpdmUtamg4
-MTAwLXN5cyBzaW1pbGFyIHRvIHRoZSBKSDcxMTAgZHJpdmVycy4NCkp1c3QgcmVhbGl6ZWQgdGhh
-dCBJIGhhdmVuJ3QgcmVwbHkgdG8gdGhpcyBjb21tZW50Lg0KSSBjYW4ndCBnaXZlIGl0IGEgbG9u
-Z2VyIG5hbWUgb3RoZXJ3aXNlIGNvbXBpbGVyIHdpbGwgdGhyb3cgd2FybmluZy4NClRoYXTigJlz
-IHdoeSBlbmRzIHVwIHRvIHVzZSBhIHNob3J0ZXIgbmFtZSBhbmQga2VlcCBpdCB1bmRlciBqaDgx
-MDAgZm9sZGVyLg0KPiANClsuLi5dDQpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+Currently, specifying '-d' on kexec command will print a lot of debugging
+informationabout kexec/kdump loading with kexec_load interface.
+
+However, kexec_file_load prints nothing even though '-d' is specified.
+It's very inconvenient to debug or analyze the kexec/kdump loading when
+something wrong happened with kexec/kdump itself or develper want to
+check the kexec/kdump loading.
+
+In this patchset, a kexec_file flag is KEXEC_FILE_DEBUG added and checked
+in code. If it's passed in, debugging message of kexec_file code will be
+printed out and can be seen from console and dmesg. Otherwise, the
+debugging message is printed like beofre when pr_debug() is taken.
+
+Note:
+****
+=====
+1) The code in kexec-tools utility also need be changed to support
+passing KEXEC_FILE_DEBUG to kernel when 'kexec -s -d' is specified.
+The patch link is here:
+=========
+[PATCH] kexec_file: add kexec_file flag to support debug printing
+http://lists.infradead.org/pipermail/kexec/2023-November/028505.html
+
+2) s390 also has kexec_file code, while I am not sure what debugging
+information is necessary. So leave it to s390 developer.
+
+Test:
+****
+====
+Testing was done in v1 on x86_64 and arm64. For v4, tested on x86_64
+again. And on x86_64, the printed messages look like below:
+--------------------------------------------------------------
+kexec measurement buffer for the loaded kernel at 0x207fffe000.
+Loaded purgatory at 0x207fff9000
+Loaded boot_param, command line and misc at 0x207fff3000 bufsz=0x1180 memsz=0x1180
+Loaded 64bit kernel at 0x207c000000 bufsz=0xc88200 memsz=0x3c4a000
+Loaded initrd at 0x2079e79000 bufsz=0x2186280 memsz=0x2186280
+Final command line is: root=/dev/mapper/fedora_intel--knightslanding--lb--02-root ro
+rd.lvm.lv=fedora_intel-knightslanding-lb-02/root console=ttyS0,115200N81 crashkernel=256M
+E820 memmap:
+0000000000000000-000000000009a3ff (1)
+000000000009a400-000000000009ffff (2)
+00000000000e0000-00000000000fffff (2)
+0000000000100000-000000006ff83fff (1)
+000000006ff84000-000000007ac50fff (2)
+......
+000000207fff6150-000000207fff615f (128)
+000000207fff6160-000000207fff714f (1)
+000000207fff7150-000000207fff715f (128)
+000000207fff7160-000000207fff814f (1)
+000000207fff8150-000000207fff815f (128)
+000000207fff8160-000000207fffffff (1)
+nr_segments = 5
+segment[0]: buf=0x000000004e5ece74 bufsz=0x211 mem=0x207fffe000 memsz=0x1000
+segment[1]: buf=0x000000009e871498 bufsz=0x4000 mem=0x207fff9000 memsz=0x5000
+segment[2]: buf=0x00000000d879f1fe bufsz=0x1180 mem=0x207fff3000 memsz=0x2000
+segment[3]: buf=0x000000001101cd86 bufsz=0xc88200 mem=0x207c000000 memsz=0x3c4a000
+segment[4]: buf=0x00000000c6e38ac7 bufsz=0x2186280 mem=0x2079e79000 memsz=0x2187000
+kexec_file_load: type:0, start:0x207fff91a0 head:0x109e004002 flags:0x8
+---------------------------------------------------------------------------
+
+History:
+=========
+v3->v4:
+- Add the explanation about why kexec_dprintk() need be introduced to
+  replace pr_debug() in log of ARCH patch, suggested by Conor.
+- Mentioned why pr_notice() need be replaced with kexec_dprintk() in
+  function elf_kexec_load() of risc-v, Suggested by Conor.
+- Change breaking one message line into two back to one line, pointed
+  out by Joe.
+v2->v3:
+- Adjust all the indentation of continuation line to the open parenthesis
+  for all kexec_dprintk() call sites. Thank Joe to point this out.
+- Fix the LKP report that macro kexec_dprintk() is invalid when
+  CONFIG_KEXEC=Y, CONFIG_KEXEC_FILE=n, CONFIG_CRASH_DUMP=y.
+
+v1->v2:
+- Take the new format of kexec_dprintk() suggested by Joe which can
+  reduce kernel text size.
+- Fix building error of patch 2 in kernel/crash_core.c reported by LKP.
+- Fix building warning on arm64 in patch 4 reported by LKP.
+
+Baoquan He (7):
+  kexec_file: add kexec_file flag to control debug printing
+  kexec_file: print out debugging message if required
+  kexec_file, x86: print out debugging message if required
+  kexec_file, arm64: print out debugging message if required
+  kexec_file, ricv: print out debugging message if required
+  kexec_file, power: print out debugging message if required
+  kexec_file, parisc: print out debugging message if required
+
+ arch/arm64/kernel/kexec_image.c        |  6 +++---
+ arch/arm64/kernel/machine_kexec.c      | 26 ++++++--------------------
+ arch/arm64/kernel/machine_kexec_file.c | 12 ++++++------
+ arch/parisc/kernel/kexec_file.c        |  8 ++++----
+ arch/powerpc/kexec/elf_64.c            |  8 ++++----
+ arch/powerpc/kexec/file_load_64.c      | 18 +++++++++---------
+ arch/riscv/kernel/elf_kexec.c          | 11 ++++++-----
+ arch/riscv/kernel/machine_kexec.c      | 26 --------------------------
+ arch/x86/kernel/crash.c                |  4 ++--
+ arch/x86/kernel/kexec-bzimage64.c      | 23 ++++++++++++++---------
+ include/linux/kexec.h                  |  9 ++++++++-
+ include/uapi/linux/kexec.h             |  1 +
+ kernel/crash_core.c                    |  8 +++++---
+ kernel/kexec_core.c                    |  2 ++
+ kernel/kexec_file.c                    | 14 +++++++++++---
+ security/integrity/ima/ima_kexec.c     |  4 ++--
+ 16 files changed, 83 insertions(+), 97 deletions(-)
+
+-- 
+2.41.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
