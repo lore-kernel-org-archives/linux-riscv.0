@@ -4,95 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B13E7C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 02:45:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4D39C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Dec 2023 03:23:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:
-	In-reply-to:Subject:Cc:To:From:References:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=dXuaYPsrgq4rvuAFUOfqprMktfpt/bSfGNMHJTQql18=; b=NmLChVWhbMSBJK0ODIOzK3jUy/
-	6GpX3L4L/HShuwuyqKKs67hE7OGDI3sISljF+1XFktuobEVa9rj2qWdlCFAnildnjBoaknfUTHWrQ
-	TgM+490Q/M6B+ayluyvxh4w6eat5yHZRvqIILB2GxqrYVfF9j1l4GmCP8f9IBLRs8xyvi0mI4VQS0
-	V9Te8FRACjE3DP8CW3z4RqVRTt8SQhlRC9umsVtoIzv/OdlHwFfNa1dme/mOByCReNczg5Vm81Iiu
-	tYIq1VxZLj7rIPtYD1o8YNJsLR3Oa6ow8aoexhykoESwXssAzici8TM1VKc/jnB4a0G2oyvPh2ElI
-	TuvgRbeg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8hrR5ij/ljrxHJFzL3vQwmWFUXFXufY+LUz5q686nog=; b=td3KG0QfxcqRJE
+	Scpp0g7zeOAGZoK/JZj6zUGSvWD0iCfLSzKSnjRlH0TX1UnA7D9agjcpq97Jd9J2TWmy25tYXT4Yc
+	eSTKwUmA2F/SSx8IWg/ULERByF64TA0Rv8X1Ilclk3xZ3Kcb0fWEwDDybxdOUl/vDGU2/yWRY/E9R
+	5ht8c7GGkJOTSssvA6wGrb7/CiYGwaiCr0Mg+4x0vCq4sfsMR2Enc4CoCPjNttmUuQ1cTU4LnCeqg
+	Vu0gYCUKfO0mGlOtnh9pWCHSTpt/OLS3gwPD+NLliaQ15miwLb5SrMRTy1ToMDZkCTDsmR7Lpjyii
+	TcgwsraITWmMI56pAQ0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDFFQ-00DR4t-00;
-	Wed, 13 Dec 2023 02:45:20 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1rDFqE-00DUSz-0J;
+	Wed, 13 Dec 2023 03:23:22 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDFFN-00DR2S-2W
+	id 1rDFq9-00DUS5-1d
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Dec 2023 02:45:19 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-6ceba6c4b8dso5230559b3a.1
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Dec 2023 18:45:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1702435509; x=1703040309; darn=lists.infradead.org;
-        h=mime-version:message-id:date:in-reply-to:subject:cc:to:from
-         :user-agent:references:from:to:cc:subject:date:message-id:reply-to;
-        bh=CJ7qwCmvq20mGgi3dRymJGPN14h9pbhwL4VM2txPZCM=;
-        b=y03+5Mfk5RsKvNrHLfhQKkxBUcrShcIstR2N133bhtKRTqTZC6AeMyyXVhibNZs28H
-         cVeu4JDxun8mxG22t+YUIXm0ZKxQDKJk+eifSS3DhozfbXzlaayVL1Cn1SCZLJN7Hbpr
-         ZGiFUd6K9+hRIezgKtzFdJpFOpyt1NfxoLkUqf6+ixH837J7BhYx0ZXE4w3KJ3qECJkd
-         35C7A8doacNcPqQIlGGqCehC63yUnU9xCd/u7b2vyHYXfx1MKjbgiMF+tywG7NYQ21au
-         s7GEgSYRL/TQpMe+Xj6hFBuDUeiy+sFlleLevRgFVKJSvt0KgTtIK+dh82nq1cxM7J+3
-         /0+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702435509; x=1703040309;
-        h=mime-version:message-id:date:in-reply-to:subject:cc:to:from
-         :user-agent:references:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CJ7qwCmvq20mGgi3dRymJGPN14h9pbhwL4VM2txPZCM=;
-        b=AZdF7kH1dk+lbGcX8/1k1DaaBqUOcyb9vWjJthXyJRMEvFxB8iaUIL9gxHr1vku9WS
-         9oqesiNLkZVpOnGj97c3wcHYnnrLaBH57H/mGU/cd837GJ8gLYhvlV6AXdk5QJOJyRGs
-         cofm6lHynslqtBHYhmsbkzq2vPfCTPhKW858ShB9y9E6TVU90PvKbMPSc5JRiNnN5SRS
-         zaEsI+gMvYjj47uFuW6+ti0J1l18grf/g8vT28/QJF0s1GHTWzIBOpNilgPVC2spAjKt
-         zoXvZfVes+4Mrhc8m4qjpcAKUftydm1uqbV3rZmVR9ISUNOlQ9RvJr5cXsw+beF7GfDs
-         GN5w==
-X-Gm-Message-State: AOJu0YzXDoC3ZkuDGWThZjRcGWlMddj2MKY1kTz5/sFRE2KY4/v/6IG3
-	9bs3X+uGjpEmfs0gd12oyyNhBg==
-X-Google-Smtp-Source: AGHT+IGi//6HE3KINOZpirefGAX+e3jIHwZFWzUp/AR1xA1scaFysKSWvBw9/QjFkCNOqGCFGdEidA==
-X-Received: by 2002:a05:6a00:c81:b0:6cb:a2f4:8579 with SMTP id a1-20020a056a000c8100b006cba2f48579mr8585102pfv.15.1702435509333;
-        Tue, 12 Dec 2023 18:45:09 -0800 (PST)
-Received: from localhost ([2804:14d:7e39:8470:cddd:ffc9:f19e:a4dc])
-        by smtp.gmail.com with ESMTPSA id y72-20020a62ce4b000000b006cb7bdbc3besm9528817pfg.17.2023.12.12.18.45.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Dec 2023 18:45:08 -0800 (PST)
-References: <20231122-arm64-gcs-v7-0-201c483bd775@kernel.org>
- <20231122-arm64-gcs-v7-37-201c483bd775@kernel.org>
-User-agent: mu4e 1.10.8; emacs 29.1
-From: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Andrew Morton
- <akpm@linux-foundation.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton
- <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, Suzuki K
- Poulose <suzuki.poulose@arm.com>, Arnd Bergmann <arnd@arndb.de>, Oleg
- Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, Kees
- Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>, "Rick P.
- Edgecombe" <rick.p.edgecombe@intel.com>, Deepak Gupta
- <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>, Szabolcs Nagy
- <Szabolcs.Nagy@arm.com>, "H.J. Lu" <hjl.tools@gmail.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Florian Weimer <fweimer@redhat.com>, Christian
- Brauner <brauner@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, kvmarm@lists.linux.dev,
- linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-mm@kvack.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v7 37/39] kselftest/arm64: Add a GCS stress test
-In-reply-to: <20231122-arm64-gcs-v7-37-201c483bd775@kernel.org>
-Date: Tue, 12 Dec 2023 23:45:06 -0300
-Message-ID: <87zfyex1l9.fsf@linaro.org>
+	Wed, 13 Dec 2023 03:23:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1702437796;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kJBrP/wuvom17BSUXW0NG0A84o2uJgCWtjNkzp2u12s=;
+	b=XsuFevZ4xDS53iniLbdzt8cFTjiyD+WTrg7swF1RPazlbB1mxJ3K+p/TmcVnHNraber94J
+	LTl2mLf9O6ZJl2J2ky9mALyOHXUTSKwe55ztj2tyjkPtmfO1m8+vqosebxXrW7BcCj9mNW
+	tIHIOh6hMnExkUGLBFihw5FElsSYNyo=
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-656-qho-sWqZPYqtExHysk5vCA-1; Tue,
+ 12 Dec 2023 22:23:11 -0500
+X-MC-Unique: qho-sWqZPYqtExHysk5vCA-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4F9A43C29A62;
+	Wed, 13 Dec 2023 03:23:10 +0000 (UTC)
+Received: from localhost (unknown [10.72.116.83])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 519BB2026D66;
+	Wed, 13 Dec 2023 03:23:09 +0000 (UTC)
+Date: Wed, 13 Dec 2023 11:23:06 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>, linux-kernel@vger.kernel.org,
+	kexec@lists.infradead.org, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-parisc@vger.kernel.org, akpm@linux-foundation.org,
+	joe@perches.com, nathan@kernel.org
+Subject: Re: [PATCH v3 5/7] kexec_file, ricv: print out debugging message if
+ required
+Message-ID: <ZXkjmrWOH1dLbHGB@MiWiFi-R3L-srv>
+References: <20231130023955.5257-1-bhe@redhat.com>
+ <20231130023955.5257-6-bhe@redhat.com>
+ <20231201-blog-blasphemy-985d2665903c@wendy>
+ <ZW3yXWJ7rTrtZzyg@MiWiFi-R3L-srv>
+ <20231204-liftoff-enclosure-d3e3daf0ab6e@spud>
+ <ZXCVUD9cCYEShrrj@MiWiFi-R3L-srv>
+ <20231206-pasta-embassy-c7250740b16c@spud>
+ <ZXECHg37DRZ9BQsP@MiWiFi-R3L-srv>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <ZXECHg37DRZ9BQsP@MiWiFi-R3L-srv>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231212_184517_816130_42A44763 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231212_192317_628870_CA4A39CE 
+X-CRM114-Status: GOOD (  53.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,51 +93,182 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 12/07/23 at 07:22am, Baoquan He wrote:
+> On 12/06/23 at 04:54pm, Conor Dooley wrote:
+> > On Wed, Dec 06, 2023 at 11:37:52PM +0800, Baoquan He wrote:
+> > > On 12/04/23 at 04:14pm, Conor Dooley wrote:
+> > > > On Mon, Dec 04, 2023 at 11:38:05PM +0800, Baoquan He wrote:
+> > > > > On 12/01/23 at 10:38am, Conor Dooley wrote:
+> > > > > > On Thu, Nov 30, 2023 at 10:39:53AM +0800, Baoquan He wrote:
+> > > > > > 
+> > > > > > $subject has a typo in the arch bit :)
+> > > > > 
+> > > > > Indeed, will fix if need report. Thanks for careful checking.
+> > > > > 
+> > > > > > 
+> > > > > > > Replace pr_debug() with the newly added kexec_dprintk() in kexec_file
+> > > > > > > loading related codes.
+> > > > > > 
+> > > > > > Commit messages should be understandable in isolation, but this only
+> > > > > > explains (part of) what is obvious in the diff. Why is this change
+> > > > > > being made?
+> > > > > 
+> > > > > The purpose has been detailedly described in cover letter and patch 1
+> > > > > log. Andrew has picked these patches into his tree and grabbed the cover
+> > > > > letter log into the relevant commit for people's later checking. All
+> > > > > these seven patches will be present in mainline together. This is common
+> > > > > way when posting patch series? Please let me know if I misunderstand
+> > > > > anything.
+> > > > 
+> > > > Each patch having a commit message that explains why a change is being
+> > > > made is the expectation. It is especially useful to explain the why
+> > > > here, since it is not just a mechanical conversion of pr_debug()s as the
+> > > > commit message suggests.
+> > > 
+> > > Sounds reasonable. I rephrase the patch 3 log as below, do you think
+> > > it's OK to you?
+> > 
+> > Yes, but with one comment.
+> > 
+> > > 
+> > > I will also adjust patch logs on other ARCH once this one is done.
+> > > Thanks.
+> > > 
+> > > =============================
+> > > Subject: [PATCH v3 5/7] kexec_file, ricv: print out debugging message if required
+> > > 
+> > > Then when specifying '-d' for kexec_file_load interface, loaded
+> > > locations of kernel/initrd/cmdline etc can be printed out to help debug.
+> > > 
+> > > Here replace pr_debug() with the newly added kexec_dprintk() in kexec_file
+> > > loading related codes.
+> > > 
+> > 
+> > > And also replace pr_notice() with kexec_dprintk() in elf_kexec_load()
+> > > because it's make sense to always print out loaded location of purgatory
+>               ~
+> > > and device tree even though users don't expect the message.
+> 
+> Fixed typo:
+> ==========
+> 
+> And also replace pr_notice() with kexec_dprintk() in elf_kexec_load()
+> because it doesn't make sense to always print out loaded location of
+> purgatory and device tree even though users don't expect the message.
 
-I'm going a bit out-of-order to report a build failure in a test:
+I will post v4 to include these suggested changes, please add comments
+if there's any concern. Thanks for reviewing.
 
-Mark Brown <broonie@kernel.org> writes:
+> 
+> > 
+> > This seems to contradict what you said in your earlier mail, about
+> > moving these from notice to debug. I think you missed a negation in your
+> > new version of the commit message. What you said in response to me seems
+> > like a more complete explanation anyway:
+> 
+> Ah, I made mistake when typing, these printing is only for debugging,
+> so always printing out them is not suggested.
+> 
+> > 	always printing out the loaded location of purgatory and
+> > 	device tree doesn't make sense. It will be confusing when users
+> > 	see these even when they do normal kexec/kdump loading.
+> > 
+> > Thanks,
+> > Conor.
+> > 
+> > > And also remove kexec_image_info() because the content has been printed
+> > > out in generic code.
+> > > 
+> > > ============================
+> > > 
+> > > > 
+> > > > > > 
+> > > > > > > 
+> > > > > > > And also remove kexec_image_info() because the content has been printed
+> > > > > > > out in generic code.
+> > > > > > > 
+> > > > > > > Signed-off-by: Baoquan He <bhe@redhat.com>
+> > > > > > > ---
+> > > > > > >  arch/riscv/kernel/elf_kexec.c     | 11 ++++++-----
+> > > > > > >  arch/riscv/kernel/machine_kexec.c | 26 --------------------------
+> > > > > > >  2 files changed, 6 insertions(+), 31 deletions(-)
+> > > > > > > 
+> > > > > > > diff --git a/arch/riscv/kernel/elf_kexec.c b/arch/riscv/kernel/elf_kexec.c
+> > > > > > > index e60fbd8660c4..5bd1ec3341fe 100644
+> > > > > > > --- a/arch/riscv/kernel/elf_kexec.c
+> > > > > > > +++ b/arch/riscv/kernel/elf_kexec.c
+> > > > > > > @@ -216,7 +216,6 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+> > > > > > >  	if (ret)
+> > > > > > >  		goto out;
+> > > > > > >  	kernel_start = image->start;
+> > > > > > > -	pr_notice("The entry point of kernel at 0x%lx\n", image->start);
+> > > > > > >  
+> > > > > > >  	/* Add the kernel binary to the image */
+> > > > > > >  	ret = riscv_kexec_elf_load(image, &ehdr, &elf_info,
+> > > > > > > @@ -252,8 +251,8 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+> > > > > > >  		image->elf_load_addr = kbuf.mem;
+> > > > > > >  		image->elf_headers_sz = headers_sz;
+> > > > > > >  
+> > > > > > > -		pr_debug("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
+> > > > > > > -			 image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
+> > > > > > > +		kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
+> > > > > > > +			      image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
+> > > > > > >  
+> > > > > > >  		/* Setup cmdline for kdump kernel case */
+> > > > > > >  		modified_cmdline = setup_kdump_cmdline(image, cmdline,
+> > > > > > > @@ -275,6 +274,8 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+> > > > > > >  		pr_err("Error loading purgatory ret=%d\n", ret);
+> > > > > > >  		goto out;
+> > > > > > >  	}
+> > > > > > > +	kexec_dprintk("Loaded purgatory at 0x%lx\n", kbuf.mem);
+> > > > > > > +
+> > > > > > >  	ret = kexec_purgatory_get_set_symbol(image, "riscv_kernel_entry",
+> > > > > > >  					     &kernel_start,
+> > > > > > >  					     sizeof(kernel_start), 0);
+> > > > > > > @@ -293,7 +294,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+> > > > > > >  		if (ret)
+> > > > > > >  			goto out;
+> > > > > > >  		initrd_pbase = kbuf.mem;
+> > > > > > 
+> > > > > > > -		pr_notice("Loaded initrd at 0x%lx\n", initrd_pbase);
+> > > > > > > +		kexec_dprintk("Loaded initrd at 0x%lx\n", initrd_pbase);
+> > > > > > 
+> > > > > > This is not a pr_debug().
+> > > > > > 
+> > > > > > >  	}
+> > > > > > >  
+> > > > > > >  	/* Add the DTB to the image */
+> > > > > > > @@ -318,7 +319,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+> > > > > > >  	}
+> > > > > > >  	/* Cache the fdt buffer address for memory cleanup */
+> > > > > > >  	image->arch.fdt = fdt;
+> > > > > > 
+> > > > > > > -	pr_notice("Loaded device tree at 0x%lx\n", kbuf.mem);
+> > > > > > > +	kexec_dprintk("Loaded device tree at 0x%lx\n", kbuf.mem);
+> > > > > > 
+> > > > > > Neither is this. Why are they being moved from pr_notice()?
+> > > > > 
+> > > > > You are right. 
+> > > > > 
+> > > > > While always printing out the loaded location of purgatory and
+> > > > > device tree doesn't make sense. It will be confusing when users
+> > > > > see these even when they do normal kexec/kdump loading. It should be
+> > > > > changed to pr_debug().
+> > > > > 
+> > > > > Which way do you suggest?
+> > > > > 1) change it back to pr_debug(), fix it in another patch;
+> > > > > 2) keep it as is in the patch;
+> > > > 
+> > > > Personally I think it is fine to change them all in one patch, but the
+> > > > rationale for converting pr_notice() to your new debug infrastructure
+> > > > needs to be in the commit message.
+> > > 
+> > > Sure, sounds good to me. I have changed the patch log to reflect this as
+> > > you suggested, please help check. Thanks again.
+> > > 
+> 
+> 
 
-> +// Recurse x20 times
-> +.macro recurse id
-
-I get an assembler error here:
-
-gcc -nostdlib gcs-stress-thread.S -o /home/thiago.bauermann/src/linux/tools/testing/selftests/arm64/gcs/gcs-stress-thread
-gcs-stress-thread.S: Assembler messages:
-gcs-stress-thread.S:236: Error: unexpected end of file in macro `recurse' definition
-make[2]: *** [Makefile:24: /home/thiago.bauermann/src/linux/tools/testing/selftests/arm64/gcs/gcs-stress-thread] Error 1
-
-This is with gas from Ubuntu 22.04, which ships binutils 2.38.
-
-> +function recurse\id
-> +	stp	x29, x30, [sp, #-16]!
-> +	mov	x29, sp
-> +
-> +	cmp	x20, 0
-> +	beq	1f
-> +	sub	x20, x20, 1
-> +	bl	recurse\id
-> +
-> +1:
-> +	ldp	x29, x30, [sp], #16
-> +
-> +	// Do a syscall immediately prior to returning to try to provoke
-> +	// scheduling and migration at a point where coherency issues
-> +	// might trigger.
-> +	mov	x8, #__NR_getpid
-> +	svc	#0
-> +
-> +	ret
-> +endfunction
-> +.endmacro
-> +
-> +// Generate and use two copies so we're changing the GCS contents
-> +recurse 1
-> +recurse 2
-
--- 
-Thiago
 
 _______________________________________________
 linux-riscv mailing list
