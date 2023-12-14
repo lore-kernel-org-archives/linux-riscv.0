@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A966C4167D
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Dec 2023 10:16:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF164C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Dec 2023 10:16:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7c7uB79YdUGJMtMK12DujHGm7sN5qSb2DyLmJUGSCkM=; b=VH+R2uSq7vMhOH
-	RB/keLtOILUwHuXhZc58sQdZuHFAWoZVlCn0ARsp5Xu2tGtThM/Vs/WWh+s6JjGaGz5vQLVGVj2P4
-	BKPBi0pFLuXIxbT9Op+Qi09yQty9RvGtWkvptTALKdXEwy0z2CNhTz+KgRP+72v2aU0B/52sBQbTX
-	rL5OxjlinR2G0l5SGx43UW7O6E0gCkeNXOhnN2X98e77NLhLzf4Lpgvu1MIZQ4ZebTy/vGESTJXEW
-	zKJesZ9qgYigOKJmoVGYzd9yvTOtlVLBzLBDgMak2K/bm+YxTMSqXebx7hHcpGvqlt0nrk17CTx+G
-	a/f54mT3sGHRxvBZNidQ==;
+	List-Owner; bh=1f2rF0mTZRNYj4dPd+j1Jwv/EedFpEO+DxeZkjEWT6k=; b=02xpUqRPvasOko
+	xN/Emuegp+IShox6NHU7q/xsH4kwQg1cvWP3DskXop7rhlaHVl/lMgxJhejrbGez6tqbJ0uytae3+
+	6fu77LQBV7ym0rA+cPhO2vCPA+by87XHkEyGbUp96748pPuznL8yHCajBCdQT0GhGPs8/99iWU9OO
+	70C8dGWjfkZrxQY1PecoQMboGBgOoe+C11Ux+vKvWpwTchhGUiay3eTi21H5jPAjCBLAd+WhV2Mte
+	DFDjx3E75U7kRXFm05PEoE+Kgbn3Iirjb9wcUDume61YipwSTJ+EkDOxjT0BariwHgdT0ygRvTtqA
+	nFAkqHC5VXnAwP4nK4nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDilZ-00HRoH-1f;
-	Thu, 14 Dec 2023 10:16:29 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1rDila-00HRqN-34;
+	Thu, 14 Dec 2023 10:16:30 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDilG-00HRSg-3B
+	id 1rDilI-00HRQg-0I
 	for linux-riscv@lists.infradead.org;
 	Thu, 14 Dec 2023 10:16:16 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3333074512bso225292f8f.1
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Dec 2023 02:16:10 -0800 (PST)
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-33646500f1aso508395f8f.1
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Dec 2023 02:16:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1702548969; x=1703153769; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1702548968; x=1703153768; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=qpfMMaVnqzUKTZ+jKcmqIbb/qIkXcAgoT0iTzjOxQ48=;
-        b=VNt2mgHiw3hDWArPu5PiPXpdzuExNna1Cay4bpsgGZxE5/o1Nt/pQqx21jktcrU60d
-         U7tTBQ5gG4SVXNlcEjUWaXWNp41a7r7U2c2GtsWky9FoCkLKmVt0u0PhVOagIHeiTS5R
-         Jtz7u75KduRhx5syhf/PcT8XwC7FgKZyKOKoEzOOJe6SDJWqxU8u8P58tj8J1SbLFaqt
-         FX9qnh+xkMJljvABUoPehf0IUQXX5OwhsXHfuN43o03jqEf71P0fHk0+N/8ryZJGfgRq
-         eCVtvrSGs1CyTCZO9gH41TU7WuUckcdrut4r4ARSBb91Do83XSP0C0zQlvfy3qkhpD75
-         aFMg==
+        bh=tHgnsxYfxbVMyX3m0HtccyvAeuvvFGofY8I7vS+QRNk=;
+        b=cm7YxAuryY5/cXofiiLmvlo+a+G9LiE4NbXdfFYkLzYzHLEnR4FJMvWhmUifc2YjSm
+         6/0XKRUyMIlcKzuuL6MqHKu7i8mYz9upnVmzZZ6QIPc44k15TKrlhgh+1wcs6EEK9+bT
+         UN4o79pW8t1aQyu6s04/7tuYDf7ulnj+HvBmahclLKTLuC9EWDmf9kcCAJhKyU01Z7TH
+         x8vxzN/juyGsU756loLiOKOcrGSOnR462jaos4JBOyTXGabw2/9b9S/6FcS6GKVxWx/r
+         wVnehDV4llUoVmR3hKkb6D74Cgk9yQLl2f8kK4EsKQZyKCZZR8bHJujQyqEo789CngTm
+         9gzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702548969; x=1703153769;
+        d=1e100.net; s=20230601; t=1702548968; x=1703153768;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=qpfMMaVnqzUKTZ+jKcmqIbb/qIkXcAgoT0iTzjOxQ48=;
-        b=N5CndTy/E4aQIBRK8s1SWfxZwdHeIU5bkqjKK+TEQ3Lmy/1x6KkNI3m9Kfvk292Vkz
-         uFXT5oxQenRWcmpxBHcxkbN1lNnQSqc8aAISJG1aJnqOHbgaXelBTTJJ6wEvhf1QLNl2
-         VqrF41wrdX0lU0yJ1BEZ27TvSC41okt1B6WBOLZ39yudnC4GT+fSL1Azg8CExkge0ZTX
-         IXOG9EL+xck5KyBcYZSlbNoF0XsEaDmeyjOdtxp/syDc8/k3L9S1JMQTUPA6XiA9tdJd
-         I0LteXrIghGNd1Z3gcpkI6UVso3Vw8Uam9uhV45r7GU43tWtP/gYLole5QG3MlUrouWf
-         31OA==
-X-Gm-Message-State: AOJu0YxmrvEbJrOJ7uVB046ceqBnRBXMylIa/+A84LaNoOLKml0qoMYG
-	prx0FY+A47Y9qy8JrcTuQavvEA==
-X-Google-Smtp-Source: AGHT+IH8xl+ijX8dy/fYqdeXj3sDdM1Fx/56Gx0qIx0bsNCFGogCneF0tpSFuyBW40lufrw2yTA12w==
-X-Received: by 2002:a05:600c:4511:b0:40c:2d0c:a3ca with SMTP id t17-20020a05600c451100b0040c2d0ca3camr4996515wmo.89.1702548969712;
-        Thu, 14 Dec 2023 02:16:09 -0800 (PST)
+        bh=tHgnsxYfxbVMyX3m0HtccyvAeuvvFGofY8I7vS+QRNk=;
+        b=MeFqIftOOCtqH9b7EVOJhwR0rqYB/oHZhLyBoLS3EY8vFDur3PNUetzLirJfqrRxUO
+         NRN5DHur3k7UNRAXLIzJLcfWQ5Lq0Fx0syxkGm0QUPwQQ0NaAstjW8scHMkmfIl+aRab
+         Vrvh2/DCuZQuAWy+yxqiqWt45vTViNTPuyn6TW26RDbwltlOj0bxQTLpwydDjcQ26U+K
+         pPLzzjTgvtBE0oEozX5aFRED9InEqc492U+ulW1ec8SewZhjTw+XlHtg3WZCReHTwWBe
+         CjbGO61zSvKJ6ixoxjpmKfBHO+UGRC6VC00khVOKB3j+7UAnvLyo/pY7IaNGDqWN2YCE
+         M2Mg==
+X-Gm-Message-State: AOJu0YyZhsDgJWN4kStqhZI/R5JKunGXl9U6PXhlqQvwA+CK0MiJpMGy
+	QK2GtHYFiks+EzI8mCqcR97V9g==
+X-Google-Smtp-Source: AGHT+IFK7EzLkSeVAeCsSbYgg462lJQa7nX7hRuOXjYRawScJxweAERIujFIU30qoQ/mOIpaXLOMxw==
+X-Received: by 2002:a5d:464e:0:b0:336:3572:a1a8 with SMTP id j14-20020a5d464e000000b003363572a1a8mr1519890wrs.114.1702548968253;
+        Thu, 14 Dec 2023 02:16:08 -0800 (PST)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id v9-20020a05600c470900b0040c4acaa4bfsm13075586wmo.19.2023.12.14.02.16.09
+        by smtp.gmail.com with ESMTPSA id k12-20020adfb34c000000b003333b67f58csm195794wrd.48.2023.12.14.02.16.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Dec 2023 02:16:09 -0800 (PST)
+        Thu, 14 Dec 2023 02:16:07 -0800 (PST)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
@@ -76,16 +76,16 @@ Cc: anup@brainfault.org,
 	srivatsa@csail.mit.edu,
 	guoren@kernel.org,
 	conor.dooley@microchip.com
-Subject: [PATCH v2 11/13] RISC-V: KVM: selftests: Add guest_sbi_probe_extension
-Date: Thu, 14 Dec 2023 11:16:03 +0100
-Message-ID: <20231214101552.100721-26-ajones@ventanamicro.com>
+Subject: [PATCH v2 10/13] RISC-V: KVM: selftests: Move sbi_ecall to processor.c
+Date: Thu, 14 Dec 2023 11:16:02 +0100
+Message-ID: <20231214101552.100721-25-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20231214101552.100721-15-ajones@ventanamicro.com>
 References: <20231214101552.100721-15-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231214_021611_136413_07CBE6B0 
-X-CRM114-Status: UNSURE (   9.10  )
+X-CRM114-CacheID: sfid-20231214_021612_171035_B503D4E6 
+X-CRM114-Status: UNSURE (   9.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,90 +103,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add guest_sbi_probe_extension(), allowing guest code to probe for
-SBI extensions. As guest_sbi_probe_extension() needs
-SBI_ERR_NOT_SUPPORTED, take the opportunity to bring in all SBI
-error codes. We don't bring in all current extension IDs or base
-extension function IDs though, even though we need one of each,
-because we'd prefer to bring those in as necessary.
+sbi_ecall() isn't ucall specific and its prototype is already in
+processor.h. Move its implementation to processor.c.
 
 Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- .../selftests/kvm/include/riscv/processor.h   | 21 +++++++++++++++++++
- .../selftests/kvm/lib/riscv/processor.c       | 19 +++++++++++++++++
- 2 files changed, 40 insertions(+)
+ .../selftests/kvm/lib/riscv/processor.c       | 26 +++++++++++++++++++
+ tools/testing/selftests/kvm/lib/riscv/ucall.c | 26 -------------------
+ 2 files changed, 26 insertions(+), 26 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
-index e70ccda2011b..dc50ad62e150 100644
---- a/tools/testing/selftests/kvm/include/riscv/processor.h
-+++ b/tools/testing/selftests/kvm/include/riscv/processor.h
-@@ -108,6 +108,17 @@ static inline uint64_t __kvm_reg_id(uint64_t type, uint64_t subtype,
- #define SATP_ASID_SHIFT				44
- #define SATP_ASID_MASK				_AC(0xFFFF, UL)
- 
-+/* SBI return error codes */
-+#define SBI_SUCCESS				0
-+#define SBI_ERR_FAILURE				-1
-+#define SBI_ERR_NOT_SUPPORTED			-2
-+#define SBI_ERR_INVALID_PARAM			-3
-+#define SBI_ERR_DENIED				-4
-+#define SBI_ERR_INVALID_ADDRESS			-5
-+#define SBI_ERR_ALREADY_AVAILABLE		-6
-+#define SBI_ERR_ALREADY_STARTED			-7
-+#define SBI_ERR_ALREADY_STOPPED			-8
-+
- #define SBI_EXT_EXPERIMENTAL_START		0x08000000
- #define SBI_EXT_EXPERIMENTAL_END		0x08FFFFFF
- 
-@@ -115,6 +126,14 @@ static inline uint64_t __kvm_reg_id(uint64_t type, uint64_t subtype,
- #define KVM_RISCV_SELFTESTS_SBI_UCALL		0
- #define KVM_RISCV_SELFTESTS_SBI_UNEXP		1
- 
-+enum sbi_ext_id {
-+	SBI_EXT_BASE = 0x10,
-+};
-+
-+enum sbi_ext_base_fid {
-+	SBI_EXT_BASE_PROBE_EXT = 3,
-+};
-+
- struct sbiret {
- 	long error;
- 	long value;
-@@ -125,4 +144,6 @@ struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
- 			unsigned long arg3, unsigned long arg4,
- 			unsigned long arg5);
- 
-+bool guest_sbi_probe_extension(int extid, long *out_val);
-+
- #endif /* SELFTEST_KVM_PROCESSOR_H */
 diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
-index 6905a4348380..7ca736fb4194 100644
+index 6c25f7843ef4..6905a4348380 100644
 --- a/tools/testing/selftests/kvm/lib/riscv/processor.c
 +++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
-@@ -393,3 +393,22 @@ struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
- 
- 	return ret;
+@@ -367,3 +367,29 @@ void vcpu_args_set(struct kvm_vcpu *vcpu, unsigned int num, ...)
+ void assert_on_unhandled_exception(struct kvm_vcpu *vcpu)
+ {
  }
 +
-+bool guest_sbi_probe_extension(int extid, long *out_val)
++struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
++			unsigned long arg1, unsigned long arg2,
++			unsigned long arg3, unsigned long arg4,
++			unsigned long arg5)
 +{
++	register uintptr_t a0 asm ("a0") = (uintptr_t)(arg0);
++	register uintptr_t a1 asm ("a1") = (uintptr_t)(arg1);
++	register uintptr_t a2 asm ("a2") = (uintptr_t)(arg2);
++	register uintptr_t a3 asm ("a3") = (uintptr_t)(arg3);
++	register uintptr_t a4 asm ("a4") = (uintptr_t)(arg4);
++	register uintptr_t a5 asm ("a5") = (uintptr_t)(arg5);
++	register uintptr_t a6 asm ("a6") = (uintptr_t)(fid);
++	register uintptr_t a7 asm ("a7") = (uintptr_t)(ext);
 +	struct sbiret ret;
 +
-+	ret = sbi_ecall(SBI_EXT_BASE, SBI_EXT_BASE_PROBE_EXT, extid,
-+			0, 0, 0, 0, 0);
++	asm volatile (
++		"ecall"
++		: "+r" (a0), "+r" (a1)
++		: "r" (a2), "r" (a3), "r" (a4), "r" (a5), "r" (a6), "r" (a7)
++		: "memory");
++	ret.error = a0;
++	ret.value = a1;
 +
-+	__GUEST_ASSERT(!ret.error || ret.error == SBI_ERR_NOT_SUPPORTED,
-+		       "ret.error=%ld, ret.value=%ld\n", ret.error, ret.value);
-+
-+	if (ret.error == SBI_ERR_NOT_SUPPORTED)
-+		return false;
-+
-+	if (out_val)
-+		*out_val = ret.value;
-+
-+	return true;
++	return ret;
 +}
+diff --git a/tools/testing/selftests/kvm/lib/riscv/ucall.c b/tools/testing/selftests/kvm/lib/riscv/ucall.c
+index fe6d1004f018..14ee17151a59 100644
+--- a/tools/testing/selftests/kvm/lib/riscv/ucall.c
++++ b/tools/testing/selftests/kvm/lib/riscv/ucall.c
+@@ -10,32 +10,6 @@
+ #include "kvm_util.h"
+ #include "processor.h"
+ 
+-struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
+-			unsigned long arg1, unsigned long arg2,
+-			unsigned long arg3, unsigned long arg4,
+-			unsigned long arg5)
+-{
+-	register uintptr_t a0 asm ("a0") = (uintptr_t)(arg0);
+-	register uintptr_t a1 asm ("a1") = (uintptr_t)(arg1);
+-	register uintptr_t a2 asm ("a2") = (uintptr_t)(arg2);
+-	register uintptr_t a3 asm ("a3") = (uintptr_t)(arg3);
+-	register uintptr_t a4 asm ("a4") = (uintptr_t)(arg4);
+-	register uintptr_t a5 asm ("a5") = (uintptr_t)(arg5);
+-	register uintptr_t a6 asm ("a6") = (uintptr_t)(fid);
+-	register uintptr_t a7 asm ("a7") = (uintptr_t)(ext);
+-	struct sbiret ret;
+-
+-	asm volatile (
+-		"ecall"
+-		: "+r" (a0), "+r" (a1)
+-		: "r" (a2), "r" (a3), "r" (a4), "r" (a5), "r" (a6), "r" (a7)
+-		: "memory");
+-	ret.error = a0;
+-	ret.value = a1;
+-
+-	return ret;
+-}
+-
+ void *ucall_arch_get_ucall(struct kvm_vcpu *vcpu)
+ {
+ 	struct kvm_run *run = vcpu->run;
 -- 
 2.43.0
 
