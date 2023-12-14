@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87887C4167D
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Dec 2023 07:30:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E980C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Dec 2023 07:30:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e9tYAIsIYkkF6XEsT6G3zRybMUFw9+K2mSo98pp3CxI=; b=V+frbM1wayyyHp
-	A40OfPmEqxXIZ0oqBd1UpV5NapFtmemw6XfvMUgrGmYxhVQlWq7ZBTC7krqPFwg1dYtB/ibfEZCGx
-	GvAIz9/5CLMsN1E3BunwAy1u/BQDjB9s3lC+/aMwhllggTn6RZ7B/+pph/475q1ZYgpQOqyjMku07
-	LXigYG1OIFzaSfaWRQyAkCY6jRAjY0fHs7QekK095sYJHxRrXxkdXDcp8f0EGY3aLVWWj5hW/4dg3
-	m7HtmTkIpjjNq7KXzLzTE+oPAkeB3014KsGWrFAEPsVQbWAk16DK/W80jWhzzyayNiZnsfJgcF41y
-	72kRWUfRxWbciGvvHd+w==;
+	List-Owner; bh=hv4KT1NxVjDrC4YGk9zcZVgHuHzAwrzJ+YF1teIJhIU=; b=hTZfwrlM9R56tV
+	m7fXCySbuIM/Uwmog9Anx8eEBL8RG03XcSbMautgMH80oXiV0vh8APs0YmFsKWPvE8C17qmuRk4iX
+	9LOsBsxHAvDLNkyNtFpbYO2xYFDIEHQOFDzq4WhI/wVO1K4UOgMJfKQH58q7JARn3padpRPnYmnry
+	q+Kb+54YnKYnjToqV+WghaiQh+QaYUQ8yAdVC5bQFpsKJ5hHRuOL+UfyS5v6Qlvx2O3SyfymLzYSK
+	zd47UI3v/0VxwsdO1npAldG5a05kZwK8Sa9QTjshwPEGJgDFABIvCyPZiaYsn9djQ+PXzgRQaZXGG
+	kUBbPHrS/MtTiGbjHipw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDgAV-00H6WY-12;
-	Thu, 14 Dec 2023 07:30:03 +0000
+	id 1rDgAZ-00H6bp-2u;
+	Thu, 14 Dec 2023 07:30:07 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDgAL-00H6Iw-0A
+	id 1rDgAL-00H6Iv-0B
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Dec 2023 07:29:55 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Thu, 14 Dec 2023 07:29:56 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id DE46324E2F2;
-	Thu, 14 Dec 2023 15:29:46 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 14 Dec
- 2023 15:29:46 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id BBB1624E30E;
+	Thu, 14 Dec 2023 15:29:41 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 14 Dec
+ 2023 15:29:41 +0800
 Received: from ubuntu.localdomain (113.72.145.168) by EXMBX171.cuchost.com
  (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 14 Dec
- 2023 15:29:41 +0800
+ 2023 15:29:38 +0800
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Conor Dooley <conor@kernel.org>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?=
 	<kw@linux.com>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
@@ -52,9 +52,9 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
 	<minda.chen@starfivetech.com>
-Subject: [PATCH v13 18/21] dt-bindings: PCI: Add StarFive JH7110 PCIe controller
-Date: Thu, 14 Dec 2023 15:28:36 +0800
-Message-ID: <20231214072839.2367-19-minda.chen@starfivetech.com>
+Subject: [PATCH v13 17/21] PCI: plda: Add host init/deinit and map bus functions
+Date: Thu, 14 Dec 2023 15:28:35 +0800
+Message-ID: <20231214072839.2367-18-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20231214072839.2367-1-minda.chen@starfivetech.com>
 References: <20231214072839.2367-1-minda.chen@starfivetech.com>
@@ -64,8 +64,8 @@ X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX171.cuchost.com
  (172.16.6.91)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231213_232953_400537_46E80394 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20231213_232953_400753_A4C68685 
+X-CRM114-Status: GOOD (  21.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,144 +82,271 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add StarFive JH7110 SoC PCIe controller dt-bindings. JH7110 using PLDA
-XpressRICH PCIe host controller IP.
+Add PLDA host plda_pcie_host_init()/plda_pcie_host_deinit() and map bus
+function. So vendor can use it to init PLDA PCIe host core.
+
+Add struct plda_event instance to init PCIe interrupt.
 
 Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Rob Herring <robh@kernel.org>
+Reviewed-by: Mason Huo <mason.huo@starfivetech.com>
 ---
- .../bindings/pci/starfive,jh7110-pcie.yaml    | 120 ++++++++++++++++++
- 1 file changed, 120 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
+ drivers/pci/controller/plda/pcie-plda-host.c | 134 +++++++++++++++++--
+ drivers/pci/controller/plda/pcie-plda.h      |  21 +++
+ 2 files changed, 142 insertions(+), 13 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml b/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
-new file mode 100644
-index 000000000000..67151aaa3948
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
-@@ -0,0 +1,120 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pci/starfive,jh7110-pcie.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/pci/controller/plda/pcie-plda-host.c b/drivers/pci/controller/plda/pcie-plda-host.c
+index 3cba58a37093..53a9bef353a3 100644
+--- a/drivers/pci/controller/plda/pcie-plda-host.c
++++ b/drivers/pci/controller/plda/pcie-plda-host.c
+@@ -3,6 +3,7 @@
+  * PLDA PCIe XpressRich host controller driver
+  *
+  * Copyright (C) 2023 Microchip Co. Ltd
++ *		      StarFive Co. Ltd
+  *
+  * Author: Daire McNamara <daire.mcnamara@microchip.com>
+  */
+@@ -18,6 +19,15 @@
+ 
+ #include "pcie-plda.h"
+ 
++void __iomem *plda_pcie_map_bus(struct pci_bus *bus, unsigned int devfn,
++				int where)
++{
++	struct plda_pcie_rp *pcie = bus->sysdata;
 +
-+title: StarFive JH7110 PCIe host controller
++	return pcie->config_base + PCIE_ECAM_OFFSET(bus->number, devfn, where);
++}
++EXPORT_SYMBOL_GPL(plda_pcie_map_bus);
 +
-+maintainers:
-+  - Kevin Xie <kevin.xie@starfivetech.com>
+ static void plda_handle_msi(struct irq_desc *desc)
+ {
+ 	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
+@@ -375,6 +385,11 @@ static const struct irq_domain_ops plda_event_domain_ops = {
+ 	.map = plda_pcie_event_map,
+ };
+ 
++static const struct plda_event plda_default_event = {
++	.intx_event = EVENT_PM_MSI_INT_INTX,
++	.msi_event  = EVENT_PM_MSI_INT_MSI
++};
 +
-+allOf:
-+  - $ref: plda,xpressrich3-axi-common.yaml#
+ static int plda_pcie_init_irq_domains(struct plda_pcie_rp *port)
+ {
+ 	struct device *dev = port->dev;
+@@ -421,8 +436,7 @@ int plda_init_interrupts(struct platform_device *pdev,
+ 			 const struct plda_event *event)
+ {
+ 	struct device *dev = &pdev->dev;
+-	int irq;
+-	int i, intx_irq, msi_irq, event_irq;
++	int i, event_irq;
+ 	int ret;
+ 
+ 	if (!port->event_ops)
+@@ -437,8 +451,8 @@ int plda_init_interrupts(struct platform_device *pdev,
+ 		return ret;
+ 	}
+ 
+-	irq = platform_get_irq(pdev, 0);
+-	if (irq < 0)
++	port->irq = platform_get_irq(pdev, 0);
++	if (port->irq < 0)
+ 		return -ENODEV;
+ 
+ 	for (i = 0; i < port->num_events; i++) {
+@@ -461,26 +475,26 @@ int plda_init_interrupts(struct platform_device *pdev,
+ 		}
+ 	}
+ 
+-	intx_irq = irq_create_mapping(port->event_domain,
+-				      event->intx_event);
+-	if (!intx_irq) {
++	port->intx_irq = irq_create_mapping(port->event_domain,
++					    event->intx_event);
++	if (!port->intx_irq) {
+ 		dev_err(dev, "failed to map INTx interrupt\n");
+ 		return -ENXIO;
+ 	}
+ 
+ 	/* Plug the INTx chained handler */
+-	irq_set_chained_handler_and_data(intx_irq, plda_handle_intx, port);
++	irq_set_chained_handler_and_data(port->intx_irq, plda_handle_intx, port);
+ 
+-	msi_irq = irq_create_mapping(port->event_domain,
+-				     event->msi_event);
+-	if (!msi_irq)
++	port->msi_irq = irq_create_mapping(port->event_domain,
++					   event->msi_event);
++	if (!port->msi_irq)
+ 		return -ENXIO;
+ 
+ 	/* Plug the MSI chained handler */
+-	irq_set_chained_handler_and_data(msi_irq, plda_handle_msi, port);
++	irq_set_chained_handler_and_data(port->msi_irq, plda_handle_msi, port);
+ 
+ 	/* Plug the main event chained handler */
+-	irq_set_chained_handler_and_data(irq, plda_handle_event, port);
++	irq_set_chained_handler_and_data(port->irq, plda_handle_event, port);
+ 
+ 	return 0;
+ }
+@@ -546,3 +560,97 @@ int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
+ 	return 0;
+ }
+ EXPORT_SYMBOL_GPL(plda_pcie_setup_iomems);
 +
-+properties:
-+  compatible:
-+    const: starfive,jh7110-pcie
++static void plda_pcie_irq_domain_deinit(struct plda_pcie_rp *pcie)
++{
++	irq_set_chained_handler_and_data(pcie->irq, NULL, NULL);
++	irq_set_chained_handler_and_data(pcie->msi_irq, NULL, NULL);
++	irq_set_chained_handler_and_data(pcie->intx_irq, NULL, NULL);
 +
-+  clocks:
-+    items:
-+      - description: NOC bus clock
-+      - description: Transport layer clock
-+      - description: AXI MST0 clock
-+      - description: APB clock
++	irq_domain_remove(pcie->msi.msi_domain);
++	irq_domain_remove(pcie->msi.dev_domain);
 +
-+  clock-names:
-+    items:
-+      - const: noc
-+      - const: tl
-+      - const: axi_mst0
-+      - const: apb
++	irq_domain_remove(pcie->intx_domain);
++	irq_domain_remove(pcie->event_domain);
++}
 +
-+  resets:
-+    items:
-+      - description: AXI MST0 reset
-+      - description: AXI SLAVE0 reset
-+      - description: AXI SLAVE reset
-+      - description: PCIE BRIDGE reset
-+      - description: PCIE CORE reset
-+      - description: PCIE APB reset
++int plda_pcie_host_init(struct plda_pcie_rp *port, struct pci_ops *ops)
++{
++	struct device *dev = port->dev;
++	struct pci_host_bridge *bridge;
++	struct platform_device *pdev = to_platform_device(dev);
++	struct resource *cfg_res;
++	int ret;
 +
-+  reset-names:
-+    items:
-+      - const: mst0
-+      - const: slv0
-+      - const: slv
-+      - const: brg
-+      - const: core
-+      - const: apb
++	pdev = to_platform_device(dev);
 +
-+  starfive,stg-syscon:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    description:
-+      The phandle to System Register Controller syscon node.
++	port->bridge_addr =
++		devm_platform_ioremap_resource_byname(pdev, "apb");
 +
-+  perst-gpios:
-+    description: GPIO controlled connection to PERST# signal
-+    maxItems: 1
++	if (IS_ERR(port->bridge_addr))
++		return dev_err_probe(dev, PTR_ERR(port->bridge_addr),
++				     "failed to map reg memory\n");
 +
-+  phys:
-+    description:
-+      Specified PHY is attached to PCIe controller.
-+    maxItems: 1
++	cfg_res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "cfg");
++	if (!cfg_res)
++		return dev_err_probe(dev, -ENODEV,
++				     "failed to get config memory\n");
 +
-+required:
-+  - clocks
-+  - resets
-+  - starfive,stg-syscon
++	port->config_base = devm_ioremap_resource(dev, cfg_res);
++	if (IS_ERR(port->config_base))
++		return dev_err_probe(dev, PTR_ERR(port->config_base),
++				     "failed to map config memory\n");
 +
-+unevaluatedProperties: false
++	bridge = devm_pci_alloc_host_bridge(dev, 0);
++	if (!bridge)
++		return dev_err_probe(dev, -ENOMEM,
++				     "failed to alloc bridge\n");
 +
-+examples:
-+  - |
-+    #include <dt-bindings/gpio/gpio.h>
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
++	if (port->host_ops && port->host_ops->host_init) {
++		ret = port->host_ops->host_init(port);
++		if (ret)
++			return ret;
++	}
 +
-+        pcie@940000000 {
-+            compatible = "starfive,jh7110-pcie";
-+            reg = <0x9 0x40000000 0x0 0x10000000>,
-+                  <0x0 0x2b000000 0x0 0x1000000>;
-+            reg-names = "cfg", "apb";
-+            #address-cells = <3>;
-+            #size-cells = <2>;
-+            #interrupt-cells = <1>;
-+            device_type = "pci";
-+            ranges = <0x82000000  0x0 0x30000000  0x0 0x30000000 0x0 0x08000000>,
-+                     <0xc3000000  0x9 0x00000000  0x9 0x00000000 0x0 0x40000000>;
-+            starfive,stg-syscon = <&stg_syscon>;
-+            bus-range = <0x0 0xff>;
-+            interrupt-parent = <&plic>;
-+            interrupts = <56>;
-+            interrupt-map-mask = <0x0 0x0 0x0 0x7>;
-+            interrupt-map = <0x0 0x0 0x0 0x1 &pcie_intc0 0x1>,
-+                            <0x0 0x0 0x0 0x2 &pcie_intc0 0x2>,
-+                            <0x0 0x0 0x0 0x3 &pcie_intc0 0x3>,
-+                            <0x0 0x0 0x0 0x4 &pcie_intc0 0x4>;
-+            msi-controller;
-+            clocks = <&syscrg 86>,
-+                     <&stgcrg 10>,
-+                     <&stgcrg 8>,
-+                     <&stgcrg 9>;
-+            clock-names = "noc", "tl", "axi_mst0", "apb";
-+            resets = <&stgcrg 11>,
-+                     <&stgcrg 12>,
-+                     <&stgcrg 13>,
-+                     <&stgcrg 14>,
-+                     <&stgcrg 15>,
-+                     <&stgcrg 16>;
-+            perst-gpios = <&gpios 26 GPIO_ACTIVE_LOW>;
-+            phys = <&pciephy0>;
++	port->bridge = bridge;
++	plda_pcie_setup_window(port->bridge_addr, 0, cfg_res->start, 0,
++			       resource_size(cfg_res));
++	plda_pcie_setup_iomems(bridge, port);
++	plda_set_default_msi(&port->msi);
++	ret = plda_init_interrupts(pdev, port, &plda_default_event);
++	if (ret)
++		goto err_host;
 +
-+            pcie_intc0: interrupt-controller {
-+                #address-cells = <0>;
-+                #interrupt-cells = <1>;
-+                interrupt-controller;
-+            };
-+        };
-+    };
++	/* Set default bus ops */
++	bridge->ops = ops;
++	bridge->sysdata = port;
++
++	ret = pci_host_probe(bridge);
++	if (ret < 0) {
++		dev_err_probe(dev, ret, "failed to probe pci host\n");
++		goto err_probe;
++	}
++
++	return ret;
++
++err_probe:
++	plda_pcie_irq_domain_deinit(port);
++err_host:
++	if (port->host_ops && port->host_ops->host_deinit)
++		port->host_ops->host_deinit(port);
++
++	return ret;
++}
++EXPORT_SYMBOL_GPL(plda_pcie_host_init);
++
++void plda_pcie_host_deinit(struct plda_pcie_rp *port)
++{
++	pci_stop_root_bus(port->bridge->bus);
++	pci_remove_root_bus(port->bridge->bus);
++
++	plda_pcie_irq_domain_deinit(port);
++
++	if (port->host_ops && port->host_ops->host_deinit)
++		port->host_ops->host_deinit(port);
++}
++EXPORT_SYMBOL_GPL(plda_pcie_host_deinit);
+diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
+index fecef389d6cc..fd2e464552a9 100644
+--- a/drivers/pci/controller/plda/pcie-plda.h
++++ b/drivers/pci/controller/plda/pcie-plda.h
+@@ -136,6 +136,11 @@ struct plda_event_ops {
+ 	u32 (*get_events)(struct plda_pcie_rp *pcie);
+ };
+ 
++struct plda_pcie_host_ops {
++	int (*host_init)(struct plda_pcie_rp *pcie);
++	void (*host_deinit)(struct plda_pcie_rp *pcie);
++};
++
+ struct plda_msi {
+ 	struct mutex lock;		/* Protect used bitmap */
+ 	struct irq_domain *msi_domain;
+@@ -147,13 +152,19 @@ struct plda_msi {
+ 
+ struct plda_pcie_rp {
+ 	struct device *dev;
++	struct pci_host_bridge *bridge;
+ 	struct irq_domain *intx_domain;
+ 	struct irq_domain *event_domain;
+ 	raw_spinlock_t lock;
+ 	struct plda_msi msi;
+ 	const struct plda_event_ops *event_ops;
+ 	const struct irq_chip *event_irq_chip;
++	const struct plda_pcie_host_ops *host_ops;
+ 	void __iomem *bridge_addr;
++	void __iomem *config_base;
++	int irq;
++	int msi_irq;
++	int intx_irq;
+ 	int num_events;
+ };
+ 
+@@ -164,6 +175,8 @@ struct plda_event {
+ 	int msi_event;
+ };
+ 
++void __iomem *plda_pcie_map_bus(struct pci_bus *bus, unsigned int devfn,
++				int where);
+ int plda_init_interrupts(struct platform_device *pdev,
+ 			 struct plda_pcie_rp *port,
+ 			 const struct plda_event *event);
+@@ -172,4 +185,12 @@ void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+ 			    size_t size);
+ int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
+ 			   struct plda_pcie_rp *port);
++int plda_pcie_host_init(struct plda_pcie_rp *pcie, struct pci_ops *ops);
++void plda_pcie_host_deinit(struct plda_pcie_rp *pcie);
++
++static inline void plda_set_default_msi(struct plda_msi *msi)
++{
++	msi->vector_phy = IMSI_ADDR;
++	msi->num_vectors = PLDA_MAX_NUM_MSI_IRQS;
++}
+ #endif
 -- 
 2.17.1
 
