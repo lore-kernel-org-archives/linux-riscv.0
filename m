@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 643B7C4167D
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Dec 2023 14:12:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA8C8C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Dec 2023 14:14:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I7GeGFMnnmo7VQXyRgyVhfZnmRApiBDch6GDT3Ncbug=; b=kMQd3Qs9RgX8BV9Jqvyf3KPUGg
-	aGpqOh6rwukisZc92fxBwUlof/5Pa62eQY0dJpuP664xzekRx6lrpShU23Bzp5uNl9wMvFAB3mRDy
-	6d7Y29XWXziYJdgN3WLSDGxUmtB1TLzFRBtApNhnyQeBcZyJtf3OV74JpJu7kTtjUaVPgk1dOb6J6
-	ajxnVPCPi4vNd0o/Z3OXNe80oObBE1JzDK/diybhLjwFMYjULJHJ6JR1apT/4o+XWCuCmR77OfZgY
-	+GMjIPP1iUpiEGCyKL2iQ8myukoFnxIRCVGmugvuu3rSq9AfFDt8uk3sUI8o8ej92zaRAxgB3wzwk
-	jSk9PGqg==;
+	bh=e64h2ZvkLWJEf4ipW2FxuOSLlafAY28vpHinPxbYMq0=; b=CpqobcNzGcGrrcgbpF/y3nzCuP
+	MurnQa7vpGJK/0TYgEHL2c9irg1TmQGaIAHTK6EVaEKxX8Ua6ow9ZSt//BD7JcV759Zwgsk7aBkV6
+	MtRbX/mc+oEB9sk4aB2IG3k+GGTCBn1aojEN4WnwBlQLKXe8QdOXtolMP2Gf2RPC8nr2Y/NfVyHwK
+	cuZuP+0Ilz2PCejAQRrS/Y6OoQ5Jvfns+S97wqyvT3ZfNbkA6ARsfBukCPenOKSvjqV51+nqrYdI/
+	KnxBCgfRIPqsWas/6ge+TGdY5i77+BrKxzJ26hzACmmNRq1dv9jlpGJnKJ0i46RVJaubCJ9qd7KHG
+	IDgQ2/Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDmRr-000Vtf-0i;
-	Thu, 14 Dec 2023 14:12:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rDmUG-000WDi-30;
+	Thu, 14 Dec 2023 14:14:52 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDmRo-000Vs5-2F
+	id 1rDmUD-000WCm-2W
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Dec 2023 14:12:21 +0000
+	Thu, 14 Dec 2023 14:14:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2F7C06228F;
-	Thu, 14 Dec 2023 14:12:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94130C433C7;
-	Thu, 14 Dec 2023 14:12:17 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id D4ECECE171C;
+	Thu, 14 Dec 2023 14:14:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A585C433C8;
+	Thu, 14 Dec 2023 14:14:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1702563140;
-	bh=kURWfUajABccOzK2w+kJIDkLS9dQkFuhmyqOgcPhtJQ=;
+	s=k20201202; t=1702563286;
+	bh=wkD8ZyahJypOO+5Crrc5pRGXWHc7YtwbESGjV16riik=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Hvw/RmvahaG+vJo5uCzSEKnmWfsd+/U85LYZrRyvzhp6UKXlQ1yeeAuNFUnNwVRX4
-	 faMVtWMdLfoiMbxF2UrVXJY9j5g7EGRj7vjWzPlvOd2/qJfcweIVDO/Zav9+pTLVT5
-	 KD9paXFbuWHEl+qO3p45SWuYLD4ikogILu6GXApdBVB3b7LGz3QfULj3y0C6minr8W
-	 TEqF32ejdsEb5MVuzWSx5I/PQQWzAxr3yu4zHXFIhLcpf/SiRDrb0ZZDGOXDtxCVWO
-	 7tHe8IfSwKq/MQZZJt9moqTupXXNYjs5Iy82kL20rZlpRIwJ1lfr3BYJduNqMklMU+
-	 u0vlaMrAMT8rg==
-Date: Thu, 14 Dec 2023 14:12:15 +0000
+	b=fS8GBBui8fZG3+8f96qcY5IMX4PbMPLMqMTEUT0/VtNCuTGZirBDWHhvfaObxmfmf
+	 uXTfnJlGSsnXI46ykxNASlGPQsIbKbbbzI3t7JUcbzUBOGtz4qNeJBBjf8xQpHQlOe
+	 ASWuCCq4XDCftqZJpSYHukyrQdTSr07b/N+gdGGm06BsREXW4HNJc7Derg9wy4y0Z2
+	 Hq0apk2UQkbluBLX7a2qig7SXJsf4RTYCPQ6Fm9iOzf1uydqGQ8hmf1cv/Lv/P5GNO
+	 JlkliiUv3RV9P3/iiJdko72B3V2ndILpT+BJtCcVEgpYLXan57PZWg8NXn/XXqzHY+
+	 ZdWkWYrNU5/FQ==
+Date: Thu, 14 Dec 2023 14:14:41 +0000
 From: Conor Dooley <conor@kernel.org>
 To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
 Cc: linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
@@ -53,17 +53,15 @@ Cc: linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
 	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Robbin Ehn <rehn@rivosinc.com>
-Subject: Re: [PATCH 6/9] dt-bindings: riscv: add Zacas ISA extension
- description
-Message-ID: <20231214-plywood-little-4fc5f6866938@spud>
+Subject: Re: [PATCH 4/9] riscv: add ISA extension parsing for Zam
+Message-ID: <20231214-acts-udder-37d0162e4f61@spud>
 References: <20231213113308.133176-1-cleger@rivosinc.com>
- <20231213113308.133176-7-cleger@rivosinc.com>
+ <20231213113308.133176-5-cleger@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20231213113308.133176-7-cleger@rivosinc.com>
+In-Reply-To: <20231213113308.133176-5-cleger@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231214_061220_777146_471BE57C 
-X-CRM114-Status: UNSURE (   7.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231214_061450_007019_CAB8E050 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,47 +73,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3669356129647026705=="
+Content-Type: multipart/mixed; boundary="===============4768033785395460122=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============3669356129647026705==
+--===============4768033785395460122==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="WsH5yL1is2A3wdVm"
+	protocol="application/pgp-signature"; boundary="WZWs6NLSd1UVh/cf"
 Content-Disposition: inline
 
 
---WsH5yL1is2A3wdVm
+--WZWs6NLSd1UVh/cf
 Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Dec 13, 2023 at 12:33:02PM +0100, Cl=E9ment L=E9ger wrote:
-> Add description for the Zacas ISA extension which was ratified recently.
->=20
-> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
+On Wed, Dec 13, 2023 at 12:33:00PM +0100, Cl=E9ment L=E9ger wrote:
+> Add parsing for Zam ISA extension which is part of the riscv-isa manual
+> but was not added to ISA parsing up to now.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+This does not appear to be frozen or ratified, NAK.
 
 Cheers,
 Conor.
 
---WsH5yL1is2A3wdVm
+>=20
+> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
+> ---
+>  arch/riscv/include/asm/hwcap.h | 1 +
+>  arch/riscv/kernel/cpufeature.c | 1 +
+>  2 files changed, 2 insertions(+)
+>=20
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwca=
+p.h
+> index 3b31efe2f716..016faa08c8ba 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -85,6 +85,7 @@
+>  #define RISCV_ISA_EXT_ZVFHMIN		70
+>  #define RISCV_ISA_EXT_ZFA		71
+>  #define RISCV_ISA_EXT_ZTSO		72
+> +#define RISCV_ISA_EXT_ZAM		73
+> =20
+>  #define RISCV_ISA_EXT_MAX		128
+>  #define RISCV_ISA_EXT_INVALID		U32_MAX
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
+e.c
+> index 3eb48a0eecb3..e999320398b7 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -259,6 +259,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D {
+>  	__RISCV_ISA_EXT_DATA(zihintntl, RISCV_ISA_EXT_ZIHINTNTL),
+>  	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+>  	__RISCV_ISA_EXT_DATA(zihpm, RISCV_ISA_EXT_ZIHPM),
+> +	__RISCV_ISA_EXT_DATA(zam, RISCV_ISA_EXT_ZAM),
+>  	__RISCV_ISA_EXT_DATA(zfa, RISCV_ISA_EXT_ZFA),
+>  	__RISCV_ISA_EXT_DATA(zfh, RISCV_ISA_EXT_ZFH),
+>  	__RISCV_ISA_EXT_DATA(zfhmin, RISCV_ISA_EXT_ZFHMIN),
+> --=20
+> 2.43.0
+>=20
+
+--WZWs6NLSd1UVh/cf
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZXsNPwAKCRB4tDGHoIJi
-0l8pAQDb06YZM3zu81dwFpDCL6dk+ww9ScWul2gsUo2Cm8U2NgEAjczxPKOsp6/v
-ARmSuUG56RnA+IZRScFD0UD7oxDG8g0=
-=SBUH
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZXsN0QAKCRB4tDGHoIJi
+0mOAAP9FBVgammIN1Czcclk1+2JsV7aZsiieQoCdaP7DVN3IHAD/bOx6eMuPj4pR
+So4KVt0UR5nj9k0dkJyitxbhYc2V9w0=
+=CPjK
 -----END PGP SIGNATURE-----
 
---WsH5yL1is2A3wdVm--
+--WZWs6NLSd1UVh/cf--
 
 
---===============3669356129647026705==
+--===============4768033785395460122==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -126,5 +160,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3669356129647026705==--
+--===============4768033785395460122==--
 
