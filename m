@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB95CC4167D
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Dec 2023 07:30:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B709FC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Dec 2023 07:30:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hRrY39Dgu318XcHM2uIuYoQvPAri5IdHhmyEwQDubak=; b=pC/Ak6RAFoggFP
-	TmPcWfNZv0oaRTER/E4iflqZCOFRZVWEUW0+XgxPAN7288QZsmX6Ew/tlcvrJGL/lsyvNqqTS+7rA
-	OYj9eWTsO9uGWJ+sD+LkkSqizKYKy0oZPXzdGEH5Bb+FiEMeakD0KYjaIfQtuA/ql+LLeg50DhvKd
-	EHgxrzbxxfjtM0GQywWS6G5RvEDROADmMMD4uMbjCpl9roeqfBWqpWnOlwgf3mxRl8NxNBohve8FR
-	8gAlSaIaG8EfL6DUg1V1PTtFGtFa7A0FWkXMcnj2qV56AdHMLT8/DzEoCC2gsNeAgMu+rwY3mntHO
-	YJq/CsbPjhCyssB6XJmw==;
+	List-Owner; bh=3RjDNtNdnHFONxk9IaApAiihv5I7VJ+yYl5crP0hy1I=; b=RjNwrFNO5X5nz4
+	dpPKVkO41lBuRz9TlWnK8KwLKyTE/rUx5HANPNHtelxAG7UgLlKDGdzIi4oWzDAUTMxvlqwYhfnjY
+	wLg66z3HByQZhEjA4FqsW+SJoG+OorNX8+icDHyxQ1j5E+4Oa6RwzOnrJdsNsObkMZt6+c6MV6E+C
+	YJfQXggQn7FspXCn+09/1ky5atNAiEqG1drSaji+xv1lVe2AVkrVvxx6KptgkrKmaRPuak/4PVeUO
+	+Jqm06jA6vWD5SwOs/RBiyzIw0r1CA72mccutGOx8NIF2vMR8uK2YXJS4PaHLzxhiK49te2ocukN+
+	Q6EzpRq/KmdZy3+8GTJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDgAe-00H6hV-34;
-	Thu, 14 Dec 2023 07:30:12 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1rDgAj-00H6ml-2a;
+	Thu, 14 Dec 2023 07:30:17 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDgAT-00H6GA-0z
+	id 1rDgAa-00H6c8-0R
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Dec 2023 07:30:05 +0000
+	Thu, 14 Dec 2023 07:30:13 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 6514C8175;
-	Thu, 14 Dec 2023 15:29:49 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id BAA6E24E203;
+	Thu, 14 Dec 2023 15:29:56 +0800 (CST)
 Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 14 Dec
- 2023 15:29:49 +0800
+ 2023 15:29:56 +0800
 Received: from ubuntu.localdomain (113.72.145.168) by EXMBX171.cuchost.com
  (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 14 Dec
- 2023 15:29:47 +0800
+ 2023 15:29:52 +0800
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Conor Dooley <conor@kernel.org>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?=
 	<kw@linux.com>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
@@ -52,9 +52,9 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
 	<minda.chen@starfivetech.com>
-Subject: [PATCH v13 19/21] PCI: Add PCIE_RESET_CONFIG_DEVICE_WAIT_MS waiting time value
-Date: Thu, 14 Dec 2023 15:28:37 +0800
-Message-ID: <20231214072839.2367-20-minda.chen@starfivetech.com>
+Subject: [PATCH v13 21/21] riscv: dts: starfive: add PCIe dts configuration for JH7110
+Date: Thu, 14 Dec 2023 15:28:39 +0800
+Message-ID: <20231214072839.2367-22-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20231214072839.2367-1-minda.chen@starfivetech.com>
 References: <20231214072839.2367-1-minda.chen@starfivetech.com>
@@ -64,8 +64,9 @@ X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX171.cuchost.com
  (172.16.6.91)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231213_233001_663798_4ACB4987 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20231213_233008_460116_F6CC432F 
+X-CRM114-Status: UNSURE (   9.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,58 +83,193 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Kevin Xie <kevin.xie@starfivetech.com>
+Add PCIe dts configuraion for JH7110 SoC platform.
 
-Add the PCIE_RESET_CONFIG_DEVICE_WAIT_MS macro to define the minimum
-waiting time between exit from a conventional reset and sending the
-first configuration request to the device.
-
-As described in PCI base specification r6.0, section 6.6.1 <Conventional
-Reset>, there are two different use cases of the value:
-
-   - "With a Downstream Port that does not support Link speeds greater
-     than 5.0 GT/s, software must wait a minimum of 100 ms following exit
-     from a Conventional Reset before sending a Configuration Request to
-     the device immediately below that Port."
-
-   - "With a Downstream Port that supports Link speeds greater than
-     5.0 GT/s, software must wait a minimum of 100 ms after Link training
-     completes before sending a Configuration Request to the device
-     immediately below that Port."
-
-Signed-off-by: Kevin Xie <kevin.xie@starfivetech.com>
-Reviewed-by: Mason Huo <mason.huo@starfivetech.com>
+Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
 ---
- drivers/pci/pci.h | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ .../jh7110-starfive-visionfive-2.dtsi         | 64 ++++++++++++++
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      | 86 +++++++++++++++++++
+ 2 files changed, 150 insertions(+)
 
-diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
-index 5ecbcf041179..06f1f1eb878c 100644
---- a/drivers/pci/pci.h
-+++ b/drivers/pci/pci.h
-@@ -22,6 +22,22 @@
-  */
- #define PCIE_PME_TO_L2_TIMEOUT_US	10000
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+index b89e9791efa7..2f8056d6f817 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+@@ -287,6 +287,22 @@
+ 	status = "okay";
+ };
  
-+/*
-+ * As described in PCI base specification r6.0, section 6.6.1 <Conventional
-+ * Reset>, there are two different use cases of the value:
-+ *
-+ * - "With a Downstream Port that does not support Link speeds greater
-+ *    than 5.0 GT/s, software must wait a minimum of 100 ms following exit
-+ *    from a Conventional Reset before sending a Configuration Request to
-+ *    the device immediately below that Port."
-+ *
-+ * - "With a Downstream Port that supports Link speeds greater than
-+ *    5.0 GT/s, software must wait a minimum of 100 ms after Link training
-+ *    completes before sending a Configuration Request to the device
-+ *    immediately below that Port."
-+ */
-+#define PCIE_RESET_CONFIG_DEVICE_WAIT_MS	100
++&pcie0 {
++	perst-gpios = <&sysgpio 26 GPIO_ACTIVE_LOW>;
++	phys = <&pciephy0>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pcie0_pins>;
++	status = "okay";
++};
 +
- extern const unsigned char pcie_link_speed[];
- extern bool pci_early_dump;
++&pcie1 {
++	perst-gpios = <&sysgpio 28 GPIO_ACTIVE_LOW>;
++	phys = <&pciephy1>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pcie1_pins>;
++	status = "okay";
++};
++
+ &qspi {
+ 	#address-cells = <1>;
+ 	#size-cells = <0>;
+@@ -513,6 +529,54 @@
+ 		};
+ 	};
  
++	pcie0_pins: pcie0-0 {
++		clkreq-pins {
++			pinmux = <GPIOMUX(27, GPOUT_LOW,
++					      GPOEN_DISABLE,
++					      GPI_NONE)>;
++			bias-pull-down;
++			drive-strength = <2>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++
++		wake-pins {
++			pinmux = <GPIOMUX(32, GPOUT_LOW,
++					      GPOEN_DISABLE,
++					      GPI_NONE)>;
++			bias-pull-up;
++			drive-strength = <2>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++	};
++
++	pcie1_pins: pcie1-0 {
++		clkreq-pins {
++			pinmux = <GPIOMUX(29, GPOUT_LOW,
++					      GPOEN_DISABLE,
++					      GPI_NONE)>;
++			bias-pull-down;
++			drive-strength = <2>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++
++		wake-pins {
++			pinmux = <GPIOMUX(21, GPOUT_LOW,
++					      GPOEN_DISABLE,
++					      GPI_NONE)>;
++			bias-pull-up;
++			drive-strength = <2>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++	};
++
+ 	spi0_pins: spi0-0 {
+ 		mosi-pins {
+ 			pinmux = <GPIOMUX(52, GPOUT_SYS_SPI0_TXD,
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index 45213cdf50dc..dfa2f94ed5b2 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -1138,5 +1138,91 @@
+ 			#reset-cells = <1>;
+ 			power-domains = <&pwrc JH7110_PD_VOUT>;
+ 		};
++
++		pcie0: pcie@940000000 {
++			compatible = "starfive,jh7110-pcie";
++			reg = <0x9 0x40000000 0x0 0x1000000>,
++			      <0x0 0x2b000000 0x0 0x100000>;
++			reg-names = "cfg", "apb";
++			linux,pci-domain = <0>;
++			#address-cells = <3>;
++			#size-cells = <2>;
++			#interrupt-cells = <1>;
++			ranges = <0x82000000  0x0 0x30000000  0x0 0x30000000 0x0 0x08000000>,
++				 <0xc3000000  0x9 0x00000000  0x9 0x00000000 0x0 0x40000000>;
++			interrupts = <56>;
++			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
++			interrupt-map = <0x0 0x0 0x0 0x1 &pcie_intc0 0x1>,
++					<0x0 0x0 0x0 0x2 &pcie_intc0 0x2>,
++					<0x0 0x0 0x0 0x3 &pcie_intc0 0x3>,
++					<0x0 0x0 0x0 0x4 &pcie_intc0 0x4>;
++			msi-controller;
++			device_type = "pci";
++			starfive,stg-syscon = <&stg_syscon>;
++			bus-range = <0x0 0xff>;
++			clocks = <&syscrg JH7110_SYSCLK_NOC_BUS_STG_AXI>,
++				 <&stgcrg JH7110_STGCLK_PCIE0_TL>,
++				 <&stgcrg JH7110_STGCLK_PCIE0_AXI_MST0>,
++				 <&stgcrg JH7110_STGCLK_PCIE0_APB>;
++			clock-names = "noc", "tl", "axi_mst0", "apb";
++			resets = <&stgcrg JH7110_STGRST_PCIE0_AXI_MST0>,
++				 <&stgcrg JH7110_STGRST_PCIE0_AXI_SLV0>,
++				 <&stgcrg JH7110_STGRST_PCIE0_AXI_SLV>,
++				 <&stgcrg JH7110_STGRST_PCIE0_BRG>,
++				 <&stgcrg JH7110_STGRST_PCIE0_CORE>,
++				 <&stgcrg JH7110_STGRST_PCIE0_APB>;
++			reset-names = "mst0", "slv0", "slv", "brg",
++				      "core", "apb";
++			status = "disabled";
++
++			pcie_intc0: interrupt-controller {
++				#address-cells = <0>;
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++
++		pcie1: pcie@9c0000000 {
++			compatible = "starfive,jh7110-pcie";
++			reg = <0x9 0xc0000000 0x0 0x1000000>,
++			      <0x0 0x2c000000 0x0 0x100000>;
++			reg-names = "cfg", "apb";
++			linux,pci-domain = <1>;
++			#address-cells = <3>;
++			#size-cells = <2>;
++			#interrupt-cells = <1>;
++			ranges = <0x82000000  0x0 0x38000000  0x0 0x38000000 0x0 0x08000000>,
++				 <0xc3000000  0x9 0x80000000  0x9 0x80000000 0x0 0x40000000>;
++			interrupts = <57>;
++			interrupt-map-mask = <0x0 0x0 0x0 0x7>;
++			interrupt-map = <0x0 0x0 0x0 0x1 &pcie_intc1 0x1>,
++					<0x0 0x0 0x0 0x2 &pcie_intc1 0x2>,
++					<0x0 0x0 0x0 0x3 &pcie_intc1 0x3>,
++					<0x0 0x0 0x0 0x4 &pcie_intc1 0x4>;
++			msi-controller;
++			device_type = "pci";
++			starfive,stg-syscon = <&stg_syscon>;
++			bus-range = <0x0 0xff>;
++			clocks = <&syscrg JH7110_SYSCLK_NOC_BUS_STG_AXI>,
++				 <&stgcrg JH7110_STGCLK_PCIE1_TL>,
++				 <&stgcrg JH7110_STGCLK_PCIE1_AXI_MST0>,
++				 <&stgcrg JH7110_STGCLK_PCIE1_APB>;
++			clock-names = "noc", "tl", "axi_mst0", "apb";
++			resets = <&stgcrg JH7110_STGRST_PCIE1_AXI_MST0>,
++				 <&stgcrg JH7110_STGRST_PCIE1_AXI_SLV0>,
++				 <&stgcrg JH7110_STGRST_PCIE1_AXI_SLV>,
++				 <&stgcrg JH7110_STGRST_PCIE1_BRG>,
++				 <&stgcrg JH7110_STGRST_PCIE1_CORE>,
++				 <&stgcrg JH7110_STGRST_PCIE1_APB>;
++			reset-names = "mst0", "slv0", "slv", "brg",
++				      "core", "apb";
++			status = "disabled";
++
++			pcie_intc1: interrupt-controller {
++				#address-cells = <0>;
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
+ 	};
+ };
 -- 
 2.17.1
 
