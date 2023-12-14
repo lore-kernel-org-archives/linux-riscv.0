@@ -4,90 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14668C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Dec 2023 11:17:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90EC6C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Dec 2023 11:31:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2h7fq/c6HpDN1kMGfn2jAI4QureAy5Dmx65L6umS5MU=; b=3FahjY/tmFCKuy
-	lOy7U+nSsp3N4mNit0APXfdHT8uyeQzvEWdIURoxs41ENfqki90hf/6c0Xa5v+YXDWWmdH4Uwzx5l
-	aUx2Smponl54FPU4raRAwNdLu+YtpiEoKeIaJl4sD9aVR67/OuK3pA1dZR1Fa97lVeiVy1KaiWijH
-	P8qazjeVul+trBDA9o/WM2d1QeMCeZussJG6uDxwJFknw/RBx4retpyQ3Wfjey9fAMu9OWnUxU9cj
-	3ClmePCtKtVd9AVLvKh5SQrTh50h55GrCCDj06z4sIbA3L/3vf8WKu4bT0wlOsnePE0L/PhqCBrrf
-	ZEZv1//M/dvy/qKrK/Pg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U9fqcGiWWItxUQXBBsXM21VrBuhh4iVGn2KNA+H+gxo=; b=lyB7sd+g9iHsMrMYYmyN+5op0e
+	NghvVcZPnS3fMzK6fxHSrh9OjKXEw2TfZkaIwUDCDEVYWD3/NQeyx5D0Xck3JLH1KfSfILitICpf5
+	AkQe3Dwj4KDrqVOCF+7nVzY0ypsCGudvFGgKoL3BZetuq5jzAHCHuVQLYR6nQWZ80nzY0orn4QN0P
+	rCF2pO1MYXmAV4kNYdXZERlZSvQQgPXxSDMxgt8nGqeHZ2cNuaxpWLrWV0C1XTZYCnMpSOoG4osnw
+	Nrzubel1LuSLIgEekSpyqnYy9S/HBjtS0M/OGHXPi0uuqyehPqRd1Z5SLReNsvsdqQH9GFi3Mb8Fk
+	oNgrebRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDjiI-0000dj-2l;
-	Thu, 14 Dec 2023 11:17:10 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1rDjwA-0008HA-0x;
+	Thu, 14 Dec 2023 11:31:30 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDjiG-0000at-0U
+	id 1rDjw7-0008Bg-23
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Dec 2023 11:17:09 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-5bcfc508d14so6865865a12.3
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Dec 2023 03:17:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1702552625; x=1703157425; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=PhCwqmV8xLeKliC/IPYCJgesOy9krq9jbqPfrEK110U=;
-        b=LUqVEJqHYcWdrFWziRjxaYpk/ZMuKwNM4a/5Fg2bekkQkNcdKnqmuAYNEJNeFn9gJ9
-         c97zL2WzlYJhSxXQO/v9OkahQCJFyke/7M6pYHky7qmHOHSATRYpCHILSJmYxPCBSZ7v
-         Ji8MSlaHIpG1jn83uGH0Sq7QXBVRYiq3E5bwVo0/5V+h5o8+NQjT0gfAVYl22Dd6D+Nk
-         gk0gBz+zfSwlwt5A1yRPXzMKx173SBePJ5yndDpj7A9kqrtSSLeCk3D9LUB6VXmERZKR
-         fF8micMVYfyw3+A3EzDUiQf91T1LepCmrNHX7Dj4aEAV2BnzcGtHUG9wPvKhsUO42cTW
-         tlRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702552625; x=1703157425;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PhCwqmV8xLeKliC/IPYCJgesOy9krq9jbqPfrEK110U=;
-        b=tg+QDkt9KmvyKBVfZxi20pu5X5z8kNM4MBxkgwcaGyW+SjYDgbx5sLwSqDKsO5RnDD
-         BvGt9geJgYQepUmOkTaOii1560LvXSbCxI55KRLlKcd3u+jMQc6pN0lJCIaNRLQXjvKn
-         YbA2Dd1Q54wiy5k9oH6qH6l1Zu0Pky+2zBLg10BdIg+BpKQQrXL6oQWIQ6AqAtjMjtGU
-         occwx0ixCE4dUpY/+1Z8sFLyB7Muwwjevm55ADG6LiWqj6ZATo5RRN8asIBi4opl9lb1
-         Ap4TardBcZmnS1zd6NFSnGrtAavkn1K2kho8NE+UF0rWsWcFRYipGutVccxF4cojA+nf
-         VfBg==
-X-Gm-Message-State: AOJu0YxXPKNeoEyMela9XHT8Oxi0sRPEq4Zh0rExDqLgmcf4mWKCYv6i
-	j3riBRag9zToo1dZg3nu/5iUpA==
-X-Google-Smtp-Source: AGHT+IEGJ5iYsTvFrjTZorn1/MwkkSYEnSuscp/ZLU2pi2M1jcJ955V1my91fjw6E7prxIYt4wTjYw==
-X-Received: by 2002:a05:6a20:8e13:b0:18f:f57a:e761 with SMTP id y19-20020a056a208e1300b0018ff57ae761mr12774382pzj.63.1702552625048;
-        Thu, 14 Dec 2023 03:17:05 -0800 (PST)
-Received: from localhost ([122.172.82.6])
-        by smtp.gmail.com with ESMTPSA id f7-20020aa79d87000000b006ce5b4ade28sm11799418pfq.174.2023.12.14.03.17.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Dec 2023 03:17:04 -0800 (PST)
-Date: Thu, 14 Dec 2023 16:47:02 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Brandon Cheo Fusi <fusibrandon13@gmail.com>
-Cc: Rob Herring <robh+dt@kernel.org>,
+	Thu, 14 Dec 2023 11:31:29 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1rDjvo-0007MZ-Dp; Thu, 14 Dec 2023 12:31:08 +0100
+Received: from [2a0a:edc0:0:b01:1d::7b] (helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1rDjvm-00Fn0N-Dm; Thu, 14 Dec 2023 12:31:06 +0100
+Received: from pengutronix.de (unknown [172.20.34.65])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 5826D262EFD;
+	Thu, 14 Dec 2023 11:31:05 +0000 (UTC)
+Date: Thu, 14 Dec 2023 12:31:04 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Wolfgang Grandegger <wg@grandegger.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Yangtao Li <tiny.windzz@gmail.com>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH 4/5] cpufreq: Add support for RISC-V CPU Frequency
- scaling drivers
-Message-ID: <20231214111702.xdd7qlcrpqh74i3j@vireshk-i7>
-References: <20231214103342.30775-1-fusibrandon13@gmail.com>
- <20231214103342.30775-5-fusibrandon13@gmail.com>
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, linux-can@vger.kernel.org,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH RESEND v1 2/7] dt-bindings: can: mpfs: add missing
+ required clock
+Message-ID: <20231214-tinderbox-glitzy-60d1936ab85f-mkl@pengutronix.de>
+References: <20231208-reenter-ajar-b6223e5134b3@spud>
+ <20231208-palpitate-passable-c79bacf2036c@spud>
+ <20231212-unreeling-depose-8b6b2e032555-mkl@pengutronix.de>
+ <20231213-waffle-grueling-3a5c3879395b@spud>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231214103342.30775-5-fusibrandon13@gmail.com>
+In-Reply-To: <20231213-waffle-grueling-3a5c3879395b@spud>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231214_031708_193832_38C93DD2 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20231214_033127_682344_9DB8FD72 
+X-CRM114-Status: GOOD (  25.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,30 +90,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5929074830546874252=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 14-12-23, 11:33, Brandon Cheo Fusi wrote:
-> Add Kconfig file for cpufreq scaling drivers that can handle RISC-V
-> CPUs. An entry is included for the Allwinner H6 cpufreq driver that
-> works with D1.
-> 
-> Signed-off-by: Brandon Cheo Fusi <fusibrandon13@gmail.com>
-> ---
->  drivers/cpufreq/Kconfig       |  4 ++++
->  drivers/cpufreq/Kconfig.riscv | 16 ++++++++++++++++
->  2 files changed, 20 insertions(+)
->  create mode 100644 drivers/cpufreq/Kconfig.riscv
 
-We don't have a separate kconfig file for each architecture. Only if
-there are too many entries for an architecture, we add a new file.
+--===============5929074830546874252==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="td3sd7zfsqtxdr4k"
+Content-Disposition: inline
 
--- 
-viresh
+
+--td3sd7zfsqtxdr4k
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On 13.12.2023 13:02:49, Conor Dooley wrote:
+> On Tue, Dec 12, 2023 at 09:49:41PM +0100, Marc Kleine-Budde wrote:
+> > On 08.12.2023 17:12:24, Conor Dooley wrote:
+> > > From: Conor Dooley <conor.dooley@microchip.com>
+> > >=20
+> > > The CAN controller on PolarFire SoC has an AHB peripheral clock _and_=
+ a
+> > > CAN bus clock. The bus clock was omitted when the binding was written,
+> > > but is required for operation. Make up for lost time and add it.
+> > >=20
+> > > Cautionary tale in adding bindings without having implemented a real
+> > > user for them perhaps.
+> > >=20
+> > > Fixes: c878d518d7b6 ("dt-bindings: can: mpfs: document the mpfs CAN c=
+ontroller")
+> > > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> > > ---
+> > >  .../devicetree/bindings/net/can/microchip,mpfs-can.yaml    | 7 +++++=
+--
+> > >  1 file changed, 5 insertions(+), 2 deletions(-)
+> > >=20
+> > > diff --git a/Documentation/devicetree/bindings/net/can/microchip,mpfs=
+-can.yaml b/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.ya=
+ml
+> > > index 45aa3de7cf01..05f680f15b17 100644
+> > > --- a/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.ya=
+ml
+> > > +++ b/Documentation/devicetree/bindings/net/can/microchip,mpfs-can.ya=
+ml
+> > > @@ -24,7 +24,10 @@ properties:
+> > >      maxItems: 1
+> > > =20
+> > >    clocks:
+> > > -    maxItems: 1
+> > > +    maxItems: 2
+> > > +    items:
+> > > +      - description: AHB peripheral clock
+> > > +      - description: CAN bus clock
+> >=20
+> > Do we we want to have a "clock-names" property, as we need the clock
+> > rate of the CAN bus clock.
+>=20
+> We should not need the clock-names property to be able to get both of
+> the clocks. clk_bulk_get_all() for example should be usable here.
+
+ACK, but we need the clock rate of CAN clock. Does this binding check
+that the CAN clock rate is the 2nd one?
+
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--td3sd7zfsqtxdr4k
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEDs2BvajyNKlf9TJQvlAcSiqKBOgFAmV653YACgkQvlAcSiqK
+BOhMmggApdGofXs7BcJbjT8hpDnLCGwmugpp0y3veU4Okm1P5NHwewyOaznIC4l7
+VKu8jX23jiHIWYz2czWfTtoPskoi2RCs5Hj4t1eoFYywF9BAAwHITK7KtsR9fuZ7
+XwdRZzjWHEh+I0BFmKv6GEpldjTZz269Nn47wy96FKErGKF2taHACZ97p5nqIwMz
+uB7dZtekAf4scC6jKLZYwUUl68YwktTMZWu9PkjfH3oLS+H2oXHxxzUg6mME5R/o
+2Nj92O17r0Md7j3QioEGIKNrr7dKubY0QPgZ+lP/ImoLgFDmAPC6tYlWR00kDf9b
+ho3kmb28TrV4g0HQA1ZMBrJX78JxlA==
+=M/Nz
+-----END PGP SIGNATURE-----
+
+--td3sd7zfsqtxdr4k--
+
+
+--===============5929074830546874252==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5929074830546874252==--
+
