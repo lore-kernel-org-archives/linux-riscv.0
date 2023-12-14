@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4C9FC4332F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5EC4C4167B
 	for <linux-riscv@archiver.kernel.org>; Thu, 14 Dec 2023 10:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=n6Av6otIDkdhPZhumtvjhYfBYVxQMWg7Qq0k9K7qHuQ=; b=Qjf8F7WFK2mseg
-	VAHt0c7lxMpHGDbE7+MDdy7wQr3NKzWddKCJEm+pv/a09AU52FKMyHPr2PucemsRf5BrGJsP63H38
-	lNb+V1LKmVFWlHEEMga4jpXMhGmBlv+pAxpGmAosrW28hHa25mdHjARtawg81yHi0dgyt70l6ik9h
-	bW7vqHso+Tsu0pptXH6CJaDdzTOP8VWOhRO62MwYt1ceTxfIau9RsvcBwNEONVISXl9Brn8QO3mcq
-	QUHxFRAZCJ/xqlfEROnJUywYsKerx3lOVxMpowbencHl/iFSZLHUM6SHxb1e5Ckilukc+SjgFJbRU
-	Qc9cwFUZcLNKCyIicGxQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QRBySzakkPDRhidfT7ygY5HaIFUH9+DIT45ZGlsl/WU=; b=rIderSVFhHvUAg
+	nHIwhNH7Yk1Z77aquoiKQjFIUvflVDlfCzikc1YKkBoEBzwWhOXKfuzYTPNQiD17PVR4SjOwTgW8n
+	OBfQ0t3gKV23LS8ehsERB5P9CMMbPhoNujiftrDimvkp+3JzrearS+dIqcbPqhk+1YEsIKxe2Ul7z
+	PpjLPVccxrqecF8ARo08nrjAMzka98hJ1OjgIRk0M3vxQRCagOJa8/XwRdNTq7EQDAnYuL7+/uiB8
+	7WIPBl/g0q5DYV/CS+MNVk5BLX4BfXfAf2groSmZ0D2smH0/ofeO5eJOyiLf0O9jioLv9nGvEjhUD
+	NH9bpk7/MQNg0XjtSYyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDil7-00HRJy-39;
-	Thu, 14 Dec 2023 10:16:01 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1rDilB-00HRMN-0V;
+	Thu, 14 Dec 2023 10:16:05 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDil5-00HRH7-0R
+	id 1rDil6-00HRHk-2i
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Dec 2023 10:16:00 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-40c41df5577so47518955e9.0
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Dec 2023 02:15:55 -0800 (PST)
+	Thu, 14 Dec 2023 10:16:02 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-33646500f1aso508257f8f.1
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Dec 2023 02:15:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1702548954; x=1703153754; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=osF9PtT0XneIHaK1AbmcqNBCF71s2lHM1BpRF0PJptY=;
-        b=UbzCgC9pDiUiLkPBQtUt25eOedvCVb21h5ApYdWhy84CbZaaS4rFfzWIWGAmvpKsxH
-         rF/J8nTUJ0g0PC9ozugB1PWLHTon58dCVIKSRLFTqVKXYMkkwkgWELY9XNxzTC9w6bG7
-         Wvy/uaUOurfrF4XpCc3wzjeHajbYGTiqw2Hotovq5joeSD6gigKhPE08OFUSzqmTjixX
-         Yj9yzobHigl2qR2R/gCNMeFDDokLaFT5e/EAgHVKQzKuQxqbi3xKTSN/6PHJqQKVc5Qp
-         mBC4W2ljEvkOW2K2NtdNF3pYW//qOKIL28xJncRc1M+xP/tWFKT09JV2aqunj7u2SkpV
-         2C/g==
+        d=ventanamicro.com; s=google; t=1702548958; x=1703153758; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZDFKjtkEUBXvnuN4CRr8+YcMZn89qdhvuFwTlW15tEo=;
+        b=c7W0U2w+e2SbM7ztMgkkh6SW0ONnhefF7UDCoMLTZiRj4z7oMXF5qaEcsto4BdPSDm
+         IiYTIl9txPZdbAKc9NegDuY+ita37m2H7tUq9Fg11qXHs5naDaoK3RzaJkPqopv5iQte
+         dZF46FBj1wVonP0MG818Vd/rCPco4OmMIFmPbWUwC/4cJZwBuqCrC0+l7jZznbnd1SOh
+         N3yrUiJmv5U/AlHv4e3PGjkbQilCbQjZzJF6vm+s7ppkqeJbLNXsWMpGPCWIGkHmg8OB
+         6xFZhX1Uth22tMDP6UP3U1e6fWw0GpJ4aaqG57AiX4APxYgf9tqgcUHG28Nmhj1WbPwJ
+         lffw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702548954; x=1703153754;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=osF9PtT0XneIHaK1AbmcqNBCF71s2lHM1BpRF0PJptY=;
-        b=r9f6cIMYKXvdqj6PZvbI5LVtd1Q2bMZBQvgignirOX+EIzfIkhct+y8cfoogfwJON7
-         fXnvV9grcVaf0KTwJID2cq9krJB4vCxnyiWHmLtKYUpgwChSp3+A+y6XD+WYyFJLe2iu
-         EVDpjq28VgTksRHbYm1x5Xt0YN3qO8YCGuj14Oj0YkUhHMbmH15wyZcm70Py9awiWXoc
-         Tb5f6zovWlNNJkfQEtDu+7Sqx8tyYSLn9guSIII3NJW/1SU5Wd0wumsOjbtMzSMe4KpF
-         hh97opf36zyMfXo2TZhtmaq14P2obJ2iUVbbqkARoy4g7FmKx7M6oFSvWqa90K5se6tD
-         f3PA==
-X-Gm-Message-State: AOJu0YxizolAM5mndV8uzl8wt4rNBp17qJu4+TN82Ye8f2rAlfTxEjLB
-	hX8h/xN4yN9AdPgNa+v5pOe2eV1EG6gIlbftPpE=
-X-Google-Smtp-Source: AGHT+IF3W4UDaTU9TkmFl4OfPOr2R5VlDkPBD79hepfEio3hAZAvosVlYJ75fB+u130xi70fmXErGA==
-X-Received: by 2002:a05:600c:138e:b0:40c:4b4e:959d with SMTP id u14-20020a05600c138e00b0040c4b4e959dmr1661065wmf.167.1702548953649;
-        Thu, 14 Dec 2023 02:15:53 -0800 (PST)
+        d=1e100.net; s=20230601; t=1702548958; x=1703153758;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZDFKjtkEUBXvnuN4CRr8+YcMZn89qdhvuFwTlW15tEo=;
+        b=ORfp7OnBS0zIAMrfgnYNBhu50M2T96lBSTEp9AA8xJvOsmHxSH1T67dPt3xmD7V1+W
+         c+h3nuRSx0ujjN/c848QGUkGNK4HpPuNdyGnd2AL6O9dbxQ+HT23vBHHq5d/EkUHNi5l
+         PS7US8+9sdghy8RBnPgIthNQXvdA3Qsx50gkXbvMDJYkdG+KezG//Rf4uA0RZWIjx5ZN
+         jOVGnKXXjTeGPicN+mIeRTtPeqjYcKyqfkJJVU0hb9tJjae3D3LC+yoEreziilp00OOO
+         P+PvsXLX55qHnnWSWQobFS2htRbU7tROO9adLVLk5ULE3WKdToUDYynVPYofvI3rITep
+         4t1w==
+X-Gm-Message-State: AOJu0YyKCYdtYKLsdS9mZhKZNiTmNEiZjbfC4YAOibpWW4x1+LK0tuGr
+	0Fng1I+EvbaGEgIt43USmWW+Wg==
+X-Google-Smtp-Source: AGHT+IGp5Rd3G1mgW2O3vK3x6v4ws/oY3mSDmogD/aXwkyD9KfbxZIOuMClxn+rbdPkn05lnyYl5Qg==
+X-Received: by 2002:adf:ecc2:0:b0:333:2fd2:3c0d with SMTP id s2-20020adfecc2000000b003332fd23c0dmr3732444wro.198.1702548958139;
+        Thu, 14 Dec 2023 02:15:58 -0800 (PST)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id v6-20020a05600c444600b0040c4886f254sm14134218wmn.13.2023.12.14.02.15.52
+        by smtp.gmail.com with ESMTPSA id e18-20020a056000121200b00333404e9935sm15526269wrx.54.2023.12.14.02.15.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Dec 2023 02:15:53 -0800 (PST)
+        Thu, 14 Dec 2023 02:15:57 -0800 (PST)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
@@ -75,14 +76,16 @@ Cc: anup@brainfault.org,
 	srivatsa@csail.mit.edu,
 	guoren@kernel.org,
 	conor.dooley@microchip.com
-Subject: [PATCH v2 00/13] RISC-V: Add steal-time support
-Date: Thu, 14 Dec 2023 11:15:52 +0100
-Message-ID: <20231214101552.100721-15-ajones@ventanamicro.com>
+Subject: [PATCH v2 03/13] RISC-V: paravirt: Implement steal-time support
+Date: Thu, 14 Dec 2023 11:15:55 +0100
+Message-ID: <20231214101552.100721-18-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20231214101552.100721-15-ajones@ventanamicro.com>
+References: <20231214101552.100721-15-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231214_021559_178668_4A77579B 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20231214_021600_899192_29BAA2C5 
+X-CRM114-Status: GOOD (  18.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,99 +102,153 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-One frequently touted benefit of virtualization is the ability to
-consolidate machines, increasing resource utilization.  It may even be
-desirable to overcommit, at the risk of one or more VCPUs having to wait.
-Hypervisors which have interfaces for guests to retrieve the amount of
-time each VCPU had to wait give observers within the guests ways to
-account for less progress than would otherwise be expected. The SBI STA
-extension[1] provides a standard interface for guest VCPUs to retrieve
-the amount of time "stolen".
+When the SBI STA extension exists we can use it to implement
+paravirt steal-time support. Fill in the empty pv-time functions
+with an SBI STA implementation and add the Kconfig knobs allowing
+it to be enabled.
 
-This series has three parts:
- 1) Patches 01-03 - Add paravirt support to RISC-V and implement
-                    steal-time accounting support using the SBI STA
-                    extension.
- 2) Patches 04-09 - Implement SBI STA in KVM so KVM guests, such as
-                    Linux guests which enable the paravirt steal-time
-                    support, can be enlightened about stolen time.
- 3) Patches 10-13 - Add RISC-V support to the KVM selftests steal_time
-                    test and the SBI extension regs in the get-reg-list
-                    test.
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+---
+ arch/riscv/Kconfig           | 19 ++++++++++
+ arch/riscv/kernel/paravirt.c | 67 ++++++++++++++++++++++++++++++++++--
+ 2 files changed, 83 insertions(+), 3 deletions(-)
 
-These patches are based on kvm-riscv/riscv_kvm_queue
-
-[1] https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/src/ext-steal-time.adoc
-
-This patches are also available here
-https://github.com/jones-drew/linux/commits/kvm/steal-time-v2
-
-Changes since v1:
- - sbi_sta_steal_time_set_shmem() now maps SBI errors to linux errors [Conor]
- - Squashed v1 patch 4 into v1 patch 3 [Conor]
- - Moved kvm_riscv_vcpu_set/get_reg_sbi() to arch/riscv/kvm/vcpu_sbi.c
-   which seems like a more appropriate file for them
- - Rebased on kvm-riscv/riscv_kvm_queue which has all the dependencies
-
-Changes since RFC:
- - Rebased on v6.7-rc3 (plus the patches mentioned above)
- - Added defines for the -1's [Conor]
- - Added a comment to the steal read sequence [Conor]
- - Only do the steal read sequence for 32-bit and added READ_ONCE's
- - Check for SBI v2.0 implementation
- - Rename set_steal_time_shmem to steal_time_set_shmem
- - Add get-reg-list support and test with get-reg-list kselftest
- - A few other minor improvements
- - Picked up one r-b from Conor
-
-Thanks,
-drew
-
-
-Andrew Jones (13):
-  RISC-V: paravirt: Add skeleton for pv-time support
-  RISC-V: Add SBI STA extension definitions
-  RISC-V: paravirt: Implement steal-time support
-  RISC-V: KVM: Add SBI STA extension skeleton
-  RISC-V: KVM: Add steal-update vcpu request
-  RISC-V: KVM: Add SBI STA info to vcpu_arch
-  RISC-V: KVM: Add support for SBI extension registers
-  RISC-V: KVM: Add support for SBI STA registers
-  RISC-V: KVM: Implement SBI STA extension
-  RISC-V: KVM: selftests: Move sbi_ecall to processor.c
-  RISC-V: KVM: selftests: Add guest_sbi_probe_extension
-  RISC-V: KVM: selftests: Add steal_time test support
-  RISC-V: KVM: selftests: Add get-reg-list test for STA registers
-
- .../admin-guide/kernel-parameters.txt         |   6 +-
- arch/riscv/Kconfig                            |  19 ++
- arch/riscv/include/asm/kvm_host.h             |   9 +
- arch/riscv/include/asm/kvm_vcpu_sbi.h         |  10 +
- arch/riscv/include/asm/paravirt.h             |  28 +++
- arch/riscv/include/asm/paravirt_api_clock.h   |   1 +
- arch/riscv/include/asm/sbi.h                  |  17 ++
- arch/riscv/include/uapi/asm/kvm.h             |  13 ++
- arch/riscv/kernel/Makefile                    |   1 +
- arch/riscv/kernel/paravirt.c                  | 138 ++++++++++++
- arch/riscv/kernel/time.c                      |   3 +
- arch/riscv/kvm/Kconfig                        |   1 +
- arch/riscv/kvm/Makefile                       |   1 +
- arch/riscv/kvm/vcpu.c                         |   7 +
- arch/riscv/kvm/vcpu_onereg.c                  |  50 ++++-
- arch/riscv/kvm/vcpu_sbi.c                     |  67 ++++++
- arch/riscv/kvm/vcpu_sbi_sta.c                 | 202 ++++++++++++++++++
- tools/testing/selftests/kvm/Makefile          |   5 +-
- .../selftests/kvm/include/riscv/processor.h   |  22 ++
- .../selftests/kvm/lib/riscv/processor.c       |  45 ++++
- tools/testing/selftests/kvm/lib/riscv/ucall.c |  26 ---
- .../selftests/kvm/riscv/get-reg-list.c        |  43 ++++
- tools/testing/selftests/kvm/steal_time.c      |  99 +++++++++
- 23 files changed, 778 insertions(+), 35 deletions(-)
- create mode 100644 arch/riscv/include/asm/paravirt.h
- create mode 100644 arch/riscv/include/asm/paravirt_api_clock.h
- create mode 100644 arch/riscv/kernel/paravirt.c
- create mode 100644 arch/riscv/kvm/vcpu_sbi_sta.c
-
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 95a2a06acc6a..b99fd8129edf 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -724,6 +724,25 @@ config COMPAT
+ 
+ 	  If you want to execute 32-bit userspace applications, say Y.
+ 
++config PARAVIRT
++	bool "Enable paravirtualization code"
++	depends on RISCV_SBI
++	help
++	  This changes the kernel so it can modify itself when it is run
++	  under a hypervisor, potentially improving performance significantly
++	  over full virtualization.
++
++config PARAVIRT_TIME_ACCOUNTING
++	bool "Paravirtual steal time accounting"
++	depends on PARAVIRT
++	help
++	  Select this option to enable fine granularity task steal time
++	  accounting. Time spent executing other tasks in parallel with
++	  the current vCPU is discounted from the vCPU power. To account for
++	  that, there can be a small performance impact.
++
++	  If in doubt, say N here.
++
+ config RELOCATABLE
+ 	bool "Build a relocatable kernel"
+ 	depends on MMU && 64BIT && !XIP_KERNEL
+diff --git a/arch/riscv/kernel/paravirt.c b/arch/riscv/kernel/paravirt.c
+index 141dbcc36fa2..b09dfd81bcd2 100644
+--- a/arch/riscv/kernel/paravirt.c
++++ b/arch/riscv/kernel/paravirt.c
+@@ -6,12 +6,21 @@
+ #define pr_fmt(fmt) "riscv-pv: " fmt
+ 
+ #include <linux/cpuhotplug.h>
++#include <linux/compiler.h>
++#include <linux/errno.h>
+ #include <linux/init.h>
+ #include <linux/jump_label.h>
++#include <linux/kconfig.h>
++#include <linux/kernel.h>
++#include <linux/percpu-defs.h>
+ #include <linux/printk.h>
+ #include <linux/static_call.h>
+ #include <linux/types.h>
+ 
++#include <asm/barrier.h>
++#include <asm/page.h>
++#include <asm/sbi.h>
++
+ struct static_key paravirt_steal_enabled;
+ struct static_key paravirt_steal_rq_enabled;
+ 
+@@ -31,24 +40,76 @@ static int __init parse_no_stealacc(char *arg)
+ 
+ early_param("no-steal-acc", parse_no_stealacc);
+ 
++DEFINE_PER_CPU(struct sbi_sta_struct, steal_time) __aligned(64);
++
+ static bool __init has_pv_steal_clock(void)
+ {
++	if (sbi_spec_version >= sbi_mk_version(2, 0) &&
++	    sbi_probe_extension(SBI_EXT_STA) > 0) {
++		pr_info("SBI STA extension detected\n");
++		return true;
++	}
++
+ 	return false;
+ }
+ 
+-static int pv_time_cpu_online(unsigned int cpu)
++static int sbi_sta_steal_time_set_shmem(unsigned long lo, unsigned long hi,
++					unsigned long flags)
+ {
++	struct sbiret ret;
++
++	ret = sbi_ecall(SBI_EXT_STA, SBI_EXT_STA_STEAL_TIME_SET_SHMEM,
++			lo, hi, flags, 0, 0, 0);
++	if (ret.error) {
++		if (lo == SBI_STA_SHMEM_DISABLE && hi == SBI_STA_SHMEM_DISABLE)
++			pr_warn("Failed to disable steal-time shmem");
++		else
++			pr_warn("Failed to set steal-time shmem");
++		return sbi_err_map_linux_errno(ret.error);
++	}
++
+ 	return 0;
+ }
+ 
++static int pv_time_cpu_online(unsigned int cpu)
++{
++	struct sbi_sta_struct *st = this_cpu_ptr(&steal_time);
++	phys_addr_t pa = __pa(st);
++	unsigned long lo = (unsigned long)pa;
++	unsigned long hi = IS_ENABLED(CONFIG_32BIT) ? upper_32_bits((u64)pa) : 0;
++
++	return sbi_sta_steal_time_set_shmem(lo, hi, 0);
++}
++
+ static int pv_time_cpu_down_prepare(unsigned int cpu)
+ {
+-	return 0;
++	return sbi_sta_steal_time_set_shmem(SBI_STA_SHMEM_DISABLE,
++					    SBI_STA_SHMEM_DISABLE, 0);
+ }
+ 
+ static u64 pv_time_steal_clock(int cpu)
+ {
+-	return 0;
++	struct sbi_sta_struct *st = per_cpu_ptr(&steal_time, cpu);
++	u32 sequence;
++	u64 steal;
++
++	if (IS_ENABLED(CONFIG_32BIT)) {
++		/*
++		 * Check the sequence field before and after reading the steal
++		 * field. Repeat the read if it is different or odd.
++		 */
++		do {
++			sequence = READ_ONCE(st->sequence);
++			virt_rmb();
++			steal = READ_ONCE(st->steal);
++			virt_rmb();
++		} while ((le32_to_cpu(sequence) & 1) ||
++			 sequence != READ_ONCE(st->sequence));
++	} else {
++		steal = READ_ONCE(st->steal);
++	}
++
++	return le64_to_cpu(steal);
+ }
+ 
+ int __init pv_time_init(void)
 -- 
 2.43.0
 
