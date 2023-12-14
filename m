@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 559DFC4167B
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Dec 2023 13:20:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9E0CC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Dec 2023 13:30:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BnO+k/EmG9+nZ77P3GgPyXRA31/vpuvMR0LeZwxgdo8=; b=AEewAKVr7OI2dDEbsVm0LMHhjt
-	hXxHDBc1yZ+hnE1RW3DCxPKvyUxNBw5goTKZCj6HKoOXnuqa533YDD33sXIMm6OY2OWf+Nhzl4ZLi
-	fqGkH32Iu5Ie4NItMSOMTlVGC+acOEzPP8Fr9gsfFRZ4mvEMUQFAdavmh680ejpTmCD/jrDZJiTs4
-	8y2/GUqUDrWz36f3Ht96soUM0ivQwVtQbfldVlZgxQfVsnAtySWbJAVBDQ60l9iobTmEh4oxJ0z32
-	EYyEH+cuP2jhrsNNEBxfouFNRIrj3sGvf8cqq39ZV+6IutaFPVuTwxlXXnLBuQEa5YPigf8+C24dG
-	A0/1BuHw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=AsJS3z1BkTaNN5oFkd7KEnRqX6WgIiSSH+yTGbrTBJI=; b=p/Z/ENZeoQV0fB
+	dmEoGug9Q+hVmYKBic0Uh4NGR0H/95nl0jj2YBK0iPFQE+/YA081zTEv6bQMJ924UXbwn6LWOOZdo
+	kGafwklHGWUJdtjjuBiOl0jbPY3BTnqhgFdHxQYu6AJ3sNeU9iw72CsrJYEz+tPpuizDuetsPU2OT
+	CzHDpbpTO9FnJ+F0h8m5fbobfwVfuTA1XPVTLd32z8WWpMxh+5puN2t1YFI5tCLzmRpbaLiAwHidk
+	omNVrtQv2mWC3rcK1d2WBcvqq8+n3/zX71w5PMkZqOc9djDYBL7sFJmoo3AswwxOlsvXE0+cobCoU
+	3UmZPB4iKtL8a6sOH7Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDldX-000ML5-0c;
-	Thu, 14 Dec 2023 13:20:23 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1rDlmv-000PrZ-0J;
+	Thu, 14 Dec 2023 13:30:05 +0000
+Received: from mail-wm1-f44.google.com ([209.85.128.44])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDldT-000MIu-27
+	id 1rDlmW-000Pak-0k
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Dec 2023 13:20:21 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1rDldH-0006qa-Ix; Thu, 14 Dec 2023 14:20:07 +0100
-Received: from [2a0a:edc0:0:b01:1d::7b] (helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1rDldF-00FoVx-W9; Thu, 14 Dec 2023 14:20:06 +0100
-Received: from pengutronix.de (unknown [172.20.34.65])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id E93BD26304B;
-	Thu, 14 Dec 2023 13:20:04 +0000 (UTC)
-Date: Thu, 14 Dec 2023 14:20:04 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Wolfgang Grandegger <wg@grandegger.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thu, 14 Dec 2023 13:30:02 +0000
+Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-40c41df5577so49346375e9.0
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Dec 2023 05:29:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1702560577; x=1703165377; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=OkTXCXrHUkIYZAiXcbMUlKAwNq1xBlh137NstiChyxg=;
+        b=jO4ND50KFPCmXBZHzqn7i8z9wKg724AkZwxo0ipFCFEGvWPEaN1kqC3myXnerRY+9g
+         Dy9TCqjqQktPbgek901Gd5pCzk3iiyLMgjyziaGdWoVxgO1VLI/B4xE7UTi+cs1wYrce
+         6DsBrEsJTIygw4DJN7o9FORNTRfEWK/PhZbXFxaes6J1UDD5iGFMVevqTmWzMHLD+Nbj
+         s+Tl3cz+ivOm6Q2ZSdVRGkaFS51UlLU9we0SHvRd6rsGbNeCUbbfi2q2fdKhMjJtl6ve
+         B0U8YnIBrMuhbNjclf8jcdkhj187XffSf/IpxfXrfVvN5p2r5o/PdoOBCD1JP0WbheY9
+         KRPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1702560577; x=1703165377;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=OkTXCXrHUkIYZAiXcbMUlKAwNq1xBlh137NstiChyxg=;
+        b=D7aoBD4AFguj5hu3ZTF8Ku38PRRZiJBpJg7i1feUGOL6hAKCmlEd9kPpjiJBOLV+B1
+         lSCyMdF5rwg8hG3obM4Qy+xG5g4A0zz6HfCsfxTqhjjwnDzEHYVv5ZQDD9HbqDxuRL12
+         Nup9lSNBuNUdiDqU60gdUXuvwNgAh34kal5FdI+QrjjoCls5pzXyDYgaXZ5QzHi65ZEw
+         CAdURrTxm+6e0HP8JRKrOlobxH0eAUHpEN9o4s76a4Ai2PlIuZTr1PjMcw8ShCXBFzw8
+         5+4BL8InCjBB/k9brOPqRFWqbccDeGw8BN/Ci4OyeUEGDu5KeQOzvL3t+h3pxtTnslGq
+         2InQ==
+X-Gm-Message-State: AOJu0YxVUHTabKfHqsQ3I9JnwAEaPDL5vuhvzxBIebyW9keJKOa/xZLU
+	x9bnMQQxlvDxJblo8sF4Rv0xFg==
+X-Google-Smtp-Source: AGHT+IFY8a/ikzRFmDNwTTeme387SJFOWFFd6jphJ+RMixQGZw483YvP9tBvX7Xri3w5b4Qm0adYhQ==
+X-Received: by 2002:a05:600c:3b88:b0:40c:2a6c:a462 with SMTP id n8-20020a05600c3b8800b0040c2a6ca462mr2919054wms.78.1702560577533;
+        Thu, 14 Dec 2023 05:29:37 -0800 (PST)
+Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id q14-20020a05600c46ce00b0040c4c9c52a3sm13038759wmo.12.2023.12.14.05.29.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 14 Dec 2023 05:29:37 -0800 (PST)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, linux-can@vger.kernel.org,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH RESEND v1 2/7] dt-bindings: can: mpfs: add missing
- required clock
-Message-ID: <20231214-genetics-issue-b8f9c60c74b2-mkl@pengutronix.de>
-References: <20231208-reenter-ajar-b6223e5134b3@spud>
- <20231208-palpitate-passable-c79bacf2036c@spud>
- <20231212-unreeling-depose-8b6b2e032555-mkl@pengutronix.de>
- <20231213-waffle-grueling-3a5c3879395b@spud>
- <20231214-tinderbox-glitzy-60d1936ab85f-mkl@pengutronix.de>
- <20231214-tinderbox-paver-d1ff0fc5c428@spud>
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH] riscv: Use hugepage mappings for vmemmap
+Date: Thu, 14 Dec 2023 14:29:35 +0100
+Message-Id: <20231214132935.212864-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-In-Reply-To: <20231214-tinderbox-paver-d1ff0fc5c428@spud>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231214_052019_689922_A154622D 
-X-CRM114-Status: GOOD (  20.32  )
+X-CRM114-CacheID: sfid-20231214_052940_509115_37CDBDA6 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,86 +88,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4743889949276500841=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This will allow better TLB utilization and then should be more performant.
 
---===============4743889949276500841==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ingrkcbszpm5ox2g"
-Content-Disposition: inline
+Before:
 
+---[ vmemmap start ]---
+0xffff8d8002000000-0xffff8d8012000000    0x000000046ec00000       256M PTE .   ..     ..   D A G . . W R V
+---[ vmemmap end ]---
 
---ingrkcbszpm5ox2g
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+After:
 
-On 14.12.2023 13:16:55, Conor Dooley wrote:
-> > > > > --- a/Documentation/devicetree/bindings/net/can/microchip,mpfs-ca=
-n.yaml
-> > > > > +++ b/Documentation/devicetree/bindings/net/can/microchip,mpfs-ca=
-n.yaml
-> > > > > @@ -24,7 +24,10 @@ properties:
-> > > > >      maxItems: 1
-> > > > > =20
-> > > > >    clocks:
-> > > > > -    maxItems: 1
-> > > > > +    maxItems: 2
-> > > > > +    items:
-> > > > > +      - description: AHB peripheral clock
-> > > > > +      - description: CAN bus clock
-> > > >=20
-> > > > Do we we want to have a "clock-names" property, as we need the clock
-> > > > rate of the CAN bus clock.
-> > >=20
-> > > We should not need the clock-names property to be able to get both of
-> > > the clocks. clk_bulk_get_all() for example should be usable here.
-> >=20
-> > ACK, but we need the clock rate of CAN clock. Does this binding check
-> > that the CAN clock rate is the 2nd one?
->=20
-> The items list requires that the can clock be the second one, so drivers
-> etc can rely on that ordering.
+---[ vmemmap start ]---
+0xffff8d8002000000-0xffff8d8012000000    0x000000046ec00000       256M PMD .   ..     ..   D A G . . W R V
+---[ vmemmap end ]---
 
-Thanks for the clarification,
-Marc
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/riscv/mm/init.c | 21 ++++++++++++++++++++-
+ 1 file changed, 20 insertions(+), 1 deletion(-)
 
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 2e011cbddf3a..f636336e6401 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -1383,10 +1383,29 @@ void __init misc_mem_init(void)
+ }
+ 
+ #ifdef CONFIG_SPARSEMEM_VMEMMAP
++void __meminit vmemmap_set_pmd(pmd_t *pmd, void *p, int node,
++			       unsigned long addr, unsigned long next)
++{
++	pmd_set_huge(pmd, virt_to_phys(p), PAGE_KERNEL);
++}
++
++int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
++				unsigned long addr, unsigned long next)
++{
++	vmemmap_verify((pte_t *)pmdp, node, addr, next);
++	return 1;
++}
++
+ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+ 			       struct vmem_altmap *altmap)
+ {
+-	return vmemmap_populate_basepages(start, end, node, NULL);
++	/*
++	 * Note that SPARSEMEM_VMEMMAP is only selected for rv64 and that we
++	 * can't use hugepage mappings for 2-level page table because in case of
++	 * memory hotplug, we are not able to update all the page tables with
++	 * the new PMDs.
++	 */
++	return vmemmap_populate_hugepages(start, end, node, NULL);
+ }
+ #endif
+ 
+-- 
+2.39.2
 
---ingrkcbszpm5ox2g
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEDs2BvajyNKlf9TJQvlAcSiqKBOgFAmV7AQAACgkQvlAcSiqK
-BOgXVQgAiYx/qmn+/n56qpOGHQ2TatWn/aI2UbU6V7+JDjHv+P8H3L5u5vHCT3vn
-KS93aR3iviTIzFdrnadB3oLNJ4YErKNuszF4zKAb0G24ze4X/ZoGGegGd6nzTzNL
-QBNZtOGrSAVZOIF/Kjf0hPUdZMjPDW4D8LG1P1P5T7Jke33m4dEtbYGMUFxJUWf/
-z3d8oqJO2H8wym5sTvzfC8rBKor9uJ1Cy+b7m1uXce9JCPqb2x4sHjD6cvO0GnsG
-QsqRWDTLt02gmQ/5Bi+yGPuBSRv4DQhukgXTkfHRtp7+VAmpU45p6mD7+iEjCqYn
-2zTEKmCfHq+OXBvLtGPaGCfFYkRpPw==
-=FXlj
------END PGP SIGNATURE-----
-
---ingrkcbszpm5ox2g--
-
-
---===============4743889949276500841==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4743889949276500841==--
-
