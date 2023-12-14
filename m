@@ -4,78 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 812B9C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Dec 2023 03:13:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E197C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Dec 2023 04:45:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:References:
-	In-Reply-To:Message-ID:Cc:To:From:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=HO6mt8lHTpktVpryCsI9aRTtR1LNndtOxIwHCcx224o=; b=WKKHXKU1HpV8SQKV7ES8g/QN33
-	KnqAdtFo/xddTmDsRNpvXyVOJGOz7Ze2hLsbJX8+PQxpp1xx52NY5eiYN3cwsBX/QaOGrMb5eJ8PU
-	26gaMa7e1dUxurU3RSSgtfayI8ceeyFx9t9gtBbxdTnf23WNB7AKz8dudhWVVZD948cAGlnUn217D
-	rWu0nytQVl45IldXL8KTel+wm5ZyHxqxvHW0pIuR7Y2iklsdBBEglkS32i4rShReBRCdtMEiYnoWx
-	v7yD1JruwQVgPeB5gD5gt64GQdGGG4t24n59uJ34+zbRtJVhTbKKXcIqcEpiy8gpcNxO5ETCATfyS
-	idFt613w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=FoBlqpb13+GuXbdMyfCZphWC5fafTuY4od89lscV2+8=; b=LX3Wr1pJRqsPIa
+	Pf1yjNRjMtdfI3P1VQQ8NZkAxY4Jds9aHCGyYGwHx+4wNwVqbzr6ddRDpExdD9Gx2aINNcd9c+2DP
+	XiOJsdh61uaD/sDcrBaGMM0qryogn1zXeJCqBUc26O5/umTzyW2wgcmbWLiySBcrgA7bIK/NRrJHK
+	2VId/n1o4gX8o83qmRR4Ln+YgtHQ2XodWg76199wQ2E5v2pY0n6eY1XlPlHELJsdkgJZO6bMJ7JeK
+	mZxeBQ1e9Xig52t0tVLJ5f1bCmYslVEAS1tZWjvGJo+9/44jVe++3uPewmKAb46KNSGu8W4gAHCyS
+	SEB06O36lMgQwRy8o8Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDcA7-00GbVA-0K;
-	Thu, 14 Dec 2023 03:13:23 +0000
-Received: from mail.raptorengineering.com ([23.155.224.40] helo=raptorengineering.com)
+	id 1rDdbH-00GjTB-2a;
+	Thu, 14 Dec 2023 04:45:32 +0000
+Received: from mail.ozlabs.org ([2404:9400:2221:ea00::3] helo=gandalf.ozlabs.org)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDcA3-00GbRO-0y;
-	Thu, 14 Dec 2023 03:13:21 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by mail.rptsys.com (Postfix) with ESMTP id 454B78285335;
-	Wed, 13 Dec 2023 21:13:07 -0600 (CST)
-Received: from mail.rptsys.com ([127.0.0.1])
-	by localhost (vali.starlink.edu [127.0.0.1]) (amavisd-new, port 10032)
-	with ESMTP id aJF90hcXi7Us; Wed, 13 Dec 2023 21:13:03 -0600 (CST)
-Received: from localhost (localhost [127.0.0.1])
-	by mail.rptsys.com (Postfix) with ESMTP id C3CB28285337;
-	Wed, 13 Dec 2023 21:13:03 -0600 (CST)
-DKIM-Filter: OpenDKIM Filter v2.10.3 mail.rptsys.com C3CB28285337
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=raptorengineering.com; s=B8E824E6-0BE2-11E6-931D-288C65937AAD;
-	t=1702523583; bh=ijcDfjdAHPSkgI60gYNqmpLjOskbQcDua+7+LnRVJzY=;
-	h=Date:From:To:Message-ID:MIME-Version;
-	b=JmklQYzWjHfnhGBk0Pue29Qiptfb7YADfyXDqn0JfVXKwGNbTbAmFZG3wiYCyMqNe
-	 rfAr7pp8jfi9zjR0+vw1Pgwi+/hhDR84MDQViA6vnu/RRW42LYFNMaBEOFkaxVqHPr
-	 jfugf/dzymBNIbcy+lefHFKr3DOfOjzhVf3hA9Vw=
-X-Virus-Scanned: amavisd-new at rptsys.com
-Received: from mail.rptsys.com ([127.0.0.1])
-	by localhost (vali.starlink.edu [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id vndKCEKQZBqx; Wed, 13 Dec 2023 21:13:03 -0600 (CST)
-Received: from vali.starlink.edu (localhost [127.0.0.1])
-	by mail.rptsys.com (Postfix) with ESMTP id 90B9D8285335;
-	Wed, 13 Dec 2023 21:13:03 -0600 (CST)
-Date: Wed, 13 Dec 2023 21:13:01 -0600 (CST)
-From: Timothy Pearson <tpearson@raptorengineering.com>
+	id 1rDdbD-00GjRh-11;
+	Thu, 14 Dec 2023 04:45:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ellerman.id.au;
+	s=201909; t=1702529123;
+	bh=t7B9if0LOImFnd/AnccoK9V4d+WmshLVNwjLPY+Ohl0=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=PHvb5rAyITybLJhslCdr+FPB6weuYhVdwGVqwI6pjC0ArKwZkSJyMqDVTRdcLTEp8
+	 CMM1zL432KtNyUzA4mhWgDTmzmIB20cDIEs1vpR4XVIlFKEuLTFGJUgQi2gSEUC13j
+	 mfFynirXmkKm9bE2EICqv9unlGx62DyfXiv5i2BtZBd3f6O85asjT6i+pBGfgfPjyp
+	 tkCdZSOpErcp/BMZpdsjN71xdXgGO4HsDEkHk/a+gxWH2FD87Y65cYU3IpDwO2jYA7
+	 PzUo9wW0hAbsQZZzGnqcxC0mqh1VvcVv56nNl78AXywD3K6/8BH+V8bphra6maMQo3
+	 RX1/dzF6mo1TA==
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4SrKXf0VB5z4wcH;
+	Thu, 14 Dec 2023 15:45:21 +1100 (AEDT)
+From: Michael Ellerman <mpe@ellerman.id.au>
 To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Michael Ellerman <mpe@ellerman.id.au>, 
-	linux-kernel <linux-kernel@vger.kernel.org>, 
-	amd-gfx <amd-gfx@lists.freedesktop.org>, 
-	linux-arch <linux-arch@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	loongarch@lists.linux.dev, 
-	linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, x86 <x86@kernel.org>, 
-	linux-riscv@lists.infradead.org, 
-	Christoph Hellwig <hch@infradead.org>, 
-	Timothy Pearson <tpearson@raptorengineering.com>
-Message-ID: <1124363169.403562.1702523581672.JavaMail.zimbra@raptorengineeringinc.com>
+Cc: linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, x86@kernel.org,
+ linux-riscv@lists.infradead.org, Christoph Hellwig <hch@infradead.org>,
+ Timothy Pearson <tpearson@raptorengineering.com>
+Subject: Re: [RFC PATCH 10/12] drm/amd/display: Use ARCH_HAS_KERNEL_FPU_SUPPORT
 In-Reply-To: <7ed20fcf-8a9d-40d5-b913-b5d2da443cd6@sifive.com>
-References: <20231208055501.2916202-1-samuel.holland@sifive.com> <20231208055501.2916202-11-samuel.holland@sifive.com> <87h6kpdj20.fsf@mail.lhotse> <7ed20fcf-8a9d-40d5-b913-b5d2da443cd6@sifive.com>
-Subject: Re: [RFC PATCH 10/12] drm/amd/display: Use
- ARCH_HAS_KERNEL_FPU_SUPPORT
+References: <20231208055501.2916202-1-samuel.holland@sifive.com>
+ <20231208055501.2916202-11-samuel.holland@sifive.com>
+ <87h6kpdj20.fsf@mail.lhotse>
+ <7ed20fcf-8a9d-40d5-b913-b5d2da443cd6@sifive.com>
+Date: Thu, 14 Dec 2023 15:45:21 +1100
+Message-ID: <87bkatxuhq.fsf@mail.lhotse>
 MIME-Version: 1.0
-X-Mailer: Zimbra 8.5.0_GA_3042 (ZimbraWebClient - GC112 (Linux)/8.5.0_GA_3042)
-Thread-Topic: drm/amd/display: Use ARCH_HAS_KERNEL_FPU_SUPPORT
-Thread-Index: 3gIP2WGRdA0OkYkVtH266e032Oz33A==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231213_191319_464630_FD79F2A7 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20231213_204528_399553_97DB9BFF 
+X-CRM114-Status: GOOD (  24.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,18 +77,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
------ Original Message -----
-> From: "Samuel Holland" <samuel.holland@sifive.com>
-> To: "Michael Ellerman" <mpe@ellerman.id.au>
-> Cc: "linux-kernel" <linux-kernel@vger.kernel.org>, "amd-gfx" <amd-gfx@lists.freedesktop.org>, "linux-arch"
-> <linux-arch@vger.kernel.org>, "linux-arm-kernel" <linux-arm-kernel@lists.infradead.org>, loongarch@lists.linux.dev,
-> "linuxppc-dev" <linuxppc-dev@lists.ozlabs.org>, "x86" <x86@kernel.org>, linux-riscv@lists.infradead.org, "Christoph
-> Hellwig" <hch@infradead.org>, "Timothy Pearson" <tpearson@raptorengineering.com>
-> Sent: Wednesday, December 13, 2023 7:03:20 PM
-> Subject: Re: [RFC PATCH 10/12] drm/amd/display: Use ARCH_HAS_KERNEL_FPU_SUPPORT
-
+Samuel Holland <samuel.holland@sifive.com> writes:
 > On 2023-12-11 6:23 AM, Michael Ellerman wrote:
 >> Hi Samuel,
 >> 
@@ -119,8 +93,7 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 >>>
 >>> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 >> ...
->>> diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
->>> b/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
+>>> diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c b/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
 >>> index 4ae4720535a5..b64f917174ca 100644
 >>> --- a/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
 >>> +++ b/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
@@ -149,8 +122,7 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 >>>  	}
 >>>  
 >>>  	TRACE_DCN_FPU(true, function_name, line, depth);
->>> diff --git a/drivers/gpu/drm/amd/display/dc/dml/Makefile
->>> b/drivers/gpu/drm/amd/display/dc/dml/Makefile
+>>> diff --git a/drivers/gpu/drm/amd/display/dc/dml/Makefile b/drivers/gpu/drm/amd/display/dc/dml/Makefile
 >>> index ea7d60f9a9b4..5aad0f572ba3 100644
 >>> --- a/drivers/gpu/drm/amd/display/dc/dml/Makefile
 >>> +++ b/drivers/gpu/drm/amd/display/dc/dml/Makefile
@@ -176,10 +148,103 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 >> don't know that for sure. It compiles without it, but I don't have a GPU
 >> to actually test. I've added Timothy on Cc who added the support for
 >> powerpc to the driver originally, hopefully he has a test system.
+>
+> I tested this series on a POWER9 system with an AMD Radeon RX 6400 GPU (which
+> requires this FPU code to initialize), and got functioning graphics output.
 
-If you would like me to test I'm happy to do so, but I am travelling until Friday so would need to wait until then.
+Awesome.
 
-Thanks!
+>> Anyway if that's true that it doesn't need altivec we should probably do
+>> a lead-up patch that drops altivec from the AMD driver explicitly, eg.
+>> as below.
+>
+> That makes sense to me. Do you want to provide your Signed-off-by so I can send
+> this patch with your authorship?
+
+Yeah that'd be great. Patch below. Feel free to adjust the commit
+message as you see fit.
+
+cheers
+
+
+From c8a2862d2ebe76a023eceb3267fd85262925c0ba Mon Sep 17 00:00:00 2001
+From: Michael Ellerman <mpe@ellerman.id.au>
+Date: Thu, 14 Dec 2023 15:39:05 +1100
+Subject: [PATCH] drm/amd/display: Only use hard-float, not altivec on powerpc
+
+The compiler flags enable altivec, but that is not required, hard-float
+is sufficient for the code to build and function.
+
+Drop altivec from the compiler flags and adjust the enable/disable code
+to only enable FPU use.
+
+Signed-off-by: Michael Ellerman <mpe@ellerman.id.au>
+---
+ drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c | 12 ++----------
+ drivers/gpu/drm/amd/display/dc/dml/Makefile    |  2 +-
+ drivers/gpu/drm/amd/display/dc/dml2/Makefile   |  2 +-
+ 3 files changed, 4 insertions(+), 12 deletions(-)
+
+diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c b/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
+index 4ae4720535a5..0de16796466b 100644
+--- a/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
++++ b/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.c
+@@ -92,11 +92,7 @@ void dc_fpu_begin(const char *function_name, const int line)
+ #if defined(CONFIG_X86) || defined(CONFIG_LOONGARCH)
+ 		kernel_fpu_begin();
+ #elif defined(CONFIG_PPC64)
+-		if (cpu_has_feature(CPU_FTR_VSX_COMP))
+-			enable_kernel_vsx();
+-		else if (cpu_has_feature(CPU_FTR_ALTIVEC_COMP))
+-			enable_kernel_altivec();
+-		else if (!cpu_has_feature(CPU_FTR_FPU_UNAVAILABLE))
++		if (!cpu_has_feature(CPU_FTR_FPU_UNAVAILABLE))
+ 			enable_kernel_fp();
+ #elif defined(CONFIG_ARM64)
+ 		kernel_neon_begin();
+@@ -125,11 +121,7 @@ void dc_fpu_end(const char *function_name, const int line)
+ #if defined(CONFIG_X86) || defined(CONFIG_LOONGARCH)
+ 		kernel_fpu_end();
+ #elif defined(CONFIG_PPC64)
+-		if (cpu_has_feature(CPU_FTR_VSX_COMP))
+-			disable_kernel_vsx();
+-		else if (cpu_has_feature(CPU_FTR_ALTIVEC_COMP))
+-			disable_kernel_altivec();
+-		else if (!cpu_has_feature(CPU_FTR_FPU_UNAVAILABLE))
++		if (!cpu_has_feature(CPU_FTR_FPU_UNAVAILABLE))
+ 			disable_kernel_fp();
+ #elif defined(CONFIG_ARM64)
+ 		kernel_neon_end();
+diff --git a/drivers/gpu/drm/amd/display/dc/dml/Makefile b/drivers/gpu/drm/amd/display/dc/dml/Makefile
+index 6042a5a6a44f..554c39024a40 100644
+--- a/drivers/gpu/drm/amd/display/dc/dml/Makefile
++++ b/drivers/gpu/drm/amd/display/dc/dml/Makefile
+@@ -31,7 +31,7 @@ dml_ccflags := $(dml_ccflags-y) -msse
+ endif
+ 
+ ifdef CONFIG_PPC64
+-dml_ccflags := -mhard-float -maltivec
++dml_ccflags := -mhard-float
+ endif
+ 
+ ifdef CONFIG_ARM64
+diff --git a/drivers/gpu/drm/amd/display/dc/dml2/Makefile b/drivers/gpu/drm/amd/display/dc/dml2/Makefile
+index acff3449b8d7..7b51364084b5 100644
+--- a/drivers/gpu/drm/amd/display/dc/dml2/Makefile
++++ b/drivers/gpu/drm/amd/display/dc/dml2/Makefile
+@@ -30,7 +30,7 @@ dml2_ccflags := $(dml2_ccflags-y) -msse
+ endif
+ 
+ ifdef CONFIG_PPC64
+-dml2_ccflags := -mhard-float -maltivec
++dml2_ccflags := -mhard-float
+ endif
+ 
+ ifdef CONFIG_ARM64
+-- 
+2.43.0
+
+
 
 _______________________________________________
 linux-riscv mailing list
