@@ -4,47 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F4CC46CA2
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 09:33:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1991C46CCD
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 09:33:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Date:Message-Id:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=yEsRqWIWtHoBxs1o3JU4FRCKq9Zn5Jy4ULMy7ashnQY=; b=zTHkZvMEiUVqFf
-	UpJugk2/CmtklzbbIDkmNofzs9Pt2oFqULntpeRC93uzw7GVJC4kxgX8DMzcM2vdvIJDJP1AuPmLt
-	r/gSPllXL6hjfE8xVO9CLyZwfW3Zp31+0uSglaCj/svk+/e2RJCvk7BVYKKMw71z+gRre86w3qF+R
-	H0m3I0AOM3ag8+VVouq+DmN4rko/nYUHnu2PfKYZBzoaAXe+uzcHCc/+3o3M97g949jjnQEK9J5UT
-	gS8kaQeWYnaYu8LZzl09v2+gESftqjbmh1U1RmPRwigwjf+mCj0F0WmO6NTPbtKIoevnw3gWLrK8V
-	3tLRSLaJR36rg4NYRu7g==;
+	List-Owner; bh=5knxtVugrTdoGROJ1FT2sf6/xchMYV6sz6BddUiSyUo=; b=QInowF6wmW5VRQ
+	R+0UOUNfDtP9TKEN4i2LIPAEmw9AxtSRdTvsS5sZVpQJoj8aBMo52o8OSxRAfvPkRZfKXlnpaV5KW
+	zuWWp2uhGRBy08bvkxHiwHSHEGEUj+DD1eUgCRsSurengKOdnL0MzkzwUhhTXKLBveahnx4NlZXsW
+	XpmhAqTy+vARjrFx5Dvm79+VXfqhRDKb3zn06eU5+fcdO5bMU0CBTaDvbQY5wZXEDCaC9fEs0Jo6b
+	ZoXp+fBzEeRdh0iQdSxsntojMLiAV4vBDkAsT5cTfboVpuUq2lBieHcM5/QgXEj2iZZQ9b94QATA8
+	bViNjgoGGiV8Nfwvbqpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rE4ZQ-002dZd-0t;
-	Fri, 15 Dec 2023 09:33:24 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1rE4ZV-002db8-0Q;
+	Fri, 15 Dec 2023 09:33:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rE4ZM-002dYf-21
+	id 1rE4ZO-002dYm-2L
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 15 Dec 2023 09:33:21 +0000
+	Fri, 15 Dec 2023 09:33:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:References:
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-Id:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=O7bFFVYmt8/SO0BRBI22kgLL6Er6Cuo7T0F2P0zePs4=; b=cG62lmBegHlJs/hBEpaFyDjcaE
-	7zXfDyrph/ky8S3+o1xIyBuTuzFYLrJj6nkpeUDKPsrklImHVjuaIH+mOcRPnQ9GTUKJCipC1HqWs
-	RvUR9j5OA0GJRd6mkO9PRJ5T8xJRQFnkzZnRu/sKf6hQJ6bde1pSBCg6/H+DG4iostV9rrHHcikZt
-	kS3LrPS9jvvzTUpaApPYaiF7flQtfD1KLbbyi7d7mDyWB9pgeqtupfM1pmm02DJ39fX1xi21nYCZP
-	vo2YEm3Stez0AP0uC7kZ/kS9fCd/vESx3kSfihlGYgQcmz8tfw7crZEXSaN75Nq5YWB0nZHVOm/v+
-	4E95eKwg==;
+	bh=b4R8oBfA9zqLdMspEmf7BM9tcAtmYn2SA6ZbJ+T1P5c=; b=Lq2PgWhtX3V8toHwd4gXthsfPV
+	51X7SJQC7Nru1W8AxzAo9FgQf8X7B//HhiVa4Wni0K2G+n5NSLp0J6KuWaVPHCg5LqaWnnTct6an7
+	VSn/94veX/IqLryss/BBYEDgrH3uHxiAng0tbAwUZR/2wWcS1xNJe4HBpFsWFWk2lHDRHwf+hSYIV
+	jW3O6OYVrI2YIUtYDEzNZCpeDl/mhsRZv8X+fwN3HuvgHv0Zv4s2ZWXFlNfony2rirfUxjBaebt0e
+	2AMaCofhDa/dAdzVSTw7hG62RjkawKG+01OP4YeCDE2L2mGeW2/sgrNjJVf24DXfwrfjR9XaYP+Bk
+	aMms2tmQ==;
 Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1rE4ZD-00FSOU-HK; Fri, 15 Dec 2023 09:33:12 +0000
+	by desiato.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
+	id 1rE4ZF-009rG1-0w;
+	Fri, 15 Dec 2023 09:33:14 +0000
 Received: by noisy.programming.kicks-ass.net (Postfix, from userid 0)
-	id C5D8B3006CE; Fri, 15 Dec 2023 10:33:11 +0100 (CET)
-Message-Id: <20231215092707.345270396@infradead.org>
+	id D6BA730098F; Fri, 15 Dec 2023 10:33:11 +0100 (CET)
+Message-Id: <20231215092707.669401084@infradead.org>
 User-Agent: quilt/0.65
-Date: Fri, 15 Dec 2023 10:12:18 +0100
+Date: Fri, 15 Dec 2023 10:12:21 +0100
 From: Peter Zijlstra <peterz@infradead.org>
 To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
 Cc: paul.walmsley@sifive.com,
@@ -83,7 +84,7 @@ Cc: paul.walmsley@sifive.com,
  joao@overdrivepizza.com,
  mark.rutland@arm.com,
  peterz@infradead.org
-Subject: [PATCH v3 2/7] x86/cfi,bpf: Fix BPF JIT call
+Subject: [PATCH v3 5/7] cfi: Add CFI_NOSEAL()
 References: <20231215091216.135791411@infradead.org>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -102,468 +103,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The current BPF call convention is __nocfi, except when it calls !JIT things,
-then it calls regular C functions.
-
-It so happens that with FineIBT the __nocfi and C calling conventions are
-incompatible. Specifically __nocfi will call at func+0, while FineIBT will have
-endbr-poison there, which is not a valid indirect target. Causing #CP.
-
-Notably this only triggers on IBT enabled hardware, which is probably why this
-hasn't been reported (also, most people will have JIT on anyway).
-
-Implement proper CFI prologues for the BPF JIT codegen and drop __nocfi for
-x86.
+Add a CFI_NOSEAL() helper to mark functions that need to retain their
+CFI information, despite not otherwise leaking their address.
 
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 ---
- arch/x86/include/asm/cfi.h    |  110 ++++++++++++++++++++++++++++++++++++++++++
- arch/x86/kernel/alternative.c |   47 ++++++++++++++---
- arch/x86/net/bpf_jit_comp.c   |   82 +++++++++++++++++++++++++++++--
- include/linux/bpf.h           |   12 +++-
- include/linux/cfi.h           |    7 ++
- kernel/bpf/core.c             |   25 +++++++++
- 6 files changed, 269 insertions(+), 14 deletions(-)
+ arch/x86/include/asm/cfi.h |    5 +++++
+ include/linux/cfi.h        |    4 ++++
+ 2 files changed, 9 insertions(+)
 
 --- a/arch/x86/include/asm/cfi.h
 +++ b/arch/x86/include/asm/cfi.h
-@@ -9,15 +9,125 @@
+@@ -8,6 +8,7 @@
+  * Copyright (C) 2022 Google LLC
   */
  #include <linux/bug.h>
- 
-+/*
-+ * An overview of the various calling conventions...
-+ *
-+ * Traditional:
-+ *
-+ * foo:
-+ *   ... code here ...
-+ *   ret
-+ *
-+ * direct caller:
-+ *   call foo
-+ *
-+ * indirect caller:
-+ *   lea foo(%rip), %r11
-+ *   ...
-+ *   call *%r11
-+ *
-+ *
-+ * IBT:
-+ *
-+ * foo:
-+ *   endbr64
-+ *   ... code here ...
-+ *   ret
-+ *
-+ * direct caller:
-+ *   call foo / call foo+4
-+ *
-+ * indirect caller:
-+ *   lea foo(%rip), %r11
-+ *   ...
-+ *   call *%r11
-+ *
-+ *
-+ * kCFI:
-+ *
-+ * __cfi_foo:
-+ *   movl $0x12345678, %eax
-+ *				# 11 nops when CONFIG_CALL_PADDING
-+ * foo:
-+ *   endbr64			# when IBT
-+ *   ... code here ...
-+ *   ret
-+ *
-+ * direct call:
-+ *   call foo			# / call foo+4 when IBT
-+ *
-+ * indirect call:
-+ *   lea foo(%rip), %r11
-+ *   ...
-+ *   movl $(-0x12345678), %r10d
-+ *   addl -4(%r11), %r10d	# -15 when CONFIG_CALL_PADDING
-+ *   jz   1f
-+ *   ud2
-+ * 1:call *%r11
-+ *
-+ *
-+ * FineIBT (builds as kCFI + CALL_PADDING + IBT + RETPOLINE and runtime patches into):
-+ *
-+ * __cfi_foo:
-+ *   endbr64
-+ *   subl 0x12345678, %r10d
-+ *   jz   foo
-+ *   ud2
-+ *   nop
-+ * foo:
-+ *   osp nop3			# was endbr64
-+ *   ... code here ...
-+ *   ret
-+ *
-+ * direct caller:
-+ *   call foo / call foo+4
-+ *
-+ * indirect caller:
-+ *   lea foo(%rip), %r11
-+ *   ...
-+ *   movl $0x12345678, %r10d
-+ *   subl $16, %r11
-+ *   nop4
-+ *   call *%r11
-+ *
-+ */
-+enum cfi_mode {
-+	CFI_DEFAULT,	/* FineIBT if hardware has IBT, otherwise kCFI */
-+	CFI_OFF,	/* Taditional / IBT depending on .config */
-+	CFI_KCFI,	/* Optionally CALL_PADDING, IBT, RETPOLINE */
-+	CFI_FINEIBT,	/* see arch/x86/kernel/alternative.c */
-+};
-+
-+extern enum cfi_mode cfi_mode;
-+
- struct pt_regs;
- 
- #ifdef CONFIG_CFI_CLANG
- enum bug_trap_type handle_cfi_failure(struct pt_regs *regs);
-+#define __bpfcall
-+extern u32 cfi_bpf_hash;
-+
-+static inline int cfi_get_offset(void)
-+{
-+	switch (cfi_mode) {
-+	case CFI_FINEIBT:
-+		return 16;
-+	case CFI_KCFI:
-+		if (IS_ENABLED(CONFIG_CALL_PADDING))
-+			return 16;
-+		return 5;
-+	default:
-+		return 0;
-+	}
-+}
-+#define cfi_get_offset cfi_get_offset
-+
- #else
- static inline enum bug_trap_type handle_cfi_failure(struct pt_regs *regs)
- {
- 	return BUG_TRAP_TYPE_NONE;
- }
-+#define cfi_bpf_hash 0U
- #endif /* CONFIG_CFI_CLANG */
- 
- #endif /* _ASM_X86_CFI_H */
---- a/arch/x86/kernel/alternative.c
-+++ b/arch/x86/kernel/alternative.c
-@@ -30,6 +30,7 @@
- #include <asm/fixmap.h>
- #include <asm/paravirt.h>
- #include <asm/asm-prototypes.h>
-+#include <asm/cfi.h>
- 
- int __read_mostly alternatives_patched;
- 
-@@ -832,15 +833,43 @@ void __init_or_module apply_seal_endbr(s
- #endif /* CONFIG_X86_KERNEL_IBT */
- 
- #ifdef CONFIG_FINEIBT
-+#define __CFI_DEFAULT	CFI_DEFAULT
-+#elif defined(CONFIG_CFI_CLANG)
-+#define __CFI_DEFAULT	CFI_KCFI
-+#else
-+#define __CFI_DEFAULT	CFI_OFF
-+#endif
- 
--enum cfi_mode {
--	CFI_DEFAULT,
--	CFI_OFF,
--	CFI_KCFI,
--	CFI_FINEIBT,
--};
-+enum cfi_mode cfi_mode __ro_after_init = __CFI_DEFAULT;
-+
-+#ifdef CONFIG_CFI_CLANG
-+struct bpf_insn;
-+
-+/* Must match bpf_func_t / DEFINE_BPF_PROG_RUN() */
-+extern unsigned int __bpf_prog_runX(const void *ctx,
-+				    const struct bpf_insn *insn);
-+
-+/*
-+ * Force a reference to the external symbol so the compiler generates
-+ * __kcfi_typid.
-+ */
-+__ADDRESSABLE(__bpf_prog_runX);
-+
-+/* u32 __ro_after_init cfi_bpf_hash = __kcfi_typeid___bpf_prog_runX; */
-+asm (
-+"	.pushsection	.data..ro_after_init,\"aw\",@progbits	\n"
-+"	.type	cfi_bpf_hash,@object				\n"
-+"	.globl	cfi_bpf_hash					\n"
-+"	.p2align	2, 0x0					\n"
-+"cfi_bpf_hash:							\n"
-+"	.long	__kcfi_typeid___bpf_prog_runX			\n"
-+"	.size	cfi_bpf_hash, 4					\n"
-+"	.popsection						\n"
-+);
-+#endif
-+
-+#ifdef CONFIG_FINEIBT
- 
--static enum cfi_mode cfi_mode __ro_after_init = CFI_DEFAULT;
- static bool cfi_rand __ro_after_init = true;
- static u32  cfi_seed __ro_after_init;
- 
-@@ -1149,8 +1178,10 @@ static void __apply_fineibt(s32 *start_r
- 		goto err;
- 
- 	if (cfi_rand) {
--		if (builtin)
-+		if (builtin) {
- 			cfi_seed = get_random_u32();
-+			cfi_bpf_hash = cfi_rehash(cfi_bpf_hash);
-+		}
- 
- 		ret = cfi_rand_preamble(start_cfi, end_cfi);
- 		if (ret)
---- a/arch/x86/net/bpf_jit_comp.c
-+++ b/arch/x86/net/bpf_jit_comp.c
-@@ -17,6 +17,7 @@
- #include <asm/nospec-branch.h>
- #include <asm/text-patching.h>
- #include <asm/unwind.h>
-+#include <asm/cfi.h>
- 
- static bool all_callee_regs_used[4] = {true, true, true, true};
- 
-@@ -51,9 +52,11 @@ static u8 *emit_code(u8 *ptr, u32 bytes,
- 	do { EMIT4(b1, b2, b3, b4); EMIT(off, 4); } while (0)
- 
- #ifdef CONFIG_X86_KERNEL_IBT
--#define EMIT_ENDBR()	EMIT(gen_endbr(), 4)
-+#define EMIT_ENDBR()		EMIT(gen_endbr(), 4)
-+#define EMIT_ENDBR_POISON()	EMIT(gen_endbr_poison(), 4)
- #else
- #define EMIT_ENDBR()
-+#define EMIT_ENDBR_POISON()
- #endif
- 
- static bool is_imm8(int value)
-@@ -305,6 +308,69 @@ static void pop_callee_regs(u8 **pprog,
- }
++#include <asm/ibt.h>
  
  /*
-+ * Emit the various CFI preambles, see asm/cfi.h and the comments about FineIBT
-+ * in arch/x86/kernel/alternative.c
-+ */
-+
-+static void emit_fineibt(u8 **pprog)
-+{
-+	u8 *prog = *pprog;
-+
-+	EMIT_ENDBR();
-+	EMIT3_off32(0x41, 0x81, 0xea, cfi_bpf_hash);	/* subl $hash, %r10d	*/
-+	EMIT2(0x74, 0x07);				/* jz.d8 +7		*/
-+	EMIT2(0x0f, 0x0b);				/* ud2			*/
-+	EMIT1(0x90);					/* nop			*/
-+	EMIT_ENDBR_POISON();
-+
-+	*pprog = prog;
-+}
-+
-+static void emit_kcfi(u8 **pprog)
-+{
-+	u8 *prog = *pprog;
-+
-+	EMIT1_off32(0xb8, cfi_bpf_hash);		/* movl $hash, %eax	*/
-+#ifdef CONFIG_CALL_PADDING
-+	EMIT1(0x90);
-+	EMIT1(0x90);
-+	EMIT1(0x90);
-+	EMIT1(0x90);
-+	EMIT1(0x90);
-+	EMIT1(0x90);
-+	EMIT1(0x90);
-+	EMIT1(0x90);
-+	EMIT1(0x90);
-+	EMIT1(0x90);
-+	EMIT1(0x90);
-+#endif
-+	EMIT_ENDBR();
-+
-+	*pprog = prog;
-+}
-+
-+static void emit_cfi(u8 **pprog)
-+{
-+	u8 *prog = *pprog;
-+
-+	switch (cfi_mode) {
-+	case CFI_FINEIBT:
-+		emit_fineibt(&prog);
-+		break;
-+
-+	case CFI_KCFI:
-+		emit_kcfi(&prog);
-+		break;
-+
-+	default:
-+		EMIT_ENDBR();
-+		break;
-+	}
-+
-+	*pprog = prog;
-+}
-+
-+/*
-  * Emit x86-64 prologue code for BPF program.
-  * bpf_tail_call helper will skip the first X86_TAIL_CALL_OFFSET bytes
-  * while jumping to another program
-@@ -315,10 +381,10 @@ static void emit_prologue(u8 **pprog, u3
- {
- 	u8 *prog = *pprog;
+  * An overview of the various calling conventions...
+@@ -138,4 +139,8 @@ static inline u32 cfi_get_func_hash(void
+ }
+ #endif /* CONFIG_CFI_CLANG */
  
-+	emit_cfi(&prog);
- 	/* BPF trampoline can be made to work without these nops,
- 	 * but let's waste 5 bytes for now and optimize later
- 	 */
--	EMIT_ENDBR();
- 	memcpy(prog, x86_nops[5], X86_PATCH_SIZE);
- 	prog += X86_PATCH_SIZE;
- 	if (!ebpf_from_cbpf) {
-@@ -3013,9 +3079,16 @@ struct bpf_prog *bpf_int_jit_compile(str
- 			jit_data->header = header;
- 			jit_data->rw_header = rw_header;
- 		}
--		prog->bpf_func = (void *)image;
-+		/*
-+		 * ctx.prog_offset is used when CFI preambles put code *before*
-+		 * the function. See emit_cfi(). For FineIBT specifically this code
-+		 * can also be executed and bpf_prog_kallsyms_add() will
-+		 * generate an additional symbol to cover this, hence also
-+		 * decrement proglen.
-+		 */
-+		prog->bpf_func = (void *)image + cfi_get_offset();
- 		prog->jited = 1;
--		prog->jited_len = proglen;
-+		prog->jited_len = proglen - cfi_get_offset();
- 	} else {
- 		prog = orig_prog;
- 	}
-@@ -3070,6 +3143,7 @@ void bpf_jit_free(struct bpf_prog *prog)
- 			kvfree(jit_data->addrs);
- 			kfree(jit_data);
- 		}
-+		prog->bpf_func = (void *)prog->bpf_func - cfi_get_offset();
- 		hdr = bpf_jit_binary_pack_hdr(prog);
- 		bpf_jit_binary_pack_free(hdr, NULL);
- 		WARN_ON_ONCE(!bpf_prog_kallsyms_verify_off(prog));
---- a/include/linux/bpf.h
-+++ b/include/linux/bpf.h
-@@ -29,6 +29,7 @@
- #include <linux/rcupdate_trace.h>
- #include <linux/static_call.h>
- #include <linux/memcontrol.h>
-+#include <linux/cfi.h>
- 
- struct bpf_verifier_env;
- struct bpf_verifier_log;
-@@ -1211,7 +1212,11 @@ struct bpf_dispatcher {
- #endif
- };
- 
--static __always_inline __nocfi unsigned int bpf_dispatcher_nop_func(
-+#ifndef __bpfcall
-+#define __bpfcall __nocfi
++#if HAS_KERNEL_IBT == 1
++#define CFI_NOSEAL(x)	asm(IBT_NOSEAL(__stringify(x)))
 +#endif
 +
-+static __always_inline __bpfcall unsigned int bpf_dispatcher_nop_func(
- 	const void *ctx,
- 	const struct bpf_insn *insnsi,
- 	bpf_func_t bpf_func)
-@@ -1303,7 +1308,7 @@ int arch_prepare_bpf_dispatcher(void *im
- 
- #define DEFINE_BPF_DISPATCHER(name)					\
- 	__BPF_DISPATCHER_SC(name);					\
--	noinline __nocfi unsigned int bpf_dispatcher_##name##_func(	\
-+	noinline __bpfcall unsigned int bpf_dispatcher_##name##_func(	\
- 		const void *ctx,					\
- 		const struct bpf_insn *insnsi,				\
- 		bpf_func_t bpf_func)					\
-@@ -1453,6 +1458,9 @@ struct bpf_prog_aux {
- 	struct bpf_kfunc_desc_tab *kfunc_tab;
- 	struct bpf_kfunc_btf_tab *kfunc_btf_tab;
- 	u32 size_poke_tab;
-+#ifdef CONFIG_FINEIBT
-+	struct bpf_ksym ksym_prefix;
-+#endif
- 	struct bpf_ksym ksym;
- 	const struct bpf_prog_ops *ops;
- 	struct bpf_map **used_maps;
+ #endif /* _ASM_X86_CFI_H */
 --- a/include/linux/cfi.h
 +++ b/include/linux/cfi.h
-@@ -11,6 +11,13 @@
- #include <linux/module.h>
- #include <asm/cfi.h>
+@@ -46,4 +46,8 @@ static inline void module_cfi_finalize(c
+ #endif /* CONFIG_ARCH_USES_CFI_TRAPS */
+ #endif /* CONFIG_MODULES */
  
-+#ifndef cfi_get_offset
-+static inline int cfi_get_offset(void)
-+{
-+	return 0;
-+}
++#ifndef CFI_NOSEAL
++#define CFI_NOSEAL(x)
 +#endif
 +
- #ifdef CONFIG_CFI_CLANG
- enum bug_trap_type report_cfi_failure(struct pt_regs *regs, unsigned long addr,
- 				      unsigned long *target, u32 type);
---- a/kernel/bpf/core.c
-+++ b/kernel/bpf/core.c
-@@ -121,6 +121,9 @@ struct bpf_prog *bpf_prog_alloc_no_stats
- #endif
- 
- 	INIT_LIST_HEAD_RCU(&fp->aux->ksym.lnode);
-+#ifdef CONFIG_FINEIBT
-+	INIT_LIST_HEAD_RCU(&fp->aux->ksym_prefix.lnode);
-+#endif
- 	mutex_init(&fp->aux->used_maps_mutex);
- 	mutex_init(&fp->aux->dst_mutex);
- 
-@@ -683,6 +686,23 @@ void bpf_prog_kallsyms_add(struct bpf_pr
- 	fp->aux->ksym.prog = true;
- 
- 	bpf_ksym_add(&fp->aux->ksym);
-+
-+#ifdef CONFIG_FINEIBT
-+	/*
-+	 * When FineIBT, code in the __cfi_foo() symbols can get executed
-+	 * and hence unwinder needs help.
-+	 */
-+	if (cfi_mode != CFI_FINEIBT)
-+		return;
-+
-+	snprintf(fp->aux->ksym_prefix.name, KSYM_NAME_LEN,
-+		 "__cfi_%s", fp->aux->ksym.name);
-+
-+	fp->aux->ksym_prefix.start = (unsigned long) fp->bpf_func - 16;
-+	fp->aux->ksym_prefix.end   = (unsigned long) fp->bpf_func;
-+
-+	bpf_ksym_add(&fp->aux->ksym_prefix);
-+#endif
- }
- 
- void bpf_prog_kallsyms_del(struct bpf_prog *fp)
-@@ -691,6 +711,11 @@ void bpf_prog_kallsyms_del(struct bpf_pr
- 		return;
- 
- 	bpf_ksym_del(&fp->aux->ksym);
-+#ifdef CONFIG_FINEIBT
-+	if (cfi_mode != CFI_FINEIBT)
-+		return;
-+	bpf_ksym_del(&fp->aux->ksym_prefix);
-+#endif
- }
- 
- static struct bpf_ksym *bpf_ksym_find(unsigned long addr)
+ #endif /* _LINUX_CFI_H */
 
 
 
