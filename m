@@ -4,92 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 933A8C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 06:24:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8695FC4167B
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 06:26:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yXKwL1RzIXxwkeIjwakXsrV33bEaC25UpYa8sfR8yF8=; b=kMVE+hMdKJhY4U
-	h/4hMN0lvXTmf/TODuIDD7nJzKb4XtzEvSl+gnkG/Kuw2m/MzsyanuJOaWaE6BxFLKd+Ri7Y7CdEU
-	okJWZrBXLKyEcxLTspqT0WYQ50DgaJuu57uC3Xe6ahIHKgDG9wKxrAsi4O3HkEw6cY6OCdcSlf4dZ
-	Dsz2Uz0aowhlsQtLuNAEJ7JXLYdnzBTiIxIGetBWfAraKNdFgKBcWJSEk9GXRo12ueHfh0/OgbuJg
-	bc2ym0zQWbB19FtYdi0e3nJg00ZUHeASEcNWWMN4c/MKCfUcnGR3W1OjIfdeyacI2jpdoLhG5cN66
-	gNRQ30Zpyn/JI0K14Q2Q==;
+	List-Owner; bh=bLy6j7MJcTxF9Aqars+WS29c2TVEtFo9qQmXRiZNFhs=; b=3nLhMiJmMsTvIa
+	xjtk0fBhWkgA/F4aQlHR8FjTwOcUNduS17DKZ44V1rGcmKcX+Uxw5oJyc+6C1zQBgvchKCaZR/RjF
+	AMh5iUk7aq/DUWky3siu6zUEb+C1Z9mrg4aiohN8fIl9ZDOFVUJ27bpDff2UoAPgQwfTUjE/f3Jjo
+	nQp83Rmck1Supm0fFR6amuMd0y0EHCoEQcU5b8P367s+7s0TStmxoe7E1D/toQJrhuH02selVqvMU
+	PAx9S3LTElCLvAhPUCTFpzCV2A615TT0Kx0E4C3Lr65c9L7p/3Sbf1fK79YazHFcbg/ZgzBcfvKv2
+	+B7pV/B5A64xh4eFDlZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rE1cr-002BM1-0e;
-	Fri, 15 Dec 2023 06:24:45 +0000
-Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
+	id 1rE1e3-002BSt-2B;
+	Fri, 15 Dec 2023 06:25:59 +0000
+Received: from mail-ot1-x336.google.com ([2607:f8b0:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rE1cm-002BKk-2t
+	id 1rE1e1-002BSP-0b
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Dec 2023 06:24:43 +0000
-Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-6d9e756cf32so347948a34.2
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Dec 2023 22:24:39 -0800 (PST)
+	Fri, 15 Dec 2023 06:25:59 +0000
+Received: by mail-ot1-x336.google.com with SMTP id 46e09a7af769-6da2e360861so607842a34.1
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Dec 2023 22:25:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1702621478; x=1703226278; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=+E2D7gVkHacASRXL5ygjcuipCPlLpzybg8SBRvFI25g=;
-        b=nmNBGw+KpSCRs3csisKpkyVIyCs/q3jANuHc8A0oDyh9KQ3pileX5GXrChvLlgArnE
-         7KaR0z5NVwcjAlADJ4mSuhqhTYdZg/LYw67uNxxSl8NKiqUNJAPvsl0h8a/Ln0KpRzYJ
-         iSVkTVBgLKBvntL9d13WCYXk6AMebl1kaDEgKYNyEG2fj+5NI/9r0rFE4mS+SGxndHsp
-         ay8daUnUysdUMuqp8xg4vivGovBR0QrenkDeLW9Zqzm8bvxQRtAYkNO/6wXwWIFYtNXB
-         s86z79jXxYFdiEme+PeYKI7iAnWwkXnltP5xBir5cTnetrj5cUlWUL4BloRqJIeQDlOP
-         0IBw==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1702621553; x=1703226353; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=wuXBaeVrHc7OV9XwrCuRv2hZbg0gExZatTNdba8ubaU=;
+        b=SEQdyRMJVNuskukbGe4l831qsIrp/DOmh/m6mV/5hA1drvZG2wryc9PkCx2U6uri8/
+         qVvMzjejpsLCzrX2BHaPigwCRa3MBMbBJS4xe70N6tAsDZ7HiWwFevQcrw62TEq+qBM4
+         y8KsN3QBLM8Pb3ZuqY8SLsQKLaG/ew49+weNzl9scVPFZVC7yAKcq8YVklVaUCKOioC+
+         gq7KOCuJ7HmLNaGFEScpLgiuIElY09vS0/R1ARYZkK7NVqGl6mHFtkicSlogXCSZ+TPg
+         QN+kiufWbDhEXuU4v37VMmJB34I6NN2MwSpOhLBfhAB6x8dvAEGXD6dZ4PQqOfWrLkY5
+         ujdg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702621478; x=1703226278;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+E2D7gVkHacASRXL5ygjcuipCPlLpzybg8SBRvFI25g=;
-        b=Kq568cNvAWsYT1MCgYarGtsbzBJmLrx5Qv0AITIfcfexWgVLB04G8Sn0RwC0fGYSls
-         zcKoTrGJ+6Ku+Sc8uciOW+euA+CkHPrgejfFlFUeQzGYLSuQtiLDLLwez7/trqtwnGXi
-         40ULQfKDaL6UXgB7snBmv12UZFmvOzS6oakSQ1kugCuuf6qrQZzOU+bfQoDAGBU+Srqy
-         /xppSuU3X1s+TOHshlqmWhgCaM3ugZA4ooDaoaPanPt2InOh5oY3g3tQ3QocXRNIFCCR
-         pA2KT7W0Jp8yBEXBNWkTY4WuS5qr0v9EonLjJOwrmYKfCFQ6rqoRMBaMt+ZvppAnOwos
-         uwDQ==
-X-Gm-Message-State: AOJu0YxnaUsxxTjxZG7xkEsaYGzU7yg8+pAhfWAOcNycuwDg5xF5nuKW
-	8dJAFJWWrUTiGK1mtDCeV+81DA==
-X-Google-Smtp-Source: AGHT+IEuzU79d5GO3cGCrLllasZJrL96H29zUXEn3B7cB7Vp/LfPEBYV1MXHAcG3MDcyxm8sF0nT3w==
-X-Received: by 2002:a05:6808:22a1:b0:3ba:b41:aff6 with SMTP id bo33-20020a05680822a100b003ba0b41aff6mr9321899oib.19.1702621478424;
-        Thu, 14 Dec 2023 22:24:38 -0800 (PST)
+        d=1e100.net; s=20230601; t=1702621553; x=1703226353;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wuXBaeVrHc7OV9XwrCuRv2hZbg0gExZatTNdba8ubaU=;
+        b=m2ZwyKeUUlQmTEpsHbGiEWICVVdehcWhBrkoe8vxU9U6SNA87K8e8VXXbtfMlpkSUf
+         032H/FxgjAITt2i8CE/Ju4u96iYRks6yL+3a9PZ95Q32F8E8VxPQuV8JnEIqLc7iJnQb
+         iLTI5yMJdCqKgU0kaaXxy/1TzQMA8JYZDWi04QpusbmIsT1lrJ99wt1dbt8+t7MKtas5
+         oIB5Ffy9HTXSo6wSFZbFrWhBroT84eeG6zB7kr3XHsYQOt3St9ckp1Mk2AKRvnHVZ8G7
+         hqr0k4+nHLdb1ZAnzy1FGlyqjyKghhscC7wg1BGE3Yj9tq/QR/tKVat4K+QF6dQG6wkN
+         jqqg==
+X-Gm-Message-State: AOJu0YxPuTKpqrnk5Tgo6KSfLQ67EPzkdFxBzlL6Uo+SSDNK/4F0NsrX
+	D8kdELw1MFLZ+EVU/hFBeIArbQ==
+X-Google-Smtp-Source: AGHT+IG7LFuX+mkoXj2GyVetzE/ryNamPtQqGREnLnRZI68v7owE68kU5qe9TXmWPsC61Wmym7LDpA==
+X-Received: by 2002:a05:6830:68c7:b0:6d9:d87c:35f6 with SMTP id cw7-20020a05683068c700b006d9d87c35f6mr4639859otb.22.1702621552964;
+        Thu, 14 Dec 2023 22:25:52 -0800 (PST)
 Received: from ghost ([2601:642:4c00:261c:91c3:e862:22d2:ad26])
-        by smtp.gmail.com with ESMTPSA id f22-20020a05680814d600b003b8b8d37f4esm3656851oiw.15.2023.12.14.22.24.36
+        by smtp.gmail.com with ESMTPSA id c9-20020a056830000900b006d87b167c41sm3483143otp.8.2023.12.14.22.25.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Dec 2023 22:24:37 -0800 (PST)
-Date: Thu, 14 Dec 2023 22:24:34 -0800
+        Thu, 14 Dec 2023 22:25:52 -0800 (PST)
+Date: Thu, 14 Dec 2023 22:25:49 -0800
 From: Charlie Jenkins <charlie@rivosinc.com>
 To: Andy Chiu <andy.chiu@sifive.com>
 Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
 	greentime.hu@sifive.com, guoren@linux.alibaba.com, bjorn@kernel.org,
 	ardb@kernel.org, arnd@arndb.de,
-	Vincent Chen <vincent.chen@sifive.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>,
+	Albert Ou <aou@eecs.berkeley.edu>,
 	Conor Dooley <conor.dooley@microchip.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Guo Ren <guoren@kernel.org>, Xiao Wang <xiao.w.wang@intel.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Han-Kuan Chen <hankuan.chen@sifive.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Aurelien Jarno <aurelien@aurel32.net>, Bo YU <tsu.yubo@gmail.com>,
 	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Sia Jee Heng <jeeheng.sia@starfivetech.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>
-Subject: Re: [v5, 1/6] riscv: Add support for kernel mode vector
-Message-ID: <ZXvxIuZwCQ8zeXhr@ghost>
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+Subject: Re: [v5, 5/6] riscv: lib: vectorize copy_to_user/copy_from_user
+Message-ID: <ZXvxbbBWXqIy/05b@ghost>
 References: <20231214155721.1753-1-andy.chiu@sifive.com>
- <20231214155721.1753-2-andy.chiu@sifive.com>
+ <20231214155721.1753-6-andy.chiu@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231214155721.1753-2-andy.chiu@sifive.com>
+In-Reply-To: <20231214155721.1753-6-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231214_222441_124836_6539B9A3 
-X-CRM114-Status: GOOD (  37.85  )
+X-CRM114-CacheID: sfid-20231214_222557_224986_240E79D9 
+X-CRM114-Status: GOOD (  36.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,339 +97,243 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 14, 2023 at 03:57:16PM +0000, Andy Chiu wrote:
-> From: Greentime Hu <greentime.hu@sifive.com>
-> =
-
-> Add kernel_vector_begin() and kernel_vector_end() function declarations
-> and corresponding definitions in kernel_mode_vector.c
-> =
-
-> These are needed to wrap uses of vector in kernel mode.
-> =
-
-> Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+On Thu, Dec 14, 2023 at 03:57:20PM +0000, Andy Chiu wrote:
+> This patch utilizes Vector to perform copy_to_user/copy_from_user. If
+> Vector is available and the size of copy is large enough for Vector to
+> perform better than scalar, then direct the kernel to do Vector copies
+> for userspace. Though the best programming practice for users is to
+> reduce the copy, this provides a faster variant when copies are
+> inevitable.
+> 
+> The optimal size for using Vector, copy_to_user_thres, is only a
+> heuristic for now. We can add DT parsing if people feel the need of
+> customizing it.
+> 
+> The exception fixup code of the __asm_vector_usercopy must fallback to
+> the scalar one because accessing user pages might fault, and must be
+> sleepable. Current kernel-mode Vector does not allow tasks to be
+> preemptible, so we must disactivate Vector and perform a scalar fallback
+> in such case.
+> 
+> The original implementation of Vector operations comes from
+> https://github.com/sifive/sifive-libc, which we agree to contribute to
+> Linux kernel.
+> 
 > Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
 > ---
 > Changelog v4:
->  - Use kernel_v_flags and helpers to track vector context.
-> Changelog v3:
->  - Reorder patch 1 to patch 3 to make use of
->    {get,put}_cpu_vector_context later.
->  - Export {get,put}_cpu_vector_context.
->  - Save V context after disabling preemption. (Guo)
->  - Fix a build fail. (Conor)
->  - Remove irqs_disabled() check as it is not needed, fix styling. (Bj=F6r=
-n)
-> Changelog v2:
->  - 's/kernel_rvv/kernel_vector' and return void in kernel_vector_begin
->    (Conor)
->  - export may_use_simd to include/asm/simd.h
+>  - new patch since v4
 > ---
->  arch/riscv/include/asm/processor.h     | 15 +++-
->  arch/riscv/include/asm/simd.h          | 42 ++++++++++++
->  arch/riscv/include/asm/vector.h        | 21 ++++++
->  arch/riscv/kernel/Makefile             |  1 +
->  arch/riscv/kernel/kernel_mode_vector.c | 95 ++++++++++++++++++++++++++
->  arch/riscv/kernel/process.c            |  2 +-
->  6 files changed, 174 insertions(+), 2 deletions(-)
->  create mode 100644 arch/riscv/include/asm/simd.h
->  create mode 100644 arch/riscv/kernel/kernel_mode_vector.c
-> =
-
-> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/=
-processor.h
-> index f19f861cda54..a47763c262e1 100644
-> --- a/arch/riscv/include/asm/processor.h
-> +++ b/arch/riscv/include/asm/processor.h
-> @@ -73,6 +73,18 @@
->  struct task_struct;
->  struct pt_regs;
->  =
-
-> +/*
-> + * We use a flag to track in-kernel Vector context. Currently the flag h=
-as the
-> + * following meaning:
-> + *
-> + *  - bit 0 indicates whether the in-kernel Vector context is active. The
-> + *    activation of this state disables the preemption.
-> + */
-> +
-> +#define RISCV_KERNEL_MODE_V_MASK	0x1
-> +
-> +#define RISCV_KERNEL_MODE_V	0x1
-> +
->  /* CPU-specific state of a task */
->  struct thread_struct {
->  	/* Callee-saved registers */
-> @@ -81,7 +93,8 @@ struct thread_struct {
->  	unsigned long s[12];	/* s[0]: frame pointer */
->  	struct __riscv_d_ext_state fstate;
->  	unsigned long bad_cause;
-> -	unsigned long vstate_ctrl;
-> +	u32 riscv_v_flags;
-> +	u32 vstate_ctrl;
->  	struct __riscv_v_ext_state vstate;
->  	unsigned long align_ctl;
->  };
-> diff --git a/arch/riscv/include/asm/simd.h b/arch/riscv/include/asm/simd.h
+>  arch/riscv/lib/Makefile          |  2 ++
+>  arch/riscv/lib/riscv_v_helpers.c | 38 ++++++++++++++++++++++
+>  arch/riscv/lib/uaccess.S         | 11 +++++++
+>  arch/riscv/lib/uaccess_vector.S  | 55 ++++++++++++++++++++++++++++++++
+>  4 files changed, 106 insertions(+)
+>  create mode 100644 arch/riscv/lib/riscv_v_helpers.c
+>  create mode 100644 arch/riscv/lib/uaccess_vector.S
+> 
+> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+> index 494f9cd1a00c..1fe8d797e0f2 100644
+> --- a/arch/riscv/lib/Makefile
+> +++ b/arch/riscv/lib/Makefile
+> @@ -12,3 +12,5 @@ lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
+>  
+>  obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
+>  lib-$(CONFIG_RISCV_ISA_V)	+= xor.o
+> +lib-$(CONFIG_RISCV_ISA_V)	+= riscv_v_helpers.o
+> +lib-$(CONFIG_RISCV_ISA_V)	+= uaccess_vector.o
+> diff --git a/arch/riscv/lib/riscv_v_helpers.c b/arch/riscv/lib/riscv_v_helpers.c
 > new file mode 100644
-> index 000000000000..269752bfa2cc
+> index 000000000000..d763b9c69fb7
 > --- /dev/null
-> +++ b/arch/riscv/include/asm/simd.h
-> @@ -0,0 +1,42 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2017 Linaro Ltd. <ard.biesheuvel@linaro.org>
-> + * Copyright (C) 2023 SiFive
-> + */
-> +
-> +#ifndef __ASM_SIMD_H
-> +#define __ASM_SIMD_H
-> +
-> +#include <linux/compiler.h>
-> +#include <linux/irqflags.h>
-> +#include <linux/percpu.h>
-> +#include <linux/preempt.h>
-> +#include <linux/types.h>
-> +
-> +#ifdef CONFIG_RISCV_ISA_V
-> +/*
-> + * may_use_simd - whether it is allowable at this time to issue vector
-> + *                instructions or access the vector register file
-> + *
-> + * Callers must not assume that the result remains true beyond the next
-> + * preempt_enable() or return from softirq context.
-> + */
-> +static __must_check inline bool may_use_simd(void)
-> +{
-> +	/*
-> +	 * RISCV_KERNEL_MODE_V is only set while preemption is disabled,
-> +	 * and is clear whenever preemption is enabled.
-> +	 */
-> +	return !in_hardirq() && !in_nmi() && !(riscv_v_ctx_cnt() & RISCV_KERNEL=
-_MODE_V_MASK);
-> +}
-> +
-> +#else /* ! CONFIG_RISCV_ISA_V */
-> +
-> +static __must_check inline bool may_use_simd(void)
-> +{
-> +	return false;
-> +}
-> +
-> +#endif /* ! CONFIG_RISCV_ISA_V */
-> +
-> +#endif
-> diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vec=
-tor.h
-> index 87aaef656257..6254830c0668 100644
-> --- a/arch/riscv/include/asm/vector.h
-> +++ b/arch/riscv/include/asm/vector.h
-> @@ -22,6 +22,27 @@
->  extern unsigned long riscv_v_vsize;
->  int riscv_v_setup_vsize(void);
->  bool riscv_v_first_use_handler(struct pt_regs *regs);
-> +void kernel_vector_begin(void);
-> +void kernel_vector_end(void);
-> +void get_cpu_vector_context(void);
-> +void put_cpu_vector_context(void);
-> +
-> +static inline void riscv_v_ctx_cnt_add(u32 offset)
-> +{
-> +	current->thread.riscv_v_flags +=3D offset;
-> +	barrier();
-> +}
-> +
-> +static inline void riscv_v_ctx_cnt_sub(u32 offset)
-> +{
-> +	barrier();
-> +	current->thread.riscv_v_flags -=3D offset;
-> +}
-> +
-> +static inline u32 riscv_v_ctx_cnt(void)
-> +{
-> +	return READ_ONCE(current->thread.riscv_v_flags);
-> +}
->  =
-
->  static __always_inline bool has_vector(void)
->  {
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index fee22a3d1b53..8c58595696b3 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -63,6 +63,7 @@ obj-$(CONFIG_MMU) +=3D vdso.o vdso/
->  obj-$(CONFIG_RISCV_MISALIGNED)	+=3D traps_misaligned.o
->  obj-$(CONFIG_FPU)		+=3D fpu.o
->  obj-$(CONFIG_RISCV_ISA_V)	+=3D vector.o
-> +obj-$(CONFIG_RISCV_ISA_V)	+=3D kernel_mode_vector.o
->  obj-$(CONFIG_SMP)		+=3D smpboot.o
->  obj-$(CONFIG_SMP)		+=3D smp.o
->  obj-$(CONFIG_SMP)		+=3D cpu_ops.o
-> diff --git a/arch/riscv/kernel/kernel_mode_vector.c b/arch/riscv/kernel/k=
-ernel_mode_vector.c
-> new file mode 100644
-> index 000000000000..c9ccf21dd16c
-> --- /dev/null
-> +++ b/arch/riscv/kernel/kernel_mode_vector.c
-> @@ -0,0 +1,95 @@
+> +++ b/arch/riscv/lib/riscv_v_helpers.c
+> @@ -0,0 +1,38 @@
 > +// SPDX-License-Identifier: GPL-2.0-or-later
 > +/*
-> + * Copyright (C) 2012 ARM Ltd.
-> + * Author: Catalin Marinas <catalin.marinas@arm.com>
-> + * Copyright (C) 2017 Linaro Ltd. <ard.biesheuvel@linaro.org>
-> + * Copyright (C) 2021 SiFive
+> + * Copyright (C) 2023 SiFive
+> + * Author: Andy Chiu <andy.chiu@sifive.com>
 > + */
-> +#include <linux/compiler.h>
-> +#include <linux/irqflags.h>
-> +#include <linux/percpu.h>
-> +#include <linux/preempt.h>
-> +#include <linux/types.h>
+> +#include <linux/linkage.h>
+> +#include <asm/asm.h>
 > +
 > +#include <asm/vector.h>
-> +#include <asm/switch_to.h>
 > +#include <asm/simd.h>
 > +
-> +/*
-> + * Claim ownership of the CPU vector context for use by the calling cont=
-ext.
-> + *
-> + * The caller may freely manipulate the vector context metadata until
-> + * put_cpu_vector_context() is called.
-> + */
-> +void get_cpu_vector_context(void)
+> +size_t riscv_v_usercopy_thres = 768;
+> +int __asm_vector_usercopy(void *dst, void *src, size_t n);
+> +int fallback_scalar_usercopy(void *dst, void *src, size_t n);
+> +asmlinkage int enter_vector_usercopy(void *dst, void *src, size_t n)
 > +{
-> +	preempt_disable();
+> +	size_t remain, copied;
 > +
-> +	WARN_ON(riscv_v_ctx_cnt() & RISCV_KERNEL_MODE_V_MASK);
-
-This is a bigger issue than a warn. Calling riscv_v_ctx_cnt_add with
-the same flag an even number of times will cause (riscv_v_ctx_cnt() &
-RISCV_KERNEL_MODE_V_MASK) to return 0, even though vector is being used.
-This could be solved by using a bitwise or instead of addition when
-setting the flag.
-
-> +	riscv_v_ctx_cnt_add(RISCV_KERNEL_MODE_V);
+> +	/* skip has_vector() check because it has been done by the asm  */
+> +	if (!may_use_simd())
+> +		goto fallback;
+> +
+> +	kernel_vector_begin();
+> +	remain = __asm_vector_usercopy(dst, src, n);
+> +	kernel_vector_end();
+> +
+> +	if (remain) {
+> +		copied = n - remain;
+> +		dst += copied;
+> +		src += copied;
+> +		goto fallback;
+> +	}
+> +
+> +	return remain;
+> +
+> +fallback:
+> +	return fallback_scalar_usercopy(dst, src, n);
 > +}
-> +
-> +/*
-> + * Release the CPU vector context.
-> + *
-> + * Must be called from a context in which get_cpu_vector_context() was
-> + * previously called, with no call to put_cpu_vector_context() in the
-> + * meantime.
-> + */
-> +void put_cpu_vector_context(void)
-> +{
-> +	WARN_ON(!(riscv_v_ctx_cnt() & RISCV_KERNEL_MODE_V_MASK));
-> +	riscv_v_ctx_cnt_sub(RISCV_KERNEL_MODE_V);
-> +
-> +	preempt_enable();
-> +}
-> +
-> +/*
-> + * kernel_vector_begin(): obtain the CPU vector registers for use by the=
- calling
-> + * context
-> + *
-> + * Must not be called unless may_use_simd() returns true.
-> + * Task context in the vector registers is saved back to memory as neces=
-sary.
-> + *
-> + * A matching call to kernel_vector_end() must be made before returning =
-from the
-> + * calling context.
-> + *
-> + * The caller may freely use the vector registers until kernel_vector_en=
-d() is
-> + * called.
-> + */
-> +void kernel_vector_begin(void)
-> +{
-> +	if (WARN_ON(!has_vector()))
+> diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
+> index 3ab438f30d13..ae8c1453cfcf 100644
+> --- a/arch/riscv/lib/uaccess.S
+> +++ b/arch/riscv/lib/uaccess.S
+> @@ -3,6 +3,8 @@
+>  #include <asm/asm.h>
+>  #include <asm/asm-extable.h>
+>  #include <asm/csr.h>
+> +#include <asm/hwcap.h>
+> +#include <asm/alternative-macros.h>
+>  
+>  	.macro fixup op reg addr lbl
+>  100:
+> @@ -11,6 +13,14 @@
+>  	.endm
+>  
+>  SYM_FUNC_START(__asm_copy_to_user)
+> +#ifdef CONFIG_RISCV_ISA_V
+> +	ALTERNATIVE("j fallback_scalar_usercopy", "nop", 0, RISCV_ISA_EXT_v, CONFIG_RISCV_ISA_V)
 
-Should this be WARN_ONCE? If somebody runs a kernel compiled with vector
-on hardware without vector, this warning has the potential to be thrown
-an excessive amount of times.
+has_vector uses riscv_has_extension_unlikely, but this is the equivalent
+of riscv_has_extension_likely. It seems like this should be consistent
+across all call sites. Since has_vector uses the unlikely version, this
+should probably be rearranged so that the nop is in the non-vector
+version and the jump is for the vector version.
 
-> +		return;
-> +
-> +	BUG_ON(!may_use_simd());
-> +
-> +	get_cpu_vector_context();
-> +
-> +	riscv_v_vstate_save(current, task_pt_regs(current));
-> +
-> +	riscv_v_enable();
-> +}
-> +EXPORT_SYMBOL_GPL(kernel_vector_begin);
-> +
-> +/*
-> + * kernel_vector_end(): give the CPU vector registers back to the curren=
-t task
-> + *
-> + * Must be called from a context in which kernel_vector_begin() was prev=
-iously
-> + * called, with no call to kernel_vector_end() in the meantime.
-> + *
-> + * The caller must not use the vector registers after this function is c=
-alled,
-> + * unless kernel_vector_begin() is called again in the meantime.
-> + */
-> +void kernel_vector_end(void)
-> +{
-> +	if (WARN_ON(!has_vector()))
+A neat optimization you can do here is replace the "nop" with the
+instruction that will be executed first. With how it's written right now
+you could replace the nop with the la instruction. It's just a nop so
+the performance difference is probably not going to be noticable but
+it's theoretically better without the nop. The downside of doing this is
+that it seems like alternatives do not work with macros so you couldn't
+replace the nop with a REG_L instruction, unless there is some trick to
+make it work.
 
-Same as above.
+> +	la	t0, riscv_v_usercopy_thres
+> +	REG_L	t0, (t0)
+
+The assembler does something really silly here it seems. With both
+binutils 2.41 and clang 18 the following is generated:
+
+6:   00000297                auipc   t0,0x0
+a:   00028293                mv      t0,t0
+e:   0002b283                ld      t0,0(t0) # 6 <__asm_copy_from_user+0x4>
+
+However, this la is not needed. You can replace the la + REG_L with just
+a REG_L as follows:
+
+REG_L   t0, riscv_v_usercopy_thres
+
+This then generates the following code:
+
+6:   00000297                auipc   t0,0x0
+a:   0002b283                ld      t0,0(t0) # 6 <__asm_copy_from_user+0x4>
+
+> +	bltu	a2, t0, fallback_scalar_usercopy
+> +	tail enter_vector_usercopy
+> +#endif
+> +SYM_FUNC_START(fallback_scalar_usercopy)
+>  
+>  	/* Enable access to user memory */
+>  	li t6, SR_SUM
+> @@ -181,6 +191,7 @@ SYM_FUNC_START(__asm_copy_to_user)
+>  	sub a0, t5, a0
+>  	ret
+>  SYM_FUNC_END(__asm_copy_to_user)
+> +SYM_FUNC_END(fallback_scalar_usercopy)
+>  EXPORT_SYMBOL(__asm_copy_to_user)
+>  SYM_FUNC_ALIAS(__asm_copy_from_user, __asm_copy_to_user)
+>  EXPORT_SYMBOL(__asm_copy_from_user)
+> diff --git a/arch/riscv/lib/uaccess_vector.S b/arch/riscv/lib/uaccess_vector.S
+> new file mode 100644
+> index 000000000000..5bebcb1276a2
+> --- /dev/null
+> +++ b/arch/riscv/lib/uaccess_vector.S
+> @@ -0,0 +1,55 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +
+> +#include <linux/linkage.h>
+> +#include <asm-generic/export.h>
+> +#include <asm/asm.h>
+> +#include <asm/asm-extable.h>
+> +#include <asm/csr.h>
+> +
+> +#define pDst a0
+> +#define pSrc a1
+> +#define iNum a2
+> +
+> +#define iVL a3
+> +#define pDstPtr a4
+> +
+> +#define ELEM_LMUL_SETTING m8
+> +#define vData v0
+> +
+> +	.macro fixup op reg addr lbl
+> +100:
+> +	\op \reg, \addr
+> +	_asm_extable	100b, \lbl
+> +	.endm
+> +
+> +SYM_FUNC_START(__asm_vector_usercopy)
+> +	/* Enable access to user memory */
+> +	li t6, SR_SUM
+> +	csrs CSR_STATUS, t6
+> +
+> +	/* Save for return value */
+> +	mv	t5, a2
+
+What's the point of this?
+
+> +
+> +	mv pDstPtr, pDst
+
+Why do this move? pDst isn't used anywhere else so you can safely
+continue to use pDst everywhere that pDstPtr is used.
 
 - Charlie
 
->+		return;
+> +loop:
+> +	vsetvli iVL, iNum, e8, ELEM_LMUL_SETTING, ta, ma
+> +	fixup vle8.v vData, (pSrc), 10f
+> +	fixup vse8.v vData, (pDstPtr), 10f
+> +	sub iNum, iNum, iVL
+> +	add pSrc, pSrc, iVL
+> +	add pDstPtr, pDstPtr, iVL
+> +	bnez iNum, loop
 > +
-> +	riscv_v_vstate_restore(current, task_pt_regs(current));
+> +.Lout_copy_user:
+> +	/* Disable access to user memory */
+> +	csrc CSR_STATUS, t6
+> +	li	a0, 0
+> +	ret
 > +
-> +	riscv_v_disable();
-> +
-> +	put_cpu_vector_context();
-> +}
-> +EXPORT_SYMBOL_GPL(kernel_vector_end);
-> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-> index 4f21d970a129..5c4dcf518684 100644
-> --- a/arch/riscv/kernel/process.c
-> +++ b/arch/riscv/kernel/process.c
-> @@ -187,7 +187,6 @@ int arch_dup_task_struct(struct task_struct *dst, str=
-uct task_struct *src)
->  	*dst =3D *src;
->  	/* clear entire V context, including datap for a new task */
->  	memset(&dst->thread.vstate, 0, sizeof(struct __riscv_v_ext_state));
-> -
->  	return 0;
->  }
->  =
-
-> @@ -221,6 +220,7 @@ int copy_thread(struct task_struct *p, const struct k=
-ernel_clone_args *args)
->  		childregs->a0 =3D 0; /* Return value of fork() */
->  		p->thread.s[0] =3D 0;
->  	}
-> +	p->thread.riscv_v_flags =3D 0;
->  	p->thread.ra =3D (unsigned long)ret_from_fork;
->  	p->thread.sp =3D (unsigned long)childregs; /* kernel sp */
->  	return 0;
-> -- =
-
+> +	/* Exception fixup code */
+> +10:
+> +	/* Disable access to user memory */
+> +	csrc	CSR_STATUS, t6
+> +	mv	a0, iNum
+> +	ret
+> +SYM_FUNC_END(__asm_vector_usercopy)
+> -- 
 > 2.17.1
-> =
-
+> 
 
 _______________________________________________
 linux-riscv mailing list
