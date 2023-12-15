@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C83DEC41535
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3E7CC35274
 	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 14:39:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NbpVUnZsmSYlGbTcEWMSZ636GNDAyvweks45iCA7Zgg=; b=z6se/zeG+rkmA6
-	VRwTOAYyxkfCTBTz40WaSiMLWICFKVqsq7guhHj/YJQWPP0m6JRePI6KS5Lkg+nRMw7K3aHcfmD59
-	pUyzBBi8Fvf0oG2L3xAiBwgGPbarYpjCNicl+/T6suid6tikDswI0ljrAvhS754/1ndQjYS+U9lXp
-	+8W9LhjLCm6D0+LZuqfJ6lJVCXOJ+Xmfku76Mu7BPWvho8MxkDAd924Rd9/En6YdXDKax+tIOKSrA
-	CM/DFDB4kOqqGs9mmDKl+gJ0SKzMv5ErEvFSRlIsDTVO/eAZ1YqTIWtURu6KC+TkJeNArEmlzyhKx
-	mYLGlgerZKfBgGe0Pkbw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sNkExQymqVYuwASe7gMliEDLm7XBrd2D+sPt0e82e9A=; b=Y8Q7JZcUlVf/Ki
+	TY8uPmYrjK/r/YaadzIuprz5whvW4vYz4VmRiHH7cxHXzTK/c+0tbNKcxAZUz7ZkU8KSW8fl79w2+
+	qPN9k9T48T+yWce8Dx9TgOL22tK4T4h/5X+FB8rvaPoxwdeNReBmB3EAgOYm4Ozfeh5NHMi0RYRY8
+	gzX8McYArfVYh3WaSP9sIZvIFQNeTUUADS/JghUTnxpVp6a4izSc14L4/3gN3SoqAvksiTRIgBV0g
+	5o4bC89Fv8yl2k8WxVaDC90xImr1ecylzrOJdY8t+oQaErQxUlQU3GrBLMwhZYGO3rhAd3Y4IF8hr
+	cNT+LDHWDo0Q3SF8X4Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rE9LV-003aEv-00;
-	Fri, 15 Dec 2023 14:39:21 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1rE9LR-003aCv-2D;
+	Fri, 15 Dec 2023 14:39:17 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rE9LR-003aCO-0d
+	id 1rE9LN-003aBP-2S
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Dec 2023 14:39:18 +0000
-Received: from mail-ej1-f70.google.com (mail-ej1-f70.google.com [209.85.218.70])
+	Fri, 15 Dec 2023 14:39:15 +0000
+Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com [209.85.218.71])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 645F53F2CC
-	for <linux-riscv@lists.infradead.org>; Fri, 15 Dec 2023 14:39:14 +0000 (UTC)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id C40173F2CA
+	for <linux-riscv@lists.infradead.org>; Fri, 15 Dec 2023 14:39:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1702651154;
-	bh=RobAsopvkyaJG4ZlGH6Q+ihyPFqhE+HxeBCHD/K5fRk=;
-	h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
-	 MIME-Version;
-	b=JveIQFn2hQtiyEGthTh3fz27PLBh02oceELhU88h2YjgRTXCJYOY0JUZ+vYeU3i3W
-	 d8ToUf4a3ADU9cvRYxnL7sp7OnVFU+kdzfBlHhAXj/cLKY+DhCgEklXlR5MiWV1IQG
-	 K4OTjk1gGeDQNunql/fABmy0Pt9168sPtJz8DnDnLSium2duC9Ysvaz62cTPyo3uNw
-	 qRoCmrbIQLAeRFfO0WNhWAZVi7u1RsihmSVxcBNt8p4vCHJilN+ACd0DdzB/LUd/GQ
-	 6wBgNRZ090lYheME1O2MGw6c089o0Cz3wcVzR3C5k9dcd26eJTENBpHPvZFZLb4Kwe
-	 ywC/z0ICQJ51Q==
-Received: by mail-ej1-f70.google.com with SMTP id a640c23a62f3a-a1d0182f0e5so29055966b.0
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Dec 2023 06:39:14 -0800 (PST)
+	s=20210705; t=1702651149;
+	bh=RndXzFv9dRc3apfX7gXyeZVRNhEetAJ/uCjHbnQO3fY=;
+	h=From:To:Cc:Subject:Date:Message-Id:MIME-Version;
+	b=eg04Tt0l7q40yCOrJM3ra/4+dA3KXpXRil5b/p4n0vGaHJofAMQefStlycK6r9AJa
+	 0rjO7aVLvd16AV3cuPG5TAMdANEUUEdvHzt23qmteoxHqIjGfM/5SMahjdY6SPOqkm
+	 0tvLz+1hfi19uEFHQ3R00cRR5qp5lT4KSbHn4QgYVL0gw1gM9q+BOQ7q8eZ56ubTRU
+	 3rZgBzVBQOnDFvULVy9Y6fakmcjHt9VpXE6nnHFQ6M5jlyDjmtispoW7gWOJePT8zf
+	 xaCkcmHzGBhkJPil2tpT427HWOUw9zPBMx+IDcrRDx965XKNmpXnG4GzvB3UXaCnFS
+	 Rnu18YfhX3qDw==
+Received: by mail-ej1-f71.google.com with SMTP id a640c23a62f3a-a1db7b26269so43967366b.0
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Dec 2023 06:39:09 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702651153; x=1703255953;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RobAsopvkyaJG4ZlGH6Q+ihyPFqhE+HxeBCHD/K5fRk=;
-        b=PB3i1k9iKbygB8DdjzGFA2Hlt9Giy5VgaC0o7eQdOSmD2x7jqk7uhgIBALcQQg6D1H
-         p407ao1x/6esUcnOjqBuRmkM9ywH8X36wVh3ZlioJnwshnoigxiGIoY3lmpgqw2vY6tI
-         sFANA6fvzCOZWD+FyCz/u0VzhvhNHglwzi7XGQpk3UzDsifrPfiVFYTfOTDJDY5sCqNU
-         xihYBmroLs4EhlA3sGeMiekQUUNW4OssuA3odiPT9APa8m4k+jdpRYvift26P42GdBiJ
-         lo+l+e1Qwd1DTNf06HqdrKiAdoJs0vXiVK73HApvDBwpWqwVshuPhjzFBMAcYIzoGjPs
-         W17Q==
-X-Gm-Message-State: AOJu0YzULv1TKMAQ8iPkKoBUHjUL75S1pZ+ZXILg3emFwPD3KZ1eb34R
-	Yw3Fex7vNDzH/ve3MyCHk2yF5jZhJU8EkqgPmV6gqEaRXHcuoqTBJjbenZzqd5oFUR8Q+9F9fAV
-	MpRypqFCIlisCU+EywBrhgchrj1MOhlStAznSgx1a4vzpjg==
-X-Received: by 2002:a17:907:9714:b0:a04:bc39:c1c7 with SMTP id jg20-20020a170907971400b00a04bc39c1c7mr8341366ejc.36.1702651153752;
-        Fri, 15 Dec 2023 06:39:13 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEMJ/XNk1OcnlxBlTONG8qxR+NbDMfjb9FP+RE/bMN9YTONgYiMhiDoaYwky2i3vk37hslVhA==
-X-Received: by 2002:a17:907:9714:b0:a04:bc39:c1c7 with SMTP id jg20-20020a170907971400b00a04bc39c1c7mr8341347ejc.36.1702651153594;
-        Fri, 15 Dec 2023 06:39:13 -0800 (PST)
+        d=1e100.net; s=20230601; t=1702651149; x=1703255949;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RndXzFv9dRc3apfX7gXyeZVRNhEetAJ/uCjHbnQO3fY=;
+        b=IEUw5p4hxwoLfjf7qtHEGu+77QJO8H3T6usdfrkwfeYoqrk9TsAbv0X4lIDqpdg3tn
+         yQyxG8+bW+F1TrMRqv9FI65LtnMqJ4etasqJ4aDGKB7UarFD/DuCbtW2i6+FjIVpaZKr
+         kgzWEOLegH/QsVDDLKs6IJrfeKk6Z/87C+5Yq8W1rEYzB2v79NEiPSEb+hSLt2UDC9mE
+         SorSvrtVdkDcEjm6fvnLqPSbiMRiCPr4z0mvdTeEVYG2N9TaxrqVj2AymOsj0XciR5A5
+         a9P2YQ/MZi6CqQrK1F6RzmWQuvnMbPW+VIH8zWHT4FJ5ipkRZCBIZ3a703Bb3oYMRDrk
+         sHgg==
+X-Gm-Message-State: AOJu0Yz519awH7DBf4xI2Qm2ZPCNWe1eFmzN7uHVzYdFxYyEAcPsU9VM
+	YhDe8LLiYFFhLburhOJiVsy3WoZoViqovD86k5P96HmUydhlHDoJRYFdfRpEdFaILvQF4PwuaGu
+	SMuRYACblsHcnQh6o1vo00v4ZaOcvJ35uF4hAnYmBeJS9PsgPkgYnuQ==
+X-Received: by 2002:a17:906:f5a3:b0:a1f:5c21:a577 with SMTP id cm35-20020a170906f5a300b00a1f5c21a577mr7202619ejd.152.1702651149197;
+        Fri, 15 Dec 2023 06:39:09 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IE3QbInfkk0AitjzXyJOwIcvtQstPOCuRyy+iC+Mz5KWzxJEUlBa6uywj+At/OAf/HstQ4J2g==
+X-Received: by 2002:a17:906:f5a3:b0:a1f:5c21:a577 with SMTP id cm35-20020a170906f5a300b00a1f5c21a577mr7202607ejd.152.1702651148915;
+        Fri, 15 Dec 2023 06:39:08 -0800 (PST)
 Received: from stitch.. ([152.115.213.158])
-        by smtp.gmail.com with ESMTPSA id tm6-20020a170907c38600b00a1db955c809sm10789122ejc.73.2023.12.15.06.39.12
+        by smtp.gmail.com with ESMTPSA id tm6-20020a170907c38600b00a1db955c809sm10789122ejc.73.2023.12.15.06.39.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Dec 2023 06:39:13 -0800 (PST)
+        Fri, 15 Dec 2023 06:39:08 -0800 (PST)
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 To: linux-gpio@vger.kernel.org,
 	devicetree@vger.kernel.org,
@@ -88,17 +87,14 @@ Cc: Hoan Tran <hoan@os.amperecomputing.com>,
 	Fu Wei <wefu@redhat.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>
-Subject: [PATCH v1 3/8] riscv: dts: thead: Add TH1520 pin control nodes
-Date: Fri, 15 Dec 2023 15:39:01 +0100
-Message-Id: <20231215143906.3651122-4-emil.renner.berthing@canonical.com>
+Subject: [PATCH v1 0/8] Add T-Head TH15020 SoC pin control
+Date: Fri, 15 Dec 2023 15:38:58 +0100
+Message-Id: <20231215143906.3651122-1-emil.renner.berthing@canonical.com>
 X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20231215143906.3651122-1-emil.renner.berthing@canonical.com>
-References: <20231215143906.3651122-1-emil.renner.berthing@canonical.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231215_063917_364398_5DBAD9C8 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231215_063914_215802_0F855472 
+X-CRM114-Status: GOOD (  15.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,53 +111,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add nodes for pin controllers on the T-Head TH1520 RISC-V SoC.
+This adds a pin control driver for the T-Head TH1520 RISC-V SoC used on
+the Lichee Pi 4A and BeagleV Ahead boards and updates the device trees
+to make use of it.
 
-Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
----
- arch/riscv/boot/dts/thead/th1520.dtsi | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+It can be easily tested using my th1520 branch at
 
-diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-index ba4d2c673ac8..397d5c71bd3d 100644
---- a/arch/riscv/boot/dts/thead/th1520.dtsi
-+++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-@@ -242,6 +242,11 @@ portd: gpio-controller@0 {
- 			};
- 		};
- 
-+		padctrl1_apsys: pinctrl@ffe7f3c000 {
-+			compatible = "thead,th1520-group2-pinctrl";
-+			reg = <0xff 0xe7f3c000 0x0 0x1000>;
-+		};
-+
- 		gpio0: gpio@ffec005000 {
- 			compatible = "snps,dw-apb-gpio";
- 			reg = <0xff 0xec005000 0x0 0x1000>;
-@@ -278,6 +283,11 @@ portb: gpio-controller@0 {
- 			};
- 		};
- 
-+		padctrl0_apsys: pinctrl@ffec007000 {
-+			compatible = "thead,th1520-group3-pinctrl";
-+			reg = <0xff 0xec007000 0x0 0x1000>;
-+		};
-+
- 		uart2: serial@ffec010000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0xff 0xec010000 0x0 0x4000>;
-@@ -414,6 +424,11 @@ porte: gpio-controller@0 {
- 			};
- 		};
- 
-+		padctrl_aosys: pinctrl@fffff4a000 {
-+			compatible = "thead,th1520-group1-pinctrl";
-+			reg = <0xff 0xfff4a000 0x0 0x2000>;
-+		};
-+
- 		ao_gpio1: gpio@fffff52000 {
- 			compatible = "snps,dw-apb-gpio";
- 			reg = <0xff 0xfff52000 0x0 0x1000>;
+  https://github.com/esmil/linux.git
+
+..which also adds the MMC, PWM, ethernet and USB drivers that have
+been posted but are not upstream yet.
+
+Jisheng: I've added this driver to the generic TH1520 entry in
+MAINTAINERS like you did with your USB driver. Let me know if that's not
+ok and I'll create a separate entry for this driver with me as
+maintainer.
+
+Drew: The last patch is purely based on reading the schematics. It'd be
+great if you could give it a spin on real hardware.
+
+/Emil
+
+Emil Renner Berthing (8):
+  dt-bindings: pinctrl: Add thead,th1520-pinctrl bindings
+  pinctrl: Add driver for the T-Head TH1520 SoC
+  riscv: dts: thead: Add TH1520 pin control nodes
+  dt-bindings: gpio: dwapb: allow gpio-ranges
+  riscv: dts: thead: Add TH1520 GPIO ranges
+  riscv: dts: thead: Adjust TH1520 GPIO labels
+  riscv: dts: thead: Add TH1520 pinctrl settings for UART0
+  riscv: dtb: thead: Add BeagleV Ahead LEDs
+
+ .../bindings/gpio/snps,dw-apb-gpio.yaml       |   2 +
+ .../pinctrl/thead,th1520-pinctrl.yaml         | 156 ++++
+ MAINTAINERS                                   |   1 +
+ .../boot/dts/thead/th1520-beaglev-ahead.dts   |  83 ++
+ .../boot/dts/thead/th1520-lichee-pi-4a.dts    |  28 +
+ arch/riscv/boot/dts/thead/th1520.dtsi         |  53 +-
+ drivers/pinctrl/Kconfig                       |   9 +
+ drivers/pinctrl/Makefile                      |   1 +
+ drivers/pinctrl/pinctrl-th1520.c              | 796 ++++++++++++++++++
+ 9 files changed, 1113 insertions(+), 16 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/thead,th1520-pinctrl.yaml
+ create mode 100644 drivers/pinctrl/pinctrl-th1520.c
+
 -- 
 2.40.1
 
