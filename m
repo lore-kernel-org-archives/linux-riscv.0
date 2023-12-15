@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B584C4167B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1684C46CA2
 	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 20:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=up3MgpP3G1bGRpUyhib/LJCnmUtBxNn1mv+RfYS6V5M=; b=1OlzHCgElgIAa2
-	mUuHnm0sDUh3tNp98PJpIiRsSzwTeZSTr+5OcvRSUaOmO3T2wYJ0r9ihwid0YKZbtuA5n8kt8ub20
-	o5xxrIL5u7jNHtLRAg7tRyQNs2YsgB/GpKShBkRJUrp6SF59STrShAurPkOu3Mo+EfzNGlMl32zpa
-	xArxpo1X4OCZ2cHp7J694GWwV3L13ckzP6RxD223C22zCuaBiRA7srslF5futD1OalCSNKLnnFIy0
-	/AI/pFCfFnOpOzRSWkMsf0igCdb24SdaxN8gJg85ZAF+N2qnrbLOisXWz5Zk+MMwgV9bZWFZegl7Q
-	Jn7Ca/aP0oQsYbm06VWg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6qNdEOZhq12JsuvdKiocWJA81XhUbRWwht1v0Ehp2QM=; b=hi1caZE5uDVwDy
+	rFYTd2+vck5fxdSEphx7gGzNVIiYU/2QiN4PiWLmyxLK9F6qK0knvjDtFLfWne5LnZDqKwuw602PF
+	2eT6uhNRSf6wfuvhDxSBwjuTieMWuKW8B1LbTkcr/mc2wNeEOsYadxCHeDT56eeeA6p0cDLXk/vGm
+	vk54TiuQqErtJ/gJdvqWSSgvOqe1Lq1UG//M1A55x40NheavDv5WIsbHCrDDvchYpKNndMxp0Gxci
+	b1mS4ubMaJagRagtTT7qyQtFT2FhiZ7HRTA5nrsPHqJDdHgXJKFbWEMzwbVInyKBUnU4upN4N5/h1
+	hr4pHAnLjRFRt4kE3krA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rEEzW-004Ury-2Z;
-	Fri, 15 Dec 2023 20:41:02 +0000
+	id 1rEEzY-004Usn-1F;
+	Fri, 15 Dec 2023 20:41:04 +0000
 Received: from madrid.collaboradmins.com ([2a00:1098:ed:100::25])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rEEzS-004Uoz-1Q;
+	id 1rEEzS-004Uoy-1R;
 	Fri, 15 Dec 2023 20:41:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1702672853;
-	bh=gbMqiSFoR5LPx4Im1XNHPktHQYnQ4AzMO0qHDjq0wBQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jJR5bet0x6ovqtlM5pgefNb4uk2jqKyyRxO1JRRMDNoqjstTe5BsBH7/dECMy2uH3
-	 tjeqz1ymYbt4/Vi83HBKlzNN/LjkW3IyZPkPFyjkXiZxFz6SkPkXhnAoeuT3lS5a1a
-	 ++gZDds7RE5lMoIdqllqEl+61+tWjQYq5PW+eBxYjWXJVyMeDAltV79iCf3ws0bJUB
-	 JqS1cIrp1i8cmW/4D8L2o8XrbU9ovfYI86NIH59A4oJbDQ/bKF87QObiL4QpcRyvxs
-	 4K09sAK15xStomieLR4f9CaIGT5P8zyoId0dmUgi94i35/SwMZfGOKW3rFztRE/lRh
-	 onym6JmRWsk9w==
+	s=mail; t=1702672852;
+	bh=tmuvO6WC72kx4VhOZms+kfLKHe+e/lcMWA8mVqhk/dM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=FDvGagnQh11yay9sKqRAFXATJ0nqOyf5sUb6QIJk42+lST2ygYw2z5Z8aTomfVWjV
+	 +fuCzrOPgYHUP/yOr/saeRJ5NEf/OnSbSDncVHH/Clc/n7vjQZJoArOQE/jxy9Fbll
+	 4Z1qEcKcM27DVHOmgiJ9Jwra7aXkFtd/mpMQgV/g+3E9h4WJ04NjCkZAtOMi6DZkZC
+	 kQ2F7VCcP457h+ddvdghG4yRl3J0eyaY0vQcGOg7RQduzZsvIobsusxPUFF3VmlSaA
+	 DupuG+NJuQ8kj0MbThcmlX0WBk1WvauLDhjzYdiBRc/pohlS0j9aJ3jXee6Lk+1Nqt
+	 oLdWudVY43REA==
 Received: from localhost (cola.collaboradmins.com [195.201.22.229])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by madrid.collaboradmins.com (Postfix) with ESMTPSA id 1233B3781FE3;
-	Fri, 15 Dec 2023 20:40:53 +0000 (UTC)
+	by madrid.collaboradmins.com (Postfix) with ESMTPSA id DF6EC3781FD5;
+	Fri, 15 Dec 2023 20:40:51 +0000 (UTC)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 To: "David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
@@ -72,17 +72,14 @@ Cc: netdev@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH v3 1/9] dt-bindings: net: starfive,jh7110-dwmac: Drop redundant reset description
-Date: Fri, 15 Dec 2023 22:40:40 +0200
-Message-ID: <20231215204050.2296404-2-cristian.ciocaltea@collabora.com>
+Subject: [PATCH v3 0/9] Enable networking support for StarFive JH7100 SoC
+Date: Fri, 15 Dec 2023 22:40:39 +0200
+Message-ID: <20231215204050.2296404-1-cristian.ciocaltea@collabora.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20231215204050.2296404-1-cristian.ciocaltea@collabora.com>
-References: <20231215204050.2296404-1-cristian.ciocaltea@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231215_124058_616755_F302AC7F 
-X-CRM114-Status: UNSURE (   8.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231215_124058_616757_93C7FD25 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,31 +96,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The reset description items are already provided by the referenced
-snps,dwmac.yaml schema, hence replace them with the necessary
-{min,max}Items.
+This patch series adds ethernet support for the StarFive JH7100 SoC and makes it
+available for the StarFive VisionFive V1 and BeagleV Starlight boards, although
+I could only validate on the former SBC.  Thank you Emil and Geert for helping
+with tests on BeagleV!
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- .../devicetree/bindings/net/starfive,jh7110-dwmac.yaml       | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+The work is heavily based on the reference implementation [1] and depends the
+SiFive Composable Cache controller and non-coherent DMA support provided by Emil
+via [2] and [3].
 
-diff --git a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
-index 5e7cfbbebce6..d90cb82c1424 100644
---- a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
-@@ -55,9 +55,8 @@ properties:
-     maxItems: 3
- 
-   resets:
--    items:
--      - description: MAC Reset signal.
--      - description: AHB Reset signal.
-+    minItems: 2
-+    maxItems: 2
- 
-   reset-names:
-     items:
+*Update*: as of next-20231214, all dependencies have been merged.
+
+[1] https://github.com/starfive-tech/linux/commits/visionfive
+[2] https://lore.kernel.org/all/CAJM55Z_pdoGxRXbmBgJ5GbVWyeM1N6+LHihbNdT26Oo_qA5VYA@mail.gmail.com/
+[3] https://lore.kernel.org/all/20231130151932.729708-1-emil.renner.berthing@canonical.com/
+
+Changes in v3:
+ - Rebased series onto next-20231214 and dropped the ccache & DMA coherency
+   related patches (v2 06-08/12) handled by Emil via [3]
+ - Squashed PATCH v2 01/12 into PATCH v3 2/9, per Krzysztof's review
+ - Dropped incorrect PATCH v2 02/12
+ - Incorporated Emil's feedback; also added his Co-developed-by on all dts
+   patches
+ - Documented the need of adjusting RX internal delay in PATCH v3 8/9, per
+   Andrew's request
+ - Added clock fixes from Emil (PATCH v3 8-9/9) required to support 10/100Mb
+   link speeds
+ - v2:
+   https://lore.kernel.org/lkml/20231029042712.520010-1-cristian.ciocaltea@collabora.com/
+
+Changes in v2:
+ - Dropped ccache PATCH 01-05 reworked by Emil via [2]
+ - Dropped already applied PATCH 06/12
+ - Added PATCH v2 01 to prepare snps-dwmac binding for JH7100 support
+ - Added PATCH v2 02-03 to provide some jh7110-dwmac binding optimizations
+ - Handled JH7110 conflicting work in PATCH 07 via PATCH v2 04
+ - Reworked PATCH 8 via PATCH v2 05, adding JH7100 quirk and dropped
+   starfive,gtxclk-dlychain DT property; also fixed register naming
+ - Added PATCH v2 08 providing DMA coherency related DT changes
+ - Updated PATCH 9 commit msg:
+   s/OF_DMA_DEFAULT_COHERENT/ARCH_DMA_DEFAULT_COHERENT/
+ - Replaced 'uncached-offset' property with 'sifive,cache-ops' in PATCH 10/12
+   and dropped 'sideband' reg
+ - Add new patch providing coherent DMA memory pool (PATCH v2 10)
+ - Updated PATCH 11/12 according to the stmmac glue layer changes in upstream
+ - Split PATCH 12/12 into PATCH v2 10-12 to handle individual gmac setup of
+   VisionFive v1 and BeagleV boards as they use different PHYs; also switched
+   phy-mode from "rgmii-tx" to "rgmii-id" (requires a reduction of
+   rx-internal-delay-ps by ~50%)
+ - Rebased series onto next-20231024
+ - v1:
+   https://lore.kernel.org/lkml/20230211031821.976408-1-cristian.ciocaltea@collabora.com/
+
+Cristian Ciocaltea (7):
+  dt-bindings: net: starfive,jh7110-dwmac: Drop redundant reset
+    description
+  dt-bindings: net: starfive,jh7110-dwmac: Add JH7100 SoC compatible
+  net: stmmac: dwmac-starfive: Add support for JH7100 SoC
+  riscv: dts: starfive: jh7100: Add sysmain and gmac DT nodes
+  riscv: dts: starfive: jh7100-common: Setup pinmux and enable gmac
+  riscv: dts: starfive: visionfive-v1: Setup ethernet phy
+  riscv: dts: starfive: beaglev-starlight: Setup phy reset gpio
+
+Emil Renner Berthing (2):
+  clk: starfive: Add flags argument to JH71X0__MUX macro
+  clk: starfive: jh7100: Add CLK_SET_RATE_PARENT to gmac_tx
+
+ .../devicetree/bindings/net/snps,dwmac.yaml   |  3 +-
+ .../bindings/net/starfive,jh7110-dwmac.yaml   | 75 +++++++++++-----
+ .../dts/starfive/jh7100-beaglev-starlight.dts |  7 ++
+ .../boot/dts/starfive/jh7100-common.dtsi      | 85 +++++++++++++++++++
+ .../jh7100-starfive-visionfive-v1.dts         |  7 ++
+ arch/riscv/boot/dts/starfive/jh7100.dtsi      | 37 ++++++++
+ .../clk/starfive/clk-starfive-jh7100-audio.c  |  2 +-
+ drivers/clk/starfive/clk-starfive-jh7100.c    | 32 +++----
+ .../clk/starfive/clk-starfive-jh7110-aon.c    |  6 +-
+ .../clk/starfive/clk-starfive-jh7110-isp.c    |  2 +-
+ .../clk/starfive/clk-starfive-jh7110-sys.c    | 26 +++---
+ drivers/clk/starfive/clk-starfive-jh71x0.h    |  4 +-
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  6 +-
+ .../ethernet/stmicro/stmmac/dwmac-starfive.c  | 32 ++++++-
+ 14 files changed, 258 insertions(+), 66 deletions(-)
+
 -- 
 2.43.0
 
