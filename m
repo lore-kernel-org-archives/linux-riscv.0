@@ -4,88 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A996C4167B
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 09:33:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DE86C4167B
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 09:42:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
-	From:Date:Message-Id:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=sr9GhQwniASlOtdvCBHEgsa1ybjF4oink53c4xvnSbk=; b=XvtIi46v3EQhvP
-	BZl6Sk+oWp3dLcvG7endhjjFRwcUJi3y6nMDOgZBiLvJRgOanrotR8wpEIL87fxslZETtzF14reo1
-	RnLm33ceb8jcmsOf5YmTCt36Jz5iEx0o7rhwJn+wGeziwRKNtRnzF2/aPHeYGkCcSwLHr57rmVsAu
-	PNYqi7mRmKO/k5d71uNMtw3qQQMbSTTsFaTUFjOdRtFi5AAoGQMGido1x+rX9MFp+E9vBYx7y0Shp
-	Ie5f9rQn5hLekmgIz/SNmw4Lek2vwVrIl0EEcTWbgBIw41n1jCPVBmur+R5V6rV6eAaEVHNAEg14M
-	HSVBDwwH9FkftCg6rw3g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=argfvw3zD5hfro8AasHgZYUdPBKZ5bSMmwawVPEvozw=; b=odzAPFZlEaw92t
+	KRyAiu4cnUV5kbzV/Hg8Jx+E+/tdJSQwo8uRjJYhboL8wDbBpKNeo/wkNe58xUxbC8oyB4fgYwRiz
+	ajdqyNh+FlPfMBrKnq4wJksHnVi+R7YTfZ1AUz5ed+zrkJuEosJgpINeqE77f4WZT/qtZJa3k5ac/
+	mkTP8Pe6OGMN9fvEzrzgaZ/UTMlBE26RA0osEtDdWXxegS77gyDnpqm+77Xsa31YGqE+A46l1B4fb
+	sjKjGmdMzHxvjR0WV7n91nLRapNencUvAL1/ktn7JmnhN/16/TxMexV9+12f6Rsyteci+xv+SKmvS
+	Qy5cbxxMsy0grR4BJvXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rE4ZO-002dZ6-1l;
-	Fri, 15 Dec 2023 09:33:22 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1rE4ia-002gKP-1r;
+	Fri, 15 Dec 2023 09:42:52 +0000
+Received: from wxsgout03.xfusion.com ([36.139.52.80] helo=wxsgout04.xfusion.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rE4ZM-002dYh-22
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 15 Dec 2023 09:33:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:References:
-	Subject:Cc:To:From:Date:Message-Id:Sender:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:In-Reply-To;
-	bh=pbCkSkpL0VTDsMcIMxCWVNworlFDlzLYPEKR3Py08RA=; b=DJUGDSMsYcY1FuLTMqpTLZuuD7
-	hLcMb7eOFpemVUB+Svi/65P+67gUSbeKh1GOBa7cr2FYt8/qyXeoCT/pi9uAhu9eJwsOkfFe9UNZA
-	E+tGfdbdcJMPCvbJI7kQhXFFPwJ/zB9n+CEo8T0lj3ii//1wGhtPUl50MbNeh94rHVUSccRW0YYK0
-	U3qkPi7dJl+StxkZqBM6AttokeY+LDewP6v1hQKFnOmnEqTogDs7l+ALwC9Yv1WLjHiAofFrqYNBs
-	J4UwojSpM8p8N5gRGZbTqyJFVtkENll8kEtpzjHrxv2v395vu0J14T0nFZ4f2uZJEZWyLZsr8TYXI
-	2mV7ppVg==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1rE4ZD-00FSOT-HF; Fri, 15 Dec 2023 09:33:12 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 0)
-	id BF53730049D; Fri, 15 Dec 2023 10:33:11 +0100 (CET)
-Message-Id: <20231215092707.231038174@infradead.org>
-User-Agent: quilt/0.65
-Date: Fri, 15 Dec 2023 10:12:17 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: paul.walmsley@sifive.com,
- palmer@dabbelt.com,
- aou@eecs.berkeley.edu,
- tglx@linutronix.de,
- mingo@redhat.com,
- bp@alien8.de,
- dave.hansen@linux.intel.com,
- x86@kernel.org,
- hpa@zytor.com,
- davem@davemloft.net,
- dsahern@kernel.org,
- daniel@iogearbox.net,
- andrii@kernel.org,
- martin.lau@linux.dev,
- song@kernel.org,
- yonghong.song@linux.dev,
- john.fastabend@gmail.com,
- kpsingh@kernel.org,
- sdf@google.com,
- haoluo@google.com,
- jolsa@kernel.org,
- Arnd Bergmann <arnd@arndb.de>,
- samitolvanen@google.com,
- keescook@chromium.org,
- nathan@kernel.org,
- ndesaulniers@google.com,
- linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org,
- bpf@vger.kernel.org,
- linux-arch@vger.kernel.org,
- llvm@lists.linux.dev,
- jpoimboe@kernel.org,
- joao@overdrivepizza.com,
- mark.rutland@arm.com,
- peterz@infradead.org
-Subject: [PATCH v3 1/7] cfi: Flip headers
-References: <20231215091216.135791411@infradead.org>
+	id 1rE4iW-002gHt-2F
+	for linux-riscv@lists.infradead.org;
+	Fri, 15 Dec 2023 09:42:50 +0000
+Received: from wuxshcsitd00600.xfusion.com (unknown [10.32.133.213])
+	by wxsgout04.xfusion.com (SkyGuard) with ESMTPS id 4Ss41C5DMHzB1wtN;
+	Fri, 15 Dec 2023 17:39:11 +0800 (CST)
+Received: from localhost (10.82.147.3) by wuxshcsitd00600.xfusion.com
+ (10.32.133.213) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.23; Fri, 15 Dec
+ 2023 17:42:34 +0800
+Date: Fri, 15 Dec 2023 17:42:34 +0800
+From: Wang Jinchao <wangjinchao@xfusion.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <stone.xulei@xfusion.com>, <wangjinchao@xfusion.com>
+Subject: [PATCH] riscv: remove duplicated including of cpufeature.h
+Message-ID: <202312151742+0800-wangjinchao@xfusion.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+X-Originating-IP: [10.82.147.3]
+X-ClientProxiedBy: wuxshcsitd00602.xfusion.com (10.32.132.250) To
+ wuxshcsitd00600.xfusion.com (10.32.133.213)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20231215_014249_030349_23F5A750 
+X-CRM114-Status: UNSURE (   5.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,102 +67,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Normal include order is that linux/foo.h should include asm/foo.h, CFI has it
-the wrong way around.
+remove the second #include <asm/cpufeature.h>
 
-Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Reviewed-by: Sami Tolvanen <samitolvanen@google.com>
+Signed-off-by: Wang Jinchao <wangjinchao@xfusion.com>
 ---
- arch/riscv/include/asm/cfi.h |    3 ++-
- arch/riscv/kernel/cfi.c      |    2 +-
- arch/x86/include/asm/cfi.h   |    3 ++-
- arch/x86/kernel/cfi.c        |    4 ++--
- include/asm-generic/Kbuild   |    1 +
- include/asm-generic/cfi.h    |    5 +++++
- include/linux/cfi.h          |    1 +
- 7 files changed, 14 insertions(+), 5 deletions(-)
+ arch/riscv/kernel/smpboot.c | 1 -
+ 1 file changed, 1 deletion(-)
 
---- a/arch/riscv/include/asm/cfi.h
-+++ b/arch/riscv/include/asm/cfi.h
-@@ -7,8 +7,9 @@
-  *
-  * Copyright (C) 2023 Google LLC
-  */
-+#include <linux/bug.h>
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index d162bf339beb..c55697c1d1c8 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -28,7 +28,6 @@
  
--#include <linux/cfi.h>
-+struct pt_regs;
- 
- #ifdef CONFIG_CFI_CLANG
- enum bug_trap_type handle_cfi_failure(struct pt_regs *regs);
---- a/arch/riscv/kernel/cfi.c
-+++ b/arch/riscv/kernel/cfi.c
-@@ -4,7 +4,7 @@
-  *
-  * Copyright (C) 2023 Google LLC
-  */
--#include <asm/cfi.h>
-+#include <linux/cfi.h>
- #include <asm/insn.h>
- 
- /*
---- a/arch/x86/include/asm/cfi.h
-+++ b/arch/x86/include/asm/cfi.h
-@@ -7,8 +7,9 @@
-  *
-  * Copyright (C) 2022 Google LLC
-  */
-+#include <linux/bug.h>
- 
--#include <linux/cfi.h>
-+struct pt_regs;
- 
- #ifdef CONFIG_CFI_CLANG
- enum bug_trap_type handle_cfi_failure(struct pt_regs *regs);
---- a/arch/x86/kernel/cfi.c
-+++ b/arch/x86/kernel/cfi.c
-@@ -4,10 +4,10 @@
-  *
-  * Copyright (C) 2022 Google LLC
-  */
--#include <asm/cfi.h>
-+#include <linux/string.h>
-+#include <linux/cfi.h>
- #include <asm/insn.h>
- #include <asm/insn-eval.h>
--#include <linux/string.h>
- 
- /*
-  * Returns the target address and the expected type when regs->ip points
---- a/include/asm-generic/Kbuild
-+++ b/include/asm-generic/Kbuild
-@@ -11,6 +11,7 @@ mandatory-y += bitops.h
- mandatory-y += bug.h
- mandatory-y += bugs.h
- mandatory-y += cacheflush.h
-+mandatory-y += cfi.h
- mandatory-y += checksum.h
- mandatory-y += compat.h
- mandatory-y += current.h
---- /dev/null
-+++ b/include/asm-generic/cfi.h
-@@ -0,0 +1,5 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_GENERIC_CFI_H
-+#define __ASM_GENERIC_CFI_H
-+
-+#endif /* __ASM_GENERIC_CFI_H */
---- a/include/linux/cfi.h
-+++ b/include/linux/cfi.h
-@@ -9,6 +9,7 @@
- 
- #include <linux/bug.h>
- #include <linux/module.h>
-+#include <asm/cfi.h>
- 
- #ifdef CONFIG_CFI_CLANG
- enum bug_trap_type report_cfi_failure(struct pt_regs *regs, unsigned long addr,
-
+ #include <asm/cpufeature.h>
+ #include <asm/cpu_ops.h>
+-#include <asm/cpufeature.h>
+ #include <asm/irq.h>
+ #include <asm/mmu_context.h>
+ #include <asm/numa.h>
+-- 
+2.40.0
 
 
 _______________________________________________
