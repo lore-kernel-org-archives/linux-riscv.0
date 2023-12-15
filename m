@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86193C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 17:18:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE6C3C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 17:27:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1vM+kYLPN49NNnzgN6Ayent82up7KbkbGiprVEWMxP4=; b=rJkp1PL3bJfDdl
-	77Fq1BvSYbzolIdV+EkTZXcUHbQzW1AEgUkHbN1i6B0cW552RQVJKgGT82WKOsWLDNBdJkKLttYK5
-	KeMx9AJEKwqChrYS72TVYHaoOilz2t5LDNtrYpb71qTYQpl75nozfAfUPiD/yf0TV+BVTZy8q8CKX
-	39BmbFzn2k6TvZHiY7h5qHOLzX5SRdaTh1txpwBEs/ZToFzOy5IF5cCzPSRbgiBARMygp91KhvzB4
-	0BHNGkXbAglwtQ5R0AxRebSqP5snDOHLqRn4C3ojs8T4NFrWLc3I60vnwouNK9Uz0o+zW9YVnOR31
-	NjZLGoxn3NkuxYQWnMUw==;
+	List-Owner; bh=CbjzwCZn5cwkjagCdhzFoUWVolEdEnkHReNg+zPiMm4=; b=Wl/UeiYrOUejiK
+	Ja8/dX7qDMcXKhHkyLQCEgCBxF+MWMYeRdfj+ks/dK3KUtwOWLnM0cVJ8xRbq17YtyQHRn8Uzzcxd
+	TxFWpo0fxh4ItBldYHenxbZ97Tzh189m7yAGTifupBp48Mmqu2lrStJAKZjZ+xeq1h/YF7mwvRpmR
+	rwhB/D47Utg6IlIUrRe8cxNS+MmkSVmwWF6pD5K0jHS2dKA7XVzvNY8AyB/2+rWdWqpSadh9D04/0
+	IOZegVkZGjkFlOyXDyQtH4Rbu3PRD9PmuCfVfdVEiMzvHTrw1vJaDzFH+5wK24uiNM4AzP3ZLXKSU
+	UUqdQSigKX7dakBs+C1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rEBpl-0042rw-18;
-	Fri, 15 Dec 2023 17:18:45 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1rEBxw-0044wx-0c;
+	Fri, 15 Dec 2023 17:27:12 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rEBpg-0042qG-2A;
-	Fri, 15 Dec 2023 17:18:43 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4SsG9z4ZPHz6J9Zx;
-	Sat, 16 Dec 2023 01:17:27 +0800 (CST)
-Received: from lhrpeml500005.china.huawei.com (unknown [7.191.163.240])
-	by mail.maildlp.com (Postfix) with ESMTPS id 71F951400DB;
-	Sat, 16 Dec 2023 01:18:33 +0800 (CST)
-Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35; Fri, 15 Dec
- 2023 17:18:32 +0000
-Date: Fri, 15 Dec 2023 17:18:31 +0000
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-CC: <linux-pm@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<x86@kernel.org>, <acpica-devel@lists.linuxfoundation.org>,
-	<linux-csky@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-ia64@vger.kernel.org>, <linux-parisc@vger.kernel.org>, Salil Mehta
-	<salil.mehta@huawei.com>, Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	<jianyong.wu@arm.com>, <justin.he@arm.com>, James Morse <james.morse@arm.com>
-Subject: Re: [PATCH RFC v3 21/21] cpumask: Add enabled cpumask for present
- CPUs that can be brought online
-Message-ID: <20231215171831.00004a19@Huawei.com>
-In-Reply-To: <E1rDOhX-00Dvlg-Ci@rmk-PC.armlinux.org.uk>
-References: <ZXmn46ptis59F0CO@shell.armlinux.org.uk>
-	<E1rDOhX-00Dvlg-Ci@rmk-PC.armlinux.org.uk>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
+	id 1rEBxt-0044v1-0v
+	for linux-riscv@lists.infradead.org;
+	Fri, 15 Dec 2023 17:27:11 +0000
+X-IronPort-AV: E=McAfee;i="6600,9927,10925"; a="8727221"
+X-IronPort-AV: E=Sophos;i="6.04,279,1695711600"; 
+   d="scan'208";a="8727221"
+Received: from fmsmga002.fm.intel.com ([10.253.24.26])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Dec 2023 09:27:07 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10925"; a="892973975"
+X-IronPort-AV: E=Sophos;i="6.04,279,1695711600"; 
+   d="scan'208";a="892973975"
+Received: from smile.fi.intel.com ([10.237.72.54])
+  by fmsmga002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Dec 2023 09:27:03 -0800
+Received: from andy by smile.fi.intel.com with local (Exim 4.97)
+	(envelope-from <andy@kernel.org>)
+	id 1rEBxk-00000006BAk-29KE;
+	Fri, 15 Dec 2023 19:27:00 +0200
+Date: Fri, 15 Dec 2023 19:27:00 +0200
+From: Andy Shevchenko <andy@kernel.org>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Hoan Tran <hoan@os.amperecomputing.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: [PATCH v1 2/8] pinctrl: Add driver for the T-Head TH1520 SoC
+Message-ID: <ZXyMZKvREy_FIl46@smile.fi.intel.com>
+References: <20231215143906.3651122-1-emil.renner.berthing@canonical.com>
+ <20231215143906.3651122-3-emil.renner.berthing@canonical.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.202.227.76]
-X-ClientProxiedBy: lhrpeml100004.china.huawei.com (7.191.162.219) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
+Content-Disposition: inline
+In-Reply-To: <20231215143906.3651122-3-emil.renner.berthing@canonical.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231215_091841_016309_79B7284A 
-X-CRM114-Status: GOOD (  22.65  )
+X-CRM114-CacheID: sfid-20231215_092709_342199_E8980E8B 
+X-CRM114-Status: GOOD (  23.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,196 +84,249 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 Dec 2023 12:50:59 +0000
-Russell King (Oracle) <rmk+kernel@armlinux.org.uk> wrote:
+On Fri, Dec 15, 2023 at 03:39:00PM +0100, Emil Renner Berthing wrote:
+> Add pinctrl driver for the T-Head TH1520 RISC-V SoC.
 
-> From: James Morse <james.morse@arm.com>
-> 
-> The 'offline' file in sysfs shows all offline CPUs, including those
-> that aren't present. User-space is expected to remove not-present CPUs
-> from this list to learn which CPUs could be brought online.
-> 
-> CPUs can be present but not-enabled. These CPUs can't be brought online
-> until the firmware policy changes, which comes with an ACPI notification
-> that will register the CPUs.
-> 
-> With only the offline and present files, user-space is unable to
-> determine which CPUs it can try to bring online. Add a new CPU mask
-> that shows this based on all the registered CPUs.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Tested-by: Miguel Luis <miguel.luis@oracle.com>
-> Tested-by: Vishnu Pajjuri <vishnu@os.amperecomputing.com>
-> Tested-by: Jianyong Wu <jianyong.wu@arm.com>
-> ---
+...
 
-Needs docs
-Documentation/ABI/testing/sysfs-devices-system-cpu
-seems to have the rest of the similar entries.
++ array_size.h
++ bits.h
++ device.h
 
-> Outstanding comment:
->  https://lore.kernel.org/r/20230914175443.000038f6@Huawei.com
-Very fussy reviewer. I'd ignore him on this :)
+(and so on, please make sure you follow IWYU principle --
+ "include what you use")
 
-Code is fine.
+> +#include <linux/io.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
 
-Thanks for taking this forwards.  Maybe the end of this saga is
-close!
+> +#include <linux/of.h>
 
-Jonathan
+Can you use device property API instead?
 
-> ---
->  drivers/base/cpu.c      | 10 ++++++++++
->  include/linux/cpumask.h | 25 +++++++++++++++++++++++++
->  kernel/cpu.c            |  3 +++
->  3 files changed, 38 insertions(+)
-> 
-> diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
-> index 13d052bf13f4..a6e96a0a92b7 100644
-> --- a/drivers/base/cpu.c
-> +++ b/drivers/base/cpu.c
-> @@ -95,6 +95,7 @@ void unregister_cpu(struct cpu *cpu)
->  {
->  	int logical_cpu = cpu->dev.id;
->  
-> +	set_cpu_enabled(logical_cpu, false);
->  	unregister_cpu_under_node(logical_cpu, cpu_to_node(logical_cpu));
->  
->  	device_unregister(&cpu->dev);
-> @@ -273,6 +274,13 @@ static ssize_t print_cpus_offline(struct device *dev,
->  }
->  static DEVICE_ATTR(offline, 0444, print_cpus_offline, NULL);
->  
-> +static ssize_t print_cpus_enabled(struct device *dev,
-> +				  struct device_attribute *attr, char *buf)
+(I briefly checked, all of the used of_ ones have the respective generic
+ implementations either in fwnode_property_ or device_property_ namespace).
+
+OTOH, it's used in xlate/map functions which have device_node as a parameter...
+
+> +#include <linux/platform_device.h>
+> +#include <linux/seq_file.h>
+> +#include <linux/spinlock.h>
+
+...
+
+> +#include "core.h"
+> +#include "pinmux.h"
+> +#include "pinconf.h"
+
+All of them are needed?
+
+...
+
+> +static unsigned int th1520_padcfg_shift(unsigned int pin)
 > +{
-> +	return sysfs_emit(buf, "%*pbl\n", cpumask_pr_args(cpu_enabled_mask));
+> +	return 16 * (pin & 0x1U);
+
+BIT(0) ?
+
 > +}
-> +static DEVICE_ATTR(enabled, 0444, print_cpus_enabled, NULL);
-> +
->  static ssize_t print_cpus_isolated(struct device *dev,
->  				  struct device_attribute *attr, char *buf)
->  {
-> @@ -413,6 +421,7 @@ int register_cpu(struct cpu *cpu, int num)
->  	register_cpu_under_node(num, cpu_to_node(num));
->  	dev_pm_qos_expose_latency_limit(&cpu->dev,
->  					PM_QOS_RESUME_LATENCY_NO_CONSTRAINT);
-> +	set_cpu_enabled(num, true);
->  
->  	return 0;
->  }
-> @@ -494,6 +503,7 @@ static struct attribute *cpu_root_attrs[] = {
->  	&cpu_attrs[2].attr.attr,
->  	&dev_attr_kernel_max.attr,
->  	&dev_attr_offline.attr,
-> +	&dev_attr_enabled.attr,
->  	&dev_attr_isolated.attr,
->  #ifdef CONFIG_NO_HZ_FULL
->  	&dev_attr_nohz_full.attr,
-> diff --git a/include/linux/cpumask.h b/include/linux/cpumask.h
-> index cfb545841a2c..cc72a0887f04 100644
-> --- a/include/linux/cpumask.h
-> +++ b/include/linux/cpumask.h
-> @@ -92,6 +92,7 @@ static inline void set_nr_cpu_ids(unsigned int nr)
->   *
->   *     cpu_possible_mask- has bit 'cpu' set iff cpu is populatable
->   *     cpu_present_mask - has bit 'cpu' set iff cpu is populated
-> + *     cpu_enabled_mask  - has bit 'cpu' set iff cpu can be brought online
->   *     cpu_online_mask  - has bit 'cpu' set iff cpu available to scheduler
->   *     cpu_active_mask  - has bit 'cpu' set iff cpu available to migration
->   *
-> @@ -124,11 +125,13 @@ static inline void set_nr_cpu_ids(unsigned int nr)
->  
->  extern struct cpumask __cpu_possible_mask;
->  extern struct cpumask __cpu_online_mask;
-> +extern struct cpumask __cpu_enabled_mask;
->  extern struct cpumask __cpu_present_mask;
->  extern struct cpumask __cpu_active_mask;
->  extern struct cpumask __cpu_dying_mask;
->  #define cpu_possible_mask ((const struct cpumask *)&__cpu_possible_mask)
->  #define cpu_online_mask   ((const struct cpumask *)&__cpu_online_mask)
-> +#define cpu_enabled_mask   ((const struct cpumask *)&__cpu_enabled_mask)
->  #define cpu_present_mask  ((const struct cpumask *)&__cpu_present_mask)
->  #define cpu_active_mask   ((const struct cpumask *)&__cpu_active_mask)
->  #define cpu_dying_mask    ((const struct cpumask *)&__cpu_dying_mask)
-> @@ -993,6 +996,7 @@ extern const DECLARE_BITMAP(cpu_all_bits, NR_CPUS);
->  #else
->  #define for_each_possible_cpu(cpu) for_each_cpu((cpu), cpu_possible_mask)
->  #define for_each_online_cpu(cpu)   for_each_cpu((cpu), cpu_online_mask)
-> +#define for_each_enabled_cpu(cpu)   for_each_cpu((cpu), cpu_enabled_mask)
->  #define for_each_present_cpu(cpu)  for_each_cpu((cpu), cpu_present_mask)
->  #endif
->  
-> @@ -1015,6 +1019,15 @@ set_cpu_possible(unsigned int cpu, bool possible)
->  		cpumask_clear_cpu(cpu, &__cpu_possible_mask);
->  }
->  
-> +static inline void
-> +set_cpu_enabled(unsigned int cpu, bool can_be_onlined)
+
+...
+
+> +static unsigned int th1520_muxcfg_shift(unsigned int pin)
 > +{
-> +	if (can_be_onlined)
-> +		cpumask_set_cpu(cpu, &__cpu_enabled_mask);
-> +	else
-> +		cpumask_clear_cpu(cpu, &__cpu_enabled_mask);
+> +	return 4 * (pin & 0x7U);
+
+GENMASK() ?
+
 > +}
-> +
->  static inline void
->  set_cpu_present(unsigned int cpu, bool present)
->  {
-> @@ -1096,6 +1109,7 @@ static __always_inline unsigned int num_online_cpus(void)
->  	return raw_atomic_read(&__num_online_cpus);
->  }
->  #define num_possible_cpus()	cpumask_weight(cpu_possible_mask)
-> +#define num_enabled_cpus()	cpumask_weight(cpu_enabled_mask)
->  #define num_present_cpus()	cpumask_weight(cpu_present_mask)
->  #define num_active_cpus()	cpumask_weight(cpu_active_mask)
->  
-> @@ -1104,6 +1118,11 @@ static inline bool cpu_online(unsigned int cpu)
->  	return cpumask_test_cpu(cpu, cpu_online_mask);
->  }
->  
-> +static inline bool cpu_enabled(unsigned int cpu)
+
+...
+
+> +			return dev_err_probe(thp->pctl->dev, -EINVAL,
+> +					     "no pins selected for %pOFn.%pOFn\n",
+> +					     np, child);
+
+> +			dev_err(thp->pctl->dev, "error parsing pin config of group %pOFn.%pOFn\n",
+> +				np, child);
+
+In the very same function you are using dev_err_probe(), please make sure
+you use the same for all error messages as it will be a unified format
+(in case of dev_err_probe() or if you explicitly do that with dev_err()
+calls).
+
+> +		}
+
+...
+
+> +static const struct pinctrl_ops th1520_pinctrl_ops = {
+> +	.get_groups_count = th1520_pinctrl_get_groups_count,
+> +	.get_group_name = th1520_pinctrl_get_group_name,
+> +	.get_group_pins = th1520_pinctrl_get_group_pins,
+
+> +	.pin_dbg_show = th1520_pin_dbg_show,
+
+Is ifdeffery needed for this one?
+
+
+> +	.dt_node_to_map = th1520_pinctrl_dt_node_to_map,
+> +	.dt_free_map = th1520_pinctrl_dt_free_map,
+
+Is ifdeffery needed for these two?
+
+> +};
+
+...
+
+> +	mask = 0xfU << shift;
+> +	value = ((uintptr_t)func->data & 0xfU) << shift;
+
+GENMASK() in both cases.
+
+> +	raw_spin_lock_irqsave(&thp->lock, flags);
+> +	value |= readl_relaxed(muxcfg) & ~mask;
+
+Instead of above, use the traditional pattern
+
+	value = read()
+	value = (value & ~mask) | (newval & mask);
+	write()
+
+where newval is defined with a proper type and you get rid of all those ugly
+castings at once.
+
+> +	writel_relaxed(value, muxcfg);
+> +	raw_spin_unlock_irqrestore(&thp->lock, flags);
+
+...
+
+> +static u16 th1520_drive_strength_from_mA(u32 arg)
 > +{
-> +	return cpumask_test_cpu(cpu, cpu_enabled_mask);
-> +}
+> +	u16 v;
 > +
->  static inline bool cpu_possible(unsigned int cpu)
->  {
->  	return cpumask_test_cpu(cpu, cpu_possible_mask);
-> @@ -1128,6 +1147,7 @@ static inline bool cpu_dying(unsigned int cpu)
->  
->  #define num_online_cpus()	1U
->  #define num_possible_cpus()	1U
-> +#define num_enabled_cpus()	1U
->  #define num_present_cpus()	1U
->  #define num_active_cpus()	1U
->  
-> @@ -1141,6 +1161,11 @@ static inline bool cpu_possible(unsigned int cpu)
->  	return cpu == 0;
->  }
->  
-> +static inline bool cpu_enabled(unsigned int cpu)
+> +	for (v = 0; v < ARRAY_SIZE(th1520_drive_strength_in_mA) - 1; v++) {
+
+You may drop -1 here AFAIU (see below).
+
+> +		if (arg <= th1520_drive_strength_in_mA[v])
+> +			break;
+
+return directly.
+
+> +	}
+
+> +	return v;
+
+return explicit value which will be robust against changes in the for-loop or
+elsewhere in the code.
+
+> +}
+
+...
+
+> +static int th1520_padcfg_rmw(struct th1520_pinctrl *thp, unsigned int pin,
+> +			     u16 _mask, u16 _value)
+
+Why not naming them without underscores?
+
 > +{
-> +	return cpu == 0;
+> +	void __iomem *padcfg = th1520_padcfg(thp, pin);
+> +	unsigned int shift = th1520_padcfg_shift(pin);
+
+> +	u32 mask = (u32)_mask << shift;
+> +	u32 value = (u32)_value << shift;
+
+Oh, no castings, please.
+
+> +	unsigned long flags;
+> +
+> +	raw_spin_lock_irqsave(&thp->lock, flags);
+
+Use cleanup.h.
+
+> +	value |= readl_relaxed(padcfg) & ~mask;
+> +	writel_relaxed(value, padcfg);
+> +	raw_spin_unlock_irqrestore(&thp->lock, flags);
+> +	return 0;
 > +}
+
+...
+
+> +#define PIN_CONFIG_THEAD_STRONG_PULL_UP	(PIN_CONFIG_END + 1)
+
+Oh, custom flag! Linus, what is the expected approach for custom flags like this?
+I believe this is quite error prone.
+
+...
+
+> +	value = readl_relaxed(th1520_padcfg(thp, pin));
+> +	value = (value >> th1520_padcfg_shift(pin)) & 0x3ffU;
+
+GENMASK() and in many other places like this.
+
+...
+
+> +		enabled = value & TH1520_PADCFG_IE;
+> +		arg = enabled;
+
+Assigning boolean to integer... Hmm...
+
+> +		break;
+> +	case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
+> +		enabled = value & TH1520_PADCFG_ST;
+> +		arg = enabled;
+> +		break;
+> +	case PIN_CONFIG_SLEW_RATE:
+> +		enabled = value & TH1520_PADCFG_SL;
+> +		arg = enabled;
+> +		break;
+
+...
+
+> +static int th1520_pinctrl_probe(struct platform_device *pdev)
+> +{
+
+	struct device *dev = &pdev->dev;
+
+may give you some benefits.
+
+> +	const struct th1520_padgroup *group = device_get_match_data(&pdev->dev);
+> +	struct th1520_pinctrl *thp;
+> +	int ret;
 > +
->  static inline bool cpu_present(unsigned int cpu)
->  {
->  	return cpu == 0;
-> diff --git a/kernel/cpu.c b/kernel/cpu.c
-> index a86972a91991..fe0a5189f8ae 100644
-> --- a/kernel/cpu.c
-> +++ b/kernel/cpu.c
-> @@ -3122,6 +3122,9 @@ EXPORT_SYMBOL(__cpu_possible_mask);
->  struct cpumask __cpu_online_mask __read_mostly;
->  EXPORT_SYMBOL(__cpu_online_mask);
->  
-> +struct cpumask __cpu_enabled_mask __read_mostly;
-> +EXPORT_SYMBOL(__cpu_enabled_mask);
+> +	thp = devm_kzalloc(&pdev->dev, sizeof(*thp), GFP_KERNEL);
+> +	if (!thp)
+> +		return -ENOMEM;
 > +
->  struct cpumask __cpu_present_mask __read_mostly;
->  EXPORT_SYMBOL(__cpu_present_mask);
->  
+> +	thp->base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(thp->base))
+> +		return PTR_ERR(thp->base);
+> +
+> +	thp->desc.name = group->name;
+> +	thp->desc.pins = group->pins;
+> +	thp->desc.npins = group->npins;
+> +	thp->desc.pctlops = &th1520_pinctrl_ops;
+> +	thp->desc.pmxops = &th1520_pinmux_ops;
+> +	thp->desc.confops = &th1520_pinconf_ops;
+> +	thp->desc.owner = THIS_MODULE;
+> +	thp->desc.num_custom_params = ARRAY_SIZE(th1520_pinconf_custom_params);
+> +	thp->desc.custom_params = th1520_pinconf_custom_params;
+> +	thp->desc.custom_conf_items = th1520_pinconf_custom_conf_items;
+> +	mutex_init(&thp->mutex);
+> +	raw_spin_lock_init(&thp->lock);
+> +
+> +	ret = devm_pinctrl_register_and_init(&pdev->dev, &thp->desc, thp, &thp->pctl);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret, "could not register pinctrl driver\n");
+> +
+> +	return pinctrl_enable(thp->pctl);
+> +}
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
 
 _______________________________________________
