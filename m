@@ -4,76 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A031AC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 01:50:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 723E7C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 02:50:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IAC4Kg4A17x4wS7XhWYda+J14JRXka06RZajsXV9nP0=; b=fQL6BW1K0FjrHj
-	lNkTX6qv8qIAMZIt+qwa502x+Mfehkgv65dzo9l2oDnGb5jVNIgCQiQkxpekmZgc6oW0GE2BBERd4
-	axuF5ZnTRJsjci5hcif1W2nZCWHl2j79Mo3R0Cutud3/o1wNT2+dsG67K1gTbNuYcMtB49qpkvNNK
-	wVl7YqnNwyfqj7yxdgop+4UbsuKOg0tD1Ys6QbWyygH80dYw/Ovqu/MU4H10m2ssG/pNwQGZ0lePR
-	Z1MmTt51VY9s4+lZUjhXA6KPAfaAE2UCG6hTd6OcnKu5Da9xD+3g77fwqXSu8rS5VFBl2H/GCegO/
-	K3/+vge4CIyyN0DGFs8g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:
+	In-reply-to:Subject:Cc:To:From:References:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=Ec9thT8zPGqqp/q2sOzp+3r3hrnQeEUWUlldHqbWipA=; b=aoBrBKnZEnqgBEQ7Pjm0NZJ2eD
+	uesPOVR1iyYP4PlUPM2hK8GPtEHrJeUScxlV81o06XSuBXl2MmiePM2rcd178cSA1qnW0DfZZn+qh
+	23yJZQB/pkjud2R+YpHdyvaE32zHCe1uvpCYzdh7MmY8j2h4LkzmKxNp2EhmeJ5Ko9Tw8owBE9iZ8
+	67g6q5Na9/j+8A5QjU/Bo94ABIMl4J4D8xbrvTwkI9MCnK5EPoYAZ5+OBKCXB1gG4t5fARXFFG+f6
+	fznkoMHyCcI1iR8eTBMh9Rs+PjobEwBW2H3osQXvCvMKgTcn3ju+iPXsMDNju6OMrj2EWFgfEmw24
+	7M5Odjzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDxL1-001juQ-0o;
-	Fri, 15 Dec 2023 01:50:03 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rDxKw-001jpB-2F
+	id 1rDyHO-001qfG-1B;
+	Fri, 15 Dec 2023 02:50:22 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1rDyHL-001qdV-0J
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Dec 2023 01:50:01 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 3D96224E24B;
-	Fri, 15 Dec 2023 09:49:03 +0800 (CST)
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 15 Dec
- 2023 09:49:02 +0800
-Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
- EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
- 15.00.1497.044; Fri, 15 Dec 2023 09:49:02 +0800
-From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>
-CC: "kernel@esmil.dk" <kernel@esmil.dk>, "robh+dt@kernel.org"
-	<robh+dt@kernel.org>, "krzysztof.kozlowski+dt@linaro.org"
-	<krzysztof.kozlowski+dt@linaro.org>, "krzk@kernel.org" <krzk@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>, "tglx@linutronix.de"
-	<tglx@linutronix.de>, "anup@brainfault.org" <anup@brainfault.org>, Greg KH
-	<gregkh@linuxfoundation.org>, "jirislaby@kernel.org" <jirislaby@kernel.org>,
-	"michal.simek@amd.com" <michal.simek@amd.com>, Michael Zhu
-	<michael.zhu@starfivetech.com>, "drew@beagleboard.org"
-	<drew@beagleboard.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: RE: [PATCH v3 2/6] dt-bindings: riscv: Add StarFive JH8100 SoC
-Thread-Topic: [PATCH v3 2/6] dt-bindings: riscv: Add StarFive JH8100 SoC
-Thread-Index: AQHaJE/+BLI69uGa3k+hymTbPrUHV7CmtRSAgAFNEpCAAIKUgIAAED8AgAEQtNA=
-Date: Fri, 15 Dec 2023 01:49:02 +0000
-Message-ID: <ab8bb47cbcca40649ff1e115ed34d3c1@EXMBX066.cuchost.com>
-References: <20231214-platonic-unhearing-27e2ec3d8f75@spud>
- <mhng-fb85106d-c0bf-4f6f-8351-10d4a4da6eb6@palmer-ri-x1c9>
-In-Reply-To: <mhng-fb85106d-c0bf-4f6f-8351-10d4a4da6eb6@palmer-ri-x1c9>
-Accept-Language: en-US, zh-CN
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [175.136.135.142]
-x-yovoleruleagent: yovoleflag
+	Fri, 15 Dec 2023 02:50:20 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-5c66bbb3d77so143322a12.0
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Dec 2023 18:50:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1702608614; x=1703213414; darn=lists.infradead.org;
+        h=mime-version:message-id:date:in-reply-to:subject:cc:to:from
+         :user-agent:references:from:to:cc:subject:date:message-id:reply-to;
+        bh=oDvaa/loPXs8QqeKn/dbAir7W2iAEYYDHF7svcomArc=;
+        b=Hvk17zzZ6LWMfD7MtYP0vLTo1Bpv9SKZCoZNUhl/aDdJJ01eU50J55MmJ8X+jBh5Ay
+         +qhakg3D89zZNINftyKd6L6EtNR2nKcjLBdzMJIrryFsyuKl4BW3zmhtdMoofUUiDVfA
+         mUrTdn+AUhcKb8Zccd2pWkUqM76RcASg0NaUZg1TQo/bRqDxXbFATkIyy0w1ejmHHit9
+         6ynWha1EZoPMS1fvrYiKE0LjwOzUYdb0wEwwt+R/ep89mpUJiATnW5bMQwvvxQNMyRHR
+         l/1SdIBcO/GdPBo+jdR2osDeoigXALoBLTdg3wm+5ktwhKQvrDn5hq3Rgr9+r5Pk9BZh
+         HjSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1702608614; x=1703213414;
+        h=mime-version:message-id:date:in-reply-to:subject:cc:to:from
+         :user-agent:references:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=oDvaa/loPXs8QqeKn/dbAir7W2iAEYYDHF7svcomArc=;
+        b=U2WiH6DpzWvJYrSUSXQmI/Orm03g238WA/2tpo5qR56L5brs/TyjKC8wOxGRoxga2c
+         u4M28+d0VhOa+7RKgckOXEDUgYIvMfl2hTbB3bYAqPWWFXBnSyA9WN/kmWZtZOTww/dF
+         Vk9z4X5Q9og3CnlPxViEU/E0Ai9DYBhFSeF8q323oA2WJSrvdpJyYchvzNdIYWhF6JDi
+         BQ9QLDb7hyy2IWry781uO+vMYWCS+u8KG6vV1gg2bhQSr/f/r0KKA3P+2gPaTTTLjOLv
+         FRk9dqY1Irc08FiTsarJSn72oMEcasqmjfyXB9O8u82260MlA0h14tHKL4MMypbM+6Dt
+         sfVQ==
+X-Gm-Message-State: AOJu0YwEIPY6+9jwl+ffJho9ipyFpGdgUpen67VcF7wedlnfA5USqTPt
+	H+2V/CSf9AsILYCN/m6jltNLAg==
+X-Google-Smtp-Source: AGHT+IE99vQkPCzS0fUw2+RGCuARu2aeWphX23kJyqBn5JyJXY6hondFJhuQ9dhnml5rfwoe6hL5lw==
+X-Received: by 2002:a05:6a00:cd0:b0:6cd:e046:f3f0 with SMTP id b16-20020a056a000cd000b006cde046f3f0mr7542035pfv.13.1702608614486;
+        Thu, 14 Dec 2023 18:50:14 -0800 (PST)
+Received: from localhost ([2804:14d:7e39:8470:c901:5e00:3dbe:d1bd])
+        by smtp.gmail.com with ESMTPSA id r25-20020aa78b99000000b006d2738a2510sm384321pfd.146.2023.12.14.18.50.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 14 Dec 2023 18:50:14 -0800 (PST)
+References: <20231122-arm64-gcs-v7-0-201c483bd775@kernel.org>
+ <20231122-arm64-gcs-v7-34-201c483bd775@kernel.org>
+User-agent: mu4e 1.10.8; emacs 29.1
+From: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Andrew Morton
+ <akpm@linux-foundation.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton
+ <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, Suzuki K
+ Poulose <suzuki.poulose@arm.com>, Arnd Bergmann <arnd@arndb.de>, Oleg
+ Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, Kees
+ Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>, "Rick P.
+ Edgecombe" <rick.p.edgecombe@intel.com>, Deepak Gupta
+ <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>, Szabolcs Nagy
+ <Szabolcs.Nagy@arm.com>, "H.J. Lu" <hjl.tools@gmail.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Florian Weimer <fweimer@redhat.com>, Christian
+ Brauner <brauner@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-fsdevel@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-mm@kvack.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v7 34/39] kselftest/arm64: Add a GCS test program built
+ with the system libc
+In-reply-to: <20231122-arm64-gcs-v7-34-201c483bd775@kernel.org>
+Date: Thu, 14 Dec 2023 23:50:11 -0300
+Message-ID: <875y1089i4.fsf@linaro.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231214_174959_029063_C0C5E8DC 
-X-CRM114-Status: GOOD (  57.72  )
+X-CRM114-CacheID: sfid-20231214_185019_183071_A9FC1A20 
+X-CRM114-Status: GOOD (  20.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,131 +110,150 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
+Mark Brown <broonie@kernel.org> writes:
 
-> -----Original Message-----
-> From: Palmer Dabbelt <palmer@dabbelt.com>
-> Sent: Friday, December 15, 2023 1:21 AM
-> To: Conor Dooley <conor@kernel.org>
-> Cc: JeeHeng Sia <jeeheng.sia@starfivetech.com>; kernel@esmil.dk; robh+dt@kernel.org; krzysztof.kozlowski+dt@linaro.org;
-> krzk@kernel.org; conor+dt@kernel.org; Paul Walmsley <paul.walmsley@sifive.com>; aou@eecs.berkeley.edu;
-> daniel.lezcano@linaro.org; tglx@linutronix.de; anup@brainfault.org; Greg KH <gregkh@linuxfoundation.org>; jirislaby@kernel.org;
-> michal.simek@amd.com; Michael Zhu <michael.zhu@starfivetech.com>; drew@beagleboard.org; devicetree@vger.kernel.org; linux-
-> riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>; Conor Dooley
-> <conor.dooley@microchip.com>
-> Subject: Re: [PATCH v3 2/6] dt-bindings: riscv: Add StarFive JH8100 SoC
-> 
-> On Thu, 14 Dec 2023 08:22:29 PST (-0800), Conor Dooley wrote:
-> > On Thu, Dec 14, 2023 at 12:36:57AM +0000, JeeHeng Sia wrote:
-> >>
-> >>
-> >> > -----Original Message-----
-> >> > From: Conor Dooley <conor@kernel.org>
-> >> > Sent: Wednesday, December 13, 2023 8:43 PM
-> >> > To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
-> >> > Cc: kernel@esmil.dk; robh+dt@kernel.org; krzysztof.kozlowski+dt@linaro.org; krzk@kernel.org; conor+dt@kernel.org;
-> >> > paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu; daniel.lezcano@linaro.org; tglx@linutronix.de;
-> >> > anup@brainfault.org; gregkh@linuxfoundation.org; jirislaby@kernel.org; michal.simek@amd.com; Michael Zhu
-> >> > <michael.zhu@starfivetech.com>; drew@beagleboard.org; devicetree@vger.kernel.org; linux-riscv@lists.infradead.org; linux-
-> >> > kernel@vger.kernel.org; Leyfoon Tan <leyfoon.tan@starfivetech.com>; Conor Dooley <conor.dooley@microchip.com>
-> >> > Subject: Re: [PATCH v3 2/6] dt-bindings: riscv: Add StarFive JH8100 SoC
-> >> >
-> >> > On Fri, Dec 01, 2023 at 08:14:06PM +0800, Sia Jee Heng wrote:
-> >> > > Add device tree bindings for the StarFive JH8100 RISC-V SoC.
-> >> > >
-> >> > > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-> >> > > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-> >> > > Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> >> > > ---
-> >> > >  Documentation/devicetree/bindings/riscv/starfive.yaml | 4 ++++
-> >> > >  1 file changed, 4 insertions(+)
-> >> > >
-> >> > > diff --git a/Documentation/devicetree/bindings/riscv/starfive.yaml b/Documentation/devicetree/bindings/riscv/starfive.yaml
-> >> > > index cc4d92f0a1bf..12d7844232b8 100644
-> >> > > --- a/Documentation/devicetree/bindings/riscv/starfive.yaml
-> >> > > +++ b/Documentation/devicetree/bindings/riscv/starfive.yaml
-> >> > > @@ -30,6 +30,10 @@ properties:
-> >> > >                - starfive,visionfive-2-v1.3b
-> >> > >            - const: starfive,jh7110
-> >> > >
-> >> > > +      - items:
-> >> > > +          - enum:
-> >> > > +              - starfive,jh8100-evb
-> >> >
-> >> > Hmm, reading some of the other threads it appears that the evaluation
-> >> > platform that you guys have is actually just an FPGA? Could you please
-> >> > provide more information as to what this "evb" actually is?
-> >> >
-> >> > If it is just an FPGA-based evaluation platform I don't think that we
-> >> > want to merge patches for the platform. I'm fine with patches adding
-> >> > peripheral support, but the soc/board dts files and things like pinctrl
-> >> > or clock drivers I am not keen on.
-> >> > Perhaps Emil also has an opinion on this.
-> >> Eco the same reply here. I am not sure what you mean. We verified on FPGA & Emulator,
-> >> and the logic is pretty much close to the real silicon.
-> >
-> > "Pretty much close" That doesn't give me confidence. The compatible
-> > should uniquely identify an SoC, but if it is used for both the actual
-> > SoC and for something "pretty much close" to the actual SoC then that
-> > does not hold.
-> 
-> Ya, trying to have some pre-silicon FPGA-based platform alias with the
-> real chip is a repice for disaster.
-> 
-> >> I did mention that in the cover letter as well.
-> >
-> > Ah apologies for missing that. I try to read cover letters but the
-> > volume of mail gets to me at times.
-> >
-> >> I am new to Linux, so I am wondering if there is a Linux upstream guideline mentioning
-> >> that pre-silicon software is not allowed to upstream?
-> >
-> > I wouldn't say that this is the case, but things like clock and pinctrl
-> > drivers are the sort of things that are likely to vary in your "pretty
-> > much close" as that is the kind of thing that change for your final
-> > integration, versus a more "standalone" peripheral.
-> 
-> Yep, and since integration issues in the ASIC blocks can end up
-> manifesting as SW-visible behavior in nearby blocks it's hard to just
-> pull out the peripherals -- we sort of try by getting the DT topology to
-> match the SOC, but there's always some mismatches.
-Thank you everyone. I think I get your point. Is it possible to send "RFC"
-patches for things like DT, clk&reset, and pinctrl? Please note that
-these have been tested on FPGA/Emulator.
-> 
-> > For dts stuff, in RISC-V at least, we've been operating so far on the
-> > basis that systems implemented entirely on an FPGA are not suitable for
-> > inclusion in mainline. I would say that this can probably be relaxed to
-> > allow systems where there are publicly available, versioned, designs or
-> > bitstreams that are widely used that these devicetrees correspond to.
-> > This would suit something like if AMD published a bitstream using one
-> > of their new MicroblazeV cpu cores as a sort of "reference design".
-> 
-> FPGAs are definately in a grey area, but that's been my mindset as well.
-> For me it's less about FPGA vs ASIC (or any other manufacturing
-> technology in between) and more about whether something is being used
-> publicly.  Specifically: is the FPGA used for internal pre-silicon work
-> or is it some publicly availiable system?
-It is internal.
-> 
-> The versioning stuff is also important, but we need that for ASICs as
-> well since they can be re-spun.
-> 
-> >> Hope there is an updated Linux
-> >> upstream guideline that benefit other vendors.
-> >
-> > I have no idea if there is one or not. I think it generally varies on
-> > individual maintainers etc, and for something like a dts it comes down
-> > to the platform maintainer (Emil) I suppose. Sending stuff out before
-> > your SoC has been produced is really great though, so it is a fine line
-> > to avoid discouraging something we really like to see.
-> 
-> IIRC we've got some stuff written for arch/riscv somewhere in
-> Documentation, but the hardest part here is that each subsystem is going
-> to have different policies so it's kind of hard to try and come up with
-> a general rule.
-> 
-> > Cheers,
-> > Conor.
+> +	/* Same thing via process_vm_readv() */
+> +	local_iov.iov_base = &rval;
+> +	local_iov.iov_len = sizeof(rval);
+> +	remote_iov.iov_base = (void *)gcspr;
+> +	remote_iov.iov_len = sizeof(rval);
+> +	ret = process_vm_writev(child, &local_iov, 1, &remote_iov, 1, 0);
+> +	if (ret == -1)
+> +		ksft_print_msg("process_vm_readv() failed: %s (%d)\n",
+> +			       strerror(errno), errno);
+
+The comment and the error message say "process_vm_readv()", but the
+function actually called is process_vm_writev(). Is this intended?
+
+Also, process_vm_writev() is failing when I run on my Arm FVP:
+
+# #  RUN           global.ptrace_read_write ...
+# # Child: 1150
+# # Child GCSPR 0xffffa210ffd8, flags 1, locked 0
+# # process_vm_readv() failed: Bad address (14)
+# # libc-gcs.c:271:ptrace_read_write:Expected ret (-1) == sizeof(rval) (8)
+# # libc-gcs.c:272:ptrace_read_write:Expected val (281473401005692) == rval (281473402849248)
+# # libc-gcs.c:293:ptrace_read_write:Expected val (281473401005692) == ptrace(PTRACE_PEEKDATA, child, (void *)gcspr, NULL) (0)
+# # ptrace_read_write: Test failed at step #1
+# #          FAIL  global.ptrace_read_write
+# not ok 4 global.ptrace_read_write
+
+If I swap process_vm_readv() and process_vm_writev(), then the read
+succeeds but the write fails:
+
+#  RUN           global.ptrace_read_write ...
+# Child: 1996
+# Child GCSPR 0xffffa7fcffd8, flags 1, locked 0
+# process_vm_writev() failed: Bad address (14)
+# libc-gcs.c:291:ptrace_read_write:Expected ret (-1) == sizeof(rval) (8)
+# libc-gcs.c:293:ptrace_read_write:Expected val (281473500358268) == ptrace(PTRACE_PEEKDATA, child, (void *)gcspr, NULL) (0)
+# ptrace_read_write: Test failed at step #1
+#          FAIL  global.ptrace_read_write
+not ok 4 global.ptrace_read_write
+
+> +/* Put it all together, we can safely switch to and from the stack */
+> +TEST_F(map_gcs, stack_switch)
+> +{
+> +	size_t cap_index;
+> +	cap_index = (variant->stack_size / sizeof(unsigned long));
+> +	unsigned long *orig_gcspr_el0, *pivot_gcspr_el0;
+> +
+> +	/* Skip over the stack terminator and point at the cap */
+> + switch (variant->flags & (SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN)) {
+> +	case SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN:
+> +		cap_index -= 2;
+> +		break;
+> +	case SHADOW_STACK_SET_TOKEN:
+> +		cap_index -= 1;
+> +		break;
+> +	case SHADOW_STACK_SET_MARKER:
+> +	case 0:
+> +		/* No cap, no test */
+> +		return;
+> +	}
+> +	pivot_gcspr_el0 = &self->stack[cap_index];
+> +
+> +	/* Pivot to the new GCS */
+> +	ksft_print_msg("Pivoting to %p from %p, target has value 0x%lx\n",
+> +		       pivot_gcspr_el0, get_gcspr(),
+> +		       *pivot_gcspr_el0);
+> +	gcsss1(pivot_gcspr_el0);
+> +	orig_gcspr_el0 = gcsss2();
+> +	ksft_print_msg("Pivoted to %p from %p, target has value 0x%lx\n",
+> +		       pivot_gcspr_el0, get_gcspr(),
+
+Not sure about the intent here, but perhaps "get_gcspr()" here should be
+"orig_gcspr_el0" instead? Ditto in the equivalent place at the
+map_gcs.stack_overflow test below.
+
+Also, it's strange that the tests defined after map_gcs.stack_overflow
+don't run when I execute this test program. I'm doing:
+
+$ ./run_kselftest.sh -t arm64:libc-gcs
+
+I.e., these tests aren't being run in my FVP:
+
+> +FIXTURE_VARIANT_ADD(map_invalid_gcs, too_small)
+> +FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_1)
+> +FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_2)
+> +FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_3)
+> +FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_4)
+> +FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_5)
+> +FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_6)
+> +FIXTURE_VARIANT_ADD(map_invalid_gcs, unligned_7)
+> +TEST_F(map_invalid_gcs, do_map)
+> +FIXTURE_VARIANT_ADD(invalid_mprotect, exec)
+> +FIXTURE_VARIANT_ADD(invalid_mprotect, bti)
+> +FIXTURE_VARIANT_ADD(invalid_mprotect, exec_bti)
+> +TEST_F(invalid_mprotect, do_map)
+> +TEST_F(invalid_mprotect, do_map_read)
+
+Finally, one last comment:
+
+> +int main(int argc, char **argv)
+> +{
+> +	unsigned long gcs_mode;
+> +	int ret;
+> +
+> +	if (!(getauxval(AT_HWCAP2) & HWCAP2_GCS))
+> +		ksft_exit_skip("SKIP GCS not supported\n");
+> +
+> +	/* 
+> +	 * Force shadow stacks on, our tests *should* be fine with or
+> +	 * without libc support and with or without this having ended
+> +	 * up tagged for GCS and enabled by the dynamic linker.  We
+> +	 * can't use the libc prctl() function since we can't return
+> +	 * from enabling the stack.  Also lock GCS if not already
+> +	 * locked so we can test behaviour when it's locked.
+
+This is probably a leftover from a previous version: the test doesn't
+lock any GCS flag.
+
+> +	 */
+> +	ret = my_syscall2(__NR_prctl, PR_GET_SHADOW_STACK_STATUS, &gcs_mode);
+> +	if (ret) {
+> +		ksft_print_msg("Failed to read GCS state: %d\n", ret);
+> +		return EXIT_FAILURE;
+> +	}
+> +	
+> +	if (!(gcs_mode & PR_SHADOW_STACK_ENABLE)) {
+> +		gcs_mode = PR_SHADOW_STACK_ENABLE;
+> +		ret = my_syscall2(__NR_prctl, PR_SET_SHADOW_STACK_STATUS,
+> +				  gcs_mode);
+> +		if (ret) {
+> +			ksft_print_msg("Failed to configure GCS: %d\n", ret);
+> +			return EXIT_FAILURE;
+> +		}
+> +	}
+> +
+> +	/* Avoid returning in case libc doesn't understand GCS */
+> +	exit(test_harness_run(argc, argv));
+> +}
+
+
+-- 
+Thiago
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
