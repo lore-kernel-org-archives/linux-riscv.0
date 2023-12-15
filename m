@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E332DC4167B
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 20:41:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 786D7C46CA2
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 20:41:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DHuBLUidqdQC8UJcFzIQ9ukONMn0HkdfBoJ2Mjr75E0=; b=xUMY01rnckBh1B
-	o3/5WBZKH1XHj5w1z9Ba0dotHFHsZ05Nme7JP2ai5aBbnkaKYf9AZeL2eWOgNpazDh6LUDK5x0oot
-	v8fr996feJw3Ppw0uCr4vNg3UboI1C3LzXTXBq2GljJH5xwSuutc3J92FikBAESY3rkGc8Pn8wBNQ
-	6ZZ6J1V0fpjhdVJIANowGZlXQWjj8Y8jdniIyaQzR0r7I6C9l/aZC5aMnYQDDqiHHWUgzv8UbFkD9
-	0Zpe5pORu1LJMyemhm4x2qHpQiKeW5DGtFuLHSdgSHfmB3T/lryCOSj9unShGvJGDH5+deuMe0sgI
-	2+sLjeHqTr121SXHBEYQ==;
+	List-Owner; bh=YYqYq/d4IuHuZs8029Il2uQ6qhs4RnotbnjsByxz530=; b=VP8UbXvwcXhTLF
+	/pOK5ZtU2kaOM8RAaufVlIMlfRjPXHcTB6gBSTE9S0bNkVSz5ED9nVOcRBCWExEyzoSSsvv8QFcq0
+	J5HRp0BjtBMgktcjqhX7QQUO24pm4fI5DNxQj+KC/iIQysd1cSZEJscNK7eHra34+kwIFvnpdBEA8
+	k/l/dZlP/vt9yWs6Uvhl7nR9AQr168Tw9/S5i4yEfBEU3mDFYo99PXbOIdJCoEpf41g5Ukf+1YNv+
+	QZzJhZozEPOUtWLLFgPbaXXaP4cSRxxzJLJg2cuYSqcb0qE3J12pwCCJunsp7J3npD93CRZVO6BMq
+	tiIX2JL8N/YHqBruDiJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rEEzj-004UyY-35;
+	id 1rEEzj-004Uxg-0k;
 	Fri, 15 Dec 2023 20:41:15 +0000
 Received: from madrid.collaboradmins.com ([2a00:1098:ed:100::25])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rEEzS-004Up5-1X;
+	id 1rEEzS-004Up2-1J;
 	Fri, 15 Dec 2023 20:41:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1702672855;
-	bh=nB8fK2mag7xxaIPXY2D2kiffvAUioRug+1aDDBZv2DY=;
+	s=mail; t=1702672854;
+	bh=03p9E6nA7an2G1tB5MMv/uNj5vtUhwwnTvlzoHkMWig=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WoJnTnA4efoBp3Kz0/zwihnCSluO3psS4NHYy8U8kVDP8AU1L91/Hgj6lYi8J60cU
-	 qd9j0IGy/JfU7h33EbkMZUbjHDKRncdDRWVhHGvYj6z20XJYY04c8IqM1rTapt/B+4
-	 eC+0NciTlvL3oT1ScyLfV2qGvoA2cDGLGr1krAMRPTIV24m1wfc1ErfPlmkUsR4TYx
-	 Zkd4jleZCtFqeY3DnHhRx+rdKLZHQ2QuamzRpWc2rO/qHK5ouFU3Rvmp/T9UH3Ozyd
-	 KWPYfe6LOv3XK/Vy0QPTJpFYpsSOqZe7eMmwyq3VVY9TJA/zyJ43vGICqeLH7eY0PR
-	 7hMp/XUWBGAqA==
+	b=nL0R3sCGeYyZxN9QwAHy+LF8ebs3dlwbqgnGspv9Gn82+EQ9fXa6CnzYJZw6KdcwN
+	 Q2MWIqRDH/0TgHN9EqfEoGjnlySL4qgzq9Kz7Snp6/RuDWuvhsP4AZ7AUxE1NWWkz0
+	 Pu52Fhm2xFpPPRW01dbx8vy0Skm+eKLrccSSKBumZyrnLzUp+/O9GPZXj5JMyjdFxr
+	 LhSb2ZbDcfRawv5CV+2HZ2P5fVoE2SKwKGOfE6eT/bydhZha3a6wibMOUocJl9CYnR
+	 Iu5TsRAHyRfZ+zZfwj2bRIA1nbIvCiDqHo6FhuoQY5Rc2mO8kqhZMjiiyyPohW7h5D
+	 z9bTkGATymg1w==
 Received: from localhost (cola.collaboradmins.com [195.201.22.229])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by madrid.collaboradmins.com (Postfix) with ESMTPSA id 398883781FEE;
-	Fri, 15 Dec 2023 20:40:55 +0000 (UTC)
+	by madrid.collaboradmins.com (Postfix) with ESMTPSA id 25D013781FEB;
+	Fri, 15 Dec 2023 20:40:54 +0000 (UTC)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 To: "David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
@@ -72,16 +72,16 @@ Cc: netdev@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH v3 3/9] net: stmmac: dwmac-starfive: Add support for JH7100 SoC
-Date: Fri, 15 Dec 2023 22:40:42 +0200
-Message-ID: <20231215204050.2296404-4-cristian.ciocaltea@collabora.com>
+Subject: [PATCH v3 2/9] dt-bindings: net: starfive,jh7110-dwmac: Add JH7100 SoC compatible
+Date: Fri, 15 Dec 2023 22:40:41 +0200
+Message-ID: <20231215204050.2296404-3-cristian.ciocaltea@collabora.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20231215204050.2296404-1-cristian.ciocaltea@collabora.com>
 References: <20231215204050.2296404-1-cristian.ciocaltea@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231215_124058_642294_6504CC43 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20231215_124058_619236_F247399F 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,112 +98,149 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a missing quirk to enable support for the StarFive JH7100 SoC.
+The Synopsys DesignWare MAC found on StarFive JH7100 SoC is mostly
+similar to the newer JH7110, but it requires only two interrupts and a
+single reset line, which is 'ahb' instead of the commonly used
+'stmmaceth'.
 
-Additionally, for greater flexibility in operation, allow using the
-rgmii-rxid and rgmii-txid phy modes.
+Since the common binding 'snps,dwmac' allows selecting 'ahb' only in
+conjunction with 'stmmaceth', extend the logic to also permit exclusive
+usage of the 'ahb' reset name.  This ensures the following use cases are
+supported:
 
-Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
-Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+  JH7110: reset-names = "stmmaceth", "ahb";
+  JH7100: reset-names = "ahb";
+  other:  reset-names = "stmmaceth";
+
+Also note the need to use a different dwmac fallback, as v5.20 applies
+to JH7110 only, while JH7100 relies on v3.7x.
+
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |  6 ++--
- .../ethernet/stmicro/stmmac/dwmac-starfive.c  | 32 ++++++++++++++++---
- 2 files changed, 31 insertions(+), 7 deletions(-)
+ .../devicetree/bindings/net/snps,dwmac.yaml   |  3 +-
+ .../bindings/net/starfive,jh7110-dwmac.yaml   | 74 +++++++++++++------
+ 2 files changed, 55 insertions(+), 22 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index 85dcda51df05..4ec61f1ee71a 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -165,9 +165,9 @@ config DWMAC_STARFIVE
- 	help
- 	  Support for ethernet controllers on StarFive RISC-V SoCs
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index 5c2769dc689a..c1380ff1c054 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -95,6 +95,7 @@ properties:
+         - snps,dwmac-5.20
+         - snps,dwxgmac
+         - snps,dwxgmac-2.10
++        - starfive,jh7100-dwmac
+         - starfive,jh7110-dwmac
  
--	  This selects the StarFive platform specific glue layer support for
--	  the stmmac device driver. This driver is used for StarFive JH7110
--	  ethernet controller.
-+	  This selects the StarFive platform specific glue layer support
-+	  for the stmmac device driver. This driver is used for the
-+	  StarFive JH7100 and JH7110 ethernet controllers.
+   reg:
+@@ -146,7 +147,7 @@ properties:
+   reset-names:
+     minItems: 1
+     items:
+-      - const: stmmaceth
++      - enum: [stmmaceth, ahb]
+       - const: ahb
  
- config DWMAC_STI
- 	tristate "STi GMAC support"
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-index 5d630affb4d1..4e1076faee0c 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-@@ -15,13 +15,20 @@
+   power-domains:
+diff --git a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+index d90cb82c1424..b01602738fc3 100644
+--- a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+@@ -22,10 +22,14 @@ select:
  
- #include "stmmac_platform.h"
+ properties:
+   compatible:
+-    items:
+-      - enum:
+-          - starfive,jh7110-dwmac
+-      - const: snps,dwmac-5.20
++    oneOf:
++      - items:
++          - const: starfive,jh7100-dwmac
++          - const: snps,dwmac
++      - items:
++          - enum:
++              - starfive,jh7110-dwmac
++          - const: snps,dwmac-5.20
  
--#define STARFIVE_DWMAC_PHY_INFT_RGMII	0x1
--#define STARFIVE_DWMAC_PHY_INFT_RMII	0x4
--#define STARFIVE_DWMAC_PHY_INFT_FIELD	0x7U
-+#define STARFIVE_DWMAC_PHY_INFT_RGMII		0x1
-+#define STARFIVE_DWMAC_PHY_INFT_RMII		0x4
-+#define STARFIVE_DWMAC_PHY_INFT_FIELD		0x7U
+   reg:
+     maxItems: 1
+@@ -46,23 +50,6 @@ properties:
+       - const: tx
+       - const: gtx
+ 
+-  interrupts:
+-    minItems: 3
+-    maxItems: 3
+-
+-  interrupt-names:
+-    minItems: 3
+-    maxItems: 3
+-
+-  resets:
+-    minItems: 2
+-    maxItems: 2
+-
+-  reset-names:
+-    items:
+-      - const: stmmaceth
+-      - const: ahb
+-
+   starfive,tx-use-rgmii-clk:
+     description:
+       Tx clock is provided by external rgmii clock.
+@@ -93,6 +80,51 @@ required:
+ allOf:
+   - $ref: snps,dwmac.yaml#
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: starfive,jh7100-dwmac
++    then:
++      properties:
++        interrupts:
++          minItems: 2
++          maxItems: 2
 +
-+#define JH7100_SYSMAIN_REGISTER49_DLYCHAIN	0xc8
++        interrupt-names:
++          minItems: 2
++          maxItems: 2
 +
-+struct starfive_dwmac_data {
-+	unsigned int gtxclk_dlychain;
-+};
- 
- struct starfive_dwmac {
- 	struct device *dev;
- 	struct clk *clk_tx;
-+	const struct starfive_dwmac_data *data;
- };
- 
- static void starfive_dwmac_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
-@@ -67,6 +74,8 @@ static int starfive_dwmac_set_mode(struct plat_stmmacenet_data *plat_dat)
- 
- 	case PHY_INTERFACE_MODE_RGMII:
- 	case PHY_INTERFACE_MODE_RGMII_ID:
-+	case PHY_INTERFACE_MODE_RGMII_RXID:
-+	case PHY_INTERFACE_MODE_RGMII_TXID:
- 		mode = STARFIVE_DWMAC_PHY_INFT_RGMII;
- 		break;
- 
-@@ -89,6 +98,14 @@ static int starfive_dwmac_set_mode(struct plat_stmmacenet_data *plat_dat)
- 	if (err)
- 		return dev_err_probe(dwmac->dev, err, "error setting phy mode\n");
- 
-+	if (dwmac->data) {
-+		err = regmap_write(regmap, JH7100_SYSMAIN_REGISTER49_DLYCHAIN,
-+				   dwmac->data->gtxclk_dlychain);
-+		if (err)
-+			return dev_err_probe(dwmac->dev, err,
-+					     "error selecting gtxclk delay chain\n");
-+	}
++        resets:
++          maxItems: 1
 +
- 	return 0;
- }
- 
-@@ -114,6 +131,8 @@ static int starfive_dwmac_probe(struct platform_device *pdev)
- 	if (!dwmac)
- 		return -ENOMEM;
- 
-+	dwmac->data = device_get_match_data(&pdev->dev);
++        reset-names:
++          const: ahb
 +
- 	dwmac->clk_tx = devm_clk_get_enabled(&pdev->dev, "tx");
- 	if (IS_ERR(dwmac->clk_tx))
- 		return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_tx),
-@@ -144,8 +163,13 @@ static int starfive_dwmac_probe(struct platform_device *pdev)
- 	return stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
- }
- 
-+static const struct starfive_dwmac_data jh7100_data = {
-+	.gtxclk_dlychain = 4,
-+};
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: starfive,jh7110-dwmac
++    then:
++      properties:
++        interrupts:
++          minItems: 3
++          maxItems: 3
 +
- static const struct of_device_id starfive_dwmac_match[] = {
--	{ .compatible = "starfive,jh7110-dwmac"	},
-+	{ .compatible = "starfive,jh7100-dwmac", .data = &jh7100_data },
-+	{ .compatible = "starfive,jh7110-dwmac" },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, starfive_dwmac_match);
++        interrupt-names:
++          minItems: 3
++          maxItems: 3
++
++        resets:
++          minItems: 2
++          maxItems: 2
++
++        reset-names:
++          items:
++            - const: stmmaceth
++            - const: ahb
++
+ unevaluatedProperties: false
+ 
+ examples:
 -- 
 2.43.0
 
