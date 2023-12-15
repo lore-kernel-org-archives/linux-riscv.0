@@ -4,78 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC5CC4167B
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 09:27:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6B57C4167B
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 09:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LWWegpNy9wOwINsGxQr2FvbItYD3wEVKuV6kmz85rtM=; b=xdtS850ukBNp96
-	IJcsywX12JYF0WiGcviviWJLlupJvzT4Brm7JjXDj/r1+VNdp3uWOIC51yj1RUXVrfpDiXQZhoM87
-	vdwureaMmih11C1jQC7l8fPVbBtsaaeWDjEIxPCFR+ZsL0GOLJJ1GQiDU4OV6Nu4nmvqd9wrXEAtl
-	ytbC24Xu5fpofHhZ1ZR9CTlwY8eht9SWa0Nt9jUbxO2mbzuYUHzshZtMjq57zqZJOpdjUCO3pV5k5
-	Rr15isubMtmKEsaKaOc8q/8imAy/r1pX4cDTjdlVvXndlud5cEMNM4QISwqv2J1wvunhvlHEIQpLk
-	jmVkCTKOK2ODKWnfbufg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
+	From:Date:Message-Id:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=nBja2yVbXQFNZvw8oVb6iRmkBc48i3gwUjUZJeKZZWc=; b=DRMgwverABxZsJ
+	rTEIsyBJBhXzfdarMDT5AqNt3fRmJhs5EGPIDzS/3Qe5PmYjetZaJCsaZRUohvXI32wIdwg6Ki/hf
+	b0QO/VJ9nD0UZw9zbLJB5q2Ui2aVy268v8DTFht6zkTjL1gt9kHlBLJTSq98UocQO4Dzfas3roXoa
+	d7At7iYxMoJak9SkhZBsdAZFWNMUwx9t9Y+JsWbYQ/LMZW0Jcrhj0HUADzKLfgWRb5n/zqo2hqyWf
+	KVnzJDoCm7sLgbVbQCU/1pd+bY5JRA6O3KdJylgH1oqW9XMwbVA8pIPotVxaJvyvNPI2Zq+qQ4FDe
+	SmksnYQg9DZk2Cscwh6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rE4Tl-002cxb-1Q;
-	Fri, 15 Dec 2023 09:27:33 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1rE4ZP-002dZZ-2H;
+	Fri, 15 Dec 2023 09:33:23 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rE4Th-002cwD-1S
-	for linux-riscv@lists.infradead.org;
-	Fri, 15 Dec 2023 09:27:31 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-5c6b9583dcbso400025a12.2
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Dec 2023 01:27:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1702632446; x=1703237246; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=udsPV/VQaJ4AO8i8EMXOtjozTv+5BniWSBVr366jyD0=;
-        b=skCigJsrsxHDYamhyBt2T9cHNR3Waw4ychDI5u0lfGHaCOFl4PNV4+Ueu+qT0u6UeL
-         MxHNemGLIgj3c0wvcOZW1AI4xMmYp9qLYuDcSnNSR13tzAiUF4NqeUR2d+ZbusbU0PoN
-         HgbWseB2hPdfRGgQs34etrAZ9rL6zTw6Ipb+VIyehTsvoUobrVAQjqMBkyKcFHaPKOFj
-         w8V80Om7ibo/vTy1F0w2Z/REfTqsSXejBm4dIGXqn2zJmJATpqJKyc48Wb3RoQNGNkkQ
-         Z3dRHxN5mgpFfC6R9LmGu/dHDgBYQyos136CYJJM9fX5Q38uX7Q/A3e3JY1AP2L8InVk
-         bxBg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702632446; x=1703237246;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=udsPV/VQaJ4AO8i8EMXOtjozTv+5BniWSBVr366jyD0=;
-        b=F4RDlUjpYvnLYy55Gae19sYx78fUldlOkJdft+NCufcaQTMlohC1W132SO7ojq5Ojg
-         S1IsLYJVFFt+RN/v2bxIpU5cVAlfPDbvV0uTctew4vbPX8yHn2M18FJTKaRojCZPLVxf
-         hMyimQt63b3WCSCzv4TIfMdNCbL1o2hc0G+mIlIsddqo8SAQDAEeer0BRg/93xOSh7hG
-         0RbPY2bvw3vsiiY2lBFYc+51VMUpGzYEToW81Ma68hyy/8Ar1SL7dMT+oSv2lvNEVpLo
-         KSPei9s2yBHKDrRgXVgABN2sOLdC1eVqjhQQ87668VSwBIRg9NaxrGmDozTz0Q4GCNYI
-         sD4Q==
-X-Gm-Message-State: AOJu0YzMHDXbRWNe+EcNjvPbqYw8o+iJm1h2lKxAGpQnysmhanFNQ9iY
-	2nYz17B224Z6jMOoLZmcN8MDm/vcOvitWXUnnT9BCg==
-X-Google-Smtp-Source: AGHT+IG+darEbBfGmFu/ezPSaQBc4sEoCDK8zjt6Rg+83U9sTkOWkfUswf3ppwTTKCE/eJFluBbYK3r0BJ4QkRN0lBk=
-X-Received: by 2002:a05:6a20:8f09:b0:190:97a3:8d64 with SMTP id
- b9-20020a056a208f0900b0019097a38d64mr15046804pzk.17.1702632446111; Fri, 15
- Dec 2023 01:27:26 -0800 (PST)
+	id 1rE4ZM-002dYg-22
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 15 Dec 2023 09:33:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:References:
+	Subject:Cc:To:From:Date:Message-Id:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To;
+	bh=z79WJTlUkpGdsrYGZxRofGTWpjl5gntweNg1HQWKrSY=; b=BKTY9C+YqD87P54owc5F7b/Qn0
+	UQ7eqYLs8JXjLvGcrgMXgzA1mB5IRjRx7oambwG+fguM5VRL8jgy8NuT/pVOaMbNQ28W9Zsu5gXkv
+	GxAlZtOMKilcoqkIzW1weuxThEKpLS2idiB9L7vznPnbIwA3laTCWDkli8FoBfPoV/NLMoR0yRid0
+	oXnsQTNdNPK90SrKYQaH1kXrZyqo9Zj8IrtQH2KoOCitrlUzD9Tb6wpg6kkOWUGgdJqarNsDQkrL7
+	37FbfJe680BaRWDccu5O5vQRHIK1Bd2TsCV1DKwJ7UDzae8DkOkZQJumJ6D7ZYt0HW05qAWNdOz1H
+	yHv/QUfg==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1rE4ZD-00FSOV-HC; Fri, 15 Dec 2023 09:33:12 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 0)
+	id CB29B3006DD; Fri, 15 Dec 2023 10:33:11 +0100 (CET)
+Message-Id: <20231215092707.451956710@infradead.org>
+User-Agent: quilt/0.65
+Date: Fri, 15 Dec 2023 10:12:19 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: paul.walmsley@sifive.com,
+ palmer@dabbelt.com,
+ aou@eecs.berkeley.edu,
+ tglx@linutronix.de,
+ mingo@redhat.com,
+ bp@alien8.de,
+ dave.hansen@linux.intel.com,
+ x86@kernel.org,
+ hpa@zytor.com,
+ davem@davemloft.net,
+ dsahern@kernel.org,
+ daniel@iogearbox.net,
+ andrii@kernel.org,
+ martin.lau@linux.dev,
+ song@kernel.org,
+ yonghong.song@linux.dev,
+ john.fastabend@gmail.com,
+ kpsingh@kernel.org,
+ sdf@google.com,
+ haoluo@google.com,
+ jolsa@kernel.org,
+ Arnd Bergmann <arnd@arndb.de>,
+ samitolvanen@google.com,
+ keescook@chromium.org,
+ nathan@kernel.org,
+ ndesaulniers@google.com,
+ linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org,
+ bpf@vger.kernel.org,
+ linux-arch@vger.kernel.org,
+ llvm@lists.linux.dev,
+ jpoimboe@kernel.org,
+ joao@overdrivepizza.com,
+ mark.rutland@arm.com,
+ peterz@infradead.org
+Subject: [PATCH v3 3/7] x86/cfi,bpf: Fix bpf_callback_t CFI
+References: <20231215091216.135791411@infradead.org>
 MIME-Version: 1.0
-References: <20231214101552.100721-15-ajones@ventanamicro.com> <20231214101552.100721-28-ajones@ventanamicro.com>
-In-Reply-To: <20231214101552.100721-28-ajones@ventanamicro.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 15 Dec 2023 14:57:13 +0530
-Message-ID: <CAAhSdy1Qr8vjaHVBLypBByN-Yt4MJhPBWs=zYoX8xWJDzEM3cQ@mail.gmail.com>
-Subject: Re: [PATCH v2 13/13] RISC-V: KVM: selftests: Add get-reg-list test
- for STA registers
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	virtualization@lists.linux-foundation.org, atishp@atishpatra.org, 
-	pbonzini@redhat.com, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, jgross@suse.com, srivatsa@csail.mit.edu, 
-	guoren@kernel.org, conor.dooley@microchip.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231215_012729_503367_D788DAFD 
-X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,111 +97,146 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBEZWMgMTQsIDIwMjMgYXQgMzo0NuKAr1BNIEFuZHJldyBKb25lcyA8YWpvbmVzQHZl
-bnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gQWRkIFNCSSBTVEEgYW5kIGl0cyB0d28gcmVnaXN0
-ZXJzIHRvIHRoZSBnZXQtcmVnLWxpc3QgdGVzdC4KPgo+IFNpZ25lZC1vZmYtYnk6IEFuZHJldyBK
-b25lcyA8YWpvbmVzQHZlbnRhbmFtaWNyby5jb20+CgpMR1RNLgoKUmV2aWV3ZWQtYnk6IEFudXAg
-UGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+CgpSZWdhcmRzLApBbnVwCgo+IC0tLQo+ICAuLi4v
-c2VsZnRlc3RzL2t2bS9yaXNjdi9nZXQtcmVnLWxpc3QuYyAgICAgICAgfCA0MyArKysrKysrKysr
-KysrKysrKysrCj4gIDEgZmlsZSBjaGFuZ2VkLCA0MyBpbnNlcnRpb25zKCspCj4KPiBkaWZmIC0t
-Z2l0IGEvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMva3ZtL3Jpc2N2L2dldC1yZWctbGlzdC5jIGIv
-dG9vbHMvdGVzdGluZy9zZWxmdGVzdHMva3ZtL3Jpc2N2L2dldC1yZWctbGlzdC5jCj4gaW5kZXgg
-YjhkYTJlODZiZjljLi41NWRkMWZjM2M1MzYgMTAwNjQ0Cj4gLS0tIGEvdG9vbHMvdGVzdGluZy9z
-ZWxmdGVzdHMva3ZtL3Jpc2N2L2dldC1yZWctbGlzdC5jCj4gKysrIGIvdG9vbHMvdGVzdGluZy9z
-ZWxmdGVzdHMva3ZtL3Jpc2N2L2dldC1yZWctbGlzdC5jCj4gQEAgLTcxLDYgKzcxLDcgQEAgYm9v
-bCBmaWx0ZXJfcmVnKF9fdTY0IHJlZykKPiAgICAgICAgIGNhc2UgS1ZNX1JFR19SSVNDVl9TQklf
-RVhUIHwgS1ZNX1JFR19SSVNDVl9TQklfU0lOR0xFIHwgS1ZNX1JJU0NWX1NCSV9FWFRfSFNNOgo+
-ICAgICAgICAgY2FzZSBLVk1fUkVHX1JJU0NWX1NCSV9FWFQgfCBLVk1fUkVHX1JJU0NWX1NCSV9T
-SU5HTEUgfCBLVk1fUklTQ1ZfU0JJX0VYVF9QTVU6Cj4gICAgICAgICBjYXNlIEtWTV9SRUdfUklT
-Q1ZfU0JJX0VYVCB8IEtWTV9SRUdfUklTQ1ZfU0JJX1NJTkdMRSB8IEtWTV9SSVNDVl9TQklfRVhU
-X0RCQ046Cj4gKyAgICAgICBjYXNlIEtWTV9SRUdfUklTQ1ZfU0JJX0VYVCB8IEtWTV9SRUdfUklT
-Q1ZfU0JJX1NJTkdMRSB8IEtWTV9SSVNDVl9TQklfRVhUX1NUQToKPiAgICAgICAgIGNhc2UgS1ZN
-X1JFR19SSVNDVl9TQklfRVhUIHwgS1ZNX1JFR19SSVNDVl9TQklfU0lOR0xFIHwgS1ZNX1JJU0NW
-X1NCSV9FWFRfRVhQRVJJTUVOVEFMOgo+ICAgICAgICAgY2FzZSBLVk1fUkVHX1JJU0NWX1NCSV9F
-WFQgfCBLVk1fUkVHX1JJU0NWX1NCSV9TSU5HTEUgfCBLVk1fUklTQ1ZfU0JJX0VYVF9WRU5ET1I6
-Cj4gICAgICAgICAgICAgICAgIHJldHVybiB0cnVlOwo+IEBAIC00NjEsNiArNDYyLDcgQEAgc3Rh
-dGljIGNvbnN0IGNoYXIgKnNiaV9leHRfc2luZ2xlX2lkX3RvX3N0cihfX3U2NCByZWdfb2ZmKQo+
-ICAgICAgICAgICAgICAgICBLVk1fU0JJX0VYVF9BUlIoS1ZNX1JJU0NWX1NCSV9FWFRfU1JTVCks
-Cj4gICAgICAgICAgICAgICAgIEtWTV9TQklfRVhUX0FSUihLVk1fUklTQ1ZfU0JJX0VYVF9IU00p
-LAo+ICAgICAgICAgICAgICAgICBLVk1fU0JJX0VYVF9BUlIoS1ZNX1JJU0NWX1NCSV9FWFRfUE1V
-KSwKPiArICAgICAgICAgICAgICAgS1ZNX1NCSV9FWFRfQVJSKEtWTV9SSVNDVl9TQklfRVhUX1NU
-QSksCj4gICAgICAgICAgICAgICAgIEtWTV9TQklfRVhUX0FSUihLVk1fUklTQ1ZfU0JJX0VYVF9F
-WFBFUklNRU5UQUwpLAo+ICAgICAgICAgICAgICAgICBLVk1fU0JJX0VYVF9BUlIoS1ZNX1JJU0NW
-X1NCSV9FWFRfVkVORE9SKSwKPiAgICAgICAgICAgICAgICAgS1ZNX1NCSV9FWFRfQVJSKEtWTV9S
-SVNDVl9TQklfRVhUX0RCQ04pLAo+IEBAIC01MDksNiArNTExLDMyIEBAIHN0YXRpYyBjb25zdCBj
-aGFyICpzYmlfZXh0X2lkX3RvX3N0cihjb25zdCBjaGFyICpwcmVmaXgsIF9fdTY0IGlkKQo+ICAg
-ICAgICAgcmV0dXJuIHN0cmR1cF9wcmludGYoIiVsbGQgfCAlbGxkIC8qIFVOS05PV04gKi8iLCBy
-ZWdfc3VidHlwZSwgcmVnX29mZik7Cj4gIH0KPgo+ICtzdGF0aWMgY29uc3QgY2hhciAqc2JpX3N0
-YV9pZF90b19zdHIoX191NjQgcmVnX29mZikKPiArewo+ICsgICAgICAgc3dpdGNoIChyZWdfb2Zm
-KSB7Cj4gKyAgICAgICBjYXNlIDA6IHJldHVybiAiS1ZNX1JFR19SSVNDVl9TQklfU1RBIHwgS1ZN
-X1JFR19SSVNDVl9TQklfU1RBX1JFRyhzaG1lbV9sbykiOwo+ICsgICAgICAgY2FzZSAxOiByZXR1
-cm4gIktWTV9SRUdfUklTQ1ZfU0JJX1NUQSB8IEtWTV9SRUdfUklTQ1ZfU0JJX1NUQV9SRUcoc2ht
-ZW1faGkpIjsKPiArICAgICAgIH0KPiArICAgICAgIHJldHVybiBzdHJkdXBfcHJpbnRmKCJLVk1f
-UkVHX1JJU0NWX1NCSV9TVEEgfCAlbGxkIC8qIFVOS05PV04gKi8iLCByZWdfb2ZmKTsKPiArfQo+
-ICsKPiArc3RhdGljIGNvbnN0IGNoYXIgKnNiaV9pZF90b19zdHIoY29uc3QgY2hhciAqcHJlZml4
-LCBfX3U2NCBpZCkKPiArewo+ICsgICAgICAgX191NjQgcmVnX29mZiA9IGlkICYgfihSRUdfTUFT
-SyB8IEtWTV9SRUdfUklTQ1ZfU0JJKTsKPiArICAgICAgIF9fdTY0IHJlZ19zdWJ0eXBlID0gcmVn
-X29mZiAmIEtWTV9SRUdfUklTQ1ZfU1VCVFlQRV9NQVNLOwo+ICsKPiArICAgICAgIGFzc2VydCgo
-aWQgJiBLVk1fUkVHX1JJU0NWX1RZUEVfTUFTSykgPT0gS1ZNX1JFR19SSVNDVl9TQkkpOwo+ICsK
-PiArICAgICAgIHJlZ19vZmYgJj0gfktWTV9SRUdfUklTQ1ZfU1VCVFlQRV9NQVNLOwo+ICsKPiAr
-ICAgICAgIHN3aXRjaCAocmVnX3N1YnR5cGUpIHsKPiArICAgICAgIGNhc2UgS1ZNX1JFR19SSVND
-Vl9TQklfU1RBOgo+ICsgICAgICAgICAgICAgICByZXR1cm4gc2JpX3N0YV9pZF90b19zdHIocmVn
-X29mZik7Cj4gKyAgICAgICB9Cj4gKwo+ICsgICAgICAgcmV0dXJuIHN0cmR1cF9wcmludGYoIiVs
-bGQgfCAlbGxkIC8qIFVOS05PV04gKi8iLCByZWdfc3VidHlwZSwgcmVnX29mZik7Cj4gK30KPiAr
-Cj4gIHZvaWQgcHJpbnRfcmVnKGNvbnN0IGNoYXIgKnByZWZpeCwgX191NjQgaWQpCj4gIHsKPiAg
-ICAgICAgIGNvbnN0IGNoYXIgKnJlZ19zaXplID0gTlVMTDsKPiBAQCAtNTY1LDYgKzU5MywxMCBA
-QCB2b2lkIHByaW50X3JlZyhjb25zdCBjaGFyICpwcmVmaXgsIF9fdTY0IGlkKQo+ICAgICAgICAg
-ICAgICAgICBwcmludGYoIlx0S1ZNX1JFR19SSVNDViB8ICVzIHwgS1ZNX1JFR19SSVNDVl9TQklf
-RVhUIHwgJXMsXG4iLAo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmVnX3NpemUs
-IHNiaV9leHRfaWRfdG9fc3RyKHByZWZpeCwgaWQpKTsKPiAgICAgICAgICAgICAgICAgYnJlYWs7
-Cj4gKyAgICAgICBjYXNlIEtWTV9SRUdfUklTQ1ZfU0JJOgo+ICsgICAgICAgICAgICAgICBwcmlu
-dGYoIlx0S1ZNX1JFR19SSVNDViB8ICVzIHwgS1ZNX1JFR19SSVNDVl9TQkkgfCAlcyxcbiIsCj4g
-KyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZWdfc2l6ZSwgc2JpX2lkX3RvX3N0cihw
-cmVmaXgsIGlkKSk7Cj4gKyAgICAgICAgICAgICAgIGJyZWFrOwo+ICAgICAgICAgZGVmYXVsdDoK
-PiAgICAgICAgICAgICAgICAgcHJpbnRmKCJcdEtWTV9SRUdfUklTQ1YgfCAlcyB8IDB4JWxseCAv
-KiBVTktOT1dOICovLFxuIiwKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJlZ19z
-aXplLCBpZCAmIH5SRUdfTUFTSyk7Cj4gQEAgLTY1MSw2ICs2ODMsMTIgQEAgc3RhdGljIF9fdTY0
-IHNiaV9iYXNlX3JlZ3NbXSA9IHsKPiAgICAgICAgIEtWTV9SRUdfUklTQ1YgfCBLVk1fUkVHX1NJ
-WkVfVUxPTkcgfCBLVk1fUkVHX1JJU0NWX1NCSV9FWFQgfCBLVk1fUkVHX1JJU0NWX1NCSV9TSU5H
-TEUgfCBLVk1fUklTQ1ZfU0JJX0VYVF9WRU5ET1IsCj4gIH07Cj4KPiArc3RhdGljIF9fdTY0IHNi
-aV9zdGFfcmVnc1tdID0gewo+ICsgICAgICAgS1ZNX1JFR19SSVNDViB8IEtWTV9SRUdfU0laRV9V
-TE9ORyB8IEtWTV9SRUdfUklTQ1ZfU0JJX0VYVCB8IEtWTV9SRUdfUklTQ1ZfU0JJX1NJTkdMRSB8
-IEtWTV9SSVNDVl9TQklfRVhUX1NUQSwKPiArICAgICAgIEtWTV9SRUdfUklTQ1YgfCBLVk1fUkVH
-X1NJWkVfVUxPTkcgfCBLVk1fUkVHX1JJU0NWX1NCSSB8IEtWTV9SRUdfUklTQ1ZfU0JJX1NUQSB8
-IEtWTV9SRUdfUklTQ1ZfU0JJX1NUQV9SRUcoc2htZW1fbG8pLAo+ICsgICAgICAgS1ZNX1JFR19S
-SVNDViB8IEtWTV9SRUdfU0laRV9VTE9ORyB8IEtWTV9SRUdfUklTQ1ZfU0JJIHwgS1ZNX1JFR19S
-SVNDVl9TQklfU1RBIHwgS1ZNX1JFR19SSVNDVl9TQklfU1RBX1JFRyhzaG1lbV9oaSksCj4gK307
-Cj4gKwo+ICBzdGF0aWMgX191NjQgemljYm9tX3JlZ3NbXSA9IHsKPiAgICAgICAgIEtWTV9SRUdf
-UklTQ1YgfCBLVk1fUkVHX1NJWkVfVUxPTkcgfCBLVk1fUkVHX1JJU0NWX0NPTkZJRyB8IEtWTV9S
-RUdfUklTQ1ZfQ09ORklHX1JFRyh6aWNib21fYmxvY2tfc2l6ZSksCj4gICAgICAgICBLVk1fUkVH
-X1JJU0NWIHwgS1ZNX1JFR19TSVpFX1VMT05HIHwgS1ZNX1JFR19SSVNDVl9JU0FfRVhUIHwgS1ZN
-X1JFR19SSVNDVl9JU0FfU0lOR0xFIHwgS1ZNX1JJU0NWX0lTQV9FWFRfWklDQk9NLAo+IEBAIC03
-NTcsNiArNzk1LDkgQEAgc3RhdGljIF9fdTY0IGZwX2RfcmVnc1tdID0gewo+ICAjZGVmaW5lIFNV
-QkxJU1RfU0JJX0JBU0UgXAo+ICAgICAgICAgeyJzYmktYmFzZSIsIC5mZWF0dXJlX3R5cGUgPSBW
-Q1BVX0ZFQVRVUkVfU0JJX0VYVCwgLmZlYXR1cmUgPSBLVk1fUklTQ1ZfU0JJX0VYVF9WMDEsIFwK
-PiAgICAgICAgICAucmVncyA9IHNiaV9iYXNlX3JlZ3MsIC5yZWdzX24gPSBBUlJBWV9TSVpFKHNi
-aV9iYXNlX3JlZ3MpLH0KPiArI2RlZmluZSBTVUJMSVNUX1NCSV9TVEEgXAo+ICsgICAgICAgeyJz
-Ymktc3RhIiwgLmZlYXR1cmVfdHlwZSA9IFZDUFVfRkVBVFVSRV9TQklfRVhULCAuZmVhdHVyZSA9
-IEtWTV9SSVNDVl9TQklfRVhUX1NUQSwgXAo+ICsgICAgICAgIC5yZWdzID0gc2JpX3N0YV9yZWdz
-LCAucmVnc19uID0gQVJSQVlfU0laRShzYmlfc3RhX3JlZ3MpLH0KPiAgI2RlZmluZSBTVUJMSVNU
-X1pJQ0JPTSBcCj4gICAgICAgICB7InppY2JvbSIsIC5mZWF0dXJlID0gS1ZNX1JJU0NWX0lTQV9F
-WFRfWklDQk9NLCAucmVncyA9IHppY2JvbV9yZWdzLCAucmVnc19uID0gQVJSQVlfU0laRSh6aWNi
-b21fcmVncyksfQo+ICAjZGVmaW5lIFNVQkxJU1RfWklDQk9aIFwKPiBAQCAtODMyLDYgKzg3Myw3
-IEBAIHN0YXRpYyBzdHJ1Y3QgdmNwdV9yZWdfbGlzdCBjb25maWdfc2JpXyMjZXh0ID0geyAgICAg
-ICAgICAgIFwKPiAgLyogTm90ZTogVGhlIGJlbG93IGxpc3QgaXMgYWxwaGFiZXRpY2FsbHkgc29y
-dGVkLiAqLwo+Cj4gIEtWTV9TQklfRVhUX1NVQkxJU1RfQ09ORklHKGJhc2UsIEJBU0UpOwo+ICtL
-Vk1fU0JJX0VYVF9TVUJMSVNUX0NPTkZJRyhzdGEsIFNUQSk7Cj4gIEtWTV9TQklfRVhUX1NJTVBM
-RV9DT05GSUcocG11LCBQTVUpOwo+ICBLVk1fU0JJX0VYVF9TSU1QTEVfQ09ORklHKGRiY24sIERC
-Q04pOwo+Cj4gQEAgLTg1OCw2ICs5MDAsNyBAQCBLVk1fSVNBX0VYVF9TSU1QTEVfQ09ORklHKHpp
-aHBtLCBaSUhQTSk7Cj4KPiAgc3RydWN0IHZjcHVfcmVnX2xpc3QgKnZjcHVfY29uZmlnc1tdID0g
-ewo+ICAgICAgICAgJmNvbmZpZ19zYmlfYmFzZSwKPiArICAgICAgICZjb25maWdfc2JpX3N0YSwK
-PiAgICAgICAgICZjb25maWdfc2JpX3BtdSwKPiAgICAgICAgICZjb25maWdfc2JpX2RiY24sCj4g
-ICAgICAgICAmY29uZmlnX2FpYSwKPiAtLQo+IDIuNDMuMAo+CgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Where the main BPF program is expected to match bpf_func_t,
+sub-programs are expected to match bpf_callback_t.
+
+This fixes things like:
+
+tools/testing/selftests/bpf/progs/bloom_filter_bench.c:
+
+           bpf_for_each_map_elem(&array_map, bloom_callback, &data, 0);
+
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+---
+ arch/x86/include/asm/cfi.h    |    2 ++
+ arch/x86/kernel/alternative.c |   18 ++++++++++++++++++
+ arch/x86/net/bpf_jit_comp.c   |   18 ++++++++++--------
+ 3 files changed, 30 insertions(+), 8 deletions(-)
+
+--- a/arch/x86/include/asm/cfi.h
++++ b/arch/x86/include/asm/cfi.h
+@@ -106,6 +106,7 @@ struct pt_regs;
+ enum bug_trap_type handle_cfi_failure(struct pt_regs *regs);
+ #define __bpfcall
+ extern u32 cfi_bpf_hash;
++extern u32 cfi_bpf_subprog_hash;
+ 
+ static inline int cfi_get_offset(void)
+ {
+@@ -128,6 +129,7 @@ static inline enum bug_trap_type handle_
+ 	return BUG_TRAP_TYPE_NONE;
+ }
+ #define cfi_bpf_hash 0U
++#define cfi_bpf_subprog_hash 0U
+ #endif /* CONFIG_CFI_CLANG */
+ 
+ #endif /* _ASM_X86_CFI_H */
+--- a/arch/x86/kernel/alternative.c
++++ b/arch/x86/kernel/alternative.c
+@@ -866,6 +866,23 @@ asm (
+ "	.size	cfi_bpf_hash, 4					\n"
+ "	.popsection						\n"
+ );
++
++/* Must match bpf_callback_t */
++extern u64 __bpf_callback_fn(u64, u64, u64, u64, u64);
++
++__ADDRESSABLE(__bpf_callback_fn);
++
++/* u32 __ro_after_init cfi_bpf_subprog_hash = __kcfi_typeid___bpf_callback_fn; */
++asm (
++"	.pushsection	.data..ro_after_init,\"aw\",@progbits	\n"
++"	.type	cfi_bpf_subprog_hash,@object			\n"
++"	.globl	cfi_bpf_subprog_hash				\n"
++"	.p2align	2, 0x0					\n"
++"cfi_bpf_subprog_hash:						\n"
++"	.long	__kcfi_typeid___bpf_callback_fn			\n"
++"	.size	cfi_bpf_subprog_hash, 4				\n"
++"	.popsection						\n"
++);
+ #endif
+ 
+ #ifdef CONFIG_FINEIBT
+@@ -1181,6 +1198,7 @@ static void __apply_fineibt(s32 *start_r
+ 		if (builtin) {
+ 			cfi_seed = get_random_u32();
+ 			cfi_bpf_hash = cfi_rehash(cfi_bpf_hash);
++			cfi_bpf_subprog_hash = cfi_rehash(cfi_bpf_subprog_hash);
+ 		}
+ 
+ 		ret = cfi_rand_preamble(start_cfi, end_cfi);
+--- a/arch/x86/net/bpf_jit_comp.c
++++ b/arch/x86/net/bpf_jit_comp.c
+@@ -312,12 +312,13 @@ static void pop_callee_regs(u8 **pprog,
+  * in arch/x86/kernel/alternative.c
+  */
+ 
+-static void emit_fineibt(u8 **pprog)
++static void emit_fineibt(u8 **pprog, bool is_subprog)
+ {
++	u32 hash = is_subprog ? cfi_bpf_subprog_hash : cfi_bpf_hash;
+ 	u8 *prog = *pprog;
+ 
+ 	EMIT_ENDBR();
+-	EMIT3_off32(0x41, 0x81, 0xea, cfi_bpf_hash);	/* subl $hash, %r10d	*/
++	EMIT3_off32(0x41, 0x81, 0xea, hash);		/* subl $hash, %r10d	*/
+ 	EMIT2(0x74, 0x07);				/* jz.d8 +7		*/
+ 	EMIT2(0x0f, 0x0b);				/* ud2			*/
+ 	EMIT1(0x90);					/* nop			*/
+@@ -326,11 +327,12 @@ static void emit_fineibt(u8 **pprog)
+ 	*pprog = prog;
+ }
+ 
+-static void emit_kcfi(u8 **pprog)
++static void emit_kcfi(u8 **pprog, bool is_subprog)
+ {
++	u32 hash = is_subprog ? cfi_bpf_subprog_hash : cfi_bpf_hash;
+ 	u8 *prog = *pprog;
+ 
+-	EMIT1_off32(0xb8, cfi_bpf_hash);		/* movl $hash, %eax	*/
++	EMIT1_off32(0xb8, hash);			/* movl $hash, %eax	*/
+ #ifdef CONFIG_CALL_PADDING
+ 	EMIT1(0x90);
+ 	EMIT1(0x90);
+@@ -349,17 +351,17 @@ static void emit_kcfi(u8 **pprog)
+ 	*pprog = prog;
+ }
+ 
+-static void emit_cfi(u8 **pprog)
++static void emit_cfi(u8 **pprog, bool is_subprog)
+ {
+ 	u8 *prog = *pprog;
+ 
+ 	switch (cfi_mode) {
+ 	case CFI_FINEIBT:
+-		emit_fineibt(&prog);
++		emit_fineibt(&prog, is_subprog);
+ 		break;
+ 
+ 	case CFI_KCFI:
+-		emit_kcfi(&prog);
++		emit_kcfi(&prog, is_subprog);
+ 		break;
+ 
+ 	default:
+@@ -381,7 +383,7 @@ static void emit_prologue(u8 **pprog, u3
+ {
+ 	u8 *prog = *pprog;
+ 
+-	emit_cfi(&prog);
++	emit_cfi(&prog, is_subprog);
+ 	/* BPF trampoline can be made to work without these nops,
+ 	 * but let's waste 5 bytes for now and optimize later
+ 	 */
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
