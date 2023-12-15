@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 786D7C46CA2
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 20:41:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10BA9C4167B
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 20:41:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YYqYq/d4IuHuZs8029Il2uQ6qhs4RnotbnjsByxz530=; b=VP8UbXvwcXhTLF
-	/pOK5ZtU2kaOM8RAaufVlIMlfRjPXHcTB6gBSTE9S0bNkVSz5ED9nVOcRBCWExEyzoSSsvv8QFcq0
-	J5HRp0BjtBMgktcjqhX7QQUO24pm4fI5DNxQj+KC/iIQysd1cSZEJscNK7eHra34+kwIFvnpdBEA8
-	k/l/dZlP/vt9yWs6Uvhl7nR9AQr168Tw9/S5i4yEfBEU3mDFYo99PXbOIdJCoEpf41g5Ukf+1YNv+
-	QZzJhZozEPOUtWLLFgPbaXXaP4cSRxxzJLJg2cuYSqcb0qE3J12pwCCJunsp7J3npD93CRZVO6BMq
-	tiIX2JL8N/YHqBruDiJA==;
+	List-Owner; bh=HKBRjiGDwDiBeWbTrSmAudc6oYQHEIwzVgClxxRf9ho=; b=rPfjcYMq96zJ5e
+	0vfFLa7YH51kaNXNGBq+HUoU6b9J3wuwXUCJ+90zUBmWUzo9kSdv7xVIhI1rnrE2ffIowNdtHNkk3
+	DT/ptAyDxJPTzwHFUMJEmEmGWrlj6EWZWAyma/a4KqHCTkj1Cm4ie0sCNZqSaHt726tJ7PMSHPoKN
+	UviAvED7qlFiMXRqMcpDXNIp7GCHixOQH/vn7R9ZoBmM2T+pe0KMXQdZVq377b3lP7dO/21B0yUgG
+	EPgwidrivfRK2L72W7wKlkw9XVqbErGHcymRN+ug9Aof3klPsVtAuWOMpIhvk4QQfPF3wwZqJKLsO
+	7cJYuuhpfEHapubpKUBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rEEzj-004Uxg-0k;
-	Fri, 15 Dec 2023 20:41:15 +0000
-Received: from madrid.collaboradmins.com ([2a00:1098:ed:100::25])
+	id 1rEEzv-004V6c-2M;
+	Fri, 15 Dec 2023 20:41:27 +0000
+Received: from madrid.collaboradmins.com ([46.235.227.194])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rEEzS-004Up2-1J;
-	Fri, 15 Dec 2023 20:41:01 +0000
+	id 1rEEzU-004Up6-35;
+	Fri, 15 Dec 2023 20:41:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1702672854;
-	bh=03p9E6nA7an2G1tB5MMv/uNj5vtUhwwnTvlzoHkMWig=;
+	s=mail; t=1702672856;
+	bh=Vg9eOkXgIK+AIHRQMZH4JRNU3xI0PgpdMH0mHhrT3k8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nL0R3sCGeYyZxN9QwAHy+LF8ebs3dlwbqgnGspv9Gn82+EQ9fXa6CnzYJZw6KdcwN
-	 Q2MWIqRDH/0TgHN9EqfEoGjnlySL4qgzq9Kz7Snp6/RuDWuvhsP4AZ7AUxE1NWWkz0
-	 Pu52Fhm2xFpPPRW01dbx8vy0Skm+eKLrccSSKBumZyrnLzUp+/O9GPZXj5JMyjdFxr
-	 LhSb2ZbDcfRawv5CV+2HZ2P5fVoE2SKwKGOfE6eT/bydhZha3a6wibMOUocJl9CYnR
-	 Iu5TsRAHyRfZ+zZfwj2bRIA1nbIvCiDqHo6FhuoQY5Rc2mO8kqhZMjiiyyPohW7h5D
-	 z9bTkGATymg1w==
+	b=EgsyMNOBj40rLHtoIwhBXC5x46aJYzoFJHiCxG5+OBrIuhWpdC186xMmn1zCpVnNT
+	 LETBTl7jofG/eyE21OEFsODjDmnF1wsqJuZpWLJ4mwKO+ssqGJdMvwKzezU6UROixN
+	 eYvlt4+skrXBYGbJYXYYN3VwxWuKdlBJN4DdT2KqIQc/kb68G/x1UlII7KSQ2R/AYi
+	 c2sAj+6m2Pk/6Vq8xN5OieUTdXUyvqbiLLwwQQkjd0OWKSZsZlDuwyksbNlvqs2Bpl
+	 5VsoAS3bxHdXxTvTqYousBMh2XADVRbzi3I91+TW2Y0AqNye5NM37YvlhwPg86GPVg
+	 mV1/f4rluntDw==
 Received: from localhost (cola.collaboradmins.com [195.201.22.229])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by madrid.collaboradmins.com (Postfix) with ESMTPSA id 25D013781FEB;
-	Fri, 15 Dec 2023 20:40:54 +0000 (UTC)
+	by madrid.collaboradmins.com (Postfix) with ESMTPSA id 505D93781FEF;
+	Fri, 15 Dec 2023 20:40:56 +0000 (UTC)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 To: "David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
@@ -71,17 +71,19 @@ Cc: netdev@vger.kernel.org,
 	linux-clk@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com
-Subject: [PATCH v3 2/9] dt-bindings: net: starfive,jh7110-dwmac: Add JH7100 SoC compatible
-Date: Fri, 15 Dec 2023 22:40:41 +0200
-Message-ID: <20231215204050.2296404-3-cristian.ciocaltea@collabora.com>
+	kernel@collabora.com,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Subject: [PATCH v3 4/9] riscv: dts: starfive: jh7100: Add sysmain and gmac DT nodes
+Date: Fri, 15 Dec 2023 22:40:43 +0200
+Message-ID: <20231215204050.2296404-5-cristian.ciocaltea@collabora.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20231215204050.2296404-1-cristian.ciocaltea@collabora.com>
 References: <20231215204050.2296404-1-cristian.ciocaltea@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231215_124058_619236_F247399F 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20231215_124101_122178_09A4D971 
+X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,149 +100,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Synopsys DesignWare MAC found on StarFive JH7100 SoC is mostly
-similar to the newer JH7110, but it requires only two interrupts and a
-single reset line, which is 'ahb' instead of the commonly used
-'stmmaceth'.
+Provide the sysmain and gmac DT nodes supporting the DWMAC found on the
+StarFive JH7100 SoC.
 
-Since the common binding 'snps,dwmac' allows selecting 'ahb' only in
-conjunction with 'stmmaceth', extend the logic to also permit exclusive
-usage of the 'ahb' reset name.  This ensures the following use cases are
-supported:
-
-  JH7110: reset-names = "stmmaceth", "ahb";
-  JH7100: reset-names = "ahb";
-  other:  reset-names = "stmmaceth";
-
-Also note the need to use a different dwmac fallback, as v5.20 applies
-to JH7110 only, while JH7100 relies on v3.7x.
-
+Co-developed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- .../devicetree/bindings/net/snps,dwmac.yaml   |  3 +-
- .../bindings/net/starfive,jh7110-dwmac.yaml   | 74 +++++++++++++------
- 2 files changed, 55 insertions(+), 22 deletions(-)
+ arch/riscv/boot/dts/starfive/jh7100.dtsi | 37 ++++++++++++++++++++++++
+ 1 file changed, 37 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index 5c2769dc689a..c1380ff1c054 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -95,6 +95,7 @@ properties:
-         - snps,dwmac-5.20
-         - snps,dwxgmac
-         - snps,dwxgmac-2.10
-+        - starfive,jh7100-dwmac
-         - starfive,jh7110-dwmac
+diff --git a/arch/riscv/boot/dts/starfive/jh7100.dtsi b/arch/riscv/boot/dts/starfive/jh7100.dtsi
+index c216aaecac53..985383745e77 100644
+--- a/arch/riscv/boot/dts/starfive/jh7100.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7100.dtsi
+@@ -204,6 +204,38 @@ sdio1: mmc@10010000 {
+ 			status = "disabled";
+ 		};
  
-   reg:
-@@ -146,7 +147,7 @@ properties:
-   reset-names:
-     minItems: 1
-     items:
--      - const: stmmaceth
-+      - enum: [stmmaceth, ahb]
-       - const: ahb
++		gmac: ethernet@10020000 {
++			compatible = "starfive,jh7100-dwmac", "snps,dwmac";
++			reg = <0x0 0x10020000 0x0 0x10000>;
++			clocks = <&clkgen JH7100_CLK_GMAC_ROOT_DIV>,
++				 <&clkgen JH7100_CLK_GMAC_AHB>,
++				 <&clkgen JH7100_CLK_GMAC_PTP_REF>,
++				 <&clkgen JH7100_CLK_GMAC_TX_INV>,
++				 <&clkgen JH7100_CLK_GMAC_GTX>;
++			clock-names = "stmmaceth", "pclk", "ptp_ref", "tx", "gtx";
++			resets = <&rstgen JH7100_RSTN_GMAC_AHB>;
++			reset-names = "ahb";
++			interrupts = <6>, <7>;
++			interrupt-names = "macirq", "eth_wake_irq";
++			max-frame-size = <9000>;
++			snps,multicast-filter-bins = <32>;
++			snps,perfect-filter-entries = <128>;
++			starfive,syscon = <&sysmain 0x70 0>;
++			rx-fifo-depth = <32768>;
++			tx-fifo-depth = <16384>;
++			snps,axi-config = <&stmmac_axi_setup>;
++			snps,fixed-burst;
++			snps,force_thresh_dma_mode;
++			snps,no-pbl-x8;
++			status = "disabled";
++
++			stmmac_axi_setup: stmmac-axi-config {
++				snps,wr_osr_lmt = <16>;
++				snps,rd_osr_lmt = <16>;
++				snps,blen = <256 128 64 32 0 0 0>;
++			};
++		};
++
+ 		clkgen: clock-controller@11800000 {
+ 			compatible = "starfive,jh7100-clkgen";
+ 			reg = <0x0 0x11800000 0x0 0x10000>;
+@@ -218,6 +250,11 @@ rstgen: reset-controller@11840000 {
+ 			#reset-cells = <1>;
+ 		};
  
-   power-domains:
-diff --git a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
-index d90cb82c1424..b01602738fc3 100644
---- a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
-@@ -22,10 +22,14 @@ select:
- 
- properties:
-   compatible:
--    items:
--      - enum:
--          - starfive,jh7110-dwmac
--      - const: snps,dwmac-5.20
-+    oneOf:
-+      - items:
-+          - const: starfive,jh7100-dwmac
-+          - const: snps,dwmac
-+      - items:
-+          - enum:
-+              - starfive,jh7110-dwmac
-+          - const: snps,dwmac-5.20
- 
-   reg:
-     maxItems: 1
-@@ -46,23 +50,6 @@ properties:
-       - const: tx
-       - const: gtx
- 
--  interrupts:
--    minItems: 3
--    maxItems: 3
--
--  interrupt-names:
--    minItems: 3
--    maxItems: 3
--
--  resets:
--    minItems: 2
--    maxItems: 2
--
--  reset-names:
--    items:
--      - const: stmmaceth
--      - const: ahb
--
-   starfive,tx-use-rgmii-clk:
-     description:
-       Tx clock is provided by external rgmii clock.
-@@ -93,6 +80,51 @@ required:
- allOf:
-   - $ref: snps,dwmac.yaml#
- 
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: starfive,jh7100-dwmac
-+    then:
-+      properties:
-+        interrupts:
-+          minItems: 2
-+          maxItems: 2
++		sysmain: syscon@11850000 {
++			compatible = "starfive,jh7100-sysmain", "syscon";
++			reg = <0x0 0x11850000 0x0 0x10000>;
++		};
 +
-+        interrupt-names:
-+          minItems: 2
-+          maxItems: 2
-+
-+        resets:
-+          maxItems: 1
-+
-+        reset-names:
-+          const: ahb
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: starfive,jh7110-dwmac
-+    then:
-+      properties:
-+        interrupts:
-+          minItems: 3
-+          maxItems: 3
-+
-+        interrupt-names:
-+          minItems: 3
-+          maxItems: 3
-+
-+        resets:
-+          minItems: 2
-+          maxItems: 2
-+
-+        reset-names:
-+          items:
-+            - const: stmmaceth
-+            - const: ahb
-+
- unevaluatedProperties: false
- 
- examples:
+ 		i2c0: i2c@118b0000 {
+ 			compatible = "snps,designware-i2c";
+ 			reg = <0x0 0x118b0000 0x0 0x10000>;
 -- 
 2.43.0
 
