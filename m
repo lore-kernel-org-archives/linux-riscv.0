@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10BA9C4167B
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 20:41:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CB6BC4167B
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 20:41:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HKBRjiGDwDiBeWbTrSmAudc6oYQHEIwzVgClxxRf9ho=; b=rPfjcYMq96zJ5e
-	0vfFLa7YH51kaNXNGBq+HUoU6b9J3wuwXUCJ+90zUBmWUzo9kSdv7xVIhI1rnrE2ffIowNdtHNkk3
-	DT/ptAyDxJPTzwHFUMJEmEmGWrlj6EWZWAyma/a4KqHCTkj1Cm4ie0sCNZqSaHt726tJ7PMSHPoKN
-	UviAvED7qlFiMXRqMcpDXNIp7GCHixOQH/vn7R9ZoBmM2T+pe0KMXQdZVq377b3lP7dO/21B0yUgG
-	EPgwidrivfRK2L72W7wKlkw9XVqbErGHcymRN+ug9Aof3klPsVtAuWOMpIhvk4QQfPF3wwZqJKLsO
-	7cJYuuhpfEHapubpKUBw==;
+	List-Owner; bh=G0KkY69O/THdLNfY0WkrOrTedfFUGkm9+ArJ3bLrgcQ=; b=RGyEITpzwy0F/3
+	Ft0IDIe6BcMPZukqoeSUY99De4yPxGypvck85n/4Xhq0r6RaNQv0TzhHWmJIygMqPsnGTbWmu+qgB
+	11bMek3hv/M8PBBns+n5T15OwtuMltpLzbzej1VgsqpRibWjclCFxA/J+NN2QiSMl5wjfp3htw9F5
+	NPbl8dAleAaulvwaUjAcNSFws3BV73m+cqOOJxgdarP9nYOR3Aeq7S341pRxWqY4WnpLFAUaJYU85
+	gBST42wa3fHZY9be4xpjlOkcQMdyfVNUGhi+68EZUCvx0LcBu+CwCyOPI/sTYjdxGjqeiLLbzuw8W
+	HaTrflJ/4hdBdBViHLZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rEEzv-004V6c-2M;
-	Fri, 15 Dec 2023 20:41:27 +0000
+	id 1rEF02-004VD9-1m;
+	Fri, 15 Dec 2023 20:41:34 +0000
 Received: from madrid.collaboradmins.com ([46.235.227.194])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rEEzU-004Up6-35;
+	id 1rEEzV-004UqN-0T;
 	Fri, 15 Dec 2023 20:41:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1702672856;
-	bh=Vg9eOkXgIK+AIHRQMZH4JRNU3xI0PgpdMH0mHhrT3k8=;
+	s=mail; t=1702672858;
+	bh=oakIDQ7uvG01/XJJI13ENXnsSIMGPigmTQIvEoHHsm0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EgsyMNOBj40rLHtoIwhBXC5x46aJYzoFJHiCxG5+OBrIuhWpdC186xMmn1zCpVnNT
-	 LETBTl7jofG/eyE21OEFsODjDmnF1wsqJuZpWLJ4mwKO+ssqGJdMvwKzezU6UROixN
-	 eYvlt4+skrXBYGbJYXYYN3VwxWuKdlBJN4DdT2KqIQc/kb68G/x1UlII7KSQ2R/AYi
-	 c2sAj+6m2Pk/6Vq8xN5OieUTdXUyvqbiLLwwQQkjd0OWKSZsZlDuwyksbNlvqs2Bpl
-	 5VsoAS3bxHdXxTvTqYousBMh2XADVRbzi3I91+TW2Y0AqNye5NM37YvlhwPg86GPVg
-	 mV1/f4rluntDw==
+	b=bZ9UkbpbtR7o4Yt0JpJNHHDMRvnNvXDFgZ2qbAPQBHpA2QY8Z980Rj3yQZK8k+B1O
+	 HyXAxcuixX1hPBHvFaVCqsNQxhGr2wniiRhlnchbp7Kl98IIf5zte7bhluKSfp28+Z
+	 D8/YBkkxn/3XIuZ5J3UUAdvkq3N9z/L9tLLzCXx6CaAV34xSvCZJWuxX8w18/598t0
+	 1XYeu1fq2VZ+BIatXZ1JMJie9kGGRd3RL6CUw8mrHlp8jZt6p+tZDjXWhfEtS0kF/G
+	 OkLT07XORsagSNfC4j4/Hv09c7WqTkSZGXja6S6F3dFhLGCHsbkkwSQhiV60Ox/QQj
+	 XrxsbqQFZhAmw==
 Received: from localhost (cola.collaboradmins.com [195.201.22.229])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by madrid.collaboradmins.com (Postfix) with ESMTPSA id 505D93781FEF;
-	Fri, 15 Dec 2023 20:40:56 +0000 (UTC)
+	by madrid.collaboradmins.com (Postfix) with ESMTPSA id 804563781FF2;
+	Fri, 15 Dec 2023 20:40:58 +0000 (UTC)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 To: "David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
@@ -73,17 +73,16 @@ Cc: netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com,
 	Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Subject: [PATCH v3 4/9] riscv: dts: starfive: jh7100: Add sysmain and gmac DT nodes
-Date: Fri, 15 Dec 2023 22:40:43 +0200
-Message-ID: <20231215204050.2296404-5-cristian.ciocaltea@collabora.com>
+Subject: [PATCH v3 6/9] riscv: dts: starfive: visionfive-v1: Setup ethernet phy
+Date: Fri, 15 Dec 2023 22:40:45 +0200
+Message-ID: <20231215204050.2296404-7-cristian.ciocaltea@collabora.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20231215204050.2296404-1-cristian.ciocaltea@collabora.com>
 References: <20231215204050.2296404-1-cristian.ciocaltea@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231215_124101_122178_09A4D971 
-X-CRM114-Status: UNSURE (   8.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231215_124101_309039_DE80A65B 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,71 +99,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide the sysmain and gmac DT nodes supporting the DWMAC found on the
-StarFive JH7100 SoC.
+The StarFive VisionFive V1 SBC uses a Motorcomm YT8521 PHY supporting
+RGMII-ID, but requires manual adjustment of the RX internal delay to
+work properly.
+
+The default RX delay provided by the driver is 1.95 ns, which proves to
+be too high. Applying a 50% reduction seems to mitigate the issue.
+
+Also note this adjustment is not necessary on BeagleV Starlight SBC,
+which uses a Microchip PHY.  Hence, there is no indication of a
+miss-behaviour on the GMAC side, but most likely the issue stems from
+the Motorcomm PHY.
 
 Co-developed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- arch/riscv/boot/dts/starfive/jh7100.dtsi | 37 ++++++++++++++++++++++++
- 1 file changed, 37 insertions(+)
+ .../boot/dts/starfive/jh7100-starfive-visionfive-v1.dts    | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7100.dtsi b/arch/riscv/boot/dts/starfive/jh7100.dtsi
-index c216aaecac53..985383745e77 100644
---- a/arch/riscv/boot/dts/starfive/jh7100.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7100.dtsi
-@@ -204,6 +204,38 @@ sdio1: mmc@10010000 {
- 			status = "disabled";
- 		};
- 
-+		gmac: ethernet@10020000 {
-+			compatible = "starfive,jh7100-dwmac", "snps,dwmac";
-+			reg = <0x0 0x10020000 0x0 0x10000>;
-+			clocks = <&clkgen JH7100_CLK_GMAC_ROOT_DIV>,
-+				 <&clkgen JH7100_CLK_GMAC_AHB>,
-+				 <&clkgen JH7100_CLK_GMAC_PTP_REF>,
-+				 <&clkgen JH7100_CLK_GMAC_TX_INV>,
-+				 <&clkgen JH7100_CLK_GMAC_GTX>;
-+			clock-names = "stmmaceth", "pclk", "ptp_ref", "tx", "gtx";
-+			resets = <&rstgen JH7100_RSTN_GMAC_AHB>;
-+			reset-names = "ahb";
-+			interrupts = <6>, <7>;
-+			interrupt-names = "macirq", "eth_wake_irq";
-+			max-frame-size = <9000>;
-+			snps,multicast-filter-bins = <32>;
-+			snps,perfect-filter-entries = <128>;
-+			starfive,syscon = <&sysmain 0x70 0>;
-+			rx-fifo-depth = <32768>;
-+			tx-fifo-depth = <16384>;
-+			snps,axi-config = <&stmmac_axi_setup>;
-+			snps,fixed-burst;
-+			snps,force_thresh_dma_mode;
-+			snps,no-pbl-x8;
-+			status = "disabled";
+diff --git a/arch/riscv/boot/dts/starfive/jh7100-starfive-visionfive-v1.dts b/arch/riscv/boot/dts/starfive/jh7100-starfive-visionfive-v1.dts
+index e82af72f1aaf..ca134b9f11bf 100644
+--- a/arch/riscv/boot/dts/starfive/jh7100-starfive-visionfive-v1.dts
++++ b/arch/riscv/boot/dts/starfive/jh7100-starfive-visionfive-v1.dts
+@@ -18,3 +18,10 @@ gpio-restart {
+ 		priority = <224>;
+ 	};
+ };
 +
-+			stmmac_axi_setup: stmmac-axi-config {
-+				snps,wr_osr_lmt = <16>;
-+				snps,rd_osr_lmt = <16>;
-+				snps,blen = <256 128 64 32 0 0 0>;
-+			};
-+		};
-+
- 		clkgen: clock-controller@11800000 {
- 			compatible = "starfive,jh7100-clkgen";
- 			reg = <0x0 0x11800000 0x0 0x10000>;
-@@ -218,6 +250,11 @@ rstgen: reset-controller@11840000 {
- 			#reset-cells = <1>;
- 		};
- 
-+		sysmain: syscon@11850000 {
-+			compatible = "starfive,jh7100-sysmain", "syscon";
-+			reg = <0x0 0x11850000 0x0 0x10000>;
-+		};
-+
- 		i2c0: i2c@118b0000 {
- 			compatible = "snps,designware-i2c";
- 			reg = <0x0 0x118b0000 0x0 0x10000>;
++&mdio {
++	phy: ethernet-phy@0 {
++		reg = <0>;
++		rx-internal-delay-ps = <900>;
++	};
++};
 -- 
 2.43.0
 
