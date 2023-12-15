@@ -4,88 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8695FC4167B
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 06:26:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1641FC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 08:18:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:CC:To:From:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bLy6j7MJcTxF9Aqars+WS29c2TVEtFo9qQmXRiZNFhs=; b=3nLhMiJmMsTvIa
-	xjtk0fBhWkgA/F4aQlHR8FjTwOcUNduS17DKZ44V1rGcmKcX+Uxw5oJyc+6C1zQBgvchKCaZR/RjF
-	AMh5iUk7aq/DUWky3siu6zUEb+C1Z9mrg4aiohN8fIl9ZDOFVUJ27bpDff2UoAPgQwfTUjE/f3Jjo
-	nQp83Rmck1Supm0fFR6amuMd0y0EHCoEQcU5b8P367s+7s0TStmxoe7E1D/toQJrhuH02selVqvMU
-	PAx9S3LTElCLvAhPUCTFpzCV2A615TT0Kx0E4C3Lr65c9L7p/3Sbf1fK79YazHFcbg/ZgzBcfvKv2
-	+B7pV/B5A64xh4eFDlZg==;
+	List-Owner; bh=tObstRKFMkd75W0u9uwqzNVqKj30+o8HNw5OeWs7/bg=; b=Ebq+2a1zpIw0VX
+	Pv+H9xwcPk6AYsDKSneaLH4uaXoZ3i3Zun56u6a1OYqW/oltLs9WOgxXVsGklLti44MVXHpzTjyR4
+	Ohu4NpLn5hXH7kbHwdE7Na/5ejLViG/mWlJFS0femCIiXo0Jm/YrlXItV65G0jw2l4oVCCbzrBJox
+	FBXBhGinCwecANExGJzp5m6l/EmOaCOZDqpyMWH7VM6kz/BaPVPZeurzTFN/BYGicdUYt8EslahIA
+	4r4KeoITEz8NSJL7nbd8epF+44EuUbGXHWwzVMVkrnU7+OBj3ORPUTCjxBkJ4zvxeca1xhO1jQ0Ma
+	GIX5OHw6US+pkvsGQ2ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rE1e3-002BSt-2B;
-	Fri, 15 Dec 2023 06:25:59 +0000
-Received: from mail-ot1-x336.google.com ([2607:f8b0:4864:20::336])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rE1e1-002BSP-0b
+	id 1rE3Oj-002RGw-0k;
+	Fri, 15 Dec 2023 08:18:17 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1rE3Of-002RER-0p
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Dec 2023 06:25:59 +0000
-Received: by mail-ot1-x336.google.com with SMTP id 46e09a7af769-6da2e360861so607842a34.1
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Dec 2023 22:25:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1702621553; x=1703226353; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=wuXBaeVrHc7OV9XwrCuRv2hZbg0gExZatTNdba8ubaU=;
-        b=SEQdyRMJVNuskukbGe4l831qsIrp/DOmh/m6mV/5hA1drvZG2wryc9PkCx2U6uri8/
-         qVvMzjejpsLCzrX2BHaPigwCRa3MBMbBJS4xe70N6tAsDZ7HiWwFevQcrw62TEq+qBM4
-         y8KsN3QBLM8Pb3ZuqY8SLsQKLaG/ew49+weNzl9scVPFZVC7yAKcq8YVklVaUCKOioC+
-         gq7KOCuJ7HmLNaGFEScpLgiuIElY09vS0/R1ARYZkK7NVqGl6mHFtkicSlogXCSZ+TPg
-         QN+kiufWbDhEXuU4v37VMmJB34I6NN2MwSpOhLBfhAB6x8dvAEGXD6dZ4PQqOfWrLkY5
-         ujdg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702621553; x=1703226353;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wuXBaeVrHc7OV9XwrCuRv2hZbg0gExZatTNdba8ubaU=;
-        b=m2ZwyKeUUlQmTEpsHbGiEWICVVdehcWhBrkoe8vxU9U6SNA87K8e8VXXbtfMlpkSUf
-         032H/FxgjAITt2i8CE/Ju4u96iYRks6yL+3a9PZ95Q32F8E8VxPQuV8JnEIqLc7iJnQb
-         iLTI5yMJdCqKgU0kaaXxy/1TzQMA8JYZDWi04QpusbmIsT1lrJ99wt1dbt8+t7MKtas5
-         oIB5Ffy9HTXSo6wSFZbFrWhBroT84eeG6zB7kr3XHsYQOt3St9ckp1Mk2AKRvnHVZ8G7
-         hqr0k4+nHLdb1ZAnzy1FGlyqjyKghhscC7wg1BGE3Yj9tq/QR/tKVat4K+QF6dQG6wkN
-         jqqg==
-X-Gm-Message-State: AOJu0YxPuTKpqrnk5Tgo6KSfLQ67EPzkdFxBzlL6Uo+SSDNK/4F0NsrX
-	D8kdELw1MFLZ+EVU/hFBeIArbQ==
-X-Google-Smtp-Source: AGHT+IG7LFuX+mkoXj2GyVetzE/ryNamPtQqGREnLnRZI68v7owE68kU5qe9TXmWPsC61Wmym7LDpA==
-X-Received: by 2002:a05:6830:68c7:b0:6d9:d87c:35f6 with SMTP id cw7-20020a05683068c700b006d9d87c35f6mr4639859otb.22.1702621552964;
-        Thu, 14 Dec 2023 22:25:52 -0800 (PST)
-Received: from ghost ([2601:642:4c00:261c:91c3:e862:22d2:ad26])
-        by smtp.gmail.com with ESMTPSA id c9-20020a056830000900b006d87b167c41sm3483143otp.8.2023.12.14.22.25.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Dec 2023 22:25:52 -0800 (PST)
-Date: Thu, 14 Dec 2023 22:25:49 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Andy Chiu <andy.chiu@sifive.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	greentime.hu@sifive.com, guoren@linux.alibaba.com, bjorn@kernel.org,
-	ardb@kernel.org, arnd@arndb.de,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Han-Kuan Chen <hankuan.chen@sifive.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Aurelien Jarno <aurelien@aurel32.net>, Bo YU <tsu.yubo@gmail.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Subject: Re: [v5, 5/6] riscv: lib: vectorize copy_to_user/copy_from_user
-Message-ID: <ZXvxbbBWXqIy/05b@ghost>
-References: <20231214155721.1753-1-andy.chiu@sifive.com>
- <20231214155721.1753-6-andy.chiu@sifive.com>
+	Fri, 15 Dec 2023 08:18:16 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 569D17FE2;
+	Fri, 15 Dec 2023 16:17:29 +0800 (CST)
+Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 15 Dec
+ 2023 16:17:29 +0800
+Received: from [192.168.120.47] (171.223.208.138) by EXMBX068.cuchost.com
+ (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 15 Dec
+ 2023 16:17:28 +0800
+Message-ID: <1c26fe9b-20f9-4b03-b263-ca030d20a5ce@starfivetech.com>
+Date: Fri, 15 Dec 2023 16:17:27 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231214155721.1753-6-andy.chiu@sifive.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 2/4] pwm: opencores: Add PWM driver support
+Content-Language: en-US
+From: William Qiu <william.qiu@starfivetech.com>
+To: Rob Herring <robh+dt@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-pwm@vger.kernel.org>, "Emil Renner
+ Berthing" <kernel@esmil.dk>, Thierry Reding <thierry.reding@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
+	=?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, Hal Feng
+	<hal.feng@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+References: <20231208094209.1910934-1-william.qiu@starfivetech.com>
+ <20231208094209.1910934-3-william.qiu@starfivetech.com>
+ <CAL_JsqK8fsAocOu3OBdz1kzNiApf1J0Uc0spn8gfdJaVnomFHQ@mail.gmail.com>
+ <62bb91ad-5d4b-4ec6-80c8-6c3edf5d25cd@starfivetech.com>
+In-Reply-To: <62bb91ad-5d4b-4ec6-80c8-6c3edf5d25cd@starfivetech.com>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX068.cuchost.com
+ (172.16.6.68)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231214_222557_224986_240E79D9 
-X-CRM114-Status: GOOD (  36.18  )
+X-CRM114-CacheID: sfid-20231215_001813_577941_7E6DE89E 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,245 +77,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 14, 2023 at 03:57:20PM +0000, Andy Chiu wrote:
-> This patch utilizes Vector to perform copy_to_user/copy_from_user. If
-> Vector is available and the size of copy is large enough for Vector to
-> perform better than scalar, then direct the kernel to do Vector copies
-> for userspace. Though the best programming practice for users is to
-> reduce the copy, this provides a faster variant when copies are
-> inevitable.
-> 
-> The optimal size for using Vector, copy_to_user_thres, is only a
-> heuristic for now. We can add DT parsing if people feel the need of
-> customizing it.
-> 
-> The exception fixup code of the __asm_vector_usercopy must fallback to
-> the scalar one because accessing user pages might fault, and must be
-> sleepable. Current kernel-mode Vector does not allow tasks to be
-> preemptible, so we must disactivate Vector and perform a scalar fallback
-> in such case.
-> 
-> The original implementation of Vector operations comes from
-> https://github.com/sifive/sifive-libc, which we agree to contribute to
-> Linux kernel.
-> 
-> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-> ---
-> Changelog v4:
->  - new patch since v4
-> ---
->  arch/riscv/lib/Makefile          |  2 ++
->  arch/riscv/lib/riscv_v_helpers.c | 38 ++++++++++++++++++++++
->  arch/riscv/lib/uaccess.S         | 11 +++++++
->  arch/riscv/lib/uaccess_vector.S  | 55 ++++++++++++++++++++++++++++++++
->  4 files changed, 106 insertions(+)
->  create mode 100644 arch/riscv/lib/riscv_v_helpers.c
->  create mode 100644 arch/riscv/lib/uaccess_vector.S
-> 
-> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-> index 494f9cd1a00c..1fe8d797e0f2 100644
-> --- a/arch/riscv/lib/Makefile
-> +++ b/arch/riscv/lib/Makefile
-> @@ -12,3 +12,5 @@ lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
->  
->  obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
->  lib-$(CONFIG_RISCV_ISA_V)	+= xor.o
-> +lib-$(CONFIG_RISCV_ISA_V)	+= riscv_v_helpers.o
-> +lib-$(CONFIG_RISCV_ISA_V)	+= uaccess_vector.o
-> diff --git a/arch/riscv/lib/riscv_v_helpers.c b/arch/riscv/lib/riscv_v_helpers.c
-> new file mode 100644
-> index 000000000000..d763b9c69fb7
-> --- /dev/null
-> +++ b/arch/riscv/lib/riscv_v_helpers.c
-> @@ -0,0 +1,38 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + * Copyright (C) 2023 SiFive
-> + * Author: Andy Chiu <andy.chiu@sifive.com>
-> + */
-> +#include <linux/linkage.h>
-> +#include <asm/asm.h>
-> +
-> +#include <asm/vector.h>
-> +#include <asm/simd.h>
-> +
-> +size_t riscv_v_usercopy_thres = 768;
-> +int __asm_vector_usercopy(void *dst, void *src, size_t n);
-> +int fallback_scalar_usercopy(void *dst, void *src, size_t n);
-> +asmlinkage int enter_vector_usercopy(void *dst, void *src, size_t n)
-> +{
-> +	size_t remain, copied;
-> +
-> +	/* skip has_vector() check because it has been done by the asm  */
-> +	if (!may_use_simd())
-> +		goto fallback;
-> +
-> +	kernel_vector_begin();
-> +	remain = __asm_vector_usercopy(dst, src, n);
-> +	kernel_vector_end();
-> +
-> +	if (remain) {
-> +		copied = n - remain;
-> +		dst += copied;
-> +		src += copied;
-> +		goto fallback;
-> +	}
-> +
-> +	return remain;
-> +
-> +fallback:
-> +	return fallback_scalar_usercopy(dst, src, n);
-> +}
-> diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
-> index 3ab438f30d13..ae8c1453cfcf 100644
-> --- a/arch/riscv/lib/uaccess.S
-> +++ b/arch/riscv/lib/uaccess.S
-> @@ -3,6 +3,8 @@
->  #include <asm/asm.h>
->  #include <asm/asm-extable.h>
->  #include <asm/csr.h>
-> +#include <asm/hwcap.h>
-> +#include <asm/alternative-macros.h>
->  
->  	.macro fixup op reg addr lbl
->  100:
-> @@ -11,6 +13,14 @@
->  	.endm
->  
->  SYM_FUNC_START(__asm_copy_to_user)
-> +#ifdef CONFIG_RISCV_ISA_V
-> +	ALTERNATIVE("j fallback_scalar_usercopy", "nop", 0, RISCV_ISA_EXT_v, CONFIG_RISCV_ISA_V)
-
-has_vector uses riscv_has_extension_unlikely, but this is the equivalent
-of riscv_has_extension_likely. It seems like this should be consistent
-across all call sites. Since has_vector uses the unlikely version, this
-should probably be rearranged so that the nop is in the non-vector
-version and the jump is for the vector version.
-
-A neat optimization you can do here is replace the "nop" with the
-instruction that will be executed first. With how it's written right now
-you could replace the nop with the la instruction. It's just a nop so
-the performance difference is probably not going to be noticable but
-it's theoretically better without the nop. The downside of doing this is
-that it seems like alternatives do not work with macros so you couldn't
-replace the nop with a REG_L instruction, unless there is some trick to
-make it work.
-
-> +	la	t0, riscv_v_usercopy_thres
-> +	REG_L	t0, (t0)
-
-The assembler does something really silly here it seems. With both
-binutils 2.41 and clang 18 the following is generated:
-
-6:   00000297                auipc   t0,0x0
-a:   00028293                mv      t0,t0
-e:   0002b283                ld      t0,0(t0) # 6 <__asm_copy_from_user+0x4>
-
-However, this la is not needed. You can replace the la + REG_L with just
-a REG_L as follows:
-
-REG_L   t0, riscv_v_usercopy_thres
-
-This then generates the following code:
-
-6:   00000297                auipc   t0,0x0
-a:   0002b283                ld      t0,0(t0) # 6 <__asm_copy_from_user+0x4>
-
-> +	bltu	a2, t0, fallback_scalar_usercopy
-> +	tail enter_vector_usercopy
-> +#endif
-> +SYM_FUNC_START(fallback_scalar_usercopy)
->  
->  	/* Enable access to user memory */
->  	li t6, SR_SUM
-> @@ -181,6 +191,7 @@ SYM_FUNC_START(__asm_copy_to_user)
->  	sub a0, t5, a0
->  	ret
->  SYM_FUNC_END(__asm_copy_to_user)
-> +SYM_FUNC_END(fallback_scalar_usercopy)
->  EXPORT_SYMBOL(__asm_copy_to_user)
->  SYM_FUNC_ALIAS(__asm_copy_from_user, __asm_copy_to_user)
->  EXPORT_SYMBOL(__asm_copy_from_user)
-> diff --git a/arch/riscv/lib/uaccess_vector.S b/arch/riscv/lib/uaccess_vector.S
-> new file mode 100644
-> index 000000000000..5bebcb1276a2
-> --- /dev/null
-> +++ b/arch/riscv/lib/uaccess_vector.S
-> @@ -0,0 +1,55 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +
-> +#include <linux/linkage.h>
-> +#include <asm-generic/export.h>
-> +#include <asm/asm.h>
-> +#include <asm/asm-extable.h>
-> +#include <asm/csr.h>
-> +
-> +#define pDst a0
-> +#define pSrc a1
-> +#define iNum a2
-> +
-> +#define iVL a3
-> +#define pDstPtr a4
-> +
-> +#define ELEM_LMUL_SETTING m8
-> +#define vData v0
-> +
-> +	.macro fixup op reg addr lbl
-> +100:
-> +	\op \reg, \addr
-> +	_asm_extable	100b, \lbl
-> +	.endm
-> +
-> +SYM_FUNC_START(__asm_vector_usercopy)
-> +	/* Enable access to user memory */
-> +	li t6, SR_SUM
-> +	csrs CSR_STATUS, t6
-> +
-> +	/* Save for return value */
-> +	mv	t5, a2
-
-What's the point of this?
-
-> +
-> +	mv pDstPtr, pDst
-
-Why do this move? pDst isn't used anywhere else so you can safely
-continue to use pDst everywhere that pDstPtr is used.
-
-- Charlie
-
-> +loop:
-> +	vsetvli iVL, iNum, e8, ELEM_LMUL_SETTING, ta, ma
-> +	fixup vle8.v vData, (pSrc), 10f
-> +	fixup vse8.v vData, (pDstPtr), 10f
-> +	sub iNum, iNum, iVL
-> +	add pSrc, pSrc, iVL
-> +	add pDstPtr, pDstPtr, iVL
-> +	bnez iNum, loop
-> +
-> +.Lout_copy_user:
-> +	/* Disable access to user memory */
-> +	csrc CSR_STATUS, t6
-> +	li	a0, 0
-> +	ret
-> +
-> +	/* Exception fixup code */
-> +10:
-> +	/* Disable access to user memory */
-> +	csrc	CSR_STATUS, t6
-> +	mv	a0, iNum
-> +	ret
-> +SYM_FUNC_END(__asm_vector_usercopy)
-> -- 
-> 2.17.1
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyMDIzLzEyLzEzIDE3OjI3LCBXaWxsaWFtIFFpdSB3cm90ZToKPiAKPiAKPiBPbiAyMDIz
+LzEyLzEyIDE6NDEsIFJvYiBIZXJyaW5nIHdyb3RlOgo+PiBPbiBGcmksIERlYyA4LCAyMDIzIGF0
+IDM6NDLigK9BTSBXaWxsaWFtIFFpdSA8d2lsbGlhbS5xaXVAc3RhcmZpdmV0ZWNoLmNvbT4gd3Jv
+dGU6Cj4+Pgo+Pj4gQWRkIGRyaXZlciBmb3IgT3BlbkNvcmVzIFBXTSBDb250cm9sbGVyLiBBbmQg
+YWRkIGNvbXBhdGliaWxpdHkgY29kZQo+Pj4gd2hpY2ggYmFzZWQgb24gU3RhckZpdmUgU29DLgo+
+Pj4KPj4+IENvLWRldmVsb3BlZC1ieTogSGFsIEZlbmcgPGhhbC5mZW5nQHN0YXJmaXZldGVjaC5j
+b20+Cj4+PiBTaWduZWQtb2ZmLWJ5OiBIYWwgRmVuZyA8aGFsLmZlbmdAc3RhcmZpdmV0ZWNoLmNv
+bT4KPj4+IFNpZ25lZC1vZmYtYnk6IFdpbGxpYW0gUWl1IDx3aWxsaWFtLnFpdUBzdGFyZml2ZXRl
+Y2guY29tPgo+Pj4gLS0tCj4+PiAgTUFJTlRBSU5FUlMgICAgICAgICAgICAgIHwgICA3ICsrCj4+
+PiAgZHJpdmVycy9wd20vS2NvbmZpZyAgICAgIHwgIDEyICsrCj4+PiAgZHJpdmVycy9wd20vTWFr
+ZWZpbGUgICAgIHwgICAxICsKPj4+ICBkcml2ZXJzL3B3bS9wd20tb2NvcmVzLmMgfCAyMjkgKysr
+KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4+PiAgNCBmaWxlcyBjaGFuZ2Vk
+LCAyNDkgaW5zZXJ0aW9ucygrKQo+Pj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL3B3bS9w
+d20tb2NvcmVzLmMKPj4+Cj4+PiBkaWZmIC0tZ2l0IGEvTUFJTlRBSU5FUlMgYi9NQUlOVEFJTkVS
+Uwo+Pj4gaW5kZXggNzg4YmU5YWI1YjczLi43YTExYTIyZGEwOWUgMTAwNjQ0Cj4+PiAtLS0gYS9N
+QUlOVEFJTkVSUwo+Pj4gKysrIGIvTUFJTlRBSU5FUlMKPj4+IEBAIC0xNjIwNCw2ICsxNjIwNCwx
+MyBAQCBGOiAgICAgRG9jdW1lbnRhdGlvbi9pMmMvYnVzc2VzL2kyYy1vY29yZXMucnN0Cj4+PiAg
+RjogICAgIGRyaXZlcnMvaTJjL2J1c3Nlcy9pMmMtb2NvcmVzLmMKPj4+ICBGOiAgICAgaW5jbHVk
+ZS9saW51eC9wbGF0Zm9ybV9kYXRhL2kyYy1vY29yZXMuaAo+Pj4KPj4+ICtPUEVOQ09SRVMgUFdN
+IERSSVZFUgo+Pj4gK006ICAgICBXaWxsaWFtIFFpdSA8d2lsbGlhbS5xaXVAc3RhcmZpdmV0ZWNo
+LmNvbT4KPj4+ICtNOiAgICAgSGFsIEZlbmcgPGhhbC5mZW5nQHN0YXJmaXZldGVjaC5jb20+Cj4+
+PiArUzogICAgIFN1cHBvcnRlZAo+Pj4gK0Y6ICAgICBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUv
+YmluZGluZ3MvcHdtL29wZW5jb3Jlcyxwd20ueWFtbAo+Pj4gK0Y6ICAgICBkcml2ZXJzL3B3bS9w
+d20tb2NvcmVzLmMKPj4+ICsKPj4+ICBPUEVOUklTQyBBUkNISVRFQ1RVUkUKPj4+ICBNOiAgICAg
+Sm9uYXMgQm9ubiA8am9uYXNAc291dGhwb2xlLnNlPgo+Pj4gIE06ICAgICBTdGVmYW4gS3Jpc3Rp
+YW5zc29uIDxzdGVmYW4ua3Jpc3RpYW5zc29uQHNhdW5hbGFodGkuZmk+Cj4+PiBkaWZmIC0tZ2l0
+IGEvZHJpdmVycy9wd20vS2NvbmZpZyBiL2RyaXZlcnMvcHdtL0tjb25maWcKPj4+IGluZGV4IDRi
+OTU2ZDY2MTc1NS4uZDg3ZTFiYjM1MGJhIDEwMDY0NAo+Pj4gLS0tIGEvZHJpdmVycy9wd20vS2Nv
+bmZpZwo+Pj4gKysrIGIvZHJpdmVycy9wd20vS2NvbmZpZwo+Pj4gQEAgLTQ0NCw2ICs0NDQsMTgg
+QEAgY29uZmlnIFBXTV9OVFhFQwo+Pj4gICAgICAgICAgIGNvbnRyb2xsZXIgZm91bmQgaW4gY2Vy
+dGFpbiBlLWJvb2sgcmVhZGVycyBkZXNpZ25lZCBieSB0aGUgb3JpZ2luYWwKPj4+ICAgICAgICAg
+ICBkZXNpZ24gbWFudWZhY3R1cmVyIE5ldHJvbml4Lgo+Pj4KPj4+ICtjb25maWcgUFdNX09DT1JF
+Uwo+Pj4gKyAgICAgICB0cmlzdGF0ZSAiT3BlbkNvcmVzIFBXTSBzdXBwb3J0Igo+Pj4gKyAgICAg
+ICBkZXBlbmRzIG9uIEhBU19JT01FTSAmJiBPRgo+Pj4gKyAgICAgICBkZXBlbmRzIG9uIENPTU1P
+Tl9DTEsgJiYgUkVTRVRfQ09OVFJPTExFUgo+Pj4gKyAgICAgICBkZXBlbmRzIG9uIEFSQ0hfU1RB
+UkZJVkUgfHwgQ09NUElMRV9URVNUCj4+PiArICAgICAgIGhlbHAKPj4+ICsgICAgICAgICBJZiB5
+b3Ugc2F5IHllcyB0byB0aGlzIG9wdGlvbiwgc3VwcG9ydCB3aWxsIGJlIGluY2x1ZGVkIGZvciB0
+aGUKPj4+ICsgICAgICAgICBPcGVuQ29yZXMgUFdNLiBGb3IgZGV0YWlscyBzZWUgaHR0cHM6Ly9v
+cGVuY29yZXMub3JnL3Byb2plY3RzL3B0Yy4KPj4+ICsKPj4+ICsgICAgICAgICBUbyBjb21waWxl
+IHRoaXMgZHJpdmVyIGFzIGEgbW9kdWxlLCBjaG9vc2UgTSBoZXJlOiB0aGUgbW9kdWxlCj4+PiAr
+ICAgICAgICAgd2lsbCBiZSBjYWxsZWQgcHdtLW9jb3Jlcy4KPj4+ICsKPj4+ICBjb25maWcgUFdN
+X09NQVBfRE1USU1FUgo+Pj4gICAgICAgICB0cmlzdGF0ZSAiT01BUCBEdWFsLU1vZGUgVGltZXIg
+UFdNIHN1cHBvcnQiCj4+PiAgICAgICAgIGRlcGVuZHMgb24gT0YKPj4+IGRpZmYgLS1naXQgYS9k
+cml2ZXJzL3B3bS9NYWtlZmlsZSBiL2RyaXZlcnMvcHdtL01ha2VmaWxlCj4+PiBpbmRleCBjNWVj
+OWUxNjhlZTcuLjUxN2M0ZjY0MzA1OCAxMDA2NDQKPj4+IC0tLSBhL2RyaXZlcnMvcHdtL01ha2Vm
+aWxlCj4+PiArKysgYi9kcml2ZXJzL3B3bS9NYWtlZmlsZQo+Pj4gQEAgLTQwLDYgKzQwLDcgQEAg
+b2JqLSQoQ09ORklHX1BXTV9NSUNST0NISVBfQ09SRSkgICAgICArPSBwd20tbWljcm9jaGlwLWNv
+cmUubwo+Pj4gIG9iai0kKENPTkZJR19QV01fTVRLX0RJU1ApICAgICArPSBwd20tbXRrLWRpc3Au
+bwo+Pj4gIG9iai0kKENPTkZJR19QV01fTVhTKSAgICAgICAgICArPSBwd20tbXhzLm8KPj4+ICBv
+YmotJChDT05GSUdfUFdNX05UWEVDKSAgICAgICAgICAgICAgICArPSBwd20tbnR4ZWMubwo+Pj4g
+K29iai0kKENPTkZJR19QV01fT0NPUkVTKSAgICAgICArPSBwd20tb2NvcmVzLm8KPj4+ICBvYmot
+JChDT05GSUdfUFdNX09NQVBfRE1USU1FUikgKz0gcHdtLW9tYXAtZG10aW1lci5vCj4+PiAgb2Jq
+LSQoQ09ORklHX1BXTV9QQ0E5Njg1KSAgICAgICs9IHB3bS1wY2E5Njg1Lm8KPj4+ICBvYmotJChD
+T05GSUdfUFdNX1BYQSkgICAgICAgICAgKz0gcHdtLXB4YS5vCj4+PiBkaWZmIC0tZ2l0IGEvZHJp
+dmVycy9wd20vcHdtLW9jb3Jlcy5jIGIvZHJpdmVycy9wd20vcHdtLW9jb3Jlcy5jCj4+PiBuZXcg
+ZmlsZSBtb2RlIDEwMDY0NAo+Pj4gaW5kZXggMDAwMDAwMDAwMDAwLi45OTZjYTM4MDU5MDEKPj4+
+IC0tLSAvZGV2L251bGwKPj4+ICsrKyBiL2RyaXZlcnMvcHdtL3B3bS1vY29yZXMuYwo+Pj4gQEAg
+LTAsMCArMSwyMjkgQEAKPj4+ICsvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMAo+
+Pj4gKy8qCj4+PiArICogT3BlbkNvcmVzIFBXTSBEcml2ZXIKPj4+ICsgKgo+Pj4gKyAqIGh0dHBz
+Oi8vb3BlbmNvcmVzLm9yZy9wcm9qZWN0cy9wdGMKPj4+ICsgKgo+Pj4gKyAqIENvcHlyaWdodCAo
+QykgMjAxOC0yMDIzIFN0YXJGaXZlIFRlY2hub2xvZ3kgQ28uLCBMdGQuCj4+PiArICoKPj4+ICsg
+KiBMaW1pdGF0aW9uczoKPj4+ICsgKiAtIFRoZSBoYXJkd2FyZSBvbmx5IGRvIGludmVydGVkIHBv
+bGFyaXR5Lgo+Pj4gKyAqIC0gVGhlIGhhcmR3YXJlIG1pbmltdW0gcGVyaW9kIC8gZHV0eV9jeWNs
+ZSBpcyAoMSAvIHB3bV9hcGIgY2xvY2sgZnJlcXVlbmN5KSBucy4KPj4+ICsgKiAtIFRoZSBoYXJk
+d2FyZSBtYXhpbXVtIHBlcmlvZCAvIGR1dHlfY3ljbGUgaXMgKFUzMl9NQVggLyBwd21fYXBiIGNs
+b2NrIGZyZXF1ZW5jeSkgbnMuCj4+PiArICovCj4+PiArCj4+PiArI2luY2x1ZGUgPGxpbnV4L2Ns
+ay5oPgo+Pj4gKyNpbmNsdWRlIDxsaW51eC9pby5oPgo+Pj4gKyNpbmNsdWRlIDxsaW51eC9tb2R1
+bGUuaD4KPj4+ICsjaW5jbHVkZSA8bGludXgvb2YuaD4KPj4+ICsjaW5jbHVkZSA8bGludXgvb2Zf
+ZGV2aWNlLmg+Cj4+IAo+PiBZb3UgcHJvYmFibHkgZG9uJ3QgbmVlZCB0aGlzIGhlYWRlciBhbmQg
+dGhlIGltcGxpY2l0IGluY2x1ZGVzIGl0IG1ha2VzCj4+IGFyZSBkcm9wcGVkIG5vdyBpbiBsaW51
+eC1uZXh0LiBQbGVhc2UgY2hlY2sgd2hhdCB5b3UgYWN0dWFsbHkgbmVlZCBhbmQKPj4gbWFrZSB0
+aGVtIGV4cGxpY2l0Lgo+PiAKPj4gUm9iCj4gV2lsbCBkcm9wLgo+IAo+IFRoYW5rIHlvdSBmb3Ig
+c3BlbmRpbmcgdGltZSBvbiB0aGlzIHBhdGNoc2V0Lgo+IAo+IEJlc3QgUmVnYXJkcwo+IFdpbGxp
+YW0KSGkgUm9iLAoKQWZ0ZXIgY2hlY2tpbmcsIEkgbmVlZCB0byB1c2Ugb2ZfbWF0Y2hfZGV2aWNl
+KCkgaW4gb2ZfZGV2aWNlLmgsIHNvIHRoaXMKaW50ZXJmYWNlIHdpbGwgYmUgbW92ZWQgdG8gd2hp
+Y2ggaGVhZGVyIGluIGxpbnV4LW5leHQ/CgpUaGFua3MsCldpbGxpYW0KCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
