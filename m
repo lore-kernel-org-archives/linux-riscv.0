@@ -4,70 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE6C3C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 17:27:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38475C35274
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Dec 2023 17:28:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CbjzwCZn5cwkjagCdhzFoUWVolEdEnkHReNg+zPiMm4=; b=Wl/UeiYrOUejiK
-	Ja8/dX7qDMcXKhHkyLQCEgCBxF+MWMYeRdfj+ks/dK3KUtwOWLnM0cVJ8xRbq17YtyQHRn8Uzzcxd
-	TxFWpo0fxh4ItBldYHenxbZ97Tzh189m7yAGTifupBp48Mmqu2lrStJAKZjZ+xeq1h/YF7mwvRpmR
-	rwhB/D47Utg6IlIUrRe8cxNS+MmkSVmwWF6pD5K0jHS2dKA7XVzvNY8AyB/2+rWdWqpSadh9D04/0
-	IOZegVkZGjkFlOyXDyQtH4Rbu3PRD9PmuCfVfdVEiMzvHTrw1vJaDzFH+5wK24uiNM4AzP3ZLXKSU
-	UUqdQSigKX7dakBs+C1w==;
+	List-Owner; bh=1enTIhe3SCICy8DQTY77hjl3OHyY0ru0TXaxAnThAdk=; b=gEhnav+sIooTyi
+	5RDDK6ZX6q/JAk21GT9Z33fYmYE8ZelSe2CHCXU2NWj9ppYEsmA/39WBDNwCN1UYnADX9WeO0m1CQ
+	g1DjlA0famrzCFi81whdlLLMToue6RKaGF4COeUYunRgL82d5GdE9INWitWQIAD857jl03xrSFapB
+	nXdza4a+ANCDj6suhHNzN+PsE5Q34/hoGHYYAgT8EnwiCoi6dztNDJn26b1sXDPRsG9tzWzI3xinD
+	8p/yTS0udQJMPPlOX9ZZ6jJzkExADJmLiD/zrcP+HWRV3Z2avtCdciLOzIyYu5koMWIX5qTmc38ry
+	GpXL6K6LQshf3azLMkxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rEBxw-0044wx-0c;
-	Fri, 15 Dec 2023 17:27:12 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1rEBz0-0045I2-10;
+	Fri, 15 Dec 2023 17:28:18 +0000
+Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rEBxt-0044v1-0v
+	id 1rEByx-0045Fr-1h
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Dec 2023 17:27:11 +0000
-X-IronPort-AV: E=McAfee;i="6600,9927,10925"; a="8727221"
-X-IronPort-AV: E=Sophos;i="6.04,279,1695711600"; 
-   d="scan'208";a="8727221"
-Received: from fmsmga002.fm.intel.com ([10.253.24.26])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Dec 2023 09:27:07 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10925"; a="892973975"
-X-IronPort-AV: E=Sophos;i="6.04,279,1695711600"; 
-   d="scan'208";a="892973975"
-Received: from smile.fi.intel.com ([10.237.72.54])
-  by fmsmga002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Dec 2023 09:27:03 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.97)
-	(envelope-from <andy@kernel.org>)
-	id 1rEBxk-00000006BAk-29KE;
-	Fri, 15 Dec 2023 19:27:00 +0200
-Date: Fri, 15 Dec 2023 19:27:00 +0200
-From: Andy Shevchenko <andy@kernel.org>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Hoan Tran <hoan@os.amperecomputing.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Subject: Re: [PATCH v1 2/8] pinctrl: Add driver for the T-Head TH1520 SoC
-Message-ID: <ZXyMZKvREy_FIl46@smile.fi.intel.com>
-References: <20231215143906.3651122-1-emil.renner.berthing@canonical.com>
- <20231215143906.3651122-3-emil.renner.berthing@canonical.com>
+	Fri, 15 Dec 2023 17:28:17 +0000
+Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-2c9fdf53abcso19548621fa.1
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Dec 2023 09:28:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1702661292; x=1703266092; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bJgdaQfVEOqTf6cuulaJ0BP/0PqG9vdbBBj+6Nf4OLQ=;
+        b=OlEddmORTigjQHK7RnW5W2f6Y6cV6RABEmqDvL7ZTRrs6OGoe4XDhWOhG9aoIj1o5/
+         liQ5a+j9MYB5qQW8p0svSN7ylJxYDvL6w7fEPW0u8qyc5t9gfKJK1KanMbsB3nFN/9gP
+         7JfRdgjmfYdiSDyG6v6PCLDri7KZwszX9RNLO/ykogEGGp6ECIPjE20h1ogTv22NlGnB
+         MHclGhYKKSnaL9XtDF1E5JqqBxhRcwdWpbdMNTm3fLFLxOU2eo1sA/7CwiBiDcTqz55p
+         HzHuQ38VJB9Q1WrNKDw5sB/6UkJXoU65HcKiabECrA9BYkr34JDw5RAUWNevrf+52C8A
+         Cnlw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1702661292; x=1703266092;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bJgdaQfVEOqTf6cuulaJ0BP/0PqG9vdbBBj+6Nf4OLQ=;
+        b=qDGAgR5l+cOBYq4iU1+KMZPISLpgd1NdUvXC/KoPW80h5RjL8p3c4HvJM73b+ki8wD
+         QviBOVczjZQDzoTVxJWYcYzgFSFNKkrH9LT+48qZq3/kvyFrEZVZ2imskMsAebrWqKKX
+         1+fdyv+FvN8z2/YV43o/Cps1K13MgGdXELdXHNDtWT4XW+wR+OtWXQbIC4tB1kuFMzAC
+         mlEuYf+0hG5+u4F+F2kzoGzWm2ZRSh9krvzvM4Xpn05ZMkbhIQOjQF48wTyAN/Is7qr1
+         gcbmvxF1F1NGY4dKo4uOpY2F8xKKFBSQ22ja5wMM77m9bnD/RxUCoSnfh3tm3o1mzUp3
+         nxYg==
+X-Gm-Message-State: AOJu0YxD4er/4jd8GJrGyidSXN4YpLDJogzLZbEtg9mNHYWYrJv3kwvA
+	DpT3g3DoGOGwIJAVJYQhYlIh2UJS9vRaPjBu3F1Cmw==
+X-Google-Smtp-Source: AGHT+IHKYDeE58bHo7Yl9+9lemxIyPXLPvC9cNQ8Niqe6fY5V8Hzg+SDAeHsy8YyZnBE7APvju7Ja/+sP0nqPq3dyiQ=
+X-Received: by 2002:a05:6512:2354:b0:50a:a872:3b1c with SMTP id
+ p20-20020a056512235400b0050aa8723b1cmr8848174lfu.27.1702661292417; Fri, 15
+ Dec 2023 09:28:12 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231215143906.3651122-3-emil.renner.berthing@canonical.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+References: <20231212-optimize_checksum-v12-0-419a4ba6d666@rivosinc.com> <20231212-optimize_checksum-v12-2-419a4ba6d666@rivosinc.com>
+In-Reply-To: <20231212-optimize_checksum-v12-2-419a4ba6d666@rivosinc.com>
+From: Evan Green <evan@rivosinc.com>
+Date: Fri, 15 Dec 2023 09:27:36 -0800
+Message-ID: <CALs-HsvjFhBnD=8HgcW3EStMioa7P1FvrJ_yGsXLHjUSEcm6ew@mail.gmail.com>
+Subject: Re: [PATCH v12 2/5] riscv: Add static key for misaligned accesses
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, 
+	Samuel Holland <samuel.holland@sifive.com>, David Laight <David.Laight@aculab.com>, 
+	Xiao Wang <xiao.w.wang@intel.com>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Arnd Bergmann <arnd@arndb.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231215_092709_342199_E8980E8B 
-X-CRM114-Status: GOOD (  23.70  )
+X-CRM114-CacheID: sfid-20231215_092815_779592_140BA1C5 
+X-CRM114-Status: UNSURE (   7.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,257 +88,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 15, 2023 at 03:39:00PM +0100, Emil Renner Berthing wrote:
-> Add pinctrl driver for the T-Head TH1520 RISC-V SoC.
-
-...
-
-+ array_size.h
-+ bits.h
-+ device.h
-
-(and so on, please make sure you follow IWYU principle --
- "include what you use")
-
-> +#include <linux/io.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/module.h>
-> +#include <linux/mutex.h>
-
-> +#include <linux/of.h>
-
-Can you use device property API instead?
-
-(I briefly checked, all of the used of_ ones have the respective generic
- implementations either in fwnode_property_ or device_property_ namespace).
-
-OTOH, it's used in xlate/map functions which have device_node as a parameter...
-
-> +#include <linux/platform_device.h>
-> +#include <linux/seq_file.h>
-> +#include <linux/spinlock.h>
-
-...
-
-> +#include "core.h"
-> +#include "pinmux.h"
-> +#include "pinconf.h"
-
-All of them are needed?
-
-...
-
-> +static unsigned int th1520_padcfg_shift(unsigned int pin)
-> +{
-> +	return 16 * (pin & 0x1U);
-
-BIT(0) ?
-
-> +}
-
-...
-
-> +static unsigned int th1520_muxcfg_shift(unsigned int pin)
-> +{
-> +	return 4 * (pin & 0x7U);
-
-GENMASK() ?
-
-> +}
-
-...
-
-> +			return dev_err_probe(thp->pctl->dev, -EINVAL,
-> +					     "no pins selected for %pOFn.%pOFn\n",
-> +					     np, child);
-
-> +			dev_err(thp->pctl->dev, "error parsing pin config of group %pOFn.%pOFn\n",
-> +				np, child);
-
-In the very same function you are using dev_err_probe(), please make sure
-you use the same for all error messages as it will be a unified format
-(in case of dev_err_probe() or if you explicitly do that with dev_err()
-calls).
-
-> +		}
-
-...
-
-> +static const struct pinctrl_ops th1520_pinctrl_ops = {
-> +	.get_groups_count = th1520_pinctrl_get_groups_count,
-> +	.get_group_name = th1520_pinctrl_get_group_name,
-> +	.get_group_pins = th1520_pinctrl_get_group_pins,
-
-> +	.pin_dbg_show = th1520_pin_dbg_show,
-
-Is ifdeffery needed for this one?
-
-
-> +	.dt_node_to_map = th1520_pinctrl_dt_node_to_map,
-> +	.dt_free_map = th1520_pinctrl_dt_free_map,
-
-Is ifdeffery needed for these two?
-
-> +};
-
-...
-
-> +	mask = 0xfU << shift;
-> +	value = ((uintptr_t)func->data & 0xfU) << shift;
-
-GENMASK() in both cases.
-
-> +	raw_spin_lock_irqsave(&thp->lock, flags);
-> +	value |= readl_relaxed(muxcfg) & ~mask;
-
-Instead of above, use the traditional pattern
-
-	value = read()
-	value = (value & ~mask) | (newval & mask);
-	write()
-
-where newval is defined with a proper type and you get rid of all those ugly
-castings at once.
-
-> +	writel_relaxed(value, muxcfg);
-> +	raw_spin_unlock_irqrestore(&thp->lock, flags);
-
-...
-
-> +static u16 th1520_drive_strength_from_mA(u32 arg)
-> +{
-> +	u16 v;
-> +
-> +	for (v = 0; v < ARRAY_SIZE(th1520_drive_strength_in_mA) - 1; v++) {
-
-You may drop -1 here AFAIU (see below).
-
-> +		if (arg <= th1520_drive_strength_in_mA[v])
-> +			break;
-
-return directly.
-
-> +	}
-
-> +	return v;
-
-return explicit value which will be robust against changes in the for-loop or
-elsewhere in the code.
-
-> +}
-
-...
-
-> +static int th1520_padcfg_rmw(struct th1520_pinctrl *thp, unsigned int pin,
-> +			     u16 _mask, u16 _value)
-
-Why not naming them without underscores?
-
-> +{
-> +	void __iomem *padcfg = th1520_padcfg(thp, pin);
-> +	unsigned int shift = th1520_padcfg_shift(pin);
-
-> +	u32 mask = (u32)_mask << shift;
-> +	u32 value = (u32)_value << shift;
-
-Oh, no castings, please.
-
-> +	unsigned long flags;
-> +
-> +	raw_spin_lock_irqsave(&thp->lock, flags);
-
-Use cleanup.h.
-
-> +	value |= readl_relaxed(padcfg) & ~mask;
-> +	writel_relaxed(value, padcfg);
-> +	raw_spin_unlock_irqrestore(&thp->lock, flags);
-> +	return 0;
-> +}
-
-...
-
-> +#define PIN_CONFIG_THEAD_STRONG_PULL_UP	(PIN_CONFIG_END + 1)
-
-Oh, custom flag! Linus, what is the expected approach for custom flags like this?
-I believe this is quite error prone.
-
-...
-
-> +	value = readl_relaxed(th1520_padcfg(thp, pin));
-> +	value = (value >> th1520_padcfg_shift(pin)) & 0x3ffU;
-
-GENMASK() and in many other places like this.
-
-...
-
-> +		enabled = value & TH1520_PADCFG_IE;
-> +		arg = enabled;
-
-Assigning boolean to integer... Hmm...
-
-> +		break;
-> +	case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
-> +		enabled = value & TH1520_PADCFG_ST;
-> +		arg = enabled;
-> +		break;
-> +	case PIN_CONFIG_SLEW_RATE:
-> +		enabled = value & TH1520_PADCFG_SL;
-> +		arg = enabled;
-> +		break;
-
-...
-
-> +static int th1520_pinctrl_probe(struct platform_device *pdev)
-> +{
-
-	struct device *dev = &pdev->dev;
-
-may give you some benefits.
-
-> +	const struct th1520_padgroup *group = device_get_match_data(&pdev->dev);
-> +	struct th1520_pinctrl *thp;
-> +	int ret;
-> +
-> +	thp = devm_kzalloc(&pdev->dev, sizeof(*thp), GFP_KERNEL);
-> +	if (!thp)
-> +		return -ENOMEM;
-> +
-> +	thp->base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(thp->base))
-> +		return PTR_ERR(thp->base);
-> +
-> +	thp->desc.name = group->name;
-> +	thp->desc.pins = group->pins;
-> +	thp->desc.npins = group->npins;
-> +	thp->desc.pctlops = &th1520_pinctrl_ops;
-> +	thp->desc.pmxops = &th1520_pinmux_ops;
-> +	thp->desc.confops = &th1520_pinconf_ops;
-> +	thp->desc.owner = THIS_MODULE;
-> +	thp->desc.num_custom_params = ARRAY_SIZE(th1520_pinconf_custom_params);
-> +	thp->desc.custom_params = th1520_pinconf_custom_params;
-> +	thp->desc.custom_conf_items = th1520_pinconf_custom_conf_items;
-> +	mutex_init(&thp->mutex);
-> +	raw_spin_lock_init(&thp->lock);
-> +
-> +	ret = devm_pinctrl_register_and_init(&pdev->dev, &thp->desc, thp, &thp->pctl);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret, "could not register pinctrl driver\n");
-> +
-> +	return pinctrl_enable(thp->pctl);
-> +}
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBEZWMgMTIsIDIwMjMgYXQgNToxOOKAr1BNIENoYXJsaWUgSmVua2lucyA8Y2hhcmxp
+ZUByaXZvc2luYy5jb20+IHdyb3RlOgo+Cj4gU3VwcG9ydCBzdGF0aWMgYnJhbmNoZXMgZGVwZW5k
+aW5nIG9uIHRoZSB2YWx1ZSBvZiBtaXNhbGlnbmVkIGFjY2Vzc2VzLgo+IFRoaXMgd2lsbCBiZSB1
+c2VkIGJ5IGEgbGF0ZXIgcGF0Y2ggaW4gdGhlIHNlcmllcy4gQWxsIGNwdXMgbXVzdCBiZQo+IGNv
+bnNpZGVyZWQgImZhc3QiIGZvciB0aGlzIHN0YXRpYyBicmFuY2ggdG8gYmUgZmxpcHBlZC4KPgo+
+IFNpZ25lZC1vZmYtYnk6IENoYXJsaWUgSmVua2lucyA8Y2hhcmxpZUByaXZvc2luYy5jb20+CgpS
+ZXZpZXdlZC1ieTogRXZhbiBHcmVlbiA8ZXZhbkByaXZvc2luYy5jb20+CgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
