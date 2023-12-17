@@ -4,77 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 124FCC3DA6E
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 Dec 2023 17:55:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF129C46CA2
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 Dec 2023 18:11:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vuMaFL0tS6txok2vktLiF9+4MBca/rJldEDzzxVACd8=; b=riTyKGqSB35vIn
-	yxBZiVUVC0kGkuiSbPvfKBFX5WKm4ZTnWCR003923a0H/mZ8pELZoKb+aXJb69DKxS3tpFFZOjBSB
-	QMftmkOsrPkwg0nGCnJtDWStJiAWIx3Xglv1cA6D9U0qKMqsh3fUBi1VgaZr2u/3DuGoReFP27Lji
-	DlO24S4j+fmRS/PSgymuzSPKzE9BKDWOcWyw+CaI8eqOane5IS1Wgj0jVQGRfv3RlQQVq5FZqWr4c
-	oYmhPjRnoZq8H5HiRDnU+ppSejiqRmHorfi5Sd8mVmd1mITDHZ8vfytoQLPfOhsKzwpK7q5q0u15p
-	sX7iS0NHlFGWU50CuP5g==;
+	List-Owner; bh=+sPN4LrCHj1DREnyLFyzNcEzlxQA9nYr0wCVP8Z739Y=; b=VUQpCG1H5F6a+P
+	mbqJCcTcBhx9/RBp1LvVXkaSL8AkEg9oqUcJIW7dGNILYPh8xAgO5fpJMjQs6QQt7OEfpK7P0UIw9
+	WxNdeP0uyKkd9N4NN73gMlzv0GnTak4zGgs657/Mj1GkhV5tO2qCXUsCJ0azRGw/043z1jxWf8JOT
+	Q2/+Q+qFLEnNYm8t79/2lhliGi4u50VVIlc8uzfcK9v6KEV93E3gNYg9rI9OLuX1Z09dOcQ9US6Mj
+	gz+F8xdZn7QrrasEW0HhsupZ8kTh80+cvy9/gLHtE3JUFTfyP+4o3cUlvwEUXSuOPcQ6LhYSg+kNl
+	ki+7D0l9ep7AP1woxxxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rEvMf-008GV7-2k;
-	Sun, 17 Dec 2023 17:55:45 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1rEvbm-008HgB-0p;
+	Sun, 17 Dec 2023 18:11:22 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rEvMd-008GUf-0j;
-	Sun, 17 Dec 2023 17:55:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=1BS2BYxI0fjRhDPFU1muWML+fVQMCFHH/gSfWLLCKhQ=; b=G2CLrRfKFu0XcBhesoEsUYs2NU
-	fxQLK5S6970mi84T28XkFi+YuyqJFPT022Y931plnt/t9hTREG7bJHDkoTTpueHZrvzH0AXeKjvs4
-	1dg4PhWHBHJzsdJol+cswDkvxUHQBln5quFlcko9UOJOdTmZlClCwz2ZMsl45BJIVkeU=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1rEvM6-003AGP-QV; Sun, 17 Dec 2023 18:55:10 +0100
-Date: Sun, 17 Dec 2023 18:55:10 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Samin Guo <samin.guo@starfivetech.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Subject: Re: [PATCH v3 6/9] riscv: dts: starfive: visionfive-v1: Setup
- ethernet phy
-Message-ID: <f8f9d454-6155-4b1c-b4b2-daf98267be14@lunn.ch>
-References: <20231215204050.2296404-1-cristian.ciocaltea@collabora.com>
- <20231215204050.2296404-7-cristian.ciocaltea@collabora.com>
+	id 1rEvbk-008Hfa-0A
+	for linux-riscv@lists.infradead.org;
+	Sun, 17 Dec 2023 18:11:21 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
+ relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ uk-mtapsc-8-8i7rSkpZMKS305nSrnFEhQ-1; Sun, 17 Dec 2023 18:11:13 +0000
+X-MC-Unique: 8i7rSkpZMKS305nSrnFEhQ-1
+Received: from AcuMS.Aculab.com (10.202.163.6) by AcuMS.aculab.com
+ (10.202.163.6) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Sun, 17 Dec
+ 2023 18:10:54 +0000
+Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
+ id 15.00.1497.048; Sun, 17 Dec 2023 18:10:54 +0000
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Ivan Orlov' <ivan.orlov0322@gmail.com>, "paul.walmsley@sifive.com"
+	<paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>
+CC: "conor.dooley@microchip.com" <conor.dooley@microchip.com>,
+	"ajones@ventanamicro.com" <ajones@ventanamicro.com>, "samuel@sholland.org"
+	<samuel@sholland.org>, "alexghiti@rivosinc.com" <alexghiti@rivosinc.com>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"skhan@linuxfoundation.org" <skhan@linuxfoundation.org>
+Subject: RE: [PATCH] riscv: lib: Optimize 'strlen' function
+Thread-Topic: [PATCH] riscv: lib: Optimize 'strlen' function
+Thread-Index: AQHaLduBo9lhsHug1EOTPi9OJpSM+LCtyBWA
+Date: Sun, 17 Dec 2023 18:10:54 +0000
+Message-ID: <a210197c479e48778672aa13287eef88@AcuMS.aculab.com>
+References: <20231213154530.1970216-1-ivan.orlov0322@gmail.com>
+In-Reply-To: <20231213154530.1970216-1-ivan.orlov0322@gmail.com>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231215204050.2296404-7-cristian.ciocaltea@collabora.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231217_095543_270576_1770D455 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20231217_101120_362371_A9CC5C8C 
+X-CRM114-Status: UNSURE (   3.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,23 +83,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 15, 2023 at 10:40:45PM +0200, Cristian Ciocaltea wrote:
-> The StarFive VisionFive V1 SBC uses a Motorcomm YT8521 PHY supporting
-> RGMII-ID, but requires manual adjustment of the RX internal delay to
-> work properly.
-> 
-> The default RX delay provided by the driver is 1.95 ns, which proves to
-> be too high. Applying a 50% reduction seems to mitigate the issue.
-> 
-> Also note this adjustment is not necessary on BeagleV Starlight SBC,
-> which uses a Microchip PHY.  Hence, there is no indication of a
-> miss-behaviour on the GMAC side, but most likely the issue stems from
-> the Motorcomm PHY.
+From: Ivan Orlov
+> Sent: 13 December 2023 15:46
 
-I suggest you make a similar comment in the .dts file, just to explain
-the odd setting.
+Looking at the old code...
 
-	Andrew
+>  1:
+> -	lbu	t0, 0(t1)
+> -	beqz	t0, 2f
+> -	addi	t1, t1, 1
+> -	j	1b
+
+I suspect there is (at least) a two clock stall between
+the 'ldu' and 'beqz'.
+Allowing for one clock for the 'predicted taken' branch
+that is 7 clocks/byte.
+
+Try this one - especially on 32bit:
+
+	mov	t0, a0
+	and	t1, t0, 1
+	sub	t0, t0, t1
+	bnez	t1, 2f
+1:
+	ldb	t1, 0(t0)
+2:	ldb	t2, 1(t0)
+	add	t0, t0, 2
+	beqz	t1, 3f
+	bnez	t2, 1b
+	add	t0, t0, 1
+3:	sub	t0, t0, 2
+	sub	a0, t0, a0
+	ret
+
+Might be 6 clocks for 2 bytes.
+The much smaller cache footprint will also help.
+
+	David
+
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
+
 
 _______________________________________________
 linux-riscv mailing list
