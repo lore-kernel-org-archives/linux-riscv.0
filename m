@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF98AC3DA6E
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 Dec 2023 21:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0664C3DA6E
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 Dec 2023 21:09:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mYEMp8fSMbtuGpn6lzjcD5/1KcYTSiANlL8+kXFYyYs=; b=RAlhBptD0+wMKq
-	ga9KgJbUBMSQD7eWguBqMYPup7viCs/Nr/iqfzWsqwIdLu1mXmmwMfnUFN0aN1artuF919QOQCNXg
-	HWBNu7/StUA1nGAA0O6fzsyPa+9pA3d9Uq4wIGS2VuFnpQw5eAwWeXw0hG9rDJPDagF+q/lBotgCT
-	FWgqM+8zNtMNI1nlUHprYZA2aCtKkB32gFEN551BUJ06Km45u2D2JeE1BD/a/b0RhoRmmBX3e1xWV
-	fQG/j6AKgwts8vH8EpQFI+cG2+Sf61/8+VYdJX62L4eeEVXfrUIrpxI0Fa2Quq/2Ac1ufbJAqFSic
-	thQ7lnnop3X2zAScjI7Q==;
+	List-Owner; bh=8FHfTfTNZ83IO90GdHXQMxFB2jOMigmjMLjlRwEyzdU=; b=2K5nfH9QQNhula
+	uQB3ixDlC/cldGWzDug+kdi67sh6vzTCtIXkGQinE7rj0rfAO4RuvD1bxj1njr2Gu6+bYEBV9PTsQ
+	RUESWV5mu3WjYYbjbd8OIBatdj2W9hOfmNGEi/VtU4WVlw8jj/0GcWE0emkyUvCg+wVJlKYsnAPy1
+	9ZNMPBK7wmWYoDFYPz2Jxq7D535/vIfTXPZPkDZ75ACv8U44QGizIomWmCeg0Wu/TY/RvxVWpf8tp
+	1FhQ6bpyiofEnZtUFtcpqKqBH4KyNIMFok1ukR/dkXPnWre7rSCv/Kwub8TmomMR8a4V9vC9upDfx
+	Ob70ruUsithm2QkzUkiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rEyO3-008TNl-0s;
-	Sun, 17 Dec 2023 21:09:23 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1rEyOB-008TS9-09;
+	Sun, 17 Dec 2023 21:09:31 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rEyNw-008TKs-11;
-	Sun, 17 Dec 2023 21:09:17 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-54dcfca54e0so3171534a12.1;
-        Sun, 17 Dec 2023 13:09:15 -0800 (PST)
+	id 1rEyO2-008TMm-1U;
+	Sun, 17 Dec 2023 21:09:23 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-54ba86ae133so2049395a12.2;
+        Sun, 17 Dec 2023 13:09:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1702847354; x=1703452154; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1702847361; x=1703452161; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=XxR6hF/d37at9Svy1FV0ihBmt4KDeen/lqmXip53gJA=;
-        b=NIqST+799ndPbIyCB2H3zF2BCbXQXl/ZhJgenu1W1qvEFQ4CVa+KT0FHfdx+N/3bNM
-         rIDhXpIe3BPU24V59lbZDzplB3wujho/4HVbpHESKOyMc/SCRBl3k4o1v+cuC9Pg5YSD
-         jXzntF7jf1kSAs2ZBcFLwIwG2+9ER95T2eYulx/VHAFkNTIIAyhqoDSSuxDrMUp0P97e
-         WPx84s7MaPfD9JnHBnEh6J/MUx5HMZDPhKfRyynzykSnhD4o5diZh6YgeFEDj0VZBZTb
-         ytlKANXPvhEvW8/MEiIzDs3zFUTVL7MrKpWg/kkyj5mfAwHvwb8AxOQOAQw1fof01gMd
-         fPWg==
+        bh=LAUbIAntM3d+P1r7PxLEQx0z9V8P0MjzX6e4WUbLKOw=;
+        b=cNOyRq9B5BJZvepvnP+MHPfaiAEA+4Imx1W0E+Obw8URZwaQIsIiCGHvHaETo90bSG
+         aVM/pVwX26lTR+I2Wv7kL09f9br+AYL1w5VbjFLucQptBgoHvirO/G2biGHsc++nRcgN
+         gEHkBEDxMBvHP5AIfjGXAM4+OaaeeJv82NdaXoMwaHxlGmiuKv3SSYIfmpgkYuEl9726
+         ibeBv6rFZX+Eq/sekyY+b6GnP+rrSoym3q5X/AJgp7BWndLqYc+ksicb+E9jXeOTY3nj
+         hur1nCGDvAZJFUI7r6HNSaWTApz4m5JivukbZlA4twGa2/tZYZH50h0efV8Fs/G6DX8u
+         q9hw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702847354; x=1703452154;
+        d=1e100.net; s=20230601; t=1702847361; x=1703452161;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=XxR6hF/d37at9Svy1FV0ihBmt4KDeen/lqmXip53gJA=;
-        b=AjD5AJzP9Xp61jwDLzeZr6Pm5EK71x2NUlzqPsYaSEpnNFNSPhvhIJl9+i+hgcHxrg
-         8bOcXhGfVvNf/Vcx39ufbQ62DAgMWIuAD3pAeAxrVg/3PexOwIxQ0yzEibDs2dzs8sQQ
-         ekw+lm7tJoDv1v+zFRWGebT4nMeAAf5kPwhZ6wZpGE8BpT9uceLcV1pPkyn1rrpc0BPO
-         9wLg3Y9pDULNjT/RQyf9FwaF8kKbXI0wrh1zg3kJT4WXUIn/JJ7+XGgMDtDFIv4jxP5A
-         SHr5hCj5j2yZhmDijqLOWmpvGoZDKhALSuqfw79nlGAHtRyh5grAgRGpG1vIqY2dNMXB
-         GM+g==
-X-Gm-Message-State: AOJu0YxKNdQScWPmqSC8kARBX8qOISUph7ttvwWrqOsLl4rQ85Cuu3Ih
-	6QjKHRJv17MmDLonPRCCwVk=
-X-Google-Smtp-Source: AGHT+IH8rZUBNlfMGfHajr+JWoOQrRyXykFKDWSFBD2jwvMitlgbukM748ZcSk7h6iptqsxEjLQnuQ==
-X-Received: by 2002:a17:907:6d07:b0:a23:5369:9890 with SMTP id sa7-20020a1709076d0700b00a2353699890mr583642ejc.79.1702847354192;
-        Sun, 17 Dec 2023 13:09:14 -0800 (PST)
+        bh=LAUbIAntM3d+P1r7PxLEQx0z9V8P0MjzX6e4WUbLKOw=;
+        b=AaTN6j6crGTzlh7FkLy2t9zX20sYFpSsXppxT7bViPqC4cQJJT5RqA9NEFPE2rRUxS
+         xouLdK2hkX+W4vhihCb5jlmYxxE5mlHByZ2G9qC8UOfHAbBAcF1tKn93Ateygwsnqvsh
+         GEPTZoQvJ34bhgj6+8d0hPql6UDpKunRIgzgW8AoX/0lLFqxeWks0Tuv5eyvmYl/+ycv
+         qqdbzW6fuJGSVRd+jWscklxAGOnS/AlgUsf1sQSyF+HH1+icaZVXLR8JRly0oKxKoLMy
+         /WRLXLXbbAGCok1jAFGY+s8Md41tJ1QuOBvXjIRsTD2AaYl2QOPReGsoi9iXyALEI9Ot
+         4UqQ==
+X-Gm-Message-State: AOJu0YyiSm8pvEzYqVfqPYOFLJDtbn5eLkuleKYSchUs/sYfMZDsGO6a
+	7PBNJJk84eXcSWbgKGK3ojI=
+X-Google-Smtp-Source: AGHT+IGXBluqcGQB7k35DpbnUHnaijO7J6FnYJlOKlthAcSTpRKN4IAiy50prOqyAzcchEuhhGrjqg==
+X-Received: by 2002:a17:907:a0d:b0:a23:3212:9c37 with SMTP id bb13-20020a1709070a0d00b00a2332129c37mr1452093ejc.50.1702847360868;
+        Sun, 17 Dec 2023 13:09:20 -0800 (PST)
 Received: from wpc.yadro.com (188-169-139-214.dsl.utg.ge. [188.169.139.214])
-        by smtp.gmail.com with ESMTPSA id vc11-20020a170907d08b00b00a1ce58e9fc7sm13316096ejc.64.2023.12.17.13.09.11
+        by smtp.gmail.com with ESMTPSA id vc11-20020a170907d08b00b00a1ce58e9fc7sm13316096ejc.64.2023.12.17.13.09.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 Dec 2023 13:09:14 -0800 (PST)
+        Sun, 17 Dec 2023 13:09:20 -0800 (PST)
 From: Maksim Kiselev <bigunclemax@gmail.com>
 To: 
-Subject: [PATCH v6 1/3] dt-bindings: thermal: sun8i: Add binding for D1/T113s THS controller
-Date: Mon, 18 Dec 2023 00:06:22 +0300
-Message-Id: <20231217210629.131486-2-bigunclemax@gmail.com>
+Subject: [PATCH v6 2/3] thermal: sun8i: Add D1/T113s THS controller support
+Date: Mon, 18 Dec 2023 00:06:23 +0300
+Message-Id: <20231217210629.131486-3-bigunclemax@gmail.com>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20231217210629.131486-1-bigunclemax@gmail.com>
 References: <20231217210629.131486-1-bigunclemax@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231217_130916_614705_17D54407 
-X-CRM114-Status: UNSURE (   8.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231217_130922_599774_3455B77B 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,7 +84,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Yangtao Li <tiny.windzz@gmail.com>, Conor Dooley <conor.dooley@microchip.com>, John Watts <contact@jookia.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, linux-riscv@lists.infradead.org, Samuel Holland <samuel@sholland.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Vasily Khoruzhick <anarsoul@gmail.com>, Chen-Yu Tsai <wens@csie.org>, Zhang Rui <rui.zhang@intel.com>, linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, linux-pm@vger.kernel.org, Andre Przywara <andre.przywara@arm.com>, Rob Herring <robh+dt@kernel.org>, Marc Kleine-Budde <mkl@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, Maxim Kiselev <bigunclemax@gmail.com>, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Lukasz Luba <lukasz.luba@arm.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Yangtao Li <tiny.windzz@gmail.com>, John Watts <contact@jookia.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, linux-riscv@lists.infradead.org, Samuel Holland <samuel@sholland.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Vasily Khoruzhick <anarsoul@gmail.com>, Chen-Yu Tsai <wens@csie.org>, Zhang Rui <rui.zhang@intel.com>, linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, linux-pm@vger.kernel.org, Andre Przywara <andre.przywara@arm.com>, Rob Herring <robh+dt@kernel.org>, Marc Kleine-Budde <mkl@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, Maxim Kiselev <bigunclemax@gmail.com>, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Lukasz Luba <lukasz.luba@arm.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -93,53 +92,46 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Maxim Kiselev <bigunclemax@gmail.com>
 
-Add a binding for D1/T113s thermal sensor controller.
+This patch adds a thermal sensor controller support for the D1/T113s,
+which is similar to the one on H6, but with only one sensor and
+different scale and offset values.
 
 Signed-off-by: Maxim Kiselev <bigunclemax@gmail.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../bindings/thermal/allwinner,sun8i-a83t-ths.yaml         | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ drivers/thermal/sun8i_thermal.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/thermal/allwinner,sun8i-a83t-ths.yaml b/Documentation/devicetree/bindings/thermal/allwinner,sun8i-a83t-ths.yaml
-index fbd4212285e2..9b2272a9ec15 100644
---- a/Documentation/devicetree/bindings/thermal/allwinner,sun8i-a83t-ths.yaml
-+++ b/Documentation/devicetree/bindings/thermal/allwinner,sun8i-a83t-ths.yaml
-@@ -16,6 +16,7 @@ properties:
-       - allwinner,sun8i-a83t-ths
-       - allwinner,sun8i-h3-ths
-       - allwinner,sun8i-r40-ths
-+      - allwinner,sun20i-d1-ths
-       - allwinner,sun50i-a64-ths
-       - allwinner,sun50i-a100-ths
-       - allwinner,sun50i-h5-ths
-@@ -61,6 +62,7 @@ allOf:
-         compatible:
-           contains:
-             enum:
-+              - allwinner,sun20i-d1-ths
-               - allwinner,sun50i-a100-ths
-               - allwinner,sun50i-h6-ths
+diff --git a/drivers/thermal/sun8i_thermal.c b/drivers/thermal/sun8i_thermal.c
+index f989b55a8aa8..6a8e386dbc8d 100644
+--- a/drivers/thermal/sun8i_thermal.c
++++ b/drivers/thermal/sun8i_thermal.c
+@@ -606,6 +606,18 @@ static const struct ths_thermal_chip sun50i_h6_ths = {
+ 	.calc_temp = sun8i_ths_calc_temp,
+ };
  
-@@ -84,7 +86,9 @@ allOf:
-       properties:
-         compatible:
-           contains:
--            const: allwinner,sun8i-h3-ths
-+            enum:
-+              - allwinner,sun8i-h3-ths
-+              - allwinner,sun20i-d1-ths
- 
-     then:
-       properties:
-@@ -103,6 +107,7 @@ allOf:
-             enum:
-               - allwinner,sun8i-h3-ths
-               - allwinner,sun8i-r40-ths
-+              - allwinner,sun20i-d1-ths
-               - allwinner,sun50i-a64-ths
-               - allwinner,sun50i-a100-ths
-               - allwinner,sun50i-h5-ths
++static const struct ths_thermal_chip sun20i_d1_ths = {
++	.sensor_num = 1,
++	.has_bus_clk_reset = true,
++	.offset = 188552,
++	.scale = 673,
++	.temp_data_base = SUN50I_H6_THS_TEMP_DATA,
++	.calibrate = sun50i_h6_ths_calibrate,
++	.init = sun50i_h6_thermal_init,
++	.irq_ack = sun50i_h6_irq_ack,
++	.calc_temp = sun8i_ths_calc_temp,
++};
++
+ static const struct of_device_id of_ths_match[] = {
+ 	{ .compatible = "allwinner,sun8i-a83t-ths", .data = &sun8i_a83t_ths },
+ 	{ .compatible = "allwinner,sun8i-h3-ths", .data = &sun8i_h3_ths },
+@@ -614,6 +626,7 @@ static const struct of_device_id of_ths_match[] = {
+ 	{ .compatible = "allwinner,sun50i-a100-ths", .data = &sun50i_a100_ths },
+ 	{ .compatible = "allwinner,sun50i-h5-ths", .data = &sun50i_h5_ths },
+ 	{ .compatible = "allwinner,sun50i-h6-ths", .data = &sun50i_h6_ths },
++	{ .compatible = "allwinner,sun20i-d1-ths", .data = &sun20i_d1_ths },
+ 	{ /* sentinel */ },
+ };
+ MODULE_DEVICE_TABLE(of, of_ths_match);
 -- 
 2.40.1
 
