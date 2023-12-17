@@ -4,89 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3C55C46CA2
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 Dec 2023 20:41:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC0F3C3DA6E
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 Dec 2023 21:04:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wzUwzLYhOqC+UeyzUrE4AjOUxnoCNUNaFPFDad9Mn3Q=; b=ErL0X7EMWAWqCu
-	TBUDyUClstWIgFYcHHimqgpr+7JywybqJ24IRoeK7MW0X0jAZGcWKT0WhTK9LanV6wyhp+suvXoao
-	H6YW5hVtubuOjpmCZEdVy5IB9KJUz2IUicgGNF+Lnk0E2ABVR3BR5GypxzTOpeIa61w0v5BJ5J645
-	sotkGWvyljflJTgZ9sn84h+MtB57OwhTvx1VTuXyaF12fi+BgMZeXlpmsNS9IbGKOUiSnYlDcxYK/
-	iK0S4qUFyTJnT/ciMkDl4O56gkVnob+ZpF000Niktasgq1/Djh06iIY0GheSDsjsmEOA32WQdPaez
-	Ie2ay+85+T/kmu/EwKXw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lCVNV86NrA4Ejcz4G7o6UHSCDUWI71tgqmDTIf/1cP8=; b=StUnrWnZearINwK5JC1ioRLs9w
+	UIur6+aQ6MW9B3+oN62kL/5QjBXZh4EaOrwl7eWNo790cBa2KZLP/YmrquLFAOhhAhPXDWrQpq4R5
+	c/TID4MVfxvM1unh+GnZN1FDdir2p9z5RlmQZEVta+ZDVYywwhIqpSXV/yXiwX5qjiBc57NDBo27+
+	r137HLYATXt7fydcYt1b/p40J5jTTFbJTfoqdMiW1PXYdQ1gjBN4gPjWrrSBuXHADIunStjN/9z+j
+	BvysydMdXcDJdwKlFJARwcu4KC553XBHXkcaRNthj+EG8Y/+IJ1I2WMT3pyZ0beVy6NRameBMtGxi
+	uGez0z/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rExwk-008Qa7-1B;
-	Sun, 17 Dec 2023 20:41:10 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1rEyIk-008SZf-0C;
+	Sun, 17 Dec 2023 21:03:54 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rExwc-008QNT-0v
-	for linux-riscv@lists.infradead.org;
-	Sun, 17 Dec 2023 20:41:07 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-50e1d61b657so2752443e87.0
-        for <linux-riscv@lists.infradead.org>; Sun, 17 Dec 2023 12:41:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1702845660; x=1703450460; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=R3/0Hma02Vd0ly7A0sb99/J3m8aSq89MJrcPUNSRUYI=;
-        b=ho8tkRrrXmzJYZE95SV08DycyQjqKryT49/o3LFj8k8fqSuLNEtO/4MsaW0Ln+bB2E
-         WDVmXeLpkDxhREZ9CxHqaaM7+uBGtxLsrBeMYcvDVwbOvDDhAD7J7iZuatfNx+j/FWvx
-         Da9Z+FoQKqwwHmAvcrQgVS2ejaPVZbNY1BRWBq1TykoMNFOCo7R7es+vGPbuPzAuydBF
-         1Y2BX+IA285i4HkFDVkhpR9cdpc76Rs4VNAEmiEIixd9CgNcVxCwAN/NhrZDfOBr4al3
-         S66CkE5S/sR6f9xxp6WiaJgV0rU/kaOf0mbCmHBlVkM+h9pGMuODyAyr4F3RElEg7H7b
-         n88Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702845660; x=1703450460;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=R3/0Hma02Vd0ly7A0sb99/J3m8aSq89MJrcPUNSRUYI=;
-        b=fFyIq9vUB1i78t6N+kK7C7qHE4wgEEhsq9dvKBuBvD4uzyRftxTM36a68bEzEoUlFX
-         gZYeecmxtTJUV5jEj21t9ZO8HOsvIzN8XgQtqf5eOMmfdKVD+zWBx4/OJhtDZ8f2X7F8
-         l2ln1M8TLWILdAle9zeiectoiLcQ9bol1pomh6SZ7iKmWj/snKXjaiNT9qK6dff3OD3F
-         bIgTmx4j7vB/2094gYgDg/CiKwROWh7Tkx+hb7tQ40Y3R7hqS1p138IjFDj/hqgQX/s5
-         L5X/BHIEe+5ZBG9QFiNUC3HQfHfliKmqjbvHblITg4JiEeHUVN24ZwW5Hj1aF1C1AKJp
-         j/FA==
-X-Gm-Message-State: AOJu0YwRN00mcvcjSPwJCzpX8BFyK4cKPKRT5bmJKapMGPOmUNfnrERR
-	Zf1nI7eDTkTT5y5rByQ5noicsQ==
-X-Google-Smtp-Source: AGHT+IERXKNF/+s+NEEHzdapPwlDcWN89Zm4uZLWWe/4d5WgczvSO/z3yTIm2LP04zK6s+fR6i5MCg==
-X-Received: by 2002:a05:6512:398e:b0:50d:12b4:e02c with SMTP id j14-20020a056512398e00b0050d12b4e02cmr7559657lfu.53.1702845659741;
-        Sun, 17 Dec 2023 12:40:59 -0800 (PST)
-Received: from localhost (cst-prg-88-42.cust.vodafone.cz. [46.135.88.42])
-        by smtp.gmail.com with ESMTPSA id ul5-20020a170907ca8500b00a1fa7e39957sm9677795ejc.136.2023.12.17.12.40.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 Dec 2023 12:40:59 -0800 (PST)
-From: Andrew Jones <ajones@ventanamicro.com>
-To: kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	virtualization@lists.linux-foundation.org
-Cc: anup@brainfault.org,
-	atishp@atishpatra.org,
-	pbonzini@redhat.com,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	jgross@suse.com,
-	srivatsa@csail.mit.edu,
-	guoren@kernel.org,
-	conor.dooley@microchip.com
-Subject: [PATCH v3 13/13] RISC-V: KVM: selftests: Add get-reg-list test for STA registers
-Date: Sun, 17 Dec 2023 21:40:33 +0100
-Message-ID: <20231217204019.36492-28-ajones@ventanamicro.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20231217204019.36492-15-ajones@ventanamicro.com>
-References: <20231217204019.36492-15-ajones@ventanamicro.com>
+	id 1rEyIg-008SYC-0w;
+	Sun, 17 Dec 2023 21:03:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id C9AA4CE0D9B;
+	Sun, 17 Dec 2023 21:03:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61A47C433C7;
+	Sun, 17 Dec 2023 21:03:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1702847023;
+	bh=mCEcMXWBRCUl8ycxVYQtMfuRfaojP7UvcGTxOXhKDaI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hvrsPbSDBmXRz7fBWAVgf3e4EySM97yOUjYsBwbpgyiOdI9DY8G/gQoVfOAG5b9io
+	 ELWQSRpweiRp25KmFZScZE1R7gu3L4njHUmSeYafmHTHI1hXgkZaaWm+wXueeGyORN
+	 sZLgKSVG117kpnXWB//nwjQTcU5HLd07b5ozYEhy3wzX0cuqZ6M2yicJ+k0XCxRjaU
+	 bYfavnhJ/435XHwjKKNE8uKp5+tbIyQKUqBUcbUdsw3Poed/utfsxAEUQnqJbL1W+U
+	 yBb5EgZjWizSeRZC1XgwZNH1Nz5Hg1OZg9pXcBUMplPIgDrLmtpz+n3p6shg2jcd1L
+	 P3At3ee5NOOhQ==
+Date: Sun, 17 Dec 2023 21:03:36 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Subject: Re: [PATCH v3 5/9] riscv: dts: starfive: jh7100-common: Setup pinmux
+ and enable gmac
+Message-ID: <20231217-rippling-galleria-904152e41f95@spud>
+References: <20231215204050.2296404-1-cristian.ciocaltea@collabora.com>
+ <20231215204050.2296404-6-cristian.ciocaltea@collabora.com>
+ <CAJM55Z-bg0EGPaLHtxcu2AzqN59zfuiT0eE7oCShrx7dG_QK1g@mail.gmail.com>
 MIME-Version: 1.0
+In-Reply-To: <CAJM55Z-bg0EGPaLHtxcu2AzqN59zfuiT0eE7oCShrx7dG_QK1g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231217_124103_803285_E2DACA55 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231217_130350_789408_42287CBD 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,127 +66,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Emil Renner Berthing <kernel@esmil.dk>, Michael Turquette <mturquette@baylibre.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, Eric Dumazet <edumazet@google.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, linux-riscv@lists.infradead.org, kernel@collabora.com, linux-clk@vger.kernel.org, Hal Feng <hal.feng@starfivetech.com>, Jose Abreu <joabreu@synopsys.com>, Samin Guo <samin.guo@starfivetech.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Richard Cochran <richardcochran@gmail.com>, Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, linux-arm-kernel@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>, netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, "David S. Miller" <davem@davemloft.net>
+Content-Type: multipart/mixed; boundary="===============1848906633910522306=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add SBI STA and its two registers to the get-reg-list test.
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
----
- .../selftests/kvm/riscv/get-reg-list.c        | 43 +++++++++++++++++++
- 1 file changed, 43 insertions(+)
+--===============1848906633910522306==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="kG7DkOG8HSp8FfWf"
+Content-Disposition: inline
 
-diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-index b8da2e86bf9c..55dd1fc3c536 100644
---- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
-+++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-@@ -71,6 +71,7 @@ bool filter_reg(__u64 reg)
- 	case KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_HSM:
- 	case KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_PMU:
- 	case KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_DBCN:
-+	case KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_STA:
- 	case KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_EXPERIMENTAL:
- 	case KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_VENDOR:
- 		return true;
-@@ -461,6 +462,7 @@ static const char *sbi_ext_single_id_to_str(__u64 reg_off)
- 		KVM_SBI_EXT_ARR(KVM_RISCV_SBI_EXT_SRST),
- 		KVM_SBI_EXT_ARR(KVM_RISCV_SBI_EXT_HSM),
- 		KVM_SBI_EXT_ARR(KVM_RISCV_SBI_EXT_PMU),
-+		KVM_SBI_EXT_ARR(KVM_RISCV_SBI_EXT_STA),
- 		KVM_SBI_EXT_ARR(KVM_RISCV_SBI_EXT_EXPERIMENTAL),
- 		KVM_SBI_EXT_ARR(KVM_RISCV_SBI_EXT_VENDOR),
- 		KVM_SBI_EXT_ARR(KVM_RISCV_SBI_EXT_DBCN),
-@@ -509,6 +511,32 @@ static const char *sbi_ext_id_to_str(const char *prefix, __u64 id)
- 	return strdup_printf("%lld | %lld /* UNKNOWN */", reg_subtype, reg_off);
- }
- 
-+static const char *sbi_sta_id_to_str(__u64 reg_off)
-+{
-+	switch (reg_off) {
-+	case 0: return "KVM_REG_RISCV_SBI_STA | KVM_REG_RISCV_SBI_STA_REG(shmem_lo)";
-+	case 1: return "KVM_REG_RISCV_SBI_STA | KVM_REG_RISCV_SBI_STA_REG(shmem_hi)";
-+	}
-+	return strdup_printf("KVM_REG_RISCV_SBI_STA | %lld /* UNKNOWN */", reg_off);
-+}
-+
-+static const char *sbi_id_to_str(const char *prefix, __u64 id)
-+{
-+	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_SBI);
-+	__u64 reg_subtype = reg_off & KVM_REG_RISCV_SUBTYPE_MASK;
-+
-+	assert((id & KVM_REG_RISCV_TYPE_MASK) == KVM_REG_RISCV_SBI);
-+
-+	reg_off &= ~KVM_REG_RISCV_SUBTYPE_MASK;
-+
-+	switch (reg_subtype) {
-+	case KVM_REG_RISCV_SBI_STA:
-+		return sbi_sta_id_to_str(reg_off);
-+	}
-+
-+	return strdup_printf("%lld | %lld /* UNKNOWN */", reg_subtype, reg_off);
-+}
-+
- void print_reg(const char *prefix, __u64 id)
- {
- 	const char *reg_size = NULL;
-@@ -565,6 +593,10 @@ void print_reg(const char *prefix, __u64 id)
- 		printf("\tKVM_REG_RISCV | %s | KVM_REG_RISCV_SBI_EXT | %s,\n",
- 				reg_size, sbi_ext_id_to_str(prefix, id));
- 		break;
-+	case KVM_REG_RISCV_SBI:
-+		printf("\tKVM_REG_RISCV | %s | KVM_REG_RISCV_SBI | %s,\n",
-+				reg_size, sbi_id_to_str(prefix, id));
-+		break;
- 	default:
- 		printf("\tKVM_REG_RISCV | %s | 0x%llx /* UNKNOWN */,\n",
- 				reg_size, id & ~REG_MASK);
-@@ -651,6 +683,12 @@ static __u64 sbi_base_regs[] = {
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_VENDOR,
- };
- 
-+static __u64 sbi_sta_regs[] = {
-+	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_STA,
-+	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI | KVM_REG_RISCV_SBI_STA | KVM_REG_RISCV_SBI_STA_REG(shmem_lo),
-+	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI | KVM_REG_RISCV_SBI_STA | KVM_REG_RISCV_SBI_STA_REG(shmem_hi),
-+};
-+
- static __u64 zicbom_regs[] = {
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CONFIG | KVM_REG_RISCV_CONFIG_REG(zicbom_block_size),
- 	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICBOM,
-@@ -757,6 +795,9 @@ static __u64 fp_d_regs[] = {
- #define SUBLIST_SBI_BASE \
- 	{"sbi-base", .feature_type = VCPU_FEATURE_SBI_EXT, .feature = KVM_RISCV_SBI_EXT_V01, \
- 	 .regs = sbi_base_regs, .regs_n = ARRAY_SIZE(sbi_base_regs),}
-+#define SUBLIST_SBI_STA \
-+	{"sbi-sta", .feature_type = VCPU_FEATURE_SBI_EXT, .feature = KVM_RISCV_SBI_EXT_STA, \
-+	 .regs = sbi_sta_regs, .regs_n = ARRAY_SIZE(sbi_sta_regs),}
- #define SUBLIST_ZICBOM \
- 	{"zicbom", .feature = KVM_RISCV_ISA_EXT_ZICBOM, .regs = zicbom_regs, .regs_n = ARRAY_SIZE(zicbom_regs),}
- #define SUBLIST_ZICBOZ \
-@@ -832,6 +873,7 @@ static struct vcpu_reg_list config_sbi_##ext = {		\
- /* Note: The below list is alphabetically sorted. */
- 
- KVM_SBI_EXT_SUBLIST_CONFIG(base, BASE);
-+KVM_SBI_EXT_SUBLIST_CONFIG(sta, STA);
- KVM_SBI_EXT_SIMPLE_CONFIG(pmu, PMU);
- KVM_SBI_EXT_SIMPLE_CONFIG(dbcn, DBCN);
- 
-@@ -858,6 +900,7 @@ KVM_ISA_EXT_SIMPLE_CONFIG(zihpm, ZIHPM);
- 
- struct vcpu_reg_list *vcpu_configs[] = {
- 	&config_sbi_base,
-+	&config_sbi_sta,
- 	&config_sbi_pmu,
- 	&config_sbi_dbcn,
- 	&config_aia,
--- 
-2.43.0
 
+--kG7DkOG8HSp8FfWf
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sat, Dec 16, 2023 at 11:38:53AM -0800, Emil Renner Berthing wrote:
+> Cristian Ciocaltea wrote:
+> > Add pinmux configuration for DWMAC found on the JH7100 based boards and
+> > enable the related DT node, providing a basic PHY configuration.
+> >
+> > Co-developed-by: Emil Renner Berthing <emil.renner.berthing@canonical.c=
+om>
+> > Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> > Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> > ---
+> >  .../boot/dts/starfive/jh7100-common.dtsi      | 85 +++++++++++++++++++
+> >  1 file changed, 85 insertions(+)
+> >
+> > diff --git a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi b/arch/ris=
+cv/boot/dts/starfive/jh7100-common.dtsi
+> > index 42fb61c36068..5cafe8f5c2e7 100644
+> > --- a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
+> > +++ b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
+> > @@ -72,7 +72,92 @@ wifi_pwrseq: wifi-pwrseq {
+> >  	};
+> >  };
+> >
+> > +&gmac {
+> > +	pinctrl-names =3D "default";
+> > +	pinctrl-0 =3D <&gmac_pins>;
+> > +	phy-mode =3D "rgmii-id";
+> > +	phy-handle =3D <&phy>;
+>=20
+> I'm not sure if it's a generic policy or not, but I don't really like add=
+ing a
+> reference to a non-existant node here. I'd move this property to the board
+> files where the phy node is actually defined.
+
+FWIW, I don't like the reference-in-the-wrong-place thing either.
+
+--kG7DkOG8HSp8FfWf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZX9iKAAKCRB4tDGHoIJi
+0ljjAQDdeQS9ySXycX3Kr1uE7USW6FuoSN3axiU/roL2LS3UxAD/QmhKPwhsop/g
+JHAPtH4K9zTWBI5z0reix7grWZuUDgQ=
+=ljQG
+-----END PGP SIGNATURE-----
+
+--kG7DkOG8HSp8FfWf--
+
+
+--===============1848906633910522306==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1848906633910522306==--
+
