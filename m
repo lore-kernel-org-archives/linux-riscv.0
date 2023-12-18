@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF09C46CD4
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Dec 2023 10:41:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 183EFC35274
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Dec 2023 10:41:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kxZ8rpKDojI8nYf3E5REO3qJzb7szBvdhy0i0qtT9K8=; b=GyZwVAJd/ljycx
-	fYJi112QCPVauIabYpQ+cSH6Gc68stj/+6iX8B4imgG0OlIyFJunnkcNfxrcErquc5yQHKWUy75xA
-	a+uz4N+HtG5ixzVir2nVE9oVLlYjZUvpEDRQmfUgdudt5dALWFRI2UTcMt2tdbW2nw2L+cqtnFaaK
-	yr3Drx1DBcwC6MrlsuRNZOe13xotK+VRTaMkKxhxHwLG+buGCmTw2DUQEtPL6DEwtbVS6fFl07dI4
-	vt2x/TfwHdPybI78WuNBEO/fdQdWZnut8GkBBU08px2l9vZ7E0kgp6Xv5lFJ29+QuC9o4qiJTI7Vj
-	6XUq+jIO+PwnNeCSRR8A==;
+	List-Owner; bh=dudbZlTVVlTCO1PQnTNc5zLVJh0w+LirY718IFvHyOI=; b=C12WezHrDXGZn2
+	WT5R0dyys6VEgSlPHaFzHmhdt7V/j5sgpAjvEPA7AaOT59RHJl7z+CTZElZgHD6uq300Ldep+E307
+	iDATrQSnNno6TuF7P/GUJfrOwlj4nI+GaOuQJulWO+reervrsT7FMHloge2DpxvXsMaG6uJGxxGAm
+	1xFwYTnwaKW90pf3tbz6UwVxd9BpsckDiAoIrP/bdB3t/DNruLoN/1oWqRTWsKrYlVi8rwK3kpCBP
+	tR8g3vIsvKFj894Q56VtsBwtBIGZgRvIwcu1iHW0zhlXHdb2FgBKHt7KgCY3wo6vyozw5MfoWqxVW
+	7nUVVog8lI+nWeGrtoPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFB3r-009rHo-3C;
-	Mon, 18 Dec 2023 10:41:23 +0000
-Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
+	id 1rFB42-009rQ1-0Y;
+	Mon, 18 Dec 2023 10:41:34 +0000
+Received: from mail-oo1-xc2c.google.com ([2607:f8b0:4864:20::c2c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFB3n-009rEm-1r
+	id 1rFB3v-009rIv-1K
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Dec 2023 10:41:21 +0000
-Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-6d9d29a2332so1256704a34.0
-        for <linux-riscv@lists.infradead.org>; Mon, 18 Dec 2023 02:41:19 -0800 (PST)
+	Mon, 18 Dec 2023 10:41:29 +0000
+Received: by mail-oo1-xc2c.google.com with SMTP id 006d021491bc7-591341db3a1so1991378eaf.3
+        for <linux-riscv@lists.infradead.org>; Mon, 18 Dec 2023 02:41:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1702896078; x=1703500878; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1702896085; x=1703500885; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=EzYVT3U62jOpimrVBwbFtsr3YzUGPIXyIVj0onyqTs4=;
-        b=1DQPcLOOBaOGc2FlyGQ4UoCwtKurX3aslmJIux5Glvz5w27ADWfOQAgY5IJvBcXwJM
-         fTWzBPnGCnrzUIYu5plll0zt3wNt2EhrptdKSBfxaCaYXT2e6H+U1UMQkS0dwRjshfIP
-         v5GvDSffZk/kHTmtPX+o2IOfsH3DT2qJE8BggNgCAwGPKepp3fMIsqG4IN+S3dY5jAxy
-         5ZzFg7FjzrtFajzjfCsqoFiDGvOXzk0u8zl8SvK+c61GXNX/wdZgViNmtLZJK9xNr1dJ
-         UECLF1VjFN99iCDOkRLB2RArt32QafJhWtIgidtDr0GpuYqmt6AMNVZNI4UHEwQSuC8E
-         ekGQ==
+        bh=jeUoD5w+s0CxkalfFaN5Dt+JygGbi9+TUwNZaVAo8HU=;
+        b=RQljCZHDf+ACFi+2pmLqM+NjRRCVEQB5GRLDE1BXcypOe74oUrWq2algK1SjQKWUFL
+         v+xu4PB9owZWvDOHBiFK4fz3i6vwMebFaAN/vJ+i2CtLUK3sGCncdmAM6mwvmo5bBAdv
+         kl73zUVzvPm3Rpc/kxlg6OaCDJFF/sK6IXcKLw23uF9mFkqINMPhPa7V5VmWovgdwME/
+         ktRFHLT1RkmOsZNcKKo5T1U6y8CEuoAtQi08C17eEwYxnREXY+Oghe969HTyuz8zG4xP
+         6uB4920THfS74sEiGKxDXDDR+UY2JsU8LYHT4uG90E1S2Ud177pozXClW8LWk+7AaIJV
+         qk2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702896078; x=1703500878;
+        d=1e100.net; s=20230601; t=1702896085; x=1703500885;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=EzYVT3U62jOpimrVBwbFtsr3YzUGPIXyIVj0onyqTs4=;
-        b=qZOSkYlfPVhUc4NTmBVFWGbquniY5PzADuaHtfAIZCeaeF85wTw81j6yqpXLD9KPUo
-         k2B/aCeP6ShnwsLnHFbifmGge5Sq9i1gwqucfWwV/RxoiyOL4UyDPulkobVX2Kwlx0a5
-         /lAZjpO+GZ7BlOtkrUZhSPwm3QHY+QVb3/Pp02F7IrC2YdXro366vTSouuj9LnqSFXNc
-         yzAyEWjtHgGhTIgJSz9zNvlluAGXawX4apxHvfpXm5U/rG89xmED8QpT7OaZ7ZuY5itD
-         kfiC4oFNZwfa5qa61kuVey6+rcluffRJcKxq1LfJzX04iGKdkqIuNKJnQayHIobdtW96
-         sMZw==
-X-Gm-Message-State: AOJu0Yw7TnL5WGJxWpmSSr6NO9W2sZY68SLf2lnplgJ892KYTWCewGBQ
-	WYSOlYTioofADcdVQo6Q+WpYKg==
-X-Google-Smtp-Source: AGHT+IHap3UnechuN3domT4X1LYxQydZehOxW5SUbyRuhBv7FJIHHp0fJMugr+7DMK4DyTgTcIzVvg==
-X-Received: by 2002:a9d:7dc9:0:b0:6da:5056:62de with SMTP id k9-20020a9d7dc9000000b006da505662demr2117996otn.7.1702896078450;
-        Mon, 18 Dec 2023 02:41:18 -0800 (PST)
+        bh=jeUoD5w+s0CxkalfFaN5Dt+JygGbi9+TUwNZaVAo8HU=;
+        b=hofBHg47pJVerXoYy6bTtFJbcyCeLYobhFbFySaZ04QEpHkqaafz06kaxWnYl0GKTk
+         05XWBbdgzjn1vlAvdFK2u5T7JyhwY6xyoBKTWh7OmR9e/YT9zq3YoGayZqVKedw5QKHB
+         WVj9ORudYt8EkzoudCMqYqYCk7FWKKrw4EpfWJuvR2gM7jPUi6/uqzQaDZ8PvxCF/wD1
+         0f2X+ImE5VynAjXFYvXVYYYl3qj4CUFcX95PKsTAuo8yd1jdDmxdVl9iwNn9w9FLm79X
+         VLVwqWAUZrJWNVMluWYKcyScHZ2Fpiu1viRO81vQz/AWhiXACNF+TK57P0rG8obNnsjN
+         3mmQ==
+X-Gm-Message-State: AOJu0YzfssLJ9ktCDXMYCnFEtcLbZ+/X8RBfO7QkfkFYNu01VMWFGiw4
+	Y4vRl20YpGdApMg1RZQGDFxGxQ==
+X-Google-Smtp-Source: AGHT+IF/CD1CrvjEKZWrcztnnbcjmB601qkmRR+G5Fh0kp8ANZW7ofSM7f+5q4dUxpWtRaDU2EyadQ==
+X-Received: by 2002:a05:6820:2224:b0:58d:9942:b49 with SMTP id cj36-20020a056820222400b0058d99420b49mr13868683oob.9.1702896085161;
+        Mon, 18 Dec 2023 02:41:25 -0800 (PST)
 Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 185-20020a4a1ac2000000b005907ad9f302sm574970oof.37.2023.12.18.02.41.16
+        by smtp.gmail.com with ESMTPSA id 185-20020a4a1ac2000000b005907ad9f302sm574970oof.37.2023.12.18.02.41.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Dec 2023 02:41:18 -0800 (PST)
+        Mon, 18 Dec 2023 02:41:24 -0800 (PST)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [v1 01/10] RISC-V: Fix the typo in Scountovf CSR name
-Date: Mon, 18 Dec 2023 02:40:58 -0800
-Message-Id: <20231218104107.2976925-2-atishp@rivosinc.com>
+Subject: [v1 05/10] drivers/perf: riscv: Implement SBI PMU snapshot function
+Date: Mon, 18 Dec 2023 02:41:02 -0800
+Message-Id: <20231218104107.2976925-6-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20231218104107.2976925-1-atishp@rivosinc.com>
 References: <20231218104107.2976925-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231218_024119_643684_868111F0 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20231218_024127_452583_86DD9992 
+X-CRM114-Status: GOOD (  34.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,45 +91,395 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The counter overflow CSR name is "scountovf" not "sscountovf".
+SBI v2.0 SBI introduced PMU snapshot feature which adds the following
+features.
 
-Fix the csr name.
+1. Read counter values directly from the shared memory instead of
+csr read.
+2. Start multiple counters with initial values with one SBI call.
 
-Fixes: 4905ec2fb7e6 ("RISC-V: Add sscofpmf extension support")
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
+These functionalities optimizes the number of traps to the higher
+privilege mode. If the kernel is in VS mode while the hypervisor
+deploy trap & emulate method, this would minimize all the hpmcounter
+CSR read traps. If the kernel is running in S-mode, the benefits
+reduced to CSR latency vs DRAM/cache latency as there is no trap
+involved while accessing the hpmcounter CSRs.
+
+In both modes, it does saves the number of ecalls while starting
+multiple counter together with an initial values. This is a likely
+scenario if multiple counters overflow at the same time.
+
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/include/asm/csr.h         | 2 +-
- arch/riscv/include/asm/errata_list.h | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ drivers/perf/riscv_pmu.c       |   1 +
+ drivers/perf/riscv_pmu_sbi.c   | 210 +++++++++++++++++++++++++++++++--
+ include/linux/perf/riscv_pmu.h |   6 +
+ 3 files changed, 205 insertions(+), 12 deletions(-)
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index 306a19a5509c..88cdc8a3e654 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -281,7 +281,7 @@
- #define CSR_HPMCOUNTER30H	0xc9e
- #define CSR_HPMCOUNTER31H	0xc9f
+diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
+index 0dda70e1ef90..5b57acb770d3 100644
+--- a/drivers/perf/riscv_pmu.c
++++ b/drivers/perf/riscv_pmu.c
+@@ -412,6 +412,7 @@ struct riscv_pmu *riscv_pmu_alloc(void)
+ 		cpuc->n_events = 0;
+ 		for (i = 0; i < RISCV_MAX_COUNTERS; i++)
+ 			cpuc->events[i] = NULL;
++		cpuc->snapshot_addr = NULL;
+ 	}
+ 	pmu->pmu = (struct pmu) {
+ 		.event_init	= riscv_pmu_event_init,
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 646604f8c0a5..7def69707492 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -36,6 +36,9 @@ PMU_FORMAT_ATTR(event, "config:0-47");
+ PMU_FORMAT_ATTR(firmware, "config:63");
  
--#define CSR_SSCOUNTOVF		0xda0
-+#define CSR_SCOUNTOVF		0xda0
+ static bool sbi_v2_available;
++static DEFINE_STATIC_KEY_FALSE(sbi_pmu_snapshot_available);
++#define sbi_pmu_snapshot_available() \
++	static_branch_unlikely(&sbi_pmu_snapshot_available)
  
- #define CSR_SSTATUS		0x100
- #define CSR_SIE			0x104
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index 83ed25e43553..7026fba12eeb 100644
---- a/arch/riscv/include/asm/errata_list.h
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -152,7 +152,7 @@ asm volatile(ALTERNATIVE_2(						\
+ static struct attribute *riscv_arch_formats_attr[] = {
+ 	&format_attr_event.attr,
+@@ -485,14 +488,100 @@ static int pmu_sbi_event_map(struct perf_event *event, u64 *econfig)
+ 	return ret;
+ }
  
- #define ALT_SBI_PMU_OVERFLOW(__ovl)					\
- asm volatile(ALTERNATIVE(						\
--	"csrr %0, " __stringify(CSR_SSCOUNTOVF),			\
-+	"csrr %0, " __stringify(CSR_SCOUNTOVF),				\
- 	"csrr %0, " __stringify(THEAD_C9XX_CSR_SCOUNTEROF),		\
- 		THEAD_VENDOR_ID, ERRATA_THEAD_PMU,			\
- 		CONFIG_ERRATA_THEAD_PMU)				\
++static void pmu_sbi_snapshot_free(struct riscv_pmu *pmu)
++{
++	int cpu;
++
++	for_each_possible_cpu(cpu) {
++		struct cpu_hw_events *cpu_hw_evt = per_cpu_ptr(pmu->hw_events, cpu);
++
++		if (!cpu_hw_evt->snapshot_addr)
++			continue;
++
++		free_page((unsigned long)cpu_hw_evt->snapshot_addr);
++		cpu_hw_evt->snapshot_addr = NULL;
++		cpu_hw_evt->snapshot_addr_phys = 0;
++	}
++}
++
++static int pmu_sbi_snapshot_alloc(struct riscv_pmu *pmu)
++{
++	int cpu;
++	struct page *snapshot_page;
++
++	for_each_possible_cpu(cpu) {
++		struct cpu_hw_events *cpu_hw_evt = per_cpu_ptr(pmu->hw_events, cpu);
++
++		if (cpu_hw_evt->snapshot_addr)
++			continue;
++
++		snapshot_page = alloc_page(GFP_ATOMIC | __GFP_ZERO);
++		if (!snapshot_page) {
++			pmu_sbi_snapshot_free(pmu);
++			return -ENOMEM;
++		}
++		cpu_hw_evt->snapshot_addr = page_to_virt(snapshot_page);
++		cpu_hw_evt->snapshot_addr_phys = page_to_phys(snapshot_page);
++	}
++
++	return 0;
++}
++
++static void pmu_sbi_snapshot_disable(void)
++{
++	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_SNAPSHOT_SET_SHMEM, -1,
++		  -1, 0, 0, 0, 0);
++}
++
++static int pmu_sbi_snapshot_setup(struct riscv_pmu *pmu, int cpu)
++{
++	struct cpu_hw_events *cpu_hw_evt;
++	struct sbiret ret = {0};
++
++	cpu_hw_evt = per_cpu_ptr(pmu->hw_events, cpu);
++	if (!cpu_hw_evt->snapshot_addr_phys)
++		return -EINVAL;
++
++	if (cpu_hw_evt->snapshot_set_done)
++		return 0;
++
++	if (IS_ENABLED(CONFIG_32BIT))
++		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_SNAPSHOT_SET_SHMEM,
++				cpu_hw_evt->snapshot_addr_phys,
++				(u64)(cpu_hw_evt->snapshot_addr_phys) >> 32, 0, 0, 0, 0);
++	else
++		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_SNAPSHOT_SET_SHMEM,
++				cpu_hw_evt->snapshot_addr_phys, 0, 0, 0, 0, 0);
++
++	/* Free up the snapshot area memory and fall back to SBI PMU calls without snapshot */
++	if (ret.error) {
++		if (ret.error != SBI_ERR_NOT_SUPPORTED)
++			pr_warn("pmu snapshot setup failed with error %ld\n", ret.error);
++		return sbi_err_map_linux_errno(ret.error);
++	}
++
++	cpu_hw_evt->snapshot_set_done = true;
++
++	return 0;
++}
++
+ static u64 pmu_sbi_ctr_read(struct perf_event *event)
+ {
+ 	struct hw_perf_event *hwc = &event->hw;
+ 	int idx = hwc->idx;
+ 	struct sbiret ret;
+ 	u64 val = 0;
++	struct riscv_pmu *pmu = to_riscv_pmu(event->pmu);
++	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
++	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
+ 	union sbi_pmu_ctr_info info = pmu_ctr_list[idx];
+ 
++	/* Read the value from the shared memory directly */
++	if (sbi_pmu_snapshot_available()) {
++		val = sdata->ctr_values[idx];
++		return val;
++	}
++
+ 	if (pmu_sbi_is_fw_event(event)) {
+ 		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_FW_READ,
+ 				hwc->idx, 0, 0, 0, 0, 0);
+@@ -512,6 +601,7 @@ static u64 pmu_sbi_ctr_read(struct perf_event *event)
+ 			val = ((u64)riscv_pmu_ctr_read_csr(info.csr + 0x80)) << 31 | val;
+ 	}
+ 
++
+ 	return val;
+ }
+ 
+@@ -539,6 +629,7 @@ static void pmu_sbi_ctr_start(struct perf_event *event, u64 ival)
+ 	struct hw_perf_event *hwc = &event->hw;
+ 	unsigned long flag = SBI_PMU_START_FLAG_SET_INIT_VALUE;
+ 
++	/* There is no benefit setting SNAPSHOT FLAG for a single counter */
+ #if defined(CONFIG_32BIT)
+ 	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, hwc->idx,
+ 			1, flag, ival, ival >> 32, 0);
+@@ -559,16 +650,36 @@ static void pmu_sbi_ctr_stop(struct perf_event *event, unsigned long flag)
+ {
+ 	struct sbiret ret;
+ 	struct hw_perf_event *hwc = &event->hw;
++	struct riscv_pmu *pmu = to_riscv_pmu(event->pmu);
++	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
++	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
+ 
+ 	if ((hwc->flags & PERF_EVENT_FLAG_USER_ACCESS) &&
+ 	    (hwc->flags & PERF_EVENT_FLAG_USER_READ_CNT))
+ 		pmu_sbi_reset_scounteren((void *)event);
+ 
++	if (sbi_pmu_snapshot_available())
++		flag |= SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT;
++
+ 	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP, hwc->idx, 1, flag, 0, 0, 0);
+-	if (ret.error && (ret.error != SBI_ERR_ALREADY_STOPPED) &&
+-		flag != SBI_PMU_STOP_FLAG_RESET)
++	if (!ret.error && sbi_pmu_snapshot_available()) {
++		/*
++		 * The counter snapshot is based on the index base specified by hwc->idx.
++		 * The actual counter value is updated in shared memory at index 0 when counter
++		 * mask is 0x01. To ensure accurate counter values, it's necessary to transfer
++		 * the counter value to shared memory. However, if hwc->idx is zero, the counter
++		 * value is already correctly updated in shared memory, requiring no further
++		 * adjustment.
++		 */
++		if (hwc->idx > 0) {
++			sdata->ctr_values[hwc->idx] = sdata->ctr_values[0];
++			sdata->ctr_values[0] = 0;
++		}
++	} else if (ret.error && (ret.error != SBI_ERR_ALREADY_STOPPED) &&
++		flag != SBI_PMU_STOP_FLAG_RESET) {
+ 		pr_err("Stopping counter idx %d failed with error %d\n",
+ 			hwc->idx, sbi_err_map_linux_errno(ret.error));
++	}
+ }
+ 
+ static int pmu_sbi_find_num_ctrs(void)
+@@ -626,10 +737,14 @@ static inline void pmu_sbi_stop_all(struct riscv_pmu *pmu)
+ static inline void pmu_sbi_stop_hw_ctrs(struct riscv_pmu *pmu)
+ {
+ 	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
++	unsigned long flag = 0;
++
++	if (sbi_pmu_snapshot_available())
++		flag = SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT;
+ 
+ 	/* No need to check the error here as we can't do anything about the error */
+ 	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP, 0,
+-		  cpu_hw_evt->used_hw_ctrs[0], 0, 0, 0, 0);
++		  cpu_hw_evt->used_hw_ctrs[0], flag, 0, 0, 0);
+ }
+ 
+ /*
+@@ -638,11 +753,10 @@ static inline void pmu_sbi_stop_hw_ctrs(struct riscv_pmu *pmu)
+  * while the overflowed counters need to be started with updated initialization
+  * value.
+  */
+-static inline void pmu_sbi_start_overflow_mask(struct riscv_pmu *pmu,
+-					       unsigned long ctr_ovf_mask)
++static noinline void pmu_sbi_start_ovf_ctrs_sbi(struct cpu_hw_events *cpu_hw_evt,
++						   unsigned long ctr_ovf_mask)
+ {
+ 	int idx = 0;
+-	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
+ 	struct perf_event *event;
+ 	unsigned long flag = SBI_PMU_START_FLAG_SET_INIT_VALUE;
+ 	unsigned long ctr_start_mask = 0;
+@@ -677,6 +791,49 @@ static inline void pmu_sbi_start_overflow_mask(struct riscv_pmu *pmu,
+ 	}
+ }
+ 
++static noinline void pmu_sbi_start_ovf_ctrs_snapshot(struct cpu_hw_events *cpu_hw_evt,
++						   unsigned long ctr_ovf_mask)
++{
++	int idx = 0;
++	struct perf_event *event;
++	unsigned long flag = SBI_PMU_START_FLAG_INIT_FROM_SNAPSHOT;
++	uint64_t max_period;
++	struct hw_perf_event *hwc;
++	u64 init_val = 0;
++	unsigned long ctr_start_mask = 0;
++	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
++
++	for_each_set_bit(idx, cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS) {
++		if (ctr_ovf_mask & (1 << idx)) {
++			event = cpu_hw_evt->events[idx];
++			hwc = &event->hw;
++			max_period = riscv_pmu_ctr_get_width_mask(event);
++			init_val = local64_read(&hwc->prev_count) & max_period;
++			sdata->ctr_values[idx] = init_val;
++		}
++		/* We donot need to update the non-overflow counters the previous
++		 * value should have been there already.
++		 */
++	}
++
++	ctr_start_mask = cpu_hw_evt->used_hw_ctrs[0];
++
++	/* Start all the counters in a single shot */
++	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, 0, ctr_start_mask,
++		  flag, 0, 0, 0);
++}
++
++static void pmu_sbi_start_overflow_mask(struct riscv_pmu *pmu,
++					unsigned long ctr_ovf_mask)
++{
++	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
++
++	if (sbi_pmu_snapshot_available())
++		pmu_sbi_start_ovf_ctrs_snapshot(cpu_hw_evt, ctr_ovf_mask);
++	else
++		pmu_sbi_start_ovf_ctrs_sbi(cpu_hw_evt, ctr_ovf_mask);
++}
++
+ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ {
+ 	struct perf_sample_data data;
+@@ -690,6 +847,7 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 	unsigned long overflowed_ctrs = 0;
+ 	struct cpu_hw_events *cpu_hw_evt = dev;
+ 	u64 start_clock = sched_clock();
++	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
+ 
+ 	if (WARN_ON_ONCE(!cpu_hw_evt))
+ 		return IRQ_NONE;
+@@ -711,8 +869,10 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 	pmu_sbi_stop_hw_ctrs(pmu);
+ 
+ 	/* Overflow status register should only be read after counter are stopped */
+-	ALT_SBI_PMU_OVERFLOW(overflow);
+-
++	if (sbi_pmu_snapshot_available())
++		overflow = sdata->ctr_overflow_mask;
++	else
++		ALT_SBI_PMU_OVERFLOW(overflow);
+ 	/*
+ 	 * Overflow interrupt pending bit should only be cleared after stopping
+ 	 * all the counters to avoid any race condition.
+@@ -794,6 +954,9 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
+ 		enable_percpu_irq(riscv_pmu_irq, IRQ_TYPE_NONE);
+ 	}
+ 
++	if (sbi_pmu_snapshot_available())
++		return pmu_sbi_snapshot_setup(pmu, cpu);
++
+ 	return 0;
+ }
+ 
+@@ -807,6 +970,9 @@ static int pmu_sbi_dying_cpu(unsigned int cpu, struct hlist_node *node)
+ 	/* Disable all counters access for user mode now */
+ 	csr_write(CSR_SCOUNTEREN, 0x0);
+ 
++	if (sbi_pmu_snapshot_available())
++		pmu_sbi_snapshot_disable();
++
+ 	return 0;
+ }
+ 
+@@ -1076,10 +1242,6 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 	pmu->event_unmapped = pmu_sbi_event_unmapped;
+ 	pmu->csr_index = pmu_sbi_csr_index;
+ 
+-	ret = cpuhp_state_add_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
+-	if (ret)
+-		return ret;
+-
+ 	ret = riscv_pm_pmu_register(pmu);
+ 	if (ret)
+ 		goto out_unregister;
+@@ -1088,8 +1250,32 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto out_unregister;
+ 
++	/* SBI PMU Snapsphot is only available in SBI v2.0 */
++	if (sbi_v2_available) {
++		ret = pmu_sbi_snapshot_alloc(pmu);
++		if (ret)
++			goto out_unregister;
++
++		ret = pmu_sbi_snapshot_setup(pmu, smp_processor_id());
++		if (!ret) {
++			pr_info("SBI PMU snapshot detected\n");
++			/*
++			 * We enable it once here for the boot cpu. If snapshot shmem setup
++			 * fails during cpu hotplug process, it will fail to start the cpu
++			 * as we can not handle hetergenous PMUs with different snapshot
++			 * capability.
++			 */
++			static_branch_enable(&sbi_pmu_snapshot_available);
++		}
++		/* Snapshot is an optional feature. Continue if not available */
++	}
++
+ 	register_sysctl("kernel", sbi_pmu_sysctl_table);
+ 
++	ret = cpuhp_state_add_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
++	if (ret)
++		return ret;
++
+ 	return 0;
+ 
+ out_unregister:
+diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
+index 43282e22ebe1..c3fa90970042 100644
+--- a/include/linux/perf/riscv_pmu.h
++++ b/include/linux/perf/riscv_pmu.h
+@@ -39,6 +39,12 @@ struct cpu_hw_events {
+ 	DECLARE_BITMAP(used_hw_ctrs, RISCV_MAX_COUNTERS);
+ 	/* currently enabled firmware counters */
+ 	DECLARE_BITMAP(used_fw_ctrs, RISCV_MAX_COUNTERS);
++	/* The virtual address of the shared memory where counter snapshot will be taken */
++	void *snapshot_addr;
++	/* The physical address of the shared memory where counter snapshot will be taken */
++	phys_addr_t snapshot_addr_phys;
++	/* Boolean flag to indicate setup is already done */
++	bool snapshot_set_done;
+ };
+ 
+ struct riscv_pmu {
 -- 
 2.34.1
 
