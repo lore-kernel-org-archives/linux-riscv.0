@@ -4,96 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6638CC35274
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Dec 2023 11:07:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 827B4C35274
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Dec 2023 11:38:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hInlEEMNP70TaUjox6CjSRUMmtixnH1RZzUQociWOCY=; b=qRs1Z2fNNVlgQ2
-	6LH006QUf8HRqCgg2tD7iuWnk16XnuTXzhr8DolguMUccAWs9Kj2vh3xuUTYAEvYxcWm7YADNDR1q
-	nfzuFQ6soFTjnTFq3EUyGF1ZtWf7PoKQQiqVZs4ldBeDQUbBCsVgbpOBUOINcMnfmcVmx9QzkjgmW
-	m9/srXy2wncq3eq7mjj46DvC3tteMoFN5FpdYs83J+gm5sq7fsmK+aBIxmj65Zq3md8WLgSkYNc0C
-	zaYvwhrAecmYi012c/YWp/JJNhE+v9b/mvi4x5YVsSYo6+7KG0smVCI5HYAhr37Dr54HptZfi7Ny/
-	dzU7MnZjx2IGxWuF0I2A==;
+	List-Owner; bh=Rhsh/aYND3OpCVEn585HZJUCx1vvensT4sdmX3Qn3Is=; b=knqW1mpcdFv8ON
+	vWUHnc21HRRNf4tfHGkYzG1KVLrYIwza4IsCpSHbqLcLw+3Y8UYFKvofkwxIHqhDiIC9CsTTa82xx
+	8Z51m8p2ToQz8h0Q8bBXhq2kDLgdG5EiZo5FEnhhDhN42jy1+FDJskOo5JGtgqR2WNxQceeq3DvM1
+	9i8uAn/tgFF9qUCnpkGkGMRQS+oqYJ8kw2OFMyRxxu5QIo4bxA6nYpWRAx7J97e3kkyijQe88IH/1
+	qTJk/GC58YTH76cZKns91pIY6qS+rt+xB4s34Ol+NQr8naVjrnHHbomV0r5PqZC8GQXErKUo3r54K
+	rABJq2uPhd6z7D512Iug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFBSv-009zAS-1l;
-	Mon, 18 Dec 2023 11:07:17 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1rFBwy-00ADqh-1Z;
+	Mon, 18 Dec 2023 11:38:20 +0000
+Received: from madrid.collaboradmins.com ([46.235.227.194])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFBSr-009z5O-3D;
-	Mon, 18 Dec 2023 11:07:15 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-a23566e91d5so103457466b.0;
-        Mon, 18 Dec 2023 03:07:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1702897631; x=1703502431; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lerjiFsv40IIbLDp1yKfCOrHgxz1kvFlDa/xJlfcdo0=;
-        b=df+BLlgRpzbi81JPiwGtrgt8eNTg4ZrKAozUpuuW8ilDxAMS/ZHW7U0FwU8VoAhzZd
-         GzmhjID1UmN6Di30eigSzSMh2dvch1Pm3U5c2NQ6mN5ULravYitsVC7DA3dXCQkguT2J
-         NagUkmTzFHdqjnjK2Zov4RjVQVNpz3F7UmgAshh7QejoKcg4vQA+B7Twj0ppcvK7bIss
-         gE3H+tac56ULCV2wd0XadWpnLxaxfMmNaoCBd+458Npc+Jd1rln6K2nIXGt5k/ImPRfe
-         RwZBtUoFiSWzCrgEYoN4ECGWq2V53xj7iQJ1gCinXNscLg5jEF4XlP+ueiyNMRWsUtTZ
-         L/YA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702897631; x=1703502431;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lerjiFsv40IIbLDp1yKfCOrHgxz1kvFlDa/xJlfcdo0=;
-        b=mkwZdY0URlIH/n0lYX/nOc/rnJvUJbp2iO32TxLNEwGCYDyJ+ry7F7XPTnlK8x6Xvg
-         iZFIIIAMvtp+f8ALk00IVvckQ5lEyBvv+nwWWGNbT26NT1JuC7mx+eM+ErYKOSASJO3C
-         J279UBqNPS4u2QfsbiT+EGEgNoVe/Q4CKz18Q5EZ0kxj6NNWVvjgIdueA42NkfZfQJrz
-         U2IgBTXJtUVXgSYislsOW9VMXtW9zhCL7R030YNIKIrlp+OqR1J7Z9CzvfZGLsGsst/E
-         8e2vqftMz+pu8g3cQoSleil7+eVcso/2kj/0OYbB95x+Nnerjnh6EAlGxRdTF0PAhoTm
-         uUpA==
-X-Gm-Message-State: AOJu0YwqhhSrf/zxNn8a5nqbV5+4X8JWaZL3ZWSn7UNQ3BDO14MMnsi6
-	BQzmOCNyNWss07lqlxThZiA=
-X-Google-Smtp-Source: AGHT+IGQMtd6fso8NFusjQjFPqt6Spt8yZ8CBjuG18cqbhcpV/I/x5LWeBsLrRHnA3YL1WPAg7whNQ==
-X-Received: by 2002:a17:906:11cd:b0:a23:365d:fc74 with SMTP id o13-20020a17090611cd00b00a23365dfc74mr870108eja.125.1702897630746;
-        Mon, 18 Dec 2023 03:07:10 -0800 (PST)
-Received: from localhost.localdomain ([154.72.163.164])
-        by smtp.gmail.com with ESMTPSA id pj4-20020a170906d78400b00a2353af1f7bsm1406769ejb.92.2023.12.18.03.07.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Dec 2023 03:07:10 -0800 (PST)
-From: Brandon Cheo Fusi <fusibrandon13@gmail.com>
-To: Yangtao Li <tiny.windzz@gmail.com>,
-	Viresh Kumar <vireshk@kernel.org>,
-	Nishanth Menon <nm@ti.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Maxime Ripard <mripard@kernel.org>
-Cc: linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Brandon Cheo Fusi <fusibrandon13@gmail.com>
-Subject: [PATCH v2 5/5] cpufreq: Make sun50i h6 cpufreq Kconfig option arch generic
-Date: Mon, 18 Dec 2023 12:05:43 +0100
-Message-Id: <20231218110543.64044-6-fusibrandon13@gmail.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20231218110543.64044-1-fusibrandon13@gmail.com>
-References: <20231218110543.64044-1-fusibrandon13@gmail.com>
+	id 1rFBwu-00ADmJ-1Z;
+	Mon, 18 Dec 2023 11:38:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1702899493;
+	bh=V5PA5oyxCd5DFK291fOQmsy6Q17j3UOvBS6drZZobsg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lFn6oaU5/zBXfw/lfDzsQZdCaZFrqBfttjH8fN5pBpC+x9ugq0uF/v0dGZEiFXRc6
+	 +7oyXTScJk0y2/u+13P+FgCN9xo9hOk0ujzwxI2YY2XRVgOAS3UHZbgaQf3b/Nyyn8
+	 x9KWS4ulLJGO2JJ/FNGyadTdjybGHs7OxL+L7IeijvJf5RQvh9tMcINNbnZ5A9aGYP
+	 0tQfFgU/lZk8ls4dofDxlacunvvIR+6USPl7W0C7WeZQ9UPXms/MR1v5xiZfdnFQWA
+	 UXhwYOJolTHy+09ThqcCCwO1/J2c1p0e6rjcTtFXobbHcUK49iLD+meFAW+xXeGU3F
+	 nALQ2xfxXz1Rg==
+Received: from [100.115.223.179] (cola.collaboradmins.com [195.201.22.229])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by madrid.collaboradmins.com (Postfix) with ESMTPSA id 8A206378149C;
+	Mon, 18 Dec 2023 11:38:11 +0000 (UTC)
+Message-ID: <a06aaab5-b433-44a6-89a4-bdf713d5e1a9@collabora.com>
+Date: Mon, 18 Dec 2023 13:38:10 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 12/12] [UNTESTED] riscv: dts: starfive:
+ beaglev-starlight: Enable gmac
+Content-Language: en-US
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Samin Guo <samin.guo@starfivetech.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+References: <20231029042712.520010-1-cristian.ciocaltea@collabora.com>
+ <20231029042712.520010-13-cristian.ciocaltea@collabora.com>
+ <CAJM55Z9e=vjGKNnmURN15mvXo2bVd3igBA-3puF9q7eh5hiP+A@mail.gmail.com>
+ <2f06ce36-0dc1-495e-b6a6-318951a53e8d@collabora.com>
+ <698fbb5d-0750-4f2a-857f-5429e5f589f9@collabora.com>
+ <CAJM55Z-e8mkjac-nCF9_w6EmMVbL9ued0mAcjwTMF=pKDLkMsA@mail.gmail.com>
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <CAJM55Z-e8mkjac-nCF9_w6EmMVbL9ued0mAcjwTMF=pKDLkMsA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231218_030714_062328_B7CD2BF1 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20231218_033816_743634_C84C5499 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,78 +95,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move the Allwinner SUN50I cpufreq driver from Kconfig.arm to the
-main Kconfig file so it supports other architectures, like RISC-V
-in our case, and drop the 'ARM_' prefix.
+On 12/16/23 21:24, Emil Renner Berthing wrote:
+> Cristian Ciocaltea wrote:
+>> On 11/28/23 02:40, Cristian Ciocaltea wrote:
+>>> On 11/26/23 23:10, Emil Renner Berthing wrote:
+>>>> Cristian Ciocaltea wrote:
+>>>>> The BeagleV Starlight SBC uses a Microchip KSZ9031RNXCA PHY supporting
+>>>>> RGMII-ID.
+>>>>>
+>>
+>> [...]
+>>
+>>>> You've alse removed the phy reset gpio on the Starlight board:
+>>>>
+>>>>   snps,reset-gpios = <&gpio 63 GPIO_ACTIVE_LOW>
+>>>>
+>>>> Why?
+>>>
+>>> I missed this in v1 as the gmac handling was done exclusively in
+>>> jh7100-common. Thanks for noticing!
+>>
+>> Hi Emil,
+>>
+>> I think the reset doesn't actually trigger because "snps,reset-gpios" is
+>> not a valid property, it should have been "snps,reset-gpio" (without the
+>> trailing "s").
+>>
+>> However, this seems to be deprecated now, and the recommended approach
+>> would be to define the reset gpio in the phy node, which I did in [1].
+>>
+>> Hopefully this won't cause any unexpected behaviour. Otherwise we should
+>> probably simply drop it.
+>>
+>> [1]: https://lore.kernel.org/lkml/20231215204050.2296404-8-cristian.ciocaltea@collabora.com/
+> 
+> Oh, nice catch! With your v3 patches the Starlight board still works fine and
+> GPIO63 is correctly grabbed and used for "PHY reset".
 
-Signed-off-by: Brandon Cheo Fusi <fusibrandon13@gmail.com>
----
- drivers/cpufreq/Kconfig     | 12 ++++++++++++
- drivers/cpufreq/Kconfig.arm | 12 ------------
- drivers/cpufreq/Makefile    |  2 +-
- 3 files changed, 13 insertions(+), 13 deletions(-)
-
-diff --git a/drivers/cpufreq/Kconfig b/drivers/cpufreq/Kconfig
-index 35efb53d5..50aa66cfc 100644
---- a/drivers/cpufreq/Kconfig
-+++ b/drivers/cpufreq/Kconfig
-@@ -301,5 +301,17 @@ config QORIQ_CPUFREQ
- 	  This adds the CPUFreq driver support for Freescale QorIQ SoCs
- 	  which are capable of changing the CPU's frequency dynamically.
- 
-+config ALLWINNER_SUN50I_CPUFREQ_NVMEM
-+	tristate "Allwinner nvmem based SUN50I CPUFreq driver"
-+	depends on ARCH_SUNXI
-+	depends on NVMEM_SUNXI_SID
-+	select PM_OPP
-+	help
-+	  This adds the nvmem based CPUFreq driver for Allwinner
-+	  h6/D1 SoCs.
-+
-+	  To compile this driver as a module, choose M here: the
-+	  module will be called sun50i-cpufreq-nvmem.
-+
- endif
- endmenu
-diff --git a/drivers/cpufreq/Kconfig.arm b/drivers/cpufreq/Kconfig.arm
-index f91160689..98b8e6eef 100644
---- a/drivers/cpufreq/Kconfig.arm
-+++ b/drivers/cpufreq/Kconfig.arm
-@@ -29,18 +29,6 @@ config ACPI_CPPC_CPUFREQ_FIE
- 
- 	  If in doubt, say N.
- 
--config ARM_ALLWINNER_SUN50I_CPUFREQ_NVMEM
--	tristate "Allwinner nvmem based SUN50I CPUFreq driver"
--	depends on ARCH_SUNXI
--	depends on NVMEM_SUNXI_SID
--	select PM_OPP
--	help
--	  This adds the nvmem based CPUFreq driver for Allwinner
--	  h6 SoC.
--
--	  To compile this driver as a module, choose M here: the
--	  module will be called sun50i-cpufreq-nvmem.
--
- config ARM_APPLE_SOC_CPUFREQ
- 	tristate "Apple Silicon SoC CPUFreq support"
- 	depends on ARCH_APPLE || (COMPILE_TEST && 64BIT)
-diff --git a/drivers/cpufreq/Makefile b/drivers/cpufreq/Makefile
-index 8d141c71b..110b676d2 100644
---- a/drivers/cpufreq/Makefile
-+++ b/drivers/cpufreq/Makefile
-@@ -78,7 +78,7 @@ obj-$(CONFIG_ARM_SCMI_CPUFREQ)		+= scmi-cpufreq.o
- obj-$(CONFIG_ARM_SCPI_CPUFREQ)		+= scpi-cpufreq.o
- obj-$(CONFIG_ARM_SPEAR_CPUFREQ)		+= spear-cpufreq.o
- obj-$(CONFIG_ARM_STI_CPUFREQ)		+= sti-cpufreq.o
--obj-$(CONFIG_ARM_ALLWINNER_SUN50I_CPUFREQ_NVMEM) += sun50i-cpufreq-nvmem.o
-+obj-$(CONFIG_ALLWINNER_SUN50I_CPUFREQ_NVMEM) += sun50i-cpufreq-nvmem.o
- obj-$(CONFIG_ARM_TEGRA20_CPUFREQ)	+= tegra20-cpufreq.o
- obj-$(CONFIG_ARM_TEGRA124_CPUFREQ)	+= tegra124-cpufreq.o
- obj-$(CONFIG_ARM_TEGRA186_CPUFREQ)	+= tegra186-cpufreq.o
--- 
-2.30.2
-
+Great, thanks a lot for retesting this!
 
 _______________________________________________
 linux-riscv mailing list
