@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A737C46CCD
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Dec 2023 21:45:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BCD9C46CA2
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Dec 2023 21:45:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CvpT4epn+rQC0RpyL6/6TESd7KC3ZfXioCX9I8YMV4Y=; b=2dvpXERa/ctDKA
-	ABGPAYc1LftsCYXbJ3j/fmWnBaV0p2b0kvu0paNgDNiyojnQoS9YAcNWcl2lSXnPzvne4z1E9/3UH
-	KNkR0DXRm/YhbwRW2zg4AHFH96Vbu9XQH2MTDY4hyEcvbIY7SXoupx03YzEkI01ojgcyK313vHMDw
-	iODKKTWlr2VfCvfHZYWkiOcz+BM5Kwi1vQtaFlRE/CqfBCNUxPTNv5q8YMOQIsGMH75GwgASGcvaU
-	n1z3afDKK5OVWYjEEdTdoL0Tvs0r0MGuPqYnxGCEtn16M9NAyAmHEb2+uO4wPiUDOK6A3/QaV4NW+
-	INvteXcXPZrOrBRutepA==;
+	List-Owner; bh=2dvzbJRbPlO+SfV1YG4ks5Sn/fJgk7TRN7QolQeV7mY=; b=UCWMeSy6ylHzer
+	l6bGP5UuTU5W01PRG/vB2bO5OP/N4qQjENay++bikYM+/LwUfBEtqKl4BnIsWkgRFXpELoj2XN0Nl
+	LC6Q6MP05wFakr+Dk4OcI1mjAFQqJ7CbC/V+yu012ECPEkqS1QomXwzapgCLojBRyDrotlxaq7Odp
+	doMsG5pFyuY56aROvEH8zBXnfl1E2zpIClsCnbOgECmvRWSXJFMFfxAPBax3CQf7i26q5uhABClTT
+	BbvMpJ1kRLTksoLxdbwDbkCL+OjfqvVqCNdQt5ggY0yRoL3dT0cW/5pq+mjoPB1lObXy7s2A6m4Kk
+	sLHrK+PXpbdJz51k5maQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFLQS-00C9Jv-1a;
-	Mon, 18 Dec 2023 21:45:24 +0000
+	id 1rFLQf-00C9T0-2o;
+	Mon, 18 Dec 2023 21:45:37 +0000
 Received: from madrid.collaboradmins.com ([46.235.227.194])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFLQ3-00C97g-06;
-	Mon, 18 Dec 2023 21:45:00 +0000
+	id 1rFLQ4-00C98K-0S;
+	Mon, 18 Dec 2023 21:45:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1702935897;
-	bh=nwoZSeh1Kp6U1IUyUeb5W4P20NSggurGdjJI6k4fjo8=;
+	s=mail; t=1702935899;
+	bh=SJhrES2WZXMt1XZYIJ5pjNI/hRHLW0ufwMjJJWnIkpY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PVCpFCl8gkuWIT5cdjPAf0qmxh2DkMbJ5B037q75D7hmejM87S92KQjaD2Wv8SuL6
-	 fz+hoBPM2lUW9ePjB8koMFfQbTqq37Q5o8QS4Qtn5RQw39/uSDj+SlmWb9Fu5y0wJY
-	 hTUpcrpU+XibOQpsVOgWnkuHQxwezCrZ/nrs4C7hkvAg136MdLbc/8+/php0Txw7NC
-	 s9S1xIsYQzg+qt3TkZhmuh9cKIi5dv8h/O3uVPy9vw49crXXleC2dYuCx6RkbC4VbT
-	 CJeJp0PW0jKoRwSWXLJJbgpEDdmTZU00rSvhmMBfLfxfkxvRSy8deYv0297Dr2ZKtX
-	 sWnQC/cvCbpNw==
+	b=iKP7mOpNdfoZLsrB/YV6tWG9GnqkThGRMrIAasyMprdmD7IrGyI5aL4Sp/vlcwGWI
+	 XOKcUb+84AroG9XH1p+Dy8risKvVWquBbWlg0F92ejFGd2Oq4b+MExzvSVlcWf3Qiq
+	 +QdwGbAqUznEUIa2lrQW0B2u2RsySf8kSUl/HQyTYDRkjLiV4cEIi0CXex22OFea8d
+	 1gd4S/3Ypu+h06QPOKQ0Qw7LLns+L3oAQI0G6DX3mYEZOHdBoI1xpSRgaYxzotiIZw
+	 D5unpsiCDyL487s7UDZb2wfWOXSsTPwQHt/PefW/ZJCCU0VixbCE1VZjokMdfHJ9Yw
+	 HjBTyHk3XvKvg==
 Received: from localhost (cola.collaboradmins.com [195.201.22.229])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by madrid.collaboradmins.com (Postfix) with ESMTPSA id A96BB3781492;
-	Mon, 18 Dec 2023 21:44:57 +0000 (UTC)
+	by madrid.collaboradmins.com (Postfix) with ESMTPSA id C3BF037814AA;
+	Mon, 18 Dec 2023 21:44:58 +0000 (UTC)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 To: "David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
@@ -73,16 +73,16 @@ Cc: netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com,
 	Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Subject: [PATCH v4 4/9] riscv: dts: starfive: jh7100: Add sysmain and gmac DT nodes
-Date: Mon, 18 Dec 2023 23:44:44 +0200
-Message-ID: <20231218214451.2345691-5-cristian.ciocaltea@collabora.com>
+Subject: [PATCH v4 5/9] riscv: dts: starfive: jh7100-common: Setup pinmux and enable gmac
+Date: Mon, 18 Dec 2023 23:44:45 +0200
+Message-ID: <20231218214451.2345691-6-cristian.ciocaltea@collabora.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20231218214451.2345691-1-cristian.ciocaltea@collabora.com>
 References: <20231218214451.2345691-1-cristian.ciocaltea@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231218_134459_200145_71F24048 
-X-CRM114-Status: UNSURE (   8.41  )
+X-CRM114-CacheID: sfid-20231218_134500_307542_80A86016 
+X-CRM114-Status: UNSURE (   8.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,70 +100,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide the sysmain and gmac DT nodes supporting the DWMAC found on the
-StarFive JH7100 SoC.
+Add pinmux configuration for DWMAC found on the JH7100 based boards and
+enable the related DT node, providing a basic PHY configuration.
 
 Co-developed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- arch/riscv/boot/dts/starfive/jh7100.dtsi | 36 ++++++++++++++++++++++++
- 1 file changed, 36 insertions(+)
+ .../boot/dts/starfive/jh7100-common.dtsi      | 84 +++++++++++++++++++
+ 1 file changed, 84 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7100.dtsi b/arch/riscv/boot/dts/starfive/jh7100.dtsi
-index c216aaecac53..2ebdebe6a81c 100644
---- a/arch/riscv/boot/dts/starfive/jh7100.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7100.dtsi
-@@ -204,6 +204,37 @@ sdio1: mmc@10010000 {
- 			status = "disabled";
- 		};
+diff --git a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
+index 42fb61c36068..bcba08e5bdf2 100644
+--- a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
+@@ -72,7 +72,91 @@ wifi_pwrseq: wifi-pwrseq {
+ 	};
+ };
  
-+		gmac: ethernet@10020000 {
-+			compatible = "starfive,jh7100-dwmac", "snps,dwmac";
-+			reg = <0x0 0x10020000 0x0 0x10000>;
-+			clocks = <&clkgen JH7100_CLK_GMAC_ROOT_DIV>,
-+				 <&clkgen JH7100_CLK_GMAC_AHB>,
-+				 <&clkgen JH7100_CLK_GMAC_PTP_REF>,
-+				 <&clkgen JH7100_CLK_GMAC_TX_INV>,
-+				 <&clkgen JH7100_CLK_GMAC_GTX>;
-+			clock-names = "stmmaceth", "pclk", "ptp_ref", "tx", "gtx";
-+			resets = <&rstgen JH7100_RSTN_GMAC_AHB>;
-+			reset-names = "ahb";
-+			interrupts = <6>, <7>;
-+			interrupt-names = "macirq", "eth_wake_irq";
-+			max-frame-size = <9000>;
-+			snps,multicast-filter-bins = <32>;
-+			snps,perfect-filter-entries = <128>;
-+			starfive,syscon = <&sysmain 0x70 0>;
-+			rx-fifo-depth = <32768>;
-+			tx-fifo-depth = <16384>;
-+			snps,axi-config = <&stmmac_axi_setup>;
-+			snps,fixed-burst;
-+			snps,force_thresh_dma_mode;
-+			status = "disabled";
++&gmac {
++	pinctrl-names = "default";
++	pinctrl-0 = <&gmac_pins>;
++	phy-mode = "rgmii-id";
++	status = "okay";
 +
-+			stmmac_axi_setup: stmmac-axi-config {
-+				snps,wr_osr_lmt = <16>;
-+				snps,rd_osr_lmt = <16>;
-+				snps,blen = <256 128 64 32 0 0 0>;
-+			};
++	mdio: mdio {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		compatible = "snps,dwmac-mdio";
++	};
++};
++
+ &gpio {
++	gmac_pins: gmac-0 {
++		gtxclk-pins {
++			pins = <PAD_FUNC_SHARE(115)>;
++			bias-pull-up;
++			drive-strength = <35>;
++			input-enable;
++			input-schmitt-enable;
++			slew-rate = <0>;
 +		};
-+
- 		clkgen: clock-controller@11800000 {
- 			compatible = "starfive,jh7100-clkgen";
- 			reg = <0x0 0x11800000 0x0 0x10000>;
-@@ -218,6 +249,11 @@ rstgen: reset-controller@11840000 {
- 			#reset-cells = <1>;
- 		};
- 
-+		sysmain: syscon@11850000 {
-+			compatible = "starfive,jh7100-sysmain", "syscon";
-+			reg = <0x0 0x11850000 0x0 0x10000>;
++		miitxclk-pins {
++			pins = <PAD_FUNC_SHARE(116)>;
++			bias-pull-up;
++			drive-strength = <14>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <0>;
 +		};
++		tx-pins {
++			pins = <PAD_FUNC_SHARE(117)>,
++			       <PAD_FUNC_SHARE(119)>,
++			       <PAD_FUNC_SHARE(120)>,
++			       <PAD_FUNC_SHARE(121)>,
++			       <PAD_FUNC_SHARE(122)>,
++			       <PAD_FUNC_SHARE(123)>,
++			       <PAD_FUNC_SHARE(124)>,
++			       <PAD_FUNC_SHARE(125)>,
++			       <PAD_FUNC_SHARE(126)>;
++			bias-pull-up;
++			drive-strength = <35>;
++			input-disable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++		rxclk-pins {
++			pins = <PAD_FUNC_SHARE(127)>;
++			bias-pull-up;
++			drive-strength = <14>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <6>;
++		};
++		rxer-pins {
++			pins = <PAD_FUNC_SHARE(129)>;
++			bias-pull-up;
++			drive-strength = <14>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++		rx-pins {
++			pins = <PAD_FUNC_SHARE(128)>,
++			       <PAD_FUNC_SHARE(130)>,
++			       <PAD_FUNC_SHARE(131)>,
++			       <PAD_FUNC_SHARE(132)>,
++			       <PAD_FUNC_SHARE(133)>,
++			       <PAD_FUNC_SHARE(134)>,
++			       <PAD_FUNC_SHARE(135)>,
++			       <PAD_FUNC_SHARE(136)>,
++			       <PAD_FUNC_SHARE(137)>,
++			       <PAD_FUNC_SHARE(138)>,
++			       <PAD_FUNC_SHARE(139)>,
++			       <PAD_FUNC_SHARE(140)>,
++			       <PAD_FUNC_SHARE(141)>;
++			bias-pull-up;
++			drive-strength = <14>;
++			input-enable;
++			input-schmitt-enable;
++			slew-rate = <0>;
++		};
++	};
 +
- 		i2c0: i2c@118b0000 {
- 			compatible = "snps,designware-i2c";
- 			reg = <0x0 0x118b0000 0x0 0x10000>;
+ 	i2c0_pins: i2c0-0 {
+ 		i2c-pins {
+ 			pinmux = <GPIOMUX(62, GPO_LOW,
 -- 
 2.43.0
 
