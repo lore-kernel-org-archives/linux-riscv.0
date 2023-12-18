@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A219C46CCD
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Dec 2023 11:44:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9E99C35274
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Dec 2023 11:48:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7Bwu9sCfDHdEbHFGHtoisQCOrUygh4jQvCTQaQJVrxE=; b=fLOBVClUNfE1Jm
-	Sebmr8wMi1cA2CmP7Cnb+p3hPmA6G4e9b2vgLcsSE7L5AQ9hxw4hF2IlggdqEGTaBOw+71lGR7xMT
-	99lRjthsDMtykfPEjSiZ7MCbBDdLXH2tE0+ynMInwiJwzDDALG6yXJDwl9cji9bHU/U3HzMtJOtY2
-	QELiWMB+xLmrGridGZa2ka0TkMvhkkicJ8CkSAHc39Iqh3qxKcfpzsprR0CtcGAhMJBnbdh7ONEvv
-	gldqFgExp7lJxADKjD+UIq6KyTeqbEVqjRvqUipOAFf7YHwDWuCC/yMvc2aR9XDjf9TG/MO8GbD9J
-	Ho3X2Ji51aOUUW7wSVpw==;
+	List-Owner; bh=eZOMX1FcWsEBUOxGltFKIU2LRYSfhp1026BM6zAd76I=; b=f2dU4c+QmQviD+
+	ZrYJYr7Sy8dHz7Y9LGEUXQKryIFmjEhtoxn0l/u3H2HMyhojLoLEEv74jMil2Tgn/Yg1VeiwMeL9D
+	2M8NTmCzOdi49vdXVI8L9TrHR4Wy8C3+XOYnxRrsIRydCRvKPhqLhhB1rGA8TTdWtPAU6lxghVaqX
+	S9Zwe/cU3jdSH6OXUGsl61YGIprLHijxJ6ARV7y4WMvF3f3Kz+bsDQis8aMFtmL/TCehV9yvJ8B9k
+	u52BnSNXQ8ga6G1DTkT8QmSHuUgYQnz9WN75c/0b8aCHDcYdbZAtmGqA+4P9v2qhUBDXTNQSMxjsk
+	4afdX3mUi8SU91CNja/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFC2S-00AIEh-38;
-	Mon, 18 Dec 2023 11:44:00 +0000
-Received: from madrid.collaboradmins.com ([46.235.227.194])
+	id 1rFC6q-00ALRO-0R;
+	Mon, 18 Dec 2023 11:48:32 +0000
+Received: from madrid.collaboradmins.com ([2a00:1098:ed:100::25])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFC2P-00AIAV-1i;
-	Mon, 18 Dec 2023 11:43:58 +0000
+	id 1rFC6n-00ALN8-0U;
+	Mon, 18 Dec 2023 11:48:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1702899835;
-	bh=+AE8FG87JjGXQZ7aKx+tpmHcDvNM6DDRUxk5MZqAb4U=;
+	s=mail; t=1702900104;
+	bh=cGR57+CiG5a+3zirrKt+CQiAa44aj9FUBj5+rhcA9VM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NnoaSKieHR6swMS1aHrusYDqLIPoqpaqKP+0jC7/bOhu9uyCuIBbR7GbjLOTqnVFQ
-	 aofCGeAjJ4cerVlSp1kZIzTq3bqOY0m+r49v5ciHgqgMaU5T6cU4vZbLZG4vXANCbv
-	 zuSyGf1s3hLfzDH5RWG9MP/vR06o1sHfa11g1uWVzclCVDk0a3F4hQgZhBx416FP3f
-	 OL9eePgwTzMG11Djscu2MGXa5b2LVFdYhFoA757KG6Ink9K5ft8lu/cm6CSkRraR8x
-	 aJFsfpEgK3Lr/z3MHNYgU1KRhR1N55mIB4UMHLrQrKHmqq4PRcinmK5BZCvn2yRC3H
-	 OxPAyW3dxhFkA==
+	b=QZ+3xWuH+hzguRihJ5wfmGV6IBQ4oy3RSHlbf/lRB2c+dNBkK6gAFqaUQ6BHgsYTP
+	 B71E+s4hEd5cGoywoTQOe1kbaeb2ZZuJRNEKc7xVtBI27NWEjkyIprI5ph/sYpBynk
+	 56SgJde7fgS+77iBGFoeFNn7K5bG3pw6727TJnyesSfgPpImLp45fRHI5h4eRxU/zG
+	 F6znNG4DSGdyhKHM9Wol9Wj3ctEOWFnE/hDUofqYmpfQZzBPAc2CgfOhUgo5hgl4nV
+	 RdaygF1EqXYMma/47DjheC66X6nCo4j7osbBxylPw3DRkgwlk6LH5UVhMd1Ip2MxKc
+	 st6Q66gdTlKSA==
 Received: from [100.115.223.179] (cola.collaboradmins.com [195.201.22.229])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by madrid.collaboradmins.com (Postfix) with ESMTPSA id 696FF37814A3;
-	Mon, 18 Dec 2023 11:43:53 +0000 (UTC)
-Message-ID: <b65393f1-1c36-40e5-96f6-1e7f978cc185@collabora.com>
-Date: Mon, 18 Dec 2023 13:43:52 +0200
+	by madrid.collaboradmins.com (Postfix) with ESMTPSA id 1609037814A3;
+	Mon, 18 Dec 2023 11:48:22 +0000 (UTC)
+Message-ID: <11f7fbee-4795-4d5f-a5f8-901bc17683eb@collabora.com>
+Date: Mon, 18 Dec 2023 13:48:21 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/9] riscv: dts: starfive: visionfive-v1: Setup
- ethernet phy
+Subject: Re: [PATCH v3 5/9] riscv: dts: starfive: jh7100-common: Setup pinmux
+ and enable gmac
 Content-Language: en-US
-To: Andrew Lunn <andrew@lunn.ch>
+To: Conor Dooley <conor@kernel.org>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>
 Cc: "David S. Miller" <davem@davemloft.net>,
  Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
  Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>,
@@ -69,16 +70,16 @@ Cc: "David S. Miller" <davem@davemloft.net>,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com
 References: <20231215204050.2296404-1-cristian.ciocaltea@collabora.com>
- <20231215204050.2296404-7-cristian.ciocaltea@collabora.com>
- <f8f9d454-6155-4b1c-b4b2-daf98267be14@lunn.ch>
+ <20231215204050.2296404-6-cristian.ciocaltea@collabora.com>
+ <CAJM55Z-bg0EGPaLHtxcu2AzqN59zfuiT0eE7oCShrx7dG_QK1g@mail.gmail.com>
+ <20231217-rippling-galleria-904152e41f95@spud>
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <f8f9d454-6155-4b1c-b4b2-daf98267be14@lunn.ch>
+In-Reply-To: <20231217-rippling-galleria-904152e41f95@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231218_034357_744935_94C99F89 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20231218_034829_328972_B9B52972 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,24 +96,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/17/23 19:55, Andrew Lunn wrote:
-> On Fri, Dec 15, 2023 at 10:40:45PM +0200, Cristian Ciocaltea wrote:
->> The StarFive VisionFive V1 SBC uses a Motorcomm YT8521 PHY supporting
->> RGMII-ID, but requires manual adjustment of the RX internal delay to
->> work properly.
+On 12/17/23 23:03, Conor Dooley wrote:
+> On Sat, Dec 16, 2023 at 11:38:53AM -0800, Emil Renner Berthing wrote:
+>> Cristian Ciocaltea wrote:
+>>> Add pinmux configuration for DWMAC found on the JH7100 based boards and
+>>> enable the related DT node, providing a basic PHY configuration.
+>>>
+>>> Co-developed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+>>> Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>>> ---
+>>>  .../boot/dts/starfive/jh7100-common.dtsi      | 85 +++++++++++++++++++
+>>>  1 file changed, 85 insertions(+)
+>>>
+>>> diff --git a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
+>>> index 42fb61c36068..5cafe8f5c2e7 100644
+>>> --- a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
+>>> +++ b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
+>>> @@ -72,7 +72,92 @@ wifi_pwrseq: wifi-pwrseq {
+>>>  	};
+>>>  };
+>>>
+>>> +&gmac {
+>>> +	pinctrl-names = "default";
+>>> +	pinctrl-0 = <&gmac_pins>;
+>>> +	phy-mode = "rgmii-id";
+>>> +	phy-handle = <&phy>;
 >>
->> The default RX delay provided by the driver is 1.95 ns, which proves to
->> be too high. Applying a 50% reduction seems to mitigate the issue.
->>
->> Also note this adjustment is not necessary on BeagleV Starlight SBC,
->> which uses a Microchip PHY.  Hence, there is no indication of a
->> miss-behaviour on the GMAC side, but most likely the issue stems from
->> the Motorcomm PHY.
+>> I'm not sure if it's a generic policy or not, but I don't really like adding a
+>> reference to a non-existant node here. I'd move this property to the board
+>> files where the phy node is actually defined.
 > 
-> I suggest you make a similar comment in the .dts file, just to explain
-> the odd setting.
+> FWIW, I don't like the reference-in-the-wrong-place thing either.
 
-Sure, will do, we need a v4 anyway.
+Yeah, as I already mentioned this was unintentional, will fix in v4.
 
 Thanks,
 Cristian
