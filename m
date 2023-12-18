@@ -4,90 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31DBDC35274
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Dec 2023 10:03:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4094C35274
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Dec 2023 10:05:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u91EKRekwbwXXjHlx2drINzNZYWQmCIDaR2dBNL2Iv0=; b=5F98+BlHaTnwvB
-	ZcuguvrNuvi4zVNedRllJOTLl5/ak8NluXO6n9BNKsy3NQGLXXm9v/UOYP6qii6BHhPqiv71/4IQF
-	8ZWgbqveLjCWu71fykSlF8X2zEZkQsFbWlsByG+feaKhuqy8nDsItnoiDtoD7D2r5i7UfD3wlxoW3
-	hBA1xbK2sG/jjxL9ywzP/lAFGB7jSO+m5wN6AOto1DF7kIR3febyNk9Rz+p3OY7K4gc/8tk2MGftN
-	aj4ELqZiho4YIbQieJl11MfxoiaXum7KciM2RTJPaK+zl/HKZEvujKZxTmWQwGcPRrrSIGWY15V+H
-	Z+uPPYz00WV8iMyei3sg==;
+	List-Owner; bh=Y59LZXe8zh5S1qzzXfA+rEplEjVEZA7Nq6BdDMuj7Ig=; b=2zh+moR7M/87Lw
+	y5y+rFjwJJaZll8EN1Gj/9WnfXN7WO1GtTD3K6ZEBUoJe70eaTizaloIgRu/GgxjrJZbek/EU+ZCf
+	gghoId7GZkOk2lLgwdpCoCjF3RfZ9NVjOTItHmQ89R/IPcqrmEoxYoIYLnA/WcTMVJ83NSyVT577A
+	Eb9ksx1ByYuOq8BWKaGnR7RzcM9o19+4iMMlj9wKbqnGqlFQm9FzrkPtVRosLqeMj2FY+XYaCn6mT
+	qAE4wgy47sPJA8D8w6jK4JqnlOxMsgPVwTFdzQS9BxA9KNRxpA/4vzng0CETrMBIlCd6cqGYGOmMU
+	cVDhiJ2NZfw6W8JUD6eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFAT9-009lJB-2Y;
-	Mon, 18 Dec 2023 10:03:27 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1rFAUv-009leS-1Y;
+	Mon, 18 Dec 2023 10:05:17 +0000
+Received: from mail-vs1-xe2a.google.com ([2607:f8b0:4864:20::e2a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFAT7-009lIH-1n
+	id 1rFAUr-009ldw-3D
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Dec 2023 10:03:26 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-40c79b61904so4755645e9.0
-        for <linux-riscv@lists.infradead.org>; Mon, 18 Dec 2023 02:03:24 -0800 (PST)
+	Mon, 18 Dec 2023 10:05:15 +0000
+Received: by mail-vs1-xe2a.google.com with SMTP id ada2fe7eead31-4669bebc10aso320062137.0
+        for <linux-riscv@lists.infradead.org>; Mon, 18 Dec 2023 02:05:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1702893803; x=1703498603; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=sAJ4t+ZlF+9GvsUCLeFJqAzncniYoth3/FkzEne5oZw=;
-        b=jNpfZMRVs8wb0GYZq+bR5Qqm+/Twaiv7h1QEu+CkwkJyTHjeWTWO6sOh3AdJXk8RJU
-         cdsoEg4Y8oBoCEPpVG5GbbrizjAhEiRdBPnwzReWfoA8H8ZXcotnwApI29y2q3ZGO6VO
-         Ldg0y75ShS4E1pJT5QojyVcK+e/Usg1Qr+rpEzW4NkVSuqXzr2FJyiFK31w5X0kJiWYR
-         rsgNIBNpqtrxqlfFB1hrAcXbRPvlnBWfzZBL1WNbI+XwjSniCXSO28F8SoMU15PPSc6V
-         U+Iw8czGmm04HfR0GJN+jyAeki1lKkmaCFnCMd/fcZ1UORsnYSe+L5W7WpsJmCkJD8+y
-         iMwQ==
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1702893912; x=1703498712; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=L6wrxzNiJLPICSs0iPNMafimclxZEX+Zib5f22SAc0I=;
+        b=NxXLkjUgg59rUaYZoiav3wd22l/2hdjh/icY7T7CsQe6dcVoHk3/UVd/PF7HJMq2Lw
+         ftg/OCKfWwhIqi4h0pasP+1ydHemYoVU/KXzeAfKK4CcDqb75BeTOV+Hf8uH91RLol5I
+         prg6g9tcuthDTE2+gFE8GNkJWAyRwtE5R+mHzMzPs8yBcN2tOHcS5xAIuhRI9aWsllFw
+         dPsYDbpY1O+mne8UXGqAn0VVlnbVUN3F9Dzv9eqKjR6Vee/CM6ixaXnUzp3UZpV1eeYv
+         MIs7izQ1Jc9ELb3IzgBpt+uaMzoSD0/vaWNM7EpChyvqR3zV85e6zzVGdg6Ya8kRARUK
+         +WcA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1702893803; x=1703498603;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=sAJ4t+ZlF+9GvsUCLeFJqAzncniYoth3/FkzEne5oZw=;
-        b=eSB+HXei+8WlIhxDlrIC5cgKsRZmPtHjsbA/X9q57jTZpnIcXaImGmr2esdZa0/bqU
-         xRZeFDFvyN+e86Qj1CXD6ieqNnwB23OYKc++Rwl0UZpVKmg+0rR7qNGoSw0kPOsvxH4g
-         Ahok1xb8qG7EXn7ZZ6eYmZb2Qem6GwIeJJf+wS24cWM5lpdosP8YON0qUHGMh/LtcMoa
-         tDkNhscqxVaE9v9hlUKhDbUS0bV1VZcJaCMS8BF5E0mlai0NjFch0NmZrgsGnNtSfqpu
-         sKSCxqbIXCvqBvkaE6gjZWolLUwNTpqHqjz5X/aquLWYdXNM9f1MG/YkmrUBUP5rXgnt
-         EshA==
-X-Gm-Message-State: AOJu0Yz3JmPrEMadJvcwZzDq+vqgaVrF9MgOLs1ImujVvGOxu4UOWKh6
-	ar26r09uHXTcbo8Hr7iqBgQ=
-X-Google-Smtp-Source: AGHT+IFs8F4MaXExSYtt4MkPmPlq58aSE/hyCEVFB6HJE1s5fFzh90VRsJObpMFYCYdJuuH093Flvw==
-X-Received: by 2002:a05:600c:1c9d:b0:408:3836:525f with SMTP id k29-20020a05600c1c9d00b004083836525fmr19264207wms.1.1702893802949;
-        Mon, 18 Dec 2023 02:03:22 -0800 (PST)
-Received: from ?IPV6:2a01:4b00:d20e:7300:aa3f:acb9:5744:ea8f? ([2a01:4b00:d20e:7300:aa3f:acb9:5744:ea8f])
-        by smtp.gmail.com with ESMTPSA id m29-20020a05600c3b1d00b0040b3515cdf8sm41329359wms.7.2023.12.18.02.03.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 Dec 2023 02:03:22 -0800 (PST)
-Message-ID: <f12ef9ea-14fe-491a-890b-a645bb4827cb@gmail.com>
-Date: Mon, 18 Dec 2023 10:03:21 +0000
+        d=1e100.net; s=20230601; t=1702893912; x=1703498712;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=L6wrxzNiJLPICSs0iPNMafimclxZEX+Zib5f22SAc0I=;
+        b=pM2VpjRSGHf150dUd2ia4sWKEMmkL3gWND3nmuPCZLRGyosfUqDP+Gk1o1vJPuQ8rd
+         kY3Y9V5BMDbJrLq4yShRQeS9M4Y3vKahPXmj0vCV5taZctx+gGMGxdtRWA+zcj9eChHU
+         M/76duf8WK++pkQMiFLdn0unTRxGNRXIkZIcQdmbq8OSVcbF+BVa0PwPATlDwlrdmTeZ
+         qLJV+PP7WAJoCXPdYYDgEJRD7xHayt2lyL+GlgGJTtozgT6famv8nfh94aTjpK2TDjDa
+         Ua1ErDFBnaWUoa2gVR40aIkVIllQ0uoEqR02L0/Vw+cqA/7G64gZhbQf5A29ux4Z52sS
+         H2qw==
+X-Gm-Message-State: AOJu0YwKaic0a5NZIMzVvmlO95l2l403ToHqa1gUoWvn2n+y+HVMmk5l
+	VM/pd3uMW7ZwezMvlx4J7YeOgJ92mQpk6haM6/yL+w==
+X-Google-Smtp-Source: AGHT+IHxszukyE2ttJO6zuq02rDfSZeRaEjzppPvuzY0whsH7Q37cz7BAVBbB7KrH+ZPYf13rsSeNKkUCMPPIVQXCPo=
+X-Received: by 2002:a05:6102:3e8e:b0:466:5bd2:a2f2 with SMTP id
+ m14-20020a0561023e8e00b004665bd2a2f2mr6539984vsv.1.1702893912242; Mon, 18 Dec
+ 2023 02:05:12 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: lib: Optimize 'strlen' function
-Content-Language: en-US
-To: David Laight <David.Laight@ACULAB.COM>,
- "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
- "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>
-Cc: "conor.dooley@microchip.com" <conor.dooley@microchip.com>,
- "ajones@ventanamicro.com" <ajones@ventanamicro.com>,
- "samuel@sholland.org" <samuel@sholland.org>,
- "alexghiti@rivosinc.com" <alexghiti@rivosinc.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "skhan@linuxfoundation.org" <skhan@linuxfoundation.org>
-References: <20231213154530.1970216-1-ivan.orlov0322@gmail.com>
- <86d3947bce1f49c395224998e7d65dc2@AcuMS.aculab.com>
- <de80b4c7-1ffb-478e-9117-9d5b829470bd@gmail.com>
- <bd9159806a2e4fd188a78515b58ec51e@AcuMS.aculab.com>
-From: Ivan Orlov <ivan.orlov0322@gmail.com>
-In-Reply-To: <bd9159806a2e4fd188a78515b58ec51e@AcuMS.aculab.com>
+References: <20231215143906.3651122-1-emil.renner.berthing@canonical.com> <20231215143906.3651122-5-emil.renner.berthing@canonical.com>
+In-Reply-To: <20231215143906.3651122-5-emil.renner.berthing@canonical.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Mon, 18 Dec 2023 11:05:01 +0100
+Message-ID: <CAMRc=MfovbsbxDGvheHkhE-oiXyMfpCpcqwKcZRwHbCjKvwJYg@mail.gmail.com>
+Subject: Re: [PATCH v1 4/8] dt-bindings: gpio: dwapb: allow gpio-ranges
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Hoan Tran <hoan@os.amperecomputing.com>, Serge Semin <fancer.lancer@gmail.com>, 
+	Linus Walleij <linus.walleij@linaro.org>, Andy Shevchenko <andy@kernel.org>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231218_020325_593307_869EC93A 
-X-CRM114-Status: GOOD (  19.03  )
+X-CRM114-CacheID: sfid-20231218_020514_230252_54400153 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,106 +89,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/18/23 09:20, David Laight wrote:
-> From: Ivan Orlov
->> Sent: 18 December 2023 01:42
->>
->> On 12/17/23 17:00, David Laight wrote:
->>> I'd also guess that pretty much all the calls in-kernel are short.
->>> You might try counting as: histogram[ilog2(strlen_result)]++
->>> and seeing what it shows for some workload.
->>> I bet you (a beer if I see you!) that you won't see many over 1k.
->>
->> Hi David,
->>
->> Here is the statistics for strlen result:
->>
->> [  223.169575] Calls count for 2^0: 6150
->> [  223.173293] Calls count for 2^1: 184852
->> [  223.177142] Calls count for 2^2: 313896
->> [  223.180990] Calls count for 2^3: 185844
->> [  223.184881] Calls count for 2^4: 87868
->> [  223.188660] Calls count for 2^5: 9916
->> [  223.192368] Calls count for 2^6: 1865
->> [  223.196062] Calls count for 2^7: 0
->> [  223.199483] Calls count for 2^8: 0
->> [  223.202952] Calls count for 2^9: 0
->> ...
->>
->> Looks like I've just lost a beer :)
->>
->> Considering this statistics, I'd say implementing the word-oriented
->> strlen is an overcomplication - we wouldn't get any performance gain and
->> it just doesn't worth it.
-> 
-> And the 32bit version is about half the speed of the 64bit one.
-> 
-> Of course, the fast way to do strlen is add a custom instruction!
-> 
->> I simplified your code a little bit, it looks like the alignment there
->> is unnecessary: QEMU test shows the same performance independently from
->> alignment. Tests on the board gave the same result (perhaps because the
->> CPU on the board has 2 DDR channels?)
-> 
-> The alignment is there because it can overread the string end
-> by one byte - and that mustn't cross a page boundary.
-> So you either have to mark the second load as 'may fault return
-> zero' or just not do it.
-> 
-> If the data isn't in cache the cache load will dominate.
-> The DDR channels only affect cache load times.
-> Get a TLB miss and add a few thousand more clocks!
-> 
-
-Ah, right, sounds reasonable...
-
-Overall, I believe your solution is better and it would be more fair if 
-you send it as a patch :) Here is benchmark results for your version vs 
-the original (the old) one on the Starfive VisionFive2 RISC-V board:
-
-Size: 1 (+-0), mean_old: 350, mean_new: 340
-Size: 2 (+-0), mean_old: 337, mean_new: 347
-Size: 4 (+-0), mean_old: 322, mean_new: 355
-Size: 8 (+-0), mean_old: 345, mean_new: 335
-Size: 16 (+-0), mean_old: 352, mean_new: 367
-Size: 32 (+-0), mean_old: 425, mean_new: 362
-Size: 64 (+-4), mean_old: 507, mean_new: 407
-Size: 128 (+-10), mean_old: 730, mean_new: 442
-Size: 256 (+-19), mean_old: 1142, mean_new: 592
-Size: 512 (+-6), mean_old: 1945, mean_new: 812
-Size: 1024 (+-21), mean_old: 3565, mean_new: 1312
-Size: 2048 (+-108), mean_old: 6812, mean_new: 2280
-Size: 4096 (+-362), mean_old: 13302, mean_new: 4242
-Size: 8192 (+-385), mean_old: 26393, mean_new: 8160
-Size: 16384 (+-1115), mean_old: 52689, mean_new: 15953
-Size: 32768 (+-2515), mean_old: 107293, mean_new: 32391
-Size: 65536 (+-6041), mean_old: 213789, mean_new: 74354
-Size: 131072 (+-12352), mean_old: 426619, mean_new: 146972
-Size: 262144 (+-2635), mean_old: 848115, mean_new: 291309
-Size: 524288 (+-3336), mean_old: 1712847, mean_new: 589654
-
-
-
->>
->> --
->> Kind regards,
->> Ivan Orlov
-> 
-> -
-> Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-> Registration No: 1397386 (Wales)
-
--- 
-Kind regards,
-Ivan Orlov
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBEZWMgMTUsIDIwMjMgYXQgMzozOeKAr1BNIEVtaWwgUmVubmVyIEJlcnRoaW5nCjxl
+bWlsLnJlbm5lci5iZXJ0aGluZ0BjYW5vbmljYWwuY29tPiB3cm90ZToKPgo+IEFsbG93IHRoZSBn
+ZW5lcmljIGdwaW8tcmFuZ2VzIHByb3BlcnR5IHNvIEdQSU9zIGNhbiBiZSBtYXBwZWQgdG8gdGhl
+aXIKPiBjb3JyZXNwb25kaW5nIHBpbi4gVGhpcyB3YXkgY29udHJvbCBvZiBHUElPIG9uIHBpbnMg
+dGhhdCBhcmUgYWxyZWFkeSB1c2VkCj4gYnkgb3RoZXIgcGVyaXBoZXJhbHMgY2FuIGJlIGRlbmll
+ZCBhbmQgYmFzaWMgcGluY29uZiBjYW4gYmUgZG9uZSBvbiBwaW4KPiBjb250cm9sbGVycyB0aGF0
+IHN1cHBvcnQgaXQuCj4KPiBTaWduZWQtb2ZmLWJ5OiBFbWlsIFJlbm5lciBCZXJ0aGluZyA8ZW1p
+bC5yZW5uZXIuYmVydGhpbmdAY2Fub25pY2FsLmNvbT4KPiAtLS0KPiAgRG9jdW1lbnRhdGlvbi9k
+ZXZpY2V0cmVlL2JpbmRpbmdzL2dwaW8vc25wcyxkdy1hcGItZ3Bpby55YW1sIHwgMiArKwo+ICAx
+IGZpbGUgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspCj4KPiBkaWZmIC0tZ2l0IGEvRG9jdW1lbnRh
+dGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2dwaW8vc25wcyxkdy1hcGItZ3Bpby55YW1sIGIvRG9j
+dW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2dwaW8vc25wcyxkdy1hcGItZ3Bpby55YW1s
+Cj4gaW5kZXggZWVmZTdiMzQ1Mjg2Li5hYjJhZmMwZTQxNTMgMTAwNjQ0Cj4gLS0tIGEvRG9jdW1l
+bnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2dwaW8vc25wcyxkdy1hcGItZ3Bpby55YW1sCj4g
+KysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2dwaW8vc25wcyxkdy1hcGIt
+Z3Bpby55YW1sCj4gQEAgLTY1LDYgKzY1LDggQEAgcGF0dGVyblByb3BlcnRpZXM6Cj4gICAgICAg
+ICAgbWluSXRlbXM6IDEKPiAgICAgICAgICBtYXhJdGVtczogMzIKPgo+ICsgICAgICBncGlvLXJh
+bmdlczogdHJ1ZQo+ICsKPiAgICAgICAgbmdwaW9zOgo+ICAgICAgICAgIGRlZmF1bHQ6IDMyCj4g
+ICAgICAgICAgbWluaW11bTogMQo+IC0tCj4gMi40MC4xCj4KCkFwcGxpZWQsIHRoYW5rcyEKCkJh
+cnQKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
+LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
+Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
