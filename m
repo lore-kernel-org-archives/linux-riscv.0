@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C598C35274
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Dec 2023 21:45:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16C38C35274
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Dec 2023 21:45:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Tou9UkoYU86ka7IYf8zuy4se+dqp+AyfYKHDUcn0e98=; b=y3tNqztXARO+PF
-	srWek55xok61D3Ftv5baJNzxnx+i1pKBjhlL2OK2u36JiP4aw/Yy/fbcEy7o4S0Uo8zYaJw+iBAgb
-	8BzAbt5nRHbAKzrdFa4j1YqWdNWWdejmHviK9w4vNo5G5Y/lcTNSPf410KRmm08OpuEg2vt+sBDxT
-	1Od74yzl1o3A5bhy4sVubvfjbAW7BKsbUednoBAY6nFN6TZD38JqTzDiYrfE/5VqJRqpM8VPpxf4g
-	FsiXFnLKt+l1z3FYjaJNAN9ibVgLJQiQFN/uvXodumX3temREXbOsBUUO9prbIzAME4RzuXU6I0Ny
-	O35QOqAlIPssUYS0rt2Q==;
+	List-Owner; bh=YC6CKrc6WSitNFKwDZM94xQDJb1r/X8bMVM/8I85cxU=; b=zIq1of08tz2yYi
+	zBK5BlHEAgMkVJ5Rv+jIuP8/g46IjS0fy3VUCyqWuGvkyN+54WZSxre4pv9qYPnwTB90f5wye5bac
+	MOViAgICZv0LlWeIatUlfbwMMJxVx7fXKLetLqJLTPB4eTJ0PO52buLtfp8HFwbgc1Eo+IPvZsdxQ
+	LzJDsVdiOTpq3DUklJ0QAWpY+GIGmSSp1srowsSNnRxsCJGP4TAZqwItlmrcuL/6ZU3OfXid2k1wa
+	R8ejCu1cdSGXOOGy27+EluzfHIBJAIuZ8i9miU36a9b6FNiU8MuAqZLx73K5YTaLRQksba8KpUXtO
+	kRYDjbqnDm1mVXsYDspw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFLQi-00C9WY-2e;
-	Mon, 18 Dec 2023 21:45:40 +0000
+	id 1rFLQl-00C9Zi-2G;
+	Mon, 18 Dec 2023 21:45:43 +0000
 Received: from madrid.collaboradmins.com ([46.235.227.194])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFLQ5-00C99G-18;
+	id 1rFLQ6-00C99w-1W;
 	Mon, 18 Dec 2023 21:45:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1702935900;
-	bh=HuOM7ECyvIemfEAWs07YUa5GDYXFtppCMkeuXbHE3H8=;
+	s=mail; t=1702935901;
+	bh=l+eWaUkr0QWL7sDgPsO2uU1ihAKDwVmDeuD26D7VS5M=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=xMRMTnkWmjm5My4aEyYxW2P25j5XCxD36o4zB4JmSkNduJ7Fynp9bbcMP8KQ8iCXR
-	 3YzK8ubA/jcfwOIXRBxgdLb2FjxEEVdpess4KdwQyFN/BymURC/BiFryKL/+z7IGsy
-	 cRpq5UTqONLl8aXg37G0lyk9l8q5yvQUYt9N502yeLT8e17Tuw+LYu9z7FbP4tatJr
-	 bdtCTd9VjsCMc7K/CMDNgIFALdbTsEQ47nx1Eg5bF+UmSMyYZQLTnNZ46tEowi6Efh
-	 xpiW0LgL5v+HNgbkvbqqQ6HgmxAC7l9lG21r+HOMf7THqPEEwMUhTJywRpYBu6Pr9n
-	 wouRy+uMbBwig==
+	b=xvBHSpbIGeINNhcUZF4yZ4Au6Jp+FlBHac8FRRgRFQjOSdqggtFkjilcTU6IoW1ET
+	 wlMZfXEII8Lh5npVJ/ssGW9OkURbQ5U5x29RgsJCfLyJbGaKz21CXm4n1xNInwEqB9
+	 T4SQXyIyl+IBoyAD2VXIye/egruOGMrCCX3U6GvemAmknA5fe26MXDJMFqp6Z1/aZ2
+	 UEdjEv2kg8ZFIBRfO1ZBm+FkE8eSh9VtGz4PTgIAQoqXFNrVdayBGofkseoLDYzoa0
+	 sd5nty0KQlnQwgjpi0Yb/L4zbsE37EN1JrITw4KajtLiqgPN9Vuf8QlR+neczF5AdD
+	 CAgKIWngoNOJA==
 Received: from localhost (cola.collaboradmins.com [195.201.22.229])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by madrid.collaboradmins.com (Postfix) with ESMTPSA id D81DD37814AF;
-	Mon, 18 Dec 2023 21:44:59 +0000 (UTC)
+	by madrid.collaboradmins.com (Postfix) with ESMTPSA id 1ABEF37814B0;
+	Mon, 18 Dec 2023 21:45:01 +0000 (UTC)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 To: "David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
@@ -73,16 +73,17 @@ Cc: netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com,
 	Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Subject: [PATCH v4 6/9] riscv: dts: starfive: visionfive-v1: Setup ethernet phy
-Date: Mon, 18 Dec 2023 23:44:46 +0200
-Message-ID: <20231218214451.2345691-7-cristian.ciocaltea@collabora.com>
+Subject: [PATCH v4 7/9] riscv: dts: starfive: beaglev-starlight: Setup phy reset gpio
+Date: Mon, 18 Dec 2023 23:44:47 +0200
+Message-ID: <20231218214451.2345691-8-cristian.ciocaltea@collabora.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20231218214451.2345691-1-cristian.ciocaltea@collabora.com>
 References: <20231218214451.2345691-1-cristian.ciocaltea@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231218_134501_602431_D768CAE4 
-X-CRM114-Status: GOOD (  13.79  )
+X-CRM114-CacheID: sfid-20231218_134502_641427_23B55033 
+X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,59 +100,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The StarFive VisionFive V1 SBC uses a Motorcomm YT8521 PHY supporting
-RGMII-ID, but requires manual adjustment of the RX internal delay to
-work properly.
-
-The default RX delay provided by the driver is 1.95 ns, which proves to
-be too high. Applying a 50% reduction seems to mitigate the issue.
-
-Also note this adjustment is not necessary on BeagleV Starlight SBC,
-which uses a Microchip PHY.  Hence, there is no indication of a
-misbehaviour on the GMAC side, but most likely the issue stems from
-the Motorcomm PHY.
-
-While at it, drop the redundant gpio include, which is already provided
-by jh7100-common.dtsi.
+The BeagleV Starlight SBC uses a Microchip KSZ9031RNXCA PHY supporting
+RGMII-ID which doesn't require any particular setup, other than defining
+a reset gpio, as opposed to VisionFive V1 for which the RX internal
+delay had to be adjusted.
 
 Co-developed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- .../jh7100-starfive-visionfive-v1.dts         | 22 ++++++++++++++++++-
- 1 file changed, 21 insertions(+), 1 deletion(-)
+ .../boot/dts/starfive/jh7100-beaglev-starlight.dts    | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7100-starfive-visionfive-v1.dts b/arch/riscv/boot/dts/starfive/jh7100-starfive-visionfive-v1.dts
-index e82af72f1aaf..4e396f820660 100644
---- a/arch/riscv/boot/dts/starfive/jh7100-starfive-visionfive-v1.dts
-+++ b/arch/riscv/boot/dts/starfive/jh7100-starfive-visionfive-v1.dts
-@@ -6,7 +6,6 @@
- 
- /dts-v1/;
- #include "jh7100-common.dtsi"
--#include <dt-bindings/gpio/gpio.h>
- 
- / {
- 	model = "StarFive VisionFive V1";
-@@ -18,3 +17,24 @@ gpio-restart {
- 		priority = <224>;
- 	};
+diff --git a/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts b/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
+index 7cda3a89020a..b79426935bfd 100644
+--- a/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
++++ b/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
+@@ -11,3 +11,14 @@ / {
+ 	model = "BeagleV Starlight Beta";
+ 	compatible = "beagle,beaglev-starlight-jh7100-r0", "starfive,jh7100";
  };
 +
-+/*
-+ * The board uses a Motorcomm YT8521 PHY supporting RGMII-ID, but requires
-+ * manual adjustment of the RX internal delay to work properly.  The default
-+ * RX delay provided by the driver (1.95ns) is too high, but applying a 50%
-+ * reduction seems to mitigate the issue.
-+ *
-+ * It is worth noting the adjustment is not necessary on BeagleV Starlight SBC,
-+ * which uses a Microchip PHY.  Hence, most likely the Motorcomm PHY is the one
-+ * responsible for the misbehaviour, not the GMAC.
-+ */
 +&mdio {
-+	phy: ethernet-phy@0 {
-+		reg = <0>;
-+		rx-internal-delay-ps = <900>;
++	phy: ethernet-phy@7 {
++		reg = <7>;
++		reset-gpios = <&gpio 63 GPIO_ACTIVE_LOW>;
 +	};
 +};
 +
