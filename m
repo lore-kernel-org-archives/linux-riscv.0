@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3565AC46CD2
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Dec 2023 18:03:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B6E8C41535
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Dec 2023 18:03:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=FYGwb4dCsujtGr5dt5LcIPuWv9AsjJn7LVUXs/ihVK0=; b=ohRpyikwp4gtPm
-	NiX2kaFY86unWVYI2nshWT209xAv934IHpbPg+O57syGCZuEhUfeSMcl44SR6ep3/VQJ/hPvLv8Kx
-	ek/phW5ziaSMe6gJERHiRNnNJRv3/7Wwjq3vtPVwLjcWgQ7OPXyVhTJnUlve5FotCz0/BZo4Ptqes
-	eDqqQpYFM7bV1IfT1TR9v49f1/5Srkm4G6wfjKNhx7PZW3cyvgQDMW68HneSPqWb5rqG/31ET0XWD
-	GPRQlVR45dnAmIo8pQr8qwoTZqtaTrj+v9o/ooZ/Jgt6CxnjoZRMR7cBf+r45/yr0P24HQqzJSxzi
-	2+/77YZivLP4WL9XgLkQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=b1/kTvaeTSIFOwgrjGe4dDxkHNgbDbCNHw+05KSxvdo=; b=s2GBFiCJ19CNIy
+	UJaAGWkfHtw4wowAzSmPD6f9xU6M/gbKHz2c6XtD7q+gXaCk3D/juv9yY6C9Zq3h3QeewGclsPnrC
+	fuPjB1GTse7HzqXGhIkfRlXmEsTvn8rB1tyyTV+TjmHk0de6oFjHz9AD7GcB3YQZ1hA95hvluIwkA
+	k5dHMlrDIOMHFkQEz9vzw0CFxo2PiP8VXtXoqd1/3s/iKfx/VI0oo6aglvJnGyWvUTDzoymde1In8
+	74i2uc3kHf3+jehlssCONu55ltOB0XQiJKLLAxTbWH+QWyKaf/mZab9f0+LWyWY+/QBB44gGBs1L8
+	V+3HxzkOACX4JEAkDsIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFeRE-00F6ut-2D;
-	Tue, 19 Dec 2023 18:03:28 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rFeRL-00F6zi-2x;
+	Tue, 19 Dec 2023 18:03:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFeRB-00F6sk-2n
+	id 1rFeRH-00F6wF-1u
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Dec 2023 18:03:27 +0000
+	Tue, 19 Dec 2023 18:03:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 33F18CE1AA3;
-	Tue, 19 Dec 2023 18:03:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 248D2C433C7;
-	Tue, 19 Dec 2023 18:03:19 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DE1B26141D;
+	Tue, 19 Dec 2023 18:03:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48267C433C7;
+	Tue, 19 Dec 2023 18:03:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1703009002;
-	bh=UL2kffNuUbkPlnJBN+qpCzpP5kui14dRs7DZfONdDT0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Tx6P/DJjFhfS2hJiQefr5BQzr7JnNvODIRRy7UQlV7ksSfFMQfUEGi2O7ZYHnX46p
-	 7zZWYPi/ssCCH0Z/Xb/HvTsstn+U5ywq4poEVpAPlmY6tUmyi39QY7UPJV0EdHJBJK
-	 h0auiil7imG1WcV2nDuuziUeVKwCTF7BrLxBlSrcxkeJBHc6uElnSju2pnjNw0TYZp
-	 I7zsC2VlkFB6MNWsigTWEybThY55+MS4U5/x/cM3+JUt6CUBm0K1KrUnhmeG94M1Ft
-	 SCXWVZSV2TaN4upbjHB+1U/m0Kt3CkLh+nuKeRkxaQ0T4ePmCHdLqAh0Us6nZH2L+K
-	 ncYMPB83i9ceg==
+	s=k20201202; t=1703009010;
+	bh=7HEG7NxaC+hEbKvi6V3ezlMLYmQxX8eFSiY1oLoxI38=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=fIZMvRHaWT8zGpNUvDXtLuxxyNtS3fWC3iodCoNDOBXnwEoc+rjvl0JDXiUFsG9JF
+	 6g39zjtD2RlRHz83NGBvDZhFP9DCC+xyZFyt+3RESTpahoQOFX42bsSJldjUzDdjj9
+	 yLPv1UTkwiTLGP8tz243HzVOxqcWTkvEMmM9JfpeHT5eaT5GmJwY3atxcN7rVSj+6K
+	 MuLrMN1qzfxqovVsps8N8LtxMR7kl1Zkg95orsXK4QgvYkfd+e+rZzqpNYxx+fG2Cl
+	 Uf048r/vPqCqySf8ci8W/7sQQ9/qvAcl8d1Y/tYdpY5KC4rBLQqt2HdR1BOhpOH6P5
+	 PRUU08tc5mcJg==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -55,15 +55,16 @@ Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-arch@vger.kernel.org,
 	linux-mm@kvack.org
-Subject: [PATCH 0/4] riscv: support fast gup
-Date: Wed, 20 Dec 2023 01:50:42 +0800
-Message-Id: <20231219175046.2496-1-jszhang@kernel.org>
+Subject: [PATCH 3/4] riscv: enable MMU_GATHER_RCU_TABLE_FREE for SMP && MMU
+Date: Wed, 20 Dec 2023 01:50:45 +0800
+Message-Id: <20231219175046.2496-4-jszhang@kernel.org>
 X-Mailer: git-send-email 2.40.0
+In-Reply-To: <20231219175046.2496-1-jszhang@kernel.org>
+References: <20231219175046.2496-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231219_100326_153928_F85753A7 
-X-CRM114-Status: UNSURE (   9.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231219_100331_752536_C6B0D91B 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,15 +81,6 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds fast gup support to riscv.
-
-The First patch fixes a bug in __p*d_free_tlb(). Per the riscv
-privileged spec, if non-leaf PTEs I.E pmd, pud or p4d is modified, a
-sfence.vma is a must.
-
-The 2nd patch is a preparation patch.
-
-The last two patches do the real work:
 In order to implement fast gup we need to ensure that the page
 table walker is protected from page table pages being freed from
 under it.
@@ -114,21 +106,109 @@ shootdown;
 Both case mean that disabling interrupts will block the free and
 protect the fast gup page walker.
 
-So after the 3rd patch, everything is well prepared, let's select
-HAVE_FAST_GUP if MMU.
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ arch/riscv/Kconfig               |  1 +
+ arch/riscv/include/asm/pgalloc.h | 23 ++++++++++++++++++-----
+ arch/riscv/include/asm/tlb.h     | 18 ++++++++++++++++++
+ 3 files changed, 37 insertions(+), 5 deletions(-)
 
-Jisheng Zhang (4):
-  riscv: tlb: fix __p*d_free_tlb()
-  riscv: tlb: convert __p*d_free_tlb() to inline functions
-  riscv: enable MMU_GATHER_RCU_TABLE_FREE for SMP && MMU
-  riscv: enable HAVE_FAST_GUP if MMU
-
- arch/riscv/Kconfig               |  2 ++
- arch/riscv/include/asm/pgalloc.h | 53 +++++++++++++++++++++++++++-----
- arch/riscv/include/asm/pgtable.h |  6 ++++
- arch/riscv/include/asm/tlb.h     | 18 +++++++++++
- 4 files changed, 71 insertions(+), 8 deletions(-)
-
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 24c1799e2ec4..d3555173d9f4 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -147,6 +147,7 @@ config RISCV
+ 	select IRQ_FORCED_THREADING
+ 	select KASAN_VMALLOC if KASAN
+ 	select LOCK_MM_AND_FIND_VMA
++	select MMU_GATHER_RCU_TABLE_FREE if SMP && MMU
+ 	select MODULES_USE_ELF_RELA if MODULES
+ 	select MODULE_SECTIONS if MODULES
+ 	select OF
+diff --git a/arch/riscv/include/asm/pgalloc.h b/arch/riscv/include/asm/pgalloc.h
+index 3c5e3bd15f46..deaf971253a2 100644
+--- a/arch/riscv/include/asm/pgalloc.h
++++ b/arch/riscv/include/asm/pgalloc.h
+@@ -102,7 +102,10 @@ static inline void __pud_free_tlb(struct mmu_gather *tlb, pud_t *pud,
+ 		struct ptdesc *ptdesc = virt_to_ptdesc(pud);
+ 
+ 		pagetable_pud_dtor(ptdesc);
+-		tlb_remove_page_ptdesc(tlb, ptdesc);
++		if (riscv_use_ipi_for_rfence())
++			tlb_remove_page_ptdesc(tlb, ptdesc);
++		else
++			tlb_remove_ptdesc(tlb, ptdesc);
+ 	}
+ }
+ 
+@@ -136,8 +139,12 @@ static inline void p4d_free(struct mm_struct *mm, p4d_t *p4d)
+ static inline void __p4d_free_tlb(struct mmu_gather *tlb, p4d_t *p4d,
+ 				  unsigned long addr)
+ {
+-	if (pgtable_l5_enabled)
+-		tlb_remove_page_ptdesc(tlb, virt_to_ptdesc(p4d));
++	if (pgtable_l5_enabled) {
++		if (riscv_use_ipi_for_rfence())
++			tlb_remove_page_ptdesc(tlb, virt_to_ptdesc(p4d));
++		else
++			tlb_remove_ptdesc(tlb, virt_to_ptdesc(p4d));
++	}
+ }
+ #endif /* __PAGETABLE_PMD_FOLDED */
+ 
+@@ -169,7 +176,10 @@ static inline void __pmd_free_tlb(struct mmu_gather *tlb, pmd_t *pmd,
+ 	struct ptdesc *ptdesc = virt_to_ptdesc(pmd);
+ 
+ 	pagetable_pmd_dtor(ptdesc);
+-	tlb_remove_page_ptdesc(tlb, ptdesc);
++	if (riscv_use_ipi_for_rfence())
++		tlb_remove_page_ptdesc(tlb, ptdesc);
++	else
++		tlb_remove_ptdesc(tlb, ptdesc);
+ }
+ 
+ #endif /* __PAGETABLE_PMD_FOLDED */
+@@ -180,7 +190,10 @@ static inline void __pte_free_tlb(struct mmu_gather *tlb, pgtable_t pte,
+ 	struct ptdesc *ptdesc = page_ptdesc(pte);
+ 
+ 	pagetable_pte_dtor(ptdesc);
+-	tlb_remove_page_ptdesc(tlb, ptdesc);
++	if (riscv_use_ipi_for_rfence())
++		tlb_remove_page_ptdesc(tlb, ptdesc);
++	else
++		tlb_remove_ptdesc(tlb, ptdesc);
+ }
+ #endif /* CONFIG_MMU */
+ 
+diff --git a/arch/riscv/include/asm/tlb.h b/arch/riscv/include/asm/tlb.h
+index 1eb5682b2af6..a0b8b853503f 100644
+--- a/arch/riscv/include/asm/tlb.h
++++ b/arch/riscv/include/asm/tlb.h
+@@ -10,6 +10,24 @@ struct mmu_gather;
+ 
+ static void tlb_flush(struct mmu_gather *tlb);
+ 
++#ifdef CONFIG_MMU
++#include <linux/swap.h>
++
++/*
++ * While riscv platforms with riscv_ipi_for_rfence as true require an IPI to
++ * perform TLB shootdown, some platforms with riscv_ipi_for_rfence as false use
++ * SBI to perform TLB shootdown. To keep software pagetable walkers safe in this
++ * case we switch to RCU based table free (MMU_GATHER_RCU_TABLE_FREE). See the
++ * comment below 'ifdef CONFIG_MMU_GATHER_RCU_TABLE_FREE' in include/asm-generic/tlb.h
++ * for more details.
++ */
++static inline void __tlb_remove_table(void *table)
++{
++	free_page_and_swap_cache(table);
++}
++
++#endif /* CONFIG_MMU */
++
+ #define tlb_flush tlb_flush
+ #include <asm-generic/tlb.h>
+ 
 -- 
 2.40.0
 
