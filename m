@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B704C46CCD
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Dec 2023 14:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36CEEC46CD3
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Dec 2023 14:54:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pr4lpnraROtlQRWv61XZEVcRlFnm3MQWuXKdRqEhe7I=; b=RULtmOuy9f9od4lEOQvV0Wc4XP
-	g4MsQzowMMcREtgxkJB9lowFAmuBnRU3GACjIJyfLflDqdwBr2tVvbq/n3MrtHvlCJSKOgD2ponLr
-	qj/gcJo1ptrIIoD7t+9SRtySOL+6Npi8x1fDozjHdcpo4pYfx5KOJoxQ8hKzjOeQMoECHGxhAYQLR
-	fGmq4mSc3eF8ZseFzdSrrUJnMfvgJXL8NLUAlUhFJTcxL7eunISTBb3lhJ8n4lA6bf17w9vzAmM5h
-	gD8XFyqkZAD6TwRJWvrIW1xC7u2ETGQP+gBL2dGS7Me9DlaoqrQ25vcsVrR403Xg2HuzWHJwiwZxY
-	K2xhZdmQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=33rS6fduAKmJHe8sr6RAuUcuAI6wRMQXympuL4KE3d0=; b=kFEBoMvpyomADE
+	X2nc6wtzFKcnPme1DgHXBOKvWJeRH/+jOxfAmmwlDom9OMRxOnugmFV+cikPpp5kzoHfOKN3TzI/f
+	d+e1QkVj5T0dTfv0/+uYTAy03+fLvwS0pt2EKIyQwWQgx9ctC8UjnxC8CZ8ckoZrIGSbqQxAUZ4Wr
+	LFk313VobC8nqMw57KA0obH6udZSSfYvreN6Pim8y8AsFI3u3H+gY1eEbnlJ00UybB7jz7OieQo27
+	r4mipD4Uo6BIcwylgh++OcynCGRlLpxtDhPw5uuYDhDqfEEmi5D9EJyNDUnJIIrDOj/AZahCaJsmG
+	HkX6+faf6nXaVooorUhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFbKe-00EQIH-0u;
-	Tue, 19 Dec 2023 14:44:28 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFbKa-00EQGf-0N;
-	Tue, 19 Dec 2023 14:44:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 910E7B8179D;
-	Tue, 19 Dec 2023 14:44:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5A9EC433C8;
-	Tue, 19 Dec 2023 14:44:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1702997061;
-	bh=Ec49Y1Ch4Y7DbynL5qJ3/M6jv5kHIuiLATbynFYdEYk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dehLBIGr1LajE1OtvLVTLPVToTCjSzGsWdAe/pHVJeX2MIrC9m1mPTvooMTQrt3ta
-	 7RGV4aXSoxoCh+Xnx0YICqWv36ry11nHS/nzEb8E87JqaOK6O/XvQtbWdjvWtFdlFk
-	 Ax4IumnD102EC7x7VhIiWz1tdIygL5RL82izs263RsC/22KrDePCqEiQffo0bzg/fx
-	 IH02+GzjOlMJyhx/ApVqSUrufavub2gGPQRrSNemUpbfH1eoTb1/7OlF+Izlp0YFig
-	 o46oeV75pUDtP1526DL2IImMqbrWtaAdCOgm36G8fWwsiUQCOCxzS0D6au1TxDVNBI
-	 BlUl90OFPwCbA==
-Date: Tue, 19 Dec 2023 14:44:17 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Baoquan He <bhe@redhat.com>
-Cc: linux-kernel@vger.kernel.org, kexec@lists.infradead.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	linux-parisc@vger.kernel.org, akpm@linux-foundation.org,
-	joe@perches.com, nathan@kernel.org
-Subject: Re: [PATCH v4 5/7] kexec_file, ricv: print out debugging message if
- required
-Message-ID: <20231219-twitch-many-ca8877857182@spud>
-References: <20231213055747.61826-1-bhe@redhat.com>
- <20231213055747.61826-6-bhe@redhat.com>
+	id 1rFbUY-00ERgc-2L;
+	Tue, 19 Dec 2023 14:54:42 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1rFbUU-00ERbd-1z
+	for linux-riscv@lists.infradead.org;
+	Tue, 19 Dec 2023 14:54:41 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 51A0B24E24D;
+	Tue, 19 Dec 2023 22:54:04 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 19 Dec
+ 2023 22:54:04 +0800
+Received: from localhost.localdomain (113.72.145.47) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 19 Dec
+ 2023 22:54:03 +0800
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner
+	<tglx@linutronix.de>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Christophe JAILLET
+	<christophe.jaillet@wanadoo.fr>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Rob
+ Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Walker Chen
+	<walker.chen@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>,
+	<linux-kernel@vger.kernel.org>, Conor Dooley <conor@kernel.org>
+Subject: [PATCH v8 1/3] dt-bindings: timer: Add timer for StarFive JH7110 SoC
+Date: Tue, 19 Dec 2023 22:54:00 +0800
+Message-ID: <20231219145402.7879-2-xingyu.wu@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20231219145402.7879-1-xingyu.wu@starfivetech.com>
+References: <20231219145402.7879-1-xingyu.wu@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <20231213055747.61826-6-bhe@redhat.com>
+X-Originating-IP: [113.72.145.47]
+X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231219_064424_304242_EF4DF233 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20231219_065438_965845_EDC5BA7C 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,71 +75,128 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6245077241828171567=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add bindings for the timer on the JH7110 RISC-V SoC
+by StarFive Technology Ltd.
 
---===============6245077241828171567==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="s/6JoYHenWk4BZK6"
-Content-Disposition: inline
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+---
+ .../bindings/timer/starfive,jh7110-timer.yaml | 96 +++++++++++++++++++
+ 1 file changed, 96 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/timer/starfive,jh7110-timer.yaml
 
+diff --git a/Documentation/devicetree/bindings/timer/starfive,jh7110-timer.yaml b/Documentation/devicetree/bindings/timer/starfive,jh7110-timer.yaml
+new file mode 100644
+index 000000000000..9a2dac11eb06
+--- /dev/null
++++ b/Documentation/devicetree/bindings/timer/starfive,jh7110-timer.yaml
+@@ -0,0 +1,96 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/timer/starfive,jh7110-timer.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH7110 Timer
++
++maintainers:
++  - Xingyu Wu <xingyu.wu@starfivetech.com>
++  - Samin Guo <samin.guo@starfivetech.com>
++
++description:
++  This timer has four free-running 32 bit counters in StarFive JH7110 SoC.
++  And each channel(counter) triggers an interrupt when timeout. They support
++  one-shot mode and continuous-run mode.
++
++properties:
++  compatible:
++    const: starfive,jh7110-timer
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    items:
++      - description: channel 0
++      - description: channel 1
++      - description: channel 2
++      - description: channel 3
++
++  clocks:
++    items:
++      - description: timer APB
++      - description: channel 0
++      - description: channel 1
++      - description: channel 2
++      - description: channel 3
++
++  clock-names:
++    items:
++      - const: apb
++      - const: ch0
++      - const: ch1
++      - const: ch2
++      - const: ch3
++
++  resets:
++    items:
++      - description: timer APB
++      - description: channel 0
++      - description: channel 1
++      - description: channel 2
++      - description: channel 3
++
++  reset-names:
++    items:
++      - const: apb
++      - const: ch0
++      - const: ch1
++      - const: ch2
++      - const: ch3
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - resets
++  - reset-names
++
++additionalProperties: false
++
++examples:
++  - |
++    timer@13050000 {
++        compatible = "starfive,jh7110-timer";
++        reg = <0x13050000 0x10000>;
++        interrupts = <69>, <70>, <71> ,<72>;
++        clocks = <&clk 124>,
++                 <&clk 125>,
++                 <&clk 126>,
++                 <&clk 127>,
++                 <&clk 128>;
++        clock-names = "apb", "ch0", "ch1",
++                      "ch2", "ch3";
++        resets = <&rst 117>,
++                 <&rst 118>,
++                 <&rst 119>,
++                 <&rst 120>,
++                 <&rst 121>;
++        reset-names = "apb", "ch0", "ch1",
++                      "ch2", "ch3";
++    };
++
+-- 
+2.25.1
 
---s/6JoYHenWk4BZK6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Dec 13, 2023 at 01:57:45PM +0800, Baoquan He wrote:
-> Then when specifying '-d' for kexec_file_load interface, loaded
-> locations of kernel/initrd/cmdline etc can be printed out to help debug.
->=20
-> Here replace pr_debug() with the newly added kexec_dprintk() in kexec_file
-> loading related codes.
->=20
-> And also replace pr_notice() with kexec_dprintk() in elf_kexec_load()
-> because loaded location of purgatory and device tree are only printed
-> out for debugging, it doesn't make sense to always print them out.
->=20
-> And also remove kexec_image_info() because the content has been printed
-> out in generic code.
->=20
-> Signed-off-by: Baoquan He <bhe@redhat.com>
-
-I'm sorry - I meant to look at this several days ago but I forgot.
-Apart from the typo that crept back into $subject, this version explains
-the rationale behind what you're changing a lot better, thanks.
-
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Cheers,
-Conor.
-
---s/6JoYHenWk4BZK6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZYGsQQAKCRB4tDGHoIJi
-0m1fAP9g+8AFIV/8mpsN7yszSR98AoukUk319L4Cyd7Ffhkl6wEA7poQh+JBuAOa
-YQJL75j4TedEPF5Y6iyMMP3w1MeKMAs=
-=JnLd
------END PGP SIGNATURE-----
-
---s/6JoYHenWk4BZK6--
-
-
---===============6245077241828171567==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6245077241828171567==--
-
