@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C62B9C46CD4
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Dec 2023 17:48:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7409C46CA2
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Dec 2023 17:48:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yYOHUTn1oAV5wdxdedFXJT+rQR7Tg1Pyo38VA3g+Eqc=; b=XUrRlEYmxsEJqK
-	Uv/tG++T1QsM+9zV8dLwGwdwhvbFusfWRRLudy8cL2Ea8ocMZw5PYv6Iyt7eGLM4042Tt+gq7ewuz
-	sBXlW1okHNr4+JsijKzehWHT9348VeeOCQ2SHzAhVnd25VknHmbAEULKTGTnC0naaH0C8yQskexCP
-	cklUExtVy53bdtG31cJKGjssBGsGm/kEoe3TIvzYmAS9/veO8vvvFWNiMTL1BhEjT4Nf72Syc0blR
-	a2s5ruLhoyqXJOs3z/xHpikaneIsL5Np9pRfuiE9pOnLl6ba8g3Y5J2O/LxCiRMs2X/3eJCQnbR1F
-	3BCN84TnHdGROVHXonfg==;
+	List-Owner; bh=cEFxjz99lyHt+j2+DXFPLo5bH0CAQ+zOd3IEYJDZ0qU=; b=XKmN8My/ALqghK
+	ZosRwJoaqFZWaGMB01kFxk5k35ybpYtXJrzw+0MCtPmZ8mn1PYHizdvAvWDJWST+neiLLZnEXBFMp
+	rS9uM+ESPKzPkQnrRexysfZMUqga7K3CpbTMuAI4kMXNe+HQrN5La4ON+HKidef6uIAzsaR6JM7yW
+	HD4wWnEZ2++hEqoPks28RT++Gctn095B8J9CfctRCV+y+7bVHj3uWLpVrXzIli1w2tAxVXzLhhOYb
+	SmUlPe5Sr/xhsO7kNZP5AiZrC8WFlIw0rvdaHaYYVxzqhbokYa4XayzC4R5YBCDe9QhUtjA5WnCFc
+	ZdLHlgw/R4JbrCJ7+bQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFeCA-00F2Fr-1d;
-	Tue, 19 Dec 2023 17:47:54 +0000
+	id 1rFeCQ-00F2TE-20;
+	Tue, 19 Dec 2023 17:48:10 +0000
 Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFeB9-00F1Hn-0r
+	id 1rFeBN-00F1ZT-2l
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Dec 2023 17:46:52 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1d39afa1eecso29695365ad.2
-        for <linux-riscv@lists.infradead.org>; Tue, 19 Dec 2023 09:46:48 -0800 (PST)
+	Tue, 19 Dec 2023 17:47:07 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1d3ac28ae81so24266155ad.0
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Dec 2023 09:47:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1703008008; x=1703612808; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1703008025; x=1703612825; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=SP5qUoiFDc31MnkvQviOGvw0IT7UG54DgquaP3mAr+M=;
-        b=XgEhIijeIn8bLy8p6Z05sb6YXcunfm2yyhzUnK9w19tDYrO1RsrjGmYML3jorWMYrz
-         JpYmObs0I3hQqz/VgwS11UB7bDhshgRzhKiC4SVXcQ4o6WxnH8lsb5URNxAxk+DakFWh
-         RwwxsTVoODZYr+mFcKoLX6l0BGh1dR9hNVqTVFvYiQKmEtEyzQ9mlckz0CMu/eeoZ7EQ
-         aJClv5xCc+lLqlAw8QSrTLeJjdyjj3mnclJd4fCKrNcLHrQixUXPuXH1JgfiERHJaSj7
-         Dwu73Crb6wNViuPtXAdCb45dtrD/2Ud7MABaDwfWdutj0W5kr2VLhTKFJFshvPM4pQJf
-         aQ4Q==
+        bh=XaVzwwT2ecLOtMDBM5TdFJiJ9XdFZ6MUpboDwIj/4ug=;
+        b=jaHIrw3CtURZfDLL5CdOrgdl4XiCxao8ndPVGp1RhjL9upeIAOzFU99HIdiqJPK0pX
+         z3JJ+5hsg4z3/iLjjsml+JBx8GvZLXiByALaEdwPXVzIqFmd9PeQ5uKdqdACQEaGuTK/
+         CtPAmZWVhfm7FeHYcUjkb8qpgHYmnqt1/WFZDELFwnkU3aplVbTAQ83ozCdTP0cCwmUY
+         e9Zb7MSyG5jhQfo5+5kuuoZRefqurKFeM8UCQR67821Ey2il/jWg4UK8MT+/dTLA+1Uk
+         KuNnOBKWIfSnPbl3mGgb6o0kA1ZqixpZIIxJgp5odoshHhbg10EkSR6IrIh3WdoURGhr
+         +rRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1703008008; x=1703612808;
+        d=1e100.net; s=20230601; t=1703008025; x=1703612825;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=SP5qUoiFDc31MnkvQviOGvw0IT7UG54DgquaP3mAr+M=;
-        b=tkJ3zzqkVND4F5vBormAU8lPA+nTDzsr6w/kCdhP1F4lL1cN0c4Rpyp3pgqDlmO6bf
-         V2zOTemK8acs0HtfrWdvoFOQHXoPb4cVx9C0mJhSMCovcnbq+YAwXunAguWrkPm5S6pB
-         5qaYPb8bdycSSIwl9vQlM3aTtJ1l3tOAq+OnRRQCHpriEK1j5e0N6kr9i6BuhC9zvuJG
-         7QloOx70pAxXQsHn1FYBaUg5CLb0woXRh925CdjPsGAu8OVU2PyCaOPaCeJBE2dTuv8I
-         2ogkq7ZXJYAdDWtTkPmsUCDrcGhw80I++0qRusEfKMSy6f/KfUUTOimFqLNd6MdOZgZJ
-         vlcQ==
-X-Gm-Message-State: AOJu0YyLqVGeYWtmboi6fJ/83Kbm0edCjkcwW3EEd/OuVOXRZxmUz8/c
-	d8vX5UP6xIsukgHTQV+/Hn/sPA==
-X-Google-Smtp-Source: AGHT+IEOQXmfDQVD1vBA63SzA+9hg3WHejFnv5r3sp4cTvGZBg1eOJzxTsxyyXCko2PiShNLOVwBww==
-X-Received: by 2002:a17:902:a3c7:b0:1d3:9d55:3d67 with SMTP id q7-20020a170902a3c700b001d39d553d67mr5367594plb.101.1703008008246;
-        Tue, 19 Dec 2023 09:46:48 -0800 (PST)
+        bh=XaVzwwT2ecLOtMDBM5TdFJiJ9XdFZ6MUpboDwIj/4ug=;
+        b=OUufYxvRKWtFC7XisMsd3RqrKdkK8GrO8uuXU8ZmmkE993Q21UvjkCOaVCiw8acjIF
+         Xail6gCMX4JQI2HV4iu9n/eSkaK+GS3PhctCeXCpftMZ1cc2jKW8fSu4TJ3II13idtsV
+         v85iLcjPC29LQ/A+OrmYe6gbN+u3q3y6ngDvT5KRpBTe62ZMZJrona+qs6b4966FYanx
+         iE6mhOy49fwZXSnTDTiwwmCeGJiCy6r00sVJ+ViqbeZBs/09CFK6RlTSZe85UayU00Xm
+         5X3dRZbf8AccO+4sagprBegau4XMhELu/rsqmWBOkod+1wxqscwRz/8J/2rWy986vCC8
+         t9gA==
+X-Gm-Message-State: AOJu0Yw8jkhmIxzd8l3Ehtw2I5tVFFsJuuo7Z9zlPHcd1BBbbho5oK1Y
+	6yPnr6tWJVigBiXhNtEAuwArIg==
+X-Google-Smtp-Source: AGHT+IG5x81QIwdA146e8SSr+Pdh859h/oT2VMGTgxkFKS+ftvwwQnsNNroKYOvMgeiD+AUyeRhwsQ==
+X-Received: by 2002:a17:903:2347:b0:1d3:c730:f0a2 with SMTP id c7-20020a170903234700b001d3c730f0a2mr3728002plh.118.1703008025154;
+        Tue, 19 Dec 2023 09:47:05 -0800 (PST)
 Received: from sunil-pc.Dlink ([106.51.188.200])
-        by smtp.gmail.com with ESMTPSA id n16-20020a170903111000b001d3320f6143sm14453015plh.269.2023.12.19.09.46.42
+        by smtp.gmail.com with ESMTPSA id n16-20020a170903111000b001d3320f6143sm14453015plh.269.2023.12.19.09.46.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Dec 2023 09:46:47 -0800 (PST)
+        Tue, 19 Dec 2023 09:47:04 -0800 (PST)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
 	linux-pci@vger.kernel.org
-Subject: [RFC PATCH v3 13/17] ACPI: bus: Add RINTC IRQ model for RISC-V
-Date: Tue, 19 Dec 2023 23:15:22 +0530
-Message-Id: <20231219174526.2235150-14-sunilvl@ventanamicro.com>
+Subject: [RFC PATCH v3 16/17] ACPI: RISC-V: Create PLIC platform device
+Date: Tue, 19 Dec 2023 23:15:25 +0530
+Message-Id: <20231219174526.2235150-17-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20231219174526.2235150-1-sunilvl@ventanamicro.com>
 References: <20231219174526.2235150-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231219_094651_321282_EE8EC0E9 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20231219_094705_925171_B93878FD 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,41 +96,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the IRQ model for RISC-V INTC so that acpi_set_irq_model can use this
-for RISC-V.
+Since PLIC needs to be a platform device, probe the MADT and create
+platform devices for each PLIC in the system.
 
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 ---
- drivers/acpi/bus.c   | 3 +++
- include/linux/acpi.h | 1 +
- 2 files changed, 4 insertions(+)
+ drivers/acpi/riscv/init.c |  1 +
+ drivers/acpi/riscv/init.h |  1 +
+ drivers/acpi/riscv/irq.c  | 19 +++++++++++++++++++
+ 3 files changed, 21 insertions(+)
 
-diff --git a/drivers/acpi/bus.c b/drivers/acpi/bus.c
-index a4aa53b7e2bb..9eace6c7042e 100644
---- a/drivers/acpi/bus.c
-+++ b/drivers/acpi/bus.c
-@@ -1158,6 +1158,9 @@ static int __init acpi_bus_init_irq(void)
- 	case ACPI_IRQ_MODEL_LPIC:
- 		message = "LPIC";
- 		break;
-+	case ACPI_IRQ_MODEL_RINTC:
-+		message = "RINTC";
-+		break;
- 	default:
- 		pr_info("Unknown interrupt routing model\n");
- 		return -ENODEV;
-diff --git a/include/linux/acpi.h b/include/linux/acpi.h
-index ae045e14126b..b6766bded765 100644
---- a/include/linux/acpi.h
-+++ b/include/linux/acpi.h
-@@ -95,6 +95,7 @@ enum acpi_irq_model_id {
- 	ACPI_IRQ_MODEL_PLATFORM,
- 	ACPI_IRQ_MODEL_GIC,
- 	ACPI_IRQ_MODEL_LPIC,
-+	ACPI_IRQ_MODEL_RINTC,
- 	ACPI_IRQ_MODEL_COUNT
- };
+diff --git a/drivers/acpi/riscv/init.c b/drivers/acpi/riscv/init.c
+index e7eff7ab1474..c6fd4097e8ae 100644
+--- a/drivers/acpi/riscv/init.c
++++ b/drivers/acpi/riscv/init.c
+@@ -11,4 +11,5 @@
+ void __init acpi_riscv_init(void)
+ {
+ 	riscv_acpi_aplic_platform_init();
++	riscv_acpi_plic_platform_init();
+ }
+diff --git a/drivers/acpi/riscv/init.h b/drivers/acpi/riscv/init.h
+index 17bcf0baaadb..b4b305d83b3a 100644
+--- a/drivers/acpi/riscv/init.h
++++ b/drivers/acpi/riscv/init.h
+@@ -3,3 +3,4 @@
  
+ void __init riscv_acpi_imsic_platform_init(void);
+ void __init riscv_acpi_aplic_platform_init(void);
++void __init riscv_acpi_plic_platform_init(void);
+diff --git a/drivers/acpi/riscv/irq.c b/drivers/acpi/riscv/irq.c
+index d08a851ab6dc..f14ea43b0178 100644
+--- a/drivers/acpi/riscv/irq.c
++++ b/drivers/acpi/riscv/irq.c
+@@ -148,3 +148,22 @@ void __init riscv_acpi_aplic_platform_init(void)
+ {
+ 	acpi_table_parse_madt(ACPI_MADT_TYPE_APLIC, aplic_parse_madt, 0);
+ }
++
++static int __init plic_parse_madt(union acpi_subtable_headers *header,
++				  const unsigned long end)
++{
++	struct acpi_madt_plic *plic = (struct acpi_madt_plic *)header;
++
++	return irqchip_add_platform_device("riscv-plic",
++					   plic->id,
++					   plic->base_addr,
++					   plic->size,
++					   plic->gsi_base,
++					   plic->num_irqs,
++					   header);
++}
++
++void __init riscv_acpi_plic_platform_init(void)
++{
++	acpi_table_parse_madt(ACPI_MADT_TYPE_PLIC, plic_parse_madt, 0);
++}
 -- 
 2.39.2
 
