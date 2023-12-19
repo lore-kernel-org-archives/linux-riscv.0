@@ -4,67 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA9CDC41535
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Dec 2023 11:17:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 001FFC41535
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Dec 2023 12:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tBH2dehnqzYxnKWB+cihxfhLmESLiToK9F4no9qIJuw=; b=CBgrbTRw1KpHd6
-	NmpybwySuNMZUAaLwJ0gBUvb42QWn5HT0imFIXQ3GVgbtXK2LtZO/B8p9WIJNTze9cFBqddKazosb
-	tRelmbn7x2z2TyzFFG8J6SR3/7beNVrO6Ufm4OlRU3v+WJjEFfSFLvmLYNnWRrXmqA0F7ubdBXUI4
-	dcXcvJbROiWe3TEqNotdMb6k2lVNPoWxWFS7G3qedKoCxtIQ4bEjnksyhpHCwy6yxN/bq40BrXjs0
-	CcuVK1OvaVnZb8zS/ET1otUir+MIiiThwHBz20D6eoIwHd0JMsyRse5fj60ThQfYn0WZg+jsbJDXd
-	MU1nk4rOk9ixv7nOYVzQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=smbuSxLYXhdaBhMK/FVj21Bio/aE9yLKMF18s4gN2+I=; b=ZghxYi6Rq6W0+W
+	F1rv2rZ497WJbYum1RkvtVayG0XdiJq28s0AyjFVt7snUeqpdlC16H/LM1Vt2IfIr/vfZSypQ0EbO
+	78KI4qcoRPfB/17xO0StRg8tCvHYEZB01i5uaW+mWj5ti3tolzLQfu1crjOmeJDUYoS9pcu/JGkDt
+	QVihzZm5bzKIAq9gjDnS0hUIc6I0iuxwpouopGzXIuOTwN1FtufZ/geSRrBK33b6jm6jFsR16RvLZ
+	DjtXPnFNHENc2g7aujhjap7MhvUJoCReccPRT/ky73naDKVbqMCfMDHtkQAMTq6cvGjK8nGr/1dQs
+	dCi4O0XkMv3A3/Wza75g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFY65-00Df1X-2p;
-	Tue, 19 Dec 2023 11:17:13 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1rFZXF-00E4cj-0n;
+	Tue, 19 Dec 2023 12:49:21 +0000
+Received: from madrid.collaboradmins.com ([46.235.227.194])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFY62-00Dezz-2Y
-	for linux-riscv@lists.infradead.org;
-	Tue, 19 Dec 2023 11:17:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 42803CE1081;
-	Tue, 19 Dec 2023 11:17:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3FAAC433C8;
-	Tue, 19 Dec 2023 11:17:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1702984627;
-	bh=wJ8SoxQvEXo8YD/Otob+P1IPztgR2u77NuTz+L6AVU4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=H1WI21FjhrRQqg3E1c+b9XLaLpRQ5UnHHpqgayieRpRt9ZtZquOYuPtjRP86oKQxF
-	 QmYVT4SUNPFdKdWfcAwGru47rzFe7efebbzWOM8kfA3uyFYYLvHYi42lKwzyV4BMaX
-	 8DMf1hrc2dPsEPN0ETih338m/ZAI1oyIa5mARhVFR1xxSk3DrQ7B4Dq5qiNUk/qD+X
-	 1Y5PALy2PRFxmxFY+nzUVwaF9WxzI4CDb9/WJfBdQd0Gtyg0i+HgJ2xOddraG6Ui/K
-	 osw9FWJ9Kq620lSDCNPxU1xUPMOmddLjeNuF9JbrOJIs2lcOkDzhu1N6hkAWj50lVU
-	 IpO1d51vxt2TA==
-From: guoren@kernel.org
-To: linux-kernel@vger.kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	alexghiti@rivosinc.com,
-	charlie@rivosinc.com,
-	xiao.w.wang@intel.com,
-	guoren@kernel.org,
-	david@redhat.com,
-	panqinglin2020@iscas.ac.cn,
-	rick.p.edgecombe@intel.com,
-	willy@infradead.org
-Cc: linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH] riscv: mm: Fixup compat mode boot failure
-Date: Tue, 19 Dec 2023 06:17:01 -0500
-Message-Id: <20231219111701.1886903-1-guoren@kernel.org>
-X-Mailer: git-send-email 2.40.1
+	id 1rFZXA-00E4c0-2p;
+	Tue, 19 Dec 2023 12:49:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1702990151;
+	bh=7c9DrFu1ZPG35MYcFGxt231G+iS6qoQmOYU2uV067uQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JT3RSC2lfVBE6Q7Yc6yECbidmsqSt8wv21FHq8IqeElYu7eoJt6pu3SOLiUnWNgfM
+	 nLdU6Atb2ypBuVzamOh0RuSPDqskOJpHPFlb0r4Eyd1f4W+4ofj+Zostqz8r83UpkE
+	 H89CazU5ezRWmR4nhfDV4fozczu+cpW6+uqRGoTgUJ0pmUtT0EFwSwHjezODsw9YbK
+	 KvqYz3xQZf8/e3YCLuHWrVr6MZKldCWplJ04NGFAfexrbOKBQrpmpdAvOYqyExoDTh
+	 Xb43sr8KuHd1zzrFmBJXl+4BorJa246m4a030YTSG724eoufc5Dydjy+75zGVQ9Pbg
+	 027k9msweKWkA==
+Received: from [100.115.223.179] (cola.collaboradmins.com [195.201.22.229])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by madrid.collaboradmins.com (Postfix) with ESMTPSA id 7278F37813EB;
+	Tue, 19 Dec 2023 12:49:09 +0000 (UTC)
+Message-ID: <d030f5b7-8d32-4a80-a3c0-98cfa1c0fe4f@collabora.com>
+Date: Tue, 19 Dec 2023 14:49:08 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/9] dt-bindings: net: starfive,jh7110-dwmac: Add
+ JH7100 SoC compatible
+Content-Language: en-US
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Samin Guo <samin.guo@starfivetech.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Hal Feng <hal.feng@starfivetech.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+References: <20231218214451.2345691-1-cristian.ciocaltea@collabora.com>
+ <20231218214451.2345691-3-cristian.ciocaltea@collabora.com>
+ <c9225053-78f8-40b7-9453-dc3dabe44500@linaro.org>
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <c9225053-78f8-40b7-9453-dc3dabe44500@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231219_031711_018470_ECB617C8 
-X-CRM114-Status: UNSURE (   9.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231219_044917_085060_66ED37D6 
+X-CRM114-Status: GOOD (  14.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,42 +94,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+On 12/19/23 09:27, Krzysztof Kozlowski wrote:
+> On 18/12/2023 22:44, Cristian Ciocaltea wrote:
+>> The Synopsys DesignWare MAC found on StarFive JH7100 SoC is mostly
+>> similar to the newer JH7110, but it requires only two interrupts and a
+>> single reset line, which is 'ahb' instead of the commonly used
+>> 'stmmaceth'.
+>>
+> 
+>>    reg:
+>> @@ -145,9 +146,13 @@ properties:
+>>  
+>>    reset-names:
+>>      minItems: 1
+>> -    items:
+>> -      - const: stmmaceth
+>> -      - const: ahb
+>> +    maxItems: 2
+> 
+> min and maxItems should not be needed here.
 
-In COMPAT mode, the STACK_TOP is 0x80000000, but the TASK_SIZE is
-0x7fff000. When the user stack is upon 0x7fff000, it will cause a user
-segment fault. Sometimes, it would cause boot failure when the whole
-rootfs is rv32.
+Indeed, I will drop them.
 
-Freeing unused kernel image (initmem) memory: 2236K
-Run /sbin/init as init process
-Starting init: /sbin/init exists but couldn't execute it (error -14)
-Run /etc/init as init process
-...
+>> +    oneOf:
+>> +      - items:
+>> +          - enum: [stmmaceth, ahb]
+>> +      - items:
+>> +          - const: stmmaceth
+>> +          - const: ahb
+>>  
+>>    power-domains:
+>>      maxItems: 1
+>> diff --git a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+>> index d90cb82c1424..f5f0bff5be0f 100644
+>> --- a/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+>> +++ b/Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
+>> @@ -16,16 +16,20 @@ select:
+>>      compatible:
+>>        contains:
+>>          enum:
+>> +          - starfive,jh7100-dwmac
+>>            - starfive,jh7110-dwmac
+>>    required:
+>>      - compatible
+>>  
+>>  properties:
+>>    compatible:
+>> -    items:
+>> -      - enum:
+>> -          - starfive,jh7110-dwmac
+>> -      - const: snps,dwmac-5.20
+>> +    oneOf:
+>> +      - items:
+>> +          - const: starfive,jh7100-dwmac
+>> +          - const: snps,dwmac
+>> +      - items:
+>> +          - const: starfive,jh7110-dwmac
+>> +          - const: snps,dwmac-5.20
+>>  
+>>    reg:
+>>      maxItems: 1
+>> @@ -46,23 +50,6 @@ properties:
+>>        - const: tx
+>>        - const: gtx
+>>  
+>> -  interrupts:
+>> -    minItems: 3
+>> -    maxItems: 3
+>> -
+>> -  interrupt-names:
+>> -    minItems: 3
+>> -    maxItems: 3
+>> -
+>> -  resets:
+>> -    minItems: 2
+>> -    maxItems: 2
+> 
+> What is the point of your previous patch if you immediately remove it?
+> It is a no-op. Just mention in this commit msg, that both resets and
+> reset-names are coming from snps,dwmac so they can be removed from
+> top-level entirely.
 
-Fixes: add2cc6b6515 ("RISC-V: mm: Restrict address space for sv39,sv48,sv57")
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
----
- arch/riscv/include/asm/pgtable.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+This has been discussed during v2 review [1], where I also provided the
+rational behind not updating reset-names. So the code was not deleted,
+but moved under an if clause.
 
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index ab00235b018f..d2ec5e6fa331 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -881,7 +881,7 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
- #define TASK_SIZE_MIN	(PGDIR_SIZE_L3 * PTRS_PER_PGD / 2)
- 
- #ifdef CONFIG_COMPAT
--#define TASK_SIZE_32	(_AC(0x80000000, UL) - PAGE_SIZE)
-+#define TASK_SIZE_32	(UL(1) << (MMAP_VA_BITS - 1))
- #define TASK_SIZE	(test_thread_flag(TIF_32BIT) ? \
- 			 TASK_SIZE_32 : TASK_SIZE_64)
- #else
--- 
-2.40.1
+Thanks for reviewing,
+Cristian
 
+[1]: https://lore.kernel.org/lkml/f4d0b216-5bdc-4559-aabb-8af638d33721@collabora.com/
 
 _______________________________________________
 linux-riscv mailing list
