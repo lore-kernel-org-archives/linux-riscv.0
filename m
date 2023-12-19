@@ -4,54 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42C1CC41535
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Dec 2023 07:45:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31778C46CA2
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Dec 2023 07:56:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Pm4PSs0LcjFHB4LwjqhdOtY+fOYMugWI/kiZhPCQszk=; b=HS8J/xjqQQQg7o
-	W9V/5+gvx/Zol/WMWhfDiw3f+AdH7dX02DP5XY5Vh3S1myp9uYP2hZnH9CRixxDHTV7MHckXYWDIW
-	uZa6tDM2FlZdnefJA2GXy98GRL3qolmpSagEbbw8MLHuX1NjPVfDe/xRSUs1qZEOLEq9tvwftXSWZ
-	Bkj+NL0WYEWjjAaTHVgsP6zQHYUpjANRNxIGT5CmDdpZXYRO9o281O8NwUbLVFv0y+URIcwHsWikV
-	u7Ye+fsWZzumRVbLZPqDOwb/2zwKdC3AqtYb0PZIHocIfuuZwAMsobGv9ywwxopKndyutytW3AhVe
-	vImF+jw0AYN/SzZFZ50A==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=5FD/yU1GOF/96llzJMhlG+nIs2PlOPfLoCZWVUwE79o=; b=RAatRPLkRbLzRH
+	x4AEng5doYyvu+MvNwXYul+n8sTeP7imMrwfg6NfK8y00jo60YBer6wIQ2xKilOggwwDeMlQuaivG
+	Tzb9dEtvX/YzNjgx868OgxL86TrCk9VnP4Rq15DkH40goK/78Z4crPHrkvFNi6BQt8+CW8HqyUgy2
+	Igqxh9Il1CIgvOwZwKqYltvwqMoqtR6RppVPYNMsA2ejOGRnjaCvg5mcWCGmD02oZvHtwBbjiKyjH
+	VWKQ6b6/FHHCGk0Cor8lMSemwRkLmwinO0nv/W/baZasQv9XRnAA0rNaFKBP89kcMcvDAs1n/yio4
+	R5Vfk9uXe8a1RPa/hhig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFUmz-00D8qT-2C;
-	Tue, 19 Dec 2023 07:45:17 +0000
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
+	id 1rFUxO-00DAc7-0Q;
+	Tue, 19 Dec 2023 07:56:02 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFUmu-00D8nw-1Y;
-	Tue, 19 Dec 2023 07:45:14 +0000
-Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 3BJ7hYaZ012432;
-	Tue, 19 Dec 2023 15:43:34 +0800 (+08)
-	(envelope-from peterlin@andestech.com)
-Received: from APC323 (10.0.12.98) by ATCPCS16.andestech.com (10.0.1.222) with
- Microsoft SMTP Server id 14.3.498.0; Tue, 19 Dec 2023 15:43:32 +0800
-Date: Tue, 19 Dec 2023 15:43:29 +0800
-From: Yu-Chien Peter Lin <peterlin@andestech.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Subject: Re: [PATCH v5 02/16] irqchip/riscv-intc: Allow large non-standard
- interrupt number
-Message-ID: <ZYFJjR1rD5Hn-HEH@APC323>
-References: <20231213070301.1684751-1-peterlin@andestech.com>
- <20231213070301.1684751-3-peterlin@andestech.com>
- <CAK9=C2WuuYQD8ydrHP16hUXVk6RuKLbfvUe_GpUGw9ppe3Rd8Q@mail.gmail.com>
- <CAK9=C2U+rSP8YMahPmTHLYZ+ZBfwwY5y52JeU_=R+VL1frR1Uw@mail.gmail.com>
+	id 1rFUxK-00DAZM-2O
+	for linux-riscv@lists.infradead.org;
+	Tue, 19 Dec 2023 07:56:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1702972556;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=+h83lLyn/5apLRr4X1Iml0TGvxqR5/pwpG6+wMVRoO8=;
+	b=XR8GUsaluDchgruKmarqBEqjW3Wqmhwn4GplqLYMVIMv0CFAKTWmyjaZJ4QLKt6Y03shFw
+	5SPz1ofzy3xk0tM53bvNAgaXdpVWJxzfVMba7MLpXt7SgdL9i/0dCMaKKz9fVEpw8TaBHi
+	XD0l0+6cK3iff/FxWtQuYwIL0K3Oa2w=
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-460-78fty2BGN2uAAfrfPZNG0g-1; Tue,
+ 19 Dec 2023 02:55:53 -0500
+X-MC-Unique: 78fty2BGN2uAAfrfPZNG0g-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 065E63C025C1;
+	Tue, 19 Dec 2023 07:55:52 +0000 (UTC)
+Received: from x1n.redhat.com (unknown [10.72.116.117])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 83B262026D66;
+	Tue, 19 Dec 2023 07:55:40 +0000 (UTC)
+From: peterx@redhat.com
+To: linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
+Cc: Matthew Wilcox <willy@infradead.org>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	David Hildenbrand <david@redhat.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Mike Kravetz <mike.kravetz@oracle.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Christoph Hellwig <hch@infradead.org>,
+	John Hubbard <jhubbard@nvidia.com>,
+	Andrew Jones <andrew.jones@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	"Kirill A . Shutemov" <kirill@shutemov.name>,
+	linuxppc-dev@lists.ozlabs.org,
+	Rik van Riel <riel@surriel.com>,
+	linux-riscv@lists.infradead.org,
+	Yang Shi <shy828301@gmail.com>,
+	James Houghton <jthoughton@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	peterx@redhat.com,
+	Axel Rasmussen <axelrasmussen@google.com>
+Subject: [PATCH 00/13] mm/gup: Unify hugetlb, part 2
+Date: Tue, 19 Dec 2023 15:55:25 +0800
+Message-ID: <20231219075538.414708-1-peterx@redhat.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAK9=C2U+rSP8YMahPmTHLYZ+ZBfwwY5y52JeU_=R+VL1frR1Uw@mail.gmail.com>
-User-Agent: Mutt/2.2.12 (2023-09-09)
-X-Originating-IP: [10.0.12.98]
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 3BJ7hYaZ012432
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231218_234512_975986_78616EC4 
-X-CRM114-Status: GOOD (  42.98  )
+X-CRM114-CacheID: sfid-20231218_235558_852178_1ED762EE 
+X-CRM114-Status: GOOD (  18.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,128 +96,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, irogers@google.com, heiko@sntech.de, geert+renesas@glider.be, alexander.shishkin@linux.intel.com, paul.walmsley@sifive.com, linux-kernel@vger.kernel.org, conor.dooley@microchip.com, guoren@kernel.org, krzysztof.kozlowski+dt@linaro.org, linux-riscv@lists.infradead.org, will@kernel.org, linux-renesas-soc@vger.kernel.org, tim609@andestech.com, samuel@sholland.org, anup@brainfault.org, dminus@andestech.com, magnus.damm@gmail.com, jernej.skrabec@gmail.com, peterz@infradead.org, wens@csie.org, mingo@redhat.com, linux-arm-kernel@lists.infradead.org, inochiama@outlook.com, linux-sunxi@lists.linux.dev, ajones@ventanamicro.com, devicetree@vger.kernel.org, conor+dt@kernel.org, aou@eecs.berkeley.edu, andre.przywara@arm.com, locus84@andestech.com, acme@kernel.org, prabhakar.mahadev-lad.rj@bp.renesas.com, robh+dt@kernel.org, atishp@atishpatra.org, namhyung@kernel.org, tglx@linutronix.de, jszhang@kernel.org, ycliang@andestech.com, n.shubin@yadro.com, rdunlap@infradead.org, adrian.hunter@intel.com, conor@kernel.org, linux-perf-users@vger.kernel.org, evan@rivosinc.com, palmer@dabbelt.com, jolsa@kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQW51cCwKCk9uIFdlZCwgRGVjIDEzLCAyMDIzIGF0IDA4OjQ5OjIzUE0gKzA1MzAsIEFudXAg
-UGF0ZWwgd3JvdGU6Cj4gT24gV2VkLCBEZWMgMTMsIDIwMjMgYXQgNzo1OOKAr1BNIEFudXAgUGF0
-ZWwgPGFwYXRlbEB2ZW50YW5hbWljcm8uY29tPiB3cm90ZToKPiA+Cj4gPiBPbiBXZWQsIERlYyAx
-MywgMjAyMyBhdCAxMjozNOKAr1BNIFl1IENoaWVuIFBldGVyIExpbgo+ID4gPHBldGVybGluQGFu
-ZGVzdGVjaC5jb20+IHdyb3RlOgo+ID4gPgo+ID4gPiBDdXJyZW50bHksIHRoZSBpbXBsZW1lbnRh
-dGlvbiBvZiB0aGUgUklTQy1WIElOVEMgZHJpdmVyIHVzZXMgdGhlCj4gPiA+IGludGVycnVwdCBj
-YXVzZSBhcyBoYXJkd2FyZSBpbnRlcnJ1cHQgbnVtYmVyIGFuZCBoYXMgYSBsaW1pdGF0aW9uIG9m
-Cj4gPiA+IHN1cHBvcnRpbmcgYSBtYXhpbXVtIG9mIDY0IGludGVycnVwdHMuIEhvd2V2ZXIsIGFj
-Y29yZGluZyB0byB0aGUKPiA+ID4gcHJpdmlsZWdlZCBzcGVjLCBpbnRlcnJ1cHQgY2F1c2VzID49
-IDE2IGFyZSBkZWZpbmVkIGZvciBwbGF0Zm9ybSB1c2UuCj4gPgo+ID4gSSBkaXNhZ3JlZSB3aXRo
-IHRoaXMgcGF0Y2guCj4gPgo+ID4gRXZlbiB0aG91Z2ggUklTQy1WIHByaXYgc2VwYyBhbGxvd3Mg
-aW50ZXJydXB0IGNhdXNlcyA+PSAxNiwgd2UKPiA+IHN0aWxsIG5lZWQgQ1NScyB0byBtYW5hZ2Ug
-YXJiaXRyYXJ5IGxvY2FsIGludGVycnVwdHMKPiA+Cj4gPiBDdXJyZW50bHksIHdlIGhhdmUgZm9s
-bG93aW5nIHN0YW5kYXJkIENTUnM6Cj4gPiAxKSBbbXxzXWllIGFuZCBbbXxzXWlwIHdoaWNoIGFy
-ZSBYTEVOIHdpZGUKPiA+IDIpIFdpdGggQUlBLCB3ZSBoYXZlIFttfHNdaWVoIGFuZCBbbXxzXWlw
-aCBmb3IgUlYzMgo+ID4KPiA+IENsZWFybHksIHdlIGNhbiBvbmx5IGhhdmUgYSBYTEVOIG51bWJl
-ciBvZiBzdGFuZGFyZCBsb2NhbAo+ID4gaW50ZXJydXB0cyB3aXRob3V0IEFJQSBhbmQgNjQgbG9j
-YWwgaW50ZXJydXB0cyB3aXRoIEFJQS4KPiA+Cj4gPiBOb3cgZm9yIGltcGxlbWVudGF0aW9ucyB3
-aXRoIGN1c3RvbSBDU1JzIChzdWNoIGFzIEFuZGVzKSwKPiA+IHdlIHN0aWxsIGNhbid0IGFzc3Vt
-ZSBpbmZpbml0ZSBsb2NhbCBpbnRlcnJ1cHRzIGJlY2F1c2UgSFcgd2lsbAo+ID4gaGF2ZSBhIGZp
-bml0ZSBudW1iZXIgb2YgY3VzdG9tIENTUnMuCj4gPgo+ID4gPgo+ID4gPiBUaGlzIGxpbWl0YXRp
-b24gcHJldmVudHMgdG8gZnVsbHkgdXRpbGl6ZSB0aGUgYXZhaWxhYmxlIGxvY2FsIGludGVycnVw
-dAo+ID4gPiBzb3VyY2VzLiBBZGRpdGlvbmFsbHksIHRoZSBpbnRlcnJ1cHQgbnVtYmVyIHVzZWQg
-b24gUklTQy1WIGFyZSBzcGFyc2UsCj4gPiA+IHdpdGggb25seSBpbnRlcnJ1cHQgbnVtYmVycyAx
-LCA1IGFuZCA5IChwbHVzIFNzY29mcG1mIG9yIFQtSGVhZCdzIFBNVQo+ID4gPiBpbnRlcnJ1cHQp
-IGJlaW5nIGN1cnJlbnRseSB1c2VkIGZvciBzdXBlcnZpc29yIG1vZGUuCj4gPiA+Cj4gPiA+IFN3
-aXRjaCB0byB1c2luZyBpcnFfZG9tYWluX2NyZWF0ZV90cmVlKCkgdG8gY3JlYXRlIHRoZSByYWRp
-eCB0cmVlCj4gPiA+IG1hcCwgc28gYSBsYXJnZXIgbnVtYmVyIG9mIGhhcmR3YXJlIGludGVycnVw
-dHMgY2FuIGJlIGhhbmRsZWQuCj4gPiA+Cj4gPiA+IFNpZ25lZC1vZmYtYnk6IFl1IENoaWVuIFBl
-dGVyIExpbiA8cGV0ZXJsaW5AYW5kZXN0ZWNoLmNvbT4KPiA+ID4gUmV2aWV3ZWQtYnk6IENoYXJs
-ZXMgQ2ktSnl1biBXdSA8ZG1pbnVzQGFuZGVzdGVjaC5jb20+Cj4gPiA+IFJldmlld2VkLWJ5OiBM
-ZW8gWXUtQ2hpIExpYW5nIDx5Y2xpYW5nQGFuZGVzdGVjaC5jb20+Cj4gPiA+IC0tLQo+ID4gPiBD
-aGFuZ2VzIHYxIC0+IHYyOgo+ID4gPiAgIC0gRml4ZWQgaXJxIG1hcHBpbmcgZmFpbHVyZSBjaGVj
-a2luZyAoc3VnZ2VzdGVkIGJ5IENsw6ltZW50IGFuZCBBbnVwKQo+ID4gPiBDaGFuZ2VzIHYyIC0+
-IHYzOgo+ID4gPiAgIC0gTm8gY2hhbmdlCj4gPiA+IENoYW5nZXMgdjMgLT4gdjQ6IChTdWdnZXN0
-ZWQgYnkgVGhvbWFzIFsxXSkKPiA+ID4gICAtIFVzZSBwcl93YXJuX3JhdGVsaW1pdGVkIGluc3Rl
-YWQKPiA+ID4gICAtIEZpeCBjb2Rpbmcgc3R5bGUgYW5kIGNvbW1pdCBtZXNzYWdlCj4gPiA+IENo
-YW5nZXMgdjQgLT4gdjU6IChTdWdnZXN0ZWQgYnkgVGhvbWFzKQo+ID4gPiAgIC0gRml4IGNvbW1p
-dCBtZXNzYWdlCj4gPiA+Cj4gPiA+IFsxXSBodHRwczovL3BhdGNod29yay5rZXJuZWwub3JnL3By
-b2plY3QvbGludXgtcmlzY3YvcGF0Y2gvMjAyMzEwMjMwMDQxMDAuMjY2MzQ4Ni0zLXBldGVybGlu
-QGFuZGVzdGVjaC5jb20vIzI1NTczMDg1Cj4gPiA+IC0tLQo+ID4gPiAgZHJpdmVycy9pcnFjaGlw
-L2lycS1yaXNjdi1pbnRjLmMgfCAxMiArKysrLS0tLS0tLS0KPiA+ID4gIDEgZmlsZSBjaGFuZ2Vk
-LCA0IGluc2VydGlvbnMoKyksIDggZGVsZXRpb25zKC0pCj4gPiA+Cj4gPiA+IGRpZmYgLS1naXQg
-YS9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWludGMuYyBiL2RyaXZlcnMvaXJxY2hpcC9pcnEt
-cmlzY3YtaW50Yy5jCj4gPiA+IGluZGV4IGU4ZDAxYjE0Y2NkZC4uMmZkZDQwZjJhNzkxIDEwMDY0
-NAo+ID4gPiAtLS0gYS9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWludGMuYwo+ID4gPiArKysg
-Yi9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWludGMuYwo+ID4gPiBAQCAtMjQsMTAgKzI0LDkg
-QEAgc3RhdGljIGFzbWxpbmthZ2Ugdm9pZCByaXNjdl9pbnRjX2lycShzdHJ1Y3QgcHRfcmVncyAq
-cmVncykKPiA+ID4gIHsKPiA+ID4gICAgICAgICB1bnNpZ25lZCBsb25nIGNhdXNlID0gcmVncy0+
-Y2F1c2UgJiB+Q0FVU0VfSVJRX0ZMQUc7Cj4gPiA+Cj4gPiA+IC0gICAgICAgaWYgKHVubGlrZWx5
-KGNhdXNlID49IEJJVFNfUEVSX0xPTkcpKQo+ID4gPiAtICAgICAgICAgICAgICAgcGFuaWMoInVu
-ZXhwZWN0ZWQgaW50ZXJydXB0IGNhdXNlIik7Cj4gPiA+IC0KPiA+ID4gLSAgICAgICBnZW5lcmlj
-X2hhbmRsZV9kb21haW5faXJxKGludGNfZG9tYWluLCBjYXVzZSk7Cj4gPiA+ICsgICAgICAgaWYg
-KGdlbmVyaWNfaGFuZGxlX2RvbWFpbl9pcnEoaW50Y19kb21haW4sIGNhdXNlKSkKPiA+ID4gKyAg
-ICAgICAgICAgICAgIHByX3dhcm5fcmF0ZWxpbWl0ZWQoIkZhaWxlZCB0byBoYW5kbGUgaW50ZXJy
-dXB0IChjYXVzZTogJWxkKVxuIiwKPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgY2F1c2UpOwo+ID4gPiAgfQo+ID4gPgo+ID4gPiAgLyoKPiA+ID4gQEAgLTExNyw4ICsx
-MTYsNyBAQCBzdGF0aWMgaW50IF9faW5pdCByaXNjdl9pbnRjX2luaXRfY29tbW9uKHN0cnVjdCBm
-d25vZGVfaGFuZGxlICpmbikKPiA+ID4gIHsKPiA+ID4gICAgICAgICBpbnQgcmM7Cj4gPiA+Cj4g
-PiA+IC0gICAgICAgaW50Y19kb21haW4gPSBpcnFfZG9tYWluX2NyZWF0ZV9saW5lYXIoZm4sIEJJ
-VFNfUEVSX0xPTkcsCj4gPiA+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgJnJpc2N2X2ludGNfZG9tYWluX29wcywgTlVMTCk7Cj4gPiA+ICsgICAgICAgaW50
-Y19kb21haW4gPSBpcnFfZG9tYWluX2NyZWF0ZV90cmVlKGZuLCAmcmlzY3ZfaW50Y19kb21haW5f
-b3BzLCBOVUxMKTsKPiA+Cj4gPiBJIGRpc2FncmVlIHdpdGggdGhpcyBjaGFuZ2UgYmFzZWQgb24g
-dGhlIHJlYXNvbmluZyBhYm92ZS4KPiA+Cj4gPiBJbnN0ZWFkIG9mIHRoaXMsIHdlIHNob3VsZCBk
-ZXRlcm1pbmUgdGhlIG51bWJlciBvZiBsb2NhbCBpbnRlcnJ1cHRzCj4gPiBiYXNlZCBvbiB0aGUg
-dHlwZSBvZiBSSVNDLVYgaW50YzoKPiA+IDEpIEZvciBzdGFuZGFyZCBJTlRDIHdpdGhvdXQgQUlB
-LCB3ZSBoYXZlIFhMRU4gKG9yIEJJVFNfUEVSX0xPTkcpCj4gPiAgICAgbG9jYWwgaW50ZXJydXB0
-cwo+ID4gMikgRm9yIHN0YW5kYXJ0IElOVEMgd2l0aCBBSUEsIHdlIGhhdmUgNjQgbG9jYWwgaW50
-ZXJydXB0cwo+ID4gMykgRm9yIGN1c3RvbSBJTlRDIChzdWNoIGFzIEFuZGVzKSwgdGhlIG51bWJl
-ciBvZiBsb2NhbCBpbnRlcnJ1cHQKPiA+ICAgICBzaG91bGQgYmUgY3VzdG9tIChBbmRlcyBzcGVj
-aWZpYykgd2hpY2ggY2FuIGJlIGRldGVybWluZWQgYmFzZWQKPiA+ICAgICBvbiBjb21wYXRpYmxl
-IHN0cmluZy4KPiA+Cj4gPiBBbHNvLCBjcmVhdGluZyBhIGxpbmVhciBkb21haW4gd2l0aCBhIGZp
-eGVkIG51bWJlciBvZiBsb2NhbCBpbnRlcnJ1cHRzCj4gPiBlbnN1cmVzIHRoYXQgZHJpdmVycyBj
-YW4ndCBtYXAgYSBsb2NhbCBpbnRlcnJ1cHQgYmV5b25kIHRoZSBhdmFpbGFiaWxpdHkKPiA+IG9m
-IENTUnMgdG8gbWFuYWdlIGl0Lgo+IAo+IFRoaW5raW5nIGFib3V0IHRoaXMgbW9yZS4gV2UgZG8g
-aGF2ZSBhIHByb2JsZW0gYmVjYXVzZSBBbmRlcyBsb2NhbAo+IGludGVycnVwdHMgYXJlIHJlYWxs
-eSBzcGFyc2Ugd2hpY2ggaXMgbm90IHRoZSBjYXNlIGZvciBzdGFuZGFyZCBsb2NhbAo+IGludGVy
-cnVwdHMKPiAKPiBJIGhhdmUgYW4gYWx0ZXJuYXRlIHN1Z2dlc3Rpb24gd2hpY2ggZ29lcyBhcyBm
-b2xsb3dzIC4uLgo+IAo+IFdlIHVzZSBpcnFfZG9tYWluX2NyZWF0ZV90cmVlKCkgaW4tcGxhY2Ug
-b2YgaXJxX2RvbWFpbl9jcmVhdGVfbGluZWFyKCkKPiBhbmQgZW5mb3JjZSBjaGVja3Mgb24gaHdp
-cnEgaW4gcmlzY3ZfaW50Y19kb21haW5fYWxsb2MoKSB0byBlbnN1cmUgdGhhdAo+IHdlIG9ubHkg
-YWxsb3cgaHdpcnEgZm9yIHdoaWNoIHdlIGhhdmUgY29ycmVzcG9uZGluZyBzdGFuZGFyZCBvciBj
-dXN0b20KPiBDU1IuCj4gCj4gVG8gYWNoaWV2ZSB0aGlzLCByaXNjdl9pbnRjX2luaXRfY29tbW9u
-KCkgd2lsbCBoYXZlIHRvIHNhdmUgdGhlIGZvbGxvd2luZwo+IGFzIHN0YXRpYyBnbG9iYWwgdmFy
-aWFibGVzOgo+IDEpIHJpc2N2X2ludGNfbnJfaXJxczogTnVtYmVyIG9mIHN0YW5kYXJkIGxvY2Fs
-IGludGVycnVwdHMKPiAyKSByaXNjdl9pbnRjX2N1c3RvbV9iYXNlIGFuZCByaXNjdl9pbnRjX2N1
-c3RvbV9ucl9pcnFzOiBCYXNlIGFuZAo+ICAgICBudW1iZXIgb2YgY3VzdG9tIGxvY2FsIGludGVy
-cnVwdHMuCj4gCj4gVXNpbmcgdGhlIGFib3ZlIHN0YXRpYyBnbG9iYWwgdmFyaWFibGVzLCB0aGUg
-cmlzY3ZfaW50Y19kb21haW5fYWxsb2MoKQo+IGNhbiByZXR1cm4gZXJyb3IgaWYgb25lIG9mIHRo
-ZSBmb2xsb3dpbmcgY29uZGl0aW9ucyBhcmUgbWV0Ogo+IDEpIHJpc2N2X2ludGNfbnJfaXJxczw9
-IGh3aXJxICYmIGh3aXJxIDwgcmlzY3ZfaW50Y19jdXN0b21fYmFzZQo+IDIpIChyaXNjdl9pbnRj
-X2N1c3RvbV9iYXNlICsgcmlzY3ZfaW50Y19jdXN0b21fbnJfaXJxcykgPD0gaHdpcnEKPiAKPiBG
-b3Igc3RhbmRhcmQgSU5UQywgd2UgY2FuIHNldCB0aGUgc3RhdGljIGdsb2JhbCB2YXJpYWJsZSBh
-cyBmb2xsb3dzOgo+IHJpc2N2X2ludGNfbnJfaXJxcyA9IFhMRU4gb3IgQklUU19QRVJfTE9ORwo+
-IHJpc2N2X2ludGNfY3VzdG9tX2Jhc2UgPSByaXNjdl9pbnRjX25yX2lycXMKPiByaXNjdl9pbnRj
-X2N1c3RvbV9ucl9pcnFzID0gMAo+IAo+IEZvciBBbmRlcyBJTlRDLCB3ZSBjYW4gc2V0IHRoZSBz
-dGF0aWMgZ2xvYmFsIHZhcmlhYmxlcyBhcyBmb2xsb3dzOgo+IHJpc2N2X2ludGNfbnJfaXJxcyA9
-IFhMRU4gb3IgQklUU19QRVJfTE9ORwo+IHJpc2N2X2ludGNfY3VzdG9tX2Jhc2UgPSAyNTYKPiBy
-aXNjdl9pbnRjX2N1c3RvbV9ucl9pcnFzID0gWExFTiBvciBCSVRTX1BFUl9MT05HCj4gCj4gUmVn
-YXJkcywKPiBBbnVwCgpUaGFuayB5b3UgZm9yIG9mZmVyaW5nIHlvdXIgaGVscCBvbiB0aGlzLgpJ
-IHdpbGwgcmV3b3JrIHRoZSBwYXRjaCBhY2NvcmRpbmdseS4KCkJlc3QgcmVnYXJkcywKUGV0ZXIg
-TGluCgo+ID4KPiA+ID4gICAgICAgICBpZiAoIWludGNfZG9tYWluKSB7Cj4gPiA+ICAgICAgICAg
-ICAgICAgICBwcl9lcnIoInVuYWJsZSB0byBhZGQgSVJRIGRvbWFpblxuIik7Cj4gPiA+ICAgICAg
-ICAgICAgICAgICByZXR1cm4gLUVOWElPOwo+ID4gPiBAQCAtMTMyLDggKzEzMCw2IEBAIHN0YXRp
-YyBpbnQgX19pbml0IHJpc2N2X2ludGNfaW5pdF9jb21tb24oc3RydWN0IGZ3bm9kZV9oYW5kbGUg
-KmZuKQo+ID4gPgo+ID4gPiAgICAgICAgIHJpc2N2X3NldF9pbnRjX2h3bm9kZV9mbihyaXNjdl9p
-bnRjX2h3bm9kZSk7Cj4gPiA+Cj4gPiA+IC0gICAgICAgcHJfaW5mbygiJWQgbG9jYWwgaW50ZXJy
-dXB0cyBtYXBwZWRcbiIsIEJJVFNfUEVSX0xPTkcpOwo+ID4gPiAtCj4gPgo+ID4gU2FtZSBhcyBh
-Ym92ZSwgd2Ugc2hvdWxkIGRlZmluaXRlbHkgYWR2ZXJ0aXNlIHRoZSB0eXBlIG9mIElOVEMgYW5k
-Cj4gPiBudW1iZXIgb2YgbG9jYWwgaW50ZXJydXB0cyBtYXBwZWQuCj4gPgo+ID4gUmVnYXJkcywK
-PiA+IEFudXAKPiA+Cj4gPiA+ICAgICAgICAgcmV0dXJuIDA7Cj4gPiA+ICB9Cj4gPiA+Cj4gPiA+
-IC0tCj4gPiA+IDIuMzQuMQo+ID4gPgo+ID4gPgo+ID4gPiBfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwo+ID4gPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-PiA+ID4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+ID4gPiBodHRwOi8vbGlzdHMu
-aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2CgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Peter Xu <peterx@redhat.com>
+
+This is v1 of the series.  The series removes the hugetlb slow gup path
+after a previous refactor work [1], so that slow gup now uses the exact
+same path to handle all kinds of memory including hugetlb.
+
+It's based on latest mm-unstalbe (c13bdc82ada9).
+
+RFC->v1 (use old verion's patch index):
+- Fix build for !THP and/or !HUGETLB
+- Fix a bug in the hugepd path that can cause a loop
+- patch 3:
+  - Rename to "Make HPAGE_PXD_* macros visible even if !THP" [Christoph, MikeR]
+- patch 5:
+  - Posted separately as a devmap bugfix
+- patch 6:
+  - Add a comment above gup_huge_pd() explaining the file folio writeback
+    issue, with references when anyone would extend hugepd to other types
+    of file memories [Christoph]
+- patch 7:
+  - Keep parameter name as "page" in record_subpages(), modify the
+    commit message by removing any assumption on head page. [Matthew]
+- patch 12:
+  - Rename to: "mm/gup: handle hugetlb in the generic follow_page_mask
+    code" [Christoph]
+- Added patch:
+  - "mm/Kconfig: CONFIG_PGTABLE_HAS_HUGE_LEAVES", this helps to fix build
+    for !THP and/or !HUGETLB
+- Added patch
+  - "mm/gup: Cache *pudp in follow_pud_mask()", as suggested by Christoph
+
+For the long term, this is one small step towards merging hugetlb specific
+codes into generic mm paths.  From that POV, this series removes one
+reference to huge_pte_offset() out of many others.
+
+To make it work, the generic code will need to at least understand hugepd,
+which is already done like so in fast-gup.  Fortunately it seems that's the
+only major thing I need to teach slow GUP to share the common path for now
+besides normal huge PxD entries.  Non-gup can be more challenging, but
+that's a question for later.
+
+There's one major difference for slow-gup on cont_pte / cont_pmd handling,
+currently supported on three architectures (aarch64, riscv, ppc).  Before
+the series, slow gup will be able to recognize cont entries with the help
+of huge_pte_offset().  Now it's gone but still working, by looking up
+pgtable entries one by one.  It's not ideal, but hopefully this change
+should not affect yet on major workloads.  There's some more information in
+the commit message of the last patch.  If this would be a concern, we can
+consider teaching slow gup to recognize cont pte/pmd entries, and that
+should recover the lost performance.  But I doubt its necessity for now, so
+I kept it as simple as it can be.
+
+Test Done
+=========
+
+This v1 went through the normal GUP smoke tests over different memory
+types on archs (using VM instances): x86_64, aarch64, ppc64le.  For
+aarch64, tested over 64KB cont_pte huge pages.  For ppc64le, tested over
+16MB hugepd entries (Power8 hash MMU on 4K base page size).
+
+Patch layout
+=============
+
+Patch 1-7:    Preparation works, or cleanups in relevant code paths
+Patch 8-12:   Teach slow gup with all kinds of huge entries (pXd, hugepd)
+Patch 13:     Drop hugetlb_follow_page_mask()
+
+More information can be found in the commit messages of each patch.  Any
+comment will be welcomed.  Thanks.
+
+[1] https://lore.kernel.org/all/20230628215310.73782-1-peterx@redhat.com
+
+Peter Xu (13):
+  mm/Kconfig: CONFIG_PGTABLE_HAS_HUGE_LEAVES
+  mm/hugetlb: Declare hugetlbfs_pagecache_present() non-static
+  mm: Provide generic pmd_thp_or_huge()
+  mm: Make HPAGE_PXD_* macros even if !THP
+  mm: Introduce vma_pgtable_walk_{begin|end}()
+  mm/gup: Drop folio_fast_pin_allowed() in hugepd processing
+  mm/gup: Refactor record_subpages() to find 1st small page
+  mm/gup: Handle hugetlb for no_page_table()
+  mm/gup: Cache *pudp in follow_pud_mask()
+  mm/gup: Handle huge pud for follow_pud_mask()
+  mm/gup: Handle huge pmd for follow_pmd_mask()
+  mm/gup: Handle hugepd for follow_page()
+  mm/gup: Handle hugetlb in the generic follow_page_mask code
+
+ include/linux/huge_mm.h |  25 +--
+ include/linux/hugetlb.h |  16 +-
+ include/linux/mm.h      |   3 +
+ include/linux/pgtable.h |   4 +
+ mm/Kconfig              |   3 +
+ mm/gup.c                | 362 ++++++++++++++++++++++++++++++++--------
+ mm/huge_memory.c        | 133 +--------------
+ mm/hugetlb.c            |  75 +--------
+ mm/internal.h           |   7 +-
+ mm/memory.c             |  12 ++
+ 10 files changed, 342 insertions(+), 298 deletions(-)
+
+-- 
+2.41.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
