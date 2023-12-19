@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F66DC41535
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Dec 2023 07:56:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F05DC46CD2
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Dec 2023 07:56:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yGhNHbQ4mlpeyFuPnfzNLONec+ZH2qcx+4v40Jrj148=; b=ugRWRM9KO6imXu
-	32zQnyTRx8U4SleyqVszeXhbiAUtdS16cisa1CyKp0PHC2KJNpWUSkppZF0mxSnrj3lvCp0gjIOo/
-	6hZsSd7o5qQRk5bxsYFmC3v4KI09xRubPVB+TySJFZ6Y+YY8FVuiUxlBgavEIaAM3UX8UQaG9RU4h
-	qvq8xA4AucDi+VAjJlrRPko317fg5k6z9dDByGoqNPVPvD/GpjRJKiTlR2T7R3XESZdqJPPlR78B1
-	cwQmuiHgS9mphtFdKqbVT19hJ127G97cMbpTHJre+ZagZlwnOweqwEAPOr70l3Yk/DG0oCq91uSue
-	kpnpamgr+C+xELdp4sEw==;
+	List-Owner; bh=dNBpQ8pKqgDEc0kEVzq72ugOLUcioD9UxusdaS7ahHk=; b=NwTKwYffOpfycG
+	l3h3dcF6Qg7vvOSKKlq6st9n8NpBluF1qFRJa95UWwn71H0/q/e3Sc8vhyk1/vuZU+pB7E2GK8AQ7
+	YKMl8fKHL+6pZWYu/odCFsQm9d6NkZDkcExeU/evWj9al1VQFonyb/uHbzs0Yd8EnyiKe3cVi+ghd
+	oSp0bW3j60Evz5TLGqVO0nCt4I2X/CK+wSJUjDNQy0QMK1cuBo1n56jK9RmPvOK80vhl5ubGkhGUw
+	pt1dIuKF+klDixUEfdGSm/FubpXy/DBBZ3nOlOdh0FPVGMmFUBYS9yGGk3OamAzKG11sjXP1PZ2li
+	GIX5InUxDjwkM/PfldUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFUy0-00DB5g-1r;
-	Tue, 19 Dec 2023 07:56:40 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1rFUyB-00DBFU-0h;
+	Tue, 19 Dec 2023 07:56:51 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFUxv-00DB0R-16
+	id 1rFUy7-00DBBE-1Z
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Dec 2023 07:56:38 +0000
+	Tue, 19 Dec 2023 07:56:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1702972594;
+	s=mimecast20190719; t=1702972606;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=VdhTUt+FrTuSBSRKmaD9aOddOtS2xHAJn3bdMelwyoI=;
-	b=W983tIn/dNXHko0SpoDfYEqWisDM0YES4tID6DXXKBe/imTFl64dYBWBde1wP6sn1vXKmp
-	KdnLWo8PQ6OmWSNTEuolGM6rkiFLMORC9KcPeqaDBQW+crnn4RKdLWdjliz+vMQpQ46rdI
-	HkQuxh+E5swZ2F3KRCNYB3hSVclxFWE=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-443-zvB374S3NdqDENm7NImiSg-1; Tue, 19 Dec 2023 02:56:29 -0500
-X-MC-Unique: zvB374S3NdqDENm7NImiSg-1
+	bh=W3mfDaRytJv6LOYv89LHjQVs33fumKlGjLMhNR5CFmw=;
+	b=RnUc6K0cGj0zBJlFV8m63X2HVayTxf1KoVUzY8i3sfBTfS+nyWORM9Yw08juYEf3BHnC0S
+	IPT2fg+b7nF7Ln9GBQwNxfXQ+viavW8W1mAgMPRF6HKQffepGH8VH88ZbRliIIqsv+S/Qg
+	YTE2TygdBkC4ayE8A/4+IDkakGtieWc=
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-296-k0rHzqs9O9yPkXz_rzqp7g-1; Tue,
+ 19 Dec 2023 02:56:41 -0500
+X-MC-Unique: k0rHzqs9O9yPkXz_rzqp7g-1
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 298F1185A782;
-	Tue, 19 Dec 2023 07:56:28 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0C34B1C0513F;
+	Tue, 19 Dec 2023 07:56:40 +0000 (UTC)
 Received: from x1n.redhat.com (unknown [10.72.116.117])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 7B65A2026D6F;
-	Tue, 19 Dec 2023 07:56:17 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id E06102026D66;
+	Tue, 19 Dec 2023 07:56:28 +0000 (UTC)
 From: peterx@redhat.com
 To: linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org
@@ -78,16 +78,16 @@ Cc: Matthew Wilcox <willy@infradead.org>,
 	Andrea Arcangeli <aarcange@redhat.com>,
 	peterx@redhat.com,
 	Axel Rasmussen <axelrasmussen@google.com>
-Subject: [PATCH 03/13] mm: Provide generic pmd_thp_or_huge()
-Date: Tue, 19 Dec 2023 15:55:28 +0800
-Message-ID: <20231219075538.414708-4-peterx@redhat.com>
+Subject: [PATCH 04/13] mm: Make HPAGE_PXD_* macros even if !THP
+Date: Tue, 19 Dec 2023 15:55:29 +0800
+Message-ID: <20231219075538.414708-5-peterx@redhat.com>
 In-Reply-To: <20231219075538.414708-1-peterx@redhat.com>
 References: <20231219075538.414708-1-peterx@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231218_235635_493183_E7D3E327 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20231218_235647_611659_F0D67EB9 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,51 +106,67 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Peter Xu <peterx@redhat.com>
 
-ARM defines pmd_thp_or_huge(), detecting either a THP or a huge PMD.  It
-can be a helpful helper if we want to merge more THP and hugetlb code
-paths.  Make it a generic default implementation, only exist when
-CONFIG_MMU.  Arch can overwrite it by defining its own version.
+These macros can be helpful when we plan to merge hugetlb code into generic
+code.  Move them out and define them even if !THP.
 
-For example, ARM's pgtable-2level.h defines it to always return false.
+We actually already defined HPAGE_PMD_NR for other reasons even if !THP.
+Reorganize these macros.
 
-Keep the macro declared with all config, it should be optimized to a false
-anyway if !THP && !HUGETLB.
-
+Reviewed-by: Christoph Hellwig <hch@infradead.org>
 Signed-off-by: Peter Xu <peterx@redhat.com>
 ---
- include/linux/pgtable.h | 4 ++++
- mm/gup.c                | 3 +--
- 2 files changed, 5 insertions(+), 2 deletions(-)
+ include/linux/huge_mm.h | 17 ++++++-----------
+ 1 file changed, 6 insertions(+), 11 deletions(-)
 
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index af7639c3b0a3..6f2fa1977b8a 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -1355,6 +1355,10 @@ static inline int pmd_write(pmd_t pmd)
- #endif /* pmd_write */
- #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+diff --git a/include/linux/huge_mm.h b/include/linux/huge_mm.h
+index fa7a38a30fc6..d335130e145f 100644
+--- a/include/linux/huge_mm.h
++++ b/include/linux/huge_mm.h
+@@ -64,9 +64,6 @@ ssize_t single_hugepage_flag_show(struct kobject *kobj,
+ 				  enum transparent_hugepage_flag flag);
+ extern struct kobj_attribute shmem_enabled_attr;
  
-+#ifndef pmd_thp_or_huge
-+#define pmd_thp_or_huge(pmd)	(pmd_huge(pmd) || pmd_trans_huge(pmd))
-+#endif
+-#define HPAGE_PMD_ORDER (HPAGE_PMD_SHIFT-PAGE_SHIFT)
+-#define HPAGE_PMD_NR (1<<HPAGE_PMD_ORDER)
+-
+ /*
+  * Mask of all large folio orders supported for anonymous THP; all orders up to
+  * and including PMD_ORDER, except order-0 (which is not "huge") and order-1
+@@ -87,14 +84,19 @@ extern struct kobj_attribute shmem_enabled_attr;
+ #define thp_vma_allowable_order(vma, vm_flags, smaps, in_pf, enforce_sysfs, order) \
+ 	(!!thp_vma_allowable_orders(vma, vm_flags, smaps, in_pf, enforce_sysfs, BIT(order)))
+ 
+-#ifdef CONFIG_TRANSPARENT_HUGEPAGE
+ #define HPAGE_PMD_SHIFT PMD_SHIFT
+ #define HPAGE_PMD_SIZE	((1UL) << HPAGE_PMD_SHIFT)
+ #define HPAGE_PMD_MASK	(~(HPAGE_PMD_SIZE - 1))
++#define HPAGE_PMD_ORDER (HPAGE_PMD_SHIFT-PAGE_SHIFT)
++#define HPAGE_PMD_NR (1<<HPAGE_PMD_ORDER)
+ 
+ #define HPAGE_PUD_SHIFT PUD_SHIFT
+ #define HPAGE_PUD_SIZE	((1UL) << HPAGE_PUD_SHIFT)
+ #define HPAGE_PUD_MASK	(~(HPAGE_PUD_SIZE - 1))
++#define HPAGE_PUD_ORDER (HPAGE_PUD_SHIFT-PAGE_SHIFT)
++#define HPAGE_PUD_NR (1<<HPAGE_PUD_ORDER)
 +
- #ifndef pud_write
- static inline int pud_write(pud_t pud)
- {
-diff --git a/mm/gup.c b/mm/gup.c
-index 0a5f0e91bfec..efc9847e58fb 100644
---- a/mm/gup.c
-+++ b/mm/gup.c
-@@ -3004,8 +3004,7 @@ static int gup_pmd_range(pud_t *pudp, pud_t pud, unsigned long addr, unsigned lo
- 		if (!pmd_present(pmd))
- 			return 0;
++#ifdef CONFIG_TRANSPARENT_HUGEPAGE
  
--		if (unlikely(pmd_trans_huge(pmd) || pmd_huge(pmd) ||
--			     pmd_devmap(pmd))) {
-+		if (unlikely(pmd_thp_or_huge(pmd) || pmd_devmap(pmd))) {
- 			/* See gup_pte_range() */
- 			if (pmd_protnone(pmd))
- 				return 0;
+ extern unsigned long transparent_hugepage_flags;
+ extern unsigned long huge_anon_orders_always;
+@@ -378,13 +380,6 @@ static inline bool thp_migration_supported(void)
+ }
+ 
+ #else /* CONFIG_TRANSPARENT_HUGEPAGE */
+-#define HPAGE_PMD_SHIFT ({ BUILD_BUG(); 0; })
+-#define HPAGE_PMD_MASK ({ BUILD_BUG(); 0; })
+-#define HPAGE_PMD_SIZE ({ BUILD_BUG(); 0; })
+-
+-#define HPAGE_PUD_SHIFT ({ BUILD_BUG(); 0; })
+-#define HPAGE_PUD_MASK ({ BUILD_BUG(); 0; })
+-#define HPAGE_PUD_SIZE ({ BUILD_BUG(); 0; })
+ 
+ static inline bool folio_test_pmd_mappable(struct folio *folio)
+ {
 -- 
 2.41.0
 
