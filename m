@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 157E7C46CA2
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Dec 2023 17:47:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C62B9C46CD4
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Dec 2023 17:48:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N/6U2cxyfgazohRPBIVPNcfQd4LxOduTJjMscw2D0aM=; b=dxGa5fVL4BUZgW
-	FCRMvOw1iICqWykKUgOdhXOFoY2rcC3CMvwJoa6rgE118qFzeafigUj0XX7E1r6l+CNbE3CLGUd6H
-	3TScfqYI/66254hdzssP4TLyFU3vQgx30fkaP68cMloqkEWKOvtPpQXbtqFGm2yQTZVG7wcmkaZgq
-	5MwHygRVEvFaREgKfmUjlfWXOUBekf8Mrcf9jwackRQtoUNW5nKK8VN4ikBPa7M0WNcgxB6oyNrFp
-	Xibrk/iitxSXMiTkCB59AaeEz+FgbdZkT3ZSrWofkQmZw5mbUxTTnl6jYap8ALq7k4MPV6/rQTwzx
-	GDdrVuElnkvyyDMJOp6A==;
+	List-Owner; bh=yYOHUTn1oAV5wdxdedFXJT+rQR7Tg1Pyo38VA3g+Eqc=; b=XUrRlEYmxsEJqK
+	Uv/tG++T1QsM+9zV8dLwGwdwhvbFusfWRRLudy8cL2Ea8ocMZw5PYv6Iyt7eGLM4042Tt+gq7ewuz
+	sBXlW1okHNr4+JsijKzehWHT9348VeeOCQ2SHzAhVnd25VknHmbAEULKTGTnC0naaH0C8yQskexCP
+	cklUExtVy53bdtG31cJKGjssBGsGm/kEoe3TIvzYmAS9/veO8vvvFWNiMTL1BhEjT4Nf72Syc0blR
+	a2s5ruLhoyqXJOs3z/xHpikaneIsL5Np9pRfuiE9pOnLl6ba8g3Y5J2O/LxCiRMs2X/3eJCQnbR1F
+	3BCN84TnHdGROVHXonfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFeC5-00F2BR-0p;
-	Tue, 19 Dec 2023 17:47:49 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1rFeCA-00F2Fr-1d;
+	Tue, 19 Dec 2023 17:47:54 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFeB1-00F1Cq-1I
+	id 1rFeB9-00F1Hn-0r
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Dec 2023 17:46:48 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-6d92e736787so987676b3a.2
-        for <linux-riscv@lists.infradead.org>; Tue, 19 Dec 2023 09:46:43 -0800 (PST)
+	Tue, 19 Dec 2023 17:46:52 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1d39afa1eecso29695365ad.2
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Dec 2023 09:46:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1703008002; x=1703612802; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1703008008; x=1703612808; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=3ZH2VVLJxNHvriakOOoWr5FlZ4jVyb+u72AVTrlwbgg=;
-        b=o6R1+L7T9MeIPNuZj2AYPRISCMjx78uqbn0nuCDz3lEgOj3eD1w13gNn7iKVpcD0H8
-         bTAaU2yg6HmNvckTyGRVGdAiK1p9CewExLEG0tuDJyayOKKNb3QW42/se/TO8K6gQELr
-         Hq9q+lPloaXKZ1WMV2LO/0QIXhvxy8oNjuUWdh7Htkt9sQfN8CuyFeVi8m+uoRBCpPIU
-         hRJO6KZguPgT+sqmDAszpX//SYrfWTT/Xjosq/wGewWQKqB/tAVhWTwweK1yAXNBrGwA
-         MJg/jfieEcNoLYNK2gUfKXeJxI4VOw1Vq7lRupsK//6vfQFlpHZarwG/Lq4/xcOxd8YC
-         U3xg==
+        bh=SP5qUoiFDc31MnkvQviOGvw0IT7UG54DgquaP3mAr+M=;
+        b=XgEhIijeIn8bLy8p6Z05sb6YXcunfm2yyhzUnK9w19tDYrO1RsrjGmYML3jorWMYrz
+         JpYmObs0I3hQqz/VgwS11UB7bDhshgRzhKiC4SVXcQ4o6WxnH8lsb5URNxAxk+DakFWh
+         RwwxsTVoODZYr+mFcKoLX6l0BGh1dR9hNVqTVFvYiQKmEtEyzQ9mlckz0CMu/eeoZ7EQ
+         aJClv5xCc+lLqlAw8QSrTLeJjdyjj3mnclJd4fCKrNcLHrQixUXPuXH1JgfiERHJaSj7
+         Dwu73Crb6wNViuPtXAdCb45dtrD/2Ud7MABaDwfWdutj0W5kr2VLhTKFJFshvPM4pQJf
+         aQ4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1703008002; x=1703612802;
+        d=1e100.net; s=20230601; t=1703008008; x=1703612808;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=3ZH2VVLJxNHvriakOOoWr5FlZ4jVyb+u72AVTrlwbgg=;
-        b=DEMc8X0tPy9S4FrQZSbgNDZAr+j3w5yrEbvXvwA6pYzqxhIpqFEGk32wkhu7nzyono
-         NHmK7j3LnjhAgDxmHyR6Ilz6FayYbcZsjYSQV5ysQ4TmqVIHRuq9htTa4JlQnQnf4p46
-         uIdcxZ7F2HH/5S3fs167mxjPxaQXVlyUSdJobjOxKe6c98UVcZOejLa9+ihIVCD4behB
-         qQMnfqL+sfn8FOCZ4bYzBJQKExEOWpWIy5pK7rzsZYj91+zX4wrpmBMI6LtfcvX6o7f8
-         qHS2bjwM4VbGNqgcMDnLuQi7MYDb2SP3SQOAcOhJJilyw2AVm9V8uavVuQUmyR9lyWBd
-         RmBw==
-X-Gm-Message-State: AOJu0YziCnOk8CRNf5maWiErDBfM0emmaHU2qKlfooV2XjDhkbzRJExl
-	zc/lhB+iJRoEni4KS4rZLn4brQ==
-X-Google-Smtp-Source: AGHT+IE6uf+usXMxRKVOaon8WyaEOOvOylj5AlLYp7ZK7Lf0piVNkksf6YQ/7YkGTuiL7VIoKgEHhA==
-X-Received: by 2002:a17:903:11cd:b0:1d3:2e0e:c889 with SMTP id q13-20020a17090311cd00b001d32e0ec889mr8798850plh.62.1703008002608;
-        Tue, 19 Dec 2023 09:46:42 -0800 (PST)
+        bh=SP5qUoiFDc31MnkvQviOGvw0IT7UG54DgquaP3mAr+M=;
+        b=tkJ3zzqkVND4F5vBormAU8lPA+nTDzsr6w/kCdhP1F4lL1cN0c4Rpyp3pgqDlmO6bf
+         V2zOTemK8acs0HtfrWdvoFOQHXoPb4cVx9C0mJhSMCovcnbq+YAwXunAguWrkPm5S6pB
+         5qaYPb8bdycSSIwl9vQlM3aTtJ1l3tOAq+OnRRQCHpriEK1j5e0N6kr9i6BuhC9zvuJG
+         7QloOx70pAxXQsHn1FYBaUg5CLb0woXRh925CdjPsGAu8OVU2PyCaOPaCeJBE2dTuv8I
+         2ogkq7ZXJYAdDWtTkPmsUCDrcGhw80I++0qRusEfKMSy6f/KfUUTOimFqLNd6MdOZgZJ
+         vlcQ==
+X-Gm-Message-State: AOJu0YyLqVGeYWtmboi6fJ/83Kbm0edCjkcwW3EEd/OuVOXRZxmUz8/c
+	d8vX5UP6xIsukgHTQV+/Hn/sPA==
+X-Google-Smtp-Source: AGHT+IEOQXmfDQVD1vBA63SzA+9hg3WHejFnv5r3sp4cTvGZBg1eOJzxTsxyyXCko2PiShNLOVwBww==
+X-Received: by 2002:a17:902:a3c7:b0:1d3:9d55:3d67 with SMTP id q7-20020a170902a3c700b001d39d553d67mr5367594plb.101.1703008008246;
+        Tue, 19 Dec 2023 09:46:48 -0800 (PST)
 Received: from sunil-pc.Dlink ([106.51.188.200])
-        by smtp.gmail.com with ESMTPSA id n16-20020a170903111000b001d3320f6143sm14453015plh.269.2023.12.19.09.46.37
+        by smtp.gmail.com with ESMTPSA id n16-20020a170903111000b001d3320f6143sm14453015plh.269.2023.12.19.09.46.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Dec 2023 09:46:42 -0800 (PST)
+        Tue, 19 Dec 2023 09:46:47 -0800 (PST)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
 	linux-pci@vger.kernel.org
-Subject: [RFC PATCH v3 12/17] irqchip: irq-sifive-plic: Add ACPI support
-Date: Tue, 19 Dec 2023 23:15:21 +0530
-Message-Id: <20231219174526.2235150-13-sunilvl@ventanamicro.com>
+Subject: [RFC PATCH v3 13/17] ACPI: bus: Add RINTC IRQ model for RISC-V
+Date: Tue, 19 Dec 2023 23:15:22 +0530
+Message-Id: <20231219174526.2235150-14-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20231219174526.2235150-1-sunilvl@ventanamicro.com>
 References: <20231219174526.2235150-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231219_094643_485917_5A659DEF 
-X-CRM114-Status: GOOD (  20.12  )
+X-CRM114-CacheID: sfid-20231219_094651_321282_EE8EC0E9 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,201 +95,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add ACPI support in PLIC driver. In ACPI, IO devices use Global System
-Interrupts (GSI) which is a flat space split across multiple PLICs.
+Add the IRQ model for RISC-V INTC so that acpi_set_irq_model can use this
+for RISC-V.
 
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-Co-developed-by: Haibo Xu <haibo1.xu@intel.com>
-Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
 ---
- arch/riscv/include/asm/irq.h      |  6 +++
- drivers/irqchip/irq-sifive-plic.c | 76 +++++++++++++++++++++++--------
- 2 files changed, 64 insertions(+), 18 deletions(-)
+ drivers/acpi/bus.c   | 3 +++
+ include/linux/acpi.h | 1 +
+ 2 files changed, 4 insertions(+)
 
-diff --git a/arch/riscv/include/asm/irq.h b/arch/riscv/include/asm/irq.h
-index df59192a157d..7b14f3ebe242 100644
---- a/arch/riscv/include/asm/irq.h
-+++ b/arch/riscv/include/asm/irq.h
-@@ -28,6 +28,12 @@ struct fwnode_handle *aplic_get_gsi_domain_id(u32 gsi);
- static inline struct fwnode_handle *aplic_get_gsi_domain_id(u32 gsi) { return NULL; }
- #endif
- 
-+#ifdef CONFIG_SIFIVE_PLIC
-+struct fwnode_handle *plic_get_gsi_domain_id(u32 gsi);
-+#else
-+static inline struct fwnode_handle *plic_get_gsi_domain_id(u32 gsi) { return NULL; }
-+#endif
-+
- int __init acpi_get_intc_index_hartid(u32 index, unsigned long *hartid);
- int acpi_get_ext_intc_parent_hartid(u8 id, u32 idx, unsigned long *hartid);
- void acpi_get_plic_nr_contexts(u8 id, int *nr_contexts);
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index c8f8a8cdcce1..d4c355ffa628 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -3,6 +3,7 @@
-  * Copyright (C) 2017 SiFive
-  * Copyright (C) 2018 Christoph Hellwig
-  */
-+#include <linux/acpi.h>
- #include <linux/cpu.h>
- #include <linux/interrupt.h>
- #include <linux/io.h>
-@@ -70,6 +71,8 @@ struct plic_priv {
- 	unsigned long plic_quirks;
- 	unsigned int nr_irqs;
- 	unsigned long *prio_save;
-+	u32 gsi_base;
-+	int id;
+diff --git a/drivers/acpi/bus.c b/drivers/acpi/bus.c
+index a4aa53b7e2bb..9eace6c7042e 100644
+--- a/drivers/acpi/bus.c
++++ b/drivers/acpi/bus.c
+@@ -1158,6 +1158,9 @@ static int __init acpi_bus_init_irq(void)
+ 	case ACPI_IRQ_MODEL_LPIC:
+ 		message = "LPIC";
+ 		break;
++	case ACPI_IRQ_MODEL_RINTC:
++		message = "RINTC";
++		break;
+ 	default:
+ 		pr_info("Unknown interrupt routing model\n");
+ 		return -ENODEV;
+diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+index ae045e14126b..b6766bded765 100644
+--- a/include/linux/acpi.h
++++ b/include/linux/acpi.h
+@@ -95,6 +95,7 @@ enum acpi_irq_model_id {
+ 	ACPI_IRQ_MODEL_PLATFORM,
+ 	ACPI_IRQ_MODEL_GIC,
+ 	ACPI_IRQ_MODEL_LPIC,
++	ACPI_IRQ_MODEL_RINTC,
+ 	ACPI_IRQ_MODEL_COUNT
  };
  
- struct plic_handler {
-@@ -316,6 +319,10 @@ static int plic_irq_domain_translate(struct irq_domain *d,
- {
- 	struct plic_priv *priv = d->host_data;
- 
-+	/* For DT, gsi_base is always zero. */
-+	if (fwspec->param[0] >= priv->gsi_base)
-+		fwspec->param[0] = fwspec->param[0] - priv->gsi_base;
-+
- 	if (test_bit(PLIC_QUIRK_EDGE_INTERRUPT, &priv->plic_quirks))
- 		return irq_domain_translate_twocell(d, fwspec, hwirq, type);
- 
-@@ -417,17 +424,31 @@ static const struct of_device_id plic_match[] = {
- };
- 
- static int plic_parse_nr_irqs_and_contexts(struct platform_device *pdev,
--					   u32 *nr_irqs, u32 *nr_contexts)
-+					   u32 *nr_irqs, u32 *nr_contexts,
-+					   u32 *gsi_base, u32 *id)
- {
- 	struct device *dev = &pdev->dev;
-+	struct acpi_madt_plic *plic;
- 	int rc;
- 
--	/*
--	 * Currently, only OF fwnode is supported so extend this
--	 * function for ACPI support.
--	 */
--	if (!is_of_node(dev->fwnode))
--		return -EINVAL;
-+	if (!is_of_node(dev->fwnode)) {
-+		plic = *(struct acpi_madt_plic **)dev_get_platdata(dev);
-+		if (!plic) {
-+			dev_err(dev, "PLIC platform data is NULL!\n");
-+			return -EINVAL;
-+		}
-+
-+		*nr_irqs = plic->num_irqs;
-+		acpi_get_plic_nr_contexts(plic->id, nr_contexts);
-+		if (WARN_ON(!*nr_contexts)) {
-+			dev_err(dev, "no PLIC context available\n");
-+			return -EINVAL;
-+		}
-+
-+		*gsi_base = plic->gsi_base;
-+		*id = plic->id;
-+		return 0;
-+	}
- 
- 	rc = of_property_read_u32(to_of_node(dev->fwnode),
- 				  "riscv,ndev", nr_irqs);
-@@ -442,23 +463,28 @@ static int plic_parse_nr_irqs_and_contexts(struct platform_device *pdev,
- 		return -EINVAL;
- 	}
- 
-+	*gsi_base = 0;
-+	*id = 0;
-+
- 	return 0;
- }
- 
- static int plic_parse_context_parent_hwirq(struct platform_device *pdev,
--					   u32 context, u32 *parent_hwirq,
-+					   u32 context, u32 id, u32 *parent_hwirq,
- 					   unsigned long *parent_hartid)
- {
- 	struct device *dev = &pdev->dev;
- 	struct of_phandle_args parent;
- 	int rc;
- 
--	/*
--	 * Currently, only OF fwnode is supported so extend this
--	 * function for ACPI support.
--	 */
--	if (!is_of_node(dev->fwnode))
--		return -EINVAL;
-+	if (!is_of_node(dev->fwnode)) {
-+		rc = acpi_get_ext_intc_parent_hartid(id, context, parent_hartid);
-+		if (rc)
-+			return rc;
-+
-+		*parent_hwirq = RV_IRQ_EXT;
-+		return 0;
-+	}
- 
- 	rc = of_irq_parse_one(to_of_node(dev->fwnode), context, &parent);
- 	if (rc)
-@@ -483,7 +509,9 @@ static int plic_probe(struct platform_device *pdev)
- 	struct plic_priv *priv;
- 	irq_hw_number_t hwirq;
- 	struct resource *res;
-+	int id, context_id;
- 	bool cpuhp_setup;
-+	u32 gsi_base;
- 
- 	if (is_of_node(dev->fwnode)) {
- 		const struct of_device_id *id;
-@@ -510,19 +538,21 @@ static int plic_probe(struct platform_device *pdev)
- 		return -EIO;
- 	}
- 
--	rc = plic_parse_nr_irqs_and_contexts(pdev, &nr_irqs, &nr_contexts);
-+	rc = plic_parse_nr_irqs_and_contexts(pdev, &nr_irqs, &nr_contexts, &gsi_base, &id);
- 	if (rc) {
- 		dev_err(dev, "failed to parse irqs and contexts\n");
- 		return rc;
- 	}
- 	priv->nr_irqs = nr_irqs;
-+	priv->gsi_base = gsi_base;
-+	priv->id = id;
- 
- 	priv->prio_save = devm_bitmap_zalloc(dev, nr_irqs, GFP_KERNEL);
- 	if (!priv->prio_save)
- 		return -ENOMEM;
- 
- 	for (i = 0; i < nr_contexts; i++) {
--		rc = plic_parse_context_parent_hwirq(pdev, i,
-+		rc = plic_parse_context_parent_hwirq(pdev, i, priv->id,
- 						     &parent_hwirq, &hartid);
- 		if (rc) {
- 			dev_warn(dev, "hwirq for context%d not found\n", i);
-@@ -574,13 +604,23 @@ static int plic_probe(struct platform_device *pdev)
- 			goto done;
- 		}
- 
-+		if (is_of_node(dev->fwnode)) {
-+			context_id = i;
-+		} else {
-+			rc = acpi_get_plic_context(priv->id, i, &context_id);
-+			if (rc) {
-+				dev_warn(dev, "invalid context id for context%d\n", i);
-+				continue;
-+			}
-+		}
-+
- 		cpumask_set_cpu(cpu, &priv->lmask);
- 		handler->present = true;
- 		handler->hart_base = priv->regs + CONTEXT_BASE +
--			i * CONTEXT_SIZE;
-+			context_id * CONTEXT_SIZE;
- 		raw_spin_lock_init(&handler->enable_lock);
- 		handler->enable_base = priv->regs + CONTEXT_ENABLE_BASE +
--			i * CONTEXT_ENABLE_SIZE;
-+			context_id * CONTEXT_ENABLE_SIZE;
- 		handler->priv = priv;
- 
- 		handler->enable_save =  devm_kcalloc(dev,
 -- 
 2.39.2
 
