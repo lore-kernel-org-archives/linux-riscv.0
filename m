@@ -4,81 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8A52C46CA2
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Dec 2023 18:07:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C8F0C46CCD
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Dec 2023 18:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=isdYat2mauMEATUpnmpyNnKrVssvwbbrxL3D7I7XmJE=; b=XqePvVaGfWAwXioTSy7igMKrt+
-	Sceo1W5gYT6GBK8KXPdc5T6yCebrtgjmn9mo9JLo41wxcn+87aJ0A2v1XaxCV8HFsyan5eVNhx+hy
-	GSltzNmjyB/Ctd39rOuXkMLGADmT/OdoM+J/JqvutV/OYjMyaoy67pGIq3CGPw7YzE/IHEp4nuGFa
-	4mGJ+j8bxKqFTkO6XBprGk2LoJEoTfbPmSV0N96R6wlnB90a7mq64RzL6EVbgbr/aC5ESu17Beei+
-	diVpx77+1CPTRtxxhpMbYTqpMOrYVKA5nBb6TX6AsDAgvp+EUA10CKC0/Bwxj59AhkGKhGk3xJfKh
-	1C+PAyJQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4EZ5xJYtv93HpQEhh5+pE051AOrC1b7YnRC4E29PvqY=; b=0b5hBKk4QDv7mR
+	QkzMBNZrBMXw1v+yrq1e4w0KS1ygx8J74l27A3JwYQD3r5zytz8oRo3+v/0fi9mVVhi/DwA0V4q4b
+	F2WEAlyNR9yHqXcgBHSn65RWLreJr0CSV3N1VDaJoEcGH3aKThHwOfUAYs3DQQ4E29irVr6+66c9K
+	8ZJ6hiJHn5ST6LJQuDiJ4LXrcj99x9MVnsiMKQi/gAkpkdyORlgoTBnUmxpSuoKZ5hTEb6WD399vW
+	tH9k9nuUDRz2jGAK6kskTKwbp5V4ihDGido+Puru/Ixt8J14QgxZq1v4SlZmTi9dmYtDJkLXg/ir0
+	jNjRYxZRUZjSjNtiOlJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFeUY-00F82c-19;
-	Tue, 19 Dec 2023 18:06:54 +0000
-Received: from mail-oo1-xc2b.google.com ([2607:f8b0:4864:20::c2b])
+	id 1rFek3-00FBkA-1c;
+	Tue, 19 Dec 2023 18:22:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFeUV-00F80R-0O
-	for linux-riscv@lists.infradead.org;
-	Tue, 19 Dec 2023 18:06:53 +0000
-Received: by mail-oo1-xc2b.google.com with SMTP id 006d021491bc7-59067ccb090so3061605eaf.1
-        for <linux-riscv@lists.infradead.org>; Tue, 19 Dec 2023 10:06:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1703009209; x=1703614009; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+bFR3yte01HbYlDHRv97Ae0s+mmV5KMmIsjF09sLSAo=;
-        b=Fz2W/pdQ9rhGWncpvBoU8n8YSzXFvPJ5kGfrphvFZVHlnH6nUEvqMgnY0W+6nIcqTw
-         3LLxPYd7pNzC1y1yfnmfGiUzk+XjKVEXJfDirm5Y1zvgrgBGMf13b+MSRtF7F/QYFwXn
-         kLI3HCT8KWVheW1J5Oo3JcCz80dV0pKNcIebWS5J7PbYdh3RHcSy+HuACmApNY6BcYXs
-         TfGUexlk86YszTsFHIQioJjo2x725Un3iJriithGif3Tb1p1ecMwPwBo5O0QtTeZ03Dx
-         dh20nmHp0hxgyNQjwzB/sM7ZTCU9wkchUGTyAx/BlL7o6kQXivnnZB1YE2v/RgYlb7qm
-         9X6A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1703009209; x=1703614009;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+bFR3yte01HbYlDHRv97Ae0s+mmV5KMmIsjF09sLSAo=;
-        b=NEKbYUdohKRVMjBFbipL+jwq8k1Qzw6aPDqBLsy8eMR/9p0QDop1+JOuWGrrDpc+YJ
-         kJoyN5Tale0/lUgqgeAJ38DC0cpOc37esTdaKPcXwkTx04vRyShigxEPHrAvF8cS3/qW
-         xjRf1JxZH34cl9ApUwVN7P8exfDPSBGxd6Ra+TWGdexXw5Mc075HHvVES3z8vDjYcoH0
-         vAMfLt5jGqzJA/f/YLerb17X0ghQwAAFdkH5keZgLQaAGsdbZOSBZ5KsueXToVIf8sEk
-         UDqo62XVvH+VxJ09HCE30f1pC6FbeOiDsbX06Q+qc+SX8y64YuUT1ZG7VJObfzDcAWq0
-         Xntg==
-X-Gm-Message-State: AOJu0YwQLChjdjMQq2YgPQfgg4/eJe8+11sqqkf9TSCrPoxNlxo2px/d
-	SOlDpxRfz/uLtbcbuT0WQidndg==
-X-Google-Smtp-Source: AGHT+IGvPerCtBqoYqOL8gM8DjEGEeInNA7fBUfyY5sV10T7iaCe0Q9SaOquZFFdB4wBcBusiAV1LQ==
-X-Received: by 2002:a05:6359:4c22:b0:170:c91a:b466 with SMTP id kj34-20020a0563594c2200b00170c91ab466mr17943635rwc.23.1703009209277;
-        Tue, 19 Dec 2023 10:06:49 -0800 (PST)
-Received: from localhost ([12.44.203.122])
-        by smtp.gmail.com with ESMTPSA id a19-20020aa78653000000b006d698583881sm4850781pfo.141.2023.12.19.10.06.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Dec 2023 10:06:48 -0800 (PST)
-Date: Tue, 19 Dec 2023 10:06:48 -0800 (PST)
-X-Google-Original-Date: Tue, 19 Dec 2023 10:06:47 PST (-0800)
-Subject: RE: [RFT 1/2] RISC-V: handle missing "no-map" properties for OpenSBI's PMP protected regions
-In-Reply-To: <OSZPR01MB70195C6084CF2CDA5EE13D68AA97A@OSZPR01MB7019.jpnprd01.prod.outlook.com>
-CC: Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>,
-  prabhakar.csengg@gmail.com, geert+renesas@glider.be, Atish Patra <atishp@rivosinc.com>,
-  Paul Walmsley <paul.walmsley@sifive.com>, apatel@ventanamicro.com, alexghiti@rivosinc.com,
-  Bjorn Topel <bjorn@rivosinc.com>, suagrfillet@gmail.com, jeeheng.sia@starfivetech.com,
-  petrtesarik@huaweicloud.com, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-  stable@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: prabhakar.mahadev-lad.rj@bp.renesas.com
-Message-ID: <mhng-378700ef-2f59-431a-bba6-2c70e0584738@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	id 1rFejy-00FBgl-0u;
+	Tue, 19 Dec 2023 18:22:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D98566141D;
+	Tue, 19 Dec 2023 18:22:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78AA1C433C7;
+	Tue, 19 Dec 2023 18:22:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1703010168;
+	bh=DPuOkfzjPhady10Q5o+36I/qim38sfvyYNHfU9o8g4s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=lJ7TR7dHiGeTaDrDcD0P3s9K3/Cy0c5R+1JMsyHoyWSfR09sTOekdWbvT6dGuVtMM
+	 +MApXmtcHV+t2luxAN1lSgKWm++Ahv8W3hdZa37W1zwijBzqvRKv3ogmQQ3lwJtsH8
+	 IeMlSpos+7YynBF91UFPlkwtiaeyVcQL5JGEx9DWDK6ncwFsjZ1IvVPSg9+4aNJNL3
+	 oE03fa8trLY7ghnI0z+tR3HRpqSs+MYJo2GIFMKbAAeJ7/LiCe9FcaRMq2mvI7QGCD
+	 qYfD7Zh7ZWB9MMFX6UtMTZ4bCCpZWw6dKP6hxxwd3z8WAxC1YbU/jqaRGJ5bHb6Ljm
+	 q2fleBZ31mTBg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1rFejt-005SbH-35;
+	Tue, 19 Dec 2023 18:22:45 +0000
+Date: Tue, 19 Dec 2023 18:22:44 +0000
+Message-ID: <8734vy832j.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Haibo Xu <haibo1.xu@intel.com>
+Cc: xiaobo55x@gmail.com,
+	ajones@ventanamicro.com,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Guo Ren <guoren@kernel.org>,
+	Mayuresh Chitale <mchitale@ventanamicro.com>,
+	Greentime Hu <greentime.hu@sifive.com>,
+	wchen <waylingii@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Minda Chen <minda.chen@starfivetech.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Sean Christopherson <seanjc@google.com>,
+	Peter Xu <peterx@redhat.com>,
+	Like Xu <likexu@tencent.com>,
+	Vipin Sharma <vipinsh@google.com>,
+	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
+	Aaron Lewis <aaronlewis@google.com>,
+	Thomas Huth <thuth@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 11/11] KVM: selftests: Enable tunning of err_margin_us in arch timer test
+In-Reply-To: <0343a9e4bfa8011fbb6bca0286cee7eab1f17d5d.1702371136.git.haibo1.xu@intel.com>
+References: <cover.1702371136.git.haibo1.xu@intel.com>
+	<0343a9e4bfa8011fbb6bca0286cee7eab1f17d5d.1702371136.git.haibo1.xu@intel.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: haibo1.xu@intel.com, xiaobo55x@gmail.com, ajones@ventanamicro.com, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, pbonzini@redhat.com, shuah@kernel.org, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, anup@brainfault.org, atishp@atishpatra.org, guoren@kernel.org, mchitale@ventanamicro.com, greentime.hu@sifive.com, waylingii@gmail.com, conor.dooley@microchip.com, heiko@sntech.de, minda.chen@starfivetech.com, samuel@sholland.org, jszhang@kernel.org, seanjc@google.com, peterx@redhat.com, likexu@tencent.com, vipinsh@google.com, maciej.wieczor-retman@intel.com, aaronlewis@google.com, thuth@redhat.com, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231219_100651_476388_EA2B408E 
-X-CRM114-Status: GOOD (  36.40  )
+X-CRM114-CacheID: sfid-20231219_102250_423444_444D13FD 
+X-CRM114-Status: GOOD (  13.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,76 +113,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCAxOSBEZWMgMjAyMyAwOToyNzo0MiBQU1QgKC0wODAwKSwgcHJhYmhha2FyLm1haGFk
-ZXYtbGFkLnJqQGJwLnJlbmVzYXMuY29tIHdyb3RlOgo+IEhpIENvbm9yLAo+IAo+PiAtLS0tLU9y
-aWdpbmFsIE1lc3NhZ2UtLS0tLQo+PiBGcm9tOiBDb25vciBEb29sZXkgPGNvbm9yQGtlcm5lbC5v
-cmc+Cj4+IFNlbnQ6IFR1ZXNkYXksIERlY2VtYmVyIDE5LCAyMDIzIDU6MTggUE0KPj4gVG86IENv
-bm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+Cj4+IENjOiBMYWQsIFByYWJo
-YWthciA8cHJhYmhha2FyLmNzZW5nZ0BnbWFpbC5jb20+OyBQYWxtZXIgRGFiYmVsdCA8cGFsbWVy
-QGRhYmJlbHQuY29tPjsKPj4gZ2VlcnQrcmVuZXNhc0BnbGlkZXIuYmU7IEF0aXNoIFBhdHJhIDxh
-dGlzaHBAcml2b3NpbmMuY29tPjsgUGF1bCBXYWxtc2xleSA8cGF1bC53YWxtc2xleUBzaWZpdmUu
-Y29tPjsKPj4gYXBhdGVsQHZlbnRhbmFtaWNyby5jb207IGFsZXhnaGl0aUByaXZvc2luYy5jb207
-IEJqb3JuIFRvcGVsIDxiam9ybkByaXZvc2luYy5jb20+Owo+PiBzdWFncmZpbGxldEBnbWFpbC5j
-b207IGplZWhlbmcuc2lhQHN0YXJmaXZldGVjaC5jb207IHBldHJ0ZXNhcmlrQGh1YXdlaWNsb3Vk
-LmNvbTsgbGludXgtCj4+IHJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmc7IGxpbnV4LWtlcm5lbEB2
-Z2VyLmtlcm5lbC5vcmc7IHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmc7IFByYWJoYWthciBNYWhhZGV2
-IExhZAo+PiA8cHJhYmhha2FyLm1haGFkZXYtbGFkLnJqQGJwLnJlbmVzYXMuY29tPgo+PiBTdWJq
-ZWN0OiBSZTogW1JGVCAxLzJdIFJJU0MtVjogaGFuZGxlIG1pc3NpbmcgIm5vLW1hcCIgcHJvcGVy
-dGllcyBmb3IgT3BlblNCSSdzIFBNUCBwcm90ZWN0ZWQgcmVnaW9ucwo+PiAKPj4gSGV5LAo+PiAK
-Pj4gT24gVGh1LCBEZWMgMDcsIDIwMjMgYXQgMDE6MTE6MjNQTSArMDAwMCwgQ29ub3IgRG9vbGV5
-IHdyb3RlOgo+PiA+IE9uIFRodSwgRGVjIDA3LCAyMDIzIGF0IDAxOjAyOjAwUE0gKzAwMDAsIExh
-ZCwgUHJhYmhha2FyIHdyb3RlOgo+PiA+ID4gT24gV2VkLCBEZWMgNiwgMjAyMyBhdCAyOjI24oCv
-UE0gQ29ub3IgRG9vbGV5IDxjb25vckBrZXJuZWwub3JnPiB3cm90ZToKPj4gPiA+ID4gT24gV2Vk
-LCBEZWMgMDYsIDIwMjMgYXQgMDQ6NTI6MTFBTSAtMDgwMCwgUGFsbWVyIERhYmJlbHQgd3JvdGU6
-Cj4+ID4gPiA+ID4gT24gVGh1LCAxMCBBdWcgMjAyMyAwMjowNzoxMCBQRFQgKC0wNzAwKSwgQ29u
-b3IgRG9vbGV5IHdyb3RlOgo+PiA+Cj4+ID4gPiA+ID4gPiBJJ20gcGVyZmVjdGx5IGhhcHB5IHRv
-IGRyb3AgdGhpcyBzZXJpZXMgdGhvdWdoLCBpZiBwZW9wbGUKPj4gPiA+ID4gPiA+IGdlbmVyYWxs
-eSBhcmUgb2YgdGhlIG9waW5pb24gdGhhdCB0aGlzIHNvcnQgb2YgZmlybXdhcmUgd29ya2Fyb3Vu
-ZCBpcyBpbGwtYWR2aXNlZC4KPj4gPiA+ID4gPiA+IFdlIGFyZSB1bmFmZmVjdGVkIGJ5IGl0LCBz
-byBJIGNlcnRhaW5seSBoYXZlIG5vIHByZXNzdXJlIHRvCj4+ID4gPiA+ID4gPiBoYXZlIHNvbWV0
-aGluZyB3b3JraW5nIGhlcmUuIEl0J3MgbXkgZGVzaXJlIG5vdCB0byBiZQo+PiA+ID4gPiA+ID4g
-dXNlci1ob3N0aWxlIHRoYXQgbW90aXZhdGVkIHRoaXMgcGF0Y2guCj4+ID4gPiA+ID4KPj4gPiA+
-ID4gPiBJSVVDIHlvdSBndXlzIGFuZCBSZW5lYXMgYXJlIHRoZSBvbmx5IG9uZXMgd2hvIGhhdmUg
-aGFyZHdhcmUKPj4gPiA+ID4gPiB0aGF0IG1pZ2h0IGJlIGluIGEgc3BvdCB3aGVyZSB1c2VycyBh
-cmVuJ3QgYWJsZSB0byB1cGRhdGUgdGhlCj4+ID4gPiA+ID4gZmlybXdhcmUgKGllLCBpdCdzIG91
-dCBpbiBwcm9kdWN0aW9uIHNvbWV3aGVyZSkuCj4+ID4gPiA+Cj4+ID4gPiA+IEkgZHVubm8gaWYg
-d2UgY2FuIHJlYWxseSBrZWVwIHRoaW5raW5nIGxpa2UgdGhhdCB0aG91Z2guIEluIHRlcm1zCj4+
-ID4gPiA+IG9mIHBlb3BsZSB3aG8gaGF2ZSBkZXZpY2V0cmVlcyBpbiB0aGUga2VybmVsIGFuZCBz
-dHVmZiBhdmFpbGFibGUKPj4gPiA+ID4gaW4gd2VzdGVybiBjYXRhbG9nIGRpc3RyaWJ1dGlvbiwg
-c3VyZS4KPj4gPiA+ID4gSSBkb24ndCB0aGluayB3ZSBjYW4gYXNzdW1lIHRoYXQgdGhhdCBjb3Zl
-cnMgYWxsIHVzZXJzIHRob3VnaCwKPj4gPiA+ID4gY2VydGFpbmx5IHRoZSBzeW50YWNvcmUgZm9s
-a3MgcG9wIHVwIGV2ZXJ5IG5vdyBhbmQgdGhlbiwgYW5kIEkKPj4gPiA+ID4gc3VyZSBob3BlIHRo
-YXQgQW5kZXMgZXRjIGhhdmUgbGFyZ2VyIGN1c3RvbWVyIGJhc2VzIHRoYW4gdGhlCj4+ID4gPiA+
-IGluLWtlcm5lbCB1c2VycyB3b3VsZCBzdWdnZXN0Lgo+PiA+ID4gPgo+PiA+ID4gPiA+IFNvIEkn
-bSBhZGRpbmcgR2VlcnQsIHRob3VnaCBoZSBwcm9iYWJseSBzYXcgdGhpcyBtb250aHMgYWdvLi4u
-Cj4+ID4gPiA+Cj4+ID4gPiA+IFByYWJoYWthciBtaWdodCBiZSBhIGdvb2QgY2FsbCBvbiB0aGF0
-IGZyb250LiBJJ20gbm90IHN1cmUgaWYgdGhlCj4+ID4gPiA+IFJlbmVzYXMgc3R1ZmYgd29ya3Mg
-b24gYWZmZWN0ZWQgdmVyc2lvbnMgb2YgT3BlblNCSSB0aG91Z2gsIGd1ZXNzCj4+ID4gPiA+IGl0
-IGRlcGVuZHMgb24gdGhlIHNlcXVlbmNpbmcgb2YgdGhlIHN1cHBvcnQgZm9yIHRoZSBub24tY29o
-ZXJlbnQKPj4gPiA+ID4gc3R1ZmYgYW5kIHdoZW4gdGhpcyBidWcgd2FzIGZpeGVkLgo+PiA+ID4g
-Pgo+PiA+ID4gQVRNLCBJIGRvbnQgdGhpbmsgdGhlcmUgYXJlIGFueSB1c2VycyB3aG8gYXJlIHVz
-aW5nIHRoZSB1cHN0cmVhbQo+PiA+ID4ga2VybmVsICsgT3BlblNCSSAoYXBhcnQgZnJvbSBtZSBh
-bmQgR2VlcnQhKS4gQ3VycmVudGx5IHRoZSBjdXN0b21lcnMKPj4gPiA+IGFyZSB1c2luZyB0aGUg
-QlNQIHJlbGVhc2VzLgo+PiA+Cj4+ID4gVGhhdCBkb2Vzbid0IHJlYWxseSBhbnN3ZXIgd2hldGhl
-ciBvciBub3QgeW91IChhbmQgeW91ciBjdXN0b21lcnMpIGFyZQo+PiA+IHVzaW5nIGFuIGFmZmVj
-dGVkIHZlcnNpb24gb2YgdGhlIHZlbmRvciBPcGVuU0JJPwo+PiA+IFRoZSBhZmZlY3RlZCByYW5n
-ZSBmb3IgT3BlblNCSSBpdHNlbGYgaXMgW3YwLjggdG8gdjEuMykuCj4+IAo+PiBEaWQgeW91IHBl
-cmhhcHMgbWlzcyB0aGlzIG1haWwgUHJhYmhha2FyPwo+PiAKPiBPb3BzIHNvcnJ5IGZvciB0aGF0
-Lgo+IAo+IEkgY2FuIGNvbmZpcm0gdGhlIEJTUCB2ZXJzaW9uIHVzZWQgYnkgdGhlIGN1c3RvbWVy
-cyBpcyB2MS4wIFswXS4KPiAKPiBbMF0gaHR0cHM6Ly9naXRodWIuY29tL3JlbmVzYXMtcnovcnpf
-b3BlbnNiaS9jb21taXRzL3dvcmsvT3BlblNCSS1QTUEvCgpPSywgc28gc291bmRzIGxpa2Ugd291
-bGQgZW5kIHVwIHdpdGggYnJva2VuIHN5c3RlbXMgZnJvbSB0aGlzIGJ1ZywgdGhlbj8KCklJUkMg
-d2Ugc3RpbGwgaGF2ZSB0aGUgUmVuZXNhcyBzeXN0ZW1zIGFzIE5PTlBPUlRBQkxFIGR1ZSB0byB0
-aGF0IERNQSAKcG9vbCBLY29uZmlnIGNvbmZsaWN0LiAgU28gaWYgaXQncyByZWFsbHkgb25seSB0
-aGVzZSBSZW5lc2FzIHN5c3RlbXMgCnRoYXQgaGF2ZSB0aGUgYnVnLCBtYXliZSB3ZSBjYW4gc3Rp
-bGwgcmVtb3ZlIGhpYmVybmF0aW9uIGZyb20gCk5PTlBPUlRBQkxFIGFuZCBqdXN0IGFkZCBpbiBz
-b21lIHNvcnQgb2YgS2NvbmZpZyB0byBkaXNhYmxlIHRoZSAKUmVuZXNhcytoaWJlcm5hdGlvbiBj
-b21iaW5hdGlvbnMgdGhhdCB3b3VsZCBicmVhaz8KCj4gCj4gQ2hlZXJzLAo+IFByYWJoYWthcgoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Tue, 12 Dec 2023 09:31:20 +0000,
+Haibo Xu <haibo1.xu@intel.com> wrote:
+> > @@ -216,6 +221,9 @@ static bool parse_args(int argc, char *argv[])
+>  		case 'm':
+>  			test_args.migration_freq_ms = atoi_non_negative("Frequency", optarg);
+>  			break;
+> +		case 'e':
+> +			test_args.timer_err_margin_us = atoi_non_negative("Error Margin", optarg);
+> +			break;
+
+So your error margin is always unsigned...
+
+>  		case 'o':
+>  			test_args.counter_offset = strtol(optarg, NULL, 0);
+>  			test_args.reserved = 0;
+> diff --git a/tools/testing/selftests/kvm/include/timer_test.h b/tools/testing/selftests/kvm/include/timer_test.h
+> index 968257b893a7..b1d405e7157d 100644
+> --- a/tools/testing/selftests/kvm/include/timer_test.h
+> +++ b/tools/testing/selftests/kvm/include/timer_test.h
+> @@ -22,6 +22,7 @@ struct test_args {
+>  	int nr_iter;
+>  	int timer_period_ms;
+>  	int migration_freq_ms;
+> +	int timer_err_margin_us;
+
+... except that you are storing it as a signed value. Some consistency
+wouldn't hurt, really, and would avoid issues when passing large
+values.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
