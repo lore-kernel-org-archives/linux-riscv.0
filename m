@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B114C41535
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Dec 2023 00:47:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DF1EC41535
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Dec 2023 01:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iS8JNho0pUipStUi3z6MjDFb0epiCBH9boCusXTXKvA=; b=pcNIYyEmmDM2S/
-	vXwQUpP79otuBJImUUH+i7Dh7NWoaCjLaHPBUVp8ayb35i8Hha/kuvKrRW7SGz8nYLw8cxZtOjTHB
-	HI/SN6Vklt6rO30i+oAz+uc6tcU4QtzeJR/iVpehPyHp3+6384bNfM8pts/DDz4XErXyop0VvhShe
-	docFVhn9GvC035uskT7j8I7uCINAg7/3wvV10DTVA1StRzLkZz2lYlMfnw2kaqkJFbQHd2l157su6
-	YOKcn+JQ3xQbUi9WnK6WsY2WSj1b0Hm2YyE3TsclQ1gvB3zp1dFwjfRqjfURg/qTAtt+qSxw/C0Y5
-	AfK3xFc3PZj8LfPmqiyQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=aWejkEJZHElnclOGreh/2NlUmh+lfhLAYHmiajTQxj4=; b=mXnCaVV95c281y
+	7E8IwYwe8dMb1aSxRC2GRK9FnDDJm75LDxfcc3X9nKeQ65W+862kbWPBYphMiWYUCOrt+1tEXzuzX
+	Jt9zfMz6oo01iWTtEJ6vC1Ro3GxcTnS4JvJHmn/n8DkCmVD9qcRG3DMfDmLhdKLuqEoGoUulPRTqs
+	Edzu4tOQQXe0pU6rQuCmnntZ+gpspEMfGEdG/90AdhHh4RDHeI1t/Y1U4NkncRxij8KgJ7qP6tw9i
+	ODkpskXndi1deJB9ZZybEPW33L1r8wsxx4Ac/cGXkAHrWvXw+6gQzGwL23jWLOM5DLL8TArLrBaPS
+	V1yu2IPSJodo+dzbZA2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFkjW-00FpO0-1w;
-	Wed, 20 Dec 2023 00:46:46 +0000
-Received: from madrid.collaboradmins.com ([46.235.227.194])
+	id 1rFlOi-00FtBa-2i;
+	Wed, 20 Dec 2023 01:29:20 +0000
+Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFkjT-00FpMp-37
+	id 1rFlOf-00FtAL-2y
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Dec 2023 00:46:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1703033202;
-	bh=N62km21T/WA812DJZg7FAQPI49dJTRMBzG/fnA558jA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZbIau3HtZbeRZBr5Vf1Zb72VHkCnINx+MrGugKr2VTNaVsDRHipT8iIqG1tdwl5ls
-	 LQn29iO85YEK0n96K9eoOLOLDnBB5DVnlA4p6r4Mdqu6qJ7dkBRvC5R13rQWEzUDs2
-	 niwPS9cFeWRmOHw0wMfbPy+Hp1e9vuMuW75ycwdyyHscADQGVCNgtQANhjrpLL1P0v
-	 6BPLDmLFzZ2z3gj1CTZ4vJHy6vGn4KPBfvY/F+1/L4aGNT/8cZS3Z62e9NdRre/syo
-	 jdXftp89glLg7yZp7g0Xt5CzwJLemjTVW19nHFrIBMnmUwuUnzDAtPiu3e4U+nJ508
-	 kjH5IKhnYsWXg==
-Received: from localhost (cola.collaboradmins.com [195.201.22.229])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by madrid.collaboradmins.com (Postfix) with ESMTPSA id 4C3CB3781F86;
-	Wed, 20 Dec 2023 00:46:42 +0000 (UTC)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-To: Emil Renner Berthing <kernel@esmil.dk>,
-	Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jacob Keller <jacob.e.keller@intel.com>
+	Wed, 20 Dec 2023 01:29:19 +0000
+Received: by mail-il1-x135.google.com with SMTP id e9e14a558f8ab-35fc16720f9so4638905ab.1
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Dec 2023 17:29:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1703035754; x=1703640554; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=noOHXEXq53TwUTKHZbjt20gs+byIIS92aaWVxSd+8PM=;
+        b=LbV0lLb0quEVcylamz1LeQU062dV0qGxLq8Nt/xa6WOMT/0vmyNTN6GiSUDsz5D2mB
+         esppjUlWhbDgi+m6iyWHomO2idSOICdYpKN6TR/QtCGmjdqaec/9SvPGfBpBwrVg2FXM
+         JB2d5rJ0dn7ZmKy1omGpwBJtglJfOVgnF2mm9XoJD2XpW9qA3fF7Bg4X1InDUnjETG+f
+         DmUN3XTgos4O9bnls0r60I+Qget0E59MQKluz3rMEcAYhU0cWmi4o94sF0cFKKRx2RLp
+         ZNDZeb1GJjL/0iOBSYJvFlN/XeoO40eut+P6SngIwYXyQ9LrfL6TYN5g9fo57ERr/3R9
+         iRow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1703035755; x=1703640555;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=noOHXEXq53TwUTKHZbjt20gs+byIIS92aaWVxSd+8PM=;
+        b=ikNcMdDmMQSlHMBsq0disjYT8qi5dB2DmfY0Q3EQllyYGHz5K5EdWQv1vBPo2E//TE
+         BpCDmbCX77WU4lMEk4LPF4jtNb6WoZv97Zyp05na3t/E9YnfcnTbSPjTltfkP0hx23Qc
+         COARauxk3YEsHJ2JHxJOuntAVlr1/y/7hxtRx4Mw2wPQbWoFxPApl80xqIWUhOTFzixJ
+         1eOILDtqK/FEHiT6SkArC1x4wUDFEPYHTsCHme6lkbK9yZVuJx+SBDClbbVaM1crnuu5
+         iq0RIIx7y0wxNu8uxVnN1PVpucIveiuuYfzDzwVvqdZn4zFlqcVuLSkGgWV4NRz0LZLA
+         e83A==
+X-Gm-Message-State: AOJu0YyHjzuhxpfiimiQZCWZo2uE0/ZSbRJQOO36O40WIXeHLHVqxnIG
+	/G/sDXVxLkWtiU8LdCF6BCgLlQ==
+X-Google-Smtp-Source: AGHT+IH50uzI5kXTHlVql/ObPmMqVN0rJzoUbZbZCOF27Pr4JsJyzKHepUWmsgBrJirVOGgCkYLf7g==
+X-Received: by 2002:a05:6e02:1c4b:b0:35f:acab:1187 with SMTP id d11-20020a056e021c4b00b0035facab1187mr7163437ilg.28.1703035754610;
+        Tue, 19 Dec 2023 17:29:14 -0800 (PST)
+Received: from Vincent-X1Extreme-TW.. (111-251-213-195.dynamic-ip.hinet.net. [111.251.213.195])
+        by smtp.gmail.com with ESMTPSA id n2-20020a170902d2c200b001d04c097d32sm21531292plc.270.2023.12.19.17.29.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 19 Dec 2023 17:29:14 -0800 (PST)
+From: Vincent Chen <vincent.chen@sifive.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	ajones@ventanamicro.com,
+	alexghiti@rivosinc.com
 Cc: linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	kernel@collabora.com,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Subject: [PATCH v5 1/4] riscv: dts: starfive: jh7100: Add sysmain and gmac DT nodes
-Date: Wed, 20 Dec 2023 02:46:34 +0200
-Message-ID: <20231220004638.2463643-2-cristian.ciocaltea@collabora.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20231220004638.2463643-1-cristian.ciocaltea@collabora.com>
-References: <20231220004638.2463643-1-cristian.ciocaltea@collabora.com>
+	Vincent Chen <vincent.chen@sifive.com>
+Subject: [v4 PATCH] riscv: mm: execute local TLB flush after populating vmemmap
+Date: Wed, 20 Dec 2023 09:29:06 +0800
+Message-Id: <20231220012906.1482456-1-vincent.chen@sifive.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231219_164644_133559_86DE893E 
-X-CRM114-Status: UNSURE (   7.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231219_172918_017636_44856C6F 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,73 +92,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide the sysmain and gmac DT nodes supporting the DWMAC found on the
-StarFive JH7100 SoC.
+The spare_init() calls memmap_populate() many times to create VA to PA
+mapping for the VMEMMAP area, where all "struct page" are located once
+CONFIG_SPARSEMEM_VMEMMAP is defined. These "struct page" are later
+initialized in the zone_sizes_init() function. However, during this
+process, no sfence.vma instruction is executed for this VMEMMAP area.
+This omission may cause the hart to fail to perform page table walk
+because some data related to the address translation is invisible to the
+hart. To solve this issue, the local_flush_tlb_kernel_range() is called
+right after the spare_init() to execute a sfence.vma instruction for this
+VMEMMAP area, ensuring that all data related to the address translation
+is visible to the hart.
 
-Co-developed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+Fixes: d95f1a542c3d ("RISC-V: Implement sparsemem")
+Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
 ---
- arch/riscv/boot/dts/starfive/jh7100.dtsi | 36 ++++++++++++++++++++++++
- 1 file changed, 36 insertions(+)
+ arch/riscv/include/asm/tlbflush.h | 1 +
+ arch/riscv/mm/init.c              | 5 +++++
+ arch/riscv/mm/tlbflush.c          | 6 ++++++
+ 3 files changed, 12 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7100.dtsi b/arch/riscv/boot/dts/starfive/jh7100.dtsi
-index c216aaecac53..2ebdebe6a81c 100644
---- a/arch/riscv/boot/dts/starfive/jh7100.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7100.dtsi
-@@ -204,6 +204,37 @@ sdio1: mmc@10010000 {
- 			status = "disabled";
- 		};
+diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+index 8f3418c5f172..bf8c52719a3a 100644
+--- a/arch/riscv/include/asm/tlbflush.h
++++ b/arch/riscv/include/asm/tlbflush.h
+@@ -68,4 +68,5 @@ static inline void flush_tlb_kernel_range(unsigned long start,
+ #define flush_tlb_mm_range(mm, start, end, page_size) flush_tlb_all()
+ #endif /* !CONFIG_SMP || !CONFIG_MMU */
  
-+		gmac: ethernet@10020000 {
-+			compatible = "starfive,jh7100-dwmac", "snps,dwmac";
-+			reg = <0x0 0x10020000 0x0 0x10000>;
-+			clocks = <&clkgen JH7100_CLK_GMAC_ROOT_DIV>,
-+				 <&clkgen JH7100_CLK_GMAC_AHB>,
-+				 <&clkgen JH7100_CLK_GMAC_PTP_REF>,
-+				 <&clkgen JH7100_CLK_GMAC_TX_INV>,
-+				 <&clkgen JH7100_CLK_GMAC_GTX>;
-+			clock-names = "stmmaceth", "pclk", "ptp_ref", "tx", "gtx";
-+			resets = <&rstgen JH7100_RSTN_GMAC_AHB>;
-+			reset-names = "ahb";
-+			interrupts = <6>, <7>;
-+			interrupt-names = "macirq", "eth_wake_irq";
-+			max-frame-size = <9000>;
-+			snps,multicast-filter-bins = <32>;
-+			snps,perfect-filter-entries = <128>;
-+			starfive,syscon = <&sysmain 0x70 0>;
-+			rx-fifo-depth = <32768>;
-+			tx-fifo-depth = <16384>;
-+			snps,axi-config = <&stmmac_axi_setup>;
-+			snps,fixed-burst;
-+			snps,force_thresh_dma_mode;
-+			status = "disabled";
-+
-+			stmmac_axi_setup: stmmac-axi-config {
-+				snps,wr_osr_lmt = <16>;
-+				snps,rd_osr_lmt = <16>;
-+				snps,blen = <256 128 64 32 0 0 0>;
-+			};
-+		};
-+
- 		clkgen: clock-controller@11800000 {
- 			compatible = "starfive,jh7100-clkgen";
- 			reg = <0x0 0x11800000 0x0 0x10000>;
-@@ -218,6 +249,11 @@ rstgen: reset-controller@11840000 {
- 			#reset-cells = <1>;
- 		};
++void local_flush_tlb_kernel_range(unsigned long start, unsigned long end);
+ #endif /* _ASM_RISCV_TLBFLUSH_H */
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 2e011cbddf3a..cc56a0945120 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -1377,6 +1377,10 @@ void __init misc_mem_init(void)
+ 	early_memtest(min_low_pfn << PAGE_SHIFT, max_low_pfn << PAGE_SHIFT);
+ 	arch_numa_init();
+ 	sparse_init();
++#ifdef CONFIG_SPARSEMEM_VMEMMAP
++	/* The entire VMEMMAP region has been populated. Flush TLB for this region */
++	local_flush_tlb_kernel_range(VMEMMAP_START, VMEMMAP_END);
++#endif
+ 	zone_sizes_init();
+ 	arch_reserve_crashkernel();
+ 	memblock_dump_all();
+@@ -1386,6 +1390,7 @@ void __init misc_mem_init(void)
+ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+ 			       struct vmem_altmap *altmap)
+ {
++	/* Defer the required TLB flush until the entire VMEMMAP region has been populated */
+ 	return vmemmap_populate_basepages(start, end, node, NULL);
+ }
+ #endif
+diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+index e6659d7368b3..d11a4ae87ec1 100644
+--- a/arch/riscv/mm/tlbflush.c
++++ b/arch/riscv/mm/tlbflush.c
+@@ -193,6 +193,12 @@ void flush_tlb_kernel_range(unsigned long start, unsigned long end)
+ 	__flush_tlb_range(NULL, start, end - start, PAGE_SIZE);
+ }
  
-+		sysmain: syscon@11850000 {
-+			compatible = "starfive,jh7100-sysmain", "syscon";
-+			reg = <0x0 0x11850000 0x0 0x10000>;
-+		};
++/* Flush a range of kernel pages without broadcasting */
++void local_flush_tlb_kernel_range(unsigned long start, unsigned long end)
++{
++	local_flush_tlb_range_asid(start, end - start, PAGE_SIZE, FLUSH_TLB_NO_ASID);
++}
 +
- 		i2c0: i2c@118b0000 {
- 			compatible = "snps,designware-i2c";
- 			reg = <0x0 0x118b0000 0x0 0x10000>;
+ #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 			unsigned long end)
 -- 
-2.43.0
+2.34.1
 
 
 _______________________________________________
