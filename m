@@ -4,107 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD639C41535
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Dec 2023 01:43:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAE27C41535
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Dec 2023 02:44:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wdOkpAMcEc8c25pjQyNAo6n9X5nEuwtKFnA+tqQjwJw=; b=oP0QeD75CO/iR6
-	YM0FNWxJes7fykMU3iRWzqOR1gmlwsOHGHqrPIoDuWGTBIDQ6YpjGSCcrQ+5mKcptiRxD8d+iQ/i2
-	ZbLxiygwHYVSB4a4VtH+YMqybRaPn3kULn9fTqC6GdsVyYj3pGs88OAYIAv7qaYpLVJDgJCpzjSN7
-	Ml+8daWDf3p6tg8PQJI2+PRxFnNYoHwOQ3IOCFgQYBwmYPOLa5ZQSkE51yrrpYpZ7836DOV7/eK1s
-	9oQfahHIIdnlq3LQ9lpD2hXKC+yh1aDfBWdJL15ZPBeCFOZnt48WF8ZSAACRbWC9RbagGqG+KdURG
-	njzXkPXIWuhr1xhQcyiQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+JKjmyqQhDJbx2aidXaTaC4L5QlJi5o5+v1VMNv5cy0=; b=Qaj6SefeYc/dfK
+	WWc0D3HHKs7I/YODlISXiymuWCNS8j0TzjQjbb7b8PoO3/96LaMLFfyg7L6vtkt7I0rLtq/nKxySX
+	3rCEVHBKmbX3C/S420YQ4FQMiKshMhojwq9Q5QwLO49M9Q4H/w6jRsn2gbocFVY1yNw860j2iM+zc
+	GLofgdZBynv3JZAQl5uyWX3yedBgFvT4jnA6reZ0MPrry/V8nclpYhib4TVa1VULIRKQ4rTFdvMDP
+	h6+nDZj1KTZzAXRCMLmcTvoxPyrtM5Gzv5D1yc/LC7VO0gxsveNg/1cGfk6lH2x1HvZw1kxVgLQ8t
+	l8CVA0JRwcxGs69nNF4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFlcT-00FvJw-3C;
-	Wed, 20 Dec 2023 01:43:33 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1rFmYt-00FzeA-0S;
+	Wed, 20 Dec 2023 02:43:55 +0000
+Received: from mail-il1-x12d.google.com ([2607:f8b0:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFlcP-00FvIU-2r
+	id 1rFmYp-00FzdV-32
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Dec 2023 01:43:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1703036607;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Vjm4paNMTWlCFosQbpjmCNgYAmudj3J1TP/uI6GNhCE=;
-	b=H3i7Fr9/CnnXu+QfAOUuG2urlgpn+aNLknhcmNBDogcHQCjHNMtOnL5YEVgZflqsK6SVg/
-	fFzrHmEweIdLW5aIUT05ZqovmBr7gIL2S2+hXUlbTDryMyedQwBaspQY0/umBN/FoAOpbF
-	9se1YM5sR6A5adUe0ZY0mHlX/YC8UsM=
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com
- [209.85.210.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-152-r9FKProwNPG9Not8yjYtxQ-1; Tue, 19 Dec 2023 20:43:26 -0500
-X-MC-Unique: r9FKProwNPG9Not8yjYtxQ-1
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-6d724647a7fso802141b3a.0
-        for <linux-riscv@lists.infradead.org>; Tue, 19 Dec 2023 17:43:26 -0800 (PST)
+	Wed, 20 Dec 2023 02:43:53 +0000
+Received: by mail-il1-x12d.google.com with SMTP id e9e14a558f8ab-35fb96f3404so8654285ab.2
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Dec 2023 18:43:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1703040231; x=1703645031; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=A9JKD3osDYeII8WCBHlQGdLIM2gRfXRd4YfCRkeM11U=;
+        b=FGV/pbUQ/VW8miOP9/Q8gz1qae8/JiLbEuLpm9lt6O0C6xdGA3bfutHQpKJ7N/LXya
+         9kzLxGLq9lEETZNM7uc1/75kamgvg+o1OLkZLoIrl3LIP07ZLemiH1OAp1kn+S1zo2P4
+         1mxU3gqdHej5lF6bYLMc/2+Mo6o6APJeEUWj0E4tsu3mG91piroGtAQWOBJKscc8AkoH
+         tKw2SIKFyl/xN/JMqGGp4uHoUP8MoGq8Pt8UQGkAwzoG8+F+qI38uGyRhhv75QHWGWQr
+         OPiJEOlc4d3M9Ifc9VyIv6KwsSvYpeSAz6N4SWbg6+wGGTRrXPJ8/u3p/KFbnc78lSXd
+         sX+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1703036605; x=1703641405;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Vjm4paNMTWlCFosQbpjmCNgYAmudj3J1TP/uI6GNhCE=;
-        b=HNLhsaqpRYkzNjQpFjjcHJnKD2Ya0XTJksMg5A60s4byF2TIXrSS8aQvPu+i9qg/tX
-         orfHk1I4iOqT1JMK6Q1ENEt35tSu0MFXslTdRA50ElNUgwTGf6z0I8F3WG7bTr3paqYj
-         1J6CcaQlYz7wrLixNIF/Yizmc0qJDgUcQ5KHpo8vTkb7/O6CUImeBJoGpZYzKX3aDZyk
-         1O04ucfka8FmKvjOKLmcFMSCMOz4nLIYgvRCyrxm0EJ2EfO0YXcNTCipHaV/pGlRsRhk
-         bVnsYQLTo0yt5b3fqgUnQgQw60znZhXDl9EF7yG2K851Kw/+Ma24Fxbtp3ybzsOGk5A4
-         i0vQ==
-X-Gm-Message-State: AOJu0Yys46aNny4kBSUgfXOqka+fn7TlCbbypToftlBF6+zImOqVPqym
-	VN6e8NYaZqS+W4FyXQ5zEM+w67HQvvGBsAVxFGAKy7E0pxfruVkwzL/oFkArqIdsLgSDdfKmkBi
-	W+nESoWagReLCiy7G8R66PMNIdrTL
-X-Received: by 2002:aa7:9315:0:b0:6d9:383b:d91a with SMTP id cz21-20020aa79315000000b006d9383bd91amr3546100pfb.1.1703036605328;
-        Tue, 19 Dec 2023 17:43:25 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFjZoAHkiq7HghdaqdRhR063HFqKc6lsGbuFn9XpaDzkEyDZOV38MaudRUa/eRKBEBtF5qDgg==
-X-Received: by 2002:aa7:9315:0:b0:6d9:383b:d91a with SMTP id cz21-20020aa79315000000b006d9383bd91amr3546076pfb.1.1703036604916;
-        Tue, 19 Dec 2023 17:43:24 -0800 (PST)
-Received: from x1n ([43.228.180.230])
-        by smtp.gmail.com with ESMTPSA id fe16-20020a056a002f1000b006d3dd365a76sm6585222pfb.2.2023.12.19.17.43.18
+        d=1e100.net; s=20230601; t=1703040231; x=1703645031;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=A9JKD3osDYeII8WCBHlQGdLIM2gRfXRd4YfCRkeM11U=;
+        b=clKmDBikUL8Lf3Zghs+cEWEiViSjWT+h2eXbQ+69U49zvF5TQZ0t0b74dzS1wmg+BX
+         CiX7SBUaWtqR6/RHQz/0PGJABXNxprHvG9/kaztw5lwPl70f/08gMhqKtH0aVa5bS5nq
+         sZpN1ORgJHbf8DHCdK/BzDH2/xRmT1EX1YfrkMjbtYn1LCJajliLAXe2jMErWQMviwEG
+         CWJQvyy6cHAKET7mJvxGpk/9YR3AmVgyxI8UhbhiMDSc6UIdXMwX5ie0oVDAr7ugmUaf
+         2g5ViP9Z5uP6xd02hQ8la9XUuThDU/+EH4pc0O69PPcYyGJrP4vrXgMjT5XX8LK44nZG
+         tSkg==
+X-Gm-Message-State: AOJu0Yy4ypQjBrEkV47lJ4mmDCrHo3d9UI0uPnpUqcxIjQ4OaGtcb+wM
+	wyEw5tjdfrCuz2XvTVFF/WaDIg==
+X-Google-Smtp-Source: AGHT+IGL9eVzAuTqX6pWKtDPn/eK8TXMJkjKV9SknTyZ2+EF9qTNF/7+brNZcaHsW3pCuUKo8sNy+g==
+X-Received: by 2002:a05:6e02:1bad:b0:35d:62f2:1f45 with SMTP id n13-20020a056e021bad00b0035d62f21f45mr31716571ili.20.1703040230696;
+        Tue, 19 Dec 2023 18:43:50 -0800 (PST)
+Received: from Vincent-X1Extreme-TW.. (111-251-213-195.dynamic-ip.hinet.net. [111.251.213.195])
+        by smtp.gmail.com with ESMTPSA id w13-20020a170902a70d00b001cf6453b237sm21738191plq.236.2023.12.19.18.43.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Dec 2023 17:43:24 -0800 (PST)
-Date: Wed, 20 Dec 2023 09:43:13 +0800
-From: Peter Xu <peterx@redhat.com>
-To: James Houghton <jthoughton@google.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	Matthew Wilcox <willy@infradead.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Lorenzo Stoakes <lstoakes@gmail.com>,
-	David Hildenbrand <david@redhat.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Mike Kravetz <mike.kravetz@oracle.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Christoph Hellwig <hch@infradead.org>,
-	John Hubbard <jhubbard@nvidia.com>,
-	Andrew Jones <andrew.jones@linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	"Kirill A . Shutemov" <kirill@shutemov.name>,
-	linuxppc-dev@lists.ozlabs.org, Rik van Riel <riel@surriel.com>,
-	linux-riscv@lists.infradead.org, Yang Shi <shy828301@gmail.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Andrea Arcangeli <aarcange@redhat.com>,
-	Axel Rasmussen <axelrasmussen@google.com>
-Subject: Re: [PATCH 09/13] mm/gup: Cache *pudp in follow_pud_mask()
-Message-ID: <ZYJGsUWpmF1P1Nd0@x1n>
-References: <20231219075538.414708-1-peterx@redhat.com>
- <20231219075538.414708-10-peterx@redhat.com>
- <CADrL8HVu8=-DdAwXN_pO91g1A1+F7bKfBRpm6jYfYMk1QZcRFA@mail.gmail.com>
+        Tue, 19 Dec 2023 18:43:50 -0800 (PST)
+From: Vincent Chen <vincent.chen@sifive.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	ajones@ventanamicro.com,
+	alexghiti@rivosinc.com
+Cc: linux-riscv@lists.infradead.org,
+	Vincent Chen <vincent.chen@sifive.com>
+Subject: [PATCH v5] riscv: mm: execute local TLB flush after populating vmemmap
+Date: Wed, 20 Dec 2023 10:43:43 +0800
+Message-Id: <20231220024343.1547648-1-vincent.chen@sifive.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-In-Reply-To: <CADrL8HVu8=-DdAwXN_pO91g1A1+F7bKfBRpm6jYfYMk1QZcRFA@mail.gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231219_174329_998066_EC7103C5 
-X-CRM114-Status: GOOD (  27.56  )
+X-CRM114-CacheID: sfid-20231219_184351_989249_0457032A 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,66 +87,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBEZWMgMTksIDIwMjMgYXQgMTE6Mjg6NTRBTSAtMDUwMCwgSmFtZXMgSG91Z2h0b24g
-d3JvdGU6Cj4gT24gVHVlLCBEZWMgMTksIDIwMjMgYXQgMjo1N+KAr0FNIDxwZXRlcnhAcmVkaGF0
-LmNvbT4gd3JvdGU6Cj4gPgo+ID4gRnJvbTogUGV0ZXIgWHUgPHBldGVyeEByZWRoYXQuY29tPgo+
-ID4KPiA+IEludHJvZHVjZSAicHVkX3QgcHVkIiBpbiB0aGUgZnVuY3Rpb24sIHNvIHRoZSBjb2Rl
-IHdvbid0IGRlcmVmZXJlbmNlICpwdWRwCj4gPiBtdWx0aXBsZSB0aW1lLiAgTm90IG9ubHkgYmVj
-YXVzZSB0aGF0IGxvb2tzIGxlc3Mgc3RyYWlnaHRmb3J3YXJkLCBidXQgYWxzbwo+ID4gYmVjYXVz
-ZSBpZiB0aGUgZGVyZWZlcmVuY2UgcmVhbGx5IGhhcHBlbmVkLCBpdCdzIG5vdCBjbGVhciB3aGV0
-aGVyIHRoZXJlCj4gPiBjYW4gYmUgcmFjZSB0byBzZWUgZGlmZmVyZW50ICpwdWRwIHZhbHVlcyBp
-ZiBpdCdzIGJlaW5nIG1vZGlmaWVkIGF0IHRoZQo+ID4gc2FtZSB0aW1lLgo+ID4KPiA+IFNpZ25l
-ZC1vZmYtYnk6IFBldGVyIFh1IDxwZXRlcnhAcmVkaGF0LmNvbT4KPiA+IC0tLQo+ID4gIG1tL2d1
-cC5jIHwgMTcgKysrKysrKysrLS0tLS0tLS0KPiA+ICAxIGZpbGUgY2hhbmdlZCwgOSBpbnNlcnRp
-b25zKCspLCA4IGRlbGV0aW9ucygtKQo+ID4KPiA+IGRpZmYgLS1naXQgYS9tbS9ndXAuYyBiL21t
-L2d1cC5jCj4gPiBpbmRleCA2YzBkODJmYThjYzcuLjk3ZTg3YjdhMTVjMyAxMDA2NDQKPiA+IC0t
-LSBhL21tL2d1cC5jCj4gPiArKysgYi9tbS9ndXAuYwo+ID4gQEAgLTc1MywyNiArNzUzLDI3IEBA
-IHN0YXRpYyBzdHJ1Y3QgcGFnZSAqZm9sbG93X3B1ZF9tYXNrKHN0cnVjdCB2bV9hcmVhX3N0cnVj
-dCAqdm1hLAo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdW5zaWduZWQg
-aW50IGZsYWdzLAo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3RydWN0
-IGZvbGxvd19wYWdlX2NvbnRleHQgKmN0eCkKPiA+ICB7Cj4gPiAtICAgICAgIHB1ZF90ICpwdWQ7
-Cj4gPiArICAgICAgIHB1ZF90ICpwdWRwLCBwdWQ7Cj4gPiAgICAgICAgIHNwaW5sb2NrX3QgKnB0
-bDsKPiA+ICAgICAgICAgc3RydWN0IHBhZ2UgKnBhZ2U7Cj4gPiAgICAgICAgIHN0cnVjdCBtbV9z
-dHJ1Y3QgKm1tID0gdm1hLT52bV9tbTsKPiA+Cj4gPiAtICAgICAgIHB1ZCA9IHB1ZF9vZmZzZXQo
-cDRkcCwgYWRkcmVzcyk7Cj4gPiAtICAgICAgIGlmIChwdWRfbm9uZSgqcHVkKSkKPiA+ICsgICAg
-ICAgcHVkcCA9IHB1ZF9vZmZzZXQocDRkcCwgYWRkcmVzcyk7Cj4gPiArICAgICAgIHB1ZCA9ICpw
-dWRwOwo+IAo+IEkgdGhpbmsgeW91IG1pZ2h0IHdhbnQgYSBSRUFEX09OQ0UoKSBvbiB0aGlzIHNv
-IHRoYXQgdGhlIGNvbXBpbGVyCj4gZG9lc24ndCBhY3R1YWxseSByZWFkIHRoZSBwdWQgbXVsdGlw
-bGUgdGltZXMuCgpNYWtlcyBzZW5zZS4gIEkgcHJvYmFibHkgb25seSBkaWQgdGhlICJzcGxpdCIg
-cGFydCB3aGljaCBDaHJpc3RvcGgKcmVxdWVzdGVkLCB3aXRob3V0IHRoaW5raW5nIGZ1dGhlciB0
-aGFuIHRoYXQuIDopCgo+IAo+ID4gKyAgICAgICBpZiAocHVkX25vbmUocHVkKSkKPiA+ICAgICAg
-ICAgICAgICAgICByZXR1cm4gbm9fcGFnZV90YWJsZSh2bWEsIGZsYWdzLCBhZGRyZXNzKTsKPiA+
-IC0gICAgICAgaWYgKHB1ZF9kZXZtYXAoKnB1ZCkpIHsKPiA+IC0gICAgICAgICAgICAgICBwdGwg
-PSBwdWRfbG9jayhtbSwgcHVkKTsKPiA+IC0gICAgICAgICAgICAgICBwYWdlID0gZm9sbG93X2Rl
-dm1hcF9wdWQodm1hLCBhZGRyZXNzLCBwdWQsIGZsYWdzLCAmY3R4LT5wZ21hcCk7Cj4gPiArICAg
-ICAgIGlmIChwdWRfZGV2bWFwKHB1ZCkpIHsKPiA+ICsgICAgICAgICAgICAgICBwdGwgPSBwdWRf
-bG9jayhtbSwgcHVkcCk7Cj4gPiArICAgICAgICAgICAgICAgcGFnZSA9IGZvbGxvd19kZXZtYXBf
-cHVkKHZtYSwgYWRkcmVzcywgcHVkcCwgZmxhZ3MsICZjdHgtPnBnbWFwKTsKPiA+ICAgICAgICAg
-ICAgICAgICBzcGluX3VubG9jayhwdGwpOwo+ID4gICAgICAgICAgICAgICAgIGlmIChwYWdlKQo+
-ID4gICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIHBhZ2U7Cj4gPiAgICAgICAgICAgICAg
-ICAgcmV0dXJuIG5vX3BhZ2VfdGFibGUodm1hLCBmbGFncywgYWRkcmVzcyk7Cj4gPiAgICAgICAg
-IH0KPiA+IC0gICAgICAgaWYgKHVubGlrZWx5KHB1ZF9iYWQoKnB1ZCkpKQo+ID4gKyAgICAgICBp
-ZiAodW5saWtlbHkocHVkX2JhZChwdWQpKSkKPiA+ICAgICAgICAgICAgICAgICByZXR1cm4gbm9f
-cGFnZV90YWJsZSh2bWEsIGZsYWdzLCBhZGRyZXNzKTsKPiAKPiBOb3QgeW91ciBjaGFuZ2UsIGJ1
-dCByZWFkaW5nIHRoaXMsIGl0J3Mgbm90IGNsZWFyIHRvIG1lIHRoYXQKPiBgcHVkX3ByZXNlbnQo
-KnB1ZHApYCAoYW5kIG5vbi1sZWFmKSB3b3VsZCBuZWNlc3NhcmlseSBiZSB0cnVlIGF0IHRoaXMK
-PiBwb2ludCAtLSBsaWtlLCBJIHdvdWxkIHByZWZlciB0byBzZWUgYCFwdWRfcHJlc2VudChwdWQp
-YCBpbnN0ZWFkIG9mCj4gYHB1ZF9iYWQoKWAuIFRoYW5rIHlvdSBmb3IgYWRkaW5nIHRoYXQgaW4g
-dGhlIG5leHQgcGF0Y2guIDopCgpJIHRoaW5rIHRoZSBhc3N1bXB0aW9uIGhlcmUgaXMgaXQgaXMg
-ZXhwZWN0ZWQgdG8gYmUgYSBkaXJlY3RvcnkgZW50cnkgd2hlbgpyZWFjaGluZyBoZXJlLCBhbmQg
-Zm9yIGEgdmFsaWQgZGlyZWN0b3J5IGVudHJ5IHB1ZF9wcmVzZW50KCkgc2hvdWxkIGFsd2F5cwpy
-ZXR1cm4gdHJ1ZSAoYSBzaWRlIG5vdGU6IHB1ZF9wcmVzZW50KCkgbWF5IG5vdCBtZWFuICJQUkVT
-RU5UIGJpdCBzZXQiLCBzZWUKbTY4aydzIGltcGxlbWVudGF0aW9uIGZvciBleGFtcGxlKS4KClll
-YWggSSBhZGRlZCB0aGF0IGluIHRoZSBuZXh0IHBhdGNoLCBteSBpbnRlbnRpb24gd2FzIHRvIGNo
-ZWNrCiFwdWRfcHJlc2VudCgpIGZvciBhbGwgY2FzZXMgd2l0aG91dCB0aGUgbmVlZCB0byB0YWtl
-IHBndGFibGUgbG9jaywgdGhvdWdoLgoKPiAKPiBGZWVsIGZyZWUgdG8gYWRkOgo+IAo+IEFja2Vk
-LWJ5OiBKYW1lcyBIb3VnaHRvbiA8anRob3VnaHRvbkBnb29nbGUuY29tPgoKVGhhbmtzLAoKLS0g
-ClBldGVyIFh1CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+The spare_init() calls memmap_populate() many times to create VA to PA
+mapping for the VMEMMAP area, where all "struct page" are located once
+CONFIG_SPARSEMEM_VMEMMAP is defined. These "struct page" are later
+initialized in the zone_sizes_init() function. However, during this
+process, no sfence.vma instruction is executed for this VMEMMAP area.
+This omission may cause the hart to fail to perform page table walk
+because some data related to the address translation is invisible to the
+hart. To solve this issue, the local_flush_tlb_kernel_range() is called
+right after the spare_init() to execute a sfence.vma instruction for this
+VMEMMAP area, ensuring that all data related to the address translation
+is visible to the hart.
+
+Fixes: d95f1a542c3d ("RISC-V: Implement sparsemem")
+Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+---
+ arch/riscv/include/asm/tlbflush.h | 2 ++
+ arch/riscv/mm/init.c              | 5 +++++
+ arch/riscv/mm/tlbflush.c          | 6 ++++++
+ 3 files changed, 13 insertions(+)
+
+diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+index 8f3418c5f172..525267379ccb 100644
+--- a/arch/riscv/include/asm/tlbflush.h
++++ b/arch/riscv/include/asm/tlbflush.h
+@@ -46,6 +46,7 @@ void flush_tlb_kernel_range(unsigned long start, unsigned long end);
+ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 			unsigned long end);
+ #endif
++void local_flush_tlb_kernel_range(unsigned long start, unsigned long end);
+ #else /* CONFIG_SMP && CONFIG_MMU */
+ 
+ #define flush_tlb_all() local_flush_tlb_all()
+@@ -66,6 +67,7 @@ static inline void flush_tlb_kernel_range(unsigned long start,
+ 
+ #define flush_tlb_mm(mm) flush_tlb_all()
+ #define flush_tlb_mm_range(mm, start, end, page_size) flush_tlb_all()
++#define local_flush_tlb_kernel_range(start, end) flush_tlb_all()
+ #endif /* !CONFIG_SMP || !CONFIG_MMU */
+ 
+ #endif /* _ASM_RISCV_TLBFLUSH_H */
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 2e011cbddf3a..cc56a0945120 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -1377,6 +1377,10 @@ void __init misc_mem_init(void)
+ 	early_memtest(min_low_pfn << PAGE_SHIFT, max_low_pfn << PAGE_SHIFT);
+ 	arch_numa_init();
+ 	sparse_init();
++#ifdef CONFIG_SPARSEMEM_VMEMMAP
++	/* The entire VMEMMAP region has been populated. Flush TLB for this region */
++	local_flush_tlb_kernel_range(VMEMMAP_START, VMEMMAP_END);
++#endif
+ 	zone_sizes_init();
+ 	arch_reserve_crashkernel();
+ 	memblock_dump_all();
+@@ -1386,6 +1390,7 @@ void __init misc_mem_init(void)
+ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+ 			       struct vmem_altmap *altmap)
+ {
++	/* Defer the required TLB flush until the entire VMEMMAP region has been populated */
+ 	return vmemmap_populate_basepages(start, end, node, NULL);
+ }
+ #endif
+diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+index e6659d7368b3..d11a4ae87ec1 100644
+--- a/arch/riscv/mm/tlbflush.c
++++ b/arch/riscv/mm/tlbflush.c
+@@ -193,6 +193,12 @@ void flush_tlb_kernel_range(unsigned long start, unsigned long end)
+ 	__flush_tlb_range(NULL, start, end - start, PAGE_SIZE);
+ }
+ 
++/* Flush a range of kernel pages without broadcasting */
++void local_flush_tlb_kernel_range(unsigned long start, unsigned long end)
++{
++	local_flush_tlb_range_asid(start, end - start, PAGE_SIZE, FLUSH_TLB_NO_ASID);
++}
++
+ #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 			unsigned long end)
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
