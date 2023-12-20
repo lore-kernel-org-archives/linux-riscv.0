@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A996C3DA6E
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Dec 2023 22:35:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64786C3DA6E
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Dec 2023 23:31:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kBSCb8YqcmBdggSVs8gqXDrLLs82ZDy63TEp5wkkZgQ=; b=kjSCGMnKUt8ldOkbnGfWQ+O9al
-	/3fZr4+dZeoClwSYuFI1DRLE6wW9MK4jZqwAL3zqv7H880pie53XYmMGStobScD2+Ql/Jvt/yEj8v
-	g6/86G6t81pNKkLevD1mnYjcwFanFPYQfhr6K5+sArxo+igEsju7CG128XFcIMCgTdMSVWkccakyy
-	jSqHZ7eoB3isXXcubbORttEAeiExAKWa6/pdE4r7tcqGFLKUB/QPAN4kwEUJdxyLq6IslNgk9/0xr
-	1I7S5krtGsUWP3keV+f6VYbPgdeAg1frc/h6uf/ZLXm+lKahKKmAn9oFIiYtsuaoBMpF85CEOIDOu
-	TVH4Le/Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rLyuQDJ4+hptgerCzNBa6Fxs4UqBAg/YWbCb083rxe0=; b=WkOayjSdkpQ7+Q
+	EYQXXlj8+upPc7IvTpLALDZI6CA9t+Y93e4PyR0VDUh5D9EwMrbf9si/zMzG8npCX1Sq7t+u9cbP1
+	nE8m4Tbz7oB/fCJOEujohk8VdyT+z6b/oLm7uqImSny+Hx5Wv/kVCg9SbaAto5V5kUOhng6XwuFuQ
+	h/aiX7IdqckG0QDhaeGosLzVF5mJFMWFDA9tVKNvD3oTm2I0YfBWBfrRVhXDp/s+u26lslSyP+4u9
+	c73POX5xOe2PdgBxh8BjiNhv6mJ6/RS/XmNQRg6YrDCzaMqwDlpuZVDiogZli1wCiEPvthfWRbOLN
+	0kFlDPHfm+yWlBAgfVag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rG59f-0015Sv-10;
-	Wed, 20 Dec 2023 22:35:07 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rG61o-001Fcp-2J;
+	Wed, 20 Dec 2023 23:31:04 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rG59b-0015RL-36
+	id 1rG61l-001FbT-1N
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Dec 2023 22:35:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id E164ECE1DCB;
-	Wed, 20 Dec 2023 22:34:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAFBCC433C8;
-	Wed, 20 Dec 2023 22:34:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1703111695;
-	bh=d9zxtgGvD0FyI9tDgmuHthjr3LnvFT1djbBAQIHHqVE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tc//UKmY5eBORtXFIrS/YTHjOtG8CcbB4Jn2wqgDBrQJJ743cJrS9Y/iKMsT+172S
-	 VV9lZYB2UESLqlCHUoP1ln3bQojQ1SkWKLqFDxgTe6Ez8U4jeXoNF5IhygSu9vWhut
-	 j7gk4yUBRimouyu0Y9o8RnP9zQ16HqeciFutGfEpDVH8UffUtDQN5KfXBsYquYboCt
-	 QY9lwhFiOK83jgBMDAyrok1XSC2U6VbqiuIZatc6ccGPMZ/zfgmcZGXcEvsdeWD1Fx
-	 vdlJdHfKTGzDv6lNtafLpg4MTgdv1jwXCHVebZxEIcravMPvWt6/ZQO5mJviRYmLwO
-	 f+hoto2ZoqEog==
-Date: Wed, 20 Dec 2023 22:34:50 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Yunhui Cui <cuiyunhui@bytedance.com>, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, ajones@ventanamicro.com,
-	alexghiti@rivosinc.com, anup@brainfault.org,
-	samitolvanen@google.com, rppt@kernel.org,
-	panqinglin2020@iscas.ac.cn, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: put va_kernel_xip_pa_offset into CONFIG_XIP_KERNEL
-Message-ID: <20231220-bash-booting-2dc46e8c41f7@spud>
-References: <20231220103428.61758-1-cuiyunhui@bytedance.com>
- <594df6bc-0207-46f6-aa81-dcf1f3665917@ghiti.fr>
+	Wed, 20 Dec 2023 23:31:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1703115055;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NpHzyetdfnFa+em1B7GLhPjt2d/LNwN97Oht9kcvxy0=;
+	b=FxNvs+04immZUgpwM6QT2kiFSPF3rQpMhzhLubZZJnds21EzyVw2BH6N3/1eISukH/BM2G
+	UDqp1A7MQg39hMSo/aqjiU7SCsCew8rxI7b8sZkyY/zKvx2pwFQw8k/47dzF0h7aBPb+QH
+	zT+2oYlwawfPmFcq2q7M1g7EeySkujw=
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-320-si85M4twNxiIF802LZPQqA-1; Wed,
+ 20 Dec 2023 18:30:52 -0500
+X-MC-Unique: si85M4twNxiIF802LZPQqA-1
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 54B173C00094;
+	Wed, 20 Dec 2023 23:30:51 +0000 (UTC)
+Received: from localhost (unknown [10.72.116.38])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 96C10492BFA;
+	Wed, 20 Dec 2023 23:30:50 +0000 (UTC)
+Date: Thu, 21 Dec 2023 07:30:47 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Conor Dooley <conor@kernel.org>, linux-kernel@vger.kernel.org,
+	kexec@lists.infradead.org, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-parisc@vger.kernel.org, joe@perches.com, nathan@kernel.org
+Subject: Re: [PATCH v4 5/7] kexec_file, ricv: print out debugging message if
+ required
+Message-ID: <ZYN5Jy4PVh3ghbxN@MiWiFi-R3L-srv>
+References: <20231213055747.61826-1-bhe@redhat.com>
+ <20231213055747.61826-6-bhe@redhat.com>
+ <20231219-twitch-many-ca8877857182@spud>
+ <ZYJsBW0Y7Y+XhSgf@MiWiFi-R3L-srv>
+ <20231220074634.cd736ec567cd7adf1e4c6d7e@linux-foundation.org>
 MIME-Version: 1.0
-In-Reply-To: <594df6bc-0207-46f6-aa81-dcf1f3665917@ghiti.fr>
+Content-Disposition: inline
+In-Reply-To: <20231220074634.cd736ec567cd7adf1e4c6d7e@linux-foundation.org>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231220_143504_469663_3A0E125B 
-X-CRM114-Status: GOOD (  20.05  )
+X-CRM114-CacheID: sfid-20231220_153101_554070_76E25E1B 
+X-CRM114-Status: UNSURE (   8.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,131 +85,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7007137871126413813=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 12/20/23 at 07:46am, Andrew Morton wrote:
+> On Wed, 20 Dec 2023 12:22:29 +0800 Baoquan He <bhe@redhat.com> wrote:
+> 
+> > Could you help fix the typo in subject?
+> > 
+> > [PATCH v4 5/7] kexec_file, ricv: print out debugging message if required
+> >                            ~~~ s/ricv/riscv/
+> 
+> I made that change.
 
---===============7007137871126413813==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="9VC1To1d/DjgDtuf"
-Content-Disposition: inline
+Thanks a lot.
 
-
---9VC1To1d/DjgDtuf
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Dec 20, 2023 at 10:14:59PM +0100, Alexandre Ghiti wrote:
-> Hi Yunhui,
->=20
-> On 20/12/2023 11:34, Yunhui Cui wrote:
-> > opitmize the kernel_mapping_pa_to_va() and kernel_mapping_va_to_pa().
-> >=20
-> > Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-> > ---
-> >   arch/riscv/include/asm/page.h | 33 ++++++++++++++++++++-------------
-> >   1 file changed, 20 insertions(+), 13 deletions(-)
-> >=20
-> > diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/pag=
-e.h
-> > index 5488ecc337b6..0d2b479d02cd 100644
-> > --- a/arch/riscv/include/asm/page.h
-> > +++ b/arch/riscv/include/asm/page.h
-> > @@ -113,8 +113,8 @@ struct kernel_mapping {
-> >   	unsigned long va_pa_offset;
-> >   	/* Offset between kernel mapping virtual address and kernel load add=
-ress */
-> >   	unsigned long va_kernel_pa_offset;
-> > -	unsigned long va_kernel_xip_pa_offset;
-> >   #ifdef CONFIG_XIP_KERNEL
-> > +	unsigned long va_kernel_xip_pa_offset;
-> >   	uintptr_t xiprom;
-> >   	uintptr_t xiprom_sz;
-> >   #endif
-> > @@ -134,12 +134,25 @@ extern phys_addr_t phys_ram_base;
-> >   #else
-> >   void *linear_mapping_pa_to_va(unsigned long x);
-> >   #endif
-> > -#define kernel_mapping_pa_to_va(y)	({					\
-> > -	unsigned long _y =3D (unsigned long)(y);					\
-> > -	(IS_ENABLED(CONFIG_XIP_KERNEL) && _y < phys_ram_base) ?			\
-> > -		(void *)(_y + kernel_map.va_kernel_xip_pa_offset) :		\
-> > -		(void *)(_y + kernel_map.va_kernel_pa_offset + XIP_OFFSET);	\
-> > -	})
-> > +
-> > +#ifdef CONFIG_XIP_KERNEL
-> > +#define kernel_mapping_pa_to_va(y)							\
-> > +	(((unsigned long)(y) < phys_ram_base) ?						\
-> > +		(void *)((unsigned long)(y) + kernel_map.va_kernel_xip_pa_offset) :	\
-> > +		(void *)((unsigned long)(y) + kernel_map.va_kernel_pa_offset + XIP_O=
-FFSET))
-> > +
-> > +#define kernel_mapping_va_to_pa(y)						\
-> > +	(((unsigned long)(y) < kernel_map.virt_addr + XIP_OFFSET) ?		\
-> > +		((unsigned long)(y) - kernel_map.va_kernel_xip_pa_offset) :	\
-> > +		((unsigned long)(y) - kernel_map.va_kernel_pa_offset - XIP_OFFSET))
-> > +#else
-> > +#define kernel_mapping_pa_to_va(y)						\
-> > +	((void *)((unsigned long)(y) + kernel_map.va_kernel_pa_offset + XIP_O=
-FFSET))
-> > +
-> > +#define kernel_mapping_va_to_pa(y)						\
-> > +	((unsigned long)(y) - kernel_map.va_kernel_pa_offset - XIP_OFFSET)
-> > +#endif
-> > +
-> >   #define __pa_to_va_nodebug(x)		linear_mapping_pa_to_va(x)
-> >   #ifndef CONFIG_DEBUG_VIRTUAL
-> > @@ -147,12 +160,6 @@ void *linear_mapping_pa_to_va(unsigned long x);
-> >   #else
-> >   phys_addr_t linear_mapping_va_to_pa(unsigned long x);
-> >   #endif
-> > -#define kernel_mapping_va_to_pa(y) ({						\
-> > -	unsigned long _y =3D (unsigned long)(y);					\
-> > -	(IS_ENABLED(CONFIG_XIP_KERNEL) && _y < kernel_map.virt_addr + XIP_OFF=
-SET) ? \
-> > -		(_y - kernel_map.va_kernel_xip_pa_offset) :			\
-> > -		(_y - kernel_map.va_kernel_pa_offset - XIP_OFFSET);		\
-> > -	})
-> >   #define __va_to_pa_nodebug(x)	({						\
-> >   	unsigned long _x =3D x;							\
->=20
->=20
-> Not sure using #ifdef optimizes anything since the compiler should do the
-> same with the IS_ENABLED(CONFIG_XIP_KERNEL) and it does not really improve
-> the readability of this file which is already overloaded with #ifdef, so I
-> don't think this change is needed.
-
-I would say that we explicitly do not want to move things that are
-guarded by IS_ENABLED() to ifdeffery. In fact, we should move things in
-the other direction if possible, especially for stuff like XIP_KERNEL
-that nobody ever build tests.
-
---9VC1To1d/DjgDtuf
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZYNsCgAKCRB4tDGHoIJi
-0j5AAQDfD3hOrSf1w4Vr0SLOYvfQvnozBNrGfGmnoJXphENmagEAscxW3hYminqS
-v99vGB5Ab9jM9vbhOdfgK4sEMKUPuAI=
-=D6Wb
------END PGP SIGNATURE-----
-
---9VC1To1d/DjgDtuf--
-
-
---===============7007137871126413813==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7007137871126413813==--
-
