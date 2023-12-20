@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C298C41535
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Dec 2023 01:35:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F38ECC41535
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Dec 2023 01:35:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WjjbHwftlfGfJkJN/1UuLTzttf79OZAz7Kc2ECoA9O0=; b=NfDag5cIXn1RVq
-	dHA9+UtlHwM4BOJksAAfJXVOJ8jDrJ0Z+mOm48YlKaXzJGqMYCtXLJLuUdjRrmkBbVUaqfPNLUiq/
-	6g2IfNA2rNNxHI99VoUrBzIJVQuX1Q0Tv+vBO51regFtODbxxzEdcEPdxp01IKfBerip9iGpIqB+7
-	4sE0jUVe53oqm01WpDadeICqmkylc5GQuPgf/JU3NFVSDHN01eVWqe0K8wsK94EvC7uj1+GZQ1AkF
-	AWFUw69/oXj4EKIWBMdL4RLxM4kFVr2MkjvCg730fV35wFU9RkxwfPbrt7LY9ZOuM4b5tMuGuJ8Nb
-	wBpI/t51eoytNVK6qQ/A==;
+	List-Owner; bh=OqYs6lIAAhVkimEBciHY2/QsMwt2kibF2kQ8Sdl8Ado=; b=qxbfKNREUsOGi/
+	3/GikLmYOXOcH1rsgqJ5Mcb1zOCVNYDpyjkCoI6/YzlWQ3VPg8UIQm7dD89tHKPusxtGJsulZ3Neb
+	mkJpB0jEMfmKWLYZxCyxvX/Tyci/f8OvEY1Neb9bYNshVAIBJoybcFvwYj/afLwtLK1z5icZbDBd4
+	EqbzEoVwMzGRjLU0cY6sdXb/gfKkK/QTL70nGfpkUW1pea1N5OpCO7EPBQVUQOw/wAJYb6nVrmpMF
+	KyvYxrwrxNhZ7/yo16Y8JyxxmPJJG2p6QZp58NXzZG6Aie9DknsFq6H6mebcQB++IYlFaxTH1ZXOL
+	mHByIUxNpLHXJ5yQdZPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFlU3-00FuM5-0r;
-	Wed, 20 Dec 2023 01:34:51 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1rFlUv-00FuZz-0t;
+	Wed, 20 Dec 2023 01:35:45 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFlTy-00FuJA-27
+	id 1rFlUs-00FuVa-08
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Dec 2023 01:34:49 +0000
+	Wed, 20 Dec 2023 01:35:44 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 6FD5A807B;
-	Wed, 20 Dec 2023 09:34:14 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+	by ex01.ufhost.com (Postfix) with ESMTP id 1408124DBFD;
+	Wed, 20 Dec 2023 09:35:16 +0800 (CST)
+Received: from EXMBX063.cuchost.com (172.16.7.63) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 20 Dec
- 2023 09:34:14 +0800
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 20 Dec
- 2023 09:34:13 +0800
+ 2023 09:35:15 +0800
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX063.cuchost.com
+ (172.16.7.63) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 20 Dec
+ 2023 09:35:15 +0800
 Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
  EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
- 15.00.1497.044; Wed, 20 Dec 2023 09:34:13 +0800
+ 15.00.1497.044; Wed, 20 Dec 2023 09:35:15 +0800
 From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
 To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
 	"kernel@esmil.dk" <kernel@esmil.dk>, "conor@kernel.org" <conor@kernel.org>,
@@ -60,15 +60,17 @@ Subject: RE: [PATCH v1 06/16] clk: starfive: Add JH8100 System clock generator
  driver
 Thread-Topic: [PATCH v1 06/16] clk: starfive: Add JH8100 System clock
  generator driver
-Thread-Index: AQHaKDp8qa+gHWDJHkGDh0MGWRuwVrCfD58AgAd/fYCAABOZAIAK001w
-Date: Wed, 20 Dec 2023 01:34:13 +0000
-Message-ID: <0329cbf021a54ac7b426240fa5e22520@EXMBX066.cuchost.com>
+Thread-Index: AQHaKDp8qa+gHWDJHkGDh0MGWRuwVrCfD58AgAXCtdCAAc4FgIAJXVZwgABwgACAAQqwwA==
+Date: Wed, 20 Dec 2023 01:35:15 +0000
+Message-ID: <88f5651b913d4b2f9e9c76ecf8429aac@EXMBX066.cuchost.com>
 References: <20231206115000.295825-1-jeeheng.sia@starfivetech.com>
  <20231206115000.295825-7-jeeheng.sia@starfivetech.com>
  <CAJM55Z_VgBGvCPuvwmQahMcMfuWKnOKpZ9bBbbhei_Teu5Apeg@mail.gmail.com>
- <a554a163793e4513b25766c21ddc3f02@EXMBX066.cuchost.com>
- <CAJM55Z_3Mty2LftPVkQC1wbwtGeznMMAk9mAjH_GoNuL7CKtaQ@mail.gmail.com>
-In-Reply-To: <CAJM55Z_3Mty2LftPVkQC1wbwtGeznMMAk9mAjH_GoNuL7CKtaQ@mail.gmail.com>
+ <9ae86c6786bc4ac7b93c971ba00084a6@EXMBX066.cuchost.com>
+ <CAJM55Z9GVFGuwqe=zLXQvBwDfVSz4eA2EXDd4sqWVCKJF2J+fg@mail.gmail.com>
+ <d35d3cf480064c69b1125ba07d615446@EXMBX066.cuchost.com>
+ <CAJM55Z_XZVBKr05X4QeCeDO_iMZh-FbKsikcNsDPK7iKuVEodw@mail.gmail.com>
+In-Reply-To: <CAJM55Z_XZVBKr05X4QeCeDO_iMZh-FbKsikcNsDPK7iKuVEodw@mail.gmail.com>
 Accept-Language: en-US, zh-CN
 Content-Language: en-US
 X-MS-Has-Attach: 
@@ -78,8 +80,8 @@ x-originating-ip: [175.136.135.142]
 x-yovoleruleagent: yovoleflag
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231219_173447_020735_D4E715C1 
-X-CRM114-Status: GOOD (  27.77  )
+X-CRM114-CacheID: sfid-20231219_173542_371499_32477E51 
+X-CRM114-Status: GOOD (  26.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,87 +93,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-DQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogRW1pbCBSZW5uZXIgQmVy
-dGhpbmcgPGVtaWwucmVubmVyLmJlcnRoaW5nQGNhbm9uaWNhbC5jb20+DQo+IFNlbnQ6IFdlZG5l
-c2RheSwgRGVjZW1iZXIgMTMsIDIwMjMgODowNSBQTQ0KPiBUbzogSmVlSGVuZyBTaWEgPGplZWhl
-bmcuc2lhQHN0YXJmaXZldGVjaC5jb20+OyBFbWlsIFJlbm5lciBCZXJ0aGluZyA8ZW1pbC5yZW5u
-ZXIuYmVydGhpbmdAY2Fub25pY2FsLmNvbT47IGtlcm5lbEBlc21pbC5kazsNCj4gY29ub3JAa2Vy
-bmVsLm9yZzsgcm9iaCtkdEBrZXJuZWwub3JnOyBrcnp5c3p0b2Yua296bG93c2tpK2R0QGxpbmFy
-by5vcmc7IHBhdWwud2FsbXNsZXlAc2lmaXZlLmNvbTsgcGFsbWVyQGRhYmJlbHQuY29tOw0KPiBh
-b3VAZWVjcy5iZXJrZWxleS5lZHU7IG10dXJxdWV0dGVAYmF5bGlicmUuY29tOyBzYm95ZEBrZXJu
-ZWwub3JnOyBwLnphYmVsQHBlbmd1dHJvbml4LmRlOyBIYWwgRmVuZw0KPiA8aGFsLmZlbmdAc3Rh
-cmZpdmV0ZWNoLmNvbT47IFhpbmd5dSBXdSA8eGluZ3l1Lnd1QHN0YXJmaXZldGVjaC5jb20+DQo+
-IENjOiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnOyBkZXZpY2V0cmVlQHZnZXIua2Vy
-bmVsLm9yZzsgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZzsgbGludXgtY2xrQHZnZXIua2Vy
-bmVsLm9yZzsgTGV5Zm9vbiBUYW4NCj4gPGxleWZvb24udGFuQHN0YXJmaXZldGVjaC5jb20+DQo+
-IFN1YmplY3Q6IFJFOiBbUEFUQ0ggdjEgMDYvMTZdIGNsazogc3RhcmZpdmU6IEFkZCBKSDgxMDAg
-U3lzdGVtIGNsb2NrIGdlbmVyYXRvciBkcml2ZXINCj4gDQo+IEplZUhlbmcgU2lhIHdyb3RlOg0K
-PiA+DQo+ID4NCj4gPiA+IC0tLS0tT3JpZ2luYWwgTWVzc2FnZS0tLS0tDQo+ID4gPiBGcm9tOiBF
-bWlsIFJlbm5lciBCZXJ0aGluZyA8ZW1pbC5yZW5uZXIuYmVydGhpbmdAY2Fub25pY2FsLmNvbT4N
-Cj4gPiA+IFNlbnQ6IFNhdHVyZGF5LCBEZWNlbWJlciA5LCAyMDIzIDEyOjI1IEFNDQo+ID4gPiBU
-bzogSmVlSGVuZyBTaWEgPGplZWhlbmcuc2lhQHN0YXJmaXZldGVjaC5jb20+OyBrZXJuZWxAZXNt
-aWwuZGs7IGNvbm9yQGtlcm5lbC5vcmc7IHJvYmgrZHRAa2VybmVsLm9yZzsNCj4gPiA+IGtyenlz
-enRvZi5rb3psb3dza2krZHRAbGluYXJvLm9yZzsgcGF1bC53YWxtc2xleUBzaWZpdmUuY29tOyBw
-YWxtZXJAZGFiYmVsdC5jb207IGFvdUBlZWNzLmJlcmtlbGV5LmVkdTsNCj4gPiA+IG10dXJxdWV0
-dGVAYmF5bGlicmUuY29tOyBzYm95ZEBrZXJuZWwub3JnOyBwLnphYmVsQHBlbmd1dHJvbml4LmRl
-OyBlbWlsLnJlbm5lci5iZXJ0aGluZ0BjYW5vbmljYWwuY29tOyBIYWwgRmVuZw0KPiA+ID4gPGhh
-bC5mZW5nQHN0YXJmaXZldGVjaC5jb20+OyBYaW5neXUgV3UgPHhpbmd5dS53dUBzdGFyZml2ZXRl
-Y2guY29tPg0KPiA+ID4gQ2M6IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmc7IGRldmlj
-ZXRyZWVAdmdlci5rZXJuZWwub3JnOyBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnOyBsaW51
-eC1jbGtAdmdlci5rZXJuZWwub3JnOyBMZXlmb29uDQo+IFRhbg0KPiA+ID4gPGxleWZvb24udGFu
-QHN0YXJmaXZldGVjaC5jb20+DQo+ID4gPiBTdWJqZWN0OiBSZTogW1BBVENIIHYxIDA2LzE2XSBj
-bGs6IHN0YXJmaXZlOiBBZGQgSkg4MTAwIFN5c3RlbSBjbG9jayBnZW5lcmF0b3IgZHJpdmVyDQo+
-ID4gPg0KPiA+ID4gU2lhIEplZSBIZW5nIHdyb3RlOg0KPiA+ID4gPiBBZGQgc3VwcG9ydCBmb3Ig
-Skg4MTAwIFN5c3RlbSBjbG9jayBnZW5lcmF0b3IuDQo+ID4gPiA+DQo+ID4gPiA+IFNpZ25lZC1v
-ZmYtYnk6IFNpYSBKZWUgSGVuZyA8amVlaGVuZy5zaWFAc3RhcmZpdmV0ZWNoLmNvbT4NCj4gPiA+
-ID4gUmV2aWV3ZWQtYnk6IExleSBGb29uIFRhbiA8bGV5Zm9vbi50YW5Ac3RhcmZpdmV0ZWNoLmNv
-bT4NCj4gPiA+ID4gLS0tDQo+ID4gPiA+ICBNQUlOVEFJTkVSUyAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgfCAgIDggKw0KPiA+ID4gPiAgZHJpdmVycy9jbGsvc3RhcmZpdmUvS2Nv
-bmZpZyAgICAgICAgICAgICAgICAgIHwgICA5ICsNCj4gPiA+ID4gIGRyaXZlcnMvY2xrL3N0YXJm
-aXZlL01ha2VmaWxlICAgICAgICAgICAgICAgICB8ICAgMSArDQo+ID4gPiA+ICBkcml2ZXJzL2Ns
-ay9zdGFyZml2ZS9jbGstc3RhcmZpdmUtY29tbW9uLmggICAgfCAgIDkgKy0NCj4gPiA+ID4gIGRy
-aXZlcnMvY2xrL3N0YXJmaXZlL2poODEwMC9NYWtlZmlsZSAgICAgICAgICB8ICAgMyArDQo+ID4g
-PiA+ICAuLi4vY2xrL3N0YXJmaXZlL2poODEwMC9jbGstc3RhcmZpdmUtamg4MTAwLmggfCAgMTEg
-Kw0KPiA+ID4gPiAgZHJpdmVycy9jbGsvc3RhcmZpdmUvamg4MTAwL2Nsay1zeXMuYyAgICAgICAg
-IHwgNDU1ICsrKysrKysrKysrKysrKysrKw0KPiA+ID4gPiAgNyBmaWxlcyBjaGFuZ2VkLCA0OTUg
-aW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQ0KPiA+ID4gPiAgY3JlYXRlIG1vZGUgMTAwNjQ0
-IGRyaXZlcnMvY2xrL3N0YXJmaXZlL2poODEwMC9NYWtlZmlsZQ0KPiA+ID4gPiAgY3JlYXRlIG1v
-ZGUgMTAwNjQ0IGRyaXZlcnMvY2xrL3N0YXJmaXZlL2poODEwMC9jbGstc3RhcmZpdmUtamg4MTAw
-LmgNCj4gPiA+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL2Nsay9zdGFyZml2ZS9qaDgx
-MDAvY2xrLXN5cy5jDQo+ID4gPiA+DQo+IFsuLi5dDQo+ID4gPiA+IGRpZmYgLS1naXQgYS9kcml2
-ZXJzL2Nsay9zdGFyZml2ZS9qaDgxMDAvTWFrZWZpbGUgYi9kcml2ZXJzL2Nsay9zdGFyZml2ZS9q
-aDgxMDAvTWFrZWZpbGUNCj4gPiA+ID4gbmV3IGZpbGUgbW9kZSAxMDA2NDQNCj4gPiA+ID4gaW5k
-ZXggMDAwMDAwMDAwMDAwLi5hZjZhMDllMjIwZDMNCj4gPiA+ID4gLS0tIC9kZXYvbnVsbA0KPiA+
-ID4gPiArKysgYi9kcml2ZXJzL2Nsay9zdGFyZml2ZS9qaDgxMDAvTWFrZWZpbGUNCj4gPiA+ID4g
-QEAgLTAsMCArMSwzIEBADQo+ID4gPiA+ICsjIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwt
-Mi4wDQo+ID4gPiA+ICsjIFN0YXJGaXZlIEpIODEwMCBDbG9jaw0KPiA+ID4gPiArb2JqLSQoQ09O
-RklHX0NMS19TVEFSRklWRV9KSDgxMDBfU1lTKQkJKz0gY2xrLXN5cy5vDQo+ID4gPg0KPiA+ID4g
-VGhpcyB3aWxsIG5hbWUgdGhlIG1vZHVsZSBjbGstc3lzLCB3aGljaCBpcyB3YXkgdG9vIGdlbmVy
-aWMuIFBsZWFzZSBuYW1lIHRoaXMNCj4gPiA+IGNsay1zdGFyZml2ZS1qaDgxMDAtc3lzIHNpbWls
-YXIgdG8gdGhlIEpINzExMCBkcml2ZXJzLg0KPiA+IEp1c3QgcmVhbGl6ZWQgdGhhdCBJIGhhdmVu
-J3QgcmVwbHkgdG8gdGhpcyBjb21tZW50Lg0KPiA+IEkgY2FuJ3QgZ2l2ZSBpdCBhIGxvbmdlciBu
-YW1lIG90aGVyd2lzZSBjb21waWxlciB3aWxsIHRocm93IHdhcm5pbmcuDQo+ID4gVGhhdOKAmXMg
-d2h5IGVuZHMgdXAgdG8gdXNlIGEgc2hvcnRlciBuYW1lIGFuZCBrZWVwIGl0IHVuZGVyIGpoODEw
-MCBmb2xkZXIuDQo+IA0KPiBJJ20gc29ycnksIGhvdyBkb2VzIHRoYXQgbWFrZSBhbnkgc2Vuc2U/
-IElmIHRoZSBjb21waWxlciBjYW4gY29tcGlsZQ0KPiANCj4gICBkcml2ZXJzL2Nsay9zdGFyZml2
-ZS9jbGstc3RhcmZpdmUtamg3MTEwLXN5cy5jDQo+IA0KPiBqdXN0IGZpbmUsIHRoZW4gd2h5IHdv
-dWxkIGl0IGhhdmUgdHJvdWJsZSB3aXRoDQo+IA0KPiAgIGRyaXZlcnMvY2xrL3N0YXJmaXZlL2Ns
-ay1zdGFyZml2ZS1qaDgxMDAtc3lzLmMNCkJhc2VkIG9uIHRoZSBleHBlcmltZW50IGNvbmR1Y3Rl
-ZCBhdCB0aGUgZWFybHkgc3RhZ2UsIHRoZSB3YXJuaW5nIG1lc3NhZ2UgaXMgY29taW5nDQpmcm9t
-IHRoZSBuYW1lIG9mIHRoZSBhdXhpbGlhcnkgZGV2aWNlIChyZXNldCBpbiB0aGlzIGNhc2UpLiBX
-ZSB0cnkgdG8gbWFwIHRoZSBuYW1lIG9mDQp0aGUgcmVzZXQgZGV2aWNlIHdpdGggdGhlIGZpbGUn
-cyBuYW1lLCBhbmQgYXQgdGhhdCBtb21lbnQsIHRoZSBmaWxlIG5hbWUgaXMgbG9uZ2VyIHRoYW4N
-CjMyIGNoYXJhY3RlcnMgaW4gbGVuZ3RoLiBJbiB5b3VyIGdpdmVuIGV4YW1wbGUsICdjbGstc3Rh
-cmZpdmUtamg4MTAwLXN5cycgaXMgd2l0aGluIHRoZQ0KMzItY2hhcmFjdGVyIGxpbWl0LCBzbyBp
-dCBzaG91bGQgYmUgb2theS4gR2l2ZW4gdGhhdCB0aGUgdHJlbmQgaXMgbm90IHRvIHVzZSBzdWJm
-b2xkZXJzIHRvDQpkaWZmZXJlbnRpYXRlIHRoZSBwbGF0Zm9ybSBjbG9jayBkcml2ZXIsIEkgYW0g
-b2theSB3aXRoIHJlbW92aW5nIHRoZSBzdWJmb2xkZXIgYW5kDQpmb2xsb3dpbmcgdGhlIG5hbWlu
-ZyBjb252ZW50aW9uIGZyb20gdGhlIEpINzF4eCdzIGZpbGUgbmFtZS4NCj4gDQo+IC9FbWlsDQpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+
+> -----Original Message-----
+> From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> Sent: Wednesday, December 20, 2023 1:40 AM
+> To: JeeHeng Sia <jeeheng.sia@starfivetech.com>; Emil Renner Berthing <emil.renner.berthing@canonical.com>; kernel@esmil.dk;
+> conor@kernel.org; robh+dt@kernel.org; krzysztof.kozlowski+dt@linaro.org; paul.walmsley@sifive.com; palmer@dabbelt.com;
+> aou@eecs.berkeley.edu; mturquette@baylibre.com; sboyd@kernel.org; p.zabel@pengutronix.de; Hal Feng
+> <hal.feng@starfivetech.com>; Xingyu Wu <xingyu.wu@starfivetech.com>
+> Cc: linux-riscv@lists.infradead.org; devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-clk@vger.kernel.org; Leyfoon Tan
+> <leyfoon.tan@starfivetech.com>
+> Subject: RE: [PATCH v1 06/16] clk: starfive: Add JH8100 System clock generator driver
+> 
+> JeeHeng Sia wrote:
+> >
+> >
+> > > -----Original Message-----
+> > > From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> > > Sent: Wednesday, December 13, 2023 7:57 PM
+> > > To: JeeHeng Sia <jeeheng.sia@starfivetech.com>; Emil Renner Berthing <emil.renner.berthing@canonical.com>; kernel@esmil.dk;
+> > > conor@kernel.org; robh+dt@kernel.org; krzysztof.kozlowski+dt@linaro.org; paul.walmsley@sifive.com; palmer@dabbelt.com;
+> > > aou@eecs.berkeley.edu; mturquette@baylibre.com; sboyd@kernel.org; p.zabel@pengutronix.de; Hal Feng
+> > > <hal.feng@starfivetech.com>; Xingyu Wu <xingyu.wu@starfivetech.com>
+> > > Cc: linux-riscv@lists.infradead.org; devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-clk@vger.kernel.org; Leyfoon
+> Tan
+> > > <leyfoon.tan@starfivetech.com>
+> > > Subject: RE: [PATCH v1 06/16] clk: starfive: Add JH8100 System clock generator driver
+> > >
+> > > JeeHeng Sia wrote:
+> > > > > -----Original Message-----
+> > > > > From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> > > > > Sent: Saturday, December 9, 2023 12:25 AM
+> > > > > To: JeeHeng Sia <jeeheng.sia@starfivetech.com>; kernel@esmil.dk; conor@kernel.org; robh+dt@kernel.org;
+> > > > > krzysztof.kozlowski+dt@linaro.org; paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu;
+> > > > > mturquette@baylibre.com; sboyd@kernel.org; p.zabel@pengutronix.de; emil.renner.berthing@canonical.com; Hal Feng
+> > > > > <hal.feng@starfivetech.com>; Xingyu Wu <xingyu.wu@starfivetech.com>
+> > > > > Cc: linux-riscv@lists.infradead.org; devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-clk@vger.kernel.org;
+> Leyfoon
+> > > Tan
+> > > > > <leyfoon.tan@starfivetech.com>
+> > > > > Subject: Re: [PATCH v1 06/16] clk: starfive: Add JH8100 System clock generator driver
+> > > > >
+> > > > > Sia Jee Heng wrote:
+> > > > > > Add support for JH8100 System clock generator.
+> > > > > >
+> > > > > > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+> > > > > > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+> > > > > > ---
+> > > > > >  MAINTAINERS                                   |   8 +
+> > > > > >  drivers/clk/starfive/Kconfig                  |   9 +
+> > > > > >  drivers/clk/starfive/Makefile                 |   1 +
+> > > > > >  drivers/clk/starfive/clk-starfive-common.h    |   9 +-
+> > > > > >  drivers/clk/starfive/jh8100/Makefile          |   3 +
+> > > > > >  .../clk/starfive/jh8100/clk-starfive-jh8100.h |  11 +
+> > > > > >  drivers/clk/starfive/jh8100/clk-sys.c         | 455 ++++++++++++++++++
+> > > > > >  7 files changed, 495 insertions(+), 1 deletion(-)
+> > > > > >  create mode 100644 drivers/clk/starfive/jh8100/Makefile
+> > > > > >  create mode 100644 drivers/clk/starfive/jh8100/clk-starfive-jh8100.h
+> > > > > >  create mode 100644 drivers/clk/starfive/jh8100/clk-sys.c
+> > > ...
+> > > > > > diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
+> > > > > > index 012f7ee83f8e..6cb3ce823330 100644
+> > > > > > --- a/drivers/clk/starfive/Makefile
+> > > > > > +++ b/drivers/clk/starfive/Makefile
+> > > > > > @@ -10,3 +10,4 @@ obj-$(CONFIG_CLK_STARFIVE_JH7110_AON)	+= clk-starfive-jh7110-aon.o
+> > > > > >  obj-$(CONFIG_CLK_STARFIVE_JH7110_STG)	+= clk-starfive-jh7110-stg.o
+> > > > > >  obj-$(CONFIG_CLK_STARFIVE_JH7110_ISP)	+= clk-starfive-jh7110-isp.o
+> > > > > >  obj-$(CONFIG_CLK_STARFIVE_JH7110_VOUT)	+= clk-starfive-jh7110-vout.o
+> > > > > > +obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS)	+= jh8100/
+> > > > >
+> > > > > I don't really see why do you need a special subdirectory for the JH8100? The
+> > > > > JH7110 drivers do fine without it.
+> > > > Each subfolder can represent a different platform, making it easier to
+> > > > locate and maintain platform-specific code. Since the code is expected
+> > > > to grow in the future, let's start organizing it in a folder-based structure
+> > > > for easier maintenance at a later stage.
+> > >
+> > > Yes, but that's not what you're doing here. You're making just one of the 3
+> > > almost identical drivers be different for no good reason.
+> > I will restructure it for the other 2 platforms.
+> 
+> That would be less bad, but you still haven't explained why you need to move
+> everything around like that:
+> https://lore.kernel.org/linux-riscv/CAJM55Z_3Mty2LftPVkQC1wbwtGeznMMAk9mAjH_GoNuL7CKtaQ@mail.gmail.com/
+> 
+> I don't think just "too many files" is a very good argument here. Just look at
+> drivers/clk/sunxi
+Thanks. Given that the trend is not to use subfolders to differentiate the platform
+clock driver, I am okay with removing the subfolder and following the naming
+convention from the JH71xx's file name.
+> 
+> /Emil
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
