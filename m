@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 035D6C3DA6E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05443C46CD3
 	for <linux-riscv@archiver.kernel.org>; Wed, 20 Dec 2023 23:37:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,61 +12,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SyL8SE6V/CsfGocFTgN1SlGwHLTd0VaoF6TsZpgl2fk=; b=xDXyUbNyDiys93
-	gqFs9EfRp/ZVwQfJwrjoPqaukNTk1X5eF15s/JAaYKGWt+CkaPR72A6mHGA7pEGo7+I2Mr9l1DM78
-	TFJBYxzeUcGMCsm3/DAtra7UFnuT8ae6y3SmURwZwu9cLHOnfGU8qb0WvYyEv7gWpIFjJvEIL34jM
-	AHhdJPjVsxDYhxPU/Ff4B3WlSnEP844GU7/hq6XzDBwdtUopW2qPEPpiPtWSVG4qANmUdmSpiE3W0
-	NusICkwJfGCScbz07snvHnNJ6ir/7htWzKT+vrqoH+sp+fCSMHf04pXOBZGqcz9IKcdlTCZAB9yWW
-	YBG6gDFt13rCxlgHkwmw==;
+	List-Owner; bh=LZJrL16mpe1K7PWCBtn/zm8dalC0juVh7Mwzic0oObo=; b=tnbh3aibL6efCX
+	sMYR5l/RuQhp51eRW2IwKQriLqJxQYLi54XxAqnQXN6rwb3HJqiFE04rhe4zLuBkv0Mlw7SAVuMLP
+	rLLyvBgAomKfa5sxbNfRVs3Z89VRNS5wMNqH9cU0FoKoK9BwJdmFqKA4AeBXLJB6kfJwIVgNrThSm
+	cvCoEx7WQEGjZ/onYoEU0rB++lhv+q6Y1Vj6qwiAY6Fsfx+FyYbjox+M4Ec7YT3dy/ztBxfACYqPv
+	jZJpOXI6kthESg2d7H78DXaCR8aGUCntkQZNrWySY+im8GeZaTWmCGK5UdtCO7CKZe3uocsJsO/8M
+	i408vVrmnhyTUo08nZPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rG68O-001GY5-0e;
+	id 1rG68O-001GYU-2l;
 	Wed, 20 Dec 2023 23:37:52 +0000
-Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
+Received: from mail-oa1-x31.google.com ([2001:4860:4864:20::31])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rG68I-001GVS-2u
+	id 1rG68K-001GW8-1h
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Dec 2023 23:37:48 +0000
-Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-1fab887fab8so117674fac.0
-        for <linux-riscv@lists.infradead.org>; Wed, 20 Dec 2023 15:37:45 -0800 (PST)
+	Wed, 20 Dec 2023 23:37:49 +0000
+Received: by mail-oa1-x31.google.com with SMTP id 586e51a60fabf-20308664c13so95777fac.3
+        for <linux-riscv@lists.infradead.org>; Wed, 20 Dec 2023 15:37:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1703115465; x=1703720265; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1703115466; x=1703720266; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=hqZmArtiXcDp/s2cDCE6VomUeBtSGPPb+28mpDKaCFA=;
-        b=p8w0RuEPH/RMhHLvjX50THAT5mAqBYLgt9rM1HdNgQwAroDsUngCcGU4cnRJBlIJBv
-         g8glrt0Fj+fbErrNEv4g7/9MVlrxrZvEfFZSvGozVG40DlpamsavpEH2Isxa2WNOfHlg
-         u8YhCatliRdJQUYu3fZkyk2JxofpQ16C0766Xg5snwJXyfzMPLW5+Iv69cjHWL9FS+w8
-         Dmmwdrk66ZH1NgUy9gTvOVGSl8sdOW7qA+me3hOyajvP4oL5xNEOVXROOnoeJ5/qdVpw
-         D7mfxkTBYedPcuFCJmj0wo6FeJM/iEuWUv9QTxWnO6xQFMdHHPe1R5d5JuL7TrtWD78J
-         9/gQ==
+        bh=AlBR54Ho+Y1o3mIpBCBVXs2u+7/gciH5xwmXB5mwVNU=;
+        b=Aj/svLJjIph4exqWKJOeojIPuBWkXY6WWvGCgAAKetwLOTQtWiWGWv+hzRMBj6+WKk
+         d8M9tNjckZUsLdIJLsGvpxFh6Pa0WmMSNs2lXQe1l42PIoAvIsEgBl04ZGMbHkaTjoub
+         rdPDUAgjJkjUmykpmBmje/1i64MSv3InrEZwPSnvRSTscwOYug0oVDP2TerkdbwGpe7s
+         QQ6fBmRFuJb7kORlYYAO6dmltUwocpI0go2wg3RkZODCh9T5Y7s+5G40wsqpY/ZqURiG
+         kcNx3ybJ2xQfLroeeHM6fe7L85bWFzAhgPK2MYkkxCMFRQX6e/qJLoMz/X2gePWvyILj
+         tQlw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1703115465; x=1703720265;
+        d=1e100.net; s=20230601; t=1703115466; x=1703720266;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=hqZmArtiXcDp/s2cDCE6VomUeBtSGPPb+28mpDKaCFA=;
-        b=SicdDv4oZY0DEgd3XPy/lNWWCsFjuTUtHaa7sop7TpoLEP99WM9rCs8CQxvZ1B5xdh
-         VaylvlQyfo5FKlYWuYTVeYmVKyLafTwzjlodkjlngW5WDSRmsMGF5V/sR77qPxDIafDj
-         sL632THUizXxlFzl4hfnYLfd4RR3EAe18EBUFCca1WIs5RlgOomrcZRgk846nRATjWkZ
-         XRKhGiCYizx/1wAkEuaMz+1Fee8U6XrvQLzxYeEDNRvJStWwo4eUR85m6luYEgHNrSX0
-         xXjM7lIYiT2IMrUDOHitszl42TqW88XhebIFkiVtl/0YK/++OlWx5ColBtfwHapyunFS
-         /E0A==
-X-Gm-Message-State: AOJu0Yyj4n5EXfhzKLG/z4yJLTq9HUt9ZBg8EK68prB3+SmGNpl2dnRB
-	POCCVI8c+kvg0gpxzHhbHH4eBiU50A9hv7LDpgY=
-X-Google-Smtp-Source: AGHT+IFeBdaPxfNAXv1ibol3y9dWmT3hdCcKUPEGPwsCmFqAkFbMInLhFpUXJrzsQqwTH1nXqMZtFQ==
-X-Received: by 2002:a05:6870:970f:b0:203:bcc7:8fa2 with SMTP id n15-20020a056870970f00b00203bcc78fa2mr672978oaq.5.1703115464850;
-        Wed, 20 Dec 2023 15:37:44 -0800 (PST)
+        bh=AlBR54Ho+Y1o3mIpBCBVXs2u+7/gciH5xwmXB5mwVNU=;
+        b=tKW7C/oJNC6vFvEQMUW15vw1zm1xrG/YL8BgJ0JuqfPnfUAAsxxGj+cIhk2TV0T3gt
+         tcwsuBn499AO2qZ2s6a/ibp1OI/a9kqt/fABg3J5ra+S12v03NUQP4WWWc4S4r7CxTeE
+         OQCzaBn5+09d6JTb1qlNXOe/Tb2ofbH3zaCqWdvDyOHca+LtdUj7OuCvr/ykUBuKvlCr
+         SrAZHbiozb5Ks1Oz3CN93b2KsSLkFEKQGGz3UbkDc92dbMLWKdscJebSyDt79k5Pw8gl
+         MCb3WgRZd/LgU4Kzfg0QrcPxKLzJfClYRHyFFdYUM6KdtBYq95M7Ww7Y5ZxYS8jAuscG
+         T84A==
+X-Gm-Message-State: AOJu0YyxqTgY6ve8qjyY303bqxMxJYiCF+Sa6kXz6U6+AUEbGbVBRIB+
+	YbUjpCNuqLFVKn8iMP7YEWEOvQGV4cBAgb3leAo=
+X-Google-Smtp-Source: AGHT+IFDlmKkwq7WN9bCzarmiTtQ2Vf4puWRd38+cllalRd5/tjdlHPjcQo/XN/KyB1GfH4goY6qKA==
+X-Received: by 2002:a05:6870:41d0:b0:204:2bd9:7e89 with SMTP id z16-20020a05687041d000b002042bd97e89mr76457oac.88.1703115466262;
+        Wed, 20 Dec 2023 15:37:46 -0800 (PST)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id k5-20020a056830150500b006d87e38f91asm132834otp.56.2023.12.20.15.37.43
+        by smtp.gmail.com with ESMTPSA id k5-20020a056830150500b006d87e38f91asm132834otp.56.2023.12.20.15.37.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 Dec 2023 15:37:44 -0800 (PST)
+        Wed, 20 Dec 2023 15:37:45 -0800 (PST)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Wed, 20 Dec 2023 15:37:40 -0800
-Subject: [PATCH v13 2/5] riscv: Add static key for misaligned accesses
+Date: Wed, 20 Dec 2023 15:37:41 -0800
+Subject: [PATCH v13 3/5] riscv: Add checksum header
 MIME-Version: 1.0
-Message-Id: <20231220-optimize_checksum-v13-2-a73547e1cad8@rivosinc.com>
+Message-Id: <20231220-optimize_checksum-v13-3-a73547e1cad8@rivosinc.com>
 References: <20231220-optimize_checksum-v13-0-a73547e1cad8@rivosinc.com>
 In-Reply-To: <20231220-optimize_checksum-v13-0-a73547e1cad8@rivosinc.com>
 To: Charlie Jenkins <charlie@rivosinc.com>, 
@@ -76,18 +76,19 @@ To: Charlie Jenkins <charlie@rivosinc.com>,
  Evan Green <evan@rivosinc.com>, linux-riscv@lists.infradead.org, 
  linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
 Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>
+ Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, 
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1703115460; l=2270;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1703115460; l=3093;
  i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=zAvCCM1AIoiNlx7AQwltNFw7ekzVRWkGRkhZ8BNL3iE=;
- b=/aoALA0sPu/mQrg3wwtXeXAI2bR1ghCTU4z4qItLaJnMLYVXoeBeX/8KZsrRPbIY0Vt0eIUCZ
- CCU5N5pjCbdA2zEuvQCl+CIPeGSez/Ug3N2nd09YxVNQiBASexBl8Fz
+ bh=5kLrZ5pIGOixKzGlevacL81yKd58H4/jGvyu52ss5bM=;
+ b=izPJP+daFTVa6yKitNFbRPSPqqaIpZZN3OPtfRsjg/7/qxUEKNV8pETfxzSLQSd5dlIq+5wE7
+ jG2yJAy6TI7Ak8DLgtvL3OF7ExUWAwC38RVzTUCYSkFYv8VrBuQWrfH
 X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
  pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231220_153746_936413_3FAA8513 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20231220_153748_566462_D2715313 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,75 +105,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Support static branches depending on the value of misaligned accesses.
-This will be used by a later patch in the series. All cpus must be
-considered "fast" for this static branch to be flipped.
+Provide checksum algorithms that have been designed to leverage riscv
+instructions such as rotate. In 64-bit, can take advantage of the larger
+register to avoid some overflow checking.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Xiao Wang <xiao.w.wang@intel.com>
 ---
- arch/riscv/include/asm/cpufeature.h |  2 ++
- arch/riscv/kernel/cpufeature.c      | 30 ++++++++++++++++++++++++++++++
- 2 files changed, 32 insertions(+)
+ arch/riscv/include/asm/checksum.h | 82 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 82 insertions(+)
 
-diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
-index a418c3112cd6..7b129e5e2f07 100644
---- a/arch/riscv/include/asm/cpufeature.h
-+++ b/arch/riscv/include/asm/cpufeature.h
-@@ -133,4 +133,6 @@ static __always_inline bool riscv_cpu_has_extension_unlikely(int cpu, const unsi
- 	return __riscv_isa_extension_available(hart_isa[cpu].isa, ext);
- }
- 
-+DECLARE_STATIC_KEY_FALSE(fast_misaligned_access_speed_key);
+diff --git a/arch/riscv/include/asm/checksum.h b/arch/riscv/include/asm/checksum.h
+new file mode 100644
+index 000000000000..5a810126aac7
+--- /dev/null
++++ b/arch/riscv/include/asm/checksum.h
+@@ -0,0 +1,82 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Checksum routines
++ *
++ * Copyright (C) 2023 Rivos Inc.
++ */
++#ifndef __ASM_RISCV_CHECKSUM_H
++#define __ASM_RISCV_CHECKSUM_H
 +
- #endif
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index b3785ffc1570..095eb6ebdcaa 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -10,6 +10,7 @@
- #include <linux/bitmap.h>
- #include <linux/cpuhotplug.h>
- #include <linux/ctype.h>
-+#include <linux/jump_label.h>
- #include <linux/log2.h>
- #include <linux/memory.h>
- #include <linux/module.h>
-@@ -728,6 +729,35 @@ void riscv_user_isa_enable(void)
- 		csr_set(CSR_SENVCFG, ENVCFG_CBZE);
- }
- 
-+DEFINE_STATIC_KEY_FALSE(fast_misaligned_access_speed_key);
++#include <linux/in6.h>
++#include <linux/uaccess.h>
 +
-+static int set_unaligned_access_static_branches(void)
++#define ip_fast_csum ip_fast_csum
++
++/* Define riscv versions of functions before importing asm-generic/checksum.h */
++#include <asm-generic/checksum.h>
++
++/**
++ * Quickly compute an IP checksum with the assumption that IPv4 headers will
++ * always be in multiples of 32-bits, and have an ihl of at least 5.
++ *
++ * @ihl: the number of 32 bit segments and must be greater than or equal to 5.
++ * @iph: assumed to be word aligned given that NET_IP_ALIGN is set to 2 on
++ *  riscv, defining IP headers to be aligned.
++ */
++static inline __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
 +{
++	unsigned long csum = 0;
++	int pos = 0;
++
++	do {
++		csum += ((const unsigned int *)iph)[pos];
++		if (IS_ENABLED(CONFIG_32BIT))
++			csum += csum < ((const unsigned int *)iph)[pos];
++	} while (++pos < ihl);
++
 +	/*
-+	 * This will be called after check_unaligned_access_all_cpus so the
-+	 * result of unaligned access speed for all cpus will be available.
++	 * ZBB only saves three instructions on 32-bit and five on 64-bit so not
++	 * worth checking if supported without Alternatives.
 +	 */
++	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
++	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
++		unsigned long fold_temp;
 +
-+	int cpu;
-+	bool fast_misaligned_access_speed = true;
++		asm_volatile_goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
++					      RISCV_ISA_EXT_ZBB, 1)
++		    :
++		    :
++		    :
++		    : no_zbb);
 +
-+	for_each_online_cpu(cpu) {
-+		int this_perf = per_cpu(misaligned_access_speed, cpu);
-+
-+		if (this_perf != RISCV_HWPROBE_MISALIGNED_FAST) {
-+			fast_misaligned_access_speed = false;
-+			break;
++		if (IS_ENABLED(CONFIG_32BIT)) {
++			asm(".option push				\n\
++			.option arch,+zbb				\n\
++				not	%[fold_temp], %[csum]		\n\
++				rori	%[csum], %[csum], 16		\n\
++				sub	%[csum], %[fold_temp], %[csum]	\n\
++			.option pop"
++			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp));
++		} else {
++			asm(".option push				\n\
++			.option arch,+zbb				\n\
++				rori	%[fold_temp], %[csum], 32	\n\
++				add	%[csum], %[fold_temp], %[csum]	\n\
++				srli	%[csum], %[csum], 32		\n\
++				not	%[fold_temp], %[csum]		\n\
++				roriw	%[csum], %[csum], 16		\n\
++				subw	%[csum], %[fold_temp], %[csum]	\n\
++			.option pop"
++			: [csum] "+r" (csum), [fold_temp] "=&r" (fold_temp));
 +		}
++		return (__force __sum16)(csum >> 16);
 +	}
-+
-+	if (fast_misaligned_access_speed)
-+		static_branch_enable(&fast_misaligned_access_speed_key);
-+
-+	return 0;
++no_zbb:
++#ifndef CONFIG_32BIT
++	csum += ror64(csum, 32);
++	csum >>= 32;
++#endif
++	return csum_fold((__force __wsum)csum);
 +}
 +
-+arch_initcall_sync(set_unaligned_access_static_branches);
-+
- #ifdef CONFIG_RISCV_ALTERNATIVE
- /*
-  * Alternative patch sites consider 48 bits when determining when to patch
++#endif /* __ASM_RISCV_CHECKSUM_H */
 
 -- 
 2.43.0
