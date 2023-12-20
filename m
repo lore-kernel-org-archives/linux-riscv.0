@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C306FC46CD8
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Dec 2023 07:58:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BEDCC3DA6E
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Dec 2023 07:58:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XEk/QqnqhX8ZoFxmGrbRutbbfOwccT8QZsLZma5oEkY=; b=uW9+03P+fVncmD
-	zi7bE9pGtR8BNCIL6YJP1KXLYfv72dFxXb5WLrlzVxiBNttHyYO390KIboxXst5D1Le5/EXL3LVjW
-	gLvuitbz23CrOnaaUVxa0ZFsGkDCfYzK9FJ6eD25BrvLzGNiQInsO+YnZ/hGDEce96e7HYVn2gpsG
-	esyuN66EwT55ZmGbVbHTkfG0baetFQ3g0SHlyEQOcJfpVGiR3ajKdOCSih4SNjIcw9MhWwNSMml4Q
-	rocafk14gguq0TLmF34P3eiP5qrrT84+LJXSCbNh3uHv6kuj60Dj+XXS5m5qJcnm3AIduYSkHbz6J
-	EACw54N3Oh56TaDSuZcg==;
+	List-Owner; bh=pHgVDHjIhi7iHX57jDgV7aUCenbUnDmKM359swtKcLI=; b=wdmmlaoiYSNlIi
+	QzC14EsTIDon4wkrinZGfnIFhDc/lR9l+/2NTjF7Rr0IIiTHIN/vMK/mCoc0Qj0yS3aoJMle/AQWe
+	3J7CCg1lhdWMfrbIP4yIS5JCVKBBccp4DAn/z523ap7TmOOD7mto8JxmQrViZD4RcidpvUGnG8Cat
+	EDjWxckOXDV6jkOZuPu9ePbJ1fcjVIPSMdYwco02mNYAf3ygv+TMl5CUJ282xrleTRf9eFAre2hAR
+	1YhutkmkgVNbmbi6Gg66CAggof6AXEfOjtfkH7YRcaqmg2B4ZYaTfbY0tM2CIagOchhpIfI2ER3ka
+	04clG4FcV5WPAN3NjAew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFrT3-00GUks-12;
-	Wed, 20 Dec 2023 07:58:13 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1rFrTG-00GUrB-13;
+	Wed, 20 Dec 2023 07:58:26 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rFrT0-00GUjA-09
+	id 1rFrTD-00GUo3-0B
 	for linux-riscv@lists.infradead.org;
-	Wed, 20 Dec 2023 07:58:11 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1d3ef33e68dso1964855ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 19 Dec 2023 23:58:09 -0800 (PST)
+	Wed, 20 Dec 2023 07:58:24 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-6d84b68a866so1743833b3a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Dec 2023 23:58:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1703059088; x=1703663888; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1703059099; x=1703663899; darn=lists.infradead.org;
         h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=503CjaG/B7x1b1AikMZQqWs8/BfTT3y9kpJ7D16KU0k=;
-        b=FFMjT7MaievqmFb16QWPmcsITgB+yhIG4BRdGSJ6Fb6FqTRgezNlij5fhtaN6ml+mJ
-         8CMTBYhwrjoRCWeaFylYKcZ4vMIohNwrcKORuRL9jMFRqvXee2/Rh5Znfhij2/2C7fTq
-         qUHY9uYs+W+RqGZsAS950QJ2vWK4XaNay2xBJJ+K/4WSIjjo0EQdyL2zxDkJG5wIVbw1
-         ZTabROri75nijhdGfW+RcIxe7geygYaRUSaP0bfuLP7nxiIKV3iLGrB9YoJjnDAwsvc1
-         eCmiWdUCUelquWX9EvtxXKQa6YU9jYrv1m8l8bU2myOj9fbv8RY2j6v7AciPu2jYvySc
-         1bFg==
+        bh=0PStOdX0bJ0JRt1kGvqh4Fd4K0oqMPuH8sOnQ/vCigs=;
+        b=j5gUP9jYmAKnW51vYoHGFBw8eZiVhc4A+k6hAPizXDKKWursYztU/1A9GbEVy9k3KO
+         snVPRVecMuvWXo27QSh0g9Y2bNmd2ld8Kvyhd9uiXjBV2+g30bKTWyWck4Z/jLPxe5nr
+         P5GoHO0Yqj+kQIdyrbTahPI4n8PVvwInArZfhIl8OwhiuXULkPfKanZ42p0yTKIGkRZP
+         Aij8R+DJX1W5D7UbRhWA20PwevTnFQiHhtyHK4CqPWZp2FUKZkw9SrVBOo53PzRnI+qA
+         iI1mLMNLoWbxtzUyFQKHk1R3L67OM6e8yJluIUKpsLQ6WPncXOZeokBmjR46gjl2m0mM
+         Z6nw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1703059088; x=1703663888;
+        d=1e100.net; s=20230601; t=1703059099; x=1703663899;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=503CjaG/B7x1b1AikMZQqWs8/BfTT3y9kpJ7D16KU0k=;
-        b=b9yjXAwq/7t74WdanXrwjLOAZwwuP5Pj5wW6gLTZAJ/xdnZAddulY5LZoK52tNvVLC
-         oA16AqSdcyZYuT1rJ1tbvq3F1K7dxOhgB6x/zR8Yz9lsEdUprQpQb7IomLox9W0FeVr0
-         Bzf3Zdz2wCISJXI7WB/6YjeZZ+6isUPbtdKVrSYFuwsiwSoFElubq6vD59pdHQXKGLAr
-         DVWybwLdnHixg1bn/gwIKnpWKuZQrH4Es93suPNShAINgY4dcUgS9rNoTYE0BEJJR94x
-         mrUThWY+qYybKR9VLlr5PRYmZ+WMKFuVXsLWgLc95Dg7Xs6URiuGZauzmWjTxmLyPwLo
-         Sj9A==
-X-Gm-Message-State: AOJu0YywCAz6ZepxBiIVf2bhzKgvaot1DmDVMc9QyZauFdCmMv9kpqWJ
-	26iQQOe1HKhynighgBL9Lk0xMIx7Dz9jrkOCG+MakvkoiBsW4/0CnXwgRnXYZ+5wcS5jh9Nd0bg
-	/YNawHgfLIi4kyo3BLG4L4Ei05hqFIAobyyrllmkgD1bzIa9++olfg6RBpXyez8/PcwmJJsJ2/Y
-	5wn/WGnxmJkyz2CIYsZkVs
-X-Google-Smtp-Source: AGHT+IG+R1pDScKLWVc5PYFWbJNHc+b7F3OwZ3UDvqnkMRZoAeuNeE1rn07Ee7f4lNtWJaePGVdtjw==
-X-Received: by 2002:a17:902:db10:b0:1d3:d7d1:fc68 with SMTP id m16-20020a170902db1000b001d3d7d1fc68mr3339200plx.32.1703059088305;
-        Tue, 19 Dec 2023 23:58:08 -0800 (PST)
+        bh=0PStOdX0bJ0JRt1kGvqh4Fd4K0oqMPuH8sOnQ/vCigs=;
+        b=Zli29D7AIyBu8rzE6wj/0GznCwel3oHbdCTpqIOrRnkf9Jo9gGdJdbGpaC41MKyTrO
+         Hq0rM1pVSegxgWB5pSQ1KgKjinM/mfmb8AD6HLL366TxPQjc8AfcqsoMo43B8SuAztJ1
+         /LAyi7AsTsvVJyaLN0xyYRnxsdE467ldLSmgL2Edw7CsCqjHznXo7bue9Gt/OmcYGaHF
+         IKnYPHBsuAEpXtwNGdTkswvZQWbAXAJkfaiJJWPysUkI5Du87Ene8MC8fr1+hkhooQWq
+         tOTx8tjjk03TKZ8sO8TEo9d/08oX+aIiilS7rTxVpqGqwYjsEzRwU1DymsXT0+gzBkEC
+         6IHg==
+X-Gm-Message-State: AOJu0YzgDUpORrLdGsKWFCzJUx1hr+YJo6T9Afc2rpRRAG1FtNEFmaYB
+	Rt3egFMt/B0+5wWwJZfP3VjomAhHfFuW0UUxOeZiIZioCKcxeee5pbe1S6T0hdQIMUoXxD8ix8e
+	sN114gRNqJDuVw7rVIomRl+iMnT4yy5Z4HfyjEd0TnvXAdCBicja+q/YpVe6KGnAm5UklV4V44p
+	B1Ie/fDz9t8qcC
+X-Google-Smtp-Source: AGHT+IH5h/HccS31pjZUAoSEzdkyMR6zp0RIo7HJTu5uye8X0F14SrH5/JM0qOVxnUmE8T6oueRIew==
+X-Received: by 2002:a05:6a20:429f:b0:18f:97c:4f4c with SMTP id o31-20020a056a20429f00b0018f097c4f4cmr10981264pzj.88.1703059098902;
+        Tue, 19 Dec 2023 23:58:18 -0800 (PST)
 Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id q20-20020a170902789400b001cf8546335fsm3441453pll.5.2023.12.19.23.58.03
+        by smtp.gmail.com with ESMTPSA id q20-20020a170902789400b001cf8546335fsm3441453pll.5.2023.12.19.23.58.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Dec 2023 23:58:06 -0800 (PST)
+        Tue, 19 Dec 2023 23:58:17 -0800 (PST)
 From: Andy Chiu <andy.chiu@sifive.com>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com
@@ -76,19 +76,25 @@ Cc: paul.walmsley@sifive.com,
 	tglx@linutronix.de,
 	Andy Chiu <andy.chiu@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
+	Oleg Nesterov <oleg@redhat.com>,
 	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Han-Kuan Chen <hankuan.chen@sifive.com>,
-	Heiko Stuebner <heiko@sntech.de>
-Subject: [v6, 06/10] riscv: lib: add vectorized mem* routines
-Date: Wed, 20 Dec 2023 07:54:08 +0000
-Message-Id: <20231220075412.24084-7-andy.chiu@sifive.com>
+	Guo Ren <guoren@kernel.org>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Vincent Chen <vincent.chen@sifive.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Xiao Wang <xiao.w.wang@intel.com>,
+	Haorong Lu <ancientmodern4@gmail.com>,
+	Mathis Salmen <mathis.salmen@matsal.de>
+Subject: [v6, 07/10] riscv: vector: do not pass task_struct into riscv_v_vstate_{save,restore}()
+Date: Wed, 20 Dec 2023 07:54:09 +0000
+Message-Id: <20231220075412.24084-8-andy.chiu@sifive.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20231220075412.24084-1-andy.chiu@sifive.com>
 References: <20231220075412.24084-1-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231219_235810_109140_0DE02D78 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20231219_235823_119214_180CE62D 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,238 +112,131 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide vectorized memcpy/memset/memmove to accelerate common memory
-operations. Also, group them into V_OPT_TEMPLATE3 macro because their
-setup/tear-down and fallback logics are the same.
-
-The original implementation of Vector operations comes from
-https://github.com/sifive/sifive-libc, which we agree to contribute to
-Linux kernel.
+riscv_v_vstate_{save,restore}() can operate only on the knowlege of
+struct __riscv_v_ext_state, and struct pt_regs. Let the caller decides
+which should be passed into the function. Meanwhile, the kernel-mode
+Vector is going to introduce another vstate, so this also makes functions
+potentially able to be reused.
 
 Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
 Changelog v6:
- - provide kconfig to set threshold for vectorized functions (Charlie)
- - rename *thres to *threshold (Charlie)
-Changelog v4:
- - new patch since v4
+ - re-added for v6
+Changelog v3:
+ - save V context after get_cpu_vector_context
+Changelog v2:
+ - fix build fail that get caught on this patch (Conor)
 ---
- arch/riscv/Kconfig               | 24 ++++++++++++++++
- arch/riscv/lib/Makefile          |  3 ++
- arch/riscv/lib/memcpy_vector.S   | 29 +++++++++++++++++++
- arch/riscv/lib/memmove_vector.S  | 49 ++++++++++++++++++++++++++++++++
- arch/riscv/lib/memset_vector.S   | 33 +++++++++++++++++++++
- arch/riscv/lib/riscv_v_helpers.c | 22 ++++++++++++++
- 6 files changed, 160 insertions(+)
- create mode 100644 arch/riscv/lib/memcpy_vector.S
- create mode 100644 arch/riscv/lib/memmove_vector.S
- create mode 100644 arch/riscv/lib/memset_vector.S
+ arch/riscv/include/asm/entry-common.h  |  2 +-
+ arch/riscv/include/asm/vector.h        | 14 +++++---------
+ arch/riscv/kernel/kernel_mode_vector.c |  2 +-
+ arch/riscv/kernel/ptrace.c             |  2 +-
+ arch/riscv/kernel/signal.c             |  2 +-
+ 5 files changed, 9 insertions(+), 13 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 3c5ba05e8a2d..cba53dcc2ae0 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -533,6 +533,30 @@ config RISCV_ISA_V_UCOPY_THRESHOLD
- 	  Prefer using vectorized copy_to_user()/copy_from_user() when the
- 	  workload size exceeds this value.
- 
-+config RISCV_ISA_V_MEMSET_THRESHOLD
-+	int "Threshold size for vectorized memset()"
-+	depends on RISCV_ISA_V
-+	default 1280
-+	help
-+	  Prefer using vectorized memset() when the workload size exceeds this
-+	  value.
-+
-+config RISCV_ISA_V_MEMCPY_THRESHOLD
-+	int "Threshold size for vectorized memcpy()"
-+	depends on RISCV_ISA_V
-+	default 768
-+	help
-+	  Prefer using vectorized memcpy() when the workload size exceeds this
-+	  value.
-+
-+config RISCV_ISA_V_MEMMOVE_THRESHOLD
-+	int "Threshold size for vectorized memmove()"
-+	depends on RISCV_ISA_V
-+	default 512
-+	help
-+	  Prefer using vectorized memmove() when the workload size exceeds this
-+	  value.
-+
- config TOOLCHAIN_HAS_ZBB
- 	bool
- 	default y
-diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index 1fe8d797e0f2..3111863afd2e 100644
---- a/arch/riscv/lib/Makefile
-+++ b/arch/riscv/lib/Makefile
-@@ -14,3 +14,6 @@ obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
- lib-$(CONFIG_RISCV_ISA_V)	+= xor.o
- lib-$(CONFIG_RISCV_ISA_V)	+= riscv_v_helpers.o
- lib-$(CONFIG_RISCV_ISA_V)	+= uaccess_vector.o
-+lib-$(CONFIG_RISCV_ISA_V)	+= memset_vector.o
-+lib-$(CONFIG_RISCV_ISA_V)	+= memcpy_vector.o
-+lib-$(CONFIG_RISCV_ISA_V)	+= memmove_vector.o
-diff --git a/arch/riscv/lib/memcpy_vector.S b/arch/riscv/lib/memcpy_vector.S
-new file mode 100644
-index 000000000000..4176b6e0a53c
---- /dev/null
-+++ b/arch/riscv/lib/memcpy_vector.S
-@@ -0,0 +1,29 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+
-+#include <linux/linkage.h>
-+#include <asm/asm.h>
-+
-+#define pDst a0
-+#define pSrc a1
-+#define iNum a2
-+
-+#define iVL a3
-+#define pDstPtr a4
-+
-+#define ELEM_LMUL_SETTING m8
-+#define vData v0
-+
-+
-+/* void *memcpy(void *, const void *, size_t) */
-+SYM_FUNC_START(__asm_memcpy_vector)
-+	mv pDstPtr, pDst
-+loop:
-+	vsetvli iVL, iNum, e8, ELEM_LMUL_SETTING, ta, ma
-+	vle8.v vData, (pSrc)
-+	sub iNum, iNum, iVL
-+	add pSrc, pSrc, iVL
-+	vse8.v vData, (pDstPtr)
-+	add pDstPtr, pDstPtr, iVL
-+	bnez iNum, loop
-+	ret
-+SYM_FUNC_END(__asm_memcpy_vector)
-diff --git a/arch/riscv/lib/memmove_vector.S b/arch/riscv/lib/memmove_vector.S
-new file mode 100644
-index 000000000000..4cea9d244dc9
---- /dev/null
-+++ b/arch/riscv/lib/memmove_vector.S
-@@ -0,0 +1,49 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#include <linux/linkage.h>
-+#include <asm/asm.h>
-+
-+#define pDst a0
-+#define pSrc a1
-+#define iNum a2
-+
-+#define iVL a3
-+#define pDstPtr a4
-+#define pSrcBackwardPtr a5
-+#define pDstBackwardPtr a6
-+
-+#define ELEM_LMUL_SETTING m8
-+#define vData v0
-+
-+SYM_FUNC_START(__asm_memmove_vector)
-+
-+    mv pDstPtr, pDst
-+
-+    bgeu pSrc, pDst, forward_copy_loop
-+    add pSrcBackwardPtr, pSrc, iNum
-+    add pDstBackwardPtr, pDst, iNum
-+    bltu pDst, pSrcBackwardPtr, backward_copy_loop
-+
-+forward_copy_loop:
-+    vsetvli iVL, iNum, e8, ELEM_LMUL_SETTING, ta, ma
-+
-+    vle8.v vData, (pSrc)
-+    sub iNum, iNum, iVL
-+    add pSrc, pSrc, iVL
-+    vse8.v vData, (pDstPtr)
-+    add pDstPtr, pDstPtr, iVL
-+
-+    bnez iNum, forward_copy_loop
-+    ret
-+
-+backward_copy_loop:
-+    vsetvli iVL, iNum, e8, ELEM_LMUL_SETTING, ta, ma
-+
-+    sub pSrcBackwardPtr, pSrcBackwardPtr, iVL
-+    vle8.v vData, (pSrcBackwardPtr)
-+    sub iNum, iNum, iVL
-+    sub pDstBackwardPtr, pDstBackwardPtr, iVL
-+    vse8.v vData, (pDstBackwardPtr)
-+    bnez iNum, backward_copy_loop
-+    ret
-+
-+SYM_FUNC_END(__asm_memmove_vector)
-diff --git a/arch/riscv/lib/memset_vector.S b/arch/riscv/lib/memset_vector.S
-new file mode 100644
-index 000000000000..4611feed72ac
---- /dev/null
-+++ b/arch/riscv/lib/memset_vector.S
-@@ -0,0 +1,33 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#include <linux/linkage.h>
-+#include <asm/asm.h>
-+
-+#define pDst a0
-+#define iValue a1
-+#define iNum a2
-+
-+#define iVL a3
-+#define iTemp a4
-+#define pDstPtr a5
-+
-+#define ELEM_LMUL_SETTING m8
-+#define vData v0
-+
-+/* void *memset(void *, int, size_t) */
-+SYM_FUNC_START(__asm_memset_vector)
-+
-+    mv pDstPtr, pDst
-+
-+    vsetvli iVL, iNum, e8, ELEM_LMUL_SETTING, ta, ma
-+    vmv.v.x vData, iValue
-+
-+loop:
-+    vse8.v vData, (pDstPtr)
-+    sub iNum, iNum, iVL
-+    add pDstPtr, pDstPtr, iVL
-+    vsetvli iVL, iNum, e8, ELEM_LMUL_SETTING, ta, ma
-+    bnez iNum, loop
-+
-+    ret
-+
-+SYM_FUNC_END(__asm_memset_vector)
-diff --git a/arch/riscv/lib/riscv_v_helpers.c b/arch/riscv/lib/riscv_v_helpers.c
-index 139e5de1b793..75615998078d 100644
---- a/arch/riscv/lib/riscv_v_helpers.c
-+++ b/arch/riscv/lib/riscv_v_helpers.c
-@@ -36,3 +36,25 @@ asmlinkage int enter_vector_usercopy(void *dst, void *src, size_t n)
- fallback:
- 	return fallback_scalar_usercopy(dst, src, n);
+diff --git a/arch/riscv/include/asm/entry-common.h b/arch/riscv/include/asm/entry-common.h
+index 6361a8488642..08fe8cdbf33e 100644
+--- a/arch/riscv/include/asm/entry-common.h
++++ b/arch/riscv/include/asm/entry-common.h
+@@ -16,7 +16,7 @@ static inline void arch_exit_to_user_mode_prepare(struct pt_regs *regs,
+ 		 * We are already called with irq disabled, so go without
+ 		 * keeping track of vector_context_busy.
+ 		 */
+-		riscv_v_vstate_restore(current, regs);
++		riscv_v_vstate_restore(&current->thread.vstate, regs);
+ 	}
  }
-+
-+#define V_OPT_TEMPLATE3(prefix, type_r, type_0, type_1)				\
-+extern type_r __asm_##prefix##_vector(type_0, type_1, size_t n);		\
-+type_r prefix(type_0 a0, type_1 a1, size_t n)					\
-+{										\
-+	type_r ret;								\
-+	if (has_vector() && may_use_simd() &&					\
-+	    n > riscv_v_##prefix##_threshold) {					\
-+		kernel_vector_begin();						\
-+		ret = __asm_##prefix##_vector(a0, a1, n);			\
-+		kernel_vector_end();						\
-+		return ret;							\
-+	}									\
-+	return __##prefix(a0, a1, n);						\
-+}
-+
-+static size_t riscv_v_memset_threshold = CONFIG_RISCV_ISA_V_MEMSET_THRESHOLD;
-+V_OPT_TEMPLATE3(memset, void *, void*, int)
-+static size_t riscv_v_memcpy_threshold = CONFIG_RISCV_ISA_V_MEMCPY_THRESHOLD;
-+V_OPT_TEMPLATE3(memcpy, void *, void*, const void *)
-+static size_t riscv_v_memmove_threshold = CONFIG_RISCV_ISA_V_MEMMOVE_THRESHOLD;
-+V_OPT_TEMPLATE3(memmove, void *, void*, const void *)
+ 
+diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
+index e706613aae2c..c5a83c277583 100644
+--- a/arch/riscv/include/asm/vector.h
++++ b/arch/riscv/include/asm/vector.h
+@@ -183,23 +183,19 @@ static inline void riscv_v_vstate_discard(struct pt_regs *regs)
+ 	__riscv_v_vstate_dirty(regs);
+ }
+ 
+-static inline void riscv_v_vstate_save(struct task_struct *task,
++static inline void riscv_v_vstate_save(struct __riscv_v_ext_state *vstate,
+ 				       struct pt_regs *regs)
+ {
+ 	if ((regs->status & SR_VS) == SR_VS_DIRTY) {
+-		struct __riscv_v_ext_state *vstate = &task->thread.vstate;
+-
+ 		__riscv_v_vstate_save(vstate, vstate->datap);
+ 		__riscv_v_vstate_clean(regs);
+ 	}
+ }
+ 
+-static inline void riscv_v_vstate_restore(struct task_struct *task,
++static inline void riscv_v_vstate_restore(struct __riscv_v_ext_state *vstate,
+ 					  struct pt_regs *regs)
+ {
+ 	if ((regs->status & SR_VS) != SR_VS_OFF) {
+-		struct __riscv_v_ext_state *vstate = &task->thread.vstate;
+-
+ 		__riscv_v_vstate_restore(vstate, vstate->datap);
+ 		__riscv_v_vstate_clean(regs);
+ 	}
+@@ -220,7 +216,7 @@ static inline void __switch_to_vector(struct task_struct *prev,
+ 	struct pt_regs *regs;
+ 
+ 	regs = task_pt_regs(prev);
+-	riscv_v_vstate_save(prev, regs);
++	riscv_v_vstate_save(&prev->thread.vstate, regs);
+ 	riscv_v_vstate_set_restore(next, task_pt_regs(next));
+ }
+ 
+@@ -238,8 +234,8 @@ static inline bool riscv_v_vstate_query(struct pt_regs *regs) { return false; }
+ static inline bool riscv_v_vstate_ctrl_user_allowed(void) { return false; }
+ #define riscv_v_vsize (0)
+ #define riscv_v_vstate_discard(regs)		do {} while (0)
+-#define riscv_v_vstate_save(task, regs)		do {} while (0)
+-#define riscv_v_vstate_restore(task, regs)	do {} while (0)
++#define riscv_v_vstate_save(vstate, regs)	do {} while (0)
++#define riscv_v_vstate_restore(vstate, regs)	do {} while (0)
+ #define __switch_to_vector(__prev, __next)	do {} while (0)
+ #define riscv_v_vstate_off(regs)		do {} while (0)
+ #define riscv_v_vstate_on(regs)			do {} while (0)
+diff --git a/arch/riscv/kernel/kernel_mode_vector.c b/arch/riscv/kernel/kernel_mode_vector.c
+index 3f1d67109e5a..238154cb4fce 100644
+--- a/arch/riscv/kernel/kernel_mode_vector.c
++++ b/arch/riscv/kernel/kernel_mode_vector.c
+@@ -72,7 +72,7 @@ void kernel_vector_begin(void)
+ 
+ 	get_cpu_vector_context();
+ 
+-	riscv_v_vstate_save(current, task_pt_regs(current));
++	riscv_v_vstate_save(&current->thread.vstate, task_pt_regs(current));
+ 
+ 	riscv_v_enable();
+ }
+diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+index 7b93bcbdf9fa..e8515aa9d80b 100644
+--- a/arch/riscv/kernel/ptrace.c
++++ b/arch/riscv/kernel/ptrace.c
+@@ -101,7 +101,7 @@ static int riscv_vr_get(struct task_struct *target,
+ 	 */
+ 	if (target == current) {
+ 		get_cpu_vector_context();
+-		riscv_v_vstate_save(current, task_pt_regs(current));
++		riscv_v_vstate_save(&current->thread.vstate, task_pt_regs(current));
+ 		put_cpu_vector_context();
+ 	}
+ 
+diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
+index aca4a12c8416..5d69f4db9e8f 100644
+--- a/arch/riscv/kernel/signal.c
++++ b/arch/riscv/kernel/signal.c
+@@ -87,7 +87,7 @@ static long save_v_state(struct pt_regs *regs, void __user **sc_vec)
+ 	WARN_ON(unlikely(!IS_ALIGNED((unsigned long)datap, 16)));
+ 
+ 	get_cpu_vector_context();
+-	riscv_v_vstate_save(current, regs);
++	riscv_v_vstate_save(&current->thread.vstate, regs);
+ 	put_cpu_vector_context();
+ 
+ 	/* Copy everything of vstate but datap. */
 -- 
 2.17.1
 
