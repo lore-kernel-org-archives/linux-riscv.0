@@ -4,94 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45ACEC46CD8
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Dec 2023 12:29:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFD83C35274
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Dec 2023 12:38:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=x7DNAIhw/pDW6knXKtf7d4J+fwQANiyUgo7nIHKvKM4=; b=fn0QnkG7lMgLoBlpgm8vfq+Z0U
-	UPGbpnwivy69OKW41q2SLN0rQSDHfUeWgT/9cZUfORbJQmN7JaQDAoIl/BlTMwsy5J2wGdcZlLjlO
-	q4D/YzZduE3wKDEtpJQeuRkZEYx603jDPxjMQaJySzNYom1l2G5YosGkVGGkw9GCfc5x0Z+UwQRS0
-	Bn2C05Xd6JlRKEMna4YCm2v4IzTt7/wB2fbDEXqmiIoXAGzVb1WZMd+hLl8BNekAO2Lufl2yUzOqt
-	yy5sUx+nzvxhP02VQv3cG9cbKR1ve502QNS9eyU89IQpeuPrAAnmc72AxmFphMHKd+OCKDzRqDnYB
-	sN9yoitg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=cHdnJHaRRWWGw183Nef2qYVPtVTP+OUy5oKg9PgkBMI=; b=thd
+	APe8EyVR9Af0qPIATadRGXiJ3rU1PTJxzwhtC/e8ZHlSjO0ZcZtaDWNHVqfO5/ubQaVXkxK19qj1o
+	qdFmIg8WwAz6jVMDF4pgYiD8EgRhEQq0Gnbjm/HQm1RytlnYs50QE91FbTCtATD42bzGHHhH7lAoC
+	hkjRxbtQ9q31T+O8wdeT0mMMcY2jZmh19S/iBmAFWt/eRJooOIpJt8M2xgejftL0pT5bj4e1FpZJ3
+	MAYyDA2nX4olQIlpRjjDOZJKoK2dJfZ6+g4N6Zr+wDf2pBpc5URF5LXEcYkSdRN+CsoH8rd4fpoCX
+	FDr/medD9/GiRHzWWjrBjMYeSdl8Vfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGIAh-002lI1-21;
-	Thu, 21 Dec 2023 12:29:03 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1rGIJk-002ng6-04;
+	Thu, 21 Dec 2023 12:38:24 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGIAd-002lBt-0N
+	id 1rGIJh-002nfc-0N
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Dec 2023 12:29:02 +0000
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id ED6F13F745
-	for <linux-riscv@lists.infradead.org>; Thu, 21 Dec 2023 12:28:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1703161732;
-	bh=utwwjd3w/GTj0TOYQ7r9hzEA4xysvpOk2/pKVIn6Dd8=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=o0Y1qE7SSizOuUdzD+hxBreLvt2cYZ7PqNbEBPcF4koTO8ZcoA0w38NPmaYZ29itI
-	 QbSPzglds4NGzdaawgQwbFKBgQBE8srk8hbUkPe+CP4KdnkMXzQ0Sr3l4b6ISSdgdy
-	 xPfpD0vZ83Ozl2CF2a0AzjbDciICk4Q1Q0/jq9laaHV/ZJ82+IePs3aJ1nwtKnVRql
-	 tGDVCO4G8QPbSulJWobSnAZcojLTmkIHdKulsdLYSR6Bd0Eef/Q4sIf5tkrOBqhqca
-	 yGAuVnU0cwIqrJaTTkjzxoUa/giYuxhYVMu6uf2hfcksN+fHVpcwm9N26znjgmC1mO
-	 6GRM1/gm/IZ4Q==
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-77f55466facso118619485a.1
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Dec 2023 04:28:52 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1703161727; x=1703766527;
-        h=content-transfer-encoding:cc:to:subject:message-id:date
-         :mime-version:references:in-reply-to:from:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=utwwjd3w/GTj0TOYQ7r9hzEA4xysvpOk2/pKVIn6Dd8=;
-        b=KFkgM0AJUlZjDikSUliItXWlcR63SlzCFR+YUTgxy176D7XKanjlzbWW2l5IoQGZT3
-         nYR0F30bXB9CgBG27JYhH1VN48MXjt/cYIgn51FaNBkkUtnVebknFhk+nL/dTyl+2V3U
-         TfFNFSsq2X0X3aJoDV4Cyn8m13XG4oQnaWYs8Xil2CkKfZjwK1GtdHUnHUQPknUzDWHE
-         bQG+YGbsxQGfBZYe+wsoJ4FmzVtzrf7U57ZIdNSfvGoQhN/aBQEJRLsK2KiEfPoVKFRG
-         5ub9Ijanppm0gJTekW+SZ15kWJXzDC2LbNGriVLJ2FebuRSoU1gwc5dfWSvH7B/dO8nU
-         MzcA==
-X-Gm-Message-State: AOJu0YzRyFbGN35m/7uXicKuV2YrbN4egZ3vjtOemJp422Wupu7g26qP
-	nVtE/9wk28gOqFhhfI8qy/vjh5CnThAujMmOe25gdXSVxvoyf3ttvJLqqYO/V/QOKxYs/C76wFZ
-	3Rz+8HIU8kTSXhOAfkGgOx53ZJPp4T0o6dAWPpjA66Ydsz/mOX5//ERcgjFD/xenoN6Iw
-X-Received: by 2002:a05:620a:3dc:b0:77e:ffcd:2728 with SMTP id r28-20020a05620a03dc00b0077effcd2728mr897523qkm.53.1703161727446;
-        Thu, 21 Dec 2023 04:28:47 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHB2Dun85XQ6cgWOoZpoJaB/RapIEzw1KjVwm/JtqPitqqKxcRJWcJjtxi1b+wBY8zYrCiPA/YZeVrH74MD5jI=
-X-Received: by 2002:a05:620a:3dc:b0:77e:ffcd:2728 with SMTP id
- r28-20020a05620a03dc00b0077effcd2728mr897496qkm.53.1703161727167; Thu, 21 Dec
- 2023 04:28:47 -0800 (PST)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 21 Dec 2023 04:28:46 -0800
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <CACRpkdYT+jf4=dk3Y9cwa_=aYCihVq93N-iT0RUbtT2-+PX69w@mail.gmail.com>
-References: <20231215143906.3651122-1-emil.renner.berthing@canonical.com>
- <20231215143906.3651122-2-emil.renner.berthing@canonical.com>
- <20231215202137.GA317624-robh@kernel.org> <CAJM55Z9pBpYfwpxPH7bUumuosVDn9DHLSBngW6CtG7aK_z+_bQ@mail.gmail.com>
- <CACRpkdYT+jf4=dk3Y9cwa_=aYCihVq93N-iT0RUbtT2-+PX69w@mail.gmail.com>
-Mime-Version: 1.0
-Date: Thu, 21 Dec 2023 04:28:46 -0800
-Message-ID: <CAJM55Z8osSFxKi_7=aRkEr+U3vAq0TS93OggnRzyPpssNuuJ3Q@mail.gmail.com>
-Subject: Re: [PATCH v1 1/8] dt-bindings: pinctrl: Add thead,th1520-pinctrl bindings
-To: Linus Walleij <linus.walleij@linaro.org>, 
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: Rob Herring <robh@kernel.org>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Hoan Tran <hoan@os.amperecomputing.com>, Serge Semin <fancer.lancer@gmail.com>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Andy Shevchenko <andy@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>
+	Thu, 21 Dec 2023 12:38:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id 78BEAB81F75;
+	Thu, 21 Dec 2023 12:38:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9239C433C9;
+	Thu, 21 Dec 2023 12:38:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1703162298;
+	bh=KKQaeH2EmDJ7mFaL5Q6gJzAHWCpUvrzqaLBg34q+1wY=;
+	h=Date:From:List-Id:To:List-Id:Cc:Subject:From;
+	b=E7C8zH+zhk4HHPrdh0XrPs09Fo0xrLRwGbuRrX/1Lj8SXVwcj1Fd9sCXPrxkwZd/Q
+	 zfmW7gTodJGNazNRCsKR70oTvOzQUHZA5LEPiTkZbGSkgqbR2OAnIiSxdfE/YwoL+B
+	 truvPYxeBwmNCBBnhHjMu+GOKQUTiZNb5tjac+h3oqiHANV13BCa0ISM6bTAf/YUTU
+	 ksrJs0QT437ncf82BkhHBbrgcE814xqteHBe+3S6yaqBuojg2nit5qokIq/Oh4st4K
+	 0Zo1pgmWAdyJyDo3LrkPiIJ1Hoa5SReadsJNS1tY46AOE/6Ht7oUcsvGf0K8Z63Spn
+	 pUDDWTN70G/mA==
+Date: Thu, 21 Dec 2023 12:38:15 +0000
+From: Conor Dooley <conor@kernel.org>
+To: soc@kernel.org
+Cc: conor@kernel.org, arnd@arndb.de, linux-riscv@lists.infradead.org,
+	soc@kernel.org
+Subject: [GIT PULL] RISC-V SoC drivers for v6.8
+Message-ID: <20231221-droop-unblock-81e4fe14acee@spud>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231221_042859_298095_64C57E65 
-X-CRM114-Status: GOOD (  17.51  )
+X-CRM114-CacheID: sfid-20231221_043821_435282_CCDA65A9 
+X-CRM114-Status: GOOD (  16.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,48 +64,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============3926939276512534332=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-TGludXMgV2FsbGVpaiB3cm90ZToKPiBPbiBTYXQsIERlYyAxNiwgMjAyMyBhdCAyOjU34oCvUE0g
-RW1pbCBSZW5uZXIgQmVydGhpbmcKPiA8ZW1pbC5yZW5uZXIuYmVydGhpbmdAY2Fub25pY2FsLmNv
-bT4gd3JvdGU6Cj4KPiA+ID4gPiArICAgICAgICAgIHRoZWFkLHN0cm9uZy1wdWxsLXVwOgo+ID4g
-PiA+ICsgICAgICAgICAgICBvbmVPZjoKPiA+ID4gPiArICAgICAgICAgICAgICAtIHR5cGU6IGJv
-b2xlYW4KPiA+ID4gPiArICAgICAgICAgICAgICAtICRyZWY6IC9zY2hlbWFzL3R5cGVzLnlhbWwj
-L2RlZmluaXRpb25zL3VpbnQzMgo+ID4gPiA+ICsgICAgICAgICAgICAgICAgZW51bTogWyAwLCAy
-MTAwIF0KPiA+ID4gPiArICAgICAgICAgICAgZGVzY3JpcHRpb246IEVuYWJsZSBvciBkaXNhYmxl
-IHN0cm9uZyAyLjFrT2htIHB1bGwtdXAuCj4gPiA+Cj4gPiA+IGJpYXMtcHVsbC11cCBjYW4gYWxy
-ZWFkeSBzcGVjaWZ5IHRoZSBzdHJlbmd0aCBpbiBPaG1zLgo+ID4KPiA+IFRoZSBzdHJvbmcgcHVs
-bCB1cCBpcyBhIHNlcGFyYXRlIGJpdCB0aGF0IGNhbiBiZSBlbmFibGVkIGluZGVwZW5kZW50bHkg
-ZnJvbSB0aGUKPiA+IHJlZ3VsYXIgcHVsbC11cC9kb3duLCBzbyBpbiB0aGVvcnkgeW91IGNvdWxk
-IGVuYWJsZSBib3RoIHRoZSByZWd1bGFyIHB1bGwtdXAKPiA+IGFuZCB0aGUgc3Ryb25nIHB1bGwt
-dXAgYXQgdGhlIHNhbWUgdGltZSwgb3IgZXZlbiB0aGUgcmVndWxhciBwb2xsLWRvd24gYW5kIHRo
-ZQo+ID4gc3Ryb25nIHB1bGwtdXAgd2hpY2ggaXMgcHJvYmFibHkgbm90IGFkdmlzZWQuCj4KPiBi
-aWFzLXB1bGwtdXA7IDwtIEp1c3QgcmVndWxhciBwdWxsaW5nIHVwIHRoZSBvcmRpbmFyeQo+IGJp
-YXMtcHVsbC11cCA9IDwxMDA+OyA8LSBTYW1lIHRoaW5nIGlmIHRoZSBvcmRpbmFyeSBpcyAxMDAg
-T2htIChmaWd1cmUgb3V0IHdoYXQKPiAgIHJlc2lzdGFuY2UgaXQgYWN0dWFsbHkgaXMuLi4uKQo+
-IGJpYXMtcHVsbC11cCA9IDwyMTAwMDAwMD47IDwtIHN0cm9uZyBwdWxsIHVwCj4gYmlhcy1wdWxs
-LXVwID0gPDIxMDAwMTAwPjsgPC0gYm90aCBhdCB0aGUgc2FtZSB0aW1lCgpIbW0uLiB0aGUgdHdv
-IHB1bGwtdXBzIGNvbWJpbmVkIHdvdWxkIGJlIGEgc3Ryb25nZXIgcHVsbC11cCwgZWcuIGxvd2Vy
-CnJlc2lzdGFuY2UsIHJpZ2h0PyBTbyB5b3UnZCBuZWVkIHRvIGNhbGN1bGF0ZSBpdCB1c2luZwpo
-dHRwczovL2VuLndpa2lwZWRpYS5vcmcvd2lraS9TZXJpZXNfYW5kX3BhcmFsbGVsX2NpcmN1aXRz
-I1Jlc2lzdGFuY2VfdW5pdHNfMgoKVGhlIHByb2JsZW0gaXMgdGhhdCB0aGUgZG9jdW1lbnRhdGlv
-biBkb2Vzbid0IGFjdHVhbGx5IG1lbnRpb24gd2hhdCB3aWxsIGhhcHBlbgppZiB5b3UgY29tYmlu
-ZSB0aGUgc3Ryb25nIHB1bGwtdXAgd2l0aCB0aGUgcmVndWxhciBiaWFzLiBNeSBiZXN0IGd1ZXNz
-IGZvciB3aGF0CmhhcHBlbnMgaWYgeW91IGVuYWJsZSB0aGUgc3Ryb25nIHB1bGwtdXAgYW5kIHRo
-ZSByZWd1bGFyIHB1bGwtZG93biBpcyB0aGF0IHlvdQpjcmVhdGUgYSBzb3J0IG9mIHZvbHRhZ2Ug
-ZGl2aWRlci4gQnV0IGhvdyBkbyB5b3UgcmVwcmVzZW50IHRoYXQgYXMgYW4gT2htIHZhbHVlPwoK
-V2Ugd291bGQga2luZCBvZiBoYXZlIHRvLCBvdGhlcndpc2UgdGhlIHBpbmNvbmZfZ2V0IGNhbGxi
-YWNrcyBoYXZlIHN0YXRlcyB0aGF0Cml0IGNhbid0IHJlcHJlc2VudC4KCj4gPiBTbyB0aGUgaWRl
-YSBoZXJlIHdhcyBqdXN0IHRvIG1ha2Ugc3VyZSB0aGF0IHlvdSBjYW4gZG8gZWcuCj4gPgo+ID4g
-ICAgICAgICB0aGVhZCxzdHJvbmctcHVsbC11cCA9IDwwPjsKPiA+Cj4gPiB0byBtYWtlIHN1cmUg
-dGhlIGJpdCBpcyBjbGVhcmVkLgo+Cj4gTm8gdXNlIGJpYXMtZGlzYWJsZTsgZm9yIHRoaXMuCj4K
-PiBZb3VycywKPiBMaW51cyBXYWxsZWlqCj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
-dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
-bmZvL2xpbnV4LXJpc2N2Cg==
+
+--===============3926939276512534332==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="BIkMRZ8AmKuplyuY"
+Content-Disposition: inline
+
+
+--BIkMRZ8AmKuplyuY
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+Hey Arnd,
+
+The FPGA preprogramming driver that we discussed a while back (was it
+at LPC?) is in this PR. It's in the soc-drivers branch because there's
+a bunch of pre-req patches to the existing soc driver that it relies on.
+I'll put stuff for drivers/firmware into a separate branch in the future.
+
+Cheers,
+Conor.
+
+The following changes since commit b85ea95d086471afb4ad062012a4d73cd328fa86:
+
+  Linux 6.7-rc1 (2023-11-12 16:19:07 -0800)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-soc-drivers-for-v6.8
+
+for you to fetch changes up to 0f2d06dd1910cc7f6591620a2070d44ca3f56551:
+
+  MAINTAINERS: add auto-update driver to mpfs entry (2023-12-07 16:43:29 +0000)
+
+----------------------------------------------------------------
+RISC-V SoC drivers for v6.8
+
+There's only one set of changes here, the addition of "Auto Update"
+support for PolarFire SoC. Auto Update is one of the ways that the FPGA
+bitstream can be updated, and the only one suitable for use from Linux
+as it does not immediately initiate a reboot when started.
+The driver was not accepted in the FPGA manager subsystem as the update
+only occurs after a reboot and makes no use of the FPGA manager
+framework.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+----------------------------------------------------------------
+Conor Dooley (6):
+      dt-bindings: soc: microchip: add a property for system controller flash
+      soc: microchip: mpfs: enable access to the system controller's flash
+      soc: microchip: mpfs: print service status in warning message
+      soc: microchip: mpfs: add auto-update subdev to system controller
+      firmware: microchip: add PolarFire SoC Auto Update support
+      MAINTAINERS: add auto-update driver to mpfs entry
+
+Kory Maincent (1):
+      firmware_loader: Expand Firmware upload error codes with firmware invalid error
+
+Rob Herring (1):
+      firmware: microchip: Replace of_device.h with explicit include
+
+ .../microchip/microchip,mpfs-sys-controller.yaml   |  10 +
+ MAINTAINERS                                        |   1 +
+ drivers/base/firmware_loader/sysfs_upload.c        |   1 +
+ drivers/firmware/Kconfig                           |   1 +
+ drivers/firmware/Makefile                          |   1 +
+ drivers/firmware/microchip/Kconfig                 |  12 +
+ drivers/firmware/microchip/Makefile                |   3 +
+ drivers/firmware/microchip/mpfs-auto-update.c      | 494 +++++++++++++++++++++
+ drivers/soc/microchip/Kconfig                      |   1 +
+ drivers/soc/microchip/mpfs-sys-controller.c        |  33 +-
+ include/linux/firmware.h                           |   2 +
+ include/soc/microchip/mpfs.h                       |   2 +
+ lib/test_firmware.c                                |   1 +
+ 13 files changed, 559 insertions(+), 3 deletions(-)
+ create mode 100644 drivers/firmware/microchip/Kconfig
+ create mode 100644 drivers/firmware/microchip/Makefile
+ create mode 100644 drivers/firmware/microchip/mpfs-auto-update.c
+
+--BIkMRZ8AmKuplyuY
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZYQxtwAKCRB4tDGHoIJi
+0hKhAP0YZXiDzA2aruMFCZY5ccEnrqXzUc0tTvlPw1nStC3CagD/QL2laxvZ2eu/
+F2a3Gu65arDWa+4Krhai4N/ddj905Ac=
+=Lir3
+-----END PGP SIGNATURE-----
+
+--BIkMRZ8AmKuplyuY--
+
+
+--===============3926939276512534332==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3926939276512534332==--
+
