@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0225C35274
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Dec 2023 08:37:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44F4CC46CD4
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Dec 2023 08:37:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=NIYJ3pqKtRp5rdmjKLzMyRMbIzdAeYejbnemjKNK9gU=; b=h2BUJlEiWSZag5
-	FzyYSCBQKDJZxYxdVnFd6/LWTLHgjAbLGHqPD/rM4Rc21Et6o8j6Dep4hQWAuBLWqjQYRdZZCy31a
-	RzVlxaPIcu1LoNg3Z/3AFGqhuHsCbKDnTMs+GYuwnTwvs9JL2LcQkYckGUp3wIrlwVg1BzDq38M+R
-	IQCbaVPi7XoqgO2TY9kQTdGismTp2+fdxPeW8lnhi4MQqTWbLIVrNaz5OgC31xeZ7qwAHRnopZaiP
-	nAmsz5Pm6BYZX5SAhN9CzUUaaAPSbnKRYTzYPwkPWs7G0eT7/Swyj8wArdc+JCUN/voEP3WcuQEX+
-	NQyYcrpBLl+y8m1EyEAQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=lymFoa44PsCcb+aBzBVdc1Rss6kXbX6dSyCvhXjq1HI=; b=denX/W/eq+hSb2
+	ageJ8q5DRsYyg6R0KoO1Noh8/pmSn37rOR/HcBWlw1XF1WHi18n5PHYeFOvlu2E1y+yiqYl8Lqi2y
+	Zm48gng96BUSAXF7Xd5ZZyxj7pXABw6fu8MVo5whPOSLsGQilGWmBkBFnUJiLpSDkBz8xSfrsPWng
+	CWlPnoFEhRQDBtlyyDqRsNuHLXzn2X8fMCPcIDAJBbwl2636uU8WnDmXjGSmSx7Qqtj0snMqVJr6j
+	XWWGKhROpzoY59KiSJrYLeKmTlwXVIgrZFGJaMgEP8p9A6jcH+v44dy/EAjxkns3IKIyFSp1R9QJt
+	Q5Gj5jonxTyr2ba9PvIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGEYq-00233W-28;
-	Thu, 21 Dec 2023 08:37:44 +0000
+	id 1rGEYt-00234w-2F;
+	Thu, 21 Dec 2023 08:37:47 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGEYj-0022qP-31
+	id 1rGEYp-0022tj-2b
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Dec 2023 08:37:43 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	Thu, 21 Dec 2023 08:37:47 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 53DC07FFE;
-	Thu, 21 Dec 2023 16:36:32 +0800 (CST)
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 21 Dec
- 2023 16:36:32 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 625798068;
+	Thu, 21 Dec 2023 16:36:51 +0800 (CST)
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 21 Dec
+ 2023 16:36:51 +0800
 Received: from localhost.localdomain (202.188.176.82) by EXMBX066.cuchost.com
  (172.16.6.66) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 21 Dec
- 2023 16:36:25 +0800
+ 2023 16:36:44 +0800
 From: Alex Soo <yuklin.soo@starfivetech.com>
 To: Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
 	<bartosz.golaszewski@linaro.org>, Hal Feng <hal.feng@starfivetech.com>, "Ley
@@ -50,18 +50,20 @@ CC: <linux-gpio@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>, "Paul
  Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alex Soo <yuklin.soo@starfivetech.com>
-Subject: [RFC PATCH 0/6] Add Pinctrl driver for Starfive JH8100 SoC
-Date: Thu, 21 Dec 2023 16:36:16 +0800
-Message-ID: <20231221083622.3445726-1-yuklin.soo@starfivetech.com>
+Subject: [RFC PATCH 3/6] pinctrl: starfive: jh8100: add pinctrl driver for sys_west domain
+Date: Thu, 21 Dec 2023 16:36:19 +0800
+Message-ID: <20231221083622.3445726-4-yuklin.soo@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20231221083622.3445726-1-yuklin.soo@starfivetech.com>
+References: <20231221083622.3445726-1-yuklin.soo@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [202.188.176.82]
 X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX066.cuchost.com
  (172.16.6.66)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231221_003738_369855_74294252 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20231221_003744_302755_6DA4F61F 
+X-CRM114-Status: GOOD (  24.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,57 +80,337 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Starfive JH8100 SoC consists of 4 pinctrl domains - sys_east,
-sys_west, sys_gmac, and aon. This patch series adds pinctrl
-drivers for these 4 pinctrl domains and this patch series is
-depending on the JH8100 base patch series in [1] and [2].
-The relevant dt-binding documentation for each pinctrl domain has
-been updated accordingly.
+Add pinctrl driver for sys_west domain.
 
-[1] https://lore.kernel.org/lkml/20231201121410.95298-1-jeeheng.sia@starfivetech.com/
-[2] https://lore.kernel.org/lkml/20231206115000.295825-1-jeeheng.sia@starfivetech.com/
-
-Alex Soo (6):
-  dt-bindings: pinctrl: starfive: add JH8100 pinctrl bindings
-  pinctrl: starfive: jh8100: add pinctrl driver for sys_east domain
-  pinctrl: starfive: jh8100: add pinctrl driver for sys_west domain
-  pinctrl: starfive: jh8100: add pinctrl driver for sys_gmac domain
-  pinctrl: starfive: jh8100: add pinctrl driver for AON domain
-  riscv: dts: starfive: jh8100: add pinctrl device tree nodes
-
- .../pinctrl/starfive,jh8100-aon-pinctrl.yaml  |  183 +++
- .../starfive,jh8100-sys-east-pinctrl.yaml     |  188 +++
- .../starfive,jh8100-sys-gmac-pinctrl.yaml     |  124 ++
- .../starfive,jh8100-sys-west-pinctrl.yaml     |  188 +++
- MAINTAINERS                                   |    7 +
- arch/riscv/boot/dts/starfive/jh8100-evb.dts   |    5 +
- arch/riscv/boot/dts/starfive/jh8100-pinfunc.h |  418 +++++++
- arch/riscv/boot/dts/starfive/jh8100.dtsi      |   44 +
- drivers/pinctrl/starfive/Kconfig              |   57 +
- drivers/pinctrl/starfive/Makefile             |    6 +
- .../starfive/pinctrl-starfive-jh8100-aon.c    |  241 ++++
- .../pinctrl-starfive-jh8100-sys-east.c        |  326 +++++
- .../pinctrl-starfive-jh8100-sys-gmac.c        |  164 +++
- .../pinctrl-starfive-jh8100-sys-west.c        |  264 ++++
- .../starfive/pinctrl-starfive-jh8100.c        | 1090 +++++++++++++++++
- .../starfive/pinctrl-starfive-jh8100.h        |   85 ++
- .../pinctrl/starfive,jh8100-pinctrl.h         |  303 +++++
- 17 files changed, 3693 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh8100-aon-pinctrl.yaml
- create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh8100-sys-east-pinctrl.yaml
- create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh8100-sys-gmac-pinctrl.yaml
- create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh8100-sys-west-pinctrl.yaml
- create mode 100644 arch/riscv/boot/dts/starfive/jh8100-pinfunc.h
- create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh8100-aon.c
- create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh8100-sys-east.c
- create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh8100-sys-gmac.c
+Signed-off-by: Alex Soo <yuklin.soo@starfivetech.com>
+Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+---
+ drivers/pinctrl/starfive/Kconfig              |  12 +
+ drivers/pinctrl/starfive/Makefile             |   1 +
+ .../pinctrl-starfive-jh8100-sys-west.c        | 264 ++++++++++++++++++
+ .../starfive/pinctrl-starfive-jh8100.h        |   2 +
+ 4 files changed, 279 insertions(+)
  create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh8100-sys-west.c
- create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh8100.c
- create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jh8100.h
- create mode 100644 include/dt-bindings/pinctrl/starfive,jh8100-pinctrl.h
 
-
-base-commit: ddb42e41c0991b443dd6cc97213b478a7324d72b
+diff --git a/drivers/pinctrl/starfive/Kconfig b/drivers/pinctrl/starfive/Kconfig
+index afcbf9d4dc8d..d78f161a636c 100644
+--- a/drivers/pinctrl/starfive/Kconfig
++++ b/drivers/pinctrl/starfive/Kconfig
+@@ -70,3 +70,15 @@ config PINCTRL_STARFIVE_JH8100_SYS_EAST
+ 	  This also provides an interface to the GPIO pins not used by other
+ 	  peripherals supporting inputs, outputs, configuring pull-up/pull-down
+ 	  and interrupts on input changes.
++
++config PINCTRL_STARFIVE_JH8100_SYS_WEST
++	tristate "StarFive JH8100 SoC System IOMUX-West pinctrl and GPIO driver"
++	depends on ARCH_STARFIVE  || COMPILE_TEST
++	depends on OF
++	select PINCTRL_STARFIVE_JH8100
++	default ARCH_STARFIVE
++	help
++	  Say yes here to support system iomux-west pin control on the StarFive JH8100 SoC.
++	  This also provides an interface to the GPIO pins not used by other
++	  peripherals supporting inputs, outputs, configuring pull-up/pull-down
++	  and interrupts on input changes.
+diff --git a/drivers/pinctrl/starfive/Makefile b/drivers/pinctrl/starfive/Makefile
+index 45698c502b48..784465157ae2 100644
+--- a/drivers/pinctrl/starfive/Makefile
++++ b/drivers/pinctrl/starfive/Makefile
+@@ -8,3 +8,4 @@ obj-$(CONFIG_PINCTRL_STARFIVE_JH7110_AON)	+= pinctrl-starfive-jh7110-aon.o
+ 
+ obj-$(CONFIG_PINCTRL_STARFIVE_JH8100)		+= pinctrl-starfive-jh8100.o
+ obj-$(CONFIG_PINCTRL_STARFIVE_JH8100_SYS_EAST)	+= pinctrl-starfive-jh8100-sys-east.o
++obj-$(CONFIG_PINCTRL_STARFIVE_JH8100_SYS_WEST)	+= pinctrl-starfive-jh8100-sys-west.o
+diff --git a/drivers/pinctrl/starfive/pinctrl-starfive-jh8100-sys-west.c b/drivers/pinctrl/starfive/pinctrl-starfive-jh8100-sys-west.c
+new file mode 100644
+index 000000000000..398821fc1f78
+--- /dev/null
++++ b/drivers/pinctrl/starfive/pinctrl-starfive-jh8100-sys-west.c
+@@ -0,0 +1,264 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Pinctrl / GPIO driver for StarFive JH8100 SoC sys west controller
++ *
++ * Copyright (C) 2023 StarFive Technology Co., Ltd.
++ * Author: Alex Soo <yuklin.soo@starfivetech.com>
++ *
++ */
++
++#include <linux/bits.h>
++#include <linux/gpio/driver.h>
++#include <linux/io.h>
++#include <linux/mod_devicetable.h>
++#include <linux/module.h>
++#include <linux/mutex.h>
++#include <linux/of.h>
++#include <linux/of_device.h>
++#include <linux/platform_device.h>
++#include <linux/reset.h>
++#include <linux/spinlock.h>
++
++#include <linux/pinctrl/pinctrl.h>
++#include <linux/pinctrl/pinmux.h>
++
++#include <dt-bindings/pinctrl/starfive,jh8100-pinctrl.h>
++
++#include "../core.h"
++#include "../pinctrl-utils.h"
++#include "../pinmux.h"
++#include "../pinconf.h"
++#include "pinctrl-starfive-jh8100.h"
++
++#define JH8100_SYS_W_NGPIO			16
++#define JH8100_SYS_W_GC_BASE			0
++
++/* registers */
++#define JH8100_SYS_W_DOEN			0x000
++#define JH8100_SYS_W_DOUT			0x010
++#define JH8100_SYS_W_GPI			0x020
++#define JH8100_SYS_W_GPIOIN			0x068
++
++#define JH8100_SYS_W_GPIOEN			0x048
++#define JH8100_SYS_W_GPIOIS0			0x04c
++#define JH8100_SYS_W_GPIOIC0			0x050
++#define JH8100_SYS_W_GPIOIBE0			0x054
++#define JH8100_SYS_W_GPIOIEV0			0x058
++#define JH8100_SYS_W_GPIOIE0			0x05c
++#define JH8100_SYS_W_GPIORIS0			0x060
++#define JH8100_SYS_W_GPIOMIS0			0x064
++
++#define JH8100_SYS_W_GPO_PDA_00_15_CFG		0x074
++
++static const struct pinctrl_pin_desc jh8100_sys_w_pins[] = {
++	PINCTRL_PIN(PAD_GPIO0_W,	"SYS_W_GPIO0"),
++	PINCTRL_PIN(PAD_GPIO1_W,	"SYS_W_GPIO1"),
++	PINCTRL_PIN(PAD_GPIO2_W,	"SYS_W_GPIO2"),
++	PINCTRL_PIN(PAD_GPIO3_W,	"SYS_W_GPIO3"),
++	PINCTRL_PIN(PAD_GPIO4_W,	"SYS_W_GPIO4"),
++	PINCTRL_PIN(PAD_GPIO5_W,	"SYS_W_GPIO5"),
++	PINCTRL_PIN(PAD_GPIO6_W,	"SYS_W_GPIO6"),
++	PINCTRL_PIN(PAD_GPIO7_W,	"SYS_W_GPIO7"),
++	PINCTRL_PIN(PAD_GPIO8_W,	"SYS_W_GPIO8"),
++	PINCTRL_PIN(PAD_GPIO9_W,	"SYS_W_GPIO9"),
++	PINCTRL_PIN(PAD_GPIO10_W,	"SYS_W_GPIO10"),
++	PINCTRL_PIN(PAD_GPIO11_W,	"SYS_W_GPIO11"),
++	PINCTRL_PIN(PAD_GPIO12_W,	"SYS_W_GPIO12"),
++	PINCTRL_PIN(PAD_GPIO13_W,	"SYS_W_GPIO13"),
++	PINCTRL_PIN(PAD_GPIO14_W,	"SYS_W_GPIO14"),
++	PINCTRL_PIN(PAD_GPIO15_W,	"SYS_W_GPIO15"),
++};
++
++struct jh8100_sys_w_func_sel {
++	u16 offset;
++	u8 shift;
++	u8 max;
++};
++
++static const struct jh8100_sys_w_func_sel
++	jh8100_sys_w_func_sel[ARRAY_SIZE(jh8100_sys_w_pins)] = {
++	[PAD_GPIO0_W]    = { 0xb4,  0, 2 },
++	[PAD_GPIO1_W]    = { 0xb4, 12, 2 },
++	[PAD_GPIO2_W]    = { 0xb4, 14, 2 },
++	[PAD_GPIO3_W]    = { 0xb4, 16, 2 },
++	[PAD_GPIO4_W]    = { 0xb4, 18, 2 },
++	[PAD_GPIO5_W]    = { 0xb4, 20, 2 },
++	[PAD_GPIO6_W]    = { 0xb4, 22, 2 },
++	[PAD_GPIO7_W]    = { 0xb4, 24, 2 },
++	[PAD_GPIO8_W]    = { 0xb4, 26, 2 },
++	[PAD_GPIO9_W]    = { 0xb4, 28, 2 },
++	[PAD_GPIO10_W]   = { 0xb4,  2, 2 },
++	[PAD_GPIO11_W]   = { 0xb4,  4, 2 },
++	[PAD_GPIO12_W]   = { 0xb4,  6, 2 },
++	[PAD_GPIO13_W]   = { 0xb4,  8, 2 },
++	[PAD_GPIO14_W]   = { 0xb4, 10, 2 },
++};
++
++static void jh8100_sys_w_set_function(struct jh8100_pinctrl *sfp,
++				      unsigned int pin, u32 func)
++{
++	const struct jh8100_sys_w_func_sel *fs = &jh8100_sys_w_func_sel[pin];
++	unsigned long flags;
++	void __iomem *reg;
++	u32 mask;
++
++	if (!fs->offset)
++		return;
++
++	if (func > fs->max)
++		return;
++
++	reg = sfp->base + fs->offset;
++	func = func << fs->shift;
++	mask = 0x3U << fs->shift;
++
++	raw_spin_lock_irqsave(&sfp->lock, flags);
++	func |= readl_relaxed(reg) & ~mask;
++	writel_relaxed(func, reg);
++	raw_spin_unlock_irqrestore(&sfp->lock, flags);
++}
++
++static int jh8100_sys_w_set_one_pin_mux(struct jh8100_pinctrl *sfp,
++					unsigned int pin,
++					unsigned int din, u32 dout,
++					u32 doen, u32 func)
++{
++	if (pin < sfp->gc.ngpio - 1 && func == 0)
++		jh8100_set_gpiomux(sfp, pin, din, dout, doen);
++
++	if (pin < sfp->gc.ngpio - 1 && func == 2)
++		jh8100_sys_w_set_function(sfp, pin, func);
++
++	return 0;
++}
++
++static int jh8100_sys_w_get_padcfg_base(struct jh8100_pinctrl *sfp,
++					unsigned int pin)
++{
++	if (pin <= PAD_GPIO15_W)
++		return JH8100_SYS_W_GPO_PDA_00_15_CFG;
++	else
++		return -1;
++}
++
++static void jh8100_sys_w_irq_handler(struct irq_desc *desc)
++{
++	struct jh8100_pinctrl *sfp = jh8100_from_irq_desc(desc);
++	struct irq_chip *chip = irq_desc_get_chip(desc);
++	unsigned long mis;
++	unsigned int pin;
++
++	chained_irq_enter(chip, desc);
++
++	mis = readl_relaxed(sfp->base + JH8100_SYS_W_GPIOMIS0);
++	for_each_set_bit(pin, &mis, 16)
++		generic_handle_domain_irq(sfp->gc.irq.domain, pin);
++
++	chained_irq_exit(chip, desc);
++}
++
++static int jh8100_sys_w_init_hw(struct gpio_chip *gc)
++{
++	struct jh8100_pinctrl *sfp = container_of(gc,
++			struct jh8100_pinctrl, gc);
++
++	/* mask all GPIO interrupts */
++	writel(0U, sfp->base + JH8100_SYS_W_GPIOIE0);
++	/* clear edge interrupt flags */
++	writel(0U, sfp->base + JH8100_SYS_W_GPIOIC0);
++	writel(~0U, sfp->base + JH8100_SYS_W_GPIOIC0);
++	/* enable GPIO interrupts */
++	writel(1U, sfp->base + JH8100_SYS_W_GPIOEN);
++
++	return 0;
++}
++
++#ifdef CONFIG_PM_SLEEP
++static int jh8100_sys_w_pinctrl_suspend(struct device *dev)
++{
++	struct jh8100_pinctrl *sfp;
++	int i;
++
++	sfp = dev_get_drvdata(dev);
++	if (!sfp)
++		return -EINVAL;
++
++	for (i = 0; i < JH8100_SYS_WEST_REG_NUM; i++)
++		sfp->jh8100_sys_west_regs[i] = readl_relaxed(sfp->base + (i * 4));
++
++	return pinctrl_force_sleep(sfp->pctl);
++}
++
++static int jh8100_sys_w_pinctrl_resume(struct device *dev)
++{
++	struct jh8100_pinctrl *sfp;
++	int i;
++
++	sfp = dev_get_drvdata(dev);
++	if (!sfp)
++		return -EINVAL;
++
++	for (i = 0; i < JH8100_SYS_WEST_REG_NUM; i++)
++		writel_relaxed(sfp->jh8100_sys_west_regs[i], sfp->base + (i * 4));
++
++	return pinctrl_force_default(sfp->pctl);
++}
++#endif
++
++static SIMPLE_DEV_PM_OPS(jh8100_sys_w_pinctrl_dev_pm_ops,
++			 jh8100_sys_w_pinctrl_suspend,
++			 jh8100_sys_w_pinctrl_resume);
++
++static const struct jh8100_gpio_irq_reg jh8100_sys_w_irq_reg = {
++	.is_reg_base	= JH8100_SYS_W_GPIOIS0,
++	.ic_reg_base	= JH8100_SYS_W_GPIOIC0,
++	.ibe_reg_base	= JH8100_SYS_W_GPIOIBE0,
++	.iev_reg_base	= JH8100_SYS_W_GPIOIEV0,
++	.ie_reg_base	= JH8100_SYS_W_GPIOIE0,
++	.ris_reg_base	= JH8100_SYS_W_GPIORIS0,
++	.mis_reg_base	= JH8100_SYS_W_GPIOMIS0,
++};
++
++static const struct jh8100_pinctrl_soc_info jh8100_sys_w_pinctrl_info = {
++	.pins				= jh8100_sys_w_pins,
++	.npins				= ARRAY_SIZE(jh8100_sys_w_pins),
++	.ngpios				= JH8100_SYS_W_NGPIO,
++	.gc_base			= JH8100_SYS_W_GC_BASE,
++	.dout_reg_base			= JH8100_SYS_W_DOUT,
++	.dout_mask			= GENMASK(5, 0),
++	.doen_reg_base			= JH8100_SYS_W_DOEN,
++	.doen_mask			= GENMASK(4, 0),
++	.gpi_reg_base			= JH8100_SYS_W_GPI,
++	.gpi_mask			= GENMASK(4, 0),
++	.gpioin_reg_base		= JH8100_SYS_W_GPIOIN,
++	.irq_reg			= &jh8100_sys_w_irq_reg,
++	.jh8100_set_one_pin_mux		= jh8100_sys_w_set_one_pin_mux,
++	.jh8100_get_padcfg_base		= jh8100_sys_w_get_padcfg_base,
++	.jh8100_gpio_irq_handler	= jh8100_sys_w_irq_handler,
++	.jh8100_gpio_init_hw		= jh8100_sys_w_init_hw,
++};
++
++static const struct of_device_id jh8100_sys_w_pinctrl_of_match[] = {
++	{
++		.compatible = "starfive,jh8100-sys-pinctrl-west",
++		.data = &jh8100_sys_w_pinctrl_info,
++	},
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, jh8100_sys_w_pinctrl_of_match);
++
++static struct platform_driver jh8100_sys_w_pinctrl_driver = {
++	.probe = jh8100_pinctrl_probe,
++	.driver = {
++		.name = "starfive-jh8100-sys-pinctrl-west",
++#ifdef CONFIG_PM_SLEEP
++		.pm = &jh8100_sys_w_pinctrl_dev_pm_ops,
++#endif
++		.of_match_table = jh8100_sys_w_pinctrl_of_match,
++	},
++};
++module_platform_driver(jh8100_sys_w_pinctrl_driver);
++
++MODULE_DESCRIPTION("Pinctrl driver for the StarFive JH8100 SoC sys west controller");
++MODULE_AUTHOR("Alex Soo <yuklin.soo@starfivetech.com>");
++MODULE_LICENSE("GPL v2");
+diff --git a/drivers/pinctrl/starfive/pinctrl-starfive-jh8100.h b/drivers/pinctrl/starfive/pinctrl-starfive-jh8100.h
+index d84b88c0568d..6264931ddb82 100644
+--- a/drivers/pinctrl/starfive/pinctrl-starfive-jh8100.h
++++ b/drivers/pinctrl/starfive/pinctrl-starfive-jh8100.h
+@@ -13,6 +13,7 @@
+ #include <linux/pinctrl/pinconf-generic.h>
+ #include <linux/pinctrl/pinmux.h>
+ 
++#define JH8100_SYS_WEST_REG_NUM		44
+ #define JH8100_SYS_EAST_REG_NUM		116
+ 
+ struct jh8100_pinctrl {
+@@ -25,6 +26,7 @@ struct jh8100_pinctrl {
+ 	/* register read/write mutex */
+ 	struct mutex mutex;
+ 	const struct jh8100_pinctrl_soc_info *info;
++	unsigned int jh8100_sys_west_regs[JH8100_SYS_WEST_REG_NUM];
+ 	unsigned int jh8100_sys_east_regs[JH8100_SYS_EAST_REG_NUM];
+ 	/* wakeup */
+ 	int wakeup_gpio;
 -- 
 2.25.1
 
