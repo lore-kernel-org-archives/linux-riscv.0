@@ -4,127 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE421C35274
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Dec 2023 08:55:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CBF1C35274
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Dec 2023 09:25:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lPSdip535T960/0Q1LxU3rTBb3fI+ni8WWr5donpZu4=; b=1VsgJ7BgIXPRhm
-	L+roY2oTASUXMEpjT1IR6LpZDhEswjEORTFcPnNJHl4hDtjH0gYn4rh7ssUwIdg6EBbc7cB8BHzHs
-	bQ7oxxXRKUvk02BuLaP+X8b8NEiXOQMlBz8CoptCrtocC0aOkO2HFrSblFv9xoQNHcDZTI4H+MY5e
-	X4Ie7B048WFhe899Qwn9s+5/HcP6S8JpaLHDM7WRZclJKI97AxbjpMIRR3V6fFOoYH4grTYwupAAb
-	xwrSQqFS0Uu4aSvSkRBWpbF1dW9pBsVG7lzFOycKpLhi0gd4hCM60+XRUFbH6C7fUULQgiHnSJLFL
-	IpHOw1OCUsnP6RykJh4w==;
+	List-Owner; bh=UPDY+apA0xV6yjz6zEhVXGhwleUfMwMMl8YH4qQbW5U=; b=Y40ZIpe44PPlOc
+	S7c0tw7hAT/lFdwVSNuLKBjTD1wzC1F7Pso4ilc+Wkh32rukyUyeRlPX0tRuV0WSVy/8OwyXRtxCW
+	G+wzBGC4BQ9HQaqZAW2YrGMLYpgyLVgKqsrpy1K//jSWm8+A4UvkJTUjL6cgWP/rVVu0uGlYlLU+8
+	XLfbVLZb6eTVEUyauJWxirjgmhEhEuswO6gu69tKVysQwWJkXSJWPCYYV9k5eDMMOmqviBS2mDb1y
+	iJQfaDznl8JzFvmd5fP8G8UdcPYWZUHFyYKC8c3nf4Adtq6g5azgOzt/O2cx5x9yO7Q/Xv6EroryH
+	Z77ARhBMojToZquDsOjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGEpz-0026Vs-1W;
-	Thu, 21 Dec 2023 08:55:27 +0000
-Received: from mail-bn1nam02acsn2080a.outbound.protection.outlook.com ([2a01:111:f400:7eb2::80a] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
+	id 1rGFIr-002GEZ-22;
+	Thu, 21 Dec 2023 09:25:17 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGEpv-0026Tn-1z
-	for linux-riscv@lists.infradead.org;
-	Thu, 21 Dec 2023 08:55:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=cWFFy6VxfEbCCIToYsTXXEa2iRNaoEeHwElFT+oIe+MSlUhG7VZuZ0kPjR2j4/ayS33ax5tIYX82TZnZcYXw1jyAjHjq+pclNQSaEJnhso8LjSR50EcTM6q4Nm6TAcXgFSey1Q1K21gRVh+4DtJtPK1XRSrvuYidC5DqWbNmeG+L4lDc4tNM4tKHWL/1nrqMt/nf383FQ+P/jc61+fJLvYaXhE4eQxpe9wMSYmGoi2XcG6M9lZYfSvP0/6eqdLnuSEjSh4Q0VXsRYNWT1nt7Nxf4GpeRlok9qOiI+8WftIbf93wN+MB76MPdLZAgaemPDOa8UZkejPpUu2giUwd0ug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=y/wCGLDpudizRP0pmTdvtKiO6q2fWPrHcORFpd9K7bI=;
- b=BynPpyPOoqsXFj6zMErwsMIEBc7Ouel1LaOfjCtVHGUE2mCdKJdL1yRB1k1zFQjHwEPtbdTHfi7Ls0jvL/NcNnZRDfRX7jBQQ5h1YCwU+Kkyw79s8MvbvAeZRXjhFAWgjmUqjhCxsRD2rdlBYkVNnbcXV/bKrsqnEfVY7Lp4f0R8nYAW5yUkm4gO6TpI9+zCSyB9V5NGXxnVNd6YeJcQtjwKFOToOEOwera7WITKxN/omXFIEeLTXa2C6AlTSQv8vap8El9K3Wx9b4iG6kh4M5NB97GBBemSP6JYFDSXDozEBLfuE3G9HxDEyeF/K4gWsxcUtslTxlLIOOzBlH14ng==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=y/wCGLDpudizRP0pmTdvtKiO6q2fWPrHcORFpd9K7bI=;
- b=YdywSpZfYjjfLkphE/KzfE6ImuIv0+tpkxzwkbaMRyB+ldK/ZzO8dxRGHEKi8eNi1BJ9dLmLBvwU3w4TsuoA1G+quT4eFuNPE9Z3neK4T280KbPfvx8c1XGuJ05R+EgushAMxEmYWO5ivlQaVY0BSqbjLZO+Qp4elBjWjuzNaLwuo9m/QK0yHy+2vpXU4Rol1ASTZy2Hv1VB41JvXQEXGD2Dyu1hr11pVI9qKR/TKYAsb8vlwTn4NcrjkbEFQcwj+C7zSjPqmlOIkdkWsUIci8939Qz47BRXAusb3+tpHC29YqRR1hxVr3IZPswcl+kvz5KChyy1Kwt69nOlpQZ5Jw==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by DM4PR20MB6767.namprd20.prod.outlook.com (2603:10b6:8:bf::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7113.20; Thu, 21 Dec
- 2023 08:55:18 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::406a:664b:b8bc:1e6b]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::406a:664b:b8bc:1e6b%2]) with mapi id 15.20.7113.016; Thu, 21 Dec 2023
- 08:55:18 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Stephen Boyd <sboyd@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	id 1rGFIj-002G9m-01;
+	Thu, 21 Dec 2023 09:25:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id E2C68B81F61;
+	Thu, 21 Dec 2023 09:25:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CC26C433C7;
+	Thu, 21 Dec 2023 09:25:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1703150706;
+	bh=AYGf91U8T/JqQeT9S7bNrsfYGOsBnl13+m+5Z2NMRpE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=e+a1SPK9XQk98t/2P89QLYkpRHBpJS7KY21oexMqyE4ufnNnH1jA60n99byaXUQrG
+	 Whze4kMbMPwcMYcyZxxZthpvZeB86k4WI2aoo5qTNeHpb0hiPYhTvStJ316yvjfq6j
+	 dtlS3klVPy7VJSds3XBKmkSvuP/7RE7bHXFEPyxIYjUUoiWjQ+MzJJ2PQGgJxFGnDy
+	 JglUtTKXGsfwyIxsYSBqcJHYZBf1neH1h3xIwVrp65z5zJTs3+eRYQTEdLTc+zL4H0
+	 Oh8HDT/FEIfnZbhUeAp76Mhb5ygZSOHs3myvlqSoNxw9Mv3cIVXXSMpG/TFhnfbsqA
+	 MM/3QxvCERuTg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1rGFIc-005wSL-VG;
+	Thu, 21 Dec 2023 09:25:03 +0000
+Date: Thu, 21 Dec 2023 09:25:02 +0000
+Message-ID: <86plyzaowh.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Haibo Xu <xiaobo55x@gmail.com>
+Cc: Haibo Xu <haibo1.xu@intel.com>,
+	ajones@ventanamicro.com,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Rob Herring <robh+dt@kernel.org>
-Cc: Jisheng Zhang <jszhang@kernel.org>,
-	Liu Gui <kenneth.liu@sophgo.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Jingbao Qiu <qiujingbao.dlmu@gmail.com>,
-	dlan@gentoo.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Guo Ren <guoren@kernel.org>,
+	Mayuresh Chitale <mchitale@ventanamicro.com>,
+	Greentime Hu <greentime.hu@sifive.com>,
+	wchen <waylingii@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Minda Chen <minda.chen@starfivetech.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Sean Christopherson <seanjc@google.com>,
+	Peter Xu <peterx@redhat.com>,
+	Like Xu <likexu@tencent.com>,
+	Vipin Sharma <vipinsh@google.com>,
+	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
+	Aaron Lewis <aaronlewis@google.com>,
+	Thomas Huth <thuth@redhat.com>,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 2/4] clk: sophgo: Add CV1800 series clock controller driver
-Date: Thu, 21 Dec 2023 16:55:12 +0800
-Message-ID: <IA1PR20MB495337B02574B23063B9A854BB95A@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <f33fed32babade4e0ae8ec7e3f840bcc.sboyd@kernel.org>
-References: <f33fed32babade4e0ae8ec7e3f840bcc.sboyd@kernel.org>
-X-TMN: [5JmoGvbRUuv4yP7ezeO5abJvE0WzUDCCP3AnRU51jZM=]
-X-ClientProxiedBy: TYAPR01CA0061.jpnprd01.prod.outlook.com
- (2603:1096:404:2b::25) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20231221085512.658450-1-inochiama@outlook.com>
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|DM4PR20MB6767:EE_
-X-MS-Office365-Filtering-Correlation-Id: db3c50ae-2eaa-4bc4-4432-08dc02028e2c
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: H/ShO74haxiCZTnB/sOTjb2oqyc3kyKY1DQUVG61IMPB7wAMsV/UZ8A/f9AVeSyMpiLprRI628gLWJwKj8UMzbMsemXXznEDbXnMz1e/OVZ1HJYJMGeqe1ZNEXXR3R7lgS6BoMagRu41aX568IU5VhXtc2aat7wFtf+E7WGiXT2gHNIaVG/dUrzy/XpT4Otvg6X6fMR17spq29Ai5JNVCbT5xDeCnec5I+duUurBeTX2nQYoWv1w1QUe5YjGU6aKE0AqVeJsBgnT7D10w9QnFJWm/NWzHnwNqGCoSL7NUgz2PBXpvPBvpVgdKxbeqJ0ec2KlQ0qxBO4omsp6JBdETv4zpycMtJrU+ZL9IhaFST5RuY4Y9Hi2X9yKEwALsPO+5wI6fVtQsFyWpy74U3iSP8dODiSDt1E/vAXifHm+NPS3jPZqmqWCybvQK8iXkw62CcnKRyY7T4DDfsDTXCgixwd/F9znG8ur5SmxA4SMXzff+dyFCZAPjOdcf3XWA/5Eki5ZFmqThCq2ngdjJXBVoqVfEj0CWWIMXndfwhAvNKP+attB9QV8Cc87plcQNU67DbYLgmFmH7BAvYQGDTeutFkaWa8U8L2arsATNGiardg94NcROoOpLyUYrm4VW9eA
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bDSOMJQi7b2DOiHOBZHALAosn5wsQ9dVhYMBvjJnGvu9cASVelpmI8CcnTK9?=
- =?us-ascii?Q?Kc4NaoxxIrX7zipruM6bXAj7XQrzTegaLBKOsB05O0v8uTczCkTLq1YPNwgb?=
- =?us-ascii?Q?6VYkiUY2mQVwLCcOCPksCxtmiK/bRy095mwWF8f3R0pK35tSzk5ZipM3Xz+H?=
- =?us-ascii?Q?wYjHM0fqYtMtb/KbjhYbHMrDGeMtspE2qZ1sj4pOP6Es0XEAaexEuhXLtXGY?=
- =?us-ascii?Q?kWEHPdZAyX/JGv/YdeecAVbfjqYreGsfSkDwyoMt+Gy/QiPTfUzqLtVqiQpP?=
- =?us-ascii?Q?RfK4kW2MgRmoDC94M1aJ9CMZwNiPs4Hh58u3Ysqa9yKuJ8g7XArsI/bjCKJu?=
- =?us-ascii?Q?5WcNjKM8IpdmdGT+x8lfJ5uqUR50DlGUqCzSEeWw+sh00RBL3S5UUShf9g/W?=
- =?us-ascii?Q?3ucDcCqkkGFbGEgk+Ep9Br6WvKA3RYEJMx8AhjwmTgnebZ2shtZtDt8Vzs1n?=
- =?us-ascii?Q?qYvjB6KdJEVVj2FIDhzYjZkApPX6wtK0/0WJLioSKkT0wUk5LhFRNxf8IcUR?=
- =?us-ascii?Q?K1M1VDCn8znyNUDJTHVvtNXAw1LPTnCl8swhx4aseEgizeP1acBZ5SdlRtZp?=
- =?us-ascii?Q?6ObVgchNbHlYWsA+czLNgN+MPN24I8/CEW7KPf35fDVdr6NJ+yCU8e50Jo5M?=
- =?us-ascii?Q?OVdm6ekaxLTK3hjamO80TJjTz0KbhW+dJN8HwoctWDeYPO/bc4lUbGK6s+xO?=
- =?us-ascii?Q?Z4R/VcgY8pI6453kl/3QXqJoCHMkSdXwZSkRuWsefUhxYkjtE+vQw8Fl34U7?=
- =?us-ascii?Q?PI3eaKPxD1vc49l7MsAoMxJ4fs25agcVK6LyGwZdabro80bnd+9gPu4htwAH?=
- =?us-ascii?Q?U9YET/FK2/zTlYXCEl+LNMW7dLWac8xn+fxjuOU7jWuftQ6S78k3pXJIGpw7?=
- =?us-ascii?Q?pY6Zxw1eBVnKxCozCjHPp5EkwhDMoMIAC+cYaohvF0xTvimuNZgXu3I16g+l?=
- =?us-ascii?Q?WzzifZi/BS0cg59oJu2lvN8/osc+HJNa5Y/Yt5tmAiL+VcvjPVh7vTbuC5lu?=
- =?us-ascii?Q?xfYmtF0QZ50fVxHBqDiOjqt1rS5othGbcZgiM8RWHQOoVp6IkkTanyj5RTIL?=
- =?us-ascii?Q?TWVhmQ2+OHDdZPAWK86jSiQPn56csqnCFPaRQM0fwg8JgQzUjsU8ZLqm/hLF?=
- =?us-ascii?Q?GenRfYJi8ApHly+B75MXAhL/2nsGWAFYh4wiKr8pDaM1lkSLNyeGJBFZYsV2?=
- =?us-ascii?Q?66M634WVtvEetKcLwBRi5myIAwAWxxwTPOgNmkYQBuvKN/Jddbn5UoM/iJc?=
- =?us-ascii?Q?=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: db3c50ae-2eaa-4bc4-4432-08dc02028e2c
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Dec 2023 08:55:18.4706
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR20MB6767
+	linux-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 11/11] KVM: selftests: Enable tunning of err_margin_us in arch timer test
+In-Reply-To: <CAJve8o=nTsAwwgSib4vOLXjOWSMV2+J+BFsUZ57OdAK7eW8q8A@mail.gmail.com>
+References: <cover.1702371136.git.haibo1.xu@intel.com>
+	<0343a9e4bfa8011fbb6bca0286cee7eab1f17d5d.1702371136.git.haibo1.xu@intel.com>
+	<8734vy832j.wl-maz@kernel.org>
+	<CAJve8onc0WN5g98aOVBmJx15wFBAqfBKJ+ufoLY+oqYyVL+=3A@mail.gmail.com>
+	<f98879dc24f948f7a8a7b5374a32bc04@kernel.org>
+	<CAJve8ona7g=LxW1YeRB_FqGodF973H=A3b2m8054gmzK=Z7_ww@mail.gmail.com>
+	<87zfy5t1qt.wl-maz@kernel.org>
+	<CAJve8o=nTsAwwgSib4vOLXjOWSMV2+J+BFsUZ57OdAK7eW8q8A@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: xiaobo55x@gmail.com, haibo1.xu@intel.com, ajones@ventanamicro.com, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, pbonzini@redhat.com, shuah@kernel.org, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, anup@brainfault.org, atishp@atishpatra.org, guoren@kernel.org, mchitale@ventanamicro.com, greentime.hu@sifive.com, waylingii@gmail.com, conor.dooley@microchip.com, heiko@sntech.de, minda.chen@starfivetech.com, samuel@sholland.org, jszhang@kernel.org, seanjc@google.com, peterx@redhat.com, likexu@tencent.com, vipinsh@google.com, maciej.wieczor-retman@intel.com, aaronlewis@google.com, thuth@redhat.com, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231221_005523_736893_DCA10E37 
-X-CRM114-Status: GOOD (  19.78  )
+X-CRM114-CacheID: sfid-20231221_012509_358181_38FB5F4A 
+X-CRM114-Status: GOOD (  32.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,753 +119,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Stephen,
->Quoting Inochi Amaoto (2023-12-17 20:04:04)
->> diff --git a/drivers/clk/sophgo/clk-cv1800.c b/drivers/clk/sophgo/clk-cv1800.c
->> new file mode 100644
->> index 000000000000..e51ffbd35ef2
->> --- /dev/null
->> +++ b/drivers/clk/sophgo/clk-cv1800.c
->> @@ -0,0 +1,1565 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
->> + */
->> +
->> +#include <linux/module.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/io.h>
->
->Need to include linux/clk-provider.h
->
->> +
->> +#include "clk-cv1800.h"
->> +
->> +#include "clk-cv18xx-common.h"
->> +#include "clk-cv18xx-ip.h"
->> +#include "clk-cv18xx-pll.h"
->> +
->> +struct cv1800_clk_ctrl;
->> +
->> +struct cv1800_clk_desc {
->> +       struct clk_hw_onecell_data      *clks_data;
->> +
->> +       int (*pre_init)(struct device *dev, void __iomem *base,
->> +                       struct cv1800_clk_ctrl *ctrl,
->> +                       const struct cv1800_clk_desc *desc);
->> +};
->> +
->> +struct cv1800_clk_ctrl {
->> +       const struct cv1800_clk_desc    *desc;
->> +       spinlock_t                      lock;
->> +};
->> +
->> +#define CV1800_DIV_FLAG        \
->> +       (CLK_DIVIDER_ONE_BASED | CLK_DIVIDER_ROUND_CLOSEST)
->> +static const struct clk_parent_data osc_parents[] = {
->> +       { .index = 0 },
->> +};
->[...]
->> +// UART
->> +static CV1800_GATE(clk_uart0, clk_uart_parents,
->> +                  REG_CLK_EN_1, 14,
->> +                  CLK_IS_CRITICAL);
->> +static CV1800_GATE(clk_apb_uart0, clk_axi4_bus_parents,
->> +                  REG_CLK_EN_1, 15,
->> +                  CLK_IS_CRITICAL);
->> +static CV1800_GATE(clk_uart1, clk_uart_parents,
->> +                  REG_CLK_EN_1, 16,
->> +                  CLK_IS_CRITICAL);
->> +static CV1800_GATE(clk_apb_uart1, clk_axi4_bus_parents,
->> +                  REG_CLK_EN_1, 17,
->> +                  CLK_IS_CRITICAL);
->
->It seems that everything is critical? Why?
-
-I only got this configuration from the vendor sdk. It told me it is
-critical.
-
->I suspect you want clk_ignore_unused to be the default?
-
-If it can be, I will. I will test these clocks and see there is
-any clock is not critical and can be clk_ignore_unused.
-
->
->> +static CV1800_GATE(clk_uart2, clk_uart_parents,
->> +                  REG_CLK_EN_1, 18,
->> +                  CLK_IS_CRITICAL);
->> +static CV1800_GATE(clk_apb_uart2, clk_axi4_bus_parents,
->> +                  REG_CLK_EN_1, 19,
->> +                  CLK_IS_CRITICAL);
->> +static CV1800_GATE(clk_uart3, clk_uart_parents,
->> +                  REG_CLK_EN_1, 20,
->> +                  CLK_IS_CRITICAL);
->> +static CV1800_GATE(clk_apb_uart3, clk_axi4_bus_parents,
->> +                  REG_CLK_EN_1, 21,
->> +                  CLK_IS_CRITICAL);
->> +static CV1800_GATE(clk_uart4, clk_uart_parents,
->> +                  REG_CLK_EN_1, 22,
->> +                  CLK_IS_CRITICAL);
->[...]
->> +
->> +static CV1800_MMUX(clk_a53, clk_a53_parents,
->> +                  REG_CLK_EN_0, 0,
->> +                  REG_DIV_CLK_A53_0, 16, 4, 1, CV1800_DIV_FLAG,
->> +                  REG_DIV_CLK_A53_1, 16, 4, 2, CV1800_DIV_FLAG,
->> +                  REG_DIV_CLK_A53_0, 8, 2,
->> +                  REG_DIV_CLK_A53_1, 8, 2,
->> +                  REG_CLK_BYP_0, 0,
->> +                  REG_CLK_SEL_0, 0,
->> +                  clk_a53_parent2sel,
->> +                  clk_a53_sel2parent[0], clk_a53_sel2parent[1],
->> +                  CLK_IS_CRITICAL | CLK_GET_RATE_NOCACHE);
->
->Please add a comment why it is critical. I guess this is clocking the
->CPU?
->
-
-Yes, this is for the A53 cpu of the SoC. But only SG200X series
-enables it. For CV180X and CV181X, this clock is useless but can
-not be disabled. If disabled, the SoC will hang (I think this may
-be a bug). As a workaround, I set them as the bypass mode in the
-pre_init callback, see cv18xx_clk_disable_a53.
-
->> +
->[...]
->> +}
->> +
->> +static int cv1800_pre_init(struct device *dev, void __iomem *base,
->> +                          struct cv1800_clk_ctrl *ctrl,
->> +                          const struct cv1800_clk_desc *desc)
->> +{
->> +       u32 val = readl(base + REG_CLK_EN_2);
->> +
->> +       // disable unsupported clk_disp_src_vip
->
->/* No C++ style comments please */
->
->> +       val &= ~BIT(7);
->> +
->> +       writel(val, base + REG_CLK_EN_2);
->> +
->> +       cv18xx_clk_disable_a53(base);
->> +       cv18xx_clk_disable_auto_pd(base);
->> +
->[...]
->> +                                    desc->clks_data);
->> +       if (ret)
->> +               goto fail_hw_provider;
->> +
->> +       return 0;
->> +
->> +fail_hw_provider:
->> +       of_clk_del_provider(node);
->> +fail_hw:
->> +       while (--i >= 0) {
->> +               struct clk_hw *hw = desc->clks_data->hws[i];
->> +
->> +               if (!hw)
->> +                       continue;
->> +               clk_hw_unregister(hw);
->
->Use devm_clk_hw_register?
->
->> +       }
->> +       return ret;
->> +}
->> +
->> +static int cv1800_clk_probe(struct platform_device *pdev)
->> +{
->> +       struct device *dev = &pdev->dev;
->> +       void __iomem *reg;
->> +       int ret;
->> +       const struct cv1800_clk_desc *desc;
->> +       struct cv1800_clk_ctrl *ctrl;
->> +
->> +       reg = devm_platform_ioremap_resource(pdev, 0);
->> +       if (IS_ERR(reg))
->> +               return PTR_ERR(reg);
->> +
->> +       desc = of_device_get_match_data(dev);
->
->Use device_get_match_data()
->
->> +       if (!desc) {
->> +               pr_err("no match data for platform\n");
->> +               return -EINVAL;
->> +       }
->> +
->> +       ctrl = devres_alloc(devm_cv1800_clk_ctrl_release,
->
->Preferably you use devm clk registration and provider registration
->instead of making your own wrapper.
->
->> +                           sizeof(*ctrl), GFP_KERNEL);
->> +       if (!ctrl)
->> +               return -ENOMEM;
->> +
->> +       if (desc->pre_init) {
->> +               ret = desc->pre_init(dev, reg, ctrl, desc);
->> +               if (ret)
->> +                       goto failed;
->> +       }
->> diff --git a/drivers/clk/sophgo/clk-cv18xx-common.c b/drivers/clk/sophgo/clk-cv18xx-common.c
->> new file mode 100644
->> index 000000000000..2ff4c20bb5ba
->> --- /dev/null
->> +++ b/drivers/clk/sophgo/clk-cv18xx-common.c
->> @@ -0,0 +1,75 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
->> + */
->> +
->> +#include <linux/io.h>
->> +#include <linux/iopoll.h>
->
->spinlock include?
->include for WARN_ON? Please have explicit includes for what you use.
->
->> +
->> +#include "clk-cv18xx-common.h"
->> +
->> +int cv1800_clk_setbit(struct cv1800_clk_common *common,
->> +                     struct cv1800_clk_regbit *field)
->> +{
->> +       u32 mask = BIT(field->shift);
->> +       u32 value;
->> +       unsigned long flags;
->> +
->> +       spin_lock_irqsave(common->lock, flags);
->> +
->> +       value = readl(common->base + field->reg);
->> +       writel(value | mask, common->base + field->reg);
->> +
->> +       spin_unlock_irqrestore(common->lock, flags);
->> +
->> +       return 0;
->> +}
->> +
->> +int cv1800_clk_clearbit(struct cv1800_clk_common *common,
->> +                       struct cv1800_clk_regbit *field)
->> +{
->> +       u32 mask = BIT(field->shift);
->> +       u32 value;
->> +       unsigned long flags;
->> +
->> +       spin_lock_irqsave(common->lock, flags);
->> +
->> +       value = readl(common->base + field->reg);
->> +       writel(value & ~mask, common->base + field->reg);
->> +
->> +       spin_unlock_irqrestore(common->lock, flags);
->> +
->> +       return 0;
->> +}
->> +
->> +int cv1800_clk_checkbit(struct cv1800_clk_common *common,
->> +                       struct cv1800_clk_regbit *field)
->> +{
->> +       return readl(common->base + field->reg) & BIT(field->shift);
->> +}
->> +
->> +#define PLL_LOCK_TIMEOUT_US    (200 * 1000)
->> +
->> +void cv1800_clk_wait_for_lock(struct cv1800_clk_common *common,
->> +                             u32 reg, u32 lock)
->> +{
->> +       void __iomem *addr = common->base + reg;
->> +       u32 regval;
->> +
->> +       if (!lock)
->> +               return;
->> +
->> +       WARN_ON(readl_relaxed_poll_timeout(addr, regval, regval & lock,
->> +                                          100, PLL_LOCK_TIMEOUT_US));
->> +}
->> +
->> +bool cv1800_clk_is_better_rate(struct cv1800_clk_common *common,
->> +                              unsigned long target, unsigned long now,
->> +                              unsigned long best)
->> +{
->> +       if (common->features & CLK_DIVIDER_ROUND_CLOSEST)
->> +               return abs(target - now) < abs(target - best);
->
->Use abs_diff()
->
->> +
->> +       return now <= target && now > best;
->> +}
->> +
->> diff --git a/drivers/clk/sophgo/clk-cv18xx-ip.c b/drivers/clk/sophgo/clk-cv18xx-ip.c
->> new file mode 100644
->> index 000000000000..148ce0ee2a96
->> --- /dev/null
->> +++ b/drivers/clk/sophgo/clk-cv18xx-ip.c
->> @@ -0,0 +1,893 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
->> + */
->> +
->> +#include <linux/io.h>
->> +#include <linux/gcd.h>
->
->Need to include clk-provider.h
->
->> +
->> +#include "clk-cv18xx-ip.h"
->> +
->> +/* GATE */
->> +static inline struct cv1800_clk_gate *hw_to_cv1800_clk_gate(struct clk_hw *hw)
->> +{
->> +       struct cv1800_clk_common *common = hw_to_cv1800_clk_common(hw);
->> +
->> +       return container_of(common, struct cv1800_clk_gate, common);
->> +}
->> +
->> +static int gate_enable(struct clk_hw *hw)
->> +{
->> +       struct cv1800_clk_gate *gate = hw_to_cv1800_clk_gate(hw);
->> +
->> +       return cv1800_clk_setbit(&gate->common, &gate->gate);
->> +}
->> +
->> +static void gate_disable(struct clk_hw *hw)
->> +{
->> +       struct cv1800_clk_gate *gate = hw_to_cv1800_clk_gate(hw);
->> +
->> +       cv1800_clk_clearbit(&gate->common, &gate->gate);
->> +}
->> +
->> +static int gate_is_enabled(struct clk_hw *hw)
->> +{
->> +       struct cv1800_clk_gate *gate = hw_to_cv1800_clk_gate(hw);
->> +
->> +       return cv1800_clk_checkbit(&gate->common, &gate->gate);
->> +}
->> +
->> +static unsigned long gate_recalc_rate(struct clk_hw *hw,
->> +                                     unsigned long parent_rate)
->> +{
->> +       return parent_rate;
->> +}
->> +
->> +static long gate_round_rate(struct clk_hw *hw, unsigned long rate,
->> +                           unsigned long *parent_rate)
->> +{
->> +       return *parent_rate;
->> +}
->> +
->> +static int gate_set_rate(struct clk_hw *hw, unsigned long rate,
->> +                        unsigned long parent_rate)
->> +{
->> +       return 0;
->> +}
->> +
->> +const struct clk_ops cv1800_clk_gate_ops = {
->> +       .disable = gate_disable,
->> +       .enable = gate_enable,
->> +       .is_enabled = gate_is_enabled,
->> +
->> +       .recalc_rate = gate_recalc_rate,
->> +       .round_rate = gate_round_rate,
->> +       .set_rate = gate_set_rate,
->> +};
->> +
->> +/* DIV */
->> +#define _DIV_EN_CLK_DIV_FACTOR_FIELD           BIT(3)
->> +
->> +#define DIV_GET_EN_CLK_DIV_FACTOR(_reg) \
->> +       FIELD_GET(_DIV_EN_CLK_DIV_FACTOR_FIELD, _reg)
->> +
->> +#define DIV_SET_EN_DIV_FACTOR(_reg) \
->> +       _CV1800_SET_FIELD(_reg, 1, _DIV_EN_CLK_DIV_FACTOR_FIELD)
->> +
->> +static inline struct cv1800_clk_div *hw_to_cv1800_clk_div(struct clk_hw *hw)
->> +{
->> +       struct cv1800_clk_common *common = hw_to_cv1800_clk_common(hw);
->> +
->> +       return container_of(common, struct cv1800_clk_div, common);
->> +}
->> +
->> +static int div_enable(struct clk_hw *hw)
->> +{
->> +       struct cv1800_clk_div *div = hw_to_cv1800_clk_div(hw);
->> +
->> +       return cv1800_clk_setbit(&div->common, &div->gate);
->> +}
->> +
->> +static void div_disable(struct clk_hw *hw)
->> +{
->> +       struct cv1800_clk_div *div = hw_to_cv1800_clk_div(hw);
->> +
->> +       cv1800_clk_clearbit(&div->common, &div->gate);
->> +}
->> +
->> +static int div_is_enabled(struct clk_hw *hw)
->> +{
->> +       struct cv1800_clk_div *div = hw_to_cv1800_clk_div(hw);
->> +
->> +       return cv1800_clk_checkbit(&div->common, &div->gate);
->> +}
->> +
->> +static int div_helper_set_rate(struct cv1800_clk_common *common,
->> +                              struct cv1800_clk_regfield *div,
->> +                              unsigned long val)
->> +{
->> +       unsigned long flags;
->> +       u32 reg;
->> +
->> +       if (div->width == 0)
->> +               return 0;
->> +
->> +       spin_lock_irqsave(common->lock, flags);
->> +
->> +       reg = readl(common->base + div->reg);
->> +       reg = cv1800_clk_regfield_set(reg, val, div);
->> +       if (div->initval > 0)
->> +               reg = DIV_SET_EN_DIV_FACTOR(reg);
->> +
->> +       writel(reg, common->base + div->reg);
->> +
->> +       spin_unlock_irqrestore(common->lock, flags);
->> +
->> +       return 0;
->> +}
->> +
->> +static u32 div_helper_get_clockdiv(struct cv1800_clk_common *common,
->> +                                  struct cv1800_clk_regfield *div)
->> +{
->> +       u32 clockdiv = 1;
->> +       u32 reg;
->> +
->> +       if (!div || div->initval < 0 || (div->width == 0 && div->initval <= 0))
->> +               return 1;
->> +
->> +       if (div->width == 0 && div->initval > 0)
->> +               return div->initval;
->> +
->> +       reg = readl(common->base + div->reg);
->> +
->> +       if (div->initval == 0 || DIV_GET_EN_CLK_DIV_FACTOR(reg))
->> +               clockdiv = cv1800_clk_regfield_get(reg, div);
->> +       else if (div->initval > 0)
->> +               clockdiv = div->initval;
->> +
->> +       return clockdiv;
->> +}
->> +
->> +static u32 div_helper_round_rate(struct cv1800_clk_regfield *div,
->> +                                struct clk_hw *hw, struct clk_hw *parent,
->> +                                unsigned long rate, unsigned long *prate)
->> +{
->> +       if (div->width == 0) {
->> +               if (div->initval <= 0)
->> +                       return DIV_ROUND_UP_ULL(*prate, 1);
->> +               else
->> +                       return DIV_ROUND_UP_ULL(*prate, div->initval);
->> +       }
->> +
->> +       return divider_round_rate_parent(hw, parent, rate, prate, NULL,
->> +                                        div->width, div->flags);
->> +}
->> +
->> +static long div_round_rate(struct clk_hw *parent, unsigned long *parent_rate,
->> +                          unsigned long rate, int id, void *data)
->> +{
->> +       struct cv1800_clk_div *div = data;
->> +
->> +       return div_helper_round_rate(&div->div, &div->common.hw, parent,
->> +                                    rate, parent_rate);
->> +}
->> +
->> +static int div_helper_determine_rate(struct cv1800_clk_common *common,
->> +                                    struct clk_rate_request *req,
->> +                                    long (*round)(struct clk_hw *,
->> +                                                  unsigned long *,
->> +                                                  unsigned long,
->> +                                                  int,
->> +                                                  void *),
->> +                                    void *data)
->> +{
->> +       unsigned long best_parent_rate = 0, best_rate = 0;
->> +       struct clk_hw *best_parent, *hw = &common->hw;
->> +       unsigned int i;
->> +
->> +       if (clk_hw_get_flags(hw) & CLK_SET_RATE_NO_REPARENT) {
->> +               unsigned long adj_parent_rate;
->> +
->> +               best_parent = clk_hw_get_parent(hw);
->> +               best_parent_rate = clk_hw_get_rate(best_parent);
->> +
->> +               best_rate = round(best_parent, &adj_parent_rate,
->> +                                 req->rate, -1, data);
->> +
->> +               goto find;
->> +       }
->> +
->> +       for (i = 0; i < clk_hw_get_num_parents(hw); i++) {
->> +               unsigned long tmp_rate, parent_rate;
->> +               struct clk_hw *parent;
->> +
->> +               parent = clk_hw_get_parent_by_index(hw, i);
->> +               if (!parent)
->> +                       continue;
->> +
->> +               parent_rate = clk_hw_get_rate(parent);
->> +
->> +               tmp_rate = round(parent, &parent_rate, req->rate, i, data);
->> +
->> +               if (tmp_rate == req->rate) {
->> +                       best_parent = parent;
->> +                       best_parent_rate = parent_rate;
->> +                       best_rate = tmp_rate;
->> +                       goto find;
->> +               }
->> +
->> +               if (cv1800_clk_is_better_rate(common, req->rate,
->> +                                          tmp_rate, best_rate)) {
->> +                       best_parent = parent;
->> +                       best_parent_rate = parent_rate;
->> +                       best_rate = tmp_rate;
->> +               }
->> +       }
->> +
->> +       if (best_rate == 0)
->> +               return -EINVAL;
->> +
->> +find:
->> +       req->best_parent_hw = best_parent;
->> +       req->best_parent_rate = best_parent_rate;
->> +       req->rate = best_rate;
->> +       return 0;
->> +}
->> +
->> +static int div_determine_rate(struct clk_hw *hw,
->> +                             struct clk_rate_request *req)
->> +{
->> +       struct cv1800_clk_div *div = hw_to_cv1800_clk_div(hw);
->> +
->> +       return div_helper_determine_rate(&div->common, req,
->> +                                        div_round_rate, div);
->> +}
->
->It's unfortunate that all this code needs to be written vs. using the
->divider helpers. Why can't those be used?
->
-
-The div of CV180X have a special meaning, value 0 means 0 Hz freqency.
-and some div are fixed.
-Maybe the name of div_helper_determine_rate is misleading. In fact, it
-handles the mux function. and the callback `round` use divider helpers.
-I will change the name to mux_helper_determine_rate. This may have
-more accuracy meaning.
-
->> +
->> +static unsigned long div_recalc_rate(struct clk_hw *hw,
->> +                                    unsigned long parent_rate)
->> +{
->> +       struct cv1800_clk_div *div = hw_to_cv1800_clk_div(hw);
->> +       unsigned long val;
->> +
->> +       val = div_helper_get_clockdiv(&div->common, &div->div);
->> +       if (val == 0)
->> +               return 0;
->> +
->> +       return divider_recalc_rate(hw, parent_rate, val, NULL,
->> +                                  div->div.flags, div->div.width);
->> +}
->> +
->> +static int div_set_rate(struct clk_hw *hw, unsigned long rate,
->[..]
->> +}
->> +
->> +static int aclk_is_enabled(struct clk_hw *hw)
->> +{
->> +       struct cv1800_clk_audio *aclk = hw_to_cv1800_clk_audio(hw);
->> +
->> +       return cv1800_clk_checkbit(&aclk->common, &aclk->output_en);
->> +}
->> +
->> +static int aclk_determine_rate(struct clk_hw *hw,
->> +                              struct clk_rate_request *req)
->> +{
->> +       struct cv1800_clk_audio *aclk = hw_to_cv1800_clk_audio(hw);
->> +
->> +       req->rate = aclk->target_rate;
->> +
->> +       return 0;
->> +}
->> +
->> +static unsigned long aclk_recalc_rate(struct clk_hw *hw,
->> +                                     unsigned long parent_rate)
->> +{
->> +       struct cv1800_clk_audio *aclk = hw_to_cv1800_clk_audio(hw);
->> +       u64 rate = parent_rate;
->> +       u64 factor = 2;
->> +       u32 regval;
->> +
->> +       if (!cv1800_clk_checkbit(&aclk->common, &aclk->div_en))
->> +               return 0;
->> +
->> +       regval = readl(aclk->common.base + aclk->m.reg);
->> +       factor *= cv1800_clk_regfield_get(regval, &aclk->m);
->> +
->> +       regval = readl(aclk->common.base + aclk->n.reg);
->> +       rate *= cv1800_clk_regfield_get(regval, &aclk->n);
->> +
->> +       return DIV_ROUND_UP(rate, factor);
->
->DIV64_U64_ROUND_UP
->
->> +}
->> +
->> +static void aclk_determine_mn(unsigned long parent_rate, unsigned long rate,
->> +                             u32 *m, u32 *n)
->> +{
->> +       u32 tm = parent_rate / 2;
->> +       u32 tn = rate;
->> +       u32 tcommon = gcd(tm, tn);
->> +       *m = tm / tcommon;
->> +       *n = tn / tcommon;
->> +}
->> +
->> +
->> diff --git a/drivers/clk/sophgo/clk-cv18xx-pll.c b/drivers/clk/sophgo/clk-cv18xx-pll.c
->> new file mode 100644
->> index 000000000000..8bf936f1312d
->> --- /dev/null
->> +++ b/drivers/clk/sophgo/clk-cv18xx-pll.c
->> @@ -0,0 +1,464 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
->> + */
->> +
->> +#include <linux/io.h>
->> +#include <linux/limits.h>
->> +
->> +#include "clk-cv18xx-pll.h"
->> +
->> +#define _PLL_PRE_DIV_SEL_FIELD         GENMASK(6, 0)
->> +#define _PLL_POST_DIV_SEL_FIELD                GENMASK(14, 8)
->> +#define _PLL_SEL_MODE_FIELD            GENMASK(16, 15)
->> +#define _PLL_DIV_SEL_FIELD             GENMASK(23, 17)
->> +#define _PLL_ICTRL_FIELD               GENMASK(26, 24)
->> +
->> +#define _PLL_ALL_FIELD_MASK \
->> +       (_PLL_PRE_DIV_SEL_FIELD | \
->> +        _PLL_POST_DIV_SEL_FIELD | \
->> +        _PLL_SEL_MODE_FIELD | \
->> +        _PLL_DIV_SEL_FIELD | \
->> +        _PLL_ICTRL_FIELD)
->> +
->> +#define PLL_COPY_REG(_dest, _src) \
->> +       (((_dest) & (~_PLL_ALL_FIELD_MASK)) | ((_src) & _PLL_ALL_FIELD_MASK))
->> +
->> +#define PLL_GET_PRE_DIV_SEL(_reg) \
->> +       FIELD_GET(_PLL_PRE_DIV_SEL_FIELD, (_reg))
->> +#define PLL_GET_POST_DIV_SEL(_reg) \
->> +       FIELD_GET(_PLL_POST_DIV_SEL_FIELD, (_reg))
->> +#define PLL_GET_SEL_MODE(_reg) \
->> +       FIELD_GET(_PLL_SEL_MODE_FIELD, (_reg))
->> +#define PLL_GET_DIV_SEL(_reg) \
->> +       FIELD_GET(_PLL_DIV_SEL_FIELD, (_reg))
->> +#define PLL_GET_ICTRL(_reg) \
->> +       FIELD_GET(_PLL_ICTRL_FIELD, (_reg))
->> +
->> +#define PLL_SET_PRE_DIV_SEL(_reg, _val) \
->> +       _CV1800_SET_FIELD((_reg), (_val), _PLL_PRE_DIV_SEL_FIELD)
->> +#define PLL_SET_POST_DIV_SEL(_reg, _val) \
->> +       _CV1800_SET_FIELD((_reg), (_val), _PLL_POST_DIV_SEL_FIELD)
->> +#define PLL_SET_SEL_MODE(_reg, _val) \
->> +       _CV1800_SET_FIELD((_reg), (_val), _PLL_SEL_MODE_FIELD)
->> +#define PLL_SET_DIV_SEL(_reg, _val) \
->> +       _CV1800_SET_FIELD((_reg), (_val), _PLL_DIV_SEL_FIELD)
->> +#define PLL_SET_ICTRL(_reg, _val) \
->> +       _CV1800_SET_FIELD((_reg), (_val), _PLL_ICTRL_FIELD)
->> +
->> +#define for_each_pll_limit_range(_var, _restrict) \
->> +       for (_var = (_restrict)->min; _var <= (_restrict)->max; _var++)
->
->Can you put this macro near the struct that it's supposed to operate on?
->
->> +
->> +static inline struct cv1800_clk_pll *hw_to_cv1800_clk_pll(struct clk_hw *hw)
->> +{
->> +       struct cv1800_clk_common *common = hw_to_cv1800_clk_common(hw);
->> +
->> +       return container_of(common, struct cv1800_clk_pll, common);
->> +}
->> +
->> +static unsigned long ipll_calc_rate(unsigned long parent_rate,
->> +                                   unsigned long pre_div_sel,
->> +                                   unsigned long div_sel,
->> +                                   unsigned long post_div_sel)
->> +{
->> +       unsigned long rate = parent_rate;
->> +
->> +       rate *= div_sel;
->> +       do_div(rate, pre_div_sel * post_div_sel);
->> +
->> +       return rate;
->> +}
->> +
->> +static unsigned long ipll_recalc_rate(struct clk_hw *hw,
->> +                                     unsigned long parent_rate)
->> +{
->> +       struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
->> +       u32 value;
->> +
->> +       value = readl(pll->common.base + pll->pll_reg);
->> +
->> +       return ipll_calc_rate(parent_rate,
->> +                             PLL_GET_PRE_DIV_SEL(value),
->> +                             PLL_GET_DIV_SEL(value),
->[...]
->> +
->> +static bool fpll_is_factional_mode(struct cv1800_clk_pll *pll)
->> +{
->> +       return cv1800_clk_checkbit(&pll->common, &pll->pll_syn->en);
->> +}
->> +
->> +static unsigned long fpll_calc_rate(unsigned long parent_rate,
->> +                                   unsigned long pre_div_sel,
->> +                                   unsigned long div_sel,
->> +                                   unsigned long post_div_sel,
->> +                                   unsigned long ssc_syn_set,
->> +                                   bool is_full_parent)
->> +{
->> +       u64 dividend = parent_rate * div_sel;
->> +       u64 factor = ssc_syn_set * pre_div_sel * post_div_sel;
->> +       unsigned long rate;
->> +
->> +       dividend <<= PLL_SYN_FACTOR_DOT_POS - 1;
->> +       rate = dividend / factor;
->> +       dividend %= factor;
->> +
->> +       if (is_full_parent) {
->> +               dividend <<= 1;
->> +               rate <<= 1;
->> +       }
->> +
->> +       rate += DIV_ROUND_CLOSEST(dividend, factor);
->
->DIV64_U64_ROUND_CLOSEST
->
-
-Thanks for your comments on improving this. I will do these change.
-
-Regards,
-inochi
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCAyMSBEZWMgMjAyMyAwMjo1ODo0MCArMDAwMCwKSGFpYm8gWHUgPHhpYW9ibzU1eEBn
+bWFpbC5jb20+IHdyb3RlOgo+IAo+IE9uIFdlZCwgRGVjIDIwLCAyMDIzIGF0IDk6NTjigK9QTSBN
+YXJjIFp5bmdpZXIgPG1hekBrZXJuZWwub3JnPiB3cm90ZToKPiA+Cj4gPiBPbiBXZWQsIDIwIERl
+YyAyMDIzIDEzOjUxOjI0ICswMDAwLAo+ID4gSGFpYm8gWHUgPHhpYW9ibzU1eEBnbWFpbC5jb20+
+IHdyb3RlOgo+ID4gPgo+ID4gPiBPbiBXZWQsIERlYyAyMCwgMjAyMyBhdCA1OjAw4oCvUE0gTWFy
+YyBaeW5naWVyIDxtYXpAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPiA+ID4KPiA+ID4gPiBPbiAyMDIz
+LTEyLTIwIDA2OjUwLCBIYWlibyBYdSB3cm90ZToKPiA+ID4gPiA+IE9uIFdlZCwgRGVjIDIwLCAy
+MDIzIGF0IDI6MjLigK9BTSBNYXJjIFp5bmdpZXIgPG1hekBrZXJuZWwub3JnPiB3cm90ZToKPiA+
+ID4gPiA+Pgo+ID4gPiA+ID4+IE9uIFR1ZSwgMTIgRGVjIDIwMjMgMDk6MzE6MjAgKzAwMDAsCj4g
+PiA+ID4gPj4gSGFpYm8gWHUgPGhhaWJvMS54dUBpbnRlbC5jb20+IHdyb3RlOgo+ID4gPiA+ID4+
+ID4gZGlmZiAtLWdpdCBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9pbmNsdWRlL3RpbWVy
+X3Rlc3QuaCBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9pbmNsdWRlL3RpbWVyX3Rlc3Qu
+aAo+ID4gPiA+ID4+ID4gaW5kZXggOTY4MjU3Yjg5M2E3Li5iMWQ0MDVlNzE1N2QgMTAwNjQ0Cj4g
+PiA+ID4gPj4gPiAtLS0gYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9rdm0vaW5jbHVkZS90aW1l
+cl90ZXN0LmgKPiA+ID4gPiA+PiA+ICsrKyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9p
+bmNsdWRlL3RpbWVyX3Rlc3QuaAo+ID4gPiA+ID4+ID4gQEAgLTIyLDYgKzIyLDcgQEAgc3RydWN0
+IHRlc3RfYXJncyB7Cj4gPiA+ID4gPj4gPiAgICAgICBpbnQgbnJfaXRlcjsKPiA+ID4gPiA+PiA+
+ICAgICAgIGludCB0aW1lcl9wZXJpb2RfbXM7Cj4gPiA+ID4gPj4gPiAgICAgICBpbnQgbWlncmF0
+aW9uX2ZyZXFfbXM7Cj4gPiA+ID4gPj4gPiArICAgICBpbnQgdGltZXJfZXJyX21hcmdpbl91czsK
+PiA+ID4gPiA+Pgo+ID4gPiA+ID4+IC4uLiBleGNlcHQgdGhhdCB5b3UgYXJlIHN0b3JpbmcgaXQg
+YXMgYSBzaWduZWQgdmFsdWUuIFNvbWUgY29uc2lzdGVuY3kKPiA+ID4gPiA+PiB3b3VsZG4ndCBo
+dXJ0LCByZWFsbHksIGFuZCB3b3VsZCBhdm9pZCBpc3N1ZXMgd2hlbiBwYXNzaW5nIGxhcmdlCj4g
+PiA+ID4gPj4gdmFsdWVzLgo+ID4gPiA+ID4+Cj4gPiA+ID4gPgo+ID4gPiA+ID4gWWVzLCBpdCdz
+IG1vcmUgcHJvcGVyIHRvIHVzZSBhbiB1bnNpZ25lZCBpbnQgZm9yIHRoZSBub24tbmVnYXRpdmUg
+ZXJyb3IKPiA+ID4gPiA+IG1hcmdpbi4KPiA+ID4gPiA+IFN0b3JpbmcgYXMgc2lnbmVkIGhlcmUg
+aXMganVzdCB0byBrZWVwIHRoZSB0eXBlIGNvbnNpc3RlbnQgd2l0aCB0aGF0Cj4gPiA+ID4gPiBv
+ZiB0aW1lcl9wZXJpb2RfbXMKPiA+ID4gPiA+IHNpbmNlIHRoZXJlIHdpbGwgYmUgJysnIG9wZXJh
+dGlvbiBpbiBvdGhlciBwbGFjZXMuCj4gPiA+ID4gPgo+ID4gPiA+ID4gICAgICAgICB0b29scy90
+ZXN0aW5nL3NlbGZ0ZXN0cy9rdm0vYWFyY2g2NC9hcmNoX3RpbWVyLmMKPiA+ID4gPiA+ICAgICAg
+ICAgLyogU2V0dXAgYSB0aW1lb3V0IGZvciB0aGUgaW50ZXJydXB0IHRvIGFycml2ZSAqLwo+ID4g
+PiA+ID4gICAgICAgICAgdWRlbGF5KG1zZWNzX3RvX3VzZWNzKHRlc3RfYXJncy50aW1lcl9wZXJp
+b2RfbXMpICsKPiA+ID4gPiA+ICAgICAgICAgICAgICB0ZXN0X2FyZ3MudGltZXJfZXJyX21hcmdp
+bl91cyk7Cj4gPiA+ID4KPiA+ID4gPiBCdXQgdGhhdCdzIGV4YWN0bHkgd2h5IHVzaW5nIGEgc2ln
+bmVkIHF1YW50aXR5IGlzIHdyb25nLgo+ID4gPiA+IFdoYXQgZG9lcyBpdCBtZWFuIHRvIGhhdmUg
+YSBodWdlICpuZWdhdGl2ZSogbWFyZ2luPwo+ID4gPiA+Cj4gPiA+Cj4gPiA+IEhpIE1hcmMsCj4g
+PiA+Cj4gPiA+IEkgYWdyZWUgdGhhdCBuZWdhdGl2ZSB2YWx1ZXMgYXJlIG1lYW5pbmdsZXNzIGZv
+ciB0aGUgbWFyZ2luLgo+ID4gPiBJZiBJIHVuZGVyc3RhbmQgY29ycmVjdGx5LCB0aGUgbmVnYXRp
+dmUgbWFyZ2luIHNob3VsZCBiZSBmaWx0ZXJlZCBieQo+ID4gPiBhc3NlcnRpb24gaW4gYXRvaV9u
+b25fbmVnYXRpdmUoKS4KPiA+Cj4gPiBOby4gUGxlYXNlLgo+ID4KPiA+IGF0b2lfbm9uX25lZ2F0
+aXZlKCkgcmV0dXJucyBhIHVpbnQzMl90LCB3aGljaCBpcyB3aGF0IGl0IHNob3VsZCBkby4KPiA+
+IFRoZSBidWcgaXMgc3F1YXJlbHkgaW4gdGhlIHVzZSBvZiBhbiAnaW50JyB0byBzdG9yZSBzdWNo
+IHZhbHVlLCBhbmQgaXQKPiA+IGlzIHRoZSAqc3RvcmFnZSogdGhhdCB0dXJucyBhIHBvc2l0aXZl
+IHZhbHVlIGludG8gYSBuZWdhdGl2ZSBvbmUuCj4gPgo+IAo+IFRoYW5rcyBmb3IgdGhlIGRldGFp
+bGVkIGluZm8hCj4gCj4gTWF5IEkgdW5kZXJzdGFuZCB0aGF0IHlvdXIgY29uY2VybiBpcyBtYWlu
+bHkgZm9yIGEgcGxhdGZvcm0gd2l0aAo+IDY0Yml0IGludCB0eXBlLCB3aGljaCBtYXkgdHJpZ2dl
+ciB0aGUgcG9zaXRpdmUgdG8gbmVnYXRpdmUgY29udmVydD8KCk5vLiBJdCBzcGVjaWZpY2FsbHkg
+YXBwbGllcyB0byBhcmNoaXRlY3R1cmVzIHdpdGggYSAzMmJpdCBpbnQgdHlwZSwKd2hpY2ggaXMu
+Li4gKkVWRVJZVEhJTkcqLiBIZXJlJ3MgYSBiYXNpYyBleGFtcGxlOgoKPHF1b3RlPgojaW5jbHVk
+ZSA8c3RkaW8uaD4KCmludCBtYWluKGludCBhcmdjLCBjaGFyICphcmd2W10pCnsKCWludCB4ID0g
+MVUgPDwgMzE7CgoJcHJpbnRmKCIlZCAoJWQpXG4iLCB4LCBzaXplb2YoeCkpOwoJcmV0dXJuIDA7
+Cn0KPC9xdW90ZT4KCndoaWNoIHJldHVybnMgIi0yMTQ3NDgzNjQ4ICg0KSIgb24gYW55IHBsYXRm
+b3JtLgoKVGhpcyByZWFsbHkgaXMgYmFzaWMgQywgYW5kIEkgYW0gdmVyeSB3b3JyaWVkIHRoYXQg
+eW91IGRvbid0IHNlZSB0aGUKaXNzdWUuIEkgc3Ryb25nbHkgc3VnZ2VzdCB0aGF0IHlvdSBnbyBh
+bmQgcmVhZCBhYm91dCB0aGUgQyB0eXBlIHN5c3RlbQpiZWZvcmUgdG91Y2hpbmcgdGhpcyBjb2Rl
+LgoKCU0uCgotLSAKV2l0aG91dCBkZXZpYXRpb24gZnJvbSB0aGUgbm9ybSwgcHJvZ3Jlc3MgaXMg
+bm90IHBvc3NpYmxlLgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
