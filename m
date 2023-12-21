@@ -4,55 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFD83C35274
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Dec 2023 12:38:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83700C35274
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Dec 2023 12:50:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=cHdnJHaRRWWGw183Nef2qYVPtVTP+OUy5oKg9PgkBMI=; b=thd
-	APe8EyVR9Af0qPIATadRGXiJ3rU1PTJxzwhtC/e8ZHlSjO0ZcZtaDWNHVqfO5/ubQaVXkxK19qj1o
-	qdFmIg8WwAz6jVMDF4pgYiD8EgRhEQq0Gnbjm/HQm1RytlnYs50QE91FbTCtATD42bzGHHhH7lAoC
-	hkjRxbtQ9q31T+O8wdeT0mMMcY2jZmh19S/iBmAFWt/eRJooOIpJt8M2xgejftL0pT5bj4e1FpZJ3
-	MAYyDA2nX4olQIlpRjjDOZJKoK2dJfZ6+g4N6Zr+wDf2pBpc5URF5LXEcYkSdRN+CsoH8rd4fpoCX
-	FDr/medD9/GiRHzWWjrBjMYeSdl8Vfg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zvNLJ9cVcz/8aeFKogj1I+hRzkMosFRJM++wTmyOQOo=; b=Mz4ldUJxf62vyK
+	J2+delwjXZT7uOOIMMBXcvZxZ5/a+dzR1fctz7XGdGyOFKixz3eS3sAHH/y9UxSngzJa7yN5yKEZ2
+	Xyl4ZTT3br43uTpra7/GbXU5WnKaMY6+ZVvOQYccNpP2PIns7vF0ZBqPK4qYZxk2oDHmolAjNkER3
+	fy/TX29uxXarf7D/kM3Q8DPLJkJw6GUZFTHBFdpyNYDU62iQuVs8o+9zWtmovfAZcgs3TddUO/okn
+	FQhTBp1sZoALC884Wqfb4RbXQ5Q8Vn+MREnL47pkRY1NATU6QQf3Hsh37hGCmlswR/eIUMuCJgI9M
+	PXdkmAGZWRjTs33IjinA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGIJk-002ng6-04;
-	Thu, 21 Dec 2023 12:38:24 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGIJh-002nfc-0N
-	for linux-riscv@lists.infradead.org;
-	Thu, 21 Dec 2023 12:38:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 78BEAB81F75;
-	Thu, 21 Dec 2023 12:38:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9239C433C9;
-	Thu, 21 Dec 2023 12:38:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1703162298;
-	bh=KKQaeH2EmDJ7mFaL5Q6gJzAHWCpUvrzqaLBg34q+1wY=;
-	h=Date:From:List-Id:To:List-Id:Cc:Subject:From;
-	b=E7C8zH+zhk4HHPrdh0XrPs09Fo0xrLRwGbuRrX/1Lj8SXVwcj1Fd9sCXPrxkwZd/Q
-	 zfmW7gTodJGNazNRCsKR70oTvOzQUHZA5LEPiTkZbGSkgqbR2OAnIiSxdfE/YwoL+B
-	 truvPYxeBwmNCBBnhHjMu+GOKQUTiZNb5tjac+h3oqiHANV13BCa0ISM6bTAf/YUTU
-	 ksrJs0QT437ncf82BkhHBbrgcE814xqteHBe+3S6yaqBuojg2nit5qokIq/Oh4st4K
-	 0Zo1pgmWAdyJyDo3LrkPiIJ1Hoa5SReadsJNS1tY46AOE/6Ht7oUcsvGf0K8Z63Spn
-	 pUDDWTN70G/mA==
-Date: Thu, 21 Dec 2023 12:38:15 +0000
-From: Conor Dooley <conor@kernel.org>
-To: soc@kernel.org
-Cc: conor@kernel.org, arnd@arndb.de, linux-riscv@lists.infradead.org,
-	soc@kernel.org
-Subject: [GIT PULL] RISC-V SoC drivers for v6.8
-Message-ID: <20231221-droop-unblock-81e4fe14acee@spud>
+	id 1rGIV9-002pv1-2S;
+	Thu, 21 Dec 2023 12:50:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1rGIV5-002psb-1U;
+	Thu, 21 Dec 2023 12:50:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D90762F4;
+	Thu, 21 Dec 2023 04:50:46 -0800 (PST)
+Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7D29D3F738;
+	Thu, 21 Dec 2023 04:49:59 -0800 (PST)
+Date: Thu, 21 Dec 2023 12:49:57 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: Brandon Cheo Fusi <fusibrandon13@gmail.com>
+Cc: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Chen-Yu Tsai
+ <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
+ <samuel@sholland.org>, Yangtao Li <tiny.windzz@gmail.com>, "Rafael J .
+ Wysocki" <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>,
+ Stephen Rothwell <sfr@canb.auug.org.au>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org
+Subject: Re: [RFC PATCH v2 2/3] cpufreq: sun50i: Add support for D1's speed
+ bin decoding
+Message-ID: <20231221124957.27fa9922@donnerap.manchester.arm.com>
+In-Reply-To: <20231221101013.67204-3-fusibrandon13@gmail.com>
+References: <20231221101013.67204-1-fusibrandon13@gmail.com>
+	<20231221101013.67204-3-fusibrandon13@gmail.com>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231221_043821_435282_CCDA65A9 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20231221_045007_612905_FCA298E4 
+X-CRM114-Status: GOOD (  28.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,113 +69,133 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3926939276512534332=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, 21 Dec 2023 11:10:12 +0100
+Brandon Cheo Fusi <fusibrandon13@gmail.com> wrote:
 
---===============3926939276512534332==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="BIkMRZ8AmKuplyuY"
-Content-Disposition: inline
+Hi Brandon,
 
+thanks for the quick turnaround, and for splitting this code up, that
+makes reasoning about this much easier!
 
---BIkMRZ8AmKuplyuY
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+> Adds support for decoding the efuse value read from D1 efuse speed
+> bins, and factors out equivalent code for sun50i.
+> 
+> The algorithm is gotten from
+> 
+> https://github.com/Tina-Linux/linux-5.4/blob/master/drivers/cpufreq/sun50i-cpufreq-nvmem.c#L293-L338
+> 
+> and maps an efuse value to either 0 or 1, with 1 meaning stable at
+> a lower supply voltage for the same clock frequency.
+> 
+> Signed-off-by: Brandon Cheo Fusi <fusibrandon13@gmail.com>
+> ---
+>  drivers/cpufreq/sun50i-cpufreq-nvmem.c | 34 ++++++++++++++++++++++++++
+>  1 file changed, 34 insertions(+)
+> 
+> diff --git a/drivers/cpufreq/sun50i-cpufreq-nvmem.c b/drivers/cpufreq/sun50i-cpufreq-nvmem.c
+> index fc509fc49..b1cb95308 100644
+> --- a/drivers/cpufreq/sun50i-cpufreq-nvmem.c
+> +++ b/drivers/cpufreq/sun50i-cpufreq-nvmem.c
+> @@ -29,6 +29,33 @@ struct sunxi_cpufreq_data {
+>  	u32 (*efuse_xlate)(u32 *speedbin, size_t len);
+>  };
+>  
+> +static u32 sun20i_efuse_xlate(u32 *speedbin, size_t len)
 
-Hey Arnd,
+I feel like this prototype can be shortened to:
 
-The FPGA preprogramming driver that we discussed a while back (was it
-at LPC?) is in this PR. It's in the soc-drivers branch because there's
-a bunch of pre-req patches to the existing soc driver that it relies on.
-I'll put stuff for drivers/firmware into a separate branch in the future.
+static u32 sun20i_efuse_xlate(u32 speedbin)
+
+See below.
+
+> +{
+> +	u32 ret, efuse_value = 0;
+> +	int i;
+> +
+> +	for (i = 0; i < len; i++)
+> +		efuse_value |= ((u32)speedbin[i] << (i * 8));
+
+The cast is not needed. Looking deeper into the original code you linked
+to, cell_value[] there is an array of u8, so they assemble a little endian
+32-bit integer from *up to* four 8-bit values read from the nvmem.
+
+So I think this code here is wrong, len is the size of the nvmem cells
+holding the bin identifier, in *bytes*, so the idea here is to just read
+the (lowest) 16 bits (in the D1 case, cf. "reg = <0x00 0x2>;" in the next
+patch) from this nvmem cell. Here you are combining two 32-bit words into
+efuse_value.
+
+So I think this whole part above is actually not necessary: we are
+expecting maximum 32 bits, and nvmem_cell_read() should take care of
+masking off unrequested bits, so we get the correct value back already. So
+can you try to remove the loop above, and use ...
+
+> +
+> +	switch (efuse_value) {
+
+	switch (*speedbin & 0xffff) {
+
+here instead? Or drop the pointer at all, and just use one u32 value, see
+the above prototype.
 
 Cheers,
-Conor.
+Andre
 
-The following changes since commit b85ea95d086471afb4ad062012a4d73cd328fa86:
-
-  Linux 6.7-rc1 (2023-11-12 16:19:07 -0800)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-soc-drivers-for-v6.8
-
-for you to fetch changes up to 0f2d06dd1910cc7f6591620a2070d44ca3f56551:
-
-  MAINTAINERS: add auto-update driver to mpfs entry (2023-12-07 16:43:29 +0000)
-
-----------------------------------------------------------------
-RISC-V SoC drivers for v6.8
-
-There's only one set of changes here, the addition of "Auto Update"
-support for PolarFire SoC. Auto Update is one of the ways that the FPGA
-bitstream can be updated, and the only one suitable for use from Linux
-as it does not immediately initiate a reboot when started.
-The driver was not accepted in the FPGA manager subsystem as the update
-only occurs after a reboot and makes no use of the FPGA manager
-framework.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-----------------------------------------------------------------
-Conor Dooley (6):
-      dt-bindings: soc: microchip: add a property for system controller flash
-      soc: microchip: mpfs: enable access to the system controller's flash
-      soc: microchip: mpfs: print service status in warning message
-      soc: microchip: mpfs: add auto-update subdev to system controller
-      firmware: microchip: add PolarFire SoC Auto Update support
-      MAINTAINERS: add auto-update driver to mpfs entry
-
-Kory Maincent (1):
-      firmware_loader: Expand Firmware upload error codes with firmware invalid error
-
-Rob Herring (1):
-      firmware: microchip: Replace of_device.h with explicit include
-
- .../microchip/microchip,mpfs-sys-controller.yaml   |  10 +
- MAINTAINERS                                        |   1 +
- drivers/base/firmware_loader/sysfs_upload.c        |   1 +
- drivers/firmware/Kconfig                           |   1 +
- drivers/firmware/Makefile                          |   1 +
- drivers/firmware/microchip/Kconfig                 |  12 +
- drivers/firmware/microchip/Makefile                |   3 +
- drivers/firmware/microchip/mpfs-auto-update.c      | 494 +++++++++++++++++++++
- drivers/soc/microchip/Kconfig                      |   1 +
- drivers/soc/microchip/mpfs-sys-controller.c        |  33 +-
- include/linux/firmware.h                           |   2 +
- include/soc/microchip/mpfs.h                       |   2 +
- lib/test_firmware.c                                |   1 +
- 13 files changed, 559 insertions(+), 3 deletions(-)
- create mode 100644 drivers/firmware/microchip/Kconfig
- create mode 100644 drivers/firmware/microchip/Makefile
- create mode 100644 drivers/firmware/microchip/mpfs-auto-update.c
-
---BIkMRZ8AmKuplyuY
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZYQxtwAKCRB4tDGHoIJi
-0hKhAP0YZXiDzA2aruMFCZY5ccEnrqXzUc0tTvlPw1nStC3CagD/QL2laxvZ2eu/
-F2a3Gu65arDWa+4Krhai4N/ddj905Ac=
-=Lir3
------END PGP SIGNATURE-----
-
---BIkMRZ8AmKuplyuY--
+P.S. This is just a "peephole review" of this patch, I haven't got around
+to look at this whole scheme in whole yet, to see if we actually need this
+or can simplify this or clean it up.
 
 
---===============3926939276512534332==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> +	case 0x5e00:
+> +		/* QFN package */
+> +		ret = 0;
+> +		break;
+> +	case 0x5c00:
+> +	case 0x7400:
+> +		/* QFN package */
+> +		ret = 1;
+> +		break;
+> +	case 0x5000:
+> +	default:
+> +		/* BGA package */
+> +		ret = 0;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+>  static u32 sun50i_efuse_xlate(u32 *speedbin, size_t len)
+>  {
+>  	u32 efuse_value = 0;
+> @@ -46,6 +73,10 @@ static u32 sun50i_efuse_xlate(u32 *speedbin, size_t len)
+>  		return 0;
+>  }
+>  
+> +struct sunxi_cpufreq_data sun20i_cpufreq_data = {
+> +	.efuse_xlate = sun20i_efuse_xlate,
+> +};
+> +
+>  struct sunxi_cpufreq_data sun50i_cpufreq_data = {
+>  	.efuse_xlate = sun50i_efuse_xlate,
+>  };
+> @@ -54,6 +85,9 @@ static const struct of_device_id cpu_opp_match_list[] = {
+>  	{ .compatible = "allwinner,sun50i-h6-operating-points",
+>  	  .data = &sun50i_cpufreq_data,
+>  	},
+> +	{ .compatible = "allwinner,sun20i-d1-operating-points",
+> +	  .data = &sun20i_cpufreq_data,
+> +	},
+>  	{}
+>  };
+>  
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3926939276512534332==--
-
