@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 258DDC46CCD
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Dec 2023 15:47:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF3FC35274
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Dec 2023 15:47:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UQbQYSmJ9XWWhwcozXqjbQOvtRK8Hr9NPtOK/VnQh6Y=; b=aKf6GZdb2AkEHT
-	UndA7t2S1SFhXpGIAIbSTsuCyp8A1zYLGm7h6Rc27vjRWfw6vpl7Q9ZHyFguU1c1hf0QpJr2VFWlI
-	uPQYnkcPrXG/ro7Nfh4Muzp8As2cRsl4Gj8l7lL8gmvrN36vvfTi6N6L+QXRwNYXj+ggxVfEClISS
-	eawNoWff2RVvPxXjtPDg9owLi2exwLL8M0BlfQ1HjeKnbrsnvDELCwJNv8Lszxh89vb6omtw2g7km
-	2GGLcnO/3OaRDmx11Tt0VJyX9hRYWJpn0EmsIGynCqfqz+lFgnLM/qvB5n4R/mQvyBEIx7pnFM36I
-	zU3Gl39BkUNmNSURR7Zw==;
+	List-Owner; bh=mA24xuCJ1Rtxc5D3+d1g0adORt3CtfyDGsmMpQJTlrg=; b=BWZheBfmV+QClB
+	YMt0oRQEnUaGH0JBNlPKnZkKd1vfdkhyoQ+SYWgWsYrlEKi6Zi8uTYI5BpCDK6359dt57cMCLfBHM
+	NxD6bIb+kb68P+zQpnVz6B9o8g8pVbFEIzI8p9YCKcMtouH+ileY3ZBqptfbHX0Wmczeg7mArxrTn
+	5MCV9uLHO0KXD3DcdZ/wBDXPjXBeU7TFZxI4FOW04bt0AW6zBN4cPCYFXwaPEXy82gNr7ScT/VhWi
+	KsZPR5FcSzVSwBouZsy+hA+nrOtmx35iqQIEH6hWtMVfaM3n/Z71/dVyGSdNhe8LbK33LrmZQ74Ci
+	Z9Ig+sLY8hcD8dQFpAKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGLGb-003PUp-1M;
-	Thu, 21 Dec 2023 15:47:21 +0000
+	id 1rGLGf-003PXL-0U;
+	Thu, 21 Dec 2023 15:47:25 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGLGZ-003PTZ-05
+	id 1rGLGc-003PVK-1h
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Dec 2023 15:47:20 +0000
+	Thu, 21 Dec 2023 15:47:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8910A619C4;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 05DF3619C8;
+	Thu, 21 Dec 2023 15:47:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98E87C433C9;
 	Thu, 21 Dec 2023 15:47:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8972C433C8;
-	Thu, 21 Dec 2023 15:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1703173638;
-	bh=dOGyrLopRgWASgaIZLAx6CNRKKRLi1o/fzWOzw5hikY=;
+	s=k20201202; t=1703173641;
+	bh=6UdCU34QB2Jmf2RjW8+f6vf0kvi9jkFwVt1GuOPbhWU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cDlxg7WA1eBIwKV7bwZmyHXskjpiO8H0zm7M2Ghzhr/xJdhhL6Xl5kRI6BWyYA5lD
-	 VBxAhJBQbB+9gO3Ag/gZJDFb+yKcYSbIwQNpD0ma517/zmjRtZImkNo7sEdHNxRaMo
-	 1gXtByNw8LvPKTENtE7Eyo0fI2WALLGGdtPJwJF36c/Jju3NFsv75uhnr92pS3Mkxz
-	 9QYAV4nD600gK2ZN6ikxvxtty6vjKnY3kXSgadf2i6U5AbJDy8ZsKxPN1iBVipFQBV
-	 fplnF8mxIeIWVezxJQwQjGSA/khdXnqsTghUjHSyjZpLYbroFFW3LkjSldkXwKqcCY
-	 8N6jkGpF6/EHQ==
+	b=CgB0V+JgevKv68oSzprvvmES0zf5NYWiDKBW18gsxXShgft2Goop1S8a7mLFoT5l0
+	 +rGKecm/9UuNuLwYdE7hr9fIyDiiecKjjmxLvtCUMUUZ6NT33DBHy3EuwYNty6beWu
+	 m54WfYoNUMG6eVMDoljKnDRfTixV1RYzkpy6afJ26+1JDdBk2BLAXU5lRJ4vQ+IEXr
+	 1vEwskikoDkcJ/KJDvRNqPxmSQO1F0g/laB/c+eybU+7+Wjt7Iq0Pqm8zUxoly/WQF
+	 c0HI0oKrzX8K3Dzj8b/JUteTjfZwqBiqJXiIlLAXpJEatNQCozmCg9lNjo5H/zk85n
+	 bazdYY014sD7g==
 From: guoren@kernel.org
 To: linux-kernel@vger.kernel.org,
 	paul.walmsley@sifive.com,
@@ -59,18 +59,17 @@ To: linux-kernel@vger.kernel.org,
 	cleger@rivosinc.com,
 	leobras@redhat.com
 Cc: linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>,
-	stable@vger.kernel.org
-Subject: [PATCH V2 2/4] riscv: mm: Fixup compat arch_get_mmap_end
-Date: Thu, 21 Dec 2023 10:46:59 -0500
-Message-Id: <20231221154702.2267684-3-guoren@kernel.org>
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH V2 3/4] riscv: mm: Remove unused TASK_SIZE_MIN
+Date: Thu, 21 Dec 2023 10:47:00 -0500
+Message-Id: <20231221154702.2267684-4-guoren@kernel.org>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20231221154702.2267684-1-guoren@kernel.org>
 References: <20231221154702.2267684-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231221_074719_106632_133DE09F 
-X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-CacheID: sfid-20231221_074722_605025_71ACCEE8 
+X-CRM114-Status: UNSURE (   6.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,41 +89,34 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-When the task is in COMPAT mode, the arch_get_mmap_end should be 2GB,
-not TASK_SIZE_64. The TASK_SIZE has contained is_compat_mode()
-detection, so change the definition of STACK_TOP_MAX to TASK_SIZE
-directly.
+Remove TASK_SIZE_MIN because it's not used anymore.
 
-Cc: stable@vger.kernel.org
-Fixes: add2cc6b6515 ("RISC-V: mm: Restrict address space for sv39,sv48,sv57")
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
 ---
- arch/riscv/include/asm/processor.h | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ arch/riscv/include/asm/pgtable.h | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index f19f861cda54..1f538fc4448d 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -16,15 +16,13 @@
- 
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 74ffb2178f54..e415582276ec 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -878,7 +878,6 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
+  */
  #ifdef CONFIG_64BIT
- #define DEFAULT_MAP_WINDOW	(UL(1) << (MMAP_VA_BITS - 1))
--#define STACK_TOP_MAX		TASK_SIZE_64
-+#define STACK_TOP_MAX		TASK_SIZE
+ #define TASK_SIZE_64	(PGDIR_SIZE * PTRS_PER_PGD / 2)
+-#define TASK_SIZE_MIN	(PGDIR_SIZE_L3 * PTRS_PER_PGD / 2)
  
- #define arch_get_mmap_end(addr, len, flags)			\
- ({								\
- 	unsigned long mmap_end;					\
- 	typeof(addr) _addr = (addr);				\
--	if ((_addr) == 0 || (IS_ENABLED(CONFIG_COMPAT) && is_compat_task())) \
--		mmap_end = STACK_TOP_MAX;			\
--	else if ((_addr) >= VA_USER_SV57)			\
-+	if ((_addr) == 0 || (_addr) >= VA_USER_SV57)		\
- 		mmap_end = STACK_TOP_MAX;			\
- 	else if ((((_addr) >= VA_USER_SV48)) && (VA_BITS >= VA_BITS_SV48)) \
- 		mmap_end = VA_USER_SV48;			\
+ #ifdef CONFIG_COMPAT
+ #define TASK_SIZE_32	(_AC(0x80000000, UL))
+@@ -890,7 +889,6 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
+ 
+ #else
+ #define TASK_SIZE	FIXADDR_START
+-#define TASK_SIZE_MIN	TASK_SIZE
+ #endif
+ 
+ #else /* CONFIG_MMU */
 -- 
 2.40.1
 
