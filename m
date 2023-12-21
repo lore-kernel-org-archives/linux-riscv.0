@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F6ACC35274
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Dec 2023 15:53:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A74CC35274
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Dec 2023 16:20:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zCX5h83RTykoe8/16jZgOOw2ms9ds3qJ6c35ekchjm8=; b=PxOC+ciaxeNq/0
-	0YJ7MeG7pLLnHaWLxQcCXtit+ShIo01vutX0kc0TkPwlrpUsbrI7vnIkhdVmlmBEaOMnmJ2kwfgeo
-	7AqlvCU2aSuowmpPlz4mGW+THwiP30W5Mi3gEB+wnwAvJJAcuZRzAixpFQwaqhW4AB+cuXltnhBr0
-	wxNRFuddVLr0vb7dNxPi08UX+5j2vmSZoSIDu3/1FqZZ7ZhI0AcxnnXyL/+TzagMz1cZGisEB3G8Y
-	zkN9dkXOykPv32bJltaLyhap2gw6SKvjqj7XDSm+Fe4ECiztqd7llaG8soiZxNuX5IsqiotXrMGAW
-	JcgOP7i8dPUvJ7ILmsUQ==;
+	List-Owner; bh=C7eFT508TMa8/6DKJvKL27+5koC5sz6wiNBd/RYZsBA=; b=HLimHH/6suDxHF
+	PrUeWRQ7VKp0Ztu/2V/wYRJ+mgbr2Pj401ES2QLH6gHy8k4pu2u3YwHAzhXO6uTjfF6Vj3BIjpoaI
+	jTwbh4qFuAZDgWQmXHnTkCuH07R8eO6D4745dh5CBypKVg9tNdVT+zKzKb4U3xSzPml6X+kW2AyL+
+	VHMcygF6kcVtBQg2hM93/nw7g1O3n892NlfqrteZDB/RaitezLSmQI4pV80q1bt/HSnVx6LQPMXet
+	pAmYUKlj5LQ1DKBdt7Q2HWOBoBb8Uf8eDhzGEaT+k0sGLNeIhjcKRt4AG8kIzzKFEkhBOg80dT9jD
+	9qxa+BueC+QetnEcxxiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGLMM-003QVw-25;
-	Thu, 21 Dec 2023 15:53:18 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1rGLmD-003Tpo-1j;
+	Thu, 21 Dec 2023 16:20:01 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGLMJ-003QVE-1J
+	id 1rGLmA-003TpM-02
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Dec 2023 15:53:17 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-2cca502e642so4095321fa.0
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Dec 2023 07:53:14 -0800 (PST)
+	Thu, 21 Dec 2023 16:19:59 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-50e2d00f99cso1216797e87.0
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Dec 2023 08:19:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1703173993; x=1703778793; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1703175593; x=1703780393; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=fDrrIdjlKkAVYHhks69AqjX6/crnGDz7sEjm8hq2EtI=;
-        b=v+05tjgx+FQrt+0fYu6ncVQIscccl90N+AB64jp1CEbtS/S2CcZgKwsIk3ZBgwyRHV
-         gYxyd/M1RNqtfCvjANyF8u4HVI0v6vaqKNNNccyIbiarKewAvDq6FRRUa1HOpdm9p5HB
-         hbS1S5M8GV2Am2+7+cauYp5+B0pf3niLYYnAdxwLOEmXOx5F6aTYA+bFgAFRB4O2UJTJ
-         AP04xBGmZ4a6yLR2Fk3Kg8qeTho3mSqCnVbRZftNKO7LygJM3ABHQ7uFjeTp/bYSQS0j
-         nxz10dYUy5arXDOw5455PHXwmwS1K86rBt6XF1prAR5gAuWfNRCg9UN3bczaalsT5ViV
-         CBPQ==
+        bh=rnzty5O4tyUcK6rCDy3BRzRa79xt4CrhaYKAOYAcs/M=;
+        b=Nh2DzIHmIl51OrlYWTiyMg9f0eId0TtUuJSRR40mLqeVHdjWTvvQLEvfiq/Afl+Vlp
+         j8gBo5QMgLs0UDiZXfUZOTHaph4T6EedozuisiYRhPxoXZsGtX81i7EKsFS1xx4jyMH/
+         lQOn/EWYKnFUOcIvep7+yFoSeEGTUy04DvI6rcaZLIto68/ukC04UI1qFluQJRRhhX9g
+         c+XJ0ogELghQ0TV6LxKdgOwF/WX2xoi5e9yk6QmMXw3Dxd1jVwOtmCh5+P+3v2/9fRrL
+         lCJiEZhJQCmwsZqmcOMnS7PMNIhu3ZbJLulxg0FwwlH83togFoejiaPzIyXKnV2W+hyX
+         /5iw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1703173993; x=1703778793;
+        d=1e100.net; s=20230601; t=1703175593; x=1703780393;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=fDrrIdjlKkAVYHhks69AqjX6/crnGDz7sEjm8hq2EtI=;
-        b=mqK9jJc52PMM8kQQg1pO0Gz6IhTD39D41kKGhApHlZv826lYqUd0RU0p1S1YwzdH6z
-         Z9cB9B0fhnjPrbIlSgjAxTdSIvz4ThuagNma3r7b2Otn8e/0vgPZiFRJYr1YcqIFbFxj
-         46td4QzRwg2qXGHFLBF2VAGGTa3RDgt8XTgXmUMKdY7lBloteyuB6+hOujvEcKAtiPlk
-         WWri4UMFovOh7x0ETDPONo1lfe56WjtBrLSnqxTZCwVqlmKfXfds4yCgP8wWpVImPpI/
-         +mfYTYF59Df036vH1HVAj0WHj7JKSZEjNWfOExaxnkyrmVzNWNLIUUxi9IDph/eLch5g
-         NKtg==
-X-Gm-Message-State: AOJu0Yz2oKcVDoB1StrscheJuFsj/TTOO0PsUk/+rLxMhK/RUB/OBew+
-	Gk//RzvWwsQKEcb+1ydYcrMhmg==
-X-Google-Smtp-Source: AGHT+IGMe6tn+9yupgK9xl4jzrWZFb4Y7XjFnFbDwcRcReEwEO/uEZjLbELU6cNodcI+K9XDidfxkQ==
-X-Received: by 2002:a2e:be8b:0:b0:2cc:6bf0:8ea with SMTP id a11-20020a2ebe8b000000b002cc6bf008eamr2429410ljr.34.1703173993094;
-        Thu, 21 Dec 2023 07:53:13 -0800 (PST)
+        bh=rnzty5O4tyUcK6rCDy3BRzRa79xt4CrhaYKAOYAcs/M=;
+        b=ZjARaqHPW9Bsm6mbLKsl4HLH4Ap2pORyeb5+UzxvlUT3x8gtr1oCipnsfOl1NR7eCG
+         z/5CbweKE0kaQZ5uhAX4xrjkf9cEUWUo14MshLgylc9f+2B2emSDql6Y+86gzY30P//x
+         6Lc6p1HQv60LdQqcCkU61o9rFNBXmS39sy1BmTjHb6BbcJsjL0CXCxyiCt30M51TX9Fy
+         7JlPxFUF+bVtVEqJ9532rttsl0X8Y6gcqdkTYkX0LDemKsK88rOqcKFvnlVlThhB3LAB
+         upQ84XoswzWvrwB8pFyBJ2ZfAxL53xM5o9IyhFn1y5eq5GBney6FRoip0hmr1Yr5uwcH
+         /wJw==
+X-Gm-Message-State: AOJu0YyIAr5JHlz9F5HrSwOitNC6z7JVy4nz5BPW1pDHK+2CC5SmlkHE
+	M91g9CmZagI/tIrmm7Tmrcms0A==
+X-Google-Smtp-Source: AGHT+IHQTbAQcwJpKKA6G70vL8UcrI/n28IXVQU/WGYRsqjjDqKeFJIl9fRNcDKPGEw+K4eALy6Npg==
+X-Received: by 2002:a19:f812:0:b0:50e:4f64:9c78 with SMTP id a18-20020a19f812000000b0050e4f649c78mr1706114lff.129.1703175593275;
+        Thu, 21 Dec 2023 08:19:53 -0800 (PST)
 Received: from [192.168.0.22] ([78.10.206.178])
-        by smtp.gmail.com with ESMTPSA id z23-20020aa7c657000000b0054ccac03945sm1319836edr.12.2023.12.21.07.53.11
+        by smtp.gmail.com with ESMTPSA id v12-20020a17090651cc00b00a236f815a1csm1116415ejk.105.2023.12.21.08.19.51
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 Dec 2023 07:53:12 -0800 (PST)
-Message-ID: <f72b6ea4-a99b-4821-bb35-ee47b7b5cb8f@linaro.org>
-Date: Thu, 21 Dec 2023 16:53:11 +0100
+        Thu, 21 Dec 2023 08:19:52 -0800 (PST)
+Message-ID: <233f293d-49bb-4bb9-ab2f-bc53a54ca611@linaro.org>
+Date: Thu, 21 Dec 2023 17:19:51 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 6/6] riscv: dts: starfive: jh8100: add pinctrl device
- tree nodes
+Subject: Re: [RFC PATCH 0/6] Add Pinctrl driver for Starfive JH8100 SoC
 Content-Language: en-US
 To: Alex Soo <yuklin.soo@starfivetech.com>,
  Linus Walleij <linus.walleij@linaro.org>,
@@ -83,7 +82,6 @@ Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
 References: <20231221083622.3445726-1-yuklin.soo@starfivetech.com>
- <20231221083622.3445726-7-yuklin.soo@starfivetech.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -129,10 +127,10 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20231221083622.3445726-7-yuklin.soo@starfivetech.com>
+In-Reply-To: <20231221083622.3445726-1-yuklin.soo@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231221_075315_473400_170A05CB 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20231221_081958_071781_697A47D1 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,97 +148,18 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 21/12/2023 09:36, Alex Soo wrote:
-> Add pinctrl_east/pinctrl_west/pinctrl_gmac/pinctrl_aon device
-> tree nodes for JH8100 SoC.
-> 
-> Signed-off-by: Alex Soo <yuklin.soo@starfivetech.com>
-> Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+> Starfive JH8100 SoC consists of 4 pinctrl domains - sys_east,
+> sys_west, sys_gmac, and aon. This patch series adds pinctrl
+> drivers for these 4 pinctrl domains and this patch series is
+> depending on the JH8100 base patch series in [1] and [2].
+> The relevant dt-binding documentation for each pinctrl domain has
+> been updated accordingly.
 
-I have some doubts about it...
-
-> ---
->  arch/riscv/boot/dts/starfive/jh8100-evb.dts   |   5 +
->  arch/riscv/boot/dts/starfive/jh8100-pinfunc.h | 418 ++++++++++++++++++
->  arch/riscv/boot/dts/starfive/jh8100.dtsi      |  44 ++
->  3 files changed, 467 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/starfive/jh8100-pinfunc.h
-> 
-> diff --git a/arch/riscv/boot/dts/starfive/jh8100-evb.dts b/arch/riscv/boot/dts/starfive/jh8100-evb.dts
-> index c16bc25d8988..8634e41984f8 100644
-> --- a/arch/riscv/boot/dts/starfive/jh8100-evb.dts
-> +++ b/arch/riscv/boot/dts/starfive/jh8100-evb.dts
-> @@ -26,3 +26,8 @@ memory@40000000 {
->  &uart0 {
->  	status = "okay";
->  };
-> +
-> +&pinctrl_aon {
-
-Wrong order. Nodes do not go to the end.
-
-> +	wakeup-gpios = <&pinctrl_aon PAD_RGPIO2 GPIO_ACTIVE_HIGH>;
-> +	wakeup-source;
-
-None of these were tested.
-
-It does not look like you tested the DTS against bindings. Please run
-`make dtbs_check W=1` (see
-Documentation/devicetree/bindings/writing-schema.rst or
-https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
-for instructions).
-
-> +};
-> diff --git a/arch/riscv/boot/dts/starfive/jh8100-pinfunc.h b/arch/riscv/boot/dts/starfive/jh8100-pinfunc.h
-> new file mode 100644
-> index 000000000000..3fb16ef62d90
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/starfive/jh8100-pinfunc.h
-> @@ -0,0 +1,418 @@
-> +/* SPDX-License-Identifier: GPL-2.0 OR MIT */
-> +/*
-> + * Copyright (C) 2023 StarFive Technology Co., Ltd.
-> + * Author: Alex Soo <yuklin.soo@starfivetech.com>
-> + *
-> + */
-> +
-> +#ifndef __JH8100_PINFUNC_H__
-> +#define __JH8100_PINFUNC_H__
-> +
-> +/*
-> + * mux bits:
-> + *  | 31 - 24 | 23 - 16 | 15 - 10 |  9 - 8   |  7 - 0  |
-> + *  |  din    |  dout   |  doen   | function | gpio nr |
-> + *
-> + * dout:     output signal
-> + * doen:     output enable signal
-> + * din:      optional input signal, 0xff = none
-> + * function:
-> + * gpio nr:  gpio number, 0 - 63
-> + */
-> +#define GPIOMUX(n, dout, doen, din) ( \
-> +		(((din)  & 0xff) << 24) | \
-> +		(((dout) & 0xff) << 16) | \
-> +		(((doen) & 0x3f) << 10) | \
-> +		((n) & 0x3f))
-> +
-> +#define PINMUX(n, func) ((1 << 10) | (((func) & 0x3) << 8) | ((n) & 0xff))
-> +
-> +/* sys_iomux_east dout */
-> +#define GPOUT_LOW				0
-> +#define GPOUT_HIGH				1
-
-Where are these used?
-
-> +#define GPOUT_SYS_CAN0_STBY			2
-> +#define GPOUT_SYS_CAN0_TST_NEXT_BIT		3
-> +#define GPOUT_SYS_CAN0_TST_SAMPLE_POINT		4
-> +#define GPOUT_SYS_CAN0_TXD			5
-> +#define GPOUT_SYS_I2C0_CLK			6
-> +#define GPOUT_SYS_I2C0_DATA			7
-> +#define GPOUT_SYS_I2S0_STEREO_RSCKO		8
-
-You add here bunch of constants not used anywhere. No single example of
-their usage, not a one.
+Please explain why this is RFC. Every patch is RFC, so what is special
+about here? Usually this means work is not finished and should not be
+merged, neither reviewed. If you spelled out here the reasons, it would
+be easier for us to understand whether we should complain about broken
+and non-building code or not.
 
 Best regards,
 Krzysztof
