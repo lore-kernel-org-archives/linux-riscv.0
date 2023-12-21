@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4498AC35274
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Dec 2023 20:29:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80D50C35274
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Dec 2023 21:03:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2aA2Yo0icHa6mbAyu/Zc86vfdDsrOp3KFJOat4Dn1Ao=; b=BkdgpOsy6vikxGDwvfDzq115Hl
-	tmrlHFskOsnJsd4cQYB3PnLynYJwMDoxpnWgBD2zbDSLCuruHj7H3snk5hNykAAWtljFXisAqLgVw
-	ByLeGm2wHjlXx+HSbJT8fTX3rYkqiyajMPZstbpl5fFA5IrrKJW1XKcvIsZM9feSgl5dz2cMXcxug
-	FYCg4TpiXCQsV2lurHIERiQYQS7UY6PKcG4um8Fy0FwdH7pQiKyB7MiaR2J68k4JomKhGET6EOCa8
-	y0jcMVFxELFS+Shvszh5BYm5gv3wnFyAwvWJhmzftcUH4oorcUJ48f/t2F/svaWtrMMfAvyapcncR
-	uZjuvGQg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ir3zDi020Q1cBCGMxvxgWTG22qJ4c4Uk42McuEaidfo=; b=0Qw/xwtbjDVJXm
+	YR25Y94Iwzfx5M5l7uLS50K8Ow7I41SNzgH4Pkb2XLYiDn4BP5HdTMshOcLtQl3ngQvMK7PGQXKOp
+	Rz46yiYfDTaco5R7hvM5AnhGJwkG1Sfd7dm2inPcsasicYufsKyslLefpNeJ7Q96mqnaJDhRIriie
+	nlp8N2ezZfNMLqrbdOT6VEP815KY7EH89/6b/jqLwKcUC9x4gaR5mmdYekNSCr+0/L6bkLpB/fHeN
+	yELBe5AP6EkHlLjA2gPQ40AIe1dPaCMYZsWgQNF2h6hwxv6aBhLNPGuSvm7Vq2UpYZ0or6nHkl8iI
+	O0qP3Esj/AupFP9176HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGPfq-0041W3-2E;
-	Thu, 21 Dec 2023 20:29:42 +0000
+	id 1rGQC3-0045se-0S;
+	Thu, 21 Dec 2023 21:02:59 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGPfm-0041VL-29
+	id 1rGQC0-0045sE-2a
 	for linux-riscv@lists.infradead.org;
-	Thu, 21 Dec 2023 20:29:40 +0000
+	Thu, 21 Dec 2023 21:02:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 2FBFDB8208C;
-	Thu, 21 Dec 2023 20:29:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B557C433C7;
-	Thu, 21 Dec 2023 20:29:34 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 343E0B81FF4;
+	Thu, 21 Dec 2023 21:02:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA92EC433C7;
+	Thu, 21 Dec 2023 21:02:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1703190576;
-	bh=GLPwYHlJ8x8CC2ZjS/hbGnZAkXoFODBXx25zO0WgP5U=;
+	s=k20201202; t=1703192574;
+	bh=Pch3cUPPm9M2grj1J1SCcBO1AYY7StPUOGyR6OF+oHw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RB6D6Rnd1pKUiP8WcHVN4/voeyF/rIxEiRR2YIatXbf5y0c/He+mc41gDaHpXVJlJ
-	 sN72jvTnV0UxKgKNZZ/BNRbb0SGrtzG1pqhAu+abK620hbNSihKLuc2eCa/G/oZaAT
-	 iGsaJOuTx6Rdt0kXPKatKS9uFiD/k9vWLbmQKJYOGZ5y+6I9RX0n0iOBEBi6esZRhF
-	 WbX3TbOF+Jpc9Mw8Cq8tFJbC/h0tC6O0L6FYBxokYyp/Qn8HeVpz/UrVYv35U+GVb1
-	 HrBiNRM1WLGuz7010N2ucObjl153Nr2twHNoi50v9t3vVXp4VNhrVy7Jm79p7HywiR
-	 gZBDrad7xFEug==
-Date: Thu, 21 Dec 2023 20:29:32 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Maxim Kochetkov <fido_max@inbox.ru>, hch@lst.de
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	robh@kernel.org, jiaxun.yang@flygoat.com, mpe@ellerman.id.au,
-	aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com
-Subject: Re: [PATCH 1/1] riscv: set ARCH_DMA_DEFAULT_COHERENT if
- RISCV_DMA_NONCOHERENT is not set
-Message-ID: <20231221-discount-decade-e306e5878c46@spud>
-References: <20231221185152.327231-1-fido_max@inbox.ru>
+	b=KlyodUzc/Wan56wBQ5rCTP9uWqL+Gs7D/9jGZ840oOnuCGjVJXRQs/pgoIhpNmBuS
+	 UBg/IcR4MZN1Jn6+M/+HguLkz9R1f4pZghLUwcdOhfdxNwrsaPLKNDcKCzRqnmyDwd
+	 EmuCGEOzYGYvJuBOedtzQtVdjBqpShPcFNO9/rFEpNjiclsNQm+Pp5Twu4vjLRLNOP
+	 CdG52mNlz1/pYzQqIdtKXxAHKwq1TkyK5uS+PaoXGaGWdqk/o/axrkNVGwAyKjDifY
+	 bTGfba4bnOu53QFmEtceCEH7fkCdDPfK/JTGw4KbGrCBZFccTCNk2oyO2jRrCR7SZq
+	 wJgadbNSMB+UA==
+Received: (nullmailer pid 88422 invoked by uid 1000);
+	Thu, 21 Dec 2023 21:02:51 -0000
+Date: Thu, 21 Dec 2023 15:02:51 -0600
+From: Rob Herring <robh@kernel.org>
+To: Ji Sheng Teoh <jisheng.teoh@starfivetech.com>
+Cc: linux-watchdog@vger.kernel.org, Ley Foon Tan <leyfoon.tan@starfivetech.com>, Samin Guo <samin.guo@starfivetech.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, linux-kernel@vger.kernel.org, Emil Renner Berthing <kernel@esmil.dk>, Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, devicetree@vger.kernel.org, Xingyu Wu <xingyu.wu@starfivetech.com>, Guenter Roeck <linux@roeck-us.net>, Wim Van Sebroeck <wim@linux-watchdog.org>, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v5 1/2] dt-bindings: watchdog: starfive,jh7100-wdt: Add
+ compatible for JH8100
+Message-ID: <170319257135.88357.1722653226891421278.robh@kernel.org>
+References: <20231221084358.3458713-1-jisheng.teoh@starfivetech.com>
+ <20231221084358.3458713-2-jisheng.teoh@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <20231221185152.327231-1-fido_max@inbox.ru>
+Content-Disposition: inline
+In-Reply-To: <20231221084358.3458713-2-jisheng.teoh@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231221_122939_029495_BD6FD32C 
-X-CRM114-Status: GOOD (  21.09  )
+X-CRM114-CacheID: sfid-20231221_130256_985361_D0459724 
+X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,105 +71,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8775001017854534495=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8775001017854534495==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="m9L8Yh/1MYWrfu4R"
-Content-Disposition: inline
-
-
---m9L8Yh/1MYWrfu4R
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-+ Christoph
-
-I don't think this patch is correct. Regardless of whether we support
-cache management operations, DMA is assumed to be coherent unless
-peripherals etc are specified to otherwise in DT (or however ACPI deals
-with that kind of thing).
-
-What problem are you trying to solve here?
-
-On Thu, Dec 21, 2023 at 09:51:52PM +0300, Maxim Kochetkov wrote:
-> Not all the RISCV are DMA coherent by default.=20
-
-What is a "RISCV"? I believe this sentence should be "not all RISC-V
-systems are DMA coherent." but that is provided for by the
-"dma-noncoherent" property, set for peripherals (or buses) that are not
-DMA coherent.
-
-> Moreover we have
-> RISCV_DMA_NONCOHERENT option.
-> So set ARCH_DMA_DEFAULT_COHERENT only when RISCV_DMA_NONCOHERENT is not s=
-et
->=20
-> Fixes: c00a60d6f4a1 ("of: address: always use dma_default_coherent for de=
-fault coherency")
-> Signed-off-by: Maxim Kochetkov <fido_max@inbox.ru>
+On Thu, 21 Dec 2023 16:43:57 +0800, Ji Sheng Teoh wrote:
+> Add "starfive,jh8100-wdt" compatible string for StarFive's JH8100
+> watchdog.
+> Since JH8100 watchdog only has 1 reset signal, update binding
+> document to support one reset for "starfive,jh8100-wdt" compatible.
+> 
+> Signed-off-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+> Signed-off-by: Ji Sheng Teoh <jisheng.teoh@starfivetech.com>
 > ---
->  arch/riscv/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index d6824bec2c00..111c5d92d503 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -14,7 +14,7 @@ config RISCV
->  	def_bool y
->  	select ACPI_GENERIC_GSI if ACPI
->  	select ACPI_REDUCED_HARDWARE_ONLY if ACPI
-> -	select ARCH_DMA_DEFAULT_COHERENT
-> +	select ARCH_DMA_DEFAULT_COHERENT if !RISCV_DMA_NONCOHERENT
+>  .../watchdog/starfive,jh7100-wdt.yaml         | 40 ++++++++++++++-----
+>  1 file changed, 31 insertions(+), 9 deletions(-)
+> 
 
-I think this is actually buggy, for things like distro kernels
-RISCV_DMA_COHERENT will always be set, but those kernels are expected
-to be used on systems that are cache coherent also.
+Reviewed-by: Rob Herring <robh@kernel.org>
 
-Thanks,
-Conor.
-
->  	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
->  	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
->  	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
-> --=20
-> 2.40.1
->=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---m9L8Yh/1MYWrfu4R
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZYSgLAAKCRB4tDGHoIJi
-0u/aAP0QwgAVeaL+V/KwjoqqvHiJTMZXmApkakiQZL1fuV8lgwD/UR0j8eNQzR8R
-ztGAgxGUpsmf/LpuMHHnp/xIYdD/BwM=
-=U837
------END PGP SIGNATURE-----
-
---m9L8Yh/1MYWrfu4R--
-
-
---===============8775001017854534495==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8775001017854534495==--
-
