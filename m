@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F7F6C46CD8
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Dec 2023 11:15:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E15ABC41535
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Dec 2023 11:15:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=24+ay91AO44kiszV3UWnCY8rW0oApa+joKYLs8H6viY=; b=hdFJXhifUZGVGM
-	CWBKkJNMM2KxZzXYHo82dCOGp2GBFKV4zUby+NKpzd8iqy7mNrROsnr43LB90HuO6F10V4qeKYLaC
-	K08rSY6w5NUZUXY7GS2eVJbYZhTqeTAndcZvTMmSbkSZvXoPnfekRSgZHxo+vOfDDogdlbGxYevLJ
-	psVosmBJUWCR8BBEwGcgNxktfVv3fcITN2fTWAlLbks9hvm/2QGFiDfNK7mrApFkClxvMl8xdOnTL
-	tmN/nwODWOu34niK88PfLRiD+HLGB6NzaPkoJu3JjFQbz/J7Az6YZcAqfpZFmWsdV04vTjnrpSefc
-	BD2qNQKsDgjle+9Cmo3g==;
+	List-Owner; bh=XTof+AXr8XjL1KtxPhXi830l4gYZVkhBhcTtPDL8/mE=; b=hTaxVhjEJy1H76
+	p3BydLqEOVR+AGuRS+bnTTITmnMTf0eZqxAXCRnYvj8S+B9vlD9vE/DB38L4GoGhNwWYZQlvK8buL
+	YAaojBpZqR8+TlUZK6aPJ+P/dM16z4TUdS6Ad0X474MvUVf1xsistEvQt8056paBVx3aCxDTWo/ey
+	tFCINAriKlYFXw+0mgxAYlRpYEH6sS1waUOJBD0h9HoVmnhdePQ66IrenyM3HyFsxnyKyoa94zrAc
+	yKHYjmu6KsC/EFitEvuLgIf0ovGQk29yXmo6FX/SXk679CjONJacn/Q1WyUaf65t1aU7f5swDyRID
+	XBffvMX9eiawQDN2NR1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGdUb-005dWG-0U;
-	Fri, 22 Dec 2023 11:15:01 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1rGdUl-005ddL-2W;
+	Fri, 22 Dec 2023 11:15:11 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGdUY-005dSh-35;
-	Fri, 22 Dec 2023 11:15:00 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-50e6a806e4aso379427e87.1;
-        Fri, 22 Dec 2023 03:14:54 -0800 (PST)
+	id 1rGdUi-005dYx-2M;
+	Fri, 22 Dec 2023 11:15:10 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-54c77e0835bso2197312a12.2;
+        Fri, 22 Dec 2023 03:15:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1703243693; x=1703848493; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1703243705; x=1703848505; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=422E8D0hJIO/x9qlN5M/YDPeDy51iO5eXq4u7UbXCT8=;
-        b=lhb79QMWNwh161y/sP1yHhnAcUZryMZw0tVWcw25DMwRq8X2IJOWYFKoF/PNi0ZxeN
-         7ijdd2uv1cOwPC01SQl50DP1cDlkrbFDh5v8gpC50OvV90rq7fsQFHYySgN8n1yosG2/
-         dGQF1SmEhmNjmX2GE8zpG9Ro69dTQvgxGXFHYdzryTuUjuVxFctDZvtjAhDgkEBdof1o
-         On9y5hZEIDzA4U26WC/D2mReU5t/sJte+dChaG3Erd3gg3iL82OvdbqC2cy40fm3Tayh
-         zJnoWvRJnsSRLas1jEc80E3AUNDPG4swZQlOx/zyNk/Ul87GEni+XSz890tHkJbYaAJO
-         K6EQ==
+        bh=7BvelMzmtyu1Sqb0MGaQ3BVDecc44IV/AoEGKsA1SR0=;
+        b=OPBOXZynX6vrlYNdVYXxdA/FDb8ya+17PPSlIRiIG5fdrFHKu2LnVceJNnEPuT8V2A
+         bCF/VzmNFb9X3j9AC+hyzAtCzew4xTy+YPHIoiGwWEVQXYtWij5IwkYBhN735ZCLUQ1K
+         aKo3NDOYqdvbNYWQUFhBpkDGICURX7BLANCBFu1pxW9YIlYnjP3Rq1MDUgmJtxOpl0jP
+         pS8vhY9lhjZy0mHZSKSa2nZeKxHC9KdQms2+VJNh6ktKHbv1XaZiX6boLuA7vZLIVGtt
+         3Nq/hUiTcdTwXhuu/6O7A8m2/EBi8a8fiyxmpzVgtcvI7+Gb7he87KPYqP1DwM3peaSL
+         5AiA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1703243693; x=1703848493;
+        d=1e100.net; s=20230601; t=1703243705; x=1703848505;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=422E8D0hJIO/x9qlN5M/YDPeDy51iO5eXq4u7UbXCT8=;
-        b=X2IR2p49VsNcBh8DmQtW4KvoNSrP6rF/1tfNvTjKgH0s7YuHdNYcv+B/dXFqOvF3qY
-         ls5s9Ie+QjeVCO5rUau6I4sdKYizH7+NTQht0ZwWJoXq/Xt1FhXyAEHzdRHu/QRPAcHj
-         WO9itZvaBd+xS0rl3pAKo6NZJ3O3Vet+oanDwb92nVcKoFrRYgcui1ItciB8wY8h3yGu
-         00qtJm7KbJRUBbC6CbBSHW7SC+edt3ig5lSTBdGbDhCgRFTquC+f7N7WU6pbVoPePtX2
-         qKuYmU3a4uC7wmy9DQjtBo7vepAjo+6xlkJop8hpaNdBE7sRINEeUjJXGLVJev63zjMp
-         eN1w==
-X-Gm-Message-State: AOJu0YyaTVd/1eiVoRzDOkRovYOO+Z7gJ0fA8wTAm5chmbppJ9UT1xot
-	k91u88a2Ar31+NfWwJHuaxc=
-X-Google-Smtp-Source: AGHT+IHvAdtVCOCM0VreRerqB83H12IHnADRmj9a8fDFQRtDWT3/nlvul6XbQlcen4QGsNI+A1vNAA==
-X-Received: by 2002:ac2:4db0:0:b0:50e:375e:735f with SMTP id h16-20020ac24db0000000b0050e375e735fmr494437lfe.74.1703243693363;
-        Fri, 22 Dec 2023 03:14:53 -0800 (PST)
+        bh=7BvelMzmtyu1Sqb0MGaQ3BVDecc44IV/AoEGKsA1SR0=;
+        b=DobO36mcfQjHmWYI8Q76KqQkOBOP83nLRhFZIBvqJlneFHVhY9YyMoUFsbnJ9tQ25V
+         7FzvjPs644ZT9DgHhXrhhrvSnSMxfnLnw+LVbQLS+FUVMzTG7tBCTO+JrA8HNUtt5Lvm
+         /XSX56HZKGHqIzUv6fGlwocfPelShBNc+EXLy0Dw8zZKE0lHv7fZvr+TuJ3+pa46sNp8
+         0ZAZf8jJ9ypjjU9jiY2i7AY6rNxndLKWWX8GZgBrJ/uRRw1VBDeoEmPRGNvbVvR8PONv
+         wBkw9SWSoSs54SJKdKRwh6OFUcqAeVXQpg2l4P+dd12b57kVQiNYr/92TTX+1w+3Pkwp
+         rN2w==
+X-Gm-Message-State: AOJu0YyVBw5SibygWBz6PnFktApO2ihd5i/8SShfzqdavu1p8HO4D9L8
+	6JtW6NAUZkFAIfnmUMleU6w=
+X-Google-Smtp-Source: AGHT+IGWir11b4gGwRl3NO7lj7pMTMBbWgNmeSbRuM9TWOJnnwaniRMrtaZLnxpLWHffPO330BSmbA==
+X-Received: by 2002:a05:6402:124b:b0:551:ab9e:53c6 with SMTP id l11-20020a056402124b00b00551ab9e53c6mr575373edw.52.1703243704565;
+        Fri, 22 Dec 2023 03:15:04 -0800 (PST)
 Received: from localhost.localdomain ([154.72.162.91])
-        by smtp.gmail.com with ESMTPSA id es15-20020a056402380f00b0055267663784sm2420469edb.11.2023.12.22.03.14.46
+        by smtp.gmail.com with ESMTPSA id es15-20020a056402380f00b0055267663784sm2420469edb.11.2023.12.22.03.14.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Dec 2023 03:14:52 -0800 (PST)
+        Fri, 22 Dec 2023 03:15:03 -0800 (PST)
 From: Brandon Cheo Fusi <fusibrandon13@gmail.com>
 To: Andre Przywara <andre.przywara@arm.com>,
 	Rob Herring <robh+dt@kernel.org>,
@@ -83,16 +83,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-pm@vger.kernel.org,
 	Brandon Cheo Fusi <fusibrandon13@gmail.com>
-Subject: [RFC PATCH v3 2/3] cpufreq: sun50i: Add support for D1's speed bin decoding
-Date: Fri, 22 Dec 2023 12:14:06 +0100
-Message-Id: <20231222111407.104270-3-fusibrandon13@gmail.com>
+Subject: [RFC PATCH v3 3/3] riscv: dts: allwinner: Fill in OPPs
+Date: Fri, 22 Dec 2023 12:14:07 +0100
+Message-Id: <20231222111407.104270-4-fusibrandon13@gmail.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20231222111407.104270-1-fusibrandon13@gmail.com>
 References: <20231222111407.104270-1-fusibrandon13@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231222_031459_010026_94F92860 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20231222_031508_767812_4D2B42E5 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,84 +110,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Adds support for decoding the efuse value read from D1 efuse speed
-bins, and factors out equivalent code for sun50i.
+Specify two voltage ranges, in order of increasing stability,
+for each OPP.
 
-The algorithm is gotten from
+Also define an nvmem cpu speed grade cell of length 2.
 
-https://github.com/Tina-Linux/linux-5.4/blob/master/drivers/cpufreq/sun50i-cpufreq-nvmem.c#L293-L338
-
-and maps an efuse value to either 0 or 1, with 1 meaning stable at
-a lower supply voltage for the same clock frequency.
+Link: https://github.com/Tina-Linux/linux-5.4/blob/master/arch/riscv/boot/dts/sunxi/sun20iw1p1.dtsi#L118-L133
+Link: https://github.com/mangopi-sbc/tina-linux-5.4/blob/0d4903ebd9d2194ad914686d5b0fc1ddacf11a9d/arch/riscv/boot/dts/sunxi/sun20iw1p1.dtsi#L118-L182
 
 Signed-off-by: Brandon Cheo Fusi <fusibrandon13@gmail.com>
 ---
- drivers/cpufreq/sun50i-cpufreq-nvmem.c | 31 ++++++++++++++++++++++++++
- 1 file changed, 31 insertions(+)
+ arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi | 19 ++++++++++++++++---
+ 1 file changed, 16 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/cpufreq/sun50i-cpufreq-nvmem.c b/drivers/cpufreq/sun50i-cpufreq-nvmem.c
-index e8c2a1dc3..26bb5217b 100644
---- a/drivers/cpufreq/sun50i-cpufreq-nvmem.c
-+++ b/drivers/cpufreq/sun50i-cpufreq-nvmem.c
-@@ -29,6 +29,29 @@ struct sunxi_cpufreq_data {
- 	u32 (*efuse_xlate)(u32 speedbin);
+diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
+index 64c3c2e6c..7e2e015e0 100644
+--- a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
++++ b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
+@@ -39,16 +39,23 @@ cpu0_intc: interrupt-controller {
+ 	};
+ 
+ 	opp_table_cpu: opp-table-cpu {
+-		compatible = "operating-points-v2";
++		compatible = "allwinner,sun20i-d1-operating-points";
++		nvmem-cells = <&cpu_speed_grade>;
++		nvmem-cell-names = "speed";
++		opp-shared;
+ 
+ 		opp-408000000 {
+ 			opp-hz = /bits/ 64 <408000000>;
+-			opp-microvolt = <900000 900000 1100000>;
++
++			opp-microvolt-speed0 = <950000 950000 1100000>;
++			opp-microvolt-speed1 = <900000 900000 1100000>;
+ 		};
+ 
+ 		opp-1080000000 {
+ 			opp-hz = /bits/ 64 <1008000000>;
+-			opp-microvolt = <900000 900000 1100000>;
++
++			opp-microvolt-speed0 = <1100000>;
++			opp-microvolt-speed1 = <950000 950000 1100000>;
+ 		};
+ 	};
+ 
+@@ -115,3 +122,9 @@ pmu {
+ 			<0x00000000 0x0000000f 0xffffffff 0xffffffff 0x00020000>;
+ 	};
  };
- 
-+static u32 sun20i_efuse_xlate(u32 speedbin)
-+{
-+	u32 ret;
 +
-+	switch (speedbin & 0xffff) {
-+	case 0x5e00:
-+		/* QFN package */
-+		ret = 0;
-+		break;
-+	case 0x5c00:
-+	case 0x7400:
-+		/* QFN package */
-+		ret = 1;
-+		break;
-+	case 0x5000:
-+	default:
-+		/* BGA package */
-+		ret = 0;
-+	}
-+
-+	return ret;
-+}
-+
- static u32 sun50i_efuse_xlate(u32 speedbin)
- {
- 	u32 efuse_value;
-@@ -46,6 +69,10 @@ static u32 sun50i_efuse_xlate(u32 speedbin)
- 		return 0;
- }
- 
-+struct sunxi_cpufreq_data sun20i_cpufreq_data = {
-+	.efuse_xlate = sun20i_efuse_xlate,
++&sid {
++	cpu_speed_grade: cpu-speed-grade@0 {
++		reg = <0x00 0x2>;
++	};
 +};
-+
- static struct sunxi_cpufreq_data sun50i_cpufreq_data = {
- 	.efuse_xlate = sun50i_efuse_xlate,
- };
-@@ -54,6 +81,9 @@ static const struct of_device_id cpu_opp_match_list[] = {
- 	{ .compatible = "allwinner,sun50i-h6-operating-points",
- 	  .data = &sun50i_cpufreq_data,
- 	},
-+	{ .compatible = "allwinner,sun20i-d1-operating-points",
-+	  .data = &sun20i_cpufreq_data,
-+	},
- 	{}
- };
- 
-@@ -182,6 +212,7 @@ static struct platform_driver sun50i_cpufreq_driver = {
- 
- static const struct of_device_id sun50i_cpufreq_match_list[] = {
- 	{ .compatible = "allwinner,sun50i-h6" },
-+	{ .compatible = "allwinner,sun20i-d1" },
- 	{}
- };
- MODULE_DEVICE_TABLE(of, sun50i_cpufreq_match_list);
 -- 
 2.30.2
 
