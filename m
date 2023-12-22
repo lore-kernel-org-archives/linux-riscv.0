@@ -4,77 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B4CCC46CD8
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Dec 2023 09:35:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD930C41535
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Dec 2023 09:46:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+/XIPWy6xfsPDkzZQ+AopVuuUBHJ/RqSNjS4niwfvM4=; b=MzT1QYnRrK3y33
-	tpK7aKY4AqmoQr2ZIpyWSswF+jzeRO7YNLx59cNgzmC4GAden2Pi4qnNUMj6+haOTVlpkQI9vN1M1
-	yfOqUFKBw2qVHggXVghJeGuIMAC0UzBU7zxK4lBSl5eWQfFoaowS9tz1lKXY9GOS+7T86tOTy9Or3
-	lFty/eLQ6q6AFUcJ8GX278+V/lf48LYKKXlO7Ina1tabuBKhdGKfeaXabEBDzv+5a/BDLXXTN16gV
-	D2PpxZg9RpIrpjqhYPrkw/o8DgSkX9wv5BHDw3fkvlKJpkbUKESbHCkrhYJvNSDTMlVL63EIfddoX
-	Et0I0WGGPmBLKmc9a+/w==;
+	List-Owner; bh=fKDdLJSHflRnDH9WtFgc4JoSUzD+yBDf0hXYG7MfITk=; b=wof5YZdydmw4bR
+	kqLlAWgOsLx6bRcJ2NCfnDZfKUFEOf9m/nZ6bfKYLsyYn3fvSQmAEQSD6MXXIU0Rw/6yN5lMZT5Kq
+	+jmjdiY2PExqFi7zlBl0mXYo0MAobAfk3qu71vE2JQfEMx7OpkRe+C+e8BQQEXeHMjcNQZw0fLGJn
+	/8dmNipGrhCRLO9pYE6ubYdM3ZBiG5tgyTKMPzxu20H5gakP8QZqadHIiD5CYZr8r31+QSBYofvop
+	kJm7ulNMeENSnGil+hpzsZrUbsp8E1RwtkXgVIOUCZIHjf894ncK4uTrVVpMoeKmgnDW2c7N6NpIr
+	5/lms2TgSQ/pb/Fqx7OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGbwR-005RZq-2k;
-	Fri, 22 Dec 2023 09:35:39 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGbwO-005RZ4-1R
+	id 1rGc6q-005SsN-0T;
+	Fri, 22 Dec 2023 09:46:24 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1rGc6m-005SoY-0i
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Dec 2023 09:35:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D744C61B6F
-	for <linux-riscv@lists.infradead.org>; Fri, 22 Dec 2023 09:35:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F6EBC433B8
-	for <linux-riscv@lists.infradead.org>; Fri, 22 Dec 2023 09:35:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1703237734;
-	bh=jZzdwoHT2kuZ2oo2BcVo/dRZz8kMowfuO8XWw6Jy+aQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=GP5rlVgpsY3gf41iBrWBR4PLFsSSpt1cwhq0UZGWW6D9fMZSfNHAbDFsae+n9TPnm
-	 RXbcB/gLI0Cpe6u4lWuu/0/6JGamdELFyme9j9YYAZoEbEm8aCrqWZL/aVIPGR3cvN
-	 +VyPRYH08FzJokPuJd0sb5gJKt8UuIIuT14MPVQ6fPHtC2fFwn4NJrA0I4nBrvsYnf
-	 P/zJZubL/Wme1lBZ6W98okrOSqrjHFSeJFsFTfiR4zr5LWfIYIOwG3nAApXO0xCPbK
-	 NS3BNUGa19SLVjR+PbDK5XdshLte8R/6CovgVosy+zmgzlhNbuHt/fxGYKn/+Fd7UE
-	 JlFnT5B+CgRUA==
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-50e55f97606so2428674e87.1
-        for <linux-riscv@lists.infradead.org>; Fri, 22 Dec 2023 01:35:34 -0800 (PST)
-X-Gm-Message-State: AOJu0Yw+B721FTuIBdfgR1O8WiUODN/PZOkEzU8NrVI+CJXtirIZrkRP
-	lsgj3CHLJrG14n1m5WWcXU1htnZyXLrh7HTY4OQ=
-X-Google-Smtp-Source: AGHT+IFBolUEPY720dl+czfO4qrssPxC1JJ7OwVqlpuBUwcp3tL3lhllAYTVKtUab1jFGi/GhzBcG2KsIGCJdxQjS+s=
-X-Received: by 2002:a19:384e:0:b0:50e:384c:6982 with SMTP id
- d14-20020a19384e000000b0050e384c6982mr452303lfj.42.1703237732207; Fri, 22 Dec
- 2023 01:35:32 -0800 (PST)
+	Fri, 22 Dec 2023 09:46:22 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id AC31D24E2E2;
+	Fri, 22 Dec 2023 17:45:52 +0800 (CST)
+Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 22 Dec
+ 2023 17:45:52 +0800
+Received: from williamqiu-virtual-machine.starfivetech.com (171.223.208.138)
+ by EXMBX068.cuchost.com (172.16.6.68) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.42; Fri, 22 Dec 2023 17:45:51 +0800
+From: William Qiu <william.qiu@starfivetech.com>
+To: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-pwm@vger.kernel.org>
+CC: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, "Hal
+ Feng" <hal.feng@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	William Qiu <william.qiu@starfivetech.com>
+Subject: [PATCH v10 3/4] riscv: dts: starfive: jh7100: Add PWM node and pins configuration
+Date: Fri, 22 Dec 2023 17:45:47 +0800
+Message-ID: <20231222094548.54103-4-william.qiu@starfivetech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20231222094548.54103-1-william.qiu@starfivetech.com>
+References: <20231222094548.54103-1-william.qiu@starfivetech.com>
 MIME-Version: 1.0
-References: <20231222074605.452452-1-leobras@redhat.com> <20231222074605.452452-3-leobras@redhat.com>
-In-Reply-To: <20231222074605.452452-3-leobras@redhat.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 22 Dec 2023 17:35:20 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQNE7OQiAbkvVNzo9PCV=Xr8KQD0_=s-G56QMZJiZnjvA@mail.gmail.com>
-Message-ID: <CAJF2gTQNE7OQiAbkvVNzo9PCV=Xr8KQD0_=s-G56QMZJiZnjvA@mail.gmail.com>
-Subject: Re: [RFC PATCH 2/4] riscv: add compile-time test into is_compat_task()
-To: Leonardo Bras <leobras@redhat.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Eric Biederman <ebiederm@xmission.com>, 
-	Kees Cook <keescook@chromium.org>, Oleg Nesterov <oleg@redhat.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, Andy Chiu <andy.chiu@sifive.com>, 
-	Greg Ungerer <gerg@kernel.org>, Vincent Chen <vincent.chen@sifive.com>, 
-	Xiao Wang <xiao.w.wang@intel.com>, Charlie Jenkins <charlie@rivosinc.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
-	Kemeng Shi <shikemeng@huaweicloud.com>, David Hildenbrand <david@redhat.com>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Qinglin Pan <panqinglin2020@iscas.ac.cn>, 
-	Greentime Hu <greentime.hu@sifive.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	=?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX068.cuchost.com
+ (172.16.6.68)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231222_013536_568605_E6207721 
-X-CRM114-Status: GOOD (  24.74  )
+X-CRM114-CacheID: sfid-20231222_014620_564456_A94155B5 
+X-CRM114-Status: UNSURE (   8.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,90 +75,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBEZWMgMjIsIDIwMjMgYXQgNTowMuKAr1BNIExlb25hcmRvIEJyYXMgPGxlb2JyYXNA
-cmVkaGF0LmNvbT4gd3JvdGU6Cj4KPiBDdXJyZW50bHkgc2V2ZXJhbCBwbGFjZXMgd2lsbCB0ZXN0
-IGZvciBDT05GSUdfQ09NUEFUIGJlZm9yZSB0ZXN0aW5nCj4gaXNfY29tcGF0X3Rhc2soKSwgcHJv
-YmFibHkgaW4gb3JkZXIgdG8gYXZvaWQgYSBydW4tdGltZSB0ZXN0IGludG8gdGhlIHRhc2sKPiBz
-dHJ1Y3R1cmUuCj4KPiBTaW5jZSBpc19jb21wYXRfdGFzaygpIGlzIGFuIGlubGluZWQgZnVuY3Rp
-b24sIGl0IHdvdWxkIGJlIGhlbHBmdWwgdG8gYWRkIGEKPiBjb21waWxlLXRpbWUgdGVzdCBvZiBD
-T05GSUdfQ09NUEFULCBtYWtpbmcgc3VyZSBpdCBhbHdheXMgcmV0dXJucyB6ZXJvIHdoZW4KPiB0
-aGUgb3B0aW9uIGlzIG5vdCBlbmFibGVkIGR1cmluZyB0aGUga2VybmVsIGJ1aWxkLgo+Cj4gV2l0
-aCB0aGlzLCB0aGUgY29tcGlsZXIgaXMgYWJsZSB0byB1bmRlcnN0YW5kIGluIGJ1aWxkLXRpbWUg
-dGhhdAo+IGlzX2NvbXBhdF90YXNrKCkgd2lsbCBhbHdheXMgcmV0dXJuIDAsIGFuZCBvcHRpbWl6
-ZS1vdXQgc29tZSBvZiB0aGUgZXh0cmEKPiBjb2RlIGludHJvZHVjZWQgYnkgdGhlIG9wdGlvbi4K
-Pgo+IFRoaXMgd2lsbCBhbHNvIGFsbG93IHJlbW92aW5nIGEgbG90ICNpZmRlZnMgdGhhdCB3ZXJl
-IGludHJvZHVjZWQsIGFuZCBtYWtlCj4gdGhlIGNvZGUgbW9yZSBjbGVhbi4KPgo+IFNpZ25lZC1v
-ZmYtYnk6IExlb25hcmRvIEJyYXMgPGxlb2JyYXNAcmVkaGF0LmNvbT4KPiAtLS0KPiAgYXJjaC9y
-aXNjdi9pbmNsdWRlL2FzbS9jb21wYXQuaCAgICB8IDMgKysrCj4gIGFyY2gvcmlzY3YvaW5jbHVk
-ZS9hc20vZWxmLmggICAgICAgfCA0IC0tLS0KPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3Rh
-YmxlLmggICB8IDYgLS0tLS0tCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvY2Vzc29yLmgg
-fCA0ICsrLS0KPiAgNCBmaWxlcyBjaGFuZ2VkLCA1IGluc2VydGlvbnMoKyksIDEyIGRlbGV0aW9u
-cygtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY29tcGF0LmggYi9h
-cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NvbXBhdC5oCj4gaW5kZXggMmFjOTU1YjUxMTQ4Zi4uOTE1
-MTdiNTFiOGUyNyAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NvbXBhdC5o
-Cj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jb21wYXQuaAo+IEBAIC0xNCw2ICsxNCw5
-IEBACj4KPiAgc3RhdGljIGlubGluZSBpbnQgaXNfY29tcGF0X3Rhc2sodm9pZCkKPiAgewo+ICsg
-ICAgICAgaWYgKCFJU19FTkFCTEVEKENPTkZJR19DT01QQVQpKQo+ICsgICAgICAgICAgICAgICBy
-ZXR1cm4gMDsKPiArCj4gICAgICAgICByZXR1cm4gdGVzdF90aHJlYWRfZmxhZyhUSUZfMzJCSVQp
-Owo+ICB9Cj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9lbGYuaCBiL2Fy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vZWxmLmgKPiBpbmRleCA1OWEwODM2N2ZkZGQ3Li4yZTg4MjU3
-Y2FmYWVhIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZWxmLmgKPiArKysg
-Yi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2VsZi5oCj4gQEAgLTUzLDEzICs1Myw5IEBAIGV4dGVy
-biBib29sIGNvbXBhdF9lbGZfY2hlY2tfYXJjaChFbGYzMl9FaGRyICpoZHIpOwo+ICAjZGVmaW5l
-IEVMRl9FVF9EWU5fQkFTRSAgICAgICAgICAgICAgICAoKERFRkFVTFRfTUFQX1dJTkRPVyAvIDMp
-ICogMikKPgo+ICAjaWZkZWYgQ09ORklHXzY0QklUCj4gLSNpZmRlZiBDT05GSUdfQ09NUEFUCj4g
-ICNkZWZpbmUgU1RBQ0tfUk5EX01BU0sgICAgICAgICAoaXNfY29tcGF0X3Rhc2soKSA/IFwKPiAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAweDdmZiA+PiAoUEFHRV9TSElGVCAtIDEy
-KSA6IFwKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAweDNmZmZmID4+IChQQUdF
-X1NISUZUIC0gMTIpKQo+IC0jZWxzZQo+IC0jZGVmaW5lIFNUQUNLX1JORF9NQVNLICAgICAgICAg
-KDB4M2ZmZmYgPj4gKFBBR0VfU0hJRlQgLSAxMikpCj4gLSNlbmRpZgo+ICAjZW5kaWYKPgo+ICAv
-Kgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaCBiL2FyY2gv
-cmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS5oCj4gaW5kZXggMWQ0NzJiMzFlMGNmZS4uZWE1YjI2
-OWJlMjIzYSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaAo+
-ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS5oCj4gQEAgLTEyNywxNiArMTI3
-LDEwIEBACj4gICNkZWZpbmUgVkFfVVNFUl9TVjQ4IChVTCgxKSA8PCAoVkFfQklUU19TVjQ4IC0g
-MSkpCj4gICNkZWZpbmUgVkFfVVNFUl9TVjU3IChVTCgxKSA8PCAoVkFfQklUU19TVjU3IC0gMSkp
-Cj4KPiAtI2lmZGVmIENPTkZJR19DT01QQVQKPiAgI2RlZmluZSBNTUFQX1ZBX0JJVFNfNjQgKChW
-QV9CSVRTID49IFZBX0JJVFNfU1Y0OCkgPyBWQV9CSVRTX1NWNDggOiBWQV9CSVRTKQo+ICAjZGVm
-aW5lIE1NQVBfTUlOX1ZBX0JJVFNfNjQgKFZBX0JJVFNfU1YzOSkKPiAgI2RlZmluZSBNTUFQX1ZB
-X0JJVFMgKGlzX2NvbXBhdF90YXNrKCkgPyBWQV9CSVRTX1NWMzIgOiBNTUFQX1ZBX0JJVFNfNjQp
-Cj4gICNkZWZpbmUgTU1BUF9NSU5fVkFfQklUUyAoaXNfY29tcGF0X3Rhc2soKSA/IFZBX0JJVFNf
-U1YzMiA6IE1NQVBfTUlOX1ZBX0JJVFNfNjQpCj4gLSNlbHNlCj4gLSNkZWZpbmUgTU1BUF9WQV9C
-SVRTICgoVkFfQklUUyA+PSBWQV9CSVRTX1NWNDgpID8gVkFfQklUU19TVjQ4IDogVkFfQklUUykK
-PiAtI2RlZmluZSBNTUFQX01JTl9WQV9CSVRTIChWQV9CSVRTX1NWMzkpCj4gLSNlbmRpZiAvKiBD
-T05GSUdfQ09NUEFUICovCj4gLQo+ICAjZWxzZQo+ICAjaW5jbHVkZSA8YXNtL3BndGFibGUtMzIu
-aD4KPiAgI2VuZGlmIC8qIENPTkZJR182NEJJVCAqLwo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
-L2luY2x1ZGUvYXNtL3Byb2Nlc3Nvci5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNz
-b3IuaAo+IGluZGV4IGYxOWY4NjFjZGE1NDkuLmVkMzJlNTNlNTU5OTkgMTAwNjQ0Cj4gLS0tIGEv
-YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaAo+ICsrKyBiL2FyY2gvcmlzY3YvaW5j
-bHVkZS9hc20vcHJvY2Vzc29yLmgKPiBAQCAtMjIsNyArMjIsNyBAQAo+ICAoeyAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gICAg
-ICAgICB1bnNpZ25lZCBsb25nIG1tYXBfZW5kOyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgIFwKPiAgICAgICAgIHR5cGVvZihhZGRyKSBfYWRkciA9IChhZGRyKTsgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgXAo+IC0gICAgICAgaWYgKChfYWRkcikgPT0gMCB8fCAoSVNfRU5BQkxF
-RChDT05GSUdfQ09NUEFUKSAmJiBpc19jb21wYXRfdGFzaygpKSkgXAo+ICsgICAgICAgaWYgKChf
-YWRkcikgPT0gMCB8fCBpc19jb21wYXRfdGFzaygpKSAgICAgICAgICAgICAgICAgICBcCj4gICAg
-ICAgICAgICAgICAgIG1tYXBfZW5kID0gU1RBQ0tfVE9QX01BWDsgICAgICAgICAgICAgICAgICAg
-ICAgIFwKPiAgICAgICAgIGVsc2UgaWYgKChfYWRkcikgPj0gVkFfVVNFUl9TVjU3KSAgICAgICAg
-ICAgICAgICAgICAgICAgXAo+ICAgICAgICAgICAgICAgICBtbWFwX2VuZCA9IFNUQUNLX1RPUF9N
-QVg7ICAgICAgICAgICAgICAgICAgICAgICBcCj4gQEAgLTM5LDcgKzM5LDcgQEAKPiAgICAgICAg
-IHR5cGVvZihhZGRyKSBfYWRkciA9IChhZGRyKTsgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-XAo+ICAgICAgICAgdHlwZW9mKGJhc2UpIF9iYXNlID0gKGJhc2UpOyAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICBcCj4gICAgICAgICB1bnNpZ25lZCBsb25nIHJuZF9nYXAgPSBERUZBVUxUX01B
-UF9XSU5ET1cgLSAoX2Jhc2UpOyAgIFwKPiAtICAgICAgIGlmICgoX2FkZHIpID09IDAgfHwgKElT
-X0VOQUJMRUQoQ09ORklHX0NPTVBBVCkgJiYgaXNfY29tcGF0X3Rhc2soKSkpIFwKPiArICAgICAg
-IGlmICgoX2FkZHIpID09IDAgfHwgaXNfY29tcGF0X3Rhc2soKSkgICAgICAgICAgICAgICAgICAg
-XAo+ICAgICAgICAgICAgICAgICBtbWFwX2Jhc2UgPSAoX2Jhc2UpOyAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICBcCj4gICAgICAgICBlbHNlIGlmICgoKF9hZGRyKSA+PSBWQV9VU0VSX1NWNTcp
-ICYmIChWQV9CSVRTID49IFZBX0JJVFNfU1Y1NykpIFwKPiAgICAgICAgICAgICAgICAgbW1hcF9i
-YXNlID0gVkFfVVNFUl9TVjU3IC0gcm5kX2dhcDsgICAgICAgICAgICAgXAo+IC0tCj4gMi40My4w
-Cj4KUmV2aWV3ZWQtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPgoKLS0gCkJlc3QgUmVn
-YXJkcwogR3VvIFJlbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+Add OpenCores PWM controller node and add PWM pins configuration
+on VisionFive 1 board.
+
+Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+---
+ .../boot/dts/starfive/jh7100-common.dtsi      | 24 +++++++++++++++++++
+ arch/riscv/boot/dts/starfive/jh7100.dtsi      |  9 +++++++
+ 2 files changed, 33 insertions(+)
+
+diff --git a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
+index b93ce351a90f..11876906cc05 100644
+--- a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
+@@ -84,6 +84,24 @@ GPO_I2C2_PAD_SDA_OEN,
+ 		};
+ 	};
+ 
++	pwm_pins: pwm-0 {
++		pwm-pins {
++			pinmux = <GPIOMUX(7,
++				  GPO_PWM_PAD_OUT_BIT0,
++				  GPO_PWM_PAD_OE_N_BIT0,
++				  GPI_NONE)>,
++				 <GPIOMUX(5,
++				  GPO_PWM_PAD_OUT_BIT1,
++				  GPO_PWM_PAD_OE_N_BIT1,
++				  GPI_NONE)>;
++			bias-disable;
++			drive-strength = <35>;
++			input-disable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++	};
++
+ 	uart3_pins: uart3-0 {
+ 		rx-pins {
+ 			pinmux = <GPIOMUX(13, GPO_LOW, GPO_DISABLE,
+@@ -154,6 +172,12 @@ &osc_aud {
+ 	clock-frequency = <27000000>;
+ };
+ 
++&pwm {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pwm_pins>;
++	status = "okay";
++};
++
+ &uart3 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart3_pins>;
+diff --git a/arch/riscv/boot/dts/starfive/jh7100.dtsi b/arch/riscv/boot/dts/starfive/jh7100.dtsi
+index e68cafe7545f..4f5eb2f60856 100644
+--- a/arch/riscv/boot/dts/starfive/jh7100.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7100.dtsi
+@@ -280,6 +280,15 @@ watchdog@12480000 {
+ 				 <&rstgen JH7100_RSTN_WDT>;
+ 		};
+ 
++		pwm: pwm@12490000 {
++			compatible = "starfive,jh7100-pwm", "opencores,pwm-v1";
++			reg = <0x0 0x12490000 0x0 0x10000>;
++			clocks = <&clkgen JH7100_CLK_PWM_APB>;
++			resets = <&rstgen JH7100_RSTN_PWM_APB>;
++			#pwm-cells = <3>;
++			status = "disabled";
++		};
++
+ 		sfctemp: temperature-sensor@124a0000 {
+ 			compatible = "starfive,jh7100-temp";
+ 			reg = <0x0 0x124a0000 0x0 0x10000>;
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
