@@ -4,74 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60F8EC46CD8
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Dec 2023 11:53:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E9E3C41535
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Dec 2023 11:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=or0vnn+jQ3kVLp9WAagdfTbC0pnUbPFjGoubQK8ucmk=; b=MQAqWX/9tIfxWC
-	cfp4Pb9IZhjuFFpHcMh5CJBopFvsLynn4tHZh1iKNVCl3FAbCdVpE26NwBI0ejIRq3WPr1vThr24U
-	XelaABgzi+p8B21lH0hdKZ+RXag27SHetpRgrUBwWG7zJZZAkM+dqKtBx2DtaNDc32W0wueGpdOc5
-	s+C3XiF7mITZLvsfdUox8GKlqe+SDwZgkGooPr22A1F6jjy5p3Zukbty65u9S60zSnxfjJh63PXOP
-	kw6aXTTfo9HSueNnrUQi4957oUg23HqkmDZjOWDoVjcSrP0DnEzLFiD3WdonPLiVMLhnEWxIVwo8e
-	8WiGlC0vNE3tFWokRJpw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=EALuQATyS80hr/uCeCT13M+2Hg7nbHZ6yI01KRFedmM=; b=CWBv0qNn5DMCUl
+	ArnLNMgIr6sqSVTHWfN1TIS6h4Sau//U2U5D3Kfvp5rBIeFcfh4nUI13s1Bp+MOcI7+/zLKQEpVgQ
+	rPlMtwBMQ4hfrN2RUMG3g4PFymJFx87HayYl1sIaxN+FwLWU56j4bg63g8mDOBku4UKv1VdXovpqD
+	P8hH5hcez8ammjGv/NFnRt+Su3puHTXhEiXYaVtv6UExmVzot1EyHeCxgUPj/j4m5O3KBGaS1Gj4I
+	SBHUQavZRFhwf2qk+Q/3RNSZeDjCgiPpyoCFykWI0NUTa8Wa7EO+Wy83ukXxKOvoxJC+f1ty8o3LI
+	ji9ibTNS0fLIxbgB8U4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGe5N-005rqV-1E;
-	Fri, 22 Dec 2023 11:53:01 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
+	id 1rGe9U-005sDK-19;
+	Fri, 22 Dec 2023 11:57:16 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGe5K-005rnt-16
+	id 1rGe9R-005sCf-0L
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Dec 2023 11:52:59 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-101-xeT26KtROmq9ThAudnAjmA-1; Fri, 22 Dec 2023 11:52:54 +0000
-X-MC-Unique: xeT26KtROmq9ThAudnAjmA-1
-Received: from AcuMS.Aculab.com (10.202.163.6) by AcuMS.aculab.com
- (10.202.163.6) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Fri, 22 Dec
- 2023 11:52:39 +0000
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Fri, 22 Dec 2023 11:52:39 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Guo Ren' <guoren@kernel.org>, Leonardo Bras <leobras@redhat.com>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, "palmer@dabbelt.com"
-	<palmer@dabbelt.com>, "alexghiti@rivosinc.com" <alexghiti@rivosinc.com>,
-	"charlie@rivosinc.com" <charlie@rivosinc.com>, "xiao.w.wang@intel.com"
-	<xiao.w.wang@intel.com>, "david@redhat.com" <david@redhat.com>,
-	"panqinglin2020@iscas.ac.cn" <panqinglin2020@iscas.ac.cn>,
-	"rick.p.edgecombe@intel.com" <rick.p.edgecombe@intel.com>,
-	"willy@infradead.org" <willy@infradead.org>, "bjorn@rivosinc.com"
-	<bjorn@rivosinc.com>, "conor.dooley@microchip.com"
-	<conor.dooley@microchip.com>, "cleger@rivosinc.com" <cleger@rivosinc.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Guo Ren
-	<guoren@linux.alibaba.com>
-Subject: RE: [PATCH V2 4/4] riscv: mm: Optimize TASK_SIZE definition
-Thread-Topic: [PATCH V2 4/4] riscv: mm: Optimize TASK_SIZE definition
-Thread-Index: AQHaNMmXQnV6P1CryUOzF1IfQQ8rsbC1Lv+w
-Date: Fri, 22 Dec 2023 11:52:39 +0000
-Message-ID: <e3f1521a9f04463587d07d0c99534d5a@AcuMS.aculab.com>
-References: <20231221154702.2267684-1-guoren@kernel.org>
- <20231221154702.2267684-5-guoren@kernel.org> <ZYUZ8QUJxCL93Fgv@LeoBras>
- <CAJF2gTTX7AjexoRUw=ZS34HEWno7H3zvnXA+Q7TYsztNU=k2cg@mail.gmail.com>
-In-Reply-To: <CAJF2gTTX7AjexoRUw=ZS34HEWno7H3zvnXA+Q7TYsztNU=k2cg@mail.gmail.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+	Fri, 22 Dec 2023 11:57:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 4FD6ACE1DD5;
+	Fri, 22 Dec 2023 11:57:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D50EEC433C8;
+	Fri, 22 Dec 2023 11:57:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1703246230;
+	bh=5kuuzvzsTLj+b569PmL/dnbV7dULNml61yAjeVKDzIQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=hgCgP9HkXEwZHkP1Pup6spJ03f0E19AJjTl5UpglvdkcM6BudaR5a++14mPhrrPab
+	 bk6qY6HzJK8JOg5GwVC06aXwEs2fZ25n95/SGPU1unTT7pmrV55NsPiJKHu+P3Nxrs
+	 bqgyvBQw0nB8YE2jBMRJhowZsHX81LYW8b+wFt6ekZZk1f+YAlJ+XftF73RydTD3zc
+	 FcOGamCgjiFglkfTQkT/NopwYvyv2iw0ixFlejMTDAD8uo9KuJgbNegmBVlxQuwIIT
+	 ne/rCC5KPrwdcaQR3junEXDD41vUxKRJXMHUGWZzHVNe5mmHN37P5jT3MJlZN9j59d
+	 0DbttuZ/gAIqw==
+From: guoren@kernel.org
+To: linux-kernel@vger.kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	alexghiti@rivosinc.com,
+	charlie@rivosinc.com,
+	xiao.w.wang@intel.com,
+	guoren@kernel.org,
+	david@redhat.com,
+	panqinglin2020@iscas.ac.cn,
+	rick.p.edgecombe@intel.com,
+	willy@infradead.org,
+	bjorn@rivosinc.com,
+	conor.dooley@microchip.com,
+	cleger@rivosinc.com,
+	leobras@redhat.com
+Cc: linux-riscv@lists.infradead.org,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH V3 0/4] riscv: mm: Fixup & Optimize COMPAT code
+Date: Fri, 22 Dec 2023 06:56:59 -0500
+Message-Id: <20231222115703.2404036-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231222_035258_647678_1FD5CF36 
-X-CRM114-Status: UNSURE (   6.68  )
+X-CRM114-CacheID: sfid-20231222_035713_320242_AC7196C0 
+X-CRM114-Status: UNSURE (   7.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,25 +85,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren
-> Sent: 22 December 2023 11:25
-...
-> > > +#define TASK_SIZE    (is_compat_task() ? \
-> > >                        TASK_SIZE_32 : TASK_SIZE_64)
-> I would remove is_compat_task() in the next version because your patch
-> contains that.
+From: Guo Ren <guoren@linux.alibaba.com>
 
-Does TASK_SIZE get used in access_ok() ?
-If so the repeated expansion of that 'mess' will slow things down.
+When the task is in COMPAT mode, the TASK_SIZE should be 2GB, so
+STACK_TOP_MAX and arch_get_mmap_end must be limited to 2 GB. This series
+fixes the problem made by commit: add2cc6b6515 ("RISC-V: mm: Restrict
+address space for sv39,sv48,sv57") and optimizes the related coding
+convention of TASK_SIZE.
 
-OTOH access_ok(ptr, len) can just check (ptr | (ptr + len)) < 0)
-and rely on the page faults for everything else.
+Changelog:
+v3:
+ - Remove wrong modification of arch_get_mmap_end
+ - Remove is_compat_task optimization
+ - Update comment log
 
-	David
+v2:
+https://lore.kernel.org/linux-riscv/20231221154702.2267684-1-guoren@kernel.org/
+ - Separate rename from fixup
+ - Add STACK_TOP_MAX fixup for compat
+ - Add Cleanup & rename patches
 
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
+v1:
+https://lore.kernel.org/linux-riscv/20231219111701.1886903-1-guoren@kernel.org/
+
+Guo Ren (4):
+  riscv: mm: Fixup compat mode boot failure
+  riscv: mm: Fixup compat arch_get_mmap_end
+  riscv: mm: Remove unused TASK_SIZE_MIN
+  riscv: mm: Optimize TASK_SIZE definition
+
+ arch/riscv/include/asm/pgtable.h   | 7 +++----
+ arch/riscv/include/asm/processor.h | 2 +-
+ 2 files changed, 4 insertions(+), 5 deletions(-)
+
+-- 
+2.40.1
+
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
