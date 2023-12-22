@@ -4,71 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94267C46CD2
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Dec 2023 02:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C550CC46CD2
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Dec 2023 03:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ofewPGy5ay85hAVPeurKTeEEDO7czGj9ouY99wkc++0=; b=O0DhJw/e3HK6eK
-	3/4fILDB+xuaIjq9fwFuMl/nELJBgBwpsyRbocZOziZxl6+/mSjWqw+73av5vZb4V4JQ9O9hayXjZ
-	fm+57ja5uabE2VDcBWvS5SXxWjzD98WAR6T1NRLyPuP/gryy6vPrge6HkScEgk/srqzvl12vtN7jv
-	KeMDoTMWvNqHYWdrURNgbDClVY6N/lFwO/cL2xrijdNiHmiNSiC3u8NKOvfa0kSeKLc82hSpyfqfF
-	xSf+rJhmJAGIBE55VuwIpOF7PGGY8C5N3xsXeH5/d7cPjTtttbbREeqBEeFwXQ9Gp9Aoczf2NcG7q
-	Ej6iGsyWWtj2Vxs6CBMg==;
+	List-Owner; bh=7ygJg+FEav6fbRpdf1/wG8Qb+kSbuDTAUA5j/CfyNN8=; b=FX/OFEofRnhzHf
+	f5a9WS9/qAen4KVJPbDN6aC3b1plH+hAjia9LqlqbPKrxl2ZCRZ67ICWAj0Ih+awYTvi2qDh+lXqI
+	jUclAZ11k+mb4svt7bWYIm0YARLIvNirbiDEPFsZ7kNO3ndk9hJSjrfGtjRrUaosyaElUE79Iwwcq
+	BS4yJlVqTtLmaW2gA9YSeJ/366XqNTtnYVznv3PK1leaNbRrcvK+uJWTdFQXIIUbwU3Vz4jyWO+WS
+	y6mTqayJ7EbQl5NCfmYSRbGhMtwKJN4YYOW8agsM0xHxFN41gzDSOsW8G2dUXwkaO88O6WgNUxUrX
+	Z6WgjAPfXE4qayxG9/Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGVjG-004iG9-0f;
-	Fri, 22 Dec 2023 02:57:38 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rGWJo-004m1G-1K;
+	Fri, 22 Dec 2023 03:35:24 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGVjC-004iEn-1A
+	id 1rGWJj-004m0R-1b
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Dec 2023 02:57:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 49E9ACE20F7
-	for <linux-riscv@lists.infradead.org>; Fri, 22 Dec 2023 02:57:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA773C43397
-	for <linux-riscv@lists.infradead.org>; Fri, 22 Dec 2023 02:57:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1703213849;
-	bh=B7WoB0gREyq2eeosBDTUvV5rdLVfhJVD/gu6y94sIZA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=TU5kvvyY9FjchZxkY2Up3GEEdfwcnibMZQYJjo1X/r0stFqxzMjMypKJkGZtZwNwI
-	 SPEWkk6GfFcQZ/HWjmGdBIo2WmVuAujlmtr+R47w/zBXGTehIF3vOXPB0JUNi/GFvu
-	 pOTyJqU8/S6JmiufabOiPHux09JctA0Lhe5X9wUMON8NL0916TSmeTX38VySlIyh+V
-	 /pABlywq41C/J4uJvgIlcUFvgWAYdeHHfpIZAfEfYDf3nObym4Bposr0tOEq07v/1L
-	 0ROPnXnaqmlr+J1nIvkEqUdLyq0+7SuMw/7J+n/uGuMa933m2fnSc3wcFhjO0jxGGI
-	 IRUMPugAABjlg==
-Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-a236d77dceeso174044566b.2
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Dec 2023 18:57:29 -0800 (PST)
-X-Gm-Message-State: AOJu0YyaULyyUEMUza+0hO5J+NfGfUL0Ves2w4L7s68CExk7VZOYMmSv
-	upQOAhRzsPsByMrhUNM7mIMSFfwOSFKxmlzUEb0=
-X-Google-Smtp-Source: AGHT+IEtKuQYt0eKcYcGXNsbYd6L6zfQChg70xnlZIIepptITPMCZeUaD/4I8okkksMp3jbxyzTgLyGXO2AURgMebyg=
-X-Received: by 2002:a17:906:af93:b0:a26:86d8:ff54 with SMTP id
- mj19-20020a170906af9300b00a2686d8ff54mr275692ejb.5.1703213848210; Thu, 21 Dec
- 2023 18:57:28 -0800 (PST)
+	Fri, 22 Dec 2023 03:35:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1703216118;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=y8TmxaP4mrskjqZXgi+cBjlEzOM/y71ITq0aMJjTxko=;
+	b=Zd3Snbigf2hJ4bBSPOx1O0A9kJPqXKvR8gEBTjH8/2dj1FnGuYff5k7VKY45wzRG1CNEkw
+	NrZpjeWdlKpenztIbZSVlhHfCIJCQ7H5pqUZJVyjZqh8bQpv5BAz5dVkGY/0wTF3CSXFaM
+	54OU3TwKXUYPNzt3UQAD/tpox7IthVA=
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com
+ [209.85.215.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-250-19HLv4UONsCZEUCgh3ooew-1; Thu, 21 Dec 2023 22:35:17 -0500
+X-MC-Unique: 19HLv4UONsCZEUCgh3ooew-1
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-5c6bd30ee89so1347766a12.0
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Dec 2023 19:35:16 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1703216116; x=1703820916;
+        h=content-transfer-encoding:content-disposition:mime-version
+         :references:in-reply-to:message-id:date:subject:cc:to:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=y8TmxaP4mrskjqZXgi+cBjlEzOM/y71ITq0aMJjTxko=;
+        b=BC2/Y4Q1eH91SDHj3/bUY+YdcXClPVkG1VI36Ga4tH7VLtaCP6vBsr6mlT49F1CBgG
+         MvKIFOEwBUUOg58odSyZ73emA6HREUljWWwhepPdI/r1KtvrpuOutSh/UjQQIOdEpqdH
+         Z+QevohPGPoduCQcvPnZ4P8crvcJ3Wu8HhuUKzBukNfIV3BXVy57bKNfPrQkRRUOqCXi
+         vd7dgJUaVpx+EkkyrbsB3VdKpLzJl2pO0KzuTdZK2lORBcYwi9zUttuywnuvec5h5amb
+         xCsaB9C1UuuUrAS2/E6oSPRIMEQoHjuejHIFIWbwt0lLv1Ehej6jatpMK1liU6jswxP/
+         Qq8g==
+X-Gm-Message-State: AOJu0Yza1Eus/Jz5v3MRKbY/Op+sp0LxqC5NrjuTWtgaBCdBtNiNJ1OB
+	uEYNan+JrCBKUI0mMX3rovqNfC3J6mAl2+G/dUcWt9BwAsFpVva4YcY0ABbq63qIYrtclhsVbEy
+	/QothK1h4jxTsDg4bKWpzhp914aEAIoiWtQqZ
+X-Received: by 2002:a05:6a20:3947:b0:18f:f359:bca5 with SMTP id r7-20020a056a20394700b0018ff359bca5mr914877pzg.64.1703216116071;
+        Thu, 21 Dec 2023 19:35:16 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEqO36BVnV3pzvB8GMCCtjZUoRDM68B3iwcPsT+deqxYS7JKss4F1R+kLGypmArdvd1klJX/Q==
+X-Received: by 2002:a05:6a20:3947:b0:18f:f359:bca5 with SMTP id r7-20020a056a20394700b0018ff359bca5mr914855pzg.64.1703216115792;
+        Thu, 21 Dec 2023 19:35:15 -0800 (PST)
+Received: from localhost.localdomain ([2804:1b3:a802:7496:88a7:1b1a:a837:bebf])
+        by smtp.gmail.com with ESMTPSA id r16-20020a17090ad41000b0028b03f9107asm6270280pju.55.2023.12.21.19.35.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 21 Dec 2023 19:35:15 -0800 (PST)
+From: Leonardo Bras <leobras@redhat.com>
+To: guoren@kernel.org
+Cc: Leonardo Bras <leobras@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	alexghiti@rivosinc.com,
+	charlie@rivosinc.com,
+	xiao.w.wang@intel.com,
+	david@redhat.com,
+	panqinglin2020@iscas.ac.cn,
+	rick.p.edgecombe@intel.com,
+	willy@infradead.org,
+	bjorn@rivosinc.com,
+	conor.dooley@microchip.com,
+	cleger@rivosinc.com,
+	linux-riscv@lists.infradead.org,
+	Guo Ren <guoren@linux.alibaba.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH V2 2/4] riscv: mm: Fixup compat arch_get_mmap_end
+Date: Fri, 22 Dec 2023 00:34:56 -0300
+Message-ID: <ZYUD4C1aXWt2oFJo@LeoBras>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20231221154702.2267684-3-guoren@kernel.org>
+References: <20231221154702.2267684-1-guoren@kernel.org> <20231221154702.2267684-3-guoren@kernel.org>
 MIME-Version: 1.0
-References: <20231221154702.2267684-1-guoren@kernel.org> <20231221154702.2267684-2-guoren@kernel.org>
- <ZYTriK9hjOFQou9Z@LeoBras>
-In-Reply-To: <ZYTriK9hjOFQou9Z@LeoBras>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 22 Dec 2023 10:57:16 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTT=EQzsuYMHr3FLb82Gi325PqWMEOAzfc6fg=go+gKP_g@mail.gmail.com>
-Message-ID: <CAJF2gTT=EQzsuYMHr3FLb82Gi325PqWMEOAzfc6fg=go+gKP_g@mail.gmail.com>
-Subject: Re: [PATCH V2 1/4] riscv: mm: Fixup compat mode boot failure
-To: Leonardo Bras <leobras@redhat.com>
-Cc: linux-kernel@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	alexghiti@rivosinc.com, charlie@rivosinc.com, xiao.w.wang@intel.com, 
-	david@redhat.com, panqinglin2020@iscas.ac.cn, rick.p.edgecombe@intel.com, 
-	willy@infradead.org, bjorn@rivosinc.com, conor.dooley@microchip.com, 
-	cleger@rivosinc.com, linux-riscv@lists.infradead.org, 
-	Guo Ren <guoren@linux.alibaba.com>, stable@vger.kernel.org
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231221_185734_860491_7D719C79 
-X-CRM114-Status: GOOD (  27.38  )
+X-CRM114-CacheID: sfid-20231221_193519_605806_DD45CC87 
+X-CRM114-Status: GOOD (  19.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,70 +111,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBEZWMgMjIsIDIwMjMgYXQgOTo1MeKAr0FNIExlb25hcmRvIEJyYXMgPGxlb2JyYXNA
-cmVkaGF0LmNvbT4gd3JvdGU6Cj4KPiBIZWxsbyBHdW8gUmVuLAo+Cj4gT24gVGh1LCBEZWMgMjEs
-IDIwMjMgYXQgMTA6NDY6NThBTSAtMDUwMCwgZ3VvcmVuQGtlcm5lbC5vcmcgd3JvdGU6Cj4gPiBG
-cm9tOiBHdW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4gPgo+ID4gSW4gQ09NUEFU
-IG1vZGUsIHRoZSBTVEFDS19UT1AgaXMgMHg4MDAwMDAwMCwgYnV0IHRoZSBUQVNLX1NJWkUgaXMK
-PiA+IDB4N2ZmZjAwMC4gV2hlbiB0aGUgdXNlciBzdGFjayBpcyB1cG9uIDB4N2ZmZjAwMCwgaXQg
-d2lsbCBjYXVzZSBhIHVzZXIKPiA+IHNlZ21lbnQgZmF1bHQuIFNvbWV0aW1lcywgaXQgd291bGQg
-Y2F1c2UgYm9vdCBmYWlsdXJlIHdoZW4gdGhlIHdob2xlCj4gPiByb290ZnMgaXMgcnYzMi4KPgo+
-IENoZWNraW5nIGlmIEkgZ2V0IHRoZSBzY2VuYXJpbzoKPgo+IEluIHBndGFibGUuaDoKPiAjaWZk
-ZWYgQ09ORklHXzY0QklUCj4gI2RlZmluZSBUQVNLX1NJWkVfNjQgICAgKFBHRElSX1NJWkUgKiBQ
-VFJTX1BFUl9QR0QgLyAyKQo+ICNkZWZpbmUgVEFTS19TSVpFX01JTiAgIChQR0RJUl9TSVpFX0wz
-ICogUFRSU19QRVJfUEdEIC8gMikKPgo+ICNpZmRlZiBDT05GSUdfQ09NUEFUCj4gI2RlZmluZSBU
-QVNLX1NJWkVfMzIgICAgKF9BQygweDgwMDAwMDAwLCBVTCkgLSBQQUdFX1NJWkUpCj4gI2RlZmlu
-ZSBUQVNLX1NJWkUgICAgICAgKHRlc3RfdGhyZWFkX2ZsYWcoVElGXzMyQklUKSA/IFwKPiAgICAg
-ICAgICAgICAgICAgICAgICAgICAgVEFTS19TSVpFXzMyIDogVEFTS19TSVpFXzY0KQo+ICNlbHNl
-Cj4gWy4uLl0KPgo+IE1lYW5pbmcgQ09ORklHX0NPTVBBVCBpcyBvbmx5IGF2YWlsYWJsZSBpbiBD
-T05GSUdfNjRCSVQsIGFuZCBUQVNLX1NJWkUgaW4KPiBjb21wYXQgbW9kZSBpcyBlaXRoZXIgVEFT
-S19TSVpFXzMyIG9yIFRBU0tfU0laRV82NCBkZXBlbmRpbmcgb24gdGhlIHRocmVhZF9mbGFnLgo+
-Cj4gZnJvbSBwcm9jZXNzb3IuaDoKPiAjaWZkZWYgQ09ORklHXzY0QklUCj4gI2RlZmluZSBERUZB
-VUxUX01BUF9XSU5ET1cgICAgICAoVUwoMSkgPDwgKE1NQVBfVkFfQklUUyAtIDEpKQo+ICNkZWZp
-bmUgU1RBQ0tfVE9QX01BWCAgICAgICAgICAgVEFTS19TSVpFXzY0Cj4gWy4uLl0KPiAjZGVmaW5l
-IFNUQUNLX1RPUCAgICAgICAgICAgICAgIERFRkFVTFRfTUFQX1dJTkRPVwo+Cj4KPiB3aGVyZToK
-PiAjZGVmaW5lIE1NQVBfVkFfQklUUyAoaXNfY29tcGF0X3Rhc2soKSA/IFZBX0JJVFNfU1YzMiA6
-IE1NQVBfVkFfQklUU182NCkKPiB3aXRoIE1NQVBfVkFfQklUU182NCBiZWluZyBlaXRoZXIgNDgg
-b3IgMzcuCj4KPiBJbiBjb21wYXQgbW9kZSwKPiBTVEFDS19UT1AgPSAxIDw8ICgzMiAtIDEpICAg
-ICAgIC0+IDB4ODAwMDAwMDAKPiBUQVNLX1NJWkUgPSAweDgwMDAwMDAgLSA0ayAgICAgIC0+IDB4
-N2ZmZmYwMDAKPgo+IElJVUMsIHlvdXIgc3VnZ2VzdGlvbiBpcyB0byBtYWtlIFRBU0tfU0laRSA9
-IFNUQUNLX1RPUCBpbiBjb21wYXQgbW9kZSBvbmx5LgpZZXMsIGl0IGNhdXNlcyB0aGUgcHJvYmxl
-bSwgd2hpY2ggY2F1c2VzIHRoZSBib290IHRvIGZhaWwuCgo+Cj4gVGhlbiB3aHkgbm90Ogo+ICNp
-ZmRlZiBDT05GSUdfQ09NUEFUCj4gI2RlZmluZSBUQVNLX1NJWkVfMzIgICAgU1RBQ0tfVE9QClll
-cywgaXQncyB0aGUgc29sdXRpb24gdGhhdCBJIHRoaW5rIGF0IGZpcnN0LiBCdXQgSSBkaWRuJ3Qg
-ZmluZCBhbnkKcHJvYmxlbSB3aXRoIDB4N2ZmZmYwMDAgfiAweDgwMDAwMDAwLCBhbmQgdGhlbiBJ
-IHJlbW92ZWQgdGhpcyBnYXAgdG8KdW5pZnkgaXQgd2l0aCBTdjM5IGFuZCBTdjQ4LgoKPgo+IFdp
-dGggc29tZSBjb21tZW50cyBleHBsYWluaW5nIHdoeSB0aGVyZSBpcyBubyBuZWVkIHRvIHJlc2Vy
-dmUgYSBQQUdFX1NJWkUKPiBpbiB0aGUgVEFTS19TSVpFXzMyLgpBdCBmaXJzdCwgSSB3YW50ZWQg
-dG8gcHV0IGEgaW52YWxpZCBwYWdlIGJldHdlZW4gdGhlIHVzZXIgJiBrZXJuZWwKc3BhY2UsIGJ1
-dCBpdCBzZWVtcyB1c2VsZXNzLgoKPgo+IERvZXMgdGhhdCBtYWtlIHNlbnNlPwo+Cj4gVGhhbmtz
-IQo+IExlbwo+Cj4gPgo+ID4gRnJlZWluZyB1bnVzZWQga2VybmVsIGltYWdlIChpbml0bWVtKSBt
-ZW1vcnk6IDIyMzZLCj4gPiBSdW4gL3NiaW4vaW5pdCBhcyBpbml0IHByb2Nlc3MKPiA+IFN0YXJ0
-aW5nIGluaXQ6IC9zYmluL2luaXQgZXhpc3RzIGJ1dCBjb3VsZG4ndCBleGVjdXRlIGl0IChlcnJv
-ciAtMTQpCj4gPiBSdW4gL2V0Yy9pbml0IGFzIGluaXQgcHJvY2Vzcwo+ID4gLi4uCj4gPgo+ID4g
-Q2M6IHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmcKPiA+IEZpeGVzOiBhZGQyY2M2YjY1MTUgKCJSSVND
-LVY6IG1tOiBSZXN0cmljdCBhZGRyZXNzIHNwYWNlIGZvciBzdjM5LHN2NDgsc3Y1NyIpCj4gPiBT
-aWduZWQtb2ZmLWJ5OiBHdW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4gPiBTaWdu
-ZWQtb2ZmLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KPiA+IC0tLQo+ID4gIGFyY2gv
-cmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS5oIHwgMiArLQo+ID4gIDEgZmlsZSBjaGFuZ2VkLCAx
-IGluc2VydGlvbigrKSwgMSBkZWxldGlvbigtKQo+ID4KPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
-c2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJs
-ZS5oCj4gPiBpbmRleCBhYjAwMjM1YjAxOGYuLjc0ZmZiMjE3OGY1NCAxMDA2NDQKPiA+IC0tLSBh
-L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS5oCj4gPiArKysgYi9hcmNoL3Jpc2N2L2lu
-Y2x1ZGUvYXNtL3BndGFibGUuaAo+ID4gQEAgLTg4MSw3ICs4ODEsNyBAQCBzdGF0aWMgaW5saW5l
-IHB0ZV90IHB0ZV9zd3BfY2xlYXJfZXhjbHVzaXZlKHB0ZV90IHB0ZSkKPiA+ICAjZGVmaW5lIFRB
-U0tfU0laRV9NSU4gICAgICAgIChQR0RJUl9TSVpFX0wzICogUFRSU19QRVJfUEdEIC8gMikKPiA+
-Cj4gPiAgI2lmZGVmIENPTkZJR19DT01QQVQKPiA+IC0jZGVmaW5lIFRBU0tfU0laRV8zMiAoX0FD
-KDB4ODAwMDAwMDAsIFVMKSAtIFBBR0VfU0laRSkKPiA+ICsjZGVmaW5lIFRBU0tfU0laRV8zMiAo
-X0FDKDB4ODAwMDAwMDAsIFVMKSkKPgo+Cj4KPgo+ID4gICNkZWZpbmUgVEFTS19TSVpFICAgICh0
-ZXN0X3RocmVhZF9mbGFnKFRJRl8zMkJJVCkgPyBcCj4gPiAgICAgICAgICAgICAgICAgICAgICAg
-IFRBU0tfU0laRV8zMiA6IFRBU0tfU0laRV82NCkKPiA+ICAjZWxzZQo+ID4gLS0KPiA+IDIuNDAu
-MQo+ID4KPgoKCi0tIApCZXN0IFJlZ2FyZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Thu, Dec 21, 2023 at 10:46:59AM -0500, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
+> 
+> When the task is in COMPAT mode, the arch_get_mmap_end should be 2GB,
+> not TASK_SIZE_64. The TASK_SIZE has contained is_compat_mode()
+> detection, so change the definition of STACK_TOP_MAX to TASK_SIZE
+> directly.
+
+ok
+
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: add2cc6b6515 ("RISC-V: mm: Restrict address space for sv39,sv48,sv57")
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> ---
+>  arch/riscv/include/asm/processor.h | 6 ++----
+>  1 file changed, 2 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+> index f19f861cda54..1f538fc4448d 100644
+> --- a/arch/riscv/include/asm/processor.h
+> +++ b/arch/riscv/include/asm/processor.h
+> @@ -16,15 +16,13 @@
+>  
+>  #ifdef CONFIG_64BIT
+>  #define DEFAULT_MAP_WINDOW	(UL(1) << (MMAP_VA_BITS - 1))
+> -#define STACK_TOP_MAX		TASK_SIZE_64
+> +#define STACK_TOP_MAX		TASK_SIZE
+
+It means STACK_TOP_MAX will be in 64BIT:
+- TASK_SIZE_32 if compat_mode=y
+- TASK_SIZE_64 if compat_mode=n
+
+Makes sense for me.
+
+>  
+>  #define arch_get_mmap_end(addr, len, flags)			\
+>  ({								\
+>  	unsigned long mmap_end;					\
+>  	typeof(addr) _addr = (addr);				\
+> -	if ((_addr) == 0 || (IS_ENABLED(CONFIG_COMPAT) && is_compat_task())) \
+> -		mmap_end = STACK_TOP_MAX;			\
+> -	else if ((_addr) >= VA_USER_SV57)			\
+> +	if ((_addr) == 0 || (_addr) >= VA_USER_SV57)		\
+>  		mmap_end = STACK_TOP_MAX;			\
+>  	else if ((((_addr) >= VA_USER_SV48)) && (VA_BITS >= VA_BITS_SV48)) \
+>  		mmap_end = VA_USER_SV48;			\
+
+
+I don't think I got this change, or how it's connected to the commit msg.
+
+Before:
+- addr == 0, or addr > 2^57, or compat: mmap_end = STACK_TOP_MAX
+- 2^48 < addr < 2^57: mmap_end = 2^48
+- 0 < addr < 2^48 : mmap_end = 2^39
+
+Now:
+- addr == 0, or addr > 2^57: mmap_end = STACK_TOP_MAX
+- 2^48 < addr < 2^57: mmap_end = 2^48
+- 0 < addr < 2^48 : mmap_end = 2^39
+
+IIUC compat mode addr will be < 2^32, so will always have mmap_end = 2^39 
+if addr != 0. Is that desireable? 
+(if not, above change is unneeded)
+
+Also, unrelated to the change:
+- 2^48 < addr < 2^57: mmap_end = 2^48
+Is the above correct?
+It looks like it should be 2^57 instead, and a new if clause for 
+2^32 < addr < 2^48 should have mmap_end = 2^48.
+
+Do I get it wrong?
+
+(I will send an RFC 'fixing' the code the way I am whinking it should look 
+like)
+
+Thanks, 
+Leo
+
+
+
+
+
+> -- 
+> 2.40.1
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
