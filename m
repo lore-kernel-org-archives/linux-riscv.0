@@ -4,72 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72942C46CD2
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Dec 2023 04:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0E94C41535
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Dec 2023 04:49:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3hri/8wxVHygA0xdJLC9d+Gm98jV8xmS9d8X8cDEgm4=; b=aIe2JYbRP6q6IR
-	sQpOeJgk3rHzrDds9WyQ2glPP+sNVa3EZ/qxBFAg+z86rJgWQzkYoYTfR7mfZwSHLs7KzGc1lfRFA
-	vLySlRjssZifcRvQUu/1TjCPSGaGd8oJnXkB9bjuncITN+f5+x0il2pKI4QxJR2PCnapzFwUktnF3
-	b4VHADGcNAq7IAFyhzM39i1HTpTqvs3fdFKNCJQOeT1I7GLyxqhE7M+NYVkcKkwPwZovlyYpGtB+n
-	U2t1H4BBy2/L942BYvEb1pRpbKAAvGQPdbXEot1bEvSDavvTd3ouE78uB2badyNblEvaeNpTTh3v0
-	Sn/TptoEt69/ifIrmeYA==;
+	List-Owner; bh=iTn8+sZykTqEXad18bIds28CccmlxAnwdEV2FcCZuwA=; b=mG0Ylj3yrYIYCJ
+	T+uNOS02rd7//rmDvApl8N3j3GHHtcG0f5fhDQosFuHLjMfYUJTeL2U1Nl/ctU5iPNIT8AKbOOCEl
+	8EHQNy+PogoHeFjaBFSK/jO2WKujO+ruV+VqfzPsPWkAFtxWkfqjv4fgNeJ63WEyJ4XwWJzDgAMMG
+	93Rkhlche9dkhQUdL7OJcyi2gzSKGqtJEdc1LxZd8hcG+Ayu2HBgqY98/lyi2zo/vEW9mW451TbG2
+	dSnu7nTQ9ZJKB1JtCCjAkyRbFCPl4iDS/tcpNxEimZrMgLtjjC2T8HpzUU5PTU+sT+o83UO6D6hV4
+	dh+jB5MAnJG8kyOoYl7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGXNt-004sQw-1p;
-	Fri, 22 Dec 2023 04:43:41 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1rGXTc-004svd-0c;
+	Fri, 22 Dec 2023 04:49:36 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGXNq-004sQ2-05
+	id 1rGXTZ-004suu-2q
 	for linux-riscv@lists.infradead.org;
-	Fri, 22 Dec 2023 04:43:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 7942DB821C1
-	for <linux-riscv@lists.infradead.org>; Fri, 22 Dec 2023 04:43:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 166D7C433AD
-	for <linux-riscv@lists.infradead.org>; Fri, 22 Dec 2023 04:43:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1703220215;
-	bh=BYc4P52QVmcfkosbCiaZHm30PAhBdMV15eIFZyXrt/w=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=gfYgaZlUKTevwbQZJYf85rCQkvZ/2dCJYNFbjX4MpLQkTDUUEUs/gP6VgkDORJWb8
-	 39mKyH0Ale/2tztSN7oPpMMX8AVjmR7C80Ec+Qj7ylvDdMCuhODKMjmh5TDF4Lx3uC
-	 39ErfF6Mps6iJFaHEwyXAzkQ5Nu128Yd2sJxWJ6nY/94L7qUCSZHLV5/sCN8oYauqI
-	 N4dax9yGxlcrjoMrDAaNl8IZ8xR0Hgym3gVh5HxSmMIEXzMN9t6gLELtElUW7lppYm
-	 5IIc6FIgr1lxlCyWzmaSZamTNwe7g9rYswUzFs4QlJqViWD7UPJhQ8/YWKRjrzaesf
-	 HqqLBcybWwv9w==
-Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-553ba2f0c8fso1623479a12.1
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Dec 2023 20:43:34 -0800 (PST)
-X-Gm-Message-State: AOJu0YzlbdyCMsXnkRsHPd+6AY6NmsOyWTx3QxDjnzNGp77b3GuTnTVS
-	CgMTFgePNa1lCIAAiKebKZz3n3sGgdX36+dZz3k=
-X-Google-Smtp-Source: AGHT+IEUijHJ57JnutUHpUy3p1Ku8NBY/+d6W1M5E/W4tJng1EyPnpTmpp3MlXrvJ8ydAe+kadGKjzYldx2WjsB5z0k=
-X-Received: by 2002:a50:935c:0:b0:553:aa33:7876 with SMTP id
- n28-20020a50935c000000b00553aa337876mr152031eda.31.1703220213485; Thu, 21 Dec
- 2023 20:43:33 -0800 (PST)
+	Fri, 22 Dec 2023 04:49:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1703220572;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9vfCqZrbXnu5yi8/YqW3EBsQpMR0fcCm9TF9vlDRItY=;
+	b=LOEhZqliUqAswVrCHzKvCeyf5R2W7zv1SfoqRDRU2CSHo3FzGOdgkjnw1IL9NPo9VEhksR
+	brGXRVvdMO5eT3F/a4V00hSsv+3lpVapTzwOEmr9Uxz3gc3HMTWxmclvoH15EKB8S6ttrj
+	DXmuPLO8okys7tvqfysHEO0wuhKTqB8=
+Received: from mail-oo1-f72.google.com (mail-oo1-f72.google.com
+ [209.85.161.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-128-5X4_J6DwN7as85VisnMAoA-1; Thu, 21 Dec 2023 23:49:31 -0500
+X-MC-Unique: 5X4_J6DwN7as85VisnMAoA-1
+Received: by mail-oo1-f72.google.com with SMTP id 006d021491bc7-5919dd8f9a5so1542069eaf.2
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Dec 2023 20:49:30 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1703220570; x=1703825370;
+        h=content-transfer-encoding:content-disposition:mime-version
+         :references:in-reply-to:message-id:date:subject:cc:to:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=9vfCqZrbXnu5yi8/YqW3EBsQpMR0fcCm9TF9vlDRItY=;
+        b=GlwcAZolf75vaPogVe6wJBA3FGGUGBEsZRd6DA84MjzGmrKLWKPE9NwtAkaA5VuqVv
+         oxlfz+wEcTZvMiAxXbrZBu2lWu4ggmPXrzFcMZXRFGFAvqP/5nTvYwRDAyuAAnZJ/xkg
+         4PMK6SbMdrDIXdHOjURkGySBvmVQ4oLLsKcTLxvrJgHMBDGtO9+4xePNJesr3UUHIOvp
+         mijWbFNmfhZsXvMEDXOAREmnSjPNOhsP1F1nvVn1B7pHxI2UswQuzb8GlZZAvq1yKp4v
+         wMEjcCLzQGpeHbxo33EaxEZ/4ojmAxVQFGguZ9SiFp42a2QOFJWJoEx5bR09npPrfhE2
+         75Mg==
+X-Gm-Message-State: AOJu0YxwpQx2C/bEm74QpLgEfdHr4v9vehdoxfvHvTWyvIjrQnPJvEt3
+	pYygWdvyNBYkON5oDZGUIy4xY1qQxPImvUOBS5sM+rjt3gOONC7DAIqE1SwFX7AgYWOnzDefVkb
+	igQeV9E+XGTn9fu6HzD6wK9tv7D843XZyRc/8
+X-Received: by 2002:a05:6358:948c:b0:172:d79f:1841 with SMTP id i12-20020a056358948c00b00172d79f1841mr837810rwb.7.1703220570271;
+        Thu, 21 Dec 2023 20:49:30 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEY7uMU6tQ6yQZ0W8K7Tvw7mp7kvFSDzkp8X9G+PFkXwA4djJ44RpOkZdZf4Xn0yD0J+O6flA==
+X-Received: by 2002:a05:6358:948c:b0:172:d79f:1841 with SMTP id i12-20020a056358948c00b00172d79f1841mr837796rwb.7.1703220569870;
+        Thu, 21 Dec 2023 20:49:29 -0800 (PST)
+Received: from localhost.localdomain ([2804:1b3:a802:7496:88a7:1b1a:a837:bebf])
+        by smtp.gmail.com with ESMTPSA id n15-20020aa7984f000000b006d539fad917sm2425917pfq.65.2023.12.21.20.49.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 21 Dec 2023 20:49:29 -0800 (PST)
+From: Leonardo Bras <leobras@redhat.com>
+To: guoren@kernel.org
+Cc: Leonardo Bras <leobras@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	alexghiti@rivosinc.com,
+	charlie@rivosinc.com,
+	xiao.w.wang@intel.com,
+	david@redhat.com,
+	panqinglin2020@iscas.ac.cn,
+	rick.p.edgecombe@intel.com,
+	willy@infradead.org,
+	bjorn@rivosinc.com,
+	conor.dooley@microchip.com,
+	cleger@rivosinc.com,
+	linux-riscv@lists.infradead.org,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH V2 3/4] riscv: mm: Remove unused TASK_SIZE_MIN
+Date: Fri, 22 Dec 2023 01:49:16 -0300
+Message-ID: <ZYUVTFqvIIqv7D9O@LeoBras>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20231221154702.2267684-4-guoren@kernel.org>
+References: <20231221154702.2267684-1-guoren@kernel.org> <20231221154702.2267684-4-guoren@kernel.org>
 MIME-Version: 1.0
-References: <20231220-optimize_checksum-v13-0-a73547e1cad8@rivosinc.com>
- <20231220-optimize_checksum-v13-2-a73547e1cad8@rivosinc.com>
- <CAJF2gTR9ZxLZwEs=TMeih+vEEuuxNHRkgLsG2ShjXPEZ-G44_w@mail.gmail.com> <ZYTobxPZVNct4toQ@ghost>
-In-Reply-To: <ZYTobxPZVNct4toQ@ghost>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 22 Dec 2023 12:43:22 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTBweJTVw1m1WuJ6LNKrB_U83sdtkiZAk-NLND6sqdMZQ@mail.gmail.com>
-Message-ID: <CAJF2gTTBweJTVw1m1WuJ6LNKrB_U83sdtkiZAk-NLND6sqdMZQ@mail.gmail.com>
-Subject: Re: [PATCH v13 2/5] riscv: Add static key for misaligned accesses
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, 
-	Samuel Holland <samuel.holland@sifive.com>, David Laight <David.Laight@aculab.com>, 
-	Xiao Wang <xiao.w.wang@intel.com>, Evan Green <evan@rivosinc.com>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arch@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231221_204338_353092_3A504151 
-X-CRM114-Status: GOOD (  32.03  )
+X-CRM114-CacheID: sfid-20231221_204933_994335_11142AB5 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,83 +110,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBEZWMgMjIsIDIwMjMgYXQgOTozN+KAr0FNIENoYXJsaWUgSmVua2lucyA8Y2hhcmxp
-ZUByaXZvc2luYy5jb20+IHdyb3RlOgo+Cj4gT24gRnJpLCBEZWMgMjIsIDIwMjMgYXQgMDg6MzM6
-MThBTSArMDgwMCwgR3VvIFJlbiB3cm90ZToKPiA+IE9uIFRodSwgRGVjIDIxLCAyMDIzIGF0IDc6
-MzjigK9BTSBDaGFybGllIEplbmtpbnMgPGNoYXJsaWVAcml2b3NpbmMuY29tPiB3cm90ZToKPiA+
-ID4KPiA+ID4gU3VwcG9ydCBzdGF0aWMgYnJhbmNoZXMgZGVwZW5kaW5nIG9uIHRoZSB2YWx1ZSBv
-ZiBtaXNhbGlnbmVkIGFjY2Vzc2VzLgo+ID4gPiBUaGlzIHdpbGwgYmUgdXNlZCBieSBhIGxhdGVy
-IHBhdGNoIGluIHRoZSBzZXJpZXMuIEFsbCBjcHVzIG11c3QgYmUKPiA+ID4gY29uc2lkZXJlZCAi
-ZmFzdCIgZm9yIHRoaXMgc3RhdGljIGJyYW5jaCB0byBiZSBmbGlwcGVkLgo+ID4gPgo+ID4gPiBT
-aWduZWQtb2ZmLWJ5OiBDaGFybGllIEplbmtpbnMgPGNoYXJsaWVAcml2b3NpbmMuY29tPgo+ID4g
-PiAtLS0KPiA+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3B1ZmVhdHVyZS5oIHwgIDIgKysK
-PiA+ID4gIGFyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYyAgICAgIHwgMzAgKysrKysrKysr
-KysrKysrKysrKysrKysrKysrKysrCj4gPiA+ICAyIGZpbGVzIGNoYW5nZWQsIDMyIGluc2VydGlv
-bnMoKykKPiA+ID4KPiA+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3B1
-ZmVhdHVyZS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jcHVmZWF0dXJlLmgKPiA+ID4gaW5k
-ZXggYTQxOGMzMTEyY2Q2Li43YjEyOWU1ZTJmMDcgMTAwNjQ0Cj4gPiA+IC0tLSBhL2FyY2gvcmlz
-Y3YvaW5jbHVkZS9hc20vY3B1ZmVhdHVyZS5oCj4gPiA+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVk
-ZS9hc20vY3B1ZmVhdHVyZS5oCj4gPiA+IEBAIC0xMzMsNCArMTMzLDYgQEAgc3RhdGljIF9fYWx3
-YXlzX2lubGluZSBib29sIHJpc2N2X2NwdV9oYXNfZXh0ZW5zaW9uX3VubGlrZWx5KGludCBjcHUs
-IGNvbnN0IHVuc2kKPiA+ID4gICAgICAgICByZXR1cm4gX19yaXNjdl9pc2FfZXh0ZW5zaW9uX2F2
-YWlsYWJsZShoYXJ0X2lzYVtjcHVdLmlzYSwgZXh0KTsKPiA+ID4gIH0KPiA+ID4KPiA+ID4gK0RF
-Q0xBUkVfU1RBVElDX0tFWV9GQUxTRShmYXN0X21pc2FsaWduZWRfYWNjZXNzX3NwZWVkX2tleSk7
-Cj4gPiA+ICsKPiA+ID4gICNlbmRpZgo+ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJu
-ZWwvY3B1ZmVhdHVyZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jCj4gPiA+IGlu
-ZGV4IGIzNzg1ZmZjMTU3MC4uMDk1ZWI2ZWJkY2FhIDEwMDY0NAo+ID4gPiAtLS0gYS9hcmNoL3Jp
-c2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKPiA+ID4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvY3B1
-ZmVhdHVyZS5jCj4gPiA+IEBAIC0xMCw2ICsxMCw3IEBACj4gPiA+ICAjaW5jbHVkZSA8bGludXgv
-Yml0bWFwLmg+Cj4gPiA+ICAjaW5jbHVkZSA8bGludXgvY3B1aG90cGx1Zy5oPgo+ID4gPiAgI2lu
-Y2x1ZGUgPGxpbnV4L2N0eXBlLmg+Cj4gPiA+ICsjaW5jbHVkZSA8bGludXgvanVtcF9sYWJlbC5o
-Pgo+ID4gPiAgI2luY2x1ZGUgPGxpbnV4L2xvZzIuaD4KPiA+ID4gICNpbmNsdWRlIDxsaW51eC9t
-ZW1vcnkuaD4KPiA+ID4gICNpbmNsdWRlIDxsaW51eC9tb2R1bGUuaD4KPiA+ID4gQEAgLTcyOCw2
-ICs3MjksMzUgQEAgdm9pZCByaXNjdl91c2VyX2lzYV9lbmFibGUodm9pZCkKPiA+ID4gICAgICAg
-ICAgICAgICAgIGNzcl9zZXQoQ1NSX1NFTlZDRkcsIEVOVkNGR19DQlpFKTsKPiA+ID4gIH0KPiA+
-ID4KPiA+ID4gK0RFRklORV9TVEFUSUNfS0VZX0ZBTFNFKGZhc3RfbWlzYWxpZ25lZF9hY2Nlc3Nf
-c3BlZWRfa2V5KTsKPiA+ID4gKwo+ID4gPiArc3RhdGljIGludCBzZXRfdW5hbGlnbmVkX2FjY2Vz
-c19zdGF0aWNfYnJhbmNoZXModm9pZCkKPiA+ID4gK3sKPiA+ID4gKyAgICAgICAvKgo+ID4gPiAr
-ICAgICAgICAqIFRoaXMgd2lsbCBiZSBjYWxsZWQgYWZ0ZXIgY2hlY2tfdW5hbGlnbmVkX2FjY2Vz
-c19hbGxfY3B1cyBzbyB0aGUKPiA+ID4gKyAgICAgICAgKiByZXN1bHQgb2YgdW5hbGlnbmVkIGFj
-Y2VzcyBzcGVlZCBmb3IgYWxsIGNwdXMgd2lsbCBiZSBhdmFpbGFibGUuCj4gPiA+ICsgICAgICAg
-ICovCj4gPiA+ICsKPiA+ID4gKyAgICAgICBpbnQgY3B1Owo+ID4gPiArICAgICAgIGJvb2wgZmFz
-dF9taXNhbGlnbmVkX2FjY2Vzc19zcGVlZCA9IHRydWU7Cj4gPiA+ICsKPiA+ID4gKyAgICAgICBm
-b3JfZWFjaF9vbmxpbmVfY3B1KGNwdSkgewo+ID4gRWFjaCBvbmxpbmVfY3B1PyBJcyB0aGVyZSBh
-bnkgb2ZmbGluZV9jcHUgdGhhdCBpcyBubwo+ID4gZmFzdF9taXNhbGlnbmVkX2FjY2Vzc19zcGVl
-ZD8KPgo+IEkgdGhpbmsgaW5zdGVhZCBvZiBjaGVja2luZyBvZmZsaW5lIGNwdXMsIGl0IHdvdWxk
-IG1ha2UgbW9yZSBzZW5zZSB0bwo+IGFkanVzdCB0aGUgc3RhdGljIGJyYW5jaCB3aGVuIG9mZmxp
-bmUgY3B1cyBjb21lIG9ubGluZS4gU2luY2UKPiByaXNjdl9vbmxpbmVfY3B1IGlzIGNhbGxlZCB3
-aGVuIGEgbmV3IENQVSBjb21lcyBvbmxpbmUsIEkgY2FuIHVwZGF0ZSB0aGUKPiBzdGF0aWMgYnJh
-bmNoIGluc2lkZSBvZiB0aGF0IGZ1bmN0aW9uLgo+Cj4gPgo+ID4gTW92ZSBpbnRvIHlvdXIgcmlz
-Y3Zfb25saW5lX2NwdSBmb3IgZWFjaCBDUFUsIGFuZCB1c2Ugc3RvcF9tYWNoaW5lIGZvcgo+ID4g
-c3luY2hyb25pemF0aW9uLgo+ID4KPgo+IEkgZG8gbm90IHVuZGVyc3RhbmQgd2hhdCB5b3UgbWVh
-biBieSAiTW92ZSBpbnRvIHlvdXIgcmlzY3Zfb25saW5lX2NwdQo+IGZvciBlYWNoIENQVSIsIGJ1
-dCBJIGFtIGFzc3VtaW5nIHlvdSBhcmUgcmVmZXJyaW5nIHRvIHVwZGF0aW5nIHRoZQo+IHN0YXRp
-YyBicmFuY2ggaW5zaWRlIG9mIHJpc2N2X29ubGluZV9jcHUuCkkgbWVhbiBpbjoKYXJjaC9yaXNj
-di9rZXJuZWwvY3B1ZmVhdHVyZS5jOiByaXNjdl9vbmxpbmVfY3B1KCkKClllcywiYWRqdXN0IHRo
-ZSBzdGF0aWMgYnJhbmNoIHdoZW4gb2ZmbGluZSBjcHVzIGNvbWUgb25saW5lIC4uLiIKCj4KPiBJ
-IGJlbGlldmUgYW55IHJhY2UgY29uZGl0aW9uIHRoYXQgY291bGQgYmUgc29sdmVkIGJ5IHN0b3Bf
-bWFjaGluZSB3aWxsCj4gYmVjb21lIGlycmVsZXZlbnQgYnkgZW5zdXJpbmcgdGhhdCB0aGUgc3Rh
-dGljIGJyYW5jaCBpcyB1cGRhdGVkIHdoZW4gYQo+IG5ldyBjcHUgY29tZXMgb25saW5lLgpFbS4u
-LiAgc3RvcF9tYWNoaW5lIG1heSBiZSBub3QgbmVjZXNzYXJ5LgoKPgo+IC0gQ2hhcmxpZQo+Cj4g
-PiA+ICsgICAgICAgICAgICAgICBpbnQgdGhpc19wZXJmID0gcGVyX2NwdShtaXNhbGlnbmVkX2Fj
-Y2Vzc19zcGVlZCwgY3B1KTsKPiA+ID4gKwo+ID4gPiArICAgICAgICAgICAgICAgaWYgKHRoaXNf
-cGVyZiAhPSBSSVNDVl9IV1BST0JFX01JU0FMSUdORURfRkFTVCkgewo+ID4gPiArICAgICAgICAg
-ICAgICAgICAgICAgICBmYXN0X21pc2FsaWduZWRfYWNjZXNzX3NwZWVkID0gZmFsc2U7Cj4gPiA+
-ICsgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrOwo+ID4gPiArICAgICAgICAgICAgICAgfQo+
-ID4gPiArICAgICAgIH0KPiA+ID4gKwo+ID4gPiArICAgICAgIGlmIChmYXN0X21pc2FsaWduZWRf
-YWNjZXNzX3NwZWVkKQo+ID4gPiArICAgICAgICAgICAgICAgc3RhdGljX2JyYW5jaF9lbmFibGUo
-JmZhc3RfbWlzYWxpZ25lZF9hY2Nlc3Nfc3BlZWRfa2V5KTsKPiA+ID4gKwo+ID4gPiArICAgICAg
-IHJldHVybiAwOwo+ID4gPiArfQo+ID4gPiArCj4gPiA+ICthcmNoX2luaXRjYWxsX3N5bmMoc2V0
-X3VuYWxpZ25lZF9hY2Nlc3Nfc3RhdGljX2JyYW5jaGVzKTsKPiA+ID4gKwo+ID4gPiAgI2lmZGVm
-IENPTkZJR19SSVNDVl9BTFRFUk5BVElWRQo+ID4gPiAgLyoKPiA+ID4gICAqIEFsdGVybmF0aXZl
-IHBhdGNoIHNpdGVzIGNvbnNpZGVyIDQ4IGJpdHMgd2hlbiBkZXRlcm1pbmluZyB3aGVuIHRvIHBh
-dGNoCj4gPiA+Cj4gPiA+IC0tCj4gPiA+IDIuNDMuMAo+ID4gPgo+ID4gPgo+ID4KPiA+Cj4gPiAt
-LQo+ID4gQmVzdCBSZWdhcmRzCj4gPiAgR3VvIFJlbgoKCgotLSAKQmVzdCBSZWdhcmRzCiBHdW8g
-UmVuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Thu, Dec 21, 2023 at 10:47:00AM -0500, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
+> 
+> Remove TASK_SIZE_MIN because it's not used anymore.
+> 
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> ---
+>  arch/riscv/include/asm/pgtable.h | 2 --
+>  1 file changed, 2 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 74ffb2178f54..e415582276ec 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -878,7 +878,6 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
+>   */
+>  #ifdef CONFIG_64BIT
+>  #define TASK_SIZE_64	(PGDIR_SIZE * PTRS_PER_PGD / 2)
+> -#define TASK_SIZE_MIN	(PGDIR_SIZE_L3 * PTRS_PER_PGD / 2)
+>  
+>  #ifdef CONFIG_COMPAT
+>  #define TASK_SIZE_32	(_AC(0x80000000, UL))
+> @@ -890,7 +889,6 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
+>  
+>  #else
+>  #define TASK_SIZE	FIXADDR_START
+> -#define TASK_SIZE_MIN	TASK_SIZE
+>  #endif
+>  
+>  #else /* CONFIG_MMU */
+> -- 
+> 2.40.1
+> 
+
+On torvalds/master:
+
+$git grep TASK_SIZE_MIN
+arch/loongarch/include/asm/processor.h:23:#define TASK_SIZE_MIN TASK_SIZE
+arch/loongarch/include/asm/processor.h:36:#define TASK_SIZE_MIN TASK_SIZE32
+arch/riscv/include/asm/pgtable.h:881:#define TASK_SIZE_MIN      (PGDIR_SIZE_L3 * PTRS_PER_PGD / 2)
+arch/riscv/include/asm/pgtable.h:893:#define TASK_SIZE_MIN      TASK_SIZE
+
+I can only see definitions, without any usage, so agreed on removing them.
+
+FWIW:
+Reviewed-by: Leonardo Bras <leobras@redhat.com>
+
+I would also send a patch for loongarch, since they are in the same boat :)
+
+Thanks!
+Leo
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
