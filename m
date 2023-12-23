@@ -4,76 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14DE0C3DA6E
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Dec 2023 10:31:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5101C3DA6E
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Dec 2023 12:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EUcx1jBrZy6gHVSslbjl1z5xTunFbCDwynsf05qjThM=; b=SNri6Tqn1BMRxv
-	xTRK6XYIk2HySDPrF2dt7iTEwSrBgMyLPvCbQ98f0l21I+N8+XVds+9XRjOXDCppU2VKXoheaXoSf
-	fHz48SiKTtnfUeXuftV4y8W5hxBS+j3C93NHZ2gPcLwVOtSqdoxeI+DDWZOBt5j08GsdFubtSm48c
-	s/6wfuul7q4VA5l3Qd3N9G0Tm1fn4b2I2UKoELKLSnP+6nw06e9sibQwFG9r4+14HKZ2GQjGVKqKa
-	pYvRdC/CGBYnT3iViXxvFBC4zIxXvoBEcmBCXCOlPmxrWNLM7k3jhxceYdbenirPL7jXUp152OVqB
-	0LRWyDfeIzRRCI2Th9cw==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:Date:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=W5EhFW6r1FbHL769U6WvN0MSZ3/a6egTrWkQ9h8CRyk=; b=MdM
+	cXuUZ25NtFR5t5vteOE6ba5wPlL4i5rQH8A6KB/MzmH8iKMNXYXS5Tbtu2B1bVwNNlrMZ7AEoRN9N
+	1TYWy0v1fDuXJ7j4AbFueYm2DtcEdLIg+PJ4SpWRXGPBMG6CPyrfmHq3z1tOJYVD8agteUbQMXNMs
+	KScAdbB7qBKWOJq0OE2bS3wWnfdF7kWENTOx57BrZ/jP/8x0RoML09hZmgpj7KplGsHGJkdcuAeY4
+	ybyPKz+X0TIcucJzQbovBBj1FjenCggurw9JB/ioZqz1ey4J30C6pg/GUK8fMsd6Yv8YDbs4DHjDk
+	jzftRTgR5HlLxb5p3HXq7u+tp769ObQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGzIC-007g2j-2k;
-	Sat, 23 Dec 2023 10:31:40 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1rH1RT-007v20-0n;
+	Sat, 23 Dec 2023 12:49:23 +0000
+Received: from mail-il1-f199.google.com ([209.85.166.199])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rGzI9-007g1n-1f
+	id 1rH1RQ-007v1Z-1V
 	for linux-riscv@lists.infradead.org;
-	Sat, 23 Dec 2023 10:31:39 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-228-U5G35-zWOAaFHs2mKPMClw-1; Sat, 23 Dec 2023 10:31:31 +0000
-X-MC-Unique: U5G35-zWOAaFHs2mKPMClw-1
-Received: from AcuMS.Aculab.com (10.202.163.6) by AcuMS.aculab.com
- (10.202.163.6) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Sat, 23 Dec
- 2023 10:31:16 +0000
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Sat, 23 Dec 2023 10:31:16 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Guo Ren' <guoren@kernel.org>
-CC: Leonardo Bras <leobras@redhat.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "paul.walmsley@sifive.com"
-	<paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"alexghiti@rivosinc.com" <alexghiti@rivosinc.com>, "charlie@rivosinc.com"
-	<charlie@rivosinc.com>, "xiao.w.wang@intel.com" <xiao.w.wang@intel.com>,
-	"david@redhat.com" <david@redhat.com>, "panqinglin2020@iscas.ac.cn"
-	<panqinglin2020@iscas.ac.cn>, "rick.p.edgecombe@intel.com"
-	<rick.p.edgecombe@intel.com>, "willy@infradead.org" <willy@infradead.org>,
-	"bjorn@rivosinc.com" <bjorn@rivosinc.com>, "conor.dooley@microchip.com"
-	<conor.dooley@microchip.com>, "cleger@rivosinc.com" <cleger@rivosinc.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Guo Ren
-	<guoren@linux.alibaba.com>
-Subject: RE: [PATCH V2 4/4] riscv: mm: Optimize TASK_SIZE definition
-Thread-Topic: [PATCH V2 4/4] riscv: mm: Optimize TASK_SIZE definition
-Thread-Index: AQHaNMmXQnV6P1CryUOzF1IfQQ8rsbC1Lv+wgAD9mACAAH0Z4A==
-Date: Sat, 23 Dec 2023 10:31:15 +0000
-Message-ID: <9d4d15e8e3e944b8bd18e8bc1d54f59c@AcuMS.aculab.com>
-References: <20231221154702.2267684-1-guoren@kernel.org>
- <20231221154702.2267684-5-guoren@kernel.org> <ZYUZ8QUJxCL93Fgv@LeoBras>
- <CAJF2gTTX7AjexoRUw=ZS34HEWno7H3zvnXA+Q7TYsztNU=k2cg@mail.gmail.com>
- <e3f1521a9f04463587d07d0c99534d5a@AcuMS.aculab.com>
- <CAJF2gTRD827Fbs_2FxBP=Z8yudfAAqG6dA+a9eq74RMOz2WDnw@mail.gmail.com>
-In-Reply-To: <CAJF2gTRD827Fbs_2FxBP=Z8yudfAAqG6dA+a9eq74RMOz2WDnw@mail.gmail.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+	Sat, 23 Dec 2023 12:49:22 +0000
+Received: by mail-il1-f199.google.com with SMTP id e9e14a558f8ab-35fa6908f7bso29009015ab.3
+        for <linux-riscv@lists.infradead.org>; Sat, 23 Dec 2023 04:49:18 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1703335758; x=1703940558;
+        h=to:from:subject:message-id:date:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=8jPlsN7Ml/+XR4qokePSVPYK/NjAAU4vFSo45xfBkHM=;
+        b=cEqPb9tEUdDqWodJhnzqcpwG1mQcwl/fdjPyUrXpnWngzt1Iq6ZBqEknO1+YTrNK5X
+         PilV9QpqYOVE5n+BiFgD1g0Sc3x5tJ6L9zsjDq5rcNSWvFTVgPhkk8Ui4Vs2vz/yj4Wx
+         IVghwWnHqYzJnvuSTs2TvuOEXnUtkatkxXAAIm7XrsowNudrB7/3u6uNiHX4BN542TCx
+         SGwF0SF0s939YIoC1Da/YAfDPbLtz3muiLHaFgWj8bIe05Ufd+TAup+m8l4beMNg1cwu
+         bxm3dn3S4NzDCxsT2Z6TwB+DzWl1PnL8RlRowDK4+DiIy5ELTikwo5pnhjyxvMIdB6cG
+         s7bA==
+X-Gm-Message-State: AOJu0YzxFabEDQapDkE6kDTwOjbW1AywJufaL7bAsFft/+LqYGdqU0kq
+	Por2rNmwtW4U5K1lsIKwxL+hxgfei2AhK34cHZ0qBWnjT5aW
+X-Google-Smtp-Source: AGHT+IGKjtDVv/BwNjkyahYD1ta4x0QVryvLbcYlokVC/ReU3y+mA3PBbk7B3gA+dsjpbiDflxKoXE4BFahG5lO+JqFcrt4j7CMo
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+X-Received: by 2002:a05:6e02:174c:b0:35f:c187:ea04 with SMTP id
+ y12-20020a056e02174c00b0035fc187ea04mr354022ill.3.1703335758089; Sat, 23 Dec
+ 2023 04:49:18 -0800 (PST)
+Date: Sat, 23 Dec 2023 04:49:18 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <000000000000cb54de060d2cc266@google.com>
+Subject: [syzbot] [riscv?] kernel panic: Kernel stack overflow (2)
+From: syzbot <syzbot+5c1ebfe49c5e8e998e75@syzkaller.appspotmail.com>
+To: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	syzkaller-bugs@googlegroups.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231223_023137_846191_5BA332D7 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20231223_044920_510337_12F4F7C7 
+X-CRM114-Status: UNSURE (   5.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,43 +71,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogR3VvIFJlbg0KPiBTZW50OiAyMyBEZWNlbWJlciAyMDIzIDAyOjUzDQo+IA0KPiBPbiBG
-cmksIERlYyAyMiwgMjAyMyBhdCA3OjUy4oCvUE0gRGF2aWQgTGFpZ2h0IDxEYXZpZC5MYWlnaHRA
-YWN1bGFiLmNvbT4gd3JvdGU6DQo+ID4NCj4gPiBGcm9tOiBHdW8gUmVuDQo+ID4gPiBTZW50OiAy
-MiBEZWNlbWJlciAyMDIzIDExOjI1DQo+ID4gLi4uDQo+ID4gPiA+ID4gKyNkZWZpbmUgVEFTS19T
-SVpFICAgIChpc19jb21wYXRfdGFzaygpID8gXA0KPiA+ID4gPiA+ICAgICAgICAgICAgICAgICAg
-ICAgICAgVEFTS19TSVpFXzMyIDogVEFTS19TSVpFXzY0KQ0KPiA+ID4gSSB3b3VsZCByZW1vdmUg
-aXNfY29tcGF0X3Rhc2soKSBpbiB0aGUgbmV4dCB2ZXJzaW9uIGJlY2F1c2UgeW91ciBwYXRjaA0K
-PiA+ID4gY29udGFpbnMgdGhhdC4NCj4gPg0KPiA+IERvZXMgVEFTS19TSVpFIGdldCB1c2VkIGlu
-IGFjY2Vzc19vaygpID8NCj4gPiBJZiBzbyB0aGUgcmVwZWF0ZWQgZXhwYW5zaW9uIG9mIHRoYXQg
-J21lc3MnIHdpbGwgc2xvdyB0aGluZ3MgZG93bi4NCj4gPg0KPiA+IE9UT0ggYWNjZXNzX29rKHB0
-ciwgbGVuKSBjYW4ganVzdCBjaGVjayAocHRyIHwgKHB0ciArIGxlbikpIDwgMCkNCj4gPiBhbmQg
-cmVseSBvbiB0aGUgcGFnZSBmYXVsdHMgZm9yIGV2ZXJ5dGhpbmcgZWxzZS4NCj4gT3IgZG8geW91
-IHdhbnQgdG8gZGlzY3VzcyB0aGUgYmFkIHNpZGUgZWZmZWN0IG9mIGlzX2NvbXBhdF90YXNrKCk/
-DQo+IA0KPiBZZXMsIHRlc3RfdGhyZWFkX2ZsYWcoVElGXzMyQklUKSB3b3VsZCBzbG93IGRvd24g
-YWNjZXNzX29rKCkuIEJ1dCBpZg0KPiB3ZSB1c2UgVEFTS19TSVpFX01BWCwgVkFfQklUUyBzdGls
-bCBuZWVkcyBwZ3RhYmxlX2w1X2VuYWJsZWQsDQo+IHBndGFibGVfbDRfZW5hYmxlZCBkZXRlY3Rh
-dGlvbiBmb3IgcmlzY3YuDQo+IA0KPiBJdCdzIG5vdCBvbmx5IGZvciBjb21wYXQgbW9kZSwgYnV0
-IGFsc28gU3YzOSwgU3Y0OCwgU3Y1Ny4gQWxsIHRyZWF0DQo+IFRBU0tfU0laRV9NQVggYXMgMHg4
-MDAwMDAwMDAwMDAwMDAwLCByaWdodD8gVGhlbjoNCj4gYWNjZXNzX29rKHB0ciwgbGVuKSBjYW4g
-anVzdCBjaGVjayAocHRyIHwgKHB0ciArIGxlbikpIDwgMCkNCj4gDQo+IEl0J3MgYW5vdGhlciBm
-ZWF0dXJlIGFuZCBkb2VzIG5vdCByZWxhdGUgdG8gY29tcGF0IG1vZGUuDQoNCkNvbXBhdCBtb2Rl
-IGp1c3QgbWFrZXMgaXQgd29yc2UuLi4NCg0KT25lIHBvc3NpYmlsaXR5IHdvdWxkIGJlIHRvIHNh
-dmUgdGhlIHRhc2sncyBtYXggdXNlciBhZGRyZXNzDQppbiB0aGUgdGFzayBzdHJ1Y3R1cmUgaXRz
-ZWxmIC0gdGhhdCB3b3VsZCBzYXZlIGFsbCB0aGUgY29uZGl0aW9uYWxzDQphdCBhIGNvc3Qgb2Yg
-YW4gZXh0cmEgdmFsdWUgaW4gdGhlIHRhc2sgc3RydWN0dXJlLg0KDQpUaGVyZSBpcyBhbHNvIHRo
-ZSBxdWVzdGlvbiBvZiB3aGV0aGVyIGEgbm9ybWFsbHkgNjQtYml0IHRhc2sNCmNhbiBhY3R1YWxs
-eSBtYWtlIHRoZSBjb21wYXQgbW1hcCgpIHN5c3RlbSBjYWxsPw0KT24geDg2IHRoYXQgaXMgY2Vy
-dGFpbmx5IHBvc3NpYmxlIChJSVJDIHdpbmUgZG9lcyBpdCksIHg4Ng0KdXNlcnNwYWNlIGNhbiBm
-bGlwIGJldHdlZW4gMzJiaXQgYW5kIDYzYml0IG1vZGUgd2l0aG91dCBhDQpzeXN0ZW0gY2FsbC4N
-Cg0KCURhdmlkDQoNCi0NClJlZ2lzdGVyZWQgQWRkcmVzcyBMYWtlc2lkZSwgQnJhbWxleSBSb2Fk
-LCBNb3VudCBGYXJtLCBNaWx0b24gS2V5bmVzLCBNSzEgMVBULCBVSw0KUmVnaXN0cmF0aW9uIE5v
-OiAxMzk3Mzg2IChXYWxlcykNCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+Hello,
+
+syzbot found the following issue on:
+
+HEAD commit:    3b5c14361d61 riscv: Fix set_direct_map_default_noflush() t..
+git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
+console output: https://syzkaller.appspot.com/x/log.txt?x=16d5ffd6e80000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=a5c1ede998d7cef2
+dashboard link: https://syzkaller.appspot.com/bug?extid=5c1ebfe49c5e8e998e75
+compiler:       riscv64-linux-gnu-gcc (Debian 12.2.0-13) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40
+userspace arch: riscv64
+
+Unfortunately, I don't have any reproducer for this issue yet.
+
+Downloadable assets:
+disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/a741b348759c/non_bootable_disk-3b5c1436.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/11e6a4fa8d50/vmlinux-3b5c1436.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/6570c8642590/Image-3b5c1436.xz
+
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+5c1ebfe49c5e8e998e75@syzkaller.appspotmail.com
+
+ s11: ff60000008bd0a9c t3 : ff20000002078140 t4 : ffffffff80159674
+ t5 : 1fe400000040f028 t6 : ff6000000f44c1b8
+status: 0000000200000100 badaddr: ff20000002077f60 cause: 000000000000000f
+Kernel panic - not syncing: Kernel stack overflow
+CPU: 1 PID: 5612 Comm: kworker/1:4 Not tainted 6.7.0-rc1-syzkaller-g3b5c14361d61 #0
+Hardware name: riscv-virtio,qemu (DT)
+Workqueue: usb_hub_wq hub_event
+Call Trace:
+[<ffffffff8000c1e6>] dump_backtrace+0x2e/0x3c arch/riscv/kernel/stacktrace.c:121
+[<ffffffff836ee406>] show_stack+0x34/0x40 arch/riscv/kernel/stacktrace.c:127
+[<ffffffff8372f66a>] __dump_stack lib/dump_stack.c:88 [inline]
+[<ffffffff8372f66a>] dump_stack_lvl+0xe8/0x154 lib/dump_stack.c:106
+[<ffffffff8372f6f2>] dump_stack+0x1c/0x24 lib/dump_stack.c:113
+[<ffffffff836eef04>] panic+0x2ae/0x67a kernel/panic.c:344
+[<ffffffff8000be62>] walk_stackframe+0x0/0x2f2 arch/riscv/kernel/traps.c:412
+[<ffffffff8015a3b2>] mark_usage kernel/locking/lockdep.c:4586 [inline]
+[<ffffffff8015a3b2>] __lock_acquire+0xd3e/0x310a kernel/locking/lockdep.c:5090
+SMP: stopping secondary CPUs
+Rebooting in 86400 seconds..
+
+
+---
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
+
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
+
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
+
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
+
+If you want to undo deduplication, reply with:
+#syz undup
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
