@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1981C3DA6E
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Dec 2023 16:05:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7328EC3DA6E
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Dec 2023 22:05:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+2wA/ug/Y3NXM7ZtAJLSnAY7pBPmMPvTw0xJoY+J9bw=; b=gJSCyd/4H+XmKX
-	mC+XcbuivrlrGFqCdouEHZfI8aVgEYQeoli3Sk23JhJSAvQx/t3mJaCRpYFd+ErVME6gQhQFsAgRM
-	C6kBAvcIQuwMr3aJfReZXVuaOWGyZcIFULG44wC5THCScaMXdzZ1rcZK4KF4NxF5HOmcpWA0sQySq
-	sqpa5A/XmJtmD5uv3gEdKfkfdtuxEz4ea0nu75h3xEzHUDNJC0OO/lsYxCgKv8uXOzq4g/FT0kBZq
-	+RHBUmcOe1qDUw7fFAG3bILKrP2gmeAqSQe1chbG/AWY/KcVKnD+SbyaW5bpTkWwhv7985xk2Kvmz
-	fVY8iZOPYIUd/ORlvzDA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=88jUeIFG1YBaBkACRN2ArvjrOMEVx/mapVRI0xOTv5I=; b=cR4GV4OvXT6kMl
+	cDKpr8rc3LVhhnNy7qiYrnhysdIwfBK32+kNKwFiSktaRkS+WvtztGNac58QGfGZzZ/hA+VJq7laj
+	mTF4C4fQ+2I0kNv0eQgIyNXLMAo7/n+S95NcJkG2f5bQ053lPSie2JGOQAj6upCldxxbMPyMlYAMt
+	gM672+rEEBri22xYG1nMaCvu/aBCRAuKkMC339bR7vIOdIC23L3/7em6fFj2rq7G4KBSsXBM1ufSE
+	Z5Qiwqk//K7EvXRLhN+k4dq9CHGXsQPY124ipntgFzlXJ9e8PYQ3kvPsdDbdG3BpxIRO2IwWY4OsS
+	l54TWU9hQ/umWPVXkLTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rH4Uz-0088QK-0o;
-	Sat, 23 Dec 2023 16:05:13 +0000
+	id 1rHA7n-008WeY-0k;
+	Sat, 23 Dec 2023 22:05:39 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rH4Uw-0088PP-20
+	id 1rHA7k-008Wdx-0V
 	for linux-riscv@lists.infradead.org;
-	Sat, 23 Dec 2023 16:05:12 +0000
+	Sat, 23 Dec 2023 22:05:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id CC959B80954;
-	Sat, 23 Dec 2023 16:05:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CE8DC433C9;
-	Sat, 23 Dec 2023 16:05:06 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 82051B80977;
+	Sat, 23 Dec 2023 22:05:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CABAC433C8;
+	Sat, 23 Dec 2023 22:05:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1703347508;
-	bh=4LFjPK+C/VGLc/HLRVhKkrd4EuuVYg8aZKuIRF5TOtM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=tJlsg+v5w4DwnBsx049VU0UjqJNlzPtxxdQXzz3VEuYVVd/byZG7K3vuGaBTDXXtp
-	 DoboTQzwQ3zXscka6lPYJ6mgIvpRXG1BebTc+vHUVtMt3TPPnjkDKp0JqjKIegpSi3
-	 ENZM14ZC2Eb37cdWNU1CK48tkhUI7YyUpifSRumuT8F9pTzp65BNaGG2/9+fFy0sOX
-	 N6IjN5oKtb3DsmJsG+HGX+Y9toX7kH/zITb6hia/2y4fkNQSq9s2M6frPvbdXPcRcB
-	 wjZMpPFE+wpKDVr5lWTQjKYMOKv7aZrbQS9xEXkjURK7bTe/ebOzxYGZFCx1rdGAbk
-	 LpcGbm4KTL10w==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+	s=k20201202; t=1703369133;
+	bh=tQ9mHBh0idipynQKJvhuVlCANWRLkmPWhm22rqwDcbs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rmpsLpecULGXLZZ38UqHJnck/LFawAwRsWD3i92NblJzrG0z0yMfO5dr/kQ0XBBrd
+	 OMIYGAbEhitkfMRNov17nF6oeRm11rEviYP9kr3I08F7ZOFU/X9XVtzxsyqpoNKLTQ
+	 I6aXxwA4NPkZP/lfUvNNEIzVIYqCiH1jV8EuYGhDuH/ic0G/jlbXHw1zn0CdhppCFb
+	 j+t15ZqbQsPVJpTc3kBoulatIv5aPwjtBLU7Hz5p3qnm1441iYl7O+WNkNPFp93ixZ
+	 QE/3sWZIfGEoEv7rmP23Qpcuh3BIRJSpBt+HwnxLB1I353MSxSwtUkeUu17MFsZEpv
+	 m1GvTOLyyXpcQ==
+Date: Sat, 23 Dec 2023 16:05:27 -0600
+From: Eric Biggers <ebiggers@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
 	Qingfang DENG <dqfext@gmail.com>,
-	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v3 0/2] riscv: enable EFFICIENT_UNALIGNED_ACCESS and DCACHE_WORD_ACCESS
-Date: Sat, 23 Dec 2023 23:52:24 +0800
-Message-Id: <20231223155226.4050-1-jszhang@kernel.org>
-X-Mailer: git-send-email 2.40.0
+	Charlie Jenkins <charlie@rivosinc.com>
+Subject: Re: [PATCH v3 1/2] riscv: introduce RISCV_EFFICIENT_UNALIGNED_ACCESS
+Message-ID: <20231223220527.GA19298@quark.localdomain>
+References: <20231223155226.4050-1-jszhang@kernel.org>
+ <20231223155226.4050-2-jszhang@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20231223155226.4050-2-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231223_080510_812157_67CBC767 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231223_140536_359756_4D59071A 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,79 +78,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some riscv implementations such as T-HEAD's C906, C908, C910 and C920
-support efficient unaligned access, for performance reason we want
-to enable HAVE_EFFICIENT_UNALIGNED_ACCESS on these platforms. To
-avoid performance regressions on non efficient unaligned access
-platforms, HAVE_EFFICIENT_UNALIGNED_ACCESS can't be globally selected.
+On Sat, Dec 23, 2023 at 11:52:25PM +0800, Jisheng Zhang wrote:
+> +config RISCV_EFFICIENT_UNALIGNED_ACCESS
+> +	bool "Use unaligned access for some functions"
 
-To solve this problem, runtime code patching based on the detected
-speed is a good solution. But that's not easy, it involves lots of
-work to modify vairous subsystems such as net, mm, lib and so on.
-This can be done step by step.
+How about:
 
-So let's take an easier solution: add support to efficient unaligned
-access and hide the support under NONPORTABLE.
+	bool "Assume the CPU supports fast unaligned memory accesses"
 
-patch1 introduces RISCV_EFFICIENT_UNALIGNED_ACCESS which depends on
-NONPORTABLE, if users know during config time that the kernel will be
-only run on those efficient unaligned access hw platforms, they can
-enable it. Obviously, generic unified kernel Image shouldn't enable it.
+> +	depends on NONPORTABLE
+> +	select HAVE_EFFICIENT_UNALIGNED_ACCESS
+> +	default n
 
-patch2 adds support DCACHE_WORD_ACCESS when MMU and
-RISCV_EFFICIENT_UNALIGNED_ACCESS.
+There's no need to explicitly list "default n", since n is already the default.
 
-Below test program and step shows how much performance can be improved:
+> +	help
+> +	  Say Y here if you want the kernel only run on hardware platforms which
+> +	  support efficient unaligned access, then unaligned access will be used
+> +	  in some functions for optimized performance.
 
- $ cat tt.c
- #include <sys/types.h>
- #include <sys/stat.h>
- #include <unistd.h>
+How about:
 
- #define ITERATIONS 1000000
+	  Say Y here if you want the kernel to assume that the CPU supports
+	  efficient unaligned memory accesses.  When enabled, this option
+	  improves the performance of the kernel on such CPUs.  However, the
+	  kernel will run much more slowly, or will not be able to run at all,
+	  on CPUs that do not support efficient unaligned memory accesses.
 
- #define PATH "123456781234567812345678123456781"
-
- int main(void)
- {
-         unsigned long i;
-         struct stat buf;
-
-         for (i = 0; i < ITERATIONS; i++)
-                 stat(PATH, &buf);
-
-         return 0;
- }
-
- $ gcc -O2 tt.c
- $ touch 123456781234567812345678123456781
- $ time ./a.out
-
-Per my test on T-HEAD C910 platforms, the above test performance is
-improved by about 7.5%.
-
-Since v2:
-  - Don't set "-mstrict-align" CFLAGS if HAVE_EFFICIENT_UNALIGNED_ACCESS
-  - collect Reviewed-by tag
-
-Since v1:
-  - fix typo in commit msg
-  - fix build error if NOMMU
-
-Jisheng Zhang (2):
-  riscv: introduce RISCV_EFFICIENT_UNALIGNED_ACCESS
-  riscv: select DCACHE_WORD_ACCESS for efficient unaligned access HW
-
- arch/riscv/Kconfig                      | 13 +++++++++++
- arch/riscv/Makefile                     |  2 ++
- arch/riscv/include/asm/asm-extable.h    | 15 ++++++++++++
- arch/riscv/include/asm/word-at-a-time.h | 27 +++++++++++++++++++++
- arch/riscv/mm/extable.c                 | 31 +++++++++++++++++++++++++
- 5 files changed, 88 insertions(+)
-
--- 
-2.40.0
-
+- Eric
 
 _______________________________________________
 linux-riscv mailing list
