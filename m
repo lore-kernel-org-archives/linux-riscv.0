@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BE46C47073
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 Dec 2023 10:50:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5CC1C46CD2
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 Dec 2023 10:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,69 +13,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=UspO3OzpATZYM0jp7aTXVMSoIXh56I8Lz5YXNUWgC4A=; b=Vdy3ArvqyUU6/e14lW747ZDSkZ
-	yjirvWltDZfuc2b6IJjlD9tMCki1y7IouscdVUlK5yLROuuceOdJzLBhJD31PCG9+2PTtGuGXbFX3
-	T/i/xgWph5aw1Cww4PMXS+qY4YmLNBtGrWGUziuygwGcUueWey7U4+Ys8FZT/8x3hmXXq4m7nlYSc
-	5OqtaLDtn8n7Hsd9XTzoG3d692a3x3emacSiwIIW/l+PMacleOicb7W6NFZYeEDJ3LNtIEu3mWAdS
-	k7GFoCd0MKvSrxEyZP0OKjQ1UWltiUbAhU/PKCPKIAGaBU47P1+e2wlOt+BPylo7iJQq2esgp24KS
-	M7de/AfA==;
+	bh=/Od+BcTIZr/Az27KaKvIgxAYxKYsq2bUunyE12gbe/c=; b=b2ukKP6L/0ax6HYGYfrpCk/x4d
+	x/KDUi3UqXP7ZTI4/REZgN2wo647eR/6030jF96d1zLQPSKuNLJyE3WiAGVFwuHsLDrp2HjcNqzU/
+	lGdjlVr0UD9iQ3vwFNyijfshhKcecnJ12E5hVpxIMGkjTlIJeWTkJjRert9kAs1eaXr3hvvT7XvMo
+	YPzbTtUZrfXaX0rc0u4k+Znm7c4tvYUW2hujRShvo/pg58g8ojEabcCZoydcnl3Na+Siw54b37jOR
+	kjT8Hi0aDBZGQ95/nXnMWHOl9wYl7AszjSqiotV4MtYd2J58lb9t0rjrbatTgY8EmHcneNM39C45C
+	2nzvdyFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rHM3F-009AYs-2D;
-	Sun, 24 Dec 2023 10:49:45 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1rHM3x-009Aes-1M;
+	Sun, 24 Dec 2023 10:50:29 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rHM3B-009AXt-3D
+	id 1rHM3u-009Adl-0H
 	for linux-riscv@lists.infradead.org;
-	Sun, 24 Dec 2023 10:49:43 +0000
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	Sun, 24 Dec 2023 10:50:27 +0000
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 9BF583F3EE
-	for <linux-riscv@lists.infradead.org>; Sun, 24 Dec 2023 10:49:36 +0000 (UTC)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 359183F741
+	for <linux-riscv@lists.infradead.org>; Sun, 24 Dec 2023 10:50:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1703414976;
-	bh=T6CV/w/Oj4/yKhfarK+UEYWwoSl7TNmHch082+K72XA=;
+	s=20210705; t=1703415023;
+	bh=dRjx8VHHb0t27RVkqdYIaU34XdXmnq6meYjdKYyMtPA=;
 	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
 	 To:Cc:Content-Type;
-	b=s/fRoIh8SY0TKT7w5PsksY/lcSI8UApq2MHVl8DyiQFRguc04FhM2gmwAcF2L2Wqr
-	 maVTFHaZ8WlhYPCnsTHJSzSkKAk6M/mF/6qbwS8udCB69dW+ysX20SaQaBi7KlF/V+
-	 7/2rK3KJSsZ0UH7Vh03wqWQh4PV3LGpf6Yatn9er5sHGnZ+tgaqDd8giffpzbdpnWu
-	 dJyQ910RIv9vzqM4GWKoz9bGIRFi8EQTxzzGOf8dH2UuQv76aCnC4GcKviDr+B5X74
-	 UeJexQqFxIX14gYoVZYSYd7A0NNakCaxgveR9p0uUkiiiQHA4qdqyP2SEBBpJH10t7
-	 fcOxCrUkZ7Gsw==
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4278740faedso39882781cf.0
-        for <linux-riscv@lists.infradead.org>; Sun, 24 Dec 2023 02:49:36 -0800 (PST)
+	b=thqhKtA1iGLGAFuWRsq0+IJ6WBbNZ70Q6QIuc+7yVyOiXscq4cnE6aGYMDG8r1lUI
+	 sUeljcBGoNwfg+neevC6crnZRyTyNwX2umj0C3s4TeNpJIZ+hZb8zF19dxDgUWrrvY
+	 7GfS2foUFT5c/kJv/qs6xIJ8VQ+ATu+yt1SeQTXioklUCs0t0bPlGYYBAx/7XKsX5t
+	 C3nIntqfQK2Iy+1Z5v/XIskQCmxQS4Dqz8cJ8kWs1FALAI6t7MIfYsUWWWea9GaD60
+	 X4+jvRo38peF8SxTCz7z9r/oNu55g6kWlpE/3xB9nY93IL/EhmXm50WWIy8KuL2aYn
+	 5yjQGo5ZcOaRQ==
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-781376310bcso152760485a.2
+        for <linux-riscv@lists.infradead.org>; Sun, 24 Dec 2023 02:50:23 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1703414975; x=1704019775;
+        d=1e100.net; s=20230601; t=1703415022; x=1704019822;
         h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
          :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=T6CV/w/Oj4/yKhfarK+UEYWwoSl7TNmHch082+K72XA=;
-        b=bgNv7Nsv/G3oyAmtTVEvxjd0Ha9yUtEWf0cZKVVwLtXrUM83NAQoM4KIGXZEbCC++v
-         HsXzdemUERR8nkr4rKbmE7YkB7WYEqkLUcu+ruOizEw+u0ffsPrbuFvIAWZO3jCmQglf
-         HudGiotjR62mJolCePkKz8zHfB69tSLCup/3lpZWnUMhPvyOFpwfgEbz24V+OCic1nWR
-         aQlz42F0bNP/4M+DmMfDDdSyZ9VAVNJ8qVcrnDLBjSXDlgo4X4BZNDntAzsy0DpE1A83
-         arvvpft5oeHTWAhN4VkRv2RJVK0ygjdlbW4sNzikvneKAShUGopd5gW7cetf3jXyImsg
-         cIDA==
-X-Gm-Message-State: AOJu0YxxiF2EPvx1PQzBU7x5Qu6HoeExZ+3xk0Ww7A5iKjk3Tv9rpyLZ
-	VoVzUjNbMKjQC205hFg7cLPTv+sqVyLuPHfRvtmwfI2QArU994MkOn66jVNPryJwhZhhltOb5Ow
-	gUCJSIOy1P/XsSptPLkrWO4tp2UvTFma7uCkBGKHN261Absr2zKXD+2HjmWWdWs0SDXJu
-X-Received: by 2002:a05:622a:590:b0:425:4043:8d55 with SMTP id c16-20020a05622a059000b0042540438d55mr4267080qtb.112.1703414975568;
-        Sun, 24 Dec 2023 02:49:35 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHqn8DRlJOSAfcEfKAUiBJCl7hAhOpHxzVr7CqiVH5tkrER/1XMKIqe4ro6dC36GAEU2oObR93Kusddr00jIj4=
-X-Received: by 2002:a05:622a:590:b0:425:4043:8d55 with SMTP id
- c16-20020a05622a059000b0042540438d55mr4267060qtb.112.1703414975298; Sun, 24
- Dec 2023 02:49:35 -0800 (PST)
+        bh=dRjx8VHHb0t27RVkqdYIaU34XdXmnq6meYjdKYyMtPA=;
+        b=ExNIlFCRDT755nFXYyd/95Y0fRcUY5caOz9pbntCIS0R4JudZr7HpEnyoHZN+B3hOb
+         s8VCxDEnSK54xO8RCtCyNR/MEkp+E2BdtgIMi3AhXyTJEc4aVx/8Qn/EY9+FNqtTCk6+
+         0BoFYwCEhBpd2palTZ+jR7VXcQli3jpv9A8W+d5N/hADDrXA7zfWNSB9KcYWYrlnBjsn
+         i2+ZPSoHt9h6CHhoSqj1ONYGKO0K4wwWkrNNrWhId/nWqxvoBfuMHeFhNSPJt6G4y9R+
+         k2xq9l6B4skatVXcM+g10se3D6QTcPceLWbNXkEBhlhKOS3N+QfzS3CIdLOA5jMoPFGR
+         3rXQ==
+X-Gm-Message-State: AOJu0YxnV/Yt6fagH33iyD9tkbxJ54Z1eM965YgYuWeDttoZl0nAam0V
+	t+bChrZgvAC7tCK6jjDqw0nhR0W06XcJt09T1RKu1CPFS41CETYuxJIam6OwtX4MpOfWwPBjA31
+	myFmXOV4BlU98k42OjM+DXvoghNmPTdy+yKiYN+vjY23O2HBUxQazWVBSE7ZdsCkig4WNWe54A/
+	Vv2sg=
+X-Received: by 2002:a05:622a:182:b0:425:76df:7e6f with SMTP id s2-20020a05622a018200b0042576df7e6fmr5609346qtw.119.1703415021914;
+        Sun, 24 Dec 2023 02:50:21 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGJ96r2eapvbnKdZyEB77jqFXRuTWzy2bUJJjzd8WXSuigvwDiMsomMEGU5kDYipZ+1aQleLT61MirQghPeNG0=
+X-Received: by 2002:a05:622a:182:b0:425:76df:7e6f with SMTP id
+ s2-20020a05622a018200b0042576df7e6fmr5609335qtw.119.1703415021493; Sun, 24
+ Dec 2023 02:50:21 -0800 (PST)
 Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Sun, 24 Dec 2023 02:49:34 -0800
+ HTTPREST; Sun, 24 Dec 2023 02:50:21 -0800
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20231222094548.54103-4-william.qiu@starfivetech.com>
-References: <20231222094548.54103-1-william.qiu@starfivetech.com> <20231222094548.54103-4-william.qiu@starfivetech.com>
+In-Reply-To: <20231222094548.54103-5-william.qiu@starfivetech.com>
+References: <20231222094548.54103-1-william.qiu@starfivetech.com> <20231222094548.54103-5-william.qiu@starfivetech.com>
 Mime-Version: 1.0
-Date: Sun, 24 Dec 2023 02:49:34 -0800
-Message-ID: <CAJM55Z9tyrR7emEBrY0+Fnc_LUFQHkqYHLQ4ptL=XQMy52qtVw@mail.gmail.com>
-Subject: Re: [PATCH v10 3/4] riscv: dts: starfive: jh7100: Add PWM node and
+Date: Sun, 24 Dec 2023 02:50:21 -0800
+Message-ID: <CAJM55Z8aGviAN0FzEPYtOuV_8q=OvVpNbid195BJTfVMnrA7aA@mail.gmail.com>
+Subject: Re: [PATCH v10 4/4] riscv: dts: starfive: jh7110: Add PWM node and
  pins configuration
 To: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
@@ -87,8 +88,9 @@ Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
 	Hal Feng <hal.feng@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231224_024942_327865_40751FB3 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20231224_025026_262051_8A525B8A 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,50 +109,23 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 William Qiu wrote:
 > Add OpenCores PWM controller node and add PWM pins configuration
-> on VisionFive 1 board.
+> on VisionFive 2 board.
 >
 > Signed-off-by: William Qiu <william.qiu@starfivetech.com>
-
-Sorry, I thought I already sent my review. This looks good.
 
 Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
 > ---
->  .../boot/dts/starfive/jh7100-common.dtsi      | 24 +++++++++++++++++++
->  arch/riscv/boot/dts/starfive/jh7100.dtsi      |  9 +++++++
->  2 files changed, 33 insertions(+)
+>  .../jh7110-starfive-visionfive-2.dtsi         | 22 +++++++++++++++++++
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi      |  9 ++++++++
+>  2 files changed, 31 insertions(+)
 >
-> diff --git a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
-> index b93ce351a90f..11876906cc05 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
-> @@ -84,6 +84,24 @@ GPO_I2C2_PAD_SDA_OEN,
->  		};
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> index b89e9791efa7..e08af8a830ab 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> @@ -323,6 +323,12 @@ reserved-data@600000 {
 >  	};
->
-> +	pwm_pins: pwm-0 {
-> +		pwm-pins {
-> +			pinmux = <GPIOMUX(7,
-> +				  GPO_PWM_PAD_OUT_BIT0,
-> +				  GPO_PWM_PAD_OE_N_BIT0,
-> +				  GPI_NONE)>,
-> +				 <GPIOMUX(5,
-> +				  GPO_PWM_PAD_OUT_BIT1,
-> +				  GPO_PWM_PAD_OE_N_BIT1,
-> +				  GPI_NONE)>;
-> +			bias-disable;
-> +			drive-strength = <35>;
-> +			input-disable;
-> +			input-schmitt-disable;
-> +			slew-rate = <0>;
-> +		};
-> +	};
-> +
->  	uart3_pins: uart3-0 {
->  		rx-pins {
->  			pinmux = <GPIOMUX(13, GPO_LOW, GPO_DISABLE,
-> @@ -154,6 +172,12 @@ &osc_aud {
->  	clock-frequency = <27000000>;
 >  };
 >
 > +&pwm {
@@ -159,29 +134,52 @@ Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 > +	status = "okay";
 > +};
 > +
->  &uart3 {
+>  &spi0 {
 >  	pinctrl-names = "default";
->  	pinctrl-0 = <&uart3_pins>;
-> diff --git a/arch/riscv/boot/dts/starfive/jh7100.dtsi b/arch/riscv/boot/dts/starfive/jh7100.dtsi
-> index e68cafe7545f..4f5eb2f60856 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7100.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7100.dtsi
-> @@ -280,6 +280,15 @@ watchdog@12480000 {
->  				 <&rstgen JH7100_RSTN_WDT>;
+>  	pinctrl-0 = <&spi0_pins>;
+> @@ -513,6 +519,22 @@ GPOEN_ENABLE,
+>  		};
+>  	};
+>
+> +	pwm_pins: pwm-0 {
+> +		pwm-pins {
+> +			pinmux = <GPIOMUX(46, GPOUT_SYS_PWM_CHANNEL0,
+> +					      GPOEN_SYS_PWM0_CHANNEL0,
+> +					      GPI_NONE)>,
+> +				 <GPIOMUX(59, GPOUT_SYS_PWM_CHANNEL1,
+> +					      GPOEN_SYS_PWM0_CHANNEL1,
+> +					      GPI_NONE)>;
+> +			bias-disable;
+> +			drive-strength = <12>;
+> +			input-disable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +	};
+> +
+>  	spi0_pins: spi0-0 {
+>  		mosi-pins {
+>  			pinmux = <GPIOMUX(52, GPOUT_SYS_SPI0_TXD,
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> index 45213cdf50dc..1b782f2c1395 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> @@ -829,6 +829,15 @@ i2stx1: i2s@120c0000 {
+>  			status = "disabled";
 >  		};
 >
-> +		pwm: pwm@12490000 {
-> +			compatible = "starfive,jh7100-pwm", "opencores,pwm-v1";
-> +			reg = <0x0 0x12490000 0x0 0x10000>;
-> +			clocks = <&clkgen JH7100_CLK_PWM_APB>;
-> +			resets = <&rstgen JH7100_RSTN_PWM_APB>;
+> +		pwm: pwm@120d0000 {
+> +			compatible = "starfive,jh7110-pwm", "opencores,pwm-v1";
+> +			reg = <0x0 0x120d0000 0x0 0x10000>;
+> +			clocks = <&syscrg JH7110_SYSCLK_PWM_APB>;
+> +			resets = <&syscrg JH7110_SYSRST_PWM_APB>;
 > +			#pwm-cells = <3>;
 > +			status = "disabled";
 > +		};
 > +
->  		sfctemp: temperature-sensor@124a0000 {
->  			compatible = "starfive,jh7100-temp";
->  			reg = <0x0 0x124a0000 0x0 0x10000>;
+>  		sfctemp: temperature-sensor@120e0000 {
+>  			compatible = "starfive,jh7110-temp";
+>  			reg = <0x0 0x120e0000 0x0 0x10000>;
 > --
 > 2.34.1
 >
