@@ -4,77 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 797A2C3DA6E
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 Dec 2023 01:24:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BE46C47073
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 Dec 2023 10:50:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2sCsoV3i70AmseGJoDtUJYunUP1z3nNfJ1TiFycq9ic=; b=47yPVwlsYWXMdn
-	PiUea/mm8jVbeCGPJ7zbMbe3jYp1Cd3SUPYBkqzQs30vKFOtp/qGXDq0D4ZiOHmmmSVZdQSl2DPbB
-	Eb76Y/1fff7tAsCOmIhKR79xSZuEnF3431gGWHHmGIKEh83VOkETISSmXLfcfZEC4aCGUiYNULzGw
-	B81gSyJoGOr4Y0Egj9zzi+w7uyddBzEqxbAYVIC4T7rwenlUieogkmgqocfGWtCf4JYZX4/a9dnJu
-	eo9o+3GrQPmwZG2Q/RYk1cZHjQnF0JIfEvKmXf64qAWz11sE3CgjPofnTpUetAzaENyFr2Mp1f35W
-	GndQ/b71LQUm4x27YB6A==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=UspO3OzpATZYM0jp7aTXVMSoIXh56I8Lz5YXNUWgC4A=; b=Vdy3ArvqyUU6/e14lW747ZDSkZ
+	yjirvWltDZfuc2b6IJjlD9tMCki1y7IouscdVUlK5yLROuuceOdJzLBhJD31PCG9+2PTtGuGXbFX3
+	T/i/xgWph5aw1Cww4PMXS+qY4YmLNBtGrWGUziuygwGcUueWey7U4+Ys8FZT/8x3hmXXq4m7nlYSc
+	5OqtaLDtn8n7Hsd9XTzoG3d692a3x3emacSiwIIW/l+PMacleOicb7W6NFZYeEDJ3LNtIEu3mWAdS
+	k7GFoCd0MKvSrxEyZP0OKjQ1UWltiUbAhU/PKCPKIAGaBU47P1+e2wlOt+BPylo7iJQq2esgp24KS
+	M7de/AfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rHDE9-008hsg-2e;
-	Sun, 24 Dec 2023 01:24:25 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rHM3F-009AYs-2D;
+	Sun, 24 Dec 2023 10:49:45 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rHDE5-008hrV-1b
+	id 1rHM3B-009AXt-3D
 	for linux-riscv@lists.infradead.org;
-	Sun, 24 Dec 2023 01:24:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 9AEA7CE0AD2
-	for <linux-riscv@lists.infradead.org>; Sun, 24 Dec 2023 01:24:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CC5FC43395
-	for <linux-riscv@lists.infradead.org>; Sun, 24 Dec 2023 01:24:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1703381055;
-	bh=/H0+iF+fDn9DTrAW4o9tox8uhqnr94eocMPWRFJRU0s=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=T15Ae/+AuOnYFc6GQj3tfN5c8UaAV7WLR512HkGl/SPDPgxKE73XQJoiFRNmkquuW
-	 YpUcorvbZh4FeJFfxveoQFJFj1WUaJaAA/Fxk0fNm6lVvaoJDq7pcHcCG2IK7nswf+
-	 2RS6/02jRB1AkQq9UBlwjd1iIMIrs3vb/6MaJzMVVCaC/aUmDohu0+8y99KtQdZzaU
-	 G6sTCb6MWYl6kPN3brqRrdObKMSxRZGW7CwKQxCH1zzP8C1AHSMj7ZUIQGhS0p9gxB
-	 AFJoiC6k79mkDLhR+M2YZPq0MziKmGoLk8uKhIQPTvZLJBkX2qH80/rmEjnx+iw5r2
-	 f9i/yk960zRFg==
-Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-40d4e529f24so12075485e9.2
-        for <linux-riscv@lists.infradead.org>; Sat, 23 Dec 2023 17:24:14 -0800 (PST)
-X-Gm-Message-State: AOJu0YyOuc5fy3Z+jcW8c2OCL9oBt6mPiVtkwpHKpT9Aic28WM42hh3L
-	mY0lYiOsbxETpVuuqmP/Tu6DD5oU4fghRRKMa1k=
-X-Google-Smtp-Source: AGHT+IFV03RN5WCJzhq8Igd5aRzeZ4KAuFjP6kgdpuUrRLl5b1fqLLswglB+c7zzEB8AJXSmZi03yHMQG3vLjaAlLrs=
-X-Received: by 2002:a05:600c:748:b0:40c:35fd:be08 with SMTP id
- j8-20020a05600c074800b0040c35fdbe08mr1371260wmn.122.1703381053321; Sat, 23
- Dec 2023 17:24:13 -0800 (PST)
-MIME-Version: 1.0
-References: <20231221154702.2267684-1-guoren@kernel.org> <20231221154702.2267684-5-guoren@kernel.org>
- <ZYUZ8QUJxCL93Fgv@LeoBras> <CAJF2gTTX7AjexoRUw=ZS34HEWno7H3zvnXA+Q7TYsztNU=k2cg@mail.gmail.com>
- <e3f1521a9f04463587d07d0c99534d5a@AcuMS.aculab.com> <CAJF2gTRD827Fbs_2FxBP=Z8yudfAAqG6dA+a9eq74RMOz2WDnw@mail.gmail.com>
- <9d4d15e8e3e944b8bd18e8bc1d54f59c@AcuMS.aculab.com>
-In-Reply-To: <9d4d15e8e3e944b8bd18e8bc1d54f59c@AcuMS.aculab.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Sun, 24 Dec 2023 09:24:00 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQjixePmc8qNJZB+kfyzjVb+NqFHR6GOow-aNhN883CQA@mail.gmail.com>
-Message-ID: <CAJF2gTQjixePmc8qNJZB+kfyzjVb+NqFHR6GOow-aNhN883CQA@mail.gmail.com>
-Subject: Re: [PATCH V2 4/4] riscv: mm: Optimize TASK_SIZE definition
-To: David Laight <David.Laight@aculab.com>
-Cc: Leonardo Bras <leobras@redhat.com>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>, 
-	"alexghiti@rivosinc.com" <alexghiti@rivosinc.com>, "charlie@rivosinc.com" <charlie@rivosinc.com>, 
-	"xiao.w.wang@intel.com" <xiao.w.wang@intel.com>, "david@redhat.com" <david@redhat.com>, 
-	"panqinglin2020@iscas.ac.cn" <panqinglin2020@iscas.ac.cn>, 
-	"rick.p.edgecombe@intel.com" <rick.p.edgecombe@intel.com>, "willy@infradead.org" <willy@infradead.org>, 
-	"bjorn@rivosinc.com" <bjorn@rivosinc.com>, 
-	"conor.dooley@microchip.com" <conor.dooley@microchip.com>, "cleger@rivosinc.com" <cleger@rivosinc.com>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Guo Ren <guoren@linux.alibaba.com>
+	Sun, 24 Dec 2023 10:49:43 +0000
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 9BF583F3EE
+	for <linux-riscv@lists.infradead.org>; Sun, 24 Dec 2023 10:49:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1703414976;
+	bh=T6CV/w/Oj4/yKhfarK+UEYWwoSl7TNmHch082+K72XA=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=s/fRoIh8SY0TKT7w5PsksY/lcSI8UApq2MHVl8DyiQFRguc04FhM2gmwAcF2L2Wqr
+	 maVTFHaZ8WlhYPCnsTHJSzSkKAk6M/mF/6qbwS8udCB69dW+ysX20SaQaBi7KlF/V+
+	 7/2rK3KJSsZ0UH7Vh03wqWQh4PV3LGpf6Yatn9er5sHGnZ+tgaqDd8giffpzbdpnWu
+	 dJyQ910RIv9vzqM4GWKoz9bGIRFi8EQTxzzGOf8dH2UuQv76aCnC4GcKviDr+B5X74
+	 UeJexQqFxIX14gYoVZYSYd7A0NNakCaxgveR9p0uUkiiiQHA4qdqyP2SEBBpJH10t7
+	 fcOxCrUkZ7Gsw==
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4278740faedso39882781cf.0
+        for <linux-riscv@lists.infradead.org>; Sun, 24 Dec 2023 02:49:36 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1703414975; x=1704019775;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=T6CV/w/Oj4/yKhfarK+UEYWwoSl7TNmHch082+K72XA=;
+        b=bgNv7Nsv/G3oyAmtTVEvxjd0Ha9yUtEWf0cZKVVwLtXrUM83NAQoM4KIGXZEbCC++v
+         HsXzdemUERR8nkr4rKbmE7YkB7WYEqkLUcu+ruOizEw+u0ffsPrbuFvIAWZO3jCmQglf
+         HudGiotjR62mJolCePkKz8zHfB69tSLCup/3lpZWnUMhPvyOFpwfgEbz24V+OCic1nWR
+         aQlz42F0bNP/4M+DmMfDDdSyZ9VAVNJ8qVcrnDLBjSXDlgo4X4BZNDntAzsy0DpE1A83
+         arvvpft5oeHTWAhN4VkRv2RJVK0ygjdlbW4sNzikvneKAShUGopd5gW7cetf3jXyImsg
+         cIDA==
+X-Gm-Message-State: AOJu0YxxiF2EPvx1PQzBU7x5Qu6HoeExZ+3xk0Ww7A5iKjk3Tv9rpyLZ
+	VoVzUjNbMKjQC205hFg7cLPTv+sqVyLuPHfRvtmwfI2QArU994MkOn66jVNPryJwhZhhltOb5Ow
+	gUCJSIOy1P/XsSptPLkrWO4tp2UvTFma7uCkBGKHN261Absr2zKXD+2HjmWWdWs0SDXJu
+X-Received: by 2002:a05:622a:590:b0:425:4043:8d55 with SMTP id c16-20020a05622a059000b0042540438d55mr4267080qtb.112.1703414975568;
+        Sun, 24 Dec 2023 02:49:35 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHqn8DRlJOSAfcEfKAUiBJCl7hAhOpHxzVr7CqiVH5tkrER/1XMKIqe4ro6dC36GAEU2oObR93Kusddr00jIj4=
+X-Received: by 2002:a05:622a:590:b0:425:4043:8d55 with SMTP id
+ c16-20020a05622a059000b0042540438d55mr4267060qtb.112.1703414975298; Sun, 24
+ Dec 2023 02:49:35 -0800 (PST)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Sun, 24 Dec 2023 02:49:34 -0800
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20231222094548.54103-4-william.qiu@starfivetech.com>
+References: <20231222094548.54103-1-william.qiu@starfivetech.com> <20231222094548.54103-4-william.qiu@starfivetech.com>
+Mime-Version: 1.0
+Date: Sun, 24 Dec 2023 02:49:34 -0800
+Message-ID: <CAJM55Z9tyrR7emEBrY0+Fnc_LUFQHkqYHLQ4ptL=XQMy52qtVw@mail.gmail.com>
+Subject: Re: [PATCH v10 3/4] riscv: dts: starfive: jh7100: Add PWM node and
+ pins configuration
+To: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-pwm@vger.kernel.org
+Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, 
+	Thierry Reding <thierry.reding@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, 
+	Hal Feng <hal.feng@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231223_172421_998326_0BDFDD4D 
-X-CRM114-Status: GOOD (  23.45  )
+X-CRM114-CacheID: sfid-20231224_024942_327865_40751FB3 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,50 +100,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBEZWMgMjMsIDIwMjMgYXQgNjozMeKAr1BNIERhdmlkIExhaWdodCA8RGF2aWQuTGFp
-Z2h0QGFjdWxhYi5jb20+IHdyb3RlOgo+Cj4gRnJvbTogR3VvIFJlbgo+ID4gU2VudDogMjMgRGVj
-ZW1iZXIgMjAyMyAwMjo1Mwo+ID4KPiA+IE9uIEZyaSwgRGVjIDIyLCAyMDIzIGF0IDc6NTLigK9Q
-TSBEYXZpZCBMYWlnaHQgPERhdmlkLkxhaWdodEBhY3VsYWIuY29tPiB3cm90ZToKPiA+ID4KPiA+
-ID4gRnJvbTogR3VvIFJlbgo+ID4gPiA+IFNlbnQ6IDIyIERlY2VtYmVyIDIwMjMgMTE6MjUKPiA+
-ID4gLi4uCj4gPiA+ID4gPiA+ICsjZGVmaW5lIFRBU0tfU0laRSAgICAoaXNfY29tcGF0X3Rhc2so
-KSA/IFwKPiA+ID4gPiA+ID4gICAgICAgICAgICAgICAgICAgICAgICBUQVNLX1NJWkVfMzIgOiBU
-QVNLX1NJWkVfNjQpCj4gPiA+ID4gSSB3b3VsZCByZW1vdmUgaXNfY29tcGF0X3Rhc2soKSBpbiB0
-aGUgbmV4dCB2ZXJzaW9uIGJlY2F1c2UgeW91ciBwYXRjaAo+ID4gPiA+IGNvbnRhaW5zIHRoYXQu
-Cj4gPiA+Cj4gPiA+IERvZXMgVEFTS19TSVpFIGdldCB1c2VkIGluIGFjY2Vzc19vaygpID8KPiA+
-ID4gSWYgc28gdGhlIHJlcGVhdGVkIGV4cGFuc2lvbiBvZiB0aGF0ICdtZXNzJyB3aWxsIHNsb3cg
-dGhpbmdzIGRvd24uCj4gPiA+Cj4gPiA+IE9UT0ggYWNjZXNzX29rKHB0ciwgbGVuKSBjYW4ganVz
-dCBjaGVjayAocHRyIHwgKHB0ciArIGxlbikpIDwgMCkKPiA+ID4gYW5kIHJlbHkgb24gdGhlIHBh
-Z2UgZmF1bHRzIGZvciBldmVyeXRoaW5nIGVsc2UuCj4gPiBPciBkbyB5b3Ugd2FudCB0byBkaXNj
-dXNzIHRoZSBiYWQgc2lkZSBlZmZlY3Qgb2YgaXNfY29tcGF0X3Rhc2soKT8KPiA+Cj4gPiBZZXMs
-IHRlc3RfdGhyZWFkX2ZsYWcoVElGXzMyQklUKSB3b3VsZCBzbG93IGRvd24gYWNjZXNzX29rKCku
-IEJ1dCBpZgo+ID4gd2UgdXNlIFRBU0tfU0laRV9NQVgsIFZBX0JJVFMgc3RpbGwgbmVlZHMgcGd0
-YWJsZV9sNV9lbmFibGVkLAo+ID4gcGd0YWJsZV9sNF9lbmFibGVkIGRldGVjdGF0aW9uIGZvciBy
-aXNjdi4KPiA+Cj4gPiBJdCdzIG5vdCBvbmx5IGZvciBjb21wYXQgbW9kZSwgYnV0IGFsc28gU3Yz
-OSwgU3Y0OCwgU3Y1Ny4gQWxsIHRyZWF0Cj4gPiBUQVNLX1NJWkVfTUFYIGFzIDB4ODAwMDAwMDAw
-MDAwMDAwMCwgcmlnaHQ/IFRoZW46Cj4gPiBhY2Nlc3Nfb2socHRyLCBsZW4pIGNhbiBqdXN0IGNo
-ZWNrIChwdHIgfCAocHRyICsgbGVuKSkgPCAwKQo+ID4KPiA+IEl0J3MgYW5vdGhlciBmZWF0dXJl
-IGFuZCBkb2VzIG5vdCByZWxhdGUgdG8gY29tcGF0IG1vZGUuCj4KPiBDb21wYXQgbW9kZSBqdXN0
-IG1ha2VzIGl0IHdvcnNlLi4uCkl0J3MgaGFyZCB0byBvYnNlcnZlLgoKPgo+IE9uZSBwb3NzaWJp
-bGl0eSB3b3VsZCBiZSB0byBzYXZlIHRoZSB0YXNrJ3MgbWF4IHVzZXIgYWRkcmVzcwo+IGluIHRo
-ZSB0YXNrIHN0cnVjdHVyZSBpdHNlbGYgLSB0aGF0IHdvdWxkIHNhdmUgYWxsIHRoZSBjb25kaXRp
-b25hbHMKPiBhdCBhIGNvc3Qgb2YgYW4gZXh0cmEgdmFsdWUgaW4gdGhlIHRhc2sgc3RydWN0dXJl
-LgpJdCB3b3VsZCBzdGlsbCBjYXVzZSBtZW1vcnkgbG9hZCBvcGVyYXRpb24sIGFsdGhvdWdoIGl0
-IGlzICR0cC0+eHh4LgpJZiB3ZSB3YW50IHRvIGdhaW4gb2JzZXJ2YWJpbGl0eSBiZW5lZml0cywg
-Imp1c3QgY2hlY2sgKHB0ciB8IChwdHIgKwpsZW4pKSA8IDApIiBpcyBiZXR0ZXIuCgo+Cj4gVGhl
-cmUgaXMgYWxzbyB0aGUgcXVlc3Rpb24gb2Ygd2hldGhlciBhIG5vcm1hbGx5IDY0LWJpdCB0YXNr
-Cj4gY2FuIGFjdHVhbGx5IG1ha2UgdGhlIGNvbXBhdCBtbWFwKCkgc3lzdGVtIGNhbGw/Ck5vLgoK
-PiBPbiB4ODYgdGhhdCBpcyBjZXJ0YWlubHkgcG9zc2libGUgKElJUkMgd2luZSBkb2VzIGl0KSwg
-eDg2Cj4gdXNlcnNwYWNlIGNhbiBmbGlwIGJldHdlZW4gMzJiaXQgYW5kIDYzYml0IG1vZGUgd2l0
-aG91dCBhCj4gc3lzdGVtIGNhbGwuClJJU0MtViBjYW4ndCBkbyB0aGF0IGJlY2F1c2UgaXQgbmVl
-ZHMgc3N0YXR1eC51eGw9MzIvNjQsIHdoaWNoIGNhbgpvbmx5IGJlIG1vZGlmaWVkIGluIFMtbW9k
-ZS4KCgo+Cj4gICAgICAgICBEYXZpZAo+Cj4gLQo+IFJlZ2lzdGVyZWQgQWRkcmVzcyBMYWtlc2lk
-ZSwgQnJhbWxleSBSb2FkLCBNb3VudCBGYXJtLCBNaWx0b24gS2V5bmVzLCBNSzEgMVBULCBVSwo+
-IFJlZ2lzdHJhdGlvbiBObzogMTM5NzM4NiAoV2FsZXMpCgoKCi0tIApCZXN0IFJlZ2FyZHMKIEd1
-byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
-dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+William Qiu wrote:
+> Add OpenCores PWM controller node and add PWM pins configuration
+> on VisionFive 1 board.
+>
+> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+
+Sorry, I thought I already sent my review. This looks good.
+
+Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+
+> ---
+>  .../boot/dts/starfive/jh7100-common.dtsi      | 24 +++++++++++++++++++
+>  arch/riscv/boot/dts/starfive/jh7100.dtsi      |  9 +++++++
+>  2 files changed, 33 insertions(+)
+>
+> diff --git a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
+> index b93ce351a90f..11876906cc05 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
+> @@ -84,6 +84,24 @@ GPO_I2C2_PAD_SDA_OEN,
+>  		};
+>  	};
+>
+> +	pwm_pins: pwm-0 {
+> +		pwm-pins {
+> +			pinmux = <GPIOMUX(7,
+> +				  GPO_PWM_PAD_OUT_BIT0,
+> +				  GPO_PWM_PAD_OE_N_BIT0,
+> +				  GPI_NONE)>,
+> +				 <GPIOMUX(5,
+> +				  GPO_PWM_PAD_OUT_BIT1,
+> +				  GPO_PWM_PAD_OE_N_BIT1,
+> +				  GPI_NONE)>;
+> +			bias-disable;
+> +			drive-strength = <35>;
+> +			input-disable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +	};
+> +
+>  	uart3_pins: uart3-0 {
+>  		rx-pins {
+>  			pinmux = <GPIOMUX(13, GPO_LOW, GPO_DISABLE,
+> @@ -154,6 +172,12 @@ &osc_aud {
+>  	clock-frequency = <27000000>;
+>  };
+>
+> +&pwm {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pwm_pins>;
+> +	status = "okay";
+> +};
+> +
+>  &uart3 {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&uart3_pins>;
+> diff --git a/arch/riscv/boot/dts/starfive/jh7100.dtsi b/arch/riscv/boot/dts/starfive/jh7100.dtsi
+> index e68cafe7545f..4f5eb2f60856 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7100.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7100.dtsi
+> @@ -280,6 +280,15 @@ watchdog@12480000 {
+>  				 <&rstgen JH7100_RSTN_WDT>;
+>  		};
+>
+> +		pwm: pwm@12490000 {
+> +			compatible = "starfive,jh7100-pwm", "opencores,pwm-v1";
+> +			reg = <0x0 0x12490000 0x0 0x10000>;
+> +			clocks = <&clkgen JH7100_CLK_PWM_APB>;
+> +			resets = <&rstgen JH7100_RSTN_PWM_APB>;
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
+> +		};
+> +
+>  		sfctemp: temperature-sensor@124a0000 {
+>  			compatible = "starfive,jh7100-temp";
+>  			reg = <0x0 0x124a0000 0x0 0x10000>;
+> --
+> 2.34.1
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
