@@ -4,78 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAD6BC3DA6E
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Dec 2023 04:03:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04404C3DA6E
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Dec 2023 04:55:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=DfxlcjkT9BOp7Jrp8j4FiMYhcwWhjUMRVy6/8uBxbYs=; b=kaRSwSM1+tR/+E
-	8tygqLd9dzbhYh+o/B2Kr9PRbnV7NdsUeYGyEBY0RKtQNM2Kbe+rsmhKBwJ+FL6MiECtJfJ4UgI4/
-	fHNfO9haVsH/Bd1I51EgFUJ7lZ7ZPLcQYWRb144mshPKPLGkAnGeKW4JolK9rYRWayeT8+BiUnkMp
-	Rmln14Y8HtK53I4z06hkWd7vffGMSRyfmbL9bM7WJfZbga+rq2GcBjCoGwjPmVOOiHWlNW6O3mgu+
-	cRQWjU1j7TVWbvkPavuUgPLjJMVLyYrSU23C0IOX2rBRpSvQ/rpRbcwgNGJr9HtTjcWxLvhe5GPpK
-	R6O5E7YF7UHImaxy3qYA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vZH92cnvC2Tb3Wq76hTGm4nYerrH2+bNfhdvYBs6NqE=; b=O70uyRX78B7o2x
+	ie6UpHwEPOlChBYVBjOxSpS76Ab65kxFNT5D9T7lPT73h8XxiiVNuFiij3pa8/S/1fA8sV6eux+7r
+	UZ3TIHuJ7tSmADg6zrMS2bOgrEG1qg8YHlor2GiuYuPPEPdx0++jQpXievIeOdd9v3Pln3VzjXtNj
+	sJsrYU48/nCtOHBsV/NEsIjxOflrU9vZ2rRx2eH7KwNHaCa/0BlApCjMgNhju952WeJ55A9Q18D8M
+	YaQptjNG8oCl1nzMt8nbWQ0WeBCd/b1jJG/F6b2aooEfrK7nGGjCabV90HW5eO6WSjFsapPzPvpAc
+	XXTTDooJtUk3tA+sustQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rHcAs-00AB52-1A;
-	Mon, 25 Dec 2023 04:02:42 +0000
-Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
+	id 1rHczb-00ADD3-1a;
+	Mon, 25 Dec 2023 04:55:07 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rHcAp-00AB4h-04
+	id 1rHczX-00AD9j-2J
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Dec 2023 04:02:40 +0000
-Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-67ff241c2bcso6065496d6.1
-        for <linux-riscv@lists.infradead.org>; Sun, 24 Dec 2023 20:02:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1703476957; x=1704081757; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Vgkto8kByXW7VWkGHNSr7+7oLApL/4XLRHDEPzxTHb4=;
-        b=NuRThhSUx/Rty/0Nk6Yu/sHohFT1XZdBV6QRs3n0f2Dyzsrc32HnKJRTgkE9D7GOZp
-         knTPhMvtHAwVWgA3NjeLjSD56oCnTlJTPY/4V4cqwsA+4nuKLZO4L6QTa1iMJstojbnU
-         XrCAeesbNDIu/2/pasGQ2uS/xTpV1u6TfsuzuYlybwJ9WIj9IMmmtUhoCOVnrjDz20aH
-         fdmX8mwocvsS0HjGs7DUelwhKnB2Rb1NMboZUR7ou1jNpv7VxivAHeub2JAOOYffN9cI
-         X5vlpSUxOrr4KllVxRYUAECxAbHuFISwB7cnx4/S/15SV0aPNfVe8zzG+SIMsp6mZ4yv
-         nWlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1703476957; x=1704081757;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Vgkto8kByXW7VWkGHNSr7+7oLApL/4XLRHDEPzxTHb4=;
-        b=W4ltitRxf+2E+NTdbfFkWF8puPm/cHudFiMoaPlTVdahW69/dxje3lHh8iNFuhiRMh
-         pjrIMAlYL78s4mhrrpCJW8UevwFAOQmEbq+GJNGgGU2/FvIcbxNsjJjX2pCTTvV63hdk
-         bNOMzb/BLpcPoyWuPe8fm6oDg4qm/kglGXkz2s1OkQdot/In2n+g4THW/ACecOZFtCJN
-         ejBuBCjq/Ja9wEfiv4Vyo2cK7Px/ytWaKi4ej7gUb29xyx27LUvl8dvZodE5/NFGqYYA
-         MRjjym9pAGv1sw4MPuG+bkD9PPdu8M5pRzuv44XOjfcfAfFWgyOE3h04dzhzZfe68Nmq
-         HqpA==
-X-Gm-Message-State: AOJu0YyV6GT/AoR3GzQyoWDsEgHDR5ayzY5JOYRSTY9AJGtQ+zkwA4jB
-	D51Cmdt4CoopAKrUZTe3vktyoKPYn73/4w==
-X-Google-Smtp-Source: AGHT+IGUoqgi8xxLb4ll1iCLSlEbo9ksVFmClgkdbzXzaaRMMvSDubNHYo1fu4YTtah1F6rc1ZwH+Q==
-X-Received: by 2002:ad4:574f:0:b0:67f:2f25:ae77 with SMTP id q15-20020ad4574f000000b0067f2f25ae77mr8848581qvx.14.1703476956942;
-        Sun, 24 Dec 2023 20:02:36 -0800 (PST)
-Received: from sjc-lab-t7002.local.tenstorrent.com ([38.142.247.251])
-        by smtp.gmail.com with ESMTPSA id dr4-20020a05621408e400b0067f8953f78fsm3075883qvb.41.2023.12.24.20.02.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 24 Dec 2023 20:02:36 -0800 (PST)
-From: Anton Blanchard <antonb@tenstorrent.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
+	Mon, 25 Dec 2023 04:55:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id B929BCE0E56;
+	Mon, 25 Dec 2023 04:54:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77FAFC433CC;
+	Mon, 25 Dec 2023 04:54:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1703480097;
+	bh=6XpfAVFOAhuOEVj65LCeIoXPY0Gh1KiNb/Z3XmVwtL0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Jozbum0Q/fdcDqQiB55TcCxgyo/ld5j3NiVIyavjUoZCjmDITUYvfSoktcEfqZDYm
+	 mkC0SQ4pQdcN/ov8EfaafmTTO/k/2HGyVDc/5pTkpdtHezaUNRwez/H9DX5kgQYTmM
+	 F+p4cBLepUCvQK+Xr95SD6HfEaB0S5n6KhAj3EkQoaE12Y2MkTv/Zsx91T/kccZdAb
+	 xQat64yxzEgNYd16DF2dUQPW2UHhBuUPyVhlysL49m6z0FPVZ8TcNRwBR9RRMP9d9k
+	 wuezVnDoaRokWyF/r27e2kVZy6KIOgqu5H+HF83G0BjnBA8QoLH3a94LfTcetypgy2
+	 ehU3rhFvFjLbw==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Anton Blanchard <antonb@tenstorrent.com>
-Subject: [PATCH] riscv: Improve exception and system call latency
-Date: Sun, 24 Dec 2023 20:00:18 -0800
-Message-Id: <20231225040018.1660554-1-antonb@tenstorrent.com>
-X-Mailer: git-send-email 2.25.1
+	Eric Biggers <ebiggers@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Qingfang DENG <dqfext@gmail.com>
+Subject: [PATCH v4 2/2] riscv: select DCACHE_WORD_ACCESS for efficient unaligned access HW
+Date: Mon, 25 Dec 2023 12:42:07 +0800
+Message-Id: <20231225044207.3821-3-jszhang@kernel.org>
+X-Mailer: git-send-email 2.40.0
+In-Reply-To: <20231225044207.3821-1-jszhang@kernel.org>
+References: <20231225044207.3821-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231224_200239_087779_2F5E507F 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20231224_205504_105169_48F0A8F3 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,124 +77,202 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Many CPUs implement return address branch prediction as a stack. The
-RISCV architecture refers to this as a return address stack (RAS). If
-this gets corrupted then the CPU will mispredict at least one but
-potentally many function returns.
+DCACHE_WORD_ACCESS uses the word-at-a-time API for optimised string
+comparisons in the vfs layer.
 
-There are two issues with the current RISCV exception code:
+This patch implements support for load_unaligned_zeropad in much the
+same way as has been done for arm64.
 
-- We are using the alternate link stack (x5/t0) for the indirect branch
-  which makes the hardware think this is a function return. This will
-  corrupt the RAS.
+Here is the test program and step:
 
-- We modify the return address of handle_exception to point to
-  ret_from_exception. This will also corrupt the RAS.
+ $ cat tt.c
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ #include <unistd.h>
 
-Testing the null system call latency before and after the patch:
+ #define ITERATIONS 1000000
 
-Visionfive2 (StarFive JH7110 / U74)
-baseline: 189.87 ns
-patched:  176.76 ns
+ #define PATH "123456781234567812345678123456781"
 
-Lichee pi 4a (T-Head TH1520 / C910)
-baseline: 666.58 ns
-patched:  636.90 ns
+ int main(void)
+ {
+         unsigned long i;
+         struct stat buf;
 
-Just over 7% on the U74 and just over 4% on the C910.
+         for (i = 0; i < ITERATIONS; i++)
+                 stat(PATH, &buf);
 
-Signed-off-by: Anton Blanchard <antonb@tenstorrent.com>
+         return 0;
+ }
+
+ $ gcc -O2 tt.c
+ $ touch 123456781234567812345678123456781
+ $ time ./a.out
+
+Per my test on T-HEAD C910 platforms, the above test performance is
+improved by about 7.5%.
+
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
+ arch/riscv/Kconfig                      |  1 +
+ arch/riscv/include/asm/asm-extable.h    | 15 ++++++++++++
+ arch/riscv/include/asm/word-at-a-time.h | 27 +++++++++++++++++++++
+ arch/riscv/mm/extable.c                 | 31 +++++++++++++++++++++++++
+ 4 files changed, 74 insertions(+)
 
-This introduces some complexity in the stackframe walk code. PowerPC
-resolves the multiple exception exit paths issue by placing a value into
-the exception stack frame (basically the word "REGS") that the stack frame
-code can look for. Perhaps something to look at.
-
- arch/riscv/kernel/entry.S      | 21 ++++++++++++++-------
- arch/riscv/kernel/stacktrace.c | 14 +++++++++++++-
- 2 files changed, 27 insertions(+), 8 deletions(-)
-
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 54ca4564a926..89af35edbf6c 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -84,7 +84,6 @@ SYM_CODE_START(handle_exception)
- 	scs_load_current_if_task_changed s5
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index afcc5fdc16f7..e34863c5a8ed 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -654,6 +654,7 @@ config RISCV_MISALIGNED
+ config RISCV_EFFICIENT_UNALIGNED_ACCESS
+ 	bool "Assume the CPU supports fast unaligned memory accesses"
+ 	depends on NONPORTABLE
++	select DCACHE_WORD_ACCESS if MMU
+ 	select HAVE_EFFICIENT_UNALIGNED_ACCESS
+ 	help
+ 	  Say Y here if you want the kernel to assume that the CPU supports
+diff --git a/arch/riscv/include/asm/asm-extable.h b/arch/riscv/include/asm/asm-extable.h
+index 00a96e7a9664..0c8bfd54fc4e 100644
+--- a/arch/riscv/include/asm/asm-extable.h
++++ b/arch/riscv/include/asm/asm-extable.h
+@@ -6,6 +6,7 @@
+ #define EX_TYPE_FIXUP			1
+ #define EX_TYPE_BPF			2
+ #define EX_TYPE_UACCESS_ERR_ZERO	3
++#define EX_TYPE_LOAD_UNALIGNED_ZEROPAD	4
  
- 	move a0, sp /* pt_regs */
--	la ra, ret_from_exception
+ #ifdef CONFIG_MMU
  
- 	/*
- 	 * MSB of cause differentiates between
-@@ -93,7 +92,10 @@ SYM_CODE_START(handle_exception)
- 	bge s4, zero, 1f
+@@ -47,6 +48,11 @@
+ #define EX_DATA_REG_ZERO_SHIFT	5
+ #define EX_DATA_REG_ZERO	GENMASK(9, 5)
  
- 	/* Handle interrupts */
--	tail do_irq
-+	call do_irq
-+.globl ret_from_irq_exception
-+ret_from_irq_exception:
-+	j ret_from_exception
- 1:
- 	/* Handle other exceptions */
- 	slli t0, s4, RISCV_LGPTR
-@@ -101,11 +103,16 @@ SYM_CODE_START(handle_exception)
- 	la t2, excp_vect_table_end
- 	add t0, t1, t0
- 	/* Check if exception code lies within bounds */
--	bgeu t0, t2, 1f
--	REG_L t0, 0(t0)
--	jr t0
--1:
--	tail do_trap_unknown
-+	bgeu t0, t2, 3f
-+	REG_L t1, 0(t0)
-+2:	jalr ra,t1
-+.globl ret_from_other_exception
-+ret_from_other_exception:
-+	j ret_from_exception
-+3:
++#define EX_DATA_REG_DATA_SHIFT	0
++#define EX_DATA_REG_DATA	GENMASK(4, 0)
++#define EX_DATA_REG_ADDR_SHIFT	5
++#define EX_DATA_REG_ADDR	GENMASK(9, 5)
 +
-+	la t1, do_trap_unknown
-+	j 2b
- SYM_CODE_END(handle_exception)
+ #define EX_DATA_REG(reg, gpr)						\
+ 	"((.L__gpr_num_" #gpr ") << " __stringify(EX_DATA_REG_##reg##_SHIFT) ")"
  
- /*
-diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-index 64a9c093aef9..b9cd131bbc4c 100644
---- a/arch/riscv/kernel/stacktrace.c
-+++ b/arch/riscv/kernel/stacktrace.c
-@@ -17,6 +17,18 @@
- #ifdef CONFIG_FRAME_POINTER
+@@ -62,6 +68,15 @@
+ #define _ASM_EXTABLE_UACCESS_ERR(insn, fixup, err)			\
+ 	_ASM_EXTABLE_UACCESS_ERR_ZERO(insn, fixup, err, zero)
  
- extern asmlinkage void ret_from_exception(void);
-+extern asmlinkage void ret_from_irq_exception(void);
-+extern asmlinkage void ret_from_other_exception(void);
++#define _ASM_EXTABLE_LOAD_UNALIGNED_ZEROPAD(insn, fixup, data, addr)		\
++	__DEFINE_ASM_GPR_NUMS							\
++	__ASM_EXTABLE_RAW(#insn, #fixup,					\
++			  __stringify(EX_TYPE_LOAD_UNALIGNED_ZEROPAD),		\
++			  "("							\
++			    EX_DATA_REG(DATA, data) " | "			\
++			    EX_DATA_REG(ADDR, addr)				\
++			  ")")
 +
-+static inline bool is_exception_frame(unsigned long pc)
+ #endif /* __ASSEMBLY__ */
+ 
+ #else /* CONFIG_MMU */
+diff --git a/arch/riscv/include/asm/word-at-a-time.h b/arch/riscv/include/asm/word-at-a-time.h
+index 7c086ac6ecd4..f3f031e34191 100644
+--- a/arch/riscv/include/asm/word-at-a-time.h
++++ b/arch/riscv/include/asm/word-at-a-time.h
+@@ -9,6 +9,7 @@
+ #define _ASM_RISCV_WORD_AT_A_TIME_H
+ 
+ 
++#include <asm/asm-extable.h>
+ #include <linux/kernel.h>
+ 
+ struct word_at_a_time {
+@@ -45,4 +46,30 @@ static inline unsigned long find_zero(unsigned long mask)
+ /* The mask we created is directly usable as a bytemask */
+ #define zero_bytemask(mask) (mask)
+ 
++#ifdef CONFIG_DCACHE_WORD_ACCESS
++
++/*
++ * Load an unaligned word from kernel space.
++ *
++ * In the (very unlikely) case of the word being a page-crosser
++ * and the next page not being mapped, take the exception and
++ * return zeroes in the non-existing part.
++ */
++static inline unsigned long load_unaligned_zeropad(const void *addr)
 +{
-+	if ((pc == (unsigned long)ret_from_exception) ||
-+	    (pc == (unsigned long)ret_from_irq_exception) ||
-+	    (pc == (unsigned long)ret_from_other_exception))
-+		return true;
++	unsigned long ret;
 +
-+	return false;
++	/* Load word from unaligned pointer addr */
++	asm(
++	"1:	" REG_L " %0, %2\n"
++	"2:\n"
++	_ASM_EXTABLE_LOAD_UNALIGNED_ZEROPAD(1b, 2b, %0, %1)
++	: "=&r" (ret)
++	: "r" (addr), "m" (*(unsigned long *)addr));
++
++	return ret;
 +}
++
++#endif	/* CONFIG_DCACHE_WORD_ACCESS */
++
+ #endif /* _ASM_RISCV_WORD_AT_A_TIME_H */
+diff --git a/arch/riscv/mm/extable.c b/arch/riscv/mm/extable.c
+index 35484d830fd6..dd1530af3ef1 100644
+--- a/arch/riscv/mm/extable.c
++++ b/arch/riscv/mm/extable.c
+@@ -27,6 +27,14 @@ static bool ex_handler_fixup(const struct exception_table_entry *ex,
+ 	return true;
+ }
  
- void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
- 			     bool (*fn)(void *, unsigned long), void *arg)
-@@ -62,7 +74,7 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
- 			fp = frame->fp;
- 			pc = ftrace_graph_ret_addr(current, NULL, frame->ra,
- 						   &frame->ra);
--			if (pc == (unsigned long)ret_from_exception) {
-+			if (is_exception_frame(pc)) {
- 				if (unlikely(!__kernel_text_address(pc) || !fn(arg, pc)))
- 					break;
++static inline unsigned long regs_get_gpr(struct pt_regs *regs, unsigned int offset)
++{
++	if (unlikely(!offset || offset > MAX_REG_OFFSET))
++		return 0;
++
++	return *(unsigned long *)((unsigned long)regs + offset);
++}
++
+ static inline void regs_set_gpr(struct pt_regs *regs, unsigned int offset,
+ 				unsigned long val)
+ {
+@@ -50,6 +58,27 @@ static bool ex_handler_uaccess_err_zero(const struct exception_table_entry *ex,
+ 	return true;
+ }
  
++static bool
++ex_handler_load_unaligned_zeropad(const struct exception_table_entry *ex,
++				  struct pt_regs *regs)
++{
++	int reg_data = FIELD_GET(EX_DATA_REG_DATA, ex->data);
++	int reg_addr = FIELD_GET(EX_DATA_REG_ADDR, ex->data);
++	unsigned long data, addr, offset;
++
++	addr = regs_get_gpr(regs, reg_addr * sizeof(unsigned long));
++
++	offset = addr & 0x7UL;
++	addr &= ~0x7UL;
++
++	data = *(unsigned long *)addr >> (offset * 8);
++
++	regs_set_gpr(regs, reg_data * sizeof(unsigned long), data);
++
++	regs->epc = get_ex_fixup(ex);
++	return true;
++}
++
+ bool fixup_exception(struct pt_regs *regs)
+ {
+ 	const struct exception_table_entry *ex;
+@@ -65,6 +94,8 @@ bool fixup_exception(struct pt_regs *regs)
+ 		return ex_handler_bpf(ex, regs);
+ 	case EX_TYPE_UACCESS_ERR_ZERO:
+ 		return ex_handler_uaccess_err_zero(ex, regs);
++	case EX_TYPE_LOAD_UNALIGNED_ZEROPAD:
++		return ex_handler_load_unaligned_zeropad(ex, regs);
+ 	}
+ 
+ 	BUG();
 -- 
-2.25.1
+2.40.0
 
 
 _______________________________________________
