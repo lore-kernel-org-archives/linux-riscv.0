@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21150C47072
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Dec 2023 12:59:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00329C3DA6E
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Dec 2023 12:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AT3z9pJWIzYgbiYDAksKf04xrB2iaH0ySuIyfhEXaYE=; b=xZjcCiXobGdA5S
-	BIVcDtW7OEV0znB+E/QOAnfgksFH2UVq1LpYMSwEIn7ivFXwW0u0w+8epNc/qn61I9EgtmzZqhSO4
-	dY3nEzknELs+G8TeftUg/Sj3Y5gHkkqrUR+Dtixd30kAFw7D2JUDtL0slg0SVvnF/7bmJdoseLpnd
-	VYowgr6TtmadOPjwH8RWHsaMOtOyn3y+lL5wA0DsAQTTvdZqUJ+cMIY3cgPaMWjJiaZkW5GWzRDVd
-	vMnC6NZcrwm86TkA0sAK/oiRnuXODhc5KbuTxxlzdFSt+50/iQoBgiPwfeG0wOF/FWWBaUjiAmiLF
-	bCt13U/EKJb71ozDRl8A==;
+	List-Owner; bh=rKOTK5Q2BBf5Dui0bBdfTgq9OUb4gB1Ags8AqSGw9n4=; b=dzclpJuHIAhrqG
+	8Fz5TjgjHMfZxl4qXGGVP86rvODZPeYZvjod8J0Pw6O11pb42GlySZPjPpWVCt6CBLLmjXYyG62Ro
+	coKbdatvvqg48utB768lY4Ml9ezhjHLcrXDkaUgeFzZUlg8zIsWog819/nD+gTqe4jngCbafy+pye
+	TuUMYAd5MWzTY8MlL5+KR/DU3QmLDpERJMZjbFxQj3TLeJ3V/JXjIXhFUhjdXEr9Fn4UvO6oYA749
+	MoPt9kcIm1fp4//ktWibqufi4ag6qucy1e4SjPv8NptNxLI0ZyOOPdYkXxZC68ZVUEOK/PnYf73nW
+	xMosOdTXkGqongfjhJkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rHkYH-00AsDu-0n;
-	Mon, 25 Dec 2023 12:59:25 +0000
+	id 1rHkYM-00AsFr-0C;
+	Mon, 25 Dec 2023 12:59:30 +0000
 Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rHkYB-00As9z-1J
+	id 1rHkYJ-00AsEG-0l
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Dec 2023 12:59:21 +0000
+	Mon, 25 Dec 2023 12:59:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 09DFACE0E89;
-	Mon, 25 Dec 2023 12:59:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBCD1C433C9;
-	Mon, 25 Dec 2023 12:59:08 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id B436ACE0E69;
+	Mon, 25 Dec 2023 12:59:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DACBC433C7;
+	Mon, 25 Dec 2023 12:59:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1703509153;
-	bh=6xiC8pE2cOypI/oz0KCrMumOoHcusGNyEJ2XLVSfDvA=;
+	s=k20201202; t=1703509162;
+	bh=t4H+VtweIMB9GIJ64RbiKsu2mZqPG2Vadul4thIkKq8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fgTGgKfCwWnIZQxMTQ4xK3OK1PDBr2jaTBXGbmi+qc7Gon5m1wHklztMQC6KvHstG
-	 RUKxndYZO8WkkpcZ4MV8HtmGkJUbkDla1H5yGLys8gfRP27OPP1+8/J+E516aT3Wun
-	 ebEBWcDGVIE8Y85hTQpvcoEPHltSF3iLoj7YSNyo09dC1XT3XCTGKxYCO10dbhawfT
-	 Chr0uDk0mnFUJMyKA30bi14wfNJrF4T8yZPjrhsLcw+UfwH9NXTrCRNWHKs4W81YFx
-	 PTUcFWv8ELzozsNYF0e4M4Ah7WRlq/FdbmxOgNTsPKi3QueND1H5Z8F+NLYwQhOYmt
-	 Nsg/S3VVXXQHQ==
+	b=Ys34oak+Mhavy5TwRaePIX4vOsK2GTstW82bYReMy0Xv5t+IuOakmgtxh2poY3HH+
+	 PypmBs279VqI0KJFN1yQ1fkF2Mbv5GuN9gI2CqxJDTcMk8poYljZZ3bb/Zu7D0/3ag
+	 /pTm+Bjx+Ov6QL6FKJoAnS5js4bS0I6KFU0FDteep0jebYn37TqWEDh4cSgTtUNZzU
+	 gw6J2q9hmxroc8zW7/FqX+dbhrtyC+SrL5iMRnV04pL7RFITdcMad6w6SZVkIW5T7z
+	 nKQ1hRdDAOJDNJN63jZxEkr/H9/UUn2yj9DZrHJ0f3oFDpi+SRDUDFh80VfS3EJ99f
+	 Okkls3gOlQfyA==
 From: guoren@kernel.org
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -65,18 +65,17 @@ Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org,
 	virtualization@lists.linux-foundation.org,
-	Guo Ren <guoren@linux.alibaba.com>,
-	Arnd Bergmann <arnd@arndb.de>
-Subject: [PATCH V12 02/14] asm-generic: ticket-lock: Add separate ticket-lock.h
-Date: Mon, 25 Dec 2023 07:58:35 -0500
-Message-Id: <20231225125847.2778638-3-guoren@kernel.org>
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH V12 04/14] riscv: qspinlock: errata: Add ERRATA_THEAD_WRITE_ONCE fixup
+Date: Mon, 25 Dec 2023 07:58:37 -0500
+Message-Id: <20231225125847.2778638-5-guoren@kernel.org>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20231225125847.2778638-1-guoren@kernel.org>
 References: <20231225125847.2778638-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231225_045919_795530_FADA1705 
-X-CRM114-Status: GOOD (  19.08  )
+X-CRM114-CacheID: sfid-20231225_045927_613759_1507CABB 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,229 +94,167 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Add a separate ticket-lock.h to include multiple spinlock versions and
-select one at compile time or runtime.
+The early version of T-Head C9xx cores has a store merge buffer
+delay problem. The store merge buffer could improve the store queue
+performance by merging multi-store requests, but when there are not
+continued store requests, the prior single store request would be
+waiting in the store queue for a long time. That would cause
+significant problems for communication between multi-cores. This
+problem was found on sg2042 & th1520 platforms with the qspinlock
+lock torture test.
+
+So appending a fence w.o could immediately flush the store merge
+buffer and let other cores see the write result.
+
+This will apply the WRITE_ONCE errata to handle the non-standard
+behavior via appending a fence w.o instruction for WRITE_ONCE().
 
 Reviewed-by: Leonardo Bras <leobras@redhat.com>
-Suggested-by: Arnd Bergmann <arnd@arndb.de>
-Link: https://lore.kernel.org/linux-riscv/CAK8P3a2rnz9mQqhN6-e0CGUUv9rntRELFdxt_weiD7FxH7fkfQ@mail.gmail.com/
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
 ---
- include/asm-generic/spinlock.h        |  87 +---------------------
- include/asm-generic/ticket_spinlock.h | 103 ++++++++++++++++++++++++++
- 2 files changed, 104 insertions(+), 86 deletions(-)
- create mode 100644 include/asm-generic/ticket_spinlock.h
+ arch/riscv/Kconfig.errata              | 19 ++++++++++++++++
+ arch/riscv/errata/thead/errata.c       | 20 +++++++++++++++++
+ arch/riscv/include/asm/rwonce.h        | 31 ++++++++++++++++++++++++++
+ arch/riscv/include/asm/vendorid_list.h |  3 ++-
+ include/asm-generic/rwonce.h           |  2 ++
+ 5 files changed, 74 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/include/asm/rwonce.h
 
-diff --git a/include/asm-generic/spinlock.h b/include/asm-generic/spinlock.h
-index 4773334ee638..970590baf61b 100644
---- a/include/asm-generic/spinlock.h
-+++ b/include/asm-generic/spinlock.h
-@@ -1,94 +1,9 @@
- /* SPDX-License-Identifier: GPL-2.0 */
+diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+index e2c731cfed8c..2824ff165741 100644
+--- a/arch/riscv/Kconfig.errata
++++ b/arch/riscv/Kconfig.errata
+@@ -99,4 +99,23 @@ config ERRATA_THEAD_PMU
  
--/*
-- * 'Generic' ticket-lock implementation.
-- *
-- * It relies on atomic_fetch_add() having well defined forward progress
-- * guarantees under contention. If your architecture cannot provide this, stick
-- * to a test-and-set lock.
-- *
-- * It also relies on atomic_fetch_add() being safe vs smp_store_release() on a
-- * sub-word of the value. This is generally true for anything LL/SC although
-- * you'd be hard pressed to find anything useful in architecture specifications
-- * about this. If your architecture cannot do this you might be better off with
-- * a test-and-set.
-- *
-- * It further assumes atomic_*_release() + atomic_*_acquire() is RCpc and hence
-- * uses atomic_fetch_add() which is RCsc to create an RCsc hot path, along with
-- * a full fence after the spin to upgrade the otherwise-RCpc
-- * atomic_cond_read_acquire().
-- *
-- * The implementation uses smp_cond_load_acquire() to spin, so if the
-- * architecture has WFE like instructions to sleep instead of poll for word
-- * modifications be sure to implement that (see ARM64 for example).
-- *
-- */
--
- #ifndef __ASM_GENERIC_SPINLOCK_H
- #define __ASM_GENERIC_SPINLOCK_H
+ 	  If you don't know what to do here, say "Y".
  
--#include <linux/atomic.h>
--#include <asm-generic/spinlock_types.h>
--
--static __always_inline void arch_spin_lock(arch_spinlock_t *lock)
--{
--	u32 val = atomic_fetch_add(1<<16, &lock->val);
--	u16 ticket = val >> 16;
--
--	if (ticket == (u16)val)
--		return;
--
--	/*
--	 * atomic_cond_read_acquire() is RCpc, but rather than defining a
--	 * custom cond_read_rcsc() here we just emit a full fence.  We only
--	 * need the prior reads before subsequent writes ordering from
--	 * smb_mb(), but as atomic_cond_read_acquire() just emits reads and we
--	 * have no outstanding writes due to the atomic_fetch_add() the extra
--	 * orderings are free.
--	 */
--	atomic_cond_read_acquire(&lock->val, ticket == (u16)VAL);
--	smp_mb();
--}
--
--static __always_inline bool arch_spin_trylock(arch_spinlock_t *lock)
--{
--	u32 old = atomic_read(&lock->val);
--
--	if ((old >> 16) != (old & 0xffff))
--		return false;
--
--	return atomic_try_cmpxchg(&lock->val, &old, old + (1<<16)); /* SC, for RCsc */
--}
--
--static __always_inline void arch_spin_unlock(arch_spinlock_t *lock)
--{
--	u16 *ptr = (u16 *)lock + IS_ENABLED(CONFIG_CPU_BIG_ENDIAN);
--	u32 val = atomic_read(&lock->val);
--
--	smp_store_release(ptr, (u16)val + 1);
--}
--
--static __always_inline int arch_spin_value_unlocked(arch_spinlock_t lock)
--{
--	u32 val = lock.val.counter;
--
--	return ((val >> 16) == (val & 0xffff));
--}
--
--static __always_inline int arch_spin_is_locked(arch_spinlock_t *lock)
--{
--	arch_spinlock_t val = READ_ONCE(*lock);
--
--	return !arch_spin_value_unlocked(val);
--}
--
--static __always_inline int arch_spin_is_contended(arch_spinlock_t *lock)
--{
--	u32 val = atomic_read(&lock->val);
--
--	return (s16)((val >> 16) - (val & 0xffff)) > 1;
--}
--
-+#include <asm-generic/ticket_spinlock.h>
- #include <asm/qrwlock.h>
++config ERRATA_THEAD_WRITE_ONCE
++	bool "Apply T-Head WRITE_ONCE errata"
++	depends on ERRATA_THEAD
++	default y
++	help
++	  The early version of T-Head C9xx cores of sg2042 has a store merge
++	  buffer delay problem. The store merge buffer could improve the store
++	  queue performance by merging multi-store requests, but when there are
++	  no continued store requests, the prior single store request would be
++	  waiting in the store queue for a long time. That would cause signifi-
++	  cant problems for communication between multi-cores. Appending a
++	  fence w.o could immediately flush the store merge buffer and let other
++	  cores see the write result.
++
++	  This will apply the WRITE_ONCE errata to handle the non-standard beh-
++	  avior via appending a fence w.o instruction for WRITE_ONCE().
++
++	  If you don't know what to do here, say "Y".
++
+ endmenu # "CPU errata selection"
+diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+index 0554ed4bf087..f6c1da819670 100644
+--- a/arch/riscv/errata/thead/errata.c
++++ b/arch/riscv/errata/thead/errata.c
+@@ -69,6 +69,23 @@ static bool errata_probe_pmu(unsigned int stage,
+ 	return true;
+ }
  
- #endif /* __ASM_GENERIC_SPINLOCK_H */
-diff --git a/include/asm-generic/ticket_spinlock.h b/include/asm-generic/ticket_spinlock.h
-new file mode 100644
-index 000000000000..cfcff22b37b3
---- /dev/null
-+++ b/include/asm-generic/ticket_spinlock.h
-@@ -0,0 +1,103 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+/*
-+ * 'Generic' ticket-lock implementation.
-+ *
-+ * It relies on atomic_fetch_add() having well defined forward progress
-+ * guarantees under contention. If your architecture cannot provide this, stick
-+ * to a test-and-set lock.
-+ *
-+ * It also relies on atomic_fetch_add() being safe vs smp_store_release() on a
-+ * sub-word of the value. This is generally true for anything LL/SC although
-+ * you'd be hard pressed to find anything useful in architecture specifications
-+ * about this. If your architecture cannot do this you might be better off with
-+ * a test-and-set.
-+ *
-+ * It further assumes atomic_*_release() + atomic_*_acquire() is RCpc and hence
-+ * uses atomic_fetch_add() which is RCsc to create an RCsc hot path, along with
-+ * a full fence after the spin to upgrade the otherwise-RCpc
-+ * atomic_cond_read_acquire().
-+ *
-+ * The implementation uses smp_cond_load_acquire() to spin, so if the
-+ * architecture has WFE like instructions to sleep instead of poll for word
-+ * modifications be sure to implement that (see ARM64 for example).
-+ *
-+ */
-+
-+#ifndef __ASM_GENERIC_TICKET_SPINLOCK_H
-+#define __ASM_GENERIC_TICKET_SPINLOCK_H
-+
-+#include <linux/atomic.h>
-+#include <asm-generic/spinlock_types.h>
-+
-+static __always_inline void ticket_spin_lock(arch_spinlock_t *lock)
++static bool errata_probe_write_once(unsigned int stage,
++				    unsigned long arch_id, unsigned long impid)
 +{
-+	u32 val = atomic_fetch_add(1<<16, &lock->val);
-+	u16 ticket = val >> 16;
-+
-+	if (ticket == (u16)val)
-+		return;
-+
-+	/*
-+	 * atomic_cond_read_acquire() is RCpc, but rather than defining a
-+	 * custom cond_read_rcsc() here we just emit a full fence.  We only
-+	 * need the prior reads before subsequent writes ordering from
-+	 * smb_mb(), but as atomic_cond_read_acquire() just emits reads and we
-+	 * have no outstanding writes due to the atomic_fetch_add() the extra
-+	 * orderings are free.
-+	 */
-+	atomic_cond_read_acquire(&lock->val, ticket == (u16)VAL);
-+	smp_mb();
-+}
-+
-+static __always_inline bool ticket_spin_trylock(arch_spinlock_t *lock)
-+{
-+	u32 old = atomic_read(&lock->val);
-+
-+	if ((old >> 16) != (old & 0xffff))
++	if (!IS_ENABLED(CONFIG_ERRATA_THEAD_WRITE_ONCE))
 +		return false;
 +
-+	return atomic_try_cmpxchg(&lock->val, &old, old + (1<<16)); /* SC, for RCsc */
++	/* target-c9xx cores report arch_id and impid as 0 */
++	if (arch_id != 0 || impid != 0)
++		return false;
++
++	if (stage == RISCV_ALTERNATIVES_BOOT ||
++	    stage == RISCV_ALTERNATIVES_MODULE)
++		return true;
++
++	return false;
 +}
 +
-+static __always_inline void ticket_spin_unlock(arch_spinlock_t *lock)
-+{
-+	u16 *ptr = (u16 *)lock + IS_ENABLED(CONFIG_CPU_BIG_ENDIAN);
-+	u32 val = atomic_read(&lock->val);
+ static u32 thead_errata_probe(unsigned int stage,
+ 			      unsigned long archid, unsigned long impid)
+ {
+@@ -83,6 +100,9 @@ static u32 thead_errata_probe(unsigned int stage,
+ 	if (errata_probe_pmu(stage, archid, impid))
+ 		cpu_req_errata |= BIT(ERRATA_THEAD_PMU);
+ 
++	if (errata_probe_write_once(stage, archid, impid))
++		cpu_req_errata |= BIT(ERRATA_THEAD_WRITE_ONCE);
 +
-+	smp_store_release(ptr, (u16)val + 1);
-+}
+ 	return cpu_req_errata;
+ }
+ 
+diff --git a/arch/riscv/include/asm/rwonce.h b/arch/riscv/include/asm/rwonce.h
+new file mode 100644
+index 000000000000..4c407c482ed0
+--- /dev/null
++++ b/arch/riscv/include/asm/rwonce.h
+@@ -0,0 +1,31 @@
++/* SPDX-License-Identifier: GPL-2.0 */
 +
-+static __always_inline int ticket_spin_value_unlocked(arch_spinlock_t lock)
-+{
-+	u32 val = lock.val.counter;
++#ifndef __ASM_RWONCE_H
++#define __ASM_RWONCE_H
 +
-+	return ((val >> 16) == (val & 0xffff));
-+}
++#include <linux/compiler_types.h>
++#include <asm/alternative-macros.h>
++#include <asm/vendorid_list.h>
 +
-+static __always_inline int ticket_spin_is_locked(arch_spinlock_t *lock)
-+{
-+	arch_spinlock_t val = READ_ONCE(*lock);
++#if defined(CONFIG_ERRATA_THEAD_WRITE_ONCE) && !defined(NO_ALTERNATIVE)
++#define write_once_flush()				\
++do {							\
++	asm volatile(ALTERNATIVE(			\
++		__nops(1),				\
++		"fence w, o\n\t",			\
++		THEAD_VENDOR_ID,			\
++		ERRATA_THEAD_WRITE_ONCE,		\
++		CONFIG_ERRATA_THEAD_WRITE_ONCE)		\
++		: : : "memory");			\
++} while (0)
 +
-+	return !ticket_spin_value_unlocked(val);
-+}
++#define __WRITE_ONCE(x, val)				\
++do {							\
++	*(volatile typeof(x) *)&(x) = (val);		\
++	write_once_flush();				\
++} while (0)
++#endif
 +
-+static __always_inline int ticket_spin_is_contended(arch_spinlock_t *lock)
-+{
-+	u32 val = atomic_read(&lock->val);
++#include <asm-generic/rwonce.h>
 +
-+	return (s16)((val >> 16) - (val & 0xffff)) > 1;
-+}
-+
-+/*
-+ * Remapping spinlock architecture specific functions to the corresponding
-+ * ticket spinlock functions.
-+ */
-+#define arch_spin_is_locked(l)		ticket_spin_is_locked(l)
-+#define arch_spin_is_contended(l)	ticket_spin_is_contended(l)
-+#define arch_spin_value_unlocked(l)	ticket_spin_value_unlocked(l)
-+#define arch_spin_lock(l)		ticket_spin_lock(l)
-+#define arch_spin_trylock(l)		ticket_spin_trylock(l)
-+#define arch_spin_unlock(l)		ticket_spin_unlock(l)
-+
-+#endif /* __ASM_GENERIC_TICKET_SPINLOCK_H */
++#endif	/* __ASM_RWONCE_H */
+diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
+index c503373193d2..5df1862bf0c9 100644
+--- a/arch/riscv/include/asm/vendorid_list.h
++++ b/arch/riscv/include/asm/vendorid_list.h
+@@ -24,7 +24,8 @@
+ #define	ERRATA_THEAD_PBMT 0
+ #define	ERRATA_THEAD_CMO 1
+ #define	ERRATA_THEAD_PMU 2
+-#define	ERRATA_THEAD_NUMBER 3
++#define	ERRATA_THEAD_WRITE_ONCE 3
++#define	ERRATA_THEAD_NUMBER 4
+ #endif
+ 
+ #endif
+diff --git a/include/asm-generic/rwonce.h b/include/asm-generic/rwonce.h
+index 8d0a6280e982..fb07fe8c6e45 100644
+--- a/include/asm-generic/rwonce.h
++++ b/include/asm-generic/rwonce.h
+@@ -50,10 +50,12 @@
+ 	__READ_ONCE(x);							\
+ })
+ 
++#ifndef __WRITE_ONCE
+ #define __WRITE_ONCE(x, val)						\
+ do {									\
+ 	*(volatile typeof(x) *)&(x) = (val);				\
+ } while (0)
++#endif
+ 
+ #define WRITE_ONCE(x, val)						\
+ do {									\
 -- 
 2.40.1
 
