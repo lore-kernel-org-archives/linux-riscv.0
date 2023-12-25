@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0157C47073
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Dec 2023 12:59:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AED1C3DA6E
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Dec 2023 12:59:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6yb8TueB9y7HBFy+Frzi62xzlOZYrqx7ptoeuGG8Yl4=; b=snV2sNutNK+CBU
-	x+nzIp+odIVry8eCsQrluLhrEHBDiEUu7z5FToHJXoHwC6FYSahH2K8EN+2LRhf4kaxIGYIFVtJPn
-	KKvk47c+snnnZ1wW9trQKl9CLRz9Ng4k2tWDyuwoZox4VmrJxkAe7n7BgWekWL5nArFvlhyCuSUpB
-	Nox3rh2v4da1SV/uj5bcibM7syYDhH0N9oKQG1bWni0v1ul16AP8eFaZchZ2OQX0C3iNhNB6TDnNI
-	t+O8arqmEFyRDpKD/MQMZPGmJwSJhB4J8xskTGIObRga9kLzcLi/gVGLvN4uTsb1tJngUOlyDrwIV
-	3V5gWP5PTYHeg7bj2nSQ==;
+	List-Owner; bh=8xdrQi15lcKiji53KgQx5Nz1AfVOmLO1Q53JbHFih58=; b=Ar8tk4v/IX3KwC
+	6XSqcFIWyu9ADJ5uDhlUpbCB2IwnoFa3cMF1cTVNiOSS12KAzLCOHVnAtT4FtNfa2j40rE9gR8hNh
+	Xy6HWBD4AU1HCp+cWQ0cRRuXC7ZH7iT/Tx4YxEDWPnxfectuPxgzbGKsv+okWY9ETwYPpIUpXNxv8
+	AJ4suApp4E7oR9zgPJi7uXKU4Cbr80nIAm4RAbJ3Nv5/njPk6AaVy/G0A5og4Snvulsug/RAh4HHN
+	oIce0rnc0zDOWiSw1MPutQOWdwIBDLnYnVJ1zBogwEbe07LfXvGYSmkRYDtHCjcEsVYXIW/lbaDGd
+	AqW/q7NZ0BNeB42OGjlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rHkYS-00AsKV-31;
-	Mon, 25 Dec 2023 12:59:36 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rHkYa-00AsQk-2u;
+	Mon, 25 Dec 2023 12:59:44 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rHkYO-00AsGM-1B
+	id 1rHkYW-00AsLN-0m
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Dec 2023 12:59:36 +0000
+	Mon, 25 Dec 2023 12:59:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 4884DCE0E89;
-	Mon, 25 Dec 2023 12:59:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31591C433C9;
-	Mon, 25 Dec 2023 12:59:23 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 28864B80B2D;
+	Mon, 25 Dec 2023 12:59:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E322C433CB;
+	Mon, 25 Dec 2023 12:59:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1703509167;
-	bh=2Z46GseDSsRZCObseUIhG4G69BCIrlr3TmvRTzx91EA=;
+	s=k20201202; t=1703509176;
+	bh=sRu5uQXMfjV9M3QrgbIZOQlunfYwUSCeF2FiTCkkdbE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PtSRiw0xhPNgePaU6M9/aRO2qC3/tTEsRpIYTtfsj9+9cUCmssVbJC+nX75445/fw
-	 lJOQOAfdIwVeuGTvXTRF+vPglUe/Pht9J1aD7f5ImxKXjlahtHb788f8GKn/2K9O9K
-	 3qqkCCiDm4PdrsaJOh8/FFkF/aowRHuPIatrL0BAGTjrInw7pfbb99qhQIZmV570Ys
-	 BaOMEEXLocb6zvgjgkBaEr3LEVP7md/VdWyJ1wK2wPJb1Sjlf55pUNRqu43iYoXblB
-	 SmNM5T4qGCDcX6y7E4XtcsUiL4lXMYrdW7wbIEdvjLOTOVlpI2D9IcnrOLwowECkCa
-	 Qn7ROvmW1Dhgg==
+	b=Ue3ttxAWslvIv7pLn6Mj8VWk34TUrl1II9v92xSYq/Mq3ZIVPTgBXEpUSUTBs00Yq
+	 E3dV4B0pzx4ghEDnyjcBtYc3Gt6N2h9jerwQpzy48CpdBb3cHSnSBbStoNPi9tQAn5
+	 T++fMtbSaMx657Qk/RpkKcIp064OIjf0Mtl7TUnWTIw2grnFYuboL7HA6+lphW6lJf
+	 bcYqrYuseAbjf8/97AYR7CF6wNZxjWrs2sHF5s91qCE6nqKF6UkcLkyQqdqdg8+baN
+	 8wGY7QejjSXJuJ8p9sdJwx5zhVYQr61DXPuYk2kej4LYtKXWVFABC8oP4yHCtLfbnr
+	 +soXt2VJObP3A==
 From: guoren@kernel.org
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -66,16 +66,16 @@ Cc: linux-riscv@lists.infradead.org,
 	kvm@vger.kernel.org,
 	virtualization@lists.linux-foundation.org,
 	Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH V12 05/14] riscv: qspinlock: Add basic queued_spinlock support
-Date: Mon, 25 Dec 2023 07:58:38 -0500
-Message-Id: <20231225125847.2778638-6-guoren@kernel.org>
+Subject: [PATCH V12 07/14] riscv: qspinlock: Add virt_spin_lock() support for VM guest
+Date: Mon, 25 Dec 2023 07:58:40 -0500
+Message-Id: <20231225125847.2778638-8-guoren@kernel.org>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20231225125847.2778638-1-guoren@kernel.org>
 References: <20231225125847.2778638-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231225_045932_875753_408AA4C0 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20231225_045940_582023_A9DE82D6 
+X-CRM114-Status: GOOD (  14.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,153 +94,122 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-The requirements of qspinlock have been documented by commit:
-a8ad07e5240c ("asm-generic: qspinlock: Indicate the use of mixed-size
-atomics").
+Add a static key controlling whether virt_spin_lock() should be
+called or not. When running on bare metal set the new key to
+false.
 
-Although RISC-V ISA gives out a weaker forward guarantee LR/SC, which
-doesn't satisfy the requirements of qspinlock above, it won't prevent
-some riscv vendors from implementing a strong fwd guarantee LR/SC in
-microarchitecture to match xchg_tail requirement. T-HEAD C9xx processor
-is the one.
+The VM guests should fall back to a Test-and-Set spinlock,
+because fair locks have horrible lock 'holder' preemption issues.
+The virt_spin_lock_key would shortcut for the queued_spin_lock_-
+slowpath() function that allow virt_spin_lock to hijack it.
 
-We've tested the patch on SOPHGO sg2042 & th1520 and passed the stress
-test on Fedora & Ubuntu & OpenEuler ... Here is the performance
-comparison between qspinlock and ticket_lock on sg2042 (64 cores):
-
-sysbench test=threads threads=32 yields=100 lock=8 (+13.8%):
-  queued_spinlock 0.5109/0.00
-  ticket_spinlock 0.5814/0.00
-
-perf futex/hash (+6.7%):
-  queued_spinlock 1444393 operations/sec (+- 0.09%)
-  ticket_spinlock 1353215 operations/sec (+- 0.15%)
-
-perf futex/wake-parallel (+8.6%):
-  queued_spinlock (waking 1/64 threads) in 0.0253 ms (+-2.90%)
-  ticket_spinlock (waking 1/64 threads) in 0.0275 ms (+-3.12%)
-
-perf futex/requeue (+4.2%):
-  queued_spinlock Requeued 64 of 64 threads in 0.0785 ms (+-0.55%)
-  ticket_spinlock Requeued 64 of 64 threads in 0.0818 ms (+-4.12%)
-
-System Benchmarks (+6.4%)
-  queued_spinlock:
-    System Benchmarks Index Values               BASELINE       RESULT    INDEX
-    Dhrystone 2 using register variables         116700.0  628613745.4  53865.8
-    Double-Precision Whetstone                       55.0     182422.8  33167.8
-    Execl Throughput                                 43.0      13116.6   3050.4
-    File Copy 1024 bufsize 2000 maxblocks          3960.0    7762306.2  19601.8
-    File Copy 256 bufsize 500 maxblocks            1655.0    3417556.8  20649.9
-    File Copy 4096 bufsize 8000 maxblocks          5800.0    7427995.7  12806.9
-    Pipe Throughput                               12440.0   23058600.5  18535.9
-    Pipe-based Context Switching                   4000.0    2835617.7   7089.0
-    Process Creation                                126.0      12537.3    995.0
-    Shell Scripts (1 concurrent)                     42.4      57057.4  13456.9
-    Shell Scripts (8 concurrent)                      6.0       7367.1  12278.5
-    System Call Overhead                          15000.0   33308301.3  22205.5
-                                                                       ========
-    System Benchmarks Index Score                                       12426.1
-
-  ticket_spinlock:
-    System Benchmarks Index Values               BASELINE       RESULT    INDEX
-    Dhrystone 2 using register variables         116700.0  626541701.9  53688.2
-    Double-Precision Whetstone                       55.0     181921.0  33076.5
-    Execl Throughput                                 43.0      12625.1   2936.1
-    File Copy 1024 bufsize 2000 maxblocks          3960.0    6553792.9  16550.0
-    File Copy 256 bufsize 500 maxblocks            1655.0    3189231.6  19270.3
-    File Copy 4096 bufsize 8000 maxblocks          5800.0    7221277.0  12450.5
-    Pipe Throughput                               12440.0   20594018.7  16554.7
-    Pipe-based Context Switching                   4000.0    2571117.7   6427.8
-    Process Creation                                126.0      10798.4    857.0
-    Shell Scripts (1 concurrent)                     42.4      57227.5  13497.1
-    Shell Scripts (8 concurrent)                      6.0       7329.2  12215.3
-    System Call Overhead                          15000.0   30766778.4  20511.2
-                                                                       ========
-    System Benchmarks Index Score                                       11670.7
-
-The qspinlock has a significant improvement on SOPHGO SG2042 64
-cores platform than the ticket_lock.
-
-Reviewed-by: Leonardo Bras <leobras@redhat.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
 ---
- arch/riscv/Kconfig                | 16 ++++++++++++++++
- arch/riscv/include/asm/Kbuild     |  4 +++-
- arch/riscv/include/asm/spinlock.h | 18 ++++++++++++++++++
- 3 files changed, 37 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/include/asm/spinlock.h
+ .../admin-guide/kernel-parameters.txt         |  4 +++
+ arch/riscv/include/asm/spinlock.h             | 22 ++++++++++++++++
+ arch/riscv/kernel/setup.c                     | 26 +++++++++++++++++++
+ 3 files changed, 52 insertions(+)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 24c1799e2ec4..f345df0763b2 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -432,6 +432,22 @@ config NODES_SHIFT
- 	  Specify the maximum number of NUMA Nodes available on the target
- 	  system.  Increases memory reserved to accommodate various tables.
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index 2ac9f1511774..b7794c96d91e 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -3997,6 +3997,10 @@
+ 	no_uaccess_flush
+ 	                [PPC] Don't flush the L1-D cache after accessing user data.
  
-+choice
-+	prompt "RISC-V spinlock type"
-+	default RISCV_TICKET_SPINLOCKS
++	no_virt_spin	[RISC-V] Disable virt_spin_lock in VM guest to use
++			native_queued_spinlock when the nopvspin option is enabled.
++			This would help vcpu=pcpu scenarios.
 +
-+config RISCV_TICKET_SPINLOCKS
-+	bool "Using ticket spinlock"
-+
-+config RISCV_QUEUED_SPINLOCKS
-+	bool "Using queued spinlock"
-+	depends on SMP && MMU
-+	select ARCH_USE_QUEUED_SPINLOCKS
-+	help
-+	  Make sure your micro arch give cmpxchg/xchg forward progress
-+	  guarantee. Otherwise, stay at ticket-lock.
-+endchoice
-+
- config RISCV_ALTERNATIVE
- 	bool
- 	depends on !XIP_KERNEL
-diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
-index 504f8b7e72d4..ad72f2bd4cc9 100644
---- a/arch/riscv/include/asm/Kbuild
-+++ b/arch/riscv/include/asm/Kbuild
-@@ -2,10 +2,12 @@
- generic-y += early_ioremap.h
- generic-y += flat.h
- generic-y += kvm_para.h
-+generic-y += mcs_spinlock.h
- generic-y += parport.h
--generic-y += spinlock.h
- generic-y += spinlock_types.h
-+generic-y += ticket_spinlock.h
- generic-y += qrwlock.h
- generic-y += qrwlock_types.h
-+generic-y += qspinlock.h
- generic-y += user.h
- generic-y += vmlinux.lds.h
+ 	novmcoredd	[KNL,KDUMP]
+ 			Disable device dump. Device dump allows drivers to
+ 			append dump data to vmcore so you can collect driver
 diff --git a/arch/riscv/include/asm/spinlock.h b/arch/riscv/include/asm/spinlock.h
-new file mode 100644
-index 000000000000..98a3da4b1056
---- /dev/null
+index d07643c07aae..7bbcf3d9fff0 100644
+--- a/arch/riscv/include/asm/spinlock.h
 +++ b/arch/riscv/include/asm/spinlock.h
-@@ -0,0 +1,18 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
+@@ -4,6 +4,28 @@
+ #define __ASM_RISCV_SPINLOCK_H
+ 
+ #ifdef CONFIG_QUEUED_SPINLOCKS
++/*
++ * The KVM guests fall back to a Test-and-Set spinlock, because fair locks
++ * have horrible lock 'holder' preemption issues. The virt_spin_lock_key
++ * would shortcut for the queued_spin_lock_slowpath() function that allow
++ * virt_spin_lock to hijack it.
++ */
++DECLARE_STATIC_KEY_TRUE(virt_spin_lock_key);
 +
-+#ifndef __ASM_RISCV_SPINLOCK_H
-+#define __ASM_RISCV_SPINLOCK_H
++#define virt_spin_lock virt_spin_lock
++static inline bool virt_spin_lock(struct qspinlock *lock)
++{
++	if (!static_branch_likely(&virt_spin_lock_key))
++		return false;
 +
++	do {
++		while (atomic_read(&lock->val) != 0)
++			cpu_relax();
++	} while (atomic_cmpxchg(&lock->val, 0, _Q_LOCKED_VAL) != 0);
++
++	return true;
++}
++
+ #define _Q_PENDING_LOOPS	(1 << 9)
+ #endif
+ 
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index d9072a59831c..0bafb9fd6ea3 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -27,6 +27,7 @@
+ #include <asm/cacheflush.h>
+ #include <asm/cpufeature.h>
+ #include <asm/cpu_ops.h>
++#include <asm/cpufeature.h>
+ #include <asm/early_ioremap.h>
+ #include <asm/pgtable.h>
+ #include <asm/setup.h>
+@@ -266,6 +267,27 @@ early_param("qspinlock", queued_spinlock_setup);
+ DEFINE_STATIC_KEY_TRUE(combo_qspinlock_key);
+ EXPORT_SYMBOL(combo_qspinlock_key);
+ 
 +#ifdef CONFIG_QUEUED_SPINLOCKS
-+#define _Q_PENDING_LOOPS	(1 << 9)
++static bool no_virt_spin __ro_after_init;
++static int __init no_virt_spin_setup(char *p)
++{
++	no_virt_spin = true;
++
++	return 0;
++}
++early_param("no_virt_spin", no_virt_spin_setup);
++
++DEFINE_STATIC_KEY_TRUE(virt_spin_lock_key);
++
++static void __init virt_spin_lock_init(void)
++{
++	if (no_virt_spin)
++		static_branch_disable(&virt_spin_lock_key);
++	else
++		pr_info("Enable virt_spin_lock\n");
++}
 +#endif
 +
+ static void __init riscv_spinlock_init(void)
+ {
+ 	if (!enable_qspinlock) {
+@@ -274,6 +296,10 @@ static void __init riscv_spinlock_init(void)
+ 	} else {
+ 		pr_info("Queued spinlock: enabled\n");
+ 	}
++
 +#ifdef CONFIG_QUEUED_SPINLOCKS
-+#include <asm/qspinlock.h>
-+#else
-+#include <asm/ticket_spinlock.h>
++	virt_spin_lock_init();
 +#endif
-+
-+#include <asm/qrwlock.h>
-+
-+#endif /* __ASM_RISCV_SPINLOCK_H */
+ }
+ #endif
+ 
 -- 
 2.40.1
 
