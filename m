@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5534CC3DA6E
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Dec 2023 04:55:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC947C3DA6E
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Dec 2023 06:30:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=e2sd9muOX3HtBeH+jDmJkdNdfEFp+dsgFArJ4LZD//A=; b=TJYEluYIXmG3e7
-	HWqO8e6zffU3lAOU+AAhAuEZ4HV12fjwoKh1/MkOLWspBm3oWqiT82Z257iCdEewLXq/Bw86zV+Us
-	wTd/5EaMf48PUN6BzG3bq+S6FbXhZxYdfmxUvazCxErjKA4Rra3LEK1ktCVsl9faffuHfiauyQL6x
-	Vh6pVGEFyUHqzh8mpx75C5JNjJuVeiUrTvGt0uWGAEXhcaS/CpKNzwNse9wr68xGrJBV+RqXypPuK
-	cgriRZJphVcfJ+Mk499Cv6y+tyoqbsjLYl5XI4lEANzSHB1loD5f3r8XR9on3f80CzokL6SHum7D1
-	nj/5/CArpYSguvGGyHrg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=609ZoPEqb0HQ+zf0FnVbprLqgpvo9icNZSpNsEG1Qlk=; b=isnxnN3nsXzRMm
+	p5MyOC2qrEgs1p1ROXm6+poSoCpIJ7pmk5UW3xa/6/ybQsnh/+wDzY+W7/BIFbmGM+bD0REXTqORw
+	Q1H4cXgNV1lOhsHapy3UiP7DQ2T9LO1Q6UwOTK0f+2dvaElqtkGYVCZ55PraS8hge7dzmhnMyLMs7
+	rMjDdCdxFyLGjkIVGUCrC/lP1Sajvo7plxLTJj3hlgVbYhUJ5W3+RyR8KROFQ8lfNd5wrcCXv96KB
+	GleXuCjoCaqbZXbqb5l9C+x9oIQTZHvEGX6hUN0dWCUMsFL6/dw9B35f4C4sIwXUsS8mi+38lkIN3
+	TT0KyS1zemc62UtsJXMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rHczW-00ADAy-3B;
-	Mon, 25 Dec 2023 04:55:02 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rHeTo-00AGmX-1v;
+	Mon, 25 Dec 2023 06:30:24 +0000
+Received: from out-170.mta1.migadu.com ([2001:41d0:203:375::aa])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rHczT-00AD94-2A
+	id 1rHeTm-00AGhx-0M
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Dec 2023 04:55:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3F28660C26;
-	Mon, 25 Dec 2023 04:54:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74E6BC433C7;
-	Mon, 25 Dec 2023 04:54:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1703480091;
-	bh=UArUSyBZsPKxLkpUFilgpFD8aka1iX7bL7/0EeJ4W9s=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Qrat2D9mqhj5ram8CGulN/a4AthJQBzq+uzfRUGEqVXSIEIdizPmerD1Gb9BqkX5j
-	 yOScpSvVveHperCPxKtZsxuFilvN/6urpCPsJfjdZTndKgpLv72pa3/9tTaDrfvutM
-	 Nzu5gTXzT+kiqck1CCNcUEqWq3AV+HIyWsp+2zID73GSrcNmCUeAH0iDwet5KQiJs+
-	 +77xdqrGRHyrPTZZt8KuNkIjRBj/ahjruXT35opTqY58rphamGKD+utB3Bm/EJlNUr
-	 OfW4KpJjZWz8zfl4rLRmu+uanCkWxztq3OKLNvol0FDa+ASb4dvwpiMThiFiPWizz6
-	 SPmxwG+W4/eNA==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Eric Biggers <ebiggers@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Qingfang DENG <dqfext@gmail.com>
-Subject: [PATCH v4 0/2] riscv: enable EFFICIENT_UNALIGNED_ACCESS and DCACHE_WORD_ACCESS
-Date: Mon, 25 Dec 2023 12:42:05 +0800
-Message-Id: <20231225044207.3821-1-jszhang@kernel.org>
-X-Mailer: git-send-email 2.40.0
+	Mon, 25 Dec 2023 06:30:23 +0000
+Message-ID: <135b3189-f459-4b57-9861-bb8acb999d91@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1703485805;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mXkiPRdEVvfi9LIMu0a4pQRnrGa3opN+NyWjT9LajSI=;
+	b=h682B12QYqT/ZiBDMXBg7hxqm2zl3GqlcPYEpS6y3r1bGCN3rdgqF0yDtrO4pW4CUYWVXI
+	sTJy5rRK3CQjhtBukguGXtqnO65rzWMecb3dF6Bh7A7RdO4oHUmUtz51k8Yklj7jcfBANa
+	Xv5L0ZESaqeE7oGtj7aq7bWJxH5I2r4=
+Date: Mon, 25 Dec 2023 14:29:53 +0800
 MIME-Version: 1.0
+Subject: Re: [PATCH 03/13] mm: Provide generic pmd_thp_or_huge()
+To: peterx@redhat.com, linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Cc: Matthew Wilcox <willy@infradead.org>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Lorenzo Stoakes <lstoakes@gmail.com>, David Hildenbrand <david@redhat.com>,
+ Vlastimil Babka <vbabka@suse.cz>, Mike Kravetz <mike.kravetz@oracle.com>,
+ Mike Rapoport <rppt@kernel.org>, Christoph Hellwig <hch@infradead.org>,
+ John Hubbard <jhubbard@nvidia.com>, Andrew Jones <andrew.jones@linux.dev>,
+ linux-arm-kernel@lists.infradead.org, Michael Ellerman <mpe@ellerman.id.au>,
+ "Kirill A . Shutemov" <kirill@shutemov.name>, linuxppc-dev@lists.ozlabs.org,
+ Rik van Riel <riel@surriel.com>, linux-riscv@lists.infradead.org,
+ Yang Shi <shy828301@gmail.com>, James Houghton <jthoughton@google.com>,
+ "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Jason Gunthorpe <jgg@nvidia.com>,
+ Andrea Arcangeli <aarcange@redhat.com>,
+ Axel Rasmussen <axelrasmussen@google.com>
+References: <20231219075538.414708-1-peterx@redhat.com>
+ <20231219075538.414708-4-peterx@redhat.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <20231219075538.414708-4-peterx@redhat.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231224_205459_779767_ED8913C4 
-X-CRM114-Status: UNSURE (   9.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231224_223022_317477_E26FC965 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,87 +76,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some riscv implementations such as T-HEAD's C906, C908, C910 and C920
-support efficient unaligned access, for performance reason we want
-to enable HAVE_EFFICIENT_UNALIGNED_ACCESS on these platforms. To
-avoid performance regressions on non efficient unaligned access
-platforms, HAVE_EFFICIENT_UNALIGNED_ACCESS can't be globally selected.
-
-To solve this problem, runtime code patching based on the detected
-speed is a good solution. But that's not easy, it involves lots of
-work to modify vairous subsystems such as net, mm, lib and so on.
-This can be done step by step.
-
-So let's take an easier solution: add support to efficient unaligned
-access and hide the support under NONPORTABLE.
-
-patch1 introduces RISCV_EFFICIENT_UNALIGNED_ACCESS which depends on
-NONPORTABLE, if users know during config time that the kernel will be
-only run on those efficient unaligned access hw platforms, they can
-enable it. Obviously, generic unified kernel Image shouldn't enable it.
-
-patch2 adds support DCACHE_WORD_ACCESS when MMU and
-RISCV_EFFICIENT_UNALIGNED_ACCESS.
-
-Below test program and step shows how much performance can be improved:
-
- $ cat tt.c
- #include <sys/types.h>
- #include <sys/stat.h>
- #include <unistd.h>
-
- #define ITERATIONS 1000000
-
- #define PATH "123456781234567812345678123456781"
-
- int main(void)
- {
-         unsigned long i;
-         struct stat buf;
-
-         for (i = 0; i < ITERATIONS; i++)
-                 stat(PATH, &buf);
-
-         return 0;
- }
-
- $ gcc -O2 tt.c
- $ touch 123456781234567812345678123456781
- $ time ./a.out
-
-Per my test on T-HEAD C910 platforms, the above test performance is
-improved by about 7.5%.
-
-Since v3:
-  - adopt Eric's suggestions, such as better Kconfig help msg and so on.
-
-Since v2:
-  - Don't set "-mstrict-align" CFLAGS if HAVE_EFFICIENT_UNALIGNED_ACCESS
-  - collect Reviewed-by tag
-
-Since v1:
-  - fix typo in commit msg
-  - fix build error if NOMMU
 
 
-Jisheng Zhang (2):
-  riscv: introduce RISCV_EFFICIENT_UNALIGNED_ACCESS
-  riscv: select DCACHE_WORD_ACCESS for efficient unaligned access HW
+On 2023/12/19 15:55, peterx@redhat.com wrote:
+> From: Peter Xu <peterx@redhat.com>
+>
+> ARM defines pmd_thp_or_huge(), detecting either a THP or a huge PMD.  It
+> can be a helpful helper if we want to merge more THP and hugetlb code
+> paths.  Make it a generic default implementation, only exist when
+> CONFIG_MMU.  Arch can overwrite it by defining its own version.
+>
+> For example, ARM's pgtable-2level.h defines it to always return false.
+>
+> Keep the macro declared with all config, it should be optimized to a false
+> anyway if !THP && !HUGETLB.
+>
+> Signed-off-by: Peter Xu <peterx@redhat.com>
+> ---
+>   include/linux/pgtable.h | 4 ++++
+>   mm/gup.c                | 3 +--
+>   2 files changed, 5 insertions(+), 2 deletions(-)
+>
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index af7639c3b0a3..6f2fa1977b8a 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -1355,6 +1355,10 @@ static inline int pmd_write(pmd_t pmd)
+>   #endif /* pmd_write */
+>   #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+>   
+> +#ifndef pmd_thp_or_huge
 
- arch/riscv/Kconfig                      | 14 +++++++++++
- arch/riscv/Makefile                     |  2 ++
- arch/riscv/include/asm/asm-extable.h    | 15 ++++++++++++
- arch/riscv/include/asm/word-at-a-time.h | 27 +++++++++++++++++++++
- arch/riscv/mm/extable.c                 | 31 +++++++++++++++++++++++++
- 5 files changed, 89 insertions(+)
+I think it may be the time to rename to pmd_thp_or_hugetlb,
+the "huge" is really confusing. thp is not huge? Actually,
+it is huge. It is better to make it more specific from now on, like
+"hugetlb".
 
--- 
-2.40.0
+BTW, please cc me via the new email (muchun.song@linux.dev) next edition.
+
+Thanks.
+
+> +#define pmd_thp_or_huge(pmd)	(pmd_huge(pmd) || pmd_trans_huge(pmd))
+> +#endif
+> +
+>   #ifndef pud_write
+>   static inline int pud_write(pud_t pud)
+>   {
+> diff --git a/mm/gup.c b/mm/gup.c
+> index 0a5f0e91bfec..efc9847e58fb 100644
+> --- a/mm/gup.c
+> +++ b/mm/gup.c
+> @@ -3004,8 +3004,7 @@ static int gup_pmd_range(pud_t *pudp, pud_t pud, unsigned long addr, unsigned lo
+>   		if (!pmd_present(pmd))
+>   			return 0;
+>   
+> -		if (unlikely(pmd_trans_huge(pmd) || pmd_huge(pmd) ||
+> -			     pmd_devmap(pmd))) {
+> +		if (unlikely(pmd_thp_or_huge(pmd) || pmd_devmap(pmd))) {
+>   			/* See gup_pte_range() */
+>   			if (pmd_protnone(pmd))
+>   				return 0;
 
 
 _______________________________________________
