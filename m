@@ -4,83 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F948C3DA6E
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Dec 2023 06:47:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42CCCC3DA6E
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Dec 2023 10:22:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U7CTmOkVY9Mn1u9KkJshg1HCFx0NH2aKQlDxB9tOkBY=; b=Xko5u2KGpeeAht
-	T8m3N9bZ53/WPx4Iwg3oSsdk76UQK1Bp9B1rUt53WD125cURnXqOQE1jOxL6vNNqMPYpWVBZG/MLf
-	GVgOKJGvUWgNl3Ck9aK3qNCcA8HJ/jKkuCcsH/lJBcvTET3CzVU/IPwxaoRuBvHeCBGSyxuNMew1F
-	rFZnDJNwmnNW7KXy/H/8OwF2glO1V0rM7f+6LNMnTq5jv48uXJNs2YUx4gm0OOR0m/EiLhklM17hs
-	1Vla45upWYIg6VVkfyxR+FyDoFsDypxibu2SHpuXwwBQh9KCNd9tjs3XaCF9Ck0h99QamPyv+4yFs
-	uCIRwvm4E/p9T2pEnc/A==;
+	List-Owner; bh=eNTa303gxDpKhiCi2QQPBwNZ07vgJb4XtHpOiFw/dQU=; b=eOPJrv7LTSQgfr
+	buXxy4Q8QIPKkI2O8jqi5qUci34HG6Ml/d0xZvD0PXCGugaGyo3FVRHgn/QSrRz0PGd2nrSifq0ne
+	ErObjNCVSCuEFWRDHs4Uy0a+ey3f3aJJkhUGa9X/cWqZIZOwPkMywaN9vC9Gm5tUOCiiqBY5HihEZ
+	ouoqxTnkquZzjUss0A+U/SySDoQTCkDFqYLA3Q+bW1rpiSAubQBmFjYgqqkX1tKYGuv0WK8mS156r
+	PLc5/BU+mLXhl839/XZ1ruRnbr69RTysX/rWQEP2VZ/tCrsVSnzX+bcnwgBE5RjHOgp2tNhC09smS
+	XV57ndis73HOHS636vGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rHekV-00AHxV-08;
-	Mon, 25 Dec 2023 06:47:39 +0000
-Received: from smtp59.i.mail.ru ([95.163.41.97])
+	id 1rHi5s-00AWrS-2x;
+	Mon, 25 Dec 2023 10:21:56 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rHekR-00AHum-18
+	id 1rHi5p-00AWqY-2Y
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Dec 2023 06:47:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=inbox.ru;
-	s=mail4; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References
-	:Cc:To:Subject:MIME-Version:Date:Message-ID:From:Sender:Reply-To:To:Cc:
-	Content-Type:Content-Transfer-Encoding:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:
-	List-Archive:X-Cloud-Ids:Disposition-Notification-To;
-	bh=ZVQuOYmwEHuM5XKAZpHVSjLI7J3iBPBYdoi//aGKLWo=; t=1703486847; x=1703576847; 
-	b=HLuLimDPbSfNqC6LRKU38z60/JC64NGQVPkHGkK7nv6FA5a7hlP8PMP6FePYK7D1LI3iqdfDKm3
-	sTiiDBDbtAsmt3j2yTEwUv0RxVlovrlE8xiRqjb5D/67s/YXkjhvt3ix7MWC+CcxCIJj1BkCxELfw
-	PYi+D2ip4V8CWQ+1B9Pi5SnZ4T+YsJZIlJcazRuweQ+prqEWKb1Y2/RxabbYqRe/l9GWqOeTKcIga
-	q9U7O/kwPOwKwRuLEpCy3UMY/k4VqL+ZEU4gsWJ8xo1iebLWowcIoX668VYZ3FLfN4kbAJhDQfI/w
-	WN1knFrVGEbbLghAJ2GloI6fXTZmfRjlt/sw==;
-Received: by smtp59.i.mail.ru with esmtpa (envelope-from <fido_max@inbox.ru>)
-	id 1rHekE-009eYu-2z; Mon, 25 Dec 2023 09:47:23 +0300
-Message-ID: <15b89089-3dcd-4668-8d8b-d12ff0684c29@inbox.ru>
-Date: Mon, 25 Dec 2023 09:47:21 +0300
+	Mon, 25 Dec 2023 10:21:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id 10CC0B80AED;
+	Mon, 25 Dec 2023 10:21:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EECB5C433C8;
+	Mon, 25 Dec 2023 10:21:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1703499709;
+	bh=i1SHljfWffchKYIbBiC+XAF1L/ESbbhX8W1UTDP5DLo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=li2DkUGVp9xq9yTJP0kHPw1M24XeclXEsWzag2D3ZMeVYn5LzYk51j+oGOdBtGisL
+	 bC6BZOszdWI1I1zAD1clav5bZppi6co2RoAz0joDC7LILXVoGU98L3YMlu558g+VBR
+	 we++UoZFECEmYGoUOmQ6gua+dQBNTfrh4M5PpWO8o9cPysnhOxiX4UhvuS0nNtBlls
+	 GyxQFaG1sm1Djec1ZSZQ+g4mFqfV364A1bQfqkAKfvbU8oM2jdCpHeE8TxweyE4uzL
+	 Lzz8NvqQqfRvz1tUhdqrlOW5SKUl4W4ulrkXcWk6QgN5W6aXKS5FUS4NObbnxq72Md
+	 Kxx1dZ2Wczkng==
+Date: Mon, 25 Dec 2023 18:09:11 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Anton Blanchard <antonb@tenstorrent.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: Improve exception and system call latency
+Message-ID: <ZYlUxxeEmvewNzyL@xhacker>
+References: <20231225040018.1660554-1-antonb@tenstorrent.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] riscv: set ARCH_DMA_DEFAULT_COHERENT if
- RISCV_DMA_NONCOHERENT is not set
-To: Christoph Hellwig <hch@lst.de>, Jiaxun Yang <jiaxun.yang@flygoat.com>
-Cc: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, robh@kernel.org, mpe@ellerman.id.au,
- aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com
-References: <20231221185152.327231-1-fido_max@inbox.ru>
- <20231221-discount-decade-e306e5878c46@spud>
- <f31d929c-fa0a-4046-be05-38e92afa5d92@flygoat.com>
- <20231222041428.GA2803@lst.de>
- <c53c22dd-c482-4808-bdd7-e81c01c04f9e@inbox.ru>
- <20231222-outburst-spoiling-75082a7826dd@spud>
- <be10eb21-a0ef-416e-9c0c-d53326996fba@inbox.ru>
- <7bc138f7-d5e9-471a-ae82-d6c490645623@flygoat.com>
- <6fe34090-656d-491f-8173-217d20144166@inbox.ru>
- <a25d3736-f6ca-478d-8e58-69a7c0e529f7@flygoat.com>
- <20231223045912.GA21836@lst.de>
-Content-Language: en-US
-From: Maxim Kochetkov <fido_max@inbox.ru>
-In-Reply-To: <20231223045912.GA21836@lst.de>
-Authentication-Results: smtp59.i.mail.ru; auth=pass smtp.auth=fido_max@inbox.ru smtp.mailfrom=fido_max@inbox.ru
-X-Mailru-Src: smtp
-X-4EC0790: 10
-X-7564579A: 646B95376F6C166E
-X-77F55803: 4F1203BC0FB41BD9F008C97756F746CA9853402441EE20032119B858DB59C778182A05F538085040986FCBB8A925D5F475F0417F076C73185FB4EA8E402442D05768CE8C622266E2
-X-7FA49CB5: FF5795518A3D127A4AD6D5ED66289B5278DA827A17800CE758E3775C3D7FDEE4EA1F7E6F0F101C67BD4B6F7A4D31EC0BCC500DACC3FED6E28638F802B75D45FF8AA50765F79006371D5B197C6EC5B4BE8638F802B75D45FF36EB9D2243A4F8B5A6FCA7DBDB1FC311F39EFFDF887939037866D6147AF826D83AD0BF8CF0170FB76696B6922158C4156F9789CCF6C18C3F8528715B7D10C86878DA827A17800CE722C7672CDBCC22789FA2833FD35BB23D9E625A9149C048EE1E561CDFBCA1751F6FD1C55BDD38FC3FD2E47CDBA5A96583BD4B6F7A4D31EC0BC014FD901B82EE079FA2833FD35BB23D27C277FBC8AE2E8BECADA55FE5B58BB7A471835C12D1D977C4224003CC8364762BB6847A3DEAEFB0F43C7A68FF6260569E8FC8737B5C22494854413538E1713FE827F84554CEF50127C277FBC8AE2E8BA83251EDC214901ED5E8D9A59859A8B613439FA09F3DCB32089D37D7C0E48F6C5571747095F342E88FB05168BE4CE3AF
-X-C1DE0DAB: 0D63561A33F958A5A3C9806DACBCE033377567E5205B5A14023B1F181720444CF87CCE6106E1FC07E67D4AC08A07B9B064E7220B7C550592CB5012B2E24CD356
-X-C8649E89: 1C3962B70DF3F0ADBF74143AD284FC7177DD89D51EBB7742424CF958EAFF5D571004E42C50DC4CA955A7F0CF078B5EC49A30900B95165D349DAEDEF7DE8FDCFA67386229D68C71107CF6FECE50B47508A932DE05DA03714EE46E6BE8F284D2A41D7E09C32AA3244C150DE34F8A10177BC229AC083F2D827B8580396430872480AFF760E3CF2A505DB6C6411D86935C892AB2189BCAD71E73D640157F23F2FFE137E69C174A41D00C
-X-D57D3AED: 3ZO7eAau8CL7WIMRKs4sN3D3tLDjz0dLbV79QFUyzQ2Ujvy7cMT6pYYqY16iZVKkSc3dCLJ7zSJH7+u4VD18S7Vl4ZUrpaVfd2+vE6kuoey4m4VkSEu530nj6fImhcD4MUrOEAnl0W826KZ9Q+tr5ycPtXkTV4k65bRjmOUUP8cvGozZ33TWg5HZplvhhXbhDGzqmQDTd6OAevLeAnq3Ra9uf7zvY2zzsIhlcp/Y7m53TZgf2aB4JOg4gkr2biojY17BwQnFUO9L+9ndg73XQQ==
-X-Mailru-Sender: 689FA8AB762F7393590D8C940224AE3318CD48E73CD6507B274A3ACFCC61BC0F98CC072019C18A892CA7F8C7C9492E1F2F5E575105D0B01ADBE2EF17B331888EEAB4BC95F72C04283CDA0F3B3F5B9367
-X-Mras: Ok
+Content-Disposition: inline
+In-Reply-To: <20231225040018.1660554-1-antonb@tenstorrent.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231224_224735_726626_03024746 
-X-CRM114-Status: UNSURE (   9.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231225_022154_093942_5485EE86 
+X-CRM114-Status: GOOD (  25.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,42 +67,146 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 23.12.2023 07:59, Christoph Hellwig wrote:
-> On Fri, Dec 22, 2023 at 04:01:43PM +0000, Jiaxun Yang wrote:
->>>
->>> But arch_setup_dma_ops() is called only from of_dma_configure_id() and
->>> acpi_dma_configure_id(). So it works only for DT and ACPI devices. What
->>> about platform_device?
->>
->> Ah I see, that's the problem, in MIPS's use case all DMA capable devices
->> are following platform's default coherency. For RISC-V we assume all device
->> are enabled by ACPI or DT.
->>
->> Perhaps you can override it in driver, but that will make drivers platform
->> dependent.
->>
->> I'll leave this question to Christoph.
+On Sun, Dec 24, 2023 at 08:00:18PM -0800, Anton Blanchard wrote:
+> Many CPUs implement return address branch prediction as a stack. The
+> RISCV architecture refers to this as a return address stack (RAS). If
+> this gets corrupted then the CPU will mispredict at least one but
+> potentally many function returns.
 > 
-> I've already said it.  You must not have DMA capable devices that aren't
-> declared in ACPI or OF, just like on any modern Linux platform.
+> There are two issues with the current RISCV exception code:
+> 
+> - We are using the alternate link stack (x5/t0) for the indirect branch
+>   which makes the hardware think this is a function return. This will
+>   corrupt the RAS.
+> 
+> - We modify the return address of handle_exception to point to
+>   ret_from_exception. This will also corrupt the RAS.
+> 
+> Testing the null system call latency before and after the patch:
+> 
+> Visionfive2 (StarFive JH7110 / U74)
+> baseline: 189.87 ns
+> patched:  176.76 ns
+> 
+> Lichee pi 4a (T-Head TH1520 / C910)
+> baseline: 666.58 ns
+> patched:  636.90 ns
+> 
+> Just over 7% on the U74 and just over 4% on the C910.
 
-Ok. I've got the point. Thank you for clarification.
+Nice improvement!
 
 > 
-> What devices are you concerned about anyway Maxim?
+> Signed-off-by: Anton Blanchard <antonb@tenstorrent.com>
+> ---
+> 
+> This introduces some complexity in the stackframe walk code. PowerPC
+> resolves the multiple exception exit paths issue by placing a value into
+> the exception stack frame (basically the word "REGS") that the stack frame
+> code can look for. Perhaps something to look at.
+> 
+>  arch/riscv/kernel/entry.S      | 21 ++++++++++++++-------
+>  arch/riscv/kernel/stacktrace.c | 14 +++++++++++++-
+>  2 files changed, 27 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index 54ca4564a926..89af35edbf6c 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -84,7 +84,6 @@ SYM_CODE_START(handle_exception)
+>  	scs_load_current_if_task_changed s5
+>  
+>  	move a0, sp /* pt_regs */
+> -	la ra, ret_from_exception
+>  
+>  	/*
+>  	 * MSB of cause differentiates between
+> @@ -93,7 +92,10 @@ SYM_CODE_START(handle_exception)
+>  	bge s4, zero, 1f
+>  
+>  	/* Handle interrupts */
+> -	tail do_irq
+> +	call do_irq
+> +.globl ret_from_irq_exception
+> +ret_from_irq_exception:
+> +	j ret_from_exception
+>  1:
+>  	/* Handle other exceptions */
+>  	slli t0, s4, RISCV_LGPTR
+> @@ -101,11 +103,16 @@ SYM_CODE_START(handle_exception)
+>  	la t2, excp_vect_table_end
+>  	add t0, t1, t0
+>  	/* Check if exception code lies within bounds */
+> -	bgeu t0, t2, 1f
+> -	REG_L t0, 0(t0)
+> -	jr t0
+> -1:
+> -	tail do_trap_unknown
+> +	bgeu t0, t2, 3f
+> +	REG_L t1, 0(t0)
+> +2:	jalr ra,t1
 
-I have 3rd party external out of tree camera driver. csi, isp, dewarp 
-components are OF, but common media device is created as 
-platform_device. I will convert is to OF.
+can be simplified to
+	jalr t1
 
+with the above change,
+Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
 
+> +.globl ret_from_other_exception
+> +ret_from_other_exception:
+> +	j ret_from_exception
+> +3:
+> +
+> +	la t1, do_trap_unknown
+> +	j 2b
+>  SYM_CODE_END(handle_exception)
+>  
+>  /*
+> diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+> index 64a9c093aef9..b9cd131bbc4c 100644
+> --- a/arch/riscv/kernel/stacktrace.c
+> +++ b/arch/riscv/kernel/stacktrace.c
+> @@ -17,6 +17,18 @@
+>  #ifdef CONFIG_FRAME_POINTER
+>  
+>  extern asmlinkage void ret_from_exception(void);
+> +extern asmlinkage void ret_from_irq_exception(void);
+> +extern asmlinkage void ret_from_other_exception(void);
+> +
+> +static inline bool is_exception_frame(unsigned long pc)
+> +{
+> +	if ((pc == (unsigned long)ret_from_exception) ||
+> +	    (pc == (unsigned long)ret_from_irq_exception) ||
+> +	    (pc == (unsigned long)ret_from_other_exception))
+> +		return true;
+> +
+> +	return false;
+> +}
+>  
+>  void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+>  			     bool (*fn)(void *, unsigned long), void *arg)
+> @@ -62,7 +74,7 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+>  			fp = frame->fp;
+>  			pc = ftrace_graph_ret_addr(current, NULL, frame->ra,
+>  						   &frame->ra);
+> -			if (pc == (unsigned long)ret_from_exception) {
+> +			if (is_exception_frame(pc)) {
+>  				if (unlikely(!__kernel_text_address(pc) || !fn(arg, pc)))
+>  					break;
+>  
+> -- 
+> 2.25.1
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
