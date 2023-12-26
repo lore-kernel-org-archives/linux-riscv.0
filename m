@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A462C46CD3
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Dec 2023 13:37:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC842C46CD3
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Dec 2023 13:39:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8ReNnqxH/t0SZYRYboRqt1BP1OasFPd4R43mgMUtUDU=; b=Msastrb9wilPzM
-	8jzhul8+/h+hDafw/TBA91Hon6N5diQR1x4b1n8YAWMiEpYXBwJ8Oz6GiUX0Q1SezrvtHUOwgmHpf
-	a0z+B+txu7IIkYCR03QE9MjBUQ9pq7HAsRX3J7FUezdzsoJlutc+nhf+gbVyfYYm0XPsbcn7V5NK7
-	EfXdmBeeeFcbUyrH4DysVDeY6MfPeVim1xMHTDEANB3bo6rroPU3z9hv6No9Ob3tCgX4HLfCGQC6z
-	A5ElsRFoOTH7Kr9qM1/+BPe+p2QEEPl/KfwoLfL+DlIvJ9fyn3MQYI3opHqtSwuMxFybW/0PLteX+
-	IJumK4iaWorrF+HHXQFw==;
+	List-Owner; bh=rf2worwl3geLmiQ3ww1J138qQWtoSMXHRlUuFJ4O2CI=; b=lF/OIANsDOZhPk
+	Ry6MhrTf9jMkZlJeHf9d6Rz4iK2ygyAVn+4ess82LRunntIf9BDeCtIGBF2NwF7FshcncFFMHxFGF
+	zQbNpKwCrYTrOELow3uxlqzEf9/zIEJ2T2MXBBkkdm7Jq4cKCoR1EiC7e+LC460GIbjYkqyd7kBjl
+	q9C2Wxaw0vT3c6UlqSv7XAz+xlRPISzxtOfxpW6k9M+c5iHr0s6MXeC+2+7wEiIWmivtGyzX84q5m
+	xnVgcOz7A+AgQXMVuHvXVY8XZ2p9T0NsPKKx3xyTqcRqBXD3kqE8uCd52loVHYUkmgeEX3xZnRMGH
+	7J+E/TKcjUErVY6Zl6fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rI7cZ-00D7Mp-0R;
-	Tue, 26 Dec 2023 13:37:23 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1rI7e3-00D7cM-0o;
+	Tue, 26 Dec 2023 13:38:55 +0000
+Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rI7cW-00D7LS-1M
+	id 1rI7e1-00D7bx-0H
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Dec 2023 13:37:21 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-40d352c826eso59800775e9.0
-        for <linux-riscv@lists.infradead.org>; Tue, 26 Dec 2023 05:37:17 -0800 (PST)
+	Tue, 26 Dec 2023 13:38:54 +0000
+Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-427826013fcso41527171cf.3
+        for <linux-riscv@lists.infradead.org>; Tue, 26 Dec 2023 05:38:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1703597836; x=1704202636; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1703597931; x=1704202731; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=HziIBLJBq4AHPK6A497HSvwJS43O/3XpDECKK3QRAvg=;
-        b=NvYlKZ8fNbC76zN0cuJJbtokzeMd/QN/D8W3Ml/SlQ1CUwMrRBWtis08m9236U7aCR
-         UXfB4FJIDhyAxRpEZIC8FwPv8W4XM77iCKrc0goJhp7bfQXAEhVepMxcRkyPDAMqso6V
-         lX8BVl7buxcn8dl9903Gd0Jn7hZr16HenNiO72IM9AgEZlOdBSCH9SgdgovwuLi4Wgeu
-         fs52ui3U4Ygf1ByBkT+78CJ05DrN4227RhiftS+82EvMMImsex7NYq5GNhP424ISVTPF
-         6oLz+gD8ANY7hquV31ek43nFU8m18Lnisqun4fKmqXv9ERC3a+mUMe52caM0uhhwbzLn
-         2OXQ==
+        bh=vuMqR9Rwybi6ENHNRAU+EjQWuJolmn+LEd8yiJfS37U=;
+        b=k5OESIFwqCbZh9R30iv6O20vmF5hX4fWdJNBunBBf9qmRIjvvRG8p1726ADxnjsKr9
+         0K88Sq9TujfdzSM3A/Qf+q3dKYOwAkBjOvE9eQ5G+ezs9+DvVlyHWw9If4FA3qHeT0am
+         1TjwVnrAksSN3iTSbSP4R5agh1JwmaHCmysmu6Z1VTYoY8DA73BtHO7mBKAlKWgtAwLl
+         5WtMdIz2xvy18W0U7yN4c9JDm7cP32ni9hrA8T3NEq6LU48JedHH0UW9tsne0JFw3bxk
+         mRV2xE+PeSjCqyheO0hLg7hibbah5tpRRh/1O9j5OsnwnOm124tWf8btTU4Rfbx4RYaz
+         f/aw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1703597836; x=1704202636;
+        d=1e100.net; s=20230601; t=1703597931; x=1704202731;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HziIBLJBq4AHPK6A497HSvwJS43O/3XpDECKK3QRAvg=;
-        b=e3vKwFf0VehqzbQBcTd8o02w2tsRRM0Cb/R1i/EJ2gT5MnMqoAL4Skbgtca2c2cmGt
-         Ty1vps20q1HqwENJjrCyNxbuXwNIWorqC1TfxpmLSUEM8oDtOOJOZc4Q3hTjw7Fh0vS7
-         LAPZTm2Dmd0D0juv+6kY0Z005cUt1bHa7HI+ucKqHBD/vOiVPyteRqIYoxF/lEkEIpAm
-         OVatryb1fF3ULTVrM66fRwMMhwZ9jNYAe9r5smtJQZCyc6RluHJKvIOxcDO5MRnUQrz4
-         MWGI0s02IgymFTvSpggWiCme2RPKR1GZk8tNJMxv2AuldNgvqOFtR9PvZN76+wZZIEbv
-         Cm9g==
-X-Gm-Message-State: AOJu0YzKOICELo/AN1VgUW4mjjgvgypHnC8Fz3ywqT1n88iwm/eojAq1
-	vRdhxTLzoXGNVZQGuWzilT2aa/U52cUfBg==
-X-Google-Smtp-Source: AGHT+IHr4/7CCmW2NIuuid1gpL/r7IY7ImgYKMHKlazEUYOFDwMG08MoGBjCXKQzlGNx9OcuKKZieQ==
-X-Received: by 2002:a05:600c:138e:b0:40d:3519:9dd6 with SMTP id u14-20020a05600c138e00b0040d35199dd6mr4069128wmf.40.1703597836802;
-        Tue, 26 Dec 2023 05:37:16 -0800 (PST)
+        bh=vuMqR9Rwybi6ENHNRAU+EjQWuJolmn+LEd8yiJfS37U=;
+        b=g0G+0TsLtQyjiGDiDP8WUbFDcIh6zLMsvVC2KNt9L5AC70ew/y5TIdhOHXMrKWRMtN
+         jknkqtvaH9ZdlDbzp3wQ5DoeaB455kvh7V80oqRJiPlIJttjv7kIwLQOg75fYvXp3rm3
+         h0c9pq7iIoaiJzOdqQWTc1wAXrukB+i0ImIU82kWy01+PsJjaSHlOzSLoOSGG68l8uMl
+         U9+tv/4uSz8z0PWpEqztH376W4U0wsB7q6VN+QOKdq2Mxh/lP1wXb9oHV33fvz6aZgvp
+         h6OYtf2p/DtzKBzUywOhzoAm8BoYfZyW5OEwVTQsqK4uqk9MbV3lmlIZeDZ38lGWORay
+         OeDw==
+X-Gm-Message-State: AOJu0Yx1C8X2NiVbu4g1EXNxBZLGdHd/Ilf0BWkEdcNBTIxCPY90DgKo
+	hVcdFIJroOucdj+IaD9OHquzpPnzSS3q1w==
+X-Google-Smtp-Source: AGHT+IF/z9T/ozVBM07PXqtUZCL3vgUYzDGhf0tHXbGOqHTv7Y4u3pb9TshIJzdJwVzN9eBeHRoDRg==
+X-Received: by 2002:ac8:5986:0:b0:425:9224:3990 with SMTP id e6-20020ac85986000000b0042592243990mr9878534qte.4.1703597929626;
+        Tue, 26 Dec 2023 05:38:49 -0800 (PST)
 Received: from [192.168.0.22] ([78.10.206.178])
-        by smtp.gmail.com with ESMTPSA id t14-20020a170906608e00b00a26f20fa719sm1782924ejj.220.2023.12.26.05.37.15
+        by smtp.gmail.com with ESMTPSA id b17-20020ac86791000000b0042545901450sm6030030qtp.72.2023.12.26.05.38.45
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 26 Dec 2023 05:37:16 -0800 (PST)
-Message-ID: <886627a6-0300-46e3-b778-876bd82b97a6@linaro.org>
-Date: Tue, 26 Dec 2023 14:37:15 +0100
+        Tue, 26 Dec 2023 05:38:49 -0800 (PST)
+Message-ID: <bc6b5c5e-9396-4740-af99-1eda4275526b@linaro.org>
+Date: Tue, 26 Dec 2023 14:38:44 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC 13/16] dt-bindings: clock: Add StarFive JH8100 Always-On
- clock and reset generator
+Subject: Re: [RFC 16/16] riscv: dts: starfive: jh8100: Add clocks and resets
+ nodes
 Content-Language: en-US
 To: Sia Jee Heng <jeeheng.sia@starfivetech.com>, kernel@esmil.dk,
  conor@kernel.org, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
@@ -79,7 +79,7 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
  leyfoon.tan@starfivetech.com
 References: <20231226053848.25089-1-jeeheng.sia@starfivetech.com>
- <20231226053848.25089-14-jeeheng.sia@starfivetech.com>
+ <20231226053848.25089-17-jeeheng.sia@starfivetech.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -125,10 +125,10 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20231226053848.25089-14-jeeheng.sia@starfivetech.com>
+In-Reply-To: <20231226053848.25089-17-jeeheng.sia@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231226_053720_468174_0C292B0D 
-X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-CacheID: sfid-20231226_053853_127707_7A061E9A 
+X-CRM114-Status: UNSURE (   8.72  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -147,32 +147,31 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 26/12/2023 06:38, Sia Jee Heng wrote:
-> Add bindings for the Always-On clock and reset generator (AONCRG) on
-> JH8100 SoC.
+> Add SYSCRG/SYSCRG-NE/SYSCRG-NW/SYSCRG-SW/AONCRG clock and reset
+> nodes for JH8100 RISC-V SoC.
 > 
 > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
 > ---
 
+...
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>  		compatible = "simple-bus";
+>  		interrupt-parent = <&plic>;
+> @@ -357,6 +563,99 @@ uart4: serial@121a0000  {
+>  			status = "disabled";
+>  		};
+>  
+> +		necrg: necrg@12320000 {
 
+This is a friendly reminder during the review process.
 
----
+It seems my or other reviewer's previous comments were not fully
+addressed. Maybe the feedback got lost between the quotes, maybe you
+just forgot to apply it. Please go back to the previous discussion and
+either implement all requested changes or keep discussing them.
 
-This is an automated instruction, just in case, because many review tags
-are being ignored. If you know the process, you can skip it (please do
-not feel offended by me posting it here - no bad intentions intended).
-If you do not know the process, here is a short explanation:
-
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new
-versions, under or above your Signed-off-by tag. Tag is "received", when
-provided in a message replied to you on the mailing list. Tools like b4
-can help here. However, there's no need to repost patches *only* to add
-the tags. The upstream maintainer will do that for tags received on the
-version they apply.
-
-https://elixir.bootlin.com/linux/v6.5-rc3/source/Documentation/process/submitting-patches.rst#L577
+Thank you.
 
 Best regards,
 Krzysztof
