@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5149CC46CD3
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Dec 2023 05:40:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D536C46CD4
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Dec 2023 05:40:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LLAloS2lttubufatPWlUU+oEYyJm++K4GxdHMQLc+VY=; b=xWphCuUf3FZ+Ut
-	rOy463hLtqCJ5NqHnXWsLlR+W05ES0cPoquWlpVqi89wM9bGCxbWZ+Ea5sYSAGM+StNUjyh1xe6ch
-	5LRQsz8B/0zMhf3sLawH4iItv8+2+7wBKTOUIXBS5X8arPdS7TbbEFnqbpQvi9rlq2Y4+NI5jCl+w
-	5pHHZO/eAJotv5pzdS1Hh8H6fwoooXtgLclZWboaytPPzdifJzQ0dxthWzjHfXETQFKaZi5feSOKs
-	h4p3T2tWkvEHfxsx1VM+im39uxloj7U2jBa7UPYS7CuNPYEjkmGQeDMVNqxJKk3IY0EVLs2UEfzmk
-	wB6GepIDYWRdqAJrZf1Q==;
+	List-Owner; bh=uQLDvGTJidrRcqO1Xwumo44hWsMBwuFD/6vRIzZkGSQ=; b=mROLblpqbIQog7
+	rtEvlcLtpXQeaL80hXEdGtF8LMrNP4eFulFauuQtcrYsj38r82rvviqlw1fZXaQMWzYB49kiXSxV4
+	Tn4+qCZXWl4le2d/xwFeJf5+fGXIBbcIUdwEw/c4sd5nPG6Fwvjk5lAWa98fLX9QkBYfsoXXmcIsQ
+	egZ3jwFmv1xqKAWO5h+Bizqbqs8LxMcD2axDbm4q0ORPgMl/xb35DBXhsr3HVeuWX9CwPW3gTlIMe
+	LN0XBwGrtTQrCKWTz9KzA3XCg+EJpMTcEyU9bLDWBvmkAPq6Qbeda3XjH+VGyUSSprRvADlCKaI60
+	XUsf1ohQURWPJknb9a/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rI0BC-00BjLO-3B;
-	Tue, 26 Dec 2023 05:40:38 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1rI0BH-00BjPI-32;
+	Tue, 26 Dec 2023 05:40:43 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rI0B4-00BjC8-1E
+	id 1rI0BE-00BjMH-1d
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Dec 2023 05:40:37 +0000
+	Tue, 26 Dec 2023 05:40:42 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id C7AC4807C;
-	Tue, 26 Dec 2023 13:40:15 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id D7B6224E03E;
+	Tue, 26 Dec 2023 13:40:28 +0800 (CST)
 Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 26 Dec
- 2023 13:40:15 +0800
+ 2023 13:40:28 +0800
 Received: from jsia-virtual-machine.localdomain (202.188.176.82) by
  EXMBX066.cuchost.com (172.16.6.66) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Tue, 26 Dec 2023 13:40:09 +0800
+ 15.0.1497.42; Tue, 26 Dec 2023 13:40:22 +0800
 From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
 	<krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
@@ -48,9 +48,9 @@ To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
 CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
 	<jeeheng.sia@starfivetech.com>, <leyfoon.tan@starfivetech.com>
-Subject: [RFC 11/16] dt-bindings: clock: Add StarFive JH8100 South-West clock and reset generator
-Date: Tue, 26 Dec 2023 13:38:43 +0800
-Message-ID: <20231226053848.25089-12-jeeheng.sia@starfivetech.com>
+Subject: [RFC 13/16] dt-bindings: clock: Add StarFive JH8100 Always-On clock and reset generator
+Date: Tue, 26 Dec 2023 13:38:45 +0800
+Message-ID: <20231226053848.25089-14-jeeheng.sia@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20231226053848.25089-1-jeeheng.sia@starfivetech.com>
 References: <20231226053848.25089-1-jeeheng.sia@starfivetech.com>
@@ -60,8 +60,8 @@ X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX066.cuchost.com
  (172.16.6.66)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231225_214035_555223_9754BA06 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20231225_214040_842137_10C881AE 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,53 +78,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add bindings for the South-West clock and reset generator (SWCRG) on
+Add bindings for the Always-On clock and reset generator (AONCRG) on
 JH8100 SoC.
 
 Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
 ---
- .../bindings/clock/starfive,jh8100-swcrg.yaml | 64 +++++++++++++++++++
- .../dt-bindings/clock/starfive,jh8100-crg.h   | 12 ++++
- .../dt-bindings/reset/starfive,jh8100-crg.h   |  8 +++
- 3 files changed, 84 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-swcrg.yaml
+ .../clock/starfive,jh8100-aoncrg.yaml         | 74 +++++++++++++++++++
+ .../dt-bindings/clock/starfive,jh8100-crg.h   | 67 +++++++++++++++++
+ .../dt-bindings/reset/starfive,jh8100-crg.h   | 16 ++++
+ 3 files changed, 157 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-aoncrg.yaml
 
-diff --git a/Documentation/devicetree/bindings/clock/starfive,jh8100-swcrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh8100-swcrg.yaml
+diff --git a/Documentation/devicetree/bindings/clock/starfive,jh8100-aoncrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh8100-aoncrg.yaml
 new file mode 100644
-index 000000000000..287dff7e91e3
+index 000000000000..4ae1ef827fc9
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/starfive,jh8100-swcrg.yaml
-@@ -0,0 +1,64 @@
++++ b/Documentation/devicetree/bindings/clock/starfive,jh8100-aoncrg.yaml
+@@ -0,0 +1,74 @@
 +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/clock/starfive,jh8100-swcrg.yaml#
++$id: http://devicetree.org/schemas/clock/starfive,jh8100-aoncrg.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: StarFive JH8100 South-West Clock And Reset Generator
++title: StarFive JH8100 Always-On Clock and Reset Generator
 +
 +maintainers:
 +  - Sia Jee Heng <jeeheng.sia@starfivetech.com>
 +
 +properties:
 +  compatible:
-+    const: starfive,jh8100-swcrg
++    const: starfive,jh8100-aoncrg
 +
 +  reg:
 +    maxItems: 1
 +
 +  clocks:
 +    items:
-+      - description: APB_BUS clock from SYSCRG
-+      - description: VDEC_ROOT clock from SYSCRG
-+      - description: FLEXNOC1 clock from SYSCRG
++      - description: Main Oscillator (24 MHz)
++      - description: GMAC0 RMII func
++      - description: GMAC0 RGMII func
++      - description: AON 125MHz clock
++      - description: AON 2000MHz clock
++      - description: AON 200MHz clock
++      - description: AON 667MHz clock
++      - description: RTC clock
 +
 +  clock-names:
 +    items:
-+      - const: apb_bus
-+      - const: vdec_root
-+      - const: flexnoc1
++      - const: osc
++      - const: gmac0-rmii-func
++      - const: gmac0-rgmii-func
++      - const: aon125
++      - const: aon2000
++      - const: aon200
++      - const: aon667
++      - const: rtc
 +
 +  '#clock-cells':
 +    const: 1
@@ -150,52 +160,115 @@ index 000000000000..287dff7e91e3
 +  - |
 +    #include <dt-bindings/clock/starfive,jh8100-crg.h>
 +
-+    clock-controller@12720000 {
-+        compatible = "starfive,jh8100-swcrg";
-+        reg = <0x12720000 0x10000>;
-+        clocks = <&syscrg JH8100_SYSCLK_APB_BUS>,
-+                 <&syscrg JH8100_SYSCLK_VDEC_ROOT>,
-+                 <&syscrg JH8100_SYSCLK_FLEXNOC1>;
-+        clock-names = "apb_bus", "vdec_root", "flexnoc1";
++    clock-controller@1f310000 {
++        compatible = "starfive,jh8100-aoncrg";
++        reg = <0x1f310000 0x10000>;
++        clocks = <&osc>, <&gmac0_rmii_func>, <&gmac0_rgmii_func>, <&aon125>,
++                 <&aon2000>, <&aon200>, <&aon667>, <&rtc>;
++        clock-names = "osc", "gmac0-rmii-func", "gmac0-rgmii-func", "aon125",
++                      "aon2000", "aon200", "aon667", "rtc";
 +        #clock-cells = <1>;
 +        #reset-cells = <1>;
 +    };
 diff --git a/include/dt-bindings/clock/starfive,jh8100-crg.h b/include/dt-bindings/clock/starfive,jh8100-crg.h
-index c37b42f3eacd..7b337c1495be 100644
+index 7b337c1495be..8207d5a2f4b3 100644
 --- a/include/dt-bindings/clock/starfive,jh8100-crg.h
 +++ b/include/dt-bindings/clock/starfive,jh8100-crg.h
-@@ -339,4 +339,16 @@
- #define JH8100_NECLK_CAN1_ICG_EN					173
- #define JH8100_NECLK_SMBUS0_ICG_EN					174
+@@ -351,4 +351,71 @@
+ #define JH8100_SWCLK_JPEG_ICG_EN					8
+ #define JH8100_SWCLK_VDEC_ICG_EN					9
  
-+/* SWCRG clocks */
-+#define JH8100_SWCLK_JPEG_AXI						0
-+#define JH8100_SWCLK_VC9000DJ_AXI					1
-+#define JH8100_SWCLK_VC9000DJ_VDEC					2
-+#define JH8100_SWCLK_VC9000DJ_APB					3
-+#define JH8100_SWCLK_VDEC_AXI						4
-+#define JH8100_SWCLK_VC9000D_AXI					5
-+#define JH8100_SWCLK_VC9000D_VDEC					6
-+#define JH8100_SWCLK_VC9000D_APB					7
-+#define JH8100_SWCLK_JPEG_ICG_EN					8
-+#define JH8100_SWCLK_VDEC_ICG_EN					9
++/* AONCRG clocks */
++#define JH8100_AONCLK_GMAC0_RMII_REFIN					0
++#define JH8100_AONCLK_GMAC0_RGMII_RXIN					1
++#define JH8100_AONCLK_GMAC0_GTXCLK					2
++#define JH8100_AONCLK_AON_1000						3
++#define JH8100_AONCLK_AON_400						4
++#define JH8100_AONCLK_AON_400_POSTOSC					5
++#define JH8100_AONCLK_AON_500						6
++#define JH8100_AONCLK_AON_500_POSTOSC					7
++#define JH8100_AONCLK_XSPI_PHY						8
++#define JH8100_AONCLK_AON_100						9
++#define JH8100_AONCLK_AON_100_POSTOSC					10
++#define JH8100_AONCLK_AON_50_POSTOSC					11
++#define JH8100_AONCLK_DDR50_POSTOCC_ICG					12
++#define JH8100_AONCLK_DDR100_POSTOCC_ICG				13
++#define JH8100_AONCLK_PUFRT_APB						14
++#define JH8100_AONCLK_RTC_HMS_APB					15
++#define JH8100_AONCLK_RTC_INTERNAL					16
++#define JH8100_AONCLK_RTC_HMS_OSC32K					17
++#define JH8100_AONCLK_RTC_HMS_CAL					18
++#define JH8100_AONCLK_GMAC0_AXI128_AHB					19
++#define JH8100_AONCLK_GMAC0_AXI128_MSTRCLK				20
++#define JH8100_AONCLK_GMAC0_AXI128_AXI					21
++#define JH8100_AONCLK_GMAC0_RMII_RTX					22
++#define JH8100_AONCLK_GMAC0_AXI128_TX					23
++#define JH8100_AONCLK_GMAC0_AXI128_TX_INV				24
++#define JH8100_AONCLK_GMAC0_AXI128_RX					25
++#define JH8100_AONCLK_GMAC0_AXI128_RX_INV				26
++#define JH8100_AONCLK_GMAC0_GTXC					27
++#define JH8100_AONCLK_XSPI_AXI						28
++#define JH8100_AONCLK_XSPI_APB						29
++#define JH8100_AONCLK_XSPI_XSPI_PHY					30
++#define JH8100_AONCLK_TVSENSOR_PCLK					31
++#define JH8100_AONCLK_TVSENSOR_TSADC					32
++#define JH8100_AONCLK_TVSENSOR_BG					33
++#define JH8100_AONCLK_MEU_PCLK_AP					34
++#define JH8100_AONCLK_MEU_PCLK_SCP					35
++#define JH8100_AONCLK_MEU_MEM_AXI					36
++#define JH8100_AONCLK_AXIMEM_128B_ACLK					37
++#define JH8100_AONCLK_APB2BISR_APB					38
++#define JH8100_AONCLK_APB2BISR_BISR					39
++#define JH8100_AONCLK_EMMC_S_PCLK					40
++#define JH8100_AONCLK_EMMC_MSTRCLK					41
++#define JH8100_AONCLK_EMMC						42
++#define JH8100_AONCLK_EMMC_SDMCLK					43
++#define JH8100_AONCLK_EMMC_SDPHY_PCLK					44
++#define JH8100_AONCLK_SDIO0_PCLK					45
++#define JH8100_AONCLK_SDIO0_MSTRCLK					46
++#define JH8100_AONCLK_SDIO0						47
++#define JH8100_AONCLK_SDIO0_SDMCLK					48
++#define JH8100_AONCLK_SDIO0_SDPHY_PCLK					49
++#define JH8100_AONCLK_HCLK						50
++#define JH8100_AONCLK_ACLK						51
++#define JH8100_AONCLK_PERF_MSTRCLK					52
++#define JH8100_AONCLK_PERF_SLVCLK					53
++#define JH8100_AONCLK_GCLK0						54
++#define JH8100_AONCLK_GCLK_OSC						55
++#define JH8100_AONCLK_RTC_ICG_EN					56
++#define JH8100_AONCLK_GMAC0_ICG_EN					57
++#define JH8100_AONCLK_XSPI_ICG_EN					58
++#define JH8100_AONCLK_TVSENSOR0_ICG_EN					59
++#define JH8100_AONCLK_MEU_ICG_EN					60
++#define JH8100_AONCLK_APB2BISR_ICG_EN					61
++#define JH8100_AONCLK_EMMC_ICG_EN					62
++#define JH8100_AONCLK_SDIO0_ICG_EN					63
++#define JH8100_AONCLK_TOP_ICG_EN					64
 +
  #endif /* __DT_BINDINGS_CLOCK_STARFIVE_JH8100_H__ */
 diff --git a/include/dt-bindings/reset/starfive,jh8100-crg.h b/include/dt-bindings/reset/starfive,jh8100-crg.h
-index 30a99c78341a..de4f25dc301d 100644
+index de4f25dc301d..23f15d4be22f 100644
 --- a/include/dt-bindings/reset/starfive,jh8100-crg.h
 +++ b/include/dt-bindings/reset/starfive,jh8100-crg.h
-@@ -91,4 +91,12 @@
- #define JH8100_NERST_SYS_IOMUX_E				48
- #define JH8100_NERST_DUBHE_TVSENSOR				49
+@@ -99,4 +99,20 @@
+ #define JH8100_SWRST_VC9000D					2
+ #define JH8100_SWRST_DDR_TVSENSOR				3
  
 +/*
-+ * SWCRG resets: assert0
++ * AONCRG resets: assert0
 + */
-+#define JH8100_SWRST_PRESETN					0
-+#define JH8100_SWRST_VC9000DJ					1
-+#define JH8100_SWRST_VC9000D					2
-+#define JH8100_SWRST_DDR_TVSENSOR				3
++#define JH8100_AONRST_AON_IOMUX_PRESETN				0
++#define JH8100_AONRST_RTC					1
++#define JH8100_AONRST_GMAC0					2
++#define JH8100_AONRST_XSPI					3
++#define JH8100_AONRST_TVSENSOR					4
++#define JH8100_AONRST_MEU					5
++#define JH8100_AONRST_AXIMEM_128B_ARESET			6
++#define JH8100_AONRST_DFT_APB2BISR_APB				7
++#define JH8100_AONRST_SDIO0					8
++#define JH8100_AONRST_EMMC					9
++#define JH8100_AONRST_TOP					10
++#define JH8100_AONRST_IRQ_CTRL					11
 +
  #endif /* __DT_BINDINGS_RESET_STARFIVE_JH8100_H__ */
 -- 
