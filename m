@@ -4,58 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 956FEC46CD3
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Dec 2023 03:57:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C079C46CD3
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Dec 2023 05:37:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gN9ZE8kzXsbKdy+a4A+1np/wY883sqwpPVBFy+5GhkE=; b=4II8o79OtI1CY6
-	gcwJrtgYKYeG6KS5e5gXAE9of71JmxMdq2sTg+mv7Z59Yy2E7oU7pwtAiDjWL3c9fIfwuXpbgwwf6
-	f02nnRxsCvLzeJsQsrjASywFrDnsPItUVTYSW/SUmpFBBtMyhWPIK6hSMCmkpKa6DrDj7PHl/Rfkg
-	scG4ANDplJnkUyKv05UBmcdo0q1AOUuRNlP1NRXCxpxlZa3q8FyQIr6JC8qgGMS6lgRlPv2gcKje4
-	qvm5wndethztWvPDUgwLLwC1Kcl5OQc+hJhlLBLOkZ2xHXPuowT3IrI8cssuDMJCJ7q4XeiPvoO+s
-	w65LDR8/vsG+2WEA814A==;
+	List-Owner; bh=AqQvLVgvyYQk1/4u2FpgPJgWU2gRNSS/WlY82z7L3cs=; b=P2KEnWDprPFPyU
+	Yua+SzdFTwRcmCRYxjwz4cjv7EMrCwWz5dhnl50TQ0v0l1qPs2Og00agLaNWhkkM2UaBNQWz0RynI
+	1gtTj7CCNoNbj3SFVHYjQIAUnJupcz58rcd5tw3uA/HVNo2hAwHSRORh+IzHjpsg1DayHT2SY4+sM
+	dmRuEcQDZbXoTcBkuyRW1N9oD2URzPH3m3ISwaNzGJqcnDTrInjXe5fayHpb/032X4z0IgO9Cgh1R
+	Up0C6Gy+K8PyWWqjFDCiCFlA5qw6vb1eN0pYGwVPUSiE9Un5Ji+LhtXmHWv1W68YcAy3ZadLNCN8J
+	+Fqnqm8qQkBuAbe1dpDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rHyYs-00Bdx2-30;
-	Tue, 26 Dec 2023 03:56:58 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1rI07a-00Bias-0P;
+	Tue, 26 Dec 2023 05:36:54 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rHyYp-00Bdwf-10
+	id 1rI07X-00BiaH-39
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Dec 2023 03:56:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B250060C85;
-	Tue, 26 Dec 2023 03:56:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F08C2C433C7;
-	Tue, 26 Dec 2023 03:56:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1703563011;
-	bh=bALt5fFkdTtCWQl6cTTgbR1RwayXwAm/GmiyEsQiowQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JzK+NX5x0tO3nUF2uxnFu2Ti44+SeA8xMdh+FzKjDWNxGKIeXFsTff1l/BLDVmNSv
-	 OkoB4cQpQXeDTLZBSxR7M9Ne8GuY6ifGzpi3/I6eIGtIj5LRrENT6PWVFzTQjs59DL
-	 3HKNRerMHLWAmWtUvfJZ74WCgflt3xofhOcIVtrRVrU35Qd6Xzmijq33RK6FJkJXLN
-	 GrEN4JRIiRCBx6WWfg0/O2e83TRibgU509Bijm/qcBUjl5bKDRJ02Yp9z+R9LHYnOA
-	 i0oIIv8l5AuPCbeRX4PfPKzY3sck/qOAersoY8le76FCjMyRkKM9l/0F5kU51OX7HV
-	 nX4P/26txEReQ==
-Date: Mon, 25 Dec 2023 22:56:46 -0500
-From: Guo Ren <guoren@kernel.org>
-To: Anton Blanchard <antonb@tenstorrent.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: Improve exception and system call latency
-Message-ID: <ZYpO/pfbea7hWu3r@gmail.com>
-References: <20231225040018.1660554-1-antonb@tenstorrent.com>
+	Tue, 26 Dec 2023 05:36:53 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-6d99980b2e0so2019128b3a.2
+        for <linux-riscv@lists.infradead.org>; Mon, 25 Dec 2023 21:36:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1703569010; x=1704173810; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=wt8Y6H9UYhlcK+Kq+g9t/n5C3ulwRlQUCahaLJRULwM=;
+        b=UwEb48ghYY9GxgzDzMmoZGZ/u/xeC9k5P8orNsNxKyz/0JcE8UDSDlrithsX91zEr2
+         oO5mwRKzno3UVR5kUYrunnLzG5OPHfQfaj5gEdNgsA+rtm7SZ76V+tLM4PPX+PXiH3NI
+         Yo2RJNHEzJaZkUW8mRbX0G/F8ZakNDSuEXBt2X8oTrCNz9rZqy6DLjyM2qKGfhHdnLCK
+         dcbZIDewMR/8hCnKAuqWIOGaY4Ry+N5U5GjIU5FYDxw/8cOOTOxJy9/aXkDIxQhGciTi
+         ne4IEdq4mL9riOFuZgTe9TSjdIVo2yl755kp/PDTTUO4lfNlfgeDpjvxoZG0Eo9WygKn
+         /Uyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1703569010; x=1704173810;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wt8Y6H9UYhlcK+Kq+g9t/n5C3ulwRlQUCahaLJRULwM=;
+        b=E00eZ5s4EO64waisLvssdGTM+4pgRZjAMjNjCwtFfIY21Mvs22VOwTwDm51gRff0Wu
+         qJFtUNrI+5WbKYPNmJvbEtbmKKBKJDoOQhFbPxWUB4uyLtZ4rPXFqXOlXSzCdKhIgIXd
+         bVYbqwFuiV3xmdXzf4uEXXkF1D/W97rFJOCGOBQhhbCllKf13TxdLz2B8UDdO2yQY6v5
+         1zmwbz/bYA8/JtKxozuztQoQ4cqP6+3fjDcvwcakUA1LA1ukXLtR0Bm8uLp1SlwaUgnH
+         qyi/1MyKN2nDlSpQHzjjoHy/WSl2mxXO/sJ4RRE/aI9hN07mWBvp8B2kOB4QrciszHg1
+         aOMA==
+X-Gm-Message-State: AOJu0YzIGmOjWfcWaSBeFxhF3lwxzQbASuszCH1z+CS8zGfIqf+EwcY8
+	qgVXYvgSf9gSphvn4F5VnuS6Zf42KGiLhg==
+X-Google-Smtp-Source: AGHT+IEWpDU3OhwCcS4KqMR5BEt9i18xozZDMVXrBdzYqH1/mZXMMZY7yPJGFUrViMSlAQI50dwQjw==
+X-Received: by 2002:a05:6a00:181e:b0:6d9:ba7f:8b02 with SMTP id y30-20020a056a00181e00b006d9ba7f8b02mr3323033pfa.32.1703569009897;
+        Mon, 25 Dec 2023 21:36:49 -0800 (PST)
+Received: from localhost ([122.172.86.168])
+        by smtp.gmail.com with ESMTPSA id ff21-20020a056a002f5500b006cef5c09ca3sm9165969pfb.147.2023.12.25.21.36.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 25 Dec 2023 21:36:49 -0800 (PST)
+Date: Tue, 26 Dec 2023 11:06:47 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Brandon Cheo Fusi <fusibrandon13@gmail.com>
+Cc: Andre Przywara <andre.przywara@arm.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Yangtao Li <tiny.windzz@gmail.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Stephen Rothwell <sfr@canb.auug.org.au>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+Subject: Re: [RFC PATCH v3 3/3] riscv: dts: allwinner: Fill in OPPs
+Message-ID: <20231226053647.kvrpn4pjtc2lhfcm@vireshk-i7>
+References: <20231222111407.104270-1-fusibrandon13@gmail.com>
+ <20231222111407.104270-4-fusibrandon13@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20231225040018.1660554-1-antonb@tenstorrent.com>
+In-Reply-To: <20231222111407.104270-4-fusibrandon13@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231225_195655_456849_4F826284 
-X-CRM114-Status: GOOD (  29.30  )
+X-CRM114-CacheID: sfid-20231225_213652_065009_8A99B0F5 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,204 +105,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 24, 2023 at 08:00:18PM -0800, Anton Blanchard wrote:
-> Many CPUs implement return address branch prediction as a stack. The
-> RISCV architecture refers to this as a return address stack (RAS). If
-> this gets corrupted then the CPU will mispredict at least one but
-> potentally many function returns.
+On 22-12-23, 12:14, Brandon Cheo Fusi wrote:
+> Specify two voltage ranges, in order of increasing stability,
+> for each OPP.
 > 
-> There are two issues with the current RISCV exception code:
+> Also define an nvmem cpu speed grade cell of length 2.
 > 
-> - We are using the alternate link stack (x5/t0) for the indirect branch
->   which makes the hardware think this is a function return. This will
->   corrupt the RAS.
+> Link: https://github.com/Tina-Linux/linux-5.4/blob/master/arch/riscv/boot/dts/sunxi/sun20iw1p1.dtsi#L118-L133
+> Link: https://github.com/mangopi-sbc/tina-linux-5.4/blob/0d4903ebd9d2194ad914686d5b0fc1ddacf11a9d/arch/riscv/boot/dts/sunxi/sun20iw1p1.dtsi#L118-L182
 > 
-> - We modify the return address of handle_exception to point to
->   ret_from_exception. This will also corrupt the RAS.
-> 
-> Testing the null system call latency before and after the patch:
-> 
-> Visionfive2 (StarFive JH7110 / U74)
-> baseline: 189.87 ns
-> patched:  176.76 ns
-> 
-> Lichee pi 4a (T-Head TH1520 / C910)
-> baseline: 666.58 ns
-> patched:  636.90 ns
-> 
-> Just over 7% on the U74 and just over 4% on the C910.
-
-Yes, the wrong "jalr zero, t0/ra" would pop RAS and destroy the RAS
-layout of the hardware for the userspace. How about giving a fake push
-for the RAS to connect "jalr zero, ra" of sub-function call return? I'm
-curious if you could measure the difference with only one RAS
-misprediction.
-
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 54ca4564a926..94c7d2be35d0 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -93,7 +93,8 @@ SYM_CODE_START(handle_exception)
-        bge s4, zero, 1f
-
-        /* Handle interrupts */
--       tail do_irq
-+       auipc t0, do_irq
-+       jalr  t0, t0
- 1:
-        /* Handle other exceptions */
-        slli t0, s4, RISCV_LGPTR
-@@ -103,9 +104,10 @@ SYM_CODE_START(handle_exception)
-        /* Check if exception code lies within bounds */
-        bgeu t0, t2, 1f
-        REG_L t0, 0(t0)
--       jr t0
-+       jalr t0, t0
- 1:
--       tail do_trap_unknown
-+       auipc t0, do_trap_unknown
-+       jalr  t0, t0
- SYM_CODE_END(handle_exception)
-
-You could prepare a deeper userspace stack calling if you want better
-measurement results.
-
-> 
-> Signed-off-by: Anton Blanchard <antonb@tenstorrent.com>
-> Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
+> Signed-off-by: Brandon Cheo Fusi <fusibrandon13@gmail.com>
 > ---
+>  arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi | 19 ++++++++++++++++---
+>  1 file changed, 16 insertions(+), 3 deletions(-)
 > 
-> This introduces some complexity in the stackframe walk code. PowerPC
-> resolves the multiple exception exit paths issue by placing a value into
-> the exception stack frame (basically the word "REGS") that the stack frame
-> code can look for. Perhaps something to look at.
-> 
->  arch/riscv/kernel/entry.S      | 21 ++++++++++++++-------
->  arch/riscv/kernel/stacktrace.c | 14 +++++++++++++-
->  2 files changed, 27 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index 54ca4564a926..89af35edbf6c 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -84,7 +84,6 @@ SYM_CODE_START(handle_exception)
->  	scs_load_current_if_task_changed s5
+> diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
+> index 64c3c2e6c..7e2e015e0 100644
+> --- a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
+> +++ b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
+> @@ -39,16 +39,23 @@ cpu0_intc: interrupt-controller {
+>  	};
 >  
->  	move a0, sp /* pt_regs */
-> -	la ra, ret_from_exception
+>  	opp_table_cpu: opp-table-cpu {
+> -		compatible = "operating-points-v2";
+> +		compatible = "allwinner,sun20i-d1-operating-points";
+> +		nvmem-cells = <&cpu_speed_grade>;
+> +		nvmem-cell-names = "speed";
+> +		opp-shared;
 >  
->  	/*
->  	 * MSB of cause differentiates between
-> @@ -93,7 +92,10 @@ SYM_CODE_START(handle_exception)
->  	bge s4, zero, 1f
->  
->  	/* Handle interrupts */
-> -	tail do_irq
-> +	call do_irq
-> +.globl ret_from_irq_exception
-> +ret_from_irq_exception:
-> +	j ret_from_exception
->  1:
->  	/* Handle other exceptions */
->  	slli t0, s4, RISCV_LGPTR
-> @@ -101,11 +103,16 @@ SYM_CODE_START(handle_exception)
->  	la t2, excp_vect_table_end
->  	add t0, t1, t0
->  	/* Check if exception code lies within bounds */
-> -	bgeu t0, t2, 1f
-> -	REG_L t0, 0(t0)
-> -	jr t0
-> -1:
-> -	tail do_trap_unknown
-> +	bgeu t0, t2, 3f
-> +	REG_L t1, 0(t0)
-> +2:	jalr ra,t1
-> +.globl ret_from_other_exception
-> +ret_from_other_exception:
-> +	j ret_from_exception
-> +3:
+>  		opp-408000000 {
+>  			opp-hz = /bits/ 64 <408000000>;
+> -			opp-microvolt = <900000 900000 1100000>;
 > +
-> +	la t1, do_trap_unknown
-> +	j 2b
->  SYM_CODE_END(handle_exception)
+> +			opp-microvolt-speed0 = <950000 950000 1100000>;
+> +			opp-microvolt-speed1 = <900000 900000 1100000>;
+>  		};
 >  
->  /*
-> diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-> index 64a9c093aef9..b9cd131bbc4c 100644
-> --- a/arch/riscv/kernel/stacktrace.c
-> +++ b/arch/riscv/kernel/stacktrace.c
-> @@ -17,6 +17,18 @@
->  #ifdef CONFIG_FRAME_POINTER
->  
->  extern asmlinkage void ret_from_exception(void);
-> +extern asmlinkage void ret_from_irq_exception(void);
-> +extern asmlinkage void ret_from_other_exception(void);
+>  		opp-1080000000 {
+>  			opp-hz = /bits/ 64 <1008000000>;
+> -			opp-microvolt = <900000 900000 1100000>;
 > +
-> +static inline bool is_exception_frame(unsigned long pc)
-> +{
-> +	if ((pc == (unsigned long)ret_from_exception) ||
-> +	    (pc == (unsigned long)ret_from_irq_exception) ||
-> +	    (pc == (unsigned long)ret_from_other_exception))
-> +		return true;
+> +			opp-microvolt-speed0 = <1100000>;
+
+I was expecting the above two lines to have same values. Why change
+them ?
+
+> +			opp-microvolt-speed1 = <950000 950000 1100000>;
+>  		};
+>  	};
+>  
+> @@ -115,3 +122,9 @@ pmu {
+>  			<0x00000000 0x0000000f 0xffffffff 0xffffffff 0x00020000>;
+>  	};
+>  };
 > +
-> +	return false;
-> +}
-We needn't put too many .globl in the entry.S, and just check that pc is
-in SYM_CODE_START/END(handle_exception), then entry.S would be cleaner:
-
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 54ca4564a926..d452d5f12b1b 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -84,7 +84,6 @@ SYM_CODE_START(handle_exception)
-        scs_load_current_if_task_changed s5
-
-        move a0, sp /* pt_regs */
-
-        /*
-         * MSB of cause differentiates between
-@@ -93,7 +92,8 @@ SYM_CODE_START(handle_exception)
-        bge s4, zero, 1f
-
-        /* Handle interrupts */
-        call do_irq
-        j ret_from_exception
- 1:
-        /* Handle other exceptions */
-        slli t0, s4, RISCV_LGPTR
-@@ -102,10 +102,12 @@ SYM_CODE_START(handle_exception)
-        add t0, t1, t0
-        /* Check if exception code lies within bounds */
-        bgeu t0, t2, 1f
-        REG_L ra, 0(t0)
-        jalr ra, ra
-        j ret_from_exception
- 1:
-        call do_trap_unknown
-        j ret_from_exception
- SYM_CODE_END(handle_exception)
-
-
->  
->  void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
->  			     bool (*fn)(void *, unsigned long), void *arg)
-> @@ -62,7 +74,7 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
->  			fp = frame->fp;
->  			pc = ftrace_graph_ret_addr(current, NULL, frame->ra,
->  						   &frame->ra);
-> -			if (pc == (unsigned long)ret_from_exception) {
-> +			if (is_exception_frame(pc)) {
->  				if (unlikely(!__kernel_text_address(pc) || !fn(arg, pc)))
->  					break;
->  
+> +&sid {
+> +	cpu_speed_grade: cpu-speed-grade@0 {
+> +		reg = <0x00 0x2>;
+> +	};
+> +};
 > -- 
-> 2.25.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 2.30.2
+
+-- 
+viresh
 
 _______________________________________________
 linux-riscv mailing list
