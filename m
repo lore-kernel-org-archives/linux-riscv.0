@@ -4,93 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBEF0C3DA6E
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Dec 2023 00:22:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23E3FC3DA6E
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Dec 2023 00:36:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F5bLz3uV8T3BtLXITLikaAx7ItlSscgczpjGmTYO56o=; b=XA7W3rihmBV6GB
-	qNb0/gTFJmcpHqmvIj4CKquhUJqCxWAUY97n24/OruEFUfSBAImjeq1UyNu74H5dQc36LibGil3sY
-	TpWKEH/AMrN1iOLLNwhvZy9sivNskmAyt6/Laoof3IvyEuuCglLdYmIT24C7xqxfEPaPZDcdtcM1D
-	UzD533yz4ubg9qRMaSSXjypq9fhDB8+uDmmX46VztF4qnG0/hYHt1OE8D6k9/QVROmEJDtVuP2hv9
-	ptimN6x2otCcaLsHj3a6jFr5HzB2HOLV6ZvUG3+l1WgW6XQ4Do2TkVhErPZA3qTCv3EEBv8MjtMXN
-	RFNt2+JICzJ4/pvs1Mug==;
+	List-Owner; bh=jcIbwqdc9RbjVGnvqbeSCPApaxiHNUfFFZodOMagrP4=; b=u3pEyTMIesyvA/
+	qhV2pacPcGuBUjfVMurdMH6mtPrectk+/3ZisUiPtlaycYlXs8O06qiG+tkjDItIfUXOpvmLOif6L
+	bijKCAhouYmfGszDFPS9pln9aezrBIRtZiJEy508AP8EAYRKsBTfACbLWUG5WylfgxhsCageh5SY+
+	bkagaRNyWBGuw81udTaivNRFhw42ELDTVMDur/A58zRlwfKD0OkW8V9XTi1UWY8sDn+FMViAtlHuP
+	XDktXbtkqJdV9CQSJPDUVRjEiwQp2UQp9vPzwmj2uYqYIbQi/MSYtlhsOBQar/ltWUahoXNUO9PcY
+	4RXbyZDVWQZpJb8sCj4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rHvDD-00BQJU-0V;
-	Tue, 26 Dec 2023 00:22:23 +0000
+	id 1rHvQZ-00BTTw-0v;
+	Tue, 26 Dec 2023 00:36:11 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rHvD7-00BQGM-1E;
-	Tue, 26 Dec 2023 00:22:20 +0000
+	id 1rHvQV-00BTSc-00
+	for linux-riscv@lists.infradead.org;
+	Tue, 26 Dec 2023 00:36:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id A236BB80B68;
-	Tue, 26 Dec 2023 00:22:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C221C433C7;
-	Tue, 26 Dec 2023 00:22:10 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 15E3DB80B8F
+	for <linux-riscv@lists.infradead.org>; Tue, 26 Dec 2023 00:36:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93CB7C43391
+	for <linux-riscv@lists.infradead.org>; Tue, 26 Dec 2023 00:36:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1703550134;
-	bh=4V8wI0StG6wvCrqHUSVcj8ztFa80GUymxP4hspC1fAE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DvMrHV6QQiNBHGaBL0R4QN1kJnQFwgjqkL5QftL+w8H4zChzCsTcGAJ7jSSmzjaCr
-	 8yiXouRwAZPJwqBScFBqFjLrITqxoaYk1Tj+BW1l09JT07nwkc02lD5Mq2cf8mkeWT
-	 r8fdQT5AmT7GKf4zoPw191uROWjTE8BHJr1aP8M5eLgQ9Zl43FE+Ut6294LuJsEgt9
-	 kekJCCjD/314fSwnJat5RaLPCtsmxgAIlG7y51d3akeQh2KPwxMMZ4GNi0JQDPrzYc
-	 c6kBs5NbYxMn6WCatEpSF8YmDbKkppZSSfEJcvn4LDN8GI0VnrpmL1Fg6D26YUk6VM
-	 NyG8RHT0St3ww==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	kernel test robot <oliver.sang@intel.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Sasha Levin <sashal@kernel.org>,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	hca@linux.ibm.com,
-	gor@linux.ibm.com,
-	agordeev@linux.ibm.com,
-	mingo@redhat.com,
-	x86@kernel.org,
-	arnd@arndb.de,
-	keescook@chromium.org,
-	ardb@kernel.org,
-	kevin.brodsky@arm.com,
-	svens@linux.ibm.com,
-	geert@linux-m68k.org,
-	peterz@infradead.org,
-	sohil.mehta@intel.com,
-	nphamcs@gmail.com,
-	rick.p.edgecombe@intel.com,
-	akpm@linux-foundation.org,
-	jannh@google.com,
-	yang.lee@linux.alibaba.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-api@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.6 38/39] posix-timers: Get rid of [COMPAT_]SYS_NI() uses
-Date: Mon, 25 Dec 2023 19:19:28 -0500
-Message-ID: <20231226002021.4776-38-sashal@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20231226002021.4776-1-sashal@kernel.org>
-References: <20231226002021.4776-1-sashal@kernel.org>
+	s=k20201202; t=1703550963;
+	bh=NHdbFiqsifSTiK+myGWpMLxahvziN4vk1QnX3vAD/xI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=rjHlGvwNgTOShocE/QLzg5emLQ8EoLisMuyX5Mgjrb/GFqLxEkjEue17lJevKsl3X
+	 hgUrLrK5jghOZ2/+sGpLcaTF/d81n6XAgpeUDG4gZ8Ra7zq8GxkWhxA0AHHmlp5NsX
+	 jPiGHnLAS05wXQ46MAgD33R9elmbS3hXtN9BZg1WinM1sLokQBzpsAyHTfpePYGc0h
+	 94ys7niwqmjzucsIt7WGfn/HhoztH/u8CZKFkdTD0/mO27U9IXXaUgWKmRgei2sT3V
+	 Bv6hG9gHMon3GM0rBsyXeWk1Dxqt/mM3WGSnbydIUqAGGrX6q3qnr5g1fer6LBh5sY
+	 cs3pS6poIy2Lw==
+Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-554cffbad2fso1114126a12.1
+        for <linux-riscv@lists.infradead.org>; Mon, 25 Dec 2023 16:36:03 -0800 (PST)
+X-Gm-Message-State: AOJu0YzvsKtCw2iXtgnnc/onIbU65wN1p+Eaf1YjK251iEP8vJapYDFL
+	2eQkvbS+fwZhJR2/IgUyiUU9WyLvXmXJjXCDO10=
+X-Google-Smtp-Source: AGHT+IE/DGwHcZeEvOZIP8lchNXJdA2d9NxNnD9HVfrcsOGhHd6pzHxvV/RkMgS24DOoBI8q8XuLYEKI8vxwzqF1A68=
+X-Received: by 2002:a50:8e49:0:b0:553:4257:969d with SMTP id
+ 9-20020a508e49000000b005534257969dmr3394385edx.66.1703550961867; Mon, 25 Dec
+ 2023 16:36:01 -0800 (PST)
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.6.8
+References: <20231225125847.2778638-1-guoren@kernel.org>
+In-Reply-To: <20231225125847.2778638-1-guoren@kernel.org>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 26 Dec 2023 08:35:50 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRgd297NZqumBLMV0jmVqn2sQ3xjZ5sRuy9L7HXq+gU5Q@mail.gmail.com>
+Message-ID: <CAJF2gTRgd297NZqumBLMV0jmVqn2sQ3xjZ5sRuy9L7HXq+gU5Q@mail.gmail.com>
+Subject: Re: [PATCH V12 00/14] riscv: Add Native/Paravirt qspinlock support
+To: Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231225_162217_719793_CE39E95A 
-X-CRM114-Status: GOOD (  17.40  )
+X-CRM114-CacheID: sfid-20231225_163607_342249_5E0D1072 
+X-CRM114-Status: GOOD (  28.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,345 +73,213 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Guo Ren <guoren@linux.alibaba.com>, kvm@vger.kernel.org, peterz@infradead.org, atishp@atishpatra.org, bjorn@rivosinc.com, virtualization@lists.linux-foundation.org, conor.dooley@microchip.com, guoren@kernel.org, jszhang@kernel.org, panqinglin2020@iscas.ac.cn, linux-riscv@lists.infradead.org, anup@brainfault.org, unicorn_wang@outlook.com, xiaoguang.xing@sophgo.com, wuwei2016@iscas.ac.cn, keescook@chromium.org, paul.walmsley@sifive.com, chao.wei@sophgo.com, linux-kernel@vger.kernel.org, leobras@redhat.com, palmer@dabbelt.com, wefu@redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Linus Torvalds <torvalds@linux-foundation.org>
-
-[ Upstream commit a4aebe936554dac6a91e5d091179c934f8325708 ]
-
-Only the posix timer system calls use this (when the posix timer support
-is disabled, which does not actually happen in any normal case), because
-they had debug code to print out a warning about missing system calls.
-
-Get rid of that special case, and just use the standard COND_SYSCALL
-interface that creates weak system call stubs that return -ENOSYS for
-when the system call does not exist.
-
-This fixes a kCFI issue with the SYS_NI() hackery:
-
-  CFI failure at int80_emulation+0x67/0xb0 (target: sys_ni_posix_timers+0x0/0x70; expected type: 0xb02b34d9)
-  WARNING: CPU: 0 PID: 48 at int80_emulation+0x67/0xb0
-
-Reported-by: kernel test robot <oliver.sang@intel.com>
-Reviewed-by: Sami Tolvanen <samitolvanen@google.com>
-Tested-by: Sami Tolvanen <samitolvanen@google.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Dave Hansen <dave.hansen@linux.intel.com>
-Cc: Borislav Petkov <bp@alien8.de>
-Signed-off-by: Linus Torvalds <torvalds@linux-foundation.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- arch/arm64/include/asm/syscall_wrapper.h |  4 ---
- arch/riscv/include/asm/syscall_wrapper.h |  5 ---
- arch/s390/include/asm/syscall_wrapper.h  | 13 +------
- arch/x86/include/asm/syscall_wrapper.h   | 34 +++---------------
- kernel/sys_ni.c                          | 14 ++++++++
- kernel/time/posix-stubs.c                | 45 ------------------------
- 6 files changed, 19 insertions(+), 96 deletions(-)
-
-diff --git a/arch/arm64/include/asm/syscall_wrapper.h b/arch/arm64/include/asm/syscall_wrapper.h
-index 17f687510c485..7a0e7b59be9b9 100644
---- a/arch/arm64/include/asm/syscall_wrapper.h
-+++ b/arch/arm64/include/asm/syscall_wrapper.h
-@@ -44,9 +44,6 @@
- 		return sys_ni_syscall();						\
- 	}
- 
--#define COMPAT_SYS_NI(name) \
--	SYSCALL_ALIAS(__arm64_compat_sys_##name, sys_ni_posix_timers);
--
- #endif /* CONFIG_COMPAT */
- 
- #define __SYSCALL_DEFINEx(x, name, ...)						\
-@@ -82,6 +79,5 @@
- 	}
- 
- asmlinkage long __arm64_sys_ni_syscall(const struct pt_regs *__unused);
--#define SYS_NI(name) SYSCALL_ALIAS(__arm64_sys_##name, sys_ni_posix_timers);
- 
- #endif /* __ASM_SYSCALL_WRAPPER_H */
-diff --git a/arch/riscv/include/asm/syscall_wrapper.h b/arch/riscv/include/asm/syscall_wrapper.h
-index 1d7942c8a6cba..eeec04b7dae67 100644
---- a/arch/riscv/include/asm/syscall_wrapper.h
-+++ b/arch/riscv/include/asm/syscall_wrapper.h
-@@ -46,9 +46,6 @@ asmlinkage long __riscv_sys_ni_syscall(const struct pt_regs *);
- 		return sys_ni_syscall();						\
- 	}
- 
--#define COMPAT_SYS_NI(name) \
--	SYSCALL_ALIAS(__riscv_compat_sys_##name, sys_ni_posix_timers);
--
- #endif /* CONFIG_COMPAT */
- 
- #define __SYSCALL_DEFINEx(x, name, ...)						\
-@@ -82,6 +79,4 @@ asmlinkage long __riscv_sys_ni_syscall(const struct pt_regs *);
- 		return sys_ni_syscall();					\
- 	}
- 
--#define SYS_NI(name) SYSCALL_ALIAS(__riscv_sys_##name, sys_ni_posix_timers);
--
- #endif /* __ASM_SYSCALL_WRAPPER_H */
-diff --git a/arch/s390/include/asm/syscall_wrapper.h b/arch/s390/include/asm/syscall_wrapper.h
-index 9286430fe7290..35c1d1b860d88 100644
---- a/arch/s390/include/asm/syscall_wrapper.h
-+++ b/arch/s390/include/asm/syscall_wrapper.h
-@@ -63,10 +63,6 @@
- 	cond_syscall(__s390x_sys_##name);				\
- 	cond_syscall(__s390_sys_##name)
- 
--#define SYS_NI(name)							\
--	SYSCALL_ALIAS(__s390x_sys_##name, sys_ni_posix_timers);		\
--	SYSCALL_ALIAS(__s390_sys_##name, sys_ni_posix_timers)
--
- #define COMPAT_SYSCALL_DEFINEx(x, name, ...)						\
- 	long __s390_compat_sys##name(struct pt_regs *regs);				\
- 	ALLOW_ERROR_INJECTION(__s390_compat_sys##name, ERRNO);				\
-@@ -85,15 +81,11 @@
- 
- /*
-  * As some compat syscalls may not be implemented, we need to expand
-- * COND_SYSCALL_COMPAT in kernel/sys_ni.c and COMPAT_SYS_NI in
-- * kernel/time/posix-stubs.c to cover this case as well.
-+ * COND_SYSCALL_COMPAT in kernel/sys_ni.c to cover this case as well.
-  */
- #define COND_SYSCALL_COMPAT(name)					\
- 	cond_syscall(__s390_compat_sys_##name)
- 
--#define COMPAT_SYS_NI(name)						\
--	SYSCALL_ALIAS(__s390_compat_sys_##name, sys_ni_posix_timers)
--
- #define __S390_SYS_STUBx(x, name, ...)						\
- 	long __s390_sys##name(struct pt_regs *regs);				\
- 	ALLOW_ERROR_INJECTION(__s390_sys##name, ERRNO);				\
-@@ -124,9 +116,6 @@
- #define COND_SYSCALL(name)						\
- 	cond_syscall(__s390x_sys_##name)
- 
--#define SYS_NI(name)							\
--	SYSCALL_ALIAS(__s390x_sys_##name, sys_ni_posix_timers)
--
- #define __S390_SYS_STUBx(x, fullname, name, ...)
- 
- #endif /* CONFIG_COMPAT */
-diff --git a/arch/x86/include/asm/syscall_wrapper.h b/arch/x86/include/asm/syscall_wrapper.h
-index fd2669b1cb2d9..21f9407be5d35 100644
---- a/arch/x86/include/asm/syscall_wrapper.h
-+++ b/arch/x86/include/asm/syscall_wrapper.h
-@@ -86,9 +86,6 @@ extern long __ia32_sys_ni_syscall(const struct pt_regs *regs);
- 		return sys_ni_syscall();				\
- 	}
- 
--#define __SYS_NI(abi, name)						\
--	SYSCALL_ALIAS(__##abi##_##name, sys_ni_posix_timers);
--
- #ifdef CONFIG_X86_64
- #define __X64_SYS_STUB0(name)						\
- 	__SYS_STUB0(x64, sys_##name)
-@@ -100,13 +97,10 @@ extern long __ia32_sys_ni_syscall(const struct pt_regs *regs);
- #define __X64_COND_SYSCALL(name)					\
- 	__COND_SYSCALL(x64, sys_##name)
- 
--#define __X64_SYS_NI(name)						\
--	__SYS_NI(x64, sys_##name)
- #else /* CONFIG_X86_64 */
- #define __X64_SYS_STUB0(name)
- #define __X64_SYS_STUBx(x, name, ...)
- #define __X64_COND_SYSCALL(name)
--#define __X64_SYS_NI(name)
- #endif /* CONFIG_X86_64 */
- 
- #if defined(CONFIG_X86_32) || defined(CONFIG_IA32_EMULATION)
-@@ -120,13 +114,10 @@ extern long __ia32_sys_ni_syscall(const struct pt_regs *regs);
- #define __IA32_COND_SYSCALL(name)					\
- 	__COND_SYSCALL(ia32, sys_##name)
- 
--#define __IA32_SYS_NI(name)						\
--	__SYS_NI(ia32, sys_##name)
- #else /* CONFIG_X86_32 || CONFIG_IA32_EMULATION */
- #define __IA32_SYS_STUB0(name)
- #define __IA32_SYS_STUBx(x, name, ...)
- #define __IA32_COND_SYSCALL(name)
--#define __IA32_SYS_NI(name)
- #endif /* CONFIG_X86_32 || CONFIG_IA32_EMULATION */
- 
- #ifdef CONFIG_IA32_EMULATION
-@@ -135,8 +126,7 @@ extern long __ia32_sys_ni_syscall(const struct pt_regs *regs);
-  * additional wrappers (aptly named __ia32_sys_xyzzy) which decode the
-  * ia32 regs in the proper order for shared or "common" syscalls. As some
-  * syscalls may not be implemented, we need to expand COND_SYSCALL in
-- * kernel/sys_ni.c and SYS_NI in kernel/time/posix-stubs.c to cover this
-- * case as well.
-+ * kernel/sys_ni.c to cover this case as well.
-  */
- #define __IA32_COMPAT_SYS_STUB0(name)					\
- 	__SYS_STUB0(ia32, compat_sys_##name)
-@@ -148,14 +138,10 @@ extern long __ia32_sys_ni_syscall(const struct pt_regs *regs);
- #define __IA32_COMPAT_COND_SYSCALL(name)				\
- 	__COND_SYSCALL(ia32, compat_sys_##name)
- 
--#define __IA32_COMPAT_SYS_NI(name)					\
--	__SYS_NI(ia32, compat_sys_##name)
--
- #else /* CONFIG_IA32_EMULATION */
- #define __IA32_COMPAT_SYS_STUB0(name)
- #define __IA32_COMPAT_SYS_STUBx(x, name, ...)
- #define __IA32_COMPAT_COND_SYSCALL(name)
--#define __IA32_COMPAT_SYS_NI(name)
- #endif /* CONFIG_IA32_EMULATION */
- 
- 
-@@ -175,13 +161,10 @@ extern long __ia32_sys_ni_syscall(const struct pt_regs *regs);
- #define __X32_COMPAT_COND_SYSCALL(name)					\
- 	__COND_SYSCALL(x64, compat_sys_##name)
- 
--#define __X32_COMPAT_SYS_NI(name)					\
--	__SYS_NI(x64, compat_sys_##name)
- #else /* CONFIG_X86_X32_ABI */
- #define __X32_COMPAT_SYS_STUB0(name)
- #define __X32_COMPAT_SYS_STUBx(x, name, ...)
- #define __X32_COMPAT_COND_SYSCALL(name)
--#define __X32_COMPAT_SYS_NI(name)
- #endif /* CONFIG_X86_X32_ABI */
- 
- 
-@@ -212,17 +195,12 @@ extern long __ia32_sys_ni_syscall(const struct pt_regs *regs);
- 
- /*
-  * As some compat syscalls may not be implemented, we need to expand
-- * COND_SYSCALL_COMPAT in kernel/sys_ni.c and COMPAT_SYS_NI in
-- * kernel/time/posix-stubs.c to cover this case as well.
-+ * COND_SYSCALL_COMPAT in kernel/sys_ni.c to cover this case as well.
-  */
- #define COND_SYSCALL_COMPAT(name) 					\
- 	__IA32_COMPAT_COND_SYSCALL(name)				\
- 	__X32_COMPAT_COND_SYSCALL(name)
- 
--#define COMPAT_SYS_NI(name)						\
--	__IA32_COMPAT_SYS_NI(name)					\
--	__X32_COMPAT_SYS_NI(name)
--
- #endif /* CONFIG_COMPAT */
- 
- #define __SYSCALL_DEFINEx(x, name, ...)					\
-@@ -243,8 +221,8 @@ extern long __ia32_sys_ni_syscall(const struct pt_regs *regs);
-  * As the generic SYSCALL_DEFINE0() macro does not decode any parameters for
-  * obvious reasons, and passing struct pt_regs *regs to it in %rdi does not
-  * hurt, we only need to re-define it here to keep the naming congruent to
-- * SYSCALL_DEFINEx() -- which is essential for the COND_SYSCALL() and SYS_NI()
-- * macros to work correctly.
-+ * SYSCALL_DEFINEx() -- which is essential for the COND_SYSCALL() macro
-+ * to work correctly.
-  */
- #define SYSCALL_DEFINE0(sname)						\
- 	SYSCALL_METADATA(_##sname, 0);					\
-@@ -257,10 +235,6 @@ extern long __ia32_sys_ni_syscall(const struct pt_regs *regs);
- 	__X64_COND_SYSCALL(name)					\
- 	__IA32_COND_SYSCALL(name)
- 
--#define SYS_NI(name)							\
--	__X64_SYS_NI(name)						\
--	__IA32_SYS_NI(name)
--
- 
- /*
-  * For VSYSCALLS, we need to declare these three syscalls with the new
-diff --git a/kernel/sys_ni.c b/kernel/sys_ni.c
-index e137c1385c569..11c55593a2e91 100644
---- a/kernel/sys_ni.c
-+++ b/kernel/sys_ni.c
-@@ -200,6 +200,20 @@ COND_SYSCALL(recvmmsg_time32);
- COND_SYSCALL_COMPAT(recvmmsg_time32);
- COND_SYSCALL_COMPAT(recvmmsg_time64);
- 
-+/* Posix timer syscalls may be configured out */
-+COND_SYSCALL(timer_create);
-+COND_SYSCALL(timer_gettime);
-+COND_SYSCALL(timer_getoverrun);
-+COND_SYSCALL(timer_settime);
-+COND_SYSCALL(timer_delete);
-+COND_SYSCALL(clock_adjtime);
-+COND_SYSCALL(getitimer);
-+COND_SYSCALL(setitimer);
-+COND_SYSCALL(alarm);
-+COND_SYSCALL_COMPAT(timer_create);
-+COND_SYSCALL_COMPAT(getitimer);
-+COND_SYSCALL_COMPAT(setitimer);
-+
- /*
-  * Architecture specific syscalls: see further below
-  */
-diff --git a/kernel/time/posix-stubs.c b/kernel/time/posix-stubs.c
-index 828aeecbd1e8a..9b6fcb8d85e78 100644
---- a/kernel/time/posix-stubs.c
-+++ b/kernel/time/posix-stubs.c
-@@ -17,40 +17,6 @@
- #include <linux/time_namespace.h>
- #include <linux/compat.h>
- 
--#ifdef CONFIG_ARCH_HAS_SYSCALL_WRAPPER
--/* Architectures may override SYS_NI and COMPAT_SYS_NI */
--#include <asm/syscall_wrapper.h>
--#endif
--
--asmlinkage long sys_ni_posix_timers(void)
--{
--	pr_err_once("process %d (%s) attempted a POSIX timer syscall "
--		    "while CONFIG_POSIX_TIMERS is not set\n",
--		    current->pid, current->comm);
--	return -ENOSYS;
--}
--
--#ifndef SYS_NI
--#define SYS_NI(name)  SYSCALL_ALIAS(sys_##name, sys_ni_posix_timers)
--#endif
--
--#ifndef COMPAT_SYS_NI
--#define COMPAT_SYS_NI(name)  SYSCALL_ALIAS(compat_sys_##name, sys_ni_posix_timers)
--#endif
--
--SYS_NI(timer_create);
--SYS_NI(timer_gettime);
--SYS_NI(timer_getoverrun);
--SYS_NI(timer_settime);
--SYS_NI(timer_delete);
--SYS_NI(clock_adjtime);
--SYS_NI(getitimer);
--SYS_NI(setitimer);
--SYS_NI(clock_adjtime32);
--#ifdef __ARCH_WANT_SYS_ALARM
--SYS_NI(alarm);
--#endif
--
- /*
-  * We preserve minimal support for CLOCK_REALTIME and CLOCK_MONOTONIC
-  * as it is easy to remain compatible with little code. CLOCK_BOOTTIME
-@@ -158,18 +124,7 @@ SYSCALL_DEFINE4(clock_nanosleep, const clockid_t, which_clock, int, flags,
- 				 which_clock);
- }
- 
--#ifdef CONFIG_COMPAT
--COMPAT_SYS_NI(timer_create);
--#endif
--
--#if defined(CONFIG_COMPAT) || defined(CONFIG_ALPHA)
--COMPAT_SYS_NI(getitimer);
--COMPAT_SYS_NI(setitimer);
--#endif
--
- #ifdef CONFIG_COMPAT_32BIT_TIME
--SYS_NI(timer_settime32);
--SYS_NI(timer_gettime32);
- 
- SYSCALL_DEFINE2(clock_settime32, const clockid_t, which_clock,
- 		struct old_timespec32 __user *, tp)
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+U29ycnksIEkgbWlzc2VkIHBlb3BsZSBvbiB0aGUgbGlzdC4KRi5ZLkkKV2FpbWFuIExvbmcgPGxv
+bmdtYW5AcmVkaGF0LmNvbT4KQm9xdW4gRmVuZyA8Ym9xdW4uZmVuZ0BnbWFpbC5jb20+CgpIZXJl
+IGlzIExpbms6Cmh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjMxMjI1MTI1
+ODQ3LjI3Nzg2MzgtMS1ndW9yZW5Aa2VybmVsLm9yZy8KCgpPbiBNb24sIERlYyAyNSwgMjAyMyBh
+dCA4OjU54oCvUE0gPGd1b3JlbkBrZXJuZWwub3JnPiB3cm90ZToKPgo+IEZyb206IEd1byBSZW4g
+PGd1b3JlbkBsaW51eC5hbGliYWJhLmNvbT4KPgo+IHBhdGNoWzEgLSA4XTogTmF0aXZlICAgcXNw
+aW5sb2NrCj4gcGF0Y2hbOSAtMTRdOiBQYXJhdmlydCBxc3BpbmxvY2sKPgo+IFRoaXMgc2VyaWVz
+IGJhc2VkIG9uOgo+ICAtIHY2LjctcmM3Cj4gIC0gUmV3b3JrICYgaW1wcm92ZSByaXNjdiBjbXB4
+Y2hnLmggYW5kIGF0b21pYy5oCj4gICAgaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlz
+Y3YvMjAyMzA4MTAwNDAzNDkuOTIyNzktMi1sZW9icmFzQHJlZGhhdC5jb20vCj4KPiBZb3UgY2Fu
+IGRpcmVjdGx5IHRyeSBpdDoKPiBodHRwczovL2dpdGh1Yi5jb20vZ3VvcmVuODMvbGludXgvdHJl
+ZS9xc3BpbmxvY2tfdjEyCj4KPiBOYXRpdmUgcXNwaW5sb2NrCj4gPT09PT09PT09PT09PT09PQo+
+Cj4gVGhpcyB0aW1lIHdlJ3ZlIHByb3ZlZCB0aGUgcXNwaW5sb2NrIG9uIHRoMTUyMCBbMV0gJiBz
+ZzIwNDIgWzJdLCB3aGljaAo+IGdpdmVzIHN0YWJpbGl0eSBhbmQgcGVyZm9ybWFuY2UgaW1wcm92
+ZW1lbnQuIEFsbCBULUhFQUQgcHJvY2Vzc29ycyBoYXZlCj4gYSBzdHJvbmcgTFIvU0MgZm9yd2Fy
+ZCBwcm9ncmVzcyBndWFyYW50ZWUgdGhhbiB0aGUgcmVxdWlyZW1lbnRzIG9mIHRoZQo+IElTQSwg
+d2hpY2ggY291bGQgc2F0aXNmeSB0aGUgeGNoZ190YWlsIG9mIG5hdGl2ZV9xc3BpbmxvY2suIE5v
+dywKPiBxc3BpbmxvY2sgaGFzIGJlZW4gcnVuIHdpdGggdXMgZm9yIG1vcmUgdGhhbiAxIHllYXIs
+IGFuZCB3ZSBoYXZlIGVub3VnaAo+IGNvbmZpZGVuY2UgdG8gZW5hYmxlIGl0IGZvciBhbGwgdGhl
+IFQtSEVBRCBwcm9jZXNzb3JzLiBPZiBjYXVzZXMsIHdlCj4gZm91bmQgYSBsaXZlbG9jayBwcm9i
+bGVtIHdpdGggdGhlIHFzcGlubG9jayBsb2NrIHRvcnR1cmUgdGVzdCBmcm9tIHRoZQo+IENQVSBz
+dG9yZSBtZXJnZSBidWZmZXIgZGVsYXkgbWVjaGFuaXNtLCB3aGljaCBjYXVzZWQgdGhlIHF1ZXVl
+ZCBzcGlubG9jawo+IGJlY29tZXMgYSBkZWFkIHJpbmcgYW5kIFJDVSB3YXJuaW5nIHRvIGNvbWUg
+b3V0LiBXZSBpbnRyb2R1Y2UgYSBjdXN0b20KPiBXUklURV9PTkNFIHRvIHNvbHZlIHRoaXMsIHdo
+aWNoIHdpbGwgYmUgZml4ZWQgaW4gdGhlIG5leHQgZ2VuZXJhdGlvbiBvZgo+IGhhcmR3YXJlLgo+
+Cj4gV2UndmUgdGVzdGVkIHRoZSBwYXRjaCBvbiBTT1BIR08gc2cyMDQyICYgdGgxNTIwIGFuZCBw
+YXNzZWQgdGhlIHN0cmVzcwo+IHRlc3Qgb24gRmVkb3JhICYgVWJ1bnR1ICYgT3BlbkV1bGVyIC4u
+LiBIZXJlIGlzIHRoZSBwZXJmb3JtYW5jZQo+IGNvbXBhcmlzb24gYmV0d2VlbiBxc3BpbmxvY2sg
+YW5kIHRpY2tldF9sb2NrIG9uIHNnMjA0MiAoNjQgY29yZXMpOgo+Cj4gc3lzYmVuY2ggdGVzdD10
+aHJlYWRzIHRocmVhZHM9MzIgeWllbGRzPTEwMCBsb2NrPTggKCsxMy44JSk6Cj4gICBxdWV1ZWRf
+c3BpbmxvY2sgMC41MTA5LzAuMDAKPiAgIHRpY2tldF9zcGlubG9jayAwLjU4MTQvMC4wMAo+Cj4g
+cGVyZiBmdXRleC9oYXNoICgrNi43JSk6Cj4gICBxdWV1ZWRfc3BpbmxvY2sgMTQ0NDM5MyBvcGVy
+YXRpb25zL3NlYyAoKy0gMC4wOSUpCj4gICB0aWNrZXRfc3BpbmxvY2sgMTM1MzIxNSBvcGVyYXRp
+b25zL3NlYyAoKy0gMC4xNSUpCj4KPiBwZXJmIGZ1dGV4L3dha2UtcGFyYWxsZWwgKCs4LjYlKToK
+PiAgIHF1ZXVlZF9zcGlubG9jayAod2FraW5nIDEvNjQgdGhyZWFkcykgaW4gMC4wMjUzIG1zICgr
+LTIuOTAlKQo+ICAgdGlja2V0X3NwaW5sb2NrICh3YWtpbmcgMS82NCB0aHJlYWRzKSBpbiAwLjAy
+NzUgbXMgKCstMy4xMiUpCj4KPiBwZXJmIGZ1dGV4L3JlcXVldWUgKCs0LjIlKToKPiAgIHF1ZXVl
+ZF9zcGlubG9jayBSZXF1ZXVlZCA2NCBvZiA2NCB0aHJlYWRzIGluIDAuMDc4NSBtcyAoKy0wLjU1
+JSkKPiAgIHRpY2tldF9zcGlubG9jayBSZXF1ZXVlZCA2NCBvZiA2NCB0aHJlYWRzIGluIDAuMDgx
+OCBtcyAoKy00LjEyJSkKPgo+Cj4gU3lzdGVtIEJlbmNobWFya3MgKCs2LjQlKQo+ICAgcXVldWVk
+X3NwaW5sb2NrOgo+ICAgICBTeXN0ZW0gQmVuY2htYXJrcyBJbmRleCBWYWx1ZXMgICAgICAgICAg
+ICAgICBCQVNFTElORSAgICAgICBSRVNVTFQgICAgSU5ERVgKPiAgICAgRGhyeXN0b25lIDIgdXNp
+bmcgcmVnaXN0ZXIgdmFyaWFibGVzICAgICAgICAgMTE2NzAwLjAgIDYyODYxMzc0NS40ICA1Mzg2
+NS44Cj4gICAgIERvdWJsZS1QcmVjaXNpb24gV2hldHN0b25lICAgICAgICAgICAgICAgICAgICAg
+ICA1NS4wICAgICAxODI0MjIuOCAgMzMxNjcuOAo+ICAgICBFeGVjbCBUaHJvdWdocHV0ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgNDMuMCAgICAgIDEzMTE2LjYgICAzMDUwLjQKPiAg
+ICAgRmlsZSBDb3B5IDEwMjQgYnVmc2l6ZSAyMDAwIG1heGJsb2NrcyAgICAgICAgICAzOTYwLjAg
+ICAgNzc2MjMwNi4yICAxOTYwMS44Cj4gICAgIEZpbGUgQ29weSAyNTYgYnVmc2l6ZSA1MDAgbWF4
+YmxvY2tzICAgICAgICAgICAgMTY1NS4wICAgIDM0MTc1NTYuOCAgMjA2NDkuOQo+ICAgICBGaWxl
+IENvcHkgNDA5NiBidWZzaXplIDgwMDAgbWF4YmxvY2tzICAgICAgICAgIDU4MDAuMCAgICA3NDI3
+OTk1LjcgIDEyODA2LjkKPiAgICAgUGlwZSBUaHJvdWdocHV0ICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIDEyNDQwLjAgICAyMzA1ODYwMC41ICAxODUzNS45Cj4gICAgIFBpcGUtYmFzZWQg
+Q29udGV4dCBTd2l0Y2hpbmcgICAgICAgICAgICAgICAgICAgNDAwMC4wICAgIDI4MzU2MTcuNyAg
+IDcwODkuMAo+ICAgICBQcm9jZXNzIENyZWF0aW9uICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAxMjYuMCAgICAgIDEyNTM3LjMgICAgOTk1LjAKPiAgICAgU2hlbGwgU2NyaXB0cyAoMSBj
+b25jdXJyZW50KSAgICAgICAgICAgICAgICAgICAgIDQyLjQgICAgICA1NzA1Ny40ICAxMzQ1Ni45
+Cj4gICAgIFNoZWxsIFNjcmlwdHMgKDggY29uY3VycmVudCkgICAgICAgICAgICAgICAgICAgICAg
+Ni4wICAgICAgIDczNjcuMSAgMTIyNzguNQo+ICAgICBTeXN0ZW0gQ2FsbCBPdmVyaGVhZCAgICAg
+ICAgICAgICAgICAgICAgICAgICAgMTUwMDAuMCAgIDMzMzA4MzAxLjMgIDIyMjA1LjUKPiAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgID09PT09PT09Cj4gICAgIFN5c3RlbSBCZW5jaG1hcmtzIEluZGV4IFNjb3JlICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTI0MjYuMQo+Cj4gICB0aWNrZXRf
+c3BpbmxvY2s6Cj4gICAgIFN5c3RlbSBCZW5jaG1hcmtzIEluZGV4IFZhbHVlcyAgICAgICAgICAg
+ICAgIEJBU0VMSU5FICAgICAgIFJFU1VMVCAgICBJTkRFWAo+ICAgICBEaHJ5c3RvbmUgMiB1c2lu
+ZyByZWdpc3RlciB2YXJpYWJsZXMgICAgICAgICAxMTY3MDAuMCAgNjI2NTQxNzAxLjkgIDUzNjg4
+LjIKPiAgICAgRG91YmxlLVByZWNpc2lvbiBXaGV0c3RvbmUgICAgICAgICAgICAgICAgICAgICAg
+IDU1LjAgICAgIDE4MTkyMS4wICAzMzA3Ni41Cj4gICAgIEV4ZWNsIFRocm91Z2hwdXQgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICA0My4wICAgICAgMTI2MjUuMSAgIDI5MzYuMQo+ICAg
+ICBGaWxlIENvcHkgMTAyNCBidWZzaXplIDIwMDAgbWF4YmxvY2tzICAgICAgICAgIDM5NjAuMCAg
+ICA2NTUzNzkyLjkgIDE2NTUwLjAKPiAgICAgRmlsZSBDb3B5IDI1NiBidWZzaXplIDUwMCBtYXhi
+bG9ja3MgICAgICAgICAgICAxNjU1LjAgICAgMzE4OTIzMS42ICAxOTI3MC4zCj4gICAgIEZpbGUg
+Q29weSA0MDk2IGJ1ZnNpemUgODAwMCBtYXhibG9ja3MgICAgICAgICAgNTgwMC4wICAgIDcyMjEy
+NzcuMCAgMTI0NTAuNQo+ICAgICBQaXBlIFRocm91Z2hwdXQgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgMTI0NDAuMCAgIDIwNTk0MDE4LjcgIDE2NTU0LjcKPiAgICAgUGlwZS1iYXNlZCBD
+b250ZXh0IFN3aXRjaGluZyAgICAgICAgICAgICAgICAgICA0MDAwLjAgICAgMjU3MTExNy43ICAg
+NjQyNy44Cj4gICAgIFByb2Nlc3MgQ3JlYXRpb24gICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIDEyNi4wICAgICAgMTA3OTguNCAgICA4NTcuMAo+ICAgICBTaGVsbCBTY3JpcHRzICgxIGNv
+bmN1cnJlbnQpICAgICAgICAgICAgICAgICAgICAgNDIuNCAgICAgIDU3MjI3LjUgIDEzNDk3LjEK
+PiAgICAgU2hlbGwgU2NyaXB0cyAoOCBjb25jdXJyZW50KSAgICAgICAgICAgICAgICAgICAgICA2
+LjAgICAgICAgNzMyOS4yICAxMjIxNS4zCj4gICAgIFN5c3RlbSBDYWxsIE92ZXJoZWFkICAgICAg
+ICAgICAgICAgICAgICAgICAgICAxNTAwMC4wICAgMzA3NjY3NzguNCAgMjA1MTEuMgo+ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgPT09PT09PT0KPiAgICAgU3lzdGVtIEJlbmNobWFya3MgSW5kZXggU2NvcmUgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxMTY3MC43Cj4KPiBUaGUgcXNwaW5s
+b2NrIGhhcyBhIHNpZ25pZmljYW50IGltcHJvdmVtZW50IG9uIFNPUEhHTyBTRzIwNDIgNjQKPiBj
+b3JlcyBwbGF0Zm9ybSB0aGFuIHRoZSB0aWNrZXRfbG9jay4KPgo+IFBhcmF2aXJ0IHFzcGlubG9j
+awo+ID09PT09PT09PT09PT09PT09PQo+Cj4gV2UgaW1wbGVtZW50ZWQga3ZtX2tpY2tfY3B1L2t2
+bV93YWl0X2NwdSBhbmQgYWRkIHRyYWNlcG9pbnRzIHRvIG9ic2VydmUKPiB0aGUgYmVoYXZpb3Jz
+IGFuZCBpbnRyb2R1Y2UgYSBuZXcgU0JJIGV4dGVuc2lvbiBTQklfRVhUX1BWTE9DSy4KPgo+IENo
+YW5nbG9nOgo+IFYxMjoKPiAgLSBSZW1vdmUgZm9yY2UgdGhlYWQgcXNwaW5sb2NrIHdpdGggZXJy
+YXRhCj4gIC0gU2VwYXJhdGUgWmljYm9wIHBhdGNoIGZyb20gdGhpcyBzZXJpZXMKPiAgLSBSZW1v
+dmUgY3B1cyA+PSAxNiBwYXRjaAo+ICAtIENsZWFudXAgcmViYXNlIGFuZCBtb3ZlIGl0IG9uIHY2
+LjctcmM3Cj4gIC0gUmVvcmRlciB0aGUgY29kaW5nIHN0cnVjdCB3aXRoIHRoZSBsYXN0IHZlcnNp
+b24ncyBhZHZpY2UuCj4KPiBWMTE6Cj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlz
+Y3YvMjAyMzA5MTAwODI5MTEuMzM3ODc4Mi0xLWd1b3JlbkBrZXJuZWwub3JnLwo+ICAtIEJhc2Vk
+IG9uIExlb25hcmRvIEJyYXMncyBjbXB4Y2hnX3NtYWxsIHBhdGNoZXMgdjUuCj4gIC0gQmFzZWQg
+b24gR3VvIFJlbidzIE9wdGltaXplIGFyY2hfc3Bpbl92YWx1ZV91bmxvY2tlZCBwYXRjaCB2My4K
+PiAgLSBSZW1vdmUgYWJ1c2luZyBhbHRlcm5hdGl2ZSBmcmFtZXdvcmsgYW5kIHVzZSBqdW1wX2xh
+YmVsIGluc3RlYWQuCj4gIC0gSW50cm9kdWNlIHByZWZldGNoLncgdG8gaW1wcm92ZSBULUhFQUQg
+cHJvY2Vzc29ycycgTFIvU0MgZm9yd2FyZAo+ICAgIHByb2dyZXNzIGd1YXJhbnRlZS4KPiAgLSBP
+cHRpbWl6ZSBxc3BpbmxvY2sgeGNoZ190YWlsIHdoZW4gTlJfQ1BVUyA+PSAxNksuCj4KPiBWMTA6
+Cj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMzA4MDIxNjQ3MDEuMTky
+NzkxLTEtZ3VvcmVuQGtlcm5lbC5vcmcvCj4gIC0gVXNpbmcgYW4gYWx0ZXJuYXRpdmUgZnJhbWV3
+b3JrIGluc3RlYWQgb2Ygc3RhdGljX2tleV9icmFuY2ggaW4gdGhlCj4gICAgYXNtL3NwaW5sb2Nr
+LmguCj4gIC0gRml4dXAgc3RvcmUgbWVyZ2UgYnVmZmVyIHByb2JsZW0sIHdoaWNoIGNhdXNlcyBx
+c3BpbmxvY2sgbG9jawo+ICAgIHRvcnR1cmUgdGVzdCBsaXZlbG9jay4KPiAgLSBBZGQgcGFyYXZp
+cnQgcXNwaW5sb2NrIHN1cHBvcnQsIGluY2x1ZGUgS1ZNIGJhY2tlbmQKPiAgLSBBZGQgQ29tcGFj
+dCBOVU1BLWF3YXJlZCBxc3BpbmxvY2sgc3VwcG9ydAo+Cj4gVjk6Cj4gaHR0cHM6Ly9sb3JlLmtl
+cm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMjA4MDgwNzEzMTguMzMzNTc0Ni0xLWd1b3JlbkBrZXJu
+ZWwub3JnLwo+ICAtIENsZWFudXAgZ2VuZXJpYyB0aWNrZXQtbG9jayBjb2RlLCAoVXNpbmcgc21w
+X21iX19hZnRlcl9zcGlubG9jayBhcwo+ICAgIFJDc2MpCj4gIC0gQWRkIHFzcGlubG9jayBhbmQg
+Y29tYm8tbG9jayBmb3IgcmlzY3YKPiAgLSBBZGQgcXNwaW5sb2NrIHRvIG9wZW5yaXNjCj4gIC0g
+VXNlIGdlbmVyaWMgaGVhZGVyIGluIGNza3kKPiAgLSBPcHRpbWl6ZSBjbXB4Y2hnICYgYXRvbWlj
+IGNvZGUKPgo+IFY4Ogo+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjIw
+NzI0MTIyNTE3LjEwMTkxODctMS1ndW9yZW5Aa2VybmVsLm9yZy8KPiAgLSBDb2RpbmcgY29udmVu
+dGlvbiB0aWNrZXQgZml4dXAKPiAgLSBNb3ZlIGNvbWJvIHNwaW5sb2NrIGludG8gcmlzY3YgYW5k
+IHNpbXBseSBhc20tZ2VuZXJpYy9zcGlubG9jay5oCj4gIC0gRml4dXAgeGNoZzE2IHdpdGggd3Jv
+bmcgcmV0dXJuIHZhbHVlCj4gIC0gQWRkIGNza3kgcXNwaW5sb2NrCj4gIC0gQWRkIGNvbWJvICYg
+cXNwaW5sb2NrICYgdGlja2V0LWxvY2sgY29tcGFyaXNvbgo+ICAtIENsZWFuIHVwIHVubmVjZXNz
+YXJ5IHJpc2N2IGFjcXVpcmUgYW5kIHJlbGVhc2UgZGVmaW5pdGlvbnMKPiAgLSBFbmFibGUgQVJD
+SF9JTkxJTkVfUkVBRCovV1JJVEUqL1NQSU4qIGZvciByaXNjdiAmIGNza3kKPgo+IFY3Ogo+IGh0
+dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjIwNjI4MDgxOTQ2LjE5OTk0MTkt
+MS1ndW9yZW5Aa2VybmVsLm9yZy8KPiAgLSBBZGQgY29tYm8gc3BpbmxvY2sgKHRpY2tldCAmIHF1
+ZXVlZCkgc3VwcG9ydAo+ICAtIFJlbmFtZSB0aWNrZXRfc3BpbmxvY2suaAo+ICAtIFJlbW92ZSB1
+bm5lY2Vzc2FyeSBhdG9taWNfcmVhZCBpbiB0aWNrZXRfc3Bpbl92YWx1ZV91bmxvY2tlZAo+Cj4g
+VjY6Cj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMjA2MjExNDQ5MjAu
+Mjk0NTU5NS0xLWd1b3JlbkBrZXJuZWwub3JnLwo+ICAtIEZpeHVwIENsYW5nIGNvbXBpbGUgcHJv
+YmxlbSBSZXBvcnRlZC1ieToga2VybmVsIHRlc3Qgcm9ib3QKPiAgLSBDbGVhbnVwIGFzbS1nZW5l
+cmljL3NwaW5sb2NrLmgKPiAgLSBSZW1vdmUgY2hhbmdlbG9nIGluIHBhdGNoIG1haW4gY29tbWVu
+dCBwYXJ0LCBzdWdnZXN0ZWQgYnkKPiAgICBDb25vci5Eb29sZXkKPiAgLSBSZW1vdmUgImRlZmF1
+bHQgeSBpZiBOVU1BIiBpbiBLY29uZmlnCj4KPiBWNToKPiBodHRwczovL2xvcmUua2VybmVsLm9y
+Zy9saW51eC1yaXNjdi8yMDIyMDYyMDE1NTQwNC4xOTY4NzM5LTEtZ3VvcmVuQGtlcm5lbC5vcmcv
+Cj4gIC0gVXBkYXRlIGNvbW1lbnQgd2l0aCBSSVNDLVYgZm9yd2FyZCBndWFyYW50ZWUgZmVhdHVy
+ZS4KPiAgLSBCYWNrIHRvIFYzIGRpcmVjdGlvbiBhbmQgb3B0aW1pemUgYXNtIGNvZGUuCj4KPiBW
+NDoKPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8xNjE2ODY4Mzk5LTgyODQ4
+LTQtZ2l0LXNlbmQtZW1haWwtZ3VvcmVuQGtlcm5lbC5vcmcvCj4gIC0gUmVtb3ZlIGN1c3RvbSBz
+dWItd29yZCB4Y2hnIGltcGxlbWVudGF0aW9uCj4gIC0gQWRkIEFSQ0hfVVNFX1FVRVVFRF9TUElO
+TE9DS1NfWENIRzMyIGluIGxvY2tpbmcvcXNwaW5sb2NrCj4KPiBWMzoKPiBodHRwczovL2xvcmUu
+a2VybmVsLm9yZy9saW51eC1yaXNjdi8xNjE2NjU4OTM3LTgyMDYzLTEtZ2l0LXNlbmQtZW1haWwt
+Z3VvcmVuQGtlcm5lbC5vcmcvCj4gIC0gQ29kaW5nIGNvbnZlbnRpb24gYnkgUGV0ZXIgWmlqbHN0
+cmEncyBhZHZpY2VzCj4KPiBWMjoKPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNj
+di8xNjA2MjI1NDM3LTIyOTQ4LTItZ2l0LXNlbmQtZW1haWwtZ3VvcmVuQGtlcm5lbC5vcmcvCj4g
+IC0gQ29kaW5nIGNvbnZlbnRpb24gaW4gY21weGNoZy5oCj4gIC0gUmUtaW1wbGVtZW50IHNob3J0
+IHhjaGcKPiAgLSBSZW1vdmUgY2hhciAmIGNtcHhjaGcgaW1wbGVtZW50YXRpb25zCj4KPiBWMToK
+PiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDE5MDIxMTA0MzgyOS4zMDA5
+Ni0xLW1pY2hhZWxqY2xhcmtAbWFjLmNvbS8KPiAgLSBVc2luZyBjbXB4Y2hnIGxvb3AgdG8gaW1w
+bGVtZW50IHN1Yi13b3JkIGF0b21pYwo+Cj4gR3VvIFJlbiAoMTQpOgo+ICAgYXNtLWdlbmVyaWM6
+IHRpY2tldC1sb2NrOiBSZXVzZSBhcmNoX3NwaW5sb2NrX3Qgb2YgcXNwaW5sb2NrCj4gICBhc20t
+Z2VuZXJpYzogdGlja2V0LWxvY2s6IEFkZCBzZXBhcmF0ZSB0aWNrZXQtbG9jay5oCj4gICByaXNj
+djogZXJyYXRhOiBNb3ZlIGVycmF0YSB2ZW5kb3IgZnVuYy1pZCBpbnRvIHZlbmRvcmlkX2xpc3Qu
+aAo+ICAgcmlzY3Y6IHFzcGlubG9jazogZXJyYXRhOiBBZGQgRVJSQVRBX1RIRUFEX1dSSVRFX09O
+Q0UgZml4dXAKPiAgIHJpc2N2OiBxc3BpbmxvY2s6IEFkZCBiYXNpYyBxdWV1ZWRfc3BpbmxvY2sg
+c3VwcG9ydAo+ICAgcmlzY3Y6IHFzcGlubG9jazogSW50cm9kdWNlIGNvbWJvIHNwaW5sb2NrCj4g
+ICByaXNjdjogcXNwaW5sb2NrOiBBZGQgdmlydF9zcGluX2xvY2soKSBzdXBwb3J0IGZvciBWTSBn
+dWVzdAo+ICAgcmlzY3Y6IHFzcGlubG9jazogRm9yY2UgdmlydF9zcGluX2xvY2sgZm9yIEtWTSBn
+dWVzdHMKPiAgIFJJU0MtVjogcGFyYXZpcnQ6IEFkZCBwdnFzcGlubG9jayBLVk0gYmFja2VuZAo+
+ICAgUklTQy1WOiBwYXJhdmlydDogQWRkIHB2cXNwaW5sb2NrIGZyb250ZW5kIHNrZWxldG9uCj4g
+ICBSSVNDLVY6IHBhcmF2aXJ0OiBwdnFzcGlubG9jazogQWRkIFNCSSBpbXBsZW1lbnRhdGlvbgo+
+ICAgUklTQy1WOiBwYXJhdmlydDogcHZxc3BpbmxvY2s6IEFkZCBub3B2c3BpbiBrZXJuZWwgcGFy
+YW1ldGVyCj4gICBSSVNDLVY6IHBhcmF2aXJ0OiBwdnFzcGlubG9jazogQWRkIGtjb25maWcgZW50
+cnkKPiAgIFJJU0MtVjogcGFyYXZpcnQ6IHB2cXNwaW5sb2NrOiBBZGQgdHJhY2UgcG9pbnQgZm9y
+IHB2X2tpY2svd2FpdAo+Cj4gIC4uLi9hZG1pbi1ndWlkZS9rZXJuZWwtcGFyYW1ldGVycy50eHQg
+ICAgICAgICB8ICAgOCArLQo+ICBhcmNoL3Jpc2N2L0tjb25maWcgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgfCAgMzUgKysrKysrCj4gIGFyY2gvcmlzY3YvS2NvbmZpZy5lcnJhdGEgICAgICAg
+ICAgICAgICAgICAgICB8ICAxOSArKysrCj4gIGFyY2gvcmlzY3YvZXJyYXRhL3RoZWFkL2VycmF0
+YS5jICAgICAgICAgICAgICB8ICAyMCArKysrCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vS2J1
+aWxkICAgICAgICAgICAgICAgICB8ICAgMyArLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Vy
+cmF0YV9saXN0LmggICAgICAgICAgfCAgMTggLS0tCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20v
+a3ZtX3ZjcHVfc2JpLmggICAgICAgICB8ICAgMSArCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20v
+cXNwaW5sb2NrLmggICAgICAgICAgICB8ICAzNSArKysrKysKPiAgYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS9xc3BpbmxvY2tfcGFyYXZpcnQuaCAgIHwgIDI5ICsrKysrCj4gIGFyY2gvcmlzY3YvaW5j
+bHVkZS9hc20vcndvbmNlLmggICAgICAgICAgICAgICB8ICAzMSArKysrKysKPiAgYXJjaC9yaXNj
+di9pbmNsdWRlL2FzbS9zYmkuaCAgICAgICAgICAgICAgICAgIHwgIDE0ICsrKwo+ICBhcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL3NwaW5sb2NrLmggICAgICAgICAgICAgfCAgODggKysrKysrKysrKysr
+KysrCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmVuZG9yaWRfbGlzdC5oICAgICAgICB8ICAx
+OSArKysrCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS91YXBpL2FzbS9rdm0uaCAgICAgICAgICAgICB8
+ICAgMSArCj4gIGFyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxlICAgICAgICAgICAgICAgICAgICB8
+ICAgMSArCj4gIGFyY2gvcmlzY3Yva2VybmVsL3FzcGlubG9ja19wYXJhdmlydC5jICAgICAgICB8
+ICA4MyArKysrKysrKysrKysrKwo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9zYmkuYyAgICAgICAgICAg
+ICAgICAgICAgICAgfCAgIDIgKy0KPiAgYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYyAgICAgICAg
+ICAgICAgICAgICAgIHwgIDY4ICsrKysrKysrKysrKwo+ICAuLi4va2VybmVsL3RyYWNlX2V2ZW50
+c19maWx0ZXJfcGFyYXZpcnQuaCAgICAgfCAgNjAgKysrKysrKysrKwo+ICBhcmNoL3Jpc2N2L2t2
+bS9NYWtlZmlsZSAgICAgICAgICAgICAgICAgICAgICAgfCAgIDEgKwo+ICBhcmNoL3Jpc2N2L2t2
+bS92Y3B1X3NiaS5jICAgICAgICAgICAgICAgICAgICAgfCAgIDQgKwo+ICBhcmNoL3Jpc2N2L2t2
+bS92Y3B1X3NiaV9wdmxvY2suYyAgICAgICAgICAgICAgfCAgNTcgKysrKysrKysrKwo+ICBpbmNs
+dWRlL2FzbS1nZW5lcmljL3FzcGlubG9jay5oICAgICAgICAgICAgICAgfCAgIDIgKwo+ICBpbmNs
+dWRlL2FzbS1nZW5lcmljL3J3b25jZS5oICAgICAgICAgICAgICAgICAgfCAgIDIgKwo+ICBpbmNs
+dWRlL2FzbS1nZW5lcmljL3NwaW5sb2NrLmggICAgICAgICAgICAgICAgfCAgODcgKy0tLS0tLS0t
+LS0tLS0tCj4gIGluY2x1ZGUvYXNtLWdlbmVyaWMvc3BpbmxvY2tfdHlwZXMuaCAgICAgICAgICB8
+ICAxMiArLQo+ICBpbmNsdWRlL2FzbS1nZW5lcmljL3RpY2tldF9zcGlubG9jay5oICAgICAgICAg
+fCAxMDUgKysrKysrKysrKysrKysrKysrCj4gIDI3IGZpbGVzIGNoYW5nZWQsIDY4OCBpbnNlcnRp
+b25zKCspLCAxMTcgZGVsZXRpb25zKC0pCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL3FzcGlubG9jay5oCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL3FzcGlubG9ja19wYXJhdmlydC5oCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBh
+cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3J3b25jZS5oCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL3NwaW5sb2NrLmgKPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gv
+cmlzY3Yva2VybmVsL3FzcGlubG9ja19wYXJhdmlydC5jCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBh
+cmNoL3Jpc2N2L2tlcm5lbC90cmFjZV9ldmVudHNfZmlsdGVyX3BhcmF2aXJ0LmgKPiAgY3JlYXRl
+IG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yva3ZtL3ZjcHVfc2JpX3B2bG9jay5jCj4gIGNyZWF0ZSBt
+b2RlIDEwMDY0NCBpbmNsdWRlL2FzbS1nZW5lcmljL3RpY2tldF9zcGlubG9jay5oCj4KPiAtLQo+
+IDIuNDAuMQo+Cj4KCgotLQpCZXN0IFJlZ2FyZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
