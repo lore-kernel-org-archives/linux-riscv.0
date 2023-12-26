@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8111C46CD3
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Dec 2023 13:35:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6333C46CD3
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Dec 2023 13:36:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MuN0QRI9GDAHUGNgpn0lJDc7INCehw0L0LDYDLtV2u8=; b=2JMbKK3D/hJcq3
-	T47KbO3/M/y5GAvb4ECBUgz8w7QXtEoL5m0AQM6TkwcxjDZSzkAnMg5jAX/bW/AG4097VLaiIwNHK
-	Tk3RKhT5JeCDqtlCc3ti6MEXmRgV3NN+pfgv6PG96Jq63OIxiXKFJc5shD2YxJvELoTIAHkDTTt5q
-	2MLphVT2ZkwgWyCtnYCP27SMTktUkI6ec1/w4YCwjrtnsk48JK84vTAOZ4EisLedHiP2N9KuHIwoY
-	Vx331xTwfQ5DDTICfC0xcZ5EMYWTCLsJexFbJrikp3K4GODBIUpiM93b2LpCx73ksmobRxsCD6yqz
-	ycT9A/k/Bhas/XXUNvnQ==;
+	List-Owner; bh=+cgRTXFZR6m+C9xbrQtW9ivAkD3DrTZxtg5n5H3nnfs=; b=iBrZx3OFPpdUH4
+	s54JwQfTtuPooOYdNG2vMP/g7r0YKzoRxpJXo8pMQFCS2QAD5+3gJUmZ+EBr4wyB4UCUyPdMzitip
+	2urSh9I2BVd9hjdMLexG18bkXo2ZLo01P8dfs074ZmJIwp8LYJdgvDXxbvgogggCP6TAL43plUA44
+	FK4ai5wSAlca+bpTU8PZr+8VTw2WPVOzQe7givOw1nHiZTSmbnquCMwbSWKFuLge09K67hAXWiWVu
+	9mNYmGLxnnI0yFQ1G6twOzK1Bnf8szSVZr7LFkZ6CnfmcenR3s17xMYEZeTxK+HbdOPaKBIevjPSd
+	FJ2fiM6mamFE6pnqo7Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rI7ad-00D6oV-1E;
-	Tue, 26 Dec 2023 13:35:23 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1rI7bO-00D70a-0z;
+	Tue, 26 Dec 2023 13:36:10 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rI7aZ-00D6nN-0n
+	id 1rI7bM-00D6zT-0f
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Dec 2023 13:35:21 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-55504b5fd28so920958a12.1
-        for <linux-riscv@lists.infradead.org>; Tue, 26 Dec 2023 05:35:17 -0800 (PST)
+	Tue, 26 Dec 2023 13:36:09 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5553cc31f1cso227837a12.1
+        for <linux-riscv@lists.infradead.org>; Tue, 26 Dec 2023 05:36:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1703597716; x=1704202516; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1703597765; x=1704202565; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=/leuMy390pCJHEiKigUMFo2ju3v+lN35r3GSFHwmf8k=;
-        b=merZHY72DDKxZMs2bV0ITxMInJ6yW4RaYi8IjaloKGbRY8mN24THWimhThLjgEP7tR
-         eFqufN6soa730ErX4l1n/ZyJlenXbkBkK/xjdGU1UqDi2IaCJn2sxAarOctc0QoPYc5b
-         ohp+kbm3HxMYd9QPM+XyDoSApu8dGGtHK6bHyy4d+MwuoEz+b6fww3OcVBJBaCfRTyLE
-         G9wMK2X7BLTDA/05xgGJhpCBiZCaexO2SGKncl3AjP2aO3FCbhxJ2lxdgtL3V5kferKp
-         qq0FzJlf/LGVJgbyI6+hdcJhb8kbb63nVfRKa7SAXk6B3PpUxQz5aaRBMB/5fPzFrCtl
-         OXEA==
+        bh=IVP0wKVUymjYV0June2XnLJlww6SnjdgekhGFBD4e8Q=;
+        b=yH4VLMbZUN5hydSshOg9d/v5SEbxkpBJT/bIYKX1pcbEAwNUrTAxPfo0ru1p8IrBBF
+         X/nGl5Wj0LjU+496ErnwuSf0tbJL9b4a/LeiBdun6vedvPOLJ2qqfo9ZqrbGMFD7F26q
+         4nwFbF43wRQOIPvld/8YzehzDU+C9FluvCCE6mDdzomC0+nLZIrLKXnuULTTaBM6Q+1L
+         +TC0eIWHi68ShyzAS8x93ElUAvhEcYBMAXqi6sBMC5glhtG6RpaMgLxhJlybXtfse6ef
+         s3ILWQhqOkFghfJBSG8+cx5uw2faKs10IFXjRkYWfX+K9A/4mwPxZbppUT0keu0Eo8KZ
+         70/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1703597716; x=1704202516;
+        d=1e100.net; s=20230601; t=1703597765; x=1704202565;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/leuMy390pCJHEiKigUMFo2ju3v+lN35r3GSFHwmf8k=;
-        b=lZLQ9wWUb4j+TJv5bt/JSGEWvvykXLo86DJsQfB4/T2DUhNlmlrY5L2Za//bbv7/aI
-         sXPVsVbJP+v4f++9m3QoVOyIqXFuxD+gCJNeToCm3lxUTFi0Bxs3AXI4O7W2ag+mZj3h
-         VNMezPLBillrADIDa5CdhBj1HGcVqSDkaa09N46O4qFJCts+uM6oqqIpTO6xmM5YbZnI
-         SVvCPF7D3CiUviTwZiKOEONO6WYNSxRfYiJE3mGGkdn+JcxtRR3cBBaRL9INnOR3haZP
-         6jZxakKdNynrGygWIQjcpt1zQwmwjrSIf51qapDaImaVDgXBaB1MOJ7+dls03OyG0ShE
-         iq6g==
-X-Gm-Message-State: AOJu0YzvTab1Ldeug4+7QaYyE1VKSaJNnY8rJQJu7tJbsM4OQbaEHAyW
-	/JjBbRWzp2Hz72hikiufDz+p7wpJpLMgWw==
-X-Google-Smtp-Source: AGHT+IFQb5JUc/QyGSNU+FOza12f6JMdgh0rPUBRF0/XM3PYbiBZRoBtXydHn+jARR0iLWgiMIoJ6g==
-X-Received: by 2002:a17:907:1047:b0:a1f:7298:aa25 with SMTP id oy7-20020a170907104700b00a1f7298aa25mr3331644ejb.45.1703597716529;
-        Tue, 26 Dec 2023 05:35:16 -0800 (PST)
+        bh=IVP0wKVUymjYV0June2XnLJlww6SnjdgekhGFBD4e8Q=;
+        b=fQI95Dhl/U+g0gM0t1VtUxeoiTVBrtNv6DGR2ClfK+KtHtCfBjZxT/HdLXffA+6M/i
+         XCbt+VGSPRUFK5ZFHCtqjmriQ5mlBRzeCfcT9lJYI75EVxufPQPjL2IPzDPS1gGADSfK
+         ETZ0j2NfDNJg2cFLbJAe/qewt6r4QJpsvvmbycAFtyK5cuQ9Mck3M/MiDZzaHZTBMyAQ
+         XpNpzq/gz0iVeyTyoJ7ZT863X1n7ziNI8fxmfpYZggQmAuhu7t4uTiQvAKDKqrzJXIYV
+         yPD5plJeNfCT0DgVL/yFsFi3HArQt6DM9E3Meex3a1YSqbmjxm+lK5viVoLRQDdlKT6S
+         ORrA==
+X-Gm-Message-State: AOJu0Yxiog6GmQbiyZT6FJu/4mNzFx0/EEzvQUp6XdyyTy/BU8FLQXNu
+	rHTfKPUvqlU8h3N/LNWZftrJAovcmX/xNg==
+X-Google-Smtp-Source: AGHT+IFRQMniv58iOHPtTOcTqDHdywoLlMZSMZ9SCeqD3F+xPvb8IWga00YGiRhXSmVkBr9EmnWCIQ==
+X-Received: by 2002:a17:907:cc9a:b0:a23:6459:c3c5 with SMTP id up26-20020a170907cc9a00b00a236459c3c5mr5581763ejc.43.1703597765673;
+        Tue, 26 Dec 2023 05:36:05 -0800 (PST)
 Received: from [192.168.0.22] ([78.10.206.178])
-        by smtp.gmail.com with ESMTPSA id t14-20020a170906608e00b00a26f20fa719sm1782924ejj.220.2023.12.26.05.35.15
+        by smtp.gmail.com with ESMTPSA id t14-20020a170906608e00b00a26f20fa719sm1782924ejj.220.2023.12.26.05.36.04
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 26 Dec 2023 05:35:16 -0800 (PST)
-Message-ID: <238ffafd-32ef-4da3-8528-c5a29755e015@linaro.org>
-Date: Tue, 26 Dec 2023 14:35:15 +0100
+        Tue, 26 Dec 2023 05:36:05 -0800 (PST)
+Message-ID: <7aab379d-8446-485e-a00e-57fdf61e11f2@linaro.org>
+Date: Tue, 26 Dec 2023 14:36:04 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC 07/16] dt-bindings: clock: Add StarFive JH8100 North-West
+Subject: Re: [RFC 09/16] dt-bindings: clock: Add StarFive JH8100 North-East
  clock and reset generator
 Content-Language: en-US
 To: Sia Jee Heng <jeeheng.sia@starfivetech.com>, kernel@esmil.dk,
@@ -79,7 +79,7 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
  leyfoon.tan@starfivetech.com
 References: <20231226053848.25089-1-jeeheng.sia@starfivetech.com>
- <20231226053848.25089-8-jeeheng.sia@starfivetech.com>
+ <20231226053848.25089-10-jeeheng.sia@starfivetech.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -125,9 +125,9 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20231226053848.25089-8-jeeheng.sia@starfivetech.com>
+In-Reply-To: <20231226053848.25089-10-jeeheng.sia@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231226_053520_625123_C8B94E2F 
+X-CRM114-CacheID: sfid-20231226_053608_255368_6F43E7B8 
 X-CRM114-Status: UNSURE (   5.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -147,13 +147,12 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 26/12/2023 06:38, Sia Jee Heng wrote:
-> Add bindings for the North-West clock and reset generator (NWCRG) on
+> Add bindings for the North-East clock and reset generator (NECRG) on
 > JH8100 SoC.
 > 
 > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
 > ---
-
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
