@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D740C46CD3
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Dec 2023 05:40:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40793C46CD4
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Dec 2023 05:40:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8KX/WyzZYCl8STR2euhuBsncrNGefxlf+84WevNV9vw=; b=0zKM2rV0ihG6Tp
-	q/cOZ65TtmJKyy8S5y3Sl4Adza833jfQ/TGc3hDwHOp+VcvGt4KqVpxx9KFYWtvS+4094ljqhcFVV
-	cJ3yE2/ds1djRzh3kRrtsx4lsJP8HmY+5E6LCrdWbJVTKskUeaYaMZk2gGnAn0pGK2P1YUQpjMicN
-	A8dwOXI9RAieqm38fk8wcRgEEXT+ZY/Vywmf0PHofZkBDGB1fgmp+TZEFnenLtUsO2ddWWNprZ0OR
-	aZGJ/v075MkTPElqsCb5lNhB8upd4VbiO149xqvLoitDl7Hji93rVa3ZBfbjyFSZ8qwkgcIIadk4O
-	7wP+VKSAMWbWaejj2Rpg==;
+	List-Owner; bh=1t5ko7FR9wpNwBb8SivvShbNL4k5Dd6Nh0lSFZ0VC2k=; b=rra2aHHXCJBlOh
+	aMzyYnpz5E2ubchznquhcjOONhxACvZ4wX5suSLwGB+Xz9mdd27C/jak/cSW83DIZ3Q7YANeyWYWC
+	/0E8jeZP1qmrtg6STHqV1ar5K5LnMa5j67ndy+RNd70XK+NgL4jmPqXdm/E1rjdw/awkcgTR2U9Ek
+	q9wEyxgQpa0xkGiS2AH6wcK079SBn5nDU1tTpJd0EF1Y9QWBuRpaQC1sw7JPNO0AE4DKCrB55O9I1
+	vF/e5H4wf+5z51oOhMQwJN2V+97kYSGhAlk8xkZaJ6CpUNWFA/iXArfOSfC12dyS+eGitHn8I66om
+	qVhysT0d0X68L7mXvnZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rI0AY-00Bizs-2k;
-	Tue, 26 Dec 2023 05:39:58 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1rI0Aa-00Bj0Z-0c;
+	Tue, 26 Dec 2023 05:40:00 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rI0AU-00BisK-1n
+	id 1rI0AU-00Biwt-18
 	for linux-riscv@lists.infradead.org;
 	Tue, 26 Dec 2023 05:39:57 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id B98868043;
-	Tue, 26 Dec 2023 13:39:22 +0800 (CST)
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 26 Dec
- 2023 13:39:22 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id EB80724E28B;
+	Tue, 26 Dec 2023 13:39:42 +0800 (CST)
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 26 Dec
+ 2023 13:39:42 +0800
 Received: from jsia-virtual-machine.localdomain (202.188.176.82) by
  EXMBX066.cuchost.com (172.16.6.66) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Tue, 26 Dec 2023 13:39:16 +0800
+ 15.0.1497.42; Tue, 26 Dec 2023 13:39:36 +0800
 From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
 	<krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
@@ -48,9 +48,9 @@ To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
 CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
 	<jeeheng.sia@starfivetech.com>, <leyfoon.tan@starfivetech.com>
-Subject: [RFC 03/16] clk: starfive: Rename file name "jh71x0" to "common"
-Date: Tue, 26 Dec 2023 13:38:35 +0800
-Message-ID: <20231226053848.25089-4-jeeheng.sia@starfivetech.com>
+Subject: [RFC 06/16] clk: starfive: Add JH8100 System clock generator driver
+Date: Tue, 26 Dec 2023 13:38:38 +0800
+Message-ID: <20231226053848.25089-7-jeeheng.sia@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20231226053848.25089-1-jeeheng.sia@starfivetech.com>
 References: <20231226053848.25089-1-jeeheng.sia@starfivetech.com>
@@ -60,8 +60,8 @@ X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX066.cuchost.com
  (172.16.6.66)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231225_213955_115917_934FE3B5 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20231225_213954_847181_E643340D 
+X-CRM114-Status: GOOD (  14.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,153 +78,505 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-StarFive JH8100 shares a similar clock and reset design with JH7110.
-To facilitate the reuse of the file and its functionalities, files
-containing the "jh71x0" naming convention are renamed to use the
-"common" wording.
+Add support for JH8100 System clock generator (SYSCRG).
 
 Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
 Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 ---
- drivers/clk/starfive/Kconfig                              | 8 ++++----
- drivers/clk/starfive/Makefile                             | 2 +-
- .../{clk-starfive-jh71x0.c => clk-starfive-common.c}      | 4 ++--
- .../{clk-starfive-jh71x0.h => clk-starfive-common.h}      | 4 ++--
- drivers/clk/starfive/clk-starfive-jh7100-audio.c          | 2 +-
- drivers/clk/starfive/clk-starfive-jh7100.c                | 2 +-
- drivers/clk/starfive/clk-starfive-jh7110.h                | 2 +-
- 7 files changed, 12 insertions(+), 12 deletions(-)
- rename drivers/clk/starfive/{clk-starfive-jh71x0.c => clk-starfive-common.c} (99%)
- rename drivers/clk/starfive/{clk-starfive-jh71x0.h => clk-starfive-common.h} (97%)
+ MAINTAINERS                                   |   8 +
+ drivers/clk/starfive/Kconfig                  |  10 +
+ drivers/clk/starfive/Makefile                 |   2 +
+ .../clk/starfive/clk-starfive-jh8100-sys.c    | 415 ++++++++++++++++++
+ drivers/clk/starfive/clk-starfive-jh8100.h    |  11 +
+ 5 files changed, 446 insertions(+)
+ create mode 100644 drivers/clk/starfive/clk-starfive-jh8100-sys.c
+ create mode 100644 drivers/clk/starfive/clk-starfive-jh8100.h
 
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 7cef2d2ef8d7..1ea4a694ed31 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20684,6 +20684,14 @@ F:	Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
+ F:	drivers/phy/starfive/phy-jh7110-pcie.c
+ F:	drivers/phy/starfive/phy-jh7110-usb.c
+ 
++STARFIVE JH8100 CLOCK DRIVERS
++M:	Sia Jee Heng <jeeheng.sia@starfivetech.com>
++M:	Ley Foon Tan <leyfoon.tan@starfivetech.com>
++S:	Maintained
++F:	Documentation/devicetree/bindings/clock/starfive,jh81*.yaml
++F:	drivers/clk/starfive/clk-starfive-jh81*
++F:	include/dt-bindings/clock/starfive?jh81*.h
++
+ STATIC BRANCH/CALL
+ M:	Peter Zijlstra <peterz@infradead.org>
+ M:	Josh Poimboeuf <jpoimboe@kernel.org>
 diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
-index bd29358ffeec..ff8eace36e64 100644
+index ff8eace36e64..1dddf1415360 100644
 --- a/drivers/clk/starfive/Kconfig
 +++ b/drivers/clk/starfive/Kconfig
-@@ -1,12 +1,12 @@
- # SPDX-License-Identifier: GPL-2.0
- 
--config CLK_STARFIVE_JH71X0
-+config CLK_STARFIVE_COMMON
- 	bool
- 
- config CLK_STARFIVE_JH7100
- 	bool "StarFive JH7100 clock support"
- 	depends on ARCH_STARFIVE || COMPILE_TEST
--	select CLK_STARFIVE_JH71X0
-+	select CLK_STARFIVE_COMMON
- 	default ARCH_STARFIVE
+@@ -72,3 +72,13 @@ config CLK_STARFIVE_JH7110_VOUT
  	help
- 	  Say yes here to support the clock controller on the StarFive JH7100
-@@ -15,7 +15,7 @@ config CLK_STARFIVE_JH7100
- config CLK_STARFIVE_JH7100_AUDIO
- 	tristate "StarFive JH7100 audio clock support"
- 	depends on CLK_STARFIVE_JH7100
--	select CLK_STARFIVE_JH71X0
+ 	  Say yes here to support the Video-Output clock controller
+ 	  on the StarFive JH7110 SoC.
++
++config CLK_STARFIVE_JH8100_SYS
++	bool "StarFive JH8100 System clock support"
++	depends on SOC_STARFIVE || COMPILE_TEST
++	select AUXILIARY_BUS
 +	select CLK_STARFIVE_COMMON
- 	default m if ARCH_STARFIVE
- 	help
- 	  Say Y or M here to support the audio clocks on the StarFive JH7100
-@@ -33,7 +33,7 @@ config CLK_STARFIVE_JH7110_SYS
- 	bool "StarFive JH7110 system clock support"
- 	depends on ARCH_STARFIVE || COMPILE_TEST
- 	select AUXILIARY_BUS
--	select CLK_STARFIVE_JH71X0
-+	select CLK_STARFIVE_COMMON
- 	select RESET_STARFIVE_JH7110 if RESET_CONTROLLER
- 	select CLK_STARFIVE_JH7110_PLL
- 	default ARCH_STARFIVE
++	default ARCH_STARFIVE
++	help
++	  Say yes here to support the System clock controller on the StarFive JH8100 SoC.
++
 diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
-index 199ac0f37a2f..012f7ee83f8e 100644
+index 012f7ee83f8e..af6903c4f987 100644
 --- a/drivers/clk/starfive/Makefile
 +++ b/drivers/clk/starfive/Makefile
-@@ -1,5 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
--obj-$(CONFIG_CLK_STARFIVE_JH71X0)	+= clk-starfive-jh71x0.o
-+obj-$(CONFIG_CLK_STARFIVE_COMMON)	+= clk-starfive-common.o
- 
- obj-$(CONFIG_CLK_STARFIVE_JH7100)	+= clk-starfive-jh7100.o
- obj-$(CONFIG_CLK_STARFIVE_JH7100_AUDIO)	+= clk-starfive-jh7100-audio.o
-diff --git a/drivers/clk/starfive/clk-starfive-jh71x0.c b/drivers/clk/starfive/clk-starfive-common.c
-similarity index 99%
-rename from drivers/clk/starfive/clk-starfive-jh71x0.c
-rename to drivers/clk/starfive/clk-starfive-common.c
-index aebc99264a0b..a12490c97957 100644
---- a/drivers/clk/starfive/clk-starfive-jh71x0.c
-+++ b/drivers/clk/starfive/clk-starfive-common.c
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0
- /*
-- * StarFive JH71X0 Clock Generator Driver
-+ * StarFive Clock Generator Driver
-  *
-  * Copyright (C) 2021-2022 Emil Renner Berthing <kernel@esmil.dk>
-  */
-@@ -10,7 +10,7 @@
- #include <linux/device.h>
- #include <linux/io.h>
- 
--#include "clk-starfive-jh71x0.h"
+@@ -10,3 +10,5 @@ obj-$(CONFIG_CLK_STARFIVE_JH7110_AON)	+= clk-starfive-jh7110-aon.o
+ obj-$(CONFIG_CLK_STARFIVE_JH7110_STG)	+= clk-starfive-jh7110-stg.o
+ obj-$(CONFIG_CLK_STARFIVE_JH7110_ISP)	+= clk-starfive-jh7110-isp.o
+ obj-$(CONFIG_CLK_STARFIVE_JH7110_VOUT)	+= clk-starfive-jh7110-vout.o
++
++obj-$(CONFIG_CLK_STARFIVE_JH8100_SYS)	+= clk-starfive-jh8100-sys.o
+diff --git a/drivers/clk/starfive/clk-starfive-jh8100-sys.c b/drivers/clk/starfive/clk-starfive-jh8100-sys.c
+new file mode 100644
+index 000000000000..6d7e750dce82
+--- /dev/null
++++ b/drivers/clk/starfive/clk-starfive-jh8100-sys.c
+@@ -0,0 +1,415 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * StarFive JH8100 System Clock Driver
++ *
++ * Copyright (C) 2023 StarFive Technology Co., Ltd.
++ *
++ * Author: Jee Heng Sia <jeeheng.sia@starfivetech.com>
++ *
++ */
++
++#include <linux/clk.h>
++#include <linux/auxiliary_bus.h>
++#include <linux/clk-provider.h>
++#include <linux/init.h>
++#include <linux/io.h>
++#include <linux/platform_device.h>
++#include <linux/slab.h>
++
++#include <soc/starfive/reset-starfive-common.h>
++
++#include <dt-bindings/clock/starfive,jh8100-crg.h>
++
++#include "clk-starfive-jh8100.h"
++
++#define JH8100_SYSCLK_NUM_CLKS			(JH8100_SYSCLK_NNE_ICG_EN + 1)
++
++/* external clocks */
++#define JH8100_SYSCLK_OSC			(JH8100_SYSCLK_NUM_CLKS + 0)
++#define JH8100_SYSCLK_MCLK_EXT			(JH8100_SYSCLK_NUM_CLKS + 1)
++#define JH8100_SYSCLK_PLL0_OUT			(JH8100_SYSCLK_NUM_CLKS + 2)
++#define JH8100_SYSCLK_PLL1_OUT			(JH8100_SYSCLK_NUM_CLKS + 3)
++#define JH8100_SYSCLK_PLL2_OUT			(JH8100_SYSCLK_NUM_CLKS + 4)
++#define JH8100_SYSCLK_PLL3_OUT			(JH8100_SYSCLK_NUM_CLKS + 5)
++#define JH8100_SYSCLK_PLL4_OUT			(JH8100_SYSCLK_NUM_CLKS + 6)
++#define JH8100_SYSCLK_PLL6_OUT			(JH8100_SYSCLK_NUM_CLKS + 7)
++#define JH8100_SYSCLK_PLL7_OUT			(JH8100_SYSCLK_NUM_CLKS + 8)
++
++static const struct starfive_clk_data jh8100_syscrg_clk_data[] __initconst = {
++	/* root */
++	STARFIVE__DIV(JH8100_SYSCLK_VDEC_ROOT_PREOSC, "vdec_root_preosc", 10,
++		      JH8100_SYSCLK_PLL7_OUT),
++	STARFIVE__MUX(JH8100_SYSCLK_VDEC_ROOT, "vdec_root", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_VDEC_ROOT_PREOSC),
++	STARFIVE__DIV(JH8100_SYSCLK_VENC_ROOT_PREOSC, "venc_root_preosc", 10,
++		      JH8100_SYSCLK_PLL7_OUT),
++	STARFIVE__MUX(JH8100_SYSCLK_VENC_ROOT, "venc_root", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_VENC_ROOT_PREOSC),
++	STARFIVE__DIV(JH8100_SYSCLK_GPU_ROOT, "gpu_root", 7,
++		      JH8100_SYSCLK_PLL0_OUT),
++	STARFIVE__MUX(JH8100_SYSCLK_GPU_CORE, "gpu_core", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_GPU_ROOT),
++	STARFIVE__DIV(JH8100_SYSCLK_VOUT_ROOT0_PREOSC, "vout_root0_preosc", 127,
++		      JH8100_SYSCLK_PLL1_OUT),
++	STARFIVE__MUX(JH8100_SYSCLK_VOUT_ROOT0, "vout_root0", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_VOUT_ROOT0_PREOSC),
++	STARFIVE__DIV(JH8100_SYSCLK_VOUT_ROOT1_PREOSC, "vout_root1_preosc", 127,
++		      JH8100_SYSCLK_PLL6_OUT),
++	STARFIVE__MUX(JH8100_SYSCLK_VOUT_ROOT1, "vout_root1", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_VOUT_ROOT1_PREOSC),
++	STARFIVE__DIV(JH8100_SYSCLK_VOUT_SCAN_ATS, "vout_scan_ats", 6,
++		      JH8100_SYSCLK_PLL3_OUT),
++	STARFIVE__DIV(JH8100_SYSCLK_PERH_ROOT_PREOSC, "perh_root_preosc", 4,
++		      JH8100_SYSCLK_PLL0_OUT),
++	STARFIVE__MUX(JH8100_SYSCLK_PERH_ROOT, "perh_root", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_PERH_ROOT_PREOSC),
++	STARFIVE__DIV(JH8100_SYSCLK_AXI_200_PREOSC, "axi_200_preosc", 4,
++		      JH8100_SYSCLK_PLL0_OUT),
++	STARFIVE__MUX(JH8100_SYSCLK_AXI_200, "axi_200", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_AXI_200_PREOSC),
++	STARFIVE__MUX(JH8100_SYSCLK_AXI_200_GMAC, "axi_200_gmac", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_AXI_200_PREOSC),
++	STARFIVE__DIV(JH8100_SYSCLK_AXI_500_PREOSC, "axi_500_preosc", 10,
++		      JH8100_SYSCLK_PLL0_OUT),
++	STARFIVE__MUX(JH8100_SYSCLK_AXI_500, "axi_500", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_AXI_500_PREOSC),
++	STARFIVE__MUX(JH8100_SYSCLK_AXI_500_PCIEX1A, "axi_500_pciex1a", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_AXI_500_PREOSC),
++	STARFIVE__MUX(JH8100_SYSCLK_AXI_500_PCIEX1B, "axi_500_pciex1b", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_AXI_500_PREOSC),
++	STARFIVE__MUX(JH8100_SYSCLK_AXI_500_PCIEX2, "axi_500_pciex2", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_AXI_500_PREOSC),
++	STARFIVE__MUX(JH8100_SYSCLK_AXI_500_PCIEX8, "axi_500_pciex8", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_AXI_500_PREOSC),
++	STARFIVE__DIV(JH8100_SYSCLK_AXI_400_PREOSC, "axi_400_preosc", 10,
++		      JH8100_SYSCLK_PLL0_OUT),
++	STARFIVE__MUX(JH8100_SYSCLK_AXI_400, "axi_400", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_AXI_400_PREOSC),
++	STARFIVE__MUX(JH8100_SYSCLK_AXI_400_APBOOTRAM, "axi_400_apbootram", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_AXI_400_PREOSC),
++	STARFIVE__DIV(JH8100_SYSCLK_AXI_125_PREOSC, "axi_125_preosc", 32,
++		      JH8100_SYSCLK_PLL0_OUT),
++	STARFIVE__MUX(JH8100_SYSCLK_AXI_125, "axi_125", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_AXI_125_PREOSC),
++	STARFIVE__DIV(JH8100_SYSCLK_AHB0_PREOSC, "ahb0_preosc", 15,
++		      JH8100_SYSCLK_PLL0_OUT),
++	STARFIVE__MUX(JH8100_SYSCLK_AHB0, "ahb0", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_AHB0_PREOSC),
++	STARFIVE__DIV(JH8100_SYSCLK_APB_BUS_FUNC, "apb_bus_func", 30,
++		      JH8100_SYSCLK_PLL0_OUT),
++	STARFIVE__MUX(JH8100_SYSCLK_APB_BUS, "apb_bus", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_APB_BUS_FUNC),
++	STARFIVE__MUX(JH8100_SYSCLK_APB_BUS_PER0, "apb_bus_per0", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_APB_BUS_FUNC),
++	STARFIVE__MUX(JH8100_SYSCLK_APB_BUS_PER1, "apb_bus_per1", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_APB_BUS_FUNC),
++	STARFIVE__MUX(JH8100_SYSCLK_APB_BUS_PER2, "apb_bus_per2", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_APB_BUS_FUNC),
++	STARFIVE__MUX(JH8100_SYSCLK_APB_BUS_PER3, "apb_bus_per3", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_APB_BUS_FUNC),
++	STARFIVE__MUX(JH8100_SYSCLK_APB_BUS_PER4, "apb_bus_per4", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_APB_BUS_FUNC),
++	STARFIVE__MUX(JH8100_SYSCLK_APB_BUS_PER5, "apb_bus_per5", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_APB_BUS_FUNC),
++	STARFIVE__MUX(JH8100_SYSCLK_APB_BUS_PER6, "apb_bus_per6", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_APB_BUS_FUNC),
++	STARFIVE__MUX(JH8100_SYSCLK_APB_BUS_PER7, "apb_bus_per7", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_APB_BUS_FUNC),
++	STARFIVE__MUX(JH8100_SYSCLK_APB_BUS_PER8, "apb_bus_per8", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_APB_BUS_FUNC),
++	STARFIVE__MUX(JH8100_SYSCLK_APB_BUS_PER9, "apb_bus_per9", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_APB_BUS_FUNC),
++	STARFIVE__MUX(JH8100_SYSCLK_APB_BUS_PER10, "apb_bus_per10", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_APB_BUS_FUNC),
++	STARFIVE__MUX(JH8100_SYSCLK_SPI_CORE_100, "spi_core_100", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_APB_BUS_FUNC),
++	STARFIVE__DIV(JH8100_SYSCLK_PLL1_DIV2, "pll1_div2", 2,
++		      JH8100_SYSCLK_PLL1_OUT),
++	STARFIVE__DIV(JH8100_SYSCLK_PLL2_DIV2, "pll2_div2", 2,
++		      JH8100_SYSCLK_PLL2_OUT),
++	STARFIVE__DIV(JH8100_SYSCLK_PLL3_DIV2, "pll3_div2", 2,
++		      JH8100_SYSCLK_PLL3_OUT),
++	STARFIVE__DIV(JH8100_SYSCLK_PLL4_DIV2, "pll4_div2", 2,
++		      JH8100_SYSCLK_PLL4_OUT),
++	STARFIVE__DIV(JH8100_SYSCLK_PLL6_DIV2, "pll6_div2", 2,
++		      JH8100_SYSCLK_PLL6_OUT),
++	STARFIVE__DIV(JH8100_SYSCLK_PLL7_DIV2, "pll7_div2", 2,
++		      JH8100_SYSCLK_PLL7_OUT),
++	STARFIVE__DIV(JH8100_SYSCLK_AUDIO_ROOT, "audio_root", 8,
++		      JH8100_SYSCLK_PLL2_OUT),
++	STARFIVE__DIV(JH8100_SYSCLK_MCLK_INNER, "mclk_inner", 64,
++		      JH8100_SYSCLK_AUDIO_ROOT),
++	STARFIVE__MUX(JH8100_SYSCLK_MCLK, "mclk", 2,
++		      JH8100_SYSCLK_MCLK_INNER, JH8100_SYSCLK_MCLK_EXT),
++	STARFIVE_GATE(JH8100_SYSCLK_MCLK_OUT, "mclk_out", 0,
++		      JH8100_SYSCLK_MCLK_INNER),
++	STARFIVE_MDIV(JH8100_SYSCLK_ISP_2X_PREOSC, "isp_2x_preosc", 8, 2,
++		      JH8100_SYSCLK_PLL7_OUT, JH8100_SYSCLK_PLL0_OUT),
++	STARFIVE__MUX(JH8100_SYSCLK_ISP_2X, "isp_2x", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_ISP_2X_PREOSC),
++	STARFIVE__DIV(JH8100_SYSCLK_ISP_AXI, "isp_axi", 4,
++		      JH8100_SYSCLK_ISP_2X),
++	STARFIVE_GDIV(JH8100_SYSCLK_GCLK1, "gclk1", CLK_IS_CRITICAL, 120,
++		      JH8100_SYSCLK_PLL1_DIV2),
++	STARFIVE_GDIV(JH8100_SYSCLK_GCLK2, "gclk2", CLK_IS_CRITICAL, 120,
++		      JH8100_SYSCLK_PLL2_DIV2),
++	STARFIVE_GDIV(JH8100_SYSCLK_GCLK3, "gclk3", CLK_IS_CRITICAL, 120,
++		      JH8100_SYSCLK_PLL3_DIV2),
++	STARFIVE_GDIV(JH8100_SYSCLK_GCLK4, "gclk4", CLK_IS_CRITICAL, 120,
++		      JH8100_SYSCLK_PLL4_DIV2),
++	STARFIVE_GDIV(JH8100_SYSCLK_GCLK6, "gclk6", CLK_IS_CRITICAL, 120,
++		      JH8100_SYSCLK_PLL6_DIV2),
++	STARFIVE_GDIV(JH8100_SYSCLK_GCLK7, "gclk7", CLK_IS_CRITICAL, 120,
++		      JH8100_SYSCLK_PLL7_DIV2),
++	/* flexnoc (se) */
++	STARFIVE__DIV(JH8100_SYSCLK_FLEXNOC0_PREOSC, "flexnoc0_preosc", 8,
++		      JH8100_SYSCLK_PLL0_OUT),
++	STARFIVE__MUX(JH8100_SYSCLK_FLEXNOC0, "flexnoc0", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_FLEXNOC0_PREOSC),
++	STARFIVE__DIV(JH8100_SYSCLK_FLEXNOC1_PREOSC, "flexnoc1_preosc", 8,
++		      JH8100_SYSCLK_PLL0_OUT),
++	STARFIVE__MUX(JH8100_SYSCLK_FLEXNOC1, "flexnoc1", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_FLEXNOC1_PREOSC),
++	STARFIVE__DIV(JH8100_SYSCLK_FLEXNOC2_PREOSC, "flexnoc2_preosc", 12,
++		      JH8100_SYSCLK_PLL0_OUT),
++	STARFIVE__MUX(JH8100_SYSCLK_FLEXNOC2, "flexnoc2", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_FLEXNOC2_PREOSC),
++	STARFIVE__MUX(JH8100_SYSCLK_VDEC_CORE, "vdec_core", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_FLEXNOC1_PREOSC),
++	/* img_gpu (se) */
++	STARFIVE_GATE(JH8100_SYSCLK_GPU_CORE_ICG, "gpu_core_icg", 0,
++		      JH8100_SYSCLK_GPU_CORE),
++	STARFIVE_GATE(JH8100_SYSCLK_IMG_GPU_CLK_APB, "img_gpu_clk_apb", 0,
++		      JH8100_SYSCLK_APB_BUS_PER7),
++	STARFIVE_GATE(JH8100_SYSCLK_IMG_GPU_RTC_TOGGLE, "img_gpu_rtc_toggle", 0,
++		      JH8100_SYSCLK_OSC),
++	STARFIVE_GATE(JH8100_SYSCLK_IMG_GPU_TIMER_USC, "img_gpu_timer_usc", 0,
++		      JH8100_SYSCLK_OSC),
++	/* hifi4 (se) */
++	STARFIVE__DIV(JH8100_SYSCLK_HIFI4_CORE_PREOSC, "hifi4_core_preosc", 15,
++		      JH8100_SYSCLK_PLL0_OUT),
++	STARFIVE__MUX(JH8100_SYSCLK_HIFI4_CORE, "hifi4_core", 2,
++		      JH8100_SYSCLK_OSC, JH8100_SYSCLK_HIFI4_CORE_PREOSC),
++	STARFIVE__DIV(JH8100_SYSCLK_E_200_PREOSC, "e_200_preosc", 2,
++		      JH8100_SYSCLK_PLL0_OUT),
++	STARFIVE__MUX(JH8100_SYSCLK_E_200, "e_200", 2, JH8100_SYSCLK_OSC,
++		      JH8100_SYSCLK_E_200_PREOSC),
++	/* hd audio */
++	STARFIVE__DIV(JH8100_SYSCLK_HD_AUDIO_48M, "hd_audio_48m", 80,
++		      JH8100_SYSCLK_PLL7_OUT),
++	/* dom vout */
++	STARFIVE__DIV(JH8100_SYSCLK_VOUT_DC_CORE, "vout_dc_core", 10,
++		      JH8100_SYSCLK_PLL7_OUT),
++	STARFIVE__DIV(JH8100_SYSCLK_VOUT_AXI, "vout_axi", 10,
++		      JH8100_SYSCLK_PLL7_OUT),
++	/* stg2_usb_wrap (se) */
++	STARFIVE__DIV(JH8100_SYSCLK_USB_WRAP_625, "usb_wrap_625", 6,
++		      JH8100_SYSCLK_PLL0_OUT),
++	STARFIVE__DIV(JH8100_SYSCLK_USB_WRAP_480, "usb_wrap_480", 8,
++		      JH8100_SYSCLK_PLL0_OUT),
++	STARFIVE__DIV(JH8100_SYSCLK_USB_WRAP_240, "usb_wrap_240", 2,
++		      JH8100_SYSCLK_USB_WRAP_480),
++	STARFIVE__DIV(JH8100_SYSCLK_USB_WRAP_60, "usb_wrap_60", 10,
++		      JH8100_SYSCLK_USB_WRAP_480),
++	STARFIVE__DIV(JH8100_SYSCLK_USB_WRAP_156P25, "usb_wrap_156p25", 4,
++		      JH8100_SYSCLK_USB_WRAP_625),
++	STARFIVE__DIV(JH8100_SYSCLK_USB_WRAP_312P5, "usb_wrap_312p5", 2,
++		      JH8100_SYSCLK_USB_WRAP_625),
++	/* stg */
++	STARFIVE__DIV(JH8100_SYSCLK_USB_125M, "usb_125m", 32,
++		      JH8100_SYSCLK_PLL0_OUT),
++	/* Flexnoc (se) */
++	STARFIVE_GATE(JH8100_SYSCLK_FLEXNOC_APBOOTRAM, "flexnoc_apbootram", CLK_IS_CRITICAL,
++		      JH8100_SYSCLK_AXI_400_APBOOTRAM),
++	STARFIVE_GATE(JH8100_SYSCLK_FLEXNOC_PCIEX1AMST, "flexnoc_pciex1amst", CLK_IS_CRITICAL,
++		      JH8100_SYSCLK_AXI_500_PCIEX1A),
++	STARFIVE_GATE(JH8100_SYSCLK_FLEXNOC_PCIEX1ASLV, "flexnoc_pciex1aslv", CLK_IS_CRITICAL,
++		      JH8100_SYSCLK_AXI_500_PCIEX1A),
++	STARFIVE_GATE(JH8100_SYSCLK_FLEXNOC_PCIEX1BMST, "flexnoc_pciex1bmst", CLK_IS_CRITICAL,
++		      JH8100_SYSCLK_AXI_500_PCIEX1B),
++	STARFIVE_GATE(JH8100_SYSCLK_FLEXNOC_PCIEX1BSLV, "flexnoc_pciex1bslv", CLK_IS_CRITICAL,
++		      JH8100_SYSCLK_AXI_500_PCIEX1B),
++	STARFIVE_GATE(JH8100_SYSCLK_FLEXNOC_PCIEX2MST, "flexnoc_pciex2mst", CLK_IS_CRITICAL,
++		      JH8100_SYSCLK_AXI_500_PCIEX2),
++	STARFIVE_GATE(JH8100_SYSCLK_FLEXNOC_PCIEX2SLV, "flexnoc_pciex2slv", CLK_IS_CRITICAL,
++		      JH8100_SYSCLK_AXI_500_PCIEX2),
++	STARFIVE_GATE(JH8100_SYSCLK_FLEXNOC_PCIEX8MST, "flexnoc_pciex8mst", CLK_IS_CRITICAL,
++		      JH8100_SYSCLK_AXI_500_PCIEX8),
++	STARFIVE_GATE(JH8100_SYSCLK_FLEXNOC_PCIEX8SLV, "flexnoc_pciex8slv", CLK_IS_CRITICAL,
++		      JH8100_SYSCLK_AXI_500_PCIEX8),
++	STARFIVE_GATE(JH8100_SYSCLK_FLEXNOC_GMACSYSSLV, "flexnoc_gmacsysslv", CLK_IS_CRITICAL,
++		      JH8100_SYSCLK_AXI_200_GMAC),
++	/* gmac1 (se) */
++	STARFIVE__DIV(JH8100_SYSCLK_GMAC_SRC, "gmac_src", 7,
++		      JH8100_SYSCLK_PLL0_OUT),
++	STARFIVE__DIV(JH8100_SYSCLK_GMAC1_GTXCLK_TOP, "gmac1_gtxclk_top", 400,
++		      JH8100_SYSCLK_PLL0_OUT),
++	STARFIVE__DIV(JH8100_SYSCLK_GMAC1_PTP, "gmac1_ptp", 31,
++		      JH8100_SYSCLK_GMAC_SRC),
++	/* hd audio */
++	STARFIVE_GATE(JH8100_SYSCLK_HD_AUDIO_SYSTEM_CLOCK, "hd_audio_system_clock", 0,
++		      JH8100_SYSCLK_APB_BUS_PER7),
++	STARFIVE_GATE(JH8100_SYSCLK_HD_AUDIO_CLOCK_48, "hd_audio_clock_48", 0,
++		      JH8100_SYSCLK_HD_AUDIO_48M),
++	STARFIVE_GATE(JH8100_SYSCLK_HD_AUDIO_BCLK_POST_OCC_IN, "hd_audio_bclk_post_occ_in", 0,
++		      JH8100_SYSCLK_HD_AUDIO_48M),
++	/* nne_vip (se) */
++	STARFIVE_GATE(JH8100_SYSCLK_NNE_VIP_ACLK, "nne_vip_aclk", 0, JH8100_SYSCLK_AXI_500),
++	STARFIVE_GATE(JH8100_SYSCLK_NNE_VIP_HCLK, "nne_vip_hclk", 0, JH8100_SYSCLK_AXI_200),
++	STARFIVE_GMUX(JH8100_SYSCLK_NNE_VIP_CLKCORE, "nne_vip_clkcore", 0, 2,
++		      JH8100_SYSCLK_PLL2_OUT, JH8100_SYSCLK_PLL0_OUT),
++	/* icg_en */
++	STARFIVE_GATE(JH8100_SYSCLK_GPU_ICG_EN, "gpu_en", 0, JH8100_SYSCLK_GPU_CORE),
++	STARFIVE_GATE(JH8100_SYSCLK_HD_AUDIO_ICG_EN, "hd_audio_en", 0, JH8100_SYSCLK_APB_BUS),
++	STARFIVE_GATE(JH8100_SYSCLK_NNE_ICG_EN, "nne_en", CLK_IGNORE_UNUSED,
++		      JH8100_SYSCLK_PLL2_OUT),
++};
++
++static struct clk_hw *jh8100_sysclk_get(struct of_phandle_args *clkspec, void *data)
++{
++	struct starfive_clk_priv *priv = data;
++	unsigned int idx = clkspec->args[0];
++
++	if (idx < JH8100_SYSCLK_NUM_CLKS)
++		return &priv->reg[idx].hw;
++
++	return ERR_PTR(-EINVAL);
++}
++
++static void jh8100_reset_unregister_adev(void *_adev)
++{
++	struct auxiliary_device *adev = _adev;
++
++	auxiliary_device_delete(adev);
++	auxiliary_device_uninit(adev);
++}
++
++static void jh8100_reset_adev_release(struct device *dev)
++{
++	struct auxiliary_device *adev = to_auxiliary_dev(dev);
++	struct starfive_reset_adev *rdev = to_starfive_reset_adev(adev);
++
++	kfree(rdev);
++}
++
++int jh8100_reset_controller_register(struct starfive_clk_priv *priv,
++				     const char *adev_name,
++				     u32 adev_id)
++{
++	struct starfive_reset_adev *rdev;
++	struct auxiliary_device *adev;
++	int ret;
++
++	rdev = kzalloc(sizeof(*rdev), GFP_KERNEL);
++	if (!rdev)
++		return -ENOMEM;
++
++	rdev->base = priv->base;
++
++	adev = &rdev->adev;
++	adev->name = adev_name;
++	adev->dev.parent = priv->dev;
++	adev->dev.release = jh8100_reset_adev_release;
++	adev->id = adev_id;
++
++	ret = auxiliary_device_init(adev);
++	if (ret)
++		return ret;
++
++	ret = auxiliary_device_add(adev);
++	if (ret) {
++		auxiliary_device_uninit(adev);
++		return ret;
++	}
++
++	return devm_add_action_or_reset(priv->dev,
++					jh8100_reset_unregister_adev, adev);
++}
++EXPORT_SYMBOL_GPL(jh8100_reset_controller_register);
++
++static int __init jh8100_syscrg_probe(struct platform_device *pdev)
++{
++	struct starfive_clk_priv *priv;
++	unsigned int idx;
++	int ret;
++
++	priv = devm_kzalloc(&pdev->dev,
++			    struct_size(priv, reg, JH8100_SYSCLK_NUM_CLKS),
++			    GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++
++	spin_lock_init(&priv->rmw_lock);
++	priv->dev = &pdev->dev;
++	priv->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(priv->base))
++		return PTR_ERR(priv->base);
++
++	for (idx = 0; idx < JH8100_SYSCLK_NUM_CLKS; idx++) {
++		u32 max = jh8100_syscrg_clk_data[idx].max;
++		struct clk_parent_data parents[4] = {};
++		struct clk_init_data init = {
++			.name = jh8100_syscrg_clk_data[idx].name,
++			.ops = starfive_clk_ops(max),
++			.parent_data = parents,
++			.num_parents =
++				((max & STARFIVE_CLK_MUX_MASK) >> STARFIVE_CLK_MUX_SHIFT) + 1,
++			.flags = jh8100_syscrg_clk_data[idx].flags,
++		};
++		struct starfive_clk *clk = &priv->reg[idx];
++		unsigned int i;
++
++		for (i = 0; i < init.num_parents; i++) {
++			unsigned int pidx = jh8100_syscrg_clk_data[idx].parents[i];
++
++			if (pidx < JH8100_SYSCLK_NUM_CLKS)
++				parents[i].hw = &priv->reg[pidx].hw;
++			else if (pidx == JH8100_SYSCLK_OSC)
++				parents[i].fw_name = "osc";
++			else if (pidx == JH8100_SYSCLK_MCLK_EXT)
++				parents[i].fw_name = "mclk-ext";
++			else if (pidx == JH8100_SYSCLK_PLL0_OUT)
++				parents[i].fw_name = "pll0";
++			else if (pidx == JH8100_SYSCLK_PLL1_OUT)
++				parents[i].fw_name = "pll1";
++			else if (pidx == JH8100_SYSCLK_PLL2_OUT)
++				parents[i].fw_name = "pll2";
++			else if (pidx == JH8100_SYSCLK_PLL3_OUT)
++				parents[i].fw_name = "pll3";
++			else if (pidx == JH8100_SYSCLK_PLL4_OUT)
++				parents[i].fw_name = "pll4";
++			else if (pidx == JH8100_SYSCLK_PLL6_OUT)
++				parents[i].fw_name = "pll6";
++			else
++				parents[i].fw_name = "pll7";
++		}
++
++		clk->hw.init = &init;
++		clk->idx = idx;
++		clk->max_div = max & STARFIVE_CLK_DIV_MASK;
++
++		ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
++		if (ret)
++			return ret;
++	}
++
++	ret = devm_of_clk_add_hw_provider(&pdev->dev, jh8100_sysclk_get, priv);
++	if (ret)
++		return ret;
++
++	return jh8100_reset_controller_register(priv, "rst-sys", 0);
++}
++
++static const struct of_device_id jh8100_syscrg_match[] = {
++	{ .compatible = "starfive,jh8100-syscrg" },
++	{ /* sentinel */ }
++};
++
++static struct platform_driver jh8100_syscrg_driver = {
++	.driver = {
++		.name = "clk-starfive-jh8100-sys",
++		.of_match_table = jh8100_syscrg_match,
++		.suppress_bind_attrs = true,
++	},
++};
++builtin_platform_driver_probe(jh8100_syscrg_driver, jh8100_syscrg_probe);
+diff --git a/drivers/clk/starfive/clk-starfive-jh8100.h b/drivers/clk/starfive/clk-starfive-jh8100.h
+new file mode 100644
+index 000000000000..9b69a56fe5fc
+--- /dev/null
++++ b/drivers/clk/starfive/clk-starfive-jh8100.h
+@@ -0,0 +1,11 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __CLK_STARFIVE_JH8100_H
++#define __CLK_STARFIVE_JH8100_H
++
 +#include "clk-starfive-common.h"
- 
- static struct jh71x0_clk *jh71x0_clk_from(struct clk_hw *hw)
- {
-diff --git a/drivers/clk/starfive/clk-starfive-jh71x0.h b/drivers/clk/starfive/clk-starfive-common.h
-similarity index 97%
-rename from drivers/clk/starfive/clk-starfive-jh71x0.h
-rename to drivers/clk/starfive/clk-starfive-common.h
-index 34bb11c72eb7..1f32f7024e9f 100644
---- a/drivers/clk/starfive/clk-starfive-jh71x0.h
-+++ b/drivers/clk/starfive/clk-starfive-common.h
-@@ -1,6 +1,6 @@
- /* SPDX-License-Identifier: GPL-2.0 */
--#ifndef __CLK_STARFIVE_JH71X0_H
--#define __CLK_STARFIVE_JH71X0_H
-+#ifndef __CLK_STARFIVE_COMMON_H
-+#define __CLK_STARFIVE_COMMON_H
- 
- #include <linux/bits.h>
- #include <linux/clk-provider.h>
-diff --git a/drivers/clk/starfive/clk-starfive-jh7100-audio.c b/drivers/clk/starfive/clk-starfive-jh7100-audio.c
-index ee4bda14a40e..dc4c278606d7 100644
---- a/drivers/clk/starfive/clk-starfive-jh7100-audio.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7100-audio.c
-@@ -15,7 +15,7 @@
- 
- #include <dt-bindings/clock/starfive-jh7100-audio.h>
- 
--#include "clk-starfive-jh71x0.h"
-+#include "clk-starfive-common.h"
- 
- /* external clocks */
- #define JH7100_AUDCLK_AUDIO_SRC			(JH7100_AUDCLK_END + 0)
-diff --git a/drivers/clk/starfive/clk-starfive-jh7100.c b/drivers/clk/starfive/clk-starfive-jh7100.c
-index 69cc11ea7e33..6bb6a6af9f28 100644
---- a/drivers/clk/starfive/clk-starfive-jh7100.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7100.c
-@@ -15,7 +15,7 @@
- 
- #include <dt-bindings/clock/starfive-jh7100.h>
- 
--#include "clk-starfive-jh71x0.h"
-+#include "clk-starfive-common.h"
- 
- /* external clocks */
- #define JH7100_CLK_OSC_SYS		(JH7100_CLK_END + 0)
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110.h b/drivers/clk/starfive/clk-starfive-jh7110.h
-index 0659adae4d76..6b1bdf860f00 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110.h
-+++ b/drivers/clk/starfive/clk-starfive-jh7110.h
-@@ -2,7 +2,7 @@
- #ifndef __CLK_STARFIVE_JH7110_H
- #define __CLK_STARFIVE_JH7110_H
- 
--#include "clk-starfive-jh71x0.h"
-+#include "clk-starfive-common.h"
- 
- /* top clocks of ISP/VOUT domain from JH7110 SYSCRG */
- struct jh7110_top_sysclk {
++
++int jh8100_reset_controller_register(struct starfive_clk_priv *priv,
++				     const char *adev_name,
++				     u32 adev_id);
++
++#endif
 -- 
 2.34.1
 
