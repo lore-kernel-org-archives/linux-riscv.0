@@ -4,91 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C079C46CD3
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Dec 2023 05:37:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3CAAC46CD3
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Dec 2023 05:39:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AqQvLVgvyYQk1/4u2FpgPJgWU2gRNSS/WlY82z7L3cs=; b=P2KEnWDprPFPyU
-	Yua+SzdFTwRcmCRYxjwz4cjv7EMrCwWz5dhnl50TQ0v0l1qPs2Og00agLaNWhkkM2UaBNQWz0RynI
-	1gtTj7CCNoNbj3SFVHYjQIAUnJupcz58rcd5tw3uA/HVNo2hAwHSRORh+IzHjpsg1DayHT2SY4+sM
-	dmRuEcQDZbXoTcBkuyRW1N9oD2URzPH3m3ISwaNzGJqcnDTrInjXe5fayHpb/032X4z0IgO9Cgh1R
-	Up0C6Gy+K8PyWWqjFDCiCFlA5qw6vb1eN0pYGwVPUSiE9Un5Ji+LhtXmHWv1W68YcAy3ZadLNCN8J
-	+Fqnqm8qQkBuAbe1dpDQ==;
+	List-Owner; bh=cZvDOYevu+y+J0R4PAMbb8yDN0b6nz1oEIWazfbpMZE=; b=YhA15WVxtyCMBI
+	9Z6GDTqkPROD+/wnZBYrYMEEvBbgNiVlbUM6S0wwQ81aEzcIdpLLvN8xpQe3kBgxWr8WKgbE9QUq+
+	HoVVPk2tDiKmZahcxwKHBjcpFzVkRkJrIOFkYCikXiM0dmahzJwl1CcEIGTK0NyFF79UymPVhtBH9
+	Cse0lUBJBZSdzscCVg/tnGoMw4dQOg3OMcAZSOxOOB901yzYvFsDkvZhrqaWDxjQz4XsvLAidLFF5
+	j0xukrUI3DkIh/I4K8ureNrGkIdNwttXLlHX0ayNJmtbM9A6hDtHb+4+MfeOAQsM2W+u9LyDvURV4
+	zvvwwzlAeiWNAV9RicBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rI07a-00Bias-0P;
-	Tue, 26 Dec 2023 05:36:54 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rI07X-00BiaH-39
+	id 1rI0AJ-00Bisk-33;
+	Tue, 26 Dec 2023 05:39:43 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1rI0AF-00BiqJ-1c
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Dec 2023 05:36:53 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-6d99980b2e0so2019128b3a.2
-        for <linux-riscv@lists.infradead.org>; Mon, 25 Dec 2023 21:36:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1703569010; x=1704173810; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=wt8Y6H9UYhlcK+Kq+g9t/n5C3ulwRlQUCahaLJRULwM=;
-        b=UwEb48ghYY9GxgzDzMmoZGZ/u/xeC9k5P8orNsNxKyz/0JcE8UDSDlrithsX91zEr2
-         oO5mwRKzno3UVR5kUYrunnLzG5OPHfQfaj5gEdNgsA+rtm7SZ76V+tLM4PPX+PXiH3NI
-         Yo2RJNHEzJaZkUW8mRbX0G/F8ZakNDSuEXBt2X8oTrCNz9rZqy6DLjyM2qKGfhHdnLCK
-         dcbZIDewMR/8hCnKAuqWIOGaY4Ry+N5U5GjIU5FYDxw/8cOOTOxJy9/aXkDIxQhGciTi
-         ne4IEdq4mL9riOFuZgTe9TSjdIVo2yl755kp/PDTTUO4lfNlfgeDpjvxoZG0Eo9WygKn
-         /Uyw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1703569010; x=1704173810;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wt8Y6H9UYhlcK+Kq+g9t/n5C3ulwRlQUCahaLJRULwM=;
-        b=E00eZ5s4EO64waisLvssdGTM+4pgRZjAMjNjCwtFfIY21Mvs22VOwTwDm51gRff0Wu
-         qJFtUNrI+5WbKYPNmJvbEtbmKKBKJDoOQhFbPxWUB4uyLtZ4rPXFqXOlXSzCdKhIgIXd
-         bVYbqwFuiV3xmdXzf4uEXXkF1D/W97rFJOCGOBQhhbCllKf13TxdLz2B8UDdO2yQY6v5
-         1zmwbz/bYA8/JtKxozuztQoQ4cqP6+3fjDcvwcakUA1LA1ukXLtR0Bm8uLp1SlwaUgnH
-         qyi/1MyKN2nDlSpQHzjjoHy/WSl2mxXO/sJ4RRE/aI9hN07mWBvp8B2kOB4QrciszHg1
-         aOMA==
-X-Gm-Message-State: AOJu0YzIGmOjWfcWaSBeFxhF3lwxzQbASuszCH1z+CS8zGfIqf+EwcY8
-	qgVXYvgSf9gSphvn4F5VnuS6Zf42KGiLhg==
-X-Google-Smtp-Source: AGHT+IEWpDU3OhwCcS4KqMR5BEt9i18xozZDMVXrBdzYqH1/mZXMMZY7yPJGFUrViMSlAQI50dwQjw==
-X-Received: by 2002:a05:6a00:181e:b0:6d9:ba7f:8b02 with SMTP id y30-20020a056a00181e00b006d9ba7f8b02mr3323033pfa.32.1703569009897;
-        Mon, 25 Dec 2023 21:36:49 -0800 (PST)
-Received: from localhost ([122.172.86.168])
-        by smtp.gmail.com with ESMTPSA id ff21-20020a056a002f5500b006cef5c09ca3sm9165969pfb.147.2023.12.25.21.36.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 Dec 2023 21:36:49 -0800 (PST)
-Date: Tue, 26 Dec 2023 11:06:47 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Brandon Cheo Fusi <fusibrandon13@gmail.com>
-Cc: Andre Przywara <andre.przywara@arm.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Yangtao Li <tiny.windzz@gmail.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Stephen Rothwell <sfr@canb.auug.org.au>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
-Subject: Re: [RFC PATCH v3 3/3] riscv: dts: allwinner: Fill in OPPs
-Message-ID: <20231226053647.kvrpn4pjtc2lhfcm@vireshk-i7>
-References: <20231222111407.104270-1-fusibrandon13@gmail.com>
- <20231222111407.104270-4-fusibrandon13@gmail.com>
+	Tue, 26 Dec 2023 05:39:42 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 50DBD24E28B;
+	Tue, 26 Dec 2023 13:39:16 +0800 (CST)
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 26 Dec
+ 2023 13:39:16 +0800
+Received: from jsia-virtual-machine.localdomain (202.188.176.82) by
+ EXMBX066.cuchost.com (172.16.6.66) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.42; Tue, 26 Dec 2023 13:39:10 +0800
+From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
+	<krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <mturquette@baylibre.com>,
+	<sboyd@kernel.org>, <p.zabel@pengutronix.de>,
+	<emil.renner.berthing@canonical.com>, <hal.feng@starfivetech.com>,
+	<xingyu.wu@starfivetech.com>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+	<jeeheng.sia@starfivetech.com>, <leyfoon.tan@starfivetech.com>
+Subject: [RFC 02/16] reset: starfive: Convert the word "jh71x0" to "starfive"
+Date: Tue, 26 Dec 2023 13:38:34 +0800
+Message-ID: <20231226053848.25089-3-jeeheng.sia@starfivetech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20231226053848.25089-1-jeeheng.sia@starfivetech.com>
+References: <20231226053848.25089-1-jeeheng.sia@starfivetech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231222111407.104270-4-fusibrandon13@gmail.com>
+X-Originating-IP: [202.188.176.82]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX066.cuchost.com
+ (172.16.6.66)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231225_213652_065009_8A99B0F5 
-X-CRM114-Status: GOOD (  15.30  )
+X-CRM114-CacheID: sfid-20231225_213939_842251_DFC6FC4D 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,70 +78,244 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 22-12-23, 12:14, Brandon Cheo Fusi wrote:
-> Specify two voltage ranges, in order of increasing stability,
-> for each OPP.
-> 
-> Also define an nvmem cpu speed grade cell of length 2.
-> 
-> Link: https://github.com/Tina-Linux/linux-5.4/blob/master/arch/riscv/boot/dts/sunxi/sun20iw1p1.dtsi#L118-L133
-> Link: https://github.com/mangopi-sbc/tina-linux-5.4/blob/0d4903ebd9d2194ad914686d5b0fc1ddacf11a9d/arch/riscv/boot/dts/sunxi/sun20iw1p1.dtsi#L118-L182
-> 
-> Signed-off-by: Brandon Cheo Fusi <fusibrandon13@gmail.com>
-> ---
->  arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi | 19 ++++++++++++++++---
->  1 file changed, 16 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-> index 64c3c2e6c..7e2e015e0 100644
-> --- a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-> +++ b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-> @@ -39,16 +39,23 @@ cpu0_intc: interrupt-controller {
->  	};
->  
->  	opp_table_cpu: opp-table-cpu {
-> -		compatible = "operating-points-v2";
-> +		compatible = "allwinner,sun20i-d1-operating-points";
-> +		nvmem-cells = <&cpu_speed_grade>;
-> +		nvmem-cell-names = "speed";
-> +		opp-shared;
->  
->  		opp-408000000 {
->  			opp-hz = /bits/ 64 <408000000>;
-> -			opp-microvolt = <900000 900000 1100000>;
-> +
-> +			opp-microvolt-speed0 = <950000 950000 1100000>;
-> +			opp-microvolt-speed1 = <900000 900000 1100000>;
->  		};
->  
->  		opp-1080000000 {
->  			opp-hz = /bits/ 64 <1008000000>;
-> -			opp-microvolt = <900000 900000 1100000>;
-> +
-> +			opp-microvolt-speed0 = <1100000>;
+Function names that consist of the 'jh71x0' naming convention are
+renamed to use the 'starfive' wording.
 
-I was expecting the above two lines to have same values. Why change
-them ?
+Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+---
+ .../clk/starfive/clk-starfive-jh7110-sys.c    |  4 +-
+ .../reset/starfive/reset-starfive-common.c    | 64 +++++++++----------
+ .../reset/starfive/reset-starfive-common.h    |  8 +--
+ .../reset/starfive/reset-starfive-jh7100.c    |  2 +-
+ .../reset/starfive/reset-starfive-jh7110.c    |  4 +-
+ include/soc/starfive/reset-starfive-common.h  |  6 +-
+ 6 files changed, 44 insertions(+), 44 deletions(-)
 
-> +			opp-microvolt-speed1 = <950000 950000 1100000>;
->  		};
->  	};
->  
-> @@ -115,3 +122,9 @@ pmu {
->  			<0x00000000 0x0000000f 0xffffffff 0xffffffff 0x00020000>;
->  	};
->  };
-> +
-> +&sid {
-> +	cpu_speed_grade: cpu-speed-grade@0 {
-> +		reg = <0x00 0x2>;
-> +	};
-> +};
-> -- 
-> 2.30.2
-
+diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+index 6e45c580c9ba..e63353c70209 100644
+--- a/drivers/clk/starfive/clk-starfive-jh7110-sys.c
++++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+@@ -345,7 +345,7 @@ static void jh7110_reset_unregister_adev(void *_adev)
+ static void jh7110_reset_adev_release(struct device *dev)
+ {
+ 	struct auxiliary_device *adev = to_auxiliary_dev(dev);
+-	struct jh71x0_reset_adev *rdev = to_jh71x0_reset_adev(adev);
++	struct starfive_reset_adev *rdev = to_starfive_reset_adev(adev);
+ 
+ 	kfree(rdev);
+ }
+@@ -354,7 +354,7 @@ int jh7110_reset_controller_register(struct jh71x0_clk_priv *priv,
+ 				     const char *adev_name,
+ 				     u32 adev_id)
+ {
+-	struct jh71x0_reset_adev *rdev;
++	struct starfive_reset_adev *rdev;
+ 	struct auxiliary_device *adev;
+ 	int ret;
+ 
+diff --git a/drivers/reset/starfive/reset-starfive-common.c b/drivers/reset/starfive/reset-starfive-common.c
+index dab454e46bbf..8d8dec9e5d7a 100644
+--- a/drivers/reset/starfive/reset-starfive-common.c
++++ b/drivers/reset/starfive/reset-starfive-common.c
+@@ -14,7 +14,7 @@
+ 
+ #include "reset-starfive-common.h"
+ 
+-struct jh71x0_reset {
++struct starfive_reset {
+ 	struct reset_controller_dev rcdev;
+ 	/* protect registers against concurrent read-modify-write */
+ 	spinlock_t lock;
+@@ -23,16 +23,16 @@ struct jh71x0_reset {
+ 	const u32 *asserted;
+ };
+ 
+-static inline struct jh71x0_reset *
+-jh71x0_reset_from(struct reset_controller_dev *rcdev)
++static inline struct starfive_reset *
++starfive_reset_from(struct reset_controller_dev *rcdev)
+ {
+-	return container_of(rcdev, struct jh71x0_reset, rcdev);
++	return container_of(rcdev, struct starfive_reset, rcdev);
+ }
+ 
+-static int jh71x0_reset_update(struct reset_controller_dev *rcdev,
+-			       unsigned long id, bool assert)
++static int starfive_reset_update(struct reset_controller_dev *rcdev,
++				 unsigned long id, bool assert)
+ {
+-	struct jh71x0_reset *data = jh71x0_reset_from(rcdev);
++	struct starfive_reset *data = starfive_reset_from(rcdev);
+ 	unsigned long offset = id / 32;
+ 	u32 mask = BIT(id % 32);
+ 	void __iomem *reg_assert = data->assert + offset * sizeof(u32);
+@@ -61,34 +61,34 @@ static int jh71x0_reset_update(struct reset_controller_dev *rcdev,
+ 	return ret;
+ }
+ 
+-static int jh71x0_reset_assert(struct reset_controller_dev *rcdev,
+-			       unsigned long id)
++static int starfive_reset_assert(struct reset_controller_dev *rcdev,
++				 unsigned long id)
+ {
+-	return jh71x0_reset_update(rcdev, id, true);
++	return starfive_reset_update(rcdev, id, true);
+ }
+ 
+-static int jh71x0_reset_deassert(struct reset_controller_dev *rcdev,
+-				 unsigned long id)
++static int starfive_reset_deassert(struct reset_controller_dev *rcdev,
++				   unsigned long id)
+ {
+-	return jh71x0_reset_update(rcdev, id, false);
++	return starfive_reset_update(rcdev, id, false);
+ }
+ 
+-static int jh71x0_reset_reset(struct reset_controller_dev *rcdev,
+-			      unsigned long id)
++static int starfive_reset_reset(struct reset_controller_dev *rcdev,
++				unsigned long id)
+ {
+ 	int ret;
+ 
+-	ret = jh71x0_reset_assert(rcdev, id);
++	ret = starfive_reset_assert(rcdev, id);
+ 	if (ret)
+ 		return ret;
+ 
+-	return jh71x0_reset_deassert(rcdev, id);
++	return starfive_reset_deassert(rcdev, id);
+ }
+ 
+-static int jh71x0_reset_status(struct reset_controller_dev *rcdev,
+-			       unsigned long id)
++static int starfive_reset_status(struct reset_controller_dev *rcdev,
++				 unsigned long id)
+ {
+-	struct jh71x0_reset *data = jh71x0_reset_from(rcdev);
++	struct starfive_reset *data = starfive_reset_from(rcdev);
+ 	unsigned long offset = id / 32;
+ 	u32 mask = BIT(id % 32);
+ 	void __iomem *reg_status = data->status + offset * sizeof(u32);
+@@ -97,25 +97,25 @@ static int jh71x0_reset_status(struct reset_controller_dev *rcdev,
+ 	return !((value ^ data->asserted[offset]) & mask);
+ }
+ 
+-static const struct reset_control_ops jh71x0_reset_ops = {
+-	.assert		= jh71x0_reset_assert,
+-	.deassert	= jh71x0_reset_deassert,
+-	.reset		= jh71x0_reset_reset,
+-	.status		= jh71x0_reset_status,
++static const struct reset_control_ops starfive_reset_ops = {
++	.assert		= starfive_reset_assert,
++	.deassert	= starfive_reset_deassert,
++	.reset		= starfive_reset_reset,
++	.status		= starfive_reset_status,
+ };
+ 
+-int reset_starfive_jh71x0_register(struct device *dev, struct device_node *of_node,
+-				   void __iomem *assert, void __iomem *status,
+-				   const u32 *asserted, unsigned int nr_resets,
+-				   struct module *owner)
++int reset_starfive_register(struct device *dev, struct device_node *of_node,
++			    void __iomem *assert, void __iomem *status,
++			    const u32 *asserted, unsigned int nr_resets,
++			    struct module *owner)
+ {
+-	struct jh71x0_reset *data;
++	struct starfive_reset *data;
+ 
+ 	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
+ 	if (!data)
+ 		return -ENOMEM;
+ 
+-	data->rcdev.ops = &jh71x0_reset_ops;
++	data->rcdev.ops = &starfive_reset_ops;
+ 	data->rcdev.owner = owner;
+ 	data->rcdev.nr_resets = nr_resets;
+ 	data->rcdev.dev = dev;
+@@ -128,4 +128,4 @@ int reset_starfive_jh71x0_register(struct device *dev, struct device_node *of_no
+ 
+ 	return devm_reset_controller_register(dev, &data->rcdev);
+ }
+-EXPORT_SYMBOL_GPL(reset_starfive_jh71x0_register);
++EXPORT_SYMBOL_GPL(reset_starfive_register);
+diff --git a/drivers/reset/starfive/reset-starfive-common.h b/drivers/reset/starfive/reset-starfive-common.h
+index 266acc4b2caf..83461b22ee55 100644
+--- a/drivers/reset/starfive/reset-starfive-common.h
++++ b/drivers/reset/starfive/reset-starfive-common.h
+@@ -6,9 +6,9 @@
+ #ifndef __RESET_STARFIVE_COMMON_H
+ #define __RESET_STARFIVE_COMMON_H
+ 
+-int reset_starfive_jh71x0_register(struct device *dev, struct device_node *of_node,
+-				   void __iomem *assert, void __iomem *status,
+-				   const u32 *asserted, unsigned int nr_resets,
+-				   struct module *owner);
++int reset_starfive_register(struct device *dev, struct device_node *of_node,
++			    void __iomem *assert, void __iomem *status,
++			    const u32 *asserted, unsigned int nr_resets,
++			    struct module *owner);
+ 
+ #endif /* __RESET_STARFIVE_COMMON_H */
+diff --git a/drivers/reset/starfive/reset-starfive-jh7100.c b/drivers/reset/starfive/reset-starfive-jh7100.c
+index 546dea2e5811..122ac6c3893b 100644
+--- a/drivers/reset/starfive/reset-starfive-jh7100.c
++++ b/drivers/reset/starfive/reset-starfive-jh7100.c
+@@ -51,7 +51,7 @@ static int __init jh7100_reset_probe(struct platform_device *pdev)
+ 	if (IS_ERR(base))
+ 		return PTR_ERR(base);
+ 
+-	return reset_starfive_jh71x0_register(&pdev->dev, pdev->dev.of_node,
++	return reset_starfive_register(&pdev->dev, pdev->dev.of_node,
+ 					      base + JH7100_RESET_ASSERT0,
+ 					      base + JH7100_RESET_STATUS0,
+ 					      jh7100_reset_asserted,
+diff --git a/drivers/reset/starfive/reset-starfive-jh7110.c b/drivers/reset/starfive/reset-starfive-jh7110.c
+index 87dba01491ae..c4dd21761e53 100644
+--- a/drivers/reset/starfive/reset-starfive-jh7110.c
++++ b/drivers/reset/starfive/reset-starfive-jh7110.c
+@@ -53,13 +53,13 @@ static int jh7110_reset_probe(struct auxiliary_device *adev,
+ 			      const struct auxiliary_device_id *id)
+ {
+ 	struct jh7110_reset_info *info = (struct jh7110_reset_info *)(id->driver_data);
+-	struct jh71x0_reset_adev *rdev = to_jh71x0_reset_adev(adev);
++	struct starfive_reset_adev *rdev = to_starfive_reset_adev(adev);
+ 	void __iomem *base = rdev->base;
+ 
+ 	if (!info || !base)
+ 		return -ENODEV;
+ 
+-	return reset_starfive_jh71x0_register(&adev->dev, adev->dev.parent->of_node,
++	return reset_starfive_register(&adev->dev, adev->dev.parent->of_node,
+ 					      base + info->assert_offset,
+ 					      base + info->status_offset,
+ 					      NULL,
+diff --git a/include/soc/starfive/reset-starfive-common.h b/include/soc/starfive/reset-starfive-common.h
+index 56d8f413cf18..16df46a074bc 100644
+--- a/include/soc/starfive/reset-starfive-common.h
++++ b/include/soc/starfive/reset-starfive-common.h
+@@ -6,12 +6,12 @@
+ #include <linux/compiler_types.h>
+ #include <linux/container_of.h>
+ 
+-struct jh71x0_reset_adev {
++struct starfive_reset_adev {
+ 	void __iomem *base;
+ 	struct auxiliary_device adev;
+ };
+ 
+-#define to_jh71x0_reset_adev(_adev) \
+-	container_of((_adev), struct jh71x0_reset_adev, adev)
++#define to_starfive_reset_adev(_adev) \
++	container_of((_adev), struct starfive_reset_adev, adev)
+ 
+ #endif
 -- 
-viresh
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
