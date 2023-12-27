@@ -4,71 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39B07C46CD4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17DD3C46CD2
 	for <linux-riscv@archiver.kernel.org>; Wed, 27 Dec 2023 17:38:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/ztlpSB5Yk7O0HZBoQtE8d8Tl/x/+VwzalYgHyRVNys=; b=HTUaz4aQVNsh6Z
-	OUxevlw0uTdQF0Gf5fN84cXaci+TLRrPU7L+RGT4054k7q5hbrEqRVkffbcOOsBUjaSBRsSVZ0iKv
-	11stY2eIV6+ymk8iB5Dtj9lR69SceCOeKwRiD4RRZb+YcrroTaqJCJEFNTt73EzE3+gsxPXeUtGbY
-	YC7aF3JfTx41gAyaX4FQXv5tUaCITIyvhXCqL9GwkvDJVMfNRC1+iOcvSBHaDO4IeTxgsY//5/AvE
-	OJwJ+3UyR6YXW4Xv+jgPjYFdFVfb0xwN9AmdGCcTY6QSaYlRHa5/3MnBTl7n39DpGNw5jvkyC+t8D
-	vQNasmXHXTXhiiQSdyOQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=inRrg9rQbvyGxhHVVTNjrxdR6Bsct9ccF7nu4SYYEBI=; b=BqsXGaFwh0WUu0
+	CSigw942w8enWTIdhytdpjFMOn6OUAeul1eKtBsMPpAwFfn7lgzg/F9DeIZMVL4T54iPY3mCakhjt
+	pp943ZiMVpP/i1tq8tR3+YP+gD1I+w0HK55XtPDV1J607mkAkAjRL9fj5faWtNfcVcHHbTy+2T52S
+	ag9gHbAzmGgYD6Y33R4bCaNhTtz1zOOwNihPLpysmI/EakhV8MD+JhPaE+3yfRM5bff642AieHJ5r
+	XLFQorQENy/2yAuNr0teUmm+YGKMGXjQoBygiKK3aKM0ITzY0OY8FOp1QaNRTkAA3jahFgsWdMmNq
+	1aRItid+9mIURaLUlZTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rIXrN-00FDSE-1C;
-	Wed, 27 Dec 2023 17:38:25 +0000
-Received: from mail-oa1-x29.google.com ([2001:4860:4864:20::29])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rIXrJ-00FDPK-0A
-	for linux-riscv@lists.infradead.org;
+	id 1rIXrK-00FDQJ-23;
 	Wed, 27 Dec 2023 17:38:22 +0000
-Received: by mail-oa1-x29.google.com with SMTP id 586e51a60fabf-1f5bd86ceb3so4101854fac.2
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Dec 2023 09:38:18 -0800 (PST)
+Received: from mail-oa1-x30.google.com ([2001:4860:4864:20::30])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1rIXrH-00FDP8-0E
+	for linux-riscv@lists.infradead.org;
+	Wed, 27 Dec 2023 17:38:21 +0000
+Received: by mail-oa1-x30.google.com with SMTP id 586e51a60fabf-204520717b3so2986166fac.0
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Dec 2023 09:38:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1703698698; x=1704303498; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YMlsfn7czPVsXwrmU+kv95pA8qnyqJLx1nukNUHIJyw=;
-        b=Ye+CjmZiy2zTnyItQLMk1USVCwlpXJK69+pJr3O0Anu5haHzN/2g3Hhk9Q/TFqjXgq
-         xTzTAZu3wSBdFZ40t0RAuqkkLPG2TslUXBQlP0J0VSXPIeNpov9w0Vw2umDkNXbUZ0gj
-         OX6bQ8Sin49UVpxTWH2Xk8S5rekgs47319KmjD0UdB3/Qe4JsUAxMtgGa0UbWL+aRHmi
-         sJlKG4bdydQCpIJlIeQ4lkCLCMRl73mHObXz4mGVH46omnUqG40OXYVKGaGcaTKsuXu2
-         c67c+MDhlqHpissO43Y1EOlm3bwpOh9R3LGlrKA1pKPaKSrAMlrbUjin+jrnaOrXkN6L
-         KL4A==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1703698695; x=1704303495; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=CHAcfAA5kCZ72wDWLqq2p9bQpejC40VxPRIOvgfyeMs=;
+        b=07PZCEnZ8FqmbgG68sgiDV1RCI8lblzZ9DBPDdVm3yXNvsKa0sCiyX5PYfUad0neaJ
+         Ey+FC7dSw3iQjOPmF7ejoy/D/k44YvnlyUSu2KbSEKsp9ixFhzlArqrbxWb0S4ioIzvD
+         IZ30kpvj+jDGpwbAXiTXyMuhgs6Ni3k+Yc+TZo9bO2mbn11gevsShD32qp7225b5gV9Y
+         WCKbAbwQqHUIPeTB8Go+bGvOsF9rTCsCCTKSZg9CmICQD9+Pd7wbe7xYu2AzEyiEp6xo
+         ink7bOi50vBxOCgWjo/GpReBmAP+MzY4PWf0jeILLMP9zfqd4vGgXSeue8nBRZiV946m
+         nVdA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1703698698; x=1704303498;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YMlsfn7czPVsXwrmU+kv95pA8qnyqJLx1nukNUHIJyw=;
-        b=DnmVz1guAUMdkSUs2Vg4agKvm27Y1X4phwBEHnLMqEugNzxN71+p7qaenw8O55uoJu
-         J4pTpyTw6+lIOdPmCn1Il3VIku2PDTiMeHCUWOsQvPOlj2K7ay26PPtb/uxFxv6YVoMX
-         s+g/evl3Qe3EO3ZzV/D4VazmnnJ3mxWLEmNyZWrOZQkN1qkB/IlGN3iFdO2rAFQu22VE
-         ynGTSMONi8Yz5NshK5hhX9Lt/xbPseKhukmzPAc0FQQ2BIqQ4DHZOu+KOqDNSmG5wjoF
-         YayLzkZfmwa+Dbz+chAOXcNREJJ53XXSimLu/eknaKK+9tLbLmGii/7OMv2eefyERUEb
-         r/DA==
-X-Gm-Message-State: AOJu0YwlhZbsMFfZXfzOH68wNNvL7CoNfyq1XzXICw90y1XZSgXFcFj4
-	Eo2q/M4aU13K1csIjQNcmJZMmLhJteQN0Q==
-X-Google-Smtp-Source: AGHT+IEIrmTuGZOJNDeXOpI5DFGqZulKKWwLyazfrOgAYCgNMHfgJ1Ew2aY/lLJoiaXBaUHq2w/fMw==
-X-Received: by 2002:a05:6871:724:b0:204:302f:74cb with SMTP id f36-20020a056871072400b00204302f74cbmr11492877oap.24.1703698698069;
-        Wed, 27 Dec 2023 09:38:18 -0800 (PST)
+        d=1e100.net; s=20230601; t=1703698695; x=1704303495;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CHAcfAA5kCZ72wDWLqq2p9bQpejC40VxPRIOvgfyeMs=;
+        b=ndf/5pUyyR++OQN72QqVNPda8wHkMl+a+XxEN7J54zvAul2CJg61MyTL1uvA8utQGk
+         0dc0GbMp4AIF+g86h6PtnekMyZCcaZXAy6CURmd2G7djYcpWkWVKzOZvUdhnAS7t252a
+         aZpkIK1jX0w98njeR1v7LibR+oa/jcfQmOckXOKRTFvaq2N9J0ohzbYl3LjIEFlPEZ+S
+         Xw5jJVodAPbbgAe2iJyb8FkVzZUFMseJx70VImYpTDyOxOUA8UadCTJKy43fCSet1xm0
+         63drv/Jh+0MknT/gEizyrwv3O8ED1PJ324bn0/MYCP6Osb4BtVG890YRNn2tgRXbQxTj
+         legg==
+X-Gm-Message-State: AOJu0YxYqUgDECOQTmoMHvWjrhUj2qxhultNQA0rZhMISHG2exykMll/
+	QKDVjtYvPbfP9jhkFDnWDIpf/t3TYoy/Xg==
+X-Google-Smtp-Source: AGHT+IHXbRKBQ4pVrbi/7+ChYKSFsG4xbhEERn+M2EAYDEDVluAPiDM1F9z/fux5NMol0w1e64YX/Q==
+X-Received: by 2002:a05:6870:56a4:b0:204:5026:c9f5 with SMTP id p36-20020a05687056a400b002045026c9f5mr9652182oao.91.1703698694794;
+        Wed, 27 Dec 2023 09:38:14 -0800 (PST)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id rl15-20020a056871650f00b002049c207104sm1337173oab.27.2023.12.27.09.38.16
+        by smtp.gmail.com with ESMTPSA id rl15-20020a056871650f00b002049c207104sm1337173oab.27.2023.12.27.09.38.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Dec 2023 09:38:17 -0800 (PST)
+        Wed, 27 Dec 2023 09:38:14 -0800 (PST)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Wed, 27 Dec 2023 09:38:01 -0800
-Subject: [PATCH v14 2/5] riscv: Add static key for misaligned accesses
+Subject: [PATCH v14 0/5] riscv: Add fine-tuned checksum functions
+Date: Wed, 27 Dec 2023 09:37:59 -0800
+Message-Id: <20231227-optimize_checksum-v14-0-ddfd48016566@rivosinc.com>
 MIME-Version: 1.0
-Message-Id: <20231227-optimize_checksum-v14-2-ddfd48016566@rivosinc.com>
-References: <20231227-optimize_checksum-v14-0-ddfd48016566@rivosinc.com>
-In-Reply-To: <20231227-optimize_checksum-v14-0-ddfd48016566@rivosinc.com>
+X-B4-Tracking: v=1; b=H4sIAPdgjGUC/23S3U7EIBAF4FcxvbaGGX4GvPI9jDHAUJeY3W7at
+ VE3++7SjXEbM5dMwgcczrmby1TL3D3enbupLHWu46EtwNzfdXkXD2+lr9wGHSrUyivTj8dT3df
+ v8pp3Jb/PH/ueExiL3seM0LV9x6kM9fOKPr+09a7Op3H6up6xwDr91dAJ2gK96oMmqyA1FuPTV
+ Jdxrof8kMd9t4IL3pCgrIRgQ3JmZz0nMjoJiN4iJCF6RaxC1oYDkxYQs0EAJMQ0hChnjBxKUwT
+ EbhEp4cWuNwk2eYxIloqAuC0iZuIaAia6PDjIDryA0BYJEkINUS4TK2a27ATE/yGgUAzWN2Qoi
+ UABA3oWkLBBtBhsaEiJCnxxISEGAQF1U9pZYtvac/pogrdEKQUnMrBhQHwRrK2l1pJgzVC0A4m
+ 51RYQUGTW3hoI0aTo2DkpXtAbBpXIrM2NpK2hAjny/6++XC4/UJYLgvoDAAA=
 To: Charlie Jenkins <charlie@rivosinc.com>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, 
  Samuel Holland <samuel.holland@sifive.com>, 
@@ -77,18 +81,20 @@ To: Charlie Jenkins <charlie@rivosinc.com>,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
  linux-arch@vger.kernel.org
 Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>
+ Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, 
+ David Laight <david.laight@aculab.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1703698692; l=5478;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1703698692; l=7496;
  i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=D4IKaaj3vE+b0K5XN8QdVSXmK3dl6XnNZpqh6Lepfss=;
- b=wW1oSltYcPLm6WjHMbTJUzZDxQi942rfKCi7R0Jd24cRe7PpnWNp2kkXzDGS2uPhT+MHc6RqD
- cYQbMZT28P7Bxk85HOSEujEx+JNt2ZYDyHx8MaBRhCDsRybFl1WXekw
+ bh=b/rJTPKIAQMg3PGom1efR6P9TUmCxlht2gJ8987pQ/s=;
+ b=P/b7zFdJEa22N7c2od7nrphYg79jZnTRSVC0iRmQhnFWXaJRa7hcqy0Asu/i/nyg95qHZ1lHl
+ s+u3OLSiRi1DBj1Z03XEOuHdySNKXW0rkrUMyAaUe756dFXvv24QG+S
 X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
  pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231227_093821_089979_4C5B36C2 
-X-CRM114-Status: GOOD (  19.49  )
+X-CRM114-CacheID: sfid-20231227_093819_478652_CADE8055 
+X-CRM114-Status: GOOD (  24.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,174 +111,195 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Support static branches depending on the value of misaligned accesses.
-This will be used by a later patch in the series. All online cpus must
-be considered "fast" for this static branch to be flipped.
+Each architecture generally implements fine-tuned checksum functions to
+leverage the instruction set. This patch adds the main checksum
+functions that are used in networking. Tested on QEMU, this series
+allows the CHECKSUM_KUNIT tests to complete an average of 50.9% faster.
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+This patch takes heavy use of the Zbb extension using alternatives
+patching.
+
+To test this patch, enable the configs for KUNIT, then CHECKSUM_KUNIT.
+
+I have attempted to make these functions as optimal as possible, but I
+have not ran anything on actual riscv hardware. My performance testing
+has been limited to inspecting the assembly, running the algorithms on
+x86 hardware, and running in QEMU.
+
+ip_fast_csum is a relatively small function so even though it is
+possible to read 64 bits at a time on compatible hardware, the
+bottleneck becomes the clean up and setup code so loading 32 bits at a
+time is actually faster.
+
+Relies on https://lore.kernel.org/lkml/20230920193801.3035093-1-evan@rivosinc.com/
+
 ---
- arch/riscv/include/asm/cpufeature.h |  2 +
- arch/riscv/kernel/cpufeature.c      | 89 +++++++++++++++++++++++++++++++++++--
- 2 files changed, 87 insertions(+), 4 deletions(-)
+    
+The algorithm proposed to replace the default csum_fold can be seen to
+compute the same result by running all 2^32 possible inputs.
+    
+static inline unsigned int ror32(unsigned int word, unsigned int shift)
+{
+	return (word >> (shift & 31)) | (word << ((-shift) & 31));
+}
 
-diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
-index a418c3112cd6..7b129e5e2f07 100644
---- a/arch/riscv/include/asm/cpufeature.h
-+++ b/arch/riscv/include/asm/cpufeature.h
-@@ -133,4 +133,6 @@ static __always_inline bool riscv_cpu_has_extension_unlikely(int cpu, const unsi
- 	return __riscv_isa_extension_available(hart_isa[cpu].isa, ext);
- }
- 
-+DECLARE_STATIC_KEY_FALSE(fast_misaligned_access_speed_key);
-+
- #endif
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index b3785ffc1570..dfd716b93565 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -8,8 +8,10 @@
- 
- #include <linux/acpi.h>
- #include <linux/bitmap.h>
-+#include <linux/cpu.h>
- #include <linux/cpuhotplug.h>
- #include <linux/ctype.h>
-+#include <linux/jump_label.h>
- #include <linux/log2.h>
- #include <linux/memory.h>
- #include <linux/module.h>
-@@ -44,6 +46,8 @@ struct riscv_isainfo hart_isa[NR_CPUS];
- /* Performance information */
- DEFINE_PER_CPU(long, misaligned_access_speed);
- 
-+static cpumask_t fast_misaligned_access;
-+
- /**
-  * riscv_isa_extension_base() - Get base extension word
-  *
-@@ -643,6 +647,16 @@ static int check_unaligned_access(void *param)
- 		(speed == RISCV_HWPROBE_MISALIGNED_FAST) ? "fast" : "slow");
- 
- 	per_cpu(misaligned_access_speed, cpu) = speed;
-+
-+	/*
-+	 * Set the value of fast_misaligned_access of a CPU. These operations
-+	 * are atomic to avoid race conditions.
-+	 */
-+	if (speed == RISCV_HWPROBE_MISALIGNED_FAST)
-+		cpumask_set_cpu(cpu, &fast_misaligned_access);
-+	else
-+		cpumask_clear_cpu(cpu, &fast_misaligned_access);
-+
- 	return 0;
- }
- 
-@@ -655,13 +669,70 @@ static void check_unaligned_access_nonboot_cpu(void *param)
- 		check_unaligned_access(pages[cpu]);
- }
- 
-+DEFINE_STATIC_KEY_FALSE(fast_misaligned_access_speed_key);
-+
-+static int exclude_set_unaligned_access_static_branches(int cpu)
-+{
-+	/*
-+	 * Same as set_unaligned_access_static_branches, except excludes the
-+	 * given CPU from the result. When a CPU is hotplugged into an offline
-+	 * state, this function is called before the CPU is set to offline in
-+	 * the cpumask, and thus the CPU needs to be explicitly excluded.
-+	 */
-+
-+	cpumask_t online_fast_misaligned_access;
-+
-+	cpumask_and(&online_fast_misaligned_access, &fast_misaligned_access, cpu_online_mask);
-+	cpumask_clear_cpu(cpu, &online_fast_misaligned_access);
-+
-+	if (cpumask_weight(&online_fast_misaligned_access) == (num_online_cpus() - 1))
-+		static_branch_enable_cpuslocked(&fast_misaligned_access_speed_key);
-+	else
-+		static_branch_disable_cpuslocked(&fast_misaligned_access_speed_key);
-+
-+	return 0;
-+}
-+
-+static int set_unaligned_access_static_branches(void)
-+{
-+	/*
-+	 * This will be called after check_unaligned_access_all_cpus so the
-+	 * result of unaligned access speed for all CPUs will be available.
-+	 *
-+	 * To avoid the number of online cpus changing between reading
-+	 * cpu_online_mask and calling num_online_cpus, cpus_read_lock must be
-+	 * held before calling this function.
-+	 */
-+	cpumask_t online_fast_misaligned_access;
-+
-+	cpumask_and(&online_fast_misaligned_access, &fast_misaligned_access, cpu_online_mask);
-+
-+	if (cpumask_weight(&online_fast_misaligned_access) == num_online_cpus())
-+		static_branch_enable_cpuslocked(&fast_misaligned_access_speed_key);
-+	else
-+		static_branch_disable_cpuslocked(&fast_misaligned_access_speed_key);
-+
-+	return 0;
-+}
-+
-+static int lock_and_set_unaligned_access_static_branch(void)
-+{
-+	cpus_read_lock();
-+	set_unaligned_access_static_branches();
-+	cpus_read_unlock();
-+
-+	return 0;
-+}
-+
-+arch_initcall_sync(lock_and_set_unaligned_access_static_branch);
-+
- static int riscv_online_cpu(unsigned int cpu)
- {
- 	static struct page *buf;
- 
- 	/* We are already set since the last check */
- 	if (per_cpu(misaligned_access_speed, cpu) != RISCV_HWPROBE_MISALIGNED_UNKNOWN)
--		return 0;
-+		goto exit;
- 
- 	buf = alloc_pages(GFP_KERNEL, MISALIGNED_BUFFER_ORDER);
- 	if (!buf) {
-@@ -671,7 +742,14 @@ static int riscv_online_cpu(unsigned int cpu)
- 
- 	check_unaligned_access(buf);
- 	__free_pages(buf, MISALIGNED_BUFFER_ORDER);
--	return 0;
-+
-+exit:
-+	return set_unaligned_access_static_branches();
-+}
-+
-+static int riscv_offline_cpu(unsigned int cpu)
-+{
-+	return exclude_set_unaligned_access_static_branches(cpu);
- }
- 
- /* Measure unaligned access on all CPUs present at boot in parallel. */
-@@ -705,9 +783,12 @@ static int check_unaligned_access_all_cpus(void)
- 	/* Check core 0. */
- 	smp_call_on_cpu(0, check_unaligned_access, bufs[0], true);
- 
--	/* Setup hotplug callback for any new CPUs that come online. */
-+	/*
-+	 * Setup hotplug callbacks for any new CPUs that come online or go
-+	 * offline.
-+	 */
- 	cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN, "riscv:online",
--				  riscv_online_cpu, NULL);
-+				  riscv_online_cpu, riscv_offline_cpu);
- 
- out:
- 	unaligned_emulation_finish();
+unsigned short csum_fold(unsigned int csum)
+{
+	unsigned int sum = csum;
+	sum = (sum & 0xffff) + (sum >> 16);
+	sum = (sum & 0xffff) + (sum >> 16);
+	return ~sum;
+}
 
+unsigned short csum_fold_arc(unsigned int csum)
+{
+	return ((~csum - ror32(csum, 16)) >> 16);
+}
+
+int main()
+{
+	unsigned int start = 0x0;
+	do {
+		if (csum_fold(start) != csum_fold_arc(start)) {
+			printf("Not the same %u\n", start);
+			return -1;
+		}
+		start += 1;
+	} while(start != 0x0);
+	printf("The same\n");
+	return 0;
+}
+
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Arnd Bergmann <arnd@arndb.de>
+To: Charlie Jenkins <charlie@rivosinc.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+To: Conor Dooley <conor@kernel.org>
+To: Samuel Holland <samuel.holland@sifive.com>
+To: David Laight <David.Laight@aculab.com>
+To: Xiao Wang <xiao.w.wang@intel.com>
+To: Evan Green <evan@rivosinc.com>
+To: Guo Ren <guoren@kernel.org> 
+To: linux-riscv@lists.infradead.org
+To: linux-kernel@vger.kernel.org
+To: linux-arch@vger.kernel.org
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+
+---
+Changes in v14:
+- Update misaligned static branch when CPUs are hotplugged (Guo)
+- Leave off Evan's reviewed-by on patch 2 since it was completely
+  re-written
+- Link to v13: https://lore.kernel.org/r/20231220-optimize_checksum-v13-0-a73547e1cad8@rivosinc.com
+
+Changes in v13:
+- Move cast from patch 4 to patch 3
+- Link to v12: https://lore.kernel.org/r/20231212-optimize_checksum-v12-0-419a4ba6d666@rivosinc.com
+
+Changes in v12:
+- Rebase onto 6.7-rc5
+- Add performance stats in the cover letter
+- Link to v11: https://lore.kernel.org/r/20231117-optimize_checksum-v11-0-7d9d954fe361@rivosinc.com
+
+Changes in v11:
+- Extensive modifications to comply to sparse
+- Organize include statements (Xiao)
+- Add csum_ipv6_magic to commit message (Xiao)
+- Remove extraneous len statement (Xiao)
+- Add kasan_check_read call (Xiao)
+- Improve comment field checksum.h (Xiao)
+- Consolidate "buff" and "len" into one parameter "end" (Xiao)
+- Link to v10: https://lore.kernel.org/r/20231101-optimize_checksum-v10-0-a498577bb969@rivosinc.com
+
+Changes in v10:
+- Move tests that were riscv-specific to be arch agnostic (Arnd)
+- Link to v9: https://lore.kernel.org/r/20231031-optimize_checksum-v9-0-ea018e69b229@rivosinc.com
+
+Changes in v9:
+- Use ror64 (Xiao)
+- Move do_csum and csum_ipv6_magic headers to patch 4 (Xiao)
+- Remove word "IP" from checksum headers (Xiao)
+- Swap to using ifndef CONFIG_32BIT instead of ifdef CONFIG_64BIT (Xiao)
+- Run no alignment code when buff is aligned (Xiao)
+- Consolidate two do_csum implementations overlap into do_csum_common
+- Link to v8: https://lore.kernel.org/r/20231027-optimize_checksum-v8-0-feb7101d128d@rivosinc.com
+
+Changes in v8:
+- Speedups of 12% without Zbb and 21% with Zbb when cpu supports fast
+  misaligned accesses for do_csum
+- Various formatting updates
+- Patch now relies on https://lore.kernel.org/lkml/20230920193801.3035093-1-evan@rivosinc.com/
+- Link to v7: https://lore.kernel.org/r/20230919-optimize_checksum-v7-0-06c7d0ddd5d6@rivosinc.com
+
+Changes in v7:
+- Included linux/bitops.h in asm-generic/checksum.h to use ror (Conor)
+- Optimized loop in do_csum (David)
+- Used ror instead of shifting (David)
+- Unfortunately had to reintroduce ifdefs because gcc is not smart
+  enough to not throw warnings on code that will never execute
+- Use ifdef instead of IS_ENABLED on __LITTLE_ENDIAN because IS_ENABLED
+  does not work on that
+- Only optimize for zbb when alternatives is enabled in do_csum
+- Link to v6: https://lore.kernel.org/r/20230915-optimize_checksum-v6-0-14a6cf61c618@rivosinc.com
+
+Changes in v6:
+- Fix accuracy of commit message for csum_fold
+- Fix indentation
+- Link to v5: https://lore.kernel.org/r/20230914-optimize_checksum-v5-0-c95b82a2757e@rivosinc.com
+
+Changes in v5:
+- Drop vector patches
+- Check ZBB enabled before doing any ZBB code (Conor)
+- Check endianness in IS_ENABLED
+- Revert to the simpler non-tree based version of ipv6_csum_magic since
+  David pointed out that the tree based version is not better.
+- Link to v4: https://lore.kernel.org/r/20230911-optimize_checksum-v4-0-77cc2ad9e9d7@rivosinc.com
+
+Changes in v4:
+- Suggestion by David Laight to use an improved checksum used in
+  arch/arc.
+- Eliminates zero-extension on rv32, but not on rv64.
+- Reduces data dependency which should improve execution speed on
+  rv32 and rv64
+- Still passes CHECKSUM_KUNIT and RISCV_CHECKSUM_KUNIT on rv32 and
+  rv64 with and without zbb.
+- Link to v3: https://lore.kernel.org/r/20230907-optimize_checksum-v3-0-c502d34d9d73@rivosinc.com
+
+Changes in v3:
+- Use riscv_has_extension_likely and has_vector where possible (Conor)
+- Reduce ifdefs by using IS_ENABLED where possible (Conor)
+- Use kernel_vector_begin in the vector code (Samuel)
+- Link to v2: https://lore.kernel.org/r/20230905-optimize_checksum-v2-0-ccd658db743b@rivosinc.com
+
+Changes in v2:
+- After more benchmarking, rework functions to improve performance.
+- Remove tests that overlapped with the already existing checksum
+  tests and make tests more extensive.
+- Use alternatives to activate code with Zbb and vector extensions
+- Link to v1: https://lore.kernel.org/r/20230826-optimize_checksum-v1-0-937501b4522a@rivosinc.com
+
+---
+Charlie Jenkins (5):
+      asm-generic: Improve csum_fold
+      riscv: Add static key for misaligned accesses
+      riscv: Add checksum header
+      riscv: Add checksum library
+      kunit: Add tests for csum_ipv6_magic and ip_fast_csum
+
+ arch/riscv/include/asm/checksum.h   |  93 ++++++++++
+ arch/riscv/include/asm/cpufeature.h |   2 +
+ arch/riscv/kernel/cpufeature.c      |  89 +++++++++-
+ arch/riscv/lib/Makefile             |   1 +
+ arch/riscv/lib/csum.c               | 326 ++++++++++++++++++++++++++++++++++++
+ include/asm-generic/checksum.h      |   6 +-
+ lib/checksum_kunit.c                | 284 ++++++++++++++++++++++++++++++-
+ 7 files changed, 793 insertions(+), 8 deletions(-)
+---
+base-commit: a39b6ac3781d46ba18193c9dbb2110f31e9bffe9
+change-id: 20230804-optimize_checksum-db145288ac21
 -- 
-2.43.0
+- Charlie
 
 
 _______________________________________________
