@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D50BFC46CD4
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Dec 2023 12:43:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E17C46CD2
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Dec 2023 15:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eFeAr+GEwfl/0+irm+f0Vn//8364wASzK8k9h7P3Mcw=; b=0s47RjwCAWN85a
-	j19DIYHjeERt+5R5iCepOflfEEZNa0JKPGof4Xm7Za26RAzuqBf+MEWaMyjBhlMWkwqI2uaA1R25t
-	Tj0GSjhr44Mf5ocGcSeDg6LfchdupAgC8mS66QNC7I+Ch4TRuECVqxHtym3yfKRQ5axjBElfhDciW
-	SPKpDJuO6pTxv5IkdWbIenlCQ+ArfItiDmIC/e3qy5nLI0COYS6eoenFaIKQkxCva4vmstHT+MF+o
-	Ds8Yjb7l82ELw1eY8E5C5sT3IN0H72qkrKZiHRb8QEd72qK7XvHnCtkwdh643jiJ+RzWMA/q8mHol
-	vhWEqE9GQ0xNohHcKc5Q==;
+	List-Owner; bh=GM0dFm0XKAVyDEbcPBptWzNdzixrdLlFkPHc/h9meSU=; b=rk4KxcZN8GS2Zg
+	Tk0qpX8Y+xsrK8S5guBDht3ggrKFNBtK+9VIFAjRfb9JzxrayWMY/gkMVDph5FQEgh6LNqXVoffrf
+	hNl0EmHmVEjbebos+q6XmPVQRnyC3cZDHgidmBJEz0BKneZSI/LzDnOCHQHXZx5NzRuFp5osRdEWu
+	Qqqd0WFS6fVvjWk1/iIH1W9M1DvD57ojibgYz/pPydsYHTuxp9U/2WlqYCOxW20MJIfTCILRfLGj7
+	ZFkecPTUw7W2X247OJIC1f1rH/sgl+WKWzpyikMDaH7oYar77HnGDQC+qU32YDHNkImIWc/lojrUR
+	Lg/nLT4GeQo+iBvUU6EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rITFv-00Ef1V-1Q;
-	Wed, 27 Dec 2023 12:43:27 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rIWAQ-00EzAD-1g;
+	Wed, 27 Dec 2023 15:49:58 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rITFs-00Ef0X-22
+	id 1rIWAN-00Ez9P-1a
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Dec 2023 12:43:26 +0000
+	Wed, 27 Dec 2023 15:49:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7EC7660EDC;
-	Wed, 27 Dec 2023 12:43:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A69FC433C7;
-	Wed, 27 Dec 2023 12:43:15 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTP id 9AEF5CE1296;
+	Wed, 27 Dec 2023 15:49:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A98F6C433C7;
+	Wed, 27 Dec 2023 15:49:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1703681001;
-	bh=fG3U9LgjzHMiSiELkBGqIA/RCiY7QC8U+5CJV01wDKk=;
+	s=k20201202; t=1703692191;
+	bh=Zua2vzIUrgjZ1GUGu3AvKQH8bB9ctvVTMaz/oag9MJI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IYp7PIISHXbUtOUBLx7LALbsOVeEHZIOhDh3/kcTf/6PDJQKihC8Oh2nG4pNyAe+S
-	 PrT6EZpdAAwtlUS6tVg/hcx2ZQGVijt9bgAns8GbpV+n50CvvBxftlCSNyIkKX2Gna
-	 A6wlYHu4Xp8GHvIXww3W/nOHnQJGABexWJGNMrvfdsSzHj1nQjKHNWx0dQMqntJ9EC
-	 2mW/YZe8tunQtrNvu5AIMPgmr6Rgt/x1nJzGOv+Cw57VLrT885u/uD0tWMgTb7op2S
-	 +blyurKWSClpvWSTcw81KgmR29lKw7xUyzvKWXC17iQu9vVQZf40nSByF//oNkUuK+
-	 FuB6P/5YMzhdQ==
-Date: Wed, 27 Dec 2023 13:43:13 +0100
+	b=kNGyTSkprmDcLEhXrNOFJ/gGHCmfRrMt6tU84NNltzBBngYFTZA4lHgy+7pWMLKny
+	 wZPxg+ZRvRywxctoDfJYs2nM1GqbqsFy+8c6S/h/sM8LfJH4ruZRrang5kCAfOVW0x
+	 KQC6L4TsubSbFf++gLZmGxkjLN6FjJyftKmqfysDMsv1A96B32rmfSAhJJvzD6r4nH
+	 d+uj+XsY1TBKeum+9UNHQP6htZafTTGgUji3t/6jkf9o9zWI+b4nYkIBeaFnNXOiXl
+	 zZAOck0mwBir+dP6L2SVP5WBQx35zcXiefgBprRu97A7ppPrs0O8gmK0NAOd9dVJoi
+	 4quEdObtHDexA==
+Date: Wed, 27 Dec 2023 16:49:43 +0100
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
 To: Minda Chen <minda.chen@starfivetech.com>
 Cc: Conor Dooley <conor@kernel.org>,
@@ -60,21 +60,18 @@ Cc: Conor Dooley <conor@kernel.org>,
 	Philipp Zabel <p.zabel@pengutronix.de>,
 	Mason Huo <mason.huo@starfivetech.com>,
 	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>, tglx@linutronix.de
-Subject: Re: [PATCH v13 15/21] PCI: microchip: Add event irqchip field to
- host port and add PLDA irqchip
-Message-ID: <ZYwb4UQVoLDZw7kf@lpieralisi>
+	Kevin Xie <kevin.xie@starfivetech.com>
+Subject: Re: [PATCH v13 09/21] PCI: microchip: Move setup functions to
+ pcie-plda-host.c
+Message-ID: <ZYxHl+R40b7t4Xn2@lpieralisi>
 References: <20231214072839.2367-1-minda.chen@starfivetech.com>
- <20231214072839.2367-16-minda.chen@starfivetech.com>
- <8c417157-8884-4e91-8912-0344e71f82c2@starfivetech.com>
- <ZYRaqYTcxWJGwWG8@lpieralisi>
- <025408dd-cc00-4744-8a41-cbd18209ed8b@starfivetech.com>
+ <20231214072839.2367-10-minda.chen@starfivetech.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <025408dd-cc00-4744-8a41-cbd18209ed8b@starfivetech.com>
+In-Reply-To: <20231214072839.2367-10-minda.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231227_044324_756350_366DC356 
-X-CRM114-Status: GOOD (  42.42  )
+X-CRM114-CacheID: sfid-20231227_074955_883719_907BA570 
+X-CRM114-Status: GOOD (  24.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,179 +83,235 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-WytUaG9tYXNdCgpPbiBGcmksIERlYyAyMiwgMjAyMyBhdCAwNzoxODo0OFBNICswODAwLCBNaW5k
-YSBDaGVuIHdyb3RlOgo+IAo+IAo+IE9uIDIwMjMvMTIvMjEgMjM6MzIsIExvcmVuem8gUGllcmFs
-aXNpIHdyb3RlOgo+ID4gT24gVGh1LCBEZWMgMjEsIDIwMjMgYXQgMDY6NTY6MjJQTSArMDgwMCwg
-TWluZGEgQ2hlbiB3cm90ZToKPiA+PiAKPiA+PiAKPiA+PiBPbiAyMDIzLzEyLzE0IDE1OjI4LCBN
-aW5kYSBDaGVuIHdyb3RlOgo+ID4+ID4gUG9sYXJGaXJlIFBDSUUgZXZlbnQgSVJRcyBpbmNsdWRl
-cyBQTERBIGxvY2FsIGludGVycnVwdHMgYW5kIFBvbGFyRmlyZQo+ID4+ID4gdGhlaXIgb3duIElS
-UXMuIFBvbGFyRmlyZSBQQ0llIGV2ZW50IGlycV9jaGlwIG9wcyB1c2luZyBhbiBldmVudF9kZXNj
-IHRvCj4gPj4gPiB1bmlmeSBkaWZmZXJlbnQgSVJRIHJlZ2lzdGVyIGFkZHJlc3Nlcy4gT24gUExE
-QSBzaWRlcywgUExEQSBpcnFjaGlwIGNvZGVzCj4gPj4gPiBvbmx5IHJlcXVpcmUgdG8gc2V0IFBM
-REEgbG9jYWwgaW50ZXJydXB0IHJlZ2lzdGVyLiBTbyB0aGUgUExEQSBpcnFjaGlwIG9wcwo+ID4+
-ID4gY29kZXMgY2FuIG5vdCBiZSBleHRyYWN0ZWQgZnJvbSBQb2xhckZpcmUgY29kZXMuCj4gPj4g
-PiAKPiA+PiA+IFRvIHN1cHBvcnQgUExEQSBpdHMgb3duIGV2ZW50IElSUSBwcm9jZXNzLCBpbXBs
-ZW1lbnRzIFBMREEgaXJxY2hpcCBvcHMgYW5kCj4gPj4gPiBhZGQgZXZlbnQgaXJxY2hpcCBmaWVs
-ZCB0byBzdHJ1Y3QgcGNpZV9wbGRhX3JwLgo+ID4+ID4gCj4gPj4gPiBTaWduZWQtb2ZmLWJ5OiBN
-aW5kYSBDaGVuIDxtaW5kYS5jaGVuQHN0YXJmaXZldGVjaC5jb20+Cj4gPj4gPiAtLS0KPiA+PiA+
-ICAuLi4vcGNpL2NvbnRyb2xsZXIvcGxkYS9wY2llLW1pY3JvY2hpcC1ob3N0LmMgfCA2NSArKysr
-KysrKysrKysrKysrKystCj4gPj4gPiAgZHJpdmVycy9wY2kvY29udHJvbGxlci9wbGRhL3BjaWUt
-cGxkYS5oICAgICAgIHwgIDMgKwo+ID4+ID4gIDIgZmlsZXMgY2hhbmdlZCwgNjcgaW5zZXJ0aW9u
-cygrKSwgMSBkZWxldGlvbigtKQo+ID4+ID4gCj4gPj4gSGkgQ29ub3IKPiA+PiAgICBDb3VsZCB5
-b3UgdGFrZSB0aW1lIHRvIHJldmlldyB0aGlzIHBhdGNoPyAgRm9yIEkgdXNpbmcgZXZlbnQgaXJx
-IGNoaXAgaW5zdGVhZCBvZiBldmVudCBvcHMgYW5kIHRoZSB3aG9sZSBwYXRjaCBoYXZlIGJlZW4g
-Y2hhbmdlZC4gIEkgdGhpbmsgaXQncyBiZXR0ZXIgCj4gPj4gICAgQW5kIEkgYWRkZWQgdGhlIGlt
-cGxlbWVudGF0aW9uIG9mIFBMREEgZXZlbnQgaXJxY2hpcCAgYW5kIG1ha2UgaXQgZWFzaWVyIHRv
-IGNsYWltIHRoZSBuZWNlc3NpdHkgb2YgdGhlIG1vZGlmaWNhdGlvbi4KPiA+PiAgICBJZiB5b3Ug
-YXBwcm92ZSB0aGlzLCBJIHdpbGwgYWRkIGJhY2sgdGhlIHJldmlldyB0YWcuIFRoYW5rcwo+ID4+
-IAo+ID4+IEhpIExvcmVuem8KPiA+PiAgICBIYXZlIHlvdSByZXZpZXdlZCB0aGlzIHBhdGNo77yf
-IERvZXMgdGhlIGNvbW1pdCBtZXNzYWdlIGFuZCB0aGUgY29kZXMgYXJlIGNhbiBiZSBhcHByb3Zl
-ZCDvvJ9UaGFua3MKPiA+PiAKPiA+IAo+ID4gUGxlYXNlIHdyYXAgdGhlIGxpbmVzIGF0IDc1IGNv
-bHVtbnMgaW4gbGVuZ3RoLgo+ID4gCj4gT0sKPiA+IEkgaGF2ZSBub3QgcmV2aWV3ZWQgYnV0IEkg
-YW0gc3RpbGwgc3RydWdnbGluZyB0byB1bmRlcnN0YW5kIHRoZQo+ID4gY29tbWl0IGxvZywgSSBh
-cG9sb2dpc2UsIEkgY2FuIHRyeSB0byByZXZpZXcgdGhlIHNlcmllcyBhbmQgZmlndXJlCj4gPiBv
-dXQgd2hhdCB0aGUgcGF0Y2ggaXMgZG9pbmcgYnV0IEkgd291bGQgYXBwcmVjaWF0ZSBpZiBjb21t
-aXRzIGxvZ3MKPiA+IGNvdWxkIGJlIG1hZGUgZWFzaWVyIHRvIHBhcnNlLgo+ID4gCj4gPiBUaGFu
-a3MsCj4gPiBMb3JlbnpvCj4gPiAKPiAKPiBUaGUgY29tbWl0IG1lc3NhZ2UgaXQgaXMgbm90IGdv
-b2QuCj4gCj4gSSBkcmF3IGEgZ3JhcGggYWJvdXQgdGhlIFBDSWUgZ2xvYmFsIGV2ZW50IGludGVy
-cnVwdCBkb21haW4KPiAocmVsYXRlZCB0byBwYXRjaCAxMC0gMTYpLgo+IEFjdHVhbGx5IGFsbCB0
-aGVzZSBpbnRlcnJ1cHRzIHBhdGNoZXMgYXJlIGZvciBleHRyYWN0aW5nIHRoZSBjb21tb24gCj4g
-UExEQSBjb2RlcyB0byBwY2llLXBsZGEtaG9zdC5jIGFuZCBkbyBub3QgY2hhbmdlIG1pY3JvY2hp
-cCdzIGNvZGVzIGxvZ2ljLgoKcy9jb2Rlcy9jb2RlIChwbGVhc2UgYXBwbHkgdGhpcyB0byB0aGUg
-dGhlIGZ1bGwgc2VyaWVzKQoKSSB3aWxsIGhhdmUgYSBsb29rIGF0IHRoZSBjb2RlIGJ1dCBJIGNh
-bid0IHJld3JpdGUgdGhlIGNvbW1pdCBsb2cgbXlzZWxmCihpdCBkb2VzIG5vdCBzY2FsZSBJIGFt
-IGFmcmFpZCksIGFzIGl0IHN0YW5kcyBJIGRvbid0IHVuZGVyc3RhbmQgaXQgYW5kCnRoYXQncyBh
-IHByb2JsZW0sIEkgYW0gc29ycnkgYnV0IHRoYXQncyBpbXBvcnRhbnQuCgpJIGFkZGVkIFRob21h
-cyAoeW91IHNob3VsZCBDQyBoaW0gZm9yIGlycWNoaXAgW29ubHldIGNoYW5nZXMpIGlmIGhlCmhh
-cyB0aW1lIHRvIHJldmlldyB0aGVzZSBpcnFjaGlwIGNoYW5nZXMgdG8gbWFrZSBzdXJlIHRoZXkg
-YXJlIHByb3Blci4KClRoYW5rcywKTG9yZW56bwoKPiAgICAgICAgICAgICArLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKPiAgICAgICAg
-ICAgICB8ICAgIG1pY3JvY2hpcCAgR2xvYmFsIGV2ZW50IGludGVycnVwdCBkb21haW4gICAgICAg
-ICAgICAgIHwKPiAgICAgICAgICAgICArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0rLS0tLS0tLS0tLS0rLS0tLS0tLS0tLSsKPiAgICAgICAgICAgICB8ICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICB8IG1pY3JvY2hpcCB8IFBMREEgICAgIHwKPiAgICAgICAgICAg
-ICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IGV2ZW50IG51bSB8KFN0YXJG
-aXZlKXwKPiAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8
-ICAgICAgICAgICB8ZXZlbnQgbnVtIHwKPiAgICAgICAgICAgICArLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0rLS0tLS0tLS0tLSsKPiAgICAgICAgICAgICB8
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IDAgICAgICAgICB8ICAgICAgICAg
-IHwKPiAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAg
-ICAgICAgICB8ICAgICAgICAgIHwKPiAobWMgcGNpZSAgICB8bWljcm9jaGlwIHBsYXRmb3JtIGV2
-ZW50IGludGVycnVwdCB8ICAgICAgICAgICB8ICAgICAgICAgIHwKPiBpbnQgbGluZSkgICB8ICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICB8ICAgICAgICAgIHwK
-PiAtLS0tLS0tLS0tLS18ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
-ICAgICB8ICAgICAgICAgIHwKPiAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICB8MTAgICAgICAgICB8ICAgICAgICAgIHwKPiAgICAgICAgICAgICArLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0rLS0tLS0tLS0tLSsKPiAg
-ICAgICAgICAgICB8IFBMREEgaG9zdCBETUEgaW50ZXJydXB0ICAgICAgICAgICB8MTEgICAgICAg
-ICB8ICAgICAgICAgIHwKPiAgICAgICAgICAgICB8IChpbnQgbnVtYmVyIGlzIG5vdCBmaXhlZCwg
-ZGVmaW5lZCB8ICAgICAgICAgICB8ICAgICAgICAgIHwKPiAgICAgICAgICAgICB8ICBieSB2ZW5k
-b3IpICAgICAgICAgICAgICAgICAgICAgICB8MTQgICAgICAgICB8ICAgICAgICAgIHwKPiAgICAg
-ICAgICArLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLSAr
-LS0tLS0tLS0tLSstKwo+ICAgICAgICAgIHwgIHwgIFBMREEgZXZlbnQgaW50ZXJydXB0ICAgICAg
-ICAgICAgIHwxNSAgICAgICAgIHwwICAgICAgICAgfCB8Cj4gICAgICAgICAgfCAgfCAgKGludCBu
-dW1iZXIgaXMgZml4ZWQpICAgICAgICAgICAgfCAgICAgICAgICAgfCAgICAgICAgICB8IHwKPiAt
-LS0tLS0tLS18LS18ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAg
-ICB8ICAgICAgICAgIHwgfAo+IChTdGFyZml2ZXwgIHwgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgIHwgICAgICAgICAgIHwgICAgICAgICAgfCB8Cj4gcGNpZSBpbnQgfCAgfCAgICst
-LS0tLS0tLS0tLS0tLS0tLS0rICAgICAgICAgICAgfCAgICAgICAgICAgfCAgICAgICAgICB8IHwK
-PiBsaW5lKSAgICB8ICB8ICAgfElOVHggZXZlbnQgZG9tYWluIHwgICAgICAgICAgICB8ICAgICAg
-ICAgICB8ICAgICAgICAgIHwgfAo+ICAgICAgICAgIHwgIHwgICArLS0tLS0tLS0tLS0tLS0tLS0t
-KyAgICAgICAgICAgIHwgICAgICAgICAgIHwgICAgICAgICAgfCB8Cj4gICAgICAgICAgfCAgfCAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgICAgICAgICAgfCAgICAgICAgICB8
-IHwKPiAgICAgICAgICB8ICB8ICAgKy0tLS0tLS0tLS0tLS0tLS0tLSsgICAgICAgICAgICB8ICAg
-ICAgICAgICB8ICAgICAgICAgIHwgfAo+ICAgICAgICAgIHwgIHwgICB8TVNJIGV2ZW50IGRvbWFp
-biAgfCAgICAgICAgICAgIHwgICAgICAgICAgIHwgICAgICAgICAgfCB8Cj4gICAgICAgICAgfCAg
-fCAgICstLS0tLS0tLS0tLS0tLS0tLS0rICAgICAgICAgICAgfCAgICAgICAgICAgfCAgICAgICAg
-ICB8IHwKPiAgICAgICAgICB8ICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8
-MjcgICAgICAgICB8MTIgICAgICAgIHwgfAo+ICAgICAgICAgIHwgICstLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0rLSstLS0tLS0tLS0tLSstLS0tLS0tLS0tKyB8Cj4gICAgICAgICAg
-fCBleHRyYWN0IFBMREEgZXZlbnQgcGFydCB0byBjb21tb24gUExEQSBmaWxlLiAgICAgICAgICAg
-ICAgICAgIHwKPiAgICAgICAgICArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwo+IAo+IAo+ID4+ID4gZGlmZiAtLWdpdCBhL2Ry
-aXZlcnMvcGNpL2NvbnRyb2xsZXIvcGxkYS9wY2llLW1pY3JvY2hpcC1ob3N0LmMgYi9kcml2ZXJz
-L3BjaS9jb250cm9sbGVyL3BsZGEvcGNpZS1taWNyb2NoaXAtaG9zdC5jCj4gPj4gPiBpbmRleCBm
-ZDBkOTJjM2QwM2YuLmZmNDBjMTYyMjE3MyAxMDA2NDQKPiA+PiA+IC0tLSBhL2RyaXZlcnMvcGNp
-L2NvbnRyb2xsZXIvcGxkYS9wY2llLW1pY3JvY2hpcC1ob3N0LmMKPiA+PiA+ICsrKyBiL2RyaXZl
-cnMvcGNpL2NvbnRyb2xsZXIvcGxkYS9wY2llLW1pY3JvY2hpcC1ob3N0LmMKPiA+PiA+IEBAIC03
-NzEsNiArNzcxLDYzIEBAIHN0YXRpYyBzdHJ1Y3QgaXJxX2NoaXAgbWNfZXZlbnRfaXJxX2NoaXAg
-PSB7Cj4gPj4gPiAgCS5pcnFfdW5tYXNrID0gbWNfdW5tYXNrX2V2ZW50X2lycSwKPiA+PiA+ICB9
-Owo+ID4+ID4gPiArc3RhdGljIHUzMiBwbGRhX2h3aXJxX3RvX21hc2soaW50IGh3aXJxKQo+ID4+
-ID4gK3sKPiA+PiA+ICsJdTMyIG1hc2s7Cj4gPj4gPiArCj4gPj4gPiArCWlmIChod2lycSA8IEVW
-RU5UX1BNX01TSV9JTlRfSU5UWCkKPiA+PiA+ICsJCW1hc2sgPSBCSVQoaHdpcnEgKyBBX0FUUl9F
-VlRfUE9TVF9FUlJfU0hJRlQpOwo+ID4+ID4gKwllbHNlIGlmIChod2lycSA9PSBFVkVOVF9QTV9N
-U0lfSU5UX0lOVFgpCj4gPj4gPiArCQltYXNrID0gUE1fTVNJX0lOVF9JTlRYX01BU0s7Cj4gPj4g
-PiArCWVsc2UKPiA+PiA+ICsJCW1hc2sgPSBCSVQoaHdpcnEgKyBQTV9NU0lfVE9fTUFTS19PRkZT
-RVQpOwo+ID4+ID4gKwo+ID4+ID4gKwlyZXR1cm4gbWFzazsKPiA+PiA+ICt9Cj4gPj4gPiArCj4g
-Pj4gPiArc3RhdGljIHZvaWQgcGxkYV9hY2tfZXZlbnRfaXJxKHN0cnVjdCBpcnFfZGF0YSAqZGF0
-YSkKPiA+PiA+ICt7Cj4gPj4gPiArCXN0cnVjdCBwbGRhX3BjaWVfcnAgKnBvcnQgPSBpcnFfZGF0
-YV9nZXRfaXJxX2NoaXBfZGF0YShkYXRhKTsKPiA+PiA+ICsKPiA+PiA+ICsJd3JpdGVsX3JlbGF4
-ZWQocGxkYV9od2lycV90b19tYXNrKGRhdGEtPmh3aXJxKSwKPiA+PiA+ICsJCSAgICAgICBwb3J0
-LT5icmlkZ2VfYWRkciArIElTVEFUVVNfTE9DQUwpOwo+ID4+ID4gK30KPiA+PiA+ICsKPiA+PiA+
-ICtzdGF0aWMgdm9pZCBwbGRhX21hc2tfZXZlbnRfaXJxKHN0cnVjdCBpcnFfZGF0YSAqZGF0YSkK
-PiA+PiA+ICt7Cj4gPj4gPiArCXN0cnVjdCBwbGRhX3BjaWVfcnAgKnBvcnQgPSBpcnFfZGF0YV9n
-ZXRfaXJxX2NoaXBfZGF0YShkYXRhKTsKPiA+PiA+ICsJdTMyIG1hc2ssIHZhbDsKPiA+PiA+ICsK
-PiA+PiA+ICsJbWFzayA9IHBsZGFfaHdpcnFfdG9fbWFzayhkYXRhLT5od2lycSk7Cj4gPj4gPiAr
-Cj4gPj4gPiArCXJhd19zcGluX2xvY2soJnBvcnQtPmxvY2spOwo+ID4+ID4gKwl2YWwgPSByZWFk
-bF9yZWxheGVkKHBvcnQtPmJyaWRnZV9hZGRyICsgSU1BU0tfTE9DQUwpOwo+ID4+ID4gKwl2YWwg
-Jj0gfm1hc2s7Cj4gPj4gPiArCXdyaXRlbF9yZWxheGVkKHZhbCwgcG9ydC0+YnJpZGdlX2FkZHIg
-KyBJTUFTS19MT0NBTCk7Cj4gPj4gPiArCXJhd19zcGluX3VubG9jaygmcG9ydC0+bG9jayk7Cj4g
-Pj4gPiArfQo+ID4+ID4gKwo+ID4+ID4gK3N0YXRpYyB2b2lkIHBsZGFfdW5tYXNrX2V2ZW50X2ly
-cShzdHJ1Y3QgaXJxX2RhdGEgKmRhdGEpCj4gPj4gPiArewo+ID4+ID4gKwlzdHJ1Y3QgcGxkYV9w
-Y2llX3JwICpwb3J0ID0gaXJxX2RhdGFfZ2V0X2lycV9jaGlwX2RhdGEoZGF0YSk7Cj4gPj4gPiAr
-CXUzMiBtYXNrLCB2YWw7Cj4gPj4gPiArCj4gPj4gPiArCW1hc2sgPSBwbGRhX2h3aXJxX3RvX21h
-c2soZGF0YS0+aHdpcnEpOwo+ID4+ID4gKwo+ID4+ID4gKwlyYXdfc3Bpbl9sb2NrKCZwb3J0LT5s
-b2NrKTsKPiA+PiA+ICsJdmFsID0gcmVhZGxfcmVsYXhlZChwb3J0LT5icmlkZ2VfYWRkciArIElN
-QVNLX0xPQ0FMKTsKPiA+PiA+ICsJdmFsIHw9IG1hc2s7Cj4gPj4gPiArCXdyaXRlbF9yZWxheGVk
-KHZhbCwgcG9ydC0+YnJpZGdlX2FkZHIgKyBJTUFTS19MT0NBTCk7Cj4gPj4gPiArCXJhd19zcGlu
-X3VubG9jaygmcG9ydC0+bG9jayk7Cj4gPj4gPiArfQo+ID4+ID4gKwo+ID4+ID4gK3N0YXRpYyBz
-dHJ1Y3QgaXJxX2NoaXAgcGxkYV9ldmVudF9pcnFfY2hpcCA9IHsKPiA+PiA+ICsJLm5hbWUgPSAi
-UExEQSBQQ0llIEVWRU5UIiwKPiA+PiA+ICsJLmlycV9hY2sgPSBwbGRhX2Fja19ldmVudF9pcnEs
-Cj4gPj4gPiArCS5pcnFfbWFzayA9IHBsZGFfbWFza19ldmVudF9pcnEsCj4gPj4gPiArCS5pcnFf
-dW5tYXNrID0gcGxkYV91bm1hc2tfZXZlbnRfaXJxLAo+ID4+ID4gK307Cj4gPj4gPiArCj4gPj4g
-PiAgc3RhdGljIGNvbnN0IHN0cnVjdCBwbGRhX2V2ZW50X29wcyBwbGRhX2V2ZW50X29wcyA9IHsK
-PiA+PiA+ICAJLmdldF9ldmVudHMgPSBwbGRhX2dldF9ldmVudHMsCj4gPj4gPiAgfTsKPiA+PiA+
-IEBAIC03NzgsNyArODM1LDkgQEAgc3RhdGljIGNvbnN0IHN0cnVjdCBwbGRhX2V2ZW50X29wcyBw
-bGRhX2V2ZW50X29wcyA9IHsKPiA+PiA+ICBzdGF0aWMgaW50IHBsZGFfcGNpZV9ldmVudF9tYXAo
-c3RydWN0IGlycV9kb21haW4gKmRvbWFpbiwgdW5zaWduZWQgaW50IGlycSwKPiA+PiA+ICAJCQkg
-ICAgICAgaXJxX2h3X251bWJlcl90IGh3aXJxKQo+ID4+ID4gIHsKPiA+PiA+IC0JaXJxX3NldF9j
-aGlwX2FuZF9oYW5kbGVyKGlycSwgJm1jX2V2ZW50X2lycV9jaGlwLCBoYW5kbGVfbGV2ZWxfaXJx
-KTsKPiA+PiA+ICsJc3RydWN0IHBsZGFfcGNpZV9ycCAqcG9ydCA9ICh2b2lkICopZG9tYWluLT5o
-b3N0X2RhdGE7Cj4gPj4gPiArCj4gPj4gPiArCWlycV9zZXRfY2hpcF9hbmRfaGFuZGxlcihpcnEs
-IHBvcnQtPmV2ZW50X2lycV9jaGlwLCBoYW5kbGVfbGV2ZWxfaXJxKTsKPiA+PiA+ICAJaXJxX3Nl
-dF9jaGlwX2RhdGEoaXJxLCBkb21haW4tPmhvc3RfZGF0YSk7Cj4gPj4gPiAgCj4gPj4gPiAgCXJl
-dHVybiAwOwo+ID4+ID4gQEAgLTk2Myw2ICsxMDIyLDkgQEAgc3RhdGljIGludCBwbGRhX2luaXRf
-aW50ZXJydXB0cyhzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2LAo+ID4+ID4gIAlpZiAoIXBv
-cnQtPmV2ZW50X29wcykKPiA+PiA+ICAJCXBvcnQtPmV2ZW50X29wcyA9ICZwbGRhX2V2ZW50X29w
-czsKPiA+PiA+ICAKPiA+PiA+ICsJaWYgKCFwb3J0LT5ldmVudF9pcnFfY2hpcCkKPiA+PiA+ICsJ
-CXBvcnQtPmV2ZW50X2lycV9jaGlwID0gJnBsZGFfZXZlbnRfaXJxX2NoaXA7Cj4gPj4gPiArCj4g
-Pj4gPiAgCXJldCA9IHBsZGFfcGNpZV9pbml0X2lycV9kb21haW5zKHBvcnQpOwo+ID4+ID4gIAlp
-ZiAocmV0KSB7Cj4gPj4gPiAgCQlkZXZfZXJyKGRldiwgImZhaWxlZCBjcmVhdGluZyBJUlEgZG9t
-YWluc1xuIik7Cj4gPj4gPiBAQCAtMTA0MCw2ICsxMTAyLDcgQEAgc3RhdGljIGludCBtY19wbGF0
-Zm9ybV9pbml0KHN0cnVjdCBwY2lfY29uZmlnX3dpbmRvdyAqY2ZnKQo+ID4+ID4gIAkJcmV0dXJu
-IHJldDsKPiA+PiA+ICAKPiA+PiA+ICAJcG9ydC0+cGxkYS5ldmVudF9vcHMgPSAmbWNfZXZlbnRf
-b3BzOwo+ID4+ID4gKwlwb3J0LT5wbGRhLmV2ZW50X2lycV9jaGlwID0gJm1jX2V2ZW50X2lycV9j
-aGlwOwo+ID4+ID4gIAo+ID4+ID4gIAkvKiBBZGRyZXNzIHRyYW5zbGF0aW9uIGlzIHVwOyBzYWZl
-IHRvIGVuYWJsZSBpbnRlcnJ1cHRzICovCj4gPj4gPiAgCXJldCA9IHBsZGFfaW5pdF9pbnRlcnJ1
-cHRzKHBkZXYsICZwb3J0LT5wbGRhLCAmbWNfZXZlbnQpOwo+ID4+ID4gZGlmZiAtLWdpdCBhL2Ry
-aXZlcnMvcGNpL2NvbnRyb2xsZXIvcGxkYS9wY2llLXBsZGEuaCBiL2RyaXZlcnMvcGNpL2NvbnRy
-b2xsZXIvcGxkYS9wY2llLXBsZGEuaAo+ID4+ID4gaW5kZXggZGQ4YmMyNzUwYmZjLi4yNGFjNTBj
-NDU4ZGMgMTAwNjQ0Cj4gPj4gPiAtLS0gYS9kcml2ZXJzL3BjaS9jb250cm9sbGVyL3BsZGEvcGNp
-ZS1wbGRhLmgKPiA+PiA+ICsrKyBiL2RyaXZlcnMvcGNpL2NvbnRyb2xsZXIvcGxkYS9wY2llLXBs
-ZGEuaAo+ID4+ID4gQEAgLTEyOCw2ICsxMjgsOCBAQAo+ID4+ID4gICAqIERNQSBlbmQgOiByZXNl
-cnZlZCBmb3IgdmVuZG9yIGltcGxlbWVudAo+ID4+ID4gICAqLwo+ID4+ID4gIAo+ID4+ID4gKyNk
-ZWZpbmUgUE1fTVNJX1RPX01BU0tfT0ZGU0VUCQkJMTkKPiA+PiA+ICsKPiA+PiA+ICBzdHJ1Y3Qg
-cGxkYV9wY2llX3JwOwo+ID4+ID4gIAo+ID4+ID4gIHN0cnVjdCBwbGRhX2V2ZW50X29wcyB7Cj4g
-Pj4gPiBAQCAtMTUwLDYgKzE1Miw3IEBAIHN0cnVjdCBwbGRhX3BjaWVfcnAgewo+ID4+ID4gIAly
-YXdfc3BpbmxvY2tfdCBsb2NrOwo+ID4+ID4gIAlzdHJ1Y3QgcGxkYV9tc2kgbXNpOwo+ID4+ID4g
-IAljb25zdCBzdHJ1Y3QgcGxkYV9ldmVudF9vcHMgKmV2ZW50X29wczsKPiA+PiA+ICsJY29uc3Qg
-c3RydWN0IGlycV9jaGlwICpldmVudF9pcnFfY2hpcDsKPiA+PiA+ICAJdm9pZCBfX2lvbWVtICpi
-cmlkZ2VfYWRkcjsKPiA+PiA+ICAJaW50IG51bV9ldmVudHM7Cj4gPj4gPiAgfTsKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Thu, Dec 14, 2023 at 03:28:27PM +0800, Minda Chen wrote:
+> Move setup functions to common pcie-plda-host.c. So these two functions
+> can be re-used.
+> 
+> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  drivers/pci/controller/plda/Kconfig           |  4 +
+>  drivers/pci/controller/plda/Makefile          |  1 +
+>  .../pci/controller/plda/pcie-microchip-host.c | 59 --------------
+>  drivers/pci/controller/plda/pcie-plda-host.c  | 80 +++++++++++++++++++
+>  drivers/pci/controller/plda/pcie-plda.h       |  5 ++
+>  5 files changed, 90 insertions(+), 59 deletions(-)
+>  create mode 100644 drivers/pci/controller/plda/pcie-plda-host.c
+> 
+> diff --git a/drivers/pci/controller/plda/Kconfig b/drivers/pci/controller/plda/Kconfig
+> index 5cb3be4fc98c..e54a82ee94f5 100644
+> --- a/drivers/pci/controller/plda/Kconfig
+> +++ b/drivers/pci/controller/plda/Kconfig
+> @@ -3,10 +3,14 @@
+>  menu "PLDA-based PCIe controllers"
+>  	depends on PCI
+>  
+> +config PCIE_PLDA_HOST
+> +	bool
+> +
+>  config PCIE_MICROCHIP_HOST
+>  	tristate "Microchip AXI PCIe controller"
+>  	depends on PCI_MSI && OF
+>  	select PCI_HOST_COMMON
+> +	select PCIE_PLDA_HOST
+>  	help
+>  	  Say Y here if you want kernel to support the Microchip AXI PCIe
+>  	  Host Bridge driver.
+> diff --git a/drivers/pci/controller/plda/Makefile b/drivers/pci/controller/plda/Makefile
+> index e1a265cbf91c..4340ab007f44 100644
+> --- a/drivers/pci/controller/plda/Makefile
+> +++ b/drivers/pci/controller/plda/Makefile
+> @@ -1,2 +1,3 @@
+>  # SPDX-License-Identifier: GPL-2.0
+> +obj-$(CONFIG_PCIE_PLDA_HOST) += pcie-plda-host.o
+>  obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
+> diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+> index 31ca8d44ee2a..2e79bcc7c0a5 100644
+> --- a/drivers/pci/controller/plda/pcie-microchip-host.c
+> +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+> @@ -838,65 +838,6 @@ static int mc_pcie_init_irq_domains(struct plda_pcie_rp *port)
+>  	return mc_allocate_msi_domains(port);
+>  }
+>  
+> -static void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+> -				   phys_addr_t axi_addr, phys_addr_t pci_addr,
+> -				   size_t size)
+> -{
+> -	u32 atr_sz = ilog2(size) - 1;
+> -	u32 val;
+> -
+> -	if (index == 0)
+> -		val = PCIE_CONFIG_INTERFACE;
+> -	else
+> -		val = PCIE_TX_RX_INTERFACE;
+> -
+> -	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+> -	       ATR0_AXI4_SLV0_TRSL_PARAM);
+> -
+> -	val = lower_32_bits(axi_addr) | (atr_sz << ATR_SIZE_SHIFT) |
+> -			    ATR_IMPL_ENABLE;
+> -	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+> -	       ATR0_AXI4_SLV0_SRCADDR_PARAM);
+> -
+> -	val = upper_32_bits(axi_addr);
+> -	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+> -	       ATR0_AXI4_SLV0_SRC_ADDR);
+> -
+> -	val = lower_32_bits(pci_addr);
+> -	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+> -	       ATR0_AXI4_SLV0_TRSL_ADDR_LSB);
+> -
+> -	val = upper_32_bits(pci_addr);
+> -	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+> -	       ATR0_AXI4_SLV0_TRSL_ADDR_UDW);
+> -
+> -	val = readl(bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
+> -	val |= (ATR0_PCIE_ATR_SIZE << ATR0_PCIE_ATR_SIZE_SHIFT);
+> -	writel(val, bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
+> -	writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);
+> -}
+> -
+> -static int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
+> -				  struct plda_pcie_rp *port)
+> -{
+> -	void __iomem *bridge_base_addr = port->bridge_addr;
+> -	struct resource_entry *entry;
+> -	u64 pci_addr;
+> -	u32 index = 1;
+> -
+> -	resource_list_for_each_entry(entry, &bridge->windows) {
+> -		if (resource_type(entry->res) == IORESOURCE_MEM) {
+> -			pci_addr = entry->res->start - entry->offset;
+> -			plda_pcie_setup_window(bridge_base_addr, index,
+> -					       entry->res->start, pci_addr,
+> -					       resource_size(entry->res));
+> -			index++;
+> -		}
+> -	}
+> -
+> -	return 0;
+> -}
+> -
+>  static inline void mc_clear_secs(struct mc_pcie *port)
+>  {
+>  	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
+> diff --git a/drivers/pci/controller/plda/pcie-plda-host.c b/drivers/pci/controller/plda/pcie-plda-host.c
+> new file mode 100644
+> index 000000000000..19131181897f
+> --- /dev/null
+> +++ b/drivers/pci/controller/plda/pcie-plda-host.c
+> @@ -0,0 +1,80 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * PLDA PCIe XpressRich host controller driver
+> + *
+> + * Copyright (C) 2023 Microchip Co. Ltd
+> + *
+> + * Author: Daire McNamara <daire.mcnamara@microchip.com>
+> + */
+> +
+> +#include <linux/irqchip/chained_irq.h>
+> +#include <linux/irqdomain.h>
+> +#include <linux/msi.h>
+> +#include <linux/of_address.h>
+> +#include <linux/of_pci.h>
+> +#include <linux/pci_regs.h>
+> +#include <linux/pci-ecam.h>
+> +#include <linux/platform_device.h>
+
+Do you really require these headers ? Not in this patch,
+in later patches and that's why every header should be
+added when it is really needed.
+
+Lorenzo
+
+> +
+> +#include "pcie-plda.h"
+> +
+> +void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+> +			    phys_addr_t axi_addr, phys_addr_t pci_addr,
+> +			    size_t size)
+> +{
+> +	u32 atr_sz = ilog2(size) - 1;
+> +	u32 val;
+> +
+> +	if (index == 0)
+> +		val = PCIE_CONFIG_INTERFACE;
+> +	else
+> +		val = PCIE_TX_RX_INTERFACE;
+> +
+> +	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+> +	       ATR0_AXI4_SLV0_TRSL_PARAM);
+> +
+> +	val = lower_32_bits(axi_addr) | (atr_sz << ATR_SIZE_SHIFT) |
+> +			    ATR_IMPL_ENABLE;
+> +	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+> +	       ATR0_AXI4_SLV0_SRCADDR_PARAM);
+> +
+> +	val = upper_32_bits(axi_addr);
+> +	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+> +	       ATR0_AXI4_SLV0_SRC_ADDR);
+> +
+> +	val = lower_32_bits(pci_addr);
+> +	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+> +	       ATR0_AXI4_SLV0_TRSL_ADDR_LSB);
+> +
+> +	val = upper_32_bits(pci_addr);
+> +	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+> +	       ATR0_AXI4_SLV0_TRSL_ADDR_UDW);
+> +
+> +	val = readl(bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
+> +	val |= (ATR0_PCIE_ATR_SIZE << ATR0_PCIE_ATR_SIZE_SHIFT);
+> +	writel(val, bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
+> +	writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);
+> +}
+> +EXPORT_SYMBOL_GPL(plda_pcie_setup_window);
+> +
+> +int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
+> +			   struct plda_pcie_rp *port)
+> +{
+> +	void __iomem *bridge_base_addr = port->bridge_addr;
+> +	struct resource_entry *entry;
+> +	u64 pci_addr;
+> +	u32 index = 1;
+> +
+> +	resource_list_for_each_entry(entry, &bridge->windows) {
+> +		if (resource_type(entry->res) == IORESOURCE_MEM) {
+> +			pci_addr = entry->res->start - entry->offset;
+> +			plda_pcie_setup_window(bridge_base_addr, index,
+> +					       entry->res->start, pci_addr,
+> +					       resource_size(entry->res));
+> +			index++;
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(plda_pcie_setup_iomems);
+> diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
+> index 363fcbbaf6ec..3deefd35fa5a 100644
+> --- a/drivers/pci/controller/plda/pcie-plda.h
+> +++ b/drivers/pci/controller/plda/pcie-plda.h
+> @@ -120,4 +120,9 @@ struct plda_pcie_rp {
+>  	void __iomem *bridge_addr;
+>  };
+>  
+> +void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+> +			    phys_addr_t axi_addr, phys_addr_t pci_addr,
+> +			    size_t size);
+> +int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
+> +			   struct plda_pcie_rp *port);
+>  #endif
+> -- 
+> 2.17.1
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
