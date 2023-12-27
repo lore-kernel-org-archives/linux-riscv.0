@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AA3CC46CD2
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Dec 2023 10:42:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A799EC46CD2
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Dec 2023 10:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ef/v3PHcc/D8W4GdrsgTsg0afaeTEFWcNqFKbL1RMlE=; b=Kfqr4ICkgLLlNO
-	ZOoIMqq63kmTgsSjpBfknL4jJF4X18COtf2NO/aGItVIhgEj0nh1MdpUm9BwI1ieGtg9eIum/MOjB
-	gMFyYgG02pn5NFpz/lE5YVVjX2AVqG4VNZlkJH3GdEm6BjtCMPRpxn68MzgMJVjaKAXfsQoABtWLK
-	wGfFMkOVNLIHg0X+ZhnirqnMyQMxXp2jVk8KNZkyFzOW07T17iGe9bWwdwCfnfQks6xsphFLjWQJL
-	HvF9QSYldC/eROwUoXX3ihQuKTx+4ymMN89zC02L71eRpWPBUlSe1QNQtXTbC5P4tRcsrAIh65X5k
-	VK1BVzTwDAgAkzgV5PAA==;
+	List-Owner; bh=tvMcm8jJfCB/8Dn2fG/THE1TWU6qxT24ChGEaZ+Xa4A=; b=W/oQExGxrS8BLx
+	2vCyFBGB3NxtcjVcGnJzkcEhU/O/gydSvboxNb5ZIs7vz8EqugxkcX4aComV+XjFNvF/qmurHxFTU
+	w41OYfERHoUuUtAHDYg/XeyG59NOPoPp+3+SzPd5FIeuxVpPfOwtUg5brF7t0rr68IWiMqrTZYv4w
+	y3P0dLLXg4NAkR+AVR15NgPv6Bwkq6aWVdMf6M1ec41lRJOJa77Z4BTy1ERslw+cmSgRElPVpec+3
+	NDYyeXse9z31soAfvxjXbrmLjpmTLyojKeyBE3S/GvlPffUx28Dzmpgjw9VX4ziJ0ndghf9yKAuBf
+	BttUPnmF53NsrHDzuQZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rIRMk-00ENBH-1h;
-	Wed, 27 Dec 2023 10:42:22 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rIRMg-00ENAn-38
+	id 1rIRWN-00ENo4-24;
+	Wed, 27 Dec 2023 10:52:19 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1rIRWI-00ENmE-1V
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Dec 2023 10:42:20 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-50-QI0vpALcOICqpEAYQ6T2Mw-1; Wed, 27 Dec 2023 10:42:11 +0000
-X-MC-Unique: QI0vpALcOICqpEAYQ6T2Mw-1
-Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
- (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Wed, 27 Dec
- 2023 10:41:53 +0000
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Wed, 27 Dec 2023 10:41:53 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Jisheng Zhang' <jszhang@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>
+	Wed, 27 Dec 2023 10:52:18 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 12D8524E278;
+	Wed, 27 Dec 2023 18:51:39 +0800 (CST)
+Received: from EXMBX073.cuchost.com (172.16.6.83) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 27 Dec
+ 2023 18:51:39 +0800
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX073.cuchost.com
+ (172.16.6.83) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 27 Dec
+ 2023 18:51:38 +0800
+Received: from EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f]) by
+ EXMBX066.cuchost.com ([fe80::5947:9245:907e:339f%17]) with mapi id
+ 15.00.1497.044; Wed, 27 Dec 2023 18:51:38 +0800
+From: JeeHeng Sia <jeeheng.sia@starfivetech.com>
+To: Samuel Holland <samuel.holland@sifive.com>
 CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Eric Biggers
-	<ebiggers@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, "Qingfang
- DENG" <dqfext@gmail.com>, Charlie Jenkins <charlie@rivosinc.com>
-Subject: RE: [PATCH v4 1/2] riscv: introduce RISCV_EFFICIENT_UNALIGNED_ACCESS
-Thread-Topic: [PATCH v4 1/2] riscv: introduce RISCV_EFFICIENT_UNALIGNED_ACCESS
-Thread-Index: AQHaNu5/tgkH4SyC6kWXjxrDsB1U3bC88TvA
-Date: Wed, 27 Dec 2023 10:41:53 +0000
-Message-ID: <b289d77481724391ad75c585b82506d7@AcuMS.aculab.com>
-References: <20231225044207.3821-1-jszhang@kernel.org>
- <20231225044207.3821-2-jszhang@kernel.org>
-In-Reply-To: <20231225044207.3821-2-jszhang@kernel.org>
-Accept-Language: en-GB, en-US
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>, Leyfoon Tan
+	<leyfoon.tan@starfivetech.com>, "kernel@esmil.dk" <kernel@esmil.dk>,
+	"conor@kernel.org" <conor@kernel.org>, "robh+dt@kernel.org"
+	<robh+dt@kernel.org>, "krzysztof.kozlowski+dt@linaro.org"
+	<krzysztof.kozlowski+dt@linaro.org>, "paul.walmsley@sifive.com"
+	<paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "mturquette@baylibre.com"
+	<mturquette@baylibre.com>, "sboyd@kernel.org" <sboyd@kernel.org>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	"emil.renner.berthing@canonical.com" <emil.renner.berthing@canonical.com>,
+	Hal Feng <hal.feng@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>
+Subject: RE: [RFC 07/16] dt-bindings: clock: Add StarFive JH8100 North-West
+ clock and reset generator
+Thread-Topic: [RFC 07/16] dt-bindings: clock: Add StarFive JH8100 North-West
+ clock and reset generator
+Thread-Index: AQHaN73wOhvDbHN7t0mtNi9lKoc0XLC7VyWAgAGek3A=
+Date: Wed, 27 Dec 2023 10:51:38 +0000
+Message-ID: <45cba9bf1af74128b4d77bea3e11ce69@EXMBX066.cuchost.com>
+References: <20231226053848.25089-1-jeeheng.sia@starfivetech.com>
+ <20231226053848.25089-8-jeeheng.sia@starfivetech.com>
+ <74649469-2b47-486e-b8d1-c89b705fe8c1@sifive.com>
+In-Reply-To: <74649469-2b47-486e-b8d1-c89b705fe8c1@sifive.com>
+Accept-Language: en-US, zh-CN
+Content-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
 x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+x-originating-ip: [175.136.135.142]
+x-yovoleruleagent: yovoleflag
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231227_024219_297950_CD799BA1 
-X-CRM114-Status: UNSURE (   7.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231227_025214_820761_58CCCCEF 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,40 +95,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jisheng Zhang
-> Sent: 25 December 2023 04:42
+
+
+> -----Original Message-----
+> From: Samuel Holland <samuel.holland@sifive.com>
+> Sent: Wednesday, December 27, 2023 2:07 AM
+> To: JeeHeng Sia <jeeheng.sia@starfivetech.com>
+> Cc: linux-riscv@lists.infradead.org; devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-clk@vger.kernel.org; Leyfoon Tan
+> <leyfoon.tan@starfivetech.com>; kernel@esmil.dk; conor@kernel.org; robh+dt@kernel.org; krzysztof.kozlowski+dt@linaro.org;
+> paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu; mturquette@baylibre.com; sboyd@kernel.org;
+> p.zabel@pengutronix.de; emil.renner.berthing@canonical.com; Hal Feng <hal.feng@starfivetech.com>; Xingyu Wu
+> <xingyu.wu@starfivetech.com>
+> Subject: Re: [RFC 07/16] dt-bindings: clock: Add StarFive JH8100 North-West clock and reset generator
 > 
-> Some riscv implementations such as T-HEAD's C906, C908, C910 and C920
-> support efficient unaligned access, for performance reason we want
-> to enable HAVE_EFFICIENT_UNALIGNED_ACCESS on these platforms. To
-> avoid performance regressions on other non efficient unaligned access
-> platforms, HAVE_EFFICIENT_UNALIGNED_ACCESS can't be globally selected.
-
-How efficient are these EFFICIENT_UNALIGNED_ACCESS ?
-
-For single word accesses it doesn't matter much (since they don't fault).
-But for memcpy() (and similar) if they are slightly slow (eg the same
-as two aligned accesses) it is likely still worth doing misaligned
-transfers for both ends and aligned transfers for the middle.
-
-For example, on modern x86 it really isn't worth worrying about
-misaligned transfers of 64bit registers.
-AFAICT accesses within a cacheline just use byte enables - so are zero
-cost. Accesses that cross cache line boundaries do get split - but the
-out-of-order execute, store-buffer and the ability to do two reads in
-each clock cycle make the overall cost only just measurable.
-
-Not sure how the various RISC-V cpu compare though.
-You might get an extra clock delay a lot more often.
-So, while mostly you 'don't care' about the alignment, there may
-still be a few places where it does matter.
-
-	David
-
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
-
+> On 2023-12-25 11:38 PM, Sia Jee Heng wrote:
+> > Add bindings for the North-West clock and reset generator (NWCRG) on
+> > JH8100 SoC.
+> >
+> > Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
+> > Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
+> > ---
+> >  .../bindings/clock/starfive,jh8100-nwcrg.yaml | 119 ++++++++++++++++++
+> >  .../dt-bindings/clock/starfive,jh8100-crg.h   |  43 +++++++
+> >  .../dt-bindings/reset/starfive,jh8100-crg.h   |  14 +++
+> >  3 files changed, 176 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh8100-nwcrg.yaml
+> >
+> > diff --git a/Documentation/devicetree/bindings/clock/starfive,jh8100-nwcrg.yaml
+> b/Documentation/devicetree/bindings/clock/starfive,jh8100-nwcrg.yaml
+> > new file mode 100644
+> > index 000000000000..be0f94e64e6a
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/clock/starfive,jh8100-nwcrg.yaml
+> > @@ -0,0 +1,119 @@
+> > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/clock/starfive,jh8100-nwcrg.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: StarFive JH8100 North-West Clock and Reset Generator
+> > +
+> > +maintainers:
+> > +  - Sia Jee Heng <jeeheng.sia@starfivetech.com>
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: starfive,jh8100-nwcrg
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  clocks:
+> > +    items:
+> > +      - description: Main Oscillator (24 MHz)
+> > +      - description: APB_BUS clock from SYSCRG
+> > +      - description: APB_BUS_PER4 clock from SYSCRG
+> > +      - description: SPI_CORE_100 clock from SYSCRG
+> > +      - description: ISP_2X clock from SYSCRG
+> > +      - description: ISP_AXI clock from SYSCRG
+> > +      - description: VOUT_ROOT0 clock from SYSCRG
+> > +      - description: VOUT_ROOT1 clock from SYSCRG
+> > +      - description: VOUT_SCAN_ATS clock from SYSCRG
+> > +      - description: VOUT_DC_CORE clock from SYSCRG
+> > +      - description: VOUT_AXI clock from SYSCRG
+> > +      - description: AXI_400 clock from SYSCRG
+> > +      - description: AHB0 clock from SYSCRG
+> > +      - description: PERH_ROOT_PREOSC from SYSCRG
+> > +      - description: External DVP clock
+> > +      - description: External ISP DPHY TAP TCK clock
+> > +      - description: External golbal clock
+> 
+> Typo: global
+Oops. Will fix it. Thanks.
+> 
+> > +      - description: External VOUT MIPI DPHY TAP TCK
+> > +      - description: External VOUT eDP TAP TCK
+> > +      - description: External SPI In2 clock
+> > +      - description: PLL5
+> > [...]
 
 _______________________________________________
 linux-riscv mailing list
