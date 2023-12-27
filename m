@@ -4,61 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD0FC46CD2
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jan 2024 16:38:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DECD3C47077
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jan 2024 16:38:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HvPO/LNkpbIKC7/p1mswrLjVB9Xy+x6dPYgYXxheL0Y=; b=1DHcLR2sHpc/P6
-	L/H5Ipfc1uOEAlk/OhlXKg5kOm4RZJIEKBQ0ByDtPbsaA5i8ZorHx2rFTI8yrn0zphegL3NY4mZtg
-	JuLrnI1uYZQqBama4LdXfpJXwWzsHz+w1Z4hZ2j/k5uCyeG/PMXUgkh6UMXp6qgoqlA/6QcocjjLM
-	vbCUz4VCZ37KAygg2QAv/DwK2d0nPMgGsbH7WlRNrKOoXL7eSBxm3jjflFto/CdfEnn0dMikTqLQo
-	Wb9xfYUDQ5iNt6m2BtD8tCtSRsbYx3HGUkFCwC5BnSbxTTs0R/6/AS96TfUKpn080ywONTg397EA+
-	051ptA23i90v+fy9C4Xg==;
+	List-Owner; bh=DPUwukPaEuE10DN/PBJK9NYULpCfnCCCY5J9SrRfYyM=; b=MWFFG385Ri9Czc
+	8ngNfcUhgr/9aRTTVLqRAPcbNjrarsoRabCvsV4Af16iR2LlO1yLfgAtCKMZ1XotpXfmj/rwL4OWK
+	eXu1GvJT/6mGj3Qe+m7bXjIkz8dzFznfi0JSePVDSQ5DTYR893nmZuWAlJEyN7SvGnU0h6qNse1FE
+	bkCljeryEwdjJFWjZC+0faEbfR3OoDkaswsXFFvtuoxMl2kkhfWxwwQGmh0OBH3l1WT4TiVa1LOcK
+	cKAe6vtjEWd1kgp652aEmYOC1LH/TFNImQbm7djIhS6//TIyXX85koa0KnVJqeWeifjPYHoScPRZx
+	Ud+PK7Du0dUKiDgALJIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKhm0-008Vbz-2Z;
+	id 1rKhm1-008Vc7-2g;
 	Tue, 02 Jan 2024 16:37:49 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rI0AQ-00Bir7-0z
+Received: from mail-dm6nam11olkn2081d.outbound.protection.outlook.com ([2a01:111:f400:7eaa::81d] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1rIK3v-00DrAc-2H
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Dec 2023 05:39:55 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 1445824E29A;
-	Tue, 26 Dec 2023 13:39:30 +0800 (CST)
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 26 Dec
- 2023 13:39:29 +0800
-Received: from jsia-virtual-machine.localdomain (202.188.176.82) by
- EXMBX066.cuchost.com (172.16.6.66) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Tue, 26 Dec 2023 13:39:23 +0800
-From: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-To: <kernel@esmil.dk>, <conor@kernel.org>, <robh+dt@kernel.org>,
-	<krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <mturquette@baylibre.com>,
-	<sboyd@kernel.org>, <p.zabel@pengutronix.de>,
-	<emil.renner.berthing@canonical.com>, <hal.feng@starfivetech.com>,
-	<xingyu.wu@starfivetech.com>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-	<jeeheng.sia@starfivetech.com>, <leyfoon.tan@starfivetech.com>
-Subject: [RFC 04/16] clk: starfive: Convert the word "jh71x0" to "starfive"
-Date: Tue, 26 Dec 2023 13:38:36 +0800
-Message-ID: <20231226053848.25089-5-jeeheng.sia@starfivetech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20231226053848.25089-1-jeeheng.sia@starfivetech.com>
-References: <20231226053848.25089-1-jeeheng.sia@starfivetech.com>
+	Wed, 27 Dec 2023 02:54:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=lpSqRmIyeEvQWL+BpKfMGN1GtnKUPzLwzAe4AEzEFuRRMjlCnvkKphktGJFOnYWFyaOf6EgTMsmknpwKHCHhLHH5zlMhZFyp95bxVZosiWG/ddsOP6/mGJOEV3K0ZEPokX7fuW2lVP0aCB8dK7gtcsDI8G76B+4LOiHNsJ9BgVEe5uLQtpXOXaw65tJpZQEM+NAX9Z5/9/MzUPnUzYS1RRiIbKzosS8RZYi6DlQKwAYg1m0He9F6GfLPYCEqqmIoELKAJPT1cL9ER6rQX1rONhXPkVFE6O5mznb9KHwO0NyI0xUC2s+BQtmGyklNDNsOnvEuhC2OiGyJH+0XM8q6NQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eJKDHGgf24esZ0YxIJgjJJLUQ+9jov9YFZKaJa8Gkh4=;
+ b=hTTZjF2VzutJn0NKEFdLpwaECvEm1MHBdINBFzWEyJYYsUktpzQWPwpAJlrw/4RMBEVsn7o+gnSTXd7EWVqOru3buNSngrIGSkFOcnRsqJRYJuAhVYCbjQ+1dv3MIVCSyZUpJ0Fp3xo+bOCn4qjVufE2fOUYyci5umNk9/bMZZNc+73hyZZbedcok7b5oAvLwisSd/n6sz6OMZ/0WMguhNlLWYgyV4ImO7Tzyz75FwL0eVsnEPqjKB1ug4Zo/yEDzfF0c1fRRtuRIO3CLyk2EsD0WU9jGvYcn7OuBjnj7WM4Ncb0802eOqQxsGE2FoL7ISd/mSKRAcC9Qi7Ld6B7ow==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eJKDHGgf24esZ0YxIJgjJJLUQ+9jov9YFZKaJa8Gkh4=;
+ b=pcw5kja6rT/81Pku/Qma9MA043zpKM30WjWG8piusRM8hyKdCOVd3SQZoxwnY7qvgAp90rGIfpeeEasWOowaFFTSZbRPp0VivqY59bNkcCppARQqtH28JlepAvevv1JpnrbDTH3fTzVjMyCxgvsOq60QtqGagy+wXjR0kBHyWB6b/rHxPg+RFpHa05wPfP4dEdZU2rJ4pXP9NJcFmtO6yCmWIxR8XcQ6ompSQSS7TeK3Q1fP8dMo9gtYIDfeuoAZhTEEezMBnNUWx6AY4ARQj4l181S10iPITnKtgcCMfq9KcQbFciMCM/SFoI5zQU4JR5PjkAUB+dQm/jVeFThNjw==
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
+ by CH0PR20MB3754.namprd20.prod.outlook.com (2603:10b6:610:df::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7135.19; Wed, 27 Dec
+ 2023 02:54:20 +0000
+Received: from IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::406a:664b:b8bc:1e6b]) by IA1PR20MB4953.namprd20.prod.outlook.com
+ ([fe80::406a:664b:b8bc:1e6b%2]) with mapi id 15.20.7113.026; Wed, 27 Dec 2023
+ 02:54:20 +0000
+From: Inochi Amaoto <inochiama@outlook.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chao Wei <chao.wei@sophgo.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Inochi Amaoto <inochiama@outlook.com>
+Cc: Jisheng Zhang <jszhang@kernel.org>,
+	Liu Gui <kenneth.liu@sophgo.com>,
+	Jingbao Qiu <qiujingbao.dlmu@gmail.com>,
+	dlan@gentoo.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v5 1/3] clk: sophgo: Add CV1800 series clock controller driver
+Date: Wed, 27 Dec 2023 10:54:18 +0800
+Message-ID: <IA1PR20MB4953139C77167200594CE971BB9FA@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <IA1PR20MB49539CDAD9A268CBF6CA184BBB9FA@IA1PR20MB4953.namprd20.prod.outlook.com>
+References: <IA1PR20MB49539CDAD9A268CBF6CA184BBB9FA@IA1PR20MB4953.namprd20.prod.outlook.com>
+X-TMN: [s/8vR9OVolIvXv8tvXtm72fQkJ/zIJofCvCkT+4ESv4=]
+X-ClientProxiedBy: BYAPR07CA0093.namprd07.prod.outlook.com
+ (2603:10b6:a03:12b::34) To IA1PR20MB4953.namprd20.prod.outlook.com
+ (2603:10b6:208:3af::19)
+X-Microsoft-Original-Message-ID: <20231227025420.296265-1-inochiama@outlook.com>
 MIME-Version: 1.0
-X-Originating-IP: [202.188.176.82]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX066.cuchost.com
- (172.16.6.66)
-X-YovoleRuleAgent: yovoleflag
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|CH0PR20MB3754:EE_
+X-MS-Office365-Filtering-Correlation-Id: d51c2694-2a80-4a7c-cf2a-08dc06871f98
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: c9myX3v6gE0Z0Wnebw7rqNihH+0ouVjVGiGz5P7logjHI1TBrLBYZ49URluUd9mF5c2zJA7vmwBLRp5DLnFSnD38zPEZqGBzLPQUEJoojWk8R0RyqPyr9Q09BMl0QSBg+y5+Z2gZopP3V5kSlx9zsJyEgZYop1svumRy1Y66IWTzEqzUyBx3VXlj6/dAoqLxZLD+P3FGr4dr11flx7E7jwFoisgEL3JoK2gDA++4SKxrild1s/odC8MUVUeM0POd+SdmhFvdzMNa39kF7z3D5sFVA2gNZz6hzz8auRYO3/PP4OS5cYAw1PSdmb/zp5HFpiDi4oJk/IPo32LPUf+sWYdUaYgptNvC5LqHiVtBWCzqZ8oy+KRPgrEfsqVlFhNKq0MBdVJwAUP4jFqFMqUqNc2iLe17k8eyy0R4I6kBPLJ3z+Iqz08ED2ulB7FVk+e0mDPv8rn2x3TwNeF/7IYLIShi+wdQaqdes2xbZkG3JrCsih6YIfcUDrvgmXQllExyiK7dtziE+ppPfbImragG9tpYN18YU2YptC0XFmg+xxo6ZOY2CRZAsRtA5NJLLSUndrav1J8vxlCNnoxhfue6HdwsRprYqX0mM+VFfhhg1YJcKL3P9luSmH69A6agu2AxT72O4H1BiK/hYMEf2Dd1UMbfX8BCzshNXjgz+OKtUUg=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qdinyWk4XI0W58wg3s4Wp06pNR7Fw32c56OInW7pj2GxQA86gBDB3+wajyNq?=
+ =?us-ascii?Q?42GRhP8CHnGFY0gJ/ZleXcVyBdhnWi9i7pNrgQCv7HMkVaae9PykxRwJhZ9M?=
+ =?us-ascii?Q?1ChN9u5Pt20UrZ/WALdABaZBkJ/6GiV4LFEHCTuibuDEdd+kp5wo2hYqi+id?=
+ =?us-ascii?Q?Lmfrg6ZN3jYrRKO/+6/G6Ojx1xEgNaOfTegh3k0PtNTe49ISMr1cz19CVcvH?=
+ =?us-ascii?Q?Y5NpR/fI4wMQ6AihkQEjKOlP/xCSmsDbNy8nhp3AG3DddYUR+2RHUQDbhUDw?=
+ =?us-ascii?Q?i9YiVGcLbX3Aqdq5Gcg4p6ZxdMjOnTqXMWhJiYjNDe/5CJ52b1Zp3e9607RX?=
+ =?us-ascii?Q?TY0dznllp8R/LpAm2zU8ZsTnUZsFF/KigzU0OzSl9FkeHf8Vl/0bmSKHRYzt?=
+ =?us-ascii?Q?td5SY6Yvs1VYoS+QxwCFweOtZcAVtAtjUCA8ipMtH8KboYmK0Sf6hRHm81vj?=
+ =?us-ascii?Q?hgy4I+HQxFw2EDX6CDnXPguKKyhq0GgqT6So3oitx0UPwVLwUQTFrakZCKiG?=
+ =?us-ascii?Q?VjN4iryCF74/x5oG3/HTshZFPYYVN82UW9/lrd09jvPB1QBtSzOksi1SZmcO?=
+ =?us-ascii?Q?9nrJzyCp2ZwayP8jsXuXHr4nCZK1ieV4pdUEMWpe0EVt4L7P4btqe0zoR4jn?=
+ =?us-ascii?Q?JYzd91vCO3nGnZh8lfZvHeCPAlVNTkMujjWH7y4L7/92KCcI6BvmVzodiwQ2?=
+ =?us-ascii?Q?ANlxeVZuHgIWDdtJpyfbDhd0WkvzE/Ir9iUR7nM4YRDlVQNSTofJeBwwpbCu?=
+ =?us-ascii?Q?PIzyYNHubA4wHH+f9jZlc5w8BuqRcy3uXPknpwQQnWykd2WtmSzrGP/MCjka?=
+ =?us-ascii?Q?3TvzBhpMtvQLUmJfTkZjtrdBFytgaqpXMS7ecU5WDO6zRHilK6IVCYdislN1?=
+ =?us-ascii?Q?BUZQ7rrjiOcu82Gs7x7NPMiXX0cI5dupEgj6G2ZeBUfqIjDsn6h+TDlkZFX7?=
+ =?us-ascii?Q?uuDD1nH4m4kvBquDLw1YDXsCF2s0gyOD5h6DZFUAUnsmipuO+MPTiFBwzg+K?=
+ =?us-ascii?Q?guRJZHfmfF7mYyn3M96fXCBfOE0H2HiTmHQrKZYou7yxOrqwGSsO9c2qUkxY?=
+ =?us-ascii?Q?wJrj9ritTqaBJT8vjdTeCz/YWwaP9x2K7aMH+j/pwsomTg3LROhrVA5uKg+1?=
+ =?us-ascii?Q?MMsXxGSDWanLoQ1eHGQEihfvG/BaRk/oeFk0H0BUnHmonXzNVrn90uGg7J5n?=
+ =?us-ascii?Q?H+gv8zcyndCiTRQsCn76OPKqVEzUPEUaRZS4bFqHAf6Kr10WaQU46z0rcHk?=
+ =?us-ascii?Q?=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d51c2694-2a80-4a7c-cf2a-08dc06871f98
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Dec 2023 02:54:20.7041
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR20MB3754
 X-Mailman-Approved-At: Tue, 02 Jan 2024 08:37:47 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,2438 +138,3655 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Function names that consist of the 'jh71x0' naming convention are
-renamed to use the 'starfive' wording.
+Add driver for CV1800 series clock controller.
 
-Signed-off-by: Sia Jee Heng <jeeheng.sia@starfivetech.com>
-Reviewed-by: Ley Foon Tan <leyfoon.tan@starfivetech.com>
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
+Link: https://github.com/milkv-duo/duo-files/blob/main/hardware/CV1800B/CV180X-Clock-v1.xlsx
+Link: https://github.com/milkv-duo/duo-files/blob/main/hardware/CV1800B/CV1800B-CV1801B-Preliminary-Datasheet-full-en.pdf
 ---
- drivers/clk/starfive/clk-starfive-common.c    | 290 +++++-----
- drivers/clk/starfive/clk-starfive-common.h    |  68 +--
- .../clk/starfive/clk-starfive-jh7100-audio.c  | 125 ++---
- drivers/clk/starfive/clk-starfive-jh7100.c    | 501 ++++++++---------
- .../clk/starfive/clk-starfive-jh7110-aon.c    |  62 +--
- .../clk/starfive/clk-starfive-jh7110-isp.c    |  72 +--
- .../clk/starfive/clk-starfive-jh7110-stg.c    |  94 ++--
- .../clk/starfive/clk-starfive-jh7110-sys.c    | 517 +++++++++---------
- .../clk/starfive/clk-starfive-jh7110-vout.c   |  74 +--
- drivers/clk/starfive/clk-starfive-jh7110.h    |   2 +-
- 10 files changed, 908 insertions(+), 897 deletions(-)
+ drivers/clk/Kconfig                    |    1 +
+ drivers/clk/Makefile                   |    1 +
+ drivers/clk/sophgo/Kconfig             |   12 +
+ drivers/clk/sophgo/Makefile            |    7 +
+ drivers/clk/sophgo/clk-cv1800.c        | 1530 ++++++++++++++++++++++++
+ drivers/clk/sophgo/clk-cv1800.h        |  123 ++
+ drivers/clk/sophgo/clk-cv18xx-common.c |   66 +
+ drivers/clk/sophgo/clk-cv18xx-common.h |   81 ++
+ drivers/clk/sophgo/clk-cv18xx-ip.c     |  905 ++++++++++++++
+ drivers/clk/sophgo/clk-cv18xx-ip.h     |  265 ++++
+ drivers/clk/sophgo/clk-cv18xx-pll.c    |  425 +++++++
+ drivers/clk/sophgo/clk-cv18xx-pll.h    |  119 ++
+ 12 files changed, 3535 insertions(+)
+ create mode 100644 drivers/clk/sophgo/Kconfig
+ create mode 100644 drivers/clk/sophgo/Makefile
+ create mode 100644 drivers/clk/sophgo/clk-cv1800.c
+ create mode 100644 drivers/clk/sophgo/clk-cv1800.h
+ create mode 100644 drivers/clk/sophgo/clk-cv18xx-common.c
+ create mode 100644 drivers/clk/sophgo/clk-cv18xx-common.h
+ create mode 100644 drivers/clk/sophgo/clk-cv18xx-ip.c
+ create mode 100644 drivers/clk/sophgo/clk-cv18xx-ip.h
+ create mode 100644 drivers/clk/sophgo/clk-cv18xx-pll.c
+ create mode 100644 drivers/clk/sophgo/clk-cv18xx-pll.h
 
-diff --git a/drivers/clk/starfive/clk-starfive-common.c b/drivers/clk/starfive/clk-starfive-common.c
-index a12490c97957..fd608286ca13 100644
---- a/drivers/clk/starfive/clk-starfive-common.c
-+++ b/drivers/clk/starfive/clk-starfive-common.c
-@@ -12,27 +12,27 @@
- 
- #include "clk-starfive-common.h"
- 
--static struct jh71x0_clk *jh71x0_clk_from(struct clk_hw *hw)
-+static struct starfive_clk *starfive_clk_from(struct clk_hw *hw)
- {
--	return container_of(hw, struct jh71x0_clk, hw);
-+	return container_of(hw, struct starfive_clk, hw);
- }
- 
--static struct jh71x0_clk_priv *jh71x0_priv_from(struct jh71x0_clk *clk)
-+static struct starfive_clk_priv *starfive_priv_from(struct starfive_clk *clk)
- {
--	return container_of(clk, struct jh71x0_clk_priv, reg[clk->idx]);
-+	return container_of(clk, struct starfive_clk_priv, reg[clk->idx]);
- }
- 
--static u32 jh71x0_clk_reg_get(struct jh71x0_clk *clk)
-+static u32 starfive_clk_reg_get(struct starfive_clk *clk)
- {
--	struct jh71x0_clk_priv *priv = jh71x0_priv_from(clk);
-+	struct starfive_clk_priv *priv = starfive_priv_from(clk);
- 	void __iomem *reg = priv->base + 4 * clk->idx;
- 
- 	return readl_relaxed(reg);
- }
- 
--static void jh71x0_clk_reg_rmw(struct jh71x0_clk *clk, u32 mask, u32 value)
-+static void starfive_clk_reg_rmw(struct starfive_clk *clk, u32 mask, u32 value)
- {
--	struct jh71x0_clk_priv *priv = jh71x0_priv_from(clk);
-+	struct starfive_clk_priv *priv = starfive_priv_from(clk);
- 	void __iomem *reg = priv->base + 4 * clk->idx;
- 	unsigned long flags;
- 
-@@ -42,41 +42,41 @@ static void jh71x0_clk_reg_rmw(struct jh71x0_clk *clk, u32 mask, u32 value)
- 	spin_unlock_irqrestore(&priv->rmw_lock, flags);
- }
- 
--static int jh71x0_clk_enable(struct clk_hw *hw)
-+static int starfive_clk_enable(struct clk_hw *hw)
- {
--	struct jh71x0_clk *clk = jh71x0_clk_from(hw);
-+	struct starfive_clk *clk = starfive_clk_from(hw);
- 
--	jh71x0_clk_reg_rmw(clk, JH71X0_CLK_ENABLE, JH71X0_CLK_ENABLE);
-+	starfive_clk_reg_rmw(clk, STARFIVE_CLK_ENABLE, STARFIVE_CLK_ENABLE);
- 	return 0;
- }
- 
--static void jh71x0_clk_disable(struct clk_hw *hw)
-+static void starfive_clk_disable(struct clk_hw *hw)
- {
--	struct jh71x0_clk *clk = jh71x0_clk_from(hw);
-+	struct starfive_clk *clk = starfive_clk_from(hw);
- 
--	jh71x0_clk_reg_rmw(clk, JH71X0_CLK_ENABLE, 0);
-+	starfive_clk_reg_rmw(clk, STARFIVE_CLK_ENABLE, 0);
- }
- 
--static int jh71x0_clk_is_enabled(struct clk_hw *hw)
-+static int starfive_clk_is_enabled(struct clk_hw *hw)
- {
--	struct jh71x0_clk *clk = jh71x0_clk_from(hw);
-+	struct starfive_clk *clk = starfive_clk_from(hw);
- 
--	return !!(jh71x0_clk_reg_get(clk) & JH71X0_CLK_ENABLE);
-+	return !!(starfive_clk_reg_get(clk) & STARFIVE_CLK_ENABLE);
- }
- 
--static unsigned long jh71x0_clk_recalc_rate(struct clk_hw *hw,
--					    unsigned long parent_rate)
-+static unsigned long starfive_clk_recalc_rate(struct clk_hw *hw,
-+					      unsigned long parent_rate)
- {
--	struct jh71x0_clk *clk = jh71x0_clk_from(hw);
--	u32 div = jh71x0_clk_reg_get(clk) & JH71X0_CLK_DIV_MASK;
-+	struct starfive_clk *clk = starfive_clk_from(hw);
-+	u32 div = starfive_clk_reg_get(clk) & STARFIVE_CLK_DIV_MASK;
- 
- 	return div ? parent_rate / div : 0;
- }
- 
--static int jh71x0_clk_determine_rate(struct clk_hw *hw,
--				     struct clk_rate_request *req)
-+static int starfive_clk_determine_rate(struct clk_hw *hw,
-+				       struct clk_rate_request *req)
- {
--	struct jh71x0_clk *clk = jh71x0_clk_from(hw);
-+	struct starfive_clk *clk = starfive_clk_from(hw);
- 	unsigned long parent = req->best_parent_rate;
- 	unsigned long rate = clamp(req->rate, req->min_rate, req->max_rate);
- 	unsigned long div = min_t(unsigned long, DIV_ROUND_UP(parent, rate), clk->max_div);
-@@ -102,226 +102,226 @@ static int jh71x0_clk_determine_rate(struct clk_hw *hw,
- 	return 0;
- }
- 
--static int jh71x0_clk_set_rate(struct clk_hw *hw,
--			       unsigned long rate,
--			       unsigned long parent_rate)
-+static int starfive_clk_set_rate(struct clk_hw *hw,
-+				 unsigned long rate,
-+				 unsigned long parent_rate)
- {
--	struct jh71x0_clk *clk = jh71x0_clk_from(hw);
-+	struct starfive_clk *clk = starfive_clk_from(hw);
- 	unsigned long div = clamp(DIV_ROUND_CLOSEST(parent_rate, rate),
- 				  1UL, (unsigned long)clk->max_div);
- 
--	jh71x0_clk_reg_rmw(clk, JH71X0_CLK_DIV_MASK, div);
-+	starfive_clk_reg_rmw(clk, STARFIVE_CLK_DIV_MASK, div);
- 	return 0;
- }
- 
--static unsigned long jh71x0_clk_frac_recalc_rate(struct clk_hw *hw,
--						 unsigned long parent_rate)
-+static unsigned long starfive_clk_frac_recalc_rate(struct clk_hw *hw,
-+						   unsigned long parent_rate)
- {
--	struct jh71x0_clk *clk = jh71x0_clk_from(hw);
--	u32 reg = jh71x0_clk_reg_get(clk);
--	unsigned long div100 = 100 * (reg & JH71X0_CLK_INT_MASK) +
--			       ((reg & JH71X0_CLK_FRAC_MASK) >> JH71X0_CLK_FRAC_SHIFT);
-+	struct starfive_clk *clk = starfive_clk_from(hw);
-+	u32 reg = starfive_clk_reg_get(clk);
-+	unsigned long div100 = 100 * (reg & STARFIVE_CLK_INT_MASK) +
-+			       ((reg & STARFIVE_CLK_FRAC_MASK) >> STARFIVE_CLK_FRAC_SHIFT);
- 
--	return (div100 >= JH71X0_CLK_FRAC_MIN) ? 100 * parent_rate / div100 : 0;
-+	return (div100 >= STARFIVE_CLK_FRAC_MIN) ? 100 * parent_rate / div100 : 0;
- }
- 
--static int jh71x0_clk_frac_determine_rate(struct clk_hw *hw,
--					  struct clk_rate_request *req)
-+static int starfive_clk_frac_determine_rate(struct clk_hw *hw,
-+					    struct clk_rate_request *req)
- {
- 	unsigned long parent100 = 100 * req->best_parent_rate;
- 	unsigned long rate = clamp(req->rate, req->min_rate, req->max_rate);
- 	unsigned long div100 = clamp(DIV_ROUND_CLOSEST(parent100, rate),
--				     JH71X0_CLK_FRAC_MIN, JH71X0_CLK_FRAC_MAX);
-+				     STARFIVE_CLK_FRAC_MIN, STARFIVE_CLK_FRAC_MAX);
- 	unsigned long result = parent100 / div100;
- 
--	/* clamp the result as in jh71x0_clk_determine_rate() above */
--	if (result > req->max_rate && div100 < JH71X0_CLK_FRAC_MAX)
-+	/* clamp the result as in starfive_clk_determine_rate() above */
-+	if (result > req->max_rate && div100 < STARFIVE_CLK_FRAC_MAX)
- 		result = parent100 / (div100 + 1);
--	if (result < req->min_rate && div100 > JH71X0_CLK_FRAC_MIN)
-+	if (result < req->min_rate && div100 > STARFIVE_CLK_FRAC_MIN)
- 		result = parent100 / (div100 - 1);
- 
- 	req->rate = result;
- 	return 0;
- }
- 
--static int jh71x0_clk_frac_set_rate(struct clk_hw *hw,
--				    unsigned long rate,
--				    unsigned long parent_rate)
-+static int starfive_clk_frac_set_rate(struct clk_hw *hw,
-+				      unsigned long rate,
+diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
+index c30d0d396f7a..514343934fda 100644
+--- a/drivers/clk/Kconfig
++++ b/drivers/clk/Kconfig
+@@ -499,6 +499,7 @@ source "drivers/clk/rockchip/Kconfig"
+ source "drivers/clk/samsung/Kconfig"
+ source "drivers/clk/sifive/Kconfig"
+ source "drivers/clk/socfpga/Kconfig"
++source "drivers/clk/sophgo/Kconfig"
+ source "drivers/clk/sprd/Kconfig"
+ source "drivers/clk/starfive/Kconfig"
+ source "drivers/clk/sunxi/Kconfig"
+diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
+index ed71f2e0ee36..eeae7ae93f89 100644
+--- a/drivers/clk/Makefile
++++ b/drivers/clk/Makefile
+@@ -119,6 +119,7 @@ obj-$(CONFIG_ARCH_ROCKCHIP)		+= rockchip/
+ obj-$(CONFIG_COMMON_CLK_SAMSUNG)	+= samsung/
+ obj-$(CONFIG_CLK_SIFIVE)		+= sifive/
+ obj-y					+= socfpga/
++obj-y					+= sophgo/
+ obj-$(CONFIG_PLAT_SPEAR)		+= spear/
+ obj-y					+= sprd/
+ obj-$(CONFIG_ARCH_STI)			+= st/
+diff --git a/drivers/clk/sophgo/Kconfig b/drivers/clk/sophgo/Kconfig
+new file mode 100644
+index 000000000000..d67009fa749f
+--- /dev/null
++++ b/drivers/clk/sophgo/Kconfig
+@@ -0,0 +1,12 @@
++# SPDX-License-Identifier: GPL-2.0
++# common clock support for SOPHGO SoC family.
++
++config CLK_SOPHGO_CV1800
++	tristate "Support for the Sophgo CV1800 series SoCs clock controller"
++	default m
++	depends on ARCH_SOPHGO || COMPILE_TEST
++	help
++	  This driver supports clock controller of Sophgo CV18XX series SoC.
++	  The driver require a 25MHz Oscillator to function generate clock.
++	  It includes PLLs, common clock function and some vendor clock for
++	  IPs of CV18XX series SoC
+diff --git a/drivers/clk/sophgo/Makefile b/drivers/clk/sophgo/Makefile
+new file mode 100644
+index 000000000000..a50320764200
+--- /dev/null
++++ b/drivers/clk/sophgo/Makefile
+@@ -0,0 +1,7 @@
++# SPDX-License-Identifier: GPL-2.0
++obj-$(CONFIG_CLK_SOPHGO_CV1800)	+= clk-sophgo-cv1800.o
++
++clk-sophgo-cv1800-y		+= clk-cv1800.o
++clk-sophgo-cv1800-y		+= clk-cv18xx-common.o
++clk-sophgo-cv1800-y		+= clk-cv18xx-ip.o
++clk-sophgo-cv1800-y		+= clk-cv18xx-pll.o
+diff --git a/drivers/clk/sophgo/clk-cv1800.c b/drivers/clk/sophgo/clk-cv1800.c
+new file mode 100644
+index 000000000000..2bdfdd0b907c
+--- /dev/null
++++ b/drivers/clk/sophgo/clk-cv1800.c
+@@ -0,0 +1,1530 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
++ */
++
++#include <linux/module.h>
++#include <linux/clk-provider.h>
++#include <linux/platform_device.h>
++#include <linux/io.h>
++#include <linux/spinlock.h>
++
++#include "clk-cv1800.h"
++
++#include "clk-cv18xx-common.h"
++#include "clk-cv18xx-ip.h"
++#include "clk-cv18xx-pll.h"
++
++struct cv1800_clk_ctrl;
++
++struct cv1800_clk_desc {
++	struct clk_hw_onecell_data	*clks_data;
++
++	int (*pre_init)(struct device *dev, void __iomem *base,
++			struct cv1800_clk_ctrl *ctrl,
++			const struct cv1800_clk_desc *desc);
++};
++
++struct cv1800_clk_ctrl {
++	const struct cv1800_clk_desc	*desc;
++	spinlock_t			lock;
++};
++
++#define CV1800_DIV_FLAG	\
++	(CLK_DIVIDER_ONE_BASED | CLK_DIVIDER_ROUND_CLOSEST)
++static const struct clk_parent_data osc_parents[] = {
++	{ .index = 0 },
++};
++
++static const struct cv1800_clk_pll_limit pll_limits[] = {
++	{
++		.pre_div	= _CV1800_PLL_LIMIT(1, 127),
++		.div		= _CV1800_PLL_LIMIT(6, 127),
++		.post_div	= _CV1800_PLL_LIMIT(1, 127),
++		.ictrl		= _CV1800_PLL_LIMIT(0, 7),
++		.mode		= _CV1800_PLL_LIMIT(0, 3),
++	},
++	{
++		.pre_div	= _CV1800_PLL_LIMIT(1, 127),
++		.div		= _CV1800_PLL_LIMIT(6, 127),
++		.post_div	= _CV1800_PLL_LIMIT(1, 127),
++		.ictrl		= _CV1800_PLL_LIMIT(0, 7),
++		.mode		= _CV1800_PLL_LIMIT(0, 3),
++	},
++};
++
++static CV1800_INTEGRAL_PLL(clk_fpll, osc_parents,
++			   REG_FPLL_CSR,
++			   REG_PLL_G6_CTRL, 8,
++			   REG_PLL_G6_STATUS, 2,
++			   pll_limits,
++			   CLK_IS_CRITICAL);
++
++static CV1800_INTEGRAL_PLL(clk_mipimpll, osc_parents,
++			   REG_MIPIMPLL_CSR,
++			   REG_PLL_G2_CTRL, 0,
++			   REG_PLL_G2_STATUS, 0,
++			   pll_limits,
++			   CLK_IS_CRITICAL);
++
++static const struct clk_parent_data clk_mipimpll_parents[] = {
++	{ .hw = &clk_mipimpll.common.hw },
++};
++static const struct clk_parent_data clk_bypass_mipimpll_parents[] = {
++	{ .index = 0 },
++	{ .hw = &clk_mipimpll.common.hw },
++};
++static const struct clk_parent_data clk_bypass_fpll_parents[] = {
++	{ .index = 0 },
++	{ .hw = &clk_fpll.common.hw },
++};
++
++struct cv1800_clk_pll_synthesizer clk_mpll_synthesizer = {
++	.en		= CV1800_CLK_BIT(REG_PLL_G6_SSC_SYN_CTRL, 2),
++	.clk_half	= CV1800_CLK_BIT(REG_PLL_G6_SSC_SYN_CTRL, 0),
++	.ctrl		= REG_MPLL_SSC_SYN_CTRL,
++	.set		= REG_MPLL_SSC_SYN_SET,
++};
++static CV1800_FACTIONAL_PLL(clk_mpll, clk_bypass_mipimpll_parents,
++			    REG_MPLL_CSR,
++			    REG_PLL_G6_CTRL, 0,
++			    REG_PLL_G6_STATUS, 0,
++			    pll_limits,
++			    &clk_mpll_synthesizer,
++			    CLK_IS_CRITICAL);
++
++struct cv1800_clk_pll_synthesizer clk_tpll_synthesizer = {
++	.en		= CV1800_CLK_BIT(REG_PLL_G6_SSC_SYN_CTRL, 3),
++	.clk_half	= CV1800_CLK_BIT(REG_PLL_G6_SSC_SYN_CTRL, 0),
++	.ctrl		= REG_TPLL_SSC_SYN_CTRL,
++	.set		= REG_TPLL_SSC_SYN_SET,
++};
++static CV1800_FACTIONAL_PLL(clk_tpll, clk_bypass_mipimpll_parents,
++			    REG_TPLL_CSR,
++			    REG_PLL_G6_CTRL, 4,
++			    REG_PLL_G6_STATUS, 1,
++			    pll_limits,
++			    &clk_tpll_synthesizer,
++			    CLK_IS_CRITICAL);
++
++struct cv1800_clk_pll_synthesizer clk_a0pll_synthesizer = {
++	.en		= CV1800_CLK_BIT(REG_PLL_G2_SSC_SYN_CTRL, 2),
++	.clk_half	= CV1800_CLK_BIT(REG_PLL_G2_SSC_SYN_CTRL, 0),
++	.ctrl		= REG_A0PLL_SSC_SYN_CTRL,
++	.set		= REG_A0PLL_SSC_SYN_SET,
++};
++static CV1800_FACTIONAL_PLL(clk_a0pll, clk_bypass_mipimpll_parents,
++			    REG_A0PLL_CSR,
++			    REG_PLL_G2_CTRL, 4,
++			    REG_PLL_G2_STATUS, 1,
++			    pll_limits,
++			    &clk_a0pll_synthesizer,
++			    CLK_IS_CRITICAL);
++
++struct cv1800_clk_pll_synthesizer clk_disppll_synthesizer = {
++	.en		= CV1800_CLK_BIT(REG_PLL_G2_SSC_SYN_CTRL, 3),
++	.clk_half	= CV1800_CLK_BIT(REG_PLL_G2_SSC_SYN_CTRL, 0),
++	.ctrl		= REG_DISPPLL_SSC_SYN_CTRL,
++	.set		= REG_DISPPLL_SSC_SYN_SET,
++};
++static CV1800_FACTIONAL_PLL(clk_disppll, clk_bypass_mipimpll_parents,
++			    REG_DISPPLL_CSR,
++			    REG_PLL_G2_CTRL, 8,
++			    REG_PLL_G2_STATUS, 2,
++			    pll_limits,
++			    &clk_disppll_synthesizer,
++			    CLK_IS_CRITICAL);
++
++struct cv1800_clk_pll_synthesizer clk_cam0pll_synthesizer = {
++	.en		= CV1800_CLK_BIT(REG_PLL_G2_SSC_SYN_CTRL, 4),
++	.clk_half	= CV1800_CLK_BIT(REG_PLL_G2_SSC_SYN_CTRL, 0),
++	.ctrl		= REG_CAM0PLL_SSC_SYN_CTRL,
++	.set		= REG_CAM0PLL_SSC_SYN_SET,
++};
++static CV1800_FACTIONAL_PLL(clk_cam0pll, clk_bypass_mipimpll_parents,
++			    REG_CAM0PLL_CSR,
++			    REG_PLL_G2_CTRL, 12,
++			    REG_PLL_G2_STATUS, 3,
++			    pll_limits,
++			    &clk_cam0pll_synthesizer,
++			    CLK_IGNORE_UNUSED);
++
++struct cv1800_clk_pll_synthesizer clk_cam1pll_synthesizer = {
++	.en		= CV1800_CLK_BIT(REG_PLL_G2_SSC_SYN_CTRL, 5),
++	.clk_half	= CV1800_CLK_BIT(REG_PLL_G2_SSC_SYN_CTRL, 0),
++	.ctrl		= REG_CAM1PLL_SSC_SYN_CTRL,
++	.set		= REG_CAM1PLL_SSC_SYN_SET,
++};
++static CV1800_FACTIONAL_PLL(clk_cam1pll, clk_bypass_mipimpll_parents,
++			    REG_CAM1PLL_CSR,
++			    REG_PLL_G2_CTRL, 16,
++			    REG_PLL_G2_STATUS, 4,
++			    pll_limits,
++			    &clk_cam1pll_synthesizer,
++			    CLK_IS_CRITICAL);
++
++static const struct clk_parent_data clk_cam0pll_parents[] = {
++	{ .hw = &clk_cam0pll.common.hw },
++};
++
++
++/* G2D */
++static CV1800_FIXED_DIV(clk_cam0pll_d2, clk_cam0pll_parents,
++			REG_CAM0PLL_CLK_CSR, 1,
++			2,
++			CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED);
++static CV1800_FIXED_DIV(clk_cam0pll_d3, clk_cam0pll_parents,
++			REG_CAM0PLL_CLK_CSR, 2,
++			3,
++			CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED);
++static CV1800_FIXED_DIV(clk_mipimpll_d3, clk_mipimpll_parents,
++			REG_MIPIMPLL_CLK_CSR, 2,
++			3,
++			CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED);
++
++/* TPU */
++static const struct clk_parent_data clk_tpu_parents[] = {
++	{ .index = 0 },
++	{ .hw = &clk_tpll.common.hw },
++	{ .hw = &clk_a0pll.common.hw },
++	{ .hw = &clk_mipimpll.common.hw },
++	{ .hw = &clk_fpll.common.hw },
++};
++
++static CV1800_BYPASS_MUX(clk_tpu, clk_tpu_parents,
++			 REG_CLK_EN_0, 4,
++			 REG_DIV_CLK_TPU, 16, 4, 3, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_TPU, 8, 2,
++			 REG_CLK_BYP_0, 3,
++			 0);
++static CV1800_GATE(clk_tpu_fab, clk_mipimpll_parents,
++		   REG_CLK_EN_0, 5,
++		   0);
++
++/* FABRIC_AXI6 */
++static CV1800_BYPASS_DIV(clk_axi6, clk_bypass_fpll_parents,
++			 REG_CLK_EN_2, 2,
++			 REG_DIV_CLK_AXI6, 16, 4, 15, CV1800_DIV_FLAG,
++			 REG_CLK_BYP_0, 20,
++			 CLK_IS_CRITICAL);
++
++static const struct clk_parent_data clk_axi6_bus_parents[] = {
++	{ .hw = &clk_axi6.div.common.hw },
++};
++static const struct clk_parent_data clk_bypass_axi6_bus_parents[] = {
++	{ .index = 0 },
++	{ .hw = &clk_axi6.div.common.hw },
++};
++
++/* FABRIC_AXI4 */
++static const struct clk_parent_data clk_axi4_parents[] = {
++	{ .index = 0 },
++	{ .hw = &clk_fpll.common.hw },
++	{ .hw = &clk_disppll.common.hw },
++};
++
++static CV1800_BYPASS_MUX(clk_axi4, clk_axi4_parents,
++			 REG_CLK_EN_2, 1,
++			 REG_DIV_CLK_AXI4, 16, 4, 5, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_AXI4, 8, 2,
++			 REG_CLK_BYP_0, 19,
++			 CLK_IS_CRITICAL);
++
++static const struct clk_parent_data clk_axi4_bus_parents[] = {
++	{ .hw = &clk_axi4.mux.common.hw },
++};
++
++/* XTAL_MISC */
++static CV1800_GATE(clk_xtal_misc, osc_parents,
++		   REG_CLK_EN_0, 14,
++		   CLK_IS_CRITICAL);
++
++static const struct clk_parent_data clk_timer_parents[] = {
++	{ .hw = &clk_xtal_misc.common.hw },
++};
++
++/* TOP */
++static const struct clk_parent_data clk_cam0_200_parents[] = {
++	{ .index = 0 },
++	{ .index = 0 },
++	{ .hw = &clk_disppll.common.hw },
++};
++
++static CV1800_BYPASS_MUX(clk_cam0_200, clk_cam0_200_parents,
++			 REG_CLK_EN_1, 13,
++			 REG_DIV_CLK_CAM0_200, 16, 4, 1, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_CAM0_200, 8, 2,
++			 REG_CLK_BYP_0, 16,
++			 CLK_IS_CRITICAL);
++static CV1800_DIV(clk_1m, osc_parents,
++		  REG_CLK_EN_3, 5,
++		  REG_DIV_CLK_1M, 16, 6, 25, CV1800_DIV_FLAG,
++		  CLK_IS_CRITICAL);
++static CV1800_GATE(clk_pm, clk_axi6_bus_parents,
++		   REG_CLK_EN_3, 8,
++		   CLK_IS_CRITICAL);
++static CV1800_GATE(clk_timer0, clk_timer_parents,
++		   REG_CLK_EN_3, 9,
++		   CLK_IS_CRITICAL);
++static CV1800_GATE(clk_timer1, clk_timer_parents,
++		   REG_CLK_EN_3, 10,
++		   CLK_IS_CRITICAL);
++static CV1800_GATE(clk_timer2, clk_timer_parents,
++		   REG_CLK_EN_3, 11,
++		   CLK_IS_CRITICAL);
++static CV1800_GATE(clk_timer3, clk_timer_parents,
++		   REG_CLK_EN_3, 12,
++		   CLK_IS_CRITICAL);
++static CV1800_GATE(clk_timer4, clk_timer_parents,
++		   REG_CLK_EN_3, 13,
++		   CLK_IS_CRITICAL);
++static CV1800_GATE(clk_timer5, clk_timer_parents,
++		   REG_CLK_EN_3, 14,
++		   CLK_IS_CRITICAL);
++static CV1800_GATE(clk_timer6, clk_timer_parents,
++		   REG_CLK_EN_3, 15,
++		   CLK_IS_CRITICAL);
++static CV1800_GATE(clk_timer7, clk_timer_parents,
++		   REG_CLK_EN_3, 16,
++		   CLK_IS_CRITICAL);
++
++static const struct clk_parent_data clk_parents_1m[] = {
++	{ .hw = &clk_1m.common.hw },
++};
++static const struct clk_parent_data clk_uart_parents[] = {
++	{ .hw = &clk_cam0_200.mux.common.hw },
++};
++
++/* AHB ROM */
++static CV1800_GATE(clk_ahb_rom, clk_axi4_bus_parents,
++		   REG_CLK_EN_0, 6,
++		   0);
++
++/* RTC */
++static CV1800_GATE(clk_rtc_25m, osc_parents,
++		   REG_CLK_EN_0, 8,
++		   CLK_IS_CRITICAL);
++static CV1800_BYPASS_DIV(clk_src_rtc_sys_0, clk_bypass_fpll_parents,
++			 REG_CLK_EN_4, 6,
++			 REG_DIV_CLK_RTCSYS_SRC_0, 16, 4, 5, CV1800_DIV_FLAG,
++			 REG_CLK_BYP_1, 5,
++			 CLK_IS_CRITICAL);
++
++/* TEMPSEN */
++static CV1800_GATE(clk_tempsen, osc_parents,
++		   REG_CLK_EN_0, 9,
++		   0);
++
++/* SARADC */
++static CV1800_GATE(clk_saradc, osc_parents,
++		   REG_CLK_EN_0, 10,
++		   0);
++
++/* EFUSE */
++static CV1800_GATE(clk_efuse, osc_parents,
++		   REG_CLK_EN_0, 11,
++		   0);
++static CV1800_GATE(clk_apb_efuse, osc_parents,
++		   REG_CLK_EN_0, 12,
++		   0);
++
++/* WDT */
++static CV1800_GATE(clk_apb_wdt, osc_parents,
++		   REG_CLK_EN_1, 7,
++		   CLK_IS_CRITICAL);
++
++/* WGN */
++static CV1800_GATE(clk_wgn, osc_parents,
++		   REG_CLK_EN_3, 22,
++		   0);
++static CV1800_GATE(clk_wgn0, osc_parents,
++		   REG_CLK_EN_3, 23,
++		   0);
++static CV1800_GATE(clk_wgn1, osc_parents,
++		   REG_CLK_EN_3, 24,
++		   0);
++static CV1800_GATE(clk_wgn2, osc_parents,
++		   REG_CLK_EN_3, 25,
++		   0);
++
++/* KEYSCAN */
++static CV1800_GATE(clk_keyscan, osc_parents,
++		   REG_CLK_EN_3, 26,
++		   0);
++
++/* EMMC */
++static CV1800_GATE(clk_axi4_emmc, clk_axi4_bus_parents,
++		   REG_CLK_EN_0, 15,
++		   0);
++static CV1800_BYPASS_MUX(clk_emmc, clk_axi4_parents,
++			 REG_CLK_EN_0, 16,
++			 REG_DIV_CLK_EMMC, 16, 5, 15, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_EMMC, 8, 2,
++			 REG_CLK_BYP_0, 5,
++			 0);
++static CV1800_DIV(clk_emmc_100k, clk_parents_1m,
++		  REG_CLK_EN_0, 17,
++		  REG_DIV_CLK_EMMC_100K, 16, 8, 10, CV1800_DIV_FLAG,
++		  0);
++
++/* SD */
++static CV1800_GATE(clk_axi4_sd0, clk_axi4_bus_parents,
++		   REG_CLK_EN_0, 18,
++		   0);
++static CV1800_BYPASS_MUX(clk_sd0, clk_axi4_parents,
++			 REG_CLK_EN_0, 19,
++			 REG_DIV_CLK_SD0, 16, 5, 15, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_SD0, 8, 2,
++			 REG_CLK_BYP_0, 6,
++			 0);
++static CV1800_DIV(clk_sd0_100k, clk_parents_1m,
++		  REG_CLK_EN_0, 20,
++		  REG_DIV_CLK_SD0_100K, 16, 8, 10, CV1800_DIV_FLAG,
++		  0);
++static CV1800_GATE(clk_axi4_sd1, clk_axi4_bus_parents,
++		   REG_CLK_EN_0, 21,
++		   0);
++static CV1800_BYPASS_MUX(clk_sd1, clk_axi4_parents,
++			 REG_CLK_EN_0, 22,
++			 REG_DIV_CLK_SD1, 16, 5, 15, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_SD1, 8, 2,
++			 REG_CLK_BYP_0, 7,
++			 0);
++static CV1800_DIV(clk_sd1_100k, clk_parents_1m,
++		  REG_CLK_EN_0, 23,
++		  REG_DIV_CLK_SD1_100K, 16, 8, 10, CV1800_DIV_FLAG,
++		  0);
++
++/* SPI NAND */
++static CV1800_BYPASS_MUX(clk_spi_nand, clk_axi4_parents,
++			 REG_CLK_EN_0, 24,
++			 REG_DIV_CLK_SPI_NAND, 16, 5, 8, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_SPI_NAND, 8, 2,
++			 REG_CLK_BYP_0, 8,
++			 0);
++
++/* GPIO */
++static CV1800_DIV(clk_gpio_db, clk_parents_1m,
++		  REG_CLK_EN_0, 31,
++		  REG_DIV_CLK_GPIO_DB, 16, 16, 10, CV1800_DIV_FLAG,
++		  CLK_IS_CRITICAL);
++static CV1800_GATE(clk_apb_gpio, clk_axi6_bus_parents,
++		   REG_CLK_EN_0, 29,
++		   CLK_IS_CRITICAL);
++static CV1800_GATE(clk_apb_gpio_intr, clk_axi6_bus_parents,
++		   REG_CLK_EN_0, 30,
++		   CLK_IS_CRITICAL);
++
++/* ETH */
++static CV1800_BYPASS_DIV(clk_eth0_500m, clk_bypass_fpll_parents,
++			 REG_CLK_EN_0, 25,
++			 REG_DIV_CLK_GPIO_DB, 16, 4, 3, CV1800_DIV_FLAG,
++			 REG_CLK_BYP_0, 9,
++			 0);
++static CV1800_GATE(clk_axi4_eth0, clk_axi4_bus_parents,
++		   REG_CLK_EN_0, 26,
++		   0);
++static CV1800_BYPASS_DIV(clk_eth1_500m, clk_bypass_fpll_parents,
++			 REG_CLK_EN_0, 27,
++			 REG_DIV_CLK_GPIO_DB, 16, 4, 3, CV1800_DIV_FLAG,
++			 REG_CLK_BYP_0, 10,
++			 0);
++static CV1800_GATE(clk_axi4_eth1, clk_axi4_bus_parents,
++		   REG_CLK_EN_0, 28,
++		   0);
++
++/* SF */
++static CV1800_GATE(clk_ahb_sf, clk_axi4_bus_parents,
++		   REG_CLK_EN_1, 0,
++		   0);
++static CV1800_GATE(clk_ahb_sf1, clk_axi4_bus_parents,
++		   REG_CLK_EN_3, 27,
++		   0);
++
++/* AUDSRC */
++static CV1800_ACLK(clk_a24m, clk_mipimpll_parents,
++		   REG_APLL_FRAC_DIV_CTRL, 0,
++		   REG_APLL_FRAC_DIV_CTRL, 3,
++		   REG_APLL_FRAC_DIV_CTRL, 1,
++		   REG_APLL_FRAC_DIV_CTRL, 2,
++		   REG_APLL_FRAC_DIV_M, 0, 22, CV1800_DIV_FLAG,
++		   REG_APLL_FRAC_DIV_N, 0, 22, CV1800_DIV_FLAG,
++		   24576000,
++		   0);
++
++static const struct clk_parent_data clk_aud_parents[] = {
++	{ .index = 0 },
++	{ .hw = &clk_a0pll.common.hw },
++	{ .hw = &clk_a24m.common.hw },
++};
++
++static CV1800_BYPASS_MUX(clk_audsrc, clk_aud_parents,
++			 REG_CLK_EN_4, 1,
++			 REG_DIV_CLK_AUDSRC, 16, 8, 18, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_AUDSRC, 8, 2,
++			 REG_CLK_BYP_1, 2,
++			 0);
++static CV1800_GATE(clk_apb_audsrc, clk_axi4_bus_parents,
++		   REG_CLK_EN_4, 2,
++		   0);
++
++/* SDMA */
++static CV1800_GATE(clk_sdma_axi, clk_axi4_bus_parents,
++		   REG_CLK_EN_1, 1,
++		   0);
++static CV1800_BYPASS_MUX(clk_sdma_aud0, clk_aud_parents,
++			 REG_CLK_EN_1, 2,
++			 REG_DIV_CLK_SDMA_AUD0, 16, 8, 18, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_SDMA_AUD0, 8, 2,
++			 REG_CLK_BYP_0, 11,
++			 0);
++static CV1800_BYPASS_MUX(clk_sdma_aud1, clk_aud_parents,
++			 REG_CLK_EN_1, 3,
++			 REG_DIV_CLK_SDMA_AUD1, 16, 8, 18, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_SDMA_AUD1, 8, 2,
++			 REG_CLK_BYP_0, 12,
++			 0);
++static CV1800_BYPASS_MUX(clk_sdma_aud2, clk_aud_parents,
++			 REG_CLK_EN_1, 3,
++			 REG_DIV_CLK_SDMA_AUD2, 16, 8, 18, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_SDMA_AUD2, 8, 2,
++			 REG_CLK_BYP_0, 13,
++			 0);
++static CV1800_BYPASS_MUX(clk_sdma_aud3, clk_aud_parents,
++			 REG_CLK_EN_1, 3,
++			 REG_DIV_CLK_SDMA_AUD3, 16, 8, 18, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_SDMA_AUD3, 8, 2,
++			 REG_CLK_BYP_0, 14,
++			 0);
++
++/* SPI */
++static CV1800_GATE(clk_apb_spi0, clk_axi4_bus_parents,
++		   REG_CLK_EN_1, 9,
++		   0);
++static CV1800_GATE(clk_apb_spi1, clk_axi4_bus_parents,
++		   REG_CLK_EN_1, 10,
++		   0);
++static CV1800_GATE(clk_apb_spi2, clk_axi4_bus_parents,
++		   REG_CLK_EN_1, 11,
++		   0);
++static CV1800_GATE(clk_apb_spi3, clk_axi4_bus_parents,
++		   REG_CLK_EN_1, 12,
++		   0);
++static CV1800_BYPASS_DIV(clk_spi, clk_bypass_fpll_parents,
++			 REG_CLK_EN_3, 6,
++			 REG_DIV_CLK_SPI, 16, 6, 8, CV1800_DIV_FLAG,
++			 REG_CLK_BYP_0, 30,
++			 0);
++
++/* UART */
++static CV1800_GATE(clk_uart0, clk_uart_parents,
++		   REG_CLK_EN_1, 14,
++		   CLK_IS_CRITICAL);
++static CV1800_GATE(clk_apb_uart0, clk_axi4_bus_parents,
++		   REG_CLK_EN_1, 15,
++		   CLK_IS_CRITICAL);
++static CV1800_GATE(clk_uart1, clk_uart_parents,
++		   REG_CLK_EN_1, 16,
++		   0);
++static CV1800_GATE(clk_apb_uart1, clk_axi4_bus_parents,
++		   REG_CLK_EN_1, 17,
++		   0);
++static CV1800_GATE(clk_uart2, clk_uart_parents,
++		   REG_CLK_EN_1, 18,
++		   0);
++static CV1800_GATE(clk_apb_uart2, clk_axi4_bus_parents,
++		   REG_CLK_EN_1, 19,
++		   0);
++static CV1800_GATE(clk_uart3, clk_uart_parents,
++		   REG_CLK_EN_1, 20,
++		   0);
++static CV1800_GATE(clk_apb_uart3, clk_axi4_bus_parents,
++		   REG_CLK_EN_1, 21,
++		   0);
++static CV1800_GATE(clk_uart4, clk_uart_parents,
++		   REG_CLK_EN_1, 22,
++		   0);
++static CV1800_GATE(clk_apb_uart4, clk_axi4_bus_parents,
++		   REG_CLK_EN_1, 23,
++		   0);
++
++/* I2S */
++static CV1800_GATE(clk_apb_i2s0, clk_axi4_bus_parents,
++		   REG_CLK_EN_1, 24,
++		   0);
++static CV1800_GATE(clk_apb_i2s1, clk_axi4_bus_parents,
++		   REG_CLK_EN_1, 25,
++		   0);
++static CV1800_GATE(clk_apb_i2s2, clk_axi4_bus_parents,
++		   REG_CLK_EN_1, 26,
++		   0);
++static CV1800_GATE(clk_apb_i2s3, clk_axi4_bus_parents,
++		   REG_CLK_EN_1, 27,
++		   0);
++
++/* DEBUG */
++static CV1800_GATE(clk_debug, osc_parents,
++		   REG_CLK_EN_0, 13,
++		   CLK_IS_CRITICAL);
++static CV1800_BYPASS_DIV(clk_ap_debug, clk_bypass_fpll_parents,
++			 REG_CLK_EN_4, 5,
++			 REG_DIV_CLK_AP_DEBUG, 16, 4, 5, CV1800_DIV_FLAG,
++			 REG_CLK_BYP_1, 4,
++			 CLK_IS_CRITICAL);
++
++/* DDR */
++static CV1800_GATE(clk_ddr_axi_reg, clk_axi6_bus_parents,
++		   REG_CLK_EN_0, 7,
++		   CLK_IS_CRITICAL);
++
++/* I2C */
++static CV1800_GATE(clk_apb_i2c, clk_axi4_bus_parents,
++		   REG_CLK_EN_1, 6,
++		   0);
++static CV1800_BYPASS_DIV(clk_i2c, clk_bypass_axi6_bus_parents,
++			 REG_CLK_EN_3, 7,
++			 REG_DIV_CLK_I2C, 16, 4, 1, CV1800_DIV_FLAG,
++			 REG_CLK_BYP_0, 31,
++			 0);
++static CV1800_GATE(clk_apb_i2c0, clk_axi4_bus_parents,
++		   REG_CLK_EN_3, 17,
++		   0);
++static CV1800_GATE(clk_apb_i2c1, clk_axi4_bus_parents,
++		   REG_CLK_EN_3, 18,
++		   0);
++static CV1800_GATE(clk_apb_i2c2, clk_axi4_bus_parents,
++		   REG_CLK_EN_3, 19,
++		   0);
++static CV1800_GATE(clk_apb_i2c3, clk_axi4_bus_parents,
++		   REG_CLK_EN_3, 20,
++		   0);
++static CV1800_GATE(clk_apb_i2c4, clk_axi4_bus_parents,
++		   REG_CLK_EN_3, 21,
++		   0);
++
++/* USB */
++static CV1800_GATE(clk_axi4_usb, clk_axi4_bus_parents,
++		   REG_CLK_EN_1, 28,
++		   0);
++static CV1800_GATE(clk_apb_usb, clk_axi4_bus_parents,
++		   REG_CLK_EN_1, 29,
++		   0);
++static CV1800_BYPASS_FIXED_DIV(clk_usb_125m, clk_bypass_fpll_parents,
++			       REG_CLK_EN_1, 30,
++			       12,
++			       REG_CLK_BYP_0, 17,
++			       CLK_SET_RATE_PARENT);
++static CV1800_FIXED_DIV(clk_usb_33k, clk_parents_1m,
++			REG_CLK_EN_1, 31,
++			3,
++			0);
++static CV1800_BYPASS_FIXED_DIV(clk_usb_12m, clk_bypass_fpll_parents,
++			       REG_CLK_EN_2, 0,
++			       125,
++			       REG_CLK_BYP_0, 18,
++			       CLK_SET_RATE_PARENT);
++
++/* VIP SYS */
++static const struct clk_parent_data clk_vip_sys_parents[] = {
++	{ .index = 0 },
++	{ .hw = &clk_mipimpll.common.hw },
++	{ .hw = &clk_cam0pll.common.hw },
++	{ .hw = &clk_disppll.common.hw },
++	{ .hw = &clk_fpll.common.hw },
++};
++static const struct clk_parent_data clk_disp_vip_parents[] = {
++	{ .index = 0 },
++	{ .hw = &clk_disppll.common.hw },
++};
++
++static CV1800_BYPASS_DIV(clk_dsi_esc, clk_bypass_axi6_bus_parents,
++			 REG_CLK_EN_2, 3,
++			 REG_DIV_CLK_DSI_ESC, 16, 4, 5, CV1800_DIV_FLAG,
++			 REG_CLK_BYP_0, 21,
++			 0);
++static CV1800_BYPASS_MUX(clk_axi_vip, clk_vip_sys_parents,
++			 REG_CLK_EN_2, 4,
++			 REG_DIV_CLK_AXI_VIP, 16, 4, 3, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_AXI_VIP, 8, 2,
++			 REG_CLK_BYP_0, 22,
++			 0);
++
++static const struct clk_parent_data clk_axi_vip_bus_parents[] = {
++	{ .hw = &clk_axi_vip.mux.common.hw },
++};
++
++static CV1800_BYPASS_MUX(clk_src_vip_sys_0, clk_vip_sys_parents,
++			 REG_CLK_EN_2, 5,
++			 REG_DIV_CLK_SRC_VIP_SYS_0, 16, 4, 6, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_SRC_VIP_SYS_0, 8, 2,
++			 REG_CLK_BYP_0, 23,
++			 0);
++static CV1800_BYPASS_MUX(clk_src_vip_sys_1, clk_vip_sys_parents,
++			 REG_CLK_EN_2, 6,
++			 REG_DIV_CLK_SRC_VIP_SYS_1, 16, 4, 6, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_SRC_VIP_SYS_1, 8, 2,
++			 REG_CLK_BYP_0, 24,
++			 0);
++static CV1800_BYPASS_DIV(clk_disp_src_vip, clk_disp_vip_parents,
++			 REG_CLK_EN_2, 7,
++			 REG_DIV_CLK_DISP_SRC_VIP, 16, 4, 8, CV1800_DIV_FLAG,
++			 REG_CLK_BYP_0, 25,
++			 0);
++static CV1800_BYPASS_MUX(clk_src_vip_sys_2, clk_vip_sys_parents,
++			 REG_CLK_EN_3, 29,
++			 REG_DIV_CLK_SRC_VIP_SYS_2, 16, 4, 2, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_SRC_VIP_SYS_2, 8, 2,
++			 REG_CLK_BYP_1, 1,
++			 0);
++static CV1800_GATE(clk_csi_mac0_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_2, 18,
++		   0);
++static CV1800_GATE(clk_csi_mac1_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_2, 19,
++		   0);
++static CV1800_GATE(clk_isp_top_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_2, 20,
++		   0);
++static CV1800_GATE(clk_img_d_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_2, 21,
++		   0);
++static CV1800_GATE(clk_img_v_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_2, 22,
++		   0);
++static CV1800_GATE(clk_sc_top_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_2, 23,
++		   0);
++static CV1800_GATE(clk_sc_d_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_2, 24,
++		   0);
++static CV1800_GATE(clk_sc_v1_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_2, 25,
++		   0);
++static CV1800_GATE(clk_sc_v2_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_2, 26,
++		   0);
++static CV1800_GATE(clk_sc_v3_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_2, 27,
++		   0);
++static CV1800_GATE(clk_dwa_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_2, 28,
++		   0);
++static CV1800_GATE(clk_bt_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_2, 29,
++		   0);
++static CV1800_GATE(clk_disp_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_2, 30,
++		   0);
++static CV1800_GATE(clk_dsi_mac_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_2, 31,
++		   0);
++static CV1800_GATE(clk_lvds0_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_3, 0,
++		   0);
++static CV1800_GATE(clk_lvds1_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_3, 1,
++		   0);
++static CV1800_GATE(clk_csi0_rx_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_3, 2,
++		   0);
++static CV1800_GATE(clk_csi1_rx_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_3, 3,
++		   0);
++static CV1800_GATE(clk_pad_vi_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_3, 4,
++		   0);
++static CV1800_GATE(clk_pad_vi1_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_3, 30,
++		   0);
++static CV1800_GATE(clk_cfg_reg_vip, clk_axi6_bus_parents,
++		   REG_CLK_EN_3, 31,
++		   0);
++static CV1800_GATE(clk_pad_vi2_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_4, 7,
++		   0);
++static CV1800_GATE(clk_csi_be_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_4, 8,
++		   0);
++static CV1800_GATE(clk_vip_ip0, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_4, 9,
++		   0);
++static CV1800_GATE(clk_vip_ip1, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_4, 10,
++		   0);
++static CV1800_GATE(clk_vip_ip2, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_4, 11,
++		   0);
++static CV1800_GATE(clk_vip_ip3, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_4, 12,
++		   0);
++static CV1800_BYPASS_MUX(clk_src_vip_sys_3, clk_vip_sys_parents,
++			 REG_CLK_EN_4, 15,
++			 REG_DIV_CLK_SRC_VIP_SYS_3, 16, 4, 2, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_SRC_VIP_SYS_3, 8, 2,
++			 REG_CLK_BYP_1, 8,
++			 0);
++static CV1800_BYPASS_MUX(clk_src_vip_sys_4, clk_vip_sys_parents,
++			 REG_CLK_EN_4, 16,
++			 REG_DIV_CLK_SRC_VIP_SYS_4, 16, 4, 3, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_SRC_VIP_SYS_4, 8, 2,
++			 REG_CLK_BYP_1, 9,
++			 0);
++static CV1800_GATE(clk_ive_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_4, 17,
++		   0);
++static CV1800_GATE(clk_raw_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_4, 18,
++		   0);
++static CV1800_GATE(clk_osdc_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_4, 19,
++		   0);
++static CV1800_GATE(clk_csi_mac2_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_4, 20,
++		   0);
++static CV1800_GATE(clk_cam0_vip, clk_axi_vip_bus_parents,
++		   REG_CLK_EN_4, 21,
++		   0);
++
++/* CAM OUT */
++static const struct clk_parent_data clk_cam_parents[] = {
++	{ .hw = &clk_cam0pll.common.hw },
++	{ .hw = &clk_cam0pll_d2.common.hw },
++	{ .hw = &clk_cam0pll_d3.common.hw },
++	{ .hw = &clk_mipimpll_d3.common.hw },
++};
++
++static CV1800_MUX(clk_cam0, clk_cam_parents,
++		  REG_CLK_EN_2, 16,
++		  REG_CLK_CAM0_SRC_DIV, 16, 6, 0, CV1800_DIV_FLAG,
++		  REG_CLK_CAM0_SRC_DIV, 8, 2,
++		  CLK_IGNORE_UNUSED);
++static CV1800_MUX(clk_cam1, clk_cam_parents,
++		  REG_CLK_EN_2, 17,
++		  REG_CLK_CAM1_SRC_DIV, 16, 6, 0, CV1800_DIV_FLAG,
++		  REG_CLK_CAM1_SRC_DIV, 8, 2,
++		  CLK_IGNORE_UNUSED);
++
++
++/* VIDEO SUBSYS */
++static const struct clk_parent_data clk_axi_video_codec_parents[] = {
++	{ .index = 0 },
++	{ .hw = &clk_a0pll.common.hw },
++	{ .hw = &clk_mipimpll.common.hw },
++	{ .hw = &clk_cam1pll.common.hw },
++	{ .hw = &clk_fpll.common.hw },
++};
++static const struct clk_parent_data clk_vc_src0_parents[] = {
++	{ .index = 0 },
++	{ .hw = &clk_disppll.common.hw },
++	{ .hw = &clk_mipimpll.common.hw },
++	{ .hw = &clk_cam1pll.common.hw },
++	{ .hw = &clk_fpll.common.hw },
++};
++static const struct clk_parent_data clk_vc_src1_parents[] = {
++	{ .index = 0 },
++	{ .hw = &clk_cam1pll.common.hw },
++};
++
++static CV1800_BYPASS_MUX(clk_axi_video_codec, clk_axi_video_codec_parents,
++			 REG_CLK_EN_2, 8,
++			 REG_DIV_CLK_AXI_VIDEO_CODEC, 16, 4, 2, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_AXI_VIDEO_CODEC, 8, 2,
++			 REG_CLK_BYP_0, 26,
++			 0);
++
++static const struct clk_parent_data clk_axi_video_codec_bus_parents[] = {
++	{ .hw = &clk_axi_video_codec.mux.common.hw },
++};
++
++static CV1800_BYPASS_MUX(clk_vc_src0, clk_vc_src0_parents,
++			 REG_CLK_EN_2, 9,
++			 REG_DIV_CLK_VC_SRC0, 16, 4, 2, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_VC_SRC0, 8, 2,
++			 REG_CLK_BYP_0, 27,
++			 0);
++
++static CV1800_GATE(clk_h264c, clk_axi_video_codec_bus_parents,
++		   REG_CLK_EN_2, 10,
++		   0);
++static CV1800_GATE(clk_h265c, clk_axi_video_codec_bus_parents,
++		   REG_CLK_EN_2, 11,
++		   0);
++static CV1800_GATE(clk_jpeg, clk_axi_video_codec_bus_parents,
++		   REG_CLK_EN_2, 12,
++		   CLK_IGNORE_UNUSED);
++static CV1800_GATE(clk_apb_jpeg, clk_axi6_bus_parents,
++		   REG_CLK_EN_2, 13,
++		   CLK_IGNORE_UNUSED);
++static CV1800_GATE(clk_apb_h264c, clk_axi6_bus_parents,
++		   REG_CLK_EN_2, 14,
++		   0);
++static CV1800_GATE(clk_apb_h265c, clk_axi6_bus_parents,
++		   REG_CLK_EN_2, 15,
++		   0);
++static CV1800_BYPASS_FIXED_DIV(clk_vc_src1, clk_vc_src1_parents,
++			       REG_CLK_EN_3, 28,
++			       2,
++			       REG_CLK_BYP_1, 0,
++			       CLK_SET_RATE_PARENT);
++static CV1800_BYPASS_FIXED_DIV(clk_vc_src2, clk_bypass_fpll_parents,
++			       REG_CLK_EN_4, 3,
++			       3,
++			       REG_CLK_BYP_1, 3,
++			       CLK_SET_RATE_PARENT);
++
++/* VC SYS */
++static CV1800_GATE(clk_cfg_reg_vc, clk_axi6_bus_parents,
++		   REG_CLK_EN_4, 0,
++		   CLK_IGNORE_UNUSED);
++
++/* PWM */
++static CV1800_BYPASS_MUX(clk_pwm_src, clk_axi4_parents,
++			 REG_CLK_EN_4, 4,
++			 REG_DIV_CLK_PWM_SRC_0, 16, 6, 10, CV1800_DIV_FLAG,
++			 REG_DIV_CLK_PWM_SRC_0, 8, 2,
++			 REG_CLK_BYP_0, 15,
++			 CLK_IS_CRITICAL);
++
++static const struct clk_parent_data clk_pwm_parents[] = {
++	{ .hw = &clk_pwm_src.mux.common.hw },
++};
++
++static CV1800_GATE(clk_pwm, clk_pwm_parents,
++		   REG_CLK_EN_1, 8,
++		   CLK_IS_CRITICAL);
++
++/* C906 */
++static const struct clk_parent_data clk_c906_0_parents[] = {
++	{ .index = 0 },
++	{ .hw = &clk_tpll.common.hw },
++	{ .hw = &clk_a0pll.common.hw },
++	{ .hw = &clk_mipimpll.common.hw },
++	{ .hw = &clk_mpll.common.hw },
++	{ .hw = &clk_fpll.common.hw },
++};
++static const struct clk_parent_data clk_c906_1_parents[] = {
++	{ .index = 0 },
++	{ .hw = &clk_tpll.common.hw },
++	{ .hw = &clk_a0pll.common.hw },
++	{ .hw = &clk_disppll.common.hw },
++	{ .hw = &clk_mpll.common.hw },
++	{ .hw = &clk_fpll.common.hw },
++};
++
++static const s8 clk_c906_parent2sel[] = {
++	-1,	/* osc */
++	0,	/* mux 0: clk_tpll(c906_0), clk_tpll(c906_1) */
++	0,	/* mux 0: clk_a0pll(c906_0), clk_a0pll(c906_1) */
++	0,	/* mux 0: clk_mipimpll(c906_0), clk_disppll(c906_1) */
++	0,	/* mux 0: clk_mpll(c906_0), clk_mpll(c906_1) */
++	1	/* mux 1: clk_fpll(c906_0), clk_fpll(c906_1) */
++};
++
++static const u8 clk_c906_sel2parent[2][4] = {
++	[0] = {
++		1,
++		2,
++		3,
++		4
++	},
++	[1] = {
++		5,
++		5,
++		5,
++		5
++	},
++};
++
++static CV1800_MMUX(clk_c906_0, clk_c906_0_parents,
++		   REG_CLK_EN_4, 13,
++		   REG_DIV_CLK_C906_0_0, 16, 4, 1, CV1800_DIV_FLAG,
++		   REG_DIV_CLK_C906_0_1, 16, 4, 2, CV1800_DIV_FLAG,
++		   REG_DIV_CLK_C906_0_0, 8, 2,
++		   REG_DIV_CLK_C906_0_1, 8, 2,
++		   REG_CLK_BYP_1, 6,
++		   REG_CLK_SEL_0, 23,
++		   clk_c906_parent2sel,
++		   clk_c906_sel2parent[0], clk_c906_sel2parent[1],
++		   CLK_IS_CRITICAL | CLK_GET_RATE_NOCACHE);
++static CV1800_MMUX(clk_c906_1, clk_c906_1_parents,
++		   REG_CLK_EN_4, 14,
++		   REG_DIV_CLK_C906_1_0, 16, 4, 2, CV1800_DIV_FLAG,
++		   REG_DIV_CLK_C906_1_1, 16, 4, 3, CV1800_DIV_FLAG,
++		   REG_DIV_CLK_C906_1_0, 8, 2,
++		   REG_DIV_CLK_C906_1_1, 8, 2,
++		   REG_CLK_BYP_1, 7,
++		   REG_CLK_SEL_0, 24,
++		   clk_c906_parent2sel,
++		   clk_c906_sel2parent[0], clk_c906_sel2parent[1],
++		   CLK_IS_CRITICAL | CLK_GET_RATE_NOCACHE);
++
++/* A53 */
++static CV1800_BYPASS_DIV(clk_cpu_axi0, clk_axi4_parents,
++			 REG_CLK_EN_0, 1,
++			 REG_DIV_CLK_CPU_AXI0, 16, 4, 3, CV1800_DIV_FLAG,
++			 REG_CLK_BYP_0, 1,
++			 CLK_IS_CRITICAL);
++static CV1800_BYPASS_DIV(clk_cpu_gic, clk_bypass_fpll_parents,
++			 REG_CLK_EN_0, 2,
++			 REG_DIV_CLK_CPU_GIC, 16, 4, 5, CV1800_DIV_FLAG,
++			 REG_CLK_BYP_0, 2,
++			 CLK_IS_CRITICAL);
++static CV1800_GATE(clk_xtal_ap, osc_parents,
++		   REG_CLK_EN_0, 3,
++		   CLK_IS_CRITICAL);
++
++static const struct clk_parent_data clk_a53_parents[] = {
++	{ .index = 0 },
++	{ .hw = &clk_tpll.common.hw },
++	{ .hw = &clk_a0pll.common.hw },
++	{ .hw = &clk_mipimpll.common.hw },
++	{ .hw = &clk_mpll.common.hw },
++	{ .hw = &clk_fpll.common.hw },
++};
++
++static const s8 clk_a53_parent2sel[] = {
++	-1,	/* osc */
++	0,	/* mux 0: clk_tpll */
++	0,	/* mux 0: clk_a0pll */
++	0,	/* mux 0: clk_mipimpll */
++	0,	/* mux 0: clk_mpll */
++	1	/* mux 1: clk_fpll */
++};
++
++static const u8 clk_a53_sel2parent[2][4] = {
++	[0] = {
++		1,
++		2,
++		3,
++		4
++	},
++	[1] = {
++		5,
++		5,
++		5,
++		5
++	},
++};
++
++/*
++ * Clock for A53 cpu in the CV18XX/SG200X series.
++ * For CV180X and CV181X series, this clock is not used, but can not
++ * be set to bypass mode, or the SoC will hang.
++ */
++static CV1800_MMUX(clk_a53, clk_a53_parents,
++		   REG_CLK_EN_0, 0,
++		   REG_DIV_CLK_A53_0, 16, 4, 1, CV1800_DIV_FLAG,
++		   REG_DIV_CLK_A53_1, 16, 4, 2, CV1800_DIV_FLAG,
++		   REG_DIV_CLK_A53_0, 8, 2,
++		   REG_DIV_CLK_A53_1, 8, 2,
++		   REG_CLK_BYP_0, 0,
++		   REG_CLK_SEL_0, 0,
++		   clk_a53_parent2sel,
++		   clk_a53_sel2parent[0], clk_a53_sel2parent[1],
++		   CLK_IS_CRITICAL | CLK_GET_RATE_NOCACHE);
++
++
++static struct clk_hw_onecell_data cv1800_hw_clks = {
++	.num	= CV1800_CLK_MAX,
++	.hws	= {
++		[CLK_MPLL]		= &clk_mpll.common.hw,
++		[CLK_TPLL]		= &clk_tpll.common.hw,
++		[CLK_FPLL]		= &clk_fpll.common.hw,
++		[CLK_MIPIMPLL]		= &clk_mipimpll.common.hw,
++		[CLK_A0PLL]		= &clk_a0pll.common.hw,
++		[CLK_DISPPLL]		= &clk_disppll.common.hw,
++		[CLK_CAM0PLL]		= &clk_cam0pll.common.hw,
++		[CLK_CAM1PLL]		= &clk_cam1pll.common.hw,
++
++		[CLK_MIPIMPLL_D3]	= &clk_mipimpll_d3.common.hw,
++		[CLK_CAM0PLL_D2]	= &clk_cam0pll_d2.common.hw,
++		[CLK_CAM0PLL_D3]	= &clk_cam0pll_d3.common.hw,
++
++		[CLK_TPU]		= &clk_tpu.mux.common.hw,
++		[CLK_TPU_FAB]		= &clk_tpu_fab.common.hw,
++		[CLK_AHB_ROM]		= &clk_ahb_rom.common.hw,
++		[CLK_DDR_AXI_REG]	= &clk_ddr_axi_reg.common.hw,
++		[CLK_RTC_25M]		= &clk_rtc_25m.common.hw,
++		[CLK_SRC_RTC_SYS_0]	= &clk_src_rtc_sys_0.div.common.hw,
++		[CLK_TEMPSEN]		= &clk_tempsen.common.hw,
++		[CLK_SARADC]		= &clk_saradc.common.hw,
++		[CLK_EFUSE]		= &clk_efuse.common.hw,
++		[CLK_APB_EFUSE]		= &clk_apb_efuse.common.hw,
++		[CLK_DEBUG]		= &clk_debug.common.hw,
++		[CLK_AP_DEBUG]		= &clk_ap_debug.div.common.hw,
++		[CLK_XTAL_MISC]		= &clk_xtal_misc.common.hw,
++		[CLK_AXI4_EMMC]		= &clk_axi4_emmc.common.hw,
++		[CLK_EMMC]		= &clk_emmc.mux.common.hw,
++		[CLK_EMMC_100K]		= &clk_emmc_100k.common.hw,
++		[CLK_AXI4_SD0]		= &clk_axi4_sd0.common.hw,
++		[CLK_SD0]		= &clk_sd0.mux.common.hw,
++		[CLK_SD0_100K]		= &clk_sd0_100k.common.hw,
++		[CLK_AXI4_SD1]		= &clk_axi4_sd1.common.hw,
++		[CLK_SD1]		= &clk_sd1.mux.common.hw,
++		[CLK_SD1_100K]		= &clk_sd1_100k.common.hw,
++		[CLK_SPI_NAND]		= &clk_spi_nand.mux.common.hw,
++		[CLK_ETH0_500M]		= &clk_eth0_500m.div.common.hw,
++		[CLK_AXI4_ETH0]		= &clk_axi4_eth0.common.hw,
++		[CLK_ETH1_500M]		= &clk_eth1_500m.div.common.hw,
++		[CLK_AXI4_ETH1]		= &clk_axi4_eth1.common.hw,
++		[CLK_APB_GPIO]		= &clk_apb_gpio.common.hw,
++		[CLK_APB_GPIO_INTR]	= &clk_apb_gpio_intr.common.hw,
++		[CLK_GPIO_DB]		= &clk_gpio_db.common.hw,
++		[CLK_AHB_SF]		= &clk_ahb_sf.common.hw,
++		[CLK_AHB_SF1]		= &clk_ahb_sf1.common.hw,
++		[CLK_A24M]		= &clk_a24m.common.hw,
++		[CLK_AUDSRC]		= &clk_audsrc.mux.common.hw,
++		[CLK_APB_AUDSRC]	= &clk_apb_audsrc.common.hw,
++		[CLK_SDMA_AXI]		= &clk_sdma_axi.common.hw,
++		[CLK_SDMA_AUD0]		= &clk_sdma_aud0.mux.common.hw,
++		[CLK_SDMA_AUD1]		= &clk_sdma_aud1.mux.common.hw,
++		[CLK_SDMA_AUD2]		= &clk_sdma_aud2.mux.common.hw,
++		[CLK_SDMA_AUD3]		= &clk_sdma_aud3.mux.common.hw,
++		[CLK_I2C]		= &clk_i2c.div.common.hw,
++		[CLK_APB_I2C]		= &clk_apb_i2c.common.hw,
++		[CLK_APB_I2C0]		= &clk_apb_i2c0.common.hw,
++		[CLK_APB_I2C1]		= &clk_apb_i2c1.common.hw,
++		[CLK_APB_I2C2]		= &clk_apb_i2c2.common.hw,
++		[CLK_APB_I2C3]		= &clk_apb_i2c3.common.hw,
++		[CLK_APB_I2C4]		= &clk_apb_i2c4.common.hw,
++		[CLK_APB_WDT]		= &clk_apb_wdt.common.hw,
++		[CLK_PWM_SRC]		= &clk_pwm_src.mux.common.hw,
++		[CLK_PWM]		= &clk_pwm.common.hw,
++		[CLK_SPI]		= &clk_spi.div.common.hw,
++		[CLK_APB_SPI0]		= &clk_apb_spi0.common.hw,
++		[CLK_APB_SPI1]		= &clk_apb_spi1.common.hw,
++		[CLK_APB_SPI2]		= &clk_apb_spi2.common.hw,
++		[CLK_APB_SPI3]		= &clk_apb_spi3.common.hw,
++		[CLK_1M]		= &clk_1m.common.hw,
++		[CLK_CAM0_200]		= &clk_cam0_200.mux.common.hw,
++		[CLK_PM]		= &clk_pm.common.hw,
++		[CLK_TIMER0]		= &clk_timer0.common.hw,
++		[CLK_TIMER1]		= &clk_timer1.common.hw,
++		[CLK_TIMER2]		= &clk_timer2.common.hw,
++		[CLK_TIMER3]		= &clk_timer3.common.hw,
++		[CLK_TIMER4]		= &clk_timer4.common.hw,
++		[CLK_TIMER5]		= &clk_timer5.common.hw,
++		[CLK_TIMER6]		= &clk_timer6.common.hw,
++		[CLK_TIMER7]		= &clk_timer7.common.hw,
++		[CLK_UART0]		= &clk_uart0.common.hw,
++		[CLK_APB_UART0]		= &clk_apb_uart0.common.hw,
++		[CLK_UART1]		= &clk_uart1.common.hw,
++		[CLK_APB_UART1]		= &clk_apb_uart1.common.hw,
++		[CLK_UART2]		= &clk_uart2.common.hw,
++		[CLK_APB_UART2]		= &clk_apb_uart2.common.hw,
++		[CLK_UART3]		= &clk_uart3.common.hw,
++		[CLK_APB_UART3]		= &clk_apb_uart3.common.hw,
++		[CLK_UART4]		= &clk_uart4.common.hw,
++		[CLK_APB_UART4]		= &clk_apb_uart4.common.hw,
++		[CLK_APB_I2S0]		= &clk_apb_i2s0.common.hw,
++		[CLK_APB_I2S1]		= &clk_apb_i2s1.common.hw,
++		[CLK_APB_I2S2]		= &clk_apb_i2s2.common.hw,
++		[CLK_APB_I2S3]		= &clk_apb_i2s3.common.hw,
++		[CLK_AXI4_USB]		= &clk_axi4_usb.common.hw,
++		[CLK_APB_USB]		= &clk_apb_usb.common.hw,
++		[CLK_USB_125M]		= &clk_usb_125m.div.common.hw,
++		[CLK_USB_33K]		= &clk_usb_33k.common.hw,
++		[CLK_USB_12M]		= &clk_usb_12m.div.common.hw,
++		[CLK_AXI4]		= &clk_axi4.mux.common.hw,
++		[CLK_AXI6]		= &clk_axi6.div.common.hw,
++		[CLK_DSI_ESC]		= &clk_dsi_esc.div.common.hw,
++		[CLK_AXI_VIP]		= &clk_axi_vip.mux.common.hw,
++		[CLK_SRC_VIP_SYS_0]	= &clk_src_vip_sys_0.mux.common.hw,
++		[CLK_SRC_VIP_SYS_1]	= &clk_src_vip_sys_1.mux.common.hw,
++		[CLK_SRC_VIP_SYS_2]	= &clk_src_vip_sys_2.mux.common.hw,
++		[CLK_SRC_VIP_SYS_3]	= &clk_src_vip_sys_3.mux.common.hw,
++		[CLK_SRC_VIP_SYS_4]	= &clk_src_vip_sys_4.mux.common.hw,
++		[CLK_CSI_BE_VIP]	= &clk_csi_be_vip.common.hw,
++		[CLK_CSI_MAC0_VIP]	= &clk_csi_mac0_vip.common.hw,
++		[CLK_CSI_MAC1_VIP]	= &clk_csi_mac1_vip.common.hw,
++		[CLK_CSI_MAC2_VIP]	= &clk_csi_mac2_vip.common.hw,
++		[CLK_CSI0_RX_VIP]	= &clk_csi0_rx_vip.common.hw,
++		[CLK_CSI1_RX_VIP]	= &clk_csi1_rx_vip.common.hw,
++		[CLK_ISP_TOP_VIP]	= &clk_isp_top_vip.common.hw,
++		[CLK_IMG_D_VIP]		= &clk_img_d_vip.common.hw,
++		[CLK_IMG_V_VIP]		= &clk_img_v_vip.common.hw,
++		[CLK_SC_TOP_VIP]	= &clk_sc_top_vip.common.hw,
++		[CLK_SC_D_VIP]		= &clk_sc_d_vip.common.hw,
++		[CLK_SC_V1_VIP]		= &clk_sc_v1_vip.common.hw,
++		[CLK_SC_V2_VIP]		= &clk_sc_v2_vip.common.hw,
++		[CLK_SC_V3_VIP]		= &clk_sc_v3_vip.common.hw,
++		[CLK_DWA_VIP]		= &clk_dwa_vip.common.hw,
++		[CLK_BT_VIP]		= &clk_bt_vip.common.hw,
++		[CLK_DISP_VIP]		= &clk_disp_vip.common.hw,
++		[CLK_DSI_MAC_VIP]	= &clk_dsi_mac_vip.common.hw,
++		[CLK_LVDS0_VIP]		= &clk_lvds0_vip.common.hw,
++		[CLK_LVDS1_VIP]		= &clk_lvds1_vip.common.hw,
++		[CLK_PAD_VI_VIP]	= &clk_pad_vi_vip.common.hw,
++		[CLK_PAD_VI1_VIP]	= &clk_pad_vi1_vip.common.hw,
++		[CLK_PAD_VI2_VIP]	= &clk_pad_vi2_vip.common.hw,
++		[CLK_CFG_REG_VIP]	= &clk_cfg_reg_vip.common.hw,
++		[CLK_VIP_IP0]		= &clk_vip_ip0.common.hw,
++		[CLK_VIP_IP1]		= &clk_vip_ip1.common.hw,
++		[CLK_VIP_IP2]		= &clk_vip_ip2.common.hw,
++		[CLK_VIP_IP3]		= &clk_vip_ip3.common.hw,
++		[CLK_IVE_VIP]		= &clk_ive_vip.common.hw,
++		[CLK_RAW_VIP]		= &clk_raw_vip.common.hw,
++		[CLK_OSDC_VIP]		= &clk_osdc_vip.common.hw,
++		[CLK_CAM0_VIP]		= &clk_cam0_vip.common.hw,
++		[CLK_AXI_VIDEO_CODEC]	= &clk_axi_video_codec.mux.common.hw,
++		[CLK_VC_SRC0]		= &clk_vc_src0.mux.common.hw,
++		[CLK_VC_SRC1]		= &clk_vc_src1.div.common.hw,
++		[CLK_VC_SRC2]		= &clk_vc_src2.div.common.hw,
++		[CLK_H264C]		= &clk_h264c.common.hw,
++		[CLK_APB_H264C]		= &clk_apb_h264c.common.hw,
++		[CLK_H265C]		= &clk_h265c.common.hw,
++		[CLK_APB_H265C]		= &clk_apb_h265c.common.hw,
++		[CLK_JPEG]		= &clk_jpeg.common.hw,
++		[CLK_APB_JPEG]		= &clk_apb_jpeg.common.hw,
++		[CLK_CAM0]		= &clk_cam0.common.hw,
++		[CLK_CAM1]		= &clk_cam1.common.hw,
++		[CLK_WGN]		= &clk_wgn.common.hw,
++		[CLK_WGN0]		= &clk_wgn0.common.hw,
++		[CLK_WGN1]		= &clk_wgn1.common.hw,
++		[CLK_WGN2]		= &clk_wgn2.common.hw,
++		[CLK_KEYSCAN]		= &clk_keyscan.common.hw,
++		[CLK_CFG_REG_VC]	= &clk_cfg_reg_vc.common.hw,
++		[CLK_C906_0]		= &clk_c906_0.common.hw,
++		[CLK_C906_1]		= &clk_c906_1.common.hw,
++		[CLK_A53]		= &clk_a53.common.hw,
++		[CLK_CPU_AXI0]		= &clk_cpu_axi0.div.common.hw,
++		[CLK_CPU_GIC]		= &clk_cpu_gic.div.common.hw,
++		[CLK_XTAL_AP]		= &clk_xtal_ap.common.hw,
++	},
++};
++
++static void cv18xx_clk_disable_auto_pd(void __iomem *base)
++{
++	static const u16 CV1800_PD_CLK[] = {
++		REG_MIPIMPLL_CLK_CSR,
++		REG_A0PLL_CLK_CSR,
++		REG_DISPPLL_CLK_CSR,
++		REG_CAM0PLL_CLK_CSR,
++		REG_CAM1PLL_CLK_CSR,
++	};
++
++	u32 val;
++	int i;
++
++	/* disable auto power down */
++	for (i = 0; i < ARRAY_SIZE(CV1800_PD_CLK); i++) {
++		u32 reg = CV1800_PD_CLK[i];
++
++		val = readl(base + reg);
++		val |= GENMASK(12, 9);
++		val &= ~BIT(8);
++		writel(val, base + reg);
++	}
++}
++
++static void cv18xx_clk_disable_a53(void __iomem *base)
++{
++	u32 val = readl(base + REG_CLK_BYP_0);
++
++	/* Set bypass clock for clk_a53 */
++	val |= BIT(0);
++
++	/* Set bypass clock for clk_cpu_axi0 */
++	val |= BIT(1);
++
++	/* Set bypass clock for clk_cpu_gic */
++	val |= BIT(2);
++
++	writel(val, base + REG_CLK_BYP_0);
++}
++
++static int cv1800_pre_init(struct device *dev, void __iomem *base,
++			   struct cv1800_clk_ctrl *ctrl,
++			   const struct cv1800_clk_desc *desc)
++{
++	u32 val = readl(base + REG_CLK_EN_2);
++
++	/* disable unsupported clk_disp_src_vip */
++	val &= ~BIT(7);
++
++	writel(val, base + REG_CLK_EN_2);
++
++	cv18xx_clk_disable_a53(base);
++	cv18xx_clk_disable_auto_pd(base);
++
++	return 0;
++}
++
++static const struct cv1800_clk_desc cv1800_desc = {
++	.clks_data	= &cv1800_hw_clks,
++	.pre_init	= cv1800_pre_init,
++};
++
++static struct clk_hw_onecell_data cv1810_hw_clks = {
++	.num	= CV1810_CLK_MAX,
++	.hws	= {
++		[CLK_MPLL]		= &clk_mpll.common.hw,
++		[CLK_TPLL]		= &clk_tpll.common.hw,
++		[CLK_FPLL]		= &clk_fpll.common.hw,
++		[CLK_MIPIMPLL]		= &clk_mipimpll.common.hw,
++		[CLK_A0PLL]		= &clk_a0pll.common.hw,
++		[CLK_DISPPLL]		= &clk_disppll.common.hw,
++		[CLK_CAM0PLL]		= &clk_cam0pll.common.hw,
++		[CLK_CAM1PLL]		= &clk_cam1pll.common.hw,
++
++		[CLK_MIPIMPLL_D3]	= &clk_mipimpll_d3.common.hw,
++		[CLK_CAM0PLL_D2]	= &clk_cam0pll_d2.common.hw,
++		[CLK_CAM0PLL_D3]	= &clk_cam0pll_d3.common.hw,
++
++		[CLK_TPU]		= &clk_tpu.mux.common.hw,
++		[CLK_TPU_FAB]		= &clk_tpu_fab.common.hw,
++		[CLK_AHB_ROM]		= &clk_ahb_rom.common.hw,
++		[CLK_DDR_AXI_REG]	= &clk_ddr_axi_reg.common.hw,
++		[CLK_RTC_25M]		= &clk_rtc_25m.common.hw,
++		[CLK_SRC_RTC_SYS_0]	= &clk_src_rtc_sys_0.div.common.hw,
++		[CLK_TEMPSEN]		= &clk_tempsen.common.hw,
++		[CLK_SARADC]		= &clk_saradc.common.hw,
++		[CLK_EFUSE]		= &clk_efuse.common.hw,
++		[CLK_APB_EFUSE]		= &clk_apb_efuse.common.hw,
++		[CLK_DEBUG]		= &clk_debug.common.hw,
++		[CLK_AP_DEBUG]		= &clk_ap_debug.div.common.hw,
++		[CLK_XTAL_MISC]		= &clk_xtal_misc.common.hw,
++		[CLK_AXI4_EMMC]		= &clk_axi4_emmc.common.hw,
++		[CLK_EMMC]		= &clk_emmc.mux.common.hw,
++		[CLK_EMMC_100K]		= &clk_emmc_100k.common.hw,
++		[CLK_AXI4_SD0]		= &clk_axi4_sd0.common.hw,
++		[CLK_SD0]		= &clk_sd0.mux.common.hw,
++		[CLK_SD0_100K]		= &clk_sd0_100k.common.hw,
++		[CLK_AXI4_SD1]		= &clk_axi4_sd1.common.hw,
++		[CLK_SD1]		= &clk_sd1.mux.common.hw,
++		[CLK_SD1_100K]		= &clk_sd1_100k.common.hw,
++		[CLK_SPI_NAND]		= &clk_spi_nand.mux.common.hw,
++		[CLK_ETH0_500M]		= &clk_eth0_500m.div.common.hw,
++		[CLK_AXI4_ETH0]		= &clk_axi4_eth0.common.hw,
++		[CLK_ETH1_500M]		= &clk_eth1_500m.div.common.hw,
++		[CLK_AXI4_ETH1]		= &clk_axi4_eth1.common.hw,
++		[CLK_APB_GPIO]		= &clk_apb_gpio.common.hw,
++		[CLK_APB_GPIO_INTR]	= &clk_apb_gpio_intr.common.hw,
++		[CLK_GPIO_DB]		= &clk_gpio_db.common.hw,
++		[CLK_AHB_SF]		= &clk_ahb_sf.common.hw,
++		[CLK_AHB_SF1]		= &clk_ahb_sf1.common.hw,
++		[CLK_A24M]		= &clk_a24m.common.hw,
++		[CLK_AUDSRC]		= &clk_audsrc.mux.common.hw,
++		[CLK_APB_AUDSRC]	= &clk_apb_audsrc.common.hw,
++		[CLK_SDMA_AXI]		= &clk_sdma_axi.common.hw,
++		[CLK_SDMA_AUD0]		= &clk_sdma_aud0.mux.common.hw,
++		[CLK_SDMA_AUD1]		= &clk_sdma_aud1.mux.common.hw,
++		[CLK_SDMA_AUD2]		= &clk_sdma_aud2.mux.common.hw,
++		[CLK_SDMA_AUD3]		= &clk_sdma_aud3.mux.common.hw,
++		[CLK_I2C]		= &clk_i2c.div.common.hw,
++		[CLK_APB_I2C]		= &clk_apb_i2c.common.hw,
++		[CLK_APB_I2C0]		= &clk_apb_i2c0.common.hw,
++		[CLK_APB_I2C1]		= &clk_apb_i2c1.common.hw,
++		[CLK_APB_I2C2]		= &clk_apb_i2c2.common.hw,
++		[CLK_APB_I2C3]		= &clk_apb_i2c3.common.hw,
++		[CLK_APB_I2C4]		= &clk_apb_i2c4.common.hw,
++		[CLK_APB_WDT]		= &clk_apb_wdt.common.hw,
++		[CLK_PWM_SRC]		= &clk_pwm_src.mux.common.hw,
++		[CLK_PWM]		= &clk_pwm.common.hw,
++		[CLK_SPI]		= &clk_spi.div.common.hw,
++		[CLK_APB_SPI0]		= &clk_apb_spi0.common.hw,
++		[CLK_APB_SPI1]		= &clk_apb_spi1.common.hw,
++		[CLK_APB_SPI2]		= &clk_apb_spi2.common.hw,
++		[CLK_APB_SPI3]		= &clk_apb_spi3.common.hw,
++		[CLK_1M]		= &clk_1m.common.hw,
++		[CLK_CAM0_200]		= &clk_cam0_200.mux.common.hw,
++		[CLK_PM]		= &clk_pm.common.hw,
++		[CLK_TIMER0]		= &clk_timer0.common.hw,
++		[CLK_TIMER1]		= &clk_timer1.common.hw,
++		[CLK_TIMER2]		= &clk_timer2.common.hw,
++		[CLK_TIMER3]		= &clk_timer3.common.hw,
++		[CLK_TIMER4]		= &clk_timer4.common.hw,
++		[CLK_TIMER5]		= &clk_timer5.common.hw,
++		[CLK_TIMER6]		= &clk_timer6.common.hw,
++		[CLK_TIMER7]		= &clk_timer7.common.hw,
++		[CLK_UART0]		= &clk_uart0.common.hw,
++		[CLK_APB_UART0]		= &clk_apb_uart0.common.hw,
++		[CLK_UART1]		= &clk_uart1.common.hw,
++		[CLK_APB_UART1]		= &clk_apb_uart1.common.hw,
++		[CLK_UART2]		= &clk_uart2.common.hw,
++		[CLK_APB_UART2]		= &clk_apb_uart2.common.hw,
++		[CLK_UART3]		= &clk_uart3.common.hw,
++		[CLK_APB_UART3]		= &clk_apb_uart3.common.hw,
++		[CLK_UART4]		= &clk_uart4.common.hw,
++		[CLK_APB_UART4]		= &clk_apb_uart4.common.hw,
++		[CLK_APB_I2S0]		= &clk_apb_i2s0.common.hw,
++		[CLK_APB_I2S1]		= &clk_apb_i2s1.common.hw,
++		[CLK_APB_I2S2]		= &clk_apb_i2s2.common.hw,
++		[CLK_APB_I2S3]		= &clk_apb_i2s3.common.hw,
++		[CLK_AXI4_USB]		= &clk_axi4_usb.common.hw,
++		[CLK_APB_USB]		= &clk_apb_usb.common.hw,
++		[CLK_USB_125M]		= &clk_usb_125m.div.common.hw,
++		[CLK_USB_33K]		= &clk_usb_33k.common.hw,
++		[CLK_USB_12M]		= &clk_usb_12m.div.common.hw,
++		[CLK_AXI4]		= &clk_axi4.mux.common.hw,
++		[CLK_AXI6]		= &clk_axi6.div.common.hw,
++		[CLK_DSI_ESC]		= &clk_dsi_esc.div.common.hw,
++		[CLK_AXI_VIP]		= &clk_axi_vip.mux.common.hw,
++		[CLK_SRC_VIP_SYS_0]	= &clk_src_vip_sys_0.mux.common.hw,
++		[CLK_SRC_VIP_SYS_1]	= &clk_src_vip_sys_1.mux.common.hw,
++		[CLK_SRC_VIP_SYS_2]	= &clk_src_vip_sys_2.mux.common.hw,
++		[CLK_SRC_VIP_SYS_3]	= &clk_src_vip_sys_3.mux.common.hw,
++		[CLK_SRC_VIP_SYS_4]	= &clk_src_vip_sys_4.mux.common.hw,
++		[CLK_CSI_BE_VIP]	= &clk_csi_be_vip.common.hw,
++		[CLK_CSI_MAC0_VIP]	= &clk_csi_mac0_vip.common.hw,
++		[CLK_CSI_MAC1_VIP]	= &clk_csi_mac1_vip.common.hw,
++		[CLK_CSI_MAC2_VIP]	= &clk_csi_mac2_vip.common.hw,
++		[CLK_CSI0_RX_VIP]	= &clk_csi0_rx_vip.common.hw,
++		[CLK_CSI1_RX_VIP]	= &clk_csi1_rx_vip.common.hw,
++		[CLK_ISP_TOP_VIP]	= &clk_isp_top_vip.common.hw,
++		[CLK_IMG_D_VIP]		= &clk_img_d_vip.common.hw,
++		[CLK_IMG_V_VIP]		= &clk_img_v_vip.common.hw,
++		[CLK_SC_TOP_VIP]	= &clk_sc_top_vip.common.hw,
++		[CLK_SC_D_VIP]		= &clk_sc_d_vip.common.hw,
++		[CLK_SC_V1_VIP]		= &clk_sc_v1_vip.common.hw,
++		[CLK_SC_V2_VIP]		= &clk_sc_v2_vip.common.hw,
++		[CLK_SC_V3_VIP]		= &clk_sc_v3_vip.common.hw,
++		[CLK_DWA_VIP]		= &clk_dwa_vip.common.hw,
++		[CLK_BT_VIP]		= &clk_bt_vip.common.hw,
++		[CLK_DISP_VIP]		= &clk_disp_vip.common.hw,
++		[CLK_DSI_MAC_VIP]	= &clk_dsi_mac_vip.common.hw,
++		[CLK_LVDS0_VIP]		= &clk_lvds0_vip.common.hw,
++		[CLK_LVDS1_VIP]		= &clk_lvds1_vip.common.hw,
++		[CLK_PAD_VI_VIP]	= &clk_pad_vi_vip.common.hw,
++		[CLK_PAD_VI1_VIP]	= &clk_pad_vi1_vip.common.hw,
++		[CLK_PAD_VI2_VIP]	= &clk_pad_vi2_vip.common.hw,
++		[CLK_CFG_REG_VIP]	= &clk_cfg_reg_vip.common.hw,
++		[CLK_VIP_IP0]		= &clk_vip_ip0.common.hw,
++		[CLK_VIP_IP1]		= &clk_vip_ip1.common.hw,
++		[CLK_VIP_IP2]		= &clk_vip_ip2.common.hw,
++		[CLK_VIP_IP3]		= &clk_vip_ip3.common.hw,
++		[CLK_IVE_VIP]		= &clk_ive_vip.common.hw,
++		[CLK_RAW_VIP]		= &clk_raw_vip.common.hw,
++		[CLK_OSDC_VIP]		= &clk_osdc_vip.common.hw,
++		[CLK_CAM0_VIP]		= &clk_cam0_vip.common.hw,
++		[CLK_AXI_VIDEO_CODEC]	= &clk_axi_video_codec.mux.common.hw,
++		[CLK_VC_SRC0]		= &clk_vc_src0.mux.common.hw,
++		[CLK_VC_SRC1]		= &clk_vc_src1.div.common.hw,
++		[CLK_VC_SRC2]		= &clk_vc_src2.div.common.hw,
++		[CLK_H264C]		= &clk_h264c.common.hw,
++		[CLK_APB_H264C]		= &clk_apb_h264c.common.hw,
++		[CLK_H265C]		= &clk_h265c.common.hw,
++		[CLK_APB_H265C]		= &clk_apb_h265c.common.hw,
++		[CLK_JPEG]		= &clk_jpeg.common.hw,
++		[CLK_APB_JPEG]		= &clk_apb_jpeg.common.hw,
++		[CLK_CAM0]		= &clk_cam0.common.hw,
++		[CLK_CAM1]		= &clk_cam1.common.hw,
++		[CLK_WGN]		= &clk_wgn.common.hw,
++		[CLK_WGN0]		= &clk_wgn0.common.hw,
++		[CLK_WGN1]		= &clk_wgn1.common.hw,
++		[CLK_WGN2]		= &clk_wgn2.common.hw,
++		[CLK_KEYSCAN]		= &clk_keyscan.common.hw,
++		[CLK_CFG_REG_VC]	= &clk_cfg_reg_vc.common.hw,
++		[CLK_C906_0]		= &clk_c906_0.common.hw,
++		[CLK_C906_1]		= &clk_c906_1.common.hw,
++		[CLK_A53]		= &clk_a53.common.hw,
++		[CLK_CPU_AXI0]		= &clk_cpu_axi0.div.common.hw,
++		[CLK_CPU_GIC]		= &clk_cpu_gic.div.common.hw,
++		[CLK_XTAL_AP]		= &clk_xtal_ap.common.hw,
++		[CLK_DISP_SRC_VIP]	= &clk_disp_src_vip.div.common.hw,
++	},
++};
++
++
++static int cv1810_pre_init(struct device *dev, void __iomem *base,
++			   struct cv1800_clk_ctrl *ctrl,
++			   const struct cv1800_clk_desc *desc)
++{
++	cv18xx_clk_disable_a53(base);
++	cv18xx_clk_disable_auto_pd(base);
++
++	return 0;
++}
++
++static const struct cv1800_clk_desc cv1810_desc = {
++	.clks_data	= &cv1810_hw_clks,
++	.pre_init	= cv1810_pre_init,
++};
++
++static int cv1800_clk_init_ctrl(struct device *dev, void __iomem *reg,
++				struct cv1800_clk_ctrl *ctrl,
++				const struct cv1800_clk_desc *desc)
++{
++	int i, ret;
++
++	ctrl->desc = desc;
++	spin_lock_init(&ctrl->lock);
++
++	for (i = 0; i < desc->clks_data->num; i++) {
++		struct clk_hw *hw = desc->clks_data->hws[i];
++		struct cv1800_clk_common *common;
++		const char *name;
++
++		if (!hw)
++			continue;
++
++		name = hw->init->name;
++
++		common = hw_to_cv1800_clk_common(hw);
++		common->base = reg;
++		common->lock = &ctrl->lock;
++
++		ret = devm_clk_hw_register(dev, hw);
++		if (ret) {
++			dev_err(dev, "Couldn't register clock %d - %s\n",
++				i, name);
++			return ret;
++		}
++	}
++
++	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get,
++					  desc->clks_data);
++
++	return ret;
++}
++
++static int cv1800_clk_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	void __iomem *reg;
++	int ret;
++	const struct cv1800_clk_desc *desc;
++	struct cv1800_clk_ctrl *ctrl;
++
++	reg = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(reg))
++		return PTR_ERR(reg);
++
++	desc = device_get_match_data(dev);
++	if (!desc) {
++		dev_err(dev, "no match data for platform\n");
++		return -EINVAL;
++	}
++
++	ctrl = devm_kmalloc(dev, sizeof(*ctrl), GFP_KERNEL);
++	if (!ctrl)
++		return -ENOMEM;
++
++	if (desc->pre_init) {
++		ret = desc->pre_init(dev, reg, ctrl, desc);
++		if (ret)
++			return ret;
++	}
++
++	ret = cv1800_clk_init_ctrl(dev, reg, ctrl, desc);
++
++	return ret;
++}
++
++static const struct of_device_id cv1800_clk_ids[] = {
++	{ .compatible = "sophgo,cv1800-clk", .data = &cv1800_desc },
++	{ .compatible = "sophgo,cv1810-clk", .data = &cv1810_desc },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, cv1800_clk_ids);
++
++static struct platform_driver cv1800_clk_driver = {
++	.probe	= cv1800_clk_probe,
++	.driver	= {
++		.name			= "cv1800-clk",
++		.suppress_bind_attrs	= true,
++		.of_match_table		= cv1800_clk_ids,
++	},
++};
++module_platform_driver(cv1800_clk_driver);
++MODULE_LICENSE("GPL");
+diff --git a/drivers/clk/sophgo/clk-cv1800.h b/drivers/clk/sophgo/clk-cv1800.h
+new file mode 100644
+index 000000000000..1e7107b5d05e
+--- /dev/null
++++ b/drivers/clk/sophgo/clk-cv1800.h
+@@ -0,0 +1,123 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
++ */
++
++#ifndef _CLK_SOPHGO_CV1800_H_
++#define _CLK_SOPHGO_CV1800_H_
++
++#include <dt-bindings/clock/sophgo,cv1800.h>
++
++#define CV1800_CLK_MAX			(CLK_XTAL_AP + 1)
++#define CV1810_CLK_MAX			(CLK_DISP_SRC_VIP + 1)
++
++#define REG_PLL_G2_CTRL			0x800
++#define REG_PLL_G2_STATUS		0x804
++#define REG_MIPIMPLL_CSR		0x808
++#define REG_A0PLL_CSR			0x80C
++#define REG_DISPPLL_CSR			0x810
++#define REG_CAM0PLL_CSR			0x814
++#define REG_CAM1PLL_CSR			0x818
++#define REG_PLL_G2_SSC_SYN_CTRL		0x840
++#define REG_A0PLL_SSC_SYN_CTRL		0x850
++#define REG_A0PLL_SSC_SYN_SET		0x854
++#define REG_A0PLL_SSC_SYN_SPAN		0x858
++#define REG_A0PLL_SSC_SYN_STEP		0x85C
++#define REG_DISPPLL_SSC_SYN_CTRL	0x860
++#define REG_DISPPLL_SSC_SYN_SET		0x864
++#define REG_DISPPLL_SSC_SYN_SPAN	0x868
++#define REG_DISPPLL_SSC_SYN_STEP	0x86C
++#define REG_CAM0PLL_SSC_SYN_CTRL	0x870
++#define REG_CAM0PLL_SSC_SYN_SET		0x874
++#define REG_CAM0PLL_SSC_SYN_SPAN	0x878
++#define REG_CAM0PLL_SSC_SYN_STEP	0x87C
++#define REG_CAM1PLL_SSC_SYN_CTRL	0x880
++#define REG_CAM1PLL_SSC_SYN_SET		0x884
++#define REG_CAM1PLL_SSC_SYN_SPAN	0x888
++#define REG_CAM1PLL_SSC_SYN_STEP	0x88C
++#define REG_APLL_FRAC_DIV_CTRL		0x890
++#define REG_APLL_FRAC_DIV_M		0x894
++#define REG_APLL_FRAC_DIV_N		0x898
++#define REG_MIPIMPLL_CLK_CSR		0x8A0
++#define REG_A0PLL_CLK_CSR		0x8A4
++#define REG_DISPPLL_CLK_CSR		0x8A8
++#define REG_CAM0PLL_CLK_CSR		0x8AC
++#define REG_CAM1PLL_CLK_CSR		0x8B0
++#define REG_CLK_CAM0_SRC_DIV		0x8C0
++#define REG_CLK_CAM1_SRC_DIV		0x8C4
++
++/* top_pll_g6 */
++#define REG_PLL_G6_CTRL			0x900
++#define REG_PLL_G6_STATUS		0x904
++#define REG_MPLL_CSR			0x908
++#define REG_TPLL_CSR			0x90C
++#define REG_FPLL_CSR			0x910
++#define REG_PLL_G6_SSC_SYN_CTRL		0x940
++#define REG_DPLL_SSC_SYN_CTRL		0x950
++#define REG_DPLL_SSC_SYN_SET		0x954
++#define REG_DPLL_SSC_SYN_SPAN		0x958
++#define REG_DPLL_SSC_SYN_STEP		0x95C
++#define REG_MPLL_SSC_SYN_CTRL		0x960
++#define REG_MPLL_SSC_SYN_SET		0x964
++#define REG_MPLL_SSC_SYN_SPAN		0x968
++#define REG_MPLL_SSC_SYN_STEP		0x96C
++#define REG_TPLL_SSC_SYN_CTRL		0x970
++#define REG_TPLL_SSC_SYN_SET		0x974
++#define REG_TPLL_SSC_SYN_SPAN		0x978
++#define REG_TPLL_SSC_SYN_STEP		0x97C
++
++/* clkgen */
++#define REG_CLK_EN_0			0x000
++#define REG_CLK_EN_1			0x004
++#define REG_CLK_EN_2			0x008
++#define REG_CLK_EN_3			0x00C
++#define REG_CLK_EN_4			0x010
++#define REG_CLK_SEL_0			0x020
++#define REG_CLK_BYP_0			0x030
++#define REG_CLK_BYP_1			0x034
++
++#define REG_DIV_CLK_A53_0		0x040
++#define REG_DIV_CLK_A53_1		0x044
++#define REG_DIV_CLK_CPU_AXI0		0x048
++#define REG_DIV_CLK_CPU_GIC		0x050
++#define REG_DIV_CLK_TPU			0x054
++#define REG_DIV_CLK_EMMC		0x064
++#define REG_DIV_CLK_EMMC_100K		0x06C
++#define REG_DIV_CLK_SD0			0x070
++#define REG_DIV_CLK_SD0_100K		0x078
++#define REG_DIV_CLK_SD1			0x07C
++#define REG_DIV_CLK_SD1_100K		0x084
++#define REG_DIV_CLK_SPI_NAND		0x088
++#define REG_DIV_CLK_ETH0_500M		0x08C
++#define REG_DIV_CLK_ETH1_500M		0x090
++#define REG_DIV_CLK_GPIO_DB		0x094
++#define REG_DIV_CLK_SDMA_AUD0		0x098
++#define REG_DIV_CLK_SDMA_AUD1		0x09C
++#define REG_DIV_CLK_SDMA_AUD2		0x0A0
++#define REG_DIV_CLK_SDMA_AUD3		0x0A4
++#define REG_DIV_CLK_CAM0_200		0x0A8
++#define REG_DIV_CLK_AXI4		0x0B8
++#define REG_DIV_CLK_AXI6		0x0BC
++#define REG_DIV_CLK_DSI_ESC		0x0C4
++#define REG_DIV_CLK_AXI_VIP		0x0C8
++#define REG_DIV_CLK_SRC_VIP_SYS_0	0x0D0
++#define REG_DIV_CLK_SRC_VIP_SYS_1	0x0D8
++#define REG_DIV_CLK_DISP_SRC_VIP	0x0E0
++#define REG_DIV_CLK_AXI_VIDEO_CODEC	0x0E4
++#define REG_DIV_CLK_VC_SRC0		0x0EC
++#define REG_DIV_CLK_1M			0x0FC
++#define REG_DIV_CLK_SPI			0x100
++#define REG_DIV_CLK_I2C			0x104
++#define REG_DIV_CLK_SRC_VIP_SYS_2	0x110
++#define REG_DIV_CLK_AUDSRC		0x118
++#define REG_DIV_CLK_PWM_SRC_0		0x120
++#define REG_DIV_CLK_AP_DEBUG		0x128
++#define REG_DIV_CLK_RTCSYS_SRC_0	0x12C
++#define REG_DIV_CLK_C906_0_0		0x130
++#define REG_DIV_CLK_C906_0_1		0x134
++#define REG_DIV_CLK_C906_1_0		0x138
++#define REG_DIV_CLK_C906_1_1		0x13C
++#define REG_DIV_CLK_SRC_VIP_SYS_3	0x140
++#define REG_DIV_CLK_SRC_VIP_SYS_4	0x144
++
++#endif /* _CLK_SOPHGO_CV1800_H_ */
+diff --git a/drivers/clk/sophgo/clk-cv18xx-common.c b/drivers/clk/sophgo/clk-cv18xx-common.c
+new file mode 100644
+index 000000000000..cbcdd88f0e23
+--- /dev/null
++++ b/drivers/clk/sophgo/clk-cv18xx-common.c
+@@ -0,0 +1,66 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
++ */
++
++#include <linux/io.h>
++#include <linux/iopoll.h>
++#include <linux/spinlock.h>
++#include <linux/bug.h>
++
++#include "clk-cv18xx-common.h"
++
++int cv1800_clk_setbit(struct cv1800_clk_common *common,
++		      struct cv1800_clk_regbit *field)
++{
++	u32 mask = BIT(field->shift);
++	u32 value;
++	unsigned long flags;
++
++	spin_lock_irqsave(common->lock, flags);
++
++	value = readl(common->base + field->reg);
++	writel(value | mask, common->base + field->reg);
++
++	spin_unlock_irqrestore(common->lock, flags);
++
++	return 0;
++}
++
++int cv1800_clk_clearbit(struct cv1800_clk_common *common,
++			struct cv1800_clk_regbit *field)
++{
++	u32 mask = BIT(field->shift);
++	u32 value;
++	unsigned long flags;
++
++	spin_lock_irqsave(common->lock, flags);
++
++	value = readl(common->base + field->reg);
++	writel(value & ~mask, common->base + field->reg);
++
++	spin_unlock_irqrestore(common->lock, flags);
++
++	return 0;
++}
++
++int cv1800_clk_checkbit(struct cv1800_clk_common *common,
++			struct cv1800_clk_regbit *field)
++{
++	return readl(common->base + field->reg) & BIT(field->shift);
++}
++
++#define PLL_LOCK_TIMEOUT_US	(200 * 1000)
++
++void cv1800_clk_wait_for_lock(struct cv1800_clk_common *common,
++			      u32 reg, u32 lock)
++{
++	void __iomem *addr = common->base + reg;
++	u32 regval;
++
++	if (!lock)
++		return;
++
++	WARN_ON(readl_relaxed_poll_timeout(addr, regval, regval & lock,
++					   100, PLL_LOCK_TIMEOUT_US));
++}
+diff --git a/drivers/clk/sophgo/clk-cv18xx-common.h b/drivers/clk/sophgo/clk-cv18xx-common.h
+new file mode 100644
+index 000000000000..2bfda02b2064
+--- /dev/null
++++ b/drivers/clk/sophgo/clk-cv18xx-common.h
+@@ -0,0 +1,81 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
++ */
++
++#ifndef _CLK_SOPHGO_CV18XX_IP_H_
++#define _CLK_SOPHGO_CV18XX_IP_H_
++
++#include <linux/compiler.h>
++#include <linux/clk-provider.h>
++#include <linux/bitfield.h>
++
++struct cv1800_clk_common {
++	void __iomem	*base;
++	spinlock_t	*lock;
++	struct clk_hw	hw;
++	unsigned long	features;
++};
++
++#define CV1800_CLK_COMMON(_name, _parents, _op, _flags)			\
++	{								\
++		.hw.init = CLK_HW_INIT_PARENTS_DATA(_name, _parents,	\
++						    _op, _flags),	\
++	}
++
++static inline struct cv1800_clk_common *
++hw_to_cv1800_clk_common(struct clk_hw *hw)
++{
++	return container_of(hw, struct cv1800_clk_common, hw);
++}
++
++struct cv1800_clk_regbit {
++	u16		reg;
++	s8		shift;
++};
++
++struct cv1800_clk_regfield {
++	u16		reg;
++	u8		shift;
++	u8		width;
++	s16		initval;
++	unsigned long	flags;
++};
++
++#define CV1800_CLK_BIT(_reg, _shift)	\
++	{				\
++		.reg = _reg,		\
++		.shift = _shift,	\
++	}
++
++#define CV1800_CLK_REG(_reg, _shift, _width, _initval, _flags)	\
++	{							\
++		.reg = _reg,					\
++		.shift = _shift,				\
++		.width = _width,				\
++		.initval = _initval,				\
++		.flags = _flags,				\
++	}
++
++#define cv1800_clk_regfield_genmask(_reg) \
++	GENMASK((_reg)->shift + (_reg)->width - 1, (_reg)->shift)
++#define cv1800_clk_regfield_get(_val, _reg) \
++	(((_val) >> (_reg)->shift) & GENMASK((_reg)->width - 1, 0))
++#define cv1800_clk_regfield_set(_val, _new, _reg)    \
++	(((_val) & ~cv1800_clk_regfield_genmask((_reg))) | \
++	 (((_new) & GENMASK((_reg)->width - 1, 0)) << (_reg)->shift))
++
++#define _CV1800_SET_FIELD(_reg, _val, _field) \
++	(((_reg) & ~(_field)) | FIELD_PREP((_field), (_val)))
++
++int cv1800_clk_setbit(struct cv1800_clk_common *common,
++		      struct cv1800_clk_regbit *field);
++int cv1800_clk_clearbit(struct cv1800_clk_common *common,
++			struct cv1800_clk_regbit *field);
++int cv1800_clk_checkbit(struct cv1800_clk_common *common,
++			struct cv1800_clk_regbit *field);
++
++void cv1800_clk_wait_for_lock(struct cv1800_clk_common *common,
++			      u32 reg, u32 lock);
++
++#endif // _CLK_SOPHGO_CV18XX_IP_H_
+diff --git a/drivers/clk/sophgo/clk-cv18xx-ip.c b/drivers/clk/sophgo/clk-cv18xx-ip.c
+new file mode 100644
+index 000000000000..aede85eac4ff
+--- /dev/null
++++ b/drivers/clk/sophgo/clk-cv18xx-ip.c
+@@ -0,0 +1,905 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
++ */
++
++#include <linux/clk-provider.h>
++#include <linux/io.h>
++#include <linux/gcd.h>
++#include <linux/spinlock.h>
++
++#include "clk-cv18xx-ip.h"
++
++/* GATE */
++static inline struct cv1800_clk_gate *hw_to_cv1800_clk_gate(struct clk_hw *hw)
++{
++	struct cv1800_clk_common *common = hw_to_cv1800_clk_common(hw);
++
++	return container_of(common, struct cv1800_clk_gate, common);
++}
++
++static int gate_enable(struct clk_hw *hw)
++{
++	struct cv1800_clk_gate *gate = hw_to_cv1800_clk_gate(hw);
++
++	return cv1800_clk_setbit(&gate->common, &gate->gate);
++}
++
++static void gate_disable(struct clk_hw *hw)
++{
++	struct cv1800_clk_gate *gate = hw_to_cv1800_clk_gate(hw);
++
++	cv1800_clk_clearbit(&gate->common, &gate->gate);
++}
++
++static int gate_is_enabled(struct clk_hw *hw)
++{
++	struct cv1800_clk_gate *gate = hw_to_cv1800_clk_gate(hw);
++
++	return cv1800_clk_checkbit(&gate->common, &gate->gate);
++}
++
++static unsigned long gate_recalc_rate(struct clk_hw *hw,
 +				      unsigned long parent_rate)
- {
--	struct jh71x0_clk *clk = jh71x0_clk_from(hw);
-+	struct starfive_clk *clk = starfive_clk_from(hw);
- 	unsigned long div100 = clamp(DIV_ROUND_CLOSEST(100 * parent_rate, rate),
--				     JH71X0_CLK_FRAC_MIN, JH71X0_CLK_FRAC_MAX);
--	u32 value = ((div100 % 100) << JH71X0_CLK_FRAC_SHIFT) | (div100 / 100);
-+				     STARFIVE_CLK_FRAC_MIN, STARFIVE_CLK_FRAC_MAX);
-+	u32 value = ((div100 % 100) << STARFIVE_CLK_FRAC_SHIFT) | (div100 / 100);
- 
--	jh71x0_clk_reg_rmw(clk, JH71X0_CLK_DIV_MASK, value);
-+	starfive_clk_reg_rmw(clk, STARFIVE_CLK_DIV_MASK, value);
- 	return 0;
- }
- 
--static u8 jh71x0_clk_get_parent(struct clk_hw *hw)
-+static u8 starfive_clk_get_parent(struct clk_hw *hw)
- {
--	struct jh71x0_clk *clk = jh71x0_clk_from(hw);
--	u32 value = jh71x0_clk_reg_get(clk);
-+	struct starfive_clk *clk = starfive_clk_from(hw);
-+	u32 value = starfive_clk_reg_get(clk);
- 
--	return (value & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT;
-+	return (value & STARFIVE_CLK_MUX_MASK) >> STARFIVE_CLK_MUX_SHIFT;
- }
- 
--static int jh71x0_clk_set_parent(struct clk_hw *hw, u8 index)
-+static int starfive_clk_set_parent(struct clk_hw *hw, u8 index)
- {
--	struct jh71x0_clk *clk = jh71x0_clk_from(hw);
--	u32 value = (u32)index << JH71X0_CLK_MUX_SHIFT;
-+	struct starfive_clk *clk = starfive_clk_from(hw);
-+	u32 value = (u32)index << STARFIVE_CLK_MUX_SHIFT;
- 
--	jh71x0_clk_reg_rmw(clk, JH71X0_CLK_MUX_MASK, value);
-+	starfive_clk_reg_rmw(clk, STARFIVE_CLK_MUX_MASK, value);
- 	return 0;
- }
- 
--static int jh71x0_clk_get_phase(struct clk_hw *hw)
-+static int starfive_clk_get_phase(struct clk_hw *hw)
- {
--	struct jh71x0_clk *clk = jh71x0_clk_from(hw);
--	u32 value = jh71x0_clk_reg_get(clk);
-+	struct starfive_clk *clk = starfive_clk_from(hw);
-+	u32 value = starfive_clk_reg_get(clk);
- 
--	return (value & JH71X0_CLK_INVERT) ? 180 : 0;
-+	return (value & STARFIVE_CLK_INVERT) ? 180 : 0;
- }
- 
--static int jh71x0_clk_set_phase(struct clk_hw *hw, int degrees)
-+static int starfive_clk_set_phase(struct clk_hw *hw, int degrees)
- {
--	struct jh71x0_clk *clk = jh71x0_clk_from(hw);
-+	struct starfive_clk *clk = starfive_clk_from(hw);
- 	u32 value;
- 
- 	if (degrees == 0)
- 		value = 0;
- 	else if (degrees == 180)
--		value = JH71X0_CLK_INVERT;
-+		value = STARFIVE_CLK_INVERT;
- 	else
- 		return -EINVAL;
- 
--	jh71x0_clk_reg_rmw(clk, JH71X0_CLK_INVERT, value);
-+	starfive_clk_reg_rmw(clk, STARFIVE_CLK_INVERT, value);
- 	return 0;
- }
- 
- #ifdef CONFIG_DEBUG_FS
--static void jh71x0_clk_debug_init(struct clk_hw *hw, struct dentry *dentry)
-+static void starfive_clk_debug_init(struct clk_hw *hw, struct dentry *dentry)
- {
--	static const struct debugfs_reg32 jh71x0_clk_reg = {
-+	static const struct debugfs_reg32 starfive_clk_reg = {
- 		.name = "CTRL",
- 		.offset = 0,
- 	};
--	struct jh71x0_clk *clk = jh71x0_clk_from(hw);
--	struct jh71x0_clk_priv *priv = jh71x0_priv_from(clk);
-+	struct starfive_clk *clk = starfive_clk_from(hw);
-+	struct starfive_clk_priv *priv = starfive_priv_from(clk);
- 	struct debugfs_regset32 *regset;
- 
- 	regset = devm_kzalloc(priv->dev, sizeof(*regset), GFP_KERNEL);
- 	if (!regset)
- 		return;
- 
--	regset->regs = &jh71x0_clk_reg;
-+	regset->regs = &starfive_clk_reg;
- 	regset->nregs = 1;
- 	regset->base = priv->base + 4 * clk->idx;
- 
- 	debugfs_create_regset32("registers", 0400, dentry, regset);
- }
- #else
--#define jh71x0_clk_debug_init NULL
-+#define starfive_clk_debug_init NULL
- #endif
- 
--static const struct clk_ops jh71x0_clk_gate_ops = {
--	.enable = jh71x0_clk_enable,
--	.disable = jh71x0_clk_disable,
--	.is_enabled = jh71x0_clk_is_enabled,
--	.debug_init = jh71x0_clk_debug_init,
-+static const struct clk_ops starfive_clk_gate_ops = {
-+	.enable = starfive_clk_enable,
-+	.disable = starfive_clk_disable,
-+	.is_enabled = starfive_clk_is_enabled,
-+	.debug_init = starfive_clk_debug_init,
- };
- 
--static const struct clk_ops jh71x0_clk_div_ops = {
--	.recalc_rate = jh71x0_clk_recalc_rate,
--	.determine_rate = jh71x0_clk_determine_rate,
--	.set_rate = jh71x0_clk_set_rate,
--	.debug_init = jh71x0_clk_debug_init,
-+static const struct clk_ops starfive_clk_div_ops = {
-+	.recalc_rate = starfive_clk_recalc_rate,
-+	.determine_rate = starfive_clk_determine_rate,
-+	.set_rate = starfive_clk_set_rate,
-+	.debug_init = starfive_clk_debug_init,
- };
- 
--static const struct clk_ops jh71x0_clk_fdiv_ops = {
--	.recalc_rate = jh71x0_clk_frac_recalc_rate,
--	.determine_rate = jh71x0_clk_frac_determine_rate,
--	.set_rate = jh71x0_clk_frac_set_rate,
--	.debug_init = jh71x0_clk_debug_init,
-+static const struct clk_ops starfive_clk_fdiv_ops = {
-+	.recalc_rate = starfive_clk_frac_recalc_rate,
-+	.determine_rate = starfive_clk_frac_determine_rate,
-+	.set_rate = starfive_clk_frac_set_rate,
-+	.debug_init = starfive_clk_debug_init,
- };
- 
--static const struct clk_ops jh71x0_clk_gdiv_ops = {
--	.enable = jh71x0_clk_enable,
--	.disable = jh71x0_clk_disable,
--	.is_enabled = jh71x0_clk_is_enabled,
--	.recalc_rate = jh71x0_clk_recalc_rate,
--	.determine_rate = jh71x0_clk_determine_rate,
--	.set_rate = jh71x0_clk_set_rate,
--	.debug_init = jh71x0_clk_debug_init,
-+static const struct clk_ops starfive_clk_gdiv_ops = {
-+	.enable = starfive_clk_enable,
-+	.disable = starfive_clk_disable,
-+	.is_enabled = starfive_clk_is_enabled,
-+	.recalc_rate = starfive_clk_recalc_rate,
-+	.determine_rate = starfive_clk_determine_rate,
-+	.set_rate = starfive_clk_set_rate,
-+	.debug_init = starfive_clk_debug_init,
- };
- 
--static const struct clk_ops jh71x0_clk_mux_ops = {
-+static const struct clk_ops starfive_clk_mux_ops = {
- 	.determine_rate = __clk_mux_determine_rate,
--	.set_parent = jh71x0_clk_set_parent,
--	.get_parent = jh71x0_clk_get_parent,
--	.debug_init = jh71x0_clk_debug_init,
-+	.set_parent = starfive_clk_set_parent,
-+	.get_parent = starfive_clk_get_parent,
-+	.debug_init = starfive_clk_debug_init,
- };
- 
--static const struct clk_ops jh71x0_clk_gmux_ops = {
--	.enable = jh71x0_clk_enable,
--	.disable = jh71x0_clk_disable,
--	.is_enabled = jh71x0_clk_is_enabled,
-+static const struct clk_ops starfive_clk_gmux_ops = {
-+	.enable = starfive_clk_enable,
-+	.disable = starfive_clk_disable,
-+	.is_enabled = starfive_clk_is_enabled,
- 	.determine_rate = __clk_mux_determine_rate,
--	.set_parent = jh71x0_clk_set_parent,
--	.get_parent = jh71x0_clk_get_parent,
--	.debug_init = jh71x0_clk_debug_init,
-+	.set_parent = starfive_clk_set_parent,
-+	.get_parent = starfive_clk_get_parent,
-+	.debug_init = starfive_clk_debug_init,
- };
- 
--static const struct clk_ops jh71x0_clk_mdiv_ops = {
--	.recalc_rate = jh71x0_clk_recalc_rate,
--	.determine_rate = jh71x0_clk_determine_rate,
--	.get_parent = jh71x0_clk_get_parent,
--	.set_parent = jh71x0_clk_set_parent,
--	.set_rate = jh71x0_clk_set_rate,
--	.debug_init = jh71x0_clk_debug_init,
-+static const struct clk_ops starfive_clk_mdiv_ops = {
-+	.recalc_rate = starfive_clk_recalc_rate,
-+	.determine_rate = starfive_clk_determine_rate,
-+	.get_parent = starfive_clk_get_parent,
-+	.set_parent = starfive_clk_set_parent,
-+	.set_rate = starfive_clk_set_rate,
-+	.debug_init = starfive_clk_debug_init,
- };
- 
--static const struct clk_ops jh71x0_clk_gmd_ops = {
--	.enable = jh71x0_clk_enable,
--	.disable = jh71x0_clk_disable,
--	.is_enabled = jh71x0_clk_is_enabled,
--	.recalc_rate = jh71x0_clk_recalc_rate,
--	.determine_rate = jh71x0_clk_determine_rate,
--	.get_parent = jh71x0_clk_get_parent,
--	.set_parent = jh71x0_clk_set_parent,
--	.set_rate = jh71x0_clk_set_rate,
--	.debug_init = jh71x0_clk_debug_init,
-+static const struct clk_ops starfive_clk_gmd_ops = {
-+	.enable = starfive_clk_enable,
-+	.disable = starfive_clk_disable,
-+	.is_enabled = starfive_clk_is_enabled,
-+	.recalc_rate = starfive_clk_recalc_rate,
-+	.determine_rate = starfive_clk_determine_rate,
-+	.get_parent = starfive_clk_get_parent,
-+	.set_parent = starfive_clk_set_parent,
-+	.set_rate = starfive_clk_set_rate,
-+	.debug_init = starfive_clk_debug_init,
- };
- 
--static const struct clk_ops jh71x0_clk_inv_ops = {
--	.get_phase = jh71x0_clk_get_phase,
--	.set_phase = jh71x0_clk_set_phase,
--	.debug_init = jh71x0_clk_debug_init,
-+static const struct clk_ops starfive_clk_inv_ops = {
-+	.get_phase = starfive_clk_get_phase,
-+	.set_phase = starfive_clk_set_phase,
-+	.debug_init = starfive_clk_debug_init,
- };
- 
--const struct clk_ops *starfive_jh71x0_clk_ops(u32 max)
-+const struct clk_ops *starfive_clk_ops(u32 max)
- {
--	if (max & JH71X0_CLK_DIV_MASK) {
--		if (max & JH71X0_CLK_MUX_MASK) {
--			if (max & JH71X0_CLK_ENABLE)
--				return &jh71x0_clk_gmd_ops;
--			return &jh71x0_clk_mdiv_ops;
-+	if (max & STARFIVE_CLK_DIV_MASK) {
-+		if (max & STARFIVE_CLK_MUX_MASK) {
-+			if (max & STARFIVE_CLK_ENABLE)
-+				return &starfive_clk_gmd_ops;
-+			return &starfive_clk_mdiv_ops;
- 		}
--		if (max & JH71X0_CLK_ENABLE)
--			return &jh71x0_clk_gdiv_ops;
--		if (max == JH71X0_CLK_FRAC_MAX)
--			return &jh71x0_clk_fdiv_ops;
--		return &jh71x0_clk_div_ops;
-+		if (max & STARFIVE_CLK_ENABLE)
-+			return &starfive_clk_gdiv_ops;
-+		if (max == STARFIVE_CLK_FRAC_MAX)
-+			return &starfive_clk_fdiv_ops;
-+		return &starfive_clk_div_ops;
- 	}
- 
--	if (max & JH71X0_CLK_MUX_MASK) {
--		if (max & JH71X0_CLK_ENABLE)
--			return &jh71x0_clk_gmux_ops;
--		return &jh71x0_clk_mux_ops;
-+	if (max & STARFIVE_CLK_MUX_MASK) {
-+		if (max & STARFIVE_CLK_ENABLE)
-+			return &starfive_clk_gmux_ops;
-+		return &starfive_clk_mux_ops;
- 	}
- 
--	if (max & JH71X0_CLK_ENABLE)
--		return &jh71x0_clk_gate_ops;
-+	if (max & STARFIVE_CLK_ENABLE)
-+		return &starfive_clk_gate_ops;
- 
--	return &jh71x0_clk_inv_ops;
-+	return &starfive_clk_inv_ops;
- }
--EXPORT_SYMBOL_GPL(starfive_jh71x0_clk_ops);
-+EXPORT_SYMBOL_GPL(starfive_clk_ops);
-diff --git a/drivers/clk/starfive/clk-starfive-common.h b/drivers/clk/starfive/clk-starfive-common.h
-index 1f32f7024e9f..fed45311360c 100644
---- a/drivers/clk/starfive/clk-starfive-common.h
-+++ b/drivers/clk/starfive/clk-starfive-common.h
-@@ -8,36 +8,36 @@
- #include <linux/spinlock.h>
- 
- /* register fields */
--#define JH71X0_CLK_ENABLE	BIT(31)
--#define JH71X0_CLK_INVERT	BIT(30)
--#define JH71X0_CLK_MUX_MASK	GENMASK(27, 24)
--#define JH71X0_CLK_MUX_SHIFT	24
--#define JH71X0_CLK_DIV_MASK	GENMASK(23, 0)
--#define JH71X0_CLK_FRAC_MASK	GENMASK(15, 8)
--#define JH71X0_CLK_FRAC_SHIFT	8
--#define JH71X0_CLK_INT_MASK	GENMASK(7, 0)
-+#define STARFIVE_CLK_ENABLE	BIT(31)
-+#define STARFIVE_CLK_INVERT	BIT(30)
-+#define STARFIVE_CLK_MUX_MASK	GENMASK(27, 24)
-+#define STARFIVE_CLK_MUX_SHIFT	24
-+#define STARFIVE_CLK_DIV_MASK	GENMASK(23, 0)
-+#define STARFIVE_CLK_FRAC_MASK	GENMASK(15, 8)
-+#define STARFIVE_CLK_FRAC_SHIFT	8
-+#define STARFIVE_CLK_INT_MASK	GENMASK(7, 0)
- 
- /* fractional divider min/max */
--#define JH71X0_CLK_FRAC_MIN	100UL
--#define JH71X0_CLK_FRAC_MAX	25599UL
-+#define STARFIVE_CLK_FRAC_MIN	100UL
-+#define STARFIVE_CLK_FRAC_MAX	25599UL
- 
- /* clock data */
--struct jh71x0_clk_data {
-+struct starfive_clk_data {
- 	const char *name;
- 	unsigned long flags;
- 	u32 max;
- 	u8 parents[4];
- };
- 
--#define JH71X0_GATE(_idx, _name, _flags, _parent)				\
-+#define STARFIVE_GATE(_idx, _name, _flags, _parent)				\
- [_idx] = {									\
- 	.name = _name,								\
- 	.flags = CLK_SET_RATE_PARENT | (_flags),				\
--	.max = JH71X0_CLK_ENABLE,						\
-+	.max = STARFIVE_CLK_ENABLE,						\
- 	.parents = { [0] = _parent },						\
- }
- 
--#define JH71X0__DIV(_idx, _name, _max, _parent)					\
-+#define STARFIVE__DIV(_idx, _name, _max, _parent)					\
- [_idx] = {									\
- 	.name = _name,								\
- 	.flags = 0,								\
-@@ -45,79 +45,79 @@ struct jh71x0_clk_data {
- 	.parents = { [0] = _parent },						\
- }
- 
--#define JH71X0_GDIV(_idx, _name, _flags, _max, _parent)				\
-+#define STARFIVE_GDIV(_idx, _name, _flags, _max, _parent)				\
- [_idx] = {									\
- 	.name = _name,								\
- 	.flags = _flags,							\
--	.max = JH71X0_CLK_ENABLE | (_max),					\
-+	.max = STARFIVE_CLK_ENABLE | (_max),					\
- 	.parents = { [0] = _parent },						\
- }
- 
--#define JH71X0_FDIV(_idx, _name, _parent)					\
-+#define STARFIVE_FDIV(_idx, _name, _parent)					\
- [_idx] = {									\
- 	.name = _name,								\
- 	.flags = 0,								\
--	.max = JH71X0_CLK_FRAC_MAX,						\
-+	.max = STARFIVE_CLK_FRAC_MAX,						\
- 	.parents = { [0] = _parent },						\
- }
- 
--#define JH71X0__MUX(_idx, _name, _nparents, ...)				\
-+#define STARFIVE__MUX(_idx, _name, _nparents, ...)				\
- [_idx] = {									\
- 	.name = _name,								\
- 	.flags = 0,								\
--	.max = ((_nparents) - 1) << JH71X0_CLK_MUX_SHIFT,			\
-+	.max = ((_nparents) - 1) << STARFIVE_CLK_MUX_SHIFT,			\
- 	.parents = { __VA_ARGS__ },						\
- }
- 
--#define JH71X0_GMUX(_idx, _name, _flags, _nparents, ...)			\
-+#define STARFIVE_GMUX(_idx, _name, _flags, _nparents, ...)			\
- [_idx] = {									\
- 	.name = _name,								\
- 	.flags = _flags,							\
--	.max = JH71X0_CLK_ENABLE |						\
--		(((_nparents) - 1) << JH71X0_CLK_MUX_SHIFT),			\
-+	.max = STARFIVE_CLK_ENABLE |						\
-+		(((_nparents) - 1) << STARFIVE_CLK_MUX_SHIFT),			\
- 	.parents = { __VA_ARGS__ },						\
- }
- 
--#define JH71X0_MDIV(_idx, _name, _max, _nparents, ...)				\
-+#define STARFIVE_MDIV(_idx, _name, _max, _nparents, ...)				\
- [_idx] = {									\
- 	.name = _name,								\
- 	.flags = 0,								\
--	.max = (((_nparents) - 1) << JH71X0_CLK_MUX_SHIFT) | (_max),		\
-+	.max = (((_nparents) - 1) << STARFIVE_CLK_MUX_SHIFT) | (_max),		\
- 	.parents = { __VA_ARGS__ },						\
- }
- 
--#define JH71X0__GMD(_idx, _name, _flags, _max, _nparents, ...)			\
-+#define STARFIVE__GMD(_idx, _name, _flags, _max, _nparents, ...)			\
- [_idx] = {									\
- 	.name = _name,								\
- 	.flags = _flags,							\
--	.max = JH71X0_CLK_ENABLE |						\
--		(((_nparents) - 1) << JH71X0_CLK_MUX_SHIFT) | (_max),		\
-+	.max = STARFIVE_CLK_ENABLE |						\
-+		(((_nparents) - 1) << STARFIVE_CLK_MUX_SHIFT) | (_max),		\
- 	.parents = { __VA_ARGS__ },						\
- }
- 
--#define JH71X0__INV(_idx, _name, _parent)					\
-+#define STARFIVE__INV(_idx, _name, _parent)					\
- [_idx] = {									\
- 	.name = _name,								\
- 	.flags = CLK_SET_RATE_PARENT,						\
--	.max = JH71X0_CLK_INVERT,						\
-+	.max = STARFIVE_CLK_INVERT,						\
- 	.parents = { [0] = _parent },						\
- }
- 
--struct jh71x0_clk {
-+struct starfive_clk {
- 	struct clk_hw hw;
- 	unsigned int idx;
- 	unsigned int max_div;
- };
- 
--struct jh71x0_clk_priv {
-+struct starfive_clk_priv {
- 	/* protect clk enable and set rate/parent from happening at the same time */
- 	spinlock_t rmw_lock;
- 	struct device *dev;
- 	void __iomem *base;
- 	struct clk_hw *pll[3];
--	struct jh71x0_clk reg[];
-+	struct starfive_clk reg[];
- };
- 
--const struct clk_ops *starfive_jh71x0_clk_ops(u32 max);
-+const struct clk_ops *starfive_clk_ops(u32 max);
- 
- #endif
-diff --git a/drivers/clk/starfive/clk-starfive-jh7100-audio.c b/drivers/clk/starfive/clk-starfive-jh7100-audio.c
-index dc4c278606d7..dfe2befddce5 100644
---- a/drivers/clk/starfive/clk-starfive-jh7100-audio.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7100-audio.c
-@@ -27,66 +27,68 @@
- #define JH7100_AUDCLK_I2SDAC_LRCLK_IOPAD	(JH7100_AUDCLK_END + 6)
- #define JH7100_AUDCLK_VAD_INTMEM                (JH7100_AUDCLK_END + 7)
- 
--static const struct jh71x0_clk_data jh7100_audclk_data[] = {
--	JH71X0__GMD(JH7100_AUDCLK_ADC_MCLK, "adc_mclk", 0, 15, 2,
--		    JH7100_AUDCLK_AUDIO_SRC,
--		    JH7100_AUDCLK_AUDIO_12288),
--	JH71X0__GMD(JH7100_AUDCLK_I2S1_MCLK, "i2s1_mclk", 0, 15, 2,
--		    JH7100_AUDCLK_AUDIO_SRC,
--		    JH7100_AUDCLK_AUDIO_12288),
--	JH71X0_GATE(JH7100_AUDCLK_I2SADC_APB, "i2sadc_apb", 0, JH7100_AUDCLK_APB0_BUS),
--	JH71X0_MDIV(JH7100_AUDCLK_I2SADC_BCLK, "i2sadc_bclk", 31, 2,
--		    JH7100_AUDCLK_ADC_MCLK,
--		    JH7100_AUDCLK_I2SADC_BCLK_IOPAD),
--	JH71X0__INV(JH7100_AUDCLK_I2SADC_BCLK_N, "i2sadc_bclk_n", JH7100_AUDCLK_I2SADC_BCLK),
--	JH71X0_MDIV(JH7100_AUDCLK_I2SADC_LRCLK, "i2sadc_lrclk", 63, 3,
--		    JH7100_AUDCLK_I2SADC_BCLK_N,
--		    JH7100_AUDCLK_I2SADC_LRCLK_IOPAD,
--		    JH7100_AUDCLK_I2SADC_BCLK),
--	JH71X0_GATE(JH7100_AUDCLK_PDM_APB, "pdm_apb", 0, JH7100_AUDCLK_APB0_BUS),
--	JH71X0__GMD(JH7100_AUDCLK_PDM_MCLK, "pdm_mclk", 0, 15, 2,
--		    JH7100_AUDCLK_AUDIO_SRC,
--		    JH7100_AUDCLK_AUDIO_12288),
--	JH71X0_GATE(JH7100_AUDCLK_I2SVAD_APB, "i2svad_apb", 0, JH7100_AUDCLK_APB0_BUS),
--	JH71X0__GMD(JH7100_AUDCLK_SPDIF, "spdif", 0, 15, 2,
--		    JH7100_AUDCLK_AUDIO_SRC,
--		    JH7100_AUDCLK_AUDIO_12288),
--	JH71X0_GATE(JH7100_AUDCLK_SPDIF_APB, "spdif_apb", 0, JH7100_AUDCLK_APB0_BUS),
--	JH71X0_GATE(JH7100_AUDCLK_PWMDAC_APB, "pwmdac_apb", 0, JH7100_AUDCLK_APB0_BUS),
--	JH71X0__GMD(JH7100_AUDCLK_DAC_MCLK, "dac_mclk", 0, 15, 2,
--		    JH7100_AUDCLK_AUDIO_SRC,
--		    JH7100_AUDCLK_AUDIO_12288),
--	JH71X0_GATE(JH7100_AUDCLK_I2SDAC_APB, "i2sdac_apb", 0, JH7100_AUDCLK_APB0_BUS),
--	JH71X0_MDIV(JH7100_AUDCLK_I2SDAC_BCLK, "i2sdac_bclk", 31, 2,
--		    JH7100_AUDCLK_DAC_MCLK,
--		    JH7100_AUDCLK_I2SDAC_BCLK_IOPAD),
--	JH71X0__INV(JH7100_AUDCLK_I2SDAC_BCLK_N, "i2sdac_bclk_n", JH7100_AUDCLK_I2SDAC_BCLK),
--	JH71X0_MDIV(JH7100_AUDCLK_I2SDAC_LRCLK, "i2sdac_lrclk", 31, 2,
--		    JH7100_AUDCLK_I2S1_MCLK,
--		    JH7100_AUDCLK_I2SDAC_BCLK_IOPAD),
--	JH71X0_GATE(JH7100_AUDCLK_I2S1_APB, "i2s1_apb", 0, JH7100_AUDCLK_APB0_BUS),
--	JH71X0_MDIV(JH7100_AUDCLK_I2S1_BCLK, "i2s1_bclk", 31, 2,
--		    JH7100_AUDCLK_I2S1_MCLK,
--		    JH7100_AUDCLK_I2SDAC_BCLK_IOPAD),
--	JH71X0__INV(JH7100_AUDCLK_I2S1_BCLK_N, "i2s1_bclk_n", JH7100_AUDCLK_I2S1_BCLK),
--	JH71X0_MDIV(JH7100_AUDCLK_I2S1_LRCLK, "i2s1_lrclk", 63, 3,
--		    JH7100_AUDCLK_I2S1_BCLK_N,
--		    JH7100_AUDCLK_I2SDAC_LRCLK_IOPAD),
--	JH71X0_GATE(JH7100_AUDCLK_I2SDAC16K_APB, "i2s1dac16k_apb", 0, JH7100_AUDCLK_APB0_BUS),
--	JH71X0__DIV(JH7100_AUDCLK_APB0_BUS, "apb0_bus", 8, JH7100_AUDCLK_DOM7AHB_BUS),
--	JH71X0_GATE(JH7100_AUDCLK_DMA1P_AHB, "dma1p_ahb", 0, JH7100_AUDCLK_DOM7AHB_BUS),
--	JH71X0_GATE(JH7100_AUDCLK_USB_APB, "usb_apb", CLK_IGNORE_UNUSED, JH7100_AUDCLK_APB_EN),
--	JH71X0_GDIV(JH7100_AUDCLK_USB_LPM, "usb_lpm", CLK_IGNORE_UNUSED, 4, JH7100_AUDCLK_USB_APB),
--	JH71X0_GDIV(JH7100_AUDCLK_USB_STB, "usb_stb", CLK_IGNORE_UNUSED, 3, JH7100_AUDCLK_USB_APB),
--	JH71X0__DIV(JH7100_AUDCLK_APB_EN, "apb_en", 8, JH7100_AUDCLK_DOM7AHB_BUS),
--	JH71X0__MUX(JH7100_AUDCLK_VAD_MEM, "vad_mem", 2,
--		    JH7100_AUDCLK_VAD_INTMEM,
--		    JH7100_AUDCLK_AUDIO_12288),
-+static const struct starfive_clk_data jh7100_audclk_data[] = {
-+	STARFIVE__GMD(JH7100_AUDCLK_ADC_MCLK, "adc_mclk", 0, 15, 2,
-+		      JH7100_AUDCLK_AUDIO_SRC,
-+		      JH7100_AUDCLK_AUDIO_12288),
-+	STARFIVE__GMD(JH7100_AUDCLK_I2S1_MCLK, "i2s1_mclk", 0, 15, 2,
-+		      JH7100_AUDCLK_AUDIO_SRC,
-+		      JH7100_AUDCLK_AUDIO_12288),
-+	STARFIVE_GATE(JH7100_AUDCLK_I2SADC_APB, "i2sadc_apb", 0, JH7100_AUDCLK_APB0_BUS),
-+	STARFIVE_MDIV(JH7100_AUDCLK_I2SADC_BCLK, "i2sadc_bclk", 31, 2,
-+		      JH7100_AUDCLK_ADC_MCLK,
-+		      JH7100_AUDCLK_I2SADC_BCLK_IOPAD),
-+	STARFIVE__INV(JH7100_AUDCLK_I2SADC_BCLK_N, "i2sadc_bclk_n", JH7100_AUDCLK_I2SADC_BCLK),
-+	STARFIVE_MDIV(JH7100_AUDCLK_I2SADC_LRCLK, "i2sadc_lrclk", 63, 3,
-+		      JH7100_AUDCLK_I2SADC_BCLK_N,
-+		      JH7100_AUDCLK_I2SADC_LRCLK_IOPAD,
-+		      JH7100_AUDCLK_I2SADC_BCLK),
-+	STARFIVE_GATE(JH7100_AUDCLK_PDM_APB, "pdm_apb", 0, JH7100_AUDCLK_APB0_BUS),
-+	STARFIVE__GMD(JH7100_AUDCLK_PDM_MCLK, "pdm_mclk", 0, 15, 2,
-+		      JH7100_AUDCLK_AUDIO_SRC,
-+		      JH7100_AUDCLK_AUDIO_12288),
-+	STARFIVE_GATE(JH7100_AUDCLK_I2SVAD_APB, "i2svad_apb", 0, JH7100_AUDCLK_APB0_BUS),
-+	STARFIVE__GMD(JH7100_AUDCLK_SPDIF, "spdif", 0, 15, 2,
-+		      JH7100_AUDCLK_AUDIO_SRC,
-+		      JH7100_AUDCLK_AUDIO_12288),
-+	STARFIVE_GATE(JH7100_AUDCLK_SPDIF_APB, "spdif_apb", 0, JH7100_AUDCLK_APB0_BUS),
-+	STARFIVE_GATE(JH7100_AUDCLK_PWMDAC_APB, "pwmdac_apb", 0, JH7100_AUDCLK_APB0_BUS),
-+	STARFIVE__GMD(JH7100_AUDCLK_DAC_MCLK, "dac_mclk", 0, 15, 2,
-+		      JH7100_AUDCLK_AUDIO_SRC,
-+		      JH7100_AUDCLK_AUDIO_12288),
-+	STARFIVE_GATE(JH7100_AUDCLK_I2SDAC_APB, "i2sdac_apb", 0, JH7100_AUDCLK_APB0_BUS),
-+	STARFIVE_MDIV(JH7100_AUDCLK_I2SDAC_BCLK, "i2sdac_bclk", 31, 2,
-+		      JH7100_AUDCLK_DAC_MCLK,
-+		      JH7100_AUDCLK_I2SDAC_BCLK_IOPAD),
-+	STARFIVE__INV(JH7100_AUDCLK_I2SDAC_BCLK_N, "i2sdac_bclk_n", JH7100_AUDCLK_I2SDAC_BCLK),
-+	STARFIVE_MDIV(JH7100_AUDCLK_I2SDAC_LRCLK, "i2sdac_lrclk", 31, 2,
-+		      JH7100_AUDCLK_I2S1_MCLK,
-+		      JH7100_AUDCLK_I2SDAC_BCLK_IOPAD),
-+	STARFIVE_GATE(JH7100_AUDCLK_I2S1_APB, "i2s1_apb", 0, JH7100_AUDCLK_APB0_BUS),
-+	STARFIVE_MDIV(JH7100_AUDCLK_I2S1_BCLK, "i2s1_bclk", 31, 2,
-+		      JH7100_AUDCLK_I2S1_MCLK,
-+		      JH7100_AUDCLK_I2SDAC_BCLK_IOPAD),
-+	STARFIVE__INV(JH7100_AUDCLK_I2S1_BCLK_N, "i2s1_bclk_n", JH7100_AUDCLK_I2S1_BCLK),
-+	STARFIVE_MDIV(JH7100_AUDCLK_I2S1_LRCLK, "i2s1_lrclk", 63, 3,
-+		      JH7100_AUDCLK_I2S1_BCLK_N,
-+		      JH7100_AUDCLK_I2SDAC_LRCLK_IOPAD),
-+	STARFIVE_GATE(JH7100_AUDCLK_I2SDAC16K_APB, "i2s1dac16k_apb", 0, JH7100_AUDCLK_APB0_BUS),
-+	STARFIVE__DIV(JH7100_AUDCLK_APB0_BUS, "apb0_bus", 8, JH7100_AUDCLK_DOM7AHB_BUS),
-+	STARFIVE_GATE(JH7100_AUDCLK_DMA1P_AHB, "dma1p_ahb", 0, JH7100_AUDCLK_DOM7AHB_BUS),
-+	STARFIVE_GATE(JH7100_AUDCLK_USB_APB, "usb_apb", CLK_IGNORE_UNUSED, JH7100_AUDCLK_APB_EN),
-+	STARFIVE_GDIV(JH7100_AUDCLK_USB_LPM, "usb_lpm", CLK_IGNORE_UNUSED, 4,
-+		      JH7100_AUDCLK_USB_APB),
-+	STARFIVE_GDIV(JH7100_AUDCLK_USB_STB, "usb_stb", CLK_IGNORE_UNUSED, 3,
-+		      JH7100_AUDCLK_USB_APB),
-+	STARFIVE__DIV(JH7100_AUDCLK_APB_EN, "apb_en", 8, JH7100_AUDCLK_DOM7AHB_BUS),
-+	STARFIVE__MUX(JH7100_AUDCLK_VAD_MEM, "vad_mem", 2,
-+		      JH7100_AUDCLK_VAD_INTMEM,
-+		      JH7100_AUDCLK_AUDIO_12288),
- };
- 
- static struct clk_hw *jh7100_audclk_get(struct of_phandle_args *clkspec, void *data)
- {
--	struct jh71x0_clk_priv *priv = data;
-+	struct starfive_clk_priv *priv = data;
- 	unsigned int idx = clkspec->args[0];
- 
- 	if (idx < JH7100_AUDCLK_END)
-@@ -97,7 +99,7 @@ static struct clk_hw *jh7100_audclk_get(struct of_phandle_args *clkspec, void *d
- 
- static int jh7100_audclk_probe(struct platform_device *pdev)
- {
--	struct jh71x0_clk_priv *priv;
-+	struct starfive_clk_priv *priv;
- 	unsigned int idx;
- 	int ret;
- 
-@@ -116,12 +118,13 @@ static int jh7100_audclk_probe(struct platform_device *pdev)
- 		struct clk_parent_data parents[4] = {};
- 		struct clk_init_data init = {
- 			.name = jh7100_audclk_data[idx].name,
--			.ops = starfive_jh71x0_clk_ops(max),
-+			.ops = starfive_clk_ops(max),
- 			.parent_data = parents,
--			.num_parents = ((max & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT) + 1,
-+			.num_parents = ((max & STARFIVE_CLK_MUX_MASK)
-+					>> STARFIVE_CLK_MUX_SHIFT) + 1,
- 			.flags = jh7100_audclk_data[idx].flags,
- 		};
--		struct jh71x0_clk *clk = &priv->reg[idx];
-+		struct starfive_clk *clk = &priv->reg[idx];
- 		unsigned int i;
- 
- 		for (i = 0; i < init.num_parents; i++) {
-@@ -139,7 +142,7 @@ static int jh7100_audclk_probe(struct platform_device *pdev)
- 
- 		clk->hw.init = &init;
- 		clk->idx = idx;
--		clk->max_div = max & JH71X0_CLK_DIV_MASK;
-+		clk->max_div = max & STARFIVE_CLK_DIV_MASK;
- 
- 		ret = devm_clk_hw_register(priv->dev, &clk->hw);
- 		if (ret)
-diff --git a/drivers/clk/starfive/clk-starfive-jh7100.c b/drivers/clk/starfive/clk-starfive-jh7100.c
-index 6bb6a6af9f28..946a437f534b 100644
---- a/drivers/clk/starfive/clk-starfive-jh7100.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7100.c
-@@ -23,253 +23,257 @@
- #define JH7100_CLK_GMAC_RMII_REF	(JH7100_CLK_END + 2)
- #define JH7100_CLK_GMAC_GR_MII_RX	(JH7100_CLK_END + 3)
- 
--static const struct jh71x0_clk_data jh7100_clk_data[] __initconst = {
--	JH71X0__MUX(JH7100_CLK_CPUNDBUS_ROOT, "cpundbus_root", 4,
--		    JH7100_CLK_OSC_SYS,
--		    JH7100_CLK_PLL0_OUT,
--		    JH7100_CLK_PLL1_OUT,
--		    JH7100_CLK_PLL2_OUT),
--	JH71X0__MUX(JH7100_CLK_DLA_ROOT, "dla_root", 3,
--		    JH7100_CLK_OSC_SYS,
--		    JH7100_CLK_PLL1_OUT,
--		    JH7100_CLK_PLL2_OUT),
--	JH71X0__MUX(JH7100_CLK_DSP_ROOT, "dsp_root", 4,
--		    JH7100_CLK_OSC_SYS,
--		    JH7100_CLK_PLL0_OUT,
--		    JH7100_CLK_PLL1_OUT,
--		    JH7100_CLK_PLL2_OUT),
--	JH71X0__MUX(JH7100_CLK_GMACUSB_ROOT, "gmacusb_root", 3,
--		    JH7100_CLK_OSC_SYS,
--		    JH7100_CLK_PLL0_OUT,
--		    JH7100_CLK_PLL2_OUT),
--	JH71X0__MUX(JH7100_CLK_PERH0_ROOT, "perh0_root", 2,
--		    JH7100_CLK_OSC_SYS,
--		    JH7100_CLK_PLL0_OUT),
--	JH71X0__MUX(JH7100_CLK_PERH1_ROOT, "perh1_root", 2,
--		    JH7100_CLK_OSC_SYS,
--		    JH7100_CLK_PLL2_OUT),
--	JH71X0__MUX(JH7100_CLK_VIN_ROOT, "vin_root", 3,
--		    JH7100_CLK_OSC_SYS,
--		    JH7100_CLK_PLL1_OUT,
--		    JH7100_CLK_PLL2_OUT),
--	JH71X0__MUX(JH7100_CLK_VOUT_ROOT, "vout_root", 3,
--		    JH7100_CLK_OSC_AUD,
--		    JH7100_CLK_PLL0_OUT,
--		    JH7100_CLK_PLL2_OUT),
--	JH71X0_GDIV(JH7100_CLK_AUDIO_ROOT, "audio_root", 0, 8, JH7100_CLK_PLL0_OUT),
--	JH71X0__MUX(JH7100_CLK_CDECHIFI4_ROOT, "cdechifi4_root", 3,
--		    JH7100_CLK_OSC_SYS,
--		    JH7100_CLK_PLL1_OUT,
--		    JH7100_CLK_PLL2_OUT),
--	JH71X0__MUX(JH7100_CLK_CDEC_ROOT, "cdec_root", 3,
--		    JH7100_CLK_OSC_SYS,
--		    JH7100_CLK_PLL0_OUT,
--		    JH7100_CLK_PLL1_OUT),
--	JH71X0__MUX(JH7100_CLK_VOUTBUS_ROOT, "voutbus_root", 3,
--		    JH7100_CLK_OSC_AUD,
--		    JH7100_CLK_PLL0_OUT,
--		    JH7100_CLK_PLL2_OUT),
--	JH71X0__DIV(JH7100_CLK_CPUNBUS_ROOT_DIV, "cpunbus_root_div", 2, JH7100_CLK_CPUNDBUS_ROOT),
--	JH71X0__DIV(JH7100_CLK_DSP_ROOT_DIV, "dsp_root_div", 4, JH7100_CLK_DSP_ROOT),
--	JH71X0__DIV(JH7100_CLK_PERH0_SRC, "perh0_src", 4, JH7100_CLK_PERH0_ROOT),
--	JH71X0__DIV(JH7100_CLK_PERH1_SRC, "perh1_src", 4, JH7100_CLK_PERH1_ROOT),
--	JH71X0_GDIV(JH7100_CLK_PLL0_TESTOUT, "pll0_testout", 0, 31, JH7100_CLK_PERH0_SRC),
--	JH71X0_GDIV(JH7100_CLK_PLL1_TESTOUT, "pll1_testout", 0, 31, JH7100_CLK_DLA_ROOT),
--	JH71X0_GDIV(JH7100_CLK_PLL2_TESTOUT, "pll2_testout", 0, 31, JH7100_CLK_PERH1_SRC),
--	JH71X0__MUX(JH7100_CLK_PLL2_REF, "pll2_refclk", 2,
--		    JH7100_CLK_OSC_SYS,
--		    JH7100_CLK_OSC_AUD),
--	JH71X0__DIV(JH7100_CLK_CPU_CORE, "cpu_core", 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
--	JH71X0__DIV(JH7100_CLK_CPU_AXI, "cpu_axi", 8, JH7100_CLK_CPU_CORE),
--	JH71X0__DIV(JH7100_CLK_AHB_BUS, "ahb_bus", 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
--	JH71X0__DIV(JH7100_CLK_APB1_BUS, "apb1_bus", 8, JH7100_CLK_AHB_BUS),
--	JH71X0__DIV(JH7100_CLK_APB2_BUS, "apb2_bus", 8, JH7100_CLK_AHB_BUS),
--	JH71X0_GATE(JH7100_CLK_DOM3AHB_BUS, "dom3ahb_bus", CLK_IS_CRITICAL, JH7100_CLK_AHB_BUS),
--	JH71X0_GATE(JH7100_CLK_DOM7AHB_BUS, "dom7ahb_bus", CLK_IS_CRITICAL, JH7100_CLK_AHB_BUS),
--	JH71X0_GATE(JH7100_CLK_U74_CORE0, "u74_core0", CLK_IS_CRITICAL, JH7100_CLK_CPU_CORE),
--	JH71X0_GDIV(JH7100_CLK_U74_CORE1, "u74_core1", CLK_IS_CRITICAL, 8, JH7100_CLK_CPU_CORE),
--	JH71X0_GATE(JH7100_CLK_U74_AXI, "u74_axi", CLK_IS_CRITICAL, JH7100_CLK_CPU_AXI),
--	JH71X0_GATE(JH7100_CLK_U74RTC_TOGGLE, "u74rtc_toggle", CLK_IS_CRITICAL, JH7100_CLK_OSC_SYS),
--	JH71X0_GATE(JH7100_CLK_SGDMA2P_AXI, "sgdma2p_axi", 0, JH7100_CLK_CPU_AXI),
--	JH71X0_GATE(JH7100_CLK_DMA2PNOC_AXI, "dma2pnoc_axi", 0, JH7100_CLK_CPU_AXI),
--	JH71X0_GATE(JH7100_CLK_SGDMA2P_AHB, "sgdma2p_ahb", 0, JH7100_CLK_AHB_BUS),
--	JH71X0__DIV(JH7100_CLK_DLA_BUS, "dla_bus", 4, JH7100_CLK_DLA_ROOT),
--	JH71X0_GATE(JH7100_CLK_DLA_AXI, "dla_axi", 0, JH7100_CLK_DLA_BUS),
--	JH71X0_GATE(JH7100_CLK_DLANOC_AXI, "dlanoc_axi", 0, JH7100_CLK_DLA_BUS),
--	JH71X0_GATE(JH7100_CLK_DLA_APB, "dla_apb", 0, JH7100_CLK_APB1_BUS),
--	JH71X0_GDIV(JH7100_CLK_VP6_CORE, "vp6_core", 0, 4, JH7100_CLK_DSP_ROOT_DIV),
--	JH71X0__DIV(JH7100_CLK_VP6BUS_SRC, "vp6bus_src", 4, JH7100_CLK_DSP_ROOT),
--	JH71X0_GDIV(JH7100_CLK_VP6_AXI, "vp6_axi", 0, 4, JH7100_CLK_VP6BUS_SRC),
--	JH71X0__DIV(JH7100_CLK_VCDECBUS_SRC, "vcdecbus_src", 4, JH7100_CLK_CDECHIFI4_ROOT),
--	JH71X0__DIV(JH7100_CLK_VDEC_BUS, "vdec_bus", 8, JH7100_CLK_VCDECBUS_SRC),
--	JH71X0_GATE(JH7100_CLK_VDEC_AXI, "vdec_axi", 0, JH7100_CLK_VDEC_BUS),
--	JH71X0_GATE(JH7100_CLK_VDECBRG_MAIN, "vdecbrg_mainclk", 0, JH7100_CLK_VDEC_BUS),
--	JH71X0_GDIV(JH7100_CLK_VDEC_BCLK, "vdec_bclk", 0, 8, JH7100_CLK_VCDECBUS_SRC),
--	JH71X0_GDIV(JH7100_CLK_VDEC_CCLK, "vdec_cclk", 0, 8, JH7100_CLK_CDEC_ROOT),
--	JH71X0_GATE(JH7100_CLK_VDEC_APB, "vdec_apb", 0, JH7100_CLK_APB1_BUS),
--	JH71X0_GDIV(JH7100_CLK_JPEG_AXI, "jpeg_axi", 0, 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
--	JH71X0_GDIV(JH7100_CLK_JPEG_CCLK, "jpeg_cclk", 0, 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
--	JH71X0_GATE(JH7100_CLK_JPEG_APB, "jpeg_apb", 0, JH7100_CLK_APB1_BUS),
--	JH71X0_GDIV(JH7100_CLK_GC300_2X, "gc300_2x", 0, 8, JH7100_CLK_CDECHIFI4_ROOT),
--	JH71X0_GATE(JH7100_CLK_GC300_AHB, "gc300_ahb", 0, JH7100_CLK_AHB_BUS),
--	JH71X0__DIV(JH7100_CLK_JPCGC300_AXIBUS, "jpcgc300_axibus", 8, JH7100_CLK_VCDECBUS_SRC),
--	JH71X0_GATE(JH7100_CLK_GC300_AXI, "gc300_axi", 0, JH7100_CLK_JPCGC300_AXIBUS),
--	JH71X0_GATE(JH7100_CLK_JPCGC300_MAIN, "jpcgc300_mainclk", 0, JH7100_CLK_JPCGC300_AXIBUS),
--	JH71X0__DIV(JH7100_CLK_VENC_BUS, "venc_bus", 8, JH7100_CLK_VCDECBUS_SRC),
--	JH71X0_GATE(JH7100_CLK_VENC_AXI, "venc_axi", 0, JH7100_CLK_VENC_BUS),
--	JH71X0_GATE(JH7100_CLK_VENCBRG_MAIN, "vencbrg_mainclk", 0, JH7100_CLK_VENC_BUS),
--	JH71X0_GDIV(JH7100_CLK_VENC_BCLK, "venc_bclk", 0, 8, JH7100_CLK_VCDECBUS_SRC),
--	JH71X0_GDIV(JH7100_CLK_VENC_CCLK, "venc_cclk", 0, 8, JH7100_CLK_CDEC_ROOT),
--	JH71X0_GATE(JH7100_CLK_VENC_APB, "venc_apb", 0, JH7100_CLK_APB1_BUS),
--	JH71X0_GDIV(JH7100_CLK_DDRPLL_DIV2, "ddrpll_div2", CLK_IS_CRITICAL, 2, JH7100_CLK_PLL1_OUT),
--	JH71X0_GDIV(JH7100_CLK_DDRPLL_DIV4, "ddrpll_div4", CLK_IS_CRITICAL, 2,
--		    JH7100_CLK_DDRPLL_DIV2),
--	JH71X0_GDIV(JH7100_CLK_DDRPLL_DIV8, "ddrpll_div8", CLK_IS_CRITICAL, 2,
--		    JH7100_CLK_DDRPLL_DIV4),
--	JH71X0_GDIV(JH7100_CLK_DDROSC_DIV2, "ddrosc_div2", CLK_IS_CRITICAL, 2, JH7100_CLK_OSC_SYS),
--	JH71X0_GMUX(JH7100_CLK_DDRC0, "ddrc0", CLK_IS_CRITICAL, 4,
--		    JH7100_CLK_DDROSC_DIV2,
--		    JH7100_CLK_DDRPLL_DIV2,
--		    JH7100_CLK_DDRPLL_DIV4,
--		    JH7100_CLK_DDRPLL_DIV8),
--	JH71X0_GMUX(JH7100_CLK_DDRC1, "ddrc1", CLK_IS_CRITICAL, 4,
--		    JH7100_CLK_DDROSC_DIV2,
--		    JH7100_CLK_DDRPLL_DIV2,
--		    JH7100_CLK_DDRPLL_DIV4,
--		    JH7100_CLK_DDRPLL_DIV8),
--	JH71X0_GATE(JH7100_CLK_DDRPHY_APB, "ddrphy_apb", 0, JH7100_CLK_APB1_BUS),
--	JH71X0__DIV(JH7100_CLK_NOC_ROB, "noc_rob", 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
--	JH71X0__DIV(JH7100_CLK_NOC_COG, "noc_cog", 8, JH7100_CLK_DLA_ROOT),
--	JH71X0_GATE(JH7100_CLK_NNE_AHB, "nne_ahb", 0, JH7100_CLK_AHB_BUS),
--	JH71X0__DIV(JH7100_CLK_NNEBUS_SRC1, "nnebus_src1", 4, JH7100_CLK_DSP_ROOT),
--	JH71X0__MUX(JH7100_CLK_NNE_BUS, "nne_bus", 2,
--		    JH7100_CLK_CPU_AXI,
--		    JH7100_CLK_NNEBUS_SRC1),
--	JH71X0_GATE(JH7100_CLK_NNE_AXI, "nne_axi", 0, JH7100_CLK_NNE_BUS),
--	JH71X0_GATE(JH7100_CLK_NNENOC_AXI, "nnenoc_axi", 0, JH7100_CLK_NNE_BUS),
--	JH71X0_GATE(JH7100_CLK_DLASLV_AXI, "dlaslv_axi", 0, JH7100_CLK_NNE_BUS),
--	JH71X0_GATE(JH7100_CLK_DSPX2C_AXI, "dspx2c_axi", CLK_IS_CRITICAL, JH7100_CLK_NNE_BUS),
--	JH71X0__DIV(JH7100_CLK_HIFI4_SRC, "hifi4_src", 4, JH7100_CLK_CDECHIFI4_ROOT),
--	JH71X0__DIV(JH7100_CLK_HIFI4_COREFREE, "hifi4_corefree", 8, JH7100_CLK_HIFI4_SRC),
--	JH71X0_GATE(JH7100_CLK_HIFI4_CORE, "hifi4_core", 0, JH7100_CLK_HIFI4_COREFREE),
--	JH71X0__DIV(JH7100_CLK_HIFI4_BUS, "hifi4_bus", 8, JH7100_CLK_HIFI4_COREFREE),
--	JH71X0_GATE(JH7100_CLK_HIFI4_AXI, "hifi4_axi", 0, JH7100_CLK_HIFI4_BUS),
--	JH71X0_GATE(JH7100_CLK_HIFI4NOC_AXI, "hifi4noc_axi", 0, JH7100_CLK_HIFI4_BUS),
--	JH71X0__DIV(JH7100_CLK_SGDMA1P_BUS, "sgdma1p_bus", 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
--	JH71X0_GATE(JH7100_CLK_SGDMA1P_AXI, "sgdma1p_axi", 0, JH7100_CLK_SGDMA1P_BUS),
--	JH71X0_GATE(JH7100_CLK_DMA1P_AXI, "dma1p_axi", 0, JH7100_CLK_SGDMA1P_BUS),
--	JH71X0_GDIV(JH7100_CLK_X2C_AXI, "x2c_axi", CLK_IS_CRITICAL, 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
--	JH71X0__DIV(JH7100_CLK_USB_BUS, "usb_bus", 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
--	JH71X0_GATE(JH7100_CLK_USB_AXI, "usb_axi", 0, JH7100_CLK_USB_BUS),
--	JH71X0_GATE(JH7100_CLK_USBNOC_AXI, "usbnoc_axi", 0, JH7100_CLK_USB_BUS),
--	JH71X0__DIV(JH7100_CLK_USBPHY_ROOTDIV, "usbphy_rootdiv", 4, JH7100_CLK_GMACUSB_ROOT),
--	JH71X0_GDIV(JH7100_CLK_USBPHY_125M, "usbphy_125m", 0, 8, JH7100_CLK_USBPHY_ROOTDIV),
--	JH71X0_GDIV(JH7100_CLK_USBPHY_PLLDIV25M, "usbphy_plldiv25m", 0, 32,
--		    JH7100_CLK_USBPHY_ROOTDIV),
--	JH71X0__MUX(JH7100_CLK_USBPHY_25M, "usbphy_25m", 2,
--		    JH7100_CLK_OSC_SYS,
--		    JH7100_CLK_USBPHY_PLLDIV25M),
--	JH71X0_FDIV(JH7100_CLK_AUDIO_DIV, "audio_div", JH7100_CLK_AUDIO_ROOT),
--	JH71X0_GATE(JH7100_CLK_AUDIO_SRC, "audio_src", 0, JH7100_CLK_AUDIO_DIV),
--	JH71X0_GATE(JH7100_CLK_AUDIO_12288, "audio_12288", 0, JH7100_CLK_OSC_AUD),
--	JH71X0_GDIV(JH7100_CLK_VIN_SRC, "vin_src", 0, 4, JH7100_CLK_VIN_ROOT),
--	JH71X0__DIV(JH7100_CLK_ISP0_BUS, "isp0_bus", 8, JH7100_CLK_VIN_SRC),
--	JH71X0_GATE(JH7100_CLK_ISP0_AXI, "isp0_axi", 0, JH7100_CLK_ISP0_BUS),
--	JH71X0_GATE(JH7100_CLK_ISP0NOC_AXI, "isp0noc_axi", 0, JH7100_CLK_ISP0_BUS),
--	JH71X0_GATE(JH7100_CLK_ISPSLV_AXI, "ispslv_axi", 0, JH7100_CLK_ISP0_BUS),
--	JH71X0__DIV(JH7100_CLK_ISP1_BUS, "isp1_bus", 8, JH7100_CLK_VIN_SRC),
--	JH71X0_GATE(JH7100_CLK_ISP1_AXI, "isp1_axi", 0, JH7100_CLK_ISP1_BUS),
--	JH71X0_GATE(JH7100_CLK_ISP1NOC_AXI, "isp1noc_axi", 0, JH7100_CLK_ISP1_BUS),
--	JH71X0__DIV(JH7100_CLK_VIN_BUS, "vin_bus", 8, JH7100_CLK_VIN_SRC),
--	JH71X0_GATE(JH7100_CLK_VIN_AXI, "vin_axi", 0, JH7100_CLK_VIN_BUS),
--	JH71X0_GATE(JH7100_CLK_VINNOC_AXI, "vinnoc_axi", 0, JH7100_CLK_VIN_BUS),
--	JH71X0_GDIV(JH7100_CLK_VOUT_SRC, "vout_src", 0, 4, JH7100_CLK_VOUT_ROOT),
--	JH71X0__DIV(JH7100_CLK_DISPBUS_SRC, "dispbus_src", 4, JH7100_CLK_VOUTBUS_ROOT),
--	JH71X0__DIV(JH7100_CLK_DISP_BUS, "disp_bus", 4, JH7100_CLK_DISPBUS_SRC),
--	JH71X0_GATE(JH7100_CLK_DISP_AXI, "disp_axi", 0, JH7100_CLK_DISP_BUS),
--	JH71X0_GATE(JH7100_CLK_DISPNOC_AXI, "dispnoc_axi", 0, JH7100_CLK_DISP_BUS),
--	JH71X0_GATE(JH7100_CLK_SDIO0_AHB, "sdio0_ahb", 0, JH7100_CLK_AHB_BUS),
--	JH71X0_GDIV(JH7100_CLK_SDIO0_CCLKINT, "sdio0_cclkint", 0, 24, JH7100_CLK_PERH0_SRC),
--	JH71X0__INV(JH7100_CLK_SDIO0_CCLKINT_INV, "sdio0_cclkint_inv", JH7100_CLK_SDIO0_CCLKINT),
--	JH71X0_GATE(JH7100_CLK_SDIO1_AHB, "sdio1_ahb", 0, JH7100_CLK_AHB_BUS),
--	JH71X0_GDIV(JH7100_CLK_SDIO1_CCLKINT, "sdio1_cclkint", 0, 24, JH7100_CLK_PERH1_SRC),
--	JH71X0__INV(JH7100_CLK_SDIO1_CCLKINT_INV, "sdio1_cclkint_inv", JH7100_CLK_SDIO1_CCLKINT),
--	JH71X0_GATE(JH7100_CLK_GMAC_AHB, "gmac_ahb", 0, JH7100_CLK_AHB_BUS),
--	JH71X0__DIV(JH7100_CLK_GMAC_ROOT_DIV, "gmac_root_div", 8, JH7100_CLK_GMACUSB_ROOT),
--	JH71X0_GDIV(JH7100_CLK_GMAC_PTP_REF, "gmac_ptp_refclk", 0, 31, JH7100_CLK_GMAC_ROOT_DIV),
--	JH71X0_GDIV(JH7100_CLK_GMAC_GTX, "gmac_gtxclk", 0, 255, JH7100_CLK_GMAC_ROOT_DIV),
--	JH71X0_GDIV(JH7100_CLK_GMAC_RMII_TX, "gmac_rmii_txclk", 0, 8, JH7100_CLK_GMAC_RMII_REF),
--	JH71X0_GDIV(JH7100_CLK_GMAC_RMII_RX, "gmac_rmii_rxclk", 0, 8, JH7100_CLK_GMAC_RMII_REF),
--	JH71X0__MUX(JH7100_CLK_GMAC_TX, "gmac_tx", 3,
--		    JH7100_CLK_GMAC_GTX,
--		    JH7100_CLK_GMAC_TX_INV,
--		    JH7100_CLK_GMAC_RMII_TX),
--	JH71X0__INV(JH7100_CLK_GMAC_TX_INV, "gmac_tx_inv", JH7100_CLK_GMAC_TX),
--	JH71X0__MUX(JH7100_CLK_GMAC_RX_PRE, "gmac_rx_pre", 2,
--		    JH7100_CLK_GMAC_GR_MII_RX,
--		    JH7100_CLK_GMAC_RMII_RX),
--	JH71X0__INV(JH7100_CLK_GMAC_RX_INV, "gmac_rx_inv", JH7100_CLK_GMAC_RX_PRE),
--	JH71X0_GATE(JH7100_CLK_GMAC_RMII, "gmac_rmii", 0, JH7100_CLK_GMAC_RMII_REF),
--	JH71X0_GDIV(JH7100_CLK_GMAC_TOPHYREF, "gmac_tophyref", 0, 127, JH7100_CLK_GMAC_ROOT_DIV),
--	JH71X0_GATE(JH7100_CLK_SPI2AHB_AHB, "spi2ahb_ahb", 0, JH7100_CLK_AHB_BUS),
--	JH71X0_GDIV(JH7100_CLK_SPI2AHB_CORE, "spi2ahb_core", 0, 31, JH7100_CLK_PERH0_SRC),
--	JH71X0_GATE(JH7100_CLK_EZMASTER_AHB, "ezmaster_ahb", 0, JH7100_CLK_AHB_BUS),
--	JH71X0_GATE(JH7100_CLK_E24_AHB, "e24_ahb", 0, JH7100_CLK_AHB_BUS),
--	JH71X0_GATE(JH7100_CLK_E24RTC_TOGGLE, "e24rtc_toggle", 0, JH7100_CLK_OSC_SYS),
--	JH71X0_GATE(JH7100_CLK_QSPI_AHB, "qspi_ahb", 0, JH7100_CLK_AHB_BUS),
--	JH71X0_GATE(JH7100_CLK_QSPI_APB, "qspi_apb", 0, JH7100_CLK_APB1_BUS),
--	JH71X0_GDIV(JH7100_CLK_QSPI_REF, "qspi_refclk", 0, 31, JH7100_CLK_PERH0_SRC),
--	JH71X0_GATE(JH7100_CLK_SEC_AHB, "sec_ahb", 0, JH7100_CLK_AHB_BUS),
--	JH71X0_GATE(JH7100_CLK_AES, "aes_clk", 0, JH7100_CLK_SEC_AHB),
--	JH71X0_GATE(JH7100_CLK_SHA, "sha_clk", 0, JH7100_CLK_SEC_AHB),
--	JH71X0_GATE(JH7100_CLK_PKA, "pka_clk", 0, JH7100_CLK_SEC_AHB),
--	JH71X0_GATE(JH7100_CLK_TRNG_APB, "trng_apb", 0, JH7100_CLK_APB1_BUS),
--	JH71X0_GATE(JH7100_CLK_OTP_APB, "otp_apb", 0, JH7100_CLK_APB1_BUS),
--	JH71X0_GATE(JH7100_CLK_UART0_APB, "uart0_apb", 0, JH7100_CLK_APB1_BUS),
--	JH71X0_GDIV(JH7100_CLK_UART0_CORE, "uart0_core", 0, 63, JH7100_CLK_PERH1_SRC),
--	JH71X0_GATE(JH7100_CLK_UART1_APB, "uart1_apb", 0, JH7100_CLK_APB1_BUS),
--	JH71X0_GDIV(JH7100_CLK_UART1_CORE, "uart1_core", 0, 63, JH7100_CLK_PERH1_SRC),
--	JH71X0_GATE(JH7100_CLK_SPI0_APB, "spi0_apb", 0, JH7100_CLK_APB1_BUS),
--	JH71X0_GDIV(JH7100_CLK_SPI0_CORE, "spi0_core", 0, 63, JH7100_CLK_PERH1_SRC),
--	JH71X0_GATE(JH7100_CLK_SPI1_APB, "spi1_apb", 0, JH7100_CLK_APB1_BUS),
--	JH71X0_GDIV(JH7100_CLK_SPI1_CORE, "spi1_core", 0, 63, JH7100_CLK_PERH1_SRC),
--	JH71X0_GATE(JH7100_CLK_I2C0_APB, "i2c0_apb", 0, JH7100_CLK_APB1_BUS),
--	JH71X0_GDIV(JH7100_CLK_I2C0_CORE, "i2c0_core", 0, 63, JH7100_CLK_PERH1_SRC),
--	JH71X0_GATE(JH7100_CLK_I2C1_APB, "i2c1_apb", 0, JH7100_CLK_APB1_BUS),
--	JH71X0_GDIV(JH7100_CLK_I2C1_CORE, "i2c1_core", 0, 63, JH7100_CLK_PERH1_SRC),
--	JH71X0_GATE(JH7100_CLK_GPIO_APB, "gpio_apb", 0, JH7100_CLK_APB1_BUS),
--	JH71X0_GATE(JH7100_CLK_UART2_APB, "uart2_apb", 0, JH7100_CLK_APB2_BUS),
--	JH71X0_GDIV(JH7100_CLK_UART2_CORE, "uart2_core", 0, 63, JH7100_CLK_PERH0_SRC),
--	JH71X0_GATE(JH7100_CLK_UART3_APB, "uart3_apb", 0, JH7100_CLK_APB2_BUS),
--	JH71X0_GDIV(JH7100_CLK_UART3_CORE, "uart3_core", 0, 63, JH7100_CLK_PERH0_SRC),
--	JH71X0_GATE(JH7100_CLK_SPI2_APB, "spi2_apb", 0, JH7100_CLK_APB2_BUS),
--	JH71X0_GDIV(JH7100_CLK_SPI2_CORE, "spi2_core", 0, 63, JH7100_CLK_PERH0_SRC),
--	JH71X0_GATE(JH7100_CLK_SPI3_APB, "spi3_apb", 0, JH7100_CLK_APB2_BUS),
--	JH71X0_GDIV(JH7100_CLK_SPI3_CORE, "spi3_core", 0, 63, JH7100_CLK_PERH0_SRC),
--	JH71X0_GATE(JH7100_CLK_I2C2_APB, "i2c2_apb", 0, JH7100_CLK_APB2_BUS),
--	JH71X0_GDIV(JH7100_CLK_I2C2_CORE, "i2c2_core", 0, 63, JH7100_CLK_PERH0_SRC),
--	JH71X0_GATE(JH7100_CLK_I2C3_APB, "i2c3_apb", 0, JH7100_CLK_APB2_BUS),
--	JH71X0_GDIV(JH7100_CLK_I2C3_CORE, "i2c3_core", 0, 63, JH7100_CLK_PERH0_SRC),
--	JH71X0_GATE(JH7100_CLK_WDTIMER_APB, "wdtimer_apb", 0, JH7100_CLK_APB2_BUS),
--	JH71X0_GDIV(JH7100_CLK_WDT_CORE, "wdt_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
--	JH71X0_GDIV(JH7100_CLK_TIMER0_CORE, "timer0_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
--	JH71X0_GDIV(JH7100_CLK_TIMER1_CORE, "timer1_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
--	JH71X0_GDIV(JH7100_CLK_TIMER2_CORE, "timer2_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
--	JH71X0_GDIV(JH7100_CLK_TIMER3_CORE, "timer3_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
--	JH71X0_GDIV(JH7100_CLK_TIMER4_CORE, "timer4_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
--	JH71X0_GDIV(JH7100_CLK_TIMER5_CORE, "timer5_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
--	JH71X0_GDIV(JH7100_CLK_TIMER6_CORE, "timer6_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
--	JH71X0_GATE(JH7100_CLK_VP6INTC_APB, "vp6intc_apb", 0, JH7100_CLK_APB2_BUS),
--	JH71X0_GATE(JH7100_CLK_PWM_APB, "pwm_apb", 0, JH7100_CLK_APB2_BUS),
--	JH71X0_GATE(JH7100_CLK_MSI_APB, "msi_apb", 0, JH7100_CLK_APB2_BUS),
--	JH71X0_GATE(JH7100_CLK_TEMP_APB, "temp_apb", 0, JH7100_CLK_APB2_BUS),
--	JH71X0_GDIV(JH7100_CLK_TEMP_SENSE, "temp_sense", 0, 31, JH7100_CLK_OSC_SYS),
--	JH71X0_GATE(JH7100_CLK_SYSERR_APB, "syserr_apb", 0, JH7100_CLK_APB2_BUS),
-+static const struct starfive_clk_data jh7100_clk_data[] __initconst = {
-+	STARFIVE__MUX(JH7100_CLK_CPUNDBUS_ROOT, "cpundbus_root", 4,
-+		      JH7100_CLK_OSC_SYS,
-+		      JH7100_CLK_PLL0_OUT,
-+		      JH7100_CLK_PLL1_OUT,
-+		      JH7100_CLK_PLL2_OUT),
-+	STARFIVE__MUX(JH7100_CLK_DLA_ROOT, "dla_root", 3,
-+		      JH7100_CLK_OSC_SYS,
-+		      JH7100_CLK_PLL1_OUT,
-+		      JH7100_CLK_PLL2_OUT),
-+	STARFIVE__MUX(JH7100_CLK_DSP_ROOT, "dsp_root", 4,
-+		      JH7100_CLK_OSC_SYS,
-+		      JH7100_CLK_PLL0_OUT,
-+		      JH7100_CLK_PLL1_OUT,
-+		      JH7100_CLK_PLL2_OUT),
-+	STARFIVE__MUX(JH7100_CLK_GMACUSB_ROOT, "gmacusb_root", 3,
-+		      JH7100_CLK_OSC_SYS,
-+		      JH7100_CLK_PLL0_OUT,
-+		      JH7100_CLK_PLL2_OUT),
-+	STARFIVE__MUX(JH7100_CLK_PERH0_ROOT, "perh0_root", 2,
-+		      JH7100_CLK_OSC_SYS,
-+		      JH7100_CLK_PLL0_OUT),
-+	STARFIVE__MUX(JH7100_CLK_PERH1_ROOT, "perh1_root", 2,
-+		      JH7100_CLK_OSC_SYS,
-+		      JH7100_CLK_PLL2_OUT),
-+	STARFIVE__MUX(JH7100_CLK_VIN_ROOT, "vin_root", 3,
-+		      JH7100_CLK_OSC_SYS,
-+		      JH7100_CLK_PLL1_OUT,
-+		      JH7100_CLK_PLL2_OUT),
-+	STARFIVE__MUX(JH7100_CLK_VOUT_ROOT, "vout_root", 3,
-+		      JH7100_CLK_OSC_AUD,
-+		      JH7100_CLK_PLL0_OUT,
-+		      JH7100_CLK_PLL2_OUT),
-+	STARFIVE_GDIV(JH7100_CLK_AUDIO_ROOT, "audio_root", 0, 8, JH7100_CLK_PLL0_OUT),
-+	STARFIVE__MUX(JH7100_CLK_CDECHIFI4_ROOT, "cdechifi4_root", 3,
-+		      JH7100_CLK_OSC_SYS,
-+		      JH7100_CLK_PLL1_OUT,
-+		      JH7100_CLK_PLL2_OUT),
-+	STARFIVE__MUX(JH7100_CLK_CDEC_ROOT, "cdec_root", 3,
-+		      JH7100_CLK_OSC_SYS,
-+		      JH7100_CLK_PLL0_OUT,
-+		      JH7100_CLK_PLL1_OUT),
-+	STARFIVE__MUX(JH7100_CLK_VOUTBUS_ROOT, "voutbus_root", 3,
-+		      JH7100_CLK_OSC_AUD,
-+		      JH7100_CLK_PLL0_OUT,
-+		      JH7100_CLK_PLL2_OUT),
-+	STARFIVE__DIV(JH7100_CLK_CPUNBUS_ROOT_DIV, "cpunbus_root_div", 2, JH7100_CLK_CPUNDBUS_ROOT),
-+	STARFIVE__DIV(JH7100_CLK_DSP_ROOT_DIV, "dsp_root_div", 4, JH7100_CLK_DSP_ROOT),
-+	STARFIVE__DIV(JH7100_CLK_PERH0_SRC, "perh0_src", 4, JH7100_CLK_PERH0_ROOT),
-+	STARFIVE__DIV(JH7100_CLK_PERH1_SRC, "perh1_src", 4, JH7100_CLK_PERH1_ROOT),
-+	STARFIVE_GDIV(JH7100_CLK_PLL0_TESTOUT, "pll0_testout", 0, 31, JH7100_CLK_PERH0_SRC),
-+	STARFIVE_GDIV(JH7100_CLK_PLL1_TESTOUT, "pll1_testout", 0, 31, JH7100_CLK_DLA_ROOT),
-+	STARFIVE_GDIV(JH7100_CLK_PLL2_TESTOUT, "pll2_testout", 0, 31, JH7100_CLK_PERH1_SRC),
-+	STARFIVE__MUX(JH7100_CLK_PLL2_REF, "pll2_refclk", 2,
-+		      JH7100_CLK_OSC_SYS,
-+		      JH7100_CLK_OSC_AUD),
-+	STARFIVE__DIV(JH7100_CLK_CPU_CORE, "cpu_core", 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	STARFIVE__DIV(JH7100_CLK_CPU_AXI, "cpu_axi", 8, JH7100_CLK_CPU_CORE),
-+	STARFIVE__DIV(JH7100_CLK_AHB_BUS, "ahb_bus", 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	STARFIVE__DIV(JH7100_CLK_APB1_BUS, "apb1_bus", 8, JH7100_CLK_AHB_BUS),
-+	STARFIVE__DIV(JH7100_CLK_APB2_BUS, "apb2_bus", 8, JH7100_CLK_AHB_BUS),
-+	STARFIVE_GATE(JH7100_CLK_DOM3AHB_BUS, "dom3ahb_bus", CLK_IS_CRITICAL, JH7100_CLK_AHB_BUS),
-+	STARFIVE_GATE(JH7100_CLK_DOM7AHB_BUS, "dom7ahb_bus", CLK_IS_CRITICAL, JH7100_CLK_AHB_BUS),
-+	STARFIVE_GATE(JH7100_CLK_U74_CORE0, "u74_core0", CLK_IS_CRITICAL, JH7100_CLK_CPU_CORE),
-+	STARFIVE_GDIV(JH7100_CLK_U74_CORE1, "u74_core1", CLK_IS_CRITICAL, 8, JH7100_CLK_CPU_CORE),
-+	STARFIVE_GATE(JH7100_CLK_U74_AXI, "u74_axi", CLK_IS_CRITICAL, JH7100_CLK_CPU_AXI),
-+	STARFIVE_GATE(JH7100_CLK_U74RTC_TOGGLE, "u74rtc_toggle", CLK_IS_CRITICAL,
-+		      JH7100_CLK_OSC_SYS),
-+	STARFIVE_GATE(JH7100_CLK_SGDMA2P_AXI, "sgdma2p_axi", 0, JH7100_CLK_CPU_AXI),
-+	STARFIVE_GATE(JH7100_CLK_DMA2PNOC_AXI, "dma2pnoc_axi", 0, JH7100_CLK_CPU_AXI),
-+	STARFIVE_GATE(JH7100_CLK_SGDMA2P_AHB, "sgdma2p_ahb", 0, JH7100_CLK_AHB_BUS),
-+	STARFIVE__DIV(JH7100_CLK_DLA_BUS, "dla_bus", 4, JH7100_CLK_DLA_ROOT),
-+	STARFIVE_GATE(JH7100_CLK_DLA_AXI, "dla_axi", 0, JH7100_CLK_DLA_BUS),
-+	STARFIVE_GATE(JH7100_CLK_DLANOC_AXI, "dlanoc_axi", 0, JH7100_CLK_DLA_BUS),
-+	STARFIVE_GATE(JH7100_CLK_DLA_APB, "dla_apb", 0, JH7100_CLK_APB1_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_VP6_CORE, "vp6_core", 0, 4, JH7100_CLK_DSP_ROOT_DIV),
-+	STARFIVE__DIV(JH7100_CLK_VP6BUS_SRC, "vp6bus_src", 4, JH7100_CLK_DSP_ROOT),
-+	STARFIVE_GDIV(JH7100_CLK_VP6_AXI, "vp6_axi", 0, 4, JH7100_CLK_VP6BUS_SRC),
-+	STARFIVE__DIV(JH7100_CLK_VCDECBUS_SRC, "vcdecbus_src", 4, JH7100_CLK_CDECHIFI4_ROOT),
-+	STARFIVE__DIV(JH7100_CLK_VDEC_BUS, "vdec_bus", 8, JH7100_CLK_VCDECBUS_SRC),
-+	STARFIVE_GATE(JH7100_CLK_VDEC_AXI, "vdec_axi", 0, JH7100_CLK_VDEC_BUS),
-+	STARFIVE_GATE(JH7100_CLK_VDECBRG_MAIN, "vdecbrg_mainclk", 0, JH7100_CLK_VDEC_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_VDEC_BCLK, "vdec_bclk", 0, 8, JH7100_CLK_VCDECBUS_SRC),
-+	STARFIVE_GDIV(JH7100_CLK_VDEC_CCLK, "vdec_cclk", 0, 8, JH7100_CLK_CDEC_ROOT),
-+	STARFIVE_GATE(JH7100_CLK_VDEC_APB, "vdec_apb", 0, JH7100_CLK_APB1_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_JPEG_AXI, "jpeg_axi", 0, 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	STARFIVE_GDIV(JH7100_CLK_JPEG_CCLK, "jpeg_cclk", 0, 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	STARFIVE_GATE(JH7100_CLK_JPEG_APB, "jpeg_apb", 0, JH7100_CLK_APB1_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_GC300_2X, "gc300_2x", 0, 8, JH7100_CLK_CDECHIFI4_ROOT),
-+	STARFIVE_GATE(JH7100_CLK_GC300_AHB, "gc300_ahb", 0, JH7100_CLK_AHB_BUS),
-+	STARFIVE__DIV(JH7100_CLK_JPCGC300_AXIBUS, "jpcgc300_axibus", 8, JH7100_CLK_VCDECBUS_SRC),
-+	STARFIVE_GATE(JH7100_CLK_GC300_AXI, "gc300_axi", 0, JH7100_CLK_JPCGC300_AXIBUS),
-+	STARFIVE_GATE(JH7100_CLK_JPCGC300_MAIN, "jpcgc300_mainclk", 0, JH7100_CLK_JPCGC300_AXIBUS),
-+	STARFIVE__DIV(JH7100_CLK_VENC_BUS, "venc_bus", 8, JH7100_CLK_VCDECBUS_SRC),
-+	STARFIVE_GATE(JH7100_CLK_VENC_AXI, "venc_axi", 0, JH7100_CLK_VENC_BUS),
-+	STARFIVE_GATE(JH7100_CLK_VENCBRG_MAIN, "vencbrg_mainclk", 0, JH7100_CLK_VENC_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_VENC_BCLK, "venc_bclk", 0, 8, JH7100_CLK_VCDECBUS_SRC),
-+	STARFIVE_GDIV(JH7100_CLK_VENC_CCLK, "venc_cclk", 0, 8, JH7100_CLK_CDEC_ROOT),
-+	STARFIVE_GATE(JH7100_CLK_VENC_APB, "venc_apb", 0, JH7100_CLK_APB1_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_DDRPLL_DIV2, "ddrpll_div2", CLK_IS_CRITICAL, 2,
-+		      JH7100_CLK_PLL1_OUT),
-+	STARFIVE_GDIV(JH7100_CLK_DDRPLL_DIV4, "ddrpll_div4", CLK_IS_CRITICAL, 2,
-+		      JH7100_CLK_DDRPLL_DIV2),
-+	STARFIVE_GDIV(JH7100_CLK_DDRPLL_DIV8, "ddrpll_div8", CLK_IS_CRITICAL, 2,
-+		      JH7100_CLK_DDRPLL_DIV4),
-+	STARFIVE_GDIV(JH7100_CLK_DDROSC_DIV2, "ddrosc_div2", CLK_IS_CRITICAL, 2,
-+		      JH7100_CLK_OSC_SYS),
-+	STARFIVE_GMUX(JH7100_CLK_DDRC0, "ddrc0", CLK_IS_CRITICAL, 4,
-+		      JH7100_CLK_DDROSC_DIV2,
-+		      JH7100_CLK_DDRPLL_DIV2,
-+		      JH7100_CLK_DDRPLL_DIV4,
-+		      JH7100_CLK_DDRPLL_DIV8),
-+	STARFIVE_GMUX(JH7100_CLK_DDRC1, "ddrc1", CLK_IS_CRITICAL, 4,
-+		      JH7100_CLK_DDROSC_DIV2,
-+		      JH7100_CLK_DDRPLL_DIV2,
-+		      JH7100_CLK_DDRPLL_DIV4,
-+		      JH7100_CLK_DDRPLL_DIV8),
-+	STARFIVE_GATE(JH7100_CLK_DDRPHY_APB, "ddrphy_apb", 0, JH7100_CLK_APB1_BUS),
-+	STARFIVE__DIV(JH7100_CLK_NOC_ROB, "noc_rob", 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	STARFIVE__DIV(JH7100_CLK_NOC_COG, "noc_cog", 8, JH7100_CLK_DLA_ROOT),
-+	STARFIVE_GATE(JH7100_CLK_NNE_AHB, "nne_ahb", 0, JH7100_CLK_AHB_BUS),
-+	STARFIVE__DIV(JH7100_CLK_NNEBUS_SRC1, "nnebus_src1", 4, JH7100_CLK_DSP_ROOT),
-+	STARFIVE__MUX(JH7100_CLK_NNE_BUS, "nne_bus", 2,
-+		      JH7100_CLK_CPU_AXI,
-+		      JH7100_CLK_NNEBUS_SRC1),
-+	STARFIVE_GATE(JH7100_CLK_NNE_AXI, "nne_axi", 0, JH7100_CLK_NNE_BUS),
-+	STARFIVE_GATE(JH7100_CLK_NNENOC_AXI, "nnenoc_axi", 0, JH7100_CLK_NNE_BUS),
-+	STARFIVE_GATE(JH7100_CLK_DLASLV_AXI, "dlaslv_axi", 0, JH7100_CLK_NNE_BUS),
-+	STARFIVE_GATE(JH7100_CLK_DSPX2C_AXI, "dspx2c_axi", CLK_IS_CRITICAL, JH7100_CLK_NNE_BUS),
-+	STARFIVE__DIV(JH7100_CLK_HIFI4_SRC, "hifi4_src", 4, JH7100_CLK_CDECHIFI4_ROOT),
-+	STARFIVE__DIV(JH7100_CLK_HIFI4_COREFREE, "hifi4_corefree", 8, JH7100_CLK_HIFI4_SRC),
-+	STARFIVE_GATE(JH7100_CLK_HIFI4_CORE, "hifi4_core", 0, JH7100_CLK_HIFI4_COREFREE),
-+	STARFIVE__DIV(JH7100_CLK_HIFI4_BUS, "hifi4_bus", 8, JH7100_CLK_HIFI4_COREFREE),
-+	STARFIVE_GATE(JH7100_CLK_HIFI4_AXI, "hifi4_axi", 0, JH7100_CLK_HIFI4_BUS),
-+	STARFIVE_GATE(JH7100_CLK_HIFI4NOC_AXI, "hifi4noc_axi", 0, JH7100_CLK_HIFI4_BUS),
-+	STARFIVE__DIV(JH7100_CLK_SGDMA1P_BUS, "sgdma1p_bus", 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	STARFIVE_GATE(JH7100_CLK_SGDMA1P_AXI, "sgdma1p_axi", 0, JH7100_CLK_SGDMA1P_BUS),
-+	STARFIVE_GATE(JH7100_CLK_DMA1P_AXI, "dma1p_axi", 0, JH7100_CLK_SGDMA1P_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_X2C_AXI, "x2c_axi", CLK_IS_CRITICAL, 8,
-+		      JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	STARFIVE__DIV(JH7100_CLK_USB_BUS, "usb_bus", 8, JH7100_CLK_CPUNBUS_ROOT_DIV),
-+	STARFIVE_GATE(JH7100_CLK_USB_AXI, "usb_axi", 0, JH7100_CLK_USB_BUS),
-+	STARFIVE_GATE(JH7100_CLK_USBNOC_AXI, "usbnoc_axi", 0, JH7100_CLK_USB_BUS),
-+	STARFIVE__DIV(JH7100_CLK_USBPHY_ROOTDIV, "usbphy_rootdiv", 4, JH7100_CLK_GMACUSB_ROOT),
-+	STARFIVE_GDIV(JH7100_CLK_USBPHY_125M, "usbphy_125m", 0, 8, JH7100_CLK_USBPHY_ROOTDIV),
-+	STARFIVE_GDIV(JH7100_CLK_USBPHY_PLLDIV25M, "usbphy_plldiv25m", 0, 32,
-+		      JH7100_CLK_USBPHY_ROOTDIV),
-+	STARFIVE__MUX(JH7100_CLK_USBPHY_25M, "usbphy_25m", 2,
-+		      JH7100_CLK_OSC_SYS,
-+		      JH7100_CLK_USBPHY_PLLDIV25M),
-+	STARFIVE_FDIV(JH7100_CLK_AUDIO_DIV, "audio_div", JH7100_CLK_AUDIO_ROOT),
-+	STARFIVE_GATE(JH7100_CLK_AUDIO_SRC, "audio_src", 0, JH7100_CLK_AUDIO_DIV),
-+	STARFIVE_GATE(JH7100_CLK_AUDIO_12288, "audio_12288", 0, JH7100_CLK_OSC_AUD),
-+	STARFIVE_GDIV(JH7100_CLK_VIN_SRC, "vin_src", 0, 4, JH7100_CLK_VIN_ROOT),
-+	STARFIVE__DIV(JH7100_CLK_ISP0_BUS, "isp0_bus", 8, JH7100_CLK_VIN_SRC),
-+	STARFIVE_GATE(JH7100_CLK_ISP0_AXI, "isp0_axi", 0, JH7100_CLK_ISP0_BUS),
-+	STARFIVE_GATE(JH7100_CLK_ISP0NOC_AXI, "isp0noc_axi", 0, JH7100_CLK_ISP0_BUS),
-+	STARFIVE_GATE(JH7100_CLK_ISPSLV_AXI, "ispslv_axi", 0, JH7100_CLK_ISP0_BUS),
-+	STARFIVE__DIV(JH7100_CLK_ISP1_BUS, "isp1_bus", 8, JH7100_CLK_VIN_SRC),
-+	STARFIVE_GATE(JH7100_CLK_ISP1_AXI, "isp1_axi", 0, JH7100_CLK_ISP1_BUS),
-+	STARFIVE_GATE(JH7100_CLK_ISP1NOC_AXI, "isp1noc_axi", 0, JH7100_CLK_ISP1_BUS),
-+	STARFIVE__DIV(JH7100_CLK_VIN_BUS, "vin_bus", 8, JH7100_CLK_VIN_SRC),
-+	STARFIVE_GATE(JH7100_CLK_VIN_AXI, "vin_axi", 0, JH7100_CLK_VIN_BUS),
-+	STARFIVE_GATE(JH7100_CLK_VINNOC_AXI, "vinnoc_axi", 0, JH7100_CLK_VIN_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_VOUT_SRC, "vout_src", 0, 4, JH7100_CLK_VOUT_ROOT),
-+	STARFIVE__DIV(JH7100_CLK_DISPBUS_SRC, "dispbus_src", 4, JH7100_CLK_VOUTBUS_ROOT),
-+	STARFIVE__DIV(JH7100_CLK_DISP_BUS, "disp_bus", 4, JH7100_CLK_DISPBUS_SRC),
-+	STARFIVE_GATE(JH7100_CLK_DISP_AXI, "disp_axi", 0, JH7100_CLK_DISP_BUS),
-+	STARFIVE_GATE(JH7100_CLK_DISPNOC_AXI, "dispnoc_axi", 0, JH7100_CLK_DISP_BUS),
-+	STARFIVE_GATE(JH7100_CLK_SDIO0_AHB, "sdio0_ahb", 0, JH7100_CLK_AHB_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_SDIO0_CCLKINT, "sdio0_cclkint", 0, 24, JH7100_CLK_PERH0_SRC),
-+	STARFIVE__INV(JH7100_CLK_SDIO0_CCLKINT_INV, "sdio0_cclkint_inv", JH7100_CLK_SDIO0_CCLKINT),
-+	STARFIVE_GATE(JH7100_CLK_SDIO1_AHB, "sdio1_ahb", 0, JH7100_CLK_AHB_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_SDIO1_CCLKINT, "sdio1_cclkint", 0, 24, JH7100_CLK_PERH1_SRC),
-+	STARFIVE__INV(JH7100_CLK_SDIO1_CCLKINT_INV, "sdio1_cclkint_inv", JH7100_CLK_SDIO1_CCLKINT),
-+	STARFIVE_GATE(JH7100_CLK_GMAC_AHB, "gmac_ahb", 0, JH7100_CLK_AHB_BUS),
-+	STARFIVE__DIV(JH7100_CLK_GMAC_ROOT_DIV, "gmac_root_div", 8, JH7100_CLK_GMACUSB_ROOT),
-+	STARFIVE_GDIV(JH7100_CLK_GMAC_PTP_REF, "gmac_ptp_refclk", 0, 31, JH7100_CLK_GMAC_ROOT_DIV),
-+	STARFIVE_GDIV(JH7100_CLK_GMAC_GTX, "gmac_gtxclk", 0, 255, JH7100_CLK_GMAC_ROOT_DIV),
-+	STARFIVE_GDIV(JH7100_CLK_GMAC_RMII_TX, "gmac_rmii_txclk", 0, 8, JH7100_CLK_GMAC_RMII_REF),
-+	STARFIVE_GDIV(JH7100_CLK_GMAC_RMII_RX, "gmac_rmii_rxclk", 0, 8, JH7100_CLK_GMAC_RMII_REF),
-+	STARFIVE__MUX(JH7100_CLK_GMAC_TX, "gmac_tx", 3,
-+		      JH7100_CLK_GMAC_GTX,
-+		      JH7100_CLK_GMAC_TX_INV,
-+		      JH7100_CLK_GMAC_RMII_TX),
-+	STARFIVE__INV(JH7100_CLK_GMAC_TX_INV, "gmac_tx_inv", JH7100_CLK_GMAC_TX),
-+	STARFIVE__MUX(JH7100_CLK_GMAC_RX_PRE, "gmac_rx_pre", 2,
-+		      JH7100_CLK_GMAC_GR_MII_RX,
-+		      JH7100_CLK_GMAC_RMII_RX),
-+	STARFIVE__INV(JH7100_CLK_GMAC_RX_INV, "gmac_rx_inv", JH7100_CLK_GMAC_RX_PRE),
-+	STARFIVE_GATE(JH7100_CLK_GMAC_RMII, "gmac_rmii", 0, JH7100_CLK_GMAC_RMII_REF),
-+	STARFIVE_GDIV(JH7100_CLK_GMAC_TOPHYREF, "gmac_tophyref", 0, 127, JH7100_CLK_GMAC_ROOT_DIV),
-+	STARFIVE_GATE(JH7100_CLK_SPI2AHB_AHB, "spi2ahb_ahb", 0, JH7100_CLK_AHB_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_SPI2AHB_CORE, "spi2ahb_core", 0, 31, JH7100_CLK_PERH0_SRC),
-+	STARFIVE_GATE(JH7100_CLK_EZMASTER_AHB, "ezmaster_ahb", 0, JH7100_CLK_AHB_BUS),
-+	STARFIVE_GATE(JH7100_CLK_E24_AHB, "e24_ahb", 0, JH7100_CLK_AHB_BUS),
-+	STARFIVE_GATE(JH7100_CLK_E24RTC_TOGGLE, "e24rtc_toggle", 0, JH7100_CLK_OSC_SYS),
-+	STARFIVE_GATE(JH7100_CLK_QSPI_AHB, "qspi_ahb", 0, JH7100_CLK_AHB_BUS),
-+	STARFIVE_GATE(JH7100_CLK_QSPI_APB, "qspi_apb", 0, JH7100_CLK_APB1_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_QSPI_REF, "qspi_refclk", 0, 31, JH7100_CLK_PERH0_SRC),
-+	STARFIVE_GATE(JH7100_CLK_SEC_AHB, "sec_ahb", 0, JH7100_CLK_AHB_BUS),
-+	STARFIVE_GATE(JH7100_CLK_AES, "aes_clk", 0, JH7100_CLK_SEC_AHB),
-+	STARFIVE_GATE(JH7100_CLK_SHA, "sha_clk", 0, JH7100_CLK_SEC_AHB),
-+	STARFIVE_GATE(JH7100_CLK_PKA, "pka_clk", 0, JH7100_CLK_SEC_AHB),
-+	STARFIVE_GATE(JH7100_CLK_TRNG_APB, "trng_apb", 0, JH7100_CLK_APB1_BUS),
-+	STARFIVE_GATE(JH7100_CLK_OTP_APB, "otp_apb", 0, JH7100_CLK_APB1_BUS),
-+	STARFIVE_GATE(JH7100_CLK_UART0_APB, "uart0_apb", 0, JH7100_CLK_APB1_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_UART0_CORE, "uart0_core", 0, 63, JH7100_CLK_PERH1_SRC),
-+	STARFIVE_GATE(JH7100_CLK_UART1_APB, "uart1_apb", 0, JH7100_CLK_APB1_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_UART1_CORE, "uart1_core", 0, 63, JH7100_CLK_PERH1_SRC),
-+	STARFIVE_GATE(JH7100_CLK_SPI0_APB, "spi0_apb", 0, JH7100_CLK_APB1_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_SPI0_CORE, "spi0_core", 0, 63, JH7100_CLK_PERH1_SRC),
-+	STARFIVE_GATE(JH7100_CLK_SPI1_APB, "spi1_apb", 0, JH7100_CLK_APB1_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_SPI1_CORE, "spi1_core", 0, 63, JH7100_CLK_PERH1_SRC),
-+	STARFIVE_GATE(JH7100_CLK_I2C0_APB, "i2c0_apb", 0, JH7100_CLK_APB1_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_I2C0_CORE, "i2c0_core", 0, 63, JH7100_CLK_PERH1_SRC),
-+	STARFIVE_GATE(JH7100_CLK_I2C1_APB, "i2c1_apb", 0, JH7100_CLK_APB1_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_I2C1_CORE, "i2c1_core", 0, 63, JH7100_CLK_PERH1_SRC),
-+	STARFIVE_GATE(JH7100_CLK_GPIO_APB, "gpio_apb", 0, JH7100_CLK_APB1_BUS),
-+	STARFIVE_GATE(JH7100_CLK_UART2_APB, "uart2_apb", 0, JH7100_CLK_APB2_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_UART2_CORE, "uart2_core", 0, 63, JH7100_CLK_PERH0_SRC),
-+	STARFIVE_GATE(JH7100_CLK_UART3_APB, "uart3_apb", 0, JH7100_CLK_APB2_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_UART3_CORE, "uart3_core", 0, 63, JH7100_CLK_PERH0_SRC),
-+	STARFIVE_GATE(JH7100_CLK_SPI2_APB, "spi2_apb", 0, JH7100_CLK_APB2_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_SPI2_CORE, "spi2_core", 0, 63, JH7100_CLK_PERH0_SRC),
-+	STARFIVE_GATE(JH7100_CLK_SPI3_APB, "spi3_apb", 0, JH7100_CLK_APB2_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_SPI3_CORE, "spi3_core", 0, 63, JH7100_CLK_PERH0_SRC),
-+	STARFIVE_GATE(JH7100_CLK_I2C2_APB, "i2c2_apb", 0, JH7100_CLK_APB2_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_I2C2_CORE, "i2c2_core", 0, 63, JH7100_CLK_PERH0_SRC),
-+	STARFIVE_GATE(JH7100_CLK_I2C3_APB, "i2c3_apb", 0, JH7100_CLK_APB2_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_I2C3_CORE, "i2c3_core", 0, 63, JH7100_CLK_PERH0_SRC),
-+	STARFIVE_GATE(JH7100_CLK_WDTIMER_APB, "wdtimer_apb", 0, JH7100_CLK_APB2_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_WDT_CORE, "wdt_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	STARFIVE_GDIV(JH7100_CLK_TIMER0_CORE, "timer0_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	STARFIVE_GDIV(JH7100_CLK_TIMER1_CORE, "timer1_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	STARFIVE_GDIV(JH7100_CLK_TIMER2_CORE, "timer2_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	STARFIVE_GDIV(JH7100_CLK_TIMER3_CORE, "timer3_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	STARFIVE_GDIV(JH7100_CLK_TIMER4_CORE, "timer4_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	STARFIVE_GDIV(JH7100_CLK_TIMER5_CORE, "timer5_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	STARFIVE_GDIV(JH7100_CLK_TIMER6_CORE, "timer6_coreclk", 0, 63, JH7100_CLK_PERH0_SRC),
-+	STARFIVE_GATE(JH7100_CLK_VP6INTC_APB, "vp6intc_apb", 0, JH7100_CLK_APB2_BUS),
-+	STARFIVE_GATE(JH7100_CLK_PWM_APB, "pwm_apb", 0, JH7100_CLK_APB2_BUS),
-+	STARFIVE_GATE(JH7100_CLK_MSI_APB, "msi_apb", 0, JH7100_CLK_APB2_BUS),
-+	STARFIVE_GATE(JH7100_CLK_TEMP_APB, "temp_apb", 0, JH7100_CLK_APB2_BUS),
-+	STARFIVE_GDIV(JH7100_CLK_TEMP_SENSE, "temp_sense", 0, 31, JH7100_CLK_OSC_SYS),
-+	STARFIVE_GATE(JH7100_CLK_SYSERR_APB, "syserr_apb", 0, JH7100_CLK_APB2_BUS),
- };
- 
- static struct clk_hw *jh7100_clk_get(struct of_phandle_args *clkspec, void *data)
- {
--	struct jh71x0_clk_priv *priv = data;
-+	struct starfive_clk_priv *priv = data;
- 	unsigned int idx = clkspec->args[0];
- 
- 	if (idx < JH7100_CLK_PLL0_OUT)
-@@ -283,7 +287,7 @@ static struct clk_hw *jh7100_clk_get(struct of_phandle_args *clkspec, void *data
- 
- static int __init clk_starfive_jh7100_probe(struct platform_device *pdev)
- {
--	struct jh71x0_clk_priv *priv;
-+	struct starfive_clk_priv *priv;
- 	unsigned int idx;
- 	int ret;
- 
-@@ -317,12 +321,13 @@ static int __init clk_starfive_jh7100_probe(struct platform_device *pdev)
- 		struct clk_parent_data parents[4] = {};
- 		struct clk_init_data init = {
- 			.name = jh7100_clk_data[idx].name,
--			.ops = starfive_jh71x0_clk_ops(max),
-+			.ops = starfive_clk_ops(max),
- 			.parent_data = parents,
--			.num_parents = ((max & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT) + 1,
-+			.num_parents = ((max & STARFIVE_CLK_MUX_MASK)
-+					>> STARFIVE_CLK_MUX_SHIFT) + 1,
- 			.flags = jh7100_clk_data[idx].flags,
- 		};
--		struct jh71x0_clk *clk = &priv->reg[idx];
-+		struct starfive_clk *clk = &priv->reg[idx];
- 		unsigned int i;
- 
- 		for (i = 0; i < init.num_parents; i++) {
-@@ -344,7 +349,7 @@ static int __init clk_starfive_jh7100_probe(struct platform_device *pdev)
- 
- 		clk->hw.init = &init;
- 		clk->idx = idx;
--		clk->max_div = max & JH71X0_CLK_DIV_MASK;
-+		clk->max_div = max & STARFIVE_CLK_DIV_MASK;
- 
- 		ret = devm_clk_hw_register(priv->dev, &clk->hw);
- 		if (ret)
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110-aon.c b/drivers/clk/starfive/clk-starfive-jh7110-aon.c
-index 62954eb7b50a..a7ce89b566eb 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110-aon.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7110-aon.c
-@@ -23,40 +23,40 @@
- #define JH7110_AONCLK_GMAC0_GTXCLK	(JH7110_AONCLK_END + 5)
- #define JH7110_AONCLK_RTC_OSC		(JH7110_AONCLK_END + 6)
- 
--static const struct jh71x0_clk_data jh7110_aonclk_data[] = {
-+static const struct starfive_clk_data jh7110_aonclk_data[] = {
- 	/* source */
--	JH71X0__DIV(JH7110_AONCLK_OSC_DIV4, "osc_div4", 4, JH7110_AONCLK_OSC),
--	JH71X0__MUX(JH7110_AONCLK_APB_FUNC, "apb_func", 2,
--		    JH7110_AONCLK_OSC_DIV4,
--		    JH7110_AONCLK_OSC),
-+	STARFIVE__DIV(JH7110_AONCLK_OSC_DIV4, "osc_div4", 4, JH7110_AONCLK_OSC),
-+	STARFIVE__MUX(JH7110_AONCLK_APB_FUNC, "apb_func", 2,
-+		      JH7110_AONCLK_OSC_DIV4,
-+		      JH7110_AONCLK_OSC),
- 	/* gmac0 */
--	JH71X0_GATE(JH7110_AONCLK_GMAC0_AHB, "gmac0_ahb", 0, JH7110_AONCLK_STG_AXIAHB),
--	JH71X0_GATE(JH7110_AONCLK_GMAC0_AXI, "gmac0_axi", 0, JH7110_AONCLK_STG_AXIAHB),
--	JH71X0__DIV(JH7110_AONCLK_GMAC0_RMII_RTX, "gmac0_rmii_rtx", 30,
--		    JH7110_AONCLK_GMAC0_RMII_REFIN),
--	JH71X0_GMUX(JH7110_AONCLK_GMAC0_TX, "gmac0_tx",
--		    CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT, 2,
--		    JH7110_AONCLK_GMAC0_GTXCLK,
--		    JH7110_AONCLK_GMAC0_RMII_RTX),
--	JH71X0__INV(JH7110_AONCLK_GMAC0_TX_INV, "gmac0_tx_inv", JH7110_AONCLK_GMAC0_TX),
--	JH71X0__MUX(JH7110_AONCLK_GMAC0_RX, "gmac0_rx", 2,
--		    JH7110_AONCLK_GMAC0_RGMII_RXIN,
--		    JH7110_AONCLK_GMAC0_RMII_RTX),
--	JH71X0__INV(JH7110_AONCLK_GMAC0_RX_INV, "gmac0_rx_inv", JH7110_AONCLK_GMAC0_RX),
-+	STARFIVE_GATE(JH7110_AONCLK_GMAC0_AHB, "gmac0_ahb", 0, JH7110_AONCLK_STG_AXIAHB),
-+	STARFIVE_GATE(JH7110_AONCLK_GMAC0_AXI, "gmac0_axi", 0, JH7110_AONCLK_STG_AXIAHB),
-+	STARFIVE__DIV(JH7110_AONCLK_GMAC0_RMII_RTX, "gmac0_rmii_rtx", 30,
-+		      JH7110_AONCLK_GMAC0_RMII_REFIN),
-+	STARFIVE_GMUX(JH7110_AONCLK_GMAC0_TX, "gmac0_tx",
-+		      CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT, 2,
-+		      JH7110_AONCLK_GMAC0_GTXCLK,
-+		      JH7110_AONCLK_GMAC0_RMII_RTX),
-+	STARFIVE__INV(JH7110_AONCLK_GMAC0_TX_INV, "gmac0_tx_inv", JH7110_AONCLK_GMAC0_TX),
-+	STARFIVE__MUX(JH7110_AONCLK_GMAC0_RX, "gmac0_rx", 2,
-+		      JH7110_AONCLK_GMAC0_RGMII_RXIN,
-+		      JH7110_AONCLK_GMAC0_RMII_RTX),
-+	STARFIVE__INV(JH7110_AONCLK_GMAC0_RX_INV, "gmac0_rx_inv", JH7110_AONCLK_GMAC0_RX),
- 	/* otpc */
--	JH71X0_GATE(JH7110_AONCLK_OTPC_APB, "otpc_apb", 0, JH7110_AONCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_AONCLK_OTPC_APB, "otpc_apb", 0, JH7110_AONCLK_APB_BUS),
- 	/* rtc */
--	JH71X0_GATE(JH7110_AONCLK_RTC_APB, "rtc_apb", 0, JH7110_AONCLK_APB_BUS),
--	JH71X0__DIV(JH7110_AONCLK_RTC_INTERNAL, "rtc_internal", 1022, JH7110_AONCLK_OSC),
--	JH71X0__MUX(JH7110_AONCLK_RTC_32K, "rtc_32k", 2,
--		    JH7110_AONCLK_RTC_OSC,
--		    JH7110_AONCLK_RTC_INTERNAL),
--	JH71X0_GATE(JH7110_AONCLK_RTC_CAL, "rtc_cal", 0, JH7110_AONCLK_OSC),
-+	STARFIVE_GATE(JH7110_AONCLK_RTC_APB, "rtc_apb", 0, JH7110_AONCLK_APB_BUS),
-+	STARFIVE__DIV(JH7110_AONCLK_RTC_INTERNAL, "rtc_internal", 1022, JH7110_AONCLK_OSC),
-+	STARFIVE__MUX(JH7110_AONCLK_RTC_32K, "rtc_32k", 2,
-+		      JH7110_AONCLK_RTC_OSC,
-+		      JH7110_AONCLK_RTC_INTERNAL),
-+	STARFIVE_GATE(JH7110_AONCLK_RTC_CAL, "rtc_cal", 0, JH7110_AONCLK_OSC),
- };
- 
- static struct clk_hw *jh7110_aonclk_get(struct of_phandle_args *clkspec, void *data)
- {
--	struct jh71x0_clk_priv *priv = data;
-+	struct starfive_clk_priv *priv = data;
- 	unsigned int idx = clkspec->args[0];
- 
- 	if (idx < JH7110_AONCLK_END)
-@@ -67,7 +67,7 @@ static struct clk_hw *jh7110_aonclk_get(struct of_phandle_args *clkspec, void *d
- 
- static int jh7110_aoncrg_probe(struct platform_device *pdev)
- {
--	struct jh71x0_clk_priv *priv;
-+	struct starfive_clk_priv *priv;
- 	unsigned int idx;
- 	int ret;
- 
-@@ -88,13 +88,13 @@ static int jh7110_aoncrg_probe(struct platform_device *pdev)
- 		struct clk_parent_data parents[4] = {};
- 		struct clk_init_data init = {
- 			.name = jh7110_aonclk_data[idx].name,
--			.ops = starfive_jh71x0_clk_ops(max),
-+			.ops = starfive_clk_ops(max),
- 			.parent_data = parents,
- 			.num_parents =
--				((max & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT) + 1,
-+				((max & STARFIVE_CLK_MUX_MASK) >> STARFIVE_CLK_MUX_SHIFT) + 1,
- 			.flags = jh7110_aonclk_data[idx].flags,
- 		};
--		struct jh71x0_clk *clk = &priv->reg[idx];
-+		struct starfive_clk *clk = &priv->reg[idx];
- 		unsigned int i;
- 
- 		for (i = 0; i < init.num_parents; i++) {
-@@ -120,7 +120,7 @@ static int jh7110_aoncrg_probe(struct platform_device *pdev)
- 
- 		clk->hw.init = &init;
- 		clk->idx = idx;
--		clk->max_div = max & JH71X0_CLK_DIV_MASK;
-+		clk->max_div = max & STARFIVE_CLK_DIV_MASK;
- 
- 		ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
- 		if (ret)
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110-isp.c b/drivers/clk/starfive/clk-starfive-jh7110-isp.c
-index ce034ed28532..be6040f718c0 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110-isp.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7110-isp.c
-@@ -28,41 +28,41 @@ static struct clk_bulk_data jh7110_isp_top_clks[] = {
- 	{ .id = "isp_top_axi" }
- };
- 
--static const struct jh71x0_clk_data jh7110_ispclk_data[] = {
-+static const struct starfive_clk_data jh7110_ispclk_data[] = {
- 	/* syscon */
--	JH71X0__DIV(JH7110_ISPCLK_DOM4_APB_FUNC, "dom4_apb_func", 15,
--		    JH7110_ISPCLK_ISP_TOP_AXI),
--	JH71X0__DIV(JH7110_ISPCLK_MIPI_RX0_PXL, "mipi_rx0_pxl", 8,
--		    JH7110_ISPCLK_ISP_TOP_CORE),
--	JH71X0__INV(JH7110_ISPCLK_DVP_INV, "dvp_inv", JH7110_ISPCLK_DVP_CLK),
-+	STARFIVE__DIV(JH7110_ISPCLK_DOM4_APB_FUNC, "dom4_apb_func", 15,
-+		      JH7110_ISPCLK_ISP_TOP_AXI),
-+	STARFIVE__DIV(JH7110_ISPCLK_MIPI_RX0_PXL, "mipi_rx0_pxl", 8,
-+		      JH7110_ISPCLK_ISP_TOP_CORE),
-+	STARFIVE__INV(JH7110_ISPCLK_DVP_INV, "dvp_inv", JH7110_ISPCLK_DVP_CLK),
- 	/* vin */
--	JH71X0__DIV(JH7110_ISPCLK_M31DPHY_CFG_IN, "m31dphy_cfg_in", 16,
--		    JH7110_ISPCLK_ISP_TOP_CORE),
--	JH71X0__DIV(JH7110_ISPCLK_M31DPHY_REF_IN, "m31dphy_ref_in", 16,
--		    JH7110_ISPCLK_ISP_TOP_CORE),
--	JH71X0__DIV(JH7110_ISPCLK_M31DPHY_TX_ESC_LAN0, "m31dphy_tx_esc_lan0", 60,
--		    JH7110_ISPCLK_ISP_TOP_CORE),
--	JH71X0_GATE(JH7110_ISPCLK_VIN_APB, "vin_apb", 0,
--		    JH7110_ISPCLK_DOM4_APB_FUNC),
--	JH71X0__DIV(JH7110_ISPCLK_VIN_SYS, "vin_sys", 8, JH7110_ISPCLK_ISP_TOP_CORE),
--	JH71X0_GATE(JH7110_ISPCLK_VIN_PIXEL_IF0, "vin_pixel_if0", 0,
--		    JH7110_ISPCLK_MIPI_RX0_PXL),
--	JH71X0_GATE(JH7110_ISPCLK_VIN_PIXEL_IF1, "vin_pixel_if1", 0,
--		    JH7110_ISPCLK_MIPI_RX0_PXL),
--	JH71X0_GATE(JH7110_ISPCLK_VIN_PIXEL_IF2, "vin_pixel_if2", 0,
--		    JH7110_ISPCLK_MIPI_RX0_PXL),
--	JH71X0_GATE(JH7110_ISPCLK_VIN_PIXEL_IF3, "vin_pixel_if3", 0,
--		    JH7110_ISPCLK_MIPI_RX0_PXL),
--	JH71X0__MUX(JH7110_ISPCLK_VIN_P_AXI_WR, "vin_p_axi_wr", 2,
--		    JH7110_ISPCLK_MIPI_RX0_PXL,
--		    JH7110_ISPCLK_DVP_INV),
-+	STARFIVE__DIV(JH7110_ISPCLK_M31DPHY_CFG_IN, "m31dphy_cfg_in", 16,
-+		      JH7110_ISPCLK_ISP_TOP_CORE),
-+	STARFIVE__DIV(JH7110_ISPCLK_M31DPHY_REF_IN, "m31dphy_ref_in", 16,
-+		      JH7110_ISPCLK_ISP_TOP_CORE),
-+	STARFIVE__DIV(JH7110_ISPCLK_M31DPHY_TX_ESC_LAN0, "m31dphy_tx_esc_lan0", 60,
-+		      JH7110_ISPCLK_ISP_TOP_CORE),
-+	STARFIVE_GATE(JH7110_ISPCLK_VIN_APB, "vin_apb", 0,
-+		      JH7110_ISPCLK_DOM4_APB_FUNC),
-+	STARFIVE__DIV(JH7110_ISPCLK_VIN_SYS, "vin_sys", 8, JH7110_ISPCLK_ISP_TOP_CORE),
-+	STARFIVE_GATE(JH7110_ISPCLK_VIN_PIXEL_IF0, "vin_pixel_if0", 0,
-+		      JH7110_ISPCLK_MIPI_RX0_PXL),
-+	STARFIVE_GATE(JH7110_ISPCLK_VIN_PIXEL_IF1, "vin_pixel_if1", 0,
-+		      JH7110_ISPCLK_MIPI_RX0_PXL),
-+	STARFIVE_GATE(JH7110_ISPCLK_VIN_PIXEL_IF2, "vin_pixel_if2", 0,
-+		      JH7110_ISPCLK_MIPI_RX0_PXL),
-+	STARFIVE_GATE(JH7110_ISPCLK_VIN_PIXEL_IF3, "vin_pixel_if3", 0,
-+		      JH7110_ISPCLK_MIPI_RX0_PXL),
-+	STARFIVE__MUX(JH7110_ISPCLK_VIN_P_AXI_WR, "vin_p_axi_wr", 2,
-+		      JH7110_ISPCLK_MIPI_RX0_PXL,
-+		      JH7110_ISPCLK_DVP_INV),
- 	/* ispv2_top_wrapper */
--	JH71X0_GMUX(JH7110_ISPCLK_ISPV2_TOP_WRAPPER_C, "ispv2_top_wrapper_c", 0, 2,
--		    JH7110_ISPCLK_MIPI_RX0_PXL,
--		    JH7110_ISPCLK_DVP_INV),
-+	STARFIVE_GMUX(JH7110_ISPCLK_ISPV2_TOP_WRAPPER_C, "ispv2_top_wrapper_c", 0, 2,
-+		      JH7110_ISPCLK_MIPI_RX0_PXL,
-+		      JH7110_ISPCLK_DVP_INV),
- };
- 
--static inline int jh7110_isp_top_rst_init(struct jh71x0_clk_priv *priv)
-+static inline int jh7110_isp_top_rst_init(struct starfive_clk_priv *priv)
- {
- 	struct reset_control *top_rsts;
- 
-@@ -77,7 +77,7 @@ static inline int jh7110_isp_top_rst_init(struct jh71x0_clk_priv *priv)
- 
- static struct clk_hw *jh7110_ispclk_get(struct of_phandle_args *clkspec, void *data)
- {
--	struct jh71x0_clk_priv *priv = data;
-+	struct starfive_clk_priv *priv = data;
- 	unsigned int idx = clkspec->args[0];
- 
- 	if (idx < JH7110_ISPCLK_END)
-@@ -110,7 +110,7 @@ static const struct dev_pm_ops jh7110_ispcrg_pm_ops = {
- 
- static int jh7110_ispcrg_probe(struct platform_device *pdev)
- {
--	struct jh71x0_clk_priv *priv;
-+	struct starfive_clk_priv *priv;
- 	struct jh7110_top_sysclk *top;
- 	unsigned int idx;
- 	int ret;
-@@ -153,13 +153,13 @@ static int jh7110_ispcrg_probe(struct platform_device *pdev)
- 		struct clk_parent_data parents[4] = {};
- 		struct clk_init_data init = {
- 			.name = jh7110_ispclk_data[idx].name,
--			.ops = starfive_jh71x0_clk_ops(max),
-+			.ops = starfive_clk_ops(max),
- 			.parent_data = parents,
- 			.num_parents =
--				((max & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT) + 1,
-+				((max & STARFIVE_CLK_MUX_MASK) >> STARFIVE_CLK_MUX_SHIFT) + 1,
- 			.flags = jh7110_ispclk_data[idx].flags,
- 		};
--		struct jh71x0_clk *clk = &priv->reg[idx];
-+		struct starfive_clk *clk = &priv->reg[idx];
- 		unsigned int i;
- 		const char *fw_name[JH7110_ISPCLK_EXT_END - JH7110_ISPCLK_END] = {
- 			"isp_top_core",
-@@ -179,7 +179,7 @@ static int jh7110_ispcrg_probe(struct platform_device *pdev)
- 
- 		clk->hw.init = &init;
- 		clk->idx = idx;
--		clk->max_div = max & JH71X0_CLK_DIV_MASK;
-+		clk->max_div = max & STARFIVE_CLK_DIV_MASK;
- 
- 		ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
- 		if (ret)
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110-stg.c b/drivers/clk/starfive/clk-starfive-jh7110-stg.c
-index dafcb7190592..2d6ee0ad343a 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110-stg.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7110-stg.c
-@@ -25,59 +25,59 @@
- #define JH7110_STGCLK_APB_BUS			(JH7110_STGCLK_END + 7)
- #define JH7110_STGCLK_EXT_END			(JH7110_STGCLK_END + 8)
- 
--static const struct jh71x0_clk_data jh7110_stgclk_data[] = {
-+static const struct starfive_clk_data jh7110_stgclk_data[] = {
- 	/* hifi4 */
--	JH71X0_GATE(JH7110_STGCLK_HIFI4_CLK_CORE, "hifi4_clk_core", 0,
--		    JH7110_STGCLK_HIFI4_CORE),
-+	STARFIVE_GATE(JH7110_STGCLK_HIFI4_CLK_CORE, "hifi4_clk_core", 0,
-+		      JH7110_STGCLK_HIFI4_CORE),
- 	/* usb */
--	JH71X0_GATE(JH7110_STGCLK_USB0_APB, "usb0_apb", 0, JH7110_STGCLK_APB_BUS),
--	JH71X0_GATE(JH7110_STGCLK_USB0_UTMI_APB, "usb0_utmi_apb", 0, JH7110_STGCLK_APB_BUS),
--	JH71X0_GATE(JH7110_STGCLK_USB0_AXI, "usb0_axi", 0, JH7110_STGCLK_STG_AXIAHB),
--	JH71X0_GDIV(JH7110_STGCLK_USB0_LPM, "usb0_lpm", 0, 2, JH7110_STGCLK_OSC),
--	JH71X0_GDIV(JH7110_STGCLK_USB0_STB, "usb0_stb", 0, 4, JH7110_STGCLK_OSC),
--	JH71X0_GATE(JH7110_STGCLK_USB0_APP_125, "usb0_app_125", 0, JH7110_STGCLK_USB_125M),
--	JH71X0__DIV(JH7110_STGCLK_USB0_REFCLK, "usb0_refclk", 2, JH7110_STGCLK_OSC),
-+	STARFIVE_GATE(JH7110_STGCLK_USB0_APB, "usb0_apb", 0, JH7110_STGCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_STGCLK_USB0_UTMI_APB, "usb0_utmi_apb", 0, JH7110_STGCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_STGCLK_USB0_AXI, "usb0_axi", 0, JH7110_STGCLK_STG_AXIAHB),
-+	STARFIVE_GDIV(JH7110_STGCLK_USB0_LPM, "usb0_lpm", 0, 2, JH7110_STGCLK_OSC),
-+	STARFIVE_GDIV(JH7110_STGCLK_USB0_STB, "usb0_stb", 0, 4, JH7110_STGCLK_OSC),
-+	STARFIVE_GATE(JH7110_STGCLK_USB0_APP_125, "usb0_app_125", 0, JH7110_STGCLK_USB_125M),
-+	STARFIVE__DIV(JH7110_STGCLK_USB0_REFCLK, "usb0_refclk", 2, JH7110_STGCLK_OSC),
- 	/* pci-e */
--	JH71X0_GATE(JH7110_STGCLK_PCIE0_AXI_MST0, "pcie0_axi_mst0", 0,
--		    JH7110_STGCLK_STG_AXIAHB),
--	JH71X0_GATE(JH7110_STGCLK_PCIE0_APB, "pcie0_apb", 0, JH7110_STGCLK_APB_BUS),
--	JH71X0_GATE(JH7110_STGCLK_PCIE0_TL, "pcie0_tl", 0, JH7110_STGCLK_STG_AXIAHB),
--	JH71X0_GATE(JH7110_STGCLK_PCIE1_AXI_MST0, "pcie1_axi_mst0", 0,
--		    JH7110_STGCLK_STG_AXIAHB),
--	JH71X0_GATE(JH7110_STGCLK_PCIE1_APB, "pcie1_apb", 0, JH7110_STGCLK_APB_BUS),
--	JH71X0_GATE(JH7110_STGCLK_PCIE1_TL, "pcie1_tl", 0, JH7110_STGCLK_STG_AXIAHB),
--	JH71X0_GATE(JH7110_STGCLK_PCIE_SLV_MAIN, "pcie_slv_main", CLK_IS_CRITICAL,
--		    JH7110_STGCLK_STG_AXIAHB),
-+	STARFIVE_GATE(JH7110_STGCLK_PCIE0_AXI_MST0, "pcie0_axi_mst0", 0,
-+		      JH7110_STGCLK_STG_AXIAHB),
-+	STARFIVE_GATE(JH7110_STGCLK_PCIE0_APB, "pcie0_apb", 0, JH7110_STGCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_STGCLK_PCIE0_TL, "pcie0_tl", 0, JH7110_STGCLK_STG_AXIAHB),
-+	STARFIVE_GATE(JH7110_STGCLK_PCIE1_AXI_MST0, "pcie1_axi_mst0", 0,
-+		      JH7110_STGCLK_STG_AXIAHB),
-+	STARFIVE_GATE(JH7110_STGCLK_PCIE1_APB, "pcie1_apb", 0, JH7110_STGCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_STGCLK_PCIE1_TL, "pcie1_tl", 0, JH7110_STGCLK_STG_AXIAHB),
-+	STARFIVE_GATE(JH7110_STGCLK_PCIE_SLV_MAIN, "pcie_slv_main", CLK_IS_CRITICAL,
-+		      JH7110_STGCLK_STG_AXIAHB),
- 	/* security */
--	JH71X0_GATE(JH7110_STGCLK_SEC_AHB, "sec_ahb", 0, JH7110_STGCLK_STG_AXIAHB),
--	JH71X0_GATE(JH7110_STGCLK_SEC_MISC_AHB, "sec_misc_ahb", 0, JH7110_STGCLK_STG_AXIAHB),
-+	STARFIVE_GATE(JH7110_STGCLK_SEC_AHB, "sec_ahb", 0, JH7110_STGCLK_STG_AXIAHB),
-+	STARFIVE_GATE(JH7110_STGCLK_SEC_MISC_AHB, "sec_misc_ahb", 0, JH7110_STGCLK_STG_AXIAHB),
- 	/* stg mtrx */
--	JH71X0_GATE(JH7110_STGCLK_GRP0_MAIN, "mtrx_grp0_main", CLK_IS_CRITICAL,
--		    JH7110_STGCLK_CPU_BUS),
--	JH71X0_GATE(JH7110_STGCLK_GRP0_BUS, "mtrx_grp0_bus", CLK_IS_CRITICAL,
--		    JH7110_STGCLK_NOCSTG_BUS),
--	JH71X0_GATE(JH7110_STGCLK_GRP0_STG, "mtrx_grp0_stg", CLK_IS_CRITICAL,
--		    JH7110_STGCLK_STG_AXIAHB),
--	JH71X0_GATE(JH7110_STGCLK_GRP1_MAIN, "mtrx_grp1_main", CLK_IS_CRITICAL,
--		    JH7110_STGCLK_CPU_BUS),
--	JH71X0_GATE(JH7110_STGCLK_GRP1_BUS, "mtrx_grp1_bus", CLK_IS_CRITICAL,
--		    JH7110_STGCLK_NOCSTG_BUS),
--	JH71X0_GATE(JH7110_STGCLK_GRP1_STG, "mtrx_grp1_stg", CLK_IS_CRITICAL,
--		    JH7110_STGCLK_STG_AXIAHB),
--	JH71X0_GATE(JH7110_STGCLK_GRP1_HIFI, "mtrx_grp1_hifi", CLK_IS_CRITICAL,
--		    JH7110_STGCLK_HIFI4_AXI),
-+	STARFIVE_GATE(JH7110_STGCLK_GRP0_MAIN, "mtrx_grp0_main", CLK_IS_CRITICAL,
-+		      JH7110_STGCLK_CPU_BUS),
-+	STARFIVE_GATE(JH7110_STGCLK_GRP0_BUS, "mtrx_grp0_bus", CLK_IS_CRITICAL,
-+		      JH7110_STGCLK_NOCSTG_BUS),
-+	STARFIVE_GATE(JH7110_STGCLK_GRP0_STG, "mtrx_grp0_stg", CLK_IS_CRITICAL,
-+		      JH7110_STGCLK_STG_AXIAHB),
-+	STARFIVE_GATE(JH7110_STGCLK_GRP1_MAIN, "mtrx_grp1_main", CLK_IS_CRITICAL,
-+		      JH7110_STGCLK_CPU_BUS),
-+	STARFIVE_GATE(JH7110_STGCLK_GRP1_BUS, "mtrx_grp1_bus", CLK_IS_CRITICAL,
-+		      JH7110_STGCLK_NOCSTG_BUS),
-+	STARFIVE_GATE(JH7110_STGCLK_GRP1_STG, "mtrx_grp1_stg", CLK_IS_CRITICAL,
-+		      JH7110_STGCLK_STG_AXIAHB),
-+	STARFIVE_GATE(JH7110_STGCLK_GRP1_HIFI, "mtrx_grp1_hifi", CLK_IS_CRITICAL,
-+		      JH7110_STGCLK_HIFI4_AXI),
- 	/* e24_rvpi */
--	JH71X0_GDIV(JH7110_STGCLK_E2_RTC, "e2_rtc", 0, 24, JH7110_STGCLK_OSC),
--	JH71X0_GATE(JH7110_STGCLK_E2_CORE, "e2_core", 0, JH7110_STGCLK_STG_AXIAHB),
--	JH71X0_GATE(JH7110_STGCLK_E2_DBG, "e2_dbg", 0, JH7110_STGCLK_STG_AXIAHB),
-+	STARFIVE_GDIV(JH7110_STGCLK_E2_RTC, "e2_rtc", 0, 24, JH7110_STGCLK_OSC),
-+	STARFIVE_GATE(JH7110_STGCLK_E2_CORE, "e2_core", 0, JH7110_STGCLK_STG_AXIAHB),
-+	STARFIVE_GATE(JH7110_STGCLK_E2_DBG, "e2_dbg", 0, JH7110_STGCLK_STG_AXIAHB),
- 	/* dw_sgdma1p */
--	JH71X0_GATE(JH7110_STGCLK_DMA1P_AXI, "dma1p_axi", 0, JH7110_STGCLK_STG_AXIAHB),
--	JH71X0_GATE(JH7110_STGCLK_DMA1P_AHB, "dma1p_ahb", 0, JH7110_STGCLK_STG_AXIAHB),
-+	STARFIVE_GATE(JH7110_STGCLK_DMA1P_AXI, "dma1p_axi", 0, JH7110_STGCLK_STG_AXIAHB),
-+	STARFIVE_GATE(JH7110_STGCLK_DMA1P_AHB, "dma1p_ahb", 0, JH7110_STGCLK_STG_AXIAHB),
- };
- 
- static struct clk_hw *jh7110_stgclk_get(struct of_phandle_args *clkspec, void *data)
- {
--	struct jh71x0_clk_priv *priv = data;
-+	struct starfive_clk_priv *priv = data;
- 	unsigned int idx = clkspec->args[0];
- 
- 	if (idx < JH7110_STGCLK_END)
-@@ -88,7 +88,7 @@ static struct clk_hw *jh7110_stgclk_get(struct of_phandle_args *clkspec, void *d
- 
- static int jh7110_stgcrg_probe(struct platform_device *pdev)
- {
--	struct jh71x0_clk_priv *priv;
-+	struct starfive_clk_priv *priv;
- 	unsigned int idx;
- 	int ret;
- 
-@@ -108,13 +108,13 @@ static int jh7110_stgcrg_probe(struct platform_device *pdev)
- 		struct clk_parent_data parents[4] = {};
- 		struct clk_init_data init = {
- 			.name = jh7110_stgclk_data[idx].name,
--			.ops = starfive_jh71x0_clk_ops(max),
-+			.ops = starfive_clk_ops(max),
- 			.parent_data = parents,
- 			.num_parents =
--				((max & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT) + 1,
-+				((max & STARFIVE_CLK_MUX_MASK) >> STARFIVE_CLK_MUX_SHIFT) + 1,
- 			.flags = jh7110_stgclk_data[idx].flags,
- 		};
--		struct jh71x0_clk *clk = &priv->reg[idx];
-+		struct starfive_clk *clk = &priv->reg[idx];
- 		const char *fw_name[JH7110_STGCLK_EXT_END - JH7110_STGCLK_END] = {
- 			"osc",
- 			"hifi4_core",
-@@ -138,7 +138,7 @@ static int jh7110_stgcrg_probe(struct platform_device *pdev)
- 
- 		clk->hw.init = &init;
- 		clk->idx = idx;
--		clk->max_div = max & JH71X0_CLK_DIV_MASK;
-+		clk->max_div = max & STARFIVE_CLK_DIV_MASK;
- 
- 		ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
- 		if (ret)
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-index e63353c70209..00ef88d9c2fd 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-@@ -34,298 +34,301 @@
- #define JH7110_SYSCLK_PLL1_OUT			(JH7110_SYSCLK_END + 10)
- #define JH7110_SYSCLK_PLL2_OUT			(JH7110_SYSCLK_END + 11)
- 
--static const struct jh71x0_clk_data jh7110_sysclk_data[] __initconst = {
-+static const struct starfive_clk_data jh7110_sysclk_data[] __initconst = {
- 	/* root */
--	JH71X0__MUX(JH7110_SYSCLK_CPU_ROOT, "cpu_root", 2,
--		    JH7110_SYSCLK_OSC,
--		    JH7110_SYSCLK_PLL0_OUT),
--	JH71X0__DIV(JH7110_SYSCLK_CPU_CORE, "cpu_core", 7, JH7110_SYSCLK_CPU_ROOT),
--	JH71X0__DIV(JH7110_SYSCLK_CPU_BUS, "cpu_bus", 2, JH7110_SYSCLK_CPU_CORE),
--	JH71X0__MUX(JH7110_SYSCLK_GPU_ROOT, "gpu_root", 2,
--		    JH7110_SYSCLK_PLL2_OUT,
--		    JH7110_SYSCLK_PLL1_OUT),
--	JH71X0_MDIV(JH7110_SYSCLK_PERH_ROOT, "perh_root", 2, 2,
--		    JH7110_SYSCLK_PLL0_OUT,
--		    JH7110_SYSCLK_PLL2_OUT),
--	JH71X0__MUX(JH7110_SYSCLK_BUS_ROOT, "bus_root", 2,
--		    JH7110_SYSCLK_OSC,
--		    JH7110_SYSCLK_PLL2_OUT),
--	JH71X0__DIV(JH7110_SYSCLK_NOCSTG_BUS, "nocstg_bus", 3, JH7110_SYSCLK_BUS_ROOT),
--	JH71X0__DIV(JH7110_SYSCLK_AXI_CFG0, "axi_cfg0", 3, JH7110_SYSCLK_BUS_ROOT),
--	JH71X0__DIV(JH7110_SYSCLK_STG_AXIAHB, "stg_axiahb", 2, JH7110_SYSCLK_AXI_CFG0),
--	JH71X0_GATE(JH7110_SYSCLK_AHB0, "ahb0", CLK_IS_CRITICAL, JH7110_SYSCLK_STG_AXIAHB),
--	JH71X0_GATE(JH7110_SYSCLK_AHB1, "ahb1", CLK_IS_CRITICAL, JH7110_SYSCLK_STG_AXIAHB),
--	JH71X0__DIV(JH7110_SYSCLK_APB_BUS, "apb_bus", 8, JH7110_SYSCLK_STG_AXIAHB),
--	JH71X0_GATE(JH7110_SYSCLK_APB0, "apb0", CLK_IS_CRITICAL, JH7110_SYSCLK_APB_BUS),
--	JH71X0__DIV(JH7110_SYSCLK_PLL0_DIV2, "pll0_div2", 2, JH7110_SYSCLK_PLL0_OUT),
--	JH71X0__DIV(JH7110_SYSCLK_PLL1_DIV2, "pll1_div2", 2, JH7110_SYSCLK_PLL1_OUT),
--	JH71X0__DIV(JH7110_SYSCLK_PLL2_DIV2, "pll2_div2", 2, JH7110_SYSCLK_PLL2_OUT),
--	JH71X0__DIV(JH7110_SYSCLK_AUDIO_ROOT, "audio_root", 8, JH7110_SYSCLK_PLL2_OUT),
--	JH71X0__DIV(JH7110_SYSCLK_MCLK_INNER, "mclk_inner", 64, JH7110_SYSCLK_AUDIO_ROOT),
--	JH71X0__MUX(JH7110_SYSCLK_MCLK, "mclk", 2,
--		    JH7110_SYSCLK_MCLK_INNER,
--		    JH7110_SYSCLK_MCLK_EXT),
--	JH71X0_GATE(JH7110_SYSCLK_MCLK_OUT, "mclk_out", 0, JH7110_SYSCLK_MCLK_INNER),
--	JH71X0_MDIV(JH7110_SYSCLK_ISP_2X, "isp_2x", 8, 2,
--		    JH7110_SYSCLK_PLL2_OUT,
--		    JH7110_SYSCLK_PLL1_OUT),
--	JH71X0__DIV(JH7110_SYSCLK_ISP_AXI, "isp_axi", 4, JH7110_SYSCLK_ISP_2X),
--	JH71X0_GDIV(JH7110_SYSCLK_GCLK0, "gclk0", 0, 62, JH7110_SYSCLK_PLL0_DIV2),
--	JH71X0_GDIV(JH7110_SYSCLK_GCLK1, "gclk1", 0, 62, JH7110_SYSCLK_PLL1_DIV2),
--	JH71X0_GDIV(JH7110_SYSCLK_GCLK2, "gclk2", 0, 62, JH7110_SYSCLK_PLL2_DIV2),
-+	STARFIVE__MUX(JH7110_SYSCLK_CPU_ROOT, "cpu_root", 2,
-+		      JH7110_SYSCLK_OSC,
-+		      JH7110_SYSCLK_PLL0_OUT),
-+	STARFIVE__DIV(JH7110_SYSCLK_CPU_CORE, "cpu_core", 7, JH7110_SYSCLK_CPU_ROOT),
-+	STARFIVE__DIV(JH7110_SYSCLK_CPU_BUS, "cpu_bus", 2, JH7110_SYSCLK_CPU_CORE),
-+	STARFIVE__MUX(JH7110_SYSCLK_GPU_ROOT, "gpu_root", 2,
-+		      JH7110_SYSCLK_PLL2_OUT,
-+		      JH7110_SYSCLK_PLL1_OUT),
-+	STARFIVE_MDIV(JH7110_SYSCLK_PERH_ROOT, "perh_root", 2, 2,
-+		      JH7110_SYSCLK_PLL0_OUT,
-+		      JH7110_SYSCLK_PLL2_OUT),
-+	STARFIVE__MUX(JH7110_SYSCLK_BUS_ROOT, "bus_root", 2,
-+		      JH7110_SYSCLK_OSC,
-+		      JH7110_SYSCLK_PLL2_OUT),
-+	STARFIVE__DIV(JH7110_SYSCLK_NOCSTG_BUS, "nocstg_bus", 3, JH7110_SYSCLK_BUS_ROOT),
-+	STARFIVE__DIV(JH7110_SYSCLK_AXI_CFG0, "axi_cfg0", 3, JH7110_SYSCLK_BUS_ROOT),
-+	STARFIVE__DIV(JH7110_SYSCLK_STG_AXIAHB, "stg_axiahb", 2, JH7110_SYSCLK_AXI_CFG0),
-+	STARFIVE_GATE(JH7110_SYSCLK_AHB0, "ahb0", CLK_IS_CRITICAL, JH7110_SYSCLK_STG_AXIAHB),
-+	STARFIVE_GATE(JH7110_SYSCLK_AHB1, "ahb1", CLK_IS_CRITICAL, JH7110_SYSCLK_STG_AXIAHB),
-+	STARFIVE__DIV(JH7110_SYSCLK_APB_BUS, "apb_bus", 8, JH7110_SYSCLK_STG_AXIAHB),
-+	STARFIVE_GATE(JH7110_SYSCLK_APB0, "apb0", CLK_IS_CRITICAL, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE__DIV(JH7110_SYSCLK_PLL0_DIV2, "pll0_div2", 2, JH7110_SYSCLK_PLL0_OUT),
-+	STARFIVE__DIV(JH7110_SYSCLK_PLL1_DIV2, "pll1_div2", 2, JH7110_SYSCLK_PLL1_OUT),
-+	STARFIVE__DIV(JH7110_SYSCLK_PLL2_DIV2, "pll2_div2", 2, JH7110_SYSCLK_PLL2_OUT),
-+	STARFIVE__DIV(JH7110_SYSCLK_AUDIO_ROOT, "audio_root", 8, JH7110_SYSCLK_PLL2_OUT),
-+	STARFIVE__DIV(JH7110_SYSCLK_MCLK_INNER, "mclk_inner", 64, JH7110_SYSCLK_AUDIO_ROOT),
-+	STARFIVE__MUX(JH7110_SYSCLK_MCLK, "mclk", 2,
-+		      JH7110_SYSCLK_MCLK_INNER,
-+		      JH7110_SYSCLK_MCLK_EXT),
-+	STARFIVE_GATE(JH7110_SYSCLK_MCLK_OUT, "mclk_out", 0, JH7110_SYSCLK_MCLK_INNER),
-+	STARFIVE_MDIV(JH7110_SYSCLK_ISP_2X, "isp_2x", 8, 2,
-+		      JH7110_SYSCLK_PLL2_OUT,
-+		      JH7110_SYSCLK_PLL1_OUT),
-+	STARFIVE__DIV(JH7110_SYSCLK_ISP_AXI, "isp_axi", 4, JH7110_SYSCLK_ISP_2X),
-+	STARFIVE_GDIV(JH7110_SYSCLK_GCLK0, "gclk0", 0, 62, JH7110_SYSCLK_PLL0_DIV2),
-+	STARFIVE_GDIV(JH7110_SYSCLK_GCLK1, "gclk1", 0, 62, JH7110_SYSCLK_PLL1_DIV2),
-+	STARFIVE_GDIV(JH7110_SYSCLK_GCLK2, "gclk2", 0, 62, JH7110_SYSCLK_PLL2_DIV2),
- 	/* cores */
--	JH71X0_GATE(JH7110_SYSCLK_CORE, "core", CLK_IS_CRITICAL, JH7110_SYSCLK_CPU_CORE),
--	JH71X0_GATE(JH7110_SYSCLK_CORE1, "core1", CLK_IS_CRITICAL, JH7110_SYSCLK_CPU_CORE),
--	JH71X0_GATE(JH7110_SYSCLK_CORE2, "core2", CLK_IS_CRITICAL, JH7110_SYSCLK_CPU_CORE),
--	JH71X0_GATE(JH7110_SYSCLK_CORE3, "core3", CLK_IS_CRITICAL, JH7110_SYSCLK_CPU_CORE),
--	JH71X0_GATE(JH7110_SYSCLK_CORE4, "core4", CLK_IS_CRITICAL, JH7110_SYSCLK_CPU_CORE),
--	JH71X0_GATE(JH7110_SYSCLK_DEBUG, "debug", 0, JH7110_SYSCLK_CPU_BUS),
--	JH71X0__DIV(JH7110_SYSCLK_RTC_TOGGLE, "rtc_toggle", 6, JH7110_SYSCLK_OSC),
--	JH71X0_GATE(JH7110_SYSCLK_TRACE0, "trace0", 0, JH7110_SYSCLK_CPU_CORE),
--	JH71X0_GATE(JH7110_SYSCLK_TRACE1, "trace1", 0, JH7110_SYSCLK_CPU_CORE),
--	JH71X0_GATE(JH7110_SYSCLK_TRACE2, "trace2", 0, JH7110_SYSCLK_CPU_CORE),
--	JH71X0_GATE(JH7110_SYSCLK_TRACE3, "trace3", 0, JH7110_SYSCLK_CPU_CORE),
--	JH71X0_GATE(JH7110_SYSCLK_TRACE4, "trace4", 0, JH7110_SYSCLK_CPU_CORE),
--	JH71X0_GATE(JH7110_SYSCLK_TRACE_COM, "trace_com", 0, JH7110_SYSCLK_CPU_BUS),
-+	STARFIVE_GATE(JH7110_SYSCLK_CORE, "core", CLK_IS_CRITICAL, JH7110_SYSCLK_CPU_CORE),
-+	STARFIVE_GATE(JH7110_SYSCLK_CORE1, "core1", CLK_IS_CRITICAL, JH7110_SYSCLK_CPU_CORE),
-+	STARFIVE_GATE(JH7110_SYSCLK_CORE2, "core2", CLK_IS_CRITICAL, JH7110_SYSCLK_CPU_CORE),
-+	STARFIVE_GATE(JH7110_SYSCLK_CORE3, "core3", CLK_IS_CRITICAL, JH7110_SYSCLK_CPU_CORE),
-+	STARFIVE_GATE(JH7110_SYSCLK_CORE4, "core4", CLK_IS_CRITICAL, JH7110_SYSCLK_CPU_CORE),
-+	STARFIVE_GATE(JH7110_SYSCLK_DEBUG, "debug", 0, JH7110_SYSCLK_CPU_BUS),
-+	STARFIVE__DIV(JH7110_SYSCLK_RTC_TOGGLE, "rtc_toggle", 6, JH7110_SYSCLK_OSC),
-+	STARFIVE_GATE(JH7110_SYSCLK_TRACE0, "trace0", 0, JH7110_SYSCLK_CPU_CORE),
-+	STARFIVE_GATE(JH7110_SYSCLK_TRACE1, "trace1", 0, JH7110_SYSCLK_CPU_CORE),
-+	STARFIVE_GATE(JH7110_SYSCLK_TRACE2, "trace2", 0, JH7110_SYSCLK_CPU_CORE),
-+	STARFIVE_GATE(JH7110_SYSCLK_TRACE3, "trace3", 0, JH7110_SYSCLK_CPU_CORE),
-+	STARFIVE_GATE(JH7110_SYSCLK_TRACE4, "trace4", 0, JH7110_SYSCLK_CPU_CORE),
-+	STARFIVE_GATE(JH7110_SYSCLK_TRACE_COM, "trace_com", 0, JH7110_SYSCLK_CPU_BUS),
- 	/* noc */
--	JH71X0_GATE(JH7110_SYSCLK_NOC_BUS_CPU_AXI, "noc_bus_cpu_axi", CLK_IS_CRITICAL,
--		    JH7110_SYSCLK_CPU_BUS),
--	JH71X0_GATE(JH7110_SYSCLK_NOC_BUS_AXICFG0_AXI, "noc_bus_axicfg0_axi", CLK_IS_CRITICAL,
--		    JH7110_SYSCLK_AXI_CFG0),
-+	STARFIVE_GATE(JH7110_SYSCLK_NOC_BUS_CPU_AXI, "noc_bus_cpu_axi", CLK_IS_CRITICAL,
-+		      JH7110_SYSCLK_CPU_BUS),
-+	STARFIVE_GATE(JH7110_SYSCLK_NOC_BUS_AXICFG0_AXI, "noc_bus_axicfg0_axi", CLK_IS_CRITICAL,
-+		      JH7110_SYSCLK_AXI_CFG0),
- 	/* ddr */
--	JH71X0__DIV(JH7110_SYSCLK_OSC_DIV2, "osc_div2", 2, JH7110_SYSCLK_OSC),
--	JH71X0__DIV(JH7110_SYSCLK_PLL1_DIV4, "pll1_div4", 2, JH7110_SYSCLK_PLL1_DIV2),
--	JH71X0__DIV(JH7110_SYSCLK_PLL1_DIV8, "pll1_div8", 2, JH7110_SYSCLK_PLL1_DIV4),
--	JH71X0__MUX(JH7110_SYSCLK_DDR_BUS, "ddr_bus", 4,
--		    JH7110_SYSCLK_OSC_DIV2,
--		    JH7110_SYSCLK_PLL1_DIV2,
--		    JH7110_SYSCLK_PLL1_DIV4,
--		    JH7110_SYSCLK_PLL1_DIV8),
--	JH71X0_GATE(JH7110_SYSCLK_DDR_AXI, "ddr_axi", CLK_IS_CRITICAL, JH7110_SYSCLK_DDR_BUS),
-+	STARFIVE__DIV(JH7110_SYSCLK_OSC_DIV2, "osc_div2", 2, JH7110_SYSCLK_OSC),
-+	STARFIVE__DIV(JH7110_SYSCLK_PLL1_DIV4, "pll1_div4", 2, JH7110_SYSCLK_PLL1_DIV2),
-+	STARFIVE__DIV(JH7110_SYSCLK_PLL1_DIV8, "pll1_div8", 2, JH7110_SYSCLK_PLL1_DIV4),
-+	STARFIVE__MUX(JH7110_SYSCLK_DDR_BUS, "ddr_bus", 4,
-+		      JH7110_SYSCLK_OSC_DIV2,
-+		      JH7110_SYSCLK_PLL1_DIV2,
-+		      JH7110_SYSCLK_PLL1_DIV4,
-+		      JH7110_SYSCLK_PLL1_DIV8),
-+	STARFIVE_GATE(JH7110_SYSCLK_DDR_AXI, "ddr_axi", CLK_IS_CRITICAL, JH7110_SYSCLK_DDR_BUS),
- 	/* gpu */
--	JH71X0__DIV(JH7110_SYSCLK_GPU_CORE, "gpu_core", 7, JH7110_SYSCLK_GPU_ROOT),
--	JH71X0_GATE(JH7110_SYSCLK_GPU_CORE_CLK, "gpu_core_clk", 0, JH7110_SYSCLK_GPU_CORE),
--	JH71X0_GATE(JH7110_SYSCLK_GPU_SYS_CLK, "gpu_sys_clk", 0, JH7110_SYSCLK_ISP_AXI),
--	JH71X0_GATE(JH7110_SYSCLK_GPU_APB, "gpu_apb", 0, JH7110_SYSCLK_APB_BUS),
--	JH71X0_GDIV(JH7110_SYSCLK_GPU_RTC_TOGGLE, "gpu_rtc_toggle", 0, 12, JH7110_SYSCLK_OSC),
--	JH71X0_GATE(JH7110_SYSCLK_NOC_BUS_GPU_AXI, "noc_bus_gpu_axi", 0, JH7110_SYSCLK_GPU_CORE),
-+	STARFIVE__DIV(JH7110_SYSCLK_GPU_CORE, "gpu_core", 7, JH7110_SYSCLK_GPU_ROOT),
-+	STARFIVE_GATE(JH7110_SYSCLK_GPU_CORE_CLK, "gpu_core_clk", 0, JH7110_SYSCLK_GPU_CORE),
-+	STARFIVE_GATE(JH7110_SYSCLK_GPU_SYS_CLK, "gpu_sys_clk", 0, JH7110_SYSCLK_ISP_AXI),
-+	STARFIVE_GATE(JH7110_SYSCLK_GPU_APB, "gpu_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE_GDIV(JH7110_SYSCLK_GPU_RTC_TOGGLE, "gpu_rtc_toggle", 0, 12, JH7110_SYSCLK_OSC),
-+	STARFIVE_GATE(JH7110_SYSCLK_NOC_BUS_GPU_AXI, "noc_bus_gpu_axi", 0, JH7110_SYSCLK_GPU_CORE),
- 	/* isp */
--	JH71X0_GATE(JH7110_SYSCLK_ISP_TOP_CORE, "isp_top_core", 0, JH7110_SYSCLK_ISP_2X),
--	JH71X0_GATE(JH7110_SYSCLK_ISP_TOP_AXI, "isp_top_axi", 0, JH7110_SYSCLK_ISP_AXI),
--	JH71X0_GATE(JH7110_SYSCLK_NOC_BUS_ISP_AXI, "noc_bus_isp_axi", CLK_IS_CRITICAL,
--		    JH7110_SYSCLK_ISP_AXI),
-+	STARFIVE_GATE(JH7110_SYSCLK_ISP_TOP_CORE, "isp_top_core", 0, JH7110_SYSCLK_ISP_2X),
-+	STARFIVE_GATE(JH7110_SYSCLK_ISP_TOP_AXI, "isp_top_axi", 0, JH7110_SYSCLK_ISP_AXI),
-+	STARFIVE_GATE(JH7110_SYSCLK_NOC_BUS_ISP_AXI, "noc_bus_isp_axi", CLK_IS_CRITICAL,
-+		      JH7110_SYSCLK_ISP_AXI),
- 	/* hifi4 */
--	JH71X0__DIV(JH7110_SYSCLK_HIFI4_CORE, "hifi4_core", 15, JH7110_SYSCLK_BUS_ROOT),
--	JH71X0__DIV(JH7110_SYSCLK_HIFI4_AXI, "hifi4_axi", 2, JH7110_SYSCLK_HIFI4_CORE),
-+	STARFIVE__DIV(JH7110_SYSCLK_HIFI4_CORE, "hifi4_core", 15, JH7110_SYSCLK_BUS_ROOT),
-+	STARFIVE__DIV(JH7110_SYSCLK_HIFI4_AXI, "hifi4_axi", 2, JH7110_SYSCLK_HIFI4_CORE),
- 	/* axi_cfg1 */
--	JH71X0_GATE(JH7110_SYSCLK_AXI_CFG1_MAIN, "axi_cfg1_main", CLK_IS_CRITICAL,
--		    JH7110_SYSCLK_ISP_AXI),
--	JH71X0_GATE(JH7110_SYSCLK_AXI_CFG1_AHB, "axi_cfg1_ahb", CLK_IS_CRITICAL,
--		    JH7110_SYSCLK_AHB0),
-+	STARFIVE_GATE(JH7110_SYSCLK_AXI_CFG1_MAIN, "axi_cfg1_main", CLK_IS_CRITICAL,
-+		      JH7110_SYSCLK_ISP_AXI),
-+	STARFIVE_GATE(JH7110_SYSCLK_AXI_CFG1_AHB, "axi_cfg1_ahb", CLK_IS_CRITICAL,
-+		      JH7110_SYSCLK_AHB0),
- 	/* vout */
--	JH71X0_GATE(JH7110_SYSCLK_VOUT_SRC, "vout_src", 0, JH7110_SYSCLK_PLL2_OUT),
--	JH71X0__DIV(JH7110_SYSCLK_VOUT_AXI, "vout_axi", 7, JH7110_SYSCLK_PLL2_OUT),
--	JH71X0_GATE(JH7110_SYSCLK_NOC_BUS_DISP_AXI, "noc_bus_disp_axi", 0, JH7110_SYSCLK_VOUT_AXI),
--	JH71X0_GATE(JH7110_SYSCLK_VOUT_TOP_AHB, "vout_top_ahb", 0, JH7110_SYSCLK_AHB1),
--	JH71X0_GATE(JH7110_SYSCLK_VOUT_TOP_AXI, "vout_top_axi", 0, JH7110_SYSCLK_VOUT_AXI),
--	JH71X0_GATE(JH7110_SYSCLK_VOUT_TOP_HDMITX0_MCLK, "vout_top_hdmitx0_mclk", 0,
--		    JH7110_SYSCLK_MCLK),
--	JH71X0__DIV(JH7110_SYSCLK_VOUT_TOP_MIPIPHY_REF, "vout_top_mipiphy_ref", 2,
--		    JH7110_SYSCLK_OSC),
-+	STARFIVE_GATE(JH7110_SYSCLK_VOUT_SRC, "vout_src", 0, JH7110_SYSCLK_PLL2_OUT),
-+	STARFIVE__DIV(JH7110_SYSCLK_VOUT_AXI, "vout_axi", 7, JH7110_SYSCLK_PLL2_OUT),
-+	STARFIVE_GATE(JH7110_SYSCLK_NOC_BUS_DISP_AXI, "noc_bus_disp_axi", 0,
-+		      JH7110_SYSCLK_VOUT_AXI),
-+	STARFIVE_GATE(JH7110_SYSCLK_VOUT_TOP_AHB, "vout_top_ahb", 0, JH7110_SYSCLK_AHB1),
-+	STARFIVE_GATE(JH7110_SYSCLK_VOUT_TOP_AXI, "vout_top_axi", 0, JH7110_SYSCLK_VOUT_AXI),
-+	STARFIVE_GATE(JH7110_SYSCLK_VOUT_TOP_HDMITX0_MCLK, "vout_top_hdmitx0_mclk", 0,
-+		      JH7110_SYSCLK_MCLK),
-+	STARFIVE__DIV(JH7110_SYSCLK_VOUT_TOP_MIPIPHY_REF, "vout_top_mipiphy_ref", 2,
-+		      JH7110_SYSCLK_OSC),
- 	/* jpegc */
--	JH71X0__DIV(JH7110_SYSCLK_JPEGC_AXI, "jpegc_axi", 16, JH7110_SYSCLK_PLL2_OUT),
--	JH71X0_GATE(JH7110_SYSCLK_CODAJ12_AXI, "codaj12_axi", 0, JH7110_SYSCLK_JPEGC_AXI),
--	JH71X0_GDIV(JH7110_SYSCLK_CODAJ12_CORE, "codaj12_core", 0, 16, JH7110_SYSCLK_PLL2_OUT),
--	JH71X0_GATE(JH7110_SYSCLK_CODAJ12_APB, "codaj12_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE__DIV(JH7110_SYSCLK_JPEGC_AXI, "jpegc_axi", 16, JH7110_SYSCLK_PLL2_OUT),
-+	STARFIVE_GATE(JH7110_SYSCLK_CODAJ12_AXI, "codaj12_axi", 0, JH7110_SYSCLK_JPEGC_AXI),
-+	STARFIVE_GDIV(JH7110_SYSCLK_CODAJ12_CORE, "codaj12_core", 0, 16, JH7110_SYSCLK_PLL2_OUT),
-+	STARFIVE_GATE(JH7110_SYSCLK_CODAJ12_APB, "codaj12_apb", 0, JH7110_SYSCLK_APB_BUS),
- 	/* vdec */
--	JH71X0__DIV(JH7110_SYSCLK_VDEC_AXI, "vdec_axi", 7, JH7110_SYSCLK_BUS_ROOT),
--	JH71X0_GATE(JH7110_SYSCLK_WAVE511_AXI, "wave511_axi", 0, JH7110_SYSCLK_VDEC_AXI),
--	JH71X0_GDIV(JH7110_SYSCLK_WAVE511_BPU, "wave511_bpu", 0, 7, JH7110_SYSCLK_BUS_ROOT),
--	JH71X0_GDIV(JH7110_SYSCLK_WAVE511_VCE, "wave511_vce", 0, 7, JH7110_SYSCLK_PLL0_OUT),
--	JH71X0_GATE(JH7110_SYSCLK_WAVE511_APB, "wave511_apb", 0, JH7110_SYSCLK_APB_BUS),
--	JH71X0_GATE(JH7110_SYSCLK_VDEC_JPG, "vdec_jpg", 0, JH7110_SYSCLK_JPEGC_AXI),
--	JH71X0_GATE(JH7110_SYSCLK_VDEC_MAIN, "vdec_main", 0, JH7110_SYSCLK_VDEC_AXI),
--	JH71X0_GATE(JH7110_SYSCLK_NOC_BUS_VDEC_AXI, "noc_bus_vdec_axi", 0, JH7110_SYSCLK_VDEC_AXI),
-+	STARFIVE__DIV(JH7110_SYSCLK_VDEC_AXI, "vdec_axi", 7, JH7110_SYSCLK_BUS_ROOT),
-+	STARFIVE_GATE(JH7110_SYSCLK_WAVE511_AXI, "wave511_axi", 0, JH7110_SYSCLK_VDEC_AXI),
-+	STARFIVE_GDIV(JH7110_SYSCLK_WAVE511_BPU, "wave511_bpu", 0, 7, JH7110_SYSCLK_BUS_ROOT),
-+	STARFIVE_GDIV(JH7110_SYSCLK_WAVE511_VCE, "wave511_vce", 0, 7, JH7110_SYSCLK_PLL0_OUT),
-+	STARFIVE_GATE(JH7110_SYSCLK_WAVE511_APB, "wave511_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_SYSCLK_VDEC_JPG, "vdec_jpg", 0, JH7110_SYSCLK_JPEGC_AXI),
-+	STARFIVE_GATE(JH7110_SYSCLK_VDEC_MAIN, "vdec_main", 0, JH7110_SYSCLK_VDEC_AXI),
-+	STARFIVE_GATE(JH7110_SYSCLK_NOC_BUS_VDEC_AXI, "noc_bus_vdec_axi", 0,
-+		      JH7110_SYSCLK_VDEC_AXI),
- 	/* venc */
--	JH71X0__DIV(JH7110_SYSCLK_VENC_AXI, "venc_axi", 15, JH7110_SYSCLK_PLL2_OUT),
--	JH71X0_GATE(JH7110_SYSCLK_WAVE420L_AXI, "wave420l_axi", 0, JH7110_SYSCLK_VENC_AXI),
--	JH71X0_GDIV(JH7110_SYSCLK_WAVE420L_BPU, "wave420l_bpu", 0, 15, JH7110_SYSCLK_PLL2_OUT),
--	JH71X0_GDIV(JH7110_SYSCLK_WAVE420L_VCE, "wave420l_vce", 0, 15, JH7110_SYSCLK_PLL2_OUT),
--	JH71X0_GATE(JH7110_SYSCLK_WAVE420L_APB, "wave420l_apb", 0, JH7110_SYSCLK_APB_BUS),
--	JH71X0_GATE(JH7110_SYSCLK_NOC_BUS_VENC_AXI, "noc_bus_venc_axi", 0, JH7110_SYSCLK_VENC_AXI),
-+	STARFIVE__DIV(JH7110_SYSCLK_VENC_AXI, "venc_axi", 15, JH7110_SYSCLK_PLL2_OUT),
-+	STARFIVE_GATE(JH7110_SYSCLK_WAVE420L_AXI, "wave420l_axi", 0, JH7110_SYSCLK_VENC_AXI),
-+	STARFIVE_GDIV(JH7110_SYSCLK_WAVE420L_BPU, "wave420l_bpu", 0, 15, JH7110_SYSCLK_PLL2_OUT),
-+	STARFIVE_GDIV(JH7110_SYSCLK_WAVE420L_VCE, "wave420l_vce", 0, 15, JH7110_SYSCLK_PLL2_OUT),
-+	STARFIVE_GATE(JH7110_SYSCLK_WAVE420L_APB, "wave420l_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_SYSCLK_NOC_BUS_VENC_AXI, "noc_bus_venc_axi", 0,
-+		      JH7110_SYSCLK_VENC_AXI),
- 	/* axi_cfg0 */
--	JH71X0_GATE(JH7110_SYSCLK_AXI_CFG0_MAIN_DIV, "axi_cfg0_main_div", CLK_IS_CRITICAL,
--		    JH7110_SYSCLK_AHB1),
--	JH71X0_GATE(JH7110_SYSCLK_AXI_CFG0_MAIN, "axi_cfg0_main", CLK_IS_CRITICAL,
--		    JH7110_SYSCLK_AXI_CFG0),
--	JH71X0_GATE(JH7110_SYSCLK_AXI_CFG0_HIFI4, "axi_cfg0_hifi4", CLK_IS_CRITICAL,
--		    JH7110_SYSCLK_HIFI4_AXI),
-+	STARFIVE_GATE(JH7110_SYSCLK_AXI_CFG0_MAIN_DIV, "axi_cfg0_main_div", CLK_IS_CRITICAL,
-+		      JH7110_SYSCLK_AHB1),
-+	STARFIVE_GATE(JH7110_SYSCLK_AXI_CFG0_MAIN, "axi_cfg0_main", CLK_IS_CRITICAL,
-+		      JH7110_SYSCLK_AXI_CFG0),
-+	STARFIVE_GATE(JH7110_SYSCLK_AXI_CFG0_HIFI4, "axi_cfg0_hifi4", CLK_IS_CRITICAL,
-+		      JH7110_SYSCLK_HIFI4_AXI),
- 	/* intmem */
--	JH71X0_GATE(JH7110_SYSCLK_AXIMEM2_AXI, "aximem2_axi", 0, JH7110_SYSCLK_AXI_CFG0),
-+	STARFIVE_GATE(JH7110_SYSCLK_AXIMEM2_AXI, "aximem2_axi", 0, JH7110_SYSCLK_AXI_CFG0),
- 	/* qspi */
--	JH71X0_GATE(JH7110_SYSCLK_QSPI_AHB, "qspi_ahb", 0, JH7110_SYSCLK_AHB1),
--	JH71X0_GATE(JH7110_SYSCLK_QSPI_APB, "qspi_apb", 0, JH7110_SYSCLK_APB_BUS),
--	JH71X0__DIV(JH7110_SYSCLK_QSPI_REF_SRC, "qspi_ref_src", 16, JH7110_SYSCLK_PLL0_OUT),
--	JH71X0_GMUX(JH7110_SYSCLK_QSPI_REF, "qspi_ref", 0, 2,
--		    JH7110_SYSCLK_OSC,
--		    JH7110_SYSCLK_QSPI_REF_SRC),
-+	STARFIVE_GATE(JH7110_SYSCLK_QSPI_AHB, "qspi_ahb", 0, JH7110_SYSCLK_AHB1),
-+	STARFIVE_GATE(JH7110_SYSCLK_QSPI_APB, "qspi_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE__DIV(JH7110_SYSCLK_QSPI_REF_SRC, "qspi_ref_src", 16, JH7110_SYSCLK_PLL0_OUT),
-+	STARFIVE_GMUX(JH7110_SYSCLK_QSPI_REF, "qspi_ref", 0, 2,
-+		      JH7110_SYSCLK_OSC,
-+		      JH7110_SYSCLK_QSPI_REF_SRC),
- 	/* sdio */
--	JH71X0_GATE(JH7110_SYSCLK_SDIO0_AHB, "sdio0_ahb", 0, JH7110_SYSCLK_AHB0),
--	JH71X0_GATE(JH7110_SYSCLK_SDIO1_AHB, "sdio1_ahb", 0, JH7110_SYSCLK_AHB0),
--	JH71X0_GDIV(JH7110_SYSCLK_SDIO0_SDCARD, "sdio0_sdcard", 0, 15, JH7110_SYSCLK_AXI_CFG0),
--	JH71X0_GDIV(JH7110_SYSCLK_SDIO1_SDCARD, "sdio1_sdcard", 0, 15, JH7110_SYSCLK_AXI_CFG0),
-+	STARFIVE_GATE(JH7110_SYSCLK_SDIO0_AHB, "sdio0_ahb", 0, JH7110_SYSCLK_AHB0),
-+	STARFIVE_GATE(JH7110_SYSCLK_SDIO1_AHB, "sdio1_ahb", 0, JH7110_SYSCLK_AHB0),
-+	STARFIVE_GDIV(JH7110_SYSCLK_SDIO0_SDCARD, "sdio0_sdcard", 0, 15, JH7110_SYSCLK_AXI_CFG0),
-+	STARFIVE_GDIV(JH7110_SYSCLK_SDIO1_SDCARD, "sdio1_sdcard", 0, 15, JH7110_SYSCLK_AXI_CFG0),
- 	/* stg */
--	JH71X0__DIV(JH7110_SYSCLK_USB_125M, "usb_125m", 15, JH7110_SYSCLK_PLL0_OUT),
--	JH71X0_GATE(JH7110_SYSCLK_NOC_BUS_STG_AXI, "noc_bus_stg_axi", CLK_IS_CRITICAL,
--		    JH7110_SYSCLK_NOCSTG_BUS),
-+	STARFIVE__DIV(JH7110_SYSCLK_USB_125M, "usb_125m", 15, JH7110_SYSCLK_PLL0_OUT),
-+	STARFIVE_GATE(JH7110_SYSCLK_NOC_BUS_STG_AXI, "noc_bus_stg_axi", CLK_IS_CRITICAL,
-+		      JH7110_SYSCLK_NOCSTG_BUS),
- 	/* gmac1 */
--	JH71X0_GATE(JH7110_SYSCLK_GMAC1_AHB, "gmac1_ahb", 0, JH7110_SYSCLK_AHB0),
--	JH71X0_GATE(JH7110_SYSCLK_GMAC1_AXI, "gmac1_axi", 0, JH7110_SYSCLK_STG_AXIAHB),
--	JH71X0__DIV(JH7110_SYSCLK_GMAC_SRC, "gmac_src", 7, JH7110_SYSCLK_PLL0_OUT),
--	JH71X0__DIV(JH7110_SYSCLK_GMAC1_GTXCLK, "gmac1_gtxclk", 15, JH7110_SYSCLK_PLL0_OUT),
--	JH71X0__DIV(JH7110_SYSCLK_GMAC1_RMII_RTX, "gmac1_rmii_rtx", 30,
--		    JH7110_SYSCLK_GMAC1_RMII_REFIN),
--	JH71X0_GDIV(JH7110_SYSCLK_GMAC1_PTP, "gmac1_ptp", 0, 31, JH7110_SYSCLK_GMAC_SRC),
--	JH71X0__MUX(JH7110_SYSCLK_GMAC1_RX, "gmac1_rx", 2,
--		    JH7110_SYSCLK_GMAC1_RGMII_RXIN,
--		    JH7110_SYSCLK_GMAC1_RMII_RTX),
--	JH71X0__INV(JH7110_SYSCLK_GMAC1_RX_INV, "gmac1_rx_inv", JH7110_SYSCLK_GMAC1_RX),
--	JH71X0_GMUX(JH7110_SYSCLK_GMAC1_TX, "gmac1_tx",
--		    CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT, 2,
--		    JH7110_SYSCLK_GMAC1_GTXCLK,
--		    JH7110_SYSCLK_GMAC1_RMII_RTX),
--	JH71X0__INV(JH7110_SYSCLK_GMAC1_TX_INV, "gmac1_tx_inv", JH7110_SYSCLK_GMAC1_TX),
--	JH71X0_GATE(JH7110_SYSCLK_GMAC1_GTXC, "gmac1_gtxc", 0, JH7110_SYSCLK_GMAC1_GTXCLK),
-+	STARFIVE_GATE(JH7110_SYSCLK_GMAC1_AHB, "gmac1_ahb", 0, JH7110_SYSCLK_AHB0),
-+	STARFIVE_GATE(JH7110_SYSCLK_GMAC1_AXI, "gmac1_axi", 0, JH7110_SYSCLK_STG_AXIAHB),
-+	STARFIVE__DIV(JH7110_SYSCLK_GMAC_SRC, "gmac_src", 7, JH7110_SYSCLK_PLL0_OUT),
-+	STARFIVE__DIV(JH7110_SYSCLK_GMAC1_GTXCLK, "gmac1_gtxclk", 15, JH7110_SYSCLK_PLL0_OUT),
-+	STARFIVE__DIV(JH7110_SYSCLK_GMAC1_RMII_RTX, "gmac1_rmii_rtx", 30,
-+		      JH7110_SYSCLK_GMAC1_RMII_REFIN),
-+	STARFIVE_GDIV(JH7110_SYSCLK_GMAC1_PTP, "gmac1_ptp", 0, 31, JH7110_SYSCLK_GMAC_SRC),
-+	STARFIVE__MUX(JH7110_SYSCLK_GMAC1_RX, "gmac1_rx", 2,
-+		      JH7110_SYSCLK_GMAC1_RGMII_RXIN,
-+		      JH7110_SYSCLK_GMAC1_RMII_RTX),
-+	STARFIVE__INV(JH7110_SYSCLK_GMAC1_RX_INV, "gmac1_rx_inv", JH7110_SYSCLK_GMAC1_RX),
-+	STARFIVE_GMUX(JH7110_SYSCLK_GMAC1_TX, "gmac1_tx",
-+		      CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT, 2,
-+		      JH7110_SYSCLK_GMAC1_GTXCLK,
-+		      JH7110_SYSCLK_GMAC1_RMII_RTX),
-+	STARFIVE__INV(JH7110_SYSCLK_GMAC1_TX_INV, "gmac1_tx_inv", JH7110_SYSCLK_GMAC1_TX),
-+	STARFIVE_GATE(JH7110_SYSCLK_GMAC1_GTXC, "gmac1_gtxc", 0, JH7110_SYSCLK_GMAC1_GTXCLK),
- 	/* gmac0 */
--	JH71X0_GDIV(JH7110_SYSCLK_GMAC0_GTXCLK, "gmac0_gtxclk", 0, 15, JH7110_SYSCLK_PLL0_OUT),
--	JH71X0_GDIV(JH7110_SYSCLK_GMAC0_PTP, "gmac0_ptp", 0, 31, JH7110_SYSCLK_GMAC_SRC),
--	JH71X0_GDIV(JH7110_SYSCLK_GMAC_PHY, "gmac_phy", 0, 31, JH7110_SYSCLK_GMAC_SRC),
--	JH71X0_GATE(JH7110_SYSCLK_GMAC0_GTXC, "gmac0_gtxc", 0, JH7110_SYSCLK_GMAC0_GTXCLK),
-+	STARFIVE_GDIV(JH7110_SYSCLK_GMAC0_GTXCLK, "gmac0_gtxclk", 0, 15, JH7110_SYSCLK_PLL0_OUT),
-+	STARFIVE_GDIV(JH7110_SYSCLK_GMAC0_PTP, "gmac0_ptp", 0, 31, JH7110_SYSCLK_GMAC_SRC),
-+	STARFIVE_GDIV(JH7110_SYSCLK_GMAC_PHY, "gmac_phy", 0, 31, JH7110_SYSCLK_GMAC_SRC),
-+	STARFIVE_GATE(JH7110_SYSCLK_GMAC0_GTXC, "gmac0_gtxc", 0, JH7110_SYSCLK_GMAC0_GTXCLK),
- 	/* apb misc */
--	JH71X0_GATE(JH7110_SYSCLK_IOMUX_APB, "iomux_apb", 0, JH7110_SYSCLK_APB_BUS),
--	JH71X0_GATE(JH7110_SYSCLK_MAILBOX_APB, "mailbox_apb", 0, JH7110_SYSCLK_APB_BUS),
--	JH71X0_GATE(JH7110_SYSCLK_INT_CTRL_APB, "int_ctrl_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_SYSCLK_IOMUX_APB, "iomux_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_SYSCLK_MAILBOX_APB, "mailbox_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_SYSCLK_INT_CTRL_APB, "int_ctrl_apb", 0, JH7110_SYSCLK_APB_BUS),
- 	/* can0 */
--	JH71X0_GATE(JH7110_SYSCLK_CAN0_APB, "can0_apb", 0, JH7110_SYSCLK_APB_BUS),
--	JH71X0_GDIV(JH7110_SYSCLK_CAN0_TIMER, "can0_timer", 0, 24, JH7110_SYSCLK_OSC),
--	JH71X0_GDIV(JH7110_SYSCLK_CAN0_CAN, "can0_can", 0, 63, JH7110_SYSCLK_PERH_ROOT),
-+	STARFIVE_GATE(JH7110_SYSCLK_CAN0_APB, "can0_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE_GDIV(JH7110_SYSCLK_CAN0_TIMER, "can0_timer", 0, 24, JH7110_SYSCLK_OSC),
-+	STARFIVE_GDIV(JH7110_SYSCLK_CAN0_CAN, "can0_can", 0, 63, JH7110_SYSCLK_PERH_ROOT),
- 	/* can1 */
--	JH71X0_GATE(JH7110_SYSCLK_CAN1_APB, "can1_apb", 0, JH7110_SYSCLK_APB_BUS),
--	JH71X0_GDIV(JH7110_SYSCLK_CAN1_TIMER, "can1_timer", 0, 24, JH7110_SYSCLK_OSC),
--	JH71X0_GDIV(JH7110_SYSCLK_CAN1_CAN, "can1_can", 0, 63, JH7110_SYSCLK_PERH_ROOT),
-+	STARFIVE_GATE(JH7110_SYSCLK_CAN1_APB, "can1_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE_GDIV(JH7110_SYSCLK_CAN1_TIMER, "can1_timer", 0, 24, JH7110_SYSCLK_OSC),
-+	STARFIVE_GDIV(JH7110_SYSCLK_CAN1_CAN, "can1_can", 0, 63, JH7110_SYSCLK_PERH_ROOT),
- 	/* pwm */
--	JH71X0_GATE(JH7110_SYSCLK_PWM_APB, "pwm_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_SYSCLK_PWM_APB, "pwm_apb", 0, JH7110_SYSCLK_APB_BUS),
- 	/* wdt */
--	JH71X0_GATE(JH7110_SYSCLK_WDT_APB, "wdt_apb", 0, JH7110_SYSCLK_APB_BUS),
--	JH71X0_GATE(JH7110_SYSCLK_WDT_CORE, "wdt_core", 0, JH7110_SYSCLK_OSC),
-+	STARFIVE_GATE(JH7110_SYSCLK_WDT_APB, "wdt_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_SYSCLK_WDT_CORE, "wdt_core", 0, JH7110_SYSCLK_OSC),
- 	/* timer */
--	JH71X0_GATE(JH7110_SYSCLK_TIMER_APB, "timer_apb", 0, JH7110_SYSCLK_APB_BUS),
--	JH71X0_GATE(JH7110_SYSCLK_TIMER0, "timer0", 0, JH7110_SYSCLK_OSC),
--	JH71X0_GATE(JH7110_SYSCLK_TIMER1, "timer1", 0, JH7110_SYSCLK_OSC),
--	JH71X0_GATE(JH7110_SYSCLK_TIMER2, "timer2", 0, JH7110_SYSCLK_OSC),
--	JH71X0_GATE(JH7110_SYSCLK_TIMER3, "timer3", 0, JH7110_SYSCLK_OSC),
-+	STARFIVE_GATE(JH7110_SYSCLK_TIMER_APB, "timer_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_SYSCLK_TIMER0, "timer0", 0, JH7110_SYSCLK_OSC),
-+	STARFIVE_GATE(JH7110_SYSCLK_TIMER1, "timer1", 0, JH7110_SYSCLK_OSC),
-+	STARFIVE_GATE(JH7110_SYSCLK_TIMER2, "timer2", 0, JH7110_SYSCLK_OSC),
-+	STARFIVE_GATE(JH7110_SYSCLK_TIMER3, "timer3", 0, JH7110_SYSCLK_OSC),
- 	/* temp sensor */
--	JH71X0_GATE(JH7110_SYSCLK_TEMP_APB, "temp_apb", 0, JH7110_SYSCLK_APB_BUS),
--	JH71X0_GDIV(JH7110_SYSCLK_TEMP_CORE, "temp_core", 0, 24, JH7110_SYSCLK_OSC),
-+	STARFIVE_GATE(JH7110_SYSCLK_TEMP_APB, "temp_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE_GDIV(JH7110_SYSCLK_TEMP_CORE, "temp_core", 0, 24, JH7110_SYSCLK_OSC),
- 	/* spi */
--	JH71X0_GATE(JH7110_SYSCLK_SPI0_APB, "spi0_apb", 0, JH7110_SYSCLK_APB0),
--	JH71X0_GATE(JH7110_SYSCLK_SPI1_APB, "spi1_apb", 0, JH7110_SYSCLK_APB0),
--	JH71X0_GATE(JH7110_SYSCLK_SPI2_APB, "spi2_apb", 0, JH7110_SYSCLK_APB0),
--	JH71X0_GATE(JH7110_SYSCLK_SPI3_APB, "spi3_apb", 0, JH7110_SYSCLK_APB_BUS),
--	JH71X0_GATE(JH7110_SYSCLK_SPI4_APB, "spi4_apb", 0, JH7110_SYSCLK_APB_BUS),
--	JH71X0_GATE(JH7110_SYSCLK_SPI5_APB, "spi5_apb", 0, JH7110_SYSCLK_APB_BUS),
--	JH71X0_GATE(JH7110_SYSCLK_SPI6_APB, "spi6_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_SYSCLK_SPI0_APB, "spi0_apb", 0, JH7110_SYSCLK_APB0),
-+	STARFIVE_GATE(JH7110_SYSCLK_SPI1_APB, "spi1_apb", 0, JH7110_SYSCLK_APB0),
-+	STARFIVE_GATE(JH7110_SYSCLK_SPI2_APB, "spi2_apb", 0, JH7110_SYSCLK_APB0),
-+	STARFIVE_GATE(JH7110_SYSCLK_SPI3_APB, "spi3_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_SYSCLK_SPI4_APB, "spi4_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_SYSCLK_SPI5_APB, "spi5_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_SYSCLK_SPI6_APB, "spi6_apb", 0, JH7110_SYSCLK_APB_BUS),
- 	/* i2c */
--	JH71X0_GATE(JH7110_SYSCLK_I2C0_APB, "i2c0_apb", 0, JH7110_SYSCLK_APB0),
--	JH71X0_GATE(JH7110_SYSCLK_I2C1_APB, "i2c1_apb", 0, JH7110_SYSCLK_APB0),
--	JH71X0_GATE(JH7110_SYSCLK_I2C2_APB, "i2c2_apb", 0, JH7110_SYSCLK_APB0),
--	JH71X0_GATE(JH7110_SYSCLK_I2C3_APB, "i2c3_apb", 0, JH7110_SYSCLK_APB_BUS),
--	JH71X0_GATE(JH7110_SYSCLK_I2C4_APB, "i2c4_apb", 0, JH7110_SYSCLK_APB_BUS),
--	JH71X0_GATE(JH7110_SYSCLK_I2C5_APB, "i2c5_apb", 0, JH7110_SYSCLK_APB_BUS),
--	JH71X0_GATE(JH7110_SYSCLK_I2C6_APB, "i2c6_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_SYSCLK_I2C0_APB, "i2c0_apb", 0, JH7110_SYSCLK_APB0),
-+	STARFIVE_GATE(JH7110_SYSCLK_I2C1_APB, "i2c1_apb", 0, JH7110_SYSCLK_APB0),
-+	STARFIVE_GATE(JH7110_SYSCLK_I2C2_APB, "i2c2_apb", 0, JH7110_SYSCLK_APB0),
-+	STARFIVE_GATE(JH7110_SYSCLK_I2C3_APB, "i2c3_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_SYSCLK_I2C4_APB, "i2c4_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_SYSCLK_I2C5_APB, "i2c5_apb", 0, JH7110_SYSCLK_APB_BUS),
-+	STARFIVE_GATE(JH7110_SYSCLK_I2C6_APB, "i2c6_apb", 0, JH7110_SYSCLK_APB_BUS),
- 	/* uart */
--	JH71X0_GATE(JH7110_SYSCLK_UART0_APB, "uart0_apb", 0, JH7110_SYSCLK_APB0),
--	JH71X0_GATE(JH7110_SYSCLK_UART0_CORE, "uart0_core", 0, JH7110_SYSCLK_OSC),
--	JH71X0_GATE(JH7110_SYSCLK_UART1_APB, "uart1_apb", 0, JH7110_SYSCLK_APB0),
--	JH71X0_GATE(JH7110_SYSCLK_UART1_CORE, "uart1_core", 0, JH7110_SYSCLK_OSC),
--	JH71X0_GATE(JH7110_SYSCLK_UART2_APB, "uart2_apb", 0, JH7110_SYSCLK_APB0),
--	JH71X0_GATE(JH7110_SYSCLK_UART2_CORE, "uart2_core", 0, JH7110_SYSCLK_OSC),
--	JH71X0_GATE(JH7110_SYSCLK_UART3_APB, "uart3_apb", 0, JH7110_SYSCLK_APB0),
--	JH71X0_GDIV(JH7110_SYSCLK_UART3_CORE, "uart3_core", 0, 10, JH7110_SYSCLK_PERH_ROOT),
--	JH71X0_GATE(JH7110_SYSCLK_UART4_APB, "uart4_apb", 0, JH7110_SYSCLK_APB0),
--	JH71X0_GDIV(JH7110_SYSCLK_UART4_CORE, "uart4_core", 0, 10, JH7110_SYSCLK_PERH_ROOT),
--	JH71X0_GATE(JH7110_SYSCLK_UART5_APB, "uart5_apb", 0, JH7110_SYSCLK_APB0),
--	JH71X0_GDIV(JH7110_SYSCLK_UART5_CORE, "uart5_core", 0, 10, JH7110_SYSCLK_PERH_ROOT),
-+	STARFIVE_GATE(JH7110_SYSCLK_UART0_APB, "uart0_apb", 0, JH7110_SYSCLK_APB0),
-+	STARFIVE_GATE(JH7110_SYSCLK_UART0_CORE, "uart0_core", 0, JH7110_SYSCLK_OSC),
-+	STARFIVE_GATE(JH7110_SYSCLK_UART1_APB, "uart1_apb", 0, JH7110_SYSCLK_APB0),
-+	STARFIVE_GATE(JH7110_SYSCLK_UART1_CORE, "uart1_core", 0, JH7110_SYSCLK_OSC),
-+	STARFIVE_GATE(JH7110_SYSCLK_UART2_APB, "uart2_apb", 0, JH7110_SYSCLK_APB0),
-+	STARFIVE_GATE(JH7110_SYSCLK_UART2_CORE, "uart2_core", 0, JH7110_SYSCLK_OSC),
-+	STARFIVE_GATE(JH7110_SYSCLK_UART3_APB, "uart3_apb", 0, JH7110_SYSCLK_APB0),
-+	STARFIVE_GDIV(JH7110_SYSCLK_UART3_CORE, "uart3_core", 0, 10, JH7110_SYSCLK_PERH_ROOT),
-+	STARFIVE_GATE(JH7110_SYSCLK_UART4_APB, "uart4_apb", 0, JH7110_SYSCLK_APB0),
-+	STARFIVE_GDIV(JH7110_SYSCLK_UART4_CORE, "uart4_core", 0, 10, JH7110_SYSCLK_PERH_ROOT),
-+	STARFIVE_GATE(JH7110_SYSCLK_UART5_APB, "uart5_apb", 0, JH7110_SYSCLK_APB0),
-+	STARFIVE_GDIV(JH7110_SYSCLK_UART5_CORE, "uart5_core", 0, 10, JH7110_SYSCLK_PERH_ROOT),
- 	/* pwmdac */
--	JH71X0_GATE(JH7110_SYSCLK_PWMDAC_APB, "pwmdac_apb", 0, JH7110_SYSCLK_APB0),
--	JH71X0_GDIV(JH7110_SYSCLK_PWMDAC_CORE, "pwmdac_core", 0, 256, JH7110_SYSCLK_AUDIO_ROOT),
-+	STARFIVE_GATE(JH7110_SYSCLK_PWMDAC_APB, "pwmdac_apb", 0, JH7110_SYSCLK_APB0),
-+	STARFIVE_GDIV(JH7110_SYSCLK_PWMDAC_CORE, "pwmdac_core", 0, 256, JH7110_SYSCLK_AUDIO_ROOT),
- 	/* spdif */
--	JH71X0_GATE(JH7110_SYSCLK_SPDIF_APB, "spdif_apb", 0, JH7110_SYSCLK_APB0),
--	JH71X0_GATE(JH7110_SYSCLK_SPDIF_CORE, "spdif_core", 0, JH7110_SYSCLK_MCLK),
-+	STARFIVE_GATE(JH7110_SYSCLK_SPDIF_APB, "spdif_apb", 0, JH7110_SYSCLK_APB0),
-+	STARFIVE_GATE(JH7110_SYSCLK_SPDIF_CORE, "spdif_core", 0, JH7110_SYSCLK_MCLK),
- 	/* i2stx0 */
--	JH71X0_GATE(JH7110_SYSCLK_I2STX0_APB, "i2stx0_apb", 0, JH7110_SYSCLK_APB0),
--	JH71X0_GDIV(JH7110_SYSCLK_I2STX0_BCLK_MST, "i2stx0_bclk_mst", 0, 32, JH7110_SYSCLK_MCLK),
--	JH71X0__INV(JH7110_SYSCLK_I2STX0_BCLK_MST_INV, "i2stx0_bclk_mst_inv",
--		    JH7110_SYSCLK_I2STX0_BCLK_MST),
--	JH71X0_MDIV(JH7110_SYSCLK_I2STX0_LRCK_MST, "i2stx0_lrck_mst", 64, 2,
--		    JH7110_SYSCLK_I2STX0_BCLK_MST_INV,
--		    JH7110_SYSCLK_I2STX0_BCLK_MST),
--	JH71X0__MUX(JH7110_SYSCLK_I2STX0_BCLK, "i2stx0_bclk",	2,
--		    JH7110_SYSCLK_I2STX0_BCLK_MST,
--		    JH7110_SYSCLK_I2STX_BCLK_EXT),
--	JH71X0__INV(JH7110_SYSCLK_I2STX0_BCLK_INV, "i2stx0_bclk_inv", JH7110_SYSCLK_I2STX0_BCLK),
--	JH71X0__MUX(JH7110_SYSCLK_I2STX0_LRCK, "i2stx0_lrck", 2,
--		    JH7110_SYSCLK_I2STX0_LRCK_MST,
--		    JH7110_SYSCLK_I2STX_LRCK_EXT),
-+	STARFIVE_GATE(JH7110_SYSCLK_I2STX0_APB, "i2stx0_apb", 0, JH7110_SYSCLK_APB0),
-+	STARFIVE_GDIV(JH7110_SYSCLK_I2STX0_BCLK_MST, "i2stx0_bclk_mst", 0, 32, JH7110_SYSCLK_MCLK),
-+	STARFIVE__INV(JH7110_SYSCLK_I2STX0_BCLK_MST_INV, "i2stx0_bclk_mst_inv",
-+		      JH7110_SYSCLK_I2STX0_BCLK_MST),
-+	STARFIVE_MDIV(JH7110_SYSCLK_I2STX0_LRCK_MST, "i2stx0_lrck_mst", 64, 2,
-+		      JH7110_SYSCLK_I2STX0_BCLK_MST_INV,
-+		      JH7110_SYSCLK_I2STX0_BCLK_MST),
-+	STARFIVE__MUX(JH7110_SYSCLK_I2STX0_BCLK, "i2stx0_bclk",	2,
-+		      JH7110_SYSCLK_I2STX0_BCLK_MST,
-+		      JH7110_SYSCLK_I2STX_BCLK_EXT),
-+	STARFIVE__INV(JH7110_SYSCLK_I2STX0_BCLK_INV, "i2stx0_bclk_inv", JH7110_SYSCLK_I2STX0_BCLK),
-+	STARFIVE__MUX(JH7110_SYSCLK_I2STX0_LRCK, "i2stx0_lrck", 2,
-+		      JH7110_SYSCLK_I2STX0_LRCK_MST,
-+		      JH7110_SYSCLK_I2STX_LRCK_EXT),
- 	/* i2stx1 */
--	JH71X0_GATE(JH7110_SYSCLK_I2STX1_APB, "i2stx1_apb", 0, JH7110_SYSCLK_APB0),
--	JH71X0_GDIV(JH7110_SYSCLK_I2STX1_BCLK_MST, "i2stx1_bclk_mst", 0, 32, JH7110_SYSCLK_MCLK),
--	JH71X0__INV(JH7110_SYSCLK_I2STX1_BCLK_MST_INV, "i2stx1_bclk_mst_inv",
--		    JH7110_SYSCLK_I2STX1_BCLK_MST),
--	JH71X0_MDIV(JH7110_SYSCLK_I2STX1_LRCK_MST, "i2stx1_lrck_mst", 64, 2,
--		    JH7110_SYSCLK_I2STX1_BCLK_MST_INV,
--		    JH7110_SYSCLK_I2STX1_BCLK_MST),
--	JH71X0__MUX(JH7110_SYSCLK_I2STX1_BCLK, "i2stx1_bclk", 2,
--		    JH7110_SYSCLK_I2STX1_BCLK_MST,
--		    JH7110_SYSCLK_I2STX_BCLK_EXT),
--	JH71X0__INV(JH7110_SYSCLK_I2STX1_BCLK_INV, "i2stx1_bclk_inv", JH7110_SYSCLK_I2STX1_BCLK),
--	JH71X0__MUX(JH7110_SYSCLK_I2STX1_LRCK, "i2stx1_lrck", 2,
--		    JH7110_SYSCLK_I2STX1_LRCK_MST,
--		    JH7110_SYSCLK_I2STX_LRCK_EXT),
-+	STARFIVE_GATE(JH7110_SYSCLK_I2STX1_APB, "i2stx1_apb", 0, JH7110_SYSCLK_APB0),
-+	STARFIVE_GDIV(JH7110_SYSCLK_I2STX1_BCLK_MST, "i2stx1_bclk_mst", 0, 32, JH7110_SYSCLK_MCLK),
-+	STARFIVE__INV(JH7110_SYSCLK_I2STX1_BCLK_MST_INV, "i2stx1_bclk_mst_inv",
-+		      JH7110_SYSCLK_I2STX1_BCLK_MST),
-+	STARFIVE_MDIV(JH7110_SYSCLK_I2STX1_LRCK_MST, "i2stx1_lrck_mst", 64, 2,
-+		      JH7110_SYSCLK_I2STX1_BCLK_MST_INV,
-+		      JH7110_SYSCLK_I2STX1_BCLK_MST),
-+	STARFIVE__MUX(JH7110_SYSCLK_I2STX1_BCLK, "i2stx1_bclk", 2,
-+		      JH7110_SYSCLK_I2STX1_BCLK_MST,
-+		      JH7110_SYSCLK_I2STX_BCLK_EXT),
-+	STARFIVE__INV(JH7110_SYSCLK_I2STX1_BCLK_INV, "i2stx1_bclk_inv", JH7110_SYSCLK_I2STX1_BCLK),
-+	STARFIVE__MUX(JH7110_SYSCLK_I2STX1_LRCK, "i2stx1_lrck", 2,
-+		      JH7110_SYSCLK_I2STX1_LRCK_MST,
-+		      JH7110_SYSCLK_I2STX_LRCK_EXT),
- 	/* i2srx */
--	JH71X0_GATE(JH7110_SYSCLK_I2SRX_APB, "i2srx_apb", 0, JH7110_SYSCLK_APB0),
--	JH71X0_GDIV(JH7110_SYSCLK_I2SRX_BCLK_MST, "i2srx_bclk_mst", 0, 32, JH7110_SYSCLK_MCLK),
--	JH71X0__INV(JH7110_SYSCLK_I2SRX_BCLK_MST_INV, "i2srx_bclk_mst_inv",
--		    JH7110_SYSCLK_I2SRX_BCLK_MST),
--	JH71X0_MDIV(JH7110_SYSCLK_I2SRX_LRCK_MST, "i2srx_lrck_mst", 64, 2,
--		    JH7110_SYSCLK_I2SRX_BCLK_MST_INV,
--		    JH7110_SYSCLK_I2SRX_BCLK_MST),
--	JH71X0__MUX(JH7110_SYSCLK_I2SRX_BCLK, "i2srx_bclk", 2,
--		    JH7110_SYSCLK_I2SRX_BCLK_MST,
--		    JH7110_SYSCLK_I2SRX_BCLK_EXT),
--	JH71X0__INV(JH7110_SYSCLK_I2SRX_BCLK_INV, "i2srx_bclk_inv", JH7110_SYSCLK_I2SRX_BCLK),
--	JH71X0__MUX(JH7110_SYSCLK_I2SRX_LRCK, "i2srx_lrck", 2,
--		    JH7110_SYSCLK_I2SRX_LRCK_MST,
--		    JH7110_SYSCLK_I2SRX_LRCK_EXT),
-+	STARFIVE_GATE(JH7110_SYSCLK_I2SRX_APB, "i2srx_apb", 0, JH7110_SYSCLK_APB0),
-+	STARFIVE_GDIV(JH7110_SYSCLK_I2SRX_BCLK_MST, "i2srx_bclk_mst", 0, 32, JH7110_SYSCLK_MCLK),
-+	STARFIVE__INV(JH7110_SYSCLK_I2SRX_BCLK_MST_INV, "i2srx_bclk_mst_inv",
-+		      JH7110_SYSCLK_I2SRX_BCLK_MST),
-+	STARFIVE_MDIV(JH7110_SYSCLK_I2SRX_LRCK_MST, "i2srx_lrck_mst", 64, 2,
-+		      JH7110_SYSCLK_I2SRX_BCLK_MST_INV,
-+		      JH7110_SYSCLK_I2SRX_BCLK_MST),
-+	STARFIVE__MUX(JH7110_SYSCLK_I2SRX_BCLK, "i2srx_bclk", 2,
-+		      JH7110_SYSCLK_I2SRX_BCLK_MST,
-+		      JH7110_SYSCLK_I2SRX_BCLK_EXT),
-+	STARFIVE__INV(JH7110_SYSCLK_I2SRX_BCLK_INV, "i2srx_bclk_inv", JH7110_SYSCLK_I2SRX_BCLK),
-+	STARFIVE__MUX(JH7110_SYSCLK_I2SRX_LRCK, "i2srx_lrck", 2,
-+		      JH7110_SYSCLK_I2SRX_LRCK_MST,
-+		      JH7110_SYSCLK_I2SRX_LRCK_EXT),
- 	/* pdm */
--	JH71X0_GDIV(JH7110_SYSCLK_PDM_DMIC, "pdm_dmic", 0, 64, JH7110_SYSCLK_MCLK),
--	JH71X0_GATE(JH7110_SYSCLK_PDM_APB, "pdm_apb", 0, JH7110_SYSCLK_APB0),
-+	STARFIVE_GDIV(JH7110_SYSCLK_PDM_DMIC, "pdm_dmic", 0, 64, JH7110_SYSCLK_MCLK),
-+	STARFIVE_GATE(JH7110_SYSCLK_PDM_APB, "pdm_apb", 0, JH7110_SYSCLK_APB0),
- 	/* tdm */
--	JH71X0_GATE(JH7110_SYSCLK_TDM_AHB, "tdm_ahb", 0, JH7110_SYSCLK_AHB0),
--	JH71X0_GATE(JH7110_SYSCLK_TDM_APB, "tdm_apb", 0, JH7110_SYSCLK_APB0),
--	JH71X0_GDIV(JH7110_SYSCLK_TDM_INTERNAL, "tdm_internal", 0, 64, JH7110_SYSCLK_MCLK),
--	JH71X0__MUX(JH7110_SYSCLK_TDM_TDM, "tdm_tdm", 2,
--		    JH7110_SYSCLK_TDM_INTERNAL,
--		    JH7110_SYSCLK_TDM_EXT),
--	JH71X0__INV(JH7110_SYSCLK_TDM_TDM_INV, "tdm_tdm_inv", JH7110_SYSCLK_TDM_TDM),
-+	STARFIVE_GATE(JH7110_SYSCLK_TDM_AHB, "tdm_ahb", 0, JH7110_SYSCLK_AHB0),
-+	STARFIVE_GATE(JH7110_SYSCLK_TDM_APB, "tdm_apb", 0, JH7110_SYSCLK_APB0),
-+	STARFIVE_GDIV(JH7110_SYSCLK_TDM_INTERNAL, "tdm_internal", 0, 64, JH7110_SYSCLK_MCLK),
-+	STARFIVE__MUX(JH7110_SYSCLK_TDM_TDM, "tdm_tdm", 2,
-+		      JH7110_SYSCLK_TDM_INTERNAL,
-+		      JH7110_SYSCLK_TDM_EXT),
-+	STARFIVE__INV(JH7110_SYSCLK_TDM_TDM_INV, "tdm_tdm_inv", JH7110_SYSCLK_TDM_TDM),
- 	/* jtag */
--	JH71X0__DIV(JH7110_SYSCLK_JTAG_CERTIFICATION_TRNG, "jtag_certification_trng", 4,
--		    JH7110_SYSCLK_OSC),
-+	STARFIVE__DIV(JH7110_SYSCLK_JTAG_CERTIFICATION_TRNG, "jtag_certification_trng", 4,
-+		      JH7110_SYSCLK_OSC),
- };
- 
- static struct clk_hw *jh7110_sysclk_get(struct of_phandle_args *clkspec, void *data)
- {
--	struct jh71x0_clk_priv *priv = data;
-+	struct starfive_clk_priv *priv = data;
- 	unsigned int idx = clkspec->args[0];
- 
- 	if (idx < JH7110_SYSCLK_END)
-@@ -350,7 +353,7 @@ static void jh7110_reset_adev_release(struct device *dev)
- 	kfree(rdev);
- }
- 
--int jh7110_reset_controller_register(struct jh71x0_clk_priv *priv,
-+int jh7110_reset_controller_register(struct starfive_clk_priv *priv,
- 				     const char *adev_name,
- 				     u32 adev_id)
- {
-@@ -387,7 +390,7 @@ EXPORT_SYMBOL_GPL(jh7110_reset_controller_register);
- 
- static int __init jh7110_syscrg_probe(struct platform_device *pdev)
- {
--	struct jh71x0_clk_priv *priv;
-+	struct starfive_clk_priv *priv;
- 	unsigned int idx;
- 	int ret;
- 	struct clk *pllclk;
-@@ -446,13 +449,13 @@ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
- 		struct clk_parent_data parents[4] = {};
- 		struct clk_init_data init = {
- 			.name = jh7110_sysclk_data[idx].name,
--			.ops = starfive_jh71x0_clk_ops(max),
-+			.ops = starfive_clk_ops(max),
- 			.parent_data = parents,
- 			.num_parents =
--				((max & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT) + 1,
-+				((max & STARFIVE_CLK_MUX_MASK) >> STARFIVE_CLK_MUX_SHIFT) + 1,
- 			.flags = jh7110_sysclk_data[idx].flags,
- 		};
--		struct jh71x0_clk *clk = &priv->reg[idx];
-+		struct starfive_clk *clk = &priv->reg[idx];
- 		unsigned int i;
- 
- 		for (i = 0; i < init.num_parents; i++) {
-@@ -490,7 +493,7 @@ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
- 
- 		clk->hw.init = &init;
- 		clk->idx = idx;
--		clk->max_div = max & JH71X0_CLK_DIV_MASK;
-+		clk->max_div = max & STARFIVE_CLK_DIV_MASK;
- 
- 		ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
- 		if (ret)
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110-vout.c b/drivers/clk/starfive/clk-starfive-jh7110-vout.c
-index 10cc1ec43925..aca93c370bce 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110-vout.c
-+++ b/drivers/clk/starfive/clk-starfive-jh7110-vout.c
-@@ -30,45 +30,45 @@ static struct clk_bulk_data jh7110_vout_top_clks[] = {
- 	{ .id = "vout_top_ahb" }
- };
- 
--static const struct jh71x0_clk_data jh7110_voutclk_data[] = {
-+static const struct starfive_clk_data jh7110_voutclk_data[] = {
- 	/* divider */
--	JH71X0__DIV(JH7110_VOUTCLK_APB, "apb", 8, JH7110_VOUTCLK_VOUT_TOP_AHB),
--	JH71X0__DIV(JH7110_VOUTCLK_DC8200_PIX, "dc8200_pix", 63, JH7110_VOUTCLK_VOUT_SRC),
--	JH71X0__DIV(JH7110_VOUTCLK_DSI_SYS, "dsi_sys", 31, JH7110_VOUTCLK_VOUT_SRC),
--	JH71X0__DIV(JH7110_VOUTCLK_TX_ESC, "tx_esc", 31, JH7110_VOUTCLK_VOUT_TOP_AHB),
-+	STARFIVE__DIV(JH7110_VOUTCLK_APB, "apb", 8, JH7110_VOUTCLK_VOUT_TOP_AHB),
-+	STARFIVE__DIV(JH7110_VOUTCLK_DC8200_PIX, "dc8200_pix", 63, JH7110_VOUTCLK_VOUT_SRC),
-+	STARFIVE__DIV(JH7110_VOUTCLK_DSI_SYS, "dsi_sys", 31, JH7110_VOUTCLK_VOUT_SRC),
-+	STARFIVE__DIV(JH7110_VOUTCLK_TX_ESC, "tx_esc", 31, JH7110_VOUTCLK_VOUT_TOP_AHB),
- 	/* dc8200 */
--	JH71X0_GATE(JH7110_VOUTCLK_DC8200_AXI, "dc8200_axi", 0, JH7110_VOUTCLK_VOUT_TOP_AXI),
--	JH71X0_GATE(JH7110_VOUTCLK_DC8200_CORE, "dc8200_core", 0, JH7110_VOUTCLK_VOUT_TOP_AXI),
--	JH71X0_GATE(JH7110_VOUTCLK_DC8200_AHB, "dc8200_ahb", 0, JH7110_VOUTCLK_VOUT_TOP_AHB),
--	JH71X0_GMUX(JH7110_VOUTCLK_DC8200_PIX0, "dc8200_pix0", 0, 2,
--		    JH7110_VOUTCLK_DC8200_PIX,
--		    JH7110_VOUTCLK_HDMITX0_PIXELCLK),
--	JH71X0_GMUX(JH7110_VOUTCLK_DC8200_PIX1, "dc8200_pix1", 0, 2,
--		    JH7110_VOUTCLK_DC8200_PIX,
--		    JH7110_VOUTCLK_HDMITX0_PIXELCLK),
-+	STARFIVE_GATE(JH7110_VOUTCLK_DC8200_AXI, "dc8200_axi", 0, JH7110_VOUTCLK_VOUT_TOP_AXI),
-+	STARFIVE_GATE(JH7110_VOUTCLK_DC8200_CORE, "dc8200_core", 0, JH7110_VOUTCLK_VOUT_TOP_AXI),
-+	STARFIVE_GATE(JH7110_VOUTCLK_DC8200_AHB, "dc8200_ahb", 0, JH7110_VOUTCLK_VOUT_TOP_AHB),
-+	STARFIVE_GMUX(JH7110_VOUTCLK_DC8200_PIX0, "dc8200_pix0", 0, 2,
-+		      JH7110_VOUTCLK_DC8200_PIX,
-+		      JH7110_VOUTCLK_HDMITX0_PIXELCLK),
-+	STARFIVE_GMUX(JH7110_VOUTCLK_DC8200_PIX1, "dc8200_pix1", 0, 2,
-+		      JH7110_VOUTCLK_DC8200_PIX,
-+		      JH7110_VOUTCLK_HDMITX0_PIXELCLK),
- 	/* LCD */
--	JH71X0_GMUX(JH7110_VOUTCLK_DOM_VOUT_TOP_LCD, "dom_vout_top_lcd", 0, 2,
--		    JH7110_VOUTCLK_DC8200_PIX0,
--		    JH7110_VOUTCLK_DC8200_PIX1),
-+	STARFIVE_GMUX(JH7110_VOUTCLK_DOM_VOUT_TOP_LCD, "dom_vout_top_lcd", 0, 2,
-+		      JH7110_VOUTCLK_DC8200_PIX0,
-+		      JH7110_VOUTCLK_DC8200_PIX1),
- 	/* dsiTx */
--	JH71X0_GATE(JH7110_VOUTCLK_DSITX_APB, "dsiTx_apb", 0, JH7110_VOUTCLK_DSI_SYS),
--	JH71X0_GATE(JH7110_VOUTCLK_DSITX_SYS, "dsiTx_sys", 0, JH7110_VOUTCLK_DSI_SYS),
--	JH71X0_GMUX(JH7110_VOUTCLK_DSITX_DPI, "dsiTx_dpi", 0, 2,
--		    JH7110_VOUTCLK_DC8200_PIX,
--		    JH7110_VOUTCLK_HDMITX0_PIXELCLK),
--	JH71X0_GATE(JH7110_VOUTCLK_DSITX_TXESC, "dsiTx_txesc", 0, JH7110_VOUTCLK_TX_ESC),
-+	STARFIVE_GATE(JH7110_VOUTCLK_DSITX_APB, "dsiTx_apb", 0, JH7110_VOUTCLK_DSI_SYS),
-+	STARFIVE_GATE(JH7110_VOUTCLK_DSITX_SYS, "dsiTx_sys", 0, JH7110_VOUTCLK_DSI_SYS),
-+	STARFIVE_GMUX(JH7110_VOUTCLK_DSITX_DPI, "dsiTx_dpi", 0, 2,
-+		      JH7110_VOUTCLK_DC8200_PIX,
-+		      JH7110_VOUTCLK_HDMITX0_PIXELCLK),
-+	STARFIVE_GATE(JH7110_VOUTCLK_DSITX_TXESC, "dsiTx_txesc", 0, JH7110_VOUTCLK_TX_ESC),
- 	/* mipitx DPHY */
--	JH71X0_GATE(JH7110_VOUTCLK_MIPITX_DPHY_TXESC, "mipitx_dphy_txesc", 0,
--		    JH7110_VOUTCLK_TX_ESC),
-+	STARFIVE_GATE(JH7110_VOUTCLK_MIPITX_DPHY_TXESC, "mipitx_dphy_txesc", 0,
-+		      JH7110_VOUTCLK_TX_ESC),
- 	/* hdmi */
--	JH71X0_GATE(JH7110_VOUTCLK_HDMI_TX_MCLK, "hdmi_tx_mclk", 0,
--		    JH7110_VOUTCLK_VOUT_TOP_HDMITX0_MCLK),
--	JH71X0_GATE(JH7110_VOUTCLK_HDMI_TX_BCLK, "hdmi_tx_bclk", 0,
--		    JH7110_VOUTCLK_I2STX0_BCLK),
--	JH71X0_GATE(JH7110_VOUTCLK_HDMI_TX_SYS, "hdmi_tx_sys", 0, JH7110_VOUTCLK_APB),
-+	STARFIVE_GATE(JH7110_VOUTCLK_HDMI_TX_MCLK, "hdmi_tx_mclk", 0,
-+		      JH7110_VOUTCLK_VOUT_TOP_HDMITX0_MCLK),
-+	STARFIVE_GATE(JH7110_VOUTCLK_HDMI_TX_BCLK, "hdmi_tx_bclk", 0,
-+		      JH7110_VOUTCLK_I2STX0_BCLK),
-+	STARFIVE_GATE(JH7110_VOUTCLK_HDMI_TX_SYS, "hdmi_tx_sys", 0, JH7110_VOUTCLK_APB),
- };
- 
--static int jh7110_vout_top_rst_init(struct jh71x0_clk_priv *priv)
-+static int jh7110_vout_top_rst_init(struct starfive_clk_priv *priv)
- {
- 	struct reset_control *top_rst;
- 
-@@ -82,7 +82,7 @@ static int jh7110_vout_top_rst_init(struct jh71x0_clk_priv *priv)
- 
- static struct clk_hw *jh7110_voutclk_get(struct of_phandle_args *clkspec, void *data)
- {
--	struct jh71x0_clk_priv *priv = data;
-+	struct starfive_clk_priv *priv = data;
- 	unsigned int idx = clkspec->args[0];
- 
- 	if (idx < JH7110_VOUTCLK_END)
-@@ -115,7 +115,7 @@ static const struct dev_pm_ops jh7110_voutcrg_pm_ops = {
- 
- static int jh7110_voutcrg_probe(struct platform_device *pdev)
- {
--	struct jh71x0_clk_priv *priv;
-+	struct starfive_clk_priv *priv;
- 	struct jh7110_top_sysclk *top;
- 	unsigned int idx;
- 	int ret;
-@@ -158,13 +158,13 @@ static int jh7110_voutcrg_probe(struct platform_device *pdev)
- 		struct clk_parent_data parents[4] = {};
- 		struct clk_init_data init = {
- 			.name = jh7110_voutclk_data[idx].name,
--			.ops = starfive_jh71x0_clk_ops(max),
-+			.ops = starfive_clk_ops(max),
- 			.parent_data = parents,
- 			.num_parents =
--				((max & JH71X0_CLK_MUX_MASK) >> JH71X0_CLK_MUX_SHIFT) + 1,
-+				((max & STARFIVE_CLK_MUX_MASK) >> STARFIVE_CLK_MUX_SHIFT) + 1,
- 			.flags = jh7110_voutclk_data[idx].flags,
- 		};
--		struct jh71x0_clk *clk = &priv->reg[idx];
-+		struct starfive_clk *clk = &priv->reg[idx];
- 		unsigned int i;
- 		const char *fw_name[JH7110_VOUTCLK_EXT_END - JH7110_VOUTCLK_END] = {
- 			"vout_src",
-@@ -186,7 +186,7 @@ static int jh7110_voutcrg_probe(struct platform_device *pdev)
- 
- 		clk->hw.init = &init;
- 		clk->idx = idx;
--		clk->max_div = max & JH71X0_CLK_DIV_MASK;
-+		clk->max_div = max & STARFIVE_CLK_DIV_MASK;
- 
- 		ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
- 		if (ret)
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110.h b/drivers/clk/starfive/clk-starfive-jh7110.h
-index 6b1bdf860f00..4a6dfd8d8636 100644
---- a/drivers/clk/starfive/clk-starfive-jh7110.h
-+++ b/drivers/clk/starfive/clk-starfive-jh7110.h
-@@ -10,7 +10,7 @@ struct jh7110_top_sysclk {
- 	int top_clks_num;
- };
- 
--int jh7110_reset_controller_register(struct jh71x0_clk_priv *priv,
-+int jh7110_reset_controller_register(struct starfive_clk_priv *priv,
- 				     const char *adev_name,
- 				     u32 adev_id);
- 
--- 
-2.34.1
++{
++	return parent_rate;
++}
++
++static long gate_round_rate(struct clk_hw *hw, unsigned long rate,
++			    unsigned long *parent_rate)
++{
++	return *parent_rate;
++}
++
++static int gate_set_rate(struct clk_hw *hw, unsigned long rate,
++			 unsigned long parent_rate)
++{
++	return 0;
++}
++
++const struct clk_ops cv1800_clk_gate_ops = {
++	.disable = gate_disable,
++	.enable = gate_enable,
++	.is_enabled = gate_is_enabled,
++
++	.recalc_rate = gate_recalc_rate,
++	.round_rate = gate_round_rate,
++	.set_rate = gate_set_rate,
++};
++
++/* DIV */
++#define _DIV_EN_CLK_DIV_FACTOR_FIELD		BIT(3)
++
++#define DIV_GET_EN_CLK_DIV_FACTOR(_reg) \
++	FIELD_GET(_DIV_EN_CLK_DIV_FACTOR_FIELD, _reg)
++
++#define DIV_SET_EN_DIV_FACTOR(_reg) \
++	_CV1800_SET_FIELD(_reg, 1, _DIV_EN_CLK_DIV_FACTOR_FIELD)
++
++static inline struct cv1800_clk_div *hw_to_cv1800_clk_div(struct clk_hw *hw)
++{
++	struct cv1800_clk_common *common = hw_to_cv1800_clk_common(hw);
++
++	return container_of(common, struct cv1800_clk_div, common);
++}
++
++static int div_enable(struct clk_hw *hw)
++{
++	struct cv1800_clk_div *div = hw_to_cv1800_clk_div(hw);
++
++	return cv1800_clk_setbit(&div->common, &div->gate);
++}
++
++static void div_disable(struct clk_hw *hw)
++{
++	struct cv1800_clk_div *div = hw_to_cv1800_clk_div(hw);
++
++	cv1800_clk_clearbit(&div->common, &div->gate);
++}
++
++static int div_is_enabled(struct clk_hw *hw)
++{
++	struct cv1800_clk_div *div = hw_to_cv1800_clk_div(hw);
++
++	return cv1800_clk_checkbit(&div->common, &div->gate);
++}
++
++static int div_helper_set_rate(struct cv1800_clk_common *common,
++			       struct cv1800_clk_regfield *div,
++			       unsigned long val)
++{
++	unsigned long flags;
++	u32 reg;
++
++	if (div->width == 0)
++		return 0;
++
++	spin_lock_irqsave(common->lock, flags);
++
++	reg = readl(common->base + div->reg);
++	reg = cv1800_clk_regfield_set(reg, val, div);
++	if (div->initval > 0)
++		reg = DIV_SET_EN_DIV_FACTOR(reg);
++
++	writel(reg, common->base + div->reg);
++
++	spin_unlock_irqrestore(common->lock, flags);
++
++	return 0;
++}
++
++static u32 div_helper_get_clockdiv(struct cv1800_clk_common *common,
++				   struct cv1800_clk_regfield *div)
++{
++	u32 clockdiv = 1;
++	u32 reg;
++
++	if (!div || div->initval < 0 || (div->width == 0 && div->initval <= 0))
++		return 1;
++
++	if (div->width == 0 && div->initval > 0)
++		return div->initval;
++
++	reg = readl(common->base + div->reg);
++
++	if (div->initval == 0 || DIV_GET_EN_CLK_DIV_FACTOR(reg))
++		clockdiv = cv1800_clk_regfield_get(reg, div);
++	else if (div->initval > 0)
++		clockdiv = div->initval;
++
++	return clockdiv;
++}
++
++static u32 div_helper_round_rate(struct cv1800_clk_regfield *div,
++				 struct clk_hw *hw, struct clk_hw *parent,
++				 unsigned long rate, unsigned long *prate)
++{
++	if (div->width == 0) {
++		if (div->initval <= 0)
++			return DIV_ROUND_UP_ULL(*prate, 1);
++		else
++			return DIV_ROUND_UP_ULL(*prate, div->initval);
++	}
++
++	return divider_round_rate_parent(hw, parent, rate, prate, NULL,
++					 div->width, div->flags);
++}
++
++static long div_round_rate(struct clk_hw *parent, unsigned long *parent_rate,
++			   unsigned long rate, int id, void *data)
++{
++	struct cv1800_clk_div *div = data;
++
++	return div_helper_round_rate(&div->div, &div->common.hw, parent,
++				     rate, parent_rate);
++}
++
++static bool div_is_better_rate(struct cv1800_clk_common *common,
++			       unsigned long target, unsigned long now,
++			       unsigned long best)
++{
++	if (common->features & CLK_DIVIDER_ROUND_CLOSEST)
++		return abs_diff(target, now) < abs_diff(target, best);
++
++	return now <= target && now > best;
++}
++
++static int mux_helper_determine_rate(struct cv1800_clk_common *common,
++				     struct clk_rate_request *req,
++				     long (*round)(struct clk_hw *,
++						   unsigned long *,
++						   unsigned long,
++						   int,
++						   void *),
++				     void *data)
++{
++	unsigned long best_parent_rate = 0, best_rate = 0;
++	struct clk_hw *best_parent, *hw = &common->hw;
++	unsigned int i;
++
++	if (clk_hw_get_flags(hw) & CLK_SET_RATE_NO_REPARENT) {
++		unsigned long adj_parent_rate;
++
++		best_parent = clk_hw_get_parent(hw);
++		best_parent_rate = clk_hw_get_rate(best_parent);
++
++		best_rate = round(best_parent, &adj_parent_rate,
++				  req->rate, -1, data);
++
++		goto find;
++	}
++
++	for (i = 0; i < clk_hw_get_num_parents(hw); i++) {
++		unsigned long tmp_rate, parent_rate;
++		struct clk_hw *parent;
++
++		parent = clk_hw_get_parent_by_index(hw, i);
++		if (!parent)
++			continue;
++
++		parent_rate = clk_hw_get_rate(parent);
++
++		tmp_rate = round(parent, &parent_rate, req->rate, i, data);
++
++		if (tmp_rate == req->rate) {
++			best_parent = parent;
++			best_parent_rate = parent_rate;
++			best_rate = tmp_rate;
++			goto find;
++		}
++
++		if (div_is_better_rate(common, req->rate,
++				       tmp_rate, best_rate)) {
++			best_parent = parent;
++			best_parent_rate = parent_rate;
++			best_rate = tmp_rate;
++		}
++	}
++
++	if (best_rate == 0)
++		return -EINVAL;
++
++find:
++	req->best_parent_hw = best_parent;
++	req->best_parent_rate = best_parent_rate;
++	req->rate = best_rate;
++	return 0;
++}
++
++static int div_determine_rate(struct clk_hw *hw,
++			      struct clk_rate_request *req)
++{
++	struct cv1800_clk_div *div = hw_to_cv1800_clk_div(hw);
++
++	return mux_helper_determine_rate(&div->common, req,
++					 div_round_rate, div);
++}
++
++static unsigned long div_recalc_rate(struct clk_hw *hw,
++				     unsigned long parent_rate)
++{
++	struct cv1800_clk_div *div = hw_to_cv1800_clk_div(hw);
++	unsigned long val;
++
++	val = div_helper_get_clockdiv(&div->common, &div->div);
++	if (val == 0)
++		return 0;
++
++	return divider_recalc_rate(hw, parent_rate, val, NULL,
++				   div->div.flags, div->div.width);
++}
++
++static int div_set_rate(struct clk_hw *hw, unsigned long rate,
++			 unsigned long parent_rate)
++{
++	struct cv1800_clk_div *div = hw_to_cv1800_clk_div(hw);
++	unsigned long val;
++
++	val = divider_get_val(rate, parent_rate, NULL,
++			      div->div.width, div->div.flags);
++
++	return div_helper_set_rate(&div->common, &div->div, val);
++}
++
++const struct clk_ops cv1800_clk_div_ops = {
++	.disable = div_disable,
++	.enable = div_enable,
++	.is_enabled = div_is_enabled,
++
++	.determine_rate = div_determine_rate,
++	.recalc_rate	= div_recalc_rate,
++	.set_rate = div_set_rate,
++};
++
++static inline struct cv1800_clk_bypass_div *
++hw_to_cv1800_clk_bypass_div(struct clk_hw *hw)
++{
++	struct cv1800_clk_div *div = hw_to_cv1800_clk_div(hw);
++
++	return container_of(div, struct cv1800_clk_bypass_div, div);
++}
++
++static long bypass_div_round_rate(struct clk_hw *parent,
++				  unsigned long *parent_rate,
++				  unsigned long rate, int id, void *data)
++{
++	struct cv1800_clk_bypass_div *div = data;
++
++	if (id == -1) {
++		if (cv1800_clk_checkbit(&div->div.common, &div->bypass))
++			return *parent_rate;
++		else
++			return div_round_rate(parent, parent_rate, rate,
++					      -1, &div->div);
++	}
++
++	if (id == 0)
++		return *parent_rate;
++
++	return div_round_rate(parent, parent_rate, rate, id - 1, &div->div);
++}
++
++static int bypass_div_determine_rate(struct clk_hw *hw,
++				     struct clk_rate_request *req)
++{
++	struct cv1800_clk_bypass_div *div = hw_to_cv1800_clk_bypass_div(hw);
++
++	return mux_helper_determine_rate(&div->div.common, req,
++					 bypass_div_round_rate, div);
++}
++
++static unsigned long bypass_div_recalc_rate(struct clk_hw *hw,
++					    unsigned long parent_rate)
++{
++	struct cv1800_clk_bypass_div *div = hw_to_cv1800_clk_bypass_div(hw);
++
++	if (cv1800_clk_checkbit(&div->div.common, &div->bypass))
++		return parent_rate;
++
++	return div_recalc_rate(hw, parent_rate);
++}
++
++static int bypass_div_set_rate(struct clk_hw *hw, unsigned long rate,
++			       unsigned long parent_rate)
++{
++	struct cv1800_clk_bypass_div *div = hw_to_cv1800_clk_bypass_div(hw);
++
++	if (cv1800_clk_checkbit(&div->div.common, &div->bypass))
++		return 0;
++
++	return div_set_rate(hw, rate, parent_rate);
++}
++
++static u8 bypass_div_get_parent(struct clk_hw *hw)
++{
++	struct cv1800_clk_bypass_div *div = hw_to_cv1800_clk_bypass_div(hw);
++
++	if (cv1800_clk_checkbit(&div->div.common, &div->bypass))
++		return 0;
++
++	return 1;
++}
++
++static int bypass_div_set_parent(struct clk_hw *hw, u8 index)
++{
++	struct cv1800_clk_bypass_div *div = hw_to_cv1800_clk_bypass_div(hw);
++	unsigned long flags;
++
++	spin_lock_irqsave(div->div.common.lock, flags);
++
++	if (index)
++		cv1800_clk_clearbit(&div->div.common, &div->bypass);
++	else
++		cv1800_clk_setbit(&div->div.common, &div->bypass);
++
++	spin_unlock_irqrestore(div->div.common.lock, flags);
++
++	return 0;
++}
++
++const struct clk_ops cv1800_clk_bypass_div_ops = {
++	.disable = div_disable,
++	.enable = div_enable,
++	.is_enabled = div_is_enabled,
++
++	.determine_rate = bypass_div_determine_rate,
++	.recalc_rate = bypass_div_recalc_rate,
++	.set_rate = bypass_div_set_rate,
++
++	.set_parent = bypass_div_set_parent,
++	.get_parent = bypass_div_get_parent
++};
++
++/* MUX */
++static inline struct cv1800_clk_mux *hw_to_cv1800_clk_mux(struct clk_hw *hw)
++{
++	struct cv1800_clk_common *common = hw_to_cv1800_clk_common(hw);
++
++	return container_of(common, struct cv1800_clk_mux, common);
++}
++
++static int mux_enable(struct clk_hw *hw)
++{
++	struct cv1800_clk_mux *mux = hw_to_cv1800_clk_mux(hw);
++
++	return cv1800_clk_setbit(&mux->common, &mux->gate);
++}
++
++static void mux_disable(struct clk_hw *hw)
++{
++	struct cv1800_clk_mux *mux = hw_to_cv1800_clk_mux(hw);
++
++	cv1800_clk_clearbit(&mux->common, &mux->gate);
++}
++
++static int mux_is_enabled(struct clk_hw *hw)
++{
++	struct cv1800_clk_mux *mux = hw_to_cv1800_clk_mux(hw);
++
++	return cv1800_clk_checkbit(&mux->common, &mux->gate);
++}
++
++static long mux_round_rate(struct clk_hw *parent, unsigned long *parent_rate,
++			   unsigned long rate, int id, void *data)
++{
++	struct cv1800_clk_mux *mux = data;
++
++	return div_helper_round_rate(&mux->div, &mux->common.hw, parent,
++				     rate, parent_rate);
++}
++
++static int mux_determine_rate(struct clk_hw *hw,
++			      struct clk_rate_request *req)
++{
++	struct cv1800_clk_mux *mux = hw_to_cv1800_clk_mux(hw);
++
++	return mux_helper_determine_rate(&mux->common, req,
++					 mux_round_rate, mux);
++}
++
++static unsigned long mux_recalc_rate(struct clk_hw *hw,
++				     unsigned long parent_rate)
++{
++	struct cv1800_clk_mux *mux = hw_to_cv1800_clk_mux(hw);
++	unsigned long val;
++
++	val = div_helper_get_clockdiv(&mux->common, &mux->div);
++	if (val == 0)
++		return 0;
++
++	return divider_recalc_rate(hw, parent_rate, val, NULL,
++				   mux->div.flags, mux->div.width);
++}
++
++static int mux_set_rate(struct clk_hw *hw, unsigned long rate,
++			unsigned long parent_rate)
++{
++	struct cv1800_clk_mux *mux = hw_to_cv1800_clk_mux(hw);
++	unsigned long val;
++
++	val = divider_get_val(rate, parent_rate, NULL,
++			      mux->div.width, mux->div.flags);
++
++	return div_helper_set_rate(&mux->common, &mux->div, val);
++}
++
++static u8 mux_get_parent(struct clk_hw *hw)
++{
++	struct cv1800_clk_mux *mux = hw_to_cv1800_clk_mux(hw);
++	u32 reg = readl(mux->common.base + mux->mux.reg);
++
++	return cv1800_clk_regfield_get(reg, &mux->mux);
++}
++
++static int _mux_set_parent(struct cv1800_clk_mux *mux, u8 index)
++{
++	u32 reg;
++
++	reg = readl(mux->common.base + mux->mux.reg);
++	reg = cv1800_clk_regfield_set(reg, index, &mux->mux);
++	writel(reg, mux->common.base + mux->mux.reg);
++
++	return 0;
++}
++
++static int mux_set_parent(struct clk_hw *hw, u8 index)
++{
++	struct cv1800_clk_mux *mux = hw_to_cv1800_clk_mux(hw);
++	unsigned long flags;
++
++	spin_lock_irqsave(mux->common.lock, flags);
++
++	_mux_set_parent(mux, index);
++
++	spin_unlock_irqrestore(mux->common.lock, flags);
++
++	return 0;
++}
++
++const struct clk_ops cv1800_clk_mux_ops = {
++	.disable = mux_disable,
++	.enable = mux_enable,
++	.is_enabled = mux_is_enabled,
++
++	.determine_rate = mux_determine_rate,
++	.recalc_rate = mux_recalc_rate,
++	.set_rate = mux_set_rate,
++
++	.set_parent = mux_set_parent,
++	.get_parent = mux_get_parent,
++};
++
++static inline struct cv1800_clk_bypass_mux *
++hw_to_cv1800_clk_bypass_mux(struct clk_hw *hw)
++{
++	struct cv1800_clk_mux *mux = hw_to_cv1800_clk_mux(hw);
++
++	return container_of(mux, struct cv1800_clk_bypass_mux, mux);
++}
++
++static long bypass_mux_round_rate(struct clk_hw *parent,
++				  unsigned long *parent_rate,
++				  unsigned long rate, int id, void *data)
++{
++	struct cv1800_clk_bypass_mux *mux = data;
++
++	if (id == -1) {
++		if (cv1800_clk_checkbit(&mux->mux.common, &mux->bypass))
++			return *parent_rate;
++		else
++			return mux_round_rate(parent, parent_rate, rate,
++					      -1, &mux->mux);
++	}
++
++	if (id == 0)
++		return *parent_rate;
++
++	return mux_round_rate(parent, parent_rate, rate, id - 1, &mux->mux);
++}
++
++static int bypass_mux_determine_rate(struct clk_hw *hw,
++				     struct clk_rate_request *req)
++{
++	struct cv1800_clk_bypass_mux *mux = hw_to_cv1800_clk_bypass_mux(hw);
++
++	return mux_helper_determine_rate(&mux->mux.common, req,
++					 bypass_mux_round_rate, mux);
++}
++
++static unsigned long bypass_mux_recalc_rate(struct clk_hw *hw,
++					    unsigned long parent_rate)
++{
++	struct cv1800_clk_bypass_mux *mux = hw_to_cv1800_clk_bypass_mux(hw);
++
++	if (cv1800_clk_checkbit(&mux->mux.common, &mux->bypass))
++		return parent_rate;
++
++	return mux_recalc_rate(hw, parent_rate);
++}
++
++static int bypass_mux_set_rate(struct clk_hw *hw, unsigned long rate,
++			       unsigned long parent_rate)
++{
++	struct cv1800_clk_bypass_mux *mux = hw_to_cv1800_clk_bypass_mux(hw);
++
++	if (cv1800_clk_checkbit(&mux->mux.common, &mux->bypass))
++		return 0;
++
++	return mux_set_rate(hw, rate, parent_rate);
++}
++
++static u8 bypass_mux_get_parent(struct clk_hw *hw)
++{
++	struct cv1800_clk_bypass_mux *mux = hw_to_cv1800_clk_bypass_mux(hw);
++
++	if (cv1800_clk_checkbit(&mux->mux.common, &mux->bypass))
++		return 0;
++
++	return mux_get_parent(hw) + 1;
++}
++
++static int bypass_mux_set_parent(struct clk_hw *hw, u8 index)
++{
++	struct cv1800_clk_bypass_mux *mux = hw_to_cv1800_clk_bypass_mux(hw);
++	unsigned long flags;
++
++	spin_lock_irqsave(mux->mux.common.lock, flags);
++
++	if (index == 0) {
++		cv1800_clk_setbit(&mux->mux.common, &mux->bypass);
++		goto release;
++	}
++
++	cv1800_clk_clearbit(&mux->mux.common, &mux->bypass);
++	_mux_set_parent(&mux->mux, index - 1);
++
++release:
++	spin_unlock_irqrestore(mux->mux.common.lock, flags);
++	return 0;
++}
++
++const struct clk_ops cv1800_clk_bypass_mux_ops = {
++	.disable = mux_disable,
++	.enable = mux_enable,
++	.is_enabled = mux_is_enabled,
++
++	.determine_rate = bypass_mux_determine_rate,
++	.recalc_rate = bypass_mux_recalc_rate,
++	.set_rate = bypass_mux_set_rate,
++
++	.set_parent = bypass_mux_set_parent,
++	.get_parent = bypass_mux_get_parent,
++};
++
++/* MMUX */
++static inline struct cv1800_clk_mmux *hw_to_cv1800_clk_mmux(struct clk_hw *hw)
++{
++	struct cv1800_clk_common *common = hw_to_cv1800_clk_common(hw);
++
++	return container_of(common, struct cv1800_clk_mmux, common);
++}
++
++static u8 mmux_get_parent_id(struct cv1800_clk_mmux *mmux)
++{
++	struct clk_hw *hw = &mmux->common.hw;
++	struct clk_hw *parent = clk_hw_get_parent(hw);
++	unsigned int i;
++
++	for (i = 0; i < clk_hw_get_num_parents(hw); i++) {
++		if (parent == clk_hw_get_parent_by_index(hw, i))
++			return i;
++	}
++
++	unreachable();
++}
++
++static int mmux_enable(struct clk_hw *hw)
++{
++	struct cv1800_clk_mmux *mmux = hw_to_cv1800_clk_mmux(hw);
++
++	return cv1800_clk_setbit(&mmux->common, &mmux->gate);
++}
++
++static void mmux_disable(struct clk_hw *hw)
++{
++	struct cv1800_clk_mmux *mmux = hw_to_cv1800_clk_mmux(hw);
++
++	cv1800_clk_clearbit(&mmux->common, &mmux->gate);
++}
++
++static int mmux_is_enabled(struct clk_hw *hw)
++{
++	struct cv1800_clk_mmux *mmux = hw_to_cv1800_clk_mmux(hw);
++
++	return cv1800_clk_checkbit(&mmux->common, &mmux->gate);
++}
++
++static long mmux_round_rate(struct clk_hw *parent, unsigned long *parent_rate,
++			    unsigned long rate, int id, void *data)
++{
++	struct cv1800_clk_mmux *mmux = data;
++	s8 div_id;
++
++	if (id == -1) {
++		if (cv1800_clk_checkbit(&mmux->common, &mmux->bypass))
++			return *parent_rate;
++
++		id = mmux_get_parent_id(mmux);
++	}
++
++	div_id = mmux->parent2sel[id];
++
++	if (div_id < 0)
++		return *parent_rate;
++
++	return div_helper_round_rate(&mmux->div[div_id],
++				     &mmux->common.hw, parent,
++				     rate, parent_rate);
++}
++
++static int mmux_determine_rate(struct clk_hw *hw,
++			       struct clk_rate_request *req)
++{
++	struct cv1800_clk_mmux *mmux = hw_to_cv1800_clk_mmux(hw);
++
++	return mux_helper_determine_rate(&mmux->common, req,
++					 mmux_round_rate, mmux);
++}
++
++static unsigned long mmux_recalc_rate(struct clk_hw *hw,
++				      unsigned long parent_rate)
++{
++	struct cv1800_clk_mmux *mmux = hw_to_cv1800_clk_mmux(hw);
++	unsigned long val;
++	struct cv1800_clk_regfield *div;
++
++	if (cv1800_clk_checkbit(&mmux->common, &mmux->bypass))
++		return parent_rate;
++
++	if (cv1800_clk_checkbit(&mmux->common, &mmux->clk_sel))
++		div = &mmux->div[0];
++	else
++		div = &mmux->div[1];
++
++	val = div_helper_get_clockdiv(&mmux->common, div);
++	if (val == 0)
++		return 0;
++
++	return divider_recalc_rate(hw, parent_rate, val, NULL,
++				   div->flags, div->width);
++}
++
++static int mmux_set_rate(struct clk_hw *hw, unsigned long rate,
++			 unsigned long parent_rate)
++{
++	struct cv1800_clk_mmux *mmux = hw_to_cv1800_clk_mmux(hw);
++	struct cv1800_clk_regfield *div;
++	unsigned long val;
++
++	if (cv1800_clk_checkbit(&mmux->common, &mmux->bypass))
++		return parent_rate;
++
++	if (cv1800_clk_checkbit(&mmux->common, &mmux->clk_sel))
++		div = &mmux->div[0];
++	else
++		div = &mmux->div[1];
++
++	val = divider_get_val(rate, parent_rate, NULL,
++			      div->width, div->flags);
++
++	return div_helper_set_rate(&mmux->common, div, val);
++}
++
++static u8 mmux_get_parent(struct clk_hw *hw)
++{
++	struct cv1800_clk_mmux *mmux = hw_to_cv1800_clk_mmux(hw);
++	struct cv1800_clk_regfield *mux;
++	u32 reg;
++	s8 clk_sel;
++
++	if (cv1800_clk_checkbit(&mmux->common, &mmux->bypass))
++		return 0;
++
++	if (cv1800_clk_checkbit(&mmux->common, &mmux->clk_sel))
++		clk_sel = 0;
++	else
++		clk_sel = 1;
++	mux = &mmux->mux[clk_sel];
++
++	reg = readl(mmux->common.base + mux->reg);
++
++	return mmux->sel2parent[clk_sel][cv1800_clk_regfield_get(reg, mux)];
++}
++
++static int mmux_set_parent(struct clk_hw *hw, u8 index)
++{
++	struct cv1800_clk_mmux *mmux = hw_to_cv1800_clk_mmux(hw);
++	struct cv1800_clk_regfield *mux;
++	unsigned long flags;
++	u32 reg;
++	s8 clk_sel = mmux->parent2sel[index];
++
++	spin_lock_irqsave(mmux->common.lock, flags);
++
++	if (index == 0 || clk_sel == -1) {
++		cv1800_clk_setbit(&mmux->common, &mmux->bypass);
++		goto release;
++	}
++
++	cv1800_clk_clearbit(&mmux->common, &mmux->bypass);
++
++	if (clk_sel)
++		cv1800_clk_clearbit(&mmux->common, &mmux->clk_sel);
++	else
++		cv1800_clk_setbit(&mmux->common, &mmux->clk_sel);
++
++	mux = &mmux->mux[clk_sel];
++	reg = readl(mmux->common.base + mux->reg);
++	reg = cv1800_clk_regfield_set(reg, index, mux);
++
++	writel(reg, mmux->common.base + mux->reg);
++
++release:
++	spin_unlock_irqrestore(mmux->common.lock, flags);
++
++	return 0;
++}
++
++const struct clk_ops cv1800_clk_mmux_ops = {
++	.disable = mmux_disable,
++	.enable = mmux_enable,
++	.is_enabled = mmux_is_enabled,
++
++	.determine_rate = mmux_determine_rate,
++	.recalc_rate = mmux_recalc_rate,
++	.set_rate = mmux_set_rate,
++
++	.set_parent = mmux_set_parent,
++	.get_parent = mmux_get_parent,
++};
++
++/* AUDIO CLK */
++static inline struct cv1800_clk_audio *
++hw_to_cv1800_clk_audio(struct clk_hw *hw)
++{
++	struct cv1800_clk_common *common = hw_to_cv1800_clk_common(hw);
++
++	return container_of(common, struct cv1800_clk_audio, common);
++}
++
++static int aclk_enable(struct clk_hw *hw)
++{
++	struct cv1800_clk_audio *aclk = hw_to_cv1800_clk_audio(hw);
++
++	cv1800_clk_setbit(&aclk->common, &aclk->src_en);
++	return cv1800_clk_setbit(&aclk->common, &aclk->output_en);
++}
++
++static void aclk_disable(struct clk_hw *hw)
++{
++	struct cv1800_clk_audio *aclk = hw_to_cv1800_clk_audio(hw);
++
++	cv1800_clk_clearbit(&aclk->common, &aclk->output_en);
++	cv1800_clk_clearbit(&aclk->common, &aclk->src_en);
++}
++
++static int aclk_is_enabled(struct clk_hw *hw)
++{
++	struct cv1800_clk_audio *aclk = hw_to_cv1800_clk_audio(hw);
++
++	return cv1800_clk_checkbit(&aclk->common, &aclk->output_en);
++}
++
++static int aclk_determine_rate(struct clk_hw *hw,
++			       struct clk_rate_request *req)
++{
++	struct cv1800_clk_audio *aclk = hw_to_cv1800_clk_audio(hw);
++
++	req->rate = aclk->target_rate;
++
++	return 0;
++}
++
++static unsigned long aclk_recalc_rate(struct clk_hw *hw,
++				      unsigned long parent_rate)
++{
++	struct cv1800_clk_audio *aclk = hw_to_cv1800_clk_audio(hw);
++	u64 rate = parent_rate;
++	u64 factor = 2;
++	u32 regval;
++
++	if (!cv1800_clk_checkbit(&aclk->common, &aclk->div_en))
++		return 0;
++
++	regval = readl(aclk->common.base + aclk->m.reg);
++	factor *= cv1800_clk_regfield_get(regval, &aclk->m);
++
++	regval = readl(aclk->common.base + aclk->n.reg);
++	rate *= cv1800_clk_regfield_get(regval, &aclk->n);
++
++	return DIV64_U64_ROUND_UP(rate, factor);
++}
++
++static void aclk_determine_mn(unsigned long parent_rate, unsigned long rate,
++			      u32 *m, u32 *n)
++{
++	u32 tm = parent_rate / 2;
++	u32 tn = rate;
++	u32 tcommon = gcd(tm, tn);
++	*m = tm / tcommon;
++	*n = tn / tcommon;
++}
++
++
++static int aclk_set_rate(struct clk_hw *hw, unsigned long rate,
++			 unsigned long parent_rate)
++{
++	struct cv1800_clk_audio *aclk = hw_to_cv1800_clk_audio(hw);
++	unsigned long flags;
++	u32 m, n;
++
++	aclk_determine_mn(parent_rate, rate,
++			  &m, &n);
++
++	spin_lock_irqsave(aclk->common.lock, flags);
++
++	writel(m, aclk->common.base + aclk->m.reg);
++	writel(n, aclk->common.base + aclk->n.reg);
++
++	cv1800_clk_setbit(&aclk->common, &aclk->div_en);
++	cv1800_clk_setbit(&aclk->common, &aclk->div_up);
++
++	spin_unlock_irqrestore(aclk->common.lock, flags);
++
++	return 0;
++}
++
++const struct clk_ops cv1800_clk_audio_ops = {
++	.disable = aclk_disable,
++	.enable = aclk_enable,
++	.is_enabled = aclk_is_enabled,
++
++	.determine_rate = aclk_determine_rate,
++	.recalc_rate = aclk_recalc_rate,
++	.set_rate = aclk_set_rate,
++};
+diff --git a/drivers/clk/sophgo/clk-cv18xx-ip.h b/drivers/clk/sophgo/clk-cv18xx-ip.h
+new file mode 100644
+index 000000000000..928de0146b08
+--- /dev/null
++++ b/drivers/clk/sophgo/clk-cv18xx-ip.h
+@@ -0,0 +1,265 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
++ */
++
++#ifndef _CLK_SOPHGO_CV1800_IP_H_
++#define _CLK_SOPHGO_CV1800_IP_H_
++
++#include "clk-cv18xx-common.h"
++
++struct cv1800_clk_gate {
++	struct cv1800_clk_common	common;
++	struct cv1800_clk_regbit	gate;
++};
++
++struct cv1800_clk_div_data {
++	u32		reg;
++	u32		mask;
++	u32		width;
++	u32		init;
++	u32		flags;
++};
++
++struct cv1800_clk_div {
++	struct cv1800_clk_common	common;
++	struct cv1800_clk_regbit	gate;
++	struct cv1800_clk_regfield	div;
++};
++
++struct cv1800_clk_bypass_div {
++	struct cv1800_clk_div		div;
++	struct cv1800_clk_regbit	bypass;
++};
++
++struct cv1800_clk_mux {
++	struct cv1800_clk_common	common;
++	struct cv1800_clk_regbit	gate;
++	struct cv1800_clk_regfield	div;
++	struct cv1800_clk_regfield	mux;
++};
++
++struct cv1800_clk_bypass_mux {
++	struct cv1800_clk_mux		mux;
++	struct cv1800_clk_regbit	bypass;
++};
++
++struct cv1800_clk_mmux {
++	struct cv1800_clk_common	common;
++	struct cv1800_clk_regbit	gate;
++	struct cv1800_clk_regfield	div[2];
++	struct cv1800_clk_regfield	mux[2];
++	struct cv1800_clk_regbit	bypass;
++	struct cv1800_clk_regbit	clk_sel;
++	const s8			*parent2sel;
++	const u8			*sel2parent[2];
++};
++
++struct cv1800_clk_audio {
++	struct cv1800_clk_common	common;
++	struct cv1800_clk_regbit	src_en;
++	struct cv1800_clk_regbit	output_en;
++	struct cv1800_clk_regbit	div_en;
++	struct cv1800_clk_regbit	div_up;
++	struct cv1800_clk_regfield	m;
++	struct cv1800_clk_regfield	n;
++	u32				target_rate;
++};
++
++#define CV1800_GATE(_name, _parent, _gate_reg, _gate_shift, _flags)	\
++	struct cv1800_clk_gate _name = {				\
++		.common	= CV1800_CLK_COMMON(#_name, _parent,		\
++					    &cv1800_clk_gate_ops,	\
++					    _flags),			\
++		.gate	= CV1800_CLK_BIT(_gate_reg, _gate_shift),	\
++	}
++
++#define _CV1800_DIV(_name, _parent, _gate_reg, _gate_shift,		\
++		    _div_reg, _div_shift, _div_width, _div_init,	\
++		    _div_flag, _ops, _flags)				\
++	{								\
++		.common		= CV1800_CLK_COMMON(#_name, _parent,	\
++						    _ops, _flags),	\
++		.gate		= CV1800_CLK_BIT(_gate_reg,		\
++						 _gate_shift),		\
++		.div		= CV1800_CLK_REG(_div_reg, _div_shift,	\
++						 _div_width, _div_init,	\
++						 _div_flag),		\
++	}
++
++#define _CV1800_FIXED_DIV_FLAG	\
++	(CLK_DIVIDER_ONE_BASED | CLK_DIVIDER_ROUND_CLOSEST)
++
++#define _CV1800_FIXED_DIV(_name, _parent, _gate_reg, _gate_shift,	\
++			  _fix_div, _ops, _flags)			\
++	{								\
++		.common		= CV1800_CLK_COMMON(#_name, _parent,	\
++						    _ops, _flags),	\
++		.gate		= CV1800_CLK_BIT(_gate_reg,		\
++						 _gate_shift),		\
++		.div		= CV1800_CLK_REG(0, 0, 0,		\
++						 _fix_div,		\
++						 _CV1800_FIXED_DIV_FLAG),\
++	}
++
++
++#define CV1800_DIV(_name, _parent, _gate_reg, _gate_shift,		\
++		   _div_reg, _div_shift, _div_width, _div_init,		\
++		   _div_flag, _flags)					\
++	struct cv1800_clk_div _name =					\
++		_CV1800_DIV(_name, _parent, _gate_reg, _gate_shift,	\
++			    _div_reg, _div_shift, _div_width, _div_init,\
++			    _div_flag, &cv1800_clk_div_ops, _flags)
++
++
++#define CV1800_BYPASS_DIV(_name, _parent, _gate_reg, _gate_shift,	\
++			  _div_reg, _div_shift, _div_width, _div_init,	\
++			  _div_flag, _bypass_reg, _bypass_shift, _flags)\
++	struct cv1800_clk_bypass_div _name = {				\
++		.div	= _CV1800_DIV(_name, _parent,			\
++				      _gate_reg, _gate_shift,		\
++				      _div_reg, _div_shift,		\
++				      _div_width, _div_init, _div_flag,	\
++				      &cv1800_clk_bypass_div_ops,	\
++				      _flags),				\
++		.bypass	= CV1800_CLK_BIT(_bypass_reg, _bypass_shift),	\
++	}
++
++#define CV1800_FIXED_DIV(_name, _parent, _gate_reg, _gate_shift,	\
++			 _fix_div, _flags)				\
++	struct cv1800_clk_div _name =					\
++		_CV1800_FIXED_DIV(_name, _parent,			\
++				  _gate_reg, _gate_shift,		\
++				  _fix_div,				\
++				  &cv1800_clk_div_ops, _flags)		\
++
++#define CV1800_BYPASS_FIXED_DIV(_name, _parent, _gate_reg, _gate_shift,	\
++				_fix_div, _bypass_reg, _bypass_shift,	\
++				_flags)					\
++	struct cv1800_clk_bypass_div _name = {				\
++		.div	= _CV1800_FIXED_DIV(_name, _parent,		\
++					    _gate_reg, _gate_shift,	\
++					    _fix_div,			\
++					    &cv1800_clk_bypass_div_ops,	\
++					    _flags),			\
++		.bypass	= CV1800_CLK_BIT(_bypass_reg, _bypass_shift),	\
++	}
++
++#define _CV1800_MUX(_name, _parent, _gate_reg, _gate_shift,		\
++		    _div_reg, _div_shift, _div_width, _div_init,	\
++		    _div_flag,						\
++		    _mux_reg, _mux_shift, _mux_width,			\
++		    _ops, _flags)					\
++	{								\
++		.common		= CV1800_CLK_COMMON(#_name, _parent,	\
++						    _ops, _flags),	\
++		.gate		= CV1800_CLK_BIT(_gate_reg,		\
++						 _gate_shift),		\
++		.div		= CV1800_CLK_REG(_div_reg, _div_shift,	\
++						 _div_width, _div_init,	\
++						 _div_flag),		\
++		.mux		= CV1800_CLK_REG(_mux_reg, _mux_shift,	\
++						 _mux_width, 0, 0),	\
++	}
++
++#define CV1800_MUX(_name, _parent, _gate_reg, _gate_shift,		\
++		   _div_reg, _div_shift, _div_width, _div_init,		\
++		   _div_flag,						\
++		   _mux_reg, _mux_shift, _mux_width, _flags)		\
++	struct cv1800_clk_mux _name =					\
++		_CV1800_MUX(_name, _parent, _gate_reg, _gate_shift,	\
++			    _div_reg, _div_shift, _div_width, _div_init,\
++			    _div_flag, _mux_reg, _mux_shift, _mux_width,\
++			    &cv1800_clk_mux_ops, _flags)
++
++#define CV1800_BYPASS_MUX(_name, _parent, _gate_reg, _gate_shift,	\
++			  _div_reg, _div_shift, _div_width, _div_init,	\
++			  _div_flag,					\
++			  _mux_reg, _mux_shift, _mux_width,		\
++			  _bypass_reg, _bypass_shift, _flags)		\
++	struct cv1800_clk_bypass_mux _name = {				\
++		.mux	= _CV1800_MUX(_name, _parent,			\
++				      _gate_reg, _gate_shift,		\
++				      _div_reg, _div_shift, _div_width,	\
++				      _div_init, _div_flag,		\
++				      _mux_reg, _mux_shift, _mux_width,	\
++				      &cv1800_clk_bypass_mux_ops,	\
++				      _flags),				\
++		.bypass	= CV1800_CLK_BIT(_bypass_reg, _bypass_shift),	\
++	}
++
++#define CV1800_MMUX(_name, _parent, _gate_reg, _gate_shift,		\
++		    _div0_reg, _div0_shift, _div0_width, _div0_init,	\
++		    _div0_flag,						\
++		    _div1_reg, _div1_shift, _div1_width, _div1_init,	\
++		    _div1_flag,						\
++		    _mux0_reg, _mux0_shift, _mux0_width,		\
++		    _mux1_reg, _mux1_shift, _mux1_width,		\
++		    _bypass_reg, _bypass_shift,				\
++		    _clk_sel_reg, _clk_sel_shift,			\
++		    _parent2sel, _sel2parent0, _sel2parent1, _flags)	\
++	struct cv1800_clk_mmux _name = {				\
++		.common		= CV1800_CLK_COMMON(#_name, _parent,	\
++						    &cv1800_clk_mmux_ops,\
++						    _flags),		\
++		.gate		= CV1800_CLK_BIT(_gate_reg, _gate_shift),\
++		.div		= {					\
++			CV1800_CLK_REG(_div0_reg, _div0_shift,		\
++				       _div0_width, _div0_init,		\
++				       _div0_flag),			\
++			CV1800_CLK_REG(_div1_reg, _div1_shift,		\
++				       _div1_width, _div1_init,		\
++				       _div1_flag),			\
++		},							\
++		.mux		= {					\
++			CV1800_CLK_REG(_mux0_reg, _mux0_shift,		\
++				       _mux0_width, 0, 0),		\
++			CV1800_CLK_REG(_mux1_reg, _mux1_shift,		\
++				       _mux1_width, 0, 0),		\
++		},							\
++		.bypass		= CV1800_CLK_BIT(_bypass_reg,		\
++						 _bypass_shift),	\
++		.clk_sel	= CV1800_CLK_BIT(_clk_sel_reg,		\
++						 _clk_sel_shift),	\
++		.parent2sel	= _parent2sel,				\
++		.sel2parent	= { _sel2parent0, _sel2parent1 },	\
++	}
++
++#define CV1800_ACLK(_name, _parent,					\
++		    _src_en_reg, _src_en_reg_shift,			\
++		    _output_en_reg, _output_en_shift,			\
++		    _div_en_reg, _div_en_reg_shift,			\
++		    _div_up_reg, _div_up_reg_shift,			\
++		    _m_reg, _m_shift, _m_width, _m_flag,		\
++		    _n_reg, _n_shift, _n_width, _n_flag,		\
++		    _target_rate, _flags)				\
++	struct cv1800_clk_audio _name = {				\
++		.common		= CV1800_CLK_COMMON(#_name, _parent,	\
++						    &cv1800_clk_audio_ops,\
++						    _flags),		\
++		.src_en		= CV1800_CLK_BIT(_src_en_reg,		\
++						 _src_en_reg_shift),	\
++		.output_en	= CV1800_CLK_BIT(_output_en_reg,	\
++						 _output_en_shift),	\
++		.div_en		= CV1800_CLK_BIT(_div_en_reg,		\
++						 _div_en_reg_shift),	\
++		.div_up		= CV1800_CLK_BIT(_div_up_reg,		\
++						 _div_up_reg_shift),	\
++		.m		= CV1800_CLK_REG(_m_reg, _m_shift,	\
++						 _m_width, 0, _m_flag),	\
++		.n		= CV1800_CLK_REG(_n_reg, _n_shift,	\
++						 _n_width, 0, _n_flag),	\
++		.target_rate	= _target_rate,				\
++	}
++
++
++
++extern const struct clk_ops cv1800_clk_gate_ops;
++extern const struct clk_ops cv1800_clk_div_ops;
++extern const struct clk_ops cv1800_clk_bypass_div_ops;
++extern const struct clk_ops cv1800_clk_mux_ops;
++extern const struct clk_ops cv1800_clk_bypass_mux_ops;
++extern const struct clk_ops cv1800_clk_mmux_ops;
++extern const struct clk_ops cv1800_clk_audio_ops;
++
++#endif // _CLK_SOPHGO_CV1800_IP_H_
+diff --git a/drivers/clk/sophgo/clk-cv18xx-pll.c b/drivers/clk/sophgo/clk-cv18xx-pll.c
+new file mode 100644
+index 000000000000..c687bde48455
+--- /dev/null
++++ b/drivers/clk/sophgo/clk-cv18xx-pll.c
+@@ -0,0 +1,425 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
++ */
++
++#include <linux/clk-provider.h>
++#include <linux/io.h>
++#include <linux/limits.h>
++#include <linux/spinlock.h>
++
++#include "clk-cv18xx-pll.h"
++
++static inline struct cv1800_clk_pll *hw_to_cv1800_clk_pll(struct clk_hw *hw)
++{
++	struct cv1800_clk_common *common = hw_to_cv1800_clk_common(hw);
++
++	return container_of(common, struct cv1800_clk_pll, common);
++}
++
++static unsigned long ipll_calc_rate(unsigned long parent_rate,
++				    unsigned long pre_div_sel,
++				    unsigned long div_sel,
++				    unsigned long post_div_sel)
++{
++	unsigned long rate = parent_rate;
++
++	rate *= div_sel;
++	do_div(rate, pre_div_sel * post_div_sel);
++
++	return rate;
++}
++
++static unsigned long ipll_recalc_rate(struct clk_hw *hw,
++				      unsigned long parent_rate)
++{
++	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
++	u32 value;
++
++	value = readl(pll->common.base + pll->pll_reg);
++
++	return ipll_calc_rate(parent_rate,
++			      PLL_GET_PRE_DIV_SEL(value),
++			      PLL_GET_DIV_SEL(value),
++			      PLL_GET_POST_DIV_SEL(value));
++}
++
++static int ipll_find_rate(const struct cv1800_clk_pll_limit *limit,
++			  unsigned long prate, unsigned long *rate,
++			  u32 *value)
++{
++	unsigned long best_rate = 0;
++	unsigned long trate = *rate;
++	unsigned long pre_div_sel = 0, div_sel = 0, post_div_sel = 0;
++	unsigned long pre, div, post;
++	u32 detected = *value;
++	unsigned long tmp;
++
++	for_each_pll_limit_range(pre, &limit->pre_div) {
++		for_each_pll_limit_range(div, &limit->div) {
++			for_each_pll_limit_range(post, &limit->post_div) {
++				tmp = ipll_calc_rate(prate, pre, div, post);
++
++				if (tmp > trate)
++					continue;
++
++				if ((trate - tmp) < (trate - best_rate)) {
++					best_rate = tmp;
++					pre_div_sel = pre;
++					div_sel = div;
++					post_div_sel = post;
++				}
++			}
++		}
++	}
++
++	if (best_rate) {
++		detected = PLL_SET_PRE_DIV_SEL(detected, pre_div_sel);
++		detected = PLL_SET_POST_DIV_SEL(detected, post_div_sel);
++		detected = PLL_SET_DIV_SEL(detected, div_sel);
++		*value = detected;
++		*rate = best_rate;
++		return 0;
++	}
++
++	return -EINVAL;
++}
++
++static int ipll_determine_rate(struct clk_hw *hw, struct clk_rate_request *req)
++{
++	u32 val;
++	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
++
++	return ipll_find_rate(pll->pll_limit, req->best_parent_rate,
++			      &req->rate, &val);
++}
++
++static void pll_get_mode_ctrl(unsigned long div_sel,
++			      bool (*mode_ctrl_check)(unsigned long,
++						      unsigned long,
++						      unsigned long),
++			      const struct cv1800_clk_pll_limit *limit,
++			      u32 *value)
++{
++	unsigned long ictrl = 0, mode = 0;
++	u32 detected = *value;
++
++	for_each_pll_limit_range(mode, &limit->mode) {
++		for_each_pll_limit_range(ictrl, &limit->ictrl) {
++			if (mode_ctrl_check(div_sel, ictrl, mode)) {
++				detected = PLL_SET_SEL_MODE(detected, mode);
++				detected = PLL_SET_ICTRL(detected, ictrl);
++				*value = detected;
++				return;
++			}
++		}
++	}
++}
++
++static bool ipll_check_mode_ctrl_restrict(unsigned long div_sel,
++					  unsigned long ictrl,
++					  unsigned long mode)
++{
++	unsigned long left_rest = 20 * div_sel;
++	unsigned long right_rest = 35 * div_sel;
++	unsigned long test = 184 * (1 + mode) * (1 + ictrl) / 2;
++
++	return test > left_rest && test <= right_rest;
++}
++
++static int ipll_set_rate(struct clk_hw *hw, unsigned long rate,
++			 unsigned long parent_rate)
++{
++	u32 regval, detected = 0;
++	unsigned long flags;
++	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
++
++	ipll_find_rate(pll->pll_limit, parent_rate, &rate, &detected);
++	pll_get_mode_ctrl(PLL_GET_DIV_SEL(detected),
++			  ipll_check_mode_ctrl_restrict,
++			  pll->pll_limit, &detected);
++
++	spin_lock_irqsave(pll->common.lock, flags);
++
++	regval = readl(pll->common.base + pll->pll_reg);
++	regval = PLL_COPY_REG(regval, detected);
++
++	writel(regval, pll->common.base + pll->pll_reg);
++
++	spin_unlock_irqrestore(pll->common.lock, flags);
++
++	cv1800_clk_wait_for_lock(&pll->common, pll->pll_status.reg,
++			      BIT(pll->pll_status.shift));
++
++	return 0;
++}
++
++static int pll_enable(struct clk_hw *hw)
++{
++	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
++
++	return cv1800_clk_clearbit(&pll->common, &pll->pll_pwd);
++}
++
++static void pll_disable(struct clk_hw *hw)
++{
++	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
++
++	cv1800_clk_setbit(&pll->common, &pll->pll_pwd);
++}
++
++static int pll_is_enable(struct clk_hw *hw)
++{
++	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
++
++	return cv1800_clk_checkbit(&pll->common, &pll->pll_pwd) == 0;
++}
++
++const struct clk_ops cv1800_clk_ipll_ops = {
++	.disable = pll_disable,
++	.enable = pll_enable,
++	.is_enabled = pll_is_enable,
++
++	.recalc_rate = ipll_recalc_rate,
++	.determine_rate = ipll_determine_rate,
++	.set_rate = ipll_set_rate,
++};
++
++#define PLL_SYN_FACTOR_DOT_POS		26
++#define PLL_SYN_FACTOR_MINIMUM		((4 << PLL_SYN_FACTOR_DOT_POS) + 1)
++
++static bool fpll_is_factional_mode(struct cv1800_clk_pll *pll)
++{
++	return cv1800_clk_checkbit(&pll->common, &pll->pll_syn->en);
++}
++
++static unsigned long fpll_calc_rate(unsigned long parent_rate,
++				    unsigned long pre_div_sel,
++				    unsigned long div_sel,
++				    unsigned long post_div_sel,
++				    unsigned long ssc_syn_set,
++				    bool is_full_parent)
++{
++	u64 dividend = parent_rate * div_sel;
++	u64 factor = ssc_syn_set * pre_div_sel * post_div_sel;
++	unsigned long rate;
++
++	dividend <<= PLL_SYN_FACTOR_DOT_POS - 1;
++	rate = dividend / factor;
++	dividend %= factor;
++
++	if (is_full_parent) {
++		dividend <<= 1;
++		rate <<= 1;
++	}
++
++	rate += DIV64_U64_ROUND_CLOSEST(dividend, factor);
++
++	return rate;
++}
++
++static unsigned long fpll_recalc_rate(struct clk_hw *hw,
++					  unsigned long parent_rate)
++{
++	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
++	u32 value;
++	bool clk_full;
++	u32 syn_set;
++
++	if (!fpll_is_factional_mode(pll))
++		return ipll_recalc_rate(hw, parent_rate);
++
++	syn_set = readl(pll->common.base + pll->pll_syn->set);
++
++	if (syn_set == 0)
++		return 0;
++
++	clk_full = cv1800_clk_checkbit(&pll->common,
++					  &pll->pll_syn->clk_half);
++
++	value = readl(pll->common.base + pll->pll_reg);
++
++	return fpll_calc_rate(parent_rate,
++			      PLL_GET_PRE_DIV_SEL(value),
++			      PLL_GET_DIV_SEL(value),
++			      PLL_GET_POST_DIV_SEL(value),
++			      syn_set, clk_full);
++}
++
++static unsigned long fpll_find_synthesizer(unsigned long parent,
++					   unsigned long rate,
++					   unsigned long pre_div,
++					   unsigned long div,
++					   unsigned long post_div,
++					   bool is_full_parent,
++					   u32 *ssc_syn_set)
++{
++	u32 test_max = U32_MAX, test_min = PLL_SYN_FACTOR_MINIMUM;
++	unsigned long trate;
++
++	while (test_min < test_max) {
++		u32 tssc = (test_max + test_min) / 2;
++
++		trate = fpll_calc_rate(parent, pre_div, div, post_div,
++				       tssc, is_full_parent);
++
++		if (trate == rate) {
++			test_min = tssc;
++			break;
++		}
++
++		if (trate > rate)
++			test_min = tssc + 1;
++		else
++			test_max = tssc - 1;
++	}
++
++	if (trate != 0)
++		*ssc_syn_set = test_min;
++
++	return trate;
++}
++
++static int fpll_find_rate(struct cv1800_clk_pll *pll,
++			  const struct cv1800_clk_pll_limit *limit,
++			  unsigned long prate,
++			  unsigned long *rate,
++			  u32 *value, u32 *ssc_syn_set)
++{
++	unsigned long best_rate = 0;
++	unsigned long pre_div_sel = 0, div_sel = 0, post_div_sel = 0;
++	unsigned long pre, div, post;
++	unsigned long trate = *rate;
++	u32 detected = *value;
++	unsigned long tmp;
++	bool clk_full = cv1800_clk_checkbit(&pll->common,
++					       &pll->pll_syn->clk_half);
++
++	for_each_pll_limit_range(pre, &limit->pre_div) {
++		for_each_pll_limit_range(post, &limit->post_div) {
++			for_each_pll_limit_range(div, &limit->div) {
++				tmp = fpll_find_synthesizer(prate, trate,
++							    pre, div, post,
++							    clk_full,
++							    ssc_syn_set);
++
++				if ((trate - tmp) < (trate - best_rate)) {
++					best_rate = tmp;
++					pre_div_sel = pre;
++					div_sel = div;
++					post_div_sel = post;
++				}
++			}
++		}
++	}
++
++	if (best_rate) {
++		detected = PLL_SET_PRE_DIV_SEL(detected, pre_div_sel);
++		detected = PLL_SET_POST_DIV_SEL(detected, post_div_sel);
++		detected = PLL_SET_DIV_SEL(detected, div_sel);
++		*value = detected;
++		*rate = best_rate;
++		return 0;
++	}
++
++	return -EINVAL;
++}
++
++static int fpll_determine_rate(struct clk_hw *hw, struct clk_rate_request *req)
++{
++	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
++	u32 val, ssc_syn_set;
++
++	if (!fpll_is_factional_mode(pll))
++		return ipll_determine_rate(hw, req);
++
++	fpll_find_rate(pll, &pll->pll_limit[2], req->best_parent_rate,
++		       &req->rate, &val, &ssc_syn_set);
++
++	return 0;
++}
++
++static bool fpll_check_mode_ctrl_restrict(unsigned long div_sel,
++					  unsigned long ictrl,
++					  unsigned long mode)
++{
++	unsigned long left_rest = 10 * div_sel;
++	unsigned long right_rest = 24 * div_sel;
++	unsigned long test = 184 * (1 + mode) * (1 + ictrl) / 2;
++
++	return test > left_rest && test <= right_rest;
++}
++
++static int fpll_set_rate(struct clk_hw *hw, unsigned long rate,
++			 unsigned long parent_rate)
++{
++	u32 regval;
++	u32 detected = 0, detected_ssc = 0;
++	unsigned long flags;
++	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
++
++	if (!fpll_is_factional_mode(pll))
++		return ipll_set_rate(hw, rate, parent_rate);
++
++	fpll_find_rate(pll, &pll->pll_limit[2], parent_rate,
++		       &rate, &detected, &detected_ssc);
++	pll_get_mode_ctrl(PLL_GET_DIV_SEL(detected),
++			  fpll_check_mode_ctrl_restrict,
++			  pll->pll_limit, &detected);
++
++	spin_lock_irqsave(pll->common.lock, flags);
++
++	writel(detected_ssc, pll->common.base + pll->pll_syn->set);
++
++	regval = readl(pll->common.base + pll->pll_reg);
++	regval = PLL_COPY_REG(regval, detected);
++
++	writel(regval, pll->common.base + pll->pll_reg);
++
++	spin_unlock_irqrestore(pll->common.lock, flags);
++
++	cv1800_clk_wait_for_lock(&pll->common, pll->pll_status.reg,
++			      BIT(pll->pll_status.shift));
++
++	return 0;
++}
++
++static u8 fpll_get_parent(struct clk_hw *hw)
++{
++	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
++
++	if (fpll_is_factional_mode(pll))
++		return 1;
++
++	return 0;
++}
++
++static int fpll_set_parent(struct clk_hw *hw, u8 index)
++{
++	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
++	unsigned long flags;
++
++	spin_lock_irqsave(pll->common.lock, flags);
++
++	if (index)
++		cv1800_clk_setbit(&pll->common, &pll->pll_syn->en);
++	else
++		cv1800_clk_clearbit(&pll->common, &pll->pll_syn->en);
++
++	spin_unlock_irqrestore(pll->common.lock, flags);
++
++	return 0;
++}
++
++const struct clk_ops cv1800_clk_fpll_ops = {
++	.disable = pll_disable,
++	.enable = pll_enable,
++	.is_enabled = pll_is_enable,
++
++	.recalc_rate = fpll_recalc_rate,
++	.determine_rate = fpll_determine_rate,
++	.set_rate = fpll_set_rate,
++
++	.set_parent = fpll_set_parent,
++	.get_parent = fpll_get_parent,
++};
+diff --git a/drivers/clk/sophgo/clk-cv18xx-pll.h b/drivers/clk/sophgo/clk-cv18xx-pll.h
+new file mode 100644
+index 000000000000..5f876efe48d5
+--- /dev/null
++++ b/drivers/clk/sophgo/clk-cv18xx-pll.h
+@@ -0,0 +1,119 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
++ */
++
++#ifndef _CLK_SOPHGO_CV1800_PLL_H_
++#define _CLK_SOPHGO_CV1800_PLL_H_
++
++#include "clk-cv18xx-common.h"
++
++struct cv1800_clk_pll_limit {
++	struct {
++		u8 min;
++		u8 max;
++	} pre_div, div, post_div, ictrl, mode;
++};
++
++#define _CV1800_PLL_LIMIT(_min, _max)	\
++	{				\
++		.min = _min,		\
++		.max = _max,		\
++	}				\
++
++#define for_each_pll_limit_range(_var, _restrict) \
++	for (_var = (_restrict)->min; _var <= (_restrict)->max; _var++)
++
++struct cv1800_clk_pll_synthesizer {
++	struct cv1800_clk_regbit	en;
++	struct cv1800_clk_regbit	clk_half;
++	u32				ctrl;
++	u32				set;
++};
++
++#define _PLL_PRE_DIV_SEL_FIELD		GENMASK(6, 0)
++#define _PLL_POST_DIV_SEL_FIELD		GENMASK(14, 8)
++#define _PLL_SEL_MODE_FIELD		GENMASK(16, 15)
++#define _PLL_DIV_SEL_FIELD		GENMASK(23, 17)
++#define _PLL_ICTRL_FIELD		GENMASK(26, 24)
++
++#define _PLL_ALL_FIELD_MASK \
++	(_PLL_PRE_DIV_SEL_FIELD | \
++	 _PLL_POST_DIV_SEL_FIELD | \
++	 _PLL_SEL_MODE_FIELD | \
++	 _PLL_DIV_SEL_FIELD | \
++	 _PLL_ICTRL_FIELD)
++
++#define PLL_COPY_REG(_dest, _src) \
++	(((_dest) & (~_PLL_ALL_FIELD_MASK)) | ((_src) & _PLL_ALL_FIELD_MASK))
++
++#define PLL_GET_PRE_DIV_SEL(_reg) \
++	FIELD_GET(_PLL_PRE_DIV_SEL_FIELD, (_reg))
++#define PLL_GET_POST_DIV_SEL(_reg) \
++	FIELD_GET(_PLL_POST_DIV_SEL_FIELD, (_reg))
++#define PLL_GET_SEL_MODE(_reg) \
++	FIELD_GET(_PLL_SEL_MODE_FIELD, (_reg))
++#define PLL_GET_DIV_SEL(_reg) \
++	FIELD_GET(_PLL_DIV_SEL_FIELD, (_reg))
++#define PLL_GET_ICTRL(_reg) \
++	FIELD_GET(_PLL_ICTRL_FIELD, (_reg))
++
++#define PLL_SET_PRE_DIV_SEL(_reg, _val) \
++	_CV1800_SET_FIELD((_reg), (_val), _PLL_PRE_DIV_SEL_FIELD)
++#define PLL_SET_POST_DIV_SEL(_reg, _val) \
++	_CV1800_SET_FIELD((_reg), (_val), _PLL_POST_DIV_SEL_FIELD)
++#define PLL_SET_SEL_MODE(_reg, _val) \
++	_CV1800_SET_FIELD((_reg), (_val), _PLL_SEL_MODE_FIELD)
++#define PLL_SET_DIV_SEL(_reg, _val) \
++	_CV1800_SET_FIELD((_reg), (_val), _PLL_DIV_SEL_FIELD)
++#define PLL_SET_ICTRL(_reg, _val) \
++	_CV1800_SET_FIELD((_reg), (_val), _PLL_ICTRL_FIELD)
++
++struct cv1800_clk_pll {
++	struct cv1800_clk_common		common;
++	u32					pll_reg;
++	struct cv1800_clk_regbit		pll_pwd;
++	struct cv1800_clk_regbit		pll_status;
++	const struct cv1800_clk_pll_limit	*pll_limit;
++	struct cv1800_clk_pll_synthesizer	*pll_syn;
++};
++
++#define CV1800_INTEGRAL_PLL(_name, _parent, _pll_reg,			\
++			     _pll_pwd_reg, _pll_pwd_shift,		\
++			     _pll_status_reg, _pll_status_shift,	\
++			     _pll_limit, _flags)			\
++	struct cv1800_clk_pll _name = {					\
++		.common		= CV1800_CLK_COMMON(#_name, _parent,	\
++						    &cv1800_clk_ipll_ops,\
++						    _flags),		\
++		.pll_reg	= _pll_reg,				\
++		.pll_pwd	= CV1800_CLK_BIT(_pll_pwd_reg,		\
++					       _pll_pwd_shift),		\
++		.pll_status	= CV1800_CLK_BIT(_pll_status_reg,	\
++					       _pll_status_shift),	\
++		.pll_limit	= _pll_limit,				\
++		.pll_syn	= NULL,					\
++	}
++
++#define CV1800_FACTIONAL_PLL(_name, _parent, _pll_reg,			\
++			     _pll_pwd_reg, _pll_pwd_shift,		\
++			     _pll_status_reg, _pll_status_shift,	\
++			     _pll_limit, _pll_syn, _flags)		\
++	struct cv1800_clk_pll _name = {					\
++		.common		= CV1800_CLK_COMMON(#_name, _parent,	\
++						    &cv1800_clk_fpll_ops,\
++						    _flags),		\
++		.pll_reg	= _pll_reg,				\
++		.pll_pwd	= CV1800_CLK_BIT(_pll_pwd_reg,		\
++					       _pll_pwd_shift),		\
++		.pll_status	= CV1800_CLK_BIT(_pll_status_reg,	\
++					       _pll_status_shift),	\
++		.pll_limit	= _pll_limit,				\
++		.pll_syn	= _pll_syn,				\
++	}
++
++
++extern const struct clk_ops cv1800_clk_ipll_ops;
++extern const struct clk_ops cv1800_clk_fpll_ops;
++
++#endif // _CLK_SOPHGO_CV1800_PLL_H_
+--
+2.43.0
 
 
 _______________________________________________
