@@ -4,84 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7018C46CD2
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Dec 2023 17:57:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD228C46CD4
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Dec 2023 19:08:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=QmYaiH9UA74ynyXEIKLYpGop6YI9dEyfl4R+vGjY1Ak=; b=cMrwowIW1/2kCL
-	WkQMNBPL0vASVyGzoVy2jGc00ANfqB3EfKvRW9C7M2kwlITpEHqHSORDuIJuC4PtPun07rwaow1ix
-	yY/zljF/HENUHPBzkDSja1cFgKW3dhLMbpQ7rUSQhI4Q4yv9vnA5iGezO5aSZXRacDVUpwNSPMXvr
-	2aa6qAC+6lQuHsdpSxNhdKhApapEJh2s0SWGTkZCJSa3b9++TIVHb1vOvDvzpp0OgT2nobaZOkY+6
-	8NmzOATKqtucosACzo/T4MiDND7God4pkVAI3pYBbAA531P5CFsIcRYQ0VFVhanahOrfGB8BrWL3G
-	Zd7Y1oxGdXiUdcIbx/Vw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=lPnLPEO2ootKaCXAiVWmHMZ5Pw1h2v3dSRRsWsR9+Es=; b=yXkQo1tt6H3Coq
+	y2+ch3g3bOIAYcoWYJUIWeKwJfd8I0A/zBORT6+LePLbjVdDNNq/h7M/T1mMk1UX8uXCZDqvUKLA9
+	C3xLw0yJKwrdAbTSnrtd9p8w3jpSk2Yiq+CB6R3XJpQ40pQ9TYczGEC2vSpccReoVdFC+f/QOIfPg
+	InNkAG7ExAbjkO0zn0Op1vNUm5yPhAXXXmNQC5WMTNM4cN9Kh0kfODe8tQnVS60ukTrkdtUEjXRoL
+	e05/8/dy4psXw/VJ/wzy/2eRrr+Ge3Ryrxqt12G6Nof0aZ3x4CIjFVANOolY/+uSs24D6YZoEV8By
+	UyvdwkrLcqScbcV2KlEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rIYA6-00FFd0-0J;
-	Wed, 27 Dec 2023 17:57:46 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1rIZGa-00FMD0-1s;
+	Wed, 27 Dec 2023 19:08:32 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rIYA3-00FFcT-0c
+	id 1rIZGX-00FMA6-0W
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Dec 2023 17:57:44 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-6d9e62ff056so1215906b3a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Dec 2023 09:57:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1703699862; x=1704304662; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=qFdk5z5GkjX88rNpaFiaLGBWYiEnPzJT6afZDm+eY4c=;
-        b=VqPOgVgfrarItqQVyU1gAn1RSecMIEFavhIR5ftXvP+txe1MUUpcCYzZiEucZLs1cE
-         6nL0zN0rpCTIgppK2QDs5SiRX70corBwdpZrzJwmiGGu4PrPIgVoyiXXHwzfCIyg32iO
-         GWgOxth089LYt7UKx1cN0Xi1RHqnBS40hEOTGzZu1yI4p+4nXCRnYcv0sryfujXCH303
-         8Ii8Stl9LY2cHst2AzZn+ERoCA/NjTTqFYllK+KOMY+ZYeuHEaUIDoA9wPt2r11TVaaj
-         AFu4ETc+vnvP7gOkU07t2nkzPXL0MfA4BoC4P5PIDsQu1VhNcePIZG7AWvZhC2Hdb8Ht
-         Hs1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1703699862; x=1704304662;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=qFdk5z5GkjX88rNpaFiaLGBWYiEnPzJT6afZDm+eY4c=;
-        b=DaWn5PObcFCtTFhoH6wi15a/SUL1QO6LBSfHblfWKxxP1RItX0YMAK94MlBe8Tomkg
-         Z4KY2LJ5aSJh1TDfITSl1kTy9x4Vg8kZnY6tgQyHUmO6KUG9gdy7ARR28Yd0j3zsidKz
-         +Z4qNZVW6oxl4j7MOanZ4gOKJo0hiHR2JMVcYWqXtXLqj4iGoocgCM/9SWftP/tkC3QP
-         BX81yid1KmwgY4x5vPCHfwEJYnQJD0VMCk9kV7RRU57+hR137L8nQccWRPeBk4S8mpot
-         yU+8KOR+s7pIgoVGDMeDBB+cRJ4Q2kjmzT1Cb7hUBzv5cQoppHlh82mCiNauEdaXneAq
-         LXQg==
-X-Gm-Message-State: AOJu0Yw4Q358J06I3Amv8r5W3nRoc11ZidjqyZag8SkRKxZXrkHMJHah
-	fOgp9xMe80RlpjXD4x2g2eo4boWWaeY0FTK8x9bTLjczRhYBQANfH6MI3D5nFf3hItmtA3asbXV
-	pxjIJUZZWGj2Vu2GpjsDQFZHK/nn5jblTov/CnqeCSUKbwTJSvS0Oqtn68AoeQMaxLNldTM0Whf
-	lDqAFd97tCgdJEzI9ZlokBk+xfdUU=
-X-Google-Smtp-Source: AGHT+IG3LdGjYzMPRmS6MMdVEdOJ+KYoJn8AAAezZGQEdrEgTXTmxvLQ77RqjlA7YgUPq4uTh+mQCQ==
-X-Received: by 2002:a05:6a20:4da6:b0:18c:64b7:b217 with SMTP id gj38-20020a056a204da600b0018c64b7b217mr9235433pzb.22.1703699861863;
-        Wed, 27 Dec 2023 09:57:41 -0800 (PST)
-Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id u5-20020a056a00098500b006d9bf35dd1fsm5198094pfg.142.2023.12.27.09.57.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Dec 2023 09:57:41 -0800 (PST)
-From: Samuel Holland <samuel.holland@sifive.com>
-To: linux-riscv@lists.infradead.org
-Cc: Samuel Holland <samuel.holland@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	Wed, 27 Dec 2023 19:08:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 52899CE12F3;
+	Wed, 27 Dec 2023 19:08:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4118FC433C7;
+	Wed, 27 Dec 2023 19:08:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1703704095;
+	bh=ATu15DdJu3KphR7LFYKeEXCMXYokrV8F6bk6Aa0fZc4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=F5TSRvAADaGRV2HGx2D8sugO90Z38C23ezQdcbj1FEmLF7yydZRoQ7gLUjrUxqJXS
+	 YlMF0p4wMPtmIXqNH3X52dm5iFwSujhlJ0qk6m6/UFaeax70WR+jE2CJq4XioV28fT
+	 HTWpu9uvSn/bZMt1tn2YKYqmV2jHOCyh96lm/qfaEZwRFsfTkHqnpta//0R+3eJrJT
+	 v7mZqkGHrgCW0rov70FInyDP90P3Yn/S5dPWJ+531cfLshH4RdInaEKHfqqUxqUdXo
+	 e74d5UuX9nTFcm8ZrltAKVoBrXYubi1XgzT7IZvQfYConmO1R9m1hcXTO3Z1/1uOvO
+	 41IlJFs3gH6ow==
+Date: Wed, 27 Dec 2023 13:08:13 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Minda Chen <minda.chen@starfivetech.com>
+Cc: Conor Dooley <conor@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
 	Rob Herring <robh+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] dt-bindings: riscv: cpus: Clarify mmu-type interpretation
-Date: Wed, 27 Dec 2023 09:57:38 -0800
-Message-ID: <20231227175739.1453782-1-samuel.holland@sifive.com>
-X-Mailer: git-send-email 2.42.0
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mason Huo <mason.huo@starfivetech.com>,
+	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>
+Subject: Re: [PATCH v13 19/21] PCI: Add PCIE_RESET_CONFIG_DEVICE_WAIT_MS
+ waiting time value
+Message-ID: <20231227190813.GA1508471@bhelgaas>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20231214072839.2367-20-minda.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231227_095743_267614_2EFE1C5A 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20231227_110829_652797_CFAAEF67 
+X-CRM114-Status: GOOD (  18.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,42 +87,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The current description implies that only a single address translation
-mode is available to the operating system. However, some implementations
-support multiple address translation modes, and the operating system is
-free to choose between them.
+On Thu, Dec 14, 2023 at 03:28:37PM +0800, Minda Chen wrote:
+> From: Kevin Xie <kevin.xie@starfivetech.com>
+> 
+> Add the PCIE_RESET_CONFIG_DEVICE_WAIT_MS macro to define the minimum
+> waiting time between exit from a conventional reset and sending the
+> first configuration request to the device.
+> 
+> As described in PCI base specification r6.0, section 6.6.1 <Conventional
+> Reset>, there are two different use cases of the value:
+> 
+>    - "With a Downstream Port that does not support Link speeds greater
+>      than 5.0 GT/s, software must wait a minimum of 100 ms following exit
+>      from a Conventional Reset before sending a Configuration Request to
+>      the device immediately below that Port."
+> 
+>    - "With a Downstream Port that supports Link speeds greater than
+>      5.0 GT/s, software must wait a minimum of 100 ms after Link training
+>      completes before sending a Configuration Request to the device
+>      immediately below that Port."
+> 
+> Signed-off-by: Kevin Xie <kevin.xie@starfivetech.com>
+> Reviewed-by: Mason Huo <mason.huo@starfivetech.com>
 
-Per the RISC-V privileged specification, Sv48 implementations must also
-implement Sv39, and likewise Sv57 implies support for Sv48. This means
-it is possible to describe all supported address translation modes using
-a single value, by naming the largest supported mode. This appears to
-have been the intended usage of the property, so note it explicitly.
+Acked-by: Bjorn Helgaas <bhelgaas@google.com>
 
-Fixes: 4fd669a8c487 ("dt-bindings: riscv: convert cpu binding to json-schema")
-Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
----
-
- Documentation/devicetree/bindings/riscv/cpus.yaml | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-index f392e367d673..f166c729c482 100644
---- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-+++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-@@ -62,8 +62,8 @@ properties:
- 
-   mmu-type:
-     description:
--      Identifies the MMU address translation mode used on this
--      hart.  These values originate from the RISC-V Privileged
-+      Identifies the largest MMU address translation mode supported by
-+      this hart.  These values originate from the RISC-V Privileged
-       Specification document, available from
-       https://riscv.org/specifications/
-     $ref: /schemas/types.yaml#/definitions/string
--- 
-2.42.0
-
+> ---
+>  drivers/pci/pci.h | 16 ++++++++++++++++
+>  1 file changed, 16 insertions(+)
+> 
+> diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+> index 5ecbcf041179..06f1f1eb878c 100644
+> --- a/drivers/pci/pci.h
+> +++ b/drivers/pci/pci.h
+> @@ -22,6 +22,22 @@
+>   */
+>  #define PCIE_PME_TO_L2_TIMEOUT_US	10000
+>  
+> +/*
+> + * As described in PCI base specification r6.0, section 6.6.1 <Conventional
+> + * Reset>, there are two different use cases of the value:
+> + *
+> + * - "With a Downstream Port that does not support Link speeds greater
+> + *    than 5.0 GT/s, software must wait a minimum of 100 ms following exit
+> + *    from a Conventional Reset before sending a Configuration Request to
+> + *    the device immediately below that Port."
+> + *
+> + * - "With a Downstream Port that supports Link speeds greater than
+> + *    5.0 GT/s, software must wait a minimum of 100 ms after Link training
+> + *    completes before sending a Configuration Request to the device
+> + *    immediately below that Port."
+> + */
+> +#define PCIE_RESET_CONFIG_DEVICE_WAIT_MS	100
+> +
+>  extern const unsigned char pcie_link_speed[];
+>  extern bool pci_early_dump;
+>  
+> -- 
+> 2.17.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
