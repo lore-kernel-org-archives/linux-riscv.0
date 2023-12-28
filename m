@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB210C3DA6E
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Dec 2023 06:54:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18138C46CD3
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Dec 2023 06:54:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=CWGZ6+cbpijATpFBJiBdwtFizT2f2UWVy5lFxC3srRo=; b=rqJ5YXv/nNgzoK
-	VjSLAIZqkK0ZHfGtXKbqbQM/B+Ag56XKcnu6tqbzqLW+dDQJzdXPg96YArfURWHE/nuRu9/oiJ0tE
-	sWJjTC/wOwBa1+cv+fQ2G70ugrbJvcCH1iq3plbwhR77EfSOix/t9e7bv7cZep0iGhQuxpGKqEb5j
-	PlgKBzKytwz5Nrz3BnZvRNf1fXzygPbWHA9m9ip8/nRDFCyVzOd+OYT1SUrt4VisJJlC6WCcs4qQV
-	VmY/jhOl4cn7ypwY2S3V5f56PiB9pEs+MNGT/kOuM8WMsjLGbX6yaMdRkw3TJPf6HTMa6hx0XCgaZ
-	1DG5Nouf3OhFc/LuCUrw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UlzEX92/e57YFD9F5OHTZ0SzdVuR179jO6djRUAGmQw=; b=HYVPu5peJvF81K
+	LbATzYGjSfMhvvAN/7/MknEM5DmL6NJ+T4orJZrXRgQ8CZf+6iU+jSqgNXwcVabOyU+xg1c4Std8B
+	ahebMCdfJYBnrvMtzWyye/HLleedudKTB/PpbKZLcAPHCekT/VJA1G9wjBFA31sU+HzvF+myur9Qh
+	Luj8IZfW70zQ2cOHrLcn+3X5ls0P/ufoXKmW/dwJtaNE/WeTeIWWfMbAirhSH1odblqgg21u/quz5
+	cak1wqXo11unMPrBIptinTvy8Q1SW1h73Fe3JLHF1rtQxC7cJfJXZZJ72o9aZbicDmIDpxXwey5Vl
+	eipdrcA/d+94XzcuQuRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rIkHR-00GHyc-27;
-	Thu, 28 Dec 2023 06:54:09 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1rIkHa-00GI1e-2T;
+	Thu, 28 Dec 2023 06:54:18 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rIkHN-00GHtK-2p
+	id 1rIkHW-00GHvB-1o
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Dec 2023 06:54:08 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Thu, 28 Dec 2023 06:54:17 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id CE72724DBFD;
-	Thu, 28 Dec 2023 14:53:30 +0800 (CST)
-Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 28 Dec
- 2023 14:53:30 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 9F3147F8A;
+	Thu, 28 Dec 2023 14:53:46 +0800 (CST)
+Received: from EXMBX066.cuchost.com (172.16.7.66) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 28 Dec
+ 2023 14:53:46 +0800
 Received: from localhost.localdomain (202.188.176.82) by EXMBX066.cuchost.com
  (172.16.6.66) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 28 Dec
- 2023 14:53:25 +0800
+ 2023 14:53:41 +0800
 From: Alex Soo <yuklin.soo@starfivetech.com>
 To: Ulf Hansson <ulf.hansson@linaro.org>, Adrian Hunter
 	<adrian.hunter@intel.com>, Yangtao Li <frank.li@vivo.com>, Andy Shevchenko
@@ -49,18 +49,21 @@ CC: <linux-mmc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>, "Paul
  Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alex Soo <yuklin.soo@starfivetech.com>
-Subject: [PATCH 0/3] Add driver for Cadence SD6HC SD/eMMC controller
-Date: Thu, 28 Dec 2023 14:53:19 +0800
-Message-ID: <20231228065322.1176351-1-yuklin.soo@starfivetech.com>
+Subject: [PATCH 3/3] riscv: dts: starfive: jh8100: Add SD/eMMC device tree nodes
+Date: Thu, 28 Dec 2023 14:53:22 +0800
+Message-ID: <20231228065322.1176351-4-yuklin.soo@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20231228065322.1176351-1-yuklin.soo@starfivetech.com>
+References: <20231228065322.1176351-1-yuklin.soo@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [202.188.176.82]
 X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX066.cuchost.com
  (172.16.6.66)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231227_225406_053381_CE6F0B9E 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20231227_225414_884951_B1D8C7A8 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,37 +80,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Starfive JH8100 SoC consists of a Cadence SD/eMMC host controller
-(Version 6) with Combo PHY which provides DFI interface to SD/eMMC
-removable or embedded devices. This patch adds initial SD/eMMC support
-for JH8100 SoC by providing device drivers for Cadence SD/eMMC Version 6
-host controller and Combo PHY.  This patch series is depending on the
-JH8100 base patch series in [1], [2], and [3].
-The relevant dt-bindings documentation has been updated accordingly.
+Add SD/eMMC device tree nodes.
 
-[1] https://lore.kernel.org/lkml/20231201121410.95298-1-jeeheng.sia@starfivetech.com/
-[2] https://lore.kernel.org/lkml/20231206115000.295825-1-jeeheng.sia@starfivetech.com/
-[3] https://lore.kernel.org/lkml/20231221083622.3445726-1-yuklin.soo@starfivetech.com/ 
+Signed-off-by: Alex Soo <yuklin.soo@starfivetech.com>
+---
+ arch/riscv/boot/dts/starfive/jh8100.dtsi | 34 ++++++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
 
-Alex Soo (3):
-  dt-bindings: mmc: sdhci-cadence6: add DT bindings documentation
-  mmc: sdhci-cadence6: add Cadence SD6HC support
-  riscv: dts: starfive: jh8100: Add SD/eMMC device tree nodes
-
- .../devicetree/bindings/mmc/cdns,sd6hci.yaml  |  65 +++
- MAINTAINERS                                   |   6 +
- arch/riscv/boot/dts/starfive/jh8100.dtsi      |  34 ++
- drivers/mmc/host/Kconfig                      |  11 +
- drivers/mmc/host/Makefile                     |   2 +
- drivers/mmc/host/sdhci-cadence6-phy.c         | 384 +++++++++++++
- drivers/mmc/host/sdhci-cadence6.c             | 531 ++++++++++++++++++
- drivers/mmc/host/sdhci-cadence6.h             | 148 +++++
- 8 files changed, 1181 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/mmc/cdns,sd6hci.yaml
- create mode 100644 drivers/mmc/host/sdhci-cadence6-phy.c
- create mode 100644 drivers/mmc/host/sdhci-cadence6.c
- create mode 100644 drivers/mmc/host/sdhci-cadence6.h
-
+diff --git a/arch/riscv/boot/dts/starfive/jh8100.dtsi b/arch/riscv/boot/dts/starfive/jh8100.dtsi
+index 9c8ca73fffe0..545109ca6c49 100644
+--- a/arch/riscv/boot/dts/starfive/jh8100.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh8100.dtsi
+@@ -484,6 +484,15 @@ syscrg_sw: syscrg_sw@12720000 {
+ 			#reset-cells = <1>;
+ 		};
+ 
++		sd1: mmc@12740000 {
++			compatible = "starfive,jh8100-sd6hc", "cdns,sd6hc";
++			reg = <0x0 0x12740000 0x0 0x10000>;
++			interrupts = <91>;
++			bus-width = <4>;
++			cap-sd-highspeed;
++			status = "disabled";
++		};
++
+ 		pinctrl_gmac: pinctrl@12770000 {
+ 			compatible = "starfive,jh8100-sys-pinctrl-gmac",
+ 				     "syscon", "simple-mfd";
+@@ -509,6 +518,31 @@ uart6: serial@127e0000  {
+ 			status = "disabled";
+ 		};
+ 
++		emmc: mmc@1f110000 {
++			compatible = "starfive,jh8100-sd6hc", "cdns,sd6hc";
++			reg = <0x0 0x1f110000 0x0 0x10000>;
++			interrupts = <174>;
++			clock-names = "main", "sdmclk";
++			clocks = <&aoncrg AONCRG_CLK_EMMC_ICG_EN>,
++				 <&aoncrg AONCRG_CLK_EMMC_SDMCLK>;
++			resets = <&aoncrg AONCRG_RSTN_EMMC>;
++			bus-width = <8>;
++			status = "disabled";
++		};
++
++		sd0: mmc@1f120000 {
++			compatible = "starfive,jh8100-sd6hc", "cdns,sd6hc";
++			reg = <0x0 0x1f120000 0x0 0x10000>;
++			interrupts = <175>;
++			clock-names = "main", "sdmclk";
++			clocks = <&aoncrg AONCRG_CLK_SDIO0_ICG_EN>,
++				 <&aoncrg AONCRG_CLK_SDIO0_SDMCLK>;
++			resets = <&aoncrg AONCRG_RSTN_SDIO0>;
++			bus-width = <4>;
++			cap-sd-highspeed;
++			status = "disabled";
++		};
++
+ 		pinctrl_aon: pinctrl@1f300000 {
+ 			compatible = "starfive,jh8100-aon-pinctrl",
+ 				     "syscon", "simple-mfd";
 -- 
 2.25.1
 
