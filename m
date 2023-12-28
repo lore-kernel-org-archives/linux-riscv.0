@@ -4,61 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E2A2C46CD2
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Dec 2023 23:40:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21205C46CD2
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Dec 2023 01:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rt9xNDDL9rqkNSPS64lwblk9km/LpN/w/GKUfEgAalk=; b=pmq2K2bU7LgpLQHlLNw39vms97
-	AcqrTN/K42AwmV4+Qerpm0zhxC0nldRBeS3g4pjWplOEWA39/0eYLKr7cOdBEokDzTjCG1H0y7Jmv
-	Sb0TI3lbAFH7RZytSUALFTPfn2dNC6I0CA+RgeRXgILiKE4aaeTgmAshkoKyPf+3YzBtRXjA5chjD
-	Bu6mtcLppI4OtF23fONxJdS2Z/6bkPRPcU9vwI9tI9+WI/tPc0shhrhhb0TYxkNR+UcNqUuET5YAp
-	Nkv9e2zXU2Vk7HLAVNefWlwu8g3opNgraOHAUm1JFy/XbD35AVVf5A4bibDFddN8uqj+2xG8mgTGj
-	tv39/Uhw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ik8gJsNw5VrfWYutWYhg7OgxNtZRcyQk7C649xaTXqw=; b=cpx9+Ffncyy08M
+	WSXrlPzFRUrCMeOW9u9LecmeyCHqXAx4lb3L2o5jQ/W8yw3FnYkqXUrsVcOqnfZ2T3LusJZ8nUlTQ
+	5IFao2e5drwT+z7jTlfv3CkZMinlwIlacG2rQRHlj9s2S1m4qRCgJnTStSnZN33Gji7BnWUWlNHIG
+	w6uS8OLbvy1B/1+Vz8jBzqRB+v3AQGfWHTatuUSIklEtZbCQw0NTrJwkoEiJxaTX2LS4w3PuZxhbb
+	69DpjRymae4Z+uHc0pEStOYP5DW5Eb6mAey3rJQrwG2+Uty3XU+BaSra3WAICsorxlShertc4G7/c
+	P84W74/STLfpoURfVN6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rIdVA-00FhA4-2Q;
-	Wed, 27 Dec 2023 23:39:52 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1rIfPq-00FroK-2U;
+	Thu, 28 Dec 2023 01:42:30 +0000
+Received: from mail-oi1-x233.google.com ([2607:f8b0:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rIdV8-00Fh91-1Y
+	id 1rIfPl-00Fri9-0b
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Dec 2023 23:39:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3413A60F6E;
-	Wed, 27 Dec 2023 23:39:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6898C433C7;
-	Wed, 27 Dec 2023 23:39:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1703720381;
-	bh=0sMsmWI7zpqMUswHtDGmxyLjwwWkq5VVZjSm6+7mC0I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Y+YnbUCH97W0yN/0z0J8/vystbcMeY2xbp/FyWcTe2iVOXJBuSbXme4eNL92BZ3kQ
-	 x2XyrPkNg3a4Nk+aB+OiBBtdCu2Lauej14m5QegAQkfU7oIshitEkXBdaJ6k9GdRq/
-	 NpfJzxUm8oog1P33916yPwWNKuNcXN3hecmQI1Ac6dp5Ms+VlUzLgX35SVqCw/frw1
-	 paeb6PBuFYMfaZL3oNQtCCv1WbDy3yq03fAB8ofB0KyO4aeqWA4egLz0YYiT7H/onS
-	 4WvJVFz07zGlbMevKSGNLztJFknvaB59SczZn+AaVKWrYLkzm0wVs7Lx4Tkzy6Udfp
-	 /fWGAL6BC/l2g==
-Date: Wed, 27 Dec 2023 23:39:37 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-riscv@lists.infradead.org, Albert Ou <aou@eecs.berkeley.edu>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: riscv: cpus: Clarify mmu-type interpretation
-Message-ID: <20231227-confined-dotted-4e255dd2475e@spud>
-References: <20231227175739.1453782-1-samuel.holland@sifive.com>
+	Thu, 28 Dec 2023 01:42:27 +0000
+Received: by mail-oi1-x233.google.com with SMTP id 5614622812f47-3bbce1202ebso337341b6e.2
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Dec 2023 17:42:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1703727744; x=1704332544; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=oKGphS+JVbRrpyRYNMXZcp4xlaDyNlE0PfrLYNqYsRU=;
+        b=iMIJYeDDwNDVAzbXU/xKWtSIxqGodbVAJlrzvODVzOaLQkxa/LqG9q3jc2iJJgi1rX
+         pYZjGUPkAoiS2WxZOqkBkgL4OygfokydqMY47mXLLygft5oeERWqLRY1h64BTQGJxNcy
+         Hs3Jigsj1EPkw3vcpUWebe4BKpLWeUE3+ocAOW4PtdaIg0zlZKVh1ICJvP3PhIW9VG+7
+         R5QtXR6ElZYhHBbTZzEKh7YGWT/Y2TXl2ZUXMCX+2BpCyQSgk//F/4DBmDnVIMVPqBnH
+         Tk6lLD5O4MG32YAKzUr8Oof2KstsBpjAhFCc7XqVxJS6yrhltV5vgtNa3lmNg3gVCAHG
+         mB4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1703727744; x=1704332544;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=oKGphS+JVbRrpyRYNMXZcp4xlaDyNlE0PfrLYNqYsRU=;
+        b=X6BcAu8M4GgubAmmUmURHfQ5QMQvU9YlMRT4AdsreO0E53jcPGl4UOFG+JE8rLaFqV
+         5xEr12feLzUNh6mL6PPm6yu4rGdFLCK3ELc9/iUzkMlgrQ7eJoI52Alj6lHTJrUnVOPT
+         sTr3m6DxWOO7vBK9N4WDOb9cVoDW7kKrwsJc5dShkaRwt1WKOmYzpky59LnQdeL9auhl
+         bl4L/D41RdogZf8tVhdS4x+O2q4uYiJQxXdfx4oboo55wDtWH31WE6j4Su3qaxLdGfm1
+         VbpzfBOFpnJLL2y82fsZmS1kQCziPGQGqtcgoRl0RSggtfrwras41iXscp8bVDIcV4qA
+         JpKA==
+X-Gm-Message-State: AOJu0YxgKnXlTt2ZlUJV/nUN5bWC/1FZLQ8M5dEhlwVYToxda/951Xpv
+	QpX6/9fxBeia3rSxJi4+L0YmXAxP9fYDhQ==
+X-Google-Smtp-Source: AGHT+IGR7JzQSXMREJRZ9KqB3ICpiol/e1N/urwMCX7a6QXa17U/0va7BA1tyl2KWzFhPtJJzwuFLA==
+X-Received: by 2002:aca:2413:0:b0:3bb:c658:40f with SMTP id n19-20020aca2413000000b003bbc658040fmr1920457oic.117.1703727743938;
+        Wed, 27 Dec 2023 17:42:23 -0800 (PST)
+Received: from sw06.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id g24-20020aa78758000000b006d49ed3effasm7335440pfo.63.2023.12.27.17.42.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Dec 2023 17:42:23 -0800 (PST)
+From: Samuel Holland <samuel.holland@sifive.com>
+To: linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	x86@kernel.org,
+	linux-riscv@lists.infradead.org,
+	Christoph Hellwig <hch@lst.de>
+Cc: loongarch@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	amd-gfx@lists.freedesktop.org,
+	linux-arch@vger.kernel.org,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	linux-doc@vger.kernel.org
+Subject: [PATCH v2 01/14] arch: Add ARCH_HAS_KERNEL_FPU_SUPPORT
+Date: Wed, 27 Dec 2023 17:41:51 -0800
+Message-ID: <20231228014220.3562640-2-samuel.holland@sifive.com>
+X-Mailer: git-send-email 2.42.0
+In-Reply-To: <20231228014220.3562640-1-samuel.holland@sifive.com>
+References: <20231228014220.3562640-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
-In-Reply-To: <20231227175739.1453782-1-samuel.holland@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231227_153950_589389_18C36EFF 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20231227_174225_228558_09259B93 
+X-CRM114-Status: GOOD (  26.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,69 +96,191 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0324946572792225683=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Several architectures provide an API to enable the FPU and run
+floating-point SIMD code in kernel space. However, the function names,
+header locations, and semantics are inconsistent across architectures,
+and FPU support may be gated behind other Kconfig options.
 
---===============0324946572792225683==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="vRdODWm3L/LvIb8k"
-Content-Disposition: inline
+Provide a standard way for architectures to declare that kernel space
+FPU support is available. Architectures selecting this option must
+implement what is currently the most common API (kernel_fpu_begin() and
+kernel_fpu_end(), plus a new function kernel_fpu_available()) and
+provide the appropriate CFLAGS for compiling floating-point C code.
 
+Suggested-by: Christoph Hellwig <hch@lst.de>
+Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+---
 
---vRdODWm3L/LvIb8k
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Changes in v2:
+ - Add documentation explaining the built-time and runtime APIs
+ - Add a linux/fpu.h header for generic isolation enforcement
 
-On Wed, Dec 27, 2023 at 09:57:38AM -0800, Samuel Holland wrote:
-> The current description implies that only a single address translation
-> mode is available to the operating system. However, some implementations
-> support multiple address translation modes, and the operating system is
-> free to choose between them.
->=20
-> Per the RISC-V privileged specification, Sv48 implementations must also
-> implement Sv39, and likewise Sv57 implies support for Sv48. This means
-> it is possible to describe all supported address translation modes using
-> a single value, by naming the largest supported mode. This appears to
-> have been the intended usage of the property, so note it explicitly.
->=20
-> Fixes: 4fd669a8c487 ("dt-bindings: riscv: convert cpu binding to json-sch=
-ema")
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+ Documentation/core-api/floating-point.rst | 78 +++++++++++++++++++++++
+ Documentation/core-api/index.rst          |  1 +
+ Makefile                                  |  5 ++
+ arch/Kconfig                              |  6 ++
+ include/linux/fpu.h                       | 12 ++++
+ 5 files changed, 102 insertions(+)
+ create mode 100644 Documentation/core-api/floating-point.rst
+ create mode 100644 include/linux/fpu.h
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+diff --git a/Documentation/core-api/floating-point.rst b/Documentation/core-api/floating-point.rst
+new file mode 100644
+index 000000000000..a8d0d4b05052
+--- /dev/null
++++ b/Documentation/core-api/floating-point.rst
+@@ -0,0 +1,78 @@
++.. SPDX-License-Identifier: GPL-2.0+
++
++Floating-point API
++==================
++
++Kernel code is normally prohibited from using floating-point (FP) registers or
++instructions, including the C float and double data types. This rule reduces
++system call overhead, because the kernel does not need to save and restore the
++userspace floating-point register state.
++
++However, occasionally drivers or library functions may need to include FP code.
++This is supported by isolating the functions containing FP code to a separate
++translation unit (a separate source file), and saving/restoring the FP register
++state around calls to those functions. This creates "critical sections" of
++floating-point usage.
++
++The reason for this isolation is to prevent the compiler from generating code
++touching the FP registers outside these critical sections. Compilers sometimes
++use FP registers to optimize inlined ``memcpy`` or variable assignment, as
++floating-point registers may be wider than general-purpose registers.
++
++Usability of floating-point code within the kernel is architecture-specific.
++Additionally, because a single kernel may be configured to support platforms
++both with and without a floating-point unit, FPU availability must be checked
++both at build time and at run time.
++
++Several architectures implement the generic kernel floating-point API from
++``linux/fpu.h``, as described below. Some other architectures implement their
++own unique APIs, which are documented separately.
++
++Build-time API
++--------------
++
++Floating-point code may be built if the option ``ARCH_HAS_KERNEL_FPU_SUPPORT``
++is enabled. For C code, such code must be placed in a separate file, and that
++file must have its compilation flags adjusted using the following pattern::
++
++    CFLAGS_foo.o += $(CC_FLAGS_FPU)
++    CFLAGS_REMOVE_foo.o += $(CC_FLAGS_NO_FPU)
++
++Architectures are expected to define one or both of these variables in their
++top-level Makefile as needed. For example::
++
++    CC_FLAGS_FPU := -mhard-float
++
++or::
++
++    CC_FLAGS_NO_FPU := -msoft-float
++
++Normal kernel code is assumed to use the equivalent of ``CC_FLAGS_NO_FPU``.
++
++Runtime API
++-----------
++
++The runtime API is provided in ``linux/fpu.h``. This header cannot be included
++from files implementing FP code (those with their compilation flags adjusted as
++above). Instead, it must be included when defining the FP critical sections.
++
++.. c:function:: bool kernel_fpu_available( void )
++
++        This function reports if floating-point code can be used on this CPU or
++        platform. The value returned by this function is not expected to change
++        at runtime, so it only needs to be called once, not before every
++        critical section.
++
++.. c:function:: void kernel_fpu_begin( void )
++                void kernel_fpu_end( void )
++
++        These functions create a floating-point critical section. It is only
++        valid to call ``kernel_fpu_begin()`` after a previous call to
++        ``kernel_fpu_available()`` returned ``true``. These functions are only
++        guaranteed to be callable from (preemptible or non-preemptible) process
++        context.
++
++        Preemption may be disabled inside critical sections, so their size
++        should be minimized. They are *not* required to be reentrant. If the
++        caller expects to nest critical sections, it must implement its own
++        reference counting.
+diff --git a/Documentation/core-api/index.rst b/Documentation/core-api/index.rst
+index 7a3a08d81f11..974beccd671f 100644
+--- a/Documentation/core-api/index.rst
++++ b/Documentation/core-api/index.rst
+@@ -48,6 +48,7 @@ Library functionality that is used throughout the kernel.
+    errseq
+    wrappers/atomic_t
+    wrappers/atomic_bitops
++   floating-point
+ 
+ Low level entry and exit
+ ========================
+diff --git a/Makefile b/Makefile
+index ee995fc2b0e5..79c9e0b56ab8 100644
+--- a/Makefile
++++ b/Makefile
+@@ -969,6 +969,11 @@ KBUILD_CFLAGS	+= $(CC_FLAGS_CFI)
+ export CC_FLAGS_CFI
+ endif
+ 
++# Architectures can define flags to add/remove for floating-point support
++CC_FLAGS_FPU	+= -D_LINUX_FPU_COMPILATION_UNIT
++export CC_FLAGS_FPU
++export CC_FLAGS_NO_FPU
++
+ ifneq ($(CONFIG_FUNCTION_ALIGNMENT),0)
+ KBUILD_CFLAGS += -falign-functions=$(CONFIG_FUNCTION_ALIGNMENT)
+ endif
+diff --git a/arch/Kconfig b/arch/Kconfig
+index f4b210ab0612..e1c01ce819ed 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -1478,6 +1478,12 @@ config ARCH_HAS_NONLEAF_PMD_YOUNG
+ 	  address translations. Page table walkers that clear the accessed bit
+ 	  may use this capability to reduce their search space.
+ 
++config ARCH_HAS_KERNEL_FPU_SUPPORT
++	bool
++	help
++	  Architectures that select this option can run floating-point code in
++	  the kernel, as described in Documentation/core-api/floating-point.rst.
++
+ source "kernel/gcov/Kconfig"
+ 
+ source "scripts/gcc-plugins/Kconfig"
+diff --git a/include/linux/fpu.h b/include/linux/fpu.h
+new file mode 100644
+index 000000000000..2fb63e22913b
+--- /dev/null
++++ b/include/linux/fpu.h
+@@ -0,0 +1,12 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#ifndef _LINUX_FPU_H
++#define _LINUX_FPU_H
++
++#ifdef _LINUX_FPU_COMPILATION_UNIT
++#error FP code must be compiled separately. See Documentation/core-api/floating-point.rst.
++#endif
++
++#include <asm/fpu.h>
++
++#endif
+-- 
+2.42.0
 
-Cheers,
-Conor.
-
-
-
---vRdODWm3L/LvIb8k
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZYy1uQAKCRB4tDGHoIJi
-0oJzAP4m7KQu4HlKHw94QgFw60+7HtiWm+9c2ClBe/2m03XVZwEAjpAM8ZucmBLh
-gpAv0Rb3inYNpeyNYtkXVly/S+55Dwk=
-=BSxd
------END PGP SIGNATURE-----
-
---vRdODWm3L/LvIb8k--
-
-
---===============0324946572792225683==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0324946572792225683==--
-
