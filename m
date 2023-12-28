@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B57C3DA6E
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Dec 2023 08:59:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B43CDC3DA6E
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Dec 2023 08:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=D822qa3ZLntZgmm5MZyRpDWD7NpC4pyMIAh5i05Ne9Y=; b=cPTnn548idVfuN
-	GeLps0Po4HKSkvm3/PUrO4NttAZaShPtkG5Te1SqJUiJyMeu3aX+/BBTSzpbUvQ5GGye5Ad0TMAtI
-	7ckJWn5tNs8Vp4LpGy+CViTVxwQb/CznudksULjwiqvu/RF3GrGs4+zdbSBIpyRLv0NkXoapPsydy
-	0I94v6JuaBlkBhnYf4IiFjeVn4dqlc95OO8DyV9xCqfZkyPFB930NpyBOXy4Iofy0Na3EiQw1jYV3
-	wOI+5nTqZCtYQkZOsz4WlfKJDdi8osSDH/B7b49HLfo/2+2iDJL7n0o32yOqgADMm/0kiQIUftuA0
-	DB5M0PKDpzj0UCcCjD3Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4OU5wwetzeUqWJQYgaebIt8iDSwk/SAHJxgoez2dGKg=; b=CynlCZyUTGROgx
+	467r3pjbbzRwci+DZ9yr8KEkVouEo0Yzl0gWuozNPkoLOHwrXbQc4SyXSwUd5lUBtN/l0NC8KzKoA
+	S7uin3TgPe+VjBkVnjYn29tXhXJct6bzk24LKdVAtA9zdGvKECt8NqgthVKmQNMwCeUxWj46qaFOg
+	MZbU4cwTZOPMtwjmvb+2NimYtxjliRBO3FhSdlEFrFUYVcDuHQxsunGWoz6bzwEvW5fNbBPeT7fuL
+	SRRE/YnfcwogZyrAUOo+hJyGiT9fNdbIBXCWVwdz6BQhUX1P2PuRtluJiwzt5lKlSKQnnEBr2p718
+	5a/iwk86DyY+YACbEM2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rImEl-00GReY-02;
-	Thu, 28 Dec 2023 08:59:31 +0000
+	id 1rImEv-00GRkk-0h;
+	Thu, 28 Dec 2023 08:59:41 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rImEh-00GRcR-1o;
-	Thu, 28 Dec 2023 08:59:29 +0000
+	id 1rImEj-00GRd7-0F;
+	Thu, 28 Dec 2023 08:59:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 2AAAFB80B87;
-	Thu, 28 Dec 2023 08:59:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5CAFC433C8;
-	Thu, 28 Dec 2023 08:59:19 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTP id 89025B80D97;
+	Thu, 28 Dec 2023 08:59:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB820C433CA;
+	Thu, 28 Dec 2023 08:59:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1703753962;
-	bh=qac361aQfUYlqbOE3Dx+WRTyiGe1M4tfZJDFMVM+Hlg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=qX3ZXIVuIgqjmnWmLCGIeKFAzN5+ULWtyxoREOb6AT0bMQ9Fv9tUR0fPxd8bAQHoU
-	 pyRvZh1oPfse8PUJCM7z9M/EPig3JCXg5znojjv37eq8A99ej39yt2FqtXM73KRciy
-	 avt6nUxBjQe9F0Fy2qvg/ZyG+AJ4OGJRBIEnwlsS2/+tQpM+f9yXIkxHmtqC4nQIqP
-	 vpwoUfR6TqZYM7Gk+VnYRKZBB475H5QW685Li+FYw3NEwltzrVrIbEr2FBzR4qCMyf
-	 A5tkjpJLm3yxEUSP4SUB76u3vF72cxxZocQLLoKcdZ3I8w+KuzZlATfEj535SChZ4I
-	 O9W6YEYkQ7hDw==
+	s=k20201202; t=1703753966;
+	bh=16+Nu0Wb1JkSQStq2mcU9kdq58a4r2QX4o0XnGMbW1g=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=VPt/k23KQR/ek+Wk4Mb0Ffgqjpr0C4tGoF8uMnFE+csMqgfr093NXmCFQN67kLxmg
+	 2wX671IgLVNFprhYGlOqZT9sQd45M//tMA96Y48PuyxuAUw2YYrGJheIf3jUNzegsO
+	 oZr1LwJ+Pd98LSUtkZQ1GQJGY/kKAzRUqhRAQ2LGss8txZ4sD1RLgnpeb+dxBj+bEm
+	 lTFy+2WWHg42Kl6nbbR4U7U8bNB7+1AF95XqLf72vf4OQxZI1A08+R/V8QaP95mAv4
+	 W39UhXGY1i/064M112ShThexcH0ieACEEyC3qc6Oesf9LT7f5gDAuaHeHCYJG86mq+
+	 AIf2i7+FdSkcQ==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Will Deacon <will@kernel.org>,
 	"Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
@@ -56,16 +56,24 @@ Cc: linux-arch@vger.kernel.org,
 	linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 0/2] riscv: tlb: avoid tlb flushing on exit & execve
-Date: Thu, 28 Dec 2023 16:46:40 +0800
-Message-Id: <20231228084642.1765-1-jszhang@kernel.org>
+	linux-riscv@lists.infradead.org,
+	Nadav Amit <namit@vmware.com>,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Yu Zhao <yuzhao@google.com>,
+	x86@kernel.org
+Subject: [PATCH 1/2] mm/tlb: fix fullmm semantics
+Date: Thu, 28 Dec 2023 16:46:41 +0800
+Message-Id: <20231228084642.1765-2-jszhang@kernel.org>
 X-Mailer: git-send-email 2.40.0
+In-Reply-To: <20231228084642.1765-1-jszhang@kernel.org>
+References: <20231228084642.1765-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231228_005927_774874_1D337DA9 
-X-CRM114-Status: UNSURE (   9.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20231228_005929_409351_05295C32 
+X-CRM114-Status: GOOD (  15.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,38 +90,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The mmu_gather code sets fullmm=1 when tearing down the entire address
-space for an mm_struct on exit or execve. So if the underlying platform
-supports ASID, the tlb flushing can be avoided because the ASID
-allocator will never re-allocate a dirty ASID.
+From: Nadav Amit <namit@vmware.com>
 
-But currently, the tlb_finish_mmu() sets fullmm, when in fact it wants
-to say that the TLB should be fully flushed.
+fullmm in mmu_gather is supposed to indicate that the mm is torn-down
+(e.g., on process exit) and can therefore allow certain optimizations.
+However, tlb_finish_mmu() sets fullmm, when in fact it want to say that
+the TLB should be fully flushed.
 
-So patch1 takes one of Nadav's patch from [1] to fix fullmm semantics.
-Compared with original patch from[1], the differences are:
-a. fixes the fullmm semantics in arm64 too
-b. bring back the fullmm optimization back on arm64.
+Change tlb_finish_mmu() to set need_flush_all and check this flag in
+tlb_flush_mmu_tlbonly() when deciding whether a flush is needed.
 
-patch2 does the optimization on riscv.
+At the same time, bring the arm64 fullmm on process exit optimization back.
 
-Use the performance of Process creation in unixbench on T-HEAD TH1520
-platform is improved by about 4%.
-
-Link: https://lore.kernel.org/linux-mm/20210131001132.3368247-2-namit@vmware.com/ [1]
-
-Jisheng Zhang (1):
-  riscv: tlb: avoid tlb flushing if fullmm == 1
-
-Nadav Amit (1):
-  mm/tlb: fix fullmm semantics
-
+Signed-off-by: Nadav Amit <namit@vmware.com>
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Cc: Andrea Arcangeli <aarcange@redhat.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Andy Lutomirski <luto@kernel.org>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Will Deacon <will@kernel.org>
+Cc: Yu Zhao <yuzhao@google.com>
+Cc: Nick Piggin <npiggin@gmail.com>
+Cc: x86@kernel.org
+---
  arch/arm64/include/asm/tlb.h | 5 ++++-
- arch/riscv/include/asm/tlb.h | 9 +++++++++
  include/asm-generic/tlb.h    | 2 +-
  mm/mmu_gather.c              | 2 +-
- 4 files changed, 15 insertions(+), 3 deletions(-)
+ 3 files changed, 6 insertions(+), 3 deletions(-)
 
+diff --git a/arch/arm64/include/asm/tlb.h b/arch/arm64/include/asm/tlb.h
+index 846c563689a8..6164c5f3b78f 100644
+--- a/arch/arm64/include/asm/tlb.h
++++ b/arch/arm64/include/asm/tlb.h
+@@ -62,7 +62,10 @@ static inline void tlb_flush(struct mmu_gather *tlb)
+ 	 * invalidating the walk-cache, since the ASID allocator won't
+ 	 * reallocate our ASID without invalidating the entire TLB.
+ 	 */
+-	if (tlb->fullmm) {
++	if (tlb->fullmm)
++		return;
++
++	if (tlb->need_flush_all) {
+ 		if (!last_level)
+ 			flush_tlb_mm(tlb->mm);
+ 		return;
+diff --git a/include/asm-generic/tlb.h b/include/asm-generic/tlb.h
+index 129a3a759976..f2d46357bcbb 100644
+--- a/include/asm-generic/tlb.h
++++ b/include/asm-generic/tlb.h
+@@ -452,7 +452,7 @@ static inline void tlb_flush_mmu_tlbonly(struct mmu_gather *tlb)
+ 	 * these bits.
+ 	 */
+ 	if (!(tlb->freed_tables || tlb->cleared_ptes || tlb->cleared_pmds ||
+-	      tlb->cleared_puds || tlb->cleared_p4ds))
++	      tlb->cleared_puds || tlb->cleared_p4ds || tlb->need_flush_all))
+ 		return;
+ 
+ 	tlb_flush(tlb);
+diff --git a/mm/mmu_gather.c b/mm/mmu_gather.c
+index 4f559f4ddd21..79298bac3481 100644
+--- a/mm/mmu_gather.c
++++ b/mm/mmu_gather.c
+@@ -384,7 +384,7 @@ void tlb_finish_mmu(struct mmu_gather *tlb)
+ 		 * On x86 non-fullmm doesn't yield significant difference
+ 		 * against fullmm.
+ 		 */
+-		tlb->fullmm = 1;
++		tlb->need_flush_all = 1;
+ 		__tlb_reset_range(tlb);
+ 		tlb->freed_tables = 1;
+ 	}
 -- 
 2.40.0
 
