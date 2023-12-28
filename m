@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9A95C46CD2
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Dec 2023 01:43:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D03EC46CD4
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Dec 2023 01:43:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3OAODXOoTLJhg30C8tES2e743C+uR1XjAJGmru4h9vE=; b=dcY9002bPDFxkJ
-	NnDMt3xxfihDbuSYxkniSb/Ks6TvWNF85Rfb8yoKu4oruHTGxTgWQdPTrEneNa+UDA/Fxe0Cb6QnA
-	Tx7u03S4zGbI2o7EA8jjeWI4lOG5MV1oPbSXc8/Ia5A2i1wQXMbCXU1SLukhMYhtiGnt3ntL9QNgY
-	VENs/1gC//HupqzpfTxXtfEPjXxlbyIqud0kXYNoodP3nzYKQ35D4W3DqURgeby8S8Pgo5okjbpig
-	vaEokf0qhgs5l4kYtalACRPLTGhhK60CKvo71OISB2OYZLUFXIjmeDQm4e3K7vDSBTsZ98j+tYEv9
-	WiZlhXgjox5/tUr/IF+g==;
+	List-Owner; bh=9Phn7Pf+lSDryyFMWm++aW6OI0bQIZnTCa5iik2u9OY=; b=jjqVRzXOaVrTcE
+	NHENDyULQtqTM+fg1DT0X2C72WArY9l8yHJMx18w9X99mVtK7DqLl2UcWJrknwxynpTpcxvDQOenN
+	AJD2HlDfUIedv3rWPj28baLzRylxEaEU0m6b9yB/2MYNtAxSoj+7C3EbRdfjf7DA8KBKnbAus/U5+
+	YdM3ory3+PEd1wQPDQYT7tg9U8ykCaKtEfxN8rRx8rFZbEDdpHMMpmDcgz7p+y5ij73/3xFrMTfqo
+	q7WdBvvavdEob0cPOz3w24hYTEUsNPSnzOvVIDBVXBvlu5Sw26nOi9AusmexrCu+v6fZ+45zHSjY2
+	b9PgOPBisLgPXIuyxH/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rIfQL-00FsEd-2T;
-	Thu, 28 Dec 2023 01:43:01 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1rIfQM-00FsFj-2p;
+	Thu, 28 Dec 2023 01:43:02 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rIfPq-00Frl8-17
+	id 1rIfPq-00Fro0-2F
 	for linux-riscv@lists.infradead.org;
 	Thu, 28 Dec 2023 01:42:35 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-6d099d316a8so5281250b3a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Dec 2023 17:42:29 -0800 (PST)
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-6d9b51093a0so2268797b3a.0
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Dec 2023 17:42:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1703727749; x=1704332549; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1703727750; x=1704332550; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=BoxXzLgzl7b5Y0xu5pjyo/VkU/XWb+SGTLxU4jp8p0k=;
-        b=GA/tc7IjAyFghIieVC+U49MfxLFh3eIKyL5paoLOzcgVoVQ5jm24RY7u1h6iMeyHfJ
-         Eac4KXM7rS9B9iiiS5bRBQm0j97oL8iI+UUBAkjBWJUcx+hpMUcmudMMGipsEQUiOrDV
-         WoZV0hX2hOP3DR4eqXr6s5U3OwopwT60WaG2sAJTQr1asgnU1hgEW1N6ve5h9+HTHV8s
-         RL6YP+xmpX2B1qPPuSxzTQvuW/36Qn2B73oGVsFgYuGB6jNcwefvQPkAehcPDcnnfYoD
-         5Ya+BL3EZ2EgpcREKARBdNRuNgZK+FlgxZuEogiU1wo6JJkK4VdchF5BZhO+n0lYLxmn
-         QapQ==
+        bh=5jd6BNzjMN3b9R+N9FmyfxlTWIL2mCpzUIRSa4mv1F0=;
+        b=ei+qQh+Mhinnda5sG5ZDYgK6J1hbU1PZF5EurPHUChrXL7SAkNdymOz3mUq7lGwanZ
+         GbW+h+SotZ7Udcz71qYp7RplsGCpQflv8UNfmhqYp6ui+b5ILy4wetuou7kK0WBTl3Hr
+         r/HHz2spFudYQudC6jbGxlva7a5cHuiqVGs3MdZEDBMUNAfEAkwmEhmLHR1wG+jIsLwZ
+         QGOJBYxIEWqidiAE8UJNGLPkLuArFmeHeTZwAfaDPM8b8OquNoF6eytkHDgPELPr5bMY
+         qHLGuhpdPmf8y0ZvcCGz56eqxDf+z3GRDh35TGB2k1jRHPNKHM2J0wLDmpNZ0kIiFfZB
+         2SYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1703727749; x=1704332549;
+        d=1e100.net; s=20230601; t=1703727750; x=1704332550;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=BoxXzLgzl7b5Y0xu5pjyo/VkU/XWb+SGTLxU4jp8p0k=;
-        b=A9Qv/zCtbwi05S/tX0R/NXMVVCrDZn42s9CK+xTeMsG/XE9/0X5QoFW6+MRRXn4W9D
-         6+eTVO8PSMYsBKmjeYXXYIgj6EMKArKmr+CrIR/eZrFh5YxqKEwJPUZhxT76pUaQmrYn
-         DCNf02653wcXoYQnWW29frSzkXzEqhOqRqIWOeFl51oN08/n+qM7m8tAi1fX7oeKqQ50
-         sDkOZbYmijwczMONITJWaqKu5H7flqYq2/ytcmojjbITt5JjOLAQGhrLwNG8CWpEyE2K
-         G/jqOdDJ3J5rV32J8qCn43RT9iiV3AA2cI9UL1mFOhRvZVetsi7iMF/c0d1+7gTbTybp
-         7pdQ==
-X-Gm-Message-State: AOJu0Yw+DaFuWtCdsjEeJ/1SVvDiyw0UZALV9jHML6YZSIB7VpPR6+bE
-	0KneZacENrtjPXCOzQkK16PelwnsUAbOxw==
-X-Google-Smtp-Source: AGHT+IFXwothAr5BJIcCMrRvq4/mKzewsdDIu4/j3geKR8xiDFkrXQfFhz/93Qk1mZI7uGYnkNSdng==
-X-Received: by 2002:a05:6a00:4c81:b0:6d9:bc67:82a with SMTP id eb1-20020a056a004c8100b006d9bc67082amr5349494pfb.54.1703727748958;
-        Wed, 27 Dec 2023 17:42:28 -0800 (PST)
+        bh=5jd6BNzjMN3b9R+N9FmyfxlTWIL2mCpzUIRSa4mv1F0=;
+        b=tVNmSlmXIIb7zrzRMRZqHRBLSOHU5Xfv8hULSif07EEN8wesZ1NDNfYlu4732m6Bol
+         +DKcJvoiRYU84dm0y9PR6t9eoGs+aOGiwx6YZN14mAWs2DYILgSj5SRPo9MLIuRRIVQR
+         WuB1K+6t8ptM6ABzd0OyMxO3DmKEZ8f/IBAPuAyadnSo6yfdtSA3ID0UY17QN03RvN/M
+         kAEvd4vNlzxU2J7PfXtWdONhzJAttnZ3xrq2PMkOACgNwN+Tsdt3i3XMXsUHY5ZesHZJ
+         MZGQZQCJly16Gd57qGTNVRzAVEEVPIA/GnoTCRPPnpr6b2eQYpJggRPYFyJDXo0B68j5
+         wy5w==
+X-Gm-Message-State: AOJu0YwaaKcXhb3kuIYdtQmiLXCCKDciupuuPDtUWhyjGw7gIeWZeNfp
+	/haxdVhPkR0jBst/bJC90hdSLA9BuLVY+Q==
+X-Google-Smtp-Source: AGHT+IE0nmjtDXMxXkCsxA9jA/OWEHDhYnPM1dnj251PyNU2gTBGhxX93h+FmlGsyJJp6FOxSnIuVA==
+X-Received: by 2002:a05:6a00:214d:b0:6d9:f66a:b5f6 with SMTP id o13-20020a056a00214d00b006d9f66ab5f6mr2059083pfk.34.1703727750207;
+        Wed, 27 Dec 2023 17:42:30 -0800 (PST)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id g24-20020aa78758000000b006d49ed3effasm7335440pfo.63.2023.12.27.17.42.28
+        by smtp.gmail.com with ESMTPSA id g24-20020aa78758000000b006d49ed3effasm7335440pfo.63.2023.12.27.17.42.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Dec 2023 17:42:28 -0800 (PST)
+        Wed, 27 Dec 2023 17:42:29 -0800 (PST)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linuxppc-dev@lists.ozlabs.org,
@@ -73,16 +73,16 @@ Cc: loongarch@lists.linux.dev,
 	amd-gfx@lists.freedesktop.org,
 	linux-arch@vger.kernel.org,
 	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v2 05/14] arm64: crypto: Use CC_FLAGS_FPU for NEON CFLAGS
-Date: Wed, 27 Dec 2023 17:41:55 -0800
-Message-ID: <20231228014220.3562640-6-samuel.holland@sifive.com>
+Subject: [PATCH v2 06/14] lib/raid6: Use CC_FLAGS_FPU for NEON CFLAGS
+Date: Wed, 27 Dec 2023 17:41:56 -0800
+Message-ID: <20231228014220.3562640-7-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.42.0
 In-Reply-To: <20231228014220.3562640-1-samuel.holland@sifive.com>
 References: <20231228014220.3562640-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231227_174230_420893_475B59CE 
-X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-CacheID: sfid-20231227_174230_759658_93F4AC1F 
+X-CRM114-Status: UNSURE (   8.68  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,32 +103,64 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Now that CC_FLAGS_FPU is exported and can be used anywhere in the source
 tree, use it instead of duplicating the flags here.
 
+Reviewed-by: Christoph Hellwig <hch@lst.de>
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
-Changes in v2:
- - New patch for v2
+(no changes since v1)
 
- arch/arm64/lib/Makefile | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ lib/raid6/Makefile | 31 ++++++++-----------------------
+ 1 file changed, 8 insertions(+), 23 deletions(-)
 
-diff --git a/arch/arm64/lib/Makefile b/arch/arm64/lib/Makefile
-index 29490be2546b..13e6a2829116 100644
---- a/arch/arm64/lib/Makefile
-+++ b/arch/arm64/lib/Makefile
-@@ -7,10 +7,8 @@ lib-y		:= clear_user.o delay.o copy_from_user.o		\
- 
- ifeq ($(CONFIG_KERNEL_MODE_NEON), y)
- obj-$(CONFIG_XOR_BLOCKS)	+= xor-neon.o
--CFLAGS_REMOVE_xor-neon.o	+= -mgeneral-regs-only
--CFLAGS_xor-neon.o		+= -ffreestanding
--# Enable <arm_neon.h>
--CFLAGS_xor-neon.o		+= -isystem $(shell $(CC) -print-file-name=include)
-+CFLAGS_xor-neon.o		+= $(CC_FLAGS_FPU)
-+CFLAGS_REMOVE_xor-neon.o	+= $(CC_FLAGS_NO_FPU)
+diff --git a/lib/raid6/Makefile b/lib/raid6/Makefile
+index 1c5420ff254e..309fea97efc6 100644
+--- a/lib/raid6/Makefile
++++ b/lib/raid6/Makefile
+@@ -33,25 +33,6 @@ CFLAGS_REMOVE_vpermxor8.o += -msoft-float
+ endif
  endif
  
- lib-$(CONFIG_ARCH_HAS_UACCESS_FLUSHCACHE) += uaccess_flushcache.o
+-# The GCC option -ffreestanding is required in order to compile code containing
+-# ARM/NEON intrinsics in a non C99-compliant environment (such as the kernel)
+-ifeq ($(CONFIG_KERNEL_MODE_NEON),y)
+-NEON_FLAGS := -ffreestanding
+-# Enable <arm_neon.h>
+-NEON_FLAGS += -isystem $(shell $(CC) -print-file-name=include)
+-ifeq ($(ARCH),arm)
+-NEON_FLAGS += -march=armv7-a -mfloat-abi=softfp -mfpu=neon
+-endif
+-CFLAGS_recov_neon_inner.o += $(NEON_FLAGS)
+-ifeq ($(ARCH),arm64)
+-CFLAGS_REMOVE_recov_neon_inner.o += -mgeneral-regs-only
+-CFLAGS_REMOVE_neon1.o += -mgeneral-regs-only
+-CFLAGS_REMOVE_neon2.o += -mgeneral-regs-only
+-CFLAGS_REMOVE_neon4.o += -mgeneral-regs-only
+-CFLAGS_REMOVE_neon8.o += -mgeneral-regs-only
+-endif
+-endif
+-
+ quiet_cmd_unroll = UNROLL  $@
+       cmd_unroll = $(AWK) -v N=$* -f $(srctree)/$(src)/unroll.awk < $< > $@
+ 
+@@ -75,10 +56,14 @@ targets += vpermxor1.c vpermxor2.c vpermxor4.c vpermxor8.c
+ $(obj)/vpermxor%.c: $(src)/vpermxor.uc $(src)/unroll.awk FORCE
+ 	$(call if_changed,unroll)
+ 
+-CFLAGS_neon1.o += $(NEON_FLAGS)
+-CFLAGS_neon2.o += $(NEON_FLAGS)
+-CFLAGS_neon4.o += $(NEON_FLAGS)
+-CFLAGS_neon8.o += $(NEON_FLAGS)
++CFLAGS_neon1.o += $(CC_FLAGS_FPU)
++CFLAGS_neon2.o += $(CC_FLAGS_FPU)
++CFLAGS_neon4.o += $(CC_FLAGS_FPU)
++CFLAGS_neon8.o += $(CC_FLAGS_FPU)
++CFLAGS_REMOVE_neon1.o += $(CC_FLAGS_NO_FPU)
++CFLAGS_REMOVE_neon2.o += $(CC_FLAGS_NO_FPU)
++CFLAGS_REMOVE_neon4.o += $(CC_FLAGS_NO_FPU)
++CFLAGS_REMOVE_neon8.o += $(CC_FLAGS_NO_FPU)
+ targets += neon1.c neon2.c neon4.c neon8.c
+ $(obj)/neon%.c: $(src)/neon.uc $(src)/unroll.awk FORCE
+ 	$(call if_changed,unroll)
 -- 
 2.42.0
 
