@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 116B5C47073
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Dec 2023 08:59:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F141C3DA6E
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Dec 2023 09:47:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nkWHvuWK7gmyDVa6w6kfepYbX8XQzh7sHJ/DlQqq++E=; b=Xr2z/+XbcumxoW
-	qFdcLi91Nn/LUjAve47weZFwjnjzKPU/sd7jb4NVNsD16PWY/UylNstzlRbsjVGlO6pQCH5lt5D3K
-	qbTsz8P26JkgohdlHvw08toa4UIkLSlYojPT3lqb8m0zCzhkGojahwet1pmP5lVWDSY6WMQcAZ7LY
-	WU8fVC88f2QpMrRV5pi8Lq/uxQkAhKlFORf9OPg/Iy1UVF93tk9/s7y0A7Mc1ZOWbo6oROqoEJz6k
-	F6743XxzH0tG5Irp2z7dmIbA6m+e2AoY9ebIRf1vRvQvs3SwUUB/g2/4hOXzDAmnatp5ODDjDGVov
-	oVjsXNGoT52+9nxU8NMQ==;
+	List-Owner; bh=Us6nID4H1tCivaenvLMoEdJiHSP6VisblVN3auZawMw=; b=X0kPSJtj651Ovr
+	4fD3h9h65lJ6+ZGIF3LusztRog0F5XBUbXlfMm/Qdl3n/aDyevrQDC0HbHLlIb1z8/6httDa78BqW
+	PHW0OCRUknchZSJDkzUJGbwiFseOEybD4BF8rb0vSEcj2nHnwmqJn4FoY7NcznI7nR1WhJGmjmVcY
+	kV6PyQ+FdAgzk5thIA9wnaMA24WcbN2XjOPuq/y0wx5mymi8aeM4eQqWDT7YR10AY++OPdPz5T1or
+	IWu9AGwTNxkKw5c17nRwq1BnpbpEYZtd+/UBY2ds+CvtIifBnRqXYabJbunbnEaFE74igF8ZgfNip
+	nLa69DYF8vVLH/wYlnQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rImF3-00GRoV-2Q;
-	Thu, 28 Dec 2023 08:59:49 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rImEo-00GReX-1L;
-	Thu, 28 Dec 2023 08:59:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4F39E60FE6;
-	Thu, 28 Dec 2023 08:59:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5389DC433CC;
-	Thu, 28 Dec 2023 08:59:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1703753970;
-	bh=4x9t1f04s06EEvjvtQ7yC2/ljPKJqNDBrcj2L/hT3Js=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TKBsmvO8700bopUsWROGXLmoCWFXsTW+dDVnNGSxOkaL/USi53RKl8TdsixW0+meq
-	 ZCWxQdbp33ikg/G9ezCtq7NkctrZnj90/OzQ0n9iUxG+YKDW4DQ0nPcXFY42wiBv+r
-	 997dRhgKccetlwPkyjqAZY+f5mx70kEYFtXj+CoiB8mr5EJbZvQA7ejpm/TS62Kx8Z
-	 MVCzbTzHlBLytfAxGrORGDpTnrYATlbt8PPwaCWGIg2WfXt/VlliMYXrTExd8VnHSR
-	 LxHkWdaNYJGBiXawHPjLTvQ6a2cSRLkXc9Y/wtpnv3MN3QHCLVBpveSUN4P0ShLMkB
-	 BBgaja1UR4WBA==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Will Deacon <will@kernel.org>,
-	"Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Nick Piggin <npiggin@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arch@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 2/2] riscv: tlb: avoid tlb flushing if fullmm == 1
-Date: Thu, 28 Dec 2023 16:46:42 +0800
-Message-Id: <20231228084642.1765-3-jszhang@kernel.org>
-X-Mailer: git-send-email 2.40.0
-In-Reply-To: <20231228084642.1765-1-jszhang@kernel.org>
-References: <20231228084642.1765-1-jszhang@kernel.org>
+	id 1rImym-00GVJr-09;
+	Thu, 28 Dec 2023 09:47:04 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1rImyh-00GVA2-1D
+	for linux-riscv@lists.infradead.org;
+	Thu, 28 Dec 2023 09:47:02 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id D6DF07FDC;
+	Thu, 28 Dec 2023 17:46:11 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 28 Dec
+ 2023 17:46:11 +0800
+Received: from [192.168.125.85] (183.27.97.107) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 28 Dec
+ 2023 17:46:10 +0800
+Message-ID: <196e61f9-2beb-413f-b2fd-4cd8e347ad60@starfivetech.com>
+Date: Thu, 28 Dec 2023 17:46:09 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13 09/21] PCI: microchip: Move setup functions to
+ pcie-plda-host.c
+Content-Language: en-US
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+CC: Conor Dooley <conor@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?=
+	<kw@linux.com>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
+	<bhelgaas@google.com>, Daire McNamara <daire.mcnamara@microchip.com>, "Emil
+ Renner Berthing" <emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-pci@vger.kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	"Philipp Zabel" <p.zabel@pengutronix.de>, Mason Huo
+	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>
+References: <20231214072839.2367-1-minda.chen@starfivetech.com>
+ <20231214072839.2367-10-minda.chen@starfivetech.com>
+ <ZYxHl+R40b7t4Xn2@lpieralisi>
+From: Minda Chen <minda.chen@starfivetech.com>
+In-Reply-To: <ZYxHl+R40b7t4Xn2@lpieralisi>
+X-Originating-IP: [183.27.97.107]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX171.cuchost.com
+ (172.16.6.91)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231228_005934_496904_27528E06 
-X-CRM114-Status: GOOD (  10.80  )
+X-CRM114-CacheID: sfid-20231228_014659_918080_C4DE426C 
+X-CRM114-Status: GOOD (  19.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,46 +85,232 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The mmu_gather code sets fullmm=1 when tearing down the entire address
-space for an mm_struct on exit or execve. So if the underlying platform
-supports ASID, the tlb flushing can be avoided because the ASID
-allocator will never re-allocate a dirty ASID.
 
-Use the performance of Process creation in unixbench on T-HEAD TH1520
-platform is improved by about 4%.
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
- arch/riscv/include/asm/tlb.h | 9 +++++++++
- 1 file changed, 9 insertions(+)
-
-diff --git a/arch/riscv/include/asm/tlb.h b/arch/riscv/include/asm/tlb.h
-index 1eb5682b2af6..35f3c214332e 100644
---- a/arch/riscv/include/asm/tlb.h
-+++ b/arch/riscv/include/asm/tlb.h
-@@ -12,10 +12,19 @@ static void tlb_flush(struct mmu_gather *tlb);
- 
- #define tlb_flush tlb_flush
- #include <asm-generic/tlb.h>
-+#include <asm/mmu_context.h>
- 
- static inline void tlb_flush(struct mmu_gather *tlb)
- {
- #ifdef CONFIG_MMU
-+	/*
-+	 * If ASID is supported, the ASID allocator will either invalidate the
-+	 * ASID or mark it as used. So we can avoid TLB invalidation when
-+	 * pulling down a full mm.
-+	 */
-+	if (static_branch_likely(&use_asid_allocator) && tlb->fullmm)
-+		return;
-+
- 	if (tlb->fullmm || tlb->need_flush_all)
- 		flush_tlb_mm(tlb->mm);
- 	else
--- 
-2.40.0
-
+On 2023/12/27 23:49, Lorenzo Pieralisi wrote:
+> On Thu, Dec 14, 2023 at 03:28:27PM +0800, Minda Chen wrote:
+>> Move setup functions to common pcie-plda-host.c. So these two functions
+>> can be re-used.
+>> 
+>> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+>> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+>> ---
+>>  drivers/pci/controller/plda/Kconfig           |  4 +
+>>  drivers/pci/controller/plda/Makefile          |  1 +
+>>  .../pci/controller/plda/pcie-microchip-host.c | 59 --------------
+>>  drivers/pci/controller/plda/pcie-plda-host.c  | 80 +++++++++++++++++++
+>>  drivers/pci/controller/plda/pcie-plda.h       |  5 ++
+>>  5 files changed, 90 insertions(+), 59 deletions(-)
+>>  create mode 100644 drivers/pci/controller/plda/pcie-plda-host.c
+>> 
+>> diff --git a/drivers/pci/controller/plda/Kconfig b/drivers/pci/controller/plda/Kconfig
+>> index 5cb3be4fc98c..e54a82ee94f5 100644
+>> --- a/drivers/pci/controller/plda/Kconfig
+>> +++ b/drivers/pci/controller/plda/Kconfig
+>> @@ -3,10 +3,14 @@
+>>  menu "PLDA-based PCIe controllers"
+>>  	depends on PCI
+>>  
+>> +config PCIE_PLDA_HOST
+>> +	bool
+>> +
+>>  config PCIE_MICROCHIP_HOST
+>>  	tristate "Microchip AXI PCIe controller"
+>>  	depends on PCI_MSI && OF
+>>  	select PCI_HOST_COMMON
+>> +	select PCIE_PLDA_HOST
+>>  	help
+>>  	  Say Y here if you want kernel to support the Microchip AXI PCIe
+>>  	  Host Bridge driver.
+>> diff --git a/drivers/pci/controller/plda/Makefile b/drivers/pci/controller/plda/Makefile
+>> index e1a265cbf91c..4340ab007f44 100644
+>> --- a/drivers/pci/controller/plda/Makefile
+>> +++ b/drivers/pci/controller/plda/Makefile
+>> @@ -1,2 +1,3 @@
+>>  # SPDX-License-Identifier: GPL-2.0
+>> +obj-$(CONFIG_PCIE_PLDA_HOST) += pcie-plda-host.o
+>>  obj-$(CONFIG_PCIE_MICROCHIP_HOST) += pcie-microchip-host.o
+>> diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+>> index 31ca8d44ee2a..2e79bcc7c0a5 100644
+>> --- a/drivers/pci/controller/plda/pcie-microchip-host.c
+>> +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+>> @@ -838,65 +838,6 @@ static int mc_pcie_init_irq_domains(struct plda_pcie_rp *port)
+>>  	return mc_allocate_msi_domains(port);
+>>  }
+>>  
+>> -static void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+>> -				   phys_addr_t axi_addr, phys_addr_t pci_addr,
+>> -				   size_t size)
+>> -{
+>> -	u32 atr_sz = ilog2(size) - 1;
+>> -	u32 val;
+>> -
+>> -	if (index == 0)
+>> -		val = PCIE_CONFIG_INTERFACE;
+>> -	else
+>> -		val = PCIE_TX_RX_INTERFACE;
+>> -
+>> -	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+>> -	       ATR0_AXI4_SLV0_TRSL_PARAM);
+>> -
+>> -	val = lower_32_bits(axi_addr) | (atr_sz << ATR_SIZE_SHIFT) |
+>> -			    ATR_IMPL_ENABLE;
+>> -	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+>> -	       ATR0_AXI4_SLV0_SRCADDR_PARAM);
+>> -
+>> -	val = upper_32_bits(axi_addr);
+>> -	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+>> -	       ATR0_AXI4_SLV0_SRC_ADDR);
+>> -
+>> -	val = lower_32_bits(pci_addr);
+>> -	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+>> -	       ATR0_AXI4_SLV0_TRSL_ADDR_LSB);
+>> -
+>> -	val = upper_32_bits(pci_addr);
+>> -	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+>> -	       ATR0_AXI4_SLV0_TRSL_ADDR_UDW);
+>> -
+>> -	val = readl(bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
+>> -	val |= (ATR0_PCIE_ATR_SIZE << ATR0_PCIE_ATR_SIZE_SHIFT);
+>> -	writel(val, bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
+>> -	writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);
+>> -}
+>> -
+>> -static int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
+>> -				  struct plda_pcie_rp *port)
+>> -{
+>> -	void __iomem *bridge_base_addr = port->bridge_addr;
+>> -	struct resource_entry *entry;
+>> -	u64 pci_addr;
+>> -	u32 index = 1;
+>> -
+>> -	resource_list_for_each_entry(entry, &bridge->windows) {
+>> -		if (resource_type(entry->res) == IORESOURCE_MEM) {
+>> -			pci_addr = entry->res->start - entry->offset;
+>> -			plda_pcie_setup_window(bridge_base_addr, index,
+>> -					       entry->res->start, pci_addr,
+>> -					       resource_size(entry->res));
+>> -			index++;
+>> -		}
+>> -	}
+>> -
+>> -	return 0;
+>> -}
+>> -
+>>  static inline void mc_clear_secs(struct mc_pcie *port)
+>>  {
+>>  	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
+>> diff --git a/drivers/pci/controller/plda/pcie-plda-host.c b/drivers/pci/controller/plda/pcie-plda-host.c
+>> new file mode 100644
+>> index 000000000000..19131181897f
+>> --- /dev/null
+>> +++ b/drivers/pci/controller/plda/pcie-plda-host.c
+>> @@ -0,0 +1,80 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +/*
+>> + * PLDA PCIe XpressRich host controller driver
+>> + *
+>> + * Copyright (C) 2023 Microchip Co. Ltd
+>> + *
+>> + * Author: Daire McNamara <daire.mcnamara@microchip.com>
+>> + */
+>> +
+>> +#include <linux/irqchip/chained_irq.h>
+>> +#include <linux/irqdomain.h>
+>> +#include <linux/msi.h>
+>> +#include <linux/of_address.h>
+>> +#include <linux/of_pci.h>
+>> +#include <linux/pci_regs.h>
+>> +#include <linux/pci-ecam.h>
+>> +#include <linux/platform_device.h>
+> 
+> Do you really require these headers ? Not in this patch,
+> in later patches and that's why every header should be
+> added when it is really needed.
+> 
+> Lorenzo
+> 
+OK, I will change this. thanks.
+>> +
+>> +#include "pcie-plda.h"
+>> +
+>> +void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+>> +			    phys_addr_t axi_addr, phys_addr_t pci_addr,
+>> +			    size_t size)
+>> +{
+>> +	u32 atr_sz = ilog2(size) - 1;
+>> +	u32 val;
+>> +
+>> +	if (index == 0)
+>> +		val = PCIE_CONFIG_INTERFACE;
+>> +	else
+>> +		val = PCIE_TX_RX_INTERFACE;
+>> +
+>> +	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+>> +	       ATR0_AXI4_SLV0_TRSL_PARAM);
+>> +
+>> +	val = lower_32_bits(axi_addr) | (atr_sz << ATR_SIZE_SHIFT) |
+>> +			    ATR_IMPL_ENABLE;
+>> +	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+>> +	       ATR0_AXI4_SLV0_SRCADDR_PARAM);
+>> +
+>> +	val = upper_32_bits(axi_addr);
+>> +	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+>> +	       ATR0_AXI4_SLV0_SRC_ADDR);
+>> +
+>> +	val = lower_32_bits(pci_addr);
+>> +	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+>> +	       ATR0_AXI4_SLV0_TRSL_ADDR_LSB);
+>> +
+>> +	val = upper_32_bits(pci_addr);
+>> +	writel(val, bridge_base_addr + (index * ATR_ENTRY_SIZE) +
+>> +	       ATR0_AXI4_SLV0_TRSL_ADDR_UDW);
+>> +
+>> +	val = readl(bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
+>> +	val |= (ATR0_PCIE_ATR_SIZE << ATR0_PCIE_ATR_SIZE_SHIFT);
+>> +	writel(val, bridge_base_addr + ATR0_PCIE_WIN0_SRCADDR_PARAM);
+>> +	writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);
+>> +}
+>> +EXPORT_SYMBOL_GPL(plda_pcie_setup_window);
+>> +
+>> +int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
+>> +			   struct plda_pcie_rp *port)
+>> +{
+>> +	void __iomem *bridge_base_addr = port->bridge_addr;
+>> +	struct resource_entry *entry;
+>> +	u64 pci_addr;
+>> +	u32 index = 1;
+>> +
+>> +	resource_list_for_each_entry(entry, &bridge->windows) {
+>> +		if (resource_type(entry->res) == IORESOURCE_MEM) {
+>> +			pci_addr = entry->res->start - entry->offset;
+>> +			plda_pcie_setup_window(bridge_base_addr, index,
+>> +					       entry->res->start, pci_addr,
+>> +					       resource_size(entry->res));
+>> +			index++;
+>> +		}
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +EXPORT_SYMBOL_GPL(plda_pcie_setup_iomems);
+>> diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
+>> index 363fcbbaf6ec..3deefd35fa5a 100644
+>> --- a/drivers/pci/controller/plda/pcie-plda.h
+>> +++ b/drivers/pci/controller/plda/pcie-plda.h
+>> @@ -120,4 +120,9 @@ struct plda_pcie_rp {
+>>  	void __iomem *bridge_addr;
+>>  };
+>>  
+>> +void plda_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+>> +			    phys_addr_t axi_addr, phys_addr_t pci_addr,
+>> +			    size_t size);
+>> +int plda_pcie_setup_iomems(struct pci_host_bridge *bridge,
+>> +			   struct plda_pcie_rp *port);
+>>  #endif
+>> -- 
+>> 2.17.1
+>> 
 
 _______________________________________________
 linux-riscv mailing list
