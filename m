@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 420F0C46CD4
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Dec 2023 01:43:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E26C46CD4
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Dec 2023 01:44:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nXTgqXVZ6+xDOXYretsEqVIJDqG7Tc13RkunV+OGaL4=; b=keBT9wEgmylmlO
-	Bl3cIVdpxsIO+uPTuFPFZZ0/NdHg5JgZtY4L9aOGiQByv2thvNkCXvYBwZHepBsY7WlCxSCuACD+s
-	q7zd0SBhljAfgzYItnn0Sp13tCfLHmqHBg4H7+PQWAI1BtQdL3/zUOtSzftGYGBthnS1aMFJhDhsl
-	xho/uDTpANbm9DqwEXg8vZltcdNHJfY4uvdO/vPovL3FkuoW3S9S6B9liR/+R+1v++iVphzX+wmuU
-	cHSJCyqoldVhujCpPMIU3TY9wY1LE3w2L2wJULt1GxFWReHOi3P5ww3kSq3/BGVIkA8st/L68CYIr
-	/FBmuqif7qj6d78HI3bg==;
+	List-Owner; bh=PR6QOkuzefZMD+HUhwdVQPewwqj4Hoat6qe368HycYA=; b=HhMhBNqchsqMRB
+	S0nLSW/n/d9TPpHbUBW4useFUwo3nYjuXpZSL7hyp90fdXO4KvxEZbyns6uLlSf7lXOKx8hdCFCob
+	1uGV1A4posPiD3JTe1VrB3PVFITqiZzl95ZYUrDt7/gqGqa7FKAqaOq3qmkigVEluxr/K7vJlQ9YR
+	sBFAZqkQ6SdWoOSDqbLXH0u7dVg4V593qMbo02TKf0UWgELflMVaqZCzvV6T/XsNHWUVmRmMv12uw
+	/G3IebJeX9GMpJdM6q8OXp2ikBITrQHm67u4kpq6oKatgoA3/gmPneRwf+uPTCgXUb9Ck3MoxydYr
+	Bnnxy2RXvZ+SGfSpsLJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rIfQu-00Fsch-00;
-	Thu, 28 Dec 2023 01:43:36 +0000
-Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
+	id 1rIfRJ-00Fsx3-1I;
+	Thu, 28 Dec 2023 01:44:01 +0000
+Received: from mail-oo1-xc36.google.com ([2607:f8b0:4864:20::c36])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rIfPx-00FrsF-1I
+	id 1rIfQ0-00FrvR-29
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Dec 2023 01:42:41 +0000
-Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-3bbd1e9c5f7so57405b6e.3
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Dec 2023 17:42:36 -0800 (PST)
+	Thu, 28 Dec 2023 01:42:43 +0000
+Received: by mail-oo1-xc36.google.com with SMTP id 006d021491bc7-593f420187aso3618208eaf.1
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Dec 2023 17:42:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1703727755; x=1704332555; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1703727759; x=1704332559; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=7lB3PwOsXsU0eA+wVy54fia689m8tbEsIcyHsrS82lA=;
-        b=QhTuPNe0G7MIA5moKhgToAA+LBq4UDsFq8BZMHZlCLe488dqCAnL/RwLuwkiIuLjnw
-         nYt285QBc89spGKtGF2K8bwYdhV6+vYwRAVeAxXHSI2VSRPIsQJ92t9AgRkQqBs24pSe
-         +o1W43I2ABiqA2Ed1lnRNlLwod0u9GArJYnOvUtrVpkaog72dApXfhQnQwZtFzN0Ea/8
-         Q3MSiPsseJik7MQuvnju/rFhBk5cop+/DhIWtrAIqhw9ch5i5qNKGybfSvFugs8Jy61H
-         i0hfaP5KTZljrr+AcvDmFGmXq5Qxh26j69/RxCI2Deg9QNQLOhMz3hVK6IboJ/WVyF1H
-         6wOA==
+        bh=cNUGRAFHmKzY6lG9DcfUZlQ4QTwCBjkCL5t9hP4xKAE=;
+        b=H66MLoC+5OApqRJxufPGLfaVx6v0l4D4mf28XHrnDm00rY5DjjRV1DcifWZJ1ZUmGX
+         AE3TGSzUzElAVUFGVmcjdJ3bbk0T+XwGPbY39kv43Fhg4rERuYPtr1xilumStCEfxrBU
+         if6h3+R/645DgHXhzcfGT1y/oGLIqQmGMEYiXZVwg1hsM5sp2NLpudu5+gfOhC717VHC
+         9NO/ivePkqVPYFXxAX86wK+JOvhHrOY3wAEnDf2R3BuRFTomqg92y0Ip0htbqJZh5/Gj
+         mEh0X+wF6fgA2Ry8sPCiqHGAg6LkgD77rGcnY89u98TB9OMiGcTla/YR0U6/q4RlTgjr
+         3wlQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1703727755; x=1704332555;
+        d=1e100.net; s=20230601; t=1703727759; x=1704332559;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=7lB3PwOsXsU0eA+wVy54fia689m8tbEsIcyHsrS82lA=;
-        b=KK++/ZQshBlGee/Us59upc+7E1HkVPNffdhvdkSTGSD5GyVuZr0kLjk1alTU25qICa
-         QTmFg75sImJXWeXBJJp+jrUXOYHK9tj5XYims/OmTxVXA+9SpJkWZ8EAId9Q7yaHpSh9
-         abhV5RiZZblgw11dlraqWDSJ16HlfnuS7NNDX03SDzjQVGh6zAxa80+q13vhG/FeyFo3
-         IXDKlPDoRb/DGcPnpPOWQt5Lu3biIELJsilVMCoOXFQ1fkjGfmLZomEBgNvZ3gvx0NVZ
-         FOqxvT5Kj+oDsyFoRFDqVpYnF/ACaZQJDaV7c1/Ic9INjkbPYVFNZjTe3JKDsDoPPM4d
-         E3UQ==
-X-Gm-Message-State: AOJu0YylOzDTnHhwf92VAvQ53tMkZLwoG2JG81buFQh/o+GkQ7hrZVP4
-	gEBvWi6u8vyWywNLgaZml4/ylHhdKA5eyA==
-X-Google-Smtp-Source: AGHT+IGOumGBELysHMV6R76DMfrPeDaWnM5H7Bg8VEJaO8mkFNmjt6T/b5crzc3IAojRuB/OVWCSfQ==
-X-Received: by 2002:a05:6358:9213:b0:174:cf3a:749 with SMTP id d19-20020a056358921300b00174cf3a0749mr9824262rwb.36.1703727755495;
-        Wed, 27 Dec 2023 17:42:35 -0800 (PST)
+        bh=cNUGRAFHmKzY6lG9DcfUZlQ4QTwCBjkCL5t9hP4xKAE=;
+        b=CkPh0xahS84HhSaBOd4W4LTl6M3PHM5Kppus/kJo1qfcz6NX9sahyYvCWgXz4mAT09
+         eH8fESIpyaCJ5vfaErm6urwxy58L7ihH2YnYCxxAbZ+ON+U7XlB7SCjZ2b4xXsfrN+7s
+         7po5qtPyxD2RotTKX0QeJu/h5rR6XsjAekIv8ysLVTDpz7HhBQXWrOJ3j944EDywfo0T
+         Ap/5TLieZ72Im6jWhAt3+rc3rMHs3RZH+5MiDyZ9SnrCclXXEhQKwldGruJtaVFaxVvL
+         3tkpPZ1W7kdtRclLkR9yi/xtHYYrzqt37yYYH5HAbZRXTGZQuBq3nOF0NbbcZW9e5dGA
+         0bcQ==
+X-Gm-Message-State: AOJu0Yzey6wNEX+I7Pr3xOWRikNS92SWMlfdGy0+//I3aO5MwEbjnfBR
+	FCwuk8Hun1JdVGPhCfsIoshFgubjm+R2iaSLtmB1UaOs6zs=
+X-Google-Smtp-Source: AGHT+IGvfqTB3x7wwPMxp1qNsfQvBXkwAH7kyz4he4Bu1Z+L46cvb1psldcQ6vV6De8969ozhHXwqQ==
+X-Received: by 2002:a05:6358:3a1b:b0:172:c06c:fce3 with SMTP id g27-20020a0563583a1b00b00172c06cfce3mr5190091rwe.58.1703727759326;
+        Wed, 27 Dec 2023 17:42:39 -0800 (PST)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id g24-20020aa78758000000b006d49ed3effasm7335440pfo.63.2023.12.27.17.42.34
+        by smtp.gmail.com with ESMTPSA id g24-20020aa78758000000b006d49ed3effasm7335440pfo.63.2023.12.27.17.42.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Dec 2023 17:42:35 -0800 (PST)
+        Wed, 27 Dec 2023 17:42:39 -0800 (PST)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linuxppc-dev@lists.ozlabs.org,
@@ -73,16 +73,16 @@ Cc: loongarch@lists.linux.dev,
 	amd-gfx@lists.freedesktop.org,
 	linux-arch@vger.kernel.org,
 	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v2 10/14] riscv: Add support for kernel-mode FPU
-Date: Wed, 27 Dec 2023 17:42:00 -0800
-Message-ID: <20231228014220.3562640-11-samuel.holland@sifive.com>
+Subject: [PATCH v2 13/14] selftests/fpu: Move FP code to a separate translation unit
+Date: Wed, 27 Dec 2023 17:42:03 -0800
+Message-ID: <20231228014220.3562640-14-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.42.0
 In-Reply-To: <20231228014220.3562640-1-samuel.holland@sifive.com>
 References: <20231228014220.3562640-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231227_174237_469998_5B663F18 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20231227_174240_709295_7C849055 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,119 +99,142 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is motivated by the amdgpu DRM driver, which needs floating-point
-code to support recent hardware. That code is not performance-critical,
-so only provide a minimal non-preemptible implementation for now.
+This ensures no compiler-generated floating-point code can appear
+outside kernel_fpu_{begin,end}() sections, and some architectures
+enforce this separation.
 
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
 Changes in v2:
- - Remove RISC-V architecture-specific preprocessor check
+ - Declare test_fpu() in a header
 
- arch/riscv/Kconfig                  |  1 +
- arch/riscv/Makefile                 |  3 +++
- arch/riscv/include/asm/fpu.h        | 16 ++++++++++++++++
- arch/riscv/kernel/Makefile          |  1 +
- arch/riscv/kernel/kernel_mode_fpu.c | 28 ++++++++++++++++++++++++++++
- 5 files changed, 49 insertions(+)
- create mode 100644 arch/riscv/include/asm/fpu.h
- create mode 100644 arch/riscv/kernel/kernel_mode_fpu.c
+ lib/Makefile                        |  3 ++-
+ lib/test_fpu.h                      |  8 +++++++
+ lib/{test_fpu.c => test_fpu_glue.c} | 32 +------------------------
+ lib/test_fpu_impl.c                 | 37 +++++++++++++++++++++++++++++
+ 4 files changed, 48 insertions(+), 32 deletions(-)
+ create mode 100644 lib/test_fpu.h
+ rename lib/{test_fpu.c => test_fpu_glue.c} (71%)
+ create mode 100644 lib/test_fpu_impl.c
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 24c1799e2ec4..4d4d1d64ce34 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -27,6 +27,7 @@ config RISCV
- 	select ARCH_HAS_GCOV_PROFILE_ALL
- 	select ARCH_HAS_GIGANTIC_PAGE
- 	select ARCH_HAS_KCOV
-+	select ARCH_HAS_KERNEL_FPU_SUPPORT if FPU
- 	select ARCH_HAS_MMIOWB
- 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
- 	select ARCH_HAS_PMEM_API
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index a74be78678eb..2e719c369210 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -81,6 +81,9 @@ KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64i
+diff --git a/lib/Makefile b/lib/Makefile
+index 6b09731d8e61..e7cbd54944a2 100644
+--- a/lib/Makefile
++++ b/lib/Makefile
+@@ -132,7 +132,8 @@ FPU_CFLAGS += $(call cc-option,-msse -mpreferred-stack-boundary=3,-mpreferred-st
+ endif
  
- KBUILD_AFLAGS += -march=$(riscv-march-y)
+ obj-$(CONFIG_TEST_FPU) += test_fpu.o
+-CFLAGS_test_fpu.o += $(FPU_CFLAGS)
++test_fpu-y := test_fpu_glue.o test_fpu_impl.o
++CFLAGS_test_fpu_impl.o += $(FPU_CFLAGS)
  
-+# For C code built with floating-point support, exclude V but keep F and D.
-+CC_FLAGS_FPU  := -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)([^v_]*)v?/\1\2/')
-+
- KBUILD_CFLAGS += -mno-save-restore
- KBUILD_CFLAGS += -DCONFIG_PAGE_OFFSET=$(CONFIG_PAGE_OFFSET)
+ obj-$(CONFIG_TEST_LIVEPATCH) += livepatch/
  
-diff --git a/arch/riscv/include/asm/fpu.h b/arch/riscv/include/asm/fpu.h
+diff --git a/lib/test_fpu.h b/lib/test_fpu.h
 new file mode 100644
-index 000000000000..91c04c244e12
+index 000000000000..4459807084bc
 --- /dev/null
-+++ b/arch/riscv/include/asm/fpu.h
-@@ -0,0 +1,16 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2023 SiFive
-+ */
++++ b/lib/test_fpu.h
+@@ -0,0 +1,8 @@
++/* SPDX-License-Identifier: GPL-2.0+ */
 +
-+#ifndef _ASM_RISCV_FPU_H
-+#define _ASM_RISCV_FPU_H
++#ifndef _LIB_TEST_FPU_H
++#define _LIB_TEST_FPU_H
 +
-+#include <asm/switch_to.h>
++int test_fpu(void);
 +
-+#define kernel_fpu_available()	has_fpu()
-+
-+void kernel_fpu_begin(void);
-+void kernel_fpu_end(void);
-+
-+#endif /* ! _ASM_RISCV_FPU_H */
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index fee22a3d1b53..662c483e338d 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -62,6 +62,7 @@ obj-$(CONFIG_MMU) += vdso.o vdso/
++#endif
+diff --git a/lib/test_fpu.c b/lib/test_fpu_glue.c
+similarity index 71%
+rename from lib/test_fpu.c
+rename to lib/test_fpu_glue.c
+index e82db19fed84..85963d7be826 100644
+--- a/lib/test_fpu.c
++++ b/lib/test_fpu_glue.c
+@@ -19,37 +19,7 @@
+ #include <linux/debugfs.h>
+ #include <asm/fpu/api.h>
  
- obj-$(CONFIG_RISCV_MISALIGNED)	+= traps_misaligned.o
- obj-$(CONFIG_FPU)		+= fpu.o
-+obj-$(CONFIG_FPU)		+= kernel_mode_fpu.o
- obj-$(CONFIG_RISCV_ISA_V)	+= vector.o
- obj-$(CONFIG_SMP)		+= smpboot.o
- obj-$(CONFIG_SMP)		+= smp.o
-diff --git a/arch/riscv/kernel/kernel_mode_fpu.c b/arch/riscv/kernel/kernel_mode_fpu.c
+-static int test_fpu(void)
+-{
+-	/*
+-	 * This sequence of operations tests that rounding mode is
+-	 * to nearest and that denormal numbers are supported.
+-	 * Volatile variables are used to avoid compiler optimizing
+-	 * the calculations away.
+-	 */
+-	volatile double a, b, c, d, e, f, g;
+-
+-	a = 4.0;
+-	b = 1e-15;
+-	c = 1e-310;
+-
+-	/* Sets precision flag */
+-	d = a + b;
+-
+-	/* Result depends on rounding mode */
+-	e = a + b / 2;
+-
+-	/* Denormal and very large values */
+-	f = b / c;
+-
+-	/* Depends on denormal support */
+-	g = a + c * f;
+-
+-	if (d > a && e > a && g > a)
+-		return 0;
+-	else
+-		return -EINVAL;
+-}
++#include "test_fpu.h"
+ 
+ static int test_fpu_get(void *data, u64 *val)
+ {
+diff --git a/lib/test_fpu_impl.c b/lib/test_fpu_impl.c
 new file mode 100644
-index 000000000000..0ac8348876c4
+index 000000000000..777894dbbe86
 --- /dev/null
-+++ b/arch/riscv/kernel/kernel_mode_fpu.c
-@@ -0,0 +1,28 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2023 SiFive
-+ */
++++ b/lib/test_fpu_impl.c
+@@ -0,0 +1,37 @@
++// SPDX-License-Identifier: GPL-2.0+
 +
-+#include <linux/export.h>
-+#include <linux/preempt.h>
++#include <linux/errno.h>
 +
-+#include <asm/csr.h>
-+#include <asm/fpu.h>
-+#include <asm/processor.h>
-+#include <asm/switch_to.h>
++#include "test_fpu.h"
 +
-+void kernel_fpu_begin(void)
++int test_fpu(void)
 +{
-+	preempt_disable();
-+	fstate_save(current, task_pt_regs(current));
-+	csr_set(CSR_SSTATUS, SR_FS);
-+}
-+EXPORT_SYMBOL_GPL(kernel_fpu_begin);
++	/*
++	 * This sequence of operations tests that rounding mode is
++	 * to nearest and that denormal numbers are supported.
++	 * Volatile variables are used to avoid compiler optimizing
++	 * the calculations away.
++	 */
++	volatile double a, b, c, d, e, f, g;
 +
-+void kernel_fpu_end(void)
-+{
-+	csr_clear(CSR_SSTATUS, SR_FS);
-+	fstate_restore(current, task_pt_regs(current));
-+	preempt_enable();
++	a = 4.0;
++	b = 1e-15;
++	c = 1e-310;
++
++	/* Sets precision flag */
++	d = a + b;
++
++	/* Result depends on rounding mode */
++	e = a + b / 2;
++
++	/* Denormal and very large values */
++	f = b / c;
++
++	/* Depends on denormal support */
++	g = a + c * f;
++
++	if (d > a && e > a && g > a)
++		return 0;
++	else
++		return -EINVAL;
 +}
-+EXPORT_SYMBOL_GPL(kernel_fpu_end);
 -- 
 2.42.0
 
