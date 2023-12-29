@@ -4,75 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B585C47074
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Dec 2023 01:45:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F01CAC46CD4
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Dec 2023 03:45:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=CADTWSLTtYUxIOpxknO6iG9PJyz2OzUuiO1Di95E5dc=; b=0Z/oEW5PkT8Y9uIdBL83guTUMw
-	HxqLuABrVn7lK+Z1BsaCi6yYc8048i0U3+VlyMiHxQzJPjLtpNejt9euGnnrES9ZNNPfnqsAkp+3p
-	SQbryYw2D8GyRVc71fyV9rpLtldJEMfa++doGDOe54KQp+IP6O+z1Qz9GaDwQoEjC/9Lf5iXuC+Gf
-	wuAcxhiOFsmXO+THLaapX/M8x89T+IKvnzpCEo6VRvr0YXU4fL8WK5qDBsJrNuKlP1NajAoazELOo
-	Uu0yppoLJyLoqi1zkQmyZAp927ihCeCZx+9wDAhpKRSwaF2Uz7/AOZ0gDrqNwvCepQvj1ulmntYes
-	HLUvq57w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=LaO8r4Dx8nVgVnB8PN8eLAx1gGtxoMy9zqEV0K0uAzc=; b=cbrjIpcmDEqHnN
+	tEmX95ryAvOylmf/g/+KBrAnkAKnUycbuEx2eu3+VkCtAgmwOXTbknReuP9EoaZs69clDvP1Iy6dO
+	o3nBgpCwcz9YfoUDLY98RFAYX8agIT+7EQoi9Aa/ptELo33axLJGOlnoQqYBfuV552G+vo8174HIA
+	g54XMy8Xq1AAyHeStO3x83cvJjrkB7RBJkTA1AUe/31IzRdmopkn5dhRAo5y+uFUibk6BH63gDKp2
+	wrMByRsVR7Kotqmy+bc1OVDkzISNwKdpIpnn3/X7N7sRjdwBtqjeOSVvxf+c19/QjPJKZYcinFA2b
+	pxo6TEKZvnhEkFZznkpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rJ1vu-0003Nx-0x;
-	Fri, 29 Dec 2023 01:45:06 +0000
-Received: from mail-il1-x134.google.com ([2607:f8b0:4864:20::134])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rJ1vj-0003IW-0V
+	id 1rJ3oU-000ARk-2z;
+	Fri, 29 Dec 2023 03:45:34 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1rJ3oP-000ANy-2x
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Dec 2023 01:44:59 +0000
-Received: by mail-il1-x134.google.com with SMTP id e9e14a558f8ab-35fe8a4b311so23641925ab.1
-        for <linux-riscv@lists.infradead.org>; Thu, 28 Dec 2023 17:44:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1703814292; x=1704419092; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=M3T4Ksd03OeU/GnWZoXOjY2BomM5vMdeSw9vy4Fdn/4=;
-        b=BYhH2YJQDIUl+hNKi0VkCn4z6BrHv9byRfBtao5SvkGiW6eduvPNik2Hi57NVF8o9y
-         Gie+k6uafjSGHxbvrcLTPgXr0CH3Q/KJ0VtFSX84MKbUupk0ZnN3agJ+sJ/TgsoICbyP
-         9w9KMtY94faT+ks1PvoJJ5ecWFe1Lv1CviJN/EwHoRxmWjFX0J8fEQXRNHieVmavFF8g
-         lVXR8bVM8Va3cCcMVLF4lo+w9hreveZLRA/SpFQsaVjbHb+HgN0oBRcNJD2/j0pcURAB
-         Q79KfXPn4FWgAcHwL0S77n1+dTHqH/fQF3lnzMLNIQzz5N4U5TO+eI9JhDbtck1vhZyh
-         Y9iw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1703814292; x=1704419092;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=M3T4Ksd03OeU/GnWZoXOjY2BomM5vMdeSw9vy4Fdn/4=;
-        b=btqRz83q7m5s7CFv3NOiV9YCa18yzUfA8DNotv4NCb4CUbH8j3h8FxeensF4J/WvYk
-         VOSjTc4nTSzOc9UBZFJJjDNzzYi1vr842t1Y9V5NUYVFxRNamgbAAP+nNSr8Z8MvvHg/
-         k8OZW3c/7k22K0iVf3tV5TKRXAE0yHrtv0Q44+iwcNmtTdbkAPhagLkNQoWK98OeVN3d
-         /9fK2Yyspi6m1oOv4/IeKjVcWGw4J9Ql6GSSq1vgebtwc/dBLNepztgwb3cXwjWo6vDs
-         WSlLqnxwUCqM7N34KegJSjqCTzHhNb1m6ksavNAbado5QZN2oo1yjPICPS+WH2J5Bq9C
-         GMaQ==
-X-Gm-Message-State: AOJu0YymEfTBPgq0bNPZeXqh2SC0oi11PlJ1XIBDYO64NZKHwFJujwZx
-	z4bKc15GW4yEa1hMM+4FQXIIJLNL+a8r8Q==
-X-Google-Smtp-Source: AGHT+IEnOE+IJFw/5ZDHpBiEWW14/UF+xttX1/11SVGOrgQWVVk0JR7t4pq0gEqFQe442nq+Yo1JgA==
-X-Received: by 2002:a92:c241:0:b0:35f:af09:23d1 with SMTP id k1-20020a92c241000000b0035faf0923d1mr15629500ilo.28.1703814292039;
-        Thu, 28 Dec 2023 17:44:52 -0800 (PST)
-Received: from localhost ([12.44.203.122])
-        by smtp.gmail.com with ESMTPSA id e12-20020a170902b78c00b001cfca7b8ee7sm14485041pls.99.2023.12.28.17.44.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Dec 2023 17:44:51 -0800 (PST)
-Date: Thu, 28 Dec 2023 17:44:51 -0800 (PST)
-X-Google-Original-Date: Thu, 28 Dec 2023 17:44:40 PST (-0800)
-Subject: Re: [v1 05/10] drivers/perf: riscv: Implement SBI PMU snapshot function
-In-Reply-To: <20231218104107.2976925-6-atishp@rivosinc.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Atish Patra <atishp@rivosinc.com>
-Message-ID: <mhng-3ad08310-977e-4da5-8ef6-c9edeb0a606b@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	Fri, 29 Dec 2023 03:45:33 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 5806924E03E;
+	Fri, 29 Dec 2023 11:44:49 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 29 Dec
+ 2023 11:44:49 +0800
+Received: from [192.168.125.85] (183.27.96.32) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 29 Dec
+ 2023 11:44:48 +0800
+Message-ID: <6b70a8ec-7215-44a8-babb-f65f809b5c84@starfivetech.com>
+Date: Fri, 29 Dec 2023 11:44:47 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13 10/21] PCI: microchip: Rename interrupt related
+ functions
+Content-Language: en-US
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+CC: Conor Dooley <conor@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?=
+	<kw@linux.com>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
+	<bhelgaas@google.com>, Daire McNamara <daire.mcnamara@microchip.com>, "Emil
+ Renner Berthing" <emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-pci@vger.kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	"Philipp Zabel" <p.zabel@pengutronix.de>, Mason Huo
+	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>
+References: <20231214072839.2367-1-minda.chen@starfivetech.com>
+ <20231214072839.2367-11-minda.chen@starfivetech.com>
+ <ZYxIQ9ruBbxWKfIg@lpieralisi>
+From: Minda Chen <minda.chen@starfivetech.com>
+In-Reply-To: <ZYxIQ9ruBbxWKfIg@lpieralisi>
+X-Originating-IP: [183.27.96.32]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
+ (172.16.6.91)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231228_174455_677009_DC16459B 
-X-CRM114-Status: GOOD (  43.29  )
+X-CRM114-CacheID: sfid-20231228_194530_389848_04E30E6E 
+X-CRM114-Status: GOOD (  23.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,404 +80,391 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, aou@eecs.berkeley.edu, alexghiti@rivosinc.com, kvm@vger.kernel.org, anup@brainfault.org, Paul Walmsley <paul.walmsley@sifive.com>, Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, guoren@kernel.org, kvm-riscv@lists.infradead.org, atishp@atishpatra.org, linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>, ajones@ventanamicro.com
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 18 Dec 2023 02:41:02 PST (-0800), Atish Patra wrote:
-> SBI v2.0 SBI introduced PMU snapshot feature which adds the following
-> features.
->
-> 1. Read counter values directly from the shared memory instead of
-> csr read.
-> 2. Start multiple counters with initial values with one SBI call.
->
-> These functionalities optimizes the number of traps to the higher
-> privilege mode. If the kernel is in VS mode while the hypervisor
-> deploy trap & emulate method, this would minimize all the hpmcounter
-> CSR read traps. If the kernel is running in S-mode, the benefits
-> reduced to CSR latency vs DRAM/cache latency as there is no trap
-> involved while accessing the hpmcounter CSRs.
->
-> In both modes, it does saves the number of ecalls while starting
-> multiple counter together with an initial values. This is a likely
-> scenario if multiple counters overflow at the same time.
->
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
->  drivers/perf/riscv_pmu.c       |   1 +
->  drivers/perf/riscv_pmu_sbi.c   | 210 +++++++++++++++++++++++++++++++--
->  include/linux/perf/riscv_pmu.h |   6 +
->  3 files changed, 205 insertions(+), 12 deletions(-)
->
-> diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
-> index 0dda70e1ef90..5b57acb770d3 100644
-> --- a/drivers/perf/riscv_pmu.c
-> +++ b/drivers/perf/riscv_pmu.c
-> @@ -412,6 +412,7 @@ struct riscv_pmu *riscv_pmu_alloc(void)
->  		cpuc->n_events = 0;
->  		for (i = 0; i < RISCV_MAX_COUNTERS; i++)
->  			cpuc->events[i] = NULL;
-> +		cpuc->snapshot_addr = NULL;
->  	}
->  	pmu->pmu = (struct pmu) {
->  		.event_init	= riscv_pmu_event_init,
-> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> index 646604f8c0a5..7def69707492 100644
-> --- a/drivers/perf/riscv_pmu_sbi.c
-> +++ b/drivers/perf/riscv_pmu_sbi.c
-> @@ -36,6 +36,9 @@ PMU_FORMAT_ATTR(event, "config:0-47");
->  PMU_FORMAT_ATTR(firmware, "config:63");
->
->  static bool sbi_v2_available;
-> +static DEFINE_STATIC_KEY_FALSE(sbi_pmu_snapshot_available);
-> +#define sbi_pmu_snapshot_available() \
-> +	static_branch_unlikely(&sbi_pmu_snapshot_available)
->
->  static struct attribute *riscv_arch_formats_attr[] = {
->  	&format_attr_event.attr,
-> @@ -485,14 +488,100 @@ static int pmu_sbi_event_map(struct perf_event *event, u64 *econfig)
->  	return ret;
->  }
->
-> +static void pmu_sbi_snapshot_free(struct riscv_pmu *pmu)
-> +{
-> +	int cpu;
-> +
-> +	for_each_possible_cpu(cpu) {
-> +		struct cpu_hw_events *cpu_hw_evt = per_cpu_ptr(pmu->hw_events, cpu);
-> +
-> +		if (!cpu_hw_evt->snapshot_addr)
-> +			continue;
-> +
-> +		free_page((unsigned long)cpu_hw_evt->snapshot_addr);
-> +		cpu_hw_evt->snapshot_addr = NULL;
-> +		cpu_hw_evt->snapshot_addr_phys = 0;
-> +	}
-> +}
-> +
-> +static int pmu_sbi_snapshot_alloc(struct riscv_pmu *pmu)
-> +{
-> +	int cpu;
-> +	struct page *snapshot_page;
-> +
-> +	for_each_possible_cpu(cpu) {
-> +		struct cpu_hw_events *cpu_hw_evt = per_cpu_ptr(pmu->hw_events, cpu);
-> +
-> +		if (cpu_hw_evt->snapshot_addr)
-> +			continue;
-> +
-> +		snapshot_page = alloc_page(GFP_ATOMIC | __GFP_ZERO);
-> +		if (!snapshot_page) {
-> +			pmu_sbi_snapshot_free(pmu);
-> +			return -ENOMEM;
-> +		}
-> +		cpu_hw_evt->snapshot_addr = page_to_virt(snapshot_page);
-> +		cpu_hw_evt->snapshot_addr_phys = page_to_phys(snapshot_page);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static void pmu_sbi_snapshot_disable(void)
-> +{
-> +	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_SNAPSHOT_SET_SHMEM, -1,
-> +		  -1, 0, 0, 0, 0);
-> +}
-> +
-> +static int pmu_sbi_snapshot_setup(struct riscv_pmu *pmu, int cpu)
-> +{
-> +	struct cpu_hw_events *cpu_hw_evt;
-> +	struct sbiret ret = {0};
-> +
-> +	cpu_hw_evt = per_cpu_ptr(pmu->hw_events, cpu);
-> +	if (!cpu_hw_evt->snapshot_addr_phys)
-> +		return -EINVAL;
-> +
-> +	if (cpu_hw_evt->snapshot_set_done)
-> +		return 0;
-> +
-> +	if (IS_ENABLED(CONFIG_32BIT))
-> +		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_SNAPSHOT_SET_SHMEM,
-> +				cpu_hw_evt->snapshot_addr_phys,
-> +				(u64)(cpu_hw_evt->snapshot_addr_phys) >> 32, 0, 0, 0, 0);
-> +	else
-> +		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_SNAPSHOT_SET_SHMEM,
-> +				cpu_hw_evt->snapshot_addr_phys, 0, 0, 0, 0, 0);
-> +
-> +	/* Free up the snapshot area memory and fall back to SBI PMU calls without snapshot */
-> +	if (ret.error) {
-> +		if (ret.error != SBI_ERR_NOT_SUPPORTED)
-> +			pr_warn("pmu snapshot setup failed with error %ld\n", ret.error);
-> +		return sbi_err_map_linux_errno(ret.error);
-> +	}
-> +
-> +	cpu_hw_evt->snapshot_set_done = true;
-> +
-> +	return 0;
-> +}
-> +
->  static u64 pmu_sbi_ctr_read(struct perf_event *event)
->  {
->  	struct hw_perf_event *hwc = &event->hw;
->  	int idx = hwc->idx;
->  	struct sbiret ret;
->  	u64 val = 0;
-> +	struct riscv_pmu *pmu = to_riscv_pmu(event->pmu);
-> +	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
-> +	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
->  	union sbi_pmu_ctr_info info = pmu_ctr_list[idx];
->
-> +	/* Read the value from the shared memory directly */
-> +	if (sbi_pmu_snapshot_available()) {
-> +		val = sdata->ctr_values[idx];
-> +		return val;
-> +	}
-> +
->  	if (pmu_sbi_is_fw_event(event)) {
->  		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_FW_READ,
->  				hwc->idx, 0, 0, 0, 0, 0);
-> @@ -512,6 +601,7 @@ static u64 pmu_sbi_ctr_read(struct perf_event *event)
->  			val = ((u64)riscv_pmu_ctr_read_csr(info.csr + 0x80)) << 31 | val;
->  	}
->
-> +
->  	return val;
->  }
->
-> @@ -539,6 +629,7 @@ static void pmu_sbi_ctr_start(struct perf_event *event, u64 ival)
->  	struct hw_perf_event *hwc = &event->hw;
->  	unsigned long flag = SBI_PMU_START_FLAG_SET_INIT_VALUE;
->
-> +	/* There is no benefit setting SNAPSHOT FLAG for a single counter */
->  #if defined(CONFIG_32BIT)
->  	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, hwc->idx,
->  			1, flag, ival, ival >> 32, 0);
-> @@ -559,16 +650,36 @@ static void pmu_sbi_ctr_stop(struct perf_event *event, unsigned long flag)
->  {
->  	struct sbiret ret;
->  	struct hw_perf_event *hwc = &event->hw;
-> +	struct riscv_pmu *pmu = to_riscv_pmu(event->pmu);
-> +	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
-> +	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
->
->  	if ((hwc->flags & PERF_EVENT_FLAG_USER_ACCESS) &&
->  	    (hwc->flags & PERF_EVENT_FLAG_USER_READ_CNT))
->  		pmu_sbi_reset_scounteren((void *)event);
->
-> +	if (sbi_pmu_snapshot_available())
-> +		flag |= SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT;
-> +
->  	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP, hwc->idx, 1, flag, 0, 0, 0);
-> -	if (ret.error && (ret.error != SBI_ERR_ALREADY_STOPPED) &&
-> -		flag != SBI_PMU_STOP_FLAG_RESET)
-> +	if (!ret.error && sbi_pmu_snapshot_available()) {
-> +		/*
-> +		 * The counter snapshot is based on the index base specified by hwc->idx.
-> +		 * The actual counter value is updated in shared memory at index 0 when counter
-> +		 * mask is 0x01. To ensure accurate counter values, it's necessary to transfer
-> +		 * the counter value to shared memory. However, if hwc->idx is zero, the counter
-> +		 * value is already correctly updated in shared memory, requiring no further
-> +		 * adjustment.
-> +		 */
-> +		if (hwc->idx > 0) {
-> +			sdata->ctr_values[hwc->idx] = sdata->ctr_values[0];
-> +			sdata->ctr_values[0] = 0;
-> +		}
-> +	} else if (ret.error && (ret.error != SBI_ERR_ALREADY_STOPPED) &&
-> +		flag != SBI_PMU_STOP_FLAG_RESET) {
->  		pr_err("Stopping counter idx %d failed with error %d\n",
->  			hwc->idx, sbi_err_map_linux_errno(ret.error));
-> +	}
->  }
->
->  static int pmu_sbi_find_num_ctrs(void)
-> @@ -626,10 +737,14 @@ static inline void pmu_sbi_stop_all(struct riscv_pmu *pmu)
->  static inline void pmu_sbi_stop_hw_ctrs(struct riscv_pmu *pmu)
->  {
->  	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
-> +	unsigned long flag = 0;
-> +
-> +	if (sbi_pmu_snapshot_available())
-> +		flag = SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT;
->
->  	/* No need to check the error here as we can't do anything about the error */
->  	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP, 0,
-> -		  cpu_hw_evt->used_hw_ctrs[0], 0, 0, 0, 0);
-> +		  cpu_hw_evt->used_hw_ctrs[0], flag, 0, 0, 0);
->  }
->
->  /*
-> @@ -638,11 +753,10 @@ static inline void pmu_sbi_stop_hw_ctrs(struct riscv_pmu *pmu)
->   * while the overflowed counters need to be started with updated initialization
->   * value.
->   */
-> -static inline void pmu_sbi_start_overflow_mask(struct riscv_pmu *pmu,
-> -					       unsigned long ctr_ovf_mask)
-> +static noinline void pmu_sbi_start_ovf_ctrs_sbi(struct cpu_hw_events *cpu_hw_evt,
-> +						   unsigned long ctr_ovf_mask)
->  {
->  	int idx = 0;
-> -	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
->  	struct perf_event *event;
->  	unsigned long flag = SBI_PMU_START_FLAG_SET_INIT_VALUE;
->  	unsigned long ctr_start_mask = 0;
-> @@ -677,6 +791,49 @@ static inline void pmu_sbi_start_overflow_mask(struct riscv_pmu *pmu,
->  	}
->  }
->
-> +static noinline void pmu_sbi_start_ovf_ctrs_snapshot(struct cpu_hw_events *cpu_hw_evt,
-> +						   unsigned long ctr_ovf_mask)
-> +{
-> +	int idx = 0;
-> +	struct perf_event *event;
-> +	unsigned long flag = SBI_PMU_START_FLAG_INIT_FROM_SNAPSHOT;
-> +	uint64_t max_period;
-> +	struct hw_perf_event *hwc;
-> +	u64 init_val = 0;
-> +	unsigned long ctr_start_mask = 0;
-> +	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
-> +
-> +	for_each_set_bit(idx, cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS) {
-> +		if (ctr_ovf_mask & (1 << idx)) {
-> +			event = cpu_hw_evt->events[idx];
-> +			hwc = &event->hw;
-> +			max_period = riscv_pmu_ctr_get_width_mask(event);
-> +			init_val = local64_read(&hwc->prev_count) & max_period;
-> +			sdata->ctr_values[idx] = init_val;
-> +		}
-> +		/* We donot need to update the non-overflow counters the previous
-> +		 * value should have been there already.
-> +		 */
-> +	}
-> +
-> +	ctr_start_mask = cpu_hw_evt->used_hw_ctrs[0];
-> +
-> +	/* Start all the counters in a single shot */
-> +	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, 0, ctr_start_mask,
-> +		  flag, 0, 0, 0);
-> +}
-> +
-> +static void pmu_sbi_start_overflow_mask(struct riscv_pmu *pmu,
-> +					unsigned long ctr_ovf_mask)
-> +{
-> +	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
-> +
-> +	if (sbi_pmu_snapshot_available())
-> +		pmu_sbi_start_ovf_ctrs_snapshot(cpu_hw_evt, ctr_ovf_mask);
-> +	else
-> +		pmu_sbi_start_ovf_ctrs_sbi(cpu_hw_evt, ctr_ovf_mask);
-> +}
-> +
->  static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
->  {
->  	struct perf_sample_data data;
-> @@ -690,6 +847,7 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
->  	unsigned long overflowed_ctrs = 0;
->  	struct cpu_hw_events *cpu_hw_evt = dev;
->  	u64 start_clock = sched_clock();
-> +	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
->
->  	if (WARN_ON_ONCE(!cpu_hw_evt))
->  		return IRQ_NONE;
-> @@ -711,8 +869,10 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
->  	pmu_sbi_stop_hw_ctrs(pmu);
->
->  	/* Overflow status register should only be read after counter are stopped */
-> -	ALT_SBI_PMU_OVERFLOW(overflow);
-> -
-> +	if (sbi_pmu_snapshot_available())
-> +		overflow = sdata->ctr_overflow_mask;
-> +	else
-> +		ALT_SBI_PMU_OVERFLOW(overflow);
->  	/*
->  	 * Overflow interrupt pending bit should only be cleared after stopping
->  	 * all the counters to avoid any race condition.
-> @@ -794,6 +954,9 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
->  		enable_percpu_irq(riscv_pmu_irq, IRQ_TYPE_NONE);
->  	}
->
-> +	if (sbi_pmu_snapshot_available())
-> +		return pmu_sbi_snapshot_setup(pmu, cpu);
-> +
->  	return 0;
->  }
->
-> @@ -807,6 +970,9 @@ static int pmu_sbi_dying_cpu(unsigned int cpu, struct hlist_node *node)
->  	/* Disable all counters access for user mode now */
->  	csr_write(CSR_SCOUNTEREN, 0x0);
->
-> +	if (sbi_pmu_snapshot_available())
-> +		pmu_sbi_snapshot_disable();
-> +
->  	return 0;
->  }
->
-> @@ -1076,10 +1242,6 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
->  	pmu->event_unmapped = pmu_sbi_event_unmapped;
->  	pmu->csr_index = pmu_sbi_csr_index;
->
-> -	ret = cpuhp_state_add_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
-> -	if (ret)
-> -		return ret;
-> -
->  	ret = riscv_pm_pmu_register(pmu);
->  	if (ret)
->  		goto out_unregister;
-> @@ -1088,8 +1250,32 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
->  	if (ret)
->  		goto out_unregister;
->
-> +	/* SBI PMU Snapsphot is only available in SBI v2.0 */
-> +	if (sbi_v2_available) {
-> +		ret = pmu_sbi_snapshot_alloc(pmu);
-> +		if (ret)
-> +			goto out_unregister;
-> +
-> +		ret = pmu_sbi_snapshot_setup(pmu, smp_processor_id());
-> +		if (!ret) {
-> +			pr_info("SBI PMU snapshot detected\n");
-> +			/*
-> +			 * We enable it once here for the boot cpu. If snapshot shmem setup
-> +			 * fails during cpu hotplug process, it will fail to start the cpu
-> +			 * as we can not handle hetergenous PMUs with different snapshot
-> +			 * capability.
-> +			 */
-> +			static_branch_enable(&sbi_pmu_snapshot_available);
-> +		}
-> +		/* Snapshot is an optional feature. Continue if not available */
-> +	}
-> +
->  	register_sysctl("kernel", sbi_pmu_sysctl_table);
->
-> +	ret = cpuhp_state_add_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
-> +	if (ret)
-> +		return ret;
-> +
->  	return 0;
->
->  out_unregister:
-> diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
-> index 43282e22ebe1..c3fa90970042 100644
-> --- a/include/linux/perf/riscv_pmu.h
-> +++ b/include/linux/perf/riscv_pmu.h
-> @@ -39,6 +39,12 @@ struct cpu_hw_events {
->  	DECLARE_BITMAP(used_hw_ctrs, RISCV_MAX_COUNTERS);
->  	/* currently enabled firmware counters */
->  	DECLARE_BITMAP(used_fw_ctrs, RISCV_MAX_COUNTERS);
-> +	/* The virtual address of the shared memory where counter snapshot will be taken */
-> +	void *snapshot_addr;
-> +	/* The physical address of the shared memory where counter snapshot will be taken */
-> +	phys_addr_t snapshot_addr_phys;
-> +	/* Boolean flag to indicate setup is already done */
-> +	bool snapshot_set_done;
->  };
->
->  struct riscv_pmu {
 
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+
+On 2023/12/27 23:52, Lorenzo Pieralisi wrote:
+> On Thu, Dec 14, 2023 at 03:28:28PM +0800, Minda Chen wrote:
+>> Rename mc_* to plda_* for IRQ functions and related IRQ domain ops data
+>> instances.
+>> 
+>> MSI, INTx interrupt codes and IRQ init codes are all can be re-used.
+> 
+> s/codes/code
+> 
+ack.
+>> 
+>> - function rename list:
+>>   mc_allocate_msi_domains()  --> plda_allocate_msi_domains()
+>>   mc_init_interrupts()       --> plda_init_interrupts()
+>>   mc_pcie_init_irq_domain()  --> plda_pcie_init_irq_domains()
+>>   mc_handle_event()          --> plda_handle_event()
+>>   get_events()               --> mc_get_events()
+>> 
+>>   MSI interrupts related functions and IRQ domain
+>>   (primary function is mc_handle_msi()):
+>>     mc_handle_msi()          --> plda_handle_msi()
+>>   INTx interrupts related functions and IRQ domain
+>>   (primary function is mc_handle_intx()):
+>>     mc_handle_intx()         --> plda_handle_intx()
+> 
+> We can read the code you are changing, there is no need to
+> add it to the commit log, especially because it is a trivial
+> rename here.
+> 
+OK, Thanks 
+
+>> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+>> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+>> ---
+>>  .../pci/controller/plda/pcie-microchip-host.c | 112 +++++++++---------
+>>  1 file changed, 59 insertions(+), 53 deletions(-)
+>> 
+>> diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
+>> index 2e79bcc7c0a5..506e6eeadc76 100644
+>> --- a/drivers/pci/controller/plda/pcie-microchip-host.c
+>> +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
+>> @@ -318,7 +318,7 @@ static void mc_pcie_enable_msi(struct mc_pcie *port, void __iomem *ecam)
+>>  		       ecam + MC_MSI_CAP_CTRL_OFFSET + PCI_MSI_ADDRESS_HI);
+>>  }
+>>  
+>> -static void mc_handle_msi(struct irq_desc *desc)
+>> +static void plda_handle_msi(struct irq_desc *desc)
+>>  {
+>>  	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
+>>  	struct irq_chip *chip = irq_desc_get_chip(desc);
+>> @@ -333,7 +333,8 @@ static void mc_handle_msi(struct irq_desc *desc)
+>>  
+>>  	status = readl_relaxed(bridge_base_addr + ISTATUS_LOCAL);
+>>  	if (status & PM_MSI_INT_MSI_MASK) {
+>> -		writel_relaxed(status & PM_MSI_INT_MSI_MASK, bridge_base_addr + ISTATUS_LOCAL);
+>> +		writel_relaxed(status & PM_MSI_INT_MSI_MASK,
+>> +			       bridge_base_addr + ISTATUS_LOCAL);
+> 
+> Unrelated change (I suspect checkpatch nudged you to make it; it
+> is tempting but it does not belong in this patch).
+> 
+> Lorenzo
+> 
+>>  		status = readl_relaxed(bridge_base_addr + ISTATUS_MSI);
+>>  		for_each_set_bit(bit, &status, msi->num_vectors) {
+>>  			ret = generic_handle_domain_irq(msi->dev_domain, bit);
+>> @@ -346,7 +347,7 @@ static void mc_handle_msi(struct irq_desc *desc)
+>>  	chained_irq_exit(chip, desc);
+>>  }
+>>  
+>> -static void mc_msi_bottom_irq_ack(struct irq_data *data)
+>> +static void plda_msi_bottom_irq_ack(struct irq_data *data)
+>>  {
+>>  	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
+>>  	void __iomem *bridge_base_addr = port->bridge_addr;
+>> @@ -355,7 +356,7 @@ static void mc_msi_bottom_irq_ack(struct irq_data *data)
+>>  	writel_relaxed(BIT(bitpos), bridge_base_addr + ISTATUS_MSI);
+>>  }
+>>  
+>> -static void mc_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+>> +static void plda_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+>>  {
+>>  	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
+>>  	phys_addr_t addr = port->msi.vector_phy;
+>> @@ -368,21 +369,23 @@ static void mc_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+>>  		(int)data->hwirq, msg->address_hi, msg->address_lo);
+>>  }
+>>  
+>> -static int mc_msi_set_affinity(struct irq_data *irq_data,
+>> -			       const struct cpumask *mask, bool force)
+>> +static int plda_msi_set_affinity(struct irq_data *irq_data,
+>> +				 const struct cpumask *mask, bool force)
+>>  {
+>>  	return -EINVAL;
+>>  }
+>>  
+>> -static struct irq_chip mc_msi_bottom_irq_chip = {
+>> -	.name = "Microchip MSI",
+>> -	.irq_ack = mc_msi_bottom_irq_ack,
+>> -	.irq_compose_msi_msg = mc_compose_msi_msg,
+>> -	.irq_set_affinity = mc_msi_set_affinity,
+>> +static struct irq_chip plda_msi_bottom_irq_chip = {
+>> +	.name = "PLDA MSI",
+>> +	.irq_ack = plda_msi_bottom_irq_ack,
+>> +	.irq_compose_msi_msg = plda_compose_msi_msg,
+>> +	.irq_set_affinity = plda_msi_set_affinity,
+>>  };
+>>  
+>> -static int mc_irq_msi_domain_alloc(struct irq_domain *domain, unsigned int virq,
+>> -				   unsigned int nr_irqs, void *args)
+>> +static int plda_irq_msi_domain_alloc(struct irq_domain *domain,
+>> +				     unsigned int virq,
+>> +				     unsigned int nr_irqs,
+>> +				     void *args)
+>>  {
+>>  	struct plda_pcie_rp *port = domain->host_data;
+>>  	struct plda_msi *msi = &port->msi;
+>> @@ -397,7 +400,7 @@ static int mc_irq_msi_domain_alloc(struct irq_domain *domain, unsigned int virq,
+>>  
+>>  	set_bit(bit, msi->used);
+>>  
+>> -	irq_domain_set_info(domain, virq, bit, &mc_msi_bottom_irq_chip,
+>> +	irq_domain_set_info(domain, virq, bit, &plda_msi_bottom_irq_chip,
+>>  			    domain->host_data, handle_edge_irq, NULL, NULL);
+>>  
+>>  	mutex_unlock(&msi->lock);
+>> @@ -405,8 +408,9 @@ static int mc_irq_msi_domain_alloc(struct irq_domain *domain, unsigned int virq,
+>>  	return 0;
+>>  }
+>>  
+>> -static void mc_irq_msi_domain_free(struct irq_domain *domain, unsigned int virq,
+>> -				   unsigned int nr_irqs)
+>> +static void plda_irq_msi_domain_free(struct irq_domain *domain,
+>> +				     unsigned int virq,
+>> +				     unsigned int nr_irqs)
+>>  {
+>>  	struct irq_data *d = irq_domain_get_irq_data(domain, virq);
+>>  	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(d);
+>> @@ -423,24 +427,24 @@ static void mc_irq_msi_domain_free(struct irq_domain *domain, unsigned int virq,
+>>  }
+>>  
+>>  static const struct irq_domain_ops msi_domain_ops = {
+>> -	.alloc	= mc_irq_msi_domain_alloc,
+>> -	.free	= mc_irq_msi_domain_free,
+>> +	.alloc	= plda_irq_msi_domain_alloc,
+>> +	.free	= plda_irq_msi_domain_free,
+>>  };
+>>  
+>> -static struct irq_chip mc_msi_irq_chip = {
+>> -	.name = "Microchip PCIe MSI",
+>> +static struct irq_chip plda_msi_irq_chip = {
+>> +	.name = "PLDA PCIe MSI",
+>>  	.irq_ack = irq_chip_ack_parent,
+>>  	.irq_mask = pci_msi_mask_irq,
+>>  	.irq_unmask = pci_msi_unmask_irq,
+>>  };
+>>  
+>> -static struct msi_domain_info mc_msi_domain_info = {
+>> +static struct msi_domain_info plda_msi_domain_info = {
+>>  	.flags = (MSI_FLAG_USE_DEF_DOM_OPS | MSI_FLAG_USE_DEF_CHIP_OPS |
+>>  		  MSI_FLAG_PCI_MSIX),
+>> -	.chip = &mc_msi_irq_chip,
+>> +	.chip = &plda_msi_irq_chip,
+>>  };
+>>  
+>> -static int mc_allocate_msi_domains(struct plda_pcie_rp *port)
+>> +static int plda_allocate_msi_domains(struct plda_pcie_rp *port)
+>>  {
+>>  	struct device *dev = port->dev;
+>>  	struct fwnode_handle *fwnode = of_node_to_fwnode(dev->of_node);
+>> @@ -455,7 +459,8 @@ static int mc_allocate_msi_domains(struct plda_pcie_rp *port)
+>>  		return -ENOMEM;
+>>  	}
+>>  
+>> -	msi->msi_domain = pci_msi_create_irq_domain(fwnode, &mc_msi_domain_info,
+>> +	msi->msi_domain = pci_msi_create_irq_domain(fwnode,
+>> +						    &plda_msi_domain_info,
+>>  						    msi->dev_domain);
+>>  	if (!msi->msi_domain) {
+>>  		dev_err(dev, "failed to create MSI domain\n");
+>> @@ -466,7 +471,7 @@ static int mc_allocate_msi_domains(struct plda_pcie_rp *port)
+>>  	return 0;
+>>  }
+>>  
+>> -static void mc_handle_intx(struct irq_desc *desc)
+>> +static void plda_handle_intx(struct irq_desc *desc)
+>>  {
+>>  	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
+>>  	struct irq_chip *chip = irq_desc_get_chip(desc);
+>> @@ -493,7 +498,7 @@ static void mc_handle_intx(struct irq_desc *desc)
+>>  	chained_irq_exit(chip, desc);
+>>  }
+>>  
+>> -static void mc_ack_intx_irq(struct irq_data *data)
+>> +static void plda_ack_intx_irq(struct irq_data *data)
+>>  {
+>>  	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
+>>  	void __iomem *bridge_base_addr = port->bridge_addr;
+>> @@ -502,7 +507,7 @@ static void mc_ack_intx_irq(struct irq_data *data)
+>>  	writel_relaxed(mask, bridge_base_addr + ISTATUS_LOCAL);
+>>  }
+>>  
+>> -static void mc_mask_intx_irq(struct irq_data *data)
+>> +static void plda_mask_intx_irq(struct irq_data *data)
+>>  {
+>>  	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
+>>  	void __iomem *bridge_base_addr = port->bridge_addr;
+>> @@ -517,7 +522,7 @@ static void mc_mask_intx_irq(struct irq_data *data)
+>>  	raw_spin_unlock_irqrestore(&port->lock, flags);
+>>  }
+>>  
+>> -static void mc_unmask_intx_irq(struct irq_data *data)
+>> +static void plda_unmask_intx_irq(struct irq_data *data)
+>>  {
+>>  	struct plda_pcie_rp *port = irq_data_get_irq_chip_data(data);
+>>  	void __iomem *bridge_base_addr = port->bridge_addr;
+>> @@ -532,24 +537,24 @@ static void mc_unmask_intx_irq(struct irq_data *data)
+>>  	raw_spin_unlock_irqrestore(&port->lock, flags);
+>>  }
+>>  
+>> -static struct irq_chip mc_intx_irq_chip = {
+>> -	.name = "Microchip PCIe INTx",
+>> -	.irq_ack = mc_ack_intx_irq,
+>> -	.irq_mask = mc_mask_intx_irq,
+>> -	.irq_unmask = mc_unmask_intx_irq,
+>> +static struct irq_chip plda_intx_irq_chip = {
+>> +	.name = "PLDA PCIe INTx",
+>> +	.irq_ack = plda_ack_intx_irq,
+>> +	.irq_mask = plda_mask_intx_irq,
+>> +	.irq_unmask = plda_unmask_intx_irq,
+>>  };
+>>  
+>> -static int mc_pcie_intx_map(struct irq_domain *domain, unsigned int irq,
+>> -			    irq_hw_number_t hwirq)
+>> +static int plda_pcie_intx_map(struct irq_domain *domain, unsigned int irq,
+>> +			      irq_hw_number_t hwirq)
+>>  {
+>> -	irq_set_chip_and_handler(irq, &mc_intx_irq_chip, handle_level_irq);
+>> +	irq_set_chip_and_handler(irq, &plda_intx_irq_chip, handle_level_irq);
+>>  	irq_set_chip_data(irq, domain->host_data);
+>>  
+>>  	return 0;
+>>  }
+>>  
+>>  static const struct irq_domain_ops intx_domain_ops = {
+>> -	.map = mc_pcie_intx_map,
+>> +	.map = plda_pcie_intx_map,
+>>  };
+>>  
+>>  static inline u32 reg_to_event(u32 reg, struct event_map field)
+>> @@ -609,7 +614,7 @@ static u32 local_events(struct mc_pcie *port)
+>>  	return val;
+>>  }
+>>  
+>> -static u32 get_events(struct plda_pcie_rp *port)
+>> +static u32 mc_get_events(struct plda_pcie_rp *port)
+>>  {
+>>  	struct mc_pcie *mc_port = container_of(port, struct mc_pcie, plda);
+>>  	u32 events = 0;
+>> @@ -638,7 +643,7 @@ static irqreturn_t mc_event_handler(int irq, void *dev_id)
+>>  	return IRQ_HANDLED;
+>>  }
+>>  
+>> -static void mc_handle_event(struct irq_desc *desc)
+>> +static void plda_handle_event(struct irq_desc *desc)
+>>  {
+>>  	struct plda_pcie_rp *port = irq_desc_get_handler_data(desc);
+>>  	unsigned long events;
+>> @@ -647,7 +652,7 @@ static void mc_handle_event(struct irq_desc *desc)
+>>  
+>>  	chained_irq_enter(chip, desc);
+>>  
+>> -	events = get_events(port);
+>> +	events = mc_get_events(port);
+>>  
+>>  	for_each_set_bit(bit, &events, NUM_EVENTS)
+>>  		generic_handle_domain_irq(port->event_domain, bit);
+>> @@ -741,8 +746,8 @@ static struct irq_chip mc_event_irq_chip = {
+>>  	.irq_unmask = mc_unmask_event_irq,
+>>  };
+>>  
+>> -static int mc_pcie_event_map(struct irq_domain *domain, unsigned int irq,
+>> -			     irq_hw_number_t hwirq)
+>> +static int plda_pcie_event_map(struct irq_domain *domain, unsigned int irq,
+>> +			       irq_hw_number_t hwirq)
+>>  {
+>>  	irq_set_chip_and_handler(irq, &mc_event_irq_chip, handle_level_irq);
+>>  	irq_set_chip_data(irq, domain->host_data);
+>> @@ -750,8 +755,8 @@ static int mc_pcie_event_map(struct irq_domain *domain, unsigned int irq,
+>>  	return 0;
+>>  }
+>>  
+>> -static const struct irq_domain_ops event_domain_ops = {
+>> -	.map = mc_pcie_event_map,
+>> +static const struct irq_domain_ops plda_event_domain_ops = {
+>> +	.map = plda_pcie_event_map,
+>>  };
+>>  
+>>  static inline void mc_pcie_deinit_clk(void *data)
+>> @@ -799,7 +804,7 @@ static int mc_pcie_init_clks(struct device *dev)
+>>  	return 0;
+>>  }
+>>  
+>> -static int mc_pcie_init_irq_domains(struct plda_pcie_rp *port)
+>> +static int plda_pcie_init_irq_domains(struct plda_pcie_rp *port)
+>>  {
+>>  	struct device *dev = port->dev;
+>>  	struct device_node *node = dev->of_node;
+>> @@ -813,7 +818,8 @@ static int mc_pcie_init_irq_domains(struct plda_pcie_rp *port)
+>>  	}
+>>  
+>>  	port->event_domain = irq_domain_add_linear(pcie_intc_node, NUM_EVENTS,
+>> -						   &event_domain_ops, port);
+>> +						   &plda_event_domain_ops,
+>> +						   port);
+>>  	if (!port->event_domain) {
+>>  		dev_err(dev, "failed to get event domain\n");
+>>  		of_node_put(pcie_intc_node);
+>> @@ -835,7 +841,7 @@ static int mc_pcie_init_irq_domains(struct plda_pcie_rp *port)
+>>  	of_node_put(pcie_intc_node);
+>>  	raw_spin_lock_init(&port->lock);
+>>  
+>> -	return mc_allocate_msi_domains(port);
+>> +	return plda_allocate_msi_domains(port);
+>>  }
+>>  
+>>  static inline void mc_clear_secs(struct mc_pcie *port)
+>> @@ -898,14 +904,14 @@ static void mc_disable_interrupts(struct mc_pcie *port)
+>>  	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_HOST);
+>>  }
+>>  
+>> -static int mc_init_interrupts(struct platform_device *pdev, struct plda_pcie_rp *port)
+>> +static int plda_init_interrupts(struct platform_device *pdev, struct plda_pcie_rp *port)
+>>  {
+>>  	struct device *dev = &pdev->dev;
+>>  	int irq;
+>>  	int i, intx_irq, msi_irq, event_irq;
+>>  	int ret;
+>>  
+>> -	ret = mc_pcie_init_irq_domains(port);
+>> +	ret = plda_pcie_init_irq_domains(port);
+>>  	if (ret) {
+>>  		dev_err(dev, "failed creating IRQ domains\n");
+>>  		return ret;
+>> @@ -938,7 +944,7 @@ static int mc_init_interrupts(struct platform_device *pdev, struct plda_pcie_rp
+>>  	}
+>>  
+>>  	/* Plug the INTx chained handler */
+>> -	irq_set_chained_handler_and_data(intx_irq, mc_handle_intx, port);
+>> +	irq_set_chained_handler_and_data(intx_irq, plda_handle_intx, port);
+>>  
+>>  	msi_irq = irq_create_mapping(port->event_domain,
+>>  				     EVENT_LOCAL_PM_MSI_INT_MSI);
+>> @@ -946,10 +952,10 @@ static int mc_init_interrupts(struct platform_device *pdev, struct plda_pcie_rp
+>>  		return -ENXIO;
+>>  
+>>  	/* Plug the MSI chained handler */
+>> -	irq_set_chained_handler_and_data(msi_irq, mc_handle_msi, port);
+>> +	irq_set_chained_handler_and_data(msi_irq, plda_handle_msi, port);
+>>  
+>>  	/* Plug the main event chained handler */
+>> -	irq_set_chained_handler_and_data(irq, mc_handle_event, port);
+>> +	irq_set_chained_handler_and_data(irq, plda_handle_event, port);
+>>  
+>>  	return 0;
+>>  }
+>> @@ -977,7 +983,7 @@ static int mc_platform_init(struct pci_config_window *cfg)
+>>  		return ret;
+>>  
+>>  	/* Address translation is up; safe to enable interrupts */
+>> -	ret = mc_init_interrupts(pdev, &port->plda);
+>> +	ret = plda_init_interrupts(pdev, &port->plda);
+>>  	if (ret)
+>>  		return ret;
+>>  
+>> -- 
+>> 2.17.1
+>> 
 
 _______________________________________________
 linux-riscv mailing list
