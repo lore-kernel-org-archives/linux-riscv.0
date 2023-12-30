@@ -4,63 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9EA0C46CD2
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Dec 2023 11:26:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C18CC46CD2
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Dec 2023 18:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jBfxCrMgYUz6VJpR/zdh0LZ1BN436kxqUxCgHF8jdrI=; b=rLCbsiPS394XvRu8eqHqKXm1NM
-	OKkuCJZqIWZjosbdvmXCdc0qZpYMr0EDPME8lbemWjsk63dJuKc452qlJCojmMhVGrFOxMOrjPs4K
-	aYSjCWPa6zR7htBXXhuQuxOdWeituhLqHFgq2d0wt76DHaj7BI+cjM/uN7APevpwSLT+RTM3jCrBI
-	0EvAUG0HIeIPzlA41h1+FaIz2Eij+dW1bgx1Yr4/okfhSsUBFvnfsvIeZYY0ztvn6pDBEZLF4YKuH
-	DYciuIDWRb9EEAZu2WAX0tofDkn0hxVxMz/aiCvjjTaSz+ZPTxREeOBeZWSo4F3FamEvjsF+OB8AP
-	+y7YB6KQ==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Y9XG1l9AE1i2NlJrQWPNoUdD6PrqnwcKLNCl2cWtttY=; b=PoMMWEhUKf6w11
+	11DSrVGsZgFKDYRVa6pCKKdu0mRZqWaxoxkvVbOg1xOF0iVd8rKssIF2H/mGPBpaK5B7/fKeyZ4h7
+	L+mXfz5KksK60jl2tGPCrpoQD2MX/KpP7HmxGgtbKgAJuRPHPPmkcxT3v4fAtPwaJ0di274V0q++2
+	PQqUZjzu56GH/wcDPA8VBdbzP0XufVJIpifGg7aJcmB/U5ZPirv84QGXXUuvjEzlaGhjar8g3+2Tv
+	1h5Royh5RE3FVzyD6G4bwYcdKuysR/IDyD89c6ZN+ri7Fzx4BXR6KP2x8HzbJsRlNEnUANXoJN7VI
+	6GejqopFgOgNX1t9HrHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rJXU2-002gxZ-1p;
-	Sat, 30 Dec 2023 11:26:26 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1rJe2X-003H3R-1C;
+	Sat, 30 Dec 2023 18:26:29 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rJXTz-002gwl-34
-	for linux-riscv@lists.infradead.org;
-	Sat, 30 Dec 2023 11:26:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 1DCC6B810F2;
-	Sat, 30 Dec 2023 11:26:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B258FC433C8;
-	Sat, 30 Dec 2023 11:26:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1703935579;
-	bh=1OU6bdZKEl1WLY5wGxuQyuaZq2DtMwE1qATuY4qDn68=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tZFzg4qVLDXV07uKa0HE1SS7SlNAQO4dpWs6Bgk7Zxpoeut9Yi1uqqN0p2Q1zPfBc
-	 HlZM596sgELuISXmOcsZ0h2lDgV5QjRztUcQ6imtp3bfIvzPmbL7TliTvftA2aZlsm
-	 26i8flLTQd+aUbzUCbt6Hbrq2QtG2xZkrVwppFndotRFwFNEQ+LVn7eQBEZpcjjqUP
-	 ohdnO4AvDcpdeFD/Yis952QulkZP/rVFcAuyD+unrQokSt3evYc2ywZ3jPfvMD1dT/
-	 8y5HnculLF/Y95KH4vLLJlKwOTmrjCQypyW6J+uO5LI/c4AWv6aNHBOfMY9oKkBItx
-	 6hjx4242WDRsg==
-Date: Sat, 30 Dec 2023 11:26:14 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: dfustini@baylibre.com, Paul Walmsley <paul.walmsley@sifive.com>,
-	aou@eecs.berkeley.edu, jszhang@kernel.org, guoren@kernel.org,
-	wefu@redhat.com, robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, jkridner@beagleboard.org,
-	robertcnelson@beagleboard.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v7 1/4] riscv: defconfig: Enable mmc and dma drivers for
- T-Head TH1520
-Message-ID: <20231230-drudge-snarl-d7a84f843161@spud>
-References: <20231129-th1520_mmc_dts-v7-1-c77fc19caa6f@baylibre.com>
- <mhng-577f4913-06ac-4f80-8793-6336132d503e@palmer-ri-x1c9>
+	id 1rJe2T-003H10-2M;
+	Sat, 30 Dec 2023 18:26:27 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 56F6B240003;
+	Sat, 30 Dec 2023 18:26:12 +0000 (UTC)
+Message-ID: <e227f095-0c3d-43c4-8ba3-8ec1b925b929@ghiti.fr>
+Date: Sat, 30 Dec 2023 19:26:11 +0100
 MIME-Version: 1.0
-In-Reply-To: <mhng-577f4913-06ac-4f80-8793-6336132d503e@palmer-ri-x1c9>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] riscv: tlb: avoid tlb flushing if fullmm == 1
+To: Jisheng Zhang <jszhang@kernel.org>, Will Deacon <will@kernel.org>,
+ "Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Nick Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arch@vger.kernel.org, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20231228084642.1765-1-jszhang@kernel.org>
+ <20231228084642.1765-3-jszhang@kernel.org>
+Content-Language: en-US
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20231228084642.1765-3-jszhang@kernel.org>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231230_032624_142152_B47F771F 
-X-CRM114-Status: GOOD (  16.68  )
+X-CRM114-CacheID: sfid-20231230_102625_919776_465D3A7B 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,91 +64,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4089674640749377316=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Jisheng,
 
---===============4089674640749377316==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="6xe6WHVqFSp45+hX"
-Content-Disposition: inline
-
-
---6xe6WHVqFSp45+hX
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Dec 29, 2023 at 06:42:01PM -0800, Palmer Dabbelt wrote:
-> On Wed, 29 Nov 2023 17:48:47 PST (-0800), dfustini@baylibre.com wrote:
-> > Enable the mmc controller driver and dma controller driver needed for
-> > T-Head TH1520 based boards, like the LicheePi 4A and BeagleV-Ahead, to
-> > boot from eMMC storage.
-> >=20
-> > Reviewed-by: Guo Ren <guoren@kernel.org>
-> > Signed-off-by: Drew Fustini <dfustini@baylibre.com>
-> > ---
-> >  arch/riscv/configs/defconfig | 2 ++
-> >  1 file changed, 2 insertions(+)
-> >=20
-> > diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> > index 905881282a7c..e635dc9d1997 100644
-> > --- a/arch/riscv/configs/defconfig
-> > +++ b/arch/riscv/configs/defconfig
-> > @@ -214,6 +214,7 @@ CONFIG_MMC=3Dy
-> >  CONFIG_MMC_SDHCI=3Dy
-> >  CONFIG_MMC_SDHCI_PLTFM=3Dy
-> >  CONFIG_MMC_SDHCI_CADENCE=3Dy
-> > +CONFIG_MMC_SDHCI_OF_DWCMSHC=3Dy
-> >  CONFIG_MMC_SPI=3Dy
-> >  CONFIG_MMC_DW=3Dy
-> >  CONFIG_MMC_DW_STARFIVE=3Dy
-> > @@ -223,6 +224,7 @@ CONFIG_RTC_CLASS=3Dy
-> >  CONFIG_RTC_DRV_SUN6I=3Dy
-> >  CONFIG_DMADEVICES=3Dy
-> >  CONFIG_DMA_SUN6I=3Dm
-> > +CONFIG_DW_AXI_DMAC=3Dy
-> >  CONFIG_RZ_DMAC=3Dy
-> >  CONFIG_VIRTIO_PCI=3Dy
-> >  CONFIG_VIRTIO_BALLOON=3Dy
->=20
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
->=20
-> in case folks want to keep this with the DTS updates.  Thanks!
-
-Just echoing what I said on irc, I already send the subsequent version
-of the series to Arnd, minus the defconfig patch, so if you could take
-this yourself Palmer, that'd be great.
-
-Cheers,
-Conor.
+On 28/12/2023 09:46, Jisheng Zhang wrote:
+> The mmu_gather code sets fullmm=1 when tearing down the entire address
+> space for an mm_struct on exit or execve. So if the underlying platform
+> supports ASID, the tlb flushing can be avoided because the ASID
+> allocator will never re-allocate a dirty ASID.
+>
+> Use the performance of Process creation in unixbench on T-HEAD TH1520
+> platform is improved by about 4%.
+>
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>   arch/riscv/include/asm/tlb.h | 9 +++++++++
+>   1 file changed, 9 insertions(+)
+>
+> diff --git a/arch/riscv/include/asm/tlb.h b/arch/riscv/include/asm/tlb.h
+> index 1eb5682b2af6..35f3c214332e 100644
+> --- a/arch/riscv/include/asm/tlb.h
+> +++ b/arch/riscv/include/asm/tlb.h
+> @@ -12,10 +12,19 @@ static void tlb_flush(struct mmu_gather *tlb);
+>   
+>   #define tlb_flush tlb_flush
+>   #include <asm-generic/tlb.h>
+> +#include <asm/mmu_context.h>
+>   
+>   static inline void tlb_flush(struct mmu_gather *tlb)
+>   {
+>   #ifdef CONFIG_MMU
+> +	/*
+> +	 * If ASID is supported, the ASID allocator will either invalidate the
+> +	 * ASID or mark it as used. So we can avoid TLB invalidation when
+> +	 * pulling down a full mm.
+> +	 */
 
 
---6xe6WHVqFSp45+hX
-Content-Type: application/pgp-signature; name="signature.asc"
+Given the number of bits are limited for the ASID, at some point we'll 
+reuse previously allocated ASID so the ASID allocator must make sure to 
+invalidate the entries when reusing an ASID: can you point where this is 
+done?
 
------BEGIN PGP SIGNATURE-----
+Thanks,
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZY/+VgAKCRB4tDGHoIJi
-0s/JAQDtPyBlwd7KEb9L4HtWe6TX6DE+iVwM/agBaJp+y5GadAD/RCu9FNnwEiak
-OoUzBlhASe6hIOwwJuoTkjeNRl57kQM=
-=FY5q
------END PGP SIGNATURE-----
-
---6xe6WHVqFSp45+hX--
+Alex
 
 
---===============4089674640749377316==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> +	if (static_branch_likely(&use_asid_allocator) && tlb->fullmm)
+> +		return;
+> +
+>   	if (tlb->fullmm || tlb->need_flush_all)
+>   		flush_tlb_mm(tlb->mm);
+>   	else
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4089674640749377316==--
-
