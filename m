@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD6F3C47077
-	for <linux-riscv@archiver.kernel.org>; Sun, 31 Dec 2023 15:28:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD75DC4707B
+	for <linux-riscv@archiver.kernel.org>; Sun, 31 Dec 2023 15:28:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DJkFqCaBS47gro/VENANjO0K9xx8lcv+TvLhpm+Trws=; b=VVOLtPFWUtH4Ui
-	rubR9X1XbS7zvH9Wx+rxE7Y3YZZspAcdMQtKIbDMThR9UtFi6npaGLJ9WEfZyixDXuCLTFJ/mHp8R
-	LvtYMJXsShum52JA2f1UhIHledhdZnxmtWcJ0tfLHNvLhj8d6zxk9u4hMzCLwVvew9zQJYNw+jJXl
-	oTyLXZaWlxWSOh1mq3GpMBDPwXH6/ADilhwgf6xlE0FspWDzKPazDa0rh0Wb05HypjWpGTzQAwipX
-	5hHjdbkMuPPKOdMsL+RSuemQkwVkw5llk22D4rBrGPu2EpLyT53Hgh9mfuXCTN9sFMcH7Yyn9nxE8
-	X1/+S7QxY7OTMSo5d4+A==;
+	List-Owner; bh=j75i7oppd+P1FUYtiuXVZ6Hw2oYtZWTk3uj0p6uL+VA=; b=1m5/3ulIbBdDcc
+	SXm2U9jsL9Enm0YHIYrk2x2meSiA99ss/vAtSI2NCLGgYauE2VSag1Xz2dI0GfQXMZkaeioQjn/Pp
+	Tv/s2PVUv/eqeO+wrWbWnbElfNtPpc+qzcRtMUBsRllB16pYf90PK4T1XPzSlCkMKR2ArFrw5yPQT
+	5a0LxdDFEdnH4uDkY0dR1ec2X+a+QNaheYrSD469j3T7OyXyxpkwQmK9/sIMpcrI5OACTP8v+dU25
+	RmugPgOqkevCpdTOCnT1mBRQ8DBtK7cb+NWC6beH0BLy+Mb25UY1TKmE4i3uYQkVhNIhTlfKcIBaC
+	W5kMMha9L/EsakIFUyUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rJxjQ-004mQR-0r;
-	Sun, 31 Dec 2023 15:28:04 +0000
-Received: from mail-io1-xd2f.google.com ([2607:f8b0:4864:20::d2f])
+	id 1rJxjV-004mSQ-09;
+	Sun, 31 Dec 2023 15:28:09 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rJxjN-004mPG-10
+	id 1rJxjQ-004mPu-0c
 	for linux-riscv@lists.infradead.org;
-	Sun, 31 Dec 2023 15:28:02 +0000
-Received: by mail-io1-xd2f.google.com with SMTP id ca18e2360f4ac-7baa8da5692so330929639f.0
-        for <linux-riscv@lists.infradead.org>; Sun, 31 Dec 2023 07:28:00 -0800 (PST)
+	Sun, 31 Dec 2023 15:28:05 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1d3ed1ca402so63153825ad.2
+        for <linux-riscv@lists.infradead.org>; Sun, 31 Dec 2023 07:28:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1704036480; x=1704641280; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1704036483; x=1704641283; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=leMifUQFY/hnRKKKOp+M4kt1TiREdMrY53gOOvxLu5g=;
-        b=jgQ3Hn0+djItBcFXywCbVt/W71QUXcjizV6WMuwcFgvBFLJ5NdLkrP4K5+uev7yYGb
-         7JXmeUYaSKyZk0MagiXWrpye7sJn3YrL4FCJQqQBX70sl090m2jJVt7/nsqvTWC+EBly
-         KSx3U1JnSCixlxFhuvM2eGobOf64MHtSqkbGwN+38eSClQl0cLTazgMUnQ+60TJUHyaH
-         flvGlmVYbcUlSKL/i7XB9sG+1NwS6xHTzg/lX+SUpNOmBdatY7DzOW94+0gBI9hDWzYR
-         JoCbn3oFO6HYrQOlvpRhohat7LISv+ELaX9+krx1pReBxJXe5Jjk/uPpzBU1j7gZJAFq
-         DxPQ==
+        bh=XuCoCK+SW4zawUSFFv0erKPf4OwGQ3cihPvdb62nAAQ=;
+        b=ZoVDp4WLvqWSdxTafwrGNZYmMHC+JnoBWBKgfvnVRnImbVfTMFPySjxS47bY0QF+Ja
+         ekyXl4RY+Clw8rqvMf38bLwf/gfkYvwhGd4NvvWuLpdPLWmKooAVAdNV3aE0RdKd6oRe
+         OGKzNGvKdeDk6so3c55K5RyaisooyVYJ30fSqnzVfXiNmD20YBgoQfivRR6Zuu07wvrS
+         bs1erOP+dCmGypq9QtGQG3GQlwVLV4Bg8034moE8Udg/BLLaXPp1dWTpJ8DTdr+Rx3Yk
+         VfiUZumfo7ulVpo4YaoaRec8IhMlj56Cz9LyqXswlvrlEL3UYBmyV4ySiAvBvXxJFc4F
+         Dxgg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704036480; x=1704641280;
+        d=1e100.net; s=20230601; t=1704036483; x=1704641283;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=leMifUQFY/hnRKKKOp+M4kt1TiREdMrY53gOOvxLu5g=;
-        b=QI7qwXK9WdNyZv0304V8AYQ+jT7bsfLzskNsQPsqjEQCizqGUYZZfNTidijmVg/ciT
-         6BQbtlvJ7cU1Vf3lysgPsaCYwIqy1Bp2rBlRXUYadJfMDV0q4u+9JpUmqjha5rkFt+hg
-         0hmwo5pRArYA6ZUQ0Xc/b8Cb8KkU2Bee2uUeQ8g9b8hcFCXnbJuPrePv4PVdyptJketw
-         vifkZhLEot4yU7rAsCxieXlTTPZnIAxIdakNLeg+qilpw6SA45OD6f1Dd3bLTg5dfcHN
-         ZndTIU2Os5AjKraM+nI0jwYlHsXliSdyg2rgQq4bnOtEQ9MDN07WLunz8upjJlgtvcjO
-         /7fA==
-X-Gm-Message-State: AOJu0YyxCxQoXLubnKRs8HUhY9SYUUIKKbZIA3ZauQN3soKyoMiz/SHl
-	d3zBC71ywVcm64iDInLoXgbow8iPqzF+iw==
-X-Google-Smtp-Source: AGHT+IHvzlmEOnBTt5frc//wb3eiOCzfM75y7LicREf98+n1CVL3gaYUoNXYckFPbzNADg+lxI7hlA==
-X-Received: by 2002:a92:ca4a:0:b0:35f:f4ae:955e with SMTP id q10-20020a92ca4a000000b0035ff4ae955emr17849031ilo.35.1704036479991;
-        Sun, 31 Dec 2023 07:27:59 -0800 (PST)
+        bh=XuCoCK+SW4zawUSFFv0erKPf4OwGQ3cihPvdb62nAAQ=;
+        b=l9prNiOCl39q4sjchWJ1I8Iax5+BdeJBeByEPX67f3KhKa2joQGbtLmyNL59dUDeuG
+         8fzBZTZUVAYqs038FkrOY3TDEUUAkJq0haNaHaXnBnnb0L60hVnNHUp1Xgdshhb4jK1p
+         nDpH1v3jC/TGfzBRqED9TX0wvZAujZ+BvvfZj5h7qteMw/ghOff8mbpHi/8WFj51Q+pN
+         3mFF3HJpjvMTQwB27QybyNlXBOQ8G++eJHnQIMwnup+1uknWlkoH50c+ep5Ya4Po7Mh/
+         Y9prsHmFbTVpOzxP/MOjNUJWfVHvFC+8jFIaVKGYS77z+jg1oxJwGDZPJuBgLELTuT7O
+         r5gg==
+X-Gm-Message-State: AOJu0YzwRbSG3x+8iXNfB6SMjVINmDq5X9dWJQ9CvbFs1sJZZ9MVfzyW
+	Ey9zy+3MUWbp+4LBKCsgm9vCd6avuE8fZg==
+X-Google-Smtp-Source: AGHT+IFrXdhgAdCMZNHHFRjvOLoIEeS5k4qN1vslTS4fA+aVRSXmXy/wbfSG12vHdQUE2i/D13D4aw==
+X-Received: by 2002:a17:903:1ca:b0:1d4:25ec:5975 with SMTP id e10-20020a17090301ca00b001d425ec5975mr20365331plh.10.1704036483091;
+        Sun, 31 Dec 2023 07:28:03 -0800 (PST)
 Received: from localhost.localdomain ([49.216.222.63])
-        by smtp.gmail.com with ESMTPSA id n4-20020a170902e54400b001cc3c521affsm18624430plf.300.2023.12.31.07.27.57
+        by smtp.gmail.com with ESMTPSA id n4-20020a170902e54400b001cc3c521affsm18624430plf.300.2023.12.31.07.28.00
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 31 Dec 2023 07:27:59 -0800 (PST)
+        Sun, 31 Dec 2023 07:28:02 -0800 (PST)
 From: Jerry Shih <jerry.shih@sifive.com>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -77,16 +77,17 @@ Cc: heiko@sntech.de,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-crypto@vger.kernel.org
-Subject: [PATCH v4 02/11] RISC-V: hook new crypto subdir into build-system
-Date: Sun, 31 Dec 2023 23:27:34 +0800
-Message-Id: <20231231152743.6304-3-jerry.shih@sifive.com>
+Subject: [PATCH v4 03/11] RISC-V: add TOOLCHAIN_HAS_VECTOR_CRYPTO in kconfig
+Date: Sun, 31 Dec 2023 23:27:35 +0800
+Message-Id: <20231231152743.6304-4-jerry.shih@sifive.com>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <20231231152743.6304-1-jerry.shih@sifive.com>
 References: <20231231152743.6304-1-jerry.shih@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231231_072801_424512_D4478E2A 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20231231_072804_287220_0D0783C5 
+X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,70 +104,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+LLVM main and binutils master now both fully support v1.0 of the RISC-V
+vector crypto extensions. Check the assembler capability for using the
+vector crypto asm mnemonics in kernel.
 
-Create a crypto subdirectory for added accelerated cryptography routines
-and hook it into the riscv Kbuild and the main crypto Kconfig.
-
-Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-Reviewed-by: Eric Biggers <ebiggers@google.com>
+Co-developed-by: Eric Biggers <ebiggers@google.com>
+Signed-off-by: Eric Biggers <ebiggers@google.com>
 Signed-off-by: Jerry Shih <jerry.shih@sifive.com>
 ---
- arch/riscv/Kbuild          | 1 +
- arch/riscv/crypto/Kconfig  | 5 +++++
- arch/riscv/crypto/Makefile | 4 ++++
- crypto/Kconfig             | 3 +++
- 4 files changed, 13 insertions(+)
- create mode 100644 arch/riscv/crypto/Kconfig
- create mode 100644 arch/riscv/crypto/Makefile
+ arch/riscv/Kconfig | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/arch/riscv/Kbuild b/arch/riscv/Kbuild
-index d25ad1c19f88..2c585f7a0b6e 100644
---- a/arch/riscv/Kbuild
-+++ b/arch/riscv/Kbuild
-@@ -2,6 +2,7 @@
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 0a03d72706b5..8647392ece0b 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -636,6 +636,14 @@ config TOOLCHAIN_NEEDS_OLD_ISA_SPEC
+ 	  versions of clang and GCC to be passed to GAS, which has the same result
+ 	  as passing zicsr and zifencei to -march.
  
- obj-y += kernel/ mm/ net/
- obj-$(CONFIG_BUILTIN_DTB) += boot/dts/
-+obj-$(CONFIG_CRYPTO) += crypto/
- obj-y += errata/
- obj-$(CONFIG_KVM) += kvm/
- 
-diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
-new file mode 100644
-index 000000000000..10d60edc0110
---- /dev/null
-+++ b/arch/riscv/crypto/Kconfig
-@@ -0,0 +1,5 @@
-+# SPDX-License-Identifier: GPL-2.0
++# This option indicates that the toolchain supports all v1.0 vector crypto
++# extensions, including Zvk*, Zvbb, and Zvbc. The LLVM added all of these at
++# once. The binutils added all except Zvkb, then added Zvkb. So we just check
++# for Zvkb.
++config TOOLCHAIN_HAS_VECTOR_CRYPTO
++	def_bool $(as-instr, .option arch$(comma) +zvkb)
++	depends on AS_HAS_OPTION_ARCH
 +
-+menu "Accelerated Cryptographic Algorithms for CPU (riscv)"
-+
-+endmenu
-diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
-new file mode 100644
-index 000000000000..b3b6332c9f6d
---- /dev/null
-+++ b/arch/riscv/crypto/Makefile
-@@ -0,0 +1,4 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+#
-+# linux/arch/riscv/crypto/Makefile
-+#
-diff --git a/crypto/Kconfig b/crypto/Kconfig
-index 70661f58ee41..c8fd2b83e589 100644
---- a/crypto/Kconfig
-+++ b/crypto/Kconfig
-@@ -1519,6 +1519,9 @@ endif
- if PPC
- source "arch/powerpc/crypto/Kconfig"
- endif
-+if RISCV
-+source "arch/riscv/crypto/Kconfig"
-+endif
- if S390
- source "arch/s390/crypto/Kconfig"
- endif
+ config FPU
+ 	bool "FPU support"
+ 	default y
 -- 
 2.28.0
 
