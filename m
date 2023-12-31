@@ -4,89 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53266C47073
-	for <linux-riscv@archiver.kernel.org>; Sun, 31 Dec 2023 15:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F06D1C3DA6E
+	for <linux-riscv@archiver.kernel.org>; Sun, 31 Dec 2023 16:40:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P6S9ntNzPPl9K/FIiV/Ci0K4ymV/HMz/gNMPtRCi02k=; b=vMu6kjZJ6fy0yk
-	L7raiv4P30JBekWj3dH2VojtrMuBNEx9tldzvSc663FVRfLu7H0/PyJ3tV5wqd0AFfjjgQTGI59PE
-	5KEmBSGFLCsnn3Li3iVy7DEEoOEmimSlU9O2hyLsfnUvtXVKGIGwwMD43DIel8u77IXod/oQqZhzl
-	QJ0aRbNyX03Usvx5Zvb+7sRZ2s3fg6qvXIGo1TOU6Us0RVYo3tVkrIPC4ZB+gWZZQ/N5yRsk24TCj
-	iyvCZUNDU4U9TU4AzMidhmZ26b3WtFSgVB2dIVlmg8BLfyGS7U4/GpZPQ3tg17yku+vAI2DXu7GQ4
-	/TLZrk6xW/M+eJuXcKeA==;
+	List-Owner; bh=E0JQzX+sOduMMkdwJhQbpyok7tdseKsT2WEAzghqZcE=; b=ytXMbBjQcJYsmg
+	uMZf1hCnUerrT/WIp0sScvx4gzW2Wq7ZtUdpYizenEUYjOyuVoqFAH9lIZdOD8aWLMLMnldqLJuqU
+	YZYkNiXhXpNnGIaKbOijXfXMFDQMzle1inoOEAhZi3Q9GwzW4u+3bEb1ZA8uo/Lx6KUeCkG5E3vAs
+	o6Zf4tnMxxndJSEQZzIY7jNRqjnv2G+45h1rywMVZj6XcxPgN1uQmGGGoPY4g6w5miTZfo+q2QqeM
+	PGVqu765zqz4BmOxAghznlRV+Sb2aOYnN/sJk0w0JnrJKi15GqsatqfgCI0QloE1I2lrJrBDRWQLV
+	97anQGZobLivNZ5dT0xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rJxjv-004miw-31;
-	Sun, 31 Dec 2023 15:28:35 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1rJyqz-004s1m-1W;
+	Sun, 31 Dec 2023 16:39:57 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rJxjr-004mex-0Z
+	id 1rJyqw-004s12-1X
 	for linux-riscv@lists.infradead.org;
-	Sun, 31 Dec 2023 15:28:34 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-28c7c422ad3so2182443a91.3
-        for <linux-riscv@lists.infradead.org>; Sun, 31 Dec 2023 07:28:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1704036510; x=1704641310; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rj7SSogxzCOROqn86O2lcjv5NKV2ZOXp3SBjo/z8Ga0=;
-        b=gdSxt11pzbVmX+EvtvKu6LUBJSO82rzcw+12yjf7H3Cy0F+F0Be1cbhV57U0gNgjIl
-         meIxp94eRNPegF8TXkAIVaa4tRekzKD8AN9kqdWfyW57sLQGuRoekMkB4w4tqZ7kuu1A
-         b7dWooHIhApuF9YoLkJDLyb3oOrxJ/Imypo/ObxcKX1VKx2AOdge33yCHqRcM8CV1Xbd
-         5oAUPePdhs/oj+VAxCELAczXQMAEuJUTUK4p/AYZQYkgScvEKh3GfpVimzvfTnLXTlyV
-         b5bGESO5AkMT8ximiEA5bS5yuwuHkHu1ZqxjpKQ+VjF4+AysSTQZ2geu2BodGUsahcnV
-         5cmw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704036510; x=1704641310;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rj7SSogxzCOROqn86O2lcjv5NKV2ZOXp3SBjo/z8Ga0=;
-        b=rX0ZCRDUCNKquRYzZqXmZvtaIf9zSwxiMHnH0ApsPBN3JuZja/21K3hnG1VDZFSO7g
-         +6IMgXcFNbdbsVYI7ZEZdV+vIkVxNlmLOiuQBg8rNAhLDJ1zMZq+7933+SjSXGZdZega
-         su4qOgnXhEQpWhBIvFlOuAc3ax6gyvsE3yFBhBq+NXuttKXPJtUAl16I/82hDRT1QiUj
-         Lo5j/+q2Kr12akO2HXPwnrNlkMmT5ltDlHFG7a3uy71HG81D+0F9z59Ig3E3XmirnoH5
-         TuGomUMaeXljhJ6z6lEPDUoQ2zqqj6L8pjYTJYBjDswuyvxaW9GY8Z+vetn/JzvnWTgh
-         8+sg==
-X-Gm-Message-State: AOJu0YwJkFPrhdujGHwCky5F+SoX2pb8KsjBKt0AE8YHl7nBVUNXF63W
-	SUXQUJZsFXtce0d64IidN6ScuZkJPZJCng==
-X-Google-Smtp-Source: AGHT+IGnclcxmMOJR8aaB5AN+Sgak0SsCFCASSKiW+guzFyQWbm4sKfwNn9xsx8Ll66Hl5DoG2jQ3w==
-X-Received: by 2002:a17:902:c411:b0:1d4:70c7:aabf with SMTP id k17-20020a170902c41100b001d470c7aabfmr5249294plk.62.1704036509945;
-        Sun, 31 Dec 2023 07:28:29 -0800 (PST)
-Received: from localhost.localdomain ([49.216.222.63])
-        by smtp.gmail.com with ESMTPSA id n4-20020a170902e54400b001cc3c521affsm18624430plf.300.2023.12.31.07.28.26
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 31 Dec 2023 07:28:29 -0800 (PST)
-From: Jerry Shih <jerry.shih@sifive.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	conor.dooley@microchip.com,
-	ebiggers@kernel.org,
-	ardb@kernel.org
-Cc: heiko@sntech.de,
-	phoebe.chen@sifive.com,
-	hongrong.hsu@sifive.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-crypto@vger.kernel.org
-Subject: [PATCH v4 11/11] RISC-V: crypto: add Zvkb accelerated ChaCha20 implementation
-Date: Sun, 31 Dec 2023 23:27:43 +0800
-Message-Id: <20231231152743.6304-12-jerry.shih@sifive.com>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20231231152743.6304-1-jerry.shih@sifive.com>
-References: <20231231152743.6304-1-jerry.shih@sifive.com>
+	Sun, 31 Dec 2023 16:39:56 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 0C1A5FF805;
+	Sun, 31 Dec 2023 16:39:45 +0000 (UTC)
+Message-ID: <70de2d00-703f-4f9d-9800-fd50ac7b4e21@ghiti.fr>
+Date: Sun, 31 Dec 2023 17:39:44 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH V1 01/11] mm: Fix misused APIs on huge pte
+Content-Language: en-US
+To: Xu Lu <luxu.kernel@bytedance.com>, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, ardb@kernel.org,
+ anup@brainfault.org, atishp@atishpatra.org
+Cc: dengliang.1214@bytedance.com, xieyongji@bytedance.com,
+ lihangjing@bytedance.com, songmuchun@bytedance.com,
+ punit.agrawal@bytedance.com, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20231123065708.91345-1-luxu.kernel@bytedance.com>
+ <20231123065708.91345-2-luxu.kernel@bytedance.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20231123065708.91345-2-luxu.kernel@bytedance.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231231_072831_218008_FD5082F0 
-X-CRM114-Status: GOOD (  26.67  )
+X-CRM114-CacheID: sfid-20231231_083954_823210_D396327F 
+X-CRM114-Status: GOOD (  18.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,541 +61,181 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a ChaCha20 vector implementation from OpenSSL(openssl/openssl#21923).
+Hi Xu,
 
-Signed-off-by: Jerry Shih <jerry.shih@sifive.com>
----
-Changelog v4:
- - Use asm mnemonics for the instructions in vector crypto 1.0 extension.
- - Revert the usage of simd skcipher.
+On 23/11/2023 07:56, Xu Lu wrote:
+> There exist some paths that try to get value of huge pte via normal
+> pte API ptep_get instead of huge pte API huge_ptep_get. This commit
+> corrects these misused APIs.
+>
+> Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
+> ---
+>   arch/riscv/mm/hugetlbpage.c   |  2 +-
+>   fs/proc/task_mmu.c            |  2 +-
+>   include/asm-generic/hugetlb.h |  7 +++++++
+>   mm/hugetlb.c                  |  2 +-
+>   mm/migrate.c                  |  5 ++++-
+>   mm/mprotect.c                 |  2 +-
+>   mm/rmap.c                     | 10 ++++++++--
+>   mm/vmalloc.c                  |  3 ++-
+>   8 files changed, 25 insertions(+), 8 deletions(-)
+>
+> diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
+> index b52f0210481f..d7cf8e2d3c5b 100644
+> --- a/arch/riscv/mm/hugetlbpage.c
+> +++ b/arch/riscv/mm/hugetlbpage.c
+> @@ -74,7 +74,7 @@ pte_t *huge_pte_alloc(struct mm_struct *mm,
+>   
+>   out:
+>   	if (pte) {
+> -		pte_t pteval = ptep_get_lockless(pte);
+> +		pte_t pteval = huge_ptep_get_lockless(pte);
+>   
+>   		WARN_ON_ONCE(pte_present(pteval) && !pte_huge(pteval));
+>   	}
 
-Changelog v3:
- - Rename kconfig CRYPTO_CHACHA20_RISCV64 to CRYPTO_CHACHA_RISCV64.
- - Rename chacha20_encrypt() to riscv64_chacha20_encrypt().
- - Use asm mnemonics for the instructions in RVV 1.0 extension.
 
-Changelog v2:
- - Do not turn on kconfig `CHACHA20_RISCV64` option by default.
- - Use simd skcipher interface.
- - Add `asmlinkage` qualifier for crypto asm function.
- - Reorder structure riscv64_chacha_alg_zvkb members initialization in
-   the order declared.
- - Use smaller iv buffer instead of whole state matrix as chacha20's
-   input.
----
- arch/riscv/crypto/Kconfig                |  12 +
- arch/riscv/crypto/Makefile               |   7 +
- arch/riscv/crypto/chacha-riscv64-glue.c  | 109 ++++++++
- arch/riscv/crypto/chacha-riscv64-zvkb.pl | 321 +++++++++++++++++++++++
- 4 files changed, 449 insertions(+)
- create mode 100644 arch/riscv/crypto/chacha-riscv64-glue.c
- create mode 100644 arch/riscv/crypto/chacha-riscv64-zvkb.pl
+Only looking at riscv for this patch, this change does not look 
+necessary as the pte value is only used to check if the pte is huge or 
+not, it does not use the A/D bits.
 
-diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
-index 81dcae72c477..2a756f92871f 100644
---- a/arch/riscv/crypto/Kconfig
-+++ b/arch/riscv/crypto/Kconfig
-@@ -34,6 +34,18 @@ config CRYPTO_AES_BLOCK_RISCV64
- 	  - Zvkb vector crypto extension (CTR/XTS)
- 	  - Zvkg vector crypto extension (XTS)
- 
-+config CRYPTO_CHACHA_RISCV64
-+	tristate "Ciphers: ChaCha"
-+	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
-+	select CRYPTO_SIMD
-+	select CRYPTO_SKCIPHER
-+	select CRYPTO_LIB_CHACHA_GENERIC
-+	help
-+	  Length-preserving ciphers: ChaCha20 stream cipher algorithm
-+
-+	  Architecture: riscv64 using:
-+	  - Zvkb vector crypto extension
-+
- config CRYPTO_GHASH_RISCV64
- 	tristate "Hash functions: GHASH"
- 	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
-diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
-index b1f857695c1c..31021eb3929c 100644
---- a/arch/riscv/crypto/Makefile
-+++ b/arch/riscv/crypto/Makefile
-@@ -9,6 +9,9 @@ aes-riscv64-y := aes-riscv64-glue.o aes-riscv64-zvkned.o
- obj-$(CONFIG_CRYPTO_AES_BLOCK_RISCV64) += aes-block-riscv64.o
- aes-block-riscv64-y := aes-riscv64-block-mode-glue.o aes-riscv64-zvkned-zvbb-zvkg.o aes-riscv64-zvkned-zvkb.o
- 
-+obj-$(CONFIG_CRYPTO_CHACHA_RISCV64) += chacha-riscv64.o
-+chacha-riscv64-y := chacha-riscv64-glue.o chacha-riscv64-zvkb.o
-+
- obj-$(CONFIG_CRYPTO_GHASH_RISCV64) += ghash-riscv64.o
- ghash-riscv64-y := ghash-riscv64-glue.o ghash-riscv64-zvkg.o
- 
-@@ -36,6 +39,9 @@ $(obj)/aes-riscv64-zvkned-zvbb-zvkg.S: $(src)/aes-riscv64-zvkned-zvbb-zvkg.pl
- $(obj)/aes-riscv64-zvkned-zvkb.S: $(src)/aes-riscv64-zvkned-zvkb.pl
- 	$(call cmd,perlasm)
- 
-+$(obj)/chacha-riscv64-zvkb.S: $(src)/chacha-riscv64-zvkb.pl
-+	$(call cmd,perlasm)
-+
- $(obj)/ghash-riscv64-zvkg.S: $(src)/ghash-riscv64-zvkg.pl
- 	$(call cmd,perlasm)
- 
-@@ -54,6 +60,7 @@ $(obj)/sm4-riscv64-zvksed.S: $(src)/sm4-riscv64-zvksed.pl
- clean-files += aes-riscv64-zvkned.S
- clean-files += aes-riscv64-zvkned-zvbb-zvkg.S
- clean-files += aes-riscv64-zvkned-zvkb.S
-+clean-files += chacha-riscv64-zvkb.S
- clean-files += ghash-riscv64-zvkg.S
- clean-files += sha256-riscv64-zvknha_or_zvknhb-zvkb.S
- clean-files += sha512-riscv64-zvknhb-zvkb.S
-diff --git a/arch/riscv/crypto/chacha-riscv64-glue.c b/arch/riscv/crypto/chacha-riscv64-glue.c
-new file mode 100644
-index 000000000000..a7a2f0303afe
---- /dev/null
-+++ b/arch/riscv/crypto/chacha-riscv64-glue.c
-@@ -0,0 +1,109 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Port of the OpenSSL ChaCha20 implementation for RISC-V 64
-+ *
-+ * Copyright (C) 2023 SiFive, Inc.
-+ * Author: Jerry Shih <jerry.shih@sifive.com>
-+ */
-+
-+#include <asm/vector.h>
-+#include <crypto/internal/chacha.h>
-+#include <crypto/internal/skcipher.h>
-+#include <linux/crypto.h>
-+#include <linux/linkage.h>
-+#include <linux/module.h>
-+#include <linux/types.h>
-+
-+/* chacha20 using zvkb vector crypto extension */
-+asmlinkage void ChaCha20_ctr32_zvkb(u8 *out, const u8 *input, size_t len,
-+				    const u32 *key, const u32 *counter);
-+
-+static int riscv64_chacha20_encrypt(struct skcipher_request *req)
-+{
-+	u32 iv[CHACHA_IV_SIZE / sizeof(u32)];
-+	u8 block_buffer[CHACHA_BLOCK_SIZE];
-+	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
-+	const struct chacha_ctx *ctx = crypto_skcipher_ctx(tfm);
-+	struct skcipher_walk walk;
-+	unsigned int nbytes;
-+	unsigned int tail_bytes;
-+	int err;
-+
-+	iv[0] = get_unaligned_le32(req->iv);
-+	iv[1] = get_unaligned_le32(req->iv + 4);
-+	iv[2] = get_unaligned_le32(req->iv + 8);
-+	iv[3] = get_unaligned_le32(req->iv + 12);
-+
-+	err = skcipher_walk_virt(&walk, req, false);
-+	while (walk.nbytes) {
-+		nbytes = walk.nbytes & (~(CHACHA_BLOCK_SIZE - 1));
-+		tail_bytes = walk.nbytes & (CHACHA_BLOCK_SIZE - 1);
-+		kernel_vector_begin();
-+		if (nbytes) {
-+			ChaCha20_ctr32_zvkb(walk.dst.virt.addr,
-+					    walk.src.virt.addr, nbytes,
-+					    ctx->key, iv);
-+			iv[0] += nbytes / CHACHA_BLOCK_SIZE;
-+		}
-+		if (walk.nbytes == walk.total && tail_bytes > 0) {
-+			memcpy(block_buffer, walk.src.virt.addr + nbytes,
-+			       tail_bytes);
-+			ChaCha20_ctr32_zvkb(block_buffer, block_buffer,
-+					    CHACHA_BLOCK_SIZE, ctx->key, iv);
-+			memcpy(walk.dst.virt.addr + nbytes, block_buffer,
-+			       tail_bytes);
-+			tail_bytes = 0;
-+		}
-+		kernel_vector_end();
-+
-+		err = skcipher_walk_done(&walk, tail_bytes);
-+	}
-+
-+	return err;
-+}
-+
-+static struct skcipher_alg riscv64_chacha_alg_zvkb = {
-+	.setkey = chacha20_setkey,
-+	.encrypt = riscv64_chacha20_encrypt,
-+	.decrypt = riscv64_chacha20_encrypt,
-+	.min_keysize = CHACHA_KEY_SIZE,
-+	.max_keysize = CHACHA_KEY_SIZE,
-+	.ivsize = CHACHA_IV_SIZE,
-+	.chunksize = CHACHA_BLOCK_SIZE,
-+	.walksize = CHACHA_BLOCK_SIZE * 4,
-+	.base = {
-+		.cra_blocksize = 1,
-+		.cra_ctxsize = sizeof(struct chacha_ctx),
-+		.cra_priority = 300,
-+		.cra_name = "chacha20",
-+		.cra_driver_name = "chacha20-riscv64-zvkb",
-+		.cra_module = THIS_MODULE,
-+	},
-+};
-+
-+static inline bool check_chacha20_ext(void)
-+{
-+	return riscv_isa_extension_available(NULL, ZVKB) &&
-+	       riscv_vector_vlen() >= 128;
-+}
-+
-+static int __init riscv64_chacha_mod_init(void)
-+{
-+	if (check_chacha20_ext())
-+		return crypto_register_skcipher(&riscv64_chacha_alg_zvkb);
-+
-+	return -ENODEV;
-+}
-+
-+static void __exit riscv64_chacha_mod_fini(void)
-+{
-+	crypto_unregister_skcipher(&riscv64_chacha_alg_zvkb);
-+}
-+
-+module_init(riscv64_chacha_mod_init);
-+module_exit(riscv64_chacha_mod_fini);
-+
-+MODULE_DESCRIPTION("ChaCha20 (RISC-V accelerated)");
-+MODULE_AUTHOR("Jerry Shih <jerry.shih@sifive.com>");
-+MODULE_LICENSE("GPL");
-+MODULE_ALIAS_CRYPTO("chacha20");
-diff --git a/arch/riscv/crypto/chacha-riscv64-zvkb.pl b/arch/riscv/crypto/chacha-riscv64-zvkb.pl
-new file mode 100644
-index 000000000000..279410d9e062
---- /dev/null
-+++ b/arch/riscv/crypto/chacha-riscv64-zvkb.pl
-@@ -0,0 +1,321 @@
-+#! /usr/bin/env perl
-+# SPDX-License-Identifier: Apache-2.0 OR BSD-2-Clause
-+#
-+# This file is dual-licensed, meaning that you can use it under your
-+# choice of either of the following two licenses:
-+#
-+# Copyright 2023-2023 The OpenSSL Project Authors. All Rights Reserved.
-+#
-+# Licensed under the Apache License 2.0 (the "License").  You may not use
-+# this file except in compliance with the License.  You can obtain a copy
-+# in the file LICENSE in the source distribution or at
-+# https://www.openssl.org/source/license.html
-+#
-+# or
-+#
-+# Copyright (c) 2023, Jerry Shih <jerry.shih@sifive.com>
-+# All rights reserved.
-+#
-+# Redistribution and use in source and binary forms, with or without
-+# modification, are permitted provided that the following conditions
-+# are met:
-+# 1. Redistributions of source code must retain the above copyright
-+#    notice, this list of conditions and the following disclaimer.
-+# 2. Redistributions in binary form must reproduce the above copyright
-+#    notice, this list of conditions and the following disclaimer in the
-+#    documentation and/or other materials provided with the distribution.
-+#
-+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-+# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-+# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-+# A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-+# OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-+# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-+# THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-+
-+# - RV64I
-+# - RISC-V Vector ('V') with VLEN >= 128
-+# - RISC-V Vector Cryptography Bit-manipulation extension ('Zvkb')
-+
-+use strict;
-+use warnings;
-+
-+use FindBin qw($Bin);
-+use lib "$Bin";
-+use lib "$Bin/../../perlasm";
-+
-+# $output is the last argument if it looks like a file (it has an extension)
-+# $flavour is the first argument if it doesn't look like a file
-+my $output  = $#ARGV >= 0 && $ARGV[$#ARGV] =~ m|\.\w+$| ? pop   : undef;
-+my $flavour = $#ARGV >= 0 && $ARGV[0] !~ m|\.|          ? shift : undef;
-+
-+$output and open STDOUT, ">$output";
-+
-+my $code = <<___;
-+.text
-+.option arch, +zvkb
-+___
-+
-+# void ChaCha20_ctr32_zvkb(unsigned char *out, const unsigned char *inp,
-+#                          size_t len, const unsigned int key[8],
-+#                          const unsigned int counter[4]);
-+################################################################################
-+my ( $OUTPUT, $INPUT, $LEN, $KEY, $COUNTER ) = ( "a0", "a1", "a2", "a3", "a4" );
-+my ( $T0 ) = ( "t0" );
-+my ( $CONST_DATA0, $CONST_DATA1, $CONST_DATA2, $CONST_DATA3 ) =
-+  ( "a5", "a6", "a7", "t1" );
-+my ( $KEY0, $KEY1, $KEY2,$KEY3, $KEY4, $KEY5, $KEY6, $KEY7,
-+     $COUNTER0, $COUNTER1, $NONCE0, $NONCE1
-+) = ( "s0", "s1", "s2", "s3", "s4", "s5", "s6",
-+    "s7", "s8", "s9", "s10", "s11" );
-+my ( $VL, $STRIDE, $CHACHA_LOOP_COUNT ) = ( "t2", "t3", "t4" );
-+my (
-+    $V0,  $V1,  $V2,  $V3,  $V4,  $V5,  $V6,  $V7,  $V8,  $V9,  $V10,
-+    $V11, $V12, $V13, $V14, $V15, $V16, $V17, $V18, $V19, $V20, $V21,
-+    $V22, $V23, $V24, $V25, $V26, $V27, $V28, $V29, $V30, $V31,
-+) = map( "v$_", ( 0 .. 31 ) );
-+
-+sub chacha_quad_round_group {
-+    my (
-+        $A0, $B0, $C0, $D0, $A1, $B1, $C1, $D1,
-+        $A2, $B2, $C2, $D2, $A3, $B3, $C3, $D3
-+    ) = @_;
-+
-+    my $code = <<___;
-+    # a += b; d ^= a; d <<<= 16;
-+    vadd.vv $A0, $A0, $B0
-+    vadd.vv $A1, $A1, $B1
-+    vadd.vv $A2, $A2, $B2
-+    vadd.vv $A3, $A3, $B3
-+    vxor.vv $D0, $D0, $A0
-+    vxor.vv $D1, $D1, $A1
-+    vxor.vv $D2, $D2, $A2
-+    vxor.vv $D3, $D3, $A3
-+    vror.vi $D0, $D0, 32 - 16
-+    vror.vi $D1, $D1, 32 - 16
-+    vror.vi $D2, $D2, 32 - 16
-+    vror.vi $D3, $D3, 32 - 16
-+    # c += d; b ^= c; b <<<= 12;
-+    vadd.vv $C0, $C0, $D0
-+    vadd.vv $C1, $C1, $D1
-+    vadd.vv $C2, $C2, $D2
-+    vadd.vv $C3, $C3, $D3
-+    vxor.vv $B0, $B0, $C0
-+    vxor.vv $B1, $B1, $C1
-+    vxor.vv $B2, $B2, $C2
-+    vxor.vv $B3, $B3, $C3
-+    vror.vi $B0, $B0, 32 - 12
-+    vror.vi $B1, $B1, 32 - 12
-+    vror.vi $B2, $B2, 32 - 12
-+    vror.vi $B3, $B3, 32 - 12
-+    # a += b; d ^= a; d <<<= 8;
-+    vadd.vv $A0, $A0, $B0
-+    vadd.vv $A1, $A1, $B1
-+    vadd.vv $A2, $A2, $B2
-+    vadd.vv $A3, $A3, $B3
-+    vxor.vv $D0, $D0, $A0
-+    vxor.vv $D1, $D1, $A1
-+    vxor.vv $D2, $D2, $A2
-+    vxor.vv $D3, $D3, $A3
-+    vror.vi $D0, $D0, 32 - 8
-+    vror.vi $D1, $D1, 32 - 8
-+    vror.vi $D2, $D2, 32 - 8
-+    vror.vi $D3, $D3, 32 - 8
-+    # c += d; b ^= c; b <<<= 7;
-+    vadd.vv $C0, $C0, $D0
-+    vadd.vv $C1, $C1, $D1
-+    vadd.vv $C2, $C2, $D2
-+    vadd.vv $C3, $C3, $D3
-+    vxor.vv $B0, $B0, $C0
-+    vxor.vv $B1, $B1, $C1
-+    vxor.vv $B2, $B2, $C2
-+    vxor.vv $B3, $B3, $C3
-+    vror.vi $B0, $B0, 32 - 7
-+    vror.vi $B1, $B1, 32 - 7
-+    vror.vi $B2, $B2, 32 - 7
-+    vror.vi $B3, $B3, 32 - 7
-+___
-+
-+    return $code;
-+}
-+
-+$code .= <<___;
-+.p2align 3
-+.globl ChaCha20_ctr32_zvkb
-+.type ChaCha20_ctr32_zvkb,\@function
-+ChaCha20_ctr32_zvkb:
-+    srli $LEN, $LEN, 6
-+    beqz $LEN, .Lend
-+
-+    addi sp, sp, -96
-+    sd s0, 0(sp)
-+    sd s1, 8(sp)
-+    sd s2, 16(sp)
-+    sd s3, 24(sp)
-+    sd s4, 32(sp)
-+    sd s5, 40(sp)
-+    sd s6, 48(sp)
-+    sd s7, 56(sp)
-+    sd s8, 64(sp)
-+    sd s9, 72(sp)
-+    sd s10, 80(sp)
-+    sd s11, 88(sp)
-+
-+    li $STRIDE, 64
-+
-+    #### chacha block data
-+    # "expa" little endian
-+    li $CONST_DATA0, 0x61707865
-+    # "nd 3" little endian
-+    li $CONST_DATA1, 0x3320646e
-+    # "2-by" little endian
-+    li $CONST_DATA2, 0x79622d32
-+    # "te k" little endian
-+    li $CONST_DATA3, 0x6b206574
-+
-+    lw $KEY0, 0($KEY)
-+    lw $KEY1, 4($KEY)
-+    lw $KEY2, 8($KEY)
-+    lw $KEY3, 12($KEY)
-+    lw $KEY4, 16($KEY)
-+    lw $KEY5, 20($KEY)
-+    lw $KEY6, 24($KEY)
-+    lw $KEY7, 28($KEY)
-+
-+    lw $COUNTER0, 0($COUNTER)
-+    lw $COUNTER1, 4($COUNTER)
-+    lw $NONCE0, 8($COUNTER)
-+    lw $NONCE1, 12($COUNTER)
-+
-+.Lblock_loop:
-+    vsetvli $VL, $LEN, e32, m1, ta, ma
-+
-+    # init chacha const states
-+    vmv.v.x $V0, $CONST_DATA0
-+    vmv.v.x $V1, $CONST_DATA1
-+    vmv.v.x $V2, $CONST_DATA2
-+    vmv.v.x $V3, $CONST_DATA3
-+
-+    # init chacha key states
-+    vmv.v.x $V4, $KEY0
-+    vmv.v.x $V5, $KEY1
-+    vmv.v.x $V6, $KEY2
-+    vmv.v.x $V7, $KEY3
-+    vmv.v.x $V8, $KEY4
-+    vmv.v.x $V9, $KEY5
-+    vmv.v.x $V10, $KEY6
-+    vmv.v.x $V11, $KEY7
-+
-+    # init chacha key states
-+    vid.v $V12
-+    vadd.vx $V12, $V12, $COUNTER0
-+    vmv.v.x $V13, $COUNTER1
-+
-+    # init chacha nonce states
-+    vmv.v.x $V14, $NONCE0
-+    vmv.v.x $V15, $NONCE1
-+
-+    # load the top-half of input data
-+    vlsseg8e32.v $V16, ($INPUT), $STRIDE
-+
-+    li $CHACHA_LOOP_COUNT, 10
-+.Lround_loop:
-+    addi $CHACHA_LOOP_COUNT, $CHACHA_LOOP_COUNT, -1
-+    @{[chacha_quad_round_group
-+      $V0, $V4, $V8, $V12,
-+      $V1, $V5, $V9, $V13,
-+      $V2, $V6, $V10, $V14,
-+      $V3, $V7, $V11, $V15]}
-+    @{[chacha_quad_round_group
-+      $V0, $V5, $V10, $V15,
-+      $V1, $V6, $V11, $V12,
-+      $V2, $V7, $V8, $V13,
-+      $V3, $V4, $V9, $V14]}
-+    bnez $CHACHA_LOOP_COUNT, .Lround_loop
-+
-+    # load the bottom-half of input data
-+    addi $T0, $INPUT, 32
-+    vlsseg8e32.v $V24, ($T0), $STRIDE
-+
-+    # add chacha top-half initial block states
-+    vadd.vx $V0, $V0, $CONST_DATA0
-+    vadd.vx $V1, $V1, $CONST_DATA1
-+    vadd.vx $V2, $V2, $CONST_DATA2
-+    vadd.vx $V3, $V3, $CONST_DATA3
-+    vadd.vx $V4, $V4, $KEY0
-+    vadd.vx $V5, $V5, $KEY1
-+    vadd.vx $V6, $V6, $KEY2
-+    vadd.vx $V7, $V7, $KEY3
-+    # xor with the top-half input
-+    vxor.vv $V16, $V16, $V0
-+    vxor.vv $V17, $V17, $V1
-+    vxor.vv $V18, $V18, $V2
-+    vxor.vv $V19, $V19, $V3
-+    vxor.vv $V20, $V20, $V4
-+    vxor.vv $V21, $V21, $V5
-+    vxor.vv $V22, $V22, $V6
-+    vxor.vv $V23, $V23, $V7
-+
-+    # save the top-half of output
-+    vssseg8e32.v $V16, ($OUTPUT), $STRIDE
-+
-+    # add chacha bottom-half initial block states
-+    vadd.vx $V8, $V8, $KEY4
-+    vadd.vx $V9, $V9, $KEY5
-+    vadd.vx $V10, $V10, $KEY6
-+    vadd.vx $V11, $V11, $KEY7
-+    vid.v $V0
-+    vadd.vx $V12, $V12, $COUNTER0
-+    vadd.vx $V13, $V13, $COUNTER1
-+    vadd.vx $V14, $V14, $NONCE0
-+    vadd.vx $V15, $V15, $NONCE1
-+    vadd.vv $V12, $V12, $V0
-+    # xor with the bottom-half input
-+    vxor.vv $V24, $V24, $V8
-+    vxor.vv $V25, $V25, $V9
-+    vxor.vv $V26, $V26, $V10
-+    vxor.vv $V27, $V27, $V11
-+    vxor.vv $V29, $V29, $V13
-+    vxor.vv $V28, $V28, $V12
-+    vxor.vv $V30, $V30, $V14
-+    vxor.vv $V31, $V31, $V15
-+
-+    # save the bottom-half of output
-+    addi $T0, $OUTPUT, 32
-+    vssseg8e32.v $V24, ($T0), $STRIDE
-+
-+    # update counter
-+    add $COUNTER0, $COUNTER0, $VL
-+    sub $LEN, $LEN, $VL
-+    # increase offset for `4 * 16 * VL = 64 * VL`
-+    slli $T0, $VL, 6
-+    add $INPUT, $INPUT, $T0
-+    add $OUTPUT, $OUTPUT, $T0
-+    bnez $LEN, .Lblock_loop
-+
-+    ld s0, 0(sp)
-+    ld s1, 8(sp)
-+    ld s2, 16(sp)
-+    ld s3, 24(sp)
-+    ld s4, 32(sp)
-+    ld s5, 40(sp)
-+    ld s6, 48(sp)
-+    ld s7, 56(sp)
-+    ld s8, 64(sp)
-+    ld s9, 72(sp)
-+    ld s10, 80(sp)
-+    ld s11, 88(sp)
-+    addi sp, sp, 96
-+
-+.Lend:
-+    ret
-+.size ChaCha20_ctr32_zvkb,.-ChaCha20_ctr32_zvkb
-+___
-+
-+print $code;
-+
-+close STDOUT or die "error closing STDOUT: $!";
--- 
-2.28.0
+Thanks,
 
+Alex
+
+
+> diff --git a/fs/proc/task_mmu.c b/fs/proc/task_mmu.c
+> index ef2eb12906da..0fe9d23aa062 100644
+> --- a/fs/proc/task_mmu.c
+> +++ b/fs/proc/task_mmu.c
+> @@ -726,7 +726,7 @@ static int smaps_hugetlb_range(pte_t *pte, unsigned long hmask,
+>   	struct mem_size_stats *mss = walk->private;
+>   	struct vm_area_struct *vma = walk->vma;
+>   	struct page *page = NULL;
+> -	pte_t ptent = ptep_get(pte);
+> +	pte_t ptent = huge_ptep_get(pte);
+>   
+>   	if (pte_present(ptent)) {
+>   		page = vm_normal_page(vma, addr, ptent);
+> diff --git a/include/asm-generic/hugetlb.h b/include/asm-generic/hugetlb.h
+> index 6dcf4d576970..52c299db971a 100644
+> --- a/include/asm-generic/hugetlb.h
+> +++ b/include/asm-generic/hugetlb.h
+> @@ -150,6 +150,13 @@ static inline pte_t huge_ptep_get(pte_t *ptep)
+>   }
+>   #endif
+>   
+> +#ifndef __HAVE_ARCH_HUGE_PTEP_GET_LOCKLESS
+> +static inline pte_t huge_ptep_get_lockless(pte_t *ptep)
+> +{
+> +	return huge_ptep_get(ptep);
+> +}
+> +#endif
+> +
+>   #ifndef __HAVE_ARCH_GIGANTIC_PAGE_RUNTIME_SUPPORTED
+>   static inline bool gigantic_page_runtime_supported(void)
+>   {
+> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+> index 1169ef2f2176..9f773eb95b3b 100644
+> --- a/mm/hugetlb.c
+> +++ b/mm/hugetlb.c
+> @@ -7406,7 +7406,7 @@ pte_t *huge_pte_alloc(struct mm_struct *mm, struct vm_area_struct *vma,
+>   	}
+>   
+>   	if (pte) {
+> -		pte_t pteval = ptep_get_lockless(pte);
+> +		pte_t pteval = huge_ptep_get_lockless(pte);
+>   
+>   		BUG_ON(pte_present(pteval) && !pte_huge(pteval));
+>   	}
+> diff --git a/mm/migrate.c b/mm/migrate.c
+> index 35a88334bb3c..d0daf58e486e 100644
+> --- a/mm/migrate.c
+> +++ b/mm/migrate.c
+> @@ -210,7 +210,10 @@ static bool remove_migration_pte(struct folio *folio,
+>   
+>   		folio_get(folio);
+>   		pte = mk_pte(new, READ_ONCE(vma->vm_page_prot));
+> -		old_pte = ptep_get(pvmw.pte);
+> +		if (folio_test_hugetlb(folio))
+> +			old_pte = huge_ptep_get(pvmw.pte);
+> +		else
+> +			old_pte = ptep_get(pvmw.pte);
+>   		if (pte_swp_soft_dirty(old_pte))
+>   			pte = pte_mksoft_dirty(pte);
+>   
+> diff --git a/mm/mprotect.c b/mm/mprotect.c
+> index 81991102f785..b9129c03f451 100644
+> --- a/mm/mprotect.c
+> +++ b/mm/mprotect.c
+> @@ -555,7 +555,7 @@ static int prot_none_hugetlb_entry(pte_t *pte, unsigned long hmask,
+>   				   unsigned long addr, unsigned long next,
+>   				   struct mm_walk *walk)
+>   {
+> -	return pfn_modify_allowed(pte_pfn(ptep_get(pte)),
+> +	return pfn_modify_allowed(pte_pfn(huge_ptep_get(pte)),
+>   				  *(pgprot_t *)(walk->private)) ?
+>   		0 : -EACCES;
+>   }
+> diff --git a/mm/rmap.c b/mm/rmap.c
+> index 7a27a2b41802..d93c6dabbdf4 100644
+> --- a/mm/rmap.c
+> +++ b/mm/rmap.c
+> @@ -1577,7 +1577,10 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+>   			break;
+>   		}
+>   
+> -		pfn = pte_pfn(ptep_get(pvmw.pte));
+> +		if (folio_test_hugetlb(folio))
+> +			pfn = pte_pfn(huge_ptep_get(pvmw.pte));
+> +		else
+> +			pfn = pte_pfn(ptep_get(pvmw.pte));
+>   		subpage = folio_page(folio, pfn - folio_pfn(folio));
+>   		address = pvmw.address;
+>   		anon_exclusive = folio_test_anon(folio) &&
+> @@ -1931,7 +1934,10 @@ static bool try_to_migrate_one(struct folio *folio, struct vm_area_struct *vma,
+>   		/* Unexpected PMD-mapped THP? */
+>   		VM_BUG_ON_FOLIO(!pvmw.pte, folio);
+>   
+> -		pfn = pte_pfn(ptep_get(pvmw.pte));
+> +		if (folio_test_hugetlb(folio))
+> +			pfn = pte_pfn(huge_ptep_get(pvmw.pte));
+> +		else
+> +			pfn = pte_pfn(ptep_get(pvmw.pte));
+>   
+>   		if (folio_is_zone_device(folio)) {
+>   			/*
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index d12a17fc0c17..1a451b82a7ac 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -103,7 +103,6 @@ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
+>   	if (!pte)
+>   		return -ENOMEM;
+>   	do {
+> -		BUG_ON(!pte_none(ptep_get(pte)));
+>   
+>   #ifdef CONFIG_HUGETLB_PAGE
+>   		size = arch_vmap_pte_range_map_size(addr, end, pfn, max_page_shift);
+> @@ -111,11 +110,13 @@ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
+>   			pte_t entry = pfn_pte(pfn, prot);
+>   
+>   			entry = arch_make_huge_pte(entry, ilog2(size), 0);
+> +			BUG_ON(!pte_none(huge_ptep_get(pte)));
+>   			set_huge_pte_at(&init_mm, addr, pte, entry, size);
+>   			pfn += PFN_DOWN(size);
+>   			continue;
+>   		}
+>   #endif
+> +		BUG_ON(!pte_none(ptep_get(pte)));
+>   		set_pte_at(&init_mm, addr, pte, pfn_pte(pfn, prot));
+>   		pfn++;
+>   	} while (pte += PFN_DOWN(size), addr += size, addr != end);
 
 _______________________________________________
 linux-riscv mailing list
