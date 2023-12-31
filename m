@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 067D7C3DA6E
-	for <linux-riscv@archiver.kernel.org>; Sun, 31 Dec 2023 15:28:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53266C47073
+	for <linux-riscv@archiver.kernel.org>; Sun, 31 Dec 2023 15:28:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6wAiffyRffBLYNrQPjsxQ7tEK4ZIf86rF47IM/lJrQ0=; b=cwoe2uap0l+uWm
-	JG+Y5FqnfbsLAadSbNwz8VvG0K0GXmEhq0j8B0Ttlfwq/fF5GcyQ4rCnQDzlwQG8mYKpad+NnYUXy
-	f5io0/QP4n8xSoG8LCMLEhcESFxVsnpfqaSRASRE47pv08+DLATTr4La/PQlbhEh5ELVlAzNYjGBZ
-	jVdQgvORSy6qyBr2mdEZ+2VDuRb8b00Mt24PXKULyfxgzn9WL3Ppo1U1ThgC3QCOBS2M9QA6thaHl
-	SiKg+7ydQZiOjo9RrHeKSIsrgV7IZtdRDHfn3tM5uegPfSctvYmQdQnzAJNVx9q9nBiYNYCkdjjWY
-	XCuMICpf0Yw3lCYxspSQ==;
+	List-Owner; bh=P6S9ntNzPPl9K/FIiV/Ci0K4ymV/HMz/gNMPtRCi02k=; b=vMu6kjZJ6fy0yk
+	L7raiv4P30JBekWj3dH2VojtrMuBNEx9tldzvSc663FVRfLu7H0/PyJ3tV5wqd0AFfjjgQTGI59PE
+	5KEmBSGFLCsnn3Li3iVy7DEEoOEmimSlU9O2hyLsfnUvtXVKGIGwwMD43DIel8u77IXod/oQqZhzl
+	QJ0aRbNyX03Usvx5Zvb+7sRZ2s3fg6qvXIGo1TOU6Us0RVYo3tVkrIPC4ZB+gWZZQ/N5yRsk24TCj
+	iyvCZUNDU4U9TU4AzMidhmZ26b3WtFSgVB2dIVlmg8BLfyGS7U4/GpZPQ3tg17yku+vAI2DXu7GQ4
+	/TLZrk6xW/M+eJuXcKeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rJxjt-004mgs-0E;
-	Sun, 31 Dec 2023 15:28:33 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1rJxjv-004miw-31;
+	Sun, 31 Dec 2023 15:28:35 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rJxjn-004mcT-2A
+	id 1rJxjr-004mex-0Z
 	for linux-riscv@lists.infradead.org;
-	Sun, 31 Dec 2023 15:28:30 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-6d9bee259c5so1765023b3a.1
-        for <linux-riscv@lists.infradead.org>; Sun, 31 Dec 2023 07:28:27 -0800 (PST)
+	Sun, 31 Dec 2023 15:28:34 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-28c7c422ad3so2182443a91.3
+        for <linux-riscv@lists.infradead.org>; Sun, 31 Dec 2023 07:28:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1704036506; x=1704641306; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1704036510; x=1704641310; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4btUclgL8prP5a5xsfbrxrrvqeEp8OCXhpchFT4JJow=;
-        b=H/SCASTVl4WXtlhKVLJAbCM1OVlzaQfv1Cjdo/z3vCYqsu0rma2JTPBLkmu1NrDMoe
-         eQv/GDmftnP3x3MG2eQciz60iSW86mIHnZHQnQOY6ITuFpJX1TqNcS+po8SUM60V95SW
-         JaR6KU4Rxii+T2E/3iV+OXnO54OBu7fXiiuVeTEapTmqSSmPFHuKX4pB/41VphxqnNUv
-         PagsDrse4u4EcySUpUOrMdQBfZX2M5Zjo+pmCFr9bcfgad23FC2zlQoNT3kFr8tbcr4K
-         Tgk7VmTY67nW0+dtn5uz0XixeAF1BdhLF7hJ+YDgFUTWG9Vsy7YUG+c9VFiZ6otQpbJ0
-         6GHg==
+        bh=rj7SSogxzCOROqn86O2lcjv5NKV2ZOXp3SBjo/z8Ga0=;
+        b=gdSxt11pzbVmX+EvtvKu6LUBJSO82rzcw+12yjf7H3Cy0F+F0Be1cbhV57U0gNgjIl
+         meIxp94eRNPegF8TXkAIVaa4tRekzKD8AN9kqdWfyW57sLQGuRoekMkB4w4tqZ7kuu1A
+         b7dWooHIhApuF9YoLkJDLyb3oOrxJ/Imypo/ObxcKX1VKx2AOdge33yCHqRcM8CV1Xbd
+         5oAUPePdhs/oj+VAxCELAczXQMAEuJUTUK4p/AYZQYkgScvEKh3GfpVimzvfTnLXTlyV
+         b5bGESO5AkMT8ximiEA5bS5yuwuHkHu1ZqxjpKQ+VjF4+AysSTQZ2geu2BodGUsahcnV
+         5cmw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704036506; x=1704641306;
+        d=1e100.net; s=20230601; t=1704036510; x=1704641310;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=4btUclgL8prP5a5xsfbrxrrvqeEp8OCXhpchFT4JJow=;
-        b=O1S3fiyd07mp0AwKjzM1TBrqxWaTHZarWzppqWxjqvzVHV/CUJbfzftahKDwlD7SOW
-         0IcqY6kEdamyBQ284OytyVogSeHjkudy9l9RzupPiNPgs2HuMALBGTVVaAtGlhroI6KI
-         nIuwk8BS5HP3SjUwlz8EAyh9Kpu6+BRJgt1+NHdiQdRH6B0ay5jyanXCLXOAFUWCOKE9
-         CU54pqvfsgd3YANhTR2U9SDvI13NTenQRKxjB5qYNwhFNTqvdq06q+BouZgPNPts9xWe
-         Z9b74idMdIoA6pFFGEnN/cfVBxfB5wYaEBq1I3mIdhf5z/xzxqeLKs8wPsoQEeCGaGxU
-         Rh9w==
-X-Gm-Message-State: AOJu0YzF4FkH+AjAVmYCkMehDcXuNEyTlpXLJX9vNArE0mqxXQc+XyDY
-	z7piBf68Ua8NWJRy89V62DuLr4FxbCbp2A==
-X-Google-Smtp-Source: AGHT+IGs+2VkVLO9wT3XYs3ZUo/QaAslGvl/LI9b9+V4HNtX175e8ul7UJLbAGqZqbTBd5UyWRSFTA==
-X-Received: by 2002:a05:6a20:5294:b0:196:5929:dcdd with SMTP id o20-20020a056a20529400b001965929dcddmr1930861pzg.6.1704036506477;
-        Sun, 31 Dec 2023 07:28:26 -0800 (PST)
+        bh=rj7SSogxzCOROqn86O2lcjv5NKV2ZOXp3SBjo/z8Ga0=;
+        b=rX0ZCRDUCNKquRYzZqXmZvtaIf9zSwxiMHnH0ApsPBN3JuZja/21K3hnG1VDZFSO7g
+         +6IMgXcFNbdbsVYI7ZEZdV+vIkVxNlmLOiuQBg8rNAhLDJ1zMZq+7933+SjSXGZdZega
+         su4qOgnXhEQpWhBIvFlOuAc3ax6gyvsE3yFBhBq+NXuttKXPJtUAl16I/82hDRT1QiUj
+         Lo5j/+q2Kr12akO2HXPwnrNlkMmT5ltDlHFG7a3uy71HG81D+0F9z59Ig3E3XmirnoH5
+         TuGomUMaeXljhJ6z6lEPDUoQ2zqqj6L8pjYTJYBjDswuyvxaW9GY8Z+vetn/JzvnWTgh
+         8+sg==
+X-Gm-Message-State: AOJu0YwJkFPrhdujGHwCky5F+SoX2pb8KsjBKt0AE8YHl7nBVUNXF63W
+	SUXQUJZsFXtce0d64IidN6ScuZkJPZJCng==
+X-Google-Smtp-Source: AGHT+IGnclcxmMOJR8aaB5AN+Sgak0SsCFCASSKiW+guzFyQWbm4sKfwNn9xsx8Ll66Hl5DoG2jQ3w==
+X-Received: by 2002:a17:902:c411:b0:1d4:70c7:aabf with SMTP id k17-20020a170902c41100b001d470c7aabfmr5249294plk.62.1704036509945;
+        Sun, 31 Dec 2023 07:28:29 -0800 (PST)
 Received: from localhost.localdomain ([49.216.222.63])
-        by smtp.gmail.com with ESMTPSA id n4-20020a170902e54400b001cc3c521affsm18624430plf.300.2023.12.31.07.28.23
+        by smtp.gmail.com with ESMTPSA id n4-20020a170902e54400b001cc3c521affsm18624430plf.300.2023.12.31.07.28.26
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 31 Dec 2023 07:28:26 -0800 (PST)
+        Sun, 31 Dec 2023 07:28:29 -0800 (PST)
 From: Jerry Shih <jerry.shih@sifive.com>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -77,16 +77,16 @@ Cc: heiko@sntech.de,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-crypto@vger.kernel.org
-Subject: [PATCH v4 10/11] RISC-V: crypto: add Zvksh accelerated SM3 implementation
-Date: Sun, 31 Dec 2023 23:27:42 +0800
-Message-Id: <20231231152743.6304-11-jerry.shih@sifive.com>
+Subject: [PATCH v4 11/11] RISC-V: crypto: add Zvkb accelerated ChaCha20 implementation
+Date: Sun, 31 Dec 2023 23:27:43 +0800
+Message-Id: <20231231152743.6304-12-jerry.shih@sifive.com>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <20231231152743.6304-1-jerry.shih@sifive.com>
 References: <20231231152743.6304-1-jerry.shih@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20231231_072827_716621_EFBFC8EF 
-X-CRM114-Status: GOOD (  32.00  )
+X-CRM114-CacheID: sfid-20231231_072831_218008_FD5082F0 
+X-CRM114-Status: GOOD (  26.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,284 +98,543 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QWRkIFNNMyBpbXBsZW1lbnRhdGlvbiB1c2luZyBadmtzaCB2ZWN0b3IgY3J5cHRvIGV4dGVuc2lv
-biBmcm9tIE9wZW5TU0wKKG9wZW5zc2wvb3BlbnNzbCMyMTkyMykuCgpDby1kZXZlbG9wZWQtYnk6
-IENocmlzdG9waCBNw7xsbG5lciA8Y2hyaXN0b3BoLm11ZWxsbmVyQHZydWxsLmV1PgpTaWduZWQt
-b2ZmLWJ5OiBDaHJpc3RvcGggTcO8bGxuZXIgPGNocmlzdG9waC5tdWVsbG5lckB2cnVsbC5ldT4K
-Q28tZGV2ZWxvcGVkLWJ5OiBIZWlrbyBTdHVlYm5lciA8aGVpa28uc3R1ZWJuZXJAdnJ1bGwuZXU+
-ClNpZ25lZC1vZmYtYnk6IEhlaWtvIFN0dWVibmVyIDxoZWlrby5zdHVlYm5lckB2cnVsbC5ldT4K
-U2lnbmVkLW9mZi1ieTogSmVycnkgU2hpaCA8amVycnkuc2hpaEBzaWZpdmUuY29tPgotLS0KQ2hh
-bmdlbG9nIHY0OgogLSBVc2UgYXNtIG1uZW1vbmljcyBmb3IgdGhlIGluc3RydWN0aW9ucyBpbiB2
-ZWN0b3IgY3J5cHRvIDEuMCBleHRlbnNpb24uCgpDaGFuZ2Vsb2cgdjM6CiAtIFVzZSBgU1lNX1RZ
-UEVEX0ZVTkNfU1RBUlRgIGZvciBzbTMgaW5kaXJlY3QtY2FsbCBhc20gc3ltYm9sLgogLSBVc2Ug
-YXNtIG1uZW1vbmljcyBmb3IgdGhlIGluc3RydWN0aW9ucyBpbiBSVlYgMS4wIGV4dGVuc2lvbi4K
-CkNoYW5nZWxvZyB2MjoKIC0gRG8gbm90IHR1cm4gb24ga2NvbmZpZyBgU00zX1JJU0NWNjRgIG9w
-dGlvbiBieSBkZWZhdWx0LgogLSBBZGQgYGFzbWxpbmthZ2VgIHF1YWxpZmllciBmb3IgY3J5cHRv
-IGFzbSBmdW5jdGlvbi4KIC0gUmVuYW1lIHNtMy1yaXNjdjY0LXp2a2ItenZrc2ggdG8gc20zLXJp
-c2N2NjQtenZrc2gtenZrYi4KIC0gUmVvcmRlciBzdHJ1Y3R1cmUgc20zX2FsZyBtZW1iZXJzIGlu
-aXRpYWxpemF0aW9uIGluIHRoZSBvcmRlciBkZWNsYXJlZC4KLS0tCiBhcmNoL3Jpc2N2L2NyeXB0
-by9LY29uZmlnICAgICAgICAgICAgICB8ICAxMiArKwogYXJjaC9yaXNjdi9jcnlwdG8vTWFrZWZp
-bGUgICAgICAgICAgICAgfCAgIDcgKwogYXJjaC9yaXNjdi9jcnlwdG8vc20zLXJpc2N2NjQtZ2x1
-ZS5jICAgfCAxMjQgKysrKysrKysrKysrKysKIGFyY2gvcmlzY3YvY3J5cHRvL3NtMy1yaXNjdjY0
-LXp2a3NoLnBsIHwgMjI3ICsrKysrKysrKysrKysrKysrKysrKysrKysKIDQgZmlsZXMgY2hhbmdl
-ZCwgMzcwIGluc2VydGlvbnMoKykKIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2NyeXB0
-by9zbTMtcmlzY3Y2NC1nbHVlLmMKIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2NyeXB0
-by9zbTMtcmlzY3Y2NC16dmtzaC5wbAoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvY3J5cHRvL0tj
-b25maWcgYi9hcmNoL3Jpc2N2L2NyeXB0by9LY29uZmlnCmluZGV4IGNkZjdmZWFkMDYzNi4uODFk
-Y2FlNzJjNDc3IDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2NyeXB0by9LY29uZmlnCisrKyBiL2Fy
-Y2gvcmlzY3YvY3J5cHRvL0tjb25maWcKQEAgLTY2LDYgKzY2LDE4IEBAIGNvbmZpZyBDUllQVE9f
-U0hBNTEyX1JJU0NWNjQKIAkgIC0gWnZrbmhiIHZlY3RvciBjcnlwdG8gZXh0ZW5zaW9uCiAJICAt
-IFp2a2IgdmVjdG9yIGNyeXB0byBleHRlbnNpb24KIAorY29uZmlnIENSWVBUT19TTTNfUklTQ1Y2
-NAorCXRyaXN0YXRlICJIYXNoIGZ1bmN0aW9uczogU00zIChTaGFuZ01pIDMpIgorCWRlcGVuZHMg
-b24gNjRCSVQgJiYgUklTQ1ZfSVNBX1YgJiYgVE9PTENIQUlOX0hBU19WRUNUT1JfQ1JZUFRPCisJ
-c2VsZWN0IENSWVBUT19IQVNICisJc2VsZWN0IENSWVBUT19TTTMKKwloZWxwCisJICBTTTMgKFNo
-YW5nTWkgMykgc2VjdXJlIGhhc2ggZnVuY3Rpb24gKE9TQ0NBIEdNL1QgMDAwNC0yMDEyKQorCisJ
-ICBBcmNoaXRlY3R1cmU6IHJpc2N2NjQgdXNpbmc6CisJICAtIFp2a3NoIHZlY3RvciBjcnlwdG8g
-ZXh0ZW5zaW9uCisJICAtIFp2a2IgdmVjdG9yIGNyeXB0byBleHRlbnNpb24KKwogY29uZmlnIENS
-WVBUT19TTTRfUklTQ1Y2NAogCXRyaXN0YXRlICJDaXBoZXJzOiBTTTQgKFNoYW5nTWkgNCkiCiAJ
-ZGVwZW5kcyBvbiA2NEJJVCAmJiBSSVNDVl9JU0FfViAmJiBUT09MQ0hBSU5fSEFTX1ZFQ1RPUl9D
-UllQVE8KZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvY3J5cHRvL01ha2VmaWxlIGIvYXJjaC9yaXNj
-di9jcnlwdG8vTWFrZWZpbGUKaW5kZXggOGUzNDg2MWJiYTM0Li5iMWY4NTc2OTVjMWMgMTAwNjQ0
-Ci0tLSBhL2FyY2gvcmlzY3YvY3J5cHRvL01ha2VmaWxlCisrKyBiL2FyY2gvcmlzY3YvY3J5cHRv
-L01ha2VmaWxlCkBAIC0xOCw2ICsxOCw5IEBAIHNoYTI1Ni1yaXNjdjY0LXkgOj0gc2hhMjU2LXJp
-c2N2NjQtZ2x1ZS5vIHNoYTI1Ni1yaXNjdjY0LXp2a25oYV9vcl96dmtuaGItenZrYi5vCiBvYmot
-JChDT05GSUdfQ1JZUFRPX1NIQTUxMl9SSVNDVjY0KSArPSBzaGE1MTItcmlzY3Y2NC5vCiBzaGE1
-MTItcmlzY3Y2NC15IDo9IHNoYTUxMi1yaXNjdjY0LWdsdWUubyBzaGE1MTItcmlzY3Y2NC16dmtu
-aGItenZrYi5vCiAKK29iai0kKENPTkZJR19DUllQVE9fU00zX1JJU0NWNjQpICs9IHNtMy1yaXNj
-djY0Lm8KK3NtMy1yaXNjdjY0LXkgOj0gc20zLXJpc2N2NjQtZ2x1ZS5vIHNtMy1yaXNjdjY0LXp2
-a3NoLm8KKwogb2JqLSQoQ09ORklHX0NSWVBUT19TTTRfUklTQ1Y2NCkgKz0gc200LXJpc2N2NjQu
-bwogc200LXJpc2N2NjQteSA6PSBzbTQtcmlzY3Y2NC1nbHVlLm8gc200LXJpc2N2NjQtenZrc2Vk
-Lm8KIApAQCAtNDIsNiArNDUsOSBAQCAkKG9iaikvc2hhMjU2LXJpc2N2NjQtenZrbmhhX29yX3p2
-a25oYi16dmtiLlM6ICQoc3JjKS9zaGEyNTYtcmlzY3Y2NC16dmtuaGFfb3JfegogJChvYmopL3No
-YTUxMi1yaXNjdjY0LXp2a25oYi16dmtiLlM6ICQoc3JjKS9zaGE1MTItcmlzY3Y2NC16dmtuaGIt
-enZrYi5wbAogCSQoY2FsbCBjbWQscGVybGFzbSkKIAorJChvYmopL3NtMy1yaXNjdjY0LXp2a3No
-LlM6ICQoc3JjKS9zbTMtcmlzY3Y2NC16dmtzaC5wbAorCSQoY2FsbCBjbWQscGVybGFzbSkKKwog
-JChvYmopL3NtNC1yaXNjdjY0LXp2a3NlZC5TOiAkKHNyYykvc200LXJpc2N2NjQtenZrc2VkLnBs
-CiAJJChjYWxsIGNtZCxwZXJsYXNtKQogCkBAIC01MSw0ICs1Nyw1IEBAIGNsZWFuLWZpbGVzICs9
-IGFlcy1yaXNjdjY0LXp2a25lZC16dmtiLlMKIGNsZWFuLWZpbGVzICs9IGdoYXNoLXJpc2N2NjQt
-enZrZy5TCiBjbGVhbi1maWxlcyArPSBzaGEyNTYtcmlzY3Y2NC16dmtuaGFfb3JfenZrbmhiLXp2
-a2IuUwogY2xlYW4tZmlsZXMgKz0gc2hhNTEyLXJpc2N2NjQtenZrbmhiLXp2a2IuUworY2xlYW4t
-ZmlsZXMgKz0gc20zLXJpc2N2NjQtenZrc2guUwogY2xlYW4tZmlsZXMgKz0gc200LXJpc2N2NjQt
-enZrc2VkLlMKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvY3J5cHRvL3NtMy1yaXNjdjY0LWdsdWUu
-YyBiL2FyY2gvcmlzY3YvY3J5cHRvL3NtMy1yaXNjdjY0LWdsdWUuYwpuZXcgZmlsZSBtb2RlIDEw
-MDY0NAppbmRleCAwMDAwMDAwMDAwMDAuLjBlNWEyYjg0YzkzMAotLS0gL2Rldi9udWxsCisrKyBi
-L2FyY2gvcmlzY3YvY3J5cHRvL3NtMy1yaXNjdjY0LWdsdWUuYwpAQCAtMCwwICsxLDEyNCBAQAor
-Ly8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAtb3ItbGF0ZXIKKy8qCisgKiBMaW51
-eC9yaXNjdjY0IHBvcnQgb2YgdGhlIE9wZW5TU0wgU00zIGltcGxlbWVudGF0aW9uIGZvciBSSVND
-LVYgNjQKKyAqCisgKiBDb3B5cmlnaHQgKEMpIDIwMjMgVlJVTEwgR21iSAorICogQXV0aG9yOiBI
-ZWlrbyBTdHVlYm5lciA8aGVpa28uc3R1ZWJuZXJAdnJ1bGwuZXU+CisgKgorICogQ29weXJpZ2h0
-IChDKSAyMDIzIFNpRml2ZSwgSW5jLgorICogQXV0aG9yOiBKZXJyeSBTaGloIDxqZXJyeS5zaGlo
-QHNpZml2ZS5jb20+CisgKi8KKworI2luY2x1ZGUgPGFzbS9zaW1kLmg+CisjaW5jbHVkZSA8YXNt
-L3ZlY3Rvci5oPgorI2luY2x1ZGUgPGxpbnV4L2xpbmthZ2UuaD4KKyNpbmNsdWRlIDxsaW51eC9t
-b2R1bGUuaD4KKyNpbmNsdWRlIDxsaW51eC90eXBlcy5oPgorI2luY2x1ZGUgPGNyeXB0by9pbnRl
-cm5hbC9oYXNoLmg+CisjaW5jbHVkZSA8Y3J5cHRvL2ludGVybmFsL3NpbWQuaD4KKyNpbmNsdWRl
-IDxjcnlwdG8vc20zX2Jhc2UuaD4KKworLyoKKyAqIHNtMyB1c2luZyB6dmtzaCB2ZWN0b3IgY3J5
-cHRvIGV4dGVuc2lvbgorICoKKyAqIFRoaXMgYXNtIGZ1bmN0aW9uIHdpbGwganVzdCB0YWtlIHRo
-ZSBmaXJzdCAyNTYtYml0IGFzIHRoZSBzbTMgc3RhdGUgZnJvbQorICogdGhlIHBvaW50ZXIgdG8g
-YHN0cnVjdCBzbTNfc3RhdGVgLgorICovCithc21saW5rYWdlIHZvaWQgb3NzbF9od3NtM19ibG9j
-a19kYXRhX29yZGVyX3p2a3NoKHN0cnVjdCBzbTNfc3RhdGUgKmRpZ2VzdCwKKwkJCQkJCSAgdTgg
-Y29uc3QgKm8sIGludCBudW0pOworCitzdGF0aWMgaW50IHJpc2N2NjRfc20zX3VwZGF0ZShzdHJ1
-Y3Qgc2hhc2hfZGVzYyAqZGVzYywgY29uc3QgdTggKmRhdGEsCisJCQkgICAgICB1bnNpZ25lZCBp
-bnQgbGVuKQoreworCWludCByZXQgPSAwOworCisJLyoKKwkgKiBNYWtlIHN1cmUgc3RydWN0IHNt
-M19zdGF0ZSBiZWdpbnMgZGlyZWN0bHkgd2l0aCB0aGUgU00zIDI1Ni1iaXQgaW50ZXJuYWwKKwkg
-KiBzdGF0ZSwgYXMgdGhpcyBpcyB3aGF0IHRoZSBhc20gZnVuY3Rpb24gZXhwZWN0LgorCSAqLwor
-CUJVSUxEX0JVR19PTihvZmZzZXRvZihzdHJ1Y3Qgc20zX3N0YXRlLCBzdGF0ZSkgIT0gMCk7CisK
-KwlpZiAoY3J5cHRvX3NpbWRfdXNhYmxlKCkpIHsKKwkJa2VybmVsX3ZlY3Rvcl9iZWdpbigpOwor
-CQlyZXQgPSBzbTNfYmFzZV9kb191cGRhdGUoZGVzYywgZGF0YSwgbGVuLAorCQkJCQkgb3NzbF9o
-d3NtM19ibG9ja19kYXRhX29yZGVyX3p2a3NoKTsKKwkJa2VybmVsX3ZlY3Rvcl9lbmQoKTsKKwl9
-IGVsc2UgeworCQlzbTNfdXBkYXRlKHNoYXNoX2Rlc2NfY3R4KGRlc2MpLCBkYXRhLCBsZW4pOwor
-CX0KKworCXJldHVybiByZXQ7Cit9CisKK3N0YXRpYyBpbnQgcmlzY3Y2NF9zbTNfZmludXAoc3Ry
-dWN0IHNoYXNoX2Rlc2MgKmRlc2MsIGNvbnN0IHU4ICpkYXRhLAorCQkJICAgICB1bnNpZ25lZCBp
-bnQgbGVuLCB1OCAqb3V0KQoreworCXN0cnVjdCBzbTNfc3RhdGUgKmN0eDsKKworCWlmIChjcnlw
-dG9fc2ltZF91c2FibGUoKSkgeworCQlrZXJuZWxfdmVjdG9yX2JlZ2luKCk7CisJCWlmIChsZW4p
-CisJCQlzbTNfYmFzZV9kb191cGRhdGUoZGVzYywgZGF0YSwgbGVuLAorCQkJCQkgICBvc3NsX2h3
-c20zX2Jsb2NrX2RhdGFfb3JkZXJfenZrc2gpOworCQlzbTNfYmFzZV9kb19maW5hbGl6ZShkZXNj
-LCBvc3NsX2h3c20zX2Jsb2NrX2RhdGFfb3JkZXJfenZrc2gpOworCQlrZXJuZWxfdmVjdG9yX2Vu
-ZCgpOworCisJCXJldHVybiBzbTNfYmFzZV9maW5pc2goZGVzYywgb3V0KTsKKwl9CisKKwljdHgg
-PSBzaGFzaF9kZXNjX2N0eChkZXNjKTsKKwlpZiAobGVuKQorCQlzbTNfdXBkYXRlKGN0eCwgZGF0
-YSwgbGVuKTsKKwlzbTNfZmluYWwoY3R4LCBvdXQpOworCisJcmV0dXJuIDA7Cit9CisKK3N0YXRp
-YyBpbnQgcmlzY3Y2NF9zbTNfZmluYWwoc3RydWN0IHNoYXNoX2Rlc2MgKmRlc2MsIHU4ICpvdXQp
-Cit7CisJcmV0dXJuIHJpc2N2NjRfc20zX2ZpbnVwKGRlc2MsIE5VTEwsIDAsIG91dCk7Cit9CisK
-K3N0YXRpYyBzdHJ1Y3Qgc2hhc2hfYWxnIHNtM19hbGcgPSB7CisJLmluaXQgPSBzbTNfYmFzZV9p
-bml0LAorCS51cGRhdGUgPSByaXNjdjY0X3NtM191cGRhdGUsCisJLmZpbmFsID0gcmlzY3Y2NF9z
-bTNfZmluYWwsCisJLmZpbnVwID0gcmlzY3Y2NF9zbTNfZmludXAsCisJLmRlc2NzaXplID0gc2l6
-ZW9mKHN0cnVjdCBzbTNfc3RhdGUpLAorCS5kaWdlc3RzaXplID0gU00zX0RJR0VTVF9TSVpFLAor
-CS5iYXNlID0geworCQkuY3JhX2Jsb2Nrc2l6ZSA9IFNNM19CTE9DS19TSVpFLAorCQkuY3JhX3By
-aW9yaXR5ID0gMTUwLAorCQkuY3JhX25hbWUgPSAic20zIiwKKwkJLmNyYV9kcml2ZXJfbmFtZSA9
-ICJzbTMtcmlzY3Y2NC16dmtzaC16dmtiIiwKKwkJLmNyYV9tb2R1bGUgPSBUSElTX01PRFVMRSwK
-Kwl9LAorfTsKKworc3RhdGljIGlubGluZSBib29sIGNoZWNrX3NtM19leHQodm9pZCkKK3sKKwly
-ZXR1cm4gcmlzY3ZfaXNhX2V4dGVuc2lvbl9hdmFpbGFibGUoTlVMTCwgWlZLU0gpICYmCisJICAg
-ICAgIHJpc2N2X2lzYV9leHRlbnNpb25fYXZhaWxhYmxlKE5VTEwsIFpWS0IpICYmCisJICAgICAg
-IHJpc2N2X3ZlY3Rvcl92bGVuKCkgPj0gMTI4OworfQorCitzdGF0aWMgaW50IF9faW5pdCByaXNj
-djY0X3NtM19tb2RfaW5pdCh2b2lkKQoreworCWlmIChjaGVja19zbTNfZXh0KCkpCisJCXJldHVy
-biBjcnlwdG9fcmVnaXN0ZXJfc2hhc2goJnNtM19hbGcpOworCisJcmV0dXJuIC1FTk9ERVY7Cit9
-CisKK3N0YXRpYyB2b2lkIF9fZXhpdCByaXNjdjY0X3NtM19tb2RfZmluaSh2b2lkKQoreworCWNy
-eXB0b191bnJlZ2lzdGVyX3NoYXNoKCZzbTNfYWxnKTsKK30KKworbW9kdWxlX2luaXQocmlzY3Y2
-NF9zbTNfbW9kX2luaXQpOworbW9kdWxlX2V4aXQocmlzY3Y2NF9zbTNfbW9kX2ZpbmkpOworCitN
-T0RVTEVfREVTQ1JJUFRJT04oIlNNMyAoUklTQy1WIGFjY2VsZXJhdGVkKSIpOworTU9EVUxFX0FV
-VEhPUigiSGVpa28gU3R1ZWJuZXIgPGhlaWtvLnN0dWVibmVyQHZydWxsLmV1PiIpOworTU9EVUxF
-X0xJQ0VOU0UoIkdQTCIpOworTU9EVUxFX0FMSUFTX0NSWVBUTygic20zIik7CmRpZmYgLS1naXQg
-YS9hcmNoL3Jpc2N2L2NyeXB0by9zbTMtcmlzY3Y2NC16dmtzaC5wbCBiL2FyY2gvcmlzY3YvY3J5
-cHRvL3NtMy1yaXNjdjY0LXp2a3NoLnBsCm5ldyBmaWxlIG1vZGUgMTAwNjQ0CmluZGV4IDAwMDAw
-MDAwMDAwMC4uYzk0Yzk5MTExYTcxCi0tLSAvZGV2L251bGwKKysrIGIvYXJjaC9yaXNjdi9jcnlw
-dG8vc20zLXJpc2N2NjQtenZrc2gucGwKQEAgLTAsMCArMSwyMjcgQEAKKyMhIC91c3IvYmluL2Vu
-diBwZXJsCisjIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBBcGFjaGUtMi4wIE9SIEJTRC0yLUNs
-YXVzZQorIworIyBUaGlzIGZpbGUgaXMgZHVhbC1saWNlbnNlZCwgbWVhbmluZyB0aGF0IHlvdSBj
-YW4gdXNlIGl0IHVuZGVyIHlvdXIKKyMgY2hvaWNlIG9mIGVpdGhlciBvZiB0aGUgZm9sbG93aW5n
-IHR3byBsaWNlbnNlczoKKyMKKyMgQ29weXJpZ2h0IDIwMjMgVGhlIE9wZW5TU0wgUHJvamVjdCBB
-dXRob3JzLiBBbGwgUmlnaHRzIFJlc2VydmVkLgorIworIyBMaWNlbnNlZCB1bmRlciB0aGUgQXBh
-Y2hlIExpY2Vuc2UgMi4wICh0aGUgIkxpY2Vuc2UiKS4gWW91IGNhbiBvYnRhaW4KKyMgYSBjb3B5
-IGluIHRoZSBmaWxlIExJQ0VOU0UgaW4gdGhlIHNvdXJjZSBkaXN0cmlidXRpb24gb3IgYXQKKyMg
-aHR0cHM6Ly93d3cub3BlbnNzbC5vcmcvc291cmNlL2xpY2Vuc2UuaHRtbAorIworIyBvcgorIwor
-IyBDb3B5cmlnaHQgKGMpIDIwMjMsIENocmlzdG9waCBNw7xsbG5lciA8Y2hyaXN0b3BoLm11ZWxs
-bmVyQHZydWxsLmV1PgorIyBDb3B5cmlnaHQgKGMpIDIwMjMsIEplcnJ5IFNoaWggPGplcnJ5LnNo
-aWhAc2lmaXZlLmNvbT4KKyMgQWxsIHJpZ2h0cyByZXNlcnZlZC4KKyMKKyMgUmVkaXN0cmlidXRp
-b24gYW5kIHVzZSBpbiBzb3VyY2UgYW5kIGJpbmFyeSBmb3Jtcywgd2l0aCBvciB3aXRob3V0Cisj
-IG1vZGlmaWNhdGlvbiwgYXJlIHBlcm1pdHRlZCBwcm92aWRlZCB0aGF0IHRoZSBmb2xsb3dpbmcg
-Y29uZGl0aW9ucworIyBhcmUgbWV0OgorIyAxLiBSZWRpc3RyaWJ1dGlvbnMgb2Ygc291cmNlIGNv
-ZGUgbXVzdCByZXRhaW4gdGhlIGFib3ZlIGNvcHlyaWdodAorIyAgICBub3RpY2UsIHRoaXMgbGlz
-dCBvZiBjb25kaXRpb25zIGFuZCB0aGUgZm9sbG93aW5nIGRpc2NsYWltZXIuCisjIDIuIFJlZGlz
-dHJpYnV0aW9ucyBpbiBiaW5hcnkgZm9ybSBtdXN0IHJlcHJvZHVjZSB0aGUgYWJvdmUgY29weXJp
-Z2h0CisjICAgIG5vdGljZSwgdGhpcyBsaXN0IG9mIGNvbmRpdGlvbnMgYW5kIHRoZSBmb2xsb3dp
-bmcgZGlzY2xhaW1lciBpbiB0aGUKKyMgICAgZG9jdW1lbnRhdGlvbiBhbmQvb3Igb3RoZXIgbWF0
-ZXJpYWxzIHByb3ZpZGVkIHdpdGggdGhlIGRpc3RyaWJ1dGlvbi4KKyMKKyMgVEhJUyBTT0ZUV0FS
-RSBJUyBQUk9WSURFRCBCWSBUSEUgQ09QWVJJR0hUIEhPTERFUlMgQU5EIENPTlRSSUJVVE9SUwor
-IyAiQVMgSVMiIEFORCBBTlkgRVhQUkVTUyBPUiBJTVBMSUVEIFdBUlJBTlRJRVMsIElOQ0xVRElO
-RywgQlVUIE5PVAorIyBMSU1JVEVEIFRPLCBUSEUgSU1QTElFRCBXQVJSQU5USUVTIE9GIE1FUkNI
-QU5UQUJJTElUWSBBTkQgRklUTkVTUyBGT1IKKyMgQSBQQVJUSUNVTEFSIFBVUlBPU0UgQVJFIERJ
-U0NMQUlNRUQuIElOIE5PIEVWRU5UIFNIQUxMIFRIRSBDT1BZUklHSFQKKyMgT1dORVIgT1IgQ09O
-VFJJQlVUT1JTIEJFIExJQUJMRSBGT1IgQU5ZIERJUkVDVCwgSU5ESVJFQ1QsIElOQ0lERU5UQUws
-CisjIFNQRUNJQUwsIEVYRU1QTEFSWSwgT1IgQ09OU0VRVUVOVElBTCBEQU1BR0VTIChJTkNMVURJ
-TkcsIEJVVCBOT1QKKyMgTElNSVRFRCBUTywgUFJPQ1VSRU1FTlQgT0YgU1VCU1RJVFVURSBHT09E
-UyBPUiBTRVJWSUNFUzsgTE9TUyBPRiBVU0UsCisjIERBVEEsIE9SIFBST0ZJVFM7IE9SIEJVU0lO
-RVNTIElOVEVSUlVQVElPTikgSE9XRVZFUiBDQVVTRUQgQU5EIE9OIEFOWQorIyBUSEVPUlkgT0Yg
-TElBQklMSVRZLCBXSEVUSEVSIElOIENPTlRSQUNULCBTVFJJQ1QgTElBQklMSVRZLCBPUiBUT1JU
-CisjIChJTkNMVURJTkcgTkVHTElHRU5DRSBPUiBPVEhFUldJU0UpIEFSSVNJTkcgSU4gQU5ZIFdB
-WSBPVVQgT0YgVEhFIFVTRQorIyBPRiBUSElTIFNPRlRXQVJFLCBFVkVOIElGIEFEVklTRUQgT0Yg
-VEhFIFBPU1NJQklMSVRZIE9GIFNVQ0ggREFNQUdFLgorCisjIFRoZSBnZW5lcmF0ZWQgY29kZSBv
-ZiB0aGlzIGZpbGUgZGVwZW5kcyBvbiB0aGUgZm9sbG93aW5nIFJJU0MtViBleHRlbnNpb25zOgor
-IyAtIFJWNjRJCisjIC0gUklTQy1WIFZlY3RvciAoJ1YnKSB3aXRoIFZMRU4gPj0gMTI4CisjIC0g
-UklTQy1WIFZlY3RvciBTTTMgU2VjdXJlIEhhc2ggZXh0ZW5zaW9uICgnWnZrc2gnKQorIyAtIFJJ
-U0MtViBWZWN0b3IgQ3J5cHRvZ3JhcGh5IEJpdC1tYW5pcHVsYXRpb24gZXh0ZW5zaW9uICgnWnZr
-YicpCisKK3VzZSBzdHJpY3Q7Cit1c2Ugd2FybmluZ3M7CisKK3VzZSBGaW5kQmluIHF3KCRCaW4p
-OwordXNlIGxpYiAiJEJpbiI7Cit1c2UgbGliICIkQmluLy4uLy4uL3Blcmxhc20iOworCisjICRv
-dXRwdXQgaXMgdGhlIGxhc3QgYXJndW1lbnQgaWYgaXQgbG9va3MgbGlrZSBhIGZpbGUgKGl0IGhh
-cyBhbiBleHRlbnNpb24pCisjICRmbGF2b3VyIGlzIHRoZSBmaXJzdCBhcmd1bWVudCBpZiBpdCBk
-b2Vzbid0IGxvb2sgbGlrZSBhIGZpbGUKK215ICRvdXRwdXQgPSAkI0FSR1YgPj0gMCAmJiAkQVJH
-VlskI0FSR1ZdID1+IG18XC5cdyskfCA/IHBvcCA6IHVuZGVmOworbXkgJGZsYXZvdXIgPSAkI0FS
-R1YgPj0gMCAmJiAkQVJHVlswXSAhfiBtfFwufCA/IHNoaWZ0IDogdW5kZWY7CisKKyRvdXRwdXQg
-YW5kIG9wZW4gU1RET1VULCI+JG91dHB1dCI7CisKK215ICRjb2RlPTw8X19fOworI2luY2x1ZGUg
-PGxpbnV4L2NmaV90eXBlcy5oPgorCisudGV4dAorLm9wdGlvbiBhcmNoLCArenZrc2gsICt6dmti
-CitfX18KKworIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj
-IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKKyMgb3NzbF9od3NtM19ibG9ja19kYXRh
-X29yZGVyX3p2a3NoKFNNM19DVFggKmMsIGNvbnN0IHZvaWQgKnAsIHNpemVfdCBudW0pOworewor
-bXkgKCRDVFgsICRJTlBVVCwgJE5VTSkgPSAoImEwIiwgImExIiwgImEyIik7CitteSAoJFYwLCAk
-VjEsICRWMiwgJFYzLCAkVjQsICRWNSwgJFY2LCAkVjcsCisgICAgJFY4LCAkVjksICRWMTAsICRW
-MTEsICRWMTIsICRWMTMsICRWMTQsICRWMTUsCisgICAgJFYxNiwgJFYxNywgJFYxOCwgJFYxOSwg
-JFYyMCwgJFYyMSwgJFYyMiwgJFYyMywKKyAgICAkVjI0LCAkVjI1LCAkVjI2LCAkVjI3LCAkVjI4
-LCAkVjI5LCAkVjMwLCAkVjMxLAorKSA9IG1hcCgidiRfIiwoMC4uMzEpKTsKKworJGNvZGUgLj0g
-PDxfX187CitTWU1fVFlQRURfRlVOQ19TVEFSVChvc3NsX2h3c20zX2Jsb2NrX2RhdGFfb3JkZXJf
-enZrc2gpCisgICAgdnNldGl2bGkgemVybywgOCwgZTMyLCBtMiwgdGEsIG1hCisKKyAgICAjIExv
-YWQgaW5pdGlhbCBzdGF0ZSBvZiBoYXNoIGNvbnRleHQgKGMtPkEtSCkuCisgICAgdmxlMzIudiAk
-VjAsICgkQ1RYKQorICAgIHZyZXY4LnYgJFYwLCAkVjAKKworTF9zbTNfbG9vcDoKKyAgICAjIENv
-cHkgdGhlIHByZXZpb3VzIHN0YXRlIHRvIHYyLgorICAgICMgSXQgd2lsbCBiZSBYT1InZWQgd2l0
-aCB0aGUgY3VycmVudCBzdGF0ZSBhdCB0aGUgZW5kIG9mIHRoZSByb3VuZC4KKyAgICB2bXYudi52
-ICRWMiwgJFYwCisKKyAgICAjIExvYWQgdGhlIDY0QiBibG9jayBpbiAyeDMyQiBjaHVua3MuCisg
-ICAgdmxlMzIudiAkVjYsICgkSU5QVVQpICMgdjYgOj0ge3c3LCAuLi4sIHcwfQorICAgIGFkZGkg
-JElOUFVULCAkSU5QVVQsIDMyCisKKyAgICB2bGUzMi52ICRWOCwgKCRJTlBVVCkgIyB2OCA6PSB7
-dzE1LCAuLi4sIHc4fQorICAgIGFkZGkgJElOUFVULCAkSU5QVVQsIDMyCisKKyAgICBhZGRpICRO
-VU0sICROVU0sIC0xCisKKyAgICAjIEFzIHZzbTNjIGNvbnN1bWVzIG9ubHkgdzAsIHcxLCB3NCwg
-dzUgd2UgbmVlZCB0byBzbGlkZSB0aGUgaW5wdXQKKyAgICAjIDIgZWxlbWVudHMgZG93biBzbyB3
-ZSBwcm9jZXNzIGVsZW1lbnRzIHcyLCB3MywgdzYsIHc3CisgICAgIyBUaGlzIHdpbGwgYmUgcmVw
-ZWF0ZWQgZm9yIGVhY2ggb2RkIHJvdW5kLgorICAgIHZzbGlkZWRvd24udmkgJFY0LCAkVjYsIDIg
-IyB2NCA6PSB7WCwgWCwgdzcsIC4uLiwgdzJ9CisKKyAgICB2c20zYy52aSAkVjAsICRWNiwgMAor
-ICAgIHZzbTNjLnZpICRWMCwgJFY0LCAxCisKKyAgICAjIFByZXBhcmUgYSB2ZWN0b3Igd2l0aCB7
-dzExLCAuLi4sIHc0fQorICAgIHZzbGlkZWRvd24udmkgJFY0LCAkVjQsIDIgIyB2NCA6PSB7WCwg
-WCwgWCwgWCwgdzcsIC4uLiwgdzR9CisgICAgdnNsaWRldXAudmkgJFY0LCAkVjgsIDQgICAjIHY0
-IDo9IHt3MTEsIHcxMCwgdzksIHc4LCB3NywgdzYsIHc1LCB3NH0KKworICAgIHZzbTNjLnZpICRW
-MCwgJFY0LCAyCisgICAgdnNsaWRlZG93bi52aSAkVjQsICRWNCwgMiAjIHY0IDo9IHtYLCBYLCB3
-MTEsIHcxMCwgdzksIHc4LCB3NywgdzZ9CisgICAgdnNtM2MudmkgJFYwLCAkVjQsIDMKKworICAg
-IHZzbTNjLnZpICRWMCwgJFY4LCA0CisgICAgdnNsaWRlZG93bi52aSAkVjQsICRWOCwgMiAjIHY0
-IDo9IHtYLCBYLCB3MTUsIHcxNCwgdzEzLCB3MTIsIHcxMSwgdzEwfQorICAgIHZzbTNjLnZpICRW
-MCwgJFY0LCA1CisKKyAgICB2c20zbWUudnYgJFY2LCAkVjgsICRWNiAgICMgdjYgOj0ge3cyMywg
-dzIyLCB3MjEsIHcyMCwgdzE5LCB3MTgsIHcxNywgdzE2fQorCisgICAgIyBQcmVwYXJlIGEgcmVn
-aXN0ZXIgd2l0aCB7dzE5LCB3MTgsIHcxNywgdzE2LCB3MTUsIHcxNCwgdzEzLCB3MTJ9CisgICAg
-dnNsaWRlZG93bi52aSAkVjQsICRWNCwgMiAjIHY0IDo9IHtYLCBYLCBYLCBYLCB3MTUsIHcxNCwg
-dzEzLCB3MTJ9CisgICAgdnNsaWRldXAudmkgJFY0LCAkVjYsIDQgICAjIHY0IDo9IHt3MTksIHcx
-OCwgdzE3LCB3MTYsIHcxNSwgdzE0LCB3MTMsIHcxMn0KKworICAgIHZzbTNjLnZpICRWMCwgJFY0
-LCA2CisgICAgdnNsaWRlZG93bi52aSAkVjQsICRWNCwgMiAjIHY0IDo9IHtYLCBYLCB3MTksIHcx
-OCwgdzE3LCB3MTYsIHcxNSwgdzE0fQorICAgIHZzbTNjLnZpICRWMCwgJFY0LCA3CisKKyAgICB2
-c20zYy52aSAkVjAsICRWNiwgOAorICAgIHZzbGlkZWRvd24udmkgJFY0LCAkVjYsIDIgIyB2NCA6
-PSB7WCwgWCwgdzIzLCB3MjIsIHcyMSwgdzIwLCB3MTksIHcxOH0KKyAgICB2c20zYy52aSAkVjAs
-ICRWNCwgOQorCisgICAgdnNtM21lLnZ2ICRWOCwgJFY2LCAkVjggICAjIHY4IDo9IHt3MzEsIHcz
-MCwgdzI5LCB3MjgsIHcyNywgdzI2LCB3MjUsIHcyNH0KKworICAgICMgUHJlcGFyZSBhIHJlZ2lz
-dGVyIHdpdGgge3cyNywgdzI2LCB3MjUsIHcyNCwgdzIzLCB3MjIsIHcyMSwgdzIwfQorICAgIHZz
-bGlkZWRvd24udmkgJFY0LCAkVjQsIDIgIyB2NCA6PSB7WCwgWCwgWCwgWCwgdzIzLCB3MjIsIHcy
-MSwgdzIwfQorICAgIHZzbGlkZXVwLnZpICRWNCwgJFY4LCA0ICAgIyB2NCA6PSB7dzI3LCB3MjYs
-IHcyNSwgdzI0LCB3MjMsIHcyMiwgdzIxLCB3MjB9CisKKyAgICB2c20zYy52aSAkVjAsICRWNCwg
-MTAKKyAgICB2c2xpZGVkb3duLnZpICRWNCwgJFY0LCAyICMgdjQgOj0ge1gsIFgsIHcyNywgdzI2
-LCB3MjUsIHcyNCwgdzIzLCB3MjJ9CisgICAgdnNtM2MudmkgJFYwLCAkVjQsIDExCisKKyAgICB2
-c20zYy52aSAkVjAsICRWOCwgMTIKKyAgICB2c2xpZGVkb3duLnZpICRWNCwgJFY4LCAyICMgdjQg
-Oj0ge3gsIFgsIHczMSwgdzMwLCB3MjksIHcyOCwgdzI3LCB3MjZ9CisgICAgdnNtM2MudmkgJFYw
-LCAkVjQsIDEzCisKKyAgICB2c20zbWUudnYgJFY2LCAkVjgsICRWNiAgICMgdjYgOj0ge3czMiwg
-dzMzLCB3MzQsIHczNSwgdzM2LCB3MzcsIHczOCwgdzM5fQorCisgICAgIyBQcmVwYXJlIGEgcmVn
-aXN0ZXIgd2l0aCB7dzM1LCB3MzQsIHczMywgdzMyLCB3MzEsIHczMCwgdzI5LCB3Mjh9CisgICAg
-dnNsaWRlZG93bi52aSAkVjQsICRWNCwgMiAjIHY0IDo9IHtYLCBYLCBYLCBYLCB3MzEsIHczMCwg
-dzI5LCB3Mjh9CisgICAgdnNsaWRldXAudmkgJFY0LCAkVjYsIDQgICAjIHY0IDo9IHt3MzUsIHcz
-NCwgdzMzLCB3MzIsIHczMSwgdzMwLCB3MjksIHcyOH0KKworICAgIHZzbTNjLnZpICRWMCwgJFY0
-LCAxNAorICAgIHZzbGlkZWRvd24udmkgJFY0LCAkVjQsIDIgIyB2NCA6PSB7WCwgWCwgdzM1LCB3
-MzQsIHczMywgdzMyLCB3MzEsIHczMH0KKyAgICB2c20zYy52aSAkVjAsICRWNCwgMTUKKworICAg
-IHZzbTNjLnZpICRWMCwgJFY2LCAxNgorICAgIHZzbGlkZWRvd24udmkgJFY0LCAkVjYsIDIgIyB2
-NCA6PSB7WCwgWCwgdzM5LCB3MzgsIHczNywgdzM2LCB3MzUsIHczNH0KKyAgICB2c20zYy52aSAk
-VjAsICRWNCwgMTcKKworICAgIHZzbTNtZS52diAkVjgsICRWNiwgJFY4ICAgIyB2OCA6PSB7dzQ3
-LCB3NDYsIHc0NSwgdzQ0LCB3NDMsIHc0MiwgdzQxLCB3NDB9CisKKyAgICAjIFByZXBhcmUgYSBy
-ZWdpc3RlciB3aXRoIHt3NDMsIHc0MiwgdzQxLCB3NDAsIHczOSwgdzM4LCB3MzcsIHczNn0KKyAg
-ICB2c2xpZGVkb3duLnZpICRWNCwgJFY0LCAyICMgdjQgOj0ge1gsIFgsIFgsIFgsIHczOSwgdzM4
-LCB3MzcsIHczNn0KKyAgICB2c2xpZGV1cC52aSAkVjQsICRWOCwgNCAgICMgdjQgOj0ge3c0Mywg
-dzQyLCB3NDEsIHc0MCwgdzM5LCB3MzgsIHczNywgdzM2fQorCisgICAgdnNtM2MudmkgJFYwLCAk
-VjQsIDE4CisgICAgdnNsaWRlZG93bi52aSAkVjQsICRWNCwgMiAjIHY0IDo9IHtYLCBYLCB3NDMs
-IHc0MiwgdzQxLCB3NDAsIHczOSwgdzM4fQorICAgIHZzbTNjLnZpICRWMCwgJFY0LCAxOQorCisg
-ICAgdnNtM2MudmkgJFYwLCAkVjgsIDIwCisgICAgdnNsaWRlZG93bi52aSAkVjQsICRWOCwgMiAj
-IHY0IDo9IHtYLCBYLCB3NDcsIHc0NiwgdzQ1LCB3NDQsIHc0MywgdzQyfQorICAgIHZzbTNjLnZp
-ICRWMCwgJFY0LCAyMQorCisgICAgdnNtM21lLnZ2ICRWNiwgJFY4LCAkVjYgICAjIHY2IDo9IHt3
-NTUsIHc1NCwgdzUzLCB3NTIsIHc1MSwgdzUwLCB3NDksIHc0OH0KKworICAgICMgUHJlcGFyZSBh
-IHJlZ2lzdGVyIHdpdGgge3c1MSwgdzUwLCB3NDksIHc0OCwgdzQ3LCB3NDYsIHc0NSwgdzQ0fQor
-ICAgIHZzbGlkZWRvd24udmkgJFY0LCAkVjQsIDIgIyB2NCA6PSB7WCwgWCwgWCwgWCwgdzQ3LCB3
-NDYsIHc0NSwgdzQ0fQorICAgIHZzbGlkZXVwLnZpICRWNCwgJFY2LCA0ICAgIyB2NCA6PSB7dzUx
-LCB3NTAsIHc0OSwgdzQ4LCB3NDcsIHc0NiwgdzQ1LCB3NDR9CisKKyAgICB2c20zYy52aSAkVjAs
-ICRWNCwgMjIKKyAgICB2c2xpZGVkb3duLnZpICRWNCwgJFY0LCAyICMgdjQgOj0ge1gsIFgsIHc1
-MSwgdzUwLCB3NDksIHc0OCwgdzQ3LCB3NDZ9CisgICAgdnNtM2MudmkgJFYwLCAkVjQsIDIzCisK
-KyAgICB2c20zYy52aSAkVjAsICRWNiwgMjQKKyAgICB2c2xpZGVkb3duLnZpICRWNCwgJFY2LCAy
-ICMgdjQgOj0ge1gsIFgsIHc1NSwgdzU0LCB3NTMsIHc1MiwgdzUxLCB3NTB9CisgICAgdnNtM2Mu
-dmkgJFYwLCAkVjQsIDI1CisKKyAgICB2c20zbWUudnYgJFY4LCAkVjYsICRWOCAgICMgdjggOj0g
-e3c2MywgdzYyLCB3NjEsIHc2MCwgdzU5LCB3NTgsIHc1NywgdzU2fQorCisgICAgIyBQcmVwYXJl
-IGEgcmVnaXN0ZXIgd2l0aCB7dzU5LCB3NTgsIHc1NywgdzU2LCB3NTUsIHc1NCwgdzUzLCB3NTJ9
-CisgICAgdnNsaWRlZG93bi52aSAkVjQsICRWNCwgMiAjIHY0IDo9IHtYLCBYLCBYLCBYLCB3NTUs
-IHc1NCwgdzUzLCB3NTJ9CisgICAgdnNsaWRldXAudmkgJFY0LCAkVjgsIDQgICAjIHY0IDo9IHt3
-NTksIHc1OCwgdzU3LCB3NTYsIHc1NSwgdzU0LCB3NTMsIHc1Mn0KKworICAgIHZzbTNjLnZpICRW
-MCwgJFY0LCAyNgorICAgIHZzbGlkZWRvd24udmkgJFY0LCAkVjQsIDIgIyB2NCA6PSB7WCwgWCwg
-dzU5LCB3NTgsIHc1NywgdzU2LCB3NTUsIHc1NH0KKyAgICB2c20zYy52aSAkVjAsICRWNCwgMjcK
-KworICAgIHZzbTNjLnZpICRWMCwgJFY4LCAyOAorICAgIHZzbGlkZWRvd24udmkgJFY0LCAkVjgs
-IDIgIyB2NCA6PSB7WCwgWCwgdzYzLCB3NjIsIHc2MSwgdzYwLCB3NTksIHc1OH0KKyAgICB2c20z
-Yy52aSAkVjAsICRWNCwgMjkKKworICAgIHZzbTNtZS52diAkVjYsICRWOCwgJFY2ICAgIyB2NiA6
-PSB7dzcxLCB3NzAsIHc2OSwgdzY4LCB3NjcsIHc2NiwgdzY1LCB3NjR9CisKKyAgICAjIFByZXBh
-cmUgYSByZWdpc3RlciB3aXRoIHt3NjcsIHc2NiwgdzY1LCB3NjQsIHc2MywgdzYyLCB3NjEsIHc2
-MH0KKyAgICB2c2xpZGVkb3duLnZpICRWNCwgJFY0LCAyICMgdjQgOj0ge1gsIFgsIFgsIFgsIHc2
-MywgdzYyLCB3NjEsIHc2MH0KKyAgICB2c2xpZGV1cC52aSAkVjQsICRWNiwgNCAgICMgdjQgOj0g
-e3c2NywgdzY2LCB3NjUsIHc2NCwgdzYzLCB3NjIsIHc2MSwgdzYwfQorCisgICAgdnNtM2Mudmkg
-JFYwLCAkVjQsIDMwCisgICAgdnNsaWRlZG93bi52aSAkVjQsICRWNCwgMiAjIHY0IDo9IHtYLCBY
-LCB3NjcsIHc2NiwgdzY1LCB3NjQsIHc2MywgdzYyfQorICAgIHZzbTNjLnZpICRWMCwgJFY0LCAz
-MQorCisgICAgIyBYT1IgaW4gdGhlIHByZXZpb3VzIHN0YXRlLgorICAgIHZ4b3IudnYgJFYwLCAk
-VjAsICRWMgorCisgICAgYm5leiAkTlVNLCBMX3NtM19sb29wICAgICAjIENoZWNrIGlmIHRoZXJl
-IGFyZSBhbnkgbW9yZSBibG9jayB0byBwcm9jZXNzCitMX3NtM19lbmQ6CisgICAgdnJldjgudiAk
-VjAsICRWMAorICAgIHZzZTMyLnYgJFYwLCAoJENUWCkKKyAgICByZXQKK1NZTV9GVU5DX0VORChv
-c3NsX2h3c20zX2Jsb2NrX2RhdGFfb3JkZXJfenZrc2gpCitfX18KK30KKworcHJpbnQgJGNvZGU7
-CisKK2Nsb3NlIFNURE9VVCBvciBkaWUgImVycm9yIGNsb3NpbmcgU1RET1VUOiAkISI7Ci0tIAoy
-LjI4LjAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Add a ChaCha20 vector implementation from OpenSSL(openssl/openssl#21923).
+
+Signed-off-by: Jerry Shih <jerry.shih@sifive.com>
+---
+Changelog v4:
+ - Use asm mnemonics for the instructions in vector crypto 1.0 extension.
+ - Revert the usage of simd skcipher.
+
+Changelog v3:
+ - Rename kconfig CRYPTO_CHACHA20_RISCV64 to CRYPTO_CHACHA_RISCV64.
+ - Rename chacha20_encrypt() to riscv64_chacha20_encrypt().
+ - Use asm mnemonics for the instructions in RVV 1.0 extension.
+
+Changelog v2:
+ - Do not turn on kconfig `CHACHA20_RISCV64` option by default.
+ - Use simd skcipher interface.
+ - Add `asmlinkage` qualifier for crypto asm function.
+ - Reorder structure riscv64_chacha_alg_zvkb members initialization in
+   the order declared.
+ - Use smaller iv buffer instead of whole state matrix as chacha20's
+   input.
+---
+ arch/riscv/crypto/Kconfig                |  12 +
+ arch/riscv/crypto/Makefile               |   7 +
+ arch/riscv/crypto/chacha-riscv64-glue.c  | 109 ++++++++
+ arch/riscv/crypto/chacha-riscv64-zvkb.pl | 321 +++++++++++++++++++++++
+ 4 files changed, 449 insertions(+)
+ create mode 100644 arch/riscv/crypto/chacha-riscv64-glue.c
+ create mode 100644 arch/riscv/crypto/chacha-riscv64-zvkb.pl
+
+diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
+index 81dcae72c477..2a756f92871f 100644
+--- a/arch/riscv/crypto/Kconfig
++++ b/arch/riscv/crypto/Kconfig
+@@ -34,6 +34,18 @@ config CRYPTO_AES_BLOCK_RISCV64
+ 	  - Zvkb vector crypto extension (CTR/XTS)
+ 	  - Zvkg vector crypto extension (XTS)
+ 
++config CRYPTO_CHACHA_RISCV64
++	tristate "Ciphers: ChaCha"
++	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
++	select CRYPTO_SIMD
++	select CRYPTO_SKCIPHER
++	select CRYPTO_LIB_CHACHA_GENERIC
++	help
++	  Length-preserving ciphers: ChaCha20 stream cipher algorithm
++
++	  Architecture: riscv64 using:
++	  - Zvkb vector crypto extension
++
+ config CRYPTO_GHASH_RISCV64
+ 	tristate "Hash functions: GHASH"
+ 	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
+diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
+index b1f857695c1c..31021eb3929c 100644
+--- a/arch/riscv/crypto/Makefile
++++ b/arch/riscv/crypto/Makefile
+@@ -9,6 +9,9 @@ aes-riscv64-y := aes-riscv64-glue.o aes-riscv64-zvkned.o
+ obj-$(CONFIG_CRYPTO_AES_BLOCK_RISCV64) += aes-block-riscv64.o
+ aes-block-riscv64-y := aes-riscv64-block-mode-glue.o aes-riscv64-zvkned-zvbb-zvkg.o aes-riscv64-zvkned-zvkb.o
+ 
++obj-$(CONFIG_CRYPTO_CHACHA_RISCV64) += chacha-riscv64.o
++chacha-riscv64-y := chacha-riscv64-glue.o chacha-riscv64-zvkb.o
++
+ obj-$(CONFIG_CRYPTO_GHASH_RISCV64) += ghash-riscv64.o
+ ghash-riscv64-y := ghash-riscv64-glue.o ghash-riscv64-zvkg.o
+ 
+@@ -36,6 +39,9 @@ $(obj)/aes-riscv64-zvkned-zvbb-zvkg.S: $(src)/aes-riscv64-zvkned-zvbb-zvkg.pl
+ $(obj)/aes-riscv64-zvkned-zvkb.S: $(src)/aes-riscv64-zvkned-zvkb.pl
+ 	$(call cmd,perlasm)
+ 
++$(obj)/chacha-riscv64-zvkb.S: $(src)/chacha-riscv64-zvkb.pl
++	$(call cmd,perlasm)
++
+ $(obj)/ghash-riscv64-zvkg.S: $(src)/ghash-riscv64-zvkg.pl
+ 	$(call cmd,perlasm)
+ 
+@@ -54,6 +60,7 @@ $(obj)/sm4-riscv64-zvksed.S: $(src)/sm4-riscv64-zvksed.pl
+ clean-files += aes-riscv64-zvkned.S
+ clean-files += aes-riscv64-zvkned-zvbb-zvkg.S
+ clean-files += aes-riscv64-zvkned-zvkb.S
++clean-files += chacha-riscv64-zvkb.S
+ clean-files += ghash-riscv64-zvkg.S
+ clean-files += sha256-riscv64-zvknha_or_zvknhb-zvkb.S
+ clean-files += sha512-riscv64-zvknhb-zvkb.S
+diff --git a/arch/riscv/crypto/chacha-riscv64-glue.c b/arch/riscv/crypto/chacha-riscv64-glue.c
+new file mode 100644
+index 000000000000..a7a2f0303afe
+--- /dev/null
++++ b/arch/riscv/crypto/chacha-riscv64-glue.c
+@@ -0,0 +1,109 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Port of the OpenSSL ChaCha20 implementation for RISC-V 64
++ *
++ * Copyright (C) 2023 SiFive, Inc.
++ * Author: Jerry Shih <jerry.shih@sifive.com>
++ */
++
++#include <asm/vector.h>
++#include <crypto/internal/chacha.h>
++#include <crypto/internal/skcipher.h>
++#include <linux/crypto.h>
++#include <linux/linkage.h>
++#include <linux/module.h>
++#include <linux/types.h>
++
++/* chacha20 using zvkb vector crypto extension */
++asmlinkage void ChaCha20_ctr32_zvkb(u8 *out, const u8 *input, size_t len,
++				    const u32 *key, const u32 *counter);
++
++static int riscv64_chacha20_encrypt(struct skcipher_request *req)
++{
++	u32 iv[CHACHA_IV_SIZE / sizeof(u32)];
++	u8 block_buffer[CHACHA_BLOCK_SIZE];
++	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
++	const struct chacha_ctx *ctx = crypto_skcipher_ctx(tfm);
++	struct skcipher_walk walk;
++	unsigned int nbytes;
++	unsigned int tail_bytes;
++	int err;
++
++	iv[0] = get_unaligned_le32(req->iv);
++	iv[1] = get_unaligned_le32(req->iv + 4);
++	iv[2] = get_unaligned_le32(req->iv + 8);
++	iv[3] = get_unaligned_le32(req->iv + 12);
++
++	err = skcipher_walk_virt(&walk, req, false);
++	while (walk.nbytes) {
++		nbytes = walk.nbytes & (~(CHACHA_BLOCK_SIZE - 1));
++		tail_bytes = walk.nbytes & (CHACHA_BLOCK_SIZE - 1);
++		kernel_vector_begin();
++		if (nbytes) {
++			ChaCha20_ctr32_zvkb(walk.dst.virt.addr,
++					    walk.src.virt.addr, nbytes,
++					    ctx->key, iv);
++			iv[0] += nbytes / CHACHA_BLOCK_SIZE;
++		}
++		if (walk.nbytes == walk.total && tail_bytes > 0) {
++			memcpy(block_buffer, walk.src.virt.addr + nbytes,
++			       tail_bytes);
++			ChaCha20_ctr32_zvkb(block_buffer, block_buffer,
++					    CHACHA_BLOCK_SIZE, ctx->key, iv);
++			memcpy(walk.dst.virt.addr + nbytes, block_buffer,
++			       tail_bytes);
++			tail_bytes = 0;
++		}
++		kernel_vector_end();
++
++		err = skcipher_walk_done(&walk, tail_bytes);
++	}
++
++	return err;
++}
++
++static struct skcipher_alg riscv64_chacha_alg_zvkb = {
++	.setkey = chacha20_setkey,
++	.encrypt = riscv64_chacha20_encrypt,
++	.decrypt = riscv64_chacha20_encrypt,
++	.min_keysize = CHACHA_KEY_SIZE,
++	.max_keysize = CHACHA_KEY_SIZE,
++	.ivsize = CHACHA_IV_SIZE,
++	.chunksize = CHACHA_BLOCK_SIZE,
++	.walksize = CHACHA_BLOCK_SIZE * 4,
++	.base = {
++		.cra_blocksize = 1,
++		.cra_ctxsize = sizeof(struct chacha_ctx),
++		.cra_priority = 300,
++		.cra_name = "chacha20",
++		.cra_driver_name = "chacha20-riscv64-zvkb",
++		.cra_module = THIS_MODULE,
++	},
++};
++
++static inline bool check_chacha20_ext(void)
++{
++	return riscv_isa_extension_available(NULL, ZVKB) &&
++	       riscv_vector_vlen() >= 128;
++}
++
++static int __init riscv64_chacha_mod_init(void)
++{
++	if (check_chacha20_ext())
++		return crypto_register_skcipher(&riscv64_chacha_alg_zvkb);
++
++	return -ENODEV;
++}
++
++static void __exit riscv64_chacha_mod_fini(void)
++{
++	crypto_unregister_skcipher(&riscv64_chacha_alg_zvkb);
++}
++
++module_init(riscv64_chacha_mod_init);
++module_exit(riscv64_chacha_mod_fini);
++
++MODULE_DESCRIPTION("ChaCha20 (RISC-V accelerated)");
++MODULE_AUTHOR("Jerry Shih <jerry.shih@sifive.com>");
++MODULE_LICENSE("GPL");
++MODULE_ALIAS_CRYPTO("chacha20");
+diff --git a/arch/riscv/crypto/chacha-riscv64-zvkb.pl b/arch/riscv/crypto/chacha-riscv64-zvkb.pl
+new file mode 100644
+index 000000000000..279410d9e062
+--- /dev/null
++++ b/arch/riscv/crypto/chacha-riscv64-zvkb.pl
+@@ -0,0 +1,321 @@
++#! /usr/bin/env perl
++# SPDX-License-Identifier: Apache-2.0 OR BSD-2-Clause
++#
++# This file is dual-licensed, meaning that you can use it under your
++# choice of either of the following two licenses:
++#
++# Copyright 2023-2023 The OpenSSL Project Authors. All Rights Reserved.
++#
++# Licensed under the Apache License 2.0 (the "License").  You may not use
++# this file except in compliance with the License.  You can obtain a copy
++# in the file LICENSE in the source distribution or at
++# https://www.openssl.org/source/license.html
++#
++# or
++#
++# Copyright (c) 2023, Jerry Shih <jerry.shih@sifive.com>
++# All rights reserved.
++#
++# Redistribution and use in source and binary forms, with or without
++# modification, are permitted provided that the following conditions
++# are met:
++# 1. Redistributions of source code must retain the above copyright
++#    notice, this list of conditions and the following disclaimer.
++# 2. Redistributions in binary form must reproduce the above copyright
++#    notice, this list of conditions and the following disclaimer in the
++#    documentation and/or other materials provided with the distribution.
++#
++# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
++# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
++# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
++# A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
++# OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
++# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
++# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
++# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
++# THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
++# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
++# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
++
++# - RV64I
++# - RISC-V Vector ('V') with VLEN >= 128
++# - RISC-V Vector Cryptography Bit-manipulation extension ('Zvkb')
++
++use strict;
++use warnings;
++
++use FindBin qw($Bin);
++use lib "$Bin";
++use lib "$Bin/../../perlasm";
++
++# $output is the last argument if it looks like a file (it has an extension)
++# $flavour is the first argument if it doesn't look like a file
++my $output  = $#ARGV >= 0 && $ARGV[$#ARGV] =~ m|\.\w+$| ? pop   : undef;
++my $flavour = $#ARGV >= 0 && $ARGV[0] !~ m|\.|          ? shift : undef;
++
++$output and open STDOUT, ">$output";
++
++my $code = <<___;
++.text
++.option arch, +zvkb
++___
++
++# void ChaCha20_ctr32_zvkb(unsigned char *out, const unsigned char *inp,
++#                          size_t len, const unsigned int key[8],
++#                          const unsigned int counter[4]);
++################################################################################
++my ( $OUTPUT, $INPUT, $LEN, $KEY, $COUNTER ) = ( "a0", "a1", "a2", "a3", "a4" );
++my ( $T0 ) = ( "t0" );
++my ( $CONST_DATA0, $CONST_DATA1, $CONST_DATA2, $CONST_DATA3 ) =
++  ( "a5", "a6", "a7", "t1" );
++my ( $KEY0, $KEY1, $KEY2,$KEY3, $KEY4, $KEY5, $KEY6, $KEY7,
++     $COUNTER0, $COUNTER1, $NONCE0, $NONCE1
++) = ( "s0", "s1", "s2", "s3", "s4", "s5", "s6",
++    "s7", "s8", "s9", "s10", "s11" );
++my ( $VL, $STRIDE, $CHACHA_LOOP_COUNT ) = ( "t2", "t3", "t4" );
++my (
++    $V0,  $V1,  $V2,  $V3,  $V4,  $V5,  $V6,  $V7,  $V8,  $V9,  $V10,
++    $V11, $V12, $V13, $V14, $V15, $V16, $V17, $V18, $V19, $V20, $V21,
++    $V22, $V23, $V24, $V25, $V26, $V27, $V28, $V29, $V30, $V31,
++) = map( "v$_", ( 0 .. 31 ) );
++
++sub chacha_quad_round_group {
++    my (
++        $A0, $B0, $C0, $D0, $A1, $B1, $C1, $D1,
++        $A2, $B2, $C2, $D2, $A3, $B3, $C3, $D3
++    ) = @_;
++
++    my $code = <<___;
++    # a += b; d ^= a; d <<<= 16;
++    vadd.vv $A0, $A0, $B0
++    vadd.vv $A1, $A1, $B1
++    vadd.vv $A2, $A2, $B2
++    vadd.vv $A3, $A3, $B3
++    vxor.vv $D0, $D0, $A0
++    vxor.vv $D1, $D1, $A1
++    vxor.vv $D2, $D2, $A2
++    vxor.vv $D3, $D3, $A3
++    vror.vi $D0, $D0, 32 - 16
++    vror.vi $D1, $D1, 32 - 16
++    vror.vi $D2, $D2, 32 - 16
++    vror.vi $D3, $D3, 32 - 16
++    # c += d; b ^= c; b <<<= 12;
++    vadd.vv $C0, $C0, $D0
++    vadd.vv $C1, $C1, $D1
++    vadd.vv $C2, $C2, $D2
++    vadd.vv $C3, $C3, $D3
++    vxor.vv $B0, $B0, $C0
++    vxor.vv $B1, $B1, $C1
++    vxor.vv $B2, $B2, $C2
++    vxor.vv $B3, $B3, $C3
++    vror.vi $B0, $B0, 32 - 12
++    vror.vi $B1, $B1, 32 - 12
++    vror.vi $B2, $B2, 32 - 12
++    vror.vi $B3, $B3, 32 - 12
++    # a += b; d ^= a; d <<<= 8;
++    vadd.vv $A0, $A0, $B0
++    vadd.vv $A1, $A1, $B1
++    vadd.vv $A2, $A2, $B2
++    vadd.vv $A3, $A3, $B3
++    vxor.vv $D0, $D0, $A0
++    vxor.vv $D1, $D1, $A1
++    vxor.vv $D2, $D2, $A2
++    vxor.vv $D3, $D3, $A3
++    vror.vi $D0, $D0, 32 - 8
++    vror.vi $D1, $D1, 32 - 8
++    vror.vi $D2, $D2, 32 - 8
++    vror.vi $D3, $D3, 32 - 8
++    # c += d; b ^= c; b <<<= 7;
++    vadd.vv $C0, $C0, $D0
++    vadd.vv $C1, $C1, $D1
++    vadd.vv $C2, $C2, $D2
++    vadd.vv $C3, $C3, $D3
++    vxor.vv $B0, $B0, $C0
++    vxor.vv $B1, $B1, $C1
++    vxor.vv $B2, $B2, $C2
++    vxor.vv $B3, $B3, $C3
++    vror.vi $B0, $B0, 32 - 7
++    vror.vi $B1, $B1, 32 - 7
++    vror.vi $B2, $B2, 32 - 7
++    vror.vi $B3, $B3, 32 - 7
++___
++
++    return $code;
++}
++
++$code .= <<___;
++.p2align 3
++.globl ChaCha20_ctr32_zvkb
++.type ChaCha20_ctr32_zvkb,\@function
++ChaCha20_ctr32_zvkb:
++    srli $LEN, $LEN, 6
++    beqz $LEN, .Lend
++
++    addi sp, sp, -96
++    sd s0, 0(sp)
++    sd s1, 8(sp)
++    sd s2, 16(sp)
++    sd s3, 24(sp)
++    sd s4, 32(sp)
++    sd s5, 40(sp)
++    sd s6, 48(sp)
++    sd s7, 56(sp)
++    sd s8, 64(sp)
++    sd s9, 72(sp)
++    sd s10, 80(sp)
++    sd s11, 88(sp)
++
++    li $STRIDE, 64
++
++    #### chacha block data
++    # "expa" little endian
++    li $CONST_DATA0, 0x61707865
++    # "nd 3" little endian
++    li $CONST_DATA1, 0x3320646e
++    # "2-by" little endian
++    li $CONST_DATA2, 0x79622d32
++    # "te k" little endian
++    li $CONST_DATA3, 0x6b206574
++
++    lw $KEY0, 0($KEY)
++    lw $KEY1, 4($KEY)
++    lw $KEY2, 8($KEY)
++    lw $KEY3, 12($KEY)
++    lw $KEY4, 16($KEY)
++    lw $KEY5, 20($KEY)
++    lw $KEY6, 24($KEY)
++    lw $KEY7, 28($KEY)
++
++    lw $COUNTER0, 0($COUNTER)
++    lw $COUNTER1, 4($COUNTER)
++    lw $NONCE0, 8($COUNTER)
++    lw $NONCE1, 12($COUNTER)
++
++.Lblock_loop:
++    vsetvli $VL, $LEN, e32, m1, ta, ma
++
++    # init chacha const states
++    vmv.v.x $V0, $CONST_DATA0
++    vmv.v.x $V1, $CONST_DATA1
++    vmv.v.x $V2, $CONST_DATA2
++    vmv.v.x $V3, $CONST_DATA3
++
++    # init chacha key states
++    vmv.v.x $V4, $KEY0
++    vmv.v.x $V5, $KEY1
++    vmv.v.x $V6, $KEY2
++    vmv.v.x $V7, $KEY3
++    vmv.v.x $V8, $KEY4
++    vmv.v.x $V9, $KEY5
++    vmv.v.x $V10, $KEY6
++    vmv.v.x $V11, $KEY7
++
++    # init chacha key states
++    vid.v $V12
++    vadd.vx $V12, $V12, $COUNTER0
++    vmv.v.x $V13, $COUNTER1
++
++    # init chacha nonce states
++    vmv.v.x $V14, $NONCE0
++    vmv.v.x $V15, $NONCE1
++
++    # load the top-half of input data
++    vlsseg8e32.v $V16, ($INPUT), $STRIDE
++
++    li $CHACHA_LOOP_COUNT, 10
++.Lround_loop:
++    addi $CHACHA_LOOP_COUNT, $CHACHA_LOOP_COUNT, -1
++    @{[chacha_quad_round_group
++      $V0, $V4, $V8, $V12,
++      $V1, $V5, $V9, $V13,
++      $V2, $V6, $V10, $V14,
++      $V3, $V7, $V11, $V15]}
++    @{[chacha_quad_round_group
++      $V0, $V5, $V10, $V15,
++      $V1, $V6, $V11, $V12,
++      $V2, $V7, $V8, $V13,
++      $V3, $V4, $V9, $V14]}
++    bnez $CHACHA_LOOP_COUNT, .Lround_loop
++
++    # load the bottom-half of input data
++    addi $T0, $INPUT, 32
++    vlsseg8e32.v $V24, ($T0), $STRIDE
++
++    # add chacha top-half initial block states
++    vadd.vx $V0, $V0, $CONST_DATA0
++    vadd.vx $V1, $V1, $CONST_DATA1
++    vadd.vx $V2, $V2, $CONST_DATA2
++    vadd.vx $V3, $V3, $CONST_DATA3
++    vadd.vx $V4, $V4, $KEY0
++    vadd.vx $V5, $V5, $KEY1
++    vadd.vx $V6, $V6, $KEY2
++    vadd.vx $V7, $V7, $KEY3
++    # xor with the top-half input
++    vxor.vv $V16, $V16, $V0
++    vxor.vv $V17, $V17, $V1
++    vxor.vv $V18, $V18, $V2
++    vxor.vv $V19, $V19, $V3
++    vxor.vv $V20, $V20, $V4
++    vxor.vv $V21, $V21, $V5
++    vxor.vv $V22, $V22, $V6
++    vxor.vv $V23, $V23, $V7
++
++    # save the top-half of output
++    vssseg8e32.v $V16, ($OUTPUT), $STRIDE
++
++    # add chacha bottom-half initial block states
++    vadd.vx $V8, $V8, $KEY4
++    vadd.vx $V9, $V9, $KEY5
++    vadd.vx $V10, $V10, $KEY6
++    vadd.vx $V11, $V11, $KEY7
++    vid.v $V0
++    vadd.vx $V12, $V12, $COUNTER0
++    vadd.vx $V13, $V13, $COUNTER1
++    vadd.vx $V14, $V14, $NONCE0
++    vadd.vx $V15, $V15, $NONCE1
++    vadd.vv $V12, $V12, $V0
++    # xor with the bottom-half input
++    vxor.vv $V24, $V24, $V8
++    vxor.vv $V25, $V25, $V9
++    vxor.vv $V26, $V26, $V10
++    vxor.vv $V27, $V27, $V11
++    vxor.vv $V29, $V29, $V13
++    vxor.vv $V28, $V28, $V12
++    vxor.vv $V30, $V30, $V14
++    vxor.vv $V31, $V31, $V15
++
++    # save the bottom-half of output
++    addi $T0, $OUTPUT, 32
++    vssseg8e32.v $V24, ($T0), $STRIDE
++
++    # update counter
++    add $COUNTER0, $COUNTER0, $VL
++    sub $LEN, $LEN, $VL
++    # increase offset for `4 * 16 * VL = 64 * VL`
++    slli $T0, $VL, 6
++    add $INPUT, $INPUT, $T0
++    add $OUTPUT, $OUTPUT, $T0
++    bnez $LEN, .Lblock_loop
++
++    ld s0, 0(sp)
++    ld s1, 8(sp)
++    ld s2, 16(sp)
++    ld s3, 24(sp)
++    ld s4, 32(sp)
++    ld s5, 40(sp)
++    ld s6, 48(sp)
++    ld s7, 56(sp)
++    ld s8, 64(sp)
++    ld s9, 72(sp)
++    ld s10, 80(sp)
++    ld s11, 88(sp)
++    addi sp, sp, 96
++
++.Lend:
++    ret
++.size ChaCha20_ctr32_zvkb,.-ChaCha20_ctr32_zvkb
++___
++
++print $code;
++
++close STDOUT or die "error closing STDOUT: $!";
+-- 
+2.28.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
