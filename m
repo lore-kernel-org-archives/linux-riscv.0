@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A486C47255
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jan 2024 22:02:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7781DC47079
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jan 2024 22:02:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0pI9soNogU80XiyZbUwuLGYcabKkKxZNfXSAT7E6OUo=; b=qPkfK6jMfBFMrI
-	zV8ZeicX+2Z+4raf+trWES/Fd6bXBbMowCCFooiJImsM+UJNkDwvjt6ZrCBsrmETJCJC6mVakXziF
-	lXvwhOjF9Lfy+ei/5tMUkaNIUTeO4IRXPmLX5P060aHCA2IiKd9zUMK+n5IRm/dRrLXkJi9Q8G3si
-	vxwW0e5CW7DAyyuvpzxTQ5+r43Ax5fOAqfB42CSj3qyOfHjF82WS0+nPwcQLNggintwl7miX76/3F
-	Ka5eX/pimn0nSYxhksRjf//d0fyGhAYbHAz1ek0djdXFrguF6sQ1w/KHC7xvnvlm4JBLKzmBM5ABy
-	z8RDz0mHUFOmdSs90HzA==;
+	List-Owner; bh=lxextqT6+s4SnCLpRzGYJXl0X87N89GWg68rIw3Q/48=; b=fGBSANTX+v8kiS
+	1Z+I0DyDm0KytOqENe9JNssG9h0pHR5LwCiqTHe8qbcSls5F0TMloSbJLY02O71rdFA3ByOWv+4uJ
+	cvtPgAV/nL4TKP9sQA6CcFfmDprFS0GoGbHRiPzQLTwT6hgv4w8oAlfygL2XqQtSXEz6XmLpaCQTo
+	qImjoj4IT1TTMWc2l0I/XWbqMBTzlhFgahvQ8+wk7+JDMu+x9EdIHvl5TCJ/CfSaFfbbYQEK/dXM1
+	jvGCOGbSDxMxLA8IyX7IdSDMRLBo55YeDoVX/GaV4cOF8lS3lIYKQyrKaC9nQMxfg3dv8x6fvmOQA
+	KjJQ4TdJ5UOM2KptVhiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKmpa-0098Ve-3D;
-	Tue, 02 Jan 2024 22:01:50 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1rKmpZ-0098Ul-14;
+	Tue, 02 Jan 2024 22:01:49 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKmpV-0098RL-0y
+	id 1rKmpS-0098PD-2s
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Jan 2024 22:01:47 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-5cdfa676fa3so5020530a12.1
-        for <linux-riscv@lists.infradead.org>; Tue, 02 Jan 2024 14:01:44 -0800 (PST)
+	Tue, 02 Jan 2024 22:01:45 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-5ceb3fe708eso151271a12.3
+        for <linux-riscv@lists.infradead.org>; Tue, 02 Jan 2024 14:01:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1704232904; x=1704837704; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1704232901; x=1704837701; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=1tIOva8KFaIwh3i+98q+ysPtJyT8vpZl2kFy86xHGzc=;
-        b=dwkeTbwtiguGYVFXDVPu9wXqcEp1q+C2cYPW5HFjclsgF95hH9DpDLtjo/TH1Qq/cb
-         r+3hIvpaa9pipvMGBQsM+LK0u9ZSQ9SOr97fQ1gRFNQlEssk6aZi+1PLdjhaHfvGxxL8
-         RGdvIRDxbK5pFaO2tIIXA6lrg7lGfLAMqVaN+a3xoQZhf9K72r6bTqBt0s/+8VmmFzIl
-         sGzPqQHf20pjUGYdGVRpovozTkf0Ih45PaY3a5syEFPFdf3dL+eyJ+WR1mlJ+cI0X7Ht
-         1yhI/0Jmko9XalsmN1t0j9hrCT81kr1IMEtt2Tq2/g9Yv9SOqO6YWkBE6bSQ49VxHZov
-         +Jmg==
+        bh=YDpWqQ4mc+jX/Roh6ocibeJ1LmLlK7pqWIKc4/L4AE8=;
+        b=LVC8ZIbUTtTWg+I2pMGYo3NGPoicU1EHMxQO4qtoQb9yNqQjXdM8bRNxt3dACH8Fgi
+         SYEaTRDZXP41Qy+zGZmwqzAQMQa929S9ztIcXwaaL8l+qLUL/w2GhDKcaA2EEvbsbvPz
+         WbUapkY3A58iii431igJQNWj6ThK206oRvQZgbfnu5LxFoswg0CX3wPaMhBVOS42tcFK
+         khyI8tI+qcHU3j+ZZZMwJakqSc8sGhdVhDuvCRs2J+sypCAd5w+cRnql1nzuqls/bhaQ
+         qqhXz7Jr4xzth2xj16aAyOChQfnTFm5r8lmd/U6OfTwV4IQvd6Ig1Jk5nzl+if5RdUkH
+         PjWw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704232904; x=1704837704;
+        d=1e100.net; s=20230601; t=1704232901; x=1704837701;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=1tIOva8KFaIwh3i+98q+ysPtJyT8vpZl2kFy86xHGzc=;
-        b=ExXfWqkZDlWEFWNgByBxRN9ISc+rMMSoGA3XlBU2IVYjZjoYFAAXHPYjPWxLHySu3X
-         GERAOv5qFPQY6iEbb1OYW4s5y4RL5VblAZm0GEU/GGIh6ypqsOD9PRcMIGBZw9+ZjCh3
-         l2Or2d7Xpnl3a+MTDNrbkS1hOU3JMq9hNRNmK/8foL1y3J41wY2A5vobGa3s4/2IqOTp
-         S5tAshCfZtiBsgNw69F5At7L5xPHML6oYrenYfl0Hu4oc/9iH+3qBJIk0v09Hl8Z+z3s
-         yXfbUpS9otm9DJqNH+2KffxiCRlBynTKs17kwXyQafvpixyGWBuZ8BKjjuxEB7Svtjid
-         xfLw==
-X-Gm-Message-State: AOJu0YyRNIXZs4B4IrwUieD1gF5NcBROFCPsxQuryXFnEs/wLs19MnWY
-	0JrNmFvWnywlRjsGcCa1i/sWLcpfmUvFsg==
-X-Google-Smtp-Source: AGHT+IERqoXqHCzKpOJ5RqmrnOEOyFJpME6yqKz2yoKuSVbxPLF5GZg8UdvpqpiYsRMOZbO3DMheoA==
-X-Received: by 2002:a17:90a:d90b:b0:28c:300d:d858 with SMTP id c11-20020a17090ad90b00b0028c300dd858mr127429pjv.20.1704232904383;
-        Tue, 02 Jan 2024 14:01:44 -0800 (PST)
+        bh=YDpWqQ4mc+jX/Roh6ocibeJ1LmLlK7pqWIKc4/L4AE8=;
+        b=q7wbq1OasL7lsx5MuwMGO3fwhV6TlA5Irq9F343AtJ/5JuoxKDd6LWtgEFYgBe3M3m
+         IrUwzcb5+0yzt5PHnjmXtUuoq7yEwUMFts4UmWl11Uj15ZsiTScSycf/VZ3WoI6F+ezp
+         0dVLgjUY3lLRwb13XJ2oaURq7Lo4UZtzD+C1mftC7bexJwdxTNKOcifCkGqMNuVzTEA0
+         izKCvc5m9dbYN4RbR0qXVJUdXJ4Ng4N+bZuj9FtQDv40W7tfEr0kWFpFC50PJ7OcyPBI
+         9ADekdiaR5m2t5DZAXp8xiY8TyPf/Vg03xY0Q2mtsjmCTU6+H+NLEjc5cMVfMjL+0dPB
+         RHWw==
+X-Gm-Message-State: AOJu0YzywGDDSaO8/SofFajg004UrIe9y25eWGumUtclRPx6Nqf64T2E
+	DuLmQWi4fGrwK6PFEehS5G/6d+lZ27VR/A==
+X-Google-Smtp-Source: AGHT+IGhgK6idMxI6CkoCNiy9Y4cs5Xn9ml4r4H30wFrLDF3Z3r2uMsg0CAIjypKVmYj0k77Mk3d6A==
+X-Received: by 2002:a17:90a:6ba6:b0:28c:640b:ce0b with SMTP id w35-20020a17090a6ba600b0028c640bce0bmr4536054pjj.33.1704232901387;
+        Tue, 02 Jan 2024 14:01:41 -0800 (PST)
 Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id r59-20020a17090a43c100b0028ce507cd7dsm101724pjg.55.2024.01.02.14.01.43
+        by smtp.gmail.com with ESMTPSA id r59-20020a17090a43c100b0028ce507cd7dsm101724pjg.55.2024.01.02.14.01.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jan 2024 14:01:44 -0800 (PST)
+        Tue, 02 Jan 2024 14:01:41 -0800 (PST)
 From: Samuel Holland <samuel.holland@sifive.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org
@@ -69,16 +69,16 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org,
 	Alexandre Ghiti <alexghiti@rivosinc.com>,
 	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v4 07/12] riscv: Avoid TLB flush loops when affected by SiFive CIP-1200
-Date: Tue,  2 Jan 2024 14:00:44 -0800
-Message-ID: <20240102220134.3229156-8-samuel.holland@sifive.com>
+Subject: [PATCH v4 04/12] riscv: Only send remote fences when some other CPU is online
+Date: Tue,  2 Jan 2024 14:00:41 -0800
+Message-ID: <20240102220134.3229156-5-samuel.holland@sifive.com>
 X-Mailer: git-send-email 2.42.0
 In-Reply-To: <20240102220134.3229156-1-samuel.holland@sifive.com>
 References: <20240102220134.3229156-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240102_140145_380556_9D2AE95C 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20240102_140142_965737_9B38C86D 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,66 +95,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since implementations affected by SiFive errata CIP-1200 always use the
-global variant of the sfence.vma instruction, they only need to execute
-the instruction once. The range-based loop only hurts performance.
+If no other CPU is online, a local cache or TLB flush is sufficient.
+These checks can be constant-folded when SMP is disabled.
 
 Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
 
 Changes in v4:
- - Only set tlb_flush_all_threshold when CONFIG_MMU=y.
+ - New patch for v4
 
-Changes in v3:
- - New patch for v3
+ arch/riscv/mm/cacheflush.c | 4 +++-
+ arch/riscv/mm/tlbflush.c   | 4 +++-
+ 2 files changed, 6 insertions(+), 2 deletions(-)
 
- arch/riscv/errata/sifive/errata.c | 5 +++++
- arch/riscv/include/asm/tlbflush.h | 2 ++
- arch/riscv/mm/tlbflush.c          | 2 +-
- 3 files changed, 8 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
-index 3d9a32d791f7..716cfedad3a2 100644
---- a/arch/riscv/errata/sifive/errata.c
-+++ b/arch/riscv/errata/sifive/errata.c
-@@ -42,6 +42,11 @@ static bool errata_cip_1200_check_func(unsigned long  arch_id, unsigned long imp
- 		return false;
- 	if ((impid & 0xffffff) > 0x200630 || impid == 0x1200626)
- 		return false;
-+
-+#ifdef CONFIG_MMU
-+	tlb_flush_all_threshold = 0;
-+#endif
-+
- 	return true;
- }
+diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+index 47c485bc7df0..f7933ae88a55 100644
+--- a/arch/riscv/mm/cacheflush.c
++++ b/arch/riscv/mm/cacheflush.c
+@@ -21,7 +21,9 @@ void flush_icache_all(void)
+ {
+ 	local_flush_icache_all();
  
-diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-index 002c4c2620f3..d9913590f82e 100644
---- a/arch/riscv/include/asm/tlbflush.h
-+++ b/arch/riscv/include/asm/tlbflush.h
-@@ -58,6 +58,8 @@ void flush_tlb_kernel_range(unsigned long start, unsigned long end);
- void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 			unsigned long end);
- #endif
-+
-+extern unsigned long tlb_flush_all_threshold;
- #else /* CONFIG_MMU */
- #define local_flush_tlb_all()			do { } while (0)
- #endif /* CONFIG_MMU */
+-	if (riscv_use_sbi_for_rfence())
++	if (num_online_cpus() < 2)
++		return;
++	else if (riscv_use_sbi_for_rfence())
+ 		sbi_remote_fence_i(NULL);
+ 	else
+ 		on_each_cpu(ipi_remote_fence_i, NULL, 1);
 diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index 292d7cf3c4f6..76b24d4ed4ab 100644
+index 2f18fe6fc4f3..37b3c93e3c30 100644
 --- a/arch/riscv/mm/tlbflush.c
 +++ b/arch/riscv/mm/tlbflush.c
-@@ -11,7 +11,7 @@
-  * Flush entire TLB if number of entries to be flushed is greater
-  * than the threshold below.
-  */
--static unsigned long tlb_flush_all_threshold __read_mostly = 64;
-+unsigned long tlb_flush_all_threshold __read_mostly = 64;
+@@ -73,7 +73,9 @@ static void __ipi_flush_tlb_all(void *info)
  
- static void local_flush_tlb_range_threshold_asid(unsigned long start,
- 						 unsigned long size,
+ void flush_tlb_all(void)
+ {
+-	if (riscv_use_sbi_for_rfence())
++	if (num_online_cpus() < 2)
++		local_flush_tlb_all();
++	else if (riscv_use_sbi_for_rfence())
+ 		sbi_remote_sfence_vma_asid(NULL, 0, FLUSH_TLB_MAX_SIZE, FLUSH_TLB_NO_ASID);
+ 	else
+ 		on_each_cpu(__ipi_flush_tlb_all, NULL, 1);
 -- 
 2.42.0
 
