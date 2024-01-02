@@ -4,124 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DECD3C47077
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jan 2024 16:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A0DFC46CD2
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jan 2024 17:15:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DPUwukPaEuE10DN/PBJK9NYULpCfnCCCY5J9SrRfYyM=; b=MWFFG385Ri9Czc
-	8ngNfcUhgr/9aRTTVLqRAPcbNjrarsoRabCvsV4Af16iR2LlO1yLfgAtCKMZ1XotpXfmj/rwL4OWK
-	eXu1GvJT/6mGj3Qe+m7bXjIkz8dzFznfi0JSePVDSQ5DTYR893nmZuWAlJEyN7SvGnU0h6qNse1FE
-	bkCljeryEwdjJFWjZC+0faEbfR3OoDkaswsXFFvtuoxMl2kkhfWxwwQGmh0OBH3l1WT4TiVa1LOcK
-	cKAe6vtjEWd1kgp652aEmYOC1LH/TFNImQbm7djIhS6//TIyXX85koa0KnVJqeWeifjPYHoScPRZx
-	Ud+PK7Du0dUKiDgALJIA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:
+	Cc:To:Subject:MIME-Version:Date:Message-ID:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RyVZDladGtJQNfOAyL6L/95KdhtM39HTumSlT2Olwfk=; b=2IW0gAja79qPTvvW9pbXeRgZAD
+	LQRWH6JIJoj9szcO2VkZ6pDNA3kYNB10LeW/dJC1W+mTroYZ2i7jS4FW+0gBgUlibXQ0s53P249ST
+	mBzqACzllUwxXw/I88vcRvud1e2fs4PdfmK7cn4rHIOr0qoanJMbrizDOls1J7MU/c7iVUBdnwJLh
+	3cuNy83Pm8AgQeDQ0/PIXRBg6SI3cbhN/xznmwWWUIzBzY0Wvl3BF3HjHAHNYYFeJdO6s70IrX9dl
+	JjnjDNoJ5sTo447yXzGs8pS0psoqNvhUacEYaxw8zfTInm4oEfw3bXJxZHlhyps+74pQ2JN9omVAQ
+	n5d55RKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKhm1-008Vc7-2g;
-	Tue, 02 Jan 2024 16:37:49 +0000
-Received: from mail-dm6nam11olkn2081d.outbound.protection.outlook.com ([2a01:111:f400:7eaa::81d] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rIK3v-00DrAc-2H
-	for linux-riscv@lists.infradead.org;
-	Wed, 27 Dec 2023 02:54:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=lpSqRmIyeEvQWL+BpKfMGN1GtnKUPzLwzAe4AEzEFuRRMjlCnvkKphktGJFOnYWFyaOf6EgTMsmknpwKHCHhLHH5zlMhZFyp95bxVZosiWG/ddsOP6/mGJOEV3K0ZEPokX7fuW2lVP0aCB8dK7gtcsDI8G76B+4LOiHNsJ9BgVEe5uLQtpXOXaw65tJpZQEM+NAX9Z5/9/MzUPnUzYS1RRiIbKzosS8RZYi6DlQKwAYg1m0He9F6GfLPYCEqqmIoELKAJPT1cL9ER6rQX1rONhXPkVFE6O5mznb9KHwO0NyI0xUC2s+BQtmGyklNDNsOnvEuhC2OiGyJH+0XM8q6NQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eJKDHGgf24esZ0YxIJgjJJLUQ+9jov9YFZKaJa8Gkh4=;
- b=hTTZjF2VzutJn0NKEFdLpwaECvEm1MHBdINBFzWEyJYYsUktpzQWPwpAJlrw/4RMBEVsn7o+gnSTXd7EWVqOru3buNSngrIGSkFOcnRsqJRYJuAhVYCbjQ+1dv3MIVCSyZUpJ0Fp3xo+bOCn4qjVufE2fOUYyci5umNk9/bMZZNc+73hyZZbedcok7b5oAvLwisSd/n6sz6OMZ/0WMguhNlLWYgyV4ImO7Tzyz75FwL0eVsnEPqjKB1ug4Zo/yEDzfF0c1fRRtuRIO3CLyk2EsD0WU9jGvYcn7OuBjnj7WM4Ncb0802eOqQxsGE2FoL7ISd/mSKRAcC9Qi7Ld6B7ow==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eJKDHGgf24esZ0YxIJgjJJLUQ+9jov9YFZKaJa8Gkh4=;
- b=pcw5kja6rT/81Pku/Qma9MA043zpKM30WjWG8piusRM8hyKdCOVd3SQZoxwnY7qvgAp90rGIfpeeEasWOowaFFTSZbRPp0VivqY59bNkcCppARQqtH28JlepAvevv1JpnrbDTH3fTzVjMyCxgvsOq60QtqGagy+wXjR0kBHyWB6b/rHxPg+RFpHa05wPfP4dEdZU2rJ4pXP9NJcFmtO6yCmWIxR8XcQ6ompSQSS7TeK3Q1fP8dMo9gtYIDfeuoAZhTEEezMBnNUWx6AY4ARQj4l181S10iPITnKtgcCMfq9KcQbFciMCM/SFoI5zQU4JR5PjkAUB+dQm/jVeFThNjw==
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com (2603:10b6:208:3af::19)
- by CH0PR20MB3754.namprd20.prod.outlook.com (2603:10b6:610:df::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7135.19; Wed, 27 Dec
- 2023 02:54:20 +0000
-Received: from IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::406a:664b:b8bc:1e6b]) by IA1PR20MB4953.namprd20.prod.outlook.com
- ([fe80::406a:664b:b8bc:1e6b%2]) with mapi id 15.20.7113.026; Wed, 27 Dec 2023
- 02:54:20 +0000
-From: Inochi Amaoto <inochiama@outlook.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Inochi Amaoto <inochiama@outlook.com>
-Cc: Jisheng Zhang <jszhang@kernel.org>,
-	Liu Gui <kenneth.liu@sophgo.com>,
-	Jingbao Qiu <qiujingbao.dlmu@gmail.com>,
-	dlan@gentoo.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v5 1/3] clk: sophgo: Add CV1800 series clock controller driver
-Date: Wed, 27 Dec 2023 10:54:18 +0800
-Message-ID: <IA1PR20MB4953139C77167200594CE971BB9FA@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <IA1PR20MB49539CDAD9A268CBF6CA184BBB9FA@IA1PR20MB4953.namprd20.prod.outlook.com>
-References: <IA1PR20MB49539CDAD9A268CBF6CA184BBB9FA@IA1PR20MB4953.namprd20.prod.outlook.com>
-X-TMN: [s/8vR9OVolIvXv8tvXtm72fQkJ/zIJofCvCkT+4ESv4=]
-X-ClientProxiedBy: BYAPR07CA0093.namprd07.prod.outlook.com
- (2603:10b6:a03:12b::34) To IA1PR20MB4953.namprd20.prod.outlook.com
- (2603:10b6:208:3af::19)
-X-Microsoft-Original-Message-ID: <20231227025420.296265-1-inochiama@outlook.com>
+	id 1rKiMV-008aL5-2h;
+	Tue, 02 Jan 2024 17:15:31 +0000
+Received: from [50.53.46.231] (helo=[192.168.254.15])
+	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
+	id 1rKiMU-008aKp-0D;
+	Tue, 02 Jan 2024 17:15:30 +0000
+Content-Type: multipart/mixed; boundary="------------OWPnCHPbaVKxZebYjigKDrVW"
+Message-ID: <8693bf84-b3b5-407b-871f-4add127272ee@infradead.org>
+Date: Tue, 2 Jan 2024 09:15:29 -0800
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR20MB4953:EE_|CH0PR20MB3754:EE_
-X-MS-Office365-Filtering-Correlation-Id: d51c2694-2a80-4a7c-cf2a-08dc06871f98
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: c9myX3v6gE0Z0Wnebw7rqNihH+0ouVjVGiGz5P7logjHI1TBrLBYZ49URluUd9mF5c2zJA7vmwBLRp5DLnFSnD38zPEZqGBzLPQUEJoojWk8R0RyqPyr9Q09BMl0QSBg+y5+Z2gZopP3V5kSlx9zsJyEgZYop1svumRy1Y66IWTzEqzUyBx3VXlj6/dAoqLxZLD+P3FGr4dr11flx7E7jwFoisgEL3JoK2gDA++4SKxrild1s/odC8MUVUeM0POd+SdmhFvdzMNa39kF7z3D5sFVA2gNZz6hzz8auRYO3/PP4OS5cYAw1PSdmb/zp5HFpiDi4oJk/IPo32LPUf+sWYdUaYgptNvC5LqHiVtBWCzqZ8oy+KRPgrEfsqVlFhNKq0MBdVJwAUP4jFqFMqUqNc2iLe17k8eyy0R4I6kBPLJ3z+Iqz08ED2ulB7FVk+e0mDPv8rn2x3TwNeF/7IYLIShi+wdQaqdes2xbZkG3JrCsih6YIfcUDrvgmXQllExyiK7dtziE+ppPfbImragG9tpYN18YU2YptC0XFmg+xxo6ZOY2CRZAsRtA5NJLLSUndrav1J8vxlCNnoxhfue6HdwsRprYqX0mM+VFfhhg1YJcKL3P9luSmH69A6agu2AxT72O4H1BiK/hYMEf2Dd1UMbfX8BCzshNXjgz+OKtUUg=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qdinyWk4XI0W58wg3s4Wp06pNR7Fw32c56OInW7pj2GxQA86gBDB3+wajyNq?=
- =?us-ascii?Q?42GRhP8CHnGFY0gJ/ZleXcVyBdhnWi9i7pNrgQCv7HMkVaae9PykxRwJhZ9M?=
- =?us-ascii?Q?1ChN9u5Pt20UrZ/WALdABaZBkJ/6GiV4LFEHCTuibuDEdd+kp5wo2hYqi+id?=
- =?us-ascii?Q?Lmfrg6ZN3jYrRKO/+6/G6Ojx1xEgNaOfTegh3k0PtNTe49ISMr1cz19CVcvH?=
- =?us-ascii?Q?Y5NpR/fI4wMQ6AihkQEjKOlP/xCSmsDbNy8nhp3AG3DddYUR+2RHUQDbhUDw?=
- =?us-ascii?Q?i9YiVGcLbX3Aqdq5Gcg4p6ZxdMjOnTqXMWhJiYjNDe/5CJ52b1Zp3e9607RX?=
- =?us-ascii?Q?TY0dznllp8R/LpAm2zU8ZsTnUZsFF/KigzU0OzSl9FkeHf8Vl/0bmSKHRYzt?=
- =?us-ascii?Q?td5SY6Yvs1VYoS+QxwCFweOtZcAVtAtjUCA8ipMtH8KboYmK0Sf6hRHm81vj?=
- =?us-ascii?Q?hgy4I+HQxFw2EDX6CDnXPguKKyhq0GgqT6So3oitx0UPwVLwUQTFrakZCKiG?=
- =?us-ascii?Q?VjN4iryCF74/x5oG3/HTshZFPYYVN82UW9/lrd09jvPB1QBtSzOksi1SZmcO?=
- =?us-ascii?Q?9nrJzyCp2ZwayP8jsXuXHr4nCZK1ieV4pdUEMWpe0EVt4L7P4btqe0zoR4jn?=
- =?us-ascii?Q?JYzd91vCO3nGnZh8lfZvHeCPAlVNTkMujjWH7y4L7/92KCcI6BvmVzodiwQ2?=
- =?us-ascii?Q?ANlxeVZuHgIWDdtJpyfbDhd0WkvzE/Ir9iUR7nM4YRDlVQNSTofJeBwwpbCu?=
- =?us-ascii?Q?PIzyYNHubA4wHH+f9jZlc5w8BuqRcy3uXPknpwQQnWykd2WtmSzrGP/MCjka?=
- =?us-ascii?Q?3TvzBhpMtvQLUmJfTkZjtrdBFytgaqpXMS7ecU5WDO6zRHilK6IVCYdislN1?=
- =?us-ascii?Q?BUZQ7rrjiOcu82Gs7x7NPMiXX0cI5dupEgj6G2ZeBUfqIjDsn6h+TDlkZFX7?=
- =?us-ascii?Q?uuDD1nH4m4kvBquDLw1YDXsCF2s0gyOD5h6DZFUAUnsmipuO+MPTiFBwzg+K?=
- =?us-ascii?Q?guRJZHfmfF7mYyn3M96fXCBfOE0H2HiTmHQrKZYou7yxOrqwGSsO9c2qUkxY?=
- =?us-ascii?Q?wJrj9ritTqaBJT8vjdTeCz/YWwaP9x2K7aMH+j/pwsomTg3LROhrVA5uKg+1?=
- =?us-ascii?Q?MMsXxGSDWanLoQ1eHGQEihfvG/BaRk/oeFk0H0BUnHmonXzNVrn90uGg7J5n?=
- =?us-ascii?Q?H+gv8zcyndCiTRQsCn76OPKqVEzUPEUaRZS4bFqHAf6Kr10WaQU46z0rcHk?=
- =?us-ascii?Q?=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d51c2694-2a80-4a7c-cf2a-08dc06871f98
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR20MB4953.namprd20.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Dec 2023 02:54:20.7041
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR20MB3754
-X-Mailman-Approved-At: Tue, 02 Jan 2024 08:37:47 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: linux-next: Tree for Jan 2 (riscv: exittext undef. references)
+Content-Language: en-US
+To: Stephen Rothwell <sfr@canb.auug.org.au>,
+ Linux Next Mailing List <linux-next@vger.kernel.org>
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+References: <20240102165725.6d18cc50@canb.auug.org.au>
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20240102165725.6d18cc50@canb.auug.org.au>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,3663 +51,653 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add driver for CV1800 series clock controller.
+This is a multi-part message in MIME format.
+--------------OWPnCHPbaVKxZebYjigKDrVW
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Signed-off-by: Inochi Amaoto <inochiama@outlook.com>
-Link: https://github.com/milkv-duo/duo-files/blob/main/hardware/CV1800B/CV180X-Clock-v1.xlsx
-Link: https://github.com/milkv-duo/duo-files/blob/main/hardware/CV1800B/CV1800B-CV1801B-Preliminary-Datasheet-full-en.pdf
----
- drivers/clk/Kconfig                    |    1 +
- drivers/clk/Makefile                   |    1 +
- drivers/clk/sophgo/Kconfig             |   12 +
- drivers/clk/sophgo/Makefile            |    7 +
- drivers/clk/sophgo/clk-cv1800.c        | 1530 ++++++++++++++++++++++++
- drivers/clk/sophgo/clk-cv1800.h        |  123 ++
- drivers/clk/sophgo/clk-cv18xx-common.c |   66 +
- drivers/clk/sophgo/clk-cv18xx-common.h |   81 ++
- drivers/clk/sophgo/clk-cv18xx-ip.c     |  905 ++++++++++++++
- drivers/clk/sophgo/clk-cv18xx-ip.h     |  265 ++++
- drivers/clk/sophgo/clk-cv18xx-pll.c    |  425 +++++++
- drivers/clk/sophgo/clk-cv18xx-pll.h    |  119 ++
- 12 files changed, 3535 insertions(+)
- create mode 100644 drivers/clk/sophgo/Kconfig
- create mode 100644 drivers/clk/sophgo/Makefile
- create mode 100644 drivers/clk/sophgo/clk-cv1800.c
- create mode 100644 drivers/clk/sophgo/clk-cv1800.h
- create mode 100644 drivers/clk/sophgo/clk-cv18xx-common.c
- create mode 100644 drivers/clk/sophgo/clk-cv18xx-common.h
- create mode 100644 drivers/clk/sophgo/clk-cv18xx-ip.c
- create mode 100644 drivers/clk/sophgo/clk-cv18xx-ip.h
- create mode 100644 drivers/clk/sophgo/clk-cv18xx-pll.c
- create mode 100644 drivers/clk/sophgo/clk-cv18xx-pll.h
 
-diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
-index c30d0d396f7a..514343934fda 100644
---- a/drivers/clk/Kconfig
-+++ b/drivers/clk/Kconfig
-@@ -499,6 +499,7 @@ source "drivers/clk/rockchip/Kconfig"
- source "drivers/clk/samsung/Kconfig"
- source "drivers/clk/sifive/Kconfig"
- source "drivers/clk/socfpga/Kconfig"
-+source "drivers/clk/sophgo/Kconfig"
- source "drivers/clk/sprd/Kconfig"
- source "drivers/clk/starfive/Kconfig"
- source "drivers/clk/sunxi/Kconfig"
-diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-index ed71f2e0ee36..eeae7ae93f89 100644
---- a/drivers/clk/Makefile
-+++ b/drivers/clk/Makefile
-@@ -119,6 +119,7 @@ obj-$(CONFIG_ARCH_ROCKCHIP)		+= rockchip/
- obj-$(CONFIG_COMMON_CLK_SAMSUNG)	+= samsung/
- obj-$(CONFIG_CLK_SIFIVE)		+= sifive/
- obj-y					+= socfpga/
-+obj-y					+= sophgo/
- obj-$(CONFIG_PLAT_SPEAR)		+= spear/
- obj-y					+= sprd/
- obj-$(CONFIG_ARCH_STI)			+= st/
-diff --git a/drivers/clk/sophgo/Kconfig b/drivers/clk/sophgo/Kconfig
-new file mode 100644
-index 000000000000..d67009fa749f
---- /dev/null
-+++ b/drivers/clk/sophgo/Kconfig
-@@ -0,0 +1,12 @@
-+# SPDX-License-Identifier: GPL-2.0
-+# common clock support for SOPHGO SoC family.
-+
-+config CLK_SOPHGO_CV1800
-+	tristate "Support for the Sophgo CV1800 series SoCs clock controller"
-+	default m
-+	depends on ARCH_SOPHGO || COMPILE_TEST
-+	help
-+	  This driver supports clock controller of Sophgo CV18XX series SoC.
-+	  The driver require a 25MHz Oscillator to function generate clock.
-+	  It includes PLLs, common clock function and some vendor clock for
-+	  IPs of CV18XX series SoC
-diff --git a/drivers/clk/sophgo/Makefile b/drivers/clk/sophgo/Makefile
-new file mode 100644
-index 000000000000..a50320764200
---- /dev/null
-+++ b/drivers/clk/sophgo/Makefile
-@@ -0,0 +1,7 @@
-+# SPDX-License-Identifier: GPL-2.0
-+obj-$(CONFIG_CLK_SOPHGO_CV1800)	+= clk-sophgo-cv1800.o
-+
-+clk-sophgo-cv1800-y		+= clk-cv1800.o
-+clk-sophgo-cv1800-y		+= clk-cv18xx-common.o
-+clk-sophgo-cv1800-y		+= clk-cv18xx-ip.o
-+clk-sophgo-cv1800-y		+= clk-cv18xx-pll.o
-diff --git a/drivers/clk/sophgo/clk-cv1800.c b/drivers/clk/sophgo/clk-cv1800.c
-new file mode 100644
-index 000000000000..2bdfdd0b907c
---- /dev/null
-+++ b/drivers/clk/sophgo/clk-cv1800.c
-@@ -0,0 +1,1530 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
-+ */
-+
-+#include <linux/module.h>
-+#include <linux/clk-provider.h>
-+#include <linux/platform_device.h>
-+#include <linux/io.h>
-+#include <linux/spinlock.h>
-+
-+#include "clk-cv1800.h"
-+
-+#include "clk-cv18xx-common.h"
-+#include "clk-cv18xx-ip.h"
-+#include "clk-cv18xx-pll.h"
-+
-+struct cv1800_clk_ctrl;
-+
-+struct cv1800_clk_desc {
-+	struct clk_hw_onecell_data	*clks_data;
-+
-+	int (*pre_init)(struct device *dev, void __iomem *base,
-+			struct cv1800_clk_ctrl *ctrl,
-+			const struct cv1800_clk_desc *desc);
-+};
-+
-+struct cv1800_clk_ctrl {
-+	const struct cv1800_clk_desc	*desc;
-+	spinlock_t			lock;
-+};
-+
-+#define CV1800_DIV_FLAG	\
-+	(CLK_DIVIDER_ONE_BASED | CLK_DIVIDER_ROUND_CLOSEST)
-+static const struct clk_parent_data osc_parents[] = {
-+	{ .index = 0 },
-+};
-+
-+static const struct cv1800_clk_pll_limit pll_limits[] = {
-+	{
-+		.pre_div	= _CV1800_PLL_LIMIT(1, 127),
-+		.div		= _CV1800_PLL_LIMIT(6, 127),
-+		.post_div	= _CV1800_PLL_LIMIT(1, 127),
-+		.ictrl		= _CV1800_PLL_LIMIT(0, 7),
-+		.mode		= _CV1800_PLL_LIMIT(0, 3),
-+	},
-+	{
-+		.pre_div	= _CV1800_PLL_LIMIT(1, 127),
-+		.div		= _CV1800_PLL_LIMIT(6, 127),
-+		.post_div	= _CV1800_PLL_LIMIT(1, 127),
-+		.ictrl		= _CV1800_PLL_LIMIT(0, 7),
-+		.mode		= _CV1800_PLL_LIMIT(0, 3),
-+	},
-+};
-+
-+static CV1800_INTEGRAL_PLL(clk_fpll, osc_parents,
-+			   REG_FPLL_CSR,
-+			   REG_PLL_G6_CTRL, 8,
-+			   REG_PLL_G6_STATUS, 2,
-+			   pll_limits,
-+			   CLK_IS_CRITICAL);
-+
-+static CV1800_INTEGRAL_PLL(clk_mipimpll, osc_parents,
-+			   REG_MIPIMPLL_CSR,
-+			   REG_PLL_G2_CTRL, 0,
-+			   REG_PLL_G2_STATUS, 0,
-+			   pll_limits,
-+			   CLK_IS_CRITICAL);
-+
-+static const struct clk_parent_data clk_mipimpll_parents[] = {
-+	{ .hw = &clk_mipimpll.common.hw },
-+};
-+static const struct clk_parent_data clk_bypass_mipimpll_parents[] = {
-+	{ .index = 0 },
-+	{ .hw = &clk_mipimpll.common.hw },
-+};
-+static const struct clk_parent_data clk_bypass_fpll_parents[] = {
-+	{ .index = 0 },
-+	{ .hw = &clk_fpll.common.hw },
-+};
-+
-+struct cv1800_clk_pll_synthesizer clk_mpll_synthesizer = {
-+	.en		= CV1800_CLK_BIT(REG_PLL_G6_SSC_SYN_CTRL, 2),
-+	.clk_half	= CV1800_CLK_BIT(REG_PLL_G6_SSC_SYN_CTRL, 0),
-+	.ctrl		= REG_MPLL_SSC_SYN_CTRL,
-+	.set		= REG_MPLL_SSC_SYN_SET,
-+};
-+static CV1800_FACTIONAL_PLL(clk_mpll, clk_bypass_mipimpll_parents,
-+			    REG_MPLL_CSR,
-+			    REG_PLL_G6_CTRL, 0,
-+			    REG_PLL_G6_STATUS, 0,
-+			    pll_limits,
-+			    &clk_mpll_synthesizer,
-+			    CLK_IS_CRITICAL);
-+
-+struct cv1800_clk_pll_synthesizer clk_tpll_synthesizer = {
-+	.en		= CV1800_CLK_BIT(REG_PLL_G6_SSC_SYN_CTRL, 3),
-+	.clk_half	= CV1800_CLK_BIT(REG_PLL_G6_SSC_SYN_CTRL, 0),
-+	.ctrl		= REG_TPLL_SSC_SYN_CTRL,
-+	.set		= REG_TPLL_SSC_SYN_SET,
-+};
-+static CV1800_FACTIONAL_PLL(clk_tpll, clk_bypass_mipimpll_parents,
-+			    REG_TPLL_CSR,
-+			    REG_PLL_G6_CTRL, 4,
-+			    REG_PLL_G6_STATUS, 1,
-+			    pll_limits,
-+			    &clk_tpll_synthesizer,
-+			    CLK_IS_CRITICAL);
-+
-+struct cv1800_clk_pll_synthesizer clk_a0pll_synthesizer = {
-+	.en		= CV1800_CLK_BIT(REG_PLL_G2_SSC_SYN_CTRL, 2),
-+	.clk_half	= CV1800_CLK_BIT(REG_PLL_G2_SSC_SYN_CTRL, 0),
-+	.ctrl		= REG_A0PLL_SSC_SYN_CTRL,
-+	.set		= REG_A0PLL_SSC_SYN_SET,
-+};
-+static CV1800_FACTIONAL_PLL(clk_a0pll, clk_bypass_mipimpll_parents,
-+			    REG_A0PLL_CSR,
-+			    REG_PLL_G2_CTRL, 4,
-+			    REG_PLL_G2_STATUS, 1,
-+			    pll_limits,
-+			    &clk_a0pll_synthesizer,
-+			    CLK_IS_CRITICAL);
-+
-+struct cv1800_clk_pll_synthesizer clk_disppll_synthesizer = {
-+	.en		= CV1800_CLK_BIT(REG_PLL_G2_SSC_SYN_CTRL, 3),
-+	.clk_half	= CV1800_CLK_BIT(REG_PLL_G2_SSC_SYN_CTRL, 0),
-+	.ctrl		= REG_DISPPLL_SSC_SYN_CTRL,
-+	.set		= REG_DISPPLL_SSC_SYN_SET,
-+};
-+static CV1800_FACTIONAL_PLL(clk_disppll, clk_bypass_mipimpll_parents,
-+			    REG_DISPPLL_CSR,
-+			    REG_PLL_G2_CTRL, 8,
-+			    REG_PLL_G2_STATUS, 2,
-+			    pll_limits,
-+			    &clk_disppll_synthesizer,
-+			    CLK_IS_CRITICAL);
-+
-+struct cv1800_clk_pll_synthesizer clk_cam0pll_synthesizer = {
-+	.en		= CV1800_CLK_BIT(REG_PLL_G2_SSC_SYN_CTRL, 4),
-+	.clk_half	= CV1800_CLK_BIT(REG_PLL_G2_SSC_SYN_CTRL, 0),
-+	.ctrl		= REG_CAM0PLL_SSC_SYN_CTRL,
-+	.set		= REG_CAM0PLL_SSC_SYN_SET,
-+};
-+static CV1800_FACTIONAL_PLL(clk_cam0pll, clk_bypass_mipimpll_parents,
-+			    REG_CAM0PLL_CSR,
-+			    REG_PLL_G2_CTRL, 12,
-+			    REG_PLL_G2_STATUS, 3,
-+			    pll_limits,
-+			    &clk_cam0pll_synthesizer,
-+			    CLK_IGNORE_UNUSED);
-+
-+struct cv1800_clk_pll_synthesizer clk_cam1pll_synthesizer = {
-+	.en		= CV1800_CLK_BIT(REG_PLL_G2_SSC_SYN_CTRL, 5),
-+	.clk_half	= CV1800_CLK_BIT(REG_PLL_G2_SSC_SYN_CTRL, 0),
-+	.ctrl		= REG_CAM1PLL_SSC_SYN_CTRL,
-+	.set		= REG_CAM1PLL_SSC_SYN_SET,
-+};
-+static CV1800_FACTIONAL_PLL(clk_cam1pll, clk_bypass_mipimpll_parents,
-+			    REG_CAM1PLL_CSR,
-+			    REG_PLL_G2_CTRL, 16,
-+			    REG_PLL_G2_STATUS, 4,
-+			    pll_limits,
-+			    &clk_cam1pll_synthesizer,
-+			    CLK_IS_CRITICAL);
-+
-+static const struct clk_parent_data clk_cam0pll_parents[] = {
-+	{ .hw = &clk_cam0pll.common.hw },
-+};
-+
-+
-+/* G2D */
-+static CV1800_FIXED_DIV(clk_cam0pll_d2, clk_cam0pll_parents,
-+			REG_CAM0PLL_CLK_CSR, 1,
-+			2,
-+			CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED);
-+static CV1800_FIXED_DIV(clk_cam0pll_d3, clk_cam0pll_parents,
-+			REG_CAM0PLL_CLK_CSR, 2,
-+			3,
-+			CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED);
-+static CV1800_FIXED_DIV(clk_mipimpll_d3, clk_mipimpll_parents,
-+			REG_MIPIMPLL_CLK_CSR, 2,
-+			3,
-+			CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED);
-+
-+/* TPU */
-+static const struct clk_parent_data clk_tpu_parents[] = {
-+	{ .index = 0 },
-+	{ .hw = &clk_tpll.common.hw },
-+	{ .hw = &clk_a0pll.common.hw },
-+	{ .hw = &clk_mipimpll.common.hw },
-+	{ .hw = &clk_fpll.common.hw },
-+};
-+
-+static CV1800_BYPASS_MUX(clk_tpu, clk_tpu_parents,
-+			 REG_CLK_EN_0, 4,
-+			 REG_DIV_CLK_TPU, 16, 4, 3, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_TPU, 8, 2,
-+			 REG_CLK_BYP_0, 3,
-+			 0);
-+static CV1800_GATE(clk_tpu_fab, clk_mipimpll_parents,
-+		   REG_CLK_EN_0, 5,
-+		   0);
-+
-+/* FABRIC_AXI6 */
-+static CV1800_BYPASS_DIV(clk_axi6, clk_bypass_fpll_parents,
-+			 REG_CLK_EN_2, 2,
-+			 REG_DIV_CLK_AXI6, 16, 4, 15, CV1800_DIV_FLAG,
-+			 REG_CLK_BYP_0, 20,
-+			 CLK_IS_CRITICAL);
-+
-+static const struct clk_parent_data clk_axi6_bus_parents[] = {
-+	{ .hw = &clk_axi6.div.common.hw },
-+};
-+static const struct clk_parent_data clk_bypass_axi6_bus_parents[] = {
-+	{ .index = 0 },
-+	{ .hw = &clk_axi6.div.common.hw },
-+};
-+
-+/* FABRIC_AXI4 */
-+static const struct clk_parent_data clk_axi4_parents[] = {
-+	{ .index = 0 },
-+	{ .hw = &clk_fpll.common.hw },
-+	{ .hw = &clk_disppll.common.hw },
-+};
-+
-+static CV1800_BYPASS_MUX(clk_axi4, clk_axi4_parents,
-+			 REG_CLK_EN_2, 1,
-+			 REG_DIV_CLK_AXI4, 16, 4, 5, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_AXI4, 8, 2,
-+			 REG_CLK_BYP_0, 19,
-+			 CLK_IS_CRITICAL);
-+
-+static const struct clk_parent_data clk_axi4_bus_parents[] = {
-+	{ .hw = &clk_axi4.mux.common.hw },
-+};
-+
-+/* XTAL_MISC */
-+static CV1800_GATE(clk_xtal_misc, osc_parents,
-+		   REG_CLK_EN_0, 14,
-+		   CLK_IS_CRITICAL);
-+
-+static const struct clk_parent_data clk_timer_parents[] = {
-+	{ .hw = &clk_xtal_misc.common.hw },
-+};
-+
-+/* TOP */
-+static const struct clk_parent_data clk_cam0_200_parents[] = {
-+	{ .index = 0 },
-+	{ .index = 0 },
-+	{ .hw = &clk_disppll.common.hw },
-+};
-+
-+static CV1800_BYPASS_MUX(clk_cam0_200, clk_cam0_200_parents,
-+			 REG_CLK_EN_1, 13,
-+			 REG_DIV_CLK_CAM0_200, 16, 4, 1, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_CAM0_200, 8, 2,
-+			 REG_CLK_BYP_0, 16,
-+			 CLK_IS_CRITICAL);
-+static CV1800_DIV(clk_1m, osc_parents,
-+		  REG_CLK_EN_3, 5,
-+		  REG_DIV_CLK_1M, 16, 6, 25, CV1800_DIV_FLAG,
-+		  CLK_IS_CRITICAL);
-+static CV1800_GATE(clk_pm, clk_axi6_bus_parents,
-+		   REG_CLK_EN_3, 8,
-+		   CLK_IS_CRITICAL);
-+static CV1800_GATE(clk_timer0, clk_timer_parents,
-+		   REG_CLK_EN_3, 9,
-+		   CLK_IS_CRITICAL);
-+static CV1800_GATE(clk_timer1, clk_timer_parents,
-+		   REG_CLK_EN_3, 10,
-+		   CLK_IS_CRITICAL);
-+static CV1800_GATE(clk_timer2, clk_timer_parents,
-+		   REG_CLK_EN_3, 11,
-+		   CLK_IS_CRITICAL);
-+static CV1800_GATE(clk_timer3, clk_timer_parents,
-+		   REG_CLK_EN_3, 12,
-+		   CLK_IS_CRITICAL);
-+static CV1800_GATE(clk_timer4, clk_timer_parents,
-+		   REG_CLK_EN_3, 13,
-+		   CLK_IS_CRITICAL);
-+static CV1800_GATE(clk_timer5, clk_timer_parents,
-+		   REG_CLK_EN_3, 14,
-+		   CLK_IS_CRITICAL);
-+static CV1800_GATE(clk_timer6, clk_timer_parents,
-+		   REG_CLK_EN_3, 15,
-+		   CLK_IS_CRITICAL);
-+static CV1800_GATE(clk_timer7, clk_timer_parents,
-+		   REG_CLK_EN_3, 16,
-+		   CLK_IS_CRITICAL);
-+
-+static const struct clk_parent_data clk_parents_1m[] = {
-+	{ .hw = &clk_1m.common.hw },
-+};
-+static const struct clk_parent_data clk_uart_parents[] = {
-+	{ .hw = &clk_cam0_200.mux.common.hw },
-+};
-+
-+/* AHB ROM */
-+static CV1800_GATE(clk_ahb_rom, clk_axi4_bus_parents,
-+		   REG_CLK_EN_0, 6,
-+		   0);
-+
-+/* RTC */
-+static CV1800_GATE(clk_rtc_25m, osc_parents,
-+		   REG_CLK_EN_0, 8,
-+		   CLK_IS_CRITICAL);
-+static CV1800_BYPASS_DIV(clk_src_rtc_sys_0, clk_bypass_fpll_parents,
-+			 REG_CLK_EN_4, 6,
-+			 REG_DIV_CLK_RTCSYS_SRC_0, 16, 4, 5, CV1800_DIV_FLAG,
-+			 REG_CLK_BYP_1, 5,
-+			 CLK_IS_CRITICAL);
-+
-+/* TEMPSEN */
-+static CV1800_GATE(clk_tempsen, osc_parents,
-+		   REG_CLK_EN_0, 9,
-+		   0);
-+
-+/* SARADC */
-+static CV1800_GATE(clk_saradc, osc_parents,
-+		   REG_CLK_EN_0, 10,
-+		   0);
-+
-+/* EFUSE */
-+static CV1800_GATE(clk_efuse, osc_parents,
-+		   REG_CLK_EN_0, 11,
-+		   0);
-+static CV1800_GATE(clk_apb_efuse, osc_parents,
-+		   REG_CLK_EN_0, 12,
-+		   0);
-+
-+/* WDT */
-+static CV1800_GATE(clk_apb_wdt, osc_parents,
-+		   REG_CLK_EN_1, 7,
-+		   CLK_IS_CRITICAL);
-+
-+/* WGN */
-+static CV1800_GATE(clk_wgn, osc_parents,
-+		   REG_CLK_EN_3, 22,
-+		   0);
-+static CV1800_GATE(clk_wgn0, osc_parents,
-+		   REG_CLK_EN_3, 23,
-+		   0);
-+static CV1800_GATE(clk_wgn1, osc_parents,
-+		   REG_CLK_EN_3, 24,
-+		   0);
-+static CV1800_GATE(clk_wgn2, osc_parents,
-+		   REG_CLK_EN_3, 25,
-+		   0);
-+
-+/* KEYSCAN */
-+static CV1800_GATE(clk_keyscan, osc_parents,
-+		   REG_CLK_EN_3, 26,
-+		   0);
-+
-+/* EMMC */
-+static CV1800_GATE(clk_axi4_emmc, clk_axi4_bus_parents,
-+		   REG_CLK_EN_0, 15,
-+		   0);
-+static CV1800_BYPASS_MUX(clk_emmc, clk_axi4_parents,
-+			 REG_CLK_EN_0, 16,
-+			 REG_DIV_CLK_EMMC, 16, 5, 15, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_EMMC, 8, 2,
-+			 REG_CLK_BYP_0, 5,
-+			 0);
-+static CV1800_DIV(clk_emmc_100k, clk_parents_1m,
-+		  REG_CLK_EN_0, 17,
-+		  REG_DIV_CLK_EMMC_100K, 16, 8, 10, CV1800_DIV_FLAG,
-+		  0);
-+
-+/* SD */
-+static CV1800_GATE(clk_axi4_sd0, clk_axi4_bus_parents,
-+		   REG_CLK_EN_0, 18,
-+		   0);
-+static CV1800_BYPASS_MUX(clk_sd0, clk_axi4_parents,
-+			 REG_CLK_EN_0, 19,
-+			 REG_DIV_CLK_SD0, 16, 5, 15, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_SD0, 8, 2,
-+			 REG_CLK_BYP_0, 6,
-+			 0);
-+static CV1800_DIV(clk_sd0_100k, clk_parents_1m,
-+		  REG_CLK_EN_0, 20,
-+		  REG_DIV_CLK_SD0_100K, 16, 8, 10, CV1800_DIV_FLAG,
-+		  0);
-+static CV1800_GATE(clk_axi4_sd1, clk_axi4_bus_parents,
-+		   REG_CLK_EN_0, 21,
-+		   0);
-+static CV1800_BYPASS_MUX(clk_sd1, clk_axi4_parents,
-+			 REG_CLK_EN_0, 22,
-+			 REG_DIV_CLK_SD1, 16, 5, 15, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_SD1, 8, 2,
-+			 REG_CLK_BYP_0, 7,
-+			 0);
-+static CV1800_DIV(clk_sd1_100k, clk_parents_1m,
-+		  REG_CLK_EN_0, 23,
-+		  REG_DIV_CLK_SD1_100K, 16, 8, 10, CV1800_DIV_FLAG,
-+		  0);
-+
-+/* SPI NAND */
-+static CV1800_BYPASS_MUX(clk_spi_nand, clk_axi4_parents,
-+			 REG_CLK_EN_0, 24,
-+			 REG_DIV_CLK_SPI_NAND, 16, 5, 8, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_SPI_NAND, 8, 2,
-+			 REG_CLK_BYP_0, 8,
-+			 0);
-+
-+/* GPIO */
-+static CV1800_DIV(clk_gpio_db, clk_parents_1m,
-+		  REG_CLK_EN_0, 31,
-+		  REG_DIV_CLK_GPIO_DB, 16, 16, 10, CV1800_DIV_FLAG,
-+		  CLK_IS_CRITICAL);
-+static CV1800_GATE(clk_apb_gpio, clk_axi6_bus_parents,
-+		   REG_CLK_EN_0, 29,
-+		   CLK_IS_CRITICAL);
-+static CV1800_GATE(clk_apb_gpio_intr, clk_axi6_bus_parents,
-+		   REG_CLK_EN_0, 30,
-+		   CLK_IS_CRITICAL);
-+
-+/* ETH */
-+static CV1800_BYPASS_DIV(clk_eth0_500m, clk_bypass_fpll_parents,
-+			 REG_CLK_EN_0, 25,
-+			 REG_DIV_CLK_GPIO_DB, 16, 4, 3, CV1800_DIV_FLAG,
-+			 REG_CLK_BYP_0, 9,
-+			 0);
-+static CV1800_GATE(clk_axi4_eth0, clk_axi4_bus_parents,
-+		   REG_CLK_EN_0, 26,
-+		   0);
-+static CV1800_BYPASS_DIV(clk_eth1_500m, clk_bypass_fpll_parents,
-+			 REG_CLK_EN_0, 27,
-+			 REG_DIV_CLK_GPIO_DB, 16, 4, 3, CV1800_DIV_FLAG,
-+			 REG_CLK_BYP_0, 10,
-+			 0);
-+static CV1800_GATE(clk_axi4_eth1, clk_axi4_bus_parents,
-+		   REG_CLK_EN_0, 28,
-+		   0);
-+
-+/* SF */
-+static CV1800_GATE(clk_ahb_sf, clk_axi4_bus_parents,
-+		   REG_CLK_EN_1, 0,
-+		   0);
-+static CV1800_GATE(clk_ahb_sf1, clk_axi4_bus_parents,
-+		   REG_CLK_EN_3, 27,
-+		   0);
-+
-+/* AUDSRC */
-+static CV1800_ACLK(clk_a24m, clk_mipimpll_parents,
-+		   REG_APLL_FRAC_DIV_CTRL, 0,
-+		   REG_APLL_FRAC_DIV_CTRL, 3,
-+		   REG_APLL_FRAC_DIV_CTRL, 1,
-+		   REG_APLL_FRAC_DIV_CTRL, 2,
-+		   REG_APLL_FRAC_DIV_M, 0, 22, CV1800_DIV_FLAG,
-+		   REG_APLL_FRAC_DIV_N, 0, 22, CV1800_DIV_FLAG,
-+		   24576000,
-+		   0);
-+
-+static const struct clk_parent_data clk_aud_parents[] = {
-+	{ .index = 0 },
-+	{ .hw = &clk_a0pll.common.hw },
-+	{ .hw = &clk_a24m.common.hw },
-+};
-+
-+static CV1800_BYPASS_MUX(clk_audsrc, clk_aud_parents,
-+			 REG_CLK_EN_4, 1,
-+			 REG_DIV_CLK_AUDSRC, 16, 8, 18, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_AUDSRC, 8, 2,
-+			 REG_CLK_BYP_1, 2,
-+			 0);
-+static CV1800_GATE(clk_apb_audsrc, clk_axi4_bus_parents,
-+		   REG_CLK_EN_4, 2,
-+		   0);
-+
-+/* SDMA */
-+static CV1800_GATE(clk_sdma_axi, clk_axi4_bus_parents,
-+		   REG_CLK_EN_1, 1,
-+		   0);
-+static CV1800_BYPASS_MUX(clk_sdma_aud0, clk_aud_parents,
-+			 REG_CLK_EN_1, 2,
-+			 REG_DIV_CLK_SDMA_AUD0, 16, 8, 18, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_SDMA_AUD0, 8, 2,
-+			 REG_CLK_BYP_0, 11,
-+			 0);
-+static CV1800_BYPASS_MUX(clk_sdma_aud1, clk_aud_parents,
-+			 REG_CLK_EN_1, 3,
-+			 REG_DIV_CLK_SDMA_AUD1, 16, 8, 18, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_SDMA_AUD1, 8, 2,
-+			 REG_CLK_BYP_0, 12,
-+			 0);
-+static CV1800_BYPASS_MUX(clk_sdma_aud2, clk_aud_parents,
-+			 REG_CLK_EN_1, 3,
-+			 REG_DIV_CLK_SDMA_AUD2, 16, 8, 18, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_SDMA_AUD2, 8, 2,
-+			 REG_CLK_BYP_0, 13,
-+			 0);
-+static CV1800_BYPASS_MUX(clk_sdma_aud3, clk_aud_parents,
-+			 REG_CLK_EN_1, 3,
-+			 REG_DIV_CLK_SDMA_AUD3, 16, 8, 18, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_SDMA_AUD3, 8, 2,
-+			 REG_CLK_BYP_0, 14,
-+			 0);
-+
-+/* SPI */
-+static CV1800_GATE(clk_apb_spi0, clk_axi4_bus_parents,
-+		   REG_CLK_EN_1, 9,
-+		   0);
-+static CV1800_GATE(clk_apb_spi1, clk_axi4_bus_parents,
-+		   REG_CLK_EN_1, 10,
-+		   0);
-+static CV1800_GATE(clk_apb_spi2, clk_axi4_bus_parents,
-+		   REG_CLK_EN_1, 11,
-+		   0);
-+static CV1800_GATE(clk_apb_spi3, clk_axi4_bus_parents,
-+		   REG_CLK_EN_1, 12,
-+		   0);
-+static CV1800_BYPASS_DIV(clk_spi, clk_bypass_fpll_parents,
-+			 REG_CLK_EN_3, 6,
-+			 REG_DIV_CLK_SPI, 16, 6, 8, CV1800_DIV_FLAG,
-+			 REG_CLK_BYP_0, 30,
-+			 0);
-+
-+/* UART */
-+static CV1800_GATE(clk_uart0, clk_uart_parents,
-+		   REG_CLK_EN_1, 14,
-+		   CLK_IS_CRITICAL);
-+static CV1800_GATE(clk_apb_uart0, clk_axi4_bus_parents,
-+		   REG_CLK_EN_1, 15,
-+		   CLK_IS_CRITICAL);
-+static CV1800_GATE(clk_uart1, clk_uart_parents,
-+		   REG_CLK_EN_1, 16,
-+		   0);
-+static CV1800_GATE(clk_apb_uart1, clk_axi4_bus_parents,
-+		   REG_CLK_EN_1, 17,
-+		   0);
-+static CV1800_GATE(clk_uart2, clk_uart_parents,
-+		   REG_CLK_EN_1, 18,
-+		   0);
-+static CV1800_GATE(clk_apb_uart2, clk_axi4_bus_parents,
-+		   REG_CLK_EN_1, 19,
-+		   0);
-+static CV1800_GATE(clk_uart3, clk_uart_parents,
-+		   REG_CLK_EN_1, 20,
-+		   0);
-+static CV1800_GATE(clk_apb_uart3, clk_axi4_bus_parents,
-+		   REG_CLK_EN_1, 21,
-+		   0);
-+static CV1800_GATE(clk_uart4, clk_uart_parents,
-+		   REG_CLK_EN_1, 22,
-+		   0);
-+static CV1800_GATE(clk_apb_uart4, clk_axi4_bus_parents,
-+		   REG_CLK_EN_1, 23,
-+		   0);
-+
-+/* I2S */
-+static CV1800_GATE(clk_apb_i2s0, clk_axi4_bus_parents,
-+		   REG_CLK_EN_1, 24,
-+		   0);
-+static CV1800_GATE(clk_apb_i2s1, clk_axi4_bus_parents,
-+		   REG_CLK_EN_1, 25,
-+		   0);
-+static CV1800_GATE(clk_apb_i2s2, clk_axi4_bus_parents,
-+		   REG_CLK_EN_1, 26,
-+		   0);
-+static CV1800_GATE(clk_apb_i2s3, clk_axi4_bus_parents,
-+		   REG_CLK_EN_1, 27,
-+		   0);
-+
-+/* DEBUG */
-+static CV1800_GATE(clk_debug, osc_parents,
-+		   REG_CLK_EN_0, 13,
-+		   CLK_IS_CRITICAL);
-+static CV1800_BYPASS_DIV(clk_ap_debug, clk_bypass_fpll_parents,
-+			 REG_CLK_EN_4, 5,
-+			 REG_DIV_CLK_AP_DEBUG, 16, 4, 5, CV1800_DIV_FLAG,
-+			 REG_CLK_BYP_1, 4,
-+			 CLK_IS_CRITICAL);
-+
-+/* DDR */
-+static CV1800_GATE(clk_ddr_axi_reg, clk_axi6_bus_parents,
-+		   REG_CLK_EN_0, 7,
-+		   CLK_IS_CRITICAL);
-+
-+/* I2C */
-+static CV1800_GATE(clk_apb_i2c, clk_axi4_bus_parents,
-+		   REG_CLK_EN_1, 6,
-+		   0);
-+static CV1800_BYPASS_DIV(clk_i2c, clk_bypass_axi6_bus_parents,
-+			 REG_CLK_EN_3, 7,
-+			 REG_DIV_CLK_I2C, 16, 4, 1, CV1800_DIV_FLAG,
-+			 REG_CLK_BYP_0, 31,
-+			 0);
-+static CV1800_GATE(clk_apb_i2c0, clk_axi4_bus_parents,
-+		   REG_CLK_EN_3, 17,
-+		   0);
-+static CV1800_GATE(clk_apb_i2c1, clk_axi4_bus_parents,
-+		   REG_CLK_EN_3, 18,
-+		   0);
-+static CV1800_GATE(clk_apb_i2c2, clk_axi4_bus_parents,
-+		   REG_CLK_EN_3, 19,
-+		   0);
-+static CV1800_GATE(clk_apb_i2c3, clk_axi4_bus_parents,
-+		   REG_CLK_EN_3, 20,
-+		   0);
-+static CV1800_GATE(clk_apb_i2c4, clk_axi4_bus_parents,
-+		   REG_CLK_EN_3, 21,
-+		   0);
-+
-+/* USB */
-+static CV1800_GATE(clk_axi4_usb, clk_axi4_bus_parents,
-+		   REG_CLK_EN_1, 28,
-+		   0);
-+static CV1800_GATE(clk_apb_usb, clk_axi4_bus_parents,
-+		   REG_CLK_EN_1, 29,
-+		   0);
-+static CV1800_BYPASS_FIXED_DIV(clk_usb_125m, clk_bypass_fpll_parents,
-+			       REG_CLK_EN_1, 30,
-+			       12,
-+			       REG_CLK_BYP_0, 17,
-+			       CLK_SET_RATE_PARENT);
-+static CV1800_FIXED_DIV(clk_usb_33k, clk_parents_1m,
-+			REG_CLK_EN_1, 31,
-+			3,
-+			0);
-+static CV1800_BYPASS_FIXED_DIV(clk_usb_12m, clk_bypass_fpll_parents,
-+			       REG_CLK_EN_2, 0,
-+			       125,
-+			       REG_CLK_BYP_0, 18,
-+			       CLK_SET_RATE_PARENT);
-+
-+/* VIP SYS */
-+static const struct clk_parent_data clk_vip_sys_parents[] = {
-+	{ .index = 0 },
-+	{ .hw = &clk_mipimpll.common.hw },
-+	{ .hw = &clk_cam0pll.common.hw },
-+	{ .hw = &clk_disppll.common.hw },
-+	{ .hw = &clk_fpll.common.hw },
-+};
-+static const struct clk_parent_data clk_disp_vip_parents[] = {
-+	{ .index = 0 },
-+	{ .hw = &clk_disppll.common.hw },
-+};
-+
-+static CV1800_BYPASS_DIV(clk_dsi_esc, clk_bypass_axi6_bus_parents,
-+			 REG_CLK_EN_2, 3,
-+			 REG_DIV_CLK_DSI_ESC, 16, 4, 5, CV1800_DIV_FLAG,
-+			 REG_CLK_BYP_0, 21,
-+			 0);
-+static CV1800_BYPASS_MUX(clk_axi_vip, clk_vip_sys_parents,
-+			 REG_CLK_EN_2, 4,
-+			 REG_DIV_CLK_AXI_VIP, 16, 4, 3, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_AXI_VIP, 8, 2,
-+			 REG_CLK_BYP_0, 22,
-+			 0);
-+
-+static const struct clk_parent_data clk_axi_vip_bus_parents[] = {
-+	{ .hw = &clk_axi_vip.mux.common.hw },
-+};
-+
-+static CV1800_BYPASS_MUX(clk_src_vip_sys_0, clk_vip_sys_parents,
-+			 REG_CLK_EN_2, 5,
-+			 REG_DIV_CLK_SRC_VIP_SYS_0, 16, 4, 6, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_SRC_VIP_SYS_0, 8, 2,
-+			 REG_CLK_BYP_0, 23,
-+			 0);
-+static CV1800_BYPASS_MUX(clk_src_vip_sys_1, clk_vip_sys_parents,
-+			 REG_CLK_EN_2, 6,
-+			 REG_DIV_CLK_SRC_VIP_SYS_1, 16, 4, 6, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_SRC_VIP_SYS_1, 8, 2,
-+			 REG_CLK_BYP_0, 24,
-+			 0);
-+static CV1800_BYPASS_DIV(clk_disp_src_vip, clk_disp_vip_parents,
-+			 REG_CLK_EN_2, 7,
-+			 REG_DIV_CLK_DISP_SRC_VIP, 16, 4, 8, CV1800_DIV_FLAG,
-+			 REG_CLK_BYP_0, 25,
-+			 0);
-+static CV1800_BYPASS_MUX(clk_src_vip_sys_2, clk_vip_sys_parents,
-+			 REG_CLK_EN_3, 29,
-+			 REG_DIV_CLK_SRC_VIP_SYS_2, 16, 4, 2, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_SRC_VIP_SYS_2, 8, 2,
-+			 REG_CLK_BYP_1, 1,
-+			 0);
-+static CV1800_GATE(clk_csi_mac0_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_2, 18,
-+		   0);
-+static CV1800_GATE(clk_csi_mac1_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_2, 19,
-+		   0);
-+static CV1800_GATE(clk_isp_top_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_2, 20,
-+		   0);
-+static CV1800_GATE(clk_img_d_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_2, 21,
-+		   0);
-+static CV1800_GATE(clk_img_v_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_2, 22,
-+		   0);
-+static CV1800_GATE(clk_sc_top_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_2, 23,
-+		   0);
-+static CV1800_GATE(clk_sc_d_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_2, 24,
-+		   0);
-+static CV1800_GATE(clk_sc_v1_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_2, 25,
-+		   0);
-+static CV1800_GATE(clk_sc_v2_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_2, 26,
-+		   0);
-+static CV1800_GATE(clk_sc_v3_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_2, 27,
-+		   0);
-+static CV1800_GATE(clk_dwa_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_2, 28,
-+		   0);
-+static CV1800_GATE(clk_bt_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_2, 29,
-+		   0);
-+static CV1800_GATE(clk_disp_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_2, 30,
-+		   0);
-+static CV1800_GATE(clk_dsi_mac_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_2, 31,
-+		   0);
-+static CV1800_GATE(clk_lvds0_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_3, 0,
-+		   0);
-+static CV1800_GATE(clk_lvds1_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_3, 1,
-+		   0);
-+static CV1800_GATE(clk_csi0_rx_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_3, 2,
-+		   0);
-+static CV1800_GATE(clk_csi1_rx_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_3, 3,
-+		   0);
-+static CV1800_GATE(clk_pad_vi_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_3, 4,
-+		   0);
-+static CV1800_GATE(clk_pad_vi1_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_3, 30,
-+		   0);
-+static CV1800_GATE(clk_cfg_reg_vip, clk_axi6_bus_parents,
-+		   REG_CLK_EN_3, 31,
-+		   0);
-+static CV1800_GATE(clk_pad_vi2_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_4, 7,
-+		   0);
-+static CV1800_GATE(clk_csi_be_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_4, 8,
-+		   0);
-+static CV1800_GATE(clk_vip_ip0, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_4, 9,
-+		   0);
-+static CV1800_GATE(clk_vip_ip1, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_4, 10,
-+		   0);
-+static CV1800_GATE(clk_vip_ip2, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_4, 11,
-+		   0);
-+static CV1800_GATE(clk_vip_ip3, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_4, 12,
-+		   0);
-+static CV1800_BYPASS_MUX(clk_src_vip_sys_3, clk_vip_sys_parents,
-+			 REG_CLK_EN_4, 15,
-+			 REG_DIV_CLK_SRC_VIP_SYS_3, 16, 4, 2, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_SRC_VIP_SYS_3, 8, 2,
-+			 REG_CLK_BYP_1, 8,
-+			 0);
-+static CV1800_BYPASS_MUX(clk_src_vip_sys_4, clk_vip_sys_parents,
-+			 REG_CLK_EN_4, 16,
-+			 REG_DIV_CLK_SRC_VIP_SYS_4, 16, 4, 3, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_SRC_VIP_SYS_4, 8, 2,
-+			 REG_CLK_BYP_1, 9,
-+			 0);
-+static CV1800_GATE(clk_ive_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_4, 17,
-+		   0);
-+static CV1800_GATE(clk_raw_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_4, 18,
-+		   0);
-+static CV1800_GATE(clk_osdc_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_4, 19,
-+		   0);
-+static CV1800_GATE(clk_csi_mac2_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_4, 20,
-+		   0);
-+static CV1800_GATE(clk_cam0_vip, clk_axi_vip_bus_parents,
-+		   REG_CLK_EN_4, 21,
-+		   0);
-+
-+/* CAM OUT */
-+static const struct clk_parent_data clk_cam_parents[] = {
-+	{ .hw = &clk_cam0pll.common.hw },
-+	{ .hw = &clk_cam0pll_d2.common.hw },
-+	{ .hw = &clk_cam0pll_d3.common.hw },
-+	{ .hw = &clk_mipimpll_d3.common.hw },
-+};
-+
-+static CV1800_MUX(clk_cam0, clk_cam_parents,
-+		  REG_CLK_EN_2, 16,
-+		  REG_CLK_CAM0_SRC_DIV, 16, 6, 0, CV1800_DIV_FLAG,
-+		  REG_CLK_CAM0_SRC_DIV, 8, 2,
-+		  CLK_IGNORE_UNUSED);
-+static CV1800_MUX(clk_cam1, clk_cam_parents,
-+		  REG_CLK_EN_2, 17,
-+		  REG_CLK_CAM1_SRC_DIV, 16, 6, 0, CV1800_DIV_FLAG,
-+		  REG_CLK_CAM1_SRC_DIV, 8, 2,
-+		  CLK_IGNORE_UNUSED);
-+
-+
-+/* VIDEO SUBSYS */
-+static const struct clk_parent_data clk_axi_video_codec_parents[] = {
-+	{ .index = 0 },
-+	{ .hw = &clk_a0pll.common.hw },
-+	{ .hw = &clk_mipimpll.common.hw },
-+	{ .hw = &clk_cam1pll.common.hw },
-+	{ .hw = &clk_fpll.common.hw },
-+};
-+static const struct clk_parent_data clk_vc_src0_parents[] = {
-+	{ .index = 0 },
-+	{ .hw = &clk_disppll.common.hw },
-+	{ .hw = &clk_mipimpll.common.hw },
-+	{ .hw = &clk_cam1pll.common.hw },
-+	{ .hw = &clk_fpll.common.hw },
-+};
-+static const struct clk_parent_data clk_vc_src1_parents[] = {
-+	{ .index = 0 },
-+	{ .hw = &clk_cam1pll.common.hw },
-+};
-+
-+static CV1800_BYPASS_MUX(clk_axi_video_codec, clk_axi_video_codec_parents,
-+			 REG_CLK_EN_2, 8,
-+			 REG_DIV_CLK_AXI_VIDEO_CODEC, 16, 4, 2, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_AXI_VIDEO_CODEC, 8, 2,
-+			 REG_CLK_BYP_0, 26,
-+			 0);
-+
-+static const struct clk_parent_data clk_axi_video_codec_bus_parents[] = {
-+	{ .hw = &clk_axi_video_codec.mux.common.hw },
-+};
-+
-+static CV1800_BYPASS_MUX(clk_vc_src0, clk_vc_src0_parents,
-+			 REG_CLK_EN_2, 9,
-+			 REG_DIV_CLK_VC_SRC0, 16, 4, 2, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_VC_SRC0, 8, 2,
-+			 REG_CLK_BYP_0, 27,
-+			 0);
-+
-+static CV1800_GATE(clk_h264c, clk_axi_video_codec_bus_parents,
-+		   REG_CLK_EN_2, 10,
-+		   0);
-+static CV1800_GATE(clk_h265c, clk_axi_video_codec_bus_parents,
-+		   REG_CLK_EN_2, 11,
-+		   0);
-+static CV1800_GATE(clk_jpeg, clk_axi_video_codec_bus_parents,
-+		   REG_CLK_EN_2, 12,
-+		   CLK_IGNORE_UNUSED);
-+static CV1800_GATE(clk_apb_jpeg, clk_axi6_bus_parents,
-+		   REG_CLK_EN_2, 13,
-+		   CLK_IGNORE_UNUSED);
-+static CV1800_GATE(clk_apb_h264c, clk_axi6_bus_parents,
-+		   REG_CLK_EN_2, 14,
-+		   0);
-+static CV1800_GATE(clk_apb_h265c, clk_axi6_bus_parents,
-+		   REG_CLK_EN_2, 15,
-+		   0);
-+static CV1800_BYPASS_FIXED_DIV(clk_vc_src1, clk_vc_src1_parents,
-+			       REG_CLK_EN_3, 28,
-+			       2,
-+			       REG_CLK_BYP_1, 0,
-+			       CLK_SET_RATE_PARENT);
-+static CV1800_BYPASS_FIXED_DIV(clk_vc_src2, clk_bypass_fpll_parents,
-+			       REG_CLK_EN_4, 3,
-+			       3,
-+			       REG_CLK_BYP_1, 3,
-+			       CLK_SET_RATE_PARENT);
-+
-+/* VC SYS */
-+static CV1800_GATE(clk_cfg_reg_vc, clk_axi6_bus_parents,
-+		   REG_CLK_EN_4, 0,
-+		   CLK_IGNORE_UNUSED);
-+
-+/* PWM */
-+static CV1800_BYPASS_MUX(clk_pwm_src, clk_axi4_parents,
-+			 REG_CLK_EN_4, 4,
-+			 REG_DIV_CLK_PWM_SRC_0, 16, 6, 10, CV1800_DIV_FLAG,
-+			 REG_DIV_CLK_PWM_SRC_0, 8, 2,
-+			 REG_CLK_BYP_0, 15,
-+			 CLK_IS_CRITICAL);
-+
-+static const struct clk_parent_data clk_pwm_parents[] = {
-+	{ .hw = &clk_pwm_src.mux.common.hw },
-+};
-+
-+static CV1800_GATE(clk_pwm, clk_pwm_parents,
-+		   REG_CLK_EN_1, 8,
-+		   CLK_IS_CRITICAL);
-+
-+/* C906 */
-+static const struct clk_parent_data clk_c906_0_parents[] = {
-+	{ .index = 0 },
-+	{ .hw = &clk_tpll.common.hw },
-+	{ .hw = &clk_a0pll.common.hw },
-+	{ .hw = &clk_mipimpll.common.hw },
-+	{ .hw = &clk_mpll.common.hw },
-+	{ .hw = &clk_fpll.common.hw },
-+};
-+static const struct clk_parent_data clk_c906_1_parents[] = {
-+	{ .index = 0 },
-+	{ .hw = &clk_tpll.common.hw },
-+	{ .hw = &clk_a0pll.common.hw },
-+	{ .hw = &clk_disppll.common.hw },
-+	{ .hw = &clk_mpll.common.hw },
-+	{ .hw = &clk_fpll.common.hw },
-+};
-+
-+static const s8 clk_c906_parent2sel[] = {
-+	-1,	/* osc */
-+	0,	/* mux 0: clk_tpll(c906_0), clk_tpll(c906_1) */
-+	0,	/* mux 0: clk_a0pll(c906_0), clk_a0pll(c906_1) */
-+	0,	/* mux 0: clk_mipimpll(c906_0), clk_disppll(c906_1) */
-+	0,	/* mux 0: clk_mpll(c906_0), clk_mpll(c906_1) */
-+	1	/* mux 1: clk_fpll(c906_0), clk_fpll(c906_1) */
-+};
-+
-+static const u8 clk_c906_sel2parent[2][4] = {
-+	[0] = {
-+		1,
-+		2,
-+		3,
-+		4
-+	},
-+	[1] = {
-+		5,
-+		5,
-+		5,
-+		5
-+	},
-+};
-+
-+static CV1800_MMUX(clk_c906_0, clk_c906_0_parents,
-+		   REG_CLK_EN_4, 13,
-+		   REG_DIV_CLK_C906_0_0, 16, 4, 1, CV1800_DIV_FLAG,
-+		   REG_DIV_CLK_C906_0_1, 16, 4, 2, CV1800_DIV_FLAG,
-+		   REG_DIV_CLK_C906_0_0, 8, 2,
-+		   REG_DIV_CLK_C906_0_1, 8, 2,
-+		   REG_CLK_BYP_1, 6,
-+		   REG_CLK_SEL_0, 23,
-+		   clk_c906_parent2sel,
-+		   clk_c906_sel2parent[0], clk_c906_sel2parent[1],
-+		   CLK_IS_CRITICAL | CLK_GET_RATE_NOCACHE);
-+static CV1800_MMUX(clk_c906_1, clk_c906_1_parents,
-+		   REG_CLK_EN_4, 14,
-+		   REG_DIV_CLK_C906_1_0, 16, 4, 2, CV1800_DIV_FLAG,
-+		   REG_DIV_CLK_C906_1_1, 16, 4, 3, CV1800_DIV_FLAG,
-+		   REG_DIV_CLK_C906_1_0, 8, 2,
-+		   REG_DIV_CLK_C906_1_1, 8, 2,
-+		   REG_CLK_BYP_1, 7,
-+		   REG_CLK_SEL_0, 24,
-+		   clk_c906_parent2sel,
-+		   clk_c906_sel2parent[0], clk_c906_sel2parent[1],
-+		   CLK_IS_CRITICAL | CLK_GET_RATE_NOCACHE);
-+
-+/* A53 */
-+static CV1800_BYPASS_DIV(clk_cpu_axi0, clk_axi4_parents,
-+			 REG_CLK_EN_0, 1,
-+			 REG_DIV_CLK_CPU_AXI0, 16, 4, 3, CV1800_DIV_FLAG,
-+			 REG_CLK_BYP_0, 1,
-+			 CLK_IS_CRITICAL);
-+static CV1800_BYPASS_DIV(clk_cpu_gic, clk_bypass_fpll_parents,
-+			 REG_CLK_EN_0, 2,
-+			 REG_DIV_CLK_CPU_GIC, 16, 4, 5, CV1800_DIV_FLAG,
-+			 REG_CLK_BYP_0, 2,
-+			 CLK_IS_CRITICAL);
-+static CV1800_GATE(clk_xtal_ap, osc_parents,
-+		   REG_CLK_EN_0, 3,
-+		   CLK_IS_CRITICAL);
-+
-+static const struct clk_parent_data clk_a53_parents[] = {
-+	{ .index = 0 },
-+	{ .hw = &clk_tpll.common.hw },
-+	{ .hw = &clk_a0pll.common.hw },
-+	{ .hw = &clk_mipimpll.common.hw },
-+	{ .hw = &clk_mpll.common.hw },
-+	{ .hw = &clk_fpll.common.hw },
-+};
-+
-+static const s8 clk_a53_parent2sel[] = {
-+	-1,	/* osc */
-+	0,	/* mux 0: clk_tpll */
-+	0,	/* mux 0: clk_a0pll */
-+	0,	/* mux 0: clk_mipimpll */
-+	0,	/* mux 0: clk_mpll */
-+	1	/* mux 1: clk_fpll */
-+};
-+
-+static const u8 clk_a53_sel2parent[2][4] = {
-+	[0] = {
-+		1,
-+		2,
-+		3,
-+		4
-+	},
-+	[1] = {
-+		5,
-+		5,
-+		5,
-+		5
-+	},
-+};
-+
-+/*
-+ * Clock for A53 cpu in the CV18XX/SG200X series.
-+ * For CV180X and CV181X series, this clock is not used, but can not
-+ * be set to bypass mode, or the SoC will hang.
-+ */
-+static CV1800_MMUX(clk_a53, clk_a53_parents,
-+		   REG_CLK_EN_0, 0,
-+		   REG_DIV_CLK_A53_0, 16, 4, 1, CV1800_DIV_FLAG,
-+		   REG_DIV_CLK_A53_1, 16, 4, 2, CV1800_DIV_FLAG,
-+		   REG_DIV_CLK_A53_0, 8, 2,
-+		   REG_DIV_CLK_A53_1, 8, 2,
-+		   REG_CLK_BYP_0, 0,
-+		   REG_CLK_SEL_0, 0,
-+		   clk_a53_parent2sel,
-+		   clk_a53_sel2parent[0], clk_a53_sel2parent[1],
-+		   CLK_IS_CRITICAL | CLK_GET_RATE_NOCACHE);
-+
-+
-+static struct clk_hw_onecell_data cv1800_hw_clks = {
-+	.num	= CV1800_CLK_MAX,
-+	.hws	= {
-+		[CLK_MPLL]		= &clk_mpll.common.hw,
-+		[CLK_TPLL]		= &clk_tpll.common.hw,
-+		[CLK_FPLL]		= &clk_fpll.common.hw,
-+		[CLK_MIPIMPLL]		= &clk_mipimpll.common.hw,
-+		[CLK_A0PLL]		= &clk_a0pll.common.hw,
-+		[CLK_DISPPLL]		= &clk_disppll.common.hw,
-+		[CLK_CAM0PLL]		= &clk_cam0pll.common.hw,
-+		[CLK_CAM1PLL]		= &clk_cam1pll.common.hw,
-+
-+		[CLK_MIPIMPLL_D3]	= &clk_mipimpll_d3.common.hw,
-+		[CLK_CAM0PLL_D2]	= &clk_cam0pll_d2.common.hw,
-+		[CLK_CAM0PLL_D3]	= &clk_cam0pll_d3.common.hw,
-+
-+		[CLK_TPU]		= &clk_tpu.mux.common.hw,
-+		[CLK_TPU_FAB]		= &clk_tpu_fab.common.hw,
-+		[CLK_AHB_ROM]		= &clk_ahb_rom.common.hw,
-+		[CLK_DDR_AXI_REG]	= &clk_ddr_axi_reg.common.hw,
-+		[CLK_RTC_25M]		= &clk_rtc_25m.common.hw,
-+		[CLK_SRC_RTC_SYS_0]	= &clk_src_rtc_sys_0.div.common.hw,
-+		[CLK_TEMPSEN]		= &clk_tempsen.common.hw,
-+		[CLK_SARADC]		= &clk_saradc.common.hw,
-+		[CLK_EFUSE]		= &clk_efuse.common.hw,
-+		[CLK_APB_EFUSE]		= &clk_apb_efuse.common.hw,
-+		[CLK_DEBUG]		= &clk_debug.common.hw,
-+		[CLK_AP_DEBUG]		= &clk_ap_debug.div.common.hw,
-+		[CLK_XTAL_MISC]		= &clk_xtal_misc.common.hw,
-+		[CLK_AXI4_EMMC]		= &clk_axi4_emmc.common.hw,
-+		[CLK_EMMC]		= &clk_emmc.mux.common.hw,
-+		[CLK_EMMC_100K]		= &clk_emmc_100k.common.hw,
-+		[CLK_AXI4_SD0]		= &clk_axi4_sd0.common.hw,
-+		[CLK_SD0]		= &clk_sd0.mux.common.hw,
-+		[CLK_SD0_100K]		= &clk_sd0_100k.common.hw,
-+		[CLK_AXI4_SD1]		= &clk_axi4_sd1.common.hw,
-+		[CLK_SD1]		= &clk_sd1.mux.common.hw,
-+		[CLK_SD1_100K]		= &clk_sd1_100k.common.hw,
-+		[CLK_SPI_NAND]		= &clk_spi_nand.mux.common.hw,
-+		[CLK_ETH0_500M]		= &clk_eth0_500m.div.common.hw,
-+		[CLK_AXI4_ETH0]		= &clk_axi4_eth0.common.hw,
-+		[CLK_ETH1_500M]		= &clk_eth1_500m.div.common.hw,
-+		[CLK_AXI4_ETH1]		= &clk_axi4_eth1.common.hw,
-+		[CLK_APB_GPIO]		= &clk_apb_gpio.common.hw,
-+		[CLK_APB_GPIO_INTR]	= &clk_apb_gpio_intr.common.hw,
-+		[CLK_GPIO_DB]		= &clk_gpio_db.common.hw,
-+		[CLK_AHB_SF]		= &clk_ahb_sf.common.hw,
-+		[CLK_AHB_SF1]		= &clk_ahb_sf1.common.hw,
-+		[CLK_A24M]		= &clk_a24m.common.hw,
-+		[CLK_AUDSRC]		= &clk_audsrc.mux.common.hw,
-+		[CLK_APB_AUDSRC]	= &clk_apb_audsrc.common.hw,
-+		[CLK_SDMA_AXI]		= &clk_sdma_axi.common.hw,
-+		[CLK_SDMA_AUD0]		= &clk_sdma_aud0.mux.common.hw,
-+		[CLK_SDMA_AUD1]		= &clk_sdma_aud1.mux.common.hw,
-+		[CLK_SDMA_AUD2]		= &clk_sdma_aud2.mux.common.hw,
-+		[CLK_SDMA_AUD3]		= &clk_sdma_aud3.mux.common.hw,
-+		[CLK_I2C]		= &clk_i2c.div.common.hw,
-+		[CLK_APB_I2C]		= &clk_apb_i2c.common.hw,
-+		[CLK_APB_I2C0]		= &clk_apb_i2c0.common.hw,
-+		[CLK_APB_I2C1]		= &clk_apb_i2c1.common.hw,
-+		[CLK_APB_I2C2]		= &clk_apb_i2c2.common.hw,
-+		[CLK_APB_I2C3]		= &clk_apb_i2c3.common.hw,
-+		[CLK_APB_I2C4]		= &clk_apb_i2c4.common.hw,
-+		[CLK_APB_WDT]		= &clk_apb_wdt.common.hw,
-+		[CLK_PWM_SRC]		= &clk_pwm_src.mux.common.hw,
-+		[CLK_PWM]		= &clk_pwm.common.hw,
-+		[CLK_SPI]		= &clk_spi.div.common.hw,
-+		[CLK_APB_SPI0]		= &clk_apb_spi0.common.hw,
-+		[CLK_APB_SPI1]		= &clk_apb_spi1.common.hw,
-+		[CLK_APB_SPI2]		= &clk_apb_spi2.common.hw,
-+		[CLK_APB_SPI3]		= &clk_apb_spi3.common.hw,
-+		[CLK_1M]		= &clk_1m.common.hw,
-+		[CLK_CAM0_200]		= &clk_cam0_200.mux.common.hw,
-+		[CLK_PM]		= &clk_pm.common.hw,
-+		[CLK_TIMER0]		= &clk_timer0.common.hw,
-+		[CLK_TIMER1]		= &clk_timer1.common.hw,
-+		[CLK_TIMER2]		= &clk_timer2.common.hw,
-+		[CLK_TIMER3]		= &clk_timer3.common.hw,
-+		[CLK_TIMER4]		= &clk_timer4.common.hw,
-+		[CLK_TIMER5]		= &clk_timer5.common.hw,
-+		[CLK_TIMER6]		= &clk_timer6.common.hw,
-+		[CLK_TIMER7]		= &clk_timer7.common.hw,
-+		[CLK_UART0]		= &clk_uart0.common.hw,
-+		[CLK_APB_UART0]		= &clk_apb_uart0.common.hw,
-+		[CLK_UART1]		= &clk_uart1.common.hw,
-+		[CLK_APB_UART1]		= &clk_apb_uart1.common.hw,
-+		[CLK_UART2]		= &clk_uart2.common.hw,
-+		[CLK_APB_UART2]		= &clk_apb_uart2.common.hw,
-+		[CLK_UART3]		= &clk_uart3.common.hw,
-+		[CLK_APB_UART3]		= &clk_apb_uart3.common.hw,
-+		[CLK_UART4]		= &clk_uart4.common.hw,
-+		[CLK_APB_UART4]		= &clk_apb_uart4.common.hw,
-+		[CLK_APB_I2S0]		= &clk_apb_i2s0.common.hw,
-+		[CLK_APB_I2S1]		= &clk_apb_i2s1.common.hw,
-+		[CLK_APB_I2S2]		= &clk_apb_i2s2.common.hw,
-+		[CLK_APB_I2S3]		= &clk_apb_i2s3.common.hw,
-+		[CLK_AXI4_USB]		= &clk_axi4_usb.common.hw,
-+		[CLK_APB_USB]		= &clk_apb_usb.common.hw,
-+		[CLK_USB_125M]		= &clk_usb_125m.div.common.hw,
-+		[CLK_USB_33K]		= &clk_usb_33k.common.hw,
-+		[CLK_USB_12M]		= &clk_usb_12m.div.common.hw,
-+		[CLK_AXI4]		= &clk_axi4.mux.common.hw,
-+		[CLK_AXI6]		= &clk_axi6.div.common.hw,
-+		[CLK_DSI_ESC]		= &clk_dsi_esc.div.common.hw,
-+		[CLK_AXI_VIP]		= &clk_axi_vip.mux.common.hw,
-+		[CLK_SRC_VIP_SYS_0]	= &clk_src_vip_sys_0.mux.common.hw,
-+		[CLK_SRC_VIP_SYS_1]	= &clk_src_vip_sys_1.mux.common.hw,
-+		[CLK_SRC_VIP_SYS_2]	= &clk_src_vip_sys_2.mux.common.hw,
-+		[CLK_SRC_VIP_SYS_3]	= &clk_src_vip_sys_3.mux.common.hw,
-+		[CLK_SRC_VIP_SYS_4]	= &clk_src_vip_sys_4.mux.common.hw,
-+		[CLK_CSI_BE_VIP]	= &clk_csi_be_vip.common.hw,
-+		[CLK_CSI_MAC0_VIP]	= &clk_csi_mac0_vip.common.hw,
-+		[CLK_CSI_MAC1_VIP]	= &clk_csi_mac1_vip.common.hw,
-+		[CLK_CSI_MAC2_VIP]	= &clk_csi_mac2_vip.common.hw,
-+		[CLK_CSI0_RX_VIP]	= &clk_csi0_rx_vip.common.hw,
-+		[CLK_CSI1_RX_VIP]	= &clk_csi1_rx_vip.common.hw,
-+		[CLK_ISP_TOP_VIP]	= &clk_isp_top_vip.common.hw,
-+		[CLK_IMG_D_VIP]		= &clk_img_d_vip.common.hw,
-+		[CLK_IMG_V_VIP]		= &clk_img_v_vip.common.hw,
-+		[CLK_SC_TOP_VIP]	= &clk_sc_top_vip.common.hw,
-+		[CLK_SC_D_VIP]		= &clk_sc_d_vip.common.hw,
-+		[CLK_SC_V1_VIP]		= &clk_sc_v1_vip.common.hw,
-+		[CLK_SC_V2_VIP]		= &clk_sc_v2_vip.common.hw,
-+		[CLK_SC_V3_VIP]		= &clk_sc_v3_vip.common.hw,
-+		[CLK_DWA_VIP]		= &clk_dwa_vip.common.hw,
-+		[CLK_BT_VIP]		= &clk_bt_vip.common.hw,
-+		[CLK_DISP_VIP]		= &clk_disp_vip.common.hw,
-+		[CLK_DSI_MAC_VIP]	= &clk_dsi_mac_vip.common.hw,
-+		[CLK_LVDS0_VIP]		= &clk_lvds0_vip.common.hw,
-+		[CLK_LVDS1_VIP]		= &clk_lvds1_vip.common.hw,
-+		[CLK_PAD_VI_VIP]	= &clk_pad_vi_vip.common.hw,
-+		[CLK_PAD_VI1_VIP]	= &clk_pad_vi1_vip.common.hw,
-+		[CLK_PAD_VI2_VIP]	= &clk_pad_vi2_vip.common.hw,
-+		[CLK_CFG_REG_VIP]	= &clk_cfg_reg_vip.common.hw,
-+		[CLK_VIP_IP0]		= &clk_vip_ip0.common.hw,
-+		[CLK_VIP_IP1]		= &clk_vip_ip1.common.hw,
-+		[CLK_VIP_IP2]		= &clk_vip_ip2.common.hw,
-+		[CLK_VIP_IP3]		= &clk_vip_ip3.common.hw,
-+		[CLK_IVE_VIP]		= &clk_ive_vip.common.hw,
-+		[CLK_RAW_VIP]		= &clk_raw_vip.common.hw,
-+		[CLK_OSDC_VIP]		= &clk_osdc_vip.common.hw,
-+		[CLK_CAM0_VIP]		= &clk_cam0_vip.common.hw,
-+		[CLK_AXI_VIDEO_CODEC]	= &clk_axi_video_codec.mux.common.hw,
-+		[CLK_VC_SRC0]		= &clk_vc_src0.mux.common.hw,
-+		[CLK_VC_SRC1]		= &clk_vc_src1.div.common.hw,
-+		[CLK_VC_SRC2]		= &clk_vc_src2.div.common.hw,
-+		[CLK_H264C]		= &clk_h264c.common.hw,
-+		[CLK_APB_H264C]		= &clk_apb_h264c.common.hw,
-+		[CLK_H265C]		= &clk_h265c.common.hw,
-+		[CLK_APB_H265C]		= &clk_apb_h265c.common.hw,
-+		[CLK_JPEG]		= &clk_jpeg.common.hw,
-+		[CLK_APB_JPEG]		= &clk_apb_jpeg.common.hw,
-+		[CLK_CAM0]		= &clk_cam0.common.hw,
-+		[CLK_CAM1]		= &clk_cam1.common.hw,
-+		[CLK_WGN]		= &clk_wgn.common.hw,
-+		[CLK_WGN0]		= &clk_wgn0.common.hw,
-+		[CLK_WGN1]		= &clk_wgn1.common.hw,
-+		[CLK_WGN2]		= &clk_wgn2.common.hw,
-+		[CLK_KEYSCAN]		= &clk_keyscan.common.hw,
-+		[CLK_CFG_REG_VC]	= &clk_cfg_reg_vc.common.hw,
-+		[CLK_C906_0]		= &clk_c906_0.common.hw,
-+		[CLK_C906_1]		= &clk_c906_1.common.hw,
-+		[CLK_A53]		= &clk_a53.common.hw,
-+		[CLK_CPU_AXI0]		= &clk_cpu_axi0.div.common.hw,
-+		[CLK_CPU_GIC]		= &clk_cpu_gic.div.common.hw,
-+		[CLK_XTAL_AP]		= &clk_xtal_ap.common.hw,
-+	},
-+};
-+
-+static void cv18xx_clk_disable_auto_pd(void __iomem *base)
-+{
-+	static const u16 CV1800_PD_CLK[] = {
-+		REG_MIPIMPLL_CLK_CSR,
-+		REG_A0PLL_CLK_CSR,
-+		REG_DISPPLL_CLK_CSR,
-+		REG_CAM0PLL_CLK_CSR,
-+		REG_CAM1PLL_CLK_CSR,
-+	};
-+
-+	u32 val;
-+	int i;
-+
-+	/* disable auto power down */
-+	for (i = 0; i < ARRAY_SIZE(CV1800_PD_CLK); i++) {
-+		u32 reg = CV1800_PD_CLK[i];
-+
-+		val = readl(base + reg);
-+		val |= GENMASK(12, 9);
-+		val &= ~BIT(8);
-+		writel(val, base + reg);
-+	}
-+}
-+
-+static void cv18xx_clk_disable_a53(void __iomem *base)
-+{
-+	u32 val = readl(base + REG_CLK_BYP_0);
-+
-+	/* Set bypass clock for clk_a53 */
-+	val |= BIT(0);
-+
-+	/* Set bypass clock for clk_cpu_axi0 */
-+	val |= BIT(1);
-+
-+	/* Set bypass clock for clk_cpu_gic */
-+	val |= BIT(2);
-+
-+	writel(val, base + REG_CLK_BYP_0);
-+}
-+
-+static int cv1800_pre_init(struct device *dev, void __iomem *base,
-+			   struct cv1800_clk_ctrl *ctrl,
-+			   const struct cv1800_clk_desc *desc)
-+{
-+	u32 val = readl(base + REG_CLK_EN_2);
-+
-+	/* disable unsupported clk_disp_src_vip */
-+	val &= ~BIT(7);
-+
-+	writel(val, base + REG_CLK_EN_2);
-+
-+	cv18xx_clk_disable_a53(base);
-+	cv18xx_clk_disable_auto_pd(base);
-+
-+	return 0;
-+}
-+
-+static const struct cv1800_clk_desc cv1800_desc = {
-+	.clks_data	= &cv1800_hw_clks,
-+	.pre_init	= cv1800_pre_init,
-+};
-+
-+static struct clk_hw_onecell_data cv1810_hw_clks = {
-+	.num	= CV1810_CLK_MAX,
-+	.hws	= {
-+		[CLK_MPLL]		= &clk_mpll.common.hw,
-+		[CLK_TPLL]		= &clk_tpll.common.hw,
-+		[CLK_FPLL]		= &clk_fpll.common.hw,
-+		[CLK_MIPIMPLL]		= &clk_mipimpll.common.hw,
-+		[CLK_A0PLL]		= &clk_a0pll.common.hw,
-+		[CLK_DISPPLL]		= &clk_disppll.common.hw,
-+		[CLK_CAM0PLL]		= &clk_cam0pll.common.hw,
-+		[CLK_CAM1PLL]		= &clk_cam1pll.common.hw,
-+
-+		[CLK_MIPIMPLL_D3]	= &clk_mipimpll_d3.common.hw,
-+		[CLK_CAM0PLL_D2]	= &clk_cam0pll_d2.common.hw,
-+		[CLK_CAM0PLL_D3]	= &clk_cam0pll_d3.common.hw,
-+
-+		[CLK_TPU]		= &clk_tpu.mux.common.hw,
-+		[CLK_TPU_FAB]		= &clk_tpu_fab.common.hw,
-+		[CLK_AHB_ROM]		= &clk_ahb_rom.common.hw,
-+		[CLK_DDR_AXI_REG]	= &clk_ddr_axi_reg.common.hw,
-+		[CLK_RTC_25M]		= &clk_rtc_25m.common.hw,
-+		[CLK_SRC_RTC_SYS_0]	= &clk_src_rtc_sys_0.div.common.hw,
-+		[CLK_TEMPSEN]		= &clk_tempsen.common.hw,
-+		[CLK_SARADC]		= &clk_saradc.common.hw,
-+		[CLK_EFUSE]		= &clk_efuse.common.hw,
-+		[CLK_APB_EFUSE]		= &clk_apb_efuse.common.hw,
-+		[CLK_DEBUG]		= &clk_debug.common.hw,
-+		[CLK_AP_DEBUG]		= &clk_ap_debug.div.common.hw,
-+		[CLK_XTAL_MISC]		= &clk_xtal_misc.common.hw,
-+		[CLK_AXI4_EMMC]		= &clk_axi4_emmc.common.hw,
-+		[CLK_EMMC]		= &clk_emmc.mux.common.hw,
-+		[CLK_EMMC_100K]		= &clk_emmc_100k.common.hw,
-+		[CLK_AXI4_SD0]		= &clk_axi4_sd0.common.hw,
-+		[CLK_SD0]		= &clk_sd0.mux.common.hw,
-+		[CLK_SD0_100K]		= &clk_sd0_100k.common.hw,
-+		[CLK_AXI4_SD1]		= &clk_axi4_sd1.common.hw,
-+		[CLK_SD1]		= &clk_sd1.mux.common.hw,
-+		[CLK_SD1_100K]		= &clk_sd1_100k.common.hw,
-+		[CLK_SPI_NAND]		= &clk_spi_nand.mux.common.hw,
-+		[CLK_ETH0_500M]		= &clk_eth0_500m.div.common.hw,
-+		[CLK_AXI4_ETH0]		= &clk_axi4_eth0.common.hw,
-+		[CLK_ETH1_500M]		= &clk_eth1_500m.div.common.hw,
-+		[CLK_AXI4_ETH1]		= &clk_axi4_eth1.common.hw,
-+		[CLK_APB_GPIO]		= &clk_apb_gpio.common.hw,
-+		[CLK_APB_GPIO_INTR]	= &clk_apb_gpio_intr.common.hw,
-+		[CLK_GPIO_DB]		= &clk_gpio_db.common.hw,
-+		[CLK_AHB_SF]		= &clk_ahb_sf.common.hw,
-+		[CLK_AHB_SF1]		= &clk_ahb_sf1.common.hw,
-+		[CLK_A24M]		= &clk_a24m.common.hw,
-+		[CLK_AUDSRC]		= &clk_audsrc.mux.common.hw,
-+		[CLK_APB_AUDSRC]	= &clk_apb_audsrc.common.hw,
-+		[CLK_SDMA_AXI]		= &clk_sdma_axi.common.hw,
-+		[CLK_SDMA_AUD0]		= &clk_sdma_aud0.mux.common.hw,
-+		[CLK_SDMA_AUD1]		= &clk_sdma_aud1.mux.common.hw,
-+		[CLK_SDMA_AUD2]		= &clk_sdma_aud2.mux.common.hw,
-+		[CLK_SDMA_AUD3]		= &clk_sdma_aud3.mux.common.hw,
-+		[CLK_I2C]		= &clk_i2c.div.common.hw,
-+		[CLK_APB_I2C]		= &clk_apb_i2c.common.hw,
-+		[CLK_APB_I2C0]		= &clk_apb_i2c0.common.hw,
-+		[CLK_APB_I2C1]		= &clk_apb_i2c1.common.hw,
-+		[CLK_APB_I2C2]		= &clk_apb_i2c2.common.hw,
-+		[CLK_APB_I2C3]		= &clk_apb_i2c3.common.hw,
-+		[CLK_APB_I2C4]		= &clk_apb_i2c4.common.hw,
-+		[CLK_APB_WDT]		= &clk_apb_wdt.common.hw,
-+		[CLK_PWM_SRC]		= &clk_pwm_src.mux.common.hw,
-+		[CLK_PWM]		= &clk_pwm.common.hw,
-+		[CLK_SPI]		= &clk_spi.div.common.hw,
-+		[CLK_APB_SPI0]		= &clk_apb_spi0.common.hw,
-+		[CLK_APB_SPI1]		= &clk_apb_spi1.common.hw,
-+		[CLK_APB_SPI2]		= &clk_apb_spi2.common.hw,
-+		[CLK_APB_SPI3]		= &clk_apb_spi3.common.hw,
-+		[CLK_1M]		= &clk_1m.common.hw,
-+		[CLK_CAM0_200]		= &clk_cam0_200.mux.common.hw,
-+		[CLK_PM]		= &clk_pm.common.hw,
-+		[CLK_TIMER0]		= &clk_timer0.common.hw,
-+		[CLK_TIMER1]		= &clk_timer1.common.hw,
-+		[CLK_TIMER2]		= &clk_timer2.common.hw,
-+		[CLK_TIMER3]		= &clk_timer3.common.hw,
-+		[CLK_TIMER4]		= &clk_timer4.common.hw,
-+		[CLK_TIMER5]		= &clk_timer5.common.hw,
-+		[CLK_TIMER6]		= &clk_timer6.common.hw,
-+		[CLK_TIMER7]		= &clk_timer7.common.hw,
-+		[CLK_UART0]		= &clk_uart0.common.hw,
-+		[CLK_APB_UART0]		= &clk_apb_uart0.common.hw,
-+		[CLK_UART1]		= &clk_uart1.common.hw,
-+		[CLK_APB_UART1]		= &clk_apb_uart1.common.hw,
-+		[CLK_UART2]		= &clk_uart2.common.hw,
-+		[CLK_APB_UART2]		= &clk_apb_uart2.common.hw,
-+		[CLK_UART3]		= &clk_uart3.common.hw,
-+		[CLK_APB_UART3]		= &clk_apb_uart3.common.hw,
-+		[CLK_UART4]		= &clk_uart4.common.hw,
-+		[CLK_APB_UART4]		= &clk_apb_uart4.common.hw,
-+		[CLK_APB_I2S0]		= &clk_apb_i2s0.common.hw,
-+		[CLK_APB_I2S1]		= &clk_apb_i2s1.common.hw,
-+		[CLK_APB_I2S2]		= &clk_apb_i2s2.common.hw,
-+		[CLK_APB_I2S3]		= &clk_apb_i2s3.common.hw,
-+		[CLK_AXI4_USB]		= &clk_axi4_usb.common.hw,
-+		[CLK_APB_USB]		= &clk_apb_usb.common.hw,
-+		[CLK_USB_125M]		= &clk_usb_125m.div.common.hw,
-+		[CLK_USB_33K]		= &clk_usb_33k.common.hw,
-+		[CLK_USB_12M]		= &clk_usb_12m.div.common.hw,
-+		[CLK_AXI4]		= &clk_axi4.mux.common.hw,
-+		[CLK_AXI6]		= &clk_axi6.div.common.hw,
-+		[CLK_DSI_ESC]		= &clk_dsi_esc.div.common.hw,
-+		[CLK_AXI_VIP]		= &clk_axi_vip.mux.common.hw,
-+		[CLK_SRC_VIP_SYS_0]	= &clk_src_vip_sys_0.mux.common.hw,
-+		[CLK_SRC_VIP_SYS_1]	= &clk_src_vip_sys_1.mux.common.hw,
-+		[CLK_SRC_VIP_SYS_2]	= &clk_src_vip_sys_2.mux.common.hw,
-+		[CLK_SRC_VIP_SYS_3]	= &clk_src_vip_sys_3.mux.common.hw,
-+		[CLK_SRC_VIP_SYS_4]	= &clk_src_vip_sys_4.mux.common.hw,
-+		[CLK_CSI_BE_VIP]	= &clk_csi_be_vip.common.hw,
-+		[CLK_CSI_MAC0_VIP]	= &clk_csi_mac0_vip.common.hw,
-+		[CLK_CSI_MAC1_VIP]	= &clk_csi_mac1_vip.common.hw,
-+		[CLK_CSI_MAC2_VIP]	= &clk_csi_mac2_vip.common.hw,
-+		[CLK_CSI0_RX_VIP]	= &clk_csi0_rx_vip.common.hw,
-+		[CLK_CSI1_RX_VIP]	= &clk_csi1_rx_vip.common.hw,
-+		[CLK_ISP_TOP_VIP]	= &clk_isp_top_vip.common.hw,
-+		[CLK_IMG_D_VIP]		= &clk_img_d_vip.common.hw,
-+		[CLK_IMG_V_VIP]		= &clk_img_v_vip.common.hw,
-+		[CLK_SC_TOP_VIP]	= &clk_sc_top_vip.common.hw,
-+		[CLK_SC_D_VIP]		= &clk_sc_d_vip.common.hw,
-+		[CLK_SC_V1_VIP]		= &clk_sc_v1_vip.common.hw,
-+		[CLK_SC_V2_VIP]		= &clk_sc_v2_vip.common.hw,
-+		[CLK_SC_V3_VIP]		= &clk_sc_v3_vip.common.hw,
-+		[CLK_DWA_VIP]		= &clk_dwa_vip.common.hw,
-+		[CLK_BT_VIP]		= &clk_bt_vip.common.hw,
-+		[CLK_DISP_VIP]		= &clk_disp_vip.common.hw,
-+		[CLK_DSI_MAC_VIP]	= &clk_dsi_mac_vip.common.hw,
-+		[CLK_LVDS0_VIP]		= &clk_lvds0_vip.common.hw,
-+		[CLK_LVDS1_VIP]		= &clk_lvds1_vip.common.hw,
-+		[CLK_PAD_VI_VIP]	= &clk_pad_vi_vip.common.hw,
-+		[CLK_PAD_VI1_VIP]	= &clk_pad_vi1_vip.common.hw,
-+		[CLK_PAD_VI2_VIP]	= &clk_pad_vi2_vip.common.hw,
-+		[CLK_CFG_REG_VIP]	= &clk_cfg_reg_vip.common.hw,
-+		[CLK_VIP_IP0]		= &clk_vip_ip0.common.hw,
-+		[CLK_VIP_IP1]		= &clk_vip_ip1.common.hw,
-+		[CLK_VIP_IP2]		= &clk_vip_ip2.common.hw,
-+		[CLK_VIP_IP3]		= &clk_vip_ip3.common.hw,
-+		[CLK_IVE_VIP]		= &clk_ive_vip.common.hw,
-+		[CLK_RAW_VIP]		= &clk_raw_vip.common.hw,
-+		[CLK_OSDC_VIP]		= &clk_osdc_vip.common.hw,
-+		[CLK_CAM0_VIP]		= &clk_cam0_vip.common.hw,
-+		[CLK_AXI_VIDEO_CODEC]	= &clk_axi_video_codec.mux.common.hw,
-+		[CLK_VC_SRC0]		= &clk_vc_src0.mux.common.hw,
-+		[CLK_VC_SRC1]		= &clk_vc_src1.div.common.hw,
-+		[CLK_VC_SRC2]		= &clk_vc_src2.div.common.hw,
-+		[CLK_H264C]		= &clk_h264c.common.hw,
-+		[CLK_APB_H264C]		= &clk_apb_h264c.common.hw,
-+		[CLK_H265C]		= &clk_h265c.common.hw,
-+		[CLK_APB_H265C]		= &clk_apb_h265c.common.hw,
-+		[CLK_JPEG]		= &clk_jpeg.common.hw,
-+		[CLK_APB_JPEG]		= &clk_apb_jpeg.common.hw,
-+		[CLK_CAM0]		= &clk_cam0.common.hw,
-+		[CLK_CAM1]		= &clk_cam1.common.hw,
-+		[CLK_WGN]		= &clk_wgn.common.hw,
-+		[CLK_WGN0]		= &clk_wgn0.common.hw,
-+		[CLK_WGN1]		= &clk_wgn1.common.hw,
-+		[CLK_WGN2]		= &clk_wgn2.common.hw,
-+		[CLK_KEYSCAN]		= &clk_keyscan.common.hw,
-+		[CLK_CFG_REG_VC]	= &clk_cfg_reg_vc.common.hw,
-+		[CLK_C906_0]		= &clk_c906_0.common.hw,
-+		[CLK_C906_1]		= &clk_c906_1.common.hw,
-+		[CLK_A53]		= &clk_a53.common.hw,
-+		[CLK_CPU_AXI0]		= &clk_cpu_axi0.div.common.hw,
-+		[CLK_CPU_GIC]		= &clk_cpu_gic.div.common.hw,
-+		[CLK_XTAL_AP]		= &clk_xtal_ap.common.hw,
-+		[CLK_DISP_SRC_VIP]	= &clk_disp_src_vip.div.common.hw,
-+	},
-+};
-+
-+
-+static int cv1810_pre_init(struct device *dev, void __iomem *base,
-+			   struct cv1800_clk_ctrl *ctrl,
-+			   const struct cv1800_clk_desc *desc)
-+{
-+	cv18xx_clk_disable_a53(base);
-+	cv18xx_clk_disable_auto_pd(base);
-+
-+	return 0;
-+}
-+
-+static const struct cv1800_clk_desc cv1810_desc = {
-+	.clks_data	= &cv1810_hw_clks,
-+	.pre_init	= cv1810_pre_init,
-+};
-+
-+static int cv1800_clk_init_ctrl(struct device *dev, void __iomem *reg,
-+				struct cv1800_clk_ctrl *ctrl,
-+				const struct cv1800_clk_desc *desc)
-+{
-+	int i, ret;
-+
-+	ctrl->desc = desc;
-+	spin_lock_init(&ctrl->lock);
-+
-+	for (i = 0; i < desc->clks_data->num; i++) {
-+		struct clk_hw *hw = desc->clks_data->hws[i];
-+		struct cv1800_clk_common *common;
-+		const char *name;
-+
-+		if (!hw)
-+			continue;
-+
-+		name = hw->init->name;
-+
-+		common = hw_to_cv1800_clk_common(hw);
-+		common->base = reg;
-+		common->lock = &ctrl->lock;
-+
-+		ret = devm_clk_hw_register(dev, hw);
-+		if (ret) {
-+			dev_err(dev, "Couldn't register clock %d - %s\n",
-+				i, name);
-+			return ret;
-+		}
-+	}
-+
-+	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get,
-+					  desc->clks_data);
-+
-+	return ret;
-+}
-+
-+static int cv1800_clk_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	void __iomem *reg;
-+	int ret;
-+	const struct cv1800_clk_desc *desc;
-+	struct cv1800_clk_ctrl *ctrl;
-+
-+	reg = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(reg))
-+		return PTR_ERR(reg);
-+
-+	desc = device_get_match_data(dev);
-+	if (!desc) {
-+		dev_err(dev, "no match data for platform\n");
-+		return -EINVAL;
-+	}
-+
-+	ctrl = devm_kmalloc(dev, sizeof(*ctrl), GFP_KERNEL);
-+	if (!ctrl)
-+		return -ENOMEM;
-+
-+	if (desc->pre_init) {
-+		ret = desc->pre_init(dev, reg, ctrl, desc);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	ret = cv1800_clk_init_ctrl(dev, reg, ctrl, desc);
-+
-+	return ret;
-+}
-+
-+static const struct of_device_id cv1800_clk_ids[] = {
-+	{ .compatible = "sophgo,cv1800-clk", .data = &cv1800_desc },
-+	{ .compatible = "sophgo,cv1810-clk", .data = &cv1810_desc },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, cv1800_clk_ids);
-+
-+static struct platform_driver cv1800_clk_driver = {
-+	.probe	= cv1800_clk_probe,
-+	.driver	= {
-+		.name			= "cv1800-clk",
-+		.suppress_bind_attrs	= true,
-+		.of_match_table		= cv1800_clk_ids,
-+	},
-+};
-+module_platform_driver(cv1800_clk_driver);
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/clk/sophgo/clk-cv1800.h b/drivers/clk/sophgo/clk-cv1800.h
-new file mode 100644
-index 000000000000..1e7107b5d05e
---- /dev/null
-+++ b/drivers/clk/sophgo/clk-cv1800.h
-@@ -0,0 +1,123 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
-+ */
-+
-+#ifndef _CLK_SOPHGO_CV1800_H_
-+#define _CLK_SOPHGO_CV1800_H_
-+
-+#include <dt-bindings/clock/sophgo,cv1800.h>
-+
-+#define CV1800_CLK_MAX			(CLK_XTAL_AP + 1)
-+#define CV1810_CLK_MAX			(CLK_DISP_SRC_VIP + 1)
-+
-+#define REG_PLL_G2_CTRL			0x800
-+#define REG_PLL_G2_STATUS		0x804
-+#define REG_MIPIMPLL_CSR		0x808
-+#define REG_A0PLL_CSR			0x80C
-+#define REG_DISPPLL_CSR			0x810
-+#define REG_CAM0PLL_CSR			0x814
-+#define REG_CAM1PLL_CSR			0x818
-+#define REG_PLL_G2_SSC_SYN_CTRL		0x840
-+#define REG_A0PLL_SSC_SYN_CTRL		0x850
-+#define REG_A0PLL_SSC_SYN_SET		0x854
-+#define REG_A0PLL_SSC_SYN_SPAN		0x858
-+#define REG_A0PLL_SSC_SYN_STEP		0x85C
-+#define REG_DISPPLL_SSC_SYN_CTRL	0x860
-+#define REG_DISPPLL_SSC_SYN_SET		0x864
-+#define REG_DISPPLL_SSC_SYN_SPAN	0x868
-+#define REG_DISPPLL_SSC_SYN_STEP	0x86C
-+#define REG_CAM0PLL_SSC_SYN_CTRL	0x870
-+#define REG_CAM0PLL_SSC_SYN_SET		0x874
-+#define REG_CAM0PLL_SSC_SYN_SPAN	0x878
-+#define REG_CAM0PLL_SSC_SYN_STEP	0x87C
-+#define REG_CAM1PLL_SSC_SYN_CTRL	0x880
-+#define REG_CAM1PLL_SSC_SYN_SET		0x884
-+#define REG_CAM1PLL_SSC_SYN_SPAN	0x888
-+#define REG_CAM1PLL_SSC_SYN_STEP	0x88C
-+#define REG_APLL_FRAC_DIV_CTRL		0x890
-+#define REG_APLL_FRAC_DIV_M		0x894
-+#define REG_APLL_FRAC_DIV_N		0x898
-+#define REG_MIPIMPLL_CLK_CSR		0x8A0
-+#define REG_A0PLL_CLK_CSR		0x8A4
-+#define REG_DISPPLL_CLK_CSR		0x8A8
-+#define REG_CAM0PLL_CLK_CSR		0x8AC
-+#define REG_CAM1PLL_CLK_CSR		0x8B0
-+#define REG_CLK_CAM0_SRC_DIV		0x8C0
-+#define REG_CLK_CAM1_SRC_DIV		0x8C4
-+
-+/* top_pll_g6 */
-+#define REG_PLL_G6_CTRL			0x900
-+#define REG_PLL_G6_STATUS		0x904
-+#define REG_MPLL_CSR			0x908
-+#define REG_TPLL_CSR			0x90C
-+#define REG_FPLL_CSR			0x910
-+#define REG_PLL_G6_SSC_SYN_CTRL		0x940
-+#define REG_DPLL_SSC_SYN_CTRL		0x950
-+#define REG_DPLL_SSC_SYN_SET		0x954
-+#define REG_DPLL_SSC_SYN_SPAN		0x958
-+#define REG_DPLL_SSC_SYN_STEP		0x95C
-+#define REG_MPLL_SSC_SYN_CTRL		0x960
-+#define REG_MPLL_SSC_SYN_SET		0x964
-+#define REG_MPLL_SSC_SYN_SPAN		0x968
-+#define REG_MPLL_SSC_SYN_STEP		0x96C
-+#define REG_TPLL_SSC_SYN_CTRL		0x970
-+#define REG_TPLL_SSC_SYN_SET		0x974
-+#define REG_TPLL_SSC_SYN_SPAN		0x978
-+#define REG_TPLL_SSC_SYN_STEP		0x97C
-+
-+/* clkgen */
-+#define REG_CLK_EN_0			0x000
-+#define REG_CLK_EN_1			0x004
-+#define REG_CLK_EN_2			0x008
-+#define REG_CLK_EN_3			0x00C
-+#define REG_CLK_EN_4			0x010
-+#define REG_CLK_SEL_0			0x020
-+#define REG_CLK_BYP_0			0x030
-+#define REG_CLK_BYP_1			0x034
-+
-+#define REG_DIV_CLK_A53_0		0x040
-+#define REG_DIV_CLK_A53_1		0x044
-+#define REG_DIV_CLK_CPU_AXI0		0x048
-+#define REG_DIV_CLK_CPU_GIC		0x050
-+#define REG_DIV_CLK_TPU			0x054
-+#define REG_DIV_CLK_EMMC		0x064
-+#define REG_DIV_CLK_EMMC_100K		0x06C
-+#define REG_DIV_CLK_SD0			0x070
-+#define REG_DIV_CLK_SD0_100K		0x078
-+#define REG_DIV_CLK_SD1			0x07C
-+#define REG_DIV_CLK_SD1_100K		0x084
-+#define REG_DIV_CLK_SPI_NAND		0x088
-+#define REG_DIV_CLK_ETH0_500M		0x08C
-+#define REG_DIV_CLK_ETH1_500M		0x090
-+#define REG_DIV_CLK_GPIO_DB		0x094
-+#define REG_DIV_CLK_SDMA_AUD0		0x098
-+#define REG_DIV_CLK_SDMA_AUD1		0x09C
-+#define REG_DIV_CLK_SDMA_AUD2		0x0A0
-+#define REG_DIV_CLK_SDMA_AUD3		0x0A4
-+#define REG_DIV_CLK_CAM0_200		0x0A8
-+#define REG_DIV_CLK_AXI4		0x0B8
-+#define REG_DIV_CLK_AXI6		0x0BC
-+#define REG_DIV_CLK_DSI_ESC		0x0C4
-+#define REG_DIV_CLK_AXI_VIP		0x0C8
-+#define REG_DIV_CLK_SRC_VIP_SYS_0	0x0D0
-+#define REG_DIV_CLK_SRC_VIP_SYS_1	0x0D8
-+#define REG_DIV_CLK_DISP_SRC_VIP	0x0E0
-+#define REG_DIV_CLK_AXI_VIDEO_CODEC	0x0E4
-+#define REG_DIV_CLK_VC_SRC0		0x0EC
-+#define REG_DIV_CLK_1M			0x0FC
-+#define REG_DIV_CLK_SPI			0x100
-+#define REG_DIV_CLK_I2C			0x104
-+#define REG_DIV_CLK_SRC_VIP_SYS_2	0x110
-+#define REG_DIV_CLK_AUDSRC		0x118
-+#define REG_DIV_CLK_PWM_SRC_0		0x120
-+#define REG_DIV_CLK_AP_DEBUG		0x128
-+#define REG_DIV_CLK_RTCSYS_SRC_0	0x12C
-+#define REG_DIV_CLK_C906_0_0		0x130
-+#define REG_DIV_CLK_C906_0_1		0x134
-+#define REG_DIV_CLK_C906_1_0		0x138
-+#define REG_DIV_CLK_C906_1_1		0x13C
-+#define REG_DIV_CLK_SRC_VIP_SYS_3	0x140
-+#define REG_DIV_CLK_SRC_VIP_SYS_4	0x144
-+
-+#endif /* _CLK_SOPHGO_CV1800_H_ */
-diff --git a/drivers/clk/sophgo/clk-cv18xx-common.c b/drivers/clk/sophgo/clk-cv18xx-common.c
-new file mode 100644
-index 000000000000..cbcdd88f0e23
---- /dev/null
-+++ b/drivers/clk/sophgo/clk-cv18xx-common.c
-@@ -0,0 +1,66 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
-+ */
-+
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/spinlock.h>
-+#include <linux/bug.h>
-+
-+#include "clk-cv18xx-common.h"
-+
-+int cv1800_clk_setbit(struct cv1800_clk_common *common,
-+		      struct cv1800_clk_regbit *field)
-+{
-+	u32 mask = BIT(field->shift);
-+	u32 value;
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(common->lock, flags);
-+
-+	value = readl(common->base + field->reg);
-+	writel(value | mask, common->base + field->reg);
-+
-+	spin_unlock_irqrestore(common->lock, flags);
-+
-+	return 0;
-+}
-+
-+int cv1800_clk_clearbit(struct cv1800_clk_common *common,
-+			struct cv1800_clk_regbit *field)
-+{
-+	u32 mask = BIT(field->shift);
-+	u32 value;
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(common->lock, flags);
-+
-+	value = readl(common->base + field->reg);
-+	writel(value & ~mask, common->base + field->reg);
-+
-+	spin_unlock_irqrestore(common->lock, flags);
-+
-+	return 0;
-+}
-+
-+int cv1800_clk_checkbit(struct cv1800_clk_common *common,
-+			struct cv1800_clk_regbit *field)
-+{
-+	return readl(common->base + field->reg) & BIT(field->shift);
-+}
-+
-+#define PLL_LOCK_TIMEOUT_US	(200 * 1000)
-+
-+void cv1800_clk_wait_for_lock(struct cv1800_clk_common *common,
-+			      u32 reg, u32 lock)
-+{
-+	void __iomem *addr = common->base + reg;
-+	u32 regval;
-+
-+	if (!lock)
-+		return;
-+
-+	WARN_ON(readl_relaxed_poll_timeout(addr, regval, regval & lock,
-+					   100, PLL_LOCK_TIMEOUT_US));
-+}
-diff --git a/drivers/clk/sophgo/clk-cv18xx-common.h b/drivers/clk/sophgo/clk-cv18xx-common.h
-new file mode 100644
-index 000000000000..2bfda02b2064
---- /dev/null
-+++ b/drivers/clk/sophgo/clk-cv18xx-common.h
-@@ -0,0 +1,81 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
-+ */
-+
-+#ifndef _CLK_SOPHGO_CV18XX_IP_H_
-+#define _CLK_SOPHGO_CV18XX_IP_H_
-+
-+#include <linux/compiler.h>
-+#include <linux/clk-provider.h>
-+#include <linux/bitfield.h>
-+
-+struct cv1800_clk_common {
-+	void __iomem	*base;
-+	spinlock_t	*lock;
-+	struct clk_hw	hw;
-+	unsigned long	features;
-+};
-+
-+#define CV1800_CLK_COMMON(_name, _parents, _op, _flags)			\
-+	{								\
-+		.hw.init = CLK_HW_INIT_PARENTS_DATA(_name, _parents,	\
-+						    _op, _flags),	\
-+	}
-+
-+static inline struct cv1800_clk_common *
-+hw_to_cv1800_clk_common(struct clk_hw *hw)
-+{
-+	return container_of(hw, struct cv1800_clk_common, hw);
-+}
-+
-+struct cv1800_clk_regbit {
-+	u16		reg;
-+	s8		shift;
-+};
-+
-+struct cv1800_clk_regfield {
-+	u16		reg;
-+	u8		shift;
-+	u8		width;
-+	s16		initval;
-+	unsigned long	flags;
-+};
-+
-+#define CV1800_CLK_BIT(_reg, _shift)	\
-+	{				\
-+		.reg = _reg,		\
-+		.shift = _shift,	\
-+	}
-+
-+#define CV1800_CLK_REG(_reg, _shift, _width, _initval, _flags)	\
-+	{							\
-+		.reg = _reg,					\
-+		.shift = _shift,				\
-+		.width = _width,				\
-+		.initval = _initval,				\
-+		.flags = _flags,				\
-+	}
-+
-+#define cv1800_clk_regfield_genmask(_reg) \
-+	GENMASK((_reg)->shift + (_reg)->width - 1, (_reg)->shift)
-+#define cv1800_clk_regfield_get(_val, _reg) \
-+	(((_val) >> (_reg)->shift) & GENMASK((_reg)->width - 1, 0))
-+#define cv1800_clk_regfield_set(_val, _new, _reg)    \
-+	(((_val) & ~cv1800_clk_regfield_genmask((_reg))) | \
-+	 (((_new) & GENMASK((_reg)->width - 1, 0)) << (_reg)->shift))
-+
-+#define _CV1800_SET_FIELD(_reg, _val, _field) \
-+	(((_reg) & ~(_field)) | FIELD_PREP((_field), (_val)))
-+
-+int cv1800_clk_setbit(struct cv1800_clk_common *common,
-+		      struct cv1800_clk_regbit *field);
-+int cv1800_clk_clearbit(struct cv1800_clk_common *common,
-+			struct cv1800_clk_regbit *field);
-+int cv1800_clk_checkbit(struct cv1800_clk_common *common,
-+			struct cv1800_clk_regbit *field);
-+
-+void cv1800_clk_wait_for_lock(struct cv1800_clk_common *common,
-+			      u32 reg, u32 lock);
-+
-+#endif // _CLK_SOPHGO_CV18XX_IP_H_
-diff --git a/drivers/clk/sophgo/clk-cv18xx-ip.c b/drivers/clk/sophgo/clk-cv18xx-ip.c
-new file mode 100644
-index 000000000000..aede85eac4ff
---- /dev/null
-+++ b/drivers/clk/sophgo/clk-cv18xx-ip.c
-@@ -0,0 +1,905 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
-+ */
-+
-+#include <linux/clk-provider.h>
-+#include <linux/io.h>
-+#include <linux/gcd.h>
-+#include <linux/spinlock.h>
-+
-+#include "clk-cv18xx-ip.h"
-+
-+/* GATE */
-+static inline struct cv1800_clk_gate *hw_to_cv1800_clk_gate(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_common *common = hw_to_cv1800_clk_common(hw);
-+
-+	return container_of(common, struct cv1800_clk_gate, common);
-+}
-+
-+static int gate_enable(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_gate *gate = hw_to_cv1800_clk_gate(hw);
-+
-+	return cv1800_clk_setbit(&gate->common, &gate->gate);
-+}
-+
-+static void gate_disable(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_gate *gate = hw_to_cv1800_clk_gate(hw);
-+
-+	cv1800_clk_clearbit(&gate->common, &gate->gate);
-+}
-+
-+static int gate_is_enabled(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_gate *gate = hw_to_cv1800_clk_gate(hw);
-+
-+	return cv1800_clk_checkbit(&gate->common, &gate->gate);
-+}
-+
-+static unsigned long gate_recalc_rate(struct clk_hw *hw,
-+				      unsigned long parent_rate)
-+{
-+	return parent_rate;
-+}
-+
-+static long gate_round_rate(struct clk_hw *hw, unsigned long rate,
-+			    unsigned long *parent_rate)
-+{
-+	return *parent_rate;
-+}
-+
-+static int gate_set_rate(struct clk_hw *hw, unsigned long rate,
-+			 unsigned long parent_rate)
-+{
-+	return 0;
-+}
-+
-+const struct clk_ops cv1800_clk_gate_ops = {
-+	.disable = gate_disable,
-+	.enable = gate_enable,
-+	.is_enabled = gate_is_enabled,
-+
-+	.recalc_rate = gate_recalc_rate,
-+	.round_rate = gate_round_rate,
-+	.set_rate = gate_set_rate,
-+};
-+
-+/* DIV */
-+#define _DIV_EN_CLK_DIV_FACTOR_FIELD		BIT(3)
-+
-+#define DIV_GET_EN_CLK_DIV_FACTOR(_reg) \
-+	FIELD_GET(_DIV_EN_CLK_DIV_FACTOR_FIELD, _reg)
-+
-+#define DIV_SET_EN_DIV_FACTOR(_reg) \
-+	_CV1800_SET_FIELD(_reg, 1, _DIV_EN_CLK_DIV_FACTOR_FIELD)
-+
-+static inline struct cv1800_clk_div *hw_to_cv1800_clk_div(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_common *common = hw_to_cv1800_clk_common(hw);
-+
-+	return container_of(common, struct cv1800_clk_div, common);
-+}
-+
-+static int div_enable(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_div *div = hw_to_cv1800_clk_div(hw);
-+
-+	return cv1800_clk_setbit(&div->common, &div->gate);
-+}
-+
-+static void div_disable(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_div *div = hw_to_cv1800_clk_div(hw);
-+
-+	cv1800_clk_clearbit(&div->common, &div->gate);
-+}
-+
-+static int div_is_enabled(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_div *div = hw_to_cv1800_clk_div(hw);
-+
-+	return cv1800_clk_checkbit(&div->common, &div->gate);
-+}
-+
-+static int div_helper_set_rate(struct cv1800_clk_common *common,
-+			       struct cv1800_clk_regfield *div,
-+			       unsigned long val)
-+{
-+	unsigned long flags;
-+	u32 reg;
-+
-+	if (div->width == 0)
-+		return 0;
-+
-+	spin_lock_irqsave(common->lock, flags);
-+
-+	reg = readl(common->base + div->reg);
-+	reg = cv1800_clk_regfield_set(reg, val, div);
-+	if (div->initval > 0)
-+		reg = DIV_SET_EN_DIV_FACTOR(reg);
-+
-+	writel(reg, common->base + div->reg);
-+
-+	spin_unlock_irqrestore(common->lock, flags);
-+
-+	return 0;
-+}
-+
-+static u32 div_helper_get_clockdiv(struct cv1800_clk_common *common,
-+				   struct cv1800_clk_regfield *div)
-+{
-+	u32 clockdiv = 1;
-+	u32 reg;
-+
-+	if (!div || div->initval < 0 || (div->width == 0 && div->initval <= 0))
-+		return 1;
-+
-+	if (div->width == 0 && div->initval > 0)
-+		return div->initval;
-+
-+	reg = readl(common->base + div->reg);
-+
-+	if (div->initval == 0 || DIV_GET_EN_CLK_DIV_FACTOR(reg))
-+		clockdiv = cv1800_clk_regfield_get(reg, div);
-+	else if (div->initval > 0)
-+		clockdiv = div->initval;
-+
-+	return clockdiv;
-+}
-+
-+static u32 div_helper_round_rate(struct cv1800_clk_regfield *div,
-+				 struct clk_hw *hw, struct clk_hw *parent,
-+				 unsigned long rate, unsigned long *prate)
-+{
-+	if (div->width == 0) {
-+		if (div->initval <= 0)
-+			return DIV_ROUND_UP_ULL(*prate, 1);
-+		else
-+			return DIV_ROUND_UP_ULL(*prate, div->initval);
-+	}
-+
-+	return divider_round_rate_parent(hw, parent, rate, prate, NULL,
-+					 div->width, div->flags);
-+}
-+
-+static long div_round_rate(struct clk_hw *parent, unsigned long *parent_rate,
-+			   unsigned long rate, int id, void *data)
-+{
-+	struct cv1800_clk_div *div = data;
-+
-+	return div_helper_round_rate(&div->div, &div->common.hw, parent,
-+				     rate, parent_rate);
-+}
-+
-+static bool div_is_better_rate(struct cv1800_clk_common *common,
-+			       unsigned long target, unsigned long now,
-+			       unsigned long best)
-+{
-+	if (common->features & CLK_DIVIDER_ROUND_CLOSEST)
-+		return abs_diff(target, now) < abs_diff(target, best);
-+
-+	return now <= target && now > best;
-+}
-+
-+static int mux_helper_determine_rate(struct cv1800_clk_common *common,
-+				     struct clk_rate_request *req,
-+				     long (*round)(struct clk_hw *,
-+						   unsigned long *,
-+						   unsigned long,
-+						   int,
-+						   void *),
-+				     void *data)
-+{
-+	unsigned long best_parent_rate = 0, best_rate = 0;
-+	struct clk_hw *best_parent, *hw = &common->hw;
-+	unsigned int i;
-+
-+	if (clk_hw_get_flags(hw) & CLK_SET_RATE_NO_REPARENT) {
-+		unsigned long adj_parent_rate;
-+
-+		best_parent = clk_hw_get_parent(hw);
-+		best_parent_rate = clk_hw_get_rate(best_parent);
-+
-+		best_rate = round(best_parent, &adj_parent_rate,
-+				  req->rate, -1, data);
-+
-+		goto find;
-+	}
-+
-+	for (i = 0; i < clk_hw_get_num_parents(hw); i++) {
-+		unsigned long tmp_rate, parent_rate;
-+		struct clk_hw *parent;
-+
-+		parent = clk_hw_get_parent_by_index(hw, i);
-+		if (!parent)
-+			continue;
-+
-+		parent_rate = clk_hw_get_rate(parent);
-+
-+		tmp_rate = round(parent, &parent_rate, req->rate, i, data);
-+
-+		if (tmp_rate == req->rate) {
-+			best_parent = parent;
-+			best_parent_rate = parent_rate;
-+			best_rate = tmp_rate;
-+			goto find;
-+		}
-+
-+		if (div_is_better_rate(common, req->rate,
-+				       tmp_rate, best_rate)) {
-+			best_parent = parent;
-+			best_parent_rate = parent_rate;
-+			best_rate = tmp_rate;
-+		}
-+	}
-+
-+	if (best_rate == 0)
-+		return -EINVAL;
-+
-+find:
-+	req->best_parent_hw = best_parent;
-+	req->best_parent_rate = best_parent_rate;
-+	req->rate = best_rate;
-+	return 0;
-+}
-+
-+static int div_determine_rate(struct clk_hw *hw,
-+			      struct clk_rate_request *req)
-+{
-+	struct cv1800_clk_div *div = hw_to_cv1800_clk_div(hw);
-+
-+	return mux_helper_determine_rate(&div->common, req,
-+					 div_round_rate, div);
-+}
-+
-+static unsigned long div_recalc_rate(struct clk_hw *hw,
-+				     unsigned long parent_rate)
-+{
-+	struct cv1800_clk_div *div = hw_to_cv1800_clk_div(hw);
-+	unsigned long val;
-+
-+	val = div_helper_get_clockdiv(&div->common, &div->div);
-+	if (val == 0)
-+		return 0;
-+
-+	return divider_recalc_rate(hw, parent_rate, val, NULL,
-+				   div->div.flags, div->div.width);
-+}
-+
-+static int div_set_rate(struct clk_hw *hw, unsigned long rate,
-+			 unsigned long parent_rate)
-+{
-+	struct cv1800_clk_div *div = hw_to_cv1800_clk_div(hw);
-+	unsigned long val;
-+
-+	val = divider_get_val(rate, parent_rate, NULL,
-+			      div->div.width, div->div.flags);
-+
-+	return div_helper_set_rate(&div->common, &div->div, val);
-+}
-+
-+const struct clk_ops cv1800_clk_div_ops = {
-+	.disable = div_disable,
-+	.enable = div_enable,
-+	.is_enabled = div_is_enabled,
-+
-+	.determine_rate = div_determine_rate,
-+	.recalc_rate	= div_recalc_rate,
-+	.set_rate = div_set_rate,
-+};
-+
-+static inline struct cv1800_clk_bypass_div *
-+hw_to_cv1800_clk_bypass_div(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_div *div = hw_to_cv1800_clk_div(hw);
-+
-+	return container_of(div, struct cv1800_clk_bypass_div, div);
-+}
-+
-+static long bypass_div_round_rate(struct clk_hw *parent,
-+				  unsigned long *parent_rate,
-+				  unsigned long rate, int id, void *data)
-+{
-+	struct cv1800_clk_bypass_div *div = data;
-+
-+	if (id == -1) {
-+		if (cv1800_clk_checkbit(&div->div.common, &div->bypass))
-+			return *parent_rate;
-+		else
-+			return div_round_rate(parent, parent_rate, rate,
-+					      -1, &div->div);
-+	}
-+
-+	if (id == 0)
-+		return *parent_rate;
-+
-+	return div_round_rate(parent, parent_rate, rate, id - 1, &div->div);
-+}
-+
-+static int bypass_div_determine_rate(struct clk_hw *hw,
-+				     struct clk_rate_request *req)
-+{
-+	struct cv1800_clk_bypass_div *div = hw_to_cv1800_clk_bypass_div(hw);
-+
-+	return mux_helper_determine_rate(&div->div.common, req,
-+					 bypass_div_round_rate, div);
-+}
-+
-+static unsigned long bypass_div_recalc_rate(struct clk_hw *hw,
-+					    unsigned long parent_rate)
-+{
-+	struct cv1800_clk_bypass_div *div = hw_to_cv1800_clk_bypass_div(hw);
-+
-+	if (cv1800_clk_checkbit(&div->div.common, &div->bypass))
-+		return parent_rate;
-+
-+	return div_recalc_rate(hw, parent_rate);
-+}
-+
-+static int bypass_div_set_rate(struct clk_hw *hw, unsigned long rate,
-+			       unsigned long parent_rate)
-+{
-+	struct cv1800_clk_bypass_div *div = hw_to_cv1800_clk_bypass_div(hw);
-+
-+	if (cv1800_clk_checkbit(&div->div.common, &div->bypass))
-+		return 0;
-+
-+	return div_set_rate(hw, rate, parent_rate);
-+}
-+
-+static u8 bypass_div_get_parent(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_bypass_div *div = hw_to_cv1800_clk_bypass_div(hw);
-+
-+	if (cv1800_clk_checkbit(&div->div.common, &div->bypass))
-+		return 0;
-+
-+	return 1;
-+}
-+
-+static int bypass_div_set_parent(struct clk_hw *hw, u8 index)
-+{
-+	struct cv1800_clk_bypass_div *div = hw_to_cv1800_clk_bypass_div(hw);
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(div->div.common.lock, flags);
-+
-+	if (index)
-+		cv1800_clk_clearbit(&div->div.common, &div->bypass);
-+	else
-+		cv1800_clk_setbit(&div->div.common, &div->bypass);
-+
-+	spin_unlock_irqrestore(div->div.common.lock, flags);
-+
-+	return 0;
-+}
-+
-+const struct clk_ops cv1800_clk_bypass_div_ops = {
-+	.disable = div_disable,
-+	.enable = div_enable,
-+	.is_enabled = div_is_enabled,
-+
-+	.determine_rate = bypass_div_determine_rate,
-+	.recalc_rate = bypass_div_recalc_rate,
-+	.set_rate = bypass_div_set_rate,
-+
-+	.set_parent = bypass_div_set_parent,
-+	.get_parent = bypass_div_get_parent
-+};
-+
-+/* MUX */
-+static inline struct cv1800_clk_mux *hw_to_cv1800_clk_mux(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_common *common = hw_to_cv1800_clk_common(hw);
-+
-+	return container_of(common, struct cv1800_clk_mux, common);
-+}
-+
-+static int mux_enable(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_mux *mux = hw_to_cv1800_clk_mux(hw);
-+
-+	return cv1800_clk_setbit(&mux->common, &mux->gate);
-+}
-+
-+static void mux_disable(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_mux *mux = hw_to_cv1800_clk_mux(hw);
-+
-+	cv1800_clk_clearbit(&mux->common, &mux->gate);
-+}
-+
-+static int mux_is_enabled(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_mux *mux = hw_to_cv1800_clk_mux(hw);
-+
-+	return cv1800_clk_checkbit(&mux->common, &mux->gate);
-+}
-+
-+static long mux_round_rate(struct clk_hw *parent, unsigned long *parent_rate,
-+			   unsigned long rate, int id, void *data)
-+{
-+	struct cv1800_clk_mux *mux = data;
-+
-+	return div_helper_round_rate(&mux->div, &mux->common.hw, parent,
-+				     rate, parent_rate);
-+}
-+
-+static int mux_determine_rate(struct clk_hw *hw,
-+			      struct clk_rate_request *req)
-+{
-+	struct cv1800_clk_mux *mux = hw_to_cv1800_clk_mux(hw);
-+
-+	return mux_helper_determine_rate(&mux->common, req,
-+					 mux_round_rate, mux);
-+}
-+
-+static unsigned long mux_recalc_rate(struct clk_hw *hw,
-+				     unsigned long parent_rate)
-+{
-+	struct cv1800_clk_mux *mux = hw_to_cv1800_clk_mux(hw);
-+	unsigned long val;
-+
-+	val = div_helper_get_clockdiv(&mux->common, &mux->div);
-+	if (val == 0)
-+		return 0;
-+
-+	return divider_recalc_rate(hw, parent_rate, val, NULL,
-+				   mux->div.flags, mux->div.width);
-+}
-+
-+static int mux_set_rate(struct clk_hw *hw, unsigned long rate,
-+			unsigned long parent_rate)
-+{
-+	struct cv1800_clk_mux *mux = hw_to_cv1800_clk_mux(hw);
-+	unsigned long val;
-+
-+	val = divider_get_val(rate, parent_rate, NULL,
-+			      mux->div.width, mux->div.flags);
-+
-+	return div_helper_set_rate(&mux->common, &mux->div, val);
-+}
-+
-+static u8 mux_get_parent(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_mux *mux = hw_to_cv1800_clk_mux(hw);
-+	u32 reg = readl(mux->common.base + mux->mux.reg);
-+
-+	return cv1800_clk_regfield_get(reg, &mux->mux);
-+}
-+
-+static int _mux_set_parent(struct cv1800_clk_mux *mux, u8 index)
-+{
-+	u32 reg;
-+
-+	reg = readl(mux->common.base + mux->mux.reg);
-+	reg = cv1800_clk_regfield_set(reg, index, &mux->mux);
-+	writel(reg, mux->common.base + mux->mux.reg);
-+
-+	return 0;
-+}
-+
-+static int mux_set_parent(struct clk_hw *hw, u8 index)
-+{
-+	struct cv1800_clk_mux *mux = hw_to_cv1800_clk_mux(hw);
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(mux->common.lock, flags);
-+
-+	_mux_set_parent(mux, index);
-+
-+	spin_unlock_irqrestore(mux->common.lock, flags);
-+
-+	return 0;
-+}
-+
-+const struct clk_ops cv1800_clk_mux_ops = {
-+	.disable = mux_disable,
-+	.enable = mux_enable,
-+	.is_enabled = mux_is_enabled,
-+
-+	.determine_rate = mux_determine_rate,
-+	.recalc_rate = mux_recalc_rate,
-+	.set_rate = mux_set_rate,
-+
-+	.set_parent = mux_set_parent,
-+	.get_parent = mux_get_parent,
-+};
-+
-+static inline struct cv1800_clk_bypass_mux *
-+hw_to_cv1800_clk_bypass_mux(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_mux *mux = hw_to_cv1800_clk_mux(hw);
-+
-+	return container_of(mux, struct cv1800_clk_bypass_mux, mux);
-+}
-+
-+static long bypass_mux_round_rate(struct clk_hw *parent,
-+				  unsigned long *parent_rate,
-+				  unsigned long rate, int id, void *data)
-+{
-+	struct cv1800_clk_bypass_mux *mux = data;
-+
-+	if (id == -1) {
-+		if (cv1800_clk_checkbit(&mux->mux.common, &mux->bypass))
-+			return *parent_rate;
-+		else
-+			return mux_round_rate(parent, parent_rate, rate,
-+					      -1, &mux->mux);
-+	}
-+
-+	if (id == 0)
-+		return *parent_rate;
-+
-+	return mux_round_rate(parent, parent_rate, rate, id - 1, &mux->mux);
-+}
-+
-+static int bypass_mux_determine_rate(struct clk_hw *hw,
-+				     struct clk_rate_request *req)
-+{
-+	struct cv1800_clk_bypass_mux *mux = hw_to_cv1800_clk_bypass_mux(hw);
-+
-+	return mux_helper_determine_rate(&mux->mux.common, req,
-+					 bypass_mux_round_rate, mux);
-+}
-+
-+static unsigned long bypass_mux_recalc_rate(struct clk_hw *hw,
-+					    unsigned long parent_rate)
-+{
-+	struct cv1800_clk_bypass_mux *mux = hw_to_cv1800_clk_bypass_mux(hw);
-+
-+	if (cv1800_clk_checkbit(&mux->mux.common, &mux->bypass))
-+		return parent_rate;
-+
-+	return mux_recalc_rate(hw, parent_rate);
-+}
-+
-+static int bypass_mux_set_rate(struct clk_hw *hw, unsigned long rate,
-+			       unsigned long parent_rate)
-+{
-+	struct cv1800_clk_bypass_mux *mux = hw_to_cv1800_clk_bypass_mux(hw);
-+
-+	if (cv1800_clk_checkbit(&mux->mux.common, &mux->bypass))
-+		return 0;
-+
-+	return mux_set_rate(hw, rate, parent_rate);
-+}
-+
-+static u8 bypass_mux_get_parent(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_bypass_mux *mux = hw_to_cv1800_clk_bypass_mux(hw);
-+
-+	if (cv1800_clk_checkbit(&mux->mux.common, &mux->bypass))
-+		return 0;
-+
-+	return mux_get_parent(hw) + 1;
-+}
-+
-+static int bypass_mux_set_parent(struct clk_hw *hw, u8 index)
-+{
-+	struct cv1800_clk_bypass_mux *mux = hw_to_cv1800_clk_bypass_mux(hw);
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(mux->mux.common.lock, flags);
-+
-+	if (index == 0) {
-+		cv1800_clk_setbit(&mux->mux.common, &mux->bypass);
-+		goto release;
-+	}
-+
-+	cv1800_clk_clearbit(&mux->mux.common, &mux->bypass);
-+	_mux_set_parent(&mux->mux, index - 1);
-+
-+release:
-+	spin_unlock_irqrestore(mux->mux.common.lock, flags);
-+	return 0;
-+}
-+
-+const struct clk_ops cv1800_clk_bypass_mux_ops = {
-+	.disable = mux_disable,
-+	.enable = mux_enable,
-+	.is_enabled = mux_is_enabled,
-+
-+	.determine_rate = bypass_mux_determine_rate,
-+	.recalc_rate = bypass_mux_recalc_rate,
-+	.set_rate = bypass_mux_set_rate,
-+
-+	.set_parent = bypass_mux_set_parent,
-+	.get_parent = bypass_mux_get_parent,
-+};
-+
-+/* MMUX */
-+static inline struct cv1800_clk_mmux *hw_to_cv1800_clk_mmux(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_common *common = hw_to_cv1800_clk_common(hw);
-+
-+	return container_of(common, struct cv1800_clk_mmux, common);
-+}
-+
-+static u8 mmux_get_parent_id(struct cv1800_clk_mmux *mmux)
-+{
-+	struct clk_hw *hw = &mmux->common.hw;
-+	struct clk_hw *parent = clk_hw_get_parent(hw);
-+	unsigned int i;
-+
-+	for (i = 0; i < clk_hw_get_num_parents(hw); i++) {
-+		if (parent == clk_hw_get_parent_by_index(hw, i))
-+			return i;
-+	}
-+
-+	unreachable();
-+}
-+
-+static int mmux_enable(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_mmux *mmux = hw_to_cv1800_clk_mmux(hw);
-+
-+	return cv1800_clk_setbit(&mmux->common, &mmux->gate);
-+}
-+
-+static void mmux_disable(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_mmux *mmux = hw_to_cv1800_clk_mmux(hw);
-+
-+	cv1800_clk_clearbit(&mmux->common, &mmux->gate);
-+}
-+
-+static int mmux_is_enabled(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_mmux *mmux = hw_to_cv1800_clk_mmux(hw);
-+
-+	return cv1800_clk_checkbit(&mmux->common, &mmux->gate);
-+}
-+
-+static long mmux_round_rate(struct clk_hw *parent, unsigned long *parent_rate,
-+			    unsigned long rate, int id, void *data)
-+{
-+	struct cv1800_clk_mmux *mmux = data;
-+	s8 div_id;
-+
-+	if (id == -1) {
-+		if (cv1800_clk_checkbit(&mmux->common, &mmux->bypass))
-+			return *parent_rate;
-+
-+		id = mmux_get_parent_id(mmux);
-+	}
-+
-+	div_id = mmux->parent2sel[id];
-+
-+	if (div_id < 0)
-+		return *parent_rate;
-+
-+	return div_helper_round_rate(&mmux->div[div_id],
-+				     &mmux->common.hw, parent,
-+				     rate, parent_rate);
-+}
-+
-+static int mmux_determine_rate(struct clk_hw *hw,
-+			       struct clk_rate_request *req)
-+{
-+	struct cv1800_clk_mmux *mmux = hw_to_cv1800_clk_mmux(hw);
-+
-+	return mux_helper_determine_rate(&mmux->common, req,
-+					 mmux_round_rate, mmux);
-+}
-+
-+static unsigned long mmux_recalc_rate(struct clk_hw *hw,
-+				      unsigned long parent_rate)
-+{
-+	struct cv1800_clk_mmux *mmux = hw_to_cv1800_clk_mmux(hw);
-+	unsigned long val;
-+	struct cv1800_clk_regfield *div;
-+
-+	if (cv1800_clk_checkbit(&mmux->common, &mmux->bypass))
-+		return parent_rate;
-+
-+	if (cv1800_clk_checkbit(&mmux->common, &mmux->clk_sel))
-+		div = &mmux->div[0];
-+	else
-+		div = &mmux->div[1];
-+
-+	val = div_helper_get_clockdiv(&mmux->common, div);
-+	if (val == 0)
-+		return 0;
-+
-+	return divider_recalc_rate(hw, parent_rate, val, NULL,
-+				   div->flags, div->width);
-+}
-+
-+static int mmux_set_rate(struct clk_hw *hw, unsigned long rate,
-+			 unsigned long parent_rate)
-+{
-+	struct cv1800_clk_mmux *mmux = hw_to_cv1800_clk_mmux(hw);
-+	struct cv1800_clk_regfield *div;
-+	unsigned long val;
-+
-+	if (cv1800_clk_checkbit(&mmux->common, &mmux->bypass))
-+		return parent_rate;
-+
-+	if (cv1800_clk_checkbit(&mmux->common, &mmux->clk_sel))
-+		div = &mmux->div[0];
-+	else
-+		div = &mmux->div[1];
-+
-+	val = divider_get_val(rate, parent_rate, NULL,
-+			      div->width, div->flags);
-+
-+	return div_helper_set_rate(&mmux->common, div, val);
-+}
-+
-+static u8 mmux_get_parent(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_mmux *mmux = hw_to_cv1800_clk_mmux(hw);
-+	struct cv1800_clk_regfield *mux;
-+	u32 reg;
-+	s8 clk_sel;
-+
-+	if (cv1800_clk_checkbit(&mmux->common, &mmux->bypass))
-+		return 0;
-+
-+	if (cv1800_clk_checkbit(&mmux->common, &mmux->clk_sel))
-+		clk_sel = 0;
-+	else
-+		clk_sel = 1;
-+	mux = &mmux->mux[clk_sel];
-+
-+	reg = readl(mmux->common.base + mux->reg);
-+
-+	return mmux->sel2parent[clk_sel][cv1800_clk_regfield_get(reg, mux)];
-+}
-+
-+static int mmux_set_parent(struct clk_hw *hw, u8 index)
-+{
-+	struct cv1800_clk_mmux *mmux = hw_to_cv1800_clk_mmux(hw);
-+	struct cv1800_clk_regfield *mux;
-+	unsigned long flags;
-+	u32 reg;
-+	s8 clk_sel = mmux->parent2sel[index];
-+
-+	spin_lock_irqsave(mmux->common.lock, flags);
-+
-+	if (index == 0 || clk_sel == -1) {
-+		cv1800_clk_setbit(&mmux->common, &mmux->bypass);
-+		goto release;
-+	}
-+
-+	cv1800_clk_clearbit(&mmux->common, &mmux->bypass);
-+
-+	if (clk_sel)
-+		cv1800_clk_clearbit(&mmux->common, &mmux->clk_sel);
-+	else
-+		cv1800_clk_setbit(&mmux->common, &mmux->clk_sel);
-+
-+	mux = &mmux->mux[clk_sel];
-+	reg = readl(mmux->common.base + mux->reg);
-+	reg = cv1800_clk_regfield_set(reg, index, mux);
-+
-+	writel(reg, mmux->common.base + mux->reg);
-+
-+release:
-+	spin_unlock_irqrestore(mmux->common.lock, flags);
-+
-+	return 0;
-+}
-+
-+const struct clk_ops cv1800_clk_mmux_ops = {
-+	.disable = mmux_disable,
-+	.enable = mmux_enable,
-+	.is_enabled = mmux_is_enabled,
-+
-+	.determine_rate = mmux_determine_rate,
-+	.recalc_rate = mmux_recalc_rate,
-+	.set_rate = mmux_set_rate,
-+
-+	.set_parent = mmux_set_parent,
-+	.get_parent = mmux_get_parent,
-+};
-+
-+/* AUDIO CLK */
-+static inline struct cv1800_clk_audio *
-+hw_to_cv1800_clk_audio(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_common *common = hw_to_cv1800_clk_common(hw);
-+
-+	return container_of(common, struct cv1800_clk_audio, common);
-+}
-+
-+static int aclk_enable(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_audio *aclk = hw_to_cv1800_clk_audio(hw);
-+
-+	cv1800_clk_setbit(&aclk->common, &aclk->src_en);
-+	return cv1800_clk_setbit(&aclk->common, &aclk->output_en);
-+}
-+
-+static void aclk_disable(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_audio *aclk = hw_to_cv1800_clk_audio(hw);
-+
-+	cv1800_clk_clearbit(&aclk->common, &aclk->output_en);
-+	cv1800_clk_clearbit(&aclk->common, &aclk->src_en);
-+}
-+
-+static int aclk_is_enabled(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_audio *aclk = hw_to_cv1800_clk_audio(hw);
-+
-+	return cv1800_clk_checkbit(&aclk->common, &aclk->output_en);
-+}
-+
-+static int aclk_determine_rate(struct clk_hw *hw,
-+			       struct clk_rate_request *req)
-+{
-+	struct cv1800_clk_audio *aclk = hw_to_cv1800_clk_audio(hw);
-+
-+	req->rate = aclk->target_rate;
-+
-+	return 0;
-+}
-+
-+static unsigned long aclk_recalc_rate(struct clk_hw *hw,
-+				      unsigned long parent_rate)
-+{
-+	struct cv1800_clk_audio *aclk = hw_to_cv1800_clk_audio(hw);
-+	u64 rate = parent_rate;
-+	u64 factor = 2;
-+	u32 regval;
-+
-+	if (!cv1800_clk_checkbit(&aclk->common, &aclk->div_en))
-+		return 0;
-+
-+	regval = readl(aclk->common.base + aclk->m.reg);
-+	factor *= cv1800_clk_regfield_get(regval, &aclk->m);
-+
-+	regval = readl(aclk->common.base + aclk->n.reg);
-+	rate *= cv1800_clk_regfield_get(regval, &aclk->n);
-+
-+	return DIV64_U64_ROUND_UP(rate, factor);
-+}
-+
-+static void aclk_determine_mn(unsigned long parent_rate, unsigned long rate,
-+			      u32 *m, u32 *n)
-+{
-+	u32 tm = parent_rate / 2;
-+	u32 tn = rate;
-+	u32 tcommon = gcd(tm, tn);
-+	*m = tm / tcommon;
-+	*n = tn / tcommon;
-+}
-+
-+
-+static int aclk_set_rate(struct clk_hw *hw, unsigned long rate,
-+			 unsigned long parent_rate)
-+{
-+	struct cv1800_clk_audio *aclk = hw_to_cv1800_clk_audio(hw);
-+	unsigned long flags;
-+	u32 m, n;
-+
-+	aclk_determine_mn(parent_rate, rate,
-+			  &m, &n);
-+
-+	spin_lock_irqsave(aclk->common.lock, flags);
-+
-+	writel(m, aclk->common.base + aclk->m.reg);
-+	writel(n, aclk->common.base + aclk->n.reg);
-+
-+	cv1800_clk_setbit(&aclk->common, &aclk->div_en);
-+	cv1800_clk_setbit(&aclk->common, &aclk->div_up);
-+
-+	spin_unlock_irqrestore(aclk->common.lock, flags);
-+
-+	return 0;
-+}
-+
-+const struct clk_ops cv1800_clk_audio_ops = {
-+	.disable = aclk_disable,
-+	.enable = aclk_enable,
-+	.is_enabled = aclk_is_enabled,
-+
-+	.determine_rate = aclk_determine_rate,
-+	.recalc_rate = aclk_recalc_rate,
-+	.set_rate = aclk_set_rate,
-+};
-diff --git a/drivers/clk/sophgo/clk-cv18xx-ip.h b/drivers/clk/sophgo/clk-cv18xx-ip.h
-new file mode 100644
-index 000000000000..928de0146b08
---- /dev/null
-+++ b/drivers/clk/sophgo/clk-cv18xx-ip.h
-@@ -0,0 +1,265 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
-+ */
-+
-+#ifndef _CLK_SOPHGO_CV1800_IP_H_
-+#define _CLK_SOPHGO_CV1800_IP_H_
-+
-+#include "clk-cv18xx-common.h"
-+
-+struct cv1800_clk_gate {
-+	struct cv1800_clk_common	common;
-+	struct cv1800_clk_regbit	gate;
-+};
-+
-+struct cv1800_clk_div_data {
-+	u32		reg;
-+	u32		mask;
-+	u32		width;
-+	u32		init;
-+	u32		flags;
-+};
-+
-+struct cv1800_clk_div {
-+	struct cv1800_clk_common	common;
-+	struct cv1800_clk_regbit	gate;
-+	struct cv1800_clk_regfield	div;
-+};
-+
-+struct cv1800_clk_bypass_div {
-+	struct cv1800_clk_div		div;
-+	struct cv1800_clk_regbit	bypass;
-+};
-+
-+struct cv1800_clk_mux {
-+	struct cv1800_clk_common	common;
-+	struct cv1800_clk_regbit	gate;
-+	struct cv1800_clk_regfield	div;
-+	struct cv1800_clk_regfield	mux;
-+};
-+
-+struct cv1800_clk_bypass_mux {
-+	struct cv1800_clk_mux		mux;
-+	struct cv1800_clk_regbit	bypass;
-+};
-+
-+struct cv1800_clk_mmux {
-+	struct cv1800_clk_common	common;
-+	struct cv1800_clk_regbit	gate;
-+	struct cv1800_clk_regfield	div[2];
-+	struct cv1800_clk_regfield	mux[2];
-+	struct cv1800_clk_regbit	bypass;
-+	struct cv1800_clk_regbit	clk_sel;
-+	const s8			*parent2sel;
-+	const u8			*sel2parent[2];
-+};
-+
-+struct cv1800_clk_audio {
-+	struct cv1800_clk_common	common;
-+	struct cv1800_clk_regbit	src_en;
-+	struct cv1800_clk_regbit	output_en;
-+	struct cv1800_clk_regbit	div_en;
-+	struct cv1800_clk_regbit	div_up;
-+	struct cv1800_clk_regfield	m;
-+	struct cv1800_clk_regfield	n;
-+	u32				target_rate;
-+};
-+
-+#define CV1800_GATE(_name, _parent, _gate_reg, _gate_shift, _flags)	\
-+	struct cv1800_clk_gate _name = {				\
-+		.common	= CV1800_CLK_COMMON(#_name, _parent,		\
-+					    &cv1800_clk_gate_ops,	\
-+					    _flags),			\
-+		.gate	= CV1800_CLK_BIT(_gate_reg, _gate_shift),	\
-+	}
-+
-+#define _CV1800_DIV(_name, _parent, _gate_reg, _gate_shift,		\
-+		    _div_reg, _div_shift, _div_width, _div_init,	\
-+		    _div_flag, _ops, _flags)				\
-+	{								\
-+		.common		= CV1800_CLK_COMMON(#_name, _parent,	\
-+						    _ops, _flags),	\
-+		.gate		= CV1800_CLK_BIT(_gate_reg,		\
-+						 _gate_shift),		\
-+		.div		= CV1800_CLK_REG(_div_reg, _div_shift,	\
-+						 _div_width, _div_init,	\
-+						 _div_flag),		\
-+	}
-+
-+#define _CV1800_FIXED_DIV_FLAG	\
-+	(CLK_DIVIDER_ONE_BASED | CLK_DIVIDER_ROUND_CLOSEST)
-+
-+#define _CV1800_FIXED_DIV(_name, _parent, _gate_reg, _gate_shift,	\
-+			  _fix_div, _ops, _flags)			\
-+	{								\
-+		.common		= CV1800_CLK_COMMON(#_name, _parent,	\
-+						    _ops, _flags),	\
-+		.gate		= CV1800_CLK_BIT(_gate_reg,		\
-+						 _gate_shift),		\
-+		.div		= CV1800_CLK_REG(0, 0, 0,		\
-+						 _fix_div,		\
-+						 _CV1800_FIXED_DIV_FLAG),\
-+	}
-+
-+
-+#define CV1800_DIV(_name, _parent, _gate_reg, _gate_shift,		\
-+		   _div_reg, _div_shift, _div_width, _div_init,		\
-+		   _div_flag, _flags)					\
-+	struct cv1800_clk_div _name =					\
-+		_CV1800_DIV(_name, _parent, _gate_reg, _gate_shift,	\
-+			    _div_reg, _div_shift, _div_width, _div_init,\
-+			    _div_flag, &cv1800_clk_div_ops, _flags)
-+
-+
-+#define CV1800_BYPASS_DIV(_name, _parent, _gate_reg, _gate_shift,	\
-+			  _div_reg, _div_shift, _div_width, _div_init,	\
-+			  _div_flag, _bypass_reg, _bypass_shift, _flags)\
-+	struct cv1800_clk_bypass_div _name = {				\
-+		.div	= _CV1800_DIV(_name, _parent,			\
-+				      _gate_reg, _gate_shift,		\
-+				      _div_reg, _div_shift,		\
-+				      _div_width, _div_init, _div_flag,	\
-+				      &cv1800_clk_bypass_div_ops,	\
-+				      _flags),				\
-+		.bypass	= CV1800_CLK_BIT(_bypass_reg, _bypass_shift),	\
-+	}
-+
-+#define CV1800_FIXED_DIV(_name, _parent, _gate_reg, _gate_shift,	\
-+			 _fix_div, _flags)				\
-+	struct cv1800_clk_div _name =					\
-+		_CV1800_FIXED_DIV(_name, _parent,			\
-+				  _gate_reg, _gate_shift,		\
-+				  _fix_div,				\
-+				  &cv1800_clk_div_ops, _flags)		\
-+
-+#define CV1800_BYPASS_FIXED_DIV(_name, _parent, _gate_reg, _gate_shift,	\
-+				_fix_div, _bypass_reg, _bypass_shift,	\
-+				_flags)					\
-+	struct cv1800_clk_bypass_div _name = {				\
-+		.div	= _CV1800_FIXED_DIV(_name, _parent,		\
-+					    _gate_reg, _gate_shift,	\
-+					    _fix_div,			\
-+					    &cv1800_clk_bypass_div_ops,	\
-+					    _flags),			\
-+		.bypass	= CV1800_CLK_BIT(_bypass_reg, _bypass_shift),	\
-+	}
-+
-+#define _CV1800_MUX(_name, _parent, _gate_reg, _gate_shift,		\
-+		    _div_reg, _div_shift, _div_width, _div_init,	\
-+		    _div_flag,						\
-+		    _mux_reg, _mux_shift, _mux_width,			\
-+		    _ops, _flags)					\
-+	{								\
-+		.common		= CV1800_CLK_COMMON(#_name, _parent,	\
-+						    _ops, _flags),	\
-+		.gate		= CV1800_CLK_BIT(_gate_reg,		\
-+						 _gate_shift),		\
-+		.div		= CV1800_CLK_REG(_div_reg, _div_shift,	\
-+						 _div_width, _div_init,	\
-+						 _div_flag),		\
-+		.mux		= CV1800_CLK_REG(_mux_reg, _mux_shift,	\
-+						 _mux_width, 0, 0),	\
-+	}
-+
-+#define CV1800_MUX(_name, _parent, _gate_reg, _gate_shift,		\
-+		   _div_reg, _div_shift, _div_width, _div_init,		\
-+		   _div_flag,						\
-+		   _mux_reg, _mux_shift, _mux_width, _flags)		\
-+	struct cv1800_clk_mux _name =					\
-+		_CV1800_MUX(_name, _parent, _gate_reg, _gate_shift,	\
-+			    _div_reg, _div_shift, _div_width, _div_init,\
-+			    _div_flag, _mux_reg, _mux_shift, _mux_width,\
-+			    &cv1800_clk_mux_ops, _flags)
-+
-+#define CV1800_BYPASS_MUX(_name, _parent, _gate_reg, _gate_shift,	\
-+			  _div_reg, _div_shift, _div_width, _div_init,	\
-+			  _div_flag,					\
-+			  _mux_reg, _mux_shift, _mux_width,		\
-+			  _bypass_reg, _bypass_shift, _flags)		\
-+	struct cv1800_clk_bypass_mux _name = {				\
-+		.mux	= _CV1800_MUX(_name, _parent,			\
-+				      _gate_reg, _gate_shift,		\
-+				      _div_reg, _div_shift, _div_width,	\
-+				      _div_init, _div_flag,		\
-+				      _mux_reg, _mux_shift, _mux_width,	\
-+				      &cv1800_clk_bypass_mux_ops,	\
-+				      _flags),				\
-+		.bypass	= CV1800_CLK_BIT(_bypass_reg, _bypass_shift),	\
-+	}
-+
-+#define CV1800_MMUX(_name, _parent, _gate_reg, _gate_shift,		\
-+		    _div0_reg, _div0_shift, _div0_width, _div0_init,	\
-+		    _div0_flag,						\
-+		    _div1_reg, _div1_shift, _div1_width, _div1_init,	\
-+		    _div1_flag,						\
-+		    _mux0_reg, _mux0_shift, _mux0_width,		\
-+		    _mux1_reg, _mux1_shift, _mux1_width,		\
-+		    _bypass_reg, _bypass_shift,				\
-+		    _clk_sel_reg, _clk_sel_shift,			\
-+		    _parent2sel, _sel2parent0, _sel2parent1, _flags)	\
-+	struct cv1800_clk_mmux _name = {				\
-+		.common		= CV1800_CLK_COMMON(#_name, _parent,	\
-+						    &cv1800_clk_mmux_ops,\
-+						    _flags),		\
-+		.gate		= CV1800_CLK_BIT(_gate_reg, _gate_shift),\
-+		.div		= {					\
-+			CV1800_CLK_REG(_div0_reg, _div0_shift,		\
-+				       _div0_width, _div0_init,		\
-+				       _div0_flag),			\
-+			CV1800_CLK_REG(_div1_reg, _div1_shift,		\
-+				       _div1_width, _div1_init,		\
-+				       _div1_flag),			\
-+		},							\
-+		.mux		= {					\
-+			CV1800_CLK_REG(_mux0_reg, _mux0_shift,		\
-+				       _mux0_width, 0, 0),		\
-+			CV1800_CLK_REG(_mux1_reg, _mux1_shift,		\
-+				       _mux1_width, 0, 0),		\
-+		},							\
-+		.bypass		= CV1800_CLK_BIT(_bypass_reg,		\
-+						 _bypass_shift),	\
-+		.clk_sel	= CV1800_CLK_BIT(_clk_sel_reg,		\
-+						 _clk_sel_shift),	\
-+		.parent2sel	= _parent2sel,				\
-+		.sel2parent	= { _sel2parent0, _sel2parent1 },	\
-+	}
-+
-+#define CV1800_ACLK(_name, _parent,					\
-+		    _src_en_reg, _src_en_reg_shift,			\
-+		    _output_en_reg, _output_en_shift,			\
-+		    _div_en_reg, _div_en_reg_shift,			\
-+		    _div_up_reg, _div_up_reg_shift,			\
-+		    _m_reg, _m_shift, _m_width, _m_flag,		\
-+		    _n_reg, _n_shift, _n_width, _n_flag,		\
-+		    _target_rate, _flags)				\
-+	struct cv1800_clk_audio _name = {				\
-+		.common		= CV1800_CLK_COMMON(#_name, _parent,	\
-+						    &cv1800_clk_audio_ops,\
-+						    _flags),		\
-+		.src_en		= CV1800_CLK_BIT(_src_en_reg,		\
-+						 _src_en_reg_shift),	\
-+		.output_en	= CV1800_CLK_BIT(_output_en_reg,	\
-+						 _output_en_shift),	\
-+		.div_en		= CV1800_CLK_BIT(_div_en_reg,		\
-+						 _div_en_reg_shift),	\
-+		.div_up		= CV1800_CLK_BIT(_div_up_reg,		\
-+						 _div_up_reg_shift),	\
-+		.m		= CV1800_CLK_REG(_m_reg, _m_shift,	\
-+						 _m_width, 0, _m_flag),	\
-+		.n		= CV1800_CLK_REG(_n_reg, _n_shift,	\
-+						 _n_width, 0, _n_flag),	\
-+		.target_rate	= _target_rate,				\
-+	}
-+
-+
-+
-+extern const struct clk_ops cv1800_clk_gate_ops;
-+extern const struct clk_ops cv1800_clk_div_ops;
-+extern const struct clk_ops cv1800_clk_bypass_div_ops;
-+extern const struct clk_ops cv1800_clk_mux_ops;
-+extern const struct clk_ops cv1800_clk_bypass_mux_ops;
-+extern const struct clk_ops cv1800_clk_mmux_ops;
-+extern const struct clk_ops cv1800_clk_audio_ops;
-+
-+#endif // _CLK_SOPHGO_CV1800_IP_H_
-diff --git a/drivers/clk/sophgo/clk-cv18xx-pll.c b/drivers/clk/sophgo/clk-cv18xx-pll.c
-new file mode 100644
-index 000000000000..c687bde48455
---- /dev/null
-+++ b/drivers/clk/sophgo/clk-cv18xx-pll.c
-@@ -0,0 +1,425 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
-+ */
-+
-+#include <linux/clk-provider.h>
-+#include <linux/io.h>
-+#include <linux/limits.h>
-+#include <linux/spinlock.h>
-+
-+#include "clk-cv18xx-pll.h"
-+
-+static inline struct cv1800_clk_pll *hw_to_cv1800_clk_pll(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_common *common = hw_to_cv1800_clk_common(hw);
-+
-+	return container_of(common, struct cv1800_clk_pll, common);
-+}
-+
-+static unsigned long ipll_calc_rate(unsigned long parent_rate,
-+				    unsigned long pre_div_sel,
-+				    unsigned long div_sel,
-+				    unsigned long post_div_sel)
-+{
-+	unsigned long rate = parent_rate;
-+
-+	rate *= div_sel;
-+	do_div(rate, pre_div_sel * post_div_sel);
-+
-+	return rate;
-+}
-+
-+static unsigned long ipll_recalc_rate(struct clk_hw *hw,
-+				      unsigned long parent_rate)
-+{
-+	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
-+	u32 value;
-+
-+	value = readl(pll->common.base + pll->pll_reg);
-+
-+	return ipll_calc_rate(parent_rate,
-+			      PLL_GET_PRE_DIV_SEL(value),
-+			      PLL_GET_DIV_SEL(value),
-+			      PLL_GET_POST_DIV_SEL(value));
-+}
-+
-+static int ipll_find_rate(const struct cv1800_clk_pll_limit *limit,
-+			  unsigned long prate, unsigned long *rate,
-+			  u32 *value)
-+{
-+	unsigned long best_rate = 0;
-+	unsigned long trate = *rate;
-+	unsigned long pre_div_sel = 0, div_sel = 0, post_div_sel = 0;
-+	unsigned long pre, div, post;
-+	u32 detected = *value;
-+	unsigned long tmp;
-+
-+	for_each_pll_limit_range(pre, &limit->pre_div) {
-+		for_each_pll_limit_range(div, &limit->div) {
-+			for_each_pll_limit_range(post, &limit->post_div) {
-+				tmp = ipll_calc_rate(prate, pre, div, post);
-+
-+				if (tmp > trate)
-+					continue;
-+
-+				if ((trate - tmp) < (trate - best_rate)) {
-+					best_rate = tmp;
-+					pre_div_sel = pre;
-+					div_sel = div;
-+					post_div_sel = post;
-+				}
-+			}
-+		}
-+	}
-+
-+	if (best_rate) {
-+		detected = PLL_SET_PRE_DIV_SEL(detected, pre_div_sel);
-+		detected = PLL_SET_POST_DIV_SEL(detected, post_div_sel);
-+		detected = PLL_SET_DIV_SEL(detected, div_sel);
-+		*value = detected;
-+		*rate = best_rate;
-+		return 0;
-+	}
-+
-+	return -EINVAL;
-+}
-+
-+static int ipll_determine_rate(struct clk_hw *hw, struct clk_rate_request *req)
-+{
-+	u32 val;
-+	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
-+
-+	return ipll_find_rate(pll->pll_limit, req->best_parent_rate,
-+			      &req->rate, &val);
-+}
-+
-+static void pll_get_mode_ctrl(unsigned long div_sel,
-+			      bool (*mode_ctrl_check)(unsigned long,
-+						      unsigned long,
-+						      unsigned long),
-+			      const struct cv1800_clk_pll_limit *limit,
-+			      u32 *value)
-+{
-+	unsigned long ictrl = 0, mode = 0;
-+	u32 detected = *value;
-+
-+	for_each_pll_limit_range(mode, &limit->mode) {
-+		for_each_pll_limit_range(ictrl, &limit->ictrl) {
-+			if (mode_ctrl_check(div_sel, ictrl, mode)) {
-+				detected = PLL_SET_SEL_MODE(detected, mode);
-+				detected = PLL_SET_ICTRL(detected, ictrl);
-+				*value = detected;
-+				return;
-+			}
-+		}
-+	}
-+}
-+
-+static bool ipll_check_mode_ctrl_restrict(unsigned long div_sel,
-+					  unsigned long ictrl,
-+					  unsigned long mode)
-+{
-+	unsigned long left_rest = 20 * div_sel;
-+	unsigned long right_rest = 35 * div_sel;
-+	unsigned long test = 184 * (1 + mode) * (1 + ictrl) / 2;
-+
-+	return test > left_rest && test <= right_rest;
-+}
-+
-+static int ipll_set_rate(struct clk_hw *hw, unsigned long rate,
-+			 unsigned long parent_rate)
-+{
-+	u32 regval, detected = 0;
-+	unsigned long flags;
-+	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
-+
-+	ipll_find_rate(pll->pll_limit, parent_rate, &rate, &detected);
-+	pll_get_mode_ctrl(PLL_GET_DIV_SEL(detected),
-+			  ipll_check_mode_ctrl_restrict,
-+			  pll->pll_limit, &detected);
-+
-+	spin_lock_irqsave(pll->common.lock, flags);
-+
-+	regval = readl(pll->common.base + pll->pll_reg);
-+	regval = PLL_COPY_REG(regval, detected);
-+
-+	writel(regval, pll->common.base + pll->pll_reg);
-+
-+	spin_unlock_irqrestore(pll->common.lock, flags);
-+
-+	cv1800_clk_wait_for_lock(&pll->common, pll->pll_status.reg,
-+			      BIT(pll->pll_status.shift));
-+
-+	return 0;
-+}
-+
-+static int pll_enable(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
-+
-+	return cv1800_clk_clearbit(&pll->common, &pll->pll_pwd);
-+}
-+
-+static void pll_disable(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
-+
-+	cv1800_clk_setbit(&pll->common, &pll->pll_pwd);
-+}
-+
-+static int pll_is_enable(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
-+
-+	return cv1800_clk_checkbit(&pll->common, &pll->pll_pwd) == 0;
-+}
-+
-+const struct clk_ops cv1800_clk_ipll_ops = {
-+	.disable = pll_disable,
-+	.enable = pll_enable,
-+	.is_enabled = pll_is_enable,
-+
-+	.recalc_rate = ipll_recalc_rate,
-+	.determine_rate = ipll_determine_rate,
-+	.set_rate = ipll_set_rate,
-+};
-+
-+#define PLL_SYN_FACTOR_DOT_POS		26
-+#define PLL_SYN_FACTOR_MINIMUM		((4 << PLL_SYN_FACTOR_DOT_POS) + 1)
-+
-+static bool fpll_is_factional_mode(struct cv1800_clk_pll *pll)
-+{
-+	return cv1800_clk_checkbit(&pll->common, &pll->pll_syn->en);
-+}
-+
-+static unsigned long fpll_calc_rate(unsigned long parent_rate,
-+				    unsigned long pre_div_sel,
-+				    unsigned long div_sel,
-+				    unsigned long post_div_sel,
-+				    unsigned long ssc_syn_set,
-+				    bool is_full_parent)
-+{
-+	u64 dividend = parent_rate * div_sel;
-+	u64 factor = ssc_syn_set * pre_div_sel * post_div_sel;
-+	unsigned long rate;
-+
-+	dividend <<= PLL_SYN_FACTOR_DOT_POS - 1;
-+	rate = dividend / factor;
-+	dividend %= factor;
-+
-+	if (is_full_parent) {
-+		dividend <<= 1;
-+		rate <<= 1;
-+	}
-+
-+	rate += DIV64_U64_ROUND_CLOSEST(dividend, factor);
-+
-+	return rate;
-+}
-+
-+static unsigned long fpll_recalc_rate(struct clk_hw *hw,
-+					  unsigned long parent_rate)
-+{
-+	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
-+	u32 value;
-+	bool clk_full;
-+	u32 syn_set;
-+
-+	if (!fpll_is_factional_mode(pll))
-+		return ipll_recalc_rate(hw, parent_rate);
-+
-+	syn_set = readl(pll->common.base + pll->pll_syn->set);
-+
-+	if (syn_set == 0)
-+		return 0;
-+
-+	clk_full = cv1800_clk_checkbit(&pll->common,
-+					  &pll->pll_syn->clk_half);
-+
-+	value = readl(pll->common.base + pll->pll_reg);
-+
-+	return fpll_calc_rate(parent_rate,
-+			      PLL_GET_PRE_DIV_SEL(value),
-+			      PLL_GET_DIV_SEL(value),
-+			      PLL_GET_POST_DIV_SEL(value),
-+			      syn_set, clk_full);
-+}
-+
-+static unsigned long fpll_find_synthesizer(unsigned long parent,
-+					   unsigned long rate,
-+					   unsigned long pre_div,
-+					   unsigned long div,
-+					   unsigned long post_div,
-+					   bool is_full_parent,
-+					   u32 *ssc_syn_set)
-+{
-+	u32 test_max = U32_MAX, test_min = PLL_SYN_FACTOR_MINIMUM;
-+	unsigned long trate;
-+
-+	while (test_min < test_max) {
-+		u32 tssc = (test_max + test_min) / 2;
-+
-+		trate = fpll_calc_rate(parent, pre_div, div, post_div,
-+				       tssc, is_full_parent);
-+
-+		if (trate == rate) {
-+			test_min = tssc;
-+			break;
-+		}
-+
-+		if (trate > rate)
-+			test_min = tssc + 1;
-+		else
-+			test_max = tssc - 1;
-+	}
-+
-+	if (trate != 0)
-+		*ssc_syn_set = test_min;
-+
-+	return trate;
-+}
-+
-+static int fpll_find_rate(struct cv1800_clk_pll *pll,
-+			  const struct cv1800_clk_pll_limit *limit,
-+			  unsigned long prate,
-+			  unsigned long *rate,
-+			  u32 *value, u32 *ssc_syn_set)
-+{
-+	unsigned long best_rate = 0;
-+	unsigned long pre_div_sel = 0, div_sel = 0, post_div_sel = 0;
-+	unsigned long pre, div, post;
-+	unsigned long trate = *rate;
-+	u32 detected = *value;
-+	unsigned long tmp;
-+	bool clk_full = cv1800_clk_checkbit(&pll->common,
-+					       &pll->pll_syn->clk_half);
-+
-+	for_each_pll_limit_range(pre, &limit->pre_div) {
-+		for_each_pll_limit_range(post, &limit->post_div) {
-+			for_each_pll_limit_range(div, &limit->div) {
-+				tmp = fpll_find_synthesizer(prate, trate,
-+							    pre, div, post,
-+							    clk_full,
-+							    ssc_syn_set);
-+
-+				if ((trate - tmp) < (trate - best_rate)) {
-+					best_rate = tmp;
-+					pre_div_sel = pre;
-+					div_sel = div;
-+					post_div_sel = post;
-+				}
-+			}
-+		}
-+	}
-+
-+	if (best_rate) {
-+		detected = PLL_SET_PRE_DIV_SEL(detected, pre_div_sel);
-+		detected = PLL_SET_POST_DIV_SEL(detected, post_div_sel);
-+		detected = PLL_SET_DIV_SEL(detected, div_sel);
-+		*value = detected;
-+		*rate = best_rate;
-+		return 0;
-+	}
-+
-+	return -EINVAL;
-+}
-+
-+static int fpll_determine_rate(struct clk_hw *hw, struct clk_rate_request *req)
-+{
-+	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
-+	u32 val, ssc_syn_set;
-+
-+	if (!fpll_is_factional_mode(pll))
-+		return ipll_determine_rate(hw, req);
-+
-+	fpll_find_rate(pll, &pll->pll_limit[2], req->best_parent_rate,
-+		       &req->rate, &val, &ssc_syn_set);
-+
-+	return 0;
-+}
-+
-+static bool fpll_check_mode_ctrl_restrict(unsigned long div_sel,
-+					  unsigned long ictrl,
-+					  unsigned long mode)
-+{
-+	unsigned long left_rest = 10 * div_sel;
-+	unsigned long right_rest = 24 * div_sel;
-+	unsigned long test = 184 * (1 + mode) * (1 + ictrl) / 2;
-+
-+	return test > left_rest && test <= right_rest;
-+}
-+
-+static int fpll_set_rate(struct clk_hw *hw, unsigned long rate,
-+			 unsigned long parent_rate)
-+{
-+	u32 regval;
-+	u32 detected = 0, detected_ssc = 0;
-+	unsigned long flags;
-+	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
-+
-+	if (!fpll_is_factional_mode(pll))
-+		return ipll_set_rate(hw, rate, parent_rate);
-+
-+	fpll_find_rate(pll, &pll->pll_limit[2], parent_rate,
-+		       &rate, &detected, &detected_ssc);
-+	pll_get_mode_ctrl(PLL_GET_DIV_SEL(detected),
-+			  fpll_check_mode_ctrl_restrict,
-+			  pll->pll_limit, &detected);
-+
-+	spin_lock_irqsave(pll->common.lock, flags);
-+
-+	writel(detected_ssc, pll->common.base + pll->pll_syn->set);
-+
-+	regval = readl(pll->common.base + pll->pll_reg);
-+	regval = PLL_COPY_REG(regval, detected);
-+
-+	writel(regval, pll->common.base + pll->pll_reg);
-+
-+	spin_unlock_irqrestore(pll->common.lock, flags);
-+
-+	cv1800_clk_wait_for_lock(&pll->common, pll->pll_status.reg,
-+			      BIT(pll->pll_status.shift));
-+
-+	return 0;
-+}
-+
-+static u8 fpll_get_parent(struct clk_hw *hw)
-+{
-+	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
-+
-+	if (fpll_is_factional_mode(pll))
-+		return 1;
-+
-+	return 0;
-+}
-+
-+static int fpll_set_parent(struct clk_hw *hw, u8 index)
-+{
-+	struct cv1800_clk_pll *pll = hw_to_cv1800_clk_pll(hw);
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(pll->common.lock, flags);
-+
-+	if (index)
-+		cv1800_clk_setbit(&pll->common, &pll->pll_syn->en);
-+	else
-+		cv1800_clk_clearbit(&pll->common, &pll->pll_syn->en);
-+
-+	spin_unlock_irqrestore(pll->common.lock, flags);
-+
-+	return 0;
-+}
-+
-+const struct clk_ops cv1800_clk_fpll_ops = {
-+	.disable = pll_disable,
-+	.enable = pll_enable,
-+	.is_enabled = pll_is_enable,
-+
-+	.recalc_rate = fpll_recalc_rate,
-+	.determine_rate = fpll_determine_rate,
-+	.set_rate = fpll_set_rate,
-+
-+	.set_parent = fpll_set_parent,
-+	.get_parent = fpll_get_parent,
-+};
-diff --git a/drivers/clk/sophgo/clk-cv18xx-pll.h b/drivers/clk/sophgo/clk-cv18xx-pll.h
-new file mode 100644
-index 000000000000..5f876efe48d5
---- /dev/null
-+++ b/drivers/clk/sophgo/clk-cv18xx-pll.h
-@@ -0,0 +1,119 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
-+ */
-+
-+#ifndef _CLK_SOPHGO_CV1800_PLL_H_
-+#define _CLK_SOPHGO_CV1800_PLL_H_
-+
-+#include "clk-cv18xx-common.h"
-+
-+struct cv1800_clk_pll_limit {
-+	struct {
-+		u8 min;
-+		u8 max;
-+	} pre_div, div, post_div, ictrl, mode;
-+};
-+
-+#define _CV1800_PLL_LIMIT(_min, _max)	\
-+	{				\
-+		.min = _min,		\
-+		.max = _max,		\
-+	}				\
-+
-+#define for_each_pll_limit_range(_var, _restrict) \
-+	for (_var = (_restrict)->min; _var <= (_restrict)->max; _var++)
-+
-+struct cv1800_clk_pll_synthesizer {
-+	struct cv1800_clk_regbit	en;
-+	struct cv1800_clk_regbit	clk_half;
-+	u32				ctrl;
-+	u32				set;
-+};
-+
-+#define _PLL_PRE_DIV_SEL_FIELD		GENMASK(6, 0)
-+#define _PLL_POST_DIV_SEL_FIELD		GENMASK(14, 8)
-+#define _PLL_SEL_MODE_FIELD		GENMASK(16, 15)
-+#define _PLL_DIV_SEL_FIELD		GENMASK(23, 17)
-+#define _PLL_ICTRL_FIELD		GENMASK(26, 24)
-+
-+#define _PLL_ALL_FIELD_MASK \
-+	(_PLL_PRE_DIV_SEL_FIELD | \
-+	 _PLL_POST_DIV_SEL_FIELD | \
-+	 _PLL_SEL_MODE_FIELD | \
-+	 _PLL_DIV_SEL_FIELD | \
-+	 _PLL_ICTRL_FIELD)
-+
-+#define PLL_COPY_REG(_dest, _src) \
-+	(((_dest) & (~_PLL_ALL_FIELD_MASK)) | ((_src) & _PLL_ALL_FIELD_MASK))
-+
-+#define PLL_GET_PRE_DIV_SEL(_reg) \
-+	FIELD_GET(_PLL_PRE_DIV_SEL_FIELD, (_reg))
-+#define PLL_GET_POST_DIV_SEL(_reg) \
-+	FIELD_GET(_PLL_POST_DIV_SEL_FIELD, (_reg))
-+#define PLL_GET_SEL_MODE(_reg) \
-+	FIELD_GET(_PLL_SEL_MODE_FIELD, (_reg))
-+#define PLL_GET_DIV_SEL(_reg) \
-+	FIELD_GET(_PLL_DIV_SEL_FIELD, (_reg))
-+#define PLL_GET_ICTRL(_reg) \
-+	FIELD_GET(_PLL_ICTRL_FIELD, (_reg))
-+
-+#define PLL_SET_PRE_DIV_SEL(_reg, _val) \
-+	_CV1800_SET_FIELD((_reg), (_val), _PLL_PRE_DIV_SEL_FIELD)
-+#define PLL_SET_POST_DIV_SEL(_reg, _val) \
-+	_CV1800_SET_FIELD((_reg), (_val), _PLL_POST_DIV_SEL_FIELD)
-+#define PLL_SET_SEL_MODE(_reg, _val) \
-+	_CV1800_SET_FIELD((_reg), (_val), _PLL_SEL_MODE_FIELD)
-+#define PLL_SET_DIV_SEL(_reg, _val) \
-+	_CV1800_SET_FIELD((_reg), (_val), _PLL_DIV_SEL_FIELD)
-+#define PLL_SET_ICTRL(_reg, _val) \
-+	_CV1800_SET_FIELD((_reg), (_val), _PLL_ICTRL_FIELD)
-+
-+struct cv1800_clk_pll {
-+	struct cv1800_clk_common		common;
-+	u32					pll_reg;
-+	struct cv1800_clk_regbit		pll_pwd;
-+	struct cv1800_clk_regbit		pll_status;
-+	const struct cv1800_clk_pll_limit	*pll_limit;
-+	struct cv1800_clk_pll_synthesizer	*pll_syn;
-+};
-+
-+#define CV1800_INTEGRAL_PLL(_name, _parent, _pll_reg,			\
-+			     _pll_pwd_reg, _pll_pwd_shift,		\
-+			     _pll_status_reg, _pll_status_shift,	\
-+			     _pll_limit, _flags)			\
-+	struct cv1800_clk_pll _name = {					\
-+		.common		= CV1800_CLK_COMMON(#_name, _parent,	\
-+						    &cv1800_clk_ipll_ops,\
-+						    _flags),		\
-+		.pll_reg	= _pll_reg,				\
-+		.pll_pwd	= CV1800_CLK_BIT(_pll_pwd_reg,		\
-+					       _pll_pwd_shift),		\
-+		.pll_status	= CV1800_CLK_BIT(_pll_status_reg,	\
-+					       _pll_status_shift),	\
-+		.pll_limit	= _pll_limit,				\
-+		.pll_syn	= NULL,					\
-+	}
-+
-+#define CV1800_FACTIONAL_PLL(_name, _parent, _pll_reg,			\
-+			     _pll_pwd_reg, _pll_pwd_shift,		\
-+			     _pll_status_reg, _pll_status_shift,	\
-+			     _pll_limit, _pll_syn, _flags)		\
-+	struct cv1800_clk_pll _name = {					\
-+		.common		= CV1800_CLK_COMMON(#_name, _parent,	\
-+						    &cv1800_clk_fpll_ops,\
-+						    _flags),		\
-+		.pll_reg	= _pll_reg,				\
-+		.pll_pwd	= CV1800_CLK_BIT(_pll_pwd_reg,		\
-+					       _pll_pwd_shift),		\
-+		.pll_status	= CV1800_CLK_BIT(_pll_status_reg,	\
-+					       _pll_status_shift),	\
-+		.pll_limit	= _pll_limit,				\
-+		.pll_syn	= _pll_syn,				\
-+	}
-+
-+
-+extern const struct clk_ops cv1800_clk_ipll_ops;
-+extern const struct clk_ops cv1800_clk_fpll_ops;
-+
-+#endif // _CLK_SOPHGO_CV1800_PLL_H_
---
-2.43.0
 
+On 1/1/24 21:57, Stephen Rothwell wrote:
+> Hi all,
+> 
+> Changes since 20231222:
+> 
+
+on riscv 64-bit:
+(gcc 13.2.0)
+
+riscv64-linux-ld: arch/riscv/kernel/patch.o: in function `.L8':
+patch.c:(.text+0x17e): undefined reference to `__exittext_begin'
+riscv64-linux-ld: patch.c:(.text+0x19c): undefined reference to `__exittext_end'
+riscv64-linux-ld: arch/riscv/kernel/patch.o: in function `.L43':
+patch.c:(.text+0x40a): undefined reference to `__exittext_begin'
+riscv64-linux-ld: arch/riscv/kernel/patch.o: in function `.L0 ':
+patch.c:(.text+0x428): undefined reference to `__exittext_end'
+riscv64-linux-ld: patch.c:(.text+0xae8): undefined reference to `__exittext_begin'
+riscv64-linux-ld: arch/riscv/kernel/patch.o: in function `.L82':
+patch.c:(.text+0xb06): undefined reference to `__exittext_end'
+riscv64-linux-ld: arch/riscv/kernel/patch.o: in function `.L118':
+patch.c:(.text+0xd6e): undefined reference to `__exittext_begin'
+riscv64-linux-ld: patch.c:(.text+0xd8c): undefined reference to `__exittext_end'
+
+
+Full randconfig file is attached.
+
+
+-- 
+#Randy
+--------------OWPnCHPbaVKxZebYjigKDrVW
+Content-Type: application/gzip; name="config-r4502.gz"
+Content-Disposition: attachment; filename="config-r4502.gz"
+Content-Transfer-Encoding: base64
+
+H4sICBkKlGUAA2NvbmZpZy1yNDUwMgCUXN132zayf+9foeO+7D6ktZ3Ezb33+AEiQREVSbAA
+KVl+4VEUpfFZ28rKcrf57+8MwA8AHCrZPqTWzOBrMJj5zQDSzz/9PGOvp8PT9vSw2z4+fpv9
+uX/eH7en/afZ54fH/f/NYjkrZDXjsah+AeHs4fn171+PDy+7v2Y3v/z2y+Wb4+7DbLk/Pu8f
+Z9Hh+fPDn6/Q/OHw/NPPP0WySMSiiaJmxZUWsmgqflfdXpjmN+/ePGJnb/7c7Wb/WETRP2dX
+b3+5/uXywmkndAOc228daTH0dXv19vL68rIXzlix6Hk9mWnTR1EPfQCpE7t+dzX0kMUoOk/i
+QRRItKjDuHSmm0LfTOfNQlaykXVV1tXQWcivBI/PCYkiEwUfsQrZlEomIuNNUjSsqtQgUrJU
+Ar3X0PX7vrEsdKXqqJJKD/JC/dGspVoOlHktsrgSOW8qNoeutFTO7KpUcQZqKhIJ/4CIxqaw
+0z/PFsZuHmcv+9Pr12HvRSGqhherhilQm8hFdfv2GsT7aeUlrqTiupo9vMyeDyfsYRBYc6Wk
+clndFsiIZd1CLy4ocsPqSgZLazTLKkc+5gmrs8rMkyCnUlcFy/ntxT+eD8/7f14MM9MbvRJl
+REytlFrcNfkfNa+d7VuzKkqbjjhoQEmtm5znUm1wN1mUkoqoNc/EnBiN1XA0h2FStuKgbBjK
+MGCWoJDMsX6favYOzGD28vrx5dvLaf807N2CF1yJyFiJTuXaOYYBp8n4imc0nycJjyqBs0qS
+Jrcm009WxSCjG71uFNe8iH3bjGXOROHTtMgpoSYVXOG6N/Q0RCkmGU1e342ZuRYo4A+WSBXB
+sbUHQRSLgatLpjRvW/Tb5o4U83m9SLS/vfvnT7PD52ALqHnmYI8CNFbEGVfj2Zozuxptd8eO
+4GAsYZOKyjn+xkzQp1QiWjZzJVkcMV2dbU2JGZuzVh+VtZmK0sY7dN6l14eZ5rJGrxCe+cFT
+YZRoKsWipafhkNMIUEVnw9XD0/74QpmxWZwsOBiqM2dwo+k9+p9cFu4EgVjCmmUsqKNtW7Xj
+9m0sNamzbKqJoyuxSNHWWy2ZblobGC2h91xlEiibA6n53Zx7s3r4SC0dpQaT6OfbNiYmi5y6
+KJVY9S5QJs7g4IVULmPexCBizNDrtFQ8A+sgLdyfYu8rFed5WYGWCm49tBPNHJ47Ukdfyawu
+KqY2pMNspSj/3LaPJDTvNAiG+2u1ffnX7AS7MNvCnF9O29PLbLvbHV6fTw/PfwYWhZbOItOH
+tdJ+5JVQVcDGk0TMBM+1ORFeR+5G6ygFd8NWC98VlVp4GgFX1e1XLDRGbnoTfmCV/WmDBQgt
+M1YJc0KMllRUzzRxxECjDfDcOcHHht/BWaK2wDTQtkVHAnehTavW64QsPPbdKM4YugLrHg6y
+wyk4qE7zRTTPhHFXvRr8ZfS7sbR/OB5/2ZuMjNzFiWUK/h/OL4lMEGvAwUtFUt1e/ebSUak5
+u3P5167JiqJaAhaJ+R3RceeNrU0Yn9zti9592X96fdwfZ5/329Prcf9ijbo9tQCO89KokbQK
+orUXInRdloADAXvWOWvmDKB25HtmC01h9lfXHzyyyMtMRODtE9gliJqyXqS3F2/WD09fHx92
+D6c3nyHrOH05Hl7//HL7vsdfgPOvrtB1MqXYppnD4Yi11/Ekr28KeBcmKctGgqdKMhe/QPsz
+XH/N4aKmdODT++PIC3ManbEXoITSmXDJFtz6It+hWkFQ3EqqJt4U4HcpcwPoGDnTMB+bJfyP
+6MtYDtGHtag8byIRE81KEWvSx7Z8FefsHD+B037PKRQP50FzF5LgQcPxWk6oNlDrSkR8RAZp
+cKEVMXcMO8S4lpkLHRFDAExzcJ1EZ9+yWMW8MVIeLUsJJoIhHXIrTqqhdeKQjZhuiPlA3GQO
+cJ1nS1ypyUqUi4nxM8sTAMyyBiCKGcvgcONmcS9KcgbAmwPvmho6brL73FsWkO7up0SdjMp8
+fud9vteVM9+5lBhmfafqEC2c9lCEw+T5nLTWQQslJg0KwmSOUdQ737IEkrjnOAQiOvhfDkfT
+z70CMQ1/EOOZQAypY4y5b2TQD9hBwzGdLbrw2Hd6VpA6e4DPqgxCZcTLytRIMM459mf5xinV
+BcvEAhLbzHNYNsy6kzDJAoI1asAFrzANo5AhkNC4LIO0pMRmIDTkMimABbYk7sLw5u12vSA7
+mjPIpCbwdFJDEjCs3XxsSg8O8VKSTTXojmVugcfM1SWYJMcl6DRwpUxIyiZlUysvHrB4JWAV
+rS4dFwf9zSF0CTeLW0Z56ZwjzR2sZ/xRQIsYuBRAPhW1iWV0dfmOmOMS57HJnal0FEBJWYL5
+GMHy0smeanYIvRZm9mEmCCpt+lzTAJG2QFjuj58Px6ft824/43/tnwF5MoAgEWJPSH1czOJ0
+QmKWH+zROUUVz+15hIAvEhGNTq4tq8EmugO20/97vzNweXfcvnxxQVa3IYrpFM68cpSx5Hc8
+6mj9KIZKWr2Vx8oeFbHMAHFt7MTRwtTEOgm/Ltf1dvNu7haNFMTBlV9l7fEPIA+WA+pMAr9k
+HFKeMwj/BUQXAaLg5W6vPtACWOkDc+3lJsQsn93dXr/7gX5AbsDXZhGNnjt1njx3kgWDsyCb
+RVhx+ffnzzeX7n8++DO1HDioLXwLsSHPeFR1RTvMh7NQotNeDUY1586Rg0MbLW0q0woR5Rbw
+8nPFKogfPi7oBXSdj6npmotF6vSXgDfmTGUb+NxYN9bpYmHLu6Zup2/7MjHmFDEvx1MDdG8R
+vi5GRGnjFi68z0cOEVjc437X3gQMAQbgHVgToLxUALCE9FIlYgI2GU0qWJxmNPzEzjQc5dWZ
+9lqW6YLy2JZb4fiuBzN9jqhGGPN6X7ClDImUt+yurjDbH4/b05ZWCIckBnxSN2Tze/rb1eXl
+VPI+7sr0VT5uT+gGZ6dvX/eDUypkgbvYWnCg19XbazGlFrW6eedF1MgYOdhQDMCD8k49nxWO
+vQK1xksELADLwj0Fbrhrsw8HiRfK4P/bm3dOYU5WZVablIEqKNQFHxcOMCdzS34x123afe17
+DaFZ4xYcpMyi1FSV8bYocJRGmiYGad9Uj/fz+SRLpICSSgbgjRLBmoZGwGez6nsRaQX/Jhyg
+reP4ktJxfKZqjm7H2YD2JgcRbyNVDFgk0AikRgZr8tg1cN/Q3NBO1R3S+yaw5YFx/f4yKLu+
+Dc3e64Xu5ha68c0oVVidCzcHokKzurwKySbb0KUo1swNh74LN2H5LNPE7PMSZa0WDBLEzZSY
+F99dCTSK3u+j0JKrAs6aTX06ENOdQxMdPVDDFEM3dQ5EDVUfU0s+gNjhK3oXF+DksbmOvHCv
+Z22JEk0LwlzF8XaxqbIw2g08AHXdpWE3vXSjG0jmWsgv7txSiceEmP0hiNV3EEKsNoY2SDPt
+WBwraHN95bcZDitWpOYsWrr27a29T1hrAdlU0cTVPNgbU61YIsKzN9tt9CsP/9kfZwBKt3/u
+nwCTOtocYletS15Q6W3pxum8L0cMO5pjboG5bGyZZB9NlC29fjobstdlzh6t/4A4vIad4Qmg
+YgGIu/Ni59oDkvJSLmAuWiw0FVVSMYfNMhaLqaIWBLKyWnHZg++Z0mofZ61E3ksAo+eJT497
+V/+mvD1KZJ1Iaxr0zZPj/t+v++fdt9nLbvvo3QZgT4nysrOW0izkytzQN34py2WHheueidkd
+Qe4CDLadKmuQsrjFmk1AJbIJ1g8ACUf/RRNZxBzmE/94C+C1fuy/mZrx9XUlKFvz1OuriJTo
+FHP7RAw6qQdKsFv95FYPS4XBKJF+XbfDtdTsc2h7s0/Hh7+CfBkErZbIO9We2ZSQssd8ZRbr
+WDth3y57dLK8hH+5yhFkIKQPSgEtp1Gy9i+3kJHnQhLyuRa+XO95IIxt8BbFQJc2qhAdrMzd
+m94UUSNkVGV+b3cJBiHZLGquq+D1izsavk1YM/DsBsqNJt+/EshrAJYVZCFuPQcjbg346T6I
+z9DyNngwsz3uvjycAM1DBH7zaf8VtO6HjCDLA//sogizapPONy1ew8tErnUgktSFAeGNeVAD
+idzvFpQ7kNAkpbBbScYWepwCDi9LjGQq5TJgxjkzl/RiUcvavZLpLq7y0vjcFn2OBQwTi3fo
+MGsKCcFhBl1vuvr3WAAaton5BBOsyCTvLLRVu7QWF5u3Us06FRVvLw89UZ1jqGvfGYWqVhzU
+B27Aop92OxrmPkCxcl5Jz98lfC412dDUxnAUio7eqh3ZR5NoqRm73wBCm0PrpLv+HukA0jXE
+kWdYCHiD26qWM1U+94HgFED0OvShI+yILCiok8FZbl8I0MA6EfZxYLCeKHxNgooLZCZu8gOp
+79/i5xJ3p45Jch6SuzNWYBkK4VhaLzhWr4IlrlnLwz4gr2UqrMSCjXYFLR5hzTNMzTWuuuFZ
+Ymq5xLr4HTgWsMc+hwxktEwq5IGIXBehyHlufyzN+HBgJN7EUMrwyoPnSpBO+ZFo7dQOpzpx
+RfquTOXQpMoZHsgqZQW43KWTDVAS1+9vlmHCYLasAzKVLGNUixk8YxvpPQTNzIsYUBgEIe/u
+287w7TW6fP/aa1jyCrvs1D08TOmpUxDdlvJY1nRJ5vrOSQaGOy68EzXFeXtxTd329Lu7irXs
+bk7JE2ovOFCFeK81mWobHduypbl3HeS6ErUWi0SxvH8Ttojk6s3H7cv+0+xfNtP9ejx8fvDh
+OwqNssgh80Zu997Wf1k35gxF9zMDe5uFlXasatmEbHg1OJDJG7AuSGDAz3EXAAA4xZ8R3xbS
+ghuB7wCPPmGGWIl3bG4R2yTrOsdVX/kOBfegMYi7GvmaUV1wlNp2fUDqQz51cJqZ63R8bAZR
+rpzo2pcJL1ZbSXMF3aDUiFUXJNm26Jnh7C0DLBWfBXTRhUxtHAgxvVqtov49s2t/g74pDYr2
+bn1q3E6IkReljgCEFXBkE0MA8+2Hd98bA6TeX13/gNRb9Jk/JPdjo75tgnHHUnDG09uLly9b
+GPki4KOnVejOwweIIX/y2UUo6L+qmBTDRxTT0zaX/1if1QhH8HW6SU7xqRX6Sc9CzO0TeM4K
+Fvnry8eH51+fDp/AF33cOw9HKiVysFpAAnGzxNtd+k4enf6Z15RdEuS9bArcvi6cEmxd2G84
+mAKsOTUjcND7flZJdPAqd149GK9kG1t84cI3tdY8n2Ka8DXBs+8swL2Zl/oxdITSzqKm6H3I
+wLR27bjj8HMvWODocLYzVpa4lVixxO0320llL/aqv1kraGDmbKIc/3u/ez1tPz7uzVd2ZuY+
+/ORkjnNRJHmFKGuEIigWfPDvsVshHSlRhlVynFfLh7SxGjWaJDbSferbMu5b8cHoLB3fadHF
+IZgoZjlkFW9KMUZr+f7pcPzmlDScjNteYT5uP862j4+H3fZ0OI7zcZ3Vcy9fgc+Ax4oNcUZ0
+xuaQlaoFp9CU4eIbOcw0WyBM33d6gliggLyZrrWZ2UzFUcPEtAbyi0ow7/GIHb5Z5gaLtQ9N
+6FejtIL6QdI6STCdR9hmOmNBhtfZoKLcytk79uF+PmdFzSgOJQzpnuIuYB5YK/gH0XF4bzeS
+oAB9/4gMkzHMrkey/C7Kao33u+1DFICp7iAZYPmyMn7JXHz6jx/spDoxyPWsqONirJbmqGa3
+pNMSrKYj4qqIpoEzxmeWFmt3BtsDPbOhiqNj9jLdXCxUUO4qoxLmgN97Qs/FzYON/q1Bf0vT
+VOF7FLqottSOzrokyuxaDq7c3Pe8u/yfm/H+mPISJDXt9hBbiCkbpEZrVroGSuXg1Dc88J05
+Xm3hkTKPFptEKDihUVoXzi55ckaLpBgGH5BCIfOmGK+tGxEWCUyBrO8N5ug/TPUf5HZpRVdC
+xDchjQDfmfsLBqVypXhf/zKTxOeWpI+x1TqTlREoN4wSUa2MIm1pyjyadTf3HtPdOGdvr52F
+5nDABdYrncoq7neZeA+3VrmbjE48PrQaNS7RSeJAh/67N5hCKWUWUPtVlBW3xRTX6cDxS+Im
+gj2oPJyoOdAq4FJ6wei/wu1ldAqP5Shj4tA12LerA4flgBpVt7WpIU23pO4NOrmJncxUrAhy
+cLA3nLTvfmiq8Wawg1gJTQT8szKPMUxwjfERC9vt9i8vs/zw/AABxCblgymy3H8u28edqbYd
+fzqyDwfR/SIYx29/LpRXMkciJ2h3AU0v5xhVeNHVgc0Siv3pP4fjv/CmZgQbwL8u3eHt5yYW
+bOFeQAE4viP3q8qoXbpLlOMb8ROE3IUMSH6F05DMKUwQbz55dA0IoZSZiDauQRmW9fOUI7Qt
+wZAAnohIB0NBmhIOXvp1ZtTwkm9cPbSk7w3KEc1XkfuoyH1PBB86DXet4tK87Pe+fOAQrbg3
+M3z4DEnl0v3+4tCh8IxKlPYJdvs9ycFllsPdPd6JkQ+08QVDUXqdwecmTqMy6AvJ+IaFKru3
+bMWU18qYeymoFpYFFg5xAL8R++Qz8I2VVyTr5UNJ7ML9mqg75dwsm3wHjzhFLgXX4/muKuqt
+GvLqmJ5YIusRYViENwRuXcNSSofGD4DdPgXSQMOnpOGXHQORwCSFXYtv84ZokRY+4q/VvH2P
+dXXjiRgzDxdqG1NE39qtHICx0M2IToXImFqJYmuqPySBpeDFjHPXhqPAn4vezj1A1THngvp2
+bc+OahAYhuvpaxhtLWVMDJd6qh7IGunjntLNPGPk1FZ8wSgX2wsUK1eDPRkRLm4j7bU7qYwu
+FDmjF/K8xIaTptrzRZYBWhCaXFwcwZ/n+49iyhCGnZs7IaT/mYQqCnGkpaOWyeE6iW5HzwrB
+mGf5KlBawO7mfnvx5bT7euGvmU2rO4/fa0GeinJ147u11U3rzrEcRn3hzIjYPBFjI8CbOHRB
+N9M+6KYNnoH8hBcaSxlHdEbEOqWpaeeivPGcBhJFRmUYtrveI/lNaCduWFpUoxGA1two0r8i
+u4iFjkxyVG1K7kbL1eQMFoqKPIblxYuOMvatRh8Y2cusvYzSo1EAO+H3m+kyqu1hKgja9nxx
+02RrcmzDS3MWUXTvdwKsUZbZVE9CspwaJi/HQcvQRsHDUrEzqlhtmBRSgg7x1Q1mRznzfx2i
+Y5XpxlxtApbMSzqvBNHxI4Se2Eef0Vd5osNxjwD988PjaX8c/WQR0VWbHJybA5UrtBz4C/zx
+0lt+y8JfTDC86Wb4pXGnaYJ+rDDZtkfFR1F6o1HY1YYj3mmbtElPEN+0hj9SQslBsONkLuJJ
+yZWrFZeTVB6s8nhCkT++4YoM+JJUDypwLqRuICujBbQofU7l7BVhBt2OLLKagzA9v4L584HP
+7UJ9Wjg40qyqXIVY/0JvRT+vO0qqe7p3ztidRAGfpz75n+2XsN7fBNS5qLAA404/5KBzmmCa
+B2UhD6/gqA5buvERE7y2Pze/CLgTF3NjQVDoD0jC2r4r9SMyMBoxKC1ILx4Y53jTmgam8BP+
+lmsuFUJLWOngYwd+PFrwlXlLBLts3+Rctz8zVa707HTcPr98PRxP+CTidNgdHmePh+2n2cft
+4/Z5hyWTl9evyHedse0QH4PJZhLJODKQ0dB67SVYOoJUDhdY320/1VZHfjo+LP2l+5kN5+fR
+TEOlQiWvx6QsCiwdxTLKT1peIsMe5CoZdTrPIoo2Gj1OQ4oeUfJ0PENNf4Pf8Io/wh4g+qO9
+DSrT6bTWwJZ7E/vgtMnPtMltG/MLK75dbr/iD5IYzzj7sn/8Om5bJFH/DQ9R/u8ZEDF4cEhB
+FDOA653n722VydIDnw9WdLcxHDrExHU57g8BgC30+LSRoOL47reju5sFTFGeiSXnltzq5K+b
+c1pxVzmsn8KOnhq81GNYP/1OxFvhRNetXoIM7uYHFHBufeSm30xgj7kS8cLxwIAEOyw7bEgc
+uZULW3KJBhhu6+hAmEWRiF+mjLDtqEGh6/GLK5f9li63Tw0xTKD9Gtn/c/YlzY0jx8J/RfFO
+9sGfsRALD3MAAZBEC5tQIAnNBSF3a2YUr7dQq+3xv/8yq7DUkgVNPEe4R8zMWlFLZlYu56eP
+/6uY1s2Vr63KdWql5NsIjlDlHQV+j9nhNDaHD2lNXZmCYpL3hRaRS0kow5s1EXTsnLj0Q7qt
+BBoF2Xpi9sCGxXY1YUu0qOjb0ABU/sEj7sj7AmHaxShhtOsZmCLlLsHf6LpbJKMaYZKi0K5W
+lSTtHtueUsVwrDqmpFfDavTosmZh1xBZJrXFzRuQh84LY+rALL1eOhXx1xyGce0Jh159jaxQ
+xBMOyns6NqfYzjY+fcwYrQO7wpDG2PHcB6rj8sUMPzy5N0mflLQoN3gBVVnSysbK50awjkup
+sGxubUJGqMvzHLsYSGF+VthYl9MfPARNgbamqjmJRCvOfEpVkKRLE8rEGeGqVs1fSoVCzWqG
+brFNeZWP0gMskATtAxS97Qqd/7wSNcpUqr5YwmQJLTpIJDXFp0n4Sg2oKVeu7t2mzesruxV9
+KrFfEnBUnmOuxhPXlX7fWsBl07QHRb2APhBFs1ZlQ8yejKrwzEVmy+NC1Zba8ypCxhOTOFeE
+1jKreWadihXjRpc2bfWUPkabRREZkETzD12vKI/w98gqesFxZH+htgjvYqoGZMTfY5NX6DY9
+nrg0TWo0ZLL7POeuy3I9LdosYCQw9Nchbz6MJoiv0MhyMDkaimwU3R0Z9yaSDaXwdb4bhDkj
+ekO1ijHPIBefop/hQNtO9tmTEGmZMCZbqfCXI4x0yB65S5e0uh/0tzo0aBXBodUX9Lu35x9v
+mmEA78V9rwXUXFgLo6SGkB/l10rPSdUlGRnZKU1kAynYlV1yk7w3AXBI1Vh7ADqRQTIA8cHd
++3u1eMEa+Y46SAL4Aa3j8kyNswrTesS9Rp0oQF/nysU1geCEmZy27MUmAdZUqwL+TGn6AK5G
+FuEAuCtTtKRLO8vhzanIWIaAqdhxcqWX6ZOGtQC1VUdGVl7Rc3QrusVjnvSXbvVGEEEQPv98
+fvv27e2Pu0/P/375+Cy53K4l0XiiVL8WLAX59zktDv2FHUggd0+YPN7l778SCFfIxzql0drC
+k1FVT/MHMk3XU7b/MwWD7aB3+5J0PQUbzzuzIxxxSElVikSR9Gf/3lKaT/DGOEQFp3CgwqVO
+A0krz/EH4wOk1c6PIgPcJq4zaPsH4UeYMGsbV/i/UlPVXUutEgSNjD5iDvMsaEX6e3sBcfvK
+btzWJbtw3CAcD12rBLKdYTZ5ecVzh2HgD+RnjgVryJXdcG95lOyQU6SeSKGy+1S2iu27PKlG
+boCrHEdVShq8HAtY0qqf0a3o8lJ5mEmPJ+Q1XYVN4Uysy5+p0NCYOrqnYngX52WDBm+3pKvh
+ylR09gtZmqOb8hRjbmzqC3XaLdRd/nCBnvL4hGgYlJ+yg9llbhi6BH8BEjSMopuf5dXWErZ1
+pbOfm+tYuiyZLQC3KW/aEa3jqdfAsjgYH2SGmeFN1jUgZAaX5IgECi3RZo38wJ0z11wd3fG+
+KJUtKiDjqSU3HDIde81Sbd+OR+URfwKKnWmVBvdmvFwVq3H8aVIc1V8UBRYWYR1koLh51g+V
+t+eRziJRHyVxE34Az34qUJZTgLV8zk2AUb0UEHrWydg5K9OVt3t6vTu+PH/GMI1fvvz8Oqtd
+/wakf58Orx+yGjXlSR8UNWDK35Lo6FKInQIwmD0+Zq0BGAtPG31bB7sdASIpfZ8Ajcqtv4KN
+Cng0PB4OgQYTJcTtokHMBgXU+DocLCpVJpT1ngv/TRBnmVXWmxMqYGYv66El1osAmtTMP966
+OiCBS2cXTv4vLaBF3cESkCuV8C7cEO9IHfSmPcQMUa0rMrTbR9+YFQSyEOywUpdpZ+ZTfodG
+MLeOZtI25pb0aHuuCIAz0GqgfUyKEr3I5PHl/RlDxs0CuO0sQsGSO2Dwpz8Lh8xNB8WRLTS+
+grnIdH44QZvj6qAHEWhTKXqF/sMMRiUBzXB+gORuJ4eLcu0hOCEFG45hSkCtCUL5YS247VhJ
+KhnejH+JeA1EZOno2MqOAALSq11XY+MgABmHe33+1OsBQay/SIcDQoQbhNzPsWgoNQliQOpX
+62sTRdbnrU5O+M1RBFrUZxY1ASJMY3Ok2L+FxvJlOI4lR/s8cwrLPFOEeefhP0RfrqcE1rPE
+g00Azkmc0EHLDSXlwRSZEqo2Hn4R9vHb17fXb58xv4IhReLMHXv4F64y/Xtg8ql5E9jHskZT
+RXrbxA4Y2HiYr+D06dPz14/PU4gCIHiWOqmGYcbCaZJhfEkeO8poRenyh8hzc4JktkfZbnc6
+X368/P719vS60T25c9lN2zTZjXdA2zg5U3WTM6llTPND1budEc6k3/4F3/Xl89aEzt4p75Eu
+4e7olbOsqvzrp+/fXr6+aV9rzOuMO1eR41EKLlX9+M/L28c/3l2n7DYpW/tcuY+3q5DYz6HE
+nUcu0TTpMvXzVGlhSSoBpFo100j+8fHp9dPdv15fPv2uBiJ9xHcJWhpN2kKTsdfoXC8fp2vu
+rtHdeJIL7qgEnS7lSFcX4Yd2zstWfoJQwJM7vpRr7tpX7VE5MGfYWKFHG/XUMRPgiSjLzEmd
+JaUSDqntROvHoqt4QLM5zRIf6PHl9ct/YH1zKxzZ6OF440Ex5GEsIM6WZJjFhkLyJAIrAr1u
+k6V1aeBrCR6zSp80Eq1G7TQo5xAKFJ90Gy/tErJjWrr66BfFgYjTc10czBWdCQ/AIGPpNyoe
+gkQkytoiyK+dxchPECDzNVUDcj/GjKIfYJFMRL2biHnwB2rtVKokvrY3lXsnQ9sSjVa8TRSp
+rHLp8pPi+Sx+iwqlN2wB1RJ+TVBk93UYK4tK2WkT/OYaIDWs4FynnD1rgqEP9pd1UhIRQosv
+66O8EBHFAyzrEWTmiRABu5q2KZsTEa2do6dQ1PKahbnjz2P8myF7n3Oj5+ZCn92WI0moq3/+
+kATnVUtyLiwn7oQZp8eCWYUoVTMxCh//kHn9dQ8Mu6Bqx9ITUhBtOsFDs48pQbHwA3L1i+qi
+AXlLDRPHA+2qKSWWrbv2jsNBDrljPLEX2qvgbcTzI0juoAWmhvjtCYSYdjJBlC/o/1P5VQc5
+nbF6AAD43OnxtByN8jJY4HOMZXIyT01zKvOlAePCevj59PkjSMN3v83zIgcJncZmJxI5FJ9/
+f33ScXJ5C4Fxmupf9FQzSfzFX7pqqiIj3mS9dBI0R/lv9JDtVSdtAGL8EPS9UIDC3Z1E3TeH
+DwpgkmIU2BSXRYEp50lznKJxYxh7OfSEQKA9gvzNASrCvlChQlB80o6KNul03atQpF2r/I5J
+1rKzfkSGC/705cdHU7GWZIEXDCOwi7Kn+wpUD2K456pHPm6ZTTvDRdlQT5F9caxE7pMvCiga
+BleyakvZ3vfYTg7NDidt2TB8kcMp5bfL+voPJ3kpne5Jm7F97HiJ5tHJSm/vOD65kwTSozSH
+LK9Zg6lLgSQInLXdGXE4u1HkSPzWBOf92KsvR+cqDf2Aij+VMTeMpTgHTIkGAkLJwPPUoIii
+SjEzbz9HJ1jNfrh4N7LsmFO6O4yfM3Y9U/tXMJAxC/Suph+30KxkzAo1uPR1iqJQlnB/idic
+NDvSsjDY78ac0bFsZjzwsNTyqZmi8E09cgfkOVwMlWQxPi8hDh+T3lOsXCcwCPFhHFF2UhPB
+3k8HxTx0ghdZP8b7c5sz2jd/IstzEOZ35IWndXi58Q6R6xiZggTUFuJdwgLbx4AL7eUYBP3z
+n08/4Kr68fb68wvPi/TjDziaP0kG+J9fvsIZDkfDy3f8U77ee1QZkSP4P9Qrc8593vFkJy31
+9AwM0+1B5a/gNxfRUaczhS7u8hSPz8dfHGnm0zP5TppW41WyZRK/x75XjGz47kjKFBMUpJSL
+4rJ9uALzi1aSI+gdhEkJ1dS11zapLdqcU4vVu8MwDOTMK4e4CFGVsmJ+7P1h3gMUeuFHLkyJ
+1CN+i5eyU/6L68UaBljbk7AQEsbeeZ7fuf5+d/c3uPWfb/D/v5v7EFP74Bus1M4EmSSMC4jf
+hhii0QgRg8fRLw6XfiNZ/FKwOavf0aSwufusBA17JD/D5sglpfkqGSnPDqktSSRICbZOoYWr
+kM0sT7X8UXCDIO/P+G5MCXPHLJN0u1l+HCRbCXZ/bNUro22pDdKeH8tCUjCzWyvnYRdobvQj
+r4QBwyGdH+eHhaoo7uCn1eAmqWbyhVUp6gmyThXAXDh+EU7ZGDxcgGEpEq2iIY6jfXhQocLD
+EM5zrQk4RIKdu7M1AWjgcQatrrSKd3HsmtCIIBU2bvOcrp+5SJMs0Ztd0Twglx2fJbAgxXAo
+Q9+0LVErro61HHobPZrmjMMteVS7XwJTkfeu47qpiqgS4I+Ba9BamMGuc7K0NFPE8YNnTOyK
+HDz4n1n7gBJV0sHpapkWbtbe5/cjPrTZaIq0y8tNtFDB9y6zjWJNeqZ1USq8VZblVaGNvQHm
+Cy0BVbDIsJIYM41vr+mhHyyNcPQuGPsPievq04xIGpHWHibSM/ZhHzu+rakHcyxdjrzBvV7N
+lP3NUg/M2700pfPhUzFt6bEeOLJBDgMCXAj6QaZMJcza2I/NVYTgPo1d2/fhxXYxVSwOI/uG
+5Pj9RqV9FriO2cX+FHka+FrArchyFThJBSc4Wb0O/1VENyZi4HdNWVoUlGidSttOV1nRzLmY
+vyhAVNItkOONB6+rFFNCkHBVwFxZJ0t6orKiP2Dkfg2aYrjaQvEz5ogUTrhLpQHRokcDccnn
+mJsVVFfFiELAWIrWGIVeb5P2OX9SkoFF+wCy7N6Exk6oiCIc3p8vdabOvbgJ8UWi+vn5DRjo
+5z+VS3Ce41EJ0CRDqQHPqDlyxZB3NooKwwIu/mVtysz7WHr4MbDLld9K2w1+jAeW8cBHChDY
+jRJj5snLsm0JQ2UFXbWt5W23ncJu6UYPK75BtyO5D43eepMLozGeYZT2CdOpKBlfp1EMZHVk
+/H4Fa0jQtu3VaWy4k5MysfwdQJ9WrmcG2YdSfJRy6h5WnpXCiF2eVqwBZ9FxD65j0j0PkWha
+yf9SRGs0ROZOUib7OlHcStkCH39hlKSswSAfFdwZFlyveGjDzw1rQsAG9xbhD3DhvWRvJX6P
+k3m0XAWCaTlwQmqGGbeiDD3XkWuZQGPB8C2L3gIzzZbxpjoTFZmTTaaZeV3FDrtLq6MtmIFc
+2LDSttB0rCjpjzVxcZLRFaaK6xPZSW+CqGZuC1S1Vl/Ahl3ygqlyRkVbqm4YdFbRk00gm/H2
+jObaOqIYvSKU0U8cqNxPBT9ziO/U016ASYVG6TnuEjXWjIIT3JetA/Dh3l0E8G2Tw/uL0SK5
+yyRklCiZ4NfHLGH0QLh4l9e1oj9/6Gtcx/wLUcY+mOQHP9a6fm7yicNtV7/Iv1QXoBmCUrYG
+TQuWNhrs2GkA5arkkMGTDCF5RhPF/l1AxjY/elq+hPmwTwvPceC4V0Y0KPbObeo7Tt/QdsrH
+pMPLghL7Vn/O6cSWK5Wwx+Q+L6mVL9EkqmuMhDnfhMUv5zZQxfIZo73CIGQl5e2W0D5gSoHl
+M1cD3DOSqS60vZtCwWpGkdC2zWRyMbe0PC1kSo+Equzr959vlJpuLlS3F1O1fX56/cTf0op/
+NndYRA49nyteePwn/qvmaxNgNMm8rwodDEukZZ78wIFQOB0RqtEqq32qVShyRRUrDyCqZh4y
+YeTzCi/bpSPRStIeyOqQnUV6Sr06T8SqQ4WdYfopTMuCmtJFq0d9JPGV/nh6ffqIAR+MBzRN
+j3ylxoyBfPcgGvaqq0aZn5L0kYOJQhMW5PiU9dK3K3nMuzmrzayLZc+vL0+fTYUZzk5SLhng
+1QkHROypT1wLEK5NYPVSuJOyKSMUIwuPbhgETjJeEwDVvYXoiHf/PY2DZYhKLhtOXw0zKh8S
+ymxTJqk7bvou8c0ytsM0bVW+RcLDOmdq/FIZXyX1I3dCIDMsqOPgSn16qrnNyfScTLYjXtmQ
+4p12OpbQE5ndrHOc3ehedb0Xx4OtS+jqn5KvvhMViPjzo818iNffvv4DCwM1X638pch4MJjK
+46EFNTiuY3R7RfF8qo2SrEEjcTdQUml9jPOGGVFNZTV31YmXROP2acHVVhZ9bsz5jFhXratR
+qBlZJKB1Fj6oL6gTVNjk2LvI0rSWNWUL2A0LFg0DVeWMsziOzFMvrowPfXLiPinmvGsU88je
+rVJ1cTFxqAUWqZH0jS4THZJLhiHGf3HdALgno3eTMq1lnHxrSSRk9MIJ2bWe0VeArV/e9zTs
+kZVj2U6D1NviyKI+lvnwXrfgF5ybaNdYnGD7ls3GEcrayRx3fkpUrxiNukr7rtT0ThOqhm/I
+bVI7JY/akAipsZT5GA7mKgS5onqcnMckU6gyOxYY/ovUZdTjiUk6nrr5talkN6RLWfKbe+W5
+r7PJpMT0A2zZ0XLjXVuxk96yPtVoG0rb3UFB9Kaoe+lCXGFw8YMc/MsSdHEKsUEcVUVbFTwi
+fUk6MDDY54LmUCmhYqvD/J66Rv5fB32b0v8ob34zkBsnAr+l5bMgCA/Jzqc8M1eKxXvZwKSw
+lmSN74oZivYMu5Xu24dz5LqUSU/StiVeVopiPr/aBgEonX+cv1KKRiuSnQ4HFEw3chJQubmZ
+UDseKfyYdgE1CpmE63OMBjkKDoKiVrTSMra+XJteyficnqjarj36K2H8NXOwrPf9X1tvZ8eo
+VmNwapaPqFzm8UFMuGbEJGh1Qd2kaCgPIo5FiVIy8Da5dyGTwacwmA+l4zhhhwaOLZhTRcTg
+X4lnrqJFQETz1FzUuwliheZeKPpXHT/vUvrHy3dSRMTP3h2ELAS1l2Vek6mIpvq1s3iFKq8G
+M7js053vqCG+J1SbJvtgR2vBVZo/t2mKGu+IjR6LRwelIM9C8ReKVuWQtqVyX21OrFx+8ipA
+kUr99qxSXrL4FyhPzWGNUYP1LiIlWk6vH256O7mDSgD+x7cfb5vONXzNpKdhvGhhhESrhRv4
+gXV6OT70LfPDsYOvT21SZRGpOpqQseu66uCL2NEhLD3r9bZFMVBh2PjxwxOSemol9bXAqHKn
+9qJNf8GCYB+oxAAMfUefIIDuQyoACCKvRaJWDAA42uYNyM8BYez9L7R9F1/m7m9f4JN9/u/d
+85d/PX/69Pzp7p8T1T9AivkIa+nv2sfDM4nvOaWtLMeIDtwefLoktPW9oFmZkFy5RiYJVbaa
+6EcMJMqr/OqpHZyOCaUufsaI8BEi5gfJJyLlfV6JbSd/z6ZKsuJer7TB8VsC4uOySZNlbJbG
+unt/0JdIJRzRJJjq5pj/CQf/V+BbAfVPsRefPj19f1P2oDqRRYPa5AspyHCCsvaM26D1Qpcy
+JxVDm6R/rVDXHJr+ePn117EBXs1SuE8aNgKzohfGNJOWhwWxxuFM45fXvM6btz/ESThNg7TY
+9Sk4MtsCMkPOWI9A5Tspvsccgqtd+5gImgxoCWJu88ddiP6rr3y0f9WN6gyCKRkWUVRj05Wh
+GaPxpeWWYrRBgExB5iQLjZsKXoUDkClWDGnn0xac4qypvlr6/YUBg0+x2bKTOPxQ+BihXGaF
+5p+6gj+/oFXver5hBcjQyA/MqnN3y8ynVXEDtmyuz+S2sFhaFuiZeM8lC8lecEVxjafS9IyZ
+zq6lod95WvO3b6/mRdy30I1vH/+X6ETfjm4Qx1ApxmMQyk4ewVIcIF959lhhisfdgKwZKt6+
+wbif72CfwRnz6QV9s+Dg4c3++H+K0YTRm6UzgtNR7J+5A9mEGHm0PdnZv6iRoaPokS+a88Cr
+JfAvugkFIXaH0aW5K8nQeo5k5zLD08c43QeDY5bIkr0TemaJCo5PnzmxGhNExxKYxW6OqTfv
+TNCkeSl7tszwNimrRBHQZgwm1Cb1TQtBXx0HsuTgBg7Fg8wEk7sDVTZlO6/c0b4qMw2sznOd
+nEit9zIh6AGbEJ+E7aLSDcyJ4Ig98akEwpt3QQc768fTj7vvL18/vr1+piyBbCTmBCYddwpE
+ed0hmlYI3PcJ0HPufaJElnpxtSgK8QkATA/r0Td7CkUZuIsmrjlq3N1cpOgecAnq28Yk1p2i
+hSQnopbqoPHqalAjEgqH6q62HFglQ+Q7gwZFH/fRDecvOqXI/PL0/TswtzzmlSGU8HLRbhhm
+h9pV/9YuL4DkohUDETEjiPXK0dkNQxJ/0Qode/yPoypyVJLlwCLYRY2y04N5qfhzeaNNmTi2
+bE5FerV5auBEH+KQRdSeFy+WpRO6xqxZ1e8TtpHE83nZpPriHW9ptvd3g1G74H5ttaP9/DE9
+y9qRjXWwiEcc+vznd7j9zPWRZHWr9fg4lOEODmy1yxnbBZ5j9PiEATgoz09pLTvUCvf0ieJa
+CF9f9xNUdddcMZHZozY9xoH9s/ZtkXqx68izSMyS2GXHzJw9bRd1xa/AcNhX2SGL3JgULla0
+F2tzcchgaG510w8XvIIDz9h1KNPYGtBlPLE32jjy9Q+wXD/aNoGvFYWkUlPMt7iN9c/Qp34Q
+72k3u+lDwIXqxHQaiJXCcynbyhUfh/qSETe1q6+6Cexpo75Vse8OxqgRbB8zYPcTLzBvRHOp
+LNFZNjfgoY8HcysU0oGvYXKBUh0jxXWSpb7n0r5nRD94/1AG3eyfIoou1RHFeHXXl9e3n8A2
+azeStmdOJ7j5ElovIdYnppzXTw3g7y+tMWgzWKN6IFfyRie7Nxe4Kaf9jT8wGxKR+4//vEyi
+cvX0402ZLygyxSvHkzoZZHu0BVUlfSdfEismY95u72h9kHAxtcdXkollIQqzU0GuCWIs8hjZ
+56d/P6vDm0T5cy4nq17gDF3nvxhg7LsTaF2TUNT+Vihcn2iMFw0tzXmKvlRGxQ51FCuFff0b
+SCjqUUyl8C1d8v0x7VJ7ze/NQiCzhDIiih0bwqURce7s6F7GuRvJ+0VdCQuTzsPmYcAEWThb
+gSPsXi9UfelltJWr04nwz542SJdJS2huH3h0X6o+9D2fxsEpdCkTNU6Jguat08j5+qKxOtdn
+4gSoOUoSe5djKnBuZi8ZgwhqEodxIioF9UVtEIP+lmo+Agm+YU+vkJ1vVUPlTVjC42QpJrzo
+0aVbSUkVcG8/rIpsBDiLeO8FJsW8MvnVPGKwqIvEpE5gXkqFomUTh8qZkzGqkr0PU7/HOG6r
+OHRofgW1Zyeek7QNQCggujpXk948xw3kWZgxuCFDiqGQCWLJnE+BSztZgXsm/UPKH/D7vjp1
+VEdYUrELprvOaJ3kQncgQ15PUwFYye4jqZMZaPTn8OBFQn1OI9RXWx15zhS7Oh2d9eOlzRL4
+yLgZNscjeOfN7wskbkCLrlItNpJllaBmjYxnP9UhCBTfEw75C8sUtowbObutdTSReOaccgww
+iPKEzp0GqQmWtk+9Qs4kBWux4rXeGcH3seObCBQzPClE/wzXWZW1Ir6ONvpQ9n4YKKHGV0y6
+c0OPemaW+unugojo0BwIRZCEQUi1sCEIqSR732yBY/ZRaJm9fUwgWi/09mRP4E4LtxchbJCd
+G1CrUKFQ+U0Z5QXRuw1ElldtiSbQOkHSwOrZ7miwl09GGRGqFo3L8VQd/N32ACbpMtrYSqfk
+csoFe7FzzZNtNmMzd1rXB45PrIIFbvSm6/e7gGJNZYIwor4WYiLqUpoJLilzHccjv3S23+8D
+6sF/Hsrl5LuOpHs+XvJympiqih2ZN+d8gvYT5LNMB01PfkLtKmyLn95AFqMM4KfoTFm0cxWB
+V8HE5IdeSSrXIbOqqRSSMKEi9vLMKShSHpAp3CiSWLkVsQfhhUL00eASUasQsVMdDVXUdj+A
+IvSshaOtQFqCIiD6eu5dagjMV3VyKyKNQs+SonGmGYrxmNSzV/s2bT+0W6POWOgR/cPIXZ5L
+zYXgD5CZ3ai1CO7RBJ0qf4xcEC4pQwCZIvaOJ/P7HqPAjwJmIk7y2+lC3YNYf8Fwk8wc4KkM
+3JhVJMJzdJPyCQWcKa3ClCho1mkhEEYnlJgwk5yLc+j65OI4M99xtr5mger+WyUbRi6oPo5M
+6Id055lQzmD9as4NwDvXo9YLDz5yys2qlgc9AsUvjICaaYGKrJakCh15K6oULtFjjvCoaeY8
+UrC9B5HGI/XVCoXnkS3vvB1xVnBESM0uR7jmFCIfxjlHo3+ICZ1wq4OcRI7hoCDC2OwHIvbE
+SQ1w34188uAVOFKk46jY2v8w3IxdKCjoSQlDf092MwTG1ILYR9RaEN3fXGJV6u+uXeBQFaet
+73jE6uvTMNiZXQdmy/PjkDx4qy6Ck4l+Pl8WShW+RxBRsouEpvdjFVEMoISOif1dxdRarmKf
+3HRVvLmbKur4Kqs9wQYAlLzGAb49+H3g+cRX4Ygd+VEEimbvl1MzjSOf3AAyxc4jNlbdp0KN
+XDBUvxEdqNMeturWsJAiigLDMlPD/4UaFMMVCRnFDjnfiNo7FNe8ULQ8iJg58CZNxzZWdR4S
+jlpA/EFzbwlkUhnmb1ppdugtzv8rRUdaoS144PQCqmOA8LYubcD7f5oTC+Ddn+boAZwSB8ps
+R2wiHiOQghOCxatyOLOJTZVXqbuT9RQSwnNtCN8hTw5Ahajs257aiqW7qNqcpImEvrEF9uDv
+t04plp5RDp7z95ozhXiPmBCO8EOy4b5n0TusAjumfW6Jnb/KD6nrxVlMvuKuRCxSHsEXBExy
+TF2FRZ0o1msynNp2CPdjaqCA8b135JI+jbY2e3+u0oDka/uqBflxu24k2b7bOMnW/AGBEoBZ
+hpOXNMBDUpwGTOBuHbrXIgnjMDFn/tq7nutSk3DtY29TUL7FfhT5J6osomKXsi+RKfZuZiu8
+9yzRjmSarQFzgsAcr4CjyKPaV0r4MooDNUmTigxrKiywRAOb9ny0lAdcfj5uj40/lGw1wd9M
+1rHxG1lN/z6BNhORzTSYAQHu8yIl/SYnorzKu1NeY+iE6QFszPIyeRwrtmZ3nIlnjZLRVEOP
+fEbfuqJPDiXmeyjard7MeTZPzRWDDLbjrWA51aBMeEyKTrj9b3ZCLsIToLA2Ie3p5gJq3euS
+kvGbnUQCDLfH/9ns21/uU17hC2lBfwW0KyTKCkNhcjUVmDZvxtCWP9KjIkE3Ud3QQCRr5Fhc
+E8QIwr0g6uaWPGq5OXQa4ZA78gfVvMYllBFN8LjqU6YPOYj1QsBtRcnhrS113GYek/sQOUNE
+2Jynt49/fPr2+137+vz28uX528+3u9O3fz+/fv2mWtUsla6V4Re2V2hLAciaY0/M7aQaWxCy
+J6741jPKajC11qnZWc1d5zlWirro06SkV8b07ks1pdAEzlZ3pigAVId+LYoODSE2W5hTqW00
+kd3kqZqAKIr7w0DMrng08hyiEOvbqkhdcuaTsqgi1wFkRi3pIvQdJ2cHRK9tCWtADlt7Bos5
+8VwVuBhgS03PBm1T5rNlNaVPr5/0nHNtuv2dsp5KtndhB1vlU0GgWKuWustzrTNWHLSAIHTS
+77RKZHIJLL3yIBHP4MfzJZLUC54Cw0mngef0TAY9O5YJU8IdyvQnjH2WVpRuVSFTbNYFZoqe
+t/oq//bz60eeatUWpLs6ZsYRirAk7eP9LqDVxJyA+ZFL89GIZlXb0VY/c2GPZpRxB3DLi8Cj
+nzx5+aT34six+ZFxEvSTHzHOhhZMYEWeyzSj9bJIg2HD9w6ZqZ6jTZtdXvP82G/AVLUDn3fh
+SKJWMAFVlQEiTHvdFWqJ5CIIhmAfOUbLk4uJUhkHWx55Fzyp3lqwsnvKClSEXf6F8SLxSQec
+GStbeGFN060k5kXpFsfYejW5MRFFSB/sCekG2oxNfqQS5JT0ObqWiVcbrf4qdf3BGmGHU4jn
+fqXKcxGCAMenYG29bNOxSM8qgKVnvcnigYUe/fiO6A9J/SucKo0lKCZQLKbjSjluKUWm7V6x
+gTpXs3GVvn51c4wJGkXBzjUmcLol7auaG2eY2wHhMeUpv6Jlg40FGrk7Ahrr21MYv0QE0DO2
+kzD1oFQ5KzbWauKmHsaoAEo+285IVefPoXl99NxDZVt+ip23BK/7IU/19oHNvFjqmQ2JlA0+
+wfTHVZNANw2VLxBd38c7Ikze1S53/Q44RY1QWF7oMNcz5rZLgz6IaY0Mx9/H5j5WKeqgD0mF
+Fx9HnpIXLCt2UThs3WCswDToYm+bhx6rAvIJlePuH2PYa8apx/qqtbammbAiDOS3pPL9YBh7
+Boyw0Yey9fcWR0iBjqOYNtaYai8r67oy3EzQgMd1SBsnYZzrOjp54JCOQbzx2Z5XWw4CTr6T
+LWjPjYx5mlxs/msOERAB+X4p1RcbBQV8v1VMcYVZoIonjAT11E0zQ02uZPZ8JSrZ6Quxv5U7
+xzf5MJkgdHabjNqtdL3I1wLm8eVT+YGvHdWTm5ExXQ/VYD30r0McBFrVy2u+yrwJ7y4SaDJk
+nLXxdnpfblVgUwLPaDLwlUDihaE2w2HGAgHoznorT05OejUoThujmJSCBIyk3as+0fz8a86V
+cGyzMssrCVf7U8WBmx6qC2VPI04uLhmri2H27pZ7uHhaKty+8E+ggOYguUE153m0u7lj1WXa
+LmrcIpuQNRcm/A4WkBnxfEWJjEvXpuyTE729Vlr0i7qIoIHsUpFGtSsxqgK5JnAhX2dxpZp0
+wGsaV4MCGL2TOIWIHk1cIMX+rEQoZsZhQFWeZIG/j6mOrf4mJurmR3DzkyjDDHvFEV6bNiqP
+vtBkqkkwfIfONFAnSVRLPgXnks+xCokn3wYaxqVm6ZjUgR8E5BfhuDh26A5Z3XxWEiHfbPZZ
+kFwD36F6V7By76vOZQoy9CI32ayfsOOSkMDPRC41dI6xfAlu9k6dfCqJTy5Yzh6Qs12Ku44e
+KyLDiHamXalmkesvkAXk9anQqGoEBRVNm46unAt479U+i3M0Lg4iao5Qhgp3e2vLcUjaq6g0
+8Z48L2ZJz4aSY/5rqMCzotSbXEF6jvP+R/CcHb1xTdFWn0IvJKcwbV2YebrHLXw4ulQbx8He
+hpEZUxnzEO09+huDDKu+Jqs4j1LVqCQ+PSuI8ewVB9vXEych7yCO2dswoXWUe3IdL9KOiUmT
+/Y7eGJLobeKO8eCQR397vPyauxbcFU730I6K6X4gak+iuiTx3MCnW+sS1h7yrnvElKLNJT2z
+tMvxcaLHcGn0nkZZ32KEoxFtr5hJZ0B1WfPlUDAuvXwRs3cSepkBMvL373Y5iAJK2pNJQpde
+V4hRPXsUnGbXR5A8eK6/Iz9RX11tQ34Io8Cys7BGz3mPUWJe1SbvfkykYpaHBokqqOIo3N7M
+klbExJUnkNocyyRO0sd27ZO+ipgrBu06VlTs7UjOgKOimu4RyOOBC+fiZpdQaPd8ej9znOWg
+FrjIioPbwnLZU0oXK9k7lx0ncn0L07XhzmUQkQc4EeBLQ8ZkkFK9BteyZmYFy2YVV9WYaEWY
+YUpUHOmWqJAIQX3CpLMScnrVhd9U2GKe2IoToyu4LS2LXFgvS5TjDZxen77/8fKRCCuYtDlI
+rl0+RfaVLsFrkeXNmFYZOmXo4LpBB3imZgNKLkNWsLZMyPycchAL+CGiN2ZqAF+EC3+1igps
+imiR5Jr7mc9d/kLjNXjFpgJ0g1k7VlBn37RN2Zwe4WtabEqkPoopQKGGNtVC0uMBQ5Qthj2W
+UWF+mhE+YYYZtaubYpDEG2xxdkcRAVyGi/leR0bgoOwW+pyl7xFg7Hx66kS3iADeOhmuWnro
+fa8tDABYv2KOzyMK9am9XCuV6HDJskeV6tolFTlIbIyCn3LoNtoWWHDsjMEgKCy7HJISlgSN
+TM/5kogIXzWev3789un59e7b690fz5+/w18YL1mx78ByIkx65Di0zDmTsKJ0Q8p4dibgiYmz
+BOSgQf+WClp3updCd9l6zLucdJWZ94lvvwZOKMGiTXXJpGpPugSOGNtOSapMiX69wkY5jqsE
+Tot7Eo5quLbvSNwNGGOuMBSjStu7vyU/P718u0u/ta/foMs/vr3+HX58/e3l95+vT6h+1D8Z
+j0qUtuQ8/rUKeY3Zy4/vn5/+e5d//f3l6/P7TepvflOLm9WotdTN5Zon1MsQYgfF+0NAxs1j
+Hwl4LHNMknDIf/mf/xEj+/T65Z/D8132/K+fv0OnflcXDBRaPoLWmJoWVIaOauxnBcW6oqFy
+DChEGFPJrGB6CuTdGdOkxQvTug+Bfj29tqhKdAofT5cUDqzj0RKKYqKd1upY1NeknAKNk9/Z
+mNRlqv98voOV9tvL5+e7088XjNLefH97+fLyY15KaosfmsNsdIkKjF+QPXe2aIp6zcI04XnE
+3xKzpyw1mJVIREQVLcikVdsv9p/hjqhCI9pqzSAl2hSmqOKsnulEjNP/qhP9zpSqX/F6ym08
+zRWYE31XXTLKEpfvctbrxNUpOXnkexRiH4ZSvSCnPDl4jmoVrRhkmCz1tUmdLzGf54Olffr6
+/Fk79DnhmGC9wKcB/1NqbM1EwC5s/NVx4KtUQRuMde8HwT5U+yxID00+Ho5O6DzGMBEfHBvN
+uUB1nxftM6pBpOivruPeLnDclWRLGcbxrqjS5TVjFFycElRdedbqp8qEOBxO47GPI5fWUEiU
+ZZEl433mB71Lxo1ZSY95MRT1eI/WqkXlHRLHo7oLZI9ovX58dCLH22WFFya+k9Ed5fM5nofY
+39vYC0FYYF62e/zPPlZfCmia2LXxhQSt11MDKeq6KTHziRPtf00TfUkLog8J5tQaP2R7Pwxg
+Js/bc/ghK8ayh4mpcidAxQTxVTlNiyErEjeOExtJF/qK1mPF3p+hU2zsmSO/AEv4oj7NTPh9
+5uyjTI4kJy3IPMlwksr+Hmo6++4uvJELd6WDMZ0zN1YD3qyUdX67FgzElbG++k5AugRJ1M0V
+8zGLfasK5BYiSzgdmnpPStskbRjIwedokjDyErqLVVL3BebHSY5OEN3ygFI5reQN3An5MJZp
+hn/WF9h0DfV5mq5gGPHoPDY9vmvvyaXSsAz/D5u294I4GgO/N+4EQQn/Jqypi3S8XgfXOTr+
+rrae/aKIRddL9aNLHrMCjsWuCuFUcukuSESx/d4xaPdeHlCfp2vqQzN2B9hvmer+L52uUyC1
+pK8T3x9S0jbRJGdh5obZO3UCUZQkf7XC3D8n5H6WSEL/gzM4Pr3OFLrqLzcLZ4wDLD5Ghs6P
+cnYhmhoGtEnSHKEW8txheXHfjDv/dj26J5IA5P12LB9gsXYuGxzLKpnImONH1yi7WXTNBP3O
+790y/+v0odPzbmzPZNHDOoP9zfoosnZZIaJt6yTqxxqEgSJleMj7wfaVAlv2EYTrHdDhvUDO
+Kye5lAVI4d2lfBSHpexTKtFisEw40uBiiJzj+VhkIhSiQdhnzdiXQHRjZ9vmklrbR+PtYThR
+z/grvbgcmkFs6v2eanehufZZx0PRbBF1YbgLyIHCsdrmsGCHtnWCIPUmOwBNrp3YT0UN1BXZ
+iWQ4KQzqsc5tNuO+qNxt8fXt+fW3p4/Pd4fXl0+/69oNjK7V1PlYpHWoWHYIJCypHppFBY78
+tsVVY9P9DqCaB8XTPxCmuS36MCAj6SJBCZXj+Vr28d71Dnr5FY02J+/WsQ9d7SuouMug6d+m
+/oWupw0b2WQYVqYr7CpM1g3zhV7vWYu5nkYQgw9x4Fz98XjT+1/fykVVbOk9aq3avvZ3IbG8
+UZk0tiwOLQ4vGtXOzpnMJ2em5buXSQo8Qoo49LTVDsC94w169xDs+Tt7k0LxINakTX96LmqM
+Ep2GPkw5cKM7/dbpG3YuDomw3rSFliII7f3SCKlnIIIsVheCio20w6uHL162qb/Tdwwg+mO7
+cx0DzGpg7VkRayyghAkNTN9mrscc1xBVgMnCnBYD/DEgB28TxiWyKJaDISjYrLUgsFjoaWPn
+WQWzaxToR4mEQI26WifPsEU8qMzw8UPkubZVxImqc9bGwS6U9Rz2E1BtJQe+7FrYFGxTehBj
+kru0Pdk0jYcG+FRtiEXXXdj4kFeG5uJUud7Ft3KFYidl+iPU6aIpCBiw4Eo+GAmoGqvyQfNE
+2ajd5No+Ui0A7H9e9/zxZ3y4FN29RoV5caY0wpNK5fj69OX57l8/f/vt+XVyHpbum6OUiud4
+GNn1lCjpeQAmpkkBtZWn/x6PxbHBC2i6e9QqHkFe8ITku8yzDB8zMnQfkCRwChYgSskfG8BF
+xXrKdRZQl2vOEq0h9Po2siBKw3Yz7uK17g8AiuyYWkVTykybC8lKYcTnNigwNnZZnM7qVHXF
+NTEA6lqZgYa18YxYaqbbL6KdoxUTmQ1sQ7I+oeD36R9dL9aqE8D3+gFUyqDg96gtHATNUQVA
+NDabGU/Uu/6Eo2eY+dpPXHwqKLkmp1xrTAC3vvxEkaRpTmlbkaJgyhKD36Pv6B+DQ8kwfrh4
+8qZKTrJPIQDvH7tGq8TPjpaZufbAUfhK+R5YgrzWpr671/a4Om9p0lXKW/4Kg5MogePsqgaQ
+UJDphfUNxfjg+P8/ZU/S3bjN5F/RaV5yyESi9pnXB4iLhJibCVKi+8KnuJVuTWTLn5c36X8/
+KIALloL8zSFpq6qItVAACrUkzK+iWiuZbrh4rcuZFtGOw+04vtBDaT+vdTEJ4S6WJaEO3fCx
+MNZ9CxOu41uDMzqc4ToDjRZSHbfOFX1aouYjMGiaswxMcVbSSIv83z3ji0d9VxUytTxeh8nh
+Pv8vonFcWJJaNCh/4JURC0E554WbmBrr6YHhZQECLQsQallqL/juF9Jt2oQpl5EOmcO/h/fy
+KMv1bSkIo7AowqBRnemh3RlKLsGWqcpQweeovkqNBpc7YOCBFgkvGTASJU236mEJ3bnFnr45
+Pv59OX//8T76jxEXi52vimWPA9pEkfu9ZQ7F75hjlITGLbRvuP7VTxt/VwbeXNNIqbivq9UC
+ty0YqKRHGDLBA0mfMsvCDE66Fkq4/By04C8D0nQvHTCmm9WAIQFYQY+dqCWK6v2mkdbbxr7a
+sMg4ociQdUaPNwfN9moccEaYiaHS/dwbL+Mca+wmWEzGaGn8vF37aYp9BMOv6FU+4dfue374
+hDhUpn0YvnDAkEgdJn4pMFxW2sotczXt6gSb9VAoy6pUcaIWP5uMMUNI63B4BubrhaqBm7VS
+0qCRSXY1UO4nOoCF99Y6BXhBDgk/MepAXjmYgWlVNgmtwwJQVk1OIJcC1ZameqizFi0ajTAb
+4NsYSHqZwUNKIOQD3+czda5E20gNR4CAfZl6elWtnWHDt/KGuLItQ5OKDDJkO/F7cIJnMB00
+Le8c7fbLWOQa5fySQWoarY2GMUgP6oo2BwkKo2lelQ0/69DAZZPXkSLF8zmvICZRgbBClSQP
+FlhSt9OpDyP/potM1cYvc7QFKIGjpDegXbPNbQDlp6oWYVVb6ZEk1eET8W0MVkB6Rvh05BaD
+6iZ7Yo77RqisVeZkbza4oCRuqslirgeWEPR5NXNF/xQV29GNdsFvwsJKzbvbw7R1ERCQB9Jo
+j9Gv4ZfFTC/eSB2v4fhBLzxQhz2Q6FfmCD4uxwZPp8drbLIdP87CIQNMj8TZapgTwLeLUAea
+UUkBVsU51U1HJWWaGtsLgEVksB1hzc4PNIy6koDQGHO1iDTl0tYP4Rm5FY+s020k57fH0+Vy
+fD5dP95EYsPrCxjL6EGn+mh+sIFQVpp1R7xgiF4GoTEKGuICRpSjiTfXQJdbfQw4AERXUHER
+gNQO6IAyYSQU1mVYpBA8scJ5pPsgYtjdSQxXVWasYnkoZFdMHr54+ucJkhkRRm53fXsHS742
+L70dYE5M82JZj8fWbDY1cBdAnyxosNn6aqLkHgH3q4Lf7RlhyGf24RRQIVqPgBYQ94+PW1Na
+QyzwZQkcJMywnEMrCCOGx7BT60czIKtzVFfeZLzL7ZGCTEyTRW0jMrRrmVmhKsvEuo1XkwlQ
+ONtcrMhiAS9xt4igCgg7dpNA2MnDaQxloDYwoX85vr3ZsckEb/pW88VejR4yKhH/LtEHqUz8
+bu3zW3L4XyMxBGVWgFP9t9MLl8xvo+vziPmM8pvT+2gT34HQaFgwejpytpDfHi9v19Gfp9Hz
+6fTt9O2/ebUnraTd6fIy+uv6Onq6vp5G5+e/rt2X0FH6dARjSNs0WSyvwF+pFj4cRnMraIyE
+7tvJxXvPCSAWnVnUvtJjt0iopW7sW/vt43j57en67TR6HBY3kt5VLG/Q2yNuH2r/BDMEhdmG
+FpE5rFR7ii0JtuHNwgMIfVBkwrpPhi28HN/5ZDyNtpeP0yg+/jy9dtORCMbjbAsdVALhCdai
+WZOl8YPOQcHBn5pMCDCxr7klP1Dc7JyguNk5QfFJ56TQHTHbnacvIYva5wd3NR7SQc9qvvTl
+OX77fnr/PQAm4bxxEgM5ej396+P8epJbqiTpbk+jd7FyTs/HPy+nb0gLPdhmab4LCzT6a0+l
+joSFMzXbPaY9iN+aBq8pC34R5bs0vyLBiSlybdVDXaLNWUB941Szozm/gRJdJnfQpgoc9HLh
+4qiEJY7iUu1GqKFoUptz2uNa/bhzSHrCMtwWmCVGty0tF7rc6oD4JrZcTBpbFA3fQBhNmF5n
+uzpKuWgsWoTSWjzAnoIp0e1G3gGsDVPeDD4btZbs5lJraQgtfDi+6YPXIYu7Kd/wUdwmjO9o
+iqL83VRNW6dgDjtahruQlI6OBXRLpVojvCHGu2pyfkyp8RY88GsMY02yQtFhkodbRxOikt8t
+mfMq0lLtKdMNVBQczcn9Z1NDcR8HtY2csT4fg46qKamrP6uJN8UNHXSqORoFU+U68Qbi7PTh
+9te0qtC5uAsfWE7SJg/ILbyj2rsYtYVRKbINmKL4JVp64pdN5U09HAnPLo6Kk4wtl47AsAbZ
+Ck2bqhLVlbi+4jWlZJ/ojwkYVR57UzTUgEKTlXSxmuNL4t4nFb6W7rnggru0o3ks9/NVjUcs
+UslI5JamvbwKi4KACiHmi/dT6odkk7l26ZampA7xsAmLP/g+iwupg5PdstyhJVNpkpSmIc5u
+8L2f4VKzhuwITYJ/eKBst8nS0DUJrJqgxsfqPJbW0apTNOXBchWNl9NP2bl2XXY6+S3OPk/D
+BqcrOdCdLkyoHha3BXqYV764iQVVWVlHChbuWYgZLQAyDrdZqeftFmDzxtrtG/7D0l9YR23/
+QSQGcG30QZJVzDgRkhxsbaRl44AR0CaJqNDmypyoxrRTxv/Zb4k5MLHjwgXnxtQP93RTkNLe
+mmh2IAU/Jbq3HdNHT1MciMTzcIGOaA0uf1bxDF5OItcW8MA/MYRL+BX+H9WePl6gA+H/evNJ
+vTEwjPrwx9QI8KTiZosxbqknRg5CyPFpCAu3P6I8cpKM8V3HpR1JRbBaaKkx1aVx32d5GAbC
+x8CcRL8mflE5W1CFZBvzQ5KL02r+P6hNWWf5j59v58fjRd4w8YWW77R3+TTLZWl+iBqrdYfX
+6XiiPuzeqE39Uh6MzY63x2WXfZFJAk/zoaGs1fE4cr+pGJhqHL54CLZVlDRplbT+pkyh6/eI
+LGXGaT0/vZ5ffpxeeccHXaM+xttC3Cs0Vu90WJbauCYeGhYWkMnevqEBbBqYxbA0B1KhZHOr
+L6AF2NsrIDf8a6vVfAvzvKW1ZbRgiAjgrKwdZ5nxwnV9hWeUVmWo8xY6yJrUpht+HskzRktD
+2kZCS2eAuDiPN3rfukk2HgeaEOS7SUqqgGY6MEK/j5psE9YmLDTvxRFfiJl1QOCEoUXIqg2z
+CYs0oMwERhakIv4Eg8FmSPwHBOWZMP21SsJ21LhPyz/N+jsoOlI90pquHtMOpS42O2TqJ27x
+3RGFvkt+qiTdGOOtkEPtakaIujFrJO1U46VHnDE5ezqxpnRTUGJyXe3S5vmzFrYz7y4LmODz
+0ZZ0LgmjkEn+cRWCqNR78dvq8l5eT4/Xp5crZGt5VIM3GNvd19C+vAGs2aX5jcOOsdxbWdaO
+tw3sVpM2UVyOmDVzkOQm1xmL40M95IIQpTd5XbbDqSKMqtSH+0rEzNYMGKj408/xdaDgEYWU
+1glMCIhH/PaY8GT2GuEDQ9kPcaTaTcBZrSWrtvCil9vVAdRteqHQYB3h5wz1uKPsZZ9zbFdO
++ZCHygYsfjaln2u37h6KvjdLbARHZD17rERUPqopacsUMcJWtdkC8MnQwnxKcFFOlmqeawnd
+BVPGpp6e2UCiWMmbNVmMcSttSXOAlhsxFfu1X/58Of3myyjXL5fTP6fX34OT8mvE/vf8/vjD
+tiKUZSdVzaUpmc3UwJEDSmQEY5sKw+V0KoZ0PkUGFQjSzXKf36/HM2wzUMop02kb3hQpRIQL
+X9fAT6bmQ+Gn/+8omMNHLu+n1+fj+2mUwEuJdUuQ7YFQVnEJT6XmeLTG/wMWa52jEm3FZBBU
+5EBLX7F9ThJNH58fCrDOCZPEkbpD4lmwWq4wr6sOL0NRDCY8XLpzwa0ai/AaZHytzjAj8X9n
+we9A+blhAXxsvfgAkBQJ/wdbcoBlwU5NxtWD+EVd6L8Z02zQBrzM4aXVxAVvtmsSPMPK8GFc
+RsoBc0Bk/NRcEKbrvHR06cgCrVEFBz9hu9uNaJPYYc2I4F/dK3dAJjTehARNoShmj0b8IBfo
+xfqb5cQqbg+hAQP3WAUHfdCDQztwJnQTV2FEQyNNkcSF9UOaYZtyi9/R6XK98vee6g/Q4u6m
+dgPsKefQLlGeo5p9tZmqT/kAq/j0mCVVfIDpgi9INIUDcFfIl3t4J1qhj+/9zm7Yjt275qj1
+ccxNvk/KO4wf6jBVFaUKqyUkx+AkWcz1lBBhAklhsR0dzLHiUA1eA7+k4TgGa7o8eTYmqWLQ
+6cZqeC6B3hSgE0tBnbg7gFYp3Q4B7ziFLX7FZ3bOKgEmKd/V52tNHygRB85GaL6LHj1RHGZk
+0/xkMVXzXg/Q+cqoWJi6jzGghwHNqsAkfOYhwLVXG1AZX9soVDfLk19Dsp+ZNRAARs3LW+x8
+XJuDyoFzJH95j1PjDQxATf3Ygxc3ql7N9SgLHXjliP4i8BBwe45mGerRi6k5hgBdz81+tilX
+wD69Mvm7T7ui1+5MCiGwQyIRg4UCbzFeJPu9uRYCbzX27CmDmDbYo5XkBzPSv4CWPoHIviY0
+9ufrSW2xlBXOv+fU+T8GkLLpJIqnk7U5ei1CuloZq1cYWv15OT///cvkV3EKKrYbgeed+niG
+6JDs5fR4Pl5G/DLSLfnRL/yHcFffJr8a638DeurEaFufE0sfvySuC/TNQ2AhUp7RFZnpqmN4
+ZFEuuy5Gl+Pbj9GRn+7K6ys/UroFFiHlxFubQ0wYX/dzYtQPnjeLNSI4FmM9yLAyezcYxAhw
+L1kT/OzmVllFuZqjbolyfLfJdCIcS0XnuznEO7wtsipX5b5ZF/RyrCfi6NmmfD1//25Yr8mp
+4dvFNtQtcwUROz/x073Rnv5beVikG4gOhul6KP9/yvfdVLkJDzDBI5C6042UFdz4OExQZJby
+c3ECf+VkK53DbCISBIV4ucIrGNCDlhGjA+Nx0EirC0RBhxFmOaQSFEGiOUsruKTc+WgmF4iJ
+W9SaZaSAMYo9gykl0jyjikLaxGix9iykddfAKbj8Lj/pdFEW+GgCgh9uqOZUa+L51O9V8RIG
+xFfs8IchKX15UEI3ugCyxgqreIvtOWpTRbZNPHtIffEupNbCDgKO6W5kOSqxhDRJtg9bd1VX
+24DM9VbVolkYRzLgwZOB2YUkZ0i9Ike72IudY9J/DsRlaCgAu3AU+gD1HdYeK/h10qeRDsiD
+Yg8aO1rc64gAnEMxBNEzcQKIz7+fMTwslKgEHJDdWkFOkYZlbZaaFxVDtZkcl0QLTwn6t4/U
+jsIvKZgHlhQw/ndJaKqyqoCnGeWbYGVAuSC5jzT9tAALHohsHgVkb1sKJwHQzFmW1aIIGI82
+8L0JThJithrANC1rG6wqXW5Wr32Y8FWmSJzivtk85OL2QlKyVd+8pCg1HZ/aYKgk9XfqPUeC
+LbJceOts9EKhFWFaYcQqF6hFuN4vWhoRXFw9t3fVJDRDigRwF8S/QaSOTi0k+Y6AQ7Z8I9ZK
+DHL89XMvLEehnxavJOfH1+vb9a/30e7ny+n1t/3o+8fp7V3LftDl8vuEdKhvW4QPmwrrhg9R
+xpUbu/xtevH1UOljJMQT/Ro2d5sv3ni2ukHGz2Yq5XhoU0ucUOZ3jISOVUsHM42Q6UTixbhl
+SqtL5Xo10dSqLSIV3y3w7LRDwYFq96aBIyO+sIZkdOt4Am/J9sndCr+YtwQrbz63agZgw4gF
+v5P/ymVlViU2ILQtfJuBwxfSCDv4RAdpcporcmpH+D7px0pAjQ4CvoI5UX2L5cWipVZb2ULb
+myg+Jh0NZ631bDV3lMDofIomcTNo1BB6OmoyM4ZQwc2wmL46yXLs+NwP/HA5xqzWDCLN+V/F
+MRFOyM+12e+rlvmHHJWTmsK/fMu9XT+SdlDB2smOFWTB1rBaMY2jPkLeRNW0KLi9P3XA8QHZ
++0sU3uZ4dQyFzFYK4h5rKTSxVZ02f+yWk1rRbVnI8W2k+VhskUzGTR7HN8rgBPyId5uAqFd1
+tATVa1Na3fChq9AZrmOO5H8cvhaBXi2WaATgW1KGOnIYdBjtwBHkvxMWB5bTFBLDdLdr/3J9
+/HvErh+vj9gblPABz6KhcRIiMyb0wIJvL/s2MoHy6oqWraiECY03GSZ/xGkQPPi1u5UAulIJ
+Faen6/vp5fX6aPeiCJOsDMHpX2lyD+NSINyrzUaKklW8PL19R0rPE6ZMufgpUs9YMD2rk4Cp
+d20J6Y9xQ3u0epXtBGJHmD7eUkuR+aNf2M+399PTKHse+T/OL7+O3kD19df5UXk2k1lEni7X
+7xzMrr6m0+hygiBoGTrm9Xr89nh9cn2I4qXDZZ3/Hr2eTm+Px8tpdH99pfeuQj4jFbR/ffzP
++f3tw1UGhhb4838mtesjCyeQoXBWG8Xn95PEbj7OF9Ar9oOLaIUgVHwN/vbi/lNkcWzaUrR1
+/vulD4Ufcj+ZzcemO7+o//7jeOETYM5Q+6XMaB0Udr6qNtc19Zst6D8NxH2fdomp9x+0sl5P
+kMG7YCdz6vPl/PyPa+QxbIf79xhbukMmo+D6dDw/W4yuYSw+V7A6m+OfYeiBufBvTJQ+Wfg3
+GHrgArF31nzOKpSx0G9yyBe2j4oQeyQM69IXtznJ9v+8P16fO79s69ldEjck8Bvdj6NF6M9G
+LbDLQmxRc8R0qh7GB/hyuZpNLYSZJrUDl+l8omYwaOFFuVovp5p6ssWwZD4fY88sLV6YHuXq
+GWNAcP4GyxQ1wG7Ct5hCs/KGlCN5PFl6TZKjr95ULZzCtVped3/asMbfYKSNVJ6i8DDd0jRE
+sfAoaiV9B/ydiMYJSjsN3CrI1Qu5gpV/qlaoyjd6Z7paGTjO9iSeSsIOVjCjFtyRO5rWBaWR
+q//x8XQ5vV6fTu+m1j6o4+lkagZkVLEzhR1bgIjcpwPnJtW8o9LrWixv1bX0jFI4u2h1bRIy
+0dOtc8hsjL9ebhKfLwJnKMmAeKoVVkCmWmzfhBTBeGEC9OwcAJpgBgtRHbPVeuERhXcGmN4n
+MaGlbGYz5fcn5sBBqGEEf1ePPY9gML2eu5oFWvMFwBmL8672/4CENdirV+JPPdNEhixncs5R
+uwuyXCw0KxCymqlR6ThgPZ9POtWkWi7A8TI5RnsDTxjMIW4hVPucTbB3N45ZaAoQVt6tphNP
+B2xIGwGp2zL1JSWX2fOR76Pg2//t/P38fryAkSXfLt61HYMEy/F6UqiMLgBzfa0svTXWa45Y
+qFwpfzc0IpDMjRSEn7BiDb1e1+pvKm7oRPWyIHXujWsbtlq1sOGe5UMOrwmA0QW1hvW2zbWS
+gjj19LLDdB/GWQ7Kz7ILsN9d0uqlrlmIS59zGp6KCXCzJT7fArfCvUEFbo1HGYWtebpAeZ7v
+zbPZWDFWEbvyfDbRewdao4UqSRI/n848TTEoUsOCMZN8OXaMZ5J7C2+tl56SarlSc9PLE4A5
+6AX1d1A+JKUezxV+YYE4qyRZ0NtNDFaggi/GRv4nHc24RMBHVaKXaw/3fGu/xr1DAZnwk4/B
+hPtoMRkbIJpD8ApwfDN4s9U31MSRbvHm6nSsXzA76P7m4KMk0Fb1jfI//VqtNXq9Pr/za9A3
+RVSAJC9C5pNYs3G1v2jP+C8XfhfQhM0u8WfeXPt4oJIHgePL8ZE38Zmfbj+XXBPVhIX/Xs4W
+auGfFybr/HF6Em577PT8djVOJBnLIKfQlo29BHs5JmVMwJ+lATdlVXZIRPg1GzDKUSBcrDDO
+8322UhcrJff66xjzg+m4wWDG8YYDZ7hZOTSHFhBsnm1zh2+zRoP66bOcqQlbxE99g4cyQkKL
+hlUpJLjirVYExf7ral1rk2XOgozRd/7WAkac/UY+v3e1WU27gH0ogcqyNN23U8BkKsmSJIoq
+GUgS1lPILogaoDzmJ1Tjiy7PrYmT2h6Wd42xW2ojjWOV3gQcpyYJD26Lgn5ZzMcLTbXPIVOU
++zhiNtN28/l87RXNhrDQgE4Lo8TFeuE8uwV5BoF/0U2azWbq83Wy8Ka6RwGYu02cu+N85aGn
+MT+fLb3/I+1JlttWkvwVhk/dEX7TXERKPPhQBEASj9gMgBSlC4KWaIvxLFFDUv1a8/WTWYUC
+KqsSsifmYpmZCaD2XCoXIsMo0E0XN4Dmjccd3Fsd/FYHjPoXvzpTcbE8vj0/v9dmFHqkqpDP
+YLMwy63JaVe1XazMmjZG6VYF1eUIQaO5ktVLGqR82w4/bS6iQXXVif1/v+1fHt57xfvL5Wl/
+PvwPOu35fvGvLIq0bUeZmhf7l/1pdzme/uUfzpfT4dtbU46YmKQ76JTd6Gl33v8RAdn+sRcd
+j6+9f8B3/tn73rTjbLTDfPf/9ck2O/eHPSS77sf76Xh+OL7uYTU4bGMWLwYTXhMTxRCkDnOL
+tzD7EI+z9ag/7ndurPpwWNzlqVLFOENGuRgN+0Rb6O6COnP3u5+XJ+PU09DTpZerAJaXw+VI
+Dpl5AMKouY9BPO0PiKe9gpDaXOw7DaTZDNWIt+fD4+Hyboy5bkE8HJHyZsvSZKRLH3WFLQEM
++zQQYlkWQ/Y0WZZrs3ZVEV73qSslQuykN7oXdovViQCr/oLer8/73fnttH/eg+z0BiNg9GgW
+hwNTSVW/bQNEODLrPqjfFk1aeMtqlqR9U600oZR+vk2Lm2tz6jTEUuDj7YQoR8hoQy++Gk76
+zpI1SGBRT+SiJhY2E0E3Qb3IoyKe+AUv0rQkU7/oKEzfPeLKCVWmMme2svD/9KuiS5EX/no7
+6LNFhUQ06ps1qOA3bETiTykyv5iOOuxFEjllTxFRXI9IFbnZcnBtysL427QmeTHQ39BLcgB1
+JMACFOC6UBPWboGIydho0iIbiqxPA/sUDAah359zMqUWgIpoOO0PbsgWIzjKx/UqQNSAcn2A
+XU8mN5wp+c9CDIbUQyZPl5j7YghrnRcUWoKOmmx5lvfH7CGiO+CEg5T5aErOIYDwzjmAmA8H
+E7KEog0ssiuPd3OBM/cKy6Hz9gNEGdGqSSoGI3qupVkJq5NrCmDgaWO6MxjMYX/UpxEdRTiw
+ilET1BWvuxflajQadGgmZbXehMWQW4OlV4yuBgYXkgCarKPRBGCxjFnLisTcGDMkAdMBBVyb
+xmEAXI1HpOfrYjy4GfLJeTdeEtnTYiFH/Mhsgjia9EfchCqUGRdSQ4xDfxNNLHv1PUwkzNuA
+PTPpmajc9XY/XvYXZWdkmPDqZnptjL/8bZriV/3plJxbyiYei0XCAh2BSCzgJOYHLo690XjI
+Kqs1f5Bv5E3a+mMN2lkwy9gb31w5dxMOXR6PBi7/M1WNEj42Hl7z2+JOxGIp4E8xtnVz7QbJ
+TYGanDbk2TLbxGuiaxPCWiB5+Hl4cebVYJ8MnjLg2jT0sdsLEmLKa1FS3xn5LR0E0vujd77s
+Xh5BmXrZ047oYgjsfZPMjZCvs9JAkyaWGHqIVQk0Qbc0Ib3RWap6RPjG1rLECwi20uC2e/nx
+9hP+/3o8H1Cz4cb2d8iJ6vF6vID0cmgv0Fo1fEAkDn9spSryC9j/Hebk8ZWZ7xHVZcWCDYA6
+4/RKziJbnu9oINt4GDRT2o3ibDro83oKfUTphqf9GcU4VmKbZf1JP+a8OxX/jgejKRGsM3L1
+pn5TYdePlnCWGqHUfgYyofHQMqP515aFB+d0xgabeNnA0o2yaGAqL+q3qw1GcPjxjCHO8qgA
+aWvc4YEdF+MJW9wXEaNr5zyU+f4YKVzlAeSF+3J81R+ZIzLsT4whvM8ECJwTB9B0Uyvv9tS2
+8vkLpmhnd5CNrBfJ8T+HZ1S+lO37rEzBDtsK88IfmvMhJUk7ODX0RS49iKoNJ07GswFJmJph
+cJcpW87RPt3nJe4in/c5F9uiicI1OdJ2OmKveRFhGtPwN614DJAxKw5iA4i8jWLIiFdsNtF4
+FNXFTsm8fTjatW/g+fgT40O7bPuG69+HlIpf7J9f0XrUcQ7E0Xbanwy4cVUoct4pCBF/yxgU
+GL7mmURx+TUAMRgY+6kETtIfWL+HZk4GtIsM+/SkBbWPnIRcT9vGJCVfWSS7JSFSitHnX3sP
+T4dXNyUMYDCtOPGSiap5yN4FCj/IRaUiouw7L2DD3DPKNRWRRtqRUDrsZlHoEfuk3cimjRlm
+gcdKNYYhA2/fyswLyRZu8i+nXmmWjYTzKygN9z8SlCdxnenBFRqLReuwYxtRAlO4MXMU1G90
+HKvtT1L/6c5vWx7O2iksW971irdvZ+mN106oLrKqEly6wLpqOkEj2BOJii7FDJhSiGq+ogO1
+Maqq8bd7rcsdmLYrL65WaSJk0lLZAPOg+PWLaHNkcpSqTPNceRG1C9xAYz/4XWARVTnn6GxS
+qYTLxlFu4kS0IXVZEZltRTW8SWKZcbXj5Q0NDondiUgk08lki6vWZ8OvZBMyT8jcpLRlschk
+Or0q9uPJhFaeRXzqBVFaMq8mVNKhVCWN7fi8QWHWVECULnzPdc32ymem4EP6jtAKjnRdzGi7
+ZHqt4aBvr752sxjfxjzIMMC8+OTxJ2wuOpLMkTwc+FsHS1a3eWdqtisZXmdqROLl8XQ8PBoi
+fuLnaehXszCBExiON5K5hmLZBHjWC3TxrU/fDpiV4fPT3/V//v3yqP73qfvTTZSveXbrJjeC
+sjDOw2RD4uLlT6Vr2cBI3KXrsqkKFu3ej28XmUuL8HiTuAKp7abaZFwqaEKXJiEcJxEJNSAf
+oE/lqs3qAuK2dzntHqSoaTPQojSLP5YxxmaUGI9ZmKWdWwSWzC0pQt/1GeauGKMLci/QmXc5
+4a0lWgYiL2dWJQnUi6OKJjRsLyjcHjV2/2xhZKrAfEc5FsKrmOJHDrI77y6+tYoXuX7G23CF
+BiXVLA/9BXHAq5+Z50FwH9R45ulaEslwgXvpOotMU4F8dR4sQjOAKJ1bcNpef86W/y5IkC78
+1BXtqsQqqWWQxKKATlj+ywYCU2hzcCEzZ7MoEMVzigAJJbbbVswC9CHmVFJ4Xj+ijzxM5AED
+t20lADOlnhPEgOn6hL+4ng6JfVrnEeSPVUDaAWmckcqNYghTEuaGv1EsdD6l8VEYk/qGCFAc
+jcYCSRMS/D9Rha/be4903VHTLE5p8Bf+VmzS5zIfSrRH4s4lSFWXbblR4PHZZZdlwI6WFRGg
+L/RBXZCMzoy7V2VNgwrz8IqcZMNRGRi8FYFgNlGYW88YpmCLoV9zEhKpYdUMo9qqNOPYD2ao
+wGDLla6L3X4GxKv8rquQBOBBFA3LO9IyBYKJD2GtJrAKFonAPPxmLe7CLb3uf5DeIlQ4mcSF
+P77EB09/Xaclb4DBGo6YypeXwObwuYrl1yn0EdgWSXrcwuC48kMs0l7Bn48JRHQrsKo7aD3p
+LUuKfH3LYmRC3C2tJWqgtzBosoPmIBv4OIA1lWb8kBl0fME7b/fwZOaNSDC1r1vbtAZj/hC6
+sDzhLfk9U79ZaTfn/dvjsfcdtoyzY+oixUSwRtAKGR0nmyJyE9s80gDXchfye17glLSoZ5Z8
+4UqJzzBdfwzSTJlyJ5MKqVyGkQ96UztQqyBPzNVkiV9lnDk/uSNAIbaiLHMbGCLzmxARWCGc
+7aE3B5aUrWe0AP63CMpoRge8AXY9jhVpF+FCJGWoRsYMkcY/cveZIh8z5cYxjnkaZJ0FmWqG
++yysuNs0X5lUhGUE2bJrv3sh2xEv9QVJWS90o43fTqqjBlh567xgl8I0I6+RP7lJVYgigBeR
+szaJCvJD57z48ulwPt7cjKd/DD6ZaOhIIFfnlWlbJpjrEan8QHHXvJWbEN2M+XtAi4iz1Vok
+444m3oyvaa9bDDWrWjjOzm6RDDtfPOoclZsJZ8q0SMadL550YqYd/Z+OJl0YM5rPembYOTLT
+q+kvO3B9Zfc/LFJcYRXvkUGeHgx/Z00AFe/Mg1Si8EJe8jLb0jXDGm9NrwY7c6sRvDOJScH5
+O5j4iT3qGsEZqU38lG/qYNT1wsGvG8tmFESCVRreVLn9ZglddzwSC6/K01gkdCki2Asw16D9
+NoUBaX2dc6pAQ5KnoiQl0xvMXR5GkWnj0piFCLSl2saAQspm1K3xwOwjkmywQSTrsHS7Jnsc
+cp0G+XaF+WmsXq/LOecT5UeGuQV+2JmO1knokYzmNQD01zwGReFelDIKQBt62iuytLr9anJT
+omwob/j9w9sJ74OcZHVYvNAUSO5QTv26xkpaUlozrHiqvDtMJ5LloDUQHjurH+cuYvI1POdb
+3zKhVZmRwhK1AlJj2UUOiMpfgm4T5HJguqmkkhB6H1BpLov55Qpp4S/z0ONtJpqWlRqWIveD
+JFCJJ1HOJvIviFSozyj7UIdLlShlobAgx/z1KqMAt5bqPFdtw4WxR6Ii/vLp5+7lEf26P+M/
+j8e/Xz6/75538Gv3+Hp4+Xzefd/DCw+Pn7+9fv+kVslqf3rZ/+w97U6Pe3mF264WZXTYPx9P
+773DywHdNw//s6sdybXI5EnJD7UP0Gxz2E9hCeJfCcq6sbVZKln1ZCZIoqYuOpL+BIFSTYZZ
+TvgxNWhEFOkGcZYXSlh/y0RiPD/obF4z/ubVk6ZAgxhLUPdI9tXDL6yxgHIe0H3EoHmbDDsZ
+yjLaTuD33l9qUh93l13vfDm9PeDNpentAXu6WbdkQ4MUiylSRSnQjIjOPJZBoDVc/sYH9fdy
+OHthe61BD8YpM8+t7vXXBO7Y51gztnhcpE3+ntP76+XYe8Dy8sdT72n/89UM9VDEMJULlU2H
+Aw9deGAmoTWALmkRLhjgypN1uzsR7iNLktLdALqkuZm/toWxhI3K4PSmsyWiq/GrLHOpAei+
+AYvhuKQ6vWMHnGTkrlG2PYh9sPLDAqtGq8xzzuuTNUl61QLdFmbyr+HArcDyD7Mg1uUSuJcD
+bxJTaYMHu0SV/ePt28/Dwx9/7d97D5Lqx2n3+vTurN+8EM5n/KXTUGCS+dy7ng6mKv2oOxiB
+57Y38PwlM/YALjizQYPOfZIasF7h8dAdv3W+CYbj8WBKrgQ7+q6yzsg4pQdZfO/sbufA7RnA
+VIodux8iWc/YGB2Nz0N3cGdReksTEloIJ0+/7quIAxBj3Td6AuUs/ZDdSMSyDv4tesI8xl9b
+18i5Xs32U6uluBe8k7SexSDg7vMabJ6RfMzN3F9xMO39wGwUd/2Utyk77jXcHEGdgYgsFXVv
+uX/5cXn64xWY0f70b2QvNVo6ST0fH/fMmvJB8C/XsdMikXtX7pJegsQszGw3GjFz++mVOTfl
+5QdzF3gz5zVLeI+7uUDsvc3NIiQ1PMpvmfNt5jmEW2yeA+QO0mWWRndNtIK+wv2NsVa36sA/
+e//YvV2e0K30YXfZP8I75NZHn9u/D5en3u58Pj4cJAqFin9+cAIswmIwvGFWt54a3dgPdpWZ
+3LyGLThYkIQbd2UHXxloAN8OOXJMjE/uvv9f41ELf+en/fkzeurtzxf4D444aKvkrr45t8Qq
+GM4+GIxYuCt3wYslitT+ROyz+Uo1cuy8Jw5hsIII/7pLFWZvY7qQGfB6CVosMvZJ4J6epaUY
+uFMH62M84cDjASPNLcWIOddGzNoD6AeJxjVRCWrDLF04bd3guNrA22w8cHf9ljtnttt6ugxp
+vWuFqCWSe+fePx7eH4AR9077x7eXxx3G4T487R/+Ov/T2XVAPxoy5xuCOWg56PvhnMNMrqo8
+9VZFOqei0i8apFp9fMbT5kw1Us0Q55EwK/Hq0/A+dcbw5sptdHTvnvUAW7rzcl+UpFyw2Srl
+dQtjfXzuvbw9f9ufej9UyDXXZpEUYeVleeKuCD+fLaxM5SZmye1ZhdELgcHBed+9OJHCeeWf
+ISrSAXpvZncfY+usb+o6uvgyufp94vA++DIafkifFvmXQTvmnUMsJ2ANDOn8unvYg+Z82Z++
+w/+csVdVRTJObtQoOZbdA9aQdSp9DQWnuJlIEPM2rjbVULBaaYMNEqkDpTN0VyqJss0NBKNp
+YlmNlBmIJVdCRBR3cRyg7Uwa3rAko3Fh1iKz9SyqaYr1jJJtx/1p5QV5bbMLHMeIbOUVN1gK
+dSPT/sI7OIprWEZFgXcMPBb1MXzYcPoKF2i5ywLlGYEODdpqSKx4IRa90O4NjTnWvSvHIOfv
+koUr39rz4ceLchuXBxcIRYbHDmZdQm9XabH88ukBHj7/C58Asgq0of963T9/4qnlMFNlUF2B
+mhbWnNS3cfHFl0+fDDOkwgfbEp3C2rnoMoimiS9gx1rf46nVq0Hy8FbS9MQS6+PzN8ZQ92kW
+JtgGWSJ3rg1B0eHbaXd6752Ob5fDCzV7JYHI0Rq1CKg7gZAeMczqnoXAozHBv7FatQ83sO/E
+g7NonkvPXHO9mSRRkHRgE6zWXIaRldo891mhAXoZB1WyjmckR62yhJvVfxsfc1m4U5XxME1k
+PzsHSPO5cNa0y8VwOreEc+oRIhZzkM/jtWt7QaQSR4tO1RBplCD/GyQ8qjE6NG9w5TVK2H3I
+I52WPGH/IacafETyUZsbCba7Q63ywhKxMm2NUHKtbXty5r592AM1CHis+T5vQGRjr3LlOEuA
+M2jDcl3Rt1HZEH4yF1s1HFhFMLu7oUzIwPCXoDWJyG+7Di5FAbuanWJvQlawd2V9n7vMheF2
+pWHPqFfZCOOaJ679sHQXBtrI09gckwYF8qksK56TkmcIRfdaG36PCwA4OBV/JdQRikEabt/8
+bEK5N4P8y7RDSsXsW6749oG87BjNNNB6hwRzL9neI7glVL+r7c3EplGRBZnnwEVOrh9baLmE
+M5ZdPTVNAeIFH15eE4Aem6fRPZuxriaZeX86LaI7oe12ha9qqQki7YBfsXCpqziMQt5vyfyP
+xsUWCNugdleoohoNFXku7pRzsinlFakXAh/aBJUkaFF4+QU8yIw6UCDqPdjCKlJ2CuG+2fck
+AFkDwzSATN6cmsIm+qEhThXoqyZXsM+NYQAMDEUkcnTmX0pdgnlY3+K5JMVtmJbRzFw0Najy
+7xIRs1xb1uOr75ZR0kzTiDYJRXbLK4CAq8LCYM9nQeKBzpcbnsLFIlITaZxD2ToWxapK53Pt
+VmxeTHsgTeRIxJofs3WVk7nwv5oyRpTO6C/mLE8i6p7oRfdVKYznsOQXMDjjvXEmiwm1Hw1j
+8ht+zH3TDTaU16UgVOZk1cFK1Kt74xepu+YXQYmpDNK5L5jwPHxGZiskdSkaR8cM41LIPaJy
+ocRBvhVmUSIJ8oMsLTmY9grGa2QWH4stiJcC1BpDgc6DOQYIeitSSPX2a2XHAjmSsN3NMM0D
+MscaoZiFDL8JC7msbgPj4BBFMkB/jdSXTaCOBFrNkdDXE2iaf6mQ5Of92XQvMJxp4bRZyeHu
+cLaVeLwf73AKlyOGQxJIZ3S/CtlLCxXBU0XpIgKZPmquRK87Kb6uw6D80oy8Vi+dNzQUszQt
+dYP9IBLU8V2dEt3FG028E+MDqvQsRRU6yHOg432qO8e7ZQb4bnRCDsyDSELR6bbRFY7Pr4ef
++z8uh+da8VJ2/AcFP7leRbAvcG8kWNIHxrGsomCGhnnrI2hbaL0AXJR/K3JY33BOSgO6HmJ2
+3u3HeKnQpuIuAuQmqwCbkBJzeG5n0DOMkovNCjWB8KWVBVBmP5YBRmbjhoYlGfG+4/WpHnjS
+tQvGPBalx9mVbBLZvCpNojt7TNVhPl8n6gERhYsE2Z91Pt2KpKx7mqWSw1NffRPDtGcDR3GC
+IUOEKxgNuA3ESlYvAOZBdI/fXUty5cmclIcHfaD4+29vP37gdVL4gq4lmDnOjHsSi1C66udf
+DS7SAht+rsxiX/r/GXBUKl6df0Mdy16gi1ziBWg1oZ0vnOGoz0z8113m6C8eFoogxsCmD5ZJ
+8ybb1cnkdHJyVwt/Vn3dYg2LbGULNrgx17NCJKAcAa/BEolW0yS26wMrDx9FKTKMaCrT35os
+Oa3J/vL38YS8oaUiUSUybg94m5eULntDfFJ0otVgAZHZNvaLplMb0w7poRxsS0zAbOon6gOI
+1TKWNVENSttfmXNL7+toPbNFvhZG3Mdkc9JbUihWwkr5DW8ZUKnOxkFj5Nbk7/glNez3Ik14
+61ezdlTLbrf2gJiQxuxUYliN0V7522FnNZgpYmuuvJpdgSASweHiDrvG8P2DvbABiVkGxDml
+jcl70tmfcNoW7gdqBGvzZQnnSmHqeI1Mn9VRYZkQYmjLL7+Ve2vJcrq/B0OAknx3/CQlp2u3
+NW0VSxBpVjJgnWoqipdJ/8l1oaJ+WoEFlqBfI4PEVyvy16tsE1fZQq5ht1sbLqaTeazjzWFe
+rgVzIteID6alvp9CQb2zBTXnQ/5ocATjhBaF6e9uIXClWuqb8h1VWNeQqLC4TmDzAn9oT3ZQ
+f5WxpHWJFh+c7qoNc8nbzGck5CM/VPNUtaSbJeaQsa9HJH0vPb6eP/cwO/Tbq5IDlruXH1Qj
+gK546Iia8mGsBI8RtWtg7BQplbt1+cUoAYwmSjwK1llTa6RrSNA31iIFzcL3iTjPEHWsIERW
+S0zRUYI+/r+VHctu2zDsd3bqC12BHXZwYrnxEseObCfpqSi6YOuh29CkRT9/IilbFCW5260l
+GVmSKYpvRx5qjLcdqHh57ZWWGTAwFChk5j4y89JKfvPRlfhBcIumk6hQntp8qhgwutn3V1DI
+IjcjnWZ5bSHQhgs5zBWCDlm8kbH94wNvbKlUQ1ErCuVAQpfTKT4d/zz9giQvs4Tn19PhHTIa
+DqfHs7MzlqKA0h6HhG8Ms0pVXr25HcugYy7d4b6Qgg7cU32n9irQ+NjXRH25MZKLE7LbEc7c
+/PWuyWR3CP+xuzZeAklonK6QHQDLVRMAwPXdfr38LMFoa7UWeyOxJMOtgY0kX6ZIMIZMdNfB
+g0pzaa0ybUxr1Q+jXckVW+rkkrOuBkO5XSnVhHtr3ywF4+29Hb9zcevMucWwbuJ6d2+Kt1sZ
+mb1I/t5FDtqcnrTLyi60/p2/5j/YPTBv9aZYZbcxLnHeEccOaEpiwcEaUjyh6ADjD5J/l6QZ
+DAeShEiyvEC+hzKxIfa+/ADfRn0kpOljeY+wX+2Jy+DTC+C2nhCDqXoFTNeZ9zH5x98yi74a
+DYz6robw9C/Ag5f6FQh8dB6MV9jVJcerfROhuYgPYf4CCr5LODNghujO4xM2kV4ALtXG255A
+rG2sL0CjLpS6X0dXxa3OmgXNRwvVSNBo1W25hY40UKKP2wADoOfCKzbL5okboAh2YDgrGXSf
+4+X5CBjPwbOEQ0eXAGo/c7wqRcM0i6b/ErXplmZbQN9gMImrrrtLzpTT5c1dMBMffV/MgpUx
+ilk9X/jNlzFsYT3BgTr38nR8fPOOCoIfXh5/niPu3B6z7nA8gUADdWP+++3w8vDjEPgN+9Fd
+6JjRGC3ggydvJZ4VeJ+QBhdlzX998kAvF8D92NNzxubJbrOpl7I1ZT0deqoZMyHVnt6D/Io5
+YZG55fUlnsr9W7zE1cpI8BfXUEv3jfyJrH1dFSfy2jJpNTWeVwerOmq9FKGLsjpNfJzYlGm4
+nNfbwPYxNo0BW6WDR3gttdtLILO2LXixMg0+j+ieAiV4b3VfQdVrxoNThNQbMy2V3WPyx8U7
+dJJ30tdyLGdVPhFU0vOFjh3o1TLvvJ5RQ/hukolI7YekqhZk3LMHr8o1+AeYGojgCGVebnnu
+A8JKWG3HW3fNxjAL6EL3UhnCX7HoVGS6egY3c8DsGsK6bb2qKyPvk3qUF5ROk1mfRxJPyuPN
+9ZRPB5eyUHvflQXyEC6UIEODtpWw/JPgHL00+K6ONb9EtE1i81+Bud3WRbDFRmmuEp0SEd/3
+0fgX4vYiQE98MupM4vkaVHlyqgjeyDMxxmpZCRozTWOeC+Dg5fChmLyKtdNiiEbuCCYRLmp0
+UrEmXkW5htaIXSwyjr8rSl3tMt8FaeiNoFrldMLiqjv4rNq+miBBayd+Rhl/2waBk2eZGg75
+nfkH4YBpkxHE+IJ8rLNweM5j6sHzKge6xBBgo6WXhp7rj5ZvcxSnl290DEinjK3SosBW5niX
+SNAOqbyYGBsbAhpdFeL3rPkjZoCW8T02B3cuv5jgUG1q0m3ZCN6QXB9EiK0cwYYAqcYKeGDN
+fpgZNYGQMYiEj5JOAQhOcPvLY2nUW0xNca2P4OaFtmhmRH+vHUAWcUd1JrKpXo8nlhrgjAkP
+HtSEE/wvfSxBzNXnAQA=
+
+--------------OWPnCHPbaVKxZebYjigKDrVW
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--------------OWPnCHPbaVKxZebYjigKDrVW--
+
