@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39C59C46CD2
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jan 2024 06:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 058A1C47073
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jan 2024 06:50:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aTEedZCIH5AhqjENAWwdr7LYbiSZbpj7Ik89/Ka2oCA=; b=g3i++/6zboEEYN
-	icFXPz/nAor6xA4YVO0vvVfUj8qwXcvSaWLDexLncYl8lpR/XIq86i732sh8hwVy4pnyS55H0vZx2
-	vZzSRJXOEIOJYCcGX/ThJ7FIP0lDHGlaBglR3mipPdWK8wtLbmclivDY78cwQ8VmfQOpUOFKXPYCp
-	4N2QJRur4rJ0mc3UCym7isK8X1KtsYYUkl1+p7ZAqdwHCCp82tVB9yJf+mP7PYVdwvCrsgSjNYAth
-	Mt/WZ0GFDb2w1vhrAlPGLyO4lVKH3g5+8N4hTJtkjpICea0mTZxmehrp+KH8nrbr/8mfSSuiqdntY
-	wGXX+YcUD97npIULF+wg==;
+	List-Owner; bh=egI+380de6eqk/UhcxgP+V0H5QmVK0ysEGZbgqxJ4RA=; b=Yaf00BtBXNUhPM
+	p5UTfq6tKsYhP5vEB8iyktW5lHfMnnR9qPQjKgcpheaiXRzGiVQ9Ej9dXLzE0pwS8xVT98FBtkSRG
+	tRPhQ2KUJ0SODjW9M+vSYWheDEz011h6Q0wQ2qf9EGGAmD8IXaojr2jMh5367qURl9gqc2/fy7pcz
+	hJA4ZAyDgXSgjdIaC3+c2zmUuxTxnrEQHzia/1hsQ6bJt90QXYqW+rTV5qsRCUZi+8tmxu/TGFSlX
+	k2r8b1HaJ059IYIUXA+gQ9lG/H7s+DgyM/v3wkq9bSB9In+I6mzi0DlEJmrolRKOYjnKg+vsH1WoP
+	w+1oE+3Pya2aXcgvOYkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKYbj-007CMW-28;
-	Tue, 02 Jan 2024 06:50:35 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1rKYbm-007CNr-12;
+	Tue, 02 Jan 2024 06:50:38 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKYbe-007CJM-2U
+	id 1rKYbg-007CLT-2d
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Jan 2024 06:50:33 +0000
+	Tue, 02 Jan 2024 06:50:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 55635B80C03;
-	Tue,  2 Jan 2024 06:50:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67E95C433CA;
-	Tue,  2 Jan 2024 06:50:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0049C60FB3;
+	Tue,  2 Jan 2024 06:50:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0801CC433CB;
+	Tue,  2 Jan 2024 06:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1704178228;
-	bh=X7OG37lToaBZiUGTXBzftTxzjeutlpdLOxmdbsOOHvw=;
+	s=k20201202; t=1704178231;
+	bh=ZGtxgJUGwp5+BYvs6i7REFrmemh/CvgwkqXJpJBfeuo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pUB2cCR64ITW8HUmuUBto7jF5ROLBzoEsGsEJMKMDpkPTrLUHBmiGyr9fEAaWsx74
-	 Zua97nqZpeCNVgGhfuCmrmxE9yp1Ztu72/JwKhmsd6/OWO2Wp91XeCWzULVomiRHJN
-	 tu/VNPSeXcNgvg0VRDfURhRzExxxaiVDYtEzTsUFzc4E8RKAwIHpFEjTtTVaCeT6yl
-	 GcmMDCclrM4jAFmT50Nt5RUc9XPLLlpaHRtpQpDkKy58ZvWl1QNNqs60Ccy9Cae+1X
-	 sU1a/NQBJR4uBvQRpGIMb2fv3BALUhr7MykvbChT9srXbfl5Ek4+wRets5Aaaaqssh
-	 ja6RhtnldPKyg==
+	b=M0gCyuAoB1ydjOWOtkLEJ/P8F9hrImk1EKFtFsQVVAQSYkzaDyJmfLj1ToQsWq64i
+	 UNvuLzPd60yCKxNY1yVMkjwWri7rAPZQI6KzL0Z2Sr536Kxe6cSwYVPxWGrlSfz3+/
+	 WiJe5S7u6mTsyGyfOyYS4IpwTVyMxkTCAR5yag+qkr/3SOPtob84VMZHltENj2VtLM
+	 MxjjgL5B2BVUIF64oVQC01bILojxhRdHJqjNshtxnRoYT3i21y7ebBCGEcNikRcl/e
+	 MnrsEyWTO6N3DRuLL58mUgYZSuibwogd7WX2xEMZJaaoTHkywl6uqAvk98MVlR4kdD
+	 wFZ1GIF58ouAQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
@@ -54,19 +54,17 @@ Cc: linux-kernel@vger.kernel.org,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	=?UTF-8?q?Christoph=20M=C3=BCllner?= <christoph.muellner@vrull.eu>,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: [RFC PATCH 06/13] crypto: riscv - add vector crypto accelerated AES
-Date: Tue,  2 Jan 2024 00:47:32 -0600
-Message-ID: <20240102064743.220490-7-ebiggers@kernel.org>
+	Andy Chiu <andy.chiu@sifive.com>
+Subject: [RFC PATCH 07/13] crypto: riscv - add vector crypto accelerated AES-{ECB,CBC,CTR,XTS}
+Date: Tue,  2 Jan 2024 00:47:33 -0600
+Message-ID: <20240102064743.220490-8-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240102064743.220490-1-ebiggers@kernel.org>
 References: <20240102064743.220490-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240101_225031_083808_D6D4EDA6 
-X-CRM114-Status: GOOD (  31.06  )
+X-CRM114-CacheID: sfid-20240101_225032_946089_223023B4 
+X-CRM114-Status: GOOD (  25.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,289 +76,1106 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogSmVycnkgU2hpaCA8amVycnkuc2hpaEBzaWZpdmUuY29tPgoKQWRkIGFuIGltcGxlbWVu
-dGF0aW9uIG9mIEFFUyB1c2luZyB0aGUgWnZrbmVkIGV4dGVuc2lvbi4gIFRoZSBhc3NlbWJseQpj
-b2RlIGlzIGRlcml2ZWQgZnJvbSBPcGVuU1NMIGNvZGUgKG9wZW5zc2wvb3BlbnNzbCMyMTkyMykg
-dGhhdCB3YXMKZHVhbC1saWNlbnNlZCBzbyB0aGF0IGl0IGNvdWxkIGJlIHJldXNlZCBpbiB0aGUg
-a2VybmVsLiAgTmV2ZXJ0aGVsZXNzLAp0aGUgYXNzZW1ibHkgaGFzIGJlZW4gc2lnbmlmaWNhbnRs
-eSByZXdvcmtlZCBmb3IgaW50ZWdyYXRpb24gd2l0aCB0aGUKa2VybmVsLCBmb3IgZXhhbXBsZSBi
-eSB1c2luZyBhIHJlZ3VsYXIgLlMgZmlsZSBpbnN0ZWFkIG9mIHRoZSBzby1jYWxsZWQKcGVybGFz
-bSwgdXNpbmcgdGhlIGFzc2VtYmxlciBpbnN0ZWFkIG9mIGJhcmUgJy5pbnN0JywgZ3JlYXRseSBy
-ZWR1Y2luZwpjb2RlIGR1cGxpY2F0aW9uLCBzdXBwb3J0aW5nIEFFUy0xOTIsIGFuZCBtYWtpbmcg
-dGhlIGNvZGUgdXNlIHRoZSBzYW1lCkFFUyBrZXkgc3RydWN0dXJlIGFzIHRoZSBDIGNvZGUuCgpD
-by1kZXZlbG9wZWQtYnk6IENocmlzdG9waCBNw7xsbG5lciA8Y2hyaXN0b3BoLm11ZWxsbmVyQHZy
-dWxsLmV1PgpTaWduZWQtb2ZmLWJ5OiBDaHJpc3RvcGggTcO8bGxuZXIgPGNocmlzdG9waC5tdWVs
-bG5lckB2cnVsbC5ldT4KQ28tZGV2ZWxvcGVkLWJ5OiBIZWlrbyBTdHVlYm5lciA8aGVpa28uc3R1
-ZWJuZXJAdnJ1bGwuZXU+ClNpZ25lZC1vZmYtYnk6IEhlaWtvIFN0dWVibmVyIDxoZWlrby5zdHVl
-Ym5lckB2cnVsbC5ldT4KQ28tZGV2ZWxvcGVkLWJ5OiBQaG9lYmUgQ2hlbiA8cGhvZWJlLmNoZW5A
-c2lmaXZlLmNvbT4KU2lnbmVkLW9mZi1ieTogUGhvZWJlIENoZW4gPHBob2ViZS5jaGVuQHNpZml2
-ZS5jb20+ClNpZ25lZC1vZmYtYnk6IEplcnJ5IFNoaWggPGplcnJ5LnNoaWhAc2lmaXZlLmNvbT4K
-Q28tZGV2ZWxvcGVkLWJ5OiBFcmljIEJpZ2dlcnMgPGViaWdnZXJzQGdvb2dsZS5jb20+ClNpZ25l
-ZC1vZmYtYnk6IEVyaWMgQmlnZ2VycyA8ZWJpZ2dlcnNAZ29vZ2xlLmNvbT4KLS0tCiBhcmNoL3Jp
-c2N2L2NyeXB0by9LY29uZmlnICAgICAgICAgICAgICB8ICAxMSArKwogYXJjaC9yaXNjdi9jcnlw
-dG8vTWFrZWZpbGUgICAgICAgICAgICAgfCAgIDMgKwogYXJjaC9yaXNjdi9jcnlwdG8vYWVzLW1h
-Y3Jvcy5TICAgICAgICAgfCAxNTYgKysrKysrKysrKysrKysrKysrKysrKysrKwogYXJjaC9yaXNj
-di9jcnlwdG8vYWVzLXJpc2N2NjQtZ2x1ZS5jICAgfCAxMjMgKysrKysrKysrKysrKysrKysrKwog
-YXJjaC9yaXNjdi9jcnlwdG8vYWVzLXJpc2N2NjQtZ2x1ZS5oICAgfCAgMTUgKysrCiBhcmNoL3Jp
-c2N2L2NyeXB0by9hZXMtcmlzY3Y2NC16dmtuZWQuUyB8ICA4NCArKysrKysrKysrKysrCiA2IGZp
-bGVzIGNoYW5nZWQsIDM5MiBpbnNlcnRpb25zKCspCiBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9y
-aXNjdi9jcnlwdG8vYWVzLW1hY3Jvcy5TCiBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9j
-cnlwdG8vYWVzLXJpc2N2NjQtZ2x1ZS5jCiBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9j
-cnlwdG8vYWVzLXJpc2N2NjQtZ2x1ZS5oCiBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9j
-cnlwdG8vYWVzLXJpc2N2NjQtenZrbmVkLlMKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2NyeXB0
-by9LY29uZmlnIGIvYXJjaC9yaXNjdi9jcnlwdG8vS2NvbmZpZwppbmRleCAxMGQ2MGVkYzAxMTBh
-Li4yYTdjMzY1ZjJhODZjIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2NyeXB0by9LY29uZmlnCisr
-KyBiL2FyY2gvcmlzY3YvY3J5cHRvL0tjb25maWcKQEAgLTEsNSArMSwxNiBAQAogIyBTUERYLUxp
-Y2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMAogCiBtZW51ICJBY2NlbGVyYXRlZCBDcnlwdG9ncmFw
-aGljIEFsZ29yaXRobXMgZm9yIENQVSAocmlzY3YpIgogCitjb25maWcgQ1JZUFRPX0FFU19SSVND
-VjY0CisJdHJpc3RhdGUgIkNpcGhlcnM6IEFFUyIKKwlkZXBlbmRzIG9uIDY0QklUICYmIFJJU0NW
-X0lTQV9WICYmIFRPT0xDSEFJTl9IQVNfVkVDVE9SX0NSWVBUTworCXNlbGVjdCBDUllQVE9fQUxH
-QVBJCisJc2VsZWN0IENSWVBUT19MSUJfQUVTCisJaGVscAorCSAgQmxvY2sgY2lwaGVyczogQUVT
-IGNpcGhlciBhbGdvcml0aG1zIChGSVBTLTE5NykKKworCSAgQXJjaGl0ZWN0dXJlOiByaXNjdjY0
-IHVzaW5nOgorCSAgLSBadmtuZWQgdmVjdG9yIGNyeXB0byBleHRlbnNpb24KKwogZW5kbWVudQpk
-aWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9jcnlwdG8vTWFrZWZpbGUgYi9hcmNoL3Jpc2N2L2NyeXB0
-by9NYWtlZmlsZQppbmRleCBiM2I2MzMyYzlmNmQwLi5kY2E2OThjNWNiYTNlIDEwMDY0NAotLS0g
-YS9hcmNoL3Jpc2N2L2NyeXB0by9NYWtlZmlsZQorKysgYi9hcmNoL3Jpc2N2L2NyeXB0by9NYWtl
-ZmlsZQpAQCAtMSw0ICsxLDcgQEAKICMgU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAt
-b25seQogIwogIyBsaW51eC9hcmNoL3Jpc2N2L2NyeXB0by9NYWtlZmlsZQogIworCitvYmotJChD
-T05GSUdfQ1JZUFRPX0FFU19SSVNDVjY0KSArPSBhZXMtcmlzY3Y2NC5vCithZXMtcmlzY3Y2NC15
-IDo9IGFlcy1yaXNjdjY0LWdsdWUubyBhZXMtcmlzY3Y2NC16dmtuZWQubwpkaWZmIC0tZ2l0IGEv
-YXJjaC9yaXNjdi9jcnlwdG8vYWVzLW1hY3Jvcy5TIGIvYXJjaC9yaXNjdi9jcnlwdG8vYWVzLW1h
-Y3Jvcy5TCm5ldyBmaWxlIG1vZGUgMTAwNjQ0CmluZGV4IDAwMDAwMDAwMDAwMDAuLjJhZGEwYzcw
-ZjRhNmEKLS0tIC9kZXYvbnVsbAorKysgYi9hcmNoL3Jpc2N2L2NyeXB0by9hZXMtbWFjcm9zLlMK
-QEAgLTAsMCArMSwxNTYgQEAKKy8qIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBBcGFjaGUtMi4w
-IE9SIEJTRC0yLUNsYXVzZSAqLworLy8KKy8vIFRoaXMgZmlsZSBpcyBkdWFsLWxpY2Vuc2VkLCBt
-ZWFuaW5nIHRoYXQgeW91IGNhbiB1c2UgaXQgdW5kZXIgeW91cgorLy8gY2hvaWNlIG9mIGVpdGhl
-ciBvZiB0aGUgZm9sbG93aW5nIHR3byBsaWNlbnNlczoKKy8vCisvLyBDb3B5cmlnaHQgMjAyMyBU
-aGUgT3BlblNTTCBQcm9qZWN0IEF1dGhvcnMuIEFsbCBSaWdodHMgUmVzZXJ2ZWQuCisvLworLy8g
-TGljZW5zZWQgdW5kZXIgdGhlIEFwYWNoZSBMaWNlbnNlIDIuMCAodGhlICJMaWNlbnNlIikuIFlv
-dSBjYW4gb2J0YWluCisvLyBhIGNvcHkgaW4gdGhlIGZpbGUgTElDRU5TRSBpbiB0aGUgc291cmNl
-IGRpc3RyaWJ1dGlvbiBvciBhdAorLy8gaHR0cHM6Ly93d3cub3BlbnNzbC5vcmcvc291cmNlL2xp
-Y2Vuc2UuaHRtbAorLy8KKy8vIG9yCisvLworLy8gQ29weXJpZ2h0IChjKSAyMDIzLCBDaHJpc3Rv
-cGggTcO8bGxuZXIgPGNocmlzdG9waC5tdWVsbG5lckB2cnVsbC5ldT4KKy8vIENvcHlyaWdodCAo
-YykgMjAyMywgUGhvZWJlIENoZW4gPHBob2ViZS5jaGVuQHNpZml2ZS5jb20+CisvLyBDb3B5cmln
-aHQgKGMpIDIwMjMsIEplcnJ5IFNoaWggPGplcnJ5LnNoaWhAc2lmaXZlLmNvbT4KKy8vIENvcHly
-aWdodCAyMDI0IEdvb2dsZSBMTEMKKy8vIEFsbCByaWdodHMgcmVzZXJ2ZWQuCisvLworLy8gUmVk
-aXN0cmlidXRpb24gYW5kIHVzZSBpbiBzb3VyY2UgYW5kIGJpbmFyeSBmb3Jtcywgd2l0aCBvciB3
-aXRob3V0CisvLyBtb2RpZmljYXRpb24sIGFyZSBwZXJtaXR0ZWQgcHJvdmlkZWQgdGhhdCB0aGUg
-Zm9sbG93aW5nIGNvbmRpdGlvbnMKKy8vIGFyZSBtZXQ6CisvLyAxLiBSZWRpc3RyaWJ1dGlvbnMg
-b2Ygc291cmNlIGNvZGUgbXVzdCByZXRhaW4gdGhlIGFib3ZlIGNvcHlyaWdodAorLy8gICAgbm90
-aWNlLCB0aGlzIGxpc3Qgb2YgY29uZGl0aW9ucyBhbmQgdGhlIGZvbGxvd2luZyBkaXNjbGFpbWVy
-LgorLy8gMi4gUmVkaXN0cmlidXRpb25zIGluIGJpbmFyeSBmb3JtIG11c3QgcmVwcm9kdWNlIHRo
-ZSBhYm92ZSBjb3B5cmlnaHQKKy8vICAgIG5vdGljZSwgdGhpcyBsaXN0IG9mIGNvbmRpdGlvbnMg
-YW5kIHRoZSBmb2xsb3dpbmcgZGlzY2xhaW1lciBpbiB0aGUKKy8vICAgIGRvY3VtZW50YXRpb24g
-YW5kL29yIG90aGVyIG1hdGVyaWFscyBwcm92aWRlZCB3aXRoIHRoZSBkaXN0cmlidXRpb24uCisv
-LworLy8gVEhJUyBTT0ZUV0FSRSBJUyBQUk9WSURFRCBCWSBUSEUgQ09QWVJJR0hUIEhPTERFUlMg
-QU5EIENPTlRSSUJVVE9SUworLy8gIkFTIElTIiBBTkQgQU5ZIEVYUFJFU1MgT1IgSU1QTElFRCBX
-QVJSQU5USUVTLCBJTkNMVURJTkcsIEJVVCBOT1QKKy8vIExJTUlURUQgVE8sIFRIRSBJTVBMSUVE
-IFdBUlJBTlRJRVMgT0YgTUVSQ0hBTlRBQklMSVRZIEFORCBGSVRORVNTIEZPUgorLy8gQSBQQVJU
-SUNVTEFSIFBVUlBPU0UgQVJFIERJU0NMQUlNRUQuIElOUCBOTyBFVkVOVCBTSEFMTCBUSEUgQ09Q
-WVJJR0hUCisvLyBPV05FUiBPUiBDT05UUklCVVRPUlMgQkUgTElBQkxFIEZPUiBBTlkgRElSRUNU
-LCBJTkRJUkVDVCwgSU5DSURFTlRBTCwKKy8vIFNQRUNJQUwsIEVYRU1QTEFSWSwgT1IgQ09OU0VR
-VUVOVElBTCBEQU1BR0VTIChJTkNMVURJTkcsIEJVVCBOT1QKKy8vIExJTUlURUQgVE8sIFBST0NV
-UkVNRU5UIE9GIFNVQlNUSVRVVEUgR09PRFMgT1IgU0VSVklDRVM7IExPU1MgT0YgVVNFLAorLy8g
-REFUQSwgT1IgUFJPRklUUzsgT1IgQlVTSU5FU1MgSU5URVJSVVBUSU9OKSBIT1dFVkVSIENBVVNF
-RCBBTkQgT04gQU5ZCisvLyBUSEVPUlkgT0YgTElBQklMSVRZLCBXSEVUSEVSIElOUCBDT05UUkFD
-VCwgU1RSSUNUIExJQUJJTElUWSwgT1IgVE9SVAorLy8gKElOQ0xVRElORyBORUdMSUdFTkNFIE9S
-IE9USEVSV0lTRSkgQVJJU0lORyBJTlAgQU5ZIFdBWSBPVVRQIE9GIFRIRSBVU0UKKy8vIE9GIFRI
-SVMgU09GVFdBUkUsIEVWRU4gSUYgQURWSVNFRCBPRiBUSEUgUE9TU0lCSUxJVFkgT0YgU1VDSCBE
-QU1BR0UuCisKKy8vIFRoaXMgZmlsZSBjb250YWlucyBtYWNyb3MgdGhhdCBhcmUgc2hhcmVkIGJ5
-IHRoZSBvdGhlciBhZXMtKi5TIGZpbGVzLiAgVGhlCisvLyBnZW5lcmF0ZWQgY29kZSBvZiB0aGVz
-ZSBtYWNyb3MgZGVwZW5kcyBvbiB0aGUgZm9sbG93aW5nIFJJU0MtViBleHRlbnNpb25zOgorLy8g
-LSBSVjY0SQorLy8gLSBSSVNDLVYgVmVjdG9yICgnVicpIHdpdGggVkxFTiA+PSAxMjgKKy8vIC0g
-UklTQy1WIFZlY3RvciBBRVMgYmxvY2sgY2lwaGVyIGV4dGVuc2lvbiAoJ1p2a25lZCcpCisKKy8v
-IExvYWRzIHRoZSBBRVMgcm91bmQga2V5cyBmcm9tIFxrZXlwIGludG8gdmVjdG9yIHJlZ2lzdGVy
-cyBhbmQganVtcHMgdG8gY29kZQorLy8gc3BlY2lmaWMgdG8gdGhlIGxlbmd0aCBvZiB0aGUga2V5
-LiAgU3BlY2lmaWNhbGx5OgorLy8gICAtIElmIEFFUy0xMjgsIGxvYWRzIHJvdW5kIGtleXMgaW50
-byB2MS12MTEgYW5kIGp1bXBzIHRvIFxsYWJlbDEyOC4KKy8vICAgLSBJZiBBRVMtMTkyLCBsb2Fk
-cyByb3VuZCBrZXlzIGludG8gdjEtdjEzIGFuZCBqdW1wcyB0byBcbGFiZWwxOTIuCisvLyAgIC0g
-SWYgQUVTLTI1NiwgbG9hZHMgcm91bmQga2V5cyBpbnRvIHYxLXYxNSBhbmQgY29udGludWVzIG9u
-d2FyZHMuCisvLworLy8gQWxzbyBzZXRzIHZsPTQgYW5kIHZ0eXBlPWUzMixtMSx0YSxtYS4gIENs
-b2JiZXJzIHQwIGFuZCB0MS4KKy5tYWNybwlhZXNfYmVnaW4Ja2V5cCwgbGFiZWwxMjgsIGxhYmVs
-MTkyCisJbHd1CQl0MCwgNDgwKFxrZXlwKQkvLyB0MCA9IGtleSBsZW5ndGggaW4gYnl0ZXMKKwls
-aQkJdDEsIDI0CQkvLyB0MSA9IGtleSBsZW5ndGggZm9yIEFFUy0xOTIKKwl2c2V0aXZsaQl6ZXJv
-LCA0LCBlMzIsIG0xLCB0YSwgbWEKKwl2bGUzMi52CQl2MSwgKFxrZXlwKQorCWFkZGkJCVxrZXlw
-LCBca2V5cCwgMTYKKwl2bGUzMi52CQl2MiwgKFxrZXlwKQorCWFkZGkJCVxrZXlwLCBca2V5cCwg
-MTYKKwl2bGUzMi52CQl2MywgKFxrZXlwKQorCWFkZGkJCVxrZXlwLCBca2V5cCwgMTYKKwl2bGUz
-Mi52CQl2NCwgKFxrZXlwKQorCWFkZGkJCVxrZXlwLCBca2V5cCwgMTYKKwl2bGUzMi52CQl2NSwg
-KFxrZXlwKQorCWFkZGkJCVxrZXlwLCBca2V5cCwgMTYKKwl2bGUzMi52CQl2NiwgKFxrZXlwKQor
-CWFkZGkJCVxrZXlwLCBca2V5cCwgMTYKKwl2bGUzMi52CQl2NywgKFxrZXlwKQorCWFkZGkJCVxr
-ZXlwLCBca2V5cCwgMTYKKwl2bGUzMi52CQl2OCwgKFxrZXlwKQorCWFkZGkJCVxrZXlwLCBca2V5
-cCwgMTYKKwl2bGUzMi52CQl2OSwgKFxrZXlwKQorCWFkZGkJCVxrZXlwLCBca2V5cCwgMTYKKwl2
-bGUzMi52CQl2MTAsIChca2V5cCkKKwlhZGRpCQlca2V5cCwgXGtleXAsIDE2CisJdmxlMzIudgkJ
-djExLCAoXGtleXApCisJYmx0CQl0MCwgdDEsIFxsYWJlbDEyOAkvLyBJZiBBRVMtMTI4LCBnb3Rv
-IGxhYmVsMTI4LgorCWFkZGkJCVxrZXlwLCBca2V5cCwgMTYKKwl2bGUzMi52CQl2MTIsIChca2V5
-cCkKKwlhZGRpCQlca2V5cCwgXGtleXAsIDE2CisJdmxlMzIudgkJdjEzLCAoXGtleXApCisJYmVx
-CQl0MCwgdDEsIFxsYWJlbDE5MgkvLyBJZiBBRVMtMTkyLCBnb3RvIGxhYmVsMTkyLgorCS8vIEVs
-c2UsIGl0J3MgQUVTLTI1Ni4KKwlhZGRpCQlca2V5cCwgXGtleXAsIDE2CisJdmxlMzIudgkJdjE0
-LCAoXGtleXApCisJYWRkaQkJXGtleXAsIFxrZXlwLCAxNgorCXZsZTMyLnYJCXYxNSwgKFxrZXlw
-KQorLmVuZG0KKworLy8gRW5jcnlwdHMgXGRhdGEgdXNpbmcgenZrbmVkIGluc3RydWN0aW9ucywg
-dXNpbmcgdGhlIHJvdW5kIGtleXMgbG9hZGVkIGludG8KKy8vIHYxLXYxMSAoZm9yIEFFUy0xMjgp
-LCB2MS12MTMgKGZvciBBRVMtMTkyKSwgb3IgdjEtdjE1IChmb3IgQUVTLTI1NikuICBca2V5bGVu
-CisvLyBpcyB0aGUgQUVTIGtleSBsZW5ndGggaW4gYml0cy4gIHZsIGFuZCB2dHlwZSBtdXN0IGFs
-cmVhZHkgYmUgc2V0CisvLyBhcHByb3ByaWF0ZWx5LiAgTm90ZSB0aGF0IGlmIHZsID4gNCwgbXVs
-dGlwbGUgYmxvY2tzIGFyZSBlbmNyeXB0ZWQuCisubWFjcm8JYWVzX2VuY3J5cHQJZGF0YSwga2V5
-bGVuCisJdmFlc3oudnMJXGRhdGEsIHYxCisJdmFlc2VtLnZzCVxkYXRhLCB2MgorCXZhZXNlbS52
-cwlcZGF0YSwgdjMKKwl2YWVzZW0udnMJXGRhdGEsIHY0CisJdmFlc2VtLnZzCVxkYXRhLCB2NQor
-CXZhZXNlbS52cwlcZGF0YSwgdjYKKwl2YWVzZW0udnMJXGRhdGEsIHY3CisJdmFlc2VtLnZzCVxk
-YXRhLCB2OAorCXZhZXNlbS52cwlcZGF0YSwgdjkKKwl2YWVzZW0udnMJXGRhdGEsIHYxMAorLmlm
-IFxrZXlsZW4gPT0gMTI4CisJdmFlc2VmLnZzCVxkYXRhLCB2MTEKKy5lbHNlaWYgXGtleWxlbiA9
-PSAxOTIKKwl2YWVzZW0udnMJXGRhdGEsIHYxMQorCXZhZXNlbS52cwlcZGF0YSwgdjEyCisJdmFl
-c2VmLnZzCVxkYXRhLCB2MTMKKy5lbHNlCisJdmFlc2VtLnZzCVxkYXRhLCB2MTEKKwl2YWVzZW0u
-dnMJXGRhdGEsIHYxMgorCXZhZXNlbS52cwlcZGF0YSwgdjEzCisJdmFlc2VtLnZzCVxkYXRhLCB2
-MTQKKwl2YWVzZWYudnMJXGRhdGEsIHYxNQorLmVuZGlmCisuZW5kbQorCisvLyBTYW1lIGFzIGFl
-c19lbmNyeXB0LCBidXQgZGVjcnlwdHMgaW5zdGVhZCBvZiBlbmNyeXB0cy4KKy5tYWNybwlhZXNf
-ZGVjcnlwdAlkYXRhLCBrZXlsZW4KKy5pZiBca2V5bGVuID09IDEyOAorCXZhZXN6LnZzCVxkYXRh
-LCB2MTEKKy5lbHNlaWYgXGtleWxlbiA9PSAxOTIKKwl2YWVzei52cwlcZGF0YSwgdjEzCisJdmFl
-c2RtLnZzCVxkYXRhLCB2MTIKKwl2YWVzZG0udnMJXGRhdGEsIHYxMQorLmVsc2UKKwl2YWVzei52
-cwlcZGF0YSwgdjE1CisJdmFlc2RtLnZzCVxkYXRhLCB2MTQKKwl2YWVzZG0udnMJXGRhdGEsIHYx
-MworCXZhZXNkbS52cwlcZGF0YSwgdjEyCisJdmFlc2RtLnZzCVxkYXRhLCB2MTEKKy5lbmRpZgor
-CXZhZXNkbS52cwlcZGF0YSwgdjEwCisJdmFlc2RtLnZzCVxkYXRhLCB2OQorCXZhZXNkbS52cwlc
-ZGF0YSwgdjgKKwl2YWVzZG0udnMJXGRhdGEsIHY3CisJdmFlc2RtLnZzCVxkYXRhLCB2NgorCXZh
-ZXNkbS52cwlcZGF0YSwgdjUKKwl2YWVzZG0udnMJXGRhdGEsIHY0CisJdmFlc2RtLnZzCVxkYXRh
-LCB2MworCXZhZXNkbS52cwlcZGF0YSwgdjIKKwl2YWVzZGYudnMJXGRhdGEsIHYxCisuZW5kbQor
-CisvLyBFeHBhbmRzIHRvIGFlc19lbmNyeXB0IG9yIGFlc19kZWNyeXB0IGFjY29yZGluZyB0byBc
-ZW5jLCB3aGljaCBpcyAxIG9yIDAuCisubWFjcm8JYWVzX2NyeXB0CWRhdGEsIGVuYywga2V5bGVu
-CisuaWYgXGVuYworCWFlc19lbmNyeXB0CVxkYXRhLCBca2V5bGVuCisuZWxzZQorCWFlc19kZWNy
-eXB0CVxkYXRhLCBca2V5bGVuCisuZW5kaWYKKy5lbmRtCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
-L2NyeXB0by9hZXMtcmlzY3Y2NC1nbHVlLmMgYi9hcmNoL3Jpc2N2L2NyeXB0by9hZXMtcmlzY3Y2
-NC1nbHVlLmMKbmV3IGZpbGUgbW9kZSAxMDA2NDQKaW5kZXggMDAwMDAwMDAwMDAwMC4uZjljN2Ix
-YTYzOGYyZAotLS0gL2Rldi9udWxsCisrKyBiL2FyY2gvcmlzY3YvY3J5cHRvL2Flcy1yaXNjdjY0
-LWdsdWUuYwpAQCAtMCwwICsxLDEyMyBAQAorLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQ
-TC0yLjAtb25seQorLyoKKyAqIEFFUyB1c2luZyB0aGUgUklTQy1WIHZlY3RvciBjcnlwdG8gZXh0
-ZW5zaW9ucworICoKKyAqIENvcHlyaWdodCAoQykgMjAyMyBWUlVMTCBHbWJICisgKiBBdXRob3I6
-IEhlaWtvIFN0dWVibmVyIDxoZWlrby5zdHVlYm5lckB2cnVsbC5ldT4KKyAqCisgKiBDb3B5cmln
-aHQgKEMpIDIwMjMgU2lGaXZlLCBJbmMuCisgKiBBdXRob3I6IEplcnJ5IFNoaWggPGplcnJ5LnNo
-aWhAc2lmaXZlLmNvbT4KKyAqLworCisjaW5jbHVkZSA8YXNtL3NpbWQuaD4KKyNpbmNsdWRlIDxh
-c20vdmVjdG9yLmg+CisjaW5jbHVkZSA8Y3J5cHRvL2Flcy5oPgorI2luY2x1ZGUgPGNyeXB0by9p
-bnRlcm5hbC9jaXBoZXIuaD4KKyNpbmNsdWRlIDxjcnlwdG8vaW50ZXJuYWwvc2ltZC5oPgorI2lu
-Y2x1ZGUgPGxpbnV4L2xpbmthZ2UuaD4KKyNpbmNsdWRlIDxsaW51eC9tb2R1bGUuaD4KKworI2lu
-Y2x1ZGUgImFlcy1yaXNjdjY0LWdsdWUuaCIKKworYXNtbGlua2FnZSB2b2lkIGFlc19lbmNyeXB0
-X3p2a25lZChjb25zdCBzdHJ1Y3QgY3J5cHRvX2Flc19jdHggKmtleSwKKwkJCQkgICBjb25zdCB1
-OCBpbltBRVNfQkxPQ0tfU0laRV0sCisJCQkJICAgdTggb3V0W0FFU19CTE9DS19TSVpFXSk7Cith
-c21saW5rYWdlIHZvaWQgYWVzX2RlY3J5cHRfenZrbmVkKGNvbnN0IHN0cnVjdCBjcnlwdG9fYWVz
-X2N0eCAqa2V5LAorCQkJCSAgIGNvbnN0IHU4IGluW0FFU19CTE9DS19TSVpFXSwKKwkJCQkgICB1
-OCBvdXRbQUVTX0JMT0NLX1NJWkVdKTsKKworaW50IF9fcmlzY3Y2NF9hZXNfc2V0a2V5KHN0cnVj
-dCBjcnlwdG9fYWVzX2N0eCAqY3R4LCBjb25zdCB1OCAqa2V5LAorCQkJIHVuc2lnbmVkIGludCBr
-ZXlsZW4pCit7CisJLyoKKwkgKiBBbHdheXMgdXNlIHRoZSBnZW5lcmljIGtleSBleHBhbnNpb24g
-cm91dGluZSwgZm9yIHR3byByZWFzb25zOgorCSAqCisJICogLSB6dmtuZWQncyBrZXkgZXhwYW5z
-aW9uIGluc3RydWN0aW9ucyBkb24ndCBzdXBwb3J0IEFFUy0xOTIuCisJICoKKwkgKiAtIGN0eC0+
-a2V5X2RlYyBhbHdheXMgbmVlZHMgdG8gYmUgaW5pdGlhbGl6ZWQgd2l0aCB0aGUgcm91bmQga2V5
-cyBmb3IKKwkgKiAgIHRoZSBFcXVpdmFsZW50IEludmVyc2UgQ2lwaGVyLCBpbiBjYXNlIHRoZSBu
-by1TSU1EIGZhbGxiYWNrIGlzCisJICogICB0YWtlbiBkdXJpbmcgZGVjcnlwdGlvbi4gIEJ1dCB0
-aGUgenZrbmVkIGNvZGUgZG9lcyBub3QgdXNlIHRoaXMuCisJICovCisJcmV0dXJuIGFlc19leHBh
-bmRrZXkoY3R4LCBrZXksIGtleWxlbik7Cit9CitFWFBPUlRfU1lNQk9MX0dQTChfX3Jpc2N2NjRf
-YWVzX3NldGtleSk7CisKK3ZvaWQgX19yaXNjdjY0X2Flc19lbmNyeXB0KGNvbnN0IHN0cnVjdCBj
-cnlwdG9fYWVzX2N0eCAqY3R4LAorCQkJICAgdTggKmRzdCwgY29uc3QgdTggKnNyYykKK3sKKwlp
-ZiAoY3J5cHRvX3NpbWRfdXNhYmxlKCkpIHsKKwkJa2VybmVsX3ZlY3Rvcl9iZWdpbigpOworCQlh
-ZXNfZW5jcnlwdF96dmtuZWQoY3R4LCBzcmMsIGRzdCk7CisJCWtlcm5lbF92ZWN0b3JfZW5kKCk7
-CisJfSBlbHNlIHsKKwkJYWVzX2VuY3J5cHQoY3R4LCBkc3QsIHNyYyk7CisJfQorfQorRVhQT1JU
-X1NZTUJPTF9HUEwoX19yaXNjdjY0X2Flc19lbmNyeXB0KTsKKworc3RhdGljIGludCByaXNjdjY0
-X2Flc19zZXRrZXkoc3RydWN0IGNyeXB0b190Zm0gKnRmbSwKKwkJCSAgICAgIGNvbnN0IHU4ICpr
-ZXksIHVuc2lnbmVkIGludCBrZXlsZW4pCit7CisJc3RydWN0IGNyeXB0b19hZXNfY3R4ICpjdHgg
-PSBjcnlwdG9fdGZtX2N0eCh0Zm0pOworCisJcmV0dXJuIF9fcmlzY3Y2NF9hZXNfc2V0a2V5KGN0
-eCwga2V5LCBrZXlsZW4pOworfQorCitzdGF0aWMgdm9pZCByaXNjdjY0X2Flc19lbmNyeXB0KHN0
-cnVjdCBjcnlwdG9fdGZtICp0Zm0sIHU4ICpkc3QsIGNvbnN0IHU4ICpzcmMpCit7CisJY29uc3Qg
-c3RydWN0IGNyeXB0b19hZXNfY3R4ICpjdHggPSBjcnlwdG9fdGZtX2N0eCh0Zm0pOworCisJX19y
-aXNjdjY0X2Flc19lbmNyeXB0KGN0eCwgZHN0LCBzcmMpOworfQorCitzdGF0aWMgdm9pZCByaXNj
-djY0X2Flc19kZWNyeXB0KHN0cnVjdCBjcnlwdG9fdGZtICp0Zm0sIHU4ICpkc3QsIGNvbnN0IHU4
-ICpzcmMpCit7CisJY29uc3Qgc3RydWN0IGNyeXB0b19hZXNfY3R4ICpjdHggPSBjcnlwdG9fdGZt
-X2N0eCh0Zm0pOworCisJaWYgKGNyeXB0b19zaW1kX3VzYWJsZSgpKSB7CisJCWtlcm5lbF92ZWN0
-b3JfYmVnaW4oKTsKKwkJYWVzX2RlY3J5cHRfenZrbmVkKGN0eCwgc3JjLCBkc3QpOworCQlrZXJu
-ZWxfdmVjdG9yX2VuZCgpOworCX0gZWxzZSB7CisJCWFlc19kZWNyeXB0KGN0eCwgZHN0LCBzcmMp
-OworCX0KK30KKworc3RhdGljIHN0cnVjdCBjcnlwdG9fYWxnIHJpc2N2NjRfYWVzX2FsZyA9IHsK
-KwkuY3JhX2ZsYWdzID0gQ1JZUFRPX0FMR19UWVBFX0NJUEhFUiwKKwkuY3JhX2Jsb2Nrc2l6ZSA9
-IEFFU19CTE9DS19TSVpFLAorCS5jcmFfY3R4c2l6ZSA9IHNpemVvZihzdHJ1Y3QgY3J5cHRvX2Fl
-c19jdHgpLAorCS5jcmFfcHJpb3JpdHkgPSAzMDAsCisJLmNyYV9uYW1lID0gImFlcyIsCisJLmNy
-YV9kcml2ZXJfbmFtZSA9ICJhZXMtcmlzY3Y2NC16dmtuZWQiLAorCS5jcmFfY2lwaGVyID0gewor
-CQkuY2lhX21pbl9rZXlzaXplID0gQUVTX01JTl9LRVlfU0laRSwKKwkJLmNpYV9tYXhfa2V5c2l6
-ZSA9IEFFU19NQVhfS0VZX1NJWkUsCisJCS5jaWFfc2V0a2V5ID0gcmlzY3Y2NF9hZXNfc2V0a2V5
-LAorCQkuY2lhX2VuY3J5cHQgPSByaXNjdjY0X2Flc19lbmNyeXB0LAorCQkuY2lhX2RlY3J5cHQg
-PSByaXNjdjY0X2Flc19kZWNyeXB0LAorCX0sCisJLmNyYV9tb2R1bGUgPSBUSElTX01PRFVMRSwK
-K307CisKK3N0YXRpYyBpbnQgX19pbml0IHJpc2N2NjRfYWVzX21vZF9pbml0KHZvaWQpCit7CisJ
-aWYgKHJpc2N2X2lzYV9leHRlbnNpb25fYXZhaWxhYmxlKE5VTEwsIFpWS05FRCkgJiYKKwkgICAg
-cmlzY3ZfdmVjdG9yX3ZsZW4oKSA+PSAxMjgpCisJCXJldHVybiBjcnlwdG9fcmVnaXN0ZXJfYWxn
-KCZyaXNjdjY0X2Flc19hbGcpOworCisJcmV0dXJuIC1FTk9ERVY7Cit9CisKK3N0YXRpYyB2b2lk
-IF9fZXhpdCByaXNjdjY0X2Flc19tb2RfZmluaSh2b2lkKQoreworCWNyeXB0b191bnJlZ2lzdGVy
-X2FsZygmcmlzY3Y2NF9hZXNfYWxnKTsKK30KKworbW9kdWxlX2luaXQocmlzY3Y2NF9hZXNfbW9k
-X2luaXQpOworbW9kdWxlX2V4aXQocmlzY3Y2NF9hZXNfbW9kX2ZpbmkpOworCitNT0RVTEVfREVT
-Q1JJUFRJT04oIkFFUyAoUklTQy1WIGFjY2VsZXJhdGVkKSIpOworTU9EVUxFX0FVVEhPUigiSGVp
-a28gU3R1ZWJuZXIgPGhlaWtvLnN0dWVibmVyQHZydWxsLmV1PiIpOworTU9EVUxFX0xJQ0VOU0Uo
-IkdQTCIpOworTU9EVUxFX0FMSUFTX0NSWVBUTygiYWVzIik7CmRpZmYgLS1naXQgYS9hcmNoL3Jp
-c2N2L2NyeXB0by9hZXMtcmlzY3Y2NC1nbHVlLmggYi9hcmNoL3Jpc2N2L2NyeXB0by9hZXMtcmlz
-Y3Y2NC1nbHVlLmgKbmV3IGZpbGUgbW9kZSAxMDA2NDQKaW5kZXggMDAwMDAwMDAwMDAwMC4uMGQz
-ODYxMzM4MDc4NAotLS0gL2Rldi9udWxsCisrKyBiL2FyY2gvcmlzY3YvY3J5cHRvL2Flcy1yaXNj
-djY0LWdsdWUuaApAQCAtMCwwICsxLDE1IEBACisvKiBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjog
-R1BMLTIuMCAqLworCisjaWZuZGVmIEFFU19SSVNDVjY0X0dMVUVfSAorI2RlZmluZSBBRVNfUklT
-Q1Y2NF9HTFVFX0gKKworI2luY2x1ZGUgPGNyeXB0by9hZXMuaD4KKyNpbmNsdWRlIDxsaW51eC90
-eXBlcy5oPgorCitpbnQgX19yaXNjdjY0X2Flc19zZXRrZXkoc3RydWN0IGNyeXB0b19hZXNfY3R4
-ICpjdHgsCisJCQkgY29uc3QgdTggKmtleSwgdW5zaWduZWQgaW50IGtleWxlbik7CisKK3ZvaWQg
-X19yaXNjdjY0X2Flc19lbmNyeXB0KGNvbnN0IHN0cnVjdCBjcnlwdG9fYWVzX2N0eCAqY3R4LAor
-CQkJICAgdTggKmRzdCwgY29uc3QgdTggKnNyYyk7CisKKyNlbmRpZiAvKiBBRVNfUklTQ1Y2NF9H
-TFVFX0ggKi8KZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvY3J5cHRvL2Flcy1yaXNjdjY0LXp2a25l
-ZC5TIGIvYXJjaC9yaXNjdi9jcnlwdG8vYWVzLXJpc2N2NjQtenZrbmVkLlMKbmV3IGZpbGUgbW9k
-ZSAxMDA2NDQKaW5kZXggMDAwMDAwMDAwMDAwMC4uMzM0Njk3OGI4OWQ2YQotLS0gL2Rldi9udWxs
-CisrKyBiL2FyY2gvcmlzY3YvY3J5cHRvL2Flcy1yaXNjdjY0LXp2a25lZC5TCkBAIC0wLDAgKzEs
-ODQgQEAKKy8qIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBBcGFjaGUtMi4wIE9SIEJTRC0yLUNs
-YXVzZSAqLworLy8KKy8vIFRoaXMgZmlsZSBpcyBkdWFsLWxpY2Vuc2VkLCBtZWFuaW5nIHRoYXQg
-eW91IGNhbiB1c2UgaXQgdW5kZXIgeW91cgorLy8gY2hvaWNlIG9mIGVpdGhlciBvZiB0aGUgZm9s
-bG93aW5nIHR3byBsaWNlbnNlczoKKy8vCisvLyBDb3B5cmlnaHQgMjAyMyBUaGUgT3BlblNTTCBQ
-cm9qZWN0IEF1dGhvcnMuIEFsbCBSaWdodHMgUmVzZXJ2ZWQuCisvLworLy8gTGljZW5zZWQgdW5k
-ZXIgdGhlIEFwYWNoZSBMaWNlbnNlIDIuMCAodGhlICJMaWNlbnNlIikuIFlvdSBjYW4gb2J0YWlu
-CisvLyBhIGNvcHkgaW4gdGhlIGZpbGUgTElDRU5TRSBpbiB0aGUgc291cmNlIGRpc3RyaWJ1dGlv
-biBvciBhdAorLy8gaHR0cHM6Ly93d3cub3BlbnNzbC5vcmcvc291cmNlL2xpY2Vuc2UuaHRtbAor
-Ly8KKy8vIG9yCisvLworLy8gQ29weXJpZ2h0IChjKSAyMDIzLCBDaHJpc3RvcGggTcO8bGxuZXIg
-PGNocmlzdG9waC5tdWVsbG5lckB2cnVsbC5ldT4KKy8vIENvcHlyaWdodCAoYykgMjAyMywgUGhv
-ZWJlIENoZW4gPHBob2ViZS5jaGVuQHNpZml2ZS5jb20+CisvLyBDb3B5cmlnaHQgKGMpIDIwMjMs
-IEplcnJ5IFNoaWggPGplcnJ5LnNoaWhAc2lmaXZlLmNvbT4KKy8vIENvcHlyaWdodCAyMDI0IEdv
-b2dsZSBMTEMKKy8vIEFsbCByaWdodHMgcmVzZXJ2ZWQuCisvLworLy8gUmVkaXN0cmlidXRpb24g
-YW5kIHVzZSBpbiBzb3VyY2UgYW5kIGJpbmFyeSBmb3Jtcywgd2l0aCBvciB3aXRob3V0CisvLyBt
-b2RpZmljYXRpb24sIGFyZSBwZXJtaXR0ZWQgcHJvdmlkZWQgdGhhdCB0aGUgZm9sbG93aW5nIGNv
-bmRpdGlvbnMKKy8vIGFyZSBtZXQ6CisvLyAxLiBSZWRpc3RyaWJ1dGlvbnMgb2Ygc291cmNlIGNv
-ZGUgbXVzdCByZXRhaW4gdGhlIGFib3ZlIGNvcHlyaWdodAorLy8gICAgbm90aWNlLCB0aGlzIGxp
-c3Qgb2YgY29uZGl0aW9ucyBhbmQgdGhlIGZvbGxvd2luZyBkaXNjbGFpbWVyLgorLy8gMi4gUmVk
-aXN0cmlidXRpb25zIGluIGJpbmFyeSBmb3JtIG11c3QgcmVwcm9kdWNlIHRoZSBhYm92ZSBjb3B5
-cmlnaHQKKy8vICAgIG5vdGljZSwgdGhpcyBsaXN0IG9mIGNvbmRpdGlvbnMgYW5kIHRoZSBmb2xs
-b3dpbmcgZGlzY2xhaW1lciBpbiB0aGUKKy8vICAgIGRvY3VtZW50YXRpb24gYW5kL29yIG90aGVy
-IG1hdGVyaWFscyBwcm92aWRlZCB3aXRoIHRoZSBkaXN0cmlidXRpb24uCisvLworLy8gVEhJUyBT
-T0ZUV0FSRSBJUyBQUk9WSURFRCBCWSBUSEUgQ09QWVJJR0hUIEhPTERFUlMgQU5EIENPTlRSSUJV
-VE9SUworLy8gIkFTIElTIiBBTkQgQU5ZIEVYUFJFU1MgT1IgSU1QTElFRCBXQVJSQU5USUVTLCBJ
-TkNMVURJTkcsIEJVVCBOT1QKKy8vIExJTUlURUQgVE8sIFRIRSBJTVBMSUVEIFdBUlJBTlRJRVMg
-T0YgTUVSQ0hBTlRBQklMSVRZIEFORCBGSVRORVNTIEZPUgorLy8gQSBQQVJUSUNVTEFSIFBVUlBP
-U0UgQVJFIERJU0NMQUlNRUQuIElOUCBOTyBFVkVOVCBTSEFMTCBUSEUgQ09QWVJJR0hUCisvLyBP
-V05FUiBPUiBDT05UUklCVVRPUlMgQkUgTElBQkxFIEZPUiBBTlkgRElSRUNULCBJTkRJUkVDVCwg
-SU5DSURFTlRBTCwKKy8vIFNQRUNJQUwsIEVYRU1QTEFSWSwgT1IgQ09OU0VRVUVOVElBTCBEQU1B
-R0VTIChJTkNMVURJTkcsIEJVVCBOT1QKKy8vIExJTUlURUQgVE8sIFBST0NVUkVNRU5UIE9GIFNV
-QlNUSVRVVEUgR09PRFMgT1IgU0VSVklDRVM7IExPU1MgT0YgVVNFLAorLy8gREFUQSwgT1IgUFJP
-RklUUzsgT1IgQlVTSU5FU1MgSU5URVJSVVBUSU9OKSBIT1dFVkVSIENBVVNFRCBBTkQgT04gQU5Z
-CisvLyBUSEVPUlkgT0YgTElBQklMSVRZLCBXSEVUSEVSIElOUCBDT05UUkFDVCwgU1RSSUNUIExJ
-QUJJTElUWSwgT1IgVE9SVAorLy8gKElOQ0xVRElORyBORUdMSUdFTkNFIE9SIE9USEVSV0lTRSkg
-QVJJU0lORyBJTlAgQU5ZIFdBWSBPVVRQIE9GIFRIRSBVU0UKKy8vIE9GIFRISVMgU09GVFdBUkUs
-IEVWRU4gSUYgQURWSVNFRCBPRiBUSEUgUE9TU0lCSUxJVFkgT0YgU1VDSCBEQU1BR0UuCisKKy8v
-IFRoZSBnZW5lcmF0ZWQgY29kZSBvZiB0aGlzIGZpbGUgZGVwZW5kcyBvbiB0aGUgZm9sbG93aW5n
-IFJJU0MtViBleHRlbnNpb25zOgorLy8gLSBSVjY0SQorLy8gLSBSSVNDLVYgVmVjdG9yICgnVicp
-IHdpdGggVkxFTiA+PSAxMjgKKy8vIC0gUklTQy1WIFZlY3RvciBBRVMgYmxvY2sgY2lwaGVyIGV4
-dGVuc2lvbiAoJ1p2a25lZCcpCisKKyNpbmNsdWRlIDxsaW51eC9saW5rYWdlLmg+CisKKy50ZXh0
-Cisub3B0aW9uIGFyY2gsICt6dmtuZWQKKworI2luY2x1ZGUgImFlcy1tYWNyb3MuUyIKKworI2Rl
-ZmluZSBLRVlQCQlhMAorI2RlZmluZSBJTlAJCWExCisjZGVmaW5lIE9VVFAJCWEyCisjZGVmaW5l
-IExFTgkJYTMKKyNkZWZpbmUgSVZQCQlhNAorCisubWFjcm8JX19hZXNfY3J5cHRfenZrbmVkCWVu
-Yywga2V5bGVuCisJdmxlMzIudgkJdjE2LCAoSU5QKQorCWFlc19jcnlwdAl2MTYsIFxlbmMsIFxr
-ZXlsZW4KKwl2c2UzMi52CQl2MTYsIChPVVRQKQorCXJldAorLmVuZG0KKworLm1hY3JvCWFlc19j
-cnlwdF96dmtuZWQJZW5jCisJYWVzX2JlZ2luCUtFWVAsIDExMWYsIDIyMmYKKwlfX2Flc19jcnlw
-dF96dmtuZWQJXGVuYywgMjU2CisxMTE6CisJX19hZXNfY3J5cHRfenZrbmVkCVxlbmMsIDEyOAor
-MjIyOgorCV9fYWVzX2NyeXB0X3p2a25lZAlcZW5jLCAxOTIKKy5lbmRtCisKKy8vIHZvaWQgYWVz
-X2VuY3J5cHRfenZrbmVkKGNvbnN0IHN0cnVjdCBjcnlwdG9fYWVzX2N0eCAqa2V5LAorLy8JCQkg
-ICBjb25zdCB1OCBpblsxNl0sIHU4IG91dFsxNl0pOworU1lNX0ZVTkNfU1RBUlQoYWVzX2VuY3J5
-cHRfenZrbmVkKQorCWFlc19jcnlwdF96dmtuZWQJMQorU1lNX0ZVTkNfRU5EKGFlc19lbmNyeXB0
-X3p2a25lZCkKKworLy8gU2FtZSBwcm90b3R5cGUgYW5kIGNhbGxpbmcgY29udmVudGlvbiBhcyB0
-aGUgZW5jcnlwdGlvbiBmdW5jdGlvbgorU1lNX0ZVTkNfU1RBUlQoYWVzX2RlY3J5cHRfenZrbmVk
-KQorCWFlc19jcnlwdF96dmtuZWQJMAorU1lNX0ZVTkNfRU5EKGFlc19kZWNyeXB0X3p2a25lZCkK
-LS0gCjIuNDMuMAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+From: Jerry Shih <jerry.shih@sifive.com>
+
+Add implementations of AES-ECB, AES-CBC, AES-CTR, and AES-XTS using the
+RISC-V vector crypto extensions.  The assembly code is derived from
+OpenSSL code (openssl/openssl#21923) that was dual-licensed so that it
+could be reused in the kernel.  Nevertheless, the assembly has been
+significantly reworked for integration with the kernel, for example by
+using regular .S files instead of the so-called perlasm, using the
+assembler instead of bare '.inst', greatly reducing code duplication,
+supporting AES-192, and making the code use the same AES key structure
+as the C code.
+
+Co-developed-by: Phoebe Chen <phoebe.chen@sifive.com>
+Signed-off-by: Phoebe Chen <phoebe.chen@sifive.com>
+Signed-off-by: Jerry Shih <jerry.shih@sifive.com>
+Co-developed-by: Eric Biggers <ebiggers@google.com>
+Signed-off-by: Eric Biggers <ebiggers@google.com>
+---
+ arch/riscv/crypto/Kconfig                     |  20 +
+ arch/riscv/crypto/Makefile                    |   3 +
+ .../crypto/aes-riscv64-block-mode-glue.c      | 435 ++++++++++++++++++
+ .../crypto/aes-riscv64-zvkned-zvbb-zvkg.S     | 300 ++++++++++++
+ arch/riscv/crypto/aes-riscv64-zvkned-zvkb.S   | 146 ++++++
+ arch/riscv/crypto/aes-riscv64-zvkned.S        |  96 ++++
+ 6 files changed, 1000 insertions(+)
+ create mode 100644 arch/riscv/crypto/aes-riscv64-block-mode-glue.c
+ create mode 100644 arch/riscv/crypto/aes-riscv64-zvkned-zvbb-zvkg.S
+ create mode 100644 arch/riscv/crypto/aes-riscv64-zvkned-zvkb.S
+
+diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
+index 2a7c365f2a86c..db8a5bcbea785 100644
+--- a/arch/riscv/crypto/Kconfig
++++ b/arch/riscv/crypto/Kconfig
+@@ -6,11 +6,31 @@ config CRYPTO_AES_RISCV64
+ 	tristate "Ciphers: AES"
+ 	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
+ 	select CRYPTO_ALGAPI
+ 	select CRYPTO_LIB_AES
+ 	help
+ 	  Block ciphers: AES cipher algorithms (FIPS-197)
+ 
+ 	  Architecture: riscv64 using:
+ 	  - Zvkned vector crypto extension
+ 
++config CRYPTO_AES_BLOCK_RISCV64
++	tristate "Ciphers: AES, modes: ECB/CBC/CTR/XTS"
++	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
++	select CRYPTO_AES_RISCV64
++	select CRYPTO_SKCIPHER
++	help
++	  Length-preserving ciphers: AES cipher algorithms (FIPS-197)
++	  with block cipher modes:
++	  - ECB (Electronic Codebook) mode (NIST SP 800-38A)
++	  - CBC (Cipher Block Chaining) mode (NIST SP 800-38A)
++	  - CTR (Counter) mode (NIST SP 800-38A)
++	  - XTS (XOR Encrypt XOR Tweakable Block Cipher with Ciphertext
++	    Stealing) mode (NIST SP 800-38E and IEEE 1619)
++
++	  Architecture: riscv64 using:
++	  - Zvkned vector crypto extension
++	  - Zvbb vector extension (XTS)
++	  - Zvkb vector crypto extension (CTR/XTS)
++	  - Zvkg vector crypto extension (XTS)
++
+ endmenu
+diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
+index dca698c5cba3e..5dd91f34f0d52 100644
+--- a/arch/riscv/crypto/Makefile
++++ b/arch/riscv/crypto/Makefile
+@@ -1,7 +1,10 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ #
+ # linux/arch/riscv/crypto/Makefile
+ #
+ 
+ obj-$(CONFIG_CRYPTO_AES_RISCV64) += aes-riscv64.o
+ aes-riscv64-y := aes-riscv64-glue.o aes-riscv64-zvkned.o
++
++obj-$(CONFIG_CRYPTO_AES_BLOCK_RISCV64) += aes-block-riscv64.o
++aes-block-riscv64-y := aes-riscv64-block-mode-glue.o aes-riscv64-zvkned-zvbb-zvkg.o aes-riscv64-zvkned-zvkb.o
+diff --git a/arch/riscv/crypto/aes-riscv64-block-mode-glue.c b/arch/riscv/crypto/aes-riscv64-block-mode-glue.c
+new file mode 100644
+index 0000000000000..3250f6a0c1aae
+--- /dev/null
++++ b/arch/riscv/crypto/aes-riscv64-block-mode-glue.c
+@@ -0,0 +1,435 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * AES in ECB, CBC, CTR, and XTS modes using the RISC-V vector crypto extensions
++ *
++ * Copyright (C) 2023 SiFive, Inc.
++ * Author: Jerry Shih <jerry.shih@sifive.com>
++ */
++
++#include <asm/simd.h>
++#include <asm/vector.h>
++#include <crypto/aes.h>
++#include <crypto/internal/skcipher.h>
++#include <crypto/scatterwalk.h>
++#include <crypto/xts.h>
++#include <linux/linkage.h>
++#include <linux/module.h>
++
++#include "aes-riscv64-glue.h"
++
++struct riscv64_aes_xts_ctx {
++	struct crypto_aes_ctx ctx1;
++	struct crypto_aes_ctx ctx2;
++};
++
++asmlinkage void aes_ecb_encrypt_zvkned(const struct crypto_aes_ctx *key,
++				       const u8 *in, u8 *out, size_t len);
++asmlinkage void aes_ecb_decrypt_zvkned(const struct crypto_aes_ctx *key,
++				       const u8 *in, u8 *out, size_t len);
++
++asmlinkage void aes_cbc_encrypt_zvkned(const struct crypto_aes_ctx *key,
++				       const u8 *in, u8 *out, size_t len,
++				       u8 iv[AES_BLOCK_SIZE]);
++asmlinkage void aes_cbc_decrypt_zvkned(const struct crypto_aes_ctx *key,
++				       const u8 *in, u8 *out, size_t len,
++				       u8 iv[AES_BLOCK_SIZE]);
++
++asmlinkage void aes_ctr32_crypt_zvkned_zvkb(const struct crypto_aes_ctx *key,
++					    const u8 *in, u8 *out, size_t len,
++					    u8 iv[AES_BLOCK_SIZE]);
++
++asmlinkage void aes_xts_encrypt_zvkned_zvbb_zvkg(
++			const struct crypto_aes_ctx *key,
++			const u8 *in, u8 *out, size_t len,
++			u8 tweak[AES_BLOCK_SIZE]);
++
++asmlinkage void aes_xts_decrypt_zvkned_zvbb_zvkg(
++			const struct crypto_aes_ctx *key,
++			const u8 *in, u8 *out, size_t len,
++			u8 tweak[AES_BLOCK_SIZE]);
++
++static int riscv64_aes_setkey(struct crypto_skcipher *tfm, const u8 *key,
++			      unsigned int keylen)
++{
++	struct crypto_aes_ctx *ctx = crypto_skcipher_ctx(tfm);
++
++	return __riscv64_aes_setkey(ctx, key, keylen);
++}
++
++static inline int riscv64_aes_ecb_crypt(struct skcipher_request *req, bool enc)
++{
++	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
++	const struct crypto_aes_ctx *ctx = crypto_skcipher_ctx(tfm);
++	struct skcipher_walk walk;
++	unsigned int nbytes;
++	int err;
++
++	/* If we have error here, the `nbytes` will be zero. */
++	err = skcipher_walk_virt(&walk, req, false);
++	while ((nbytes = walk.nbytes) != 0) {
++		kernel_vector_begin();
++		if (enc)
++			aes_ecb_encrypt_zvkned(ctx, walk.src.virt.addr,
++					       walk.dst.virt.addr,
++					       nbytes & ~(AES_BLOCK_SIZE - 1));
++		else
++			aes_ecb_decrypt_zvkned(ctx, walk.src.virt.addr,
++					       walk.dst.virt.addr,
++					       nbytes & ~(AES_BLOCK_SIZE - 1));
++		kernel_vector_end();
++		err = skcipher_walk_done(&walk, nbytes & (AES_BLOCK_SIZE - 1));
++	}
++
++	return err;
++}
++
++static int riscv64_aes_ecb_encrypt(struct skcipher_request *req)
++{
++	return riscv64_aes_ecb_crypt(req, true);
++}
++
++static int riscv64_aes_ecb_decrypt(struct skcipher_request *req)
++{
++	return riscv64_aes_ecb_crypt(req, false);
++}
++
++static inline int riscv64_aes_cbc_crypt(struct skcipher_request *req, bool enc)
++{
++	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
++	const struct crypto_aes_ctx *ctx = crypto_skcipher_ctx(tfm);
++	struct skcipher_walk walk;
++	unsigned int nbytes;
++	int err;
++
++	err = skcipher_walk_virt(&walk, req, false);
++	while ((nbytes = walk.nbytes) != 0) {
++		kernel_vector_begin();
++		if (enc)
++			aes_cbc_encrypt_zvkned(ctx, walk.src.virt.addr,
++					       walk.dst.virt.addr,
++					       nbytes & ~(AES_BLOCK_SIZE - 1),
++					       walk.iv);
++		else
++			aes_cbc_decrypt_zvkned(ctx, walk.src.virt.addr,
++					       walk.dst.virt.addr,
++					       nbytes & ~(AES_BLOCK_SIZE - 1),
++					       walk.iv);
++		kernel_vector_end();
++		err = skcipher_walk_done(&walk, nbytes & (AES_BLOCK_SIZE - 1));
++	}
++
++	return err;
++}
++
++static int riscv64_aes_cbc_encrypt(struct skcipher_request *req)
++{
++	return riscv64_aes_cbc_crypt(req, true);
++}
++
++static int riscv64_aes_cbc_decrypt(struct skcipher_request *req)
++{
++	return riscv64_aes_cbc_crypt(req, false);
++}
++
++static int riscv64_aes_ctr_crypt(struct skcipher_request *req)
++{
++	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
++	const struct crypto_aes_ctx *ctx = crypto_skcipher_ctx(tfm);
++	struct skcipher_walk walk;
++	unsigned int ctr32;
++	unsigned int nbytes;
++	unsigned int blocks;
++	unsigned int current_blocks;
++	unsigned int current_length;
++	int err;
++
++	/* the ctr iv uses big endian */
++	ctr32 = get_unaligned_be32(req->iv + 12);
++	err = skcipher_walk_virt(&walk, req, false);
++	while ((nbytes = walk.nbytes) != 0) {
++		if (nbytes != walk.total) {
++			nbytes &= ~(AES_BLOCK_SIZE - 1);
++			blocks = nbytes / AES_BLOCK_SIZE;
++		} else {
++			/* This is the last walk. We should handle the tail data. */
++			blocks = DIV_ROUND_UP(nbytes, AES_BLOCK_SIZE);
++		}
++		ctr32 += blocks;
++
++		kernel_vector_begin();
++		/*
++		 * The `if` block below detects the overflow, which is then handled by
++		 * limiting the amount of blocks to the exact overflow point.
++		 */
++		if (ctr32 >= blocks) {
++			aes_ctr32_crypt_zvkned_zvkb(ctx, walk.src.virt.addr,
++						    walk.dst.virt.addr, nbytes,
++						    req->iv);
++		} else {
++			/* use 2 ctr32 function calls for overflow case */
++			current_blocks = blocks - ctr32;
++			current_length =
++				min(nbytes, current_blocks * AES_BLOCK_SIZE);
++			aes_ctr32_crypt_zvkned_zvkb(ctx, walk.src.virt.addr,
++						    walk.dst.virt.addr,
++						    current_length, req->iv);
++			crypto_inc(req->iv, 12);
++
++			if (ctr32) {
++				aes_ctr32_crypt_zvkned_zvkb(
++					ctx,
++					walk.src.virt.addr +
++						current_blocks * AES_BLOCK_SIZE,
++					walk.dst.virt.addr +
++						current_blocks * AES_BLOCK_SIZE,
++					nbytes - current_length, req->iv);
++			}
++		}
++		kernel_vector_end();
++
++		err = skcipher_walk_done(&walk, walk.nbytes - nbytes);
++	}
++
++	return err;
++}
++
++static int riscv64_aes_xts_setkey(struct crypto_skcipher *tfm, const u8 *key,
++				  unsigned int keylen)
++{
++	struct riscv64_aes_xts_ctx *ctx = crypto_skcipher_ctx(tfm);
++	int err;
++
++	err = xts_verify_key(tfm, key, keylen);
++	if (err)
++		return err;
++	err = __riscv64_aes_setkey(&ctx->ctx1, key, keylen / 2);
++	if (err)
++		return err;
++	return __riscv64_aes_setkey(&ctx->ctx2, key + keylen / 2, keylen / 2);
++}
++
++static int riscv64_aes_xts_crypt(struct skcipher_request *req, bool enc)
++{
++	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
++	struct riscv64_aes_xts_ctx *ctx = crypto_skcipher_ctx(tfm);
++	int tail = req->cryptlen % AES_BLOCK_SIZE;
++	struct scatterlist sg_src[2], sg_dst[2];
++	struct skcipher_request subreq;
++	struct scatterlist *src, *dst;
++	struct skcipher_walk walk;
++	int err;
++
++	if (req->cryptlen < AES_BLOCK_SIZE)
++		return -EINVAL;
++
++	__riscv64_aes_encrypt(&ctx->ctx2, req->iv, req->iv);
++
++	err = skcipher_walk_virt(&walk, req, false);
++
++	if (unlikely(tail > 0 && walk.nbytes < walk.total)) {
++		int xts_blocks = DIV_ROUND_UP(req->cryptlen,
++					      AES_BLOCK_SIZE) - 2;
++
++		skcipher_walk_abort(&walk);
++
++		skcipher_request_set_tfm(&subreq, tfm);
++		skcipher_request_set_callback(&subreq,
++					      skcipher_request_flags(req),
++					      NULL, NULL);
++		skcipher_request_set_crypt(&subreq, req->src, req->dst,
++					   xts_blocks * AES_BLOCK_SIZE,
++					   req->iv);
++		req = &subreq;
++		err = skcipher_walk_virt(&walk, req, false);
++	} else {
++		tail = 0;
++	}
++
++	while (walk.nbytes >= AES_BLOCK_SIZE) {
++		unsigned int nbytes = walk.nbytes;
++
++		if (walk.nbytes < walk.total)
++			nbytes &= ~(AES_BLOCK_SIZE - 1);
++
++		kernel_vector_begin();
++		if (enc)
++			aes_xts_encrypt_zvkned_zvbb_zvkg(
++				&ctx->ctx1, walk.src.virt.addr,
++				walk.dst.virt.addr, nbytes, req->iv);
++		else
++			aes_xts_decrypt_zvkned_zvbb_zvkg(
++				&ctx->ctx1, walk.src.virt.addr,
++				walk.dst.virt.addr, nbytes, req->iv);
++		kernel_vector_end();
++		err = skcipher_walk_done(&walk, walk.nbytes - nbytes);
++	}
++
++	if (err || likely(!tail))
++		return err;
++
++	dst = src = scatterwalk_ffwd(sg_src, req->src, req->cryptlen);
++	if (req->dst != req->src)
++		dst = scatterwalk_ffwd(sg_dst, req->dst, req->cryptlen);
++
++	skcipher_request_set_crypt(req, src, dst, AES_BLOCK_SIZE + tail,
++				   req->iv);
++
++	err = skcipher_walk_virt(&walk, &subreq, false);
++	if (err)
++		return err;
++
++	kernel_vector_begin();
++	if (enc)
++		aes_xts_encrypt_zvkned_zvbb_zvkg(
++			&ctx->ctx1, walk.src.virt.addr,
++			walk.dst.virt.addr, walk.nbytes, req->iv);
++	else
++		aes_xts_decrypt_zvkned_zvbb_zvkg(
++			&ctx->ctx1, walk.src.virt.addr,
++			walk.dst.virt.addr, walk.nbytes, req->iv);
++	kernel_vector_end();
++
++	return skcipher_walk_done(&walk, 0);
++}
++
++static int riscv64_aes_xts_encrypt(struct skcipher_request *req)
++{
++	return riscv64_aes_xts_crypt(req, true);
++}
++
++static int riscv64_aes_xts_decrypt(struct skcipher_request *req)
++{
++	return riscv64_aes_xts_crypt(req, false);
++}
++
++static struct skcipher_alg riscv64_zvkned_aes_algs[] = {
++	{
++		.setkey = riscv64_aes_setkey,
++		.encrypt = riscv64_aes_ecb_encrypt,
++		.decrypt = riscv64_aes_ecb_decrypt,
++		.min_keysize = AES_MIN_KEY_SIZE,
++		.max_keysize = AES_MAX_KEY_SIZE,
++		.walksize = AES_BLOCK_SIZE * 8,
++		.base = {
++			.cra_blocksize = AES_BLOCK_SIZE,
++			.cra_ctxsize = sizeof(struct crypto_aes_ctx),
++			.cra_priority = 300,
++			.cra_name	= "ecb(aes)",
++			.cra_driver_name = "ecb-aes-riscv64-zvkned",
++			.cra_module = THIS_MODULE,
++		},
++	}, {
++		.setkey = riscv64_aes_setkey,
++		.encrypt = riscv64_aes_cbc_encrypt,
++		.decrypt = riscv64_aes_cbc_decrypt,
++		.min_keysize = AES_MIN_KEY_SIZE,
++		.max_keysize = AES_MAX_KEY_SIZE,
++		.ivsize = AES_BLOCK_SIZE,
++		.walksize = AES_BLOCK_SIZE * 8,
++		.base = {
++			.cra_blocksize = AES_BLOCK_SIZE,
++			.cra_ctxsize = sizeof(struct crypto_aes_ctx),
++			.cra_priority = 300,
++			.cra_name = "cbc(aes)",
++			.cra_driver_name = "cbc-aes-riscv64-zvkned",
++			.cra_module = THIS_MODULE,
++		},
++	}
++};
++
++static struct skcipher_alg riscv64_zvkned_zvkb_aes_alg = {
++	.setkey = riscv64_aes_setkey,
++	.encrypt = riscv64_aes_ctr_crypt,
++	.decrypt = riscv64_aes_ctr_crypt,
++	.min_keysize = AES_MIN_KEY_SIZE,
++	.max_keysize = AES_MAX_KEY_SIZE,
++	.ivsize = AES_BLOCK_SIZE,
++	.chunksize = AES_BLOCK_SIZE,
++	.walksize = AES_BLOCK_SIZE * 8,
++	.base = {
++		.cra_blocksize = 1,
++		.cra_ctxsize = sizeof(struct crypto_aes_ctx),
++		.cra_priority = 300,
++		.cra_name = "ctr(aes)",
++		.cra_driver_name = "ctr-aes-riscv64-zvkned-zvkb",
++		.cra_module = THIS_MODULE,
++	},
++};
++
++static struct skcipher_alg riscv64_zvkned_zvbb_zvkg_aes_alg = {
++	.setkey = riscv64_aes_xts_setkey,
++	.encrypt = riscv64_aes_xts_encrypt,
++	.decrypt = riscv64_aes_xts_decrypt,
++	.min_keysize = AES_MIN_KEY_SIZE * 2,
++	.max_keysize = AES_MAX_KEY_SIZE * 2,
++	.ivsize = AES_BLOCK_SIZE,
++	.chunksize = AES_BLOCK_SIZE,
++	.walksize = AES_BLOCK_SIZE * 8,
++	.base = {
++		.cra_blocksize = AES_BLOCK_SIZE,
++		.cra_ctxsize = sizeof(struct riscv64_aes_xts_ctx),
++		.cra_priority = 300,
++		.cra_name = "xts(aes)",
++		.cra_driver_name = "xts-aes-riscv64-zvkned-zvbb-zvkg",
++		.cra_module = THIS_MODULE,
++	},
++};
++
++static int __init riscv64_aes_block_mod_init(void)
++{
++	int err = -ENODEV;
++
++	if (riscv_isa_extension_available(NULL, ZVKNED) &&
++	    riscv_vector_vlen() >= 128) {
++		err = crypto_register_skciphers(
++			riscv64_zvkned_aes_algs,
++			ARRAY_SIZE(riscv64_zvkned_aes_algs));
++		if (err)
++			return err;
++
++		if (riscv_isa_extension_available(NULL, ZVKB)) {
++			err = crypto_register_skcipher(
++				&riscv64_zvkned_zvkb_aes_alg);
++			if (err)
++				goto unregister_zvkned;
++		}
++
++		if (riscv_isa_extension_available(NULL, ZVBB) &&
++		    riscv_isa_extension_available(NULL, ZVKG) &&
++		    riscv_vector_vlen() < 2048 /* XTS impl limitation */) {
++			err = crypto_register_skcipher(
++				&riscv64_zvkned_zvbb_zvkg_aes_alg);
++			if (err)
++				goto unregister_zvkned_zvkb;
++		}
++	}
++
++	return err;
++
++unregister_zvkned_zvkb:
++	if (riscv_isa_extension_available(NULL, ZVKB))
++		crypto_unregister_skcipher(&riscv64_zvkned_zvkb_aes_alg);
++unregister_zvkned:
++	crypto_unregister_skciphers(riscv64_zvkned_aes_algs,
++				    ARRAY_SIZE(riscv64_zvkned_aes_algs));
++	return err;
++}
++
++static void __exit riscv64_aes_block_mod_fini(void)
++{
++	crypto_unregister_skcipher(&riscv64_zvkned_zvbb_zvkg_aes_alg);
++	crypto_unregister_skcipher(&riscv64_zvkned_zvkb_aes_alg);
++	crypto_unregister_skciphers(riscv64_zvkned_aes_algs,
++				    ARRAY_SIZE(riscv64_zvkned_aes_algs));
++}
++
++module_init(riscv64_aes_block_mod_init);
++module_exit(riscv64_aes_block_mod_fini);
++
++MODULE_DESCRIPTION("AES-ECB/CBC/CTR/XTS (RISC-V accelerated)");
++MODULE_AUTHOR("Jerry Shih <jerry.shih@sifive.com>");
++MODULE_LICENSE("GPL");
++MODULE_ALIAS_CRYPTO("ecb(aes)");
++MODULE_ALIAS_CRYPTO("cbc(aes)");
++MODULE_ALIAS_CRYPTO("ctr(aes)");
++MODULE_ALIAS_CRYPTO("xts(aes)");
+diff --git a/arch/riscv/crypto/aes-riscv64-zvkned-zvbb-zvkg.S b/arch/riscv/crypto/aes-riscv64-zvkned-zvbb-zvkg.S
+new file mode 100644
+index 0000000000000..41eb618e8a5d9
+--- /dev/null
++++ b/arch/riscv/crypto/aes-riscv64-zvkned-zvbb-zvkg.S
+@@ -0,0 +1,300 @@
++/* SPDX-License-Identifier: Apache-2.0 OR BSD-2-Clause */
++//
++// This file is dual-licensed, meaning that you can use it under your
++// choice of either of the following two licenses:
++//
++// Copyright 2023 The OpenSSL Project Authors. All Rights Reserved.
++//
++// Licensed under the Apache License 2.0 (the "License"). You can obtain
++// a copy in the file LICENSE in the source distribution or at
++// https://www.openssl.org/source/license.html
++//
++// or
++//
++// Copyright (c) 2023, Jerry Shih <jerry.shih@sifive.com>
++// Copyright 2024 Google LLC
++// All rights reserved.
++//
++// Redistribution and use in source and binary forms, with or without
++// modification, are permitted provided that the following conditions
++// are met:
++// 1. Redistributions of source code must retain the above copyright
++//    notice, this list of conditions and the following disclaimer.
++// 2. Redistributions in binary form must reproduce the above copyright
++//    notice, this list of conditions and the following disclaimer in the
++//    documentation and/or other materials provided with the distribution.
++//
++// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
++// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
++// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
++// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
++// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
++// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
++// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
++// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
++// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
++// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
++// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
++
++// The generated code of this file depends on the following RISC-V extensions:
++// - RV64I
++// - RISC-V Vector ('V') with VLEN >= 128 && VLEN < 2048
++// - RISC-V Vector AES block cipher extension ('Zvkned')
++// - RISC-V Vector Bit-manipulation extension ('Zvbb')
++// - RISC-V Vector GCM/GMAC extension ('Zvkg')
++
++#include <linux/linkage.h>
++
++.text
++.option arch, +zvkned, +zvbb, +zvkg
++
++#include "aes-macros.S"
++
++#define KEYP		a0
++#define INP		a1
++#define OUTP		a2
++#define LEN		a3
++#define TWEAKP		a4
++
++#define LEN32		a5
++#define TAIL_LEN	a6
++#define VL		a7
++
++// v1-v15 contain the AES round keys, but they are used for temporaries before
++// the AES round keys have been loaded.
++#define TWEAKS		v16	// LMUL=4 (most of the time)
++#define TWEAKS_BREV	v20	// LMUL=4 (most of the time)
++#define MULTS_BREV	v24	// LMUL=4 (most of the time)
++#define TMP0		v28
++#define TMP1		v29
++#define TMP2		v30
++#define TMP3		v31
++
++// xts_init initializes the following values:
++//
++//	TWEAKS: N 128-bit tweaks T*(x^i) for i in 0..(N - 1)
++//	TWEAKS_BREV: same as TWEAKS, but bit-reversed
++//	MULTS_BREV: N 128-bit values x^N, bit-reversed.  Only if N > 1.
++//
++// N is the maximum number of blocks that will be processed per loop iteration,
++// computed using vsetvli.
++//
++// The field convention used by XTS is the same as that of GHASH, but with the
++// bits reversed within each byte.  The zvkg extension provides the vgmul
++// instruction which does multiplication in this field.  Therefore, for tweak
++// computation we use vgmul to do multiplications in parallel, instead of
++// serially multiplying by x using shifting+xoring.  Note that for this to work,
++// the inputs and outputs to vgmul must be bit-reversed (we do it with vbrev8).
++.macro	xts_init
++
++	// Load the first tweak T.
++	vsetivli	zero, 4, e32, m1, ta, ma
++	vle32.v		TWEAKS, (TWEAKP)
++
++	// If there's only one block (or no blocks at all), then skip the tweak
++	// sequence computation because (at most) T itself is needed.
++	li		t0, 16
++	ble		LEN, t0, .Linit_single_block\@
++
++	// Save a copy of T bit-reversed in v12.
++	vbrev8.v	v12, TWEAKS
++
++	//
++	// Generate x^i for i in 0..(N - 1), i.e. 128-bit values 1 << i assuming
++	// that N <= 128.  Though, this code actually requires N < 64 (or
++	// equivalently VLEN < 2048) due to the use of 64-bit intermediate
++	// values here and in the x^N computation later.
++	//
++	vsetvli		VL, LEN32, e32, m4, ta, ma
++	srli		t0, VL, 2	// t0 = N (num blocks)
++	// Generate two sequences, each with N 32-bit values:
++	// v0=[1, 1, 1, ...] and v1=[0, 1, 2, ...].
++	vsetvli		zero, t0, e32, m1, ta, ma
++	vmv.v.i		v0, 1
++	vid.v		v1
++	// Use vzext to zero-extend the sequences to 64 bits.  Reinterpret them
++	// as two sequences, each with 2*N 32-bit values:
++	// v2=[1, 0, 1, 0, 1, 0, ...] and v4=[0, 0, 1, 0, 2, 0, ...].
++	vsetvli		zero, t0, e64, m2, ta, ma
++	vzext.vf2	v2, v0
++	vzext.vf2	v4, v1
++	slli		t1, t0, 1	// t1 = 2*N
++	vsetvli		zero, t1, e32, m2, ta, ma
++	// Use vwsll to compute [1<<0, 0<<0, 1<<1, 0<<0, 1<<2, 0<<0, ...],
++	// widening to 64 bits per element.  When reinterpreted as N 128-bit
++	// values, this is the needed sequence of 128-bit values 1 << i (x^i).
++	vwsll.vv	v8, v2, v4
++
++	// Copy the bit-reversed T to all N elements of TWEAKS_BREV, then
++	// multiply by x^i.  This gives the sequence T*(x^i), bit-reversed.
++	vsetvli		zero, LEN32, e32, m4, ta, ma
++	vmv.v.i		TWEAKS_BREV, 0
++	vaesz.vs	TWEAKS_BREV, v12
++	vbrev8.v	v8, v8
++	vgmul.vv	TWEAKS_BREV, v8
++
++	// Save a copy of the sequence T*(x^i) with the bit reversal undone.
++	vbrev8.v	TWEAKS, TWEAKS_BREV
++
++	// Generate N copies of x^N, i.e. 128-bit values 1 << N, bit-reversed.
++	li		t1, 1
++	sll		t1, t1, t0	// t1 = 1 << N
++	vsetivli	zero, 2, e64, m1, ta, ma
++	vmv.v.i		v0, 0
++	vsetivli	zero, 1, e64, m1, tu, ma
++	vmv.v.x		v0, t1
++	vbrev8.v	v0, v0
++	vsetvli		zero, LEN32, e32, m4, ta, ma
++	vmv.v.i		MULTS_BREV, 0
++	vaesz.vs	MULTS_BREV, v0
++
++	j		.Linit_done\@
++
++.Linit_single_block\@:
++	vbrev8.v	TWEAKS_BREV, TWEAKS
++.Linit_done\@:
++.endm
++
++// Set the first 128 bits of MULTS_BREV to 0x40, i.e. 'x' bit-reversed.  This is
++// the multiplier required to advance the tweak by one.
++.macro	load_x
++	li		t0, 0x40
++	vsetivli	zero, 4, e32, m1, ta, ma
++	vmv.v.i		MULTS_BREV, 0
++	vsetivli	zero, 1, e8, m1, tu, ma
++	vmv.v.x		MULTS_BREV, t0
++.endm
++
++.macro	__aes_xts_crypt	enc, keylen
++	// With 16 < len <= 31, there's no main loop, just ciphertext stealing.
++	beqz		LEN32, .Lcts_without_main_loop\@
++
++	vsetvli		VL, LEN32, e32, m4, ta, ma
++	j		2f
++1:
++	vsetvli		VL, LEN32, e32, m4, ta, ma
++	// Compute the next sequence of tweaks by multiplying the previous
++	// sequence by x^N.  Store the result in both bit-reversed order and
++	// regular order (i.e. with the bit reversal undone).
++	vgmul.vv	TWEAKS_BREV, MULTS_BREV
++	vbrev8.v	TWEAKS, TWEAKS_BREV
++2:
++	// Encrypt or decrypt VL/4 blocks.
++	vle32.v		TMP0, (INP)
++	vxor.vv		TMP0, TMP0, TWEAKS
++	aes_crypt	TMP0, \enc, \keylen
++	vxor.vv		TMP0, TMP0, TWEAKS
++	vse32.v		TMP0, (OUTP)
++
++	// Update the pointers and the remaining length.
++	slli		t0, VL, 2
++	add		INP, INP, t0
++	add		OUTP, OUTP, t0
++	sub		LEN32, LEN32, VL
++
++	// Repeat if more blocks remain.
++	bnez		LEN32, 1b
++
++.Lmain_loop_done\@:
++	load_x
++
++	// Compute the next tweak.
++	addi		t0, VL, -4
++	vsetivli	zero, 4, e32, m4, ta, ma
++	vslidedown.vx	TWEAKS_BREV, TWEAKS_BREV, t0	// Extract last tweak
++	vsetivli	zero, 4, e32, m1, ta, ma
++	vgmul.vv	TWEAKS_BREV, MULTS_BREV		// Advance to next tweak
++
++	bnez		TAIL_LEN, .Lcts\@
++
++	// Update *TWEAKP to contain the next tweak.
++	vbrev8.v	TWEAKS, TWEAKS_BREV
++	vse32.v		TWEAKS, (TWEAKP)
++	ret
++
++.Lcts_without_main_loop\@:
++	load_x
++.Lcts\@:
++	// TWEAKS_BREV now contains the next tweak.  Compute the one after that.
++	vsetivli	zero, 4, e32, m1, ta, ma
++	vmv.v.v		TMP0, TWEAKS_BREV
++	vgmul.vv	TMP0, MULTS_BREV
++	// Undo the bit reversal of the next two tweaks and store them in TMP1
++	// and TMP2, such that TMP1 is the first needed and TMP2 the second.
++.if \enc
++	vbrev8.v	TMP1, TWEAKS_BREV
++	vbrev8.v	TMP2, TMP0
++.else
++	vbrev8.v	TMP1, TMP0
++	vbrev8.v	TMP2, TWEAKS_BREV
++.endif
++
++	// Encrypt/decrypt the last full block.
++	vle32.v		TMP0, (INP)
++	vxor.vv		TMP0, TMP0, TMP1
++	aes_crypt	TMP0, \enc, \keylen
++	vxor.vv		TMP0, TMP0, TMP1
++
++	// Swap the first TAIL_LEN bytes of the above result with the tail.
++	// Note that to support in-place encryption/decryption, the load from
++	// the input tail must happen before the store to the output tail.
++	addi		t0, INP, 16
++	addi		t1, OUTP, 16
++	vmv.v.v		TMP3, TMP0
++	vsetvli		zero, TAIL_LEN, e8, m1, tu, ma
++	vle8.v		TMP0, (t0)
++	vse8.v		TMP3, (t1)
++
++	// Encrypt/decrypt again and store the last full block.
++	vsetivli	zero, 4, e32, m1, ta, ma
++	vxor.vv		TMP0, TMP0, TMP2
++	aes_crypt	TMP0, \enc, \keylen
++	vxor.vv		TMP0, TMP0, TMP2
++	vse32.v		TMP0, (OUTP)
++
++	ret
++.endm
++
++.macro	aes_xts_crypt	enc
++
++	// Check whether the length is a multiple of the AES block size.
++	andi		TAIL_LEN, LEN, 15
++	beqz		TAIL_LEN, 1f
++
++	// The length isn't a multiple of the AES block size, so ciphertext
++	// stealing will be required.  Ciphertext stealing involves special
++	// handling of the partial block and the last full block, so subtract
++	// the length of both from the length to be processed in the main loop.
++	sub		LEN, LEN, TAIL_LEN
++	addi		LEN, LEN, -16
++1:
++	srli		LEN32, LEN, 2
++	// LEN and LEN32 now contain the total length of the blocks that will be
++	// processed in the main loop, in bytes and 32-bit words respectively.
++
++	xts_init
++	aes_begin	KEYP, 111f, 222f
++	__aes_xts_crypt	\enc, 256
++111:
++	__aes_xts_crypt	\enc, 128
++222:
++	__aes_xts_crypt	\enc, 192
++.endm
++
++// void aes_xts_encrypt_zvkned_zvbb_zvkg(const struct crypto_aes_ctx *key,
++//					 const u8 *in, u8 *out, size_t len,
++//					 u8 tweak[16]);
++//
++// |key| is the data key.  |tweak| contains the next tweak; the encryption of
++// the original IV with the tweak key was already done.  This function supports
++// incremental computation, but |len| must always be >= 16 (AES_BLOCK_SIZE), and
++// |len| must be a multiple of 16 except on the last call.  If |len| is a
++// multiple of 16, then this function updates |tweak| to contain the next tweak.
++SYM_FUNC_START(aes_xts_encrypt_zvkned_zvbb_zvkg)
++	aes_xts_crypt	1
++SYM_FUNC_END(aes_xts_encrypt_zvkned_zvbb_zvkg)
++
++// Same prototype and calling convention as the encryption function
++SYM_FUNC_START(aes_xts_decrypt_zvkned_zvbb_zvkg)
++	aes_xts_crypt	0
++SYM_FUNC_END(aes_xts_decrypt_zvkned_zvbb_zvkg)
+diff --git a/arch/riscv/crypto/aes-riscv64-zvkned-zvkb.S b/arch/riscv/crypto/aes-riscv64-zvkned-zvkb.S
+new file mode 100644
+index 0000000000000..4a48f2f72c927
+--- /dev/null
++++ b/arch/riscv/crypto/aes-riscv64-zvkned-zvkb.S
+@@ -0,0 +1,146 @@
++/* SPDX-License-Identifier: Apache-2.0 OR BSD-2-Clause */
++//
++// This file is dual-licensed, meaning that you can use it under your
++// choice of either of the following two licenses:
++//
++// Copyright 2023 The OpenSSL Project Authors. All Rights Reserved.
++//
++// Licensed under the Apache License 2.0 (the "License"). You can obtain
++// a copy in the file LICENSE in the source distribution or at
++// https://www.openssl.org/source/license.html
++//
++// or
++//
++// Copyright (c) 2023, Jerry Shih <jerry.shih@sifive.com>
++// Copyright 2024 Google LLC
++// All rights reserved.
++//
++// Redistribution and use in source and binary forms, with or without
++// modification, are permitted provided that the following conditions
++// are met:
++// 1. Redistributions of source code must retain the above copyright
++//    notice, this list of conditions and the following disclaimer.
++// 2. Redistributions in binary form must reproduce the above copyright
++//    notice, this list of conditions and the following disclaimer in the
++//    documentation and/or other materials provided with the distribution.
++//
++// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
++// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
++// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
++// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
++// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
++// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
++// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
++// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
++// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
++// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
++// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
++
++// The generated code of this file depends on the following RISC-V extensions:
++// - RV64I
++// - RISC-V Vector ('V') with VLEN >= 128
++// - RISC-V Vector AES block cipher extension ('Zvkned')
++// - RISC-V Vector Cryptography Bit-manipulation extension ('Zvkb')
++
++#include <linux/linkage.h>
++
++.text
++.option arch, +zvkned, +zvkb
++
++#include "aes-macros.S"
++
++#define KEYP		a0
++#define INP		a1
++#define OUTP		a2
++#define LEN		a3
++#define IVP		a4
++
++#define LEN32		a5
++#define VL_E32		a6
++#define VL_BLOCKS	a7
++
++.macro	aes_ctr32_crypt	keylen
++	// LEN32 = number of blocks, rounded up, in e32's
++	addi		t0, LEN, 15
++	srli		t0, t0, 4
++	slli		LEN32, t0, 2
++
++	// Create a mask that selects the last 32-bit word of each 128-bit
++	// block.  This is the word that contains the (big-endian) counter.
++	li		t0, 0b10001000
++	vsetvli		t1, zero, e8, m1, ta, ma
++	vmv.v.x		v0, t0
++
++	// Load the IV into v31.  The last 32-bit word contains the counter.
++	vsetivli	zero, 4, e32, m1, ta, ma
++	vle32.v		v31, (IVP)
++
++	// Convert the big-endian counter into little-endian.
++	vsetivli	zero, 4, e32, m1, ta, mu
++	vrev8.v		v31, v31, v0.t
++
++	// Splat the IV to v16 (with LMUL=4).  The number of copies is the
++	// maximum number of blocks that will be processed per iteration.
++	vsetvli		zero, LEN32, e32, m4, ta, ma
++	vmv.v.i		v16, 0
++	vaesz.vs	v16, v31
++
++	// v20 = [x, x, x, 0, x, x, x, 1, ...]
++	viota.m		v20, v0, v0.t
++	// v16 = [IV0, IV1, IV2, counter+0, IV0, IV1, IV2, counter+1, ...]
++	vsetvli		VL_E32, LEN32, e32, m4, ta, mu
++	vadd.vv		v16, v16, v20, v0.t
++
++	j 2f
++1:
++	// Set the number of blocks to process in this iteration.  vl=VL_E32 is
++	// the length in 32-bit elements, i.e. 4 times the number of blocks.
++	vsetvli		VL_E32, LEN32, e32, m4, ta, mu
++
++	// Increment the counters by the number of blocks processed in the
++	// previous iteration.
++	vadd.vx		v16, v16, VL_BLOCKS, v0.t
++2:
++	// Prepare the AES inputs into v24.
++	vmv.v.v		v24, v16
++	vrev8.v		v24, v24, v0.t	// Convert back to big-endian.
++
++	// Encrypt the AES inputs to create the next portion of the keystream.
++	aes_encrypt	v24, \keylen
++
++	// XOR the data with the keystream.
++	vsetvli		t0, LEN, e8, m4, ta, ma
++	vle8.v		v20, (INP)
++	vxor.vv		v20, v20, v24
++	vse8.v		v20, (OUTP)
++
++	// Advance the pointers and update the remaining length.
++	add		INP, INP, t0
++	add		OUTP, OUTP, t0
++	sub		LEN, LEN, t0
++	sub		LEN32, LEN32, VL_E32
++	srli		VL_BLOCKS, VL_E32, 2
++
++	// Repeat if more data remains.
++	bnez		LEN, 1b
++
++	// Update *IVP to contain the next counter.
++	vsetivli	zero, 4, e32, m1, ta, mu
++	vadd.vx		v16, v16, VL_BLOCKS, v0.t
++	vrev8.v		v16, v16, v0.t	// Convert back to big-endian.
++	vse32.v		v16, (IVP)
++
++	ret
++.endm
++
++// void aes_ctr32_crypt_zvkned_zvkb(const struct crypto_aes_ctx *key,
++//				    const u8 *in, u8 *out, size_t len,
++//				    u8 iv[AES_BLOCK_SIZE]);
++SYM_FUNC_START(aes_ctr32_crypt_zvkned_zvkb)
++	aes_begin	KEYP, 111f, 222f
++	aes_ctr32_crypt	256
++111:
++	aes_ctr32_crypt	128
++222:
++	aes_ctr32_crypt	192
++SYM_FUNC_END(aes_ctr32_crypt_zvkned_zvkb)
+diff --git a/arch/riscv/crypto/aes-riscv64-zvkned.S b/arch/riscv/crypto/aes-riscv64-zvkned.S
+index 3346978b89d6a..6f7e8b0f31423 100644
+--- a/arch/riscv/crypto/aes-riscv64-zvkned.S
++++ b/arch/riscv/crypto/aes-riscv64-zvkned.S
+@@ -75,10 +75,106 @@
+ // void aes_encrypt_zvkned(const struct crypto_aes_ctx *key,
+ //			   const u8 in[16], u8 out[16]);
+ SYM_FUNC_START(aes_encrypt_zvkned)
+ 	aes_crypt_zvkned	1
+ SYM_FUNC_END(aes_encrypt_zvkned)
+ 
+ // Same prototype and calling convention as the encryption function
+ SYM_FUNC_START(aes_decrypt_zvkned)
+ 	aes_crypt_zvkned	0
+ SYM_FUNC_END(aes_decrypt_zvkned)
++
++.macro	__aes_ecb_crypt	enc, keylen
++	srli		t0, LEN, 2
++	// t0 is the remaining length in 32-bit words.  It's a multiple of 4.
++1:
++	vsetvli		t1, t0, e32, m4, ta, ma
++	sub		t0, t0, t1	// Subtract number of words processed
++	slli		t1, t1, 2	// Words to bytes
++	vle32.v		v16, (INP)
++	aes_crypt	v16, \enc, \keylen
++	vse32.v		v16, (OUTP)
++	add		INP, INP, t1
++	add		OUTP, OUTP, t1
++	bnez		t0, 1b
++
++	ret
++.endm
++
++.macro	aes_ecb_crypt	enc
++	aes_begin	KEYP, 111f, 222f
++	__aes_ecb_crypt	\enc, 256
++111:
++	__aes_ecb_crypt	\enc, 128
++222:
++	__aes_ecb_crypt	\enc, 192
++.endm
++
++// void aes_ecb_encrypt_zvkned(const struct crypto_aes_ctx *key,
++//			       const u8 *in, u8 *out, size_t len);
++//
++// |len| must be nonzero and a multiple of 16 (AES_BLOCK_SIZE).
++SYM_FUNC_START(aes_ecb_encrypt_zvkned)
++	aes_ecb_crypt	1
++SYM_FUNC_END(aes_ecb_encrypt_zvkned)
++
++// Same prototype and calling convention as the encryption function
++SYM_FUNC_START(aes_ecb_decrypt_zvkned)
++	aes_ecb_crypt	0
++SYM_FUNC_END(aes_ecb_decrypt_zvkned)
++
++.macro	aes_cbc_encrypt	keylen
++	vle32.v		v16, (IVP)	// Load IV
++1:
++	vle32.v		v17, (INP)	// Load plaintext block
++	vxor.vv		v16, v16, v17	// XOR with IV or prev ciphertext block
++	aes_encrypt	v16, \keylen	// Encrypt
++	vse32.v		v16, (OUTP)	// Store ciphertext block
++	addi		INP, INP, 16
++	addi		OUTP, OUTP, 16
++	addi		LEN, LEN, -16
++	bnez		LEN, 1b
++
++	vse32.v		v16, (IVP)	// Store next IV
++	ret
++.endm
++
++.macro	aes_cbc_decrypt	keylen
++	vle32.v		v16, (IVP)	// Load IV
++1:
++	vle32.v		v17, (INP)	// Load ciphertext block
++	vmv.v.v		v18, v17	// Save ciphertext block
++	aes_decrypt	v17, \keylen	// Decrypt
++	vxor.vv		v17, v17, v16	// XOR with IV or prev ciphertext block
++	vse32.v		v17, (OUTP)	// Store plaintext block
++	vmv.v.v		v16, v18	// Next "IV" is prev ciphertext block
++	addi		INP, INP, 16
++	addi		OUTP, OUTP, 16
++	addi		LEN, LEN, -16
++	bnez		LEN, 1b
++
++	vse32.v		v16, (IVP)	// Store next IV
++	ret
++.endm
++
++// void aes_cbc_encrypt_zvkned(const struct crypto_aes_ctx *key,
++//			       const u8 *in, u8 *out, size_t len, u8 iv[16]);
++//
++// |len| must be nonzero and a multiple of 16 (AES_BLOCK_SIZE).
++SYM_FUNC_START(aes_cbc_encrypt_zvkned)
++	aes_begin	KEYP, 111f, 222f
++	aes_cbc_encrypt	256
++111:
++	aes_cbc_encrypt	128
++222:
++	aes_cbc_encrypt	192
++SYM_FUNC_END(aes_cbc_encrypt_zvkned)
++
++// Same prototype and calling convention as the encryption function
++SYM_FUNC_START(aes_cbc_decrypt_zvkned)
++	aes_begin	KEYP, 111f, 222f
++	aes_cbc_decrypt	256
++111:
++	aes_cbc_decrypt	128
++222:
++	aes_cbc_decrypt	192
++SYM_FUNC_END(aes_cbc_decrypt_zvkned)
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
