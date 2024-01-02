@@ -4,94 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2EB9C46CD2
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jan 2024 05:17:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 034DDC46CD2
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Jan 2024 05:37:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WY+Rh9CvCgSld2T4D+xBbxjx4UhDZm0xZEUVeEp6MAo=; b=naYTo12vUyF+Sk
-	gAM1TftzHDP4GpC3lZ4g3Qv7k4npxceeUQ97AvKBtUqqWoMRQmXZHCqFebJhyATX6PNVNZl/cluDi
-	LpVflxSJdQP2oKpzEHfDkffze4jR4LnBQnGGUwCMWgP6g5g0qFIERslhlLUdgzNiRlK+iG9YMtzVP
-	7Pop7ZT3z3GI+/SnYBa3M8OYFDUBL7TSJk3CcyElzB1ebtZSl1MI4qszsMrTWEjO5zylIPNGbbbQT
-	nFMk3RI7advbvqjjSLilWibvSbUDceASzulMZr4ERZqA5WRzQ4Gr93IB/+In4rqcTx2xWBuojY72G
-	mq90/hzgKNfKV6ljstcA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bywOz3pcomEzEWhEXJ5KGT7j5uSgSbrRe5XfIxYtjlI=; b=Bx9jQ/EZg4il2i
+	tvr2a01HEXvVpmu5DWu+kVOXGN0p52cV0hhZIblKvkCDsWr1LyEzOjOQlhO6L1xS8cPPgmkoIf84N
+	OLtXX1fFi6371vlvGoT+TO7BbaJeXQk4NFnKd/kPeqV+TvOjvwDo6C2oYuVb+UHbuNRcXNNA3i8jY
+	XQyY6zBL46w3vE+CI4/+pvEEd67NLrrwVzLqiEfrS90/khcVPn8mJu57FAxyduZdVbEpQusNF0Ixb
+	6yfQqtZON2WM0CwG5o2oufK8TNXH1VXefcGpitlnQ/lnll1IH1Yb+7O916lNndZQTjoqNW1M4hMvF
+	QOXUOBlykyM/JdxJDniw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKX9G-00768J-0S;
-	Tue, 02 Jan 2024 05:17:06 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1rKXTC-0077tJ-0F;
+	Tue, 02 Jan 2024 05:37:42 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKX9B-00767w-2t
+	id 1rKXT7-0077rZ-2V
 	for linux-riscv@lists.infradead.org;
-	Tue, 02 Jan 2024 05:17:04 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-5c229dabbb6so2158645a12.0
-        for <linux-riscv@lists.infradead.org>; Mon, 01 Jan 2024 21:17:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1704172620; x=1704777420; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=y0+e9jXb1APHsr8+SSFKuSYagZvt9QzyAw+8MedzV9k=;
-        b=Iq0T2y56tqq1E+hOvcdjyWFhnZIMYSAU8HF4F2qGjcXgQ0oEVrg87iDgtyZTR0wkuc
-         iYCRBiq9aApiaxcrsqCEmn/FmSHAUNapRYdWFGOurBC01damR6FIT8+XeC0NFMjYzr0p
-         dxzV5qIIHwdoIn7PeTHAkWih+6zlqvhAa6xprN1F4dKKffLYNdHgNcyo9iVqY3AyYUad
-         hVOm3jVwqSBQuIpkiDikz4R/C7JXpeIt3ymjBCwptT9+hvXOqSTIhUYD6ULvKuJAuQCR
-         XY/QicnhVHi/vkRjNKwcPE+PApoZ+0OuWq5w8XjgVBRh8YlmnGFbpafo+oxexXkqavj0
-         eCBA==
+	Tue, 02 Jan 2024 05:37:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1704173855;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=eCnGZSmn0Xbft/VvC3w27VmkfIRRQMc7XVfvoJNmfHo=;
+	b=aAjr2CcL3ZNlU4giTwaa8lKKewvWOns6u8sCT3oDje9TKppiUSu3euPbf6YoC+EbZm30KA
+	QbFHD+o4Kj7sODWqCgomPYgeDH2bcxxwQkDJLlTXyeB7hQr/RYJ8E8B+/FdhCKMY10YYbv
+	PoM8u6v6SM7sUXtgYMPQrz1liXCAVSY=
+Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com
+ [209.85.210.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-331-EnQcK3NdOIGFmDIP4cM_RA-1; Tue, 02 Jan 2024 00:37:32 -0500
+X-MC-Unique: EnQcK3NdOIGFmDIP4cM_RA-1
+Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-6da4d130a82so881295b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 01 Jan 2024 21:37:32 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704172620; x=1704777420;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=y0+e9jXb1APHsr8+SSFKuSYagZvt9QzyAw+8MedzV9k=;
-        b=s4NaAq7GcDZkHD6WOInvlARkuGnXPDZfNQc75EqrYwisKQsc6e/uk1SGn+iFQHlBFH
-         oXlv4r5S+MA3iTE9eld0ueZp6IMtYokhWDDNzWJMzVaZYHk9iwaAaqu9IPph7gEzLF7J
-         XOuhopQbM3pxPJZX8/rqwhRrZN2wUtWfY/re5BnP67CwcyRDixX5H1UKm7/Kyze0gvRo
-         As2x4gYZBxzbzFLHsadorWlEJmLSkLeKfGevmLxmku9i4EAWFSMrlIODD/ImWWuJiJfC
-         oob5vIXV+t66c11Tw6S/GrZTKMz5yUhI0kM4ZFRhgJuKhCJB6DRVFtOOZrB9g1Hr8qzf
-         X5mQ==
-X-Gm-Message-State: AOJu0YydfE1nVSXpqosbUSIBJqzZRyjiZLvcshsTyBmA0MUP13dpuqUb
-	/LR9dWsuAQSvHasMKUrNIJPzCLGTnsYsoA==
-X-Google-Smtp-Source: AGHT+IG1JRqn+7/ZW5uKjjHFyDuCLIb0RjG51YBmpY/IphE+PQuOa/LY7hCZn9t+tAnGTUHZvtHBUw==
-X-Received: by 2002:a17:902:f814:b0:1d4:58eb:d901 with SMTP id ix20-20020a170902f81400b001d458ebd901mr5578770plb.41.1704172620140;
-        Mon, 01 Jan 2024 21:17:00 -0800 (PST)
-Received: from ?IPv6:2402:7500:5d5:d389:6cac:304c:13db:9f1b? ([2402:7500:5d5:d389:6cac:304c:13db:9f1b])
-        by smtp.gmail.com with ESMTPSA id iw19-20020a170903045300b001d077da4ac4sm21114907plb.212.2024.01.01.21.16.56
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 01 Jan 2024 21:16:59 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.7\))
-Subject: Re: [PATCH v3 00/12] RISC-V: provide some accelerated cryptography
- implementations using vector extensions
-From: Jerry Shih <jerry.shih@sifive.com>
-In-Reply-To: <20231230035112.GC770@quark.localdomain>
-Date: Tue, 2 Jan 2024 13:16:54 +0800
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- herbert@gondor.apana.org.au,
- davem@davemloft.net,
- conor.dooley@microchip.com,
- ardb@kernel.org,
- conor@kernel.org,
- heiko@sntech.de,
- phoebe.chen@sifive.com,
- hongrong.hsu@sifive.com,
- linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- linux-crypto@vger.kernel.org,
- Andy Chiu <andy.chiu@sifive.com>
-Message-Id: <EED7F0DA-5619-411B-82A2-7926155E9B73@sifive.com>
-References: <20231205092801.1335-1-jerry.shih@sifive.com>
- <20231222054827.GE52600@quark.localdomain>
- <20231230035112.GC770@quark.localdomain>
-To: Eric Biggers <ebiggers@kernel.org>
-X-Mailer: Apple Mail (2.3445.9.7)
+        d=1e100.net; s=20230601; t=1704173851; x=1704778651;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eCnGZSmn0Xbft/VvC3w27VmkfIRRQMc7XVfvoJNmfHo=;
+        b=DL9ISnVC14hgGa7pY4QgTXATE+w7gXeL+0T7yx2eHo4ZMBiiTPZFmJIHsxZKjotHc1
+         nswCq152jiUpEU+dXaxWNkHG/GcMmPxDG/+LhPqCwxkSUdYLbM8noFXm2IAhbDRKkwcW
+         8yeVsXH7POe4rJAyT9bc4dWas762Z/ZQoTrptrQsQxX5+vZxvuT1LROfYdWDBDZQT26g
+         mq5+7kTjijIflHV32LWMLhuhmUzmBsvlbz9bn5VWhOqFf3GmVkngZgtsyLFXY0Ic1wu7
+         izmtv/YeeTor/RsBpv8iMzz9NZGw6xZPKkXDYHUDI9KGWdtav0wziOqiha8OD/PSX8/t
+         Nvwg==
+X-Gm-Message-State: AOJu0YwH/OhpLKGh/yCuSbAKpXzawLob9BoYznJJjVKF1PcePeL3jEy4
+	Wc/20BIzMhtPNyaMpoxrV+Y/6n54OOetOQQVOS0qPa7PAKDspM8Fg8IPTlF5V5Jab1u4CfFMmJ9
+	J/0bYg+qKgtuYIiQ107BzNTusc5IxjnUdX5qX
+X-Received: by 2002:a17:902:ce86:b0:1d3:eecd:b296 with SMTP id f6-20020a170902ce8600b001d3eecdb296mr33590835plg.6.1704173851409;
+        Mon, 01 Jan 2024 21:37:31 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHENzr2M0aJyyZm2vt3XzuVCeWLevZs5IuWsUdjc1ZzU9FWxHr/jzg4D3MMktI1x4ptpcHyFg==
+X-Received: by 2002:a17:902:ce86:b0:1d3:eecd:b296 with SMTP id f6-20020a170902ce8600b001d3eecdb296mr33590810plg.6.1704173851161;
+        Mon, 01 Jan 2024 21:37:31 -0800 (PST)
+Received: from x1n ([43.228.180.230])
+        by smtp.gmail.com with ESMTPSA id v4-20020a17090331c400b001d49c0daf60sm6900347ple.265.2024.01.01.21.37.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Jan 2024 21:37:30 -0800 (PST)
+Date: Tue, 2 Jan 2024 13:37:14 +0800
+From: Peter Xu <peterx@redhat.com>
+To: Muchun Song <muchun.song@linux.dev>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	Matthew Wilcox <willy@infradead.org>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	David Hildenbrand <david@redhat.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Mike Kravetz <mike.kravetz@oracle.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Christoph Hellwig <hch@infradead.org>,
+	John Hubbard <jhubbard@nvidia.com>,
+	Andrew Jones <andrew.jones@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	"Kirill A . Shutemov" <kirill@shutemov.name>,
+	linuxppc-dev@lists.ozlabs.org, Rik van Riel <riel@surriel.com>,
+	linux-riscv@lists.infradead.org, Yang Shi <shy828301@gmail.com>,
+	James Houghton <jthoughton@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	Axel Rasmussen <axelrasmussen@google.com>
+Subject: Re: [PATCH 03/13] mm: Provide generic pmd_thp_or_huge()
+Message-ID: <ZZOhCuuozrBscdRC@x1n>
+References: <20231219075538.414708-1-peterx@redhat.com>
+ <20231219075538.414708-4-peterx@redhat.com>
+ <135b3189-f459-4b57-9861-bb8acb999d91@linux.dev>
+MIME-Version: 1.0
+In-Reply-To: <135b3189-f459-4b57-9861-bb8acb999d91@linux.dev>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240101_211702_008690_FD4375D8 
-X-CRM114-Status: GOOD (  18.24  )
+X-CRM114-CacheID: sfid-20240101_213737_902223_B8C4A4E9 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,45 +121,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Dec 30, 2023, at 11:51, Eric Biggers <ebiggers@kernel.org> wrote:
-> Hi Jerry,
-> On Thu, Dec 21, 2023 at 11:48:27PM -0600, Eric Biggers wrote:
->> Hi Jerry,
->> 
->> On Tue, Dec 05, 2023 at 05:27:49PM +0800, Jerry Shih wrote:
->>> Changelog v2:
->>> - Turn to use simd skcipher interface for AES-CBC/CTR/ECB/XTS and
->>>   Chacha20.
->> 
->> If I understand correctly, the RISC-V kernel-mode vector support now seems to be
->> heading down the path of supporting softirq context, as I had suggested
->> originally.  With patches 1-2 of Andy Chiu's latest patchset
->> "[v7, 00/10] riscv: support kernel-mode Vector"
->> (https://lore.kernel.org/linux-riscv/20231221134318.28105-1-andy.chiu@sifive.com).
->> applied, the kernel has basic support for kernel-mode vector, including in
->> softirq context.
->> 
->> With that being the case, "skcipher" algorithms can just use the RISC-V vector
->> unit unconditionally, given that skcipher only supports task and softirq
->> context.  Therefore, can you consider undoing your change that added fallbacks
->> using the simd helper (crypto/simd.c)?  Thanks!
->> 
+On Mon, Dec 25, 2023 at 02:29:53PM +0800, Muchun Song wrote:
+> > @@ -1355,6 +1355,10 @@ static inline int pmd_write(pmd_t pmd)
+> >   #endif /* pmd_write */
+> >   #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+> > +#ifndef pmd_thp_or_huge
 > 
-> I had a go at incorporating my suggestions into your patchset, and rebasing the
-> patchset onto riscv/for-next plus the first two patches of "[v9, 00/10] riscv:
-> support kernel-mode Vector".  You can get the result from branch "riscv-crypto"
-> of https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git.
-> Everything seems to work (tested in QEMU, as usual).
-> 
-> Please consider using it when you send out v4; thanks!  I can even send it out
-> myself, if you want, but I assume you're still "owning" the patchset.
-> 
-> - Eric
+> I think it may be the time to rename to pmd_thp_or_hugetlb,
+> the "huge" is really confusing. thp is not huge? Actually,
+> it is huge. It is better to make it more specific from now on, like
+> "hugetlb".
 
-Thank you. I sent the v4 patch.
-Link: https://lore.kernel.org/all/20231231152743.6304-1-jerry.shih@sifive.com/
+The rename will need to touch ARM code, which I wanted to avoid, see:
 
--Jerry
+arch/arm64/include/asm/pgtable.h:#define pmd_thp_or_huge(pmd)   (pmd_huge(pmd) || pmd_trans_huge(pmd))
+
+So far this series only touches generic code.  Would you mind I keep this
+patch as-is, and leave renaming to later?
+
+> 
+> BTW, please cc me via the new email (muchun.song@linux.dev) next edition.
+
+Sure.  Thanks for taking a look.
+
+-- 
+Peter Xu
+
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
