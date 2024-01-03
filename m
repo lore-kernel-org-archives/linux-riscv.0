@@ -4,91 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F3CC3DA6E
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 09:17:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E32EC3DA6E
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 09:31:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=loLDoczb37hqKpLf4yXmw9JzXfy/NcTaUlBKzDEl9GM=; b=uwh3Zmu4iPIk2D
-	2lfoL0CIZrTH8Uc3JJUUWF3qFcRcKZYKhvypN2OjkhxVghUWS5myGvfAz/DDqAZbQtiyDzU76EaG3
-	PiSHNbr3ZsNoux+hX2MOWejqaefobKZO4TxTw5N6RmA8xasquQulBtAxlAALnEnKnWr5h2V9oF9M5
-	urHylNmdeT5oanW8EKMotwEu7h4lxqXInwap14emkpIidv//+Bt1m7RrXDyeVM19UxKx1vv7eumnZ
-	hbqpQe077tl0zyqudkB0hGQhp5S7jHqpASFr/D/vJmdE6AN+TiwghQsX053HrN5j71RmMdHXnigqO
-	ZhxOO/cLtg/E5vUu/kIw==;
+	List-Owner; bh=mIaaieIJOJCteEZCEBtG/Wcpj6WYVPLNaNq9zvhVy1Y=; b=VwsRk3bYo8pq4K
+	wJ/GOvF/bRngYI6UrQ5PzemygEJCexKPCb7uH3xzgmLCII4m/bcBoeqS0gmrxOLnP3DbwXeefWOoL
+	s9hGEVcxSFXQH5Xp5dSeoM7tYytbBp9yZ1MkOMkN6rFGt1K0zRfoMvPcxwZhwjYnojXdJc45JXJrI
+	DGsl3XsM1le3/VFsBjetY1bFYbx9M7WGZ7wBCoLGCx9ewbrpJ+ytFllyRY8hJBhN7pw/DnjsTVphs
+	vg6Koahsr/3T62PTDDMV6g1ONhPcYI73V+208NSBi6EnrWz0ho/CD/q6qGVtHLQkZwkQI7zzo3nWn
+	1R8I/nNHoHZBhdRsZmYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKxNS-00ACv0-28;
-	Wed, 03 Jan 2024 09:17:30 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1rKxbJ-00AFfk-0i;
+	Wed, 03 Jan 2024 09:31:49 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKxNN-00ACoZ-11
+	id 1rKxbG-00AFet-0N
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jan 2024 09:17:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1704273444;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1p2LWjy53LBaoBTc753xtp3ZFESBZSj8dXlH3kmoDms=;
-	b=h2Elp76JoB00YEnBfZeweVMHl90lbHL7lhvSrUnozAwFAPUmQuJ54NJQgMBuFF16K42WTG
-	Y6T3JTO3Dlq0shUEZyBHPUr3jMJLioIJov9QIBJ6Q0vMZQ+x2VsACwmwPXLQoQh4PRWqz4
-	h0pZgYRUMb0/EpM0ksKxzNlq8mQvsiM=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-595-K7snBKXGMluKlA4u3ja1Zg-1; Wed, 03 Jan 2024 04:17:19 -0500
-X-MC-Unique: K7snBKXGMluKlA4u3ja1Zg-1
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 26F8783B86A;
-	Wed,  3 Jan 2024 09:17:18 +0000 (UTC)
-Received: from x1n.redhat.com (unknown [10.72.116.69])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 4404B492BE6;
-	Wed,  3 Jan 2024 09:17:05 +0000 (UTC)
-From: peterx@redhat.com
-To: linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Cc: James Houghton <jthoughton@google.com>,
-	David Hildenbrand <david@redhat.com>,
-	"Kirill A . Shutemov" <kirill@shutemov.name>,
-	Yang Shi <shy828301@gmail.com>,
-	peterx@redhat.com,
-	linux-riscv@lists.infradead.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Rik van Riel <riel@surriel.com>,
-	Andrea Arcangeli <aarcange@redhat.com>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	John Hubbard <jhubbard@nvidia.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Andrew Jones <andrew.jones@linux.dev>,
-	linuxppc-dev@lists.ozlabs.org,
-	Mike Kravetz <mike.kravetz@oracle.com>,
-	Muchun Song <muchun.song@linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	Lorenzo Stoakes <lstoakes@gmail.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: [PATCH v2 13/13] mm/gup: Handle hugetlb in the generic follow_page_mask code
-Date: Wed,  3 Jan 2024 17:14:23 +0800
-Message-ID: <20240103091423.400294-14-peterx@redhat.com>
-In-Reply-To: <20240103091423.400294-1-peterx@redhat.com>
-References: <20240103091423.400294-1-peterx@redhat.com>
+	Wed, 03 Jan 2024 09:31:48 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-33728f82a71so649445f8f.1
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Jan 2024 01:31:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1704274299; x=1704879099; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=l9uDezisEo7XMuHV8wwAXU0SFJzFSRTpyjItegN/kow=;
+        b=IBffoyPpStlks6hXqDBrZo7ghutANAooOiDw5T5Ko/lcz71nlz79KTgMEooBT/sVE7
+         hbIlJhWh6hkx0yyN1TLDgvx7YdZnFytyB/8Nm+xEop7Qz9SrUId2MtL18LT+gB/d5q/7
+         bZcYxubqCFxxo5AkYMc08dcItxOWyjuc7jl7pyPAEJ6j3dXDIetGciWu53FL8EYBvdiW
+         F2v4EysWXSHjY1VEdwioZwzMUjqway5Xrlfj/+HOlh2GJXQozWZF49NKz4AE+mi68Aa6
+         V4oqUfoNKAmde61UvgITNIthN28SWqkX2eD/s/qQq6HfYGVGQziWjrEbymvcgwmco4ly
+         foag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1704274299; x=1704879099;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=l9uDezisEo7XMuHV8wwAXU0SFJzFSRTpyjItegN/kow=;
+        b=YWVQlcWZikFIcoWonKvTlZYM+wkbgbaBMzAMNwpJj/0j6XK1Bjafca2oefynCZYhSf
+         X07B74nncrwL2Ze33aK1CmjPnndCmaftujCMTylp4b6fkZFbx0SAmeQkyA2e+0ZrImzd
+         0pKQERDITGVSMgXI7r6gd/zRac6H6JIy4NW6X8kk05/N+uFTWhbwjrtUxVOcJqO/TFCv
+         DMvGrnw6GI6JcC1ACd0bE1WaxA/aGi22s/UQnLgbJBJvTNqhEaDNZ9PsuFU3Ea3sCUBL
+         SQgSlmfl2vckXPy0eKSueHclWiaHtB1NQpoqRPVZwbvT3UQjXlIBDzpyCxdN5ize++e/
+         V4SQ==
+X-Gm-Message-State: AOJu0YzVHqTnzpaOx+c98k6DFXNRPnMIDzFf+2p4450TQ6q/OUHFZKsZ
+	XqDcZQaUA3lLmpdiilfmpZsuz+AeNFIqqQ==
+X-Google-Smtp-Source: AGHT+IFVbuWhDuB7pWxpAAjAafAMRBk4uSRXoyfpkcdql8o7BYqtqGOW9meffxeVI8BmE1VJLjrePg==
+X-Received: by 2002:adf:ed50:0:b0:337:476f:9964 with SMTP id u16-20020adfed50000000b00337476f9964mr2526039wro.3.1704274299396;
+        Wed, 03 Jan 2024 01:31:39 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:999:a3a0:3fe4:3880:d961:d4bf? ([2a01:e0a:999:a3a0:3fe4:3880:d961:d4bf])
+        by smtp.gmail.com with ESMTPSA id p9-20020adfcc89000000b003368100ff71sm30147851wrj.10.2024.01.03.01.31.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 03 Jan 2024 01:31:38 -0800 (PST)
+Message-ID: <6bce1adb-6808-40df-8dd7-b0b2c6031547@rivosinc.com>
+Date: Wed, 3 Jan 2024 10:31:37 +0100
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.10
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V2 1/3] riscv: Add Zicbop instruction definitions &
+ cpufeature
+Content-Language: en-US
+To: guoren@kernel.org
+References: <20231231082955.16516-1-guoren@kernel.org>
+ <20231231082955.16516-2-guoren@kernel.org>
+From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+In-Reply-To: <20231231082955.16516-2-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240103_011725_429174_073197E8 
-X-CRM114-Status: GOOD (  23.57  )
+X-CRM114-CacheID: sfid-20240103_013146_396713_C6F1E4D7 
+X-CRM114-Status: GOOD (  22.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,185 +88,136 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Guo Ren <guoren@linux.alibaba.com>, keescook@chromium.org, wefu@redhat.com, peterz@infradead.org, ajones@ventanamicro.com, unicorn_wang@outlook.com, atishp@atishpatra.org, chao.wei@sophgo.com, linux-kernel@vger.kernel.org, bjorn@rivosinc.com, xiaoguang.xing@sophgo.com, conor.dooley@microchip.com, leobras@redhat.com, palmer@dabbelt.com, jszhang@kernel.org, paul.walmsley@sifive.com, panqinglin2020@iscas.ac.cn, linux-riscv@lists.infradead.org, wuwei2016@iscas.ac.cn
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Peter Xu <peterx@redhat.com>
-
-Now follow_page() is ready to handle hugetlb pages in whatever form, and
-over all architectures.  Switch to the generic code path.
-
-Time to retire hugetlb_follow_page_mask(), following the previous
-retirement of follow_hugetlb_page() in 4849807114b8.
-
-There may be a slight difference of how the loops run when processing slow
-GUP over a large hugetlb range on cont_pte/cont_pmd supported archs: each
-loop of __get_user_pages() will resolve one pgtable entry with the patch
-applied, rather than relying on the size of hugetlb hstate, the latter may
-cover multiple entries in one loop.
-
-A quick performance test on an aarch64 VM on M1 chip shows 15% degrade over
-a tight loop of slow gup after the path switched.  That shouldn't be a
-problem because slow-gup should not be a hot path for GUP in general: when
-page is commonly present, fast-gup will already succeed, while when the
-page is indeed missing and require a follow up page fault, the slow gup
-degrade will probably buried in the fault paths anyway.  It also explains
-why slow gup for THP used to be very slow before 57edfcfd3419 ("mm/gup:
-accelerate thp gup even for "pages != NULL"") lands, the latter not part of
-a performance analysis but a side benefit.  If the performance will be a
-concern, we can consider handle CONT_PTE in follow_page().
-
-Before that is justified to be necessary, keep everything clean and simple.
-
-Signed-off-by: Peter Xu <peterx@redhat.com>
----
- include/linux/hugetlb.h |  7 ----
- mm/gup.c                | 15 +++------
- mm/hugetlb.c            | 71 -----------------------------------------
- 3 files changed, 5 insertions(+), 88 deletions(-)
-
-diff --git a/include/linux/hugetlb.h b/include/linux/hugetlb.h
-index e8eddd51fc17..cdbb53407722 100644
---- a/include/linux/hugetlb.h
-+++ b/include/linux/hugetlb.h
-@@ -332,13 +332,6 @@ static inline void hugetlb_zap_end(
- {
- }
- 
--static inline struct page *hugetlb_follow_page_mask(
--    struct vm_area_struct *vma, unsigned long address, unsigned int flags,
--    unsigned int *page_mask)
--{
--	BUILD_BUG(); /* should never be compiled in if !CONFIG_HUGETLB_PAGE*/
--}
--
- static inline int copy_hugetlb_page_range(struct mm_struct *dst,
- 					  struct mm_struct *src,
- 					  struct vm_area_struct *dst_vma,
-diff --git a/mm/gup.c b/mm/gup.c
-index 245214b64108..4f8a3dc287c9 100644
---- a/mm/gup.c
-+++ b/mm/gup.c
-@@ -997,18 +997,11 @@ static struct page *follow_page_mask(struct vm_area_struct *vma,
- {
- 	pgd_t *pgd, pgdval;
- 	struct mm_struct *mm = vma->vm_mm;
-+	struct page *page;
- 
--	ctx->page_mask = 0;
--
--	/*
--	 * Call hugetlb_follow_page_mask for hugetlb vmas as it will use
--	 * special hugetlb page table walking code.  This eliminates the
--	 * need to check for hugetlb entries in the general walking code.
--	 */
--	if (is_vm_hugetlb_page(vma))
--		return hugetlb_follow_page_mask(vma, address, flags,
--						&ctx->page_mask);
-+	vma_pgtable_walk_begin(vma);
- 
-+	ctx->page_mask = 0;
- 	pgd = pgd_offset(mm, address);
- 	pgdval = *pgd;
- 
-@@ -1020,6 +1013,8 @@ static struct page *follow_page_mask(struct vm_area_struct *vma,
- 	else
- 		page = follow_p4d_mask(vma, address, pgd, flags, ctx);
- 
-+	vma_pgtable_walk_end(vma);
-+
- 	return page;
- }
- 
-diff --git a/mm/hugetlb.c b/mm/hugetlb.c
-index bfb52bb8b943..e13b4e038c2c 100644
---- a/mm/hugetlb.c
-+++ b/mm/hugetlb.c
-@@ -6782,77 +6782,6 @@ int hugetlb_mfill_atomic_pte(pte_t *dst_pte,
- }
- #endif /* CONFIG_USERFAULTFD */
- 
--struct page *hugetlb_follow_page_mask(struct vm_area_struct *vma,
--				      unsigned long address, unsigned int flags,
--				      unsigned int *page_mask)
--{
--	struct hstate *h = hstate_vma(vma);
--	struct mm_struct *mm = vma->vm_mm;
--	unsigned long haddr = address & huge_page_mask(h);
--	struct page *page = NULL;
--	spinlock_t *ptl;
--	pte_t *pte, entry;
--	int ret;
--
--	hugetlb_vma_lock_read(vma);
--	pte = hugetlb_walk(vma, haddr, huge_page_size(h));
--	if (!pte)
--		goto out_unlock;
--
--	ptl = huge_pte_lock(h, mm, pte);
--	entry = huge_ptep_get(pte);
--	if (pte_present(entry)) {
--		page = pte_page(entry);
--
--		if (!huge_pte_write(entry)) {
--			if (flags & FOLL_WRITE) {
--				page = NULL;
--				goto out;
--			}
--
--			if (gup_must_unshare(vma, flags, page)) {
--				/* Tell the caller to do unsharing */
--				page = ERR_PTR(-EMLINK);
--				goto out;
--			}
--		}
--
--		page = nth_page(page, ((address & ~huge_page_mask(h)) >> PAGE_SHIFT));
--
--		/*
--		 * Note that page may be a sub-page, and with vmemmap
--		 * optimizations the page struct may be read only.
--		 * try_grab_page() will increase the ref count on the
--		 * head page, so this will be OK.
--		 *
--		 * try_grab_page() should always be able to get the page here,
--		 * because we hold the ptl lock and have verified pte_present().
--		 */
--		ret = try_grab_page(page, flags);
--
--		if (WARN_ON_ONCE(ret)) {
--			page = ERR_PTR(ret);
--			goto out;
--		}
--
--		*page_mask = (1U << huge_page_order(h)) - 1;
--	}
--out:
--	spin_unlock(ptl);
--out_unlock:
--	hugetlb_vma_unlock_read(vma);
--
--	/*
--	 * Fixup retval for dump requests: if pagecache doesn't exist,
--	 * don't try to allocate a new page but just skip it.
--	 */
--	if (!page && (flags & FOLL_DUMP) &&
--	    !hugetlbfs_pagecache_present(h, vma, address))
--		page = ERR_PTR(-EFAULT);
--
--	return page;
--}
--
- long hugetlb_change_protection(struct vm_area_struct *vma,
- 		unsigned long address, unsigned long end,
- 		pgprot_t newprot, unsigned long cp_flags)
--- 
-2.41.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAzMS8xMi8yMDIzIDA5OjI5LCBndW9yZW5Aa2VybmVsLm9yZyB3cm90ZToKPiBGcm9tOiBH
+dW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4gCj4gQ2FjaGUtYmxvY2sgcHJlZmV0
+Y2ggaW5zdHJ1Y3Rpb25zIGFyZSBISU5UcyB0byB0aGUgaGFyZHdhcmUgdG8KPiBpbmRpY2F0ZSB0
+aGF0IHNvZnR3YXJlIGludGVuZHMgdG8gcGVyZm9ybSBhIHBhcnRpY3VsYXIgdHlwZSBvZgo+IG1l
+bW9yeSBhY2Nlc3MgaW4gdGhlIG5lYXIgZnV0dXJlLiBUaGlzIHBhdGNoIGFkZHMgcHJlZmV0Y2gu
+aSwKPiBwcmVmZXRjaC5yIGFuZCBwcmVmZXRjaC53IGluc3RydWN0aW9uIGRlZmluaXRpb25zIGJ5
+Cj4gUklTQ1ZfSVNBX0VYVF9aSUNCT1AgY3B1ZmVhdHVyZS4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBH
+dW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4gU2lnbmVkLW9mZi1ieTogR3VvIFJl
+biA8Z3VvcmVuQGtlcm5lbC5vcmc+Cj4gLS0tCj4gIGFyY2gvcmlzY3YvS2NvbmZpZyAgICAgICAg
+ICAgICAgICB8IDE1ICsrKysrKysrCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaCAg
+ICB8ICAxICsKPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9pbnNuLWRlZi5oIHwgNjAgKysrKysr
+KysrKysrKysrKysrKysrKysrKysrKysrKwo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJl
+LmMgICAgfCAgMSArCj4gIDQgZmlsZXMgY2hhbmdlZCwgNzcgaW5zZXJ0aW9ucygrKQo+IAo+IGRp
+ZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiBpbmRl
+eCAyNGMxNzk5ZTJlYzQuLmZjYmQ0MTdkNjVlYSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L0tj
+b25maWcKPiArKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiBAQCAtNTc5LDYgKzU3OSwyMSBAQCBj
+b25maWcgUklTQ1ZfSVNBX1pJQ0JPWgo+ICAKPiAgCSAgIElmIHlvdSBkb24ndCBrbm93IHdoYXQg
+dG8gZG8gaGVyZSwgc2F5IFkuCj4gIAo+ICtjb25maWcgUklTQ1ZfSVNBX1pJQ0JPUAo+ICsJYm9v
+bCAiWmljYm9wIGV4dGVuc2lvbiBzdXBwb3J0IGZvciBjYWNoZSBibG9jayBwcmVmZXRjaCIKPiAr
+CWRlcGVuZHMgb24gTU1VCj4gKwlkZXBlbmRzIG9uIFJJU0NWX0FMVEVSTkFUSVZFCj4gKwlkZWZh
+dWx0IHkKPiArCWhlbHAKPiArCSAgQWRkcyBzdXBwb3J0IHRvIGR5bmFtaWNhbGx5IGRldGVjdCB0
+aGUgcHJlc2VuY2Ugb2YgdGhlIFpJQ0JPUAo+ICsJICBleHRlbnNpb24gKENhY2hlIEJsb2NrIFBy
+ZWZldGNoIE9wZXJhdGlvbnMpIGFuZCBlbmFibGUgaXRzCj4gKwkgIHVzYWdlLgo+ICsKPiArCSAg
+VGhlIFppY2JvcCBleHRlbnNpb24gY2FuIGJlIHVzZWQgdG8gcHJlZmV0Y2ggY2FjaGUgYmxvY2sg
+Zm9yCj4gKwkgIHJlYWQvd3JpdGUgZmV0Y2guCj4gKwo+ICsJICBJZiB5b3UgZG9uJ3Qga25vdyB3
+aGF0IHRvIGRvIGhlcmUsIHNheSBZLgo+ICsKPiAgY29uZmlnIFRPT0xDSEFJTl9IQVNfWklISU5U
+UEFVU0UKPiAgCWJvb2wKPiAgCWRlZmF1bHQgeQo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2lu
+Y2x1ZGUvYXNtL2h3Y2FwLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmgKPiBpbmRl
+eCAwNmQzMDUyNmVmM2IuLjc3ZDNiNmVlMjVhYiAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2lu
+Y2x1ZGUvYXNtL2h3Y2FwLmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmgK
+PiBAQCAtNTcsNiArNTcsNyBAQAo+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWklIUE0JCTQyCj4g
+ICNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9TTVNUQVRFRU4JCTQzCj4gICNkZWZpbmUgUklTQ1ZfSVNB
+X0VYVF9aSUNPTkQJCTQ0Cj4gKyNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9aSUNCT1AJCTQ1CgpIaSBH
+dW8sCgpTaW5jZSB5b3UgYXJlIGFkZGluZyBzdXBwb3J0IGZvciB0aGUgWmljYm9wIGV4dGVuc2lv
+biwgeW91IGNvdWxkCnByb2JhYmx5IGFsc28gYWxsb3cgdG8gcHJvYmUgaXQgZnJvbSB1c2Vyc3Bh
+Y2UgdXNpbmcgaHdwcm9iZS4gQWRkIGEgZmV3CmRlZmluaXRpb25zIHRvIHN5c19yaXNjdi5jL2h3
+cHJvYmUuaCBhbmQgaXQgd2lsbCBiZSBmaW5lLgoKVGhhbmtzLAoKQ2zDqW1lbnQKCj4gIAo+ICAj
+ZGVmaW5lIFJJU0NWX0lTQV9FWFRfTUFYCQk2NAo+ICAKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNj
+di9pbmNsdWRlL2FzbS9pbnNuLWRlZi5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9pbnNuLWRl
+Zi5oCj4gaW5kZXggZTI3MTc5YjI2MDg2Li5iYmRhMzUwYTYzYmYgMTAwNjQ0Cj4gLS0tIGEvYXJj
+aC9yaXNjdi9pbmNsdWRlL2FzbS9pbnNuLWRlZi5oCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS9pbnNuLWRlZi5oCj4gQEAgLTE4LDYgKzE4LDEzIEBACj4gICNkZWZpbmUgSU5TTl9JX1JE
+X1NISUZUCQkJIDcKPiAgI2RlZmluZSBJTlNOX0lfT1BDT0RFX1NISUZUCQkgMAo+ICAKPiArI2Rl
+ZmluZSBJTlNOX1NfU0lNTTdfU0hJRlQJCTI1Cj4gKyNkZWZpbmUgSU5TTl9TX1JTMl9TSElGVAkJ
+MjAKPiArI2RlZmluZSBJTlNOX1NfUlMxX1NISUZUCQkxNQo+ICsjZGVmaW5lIElOU05fU19GVU5D
+M19TSElGVAkJMTIKPiArI2RlZmluZSBJTlNOX1NfU0lNTTVfU0hJRlQJCSA3Cj4gKyNkZWZpbmUg
+SU5TTl9TX09QQ09ERV9TSElGVAkJIDAKPiArCj4gICNpZmRlZiBfX0FTU0VNQkxZX18KPiAgCj4g
+ICNpZmRlZiBDT05GSUdfQVNfSEFTX0lOU04KPiBAQCAtMzAsNiArMzcsMTAgQEAKPiAgCS5pbnNu
+CWkgXG9wY29kZSwgXGZ1bmMzLCBccmQsIFxyczEsIFxzaW1tMTIKPiAgCS5lbmRtCj4gIAo+ICsJ
+Lm1hY3JvIGluc25fcywgb3Bjb2RlLCBmdW5jMywgcnMyLCBzaW1tMTIsIHJzMQo+ICsJLmluc24J
+cyBcb3Bjb2RlLCBcZnVuYzMsIFxyczIsIFxzaW1tMTIoXHJzMSkKPiArCS5lbmRtCj4gKwo+ICAj
+ZWxzZQo+ICAKPiAgI2luY2x1ZGUgPGFzbS9ncHItbnVtLmg+Cj4gQEAgLTUxLDEwICs2MiwyMCBA
+QAo+ICAJCSAoXHNpbW0xMiA8PCBJTlNOX0lfU0lNTTEyX1NISUZUKSkKPiAgCS5lbmRtCj4gIAo+
+ICsJLm1hY3JvIGluc25fcywgb3Bjb2RlLCBmdW5jMywgcnMyLCBzaW1tMTIsIHJzMQo+ICsJLjRi
+eXRlCSgoXG9wY29kZSA8PCBJTlNOX1NfT1BDT0RFX1NISUZUKSB8CQlcCj4gKwkJIChcZnVuYzMg
+PDwgSU5TTl9TX0ZVTkMzX1NISUZUKSB8CQlcCj4gKwkJICguTF9fZ3ByX251bV9ccnMyIDw8IElO
+U05fU19SUzJfU0hJRlQpIHwJXAo+ICsJCSAoLkxfX2dwcl9udW1fXHJzMSA8PCBJTlNOX1NfUlMx
+X1NISUZUKSB8CVwKPiArCQkgKChcc2ltbTEyICYgMHgxZikgPDwgSU5TTl9TX1NJTU01X1NISUZU
+KSB8CVwKPiArCQkgKCgoXHNpbW0xMiA+PiA1KSAmIDB4N2YpIDw8IElOU05fU19TSU1NN19TSElG
+VCkpCj4gKwkuZW5kbQo+ICsKPiAgI2VuZGlmCj4gIAo+ICAjZGVmaW5lIF9fSU5TTl9SKC4uLikJ
+aW5zbl9yIF9fVkFfQVJHU19fCj4gICNkZWZpbmUgX19JTlNOX0koLi4uKQlpbnNuX2kgX19WQV9B
+UkdTX18KPiArI2RlZmluZSBfX0lOU05fUyguLi4pCWluc25fcyBfX1ZBX0FSR1NfXwo+ICAKPiAg
+I2Vsc2UgLyogISBfX0FTU0VNQkxZX18gKi8KPiAgCj4gQEAgLTY2LDYgKzg3LDkgQEAKPiAgI2Rl
+ZmluZSBfX0lOU05fSShvcGNvZGUsIGZ1bmMzLCByZCwgcnMxLCBzaW1tMTIpCVwKPiAgCSIuaW5z
+bglpICIgb3Bjb2RlICIsICIgZnVuYzMgIiwgIiByZCAiLCAiIHJzMSAiLCAiIHNpbW0xMiAiXG4i
+Cj4gIAo+ICsjZGVmaW5lIF9fSU5TTl9TKG9wY29kZSwgZnVuYzMsIHJzMiwgc2ltbTEyLCByczEp
+CVwKPiArCSIuaW5zbglzICIgb3Bjb2RlICIsICIgZnVuYzMgIiwgIiByczIgIiwgIiBzaW1tMTIg
+IigiIHJzMSAiKVxuIgo+ICsKPiAgI2Vsc2UKPiAgCj4gICNpbmNsdWRlIDxsaW51eC9zdHJpbmdp
+ZnkuaD4KPiBAQCAtOTIsMTIgKzExNiwyNiBAQAo+ICAiCQkgKFxcc2ltbTEyIDw8ICIgX19zdHJp
+bmdpZnkoSU5TTl9JX1NJTU0xMl9TSElGVCkgIikpXG4iCVwKPiAgIgkuZW5kbVxuIgo+ICAKPiAr
+I2RlZmluZSBERUZJTkVfSU5TTl9TCQkJCQkJCVwKPiArCV9fREVGSU5FX0FTTV9HUFJfTlVNUwkJ
+CQkJCVwKPiArIgkubWFjcm8gaW5zbl9zLCBvcGNvZGUsIGZ1bmMzLCByczIsIHNpbW0xMiwgcnMx
+XG4iCQlcCj4gKyIJLjRieXRlCSgoXFxvcGNvZGUgPDwgIiBfX3N0cmluZ2lmeShJTlNOX1NfT1BD
+T0RFX1NISUZUKSAiKSB8IglcCj4gKyIJCSAoXFxmdW5jMyA8PCAiIF9fc3RyaW5naWZ5KElOU05f
+U19GVU5DM19TSElGVCkgIikgfCIJXAo+ICsiCQkgKC5MX19ncHJfbnVtX1xccnMyIDw8ICIgX19z
+dHJpbmdpZnkoSU5TTl9TX1JTMl9TSElGVCkgIikgfCIgXAo+ICsiCQkgKC5MX19ncHJfbnVtX1xc
+cnMxIDw8ICIgX19zdHJpbmdpZnkoSU5TTl9TX1JTMV9TSElGVCkgIikgfCIgXAo+ICsiCQkgKChc
+XHNpbW0xMiAmIDB4MWYpIDw8ICIgX19zdHJpbmdpZnkoSU5TTl9TX1NJTU01X1NISUZUKSAiKSB8
+IiBcCj4gKyIJCSAoKChcXHNpbW0xMiA+PiA1KSAmIDB4N2YpIDw8ICIgX19zdHJpbmdpZnkoSU5T
+Tl9TX1NJTU03X1NISUZUKSAiKSlcbiIgXAo+ICsiCS5lbmRtXG4iCj4gKwo+ICAjZGVmaW5lIFVO
+REVGSU5FX0lOU05fUgkJCQkJCQlcCj4gICIJLnB1cmdlbSBpbnNuX3JcbiIKPiAgCj4gICNkZWZp
+bmUgVU5ERUZJTkVfSU5TTl9JCQkJCQkJCVwKPiAgIgkucHVyZ2VtIGluc25faVxuIgo+ICAKPiAr
+I2RlZmluZSBVTkRFRklORV9JTlNOX1MJCQkJCQkJXAo+ICsiCS5wdXJnZW0gaW5zbl9zXG4iCj4g
+Kwo+ICAjZGVmaW5lIF9fSU5TTl9SKG9wY29kZSwgZnVuYzMsIGZ1bmM3LCByZCwgcnMxLCByczIp
+CQkJXAo+ICAJREVGSU5FX0lOU05fUgkJCQkJCQlcCj4gIAkiaW5zbl9yICIgb3Bjb2RlICIsICIg
+ZnVuYzMgIiwgIiBmdW5jNyAiLCAiIHJkICIsICIgcnMxICIsICIgcnMyICJcbiIgXAo+IEBAIC0x
+MDgsNiArMTQ2LDExIEBACj4gIAkiaW5zbl9pICIgb3Bjb2RlICIsICIgZnVuYzMgIiwgIiByZCAi
+LCAiIHJzMSAiLCAiIHNpbW0xMiAiXG4iIFwKPiAgCVVOREVGSU5FX0lOU05fSQo+ICAKPiArI2Rl
+ZmluZSBfX0lOU05fUyhvcGNvZGUsIGZ1bmMzLCByczIsIHNpbW0xMiwgcnMxKQkJCVwKPiArCURF
+RklORV9JTlNOX1MJCQkJCQkJXAo+ICsJImluc25fcyAiIG9wY29kZSAiLCAiIGZ1bmMzICIsICIg
+cnMyICIsICIgc2ltbTEyICIsICIgcnMxICJcbiIJXAo+ICsJVU5ERUZJTkVfSU5TTl9TCj4gKwo+
+ICAjZW5kaWYKPiAgCj4gICNlbmRpZiAvKiAhIF9fQVNTRU1CTFlfXyAqLwo+IEBAIC0xMjAsNiAr
+MTYzLDEwIEBACj4gIAlfX0lOU05fSShSVl8jI29wY29kZSwgUlZfIyNmdW5jMywgUlZfIyNyZCwJ
+CVwKPiAgCQkgUlZfIyNyczEsIFJWXyMjc2ltbTEyKQo+ICAKPiArI2RlZmluZSBJTlNOX1Mob3Bj
+b2RlLCBmdW5jMywgcnMyLCBzaW1tMTIsIHJzMSkJCQlcCj4gKwlfX0lOU05fUyhSVl8jI29wY29k
+ZSwgUlZfIyNmdW5jMywgUlZfIyNyczIsCQlcCj4gKwkJIFJWXyMjc2ltbTEyLCBSVl8jI3JzMSkK
+PiArCj4gICNkZWZpbmUgUlZfT1BDT0RFKHYpCQlfX0FTTV9TVFIodikKPiAgI2RlZmluZSBSVl9G
+VU5DMyh2KQkJX19BU01fU1RSKHYpCj4gICNkZWZpbmUgUlZfRlVOQzcodikJCV9fQVNNX1NUUih2
+KQo+IEBAIC0xMzMsNiArMTgwLDcgQEAKPiAgI2RlZmluZSBSVl9fX1JTMih2KQkJX19SVl9SRUco
+dikKPiAgCj4gICNkZWZpbmUgUlZfT1BDT0RFX01JU0NfTUVNCVJWX09QQ09ERSgxNSkKPiArI2Rl
+ZmluZSBSVl9PUENPREVfT1BfSU1NCVJWX09QQ09ERSgxOSkKPiAgI2RlZmluZSBSVl9PUENPREVf
+U1lTVEVNCVJWX09QQ09ERSgxMTUpCj4gIAo+ICAjZGVmaW5lIEhGRU5DRV9WVk1BKHZhZGRyLCBh
+c2lkKQkJCQlcCj4gQEAgLTE5Niw0ICsyNDQsMTYgQEAKPiAgCUlOU05fSShPUENPREVfTUlTQ19N
+RU0sIEZVTkMzKDIpLCBfX1JEKDApLAkJXAo+ICAJICAgICAgIFJTMShiYXNlKSwgU0lNTTEyKDQp
+KQo+ICAKPiArI2RlZmluZSBDQk9fUFJFRkVUQ0hfSShiYXNlLCBvZmZzZXQpCQkJCVwKPiArCUlO
+U05fUyhPUENPREVfT1BfSU1NLCBGVU5DMyg2KSwgX19SUzIoMCksCQlcCj4gKwkgICAgICAgU0lN
+TTEyKG9mZnNldCksIFJTMShiYXNlKSkKPiArCj4gKyNkZWZpbmUgQ0JPX1BSRUZFVENIX1IoYmFz
+ZSwgb2Zmc2V0KQkJCQlcCj4gKwlJTlNOX1MoT1BDT0RFX09QX0lNTSwgRlVOQzMoNiksIF9fUlMy
+KDEpLAkJXAo+ICsJICAgICAgIFNJTU0xMihvZmZzZXQpLCBSUzEoYmFzZSkpCj4gKwo+ICsjZGVm
+aW5lIENCT19QUkVGRVRDSF9XKGJhc2UsIG9mZnNldCkJCQkJXAo+ICsJSU5TTl9TKE9QQ09ERV9P
+UF9JTU0sIEZVTkMzKDYpLCBfX1JTMigzKSwJCVwKPiArCSAgICAgICBTSU1NMTIob2Zmc2V0KSwg
+UlMxKGJhc2UpKQo+ICsKPiAgI2VuZGlmIC8qIF9fQVNNX0lOU05fREVGX0ggKi8KPiBkaWZmIC0t
+Z2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwv
+Y3B1ZmVhdHVyZS5jCj4gaW5kZXggYjM3ODVmZmMxNTcwLi5iZGIwMmIwNjYwNDEgMTAwNjQ0Cj4g
+LS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jCj4gKysrIGIvYXJjaC9yaXNjdi9r
+ZXJuZWwvY3B1ZmVhdHVyZS5jCj4gQEAgLTE2OCw2ICsxNjgsNyBAQCBjb25zdCBzdHJ1Y3Qgcmlz
+Y3ZfaXNhX2V4dF9kYXRhIHJpc2N2X2lzYV9leHRbXSA9IHsKPiAgCV9fUklTQ1ZfSVNBX0VYVF9E
+QVRBKGgsIFJJU0NWX0lTQV9FWFRfaCksCj4gIAlfX1JJU0NWX0lTQV9FWFRfREFUQSh6aWNib20s
+IFJJU0NWX0lTQV9FWFRfWklDQk9NKSwKPiAgCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHppY2Jveiwg
+UklTQ1ZfSVNBX0VYVF9aSUNCT1opLAo+ICsJX19SSVNDVl9JU0FfRVhUX0RBVEEoemljYm9wLCBS
+SVNDVl9JU0FfRVhUX1pJQ0JPUCksCj4gIAlfX1JJU0NWX0lTQV9FWFRfREFUQSh6aWNudHIsIFJJ
+U0NWX0lTQV9FWFRfWklDTlRSKSwKPiAgCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHppY29uZCwgUklT
+Q1ZfSVNBX0VYVF9aSUNPTkQpLAo+ICAJX19SSVNDVl9JU0FfRVhUX0RBVEEoemljc3IsIFJJU0NW
+X0lTQV9FWFRfWklDU1IpLAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
