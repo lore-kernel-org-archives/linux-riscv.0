@@ -4,75 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97156C3DA6E
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 09:47:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4716C3DA6E
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 11:10:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rdV5zudzuKJQDphh5AR+OdHO0RklmelJpC3BFhJuNTo=; b=N6yCnaPGBq8eMq
-	73Xor1uhfZETl+PHSnL0lAlr5/g0Fr6b1HZOaMVbM5ftgoHjPp1akOLYSXGMpYCv6mEhUpBHrey8V
-	egvektBZjyETL5wfQiCmFT4RQF/44vOu07p0uM5d6n/VKiadQEO2UheQ2gw38abfl2UnjM/r0eKd8
-	usa/lS/3HsoQTjkxgjMlSHlfq4CRhCh47MUNMHxFhTw7eiOeB7dPE18My2tqgGoF7iRLfrJzrAYeF
-	0QKlfqeflJ1PCMYh193w/QqZxGwGR6DFKrnG5lAU3NkZlXiw8uyTSVkhTbYeC/O79U/HIHCl8oXpB
-	XcPN3L498DGHFimEoesQ==;
+	List-Owner; bh=VdAy6FM2ZunaGf9a6dqdyN4oTPpX7OhW6s4TSQZXUu8=; b=2DeI5qrRLT/a+m
+	KdjSsc0i3bx9b8lKtdtCa9qWKtNjzw4rJE3GZGTHmnz3x2mcWe1E5eaykqCJcJtweCFg5n9jeDLpP
+	oUWjLYqThK7nBJF/sB67qKPsBW0gzyh1EYYXPIz+7UKsedhK2YiG+9iLx0wMPhTS/5CTrHfmnUjJJ
+	Y+G5gs8K4z2n+NCOEdR5I1KjqlGbBDXJwaxPVqJ/Ub8s12vrG+lZ00z+wQqPUeGUN+nuRW1mWb2Sn
+	80JVfuK7Tqnq1SyJpTV27l5o0CxsgRNpCRudQSMLC3Zw5f5acVzlwZGmP7ioGLjmr6KSyKfSeEaAU
+	9/5Cs9GOYvn0imupzwTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKxpu-00AGz4-0p;
-	Wed, 03 Jan 2024 09:46:54 +0000
-Received: from mail-yb1-f171.google.com ([209.85.219.171])
+	id 1rKz92-00ATlF-0M;
+	Wed, 03 Jan 2024 11:10:44 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKxpq-00AGxj-1o;
-	Wed, 03 Jan 2024 09:46:52 +0000
-Received: by mail-yb1-f171.google.com with SMTP id 3f1490d57ef6-dbdc7ff087fso6186548276.2;
-        Wed, 03 Jan 2024 01:46:49 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704275208; x=1704880008;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ihhhQFZaZR4+J27tLwPbBpD9wwAmji8BYJHqOMirIeI=;
-        b=WEDgFhFpQFiFAkAuLvhIDJlUDXVkf0THLmNP6cLFcunkPLNx4zgr7+SCCI1W6Nzthp
-         F6mn5GRjCE1WhIc3oTs0NKNi3rrPrtBrPA049w40xn7BK46QqZ/IsddelduNmqqsarjH
-         I/CZlP9NSvqTS5S+O13pBcPCbtktPhmkFXDU3YanH2o2rpqQzILIXVaDOr0xWGn2iXut
-         zhGXs4zlkItSJF2ZnElmy7CwLZbHmV72prni43Rcauf9S66QNaceDie0jvCISsZU3kHI
-         6/2p+Yc1M9ndj8oRf51LKBsrH527lDLCRyy0KgoW4lHgjZMxHdkr7d+oi0zOFRePcdQy
-         9Cag==
-X-Gm-Message-State: AOJu0Yzpp0Sde5be5iJ1IMgKtB8uEqLqaZIC0zZLKRKciE6Cnlk6FZo1
-	tA3y5qrwKxunV0SF3bkFHBtRwlcxCZEJJA==
-X-Google-Smtp-Source: AGHT+IGNEFVgcVJxzTaUXxL0lU/ZrASQZE03FC7E3cUA2ymTdRlaZVCA9ZDCyEDBp+RLsYN1FpANug==
-X-Received: by 2002:a25:f802:0:b0:db7:dacf:6ff6 with SMTP id u2-20020a25f802000000b00db7dacf6ff6mr8861710ybd.126.1704275208426;
-        Wed, 03 Jan 2024 01:46:48 -0800 (PST)
-Received: from mail-yw1-f177.google.com (mail-yw1-f177.google.com. [209.85.128.177])
-        by smtp.gmail.com with ESMTPSA id d11-20020a25eb0b000000b00dbcbfccfcc5sm10506884ybs.5.2024.01.03.01.46.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 03 Jan 2024 01:46:47 -0800 (PST)
-Received: by mail-yw1-f177.google.com with SMTP id 00721157ae682-5f3da7ba2bfso12035217b3.3;
-        Wed, 03 Jan 2024 01:46:47 -0800 (PST)
-X-Received: by 2002:a81:80c1:0:b0:5e8:6aba:9d18 with SMTP id
- q184-20020a8180c1000000b005e86aba9d18mr14346275ywf.35.1704275207623; Wed, 03
- Jan 2024 01:46:47 -0800 (PST)
+	id 1rKz8y-00ATkc-11
+	for linux-riscv@lists.infradead.org;
+	Wed, 03 Jan 2024 11:10:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id 16EEAB8109A;
+	Wed,  3 Jan 2024 11:10:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49CB0C433C7;
+	Wed,  3 Jan 2024 11:10:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1704280237;
+	bh=vLoZYtFxzJ2+K06nFXKmnrlfGz1y0ecWX2UzGR9hwI0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ojFX72Sr1iuIEWNfq3+EibKDiSiBnB0uCNBpToafuraSESQqXMB+/6mIiVmfCbYMJ
+	 MXgdHSsj8YdOK7mgWpGy9zLQKvERKCKJYAmEsPlTzWR0ba/BKoy6zfQY44+Hp3n7mV
+	 zWPJFNAPPrPuafzz/gevLPHy9sMqcJFPqmoQpFBI5ZOm4qXmwC2VO9+VHTdxlPY8v7
+	 U0Qg1BTheOHUKbHAzHtTlYMau0be/H8DUIWofJ4txtePgtJDooJLY04zGDh7lpXaTo
+	 EuRrbNBl4hadcG2hE4SX9IvGcXrc5NCQjfL8eJS8lEgNZAjolL3JWsL/Rp/QjXVTHr
+	 t/Pt1u9GaJWAw==
+Date: Wed, 3 Jan 2024 18:57:55 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: Add support for BATCHED_UNMAP_TLB_FLUSH
+Message-ID: <ZZU9s7iHDTBD39C0@xhacker>
+References: <20240102141851.105144-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-References: <20240103015240.1065284-1-pvorel@suse.cz>
-In-Reply-To: <20240103015240.1065284-1-pvorel@suse.cz>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 3 Jan 2024 10:46:36 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXGwyS-CL0vLdUP4Z4YEYhmcmDyC3YdGCnS=jFkqASqvw@mail.gmail.com>
-Message-ID: <CAMuHMdXGwyS-CL0vLdUP4Z4YEYhmcmDyC3YdGCnS=jFkqASqvw@mail.gmail.com>
-Subject: Re: [PATCH 00/36] Remove UCLINUX from LTP
-To: Petr Vorel <pvorel@suse.cz>
-Cc: ltp@lists.linux.it, Cyril Hrubis <chrubis@suse.cz>, Li Wang <liwang@redhat.com>, 
-	Andrea Cervesato <andrea.cervesato@suse.com>, Greg Ungerer <gerg@linux-m68k.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Christophe Lyon <christophe.lyon@linaro.org>, 
-	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, Linux-sh list <linux-sh@vger.kernel.org>
+Content-Disposition: inline
+In-Reply-To: <20240102141851.105144-1-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240103_014650_623012_6175B4AF 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20240103_031040_696888_9D582C60 
+X-CRM114-Status: GOOD (  30.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,34 +69,261 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUGV0ciwKCkNDIG90aGVyIHVDbGludXggYXJjaCBsaXN0cwoKT24gV2VkLCBKYW4gMywgMjAy
-NCBhdCAyOjUy4oCvQU0gUGV0ciBWb3JlbCA8cHZvcmVsQHN1c2UuY3o+IHdyb3RlOgo+IFVDTElO
-VVggaXMgYnJva2VuIGluIExUUCBhbmQgbm9ib2R5IHJlYWxseSBjYXJlcy4gQWN0dWFsbHkgSSBk
-YXJlIHRvCj4gc2F5IFVDTElOVVggaXMgZGVhZC4gVGhlcmVmb3JlIEkgcHJlcGFyZWQgcGF0Y2hz
-ZXQgdG8gcmVtb3ZlIFVDTElOVVgKPiBmcm9tIExUUC4gV2UgaGF2ZSBiZWVuIGFjdGl2ZWx5IHJl
-bW92aW5nIFVDTElOVVggZnJvbSBMVFAgZHVyaW5nIHJld3JpdGUKPiB0ZXN0cyB0byBuZXcgTFRQ
-IEFQSS4gVGhpcyByZW1vdmVzIHRoZSByZXN0IGZyb20gdGhlIG9sZCB0ZXN0cyAod2hpY2gKPiB3
-aWxsIGJlIHNvb25lciBvciBsYXRlciByZXdyaXR0ZW4gdG8gbmV3IEFQSSkuCj4KPiBCZWNhdXNl
-IHRoZSBwYXRjaHNldCBpcyBxdWl0ZSBiaWcsIEkgZGlkIG5vdCB3YW50IHRvIHNlbmQgaXQgdG8g
-bWFpbGluZwo+IGxpc3RzIChidXQgSSBjYW4gZG8gaXQgaWYgeW91IHdhbnQpLgo+Cj4gQ2FuIHlv
-dSBwbGVhc2UgaGF2ZSBsb29rIGF0IG15IGZvcmsgb24gZ2l0bGFiLCBicmFuY2g6IHJlbW92ZS1V
-Q0xJTlVYCj4gaHR0cHM6Ly9naXRsYWIuY29tL3BldmlrL2x0cC8tL2NvbW1pdHMvcmVtb3ZlLVVD
-TElOVVg/cmVmX3R5cGU9aGVhZHMKPgo+IEJ1aWxkIHRlc3Q6Cj4gaHR0cHM6Ly9naXRodWIuY29t
-L3BldmlrL2x0cC9hY3Rpb25zL3J1bnMvNzM5MjQ3MDIxNQoKVGhhbmtzIGZvciB5b3VyIHNlcmll
-cyEKCkkgc2VlIHlvdSBvbmx5IENDZWQgbGludXgtbTY4aywgYnV0IEFGQUlLLCB1Q2xpbnV4IGlz
-IG5vdCByZXN0cmljdGVkCnRvIG02OGsvY29sZGZpcmUsIGJ1dCBhbHNvIGF2YWlsYWJsZSBvbiBh
-cm0zMiwgcmlzY3YsIHNoLCBhbmQgeHRlbnNhLgoKR3J7b2V0amUsZWV0aW5nfXMsCgogICAgICAg
-ICAgICAgICAgICAgICAgICBHZWVydAoKLS0gCkdlZXJ0IFV5dHRlcmhvZXZlbiAtLSBUaGVyZSdz
-IGxvdHMgb2YgTGludXggYmV5b25kIGlhMzIgLS0gZ2VlcnRAbGludXgtbTY4ay5vcmcKCkluIHBl
-cnNvbmFsIGNvbnZlcnNhdGlvbnMgd2l0aCB0ZWNobmljYWwgcGVvcGxlLCBJIGNhbGwgbXlzZWxm
-IGEgaGFja2VyLiBCdXQKd2hlbiBJJ20gdGFsa2luZyB0byBqb3VybmFsaXN0cyBJIGp1c3Qgc2F5
-ICJwcm9ncmFtbWVyIiBvciBzb21ldGhpbmcgbGlrZSB0aGF0LgogICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgIC0tIExpbnVzIFRvcnZhbGRzCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, Jan 02, 2024 at 03:18:51PM +0100, Alexandre Ghiti wrote:
+> Allow to defer the flushing of the TLB when unmapping pges, which allows
+> to reduce the numbers of IPI and the number of sfence.vma.
+> 
+> The ubenchmarch used in commit 43b3dfdd0455 ("arm64: support
+> batched/deferred tlb shootdown during page reclamation/migration") shows
+> good performance improvement and perf reports an important decrease in
+> time spent flushing the tlb (results come from qemu):
+
+Hi Alex,
+
+I tried this micro benchmark with your patch on T-HEAD TH1520 platform, I
+didn't see any performance improvement for the micro benchmark. Per
+myunderstanding, the micro benchmark is special case for arm64 because
+in a normal tlb flush flow, below sequence is necessary:
+
+tlbi
+dsb
+
+
+while with BATCHED_UNMAP_TLB_FLUSH, the arm64 just does 'tlbi', leaving
+the dsb to the arch_tlbbatch_flush(). So the final result is
+
+several 'tlbi + dsb' sequence VS. several 'tlbi' instructions + only one dsb
+The performance improvement comes from the unnecessary dsb eliminations.
+
+Do you have suitable benchmark(s) for BATCHED_UNMAP_TLB_FLUSH on riscv?
+
+Thanks
+
+> 
+> Before this patch:
+> 
+> real	2m1.135s
+> user	0m0.980s
+> sys	2m0.096s
+> 
+> 4.83%  batch_tlb  [kernel.kallsyms]            [k] __flush_tlb_range
+> 
+> After this patch:
+> 
+> real	1m0.543s
+> user	0m1.059s
+> sys	0m59.489s
+> 
+> 0.14%  batch_tlb  [kernel.kallsyms]            [k] __flush_tlb_range
+> 
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> ---
+>  arch/riscv/Kconfig                |  1 +
+>  arch/riscv/include/asm/tlbbatch.h | 15 +++++++
+>  arch/riscv/include/asm/tlbflush.h | 10 +++++
+>  arch/riscv/mm/tlbflush.c          | 71 ++++++++++++++++++++++---------
+>  4 files changed, 77 insertions(+), 20 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/tlbbatch.h
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 7603bd8ab333..aa07bd43b138 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -53,6 +53,7 @@ config RISCV
+>  	select ARCH_USE_MEMTEST
+>  	select ARCH_USE_QUEUED_RWLOCKS
+>  	select ARCH_USES_CFI_TRAPS if CFI_CLANG
+> +	select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH if SMP && MMU
+>  	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+>  	select ARCH_WANT_FRAME_POINTERS
+>  	select ARCH_WANT_GENERAL_HUGETLB if !RISCV_ISA_SVNAPOT
+> diff --git a/arch/riscv/include/asm/tlbbatch.h b/arch/riscv/include/asm/tlbbatch.h
+> new file mode 100644
+> index 000000000000..46014f70b9da
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/tlbbatch.h
+> @@ -0,0 +1,15 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2023 Rivos Inc.
+> + */
+> +
+> +#ifndef _ASM_RISCV_TLBBATCH_H
+> +#define _ASM_RISCV_TLBBATCH_H
+> +
+> +#include <linux/cpumask.h>
+> +
+> +struct arch_tlbflush_unmap_batch {
+> +	struct cpumask cpumask;
+> +};
+> +
+> +#endif /* _ASM_RISCV_TLBBATCH_H */
+> diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+> index 8f3418c5f172..f0b731ccc0c2 100644
+> --- a/arch/riscv/include/asm/tlbflush.h
+> +++ b/arch/riscv/include/asm/tlbflush.h
+> @@ -46,6 +46,16 @@ void flush_tlb_kernel_range(unsigned long start, unsigned long end);
+>  void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
+>  			unsigned long end);
+>  #endif
+> +
+> +#ifdef CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
+> +bool arch_tlbbatch_should_defer(struct mm_struct *mm);
+> +void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
+> +			       struct mm_struct *mm,
+> +			       unsigned long uaddr);
+> +void arch_flush_tlb_batched_pending(struct mm_struct *mm);
+> +void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch);
+> +#endif /* CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH */
+> +
+>  #else /* CONFIG_SMP && CONFIG_MMU */
+>  
+>  #define flush_tlb_all() local_flush_tlb_all()
+> diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+> index e6659d7368b3..bb623bca0a7d 100644
+> --- a/arch/riscv/mm/tlbflush.c
+> +++ b/arch/riscv/mm/tlbflush.c
+> @@ -93,29 +93,23 @@ static void __ipi_flush_tlb_range_asid(void *info)
+>  	local_flush_tlb_range_asid(d->start, d->size, d->stride, d->asid);
+>  }
+>  
+> -static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
+> -			      unsigned long size, unsigned long stride)
+> +static void __flush_tlb_range(struct cpumask *cmask, unsigned long asid,
+> +			      unsigned long start, unsigned long size,
+> +			      unsigned long stride)
+>  {
+>  	struct flush_tlb_range_data ftd;
+> -	const struct cpumask *cmask;
+> -	unsigned long asid = FLUSH_TLB_NO_ASID;
+>  	bool broadcast;
+>  
+> -	if (mm) {
+> -		unsigned int cpuid;
+> +	if (cpumask_empty(cmask))
+> +		return;
+>  
+> -		cmask = mm_cpumask(mm);
+> -		if (cpumask_empty(cmask))
+> -			return;
+> +	if (cmask != cpu_online_mask) {
+> +		unsigned int cpuid;
+>  
+>  		cpuid = get_cpu();
+>  		/* check if the tlbflush needs to be sent to other CPUs */
+>  		broadcast = cpumask_any_but(cmask, cpuid) < nr_cpu_ids;
+> -
+> -		if (static_branch_unlikely(&use_asid_allocator))
+> -			asid = atomic_long_read(&mm->context.id) & asid_mask;
+>  	} else {
+> -		cmask = cpu_online_mask;
+>  		broadcast = true;
+>  	}
+>  
+> @@ -135,25 +129,34 @@ static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
+>  		local_flush_tlb_range_asid(start, size, stride, asid);
+>  	}
+>  
+> -	if (mm)
+> +	if (cmask != cpu_online_mask)
+>  		put_cpu();
+>  }
+>  
+> +static inline unsigned long get_mm_asid(struct mm_struct *mm)
+> +{
+> +	return static_branch_unlikely(&use_asid_allocator) ?
+> +			atomic_long_read(&mm->context.id) & asid_mask : FLUSH_TLB_NO_ASID;
+> +}
+> +
+>  void flush_tlb_mm(struct mm_struct *mm)
+>  {
+> -	__flush_tlb_range(mm, 0, FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
+> +	__flush_tlb_range(mm_cpumask(mm), get_mm_asid(mm),
+> +			  0, FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
+>  }
+>  
+>  void flush_tlb_mm_range(struct mm_struct *mm,
+>  			unsigned long start, unsigned long end,
+>  			unsigned int page_size)
+>  {
+> -	__flush_tlb_range(mm, start, end - start, page_size);
+> +	__flush_tlb_range(mm_cpumask(mm), get_mm_asid(mm),
+> +			  start, end - start, page_size);
+>  }
+>  
+>  void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)
+>  {
+> -	__flush_tlb_range(vma->vm_mm, addr, PAGE_SIZE, PAGE_SIZE);
+> +	__flush_tlb_range(mm_cpumask(vma->vm_mm), get_mm_asid(vma->vm_mm),
+> +			  addr, PAGE_SIZE, PAGE_SIZE);
+>  }
+>  
+>  void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
+> @@ -185,18 +188,46 @@ void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
+>  		}
+>  	}
+>  
+> -	__flush_tlb_range(vma->vm_mm, start, end - start, stride_size);
+> +	__flush_tlb_range(mm_cpumask(vma->vm_mm), get_mm_asid(vma->vm_mm),
+> +			  start, end - start, stride_size);
+>  }
+>  
+>  void flush_tlb_kernel_range(unsigned long start, unsigned long end)
+>  {
+> -	__flush_tlb_range(NULL, start, end - start, PAGE_SIZE);
+> +	__flush_tlb_range((struct cpumask *)cpu_online_mask, FLUSH_TLB_NO_ASID,
+> +			  start, end - start, PAGE_SIZE);
+>  }
+>  
+>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+>  void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
+>  			unsigned long end)
+>  {
+> -	__flush_tlb_range(vma->vm_mm, start, end - start, PMD_SIZE);
+> +	__flush_tlb_range(mm_cpumask(vma->vm_mm), get_mm_asid(vma->vm_mm),
+> +			  start, end - start, PMD_SIZE);
+>  }
+>  #endif
+> +
+> +#ifdef CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
+> +bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+> +{
+> +	return true;
+> +}
+> +
+> +void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
+> +			       struct mm_struct *mm,
+> +			       unsigned long uaddr)
+> +{
+> +	cpumask_or(&batch->cpumask, &batch->cpumask, mm_cpumask(mm));
+> +}
+> +
+> +void arch_flush_tlb_batched_pending(struct mm_struct *mm)
+> +{
+> +	flush_tlb_mm(mm);
+> +}
+> +
+> +void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
+> +{
+> +	__flush_tlb_range(&batch->cpumask, FLUSH_TLB_NO_ASID, 0,
+> +			  FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
+> +}
+> +#endif /* CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH */
+> -- 
+> 2.39.2
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
