@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1300CC3DA6E
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 16:01:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7001CC47077
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 16:01:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BcnkuVyZZ5dX+GBsyum+0rtommTMFsFR306gY5NpwIk=; b=JxP3nBBBaz34W7
-	l9YRiByyU56f4qk2xQwTifV1uAh+LxVm6yt1WBiGnLs5Pxoaf5+dQ2O05Lr8TNMjwTd/oEIW/IvVz
-	NzE6ojcmd38o9nH1PgfjiJokDjDBJPxgoYoeC+RlqrKzlQ7qOvKcsWrDE5NHB6LGMVSSY53mffODL
-	XgU4i6nE53MUrIYWUAiLYDk+JQg3SlVF4ucjXArUnoBIAi5lhbmqXHBMrdDAdRE8lj1xu0kbuMbs+
-	17y+jiktIYocQsSDDV9uT4Zo7M098KAIO2IpCwFKNv/xqwUCxlhXRxPJC15HOLtVhXQv2TLu1G8HL
-	3JC/aPDed9K9ApHV5j8g==;
+	List-Owner; bh=4qZEtzStyMF0Jcfhs1ES32ykaEww9oQ7q4Fil/EN7BA=; b=Y7Q+VooIOHvpHS
+	iPJqYNnl6CecOWeFAmpoxd0ugo9m5BiBTtU/XN1oVgAvUkC7Ao/I6Jh+ZWtjU9g3sev1hHgm+e+kl
+	OcKvvOHC6xDptz9ypsvVHiV/Xx87V3Imncn115ipHc4ca49AAdJgF7JcPnbjfl82uFrLRMY0StOCi
+	yIeV6wLdpLXcIZWsqICJ+zxabzldNcg/LCjk/qzRa/AuidrAwmGOWYe5H98b/0dL02jS/1ywRdG9y
+	xwuupAJf7c7DH2ANBxazYkYMS1yn7BGrozmzydiJBy3i/hdEt44whbga4NmfbgnzfS5K7mBngMp2z
+	6xFuWxzM690DusTPBrZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rL3g3-00BK5J-0t;
-	Wed, 03 Jan 2024 16:01:07 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1rL3g6-00BK7C-0T;
+	Wed, 03 Jan 2024 16:01:10 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rL3g1-00BK3r-0h
+	id 1rL3g3-00BK5F-1z
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jan 2024 16:01:06 +0000
+	Wed, 03 Jan 2024 16:01:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1704297664;
+	s=mimecast20190719; t=1704297666;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=eW7Hp92xFvn0uEDHFJ5uhGV0bhy55HqDGviT7ReovF8=;
-	b=hVjOvOQ2OT5+BgN4WitR8YLS6WcDlyZ//EvYX1XqiNQvfgqaKP8tjLaDdgiotEXaAlc2Gb
-	5Qn2eVky9KPsja0KdGxNAsmRPTtjgmBIT25r5IkrNg0aDw2O3NtMU1Yl4/spFO82WN3EBm
-	gvfABPugA3jVL643AP+c2APnJMGEd/Y=
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com
- [209.85.216.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=9dWOLJ/7H2GD4Bb9fMRINczeyfjJ7YRASwlhClz2V/8=;
+	b=Dd8pxjqmajlmxQvI0nN1Du/DQzf5sOpVWL9BMXPoYf/2ABBFzOVTx+uKh230YDh0Rc0CGB
+	rbtkSchaGuuxkjtGerXuCcOsfggndl3rBhPTI1MC0omfcuOQBiRRa3qjleVjqnFMIvdu8G
+	buWCgO79jsgwM4HJwZRE7hzFKBURLK4=
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com
+ [209.85.216.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-481-j8GeeJ8PNHuCs9MM0hLeEA-1; Wed, 03 Jan 2024 11:00:57 -0500
-X-MC-Unique: j8GeeJ8PNHuCs9MM0hLeEA-1
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-28bcf7f605aso485120a91.0
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Jan 2024 08:00:57 -0800 (PST)
+ us-mta-28-THPq1-6wOR2NFHzyhqYT5Q-1; Wed, 03 Jan 2024 11:01:05 -0500
+X-MC-Unique: THPq1-6wOR2NFHzyhqYT5Q-1
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-28b88d79b87so6302510a91.1
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Jan 2024 08:01:05 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704297656; x=1704902456;
+        d=1e100.net; s=20230601; t=1704297664; x=1704902464;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=eW7Hp92xFvn0uEDHFJ5uhGV0bhy55HqDGviT7ReovF8=;
-        b=TpPqLboSKRQyq0e8+q+JsyLAZaDTFI5Ywg/qogXJVKlZJSe3quqSfXKiMS3Uw4Dn8d
-         Jaqz/0wUAW37J6iAvvTMF6n45sue7rwaiNPGb531NI059SsxjG0qgVP7a/9dXcsQo7QV
-         1HHGqBeQFvP+HD2Fm93ZdoBaiSw1zVH4gZLPmjAaWJPbDJUkiHeeQP7xJdEtowDynWZH
-         DA0CBlMUjsK9W2Q3jCNIPb37CFMAHPrOtl7xQjEI/Y1volJNqjg59xhxTPrlRvvlq9mV
-         Tex2sN2Q6ANftzcC4ZRRbinarYKfWjzrzgq4W9yaiEJ1AW8ypmOwYwecmZEUHE8pJsbw
-         rHlA==
-X-Gm-Message-State: AOJu0YyaKKq+Ek5/+nw0vaUCPuT7jP5olE55t6F3cz8lKegNmx+0qnL/
-	/aL8Mr5P6CRWa5unB9YVrIMVoxTtkH7PjRfNYPWC8cZUhicV0ICpFm59EWLbrfHEtwTjKM3XMN6
-	JfIiMiGdqOKr9FtOpJNM9FzaEpuoactGXxW9n
-X-Received: by 2002:a17:90a:c245:b0:28c:eeef:aaca with SMTP id d5-20020a17090ac24500b0028ceeefaacamr705456pjx.4.1704297656091;
-        Wed, 03 Jan 2024 08:00:56 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IH1Qw9aIClua9ds5Nw8/POsd9KwpDhXoK1ctp78/8BijwUvH1rwsQL+Vt2C/sTQWWAMNvcTuQ==
-X-Received: by 2002:a17:90a:c245:b0:28c:eeef:aaca with SMTP id d5-20020a17090ac24500b0028ceeefaacamr705420pjx.4.1704297655711;
-        Wed, 03 Jan 2024 08:00:55 -0800 (PST)
+        bh=9dWOLJ/7H2GD4Bb9fMRINczeyfjJ7YRASwlhClz2V/8=;
+        b=qQpjctPJNTplv0u6CmHm8PhWmxs/cFaw+4fQvSs0TFPSit0HdxfT86GfCrH1psEvXB
+         hWFtcWGBvBQp5DPEEIVrHj9lsIkDpINo4B6wAW47RuPG6z/0VVaX7XZY2VL2GqMusB38
+         cr4olRIrGe81tIOhTeCExhk1m5oJkZq6xNXDcqHXSjumE8w3yP07Cnu6IY2TyTCdA6s6
+         HPDJClpUbJL9pIq0RSkrjb3ElPh2IlcLs3usE2yj2A1Z6lY13AMNZ+V9RhnAJv+bgecl
+         YNfbERphyqm38mt9S7Nc48INKH1ts3nCPjdW5QvXlS8wyCBOkV9K7B9AWu6UTG3LHzbO
+         hPjA==
+X-Gm-Message-State: AOJu0Yzg+Kr/4yj1cvud0UpGMrga+IwipFLy33BkiYoCSkyDl4XJg7bM
+	Wx58ewQVN0oj9xbBUBE39zWrWgUQ3t2SfEZO68xJOJZEDeuiKV3J1Hc2ITgy5sCXh5Trawuanuu
+	2p4gg8VMWSJt10XZK1FpV6055Z00Sxnpp1QdD
+X-Received: by 2002:a17:90a:cc18:b0:28b:157c:e48d with SMTP id b24-20020a17090acc1800b0028b157ce48dmr6484882pju.78.1704297664219;
+        Wed, 03 Jan 2024 08:01:04 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFuVYYxexaKDE814y1fhNTdPHZYP8ZdcRM5q6bVvyRs+hK/lDTBPjjZPxt/iJQ3BUyAPZfgHQ==
+X-Received: by 2002:a17:90a:cc18:b0:28b:157c:e48d with SMTP id b24-20020a17090acc1800b0028b157ce48dmr6484861pju.78.1704297663874;
+        Wed, 03 Jan 2024 08:01:03 -0800 (PST)
 Received: from localhost.localdomain ([2804:431:c7ec:911:6911:ca60:846:eb46])
-        by smtp.gmail.com with ESMTPSA id qc8-20020a17090b288800b0028b1fce7c01sm1922253pjb.37.2024.01.03.08.00.47
+        by smtp.gmail.com with ESMTPSA id qc8-20020a17090b288800b0028b1fce7c01sm1922253pjb.37.2024.01.03.08.00.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jan 2024 08:00:55 -0800 (PST)
+        Wed, 03 Jan 2024 08:01:03 -0800 (PST)
 From: Leonardo Bras <leobras@redhat.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -95,9 +95,9 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org
-Subject: [PATCH v1 1/5] riscv: Improve arch_get_mmap_end() macro
-Date: Wed,  3 Jan 2024 13:00:19 -0300
-Message-ID: <20240103160024.70305-3-leobras@redhat.com>
+Subject: [PATCH v1 2/5] riscv: Replace direct thread flag check with is_compat_task()
+Date: Wed,  3 Jan 2024 13:00:20 -0300
+Message-ID: <20240103160024.70305-4-leobras@redhat.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240103160024.70305-2-leobras@redhat.com>
 References: <20240103160024.70305-2-leobras@redhat.com>
@@ -105,8 +105,8 @@ MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240103_080105_322969_B511A162 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20240103_080107_847711_4CD38E1A 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,48 +123,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This macro caused me some confusion, which took some reviewer's time to
-make it clear, so I propose adding a short comment in code to avoid
-confusion in the future.
+There is some code that detects compat mode into a task by checking the
+flag directly, and other code that check using the helper is_compat_task().
 
-Also, added some improvements to the macro, such as removing the
-assumption of VA_USER_SV57 being the largest address space.
+Since the helper already exists, use it instead of checking the flags
+directly.
 
 Signed-off-by: Leonardo Bras <leobras@redhat.com>
-Reviewed-by: Guo Ren <guoren@kernel.org>
 ---
- arch/riscv/include/asm/processor.h | 12 +++++++++---
- 1 file changed, 9 insertions(+), 3 deletions(-)
+ arch/riscv/include/asm/elf.h     | 2 +-
+ arch/riscv/include/asm/pgtable.h | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index f19f861cda549..2278e2a8362af 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -18,15 +18,21 @@
- #define DEFAULT_MAP_WINDOW	(UL(1) << (MMAP_VA_BITS - 1))
- #define STACK_TOP_MAX		TASK_SIZE_64
+diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
+index 06c236bfab53b..59a08367fddd7 100644
+--- a/arch/riscv/include/asm/elf.h
++++ b/arch/riscv/include/asm/elf.h
+@@ -54,7 +54,7 @@ extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
  
-+/*
-+ * addr is a hint to the maximum userspace address that mmap should provide, so
-+ * this macro needs to return the largest address space available so that
-+ * mmap_end < addr, being mmap_end the top of that address space.
-+ * See Documentation/arch/riscv/vm-layout.rst for more details.
-+ */
- #define arch_get_mmap_end(addr, len, flags)			\
- ({								\
- 	unsigned long mmap_end;					\
- 	typeof(addr) _addr = (addr);				\
- 	if ((_addr) == 0 || (IS_ENABLED(CONFIG_COMPAT) && is_compat_task())) \
- 		mmap_end = STACK_TOP_MAX;			\
--	else if ((_addr) >= VA_USER_SV57)			\
--		mmap_end = STACK_TOP_MAX;			\
--	else if ((((_addr) >= VA_USER_SV48)) && (VA_BITS >= VA_BITS_SV48)) \
-+	else if (((_addr) >= VA_USER_SV57) && (VA_BITS >= VA_BITS_SV57)) \
-+		mmap_end = VA_USER_SV57;			\
-+	else if (((_addr) >= VA_USER_SV48) && (VA_BITS >= VA_BITS_SV48)) \
- 		mmap_end = VA_USER_SV48;			\
- 	else							\
- 		mmap_end = VA_USER_SV39;			\
+ #ifdef CONFIG_64BIT
+ #ifdef CONFIG_COMPAT
+-#define STACK_RND_MASK		(test_thread_flag(TIF_32BIT) ? \
++#define STACK_RND_MASK		(is_compat_task() ? \
+ 				 0x7ff >> (PAGE_SHIFT - 12) : \
+ 				 0x3ffff >> (PAGE_SHIFT - 12))
+ #else
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index ab00235b018f8..1d472b31e0cfe 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -882,7 +882,7 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
+ 
+ #ifdef CONFIG_COMPAT
+ #define TASK_SIZE_32	(_AC(0x80000000, UL) - PAGE_SIZE)
+-#define TASK_SIZE	(test_thread_flag(TIF_32BIT) ? \
++#define TASK_SIZE	(is_compat_task() ? \
+ 			 TASK_SIZE_32 : TASK_SIZE_64)
+ #else
+ #define TASK_SIZE	TASK_SIZE_64
 -- 
 2.43.0
 
