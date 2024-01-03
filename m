@@ -4,123 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3466CC3DA6E
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 20:26:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8435C3DA6E
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 20:34:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OXy6ZH7xLPBg4Um3kSIK7ZZEP55OJmH8dbFukuG4ueQ=; b=q4McrQsFMvfi07
-	zZFnS86fh0FKca3BS9KfLEKQJnV3IwrmbVQ2owRivTUJsZM8xW8dgkw45QNBizse0BkUIVJEimsFx
-	g13SvLUxTethibA6giOG/5owIg0khFAS+IsdtfndGNNfUFtOS/CZtIsNnc3vTAsTSRcqmvJ9uq2An
-	uHn9++GupqHrUfOrwwxaJStgks98A9WFFZsC7sTxo9jDiGaEY0AUucPlGszxPVvFPgYpIT4cfGoaZ
-	Py4b2m4e9U5r6ceArln8qsfUA0rs2eHmiOhoQeVgK8JpLMFmIvkUkUju/eNW5Ivu5nY0w8Q1Dtg8/
-	v7GLYKEKvTJHBrvN/ZVw==;
+	List-Owner; bh=GGvN+PJbOhjUTsO4uRsCmOYzSJD58NXLZIwP6xUPPr0=; b=jxAaAxILyf0VLz
+	kqMISAnXnWYL9RIBwmFAjlDp05JMovWUFijqEzZbuOHWB+UeXD6CCo8ZAXCHNCm1o0wJ4SQds6F0j
+	2Wg3si0atxe142UtGLx2imAuFcYvHqXXE5RcQMgou142CcOSmXKpLo1HeO0ZthtN7Cdf4mBpAFEOw
+	LP2fvGv8p3htHmwobVDLKW0LN+wjf7og5lgGShhD+bZLMP315zxfp2MvGzgw5XqOlJwybHE5jF9df
+	XPnnobZxA4pVCXvHIAUwH8aaWCIIGoHfrvUqpy3wpeh3KISPzMJglqZrDQxxZI94zOPruXSoWKKWY
+	WbOLz5/18GjbNj/qWvTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rL7p0-00C2yd-1G;
-	Wed, 03 Jan 2024 20:26:38 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1rL7wG-00C3qL-2U;
+	Wed, 03 Jan 2024 20:34:08 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rL7oy-00C2x7-01;
-	Wed, 03 Jan 2024 20:26:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1704313596; x=1735849596;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=Lbi2jJK5X6Ja8W5YJo3K02rWVxNq162kMfMknei1nr0=;
-  b=GTr3o9JdfjySn4UJiJer2e0c+3LqGetO8fA/3UUpTZkjI7hM5R7SMoJ1
-   kNAxvrKTnDNfRnMITox2PMfwEB4Yn4cLdqKuTgPRTyWI7vlE8cwzVn9po
-   xyhznhQvGgUTWttmnMPnFDNBFC8NtLsyExsezf3ELay/Hy7xIkY32TVpR
-   Ja8vIioXg8HNJO6GNAr7WTTCti9VWTfS0FvlfGWu51h1IpV2uyCdnPiI/
-   3HnYCzvntFA9SlllDQad2PD/6XquAqC/OPFo0CG1nACCS0S+Kjp1HQfek
-   29myqrCEMSMslTIMyEyEnNZ1v30oAv+dl3paWCF9YkG1IRY0tgB/04OKO
-   w==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10942"; a="15703997"
-X-IronPort-AV: E=Sophos;i="6.04,328,1695711600"; 
-   d="scan'208";a="15703997"
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jan 2024 12:26:32 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10942"; a="870664136"
-X-IronPort-AV: E=Sophos;i="6.04,328,1695711600"; 
-   d="scan'208";a="870664136"
-Received: from lmjeniso-mobl1.amr.corp.intel.com (HELO [10.212.155.116]) ([10.212.155.116])
-  by fmsmga003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jan 2024 12:26:30 -0800
-Message-ID: <6ee6340a-ffe2-4106-b845-47cf443558c3@intel.com>
-Date: Wed, 3 Jan 2024 12:26:29 -0800
+	id 1rL7wC-00C3pu-26
+	for linux-riscv@lists.infradead.org;
+	Wed, 03 Jan 2024 20:34:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1704314043;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RiyTNg7lQj2mSX9lkM7av7VSsRqTM7vaccZZfAfdzko=;
+	b=Yy/rprmx9o7r629wJ1fdHIjZuviCJFXtDT9lI5PGbQGaJ6KAzV8UEXZ8nmxSGfDuqGqGts
+	ZgLC1toneLiUyoMPgmBQfRfRLC+IOdsJqjl8ZUa2WzBhi2mUDlUEkrkpE9UuoL+Z55PzEa
+	l3Ii0NDKGNjyZIdQQRO4taaTtuqaCro=
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com
+ [209.85.216.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-441-_rZtk9xCN0-zzkYs0fMItA-1; Wed, 03 Jan 2024 15:34:01 -0500
+X-MC-Unique: _rZtk9xCN0-zzkYs0fMItA-1
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-28be574c1c4so12582930a91.1
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Jan 2024 12:34:01 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1704314037; x=1704918837;
+        h=content-transfer-encoding:content-disposition:mime-version
+         :references:in-reply-to:message-id:date:subject:cc:to:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=RiyTNg7lQj2mSX9lkM7av7VSsRqTM7vaccZZfAfdzko=;
+        b=IFEfQirljfaddnOIiMQBLBTW/LGQbMWOcPVnHURilO1eP78t8VH8mpgEQqdKh+C3Us
+         thVla2UeRc5/Xz2fEG39C43PoBNt/wgdZkGSYs/JhUW55wN6pSGspRLTmDf2vsx6MlCE
+         vVap4OW5CalI3CnnFsSRs74RTEaW8Ds4nj0UN50TSRBeegktiyQx37RDNqqux/0vAOml
+         6Nm3QtxaFhMsmLjXWTCAiU7d1pRwJrtS3SNTBLT48eVd1HbaOG0dahbznDdS3s67bPQS
+         sQWUKJMLuQB9rwBDUFUhaP6A33idZ2vLcfmmCcseOn6a20LIFqimHiTK5tsVTf5YJbqr
+         XBpw==
+X-Gm-Message-State: AOJu0Yx5fvIZsWYletDubmPEmEErzmNpVMGVNk2U5xzjCDr6YCjuunV6
+	T5MJvmCP35VRjeXOCdPnaE7eYMRFkxP5yVvcoQDwufNMbriXeYSCR1vC7juvtozbHMt1tLUHk27
+	Pl149ovbwPKPSqRqK0BYTB2CB0kQogDbokK9J
+X-Received: by 2002:a17:90a:dac5:b0:286:a089:c3dd with SMTP id g5-20020a17090adac500b00286a089c3ddmr9275230pjx.62.1704314036299;
+        Wed, 03 Jan 2024 12:33:56 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IF8X8i3kQcpaSWYIpQAU++VuDtDMojXfqoGLD4LA3XFTDH8r7UjCIYqHBkM9rKo5cgz+OX3pQ==
+X-Received: by 2002:a17:90a:dac5:b0:286:a089:c3dd with SMTP id g5-20020a17090adac500b00286a089c3ddmr9275209pjx.62.1704314035277;
+        Wed, 03 Jan 2024 12:33:55 -0800 (PST)
+Received: from localhost.localdomain ([2804:431:c7ec:911:6911:ca60:846:eb46])
+        by smtp.gmail.com with ESMTPSA id m11-20020a17090b068b00b0028658c6209dsm2186521pjz.2.2024.01.03.12.33.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Jan 2024 12:33:54 -0800 (PST)
+From: Leonardo Bras <leobras@redhat.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+Subject: Re: Re: [PATCH V2 1/3] riscv: Add Zicbop instruction definitions & cpufeature
+Date: Wed,  3 Jan 2024 17:33:41 -0300
+Message-ID: <ZZXEpU-JzsvD2UDW@LeoBras>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20240103-0c96ceea88523b7b946e4ba8@orel>
+References: <20231231082955.16516-1-guoren@kernel.org> <20231231082955.16516-2-guoren@kernel.org> <ZZWs0C19tz763FnH@LeoBras> <20240103-0c96ceea88523b7b946e4ba8@orel>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] mm/tlb: fix fullmm semantics
-Content-Language: en-US
-To: Catalin Marinas <catalin.marinas@arm.com>,
- Jisheng Zhang <jszhang@kernel.org>
-Cc: Will Deacon <will@kernel.org>,
- "Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
- Andrew Morton <akpm@linux-foundation.org>, Nick Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Arnd Bergmann <arnd@arndb.de>, linux-arch@vger.kernel.org,
- linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Nadav Amit <namit@vmware.com>, Andrea Arcangeli <aarcange@redhat.com>,
- Andy Lutomirski <luto@kernel.org>, Dave Hansen
- <dave.hansen@linux.intel.com>, Thomas Gleixner <tglx@linutronix.de>,
- Yu Zhao <yuzhao@google.com>, x86@kernel.org
-References: <20231228084642.1765-1-jszhang@kernel.org>
- <20231228084642.1765-2-jszhang@kernel.org> <ZZWh4c3ZUtadFqD1@arm.com>
-From: Dave Hansen <dave.hansen@intel.com>
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- xsFNBE6HMP0BEADIMA3XYkQfF3dwHlj58Yjsc4E5y5G67cfbt8dvaUq2fx1lR0K9h1bOI6fC
- oAiUXvGAOxPDsB/P6UEOISPpLl5IuYsSwAeZGkdQ5g6m1xq7AlDJQZddhr/1DC/nMVa/2BoY
- 2UnKuZuSBu7lgOE193+7Uks3416N2hTkyKUSNkduyoZ9F5twiBhxPJwPtn/wnch6n5RsoXsb
- ygOEDxLEsSk/7eyFycjE+btUtAWZtx+HseyaGfqkZK0Z9bT1lsaHecmB203xShwCPT49Blxz
- VOab8668QpaEOdLGhtvrVYVK7x4skyT3nGWcgDCl5/Vp3TWA4K+IofwvXzX2ON/Mj7aQwf5W
- iC+3nWC7q0uxKwwsddJ0Nu+dpA/UORQWa1NiAftEoSpk5+nUUi0WE+5DRm0H+TXKBWMGNCFn
- c6+EKg5zQaa8KqymHcOrSXNPmzJuXvDQ8uj2J8XuzCZfK4uy1+YdIr0yyEMI7mdh4KX50LO1
- pmowEqDh7dLShTOif/7UtQYrzYq9cPnjU2ZW4qd5Qz2joSGTG9eCXLz5PRe5SqHxv6ljk8mb
- ApNuY7bOXO/A7T2j5RwXIlcmssqIjBcxsRRoIbpCwWWGjkYjzYCjgsNFL6rt4OL11OUF37wL
- QcTl7fbCGv53KfKPdYD5hcbguLKi/aCccJK18ZwNjFhqr4MliQARAQABzUVEYXZpZCBDaHJp
- c3RvcGhlciBIYW5zZW4gKEludGVsIFdvcmsgQWRkcmVzcykgPGRhdmUuaGFuc2VuQGludGVs
- LmNvbT7CwXgEEwECACIFAlQ+9J0CGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEGg1
- lTBwyZKwLZUP/0dnbhDc229u2u6WtK1s1cSd9WsflGXGagkR6liJ4um3XCfYWDHvIdkHYC1t
- MNcVHFBwmQkawxsYvgO8kXT3SaFZe4ISfB4K4CL2qp4JO+nJdlFUbZI7cz/Td9z8nHjMcWYF
- IQuTsWOLs/LBMTs+ANumibtw6UkiGVD3dfHJAOPNApjVr+M0P/lVmTeP8w0uVcd2syiaU5jB
- aht9CYATn+ytFGWZnBEEQFnqcibIaOrmoBLu2b3fKJEd8Jp7NHDSIdrvrMjYynmc6sZKUqH2
- I1qOevaa8jUg7wlLJAWGfIqnu85kkqrVOkbNbk4TPub7VOqA6qG5GCNEIv6ZY7HLYd/vAkVY
- E8Plzq/NwLAuOWxvGrOl7OPuwVeR4hBDfcrNb990MFPpjGgACzAZyjdmYoMu8j3/MAEW4P0z
- F5+EYJAOZ+z212y1pchNNauehORXgjrNKsZwxwKpPY9qb84E3O9KYpwfATsqOoQ6tTgr+1BR
- CCwP712H+E9U5HJ0iibN/CDZFVPL1bRerHziuwuQuvE0qWg0+0SChFe9oq0KAwEkVs6ZDMB2
- P16MieEEQ6StQRlvy2YBv80L1TMl3T90Bo1UUn6ARXEpcbFE0/aORH/jEXcRteb+vuik5UGY
- 5TsyLYdPur3TXm7XDBdmmyQVJjnJKYK9AQxj95KlXLVO38lczsFNBFRjzmoBEACyAxbvUEhd
- GDGNg0JhDdezyTdN8C9BFsdxyTLnSH31NRiyp1QtuxvcqGZjb2trDVuCbIzRrgMZLVgo3upr
- MIOx1CXEgmn23Zhh0EpdVHM8IKx9Z7V0r+rrpRWFE8/wQZngKYVi49PGoZj50ZEifEJ5qn/H
- Nsp2+Y+bTUjDdgWMATg9DiFMyv8fvoqgNsNyrrZTnSgoLzdxr89FGHZCoSoAK8gfgFHuO54B
- lI8QOfPDG9WDPJ66HCodjTlBEr/Cwq6GruxS5i2Y33YVqxvFvDa1tUtl+iJ2SWKS9kCai2DR
- 3BwVONJEYSDQaven/EHMlY1q8Vln3lGPsS11vSUK3QcNJjmrgYxH5KsVsf6PNRj9mp8Z1kIG
- qjRx08+nnyStWC0gZH6NrYyS9rpqH3j+hA2WcI7De51L4Rv9pFwzp161mvtc6eC/GxaiUGuH
- BNAVP0PY0fqvIC68p3rLIAW3f97uv4ce2RSQ7LbsPsimOeCo/5vgS6YQsj83E+AipPr09Caj
- 0hloj+hFoqiticNpmsxdWKoOsV0PftcQvBCCYuhKbZV9s5hjt9qn8CE86A5g5KqDf83Fxqm/
- vXKgHNFHE5zgXGZnrmaf6resQzbvJHO0Fb0CcIohzrpPaL3YepcLDoCCgElGMGQjdCcSQ+Ci
- FCRl0Bvyj1YZUql+ZkptgGjikQARAQABwsFfBBgBAgAJBQJUY85qAhsMAAoJEGg1lTBwyZKw
- l4IQAIKHs/9po4spZDFyfDjunimEhVHqlUt7ggR1Hsl/tkvTSze8pI1P6dGp2XW6AnH1iayn
- yRcoyT0ZJ+Zmm4xAH1zqKjWplzqdb/dO28qk0bPso8+1oPO8oDhLm1+tY+cOvufXkBTm+whm
- +AyNTjaCRt6aSMnA/QHVGSJ8grrTJCoACVNhnXg/R0g90g8iV8Q+IBZyDkG0tBThaDdw1B2l
- asInUTeb9EiVfL/Zjdg5VWiF9LL7iS+9hTeVdR09vThQ/DhVbCNxVk+DtyBHsjOKifrVsYep
- WpRGBIAu3bK8eXtyvrw1igWTNs2wazJ71+0z2jMzbclKAyRHKU9JdN6Hkkgr2nPb561yjcB8
- sIq1pFXKyO+nKy6SZYxOvHxCcjk2fkw6UmPU6/j/nQlj2lfOAgNVKuDLothIxzi8pndB8Jju
- KktE5HJqUUMXePkAYIxEQ0mMc8Po7tuXdejgPMwgP7x65xtfEqI0RuzbUioFltsp1jUaRwQZ
- MTsCeQDdjpgHsj+P2ZDeEKCbma4m6Ez/YWs4+zDm1X8uZDkZcfQlD9NldbKDJEXLIjYWo1PH
- hYepSffIWPyvBMBTW2W5FRjJ4vLRrJSUoEfJuPQ3vW9Y73foyo/qFoURHO48AinGPZ7PC7TF
- vUaNOTjKedrqHkaOcqB185ahG2had0xnFsDPlx5y
-In-Reply-To: <ZZWh4c3ZUtadFqD1@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240103_122636_088096_44D6D5D8 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20240103_123404_829263_D4A6B8BE 
+X-CRM114-Status: GOOD (  59.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,39 +94,410 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: wefu@redhat.com, keescook@chromium.org, atishp@atishpatra.org, peterz@infradead.org, unicorn_wang@outlook.com, paul.walmsley@sifive.com, chao.wei@sophgo.com, bjorn@rivosinc.com, linux-kernel@vger.kernel.org, xiaoguang.xing@sophgo.com, conor.dooley@microchip.com, Leonardo Bras <leobras@redhat.com>, palmer@dabbelt.com, jszhang@kernel.org, panqinglin2020@iscas.ac.cn, Guo Ren <guoren@linux.alibaba.com>, guoren@kernel.org, linux-riscv@lists.infradead.org, wuwei2016@iscas.ac.cn
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 1/3/24 10:05, Catalin Marinas wrote:
->> --- a/mm/mmu_gather.c
->> +++ b/mm/mmu_gather.c
->> @@ -384,7 +384,7 @@ void tlb_finish_mmu(struct mmu_gather *tlb)
->>  		 * On x86 non-fullmm doesn't yield significant difference
->>  		 * against fullmm.
->>  		 */
->> -		tlb->fullmm = 1;
->> +		tlb->need_flush_all = 1;
->>  		__tlb_reset_range(tlb);
->>  		tlb->freed_tables = 1;
->>  	}
-> The optimisation here was added about a year later in commit
-> 7a30df49f63a ("mm: mmu_gather: remove __tlb_reset_range() for force
-> flush"). Do we still need to keep freed_tables = 1 here? I'd say only
-> __tlb_reset_range().
+On Wed, Jan 03, 2024 at 08:29:39PM +0100, Andrew Jones wrote:
+> On Wed, Jan 03, 2024 at 03:52:00PM -0300, Leonardo Bras wrote:
+> > On Sun, Dec 31, 2023 at 03:29:51AM -0500, guoren@kernel.org wrote:
+> > > From: Guo Ren <guoren@linux.alibaba.com>
+> > > 
+> > > Cache-block prefetch instructions are HINTs to the hardware to
+> > > indicate that software intends to perform a particular type of
+> > > memory access in the near future. This patch adds prefetch.i,
+> > > prefetch.r and prefetch.w instruction definitions by
+> > > RISCV_ISA_EXT_ZICBOP cpufeature.
+> > 
+> > Hi Guo Ren,
+> > 
+> > Here it would be nice to point a documentation for ZICBOP extension:
+> > https://wiki.riscv.org/display/HOME/Recently+Ratified+Extensions
+> > 
+> > or having a nice link for:
+> > https://drive.google.com/file/d/1jfzhNAk7viz4t2FLDZ5z4roA0LBggkfZ/view
+> > 
+> > > 
+> > > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > > Signed-off-by: Guo Ren <guoren@kernel.org>
+> > > ---
+> > >  arch/riscv/Kconfig                | 15 ++++++++
+> > >  arch/riscv/include/asm/hwcap.h    |  1 +
+> > >  arch/riscv/include/asm/insn-def.h | 60 +++++++++++++++++++++++++++++++
+> > >  arch/riscv/kernel/cpufeature.c    |  1 +
+> > >  4 files changed, 77 insertions(+)
+> > > 
+> > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > > index 24c1799e2ec4..fcbd417d65ea 100644
+> > > --- a/arch/riscv/Kconfig
+> > > +++ b/arch/riscv/Kconfig
+> > > @@ -579,6 +579,21 @@ config RISCV_ISA_ZICBOZ
+> > >  
+> > >  	   If you don't know what to do here, say Y.
+> > >  
+> > > +config RISCV_ISA_ZICBOP
+> > > +	bool "Zicbop extension support for cache block prefetch"
+> > > +	depends on MMU
+> > > +	depends on RISCV_ALTERNATIVE
+> > > +	default y
+> > > +	help
+> > > +	  Adds support to dynamically detect the presence of the ZICBOP
+> > > +	  extension (Cache Block Prefetch Operations) and enable its
+> > > +	  usage.
+> > > +
+> > > +	  The Zicbop extension can be used to prefetch cache block for
+> > > +	  read/write fetch.
+> > > +
+> > > +	  If you don't know what to do here, say Y.
+> > > +
+> > 
+> > According to doc:
+> > "The Zicbop extension defines a set of cache-block prefetch instructions: 
+> > PREFETCH.R, PREFETCH.W, and PREFETCH.I"
+> > 
+> > So above text seems ok
+> > 
+> > 
+> > >  config TOOLCHAIN_HAS_ZIHINTPAUSE
+> > >  	bool
+> > >  	default y
+> > > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> > > index 06d30526ef3b..77d3b6ee25ab 100644
+> > > --- a/arch/riscv/include/asm/hwcap.h
+> > > +++ b/arch/riscv/include/asm/hwcap.h
+> > > @@ -57,6 +57,7 @@
+> > >  #define RISCV_ISA_EXT_ZIHPM		42
+> > >  #define RISCV_ISA_EXT_SMSTATEEN		43
+> > >  #define RISCV_ISA_EXT_ZICOND		44
+> > > +#define RISCV_ISA_EXT_ZICBOP		45
+> > 
+> > Is this number just in kernel code, or does it mean something in the RISC-V 
+> > documentation?
+> 
+> kernel
 
-I think the __tlb_reset_range() can be dangerous if it clears
-->freed_tables.  On x86 at least, it might lead to skipping the TLB IPI
-for CPUs that are in lazy TLB mode.  When those wake back up they might
-start using the freed page tables.
+Thanks!
 
-Logically, this little hunk of code is just trying to turn the 'tlb'
-from a ranged flush into a full one.  Ideally, just setting
-'need_flush_all = 1' would be enough.
+> 
+> > 
+> > >  
+> > >  #define RISCV_ISA_EXT_MAX		64
+> > >  
+> > > diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
+> > > index e27179b26086..bbda350a63bf 100644
+> > > --- a/arch/riscv/include/asm/insn-def.h
+> > > +++ b/arch/riscv/include/asm/insn-def.h
+> > > @@ -18,6 +18,13 @@
+> > >  #define INSN_I_RD_SHIFT			 7
+> > >  #define INSN_I_OPCODE_SHIFT		 0
+> > >  
+> > > +#define INSN_S_SIMM7_SHIFT		25
+> > > +#define INSN_S_RS2_SHIFT		20
+> > > +#define INSN_S_RS1_SHIFT		15
+> > > +#define INSN_S_FUNC3_SHIFT		12
+> > > +#define INSN_S_SIMM5_SHIFT		 7
+> > > +#define INSN_S_OPCODE_SHIFT		 0
+> > > +
+> > 
+> > The shifts seem correct for S-Type, but I would name the IMM defines in a 
+> > way we could understand where they fit in IMM:
+> > 
+> > 
+> > INSN_S_SIMM5_SHIFT -> INSN_S_SIMM_0_4_SHIFT
+> > INSN_S_SIMM7_SHIFT -> INSN_S_SIMM_5_11_SHIFT
+> > 
+> > What do you think?
+> 
+> I'm in favor of this suggestion, but then wonder if we don't need another
+> patch before this which renames INSN_I_SIMM12_SHIFT to
+> INSN_I_SIMM_0_11_SHIFT in order to keep things consistent.
 
-Is __tlb_reset_range() doing anything useful for other architectures?  I
-think it's just destroying perfectly valid metadata on x86. ;)
+Agree. If it's ok, I can provide a patch doing the rename on top of this 
+patchset.
+
+> 
+> > 
+> > 
+> > >  #ifdef __ASSEMBLY__
+> > >  
+> > >  #ifdef CONFIG_AS_HAS_INSN
+> > > @@ -30,6 +37,10 @@
+> > >  	.insn	i \opcode, \func3, \rd, \rs1, \simm12
+> > >  	.endm
+> > >  
+> > > +	.macro insn_s, opcode, func3, rs2, simm12, rs1
+> > > +	.insn	s \opcode, \func3, \rs2, \simm12(\rs1)
+> > > +	.endm
+> > > +
+> > >  #else
+> > >  
+> > >  #include <asm/gpr-num.h>
+> > > @@ -51,10 +62,20 @@
+> > >  		 (\simm12 << INSN_I_SIMM12_SHIFT))
+> > >  	.endm
+> > >  
+> > > +	.macro insn_s, opcode, func3, rs2, simm12, rs1
+> > > +	.4byte	((\opcode << INSN_S_OPCODE_SHIFT) |		\
+> > > +		 (\func3 << INSN_S_FUNC3_SHIFT) |		\
+> > > +		 (.L__gpr_num_\rs2 << INSN_S_RS2_SHIFT) |	\
+> > > +		 (.L__gpr_num_\rs1 << INSN_S_RS1_SHIFT) |	\
+> > > +		 ((\simm12 & 0x1f) << INSN_S_SIMM5_SHIFT) |	\
+> > > +		 (((\simm12 >> 5) & 0x7f) << INSN_S_SIMM7_SHIFT))
+> > > +	.endm
+> > > +
+> > >  #endif
+> > >  
+> > >  #define __INSN_R(...)	insn_r __VA_ARGS__
+> > >  #define __INSN_I(...)	insn_i __VA_ARGS__
+> > > +#define __INSN_S(...)	insn_s __VA_ARGS__
+> > 
+> > As a curiosity: It's quite odd to have prefetch.{i,r,w} to be an S-Type 
+> > instruction, given this type was supposed to be for store instructions.
+> > 
+> > On prefetch.{i,r,w}:
+> > 31	   24   	 19    14    11	  	6
+> > imm[11:5] | PREFETCH_OP | rs1 | ORI | imm[4:0] | OP_IMM
+> > 
+> > For S-Type, we have:
+> > 31	   24     19    14       11	    6
+> > imm[11:5] | rs1  | rs2 | funct3 | imm[4:0] | opcode
+> > 
+> > For I-Type, we have:
+> > 31	    19    14       11	6
+> > immm[11:0] | rs1 | funct3 | rd | opcode
+> > 
+> > I understand that there should be reasons for choosing S-type, but it 
+> > would make much more sense (as per instruction type, and as per parameters)
+> > to go with I-Type. 
+> > 
+> > (I understand this was done in HW, and in kernel code we have better choice 
+> > to encode it as S-Type, but I kind of find the S-Type choice odd)
+> 
+> My speculation is that since cache block sizes will never be less than 32
+> bytes, it made more sense to use the S-type encoding space with imm[4:0]
+> hard coded to zero, allowing the I-Type encoding space to be reserved for
+> instructions which need arbitrary 12-bit immediates.
+
+Yeah, this seems a good reason :)
+
+> 
+> > 
+> > >  
+> > >  #else /* ! __ASSEMBLY__ */
+> > >  
+> > > @@ -66,6 +87,9 @@
+> > >  #define __INSN_I(opcode, func3, rd, rs1, simm12)	\
+> > >  	".insn	i " opcode ", " func3 ", " rd ", " rs1 ", " simm12 "\n"
+> > >  
+> > > +#define __INSN_S(opcode, func3, rs2, simm12, rs1)	\
+> > > +	".insn	s " opcode ", " func3 ", " rs2 ", " simm12 "(" rs1 ")\n"
+> > > +
+> > >  #else
+> > >  
+> > >  #include <linux/stringify.h>
+> > > @@ -92,12 +116,26 @@
+> > >  "		 (\\simm12 << " __stringify(INSN_I_SIMM12_SHIFT) "))\n"	\
+> > >  "	.endm\n"
+> > >  
+> > > +#define DEFINE_INSN_S							\
+> > > +	__DEFINE_ASM_GPR_NUMS						\
+> > > +"	.macro insn_s, opcode, func3, rs2, simm12, rs1\n"		\
+> > > +"	.4byte	((\\opcode << " __stringify(INSN_S_OPCODE_SHIFT) ") |"	\
+> > > +"		 (\\func3 << " __stringify(INSN_S_FUNC3_SHIFT) ") |"	\
+> > > +"		 (.L__gpr_num_\\rs2 << " __stringify(INSN_S_RS2_SHIFT) ") |" \
+> > > +"		 (.L__gpr_num_\\rs1 << " __stringify(INSN_S_RS1_SHIFT) ") |" \
+> > > +"		 ((\\simm12 & 0x1f) << " __stringify(INSN_S_SIMM5_SHIFT) ") |" \
+> > > +"		 (((\\simm12 >> 5) & 0x7f) << " __stringify(INSN_S_SIMM7_SHIFT) "))\n" \
+> > > +"	.endm\n"
+> > > +
+> > >  #define UNDEFINE_INSN_R							\
+> > >  "	.purgem insn_r\n"
+> > >  
+> > >  #define UNDEFINE_INSN_I							\
+> > >  "	.purgem insn_i\n"
+> > >  
+> > > +#define UNDEFINE_INSN_S							\
+> > > +"	.purgem insn_s\n"
+> > > +
+> > >  #define __INSN_R(opcode, func3, func7, rd, rs1, rs2)			\
+> > >  	DEFINE_INSN_R							\
+> > >  	"insn_r " opcode ", " func3 ", " func7 ", " rd ", " rs1 ", " rs2 "\n" \
+> > > @@ -108,6 +146,11 @@
+> > >  	"insn_i " opcode ", " func3 ", " rd ", " rs1 ", " simm12 "\n" \
+> > >  	UNDEFINE_INSN_I
+> > >  
+> > > +#define __INSN_S(opcode, func3, rs2, simm12, rs1)			\
+> > > +	DEFINE_INSN_S							\
+> > > +	"insn_s " opcode ", " func3 ", " rs2 ", " simm12 ", " rs1 "\n"	\
+> > > +	UNDEFINE_INSN_S
+> > > +
+> > >  #endif
+> > >  
+> > >  #endif /* ! __ASSEMBLY__ */
+> > > @@ -120,6 +163,10 @@
+> > >  	__INSN_I(RV_##opcode, RV_##func3, RV_##rd,		\
+> > >  		 RV_##rs1, RV_##simm12)
+> > >  
+> > > +#define INSN_S(opcode, func3, rs2, simm12, rs1)			\
+> > > +	__INSN_S(RV_##opcode, RV_##func3, RV_##rs2,		\
+> > > +		 RV_##simm12, RV_##rs1)
+> > > +
+> > 
+> > The defines above seem correct, but TBH I am not very used to review
+> > .macro code.
+> > 
+> > >  #define RV_OPCODE(v)		__ASM_STR(v)
+> > >  #define RV_FUNC3(v)		__ASM_STR(v)
+> > >  #define RV_FUNC7(v)		__ASM_STR(v)
+> > > @@ -133,6 +180,7 @@
+> > >  #define RV___RS2(v)		__RV_REG(v)
+> > >  
+> > >  #define RV_OPCODE_MISC_MEM	RV_OPCODE(15)
+> > > +#define RV_OPCODE_OP_IMM	RV_OPCODE(19)
+> > 
+> > Correct.
+> > 
+> > 
+> > >  #define RV_OPCODE_SYSTEM	RV_OPCODE(115)
+> > >  
+> > >  #define HFENCE_VVMA(vaddr, asid)				\
+> > > @@ -196,4 +244,16 @@
+> > >  	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
+> > >  	       RS1(base), SIMM12(4))
+> > >  
+> > > +#define CBO_PREFETCH_I(base, offset)				\
+> > > +	INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(0),		\
+> > > +	       SIMM12(offset), RS1(base))
+> > > +
+> > > +#define CBO_PREFETCH_R(base, offset)				\
+> > > +	INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(1),		\
+> > > +	       SIMM12(offset), RS1(base))
+> > > +
+> > > +#define CBO_PREFETCH_W(base, offset)				\
+> > > +	INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(3),		\
+> > > +	       SIMM12(offset), RS1(base))
+> > > +
+> > 
+> > For OP_IMM & FUNC3(6) we have ORI, right?
+> > For ORI, rd will be at bytes 11:7, which in PREFETCH.{i,r,w} is
+> > offset[4:0].
+> > 
+> > IIUC, when the cpu does not support ZICBOP, this should be fine as long as 
+> > rd = 0, since changes to r0 are disregarded.
+> > 
+> > In this case, we need to guarantee offset[4:0] = 0, or else we migth write 
+> > on an unrelated register. This can be noticed in ZICBOP documentation pages 
+> > 21, 22, 23, as offset[4:0] is always [0 0 0 0 0]. 
+> > (Google docs in first comment)
+> > 
+> > What we need here is something like:
+> > + enum {
+> > + 	PREFETCH_I,
+> > + 	PREFETCH_R,
+> > + 	PREFETCH_W,
+> > + }	 
+> 
+> Can't use enum. This header may be included in assembly.
+
+Oh, I suggest defines then, since it's better to make it clear instead of 
+using 0, 1, 3.
+
+> 
+> > +
+> > + #define CBO_PREFETCH(type, base, offset)                      \
+> > +     INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(type),              \
+> > +            SIMM12(offset & ~0x1f), RS1(base))
+> 
+> Yes. I suggested we mask offset as well, but ideally we'd detect a caller
+> using an offset with nonzero lower 5 bits at compile time.
+
+I would suggest the compiler would take care of this, but I am not sure 
+about the assembly, since I am not sure if it gets any optimization.
+
+I don't think we can detect a caller with non-zero offset at compile time, 
+since it will be used in locks which can be at (potentially) any place in 
+the block size. (if you have any idea though, please let me know :) )
+
+On the other hand, we could create a S-Type macro which deliberately 
+ignores imm[4:0], like  
+
++ INSN_S_TRUNCATE(OPCODE_OP_IMM, FUNC3(6), __RS2(3),               \
++                 SIMM12(offset), RS1(base))
+
+Which saves the bits 11:5 of offset  into imm[11:5], and zero-fill 
+imm[4:0], like
+
++#define DEFINE_INSN_S                                                    \
++ __DEFINE_ASM_GPR_NUMS                                           \
++"        .macro insn_s, opcode, func3, rs2, simm12, rs1\n"               \
++"        .4byte  ((\\opcode << " __stringify(INSN_S_OPCODE_SHIFT) ") |"  \
++"                 (\\func3 << " __stringify(INSN_S_FUNC3_SHIFT) ") |"    \
++"                 (.L__gpr_num_\\rs2 << " __stringify(INSN_S_RS2_SHIFT) ") |" \
++"                 (.L__gpr_num_\\rs1 << " __stringify(INSN_S_RS1_SHIFT) ") |" \
++"                 (((\\simm12 >> 5) & 0x7f) << " __stringify(INSN_S_SIMM7_SHIFT) "))\n" \
++"        .endm\n"
++
+
+Does this make sense?
+
+Thanks!
+Leo
+
+
+> 
+> Thanks,
+> drew
+> 
+> > 
+> > + #define CBO_PREFETCH_I(base, offset)				\
+> > +     CBO_PREFETCH(PREFETCH_I, base, offset)
+> > +
+> > + #define CBO_PREFETCH_R(base, offset)				\
+> > +     CBO_PREFETCH(PREFETCH_R, base, offset)
+> > +
+> > + #define CBO_PREFETCH_W(base, offset)				\
+> > +     CBO_PREFETCH(PREFETCH_W, base, offset)
+> > +
+> > 
+> > Maybe replacing 0x1f by some MASK macro, so it looks nicer.
+> > (not sure how it's acceptable in asm, though).
+> > 
+> > The above would guarantee that we would never have CBO_PREFETCH_*() to mess 
+> > up any other register due to a unnoticed (base & 0x1f) != 0
+> > 
+> > Does that make sense?
+> > 
+> > >  #endif /* __ASM_INSN_DEF_H */
+> > > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> > > index b3785ffc1570..bdb02b066041 100644
+> > > --- a/arch/riscv/kernel/cpufeature.c
+> > > +++ b/arch/riscv/kernel/cpufeature.c
+> > > @@ -168,6 +168,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+> > >  	__RISCV_ISA_EXT_DATA(h, RISCV_ISA_EXT_h),
+> > >  	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
+> > >  	__RISCV_ISA_EXT_DATA(zicboz, RISCV_ISA_EXT_ZICBOZ),
+> > > +	__RISCV_ISA_EXT_DATA(zicbop, RISCV_ISA_EXT_ZICBOP),
+> > >  	__RISCV_ISA_EXT_DATA(zicntr, RISCV_ISA_EXT_ZICNTR),
+> > >  	__RISCV_ISA_EXT_DATA(zicond, RISCV_ISA_EXT_ZICOND),
+> > >  	__RISCV_ISA_EXT_DATA(zicsr, RISCV_ISA_EXT_ZICSR),
+> > > -- 
+> > > 2.40.1
+> > > 
+> > 
+> > Apart from above suggestions, seems a nice change :)
+> > 
+> > I suggest splitting this patch into 2, though:
+> > - Introducing S-Type instructions (plz point docs for reference) 
+> > - Introduce ZICBOP extension.
+> > 
+> > Thanks!
+> > Leo
+> > 
+> > 
+> 
+
 
 _______________________________________________
 linux-riscv mailing list
