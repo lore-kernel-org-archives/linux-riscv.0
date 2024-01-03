@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC7BC47077
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 14:36:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 862B0C3DA6E
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 14:51:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HjCdz2HRpwr3VeJCOZVv7KyVcd313EMFLqQ6MFL6FdQ=; b=ltujkFS25Bfy3S
-	Rkk3oiZ2ahzPq57FSaEMRFAoiox64qV7RZ50bNrmqVhOkZ8ZzKrD/c1EyMyyV1W28roCwH9NF4CQ6
-	GAnd6WeMLO7nudcdqwOYywRX8+x02wITlX/7VdT1NBIRJg/DV4m8NgYeVxghij4B3lC0QTmps6Du0
-	Vu0oYi20ns3UCEQcqaFCyUOHIEaI4Vrs4vP3Y1B1l5VkWcI52Wt3GdMdl9FRL23aOuaavqsPSBUBP
-	RJDIYJmFUrfZhEJ+033uHhi8suNvQmU+svs/P1zeW1sUjDRqFglQb/X1tpfZuTXXEY9hj1khlnkWB
-	JxSSTAhbxIcnjGtBNoXw==;
+	List-Owner; bh=zgAqeEh9ABhGl8o2a4EJEGe+pRTiHm5a4jfy30zEZgs=; b=wgU3AF3+opLZsf
+	jSivUwjnxI/OvBFd5m97BhlYlD2gjLg4kMHxh+QvNr1FQ++ec/VaY03qVOXW7eImceZx2U65m/0GM
+	aVzalXTYAcGlS6Vozcn7z9WEAEivKLbK6xTfcDJVh3OkutFw5UgqlsRJnyqN+iTn69P0SDyNWNqHM
+	oovFyrtFrFhSXTc+mwSPrS8NWJ5QQBja+n6oLJVyldg4LN+Dq7wol/fJ2q8u8UQALcdayowKowr/T
+	rTQzqd8UXu8rZC4NkbYae7pnO8usHfQCbYIMox5jGznfNgGt0OR2cb1viiJ7UwYiybkUmcLzjBUnY
+	hOlaR6wrRTSVr23eJWDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rL2Lu-00B8WX-0o;
-	Wed, 03 Jan 2024 14:36:14 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1rL2a7-00BAtI-27;
+	Wed, 03 Jan 2024 14:50:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rL2Lq-00B8Uk-33
+	id 1rL2a4-00BAsr-1M
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jan 2024 14:36:12 +0000
+	Wed, 03 Jan 2024 14:50:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sin.source.kernel.org (Postfix) with ESMTP id 0D196CE1410;
-	Wed,  3 Jan 2024 14:36:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8961AC433C8;
-	Wed,  3 Jan 2024 14:36:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 472ED6132D;
+	Wed,  3 Jan 2024 14:50:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BBCCC433C7;
+	Wed,  3 Jan 2024 14:50:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1704292564;
-	bh=is7O5uMKlFnKVd3x+vpOi0jZoWskFl0wA4r7k43/gWY=;
+	s=k20201202; t=1704293448;
+	bh=8ypxHIMeE1M2ORBhy1nGrxQtUOicK9rqmadKgZ02QBA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Pj111nEWhbwtnIBXAmtPTKY07uMZLZalmcUisGEP01x91bzK1WMukhkXdmvcbLiz4
-	 nzjuKfvPLvnFmmJnrLQ3u5SNnbNuN7NK7IuyAO7jqoF0a4BeqbHjaoYV14ky9gjX7u
-	 AQMYN2St2mGoLuzjRd+80Ftvu2tbiJmi8zaOAteCnijOw/MGNC+tQiq1/XqiG9txGu
-	 R1dqFESMQMMqdCT57+JD8QAZu4Xa5xXNj+LQwbw3REC5LQfR/1AaGwt0+F/MikT/nw
-	 bzj0byS0nAt1ZtobKqk3F5og48OWQeWe5VrN+DFCETjFL6EO7F3nQiUlMw5X/4jtnA
-	 qAzRUdUnPCWuQ==
-Date: Wed, 3 Jan 2024 08:35:57 -0600
+	b=IcgMEXFmchMYoWnvwQcWeMVlkOuMuAA1zW/pvPvPlq0PDKwJZVFOEuWVAJ7HlvpPb
+	 3IibPUNyGwDJz5u3AoRuXR+nVrfP/8SaBxiwe6yhN8DxaKY/oylM4mOmMn8c/bA8/z
+	 ymgBmqj2ylYj0NViC28iJjeZZe0LbqK9OnQL270KmIq8i/QKY1Dfg0V875JHbz3pdO
+	 2k14DsNYPqZQuwcb7zk3CdilniEL7cuDXQmp/rOaU6AUcA2ynQTt597YTxm6hsvK+y
+	 HPQMuZEEezbOd5ESA2U2OzQCi/YJatBf01QfWH2LH6txOVxOrGOnJ3gBqNmS0/gP8Q
+	 Y464pVq4qVs6Q==
+Date: Wed, 3 Jan 2024 08:50:43 -0600
 From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Jerry Shih <jerry.shih@sifive.com>, linux-kernel@vger.kernel.org,
+To: linux-crypto@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Jerry Shih <jerry.shih@sifive.com>
+Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
 	Heiko Stuebner <heiko@sntech.de>,
 	Phoebe Chen <phoebe.chen@sifive.com>, hongrong.hsu@sifive.com,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Andy Chiu <andy.chiu@sifive.com>
-Subject: Re: [RFC PATCH 00/13] RISC-V crypto with reworked asm files
-Message-ID: <20240103143557.GA773@quark.localdomain>
+Subject: Re: [RFC PATCH 07/13] crypto: riscv - add vector crypto accelerated
+ AES-{ECB,CBC,CTR,XTS}
+Message-ID: <20240103145043.GB773@quark.localdomain>
 References: <20240102064743.220490-1-ebiggers@kernel.org>
- <CAMj1kXEAqxCZ_PNM9a=CyciSHUzDU_yqemKh51oncHyLbYUKtA@mail.gmail.com>
+ <20240102064743.220490-8-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAMj1kXEAqxCZ_PNM9a=CyciSHUzDU_yqemKh51oncHyLbYUKtA@mail.gmail.com>
+In-Reply-To: <20240102064743.220490-8-ebiggers@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240103_063611_384795_3162E7B9 
-X-CRM114-Status: GOOD (  34.64  )
+X-CRM114-CacheID: sfid-20240103_065052_508583_B1D61BCF 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,60 +79,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 03, 2024 at 03:00:29PM +0100, Ard Biesheuvel wrote:
-> On Tue, 2 Jan 2024 at 07:50, Eric Biggers <ebiggers@kernel.org> wrote:
-> >
-> > As discussed previously, the proposed use of the so-called perlasm for
-> > the RISC-V crypto assembly files makes them difficult to read, and these
-> > files have some other issues such extensively duplicating source code
-> > for the different AES key lengths and for the unrolled hash functions.
-> > There is/was a desire to share code with OpenSSL, but many of the files
-> > have already diverged significantly; also, for most of the algorithms
-> > the source code can be quite short anyway, due to the native support for
-> > them in the RISC-V vector crypto extensions combined with the way the
-> > RISC-V vector extension naturally scales to arbitrary vector lengths.
-> >
-> > Since we're still waiting for prerequisite patches to be merged anyway,
-> > we have a bit more time to get this cleaned up properly.  So I've had a
-> > go at cleaning up the patchset to use standard .S files, with the code
-> > duplication fixed.  I also made some tweaks to make the different
-> > algorithms consistent with each other and with what exists in the kernel
-> > already for other architectures, and tried to improve comments.
-> >
-> > The result is this series, which passes all tests and is about 2400
-> > lines shorter than the latest version with the perlasm
-> > (https://lore.kernel.org/linux-crypto/20231231152743.6304-1-jerry.shih@sifive.com/).
-> > All the same functionality and general optimizations are still included,
-> > except for some minor optimizations in XTS that I dropped since it's not
-> > clear they are worth the complexity.  (Note that almost all users of XTS
-> > in the kernel only use it with block-aligned messages, so it's not very
-> > important to optimize the ciphertext stealing case.)
-> >
-> > I'd appreciate people's thoughts on this series.  Jerry, I hope I'm not
-> > stepping on your toes too much here, but I think there are some big
-> > improvements here.
-> >
-> 
-> As I have indicated before, I fully agree with Eric here that avoiding
-> perlasm is preferable: sharing code with OpenSSL is great if we can
-> simply adopt the exact same code (and track OpenSSL as its upstream)
-> but this never really worked that well for skciphers, due to API
-> differences. (The SHA transforms can be reused a bit more easily)
-> 
-> I will also note that perlasm is not as useful for RISC-V as it is for
-> other architectures: in OpenSSL, perlasm is also used to abstract
-> differences in calling conventions between, e.g., x86_64 on Linux vs
-> Windows, or to support building with outdated [proprietary]
-> toolchains.
-> 
-> I do wonder if we could also use .req directives for register aliases
-> instead of CPP defines? It shouldn't matter for working code, but the
-> diagnostics tend to be a bit more useful if the aliases are visible to
-> the assembler.
+On Tue, Jan 02, 2024 at 12:47:33AM -0600, Eric Biggers wrote:
+> diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
+> index dca698c5cba3e..5dd91f34f0d52 100644
+> --- a/arch/riscv/crypto/Makefile
+> +++ b/arch/riscv/crypto/Makefile
+> @@ -1,7 +1,10 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+>  #
+>  # linux/arch/riscv/crypto/Makefile
+>  #
+>  
+>  obj-$(CONFIG_CRYPTO_AES_RISCV64) += aes-riscv64.o
+>  aes-riscv64-y := aes-riscv64-glue.o aes-riscv64-zvkned.o
+> +
+> +obj-$(CONFIG_CRYPTO_AES_BLOCK_RISCV64) += aes-block-riscv64.o
+> +aes-block-riscv64-y := aes-riscv64-block-mode-glue.o aes-riscv64-zvkned-zvbb-zvkg.o aes-riscv64-zvkned-zvkb.o
 
-.req unfortunately isn't an option since it is specific to AArch64 and ARM
-assembly.  So we have to use #defines like x86 does.  Ultimately, the effect is
-about the same.
+A bug I noticed (which is also present in Jerry's patchset) is that some of the
+code of the aes-block-riscv64 module is located in aes-riscv64-zvkned.S, which
+isn't built into that module but rather into aes-riscv64.  This causes a build
+error when both CONFIG_CRYPTO_AES_RISCV64 and CONFIG_CRYPTO_AES_BLOCK_RISCV64
+are set to 'm':
+
+    ERROR: modpost: "aes_cbc_decrypt_zvkned" [arch/riscv/crypto/aes-block-riscv64.ko] undefined!
+    ERROR: modpost: "aes_ecb_decrypt_zvkned" [arch/riscv/crypto/aes-block-riscv64.ko] undefined!
+    ERROR: modpost: "aes_cbc_encrypt_zvkned" [arch/riscv/crypto/aes-block-riscv64.ko] undefined!
+    ERROR: modpost: "aes_ecb_encrypt_zvkned" [arch/riscv/crypto/aes-block-riscv64.ko] undefined!
+
+To fix this, I think we should just merge the two modules and kconfig options
+together so that there is one module that provides both the AES modes and the
+AES single-block cipher.  That's how x86's aesni-intel works, for example.
 
 - Eric
 
