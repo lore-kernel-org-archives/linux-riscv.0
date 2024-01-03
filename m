@@ -4,87 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08959C3DA6E
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 20:22:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3466CC3DA6E
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 20:26:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8+fCSTlWE4PkNgfM/tJQNeERcgnd3UxH+TOOYgW2OuI=; b=WEUgdTtSyehUZc
-	P7uvD4kYC5R9dQrih+uOussvACNwjGJL+JjH5Tmn0HsD4gbWNW5EX/vt6b49mCHp8Qg4AEIbIOxae
-	nFUQ4E4FRs2OywQqN1duWItHerjfcbuK0wo/9VYVvvyAcVB1acb6jHqewfPSVQ6avfvtyw8w/+Spe
-	lDQ/y+ZHsziXufX+5uOvAe0Xz+Op0LqwYWDhAsapKMBDJBodL5FLKVwWwRMgAGKgHXZM5INxRax1T
-	tVkrwBpYP/6QM+RPLav4+JX0FlrYf+PUpVlJDS7InCoIXaeUpyk1xYIJn5mDpSNTP+qtYej2FScdM
-	lDPTBLBPc54nSUDP9WhA==;
+	List-Owner; bh=OXy6ZH7xLPBg4Um3kSIK7ZZEP55OJmH8dbFukuG4ueQ=; b=q4McrQsFMvfi07
+	zZFnS86fh0FKca3BS9KfLEKQJnV3IwrmbVQ2owRivTUJsZM8xW8dgkw45QNBizse0BkUIVJEimsFx
+	g13SvLUxTethibA6giOG/5owIg0khFAS+IsdtfndGNNfUFtOS/CZtIsNnc3vTAsTSRcqmvJ9uq2An
+	uHn9++GupqHrUfOrwwxaJStgks98A9WFFZsC7sTxo9jDiGaEY0AUucPlGszxPVvFPgYpIT4cfGoaZ
+	Py4b2m4e9U5r6ceArln8qsfUA0rs2eHmiOhoQeVgK8JpLMFmIvkUkUju/eNW5Ivu5nY0w8Q1Dtg8/
+	v7GLYKEKvTJHBrvN/ZVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rL7kp-00C1fp-1w;
-	Wed, 03 Jan 2024 20:22:19 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1rL7p0-00C2yd-1G;
+	Wed, 03 Jan 2024 20:26:38 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rL7kh-00C1bZ-1J
-	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jan 2024 20:22:18 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1d427518d52so6148785ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Jan 2024 12:22:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1704313326; x=1704918126; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zwpW8R3xYRcFeijiUFHaM884VPc1V+tX+SXLWnbPyzE=;
-        b=WVBP01mxmr5pmDOiVUrOB8g5isZWxooiPaLlAP3C9Zjs2GGqeU0McSB7vhqD7e52Rm
-         qMUln8lOXoCT7fXVhnRwVrDCnJi03EKR6+aFu20eDCJRkDTuXxiS/OFcoNM1OhjbTv/e
-         LsNs9lj+YDxw6NOlPl7kzFatbdwNf7tKHWqm+c2Pi9BoTmLUzKTvs2FuHpJ28JHFKlPg
-         qBfmKQLyHOlQzsLcRJb+jJvZRPto+X15kEaHjyDFAcVDAR0SlxdPvz04nwV3jpQGIs7G
-         Zgc9VC447rDaNZhzPPV4eMJGwyhVFlGWPihGxhUFwcGtjs2+fv8ilPBT0jfqARrXbHuj
-         h4MA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704313326; x=1704918126;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zwpW8R3xYRcFeijiUFHaM884VPc1V+tX+SXLWnbPyzE=;
-        b=u65rtUEPww0BdhibZLpFbVAKtBo1HGY4kKKSxEmTJswJH08xISiLeoFj7+NlZhheEb
-         pjx3n7+nuyFih8yho0hTcgLCDJp+6VkSc/VZ7dTFmJXR3r+G8VvlwGAlTEK/sp9NTQAV
-         56VOc6yQZZ7fkfV9nK7eXUonsC/1iu/DW9/8IiVVMEa2t2qSpon351u9fQbD3Y5OUCZb
-         JaWdzb1lL2T5t2TzaXM41oF0YcxtCflcYey3prDiLZG2R8+k7kZzrEHsfnIi/xjI7t7R
-         g40ztknR4P2uiZnj5ycx8D6O0euN3Sh44fTDnXLIlQZChf5tah9QiHRENW13/ghEofov
-         5EUg==
-X-Gm-Message-State: AOJu0YwRPyqjS7830E4WEd7lGFvLT83uWYdqSnHu1GAvvRXJdAmiix0R
-	EW+mVVmLi8rNiEJfufxGQwfdgJSYTfQg+QH7W/UHXWs/lns=
-X-Google-Smtp-Source: AGHT+IEGKKEZm+PrXKULnqsmwhajVZq7IxX/xIJuHJ6YD4deMqXOED2G1ZGcg6ONgzGmqEbcfIT/jg==
-X-Received: by 2002:a17:902:748c:b0:1d3:edd9:1f13 with SMTP id h12-20020a170902748c00b001d3edd91f13mr1728858pll.67.1704313326148;
-        Wed, 03 Jan 2024 12:22:06 -0800 (PST)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d13-20020a170903230d00b001d3fa5acf71sm24278739plh.12.2024.01.03.12.22.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jan 2024 12:22:05 -0800 (PST)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Wed, 03 Jan 2024 12:22:02 -0800
-Subject: [PATCH v2 3/4] riscv: Fix relocation_hashtable size
+	id 1rL7oy-00C2x7-01;
+	Wed, 03 Jan 2024 20:26:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1704313596; x=1735849596;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=Lbi2jJK5X6Ja8W5YJo3K02rWVxNq162kMfMknei1nr0=;
+  b=GTr3o9JdfjySn4UJiJer2e0c+3LqGetO8fA/3UUpTZkjI7hM5R7SMoJ1
+   kNAxvrKTnDNfRnMITox2PMfwEB4Yn4cLdqKuTgPRTyWI7vlE8cwzVn9po
+   xyhznhQvGgUTWttmnMPnFDNBFC8NtLsyExsezf3ELay/Hy7xIkY32TVpR
+   Ja8vIioXg8HNJO6GNAr7WTTCti9VWTfS0FvlfGWu51h1IpV2uyCdnPiI/
+   3HnYCzvntFA9SlllDQad2PD/6XquAqC/OPFo0CG1nACCS0S+Kjp1HQfek
+   29myqrCEMSMslTIMyEyEnNZ1v30oAv+dl3paWCF9YkG1IRY0tgB/04OKO
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10942"; a="15703997"
+X-IronPort-AV: E=Sophos;i="6.04,328,1695711600"; 
+   d="scan'208";a="15703997"
+Received: from fmsmga003.fm.intel.com ([10.253.24.29])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jan 2024 12:26:32 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10942"; a="870664136"
+X-IronPort-AV: E=Sophos;i="6.04,328,1695711600"; 
+   d="scan'208";a="870664136"
+Received: from lmjeniso-mobl1.amr.corp.intel.com (HELO [10.212.155.116]) ([10.212.155.116])
+  by fmsmga003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jan 2024 12:26:30 -0800
+Message-ID: <6ee6340a-ffe2-4106-b845-47cf443558c3@intel.com>
+Date: Wed, 3 Jan 2024 12:26:29 -0800
 MIME-Version: 1.0
-Message-Id: <20240103-module_loading_fix-v2-3-292b160552c9@rivosinc.com>
-References: <20240103-module_loading_fix-v2-0-292b160552c9@rivosinc.com>
-In-Reply-To: <20240103-module_loading_fix-v2-0-292b160552c9@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>, 
- kernel test robot <lkp@intel.com>, Julia Lawall <julia.lawall@inria.fr>
-X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1704313322; l=1020;
- i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=js9HmT4o7o8yl7lcSP3vcOE6sOgYhIQV9xZrhoMilzw=;
- b=SCb2uRI3tDQm0ffD82YNnM5V07YHtzrz/w1KT4oUaF3KND9VKC87pPJdypEGMgzkkPQF9fFHn
- 3U5g8/i3hp1DCZbGzDsWDLQbXyWpmz3T+J+fT5KLQK7xulsUwWWSBLe
-X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
- pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] mm/tlb: fix fullmm semantics
+Content-Language: en-US
+To: Catalin Marinas <catalin.marinas@arm.com>,
+ Jisheng Zhang <jszhang@kernel.org>
+Cc: Will Deacon <will@kernel.org>,
+ "Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Nick Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Arnd Bergmann <arnd@arndb.de>, linux-arch@vger.kernel.org,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Nadav Amit <namit@vmware.com>, Andrea Arcangeli <aarcange@redhat.com>,
+ Andy Lutomirski <luto@kernel.org>, Dave Hansen
+ <dave.hansen@linux.intel.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Yu Zhao <yuzhao@google.com>, x86@kernel.org
+References: <20231228084642.1765-1-jszhang@kernel.org>
+ <20231228084642.1765-2-jszhang@kernel.org> <ZZWh4c3ZUtadFqD1@arm.com>
+From: Dave Hansen <dave.hansen@intel.com>
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <ZZWh4c3ZUtadFqD1@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240103_122211_440452_82C238C5 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20240103_122636_088096_44D6D5D8 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,35 +137,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A second dereference is needed to get the accurate size of the
-relocation_hashtable.
+On 1/3/24 10:05, Catalin Marinas wrote:
+>> --- a/mm/mmu_gather.c
+>> +++ b/mm/mmu_gather.c
+>> @@ -384,7 +384,7 @@ void tlb_finish_mmu(struct mmu_gather *tlb)
+>>  		 * On x86 non-fullmm doesn't yield significant difference
+>>  		 * against fullmm.
+>>  		 */
+>> -		tlb->fullmm = 1;
+>> +		tlb->need_flush_all = 1;
+>>  		__tlb_reset_range(tlb);
+>>  		tlb->freed_tables = 1;
+>>  	}
+> The optimisation here was added about a year later in commit
+> 7a30df49f63a ("mm: mmu_gather: remove __tlb_reset_range() for force
+> flush"). Do we still need to keep freed_tables = 1 here? I'd say only
+> __tlb_reset_range().
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-Fixes: d8792a5734b0 ("riscv: Safely remove entries from relocation list")
-Reported-by: kernel test robot <lkp@intel.com>
-Reported-by: Julia Lawall <julia.lawall@inria.fr>
-Closes: https://lore.kernel.org/r/202312120044.wTI1Uyaa-lkp@intel.com/
----
- arch/riscv/kernel/module.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I think the __tlb_reset_range() can be dangerous if it clears
+->freed_tables.  On x86 at least, it might lead to skipping the TLB IPI
+for CPUs that are in lazy TLB mode.  When those wake back up they might
+start using the freed page tables.
 
-diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-index 32743180e8ef..ceb0adb38715 100644
---- a/arch/riscv/kernel/module.c
-+++ b/arch/riscv/kernel/module.c
-@@ -764,7 +764,7 @@ initialize_relocation_hashtable(unsigned int num_relocations,
- 	hashtable_size <<= should_double_size;
- 
- 	*relocation_hashtable = kmalloc_array(hashtable_size,
--					      sizeof(*relocation_hashtable),
-+					      sizeof(**relocation_hashtable),
- 					      GFP_KERNEL);
- 	if (!*relocation_hashtable)
- 		return 0;
+Logically, this little hunk of code is just trying to turn the 'tlb'
+from a ranged flush into a full one.  Ideally, just setting
+'need_flush_all = 1' would be enough.
 
--- 
-2.43.0
-
+Is __tlb_reset_range() doing anything useful for other architectures?  I
+think it's just destroying perfectly valid metadata on x86. ;)
 
 _______________________________________________
 linux-riscv mailing list
