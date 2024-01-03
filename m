@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41520C3DA6E
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 12:09:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC9AFC3DA6E
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 12:17:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fYrCPH4DjOhXMfVUpt+vWAZ3xs780Eynz6F5DgC+FOg=; b=pSKFUT5FSt3aDC
-	6hKNoBhJmXZLBK7S+ElTofhls4UHfhBYweF3Hy4siKfLaWI1dAeWA4CJlN6df9bN8RjilsdHJUR63
-	v+ltyB0oQU4gpjn0u6DzWyRvW/0oW+dr0J96e1pw/qbmbkoHK/1+oHd3z4yOKGxiUqawe4lP1XvBt
-	j9aAc89klc+gS3uNCVzkQldyBD9dsmgxC0Cxmevs63V1GlSJtVUT6b6wxsADLyJ0obfuWc3rYpdV4
-	HLq2tFyRvx2jUmBYcIDpAQz3X2PBrKfuNfzE8mkq82q2pLlyLrPVd49+pvtbQhTqkkdCx3rammzvE
-	VIFFhvl83DnmOsPZuuZQ==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-ID:Date
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lvT1wlyz5GzhAxipXEauSkGLLsBn0Nd+5hmvQvH+ygo=; b=vnvYfax7LPRJ+u
+	iHngQkMUFogcVJlr+6lgGccI9j7Oty7nKrVIes87J1Jw6i7rnh2H0EDKC3goFfl2rUil+sbNuHpnU
+	3kvkWBHy/6rb3JLrbXhIqu44pV+atg/uWjHa5x5WOtx9zLCGqFSR6LKt9rsyxfMHvubJr2IMkF6X8
+	g4s6H+OABO7lkAq4DPr2DkD5dUQgfI0CYIOUVAye84F39jI2U8claAvUBGly0uEJzla8DY/RdcppA
+	1gbkMTkrMFVlYzh1cQY8wjWIWlmA1//3Re56XE1MB2bynjLMh4vKvgLMOlEpgYYPJOxsAgraddm1C
+	5cSA+BuuWk0ZrgTdWDhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rL03q-00Am34-0e;
-	Wed, 03 Jan 2024 12:09:26 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1rL0BS-00AmmD-0h;
+	Wed, 03 Jan 2024 12:17:18 +0000
+Received: from mail-il1-x132.google.com ([2607:f8b0:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rL03m-00Am0W-0A;
-	Wed, 03 Jan 2024 12:09:23 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id DF71121D8D;
-	Wed,  3 Jan 2024 12:09:17 +0000 (UTC)
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id C333D13AA6;
-	Wed,  3 Jan 2024 12:09:17 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id piUeLm1OlWUzHwAAD6G6ig
-	(envelope-from <chrubis@suse.cz>); Wed, 03 Jan 2024 12:09:17 +0000
-Date: Wed, 3 Jan 2024 13:09:42 +0100
-From: Cyril Hrubis <chrubis@suse.cz>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Petr Vorel <pvorel@suse.cz>, ltp@lists.linux.it,
-	Li Wang <liwang@redhat.com>,
-	Andrea Cervesato <andrea.cervesato@suse.com>,
-	Greg Ungerer <gerg@linux-m68k.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Christophe Lyon <christophe.lyon@linaro.org>,
-	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	Linux-sh list <linux-sh@vger.kernel.org>
-Subject: Re: [PATCH 00/36] Remove UCLINUX from LTP
-Message-ID: <ZZVOhlGPg5KRyS-F@yuki>
-References: <20240103015240.1065284-1-pvorel@suse.cz>
- <CAMuHMdXGwyS-CL0vLdUP4Z4YEYhmcmDyC3YdGCnS=jFkqASqvw@mail.gmail.com>
- <20240103114957.GD1073466@pevik>
- <CAMuHMdX0s0gLRoPtjJmDnSmZ_MNY590dN+JxM1HKAL1g_bjX+w@mail.gmail.com>
+	id 1rL0BP-00Amle-0V
+	for linux-riscv@lists.infradead.org;
+	Wed, 03 Jan 2024 12:17:16 +0000
+Received: by mail-il1-x132.google.com with SMTP id e9e14a558f8ab-35fd9e40039so54984285ab.1
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Jan 2024 04:17:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1704284232; x=1704889032; darn=lists.infradead.org;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:to:cc:subject:date:message-id:reply-to;
+        bh=ewh/BdXDi64xQUw18Azf93G3ctRpPshaW0euXjl3EM4=;
+        b=mdSQslnfN21VbAd/Z4reO0wCAgpx3j+jhhuC0neTJA3YDi6BtZaeZi8Ft193w3zrov
+         R9GAXgNmlZvZiezySe/UvhQgLK79eh5LHiMoG8Yk/rMaCpB0QY6s1OB3Czaj4va+whu3
+         lx1jN9UlfeBsUql8MpH2sy34FomobwW+amEAtbprcCdVWnuO77bEPKoDxEbLNUoldfSK
+         TpjJrcaSHoCGCsQPvEG1w9mHq2pCM1v3b2MqJ/c0b4MWdmLLbdQumhFwr7KiJ2CY5rg8
+         k8hkWEmkmCEUrol+a80p6bt/hpqoy43o80T9/+cqgtmtxYAS5ZP3cGu5XFE0/7YBcVYN
+         ZWLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1704284232; x=1704889032;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ewh/BdXDi64xQUw18Azf93G3ctRpPshaW0euXjl3EM4=;
+        b=XLrzleVB9wVVS5Q8N2c/m95Flhc5QphkLmfb7+5zgDazeZP93TXU9fGxhgvhLyIX08
+         Wz3+cwa/8mg0/9QuengTpzA1Fwa+ONgjyOpgRPj5rjpAdr1RilAXCg/txT0pibDh7jFj
+         5L38XDcHdsxXG/Hf9udzT8rFiLNlz8EPw65n6rnvbHaTw52848lRqcFL7HBqbTRlk5Vq
+         DOrdZpUWtdQeYUIc4130meLg5jkssbKPHGPZgoDbbMt1qVBBDt2ZOgYxywxzjv3otvDO
+         5zeqZHGZjSKQXt691C+5yr1TFW8ZnzNkxyz22pLe7Byw0Rg4Dx/JcVb1xq45e68XLcpG
+         LuMw==
+X-Gm-Message-State: AOJu0Yy5bh+xLGKcA1yB4BXpHlgo124bgc0kE3Wm3GzOEGiXihBwYreB
+	orScP27BQMMK88KKzug6IgCEL+MgY95wfWtNLq4hvUSSQE8=
+X-Google-Smtp-Source: AGHT+IGjXoCtXY3xEur+zJxye1UWMXmhOCAKtlSfY3EbmT0JR7j3KfjrIzS3nQ2+dqOjHFGRN6+1zQ==
+X-Received: by 2002:a05:6e02:12e3:b0:35f:fae1:793 with SMTP id l3-20020a056e0212e300b0035ffae10793mr26299669iln.43.1704284232009;
+        Wed, 03 Jan 2024 04:17:12 -0800 (PST)
+Received: from localhost ([12.44.203.122])
+        by smtp.gmail.com with ESMTPSA id n15-20020a6563cf000000b005cdf0b46fecsm17772881pgv.81.2024.01.03.04.17.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Jan 2024 04:17:11 -0800 (PST)
+Subject: [PATCH] RISC-V: hwprobe: Check for the reserved flags
+Date: Wed,  3 Jan 2024 04:12:20 -0800
+Message-ID: <20240103121220.26506-1-palmer@rivosinc.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAMuHMdX0s0gLRoPtjJmDnSmZ_MNY590dN+JxM1HKAL1g_bjX+w@mail.gmail.com>
-Authentication-Results: smtp-out1.suse.de;
-	none
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Spamd-Result: default: False [-4.00 / 50.00];
-	 REPLY(-4.00)[]
-X-Rspamd-Queue-Id: DF71121D8D
+Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@rivosinc.com>
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: ajones@ventanamicro.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240103_040922_236154_68BFD18B 
-X-CRM114-Status: GOOD (  10.11  )
+X-CRM114-CacheID: sfid-20240103_041715_511496_0899864F 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,23 +89,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi!
-> I am not sure I agree with this series.
-> Removing support for UCLINUX from LTP is almost a guarantee for
-> not noticing when more breakage is introduced.
-> 
-> How exactly is UCLINUX broken in LTP?
+This check got dropped when RISCV_HWPROBE_WHICH_CPUS was added, but
+we've still got a bunch of other reserved flags.  So check for them,
+just to make sure userspace doesn't get confused later.
 
-As far as we know noone is using it and nobody is maintaing it for a
-decade, so it's bitrotting and we do not have manpower to fix it, or
-rather we do not want to invest the scarcely limited resources we have
-into something that is niche at best. We asked repeatedly if anyone want
-to invest time into keeping it alive, but nobody answered the call so
-far and I doubt that it will happen at this point.
+Fixes: e178bf146e4b ("RISC-V: hwprobe: Introduce which-cpus flag")
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+---
+ arch/riscv/kernel/sys_hwprobe.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
+diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+index ccf61b040536..10d72893b04f 100644
+--- a/arch/riscv/kernel/sys_hwprobe.c
++++ b/arch/riscv/kernel/sys_hwprobe.c
+@@ -347,6 +347,10 @@ static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
+ 			    unsigned long __user *cpus_user,
+ 			    unsigned int flags)
+ {
++	/* The rest of the flags are still reserved. */
++	if (flags & ~RISCV_HWPROBE_WICHH_CPUS)
++		return -EINVAL;
++
+ 	if (flags & RISCV_HWPROBE_WHICH_CPUS)
+ 		return hwprobe_get_cpus(pairs, pair_count, cpusetsize,
+ 					cpus_user, flags);
 -- 
-Cyril Hrubis
-chrubis@suse.cz
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
