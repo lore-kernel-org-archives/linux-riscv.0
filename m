@@ -4,80 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40706C3DA6E
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 06:50:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AE8EC3DA6E
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 07:16:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FRLXlul4Kw9GUugysBu6AYLIxhinDXArBImpaa6cxjo=; b=WPNdgjKOBVCjiG
-	GFYJaPQIotUFciZQsxUX5vjeRsWT55oNTdMT81mssNs+5vuiYHed1odCCJ2fjbT3U6PyOLwN/hGFr
-	R3FXKNdQmq//vqXvppYz4atC91PtN1OX7AaPNiRMGMAzdORcXGlafFTQJgGYt6usiz62Lb3DyoT0i
-	6sfooouFGy+X3OKZjrmj7JI7YR94GhrwOTyvRdUQ0etegLPgHxNZ6LZL6JBwpMzBEANeuvFRfyfG0
-	VbY5JAPdFQPuhKF2OO9TAJoCGaC6qvLrT4ydE9gGig09FL/dqsRCXgmPtu9Riu0MeZoLRQvJhDtZJ
-	5w6BIurta3N7jzxSa5Pg==;
+	List-Owner; bh=ZrpwQlr8KbhYNkTMfilRWDAjbrWNU1W6xbjPCSfmU1g=; b=hhWKefhzGiXarf
+	8Cj/ulCPc7d/oMPcxKFS891StCcoz8A2KOCbYRFiP3v7qeinMhA7abl3v08pLcd5H/t8ZMCe4kQxr
+	p23yiWi3ocxDIHEL7rysHn9VSmJq2+rysPtfLfypiPxyV/BgJZe6E/wC1Pz9ft5YlAcuC1kFG2dEb
+	bSQjKo57Nu5ea1F5XKMWXyxkOCjlTior6gPzkwN9IOUFg0b+gsQdOUyFCWQEa4/GAKz6j8fX7Rs+p
+	nylXZqMauVXByuIbXYbMDgaQraXq58VO/Xegv4nF3aR/ovzAB7zCoc2ArQOn6r2Cf4UGG5OnJC5mW
+	uDhNQOV8HZExlCcY9eDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKv4f-009uwS-08;
-	Wed, 03 Jan 2024 06:49:57 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKv4b-009uvo-36
+	id 1rKvU1-009xRI-2S;
+	Wed, 03 Jan 2024 07:16:09 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1rKvTw-009xOF-2b
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jan 2024 06:49:55 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-40d5b89e2bfso62379265e9.0
-        for <linux-riscv@lists.infradead.org>; Tue, 02 Jan 2024 22:49:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1704264591; x=1704869391; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=eZvBlPK9tEXh/6idjRUyZbuu0z27bQiMm1LKGzDKtTA=;
-        b=G16yLagDYl96rgTbowYHcXZcSbVOmfuDuwSvRVt73CgswegPA2vFC8clp6dpnRmlPh
-         ETX0vnfLKNMjQxhy2UtrGD8dGuCUwmnc/P5pJ34+B5kmMoUNTv2H0wqfcuUtRLgyw6nd
-         G2N5MFOzpvQItUUPoN+zPSXLH1kYfS4i+/Ba16xn0IcZjCms7IGn0ykNYlB9NKwZCKPN
-         oykePPmBSa348mHK9+VD/K8loDz0gnhFl0X6V77DSGbIS6wWOyLDRBoD4S0Td72GsLII
-         ERWdYxeGQuO97g5FK3xy5ytL3NUjdpt7ID05/HcdTQ5BReq2FAcBXz/cKm52j2/pofUv
-         avbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704264591; x=1704869391;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=eZvBlPK9tEXh/6idjRUyZbuu0z27bQiMm1LKGzDKtTA=;
-        b=CELg/JyjpgUIz0u85wgMBA289VjF0X+81e73rhMa1Pp/RwnHg8d4UJBtJ0yuZK3XkN
-         4Cf718IrLO035M5ujxgvHh/eGBva5yBxzRCXhfX+pwJH2kqBLGfRfHToi8CZqjrjgeou
-         olaSicphQoQ0PiS86hsqB/p2Hs8RFfv7IJKHsNjutqMn0Nsp0OWLJn/4T+9+9Dod0+bK
-         HKANr4K9dJALCUWnWCB3U2f1K/8/eZVNbkmnxltjlKKx4KhEoWCU0p1sRjgGda+HJ2fz
-         BJRO1HiFWsHm5dSnIIdXcPFO8appHZaAvEvp5KhBZftXuvE7LGwIjodacDoztbNepoEQ
-         mB0g==
-X-Gm-Message-State: AOJu0Yx8bJALXuIZhlZT/YeL+dxoc5qOGzL3dJltGR13V9qs1HUuE1Z3
-	uxjFxjAYEHiFgWvh6BKxqrW0wBlwEuA7sA==
-X-Google-Smtp-Source: AGHT+IFeQ+FaIEd4TnBWqLCjj67cK5t0mWUddT+qMz0iJhTvN5+HLwazYdnUePv7VYYkxzKiS2n7Rw==
-X-Received: by 2002:a05:600c:470d:b0:40d:7264:2218 with SMTP id v13-20020a05600c470d00b0040d72642218mr3876286wmo.17.1704264591632;
-        Tue, 02 Jan 2024 22:49:51 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id p16-20020a05600c359000b0040d5a5c523csm1314206wmq.1.2024.01.02.22.49.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Jan 2024 22:49:51 -0800 (PST)
-Date: Wed, 3 Jan 2024 07:49:44 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Guo Ren <guoren@kernel.org>
-Subject: Re: Re: [PATCH V2 1/3] riscv: Add Zicbop instruction definitions &
- cpufeature
-Message-ID: <20240103-8a6aba29ada25eb1ab004687@orel>
-References: <20231231082955.16516-1-guoren@kernel.org>
- <20231231082955.16516-2-guoren@kernel.org>
- <20240102-4f12393de3c6313650a24c17@orel>
- <CAJF2gTRRqbC5RTGtwhQD1pR+JoP_D64+AUMdO2r5ff-cR5AaUg@mail.gmail.com>
+	Wed, 03 Jan 2024 07:16:08 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 7F5F224E276;
+	Wed,  3 Jan 2024 15:15:33 +0800 (CST)
+Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 3 Jan
+ 2024 15:15:33 +0800
+Received: from [192.168.120.47] (171.223.208.138) by EXMBX068.cuchost.com
+ (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 3 Jan
+ 2024 15:15:32 +0800
+Message-ID: <b1a44192-4e7d-46c2-b9cf-969795208839@starfivetech.com>
+Date: Wed, 3 Jan 2024 15:15:31 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJF2gTRRqbC5RTGtwhQD1pR+JoP_D64+AUMdO2r5ff-cR5AaUg@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 2/4] pwm: opencores: Add PWM driver support
+Content-Language: en-US
+To: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-pwm@vger.kernel.org>
+CC: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
+	=?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, Hal Feng
+	<hal.feng@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+References: <20231222094548.54103-1-william.qiu@starfivetech.com>
+ <20231222094548.54103-3-william.qiu@starfivetech.com>
+From: William Qiu <william.qiu@starfivetech.com>
+In-Reply-To: <20231222094548.54103-3-william.qiu@starfivetech.com>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX068.cuchost.com
+ (172.16.6.68)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240102_224954_098341_AC272C55 
-X-CRM114-Status: GOOD (  36.51  )
+X-CRM114-CacheID: sfid-20240102_231605_256861_234F63B9 
+X-CRM114-Status: GOOD (  32.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,177 +75,336 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: wefu@redhat.com, keescook@chromium.org, peterz@infradead.org, unicorn_wang@outlook.com, atishp@atishpatra.org, chao.wei@sophgo.com, bjorn@rivosinc.com, linux-kernel@vger.kernel.org, xiaoguang.xing@sophgo.com, conor.dooley@microchip.com, leobras@redhat.com, palmer@dabbelt.com, jszhang@kernel.org, paul.walmsley@sifive.com, Guo Ren <guoren@linux.alibaba.com>, panqinglin2020@iscas.ac.cn, linux-riscv@lists.infradead.org, wuwei2016@iscas.ac.cn
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBKYW4gMDMsIDIwMjQgYXQgMDI6MTM6MDBQTSArMDgwMCwgR3VvIFJlbiB3cm90ZToK
-PiBPbiBUdWUsIEphbiAyLCAyMDI0IGF0IDY6MzLigK9QTSBBbmRyZXcgSm9uZXMgPGFqb25lc0B2
-ZW50YW5hbWljcm8uY29tPiB3cm90ZToKPiA+Cj4gPiBPbiBTdW4sIERlYyAzMSwgMjAyMyBhdCAw
-MzoyOTo1MUFNIC0wNTAwLCBndW9yZW5Aa2VybmVsLm9yZyB3cm90ZToKPiA+ID4gRnJvbTogR3Vv
-IFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+ID4gPgo+ID4gPiBDYWNoZS1ibG9jayBw
-cmVmZXRjaCBpbnN0cnVjdGlvbnMgYXJlIEhJTlRzIHRvIHRoZSBoYXJkd2FyZSB0bwo+ID4gPiBp
-bmRpY2F0ZSB0aGF0IHNvZnR3YXJlIGludGVuZHMgdG8gcGVyZm9ybSBhIHBhcnRpY3VsYXIgdHlw
-ZSBvZgo+ID4gPiBtZW1vcnkgYWNjZXNzIGluIHRoZSBuZWFyIGZ1dHVyZS4gVGhpcyBwYXRjaCBh
-ZGRzIHByZWZldGNoLmksCj4gPiA+IHByZWZldGNoLnIgYW5kIHByZWZldGNoLncgaW5zdHJ1Y3Rp
-b24gZGVmaW5pdGlvbnMgYnkKPiA+ID4gUklTQ1ZfSVNBX0VYVF9aSUNCT1AgY3B1ZmVhdHVyZS4K
-PiA+Cj4gPiBJdCBhbHNvIGFkZHMgUy10eXBlIGluc3RydWN0aW9uIGVuY29kaW5nIHN1cHBvcnQg
-d2hpY2ggaXNuJ3QgbWVudGlvbmVkLgo+ID4gQWN0dWFsbHksIGl0J2QgcHJvYmFibHkgYmUgYmVz
-dCB0byBwdXQgdGhlIG5ldyBpbnN0cnVjdGlvbiBlbmNvZGluZyBpbgo+ID4gaXRzIG93biBzZXBh
-cmF0ZSBwYXRjaC4KPiBPa2F5LCBJIHdvdWxkIHNlcGFyYXRlIHRoZSBpbnN0cnVjdGlvbiBlbmNv
-ZGluZyBwYXRjaCBpbiB0aGUgbmV4dCB2ZXJzaW9uLgo+IAo+ID4KPiA+ID4KPiA+ID4gU2lnbmVk
-LW9mZi1ieTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+ID4gPiBTaWduZWQt
-b2ZmLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KPiA+ID4gLS0tCj4gPiA+ICBhcmNo
-L3Jpc2N2L0tjb25maWcgICAgICAgICAgICAgICAgfCAxNSArKysrKysrKwo+ID4gPiAgYXJjaC9y
-aXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oICAgIHwgIDEgKwo+ID4gPiAgYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS9pbnNuLWRlZi5oIHwgNjAgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+
-ID4gPiAgYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jICAgIHwgIDEgKwo+ID4gPiAgNCBm
-aWxlcyBjaGFuZ2VkLCA3NyBpbnNlcnRpb25zKCspCj4gPiA+Cj4gPiA+IGRpZmYgLS1naXQgYS9h
-cmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiA+ID4gaW5kZXggMjRjMTc5
-OWUyZWM0Li5mY2JkNDE3ZDY1ZWEgMTAwNjQ0Cj4gPiA+IC0tLSBhL2FyY2gvcmlzY3YvS2NvbmZp
-Zwo+ID4gPiArKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiA+ID4gQEAgLTU3OSw2ICs1NzksMjEg
-QEAgY29uZmlnIFJJU0NWX0lTQV9aSUNCT1oKPiA+ID4KPiA+ID4gICAgICAgICAgSWYgeW91IGRv
-bid0IGtub3cgd2hhdCB0byBkbyBoZXJlLCBzYXkgWS4KPiA+ID4KPiA+ID4gK2NvbmZpZyBSSVND
-Vl9JU0FfWklDQk9QCj4gPiA+ICsgICAgIGJvb2wgIlppY2JvcCBleHRlbnNpb24gc3VwcG9ydCBm
-b3IgY2FjaGUgYmxvY2sgcHJlZmV0Y2giCj4gPiA+ICsgICAgIGRlcGVuZHMgb24gTU1VCj4gPiA+
-ICsgICAgIGRlcGVuZHMgb24gUklTQ1ZfQUxURVJOQVRJVkUKPiA+ID4gKyAgICAgZGVmYXVsdCB5
-Cj4gPiA+ICsgICAgIGhlbHAKPiA+ID4gKyAgICAgICBBZGRzIHN1cHBvcnQgdG8gZHluYW1pY2Fs
-bHkgZGV0ZWN0IHRoZSBwcmVzZW5jZSBvZiB0aGUgWklDQk9QCj4gPiA+ICsgICAgICAgZXh0ZW5z
-aW9uIChDYWNoZSBCbG9jayBQcmVmZXRjaCBPcGVyYXRpb25zKSBhbmQgZW5hYmxlIGl0cwo+ID4g
-PiArICAgICAgIHVzYWdlLgo+ID4gPiArCj4gPiA+ICsgICAgICAgVGhlIFppY2JvcCBleHRlbnNp
-b24gY2FuIGJlIHVzZWQgdG8gcHJlZmV0Y2ggY2FjaGUgYmxvY2sgZm9yCj4gPgo+ID4gYmxvY2tz
-Cj4gPgo+ID4gPiArICAgICAgIHJlYWQvd3JpdGUgZmV0Y2guCj4gPiA+ICsKPiA+ID4gKyAgICAg
-ICBJZiB5b3UgZG9uJ3Qga25vdyB3aGF0IHRvIGRvIGhlcmUsIHNheSBZLgo+ID4gPiArCj4gPiA+
-ICBjb25maWcgVE9PTENIQUlOX0hBU19aSUhJTlRQQVVTRQo+ID4gPiAgICAgICBib29sCj4gPiA+
-ICAgICAgIGRlZmF1bHQgeQo+ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9od2NhcC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oCj4gPiA+IGluZGV4IDA2
-ZDMwNTI2ZWYzYi4uNzdkM2I2ZWUyNWFiIDEwMDY0NAo+ID4gPiAtLS0gYS9hcmNoL3Jpc2N2L2lu
-Y2x1ZGUvYXNtL2h3Y2FwLmgKPiA+ID4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2Nh
-cC5oCj4gPiA+IEBAIC01Nyw2ICs1Nyw3IEBACj4gPiA+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRf
-WklIUE0gICAgICAgICAgNDIKPiA+ID4gICNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9TTVNUQVRFRU4g
-ICAgICAgICAgICAgIDQzCj4gPiA+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfWklDT05EICAgICAg
-ICAgNDQKPiA+ID4gKyNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9aSUNCT1AgICAgICAgICA0NQo+ID4g
-Pgo+ID4gPiAgI2RlZmluZSBSSVNDVl9JU0FfRVhUX01BWCAgICAgICAgICAgIDY0Cj4gPiA+Cj4g
-PiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2luc24tZGVmLmggYi9hcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL2luc24tZGVmLmgKPiA+ID4gaW5kZXggZTI3MTc5YjI2MDg2Li5i
-YmRhMzUwYTYzYmYgMTAwNjQ0Cj4gPiA+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaW5z
-bi1kZWYuaAo+ID4gPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2luc24tZGVmLmgKPiA+
-ID4gQEAgLTE4LDYgKzE4LDEzIEBACj4gPiA+ICAjZGVmaW5lIElOU05fSV9SRF9TSElGVCAgICAg
-ICAgICAgICAgICAgICAgICAgNwo+ID4gPiAgI2RlZmluZSBJTlNOX0lfT1BDT0RFX1NISUZUICAg
-ICAgICAgICAwCj4gPiA+Cj4gPiA+ICsjZGVmaW5lIElOU05fU19TSU1NN19TSElGVCAgICAgICAg
-ICAgMjUKPiA+ID4gKyNkZWZpbmUgSU5TTl9TX1JTMl9TSElGVCAgICAgICAgICAgICAyMAo+ID4g
-PiArI2RlZmluZSBJTlNOX1NfUlMxX1NISUZUICAgICAgICAgICAgIDE1Cj4gPiA+ICsjZGVmaW5l
-IElOU05fU19GVU5DM19TSElGVCAgICAgICAgICAgMTIKPiA+ID4gKyNkZWZpbmUgSU5TTl9TX1NJ
-TU01X1NISUZUICAgICAgICAgICAgNwo+ID4gPiArI2RlZmluZSBJTlNOX1NfT1BDT0RFX1NISUZU
-ICAgICAgICAgICAwCj4gPiA+ICsKPiA+ID4gICNpZmRlZiBfX0FTU0VNQkxZX18KPiA+ID4KPiA+
-ID4gICNpZmRlZiBDT05GSUdfQVNfSEFTX0lOU04KPiA+ID4gQEAgLTMwLDYgKzM3LDEwIEBACj4g
-PiA+ICAgICAgIC5pbnNuICAgaSBcb3Bjb2RlLCBcZnVuYzMsIFxyZCwgXHJzMSwgXHNpbW0xMgo+
-ID4gPiAgICAgICAuZW5kbQo+ID4gPgo+ID4gPiArICAgICAubWFjcm8gaW5zbl9zLCBvcGNvZGUs
-IGZ1bmMzLCByczIsIHNpbW0xMiwgcnMxCj4gPiA+ICsgICAgIC5pbnNuICAgcyBcb3Bjb2RlLCBc
-ZnVuYzMsIFxyczIsIFxzaW1tMTIoXHJzMSkKPiA+ID4gKyAgICAgLmVuZG0KPiA+ID4gKwo+ID4g
-PiAgI2Vsc2UKPiA+ID4KPiA+ID4gICNpbmNsdWRlIDxhc20vZ3ByLW51bS5oPgo+ID4gPiBAQCAt
-NTEsMTAgKzYyLDIwIEBACj4gPiA+ICAgICAgICAgICAgICAgIChcc2ltbTEyIDw8IElOU05fSV9T
-SU1NMTJfU0hJRlQpKQo+ID4gPiAgICAgICAuZW5kbQo+ID4gPgo+ID4gPiArICAgICAubWFjcm8g
-aW5zbl9zLCBvcGNvZGUsIGZ1bmMzLCByczIsIHNpbW0xMiwgcnMxCj4gPiA+ICsgICAgIC40Ynl0
-ZSAgKChcb3Bjb2RlIDw8IElOU05fU19PUENPREVfU0hJRlQpIHwgICAgICAgICAgICAgXAo+ID4g
-PiArICAgICAgICAgICAgICAoXGZ1bmMzIDw8IElOU05fU19GVU5DM19TSElGVCkgfCAgICAgICAg
-ICAgICAgIFwKPiA+ID4gKyAgICAgICAgICAgICAgKC5MX19ncHJfbnVtX1xyczIgPDwgSU5TTl9T
-X1JTMl9TSElGVCkgfCAgICAgICBcCj4gPiA+ICsgICAgICAgICAgICAgICguTF9fZ3ByX251bV9c
-cnMxIDw8IElOU05fU19SUzFfU0hJRlQpIHwgICAgICAgXAo+ID4gPiArICAgICAgICAgICAgICAo
-KFxzaW1tMTIgJiAweDFmKSA8PCBJTlNOX1NfU0lNTTVfU0hJRlQpIHwgICAgIFwKPiA+ID4gKyAg
-ICAgICAgICAgICAgKCgoXHNpbW0xMiA+PiA1KSAmIDB4N2YpIDw8IElOU05fU19TSU1NN19TSElG
-VCkpCj4gPiA+ICsgICAgIC5lbmRtCj4gPiA+ICsKPiA+ID4gICNlbmRpZgo+ID4gPgo+ID4gPiAg
-I2RlZmluZSBfX0lOU05fUiguLi4pICAgICAgICBpbnNuX3IgX19WQV9BUkdTX18KPiA+ID4gICNk
-ZWZpbmUgX19JTlNOX0koLi4uKSAgICAgICAgaW5zbl9pIF9fVkFfQVJHU19fCj4gPiA+ICsjZGVm
-aW5lIF9fSU5TTl9TKC4uLikgICAgICAgIGluc25fcyBfX1ZBX0FSR1NfXwo+ID4gPgo+ID4gPiAg
-I2Vsc2UgLyogISBfX0FTU0VNQkxZX18gKi8KPiA+ID4KPiA+ID4gQEAgLTY2LDYgKzg3LDkgQEAK
-PiA+ID4gICNkZWZpbmUgX19JTlNOX0kob3Bjb2RlLCBmdW5jMywgcmQsIHJzMSwgc2ltbTEyKSAg
-ICAgXAo+ID4gPiAgICAgICAiLmluc24gIGkgIiBvcGNvZGUgIiwgIiBmdW5jMyAiLCAiIHJkICIs
-ICIgcnMxICIsICIgc2ltbTEyICJcbiIKPiA+ID4KPiA+ID4gKyNkZWZpbmUgX19JTlNOX1Mob3Bj
-b2RlLCBmdW5jMywgcnMyLCBzaW1tMTIsIHJzMSkgICAgXAo+ID4gPiArICAgICAiLmluc24gIHMg
-IiBvcGNvZGUgIiwgIiBmdW5jMyAiLCAiIHJzMiAiLCAiIHNpbW0xMiAiKCIgcnMxICIpXG4iCj4g
-PiA+ICsKPiA+ID4gICNlbHNlCj4gPiA+Cj4gPiA+ICAjaW5jbHVkZSA8bGludXgvc3RyaW5naWZ5
-Lmg+Cj4gPiA+IEBAIC05MiwxMiArMTE2LDI2IEBACj4gPiA+ICAiICAgICAgICAgICAgIChcXHNp
-bW0xMiA8PCAiIF9fc3RyaW5naWZ5KElOU05fSV9TSU1NMTJfU0hJRlQpICIpKVxuIiBcCj4gPiA+
-ICAiICAgIC5lbmRtXG4iCj4gPiA+Cj4gPiA+ICsjZGVmaW5lIERFRklORV9JTlNOX1MgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4g
-KyAgICAgX19ERUZJTkVfQVNNX0dQUl9OVU1TICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgIFwKPiA+ID4gKyIgICAgLm1hY3JvIGluc25fcywgb3Bjb2RlLCBmdW5jMywg
-cnMyLCBzaW1tMTIsIHJzMVxuIiAgICAgICAgICAgICAgIFwKPiA+ID4gKyIgICAgLjRieXRlICAo
-KFxcb3Bjb2RlIDw8ICIgX19zdHJpbmdpZnkoSU5TTl9TX09QQ09ERV9TSElGVCkgIikgfCIgIFwK
-PiA+ID4gKyIgICAgICAgICAgICAgKFxcZnVuYzMgPDwgIiBfX3N0cmluZ2lmeShJTlNOX1NfRlVO
-QzNfU0hJRlQpICIpIHwiICAgIFwKPiA+ID4gKyIgICAgICAgICAgICAgKC5MX19ncHJfbnVtX1xc
-cnMyIDw8ICIgX19zdHJpbmdpZnkoSU5TTl9TX1JTMl9TSElGVCkgIikgfCIgXAo+ID4gPiArIiAg
-ICAgICAgICAgICAoLkxfX2dwcl9udW1fXFxyczEgPDwgIiBfX3N0cmluZ2lmeShJTlNOX1NfUlMx
-X1NISUZUKSAiKSB8IiBcCj4gPiA+ICsiICAgICAgICAgICAgICgoXFxzaW1tMTIgJiAweDFmKSA8
-PCAiIF9fc3RyaW5naWZ5KElOU05fU19TSU1NNV9TSElGVCkgIikgfCIgXAo+ID4gPiArIiAgICAg
-ICAgICAgICAoKChcXHNpbW0xMiA+PiA1KSAmIDB4N2YpIDw8ICIgX19zdHJpbmdpZnkoSU5TTl9T
-X1NJTU03X1NISUZUKSAiKSlcbiIgXAo+ID4gPiArIiAgICAuZW5kbVxuIgo+ID4gPiArCj4gPiA+
-ICAjZGVmaW5lIFVOREVGSU5FX0lOU05fUiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gICIgICAgLnB1cmdlbSBpbnNuX3JcbiIKPiA+
-ID4KPiA+ID4gICNkZWZpbmUgVU5ERUZJTkVfSU5TTl9JICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gPiAgIiAgICAucHVyZ2VtIGluc25f
-aVxuIgo+ID4gPgo+ID4gPiArI2RlZmluZSBVTkRFRklORV9JTlNOX1MgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiA+ICsiICAgIC5wdXJn
-ZW0gaW5zbl9zXG4iCj4gPiA+ICsKPiA+ID4gICNkZWZpbmUgX19JTlNOX1Iob3Bjb2RlLCBmdW5j
-MywgZnVuYzcsIHJkLCByczEsIHJzMikgICAgICAgICAgICAgICAgIFwKPiA+ID4gICAgICAgREVG
-SU5FX0lOU05fUiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgIFwKPiA+ID4gICAgICAgImluc25fciAiIG9wY29kZSAiLCAiIGZ1bmMzICIsICIgZnVuYzcg
-IiwgIiByZCAiLCAiIHJzMSAiLCAiIHJzMiAiXG4iIFwKPiA+ID4gQEAgLTEwOCw2ICsxNDYsMTEg
-QEAKPiA+ID4gICAgICAgImluc25faSAiIG9wY29kZSAiLCAiIGZ1bmMzICIsICIgcmQgIiwgIiBy
-czEgIiwgIiBzaW1tMTIgIlxuIiBcCj4gPiA+ICAgICAgIFVOREVGSU5FX0lOU05fSQo+ID4gPgo+
-ID4gPiArI2RlZmluZSBfX0lOU05fUyhvcGNvZGUsIGZ1bmMzLCByczIsIHNpbW0xMiwgcnMxKSAg
-ICAgICAgICAgICAgICAgICAgXAo+ID4gPiArICAgICBERUZJTkVfSU5TTl9TICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gPiArICAgICAiaW5z
-bl9zICIgb3Bjb2RlICIsICIgZnVuYzMgIiwgIiByczIgIiwgIiBzaW1tMTIgIiwgIiByczEgIlxu
-IiAgXAo+ID4gPiArICAgICBVTkRFRklORV9JTlNOX1MKPiA+ID4gKwo+ID4gPiAgI2VuZGlmCj4g
-PiA+Cj4gPiA+ICAjZW5kaWYgLyogISBfX0FTU0VNQkxZX18gKi8KPiA+ID4gQEAgLTEyMCw2ICsx
-NjMsMTAgQEAKPiA+ID4gICAgICAgX19JTlNOX0koUlZfIyNvcGNvZGUsIFJWXyMjZnVuYzMsIFJW
-XyMjcmQsICAgICAgICAgICAgICBcCj4gPiA+ICAgICAgICAgICAgICAgIFJWXyMjcnMxLCBSVl8j
-I3NpbW0xMikKPiA+ID4KPiA+ID4gKyNkZWZpbmUgSU5TTl9TKG9wY29kZSwgZnVuYzMsIHJzMiwg
-c2ltbTEyLCByczEpICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAgX19JTlNOX1Mo
-UlZfIyNvcGNvZGUsIFJWXyMjZnVuYzMsIFJWXyMjcnMyLCAgICAgICAgICAgICBcCj4gPiA+ICsg
-ICAgICAgICAgICAgIFJWXyMjc2ltbTEyLCBSVl8jI3JzMSkKPiA+ID4gKwo+ID4gPiAgI2RlZmlu
-ZSBSVl9PUENPREUodikgICAgICAgICBfX0FTTV9TVFIodikKPiA+ID4gICNkZWZpbmUgUlZfRlVO
-QzModikgICAgICAgICAgX19BU01fU1RSKHYpCj4gPiA+ICAjZGVmaW5lIFJWX0ZVTkM3KHYpICAg
-ICAgICAgIF9fQVNNX1NUUih2KQo+ID4gPiBAQCAtMTMzLDYgKzE4MCw3IEBACj4gPiA+ICAjZGVm
-aW5lIFJWX19fUlMyKHYpICAgICAgICAgIF9fUlZfUkVHKHYpCj4gPiA+Cj4gPiA+ICAjZGVmaW5l
-IFJWX09QQ09ERV9NSVNDX01FTSAgIFJWX09QQ09ERSgxNSkKPiA+ID4gKyNkZWZpbmUgUlZfT1BD
-T0RFX09QX0lNTSAgICAgUlZfT1BDT0RFKDE5KQo+ID4gPiAgI2RlZmluZSBSVl9PUENPREVfU1lT
-VEVNICAgICBSVl9PUENPREUoMTE1KQo+ID4gPgo+ID4gPiAgI2RlZmluZSBIRkVOQ0VfVlZNQSh2
-YWRkciwgYXNpZCkgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gQEAgLTE5Niw0
-ICsyNDQsMTYgQEAKPiA+ID4gICAgICAgSU5TTl9JKE9QQ09ERV9NSVNDX01FTSwgRlVOQzMoMiks
-IF9fUkQoMCksICAgICAgICAgICAgICBcCj4gPiA+ICAgICAgICAgICAgICBSUzEoYmFzZSksIFNJ
-TU0xMig0KSkKPiA+ID4KPiA+ID4gKyNkZWZpbmUgQ0JPX1BSRUZFVENIX0koYmFzZSwgb2Zmc2V0
-KSAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiA+ICsgICAgIElOU05fUyhPUENPREVfT1Bf
-SU1NLCBGVU5DMyg2KSwgX19SUzIoMCksICAgICAgICAgICAgICAgXAo+ID4gPiArICAgICAgICAg
-ICAgU0lNTTEyKG9mZnNldCksIFJTMShiYXNlKSkKPiA+ID4gKwo+ID4gPiArI2RlZmluZSBDQk9f
-UFJFRkVUQ0hfUihiYXNlLCBvZmZzZXQpICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4g
-KyAgICAgSU5TTl9TKE9QQ09ERV9PUF9JTU0sIEZVTkMzKDYpLCBfX1JTMigxKSwgICAgICAgICAg
-ICAgICBcCj4gPiA+ICsgICAgICAgICAgICBTSU1NMTIob2Zmc2V0KSwgUlMxKGJhc2UpKQo+ID4g
-PiArCj4gPiA+ICsjZGVmaW5lIENCT19QUkVGRVRDSF9XKGJhc2UsIG9mZnNldCkgICAgICAgICAg
-ICAgICAgICAgICAgICAgXAo+ID4gPiArICAgICBJTlNOX1MoT1BDT0RFX09QX0lNTSwgRlVOQzMo
-NiksIF9fUlMyKDMpLCAgICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAgICAgICAgIFNJTU0xMihv
-ZmZzZXQpLCBSUzEoYmFzZSkpCj4gPgo+ID4gU2hvdWxkbid0IHdlIGVuc3VyZSB0aGUgbG93ZXIg
-NS1iaXRzIG9mIG9mZnNldCBhcmUgemVybyBieSBtYXNraW5nIGl0Pwo+IFRoZSBzcGVjIHNheXM6
-Cj4gIlRoZXNlIGluc3RydWN0aW9ucyBvcGVyYXRlIG9uIHRoZSBjYWNoZSBibG9jayB3aG9zZSBl
-ZmZlY3RpdmUgYWRkcmVzcwo+IGlzIHRoZSBzdW0gb2YgdGhlIGJhc2UgYWRkcmVzcyBzcGVjaWZp
-ZWQgaW4gcnMxIGFuZCB0aGUgc2lnbi1leHRlbmRlZAo+IG9mZnNldCBlbmNvZGVkIGluIGltbVsx
-MTowXSwgd2hlcmUgaW1tWzQ6MF0gc2hhbGwgZXF1YWwgMGIwMDAwMC4gVGhlCj4gZWZmZWN0aXZl
-IGFkZHJlc3MgaXMgdHJhbnNsYXRlZCBpbnRvIGEgY29ycmVzcG9uZGluZyBwaHlzaWNhbCBhZGRy
-ZXNzCj4gYnkgdGhlIGFwcHJvcHJpYXRlIHRyYW5zbGF0aW9uIG1lY2hhbmlzbXMuIgo+IAo+IFNv
-LCB0aGUgdXNlciBvZiBwcmVmZXRjaC53IHNob3VsZCBrZWVwIGltbVs0OjBdIHplcm8uCgpZZXMs
-IHRoZSB1c2VyIF9zaG91bGRfIGtlZXAgaW1tWzQ6MF0gemVyby4gVW5sZXNzIHdlIGNhbiB2YWxp
-ZGF0ZSBhdApjb21waWxlIHRpbWUgdGhhdCBhbGwgdXNlcnMgaGF2ZSBwYXNzZWQgb2Zmc2V0cyB3
-aXRoIHRoZSBsb3dlciA1LWJpdHMKc2V0IHRvIHplcm8sIHRoZW4gSSB0aGluayB3ZSBzaG91bGQg
-bWFzayB0aGVtIGhlcmUsIHNpbmNlIEknZCByYXRoZXIKbm90IHByb3ZpZGUgdGhlIHVzZXIgYSBm
-b290Z3VuLgoKPiBKdXN0IGxpa2UgdGhlCj4gcGF0Y2ggaGFzIGRvbmUsIHRoZSB3aG9sZSBpbW1b
-MTE6MF0gaXMgemVyby4KClRoYXQncyBqdXN0IG9uZSBwb3NzaWJsZSB1c2UsIGFuZCBJIHRoaW5r
-IGV4cG9zaW5nIHRoZSBvZmZzZXQgb3BlcmFuZCB0bwp1c2VycyBtYWtlcyBzZW5zZSBmb3IgdW5y
-b2xsZWQgc2VxdWVuY2VzIG9mIGludm9jYXRpb25zLCBzbyBJIHdvdWxkbid0CmNvdW50IG9uIG9m
-ZnNldCBhbHdheXMgYmVpbmcgemVyby4KClRoYW5rcywKZHJldwoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+
+On 2023/12/22 17:45, William Qiu wrote:
+> Add driver for OpenCores PWM Controller. And add compatibility code
+> which based on StarFive SoC.
+> 
+> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> ---
+>  MAINTAINERS              |   7 ++
+>  drivers/pwm/Kconfig      |  12 ++
+>  drivers/pwm/Makefile     |   1 +
+>  drivers/pwm/pwm-ocores.c | 233 +++++++++++++++++++++++++++++++++++++++
+>  4 files changed, 253 insertions(+)
+>  create mode 100644 drivers/pwm/pwm-ocores.c
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 9104430e148e..6a6c355150e7 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -16145,6 +16145,13 @@ F:	Documentation/i2c/busses/i2c-ocores.rst
+>  F:	drivers/i2c/busses/i2c-ocores.c
+>  F:	include/linux/platform_data/i2c-ocores.h
+> 
+> +OPENCORES PWM DRIVER
+> +M:	William Qiu <william.qiu@starfivetech.com>
+> +M:	Hal Feng <hal.feng@starfivetech.com>
+> +S:	Supported
+> +F:	Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+> +F:	drivers/pwm/pwm-ocores.c
+> +
+>  OPENRISC ARCHITECTURE
+>  M:	Jonas Bonn <jonas@southpole.se>
+>  M:	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>
+> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+> index 4b956d661755..d87e1bb350ba 100644
+> --- a/drivers/pwm/Kconfig
+> +++ b/drivers/pwm/Kconfig
+> @@ -444,6 +444,18 @@ config PWM_NTXEC
+>  	  controller found in certain e-book readers designed by the original
+>  	  design manufacturer Netronix.
+> 
+> +config PWM_OCORES
+> +	tristate "OpenCores PWM support"
+> +	depends on HAS_IOMEM && OF
+> +	depends on COMMON_CLK
+> +	depends on ARCH_STARFIVE || COMPILE_TEST
+> +	help
+> +	  If you say yes to this option, support will be included for the
+> +	  OpenCores PWM. For details see https://opencores.org/projects/ptc.
+> +
+> +	  To compile this driver as a module, choose M here: the module
+> +	  will be called pwm-ocores.
+> +
+>  config PWM_OMAP_DMTIMER
+>  	tristate "OMAP Dual-Mode Timer PWM support"
+>  	depends on OF
+> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
+> index c5ec9e168ee7..517c4f643058 100644
+> --- a/drivers/pwm/Makefile
+> +++ b/drivers/pwm/Makefile
+> @@ -40,6 +40,7 @@ obj-$(CONFIG_PWM_MICROCHIP_CORE)	+= pwm-microchip-core.o
+>  obj-$(CONFIG_PWM_MTK_DISP)	+= pwm-mtk-disp.o
+>  obj-$(CONFIG_PWM_MXS)		+= pwm-mxs.o
+>  obj-$(CONFIG_PWM_NTXEC)		+= pwm-ntxec.o
+> +obj-$(CONFIG_PWM_OCORES)	+= pwm-ocores.o
+>  obj-$(CONFIG_PWM_OMAP_DMTIMER)	+= pwm-omap-dmtimer.o
+>  obj-$(CONFIG_PWM_PCA9685)	+= pwm-pca9685.o
+>  obj-$(CONFIG_PWM_PXA)		+= pwm-pxa.o
+> diff --git a/drivers/pwm/pwm-ocores.c b/drivers/pwm/pwm-ocores.c
+> new file mode 100644
+> index 000000000000..dfb5a186da71
+> --- /dev/null
+> +++ b/drivers/pwm/pwm-ocores.c
+> @@ -0,0 +1,233 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * OpenCores PWM Driver
+> + *
+> + * https://opencores.org/projects/ptc
+> + *
+> + * Copyright (C) 2018-2023 StarFive Technology Co., Ltd.
+> + *
+> + * Limitations:
+> + * - The hardware only do inverted polarity.
+> + * - The hardware minimum period / duty_cycle is (1 / pwm_apb clock frequency) ns.
+> + * - The hardware maximum period / duty_cycle is (U32_MAX / pwm_apb clock frequency) ns.
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_device.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pwm.h>
+> +#include <linux/reset.h>
+> +#include <linux/slab.h>
+> +
+> +/* OCPWM_CTRL register bits*/
+> +#define REG_OCPWM_EN      BIT(0)
+> +#define REG_OCPWM_ECLK    BIT(1)
+> +#define REG_OCPWM_NEC     BIT(2)
+> +#define REG_OCPWM_OE      BIT(3)
+> +#define REG_OCPWM_SIGNLE  BIT(4)
+> +#define REG_OCPWM_INTE    BIT(5)
+> +#define REG_OCPWM_INT     BIT(6)
+> +#define REG_OCPWM_CNTRRST BIT(7)
+> +#define REG_OCPWM_CAPTE   BIT(8)
+> +
+> +struct ocores_pwm_device {
+> +	struct pwm_chip chip;
+> +	struct clk *clk;
+> +	struct reset_control *rst;
+> +	const struct ocores_pwm_data *data;
+> +	void __iomem *regs;
+> +	u32 clk_rate; /* PWM APB clock frequency */
+> +};
+> +
+> +struct ocores_pwm_data {
+> +	void __iomem *(*get_ch_base)(void __iomem *base, unsigned int channel);
+> +};
+> +
+> +static inline u32 ocores_readl(struct ocores_pwm_device *ddata,
+> +			       unsigned int channel,
+> +			       unsigned int offset)
+> +{
+> +	void __iomem *base = ddata->data->get_ch_base ?
+> +			     ddata->data->get_ch_base(ddata->regs, channel) : ddata->regs;
+> +
+> +	return readl(base + offset);
+> +}
+> +
+> +static inline void ocores_writel(struct ocores_pwm_device *ddata,
+> +				 unsigned int channel,
+> +				 unsigned int offset, u32 val)
+> +{
+> +	void __iomem *base = ddata->data->get_ch_base ?
+> +			     ddata->data->get_ch_base(ddata->regs, channel) : ddata->regs;
+> +
+> +	writel(val, base + offset);
+> +}
+> +
+> +static inline struct ocores_pwm_device *chip_to_ocores(struct pwm_chip *chip)
+> +{
+> +	return container_of(chip, struct ocores_pwm_device, chip);
+> +}
+> +
+> +static void __iomem *starfive_jh71x0_get_ch_base(void __iomem *base,
+> +						 unsigned int channel)
+> +{
+> +	unsigned int offset = (channel > 3 ? 1 << 15 : 0) + (channel & 3) * 0x10;
+> +
+> +	return base + offset;
+> +}
+> +
+> +static int ocores_pwm_get_state(struct pwm_chip *chip,
+> +				struct pwm_device *pwm,
+> +				struct pwm_state *state)
+> +{
+> +	struct ocores_pwm_device *ddata = chip_to_ocores(chip);
+> +	u32 period_data, duty_data, ctrl_data;
+> +
+> +	period_data = ocores_readl(ddata, pwm->hwpwm, 0x8);
+> +	duty_data = ocores_readl(ddata, pwm->hwpwm, 0x4);
+> +	ctrl_data = ocores_readl(ddata, pwm->hwpwm, 0xC);
+> +
+> +	state->period = DIV_ROUND_UP_ULL((u64)period_data * NSEC_PER_SEC, ddata->clk_rate);
+> +	state->duty_cycle = DIV_ROUND_UP_ULL((u64)duty_data * NSEC_PER_SEC, ddata->clk_rate);
+> +	state->polarity = PWM_POLARITY_INVERSED;
+> +	state->enabled = (ctrl_data & REG_OCPWM_EN) ? true : false;
+> +
+> +	return 0;
+> +}
+> +
+> +static int ocores_pwm_apply(struct pwm_chip *chip,
+> +			    struct pwm_device *pwm,
+> +			    const struct pwm_state *state)
+> +{
+> +	struct ocores_pwm_device *ddata = chip_to_ocores(chip);
+> +	u32 ctrl_data = 0;
+> +	u64 period_data, duty_data;
+> +
+> +	if (state->polarity != PWM_POLARITY_INVERSED)
+> +		return -EINVAL;
+> +
+> +	ctrl_data = ocores_readl(ddata, pwm->hwpwm, 0xC);
+> +	ocores_writel(ddata, pwm->hwpwm, 0xC, 0);
+> +
+> +	period_data = DIV_ROUND_DOWN_ULL(state->period * ddata->clk_rate, NSEC_PER_SEC);
+> +	if (period_data <= U32_MAX)
+> +		ocores_writel(ddata, pwm->hwpwm, 0x8, (u32)period_data);
+> +	else
+> +		return -EINVAL;
+> +
+> +	duty_data = DIV_ROUND_DOWN_ULL(state->duty_cycle * ddata->clk_rate, NSEC_PER_SEC);
+> +	if (duty_data <= U32_MAX)
+> +		ocores_writel(ddata, pwm->hwpwm, 0x4, (u32)duty_data);
+> +	else
+> +		return -EINVAL;
+> +
+> +	ocores_writel(ddata, pwm->hwpwm, 0xC, 0);
+> +
+> +	if (state->enabled) {
+> +		ctrl_data = ocores_readl(ddata, pwm->hwpwm, 0xC);
+> +		ocores_writel(ddata, pwm->hwpwm, 0xC, ctrl_data | REG_OCPWM_EN | REG_OCPWM_OE);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct pwm_ops ocores_pwm_ops = {
+> +	.get_state	= ocores_pwm_get_state,
+> +	.apply		= ocores_pwm_apply,
+> +};
+> +
+> +static const struct ocores_pwm_data jh7100_pwm_data = {
+> +	.get_ch_base = starfive_jh71x0_get_ch_base,
+> +};
+> +
+> +static const struct ocores_pwm_data jh7110_pwm_data = {
+> +	.get_ch_base = starfive_jh71x0_get_ch_base,
+> +};
+> +
+> +static const struct of_device_id ocores_pwm_of_match[] = {
+> +	{ .compatible = "opencores,pwm-v1" },
+> +	{ .compatible = "starfive,jh7100-pwm", .data = &jh7100_pwm_data},
+> +	{ .compatible = "starfive,jh7110-pwm", .data = &jh7110_pwm_data},
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, ocores_pwm_of_match);
+> +
+> +static void ocores_reset_control_assert(void *data)
+> +{
+> +	reset_control_assert(data);
+> +}
+> +
+> +static int ocores_pwm_probe(struct platform_device *pdev)
+> +{
+> +	const struct of_device_id *id;
+> +	struct device *dev = &pdev->dev;
+> +	struct ocores_pwm_device *ddata;
+> +	struct pwm_chip *chip;
+> +	int ret;
+> +
+> +	id = of_match_device(ocores_pwm_of_match, dev);
+> +	if (!id)
+> +		return -EINVAL;
+> +
+> +	ddata = devm_kzalloc(dev, sizeof(*ddata), GFP_KERNEL);
+> +	if (!ddata)
+> +		return -ENOMEM;
+> +
+> +	ddata->data = id->data;
+> +	chip = &ddata->chip;
+> +	chip->dev = dev;
+> +	chip->ops = &ocores_pwm_ops;
+> +	chip->npwm = 8;
+> +	chip->of_pwm_n_cells = 3;
+> +
+> +	ddata->regs = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(ddata->regs))
+> +		return dev_err_probe(dev, PTR_ERR(ddata->regs),
+> +				     "Unable to map IO resources\n");
+> +
+> +	ddata->clk = devm_clk_get_enabled(dev, NULL);
+> +	if (IS_ERR(ddata->clk))
+> +		return dev_err_probe(dev, PTR_ERR(ddata->clk),
+> +				     "Unable to get pwm's clock\n");
+> +
+> +	ddata->rst = devm_reset_control_get_optional_exclusive(dev, NULL);
+> +	if (IS_ERR(ddata->rst))
+> +		return dev_err_probe(dev, PTR_ERR(ddata->rst),
+> +				     "Unable to get pwm's reset\n");
+> +
+> +	reset_control_deassert(ddata->rst);
+> +
+> +	ret = devm_add_action_or_reset(dev, ocores_reset_control_assert, ddata->rst);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ddata->clk_rate = clk_get_rate(ddata->clk);
+> +	if (ddata->clk_rate <= 0)
+> +		return dev_err_probe(dev, ddata->clk_rate,
+> +				     "Unable to get clock's rate\n");
+> +
+> +	ret = devm_pwmchip_add(dev, chip);
+> +	if (ret < 0)
+> +		return dev_err_probe(dev, ret, "Could not register PWM chip\n");
+> +
+> +	platform_set_drvdata(pdev, ddata);
+> +
+> +	return ret;
+> +}
+> +
+> +static struct platform_driver ocores_pwm_driver = {
+> +	.probe = ocores_pwm_probe,
+> +	.driver = {
+> +		.name = "ocores-pwm",
+> +		.of_match_table = ocores_pwm_of_match,
+> +	},
+> +};
+> +module_platform_driver(ocores_pwm_driver);
+> +
+> +MODULE_AUTHOR("Jieqin Chen");
+> +MODULE_AUTHOR("Hal Feng <hal.feng@starfivetech.com>");
+> +MODULE_DESCRIPTION("OpenCores PWM PTC driver");
+> +MODULE_LICENSE("GPL");
+> --
+> 2.34.1
+> 
+
+
+Hi Thierry Reding,
+
+Could you please help me review this patch series to see if there is
+anything that needs to be modified? If not, could you help me integrate
+this patch into the main line? Thanks.
+Thanks for taking time to review this patch series.
+ 
+Best Regards,
+William
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
