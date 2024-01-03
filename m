@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E42FEC3DA6E
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 20:22:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08959C3DA6E
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 20:22:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5bURZWHCKQiCNIKlZEyVy9RmQMXC2Tr/0gHbOHhB6sE=; b=ezZYhQ9kQl6CHd
-	YM3gOzeNZ3Bf4b+15KbQMAdfZFbF/ftxwXsqYA6Rgjpk1T0FXyTafpJmbDATkTVUM/mgiWzlo+WvU
-	5YGYCLeKAtF8+pWesLH408DgPB+HZnybKB5/8qOqWGRbHP1PbCtO1HoUSfPcZko7hVwQKGt7rkcH+
-	NeTUK69YcdaXBBqq3dSr5M2HWCp+eLu42Thac1Yb2Al+vtkjHWpTz6eML+0DNjIx2ToqXevE36v4k
-	4EMQSUMrhrJY84ub60KsRCTm2j1ayowVd1NWtCJ626STx2plix/zaxCFOpHKy3USHU3SFP2bi+t2x
-	yJLj3ByzB+gsldi3kGMA==;
+	List-Owner; bh=8+fCSTlWE4PkNgfM/tJQNeERcgnd3UxH+TOOYgW2OuI=; b=WEUgdTtSyehUZc
+	P7uvD4kYC5R9dQrih+uOussvACNwjGJL+JjH5Tmn0HsD4gbWNW5EX/vt6b49mCHp8Qg4AEIbIOxae
+	nFUQ4E4FRs2OywQqN1duWItHerjfcbuK0wo/9VYVvvyAcVB1acb6jHqewfPSVQ6avfvtyw8w/+Spe
+	lDQ/y+ZHsziXufX+5uOvAe0Xz+Op0LqwYWDhAsapKMBDJBodL5FLKVwWwRMgAGKgHXZM5INxRax1T
+	tVkrwBpYP/6QM+RPLav4+JX0FlrYf+PUpVlJDS7InCoIXaeUpyk1xYIJn5mDpSNTP+qtYej2FScdM
+	lDPTBLBPc54nSUDP9WhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rL7kq-00C1g8-0Y;
-	Wed, 03 Jan 2024 20:22:20 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1rL7kp-00C1fp-1w;
+	Wed, 03 Jan 2024 20:22:19 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rL7kg-00C1c3-1W
+	id 1rL7kh-00C1bZ-1J
 	for linux-riscv@lists.infradead.org;
 	Wed, 03 Jan 2024 20:22:18 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1d3ed1ca402so83165055ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Jan 2024 12:22:07 -0800 (PST)
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1d427518d52so6148785ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Jan 2024 12:22:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1704313327; x=1704918127; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1704313326; x=1704918126; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=EcPZp/8DlGxkljJ2IULxF796JgdWAzcJATDANUPFHbg=;
-        b=fsOgKYeQ93BZsrlhAvFshdo2PGT5+9n1NB94bjNp47LmzzwV/khi3SdHDz0XSukvEj
-         nsO9SKCHsStuJaL6ZNmyiubOb0zUDFUg5iqcGGpWLCbuJ7/VdS2RnPbKAfpr7NH+7wfD
-         uXulTnRHif11PCia2PkMybky1KMpPC9EfduVhjnLlMGk+o0IEccTH80X2lnkcdzraudm
-         6J8WIrUHvA4LFFS4LcracJR5YcHe/II/O4t2CzZHM2Jk9/ayOBf0dgbVBUCChj9K4iRj
-         Z4CQUVrOPxop+ZJgG0b8tpUXmRj0q8Sb7yvIQ8qhvuZNZlI5d8IZYqjsUwXYbJ8r6yTs
-         mHqg==
+        bh=zwpW8R3xYRcFeijiUFHaM884VPc1V+tX+SXLWnbPyzE=;
+        b=WVBP01mxmr5pmDOiVUrOB8g5isZWxooiPaLlAP3C9Zjs2GGqeU0McSB7vhqD7e52Rm
+         qMUln8lOXoCT7fXVhnRwVrDCnJi03EKR6+aFu20eDCJRkDTuXxiS/OFcoNM1OhjbTv/e
+         LsNs9lj+YDxw6NOlPl7kzFatbdwNf7tKHWqm+c2Pi9BoTmLUzKTvs2FuHpJ28JHFKlPg
+         qBfmKQLyHOlQzsLcRJb+jJvZRPto+X15kEaHjyDFAcVDAR0SlxdPvz04nwV3jpQGIs7G
+         Zgc9VC447rDaNZhzPPV4eMJGwyhVFlGWPihGxhUFwcGtjs2+fv8ilPBT0jfqARrXbHuj
+         h4MA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704313327; x=1704918127;
+        d=1e100.net; s=20230601; t=1704313326; x=1704918126;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=EcPZp/8DlGxkljJ2IULxF796JgdWAzcJATDANUPFHbg=;
-        b=RqrdiMJtMjhTF8YZ99ozaw8XUFSr4Q9xNF+4e3ht+LKsND3fxCJfArfhagAjqVkGYL
-         PAMKpLYT2E+06zuA7AZ3Cot3eVSBb1x+n2y9NjjCjG9S/h5yRTeugOI/SQsZBVF0QKiU
-         DXBqlduSzeSQ1Wsm/JIxwaBZBVmzKVhOY9PL85uu2/rsbdKTZmILTXlj2pdodFblpUL4
-         FBQXgsjcX4X5WwNRL3ks3a3BiSQwt252PKD55J7wG/ODsDF3KRREoyC70xL8aOElpN0G
-         H7bFWqGaMlCX0QO+SyhS3T1lcaClddx96q2oSMHJ3N04qJQTnaFPXjjXq3jJqOIkMNKy
-         Yeaw==
-X-Gm-Message-State: AOJu0Yxm1pg2707JPAuo2vwNEbzs+kpNVHlfOZcHYayZDpAPcz025d6F
-	OsbdPHnonGvnhqsDsVgfXRAGh6sgRls1qA==
-X-Google-Smtp-Source: AGHT+IHcWutJo6xSTujomFEKk6dSK8nUjnWN4ho0sIQ5KDgWpHxK2VZNM4O1sbbudAJfyt88IVHcOA==
-X-Received: by 2002:a17:903:98b:b0:1d4:d0e8:f9d2 with SMTP id mb11-20020a170903098b00b001d4d0e8f9d2mr1463670plb.93.1704313327127;
-        Wed, 03 Jan 2024 12:22:07 -0800 (PST)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d13-20020a170903230d00b001d3fa5acf71sm24278739plh.12.2024.01.03.12.22.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        bh=zwpW8R3xYRcFeijiUFHaM884VPc1V+tX+SXLWnbPyzE=;
+        b=u65rtUEPww0BdhibZLpFbVAKtBo1HGY4kKKSxEmTJswJH08xISiLeoFj7+NlZhheEb
+         pjx3n7+nuyFih8yho0hTcgLCDJp+6VkSc/VZ7dTFmJXR3r+G8VvlwGAlTEK/sp9NTQAV
+         56VOc6yQZZ7fkfV9nK7eXUonsC/1iu/DW9/8IiVVMEa2t2qSpon351u9fQbD3Y5OUCZb
+         JaWdzb1lL2T5t2TzaXM41oF0YcxtCflcYey3prDiLZG2R8+k7kZzrEHsfnIi/xjI7t7R
+         g40ztknR4P2uiZnj5ycx8D6O0euN3Sh44fTDnXLIlQZChf5tah9QiHRENW13/ghEofov
+         5EUg==
+X-Gm-Message-State: AOJu0YwRPyqjS7830E4WEd7lGFvLT83uWYdqSnHu1GAvvRXJdAmiix0R
+	EW+mVVmLi8rNiEJfufxGQwfdgJSYTfQg+QH7W/UHXWs/lns=
+X-Google-Smtp-Source: AGHT+IEGKKEZm+PrXKULnqsmwhajVZq7IxX/xIJuHJ6YD4deMqXOED2G1ZGcg6ONgzGmqEbcfIT/jg==
+X-Received: by 2002:a17:902:748c:b0:1d3:edd9:1f13 with SMTP id h12-20020a170902748c00b001d3edd91f13mr1728858pll.67.1704313326148;
         Wed, 03 Jan 2024 12:22:06 -0800 (PST)
+Received: from charlie.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d13-20020a170903230d00b001d3fa5acf71sm24278739plh.12.2024.01.03.12.22.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Jan 2024 12:22:05 -0800 (PST)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Wed, 03 Jan 2024 12:22:03 -0800
-Subject: [PATCH v2 4/4] riscv: Convert relocation iterator to do-while
+Date: Wed, 03 Jan 2024 12:22:02 -0800
+Subject: [PATCH v2 3/4] riscv: Fix relocation_hashtable size
 MIME-Version: 1.0
-Message-Id: <20240103-module_loading_fix-v2-4-292b160552c9@rivosinc.com>
+Message-Id: <20240103-module_loading_fix-v2-3-292b160552c9@rivosinc.com>
 References: <20240103-module_loading_fix-v2-0-292b160552c9@rivosinc.com>
 In-Reply-To: <20240103-module_loading_fix-v2-0-292b160552c9@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
 Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>, 
- kernel test robot <lkp@intel.com>, Dan Carpenter <error27@gmail.com>
+ kernel test robot <lkp@intel.com>, Julia Lawall <julia.lawall@inria.fr>
 X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1704313322; l=2036;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1704313322; l=1020;
  i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=/ulcCnMFIkQarQGjz3X7NHIbZYgPXF/TzHke91JiC70=;
- b=2fwTTwWMrRHS1yLamkUKZvd9RFwXcDTwRTA8f+jCiAzGbZeyRz8gSU1eE+TKXv6+1XNA9u1WE
- i2oJi82DcH9AhH3z6euJBaUPy3PMy9P/+ZV8YT9MxUbCORDtooywt6E
+ bh=js9HmT4o7o8yl7lcSP3vcOE6sOgYhIQV9xZrhoMilzw=;
+ b=SCb2uRI3tDQm0ffD82YNnM5V07YHtzrz/w1KT4oUaF3KND9VKC87pPJdypEGMgzkkPQF9fFHn
+ 3U5g8/i3hp1DCZbGzDsWDLQbXyWpmz3T+J+fT5KLQK7xulsUwWWSBLe
 X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
  pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240103_122210_506980_A233F876 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20240103_122211_440452_82C238C5 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,59 +101,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use a do-while loop to iterate through relocation entries to prevent
-curr_type from being marked as uninitialized.
+A second dereference is needed to get the accurate size of the
+relocation_hashtable.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 Fixes: d8792a5734b0 ("riscv: Safely remove entries from relocation list")
 Reported-by: kernel test robot <lkp@intel.com>
-Reported-by: Dan Carpenter <error27@gmail.com>
-Closes: https://lore.kernel.org/r/202312130859.wnkuzVWY-lkp@intel.com/
+Reported-by: Julia Lawall <julia.lawall@inria.fr>
+Closes: https://lore.kernel.org/r/202312120044.wTI1Uyaa-lkp@intel.com/
 ---
- arch/riscv/kernel/module.c | 26 +++++++++++++++++++++-----
- 1 file changed, 21 insertions(+), 5 deletions(-)
+ arch/riscv/kernel/module.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-index ceb0adb38715..581e425686ab 100644
+index 32743180e8ef..ceb0adb38715 100644
 --- a/arch/riscv/kernel/module.c
 +++ b/arch/riscv/kernel/module.c
-@@ -633,15 +633,31 @@ process_accumulated_relocations(struct module *me,
- 					  bucket_iter->bucket, node) {
- 			buffer = 0;
- 			location = rel_head_iter->location;
--			list_for_each_entry_safe(rel_entry_iter,
--						 rel_entry_iter_tmp,
--						 rel_head_iter->rel_entry,
--						 head) {
-+			rel_entry_iter =
-+				list_first_entry(rel_head_iter->rel_entry,
-+						 typeof(*rel_entry_iter), head);
-+			rel_entry_iter_tmp =
-+				list_next_entry(rel_entry_iter, head);
-+
-+			/*
-+			 * Iterate through all relocation entries that share
-+			 * this location. This uses a do-while loop instead of
-+			 * list_for_each_entry_safe since it is known that there
-+			 * is at least one entry and curr_type needs to be the
-+			 * value of the last entry when the loop exits.
-+			 */
-+			do {
- 				curr_type = rel_entry_iter->type;
- 				reloc_handlers[curr_type].reloc_handler(
- 					me, &buffer, rel_entry_iter->value);
- 				kfree(rel_entry_iter);
--			}
-+
-+				rel_entry_iter = rel_entry_iter_tmp;
-+				rel_entry_iter_tmp = list_next_entry(rel_entry_iter_tmp, head);
-+			} while (!list_entry_is_head(rel_entry_iter,
-+						     rel_head_iter->rel_entry,
-+						     head));
-+
- 			reloc_handlers[curr_type].accumulate_handler(
- 				me, location, buffer);
- 			kfree(rel_head_iter);
+@@ -764,7 +764,7 @@ initialize_relocation_hashtable(unsigned int num_relocations,
+ 	hashtable_size <<= should_double_size;
+ 
+ 	*relocation_hashtable = kmalloc_array(hashtable_size,
+-					      sizeof(*relocation_hashtable),
++					      sizeof(**relocation_hashtable),
+ 					      GFP_KERNEL);
+ 	if (!*relocation_hashtable)
+ 		return 0;
 
 -- 
 2.43.0
