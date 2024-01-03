@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9EC8C3DA6E
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 09:15:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDF2CC47074
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 09:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ri+gfHZQE3y+rJZpOu6C7o4HAD2HQ1kH+4kHa8YugIM=; b=i8za/R13yErmn6
-	ooeevzqDZW7ukL05LrW6ctZXItFrdWgEL07xVlMqv6D2bZvQCB3mz+KkbmnstNDYeYPWpUfdi+UMx
-	AS8Zk3YpnfnBwyf79kPzFXF8GvR9S3K5iPYfLOMQfdxu+GCyd4DFmyE9XQ6aSXveEPKPcuUnHMJ81
-	+zkRMsnxfXcpN1sEiE80DU2jd+SrzeyqGpaGyT/PFrZzTsweqoQOJIUGN669ttQpKh6kvm+DjS48a
-	kPSNZTyqbGkPHrz2jvU1kozYEXLNJZmYGM8AsJtZSWu3BnDa7D2vKDLODeK2XxZjI9+YLynJoyLTu
-	A7LJG/JjSR5PyPHWSLvQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=B+4JIo0oj1nqltw3priYrcMNEtDqIf5XcYXK5c7fJb4=; b=2LyCGi/arcsfWP
+	U5Em8OliWMiJTEjUKWeNweAjRnLIWymb5ndfTUCLhYuDH48+ayjjP6JuqHMklKtwyvlS6oW+op1ne
+	lftxj3UsdI/YZFV6hlWD7gUBGYoInuxzJSKqkTinwb8hkiHedM9E+ZYpm8B2da6fA53ToNw6y0fuJ
+	PhlVZ9/A4ztpaiwFAXriVcOCj5vf+zp7+gekAZTG4vJid7dxt7JL9nu2ITwn3HbLIuzxfDtlgDyhE
+	vjBC2Wy7eoXNW8MbWjquOgAON+Wg9GJFW8HIy3YR670s1U+1E93bmbk0ZSwQMvVfGDoGkalnpWuCe
+	ONwUOIuB+2gBLsAsyPdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKxKu-00AAm2-0q;
-	Wed, 03 Jan 2024 09:14:52 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1rKxL4-00AAsL-18;
+	Wed, 03 Jan 2024 09:15:02 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKxKr-00AAjs-05
+	id 1rKxL0-00AAon-35
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jan 2024 09:14:50 +0000
+	Wed, 03 Jan 2024 09:15:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1704273286;
+	s=mimecast20190719; t=1704273296;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=ECdT86ko6CPDQ7PwUTvJTmsh3hF4cTDBKdjOYZE7Ef8=;
-	b=P+yOHYGe62HGUf9HPLjbG5PQ9+bPn+xxLg74lXHLowGJOIyRE6RVfsjUX5vcHlUJYz+otX
-	Sdwv8q6CJwQv19KGXEL3P7pEVIdvglCZgJzcxUm1BaqcQ3oDbN3PT/q1asgJTFVBcMiiMx
-	EBsZutiOmJ+0khpKe/kQU1Ynmpl21AE=
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YJJA5xKvoSxf1aIwLnbJbk4H1JjSjqj4D+JMLQtFT+4=;
+	b=V9EpdFslxRIH2/lLW4yB2vVju2Wmw6ulwmw7navuSF732JvWfyJofY0ILaeqeayV7bEpau
+	4xyTZl+t9eaICVM+XXC3nn4twTx3ZuqPzhVdLOZKUWgF2ixP2jrxGJoJY1j03LNGGowFhS
+	m5axgNfWhAhv60Hw7EsH72rk16WeIfM=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-656-YJyX-2z5NWeDsYfFUhlklw-1; Wed, 03 Jan 2024 04:14:40 -0500
-X-MC-Unique: YJyX-2z5NWeDsYfFUhlklw-1
+ us-mta-173-O3owD6t5PRKmlxLnlxARAQ-1; Wed, 03 Jan 2024 04:14:53 -0500
+X-MC-Unique: O3owD6t5PRKmlxLnlxARAQ-1
 Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6FE0C1019DE1;
-	Wed,  3 Jan 2024 09:14:39 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E7E9B87DC02;
+	Wed,  3 Jan 2024 09:14:51 +0000 (UTC)
 Received: from x1n.redhat.com (unknown [10.72.116.69])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 16526492BF0;
-	Wed,  3 Jan 2024 09:14:26 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 40971492BE6;
+	Wed,  3 Jan 2024 09:14:39 +0000 (UTC)
 From: peterx@redhat.com
 To: linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org
@@ -78,14 +79,17 @@ Cc: James Houghton <jthoughton@google.com>,
 	Christoph Hellwig <hch@infradead.org>,
 	Lorenzo Stoakes <lstoakes@gmail.com>,
 	Matthew Wilcox <willy@infradead.org>
-Subject: [PATCH v2 00/13] mm/gup: Unify hugetlb, part 2
-Date: Wed,  3 Jan 2024 17:14:10 +0800
-Message-ID: <20240103091423.400294-1-peterx@redhat.com>
+Subject: [PATCH v2 01/13] mm/Kconfig: CONFIG_PGTABLE_HAS_HUGE_LEAVES
+Date: Wed,  3 Jan 2024 17:14:11 +0800
+Message-ID: <20240103091423.400294-2-peterx@redhat.com>
+In-Reply-To: <20240103091423.400294-1-peterx@redhat.com>
+References: <20240103091423.400294-1-peterx@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240103_011449_151313_D37B0663 
-X-CRM114-Status: GOOD (  18.01  )
+X-CRM114-CacheID: sfid-20240103_011459_063631_D8619523 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,98 +108,30 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Peter Xu <peterx@redhat.com>
 
-v2:
-- Collect acks
-- Patch 9:
-  - Use READ_ONCE() to fetch pud entry [James]
+Introduce a config option that will be selected as long as huge leaves are
+involved in pgtable (thp or hugetlbfs).  It would be useful to mark any
+code with this new config that can process either hugetlb or thp pages in
+any level that is higher than pte level.
 
-rfc: https://lore.kernel.org/r/20231116012908.392077-1-peterx@redhat.com
-v1:  https://lore.kernel.org/r/20231219075538.414708-1-peterx@redhat.com
+Signed-off-by: Peter Xu <peterx@redhat.com>
+---
+ mm/Kconfig | 3 +++
+ 1 file changed, 3 insertions(+)
 
-This is v2 of the series, based on latest mm-unstalbe (856325d361df).
-
-The series removes the hugetlb slow gup path after a previous refactor work
-[1], so that slow gup now uses the exact same path to process all kinds of
-memory including hugetlb.
-
-For the long term, we may want to remove most, if not all, call sites of
-huge_pte_offset().  It'll be ideal if that API can be completely dropped
-from arch hugetlb API.  This series is one small step towards merging
-hugetlb specific codes into generic mm paths.  From that POV, this series
-removes one reference to huge_pte_offset() out of many others.
-
-One goal of such a route is that we can reconsider merging hugetlb features
-like High Granularity Mapping (HGM).  It was not accepted in the past
-because it may add lots of hugetlb specific codes and make the mm code even
-harder to maintain.  With a merged codeset, features like HGM can hopefully
-share some code with THP, legacy (PMD+) or modern (continuous PTEs).
-
-To make it work, the generic slow gup code will need to at least understand
-hugepd, which is already done like so in fast-gup.  Fortunately it seems
-that's the only major thing I need to teach slow GUP to share the common
-path for now besides normal huge PxD entries.  Non-gup can be more
-challenging, but that's a question for later.
-
-There's one major difference for slow-gup on cont_pte / cont_pmd handling,
-currently supported on three architectures (aarch64, riscv, ppc).  Before
-the series, slow gup will be able to recognize e.g. cont_pte entries with
-the help of huge_pte_offset() when hstate is around.  Now it's gone but
-still working, by looking up pgtable entries one by one.
-
-It's not ideal, but hopefully this change should not affect yet on major
-workloads.  There's some more information in the commit message of the last
-patch.  If this would be a concern, we can consider teaching slow gup to
-recognize cont pte/pmd entries, and that should recover the lost
-performance.  But I doubt its necessity for now, so I kept it as simple as
-it can be.
-
-Test Done
-=========
-
-This v1 went through the normal GUP smoke tests over different memory
-types on archs (using VM instances): x86_64, aarch64, ppc64le.  For
-aarch64, tested over 64KB cont_pte huge pages.  For ppc64le, tested over
-16MB hugepd entries (Power8 hash MMU on 4K base page size).
-
-Patch layout
-=============
-
-Patch 1-7:    Preparation works, or cleanups in relevant code paths
-Patch 8-12:   Teach slow gup with all kinds of huge entries (pXd, hugepd)
-Patch 13:     Drop hugetlb_follow_page_mask()
-
-More information can be found in the commit messages of each patch.  Any
-comment will be welcomed.  Thanks.
-
-[1] https://lore.kernel.org/all/20230628215310.73782-1-peterx@redhat.com
-
-Peter Xu (13):
-  mm/Kconfig: CONFIG_PGTABLE_HAS_HUGE_LEAVES
-  mm/hugetlb: Declare hugetlbfs_pagecache_present() non-static
-  mm: Provide generic pmd_thp_or_huge()
-  mm: Make HPAGE_PXD_* macros even if !THP
-  mm: Introduce vma_pgtable_walk_{begin|end}()
-  mm/gup: Drop folio_fast_pin_allowed() in hugepd processing
-  mm/gup: Refactor record_subpages() to find 1st small page
-  mm/gup: Handle hugetlb for no_page_table()
-  mm/gup: Cache *pudp in follow_pud_mask()
-  mm/gup: Handle huge pud for follow_pud_mask()
-  mm/gup: Handle huge pmd for follow_pmd_mask()
-  mm/gup: Handle hugepd for follow_page()
-  mm/gup: Handle hugetlb in the generic follow_page_mask code
-
- include/linux/huge_mm.h |  25 +--
- include/linux/hugetlb.h |  16 +-
- include/linux/mm.h      |   3 +
- include/linux/pgtable.h |   4 +
- mm/Kconfig              |   3 +
- mm/gup.c                | 362 ++++++++++++++++++++++++++++++++--------
- mm/huge_memory.c        | 133 +--------------
- mm/hugetlb.c            |  75 +--------
- mm/internal.h           |   7 +-
- mm/memory.c             |  12 ++
- 10 files changed, 342 insertions(+), 298 deletions(-)
-
+diff --git a/mm/Kconfig b/mm/Kconfig
+index cb9d470f0bf7..9350ba180d52 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -904,6 +904,9 @@ config READ_ONLY_THP_FOR_FS
+ 
+ endif # TRANSPARENT_HUGEPAGE
+ 
++config PGTABLE_HAS_HUGE_LEAVES
++	def_bool TRANSPARENT_HUGEPAGE || HUGETLB_PAGE
++
+ #
+ # UP and nommu archs use km based percpu allocator
+ #
 -- 
 2.41.0
 
