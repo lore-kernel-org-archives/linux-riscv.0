@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A71BC3DA6E
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 09:15:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C50D4C47074
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 09:16:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OjJM2Tk+EWVH4iUf1B1/zQkh70xvIc7xwYCq9oh1X78=; b=n/drktI6zhcgXG
-	Wv6CYqjowaczatWSiA8Kd5f1fjIkIyAxbaoCa9boQGMTdSjS1daP4wt7uyyHzvhelERgGvHlOO3hp
-	sHqOlBfCsOG9V607FVqsshSUBkyJfyMTAV7iSkAVgZKKPN5FzPlK8Pecqxry+z/t2teGByxvdkLte
-	9jEJsehDOI0ShURgJw+73rdL6CMoJOPxl0pCEixL7iR8vPO/sRklg8/GjDHqZUyQyhasJGlzDaH58
-	IKd+e39+xgxQ5vPkTUQxVyjtDUnppbOALbdeWbhIpR4G1YWYPyGFL+KjkiAVEy+z7rOfq9OibiN4l
-	WeR76RIqqI8crMLMfUrw==;
+	List-Owner; bh=7msJ97MaouTOuX8pdhxH6zIhJnb2F5OUw0DgpEN2Vs8=; b=kVp6520bJmWlz9
+	IwiEe9etGz5/BCNQo6gfhvK3XYIgFsa75fZcQRVw22QDjCDcMh/TDts88HHxGeUG1cXgHUDr+64CE
+	tQavbYybfCfT3z3RLCm4229Hs5WFcNi33P/nZ3gSNmHd4U8BN1qDB09WMW1XSDX+Ndwj0NsctVJLb
+	mQ91BGZZb42YXWd9XdGdgy0L5Lb5wgVaBi8RRdIxkC2GTwZxwqRZVjRcPGGY1BhBxcYr5937lYnj9
+	JM4o1SfZQm8wrRHD+CxsTJroS10qLpi2Q5ZKEUPxMaHYrWNR8lMiXItNajj5iA6JY4XxgigMmEQaP
+	gLf0bWPwb9BBbVk6pDEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKxLq-00ABQ3-0V;
-	Wed, 03 Jan 2024 09:15:50 +0000
+	id 1rKxM0-00ABXj-00;
+	Wed, 03 Jan 2024 09:16:00 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKxLn-00ABNH-0v
+	id 1rKxLx-00ABUc-1U
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jan 2024 09:15:48 +0000
+	Wed, 03 Jan 2024 09:15:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1704273346;
+	s=mimecast20190719; t=1704273356;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=GERLJEPmXyjsod6a3w+H+MRPlzFy0pZTus1RG/9onmU=;
-	b=FFul2ySqpE6xkzSg/+G+C/t/Dpvzh0PsRrxGGHXH6WniIrNrKsssifqsMnyQeXoJrPFgMO
-	zTuRv4YsxPEYB2ae51xaSgdESVAP/K0B9xRo/JsMPSsILxGoQy0iIEHAbSVoqF/6PMESC0
-	BJIvu9HYZ60C/iUg4IjjdpPt1evMu2I=
+	bh=G2mMJAnaoVdNju5RvSwq+KPjZVLCTkTT7F8NTqIl1do=;
+	b=BBa8wfoy30Et31o8proshioniEi1fNFa34f+U8gh27a8pK7r/2CMTQUG1jai9akjCEsnr8
+	rANdBUN2BLV9I33E3GXSslWZKiz4esBisIL9oXF/LroIVn9pLL/1XKXqTQ+pIbuBpOEq3m
+	qLMpCYD6pdLpcqx4/wueyV3h4OWwP5c=
 Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
  by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-621-AvRlxFvDMHWmUtn2K9LV5Q-1; Wed,
- 03 Jan 2024 04:15:42 -0500
-X-MC-Unique: AvRlxFvDMHWmUtn2K9LV5Q-1
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-597-sJHnyUgTOIGCIKVC1MWAaQ-1; Wed,
+ 03 Jan 2024 04:15:53 -0500
+X-MC-Unique: sJHnyUgTOIGCIKVC1MWAaQ-1
 Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1957D29AA38F;
-	Wed,  3 Jan 2024 09:15:41 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 731831C0512D;
+	Wed,  3 Jan 2024 09:15:52 +0000 (UTC)
 Received: from x1n.redhat.com (unknown [10.72.116.69])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 7C3DE492BE6;
-	Wed,  3 Jan 2024 09:15:29 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id DBCD9492BE6;
+	Wed,  3 Jan 2024 09:15:41 +0000 (UTC)
 From: peterx@redhat.com
 To: linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org
@@ -79,16 +79,16 @@ Cc: James Houghton <jthoughton@google.com>,
 	Christoph Hellwig <hch@infradead.org>,
 	Lorenzo Stoakes <lstoakes@gmail.com>,
 	Matthew Wilcox <willy@infradead.org>
-Subject: [PATCH v2 05/13] mm: Introduce vma_pgtable_walk_{begin|end}()
-Date: Wed,  3 Jan 2024 17:14:15 +0800
-Message-ID: <20240103091423.400294-6-peterx@redhat.com>
+Subject: [PATCH v2 06/13] mm/gup: Drop folio_fast_pin_allowed() in hugepd processing
+Date: Wed,  3 Jan 2024 17:14:16 +0800
+Message-ID: <20240103091423.400294-7-peterx@redhat.com>
 In-Reply-To: <20240103091423.400294-1-peterx@redhat.com>
 References: <20240103091423.400294-1-peterx@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240103_011547_403969_CB03B314 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20240103_011557_566162_4D5724E5 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,55 +107,65 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Peter Xu <peterx@redhat.com>
 
-Introduce per-vma begin()/end() helpers for pgtable walks.  This is a
-preparation work to merge hugetlb pgtable walkers with generic mm.
+Hugepd format for GUP is only used in PowerPC with hugetlbfs.  There are
+some kernel usage of hugepd (can refer to hugepd_populate_kernel() for
+PPC_8XX), however those pages are not candidates for GUP.
 
-The helpers need to be called before and after a pgtable walk, will start
-to be needed if the pgtable walker code supports hugetlb pages.  It's a
-hook point for any type of VMA, but for now only hugetlb uses it to
-stablize the pgtable pages from getting away (due to possible pmd
-unsharing).
+Commit a6e79df92e4a ("mm/gup: disallow FOLL_LONGTERM GUP-fast writing to
+file-backed mappings") added a check to fail gup-fast if there's potential
+risk of violating GUP over writeback file systems.  That should never apply
+to hugepd.  Considering that hugepd is an old format (and even
+software-only), there's no plan to extend hugepd into other file typed
+memories that is prone to the same issue.
 
-Reviewed-by: Christoph Hellwig <hch@infradead.org>
-Reviewed-by: Muchun Song <muchun.song@linux.dev>
+Drop that check, not only because it'll never be true for hugepd per any
+known plan, but also it paves way for reusing the function outside
+fast-gup.
+
+To make sure we'll still remember this issue just in case hugepd will be
+extended to support non-hugetlbfs memories, add a rich comment above
+gup_huge_pd(), explaining the issue with proper references.
+
+Cc: Christoph Hellwig <hch@infradead.org>
+Cc: Lorenzo Stoakes <lstoakes@gmail.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: linuxppc-dev@lists.ozlabs.org
 Signed-off-by: Peter Xu <peterx@redhat.com>
 ---
- include/linux/mm.h |  3 +++
- mm/memory.c        | 12 ++++++++++++
- 2 files changed, 15 insertions(+)
+ mm/gup.c | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 896c0079f64f..6836da00671a 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -4181,4 +4181,7 @@ static inline bool pfn_is_unaccepted_memory(unsigned long pfn)
- 	return range_contains_unaccepted_memory(paddr, paddr + PAGE_SIZE);
+diff --git a/mm/gup.c b/mm/gup.c
+index eebae70d2465..fa93e14b7fca 100644
+--- a/mm/gup.c
++++ b/mm/gup.c
+@@ -2820,11 +2820,6 @@ static int gup_hugepte(pte_t *ptep, unsigned long sz, unsigned long addr,
+ 		return 0;
+ 	}
+ 
+-	if (!folio_fast_pin_allowed(folio, flags)) {
+-		gup_put_folio(folio, refs, flags);
+-		return 0;
+-	}
+-
+ 	if (!pte_write(pte) && gup_must_unshare(NULL, flags, &folio->page)) {
+ 		gup_put_folio(folio, refs, flags);
+ 		return 0;
+@@ -2835,6 +2830,14 @@ static int gup_hugepte(pte_t *ptep, unsigned long sz, unsigned long addr,
+ 	return 1;
  }
  
-+void vma_pgtable_walk_begin(struct vm_area_struct *vma);
-+void vma_pgtable_walk_end(struct vm_area_struct *vma);
-+
- #endif /* _LINUX_MM_H */
-diff --git a/mm/memory.c b/mm/memory.c
-index 7e1f4849463a..89f3caac2ec8 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -6279,3 +6279,15 @@ void ptlock_free(struct ptdesc *ptdesc)
- 	kmem_cache_free(page_ptl_cachep, ptdesc->ptl);
- }
- #endif
-+
-+void vma_pgtable_walk_begin(struct vm_area_struct *vma)
-+{
-+	if (is_vm_hugetlb_page(vma))
-+		hugetlb_vma_lock_read(vma);
-+}
-+
-+void vma_pgtable_walk_end(struct vm_area_struct *vma)
-+{
-+	if (is_vm_hugetlb_page(vma))
-+		hugetlb_vma_unlock_read(vma);
-+}
++/*
++ * NOTE: currently GUP for a hugepd is only possible on hugetlbfs file
++ * systems on Power, which does not have issue with folio writeback against
++ * GUP updates.  When hugepd will be extended to support non-hugetlbfs or
++ * even anonymous memory, we need to do extra check as what we do with most
++ * of the other folios. See writable_file_mapping_allowed() and
++ * folio_fast_pin_allowed() for more information.
++ */
+ static int gup_huge_pd(hugepd_t hugepd, unsigned long addr,
+ 		unsigned int pdshift, unsigned long end, unsigned int flags,
+ 		struct page **pages, int *nr)
 -- 
 2.41.0
 
