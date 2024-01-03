@@ -4,79 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62F1BC3DA6E
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 12:00:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41520C3DA6E
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 12:09:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2ihOmJKykh08CQ/gqeRJfwcXWwKiLQnv323kim2nSFQ=; b=aCCdj/XHhOfw3a
-	soEM1NEE4LF2bCMCmL8XJPCoVlQX3UPfnTO+E7OH05iUHLeYPx5THXn476C4XjQvQPQfJcjT71kQe
-	6sczcxKS+f/4zbAqRmBim8XyO6jax0krcRqnuJTRCclfKsCQe1k+tuUK3tr7yvf7CpF5skgdkpctx
-	j1ba5MAYy37zUkufiL6u/lmNAvpD2qhdYpoKI6RDo9fPoHXb6N+q2J+AhGME7LHQdIyrcgWzRjiRP
-	nznHSOPv8idXlYigajFi0VIi1A2d09hpRvYDpN38waC1t4PWHZkEIzEz2BJ4zheFd02uJpY/85//F
-	67IwDPFAlgofR8YbnElQ==;
+	List-Owner; bh=fYrCPH4DjOhXMfVUpt+vWAZ3xs780Eynz6F5DgC+FOg=; b=pSKFUT5FSt3aDC
+	6hKNoBhJmXZLBK7S+ElTofhls4UHfhBYweF3Hy4siKfLaWI1dAeWA4CJlN6df9bN8RjilsdHJUR63
+	v+ltyB0oQU4gpjn0u6DzWyRvW/0oW+dr0J96e1pw/qbmbkoHK/1+oHd3z4yOKGxiUqawe4lP1XvBt
+	j9aAc89klc+gS3uNCVzkQldyBD9dsmgxC0Cxmevs63V1GlSJtVUT6b6wxsADLyJ0obfuWc3rYpdV4
+	HLq2tFyRvx2jUmBYcIDpAQz3X2PBrKfuNfzE8mkq82q2pLlyLrPVd49+pvtbQhTqkkdCx3rammzvE
+	VIFFhvl83DnmOsPZuuZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKzv6-00AkoJ-00;
-	Wed, 03 Jan 2024 12:00:24 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1rL03q-00Am34-0e;
+	Wed, 03 Jan 2024 12:09:26 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKzv2-00AkmM-1D
-	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jan 2024 12:00:22 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-552d39ac3ccso677151a12.0
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Jan 2024 04:00:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1704283214; x=1704888014; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=ua7/2JoLix/Pt877aFiX1h4KFim85YtespHaIN0aOSM=;
-        b=n+5kooNKQMscZPcloIoNqrtVbbl0l1A/+kL7Ov1Zy4UBTVBEq3G/rIC4K92td/G0pk
-         6T+TGn7ly3644P+Y8UUsWdyrnUCD03Thr0NWNHKVI4iC4YOYesDGpzjES+OW9QDWsTsc
-         zukv+z+IEGkZsT5s7gPeNB1yXAsLbu3tCErHy/SUjEkOqHzSNhq6Sn2iZsKoVp7k58yL
-         PQjng4l30alefkBjFlPZ5HL8RKZyeXlRwSfKAhmB7ClEIW72W8jv8hhoGHBzPk0SFq7i
-         eWUZyfhHBaqndvYChaxlMhqvn2eJPBMO3OkNg8LUeIHm3o+J/aDOfq34/gZCtn+EKSSm
-         g3SQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704283214; x=1704888014;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ua7/2JoLix/Pt877aFiX1h4KFim85YtespHaIN0aOSM=;
-        b=UJouScjtdbW4ziYpnnbr8zKxNR5jviy2JTd/zfpL+gMYiWXv1Q9HKqmoa3g4+A4lCZ
-         Cao6dmQt1a8gntHYgJu1B/5EAqNuKyAwHoRsrVnjAHEKcsPemoBKZF19BE8oN2K/911J
-         xvrFLY64rOuaGislWYq8WSLzj9F/JGgTw58bilIz+EFlubglRKcQzWM2sVvMK9OmVOVQ
-         5rdv8WSEzhtOJ6EYcINdY/MdaEbr8ohvNRymW2HtM3USlnaQPVnEhuFA0hLgRgNF4lTl
-         2p9Iyu4lbri/Wu3Bz4Tu9OKJZ+8zKKAgbYVPSTqO5wdv0Hvo6v9DbVgC96m2LnuBSmE/
-         ta+w==
-X-Gm-Message-State: AOJu0YyitJe8IbGAaz2gTtDMI4ojvtx6i9LpbTo8kFj1C92qFzG/nxw2
-	DW03Ry/xDdtiLpWLee0Px9lCjWBZ0Irplg==
-X-Google-Smtp-Source: AGHT+IEdzY3SRyxDb9Sbc98da3uAVUEtNJTFBLq29hod7sqTj5fJ95dq9aqyeHcKoDfCOzazrnIcQQ==
-X-Received: by 2002:a17:907:75d3:b0:a28:b69d:d99f with SMTP id jl19-20020a17090775d300b00a28b69dd99fmr11482ejc.11.1704283214002;
-        Wed, 03 Jan 2024 04:00:14 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id pv8-20020a170907208800b00a281f3024bdsm2214743ejb.144.2024.01.03.04.00.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jan 2024 04:00:13 -0800 (PST)
-Date: Wed, 3 Jan 2024 13:00:12 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-Subject: Re: Re: [PATCH V2 1/3] riscv: Add Zicbop instruction definitions &
- cpufeature
-Message-ID: <20240103-77f6b0856efb7a9f4591c53b@orel>
-References: <20231231082955.16516-1-guoren@kernel.org>
- <20231231082955.16516-2-guoren@kernel.org>
- <6bce1adb-6808-40df-8dd7-b0b2c6031547@rivosinc.com>
+	id 1rL03m-00Am0W-0A;
+	Wed, 03 Jan 2024 12:09:23 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id DF71121D8D;
+	Wed,  3 Jan 2024 12:09:17 +0000 (UTC)
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id C333D13AA6;
+	Wed,  3 Jan 2024 12:09:17 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id piUeLm1OlWUzHwAAD6G6ig
+	(envelope-from <chrubis@suse.cz>); Wed, 03 Jan 2024 12:09:17 +0000
+Date: Wed, 3 Jan 2024 13:09:42 +0100
+From: Cyril Hrubis <chrubis@suse.cz>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Petr Vorel <pvorel@suse.cz>, ltp@lists.linux.it,
+	Li Wang <liwang@redhat.com>,
+	Andrea Cervesato <andrea.cervesato@suse.com>,
+	Greg Ungerer <gerg@linux-m68k.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Christophe Lyon <christophe.lyon@linaro.org>,
+	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	Linux-sh list <linux-sh@vger.kernel.org>
+Subject: Re: [PATCH 00/36] Remove UCLINUX from LTP
+Message-ID: <ZZVOhlGPg5KRyS-F@yuki>
+References: <20240103015240.1065284-1-pvorel@suse.cz>
+ <CAMuHMdXGwyS-CL0vLdUP4Z4YEYhmcmDyC3YdGCnS=jFkqASqvw@mail.gmail.com>
+ <20240103114957.GD1073466@pevik>
+ <CAMuHMdX0s0gLRoPtjJmDnSmZ_MNY590dN+JxM1HKAL1g_bjX+w@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <6bce1adb-6808-40df-8dd7-b0b2c6031547@rivosinc.com>
+In-Reply-To: <CAMuHMdX0s0gLRoPtjJmDnSmZ_MNY590dN+JxM1HKAL1g_bjX+w@mail.gmail.com>
+Authentication-Results: smtp-out1.suse.de;
+	none
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Spamd-Result: default: False [-4.00 / 50.00];
+	 REPLY(-4.00)[]
+X-Rspamd-Queue-Id: DF71121D8D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240103_040020_415059_16396E83 
-X-CRM114-Status: GOOD (  29.02  )
+X-CRM114-CacheID: sfid-20240103_040922_236154_68BFD18B 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,281 +86,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: panqinglin2020@iscas.ac.cn, Guo Ren <guoren@linux.alibaba.com>, keescook@chromium.org, wefu@redhat.com, peterz@infradead.org, unicorn_wang@outlook.com, atishp@atishpatra.org, chao.wei@sophgo.com, linux-kernel@vger.kernel.org, bjorn@rivosinc.com, xiaoguang.xing@sophgo.com, conor.dooley@microchip.com, leobras@redhat.com, palmer@dabbelt.com, jszhang@kernel.org, paul.walmsley@sifive.com, guoren@kernel.org, linux-riscv@lists.infradead.org, wuwei2016@iscas.ac.cn
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 03, 2024 at 10:31:37AM +0100, Cl=E9ment L=E9ger wrote:
-> =
+Hi!
+> I am not sure I agree with this series.
+> Removing support for UCLINUX from LTP is almost a guarantee for
+> not noticing when more breakage is introduced.
+> 
+> How exactly is UCLINUX broken in LTP?
 
-> =
+As far as we know noone is using it and nobody is maintaing it for a
+decade, so it's bitrotting and we do not have manpower to fix it, or
+rather we do not want to invest the scarcely limited resources we have
+into something that is niche at best. We asked repeatedly if anyone want
+to invest time into keeping it alive, but nobody answered the call so
+far and I doubt that it will happen at this point.
 
-> On 31/12/2023 09:29, guoren@kernel.org wrote:
-> > From: Guo Ren <guoren@linux.alibaba.com>
-> > =
-
-> > Cache-block prefetch instructions are HINTs to the hardware to
-> > indicate that software intends to perform a particular type of
-> > memory access in the near future. This patch adds prefetch.i,
-> > prefetch.r and prefetch.w instruction definitions by
-> > RISCV_ISA_EXT_ZICBOP cpufeature.
-> > =
-
-> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > Signed-off-by: Guo Ren <guoren@kernel.org>
-> > ---
-> >  arch/riscv/Kconfig                | 15 ++++++++
-> >  arch/riscv/include/asm/hwcap.h    |  1 +
-> >  arch/riscv/include/asm/insn-def.h | 60 +++++++++++++++++++++++++++++++
-> >  arch/riscv/kernel/cpufeature.c    |  1 +
-> >  4 files changed, 77 insertions(+)
-> > =
-
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index 24c1799e2ec4..fcbd417d65ea 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -579,6 +579,21 @@ config RISCV_ISA_ZICBOZ
-> >  =
-
-> >  	   If you don't know what to do here, say Y.
-> >  =
-
-> > +config RISCV_ISA_ZICBOP
-> > +	bool "Zicbop extension support for cache block prefetch"
-> > +	depends on MMU
-> > +	depends on RISCV_ALTERNATIVE
-> > +	default y
-> > +	help
-> > +	  Adds support to dynamically detect the presence of the ZICBOP
-> > +	  extension (Cache Block Prefetch Operations) and enable its
-> > +	  usage.
-> > +
-> > +	  The Zicbop extension can be used to prefetch cache block for
-> > +	  read/write fetch.
-> > +
-> > +	  If you don't know what to do here, say Y.
-> > +
-> >  config TOOLCHAIN_HAS_ZIHINTPAUSE
-> >  	bool
-> >  	default y
-> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hw=
-cap.h
-> > index 06d30526ef3b..77d3b6ee25ab 100644
-> > --- a/arch/riscv/include/asm/hwcap.h
-> > +++ b/arch/riscv/include/asm/hwcap.h
-> > @@ -57,6 +57,7 @@
-> >  #define RISCV_ISA_EXT_ZIHPM		42
-> >  #define RISCV_ISA_EXT_SMSTATEEN		43
-> >  #define RISCV_ISA_EXT_ZICOND		44
-> > +#define RISCV_ISA_EXT_ZICBOP		45
-> =
-
-> Hi Guo,
-> =
-
-> Since you are adding support for the Zicbop extension, you could
-> probably also allow to probe it from userspace using hwprobe. Add a few
-> definitions to sys_riscv.c/hwprobe.h and it will be fine.
-
-To expose to userspace, we should also start parsing the block size,
-so it can also be exposed to userspace. Starting to parse the block
-size first requires that we decide we need to parse the block size
-(see [1]).
-
-[1] https://lore.kernel.org/all/20231029123500.739409-1-dbarboza@ventanamic=
-ro.com/
-
-Thanks,
-drew
-
-
-> =
-
-> Thanks,
-> =
-
-> Cl=E9ment
-> =
-
-> >  =
-
-> >  #define RISCV_ISA_EXT_MAX		64
-> >  =
-
-> > diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm=
-/insn-def.h
-> > index e27179b26086..bbda350a63bf 100644
-> > --- a/arch/riscv/include/asm/insn-def.h
-> > +++ b/arch/riscv/include/asm/insn-def.h
-> > @@ -18,6 +18,13 @@
-> >  #define INSN_I_RD_SHIFT			 7
-> >  #define INSN_I_OPCODE_SHIFT		 0
-> >  =
-
-> > +#define INSN_S_SIMM7_SHIFT		25
-> > +#define INSN_S_RS2_SHIFT		20
-> > +#define INSN_S_RS1_SHIFT		15
-> > +#define INSN_S_FUNC3_SHIFT		12
-> > +#define INSN_S_SIMM5_SHIFT		 7
-> > +#define INSN_S_OPCODE_SHIFT		 0
-> > +
-> >  #ifdef __ASSEMBLY__
-> >  =
-
-> >  #ifdef CONFIG_AS_HAS_INSN
-> > @@ -30,6 +37,10 @@
-> >  	.insn	i \opcode, \func3, \rd, \rs1, \simm12
-> >  	.endm
-> >  =
-
-> > +	.macro insn_s, opcode, func3, rs2, simm12, rs1
-> > +	.insn	s \opcode, \func3, \rs2, \simm12(\rs1)
-> > +	.endm
-> > +
-> >  #else
-> >  =
-
-> >  #include <asm/gpr-num.h>
-> > @@ -51,10 +62,20 @@
-> >  		 (\simm12 << INSN_I_SIMM12_SHIFT))
-> >  	.endm
-> >  =
-
-> > +	.macro insn_s, opcode, func3, rs2, simm12, rs1
-> > +	.4byte	((\opcode << INSN_S_OPCODE_SHIFT) |		\
-> > +		 (\func3 << INSN_S_FUNC3_SHIFT) |		\
-> > +		 (.L__gpr_num_\rs2 << INSN_S_RS2_SHIFT) |	\
-> > +		 (.L__gpr_num_\rs1 << INSN_S_RS1_SHIFT) |	\
-> > +		 ((\simm12 & 0x1f) << INSN_S_SIMM5_SHIFT) |	\
-> > +		 (((\simm12 >> 5) & 0x7f) << INSN_S_SIMM7_SHIFT))
-> > +	.endm
-> > +
-> >  #endif
-> >  =
-
-> >  #define __INSN_R(...)	insn_r __VA_ARGS__
-> >  #define __INSN_I(...)	insn_i __VA_ARGS__
-> > +#define __INSN_S(...)	insn_s __VA_ARGS__
-> >  =
-
-> >  #else /* ! __ASSEMBLY__ */
-> >  =
-
-> > @@ -66,6 +87,9 @@
-> >  #define __INSN_I(opcode, func3, rd, rs1, simm12)	\
-> >  	".insn	i " opcode ", " func3 ", " rd ", " rs1 ", " simm12 "\n"
-> >  =
-
-> > +#define __INSN_S(opcode, func3, rs2, simm12, rs1)	\
-> > +	".insn	s " opcode ", " func3 ", " rs2 ", " simm12 "(" rs1 ")\n"
-> > +
-> >  #else
-> >  =
-
-> >  #include <linux/stringify.h>
-> > @@ -92,12 +116,26 @@
-> >  "		 (\\simm12 << " __stringify(INSN_I_SIMM12_SHIFT) "))\n"	\
-> >  "	.endm\n"
-> >  =
-
-> > +#define DEFINE_INSN_S							\
-> > +	__DEFINE_ASM_GPR_NUMS						\
-> > +"	.macro insn_s, opcode, func3, rs2, simm12, rs1\n"		\
-> > +"	.4byte	((\\opcode << " __stringify(INSN_S_OPCODE_SHIFT) ") |"	\
-> > +"		 (\\func3 << " __stringify(INSN_S_FUNC3_SHIFT) ") |"	\
-> > +"		 (.L__gpr_num_\\rs2 << " __stringify(INSN_S_RS2_SHIFT) ") |" \
-> > +"		 (.L__gpr_num_\\rs1 << " __stringify(INSN_S_RS1_SHIFT) ") |" \
-> > +"		 ((\\simm12 & 0x1f) << " __stringify(INSN_S_SIMM5_SHIFT) ") |" \
-> > +"		 (((\\simm12 >> 5) & 0x7f) << " __stringify(INSN_S_SIMM7_SHIFT) "))=
-\n" \
-> > +"	.endm\n"
-> > +
-> >  #define UNDEFINE_INSN_R							\
-> >  "	.purgem insn_r\n"
-> >  =
-
-> >  #define UNDEFINE_INSN_I							\
-> >  "	.purgem insn_i\n"
-> >  =
-
-> > +#define UNDEFINE_INSN_S							\
-> > +"	.purgem insn_s\n"
-> > +
-> >  #define __INSN_R(opcode, func3, func7, rd, rs1, rs2)			\
-> >  	DEFINE_INSN_R							\
-> >  	"insn_r " opcode ", " func3 ", " func7 ", " rd ", " rs1 ", " rs2 "\n"=
- \
-> > @@ -108,6 +146,11 @@
-> >  	"insn_i " opcode ", " func3 ", " rd ", " rs1 ", " simm12 "\n" \
-> >  	UNDEFINE_INSN_I
-> >  =
-
-> > +#define __INSN_S(opcode, func3, rs2, simm12, rs1)			\
-> > +	DEFINE_INSN_S							\
-> > +	"insn_s " opcode ", " func3 ", " rs2 ", " simm12 ", " rs1 "\n"	\
-> > +	UNDEFINE_INSN_S
-> > +
-> >  #endif
-> >  =
-
-> >  #endif /* ! __ASSEMBLY__ */
-> > @@ -120,6 +163,10 @@
-> >  	__INSN_I(RV_##opcode, RV_##func3, RV_##rd,		\
-> >  		 RV_##rs1, RV_##simm12)
-> >  =
-
-> > +#define INSN_S(opcode, func3, rs2, simm12, rs1)			\
-> > +	__INSN_S(RV_##opcode, RV_##func3, RV_##rs2,		\
-> > +		 RV_##simm12, RV_##rs1)
-> > +
-> >  #define RV_OPCODE(v)		__ASM_STR(v)
-> >  #define RV_FUNC3(v)		__ASM_STR(v)
-> >  #define RV_FUNC7(v)		__ASM_STR(v)
-> > @@ -133,6 +180,7 @@
-> >  #define RV___RS2(v)		__RV_REG(v)
-> >  =
-
-> >  #define RV_OPCODE_MISC_MEM	RV_OPCODE(15)
-> > +#define RV_OPCODE_OP_IMM	RV_OPCODE(19)
-> >  #define RV_OPCODE_SYSTEM	RV_OPCODE(115)
-> >  =
-
-> >  #define HFENCE_VVMA(vaddr, asid)				\
-> > @@ -196,4 +244,16 @@
-> >  	INSN_I(OPCODE_MISC_MEM, FUNC3(2), __RD(0),		\
-> >  	       RS1(base), SIMM12(4))
-> >  =
-
-> > +#define CBO_PREFETCH_I(base, offset)				\
-> > +	INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(0),		\
-> > +	       SIMM12(offset), RS1(base))
-> > +
-> > +#define CBO_PREFETCH_R(base, offset)				\
-> > +	INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(1),		\
-> > +	       SIMM12(offset), RS1(base))
-> > +
-> > +#define CBO_PREFETCH_W(base, offset)				\
-> > +	INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(3),		\
-> > +	       SIMM12(offset), RS1(base))
-> > +
-> >  #endif /* __ASM_INSN_DEF_H */
-> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeat=
-ure.c
-> > index b3785ffc1570..bdb02b066041 100644
-> > --- a/arch/riscv/kernel/cpufeature.c
-> > +++ b/arch/riscv/kernel/cpufeature.c
-> > @@ -168,6 +168,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D=
- {
-> >  	__RISCV_ISA_EXT_DATA(h, RISCV_ISA_EXT_h),
-> >  	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
-> >  	__RISCV_ISA_EXT_DATA(zicboz, RISCV_ISA_EXT_ZICBOZ),
-> > +	__RISCV_ISA_EXT_DATA(zicbop, RISCV_ISA_EXT_ZICBOP),
-> >  	__RISCV_ISA_EXT_DATA(zicntr, RISCV_ISA_EXT_ZICNTR),
-> >  	__RISCV_ISA_EXT_DATA(zicond, RISCV_ISA_EXT_ZICOND),
-> >  	__RISCV_ISA_EXT_DATA(zicsr, RISCV_ISA_EXT_ZICSR),
+-- 
+Cyril Hrubis
+chrubis@suse.cz
 
 _______________________________________________
 linux-riscv mailing list
