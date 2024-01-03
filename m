@@ -4,66 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AE8EC3DA6E
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 07:16:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9EC8C3DA6E
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 09:15:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZrpwQlr8KbhYNkTMfilRWDAjbrWNU1W6xbjPCSfmU1g=; b=hhWKefhzGiXarf
-	8Cj/ulCPc7d/oMPcxKFS891StCcoz8A2KOCbYRFiP3v7qeinMhA7abl3v08pLcd5H/t8ZMCe4kQxr
-	p23yiWi3ocxDIHEL7rysHn9VSmJq2+rysPtfLfypiPxyV/BgJZe6E/wC1Pz9ft5YlAcuC1kFG2dEb
-	bSQjKo57Nu5ea1F5XKMWXyxkOCjlTior6gPzkwN9IOUFg0b+gsQdOUyFCWQEa4/GAKz6j8fX7Rs+p
-	nylXZqMauVXByuIbXYbMDgaQraXq58VO/Xegv4nF3aR/ovzAB7zCoc2ArQOn6r2Cf4UGG5OnJC5mW
-	uDhNQOV8HZExlCcY9eDw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ri+gfHZQE3y+rJZpOu6C7o4HAD2HQ1kH+4kHa8YugIM=; b=i8za/R13yErmn6
+	ooeevzqDZW7ukL05LrW6ctZXItFrdWgEL07xVlMqv6D2bZvQCB3mz+KkbmnstNDYeYPWpUfdi+UMx
+	AS8Zk3YpnfnBwyf79kPzFXF8GvR9S3K5iPYfLOMQfdxu+GCyd4DFmyE9XQ6aSXveEPKPcuUnHMJ81
+	+zkRMsnxfXcpN1sEiE80DU2jd+SrzeyqGpaGyT/PFrZzTsweqoQOJIUGN669ttQpKh6kvm+DjS48a
+	kPSNZTyqbGkPHrz2jvU1kozYEXLNJZmYGM8AsJtZSWu3BnDa7D2vKDLODeK2XxZjI9+YLynJoyLTu
+	A7LJG/JjSR5PyPHWSLvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKvU1-009xRI-2S;
-	Wed, 03 Jan 2024 07:16:09 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rKvTw-009xOF-2b
+	id 1rKxKu-00AAm2-0q;
+	Wed, 03 Jan 2024 09:14:52 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1rKxKr-00AAjs-05
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jan 2024 07:16:08 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 7F5F224E276;
-	Wed,  3 Jan 2024 15:15:33 +0800 (CST)
-Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 3 Jan
- 2024 15:15:33 +0800
-Received: from [192.168.120.47] (171.223.208.138) by EXMBX068.cuchost.com
- (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 3 Jan
- 2024 15:15:32 +0800
-Message-ID: <b1a44192-4e7d-46c2-b9cf-969795208839@starfivetech.com>
-Date: Wed, 3 Jan 2024 15:15:31 +0800
+	Wed, 03 Jan 2024 09:14:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1704273286;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=ECdT86ko6CPDQ7PwUTvJTmsh3hF4cTDBKdjOYZE7Ef8=;
+	b=P+yOHYGe62HGUf9HPLjbG5PQ9+bPn+xxLg74lXHLowGJOIyRE6RVfsjUX5vcHlUJYz+otX
+	Sdwv8q6CJwQv19KGXEL3P7pEVIdvglCZgJzcxUm1BaqcQ3oDbN3PT/q1asgJTFVBcMiiMx
+	EBsZutiOmJ+0khpKe/kQU1Ynmpl21AE=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-656-YJyX-2z5NWeDsYfFUhlklw-1; Wed, 03 Jan 2024 04:14:40 -0500
+X-MC-Unique: YJyX-2z5NWeDsYfFUhlklw-1
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6FE0C1019DE1;
+	Wed,  3 Jan 2024 09:14:39 +0000 (UTC)
+Received: from x1n.redhat.com (unknown [10.72.116.69])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 16526492BF0;
+	Wed,  3 Jan 2024 09:14:26 +0000 (UTC)
+From: peterx@redhat.com
+To: linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Cc: James Houghton <jthoughton@google.com>,
+	David Hildenbrand <david@redhat.com>,
+	"Kirill A . Shutemov" <kirill@shutemov.name>,
+	Yang Shi <shy828301@gmail.com>,
+	peterx@redhat.com,
+	linux-riscv@lists.infradead.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Rik van Riel <riel@surriel.com>,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	John Hubbard <jhubbard@nvidia.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Andrew Jones <andrew.jones@linux.dev>,
+	linuxppc-dev@lists.ozlabs.org,
+	Mike Kravetz <mike.kravetz@oracle.com>,
+	Muchun Song <muchun.song@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	Lorenzo Stoakes <lstoakes@gmail.com>,
+	Matthew Wilcox <willy@infradead.org>
+Subject: [PATCH v2 00/13] mm/gup: Unify hugetlb, part 2
+Date: Wed,  3 Jan 2024 17:14:10 +0800
+Message-ID: <20240103091423.400294-1-peterx@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 2/4] pwm: opencores: Add PWM driver support
-Content-Language: en-US
-To: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-pwm@vger.kernel.org>
-CC: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
-	=?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, Hal Feng
-	<hal.feng@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>,
-	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-References: <20231222094548.54103-1-william.qiu@starfivetech.com>
- <20231222094548.54103-3-william.qiu@starfivetech.com>
-From: William Qiu <william.qiu@starfivetech.com>
-In-Reply-To: <20231222094548.54103-3-william.qiu@starfivetech.com>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX068.cuchost.com
- (172.16.6.68)
-X-YovoleRuleAgent: yovoleflag
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240102_231605_256861_234F63B9 
-X-CRM114-Status: GOOD (  32.67  )
+X-CRM114-CacheID: sfid-20240103_011449_151313_D37B0663 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,329 +102,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Peter Xu <peterx@redhat.com>
 
+v2:
+- Collect acks
+- Patch 9:
+  - Use READ_ONCE() to fetch pud entry [James]
 
-On 2023/12/22 17:45, William Qiu wrote:
-> Add driver for OpenCores PWM Controller. And add compatibility code
-> which based on StarFive SoC.
-> 
-> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
-> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
-> ---
->  MAINTAINERS              |   7 ++
->  drivers/pwm/Kconfig      |  12 ++
->  drivers/pwm/Makefile     |   1 +
->  drivers/pwm/pwm-ocores.c | 233 +++++++++++++++++++++++++++++++++++++++
->  4 files changed, 253 insertions(+)
->  create mode 100644 drivers/pwm/pwm-ocores.c
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 9104430e148e..6a6c355150e7 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -16145,6 +16145,13 @@ F:	Documentation/i2c/busses/i2c-ocores.rst
->  F:	drivers/i2c/busses/i2c-ocores.c
->  F:	include/linux/platform_data/i2c-ocores.h
-> 
-> +OPENCORES PWM DRIVER
-> +M:	William Qiu <william.qiu@starfivetech.com>
-> +M:	Hal Feng <hal.feng@starfivetech.com>
-> +S:	Supported
-> +F:	Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
-> +F:	drivers/pwm/pwm-ocores.c
-> +
->  OPENRISC ARCHITECTURE
->  M:	Jonas Bonn <jonas@southpole.se>
->  M:	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>
-> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> index 4b956d661755..d87e1bb350ba 100644
-> --- a/drivers/pwm/Kconfig
-> +++ b/drivers/pwm/Kconfig
-> @@ -444,6 +444,18 @@ config PWM_NTXEC
->  	  controller found in certain e-book readers designed by the original
->  	  design manufacturer Netronix.
-> 
-> +config PWM_OCORES
-> +	tristate "OpenCores PWM support"
-> +	depends on HAS_IOMEM && OF
-> +	depends on COMMON_CLK
-> +	depends on ARCH_STARFIVE || COMPILE_TEST
-> +	help
-> +	  If you say yes to this option, support will be included for the
-> +	  OpenCores PWM. For details see https://opencores.org/projects/ptc.
-> +
-> +	  To compile this driver as a module, choose M here: the module
-> +	  will be called pwm-ocores.
-> +
->  config PWM_OMAP_DMTIMER
->  	tristate "OMAP Dual-Mode Timer PWM support"
->  	depends on OF
-> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-> index c5ec9e168ee7..517c4f643058 100644
-> --- a/drivers/pwm/Makefile
-> +++ b/drivers/pwm/Makefile
-> @@ -40,6 +40,7 @@ obj-$(CONFIG_PWM_MICROCHIP_CORE)	+= pwm-microchip-core.o
->  obj-$(CONFIG_PWM_MTK_DISP)	+= pwm-mtk-disp.o
->  obj-$(CONFIG_PWM_MXS)		+= pwm-mxs.o
->  obj-$(CONFIG_PWM_NTXEC)		+= pwm-ntxec.o
-> +obj-$(CONFIG_PWM_OCORES)	+= pwm-ocores.o
->  obj-$(CONFIG_PWM_OMAP_DMTIMER)	+= pwm-omap-dmtimer.o
->  obj-$(CONFIG_PWM_PCA9685)	+= pwm-pca9685.o
->  obj-$(CONFIG_PWM_PXA)		+= pwm-pxa.o
-> diff --git a/drivers/pwm/pwm-ocores.c b/drivers/pwm/pwm-ocores.c
-> new file mode 100644
-> index 000000000000..dfb5a186da71
-> --- /dev/null
-> +++ b/drivers/pwm/pwm-ocores.c
-> @@ -0,0 +1,233 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * OpenCores PWM Driver
-> + *
-> + * https://opencores.org/projects/ptc
-> + *
-> + * Copyright (C) 2018-2023 StarFive Technology Co., Ltd.
-> + *
-> + * Limitations:
-> + * - The hardware only do inverted polarity.
-> + * - The hardware minimum period / duty_cycle is (1 / pwm_apb clock frequency) ns.
-> + * - The hardware maximum period / duty_cycle is (U32_MAX / pwm_apb clock frequency) ns.
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/of_device.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pwm.h>
-> +#include <linux/reset.h>
-> +#include <linux/slab.h>
-> +
-> +/* OCPWM_CTRL register bits*/
-> +#define REG_OCPWM_EN      BIT(0)
-> +#define REG_OCPWM_ECLK    BIT(1)
-> +#define REG_OCPWM_NEC     BIT(2)
-> +#define REG_OCPWM_OE      BIT(3)
-> +#define REG_OCPWM_SIGNLE  BIT(4)
-> +#define REG_OCPWM_INTE    BIT(5)
-> +#define REG_OCPWM_INT     BIT(6)
-> +#define REG_OCPWM_CNTRRST BIT(7)
-> +#define REG_OCPWM_CAPTE   BIT(8)
-> +
-> +struct ocores_pwm_device {
-> +	struct pwm_chip chip;
-> +	struct clk *clk;
-> +	struct reset_control *rst;
-> +	const struct ocores_pwm_data *data;
-> +	void __iomem *regs;
-> +	u32 clk_rate; /* PWM APB clock frequency */
-> +};
-> +
-> +struct ocores_pwm_data {
-> +	void __iomem *(*get_ch_base)(void __iomem *base, unsigned int channel);
-> +};
-> +
-> +static inline u32 ocores_readl(struct ocores_pwm_device *ddata,
-> +			       unsigned int channel,
-> +			       unsigned int offset)
-> +{
-> +	void __iomem *base = ddata->data->get_ch_base ?
-> +			     ddata->data->get_ch_base(ddata->regs, channel) : ddata->regs;
-> +
-> +	return readl(base + offset);
-> +}
-> +
-> +static inline void ocores_writel(struct ocores_pwm_device *ddata,
-> +				 unsigned int channel,
-> +				 unsigned int offset, u32 val)
-> +{
-> +	void __iomem *base = ddata->data->get_ch_base ?
-> +			     ddata->data->get_ch_base(ddata->regs, channel) : ddata->regs;
-> +
-> +	writel(val, base + offset);
-> +}
-> +
-> +static inline struct ocores_pwm_device *chip_to_ocores(struct pwm_chip *chip)
-> +{
-> +	return container_of(chip, struct ocores_pwm_device, chip);
-> +}
-> +
-> +static void __iomem *starfive_jh71x0_get_ch_base(void __iomem *base,
-> +						 unsigned int channel)
-> +{
-> +	unsigned int offset = (channel > 3 ? 1 << 15 : 0) + (channel & 3) * 0x10;
-> +
-> +	return base + offset;
-> +}
-> +
-> +static int ocores_pwm_get_state(struct pwm_chip *chip,
-> +				struct pwm_device *pwm,
-> +				struct pwm_state *state)
-> +{
-> +	struct ocores_pwm_device *ddata = chip_to_ocores(chip);
-> +	u32 period_data, duty_data, ctrl_data;
-> +
-> +	period_data = ocores_readl(ddata, pwm->hwpwm, 0x8);
-> +	duty_data = ocores_readl(ddata, pwm->hwpwm, 0x4);
-> +	ctrl_data = ocores_readl(ddata, pwm->hwpwm, 0xC);
-> +
-> +	state->period = DIV_ROUND_UP_ULL((u64)period_data * NSEC_PER_SEC, ddata->clk_rate);
-> +	state->duty_cycle = DIV_ROUND_UP_ULL((u64)duty_data * NSEC_PER_SEC, ddata->clk_rate);
-> +	state->polarity = PWM_POLARITY_INVERSED;
-> +	state->enabled = (ctrl_data & REG_OCPWM_EN) ? true : false;
-> +
-> +	return 0;
-> +}
-> +
-> +static int ocores_pwm_apply(struct pwm_chip *chip,
-> +			    struct pwm_device *pwm,
-> +			    const struct pwm_state *state)
-> +{
-> +	struct ocores_pwm_device *ddata = chip_to_ocores(chip);
-> +	u32 ctrl_data = 0;
-> +	u64 period_data, duty_data;
-> +
-> +	if (state->polarity != PWM_POLARITY_INVERSED)
-> +		return -EINVAL;
-> +
-> +	ctrl_data = ocores_readl(ddata, pwm->hwpwm, 0xC);
-> +	ocores_writel(ddata, pwm->hwpwm, 0xC, 0);
-> +
-> +	period_data = DIV_ROUND_DOWN_ULL(state->period * ddata->clk_rate, NSEC_PER_SEC);
-> +	if (period_data <= U32_MAX)
-> +		ocores_writel(ddata, pwm->hwpwm, 0x8, (u32)period_data);
-> +	else
-> +		return -EINVAL;
-> +
-> +	duty_data = DIV_ROUND_DOWN_ULL(state->duty_cycle * ddata->clk_rate, NSEC_PER_SEC);
-> +	if (duty_data <= U32_MAX)
-> +		ocores_writel(ddata, pwm->hwpwm, 0x4, (u32)duty_data);
-> +	else
-> +		return -EINVAL;
-> +
-> +	ocores_writel(ddata, pwm->hwpwm, 0xC, 0);
-> +
-> +	if (state->enabled) {
-> +		ctrl_data = ocores_readl(ddata, pwm->hwpwm, 0xC);
-> +		ocores_writel(ddata, pwm->hwpwm, 0xC, ctrl_data | REG_OCPWM_EN | REG_OCPWM_OE);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct pwm_ops ocores_pwm_ops = {
-> +	.get_state	= ocores_pwm_get_state,
-> +	.apply		= ocores_pwm_apply,
-> +};
-> +
-> +static const struct ocores_pwm_data jh7100_pwm_data = {
-> +	.get_ch_base = starfive_jh71x0_get_ch_base,
-> +};
-> +
-> +static const struct ocores_pwm_data jh7110_pwm_data = {
-> +	.get_ch_base = starfive_jh71x0_get_ch_base,
-> +};
-> +
-> +static const struct of_device_id ocores_pwm_of_match[] = {
-> +	{ .compatible = "opencores,pwm-v1" },
-> +	{ .compatible = "starfive,jh7100-pwm", .data = &jh7100_pwm_data},
-> +	{ .compatible = "starfive,jh7110-pwm", .data = &jh7110_pwm_data},
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, ocores_pwm_of_match);
-> +
-> +static void ocores_reset_control_assert(void *data)
-> +{
-> +	reset_control_assert(data);
-> +}
-> +
-> +static int ocores_pwm_probe(struct platform_device *pdev)
-> +{
-> +	const struct of_device_id *id;
-> +	struct device *dev = &pdev->dev;
-> +	struct ocores_pwm_device *ddata;
-> +	struct pwm_chip *chip;
-> +	int ret;
-> +
-> +	id = of_match_device(ocores_pwm_of_match, dev);
-> +	if (!id)
-> +		return -EINVAL;
-> +
-> +	ddata = devm_kzalloc(dev, sizeof(*ddata), GFP_KERNEL);
-> +	if (!ddata)
-> +		return -ENOMEM;
-> +
-> +	ddata->data = id->data;
-> +	chip = &ddata->chip;
-> +	chip->dev = dev;
-> +	chip->ops = &ocores_pwm_ops;
-> +	chip->npwm = 8;
-> +	chip->of_pwm_n_cells = 3;
-> +
-> +	ddata->regs = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(ddata->regs))
-> +		return dev_err_probe(dev, PTR_ERR(ddata->regs),
-> +				     "Unable to map IO resources\n");
-> +
-> +	ddata->clk = devm_clk_get_enabled(dev, NULL);
-> +	if (IS_ERR(ddata->clk))
-> +		return dev_err_probe(dev, PTR_ERR(ddata->clk),
-> +				     "Unable to get pwm's clock\n");
-> +
-> +	ddata->rst = devm_reset_control_get_optional_exclusive(dev, NULL);
-> +	if (IS_ERR(ddata->rst))
-> +		return dev_err_probe(dev, PTR_ERR(ddata->rst),
-> +				     "Unable to get pwm's reset\n");
-> +
-> +	reset_control_deassert(ddata->rst);
-> +
-> +	ret = devm_add_action_or_reset(dev, ocores_reset_control_assert, ddata->rst);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ddata->clk_rate = clk_get_rate(ddata->clk);
-> +	if (ddata->clk_rate <= 0)
-> +		return dev_err_probe(dev, ddata->clk_rate,
-> +				     "Unable to get clock's rate\n");
-> +
-> +	ret = devm_pwmchip_add(dev, chip);
-> +	if (ret < 0)
-> +		return dev_err_probe(dev, ret, "Could not register PWM chip\n");
-> +
-> +	platform_set_drvdata(pdev, ddata);
-> +
-> +	return ret;
-> +}
-> +
-> +static struct platform_driver ocores_pwm_driver = {
-> +	.probe = ocores_pwm_probe,
-> +	.driver = {
-> +		.name = "ocores-pwm",
-> +		.of_match_table = ocores_pwm_of_match,
-> +	},
-> +};
-> +module_platform_driver(ocores_pwm_driver);
-> +
-> +MODULE_AUTHOR("Jieqin Chen");
-> +MODULE_AUTHOR("Hal Feng <hal.feng@starfivetech.com>");
-> +MODULE_DESCRIPTION("OpenCores PWM PTC driver");
-> +MODULE_LICENSE("GPL");
-> --
-> 2.34.1
-> 
+rfc: https://lore.kernel.org/r/20231116012908.392077-1-peterx@redhat.com
+v1:  https://lore.kernel.org/r/20231219075538.414708-1-peterx@redhat.com
 
+This is v2 of the series, based on latest mm-unstalbe (856325d361df).
 
-Hi Thierry Reding,
+The series removes the hugetlb slow gup path after a previous refactor work
+[1], so that slow gup now uses the exact same path to process all kinds of
+memory including hugetlb.
 
-Could you please help me review this patch series to see if there is
-anything that needs to be modified? If not, could you help me integrate
-this patch into the main line? Thanks.
-Thanks for taking time to review this patch series.
- 
-Best Regards,
-William
+For the long term, we may want to remove most, if not all, call sites of
+huge_pte_offset().  It'll be ideal if that API can be completely dropped
+from arch hugetlb API.  This series is one small step towards merging
+hugetlb specific codes into generic mm paths.  From that POV, this series
+removes one reference to huge_pte_offset() out of many others.
+
+One goal of such a route is that we can reconsider merging hugetlb features
+like High Granularity Mapping (HGM).  It was not accepted in the past
+because it may add lots of hugetlb specific codes and make the mm code even
+harder to maintain.  With a merged codeset, features like HGM can hopefully
+share some code with THP, legacy (PMD+) or modern (continuous PTEs).
+
+To make it work, the generic slow gup code will need to at least understand
+hugepd, which is already done like so in fast-gup.  Fortunately it seems
+that's the only major thing I need to teach slow GUP to share the common
+path for now besides normal huge PxD entries.  Non-gup can be more
+challenging, but that's a question for later.
+
+There's one major difference for slow-gup on cont_pte / cont_pmd handling,
+currently supported on three architectures (aarch64, riscv, ppc).  Before
+the series, slow gup will be able to recognize e.g. cont_pte entries with
+the help of huge_pte_offset() when hstate is around.  Now it's gone but
+still working, by looking up pgtable entries one by one.
+
+It's not ideal, but hopefully this change should not affect yet on major
+workloads.  There's some more information in the commit message of the last
+patch.  If this would be a concern, we can consider teaching slow gup to
+recognize cont pte/pmd entries, and that should recover the lost
+performance.  But I doubt its necessity for now, so I kept it as simple as
+it can be.
+
+Test Done
+=========
+
+This v1 went through the normal GUP smoke tests over different memory
+types on archs (using VM instances): x86_64, aarch64, ppc64le.  For
+aarch64, tested over 64KB cont_pte huge pages.  For ppc64le, tested over
+16MB hugepd entries (Power8 hash MMU on 4K base page size).
+
+Patch layout
+=============
+
+Patch 1-7:    Preparation works, or cleanups in relevant code paths
+Patch 8-12:   Teach slow gup with all kinds of huge entries (pXd, hugepd)
+Patch 13:     Drop hugetlb_follow_page_mask()
+
+More information can be found in the commit messages of each patch.  Any
+comment will be welcomed.  Thanks.
+
+[1] https://lore.kernel.org/all/20230628215310.73782-1-peterx@redhat.com
+
+Peter Xu (13):
+  mm/Kconfig: CONFIG_PGTABLE_HAS_HUGE_LEAVES
+  mm/hugetlb: Declare hugetlbfs_pagecache_present() non-static
+  mm: Provide generic pmd_thp_or_huge()
+  mm: Make HPAGE_PXD_* macros even if !THP
+  mm: Introduce vma_pgtable_walk_{begin|end}()
+  mm/gup: Drop folio_fast_pin_allowed() in hugepd processing
+  mm/gup: Refactor record_subpages() to find 1st small page
+  mm/gup: Handle hugetlb for no_page_table()
+  mm/gup: Cache *pudp in follow_pud_mask()
+  mm/gup: Handle huge pud for follow_pud_mask()
+  mm/gup: Handle huge pmd for follow_pmd_mask()
+  mm/gup: Handle hugepd for follow_page()
+  mm/gup: Handle hugetlb in the generic follow_page_mask code
+
+ include/linux/huge_mm.h |  25 +--
+ include/linux/hugetlb.h |  16 +-
+ include/linux/mm.h      |   3 +
+ include/linux/pgtable.h |   4 +
+ mm/Kconfig              |   3 +
+ mm/gup.c                | 362 ++++++++++++++++++++++++++++++++--------
+ mm/huge_memory.c        | 133 +--------------
+ mm/hugetlb.c            |  75 +--------
+ mm/internal.h           |   7 +-
+ mm/memory.c             |  12 ++
+ 10 files changed, 342 insertions(+), 298 deletions(-)
+
+-- 
+2.41.0
+
 
 _______________________________________________
 linux-riscv mailing list
