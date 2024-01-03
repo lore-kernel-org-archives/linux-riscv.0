@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF125C3DA6E
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 16:01:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E578FC3DA6E
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 16:01:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z39f2LXEAazgZQu1u/8/M67chdCg31q2eFQFunjDu/w=; b=ey3P31mY8azki2
-	sZLICSzjvhjgXRrxuztTzXh/dAb3rkY9lqdmLEUjE3aPiPW3p/xGLa7wKLbmsuBchv2HGcs3QGjek
-	P8yHc42dNNeSNOLEFMGJF/YjFOaQ223pTHs8gYOhf4QqaT2AnkY3w1w/nXatB0BCd32qcVQd+a2Jm
-	Rlr9HvyVvqBC28IT+KZWIK1dEgeusT41IUD5ATXwHPhW+xm1xc+/gLo3+lIrLCOaH9IRx3gQmOP63
-	QWqByrsiBgkkMYodqol2+lLD4olztvs2L+3GVp5/I0H5n1QEiMfNjJYuH7r/Ga00kYHLU4aFEAfI+
-	Bs0Sq/KGnVaxWj3WL8Xg==;
+	List-Owner; bh=0XVdrZ8km1kYcGh+xtOpjNzGOlxB1100kkXoWMqNVl4=; b=1E4Cidn2cntNW+
+	/JMqF19EUYNm0vq2fXLlP5qgajfE2pvctIU0Nsh9EirRa2mFWMO7nUyzW5Dz4P8eqVUunU7NgrvLD
+	T7VnzeTvhdShSgfW1Gw/ujUtNPSLO6wu8wnehHxOxB+lWt8ngJJCoqor+6QrBklo5f/mWa7mWVR1M
+	BxYnf6yhNN4to7SPsBXxUDxuvVJZrok6O4TeO623CqOEwR/gRQbOXrJyFnFxq/i/jC6Wh5w1pNtwQ
+	DxHP1DotO2wHU1LMcSbXki27ckBw/6fdL4LQDjZ630GqD5kxEFn0ntaou1p5yKIaB0V+OAYG/6RJr
+	0CDshkWiTjOMBsXQpe1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rL3gP-00BKGZ-0w;
-	Wed, 03 Jan 2024 16:01:29 +0000
+	id 1rL3gW-00BKK6-0y;
+	Wed, 03 Jan 2024 16:01:36 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rL3gM-00BKEZ-2y
+	id 1rL3gT-00BKID-0n
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jan 2024 16:01:28 +0000
+	Wed, 03 Jan 2024 16:01:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1704297686;
+	s=mimecast20190719; t=1704297692;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=UcuCCcEH82BE3ayeUzaJsR8GgVjZd2XA38iISRs+5EQ=;
-	b=d3UHuvIyEi7qN1t3aG+RFLDzvTpKxKMMjjhZVpLf8Nc+g4+R+abgbob1Coq6AhEKGbhBgK
-	JU+cr/MfG3uV/KlRAAgj2VzqWQsr75H6BMhORkggux1tDmXvkNbEhoJI+KwqHCveko3KZB
-	imHXXNPgNHdKMQk35Mh1GkTy4+QM/mQ=
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com
- [209.85.216.69]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=tvTrIj9bDaC7vtXATJc2+i25LfcfP+uiCW+wrXL+g5Y=;
+	b=fzH53KVa/Xm6vAnUBO59vKA7mgrMiN8X9LZIKToednw4/0sSe/aunZLmx3+3kSs/AMiadV
+	t0D7NfYpeBlohzp0cA0RnYlr+YKvbiVq/SCDkkx4VIVHn1+SP1LM+Y8luiZG5EbpTe71Ib
+	cgCMrPnKb3afhDJgJ8ViXOtKYvDrQP0=
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com
+ [209.85.215.199]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-592-tPQgy22_NuS2K36DHY3i4Q-1; Wed, 03 Jan 2024 11:01:23 -0500
-X-MC-Unique: tPQgy22_NuS2K36DHY3i4Q-1
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-28c26fe6068so5060178a91.0
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Jan 2024 08:01:23 -0800 (PST)
+ us-mta-298-Fb-xArpmO3aHXIcQE6-Hgw-1; Wed, 03 Jan 2024 11:01:31 -0500
+X-MC-Unique: Fb-xArpmO3aHXIcQE6-Hgw-1
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-5cdfa8dea37so430330a12.0
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Jan 2024 08:01:31 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704297682; x=1704902482;
+        d=1e100.net; s=20230601; t=1704297690; x=1704902490;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=UcuCCcEH82BE3ayeUzaJsR8GgVjZd2XA38iISRs+5EQ=;
-        b=s4h6mAkPN55DotgoW0RiCM0eXAUC4QAvFT2AB59Cm7plNGxv7Q8BaGfpvnUpwlOXjy
-         5ajB3fR7mxHIuQkODfwrIsHOLP8kVysxyi46dkZIG3+tJfbaXfvB8MTROFnsmforZlkl
-         pGdqOydHc69VAkNVz7gMWSUxg04pXxNEMxJFu+FBu2Dle5vC58bL9yaIdREIHZhG9r3V
-         CfK2HpzAcSEdYQh1fhKNKj56eG//EQG4F0WBf84CuARcZUxWZqFJhPdDzVXDGep4jWvd
-         GnvMpk/iIxL8sBMzlIu0A3egZSCaKra5nrJ2rCbUYraJ6tV/u3T2wTcf+r9T0wbmV04Q
-         b2SQ==
-X-Gm-Message-State: AOJu0YwO6mDnfUjJXoc0iqkRbrujdBx99npNOmPrbg5MQdhobtuxl62J
-	eQftDG7rrJrFDQ6GF4hAtrwKElRCz2CCJi9wIBBao0hDD83kw5PbxHe/c2ZEirNQNiccKknhQi2
-	raOwzvBJfWsXH62WOWDnvyn/TjJv4QuQWDiDl
-X-Received: by 2002:a17:90a:ac0f:b0:28b:2e19:70ad with SMTP id o15-20020a17090aac0f00b0028b2e1970admr6096718pjq.25.1704297682424;
-        Wed, 03 Jan 2024 08:01:22 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHWGQZgfdECo7Rqv5SvlFkPiOgIc2kjMq7oXKIwuu4xXAPoN6bd8DlcIBQPspVWHa4cRptl2w==
-X-Received: by 2002:a17:90a:ac0f:b0:28b:2e19:70ad with SMTP id o15-20020a17090aac0f00b0028b2e1970admr6096675pjq.25.1704297681382;
-        Wed, 03 Jan 2024 08:01:21 -0800 (PST)
+        bh=tvTrIj9bDaC7vtXATJc2+i25LfcfP+uiCW+wrXL+g5Y=;
+        b=p2ACOtplcEWbZfajSFqFgbaiyrAZl/OnhbRpN2242I7PRE4cWSPvw+u484/q8W1VSr
+         1dOF+rmk8sndcUJ0IfTqOsgMlD+wRO43o/Sbfngy2nOF8P6y+P5N/R7N00VTXiDdMB32
+         YZuqhNN3uHl/ATPaeLStTe8iuz/2MFrgRpgtSaGGSm7CMge15vgVR1bRETezukhMx9+/
+         8AqVehRmH7tHpOohiu44+PuU3QYCmAFHmYJ7RKH6LB6UONkSD1N8zK5BTsPFLT25WiRL
+         kvw52Retv/E5sIM2Ho7gPkDhoV1BnexxPFtxow+Cm4Np7zhGMVOh9gwhWvMDLKQ2J7iC
+         BR6A==
+X-Gm-Message-State: AOJu0Yyw+RXlVliua1v/8+RJJqhMVTPWCMbsKdsky+TycPBOL9sB9YJw
+	7p7syTJQb+A1Ae5sq5mr5ImD4TGRY2EoY+NsrpE7MdpSYLJ8iuX3xcNPDU5GRvEc2iJPHyatf8P
+	TIqN+BZeFN7+WIbKbqY7mOepDP9x35HpOL4aR
+X-Received: by 2002:a17:90a:6c41:b0:28c:8db3:deee with SMTP id x59-20020a17090a6c4100b0028c8db3deeemr1641818pjj.7.1704297689921;
+        Wed, 03 Jan 2024 08:01:29 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHLk0qBowIms70OWWZMDrR0eSOerzAwBSl15cF1uRBrdZRmyJm9IRzrY9G6FK4FX/myhaWIiQ==
+X-Received: by 2002:a17:90a:6c41:b0:28c:8db3:deee with SMTP id x59-20020a17090a6c4100b0028c8db3deeemr1641790pjj.7.1704297689594;
+        Wed, 03 Jan 2024 08:01:29 -0800 (PST)
 Received: from localhost.localdomain ([2804:431:c7ec:911:6911:ca60:846:eb46])
-        by smtp.gmail.com with ESMTPSA id qc8-20020a17090b288800b0028b1fce7c01sm1922253pjb.37.2024.01.03.08.01.13
+        by smtp.gmail.com with ESMTPSA id qc8-20020a17090b288800b0028b1fce7c01sm1922253pjb.37.2024.01.03.08.01.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jan 2024 08:01:20 -0800 (PST)
+        Wed, 03 Jan 2024 08:01:29 -0800 (PST)
 From: Leonardo Bras <leobras@redhat.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -95,9 +95,9 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org
-Subject: [PATCH v1 4/5] riscv: Introduce is_compat_thread() into compat.h
-Date: Wed,  3 Jan 2024 13:00:22 -0300
-Message-ID: <20240103160024.70305-6-leobras@redhat.com>
+Subject: [PATCH v1 5/5] riscv: Introduce set_compat_task() in asm/compat.h
+Date: Wed,  3 Jan 2024 13:00:23 -0300
+Message-ID: <20240103160024.70305-7-leobras@redhat.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20240103160024.70305-2-leobras@redhat.com>
 References: <20240103160024.70305-2-leobras@redhat.com>
@@ -105,8 +105,8 @@ MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240103_080127_034463_1C1BC653 
-X-CRM114-Status: GOOD (  14.17  )
+X-CRM114-CacheID: sfid-20240103_080133_354602_31C8A00A 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,67 +123,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-task_user_regset_view() makes use of a function very similar to
-is_compat_task(), but pointing to a any thread.
+In order to have all task compat bit access directly in compat.h, introduce
+set_compat_task() to set/reset those when needed.
 
-In arm64 asm/compat.h there is a function very similar to that:
-is_compat_thread(struct thread_info *thread)
-
-Copy this function to riscv asm/compat.h and make use of it into
-task_user_regset_view().
-
-Also, introduce a compile-time test for CONFIG_COMPAT and simplify the
-function code by removing the #ifdef.
+Also, since it's only used on an if/else scenario, simplify the macro using
+it.
 
 Signed-off-by: Leonardo Bras <leobras@redhat.com>
 Reviewed-by: Guo Ren <guoren@kernel.org>
-Reviewed-by: Andy Chiu <andy.chiu@sifive.com>
 ---
  arch/riscv/include/asm/compat.h | 8 ++++++++
- arch/riscv/kernel/ptrace.c      | 6 +++---
- 2 files changed, 11 insertions(+), 3 deletions(-)
+ arch/riscv/include/asm/elf.h    | 5 +----
+ 2 files changed, 9 insertions(+), 4 deletions(-)
 
 diff --git a/arch/riscv/include/asm/compat.h b/arch/riscv/include/asm/compat.h
-index 91517b51b8e27..da4b28cd01a95 100644
+index da4b28cd01a95..aa103530a5c83 100644
 --- a/arch/riscv/include/asm/compat.h
 +++ b/arch/riscv/include/asm/compat.h
-@@ -20,6 +20,14 @@ static inline int is_compat_task(void)
- 	return test_thread_flag(TIF_32BIT);
+@@ -28,6 +28,14 @@ static inline int is_compat_thread(struct thread_info *thread)
+ 	return test_ti_thread_flag(thread, TIF_32BIT);
  }
  
-+static inline int is_compat_thread(struct thread_info *thread)
++static inline void set_compat_task(bool is_compat)
 +{
-+	if (!IS_ENABLED(CONFIG_COMPAT))
-+		return 0;
-+
-+	return test_ti_thread_flag(thread, TIF_32BIT);
++	if (is_compat)
++		set_thread_flag(TIF_32BIT);
++	else
++		clear_thread_flag(TIF_32BIT);
 +}
 +
  struct compat_user_regs_struct {
  	compat_ulong_t pc;
  	compat_ulong_t ra;
-diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-index 2afe460de16a6..f362832123616 100644
---- a/arch/riscv/kernel/ptrace.c
-+++ b/arch/riscv/kernel/ptrace.c
-@@ -374,14 +374,14 @@ long compat_arch_ptrace(struct task_struct *child, compat_long_t request,
+diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
+index 2e88257cafaea..c7aea7886d22a 100644
+--- a/arch/riscv/include/asm/elf.h
++++ b/arch/riscv/include/asm/elf.h
+@@ -135,10 +135,7 @@ do {							\
+ #ifdef CONFIG_COMPAT
  
- 	return ret;
- }
-+#else
-+static const struct user_regset_view compat_riscv_user_native_view = {};
- #endif /* CONFIG_COMPAT */
- 
- const struct user_regset_view *task_user_regset_view(struct task_struct *task)
- {
--#ifdef CONFIG_COMPAT
--	if (test_tsk_thread_flag(task, TIF_32BIT))
-+	if (is_compat_thread(&task->thread_info))
- 		return &compat_riscv_user_native_view;
- 	else
--#endif
- 		return &riscv_user_native_view;
- }
+ #define SET_PERSONALITY(ex)					\
+-do {    if ((ex).e_ident[EI_CLASS] == ELFCLASS32)		\
+-		set_thread_flag(TIF_32BIT);			\
+-	else							\
+-		clear_thread_flag(TIF_32BIT);			\
++do {	set_compat_task((ex).e_ident[EI_CLASS] == ELFCLASS32);	\
+ 	if (personality(current->personality) != PER_LINUX32)	\
+ 		set_personality(PER_LINUX |			\
+ 			(current->personality & (~PER_MASK)));	\
 -- 
 2.43.0
 
