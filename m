@@ -4,128 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44F34C3DA6E
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 12:40:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D0DC3DA6E
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 13:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=35RnOskfBZsJ+6Gbd1/LZaGFQc21r13RS7R7ErVDajw=; b=Qk2pqMvp6QY0iJ
-	ML7fXlul9+upUslv+zcDATpDwuCfQFV2KQNkbAdbi1Ol/CXJBCXvZVqgT/4sldoq4dgKTShYAGOuJ
-	Pez7rxdUS+YIBUMTvBmlHfZZbugtCJsUpBhhDncgi5ET79C/yNMUiplRzy1kfxbTQlS85ln2PNLYx
-	4KtrmCb7fyRYbWwRmvVj4b+N0CBxmMmnUMtKFH+NvK2MxU2x1TUTYR6t+S2lbWrjN1XQoGMpDEqiA
-	hsNh7PX5m3slKq3SR0wOKTcEQrE68ow2BEcv3LtfZ896Oehe3jI0g9kwwIt+mF9UuieflvNODTqj9
-	VhQR71GfmzLgSmCXpneg==;
+	List-Owner; bh=uyEKo+z2Zheuncq3UBQj8c4i+ZwI37xSgWPF1SArcW4=; b=pal8EkPD6W8hSo
+	QFJzAODipWEdCPmQn6LqHBe4EAWdmZlpCGy6p5Ux6yErp/mL8xc0Z371bNiQOmdgDy0PrrLwu2YzJ
+	uqp7cQhJGCym2+Vof8mhEnNICwT1+0Lzd7Q3zql2xdaSl1Z+fqOqb68MBNlW7qRz2fOnUKHhk7IEC
+	Sm+QIa51lscXA8Hnx+96Mh+RTdx7QnLkVmAOjzejmhgvZnF1XVFY1LMYhMKen510a09frg4mAVZbj
+	MQB2J7adw/BbidAfbBKiHWWed+4lpbEkDZJjbNK3iRDmg96LBbsaszfWsuIq9HvTqMxkliaM30M/f
+	1Q1Z7wOHEhpQAHmEqy2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rL0Xu-00Aps6-0k;
-	Wed, 03 Jan 2024 12:40:30 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1rL1E6-00Avls-1n;
+	Wed, 03 Jan 2024 13:24:06 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rL0Xp-00AppY-2w;
-	Wed, 03 Jan 2024 12:40:28 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id D8E1821C46;
-	Wed,  3 Jan 2024 12:40:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1704285623;
-	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
-	 cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=20ruKaqHGpSyHLXE/c7mqjiw1CKRRpotINPqVduOYwo=;
-	b=Q1K1lETliTdRlrbpuYcbDJCNLRyfseNkT7O9KG7k43qo+zJQDGQoR5Teztc1JjCG66Jfu7
-	YYWOF836ktg9Z6PpkDO/Avyey1jC5Ex/SA/W76gfXQyMMZHJa7Cwu6lvmN/Se9fDUhy/8p
-	/8zVWhI6yjswCRwf6Dx5NjBQN2LSmtU=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1704285623;
-	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
-	 cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=20ruKaqHGpSyHLXE/c7mqjiw1CKRRpotINPqVduOYwo=;
-	b=o4/D6hUaN6oYe8c2NZs5CLAwmgMgPxUEow+rj3/B7s9DS0yeUZUMkz5qyhW64gpEUXwpBc
-	PshODaVzO680AtCg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1704285623;
-	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
-	 cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=20ruKaqHGpSyHLXE/c7mqjiw1CKRRpotINPqVduOYwo=;
-	b=Q1K1lETliTdRlrbpuYcbDJCNLRyfseNkT7O9KG7k43qo+zJQDGQoR5Teztc1JjCG66Jfu7
-	YYWOF836ktg9Z6PpkDO/Avyey1jC5Ex/SA/W76gfXQyMMZHJa7Cwu6lvmN/Se9fDUhy/8p
-	/8zVWhI6yjswCRwf6Dx5NjBQN2LSmtU=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1704285623;
-	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
-	 cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=20ruKaqHGpSyHLXE/c7mqjiw1CKRRpotINPqVduOYwo=;
-	b=o4/D6hUaN6oYe8c2NZs5CLAwmgMgPxUEow+rj3/B7s9DS0yeUZUMkz5qyhW64gpEUXwpBc
-	PshODaVzO680AtCg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 72B151340C;
-	Wed,  3 Jan 2024 12:40:23 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([10.150.64.162])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id mpD9GrdVlWWJKAAAD6G6ig
-	(envelope-from <pvorel@suse.cz>); Wed, 03 Jan 2024 12:40:23 +0000
-Date: Wed, 3 Jan 2024 13:40:13 +0100
-From: Petr Vorel <pvorel@suse.cz>
-To: Cyril Hrubis <chrubis@suse.cz>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, ltp@lists.linux.it,
-	Li Wang <liwang@redhat.com>,
-	Andrea Cervesato <andrea.cervesato@suse.com>,
-	Greg Ungerer <gerg@linux-m68k.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Christophe Lyon <christophe.lyon@linaro.org>,
-	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	Linux-sh list <linux-sh@vger.kernel.org>
-Subject: Re: [PATCH 00/36] Remove UCLINUX from LTP
-Message-ID: <20240103124013.GA1095350@pevik>
-References: <20240103015240.1065284-1-pvorel@suse.cz>
- <CAMuHMdXGwyS-CL0vLdUP4Z4YEYhmcmDyC3YdGCnS=jFkqASqvw@mail.gmail.com>
- <20240103114957.GD1073466@pevik>
- <CAMuHMdX0s0gLRoPtjJmDnSmZ_MNY590dN+JxM1HKAL1g_bjX+w@mail.gmail.com>
- <ZZVOhlGPg5KRyS-F@yuki>
+	id 1rL1E3-00AvkW-2U
+	for linux-riscv@lists.infradead.org;
+	Wed, 03 Jan 2024 13:24:05 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-55590da560dso4964394a12.0
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Jan 2024 05:24:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1704288239; x=1704893039; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Zjuqnf3N25kGg3bcromih2YZCCu3eUy4Efc6JFq8J5c=;
+        b=nq4JjoEqTFaQXa12nwAevodTY50Ifx7o6ql4xBSLjYUNhEslC2EdxG+ctTTCgCFh5Q
+         TH5+avQrQiDH5/RgiuOWfcHkWKxmjQgjl5Zk6sx+a+1c4XlEP3i3LZc9MhTk5kjOj85J
+         bAZyHsw+Xo1siFlWPs18YNw2mQxW3DybB61VjS9bKU3FYnNcowOwp3o4z/Caups4Dmy1
+         pNgF/mJ6GVoGO8C1jWw6xHklL6UGKOv+S9UgnI6C5EcezUC6o6cQatKWiaLyOiBi+0hO
+         N4jYPVLvpXl0yqWt7DN1wxJ0lZ8gcZP0MmH1HbqEJXbrScBADSgaeRS9O6TqbTFQs3Er
+         JllQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1704288239; x=1704893039;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Zjuqnf3N25kGg3bcromih2YZCCu3eUy4Efc6JFq8J5c=;
+        b=c3FiAGmBBOxMraKRekNDxtehEfoiEo2pYZTwTh84SO6y8GKMd6hGz7B4wT5qusKDVP
+         5+uWXVkPaUS2xsai5dv6hhw8TG3ufMXAOSvxAHWENpTgsZqInGjiHsz746YkWN7E4diU
+         i8y3CjZP6UozNqY/nVbFGOzMZvU8IqbAvn+0HPy/rd6jKtSPvVg3m9fb2OgI4cOBJNIm
+         HQKuqO3bLxNQMYAzXLRsqNVVRtz2h8bgBd8I5te7d7R8J98sVnVVEuSu4W/yJrVFUyJ9
+         aPuT9lsDOLwAP/i4Eb053xUalcsGydKFPt414+a4lzLvjGJjEWQgZ0QH2dWykaQsWjih
+         RVTw==
+X-Gm-Message-State: AOJu0YwtsA3WkpR5aAArKgPPZwaRrGkdZnhxR7eslWavRUII9D7pnyXm
+	cipqEEc91EefP+nizVrXI4bF23lqUPnwGw==
+X-Google-Smtp-Source: AGHT+IEbQcreBN3xdQ6TIETVNWD8s+N1vzyORlQMntSC/NLww3pxm8hml18SNScFt7Id6m/nNTU4Fg==
+X-Received: by 2002:a17:906:958:b0:a1d:3b3b:8d76 with SMTP id j24-20020a170906095800b00a1d3b3b8d76mr9478592ejd.27.1704288239203;
+        Wed, 03 Jan 2024 05:23:59 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id ez10-20020a1709070bca00b00a289a8839d9sm562357ejc.164.2024.01.03.05.23.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Jan 2024 05:23:58 -0800 (PST)
+Date: Wed, 3 Jan 2024 14:23:57 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] RISC-V: hwprobe: Check for the reserved flags
+Message-ID: <20240103-4665626eafc3c8ad049af13d@orel>
+References: <20240103121220.26506-1-palmer@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ZZVOhlGPg5KRyS-F@yuki>
-Authentication-Results: smtp-out1.suse.de;
-	none
-X-Spamd-Result: default: False [4.00 / 50.00];
-	 ARC_NA(0.00)[];
-	 HAS_REPLYTO(0.30)[pvorel@suse.cz];
-	 REPLYTO_EQ_FROM(0.00)[];
-	 FROM_HAS_DN(0.00)[];
-	 TO_DN_SOME(0.00)[];
-	 TO_MATCH_ENVRCPT_ALL(0.00)[];
-	 MIME_GOOD(-0.10)[text/plain];
-	 RCVD_VIA_SMTP_AUTH(0.00)[];
-	 RCVD_COUNT_THREE(0.00)[3];
-	 DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	 NEURAL_HAM_SHORT(-0.20)[-1.000];
-	 NEURAL_SPAM_LONG(3.50)[1.000];
-	 RCPT_COUNT_TWELVE(0.00)[15];
-	 FUZZY_BLOCKED(0.00)[rspamd.com];
-	 FROM_EQ_ENVFROM(0.00)[];
-	 MIME_TRACE(0.00)[0:+];
-	 MID_RHS_NOT_FQDN(0.50)[];
-	 RCVD_TLS_ALL(0.00)[];
-	 BAYES_HAM(-0.00)[33.18%]
+In-Reply-To: <20240103121220.26506-1-palmer@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240103_044026_247797_8EE79161 
-X-CRM114-Status: GOOD (  16.16  )
+X-CRM114-CacheID: sfid-20240103_052403_810326_C13B3CED 
+X-CRM114-Status: GOOD (  19.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,54 +85,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Petr Vorel <pvorel@suse.cz>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Geert, Cyril, all,
+Hi Palmer,
 
-Geert, first, thank you for Cc all the other lists.
-For anybody from those lists, we talk about:
-https://lore.kernel.org/ltp/20240103015240.1065284-1-pvorel@suse.cz/
+On Wed, Jan 03, 2024 at 04:12:20AM -0800, Palmer Dabbelt wrote:
+> This check got dropped when RISCV_HWPROBE_WHICH_CPUS was added, but
+> we've still got a bunch of other reserved flags.  So check for them,
+> just to make sure userspace doesn't get confused later.
+> 
+> Fixes: e178bf146e4b ("RISC-V: hwprobe: Introduce which-cpus flag")
 
-> Hi!
-> > I am not sure I agree with this series.
-> > Removing support for UCLINUX from LTP is almost a guarantee for
-> > not noticing when more breakage is introduced.
+I'm having trouble finding the tree/branch for this commit hash.
 
-> > How exactly is UCLINUX broken in LTP?
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> ---
+>  arch/riscv/kernel/sys_hwprobe.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+> index ccf61b040536..10d72893b04f 100644
+> --- a/arch/riscv/kernel/sys_hwprobe.c
+> +++ b/arch/riscv/kernel/sys_hwprobe.c
+> @@ -347,6 +347,10 @@ static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
+>  			    unsigned long __user *cpus_user,
+>  			    unsigned int flags)
+>  {
+> +	/* The rest of the flags are still reserved. */
+> +	if (flags & ~RISCV_HWPROBE_WICHH_CPUS)
+                                   ^ WHICH
 
-> As far as we know noone is using it and nobody is maintaing it for a
-> decade, so it's bitrotting and we do not have manpower to fix it, or
-> rather we do not want to invest the scarcely limited resources we have
-> into something that is niche at best. We asked repeatedly if anyone want
-> to invest time into keeping it alive, but nobody answered the call so
-> far and I doubt that it will happen at this point.
 
-Also, UCLINUX was used in tests which used the legacy LTP API, which was buggy.
-We slowly rewrite tests into new API [1], which is more reliable and do cleanup
-and bug fixes during test rewrites. But because nobody stand to maintain UCLINUX
-support, it's not in the new API. Thus we have actively deleted it's support
-during the rewrite in past years.
+We shouldn't need this check since the way v3 of the series has
+do_riscv_hwprobe() is
 
-I wonder myself if anybody is even using LTP on UCLINUX platforms. Nearly 25% of
-the syscalls tests use fork(), thus will not work on UCLINUX. First tests were
-rewritten in 2016 (first release in 20160510) and nobody complained.
+ static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
+                           size_t pair_count, size_t cpusetsize,
+                           unsigned long __user *cpus_user,
+                           unsigned int flags)
+ {
+       if (flags & RISCV_HWPROBE_WHICH_CPUS)
+               return hwprobe_get_cpus(pairs, pair_count, cpusetsize,
+                                       cpus_user, flags);
 
-All tests C based tests (both new and legacy API):
-$ git grep -l  -e 'include .tst_test.h' -e 'include .test.h' testcases/ |wc -l
-1494
+       return hwprobe_get_values(pairs, pair_count, cpusetsize,
+                                 cpus_user, flags);
+ }
 
-Tests, which use fork(), i.e. not working in UCLINUX:
-$ git grep -l  '\.forks_child.*1' testcases/ |wc -l
-334
+And hwprobe_get_cpus() starts with this check
 
-Kind regards,
-Petr
+      if (flags != RISCV_HWPROBE_WHICH_CPUS)
+               return -EINVAL;
 
-[1] https://github.com/linux-test-project/ltp/wiki/C-Test-API
+And hwprobe_get_values() starts with the original check
+
+      /* Check the reserved flags. */
+      if (flags != 0)
+              return -EINVAL;
+
+
+IOW, we don't check flags at the top level, but each branch checks for its
+flags and hwprobe_get_values() doesn't have any.
+
+Thanks,
+drew
+
+> +		return -EINVAL;
+> +
+>  	if (flags & RISCV_HWPROBE_WHICH_CPUS)
+>  		return hwprobe_get_cpus(pairs, pair_count, cpusetsize,
+>  					cpus_user, flags);
+> -- 
+> 2.43.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
