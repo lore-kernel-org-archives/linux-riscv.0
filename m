@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDACDC3DA6E
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 20:22:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FC06C47079
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 20:22:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ryXD7mVBKIfcqytTfQfk9G/spvNCutjKxZkf2NwBGlY=; b=1Yum77OaJQcKO3
-	vpEFAhuUQJ8H9XikOv4rc7JWF7jr7F1F6tLo6S4zwCQRBf1PZshCplfLNt6OO1J/8FFeOOCBxk5QN
-	d696+s9/g0rtRtzra2aohEKBt4wQNxtxYI6fr0uiHC5mj7QxChHbHqyRnUOKHqXDf1gkA/Ehi9cBO
-	8Uw32o1nt5bw7tdV2RMZ23Q7K3MoBxDc9A59/n8K1gtEVIDly/RQDVC+Zky/kwKgvYNHRwycB5mjq
-	LDwZD+ixHCVgRLjFVUnv9HfM7BBV25VsBVrMqysv1qa47V1MecdYTHJEcaOdvYFsK1QiY0J738opA
-	Sf5rKC1zraD2raPMWQwA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tAnqhBfPJNmBRDoDZIY+DgvfNwZ6Vl7zx7ynf02b9a4=; b=dGQrRFybFexo4V
+	L+XpqQkunX2n5WAYREIInLDHXaUFTqlS+3yrIWBrDK2AK67Q/8bC1nXhV010qKsRDKXmnVNUrQMlz
+	cye/77Jg79YB2V8815iavW1Ytqt6vHwoVwGC+MzDkP7g6i5EJWUYfcgEtinHu8dzC7fiI+j01aoXw
+	kwN6lnrMf8m1KyTEW8YKsNCAmbwtujqFzcRZ8pWzwMu72EzLa9z1evDYHUaMSqhjLVniaBcj0kj5D
+	DXM9tJFJDFuqxdmgyy0ywrapXHhhmpr6VZBVq598V0ZxKmwoEZDAA2+EMr+RMqWjOeYE/Elm3SXBM
+	TApf+az8s9XJvY3Ofpow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rL7km-00C1ei-2y;
+	id 1rL7km-00C1eK-18;
 	Wed, 03 Jan 2024 20:22:16 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rL7ke-00C1at-3A
+	id 1rL7kc-00C1aj-24
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jan 2024 20:22:15 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1d4c27cd502so12369415ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Jan 2024 12:22:05 -0800 (PST)
+	Wed, 03 Jan 2024 20:22:13 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1d4a2526a7eso21963255ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Jan 2024 12:22:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1704313325; x=1704918125; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3+J/P1s8879Vp+fzlyGqr2WWOHGZX3A10V1/imIkjd0=;
-        b=ZZ+jH+PcSVgcrEVQjLoDGg6bAruGiStPJS9dIoyrDQYWkb7WXMRt8EQlnayc4nlgdb
-         +dAGDsmDkvsDrXgJ9k5IRnciSRVdv0T95hkOh7JLjUSy5+skmmAH809M2IqysUyJlTOh
-         uQajF2mzbDL+2HwcBNm3odyiL92oztJo+1K0yDEPZtSwwO2Clepm0lnplUiOhN8DiZ/4
-         FFC2Gr1QfR0iob/J+8iL+SzQMRzuP9OuKKV11y3JumLogV+bqWGxlQfypznOQQvGlhlN
-         /W25nncuI27wKMyQSQc8KSGLkRq9vs1BFdCLvyTnX97VLJtJ2xW8z6rds6xFFTWNXJhe
-         ajWA==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1704313323; x=1704918123; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=gTexI7tnAdoFFXRXkFNPAWJZ+GVqwcinKJy6ELjkn58=;
+        b=bvcMpBmtHL8ACsZZM+0afrkjHbTFNbmRhNbKQMcF7UCHp3XBF9OZJ0qTLXS5ZSddEg
+         55dlYP4EoJ2YUUfB1Mc7nBw7F86hFGXV7wul8eIY+q32krjeLVQ3cpWAS3SK/KkZrlSg
+         cJoZs6xAITNFV8xBZc4WXs5fgWwsR981JsH6mc4cz8R6lXJHYPlWNJa46tXNMLKCx1oe
+         j49bbBfbf6c1FHdMNAX3UGj2MljA00UPLr3vA+pIqIKwGQ/HcuMHt/zNe61Tv6F+NQy8
+         ybz3flARrvE6W0JG9sFIxRgwAJE/fICpEYKaHl7VHGkwKHg30uBWUgxvUo9kv59k41LG
+         DSAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704313325; x=1704918125;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3+J/P1s8879Vp+fzlyGqr2WWOHGZX3A10V1/imIkjd0=;
-        b=mK1uzW6oW26EEJJ0DOJU9MQcIcSv2gcXqT13yqHrwatAeSsjjYDBoTz7Qc1IrCxVTf
-         SmssFqzFBh2bCxkFtAOoOFuoHkuQtjCu6MMDZwkjQzHDi/68zLRa5Fdc6iKi5A5WOy8j
-         y94NREqU+wnCKZW57KrwMjL6Di/+H4PcgATZUz/5YW36zdV4zYcIpG+tv5xlyzRCqyy4
-         Nux5IlnKiSMqYOhpfiACg8wl5QLtvRNaXGrnSuj8QgsHf3YdoDsvzjNxTYzyICsOtRCn
-         Lh3qLXAUEphDWUOn5YJYlF9YtbZWYjXct7Ga2Os1oEGB66qNZ6L+PFmBOgaLH9hgXBFz
-         VRxQ==
-X-Gm-Message-State: AOJu0YzD2+JqrdA9ulvgUFXJ0ejMjXa+wd9NmpbUCDIhvMqcRMiHjTil
-	77+5dxhwP6jFpML3YxHKTVSlQlPJRmDvAQ==
-X-Google-Smtp-Source: AGHT+IEDrbgjgNBUvvv9hWVeThqI6ijQ3EA3FWsa0h7uYxJIJYCUwnKf8WIXdqpmv94uscNsjpViJw==
-X-Received: by 2002:a17:902:da81:b0:1d4:c2ad:8ff8 with SMTP id j1-20020a170902da8100b001d4c2ad8ff8mr2710218plx.34.1704313325161;
-        Wed, 03 Jan 2024 12:22:05 -0800 (PST)
+        d=1e100.net; s=20230601; t=1704313323; x=1704918123;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gTexI7tnAdoFFXRXkFNPAWJZ+GVqwcinKJy6ELjkn58=;
+        b=uMTlq2IujGKHoNb2UkBcQLr1acBj0oSt5YQFm9rHFsAXYQiPxuBoriVVOWE32tlLEQ
+         UmCgJoCR7eO/c2qM7ZQ9fuSI4DYK3MJ5kwXf1drs4bHfe5/bipmOpPuJ6USXXl0lzRwY
+         WmZRM3N366f3lZLKAINAMwIDd9Yaop+QfeIkWhIN3ZBqf4YhGU7mVOZqV50nSE1Sz6cO
+         B4hO7lsI34gY0+MyDaOoppFZp+HRqPAK3fkfME9y0OtmIPUteIJYBNSNVvJkH6aAXI/9
+         HAfEACew172aJZsqPV/QF35UQf3XbL2hst8fnAHm0vHDRfybMKVOOlVBAWprwEuxW4+a
+         Ihdg==
+X-Gm-Message-State: AOJu0YzEeb6oiw1kj6P/43JHUEouYGW8s1W9ypmKxlMZWzkEztqbPEo5
+	jrTI8j3WIPiirnYi6lV41fnxkuuD+d0K4g==
+X-Google-Smtp-Source: AGHT+IHvVQb7kgSchdLziFcMtH5i/arCS5/o8D3svG2o4+X6JKJgSmfGvIHFxmPZdBP03J9lNRtvDA==
+X-Received: by 2002:a17:903:60e:b0:1d0:6b95:9c06 with SMTP id kg14-20020a170903060e00b001d06b959c06mr6626370plb.16.1704313323274;
+        Wed, 03 Jan 2024 12:22:03 -0800 (PST)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d13-20020a170903230d00b001d3fa5acf71sm24278739plh.12.2024.01.03.12.22.04
+        by smtp.gmail.com with ESMTPSA id d13-20020a170903230d00b001d3fa5acf71sm24278739plh.12.2024.01.03.12.22.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jan 2024 12:22:04 -0800 (PST)
+        Wed, 03 Jan 2024 12:22:02 -0800 (PST)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Wed, 03 Jan 2024 12:22:01 -0800
-Subject: [PATCH v2 2/4] riscv: Correctly free relocation hashtable on error
+Subject: [PATCH v2 0/4] riscv: modules: Fix module loading error handling
+Date: Wed, 03 Jan 2024 12:21:59 -0800
+Message-Id: <20240103-module_loading_fix-v2-0-292b160552c9@rivosinc.com>
 MIME-Version: 1.0
-Message-Id: <20240103-module_loading_fix-v2-2-292b160552c9@rivosinc.com>
-References: <20240103-module_loading_fix-v2-0-292b160552c9@rivosinc.com>
-In-Reply-To: <20240103-module_loading_fix-v2-0-292b160552c9@rivosinc.com>
+X-B4-Tracking: v=1; b=H4sIAOfBlWUC/32NWw7CIBBFt9LMtxgBX/TLfZimGWFsJ2nBgBJNw
+ 97FLsDPc5J77gKJIlOCtlkgUubEwVdQmwbsiH4gwa4yqJ3SUkkt5uBeE/VTQMd+6O/8Fhrt0e0
+ Jz1IZqMNHpKrX6LWrPHJ6hvhZP7L82b+5LIUUDs3tZI1CR4dL5BwSe7u1YYaulPIF9AEPB7cAA
+ AA=
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
 Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>, 
- kernel test robot <lkp@intel.com>, Dan Carpenter <dan.carpenter@linaro.org>, 
- Julia Lawall <julia.lawall@inria.fr>
+ kernel test robot <lkp@intel.com>, Dan Carpenter <error27@gmail.com>, 
+ Julia Lawall <julia.lawall@inria.fr>, 
+ Dan Carpenter <dan.carpenter@linaro.org>
 X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1704313322; l=2207;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1704313322; l=964;
  i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
- bh=9/Y3gMnmhvp1aRf3YmkeyxHlGtG/ubuu7urxufGjwTE=;
- b=oEe24hSZfsF4mLEENjvlrgBmLszzS6CujSYHcb5xYW5WEK65TSlLI3Drvqi0xuE88wUYf0yle
- tAaS12iJPF5DN1hbXifh/mprzWl2DKH2wdFUJ5myCBMAR510KON/qKu
+ bh=iejeji0PdwBP2+MrHzl9oqmctk2biWWiQKeoNT5CSgU=;
+ b=TcZUkCn0ll7uTspedyQj8DLjja65+zSMipWNDJaXGKS2IENK0pUgIqga+UJONlE75uI9wo2jk
+ L9swYz/1P/GBowbm5HPUKPtpZIJF4XWgVR4VscJWf27ccFdOCmISlGl
 X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
  pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240103_122209_015742_B6C80E57 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20240103_122206_928091_6558CAF8 
+X-CRM114-Status: UNSURE (   6.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,63 +105,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When there is not enough allocatable memory for the relocation
-hashtable, module loading should exit gracefully. Previously, this was
-attempted to be accomplished by checking if an unsigned number is less
-than zero which does not work. Instead have the caller check if the
-hashtable was correctly allocated and add a comment explaining that
-hashtable_bits that is 0 is valid.
+When modules are loaded while there is not ample allocatable memory,
+there was previously not proper error handling. This series fixes a
+use-after-free error and a different issue that caused a non graceful
+exit after memory was not properly allocated.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-Fixes: d8792a5734b0 ("riscv: Safely remove entries from relocation list")
-Reported-by: kernel test robot <lkp@intel.com>
-Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-Closes: https://lore.kernel.org/r/202312132019.iYGTwW0L-lkp@intel.com/
-Reported-by: kernel test robot <lkp@intel.com>
-Reported-by: Julia Lawall <julia.lawall@inria.fr>
-Closes: https://lore.kernel.org/r/202312120044.wTI1Uyaa-lkp@intel.com/
 ---
- arch/riscv/kernel/module.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+Changes in v2:
+- Split changes across multiple patches
+- Link to v1: https://lore.kernel.org/r/20231213-module_loading_fix-v1-1-da9b7c92ade5@rivosinc.com
 
-diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-index 21c7a773a8ef..32743180e8ef 100644
---- a/arch/riscv/kernel/module.c
-+++ b/arch/riscv/kernel/module.c
-@@ -747,6 +747,10 @@ initialize_relocation_hashtable(unsigned int num_relocations,
- {
- 	/* Can safely assume that bits is not greater than sizeof(long) */
- 	unsigned long hashtable_size = roundup_pow_of_two(num_relocations);
-+	/*
-+	 * When hashtable_size == 1, hashtable_bits == 0.
-+	 * This is valid because the hashing algorithm returns 0 in this case.
-+	 */
- 	unsigned int hashtable_bits = ilog2(hashtable_size);
- 
- 	/*
-@@ -763,7 +767,7 @@ initialize_relocation_hashtable(unsigned int num_relocations,
- 					      sizeof(*relocation_hashtable),
- 					      GFP_KERNEL);
- 	if (!*relocation_hashtable)
--		return -ENOMEM;
-+		return 0;
- 
- 	__hash_init(*relocation_hashtable, hashtable_size);
- 
-@@ -789,8 +793,8 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
- 	hashtable_bits = initialize_relocation_hashtable(num_relocations,
- 							 &relocation_hashtable);
- 
--	if (hashtable_bits < 0)
--		return hashtable_bits;
-+	if (!relocation_hashtable)
-+		return -ENOMEM;
- 
- 	INIT_LIST_HEAD(&used_buckets_list);
- 
+---
+Charlie Jenkins (4):
+      riscv: Fix module loading free order
+      riscv: Correctly free relocation hashtable on error
+      riscv: Fix relocation_hashtable size
+      riscv: Convert relocation iterator to do-while
 
+ arch/riscv/kernel/module.c | 40 ++++++++++++++++++++++++++++++----------
+ 1 file changed, 30 insertions(+), 10 deletions(-)
+---
+base-commit: a39b6ac3781d46ba18193c9dbb2110f31e9bffe9
+change-id: 20231213-module_loading_fix-3ac6d4ea8129
 -- 
-2.43.0
+- Charlie
 
 
 _______________________________________________
