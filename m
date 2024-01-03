@@ -4,76 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D0DC3DA6E
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 13:24:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5488EC47073
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Jan 2024 13:29:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uyEKo+z2Zheuncq3UBQj8c4i+ZwI37xSgWPF1SArcW4=; b=pal8EkPD6W8hSo
-	QFJzAODipWEdCPmQn6LqHBe4EAWdmZlpCGy6p5Ux6yErp/mL8xc0Z371bNiQOmdgDy0PrrLwu2YzJ
-	uqp7cQhJGCym2+Vof8mhEnNICwT1+0Lzd7Q3zql2xdaSl1Z+fqOqb68MBNlW7qRz2fOnUKHhk7IEC
-	Sm+QIa51lscXA8Hnx+96Mh+RTdx7QnLkVmAOjzejmhgvZnF1XVFY1LMYhMKen510a09frg4mAVZbj
-	MQB2J7adw/BbidAfbBKiHWWed+4lpbEkDZJjbNK3iRDmg96LBbsaszfWsuIq9HvTqMxkliaM30M/f
-	1Q1Z7wOHEhpQAHmEqy2g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=U83WggXiV3C1zdw2uOpF4JT19zLBm1l5sTLGuOUxdLs=; b=hjCctOYjwpgxyd
+	7GqQi9aUDqzymDqGvT/aFDPoepWrMS4JjMCF740I3+KtW5EKTGl8JdgE2QwuSjPcj2tHYEDWz6qg5
+	KXB3FbJlV9NMkH6HRVtis7nV8HJQPavEf6PtOU1aO478uFQb0sX3DQKLJOYr3n8EGQofZLaoKYd2U
+	rtnwwyc0ex5Ppaom8O372zDKo5k7XnP68b+PRGY7E04c6ostfrj7c2h75XvwQNB52Iagmji4tyucF
+	VT5FGXmi+NP0PuSVfrZ99kdzvryMqoYirpOD/9H2l4XVq08CLRmufquPkqII/picvD4z+aqRBzsJb
+	ZZQDSI52S1JI1wvtIyog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rL1E6-00Avls-1n;
-	Wed, 03 Jan 2024 13:24:06 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1rL1Iv-00Awcs-2r;
+	Wed, 03 Jan 2024 13:29:05 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rL1E3-00AvkW-2U
+	id 1rL1It-00AwZo-02
 	for linux-riscv@lists.infradead.org;
-	Wed, 03 Jan 2024 13:24:05 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-55590da560dso4964394a12.0
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Jan 2024 05:24:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1704288239; x=1704893039; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Zjuqnf3N25kGg3bcromih2YZCCu3eUy4Efc6JFq8J5c=;
-        b=nq4JjoEqTFaQXa12nwAevodTY50Ifx7o6ql4xBSLjYUNhEslC2EdxG+ctTTCgCFh5Q
-         TH5+avQrQiDH5/RgiuOWfcHkWKxmjQgjl5Zk6sx+a+1c4XlEP3i3LZc9MhTk5kjOj85J
-         bAZyHsw+Xo1siFlWPs18YNw2mQxW3DybB61VjS9bKU3FYnNcowOwp3o4z/Caups4Dmy1
-         pNgF/mJ6GVoGO8C1jWw6xHklL6UGKOv+S9UgnI6C5EcezUC6o6cQatKWiaLyOiBi+0hO
-         N4jYPVLvpXl0yqWt7DN1wxJ0lZ8gcZP0MmH1HbqEJXbrScBADSgaeRS9O6TqbTFQs3Er
-         JllQ==
+	Wed, 03 Jan 2024 13:29:05 +0000
+Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com [209.85.218.71])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id D1A083F748
+	for <linux-riscv@lists.infradead.org>; Wed,  3 Jan 2024 13:28:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1704288535;
+	bh=yWWe6H23myTSvjfVff9zG/62qYLCD/sbWwOipagSJuM=;
+	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version;
+	b=dpgOU3mK1vPuL2BvROMimPl7Y7Bfa6pDz8oyPaUurTHpBy2tUkboS0U8tuO3QdBXX
+	 oTMWKiCD8i0omGjqKzwQAMFsqOUHQsliKndJy/6zUt4U/tvodyN7pn2lVLTWbQhdTW
+	 KfsyPXh+7YXRDOq1+8cLouEEj0AJ7UCdEoJMoLXKu/ZycXOZiKE/nyZ3MckxlOj7PA
+	 5vZGshX0vN9sQqHUK51rvvxw0Q54kfGrM3ZqNaJ+2uqMMW8S5ZpmxcF8U36aVvMF4d
+	 ODSbXQfAYu13aYY/szgpCiWnMHIEvegJJeg6fUc0v5hU2ab+4LuQWsV8M03j7H0e/W
+	 IrT8o6epRjnyQ==
+Received: by mail-ej1-f71.google.com with SMTP id a640c23a62f3a-a22f129e5acso496666666b.1
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Jan 2024 05:28:55 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704288239; x=1704893039;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Zjuqnf3N25kGg3bcromih2YZCCu3eUy4Efc6JFq8J5c=;
-        b=c3FiAGmBBOxMraKRekNDxtehEfoiEo2pYZTwTh84SO6y8GKMd6hGz7B4wT5qusKDVP
-         5+uWXVkPaUS2xsai5dv6hhw8TG3ufMXAOSvxAHWENpTgsZqInGjiHsz746YkWN7E4diU
-         i8y3CjZP6UozNqY/nVbFGOzMZvU8IqbAvn+0HPy/rd6jKtSPvVg3m9fb2OgI4cOBJNIm
-         HQKuqO3bLxNQMYAzXLRsqNVVRtz2h8bgBd8I5te7d7R8J98sVnVVEuSu4W/yJrVFUyJ9
-         aPuT9lsDOLwAP/i4Eb053xUalcsGydKFPt414+a4lzLvjGJjEWQgZ0QH2dWykaQsWjih
-         RVTw==
-X-Gm-Message-State: AOJu0YwtsA3WkpR5aAArKgPPZwaRrGkdZnhxR7eslWavRUII9D7pnyXm
-	cipqEEc91EefP+nizVrXI4bF23lqUPnwGw==
-X-Google-Smtp-Source: AGHT+IEbQcreBN3xdQ6TIETVNWD8s+N1vzyORlQMntSC/NLww3pxm8hml18SNScFt7Id6m/nNTU4Fg==
-X-Received: by 2002:a17:906:958:b0:a1d:3b3b:8d76 with SMTP id j24-20020a170906095800b00a1d3b3b8d76mr9478592ejd.27.1704288239203;
-        Wed, 03 Jan 2024 05:23:59 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id ez10-20020a1709070bca00b00a289a8839d9sm562357ejc.164.2024.01.03.05.23.58
+        d=1e100.net; s=20230601; t=1704288534; x=1704893334;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yWWe6H23myTSvjfVff9zG/62qYLCD/sbWwOipagSJuM=;
+        b=BZpQjq7oVXdG1XAEBK7wfCT+a17NYBeEUgzFIVLsPtTXM5IhOgtt4OflNLjP/B6G20
+         qRv+doB8UulXtu8ak235bI3XtVN0kbUDODfQrtzpGUx7acM9riXIUUeKcEEKNhZAixaZ
+         rfNkhm4oj2dNCTm8yqXkLH44fNltqTy9CaJZtiHV1loymk0E7Tdba3TVzxu4EI78nQiM
+         T0540YY2FpEvrp7gCISw1jTE4TeWdmNmNymoRpH7jc1+i1QtRIeLVJp7jCYLuggyXJVu
+         H/TZb2cuzfi9i8UDaiAF0yUgTDY8/oIa7M8jGjMcPm0UyFbVGtaTZdc+8WNwpPWGtNVR
+         OGyg==
+X-Gm-Message-State: AOJu0Yy8LrYvf8Dd9YIaHo9XIrmnVHfmMvHXvNZSzE38kV+qo+o70dly
+	ogyfLFAYncjB1pM5tC4anO7wcF4Ot2kpVadPJpr3N9Th+99sM3zVc9UwcyiYj2yjdAg3GkOdbjT
+	6u2CMK+foDlkXIeq4ACaq/PgIMdH00aUlYSzGsWcGdHzx4Xhefumk
+X-Received: by 2002:a17:907:36c7:b0:a27:d55d:73d3 with SMTP id bj7-20020a17090736c700b00a27d55d73d3mr3348200ejc.23.1704288534034;
+        Wed, 03 Jan 2024 05:28:54 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGCAg1DXImZMtkXe7TWoLXcnmyhjNjWaMpeNZkVAjpDt/dd1YDA1CXZvWTJalXLzI+MUZw+JQ==
+X-Received: by 2002:a17:907:36c7:b0:a27:d55d:73d3 with SMTP id bj7-20020a17090736c700b00a27d55d73d3mr3348189ejc.23.1704288533638;
+        Wed, 03 Jan 2024 05:28:53 -0800 (PST)
+Received: from stitch.. ([2a01:4262:1ab:c:5af0:999b:bb78:7614])
+        by smtp.gmail.com with ESMTPSA id eu18-20020a170907299200b00a26e53be089sm9549873ejc.44.2024.01.03.05.28.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Jan 2024 05:23:58 -0800 (PST)
-Date: Wed, 3 Jan 2024 14:23:57 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] RISC-V: hwprobe: Check for the reserved flags
-Message-ID: <20240103-4665626eafc3c8ad049af13d@orel>
-References: <20240103121220.26506-1-palmer@rivosinc.com>
+        Wed, 03 Jan 2024 05:28:53 -0800 (PST)
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+To: linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Drew Fustini <dfustini@baylibre.com>
+Subject: [PATCH v2 0/8] Add T-Head TH1520 SoC pin control
+Date: Wed,  3 Jan 2024 14:28:37 +0100
+Message-ID: <20240103132852.298964-1-emil.renner.berthing@canonical.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240103121220.26506-1-palmer@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240103_052403_810326_C13B3CED 
-X-CRM114-Status: GOOD (  19.25  )
+X-CRM114-CacheID: sfid-20240103_052903_464849_5EA6B75E 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,77 +108,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Palmer,
+This adds a pin control driver for the T-Head TH1520 RISC-V SoC used on
+the Lichee Pi 4A and BeagleV Ahead boards and updates the device trees
+to make use of it.
 
-On Wed, Jan 03, 2024 at 04:12:20AM -0800, Palmer Dabbelt wrote:
-> This check got dropped when RISCV_HWPROBE_WHICH_CPUS was added, but
-> we've still got a bunch of other reserved flags.  So check for them,
-> just to make sure userspace doesn't get confused later.
-> 
-> Fixes: e178bf146e4b ("RISC-V: hwprobe: Introduce which-cpus flag")
+It can be easily tested using my th1520 branch at
 
-I'm having trouble finding the tree/branch for this commit hash.
+  https://github.com/esmil/linux.git
 
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> ---
->  arch/riscv/kernel/sys_hwprobe.c | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-> index ccf61b040536..10d72893b04f 100644
-> --- a/arch/riscv/kernel/sys_hwprobe.c
-> +++ b/arch/riscv/kernel/sys_hwprobe.c
-> @@ -347,6 +347,10 @@ static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
->  			    unsigned long __user *cpus_user,
->  			    unsigned int flags)
->  {
-> +	/* The rest of the flags are still reserved. */
-> +	if (flags & ~RISCV_HWPROBE_WICHH_CPUS)
-                                   ^ WHICH
+..which also adds the MMC, PWM, ethernet and USB drivers that have
+been posted but are not upstream yet.
 
+Jisheng: I've added this driver to the generic TH1520 entry in
+MAINTAINERS like you did with your USB driver. Let me know if that's not
+ok and I'll create a separate entry for this driver with me as
+maintainer.
 
-We shouldn't need this check since the way v3 of the series has
-do_riscv_hwprobe() is
+Drew: The last patch is purely based on reading the schematics. It'd be
+great if you could give it a spin on real hardware.
 
- static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
-                           size_t pair_count, size_t cpusetsize,
-                           unsigned long __user *cpus_user,
-                           unsigned int flags)
- {
-       if (flags & RISCV_HWPROBE_WHICH_CPUS)
-               return hwprobe_get_cpus(pairs, pair_count, cpusetsize,
-                                       cpus_user, flags);
+Changes since v1
+- Keep pinmux data for each pin so we can mux by type instead of directly
+  using the mux index. Eg. use function = "uart" etc. (Linus)
+- Drop the strong pull-up property and prevent Linux from combining the strong
+  pull-up with the regular pull up/down. This also means we can't report such
+  usage if it set up by earlier stages, but that problem is deferred until we
+  encounter it (Linus)
+- Reference pinmux-node.yaml properly (Rob)
+- Specify valid pin names for each group (Rob)
+- Enable bus clock (Emil)
+- Implement gpio_request_enable() and gpio_set_direction() for automatic
+  GPIO handling (Emil)
+- Drop patch adding gpio-ranges to the gpio-dwapb bindings that is
+  merged in gpio/for-next. (Emil)
+- Patch 6/8 adding GPIO line names for the Lichee Pi 4M module (Emil)
+- Various code nits (Andy)
 
-       return hwprobe_get_values(pairs, pair_count, cpusetsize,
-                                 cpus_user, flags);
- }
+/Emil
 
-And hwprobe_get_cpus() starts with this check
+Emil Renner Berthing (8):
+  dt-bindings: pinctrl: Add thead,th1520-pinctrl bindings
+  pinctrl: Add driver for the T-Head TH1520 SoC
+  riscv: dts: thead: Add TH1520 pin control nodes
+  riscv: dts: thead: Add TH1520 GPIO ranges
+  riscv: dts: thead: Adjust TH1520 GPIO labels
+  riscv: dts: thead: Add Lichee Pi 4M GPIO line names
+  riscv: dts: thead: Add TH1520 pinctrl settings for UART0
+  riscv: dtb: thead: Add BeagleV Ahead LEDs
 
-      if (flags != RISCV_HWPROBE_WHICH_CPUS)
-               return -EINVAL;
+ .../pinctrl/thead,th1520-pinctrl.yaml         | 372 ++++++++
+ MAINTAINERS                                   |   1 +
+ .../boot/dts/thead/th1520-beaglev-ahead.dts   |  87 ++
+ .../dts/thead/th1520-lichee-module-4a.dtsi    |  43 +
+ .../boot/dts/thead/th1520-lichee-pi-4a.dts    |  28 +
+ arch/riscv/boot/dts/thead/th1520.dtsi         |  62 +-
+ drivers/pinctrl/Kconfig                       |   9 +
+ drivers/pinctrl/Makefile                      |   1 +
+ drivers/pinctrl/pinctrl-th1520.c              | 891 ++++++++++++++++++
+ 9 files changed, 1478 insertions(+), 16 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/thead,th1520-pinctrl.yaml
+ create mode 100644 drivers/pinctrl/pinctrl-th1520.c
 
-And hwprobe_get_values() starts with the original check
+-- 
+2.43.0
 
-      /* Check the reserved flags. */
-      if (flags != 0)
-              return -EINVAL;
-
-
-IOW, we don't check flags at the top level, but each branch checks for its
-flags and hwprobe_get_values() doesn't have any.
-
-Thanks,
-drew
-
-> +		return -EINVAL;
-> +
->  	if (flags & RISCV_HWPROBE_WHICH_CPUS)
->  		return hwprobe_get_cpus(pairs, pair_count, cpusetsize,
->  					cpus_user, flags);
-> -- 
-> 2.43.0
-> 
 
 _______________________________________________
 linux-riscv mailing list
