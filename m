@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B009C47073
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jan 2024 09:29:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65957C47074
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jan 2024 09:29:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=19p2q+Br0jTGduw6v0D6AGc1rfCwjkZKq8vEegFINGk=; b=GnQ/Y1ACiG/Huk
-	ruIkKn41WRdPC7AFfB6SBB5oP04igXn4g81sAGg+b29AcQHyD7DtI361MIb0il9gqCq1iVskqUB3x
-	Nc7F6zvG015EEcJ5ScM4run1k5WB4fyFdu/qlDsrJxtNF318aPgtivSDkE/LBXtwaO9FXer/Ev2Ie
-	YYengponB6B5dSj83sXyQ4npMmW/z7iPrkFSQZpeXCgqUpJJnQfYcW7ZfJsZ/WomzyVTNUsMxJ9vb
-	9cIEuDQ9vjMCvpP0X2YgRn5Ggited3C4NrQkQx44HLUw8sf4QNjAHc1uc8qwsv0hg/vD2L9Qo/PqB
-	8mLrxesMKcmSZVsh2zrQ==;
+	List-Owner; bh=3tuoNA57LhaMG1YHKzjlsYbVgoZLVdhw0j9ZChBdPqo=; b=mm298KNg5l2tSy
+	1Xo60ib4yA/+TwIRfDDR1t+DEpH2msAPjXak9JoVbDwRcplTaRyPgAuZokfcJl6DSUiwANdLlEkul
+	H0hETPk9QnBVcoGuBL6xayoH15msAsZ3lqIiXYAr7zTwX5qh4E+Kq/NgQKkcSdc41a5yi3CedzEnU
+	U5p9LBGuZ5x0FG73R4DYfDI4PGtTSZNi20gF63mBgjKTQE2NZthmZIUl1rJ8H4nRawZOICc4sJ98A
+	LsVMIes/OOF2mU3zJSEA22dglo/DTIRPtoUH2eXy5fujrQ60kOiyN838p1LyazQKmkt2QCretPXn3
+	blrbUW1HZndbQeI7UnmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLK2B-00DNfr-2E;
-	Thu, 04 Jan 2024 09:29:03 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1rLK2Z-00DNpe-33;
+	Thu, 04 Jan 2024 09:29:27 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLK29-00DNeE-0d
+	id 1rLK2X-00DNoU-1o
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jan 2024 09:29:02 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-a28d25253d2so31289966b.0
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Jan 2024 01:28:59 -0800 (PST)
+	Thu, 04 Jan 2024 09:29:26 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-a28a997f3dfso23644866b.0
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Jan 2024 01:29:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1704360538; x=1704965338; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1704360564; x=1704965364; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=BvKedpzjdbUqqpWsx0w08cM96+nsatTobkXdlZaM6SQ=;
-        b=D007DlR/E3hf4XNmTtxpiTMBt8WJOnpO8CKMMlCCI7ZHj/IVtOhhEkGi12c+fYU0gt
-         sWcgtNMR5rTulCdM50X/txuBbDvT/FWXhge7WHegDC4pLA2bjULxWN2tiRhOyhjewf0V
-         lqwNV9IndI+p0oksgqia6NofNzPkZL91Yq4r/zYltdGZeELyNcCceY/4+i1AB6JohsJs
-         iBupysMtSnq5tFAOtympHqwX/s7PLFCJnAMIN1at7L0UGm8F9cju23gtMWXO+xVhVb4+
-         pwqzxyl9nAytoXprKQyPqoUAuiivaTGVIswnHGmLLg7T4Gdnp0OE3QhZn03Tbb0EOt8f
-         iYJA==
+        bh=sxCSOtgIuTCmDMgckUR1KMBV4DlQWWFk6eRZHQf9FiI=;
+        b=YrZpshb2p8jPsWdPhfnavIVOLC68eXBCvRt1UIAz3X5tzw3wMF+PJvXDIt/Odnc+KR
+         dK6CQWn21vrNisynF5O+haSSnaBogqBabGENgt3+AjZSyrMiYHyFeQ3DvycOqRCse+cG
+         XbT+mvK7dpcaKeo7qiaPq1xySzDB8p954lporVt8amzSWxgb31YxUw+Qb34Aq16zkoxe
+         bPpGmjHLMIzyoXdiUpz6WGSniu9yKZGzOFihorVkUyKH07qm/p3oOOLah7cQpv8T+D7E
+         dujZNf4Qq/zdwM8Z4tMlMfEbbmqyAC/QaGQfnHAfByWN5UPDlALa74gfNaz05oZEihsu
+         uPUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704360538; x=1704965338;
+        d=1e100.net; s=20230601; t=1704360564; x=1704965364;
         h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
          :to:content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=BvKedpzjdbUqqpWsx0w08cM96+nsatTobkXdlZaM6SQ=;
-        b=iARuI9xk115FBUs8TtbMISUod4qSfbjgFiVHgZVACvrO9Zk/anZhXJGqCjwLAqNKK5
-         jqv0TKElp3ByBKH5sMR4fEvNJr7xJZ62wVzpXLghmUcnWRGVL4iO3NTRl+n8ZSdUEG3e
-         SVLBL7vTYhWzIf2zNuEqImJvoG4hu1cBxFhDTagXiPctbqFTqyQGgqmFD/7Ty/ZCoeWX
-         WwCz95XeLA0SwXUdou49b6M6YsghIjhP6Drx2y10PtYwlCgXqtqKuiLUpoeooWPcIBVQ
-         PoAtzXxuWLGEolKU89bo5L7yankN/1iy8/te6t4FAhRJXk4INUPy/Uy4RNgZv9ir7Bvk
-         GVlw==
-X-Gm-Message-State: AOJu0YxlVqa7f76ytlaPd1pCKtLSka/4kyV4FVpZgUjiaqih9u/Y6qg4
-	IJbXm+sr7RM+sMYFQ5VYosSf7xsLD5W8u8jXgf/pDu1eVqI=
-X-Google-Smtp-Source: AGHT+IFX6d/hf4qADPdyTB6cGWUeu+PuU2X+JCrLAoJycR8jmkHysidP8MbdQerxBYKuel4j1dFPWQ==
-X-Received: by 2002:a17:906:32d6:b0:a23:5cdd:fe31 with SMTP id k22-20020a17090632d600b00a235cddfe31mr167421ejk.117.1704360538417;
-        Thu, 04 Jan 2024 01:28:58 -0800 (PST)
+        bh=sxCSOtgIuTCmDMgckUR1KMBV4DlQWWFk6eRZHQf9FiI=;
+        b=qWUoeXXYl8awiezt1IGyjM4K7omIjtjqrUZEqvdjLPzjgdOlAt8W7Gt7OwVSCtIjfD
+         WozZLgP0PCJ05gB1AqzS95V1wIkT+1EsQEfvMRlv2yHpkjJ0IpgvxblbZQaPRxAFqhFR
+         nUN9NzYy9E16DHRGUR2RZS+nDCny8gdnbuc1N/ehhZX8AxakpwCueUotI5/ieRcx5F7M
+         t9prsS3Ta/B4jiz2y7Sxgm3jmropYCvJ3fNMWL2T1JKC1epfdKPF3U8cZvOibMAHPhYs
+         wsz02jZAQgZKr6ozhB9dZBygfz0UYX48bCqpA1tA93KIX02/JHzRpHBTxgXAusA2r8ry
+         DELg==
+X-Gm-Message-State: AOJu0YznD18n3L9eGV0w8+OehqAEP03LCS2HrejYS5W4G6gh9gGWNT9c
+	1Zt/bhW05/+7G2YtpNT81v77q4vG9XjCow==
+X-Google-Smtp-Source: AGHT+IFajqTWmTnMMBn/8bztmTnBY8FlKldSofq+dadysBPgbVWftwgMb7NUtZMZv1WH36cUoeyBGg==
+X-Received: by 2002:a17:906:cf83:b0:a27:4c43:ad3 with SMTP id um3-20020a170906cf8300b00a274c430ad3mr193833ejb.8.1704360563957;
+        Thu, 04 Jan 2024 01:29:23 -0800 (PST)
 Received: from [192.168.1.20] ([178.197.218.27])
-        by smtp.gmail.com with ESMTPSA id f17-20020a170906495100b00a26b057df46sm9910107ejt.126.2024.01.04.01.28.57
+        by smtp.gmail.com with ESMTPSA id f17-20020a170906495100b00a26b057df46sm9910107ejt.126.2024.01.04.01.29.22
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Jan 2024 01:28:58 -0800 (PST)
-Message-ID: <46155b58-f952-42d5-b607-8a4e83a25ac9@linaro.org>
-Date: Thu, 4 Jan 2024 10:28:56 +0100
+        Thu, 04 Jan 2024 01:29:23 -0800 (PST)
+Message-ID: <0adf22be-bbab-48d5-909e-ad43ccf4ff5f@linaro.org>
+Date: Thu, 4 Jan 2024 10:29:22 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: mmc: sdhci-cadence6: add DT bindings
- documentation
+Subject: Re: [PATCH 2/3] mmc: sdhci-cadence6: add Cadence SD6HC support
 Content-Language: en-US
 To: Alex Soo <yuklin.soo@starfivetech.com>,
  Ulf Hansson <ulf.hansson@linaro.org>, Adrian Hunter
@@ -81,7 +80,7 @@ Cc: linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
 References: <20231228065322.1176351-1-yuklin.soo@starfivetech.com>
- <20231228065322.1176351-2-yuklin.soo@starfivetech.com>
+ <20231228065322.1176351-3-yuklin.soo@starfivetech.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -127,10 +126,11 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20231228065322.1176351-2-yuklin.soo@starfivetech.com>
+In-Reply-To: <20231228065322.1176351-3-yuklin.soo@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240104_012901_265399_7FC7C3BC 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20240104_012925_600089_E53E7938 
+X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,30 +148,24 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 28/12/2023 07:53, Alex Soo wrote:
-> Add DT bindings documentation for Cadence SD/eMMC host controller
-> (Version 6) driver.
+> Add a driver for the Cadence SD6HC SD/SDIO/eMMC controller.
 > 
 > Signed-off-by: Alex Soo <yuklin.soo@starfivetech.com>
-
-A nit, subject: drop second/last, redundant "DT bindings documentation".
-The "dt-bindings" prefix is already stating that these are bindings.
-
-Basically your subject is pure redundancy.
-
-
 > ---
->  .../devicetree/bindings/mmc/cdns,sd6hci.yaml  | 65 +++++++++++++++++++
->  1 file changed, 65 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mmc/cdns,sd6hci.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/mmc/cdns,sd6hci.yaml b/Documentation/devicetree/bindings/mmc/cdns,sd6hci.yaml
-> new file mode 100644
-> index 000000000000..97e28d720c7b
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mmc/cdns,sd6hci.yaml
+>  MAINTAINERS                           |   6 +
+>  drivers/mmc/host/Kconfig              |  11 +
+>  drivers/mmc/host/Makefile             |   2 +
+>  drivers/mmc/host/sdhci-cadence6-phy.c | 384 +++++++++++++++++++
+>  drivers/mmc/host/sdhci-cadence6.c     | 531 ++++++++++++++++++++++++++
+>  drivers/mmc/host/sdhci-cadence6.h     | 148 +++++++
+>  6 files changed, 1082 insertions(+)
+>  create mode 100644 drivers/mmc/host/sdhci-cadence6-phy.c
+>  create mode 100644 drivers/mmc/host/sdhci-cadence6.c
+>  create mode 100644 drivers/mmc/host/sdhci-cadence6.h
 
-There were several other patches adding this, so please consolidate the
-effort. You just duplicated a lot of code.
+Please work with existing submissions:
+
+https://lore.kernel.org/all/?q=sd6hc
 
 Best regards,
 Krzysztof
