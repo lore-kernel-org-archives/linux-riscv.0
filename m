@@ -4,80 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0162C47073
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jan 2024 09:47:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3283EC47074
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jan 2024 09:55:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ScWLBRAalRg5EaBC1A6Evg6+lXc0RzNaOytza1qP5xg=; b=zYH4LZ1MNCYXb0
-	B0HPE9zjzg596DEM3kfHkOUib/sU3Q9lhXcNPwgmogK/ygwB56v34JzYvg0l/88ds1oIGxjfL3Kuq
-	MHdjEFmI/b8CfcVjoS4ObyZlWUzstY+/xdhQhRifZz8pwjkePrQOABdi8DQJbcZpjyd3jwVl3VaHd
-	OLu7SB2JfoQIBI9hOV3BnHPBFp+xkeclHNzXXDOKap79HDVZeq8pQ5tkF7vDr38eZrppq1Tah6QiQ
-	7Z45PwrNZv7IlHpcIbTZxeK91mlayUXQgn3VDrQFRN2NNzTtLG3OuibCgjvSuEbiYLi9FR6YoDuLX
-	k+QeyX0tKIF/T23Lp8Qg==;
+	List-Owner; bh=bwM1zTL2lhHWX4UmDVPqXL/cVQNrRZGzqK/VJFLkHig=; b=vXvkdnTDyAD3j4
+	FQZBLj3B8URjQUNnFpNTFJEQQxqG1+w0bPNXcTgM9ECuJjdQZMpQOow/y/OQrDU8/Gr9+ZIntd6LJ
+	9B2BgLZgGvSJ62bbifZ3h+W7aBq4KQ60v0Si4LfOj4Hs6xX/kZDglSoP5mxqf60rPSq44Dtp5r9ft
+	4/BjyHgjv6t5H/HSxiuPlszcV1+qCTvQjIJbTLR+Af2MbLxuzTQ9NtC0HkmZxFYqx+Ipgtp5/jM9H
+	COyqu5bCvrFhYHcKfWL1HNnh4QFFEKv2CU4pGQ/4QoiAYmoee8Bae+pjSLRwI6e2jZexQPXun0G2Y
+	BaSIe51TUjcyxB/EliDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLKKE-00DQWy-02;
-	Thu, 04 Jan 2024 09:47:42 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1rLKS1-00DRTS-2c;
+	Thu, 04 Jan 2024 09:55:45 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLKKA-00DQW4-2Q
-	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jan 2024 09:47:40 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-2cd1919f0acso4366131fa.0
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Jan 2024 01:47:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1704361656; x=1704966456; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=tjIOzASFKXtnzifSOlgR7uNlr9WKjwKVoy2m9WsQklE=;
-        b=A0E0pS79wzNycqVo+3JVrFlw9ZNi4moHpdwN47dgL/SqI7EqQGD3+6QVoXACLW/OWl
-         q4M85tet981xJJhL/f60QgQ+ScRbJmNyd16EQEDMzKjUiEuPsJE9Kqkp92w7FlLGheJY
-         ylvfn8IwfhxYAh8omw83wyN7ei6+d+21dgTOuPOleWoLB7TiSFy29544J8d6uIJG54U+
-         UamXqPEXxfkMSjCIdZ3Md++5WYfVrwr6daKq0/n71Dpm/TSjqbJwX1P9E8c0sk0bfyNC
-         NQEdnf7dM2/CA4zsLg9Gk6GQPH3s8aytPtftVSg6d9dwJ6arsxaPFkpvhpm/d8bPg5rr
-         5Eqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704361656; x=1704966456;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tjIOzASFKXtnzifSOlgR7uNlr9WKjwKVoy2m9WsQklE=;
-        b=TAiBD4nYoJeJEj8Fej3d3VvzGIOuqANTdh+kmfxZiEjpsU2871Cd5AeqjK3+VKso4t
-         rzTcuO4C4PQa1TU7TpFusQrPqfWBUdksJilqixY4NeM4HV6/cxiYNJSlwyrL4QDHzd4Y
-         ytk5e5yEuu4UvDgIdY3lA4GpFtM6PUXrWbF2o4Sukl+YsXHVdN6UbwBUjuWE4k/ncvAC
-         /z7j1A9zti/RX/B5zeh23xVVY8KC6g/WpemEHflywmB8S1j3fE/ST9HwA9O+VfYgaeD4
-         H7P+Crh85sNkgnVzd5IIVWC/r34xs+unTwSMiOEa+KcVY5+rwzxMpdf9phZ2y9yBC52/
-         S3Cg==
-X-Gm-Message-State: AOJu0Yw5jxQu+bkyZ/uVSV//UizzN9fcZWW604C7W+E0JgG5qTzXEP1W
-	pM89I1j++HbFKJjEKEAYvtJzJegjY794XQ==
-X-Google-Smtp-Source: AGHT+IHokDrCyFOkfMV2ZJkoKUpPp5Z2frj1npon3QRHNkknpBQw7ofTk3TqPl1odKml1sS1MObQxw==
-X-Received: by 2002:a05:6512:2141:b0:50e:6a07:5c02 with SMTP id s1-20020a056512214100b0050e6a075c02mr201705lfr.15.1704361656189;
-        Thu, 04 Jan 2024 01:47:36 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id p9-20020a170907910900b00a26ac5e3683sm12848872ejq.100.2024.01.04.01.47.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jan 2024 01:47:35 -0800 (PST)
-Date: Thu, 4 Jan 2024 10:47:34 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Leonardo Bras <leobras@redhat.com>
-Subject: Re: Re: Re: [PATCH V2 1/3] riscv: Add Zicbop instruction definitions
- & cpufeature
-Message-ID: <20240104-4ecfb92d2f8c95fa773ca695@orel>
-References: <20231231082955.16516-1-guoren@kernel.org>
- <20231231082955.16516-2-guoren@kernel.org>
- <ZZWs0C19tz763FnH@LeoBras>
- <20240103-0c96ceea88523b7b946e4ba8@orel>
- <ZZXEpU-JzsvD2UDW@LeoBras>
+	id 1rLKRy-00DRRp-0F;
+	Thu, 04 Jan 2024 09:55:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id 04FD9B81799;
+	Thu,  4 Jan 2024 09:55:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F1E1C433CD;
+	Thu,  4 Jan 2024 09:55:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1704362139;
+	bh=NUKoeng2TtOuvmS1QuUleD7BGl+JqWw7EjY22X+zMeE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=OHFkUtqftfj+SZv9SeaQruKnYEQ+cq+CUVLhdhS4ctC5mJde61oZpomnZp+ecLocl
+	 edGdjmqnCNVqcSE+r/1BHCS9HtiWkfJlVSxkDAqPGjrXpj3m1RESX+i8Du30XCZhoc
+	 Phx4BiVKMLfV6iWckC4A+sp0BbGfUzv2NrDh9iOsqfiDWgJJBXqcmWjicme7o2UqjD
+	 OMdDO97BJHjpoD64eKNTbxVRZi2a6R+/ZwjD90Vah4KdwTLgLKFVkFiJMEVPIBQPIC
+	 QoCG2KHOziSdqLfOlz01MyVVY2UGekeYO2k3gZN/0V0FQCNOuMwCjTEqTwRZOK3QMU
+	 ZsLwm/ZTJ1jcQ==
+Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-5555f9061b9so443173a12.0;
+        Thu, 04 Jan 2024 01:55:39 -0800 (PST)
+X-Gm-Message-State: AOJu0YwP/pRmTsYYGMzYFMuHYqoD+y9q0KQnav8djwvybtU8TPZ+PfGE
+	baXqPISsCqyK8iSLyS/nBjcphax3YWhp49SKGc4=
+X-Google-Smtp-Source: AGHT+IEKmcnwqgygVH9sZZQyzsnOvSR/gqjMEXN+FYG4pXKZGSTboqY34lxGfMFTo2QI4qDTuxyc5MRzDYiHeKc4cMU=
+X-Received: by 2002:a17:906:a94:b0:a28:9633:d599 with SMTP id
+ y20-20020a1709060a9400b00a289633d599mr160134ejf.18.1704362137704; Thu, 04 Jan
+ 2024 01:55:37 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZZXEpU-JzsvD2UDW@LeoBras>
+References: <20231228014220.3562640-1-samuel.holland@sifive.com> <20231228014220.3562640-8-samuel.holland@sifive.com>
+In-Reply-To: <20231228014220.3562640-8-samuel.holland@sifive.com>
+From: Huacai Chen <chenhuacai@kernel.org>
+Date: Thu, 4 Jan 2024 17:55:32 +0800
+X-Gmail-Original-Message-ID: <CAAhV-H5TJPqRcgS6jywWDSNsCvd-PsVacgxgoiF-fJ00ZnS4uA@mail.gmail.com>
+Message-ID: <CAAhV-H5TJPqRcgS6jywWDSNsCvd-PsVacgxgoiF-fJ00ZnS4uA@mail.gmail.com>
+Subject: Re: [PATCH v2 07/14] LoongArch: Implement ARCH_HAS_KERNEL_FPU_SUPPORT
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
+	x86@kernel.org, linux-riscv@lists.infradead.org, 
+	Christoph Hellwig <hch@lst.de>, loongarch@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	amd-gfx@lists.freedesktop.org, linux-arch@vger.kernel.org, 
+	WANG Xuerui <git@xen0n.name>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240104_014738_796233_6532057C 
-X-CRM114-Status: GOOD (  39.33  )
+X-CRM114-CacheID: sfid-20240104_015542_409338_99AC6EAD 
+X-CRM114-Status: GOOD (  18.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,149 +77,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Guo Ren <guoren@linux.alibaba.com>, keescook@chromium.org, atishp@atishpatra.org, peterz@infradead.org, unicorn_wang@outlook.com, paul.walmsley@sifive.com, chao.wei@sophgo.com, bjorn@rivosinc.com, linux-kernel@vger.kernel.org, xiaoguang.xing@sophgo.com, conor.dooley@microchip.com, wuwei2016@iscas.ac.cn, palmer@dabbelt.com, jszhang@kernel.org, panqinglin2020@iscas.ac.cn, guoren@kernel.org, linux-riscv@lists.infradead.org, wefu@redhat.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 03, 2024 at 05:33:41PM -0300, Leonardo Bras wrote:
-> On Wed, Jan 03, 2024 at 08:29:39PM +0100, Andrew Jones wrote:
-> > On Wed, Jan 03, 2024 at 03:52:00PM -0300, Leonardo Bras wrote:
-> > > On Sun, Dec 31, 2023 at 03:29:51AM -0500, guoren@kernel.org wrote:
-...
-> > > The shifts seem correct for S-Type, but I would name the IMM defines in a 
-> > > way we could understand where they fit in IMM:
-> > > 
-> > > 
-> > > INSN_S_SIMM5_SHIFT -> INSN_S_SIMM_0_4_SHIFT
-> > > INSN_S_SIMM7_SHIFT -> INSN_S_SIMM_5_11_SHIFT
-> > > 
-> > > What do you think?
-> > 
-> > I'm in favor of this suggestion, but then wonder if we don't need another
-> > patch before this which renames INSN_I_SIMM12_SHIFT to
-> > INSN_I_SIMM_0_11_SHIFT in order to keep things consistent.
-> 
-> Agree. If it's ok, I can provide a patch doing the rename on top of this 
-> patchset.
-
-The INSN_I change is only needed if we also take the new INSN_S shift
-macros, so I think the INSN_I change should be part of this series.
-
-BTW, I just noticed we wrote the numbers backwards. They should be
-
- INSN_I_SIMM_11_0_SHIFT
- INSN_S_SIMM_11_5_SHIFT
- INSN_S_SIMM_4_0_SHIFT
-
-> > > >  
-> > > > +#define CBO_PREFETCH_I(base, offset)				\
-> > > > +	INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(0),		\
-> > > > +	       SIMM12(offset), RS1(base))
-> > > > +
-> > > > +#define CBO_PREFETCH_R(base, offset)				\
-> > > > +	INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(1),		\
-> > > > +	       SIMM12(offset), RS1(base))
-> > > > +
-> > > > +#define CBO_PREFETCH_W(base, offset)				\
-> > > > +	INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(3),		\
-> > > > +	       SIMM12(offset), RS1(base))
-> > > > +
-> > > 
-> > > For OP_IMM & FUNC3(6) we have ORI, right?
-> > > For ORI, rd will be at bytes 11:7, which in PREFETCH.{i,r,w} is
-> > > offset[4:0].
-> > > 
-> > > IIUC, when the cpu does not support ZICBOP, this should be fine as long as 
-> > > rd = 0, since changes to r0 are disregarded.
-> > > 
-> > > In this case, we need to guarantee offset[4:0] = 0, or else we migth write 
-> > > on an unrelated register. This can be noticed in ZICBOP documentation pages 
-> > > 21, 22, 23, as offset[4:0] is always [0 0 0 0 0]. 
-> > > (Google docs in first comment)
-> > > 
-> > > What we need here is something like:
-> > > + enum {
-> > > + 	PREFETCH_I,
-> > > + 	PREFETCH_R,
-> > > + 	PREFETCH_W,
-> > > + }	 
-> > 
-> > Can't use enum. This header may be included in assembly.
-> 
-> Oh, I suggest defines then, since it's better to make it clear instead of 
-> using 0, 1, 3.
-
-I don't think we gain anything by adding another define in order to create
-the instruction define. We have to review the number sooner or later. I'd
-prefer we use the number inside the instruction define so we only need
-to look one place, which is also consistent with how we use FUNC fields.
-
-> 
-> > 
-> > > +
-> > > + #define CBO_PREFETCH(type, base, offset)                      \
-> > > +     INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(type),              \
-> > > +            SIMM12(offset & ~0x1f), RS1(base))
-> > 
-> > Yes. I suggested we mask offset as well, but ideally we'd detect a caller
-> > using an offset with nonzero lower 5 bits at compile time.
-> 
-> I would suggest the compiler would take care of this, but I am not sure 
-> about the assembly, since I am not sure if it gets any optimization.
-> 
-> I don't think we can detect a caller with non-zero offset at compile time, 
-> since it will be used in locks which can be at (potentially) any place in 
-> the block size. (if you have any idea though, please let me know :) )
-> 
-> On the other hand, we could create a S-Type macro which deliberately 
-> ignores imm[4:0], like  
-> 
-> + INSN_S_TRUNCATE(OPCODE_OP_IMM, FUNC3(6), __RS2(3),               \
-> +                 SIMM12(offset), RS1(base))
-> 
-> Which saves the bits 11:5 of offset  into imm[11:5], and zero-fill 
-> imm[4:0], like
-> 
-> +#define DEFINE_INSN_S                                                    \
-> + __DEFINE_ASM_GPR_NUMS                                           \
-> +"        .macro insn_s, opcode, func3, rs2, simm12, rs1\n"               \
-> +"        .4byte  ((\\opcode << " __stringify(INSN_S_OPCODE_SHIFT) ") |"  \
-> +"                 (\\func3 << " __stringify(INSN_S_FUNC3_SHIFT) ") |"    \
-> +"                 (.L__gpr_num_\\rs2 << " __stringify(INSN_S_RS2_SHIFT) ") |" \
-> +"                 (.L__gpr_num_\\rs1 << " __stringify(INSN_S_RS1_SHIFT) ") |" \
-> +"                 (((\\simm12 >> 5) & 0x7f) << " __stringify(INSN_S_SIMM7_SHIFT) "))\n" \
-> +"        .endm\n"
-> +
-> 
-> Does this make sense?
-
-If we create a special version of INSN_S, then I suggest we create one
-where its two SIMM fields are independent and then define prefetch
-instructions like this
-
- #define PREFETCH_W(base, offset) \
-     INSN_S_SPLIT_IMM(OPCODE_OP_IMM, FUNC3(6), __RS2(3), \
-         SIMM_11_5(offset >> 5), SIMM_4_0(0), RS1(base))
-
-which would allow simple review against the spec and potentially
-support other instructions which use hard coded values in the
-immediate fields.
-
-But I'm not sure it's worth it. I think
-
- #define PREFETCH_W(base, offset) \
-     INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(3), \
-         SIMM12(offset & ~0x1f), RS1(base))
-
-is also pretty easy to review against the spec and we don't have any other
-instructions yet with other requirements for the immediates.
-
-Thanks,
-drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksIFNhbXVlbCwKCk9uIFRodSwgRGVjIDI4LCAyMDIzIGF0IDk6NDLigK9BTSBTYW11ZWwgSG9s
+bGFuZAo8c2FtdWVsLmhvbGxhbmRAc2lmaXZlLmNvbT4gd3JvdGU6Cj4KPiBMb29uZ0FyY2ggYWxy
+ZWFkeSBwcm92aWRlcyBrZXJuZWxfZnB1X2JlZ2luKCkgYW5kIGtlcm5lbF9mcHVfZW5kKCkgaW4K
+PiBhc20vZnB1LmgsIHNvIGl0IG9ubHkgbmVlZHMgdG8gYWRkIGtlcm5lbF9mcHVfYXZhaWxhYmxl
+KCkgYW5kIGV4cG9ydAo+IHRoZSBDRkxBR1MgYWRqdXN0bWVudHMuCj4KPiBBY2tlZC1ieTogV0FO
+RyBYdWVydWkgPGdpdEB4ZW4wbi5uYW1lPgo+IFJldmlld2VkLWJ5OiBDaHJpc3RvcGggSGVsbHdp
+ZyA8aGNoQGxzdC5kZT4KPiBTaWduZWQtb2ZmLWJ5OiBTYW11ZWwgSG9sbGFuZCA8c2FtdWVsLmhv
+bGxhbmRAc2lmaXZlLmNvbT4KPiAtLS0KPgo+IChubyBjaGFuZ2VzIHNpbmNlIHYxKQo+Cj4gIGFy
+Y2gvbG9vbmdhcmNoL0tjb25maWcgICAgICAgICAgIHwgMSArCj4gIGFyY2gvbG9vbmdhcmNoL01h
+a2VmaWxlICAgICAgICAgIHwgNSArKysrLQo+ICBhcmNoL2xvb25nYXJjaC9pbmNsdWRlL2FzbS9m
+cHUuaCB8IDEgKwo+ICAzIGZpbGVzIGNoYW5nZWQsIDYgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlv
+bigtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvbG9vbmdhcmNoL0tjb25maWcgYi9hcmNoL2xvb25n
+YXJjaC9LY29uZmlnCj4gaW5kZXggZWUxMjM4MjBhNDc2Li42NWQ0NDc1NTY1YjggMTAwNjQ0Cj4g
+LS0tIGEvYXJjaC9sb29uZ2FyY2gvS2NvbmZpZwo+ICsrKyBiL2FyY2gvbG9vbmdhcmNoL0tjb25m
+aWcKPiBAQCAtMTUsNiArMTUsNyBAQCBjb25maWcgTE9PTkdBUkNICj4gICAgICAgICBzZWxlY3Qg
+QVJDSF9IQVNfQ1BVX0ZJTkFMSVpFX0lOSVQKPiAgICAgICAgIHNlbGVjdCBBUkNIX0hBU19GT1JU
+SUZZX1NPVVJDRQo+ICAgICAgICAgc2VsZWN0IEFSQ0hfSEFTX0tDT1YKPiArICAgICAgIHNlbGVj
+dCBBUkNIX0hBU19LRVJORUxfRlBVX1NVUFBPUlQgaWYgQ1BVX0hBU19GUFUKPiAgICAgICAgIHNl
+bGVjdCBBUkNIX0hBU19OTUlfU0FGRV9USElTX0NQVV9PUFMKPiAgICAgICAgIHNlbGVjdCBBUkNI
+X0hBU19OT05fT1ZFUkxBUFBJTkdfQUREUkVTU19TUEFDRQo+ICAgICAgICAgc2VsZWN0IEFSQ0hf
+SEFTX1BURV9TUEVDSUFMCj4gZGlmZiAtLWdpdCBhL2FyY2gvbG9vbmdhcmNoL01ha2VmaWxlIGIv
+YXJjaC9sb29uZ2FyY2gvTWFrZWZpbGUKPiBpbmRleCA0YmE4ZDY3ZGRiMDkuLjFhZmUyOGZlYWJh
+NSAxMDA2NDQKPiAtLS0gYS9hcmNoL2xvb25nYXJjaC9NYWtlZmlsZQo+ICsrKyBiL2FyY2gvbG9v
+bmdhcmNoL01ha2VmaWxlCj4gQEAgLTI1LDYgKzI1LDkgQEAgZW5kaWYKPiAgMzJiaXQtZW11bCAg
+ICAgICAgICAgICA9IGVsZjMybG9vbmdhcmNoCj4gIDY0Yml0LWVtdWwgICAgICAgICAgICAgPSBl
+bGY2NGxvb25nYXJjaAo+Cj4gK0NDX0ZMQUdTX0ZQVSAgICAgICAgICAgOj0gLW1mcHU9NjQKPiAr
+Q0NfRkxBR1NfTk9fRlBVICAgICAgICAgICAgICAgIDo9IC1tc29mdC1mbG9hdApXZSB3aWxsIGFk
+ZCBMb29uZ0FyY2gzMiBzdXBwb3J0IGxhdGVyLCBtYXliZSBpdCBzaG91bGQgYmUgLW1mcHU9MzIg
+aW4KdGhhdCBjYXNlLCBhbmQgZG8gb3RoZXIgYXJjaHMgaGF2ZSB0aGUgY2FzZSB0aGF0IG9ubHkg
+c3VwcG9ydCBGUDMyPwoKSHVhY2FpCgo+ICsKPiAgaWZkZWYgQ09ORklHX0RZTkFNSUNfRlRSQUNF
+Cj4gIEtCVUlMRF9DUFBGTEFHUyArPSAtRENDX1VTSU5HX1BBVENIQUJMRV9GVU5DVElPTl9FTlRS
+WQo+ICBDQ19GTEFHU19GVFJBQ0UgOj0gLWZwYXRjaGFibGUtZnVuY3Rpb24tZW50cnk9Mgo+IEBA
+IC00Niw3ICs0OSw3IEBAIGxkLWVtdWwgICAgICAgICAgICAgICAgICAgICAgID0gJCg2NGJpdC1l
+bXVsKQo+ICBjZmxhZ3MteSAgICAgICAgICAgICAgICs9IC1tYWJpPWxwNjRzCj4gIGVuZGlmCj4K
+PiAtY2ZsYWdzLXkgICAgICAgICAgICAgICAgICAgICAgICs9IC1waXBlIC1tc29mdC1mbG9hdAo+
+ICtjZmxhZ3MteSAgICAgICAgICAgICAgICAgICAgICAgKz0gLXBpcGUgJChDQ19GTEFHU19OT19G
+UFUpCj4gIExERkxBR1Nfdm1saW51eCAgICAgICAgICAgICAgICAgICAgICAgICs9IC1zdGF0aWMg
+LW4gLW5vc3RkbGliCj4KPiAgIyBXaGVuIHRoZSBhc3NlbWJsZXIgc3VwcG9ydHMgZXhwbGljaXQg
+cmVsb2NhdGlvbiBoaW50LCB3ZSBtdXN0IHVzZSBpdC4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9sb29u
+Z2FyY2gvaW5jbHVkZS9hc20vZnB1LmggYi9hcmNoL2xvb25nYXJjaC9pbmNsdWRlL2FzbS9mcHUu
+aAo+IGluZGV4IGMyZDg5NjJmZGEwMC4uMzE3NzY3NDIyOGY4IDEwMDY0NAo+IC0tLSBhL2FyY2gv
+bG9vbmdhcmNoL2luY2x1ZGUvYXNtL2ZwdS5oCj4gKysrIGIvYXJjaC9sb29uZ2FyY2gvaW5jbHVk
+ZS9hc20vZnB1LmgKPiBAQCAtMjEsNiArMjEsNyBAQAo+Cj4gIHN0cnVjdCBzaWdjb250ZXh0Owo+
+Cj4gKyNkZWZpbmUga2VybmVsX2ZwdV9hdmFpbGFibGUoKSBjcHVfaGFzX2ZwdQo+ICBleHRlcm4g
+dm9pZCBrZXJuZWxfZnB1X2JlZ2luKHZvaWQpOwo+ICBleHRlcm4gdm9pZCBrZXJuZWxfZnB1X2Vu
+ZCh2b2lkKTsKPgo+IC0tCj4gMi40Mi4wCj4KPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1yaXNjdgo=
