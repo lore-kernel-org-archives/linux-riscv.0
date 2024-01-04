@@ -4,55 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B4AAC47074
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jan 2024 10:56:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EE7CC47074
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jan 2024 11:02:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hy5rhmBHRlIcQ4n7p9tejICM0diTUPXFkPmiJkIXoQE=; b=xKrf5/vPLF6XX2
-	HYmH6FLxffZi0WRqYCNiiGcnNfyYl9yV2E5QcriErG9iXh2vrmi6SwrL4O1i+rsCOkx5cSr72SosD
-	V/iVsc+y6uBKramubghopGsYbb+2OFHfm0kR3uK7gP70OEVSHT0USKeMrl4tkvc8A+NOSjn49uHJE
-	KJ7GCX9u4NQBvV9ryea2nh0Cd+pB3eDeR1dEuIKdMWm+HPpu8Hc0iTNssY2Htw3OdbG/TALpMiA5e
-	YkPH9fadMR1J+iv/MJnINLGOtwcHNjTQHiu6OKnKOdH97kDlCGYgsTNka0em+wfP6nTATVCmS0ZIY
-	RarVM79aSL7HIwY/kVgg==;
+	List-Owner; bh=kpgSSeJaR4VukwXUl2KppUxm/xK4+2qYbtE3HR1A1Bs=; b=Db8nVQmk9Ekv5Y
+	UwpEvCd6YeG2Hk6rJ4+F2sD35ShjtpWRfQ+obWSwohOVh+YNDAt5SgXdEThxl2sCHotxjGiYUP/R0
+	U1Vl86ChZsNCH3GsVXSTp2uY6qcx7dwZ4J4zen//DjkozPhNuPPuv8sIw2kwecrKqQ3Kz8Su9S/I6
+	qvJnnl0WcpK5+KoOusTNIwMc8K8sbYZ/Bb9Dz151SaJv1jqYawCiLmc3ubqL1u70f5aBsz7OfQqzb
+	/bXaVYl+ePDFGqGMphy8vxTbcaGEoquVAAveKnwQjgbLjR5M92S5z62S+tNTfan3UthiOykbJSw7z
+	+3nM8G8I/2Bmi7OycuBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLLOC-00DbUQ-3D;
-	Thu, 04 Jan 2024 10:55:53 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1rLLUN-00Dct7-0j;
+	Thu, 04 Jan 2024 11:02:15 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLLO8-00DbRP-0U
+	id 1rLLUJ-00Dcp6-2h
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jan 2024 10:55:50 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 6766EE0005;
-	Thu,  4 Jan 2024 10:55:40 +0000 (UTC)
-Message-ID: <36166acf-aa32-40b6-806a-ade59bc645ad@ghiti.fr>
-Date: Thu, 4 Jan 2024 11:55:40 +0100
+	Thu, 04 Jan 2024 11:02:13 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 7888E240005;
+	Thu,  4 Jan 2024 11:02:07 +0000 (UTC)
+Message-ID: <b402da25-74a7-4e27-8e43-623ae1599d84@ghiti.fr>
+Date: Thu, 4 Jan 2024 12:02:07 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] riscv: tlb: fix __p*d_free_tlb()
+Subject: Re: linux-next: Tree for Jan 2 (riscv: exittext undef. references)
 Content-Language: en-US
-To: Jisheng Zhang <jszhang@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Will Deacon <will@kernel.org>,
- "Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
- Andrew Morton <akpm@linux-foundation.org>, Nick Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Conor Dooley <conor.dooley@microchip.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-mm@kvack.org
-References: <20231219175046.2496-1-jszhang@kernel.org>
- <20231219175046.2496-2-jszhang@kernel.org>
+To: Randy Dunlap <rdunlap@infradead.org>,
+ Stephen Rothwell <sfr@canb.auug.org.au>,
+ Linux Next Mailing List <linux-next@vger.kernel.org>
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+References: <20240102165725.6d18cc50@canb.auug.org.au>
+ <8693bf84-b3b5-407b-871f-4add127272ee@infradead.org>
 From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20231219175046.2496-2-jszhang@kernel.org>
+In-Reply-To: <8693bf84-b3b5-407b-871f-4add127272ee@infradead.org>
 X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240104_025548_326722_DCA03556 
-X-CRM114-Status: GOOD (  16.83  )
+X-CRM114-CacheID: sfid-20240104_030212_014324_51AD329A 
+X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,57 +60,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTkvMTIvMjAyMyAxODo1MCwgSmlzaGVuZyBaaGFuZyB3cm90ZToKPiBJZiBub24tbGVhZiBQ
-VEVzIEkuRSBwbWQsIHB1ZCBvciBwNGQgaXMgbW9kaWZpZWQsIGEgc2ZlbmNlLnZtYSBpcwo+IGEg
-bXVzdCBmb3Igc2FmZSwgaW1hZ2luZSBpZiBhbiBpbXBsZW1lbnRhdGlvbiBjYWNoZXMgdGhlIG5v
-bi1sZWFmCj4gdHJhbnNsYXRpb24gaW4gVExCLCBhbHRob3VnaCBJIGRpZG4ndCBtZWV0IHRoaXMg
-SFcgc28gZmFyLCBidXQgaXQncwo+IHBvc3NpYmxlIGluIHRoZW9yeS4KCgpBbmQgc2luY2UgdGhp
-cyBpcyBhIGZpeCwgaXQgd291bGQgYmUgd29ydGggdHJ5aW5nIHRvIGFkZCBhIEZpeGVzIHRhZyAK
-aGVyZS4gTm90IGVhc3kgSSBhZ3JlZSBiZWNhdXNlIGl0IGZpeGVzIHNldmVyYWwgY29tbWl0cyAo
-SSBoYXZlIAowNzAzN2RiNWQ0NzlmLMKgIGU4YTYyY2MyNmRkZjUsIGQxMGVmYTIxYTkzNzQgYW5k
-IGM1ZTliMmMyYWU4MjIgaWYgeW91IAppbXBsZW1lbnQgdGxiX2ZsdXNoKCkgYXMgSSBzdWdnZXN0
-ZWQpLgoKU28gSSB3b3VsZCBhZGQgdGhlIGxhdGVzdCBjb21taXQgYXMgdGhlIEZpeGVzIGNvbW1p
-dCAod2hpY2ggd291bGQgYmUgCmM1ZTliMmMyYWU4MjIpLCBhbmQgdGhlbiBJJ2Qgc2VuZCBhIHBh
-dGNoIHRvIHN0YWJsZSBmb3IgZWFjaCBjb21taXQgd2l0aCAKdGhlIHJpZ2h0IEZpeGVzIHRhZy4u
-LkBDb25vcjogbGV0IG1lIGtub3cgaWYgeW91IGhhdmUgYSBzaW1wbGVyIGlkZWEgb3IgCmlmIHRo
-aXMgaXMgd3JvbmcuCgpUaGFua3MsCgpBbGV4CgoKPiBTaWduZWQtb2ZmLWJ5OiBKaXNoZW5nIFpo
-YW5nIDxqc3poYW5nQGtlcm5lbC5vcmc+Cj4gLS0tCj4gICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
-L3BnYWxsb2MuaCB8IDIwICsrKysrKysrKysrKysrKysrLS0tCj4gICAxIGZpbGUgY2hhbmdlZCwg
-MTcgaW5zZXJ0aW9ucygrKSwgMyBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
-c2N2L2luY2x1ZGUvYXNtL3BnYWxsb2MuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGdhbGxv
-Yy5oCj4gaW5kZXggZDE2OWE0ZjQxYTJlLi5hMTJmYjgzZmExZjUgMTAwNjQ0Cj4gLS0tIGEvYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS9wZ2FsbG9jLmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUv
-YXNtL3BnYWxsb2MuaAo+IEBAIC05NSw3ICs5NSwxMyBAQCBzdGF0aWMgaW5saW5lIHZvaWQgcHVk
-X2ZyZWUoc3RydWN0IG1tX3N0cnVjdCAqbW0sIHB1ZF90ICpwdWQpCj4gICAJCV9fcHVkX2ZyZWUo
-bW0sIHB1ZCk7Cj4gICB9Cj4gICAKPiAtI2RlZmluZSBfX3B1ZF9mcmVlX3RsYih0bGIsIHB1ZCwg
-YWRkcikgIHB1ZF9mcmVlKCh0bGIpLT5tbSwgcHVkKQo+ICsjZGVmaW5lIF9fcHVkX2ZyZWVfdGxi
-KHRsYiwgcHVkLCBhZGRyKQkJCQkJXAo+ICtkbyB7CQkJCQkJCQkJXAo+ICsJaWYgKHBndGFibGVf
-bDRfZW5hYmxlZCkgewkJCQkJXAo+ICsJCXBhZ2V0YWJsZV9wdWRfZHRvcih2aXJ0X3RvX3B0ZGVz
-YyhwdWQpKTsJCVwKPiArCQl0bGJfcmVtb3ZlX3BhZ2VfcHRkZXNjKCh0bGIpLCB2aXJ0X3RvX3B0
-ZGVzYyhwdWQpKTsJXAo+ICsJfQkJCQkJCQkJXAo+ICt9IHdoaWxlICgwKQo+ICAgCj4gICAjZGVm
-aW5lIHA0ZF9hbGxvY19vbmUgcDRkX2FsbG9jX29uZQo+ICAgc3RhdGljIGlubGluZSBwNGRfdCAq
-cDRkX2FsbG9jX29uZShzdHJ1Y3QgbW1fc3RydWN0ICptbSwgdW5zaWduZWQgbG9uZyBhZGRyKQo+
-IEBAIC0xMjQsNyArMTMwLDExIEBAIHN0YXRpYyBpbmxpbmUgdm9pZCBwNGRfZnJlZShzdHJ1Y3Qg
-bW1fc3RydWN0ICptbSwgcDRkX3QgKnA0ZCkKPiAgIAkJX19wNGRfZnJlZShtbSwgcDRkKTsKPiAg
-IH0KPiAgIAo+IC0jZGVmaW5lIF9fcDRkX2ZyZWVfdGxiKHRsYiwgcDRkLCBhZGRyKSAgcDRkX2Zy
-ZWUoKHRsYiktPm1tLCBwNGQpCj4gKyNkZWZpbmUgX19wNGRfZnJlZV90bGIodGxiLCBwNGQsIGFk
-ZHIpCQkJCQlcCj4gK2RvIHsJCQkJCQkJCQlcCj4gKwlpZiAocGd0YWJsZV9sNV9lbmFibGVkKQkJ
-CQkJCVwKPiArCQl0bGJfcmVtb3ZlX3BhZ2VfcHRkZXNjKCh0bGIpLCB2aXJ0X3RvX3B0ZGVzYyhw
-NGQpKTsJXAo+ICt9IHdoaWxlICgwKQo+ICAgI2VuZGlmIC8qIF9fUEFHRVRBQkxFX1BNRF9GT0xE
-RUQgKi8KPiAgIAo+ICAgc3RhdGljIGlubGluZSB2b2lkIHN5bmNfa2VybmVsX21hcHBpbmdzKHBn
-ZF90ICpwZ2QpCj4gQEAgLTE0OSw3ICsxNTksMTEgQEAgc3RhdGljIGlubGluZSBwZ2RfdCAqcGdk
-X2FsbG9jKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tKQo+ICAgCj4gICAjaWZuZGVmIF9fUEFHRVRBQkxF
-X1BNRF9GT0xERUQKPiAgIAo+IC0jZGVmaW5lIF9fcG1kX2ZyZWVfdGxiKHRsYiwgcG1kLCBhZGRy
-KSAgcG1kX2ZyZWUoKHRsYiktPm1tLCBwbWQpCj4gKyNkZWZpbmUgX19wbWRfZnJlZV90bGIodGxi
-LCBwbWQsIGFkZHIpCQkJCVwKPiArZG8gewkJCQkJCQkJXAo+ICsJcGFnZXRhYmxlX3BtZF9kdG9y
-KHZpcnRfdG9fcHRkZXNjKHBtZCkpOwkJXAo+ICsJdGxiX3JlbW92ZV9wYWdlX3B0ZGVzYygodGxi
-KSwgdmlydF90b19wdGRlc2MocG1kKSk7CVwKPiArfSB3aGlsZSAoMCkKPiAgIAo+ICAgI2VuZGlm
-IC8qIF9fUEFHRVRBQkxFX1BNRF9GT0xERUQgKi8KPiAgIAoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Randy,
+
+On 02/01/2024 18:15, Randy Dunlap wrote:
+>
+> On 1/1/24 21:57, Stephen Rothwell wrote:
+>> Hi all,
+>>
+>> Changes since 20231222:
+>>
+> on riscv 64-bit:
+> (gcc 13.2.0)
+>
+> riscv64-linux-ld: arch/riscv/kernel/patch.o: in function `.L8':
+> patch.c:(.text+0x17e): undefined reference to `__exittext_begin'
+> riscv64-linux-ld: patch.c:(.text+0x19c): undefined reference to `__exittext_end'
+> riscv64-linux-ld: arch/riscv/kernel/patch.o: in function `.L43':
+> patch.c:(.text+0x40a): undefined reference to `__exittext_begin'
+> riscv64-linux-ld: arch/riscv/kernel/patch.o: in function `.L0 ':
+> patch.c:(.text+0x428): undefined reference to `__exittext_end'
+> riscv64-linux-ld: patch.c:(.text+0xae8): undefined reference to `__exittext_begin'
+> riscv64-linux-ld: arch/riscv/kernel/patch.o: in function `.L82':
+> patch.c:(.text+0xb06): undefined reference to `__exittext_end'
+> riscv64-linux-ld: arch/riscv/kernel/patch.o: in function `.L118':
+> patch.c:(.text+0xd6e): undefined reference to `__exittext_begin'
+> riscv64-linux-ld: patch.c:(.text+0xd8c): undefined reference to `__exittext_end'
+
+
+This one is already fixed by this patch: 
+https://lore.kernel.org/linux-riscv/20231214091926.203439-1-alexghiti@rivosinc.com/
+
+Thanks for the report!
+
+Alex
+
+
+>
+>
+> Full randconfig file is attached.
+>
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
