@@ -4,133 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65957C47074
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jan 2024 09:29:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0162C47073
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jan 2024 09:47:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3tuoNA57LhaMG1YHKzjlsYbVgoZLVdhw0j9ZChBdPqo=; b=mm298KNg5l2tSy
-	1Xo60ib4yA/+TwIRfDDR1t+DEpH2msAPjXak9JoVbDwRcplTaRyPgAuZokfcJl6DSUiwANdLlEkul
-	H0hETPk9QnBVcoGuBL6xayoH15msAsZ3lqIiXYAr7zTwX5qh4E+Kq/NgQKkcSdc41a5yi3CedzEnU
-	U5p9LBGuZ5x0FG73R4DYfDI4PGtTSZNi20gF63mBgjKTQE2NZthmZIUl1rJ8H4nRawZOICc4sJ98A
-	LsVMIes/OOF2mU3zJSEA22dglo/DTIRPtoUH2eXy5fujrQ60kOiyN838p1LyazQKmkt2QCretPXn3
-	blrbUW1HZndbQeI7UnmA==;
+	List-Owner; bh=ScWLBRAalRg5EaBC1A6Evg6+lXc0RzNaOytza1qP5xg=; b=zYH4LZ1MNCYXb0
+	B0HPE9zjzg596DEM3kfHkOUib/sU3Q9lhXcNPwgmogK/ygwB56v34JzYvg0l/88ds1oIGxjfL3Kuq
+	MHdjEFmI/b8CfcVjoS4ObyZlWUzstY+/xdhQhRifZz8pwjkePrQOABdi8DQJbcZpjyd3jwVl3VaHd
+	OLu7SB2JfoQIBI9hOV3BnHPBFp+xkeclHNzXXDOKap79HDVZeq8pQ5tkF7vDr38eZrppq1Tah6QiQ
+	7Z45PwrNZv7IlHpcIbTZxeK91mlayUXQgn3VDrQFRN2NNzTtLG3OuibCgjvSuEbiYLi9FR6YoDuLX
+	k+QeyX0tKIF/T23Lp8Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLK2Z-00DNpe-33;
-	Thu, 04 Jan 2024 09:29:27 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1rLKKE-00DQWy-02;
+	Thu, 04 Jan 2024 09:47:42 +0000
+Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLK2X-00DNoU-1o
+	id 1rLKKA-00DQW4-2Q
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jan 2024 09:29:26 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-a28a997f3dfso23644866b.0
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Jan 2024 01:29:25 -0800 (PST)
+	Thu, 04 Jan 2024 09:47:40 +0000
+Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-2cd1919f0acso4366131fa.0
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Jan 2024 01:47:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1704360564; x=1704965364; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=sxCSOtgIuTCmDMgckUR1KMBV4DlQWWFk6eRZHQf9FiI=;
-        b=YrZpshb2p8jPsWdPhfnavIVOLC68eXBCvRt1UIAz3X5tzw3wMF+PJvXDIt/Odnc+KR
-         dK6CQWn21vrNisynF5O+haSSnaBogqBabGENgt3+AjZSyrMiYHyFeQ3DvycOqRCse+cG
-         XbT+mvK7dpcaKeo7qiaPq1xySzDB8p954lporVt8amzSWxgb31YxUw+Qb34Aq16zkoxe
-         bPpGmjHLMIzyoXdiUpz6WGSniu9yKZGzOFihorVkUyKH07qm/p3oOOLah7cQpv8T+D7E
-         dujZNf4Qq/zdwM8Z4tMlMfEbbmqyAC/QaGQfnHAfByWN5UPDlALa74gfNaz05oZEihsu
-         uPUQ==
+        d=ventanamicro.com; s=google; t=1704361656; x=1704966456; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=tjIOzASFKXtnzifSOlgR7uNlr9WKjwKVoy2m9WsQklE=;
+        b=A0E0pS79wzNycqVo+3JVrFlw9ZNi4moHpdwN47dgL/SqI7EqQGD3+6QVoXACLW/OWl
+         q4M85tet981xJJhL/f60QgQ+ScRbJmNyd16EQEDMzKjUiEuPsJE9Kqkp92w7FlLGheJY
+         ylvfn8IwfhxYAh8omw83wyN7ei6+d+21dgTOuPOleWoLB7TiSFy29544J8d6uIJG54U+
+         UamXqPEXxfkMSjCIdZ3Md++5WYfVrwr6daKq0/n71Dpm/TSjqbJwX1P9E8c0sk0bfyNC
+         NQEdnf7dM2/CA4zsLg9Gk6GQPH3s8aytPtftVSg6d9dwJ6arsxaPFkpvhpm/d8bPg5rr
+         5Eqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704360564; x=1704965364;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:cc
-         :to:content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=sxCSOtgIuTCmDMgckUR1KMBV4DlQWWFk6eRZHQf9FiI=;
-        b=qWUoeXXYl8awiezt1IGyjM4K7omIjtjqrUZEqvdjLPzjgdOlAt8W7Gt7OwVSCtIjfD
-         WozZLgP0PCJ05gB1AqzS95V1wIkT+1EsQEfvMRlv2yHpkjJ0IpgvxblbZQaPRxAFqhFR
-         nUN9NzYy9E16DHRGUR2RZS+nDCny8gdnbuc1N/ehhZX8AxakpwCueUotI5/ieRcx5F7M
-         t9prsS3Ta/B4jiz2y7Sxgm3jmropYCvJ3fNMWL2T1JKC1epfdKPF3U8cZvOibMAHPhYs
-         wsz02jZAQgZKr6ozhB9dZBygfz0UYX48bCqpA1tA93KIX02/JHzRpHBTxgXAusA2r8ry
-         DELg==
-X-Gm-Message-State: AOJu0YznD18n3L9eGV0w8+OehqAEP03LCS2HrejYS5W4G6gh9gGWNT9c
-	1Zt/bhW05/+7G2YtpNT81v77q4vG9XjCow==
-X-Google-Smtp-Source: AGHT+IFajqTWmTnMMBn/8bztmTnBY8FlKldSofq+dadysBPgbVWftwgMb7NUtZMZv1WH36cUoeyBGg==
-X-Received: by 2002:a17:906:cf83:b0:a27:4c43:ad3 with SMTP id um3-20020a170906cf8300b00a274c430ad3mr193833ejb.8.1704360563957;
-        Thu, 04 Jan 2024 01:29:23 -0800 (PST)
-Received: from [192.168.1.20] ([178.197.218.27])
-        by smtp.gmail.com with ESMTPSA id f17-20020a170906495100b00a26b057df46sm9910107ejt.126.2024.01.04.01.29.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Jan 2024 01:29:23 -0800 (PST)
-Message-ID: <0adf22be-bbab-48d5-909e-ad43ccf4ff5f@linaro.org>
-Date: Thu, 4 Jan 2024 10:29:22 +0100
+        d=1e100.net; s=20230601; t=1704361656; x=1704966456;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tjIOzASFKXtnzifSOlgR7uNlr9WKjwKVoy2m9WsQklE=;
+        b=TAiBD4nYoJeJEj8Fej3d3VvzGIOuqANTdh+kmfxZiEjpsU2871Cd5AeqjK3+VKso4t
+         rzTcuO4C4PQa1TU7TpFusQrPqfWBUdksJilqixY4NeM4HV6/cxiYNJSlwyrL4QDHzd4Y
+         ytk5e5yEuu4UvDgIdY3lA4GpFtM6PUXrWbF2o4Sukl+YsXHVdN6UbwBUjuWE4k/ncvAC
+         /z7j1A9zti/RX/B5zeh23xVVY8KC6g/WpemEHflywmB8S1j3fE/ST9HwA9O+VfYgaeD4
+         H7P+Crh85sNkgnVzd5IIVWC/r34xs+unTwSMiOEa+KcVY5+rwzxMpdf9phZ2y9yBC52/
+         S3Cg==
+X-Gm-Message-State: AOJu0Yw5jxQu+bkyZ/uVSV//UizzN9fcZWW604C7W+E0JgG5qTzXEP1W
+	pM89I1j++HbFKJjEKEAYvtJzJegjY794XQ==
+X-Google-Smtp-Source: AGHT+IHokDrCyFOkfMV2ZJkoKUpPp5Z2frj1npon3QRHNkknpBQw7ofTk3TqPl1odKml1sS1MObQxw==
+X-Received: by 2002:a05:6512:2141:b0:50e:6a07:5c02 with SMTP id s1-20020a056512214100b0050e6a075c02mr201705lfr.15.1704361656189;
+        Thu, 04 Jan 2024 01:47:36 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id p9-20020a170907910900b00a26ac5e3683sm12848872ejq.100.2024.01.04.01.47.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 04 Jan 2024 01:47:35 -0800 (PST)
+Date: Thu, 4 Jan 2024 10:47:34 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Leonardo Bras <leobras@redhat.com>
+Subject: Re: Re: Re: [PATCH V2 1/3] riscv: Add Zicbop instruction definitions
+ & cpufeature
+Message-ID: <20240104-4ecfb92d2f8c95fa773ca695@orel>
+References: <20231231082955.16516-1-guoren@kernel.org>
+ <20231231082955.16516-2-guoren@kernel.org>
+ <ZZWs0C19tz763FnH@LeoBras>
+ <20240103-0c96ceea88523b7b946e4ba8@orel>
+ <ZZXEpU-JzsvD2UDW@LeoBras>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] mmc: sdhci-cadence6: add Cadence SD6HC support
-Content-Language: en-US
-To: Alex Soo <yuklin.soo@starfivetech.com>,
- Ulf Hansson <ulf.hansson@linaro.org>, Adrian Hunter
- <adrian.hunter@intel.com>, Yangtao Li <frank.li@vivo.com>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>
-Cc: linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-References: <20231228065322.1176351-1-yuklin.soo@starfivetech.com>
- <20231228065322.1176351-3-yuklin.soo@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20231228065322.1176351-3-yuklin.soo@starfivetech.com>
+Content-Disposition: inline
+In-Reply-To: <ZZXEpU-JzsvD2UDW@LeoBras>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240104_012925_600089_E53E7938 
-X-CRM114-Status: UNSURE (   9.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240104_014738_796233_6532057C 
+X-CRM114-Status: GOOD (  39.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,34 +89,147 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Guo Ren <guoren@linux.alibaba.com>, keescook@chromium.org, atishp@atishpatra.org, peterz@infradead.org, unicorn_wang@outlook.com, paul.walmsley@sifive.com, chao.wei@sophgo.com, bjorn@rivosinc.com, linux-kernel@vger.kernel.org, xiaoguang.xing@sophgo.com, conor.dooley@microchip.com, wuwei2016@iscas.ac.cn, palmer@dabbelt.com, jszhang@kernel.org, panqinglin2020@iscas.ac.cn, guoren@kernel.org, linux-riscv@lists.infradead.org, wefu@redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 28/12/2023 07:53, Alex Soo wrote:
-> Add a driver for the Cadence SD6HC SD/SDIO/eMMC controller.
+On Wed, Jan 03, 2024 at 05:33:41PM -0300, Leonardo Bras wrote:
+> On Wed, Jan 03, 2024 at 08:29:39PM +0100, Andrew Jones wrote:
+> > On Wed, Jan 03, 2024 at 03:52:00PM -0300, Leonardo Bras wrote:
+> > > On Sun, Dec 31, 2023 at 03:29:51AM -0500, guoren@kernel.org wrote:
+...
+> > > The shifts seem correct for S-Type, but I would name the IMM defines in a 
+> > > way we could understand where they fit in IMM:
+> > > 
+> > > 
+> > > INSN_S_SIMM5_SHIFT -> INSN_S_SIMM_0_4_SHIFT
+> > > INSN_S_SIMM7_SHIFT -> INSN_S_SIMM_5_11_SHIFT
+> > > 
+> > > What do you think?
+> > 
+> > I'm in favor of this suggestion, but then wonder if we don't need another
+> > patch before this which renames INSN_I_SIMM12_SHIFT to
+> > INSN_I_SIMM_0_11_SHIFT in order to keep things consistent.
 > 
-> Signed-off-by: Alex Soo <yuklin.soo@starfivetech.com>
-> ---
->  MAINTAINERS                           |   6 +
->  drivers/mmc/host/Kconfig              |  11 +
->  drivers/mmc/host/Makefile             |   2 +
->  drivers/mmc/host/sdhci-cadence6-phy.c | 384 +++++++++++++++++++
->  drivers/mmc/host/sdhci-cadence6.c     | 531 ++++++++++++++++++++++++++
->  drivers/mmc/host/sdhci-cadence6.h     | 148 +++++++
->  6 files changed, 1082 insertions(+)
->  create mode 100644 drivers/mmc/host/sdhci-cadence6-phy.c
->  create mode 100644 drivers/mmc/host/sdhci-cadence6.c
->  create mode 100644 drivers/mmc/host/sdhci-cadence6.h
+> Agree. If it's ok, I can provide a patch doing the rename on top of this 
+> patchset.
 
-Please work with existing submissions:
+The INSN_I change is only needed if we also take the new INSN_S shift
+macros, so I think the INSN_I change should be part of this series.
 
-https://lore.kernel.org/all/?q=sd6hc
+BTW, I just noticed we wrote the numbers backwards. They should be
 
-Best regards,
-Krzysztof
+ INSN_I_SIMM_11_0_SHIFT
+ INSN_S_SIMM_11_5_SHIFT
+ INSN_S_SIMM_4_0_SHIFT
 
+> > > >  
+> > > > +#define CBO_PREFETCH_I(base, offset)				\
+> > > > +	INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(0),		\
+> > > > +	       SIMM12(offset), RS1(base))
+> > > > +
+> > > > +#define CBO_PREFETCH_R(base, offset)				\
+> > > > +	INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(1),		\
+> > > > +	       SIMM12(offset), RS1(base))
+> > > > +
+> > > > +#define CBO_PREFETCH_W(base, offset)				\
+> > > > +	INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(3),		\
+> > > > +	       SIMM12(offset), RS1(base))
+> > > > +
+> > > 
+> > > For OP_IMM & FUNC3(6) we have ORI, right?
+> > > For ORI, rd will be at bytes 11:7, which in PREFETCH.{i,r,w} is
+> > > offset[4:0].
+> > > 
+> > > IIUC, when the cpu does not support ZICBOP, this should be fine as long as 
+> > > rd = 0, since changes to r0 are disregarded.
+> > > 
+> > > In this case, we need to guarantee offset[4:0] = 0, or else we migth write 
+> > > on an unrelated register. This can be noticed in ZICBOP documentation pages 
+> > > 21, 22, 23, as offset[4:0] is always [0 0 0 0 0]. 
+> > > (Google docs in first comment)
+> > > 
+> > > What we need here is something like:
+> > > + enum {
+> > > + 	PREFETCH_I,
+> > > + 	PREFETCH_R,
+> > > + 	PREFETCH_W,
+> > > + }	 
+> > 
+> > Can't use enum. This header may be included in assembly.
+> 
+> Oh, I suggest defines then, since it's better to make it clear instead of 
+> using 0, 1, 3.
+
+I don't think we gain anything by adding another define in order to create
+the instruction define. We have to review the number sooner or later. I'd
+prefer we use the number inside the instruction define so we only need
+to look one place, which is also consistent with how we use FUNC fields.
+
+> 
+> > 
+> > > +
+> > > + #define CBO_PREFETCH(type, base, offset)                      \
+> > > +     INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(type),              \
+> > > +            SIMM12(offset & ~0x1f), RS1(base))
+> > 
+> > Yes. I suggested we mask offset as well, but ideally we'd detect a caller
+> > using an offset with nonzero lower 5 bits at compile time.
+> 
+> I would suggest the compiler would take care of this, but I am not sure 
+> about the assembly, since I am not sure if it gets any optimization.
+> 
+> I don't think we can detect a caller with non-zero offset at compile time, 
+> since it will be used in locks which can be at (potentially) any place in 
+> the block size. (if you have any idea though, please let me know :) )
+> 
+> On the other hand, we could create a S-Type macro which deliberately 
+> ignores imm[4:0], like  
+> 
+> + INSN_S_TRUNCATE(OPCODE_OP_IMM, FUNC3(6), __RS2(3),               \
+> +                 SIMM12(offset), RS1(base))
+> 
+> Which saves the bits 11:5 of offset  into imm[11:5], and zero-fill 
+> imm[4:0], like
+> 
+> +#define DEFINE_INSN_S                                                    \
+> + __DEFINE_ASM_GPR_NUMS                                           \
+> +"        .macro insn_s, opcode, func3, rs2, simm12, rs1\n"               \
+> +"        .4byte  ((\\opcode << " __stringify(INSN_S_OPCODE_SHIFT) ") |"  \
+> +"                 (\\func3 << " __stringify(INSN_S_FUNC3_SHIFT) ") |"    \
+> +"                 (.L__gpr_num_\\rs2 << " __stringify(INSN_S_RS2_SHIFT) ") |" \
+> +"                 (.L__gpr_num_\\rs1 << " __stringify(INSN_S_RS1_SHIFT) ") |" \
+> +"                 (((\\simm12 >> 5) & 0x7f) << " __stringify(INSN_S_SIMM7_SHIFT) "))\n" \
+> +"        .endm\n"
+> +
+> 
+> Does this make sense?
+
+If we create a special version of INSN_S, then I suggest we create one
+where its two SIMM fields are independent and then define prefetch
+instructions like this
+
+ #define PREFETCH_W(base, offset) \
+     INSN_S_SPLIT_IMM(OPCODE_OP_IMM, FUNC3(6), __RS2(3), \
+         SIMM_11_5(offset >> 5), SIMM_4_0(0), RS1(base))
+
+which would allow simple review against the spec and potentially
+support other instructions which use hard coded values in the
+immediate fields.
+
+But I'm not sure it's worth it. I think
+
+ #define PREFETCH_W(base, offset) \
+     INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(3), \
+         SIMM12(offset & ~0x1f), RS1(base))
+
+is also pretty easy to review against the spec and we don't have any other
+instructions yet with other requirements for the immediates.
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
