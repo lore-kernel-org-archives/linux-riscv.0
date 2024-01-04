@@ -4,71 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2AECC47074
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jan 2024 12:34:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B51D2C47074
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jan 2024 12:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OcSLGR0q08ve8/mP8NC4ngA4dcJuRR29TorDIP8nxkE=; b=zJJVoLBXiCBbaH
-	Lk0FU7dnP4VLzBsTFpCFSRZ1FV16gKBpG1gemhqeuHqn9ohkrVJJ9oNIJnNRAKwfKlFnM/uHbuwK3
-	rM5Wcl/GCLap+u1mRlLpks5Im8ZwJE1QMHRgRyRDzT7/mGKcCxop4T4Oqcv5+P+pEI98xnn7e4O0B
-	zm18kxAtx/rLMDQLTK9zZRrTBwcCuT2qFOyW0PtPU4d6KbZFrWLd5WJDiMSx/bhki6e+uZvPcOtYI
-	awDBQycqfPuVTuy2I7p6V80MVeZP3Xeao1MwFYmhwUhDrH6E7ey3URT1tHBgx2nrTg3k2bGcsthTh
-	3ArLmMkpB7fRIXbxjN3w==;
+	List-Owner; bh=OolspsqTOk1BLTIoxV7khqF01xUqBi6eky2tQwwGfeI=; b=WtyBw/hhdQcyxR
+	XYBSLG8oX3vvx30Ir/wLhIu/yMk8EVelU8Y85SqE6kHzxQ7SaeJiNiBi8B0ZTEfLEuVmiD6AuxSZw
+	Ai87jOHp7tqsz/LsjKouT7+ZEZSYUvAX7uB3tta4h+S34fC+sZMrAkjDLFktRMF2OVA0+uevOfHIr
+	eEk1penHnSdpWqP/ExRlLrdpQ0qCauDtOQpf8TEAkZBC10ToOSXaFSr2gK+4UTWzukYtPNQKeBjW/
+	8hkPBAMYeLaXQiw3M4H7lPTOgD4A7Q7aliOOUL1q0j/nWnJf3tEPwUNh7vFDQXiKi8zh0qcMgENwj
+	NmvpEx3c91atty/akmNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLMvu-00Dyqv-0Q;
-	Thu, 04 Jan 2024 12:34:46 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1rLMxC-00Dz0Q-2l;
+	Thu, 04 Jan 2024 12:36:06 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLMvs-00Dyq4-07
+	id 1rLMx9-00Dyzl-1l
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jan 2024 12:34:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 062C8B817F8
-	for <linux-riscv@lists.infradead.org>; Thu,  4 Jan 2024 12:34:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C80AC433AB
-	for <linux-riscv@lists.infradead.org>; Thu,  4 Jan 2024 12:34:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1704371680;
-	bh=YBSO9bFUdjHXMmwnv8QYHsH5XLwkPyIXIcsKP+nlHj0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ArQBnQlbA961osCTYyurMl4fMsEHP9rcXBySydb7H2GrfvjuFIHlcJmrFzWVwvYQ4
-	 FDqdKJZuisZJoyEiZjUveLsFba4B8vpS8YHjakhXDKqmMA31tNHaYXJmb9fTXfXxEE
-	 P6lo27bcB0xbjtrxh1ZtzhDeqdXx15iutxjLrQm9BwDznub4NzxoJrmulFb2/tlJze
-	 TwUPmWGYyViDl0b5sAO7WFbslF4glsOwAvzBGSJEQbZl62psPo9W7X9mlcKPU6NTzN
-	 YZJLLBy1N/a31rG+pr9oMMQhfjAKJXXH+ig0Wd7jHKGlSsXZfQTo11n+gwWPHoMeRW
-	 QDX/bKcNlOj2g==
-Received: by mail-ed1-f48.google.com with SMTP id 4fb4d7f45d1cf-556c3f0d6c5so587973a12.2
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Jan 2024 04:34:40 -0800 (PST)
-X-Gm-Message-State: AOJu0YzNiM13tMGiqNjfkoIc99JYgtefcvC2mv4UXuz6vUWWIX4yRJaA
-	UVDfg7kqiwX8oNq/vmX7WOaS3xBiJmaJSFlto5I=
-X-Google-Smtp-Source: AGHT+IEZX4CnD72tOCKP22C1SMmvToEV1jIql5GVn4NLrtmfbZ0EjB8kSHNbJsA3RjXExrEf2ifyDYezhySVRxWiSIM=
-X-Received: by 2002:a17:906:7185:b0:a28:abc4:351b with SMTP id
- h5-20020a170906718500b00a28abc4351bmr178980ejk.200.1704371678660; Thu, 04 Jan
- 2024 04:34:38 -0800 (PST)
+	Thu, 04 Jan 2024 12:36:05 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-a28e31563ebso51971566b.2
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Jan 2024 04:36:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1704371759; x=1704976559; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=wA8tdLBKnR1x8I35Fv0XH19oWXShs3g89QU/QFpxadM=;
+        b=jM8MWXww0Yk3e7hP/fT7gPeusIOVDlmnjHp2iHHMJoU22CCaOi10HZxR9iQC10UkI3
+         25RRT9uOJ2VOLXEYAphzT1ZdTJpRI7vpe7xSV2/98RuK+5mnliiCJWN53WpFPBSJg0Kj
+         4Ws+P2jm3auUn9iijT4NUZ+WApLKAeHTUJXAc7yD8jBwjESTL/sQgGubXPd3bOxIFP4e
+         TMEJTBD2TsDyom+h0qMSsxOa0uuTAFenIlPyizOS86S0jvduQPBgd0Jlbi3pKoZhenoT
+         l6E2nKU0Tcd1q7GMEaV7xmMMfdRxTmmLDRmZo0RAKCnXvFoLZgR+c912fiL7CDuboH+O
+         WbGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1704371759; x=1704976559;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wA8tdLBKnR1x8I35Fv0XH19oWXShs3g89QU/QFpxadM=;
+        b=QK7tVPCtfSFKaQA1/f4wN4M67HAl1lg1rsI5ciQyTuj7wtur8jgnkSTi1JJF4j5GVY
+         PBsEcqbJZCwiNtpVS0GTSujS5pNvppn3yxNt1jYRXU/YV+PpSyl9MUdlTL3uC483kUqS
+         zEvEJjNFLtuVvI2N6e8CgvGry6XFfdp9RZkVJMkO9N90Fj4wyiQYapZ/9bjZjpvK4xzA
+         G5zLpYxoBZYplOkKd/RqrQ0mRCIZQj8Ru/YOB65EtJPTdoD62DH+H+8hiek1XS8KyDG8
+         JYs1A6oelFU+TAL6XnJQ7DmGzp1IxCbDImDu0TzOYSgw0fN5lKMTPF3qL5Va7yLPIrac
+         xNhg==
+X-Gm-Message-State: AOJu0YzN7duwoqJKzgjXc+vOB1079aUGTeOonBObO33HfqjL0EzBHhU6
+	kDOYvqg/DNdJO7UMr64grMcoFlf36sZR9w==
+X-Google-Smtp-Source: AGHT+IGEsf/5+Eq93O64/3AUioi3tODLzSGliLS5eYTKrhpMxJDu9nQZTe6WatVkiHprqqTI7tEpDQ==
+X-Received: by 2002:a17:906:4:b0:a28:9d4e:f065 with SMTP id 4-20020a170906000400b00a289d4ef065mr215474eja.13.1704371759375;
+        Thu, 04 Jan 2024 04:35:59 -0800 (PST)
+Received: from localhost ([102.140.209.237])
+        by smtp.gmail.com with ESMTPSA id l2-20020a170907914200b00a269b4692a9sm13804758ejs.84.2024.01.04.04.35.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 04 Jan 2024 04:35:59 -0800 (PST)
+Date: Thu, 4 Jan 2024 15:35:55 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel test robot <lkp@intel.com>,
+	Dan Carpenter <error27@gmail.com>
+Subject: Re: [PATCH v2 4/4] riscv: Convert relocation iterator to do-while
+Message-ID: <39727434-a265-484b-9ee6-da6611487b47@moroto.mountain>
+References: <20240103-module_loading_fix-v2-0-292b160552c9@rivosinc.com>
+ <20240103-module_loading_fix-v2-4-292b160552c9@rivosinc.com>
 MIME-Version: 1.0
-References: <20231229143627.22898-1-andy.chiu@sifive.com> <20231229143627.22898-7-andy.chiu@sifive.com>
-In-Reply-To: <20231229143627.22898-7-andy.chiu@sifive.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 4 Jan 2024 20:34:26 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTS4kSDxw4+AV2Ymu-s4QGLm5pXgKTk5H2iG97Rmpqnahw@mail.gmail.com>
-Message-ID: <CAJF2gTS4kSDxw4+AV2Ymu-s4QGLm5pXgKTk5H2iG97Rmpqnahw@mail.gmail.com>
-Subject: Re: [v9, 06/10] riscv: fpu: drop SR_SD bit checking
-To: Andy Chiu <andy.chiu@sifive.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
-	paul.walmsley@sifive.com, greentime.hu@sifive.com, guoren@linux.alibaba.com, 
-	bjorn@kernel.org, charlie@rivosinc.com, ardb@kernel.org, arnd@arndb.de, 
-	peterz@infradead.org, tglx@linutronix.de, ebiggers@kernel.org, 
-	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>, 
-	Conor Dooley <conor.dooley@microchip.com>, Andrew Jones <ajones@ventanamicro.com>, 
-	Jisheng Zhang <jszhang@kernel.org>, Xiao Wang <xiao.w.wang@intel.com>
+Content-Disposition: inline
+In-Reply-To: <20240103-module_loading_fix-v2-4-292b160552c9@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240104_043444_207798_8435D140 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20240104_043603_605576_E4938724 
+X-CRM114-Status: GOOD (  23.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,32 +92,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBEZWMgMjksIDIwMjMgYXQgMTA6MzfigK9QTSBBbmR5IENoaXUgPGFuZHkuY2hpdUBz
-aWZpdmUuY29tPiB3cm90ZToKPgo+IFNSX1NEIHN1bW1hcml6ZXMgdGhlIGRpcnR5IHN0YXR1cyBv
-ZiBGUy9WUy9YUy4gSG93ZXZlciwgdGhlIGN1cnJlbnQgY29kZQo+IHN0cnVjdHVyZSBkb2VzIG5v
-dCBmdWxseSB1dGlsaXplIGl0IGJlY2F1c2UgZWFjaCBleHRlbnNpb24gc3BlY2lmaWMgY29kZQo+
-IGlzIGRpdmlkZWQgaW50byBhbiBpbmRpdmlkdWFsIHNlZ21lbnQuIFNvIHJlbW92ZSB0aGUgU1Jf
-U0QgY2hlY2sgZm9yCj4gbm93LgpJdCBzZWVtcyBTUl9TRCBpcyB1c2VsZXNzIGluIHRoZSBzcGVj
-cyBiZWNhdXNlIG9mIGl0cyBkdXBsaWNhdGUuIEZTL1ZTCmNvbnRleHRzIGFyZSBzZXBhcmF0ZS4K
-Cj4KPiBTaWduZWQtb2ZmLWJ5OiBBbmR5IENoaXUgPGFuZHkuY2hpdUBzaWZpdmUuY29tPgo+IC0t
-LQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N3aXRjaF90by5oIHwgMyArLS0KPiAgMSBmaWxl
-IGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAyIGRlbGV0aW9ucygtKQo+Cj4gZGlmZiAtLWdpdCBh
-L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3dpdGNoX3RvLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUv
-YXNtL3N3aXRjaF90by5oCj4gaW5kZXggZjkwZDhlNDJmM2M3Li43ZWZkYjA1ODRkNDcgMTAwNjQ0
-Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zd2l0Y2hfdG8uaAo+ICsrKyBiL2FyY2gv
-cmlzY3YvaW5jbHVkZS9hc20vc3dpdGNoX3RvLmgKPiBAQCAtNTMsOCArNTMsNyBAQCBzdGF0aWMg
-aW5saW5lIHZvaWQgX19zd2l0Y2hfdG9fZnB1KHN0cnVjdCB0YXNrX3N0cnVjdCAqcHJldiwKPiAg
-ICAgICAgIHN0cnVjdCBwdF9yZWdzICpyZWdzOwo+Cj4gICAgICAgICByZWdzID0gdGFza19wdF9y
-ZWdzKHByZXYpOwo+IC0gICAgICAgaWYgKHVubGlrZWx5KHJlZ3MtPnN0YXR1cyAmIFNSX1NEKSkK
-PiAtICAgICAgICAgICAgICAgZnN0YXRlX3NhdmUocHJldiwgcmVncyk7Cj4gKyAgICAgICBmc3Rh
-dGVfc2F2ZShwcmV2LCByZWdzKTsKPiAgICAgICAgIGZzdGF0ZV9yZXN0b3JlKG5leHQsIHRhc2tf
-cHRfcmVncyhuZXh0KSk7Cj4gIH0KPgo+IC0tCj4gMi4xNy4xCj4KUmV2aWV3ZWQtYnk6IEd1byBS
-ZW4gPGd1b3JlbkBrZXJuZWwub3JnPgoKLS0gCkJlc3QgUmVnYXJkcwogR3VvIFJlbgoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Wed, Jan 03, 2024 at 12:22:03PM -0800, Charlie Jenkins wrote:
+> Use a do-while loop to iterate through relocation entries to prevent
+> curr_type from being marked as uninitialized.
+> 
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> Fixes: d8792a5734b0 ("riscv: Safely remove entries from relocation list")
+> Reported-by: kernel test robot <lkp@intel.com>
+> Reported-by: Dan Carpenter <error27@gmail.com>
+> Closes: https://lore.kernel.org/r/202312130859.wnkuzVWY-lkp@intel.com/
+> ---
+>  arch/riscv/kernel/module.c | 26 +++++++++++++++++++++-----
+>  1 file changed, 21 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+> index ceb0adb38715..581e425686ab 100644
+> --- a/arch/riscv/kernel/module.c
+> +++ b/arch/riscv/kernel/module.c
+> @@ -633,15 +633,31 @@ process_accumulated_relocations(struct module *me,
+>  					  bucket_iter->bucket, node) {
+>  			buffer = 0;
+>  			location = rel_head_iter->location;
+> -			list_for_each_entry_safe(rel_entry_iter,
+> -						 rel_entry_iter_tmp,
+> -						 rel_head_iter->rel_entry,
+> -						 head) {
+> +			rel_entry_iter =
+> +				list_first_entry(rel_head_iter->rel_entry,
+> +						 typeof(*rel_entry_iter), head);
+> +			rel_entry_iter_tmp =
+> +				list_next_entry(rel_entry_iter, head);
+> +
+> +			/*
+> +			 * Iterate through all relocation entries that share
+> +			 * this location. This uses a do-while loop instead of
+> +			 * list_for_each_entry_safe since it is known that there
+> +			 * is at least one entry and curr_type needs to be the
+> +			 * value of the last entry when the loop exits.
+> +			 */
+
+I know that I reported this static checker and all, but actually after
+reading this comment, I think we should stay with original code.  So
+long as we know the list has "least one entry" which we do then the
+original code worked fine.
+
+To be honest, I probably would not have even reported this static
+checker warning except that I saw there were some other issues and
+thought "Eh, why not throw this warning in as well, in case the list
+can be empty."
+
+The other three patches look good.
+
+regards,
+dan carpenter
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
