@@ -4,85 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A1ECC47073
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jan 2024 17:43:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5CECC47074
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jan 2024 18:03:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SiysEEaeoQ47U5kt4fRPY3becdf5LCGLaDje5VXfZWw=; b=On+zAixXZQAVso
-	t4LEhjUXMjTD4UYGk1iaoIdwu5X4Au20wcqthfrWc1x3gKvqlAb0D2atG0utHQtLzei6imlKdTqGM
-	UlfiUrE74fQ2V2sfkyjs1sU0YBuVWVvYZkaiOA7ZzCvhd9j2j/5QK4GkwDAIh35HN2LSzY8ANcjP1
-	k42f460qOB9I9LhSp55Qtld6dMWBs8QLCEKdU6FCLQAajcy2JzGU3+S+yX+qPh7B7M2oAMKYXpZ7H
-	/TVjKZ3x+lZzZbwGk0bVEKBR01YSGqtIYmUoVV6ReaCYjIvTzNBLE3JdEah33/tYNDdf2pyQ2wQ0k
-	JOFrVY+CCdfI3rDSMVng==;
+	List-Owner; bh=eP+8dXL/6smReFbRKb8/AYVY8Fk9sSdZ/wEsCO5mhWM=; b=mCozYNjgxG7Xvp
+	Xi8nFk69fWAVk0HkktWvpCS1j2+e54ERzr9Ukd3fB0iGAM5h6mW7AENnAoTqjkVfSfORH2gitUzsw
+	s2o/wrels9UYWLNzPHCJubOJbh8EC3yOagz8y1upGYLQLVAsTAJ3qsEwSYPjS/Je/abK2SXbFCQHO
+	11qWfNk/ZBDmER86eALd9TQdM0r3krze9JjVxu8bMqKOfeg/V+kxhHCe/NUikfFX20b1HXYAfdnyu
+	G3ZEuyFSbbctc9LOptwHrpq8/RQEtGQ4w/0wHlcsbn36+oB4SP0pzDjQ2AjslATKC2kzh578EXWYA
+	RFv6bhtbWPxhTlg6lIjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLRkb-00EsIa-0l;
-	Thu, 04 Jan 2024 17:43:25 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1rLS3i-00Ev1d-1r;
+	Thu, 04 Jan 2024 18:03:10 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLRkY-00EsHl-0Q
+	id 1rLS3e-00Ev19-1y
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jan 2024 17:43:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1704390199;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=AuNvixvj7I1gCW2L3EcndNwefy5FlO7a/IFG5Uu5x20=;
-	b=J6KN+m9GdgkWYTkDS0ybJnOQIVBT+Rkvb97dJKiQnQJ4XE8pPCnPE6PcfTGKs+qRYROyUy
-	7SQUqosuZecVtoCQvlUHTj7VoOoaub/W8Cp2k68xnEBsDx42JY6F+9EIXOBZjKfbqB3p4V
-	ekeg4E3EXuJxq2Cy+6hw+uw/LId48zY=
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com
- [209.85.210.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-102-CtrGwhbuMYaPdaPN8Jzpdw-1; Thu, 04 Jan 2024 12:43:17 -0500
-X-MC-Unique: CtrGwhbuMYaPdaPN8Jzpdw-1
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-6d9b050e9a8so819533b3a.1
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Jan 2024 09:43:17 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704390197; x=1704994997;
-        h=content-transfer-encoding:content-disposition:mime-version
-         :references:in-reply-to:message-id:date:subject:cc:to:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=AuNvixvj7I1gCW2L3EcndNwefy5FlO7a/IFG5Uu5x20=;
-        b=XVhBr2kwzvOzCSTcqmmSW94PmOHuwlAKWzHkYcNHmj7aj9T3hbr9cOP3ryLbxTfyQo
-         ckyq7ooHJJBwdP1qdExltnQXVFNHgYb63t/NyAIhmOothwbyzPi5Pp55aD8DM6zUx26Z
-         6P9MX5308rqkmWnUklF+9PSLFowFfrqW4LCJglpeLsjeWpF/XM2ls5fcV5CZKTIgW1Gn
-         eF/DErtGwrsfj7b32nO/0g30LBnyKgWmsfEMyvu6bnoYx/Sy7Ddufgh1Ex+qqXpOuZzS
-         m2+y0eI9/xgzdTcxGhw+2h25nzb6o1OI7zpDgo8AwHZjRTAv78uh4QZrot6XOv8HASu5
-         13cg==
-X-Gm-Message-State: AOJu0YyHOo5ML9Znh8fAhi9IwpHnTX3bNk2a3JFQ6V4fM9zLNnlrxet6
-	nz+lHgiQY1pZEmyl6PndvMAvkjUl7X2OoAQaLqJR/2HtM1f8WaxhSnywk7RDLAFq57FNmp9q/HC
-	epCx04tNW3JlddM1pJUz2W4cwez1RDOq9OL+V
-X-Received: by 2002:a62:5346:0:b0:6d9:b66f:3d16 with SMTP id h67-20020a625346000000b006d9b66f3d16mr1158923pfb.50.1704390196831;
-        Thu, 04 Jan 2024 09:43:16 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IExGwukcRooOCfEMKqSkNigh0IbyweP45i/89S1/IF+npn5FOcVr9q1nCUpn3nOrCZCCxpcug==
-X-Received: by 2002:a62:5346:0:b0:6d9:b66f:3d16 with SMTP id h67-20020a625346000000b006d9b66f3d16mr1158903pfb.50.1704390196500;
-        Thu, 04 Jan 2024 09:43:16 -0800 (PST)
-Received: from localhost.localdomain ([2804:431:c7ec:3c39:8a36:75f0:8b6e:b898])
-        by smtp.gmail.com with ESMTPSA id u5-20020a056a00098500b006d9bf35dd1fsm18498772pfg.142.2024.01.04.09.43.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jan 2024 09:43:15 -0800 (PST)
-From: Leonardo Bras <leobras@redhat.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-Subject: Re: Re: Re: Re: [PATCH V2 1/3] riscv: Add Zicbop instruction definitions & cpufeature
-Date: Thu,  4 Jan 2024 14:43:04 -0300
-Message-ID: <ZZbuKCvATa7yyQOc@LeoBras>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240104-d6981cf63a39af4dff1d380a@orel>
-References: <20231231082955.16516-1-guoren@kernel.org> <20231231082955.16516-2-guoren@kernel.org> <ZZWs0C19tz763FnH@LeoBras> <20240103-0c96ceea88523b7b946e4ba8@orel> <ZZXEpU-JzsvD2UDW@LeoBras> <20240104-4ecfb92d2f8c95fa773ca695@orel> <ZZbI3clKUbNbNtZj@LeoBras> <20240104-d6981cf63a39af4dff1d380a@orel>
+	Thu, 04 Jan 2024 18:03:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by ams.source.kernel.org (Postfix) with ESMTP id D1E8BB81A28;
+	Thu,  4 Jan 2024 18:03:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 255C2C433C8;
+	Thu,  4 Jan 2024 18:03:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1704391380;
+	bh=MV5Ut801c9LMt/NfTstc6Va2WGqhm/J8yUioixdQxSU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=e/UCZHo3I3qltVdCmyxEdTDzwFRcE6+OlW1ndxmr2H0P2lwU7cMVCnjhOW/F6pMhd
+	 w29mAixY7DWegPvGey/JO546a6P5POrmC1vVEdxc/dv6E5UfgyeWKI+2nhybaNBGsY
+	 Qd2zmwcyr+IzBSgqxV4x9xLyL0wJs/DsggEzVr+wtZGo5lpIFlk1CbDufr1dQOuPSb
+	 jszDteOpTmlQCeLA/DIvg80/YFWAzTOiqf+SjVf2LstCP9rRbXy2Nq8jZfBbrwVidU
+	 wxoGsWwt6JNvjOuFfrGCLd9whoBbrp/ToGrl0juWpZtdDJm7vv4YCL/AUrxxsuxEqb
+	 VyMfX4l86UrhA==
+Date: Thu, 4 Jan 2024 10:02:58 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Jerry Shih <jerry.shih@sifive.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>, linux-crypto@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Heiko Stuebner <heiko@sntech.de>,
+	Phoebe Chen <phoebe.chen@sifive.com>, hongrong.hsu@sifive.com,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Andy Chiu <andy.chiu@sifive.com>
+Subject: Re: [RFC PATCH 00/13] RISC-V crypto with reworked asm files
+Message-ID: <20240104180258.GB1127@sol.localdomain>
+References: <20240102064743.220490-1-ebiggers@kernel.org>
+ <CAMj1kXEAqxCZ_PNM9a=CyciSHUzDU_yqemKh51oncHyLbYUKtA@mail.gmail.com>
+ <20240103143557.GA773@quark.localdomain>
+ <20EF7A6D-19AE-49C0-982F-8FE7733E375A@sifive.com>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
 Content-Disposition: inline
+In-Reply-To: <20EF7A6D-19AE-49C0-982F-8FE7733E375A@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240104_094322_362390_4FDB4E5F 
-X-CRM114-Status: GOOD (  48.13  )
+X-CRM114-CacheID: sfid-20240104_100306_978096_756A580E 
+X-CRM114-Status: GOOD (  51.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,180 +75,147 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: wefu@redhat.com, keescook@chromium.org, atishp@atishpatra.org, peterz@infradead.org, unicorn_wang@outlook.com, paul.walmsley@sifive.com, chao.wei@sophgo.com, bjorn@rivosinc.com, linux-kernel@vger.kernel.org, xiaoguang.xing@sophgo.com, conor.dooley@microchip.com, Leonardo Bras <leobras@redhat.com>, palmer@dabbelt.com, jszhang@kernel.org, panqinglin2020@iscas.ac.cn, Guo Ren <guoren@linux.alibaba.com>, guoren@kernel.org, linux-riscv@lists.infradead.org, wuwei2016@iscas.ac.cn
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 04, 2024 at 05:40:50PM +0100, Andrew Jones wrote:
-> On Thu, Jan 04, 2024 at 12:03:57PM -0300, Leonardo Bras wrote:
-> ...
-> > > > > > What we need here is something like:
-> > > > > > + enum {
-> > > > > > + 	PREFETCH_I,
-> > > > > > + 	PREFETCH_R,
-> > > > > > + 	PREFETCH_W,
-> > > > > > + }	 
-> > > > > 
-> > > > > Can't use enum. This header may be included in assembly.
-> > > > 
-> > > > Oh, I suggest defines then, since it's better to make it clear instead of 
-> > > > using 0, 1, 3.
-> > > 
-> > > I don't think we gain anything by adding another define in order to create
-> > > the instruction define. We have to review the number sooner or later. I'd
-> > > prefer we use the number inside the instruction define so we only need
-> > > to look one place, which is also consistent with how we use FUNC fields.
-> > > 
-> > 
-> > Sorry, I was unable to understand the reasoning.
-> > 
-> > If we are going to review the numbers sooner or later, would not it be 
-> > better to have the instruction define to have "PREFETCH_W" instead of a 
-> > number, and a unified list of defines for instructions.
-> > 
-> > This way we don't need to look into the code for 0's 1's and 3's, but 
-> > instead just replace the number in the define list.
-> > 
-> > What am I missing?  
+On Thu, Jan 04, 2024 at 06:23:42PM +0800, Jerry Shih wrote:
+> On Jan 3, 2024, at 22:35, Eric Biggers <ebiggers@kernel.org> wrote:
+> > On Wed, Jan 03, 2024 at 03:00:29PM +0100, Ard Biesheuvel wrote:
+> >> On Tue, 2 Jan 2024 at 07:50, Eric Biggers <ebiggers@kernel.org> wrote:
+> >>> 
+> >>> As discussed previously, the proposed use of the so-called perlasm for
+> >>> the RISC-V crypto assembly files makes them difficult to read, and these
+> >>> files have some other issues such extensively duplicating source code
+> >>> for the different AES key lengths and for the unrolled hash functions.
+> >>> There is/was a desire to share code with OpenSSL, but many of the files
+> >>> have already diverged significantly; also, for most of the algorithms
+> >>> the source code can be quite short anyway, due to the native support for
+> >>> them in the RISC-V vector crypto extensions combined with the way the
+> >>> RISC-V vector extension naturally scales to arbitrary vector lengths.
+> >>> 
+> >>> Since we're still waiting for prerequisite patches to be merged anyway,
+> >>> we have a bit more time to get this cleaned up properly.  So I've had a
+> >>> go at cleaning up the patchset to use standard .S files, with the code
+> >>> duplication fixed.  I also made some tweaks to make the different
+> >>> algorithms consistent with each other and with what exists in the kernel
 > 
-> PREFETCH_W isn't defined as just 3, it's defined as
->    INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(3), ...)
+> Do you mean the xts gluing part only? Do we have the different algorithms
+> for the actual implementation in .S? 
+
+I did change both the XTS assembly and XTS glue code slightly.  However, the
+general approach is still the same, except for a couple minor optimizations that
+I dropped.  See what I wrote below:
+
+    All the same functionality and general optimizations are still included,
+    except for some minor optimizations in XTS that I dropped since it's not
+    clear they are worth the complexity.  (Note that almost all users of XTS
+    in the kernel only use it with block-aligned messages, so it's not very
+    important to optimize the ciphertext stealing case.)
+
+> >>> The result is this series, which passes all tests and is about 2400
+> >>> lines shorter than the latest version with the perlasm
+> >>> (https://lore.kernel.org/linux-crypto/20231231152743.6304-1-jerry.shih@sifive.com/).
 > 
-> Adding a define (PREFETCH_W_RS2?) for the 3 just bloats the code and
-> requires reviewers of PREFETCH_W to go look up another define.
-> OPCODE_OP_IMM gets a define because it's used in multiple instructions,
-> but everything else in an instruction definition should be a number
-> exactly matching the spec, making it easy to review, or be an argument
-> passed into the instruction macro.
+> For the unrolled hash functions case(sha256/512), the .S implementation uses
+> macro instead. But I think the macro expanded code will be the same. Do we
+> care about the source code size instead of the final binary code size?
 
-Ok, I see your point now.
-It's fine by me, then.
+Yes, because it's very difficult to review code that's been hand-unrolled.
+Essentially what I had been doing to review your code was to reverse engineer
+what the loop that was being unrolled was, and then go through each unrolled
+iteration and verify that it matches what it is supposed to.  (While also
+ignoring the code comments, as some of the comments had been copy+pasted without
+being updated to be correct for what iteration they were commenting.)
 
+It's much simpler to just use .rept to unroll the code for us.
 
-> 
-> > 
-> > > > 
-> > > > > 
-> > > > > > +
-> > > > > > + #define CBO_PREFETCH(type, base, offset)                      \
-> > > > > > +     INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(type),              \
-> > > > > > +            SIMM12(offset & ~0x1f), RS1(base))
-> > > > > 
-> > > > > Yes. I suggested we mask offset as well, but ideally we'd detect a caller
-> > > > > using an offset with nonzero lower 5 bits at compile time.
-> > > > 
-> > > > I would suggest the compiler would take care of this, but I am not sure 
-> > > > about the assembly, since I am not sure if it gets any optimization.
-> > > > 
-> > > > I don't think we can detect a caller with non-zero offset at compile time, 
-> > > > since it will be used in locks which can be at (potentially) any place in 
-> > > > the block size. (if you have any idea though, please let me know :) )
-> 
-> I forgot to reply to this before. The reason I think it may be possible to
-> validate offset at compile time is because it must be a constant, i.e.
-> __builtin_constant_p(offset) must return true. So maybe something like
-> 
->  static_assert(__builtin_constant_p(offset) && !(offset & 0x1f))
-> 
-> I'll try to find time to play with it.
-> 
+> For the AES variants part, the .S uses branches inside the inner loop.
 
-Let me know if you find anything.
-
-> > > > 
-> > > > On the other hand, we could create a S-Type macro which deliberately 
-> > > > ignores imm[4:0], like  
-> > > > 
-> > > > + INSN_S_TRUNCATE(OPCODE_OP_IMM, FUNC3(6), __RS2(3),               \
-> > > > +                 SIMM12(offset), RS1(base))
-> > > > 
-> > > > Which saves the bits 11:5 of offset  into imm[11:5], and zero-fill 
-> > > > imm[4:0], like
-> > > > 
-> > > > +#define DEFINE_INSN_S                                                    \
-> > > > + __DEFINE_ASM_GPR_NUMS                                           \
-> > > > +"        .macro insn_s, opcode, func3, rs2, simm12, rs1\n"               \
-> > > > +"        .4byte  ((\\opcode << " __stringify(INSN_S_OPCODE_SHIFT) ") |"  \
-> > > > +"                 (\\func3 << " __stringify(INSN_S_FUNC3_SHIFT) ") |"    \
-> > > > +"                 (.L__gpr_num_\\rs2 << " __stringify(INSN_S_RS2_SHIFT) ") |" \
-> > > > +"                 (.L__gpr_num_\\rs1 << " __stringify(INSN_S_RS1_SHIFT) ") |" \
-> > > > +"                 (((\\simm12 >> 5) & 0x7f) << " __stringify(INSN_S_SIMM7_SHIFT) "))\n" \
-> > > > +"        .endm\n"
-> > > > +
-> > > > 
-> > > > Does this make sense?
-> > > 
-> > > If we create a special version of INSN_S, then I suggest we create one
-> > > where its two SIMM fields are independent and then define prefetch
-> > > instructions like this
-> > > 
-> > >  #define PREFETCH_W(base, offset) \
-> > >      INSN_S_SPLIT_IMM(OPCODE_OP_IMM, FUNC3(6), __RS2(3), \
-> > >          SIMM_11_5(offset >> 5), SIMM_4_0(0), RS1(base))
-> > > 
-> > > which would allow simple review against the spec and potentially
-> > > support other instructions which use hard coded values in the
-> > > immediate fields.
-> > > 
-> > 
-> > I agree, it looks better this way.
-> > 
-> > We could have:
-> > INSN_S_SPLIT_IMM(OPCODE, FUNC3, RS1, RS2, SIMM_11_5, SIMM_4_0)
-> > 
-> > and implement INSN_S like:
-> > #define INSN_S(OPCODE, FUNC3, RS1, RS2, SIMM_11_0) \
-> > 	INSN_S_SPLIT_IMM(OPCODE, FUNC3, RS1, RS2,  \
-> > 		SIMM_11_0 >> 5, SIMM_11_0 & 0x1f)
-> 
-> That won't work since SIMM_11_0 will be a string. Actually, with
-> stringification in mind, I don't think defining INSN_S_SPLIT_IMM()
-> is a good idea.
-
-I don't see how SIMM_11_0 will be a string here. Is this due to using it 
-on asm code?
-
-I understand a user will call 
----
-PREFETCH_W(base, offset), which becomes:
-
-INSN_S(OPCODE_OP_IMM, 6, base, 3, offset) , which becomes:
-
-INSN_S_SPLIT_IMM(OPCODE_OP_IMM, FUNC3(6), RS1(base), RS2(3), \
-	SIMM_11_5(offset >> 5), SIMM_4_0(offset & 0x1f))
----
-
-I don't see an issue here, the same wouldwork for every INSN_S() 
-
-Now suppose we make PREFETCH_W use SPLIT_IMM directly:
----
-PREFETCH_W(base, offset), which becomes:
-
-INSN_S_SPLIT_IMM(OPCODE_OP_IMM, FUNC3(6), RS1(base), RS2(3), \
-	 SIMM_11_5(offset >> 5), SIMM_4_0(0))
----
-
-I don't see how stringification gets in the way.
-
-Thanks!
-Leo
-
-
-
-
- #define CBO_PREFETCH(type, base, offset)                      \
-> > > > > > +     INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(type),              \
-> > > > > > +            SIMM12(offset & ~0x1f), RS1(base))
-
-
+No, it does not.  The macros generate a separate inner loop for each AES key
+length, just like what the perl scripts had.  The source code just isn't
+duplicated 3 times anymore.
 
 > 
-> Thanks,
-> drew
+> >>> All the same functionality and general optimizations are still included,
+> >>> except for some minor optimizations in XTS that I dropped since it's not
+> >>> clear they are worth the complexity.  (Note that almost all users of XTS
+> >>> in the kernel only use it with block-aligned messages, so it's not very
+> >>> important to optimize the ciphertext stealing case.)
 > 
+> The aesni/neon are SIMD, so I think the rvv version could have the different
+> design. And I think my implementation is very similar to x86-xts except the
+> tail block numbers for ciphertext stealing case.
+> The x86-xts-like implementation uses the fixed 2 block for the ciphertext
+> stealing case.
+> 
+> +		int xts_blocks = DIV_ROUND_UP(req->cryptlen,
+> +					      AES_BLOCK_SIZE) - 2;
 
+The two specific XTS optimizations that I dropped are:
+    
+1. There was a parameter 'update_iv' that told the assembly code whether to
+   calculate and return the next tweak or not.  Computing the next tweak is a
+   fairly small computation; it's not clear to me that it's worth adding a
+   branch and extra code complexity to skip that computation.
+
+2. For XTS encryption with ciphertext stealing, the assembly code encrypted the
+   last full block during the main loop instead of separately, in order to take
+   better advantage of parallelism.  I don't like how this optimization only
+   applied to inputs whose length is not a multiple of 16, which are very rare.
+   Also, it only applied to encryption, not to decryption.  That meant that
+   separate code was needed for encryption and decryption.  Note that for disk
+   encryption, decryption is more performance-critical than encryption.
+
+Again, we could bring these back later.  I'd just like to error on the side of
+simplicity for the initial version.  If we include optimizations that aren't
+actually worthwhile, it might be hard to remove them later.
+
+> >>> I'd appreciate people's thoughts on this series.  Jerry, I hope I'm not
+> >>> stepping on your toes too much here, but I think there are some big
+> >>> improvements here.
+> >>> 
+> >> 
+> >> As I have indicated before, I fully agree with Eric here that avoiding
+> >> perlasm is preferable: sharing code with OpenSSL is great if we can
+> >> simply adopt the exact same code (and track OpenSSL as its upstream)
+> >> but this never really worked that well for skciphers, due to API
+> >> differences. (The SHA transforms can be reused a bit more easily)
+> 
+> In my opinion, I would prefer the perlasm with the usage of asm mnemonics.
+> I could see the expanded asm source from perlsm. I don't know how to dump the
+> expanded asm source when we use asm `.macro` directives. I use objdump to
+> see the final asm.
+
+Yes, you can always use objdump to see everything expanded out.  But there's not
+much of a need to do that when you can just read the source code instead.
+
+> And we could use function to modularize the asm implementations. The macro
+> might do the same things, but it's more clear for me for the argument passing
+> and more powerful string manipulation.
+
+The perl scripts were not using any advanced capabilities of perl, and in some
+cases they even emitted assembly macros like .rept instead of using perl.  So
+the use of perl seemed unnecessary and just over-complicated things.
+
+BTW, we could always use perlasm for specific algorithms where we actually need
+advanced scripting, like to interleave two independent computations with each
+other.  It doesn't have to be all one or the other.  It's just that the code
+that's been written for RISC-V so far is relatively straightforward and doesn't
+seem to benefit from perlasm.
+
+> And I could have scope for the register name binding. It's more clear to me
+> comparing with a long list of `#define xxx`.
+
+I think it's good enough.  We can always re-#define things later in the file, or
+just split functions with different parameters into different files.
+
+BTW, the reason that some of the lists of defines got longer is that I actually
+gave things proper names, whereas some the perl scripts used trivial names like
+"V28" for the v28 register.
+
+- Eric
 
 _______________________________________________
 linux-riscv mailing list
