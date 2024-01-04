@@ -4,85 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACEBDC47073
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jan 2024 10:43:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F2EBC47073
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jan 2024 10:45:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1nXrQXPpJZfRxcZWosUImQeGgFjBD9FZBYoACaA/NWQ=; b=M10WogAfxvh7ih
-	aX8WvLVBS8gw8wuxj8t6+cZZbUG5N00qPdBWyyf6rbrfMhZiT/JhELw4sGy7tveJA8JEU/cFiZISY
-	Yuy8jv+iYy0WzTCxsmkEC0xXbg/FkGYQLzDa5vdTA5Kp0nHmTlDn56JGPKAeJGNdXmnjgdZwQkC9L
-	QzlmfN8D6dZ4TyqO6RF3yTWqeYvT9g9kn//3YvkUSUexNILEfeTLRvosHtIjoAlxsJ8I+6ZBtwwKN
-	qsqblGeM8Srtpbgq8pKLVsXFqWupVNskglcCfAZGq4gj2y70wqfBT7h07hzbuIJZ/xfdgGsHLYqNj
-	KSIcdZai096D4CNN1qcQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ll4XC8+uYTKgezoeGRvBDrBzAi4epkpuRGT3AxCb0Wg=; b=ZnVXhtWFZmHIlT
+	t+NGbbXC5VxWvAjmVrwnMynuehjrR6S5I/Mh+WBRkTmJJpbX2HnjpFuc2SQoSJ7Gv7sSFV4IIaLhN
+	45IccIGNPFOIH6d75xyFjruYUG2NPaDG4dRdty+ZXiNSHMCGgmYUcvGTujNzSTEhuO+W3WGuMbv4+
+	edm5pmuIMi/2ZCXscMVlyd85f/XT7E4wvfYMMzFSCz8rJvX67g97qVtTWtte4ihLaGbpmcbpnDXq8
+	3PjP9lAhrctxWGJijNsYgN/9fm4qhshJHntTt+Melj01cnjy9u1VjDID08Iq6AMbp1AgUynv2kYh5
+	FCgjm6fCQz5Z0Q/R62Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLLBz-00DYSq-1T;
-	Thu, 04 Jan 2024 10:43:15 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1rLLE5-00DZ7t-1A;
+	Thu, 04 Jan 2024 10:45:25 +0000
+Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLLBw-00DYRM-2p
+	id 1rLLE2-00DYz3-0U
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jan 2024 10:43:14 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-55642663ac4so447494a12.1
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Jan 2024 02:43:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1704364989; x=1704969789; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=dtLgJ10JUGu29gifzEIMC137KNsEgAPpefsYRRnI/LY=;
-        b=WreHTEHp662/yqo7xR1Zqo/ync1dgkLk+PxRdajh5nynyFx1Hd2hrTz6NPTYsIFSDH
-         hEBN6ptQY3jbsuDnoWWpVw0dwtvUZfxnABpEhqjIpeBEjdpWw7ngTxhilM+lokRuVYqg
-         ign1MobcPVw6lcI4x5b1NTiJfMemrh1FZBwN0nWxoQggPI+LjaLej52LxlGCE+g65JY+
-         rdO/0i9bgQw9D9wK1dZkkHDOITcXNFcDDgfmR92hV0jhtdCft5GSAH7zDwZy2tSPQjmm
-         CpT0SJaCyLnhGMMARo929+2FnaqTTLLIhGc/iOZ7M4JB7OTltSc2qe/Whp6WEMJ117zw
-         JCAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704364989; x=1704969789;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=dtLgJ10JUGu29gifzEIMC137KNsEgAPpefsYRRnI/LY=;
-        b=UxPBdo70y3QKmqT4Q/xgIKI+wLEirPrKjs16F+DGh44UqOC67UBWywX6hrl6GwqliT
-         Wpi6YhfbRcSMVzK29/VvfudcDj7hZz1MbZ+1rCTKgzG9zVZZoqHEd5VhhqRId14VdqTD
-         a97A7aAuO7rzk+S4shG5cRvohfcOlAvS+yFAQyv9nSMD5pPjh6VRUbv9JMFmE1pycb92
-         keXBRSEnKVscSzhKPG7NszHu6IQY0eIGyo26noTuch19pbb89KhO6TvAkMn6J/7S5LbT
-         6RL4oToqG4MGnAW3v/roF4EAM8AMEVIrxn6UEFREk/nN1VVJHTuVWaOajhrHZ/Ig0aGx
-         26jg==
-X-Gm-Message-State: AOJu0YzdRCCHDQmdknAWy5kVj0om+Anbgvoyw9uPM61eIkMXSg5StE1q
-	JLosjQr24BVhrFtgZcXnZbcU+7VoAUkUARyqBJa1zKAYbik=
-X-Google-Smtp-Source: AGHT+IErP9SQJfg3eek7PNUhzNdrIRG39juNJVn3VmyuwSfWpv7iZgkPvVL31M+evfZIdAVUr/dsEQ==
-X-Received: by 2002:a17:906:db05:b0:a28:dba3:3fd2 with SMTP id xj5-20020a170906db0500b00a28dba33fd2mr229850ejb.142.1704364988823;
-        Thu, 04 Jan 2024 02:43:08 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id h5-20020a1709060f4500b00a1cf3fce937sm13664229ejj.162.2024.01.04.02.43.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jan 2024 02:43:08 -0800 (PST)
-From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-riscv@lists.infradead.org,
-	linux-next@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org
-Cc: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	anup@brainfault.org,
-	atishp@atishpatra.org,
-	rdunlap@infradead.org,
-	sfr@canb.auug.org.au
-Subject: [PATCH] RISC-V: KVM: Require HAVE_KVM
-Date: Thu,  4 Jan 2024 11:43:08 +0100
-Message-ID: <20240104104307.16019-2-ajones@ventanamicro.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 04 Jan 2024 10:45:24 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 7F999C000A;
+	Thu,  4 Jan 2024 10:45:08 +0000 (UTC)
+Message-ID: <3b9fb9f0-86e8-4a76-be69-9f4598434c6c@ghiti.fr>
+Date: Thu, 4 Jan 2024 11:45:08 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] riscv: enable MMU_GATHER_RCU_TABLE_FREE for SMP &&
+ MMU
+Content-Language: en-US
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Will Deacon <will@kernel.org>,
+ "Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Nick Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, linux-mm@kvack.org
+References: <20231219175046.2496-1-jszhang@kernel.org>
+ <20231219175046.2496-4-jszhang@kernel.org>
+ <e90f3b0f-95be-4ead-85cf-cca4378755f3@ghiti.fr> <ZZOBwt1ZBsPUshkY@xhacker>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <ZZOBwt1ZBsPUshkY@xhacker>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240104_024312_936688_5626101F 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240104_024522_478619_DFF58134 
+X-CRM114-Status: GOOD (  22.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,53 +64,175 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-KVM requires EVENTFD, which is selected by HAVE_KVM. Other KVM
-supporting architectures select HAVE_KVM and then their KVM
-Kconfigs ensure its there with a depends on HAVE_KVM. Make RISCV
-consistent with that approach which fixes configs which have KVM
-but not EVENTFD, as was discovered with a randconfig test.
+Hi Jisheng,
 
-Reported-by: Randy Dunlap <rdunlap@infradead.org>
-Closes: https://lore.kernel.org/all/44907c6b-c5bd-4e4a-a921-e4d3825539d8@infradead.org/
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
----
- arch/riscv/Kconfig     | 1 +
- arch/riscv/kvm/Kconfig | 2 +-
- 2 files changed, 2 insertions(+), 1 deletion(-)
+On 02/01/2024 04:23, Jisheng Zhang wrote:
+> On Sun, Dec 31, 2023 at 07:32:47AM +0100, Alexandre Ghiti wrote:
+>> On 19/12/2023 18:50, Jisheng Zhang wrote:
+>>> In order to implement fast gup we need to ensure that the page
+>>> table walker is protected from page table pages being freed from
+>>> under it.
+>>>
+>>> riscv situation is more complicated than other architectures: some
+>>> riscv platforms may use IPI to perform TLB shootdown, for example,
+>>> those platforms which support AIA, usually the riscv_ipi_for_rfence is
+>>> true on these platforms; some riscv platforms may rely on the SBI to
+>>> perform TLB shootdown, usually the riscv_ipi_for_rfence is false on
+>>> these platforms. To keep software pagetable walkers safe in this case
+>>> we switch to RCU based table free (MMU_GATHER_RCU_TABLE_FREE). See the
+>>> comment below 'ifdef CONFIG_MMU_GATHER_RCU_TABLE_FREE' in
+>>> include/asm-generic/tlb.h for more details.
+>>>
+>>> This patch enables MMU_GATHER_RCU_TABLE_FREE, then use
+>>>
+>>> *tlb_remove_page_ptdesc() for those platforms which use IPI to perform
+>>> TLB shootdown;
+>>>
+>>> *tlb_remove_ptdesc() for those platforms which use SBI to perform TLB
+>>> shootdown;
+>>
+>> Can you elaborate a bit more on what those functions do differently and why
+>> we need to differentiate IPI vs SBI TLB shootdown? I don't understand this.
+> Hi Alex,
+>
+> If IPI, the local_irq_save in lockless_pages_from_mm() of fast gup code
+> path will block page table pages from being freed, I think the comments
+> there is execellent.
+>
+> If SBI, the local_irq_save in lockless_pages_from_mm() can't acchieve
+> the goal however. Because local_irq_save() only disable S-privilege IPI irq,
+> it can't disable M-privilege's, which the SBI implementation use to
+> shootdown TLB entry. So we need MMU_GATHER_RCU_TABLE_FREE helper for
+> SBI case.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index a935a5f736b9..daba06a3b76f 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -128,6 +128,7 @@ config RISCV
- 	select HAVE_KPROBES if !XIP_KERNEL
- 	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
- 	select HAVE_KRETPROBES if !XIP_KERNEL
-+	select HAVE_KVM
- 	# https://github.com/ClangBuiltLinux/linux/issues/1881
- 	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if !LD_IS_LLD
- 	select HAVE_MOVE_PMD
-diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
-index 1fd76aee3b71..36fa8ec9e5ba 100644
---- a/arch/riscv/kvm/Kconfig
-+++ b/arch/riscv/kvm/Kconfig
-@@ -19,7 +19,7 @@ if VIRTUALIZATION
- 
- config KVM
- 	tristate "Kernel-based Virtual Machine (KVM) support (EXPERIMENTAL)"
--	depends on RISCV_SBI && MMU
-+	depends on HAVE_KVM && RISCV_SBI && MMU
- 	select HAVE_KVM_IRQCHIP
- 	select HAVE_KVM_IRQ_ROUTING
- 	select HAVE_KVM_MSI
--- 
-2.43.0
 
+Ok, I get it now, can you add the following link to your commit 
+description 
+https://elixir.bootlin.com/linux/v6.6/source/mm/mmu_gather.c#L162 ? It 
+describes the problem very clearly.
+
+
+> Thanks
+>   
+>>> Both case mean that disabling interrupts will block the free and
+>>> protect the fast gup page walker.
+>>>
+>>> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+>>> ---
+>>>    arch/riscv/Kconfig               |  1 +
+>>>    arch/riscv/include/asm/pgalloc.h | 23 ++++++++++++++++++-----
+>>>    arch/riscv/include/asm/tlb.h     | 18 ++++++++++++++++++
+>>>    3 files changed, 37 insertions(+), 5 deletions(-)
+>>>
+>>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>>> index 24c1799e2ec4..d3555173d9f4 100644
+>>> --- a/arch/riscv/Kconfig
+>>> +++ b/arch/riscv/Kconfig
+>>> @@ -147,6 +147,7 @@ config RISCV
+>>>    	select IRQ_FORCED_THREADING
+>>>    	select KASAN_VMALLOC if KASAN
+>>>    	select LOCK_MM_AND_FIND_VMA
+>>> +	select MMU_GATHER_RCU_TABLE_FREE if SMP && MMU
+>>>    	select MODULES_USE_ELF_RELA if MODULES
+>>>    	select MODULE_SECTIONS if MODULES
+>>>    	select OF
+>>> diff --git a/arch/riscv/include/asm/pgalloc.h b/arch/riscv/include/asm/pgalloc.h
+>>> index 3c5e3bd15f46..deaf971253a2 100644
+>>> --- a/arch/riscv/include/asm/pgalloc.h
+>>> +++ b/arch/riscv/include/asm/pgalloc.h
+>>> @@ -102,7 +102,10 @@ static inline void __pud_free_tlb(struct mmu_gather *tlb, pud_t *pud,
+>>>    		struct ptdesc *ptdesc = virt_to_ptdesc(pud);
+>>>    		pagetable_pud_dtor(ptdesc);
+>>> -		tlb_remove_page_ptdesc(tlb, ptdesc);
+>>> +		if (riscv_use_ipi_for_rfence())
+>>> +			tlb_remove_page_ptdesc(tlb, ptdesc);
+>>> +		else
+>>> +			tlb_remove_ptdesc(tlb, ptdesc);
+>>>    	}
+>>>    }
+>>> @@ -136,8 +139,12 @@ static inline void p4d_free(struct mm_struct *mm, p4d_t *p4d)
+>>>    static inline void __p4d_free_tlb(struct mmu_gather *tlb, p4d_t *p4d,
+>>>    				  unsigned long addr)
+>>>    {
+>>> -	if (pgtable_l5_enabled)
+>>> -		tlb_remove_page_ptdesc(tlb, virt_to_ptdesc(p4d));
+>>> +	if (pgtable_l5_enabled) {
+>>> +		if (riscv_use_ipi_for_rfence())
+>>> +			tlb_remove_page_ptdesc(tlb, virt_to_ptdesc(p4d));
+>>> +		else
+>>> +			tlb_remove_ptdesc(tlb, virt_to_ptdesc(p4d));
+>>> +	}
+>>>    }
+>>>    #endif /* __PAGETABLE_PMD_FOLDED */
+>>> @@ -169,7 +176,10 @@ static inline void __pmd_free_tlb(struct mmu_gather *tlb, pmd_t *pmd,
+>>>    	struct ptdesc *ptdesc = virt_to_ptdesc(pmd);
+>>>    	pagetable_pmd_dtor(ptdesc);
+>>> -	tlb_remove_page_ptdesc(tlb, ptdesc);
+>>> +	if (riscv_use_ipi_for_rfence())
+>>> +		tlb_remove_page_ptdesc(tlb, ptdesc);
+>>> +	else
+>>> +		tlb_remove_ptdesc(tlb, ptdesc);
+>>>    }
+>>>    #endif /* __PAGETABLE_PMD_FOLDED */
+>>> @@ -180,7 +190,10 @@ static inline void __pte_free_tlb(struct mmu_gather *tlb, pgtable_t pte,
+>>>    	struct ptdesc *ptdesc = page_ptdesc(pte);
+>>>    	pagetable_pte_dtor(ptdesc);
+>>> -	tlb_remove_page_ptdesc(tlb, ptdesc);
+>>> +	if (riscv_use_ipi_for_rfence())
+>>> +		tlb_remove_page_ptdesc(tlb, ptdesc);
+>>> +	else
+>>> +		tlb_remove_ptdesc(tlb, ptdesc);
+>>>    }
+>>>    #endif /* CONFIG_MMU */
+>>> diff --git a/arch/riscv/include/asm/tlb.h b/arch/riscv/include/asm/tlb.h
+>>> index 1eb5682b2af6..a0b8b853503f 100644
+>>> --- a/arch/riscv/include/asm/tlb.h
+>>> +++ b/arch/riscv/include/asm/tlb.h
+>>> @@ -10,6 +10,24 @@ struct mmu_gather;
+>>>    static void tlb_flush(struct mmu_gather *tlb);
+>>> +#ifdef CONFIG_MMU
+>>> +#include <linux/swap.h>
+>>> +
+>>> +/*
+>>> + * While riscv platforms with riscv_ipi_for_rfence as true require an IPI to
+>>> + * perform TLB shootdown, some platforms with riscv_ipi_for_rfence as false use
+>>> + * SBI to perform TLB shootdown. To keep software pagetable walkers safe in this
+>>> + * case we switch to RCU based table free (MMU_GATHER_RCU_TABLE_FREE). See the
+>>> + * comment below 'ifdef CONFIG_MMU_GATHER_RCU_TABLE_FREE' in include/asm-generic/tlb.h
+
+
+A direct link would be better, I did not find the comment you mention 
+here and even though, it can still move around later.
+
+And then you can add:
+
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+Thanks!
+
+Alex
+
+
+>>> + * for more details.
+>>> + */
+>>> +static inline void __tlb_remove_table(void *table)
+>>> +{
+>>> +	free_page_and_swap_cache(table);
+>>> +}
+>>> +
+>>> +#endif /* CONFIG_MMU */
+>>> +
+>>>    #define tlb_flush tlb_flush
+>>>    #include <asm-generic/tlb.h>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
