@@ -4,84 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF809C47074
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jan 2024 19:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41522C47074
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jan 2024 19:43:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t39aLewgX9xPVX77ojP6AGVNi0GRE3HTiTX+eWIhfTY=; b=WpCAo14i3qriXK
-	RMX46qyLOK3hKwU/b2MBRKVeue10ifRNf61Im4TByG1dJ6CNR7BbmN+pWCqK3autLgp1O1UMj2M38
-	cq0yX1tWcR5qRpN1TgPU1CERHf/sXf4bMCOClrBhZmIy4GfRwamr7NpZeqbIdk4q8Nd9AMzG1+dQ6
-	4y9WU2SM6bqiIuIzHFsvGcBRn0b7FMl9sZlPTLSTMQuB3DZL3C6nZcOOaM0GMgH4FalhXBMtK5SQw
-	Szt8nOql3EFt1hj9yFCdEVnDUfqDn6FEQx5Wtt3jyD5H5q2oT6GG9t6yr3kjKnGi741UYrmcgQTIi
-	8CD7r5P9J5sSilqZZgUQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CqNFuL/sekq3Gotzbvbpl1IFZqsQ4+fws1h5WOd6xNE=; b=2ThHWvWpcY0gaS
+	TMQzsLmxUsy2jriLbdfCdHlIfb1MHnkiiJAANSxsRMT/meyvc8pe/MV08tNE5HspZ/d2KHKVQ52bg
+	oRGg5pf2+0nukFQsCEAVq8KEThlpBlSc2UZ7opaVxcXaMMJrgUq/KRejql7dyo1GriKh0MEeKeJJ4
+	ZG8PWD5//QSf3CIrtCKWpSlWHJz0VM6L/6dJkSRpQ9jnncaiv8e5dWajqvgyDzw5r3sEw2++ijCc+
+	m5ZN3NFeWh6gRV22/m4KhfuefkoLmuvdIucpDXcsd1CPFAxalriArv0WmndNFEyMgfih09b500P3o
+	f4wb/AYRlgmF8B2tDl8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLTW3-00F6N4-2x;
-	Thu, 04 Jan 2024 19:36:31 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1rLTcN-00F72u-2p;
+	Thu, 04 Jan 2024 19:43:03 +0000
+Received: from mail-il1-x12c.google.com ([2607:f8b0:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLTW0-00F6KS-1c
+	id 1rLTcK-00F71P-2G
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jan 2024 19:36:30 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-6da9c834646so588505b3a.3
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Jan 2024 11:36:25 -0800 (PST)
+	Thu, 04 Jan 2024 19:43:02 +0000
+Received: by mail-il1-x12c.google.com with SMTP id e9e14a558f8ab-36066190a99so3253975ab.3
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Jan 2024 11:42:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1704396985; x=1705001785; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5jyLPzGlkBzpMC1Ie2DgS7N7g7HFIfbpKPqTLTs2R68=;
-        b=sLSVf7iRCsm/+hO9SzfV6w+8Id9eNoIxTMWDP67uyUV69jXNT/tY1+e1mFJuFrxD41
-         2ym5dqJKsAWeXLkIWeFKOiyKPPzQqtv7IqGOcxJf7x1n7cZmA4AV2nhWhDhyIFEsWcSL
-         LgsmH5P8x7b4IpCFndi8pj/N/1J1L3DzA2GM5LUIu91WMhDFm9raUb1XEdAmxMh6+Aal
-         54t5KWZmHTxLfG1sCxfnS3R4PrbWW18S1pjVr96yzNmeyhnMyQeT/Tg9bsvYZcz1g4PF
-         eQYhPjRba+cVtSvabI52Ji7KrDgxnWWtUaG0ccUbnVtT/tUXyXmiKOuqxK4FZ5Zxo6Ow
-         0eqQ==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1704397375; x=1705002175; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zZ4NebEk/v8RtkZO7csT64Y6aHb7A5Z83OOo99KtSl4=;
+        b=m6kRztunt0ED8DOdBWm+UwHM2LbnmO1USFYIA85SQgxkOWlVbXjtVgVIpqMmH+RLKU
+         hdabr0X4gYhbNzp6RTAs0rljgqMHORlu3cOUXid3xsuOHw2HhW3/82rSWHdmE6TGxJFR
+         VzG/peLgidjcFBUnt1GNzmJv4n5YPHZ9+eCrnVJf74Ct7cVHcFz37lXvDLNOYqUKBA6h
+         LrI8rrj3dx9MdTp0ofyTa3EcM62WHsVhRJov0QofOojjDILLNQiIsc71j9+cUnH9F3lh
+         Y3RAxjRr91OCtdG35808JU3rBYvL//mEkIX05NRg+utI/eqfVaoEAkBkWZfc/nqggdTL
+         nLbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704396985; x=1705001785;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5jyLPzGlkBzpMC1Ie2DgS7N7g7HFIfbpKPqTLTs2R68=;
-        b=P9kiULlUo+RTTGFlHi+rjQAOvhAjP3f7chGbVmWjrsXXHHWlFrorM6+OhuINXrLFXp
-         w8FYlxxzBiGhZl0cTNhL251+2a4m6yGOhc5bovC61AbTXt+hmxYDJSMSI9fFt1+sNVpU
-         k+ArHDWYd1y2ftVcVpA+4chKy0yk1TGaT9r74NkDinZ2Lo0bF585veX+rWVsNp2kS2G/
-         vqMAqmJIy1X6Lu29nrkvk/RJEWbY1H9UHIs5riKqjh1EThnD+M11c0pM8bwyW6wnSwkC
-         0AXqkdz1uqTqxLpf7tv9/O6zjFQ/Bdly9eeQiq9gI847QiY3YWKxYzJ1WQaVEC0nEJ8s
-         lh4A==
-X-Gm-Message-State: AOJu0YxUdxWoYCzMNFpz26UMDh+hSgikuW0Iclz4bNwzAUtZh090ORo8
-	t8rnsKvUQHYEa6nC0i1/aSuXu0O4mxHlxg==
-X-Google-Smtp-Source: AGHT+IG/iL6sTjfq2ya9QGl5wDoK7MD1hL09Yv8G/ovDwT5oWVUmHs7UgRl9PtyO8HocqpDkSoN/6g==
-X-Received: by 2002:a05:6a20:8415:b0:197:5be1:262b with SMTP id c21-20020a056a20841500b001975be1262bmr1108314pzd.83.1704396984958;
-        Thu, 04 Jan 2024 11:36:24 -0800 (PST)
-Received: from ghost ([2601:647:5700:6860:bd91:d703:f34:7cf7])
-        by smtp.gmail.com with ESMTPSA id ko7-20020a056a00460700b006d9a0694f93sm23013pfb.205.2024.01.04.11.36.24
+        d=1e100.net; s=20230601; t=1704397375; x=1705002175;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zZ4NebEk/v8RtkZO7csT64Y6aHb7A5Z83OOo99KtSl4=;
+        b=Iop3PTwIVeYT8je1yqLhmNOlhzwea26TdEmrQkFrmJMFvTA+xVvz8Cm/uJKLgCQpnt
+         HAQVzM6QKcFr9C3nKr3CwRi1lzOImhc60BGVvQdV1RuMPhOQRjs0o3oeTFP/Np93coxR
+         0iv037BDMpui+DGMU0p+6Str9gHIl+X/MS9/Wz0Iez8LOyHP827b4vPtRE16BVftTyYb
+         YbfHbNJB2PmxMWE+McElkQwHpU/Oj5rNqYEitH7tCt1TgCKbM1YR7KK/a433MpKiCliE
+         X+M1VUGh0s+2jJysrEqH5PAqZ2F2vzxDVyoVI3m/DnIe1W+5YZ+h2a2HaA164b+Qa0jf
+         8SNg==
+X-Gm-Message-State: AOJu0YyWrzjlKiG1OpvGWPkVDyQ+HygPVPx750fuyxUiA7SZEG5Yh5l4
+	1t3TuFPVc30NY5b7xn7R2GRw2ah77WhATA==
+X-Google-Smtp-Source: AGHT+IHsElya+8s71eEn1wxhXEYSAasDbnd+VBq9vmycNipi4gm/93N0ihC5hlaYRI+LIQoFk7OxiQ==
+X-Received: by 2002:a05:6e02:19c9:b0:35f:e71f:4c60 with SMTP id r9-20020a056e0219c900b0035fe71f4c60mr1114054ill.13.1704397375175;
+        Thu, 04 Jan 2024 11:42:55 -0800 (PST)
+Received: from charlie.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id o10-20020a92daca000000b0035d0da89a0asm19606ilq.6.2024.01.04.11.42.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Jan 2024 11:36:24 -0800 (PST)
-Date: Thu, 4 Jan 2024 11:36:22 -0800
+        Thu, 04 Jan 2024 11:42:54 -0800 (PST)
 From: Charlie Jenkins <charlie@rivosinc.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel test robot <lkp@intel.com>,
-	Dan Carpenter <error27@gmail.com>
-Subject: Re: [PATCH v2 4/4] riscv: Convert relocation iterator to do-while
-Message-ID: <ZZcIthn20O1l1DDL@ghost>
-References: <20240103-module_loading_fix-v2-0-292b160552c9@rivosinc.com>
- <20240103-module_loading_fix-v2-4-292b160552c9@rivosinc.com>
- <39727434-a265-484b-9ee6-da6611487b47@moroto.mountain>
+Subject: [PATCH v3 0/3] riscv: modules: Fix module loading error handling
+Date: Thu, 04 Jan 2024 11:42:46 -0800
+Message-Id: <20240104-module_loading_fix-v3-0-a71f8de6ce0f@rivosinc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <39727434-a265-484b-9ee6-da6611487b47@moroto.mountain>
+X-B4-Tracking: v=1; b=H4sIADcKl2UC/33NTQrCMBCG4atI1kaS6Y/GlfcQKWkytgNtIokGp
+ fTupgU3Ii7fD+aZiUUMhJEdNxMLmCiSdzmK7YaZXrsOOdncDAQUEmTBR28fAzaD15Zc11zpyQt
+ taluiPkhQLB/eAuZ5Rc+X3D3Fuw+v9UeSy/qXS5JLbrVq90aBtlidAiUfyZmd8SNbxAQfpRRS/
+ FaACw4KWlmLqgKjvpR5nt9RWVTg/QAAAA==
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>, 
+ kernel test robot <lkp@intel.com>, Dan Carpenter <error27@gmail.com>, 
+ Julia Lawall <julia.lawall@inria.fr>, 
+ Dan Carpenter <dan.carpenter@linaro.org>
+X-Mailer: b4 0.12.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1704397374; l=1029;
+ i=charlie@rivosinc.com; s=20231120; h=from:subject:message-id;
+ bh=6NGr/DoKC3/yzJo7z44jpZYiAVYTGaXxLfBI12gIXoY=;
+ b=4RPWQTDdkNAFI4p28vauTpKQftHTQB59nLae7uu4QHL1PR/S3LNN1lSC8AXI9pvl+rvxuasHi
+ M9GLKbADcLKCXc1VW8mARqzk+s+jdiIP5Fk0HhmFkG5mpku3yh9YCqw
+X-Developer-Key: i=charlie@rivosinc.com; a=ed25519;
+ pk=t4RSWpMV1q5lf/NWIeR9z58bcje60/dbtxxmoSfBEcs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240104_113628_766250_009B7AE5 
-X-CRM114-Status: GOOD (  28.23  )
+X-CRM114-CacheID: sfid-20240104_114300_769669_452E3814 
+X-CRM114-Status: UNSURE (   6.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,66 +105,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 04, 2024 at 03:35:55PM +0300, Dan Carpenter wrote:
-> On Wed, Jan 03, 2024 at 12:22:03PM -0800, Charlie Jenkins wrote:
-> > Use a do-while loop to iterate through relocation entries to prevent
-> > curr_type from being marked as uninitialized.
-> > 
-> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > Fixes: d8792a5734b0 ("riscv: Safely remove entries from relocation list")
-> > Reported-by: kernel test robot <lkp@intel.com>
-> > Reported-by: Dan Carpenter <error27@gmail.com>
-> > Closes: https://lore.kernel.org/r/202312130859.wnkuzVWY-lkp@intel.com/
-> > ---
-> >  arch/riscv/kernel/module.c | 26 +++++++++++++++++++++-----
-> >  1 file changed, 21 insertions(+), 5 deletions(-)
-> > 
-> > diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-> > index ceb0adb38715..581e425686ab 100644
-> > --- a/arch/riscv/kernel/module.c
-> > +++ b/arch/riscv/kernel/module.c
-> > @@ -633,15 +633,31 @@ process_accumulated_relocations(struct module *me,
-> >  					  bucket_iter->bucket, node) {
-> >  			buffer = 0;
-> >  			location = rel_head_iter->location;
-> > -			list_for_each_entry_safe(rel_entry_iter,
-> > -						 rel_entry_iter_tmp,
-> > -						 rel_head_iter->rel_entry,
-> > -						 head) {
-> > +			rel_entry_iter =
-> > +				list_first_entry(rel_head_iter->rel_entry,
-> > +						 typeof(*rel_entry_iter), head);
-> > +			rel_entry_iter_tmp =
-> > +				list_next_entry(rel_entry_iter, head);
-> > +
-> > +			/*
-> > +			 * Iterate through all relocation entries that share
-> > +			 * this location. This uses a do-while loop instead of
-> > +			 * list_for_each_entry_safe since it is known that there
-> > +			 * is at least one entry and curr_type needs to be the
-> > +			 * value of the last entry when the loop exits.
-> > +			 */
-> 
-> I know that I reported this static checker and all, but actually after
-> reading this comment, I think we should stay with original code.  So
-> long as we know the list has "least one entry" which we do then the
-> original code worked fine.
-> 
-> To be honest, I probably would not have even reported this static
-> checker warning except that I saw there were some other issues and
-> thought "Eh, why not throw this warning in as well, in case the list
-> can be empty."
+When modules are loaded while there is not ample allocatable memory,
+there was previously not proper error handling. This series fixes a
+use-after-free error and a different issue that caused a non graceful
+exit after memory was not properly allocated.
 
-That makes sense, I will drop that patch.
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+---
+Changes in v3:
+- Drop patch using do-while
+- Link to v2: https://lore.kernel.org/r/20240103-module_loading_fix-v2-0-292b160552c9@rivosinc.com
 
+Changes in v2:
+- Split changes across multiple patches
+- Link to v1: https://lore.kernel.org/r/20231213-module_loading_fix-v1-1-da9b7c92ade5@rivosinc.com
+
+---
+Charlie Jenkins (3):
+      riscv: Fix module loading free order
+      riscv: Correctly free relocation hashtable on error
+      riscv: Fix relocation_hashtable size
+
+ arch/riscv/kernel/module.c | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
+---
+base-commit: a39b6ac3781d46ba18193c9dbb2110f31e9bffe9
+change-id: 20231213-module_loading_fix-3ac6d4ea8129
+-- 
 - Charlie
 
-> 
-> The other three patches look good.
-> 
-> regards,
-> dan carpenter
-> 
 
 _______________________________________________
 linux-riscv mailing list
