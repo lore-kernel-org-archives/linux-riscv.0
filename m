@@ -4,83 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C8F1C4707C
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jan 2024 16:25:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C349CC47074
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Jan 2024 16:41:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/NWk/DypDMi4RYfIgEo9UmrOx8pUAKadUVJUXLjH4A0=; b=ZkEzPpd7XezJ7Q
-	S/rZXBVVyJJ0JP7bU+oKAz4DJS4Teq9Qzfg3IP+CgOOcn1CCusiwFiZfwC9iOzXOAmvS5+usYuhLY
-	E8pALfC4EXOkVeghXUfmzFAyNktk3iohMOM1e65P+lzR4jl7nAMuJU+vjrpuNIiSzHaVH0BqB9avu
-	eTVQ41rKieNjMoNsN2qhAEmCDUoV6fuYAtIhG6vAHiAaBnS3zH/GH4rUrWvG8mP2lHovg4tPyFIuz
-	Opo5LB7Pnvx3GJ4/zUAd2hOVFAYsaG1aTArRvcLF50EEovicLuYbBzV0ftrRIcBenWYNUCtECkwhH
-	rQIxzU11HMqF+bz1i9Wg==;
+	List-Owner; bh=aNlHcPrLz+YsRirZj59OV9L/IkdWCLzDEiic7s9k+oo=; b=Hl7Ol2FmnFYiBE
+	zD5MftBM9uuT5QJj4ACkRzcZRuY5S6Gtu9SqZlVEFqoO4rsezb81XI9NB3NRg9jDy7pOQ9Ayhf2oq
+	/8uUqCGSo+N/L+hJRPEY5M6dx5F640ldfFooopiZ71tZf4T+KThswHM/xADDHQw/dnfe6LnJVd0D7
+	kr3yeKDcbtWf/FgkbOLUkxoN9BBacihmXB3HBYAPSEPW1sGBksTRvQQnmRzdZ1SBzXZWHx7nCLemI
+	B0uEXv3aJPGNuz0z1hOnn3ARe9Xx0GhPKp1biiw6mKUgb5iXDMVxseQHy+7ngz0YZFKuxJPOOxeYs
+	3WPYFs6fPVhbNRZoL8Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLQWw-00EeZb-1K;
-	Thu, 04 Jan 2024 16:25:14 +0000
-Received: from mail-yb1-f170.google.com ([209.85.219.170])
+	id 1rLQmB-00EiVx-25;
+	Thu, 04 Jan 2024 16:40:59 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLQWt-00EeZ5-0S
+	id 1rLQm8-00EiTH-0I
 	for linux-riscv@lists.infradead.org;
-	Thu, 04 Jan 2024 16:25:12 +0000
-Received: by mail-yb1-f170.google.com with SMTP id 3f1490d57ef6-dbdacafe012so630444276.1
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Jan 2024 08:25:10 -0800 (PST)
+	Thu, 04 Jan 2024 16:40:57 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-50ea9daac4cso773785e87.3
+        for <linux-riscv@lists.infradead.org>; Thu, 04 Jan 2024 08:40:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1704386452; x=1704991252; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=y2FqLd+7fSNFOVRetfmjHxaVxLnzYZGauh/919f31n4=;
+        b=hanMmbDTTK1x1bpOHKI2ZK1fM9KHoUap0lLLS4Gdm4sVlmBrpM7RWptcYLYolUT5Wb
+         pQ71UYDFX77/CbMFWRTGoomOLk/8QVjR/FD9B9rq0YhIDSc2RbEVIcuYtAutA1QChZyQ
+         i+70t0itXOZGObvl7am3VDp4h4UQ84foN24y6THpBZcqaOcFSibf5Fv2pe9UWK/l6Q6e
+         RpigmpGS21dpcTjOExKIIYnQlYFFtfj2dytUrlOSU1FfXreng6w7VRG8j6Tafatvlhti
+         3nSA4C4ER2Ns06KLqDwK2CxAFt8FeVHiZtvSQsGNl+loJSZjqerOLU0r4DELrHWuEVgy
+         V08g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704385509; x=1704990309;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MBdLCUmjrZ1+GTPDcEU99j/uV9mS9a4gKvyVmqcT1n4=;
-        b=IULJX/ezWUXMaaZIaPBvavvU/M8UQxlvuRZvMhyhs+c/jaW8sh2kDXDpyGYjiDL7D8
-         tJH85SsRbX6LhyUUhSBXLBgdDPpo0joM8yQ364nnFBtYTua7C5+p7y2wa6/ZSzx9uqr+
-         d+R47QP3NBx0f2X+htSX10+CM3CvaH7TW2TiU86KgWv/D46eBmRRVcbYI/zsZ0M2r7+7
-         8AeIC116HPyq5sNVyauLphMt7K8MX2nnBV7t2MxK7kVhKT48l01RpzS2JT/5oc2A0beS
-         o+9qfEbfh0asXf29IkW7D5FSsTvvZULJGmmjApNzIYy+lhro0uKbxKdcBzuIvC7E+tVJ
-         O2ug==
-X-Gm-Message-State: AOJu0YyTRijLH8YdzkCm6wGOC5aBMXbn6+sfpvlC8l4ZT7cXcTc1sXFV
-	b+vhHKRWYcrhoT7E1OZjsepXz/ZtB/ZL+A==
-X-Google-Smtp-Source: AGHT+IHxTI7FV39nYX1OCxFi8794dZAbh6BYyKIHWot6ZKoHD97mO7QtA4zwo5TfrLrgzuQVxJfpLA==
-X-Received: by 2002:a05:6902:4ee:b0:dbd:c423:ec6c with SMTP id w14-20020a05690204ee00b00dbdc423ec6cmr814523ybs.69.1704385509131;
-        Thu, 04 Jan 2024 08:25:09 -0800 (PST)
-Received: from mail-yw1-f172.google.com (mail-yw1-f172.google.com. [209.85.128.172])
-        by smtp.gmail.com with ESMTPSA id x6-20020a5b0f06000000b00da02a2ef6afsm8945931ybr.30.2024.01.04.08.25.08
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Jan 2024 08:25:08 -0800 (PST)
-Received: by mail-yw1-f172.google.com with SMTP id 00721157ae682-5f254d1a6daso6652317b3.2
-        for <linux-riscv@lists.infradead.org>; Thu, 04 Jan 2024 08:25:08 -0800 (PST)
-X-Received: by 2002:a81:5307:0:b0:5e7:7526:62b5 with SMTP id
- h7-20020a815307000000b005e7752662b5mr924671ywb.44.1704385508356; Thu, 04 Jan
- 2024 08:25:08 -0800 (PST)
+        d=1e100.net; s=20230601; t=1704386452; x=1704991252;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=y2FqLd+7fSNFOVRetfmjHxaVxLnzYZGauh/919f31n4=;
+        b=HUfa4xuDKoaeHIcLsBmyNahLjr421gyQlHma+Aypmi5fBo0/ho0ErnE+U0RzmJThPm
+         fig8CVK/Ges4l3en2f+RxbFutMqZ/rOmtZaGOxhVtvjUvRYGSAVu+i8FWhZJuetMShq+
+         lCLAXiTwVMZ/wu/Fsqj31eNojl6SnbbDNG8TlwpP0g+JBn3CQDafuY8+lT8GWXigLaJA
+         BfXuQ6LHE8cdNGCJJ9G3W7T7s2rpTvzmoRG+xo4fxidGSNauOIyIUgwJogXIYorniqhl
+         +OOsy5rpxgbwPGlv3NcmO+ZP8/NgaBoIidUAd2+zyee81QDcM71v8j8RN4h6GD9wk11W
+         d8sQ==
+X-Gm-Message-State: AOJu0YxJRSoGFfWVKuUsEotb2PNYXphtlFr14LxvC6pFxTteFd2yE139
+	Ng8mWHHqExVoTIjywdumKDtLZb/xgHFo5A==
+X-Google-Smtp-Source: AGHT+IGFO2UvTUj/ZscmTQoKmtFIQwFPXy9Y4BV7rHK7k8Pt7EyqdVTqewSUkncC86IP3RAOZJP0Rw==
+X-Received: by 2002:ac2:5bdb:0:b0:50e:7a2d:6cd7 with SMTP id u27-20020ac25bdb000000b0050e7a2d6cd7mr473965lfn.55.1704386451954;
+        Thu, 04 Jan 2024 08:40:51 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id ez9-20020a056402450900b0055504002a5fsm13025509edb.72.2024.01.04.08.40.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 04 Jan 2024 08:40:51 -0800 (PST)
+Date: Thu, 4 Jan 2024 17:40:50 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Leonardo Bras <leobras@redhat.com>
+Subject: Re: Re: Re: Re: [PATCH V2 1/3] riscv: Add Zicbop instruction
+ definitions & cpufeature
+Message-ID: <20240104-d6981cf63a39af4dff1d380a@orel>
+References: <20231231082955.16516-1-guoren@kernel.org>
+ <20231231082955.16516-2-guoren@kernel.org>
+ <ZZWs0C19tz763FnH@LeoBras>
+ <20240103-0c96ceea88523b7b946e4ba8@orel>
+ <ZZXEpU-JzsvD2UDW@LeoBras>
+ <20240104-4ecfb92d2f8c95fa773ca695@orel>
+ <ZZbI3clKUbNbNtZj@LeoBras>
 MIME-Version: 1.0
-References: <20231201131551.201503-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20231201131551.201503-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <CAMuHMdUiaL__+CDaFxRbUFgrz69SYBNfZm4JvY_qQRKLMTCY0w@mail.gmail.com>
- <CA+V-a8tTWf8Kx-Ex=DPsSR2ZWHC29N_pAoEZN1sR5Nqobf139A@mail.gmail.com>
- <CAMuHMdXosvV=EuRtL69r6=UT0SO8Aq-XjWwJMJQpWAhT2z+ffA@mail.gmail.com> <CA+V-a8tNeiyvK90urPF9s3JZOav77TRO8xdAEiCmYurrf3-4RA@mail.gmail.com>
-In-Reply-To: <CA+V-a8tNeiyvK90urPF9s3JZOav77TRO8xdAEiCmYurrf3-4RA@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 4 Jan 2024 17:24:55 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXYEBg7MMJG7tqDib8eaKdvd4Fxo+ZR8K8Vq82DzjSaqg@mail.gmail.com>
-Message-ID: <CAMuHMdXYEBg7MMJG7tqDib8eaKdvd4Fxo+ZR8K8Vq82DzjSaqg@mail.gmail.com>
-Subject: Re: [PATCH v3 1/3] pinctrl: renesas: rzg2l: Include pinmap in
- RZG2L_GPIO_PORT_PACK() macro
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Linus Walleij <linus.walleij@linaro.org>, 
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Disposition: inline
+In-Reply-To: <ZZbI3clKUbNbNtZj@LeoBras>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240104_082511_179174_E41D88B5 
-X-CRM114-Status: GOOD (  38.79  )
+X-CRM114-CacheID: sfid-20240104_084056_132516_6317F11E 
+X-CRM114-Status: GOOD (  40.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,89 +91,133 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Guo Ren <guoren@linux.alibaba.com>, keescook@chromium.org, atishp@atishpatra.org, peterz@infradead.org, unicorn_wang@outlook.com, paul.walmsley@sifive.com, chao.wei@sophgo.com, bjorn@rivosinc.com, linux-kernel@vger.kernel.org, xiaoguang.xing@sophgo.com, conor.dooley@microchip.com, wuwei2016@iscas.ac.cn, palmer@dabbelt.com, jszhang@kernel.org, panqinglin2020@iscas.ac.cn, guoren@kernel.org, linux-riscv@lists.infradead.org, wefu@redhat.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUHJhYmhha2FyLAoKT24gVGh1LCBKYW4gNCwgMjAyNCBhdCA0OjU14oCvUE0gTGFkLCBQcmFi
-aGFrYXIKPHByYWJoYWthci5jc2VuZ2dAZ21haWwuY29tPiB3cm90ZToKPiBPbiBUdWUsIEphbiAy
-LCAyMDI0IGF0IDEwOjE44oCvQU0gR2VlcnQgVXl0dGVyaG9ldmVuIDxnZWVydEBsaW51eC1tNjhr
-Lm9yZz4gd3JvdGU6Cj4gPiBPbiBUaHUsIERlYyAyMSwgMjAyMyBhdCAxMDowNOKAr1BNIExhZCwg
-UHJhYmhha2FyCj4gPiA8cHJhYmhha2FyLmNzZW5nZ0BnbWFpbC5jb20+IHdyb3RlOgo+ID4gPiBP
-biBXZWQsIERlYyA2LCAyMDIzIGF0IDE6MTPigK9QTSBHZWVydCBVeXR0ZXJob2V2ZW4gPGdlZXJ0
-QGxpbnV4LW02OGsub3JnPiB3cm90ZToKPiA+ID4gPiBPbiBGcmksIERlYyAxLCAyMDIzIGF0IDI6
-MTbigK9QTSBQcmFiaGFrYXIgPHByYWJoYWthci5jc2VuZ2dAZ21haWwuY29tPiB3cm90ZToKPiA+
-ID4gPiA+IEZyb206IExhZCBQcmFiaGFrYXIgPHByYWJoYWthci5tYWhhZGV2LWxhZC5yakBicC5y
-ZW5lc2FzLmNvbT4KPiA+ID4gPiA+Cj4gPiA+ID4gPiBDdXJyZW50bHkgd2UgYXNzdW1lIGFsbCB0
-aGUgcG9ydCBwaW5zIGFyZSBzZXF1ZW50aWFsIGllIGFsd2F5cyBQWF8wIHRvCj4gPiA+ID4gPiBQ
-WF9uIChuPTEuLjcpIGV4aXN0LCBidXQgb24gUlovRml2ZSBTb0Mgd2UgaGF2ZSBhZGRpdGlvbmFs
-IHBpbnMgUDE5XzEgdG8KPiA+ID4gPiA+IFAyOF81IHdoaWNoIGhhdmUgaG9sZXMgaW4gdGhlbSwg
-Zm9yIGV4YW1wbGUgb25seSBvbmUgcGluIG9uIHBvcnQxOSBpcwo+ID4gPiA+ID4gYXZhaWxhYmxl
-IGFuZCB0aGF0IGlzIFAxOV8xIGFuZCBub3QgUDE5XzAuIFNvIHRvIGhhbmRsZSBzdWNoIGNhc2Vz
-Cj4gPiA+ID4gPiBpbmNsdWRlIHBpbm1hcCBmb3IgZWFjaCBwb3J0IHdoaWNoIHdvdWxkIGluZGlj
-YXRlIHRoZSBwaW4gYXZhaWxhYmlsaXR5Cj4gPiA+ID4gPiBvbiBlYWNoIHBvcnQuIEFzIHRoZSBw
-aW5jb3VudCBjYW4gYmUgY2FsY3VsYXRlZCBiYXNlZCBvbiBwaW5tYXAgZHJvcCB0aGlzCj4gPiA+
-ID4gPiBmcm9tIFJaRzJMX0dQSU9fUE9SVF9QQUNLKCkgbWFjcm8gYW5kIHVwZGF0ZSBSWkcyTF9H
-UElPX1BPUlRfR0VUX1BJTkNOVCgpCj4gPiA+ID4gPiBtYWNyby4KPiA+ID4gPiA+Cj4gPiA+ID4g
-PiBQcmV2aW91c2x5IHdlIGhhZCBhIG1heCBvZiA3IHBpbnMgb24gZWFjaCBwb3J0IGJ1dCBvbiBS
-Wi9GaXZlIFBvcnQtMjAKPiA+ID4gPiA+IGhhcyA4IHBpbnMsIHNvIG1vdmUgdGhlIHNpbmdsZSBw
-aW4gY29uZmlndXJhdGlvbiB0byBCSVQoNjMpLgo+ID4gPiA+ID4KPiA+ID4gPiA+IFNpZ25lZC1v
-ZmYtYnk6IExhZCBQcmFiaGFrYXIgPHByYWJoYWthci5tYWhhZGV2LWxhZC5yakBicC5yZW5lc2Fz
-LmNvbT4KPiA+ID4gPgo+ID4gPiA+IFRoYW5rcyBmb3IgeW91ciBwYXRjaCEKPiA+ID4gPgo+ID4g
-PiA+ID4gLS0tIGEvZHJpdmVycy9waW5jdHJsL3JlbmVzYXMvcGluY3RybC1yemcybC5jCj4gPiA+
-ID4gPiArKysgYi9kcml2ZXJzL3BpbmN0cmwvcmVuZXNhcy9waW5jdHJsLXJ6ZzJsLmMKPiA+ID4g
-PiA+IEBAIC04MCwxNSArODAsMTcgQEAKPiA+ID4gPiA+ICAgKiBuIGluZGljYXRlcyBudW1iZXIg
-b2YgcGlucyBpbiB0aGUgcG9ydCwgYSBpcyB0aGUgcmVnaXN0ZXIgaW5kZXgKPiA+ID4gPiA+ICAg
-KiBhbmQgZiBpcyBwaW4gY29uZmlndXJhdGlvbiBjYXBhYmlsaXRpZXMgc3VwcG9ydGVkLgo+ID4g
-PiA+ID4gICAqLwo+ID4gPiA+ID4gLSNkZWZpbmUgUlpHMkxfR1BJT19QT1JUX1BBQ0sobiwgYSwg
-ZikgICgoKG4pIDw8IDI4KSB8ICgoYSkgPDwgMjApIHwgKGYpKQo+ID4gPiA+ID4gLSNkZWZpbmUg
-UlpHMkxfR1BJT19QT1JUX0dFVF9QSU5DTlQoeCkgICgoKHgpICYgR0VOTUFTSygzMCwgMjgpKSA+
-PiAyOCkKPiA+ID4gPiA+ICsjZGVmaW5lIFJaRzJMX0dQSU9fUE9SVF9QQUNLKG4sIGEsIGYpICAo
-KChuKSA+IDAgPyAoKHU2NCkoR0VOTUFTS19VTEwoKChuKSAtIDEgKyAyOCksIDI4KSkpIDogMCkg
-fCBcCj4gPiA+ID4KPiA+ID4gPiBUaGUgbWFzayBjcmVhdGlvbiBjYW4gYmUgc2ltcGxpZmllZCB0
-bwo+ID4gPiA+Cj4gPiA+ID4gICAgICgoMVVMTCA8PCAobikpIC0gMSkgPDwgMjgKPiA+ID4gPgo+
-ID4gPiBPSy4KPiA+ID4KPiA+ID4gPiBidXQgc2VlIGJlbG93Li4uCj4gPiA+ID4KPiA+ID4gPiA+
-ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKChhKSA8PCAyMCkgfCAo
-ZikpCj4gPiA+ID4gPiArI2RlZmluZSBSWkcyTF9HUElPX1BPUlRfR0VUX1BJTk1BUCh4KSAgKCgo
-eCkgJiBHRU5NQVNLX1VMTCgzNSwgMjgpKSA+PiAyOCkKPiA+ID4gPiA+ICsjZGVmaW5lIFJaRzJM
-X0dQSU9fUE9SVF9HRVRfUElOQ05UKHgpICAoaHdlaWdodDgoUlpHMkxfR1BJT19QT1JUX0dFVF9Q
-SU5NQVAoKHgpKSkpCj4gPiA+ID4KPiA+ID4gPiBJIHRoaW5rIHdlJ3ZlIHJlYWNoZWQgdGhlIHBv
-aW50IHdoZXJlIGl0IHdvdWxkIGJlIGVhc2llciBmb3IgdGhlCj4gPiA+ID4gY2FzdWFsIHJldmll
-d2VyIHRvICNkZWZpbmUgUElOX0NGR18qX01BU0sgZm9yIGFsbCBmaWVsZHMsIGFuZCB1c2UKPiA+
-ID4gPiBGSUVMRF97UFJFUCxHRVR9KCkgdG8gcGFjayByZXNwLiBleHRyYWN0IHZhbHVlcy4gIFRo
-YXQgd291bGQgYWxzbwo+ID4gPiA+IG1ha2UgaXQgbW9yZSBvYnZpb3VzIHdoaWNoIGJpdHMgYXJl
-IGluIHVzZSwgYW5kIGhvdyBtYW55IGJpdHMgYXJlCj4gPiA+ID4gc3RpbGwgYXZhaWxhYmxlIGZv
-ciBmdXR1cmUgdXNlLgoKPiBUbyBjbGFyaWZ5LCB5b3UgbWVhbiB0byBkZWZpbmUgUElOX0NGR18q
-X01BU0sgZm9yIGFsbAo+IFBJTl9DRkdfSU9MSF9BLi5QSU5fQ0ZHX09FTiBtYWNyb3M/IEkgYXNr
-IGJlY2F1c2Ugd2UgZG9udCBleHRyYWN0IHRoZQo+IHJlc3BlY3RpdmUgQ0ZHIGZsYWdzIGluIHRo
-ZSBjb2RlLgoKVGhlIFBJTl9DRkdfSU9MSF9BLi5QSU5fQ0ZHX09FTiBtYWNyb3MgYXJlIHNpbmds
-ZS1iaXQgZGVmaW5pdGlvbnMuCkkgbWVhbiB0byAjZGVmaW5lIFBJTl9DRkdfKl9NQVNLIG1hY3Jv
-cyBmb3IgYWxsIG11bHRpLWJpdCBmaWVsZHMsIGN1cnJlbnRseQphY2Nlc3NlZCB1c2luZyBvcGVu
-LWNvZGVkIEdFTk1BU0soKS4KCllvdSBhbHJlYWR5IHRyaWVkOgoKICAgICNkZWZpbmUgUlpHMkxf
-R1BJT19QT1JUX1BJTl9DTlRfTUFTSyAgICBHRU5NQVNLKDMxLCAyOCkKICAgICNkZWZpbmUgUlpH
-MkxfR1BJT19QT1JUX1BJTl9SRUdfTUFTSyAgICBHRU5NQVNLKDI3LCAyMCkKICAgICNkZWZpbmUg
-UlpHMkxfR1BJT19QT1JUX1BJTl9DRkdfTUFTSyAgICBHRU5NQVNLKDE5LCAwKQoKQXMgdGhleSBh
-Y3R1YWxseSBzaGFyZSB0aGUgUElOX0NGR18qIGJpdCBzcGFjZSwgSSdkIGNhbGwgdGhlbToKCiAg
-ICAjZGVmaW5lIFBJTl9DRkdfUElOX0NOVF9NQVNLICAgIEdFTk1BU0soMzEsIDI4KQogICAgI2Rl
-ZmluZSBQSU5fQ0ZHX1BJTl9SRUdfTUFTSyAgICBHRU5NQVNLKDI3LCAyMCkKICAgICNkZWZpbmUg
-UElOX0NGR19NQVNLICAgIEdFTk1BU0soMTksIDApCgpBbHNvLCB5b3UgYWxyZWFkeSBoYXZlOgoK
-ICAgICNkZWZpbmUgTVVYX1BJTl9JRF9NQVNLICAgICAgICAgR0VOTUFTSygxNSwgMCkKICAgICNk
-ZWZpbmUgTVVYX0ZVTkNfTUFTSyAgICAgICAgICAgR0VOTUFTSygzMSwgMTYpCiAgICAjZGVmaW5l
-IE1VWF9GVU5DX09GRlMgICAgICAgICAgIDE2CgpCdXQgYWxsIG9mCgogICAgI2RlZmluZSBNVVhf
-RlVOQyhwaW5jb25mKSAgICAgICAoKChwaW5jb25mKSAmIE1VWF9GVU5DX01BU0spID4+Ck1VWF9G
-VU5DX09GRlMpCgogICAgcGluc1tpXSA9IHZhbHVlICYgTVVYX1BJTl9JRF9NQVNLOwoKY2FuIHVz
-ZSBGSUVMRF9HRVQoKSwgcmVtb3ZpbmcgdGhlIG5lZWQgZm9yIE1VWF9GVU5DX09GRlMuCgpBbHNv
-OgoKICAgIHU4IHBpbmNvdW50ID0gUlpHMkxfR1BJT19QT1JUX0dFVF9QSU5DTlQoY2ZnKTsKCmNh
-biBiZWNvbWUKCiAgICB1OCBwaW5jb3VudCA9IEZJRUxEX0dFVChQSU5fQ0ZHX1BJTl9DTlRfTUFT
-SywgY2ZnKTsKClNhbWUgZm9yIGFsbCB0aGUgb3RoZXIgbWFjcm9zIHVzaW5nIEdFTk1BU0soKS4K
-CkkgaG9wZSB0aGlzIG1ha2VzIGl0IG1vcmUgY2xlYXIgd2hhdCBJIGhhZCBpbiBtaW5kPwpUaGFu
-a3MhCgpHcntvZXRqZSxlZXRpbmd9cywKCiAgICAgICAgICAgICAgICAgICAgICAgIEdlZXJ0Cgot
-LSAKR2VlcnQgVXl0dGVyaG9ldmVuIC0tIFRoZXJlJ3MgbG90cyBvZiBMaW51eCBiZXlvbmQgaWEz
-MiAtLSBnZWVydEBsaW51eC1tNjhrLm9yZwoKSW4gcGVyc29uYWwgY29udmVyc2F0aW9ucyB3aXRo
-IHRlY2huaWNhbCBwZW9wbGUsIEkgY2FsbCBteXNlbGYgYSBoYWNrZXIuIEJ1dAp3aGVuIEknbSB0
-YWxraW5nIHRvIGpvdXJuYWxpc3RzIEkganVzdCBzYXkgInByb2dyYW1tZXIiIG9yIHNvbWV0aGlu
-ZyBsaWtlIHRoYXQuCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLS0gTGludXMgVG9y
-dmFsZHMKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
-dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Thu, Jan 04, 2024 at 12:03:57PM -0300, Leonardo Bras wrote:
+...
+> > > > > What we need here is something like:
+> > > > > + enum {
+> > > > > + 	PREFETCH_I,
+> > > > > + 	PREFETCH_R,
+> > > > > + 	PREFETCH_W,
+> > > > > + }	 
+> > > > 
+> > > > Can't use enum. This header may be included in assembly.
+> > > 
+> > > Oh, I suggest defines then, since it's better to make it clear instead of 
+> > > using 0, 1, 3.
+> > 
+> > I don't think we gain anything by adding another define in order to create
+> > the instruction define. We have to review the number sooner or later. I'd
+> > prefer we use the number inside the instruction define so we only need
+> > to look one place, which is also consistent with how we use FUNC fields.
+> > 
+> 
+> Sorry, I was unable to understand the reasoning.
+> 
+> If we are going to review the numbers sooner or later, would not it be 
+> better to have the instruction define to have "PREFETCH_W" instead of a 
+> number, and a unified list of defines for instructions.
+> 
+> This way we don't need to look into the code for 0's 1's and 3's, but 
+> instead just replace the number in the define list.
+> 
+> What am I missing?  
+
+PREFETCH_W isn't defined as just 3, it's defined as
+   INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(3), ...)
+
+Adding a define (PREFETCH_W_RS2?) for the 3 just bloats the code and
+requires reviewers of PREFETCH_W to go look up another define.
+OPCODE_OP_IMM gets a define because it's used in multiple instructions,
+but everything else in an instruction definition should be a number
+exactly matching the spec, making it easy to review, or be an argument
+passed into the instruction macro.
+
+> 
+> > > 
+> > > > 
+> > > > > +
+> > > > > + #define CBO_PREFETCH(type, base, offset)                      \
+> > > > > +     INSN_S(OPCODE_OP_IMM, FUNC3(6), __RS2(type),              \
+> > > > > +            SIMM12(offset & ~0x1f), RS1(base))
+> > > > 
+> > > > Yes. I suggested we mask offset as well, but ideally we'd detect a caller
+> > > > using an offset with nonzero lower 5 bits at compile time.
+> > > 
+> > > I would suggest the compiler would take care of this, but I am not sure 
+> > > about the assembly, since I am not sure if it gets any optimization.
+> > > 
+> > > I don't think we can detect a caller with non-zero offset at compile time, 
+> > > since it will be used in locks which can be at (potentially) any place in 
+> > > the block size. (if you have any idea though, please let me know :) )
+
+I forgot to reply to this before. The reason I think it may be possible to
+validate offset at compile time is because it must be a constant, i.e.
+__builtin_constant_p(offset) must return true. So maybe something like
+
+ static_assert(__builtin_constant_p(offset) && !(offset & 0x1f))
+
+I'll try to find time to play with it.
+
+> > > 
+> > > On the other hand, we could create a S-Type macro which deliberately 
+> > > ignores imm[4:0], like  
+> > > 
+> > > + INSN_S_TRUNCATE(OPCODE_OP_IMM, FUNC3(6), __RS2(3),               \
+> > > +                 SIMM12(offset), RS1(base))
+> > > 
+> > > Which saves the bits 11:5 of offset  into imm[11:5], and zero-fill 
+> > > imm[4:0], like
+> > > 
+> > > +#define DEFINE_INSN_S                                                    \
+> > > + __DEFINE_ASM_GPR_NUMS                                           \
+> > > +"        .macro insn_s, opcode, func3, rs2, simm12, rs1\n"               \
+> > > +"        .4byte  ((\\opcode << " __stringify(INSN_S_OPCODE_SHIFT) ") |"  \
+> > > +"                 (\\func3 << " __stringify(INSN_S_FUNC3_SHIFT) ") |"    \
+> > > +"                 (.L__gpr_num_\\rs2 << " __stringify(INSN_S_RS2_SHIFT) ") |" \
+> > > +"                 (.L__gpr_num_\\rs1 << " __stringify(INSN_S_RS1_SHIFT) ") |" \
+> > > +"                 (((\\simm12 >> 5) & 0x7f) << " __stringify(INSN_S_SIMM7_SHIFT) "))\n" \
+> > > +"        .endm\n"
+> > > +
+> > > 
+> > > Does this make sense?
+> > 
+> > If we create a special version of INSN_S, then I suggest we create one
+> > where its two SIMM fields are independent and then define prefetch
+> > instructions like this
+> > 
+> >  #define PREFETCH_W(base, offset) \
+> >      INSN_S_SPLIT_IMM(OPCODE_OP_IMM, FUNC3(6), __RS2(3), \
+> >          SIMM_11_5(offset >> 5), SIMM_4_0(0), RS1(base))
+> > 
+> > which would allow simple review against the spec and potentially
+> > support other instructions which use hard coded values in the
+> > immediate fields.
+> > 
+> 
+> I agree, it looks better this way.
+> 
+> We could have:
+> INSN_S_SPLIT_IMM(OPCODE, FUNC3, RS1, RS2, SIMM_11_5, SIMM_4_0)
+> 
+> and implement INSN_S like:
+> #define INSN_S(OPCODE, FUNC3, RS1, RS2, SIMM_11_0) \
+> 	INSN_S_SPLIT_IMM(OPCODE, FUNC3, RS1, RS2,  \
+> 		SIMM_11_0 >> 5, SIMM_11_0 & 0x1f)
+
+That won't work since SIMM_11_0 will be a string. Actually, with
+stringification in mind, I don't think defining INSN_S_SPLIT_IMM()
+is a good idea.
+
+Thanks,
+drew
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
