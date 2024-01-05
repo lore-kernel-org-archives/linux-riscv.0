@@ -4,91 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B92D3C3DA6E
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jan 2024 16:26:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DED68C3DA6E
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jan 2024 17:29:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:To:From:Date:References:
-	In-Reply-To:Message-Id:MIME-Version:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=9iEsBg3+QlxMgNuRzW5y017ZY7R5qAnS999e/qjhfDg=; b=OzchFDGspE8Vu/MC2CMWHrUp21
-	wDrtXmodDCEsenzh8ImolZA/5+VOYp7aG+d/qHj1p7qfobL4HSuLblyWGB+kJUdYKXDviril6TmDX
-	hEW4ZSh8P3LezKZcoNQX5jCK2fGh9Y3jNBQWke7hf0vfKyS5RBztdrxcWO3/adBrSVzag6TSL8edz
-	UWO23J4xYx2IMz79cXknsvkhbqNJVTanTV1zwRcAY6/BcoBIb++GaD4CIn/V5w5DTXabk5HWtel+k
-	0kRfOdhTYdHqZ0eRt3YZR9+rysjN+KsTaZZM9+18Sn58SYt6ouEIz6WTGnXMO5F04V7MMfjuh5lhj
-	kKnkW4Mw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=udAxQ2lCuNBdV5ke4miPo41dCNt3VLGcJ7FK9CHXd2s=; b=zbAC+PSvL6wd31
+	DjuhZZy4NSxdMLFMWXYwbtjDyPPxvJCoZ1fW9L1EDBSgHK2+TVAHK5ojxFDMDE3pKe9vQeBsERyP6
+	dovgF8YI/Iuz3Y4oy4G/k+gGjiGZcgEgGhCS1AOTDfNjCpNd2Gt85zOGfLccIttlm+5tkYLu88jt2
+	QX4NdZiOV6notEeFqlz5DWNVxxd2/IigKvxvlJrU7b6vv//rLGc2syZzew6L+QESPzN79A9pk2xvO
+	CGJ1Nt4eKQ2Km0N8Rtcq5gzFbmxSxemZN+wYGX2m0fVXJDBwKzlkKxZjQfztOT1XK2p7xWMqDlJkl
+	xPmxlpzar0xgZQsDqcIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLn1V-00HJd7-0z;
-	Fri, 05 Jan 2024 16:26:17 +0000
-Received: from wout5-smtp.messagingengine.com ([64.147.123.21])
+	id 1rLo0A-00HPo5-0h;
+	Fri, 05 Jan 2024 17:28:58 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLn1S-00HJch-0P
+	id 1rLo06-00HPn6-1z
 	for linux-riscv@lists.infradead.org;
-	Fri, 05 Jan 2024 16:26:15 +0000
-Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
-	by mailout.west.internal (Postfix) with ESMTP id CFAD032000CC;
-	Fri,  5 Jan 2024 11:26:09 -0500 (EST)
-Received: from imap50 ([10.202.2.100])
-  by compute3.internal (MEProxy); Fri, 05 Jan 2024 11:26:10 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
-	cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm2; t=1704471969; x=1704558369; bh=HP4Cm1a2Lt
-	XuA5x+HCa9C/sYX1fx/+hKgxF2bH2PzqI=; b=kfDSSij8FBGOe3RytOGlVbsoPn
-	QIZM6DMX111bQAqPDLwD2EF5m1DrqR98nntkT/s97otgGHhhb6rW8IVu+uR0Wruu
-	dLvsR+w2kaWWIFUwsPmDf/fkJNCmF1sEG1vC40whlrKKcnEiZN9mdph0IyLoMiL/
-	AGIrcZLgApSBCj4Cuye4JC9USwllXJ0waOOHkr6uAI4q+uWEHLXB0d2lE0yd5zso
-	MG/d8gOzws+K86htUDkPtmcBofAyOCVbH1grexGMwTjfQ4TwZohWiFjG6MkLzKDM
-	fNUfhE3F7okpa2HYV5uJdV/wcQjarN5lcsRR9EMFC+RmVu2KUdb5mBFEa/DA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm2; t=1704471969; x=1704558369; bh=HP4Cm1a2LtXuA5x+HCa9C/sYX1fx
-	/+hKgxF2bH2PzqI=; b=5khp3HywwKBVa3CYhDARk66sT/SdCgyFr0WvXApEWjhI
-	yjJ6oFKp0HrbViV1mcd4646TtidHHl8G00CO39x+qcl9gMqPWTrdRypJMsDA7dYp
-	xRvAVrfeZ+kjCbN834UQj/8Q6Pt8DasAweze4vqFDb22RlG4aLqCpn/BP0hcc2Cj
-	txuS3HBKj7BXt6AIiTKrm7YCwwVkX+vXHX+oVYp9FLUeWmLKPyoNM7eObJjbX1O1
-	mIuyYw0CFrlWKgSUw1pS39fBGwd9sTDtO2vZDRjFsvl1TVCts1+9mhscKA5XoCi0
-	ArxzLyYBbFm/NxRqBFQFP4nD/dt4AktJgdtk5U/oIw==
-X-ME-Sender: <xms:oS2YZXnWxoJEMVX5Fw5435ow1Ecn5upPLRIzXjRGm2SOYdU2kMoZJA>
-    <xme:oS2YZa0j3ECG96EIddmiHFY5Z2p1TwRaqNDu6FVo-oLF8F7nBNHsh-BUW3f_G-EwT
-    RW3FD8_5S-pAlQeDg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvkedrvdegledgkeehucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvffutgesthdtredtreertdenucfhrhhomhepfdfuthgv
-    fhgrnhcuqfdktfgvrghrfdcuoehsohhrvggrrhesfhgrshhtmhgrihhlrdgtohhmqeenuc
-    ggtffrrghtthgvrhhnpefgveejveehtddttefhteeuteevueekhfeffefgtedtvdeuuddt
-    gfeigeetueefudenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdhinhhfrhgruggvrg
-    gurdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhho
-    mhepshhorhgvrghrsehfrghsthhmrghilhdrtghomh
-X-ME-Proxy: <xmx:oS2YZdr2pEZm87KHPiIJGLPx5dVLpFgxj55heM8EX9mAUa_B5bgoAg>
-    <xmx:oS2YZfli4Cs55qM_3ur7Tf0gVzNpO9FKn3Efs7aZrS0ksziHmhgQ8g>
-    <xmx:oS2YZV2eRa-8QBVNtt8E9ACTVapj2rHa4ea8S7ey4WWQjKuCnnz9ig>
-    <xmx:oS2YZS9VZMzd8rOxTcW7VdwSr_PrOr9fUdjjAr-VhEwTh1D5fwrNiQ>
-Feedback-ID: i84414492:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 169681700AE9; Fri,  5 Jan 2024 11:26:09 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-1364-ga51d5fd3b7-fm-20231219.001-ga51d5fd3
+	Fri, 05 Jan 2024 17:28:56 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-5cedfc32250so360006a12.0
+        for <linux-riscv@lists.infradead.org>; Fri, 05 Jan 2024 09:28:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1704475729; x=1705080529; darn=lists.infradead.org;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7MvMmIGG1OTvVGECDwkCBOvxHZpT09eejRG7w2yah/U=;
+        b=CDna49bMFrsG9x7Ul2dfDyxuqql7GmxH2gfNjbVTVvAzxBW6D3iKcZjq/lRDdRW5kT
+         jJAyOt14bllwZpZEMOc86iL5R5d62q54FWTdLtihHxOxo7UqyZusrsxSO774wbtJ4lib
+         OOgwYqg9Z6seYh4fVYyQ4ei/Mws0GuepZBDPuinUP8xtP8GMbvGDoepbB71LSsJnCQFH
+         L5vj/kWPBf9U1l38qKQMTpTKq8voK7awr/yptHXGMpSqnz8tNp8cDmK0WOyc9Vy25Fqs
+         0jCaSEvQs177UBrajS2cZH5vFOBq8Wf9SdzLQXqbij4PBo0K6wzAU8Sb3HDFYYTR/Rci
+         N6ew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1704475729; x=1705080529;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=7MvMmIGG1OTvVGECDwkCBOvxHZpT09eejRG7w2yah/U=;
+        b=by9EkEK31P7X3U0XvQXKdapnvvUkZjNV04Lr4jP1fD/tkQOKHV0vwlVXwROrPa0dM8
+         S2HgTzw/FV7S3KoRP3zn9Y5+YIjfqxEsFi3t47Sb3CW2P1iyMNoXF5V1CiPLg1C1ELxB
+         opIAGOcEyU712ecOuGs6IDiEHo469k/Yqa3dPKkFI28Ovi5QsODcWoAX0KsRQTe3LVtA
+         OmcFW+hgzmFCq/1NJU+9oz4ns2iC15rnyDkQ2CL0V60W7zUM+aZov4zsJn9tyQ7oMGsk
+         Xsy8avg8R3i6MflPfltWMtVo+MKR9CV96sVPKaBV0aJEZpC9CqBY0qHV0SAxj53rBjvf
+         w7/w==
+X-Gm-Message-State: AOJu0Ywazz3ap/n2ZDqVzbCGErggOrU2YjRhI9GxsV+ncgQe20WY1x+P
+	fPkXrUT2GCNuCbfERajzJDUQEvf1fofU3g==
+X-Google-Smtp-Source: AGHT+IHuOnm7hs+MIF/YDJktAeTmGWj9vojY0HSziqVUOflzq8jI2uyPNPQQRJu+YUAC/BW/uA1VRg==
+X-Received: by 2002:a05:6a21:6da6:b0:199:4e21:f71d with SMTP id wl38-20020a056a216da600b001994e21f71dmr690529pzb.87.1704475729519;
+        Fri, 05 Jan 2024 09:28:49 -0800 (PST)
+Received: from localhost (75-172-121-199.tukw.qwest.net. [75.172.121.199])
+        by smtp.gmail.com with ESMTPSA id fi39-20020a056a0039a700b006dab0d09ef0sm1622087pfb.45.2024.01.05.09.28.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Jan 2024 09:28:48 -0800 (PST)
+From: Kevin Hilman <khilman@baylibre.com>
+To: Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
+ <minda.chen@starfivetech.com>, Conor Dooley <conor@kernel.org>, Krzysztof
+ =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Rob Herring
+ <robh+dt@kernel.org>, Bjorn Helgaas
+ <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Daire
+ McNamara <daire.mcnamara@microchip.com>, Emil
+ Renner Berthing <emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
+ <mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+ Minda Chen <minda.chen@starfivetech.com>
+Subject: Re: =?utf-8?B?5Zue5aSNOg==?= [PATCH v13 0/21] Refactoring Microchip
+ PCIe driver and add
+ StarFive PCIe
+In-Reply-To: <ZQ0PR01MB098128579D86207B4B9BA7D28266A@ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn>
+References: <20231214072839.2367-1-minda.chen@starfivetech.com>
+ <7hfrzeavmj.fsf@baylibre.com>
+ <ZQ0PR01MB098128579D86207B4B9BA7D28266A@ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn>
+Date: Fri, 05 Jan 2024 09:28:48 -0800
+Message-ID: <7h34vbbsfj.fsf@baylibre.com>
 MIME-Version: 1.0
-Message-Id: <539fe616-830e-48e0-8ca3-2bbca3ee48d6@app.fastmail.com>
-In-Reply-To: <d34bc284-12f0-49d9-8775-e1bc09e8c815@ghiti.fr>
-References: <6924f053-580c-b2c3-4680-e613491d3377@cortus.com>
- <d34bc284-12f0-49d9-8775-e1bc09e8c815@ghiti.fr>
-Date: Fri, 05 Jan 2024 11:25:46 -0500
-From: "Stefan O'Rear" <sorear@fastmail.com>
-To: "Alexandre Ghiti" <alex@ghiti.fr>, "Theo Z" <theo.zanibellato@cortus.com>,
- linux-riscv@lists.infradead.org
-Subject: Re: Page Table A&D bits scheme
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240105_082614_360160_4C5006FA 
-X-CRM114-Status: GOOD (  18.26  )
+X-CRM114-CacheID: sfid-20240105_092854_903517_BCE8EF5D 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,77 +107,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 5, 2024, at 4:33 AM, Alexandre Ghiti wrote:
-> Hi Theo,
->
-> On 05/01/2024 09:27, Theo Z wrote:
->> According to Privileged: 4.3.1 (p81)
->>
->> "Two schemes to manage the A and D bits are permitted:"
->>
->> * When a virtual page is accessed and the A bit is clear, or is 
->> written and the D bit is clear, a
->> page-fault exception is raised.
->
->
-> At the moment, this is the only scheme that the kernel supports.
+Kevin Xie <kevin.xie@starfivetech.com> writes:
 
-All versions of QEMU prior to 8.0.0 (released April 2023) implement the
-second scheme exclusively, setting the A and D bits in PTEs automatically,
-with no means for software to override.  Any kernel version which runs on
-both pre-8.0.0 QEMU and hardware supports both schemes.
+>> Minda Chen <minda.chen@starfivetech.com> writes:
+>> 
+>> > This patchset final purpose is add PCIe driver for StarFive JH7110 SoC.
+>> > JH7110 using PLDA XpressRICH PCIe IP. Microchip PolarFire Using the
+>> > same IP and have commit their codes, which are mixed with PLDA
+>> > controller codes and Microchip platform codes.
+>> 
+>> Thank you for this series.
+>> 
+>> I tested this on a VisionFive v2 board, and it seems to probe and find my
+>> M.2 NVMe SSD, but then gets timeouts when trying to use the NVMe (e.g.
+>> 'blkid' command)
+>> 
+>
+> Hi, Kevin:
+> Could you please provide the manufacturer and model of the M.2 NVMe SSD
+> you tested?
 
-Support for RVA20 and later profiles requires scheme 1 to be in use at boot;
-Svadu (as discussed) provides an RVA20-compatible opt-in for scheme 2, and
-is supported by QEMU 8.0.0.
+I have a 256 Gb Silicon Power P34A60 M.2 NVMe SSD (part number: sp256gbp34a60m28)
 
--s 
+Also for reference, I tested the same SSD on another arm platform
+(Khadas VIM3) and it works fine.
 
->>
->> * When a virtual page is accessed and the A bit is clear, or is 
->> written and the D bit is clear, the
->> implementation sets the corresponding bit(s) in the PTE
->
->
-> This will be supported by the kernel when svadu support is merged in 
-> the 
-> kernel 
-> (https://lore.kernel.org/linux-riscv/20231102120129.11261-1-yongxuan.wang@sifive.com/) 
-> and in openSBI 
-> (https://lists.infradead.org/pipermail/opensbi/2023-October/005768.html), 
-> but it depends on openSBI FWFT extension.
->
->
->>
->> Which implementation does Linux is expected to work best with?
->>
->
-> svadu will avoid a page fault so this will be the most performant 
-> implementation.
->
->
->> (Unix kernel xv6 works with 2nd scheme only)
->>
->> Best regards,
->>
->> Theo Z
->>
->
-> Thanks,
->
-> Alex
->
->
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Kevin
 
 _______________________________________________
 linux-riscv mailing list
