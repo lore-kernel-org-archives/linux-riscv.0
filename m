@@ -4,141 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6222C46CD2
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jan 2024 13:12:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19606C46CD2
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Jan 2024 13:19:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cyb9nWkqwc7cM3RCIlJn/t8Rh3Qw+F3TR3CFWPn92yk=; b=i1oyjywOfqagns
-	ASSns2y7SV2MeeHcW3mBmlTmsMTVJE2e92YZ8AMAVJaw8IKw6uKY6tiodR+LzAt/0Gt89rAdJtgPF
-	hGOckIw7mTFwlRVVH/97ahkwMfU7i7uEHmFBhbPxWCKGqSV1P2NyPYcdxvJwH9mN1rWWga7SCPwIm
-	oTRUaxzlkUNfBP7hsUR2kdQGH6cEpMaEQYs27/LJGIOPK2QRlxhaUIq+tFfLgP/3VPX2qtaoPPwjI
-	5qITc0Aaz/IIQrc9rFsbe8UJkghnRiN81JPid7+ZCx8PfqV/HBKewcLm+joG7pFHwPXVeDLfR0Aek
-	s9scJb3/FHxbynzr7KeA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=63WzUXcF89lOF8gkrgsPdxMPsqYZ/AQv9BdlRLELndo=; b=zw5iTYoAm6RswFBpJwUoL72jNA
+	8CiQuDsnP0HPx1wFLH9QYHzLN18HjPMTOM95BLyLYmDmv4CUTAWjqd8WMNQAglBHI9BcEigfhCZgH
+	OCi9JyVzH9tedkyl5TOy6ly7yKHUEdtNe5+ZBdqS+nHJ+wUHjm6Iwpv8wjVHaVleJVX29lBBmnczi
+	s2jCmjQlZ58ffl55zCij0ScglZfSZFkYot/29nREqx6Lq1A3nbY6C9OFjetdgG62KKuaE/EeIjvSq
+	hS+q5azmG/OxAV4Eox9lfWCuqCrvqgd8KmcEwf1aA9WNj59vInzGkhAt8SVxOnvejMAXP/Ia2lvJ/
+	VY7oJucg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLjzH-00Gvwt-1a;
-	Fri, 05 Jan 2024 13:11:47 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1rLk6D-00GxDH-0z;
+	Fri, 05 Jan 2024 13:18:57 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rLjzB-00Gvsx-2x;
-	Fri, 05 Jan 2024 13:11:44 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	id 1rLk69-00GxCq-2b
+	for linux-riscv@lists.infradead.org;
+	Fri, 05 Jan 2024 13:18:55 +0000
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id BF64421D34;
-	Fri,  5 Jan 2024 13:11:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1704460298;
-	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
-	 cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XMu0Tc8M/OGHMVCqGwKKidHMYVyujs8ULbIrYAKyctk=;
-	b=PirfMTLkdWyOzUVVz7p6G2ULi4VhsbiBiEovaWdYP6RmzcuwhtQKKUgKa98M3/Ip8l1k/g
-	XwNng9X+TvSLeuIRIA9U9KlvSfKkHLqoBB1MvKK/dh3zwPOw6svOjDiCk3dtV0Bq+qEnr5
-	Qv06406TfLtT/5tFFYvfvqWg9SA8IqM=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1704460298;
-	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
-	 cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XMu0Tc8M/OGHMVCqGwKKidHMYVyujs8ULbIrYAKyctk=;
-	b=/vZmO3d4O+ZOvy2AL7ekQ7g4Fa0ZowPCpSXsCf1l01Jz1p9pxtSiDqKiaPh+6bDpvquCQ9
-	f3qkaTRGWtQT5+AQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1704460297;
-	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
-	 cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XMu0Tc8M/OGHMVCqGwKKidHMYVyujs8ULbIrYAKyctk=;
-	b=Uk26/hGBJXjpw8WTegFn/8dWqIzARLH7T6rfeEUvsOk1mAl5RjTrjREnCSUF82cXmbTFX9
-	ts3XwW8FLL2JAyFOtJWm3lU0iLZC81SdDShl3VZRNMWb0BNeZNSJ3HWfhQaPBCcvuyZzgl
-	B8qt1ml182j0+u5k2jGWDzmk7ft6S0o=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1704460297;
-	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
-	 cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XMu0Tc8M/OGHMVCqGwKKidHMYVyujs8ULbIrYAKyctk=;
-	b=Dq2NWLSjfkY6KPsXaTn2B4MnPvlbKABhwyuoEx9zmsCM6PoEOnXj0wNXu+xI3t+rB1SZi2
-	oehXWwFEzy/kGqDg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 0DE05136F5;
-	Fri,  5 Jan 2024 13:11:37 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([10.150.64.162])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id GC9eAgkAmGVEDQAAD6G6ig
-	(envelope-from <pvorel@suse.cz>); Fri, 05 Jan 2024 13:11:37 +0000
-Date: Fri, 5 Jan 2024 14:11:35 +0100
-From: Petr Vorel <pvorel@suse.cz>
-To: Rob Landley <rob@landley.net>
-Cc: Cyril Hrubis <chrubis@suse.cz>,
-	Geert Uytterhoeven <geert@linux-m68k.org>, ltp@lists.linux.it,
-	Li Wang <liwang@redhat.com>,
-	Andrea Cervesato <andrea.cervesato@suse.com>,
-	Greg Ungerer <gerg@linux-m68k.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Christophe Lyon <christophe.lyon@linaro.org>,
-	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	Linux-sh list <linux-sh@vger.kernel.org>,
-	automated-testing@lists.yoctoproject.org, buildroot@buildroot.org
-Subject: Call for nommu LTP maintainer [was: Re: [PATCH 00/36] Remove UCLINUX
- from LTP]
-Message-ID: <20240105131135.GA1484621@pevik>
-References: <20240103015240.1065284-1-pvorel@suse.cz>
- <CAMuHMdXGwyS-CL0vLdUP4Z4YEYhmcmDyC3YdGCnS=jFkqASqvw@mail.gmail.com>
- <20240103114957.GD1073466@pevik>
- <CAMuHMdX0s0gLRoPtjJmDnSmZ_MNY590dN+JxM1HKAL1g_bjX+w@mail.gmail.com>
- <ZZVOhlGPg5KRyS-F@yuki>
- <5a1f1ff3-8a61-67cf-59a9-ce498738d912@landley.net>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <5a1f1ff3-8a61-67cf-59a9-ce498738d912@landley.net>
-X-Spamd-Bar: /
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b="Uk26/hGB";
-	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=Dq2NWLSj
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Spamd-Result: default: False [-0.82 / 50.00];
-	 HAS_REPLYTO(0.30)[pvorel@suse.cz];
-	 RCVD_VIA_SMTP_AUTH(0.00)[];
-	 SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	 TO_DN_SOME(0.00)[];
-	 RCVD_COUNT_THREE(0.00)[3];
-	 DKIM_TRACE(0.00)[suse.cz:+];
-	 MX_GOOD(-0.01)[];
-	 NEURAL_HAM_SHORT(-0.20)[-1.000];
-	 FROM_EQ_ENVFROM(0.00)[];
-	 MIME_TRACE(0.00)[0:+];
-	 BAYES_HAM(-0.11)[66.47%];
-	 ARC_NA(0.00)[];
-	 R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	 REPLYTO_EQ_FROM(0.00)[];
-	 FROM_HAS_DN(0.00)[];
-	 TO_MATCH_ENVRCPT_ALL(0.00)[];
-	 NEURAL_HAM_LONG(-1.00)[-1.000];
-	 MIME_GOOD(-0.10)[text/plain];
-	 URIBL_BLOCKED(0.00)[suse.cz:dkim];
-	 DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	 RCPT_COUNT_TWELVE(0.00)[18];
-	 FUZZY_BLOCKED(0.00)[rspamd.com];
-	 MID_RHS_NOT_FQDN(0.50)[];
-	 RCVD_TLS_ALL(0.00)[]
-X-Rspamd-Queue-Id: BF64421D34
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id D5CDC3F5A6
+	for <linux-riscv@lists.infradead.org>; Fri,  5 Jan 2024 13:18:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1704460727;
+	bh=IFg9X0cw6KEOe6IAlb6C60OWnstZjElkbRUwRAxmfko=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=KMYooUB6xYtsb9ZERwx38qH2lXDHtvE902FQ9/f/HTeM3wwpDC5XngqS9yHVvN3hU
+	 z55KDtNoZaehYCNG4OpiUFlzuVo1TJw1Gt9M+Jf6HJzqFPK33RaZaivoDhv4fFwrtt
+	 5704BAE8ALDJ4l+LA7x35TEolbcFvRKJzIKe9oZVxUwqC+bvwYR1cXuAtejjUMRKSd
+	 827hOwsildQVSgqNtShYcpzrJeX1O1uaA5N4eUdNZHA/PhO6LX+MoFr6sj/d6qQ62c
+	 yt80Ih508K5JhIICIZiPSGJqdFZlvqKvbF9jHRAYZSxKcHp3Xv3WP6yhQK9URnIBhi
+	 eWFpjhmIfejvw==
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7830b908355so58708985a.1
+        for <linux-riscv@lists.infradead.org>; Fri, 05 Jan 2024 05:18:47 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1704460727; x=1705065527;
+        h=content-transfer-encoding:cc:to:subject:message-id:date
+         :mime-version:references:in-reply-to:from:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=IFg9X0cw6KEOe6IAlb6C60OWnstZjElkbRUwRAxmfko=;
+        b=SPz7/i+Z2Iib58UHN5/eRbC6xg9ZhePHQeRJsCZaLBj8xFekeYfzZSkLZp0ViBmI8J
+         Ok3Qy+So0wHGgeg1IaTv/AhADxm65JkMolAjCkWkDh1u2yAx7exbFsRqAR2pX5ogRaGr
+         iXJ8zuesLivIiJvaImEUak3H0hmnsVxDcoPNCmOO+dUhXO0sYPGrly3Aw87Jpfczuk7t
+         mwRPYzEsdVCOhq98H13WjuTFBUS6bvlBFjzqywkWjRp2KFbHAeQUR1+w/YuIfsHFf2PL
+         o3hnhgAR4Nxq3eJEgEGKmT2Z9j+dlgS3ri6sir4wbIVKBQM26dRCOXIK6NIKu0+e3exl
+         Y+sQ==
+X-Gm-Message-State: AOJu0YyqJCXIanV8rgG+s9cdaB7EZSB10RY4imfTkoWvaKRY98511jBI
+	jqAtJTwZ5+HLQlOCsxRS6GGJO9y8QIuePHqkXx2f4+U0jOL7v3LGP2uGR/BY57rd/08umqo2fNq
+	FibtcFbxu8A9/yk5wx0kG6bsfwd2HkFWYYKcmsRrsYabb6xe3uaT8vvt3J6+OuLa32m9d
+X-Received: by 2002:a05:620a:178c:b0:783:de7:f55c with SMTP id ay12-20020a05620a178c00b007830de7f55cmr371569qkb.18.1704460726709;
+        Fri, 05 Jan 2024 05:18:46 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFSkJtpgQs5O0P21kOkQPotDAvI+IaEL+Pr5+euH6U094hbx+AkrsKTiUrqQJPzpV5J68/IEZ11z3+15L/lAVc=
+X-Received: by 2002:a05:620a:178c:b0:783:de7:f55c with SMTP id
+ ay12-20020a05620a178c00b007830de7f55cmr371543qkb.18.1704460726480; Fri, 05
+ Jan 2024 05:18:46 -0800 (PST)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 5 Jan 2024 05:18:45 -0800
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <xd2ryic6mr6d6cbljjbhmr56mfpchfzkmc3lnznhmoiwyzip2a@6bhbho267e7c>
+References: <20231222094548.54103-1-william.qiu@starfivetech.com>
+ <20231222094548.54103-4-william.qiu@starfivetech.com> <CAJM55Z9tyrR7emEBrY0+Fnc_LUFQHkqYHLQ4ptL=XQMy52qtVw@mail.gmail.com>
+ <xd2ryic6mr6d6cbljjbhmr56mfpchfzkmc3lnznhmoiwyzip2a@6bhbho267e7c>
+Mime-Version: 1.0
+Date: Fri, 5 Jan 2024 05:18:45 -0800
+Message-ID: <CAJM55Z9DgFCwXjQGhe+urnOg-AkJMbQUR+biXKONQsRcup1GXw@mail.gmail.com>
+Subject: Re: [PATCH v10 3/4] riscv: dts: starfive: jh7100: Add PWM node and
+ pins configuration
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-pwm@vger.kernel.org, Emil Renner Berthing <kernel@esmil.dk>, 
+	Rob Herring <robh+dt@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Hal Feng <hal.feng@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240105_051142_111162_78F3B294 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20240105_051854_248017_6EA0B5E8 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,49 +104,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Petr Vorel <pvorel@suse.cz>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi all,
-
-[ Cc also automated-testing and buildroot ML
-FYI thread started here:
-https://lore.kernel.org/ltp/20240103015240.1065284-1-pvorel@suse.cz/ ]
-
-> On 1/3/24 06:09, Cyril Hrubis wrote:
-> > Hi!
-> >> I am not sure I agree with this series.
-> >> Removing support for UCLINUX from LTP is almost a guarantee for
-> >> not noticing when more breakage is introduced.
-
-> >> How exactly is UCLINUX broken in LTP?
-
-> > As far as we know noone is using it and nobody is maintaing it for a
-> > decade,
-
-> Nobody is maintaining "uclinux" because that was a distro, but you can build
-> nommu support in buildroot and such, and people do.
-
-Right, there are nommu users. Will anybody join LTP development to maintain
-nommu support in LTP? The needed work is to add this support to LTP new C API
-[1] and use it in the relevant test. There is some implementation in the old
-API, I have no idea how well it worked.
-
-If nobody stands for maintaing nommu, we will have to delete it. There is nobody
-from the current maintainers who is using LTP on nommu HW (that is the reason why
-nommu support have not been implemented in the new API).
-
-Kind regards,
-Petr
-
-> Rob
-
-[1] https://github.com/linux-test-project/ltp/wiki/C-Test-API
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VXdlIEtsZWluZS1Lw7ZuaWcgd3JvdGU6Cj4gSGVsbG8gRW1pbCwKPgo+IE9uIFN1biwgRGVjIDI0
+LCAyMDIzIGF0IDAyOjQ5OjM0QU0gLTA4MDAsIEVtaWwgUmVubmVyIEJlcnRoaW5nIHdyb3RlOgo+
+ID4gV2lsbGlhbSBRaXUgd3JvdGU6Cj4gPiA+IEFkZCBPcGVuQ29yZXMgUFdNIGNvbnRyb2xsZXIg
+bm9kZSBhbmQgYWRkIFBXTSBwaW5zIGNvbmZpZ3VyYXRpb24KPiA+ID4gb24gVmlzaW9uRml2ZSAx
+IGJvYXJkLgo+ID4gPgo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBXaWxsaWFtIFFpdSA8d2lsbGlhbS5x
+aXVAc3RhcmZpdmV0ZWNoLmNvbT4KPiA+Cj4gPiBTb3JyeSwgSSB0aG91Z2h0IEkgYWxyZWFkeSBz
+ZW50IG15IHJldmlldy4gVGhpcyBsb29rcyBnb29kLgo+ID4KPiA+IFJldmlld2VkLWJ5OiBFbWls
+IFJlbm5lciBCZXJ0aGluZyA8ZW1pbC5yZW5uZXIuYmVydGhpbmdAY2Fub25pY2FsLmNvbT4KPgo+
+IElzIHRoaXMgYWxzbyBhbiBpbXBsaWNpdCBBY2sgdG8gdGFrZSB0aGlzIHBhdGNoIHZpYSB0aGUg
+cHdtIHRyZWUgb25jZQo+IHRoZSBlYXJsaWVyIHBhdGNoZXMgYXJlIHJlYWR5PyBPciBkbyB5b3Ug
+d2FudCB0byB0YWtlIGl0IHZpYSB5b3VyIHRyZWU/Cj4gKE1heWJlIGFscmVhZHkgbm93IHRvZ2V0
+aGVyIHdpdGggdGhlIGJpbmRpbmc/IElmIHNvLCB5b3UgY2FuIGFzc3VtZSBteQo+IFJldmlld2Vk
+LWJ5IHRvIGJlIGFuIGltcGxpY2l0IEFjayBmb3IgdGhhdC4pCgpZZXMsIHNvcnJ5LiBUaGlzIGlz
+IGFsc28gbWVhbnQgdG8gYmUgYW4gQWNrIGZyb20gbWUuCgpJIGltYWdpbmVkIHRoZSBkdCBwYXRj
+aGVzIHdvdWxkIGdvIHRocm91Z2ggQ29ub3IncyByaXNjdi1kdC1mb3ItbmV4dCBicmFuY2gsCmJ1
+dCB0aGUgcHdtIHRyZWUgaXMgY2VydGFpbmx5IGFsc28gZmluZSBieS4KCi9FbWlsCgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
