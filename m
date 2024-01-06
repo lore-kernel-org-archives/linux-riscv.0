@@ -4,64 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31D19C47074
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Jan 2024 14:18:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 797A6C47077
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Jan 2024 14:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HfQRBt1cuJqBLrhFvpNouDKgRWdCCgG4IdZgiW2fhow=; b=I49Ip1OsZCpSke
-	O22erY+IfDKpiXSICj/ktwXx9wanHYf5cQPWz4WUs5BSGBtoVYRm3K/U73qA94Sl5FX1PLy8QXdQz
-	iMYIAhvrMQWvUMLLYBMuEY6JIRUl69tWKISIXJjG1Rbx3qH+p4QbKm4iyg8ctgDNtJh4qYHZny8qP
-	Egma6IAn5K3lsUyduNKU/ol8phFRGuj064MxAqgoXRbgP8YYsRtIX8VaGJr3V4aWhMtWVBUCFEbHv
-	lgqY7Xy9dNh/2ejA9tnI5W3ePnlYGy2kRf9cIo0WUMj52r6xftIr+xy7chYLsrQmKE6svyV7IYO+S
-	nu9xLU4Gzz+ImTTU7jCA==;
+	List-Owner; bh=t9kr3Pm/Nz2gIvFjvvJIyLfIrPi9zddOZ+uCiOO249U=; b=Ax0ZW0usvmYoGS
+	P2t250sMCAN+MzkMFS/bZj65d1Plvdzd60x+YB2oDy/88m9PKXgXHsCLj/9ShXS8UEZYi6gCtmC+G
+	1IuOUfm2+CvMdZlzF5UGhC72ltcB6fPsieG2DNSW6rHJDl8wDySNkROwcWI8rwhKn0bxXSUMGuXIe
+	02pIYGsy0OeddHSQdzCOgWz4tngUQwxt8tI1F9LnHaXssp4gz17cl+X/rheTszNpE19Hu3bJ23SsL
+	pnESwBMb19fWl22vqPPqx5pRq4nSnnWie4KcgOKhfpr9huIA0HV8Ndz7+2jsZm28Stq6JIdm24NJX
+	/d4/Oxm8gKI9OV8pZJQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rM7V4-001Pyp-2r;
-	Sat, 06 Jan 2024 14:18:10 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1rM89I-001TXB-2D;
+	Sat, 06 Jan 2024 14:59:44 +0000
+Received: from mgamail.intel.com ([134.134.136.31])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rM7V1-001PyQ-0I
-	for linux-riscv@lists.infradead.org;
-	Sat, 06 Jan 2024 14:18:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 4B5A4B81E55;
-	Sat,  6 Jan 2024 14:18:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78562C433C8;
-	Sat,  6 Jan 2024 14:18:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1704550683;
-	bh=cKYoqI6bKfb7k5GvezyM/feTJvs7VHLNgVJ5vwF4uHc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fwgjLTRO4DHyrJK9tDw7IPT4Q11gGFY/gwrIYMtcTbhRFF9LA93o21pQHSs92rK8q
-	 741tVwOvTGT0pbtPenE6gCje1qd+oEr3X3XjsOYgO8fQJzkeMvvpw0bIzipiVq00Q5
-	 IcF7XKBWMvD5sHKdmPpGRmjv86ci4xJeIMQ/LtJeX1GFuzYPthxN6hII+Ok+h9mVvF
-	 W4C6AVMuu3OtSIfb8p7h20XvNa2zOclqGCsOwUycZ04FzyQ2Ulv+JEXZDDlC7D3n3N
-	 Thm0jpvbK9lIkeNiDxEC6hZ5vEpCwGQgaDhC9bo2ty7HLSUeR8HqtUWIS+zYxVntP0
-	 wLIzXoC3pIkzw==
-Date: Sat, 6 Jan 2024 22:05:19 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: Add support for BATCHED_UNMAP_TLB_FLUSH
-Message-ID: <ZZleH4KcnIwkI6q9@xhacker>
-References: <20240102141851.105144-1-alexghiti@rivosinc.com>
- <ZZU9s7iHDTBD39C0@xhacker>
- <CAHVXubgpMFesz8C-tY4qY0OGzB3Jfyp1eK6YafN8GQN=u7Etyg@mail.gmail.com>
- <CAHVXubij+L84tpwM-O1W6HV31D8Q7Gb0OerobYJVcmznXaQ2eg@mail.gmail.com>
- <ZZlZ1HEhDuj4Ojwd@xhacker>
+	id 1rM89C-001TWQ-1C;
+	Sat, 06 Jan 2024 14:59:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1704553178; x=1736089178;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=L+NhauzROGdh6WMc7Chr9nsrwmmGekgWgJHHxIaCxsU=;
+  b=gJV4rqSaJEnnh+KB16U5VYcgZ/n8mqmGBPNxALu18F0PqBruPKgFDzwN
+   DjfHeZ77Go/pv8KmifsXdjRMZxy0Rh1MSoaSAIVomhE1Pn07EQpS69E7r
+   fU75CfLquw5fVOiYz6ZUxMbGXkviu9I3RHpOM/7DIiGroEaw8X9WHu/9M
+   A5CV5ZxxWcv8zjjza3W8mY7tlm5VekHgXKtPgj+nZZdA312MrJZHBD3ia
+   3fvAiXlYVc9/5KqvKJkHYCC9odM/euOZr8nFhPhVq9qczLXb1tKcKCgFu
+   PliUc3QVTEwQejC/eUtwqlNA+EcI2lFph47Q9zcqF1VSqvP8P0+8JFdFK
+   A==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10945"; a="461960319"
+X-IronPort-AV: E=Sophos;i="6.04,337,1695711600"; 
+   d="scan'208";a="461960319"
+Received: from orsmga001.jf.intel.com ([10.7.209.18])
+  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Jan 2024 06:59:03 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10945"; a="815204441"
+X-IronPort-AV: E=Sophos;i="6.04,337,1695711600"; 
+   d="scan'208";a="815204441"
+Received: from lkp-server02.sh.intel.com (HELO b07ab15da5fe) ([10.239.97.151])
+  by orsmga001.jf.intel.com with ESMTP; 06 Jan 2024 06:58:58 -0800
+Received: from kbuild by b07ab15da5fe with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1rM88W-0002bg-1Z;
+	Sat, 06 Jan 2024 14:58:56 +0000
+Date: Sat, 6 Jan 2024 22:58:54 +0800
+From: kernel test robot <lkp@intel.com>
+To: Baoquan He <bhe@redhat.com>, linux-kernel@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	akpm@linux-foundation.org, kexec@lists.infradead.org,
+	hbathini@linux.ibm.com, arnd@arndb.de, ignat@cloudflare.com,
+	eric_devolder@yahoo.com, viro@zeniv.linux.org.uk,
+	ebiederm@xmission.com, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+	Baoquan He <bhe@redhat.com>
+Subject: Re: [PATCH 1/5] kexec_core: move kdump related codes from
+ crash_core.c to kexec_core.c
+Message-ID: <202401062212.LXqinfjE-lkp@intel.com>
+References: <20240105103305.557273-2-bhe@redhat.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ZZlZ1HEhDuj4Ojwd@xhacker>
+In-Reply-To: <20240105103305.557273-2-bhe@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240106_061807_460976_421B7644 
-X-CRM114-Status: GOOD (  52.48  )
+X-CRM114-CacheID: sfid-20240106_065938_476561_A59A5B7A 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,278 +86,275 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBKYW4gMDYsIDIwMjQgYXQgMDk6NDc6MDRQTSArMDgwMCwgSmlzaGVuZyBaaGFuZyB3
-cm90ZToKPiBPbiBGcmksIEphbiAwNSwgMjAyNCBhdCAwMjozNjo0NFBNICswMTAwLCBBbGV4YW5k
-cmUgR2hpdGkgd3JvdGU6Cj4gPiBPbiBUaHUsIEphbiA0LCAyMDI0IGF0IDY6NDLigK9QTSBBbGV4
-YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+IHdyb3RlOgo+ID4gPgo+ID4gPiBI
-aSBKaXNoZW5nLAo+ID4gPgo+ID4gPiBPbiBXZWQsIEphbiAzLCAyMDI0IGF0IDEyOjEw4oCvUE0g
-SmlzaGVuZyBaaGFuZyA8anN6aGFuZ0BrZXJuZWwub3JnPiB3cm90ZToKPiA+ID4gPgo+ID4gPiA+
-IE9uIFR1ZSwgSmFuIDAyLCAyMDI0IGF0IDAzOjE4OjUxUE0gKzAxMDAsIEFsZXhhbmRyZSBHaGl0
-aSB3cm90ZToKPiA+ID4gPiA+IEFsbG93IHRvIGRlZmVyIHRoZSBmbHVzaGluZyBvZiB0aGUgVExC
-IHdoZW4gdW5tYXBwaW5nIHBnZXMsIHdoaWNoIGFsbG93cwo+ID4gPiA+ID4gdG8gcmVkdWNlIHRo
-ZSBudW1iZXJzIG9mIElQSSBhbmQgdGhlIG51bWJlciBvZiBzZmVuY2Uudm1hLgo+ID4gPiA+ID4K
-PiA+ID4gPiA+IFRoZSB1YmVuY2htYXJjaCB1c2VkIGluIGNvbW1pdCA0M2IzZGZkZDA0NTUgKCJh
-cm02NDogc3VwcG9ydAo+ID4gPiA+ID4gYmF0Y2hlZC9kZWZlcnJlZCB0bGIgc2hvb3Rkb3duIGR1
-cmluZyBwYWdlIHJlY2xhbWF0aW9uL21pZ3JhdGlvbiIpIHNob3dzCj4gPiA+ID4gPiBnb29kIHBl
-cmZvcm1hbmNlIGltcHJvdmVtZW50IGFuZCBwZXJmIHJlcG9ydHMgYW4gaW1wb3J0YW50IGRlY3Jl
-YXNlIGluCj4gPiA+ID4gPiB0aW1lIHNwZW50IGZsdXNoaW5nIHRoZSB0bGIgKHJlc3VsdHMgY29t
-ZSBmcm9tIHFlbXUpOgo+ID4gPiA+Cj4gPiA+ID4gSGkgQWxleCwKPiA+ID4gPgo+ID4gPiA+IEkg
-dHJpZWQgdGhpcyBtaWNybyBiZW5jaG1hcmsgd2l0aCB5b3VyIHBhdGNoIG9uIFQtSEVBRCBUSDE1
-MjAgcGxhdGZvcm0sIEkKPiA+ID4gPiBkaWRuJ3Qgc2VlIGFueSBwZXJmb3JtYW5jZSBpbXByb3Zl
-bWVudCBmb3IgdGhlIG1pY3JvIGJlbmNobWFyay4gUGVyCj4gPiA+ID4gbXl1bmRlcnN0YW5kaW5n
-LCB0aGUgbWljcm8gYmVuY2htYXJrIGlzIHNwZWNpYWwgY2FzZSBmb3IgYXJtNjQgYmVjYXVzZQo+
-ID4gPiA+IGluIGEgbm9ybWFsIHRsYiBmbHVzaCBmbG93LCBiZWxvdyBzZXF1ZW5jZSBpcyBuZWNl
-c3Nhcnk6Cj4gPiA+ID4KPiA+ID4gPiB0bGJpCj4gPiA+ID4gZHNiCj4gPiA+ID4KPiA+ID4gPgo+
-ID4gPiA+IHdoaWxlIHdpdGggQkFUQ0hFRF9VTk1BUF9UTEJfRkxVU0gsIHRoZSBhcm02NCBqdXN0
-IGRvZXMgJ3RsYmknLCBsZWF2aW5nCj4gPiA+ID4gdGhlIGRzYiB0byB0aGUgYXJjaF90bGJiYXRj
-aF9mbHVzaCgpLiBTbyB0aGUgZmluYWwgcmVzdWx0IGlzCj4gPiA+ID4KPiA+ID4gPiBzZXZlcmFs
-ICd0bGJpICsgZHNiJyBzZXF1ZW5jZSBWUy4gc2V2ZXJhbCAndGxiaScgaW5zdHJ1Y3Rpb25zICsg
-b25seSBvbmUgZHNiCj4gPiA+ID4gVGhlIHBlcmZvcm1hbmNlIGltcHJvdmVtZW50IGNvbWVzIGZy
-b20gdGhlIHVubmVjZXNzYXJ5IGRzYiBlbGltaW5hdGlvbnMuCj4gPiA+Cj4gPiA+IFNvbWUgYmF0
-Y2hpbmcgc2hvdWxkIHRha2UgcGxhY2UsIGFuZCB3aXRoIHRoaXMgcGF0Y2gsIHdlIG9ubHkgc2Vu
-ZCBvbmUKPiA+ID4gImZ1bGwiIHNmZW5jZS52bWEgaW5zdGVhZCBvZiBhICJsb2NhbCIgc2ZlbmNl
-LnZtYSBmb3IgZWFjaCBwYWdlLCBpdAo+ID4gPiBzZWVtcyB3ZWlyZCB0aGF0IHlvdSBkb24ndCBz
-ZWUgYW55IGltcHJvdmVtZW50LCBJIHdvdWxkIGhhdmUgdGhvdWdodAo+ID4gPiB0aGF0IG9uZSAi
-ZnVsbCIgc2ZlbmNlLnZtYSB3b3VsZCBiZSBiZXR0ZXIuCj4gPiA+Cj4gPiA+ID4KPiA+ID4gPiBE
-byB5b3UgaGF2ZSBzdWl0YWJsZSBiZW5jaG1hcmsocykgZm9yIEJBVENIRURfVU5NQVBfVExCX0ZM
-VVNIIG9uIHJpc2N2Pwo+ID4gPgo+ID4gPiBDYW4geW91IGdpdmUgdGhlIGZvbGxvd2luZyBiZW5j
-aG1hcmsgYSB0cnk/IEkgc2ltcGx5IGNyZWF0ZWQgdGhyZWFkcwo+ID4gPiBhbmQgZGlzcGF0Y2hl
-ZCB0aGVtIG9uIGFsbCB0aGUgY3B1cyB0byBmb3JjZSBJUEkgdXNhZ2UsIHRoYXQgc2hvdWxkIGJl
-Cj4gPiA+IHdheSBiZXR0ZXIgaWYgdGhlIGJhdGNoaW5nIG9mIHRoZSBmaXJzdCB1YmVuY2htYXJr
-IGlzIG5vdCBlbm91Z2ggdG8KPiA+ID4gZXhhY2VyYmF0ZSBwZXJmb3JtYW5jZSBpbXByb3ZlbWVu
-dHMsIGxldCBtZSBrbm93IGFuZCB0aGFua3MgZm9yIHlvdXIKPiA+ID4gdGVzdHMhCj4gPiA+Cj4g
-PiA+ICNkZWZpbmUgX0dOVV9TT1VSQ0UKPiA+ID4gI2luY2x1ZGUgPHB0aHJlYWQuaD4KPiA+ID4g
-I2luY2x1ZGUgPHN5cy90eXBlcy5oPgo+ID4gPiAjaW5jbHVkZSA8dW5pc3RkLmg+Cj4gPiA+ICNp
-bmNsdWRlIDxzeXMvbW1hbi5oPgo+ID4gPiAjaW5jbHVkZSA8c3RyaW5nLmg+Cj4gPiA+ICNpbmNs
-dWRlIDxlcnJuby5oPgo+ID4gPiAjaW5jbHVkZSA8c2NoZWQuaD4KPiA+ID4gI2luY2x1ZGUgPHRp
-bWUuaD4KPiA+ID4KPiA+ID4gaW50IHN0aWNrX3RoaXNfdGhyZWFkX3RvX2NvcmUoaW50IGNvcmVf
-aWQpIHsKPiA+ID4gICAgICAgICBpbnQgbnVtX2NvcmVzID0gc3lzY29uZihfU0NfTlBST0NFU1NP
-UlNfT05MTik7Cj4gPiA+ICAgICAgICAgaWYgKGNvcmVfaWQgPCAwIHx8IGNvcmVfaWQgPj0gbnVt
-X2NvcmVzKQo+ID4gPiAgICAgICAgICAgIHJldHVybiBFSU5WQUw7Cj4gPiA+Cj4gPiA+ICAgICAg
-ICAgY3B1X3NldF90IGNwdXNldDsKPiA+ID4gICAgICAgICBDUFVfWkVSTygmY3B1c2V0KTsKPiA+
-ID4gICAgICAgICBDUFVfU0VUKGNvcmVfaWQsICZjcHVzZXQpOwo+ID4gPgo+ID4gPiAgICAgICAg
-IHB0aHJlYWRfdCBjdXJyZW50X3RocmVhZCA9IHB0aHJlYWRfc2VsZigpOwo+ID4gPiAgICAgICAg
-IHJldHVybiBwdGhyZWFkX3NldGFmZmluaXR5X25wKGN1cnJlbnRfdGhyZWFkLAo+ID4gPiBzaXpl
-b2YoY3B1X3NldF90KSwgJmNwdXNldCk7Cj4gPiA+IH0KPiA+ID4KPiA+ID4gc3RhdGljIHZvaWQg
-KmZuX3RocmVhZCAodm9pZCAqcF9kYXRhKQo+ID4gPiB7Cj4gPiA+ICAgICAgICAgaW50IHJldDsK
-PiA+ID4gICAgICAgICBwdGhyZWFkX3QgdGhyZWFkOwo+ID4gPgo+ID4gPiAgICAgICAgIHN0aWNr
-X3RoaXNfdGhyZWFkX3RvX2NvcmUoKGludClwX2RhdGEpOwo+ID4gPgo+ID4gPiAgICAgICAgIHdo
-aWxlICgxKSB7Cj4gPiA+ICAgICAgICAgICAgICAgICBzbGVlcCgxKTsKPiA+ID4gICAgICAgICB9
-Cj4gPiA+Cj4gPiA+ICAgICAgICAgcmV0dXJuIE5VTEw7Cj4gPiA+IH0KPiA+ID4KPiA+ID4gaW50
-IG1haW4oKQo+ID4gPiB7Cj4gPiA+ICNkZWZpbmUgU0laRSAoMSAqIDEwMjQgKiAxMDI0KQo+ID4g
-PiAgICAgICAgIHZvbGF0aWxlIHVuc2lnbmVkIGNoYXIgKnAgPSBtbWFwKE5VTEwsIFNJWkUsIFBS
-T1RfUkVBRCB8IFBST1RfV1JJVEUsCj4gPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgTUFQX1NIQVJFRCB8IE1BUF9BTk9OWU1PVVMsIC0xLCAwKTsKPiA+ID4gICAg
-ICAgICBwdGhyZWFkX3QgdGhyZWFkc1s0XTsKPiA+ID4gICAgICAgICBpbnQgcmV0Owo+ID4gPgo+
-ID4gPiAgICAgICAgIGZvciAoaW50IGkgPSAwOyBpIDwgNDsgKytpKSB7Cj4gPiA+ICAgICAgICAg
-ICAgICAgICByZXQgPSBwdGhyZWFkX2NyZWF0ZSgmdGhyZWFkc1tpXSwgTlVMTCwgZm5fdGhyZWFk
-LCAodm9pZCAqKWkpOwo+ID4gPiAgICAgICAgICAgICAgICAgaWYgKHJldCkKPiA+ID4gICAgICAg
-ICAgICAgICAgIHsKPiA+ID4gICAgICAgICAgICAgICAgICAgICAgICAgcHJpbnRmKCIlcyIsIHN0
-cmVycm9yIChyZXQpKTsKPiA+ID4gICAgICAgICAgICAgICAgIH0KPiA+ID4gICAgICAgICB9Cj4g
-PiA+Cj4gPiA+ICAgICAgICAgbWVtc2V0KHAsIDB4ODgsIFNJWkUpOwo+ID4gPgo+ID4gPiAgICAg
-ICAgIGZvciAoaW50IGsgPSAwOyBrIDwgNTAwIC8qIDEwMDAwICovOyBrKyspIHsKPiA+ID4gICAg
-ICAgICAgICAgICAgIC8qIHN3YXAgaW4gKi8KPiA+ID4gICAgICAgICAgICAgICAgIGZvciAoaW50
-IGkgPSAwOyBpIDwgU0laRTsgaSArPSA0MDk2KSB7Cj4gPiA+ICAgICAgICAgICAgICAgICAgICAg
-ICAgICh2b2lkKXBbaV07Cj4gPiA+ICAgICAgICAgICAgICAgICB9Cj4gPiA+Cj4gPiA+ICAgICAg
-ICAgICAgICAgICAvKiBzd2FwIG91dCAqLwo+ID4gPiAgICAgICAgICAgICAgICAgbWFkdmlzZShw
-LCBTSVpFLCBNQURWX1BBR0VPVVQpOwo+ID4gPiAgICAgICAgIH0KPiA+ID4KPiA+ID4gICAgICAg
-ICBmb3IgKGludCBpID0gMDsgaSA8IDQ7IGkrKykKPiA+ID4gICAgICAgICB7Cj4gPiA+ICAgICAg
-ICAgICAgICAgICBwdGhyZWFkX2NhbmNlbCh0aHJlYWRzW2ldKTsKPiA+ID4gICAgICAgICB9Cj4g
-PiA+Cj4gPiA+ICAgICAgICAgZm9yIChpbnQgaSA9IDA7IGkgPCA0OyBpKyspCj4gPiA+ICAgICAg
-ICAgewo+ID4gPiAgICAgICAgICAgICAgICAgcHRocmVhZF9qb2luKHRocmVhZHNbaV0sIE5VTEwp
-Owo+ID4gPiAgICAgICAgIH0KPiA+ID4KPiA+ID4gICAgICAgICByZXR1cm4gMDsKPiA+ID4KPiA+
-ID4gfQo+ID4gPgo+ID4gCj4gPiBTbyBJIHJlbW92ZWQgdGhlIGR1c3QgZnJvbSBteSB1bm1hdGNo
-ZWQgYW5kIHJhbiB0aGUgYmVuY2htYXJrcyBJIHByb3Bvc2VkOgo+ID4gCj4gPiBXaXRob3V0IHRo
-aXMgcGF0Y2g6Cj4gPiAqIGJlbmNobWFyayBmcm9tIGNvbW1pdCA0M2IzZGZkZDA0NTUgKDQgcnVu
-cykgIDogfjIwLjNzCj4gPiAqIHNhbWUgYmVuY2htYXJrIHdpdGggdGhyZWFkcyAoNCBydW5zKSAg
-ICAgICAgICAgICAgICA6IH4yNy40cwo+ID4gCj4gPiBXaXRoIHRoaXMgcGF0Y2g6Cj4gPiAqIGJl
-bmNobWFyayBmcm9tIGNvbW1pdCA0M2IzZGZkZDA0NTUgKDQgcnVucykgIDogfjE3LjlzCj4gPiAq
-IHNhbWUgYmVuY2htYXJrIHdpdGggdGhyZWFkcyAoNCBydW5zKSAgICAgICAgICAgICAgICA6IH4x
-OC4xcwo+ID4gCj4gPiBTbyBhIHNtYWxsIGltcHJvdmVtZW50IGZvciB0aGUgc2luZ2xlIHRocmVh
-ZCBiZW5jaG1hcmssIGJ1dCBpdCBkZXBlbmRzCj4gPiBvbiB0aGUgbnVtYmVyIG9mIHBhZ2VzIHRo
-YXQgZ2V0IGZsdXNoZWQsIHNvIHRvIG1lIHRoYXQncyBub3QKPiA+IGFwcGxpY2FibGUgZm9yIHRo
-ZSBnZW5lcmFsIGNhc2UuIEZvciB0aGUgc2FtZSBiZW5jaG1hcmsgd2l0aCBtdWx0aXBsZQo+ID4g
-dGhyZWFkcywgdGhhdCdzIH4zNCUgaW1wcm92ZW1lbnQuIEknbGwgYWRkIHRob3NlIG51bWJlcnMg
-dG8gdGhlIHYyLAo+ID4gYW5kIEpJc2hlbmcgaWYgeW91IGNhbiBwcm92aWRlIHNvbWUgdG9vLCBJ
-J2xsIGFkZCB0aGVtIHRvbyEKPiAKPiBIaSBBbGV4LAo+IAo+IHRoZSB0aHJlYWRlZCB2ZXJzaW9u
-IHNob3cgfjc4JSBpbXByb3ZlbWVudCEgaW1wcmVzc2l2ZSEKCk9uZSBtb3JlIHRoaW5nIHdoZW4g
-eW91IGNvb2sgdjI6IGl0J3MgYmV0dGVyIHRvIHBhdGNoIHRoZSByaXNjdiBlbnRyeQppbiBEb2N1
-bWVudGF0aW9uL2ZlYXR1cmVzL3ZtL1RMQi9hcmNoLXN1cHBvcnQudHh0Cgo+IAo+IFNvIGZvciB0
-aGUgcGF0Y2g6Cj4gCj4gUmV2aWV3ZWQtYnk6IEppc2hlbmcgWmhhbmcgPGpzemhhbmdAa2VybmVs
-Lm9yZz4KPiBUZXN0ZWQtYnk6IEppc2hlbmcgWmhhbmcgPGpzemhhbmdAa2VybmVsLm9yZz4KPiAK
-PiBUaGFua3MKPiA+IAo+ID4gVGhhbmtzLAo+ID4gCj4gPiBBbGV4Cj4gPiAKPiA+ID4gPgo+ID4g
-PiA+IFRoYW5rcwo+ID4gPiA+Cj4gPiA+ID4gPgo+ID4gPiA+ID4gQmVmb3JlIHRoaXMgcGF0Y2g6
-Cj4gPiA+ID4gPgo+ID4gPiA+ID4gcmVhbCAgMm0xLjEzNXMKPiA+ID4gPiA+IHVzZXIgIDBtMC45
-ODBzCj4gPiA+ID4gPiBzeXMgICAybTAuMDk2cwo+ID4gPiA+ID4KPiA+ID4gPiA+IDQuODMlICBi
-YXRjaF90bGIgIFtrZXJuZWwua2FsbHN5bXNdICAgICAgICAgICAgW2tdIF9fZmx1c2hfdGxiX3Jh
-bmdlCj4gPiA+ID4gPgo+ID4gPiA+ID4gQWZ0ZXIgdGhpcyBwYXRjaDoKPiA+ID4gPiA+Cj4gPiA+
-ID4gPiByZWFsICAxbTAuNTQzcwo+ID4gPiA+ID4gdXNlciAgMG0xLjA1OXMKPiA+ID4gPiA+IHN5
-cyAgIDBtNTkuNDg5cwo+ID4gPiA+ID4KPiA+ID4gPiA+IDAuMTQlICBiYXRjaF90bGIgIFtrZXJu
-ZWwua2FsbHN5bXNdICAgICAgICAgICAgW2tdIF9fZmx1c2hfdGxiX3JhbmdlCj4gPiA+ID4gPgo+
-ID4gPiA+ID4gU2lnbmVkLW9mZi1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3Np
-bmMuY29tPgo+ID4gPiA+ID4gLS0tCj4gPiA+ID4gPiAgYXJjaC9yaXNjdi9LY29uZmlnICAgICAg
-ICAgICAgICAgIHwgIDEgKwo+ID4gPiA+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGxiYmF0
-Y2guaCB8IDE1ICsrKysrKysKPiA+ID4gPiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3RsYmZs
-dXNoLmggfCAxMCArKysrKwo+ID4gPiA+ID4gIGFyY2gvcmlzY3YvbW0vdGxiZmx1c2guYyAgICAg
-ICAgICB8IDcxICsrKysrKysrKysrKysrKysrKysrKystLS0tLS0tLS0KPiA+ID4gPiA+ICA0IGZp
-bGVzIGNoYW5nZWQsIDc3IGluc2VydGlvbnMoKyksIDIwIGRlbGV0aW9ucygtKQo+ID4gPiA+ID4g
-IGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3RsYmJhdGNoLmgKPiA+
-ID4gPiA+Cj4gPiA+ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9LY29uZmlnIGIvYXJjaC9y
-aXNjdi9LY29uZmlnCj4gPiA+ID4gPiBpbmRleCA3NjAzYmQ4YWIzMzMuLmFhMDdiZDQzYjEzOCAx
-MDA2NDQKPiA+ID4gPiA+IC0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZwo+ID4gPiA+ID4gKysrIGIv
-YXJjaC9yaXNjdi9LY29uZmlnCj4gPiA+ID4gPiBAQCAtNTMsNiArNTMsNyBAQCBjb25maWcgUklT
-Q1YKPiA+ID4gPiA+ICAgICAgIHNlbGVjdCBBUkNIX1VTRV9NRU1URVNUCj4gPiA+ID4gPiAgICAg
-ICBzZWxlY3QgQVJDSF9VU0VfUVVFVUVEX1JXTE9DS1MKPiA+ID4gPiA+ICAgICAgIHNlbGVjdCBB
-UkNIX1VTRVNfQ0ZJX1RSQVBTIGlmIENGSV9DTEFORwo+ID4gPiA+ID4gKyAgICAgc2VsZWN0IEFS
-Q0hfV0FOVF9CQVRDSEVEX1VOTUFQX1RMQl9GTFVTSCBpZiBTTVAgJiYgTU1VCj4gPiA+ID4gPiAg
-ICAgICBzZWxlY3QgQVJDSF9XQU5UX0RFRkFVTFRfVE9QRE9XTl9NTUFQX0xBWU9VVCBpZiBNTVUK
-PiA+ID4gPiA+ICAgICAgIHNlbGVjdCBBUkNIX1dBTlRfRlJBTUVfUE9JTlRFUlMKPiA+ID4gPiA+
-ICAgICAgIHNlbGVjdCBBUkNIX1dBTlRfR0VORVJBTF9IVUdFVExCIGlmICFSSVNDVl9JU0FfU1ZO
-QVBPVAo+ID4gPiA+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGxiYmF0
-Y2guaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGxiYmF0Y2guaAo+ID4gPiA+ID4gbmV3IGZp
-bGUgbW9kZSAxMDA2NDQKPiA+ID4gPiA+IGluZGV4IDAwMDAwMDAwMDAwMC4uNDYwMTRmNzBiOWRh
-Cj4gPiA+ID4gPiAtLS0gL2Rldi9udWxsCj4gPiA+ID4gPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL3RsYmJhdGNoLmgKPiA+ID4gPiA+IEBAIC0wLDAgKzEsMTUgQEAKPiA+ID4gPiA+ICsv
-KiBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMC1vbmx5ICovCj4gPiA+ID4gPiArLyoK
-PiA+ID4gPiA+ICsgKiBDb3B5cmlnaHQgKEMpIDIwMjMgUml2b3MgSW5jLgo+ID4gPiA+ID4gKyAq
-Lwo+ID4gPiA+ID4gKwo+ID4gPiA+ID4gKyNpZm5kZWYgX0FTTV9SSVNDVl9UTEJCQVRDSF9ICj4g
-PiA+ID4gPiArI2RlZmluZSBfQVNNX1JJU0NWX1RMQkJBVENIX0gKPiA+ID4gPiA+ICsKPiA+ID4g
-PiA+ICsjaW5jbHVkZSA8bGludXgvY3B1bWFzay5oPgo+ID4gPiA+ID4gKwo+ID4gPiA+ID4gK3N0
-cnVjdCBhcmNoX3RsYmZsdXNoX3VubWFwX2JhdGNoIHsKPiA+ID4gPiA+ICsgICAgIHN0cnVjdCBj
-cHVtYXNrIGNwdW1hc2s7Cj4gPiA+ID4gPiArfTsKPiA+ID4gPiA+ICsKPiA+ID4gPiA+ICsjZW5k
-aWYgLyogX0FTTV9SSVNDVl9UTEJCQVRDSF9IICovCj4gPiA+ID4gPiBkaWZmIC0tZ2l0IGEvYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS90bGJmbHVzaC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS90
-bGJmbHVzaC5oCj4gPiA+ID4gPiBpbmRleCA4ZjM0MThjNWYxNzIuLmYwYjczMWNjYzBjMiAxMDA2
-NDQKPiA+ID4gPiA+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGxiZmx1c2guaAo+ID4g
-PiA+ID4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS90bGJmbHVzaC5oCj4gPiA+ID4gPiBA
-QCAtNDYsNiArNDYsMTYgQEAgdm9pZCBmbHVzaF90bGJfa2VybmVsX3JhbmdlKHVuc2lnbmVkIGxv
-bmcgc3RhcnQsIHVuc2lnbmVkIGxvbmcgZW5kKTsKPiA+ID4gPiA+ICB2b2lkIGZsdXNoX3BtZF90
-bGJfcmFuZ2Uoc3RydWN0IHZtX2FyZWFfc3RydWN0ICp2bWEsIHVuc2lnbmVkIGxvbmcgc3RhcnQs
-Cj4gPiA+ID4gPiAgICAgICAgICAgICAgICAgICAgICAgdW5zaWduZWQgbG9uZyBlbmQpOwo+ID4g
-PiA+ID4gICNlbmRpZgo+ID4gPiA+ID4gKwo+ID4gPiA+ID4gKyNpZmRlZiBDT05GSUdfQVJDSF9X
-QU5UX0JBVENIRURfVU5NQVBfVExCX0ZMVVNICj4gPiA+ID4gPiArYm9vbCBhcmNoX3RsYmJhdGNo
-X3Nob3VsZF9kZWZlcihzdHJ1Y3QgbW1fc3RydWN0ICptbSk7Cj4gPiA+ID4gPiArdm9pZCBhcmNo
-X3RsYmJhdGNoX2FkZF9wZW5kaW5nKHN0cnVjdCBhcmNoX3RsYmZsdXNoX3VubWFwX2JhdGNoICpi
-YXRjaCwKPiA+ID4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3RydWN0IG1tX3N0
-cnVjdCAqbW0sCj4gPiA+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgIHVuc2lnbmVk
-IGxvbmcgdWFkZHIpOwo+ID4gPiA+ID4gK3ZvaWQgYXJjaF9mbHVzaF90bGJfYmF0Y2hlZF9wZW5k
-aW5nKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tKTsKPiA+ID4gPiA+ICt2b2lkIGFyY2hfdGxiYmF0Y2hf
-Zmx1c2goc3RydWN0IGFyY2hfdGxiZmx1c2hfdW5tYXBfYmF0Y2ggKmJhdGNoKTsKPiA+ID4gPiA+
-ICsjZW5kaWYgLyogQ09ORklHX0FSQ0hfV0FOVF9CQVRDSEVEX1VOTUFQX1RMQl9GTFVTSCAqLwo+
-ID4gPiA+ID4gKwo+ID4gPiA+ID4gICNlbHNlIC8qIENPTkZJR19TTVAgJiYgQ09ORklHX01NVSAq
-Lwo+ID4gPiA+ID4KPiA+ID4gPiA+ICAjZGVmaW5lIGZsdXNoX3RsYl9hbGwoKSBsb2NhbF9mbHVz
-aF90bGJfYWxsKCkKPiA+ID4gPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L21tL3RsYmZsdXNo
-LmMgYi9hcmNoL3Jpc2N2L21tL3RsYmZsdXNoLmMKPiA+ID4gPiA+IGluZGV4IGU2NjU5ZDczNjhi
-My4uYmI2MjNiY2EwYTdkIDEwMDY0NAo+ID4gPiA+ID4gLS0tIGEvYXJjaC9yaXNjdi9tbS90bGJm
-bHVzaC5jCj4gPiA+ID4gPiArKysgYi9hcmNoL3Jpc2N2L21tL3RsYmZsdXNoLmMKPiA+ID4gPiA+
-IEBAIC05MywyOSArOTMsMjMgQEAgc3RhdGljIHZvaWQgX19pcGlfZmx1c2hfdGxiX3JhbmdlX2Fz
-aWQodm9pZCAqaW5mbykKPiA+ID4gPiA+ICAgICAgIGxvY2FsX2ZsdXNoX3RsYl9yYW5nZV9hc2lk
-KGQtPnN0YXJ0LCBkLT5zaXplLCBkLT5zdHJpZGUsIGQtPmFzaWQpOwo+ID4gPiA+ID4gIH0KPiA+
-ID4gPiA+Cj4gPiA+ID4gPiAtc3RhdGljIHZvaWQgX19mbHVzaF90bGJfcmFuZ2Uoc3RydWN0IG1t
-X3N0cnVjdCAqbW0sIHVuc2lnbmVkIGxvbmcgc3RhcnQsCj4gPiA+ID4gPiAtICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgdW5zaWduZWQgbG9uZyBzaXplLCB1bnNpZ25lZCBsb25nIHN0cmlkZSkK
-PiA+ID4gPiA+ICtzdGF0aWMgdm9pZCBfX2ZsdXNoX3RsYl9yYW5nZShzdHJ1Y3QgY3B1bWFzayAq
-Y21hc2ssIHVuc2lnbmVkIGxvbmcgYXNpZCwKPiA+ID4gPiA+ICsgICAgICAgICAgICAgICAgICAg
-ICAgICAgICB1bnNpZ25lZCBsb25nIHN0YXJ0LCB1bnNpZ25lZCBsb25nIHNpemUsCj4gPiA+ID4g
-PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgdW5zaWduZWQgbG9uZyBzdHJpZGUpCj4gPiA+
-ID4gPiAgewo+ID4gPiA+ID4gICAgICAgc3RydWN0IGZsdXNoX3RsYl9yYW5nZV9kYXRhIGZ0ZDsK
-PiA+ID4gPiA+IC0gICAgIGNvbnN0IHN0cnVjdCBjcHVtYXNrICpjbWFzazsKPiA+ID4gPiA+IC0g
-ICAgIHVuc2lnbmVkIGxvbmcgYXNpZCA9IEZMVVNIX1RMQl9OT19BU0lEOwo+ID4gPiA+ID4gICAg
-ICAgYm9vbCBicm9hZGNhc3Q7Cj4gPiA+ID4gPgo+ID4gPiA+ID4gLSAgICAgaWYgKG1tKSB7Cj4g
-PiA+ID4gPiAtICAgICAgICAgICAgIHVuc2lnbmVkIGludCBjcHVpZDsKPiA+ID4gPiA+ICsgICAg
-IGlmIChjcHVtYXNrX2VtcHR5KGNtYXNrKSkKPiA+ID4gPiA+ICsgICAgICAgICAgICAgcmV0dXJu
-Owo+ID4gPiA+ID4KPiA+ID4gPiA+IC0gICAgICAgICAgICAgY21hc2sgPSBtbV9jcHVtYXNrKG1t
-KTsKPiA+ID4gPiA+IC0gICAgICAgICAgICAgaWYgKGNwdW1hc2tfZW1wdHkoY21hc2spKQo+ID4g
-PiA+ID4gLSAgICAgICAgICAgICAgICAgICAgIHJldHVybjsKPiA+ID4gPiA+ICsgICAgIGlmIChj
-bWFzayAhPSBjcHVfb25saW5lX21hc2spIHsKPiA+ID4gPiA+ICsgICAgICAgICAgICAgdW5zaWdu
-ZWQgaW50IGNwdWlkOwo+ID4gPiA+ID4KPiA+ID4gPiA+ICAgICAgICAgICAgICAgY3B1aWQgPSBn
-ZXRfY3B1KCk7Cj4gPiA+ID4gPiAgICAgICAgICAgICAgIC8qIGNoZWNrIGlmIHRoZSB0bGJmbHVz
-aCBuZWVkcyB0byBiZSBzZW50IHRvIG90aGVyIENQVXMgKi8KPiA+ID4gPiA+ICAgICAgICAgICAg
-ICAgYnJvYWRjYXN0ID0gY3B1bWFza19hbnlfYnV0KGNtYXNrLCBjcHVpZCkgPCBucl9jcHVfaWRz
-Owo+ID4gPiA+ID4gLQo+ID4gPiA+ID4gLSAgICAgICAgICAgICBpZiAoc3RhdGljX2JyYW5jaF91
-bmxpa2VseSgmdXNlX2FzaWRfYWxsb2NhdG9yKSkKPiA+ID4gPiA+IC0gICAgICAgICAgICAgICAg
-ICAgICBhc2lkID0gYXRvbWljX2xvbmdfcmVhZCgmbW0tPmNvbnRleHQuaWQpICYgYXNpZF9tYXNr
-Owo+ID4gPiA+ID4gICAgICAgfSBlbHNlIHsKPiA+ID4gPiA+IC0gICAgICAgICAgICAgY21hc2sg
-PSBjcHVfb25saW5lX21hc2s7Cj4gPiA+ID4gPiAgICAgICAgICAgICAgIGJyb2FkY2FzdCA9IHRy
-dWU7Cj4gPiA+ID4gPiAgICAgICB9Cj4gPiA+ID4gPgo+ID4gPiA+ID4gQEAgLTEzNSwyNSArMTI5
-LDM0IEBAIHN0YXRpYyB2b2lkIF9fZmx1c2hfdGxiX3JhbmdlKHN0cnVjdCBtbV9zdHJ1Y3QgKm1t
-LCB1bnNpZ25lZCBsb25nIHN0YXJ0LAo+ID4gPiA+ID4gICAgICAgICAgICAgICBsb2NhbF9mbHVz
-aF90bGJfcmFuZ2VfYXNpZChzdGFydCwgc2l6ZSwgc3RyaWRlLCBhc2lkKTsKPiA+ID4gPiA+ICAg
-ICAgIH0KPiA+ID4gPiA+Cj4gPiA+ID4gPiAtICAgICBpZiAobW0pCj4gPiA+ID4gPiArICAgICBp
-ZiAoY21hc2sgIT0gY3B1X29ubGluZV9tYXNrKQo+ID4gPiA+ID4gICAgICAgICAgICAgICBwdXRf
-Y3B1KCk7Cj4gPiA+ID4gPiAgfQo+ID4gPiA+ID4KPiA+ID4gPiA+ICtzdGF0aWMgaW5saW5lIHVu
-c2lnbmVkIGxvbmcgZ2V0X21tX2FzaWQoc3RydWN0IG1tX3N0cnVjdCAqbW0pCj4gPiA+ID4gPiAr
-ewo+ID4gPiA+ID4gKyAgICAgcmV0dXJuIHN0YXRpY19icmFuY2hfdW5saWtlbHkoJnVzZV9hc2lk
-X2FsbG9jYXRvcikgPwo+ID4gPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgIGF0b21pY19sb25n
-X3JlYWQoJm1tLT5jb250ZXh0LmlkKSAmIGFzaWRfbWFzayA6IEZMVVNIX1RMQl9OT19BU0lEOwo+
-ID4gPiA+ID4gK30KPiA+ID4gPiA+ICsKPiA+ID4gPiA+ICB2b2lkIGZsdXNoX3RsYl9tbShzdHJ1
-Y3QgbW1fc3RydWN0ICptbSkKPiA+ID4gPiA+ICB7Cj4gPiA+ID4gPiAtICAgICBfX2ZsdXNoX3Rs
-Yl9yYW5nZShtbSwgMCwgRkxVU0hfVExCX01BWF9TSVpFLCBQQUdFX1NJWkUpOwo+ID4gPiA+ID4g
-KyAgICAgX19mbHVzaF90bGJfcmFuZ2UobW1fY3B1bWFzayhtbSksIGdldF9tbV9hc2lkKG1tKSwK
-PiA+ID4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIDAsIEZMVVNIX1RMQl9NQVhfU0laRSwg
-UEFHRV9TSVpFKTsKPiA+ID4gPiA+ICB9Cj4gPiA+ID4gPgo+ID4gPiA+ID4gIHZvaWQgZmx1c2hf
-dGxiX21tX3JhbmdlKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLAo+ID4gPiA+ID4gICAgICAgICAgICAg
-ICAgICAgICAgIHVuc2lnbmVkIGxvbmcgc3RhcnQsIHVuc2lnbmVkIGxvbmcgZW5kLAo+ID4gPiA+
-ID4gICAgICAgICAgICAgICAgICAgICAgIHVuc2lnbmVkIGludCBwYWdlX3NpemUpCj4gPiA+ID4g
-PiAgewo+ID4gPiA+ID4gLSAgICAgX19mbHVzaF90bGJfcmFuZ2UobW0sIHN0YXJ0LCBlbmQgLSBz
-dGFydCwgcGFnZV9zaXplKTsKPiA+ID4gPiA+ICsgICAgIF9fZmx1c2hfdGxiX3JhbmdlKG1tX2Nw
-dW1hc2sobW0pLCBnZXRfbW1fYXNpZChtbSksCj4gPiA+ID4gPiArICAgICAgICAgICAgICAgICAg
-ICAgICBzdGFydCwgZW5kIC0gc3RhcnQsIHBhZ2Vfc2l6ZSk7Cj4gPiA+ID4gPiAgfQo+ID4gPiA+
-ID4KPiA+ID4gPiA+ICB2b2lkIGZsdXNoX3RsYl9wYWdlKHN0cnVjdCB2bV9hcmVhX3N0cnVjdCAq
-dm1hLCB1bnNpZ25lZCBsb25nIGFkZHIpCj4gPiA+ID4gPiAgewo+ID4gPiA+ID4gLSAgICAgX19m
-bHVzaF90bGJfcmFuZ2Uodm1hLT52bV9tbSwgYWRkciwgUEFHRV9TSVpFLCBQQUdFX1NJWkUpOwo+
-ID4gPiA+ID4gKyAgICAgX19mbHVzaF90bGJfcmFuZ2UobW1fY3B1bWFzayh2bWEtPnZtX21tKSwg
-Z2V0X21tX2FzaWQodm1hLT52bV9tbSksCj4gPiA+ID4gPiArICAgICAgICAgICAgICAgICAgICAg
-ICBhZGRyLCBQQUdFX1NJWkUsIFBBR0VfU0laRSk7Cj4gPiA+ID4gPiAgfQo+ID4gPiA+ID4KPiA+
-ID4gPiA+ICB2b2lkIGZsdXNoX3RsYl9yYW5nZShzdHJ1Y3Qgdm1fYXJlYV9zdHJ1Y3QgKnZtYSwg
-dW5zaWduZWQgbG9uZyBzdGFydCwKPiA+ID4gPiA+IEBAIC0xODUsMTggKzE4OCw0NiBAQCB2b2lk
-IGZsdXNoX3RsYl9yYW5nZShzdHJ1Y3Qgdm1fYXJlYV9zdHJ1Y3QgKnZtYSwgdW5zaWduZWQgbG9u
-ZyBzdGFydCwKPiA+ID4gPiA+ICAgICAgICAgICAgICAgfQo+ID4gPiA+ID4gICAgICAgfQo+ID4g
-PiA+ID4KPiA+ID4gPiA+IC0gICAgIF9fZmx1c2hfdGxiX3JhbmdlKHZtYS0+dm1fbW0sIHN0YXJ0
-LCBlbmQgLSBzdGFydCwgc3RyaWRlX3NpemUpOwo+ID4gPiA+ID4gKyAgICAgX19mbHVzaF90bGJf
-cmFuZ2UobW1fY3B1bWFzayh2bWEtPnZtX21tKSwgZ2V0X21tX2FzaWQodm1hLT52bV9tbSksCj4g
-PiA+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICBzdGFydCwgZW5kIC0gc3RhcnQsIHN0cmlk
-ZV9zaXplKTsKPiA+ID4gPiA+ICB9Cj4gPiA+ID4gPgo+ID4gPiA+ID4gIHZvaWQgZmx1c2hfdGxi
-X2tlcm5lbF9yYW5nZSh1bnNpZ25lZCBsb25nIHN0YXJ0LCB1bnNpZ25lZCBsb25nIGVuZCkKPiA+
-ID4gPiA+ICB7Cj4gPiA+ID4gPiAtICAgICBfX2ZsdXNoX3RsYl9yYW5nZShOVUxMLCBzdGFydCwg
-ZW5kIC0gc3RhcnQsIFBBR0VfU0laRSk7Cj4gPiA+ID4gPiArICAgICBfX2ZsdXNoX3RsYl9yYW5n
-ZSgoc3RydWN0IGNwdW1hc2sgKiljcHVfb25saW5lX21hc2ssIEZMVVNIX1RMQl9OT19BU0lELAo+
-ID4gPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgc3RhcnQsIGVuZCAtIHN0YXJ0LCBQQUdF
-X1NJWkUpOwo+ID4gPiA+ID4gIH0KPiA+ID4gPiA+Cj4gPiA+ID4gPiAgI2lmZGVmIENPTkZJR19U
-UkFOU1BBUkVOVF9IVUdFUEFHRQo+ID4gPiA+ID4gIHZvaWQgZmx1c2hfcG1kX3RsYl9yYW5nZShz
-dHJ1Y3Qgdm1fYXJlYV9zdHJ1Y3QgKnZtYSwgdW5zaWduZWQgbG9uZyBzdGFydCwKPiA+ID4gPiA+
-ICAgICAgICAgICAgICAgICAgICAgICB1bnNpZ25lZCBsb25nIGVuZCkKPiA+ID4gPiA+ICB7Cj4g
-PiA+ID4gPiAtICAgICBfX2ZsdXNoX3RsYl9yYW5nZSh2bWEtPnZtX21tLCBzdGFydCwgZW5kIC0g
-c3RhcnQsIFBNRF9TSVpFKTsKPiA+ID4gPiA+ICsgICAgIF9fZmx1c2hfdGxiX3JhbmdlKG1tX2Nw
-dW1hc2sodm1hLT52bV9tbSksIGdldF9tbV9hc2lkKHZtYS0+dm1fbW0pLAo+ID4gPiA+ID4gKyAg
-ICAgICAgICAgICAgICAgICAgICAgc3RhcnQsIGVuZCAtIHN0YXJ0LCBQTURfU0laRSk7Cj4gPiA+
-ID4gPiAgfQo+ID4gPiA+ID4gICNlbmRpZgo+ID4gPiA+ID4gKwo+ID4gPiA+ID4gKyNpZmRlZiBD
-T05GSUdfQVJDSF9XQU5UX0JBVENIRURfVU5NQVBfVExCX0ZMVVNICj4gPiA+ID4gPiArYm9vbCBh
-cmNoX3RsYmJhdGNoX3Nob3VsZF9kZWZlcihzdHJ1Y3QgbW1fc3RydWN0ICptbSkKPiA+ID4gPiA+
-ICt7Cj4gPiA+ID4gPiArICAgICByZXR1cm4gdHJ1ZTsKPiA+ID4gPiA+ICt9Cj4gPiA+ID4gPiAr
-Cj4gPiA+ID4gPiArdm9pZCBhcmNoX3RsYmJhdGNoX2FkZF9wZW5kaW5nKHN0cnVjdCBhcmNoX3Rs
-YmZsdXNoX3VubWFwX2JhdGNoICpiYXRjaCwKPiA+ID4gPiA+ICsgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgc3RydWN0IG1tX3N0cnVjdCAqbW0sCj4gPiA+ID4gPiArICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgIHVuc2lnbmVkIGxvbmcgdWFkZHIpCj4gPiA+ID4gPiArewo+ID4gPiA+ID4g
-KyAgICAgY3B1bWFza19vcigmYmF0Y2gtPmNwdW1hc2ssICZiYXRjaC0+Y3B1bWFzaywgbW1fY3B1
-bWFzayhtbSkpOwo+ID4gPiA+ID4gK30KPiA+ID4gPiA+ICsKPiA+ID4gPiA+ICt2b2lkIGFyY2hf
-Zmx1c2hfdGxiX2JhdGNoZWRfcGVuZGluZyhzdHJ1Y3QgbW1fc3RydWN0ICptbSkKPiA+ID4gPiA+
-ICt7Cj4gPiA+ID4gPiArICAgICBmbHVzaF90bGJfbW0obW0pOwo+ID4gPiA+ID4gK30KPiA+ID4g
-PiA+ICsKPiA+ID4gPiA+ICt2b2lkIGFyY2hfdGxiYmF0Y2hfZmx1c2goc3RydWN0IGFyY2hfdGxi
-Zmx1c2hfdW5tYXBfYmF0Y2ggKmJhdGNoKQo+ID4gPiA+ID4gK3sKPiA+ID4gPiA+ICsgICAgIF9f
-Zmx1c2hfdGxiX3JhbmdlKCZiYXRjaC0+Y3B1bWFzaywgRkxVU0hfVExCX05PX0FTSUQsIDAsCj4g
-PiA+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICBGTFVTSF9UTEJfTUFYX1NJWkUsIFBBR0Vf
-U0laRSk7Cj4gPiA+ID4gPiArfQo+ID4gPiA+ID4gKyNlbmRpZiAvKiBDT05GSUdfQVJDSF9XQU5U
-X0JBVENIRURfVU5NQVBfVExCX0ZMVVNIICovCj4gPiA+ID4gPiAtLQo+ID4gPiA+ID4gMi4zOS4y
-Cj4gPiA+ID4gPgo+ID4gPiA+ID4KPiA+ID4gPiA+IF9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCj4gPiA+ID4gPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-PiA+ID4gPiA+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiA+ID4gPiA+IGh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Baoquan,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on linus/master]
+[also build test ERROR on v6.7-rc8]
+[cannot apply to powerpc/next powerpc/fixes tip/x86/core arm64/for-next/core next-20240105]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Baoquan-He/kexec_core-move-kdump-related-codes-from-crash_core-c-to-kexec_core-c/20240105-223735
+base:   linus/master
+patch link:    https://lore.kernel.org/r/20240105103305.557273-2-bhe%40redhat.com
+patch subject: [PATCH 1/5] kexec_core: move kdump related codes from crash_core.c to kexec_core.c
+config: i386-allmodconfig (https://download.01.org/0day-ci/archive/20240106/202401062212.LXqinfjE-lkp@intel.com/config)
+compiler: ClangBuiltLinux clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240106/202401062212.LXqinfjE-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202401062212.LXqinfjE-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> arch/x86/kernel/crash.c:154:17: error: invalid application of 'sizeof' to an incomplete type 'struct crash_mem'
+     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
+         |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/overflow.h:293:9: note: expanded from macro 'struct_size'
+     293 |                 sizeof(*(p)) + flex_array_size(p, member, count),       \
+         |                       ^~~~~~
+   arch/x86/kernel/crash.c:140:15: note: forward declaration of 'struct crash_mem'
+     140 | static struct crash_mem *fill_up_crash_elf_data(void)
+         |               ^
+>> arch/x86/kernel/crash.c:154:17: error: incomplete definition of type 'struct crash_mem'
+     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
+         |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/overflow.h:293:18: note: expanded from macro 'struct_size'
+     293 |                 sizeof(*(p)) + flex_array_size(p, member, count),       \
+         |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/overflow.h:277:24: note: expanded from macro 'flex_array_size'
+     277 |                 (count) * sizeof(*(p)->member) + __must_be_array((p)->member),  \
+         |                                   ~~~^
+   arch/x86/kernel/crash.c:140:15: note: forward declaration of 'struct crash_mem'
+     140 | static struct crash_mem *fill_up_crash_elf_data(void)
+         |               ^
+>> arch/x86/kernel/crash.c:154:17: error: incomplete definition of type 'struct crash_mem'
+     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
+         |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/overflow.h:293:18: note: expanded from macro 'struct_size'
+     293 |                 sizeof(*(p)) + flex_array_size(p, member, count),       \
+         |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/overflow.h:277:55: note: expanded from macro 'flex_array_size'
+     277 |                 (count) * sizeof(*(p)->member) + __must_be_array((p)->member),  \
+         |                                                  ~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+   include/linux/compiler.h:228:59: note: expanded from macro '__must_be_array'
+     228 | #define __must_be_array(a)      BUILD_BUG_ON_ZERO(__same_type((a), &(a)[0]))
+         |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+   include/linux/compiler_types.h:376:63: note: expanded from macro '__same_type'
+     376 | #define __same_type(a, b) __builtin_types_compatible_p(typeof(a), typeof(b))
+         |                                                               ^
+   include/linux/build_bug.h:16:62: note: expanded from macro 'BUILD_BUG_ON_ZERO'
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                              ^
+   arch/x86/kernel/crash.c:140:15: note: forward declaration of 'struct crash_mem'
+     140 | static struct crash_mem *fill_up_crash_elf_data(void)
+         |               ^
+>> arch/x86/kernel/crash.c:154:17: error: incomplete definition of type 'struct crash_mem'
+     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
+         |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/overflow.h:293:18: note: expanded from macro 'struct_size'
+     293 |                 sizeof(*(p)) + flex_array_size(p, member, count),       \
+         |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/overflow.h:278:30: note: expanded from macro 'flex_array_size'
+     278 |                 size_mul(count, sizeof(*(p)->member) + __must_be_array((p)->member)))
+         |                                         ~~~^
+   arch/x86/kernel/crash.c:140:15: note: forward declaration of 'struct crash_mem'
+     140 | static struct crash_mem *fill_up_crash_elf_data(void)
+         |               ^
+>> arch/x86/kernel/crash.c:154:17: error: incomplete definition of type 'struct crash_mem'
+     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
+         |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/overflow.h:293:18: note: expanded from macro 'struct_size'
+     293 |                 sizeof(*(p)) + flex_array_size(p, member, count),       \
+         |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/overflow.h:278:61: note: expanded from macro 'flex_array_size'
+     278 |                 size_mul(count, sizeof(*(p)->member) + __must_be_array((p)->member)))
+         |                                                        ~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+   include/linux/compiler.h:228:59: note: expanded from macro '__must_be_array'
+     228 | #define __must_be_array(a)      BUILD_BUG_ON_ZERO(__same_type((a), &(a)[0]))
+         |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+   include/linux/compiler_types.h:376:63: note: expanded from macro '__same_type'
+     376 | #define __same_type(a, b) __builtin_types_compatible_p(typeof(a), typeof(b))
+         |                                                               ^
+   include/linux/build_bug.h:16:62: note: expanded from macro 'BUILD_BUG_ON_ZERO'
+      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+         |                                                              ^
+   arch/x86/kernel/crash.c:140:15: note: forward declaration of 'struct crash_mem'
+     140 | static struct crash_mem *fill_up_crash_elf_data(void)
+         |               ^
+   arch/x86/kernel/crash.c:158:6: error: incomplete definition of type 'struct crash_mem'
+     158 |         cmem->max_nr_ranges = nr_ranges;
+         |         ~~~~^
+   arch/x86/kernel/crash.c:140:15: note: forward declaration of 'struct crash_mem'
+     140 | static struct crash_mem *fill_up_crash_elf_data(void)
+         |               ^
+   arch/x86/kernel/crash.c:159:6: error: incomplete definition of type 'struct crash_mem'
+     159 |         cmem->nr_ranges = 0;
+         |         ~~~~^
+   arch/x86/kernel/crash.c:140:15: note: forward declaration of 'struct crash_mem'
+     140 | static struct crash_mem *fill_up_crash_elf_data(void)
+         |               ^
+>> arch/x86/kernel/crash.c:173:8: error: call to undeclared function 'crash_exclude_mem_range'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     173 |         ret = crash_exclude_mem_range(cmem, 0, (1<<20)-1);
+         |               ^
+   arch/x86/kernel/crash.c:193:6: error: incomplete definition of type 'struct crash_mem'
+     193 |         cmem->ranges[cmem->nr_ranges].start = res->start;
+         |         ~~~~^
+   arch/x86/kernel/crash.c:140:15: note: forward declaration of 'struct crash_mem'
+     140 | static struct crash_mem *fill_up_crash_elf_data(void)
+         |               ^
+   arch/x86/kernel/crash.c:193:19: error: incomplete definition of type 'struct crash_mem'
+     193 |         cmem->ranges[cmem->nr_ranges].start = res->start;
+         |                      ~~~~^
+   arch/x86/kernel/crash.c:140:15: note: forward declaration of 'struct crash_mem'
+     140 | static struct crash_mem *fill_up_crash_elf_data(void)
+         |               ^
+   arch/x86/kernel/crash.c:194:6: error: incomplete definition of type 'struct crash_mem'
+     194 |         cmem->ranges[cmem->nr_ranges].end = res->end;
+         |         ~~~~^
+   arch/x86/kernel/crash.c:140:15: note: forward declaration of 'struct crash_mem'
+     140 | static struct crash_mem *fill_up_crash_elf_data(void)
+         |               ^
+   arch/x86/kernel/crash.c:194:19: error: incomplete definition of type 'struct crash_mem'
+     194 |         cmem->ranges[cmem->nr_ranges].end = res->end;
+         |                      ~~~~^
+   arch/x86/kernel/crash.c:140:15: note: forward declaration of 'struct crash_mem'
+     140 | static struct crash_mem *fill_up_crash_elf_data(void)
+         |               ^
+   arch/x86/kernel/crash.c:195:6: error: incomplete definition of type 'struct crash_mem'
+     195 |         cmem->nr_ranges++;
+         |         ~~~~^
+   arch/x86/kernel/crash.c:140:15: note: forward declaration of 'struct crash_mem'
+     140 | static struct crash_mem *fill_up_crash_elf_data(void)
+         |               ^
+   arch/x86/kernel/crash.c:221:23: error: incomplete definition of type 'struct crash_mem'
+     221 |         *nr_mem_ranges = cmem->nr_ranges;
+         |                          ~~~~^
+   arch/x86/kernel/crash.c:140:15: note: forward declaration of 'struct crash_mem'
+     140 | static struct crash_mem *fill_up_crash_elf_data(void)
+         |               ^
+>> arch/x86/kernel/crash.c:224:9: error: call to undeclared function 'crash_prepare_elf64_headers'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     224 |         ret =  crash_prepare_elf64_headers(cmem, IS_ENABLED(CONFIG_X86_64), addr, sz);
+         |                ^
+   arch/x86/kernel/crash.c:224:9: note: did you mean 'prepare_elf_headers'?
+   arch/x86/kernel/crash.c:201:12: note: 'prepare_elf_headers' declared here
+     201 | static int prepare_elf_headers(struct kimage *image, void **addr,
+         |            ^
+   15 errors generated.
+
+
+vim +154 arch/x86/kernel/crash.c
+
+dd5f726076cc76 Vivek Goyal         2014-08-08  138  
+dd5f726076cc76 Vivek Goyal         2014-08-08  139  /* Gather all the required information to prepare elf headers for ram regions */
+8d5f894a3108ac AKASHI Takahiro     2018-04-13 @140  static struct crash_mem *fill_up_crash_elf_data(void)
+dd5f726076cc76 Vivek Goyal         2014-08-08  141  {
+dd5f726076cc76 Vivek Goyal         2014-08-08  142  	unsigned int nr_ranges = 0;
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  143  	struct crash_mem *cmem;
+dd5f726076cc76 Vivek Goyal         2014-08-08  144  
+9eff303725da65 Borislav Petkov     2019-11-14  145  	walk_system_ram_res(0, -1, &nr_ranges, get_nr_ram_ranges_callback);
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  146  	if (!nr_ranges)
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  147  		return NULL;
+dd5f726076cc76 Vivek Goyal         2014-08-08  148  
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  149  	/*
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  150  	 * Exclusion of crash region and/or crashk_low_res may cause
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  151  	 * another range split. So add extra two slots here.
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  152  	 */
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  153  	nr_ranges += 2;
+4df4309587e18a Gustavo A. R. Silva 2019-04-03 @154  	cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  155  	if (!cmem)
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  156  		return NULL;
+dd5f726076cc76 Vivek Goyal         2014-08-08  157  
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  158  	cmem->max_nr_ranges = nr_ranges;
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  159  	cmem->nr_ranges = 0;
+dd5f726076cc76 Vivek Goyal         2014-08-08  160  
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  161  	return cmem;
+dd5f726076cc76 Vivek Goyal         2014-08-08  162  }
+dd5f726076cc76 Vivek Goyal         2014-08-08  163  
+dd5f726076cc76 Vivek Goyal         2014-08-08  164  /*
+dd5f726076cc76 Vivek Goyal         2014-08-08  165   * Look for any unwanted ranges between mstart, mend and remove them. This
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  166   * might lead to split and split ranges are put in cmem->ranges[] array
+dd5f726076cc76 Vivek Goyal         2014-08-08  167   */
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  168  static int elf_header_exclude_ranges(struct crash_mem *cmem)
+dd5f726076cc76 Vivek Goyal         2014-08-08  169  {
+dd5f726076cc76 Vivek Goyal         2014-08-08  170  	int ret = 0;
+dd5f726076cc76 Vivek Goyal         2014-08-08  171  
+7c321eb2b843bf Lianbo Jiang        2019-11-08  172  	/* Exclude the low 1M because it is always reserved */
+a3e1c3bb24e2ff Lianbo Jiang        2020-08-04 @173  	ret = crash_exclude_mem_range(cmem, 0, (1<<20)-1);
+7c321eb2b843bf Lianbo Jiang        2019-11-08  174  	if (ret)
+7c321eb2b843bf Lianbo Jiang        2019-11-08  175  		return ret;
+7c321eb2b843bf Lianbo Jiang        2019-11-08  176  
+dd5f726076cc76 Vivek Goyal         2014-08-08  177  	/* Exclude crashkernel region */
+babac4a84a8884 AKASHI Takahiro     2018-04-13  178  	ret = crash_exclude_mem_range(cmem, crashk_res.start, crashk_res.end);
+dd5f726076cc76 Vivek Goyal         2014-08-08  179  	if (ret)
+dd5f726076cc76 Vivek Goyal         2014-08-08  180  		return ret;
+dd5f726076cc76 Vivek Goyal         2014-08-08  181  
+9eff303725da65 Borislav Petkov     2019-11-14  182  	if (crashk_low_res.end)
+babac4a84a8884 AKASHI Takahiro     2018-04-13  183  		ret = crash_exclude_mem_range(cmem, crashk_low_res.start,
+babac4a84a8884 AKASHI Takahiro     2018-04-13  184  					      crashk_low_res.end);
+dd5f726076cc76 Vivek Goyal         2014-08-08  185  
+dd5f726076cc76 Vivek Goyal         2014-08-08  186  	return ret;
+dd5f726076cc76 Vivek Goyal         2014-08-08  187  }
+dd5f726076cc76 Vivek Goyal         2014-08-08  188  
+1d2e733b13b450 Tom Lendacky        2017-10-20  189  static int prepare_elf64_ram_headers_callback(struct resource *res, void *arg)
+dd5f726076cc76 Vivek Goyal         2014-08-08  190  {
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  191  	struct crash_mem *cmem = arg;
+dd5f726076cc76 Vivek Goyal         2014-08-08  192  
+cbe6601617302b AKASHI Takahiro     2018-04-13  193  	cmem->ranges[cmem->nr_ranges].start = res->start;
+cbe6601617302b AKASHI Takahiro     2018-04-13  194  	cmem->ranges[cmem->nr_ranges].end = res->end;
+cbe6601617302b AKASHI Takahiro     2018-04-13  195  	cmem->nr_ranges++;
+dd5f726076cc76 Vivek Goyal         2014-08-08  196  
+cbe6601617302b AKASHI Takahiro     2018-04-13  197  	return 0;
+dd5f726076cc76 Vivek Goyal         2014-08-08  198  }
+dd5f726076cc76 Vivek Goyal         2014-08-08  199  
+dd5f726076cc76 Vivek Goyal         2014-08-08  200  /* Prepare elf headers. Return addr and size */
+dd5f726076cc76 Vivek Goyal         2014-08-08  201  static int prepare_elf_headers(struct kimage *image, void **addr,
+ea53ad9cf73b6b Eric DeVolder       2023-08-14  202  					unsigned long *sz, unsigned long *nr_mem_ranges)
+dd5f726076cc76 Vivek Goyal         2014-08-08  203  {
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  204  	struct crash_mem *cmem;
+7c321eb2b843bf Lianbo Jiang        2019-11-08  205  	int ret;
+dd5f726076cc76 Vivek Goyal         2014-08-08  206  
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  207  	cmem = fill_up_crash_elf_data();
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  208  	if (!cmem)
+dd5f726076cc76 Vivek Goyal         2014-08-08  209  		return -ENOMEM;
+dd5f726076cc76 Vivek Goyal         2014-08-08  210  
+9eff303725da65 Borislav Petkov     2019-11-14  211  	ret = walk_system_ram_res(0, -1, cmem, prepare_elf64_ram_headers_callback);
+cbe6601617302b AKASHI Takahiro     2018-04-13  212  	if (ret)
+cbe6601617302b AKASHI Takahiro     2018-04-13  213  		goto out;
+cbe6601617302b AKASHI Takahiro     2018-04-13  214  
+cbe6601617302b AKASHI Takahiro     2018-04-13  215  	/* Exclude unwanted mem ranges */
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  216  	ret = elf_header_exclude_ranges(cmem);
+cbe6601617302b AKASHI Takahiro     2018-04-13  217  	if (ret)
+cbe6601617302b AKASHI Takahiro     2018-04-13  218  		goto out;
+cbe6601617302b AKASHI Takahiro     2018-04-13  219  
+ea53ad9cf73b6b Eric DeVolder       2023-08-14  220  	/* Return the computed number of memory ranges, for hotplug usage */
+ea53ad9cf73b6b Eric DeVolder       2023-08-14  221  	*nr_mem_ranges = cmem->nr_ranges;
+ea53ad9cf73b6b Eric DeVolder       2023-08-14  222  
+dd5f726076cc76 Vivek Goyal         2014-08-08  223  	/* By default prepare 64bit headers */
+9eff303725da65 Borislav Petkov     2019-11-14 @224  	ret =  crash_prepare_elf64_headers(cmem, IS_ENABLED(CONFIG_X86_64), addr, sz);
+cbe6601617302b AKASHI Takahiro     2018-04-13  225  
+cbe6601617302b AKASHI Takahiro     2018-04-13  226  out:
+8d5f894a3108ac AKASHI Takahiro     2018-04-13  227  	vfree(cmem);
+dd5f726076cc76 Vivek Goyal         2014-08-08  228  	return ret;
+dd5f726076cc76 Vivek Goyal         2014-08-08  229  }
+ea53ad9cf73b6b Eric DeVolder       2023-08-14  230  #endif
+dd5f726076cc76 Vivek Goyal         2014-08-08  231  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
