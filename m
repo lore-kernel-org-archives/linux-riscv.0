@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 911A6C46CD2
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Jan 2024 11:01:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A247C46CD2
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Jan 2024 14:00:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=POLeWT+Qjxk0LgFBo3XsCqblHgDRWlE1BJYNZIGdaXg=; b=nWgH6oFGRXJZp7
-	QbGzcus4jvi2BLT0WPA5jbO0HI5zB2r3ar8LUFVao0+sw5XMCXl+/kQLQR0tx9vmvi39yYLQEWboT
-	7yC3R2/swf+LZi/w8dyhV07xve4auOqVZwV7HnyFcr1/IIFGUAsUngz66PFeaf1ddB4OSXm/D6PtN
-	OugyvdFr7x0gBqFBqhIjHFYXHKVcTYzWJmLAIX+gRVcKf7KFcQHyM2b53DuNDIFRAb2B7GmYaEWQT
-	IE9spO0WN4bkxeDnZTARrlDsBIptX7aLZnmtgLlCj0Ls3C0ubXJJBCJn9da+LW1YFqY/C7fibeNe6
-	X0rNzvEPFiFPaVnPvDlg==;
+	List-Owner; bh=nXOJOnMoqDH+vIPx+2GU4kQ8i4huHC+wOarAvg4J2Ak=; b=4FcRQeMI4kAOXp
+	MhEG4ZE4vru8xXLXoUqjfyIolzFgb2eNfGURUKspHPCxPEzU3eeTrTPwMJRyMeAn/8Tkl7xj9Gg0K
+	N/RoT6HxFWykjxClvac6cG/UWBjrc51KoOgVPJpXT+1jhwSEz8DKKRWR/cfjF8vWe/mIUTd1E6HbT
+	Y3c6mcJSe7BZXBNOXqJy6RrOhPTZroV+/8IbJw6fKPaJrefCG1F6ZyyswKBS4sjLeSnvftvwjlYEU
+	2EZVUHqs5WgcKZmsVdJq+T6LW/qVf1FF8xnh9ka5ijrej0pEDZSZguA0KBDvTcztRFlrVBg56yRkr
+	xo00Qrfb+wxXNF10WC+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rM4QJ-0014NG-0r;
-	Sat, 06 Jan 2024 11:01:03 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1rM7DL-001OCM-17;
+	Sat, 06 Jan 2024 13:59:51 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rM4QC-0014Ji-2H;
-	Sat, 06 Jan 2024 11:00:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1704538857; x=1736074857;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=2X/qUnvON1PyMX3HuXoxp4vXuL7aKUw6vkNMr+e6tJw=;
-  b=RnvXAUizp4IemP9A5LLaAqu+alwJjUN9IvlH1YT4ljAB8aP4A44vPFBV
-   4h6rdmWqqFq78gmTba1rYrLLr2HDsQdOprI4gME1GDVLHjbtt/rDFZDh/
-   shmL1p2GwhX4+ylku3ZMR2nc2J2CczcR49+4Ob05ROyfdLpoINCw026J2
-   1A7tDujb+7BcdBwzJkUi31WQjC6GxXKY20zR11g5HQlRB4WuwmCA5sidv
-   DWGtm9GH3+e5gscHmJ2Ua3S9nEOcqhg+K+T/ssaPRziAWVh212BajPpxe
-   NqAg8TrCoWREGXQ6+TyxiVzb7yyySKswBiPHhWriP6YZsypVzVseEqXTv
-   A==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10944"; a="11005357"
-X-IronPort-AV: E=Sophos;i="6.04,336,1695711600"; 
-   d="scan'208";a="11005357"
-Received: from orsmga004.jf.intel.com ([10.7.209.38])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Jan 2024 03:00:32 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10944"; a="904365585"
-X-IronPort-AV: E=Sophos;i="6.04,336,1695711600"; 
-   d="scan'208";a="904365585"
-Received: from lkp-server02.sh.intel.com (HELO b07ab15da5fe) ([10.239.97.151])
-  by orsmga004.jf.intel.com with ESMTP; 06 Jan 2024 03:00:25 -0800
-Received: from kbuild by b07ab15da5fe with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1rM4Pf-0002Nn-1G;
-	Sat, 06 Jan 2024 11:00:23 +0000
-Date: Sat, 6 Jan 2024 18:59:56 +0800
-From: kernel test robot <lkp@intel.com>
-To: Baoquan He <bhe@redhat.com>, linux-kernel@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, akpm@linux-foundation.org,
-	kexec@lists.infradead.org, hbathini@linux.ibm.com, arnd@arndb.de,
-	ignat@cloudflare.com, eric_devolder@yahoo.com,
-	viro@zeniv.linux.org.uk, ebiederm@xmission.com, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
-	Baoquan He <bhe@redhat.com>
-Subject: Re: [PATCH 1/5] kexec_core: move kdump related codes from
- crash_core.c to kexec_core.c
-Message-ID: <202401061800.3XPSaPsa-lkp@intel.com>
-References: <20240105103305.557273-2-bhe@redhat.com>
+	id 1rM7DI-001OBQ-0N
+	for linux-riscv@lists.infradead.org;
+	Sat, 06 Jan 2024 13:59:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E4DE1601BE;
+	Sat,  6 Jan 2024 13:59:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41CF3C433C7;
+	Sat,  6 Jan 2024 13:59:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1704549584;
+	bh=Pq8SfrXdgj+ly7z2v4/coodhuaROaXljdjD7G4bZz18=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pOJIMp+CI1AcyHVPfUiCCgrfFWVuKGAJMbpb2JUC83deTMMJGquMbGaVnLg5dtKMM
+	 L2X2KDLTssUBWSUobZHiXPXqJXC68vfb+KMUBYLy/3fAHlKXO71oqoJR4S8xCwCcm1
+	 uwDbHzPQgK/piaq7bgKLjqUx/M6o8lYFXqV1u4UEM9HH+/dlm5k4iy6lbVD3jLIuwC
+	 V8VWaVN0PA8XlzusPtvQCnXqexFVWF4hn1Yh7Z5c4lQtFqVmhx3JvHnFNCoLeDbRX7
+	 fmn6G90LiIRWqqL/i2aT36VDYSv0ktHWj4f8o5p/tSRmMsJ3ej3HgYDjiDItwZ1QjO
+	 SEAf8c09HCphw==
+Date: Sat, 6 Jan 2024 21:47:00 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: Add support for BATCHED_UNMAP_TLB_FLUSH
+Message-ID: <ZZlZ1HEhDuj4Ojwd@xhacker>
+References: <20240102141851.105144-1-alexghiti@rivosinc.com>
+ <ZZU9s7iHDTBD39C0@xhacker>
+ <CAHVXubgpMFesz8C-tY4qY0OGzB3Jfyp1eK6YafN8GQN=u7Etyg@mail.gmail.com>
+ <CAHVXubij+L84tpwM-O1W6HV31D8Q7Gb0OerobYJVcmznXaQ2eg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240105103305.557273-2-bhe@redhat.com>
+In-Reply-To: <CAHVXubij+L84tpwM-O1W6HV31D8Q7Gb0OerobYJVcmznXaQ2eg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240106_030056_833700_1A20FACB 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20240106_055948_246047_6F07E653 
+X-CRM114-Status: GOOD (  49.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,377 +72,262 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Baoquan,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on linus/master]
-[also build test ERROR on v6.7-rc8]
-[cannot apply to powerpc/next powerpc/fixes tip/x86/core arm64/for-next/core next-20240105]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Baoquan-He/kexec_core-move-kdump-related-codes-from-crash_core-c-to-kexec_core-c/20240105-223735
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20240105103305.557273-2-bhe%40redhat.com
-patch subject: [PATCH 1/5] kexec_core: move kdump related codes from crash_core.c to kexec_core.c
-config: x86_64-randconfig-104-20240106 (https://download.01.org/0day-ci/archive/20240106/202401061800.3XPSaPsa-lkp@intel.com/config)
-compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240106/202401061800.3XPSaPsa-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202401061800.3XPSaPsa-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from include/linux/string.h:11,
-                    from include/linux/bitmap.h:12,
-                    from include/linux/cpumask.h:12,
-                    from include/linux/smp.h:13,
-                    from arch/x86/kernel/crash.c:18:
-   arch/x86/kernel/crash.c: In function 'fill_up_crash_elf_data':
->> include/linux/overflow.h:293:23: error: invalid application of 'sizeof' to incomplete type 'struct crash_mem'
-     293 |                 sizeof(*(p)) + flex_array_size(p, member, count),       \
-         |                       ^
-   arch/x86/kernel/crash.c:154:24: note: in expansion of macro 'struct_size'
-     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
-         |                        ^~~~~~~~~~~
->> include/linux/overflow.h:277:38: error: invalid use of undefined type 'struct crash_mem'
-     277 |                 (count) * sizeof(*(p)->member) + __must_be_array((p)->member),  \
-         |                                      ^~
-   include/linux/overflow.h:293:32: note: in expansion of macro 'flex_array_size'
-     293 |                 sizeof(*(p)) + flex_array_size(p, member, count),       \
-         |                                ^~~~~~~~~~~~~~~
-   arch/x86/kernel/crash.c:154:24: note: in expansion of macro 'struct_size'
-     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
-         |                        ^~~~~~~~~~~
-   In file included from include/linux/container_of.h:5,
-                    from include/linux/kernel.h:22,
-                    from arch/x86/kernel/crash.c:17:
-   include/linux/overflow.h:277:69: error: invalid use of undefined type 'struct crash_mem'
-     277 |                 (count) * sizeof(*(p)->member) + __must_be_array((p)->member),  \
-         |                                                                     ^~
-   include/linux/build_bug.h:16:62: note: in definition of macro 'BUILD_BUG_ON_ZERO'
-      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
-         |                                                              ^
-   include/linux/compiler.h:228:51: note: in expansion of macro '__same_type'
-     228 | #define __must_be_array(a)      BUILD_BUG_ON_ZERO(__same_type((a), &(a)[0]))
-         |                                                   ^~~~~~~~~~~
-   include/linux/overflow.h:277:50: note: in expansion of macro '__must_be_array'
-     277 |                 (count) * sizeof(*(p)->member) + __must_be_array((p)->member),  \
-         |                                                  ^~~~~~~~~~~~~~~
-   include/linux/overflow.h:293:32: note: in expansion of macro 'flex_array_size'
-     293 |                 sizeof(*(p)) + flex_array_size(p, member, count),       \
-         |                                ^~~~~~~~~~~~~~~
-   arch/x86/kernel/crash.c:154:24: note: in expansion of macro 'struct_size'
-     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
-         |                        ^~~~~~~~~~~
-   include/linux/overflow.h:277:69: error: invalid use of undefined type 'struct crash_mem'
-     277 |                 (count) * sizeof(*(p)->member) + __must_be_array((p)->member),  \
-         |                                                                     ^~
-   include/linux/build_bug.h:16:62: note: in definition of macro 'BUILD_BUG_ON_ZERO'
-      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
-         |                                                              ^
-   include/linux/compiler.h:228:51: note: in expansion of macro '__same_type'
-     228 | #define __must_be_array(a)      BUILD_BUG_ON_ZERO(__same_type((a), &(a)[0]))
-         |                                                   ^~~~~~~~~~~
-   include/linux/overflow.h:277:50: note: in expansion of macro '__must_be_array'
-     277 |                 (count) * sizeof(*(p)->member) + __must_be_array((p)->member),  \
-         |                                                  ^~~~~~~~~~~~~~~
-   include/linux/overflow.h:293:32: note: in expansion of macro 'flex_array_size'
-     293 |                 sizeof(*(p)) + flex_array_size(p, member, count),       \
-         |                                ^~~~~~~~~~~~~~~
-   arch/x86/kernel/crash.c:154:24: note: in expansion of macro 'struct_size'
-     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
-         |                        ^~~~~~~~~~~
-   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
-      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
-         |                                                   ^
-   include/linux/compiler.h:228:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
-     228 | #define __must_be_array(a)      BUILD_BUG_ON_ZERO(__same_type((a), &(a)[0]))
-         |                                 ^~~~~~~~~~~~~~~~~
-   include/linux/overflow.h:277:50: note: in expansion of macro '__must_be_array'
-     277 |                 (count) * sizeof(*(p)->member) + __must_be_array((p)->member),  \
-         |                                                  ^~~~~~~~~~~~~~~
-   include/linux/overflow.h:293:32: note: in expansion of macro 'flex_array_size'
-     293 |                 sizeof(*(p)) + flex_array_size(p, member, count),       \
-         |                                ^~~~~~~~~~~~~~~
-   arch/x86/kernel/crash.c:154:24: note: in expansion of macro 'struct_size'
-     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
-         |                        ^~~~~~~~~~~
-   include/linux/overflow.h:278:44: error: invalid use of undefined type 'struct crash_mem'
-     278 |                 size_mul(count, sizeof(*(p)->member) + __must_be_array((p)->member)))
-         |                                            ^~
-   include/linux/overflow.h:293:32: note: in expansion of macro 'flex_array_size'
-     293 |                 sizeof(*(p)) + flex_array_size(p, member, count),       \
-         |                                ^~~~~~~~~~~~~~~
-   arch/x86/kernel/crash.c:154:24: note: in expansion of macro 'struct_size'
-     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
-         |                        ^~~~~~~~~~~
-   include/linux/overflow.h:278:75: error: invalid use of undefined type 'struct crash_mem'
-     278 |                 size_mul(count, sizeof(*(p)->member) + __must_be_array((p)->member)))
-         |                                                                           ^~
-   include/linux/build_bug.h:16:62: note: in definition of macro 'BUILD_BUG_ON_ZERO'
-      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
-         |                                                              ^
-   include/linux/compiler.h:228:51: note: in expansion of macro '__same_type'
-     228 | #define __must_be_array(a)      BUILD_BUG_ON_ZERO(__same_type((a), &(a)[0]))
-         |                                                   ^~~~~~~~~~~
-   include/linux/overflow.h:278:56: note: in expansion of macro '__must_be_array'
-     278 |                 size_mul(count, sizeof(*(p)->member) + __must_be_array((p)->member)))
-         |                                                        ^~~~~~~~~~~~~~~
-   include/linux/overflow.h:293:32: note: in expansion of macro 'flex_array_size'
-     293 |                 sizeof(*(p)) + flex_array_size(p, member, count),       \
-         |                                ^~~~~~~~~~~~~~~
-   arch/x86/kernel/crash.c:154:24: note: in expansion of macro 'struct_size'
-     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
-         |                        ^~~~~~~~~~~
-   include/linux/overflow.h:278:75: error: invalid use of undefined type 'struct crash_mem'
-     278 |                 size_mul(count, sizeof(*(p)->member) + __must_be_array((p)->member)))
-         |                                                                           ^~
-   include/linux/build_bug.h:16:62: note: in definition of macro 'BUILD_BUG_ON_ZERO'
-      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
-         |                                                              ^
-   include/linux/compiler.h:228:51: note: in expansion of macro '__same_type'
-     228 | #define __must_be_array(a)      BUILD_BUG_ON_ZERO(__same_type((a), &(a)[0]))
-         |                                                   ^~~~~~~~~~~
-   include/linux/overflow.h:278:56: note: in expansion of macro '__must_be_array'
-     278 |                 size_mul(count, sizeof(*(p)->member) + __must_be_array((p)->member)))
-         |                                                        ^~~~~~~~~~~~~~~
-   include/linux/overflow.h:293:32: note: in expansion of macro 'flex_array_size'
-     293 |                 sizeof(*(p)) + flex_array_size(p, member, count),       \
-         |                                ^~~~~~~~~~~~~~~
-   arch/x86/kernel/crash.c:154:24: note: in expansion of macro 'struct_size'
-     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
-         |                        ^~~~~~~~~~~
-   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
-      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
-         |                                                   ^
-   include/linux/compiler.h:228:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
-     228 | #define __must_be_array(a)      BUILD_BUG_ON_ZERO(__same_type((a), &(a)[0]))
-         |                                 ^~~~~~~~~~~~~~~~~
-   include/linux/overflow.h:278:56: note: in expansion of macro '__must_be_array'
-     278 |                 size_mul(count, sizeof(*(p)->member) + __must_be_array((p)->member)))
-         |                                                        ^~~~~~~~~~~~~~~
-   include/linux/overflow.h:293:32: note: in expansion of macro 'flex_array_size'
-     293 |                 sizeof(*(p)) + flex_array_size(p, member, count),       \
-         |                                ^~~~~~~~~~~~~~~
-   arch/x86/kernel/crash.c:154:24: note: in expansion of macro 'struct_size'
-     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
-         |                        ^~~~~~~~~~~
-   include/linux/overflow.h:294:32: error: invalid application of 'sizeof' to incomplete type 'struct crash_mem'
-     294 |                 size_add(sizeof(*(p)), flex_array_size(p, member, count)))
-         |                                ^
-   arch/x86/kernel/crash.c:154:24: note: in expansion of macro 'struct_size'
-     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
-         |                        ^~~~~~~~~~~
->> include/linux/overflow.h:277:38: error: invalid use of undefined type 'struct crash_mem'
-     277 |                 (count) * sizeof(*(p)->member) + __must_be_array((p)->member),  \
-         |                                      ^~
-   include/linux/overflow.h:294:40: note: in expansion of macro 'flex_array_size'
-     294 |                 size_add(sizeof(*(p)), flex_array_size(p, member, count)))
-         |                                        ^~~~~~~~~~~~~~~
-   arch/x86/kernel/crash.c:154:24: note: in expansion of macro 'struct_size'
-     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
-         |                        ^~~~~~~~~~~
-   include/linux/overflow.h:277:69: error: invalid use of undefined type 'struct crash_mem'
-     277 |                 (count) * sizeof(*(p)->member) + __must_be_array((p)->member),  \
-         |                                                                     ^~
-   include/linux/build_bug.h:16:62: note: in definition of macro 'BUILD_BUG_ON_ZERO'
-      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
-         |                                                              ^
-   include/linux/compiler.h:228:51: note: in expansion of macro '__same_type'
-     228 | #define __must_be_array(a)      BUILD_BUG_ON_ZERO(__same_type((a), &(a)[0]))
-         |                                                   ^~~~~~~~~~~
-   include/linux/overflow.h:277:50: note: in expansion of macro '__must_be_array'
-     277 |                 (count) * sizeof(*(p)->member) + __must_be_array((p)->member),  \
-         |                                                  ^~~~~~~~~~~~~~~
-   include/linux/overflow.h:294:40: note: in expansion of macro 'flex_array_size'
-     294 |                 size_add(sizeof(*(p)), flex_array_size(p, member, count)))
-         |                                        ^~~~~~~~~~~~~~~
-   arch/x86/kernel/crash.c:154:24: note: in expansion of macro 'struct_size'
-     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
-         |                        ^~~~~~~~~~~
-   include/linux/overflow.h:277:69: error: invalid use of undefined type 'struct crash_mem'
-     277 |                 (count) * sizeof(*(p)->member) + __must_be_array((p)->member),  \
-         |                                                                     ^~
-   include/linux/build_bug.h:16:62: note: in definition of macro 'BUILD_BUG_ON_ZERO'
-      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
-         |                                                              ^
-   include/linux/compiler.h:228:51: note: in expansion of macro '__same_type'
-     228 | #define __must_be_array(a)      BUILD_BUG_ON_ZERO(__same_type((a), &(a)[0]))
-         |                                                   ^~~~~~~~~~~
-   include/linux/overflow.h:277:50: note: in expansion of macro '__must_be_array'
-     277 |                 (count) * sizeof(*(p)->member) + __must_be_array((p)->member),  \
-         |                                                  ^~~~~~~~~~~~~~~
-   include/linux/overflow.h:294:40: note: in expansion of macro 'flex_array_size'
-     294 |                 size_add(sizeof(*(p)), flex_array_size(p, member, count)))
-         |                                        ^~~~~~~~~~~~~~~
-   arch/x86/kernel/crash.c:154:24: note: in expansion of macro 'struct_size'
-     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
-         |                        ^~~~~~~~~~~
-   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
-      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
-         |                                                   ^
-   include/linux/compiler.h:228:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
-     228 | #define __must_be_array(a)      BUILD_BUG_ON_ZERO(__same_type((a), &(a)[0]))
-         |                                 ^~~~~~~~~~~~~~~~~
-   include/linux/overflow.h:277:50: note: in expansion of macro '__must_be_array'
-     277 |                 (count) * sizeof(*(p)->member) + __must_be_array((p)->member),  \
-         |                                                  ^~~~~~~~~~~~~~~
-   include/linux/overflow.h:294:40: note: in expansion of macro 'flex_array_size'
-     294 |                 size_add(sizeof(*(p)), flex_array_size(p, member, count)))
-         |                                        ^~~~~~~~~~~~~~~
-   arch/x86/kernel/crash.c:154:24: note: in expansion of macro 'struct_size'
-     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
-         |                        ^~~~~~~~~~~
-   include/linux/overflow.h:278:44: error: invalid use of undefined type 'struct crash_mem'
-     278 |                 size_mul(count, sizeof(*(p)->member) + __must_be_array((p)->member)))
-         |                                            ^~
-   include/linux/overflow.h:294:40: note: in expansion of macro 'flex_array_size'
-     294 |                 size_add(sizeof(*(p)), flex_array_size(p, member, count)))
-         |                                        ^~~~~~~~~~~~~~~
-   arch/x86/kernel/crash.c:154:24: note: in expansion of macro 'struct_size'
-     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
-         |                        ^~~~~~~~~~~
-   include/linux/overflow.h:278:75: error: invalid use of undefined type 'struct crash_mem'
-     278 |                 size_mul(count, sizeof(*(p)->member) + __must_be_array((p)->member)))
-         |                                                                           ^~
-   include/linux/build_bug.h:16:62: note: in definition of macro 'BUILD_BUG_ON_ZERO'
-      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
-         |                                                              ^
-   include/linux/compiler.h:228:51: note: in expansion of macro '__same_type'
-     228 | #define __must_be_array(a)      BUILD_BUG_ON_ZERO(__same_type((a), &(a)[0]))
-         |                                                   ^~~~~~~~~~~
-   include/linux/overflow.h:278:56: note: in expansion of macro '__must_be_array'
-     278 |                 size_mul(count, sizeof(*(p)->member) + __must_be_array((p)->member)))
-         |                                                        ^~~~~~~~~~~~~~~
-   include/linux/overflow.h:294:40: note: in expansion of macro 'flex_array_size'
-     294 |                 size_add(sizeof(*(p)), flex_array_size(p, member, count)))
-         |                                        ^~~~~~~~~~~~~~~
-   arch/x86/kernel/crash.c:154:24: note: in expansion of macro 'struct_size'
-     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
-         |                        ^~~~~~~~~~~
-   include/linux/overflow.h:278:75: error: invalid use of undefined type 'struct crash_mem'
-     278 |                 size_mul(count, sizeof(*(p)->member) + __must_be_array((p)->member)))
-         |                                                                           ^~
-   include/linux/build_bug.h:16:62: note: in definition of macro 'BUILD_BUG_ON_ZERO'
-      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
-         |                                                              ^
-   include/linux/compiler.h:228:51: note: in expansion of macro '__same_type'
-     228 | #define __must_be_array(a)      BUILD_BUG_ON_ZERO(__same_type((a), &(a)[0]))
-         |                                                   ^~~~~~~~~~~
-   include/linux/overflow.h:278:56: note: in expansion of macro '__must_be_array'
-     278 |                 size_mul(count, sizeof(*(p)->member) + __must_be_array((p)->member)))
-         |                                                        ^~~~~~~~~~~~~~~
-   include/linux/overflow.h:294:40: note: in expansion of macro 'flex_array_size'
-     294 |                 size_add(sizeof(*(p)), flex_array_size(p, member, count)))
-         |                                        ^~~~~~~~~~~~~~~
-   arch/x86/kernel/crash.c:154:24: note: in expansion of macro 'struct_size'
-     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
-         |                        ^~~~~~~~~~~
-   include/linux/build_bug.h:16:51: error: bit-field '<anonymous>' width not an integer constant
-      16 | #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
-         |                                                   ^
-   include/linux/compiler.h:228:33: note: in expansion of macro 'BUILD_BUG_ON_ZERO'
-     228 | #define __must_be_array(a)      BUILD_BUG_ON_ZERO(__same_type((a), &(a)[0]))
-         |                                 ^~~~~~~~~~~~~~~~~
-   include/linux/overflow.h:278:56: note: in expansion of macro '__must_be_array'
-     278 |                 size_mul(count, sizeof(*(p)->member) + __must_be_array((p)->member)))
-         |                                                        ^~~~~~~~~~~~~~~
-   include/linux/overflow.h:294:40: note: in expansion of macro 'flex_array_size'
-     294 |                 size_add(sizeof(*(p)), flex_array_size(p, member, count)))
-         |                                        ^~~~~~~~~~~~~~~
-   arch/x86/kernel/crash.c:154:24: note: in expansion of macro 'struct_size'
-     154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
-         |                        ^~~~~~~~~~~
->> arch/x86/kernel/crash.c:158:13: error: invalid use of undefined type 'struct crash_mem'
-     158 |         cmem->max_nr_ranges = nr_ranges;
-         |             ^~
-   arch/x86/kernel/crash.c:159:13: error: invalid use of undefined type 'struct crash_mem'
-     159 |         cmem->nr_ranges = 0;
-         |             ^~
-   arch/x86/kernel/crash.c: In function 'elf_header_exclude_ranges':
->> arch/x86/kernel/crash.c:173:15: error: implicit declaration of function 'crash_exclude_mem_range' [-Werror=implicit-function-declaration]
-     173 |         ret = crash_exclude_mem_range(cmem, 0, (1<<20)-1);
-         |               ^~~~~~~~~~~~~~~~~~~~~~~
-   arch/x86/kernel/crash.c: In function 'prepare_elf64_ram_headers_callback':
-   arch/x86/kernel/crash.c:193:13: error: invalid use of undefined type 'struct crash_mem'
-     193 |         cmem->ranges[cmem->nr_ranges].start = res->start;
-         |             ^~
-   arch/x86/kernel/crash.c:193:26: error: invalid use of undefined type 'struct crash_mem'
-     193 |         cmem->ranges[cmem->nr_ranges].start = res->start;
-         |                          ^~
-   arch/x86/kernel/crash.c:194:13: error: invalid use of undefined type 'struct crash_mem'
-     194 |         cmem->ranges[cmem->nr_ranges].end = res->end;
-         |             ^~
-   arch/x86/kernel/crash.c:194:26: error: invalid use of undefined type 'struct crash_mem'
-     194 |         cmem->ranges[cmem->nr_ranges].end = res->end;
-         |                          ^~
-   arch/x86/kernel/crash.c:195:13: error: invalid use of undefined type 'struct crash_mem'
-     195 |         cmem->nr_ranges++;
-         |             ^~
-   arch/x86/kernel/crash.c: In function 'prepare_elf_headers':
-   arch/x86/kernel/crash.c:221:30: error: invalid use of undefined type 'struct crash_mem'
-     221 |         *nr_mem_ranges = cmem->nr_ranges;
-         |                              ^~
->> arch/x86/kernel/crash.c:224:16: error: implicit declaration of function 'crash_prepare_elf64_headers'; did you mean 'prepare_elf_headers'? [-Werror=implicit-function-declaration]
-     224 |         ret =  crash_prepare_elf64_headers(cmem, IS_ENABLED(CONFIG_X86_64), addr, sz);
-         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-         |                prepare_elf_headers
-   cc1: some warnings being treated as errors
-
-
-vim +293 include/linux/overflow.h
-
-610b15c50e86eb Kees Cook           2018-05-07  262  
-b19d57d0f3cc6f Gustavo A. R. Silva 2020-06-08  263  /**
-b19d57d0f3cc6f Gustavo A. R. Silva 2020-06-08  264   * flex_array_size() - Calculate size of a flexible array member
-b19d57d0f3cc6f Gustavo A. R. Silva 2020-06-08  265   *                     within an enclosing structure.
-b19d57d0f3cc6f Gustavo A. R. Silva 2020-06-08  266   * @p: Pointer to the structure.
-b19d57d0f3cc6f Gustavo A. R. Silva 2020-06-08  267   * @member: Name of the flexible array member.
-b19d57d0f3cc6f Gustavo A. R. Silva 2020-06-08  268   * @count: Number of elements in the array.
-b19d57d0f3cc6f Gustavo A. R. Silva 2020-06-08  269   *
-b19d57d0f3cc6f Gustavo A. R. Silva 2020-06-08  270   * Calculates size of a flexible array of @count number of @member
-b19d57d0f3cc6f Gustavo A. R. Silva 2020-06-08  271   * elements, at the end of structure @p.
-b19d57d0f3cc6f Gustavo A. R. Silva 2020-06-08  272   *
-b19d57d0f3cc6f Gustavo A. R. Silva 2020-06-08  273   * Return: number of bytes needed or SIZE_MAX on overflow.
-b19d57d0f3cc6f Gustavo A. R. Silva 2020-06-08  274   */
-b19d57d0f3cc6f Gustavo A. R. Silva 2020-06-08  275  #define flex_array_size(p, member, count)				\
-230f6fa2c1db6a Kees Cook           2022-02-09  276  	__builtin_choose_expr(__is_constexpr(count),			\
-230f6fa2c1db6a Kees Cook           2022-02-09 @277  		(count) * sizeof(*(p)->member) + __must_be_array((p)->member),	\
-230f6fa2c1db6a Kees Cook           2022-02-09  278  		size_mul(count, sizeof(*(p)->member) + __must_be_array((p)->member)))
-b19d57d0f3cc6f Gustavo A. R. Silva 2020-06-08  279  
-e1be43d9b5d0d1 Kees Cook           2021-09-18  280  /**
-e1be43d9b5d0d1 Kees Cook           2021-09-18  281   * struct_size() - Calculate size of structure with trailing flexible array.
-e1be43d9b5d0d1 Kees Cook           2021-09-18  282   * @p: Pointer to the structure.
-e1be43d9b5d0d1 Kees Cook           2021-09-18  283   * @member: Name of the array member.
-e1be43d9b5d0d1 Kees Cook           2021-09-18  284   * @count: Number of elements in the array.
-e1be43d9b5d0d1 Kees Cook           2021-09-18  285   *
-d67790ddf0219a Kees Cook           2023-05-22  286   * Calculates size of memory needed for structure of @p followed by an
-e1be43d9b5d0d1 Kees Cook           2021-09-18  287   * array of @count number of @member elements.
-e1be43d9b5d0d1 Kees Cook           2021-09-18  288   *
-e1be43d9b5d0d1 Kees Cook           2021-09-18  289   * Return: number of bytes needed or SIZE_MAX on overflow.
-e1be43d9b5d0d1 Kees Cook           2021-09-18  290   */
-e1be43d9b5d0d1 Kees Cook           2021-09-18  291  #define struct_size(p, member, count)					\
-230f6fa2c1db6a Kees Cook           2022-02-09  292  	__builtin_choose_expr(__is_constexpr(count),			\
-230f6fa2c1db6a Kees Cook           2022-02-09 @293  		sizeof(*(p)) + flex_array_size(p, member, count),	\
-230f6fa2c1db6a Kees Cook           2022-02-09  294  		size_add(sizeof(*(p)), flex_array_size(p, member, count)))
-e1be43d9b5d0d1 Kees Cook           2021-09-18  295  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBKYW4gMDUsIDIwMjQgYXQgMDI6MzY6NDRQTSArMDEwMCwgQWxleGFuZHJlIEdoaXRp
+IHdyb3RlOgo+IE9uIFRodSwgSmFuIDQsIDIwMjQgYXQgNjo0MuKAr1BNIEFsZXhhbmRyZSBHaGl0
+aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4gPgo+ID4gSGkgSmlzaGVuZywKPiA+
+Cj4gPiBPbiBXZWQsIEphbiAzLCAyMDI0IGF0IDEyOjEw4oCvUE0gSmlzaGVuZyBaaGFuZyA8anN6
+aGFuZ0BrZXJuZWwub3JnPiB3cm90ZToKPiA+ID4KPiA+ID4gT24gVHVlLCBKYW4gMDIsIDIwMjQg
+YXQgMDM6MTg6NTFQTSArMDEwMCwgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+ID4gPiA+IEFsbG93
+IHRvIGRlZmVyIHRoZSBmbHVzaGluZyBvZiB0aGUgVExCIHdoZW4gdW5tYXBwaW5nIHBnZXMsIHdo
+aWNoIGFsbG93cwo+ID4gPiA+IHRvIHJlZHVjZSB0aGUgbnVtYmVycyBvZiBJUEkgYW5kIHRoZSBu
+dW1iZXIgb2Ygc2ZlbmNlLnZtYS4KPiA+ID4gPgo+ID4gPiA+IFRoZSB1YmVuY2htYXJjaCB1c2Vk
+IGluIGNvbW1pdCA0M2IzZGZkZDA0NTUgKCJhcm02NDogc3VwcG9ydAo+ID4gPiA+IGJhdGNoZWQv
+ZGVmZXJyZWQgdGxiIHNob290ZG93biBkdXJpbmcgcGFnZSByZWNsYW1hdGlvbi9taWdyYXRpb24i
+KSBzaG93cwo+ID4gPiA+IGdvb2QgcGVyZm9ybWFuY2UgaW1wcm92ZW1lbnQgYW5kIHBlcmYgcmVw
+b3J0cyBhbiBpbXBvcnRhbnQgZGVjcmVhc2UgaW4KPiA+ID4gPiB0aW1lIHNwZW50IGZsdXNoaW5n
+IHRoZSB0bGIgKHJlc3VsdHMgY29tZSBmcm9tIHFlbXUpOgo+ID4gPgo+ID4gPiBIaSBBbGV4LAo+
+ID4gPgo+ID4gPiBJIHRyaWVkIHRoaXMgbWljcm8gYmVuY2htYXJrIHdpdGggeW91ciBwYXRjaCBv
+biBULUhFQUQgVEgxNTIwIHBsYXRmb3JtLCBJCj4gPiA+IGRpZG4ndCBzZWUgYW55IHBlcmZvcm1h
+bmNlIGltcHJvdmVtZW50IGZvciB0aGUgbWljcm8gYmVuY2htYXJrLiBQZXIKPiA+ID4gbXl1bmRl
+cnN0YW5kaW5nLCB0aGUgbWljcm8gYmVuY2htYXJrIGlzIHNwZWNpYWwgY2FzZSBmb3IgYXJtNjQg
+YmVjYXVzZQo+ID4gPiBpbiBhIG5vcm1hbCB0bGIgZmx1c2ggZmxvdywgYmVsb3cgc2VxdWVuY2Ug
+aXMgbmVjZXNzYXJ5Ogo+ID4gPgo+ID4gPiB0bGJpCj4gPiA+IGRzYgo+ID4gPgo+ID4gPgo+ID4g
+PiB3aGlsZSB3aXRoIEJBVENIRURfVU5NQVBfVExCX0ZMVVNILCB0aGUgYXJtNjQganVzdCBkb2Vz
+ICd0bGJpJywgbGVhdmluZwo+ID4gPiB0aGUgZHNiIHRvIHRoZSBhcmNoX3RsYmJhdGNoX2ZsdXNo
+KCkuIFNvIHRoZSBmaW5hbCByZXN1bHQgaXMKPiA+ID4KPiA+ID4gc2V2ZXJhbCAndGxiaSArIGRz
+Yicgc2VxdWVuY2UgVlMuIHNldmVyYWwgJ3RsYmknIGluc3RydWN0aW9ucyArIG9ubHkgb25lIGRz
+Ygo+ID4gPiBUaGUgcGVyZm9ybWFuY2UgaW1wcm92ZW1lbnQgY29tZXMgZnJvbSB0aGUgdW5uZWNl
+c3NhcnkgZHNiIGVsaW1pbmF0aW9ucy4KPiA+Cj4gPiBTb21lIGJhdGNoaW5nIHNob3VsZCB0YWtl
+IHBsYWNlLCBhbmQgd2l0aCB0aGlzIHBhdGNoLCB3ZSBvbmx5IHNlbmQgb25lCj4gPiAiZnVsbCIg
+c2ZlbmNlLnZtYSBpbnN0ZWFkIG9mIGEgImxvY2FsIiBzZmVuY2Uudm1hIGZvciBlYWNoIHBhZ2Us
+IGl0Cj4gPiBzZWVtcyB3ZWlyZCB0aGF0IHlvdSBkb24ndCBzZWUgYW55IGltcHJvdmVtZW50LCBJ
+IHdvdWxkIGhhdmUgdGhvdWdodAo+ID4gdGhhdCBvbmUgImZ1bGwiIHNmZW5jZS52bWEgd291bGQg
+YmUgYmV0dGVyLgo+ID4KPiA+ID4KPiA+ID4gRG8geW91IGhhdmUgc3VpdGFibGUgYmVuY2htYXJr
+KHMpIGZvciBCQVRDSEVEX1VOTUFQX1RMQl9GTFVTSCBvbiByaXNjdj8KPiA+Cj4gPiBDYW4geW91
+IGdpdmUgdGhlIGZvbGxvd2luZyBiZW5jaG1hcmsgYSB0cnk/IEkgc2ltcGx5IGNyZWF0ZWQgdGhy
+ZWFkcwo+ID4gYW5kIGRpc3BhdGNoZWQgdGhlbSBvbiBhbGwgdGhlIGNwdXMgdG8gZm9yY2UgSVBJ
+IHVzYWdlLCB0aGF0IHNob3VsZCBiZQo+ID4gd2F5IGJldHRlciBpZiB0aGUgYmF0Y2hpbmcgb2Yg
+dGhlIGZpcnN0IHViZW5jaG1hcmsgaXMgbm90IGVub3VnaCB0bwo+ID4gZXhhY2VyYmF0ZSBwZXJm
+b3JtYW5jZSBpbXByb3ZlbWVudHMsIGxldCBtZSBrbm93IGFuZCB0aGFua3MgZm9yIHlvdXIKPiA+
+IHRlc3RzIQo+ID4KPiA+ICNkZWZpbmUgX0dOVV9TT1VSQ0UKPiA+ICNpbmNsdWRlIDxwdGhyZWFk
+Lmg+Cj4gPiAjaW5jbHVkZSA8c3lzL3R5cGVzLmg+Cj4gPiAjaW5jbHVkZSA8dW5pc3RkLmg+Cj4g
+PiAjaW5jbHVkZSA8c3lzL21tYW4uaD4KPiA+ICNpbmNsdWRlIDxzdHJpbmcuaD4KPiA+ICNpbmNs
+dWRlIDxlcnJuby5oPgo+ID4gI2luY2x1ZGUgPHNjaGVkLmg+Cj4gPiAjaW5jbHVkZSA8dGltZS5o
+Pgo+ID4KPiA+IGludCBzdGlja190aGlzX3RocmVhZF90b19jb3JlKGludCBjb3JlX2lkKSB7Cj4g
+PiAgICAgICAgIGludCBudW1fY29yZXMgPSBzeXNjb25mKF9TQ19OUFJPQ0VTU09SU19PTkxOKTsK
+PiA+ICAgICAgICAgaWYgKGNvcmVfaWQgPCAwIHx8IGNvcmVfaWQgPj0gbnVtX2NvcmVzKQo+ID4g
+ICAgICAgICAgICByZXR1cm4gRUlOVkFMOwo+ID4KPiA+ICAgICAgICAgY3B1X3NldF90IGNwdXNl
+dDsKPiA+ICAgICAgICAgQ1BVX1pFUk8oJmNwdXNldCk7Cj4gPiAgICAgICAgIENQVV9TRVQoY29y
+ZV9pZCwgJmNwdXNldCk7Cj4gPgo+ID4gICAgICAgICBwdGhyZWFkX3QgY3VycmVudF90aHJlYWQg
+PSBwdGhyZWFkX3NlbGYoKTsKPiA+ICAgICAgICAgcmV0dXJuIHB0aHJlYWRfc2V0YWZmaW5pdHlf
+bnAoY3VycmVudF90aHJlYWQsCj4gPiBzaXplb2YoY3B1X3NldF90KSwgJmNwdXNldCk7Cj4gPiB9
+Cj4gPgo+ID4gc3RhdGljIHZvaWQgKmZuX3RocmVhZCAodm9pZCAqcF9kYXRhKQo+ID4gewo+ID4g
+ICAgICAgICBpbnQgcmV0Owo+ID4gICAgICAgICBwdGhyZWFkX3QgdGhyZWFkOwo+ID4KPiA+ICAg
+ICAgICAgc3RpY2tfdGhpc190aHJlYWRfdG9fY29yZSgoaW50KXBfZGF0YSk7Cj4gPgo+ID4gICAg
+ICAgICB3aGlsZSAoMSkgewo+ID4gICAgICAgICAgICAgICAgIHNsZWVwKDEpOwo+ID4gICAgICAg
+ICB9Cj4gPgo+ID4gICAgICAgICByZXR1cm4gTlVMTDsKPiA+IH0KPiA+Cj4gPiBpbnQgbWFpbigp
+Cj4gPiB7Cj4gPiAjZGVmaW5lIFNJWkUgKDEgKiAxMDI0ICogMTAyNCkKPiA+ICAgICAgICAgdm9s
+YXRpbGUgdW5zaWduZWQgY2hhciAqcCA9IG1tYXAoTlVMTCwgU0laRSwgUFJPVF9SRUFEIHwgUFJP
+VF9XUklURSwKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgTUFQ
+X1NIQVJFRCB8IE1BUF9BTk9OWU1PVVMsIC0xLCAwKTsKPiA+ICAgICAgICAgcHRocmVhZF90IHRo
+cmVhZHNbNF07Cj4gPiAgICAgICAgIGludCByZXQ7Cj4gPgo+ID4gICAgICAgICBmb3IgKGludCBp
+ID0gMDsgaSA8IDQ7ICsraSkgewo+ID4gICAgICAgICAgICAgICAgIHJldCA9IHB0aHJlYWRfY3Jl
+YXRlKCZ0aHJlYWRzW2ldLCBOVUxMLCBmbl90aHJlYWQsICh2b2lkICopaSk7Cj4gPiAgICAgICAg
+ICAgICAgICAgaWYgKHJldCkKPiA+ICAgICAgICAgICAgICAgICB7Cj4gPiAgICAgICAgICAgICAg
+ICAgICAgICAgICBwcmludGYoIiVzIiwgc3RyZXJyb3IgKHJldCkpOwo+ID4gICAgICAgICAgICAg
+ICAgIH0KPiA+ICAgICAgICAgfQo+ID4KPiA+ICAgICAgICAgbWVtc2V0KHAsIDB4ODgsIFNJWkUp
+Owo+ID4KPiA+ICAgICAgICAgZm9yIChpbnQgayA9IDA7IGsgPCA1MDAgLyogMTAwMDAgKi87IGsr
+Kykgewo+ID4gICAgICAgICAgICAgICAgIC8qIHN3YXAgaW4gKi8KPiA+ICAgICAgICAgICAgICAg
+ICBmb3IgKGludCBpID0gMDsgaSA8IFNJWkU7IGkgKz0gNDA5Nikgewo+ID4gICAgICAgICAgICAg
+ICAgICAgICAgICAgKHZvaWQpcFtpXTsKPiA+ICAgICAgICAgICAgICAgICB9Cj4gPgo+ID4gICAg
+ICAgICAgICAgICAgIC8qIHN3YXAgb3V0ICovCj4gPiAgICAgICAgICAgICAgICAgbWFkdmlzZShw
+LCBTSVpFLCBNQURWX1BBR0VPVVQpOwo+ID4gICAgICAgICB9Cj4gPgo+ID4gICAgICAgICBmb3Ig
+KGludCBpID0gMDsgaSA8IDQ7IGkrKykKPiA+ICAgICAgICAgewo+ID4gICAgICAgICAgICAgICAg
+IHB0aHJlYWRfY2FuY2VsKHRocmVhZHNbaV0pOwo+ID4gICAgICAgICB9Cj4gPgo+ID4gICAgICAg
+ICBmb3IgKGludCBpID0gMDsgaSA8IDQ7IGkrKykKPiA+ICAgICAgICAgewo+ID4gICAgICAgICAg
+ICAgICAgIHB0aHJlYWRfam9pbih0aHJlYWRzW2ldLCBOVUxMKTsKPiA+ICAgICAgICAgfQo+ID4K
+PiA+ICAgICAgICAgcmV0dXJuIDA7Cj4gPgo+ID4gfQo+ID4KPiAKPiBTbyBJIHJlbW92ZWQgdGhl
+IGR1c3QgZnJvbSBteSB1bm1hdGNoZWQgYW5kIHJhbiB0aGUgYmVuY2htYXJrcyBJIHByb3Bvc2Vk
+Ogo+IAo+IFdpdGhvdXQgdGhpcyBwYXRjaDoKPiAqIGJlbmNobWFyayBmcm9tIGNvbW1pdCA0M2Iz
+ZGZkZDA0NTUgKDQgcnVucykgIDogfjIwLjNzCj4gKiBzYW1lIGJlbmNobWFyayB3aXRoIHRocmVh
+ZHMgKDQgcnVucykgICAgICAgICAgICAgICAgOiB+MjcuNHMKPiAKPiBXaXRoIHRoaXMgcGF0Y2g6
+Cj4gKiBiZW5jaG1hcmsgZnJvbSBjb21taXQgNDNiM2RmZGQwNDU1ICg0IHJ1bnMpICA6IH4xNy45
+cwo+ICogc2FtZSBiZW5jaG1hcmsgd2l0aCB0aHJlYWRzICg0IHJ1bnMpICAgICAgICAgICAgICAg
+IDogfjE4LjFzCj4gCj4gU28gYSBzbWFsbCBpbXByb3ZlbWVudCBmb3IgdGhlIHNpbmdsZSB0aHJl
+YWQgYmVuY2htYXJrLCBidXQgaXQgZGVwZW5kcwo+IG9uIHRoZSBudW1iZXIgb2YgcGFnZXMgdGhh
+dCBnZXQgZmx1c2hlZCwgc28gdG8gbWUgdGhhdCdzIG5vdAo+IGFwcGxpY2FibGUgZm9yIHRoZSBn
+ZW5lcmFsIGNhc2UuIEZvciB0aGUgc2FtZSBiZW5jaG1hcmsgd2l0aCBtdWx0aXBsZQo+IHRocmVh
+ZHMsIHRoYXQncyB+MzQlIGltcHJvdmVtZW50LiBJJ2xsIGFkZCB0aG9zZSBudW1iZXJzIHRvIHRo
+ZSB2MiwKPiBhbmQgSklzaGVuZyBpZiB5b3UgY2FuIHByb3ZpZGUgc29tZSB0b28sIEknbGwgYWRk
+IHRoZW0gdG9vIQoKSGkgQWxleCwKCnRoZSB0aHJlYWRlZCB2ZXJzaW9uIHNob3cgfjc4JSBpbXBy
+b3ZlbWVudCEgaW1wcmVzc2l2ZSEKClNvIGZvciB0aGUgcGF0Y2g6CgpSZXZpZXdlZC1ieTogSmlz
+aGVuZyBaaGFuZyA8anN6aGFuZ0BrZXJuZWwub3JnPgpUZXN0ZWQtYnk6IEppc2hlbmcgWmhhbmcg
+PGpzemhhbmdAa2VybmVsLm9yZz4KClRoYW5rcwo+IAo+IFRoYW5rcywKPiAKPiBBbGV4Cj4gCj4g
+PiA+Cj4gPiA+IFRoYW5rcwo+ID4gPgo+ID4gPiA+Cj4gPiA+ID4gQmVmb3JlIHRoaXMgcGF0Y2g6
+Cj4gPiA+ID4KPiA+ID4gPiByZWFsICAybTEuMTM1cwo+ID4gPiA+IHVzZXIgIDBtMC45ODBzCj4g
+PiA+ID4gc3lzICAgMm0wLjA5NnMKPiA+ID4gPgo+ID4gPiA+IDQuODMlICBiYXRjaF90bGIgIFtr
+ZXJuZWwua2FsbHN5bXNdICAgICAgICAgICAgW2tdIF9fZmx1c2hfdGxiX3JhbmdlCj4gPiA+ID4K
+PiA+ID4gPiBBZnRlciB0aGlzIHBhdGNoOgo+ID4gPiA+Cj4gPiA+ID4gcmVhbCAgMW0wLjU0M3MK
+PiA+ID4gPiB1c2VyICAwbTEuMDU5cwo+ID4gPiA+IHN5cyAgIDBtNTkuNDg5cwo+ID4gPiA+Cj4g
+PiA+ID4gMC4xNCUgIGJhdGNoX3RsYiAgW2tlcm5lbC5rYWxsc3ltc10gICAgICAgICAgICBba10g
+X19mbHVzaF90bGJfcmFuZ2UKPiA+ID4gPgo+ID4gPiA+IFNpZ25lZC1vZmYtYnk6IEFsZXhhbmRy
+ZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4KPiA+ID4gPiAtLS0KPiA+ID4gPiAgYXJj
+aC9yaXNjdi9LY29uZmlnICAgICAgICAgICAgICAgIHwgIDEgKwo+ID4gPiA+ICBhcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL3RsYmJhdGNoLmggfCAxNSArKysrKysrCj4gPiA+ID4gIGFyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vdGxiZmx1c2guaCB8IDEwICsrKysrCj4gPiA+ID4gIGFyY2gvcmlzY3YvbW0v
+dGxiZmx1c2guYyAgICAgICAgICB8IDcxICsrKysrKysrKysrKysrKysrKysrKystLS0tLS0tLS0K
+PiA+ID4gPiAgNCBmaWxlcyBjaGFuZ2VkLCA3NyBpbnNlcnRpb25zKCspLCAyMCBkZWxldGlvbnMo
+LSkKPiA+ID4gPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGxi
+YmF0Y2guaAo+ID4gPiA+Cj4gPiA+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZpZyBi
+L2FyY2gvcmlzY3YvS2NvbmZpZwo+ID4gPiA+IGluZGV4IDc2MDNiZDhhYjMzMy4uYWEwN2JkNDNi
+MTM4IDEwMDY0NAo+ID4gPiA+IC0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZwo+ID4gPiA+ICsrKyBi
+L2FyY2gvcmlzY3YvS2NvbmZpZwo+ID4gPiA+IEBAIC01Myw2ICs1Myw3IEBAIGNvbmZpZyBSSVND
+Vgo+ID4gPiA+ICAgICAgIHNlbGVjdCBBUkNIX1VTRV9NRU1URVNUCj4gPiA+ID4gICAgICAgc2Vs
+ZWN0IEFSQ0hfVVNFX1FVRVVFRF9SV0xPQ0tTCj4gPiA+ID4gICAgICAgc2VsZWN0IEFSQ0hfVVNF
+U19DRklfVFJBUFMgaWYgQ0ZJX0NMQU5HCj4gPiA+ID4gKyAgICAgc2VsZWN0IEFSQ0hfV0FOVF9C
+QVRDSEVEX1VOTUFQX1RMQl9GTFVTSCBpZiBTTVAgJiYgTU1VCj4gPiA+ID4gICAgICAgc2VsZWN0
+IEFSQ0hfV0FOVF9ERUZBVUxUX1RPUERPV05fTU1BUF9MQVlPVVQgaWYgTU1VCj4gPiA+ID4gICAg
+ICAgc2VsZWN0IEFSQ0hfV0FOVF9GUkFNRV9QT0lOVEVSUwo+ID4gPiA+ICAgICAgIHNlbGVjdCBB
+UkNIX1dBTlRfR0VORVJBTF9IVUdFVExCIGlmICFSSVNDVl9JU0FfU1ZOQVBPVAo+ID4gPiA+IGRp
+ZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3RsYmJhdGNoLmggYi9hcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL3RsYmJhdGNoLmgKPiA+ID4gPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+ID4g
+PiA+IGluZGV4IDAwMDAwMDAwMDAwMC4uNDYwMTRmNzBiOWRhCj4gPiA+ID4gLS0tIC9kZXYvbnVs
+bAo+ID4gPiA+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGxiYmF0Y2guaAo+ID4gPiA+
+IEBAIC0wLDAgKzEsMTUgQEAKPiA+ID4gPiArLyogU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQ
+TC0yLjAtb25seSAqLwo+ID4gPiA+ICsvKgo+ID4gPiA+ICsgKiBDb3B5cmlnaHQgKEMpIDIwMjMg
+Uml2b3MgSW5jLgo+ID4gPiA+ICsgKi8KPiA+ID4gPiArCj4gPiA+ID4gKyNpZm5kZWYgX0FTTV9S
+SVNDVl9UTEJCQVRDSF9ICj4gPiA+ID4gKyNkZWZpbmUgX0FTTV9SSVNDVl9UTEJCQVRDSF9ICj4g
+PiA+ID4gKwo+ID4gPiA+ICsjaW5jbHVkZSA8bGludXgvY3B1bWFzay5oPgo+ID4gPiA+ICsKPiA+
+ID4gPiArc3RydWN0IGFyY2hfdGxiZmx1c2hfdW5tYXBfYmF0Y2ggewo+ID4gPiA+ICsgICAgIHN0
+cnVjdCBjcHVtYXNrIGNwdW1hc2s7Cj4gPiA+ID4gK307Cj4gPiA+ID4gKwo+ID4gPiA+ICsjZW5k
+aWYgLyogX0FTTV9SSVNDVl9UTEJCQVRDSF9IICovCj4gPiA+ID4gZGlmZiAtLWdpdCBhL2FyY2gv
+cmlzY3YvaW5jbHVkZS9hc20vdGxiZmx1c2guaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGxi
+Zmx1c2guaAo+ID4gPiA+IGluZGV4IDhmMzQxOGM1ZjE3Mi4uZjBiNzMxY2NjMGMyIDEwMDY0NAo+
+ID4gPiA+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGxiZmx1c2guaAo+ID4gPiA+ICsr
+KyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGxiZmx1c2guaAo+ID4gPiA+IEBAIC00Niw2ICs0
+NiwxNiBAQCB2b2lkIGZsdXNoX3RsYl9rZXJuZWxfcmFuZ2UodW5zaWduZWQgbG9uZyBzdGFydCwg
+dW5zaWduZWQgbG9uZyBlbmQpOwo+ID4gPiA+ICB2b2lkIGZsdXNoX3BtZF90bGJfcmFuZ2Uoc3Ry
+dWN0IHZtX2FyZWFfc3RydWN0ICp2bWEsIHVuc2lnbmVkIGxvbmcgc3RhcnQsCj4gPiA+ID4gICAg
+ICAgICAgICAgICAgICAgICAgIHVuc2lnbmVkIGxvbmcgZW5kKTsKPiA+ID4gPiAgI2VuZGlmCj4g
+PiA+ID4gKwo+ID4gPiA+ICsjaWZkZWYgQ09ORklHX0FSQ0hfV0FOVF9CQVRDSEVEX1VOTUFQX1RM
+Ql9GTFVTSAo+ID4gPiA+ICtib29sIGFyY2hfdGxiYmF0Y2hfc2hvdWxkX2RlZmVyKHN0cnVjdCBt
+bV9zdHJ1Y3QgKm1tKTsKPiA+ID4gPiArdm9pZCBhcmNoX3RsYmJhdGNoX2FkZF9wZW5kaW5nKHN0
+cnVjdCBhcmNoX3RsYmZsdXNoX3VubWFwX2JhdGNoICpiYXRjaCwKPiA+ID4gPiArICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLAo+ID4gPiA+ICsgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgdW5zaWduZWQgbG9uZyB1YWRkcik7Cj4gPiA+ID4gK3ZvaWQg
+YXJjaF9mbHVzaF90bGJfYmF0Y2hlZF9wZW5kaW5nKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tKTsKPiA+
+ID4gPiArdm9pZCBhcmNoX3RsYmJhdGNoX2ZsdXNoKHN0cnVjdCBhcmNoX3RsYmZsdXNoX3VubWFw
+X2JhdGNoICpiYXRjaCk7Cj4gPiA+ID4gKyNlbmRpZiAvKiBDT05GSUdfQVJDSF9XQU5UX0JBVENI
+RURfVU5NQVBfVExCX0ZMVVNIICovCj4gPiA+ID4gKwo+ID4gPiA+ICAjZWxzZSAvKiBDT05GSUdf
+U01QICYmIENPTkZJR19NTVUgKi8KPiA+ID4gPgo+ID4gPiA+ICAjZGVmaW5lIGZsdXNoX3RsYl9h
+bGwoKSBsb2NhbF9mbHVzaF90bGJfYWxsKCkKPiA+ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNj
+di9tbS90bGJmbHVzaC5jIGIvYXJjaC9yaXNjdi9tbS90bGJmbHVzaC5jCj4gPiA+ID4gaW5kZXgg
+ZTY2NTlkNzM2OGIzLi5iYjYyM2JjYTBhN2QgMTAwNjQ0Cj4gPiA+ID4gLS0tIGEvYXJjaC9yaXNj
+di9tbS90bGJmbHVzaC5jCj4gPiA+ID4gKysrIGIvYXJjaC9yaXNjdi9tbS90bGJmbHVzaC5jCj4g
+PiA+ID4gQEAgLTkzLDI5ICs5MywyMyBAQCBzdGF0aWMgdm9pZCBfX2lwaV9mbHVzaF90bGJfcmFu
+Z2VfYXNpZCh2b2lkICppbmZvKQo+ID4gPiA+ICAgICAgIGxvY2FsX2ZsdXNoX3RsYl9yYW5nZV9h
+c2lkKGQtPnN0YXJ0LCBkLT5zaXplLCBkLT5zdHJpZGUsIGQtPmFzaWQpOwo+ID4gPiA+ICB9Cj4g
+PiA+ID4KPiA+ID4gPiAtc3RhdGljIHZvaWQgX19mbHVzaF90bGJfcmFuZ2Uoc3RydWN0IG1tX3N0
+cnVjdCAqbW0sIHVuc2lnbmVkIGxvbmcgc3RhcnQsCj4gPiA+ID4gLSAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIHVuc2lnbmVkIGxvbmcgc2l6ZSwgdW5zaWduZWQgbG9uZyBzdHJpZGUpCj4gPiA+
+ID4gK3N0YXRpYyB2b2lkIF9fZmx1c2hfdGxiX3JhbmdlKHN0cnVjdCBjcHVtYXNrICpjbWFzaywg
+dW5zaWduZWQgbG9uZyBhc2lkLAo+ID4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICB1
+bnNpZ25lZCBsb25nIHN0YXJ0LCB1bnNpZ25lZCBsb25nIHNpemUsCj4gPiA+ID4gKyAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIHVuc2lnbmVkIGxvbmcgc3RyaWRlKQo+ID4gPiA+ICB7Cj4gPiA+
+ID4gICAgICAgc3RydWN0IGZsdXNoX3RsYl9yYW5nZV9kYXRhIGZ0ZDsKPiA+ID4gPiAtICAgICBj
+b25zdCBzdHJ1Y3QgY3B1bWFzayAqY21hc2s7Cj4gPiA+ID4gLSAgICAgdW5zaWduZWQgbG9uZyBh
+c2lkID0gRkxVU0hfVExCX05PX0FTSUQ7Cj4gPiA+ID4gICAgICAgYm9vbCBicm9hZGNhc3Q7Cj4g
+PiA+ID4KPiA+ID4gPiAtICAgICBpZiAobW0pIHsKPiA+ID4gPiAtICAgICAgICAgICAgIHVuc2ln
+bmVkIGludCBjcHVpZDsKPiA+ID4gPiArICAgICBpZiAoY3B1bWFza19lbXB0eShjbWFzaykpCj4g
+PiA+ID4gKyAgICAgICAgICAgICByZXR1cm47Cj4gPiA+ID4KPiA+ID4gPiAtICAgICAgICAgICAg
+IGNtYXNrID0gbW1fY3B1bWFzayhtbSk7Cj4gPiA+ID4gLSAgICAgICAgICAgICBpZiAoY3B1bWFz
+a19lbXB0eShjbWFzaykpCj4gPiA+ID4gLSAgICAgICAgICAgICAgICAgICAgIHJldHVybjsKPiA+
+ID4gPiArICAgICBpZiAoY21hc2sgIT0gY3B1X29ubGluZV9tYXNrKSB7Cj4gPiA+ID4gKyAgICAg
+ICAgICAgICB1bnNpZ25lZCBpbnQgY3B1aWQ7Cj4gPiA+ID4KPiA+ID4gPiAgICAgICAgICAgICAg
+IGNwdWlkID0gZ2V0X2NwdSgpOwo+ID4gPiA+ICAgICAgICAgICAgICAgLyogY2hlY2sgaWYgdGhl
+IHRsYmZsdXNoIG5lZWRzIHRvIGJlIHNlbnQgdG8gb3RoZXIgQ1BVcyAqLwo+ID4gPiA+ICAgICAg
+ICAgICAgICAgYnJvYWRjYXN0ID0gY3B1bWFza19hbnlfYnV0KGNtYXNrLCBjcHVpZCkgPCBucl9j
+cHVfaWRzOwo+ID4gPiA+IC0KPiA+ID4gPiAtICAgICAgICAgICAgIGlmIChzdGF0aWNfYnJhbmNo
+X3VubGlrZWx5KCZ1c2VfYXNpZF9hbGxvY2F0b3IpKQo+ID4gPiA+IC0gICAgICAgICAgICAgICAg
+ICAgICBhc2lkID0gYXRvbWljX2xvbmdfcmVhZCgmbW0tPmNvbnRleHQuaWQpICYgYXNpZF9tYXNr
+Owo+ID4gPiA+ICAgICAgIH0gZWxzZSB7Cj4gPiA+ID4gLSAgICAgICAgICAgICBjbWFzayA9IGNw
+dV9vbmxpbmVfbWFzazsKPiA+ID4gPiAgICAgICAgICAgICAgIGJyb2FkY2FzdCA9IHRydWU7Cj4g
+PiA+ID4gICAgICAgfQo+ID4gPiA+Cj4gPiA+ID4gQEAgLTEzNSwyNSArMTI5LDM0IEBAIHN0YXRp
+YyB2b2lkIF9fZmx1c2hfdGxiX3JhbmdlKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLCB1bnNpZ25lZCBs
+b25nIHN0YXJ0LAo+ID4gPiA+ICAgICAgICAgICAgICAgbG9jYWxfZmx1c2hfdGxiX3JhbmdlX2Fz
+aWQoc3RhcnQsIHNpemUsIHN0cmlkZSwgYXNpZCk7Cj4gPiA+ID4gICAgICAgfQo+ID4gPiA+Cj4g
+PiA+ID4gLSAgICAgaWYgKG1tKQo+ID4gPiA+ICsgICAgIGlmIChjbWFzayAhPSBjcHVfb25saW5l
+X21hc2spCj4gPiA+ID4gICAgICAgICAgICAgICBwdXRfY3B1KCk7Cj4gPiA+ID4gIH0KPiA+ID4g
+Pgo+ID4gPiA+ICtzdGF0aWMgaW5saW5lIHVuc2lnbmVkIGxvbmcgZ2V0X21tX2FzaWQoc3RydWN0
+IG1tX3N0cnVjdCAqbW0pCj4gPiA+ID4gK3sKPiA+ID4gPiArICAgICByZXR1cm4gc3RhdGljX2Jy
+YW5jaF91bmxpa2VseSgmdXNlX2FzaWRfYWxsb2NhdG9yKSA/Cj4gPiA+ID4gKyAgICAgICAgICAg
+ICAgICAgICAgIGF0b21pY19sb25nX3JlYWQoJm1tLT5jb250ZXh0LmlkKSAmIGFzaWRfbWFzayA6
+IEZMVVNIX1RMQl9OT19BU0lEOwo+ID4gPiA+ICt9Cj4gPiA+ID4gKwo+ID4gPiA+ICB2b2lkIGZs
+dXNoX3RsYl9tbShzdHJ1Y3QgbW1fc3RydWN0ICptbSkKPiA+ID4gPiAgewo+ID4gPiA+IC0gICAg
+IF9fZmx1c2hfdGxiX3JhbmdlKG1tLCAwLCBGTFVTSF9UTEJfTUFYX1NJWkUsIFBBR0VfU0laRSk7
+Cj4gPiA+ID4gKyAgICAgX19mbHVzaF90bGJfcmFuZ2UobW1fY3B1bWFzayhtbSksIGdldF9tbV9h
+c2lkKG1tKSwKPiA+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAwLCBGTFVTSF9UTEJfTUFY
+X1NJWkUsIFBBR0VfU0laRSk7Cj4gPiA+ID4gIH0KPiA+ID4gPgo+ID4gPiA+ICB2b2lkIGZsdXNo
+X3RsYl9tbV9yYW5nZShzdHJ1Y3QgbW1fc3RydWN0ICptbSwKPiA+ID4gPiAgICAgICAgICAgICAg
+ICAgICAgICAgdW5zaWduZWQgbG9uZyBzdGFydCwgdW5zaWduZWQgbG9uZyBlbmQsCj4gPiA+ID4g
+ICAgICAgICAgICAgICAgICAgICAgIHVuc2lnbmVkIGludCBwYWdlX3NpemUpCj4gPiA+ID4gIHsK
+PiA+ID4gPiAtICAgICBfX2ZsdXNoX3RsYl9yYW5nZShtbSwgc3RhcnQsIGVuZCAtIHN0YXJ0LCBw
+YWdlX3NpemUpOwo+ID4gPiA+ICsgICAgIF9fZmx1c2hfdGxiX3JhbmdlKG1tX2NwdW1hc2sobW0p
+LCBnZXRfbW1fYXNpZChtbSksCj4gPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgc3RhcnQs
+IGVuZCAtIHN0YXJ0LCBwYWdlX3NpemUpOwo+ID4gPiA+ICB9Cj4gPiA+ID4KPiA+ID4gPiAgdm9p
+ZCBmbHVzaF90bGJfcGFnZShzdHJ1Y3Qgdm1fYXJlYV9zdHJ1Y3QgKnZtYSwgdW5zaWduZWQgbG9u
+ZyBhZGRyKQo+ID4gPiA+ICB7Cj4gPiA+ID4gLSAgICAgX19mbHVzaF90bGJfcmFuZ2Uodm1hLT52
+bV9tbSwgYWRkciwgUEFHRV9TSVpFLCBQQUdFX1NJWkUpOwo+ID4gPiA+ICsgICAgIF9fZmx1c2hf
+dGxiX3JhbmdlKG1tX2NwdW1hc2sodm1hLT52bV9tbSksIGdldF9tbV9hc2lkKHZtYS0+dm1fbW0p
+LAo+ID4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIGFkZHIsIFBBR0VfU0laRSwgUEFHRV9T
+SVpFKTsKPiA+ID4gPiAgfQo+ID4gPiA+Cj4gPiA+ID4gIHZvaWQgZmx1c2hfdGxiX3JhbmdlKHN0
+cnVjdCB2bV9hcmVhX3N0cnVjdCAqdm1hLCB1bnNpZ25lZCBsb25nIHN0YXJ0LAo+ID4gPiA+IEBA
+IC0xODUsMTggKzE4OCw0NiBAQCB2b2lkIGZsdXNoX3RsYl9yYW5nZShzdHJ1Y3Qgdm1fYXJlYV9z
+dHJ1Y3QgKnZtYSwgdW5zaWduZWQgbG9uZyBzdGFydCwKPiA+ID4gPiAgICAgICAgICAgICAgIH0K
+PiA+ID4gPiAgICAgICB9Cj4gPiA+ID4KPiA+ID4gPiAtICAgICBfX2ZsdXNoX3RsYl9yYW5nZSh2
+bWEtPnZtX21tLCBzdGFydCwgZW5kIC0gc3RhcnQsIHN0cmlkZV9zaXplKTsKPiA+ID4gPiArICAg
+ICBfX2ZsdXNoX3RsYl9yYW5nZShtbV9jcHVtYXNrKHZtYS0+dm1fbW0pLCBnZXRfbW1fYXNpZCh2
+bWEtPnZtX21tKSwKPiA+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICBzdGFydCwgZW5kIC0g
+c3RhcnQsIHN0cmlkZV9zaXplKTsKPiA+ID4gPiAgfQo+ID4gPiA+Cj4gPiA+ID4gIHZvaWQgZmx1
+c2hfdGxiX2tlcm5lbF9yYW5nZSh1bnNpZ25lZCBsb25nIHN0YXJ0LCB1bnNpZ25lZCBsb25nIGVu
+ZCkKPiA+ID4gPiAgewo+ID4gPiA+IC0gICAgIF9fZmx1c2hfdGxiX3JhbmdlKE5VTEwsIHN0YXJ0
+LCBlbmQgLSBzdGFydCwgUEFHRV9TSVpFKTsKPiA+ID4gPiArICAgICBfX2ZsdXNoX3RsYl9yYW5n
+ZSgoc3RydWN0IGNwdW1hc2sgKiljcHVfb25saW5lX21hc2ssIEZMVVNIX1RMQl9OT19BU0lELAo+
+ID4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIHN0YXJ0LCBlbmQgLSBzdGFydCwgUEFHRV9T
+SVpFKTsKPiA+ID4gPiAgfQo+ID4gPiA+Cj4gPiA+ID4gICNpZmRlZiBDT05GSUdfVFJBTlNQQVJF
+TlRfSFVHRVBBR0UKPiA+ID4gPiAgdm9pZCBmbHVzaF9wbWRfdGxiX3JhbmdlKHN0cnVjdCB2bV9h
+cmVhX3N0cnVjdCAqdm1hLCB1bnNpZ25lZCBsb25nIHN0YXJ0LAo+ID4gPiA+ICAgICAgICAgICAg
+ICAgICAgICAgICB1bnNpZ25lZCBsb25nIGVuZCkKPiA+ID4gPiAgewo+ID4gPiA+IC0gICAgIF9f
+Zmx1c2hfdGxiX3JhbmdlKHZtYS0+dm1fbW0sIHN0YXJ0LCBlbmQgLSBzdGFydCwgUE1EX1NJWkUp
+Owo+ID4gPiA+ICsgICAgIF9fZmx1c2hfdGxiX3JhbmdlKG1tX2NwdW1hc2sodm1hLT52bV9tbSks
+IGdldF9tbV9hc2lkKHZtYS0+dm1fbW0pLAo+ID4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAg
+IHN0YXJ0LCBlbmQgLSBzdGFydCwgUE1EX1NJWkUpOwo+ID4gPiA+ICB9Cj4gPiA+ID4gICNlbmRp
+Zgo+ID4gPiA+ICsKPiA+ID4gPiArI2lmZGVmIENPTkZJR19BUkNIX1dBTlRfQkFUQ0hFRF9VTk1B
+UF9UTEJfRkxVU0gKPiA+ID4gPiArYm9vbCBhcmNoX3RsYmJhdGNoX3Nob3VsZF9kZWZlcihzdHJ1
+Y3QgbW1fc3RydWN0ICptbSkKPiA+ID4gPiArewo+ID4gPiA+ICsgICAgIHJldHVybiB0cnVlOwo+
+ID4gPiA+ICt9Cj4gPiA+ID4gKwo+ID4gPiA+ICt2b2lkIGFyY2hfdGxiYmF0Y2hfYWRkX3BlbmRp
+bmcoc3RydWN0IGFyY2hfdGxiZmx1c2hfdW5tYXBfYmF0Y2ggKmJhdGNoLAo+ID4gPiA+ICsgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgc3RydWN0IG1tX3N0cnVjdCAqbW0sCj4gPiA+ID4gKyAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICB1bnNpZ25lZCBsb25nIHVhZGRyKQo+ID4gPiA+ICt7
+Cj4gPiA+ID4gKyAgICAgY3B1bWFza19vcigmYmF0Y2gtPmNwdW1hc2ssICZiYXRjaC0+Y3B1bWFz
+aywgbW1fY3B1bWFzayhtbSkpOwo+ID4gPiA+ICt9Cj4gPiA+ID4gKwo+ID4gPiA+ICt2b2lkIGFy
+Y2hfZmx1c2hfdGxiX2JhdGNoZWRfcGVuZGluZyhzdHJ1Y3QgbW1fc3RydWN0ICptbSkKPiA+ID4g
+PiArewo+ID4gPiA+ICsgICAgIGZsdXNoX3RsYl9tbShtbSk7Cj4gPiA+ID4gK30KPiA+ID4gPiAr
+Cj4gPiA+ID4gK3ZvaWQgYXJjaF90bGJiYXRjaF9mbHVzaChzdHJ1Y3QgYXJjaF90bGJmbHVzaF91
+bm1hcF9iYXRjaCAqYmF0Y2gpCj4gPiA+ID4gK3sKPiA+ID4gPiArICAgICBfX2ZsdXNoX3RsYl9y
+YW5nZSgmYmF0Y2gtPmNwdW1hc2ssIEZMVVNIX1RMQl9OT19BU0lELCAwLAo+ID4gPiA+ICsgICAg
+ICAgICAgICAgICAgICAgICAgIEZMVVNIX1RMQl9NQVhfU0laRSwgUEFHRV9TSVpFKTsKPiA+ID4g
+PiArfQo+ID4gPiA+ICsjZW5kaWYgLyogQ09ORklHX0FSQ0hfV0FOVF9CQVRDSEVEX1VOTUFQX1RM
+Ql9GTFVTSCAqLwo+ID4gPiA+IC0tCj4gPiA+ID4gMi4zOS4yCj4gPiA+ID4KPiA+ID4gPgo+ID4g
+PiA+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gPiA+
+ID4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gPiA+ID4gbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwo+ID4gPiA+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
