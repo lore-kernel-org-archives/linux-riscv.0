@@ -4,70 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2B13C46CD2
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Jan 2024 02:39:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04B31C47077
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Jan 2024 08:52:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8hGQFBFpgnhzz7H99Ozo6XHGtInERKW0pdS93tuGDvY=; b=wmse+s8LHT2/G2
-	tEffr2rw3dWi3w23Ze8fYgwCSa3cgYeZehJMmMVDeco03jbENyWJTiztW015C9xVxr+/iSPuKLyLo
-	X2leAsGv8jBMJvWbDw0nA2Z2x5RUll9Jvw3AA2QLTEaNu4ky+Jx/0qvmI4DU3dacl8od9GcUBkdEO
-	TVtM/egP4Ug/kA6ZdWQ0dBhNXbg5Y9thY2f/tIL0C6KSmX3UAkwYpHMk2MHwjFyS5nqIpk2+SmYq5
-	g/ATU43vINPtZXj3xRSdihn+yireHU83TMIBvF8ZBHMI673v+oTIDF21jR9hkJ/W28r6dv65jSBni
-	+C9y8JvRcHAFgdvJMCxw==;
+	List-Owner; bh=0zjSQCvXTdZliTmJpz+WbvjNae/LdfaHUseQsQ8XwPo=; b=gMNhJzv1+lCjv8
+	daXQo5A4uaEW7oYlm3zZYGn//U8HrmBvmdr7yCLzn6bIDPjZZIVLavdMJG7WLTfXW/s3xQaWV19pr
+	Hea+EYMzZ5Z4qVNJOMdutXtc2hhzWUI+KpqCnpXkpO0/3R2t9rrFyxubj2bTEe+TllOveaTDTwbdG
+	htRusefIgND6JjJigqkgukFKGAVU6V5aD+WSehrT2eT21I75dd99YwYfLeBBf0t1PYqxLyj6Lbd4T
+	bybFoWY7fuqwDGcPHjwPpFwoXFl038g3BGnOV0/4fiQhBSpqpGPWAaDEeNtL3N1Vhv/7d7F3wgNvL
+	Pjq0YAPD2UMYl0ABRmpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rMJ4N-002EM9-0j;
-	Sun, 07 Jan 2024 02:39:23 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1rMOtY-002es4-2e;
+	Sun, 07 Jan 2024 08:52:36 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rMJ4J-002ELb-1T;
-	Sun, 07 Jan 2024 02:39:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by ams.source.kernel.org (Postfix) with ESMTP id 30B01B80185;
-	Sun,  7 Jan 2024 02:39:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 886F3C433C9;
-	Sun,  7 Jan 2024 02:39:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1704595156;
-	bh=jJbJktSdzhdzV2bS3gu5EK0DeDy7WfVB0EYasXcaPjw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=G/2dWfbsLN9WwONooqF8NP5eFXFFOXQ5R6pDJXrL/Xza8jKUMjyzLISO/JNRMvYNn
-	 ebjH0gTMb0U4Prs0XDY60enG/LtvrGLzWjVf7Zzw8H2mYYP9S0qsp8K7Ce6UKsNFDs
-	 luwaMAnTvjVJM9HUnldij5bMjLFAarf4NscxczzeoYtSCV5eoStKqOMNDLTmu19xze
-	 aMrbfKIfNiIj8X1DZgs468Zb9C+7WcgK9ZNAOjucthSo1/0cLBg7F7C6N6JPLcTfxU
-	 QUG04tPdXEPjgcJtJhrAkM9utpizPYOwvU0ipsvKaL5YnYtdbnpOYvyKg5CDhYcl0N
-	 TIVY824fazJig==
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-50ea8fbf261so806879e87.2;
-        Sat, 06 Jan 2024 18:39:16 -0800 (PST)
-X-Gm-Message-State: AOJu0YzW23QwIZDloM7i0xgtYA+EEjSPjomzrk7GX6EtucMK42TMJOlk
-	qHO/rXl6/rC9FbATLxxnNZHjogVA4uv3eAcsAJQ=
-X-Google-Smtp-Source: AGHT+IE666iz2mwVRCBnzGP5r7CatHWfsTic6W1ztccc+lpU8OH145j+/Z8tY3bo1scDBlBwbi74pfIJZJaXjjloGT8=
-X-Received: by 2002:a05:6512:3a82:b0:50e:8ead:3889 with SMTP id
- q2-20020a0565123a8200b0050e8ead3889mr731610lfu.75.1704595154779; Sat, 06 Jan
- 2024 18:39:14 -0800 (PST)
+	id 1rMOtU-002eq0-33
+	for linux-riscv@lists.infradead.org;
+	Sun, 07 Jan 2024 08:52:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1704617548;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Jm4zrLgU02qTNuKz7yvXlAxsX0awHq5pYJjTqaiF7Dk=;
+	b=YvSlb/gDVPE+nj63ubqHEWm+hhs35/bw/EG7mv4OjnmbpMNZpX2rS5WKfGxBY6O11DtYMi
+	RloDAYqGzc6aZAqcErQ7ZySe7Vh5Gm0+SfT3zmZe5C5wNNP+hbXZ80X/qbQ5PuNzhyd0mW
+	szHP036SSTMp33Pkif3k33qNCDjLxhg=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-518-xIoNME9aOIiDikbTzkUdwA-1; Sun, 07 Jan 2024 03:52:25 -0500
+X-MC-Unique: xIoNME9aOIiDikbTzkUdwA-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3263F8350E3;
+	Sun,  7 Jan 2024 08:52:24 +0000 (UTC)
+Received: from localhost (unknown [10.72.116.129])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9F7742026D6F;
+	Sun,  7 Jan 2024 08:52:22 +0000 (UTC)
+Date: Sun, 7 Jan 2024 16:52:15 +0800
+From: Baoquan He <bhe@redhat.com>
+To: kernel test robot <lkp@intel.com>
+Cc: linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
+	oe-kbuild-all@lists.linux.dev, akpm@linux-foundation.org,
+	kexec@lists.infradead.org, hbathini@linux.ibm.com, arnd@arndb.de,
+	ignat@cloudflare.com, eric_devolder@yahoo.com,
+	viro@zeniv.linux.org.uk, ebiederm@xmission.com, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH 1/5] kexec_core: move kdump related codes from
+ crash_core.c to kexec_core.c
+Message-ID: <ZZpmP5QeH+VigqXw@MiWiFi-R3L-srv>
+References: <20240105103305.557273-2-bhe@redhat.com>
+ <202401062212.LXqinfjE-lkp@intel.com>
 MIME-Version: 1.0
-References: <20231228014220.3562640-1-samuel.holland@sifive.com>
- <20231228014220.3562640-8-samuel.holland@sifive.com> <CAAhV-H5TJPqRcgS6jywWDSNsCvd-PsVacgxgoiF-fJ00ZnS4uA@mail.gmail.com>
- <84389bc3-f2e7-49c5-a820-de60ee00f8a7@sifive.com>
-In-Reply-To: <84389bc3-f2e7-49c5-a820-de60ee00f8a7@sifive.com>
-From: Huacai Chen <chenhuacai@kernel.org>
-Date: Sun, 7 Jan 2024 10:39:07 +0800
-X-Gmail-Original-Message-ID: <CAAhV-H4JxP-j5A7KuNSBncZkHF9i3O1njCtMjVkd3=RNbE5Q7w@mail.gmail.com>
-Message-ID: <CAAhV-H4JxP-j5A7KuNSBncZkHF9i3O1njCtMjVkd3=RNbE5Q7w@mail.gmail.com>
-Subject: Re: [PATCH v2 07/14] LoongArch: Implement ARCH_HAS_KERNEL_FPU_SUPPORT
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
-	x86@kernel.org, linux-riscv@lists.infradead.org, 
-	Christoph Hellwig <hch@lst.de>, loongarch@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	amd-gfx@lists.freedesktop.org, linux-arch@vger.kernel.org, 
-	WANG Xuerui <git@xen0n.name>
+Content-Disposition: inline
+In-Reply-To: <202401062212.LXqinfjE-lkp@intel.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240106_183919_822511_531DD378 
-X-CRM114-Status: GOOD (  22.00  )
+X-CRM114-CacheID: sfid-20240107_005233_056822_2FDA75BA 
+X-CRM114-Status: GOOD (  22.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,53 +83,124 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBKYW4gNCwgMjAyNCBhdCAxMTo1OOKAr1BNIFNhbXVlbCBIb2xsYW5kCjxzYW11ZWwu
-aG9sbGFuZEBzaWZpdmUuY29tPiB3cm90ZToKPgo+IEhpIEh1YWNhaSwKPgo+IE9uIDIwMjQtMDEt
-MDQgMzo1NSBBTSwgSHVhY2FpIENoZW4gd3JvdGU6Cj4gPiBIaSwgU2FtdWVsLAo+ID4KPiA+IE9u
-IFRodSwgRGVjIDI4LCAyMDIzIGF0IDk6NDLigK9BTSBTYW11ZWwgSG9sbGFuZAo+ID4gPHNhbXVl
-bC5ob2xsYW5kQHNpZml2ZS5jb20+IHdyb3RlOgo+ID4+Cj4gPj4gTG9vbmdBcmNoIGFscmVhZHkg
-cHJvdmlkZXMga2VybmVsX2ZwdV9iZWdpbigpIGFuZCBrZXJuZWxfZnB1X2VuZCgpIGluCj4gPj4g
-YXNtL2ZwdS5oLCBzbyBpdCBvbmx5IG5lZWRzIHRvIGFkZCBrZXJuZWxfZnB1X2F2YWlsYWJsZSgp
-IGFuZCBleHBvcnQKPiA+PiB0aGUgQ0ZMQUdTIGFkanVzdG1lbnRzLgo+ID4+Cj4gPj4gQWNrZWQt
-Ynk6IFdBTkcgWHVlcnVpIDxnaXRAeGVuMG4ubmFtZT4KPiA+PiBSZXZpZXdlZC1ieTogQ2hyaXN0
-b3BoIEhlbGx3aWcgPGhjaEBsc3QuZGU+Cj4gPj4gU2lnbmVkLW9mZi1ieTogU2FtdWVsIEhvbGxh
-bmQgPHNhbXVlbC5ob2xsYW5kQHNpZml2ZS5jb20+Cj4gPj4gLS0tCj4gPj4KPiA+PiAobm8gY2hh
-bmdlcyBzaW5jZSB2MSkKPiA+Pgo+ID4+ICBhcmNoL2xvb25nYXJjaC9LY29uZmlnICAgICAgICAg
-ICB8IDEgKwo+ID4+ICBhcmNoL2xvb25nYXJjaC9NYWtlZmlsZSAgICAgICAgICB8IDUgKysrKy0K
-PiA+PiAgYXJjaC9sb29uZ2FyY2gvaW5jbHVkZS9hc20vZnB1LmggfCAxICsKPiA+PiAgMyBmaWxl
-cyBjaGFuZ2VkLCA2IGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKPiA+Pgo+ID4+IGRpZmYg
-LS1naXQgYS9hcmNoL2xvb25nYXJjaC9LY29uZmlnIGIvYXJjaC9sb29uZ2FyY2gvS2NvbmZpZwo+
-ID4+IGluZGV4IGVlMTIzODIwYTQ3Ni4uNjVkNDQ3NTU2NWI4IDEwMDY0NAo+ID4+IC0tLSBhL2Fy
-Y2gvbG9vbmdhcmNoL0tjb25maWcKPiA+PiArKysgYi9hcmNoL2xvb25nYXJjaC9LY29uZmlnCj4g
-Pj4gQEAgLTE1LDYgKzE1LDcgQEAgY29uZmlnIExPT05HQVJDSAo+ID4+ICAgICAgICAgc2VsZWN0
-IEFSQ0hfSEFTX0NQVV9GSU5BTElaRV9JTklUCj4gPj4gICAgICAgICBzZWxlY3QgQVJDSF9IQVNf
-Rk9SVElGWV9TT1VSQ0UKPiA+PiAgICAgICAgIHNlbGVjdCBBUkNIX0hBU19LQ09WCj4gPj4gKyAg
-ICAgICBzZWxlY3QgQVJDSF9IQVNfS0VSTkVMX0ZQVV9TVVBQT1JUIGlmIENQVV9IQVNfRlBVCj4g
-Pj4gICAgICAgICBzZWxlY3QgQVJDSF9IQVNfTk1JX1NBRkVfVEhJU19DUFVfT1BTCj4gPj4gICAg
-ICAgICBzZWxlY3QgQVJDSF9IQVNfTk9OX09WRVJMQVBQSU5HX0FERFJFU1NfU1BBQ0UKPiA+PiAg
-ICAgICAgIHNlbGVjdCBBUkNIX0hBU19QVEVfU1BFQ0lBTAo+ID4+IGRpZmYgLS1naXQgYS9hcmNo
-L2xvb25nYXJjaC9NYWtlZmlsZSBiL2FyY2gvbG9vbmdhcmNoL01ha2VmaWxlCj4gPj4gaW5kZXgg
-NGJhOGQ2N2RkYjA5Li4xYWZlMjhmZWFiYTUgMTAwNjQ0Cj4gPj4gLS0tIGEvYXJjaC9sb29uZ2Fy
-Y2gvTWFrZWZpbGUKPiA+PiArKysgYi9hcmNoL2xvb25nYXJjaC9NYWtlZmlsZQo+ID4+IEBAIC0y
-NSw2ICsyNSw5IEBAIGVuZGlmCj4gPj4gIDMyYml0LWVtdWwgICAgICAgICAgICAgPSBlbGYzMmxv
-b25nYXJjaAo+ID4+ICA2NGJpdC1lbXVsICAgICAgICAgICAgID0gZWxmNjRsb29uZ2FyY2gKPiA+
-Pgo+ID4+ICtDQ19GTEFHU19GUFUgICAgICAgICAgIDo9IC1tZnB1PTY0Cj4gPj4gK0NDX0ZMQUdT
-X05PX0ZQVSAgICAgICAgICAgICAgICA6PSAtbXNvZnQtZmxvYXQKPiA+IFdlIHdpbGwgYWRkIExv
-b25nQXJjaDMyIHN1cHBvcnQgbGF0ZXIsIG1heWJlIGl0IHNob3VsZCBiZSAtbWZwdT0zMiBpbgo+
-ID4gdGhhdCBjYXNlLCBhbmQgZG8gb3RoZXIgYXJjaHMgaGF2ZSB0aGUgY2FzZSB0aGF0IG9ubHkg
-c3VwcG9ydCBGUDMyPwo+Cj4gRG8geW91IG1lYW4gdGhhdCBMb29uZ0FyY2gzMiBkb2VzIG5vdCBz
-dXBwb3J0IGRvdWJsZS1wcmVjaXNpb24gRlAgaW4gaGFyZHdhcmU/Cj4gQXQgbGVhc3QgYm90aCBv
-ZiB0aGUgY29uc3VtZXJzIGluIHRoaXMgc2VyaWVzIHVzZSBkb3VibGUtcHJlY2lzaW9uLCBzbyBt
-eSBmaXJzdAo+IHRob3VnaHQgaXMgdGhhdCBMb29uZ0FyY2gzMiBjb3VsZCBub3Qgc2VsZWN0IEFS
-Q0hfSEFTX0tFUk5FTF9GUFVfU1VQUE9SVC4KVGhlbiBpcyBpdCBwb3NzaWJsZSB0byBpbnRyb2R1
-Y2UgQ0NfRkxBR1NfU1BfRlBVIGFuZCBDQ19GTEFHU19EUF9GUFU/CkkgdGhpbmsgdGhlcmUgbWF5
-IGJlIHNvbWUgcGxhY2Ugd2hlcmUgU1AgRlAgaXMgZW5vdWdoLgoKSHVhY2FpCgo+Cj4gUmVnYXJk
-cywKPiBTYW11ZWwKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+On 01/06/24 at 10:58pm, kernel test robot wrote:
+> Hi Baoquan,
+> 
+> kernel test robot noticed the following build errors:
+> 
+> [auto build test ERROR on linus/master]
+> [also build test ERROR on v6.7-rc8]
+> [cannot apply to powerpc/next powerpc/fixes tip/x86/core arm64/for-next/core next-20240105]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> 
+> url:    https://github.com/intel-lab-lkp/linux/commits/Baoquan-He/kexec_core-move-kdump-related-codes-from-crash_core-c-to-kexec_core-c/20240105-223735
+> base:   linus/master
+> patch link:    https://lore.kernel.org/r/20240105103305.557273-2-bhe%40redhat.com
+> patch subject: [PATCH 1/5] kexec_core: move kdump related codes from crash_core.c to kexec_core.c
+> config: i386-allmodconfig (https://download.01.org/0day-ci/archive/20240106/202401062212.LXqinfjE-lkp@intel.com/config)
+> compiler: ClangBuiltLinux clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20240106/202401062212.LXqinfjE-lkp@intel.com/reproduce)
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202401062212.LXqinfjE-lkp@intel.com/
+> 
+> All errors (new ones prefixed by >>):
+> 
+> >> arch/x86/kernel/crash.c:154:17: error: invalid application of 'sizeof' to an incomplete type 'struct crash_mem'
+>      154 |         cmem = vzalloc(struct_size(cmem, ranges, nr_ranges));
+>          |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Thanks for reporting.
+
+I mistakenly put the struct crash_mem definition and the two function
+delcarations inside CONFIG_KEXEC_FILE ifdeffery scope, so with the lkp's
+config as below, the compiling failed. The code change at bottom can fix
+it. Will update patch in v2.
+
+#
+# Kexec and crash features
+#
+CONFIG_CRASH_CORE=y
+CONFIG_KEXEC_CORE=y
+CONFIG_KEXEC=y
+# CONFIG_KEXEC_FILE is not set
+CONFIG_CRASH_DUMP=y
+CONFIG_CRASH_HOTPLUG=y
+CONFIG_CRASH_MAX_MEMORY_RANGES=8192
+
+---
+ include/linux/kexec.h | 30 +++++++++++++++---------------
+ 1 file changed, 15 insertions(+), 15 deletions(-)
+
+diff --git a/include/linux/kexec.h b/include/linux/kexec.h
+index be1e5c2fdbdc..4df6ef72db84 100644
+--- a/include/linux/kexec.h
++++ b/include/linux/kexec.h
+@@ -228,21 +228,6 @@ static inline int arch_kexec_locate_mem_hole(struct kexec_buf *kbuf)
+ }
+ #endif
+ 
+-/* Alignment required for elf header segment */
+-#define ELF_CORE_HEADER_ALIGN   4096
+-
+-struct crash_mem {
+-	unsigned int max_nr_ranges;
+-	unsigned int nr_ranges;
+-	struct range ranges[] __counted_by(max_nr_ranges);
+-};
+-
+-extern int crash_exclude_mem_range(struct crash_mem *mem,
+-				   unsigned long long mstart,
+-				   unsigned long long mend);
+-extern int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_map,
+-				       void **addr, unsigned long *sz);
+-
+ #ifndef arch_kexec_apply_relocations_add
+ /*
+  * arch_kexec_apply_relocations_add - apply relocations of type RELA
+@@ -525,6 +510,20 @@ static inline unsigned int crash_get_elfcorehdr_size(void) { return 0; }
+ #define KEXEC_CRASH_HP_INVALID_CPU		-1U
+ #endif
+ 
++/* Alignment required for elf header segment */
++#define ELF_CORE_HEADER_ALIGN   4096
++
++struct crash_mem {
++	unsigned int max_nr_ranges;
++	unsigned int nr_ranges;
++	struct range ranges[] __counted_by(max_nr_ranges);
++};
++
++extern int crash_exclude_mem_range(struct crash_mem *mem,
++				   unsigned long long mstart,
++				   unsigned long long mend);
++extern int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_map,
++				       void **addr, unsigned long *sz);
+ #else /* !CONFIG_KEXEC_CORE */
+ struct pt_regs;
+ struct task_struct;
+@@ -541,6 +540,7 @@ void set_kexec_sig_enforced(void);
+ static inline void set_kexec_sig_enforced(void) {}
+ #endif
+ 
++
+ #endif /* !defined(__ASSEBMLY__) */
+ 
+ #endif /* LINUX_KEXEC_H */
+-- 
+2.41.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
