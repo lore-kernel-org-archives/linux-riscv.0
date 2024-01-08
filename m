@@ -4,140 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9428C47079
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jan 2024 10:07:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEE44C3DA6E
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jan 2024 10:48:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6CHQe5mcvpg1OOSelb81R2vpXZLt95yrBiQ/O1m2+E4=; b=G0oUC2PU26ljUQ
-	qoCkf+GdjYz3qNxoZY1x9+NDeIhVkCYbNf91GhtbM0PUAwsMYDk1Oc45F4RsCotpFTDxAGkQ/r6iz
-	8YRmQ/YeP9BOBzzVk7FeFprAaVyHHCV0PZ49fjFEKzSY2RWUwdWDk2vxrf//Q6GlmusxUnL5hmnZb
-	Hzht7hKOVrlTOJVqZNbJNoyOiqKYTM4AeTzB1xGJszugb2QOrAAwE/M5IgS9SdAHkuP6y43YPnSSR
-	wq30XYqIp/Ya3f/FuvPBzywbxl9qyjJRW65Xyr1L+5lIXKA2q4F32QekCgjD7OIBdBFX1a9qVhW4N
-	BYyB3phcXkRxFsNHRliA==;
+	List-Owner; bh=h6dlAvOKchWsKHopZUBybkpnXaFEw1UqZg0y4fCRUOw=; b=4bVzJMBnDMPKAM
+	m/8YpZnZmiAd9fQ0AQKhJJKUe3CFQ8u3iCjSHeGzzcgS5fIdU5GaVXWjoMwtb04KJOjLjsJjl/DgY
+	cON2Ue8kwJVOWE5aR8c5CiD7UBUAf9QKPgOhSRINWL9DaNweda2p9vnk9VoznPN9RMRyZNchuoBob
+	KSL00M7QJvMN78+OQEsfhwCotzxhITzV6lfZWDRZE0deBSy1Jq62Il4K5R2qniQPxmKyuXl9GNV4p
+	IS6Xxxye3Xf3bhcuZYR8zzWPwKPcne0Gmhcxtwd1EKgbPLSF8Kr6IOGR7L+s6WxiqHqpR5u9ij14Y
+	zyoNvGfDnqFtU3fw2erQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rMmXF-004Z9P-1q;
-	Mon, 08 Jan 2024 10:07:09 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1rMnBH-004e5X-0O;
+	Mon, 08 Jan 2024 10:48:31 +0000
+Received: from mail-bjschn02on20613.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::613] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rMmXC-004Z8S-1Q;
-	Mon, 08 Jan 2024 10:07:07 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 6F4071F795;
-	Mon,  8 Jan 2024 10:07:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1704708422; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=R99rqxoGR/Qlzqgu2a6HJKzxAx4tDUpg3SJMoXbVjNk=;
-	b=GsmfaT9vT5a2rd85NnzGqeWRbuuq3hTMlT1avysMx1ORSgDDgY+/MFoxWcl6VBFexV6GyC
-	m8W2Cydfw4v0Qx4Bagq4PPXa7Gua3JJbzmtP4RSMW3hGUKn4xm0YP9qQfEUI2SwCdpmIXx
-	mZwBi9cpv7TZ1vvxwbqMG6rS1GFFaV4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1704708422;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=R99rqxoGR/Qlzqgu2a6HJKzxAx4tDUpg3SJMoXbVjNk=;
-	b=7ScbUFE/CJ4U26UvCsuT6MZhX96dkM3iqYXqnjxi/FbgcAHJn3yVZixO3KDB0KCmmaWvcJ
-	9xYfLEbYp9QfauAw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1704708422; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=R99rqxoGR/Qlzqgu2a6HJKzxAx4tDUpg3SJMoXbVjNk=;
-	b=GsmfaT9vT5a2rd85NnzGqeWRbuuq3hTMlT1avysMx1ORSgDDgY+/MFoxWcl6VBFexV6GyC
-	m8W2Cydfw4v0Qx4Bagq4PPXa7Gua3JJbzmtP4RSMW3hGUKn4xm0YP9qQfEUI2SwCdpmIXx
-	mZwBi9cpv7TZ1vvxwbqMG6rS1GFFaV4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1704708422;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=R99rqxoGR/Qlzqgu2a6HJKzxAx4tDUpg3SJMoXbVjNk=;
-	b=7ScbUFE/CJ4U26UvCsuT6MZhX96dkM3iqYXqnjxi/FbgcAHJn3yVZixO3KDB0KCmmaWvcJ
-	9xYfLEbYp9QfauAw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 512331392C;
-	Mon,  8 Jan 2024 10:07:02 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id sMOXEkbJm2UrNgAAD6G6ig
-	(envelope-from <chrubis@suse.cz>); Mon, 08 Jan 2024 10:07:02 +0000
-Date: Mon, 8 Jan 2024 11:07:25 +0100
-From: Cyril Hrubis <chrubis@suse.cz>
-To: Petr Vorel <pvorel@suse.cz>
-Cc: Rob Landley <rob@landley.net>,
-	Geert Uytterhoeven <geert@linux-m68k.org>, ltp@lists.linux.it,
-	Li Wang <liwang@redhat.com>,
-	Andrea Cervesato <andrea.cervesato@suse.com>,
-	Greg Ungerer <gerg@linux-m68k.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Christophe Lyon <christophe.lyon@linaro.org>,
-	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	Linux-sh list <linux-sh@vger.kernel.org>,
-	automated-testing@lists.yoctoproject.org, buildroot@buildroot.org,
-	Niklas Cassel <niklas.cassel@wdc.com>
-Subject: Re: Call for nommu LTP maintainer [was: Re: [PATCH 00/36] Remove
- UCLINUX from LTP]
-Message-ID: <ZZvJXTshFUYSaMVH@yuki>
-References: <20240103015240.1065284-1-pvorel@suse.cz>
- <CAMuHMdXGwyS-CL0vLdUP4Z4YEYhmcmDyC3YdGCnS=jFkqASqvw@mail.gmail.com>
- <20240103114957.GD1073466@pevik>
- <CAMuHMdX0s0gLRoPtjJmDnSmZ_MNY590dN+JxM1HKAL1g_bjX+w@mail.gmail.com>
- <ZZVOhlGPg5KRyS-F@yuki>
- <5a1f1ff3-8a61-67cf-59a9-ce498738d912@landley.net>
- <20240105131135.GA1484621@pevik>
- <90c1ddc1-c608-30fc-d5aa-fdf63c90d055@landley.net>
- <20240108090338.GA1552643@pevik>
+	id 1rMnBD-004e4w-2M
+	for linux-riscv@lists.infradead.org;
+	Mon, 08 Jan 2024 10:48:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=MZMGDbtUTigqpF4YG2ptl0pXzYfbe0vjbHP2RR5PP8npNBtDvgY0a5dv+T4lVKYt+CtweppyxOAt7QidJbt43VGVQhdhYIgXUS0mS4MJMRY6JwzvV+m0JI27uklHZoNYzQxhWmbjMLN+vRZDdee8feU8dc9iMVb8g2dl+h3czTuOCQSmc2n9/qeHoHVR8xE6Vj0W0frEHu1b99KynWt8fElAVI2VlPKaB584LFUfZVwX1vvVFQgls8PN2AZsoUeO2jfxKoZR8lMFN4dvz/d6a+0EYKVBqtm6whuNwxe7Vl1rsWFKsIkUT2+P1i8P07yXwOlN3njyp5NWTqbsinSNmw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OnoNkc66yulR4F2JLKRij8viozjKKZejnS/oAoKO0QA=;
+ b=bSzhpJFb5FMlAeFNNIkdP3nT5aUdZhX0WXBp7HhdVr/6LLQle9IQDIP6hTSp4wNweKObStdHHClqRPsRSdr//Zlfd5p4/0Qd5rKDxoGv7lBGqjzfv7Fy7qE9SpDbN6aBh5+YCxlCg1F1bGVjBw7Ska9jAnhttT/Ffn7KE9uVJuSkYkcuyvQzfwcCFL5oZ7pSRQLe0Pw53Vd0FxYABkPfvUegIcxG+cBzn+aGSBbGd6s3yNh/X7pnHVMADBVhRpHSA3J5Kd4m1ZNbDE3ssRoshAT9a3h108Lm7k/DaDo90Vzhh6LMsWOpXJP6RUgxLZPVsz/ueOR3Hk1AnCTJtDFncA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550::13) by ZQ0PR01MB1272.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:18::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7135.32; Mon, 8 Jan
+ 2024 10:48:10 +0000
+Received: from ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn
+ ([fe80::936f:9f2f:6715:e402]) by
+ ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn ([fe80::936f:9f2f:6715:e402%6])
+ with mapi id 15.20.7159.015; Mon, 8 Jan 2024 10:48:10 +0000
+From: Kevin Xie <kevin.xie@starfivetech.com>
+To: Kevin Hilman <khilman@baylibre.com>, Minda Chen
+	<minda.chen@starfivetech.com>, Conor Dooley <conor@kernel.org>,
+	=?gb2312?B?S3J6eXN6dG9mIFdpbGN6eai9c2tp?= <kw@linux.com>, Rob Herring
+	<robh+dt@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Daire McNamara <daire.mcnamara@microchip.com>, Emil
+ Renner Berthing <emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>
+CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
+	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Minda Chen <minda.chen@starfivetech.com>
+Subject: =?gb2312?B?u9i4tDogu9i4tDogW1BBVENIIHYxMyAwLzIxXSBSZWZhY3RvcmluZyBNaWNy?=
+ =?gb2312?Q?ochip_PCIe_driver_and_add_StarFive_PCIe?=
+Thread-Topic: =?gb2312?B?u9i4tDogW1BBVENIIHYxMyAwLzIxXSBSZWZhY3RvcmluZyBNaWNyb2NoaXAg?=
+ =?gb2312?Q?PCIe_driver_and_add_StarFive_PCIe?=
+Thread-Index: AQHaPpXiMe+t6/O8C0OnZGJ4Y32LtrDKgdAQgAD6TACABDOkUA==
+Date: Mon, 8 Jan 2024 10:48:10 +0000
+Message-ID: <ZQ0PR01MB098182407F5F427D9A6C7CD9826BA@ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn>
+References: <20231214072839.2367-1-minda.chen@starfivetech.com>
+ <7hfrzeavmj.fsf@baylibre.com>
+ <ZQ0PR01MB098128579D86207B4B9BA7D28266A@ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn>
+ <7h34vbbsfj.fsf@baylibre.com>
+In-Reply-To: <7h34vbbsfj.fsf@baylibre.com>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ0PR01MB0981:EE_|ZQ0PR01MB1272:EE_
+x-ms-office365-filtering-correlation-id: 4e52aeb4-1b16-4713-b5db-08dc10374e6e
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: pA+qiCg4YESTo9mgbzSlXLXSw11wC2i6bcnbfXSpejURc9wd4/3ij60j7F33TNIzJaHlu/QgubBwfn7HdBiMLoObc+tGCjFKxrEttbegEFN0zsbp2nJ0vOVq+4OBRXijy/IwK+duKv8VzABGLQvK+In+7OlBjFUjtpw5cfsOs7GlYArKpSJJ/uSwOI9jBERPKz/tkGa4Y/ZLMH7m1L5dXnM86/5Od6bv/ehtiAN/83YwDVB8r9kX+/uCA3fmFihteHezjLTlMpc+Kb162h+jA6u1dOupZEDZGhQeWmH9+wikmRlagxA0CHYQPpFjmPqXllAW6lIJBkN88Tt8vhpsvoKq/ZRsUs/39YeVyUL9vqixil7jf4MA3Ibv+MIG81hTzqUaKaH+qhpZ/AgvGG+15LhK2AoGW17XZfE92Clq6gs4THK53mCLYNr8Vr55RyeHawSfh09lx3/8RnsTodDOkXM/fgY+jwUuymTW5Mknj40uOTLjs59CjKPtG7QGhGLjRsAw88EuiOFavMMYnfhf40hIQ+iEXRh6f42apeTicGLXd1tD4QOtXcMAGPyV7NPd
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(346002)(136003)(396003)(366004)(39830400003)(230922051799003)(186009)(1800799012)(451199024)(64100799003)(33656002)(40180700001)(86362001)(40160700002)(38100700002)(122000001)(224303003)(83380400001)(2906002)(26005)(9686003)(55016003)(7696005)(921011)(508600001)(71200400001)(66556008)(66946007)(76116006)(110136005)(66446008)(54906003)(64756008)(8936002)(5660300002)(4326008)(44832011)(7416002)(66476007)(38070700009)(41300700001)(107886003)(41320700001);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?gb2312?B?MTkwaGxOOXFZbHR3TGVQbFZaREk0UmhYTjBLeUM3RDRkWDlYTUI1RzhIdmEz?=
+ =?gb2312?B?N2xHcmE1OVo0T3RHVUxNSEJxNGc1cVdaWEY0ZXZGRVZGSTJYTE0zV0JvQWFo?=
+ =?gb2312?B?TFc1aFQ0WHhDRk4yUDE3c0hNMlpNNisrMFNBQXBaWHpHTUdBRzVIUVRKOFlz?=
+ =?gb2312?B?WVYzR3E2T2pRMjNMYXExL1Rqb0lpa3FZWktOUG9VQVV1V3NrODlzY2xlbkdX?=
+ =?gb2312?B?V29qYXhOTXlSakVjU3E0UkdoMVdFSk8ranlzNzllRHo0bkJBd3ovaEhEVlpx?=
+ =?gb2312?B?NHB6UVBSbzBQbncwODMxOFZ5Qlc0WnR5dzQwZlNqRE9vRnRYRDVzajhSZjFD?=
+ =?gb2312?B?MVFNd2pFSzR6b2plSE1yQkgwVjZPanVnUUV1Y1ZCVHg1aHFVNDVwMFRFUXdp?=
+ =?gb2312?B?K0JocEpvSnI4ZmMvN2ozcERlNmIxL21PMUw1d0hCcFhpNE4rYlRKa1ZLOGFw?=
+ =?gb2312?B?c2xVMVRLUFVSd0doL1pGNVpPbW1KbnY0ZjM4QWJ6OTJIQ3gwNUp6bG51MWFK?=
+ =?gb2312?B?ZFozZ1BMRHdHckFWK2RJYnljeGw2WEk2VUI0R1B6eUJ2Vm5iQ3FFZGZ6RmNo?=
+ =?gb2312?B?L0RNcVo0OWl0NWxod3lsdGMyYWlUR09CSnlEclBBYlhIc1VhbUZuVmtsQlVE?=
+ =?gb2312?B?WGNSQjRDbXFMSXh2andMU2VucjZiY1E2SWJxazRCSXBlUzE2YUpWbzlvaFQz?=
+ =?gb2312?B?ak9odFZxYnduaDJQR2tyaXIwYkpiSy96K2NnMlc1cEdoZ3dpclRGQ2FBb092?=
+ =?gb2312?B?YjcyQktDamRqY2hKdSt2UzJrblZVZEFlWU1FS2JDaWdSSWxYOWdvcTQ4YUUw?=
+ =?gb2312?B?eXJDdTFmUXY2bzZLNTJtYkhOSlRYTTlNeUpuUDI4RFBzV0lDMlFsOStNbG9R?=
+ =?gb2312?B?TEs5RTd5NjZJOUMxY1ZST3FtZ2VEMmJ2V1lLYytkQm1IUEdMUTZIR01CSllh?=
+ =?gb2312?B?c0VVSFBsOXNoZ1U4NW1Ya2F3dW9HU2xudmF4N0MwMFc0K2VHakdZTnlJVDlG?=
+ =?gb2312?B?NU0zUDMxMkRML2tUOEl0YlBPVTlSNXV2cGlRTlJ0MnlBWDVvM3M1bllEb0Vn?=
+ =?gb2312?B?MHhDSnk4c1F3QWdsL0Uvc1lSZS9sWkVTU29xYXBqcTZMVklocTVJUE1wTWs0?=
+ =?gb2312?B?bG5yWlljYUpNRkgzQmpCZFVLOFNoZTdYeFhqZzExUGJZbWxRZ1UzSHd4RlN1?=
+ =?gb2312?B?dkI0end4ZWZseXF1cThRaGhKK1RzeWMrdFY1TlY1WDhZL05XTjAwMVR3VHNj?=
+ =?gb2312?B?MFVlaDYzbzlmamcxeTVwQW80N1hDZ0pHekpHdmUwUkNpbnJwSTZRdDhNSnR2?=
+ =?gb2312?B?a0N4Mnl2SDhIbzc2c2V6MU91RnRlRkswZE1BUG5iV0dUc2RQa2RYRGVlVFZG?=
+ =?gb2312?B?UklyT0p0dVE0bng4M0xubkZRejQxZDc0YTdYN0JVdTluYldVYmFNalRUbXpq?=
+ =?gb2312?B?ZU9qMThqYnRWNkRkQWIwNjN1ME1aUGk0L2pEU1ZXSzJ2N3JES0d1eWNBU2Ja?=
+ =?gb2312?B?bm54alRpNXRXUG5TblZkZEtnRGc2VmJ4c0VZRUJ6QVdoemRmOThGbVpGZlJN?=
+ =?gb2312?B?eTFORCsvT3lEMmQweDFxK0FlblkvNTA1dHR3SWJFWTcxcGRrdVp1a0dvaFJq?=
+ =?gb2312?B?OWxXUlVLS2RFdkpWbi90UnVUYW1Bbk5HNVlmRFVVNXdnVFo2dUhubFZhYlZj?=
+ =?gb2312?B?dk0zUE5UZGpLQWVmTWpTTHhXUXVaSDFWWmJYN3VocHFpMEYxSVFmYmZVd3pN?=
+ =?gb2312?B?bDgycy9lMHRXdkxjd1BLUTYydlpaSkZJWXROTXg4am9TWHhZRUVLM2hLZmd1?=
+ =?gb2312?B?S2JKeDg4VDlYZ3JROEpqeG9rVmd2Lzl6R2FCN0VEODg0b2JOY2k5U05DV2h0?=
+ =?gb2312?B?aDRBdXB4Mk5OM1B6OG5BTGtRL2pwcWJaNjh5NDRWOVlGWU14YU9VZndVS1Rq?=
+ =?gb2312?B?ZTJXOFZNcG5ZUyt0dFh2VENTUVg1Z0xJUjgwYjNQWnFpUnFoUWI0Vy9WaUMx?=
+ =?gb2312?B?UHlGRmJRM1Fzb2dYTzd5R2M4ZDFHek9sdGxaQmlXMndCc0ZLSEw5aTljSVRi?=
+ =?gb2312?B?TkhyaFFUdmpzd3VNZkswdzZla1dOb2J3WUpxMG0rZE5sY3p0UXBnOGs1QVpB?=
+ =?gb2312?Q?VAE/dS/tkwD7Os9Hs940eUEdx?=
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20240108090338.GA1552643@pevik>
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=GsmfaT9v;
-	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b="7ScbUFE/"
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Spamd-Result: default: False [-1.01 / 50.00];
-	 ARC_NA(0.00)[];
-	 RCVD_VIA_SMTP_AUTH(0.00)[];
-	 R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	 SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	 FROM_HAS_DN(0.00)[];
-	 TO_DN_SOME(0.00)[];
-	 TO_MATCH_ENVRCPT_ALL(0.00)[];
-	 NEURAL_HAM_LONG(-1.00)[-1.000];
-	 MIME_GOOD(-0.10)[text/plain];
-	 NEURAL_HAM_SHORT(-0.20)[-1.000];
-	 RCVD_COUNT_THREE(0.00)[3];
-	 DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	 DKIM_TRACE(0.00)[suse.cz:+];
-	 MX_GOOD(-0.01)[];
-	 RCPT_COUNT_TWELVE(0.00)[19];
-	 DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:dkim,suse.cz:email];
-	 FUZZY_BLOCKED(0.00)[rspamd.com];
-	 FROM_EQ_ENVFROM(0.00)[];
-	 MIME_TRACE(0.00)[0:+];
-	 MID_RHS_NOT_FQDN(0.50)[];
-	 RCVD_TLS_ALL(0.00)[]
-X-Rspamd-Queue-Id: 6F4071F795
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZQ0PR01MB0981.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4e52aeb4-1b16-4713-b5db-08dc10374e6e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Jan 2024 10:48:10.4631
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: EjSJSNY9AdvsNHGBzztMic2AgEORtvxx1jnqVnsKj8aNPnkq2c0W/T9MX5bQqq+7ZNfSoBcdvPneKVwMG8Q+W/fjFdCULZZz87u4B/Zm+zE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ0PR01MB1272
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240108_020706_655325_83786479 
-X-CRM114-Status: UNSURE (   7.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20240108_024827_797174_73B9EBE0 
+X-CRM114-Status: GOOD (  22.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,19 +155,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi!
-> But as I said, if anybody from nommu decides to maintain it in LTP, I'll try to
-> support him in my free time (review patches, give advices). And if nobody
-> stands, this patchset which removes the support in the old API will be merged
-> after next LTP release (in the end of January).
+> Kevin Xie <kevin.xie@starfivetech.com> writes:
+> 
+> >> Minda Chen <minda.chen@starfivetech.com> writes:
+> >>
+> >> > This patchset final purpose is add PCIe driver for StarFive JH7110 SoC.
+> >> > JH7110 using PLDA XpressRICH PCIe IP. Microchip PolarFire Using the
+> >> > same IP and have commit their codes, which are mixed with PLDA
+> >> > controller codes and Microchip platform codes.
+> >>
+> >> Thank you for this series.
+> >>
+> >> I tested this on a VisionFive v2 board, and it seems to probe and
+> >> find my
+> >> M.2 NVMe SSD, but then gets timeouts when trying to use the NVMe (e.g.
+> >> 'blkid' command)
+> >>
+> >
+> > Hi, Kevin:
+> > Could you please provide the manufacturer and model of the M.2 NVMe
+> > SSD you tested?
+> 
+> I have a 256 Gb Silicon Power P34A60 M.2 NVMe SSD (part number:
+> sp256gbp34a60m28)
+> 
+Thanks, Kevin, we will buy one to test.
 
-Let me highlight this part, we are eager to help anybody who is willing
-to pick the nommu work, but we do not have resources to drive it.
+Before doing this refactoring, we encountered the same bug with Kingston M.2 SSD,
+and we workaround the problem with the below patch, please have a try:
+diff --git a/drivers/nvme/host/pci.c b/drivers/nvme/host/pci.c
+index 507bc149046d..5be37f1ee150 100644
+--- a/drivers/nvme/host/pci.c
++++ b/drivers/nvme/host/pci.c
+@@ -1059,6 +1059,16 @@ static inline int nvme_poll_cq(struct nvme_queue *nvmeq,
+ {
+        int found = 0;
 
--- 
-Cyril Hrubis
-chrubis@suse.cz
++       /*
++        * In some cases, such as JH7110 SoC working with Kingston SSD,
++        * the CQE status may update a little bit later than the MSI,
++        * which cause an IRQ handle missing.
++        * As a workaround, here we will check the status first, and wait
++        * 1us if we get nothing.
++        */
++       if (!nvme_cqe_pending(nvmeq))
++               udelay(1);
++
+        while (nvme_cqe_pending(nvmeq)) {
+                found++;
+                /*
 
+> Also for reference, I tested the same SSD on another arm platform (Khadas
+> VIM3) and it works fine.
+> 
+> Kevin
+
+Hi, Bjorn:
+Do you have any idea about the late CQE phase update condition as mentioned
+in the patch comments above?
+This is an issue that occurs with a small probability on individual devices in our
+platform.
+Thus, I suggest the refactoring patch set should go forward.
+Later we will try to find a more formal solution instead, and send a new patch.
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
