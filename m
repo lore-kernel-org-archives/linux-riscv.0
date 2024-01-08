@@ -4,130 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C76BC3DA6E
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jan 2024 11:21:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 698FAC3DA6E
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jan 2024 11:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vy7er0yT3D+aZDolqz1aB8LLccOR/PSZTdXkXx71+80=; b=GifqLFRsYrVgnl
-	+75mmV6ti/6K39OmZDMCyARDaoyTFcfDWYiEdLx/HUna1phT5AjdEQizzeu2oK509Yq6oJMAbsGH7
-	AO9SOj0CA1DJbDZjO2Ta0kcDkGsQTeyfi4z9izZwpsw72OywpMKbWroBXMc5bIcqRBOFgMd5IHcXv
-	uVwpHigftbYs4sWjilz/IV95i2kIC/Ie5Zzb4Gt0VWy/3eMXyOrAu7l40kR1nnZnHPWCwoKOTZ6d5
-	YRVKgBOqzNbihUqg9sJjrlZkkbTdYUltubiYhq5rzNM0tLWNMmndCWjhGvOb8GJjQdDZBtEDrnqa+
-	GKUdC7RB9qxrCjjF9kQA==;
+	List-Owner; bh=QgTq7S+tOk9O7AkCmKtYRgbcwxCpYnN3ox/Mqt3U6ao=; b=O+D4CbX6uaLrXC
+	OKr921Qg44kOFISTi04NRmZ6c7lOcDQVNSDs9IDZtoQ7LFnOYb6hXnSzgAMPpNeMQsCzOD3bdUkaA
+	mFNID1b+8vQubknparfjLGLoeYMEQT3fjWH5gKjo6i0jTyg4R6R2xg8qG96tbwemgo/6p+kC5dMGP
+	pxEan+eQYb0+BMqlNsiDaFlGb3sifa4Lgg9bmqxyLQrKJWdtsIfWzZuxmABrw+/w5Dv6Pruo975B9
+	l/6MLfOyXFDZW+8EfVoW1Qj5hzOle5bOzGK+O8aMMhh0u1Hejv/Ad3Z7d2WtZNiEYDU1AzRScSloP
+	RZh9L5n3H0YHIhpBpJjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rMngq-004liZ-0x;
-	Mon, 08 Jan 2024 11:21:08 +0000
-Received: from mail-bjschn02on2060f.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::60f] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1rMnhm-004mGO-0A;
+	Mon, 08 Jan 2024 11:22:06 +0000
+Received: from mail-sh0chn02on20614.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::614] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rMngk-004lby-1O
+	id 1rMnhi-004mCk-2j
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jan 2024 11:21:07 +0000
+	Mon, 08 Jan 2024 11:22:04 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Iz84qJkKy5ccn4ziXRvay6D6H+3Y8EHtQ27sWMVXBZsnBO3hxztwuNVQUyJKwKeA7oN0gpXgxg7x63kHjbZYRPVZoH/f9MckmiOv7wtxE+Hz7Ic2fKR4CBK/hJR3e6CXifyDwfKmYJIP9MonmMDwMP9Ge7nM2Ber+SkckfHmjR1bYvXbBjlUQcvbfdaAIcsBO+wderii20KR65DagkYnp1L4/6JvvuEpr0HLZJodqOzuLCKRHa8WywNnY9p4ynYbflLL1NA43f2/rNVA3vTTjNZcIgJYbjIzZ9ixJMTK263eKsDzfo7uGmebFxErGdjwzGYPmXZDxoWrrtMgJPaHhA==
+ b=caFEY2UCaQPGtuX8DYW9OSTDBLtZtwjvlOdU5z4LUBKoG9OgTRZSpFp8ah4kK/dRcJATVfYjDKcyrLnqoSXIEuMN1k8xMOncqZA92wOdnI6svhROuoK3UJiiblPBFDJAlcB5WcZHiOI7frV/JHPJzmOBvezOyY5IIk3EKZFS02WkItanBmn6uzE9dYZNESBVuytbtFPfQyD4YbJy0p0W2/hbQzZSiJbOEyyRb3uBw76CAO0cnW9FNIX4boWRW3zjmbpFKbd7jfskcLLfcLPCUBktBc7oevi1X/kdAYQQJVU7u9VL0hiFzSrXCeH2w8oou0gxhAYEv3aHGuokKPrTxQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qyW4EAQbiZYuKYxXJVmGiy2m2BlKuB9GdjQyk91P2Kw=;
- b=ciWgSOS21hKjlD7EjWOcyVQ8H0rb5vJzynHpJ8gU4LyVPa59OpcuMFjOKJf5v7HIu7mnGnGMy7cK26SIixIgmDsMNSgGhGMk3+zGSE5mhQARrAS3z3cQAkEtC/CC/vgeY+G/xr6hwzJm7XXKFSkb8dAUV9yXgN1QVyMUiEH0Ps3a4NHaub16OOkBYXBCe6A5kQwnbH6ENKgCwSym7JwTzzj5/rBj8Vzhq1iIprSTb9FMiNYL2TSTNL7yX2/oAOFNoxdF1I2wRU+eqmU/jrRt59vjyDdmmMhLpNs5Qqke2i/qCiV8D6UPyu4xn2t5OkImvaCiDxN1bOA2/tV8QQszEQ==
+ bh=8stLEPWxnqX1yX7wmAeR5xNZm29997T7UcU9AOutZB0=;
+ b=mVDkSNITFxe6FU8yiDWRYJX+8USa/mwnb6FLNXOXKMs+RNAxYq4JYTZWVc46SHhfg8uGBXt822cihIVt0tJWY6ZzQQ3uXM2Wg1vAirGzgkdbycLmk2yppNElCJViSXS+3SniRdWuUdn8bp+9Ojm2SJhBSuameWUUENtweGOGE37W6TUCI61GpTLyTB0vQ5U/rM/e86Tng5F0S609aVgPSs2YdXF535BMIBryFEV+LIIez8IZQQyVPjvr5T1V9a/H8zgqeq2n2cH29lTB3Z0S/h99UsTls5V8CIREFN0dtvJJ6VXQU5A/e1nSyQfCDNkvWrrNPcVbmnecdg2cSQv0dw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn (10.43.107.79) by
- SHXPR01MB0701.CHNPR01.prod.partner.outlook.cn (10.43.107.150) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.7135.32; Mon, 8 Jan 2024 11:06:28 +0000
+Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:25::15) by SHXPR01MB0878.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:1e::17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7135.32; Mon, 8 Jan
+ 2024 11:21:56 +0000
 Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
  ([fe80::e6aa:baea:fd8c:4cd2]) by
  SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn ([fe80::e6aa:baea:fd8c:4cd2%7])
- with mapi id 15.20.7135.032; Mon, 8 Jan 2024 11:06:28 +0000
+ with mapi id 15.20.7135.032; Mon, 8 Jan 2024 11:21:56 +0000
 From: Minda Chen <minda.chen@starfivetech.com>
-To: Conor Dooley <conor@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-pci@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mason Huo <mason.huo@starfivetech.com>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>,
-	Minda Chen <minda.chen@starfivetech.com>
-Subject: [PATCH v14 03/22] PCI: microchip: Move PLDA IP register macros to pcie-plda.h
-Date: Mon,  8 Jan 2024 19:05:53 +0800
-Message-Id: <20240108110612.19048-4-minda.chen@starfivetech.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20240108110612.19048-1-minda.chen@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>, =?gb2312?B?S3J6eXN6dG9mIFdpbGN6eai9c2tp?=
+	<kw@linux.com>, Rob Herring <robh+dt@kernel.org>, Bjorn Helgaas
+	<bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Daire
+ McNamara <daire.mcnamara@microchip.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>,
+	=?gb2312?B?o7t0Z2x4QGxpbnV0cm9uaXguZGU=?= <；tglx@linutronix.de>
+CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
+	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>
+Subject: =?gb2312?B?u9i4tDogW1BBVENIIHYxNCAwMS8yMl0gZHQtYmluZGluZ3M6IFBDSTogQWRk?=
+ =?gb2312?Q?_PLDA_XpressRICH_PCIe_host_common_properties?=
+Thread-Topic: [PATCH v14 01/22] dt-bindings: PCI: Add PLDA XpressRICH PCIe
+ host common properties
+Thread-Index: AQHaQiK3erIk0yRSDEejKtsN6lOFlLDPxEPQ
+Date: Mon, 8 Jan 2024 11:21:56 +0000
+Message-ID: <SHXPR01MB0863D2B5503D55EFDEB9A989E66BA@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
 References: <20240108110612.19048-1-minda.chen@starfivetech.com>
-X-ClientProxiedBy: ZQ0PR01CA0014.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:5::19) To SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c311:25::15)
+ <20240108110612.19048-2-minda.chen@starfivetech.com>
+In-Reply-To: <20240108110612.19048-2-minda.chen@starfivetech.com>
+Accept-Language: en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SHXPR01MB0863:EE_|SHXPR01MB0878:EE_
+x-ms-office365-filtering-correlation-id: 8b720381-90fe-4849-909f-08dc103c0632
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: FeoHcOtwlmBXXJM1vGSLVPS9LE21117jDoyrz+FgXCtmW22W3hBnd+escHCNt82M5+g6SekWc2D1TbNai99nMey3cOqIlllYuUOXr4wPTl4N84G0JESlvp82260e5BY9fzpC+BNxSDdKWIZWIEDOqOssnPeioIM5QcyYRXsBivDajU430rNbFAlHkPo6tOpUKnzXxDDXIhKe7IvDMFfB7LKiiJI4zV+HItdjIgMlTKvXfqAtCiUowwWJvlH8kBelXScDU6p4sExf4rpZNBum1Nky7WtVTDBODVH4Pc0rJixDfCYra5PPtUj2wGJ3lHfeb0DtMzrNWFX0NMEBbR8ljfVEn3Hgv7xuSrQbqswuebbnzt2nPrgOmU0v+AaNUTJnRcPovlgqyh7mhJ8teyMd7Oji0hzpEo0cllw+wewD0Ruk/eiBLTc9EFSIyhdPiuRVl5VRx7/ZFnaVN6s5wdZXPsyoD/x+LAGd/0KBMXuwkFM4WuQnWimoZNVxjiwncx33SCfB0elXkkaM+pX8KinZktvRSqg6AGz3XtuYZfTHgC7x9wUrR4cYUEs+ye9XVcZQ
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(346002)(136003)(396003)(366004)(39830400003)(230922051799003)(186009)(1800799012)(451199024)(64100799003)(33656002)(86362001)(40180700001)(40160700002)(38100700002)(224303003)(122000001)(83380400001)(26005)(9686003)(966005)(55016003)(7696005)(508600001)(71200400001)(66556008)(66946007)(76116006)(54906003)(110136005)(64756008)(66446008)(8936002)(5660300002)(4326008)(44832011)(7416002)(38070700009)(2906002)(66476007)(41300700001)(107886003)(41320700001);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?gb2312?B?RHdZaU5uUmtWcVZ4UWt6TU42dS9CNkNGZUhVSkdOOWk0dVhuTTJBTXhzQ3J0?=
+ =?gb2312?B?TWVySlVSam1ScE84UkpDaVd5M3c1YXFydkdGcERhRlVxK0hzL2xDTjJYeEF4?=
+ =?gb2312?B?SXE0VWpTTVZQaCtWVmNhNDB4VXBIWFl1N01Pa1JaTHM1amkyekZlUHB6QTgy?=
+ =?gb2312?B?WWl2aTdXSFVNbHllRXBQMzE1SGY2WkY4SWVsUGZ4SmI1MjZGd1pNbWlXUEov?=
+ =?gb2312?B?YlBOazNJcThTNEFxTzU4OFhaTWdWQXFBcjZJbmZTM3NXWlFXeStSaUcwSmJB?=
+ =?gb2312?B?Q00wMk45dlJkd1dVOEoyOFBuMmkrZXBLSUxDRHdBZmJmRUVRM1EwU1dieWtq?=
+ =?gb2312?B?S2gwczFEajFpaEtxYjBIUUsxUUVyUlM0SkIvekdueWdnSVZCZUxSa2FtRUVn?=
+ =?gb2312?B?QmY1cklTUml1TFJHdUxJNGFQZTBMUDlJRHgycVJjeEwvSWU0ZDNtL3RPelJY?=
+ =?gb2312?B?YXYvZ280ZDFteld1OG43VjlabEhOQytucVhPWlU1Q3J4TmV3NW9RTUptOUJm?=
+ =?gb2312?B?WkMvVGVHaWtIRXJXb3VXR2VSTHlhQVlzM0VQblFFVllPSW1palN0V2FpTWU4?=
+ =?gb2312?B?WGxGUlRQb2lhazl2OHFIdE9jTnhiUDFuRWJ4NEdlRGFBaFAyeVIzZkpibmNs?=
+ =?gb2312?B?SzRSUE1DdEpBcmk4N2VHS3BIWTNJVitHcUlROGFRRjZKZFB1bXpLYUZHODhC?=
+ =?gb2312?B?WEl6YTJZR2o2VEM3ZWV6UXhrcXJaeFVpN1QydlAzRkJmK3kvVkhwSE95WHBQ?=
+ =?gb2312?B?endiejczc2xyL3RXM0pjRWcwcCttTUhjNTR2bXRVUXpTR0Fva2hFNXhObUp3?=
+ =?gb2312?B?ZmMxWEdOczhTS3Mrd0hHcTZuWWNmSEVuREFNZ2IzRmMwUWcxZWtZZUh1bUdp?=
+ =?gb2312?B?NzE0amdiamdINFk1OHA5bFRqeFRzdnFiaTdpNVFHOFk1akpNa2d1dkNDV0lE?=
+ =?gb2312?B?MXBOTU1SUnA0UDFMT0tqTzBJMGxUblRsUFgzUFAzL29ieXlXdWkvOTNIaTBS?=
+ =?gb2312?B?UmxjSTdtOGYwdzVjZkpvMUg5YXF5RVRmQ1FXbUZxZ1B2MVQ3Y1czcEN2VmZJ?=
+ =?gb2312?B?QnRnUm45MFZHSkhPVnhOQnNpbnRyL2VmTzFweE8yVDg4dXVUZnJzcEIydjVV?=
+ =?gb2312?B?REZGUXNFTmhrMDIrS01IdDZWcVdWeFZuREYvcGRmeHRMSCtqR2p5cFNLMGNn?=
+ =?gb2312?B?WUZCd0JmdDdnTnk3c0EyMWs5WmRYcGpYckVOUWx1QTJReCt2WU1Lc0U1S2cr?=
+ =?gb2312?B?Z0lOSzhUTXdPUHRJUnNjdjgyd2JSUWZlZjBJZlR2cTA0Q2lMYnRBeGZZQTIr?=
+ =?gb2312?B?dXZKMEdlUmFKbms4VlJ0R1VubVdPOHdEd1VSTlFhcWlCZEh4bUFieXFKMDVn?=
+ =?gb2312?B?QUVGSmtQL0pTbDNrQjdiaGgveEZpd0NqbS9LMHpCUGpHMzVac1dKZXdDR0s2?=
+ =?gb2312?B?cnRoWDkzaW03bVZLYnZtMml5WFBVd2VWTmNlOGIxSW45VlR0S0RJYWJnSnA5?=
+ =?gb2312?B?TWYvMWM0ZUZQL3dVUHRsT1U4MGtOVUo3NHUrYWdMT2NFak1BUjJuMjF2Z3VR?=
+ =?gb2312?B?UjhrLzBxRUJxOVVUWSt6Vzl1bGFqZVdTZjVVT1NhTWsrTjJvNjJQVnllSnpZ?=
+ =?gb2312?B?ME9NUkpMY2NzcFRNQmlQVTRjVzVKWjJDYy90U3VheWdudTRFbDVjMkdPOFcx?=
+ =?gb2312?B?bmtaaGI1alhXZnJiOXk3b1gyQ3hGY3A2UnFDenRMc09nWXFjREtuSTZGSDEw?=
+ =?gb2312?B?R1pXMW1BVlp3cFZoREZnTStzRFpzYW1KM1ZPa0NFTE5tUVJDTnl1anFtdHJB?=
+ =?gb2312?B?TmVHVzdiTUlFTnVJdzlXdFRjWDNFclQ0VE1IUWQzOUtTVkhVZlRMQitpM0N5?=
+ =?gb2312?B?L3pGTWJYbGFzWk90NjlnUWtHazRtQjV5VUQwa3dFTjhNNlVmcnVGdlZIUUM4?=
+ =?gb2312?B?bms2OXJrV2wrNWtVZUp4RmtNVUQ0RHVOeUU5V09OZXJmeW9mNDBsWTNxUHdt?=
+ =?gb2312?B?NW5uajFKVXFBSWVHWGd6MTEwV1YxY0taeksxdU5nU3ZFMnRTTlF0TkRURE5G?=
+ =?gb2312?B?VFE5UmprdEdWanVLWk1KMHZ6NkI1dWQ2eHZacnBaVzZHMGhXaFJja08vSmNQ?=
+ =?gb2312?B?VHFmaEtGdTdPbVBNNlFGQzlsRVo5c1FWdWFWdlB3d3VzQStEWW5GLzhESWxW?=
+ =?gb2312?B?dEE9PQ==?=
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SHXPR01MB0863:EE_|SHXPR01MB0701:EE_
-X-MS-Office365-Filtering-Correlation-Id: 896d77ab-ef72-4902-7f68-08dc1039dcbc
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: n3RRlv7Qs/2LQXciW4gjR/3iSe/VCszG2LfeYKwi/bOVZTdOOxwtSg57ZIPwkSDdPc6pv0CNoaEkhf7KAYTNZGbDJyOEwHCeg3dtOf7MaDGreoBoFLZ0FD3ZjxzjfSjtSEqYCEKxZ4jcjJuEKezyT5UACDRHHFPugGBXKZsffKEtMpOuxW6nXFYszg2gevNktwfq2ddI5s8r12Es8wDfCAjJIqHbrZWAg/VkjSWD6TtO8NXzQ/o6UN4rycTrKuku4nINIL1MayJsRy8wLpnT02OYDSSy397ZFS/XgWiXJYw5/yF5iGOR4hFBiBXla8k1YCwjDF+oNkSgjQjLEC6uPrUIH4KAMhuXmnTJir1UAimsYjSdY+s1VtlrMdHbzrMXyEHWenXSdUcO3MyVEKf0AHCo+wtXZ/AJznOWAwfNsd8+U547KEFKENGE/bLDq20LEHmm3oE/KCESMrJYASiJgjmM4+sIxXVANNVm/5CQizDz/uOpZqh9kujueRdWWr0cd9FR9Flo9hx8dX05Mh8OJsrTlCi+TpRrd1yfv0YjfSgmfXh3VtDKYZIBW0JxSYXp
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230031)(39830400003)(346002)(366004)(396003)(136003)(230922051799003)(64100799003)(451199024)(1800799012)(186009)(30864003)(7416002)(5660300002)(4326008)(2906002)(44832011)(8676002)(8936002)(54906003)(110136005)(66946007)(66556008)(66476007)(41320700001)(508600001)(38350700005)(6666004)(52116002)(2616005)(36756003)(107886003)(26005)(1076003)(41300700001)(40180700001)(83380400001)(38100700002)(40160700002)(86362001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZzHVN2jk50FhDYUdk9oHDl4UWGBCVMLlxcVzMMrnCKdu6l1CWLz2PeshqYMD?=
- =?us-ascii?Q?fJAJdw3r3oJYkGod5wpbXSc9ceFEUt7qmi1oT/JBJp9G4/8WH8kFCzmzzTER?=
- =?us-ascii?Q?tjnNnIcmP9r+JLaoCDARb2wNHraF56JjemHU3z02eEJJjmhcAfmJwfU5KoDv?=
- =?us-ascii?Q?7EhZLeFvTqi7oyXmOtDUylsAKoSgfsMhxc3fYuq59kdqiVL+Dm33FHYHjYp3?=
- =?us-ascii?Q?TzD/LFlyzpgQyrzMKh2oZSK/IJz+LkypdAybRpXLB0KDzAZ+Ix2V2m3YT+pJ?=
- =?us-ascii?Q?i9pKwHe580PJfjrqTC9FxwEaqnog9IEaterbqxt6Z7opOd/YYhnr2RQXtqZV?=
- =?us-ascii?Q?AYJJ1Ix15O6E4vGDFXDDcqBjhN8EgQjrajrsGfD8Jg70ZBBDxSjUn7USuJRg?=
- =?us-ascii?Q?ebfMydLR5OZjzFodCLnj2ncRCJ0S9VdvI6UWbTBtsifsP2xifQ9jTfuXuPAT?=
- =?us-ascii?Q?5jbp4FC3wWush4yNqPBOZdjr0o3MwVmTaRmb3lNoxLBY0TNCRABTAWcbCQLo?=
- =?us-ascii?Q?6jVFTQFCRb3DNJKrOo0ISh5MX9/Z2I2/va9y8tAC4yRSNcv9iHOmihaiuG1z?=
- =?us-ascii?Q?XQso5NlTlIRhyzWUwLuB6sod8nLzb4IWCa9O5JXrF+hCBS3egw4jwP+KOvLC?=
- =?us-ascii?Q?e8Qt/+mOzD1sXQgVt/mdswHUUkx3Sc9peFhyfAVVwG54O+kuUjdNmvXjRPoM?=
- =?us-ascii?Q?Vuyw3tFW/zip8A5/XL4g56UdTV5p25Kgw+Rrh4BuXtptBPWZkQ5FuKyoWJOz?=
- =?us-ascii?Q?H1pAd1Zri6SLJW0apb2EaWOpYKKq5lPIxTH24Cz2B+7wTBkLnfjKrwFX6dqc?=
- =?us-ascii?Q?CoPf7ZzGbBRVObOhsvcMpXVbgHkUcU+lulJu5ElFLbkuHVMxMzHc90Hxzm5C?=
- =?us-ascii?Q?a/B/allBQb+o8+yBZJehxJKhxP613enL1ZCk2npXJYYAjh65GIoIYbRIFhQG?=
- =?us-ascii?Q?/Mj76U/7H8viCrewO3bKpmsvbSh13hq/IacZeMAshLbUOcKtPYG2haQt3V4t?=
- =?us-ascii?Q?wsHvdN0dkIEBFipO39wzpv3Qfx0wO3HoxyWrFu4UKlHF1hTVmLebxEKhBvJF?=
- =?us-ascii?Q?3/RkgyXbW8r495KgCXRaz8LRE8OMAfR/mXwNmcAv3PXLTy7gTHh9k05qn3OP?=
- =?us-ascii?Q?G/YduGUvC6/DxPNkLQl/ElM9hzlB21J+waOjV7zV5BIKTXLOat5QDwt43kLq?=
- =?us-ascii?Q?QPDUhcn9eWb6Cm9TUhk5PjPvZjdtWexVkTnb5OVA+iBqg4f1InGWubulguYn?=
- =?us-ascii?Q?hwRiDaT3B5pWBcm2f9s8ac7Jl5iMaKTDCttKUlgD06JhfpMzxjs8futmghDm?=
- =?us-ascii?Q?UuTeWUkckJt2DnNDLofNQTy92O+7MFGoVsQBLRCj1LUeQI9qGKteax8m6lsE?=
- =?us-ascii?Q?wy9HVlpuhcYh6m2Y/CV0CqW/WQtmU9Ww+st1U6poBjN4ueMqSqr7FTyNgWz6?=
- =?us-ascii?Q?SEPb6nMztVhh76S3NuikM4abye9qzATpRCevCZsKGG+XXEXd7F5f/zA1umO0?=
- =?us-ascii?Q?Juu8wSmET/04JiMVxpZFn1mknHh67ZevYMrnzt3t4Gqq3HwvWYq8aeazqq+Q?=
- =?us-ascii?Q?EhTZDlykefkU7eUy/vXCiWFvNehc3uLxrINEPeizRnnJUv2YliZ7ltxfnBMT?=
- =?us-ascii?Q?eg=3D=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 896d77ab-ef72-4902-7f68-08dc1039dcbc
-X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jan 2024 11:06:28.3766
+X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8b720381-90fe-4849-909f-08dc103c0632
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Jan 2024 11:21:56.7548
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JB9lk4xJSnJ+dr6Ii+KixusnyCesvjaxu/ftO2FX+9sHe4ZtO8ieBFXksrElQdC1SJX8u2kLextZIkKjqBjut5IFghIyRP8Fz1e97548+tk=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0701
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: G4ED6mZpq9Fhg/H/qRPj/b7Bsu0L1yaDTpCer6EJAuVtL30IepSeuTvS7KAP/5UOU/MQDn1vgqNCjji5fV6DmJNhoKkocmNj905rkUa+t0M=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0878
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240108_032102_659542_53A9C3CE 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20240108_032203_029687_67C6C3BF 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,294 +149,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="gb2312"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move PLDA PCIe host controller IP registers macros to pcie-plda.h,
-including bridge registers and local IRQ event number.
-
-Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
----
- MAINTAINERS                                   |   8 ++
- .../pci/controller/plda/pcie-microchip-host.c | 108 +++---------------
- drivers/pci/controller/plda/pcie-plda.h       | 108 ++++++++++++++++++
- 3 files changed, 132 insertions(+), 92 deletions(-)
- create mode 100644 drivers/pci/controller/plda/pcie-plda.h
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 1a2a4d2fab74..730fe2d640a1 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -16557,6 +16557,14 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/pci/layerscape-pcie-gen4.txt
- F:	drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c
- 
-+PCI DRIVER FOR PLDA PCIE IP
-+M:	Daire McNamara <daire.mcnamara@microchip.com>
-+M:	Kevin Xie <kevin.xie@starfivetech.com>
-+L:	linux-pci@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/pci/plda,*
-+F:	drivers/pci/controller/plda/*plda*
-+
- PCI DRIVER FOR RENESAS R-CAR
- M:	Marek Vasut <marek.vasut+renesas@gmail.com>
- M:	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
-index cb09a8137e25..d9030d550482 100644
---- a/drivers/pci/controller/plda/pcie-microchip-host.c
-+++ b/drivers/pci/controller/plda/pcie-microchip-host.c
-@@ -19,6 +19,7 @@
- #include <linux/platform_device.h>
- 
- #include "../../pci.h"
-+#include "pcie-plda.h"
- 
- /* Number of MSI IRQs */
- #define MC_MAX_NUM_MSI_IRQS			32
-@@ -30,84 +31,6 @@
- #define MC_PCIE_BRIDGE_ADDR			(MC_PCIE1_BRIDGE_ADDR)
- #define MC_PCIE_CTRL_ADDR			(MC_PCIE1_CTRL_ADDR)
- 
--/* PCIe Bridge Phy Regs */
--#define PCIE_PCI_IRQ_DW0			0xa8
--#define  MSIX_CAP_MASK				BIT(31)
--#define  NUM_MSI_MSGS_MASK			GENMASK(6, 4)
--#define  NUM_MSI_MSGS_SHIFT			4
--
--#define IMASK_LOCAL				0x180
--#define  DMA_END_ENGINE_0_MASK			0x00000000u
--#define  DMA_END_ENGINE_0_SHIFT			0
--#define  DMA_END_ENGINE_1_MASK			0x00000000u
--#define  DMA_END_ENGINE_1_SHIFT			1
--#define  DMA_ERROR_ENGINE_0_MASK		0x00000100u
--#define  DMA_ERROR_ENGINE_0_SHIFT		8
--#define  DMA_ERROR_ENGINE_1_MASK		0x00000200u
--#define  DMA_ERROR_ENGINE_1_SHIFT		9
--#define  A_ATR_EVT_POST_ERR_MASK		0x00010000u
--#define  A_ATR_EVT_POST_ERR_SHIFT		16
--#define  A_ATR_EVT_FETCH_ERR_MASK		0x00020000u
--#define  A_ATR_EVT_FETCH_ERR_SHIFT		17
--#define  A_ATR_EVT_DISCARD_ERR_MASK		0x00040000u
--#define  A_ATR_EVT_DISCARD_ERR_SHIFT		18
--#define  A_ATR_EVT_DOORBELL_MASK		0x00000000u
--#define  A_ATR_EVT_DOORBELL_SHIFT		19
--#define  P_ATR_EVT_POST_ERR_MASK		0x00100000u
--#define  P_ATR_EVT_POST_ERR_SHIFT		20
--#define  P_ATR_EVT_FETCH_ERR_MASK		0x00200000u
--#define  P_ATR_EVT_FETCH_ERR_SHIFT		21
--#define  P_ATR_EVT_DISCARD_ERR_MASK		0x00400000u
--#define  P_ATR_EVT_DISCARD_ERR_SHIFT		22
--#define  P_ATR_EVT_DOORBELL_MASK		0x00000000u
--#define  P_ATR_EVT_DOORBELL_SHIFT		23
--#define  PM_MSI_INT_INTA_MASK			0x01000000u
--#define  PM_MSI_INT_INTA_SHIFT			24
--#define  PM_MSI_INT_INTB_MASK			0x02000000u
--#define  PM_MSI_INT_INTB_SHIFT			25
--#define  PM_MSI_INT_INTC_MASK			0x04000000u
--#define  PM_MSI_INT_INTC_SHIFT			26
--#define  PM_MSI_INT_INTD_MASK			0x08000000u
--#define  PM_MSI_INT_INTD_SHIFT			27
--#define  PM_MSI_INT_INTX_MASK			0x0f000000u
--#define  PM_MSI_INT_INTX_SHIFT			24
--#define  PM_MSI_INT_MSI_MASK			0x10000000u
--#define  PM_MSI_INT_MSI_SHIFT			28
--#define  PM_MSI_INT_AER_EVT_MASK		0x20000000u
--#define  PM_MSI_INT_AER_EVT_SHIFT		29
--#define  PM_MSI_INT_EVENTS_MASK			0x40000000u
--#define  PM_MSI_INT_EVENTS_SHIFT		30
--#define  PM_MSI_INT_SYS_ERR_MASK		0x80000000u
--#define  PM_MSI_INT_SYS_ERR_SHIFT		31
--#define  NUM_LOCAL_EVENTS			15
--#define ISTATUS_LOCAL				0x184
--#define IMASK_HOST				0x188
--#define ISTATUS_HOST				0x18c
--#define IMSI_ADDR				0x190
--#define ISTATUS_MSI				0x194
--
--/* PCIe Master table init defines */
--#define ATR0_PCIE_WIN0_SRCADDR_PARAM		0x600u
--#define  ATR0_PCIE_ATR_SIZE			0x25
--#define  ATR0_PCIE_ATR_SIZE_SHIFT		1
--#define ATR0_PCIE_WIN0_SRC_ADDR			0x604u
--#define ATR0_PCIE_WIN0_TRSL_ADDR_LSB		0x608u
--#define ATR0_PCIE_WIN0_TRSL_ADDR_UDW		0x60cu
--#define ATR0_PCIE_WIN0_TRSL_PARAM		0x610u
--
--/* PCIe AXI slave table init defines */
--#define ATR0_AXI4_SLV0_SRCADDR_PARAM		0x800u
--#define  ATR_SIZE_SHIFT				1
--#define  ATR_IMPL_ENABLE			1
--#define ATR0_AXI4_SLV0_SRC_ADDR			0x804u
--#define ATR0_AXI4_SLV0_TRSL_ADDR_LSB		0x808u
--#define ATR0_AXI4_SLV0_TRSL_ADDR_UDW		0x80cu
--#define ATR0_AXI4_SLV0_TRSL_PARAM		0x810u
--#define  PCIE_TX_RX_INTERFACE			0x00000000u
--#define  PCIE_CONFIG_INTERFACE			0x00000001u
--
--#define ATR_ENTRY_SIZE				32
--
- /* PCIe Controller Phy Regs */
- #define SEC_ERROR_EVENT_CNT			0x20
- #define DED_ERROR_EVENT_CNT			0x24
-@@ -179,20 +102,21 @@
- #define EVENT_LOCAL_DMA_END_ENGINE_1		12
- #define EVENT_LOCAL_DMA_ERROR_ENGINE_0		13
- #define EVENT_LOCAL_DMA_ERROR_ENGINE_1		14
--#define EVENT_LOCAL_A_ATR_EVT_POST_ERR		15
--#define EVENT_LOCAL_A_ATR_EVT_FETCH_ERR		16
--#define EVENT_LOCAL_A_ATR_EVT_DISCARD_ERR	17
--#define EVENT_LOCAL_A_ATR_EVT_DOORBELL		18
--#define EVENT_LOCAL_P_ATR_EVT_POST_ERR		19
--#define EVENT_LOCAL_P_ATR_EVT_FETCH_ERR		20
--#define EVENT_LOCAL_P_ATR_EVT_DISCARD_ERR	21
--#define EVENT_LOCAL_P_ATR_EVT_DOORBELL		22
--#define EVENT_LOCAL_PM_MSI_INT_INTX		23
--#define EVENT_LOCAL_PM_MSI_INT_MSI		24
--#define EVENT_LOCAL_PM_MSI_INT_AER_EVT		25
--#define EVENT_LOCAL_PM_MSI_INT_EVENTS		26
--#define EVENT_LOCAL_PM_MSI_INT_SYS_ERR		27
--#define NUM_EVENTS				28
-+#define NUM_MC_EVENTS				15
-+#define EVENT_LOCAL_A_ATR_EVT_POST_ERR		(NUM_MC_EVENTS + PLDA_AXI_POST_ERR)
-+#define EVENT_LOCAL_A_ATR_EVT_FETCH_ERR		(NUM_MC_EVENTS + PLDA_AXI_FETCH_ERR)
-+#define EVENT_LOCAL_A_ATR_EVT_DISCARD_ERR	(NUM_MC_EVENTS + PLDA_AXI_DISCARD_ERR)
-+#define EVENT_LOCAL_A_ATR_EVT_DOORBELL		(NUM_MC_EVENTS + PLDA_AXI_DOORBELL)
-+#define EVENT_LOCAL_P_ATR_EVT_POST_ERR		(NUM_MC_EVENTS + PLDA_PCIE_POST_ERR)
-+#define EVENT_LOCAL_P_ATR_EVT_FETCH_ERR		(NUM_MC_EVENTS + PLDA_PCIE_FETCH_ERR)
-+#define EVENT_LOCAL_P_ATR_EVT_DISCARD_ERR	(NUM_MC_EVENTS + PLDA_PCIE_DISCARD_ERR)
-+#define EVENT_LOCAL_P_ATR_EVT_DOORBELL		(NUM_MC_EVENTS + PLDA_PCIE_DOORBELL)
-+#define EVENT_LOCAL_PM_MSI_INT_INTX		(NUM_MC_EVENTS + PLDA_INTX)
-+#define EVENT_LOCAL_PM_MSI_INT_MSI		(NUM_MC_EVENTS + PLDA_MSI)
-+#define EVENT_LOCAL_PM_MSI_INT_AER_EVT		(NUM_MC_EVENTS + PLDA_AER_EVENT)
-+#define EVENT_LOCAL_PM_MSI_INT_EVENTS		(NUM_MC_EVENTS + PLDA_MISC_EVENTS)
-+#define EVENT_LOCAL_PM_MSI_INT_SYS_ERR		(NUM_MC_EVENTS + PLDA_SYS_ERR)
-+#define NUM_EVENTS				(NUM_MC_EVENTS + PLDA_INT_EVENT_NUM)
- 
- #define PCIE_EVENT_CAUSE(x, s)	\
- 	[EVENT_PCIE_ ## x] = { __stringify(x), s }
-diff --git a/drivers/pci/controller/plda/pcie-plda.h b/drivers/pci/controller/plda/pcie-plda.h
-new file mode 100644
-index 000000000000..cad3a98d967e
---- /dev/null
-+++ b/drivers/pci/controller/plda/pcie-plda.h
-@@ -0,0 +1,108 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * PLDA PCIe host controller driver
-+ */
-+
-+#ifndef _PCIE_PLDA_H
-+#define _PCIE_PLDA_H
-+
-+/* PCIe Bridge Phy Regs */
-+#define PCIE_PCI_IRQ_DW0			0xa8
-+#define  MSIX_CAP_MASK				BIT(31)
-+#define  NUM_MSI_MSGS_MASK			GENMASK(6, 4)
-+#define  NUM_MSI_MSGS_SHIFT			4
-+
-+#define IMASK_LOCAL				0x180
-+#define  DMA_END_ENGINE_0_MASK			0x00000000u
-+#define  DMA_END_ENGINE_0_SHIFT			0
-+#define  DMA_END_ENGINE_1_MASK			0x00000000u
-+#define  DMA_END_ENGINE_1_SHIFT			1
-+#define  DMA_ERROR_ENGINE_0_MASK		0x00000100u
-+#define  DMA_ERROR_ENGINE_0_SHIFT		8
-+#define  DMA_ERROR_ENGINE_1_MASK		0x00000200u
-+#define  DMA_ERROR_ENGINE_1_SHIFT		9
-+#define  A_ATR_EVT_POST_ERR_MASK		0x00010000u
-+#define  A_ATR_EVT_POST_ERR_SHIFT		16
-+#define  A_ATR_EVT_FETCH_ERR_MASK		0x00020000u
-+#define  A_ATR_EVT_FETCH_ERR_SHIFT		17
-+#define  A_ATR_EVT_DISCARD_ERR_MASK		0x00040000u
-+#define  A_ATR_EVT_DISCARD_ERR_SHIFT		18
-+#define  A_ATR_EVT_DOORBELL_MASK		0x00000000u
-+#define  A_ATR_EVT_DOORBELL_SHIFT		19
-+#define  P_ATR_EVT_POST_ERR_MASK		0x00100000u
-+#define  P_ATR_EVT_POST_ERR_SHIFT		20
-+#define  P_ATR_EVT_FETCH_ERR_MASK		0x00200000u
-+#define  P_ATR_EVT_FETCH_ERR_SHIFT		21
-+#define  P_ATR_EVT_DISCARD_ERR_MASK		0x00400000u
-+#define  P_ATR_EVT_DISCARD_ERR_SHIFT		22
-+#define  P_ATR_EVT_DOORBELL_MASK		0x00000000u
-+#define  P_ATR_EVT_DOORBELL_SHIFT		23
-+#define  PM_MSI_INT_INTA_MASK			0x01000000u
-+#define  PM_MSI_INT_INTA_SHIFT			24
-+#define  PM_MSI_INT_INTB_MASK			0x02000000u
-+#define  PM_MSI_INT_INTB_SHIFT			25
-+#define  PM_MSI_INT_INTC_MASK			0x04000000u
-+#define  PM_MSI_INT_INTC_SHIFT			26
-+#define  PM_MSI_INT_INTD_MASK			0x08000000u
-+#define  PM_MSI_INT_INTD_SHIFT			27
-+#define  PM_MSI_INT_INTX_MASK			0x0f000000u
-+#define  PM_MSI_INT_INTX_SHIFT			24
-+#define  PM_MSI_INT_MSI_MASK			0x10000000u
-+#define  PM_MSI_INT_MSI_SHIFT			28
-+#define  PM_MSI_INT_AER_EVT_MASK		0x20000000u
-+#define  PM_MSI_INT_AER_EVT_SHIFT		29
-+#define  PM_MSI_INT_EVENTS_MASK			0x40000000u
-+#define  PM_MSI_INT_EVENTS_SHIFT		30
-+#define  PM_MSI_INT_SYS_ERR_MASK		0x80000000u
-+#define  PM_MSI_INT_SYS_ERR_SHIFT		31
-+#define  NUM_LOCAL_EVENTS			15
-+#define ISTATUS_LOCAL				0x184
-+#define IMASK_HOST				0x188
-+#define ISTATUS_HOST				0x18c
-+#define IMSI_ADDR				0x190
-+#define ISTATUS_MSI				0x194
-+
-+/* PCIe Master table init defines */
-+#define ATR0_PCIE_WIN0_SRCADDR_PARAM		0x600u
-+#define  ATR0_PCIE_ATR_SIZE			0x25
-+#define  ATR0_PCIE_ATR_SIZE_SHIFT		1
-+#define ATR0_PCIE_WIN0_SRC_ADDR			0x604u
-+#define ATR0_PCIE_WIN0_TRSL_ADDR_LSB		0x608u
-+#define ATR0_PCIE_WIN0_TRSL_ADDR_UDW		0x60cu
-+#define ATR0_PCIE_WIN0_TRSL_PARAM		0x610u
-+
-+/* PCIe AXI slave table init defines */
-+#define ATR0_AXI4_SLV0_SRCADDR_PARAM		0x800u
-+#define  ATR_SIZE_SHIFT				1
-+#define  ATR_IMPL_ENABLE			1
-+#define ATR0_AXI4_SLV0_SRC_ADDR			0x804u
-+#define ATR0_AXI4_SLV0_TRSL_ADDR_LSB		0x808u
-+#define ATR0_AXI4_SLV0_TRSL_ADDR_UDW		0x80cu
-+#define ATR0_AXI4_SLV0_TRSL_PARAM		0x810u
-+#define  PCIE_TX_RX_INTERFACE			0x00000000u
-+#define  PCIE_CONFIG_INTERFACE			0x00000001u
-+
-+#define ATR_ENTRY_SIZE				32
-+
-+enum plda_int_event {
-+	PLDA_AXI_POST_ERR,
-+	PLDA_AXI_FETCH_ERR,
-+	PLDA_AXI_DISCARD_ERR,
-+	PLDA_AXI_DOORBELL,
-+	PLDA_PCIE_POST_ERR,
-+	PLDA_PCIE_FETCH_ERR,
-+	PLDA_PCIE_DISCARD_ERR,
-+	PLDA_PCIE_DOORBELL,
-+	PLDA_INTX,
-+	PLDA_MSI,
-+	PLDA_AER_EVENT,
-+	PLDA_MISC_EVENTS,
-+	PLDA_SYS_ERR,
-+	PLDA_INT_EVENT_NUM
-+};
-+
-+#define PLDA_NUM_DMA_EVENTS			16
-+
-+#define PLDA_MAX_INT_NUM			(PLDA_NUM_DMA_EVENTS + PLDA_INT_EVENT_NUM)
-+
-+#endif
--- 
-2.17.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+DQo+INb3zOI6IFtQQVRDSCB2MTQgMDEvMjJdIGR0LWJpbmRpbmdzOiBQQ0k6IEFkZCBQTERBIFhw
+cmVzc1JJQ0ggUENJZSBob3N0DQo+IGNvbW1vbiBwcm9wZXJ0aWVzDQo+IA0KQWRkIFRvbWFzDQo+
+IEFkZCBQTERBIFhwcmVzc1JJQ0ggUENJZSBob3N0IGNvbW1vbiBwcm9wZXJ0aWVzIGR0LWJpbmRp
+bmcgZG9jLg0KPiBQb2xhckZpcmUgUENJZSBob3N0IHVzaW5nIFBMREEgSVAuIE1vdmUgY29tbW9u
+IHByb3BlcnRpZXMgZnJvbSBNaWNyb2NoaXANCj4gUG9sYXJGaXJlIFBDSWUgaG9zdCB0byBQTERB
+IGZpbGVzLg0KPiANCj4gU2lnbmVkLW9mZi1ieTogTWluZGEgQ2hlbiA8bWluZGEuY2hlbkBzdGFy
+Zml2ZXRlY2guY29tPg0KPiBSZXZpZXdlZC1ieTogSGFsIEZlbmcgPGhhbC5mZW5nQHN0YXJmaXZl
+dGVjaC5jb20+DQo+IFJldmlld2VkLWJ5OiBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xleUBtaWNy
+b2NoaXAuY29tPg0KPiBSZXZpZXdlZC1ieTogUm9iIEhlcnJpbmcgPHJvYmhAa2VybmVsLm9yZz4N
+Cj4gVGVzdGVkLWJ5OiBKb2huIENsYXJrIDxpbmluZGV2QGdtYWlsLmNvbT4NCj4gLS0tDQo+ICAu
+Li4vYmluZGluZ3MvcGNpL21pY3JvY2hpcCxwY2llLWhvc3QueWFtbCAgICAgfCA1NSArLS0tLS0t
+LS0tLS0tLQ0KPiAgLi4uL3BjaS9wbGRhLHhwcmVzc3JpY2gzLWF4aS1jb21tb24ueWFtbCAgICAg
+IHwgNzUgKysrKysrKysrKysrKysrKysrKw0KPiAgMiBmaWxlcyBjaGFuZ2VkLCA3NiBpbnNlcnRp
+b25zKCspLCA1NCBkZWxldGlvbnMoLSkgIGNyZWF0ZSBtb2RlIDEwMDY0NA0KPiBEb2N1bWVudGF0
+aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcGNpL3BsZGEseHByZXNzcmljaDMtYXhpLWNvbW1vbi55
+YW1sDQo+IA0KPiBkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdz
+L3BjaS9taWNyb2NoaXAscGNpZS1ob3N0LnlhbWwNCj4gYi9Eb2N1bWVudGF0aW9uL2RldmljZXRy
+ZWUvYmluZGluZ3MvcGNpL21pY3JvY2hpcCxwY2llLWhvc3QueWFtbA0KPiBpbmRleCBmN2EzYzI2
+MzYzNTUuLjdjMmQ1MTIyMWY2NSAxMDA2NDQNCj4gLS0tIGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0
+cmVlL2JpbmRpbmdzL3BjaS9taWNyb2NoaXAscGNpZS1ob3N0LnlhbWwNCj4gKysrIGIvRG9jdW1l
+bnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3BjaS9taWNyb2NoaXAscGNpZS1ob3N0LnlhbWwN
+Cj4gQEAgLTEwLDIxICsxMCwxMyBAQCBtYWludGFpbmVyczoNCj4gICAgLSBEYWlyZSBNY05hbWFy
+YSA8ZGFpcmUubWNuYW1hcmFAbWljcm9jaGlwLmNvbT4NCj4gDQo+ICBhbGxPZjoNCj4gLSAgLSAk
+cmVmOiAvc2NoZW1hcy9wY2kvcGNpLWJ1cy55YW1sIw0KPiArICAtICRyZWY6IHBsZGEseHByZXNz
+cmljaDMtYXhpLWNvbW1vbi55YW1sIw0KPiAgICAtICRyZWY6IC9zY2hlbWFzL2ludGVycnVwdC1j
+b250cm9sbGVyL21zaS1jb250cm9sbGVyLnlhbWwjDQo+IA0KPiAgcHJvcGVydGllczoNCj4gICAg
+Y29tcGF0aWJsZToNCj4gICAgICBjb25zdDogbWljcm9jaGlwLHBjaWUtaG9zdC0xLjAgIyBQb2xh
+ckZpcmUNCj4gDQo+IC0gIHJlZzoNCj4gLSAgICBtYXhJdGVtczogMg0KPiAtDQo+IC0gIHJlZy1u
+YW1lczoNCj4gLSAgICBpdGVtczoNCj4gLSAgICAgIC0gY29uc3Q6IGNmZw0KPiAtICAgICAgLSBj
+b25zdDogYXBiDQo+IC0NCj4gICAgY2xvY2tzOg0KPiAgICAgIGRlc2NyaXB0aW9uOg0KPiAgICAg
+ICAgRmFicmljIEludGVyZmFjZSBDb250cm9sbGVycywgRklDcywgYXJlIHRoZSBpbnRlcmZhY2Ug
+YmV0d2VlbiB0aGUgRlBHQQ0KPiBAQCAtNTIsMTggKzQ0LDYgQEAgcHJvcGVydGllczoNCj4gICAg
+ICBpdGVtczoNCj4gICAgICAgIHBhdHRlcm46ICdeZmljWzAtM10kJw0KPiANCj4gLSAgaW50ZXJy
+dXB0czoNCj4gLSAgICBtaW5JdGVtczogMQ0KPiAtICAgIGl0ZW1zOg0KPiAtICAgICAgLSBkZXNj
+cmlwdGlvbjogUENJZSBob3N0IGNvbnRyb2xsZXINCj4gLSAgICAgIC0gZGVzY3JpcHRpb246IGJ1
+aWx0aW4gTVNJIGNvbnRyb2xsZXINCj4gLQ0KPiAtICBpbnRlcnJ1cHQtbmFtZXM6DQo+IC0gICAg
+bWluSXRlbXM6IDENCj4gLSAgICBpdGVtczoNCj4gLSAgICAgIC0gY29uc3Q6IHBjaWUNCj4gLSAg
+ICAgIC0gY29uc3Q6IG1zaQ0KPiAtDQo+ICAgIHJhbmdlczoNCj4gICAgICBtYXhJdGVtczogMQ0K
+PiANCj4gQEAgLTcxLDM5ICs1MSw2IEBAIHByb3BlcnRpZXM6DQo+ICAgICAgbWluSXRlbXM6IDEN
+Cj4gICAgICBtYXhJdGVtczogNg0KPiANCj4gLSAgbXNpLWNvbnRyb2xsZXI6DQo+IC0gICAgZGVz
+Y3JpcHRpb246IElkZW50aWZpZXMgdGhlIG5vZGUgYXMgYW4gTVNJIGNvbnRyb2xsZXIuDQo+IC0N
+Cj4gLSAgbXNpLXBhcmVudDoNCj4gLSAgICBkZXNjcmlwdGlvbjogTVNJIGNvbnRyb2xsZXIgdGhl
+IGRldmljZSBpcyBjYXBhYmxlIG9mIHVzaW5nLg0KPiAtDQo+IC0gIGludGVycnVwdC1jb250cm9s
+bGVyOg0KPiAtICAgIHR5cGU6IG9iamVjdA0KPiAtICAgIHByb3BlcnRpZXM6DQo+IC0gICAgICAn
+I2FkZHJlc3MtY2VsbHMnOg0KPiAtICAgICAgICBjb25zdDogMA0KPiAtDQo+IC0gICAgICAnI2lu
+dGVycnVwdC1jZWxscyc6DQo+IC0gICAgICAgIGNvbnN0OiAxDQo+IC0NCj4gLSAgICAgIGludGVy
+cnVwdC1jb250cm9sbGVyOiB0cnVlDQo+IC0NCj4gLSAgICByZXF1aXJlZDoNCj4gLSAgICAgIC0g
+JyNhZGRyZXNzLWNlbGxzJw0KPiAtICAgICAgLSAnI2ludGVycnVwdC1jZWxscycNCj4gLSAgICAg
+IC0gaW50ZXJydXB0LWNvbnRyb2xsZXINCj4gLQ0KPiAtICAgIGFkZGl0aW9uYWxQcm9wZXJ0aWVz
+OiBmYWxzZQ0KPiAtDQo+IC1yZXF1aXJlZDoNCj4gLSAgLSByZWcNCj4gLSAgLSByZWctbmFtZXMN
+Cj4gLSAgLSAiI2ludGVycnVwdC1jZWxscyINCj4gLSAgLSBpbnRlcnJ1cHRzDQo+IC0gIC0gaW50
+ZXJydXB0LW1hcC1tYXNrDQo+IC0gIC0gaW50ZXJydXB0LW1hcA0KPiAtICAtIG1zaS1jb250cm9s
+bGVyDQo+IC0NCj4gIHVuZXZhbHVhdGVkUHJvcGVydGllczogZmFsc2UNCj4gDQo+ICBleGFtcGxl
+czoNCj4gZGlmZiAtLWdpdA0KPiBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9w
+Y2kvcGxkYSx4cHJlc3NyaWNoMy1heGktY29tbW9uLnlhbWwNCj4gYi9Eb2N1bWVudGF0aW9uL2Rl
+dmljZXRyZWUvYmluZGluZ3MvcGNpL3BsZGEseHByZXNzcmljaDMtYXhpLWNvbW1vbi55YW1sDQo+
+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0DQo+IGluZGV4IDAwMDAwMDAwMDAwMC4uMzFiYjE3YjExZTU4
+DQo+IC0tLSAvZGV2L251bGwNCj4gKysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRp
+bmdzL3BjaS9wbGRhLHhwcmVzc3JpY2gzLWF4aS1jb21tb24uDQo+ICsrKyB5YW1sDQo+IEBAIC0w
+LDAgKzEsNzUgQEANCj4gKyMgU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IChHUEwtMi4wLW9ubHkg
+T1IgQlNELTItQ2xhdXNlKSAlWUFNTCAxLjINCj4gKy0tLQ0KPiArJGlkOg0KPiAraHR0cDovL2Rl
+dmljZXRyZWUub3JnL3NjaGVtYXMvcGNpL3BsZGEseHByZXNzcmljaDMtYXhpLWNvbW1vbi55YW1s
+Iw0KPiArJHNjaGVtYTogaHR0cDovL2RldmljZXRyZWUub3JnL21ldGEtc2NoZW1hcy9jb3JlLnlh
+bWwjDQo+ICsNCj4gK3RpdGxlOiBQTERBIFhwcmVzc1JJQ0ggUENJZSBob3N0IGNvbW1vbiBwcm9w
+ZXJ0aWVzDQo+ICsNCj4gK21haW50YWluZXJzOg0KPiArICAtIERhaXJlIE1jTmFtYXJhIDxkYWly
+ZS5tY25hbWFyYUBtaWNyb2NoaXAuY29tPg0KPiArICAtIEtldmluIFhpZSA8a2V2aW4ueGllQHN0
+YXJmaXZldGVjaC5jb20+DQo+ICsNCj4gK2Rlc2NyaXB0aW9uOg0KPiArICBHZW5lcmljIFBMREEg
+WHByZXNzUklDSCBQQ0llIGhvc3QgY29tbW9uIHByb3BlcnRpZXMuDQo+ICsNCj4gK2FsbE9mOg0K
+PiArICAtICRyZWY6IC9zY2hlbWFzL3BjaS9wY2ktYnVzLnlhbWwjDQo+ICsNCj4gK3Byb3BlcnRp
+ZXM6DQo+ICsgIHJlZzoNCj4gKyAgICBtYXhJdGVtczogMg0KPiArDQo+ICsgIHJlZy1uYW1lczoN
+Cj4gKyAgICBpdGVtczoNCj4gKyAgICAgIC0gY29uc3Q6IGNmZw0KPiArICAgICAgLSBjb25zdDog
+YXBiDQo+ICsNCj4gKyAgaW50ZXJydXB0czoNCj4gKyAgICBtaW5JdGVtczogMQ0KPiArICAgIGl0
+ZW1zOg0KPiArICAgICAgLSBkZXNjcmlwdGlvbjogUENJZSBob3N0IGNvbnRyb2xsZXINCj4gKyAg
+ICAgIC0gZGVzY3JpcHRpb246IGJ1aWx0aW4gTVNJIGNvbnRyb2xsZXINCj4gKw0KPiArICBpbnRl
+cnJ1cHQtbmFtZXM6DQo+ICsgICAgbWluSXRlbXM6IDENCj4gKyAgICBpdGVtczoNCj4gKyAgICAg
+IC0gY29uc3Q6IHBjaWUNCj4gKyAgICAgIC0gY29uc3Q6IG1zaQ0KPiArDQo+ICsgIG1zaS1jb250
+cm9sbGVyOg0KPiArICAgIGRlc2NyaXB0aW9uOiBJZGVudGlmaWVzIHRoZSBub2RlIGFzIGFuIE1T
+SSBjb250cm9sbGVyLg0KPiArDQo+ICsgIG1zaS1wYXJlbnQ6DQo+ICsgICAgZGVzY3JpcHRpb246
+IE1TSSBjb250cm9sbGVyIHRoZSBkZXZpY2UgaXMgY2FwYWJsZSBvZiB1c2luZy4NCj4gKw0KPiAr
+ICBpbnRlcnJ1cHQtY29udHJvbGxlcjoNCj4gKyAgICB0eXBlOiBvYmplY3QNCj4gKyAgICBwcm9w
+ZXJ0aWVzOg0KPiArICAgICAgJyNhZGRyZXNzLWNlbGxzJzoNCj4gKyAgICAgICAgY29uc3Q6IDAN
+Cj4gKw0KPiArICAgICAgJyNpbnRlcnJ1cHQtY2VsbHMnOg0KPiArICAgICAgICBjb25zdDogMQ0K
+PiArDQo+ICsgICAgICBpbnRlcnJ1cHQtY29udHJvbGxlcjogdHJ1ZQ0KPiArDQo+ICsgICAgcmVx
+dWlyZWQ6DQo+ICsgICAgICAtICcjYWRkcmVzcy1jZWxscycNCj4gKyAgICAgIC0gJyNpbnRlcnJ1
+cHQtY2VsbHMnDQo+ICsgICAgICAtIGludGVycnVwdC1jb250cm9sbGVyDQo+ICsNCj4gKyAgICBh
+ZGRpdGlvbmFsUHJvcGVydGllczogZmFsc2UNCj4gKw0KPiArcmVxdWlyZWQ6DQo+ICsgIC0gcmVn
+DQo+ICsgIC0gcmVnLW5hbWVzDQo+ICsgIC0gaW50ZXJydXB0cw0KPiArICAtIG1zaS1jb250cm9s
+bGVyDQo+ICsgIC0gIiNpbnRlcnJ1cHQtY2VsbHMiDQo+ICsgIC0gaW50ZXJydXB0LW1hcC1tYXNr
+DQo+ICsgIC0gaW50ZXJydXB0LW1hcA0KPiArDQo+ICthZGRpdGlvbmFsUHJvcGVydGllczogdHJ1
+ZQ0KPiArDQo+ICsuLi4NCj4gLS0NCj4gMi4xNy4xDQoNCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
