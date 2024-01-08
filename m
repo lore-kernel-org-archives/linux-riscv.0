@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5C3CC3DA6E
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jan 2024 20:45:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 171F5C47079
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jan 2024 21:04:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DLq64ye+TMgLgoAIlMXwZz96C8LCC0T5TcN4MkmsJSk=; b=vOoK65EmZG4bHp
-	+6z6iQGP0BlJZaU2RiefAMBBgwIRNrSgHd86edFMGDgB/lXc6mBH/gvuwJMVbhIWsqxSKqBGQjPEq
-	V6HRwuWGuRFPGp57O9I7rXoFi43/QPI+UpWiJbQf2GJjIAYHSRj20wDS8vqmTwjpjajRRzhAsxXKE
-	JKCpltrtPQ6FfbKTFLJFFCtjw+mQfELnYnPKN700FqsYYkFLrHkLRz/137+2rVzKqnStpZ9swCR1z
-	zt+GKaA8n51pvXHnxiSIAZ0zKRh1CZtMtp5sQqofi8/5YdglVUMOddC8hDq6DyPM6JKA4ilfTbQ/d
-	qBtRcI9p3Ci6O7fpXikg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gde7LGBLQiI0Ogmx7O9ZGQLrKZqad+wPY1vQoeH0Gqg=; b=4xZNL63v0qkzP3rx22+2CggW+l
+	kdGXqXNYqjDoZYSbu5lIkV8nBB/wwkKPtjDY37+bCO4AuO/fQv6TioV9zOzGrvMyPk9JKN2fc7YwO
+	uk/bJqTN8EHYMjJaBQofADSL1vtetSZJTlVuSbb0Ar564OXAXEZvGH0mDUWt6c432F9Kh+x0oQEwp
+	MTUBQExCVYDfE1cD/sC2vXPyDCLY5PDEhIwn7XZsHS2vdg7ZykPdqT4I7eeBR7DyzFNg6nKFyIOzL
+	rctkxwdLeRzPyRogHg0ztxfy5BQQpZlKvJOF2ahY3Zscw/kiv/Fkskao+YpcDZLvVlX965+E3BTte
+	WOriKgUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rMwUS-006BxP-2A;
-	Mon, 08 Jan 2024 20:44:56 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1rMwmv-006Ep7-05;
+	Mon, 08 Jan 2024 21:04:01 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rMwUP-006Bwt-1W
+	id 1rMwmr-006Eof-0r
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jan 2024 20:44:54 +0000
-Date: Mon, 8 Jan 2024 21:44:48 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1704746689;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QFJeHLw9GqQjgm3FgM7p7sOy93Z0Ypb7HjJTBpJG3O4=;
-	b=bzt7U+/W2wueF3ZyEvkRbDnY9Xe1TPDS/cu37+INvXFswbDOZ9DJAmKTgBNj7O1TtS7xbP
-	q5nJSKzZ69fjbrX+nE9v46voHIVDbS7bV67LO5YvJ4t2b2gZREQOa3iUiVtjtsvZh4Rs0l
-	3lVTImw/fw98wwmHPAk1uhlhkjirXUOAJ0ytCr8YY6iSi1bxo89GPmuUKEvKEMschzoJ4U
-	crp1o5Ar7GKTV+nkBoNy2md9a4fPtpYJCloyUVVDKg9bPGzv2YfaOWSTjlreHFOwnhe4GO
-	qURQz+qCcAKfd2uBaGmeKRv/v+6LUQyvhAeIgNG9oRy5yW4F/dhHhThW11j5ZA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1704746689;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QFJeHLw9GqQjgm3FgM7p7sOy93Z0Ypb7HjJTBpJG3O4=;
-	b=UkgPg0VuU9/DJID5oFyG5SAC8mwxbwH9zoayBjaH1aPk1owx29WmNSIHFu5RQYR6X7Uq9u
-	sC2u8FaismFOZzCQ==
-From: Nam Cao <namcao@linutronix.de>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Jisheng
- Zhang <jszhang@kernel.org>
-Subject: Re: [PATCH v2] riscv: Add support for BATCHED_UNMAP_TLB_FLUSH
-Message-ID: <20240108214448.025977ac@namcao>
-In-Reply-To: <20240108214346.5fd93127@namcao>
-References: <20240108193640.344929-1-alexghiti@rivosinc.com>
-	<20240108214346.5fd93127@namcao>
+	Mon, 08 Jan 2024 21:03:59 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1rMwmn-0007Sw-0g; Mon, 08 Jan 2024 22:03:53 +0100
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1rMwmj-001KoV-Ei; Mon, 08 Jan 2024 22:03:49 +0100
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1rMwmj-005EcE-0e;
+	Mon, 08 Jan 2024 22:03:49 +0100
+Date: Mon, 8 Jan 2024 22:03:49 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Conor Dooley <conor+dt@kernel.org>
+Cc: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org, 
+	Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, 
+	Thierry Reding <thierry.reding@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Hal Feng <hal.feng@starfivetech.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH v10 1/4] dt-bindings: pwm: Add bindings for OpenCores PWM
+ Controller
+Message-ID: <p22vjdwk35yc66mb4pkntnst6kjyhhmnv3eb2n25c3dhi5bdeo@bj7amwepprab>
+References: <20231222094548.54103-1-william.qiu@starfivetech.com>
+ <20231222094548.54103-2-william.qiu@starfivetech.com>
+ <t3w2p765fs633nanqsx5yqres7taqpk6juwyl4iex5v4jpobo2@rqw6r4myjmv3>
 MIME-Version: 1.0
+In-Reply-To: <t3w2p765fs633nanqsx5yqres7taqpk6juwyl4iex5v4jpobo2@rqw6r4myjmv3>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240108_124453_655344_34CA20B8 
-X-CRM114-Status: GOOD (  16.57  )
+X-CRM114-CacheID: sfid-20240108_130357_326455_5B5E4712 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,124 +77,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5620494071868407823=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 8 Jan 2024 21:43:46 +0100 Nam Cao <namcao@linutronix.de> wrote:
 
-> On Mon,  8 Jan 2024 20:36:40 +0100 Alexandre Ghiti <alexghiti@rivosinc.com> wrote:
-> > Allow to defer the flushing of the TLB when unmapping pages, which allows
-> > to reduce the numbers of IPI and the number of sfence.vma.
-> > 
-> > The ubenchmarch used in commit 43b3dfdd0455 ("arm64: support
-> > batched/deferred tlb shootdown during page reclamation/migration") that
-> > was multithreaded to force the usage of IPI shows good performance
-> > improvement on all platforms:
-> > 
-> > * Unmatched: ~34%
-> > * TH1520   : ~78%
-> > * Qemu     : ~81%
-> > 
-> > In addition, perf on qemu reports an important decrease in time spent
-> > dealing with IPIs:
-> > 
-> > Before:  68.17%  main     [kernel.kallsyms]            [k] __sbi_rfence_v02_call
-> > After :   8.64%  main     [kernel.kallsyms]            [k] __sbi_rfence_v02_call
-> > 
-> > * Benchmark:
-> > 
-> > int stick_this_thread_to_core(int core_id) {
-> >         int num_cores = sysconf(_SC_NPROCESSORS_ONLN);
-> >         if (core_id < 0 || core_id >= num_cores)
-> >            return EINVAL;
-> > 
-> >         cpu_set_t cpuset;
-> >         CPU_ZERO(&cpuset);
-> >         CPU_SET(core_id, &cpuset);
-> > 
-> >         pthread_t current_thread = pthread_self();
-> >         return pthread_setaffinity_np(current_thread,
-> > sizeof(cpu_set_t), &cpuset);
-> > }
-> > 
-> > static void *fn_thread (void *p_data)
-> > {
-> >         int ret;
-> >         pthread_t thread;
-> > 
-> >         stick_this_thread_to_core((int)p_data);
-> > 
-> >         while (1) {
-> >                 sleep(1);
-> >         }
-> > 
-> >         return NULL;
-> > }
-> > 
-> > int main()
-> > {
-> >         volatile unsigned char *p = mmap(NULL, SIZE, PROT_READ | PROT_WRITE,
-> >                                          MAP_SHARED | MAP_ANONYMOUS, -1, 0);
-> >         pthread_t threads[4];
-> >         int ret;
-> > 
-> >         for (int i = 0; i < 4; ++i) {
-> >                 ret = pthread_create(&threads[i], NULL, fn_thread, (void *)i);
-> >                 if (ret)
-> >                 {
-> >                         printf("%s", strerror (ret));
-> >                 }
-> >         }
-> > 
-> >         memset(p, 0x88, SIZE);
-> > 
-> >         for (int k = 0; k < 10000; k++) {
-> >                 /* swap in */
-> >                 for (int i = 0; i < SIZE; i += 4096) {
-> >                         (void)p[i];
-> >                 }
-> > 
-> >                 /* swap out */
-> >                 madvise(p, SIZE, MADV_PAGEOUT);
-> >         }
-> > 
-> >         for (int i = 0; i < 4; i++)
-> >         {
-> >                 pthread_cancel(threads[i]);
-> >         }
-> > 
-> >         for (int i = 0; i < 4; i++)
-> >         {
-> >                 pthread_join(threads[i], NULL);
-> >         }
-> > 
-> >         return 0;
-> > }
-> > 
-> > Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> > Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
-> > Tested-by: Jisheng Zhang <jszhang@kernel.org> # Tested on TH1520  
-> 
-> Before:
->     real 0m36.674s
->     user 0m0.173s
->     sys  0m36.493s
-> After:
->     real 0m18.016s
->     user 0m0.125s
->     sys  0m17.885s
-> 
-> Tested-by: Nam Cao <namcao@linutronix.de>
+--===============5620494071868407823==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="qdsxa55awznoyul6"
+Content-Disposition: inline
 
-I forgot to mention: this is for Starfive's Visionfive 2 board.
 
-Best regards,
-Nam
+--qdsxa55awznoyul6
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+Hello Conor,
+
+On Thu, Jan 04, 2024 at 11:43:13PM +0100, Uwe Kleine-K=F6nig wrote:
+> On Fri, Dec 22, 2023 at 05:45:45PM +0800, William Qiu wrote:
+> > Add bindings for OpenCores PWM Controller.
+> >=20
+> > Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> > Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+>=20
+> Looks fine to me. I'll assume you reiterate the series for patch #2 and
+> so I will mark this patch as deferred in patchwork.
+>=20
+> Reviewed-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
+
+If you want, pick this patch up that it goes along with the dts changes.
+
+To make this formal:
+
+Acked-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--qdsxa55awznoyul6
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmWcYy8ACgkQj4D7WH0S
+/k5Cxgf/QI/V+M0FjuVw/kgYUfVX9XsL67vIUwYey8CNZjcTRYrd1pch6cjV4Uxa
+Oq7ZKp7LpMxt6yLwKcI9vZHav86KPKPI+CaZtMpC2OuYqEo4ltygCMOUJrXoJnDU
+epVaCEiIS5e3vsOZ35EWGQeOpXUV/xHHNA4VIKfI1F4arIpPvlS6J3t8h/8nICpQ
+jk8Fk0X2HRqdy+kX0P6kSaQFBDBIFS/zRYI0ahlgLWEOGPj7dfpYa6Oqj7sXiZZP
+Mta2dmEwn4C10rTk7Pa7Y/RtpsYU2EVPiqaaHqgbTKrzpFPIPldMS4+f7CTYiKWD
+/s4YD833V/0aPhWZHYCGEQmTv4NlBw==
+=5dXp
+-----END PGP SIGNATURE-----
+
+--qdsxa55awznoyul6--
+
+
+--===============5620494071868407823==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5620494071868407823==--
+
