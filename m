@@ -4,85 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D38FCC3DA6E
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jan 2024 16:14:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F15EC3DA6E
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jan 2024 17:31:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s7/pTC6jp7mRpY9uAjO8x6i315lfXBga8LVSxk8D8uU=; b=JVhyK0QceX1ixw
-	p6tW8OR12bkClN32rMqC23Rzdk2OGgCMfonYNyD8IIXH/D4a3cdR7iNtTik+zIsK3ubhk7kJ340TI
-	Eu4xj+qEjcrdFVWwG6CAbjIsPwjeTNxdRxLCBoBL6Dpf/QjzQoXQK9ygKbEkxNB50iumTQkyDFiRi
-	3y1aElg1VxJz8pYEe3XJ+o/nv2P7eD3Ng6dyU516Rmlm5wbnj6egRgbM5aeCui8gYrjNyyhPSr0GC
-	G4MrmgMxuJkDwDUTdFhl/9QnrUWD5qp3fcybZaNfTW1q36ZkjI/+e2wZ3ACghbSM6VUh1CNWnx2vs
-	8avloVs9+EQTbchY15nw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OKg+TUD1840ZIvLquVJuJklhtRhZ7ykOckRDaJVnmu4=; b=Vgu/mshX0HhgBh5qUlo28cHSoq
+	6Tucu7Tx5JolCT3pyzc96mpTtlpVIiwotg26QG7MF23A2EO66XIXIL6R1SSPDTT3T9Efus1n6Y9yB
+	poEglZmhsDRy6/HqrPfZIAwkSRk1p9BRtCoaFdjborJK3jhDTxT5ljnMDqEDgwM/dOVAj1BnzOBts
+	Gh/9yAv+hlwkbxR1fZV5dpjUcmOqer00nT75ps/5gmPndojUk5Bcku5NYvVSk91+MZMsYJv6eh3en
+	hEFCSPrJqGUxUtIQcjeUqwZMWCagp1qbX4i8BEkxDa2Y5MR/EjzBss47lk1WKk8m3KuCGBxltasX6
+	+Bnv8rHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rMsGy-005bB9-1F;
-	Mon, 08 Jan 2024 16:14:44 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1rMtTF-005l2n-1a;
+	Mon, 08 Jan 2024 17:31:29 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rMsGu-005b9q-1P
+	id 1rMtTD-005l2J-0n
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jan 2024 16:14:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1704730479;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IkZ71Vmc+u7cdGbhZ3QvvW6zoFvI0y6Sk09Sc1WtDpU=;
-	b=bh+jNfI4G8dMzqd1SINOMyNT+UwDQDfL4aC03zmqDDwLNlJdReclYsH9Gj04d1xHOtLFPU
-	I+zgOU6pDBKRjjYuwjd3mruZLVgVGG0fzM5vjH8J17jx2j6ZvLVB4Li5Ltxb2df3xnBHUe
-	dZnk4YnMkMDPGyJspR999Mcg6dtoK3Y=
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
- [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-192-ZklOdouCMOy0X7Xi_IHIjg-1; Mon, 08 Jan 2024 11:14:37 -0500
-X-MC-Unique: ZklOdouCMOy0X7Xi_IHIjg-1
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-1d3e73f8042so7171925ad.2
-        for <linux-riscv@lists.infradead.org>; Mon, 08 Jan 2024 08:14:37 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704730472; x=1705335272;
-        h=content-transfer-encoding:content-disposition:mime-version
-         :references:in-reply-to:message-id:date:subject:cc:to:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IkZ71Vmc+u7cdGbhZ3QvvW6zoFvI0y6Sk09Sc1WtDpU=;
-        b=GpugRG/wRh+HWgs1qDSZJPX5qUxbt4hqBuFUXLCSIrirm6WsKmlB9Z5sB3KExnvHeI
-         PWbItwgTExwuIxv49q3W6I9ubjG0x0fG5Ci7SawWZqnC5mCEm58VEEmc192+TfPBh8zD
-         jliDQRVgNXZQfviqCOiUnVmyUoajF+unYHGLhu0Gd5B+98J7/AxToM8Eot5doym427DV
-         STQqYsREX6W9fHGKTjeiZVVkYY7iKW5DH4uKgwkj3t0V1hZI8bG0c6tf3lFuVIL9TSSD
-         wQ5FZquiYiomSm8z5Oan+d9XH6eiXxy1vR9nYC66rTgjwa/rJD8TiL5KIP5nRi7PXSfU
-         ZZdw==
-X-Gm-Message-State: AOJu0YwUJ3hZwAqAvixjF0DHBRCwUtfHl/dq767bh11IEZDkJEnkF85D
-	IIc9iZzNTsbHEM+ziyyA9PIN+3l9Mvs2fnPkbQE0snbn+IadeKcLahyZ4OjJjd7y8DKX4N/RHOV
-	E+em3qb4OjtZvSNt1aIXDB/EpDvlKUPjEvDjt
-X-Received: by 2002:a17:902:7008:b0:1d3:77c4:59db with SMTP id y8-20020a170902700800b001d377c459dbmr1510632plk.139.1704730471937;
-        Mon, 08 Jan 2024 08:14:31 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFxpetPyx2gDKiR82PKK51KAJw9puORhCUwXnkZI6lR96Xac0Nt4qc3rXXqQPsE1oGpJJpHYg==
-X-Received: by 2002:a17:902:7008:b0:1d3:77c4:59db with SMTP id y8-20020a170902700800b001d377c459dbmr1510622plk.139.1704730471579;
-        Mon, 08 Jan 2024 08:14:31 -0800 (PST)
-Received: from LeoBras.redhat.com ([2804:1b3:a803:26a5:3f32:e12b:5335:3c2d])
-        by smtp.gmail.com with ESMTPSA id jf22-20020a170903269600b001d4c22ff497sm92938plb.21.2024.01.08.08.14.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Jan 2024 08:14:31 -0800 (PST)
-From: Leonardo Bras <leobras@redhat.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-Subject: Re: Re: Re: Re: Re: Re: [PATCH V2 1/3] riscv: Add Zicbop instruction definitions & cpufeature
-Date: Mon,  8 Jan 2024 13:14:23 -0300
-Message-ID: <ZZwfX6PMqeKDsR-z@LeoBras>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20240108-c47754d958917d5d5e1efc75@orel>
-References: <ZZWs0C19tz763FnH@LeoBras> <20240103-0c96ceea88523b7b946e4ba8@orel> <ZZXEpU-JzsvD2UDW@LeoBras> <20240104-4ecfb92d2f8c95fa773ca695@orel> <ZZbI3clKUbNbNtZj@LeoBras> <20240104-d6981cf63a39af4dff1d380a@orel> <ZZbuKCvATa7yyQOc@LeoBras> <20240105-faa40f2c20534ea498246cc3@orel> <ZZwH5w2QLN4t1KtU@LeoBras> <20240108-c47754d958917d5d5e1efc75@orel>
+	Mon, 08 Jan 2024 17:31:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sin.source.kernel.org (Postfix) with ESMTP id 7FB4CCE130F;
+	Mon,  8 Jan 2024 17:31:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB9E7C433C8;
+	Mon,  8 Jan 2024 17:31:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1704735083;
+	bh=TpcI3dIuWNjlKbiZdSsWqC4HAoWP9zhHwULpZ+JjExE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=un01cIWsY2l7ec12fbUWfb1qr8tZmvTjPeOHQAZJDN7e8roSZWeXC8LHNqMgPmpt/
+	 OSJq5FkZWjL4xVuyHSbSu7PnsXNvasjfv2Fewr2IM4Kn9JwVTcO+e8Atyi9TiwW0TE
+	 2xCNujZTg4R/G6UpksnYomw7qHgAQ+vTmtoLzh4k+sBUjltbXgHCuwUabRygiYJh63
+	 ZgkmEgfsZIbiXJaHkMiwJxqdY1kSPBHIcaKcQb5VU33KHe7SQSHhGtUqHxXc9VX8dI
+	 V4xdKwwTFgLcd5t635lQSRPyblLOgmp1KqPriyffLCc/wFGfI/YcwXKFK+C8BhEkxH
+	 BRzEyAvcqb7XQ==
+Date: Mon, 8 Jan 2024 17:31:17 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
+	William Qiu <william.qiu@starfivetech.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh+dt@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH v10 3/4] riscv: dts: starfive: jh7100: Add PWM node and
+ pins configuration
+Message-ID: <20240108-hubcap-stubble-ecf6ea34afb9@spud>
+References: <20231222094548.54103-1-william.qiu@starfivetech.com>
+ <20231222094548.54103-4-william.qiu@starfivetech.com>
+ <CAJM55Z9tyrR7emEBrY0+Fnc_LUFQHkqYHLQ4ptL=XQMy52qtVw@mail.gmail.com>
+ <xd2ryic6mr6d6cbljjbhmr56mfpchfzkmc3lnznhmoiwyzip2a@6bhbho267e7c>
+ <CAJM55Z9DgFCwXjQGhe+urnOg-AkJMbQUR+biXKONQsRcup1GXw@mail.gmail.com>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
+In-Reply-To: <CAJM55Z9DgFCwXjQGhe+urnOg-AkJMbQUR+biXKONQsRcup1GXw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240108_081440_545446_FBC27E50 
-X-CRM114-Status: GOOD (  64.53  )
+X-CRM114-CacheID: sfid-20240108_093127_659836_E23064E6 
+X-CRM114-Status: GOOD (  20.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,214 +83,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: wefu@redhat.com, keescook@chromium.org, atishp@atishpatra.org, peterz@infradead.org, unicorn_wang@outlook.com, paul.walmsley@sifive.com, chao.wei@sophgo.com, bjorn@rivosinc.com, linux-kernel@vger.kernel.org, xiaoguang.xing@sophgo.com, conor.dooley@microchip.com, Leonardo Bras <leobras@redhat.com>, palmer@dabbelt.com, jszhang@kernel.org, panqinglin2020@iscas.ac.cn, Guo Ren <guoren@linux.alibaba.com>, guoren@kernel.org, linux-riscv@lists.infradead.org, wuwei2016@iscas.ac.cn
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1323958351873910126=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 08, 2024 at 04:24:59PM +0100, Andrew Jones wrote:
-> On Mon, Jan 08, 2024 at 11:34:15AM -0300, Leonardo Bras wrote:
-> > On Fri, Jan 05, 2024 at 02:24:45PM +0100, Andrew Jones wrote:
-> > > On Thu, Jan 04, 2024 at 02:43:04PM -0300, Leonardo Bras wrote:
-> > > ...
-> > > > > > > > I don't think we can detect a caller with non-zero offset at compile time, 
-> > > > > > > > since it will be used in locks which can be at (potentially) any place in 
-> > > > > > > > the block size. (if you have any idea though, please let me know :) )
-> > > > > 
-> > > > > I forgot to reply to this before. The reason I think it may be possible to
-> > > > > validate offset at compile time is because it must be a constant, i.e.
-> > > > > __builtin_constant_p(offset) must return true. So maybe something like
-> > > > > 
-> > > > >  static_assert(__builtin_constant_p(offset) && !(offset & 0x1f))
-> > > > > 
-> > > > > I'll try to find time to play with it.
-> > > > > 
-> > > > 
-> > > > Let me know if you find anything.
-> > > 
-> > > There's nothing we can do in this file (insn-def.h), other than maybe
-> > > masking, since all magic must happen at preprocessor time, other than
-> > > a tiny bit of constant arithmetic allowed at assembly time. For C, using
-> > > a wrapper, like patch 2 of this series introduces, we could add the
-> > > static assert above. I'll suggest that in patch 2, since I've already
-> > > thought it through, but it sort of feels like overkill to me.
-> > 
-> > It makes sense.
-> > 
-> > > 
-> > > > 
-> > > > > > > > 
-> > > > > > > > On the other hand, we could create a S-Type macro which deliberately 
-> > > > > > > > ignores imm[4:0], like  
-> > > > > > > > 
-> > > > > > > > + INSN_S_TRUNCATE(OPCODE_OP_IMM, FUNC3(6), __RS2(3),               \
-> > > > > > > > +                 SIMM12(offset), RS1(base))
-> > > > > > > > 
-> > > > > > > > Which saves the bits 11:5 of offset  into imm[11:5], and zero-fill 
-> > > > > > > > imm[4:0], like
-> > > > > > > > 
-> > > > > > > > +#define DEFINE_INSN_S                                                    \
-> > > > > > > > + __DEFINE_ASM_GPR_NUMS                                           \
-> > > > > > > > +"        .macro insn_s, opcode, func3, rs2, simm12, rs1\n"               \
-> > > > > > > > +"        .4byte  ((\\opcode << " __stringify(INSN_S_OPCODE_SHIFT) ") |"  \
-> > > > > > > > +"                 (\\func3 << " __stringify(INSN_S_FUNC3_SHIFT) ") |"    \
-> > > > > > > > +"                 (.L__gpr_num_\\rs2 << " __stringify(INSN_S_RS2_SHIFT) ") |" \
-> > > > > > > > +"                 (.L__gpr_num_\\rs1 << " __stringify(INSN_S_RS1_SHIFT) ") |" \
-> > > > > > > > +"                 (((\\simm12 >> 5) & 0x7f) << " __stringify(INSN_S_SIMM7_SHIFT) "))\n" \
-> > > > > > > > +"        .endm\n"
-> > > > > > > > +
-> > > > > > > > 
-> > > > > > > > Does this make sense?
-> > > > > > > 
-> > > > > > > If we create a special version of INSN_S, then I suggest we create one
-> > > > > > > where its two SIMM fields are independent and then define prefetch
-> > > > > > > instructions like this
-> > > > > > > 
-> > > > > > >  #define PREFETCH_W(base, offset) \
-> > > > > > >      INSN_S_SPLIT_IMM(OPCODE_OP_IMM, FUNC3(6), __RS2(3), \
-> > > > > > >          SIMM_11_5(offset >> 5), SIMM_4_0(0), RS1(base))
-> > > > > > > 
-> > > > > > > which would allow simple review against the spec and potentially
-> > > > > > > support other instructions which use hard coded values in the
-> > > > > > > immediate fields.
-> > > > > > > 
-> > > > > > 
-> > > > > > I agree, it looks better this way.
-> > > > > > 
-> > > > > > We could have:
-> > > > > > INSN_S_SPLIT_IMM(OPCODE, FUNC3, RS1, RS2, SIMM_11_5, SIMM_4_0)
-> > > > > > 
-> > > > > > and implement INSN_S like:
-> > > > > > #define INSN_S(OPCODE, FUNC3, RS1, RS2, SIMM_11_0) \
-> > > > > > 	INSN_S_SPLIT_IMM(OPCODE, FUNC3, RS1, RS2,  \
-> > > > > > 		SIMM_11_0 >> 5, SIMM_11_0 & 0x1f)
-> > > > > 
-> > > > > That won't work since SIMM_11_0 will be a string. Actually, with
-> > > > > stringification in mind, I don't think defining INSN_S_SPLIT_IMM()
-> > > > > is a good idea.
-> > > > 
-> > > > I don't see how SIMM_11_0 will be a string here. Is this due to using it 
-> > > > on asm code?
-> > > > 
-> > > > I understand a user will call 
-> > > > ---
-> > > > PREFETCH_W(base, offset), which becomes:
-> > > > 
-> > > > INSN_S(OPCODE_OP_IMM, 6, base, 3, offset) , which becomes:
-> > > > 
-> > > > INSN_S_SPLIT_IMM(OPCODE_OP_IMM, FUNC3(6), RS1(base), RS2(3), \
-> > > > 	SIMM_11_5(offset >> 5), SIMM_4_0(offset & 0x1f))
-> > > 
-> > > The other annotations, like SIMM12, stringify their arguments. So, if
-> > > SIMM_11_5 and SIMM_4_0 also stringified, then it wouldn't be possible
-> > > to recombine them into a simm12 for the '.insn s' directive. I suppose
-> > > SIMM_11_5 and SIMM_4_0 could just expand their arguments without
-> > > stringifying. With that, along with throwing even more ugly at it, then
-> > > it is possible to get the end result we want, which is
-> > > 
-> > >  - PREFETCH_* instructions are defined with annotations and have a
-> > >    SIMM_4_0(0) in their definitions to explicitly point out that field
-> > > 
-> > >  - the INSN_S definition still directly maps to the .insn s directive
-> > > 
-> > > 
-> > > I got that to work with this
-> > > 
-> > > #define __RV_SIMM(v)           v
-> > > #define RV___SIMM_11_5(v)      __RV_SIMM(v)
-> > > #define RV___SIMM_4_0(v)       __RV_SIMM(v)
-> > > 
-> > > #define __INSN_S_SPLIT_IMM(opcode, func3, rs2, simm12, rs1) \
-> > >         INSN_S(opcode, func3, rs2, SIMM12(simm12), rs1)
-> > > 
-> > > #define INSN_S_SPLIT_IMM(opcode, func3, rs2, simm_11_5, simm_4_0, rs1) \
-> > >         __INSN_S_SPLIT_IMM(opcode, func3, rs2, (RV_##simm_11_5 << 5) | RV_##simm_4_0, rs1)
-> > > 
-> > > #define CBO_PREFETCH_W(base, offset)                            \
-> > >         INSN_S_SPLIT_IMM(OPCODE_OP_IMM, FUNC3(6), __RS2(3),     \
-> > >                 __SIMM_11_5((offset) >> 5), __SIMM_4_0(0), RS1(base))
-> > > 
-> > > 
-> > > But, again, I feel like it's probably overkill...
-> > 
-> > I though our intention was to avoid the extra IMM masking in asm, while 
-> > keeping the 5 lower bits zeroed at all times.
-> > 
-> > But IIUC here you are writing a insn_s_split_imm in terms of a plain 
-> > insn_s, which guarantees the zeroed 5 lower bits but still does an 
-> > unnecessaty masking in asm. In fact, if we use the split version, it 
-> > concatenates the two IMM parts, to then split them again in order to build 
-> > the instruction.
-> 
-> That's backwards.
-> 
-> INSN_S should map to its namesake directive '.insn s', which takes the
-> immediate as a single simm12. simm7 and simm5 are only used in the
-> fallback path.
 
-Wait, but is not the final instruction build with a split simm7 and simm5 ?
+--===============1323958351873910126==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="uwSZRLPC3LWeYwWV"
+Content-Disposition: inline
 
-Oh, ok, we are probably creating an asm with mnemonics first, and leaving 
-it to the assembler to split the simm7 and simm5 from simm12. It does make 
-sense.
 
-Sorry for the confusion, I was wrongly thinking on terms of final bytecode.
+--uwSZRLPC3LWeYwWV
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> Also, it's likely few instructions care about the split.
-> Other S-type instructions would want to treat the immediate as 12 bits,
-> so INSN_S should not be written in terms of INSN_S_SPLIT_IMM, since we'd
-> split a 12-bit immediate for those instructions just to have it merged
-> again for the .insn s directive.
+On Fri, Jan 05, 2024 at 05:18:45AM -0800, Emil Renner Berthing wrote:
+> Uwe Kleine-K=F6nig wrote:
+> > Hello Emil,
+> >
+> > On Sun, Dec 24, 2023 at 02:49:34AM -0800, Emil Renner Berthing wrote:
+> > > William Qiu wrote:
+> > > > Add OpenCores PWM controller node and add PWM pins configuration
+> > > > on VisionFive 1 board.
+> > > >
+> > > > Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> > >
+> > > Sorry, I thought I already sent my review. This looks good.
+> > >
+> > > Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> >
+> > Is this also an implicit Ack to take this patch via the pwm tree once
+> > the earlier patches are ready? Or do you want to take it via your tree?
+> > (Maybe already now together with the binding? If so, you can assume my
+> > Reviewed-by to be an implicit Ack for that.)
+>=20
+> Yes, sorry. This is also meant to be an Ack from me.
+>=20
+> I imagined the dt patches would go through Conor's riscv-dt-for-next bran=
+ch,
+> but the pwm tree is certainly also fine by.
 
-Yeah, makes sense now.
+idk, I prefer things to go as MAINTAINERS indicates, in case something
+is determined to be wrong in the cycle where the patch is in the "wrong"
+tree.
 
-> 
-> > 
-> > In my suggestion above, we make INSN_S_SPLIT_IMM() the helper / standard 
-> > way to write an s-type and write a INSN_S() in terms of the SPLIT version.
-> > 
-> > This allows using the split version when we don't need one of the halfs, 
-> > thus avoiding a masking or a rotation. The full version just splits the 
-> > halfs and pass to the split version that directly builds the instruction.
-> > 
-> > Well, I think I was under the wrong impression that we wanted to avoid the 
-> > rotation and masking, but I just noticed that we are just dealing with 
-> > splitting the offset, which is supposed to be a constant during the 
-> > generation of the instruction, so we can just guarantee the value being 
-> > masked at no runtime cost.
-> 
-> Right, there's no reason to avoid the rotation and masking with respect to
-> performance, as it's all done at compile time. Avoiding the operations as
-> much as possible is nice, though, since they're ugly and, with macro
-> arguments, getting the parentheses right to ensure the correct order of
-> operations is error prone.
-> 
-> > 
-> > So in the end we are just thinking on how it could look better to the user, 
-> > and maybe the split version is unnecessary if the user guarantees the 
-> > masking to be correct. But if we are going to have it, I suggest we do 
-> > INSN_S in terms of INSN_S_SPLIT_IMM() instead of the other way around.
-> 
-> Yes, the goal was to have __SIM_4_0(0) for the prefetch instructions to
-> make it simple to review against the spec, but ((offset) & ~0x1f) is also
-> simple to review.
+I suppose I could take the binding though, since I am CCed on every
+binding patch under the sun... I'd rather an explicit ack in that case
+though.
 
-Agreed
+Cheers,
+Conor.
 
-> 
-> For the next revision of this series, I'd be happy with just the masking
-> or even to just leave it up to the callers as this version does.
-> 
-> Thanks,
-> drew
-> 
+--uwSZRLPC3LWeYwWV
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Thank you!
-Leo
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZZwxZQAKCRB4tDGHoIJi
+0nUqAP9yJe3WrgYMWXpHjBz60+ar3t/qeJkOfk0Jf5wV3nSGKQEA/+BcCFymlJ3W
+7iVCVwtlZAqIdUtOXuLEG5keZjo0kwI=
+=7uiV
+-----END PGP SIGNATURE-----
+
+--uwSZRLPC3LWeYwWV--
+
+
+--===============1323958351873910126==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1323958351873910126==--
+
