@@ -4,133 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D00FC3DA6E
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jan 2024 19:36:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7BBFC3DA6E
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Jan 2024 19:37:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AF6+EVz1Xn5AEb2PIdWfANDG0HWBAcePsugMy0Mxri8=; b=ukej54ehoqfypG
-	0jneEJSwjqGxkMLLwX4hm/1WbNEexTDTmXifGFRXws/pvyUdBY1i8FhZLPFOQF9+X/MfSxbA5mTmc
-	n0WNWrZ2Jqz5N3ECdIGgFfcqN6f+iNjPVJxtBZ1h5ahcVm7KHAIamzOlMnSiKawcahvVyzI5Mudim
-	zyMQ/N/No9ZdFqkIwe86g0I9ZmJcqxcDjyE1PJsbSUzX5kvQ6FwIQSgJCxwacfQ5gE9Y4bZeL0WKO
-	Mpcu9ul0JOyR/MabIIAj0yj/SMprbcI1XBWmblcnPhpy3xR13GVJvqI4SEdDyuHWisg7OrMAU/30P
-	o9613wwjE4zrjW8bwn5w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=q3UNiEOVmx8Spnc33TzhMbVyAi2/ToOCaki/croznoQ=; b=ELhT+cPFcm9mTE
+	KqfxIdUzIgIaqgH/kIzpsuwNgT85Qbo2+EP0hWqoGyjdmwzeauab0tsiiKE6NYc9HRjOy1PZqeWcZ
+	mmtd3Dz9jvxMld3oO686JK3yeVt6I325g4WgGE648r9pa5JaBsfw8A7CaWmx05oXJvO5qPfSsqsPc
+	g9VbgnRogCInke63s7+plwkhYEQvgsli0LUnBWX6SWWvaDP3ECBOaMhzEVVhF+BITumT0babAmaQx
+	hSXvrDB3+se96vE/RekM1r41Sb+Pb87KEbSZvoRFOT1mVnK7UEXbW+hxEbZxGMP87sdwhbk9PGLzv
+	mnlHB1Jm8zt3VwGCdZSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1rMvQR-0063yp-25;
-	Mon, 08 Jan 2024 19:36:43 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1rMvQi-00644p-2P;
+	Mon, 08 Jan 2024 19:37:00 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1rMvQO-0063xo-16
+	id 1rMvQf-00643P-13
 	for linux-riscv@lists.infradead.org;
-	Mon, 08 Jan 2024 19:36:41 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3366ddd1eddso2380881f8f.0
-        for <linux-riscv@lists.infradead.org>; Mon, 08 Jan 2024 11:36:37 -0800 (PST)
+	Mon, 08 Jan 2024 19:36:59 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-33687627ad0so2084886f8f.2
+        for <linux-riscv@lists.infradead.org>; Mon, 08 Jan 2024 11:36:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1704742596; x=1705347396; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ooq6Y/Bu2G6JvyfUEidd2TCbjg/tonoTWRKQtOf1ea4=;
-        b=WSRuh4raXACaZSzgrVMLKORLuFUraT0mAs00wUj58eh1yL9qbm1apnLByChZ7NKfiZ
-         FglXuHNLVXenEoo6SN3z4Ngrm3ioESwd5aHbweiL/LCTrzOgKYWtPSgP/Io1/WgU2dDo
-         f47pWY9K2E+8Z7r/dVTr4qaCxN9wDAuILSt8CnYmR6hNgcht+sEv8osi1Syyz+NRqcSe
-         yH/Z2uxZPv1Bv0XntYdhes1zzdmvHOmjmNmOsMDVZ9E0yiWazRf1xGMmqnrZR+W8jrlI
-         7lwZUiIcYhntMYFyJ5bKVeQLYIY9IeY88TUmaCP4o+gCt7FD7ksY5t2MAGsvOaImqGN2
-         CucQ==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1704742615; x=1705347415; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0A3ryeyMJZpg1Hmx8jjfMszJRDq8kxjkrAWUket3WHU=;
+        b=ZIPZ+u+NGwtfasV+mflAzbz1S2lJ8MU1f+7U0D8JtxQhgzl9SaqT0slV/6UAelixUy
+         mNT1x2ADGFQmv06G1Ayzj9qRSgLjP5tRin0JrftaajyfmbcRD1PahCaNodqqUIk1bO0b
+         C27Tls7aTFjNB/sVAS7ohFMrTGaTnvWC7V7Wfex3Nm1bQ3Ou+YLZN+48cqhAKXwDJh2I
+         bILIPf3NHmncgQ8hmxCNo2bMWy516TR6E1Fk23yCRktk/1v+Y9Bz4VqEmLm35ugjO9qb
+         dNk3umFKv7keZh97e60OvD6p0EI9bF0/veTTdchTPPabFa57q0Lfp0z/i8AztE5phTYS
+         N/ZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704742596; x=1705347396;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from:references:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ooq6Y/Bu2G6JvyfUEidd2TCbjg/tonoTWRKQtOf1ea4=;
-        b=vLR/sLJ00FCqS2OF0QZ+RwkO+RxDyRaXXDx5ZXnQTx7cm1Xw8ToZonmOdYtrECmynD
-         C1Xl0SKGtgLkvyPTN6lyPNAjDXvTbjqrZjJ5tJ2ply+a48fQ0YkG33LqoGWdI4rJbHkR
-         4vuJNK9rzRaXWFqY7sGT5vu6PJe4kYoHavPuRKbWJqJCJul2IgbfJqIz7S9e8vtMFLps
-         yJt1fK7PBFLPuhZpH2rNGwBT7ENL9X4lQjohS6tZs/btBRQvhwXYR+QCIJ7tOFwKim2q
-         aXgHsE+R9FijhG+GtkolCjnzD0eVAuOohXCTAy4csowxPHQ3NnoskBEr9eOEnHrgB+6j
-         8NJQ==
-X-Gm-Message-State: AOJu0YwcU8tuJ/cc9ipqdmi9gQjNHJqE+F7fjTydwEhDC6BG/nn7IYUV
-	Ns7JJUSX6XKYQg/FFrzBtL62a/aImgaulQ==
-X-Google-Smtp-Source: AGHT+IEycGvY/C4DqA9z7Su+zmZMsZIZzzn+/DcKOqASsrM2CwBLnUrpB5NteqL4eWP5a3kZdMkDXQ==
-X-Received: by 2002:a7b:c44f:0:b0:40e:4755:a52f with SMTP id l15-20020a7bc44f000000b0040e4755a52fmr483812wmi.230.1704742595995;
-        Mon, 08 Jan 2024 11:36:35 -0800 (PST)
-Received: from [192.168.1.20] ([178.197.223.112])
-        by smtp.gmail.com with ESMTPSA id q14-20020a17090622ce00b00a2ace215a78sm184056eja.114.2024.01.08.11.36.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 08 Jan 2024 11:36:35 -0800 (PST)
-Message-ID: <1e1ef0a0-6639-4a4d-9b4e-50bcee3fb3c5@linaro.org>
-Date: Mon, 8 Jan 2024 20:36:33 +0100
+        d=1e100.net; s=20230601; t=1704742615; x=1705347415;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0A3ryeyMJZpg1Hmx8jjfMszJRDq8kxjkrAWUket3WHU=;
+        b=g88LMPlun3wUqEYcj97fufydKVn3akTjOeNGUeoDmlqSM+GvTmRtuvdAhER+ZVHynv
+         2o2DWS8WEn1uoMnniCEujvauU0I3OfuiUgI7UtyR4cK6YL/fGT/pDlglCmrTL1D9t8pG
+         3v6myv0iInz2HrF/5MWqkjFcDZImLJoaNoX77g/WP8U+Jzt+DabJTW75/lnd0YAR04Bg
+         hDBFm8KbKXfcL11OGJpknPNua0Cum0ab2SjUHmtCYNWgm8zzMIkEuatlwfmT3/YRf4t1
+         aS6Rfknq9baJ8iTCo8hqqdBHIlrMcH2cW91FvFPDBtuHGKsPhPw1pj5IdAKbtAbOA/sO
+         qEGw==
+X-Gm-Message-State: AOJu0YzmT2XYRetgz/Yx6LbAdiNP7ia9Jh9gh3MzeuuiVkov1ZpkYHNG
+	qohFKMMgUYJP4CJfg9VhODChVCedEtTtvg==
+X-Google-Smtp-Source: AGHT+IFeaTPgStGBhJQLs2Nw3aNSwPRuL9Q2GuNFmE0jdNUvpPkz+XlothoadPGhyALtQp3/Om+r1w==
+X-Received: by 2002:adf:cc85:0:b0:336:7bd3:9520 with SMTP id p5-20020adfcc85000000b003367bd39520mr2487583wrj.43.1704742614984;
+        Mon, 08 Jan 2024 11:36:54 -0800 (PST)
+Received: from localhost.localdomain (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id g18-20020adff3d2000000b00336aac53e75sm412040wrp.97.2024.01.08.11.36.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Jan 2024 11:36:54 -0800 (PST)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Jisheng Zhang <jszhang@kernel.org>
+Subject: [PATCH v2] riscv: Add support for BATCHED_UNMAP_TLB_FLUSH
+Date: Mon,  8 Jan 2024 20:36:40 +0100
+Message-Id: <20240108193640.344929-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/4] dt-bindings: soc: sophgo: Add Sophgo system
- control module
-Content-Language: en-US
-To: Chen Wang <unicorn_wang@outlook.com>, Chen Wang <unicornxw@gmail.com>,
- aou@eecs.berkeley.edu, chao.wei@sophgo.com, conor@kernel.org,
- krzysztof.kozlowski+dt@linaro.org, mturquette@baylibre.com,
- palmer@dabbelt.com, paul.walmsley@sifive.com, richardcochran@gmail.com,
- robh+dt@kernel.org, sboyd@kernel.org, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, haijiao.liu@sophgo.com,
- xiaoguang.xing@sophgo.com, guoren@kernel.org, jszhang@kernel.org,
- inochiama@outlook.com, samuel.holland@sifive.com
-References: <cover.1704694903.git.unicorn_wang@outlook.com>
- <acebc88db3e5fcd2a2607b56842af7443a6e1289.1704694903.git.unicorn_wang@outlook.com>
- <cc7cc943-7242-4fd1-9b56-3ece0a418e05@linaro.org>
- <MA0P287MB2822E54A6DD36F914DB56E98FE6B2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <MA0P287MB2822E54A6DD36F914DB56E98FE6B2@MA0P287MB2822.INDP287.PROD.OUTLOOK.COM>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20240108_113640_387959_A82A790E 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20240108_113657_366948_13C42E92 
+X-CRM114-Status: GOOD (  23.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,68 +93,309 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 08/01/2024 08:20, Chen Wang wrote:
-> 
-> On 2024/1/8 15:03, Krzysztof Kozlowski wrote:
->> On 08/01/2024 07:48, Chen Wang wrote:
->>> From: Chen Wang <unicorn_wang@outlook.com>
->>>
->>> Add documentation to describe Sophgo System Controller for SG2042.
->>>
->>> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
->>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->>> ---
->>>   .../soc/sophgo/sophgo,sg2042-sysctrl.yaml     | 34 +++++++++++++++++++
->>>   1 file changed, 34 insertions(+)
->>>   create mode 100644 Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
->>>
->>> diff --git a/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml b/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
->>> new file mode 100644
->>> index 000000000000..1ec1eaa55598
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/soc/sophgo/sophgo,sg2042-sysctrl.yaml
->>> @@ -0,0 +1,34 @@
->>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/soc/sophgo/sophgo,sg2042-sysctrl.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: Sophgo SG2042 SoC system controller
->>> +
->>> +maintainers:
->>> +  - Chen Wang <unicorn_wang@outlook.com>
->>> +
->>> +description:
->>> +  The Sophgo SG2042 SoC system controller provides register information such
->>> +  as offset, mask and shift that can be used by other modules, such as clocks.
->> "offset, mask and shift" is not a register information stored in
->> syscons. Are you really sure, that your system controller hardware
->> stores offsets of some other registers?
->>
->> Show as some example of such offsets, masks and shifts provided by this
->> hardware.
-> 
-> The system control module is defined here: 
-> https://github.com/sophgo/sophgo-doc/blob/main/SG2042/TRM/source/system-control.rst. 
-> It contains some registers related to pll and gates.
+Allow to defer the flushing of the TLB when unmapping pages, which allows
+to reduce the numbers of IPI and the number of sfence.vma.
 
-I do not see there registers providing shifts and offsets... just values.
+The ubenchmarch used in commit 43b3dfdd0455 ("arm64: support
+batched/deferred tlb shootdown during page reclamation/migration") that
+was multithreaded to force the usage of IPI shows good performance
+improvement on all platforms:
 
-> 
-> Some other clocks registars are defined in 
-> https://github.com/sophgo/sophgo-doc/blob/main/SG2042/TRM/source/clock.rst.
-> 
-> memory-map is defined in 
-> https://github.com/sophgo/sophgo-doc/blob/main/SG2042/TRM/source/mmap.rst
+* Unmatched: ~34%
+* TH1520   : ~78%
+* Qemu     : ~81%
 
+In addition, perf on qemu reports an important decrease in time spent
+dealing with IPIs:
 
-Please fix the wording because it does not make sense. System controller
-does not provide register information. Your datasheet provides register
-information.
+Before:  68.17%  main     [kernel.kallsyms]            [k] __sbi_rfence_v02_call
+After :   8.64%  main     [kernel.kallsyms]            [k] __sbi_rfence_v02_call
 
-Best regards,
-Krzysztof
+* Benchmark:
+
+int stick_this_thread_to_core(int core_id) {
+        int num_cores = sysconf(_SC_NPROCESSORS_ONLN);
+        if (core_id < 0 || core_id >= num_cores)
+           return EINVAL;
+
+        cpu_set_t cpuset;
+        CPU_ZERO(&cpuset);
+        CPU_SET(core_id, &cpuset);
+
+        pthread_t current_thread = pthread_self();
+        return pthread_setaffinity_np(current_thread,
+sizeof(cpu_set_t), &cpuset);
+}
+
+static void *fn_thread (void *p_data)
+{
+        int ret;
+        pthread_t thread;
+
+        stick_this_thread_to_core((int)p_data);
+
+        while (1) {
+                sleep(1);
+        }
+
+        return NULL;
+}
+
+int main()
+{
+        volatile unsigned char *p = mmap(NULL, SIZE, PROT_READ | PROT_WRITE,
+                                         MAP_SHARED | MAP_ANONYMOUS, -1, 0);
+        pthread_t threads[4];
+        int ret;
+
+        for (int i = 0; i < 4; ++i) {
+                ret = pthread_create(&threads[i], NULL, fn_thread, (void *)i);
+                if (ret)
+                {
+                        printf("%s", strerror (ret));
+                }
+        }
+
+        memset(p, 0x88, SIZE);
+
+        for (int k = 0; k < 10000; k++) {
+                /* swap in */
+                for (int i = 0; i < SIZE; i += 4096) {
+                        (void)p[i];
+                }
+
+                /* swap out */
+                madvise(p, SIZE, MADV_PAGEOUT);
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+                pthread_cancel(threads[i]);
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+                pthread_join(threads[i], NULL);
+        }
+
+        return 0;
+}
+
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
+Tested-by: Jisheng Zhang <jszhang@kernel.org> # Tested on TH1520
+---
+
+Changes in v2:
+- Remove #ifdef CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH as suggested by
+  Samuel
+- Update Documentation as pointed by Jisheng
+- Update commit log with Unmatched and TH1520 results (Jisheng) with new
+  ubenchmarks
+
+ .../features/vm/TLB/arch-support.txt          |  2 +-
+ arch/riscv/Kconfig                            |  1 +
+ arch/riscv/include/asm/tlbbatch.h             | 15 ++++
+ arch/riscv/include/asm/tlbflush.h             |  8 +++
+ arch/riscv/mm/tlbflush.c                      | 69 +++++++++++++------
+ 5 files changed, 74 insertions(+), 21 deletions(-)
+ create mode 100644 arch/riscv/include/asm/tlbbatch.h
+
+diff --git a/Documentation/features/vm/TLB/arch-support.txt b/Documentation/features/vm/TLB/arch-support.txt
+index 8fd22073a847..d222bd3ee749 100644
+--- a/Documentation/features/vm/TLB/arch-support.txt
++++ b/Documentation/features/vm/TLB/arch-support.txt
+@@ -20,7 +20,7 @@
+     |    openrisc: |  ..  |
+     |      parisc: | TODO |
+     |     powerpc: | TODO |
+-    |       riscv: | TODO |
++    |       riscv: |  ok  |
+     |        s390: | TODO |
+     |          sh: | TODO |
+     |       sparc: | TODO |
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 060c2a4fa639..49a94a4f2f58 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -53,6 +53,7 @@ config RISCV
+ 	select ARCH_USE_MEMTEST
+ 	select ARCH_USE_QUEUED_RWLOCKS
+ 	select ARCH_USES_CFI_TRAPS if CFI_CLANG
++	select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH if SMP && MMU
+ 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+ 	select ARCH_WANT_FRAME_POINTERS
+ 	select ARCH_WANT_GENERAL_HUGETLB if !RISCV_ISA_SVNAPOT
+diff --git a/arch/riscv/include/asm/tlbbatch.h b/arch/riscv/include/asm/tlbbatch.h
+new file mode 100644
+index 000000000000..46014f70b9da
+--- /dev/null
++++ b/arch/riscv/include/asm/tlbbatch.h
+@@ -0,0 +1,15 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2023 Rivos Inc.
++ */
++
++#ifndef _ASM_RISCV_TLBBATCH_H
++#define _ASM_RISCV_TLBBATCH_H
++
++#include <linux/cpumask.h>
++
++struct arch_tlbflush_unmap_batch {
++	struct cpumask cpumask;
++};
++
++#endif /* _ASM_RISCV_TLBBATCH_H */
+diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+index 8f3418c5f172..9c8a67b1285e 100644
+--- a/arch/riscv/include/asm/tlbflush.h
++++ b/arch/riscv/include/asm/tlbflush.h
+@@ -46,6 +46,14 @@ void flush_tlb_kernel_range(unsigned long start, unsigned long end);
+ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 			unsigned long end);
+ #endif
++
++bool arch_tlbbatch_should_defer(struct mm_struct *mm);
++void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
++			       struct mm_struct *mm,
++			       unsigned long uaddr);
++void arch_flush_tlb_batched_pending(struct mm_struct *mm);
++void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch);
++
+ #else /* CONFIG_SMP && CONFIG_MMU */
+ 
+ #define flush_tlb_all() local_flush_tlb_all()
+diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+index e6659d7368b3..f0190f5fdd05 100644
+--- a/arch/riscv/mm/tlbflush.c
++++ b/arch/riscv/mm/tlbflush.c
+@@ -93,29 +93,23 @@ static void __ipi_flush_tlb_range_asid(void *info)
+ 	local_flush_tlb_range_asid(d->start, d->size, d->stride, d->asid);
+ }
+ 
+-static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
+-			      unsigned long size, unsigned long stride)
++static void __flush_tlb_range(struct cpumask *cmask, unsigned long asid,
++			      unsigned long start, unsigned long size,
++			      unsigned long stride)
+ {
+ 	struct flush_tlb_range_data ftd;
+-	const struct cpumask *cmask;
+-	unsigned long asid = FLUSH_TLB_NO_ASID;
+ 	bool broadcast;
+ 
+-	if (mm) {
+-		unsigned int cpuid;
++	if (cpumask_empty(cmask))
++		return;
+ 
+-		cmask = mm_cpumask(mm);
+-		if (cpumask_empty(cmask))
+-			return;
++	if (cmask != cpu_online_mask) {
++		unsigned int cpuid;
+ 
+ 		cpuid = get_cpu();
+ 		/* check if the tlbflush needs to be sent to other CPUs */
+ 		broadcast = cpumask_any_but(cmask, cpuid) < nr_cpu_ids;
+-
+-		if (static_branch_unlikely(&use_asid_allocator))
+-			asid = atomic_long_read(&mm->context.id) & asid_mask;
+ 	} else {
+-		cmask = cpu_online_mask;
+ 		broadcast = true;
+ 	}
+ 
+@@ -135,25 +129,34 @@ static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
+ 		local_flush_tlb_range_asid(start, size, stride, asid);
+ 	}
+ 
+-	if (mm)
++	if (cmask != cpu_online_mask)
+ 		put_cpu();
+ }
+ 
++static inline unsigned long get_mm_asid(struct mm_struct *mm)
++{
++	return static_branch_unlikely(&use_asid_allocator) ?
++			atomic_long_read(&mm->context.id) & asid_mask : FLUSH_TLB_NO_ASID;
++}
++
+ void flush_tlb_mm(struct mm_struct *mm)
+ {
+-	__flush_tlb_range(mm, 0, FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
++	__flush_tlb_range(mm_cpumask(mm), get_mm_asid(mm),
++			  0, FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
+ }
+ 
+ void flush_tlb_mm_range(struct mm_struct *mm,
+ 			unsigned long start, unsigned long end,
+ 			unsigned int page_size)
+ {
+-	__flush_tlb_range(mm, start, end - start, page_size);
++	__flush_tlb_range(mm_cpumask(mm), get_mm_asid(mm),
++			  start, end - start, page_size);
+ }
+ 
+ void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)
+ {
+-	__flush_tlb_range(vma->vm_mm, addr, PAGE_SIZE, PAGE_SIZE);
++	__flush_tlb_range(mm_cpumask(vma->vm_mm), get_mm_asid(vma->vm_mm),
++			  addr, PAGE_SIZE, PAGE_SIZE);
+ }
+ 
+ void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
+@@ -185,18 +188,44 @@ void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 		}
+ 	}
+ 
+-	__flush_tlb_range(vma->vm_mm, start, end - start, stride_size);
++	__flush_tlb_range(mm_cpumask(vma->vm_mm), get_mm_asid(vma->vm_mm),
++			  start, end - start, stride_size);
+ }
+ 
+ void flush_tlb_kernel_range(unsigned long start, unsigned long end)
+ {
+-	__flush_tlb_range(NULL, start, end - start, PAGE_SIZE);
++	__flush_tlb_range((struct cpumask *)cpu_online_mask, FLUSH_TLB_NO_ASID,
++			  start, end - start, PAGE_SIZE);
+ }
+ 
+ #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 			unsigned long end)
+ {
+-	__flush_tlb_range(vma->vm_mm, start, end - start, PMD_SIZE);
++	__flush_tlb_range(mm_cpumask(vma->vm_mm), get_mm_asid(vma->vm_mm),
++			  start, end - start, PMD_SIZE);
+ }
+ #endif
++
++bool arch_tlbbatch_should_defer(struct mm_struct *mm)
++{
++	return true;
++}
++
++void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
++			       struct mm_struct *mm,
++			       unsigned long uaddr)
++{
++	cpumask_or(&batch->cpumask, &batch->cpumask, mm_cpumask(mm));
++}
++
++void arch_flush_tlb_batched_pending(struct mm_struct *mm)
++{
++	flush_tlb_mm(mm);
++}
++
++void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
++{
++	__flush_tlb_range(&batch->cpumask, FLUSH_TLB_NO_ASID, 0,
++			  FLUSH_TLB_MAX_SIZE, PAGE_SIZE);
++}
+-- 
+2.39.2
 
 
 _______________________________________________
